@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,19 +112,19 @@ instance Prelude.NFData DeletePolicyVersion where
     Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf policyVersionId
 
-instance Core.ToHeaders DeletePolicyVersion where
+instance Data.ToHeaders DeletePolicyVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeletePolicyVersion where
+instance Data.ToPath DeletePolicyVersion where
   toPath DeletePolicyVersion' {..} =
     Prelude.mconcat
       [ "/policies/",
-        Core.toBS policyName,
+        Data.toBS policyName,
         "/version/",
-        Core.toBS policyVersionId
+        Data.toBS policyVersionId
       ]
 
-instance Core.ToQuery DeletePolicyVersion where
+instance Data.ToQuery DeletePolicyVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePolicyVersionResponse' smart constructor.

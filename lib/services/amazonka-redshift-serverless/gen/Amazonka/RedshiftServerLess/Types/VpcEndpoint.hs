@@ -21,6 +21,7 @@ module Amazonka.RedshiftServerLess.Types.VpcEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types.NetworkInterface
 
@@ -75,16 +76,16 @@ vpcEndpoint_vpcId = Lens.lens (\VpcEndpoint' {vpcId} -> vpcId) (\s@VpcEndpoint' 
 vpcEndpoint_networkInterfaces :: Lens.Lens' VpcEndpoint (Prelude.Maybe [NetworkInterface])
 vpcEndpoint_networkInterfaces = Lens.lens (\VpcEndpoint' {networkInterfaces} -> networkInterfaces) (\s@VpcEndpoint' {} a -> s {networkInterfaces = a} :: VpcEndpoint) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON VpcEndpoint where
+instance Data.FromJSON VpcEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcEndpoint"
       ( \x ->
           VpcEndpoint'
-            Prelude.<$> (x Core..:? "vpcEndpointId")
-            Prelude.<*> (x Core..:? "vpcId")
-            Prelude.<*> ( x Core..:? "networkInterfaces"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "vpcEndpointId")
+            Prelude.<*> (x Data..:? "vpcId")
+            Prelude.<*> ( x Data..:? "networkInterfaces"
+                            Data..!= Prelude.mempty
                         )
       )
 

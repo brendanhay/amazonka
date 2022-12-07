@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.SenderIdFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types.SenderIdFilterName
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,11 +76,11 @@ instance Prelude.NFData SenderIdFilter where
   rnf SenderIdFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON SenderIdFilter where
+instance Data.ToJSON SenderIdFilter where
   toJSON SenderIdFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Values" Core..= values)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

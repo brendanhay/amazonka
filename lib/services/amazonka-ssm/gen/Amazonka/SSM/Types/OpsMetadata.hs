@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.OpsMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Operational metadata for an application in Application Manager.
@@ -32,9 +33,9 @@ data OpsMetadata = OpsMetadata'
     -- | The user name who last updated the OpsMetadata object.
     lastModifiedUser :: Prelude.Maybe Prelude.Text,
     -- | The date the OpsMetadata object was last updated.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The date the OpsMetadata objects was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the OpsMetadata Object or blob.
     opsMetadataArn :: Prelude.Maybe Prelude.Text
   }
@@ -78,27 +79,27 @@ opsMetadata_lastModifiedUser = Lens.lens (\OpsMetadata' {lastModifiedUser} -> la
 
 -- | The date the OpsMetadata object was last updated.
 opsMetadata_lastModifiedDate :: Lens.Lens' OpsMetadata (Prelude.Maybe Prelude.UTCTime)
-opsMetadata_lastModifiedDate = Lens.lens (\OpsMetadata' {lastModifiedDate} -> lastModifiedDate) (\s@OpsMetadata' {} a -> s {lastModifiedDate = a} :: OpsMetadata) Prelude.. Lens.mapping Core._Time
+opsMetadata_lastModifiedDate = Lens.lens (\OpsMetadata' {lastModifiedDate} -> lastModifiedDate) (\s@OpsMetadata' {} a -> s {lastModifiedDate = a} :: OpsMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The date the OpsMetadata objects was created.
 opsMetadata_creationDate :: Lens.Lens' OpsMetadata (Prelude.Maybe Prelude.UTCTime)
-opsMetadata_creationDate = Lens.lens (\OpsMetadata' {creationDate} -> creationDate) (\s@OpsMetadata' {} a -> s {creationDate = a} :: OpsMetadata) Prelude.. Lens.mapping Core._Time
+opsMetadata_creationDate = Lens.lens (\OpsMetadata' {creationDate} -> creationDate) (\s@OpsMetadata' {} a -> s {creationDate = a} :: OpsMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the OpsMetadata Object or blob.
 opsMetadata_opsMetadataArn :: Lens.Lens' OpsMetadata (Prelude.Maybe Prelude.Text)
 opsMetadata_opsMetadataArn = Lens.lens (\OpsMetadata' {opsMetadataArn} -> opsMetadataArn) (\s@OpsMetadata' {} a -> s {opsMetadataArn = a} :: OpsMetadata)
 
-instance Core.FromJSON OpsMetadata where
+instance Data.FromJSON OpsMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpsMetadata"
       ( \x ->
           OpsMetadata'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "LastModifiedUser")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "OpsMetadataArn")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "LastModifiedUser")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "OpsMetadataArn")
       )
 
 instance Prelude.Hashable OpsMetadata where

@@ -59,6 +59,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -279,7 +280,7 @@ instance Core.AWSRequest CreateDeploymentStrategy where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateDeploymentStrategy where
   hashWithSalt _salt CreateDeploymentStrategy' {..} =
@@ -303,38 +304,38 @@ instance Prelude.NFData CreateDeploymentStrategy where
       `Prelude.seq` Prelude.rnf deploymentDurationInMinutes
       `Prelude.seq` Prelude.rnf growthFactor
 
-instance Core.ToHeaders CreateDeploymentStrategy where
+instance Data.ToHeaders CreateDeploymentStrategy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDeploymentStrategy where
+instance Data.ToJSON CreateDeploymentStrategy where
   toJSON CreateDeploymentStrategy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("GrowthType" Core..=) Prelude.<$> growthType,
-            ("Description" Core..=) Prelude.<$> description,
-            ("FinalBakeTimeInMinutes" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("GrowthType" Data..=) Prelude.<$> growthType,
+            ("Description" Data..=) Prelude.<$> description,
+            ("FinalBakeTimeInMinutes" Data..=)
               Prelude.<$> finalBakeTimeInMinutes,
-            ("ReplicateTo" Core..=) Prelude.<$> replicateTo,
-            Prelude.Just ("Name" Core..= name),
+            ("ReplicateTo" Data..=) Prelude.<$> replicateTo,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ( "DeploymentDurationInMinutes"
-                  Core..= deploymentDurationInMinutes
+                  Data..= deploymentDurationInMinutes
               ),
-            Prelude.Just ("GrowthFactor" Core..= growthFactor)
+            Prelude.Just ("GrowthFactor" Data..= growthFactor)
           ]
       )
 
-instance Core.ToPath CreateDeploymentStrategy where
+instance Data.ToPath CreateDeploymentStrategy where
   toPath = Prelude.const "/deploymentstrategies"
 
-instance Core.ToQuery CreateDeploymentStrategy where
+instance Data.ToQuery CreateDeploymentStrategy where
   toQuery = Prelude.const Prelude.mempty

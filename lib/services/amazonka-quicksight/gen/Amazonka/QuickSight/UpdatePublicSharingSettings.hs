@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ instance Core.AWSRequest UpdatePublicSharingSettings where
     Response.receiveJSON
       ( \s h x ->
           UpdatePublicSharingSettingsResponse'
-            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<$> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,35 +128,35 @@ instance Prelude.NFData UpdatePublicSharingSettings where
     Prelude.rnf publicSharingEnabled
       `Prelude.seq` Prelude.rnf awsAccountId
 
-instance Core.ToHeaders UpdatePublicSharingSettings where
+instance Data.ToHeaders UpdatePublicSharingSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePublicSharingSettings where
+instance Data.ToJSON UpdatePublicSharingSettings where
   toJSON UpdatePublicSharingSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PublicSharingEnabled" Core..=)
+          [ ("PublicSharingEnabled" Data..=)
               Prelude.<$> publicSharingEnabled
           ]
       )
 
-instance Core.ToPath UpdatePublicSharingSettings where
+instance Data.ToPath UpdatePublicSharingSettings where
   toPath UpdatePublicSharingSettings' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/public-sharing-settings"
       ]
 
-instance Core.ToQuery UpdatePublicSharingSettings where
+instance Data.ToQuery UpdatePublicSharingSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePublicSharingSettingsResponse' smart constructor.

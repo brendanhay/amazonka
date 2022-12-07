@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DescribeFleetError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceLifecycle
 import Amazonka.EC2.Types.LaunchTemplateAndOverridesResponse
@@ -104,13 +105,13 @@ describeFleetError_errorMessage = Lens.lens (\DescribeFleetError' {errorMessage}
 describeFleetError_errorCode :: Lens.Lens' DescribeFleetError (Prelude.Maybe Prelude.Text)
 describeFleetError_errorCode = Lens.lens (\DescribeFleetError' {errorCode} -> errorCode) (\s@DescribeFleetError' {} a -> s {errorCode = a} :: DescribeFleetError)
 
-instance Core.FromXML DescribeFleetError where
+instance Data.FromXML DescribeFleetError where
   parseXML x =
     DescribeFleetError'
-      Prelude.<$> (x Core..@? "launchTemplateAndOverrides")
-      Prelude.<*> (x Core..@? "lifecycle")
-      Prelude.<*> (x Core..@? "errorMessage")
-      Prelude.<*> (x Core..@? "errorCode")
+      Prelude.<$> (x Data..@? "launchTemplateAndOverrides")
+      Prelude.<*> (x Data..@? "lifecycle")
+      Prelude.<*> (x Data..@? "errorMessage")
+      Prelude.<*> (x Data..@? "errorCode")
 
 instance Prelude.Hashable DescribeFleetError where
   hashWithSalt _salt DescribeFleetError' {..} =

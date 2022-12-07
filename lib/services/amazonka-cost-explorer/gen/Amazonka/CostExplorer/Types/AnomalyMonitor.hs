@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.Expression
 import Amazonka.CostExplorer.Types.MonitorDimension
 import Amazonka.CostExplorer.Types.MonitorType
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This object continuously inspects your account\'s cost data for
@@ -133,21 +134,21 @@ anomalyMonitor_monitorName = Lens.lens (\AnomalyMonitor' {monitorName} -> monito
 anomalyMonitor_monitorType :: Lens.Lens' AnomalyMonitor MonitorType
 anomalyMonitor_monitorType = Lens.lens (\AnomalyMonitor' {monitorType} -> monitorType) (\s@AnomalyMonitor' {} a -> s {monitorType = a} :: AnomalyMonitor)
 
-instance Core.FromJSON AnomalyMonitor where
+instance Data.FromJSON AnomalyMonitor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnomalyMonitor"
       ( \x ->
           AnomalyMonitor'
-            Prelude.<$> (x Core..:? "MonitorDimension")
-            Prelude.<*> (x Core..:? "MonitorSpecification")
-            Prelude.<*> (x Core..:? "LastUpdatedDate")
-            Prelude.<*> (x Core..:? "MonitorArn")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "DimensionalValueCount")
-            Prelude.<*> (x Core..:? "LastEvaluatedDate")
-            Prelude.<*> (x Core..: "MonitorName")
-            Prelude.<*> (x Core..: "MonitorType")
+            Prelude.<$> (x Data..:? "MonitorDimension")
+            Prelude.<*> (x Data..:? "MonitorSpecification")
+            Prelude.<*> (x Data..:? "LastUpdatedDate")
+            Prelude.<*> (x Data..:? "MonitorArn")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "DimensionalValueCount")
+            Prelude.<*> (x Data..:? "LastEvaluatedDate")
+            Prelude.<*> (x Data..: "MonitorName")
+            Prelude.<*> (x Data..: "MonitorType")
       )
 
 instance Prelude.Hashable AnomalyMonitor where
@@ -174,23 +175,23 @@ instance Prelude.NFData AnomalyMonitor where
       `Prelude.seq` Prelude.rnf monitorName
       `Prelude.seq` Prelude.rnf monitorType
 
-instance Core.ToJSON AnomalyMonitor where
+instance Data.ToJSON AnomalyMonitor where
   toJSON AnomalyMonitor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MonitorDimension" Core..=)
+          [ ("MonitorDimension" Data..=)
               Prelude.<$> monitorDimension,
-            ("MonitorSpecification" Core..=)
+            ("MonitorSpecification" Data..=)
               Prelude.<$> monitorSpecification,
-            ("LastUpdatedDate" Core..=)
+            ("LastUpdatedDate" Data..=)
               Prelude.<$> lastUpdatedDate,
-            ("MonitorArn" Core..=) Prelude.<$> monitorArn,
-            ("CreationDate" Core..=) Prelude.<$> creationDate,
-            ("DimensionalValueCount" Core..=)
+            ("MonitorArn" Data..=) Prelude.<$> monitorArn,
+            ("CreationDate" Data..=) Prelude.<$> creationDate,
+            ("DimensionalValueCount" Data..=)
               Prelude.<$> dimensionalValueCount,
-            ("LastEvaluatedDate" Core..=)
+            ("LastEvaluatedDate" Data..=)
               Prelude.<$> lastEvaluatedDate,
-            Prelude.Just ("MonitorName" Core..= monitorName),
-            Prelude.Just ("MonitorType" Core..= monitorType)
+            Prelude.Just ("MonitorName" Data..= monitorName),
+            Prelude.Just ("MonitorType" Data..= monitorType)
           ]
       )

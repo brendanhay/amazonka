@@ -52,6 +52,7 @@ where
 import Amazonka.Budgets.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -145,8 +146,8 @@ instance Core.AWSRequest DescribeBudgets where
     Response.receiveJSON
       ( \s h x ->
           DescribeBudgetsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Budgets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Budgets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,35 +163,35 @@ instance Prelude.NFData DescribeBudgets where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf accountId
 
-instance Core.ToHeaders DescribeBudgets where
+instance Data.ToHeaders DescribeBudgets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSBudgetServiceGateway.DescribeBudgets" ::
+              Data.=# ( "AWSBudgetServiceGateway.DescribeBudgets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeBudgets where
+instance Data.ToJSON DescribeBudgets where
   toJSON DescribeBudgets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("AccountId" Core..= accountId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("AccountId" Data..= accountId)
           ]
       )
 
-instance Core.ToPath DescribeBudgets where
+instance Data.ToPath DescribeBudgets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeBudgets where
+instance Data.ToQuery DescribeBudgets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Response of DescribeBudgets

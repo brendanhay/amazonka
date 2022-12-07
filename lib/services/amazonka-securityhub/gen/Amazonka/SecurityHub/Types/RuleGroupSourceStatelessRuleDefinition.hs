@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleMatchAttributes
 
@@ -76,16 +77,16 @@ ruleGroupSourceStatelessRuleDefinition_actions :: Lens.Lens' RuleGroupSourceStat
 ruleGroupSourceStatelessRuleDefinition_actions = Lens.lens (\RuleGroupSourceStatelessRuleDefinition' {actions} -> actions) (\s@RuleGroupSourceStatelessRuleDefinition' {} a -> s {actions = a} :: RuleGroupSourceStatelessRuleDefinition) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RuleGroupSourceStatelessRuleDefinition
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupSourceStatelessRuleDefinition"
       ( \x ->
           RuleGroupSourceStatelessRuleDefinition'
-            Prelude.<$> (x Core..:? "MatchAttributes")
-            Prelude.<*> (x Core..:? "Actions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "MatchAttributes")
+            Prelude.<*> (x Data..:? "Actions" Data..!= Prelude.mempty)
       )
 
 instance
@@ -107,14 +108,14 @@ instance
       `Prelude.seq` Prelude.rnf actions
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RuleGroupSourceStatelessRuleDefinition
   where
   toJSON RuleGroupSourceStatelessRuleDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MatchAttributes" Core..=)
+          [ ("MatchAttributes" Data..=)
               Prelude.<$> matchAttributes,
-            ("Actions" Core..=) Prelude.<$> actions
+            ("Actions" Data..=) Prelude.<$> actions
           ]
       )

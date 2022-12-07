@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,7 +122,7 @@ instance Core.AWSRequest DeleteAddon where
     Response.receiveJSON
       ( \s h x ->
           DeleteAddonResponse'
-            Prelude.<$> (x Core..?> "addon")
+            Prelude.<$> (x Data..?> "addon")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,29 +138,29 @@ instance Prelude.NFData DeleteAddon where
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf addonName
 
-instance Core.ToHeaders DeleteAddon where
+instance Data.ToHeaders DeleteAddon where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteAddon where
+instance Data.ToPath DeleteAddon where
   toPath DeleteAddon' {..} =
     Prelude.mconcat
       [ "/clusters/",
-        Core.toBS clusterName,
+        Data.toBS clusterName,
         "/addons/",
-        Core.toBS addonName
+        Data.toBS addonName
       ]
 
-instance Core.ToQuery DeleteAddon where
+instance Data.ToQuery DeleteAddon where
   toQuery DeleteAddon' {..} =
-    Prelude.mconcat ["preserve" Core.=: preserve]
+    Prelude.mconcat ["preserve" Data.=: preserve]
 
 -- | /See:/ 'newDeleteAddonResponse' smart constructor.
 data DeleteAddonResponse = DeleteAddonResponse'

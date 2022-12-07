@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -226,7 +227,7 @@ instance Core.AWSRequest CreateInstanceEventWindow where
     Response.receiveXML
       ( \s h x ->
           CreateInstanceEventWindowResponse'
-            Prelude.<$> (x Core..@? "instanceEventWindow")
+            Prelude.<$> (x Data..@? "instanceEventWindow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -246,30 +247,30 @@ instance Prelude.NFData CreateInstanceEventWindow where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf cronExpression
 
-instance Core.ToHeaders CreateInstanceEventWindow where
+instance Data.ToHeaders CreateInstanceEventWindow where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateInstanceEventWindow where
+instance Data.ToPath CreateInstanceEventWindow where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateInstanceEventWindow where
+instance Data.ToQuery CreateInstanceEventWindow where
   toQuery CreateInstanceEventWindow' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateInstanceEventWindow" :: Prelude.ByteString),
+          Data.=: ("CreateInstanceEventWindow" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Name" Core.=: name,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TimeRange"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Name" Data.=: name,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TimeRange"
               Prelude.<$> timeRanges
           ),
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "CronExpression" Core.=: cronExpression
+        "CronExpression" Data.=: cronExpression
       ]
 
 -- | /See:/ 'newCreateInstanceEventWindowResponse' smart constructor.

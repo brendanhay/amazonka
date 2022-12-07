@@ -21,6 +21,7 @@ module Amazonka.MachineLearning.Types.RDSDataSpec where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types.RDSDatabase
 import Amazonka.MachineLearning.Types.RDSDatabaseCredentials
 import qualified Amazonka.Prelude as Prelude
@@ -596,26 +597,26 @@ instance Prelude.NFData RDSDataSpec where
       `Prelude.seq` Prelude.rnf subnetId
       `Prelude.seq` Prelude.rnf securityGroupIds
 
-instance Core.ToJSON RDSDataSpec where
+instance Data.ToJSON RDSDataSpec where
   toJSON RDSDataSpec' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataRearrangement" Core..=)
+          [ ("DataRearrangement" Data..=)
               Prelude.<$> dataRearrangement,
-            ("DataSchema" Core..=) Prelude.<$> dataSchema,
-            ("DataSchemaUri" Core..=) Prelude.<$> dataSchemaUri,
+            ("DataSchema" Data..=) Prelude.<$> dataSchema,
+            ("DataSchemaUri" Data..=) Prelude.<$> dataSchemaUri,
             Prelude.Just
-              ("DatabaseInformation" Core..= databaseInformation),
+              ("DatabaseInformation" Data..= databaseInformation),
             Prelude.Just
-              ("SelectSqlQuery" Core..= selectSqlQuery),
+              ("SelectSqlQuery" Data..= selectSqlQuery),
             Prelude.Just
-              ("DatabaseCredentials" Core..= databaseCredentials),
+              ("DatabaseCredentials" Data..= databaseCredentials),
             Prelude.Just
-              ("S3StagingLocation" Core..= s3StagingLocation),
-            Prelude.Just ("ResourceRole" Core..= resourceRole),
-            Prelude.Just ("ServiceRole" Core..= serviceRole),
-            Prelude.Just ("SubnetId" Core..= subnetId),
+              ("S3StagingLocation" Data..= s3StagingLocation),
+            Prelude.Just ("ResourceRole" Data..= resourceRole),
+            Prelude.Just ("ServiceRole" Data..= serviceRole),
+            Prelude.Just ("SubnetId" Data..= subnetId),
             Prelude.Just
-              ("SecurityGroupIds" Core..= securityGroupIds)
+              ("SecurityGroupIds" Data..= securityGroupIds)
           ]
       )

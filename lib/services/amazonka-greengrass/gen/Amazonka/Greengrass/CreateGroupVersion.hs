@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,10 +170,10 @@ instance Core.AWSRequest CreateGroupVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateGroupVersionResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Version")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,44 +202,44 @@ instance Prelude.NFData CreateGroupVersion where
       `Prelude.seq` Prelude.rnf deviceDefinitionVersionArn
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToHeaders CreateGroupVersion where
+instance Data.ToHeaders CreateGroupVersion where
   toHeaders CreateGroupVersion' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
+      [ "X-Amzn-Client-Token" Data.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateGroupVersion where
+instance Data.ToJSON CreateGroupVersion where
   toJSON CreateGroupVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceDefinitionVersionArn" Core..=)
+          [ ("ResourceDefinitionVersionArn" Data..=)
               Prelude.<$> resourceDefinitionVersionArn,
-            ("FunctionDefinitionVersionArn" Core..=)
+            ("FunctionDefinitionVersionArn" Data..=)
               Prelude.<$> functionDefinitionVersionArn,
-            ("SubscriptionDefinitionVersionArn" Core..=)
+            ("SubscriptionDefinitionVersionArn" Data..=)
               Prelude.<$> subscriptionDefinitionVersionArn,
-            ("ConnectorDefinitionVersionArn" Core..=)
+            ("ConnectorDefinitionVersionArn" Data..=)
               Prelude.<$> connectorDefinitionVersionArn,
-            ("LoggerDefinitionVersionArn" Core..=)
+            ("LoggerDefinitionVersionArn" Data..=)
               Prelude.<$> loggerDefinitionVersionArn,
-            ("CoreDefinitionVersionArn" Core..=)
+            ("CoreDefinitionVersionArn" Data..=)
               Prelude.<$> coreDefinitionVersionArn,
-            ("DeviceDefinitionVersionArn" Core..=)
+            ("DeviceDefinitionVersionArn" Data..=)
               Prelude.<$> deviceDefinitionVersionArn
           ]
       )
 
-instance Core.ToPath CreateGroupVersion where
+instance Data.ToPath CreateGroupVersion where
   toPath CreateGroupVersion' {..} =
     Prelude.mconcat
       [ "/greengrass/groups/",
-        Core.toBS groupId,
+        Data.toBS groupId,
         "/versions"
       ]
 
-instance Core.ToQuery CreateGroupVersion where
+instance Data.ToQuery CreateGroupVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGroupVersionResponse' smart constructor.

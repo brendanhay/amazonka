@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.DataConnector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.LambdaFunction
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ dataConnector_lambda = Lens.lens (\DataConnector' {lambda} -> lambda) (\s@DataCo
 dataConnector_isNative :: Lens.Lens' DataConnector (Prelude.Maybe Prelude.Bool)
 dataConnector_isNative = Lens.lens (\DataConnector' {isNative} -> isNative) (\s@DataConnector' {} a -> s {isNative = a} :: DataConnector)
 
-instance Core.FromJSON DataConnector where
+instance Data.FromJSON DataConnector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataConnector"
       ( \x ->
           DataConnector'
-            Prelude.<$> (x Core..:? "lambda")
-            Prelude.<*> (x Core..:? "isNative")
+            Prelude.<$> (x Data..:? "lambda")
+            Prelude.<*> (x Data..:? "isNative")
       )
 
 instance Prelude.Hashable DataConnector where
@@ -85,11 +86,11 @@ instance Prelude.NFData DataConnector where
     Prelude.rnf lambda
       `Prelude.seq` Prelude.rnf isNative
 
-instance Core.ToJSON DataConnector where
+instance Data.ToJSON DataConnector where
   toJSON DataConnector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("lambda" Core..=) Prelude.<$> lambda,
-            ("isNative" Core..=) Prelude.<$> isNative
+          [ ("lambda" Data..=) Prelude.<$> lambda,
+            ("isNative" Data..=) Prelude.<$> isNative
           ]
       )

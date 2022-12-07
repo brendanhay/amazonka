@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.OAuth2Properties where
 import Amazonka.AppFlow.Types.OAuth2GrantType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The OAuth 2.0 properties required for OAuth 2.0 authentication.
@@ -82,17 +83,17 @@ oAuth2Properties_tokenUrl = Lens.lens (\OAuth2Properties' {tokenUrl} -> tokenUrl
 oAuth2Properties_oAuth2GrantType :: Lens.Lens' OAuth2Properties OAuth2GrantType
 oAuth2Properties_oAuth2GrantType = Lens.lens (\OAuth2Properties' {oAuth2GrantType} -> oAuth2GrantType) (\s@OAuth2Properties' {} a -> s {oAuth2GrantType = a} :: OAuth2Properties)
 
-instance Core.FromJSON OAuth2Properties where
+instance Data.FromJSON OAuth2Properties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OAuth2Properties"
       ( \x ->
           OAuth2Properties'
-            Prelude.<$> ( x Core..:? "tokenUrlCustomProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "tokenUrlCustomProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "tokenUrl")
-            Prelude.<*> (x Core..: "oAuth2GrantType")
+            Prelude.<*> (x Data..: "tokenUrl")
+            Prelude.<*> (x Data..: "oAuth2GrantType")
       )
 
 instance Prelude.Hashable OAuth2Properties where
@@ -108,14 +109,14 @@ instance Prelude.NFData OAuth2Properties where
       `Prelude.seq` Prelude.rnf tokenUrl
       `Prelude.seq` Prelude.rnf oAuth2GrantType
 
-instance Core.ToJSON OAuth2Properties where
+instance Data.ToJSON OAuth2Properties where
   toJSON OAuth2Properties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tokenUrlCustomProperties" Core..=)
+          [ ("tokenUrlCustomProperties" Data..=)
               Prelude.<$> tokenUrlCustomProperties,
-            Prelude.Just ("tokenUrl" Core..= tokenUrl),
+            Prelude.Just ("tokenUrl" Data..= tokenUrl),
             Prelude.Just
-              ("oAuth2GrantType" Core..= oAuth2GrantType)
+              ("oAuth2GrantType" Data..= oAuth2GrantType)
           ]
       )

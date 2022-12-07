@@ -23,6 +23,7 @@ import Amazonka.CognitoIdentityProvider.Types.CustomDomainConfigType
 import Amazonka.CognitoIdentityProvider.Types.DomainStatusType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A container for information about a domain.
@@ -127,20 +128,20 @@ domainDescriptionType_cloudFrontDistribution = Lens.lens (\DomainDescriptionType
 domainDescriptionType_version :: Lens.Lens' DomainDescriptionType (Prelude.Maybe Prelude.Text)
 domainDescriptionType_version = Lens.lens (\DomainDescriptionType' {version} -> version) (\s@DomainDescriptionType' {} a -> s {version = a} :: DomainDescriptionType)
 
-instance Core.FromJSON DomainDescriptionType where
+instance Data.FromJSON DomainDescriptionType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainDescriptionType"
       ( \x ->
           DomainDescriptionType'
-            Prelude.<$> (x Core..:? "AWSAccountId")
-            Prelude.<*> (x Core..:? "S3Bucket")
-            Prelude.<*> (x Core..:? "Domain")
-            Prelude.<*> (x Core..:? "CustomDomainConfig")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "UserPoolId")
-            Prelude.<*> (x Core..:? "CloudFrontDistribution")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "AWSAccountId")
+            Prelude.<*> (x Data..:? "S3Bucket")
+            Prelude.<*> (x Data..:? "Domain")
+            Prelude.<*> (x Data..:? "CustomDomainConfig")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "UserPoolId")
+            Prelude.<*> (x Data..:? "CloudFrontDistribution")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable DomainDescriptionType where

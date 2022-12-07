@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVSChat.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -82,28 +83,28 @@ instance Prelude.Hashable DeleteRoom where
 instance Prelude.NFData DeleteRoom where
   rnf DeleteRoom' {..} = Prelude.rnf identifier
 
-instance Core.ToHeaders DeleteRoom where
+instance Data.ToHeaders DeleteRoom where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRoom where
+instance Data.ToJSON DeleteRoom where
   toJSON DeleteRoom' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("identifier" Core..= identifier)]
+          [Prelude.Just ("identifier" Data..= identifier)]
       )
 
-instance Core.ToPath DeleteRoom where
+instance Data.ToPath DeleteRoom where
   toPath = Prelude.const "/DeleteRoom"
 
-instance Core.ToQuery DeleteRoom where
+instance Data.ToQuery DeleteRoom where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRoomResponse' smart constructor.

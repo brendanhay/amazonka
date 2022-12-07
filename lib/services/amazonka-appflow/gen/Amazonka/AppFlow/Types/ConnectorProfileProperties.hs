@@ -39,6 +39,7 @@ import Amazonka.AppFlow.Types.VeevaConnectorProfileProperties
 import Amazonka.AppFlow.Types.ZendeskConnectorProfileProperties
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile properties required by each connector.
@@ -223,30 +224,30 @@ connectorProfileProperties_dynatrace = Lens.lens (\ConnectorProfileProperties' {
 connectorProfileProperties_googleAnalytics :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe GoogleAnalyticsConnectorProfileProperties)
 connectorProfileProperties_googleAnalytics = Lens.lens (\ConnectorProfileProperties' {googleAnalytics} -> googleAnalytics) (\s@ConnectorProfileProperties' {} a -> s {googleAnalytics = a} :: ConnectorProfileProperties)
 
-instance Core.FromJSON ConnectorProfileProperties where
+instance Data.FromJSON ConnectorProfileProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectorProfileProperties"
       ( \x ->
           ConnectorProfileProperties'
-            Prelude.<$> (x Core..:? "Zendesk")
-            Prelude.<*> (x Core..:? "Slack")
-            Prelude.<*> (x Core..:? "Singular")
-            Prelude.<*> (x Core..:? "Veeva")
-            Prelude.<*> (x Core..:? "Honeycode")
-            Prelude.<*> (x Core..:? "Salesforce")
-            Prelude.<*> (x Core..:? "Snowflake")
-            Prelude.<*> (x Core..:? "SAPOData")
-            Prelude.<*> (x Core..:? "Marketo")
-            Prelude.<*> (x Core..:? "Redshift")
-            Prelude.<*> (x Core..:? "Trendmicro")
-            Prelude.<*> (x Core..:? "InforNexus")
-            Prelude.<*> (x Core..:? "ServiceNow")
-            Prelude.<*> (x Core..:? "Datadog")
-            Prelude.<*> (x Core..:? "CustomConnector")
-            Prelude.<*> (x Core..:? "Amplitude")
-            Prelude.<*> (x Core..:? "Dynatrace")
-            Prelude.<*> (x Core..:? "GoogleAnalytics")
+            Prelude.<$> (x Data..:? "Zendesk")
+            Prelude.<*> (x Data..:? "Slack")
+            Prelude.<*> (x Data..:? "Singular")
+            Prelude.<*> (x Data..:? "Veeva")
+            Prelude.<*> (x Data..:? "Honeycode")
+            Prelude.<*> (x Data..:? "Salesforce")
+            Prelude.<*> (x Data..:? "Snowflake")
+            Prelude.<*> (x Data..:? "SAPOData")
+            Prelude.<*> (x Data..:? "Marketo")
+            Prelude.<*> (x Data..:? "Redshift")
+            Prelude.<*> (x Data..:? "Trendmicro")
+            Prelude.<*> (x Data..:? "InforNexus")
+            Prelude.<*> (x Data..:? "ServiceNow")
+            Prelude.<*> (x Data..:? "Datadog")
+            Prelude.<*> (x Data..:? "CustomConnector")
+            Prelude.<*> (x Data..:? "Amplitude")
+            Prelude.<*> (x Data..:? "Dynatrace")
+            Prelude.<*> (x Data..:? "GoogleAnalytics")
       )
 
 instance Prelude.Hashable ConnectorProfileProperties where
@@ -291,29 +292,29 @@ instance Prelude.NFData ConnectorProfileProperties where
       `Prelude.seq` Prelude.rnf dynatrace
       `Prelude.seq` Prelude.rnf googleAnalytics
 
-instance Core.ToJSON ConnectorProfileProperties where
+instance Data.ToJSON ConnectorProfileProperties where
   toJSON ConnectorProfileProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Zendesk" Core..=) Prelude.<$> zendesk,
-            ("Slack" Core..=) Prelude.<$> slack,
-            ("Singular" Core..=) Prelude.<$> singular,
-            ("Veeva" Core..=) Prelude.<$> veeva,
-            ("Honeycode" Core..=) Prelude.<$> honeycode,
-            ("Salesforce" Core..=) Prelude.<$> salesforce,
-            ("Snowflake" Core..=) Prelude.<$> snowflake,
-            ("SAPOData" Core..=) Prelude.<$> sAPOData,
-            ("Marketo" Core..=) Prelude.<$> marketo,
-            ("Redshift" Core..=) Prelude.<$> redshift,
-            ("Trendmicro" Core..=) Prelude.<$> trendmicro,
-            ("InforNexus" Core..=) Prelude.<$> inforNexus,
-            ("ServiceNow" Core..=) Prelude.<$> serviceNow,
-            ("Datadog" Core..=) Prelude.<$> datadog,
-            ("CustomConnector" Core..=)
+          [ ("Zendesk" Data..=) Prelude.<$> zendesk,
+            ("Slack" Data..=) Prelude.<$> slack,
+            ("Singular" Data..=) Prelude.<$> singular,
+            ("Veeva" Data..=) Prelude.<$> veeva,
+            ("Honeycode" Data..=) Prelude.<$> honeycode,
+            ("Salesforce" Data..=) Prelude.<$> salesforce,
+            ("Snowflake" Data..=) Prelude.<$> snowflake,
+            ("SAPOData" Data..=) Prelude.<$> sAPOData,
+            ("Marketo" Data..=) Prelude.<$> marketo,
+            ("Redshift" Data..=) Prelude.<$> redshift,
+            ("Trendmicro" Data..=) Prelude.<$> trendmicro,
+            ("InforNexus" Data..=) Prelude.<$> inforNexus,
+            ("ServiceNow" Data..=) Prelude.<$> serviceNow,
+            ("Datadog" Data..=) Prelude.<$> datadog,
+            ("CustomConnector" Data..=)
               Prelude.<$> customConnector,
-            ("Amplitude" Core..=) Prelude.<$> amplitude,
-            ("Dynatrace" Core..=) Prelude.<$> dynatrace,
-            ("GoogleAnalytics" Core..=)
+            ("Amplitude" Data..=) Prelude.<$> amplitude,
+            ("Dynatrace" Data..=) Prelude.<$> dynatrace,
+            ("GoogleAnalytics" Data..=)
               Prelude.<$> googleAnalytics
           ]
       )

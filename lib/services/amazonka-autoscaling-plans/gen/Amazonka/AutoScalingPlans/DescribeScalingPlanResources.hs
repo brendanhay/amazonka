@@ -48,6 +48,7 @@ where
 import Amazonka.AutoScalingPlans.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,8 +152,8 @@ instance Core.AWSRequest DescribeScalingPlanResources where
     Response.receiveJSON
       ( \s h x ->
           DescribeScalingPlanResourcesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ScalingPlanResources"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ScalingPlanResources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -175,38 +176,38 @@ instance Prelude.NFData DescribeScalingPlanResources where
       `Prelude.seq` Prelude.rnf scalingPlanName
       `Prelude.seq` Prelude.rnf scalingPlanVersion
 
-instance Core.ToHeaders DescribeScalingPlanResources where
+instance Data.ToHeaders DescribeScalingPlanResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AnyScaleScalingPlannerFrontendService.DescribeScalingPlanResources" ::
+              Data.=# ( "AnyScaleScalingPlannerFrontendService.DescribeScalingPlanResources" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeScalingPlanResources where
+instance Data.ToJSON DescribeScalingPlanResources where
   toJSON DescribeScalingPlanResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("ScalingPlanName" Core..= scalingPlanName),
+              ("ScalingPlanName" Data..= scalingPlanName),
             Prelude.Just
-              ("ScalingPlanVersion" Core..= scalingPlanVersion)
+              ("ScalingPlanVersion" Data..= scalingPlanVersion)
           ]
       )
 
-instance Core.ToPath DescribeScalingPlanResources where
+instance Data.ToPath DescribeScalingPlanResources where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeScalingPlanResources where
+instance Data.ToQuery DescribeScalingPlanResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeScalingPlanResourcesResponse' smart constructor.

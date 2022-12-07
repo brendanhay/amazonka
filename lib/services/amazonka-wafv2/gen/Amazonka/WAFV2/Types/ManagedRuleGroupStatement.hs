@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.ManagedRuleGroupStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.ExcludedRule
 import Amazonka.WAFV2.Types.ManagedRuleGroupConfig
@@ -206,19 +207,19 @@ managedRuleGroupStatement_vendorName = Lens.lens (\ManagedRuleGroupStatement' {v
 managedRuleGroupStatement_name :: Lens.Lens' ManagedRuleGroupStatement Prelude.Text
 managedRuleGroupStatement_name = Lens.lens (\ManagedRuleGroupStatement' {name} -> name) (\s@ManagedRuleGroupStatement' {} a -> s {name = a} :: ManagedRuleGroupStatement)
 
-instance Core.FromJSON ManagedRuleGroupStatement where
+instance Data.FromJSON ManagedRuleGroupStatement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManagedRuleGroupStatement"
       ( \x ->
           ManagedRuleGroupStatement'
-            Prelude.<$> (x Core..:? "ManagedRuleGroupConfigs")
-            Prelude.<*> (x Core..:? "RuleActionOverrides")
-            Prelude.<*> (x Core..:? "ScopeDownStatement")
-            Prelude.<*> (x Core..:? "ExcludedRules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "VendorName")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "ManagedRuleGroupConfigs")
+            Prelude.<*> (x Data..:? "RuleActionOverrides")
+            Prelude.<*> (x Data..:? "ScopeDownStatement")
+            Prelude.<*> (x Data..:? "ExcludedRules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "VendorName")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable ManagedRuleGroupStatement where
@@ -242,19 +243,19 @@ instance Prelude.NFData ManagedRuleGroupStatement where
       `Prelude.seq` Prelude.rnf vendorName
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON ManagedRuleGroupStatement where
+instance Data.ToJSON ManagedRuleGroupStatement where
   toJSON ManagedRuleGroupStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ManagedRuleGroupConfigs" Core..=)
+          [ ("ManagedRuleGroupConfigs" Data..=)
               Prelude.<$> managedRuleGroupConfigs,
-            ("RuleActionOverrides" Core..=)
+            ("RuleActionOverrides" Data..=)
               Prelude.<$> ruleActionOverrides,
-            ("ScopeDownStatement" Core..=)
+            ("ScopeDownStatement" Data..=)
               Prelude.<$> scopeDownStatement,
-            ("ExcludedRules" Core..=) Prelude.<$> excludedRules,
-            ("Version" Core..=) Prelude.<$> version,
-            Prelude.Just ("VendorName" Core..= vendorName),
-            Prelude.Just ("Name" Core..= name)
+            ("ExcludedRules" Data..=) Prelude.<$> excludedRules,
+            ("Version" Data..=) Prelude.<$> version,
+            Prelude.Just ("VendorName" Data..= vendorName),
+            Prelude.Just ("Name" Data..= name)
           ]
       )

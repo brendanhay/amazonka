@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,25 +102,25 @@ instance Prelude.NFData DeleteSubscriptionDefinition where
   rnf DeleteSubscriptionDefinition' {..} =
     Prelude.rnf subscriptionDefinitionId
 
-instance Core.ToHeaders DeleteSubscriptionDefinition where
+instance Data.ToHeaders DeleteSubscriptionDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteSubscriptionDefinition where
+instance Data.ToPath DeleteSubscriptionDefinition where
   toPath DeleteSubscriptionDefinition' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/subscriptions/",
-        Core.toBS subscriptionDefinitionId
+        Data.toBS subscriptionDefinitionId
       ]
 
-instance Core.ToQuery DeleteSubscriptionDefinition where
+instance Data.ToQuery DeleteSubscriptionDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSubscriptionDefinitionResponse' smart constructor.

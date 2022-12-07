@@ -60,6 +60,7 @@ where
 import Amazonka.ApplicationAutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -591,8 +592,8 @@ instance Core.AWSRequest DescribeScalingPolicies where
     Response.receiveJSON
       ( \s h x ->
           DescribeScalingPoliciesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ScalingPolicies"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ScalingPolicies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -616,40 +617,40 @@ instance Prelude.NFData DescribeScalingPolicies where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf serviceNamespace
 
-instance Core.ToHeaders DescribeScalingPolicies where
+instance Data.ToHeaders DescribeScalingPolicies where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AnyScaleFrontendService.DescribeScalingPolicies" ::
+              Data.=# ( "AnyScaleFrontendService.DescribeScalingPolicies" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeScalingPolicies where
+instance Data.ToJSON DescribeScalingPolicies where
   toJSON DescribeScalingPolicies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceId" Core..=) Prelude.<$> resourceId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ScalableDimension" Core..=)
+          [ ("ResourceId" Data..=) Prelude.<$> resourceId,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ScalableDimension" Data..=)
               Prelude.<$> scalableDimension,
-            ("PolicyNames" Core..=) Prelude.<$> policyNames,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("PolicyNames" Data..=) Prelude.<$> policyNames,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("ServiceNamespace" Core..= serviceNamespace)
+              ("ServiceNamespace" Data..= serviceNamespace)
           ]
       )
 
-instance Core.ToPath DescribeScalingPolicies where
+instance Data.ToPath DescribeScalingPolicies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeScalingPolicies where
+instance Data.ToQuery DescribeScalingPolicies where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeScalingPoliciesResponse' smart constructor.

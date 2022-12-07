@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.OTAUpdateSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An OTA update summary.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newOTAUpdateSummary' smart constructor.
 data OTAUpdateSummary = OTAUpdateSummary'
   { -- | The date when the OTA update was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The OTA update ARN.
     otaUpdateArn :: Prelude.Maybe Prelude.Text,
     -- | The OTA update ID.
@@ -60,7 +61,7 @@ newOTAUpdateSummary =
 
 -- | The date when the OTA update was created.
 oTAUpdateSummary_creationDate :: Lens.Lens' OTAUpdateSummary (Prelude.Maybe Prelude.UTCTime)
-oTAUpdateSummary_creationDate = Lens.lens (\OTAUpdateSummary' {creationDate} -> creationDate) (\s@OTAUpdateSummary' {} a -> s {creationDate = a} :: OTAUpdateSummary) Prelude.. Lens.mapping Core._Time
+oTAUpdateSummary_creationDate = Lens.lens (\OTAUpdateSummary' {creationDate} -> creationDate) (\s@OTAUpdateSummary' {} a -> s {creationDate = a} :: OTAUpdateSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The OTA update ARN.
 oTAUpdateSummary_otaUpdateArn :: Lens.Lens' OTAUpdateSummary (Prelude.Maybe Prelude.Text)
@@ -70,15 +71,15 @@ oTAUpdateSummary_otaUpdateArn = Lens.lens (\OTAUpdateSummary' {otaUpdateArn} -> 
 oTAUpdateSummary_otaUpdateId :: Lens.Lens' OTAUpdateSummary (Prelude.Maybe Prelude.Text)
 oTAUpdateSummary_otaUpdateId = Lens.lens (\OTAUpdateSummary' {otaUpdateId} -> otaUpdateId) (\s@OTAUpdateSummary' {} a -> s {otaUpdateId = a} :: OTAUpdateSummary)
 
-instance Core.FromJSON OTAUpdateSummary where
+instance Data.FromJSON OTAUpdateSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OTAUpdateSummary"
       ( \x ->
           OTAUpdateSummary'
-            Prelude.<$> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "otaUpdateArn")
-            Prelude.<*> (x Core..:? "otaUpdateId")
+            Prelude.<$> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "otaUpdateArn")
+            Prelude.<*> (x Data..:? "otaUpdateId")
       )
 
 instance Prelude.Hashable OTAUpdateSummary where

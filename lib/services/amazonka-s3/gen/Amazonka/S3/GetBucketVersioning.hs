@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,8 +120,8 @@ instance Core.AWSRequest GetBucketVersioning where
     Response.receiveXML
       ( \s h x ->
           GetBucketVersioningResponse'
-            Prelude.<$> (x Core..@? "MfaDelete")
-            Prelude.<*> (x Core..@? "Status")
+            Prelude.<$> (x Data..@? "MfaDelete")
+            Prelude.<*> (x Data..@? "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,18 +135,18 @@ instance Prelude.NFData GetBucketVersioning where
     Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders GetBucketVersioning where
+instance Data.ToHeaders GetBucketVersioning where
   toHeaders GetBucketVersioning' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath GetBucketVersioning where
+instance Data.ToPath GetBucketVersioning where
   toPath GetBucketVersioning' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery GetBucketVersioning where
+instance Data.ToQuery GetBucketVersioning where
   toQuery =
     Prelude.const (Prelude.mconcat ["versioning"])
 

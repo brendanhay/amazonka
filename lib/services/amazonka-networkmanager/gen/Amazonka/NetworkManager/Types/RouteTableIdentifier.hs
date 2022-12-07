@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.RouteTableIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.CoreNetworkSegmentEdgeIdentifier
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,13 +74,13 @@ instance Prelude.NFData RouteTableIdentifier where
     Prelude.rnf coreNetworkSegmentEdge
       `Prelude.seq` Prelude.rnf transitGatewayRouteTableArn
 
-instance Core.ToJSON RouteTableIdentifier where
+instance Data.ToJSON RouteTableIdentifier where
   toJSON RouteTableIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CoreNetworkSegmentEdge" Core..=)
+          [ ("CoreNetworkSegmentEdge" Data..=)
               Prelude.<$> coreNetworkSegmentEdge,
-            ("TransitGatewayRouteTableArn" Core..=)
+            ("TransitGatewayRouteTableArn" Data..=)
               Prelude.<$> transitGatewayRouteTableArn
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Location.Types.SearchForPositionResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.Place
 import qualified Amazonka.Prelude as Prelude
 
@@ -100,15 +101,15 @@ searchForPositionResult_distance = Lens.lens (\SearchForPositionResult' {distanc
 searchForPositionResult_place :: Lens.Lens' SearchForPositionResult Place
 searchForPositionResult_place = Lens.lens (\SearchForPositionResult' {place} -> place) (\s@SearchForPositionResult' {} a -> s {place = a} :: SearchForPositionResult)
 
-instance Core.FromJSON SearchForPositionResult where
+instance Data.FromJSON SearchForPositionResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SearchForPositionResult"
       ( \x ->
           SearchForPositionResult'
-            Prelude.<$> (x Core..:? "PlaceId")
-            Prelude.<*> (x Core..: "Distance")
-            Prelude.<*> (x Core..: "Place")
+            Prelude.<$> (x Data..:? "PlaceId")
+            Prelude.<*> (x Data..: "Distance")
+            Prelude.<*> (x Data..: "Place")
       )
 
 instance Prelude.Hashable SearchForPositionResult where

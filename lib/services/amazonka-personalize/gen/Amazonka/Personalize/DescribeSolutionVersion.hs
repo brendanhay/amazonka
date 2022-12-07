@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest DescribeSolutionVersion where
     Response.receiveJSON
       ( \s h x ->
           DescribeSolutionVersionResponse'
-            Prelude.<$> (x Core..?> "solutionVersion")
+            Prelude.<$> (x Data..?> "solutionVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,34 +101,34 @@ instance Prelude.NFData DescribeSolutionVersion where
   rnf DescribeSolutionVersion' {..} =
     Prelude.rnf solutionVersionArn
 
-instance Core.ToHeaders DescribeSolutionVersion where
+instance Data.ToHeaders DescribeSolutionVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DescribeSolutionVersion" ::
+              Data.=# ( "AmazonPersonalize.DescribeSolutionVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSolutionVersion where
+instance Data.ToJSON DescribeSolutionVersion where
   toJSON DescribeSolutionVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("solutionVersionArn" Core..= solutionVersionArn)
+              ("solutionVersionArn" Data..= solutionVersionArn)
           ]
       )
 
-instance Core.ToPath DescribeSolutionVersion where
+instance Data.ToPath DescribeSolutionVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSolutionVersion where
+instance Data.ToQuery DescribeSolutionVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSolutionVersionResponse' smart constructor.

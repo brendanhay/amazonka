@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.SnapshotSchedule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.ClusterAssociatedToSchedule
@@ -41,7 +42,7 @@ data SnapshotSchedule = SnapshotSchedule'
     associatedClusters :: Prelude.Maybe [ClusterAssociatedToSchedule],
     -- | A unique identifier for the schedule.
     scheduleIdentifier :: Prelude.Maybe Prelude.Text,
-    nextInvocations :: Prelude.Maybe [Core.ISO8601],
+    nextInvocations :: Prelude.Maybe [Data.ISO8601],
     -- | The number of clusters associated with the schedule.
     associatedClusterCount :: Prelude.Maybe Prelude.Int,
     -- | A list of ScheduleDefinitions.
@@ -113,26 +114,26 @@ snapshotSchedule_associatedClusterCount = Lens.lens (\SnapshotSchedule' {associa
 snapshotSchedule_scheduleDefinitions :: Lens.Lens' SnapshotSchedule (Prelude.Maybe [Prelude.Text])
 snapshotSchedule_scheduleDefinitions = Lens.lens (\SnapshotSchedule' {scheduleDefinitions} -> scheduleDefinitions) (\s@SnapshotSchedule' {} a -> s {scheduleDefinitions = a} :: SnapshotSchedule) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML SnapshotSchedule where
+instance Data.FromXML SnapshotSchedule where
   parseXML x =
     SnapshotSchedule'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "ScheduleDescription")
-      Prelude.<*> ( x Core..@? "AssociatedClusters"
+      Prelude.<*> (x Data..@? "ScheduleDescription")
+      Prelude.<*> ( x Data..@? "AssociatedClusters"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "ClusterAssociatedToSchedule")
+                        (Data.parseXMLList "ClusterAssociatedToSchedule")
                   )
-      Prelude.<*> (x Core..@? "ScheduleIdentifier")
-      Prelude.<*> ( x Core..@? "NextInvocations" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "SnapshotTime")
+      Prelude.<*> (x Data..@? "ScheduleIdentifier")
+      Prelude.<*> ( x Data..@? "NextInvocations" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "SnapshotTime")
                   )
-      Prelude.<*> (x Core..@? "AssociatedClusterCount")
-      Prelude.<*> ( x Core..@? "ScheduleDefinitions"
+      Prelude.<*> (x Data..@? "AssociatedClusterCount")
+      Prelude.<*> ( x Data..@? "ScheduleDefinitions"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "ScheduleDefinition")
+                      Prelude.>>= Core.may (Data.parseXMLList "ScheduleDefinition")
                   )
 
 instance Prelude.Hashable SnapshotSchedule where

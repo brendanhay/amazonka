@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,7 +128,7 @@ instance Core.AWSRequest DescribeAssociation where
     Response.receiveJSON
       ( \s h x ->
           DescribeAssociationResponse'
-            Prelude.<$> (x Core..?> "AssociationDescription")
+            Prelude.<$> (x Data..?> "AssociationDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,37 +146,37 @@ instance Prelude.NFData DescribeAssociation where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf associationId
 
-instance Core.ToHeaders DescribeAssociation where
+instance Data.ToHeaders DescribeAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DescribeAssociation" ::
+              Data.=# ( "AmazonSSM.DescribeAssociation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAssociation where
+instance Data.ToJSON DescribeAssociation where
   toJSON DescribeAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("AssociationVersion" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("AssociationVersion" Data..=)
               Prelude.<$> associationVersion,
-            ("InstanceId" Core..=) Prelude.<$> instanceId,
-            ("AssociationId" Core..=) Prelude.<$> associationId
+            ("InstanceId" Data..=) Prelude.<$> instanceId,
+            ("AssociationId" Data..=) Prelude.<$> associationId
           ]
       )
 
-instance Core.ToPath DescribeAssociation where
+instance Data.ToPath DescribeAssociation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAssociation where
+instance Data.ToQuery DescribeAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAssociationResponse' smart constructor.

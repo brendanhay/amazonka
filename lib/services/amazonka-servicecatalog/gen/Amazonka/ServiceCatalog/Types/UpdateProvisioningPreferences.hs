@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.UpdateProvisioningPreferences where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.StackSetOperationType
 
@@ -398,23 +399,23 @@ instance Prelude.NFData UpdateProvisioningPreferences where
       `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyCount
       `Prelude.seq` Prelude.rnf stackSetFailureTolerancePercentage
 
-instance Core.ToJSON UpdateProvisioningPreferences where
+instance Data.ToJSON UpdateProvisioningPreferences where
   toJSON UpdateProvisioningPreferences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StackSetOperationType" Core..=)
+          [ ("StackSetOperationType" Data..=)
               Prelude.<$> stackSetOperationType,
-            ("StackSetRegions" Core..=)
+            ("StackSetRegions" Data..=)
               Prelude.<$> stackSetRegions,
-            ("StackSetFailureToleranceCount" Core..=)
+            ("StackSetFailureToleranceCount" Data..=)
               Prelude.<$> stackSetFailureToleranceCount,
-            ("StackSetMaxConcurrencyPercentage" Core..=)
+            ("StackSetMaxConcurrencyPercentage" Data..=)
               Prelude.<$> stackSetMaxConcurrencyPercentage,
-            ("StackSetAccounts" Core..=)
+            ("StackSetAccounts" Data..=)
               Prelude.<$> stackSetAccounts,
-            ("StackSetMaxConcurrencyCount" Core..=)
+            ("StackSetMaxConcurrencyCount" Data..=)
               Prelude.<$> stackSetMaxConcurrencyCount,
-            ("StackSetFailureTolerancePercentage" Core..=)
+            ("StackSetFailureTolerancePercentage" Data..=)
               Prelude.<$> stackSetFailureTolerancePercentage
           ]
       )

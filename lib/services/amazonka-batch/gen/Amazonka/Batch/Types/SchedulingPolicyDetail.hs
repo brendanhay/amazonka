@@ -22,6 +22,7 @@ module Amazonka.Batch.Types.SchedulingPolicyDetail where
 import Amazonka.Batch.Types.FairsharePolicy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a scheduling policy.
@@ -99,16 +100,16 @@ schedulingPolicyDetail_name = Lens.lens (\SchedulingPolicyDetail' {name} -> name
 schedulingPolicyDetail_arn :: Lens.Lens' SchedulingPolicyDetail Prelude.Text
 schedulingPolicyDetail_arn = Lens.lens (\SchedulingPolicyDetail' {arn} -> arn) (\s@SchedulingPolicyDetail' {} a -> s {arn = a} :: SchedulingPolicyDetail)
 
-instance Core.FromJSON SchedulingPolicyDetail where
+instance Data.FromJSON SchedulingPolicyDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchedulingPolicyDetail"
       ( \x ->
           SchedulingPolicyDetail'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "fairsharePolicy")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "arn")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "fairsharePolicy")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "arn")
       )
 
 instance Prelude.Hashable SchedulingPolicyDetail where

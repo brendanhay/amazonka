@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.S3Destination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon S3 bucket location to which Amazon Rekognition publishes the
@@ -74,14 +75,14 @@ s3Destination_bucket = Lens.lens (\S3Destination' {bucket} -> bucket) (\s@S3Dest
 s3Destination_keyPrefix :: Lens.Lens' S3Destination (Prelude.Maybe Prelude.Text)
 s3Destination_keyPrefix = Lens.lens (\S3Destination' {keyPrefix} -> keyPrefix) (\s@S3Destination' {} a -> s {keyPrefix = a} :: S3Destination)
 
-instance Core.FromJSON S3Destination where
+instance Data.FromJSON S3Destination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Destination"
       ( \x ->
           S3Destination'
-            Prelude.<$> (x Core..:? "Bucket")
-            Prelude.<*> (x Core..:? "KeyPrefix")
+            Prelude.<$> (x Data..:? "Bucket")
+            Prelude.<*> (x Data..:? "KeyPrefix")
       )
 
 instance Prelude.Hashable S3Destination where
@@ -94,11 +95,11 @@ instance Prelude.NFData S3Destination where
     Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf keyPrefix
 
-instance Core.ToJSON S3Destination where
+instance Data.ToJSON S3Destination where
   toJSON S3Destination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Bucket" Core..=) Prelude.<$> bucket,
-            ("KeyPrefix" Core..=) Prelude.<$> keyPrefix
+          [ ("Bucket" Data..=) Prelude.<$> bucket,
+            ("KeyPrefix" Data..=) Prelude.<$> keyPrefix
           ]
       )

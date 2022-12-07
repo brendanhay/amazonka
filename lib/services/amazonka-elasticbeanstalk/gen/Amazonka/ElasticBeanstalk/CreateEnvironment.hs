@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -386,7 +387,7 @@ instance Core.AWSRequest CreateEnvironment where
   response =
     Response.receiveXMLWrapper
       "CreateEnvironmentResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =
@@ -422,41 +423,41 @@ instance Prelude.NFData CreateEnvironment where
       `Prelude.seq` Prelude.rnf optionSettings
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders CreateEnvironment where
+instance Data.ToHeaders CreateEnvironment where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateEnvironment where
+instance Data.ToPath CreateEnvironment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEnvironment where
+instance Data.ToQuery CreateEnvironment where
   toQuery CreateEnvironment' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateEnvironment" :: Prelude.ByteString),
+          Data.=: ("CreateEnvironment" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "TemplateName" Core.=: templateName,
-        "EnvironmentName" Core.=: environmentName,
-        "GroupName" Core.=: groupName,
-        "Description" Core.=: description,
-        "CNAMEPrefix" Core.=: cNAMEPrefix,
-        "Tier" Core.=: tier,
-        "SolutionStackName" Core.=: solutionStackName,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "TemplateName" Data.=: templateName,
+        "EnvironmentName" Data.=: environmentName,
+        "GroupName" Data.=: groupName,
+        "Description" Data.=: description,
+        "CNAMEPrefix" Data.=: cNAMEPrefix,
+        "Tier" Data.=: tier,
+        "SolutionStackName" Data.=: solutionStackName,
         "OptionsToRemove"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> optionsToRemove
             ),
-        "PlatformArn" Core.=: platformArn,
-        "OperationsRole" Core.=: operationsRole,
-        "VersionLabel" Core.=: versionLabel,
+        "PlatformArn" Data.=: platformArn,
+        "OperationsRole" Data.=: operationsRole,
+        "VersionLabel" Data.=: versionLabel,
         "OptionSettings"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> optionSettings
             ),
-        "ApplicationName" Core.=: applicationName
+        "ApplicationName" Data.=: applicationName
       ]

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetLoadBalancer where
     Response.receiveJSON
       ( \s h x ->
           GetLoadBalancerResponse'
-            Prelude.<$> (x Core..?> "loadBalancer")
+            Prelude.<$> (x Data..?> "loadBalancer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,34 +99,34 @@ instance Prelude.NFData GetLoadBalancer where
   rnf GetLoadBalancer' {..} =
     Prelude.rnf loadBalancerName
 
-instance Core.ToHeaders GetLoadBalancer where
+instance Data.ToHeaders GetLoadBalancer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetLoadBalancer" ::
+              Data.=# ( "Lightsail_20161128.GetLoadBalancer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLoadBalancer where
+instance Data.ToJSON GetLoadBalancer where
   toJSON GetLoadBalancer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("loadBalancerName" Core..= loadBalancerName)
+              ("loadBalancerName" Data..= loadBalancerName)
           ]
       )
 
-instance Core.ToPath GetLoadBalancer where
+instance Data.ToPath GetLoadBalancer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetLoadBalancer where
+instance Data.ToQuery GetLoadBalancer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLoadBalancerResponse' smart constructor.

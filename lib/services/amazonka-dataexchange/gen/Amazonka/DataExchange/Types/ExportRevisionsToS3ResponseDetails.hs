@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.ExportServerSideEncryption
 import Amazonka.DataExchange.Types.RevisionDestinationEntry
 import qualified Amazonka.Prelude as Prelude
@@ -85,19 +86,19 @@ exportRevisionsToS3ResponseDetails_revisionDestinations :: Lens.Lens' ExportRevi
 exportRevisionsToS3ResponseDetails_revisionDestinations = Lens.lens (\ExportRevisionsToS3ResponseDetails' {revisionDestinations} -> revisionDestinations) (\s@ExportRevisionsToS3ResponseDetails' {} a -> s {revisionDestinations = a} :: ExportRevisionsToS3ResponseDetails) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ExportRevisionsToS3ResponseDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExportRevisionsToS3ResponseDetails"
       ( \x ->
           ExportRevisionsToS3ResponseDetails'
-            Prelude.<$> (x Core..:? "EventActionArn")
-            Prelude.<*> (x Core..:? "Encryption")
-            Prelude.<*> (x Core..: "DataSetId")
-            Prelude.<*> ( x Core..:? "RevisionDestinations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "EventActionArn")
+            Prelude.<*> (x Data..:? "Encryption")
+            Prelude.<*> (x Data..: "DataSetId")
+            Prelude.<*> ( x Data..:? "RevisionDestinations"
+                            Data..!= Prelude.mempty
                         )
       )
 

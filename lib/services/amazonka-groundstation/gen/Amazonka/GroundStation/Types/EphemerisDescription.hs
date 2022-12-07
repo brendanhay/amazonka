@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.EphemerisDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.S3Object
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ ephemerisDescription_sourceS3Object = Lens.lens (\EphemerisDescription' {sourceS
 ephemerisDescription_ephemerisData :: Lens.Lens' EphemerisDescription (Prelude.Maybe Prelude.Text)
 ephemerisDescription_ephemerisData = Lens.lens (\EphemerisDescription' {ephemerisData} -> ephemerisData) (\s@EphemerisDescription' {} a -> s {ephemerisData = a} :: EphemerisDescription)
 
-instance Core.FromJSON EphemerisDescription where
+instance Data.FromJSON EphemerisDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EphemerisDescription"
       ( \x ->
           EphemerisDescription'
-            Prelude.<$> (x Core..:? "sourceS3Object")
-            Prelude.<*> (x Core..:? "ephemerisData")
+            Prelude.<$> (x Data..:? "sourceS3Object")
+            Prelude.<*> (x Data..:? "ephemerisData")
       )
 
 instance Prelude.Hashable EphemerisDescription where

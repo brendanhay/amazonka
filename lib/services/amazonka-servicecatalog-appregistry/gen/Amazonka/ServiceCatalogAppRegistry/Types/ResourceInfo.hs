@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalogAppRegistry.Types.ResourceInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalogAppRegistry.Types.ResourceDetails
 import Amazonka.ServiceCatalogAppRegistry.Types.ResourceType
@@ -87,16 +88,16 @@ resourceInfo_arn = Lens.lens (\ResourceInfo' {arn} -> arn) (\s@ResourceInfo' {} 
 resourceInfo_resourceDetails :: Lens.Lens' ResourceInfo (Prelude.Maybe ResourceDetails)
 resourceInfo_resourceDetails = Lens.lens (\ResourceInfo' {resourceDetails} -> resourceDetails) (\s@ResourceInfo' {} a -> s {resourceDetails = a} :: ResourceInfo)
 
-instance Core.FromJSON ResourceInfo where
+instance Data.FromJSON ResourceInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceInfo"
       ( \x ->
           ResourceInfo'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "resourceDetails")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "resourceDetails")
       )
 
 instance Prelude.Hashable ResourceInfo where

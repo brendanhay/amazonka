@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.FirehoseAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.Payload
 import qualified Amazonka.Prelude as Prelude
 
@@ -86,15 +87,15 @@ firehoseAction_payload = Lens.lens (\FirehoseAction' {payload} -> payload) (\s@F
 firehoseAction_deliveryStreamName :: Lens.Lens' FirehoseAction Prelude.Text
 firehoseAction_deliveryStreamName = Lens.lens (\FirehoseAction' {deliveryStreamName} -> deliveryStreamName) (\s@FirehoseAction' {} a -> s {deliveryStreamName = a} :: FirehoseAction)
 
-instance Core.FromJSON FirehoseAction where
+instance Data.FromJSON FirehoseAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirehoseAction"
       ( \x ->
           FirehoseAction'
-            Prelude.<$> (x Core..:? "separator")
-            Prelude.<*> (x Core..:? "payload")
-            Prelude.<*> (x Core..: "deliveryStreamName")
+            Prelude.<$> (x Data..:? "separator")
+            Prelude.<*> (x Data..:? "payload")
+            Prelude.<*> (x Data..: "deliveryStreamName")
       )
 
 instance Prelude.Hashable FirehoseAction where
@@ -109,13 +110,13 @@ instance Prelude.NFData FirehoseAction where
       `Prelude.seq` Prelude.rnf payload
       `Prelude.seq` Prelude.rnf deliveryStreamName
 
-instance Core.ToJSON FirehoseAction where
+instance Data.ToJSON FirehoseAction where
   toJSON FirehoseAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("separator" Core..=) Prelude.<$> separator,
-            ("payload" Core..=) Prelude.<$> payload,
+          [ ("separator" Data..=) Prelude.<$> separator,
+            ("payload" Data..=) Prelude.<$> payload,
             Prelude.Just
-              ("deliveryStreamName" Core..= deliveryStreamName)
+              ("deliveryStreamName" Data..= deliveryStreamName)
           ]
       )

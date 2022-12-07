@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.BatchGetMetricDataQuery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.Metric
 import Amazonka.SESV2.Types.MetricDimensionName
@@ -84,9 +85,9 @@ data BatchGetMetricDataQuery = BatchGetMetricDataQuery'
     --     feedback loop agreement.
     metric :: Metric,
     -- | Represents the start date for the query interval.
-    startDate :: Core.POSIX,
+    startDate :: Data.POSIX,
     -- | Represents the end date for the query interval.
-    endDate :: Core.POSIX
+    endDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -178,8 +179,8 @@ newBatchGetMetricDataQuery
         id = pId_,
         namespace = pNamespace_,
         metric = pMetric_,
-        startDate = Core._Time Lens.# pStartDate_,
-        endDate = Core._Time Lens.# pEndDate_
+        startDate = Data._Time Lens.# pStartDate_,
+        endDate = Data._Time Lens.# pEndDate_
       }
 
 -- | An object that contains mapping between @MetricDimensionName@ and
@@ -245,11 +246,11 @@ batchGetMetricDataQuery_metric = Lens.lens (\BatchGetMetricDataQuery' {metric} -
 
 -- | Represents the start date for the query interval.
 batchGetMetricDataQuery_startDate :: Lens.Lens' BatchGetMetricDataQuery Prelude.UTCTime
-batchGetMetricDataQuery_startDate = Lens.lens (\BatchGetMetricDataQuery' {startDate} -> startDate) (\s@BatchGetMetricDataQuery' {} a -> s {startDate = a} :: BatchGetMetricDataQuery) Prelude.. Core._Time
+batchGetMetricDataQuery_startDate = Lens.lens (\BatchGetMetricDataQuery' {startDate} -> startDate) (\s@BatchGetMetricDataQuery' {} a -> s {startDate = a} :: BatchGetMetricDataQuery) Prelude.. Data._Time
 
 -- | Represents the end date for the query interval.
 batchGetMetricDataQuery_endDate :: Lens.Lens' BatchGetMetricDataQuery Prelude.UTCTime
-batchGetMetricDataQuery_endDate = Lens.lens (\BatchGetMetricDataQuery' {endDate} -> endDate) (\s@BatchGetMetricDataQuery' {} a -> s {endDate = a} :: BatchGetMetricDataQuery) Prelude.. Core._Time
+batchGetMetricDataQuery_endDate = Lens.lens (\BatchGetMetricDataQuery' {endDate} -> endDate) (\s@BatchGetMetricDataQuery' {} a -> s {endDate = a} :: BatchGetMetricDataQuery) Prelude.. Data._Time
 
 instance Prelude.Hashable BatchGetMetricDataQuery where
   hashWithSalt _salt BatchGetMetricDataQuery' {..} =
@@ -269,15 +270,15 @@ instance Prelude.NFData BatchGetMetricDataQuery where
       `Prelude.seq` Prelude.rnf startDate
       `Prelude.seq` Prelude.rnf endDate
 
-instance Core.ToJSON BatchGetMetricDataQuery where
+instance Data.ToJSON BatchGetMetricDataQuery where
   toJSON BatchGetMetricDataQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Dimensions" Core..=) Prelude.<$> dimensions,
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("Namespace" Core..= namespace),
-            Prelude.Just ("Metric" Core..= metric),
-            Prelude.Just ("StartDate" Core..= startDate),
-            Prelude.Just ("EndDate" Core..= endDate)
+          [ ("Dimensions" Data..=) Prelude.<$> dimensions,
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("Namespace" Data..= namespace),
+            Prelude.Just ("Metric" Data..= metric),
+            Prelude.Just ("StartDate" Data..= startDate),
+            Prelude.Just ("EndDate" Data..= endDate)
           ]
       )

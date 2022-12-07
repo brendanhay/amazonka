@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.Cluster where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.Application
 import Amazonka.EMR.Types.ClusterStatus
 import Amazonka.EMR.Types.Configuration
@@ -536,45 +537,45 @@ cluster_name = Lens.lens (\Cluster' {name} -> name) (\s@Cluster' {} a -> s {name
 cluster_status :: Lens.Lens' Cluster ClusterStatus
 cluster_status = Lens.lens (\Cluster' {status} -> status) (\s@Cluster' {} a -> s {status = a} :: Cluster)
 
-instance Core.FromJSON Cluster where
+instance Data.FromJSON Cluster where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Cluster"
       ( \x ->
           Cluster'
-            Prelude.<$> (x Core..:? "ClusterArn")
-            Prelude.<*> (x Core..:? "SecurityConfiguration")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "OutpostArn")
-            Prelude.<*> (x Core..:? "InstanceCollectionType")
-            Prelude.<*> (x Core..:? "RunningAmiVersion")
-            Prelude.<*> (x Core..:? "LogEncryptionKmsKeyId")
-            Prelude.<*> (x Core..:? "EbsRootVolumeSize")
-            Prelude.<*> (x Core..:? "Applications" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RequestedAmiVersion")
-            Prelude.<*> (x Core..:? "ReleaseLabel")
-            Prelude.<*> (x Core..:? "AutoScalingRole")
-            Prelude.<*> (x Core..:? "ScaleDownBehavior")
-            Prelude.<*> (x Core..:? "TerminationProtected")
-            Prelude.<*> (x Core..:? "RepoUpgradeOnBoot")
-            Prelude.<*> (x Core..:? "ServiceRole")
-            Prelude.<*> (x Core..:? "Configurations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AutoTerminate")
-            Prelude.<*> (x Core..:? "OSReleaseLabel")
-            Prelude.<*> (x Core..:? "StepConcurrencyLevel")
-            Prelude.<*> (x Core..:? "LogUri")
-            Prelude.<*> (x Core..:? "VisibleToAllUsers")
-            Prelude.<*> (x Core..:? "MasterPublicDnsName")
-            Prelude.<*> (x Core..:? "CustomAmiId")
-            Prelude.<*> (x Core..:? "KerberosAttributes")
-            Prelude.<*> (x Core..:? "NormalizedInstanceHours")
-            Prelude.<*> (x Core..:? "Ec2InstanceAttributes")
-            Prelude.<*> ( x Core..:? "PlacementGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ClusterArn")
+            Prelude.<*> (x Data..:? "SecurityConfiguration")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "OutpostArn")
+            Prelude.<*> (x Data..:? "InstanceCollectionType")
+            Prelude.<*> (x Data..:? "RunningAmiVersion")
+            Prelude.<*> (x Data..:? "LogEncryptionKmsKeyId")
+            Prelude.<*> (x Data..:? "EbsRootVolumeSize")
+            Prelude.<*> (x Data..:? "Applications" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RequestedAmiVersion")
+            Prelude.<*> (x Data..:? "ReleaseLabel")
+            Prelude.<*> (x Data..:? "AutoScalingRole")
+            Prelude.<*> (x Data..:? "ScaleDownBehavior")
+            Prelude.<*> (x Data..:? "TerminationProtected")
+            Prelude.<*> (x Data..:? "RepoUpgradeOnBoot")
+            Prelude.<*> (x Data..:? "ServiceRole")
+            Prelude.<*> (x Data..:? "Configurations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AutoTerminate")
+            Prelude.<*> (x Data..:? "OSReleaseLabel")
+            Prelude.<*> (x Data..:? "StepConcurrencyLevel")
+            Prelude.<*> (x Data..:? "LogUri")
+            Prelude.<*> (x Data..:? "VisibleToAllUsers")
+            Prelude.<*> (x Data..:? "MasterPublicDnsName")
+            Prelude.<*> (x Data..:? "CustomAmiId")
+            Prelude.<*> (x Data..:? "KerberosAttributes")
+            Prelude.<*> (x Data..:? "NormalizedInstanceHours")
+            Prelude.<*> (x Data..:? "Ec2InstanceAttributes")
+            Prelude.<*> ( x Data..:? "PlacementGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable Cluster where

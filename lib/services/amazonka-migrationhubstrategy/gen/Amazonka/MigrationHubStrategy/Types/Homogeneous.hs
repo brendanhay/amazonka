@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.Homogeneous where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.HomogeneousTargetDatabaseEngine
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,14 +58,14 @@ newHomogeneous =
 homogeneous_targetDatabaseEngine :: Lens.Lens' Homogeneous (Prelude.Maybe [HomogeneousTargetDatabaseEngine])
 homogeneous_targetDatabaseEngine = Lens.lens (\Homogeneous' {targetDatabaseEngine} -> targetDatabaseEngine) (\s@Homogeneous' {} a -> s {targetDatabaseEngine = a} :: Homogeneous) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Homogeneous where
+instance Data.FromJSON Homogeneous where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Homogeneous"
       ( \x ->
           Homogeneous'
-            Prelude.<$> ( x Core..:? "targetDatabaseEngine"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "targetDatabaseEngine"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -76,11 +77,11 @@ instance Prelude.NFData Homogeneous where
   rnf Homogeneous' {..} =
     Prelude.rnf targetDatabaseEngine
 
-instance Core.ToJSON Homogeneous where
+instance Data.ToJSON Homogeneous where
   toJSON Homogeneous' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetDatabaseEngine" Core..=)
+          [ ("targetDatabaseEngine" Data..=)
               Prelude.<$> targetDatabaseEngine
           ]
       )

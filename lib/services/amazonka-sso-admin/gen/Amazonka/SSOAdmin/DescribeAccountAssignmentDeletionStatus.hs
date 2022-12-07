@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,7 +115,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountAssignmentDeletionStatusResponse'
-            Prelude.<$> (x Core..?> "AccountAssignmentDeletionStatus")
+            Prelude.<$> (x Data..?> "AccountAssignmentDeletionStatus")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,46 +138,46 @@ instance
       `Prelude.seq` Prelude.rnf accountAssignmentDeletionRequestId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeAccountAssignmentDeletionStatus
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SWBExternalService.DescribeAccountAssignmentDeletionStatus" ::
+              Data.=# ( "SWBExternalService.DescribeAccountAssignmentDeletionStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeAccountAssignmentDeletionStatus
   where
   toJSON DescribeAccountAssignmentDeletionStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceArn" Core..= instanceArn),
+          [ Prelude.Just ("InstanceArn" Data..= instanceArn),
             Prelude.Just
               ( "AccountAssignmentDeletionRequestId"
-                  Core..= accountAssignmentDeletionRequestId
+                  Data..= accountAssignmentDeletionRequestId
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeAccountAssignmentDeletionStatus
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeAccountAssignmentDeletionStatus
   where
   toQuery = Prelude.const Prelude.mempty

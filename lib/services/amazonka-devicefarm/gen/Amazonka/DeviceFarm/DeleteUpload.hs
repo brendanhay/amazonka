@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,32 +95,32 @@ instance Prelude.Hashable DeleteUpload where
 instance Prelude.NFData DeleteUpload where
   rnf DeleteUpload' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeleteUpload where
+instance Data.ToHeaders DeleteUpload where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.DeleteUpload" ::
+              Data.=# ( "DeviceFarm_20150623.DeleteUpload" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteUpload where
+instance Data.ToJSON DeleteUpload where
   toJSON DeleteUpload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath DeleteUpload where
+instance Data.ToPath DeleteUpload where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteUpload where
+instance Data.ToQuery DeleteUpload where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a delete upload request.

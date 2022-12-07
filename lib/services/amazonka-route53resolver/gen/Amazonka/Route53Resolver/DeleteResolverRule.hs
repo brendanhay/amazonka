@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,7 +90,7 @@ instance Core.AWSRequest DeleteResolverRule where
     Response.receiveJSON
       ( \s h x ->
           DeleteResolverRuleResponse'
-            Prelude.<$> (x Core..?> "ResolverRule")
+            Prelude.<$> (x Data..?> "ResolverRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,34 +102,34 @@ instance Prelude.NFData DeleteResolverRule where
   rnf DeleteResolverRule' {..} =
     Prelude.rnf resolverRuleId
 
-instance Core.ToHeaders DeleteResolverRule where
+instance Data.ToHeaders DeleteResolverRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.DeleteResolverRule" ::
+              Data.=# ( "Route53Resolver.DeleteResolverRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteResolverRule where
+instance Data.ToJSON DeleteResolverRule where
   toJSON DeleteResolverRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ResolverRuleId" Core..= resolverRuleId)
+              ("ResolverRuleId" Data..= resolverRuleId)
           ]
       )
 
-instance Core.ToPath DeleteResolverRule where
+instance Data.ToPath DeleteResolverRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteResolverRule where
+instance Data.ToQuery DeleteResolverRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResolverRuleResponse' smart constructor.

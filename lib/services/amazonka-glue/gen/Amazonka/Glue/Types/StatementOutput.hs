@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.StatementOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.StatementOutputData
 import Amazonka.Glue.Types.StatementState
 import qualified Amazonka.Prelude as Prelude
@@ -99,18 +100,18 @@ statementOutput_traceback = Lens.lens (\StatementOutput' {traceback} -> tracebac
 statementOutput_data :: Lens.Lens' StatementOutput (Prelude.Maybe StatementOutputData)
 statementOutput_data = Lens.lens (\StatementOutput' {data'} -> data') (\s@StatementOutput' {} a -> s {data' = a} :: StatementOutput)
 
-instance Core.FromJSON StatementOutput where
+instance Data.FromJSON StatementOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatementOutput"
       ( \x ->
           StatementOutput'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ErrorValue")
-            Prelude.<*> (x Core..:? "ExecutionCount")
-            Prelude.<*> (x Core..:? "ErrorName")
-            Prelude.<*> (x Core..:? "Traceback" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Data")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ErrorValue")
+            Prelude.<*> (x Data..:? "ExecutionCount")
+            Prelude.<*> (x Data..:? "ErrorName")
+            Prelude.<*> (x Data..:? "Traceback" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Data")
       )
 
 instance Prelude.Hashable StatementOutput where

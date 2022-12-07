@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.ResourceAccessPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.Permission
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,14 +71,14 @@ resourceAccessPolicy_permission = Lens.lens (\ResourceAccessPolicy' {permission}
 resourceAccessPolicy_resourceId :: Lens.Lens' ResourceAccessPolicy Prelude.Text
 resourceAccessPolicy_resourceId = Lens.lens (\ResourceAccessPolicy' {resourceId} -> resourceId) (\s@ResourceAccessPolicy' {} a -> s {resourceId = a} :: ResourceAccessPolicy)
 
-instance Core.FromJSON ResourceAccessPolicy where
+instance Data.FromJSON ResourceAccessPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceAccessPolicy"
       ( \x ->
           ResourceAccessPolicy'
-            Prelude.<$> (x Core..:? "Permission")
-            Prelude.<*> (x Core..: "ResourceId")
+            Prelude.<$> (x Data..:? "Permission")
+            Prelude.<*> (x Data..: "ResourceId")
       )
 
 instance Prelude.Hashable ResourceAccessPolicy where
@@ -90,11 +91,11 @@ instance Prelude.NFData ResourceAccessPolicy where
     Prelude.rnf permission
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToJSON ResourceAccessPolicy where
+instance Data.ToJSON ResourceAccessPolicy where
   toJSON ResourceAccessPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Permission" Core..=) Prelude.<$> permission,
-            Prelude.Just ("ResourceId" Core..= resourceId)
+          [ ("Permission" Data..=) Prelude.<$> permission,
+            Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )

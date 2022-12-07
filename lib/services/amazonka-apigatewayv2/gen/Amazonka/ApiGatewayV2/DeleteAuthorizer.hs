@@ -39,6 +39,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,27 +103,27 @@ instance Prelude.NFData DeleteAuthorizer where
     Prelude.rnf authorizerId
       `Prelude.seq` Prelude.rnf apiId
 
-instance Core.ToHeaders DeleteAuthorizer where
+instance Data.ToHeaders DeleteAuthorizer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteAuthorizer where
+instance Data.ToPath DeleteAuthorizer where
   toPath DeleteAuthorizer' {..} =
     Prelude.mconcat
       [ "/v2/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/authorizers/",
-        Core.toBS authorizerId
+        Data.toBS authorizerId
       ]
 
-instance Core.ToQuery DeleteAuthorizer where
+instance Data.ToQuery DeleteAuthorizer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAuthorizerResponse' smart constructor.

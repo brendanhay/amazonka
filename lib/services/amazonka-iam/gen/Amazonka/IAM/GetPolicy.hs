@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,7 +112,7 @@ instance Core.AWSRequest GetPolicy where
       "GetPolicyResult"
       ( \s h x ->
           GetPolicyResponse'
-            Prelude.<$> (x Core..@? "Policy")
+            Prelude.<$> (x Data..@? "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,20 +123,20 @@ instance Prelude.Hashable GetPolicy where
 instance Prelude.NFData GetPolicy where
   rnf GetPolicy' {..} = Prelude.rnf policyArn
 
-instance Core.ToHeaders GetPolicy where
+instance Data.ToHeaders GetPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetPolicy where
+instance Data.ToPath GetPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetPolicy where
+instance Data.ToQuery GetPolicy where
   toQuery GetPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetPolicy" :: Prelude.ByteString),
+          Data.=: ("GetPolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "PolicyArn" Core.=: policyArn
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "PolicyArn" Data.=: policyArn
       ]
 
 -- | Contains the response to a successful GetPolicy request.

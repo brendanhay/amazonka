@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.S3RecordingDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about an S3 recording @Config@ used in a contact.
@@ -61,14 +62,14 @@ s3RecordingDetails_keyTemplate = Lens.lens (\S3RecordingDetails' {keyTemplate} -
 s3RecordingDetails_bucketArn :: Lens.Lens' S3RecordingDetails (Prelude.Maybe Prelude.Text)
 s3RecordingDetails_bucketArn = Lens.lens (\S3RecordingDetails' {bucketArn} -> bucketArn) (\s@S3RecordingDetails' {} a -> s {bucketArn = a} :: S3RecordingDetails)
 
-instance Core.FromJSON S3RecordingDetails where
+instance Data.FromJSON S3RecordingDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3RecordingDetails"
       ( \x ->
           S3RecordingDetails'
-            Prelude.<$> (x Core..:? "keyTemplate")
-            Prelude.<*> (x Core..:? "bucketArn")
+            Prelude.<$> (x Data..:? "keyTemplate")
+            Prelude.<*> (x Data..:? "bucketArn")
       )
 
 instance Prelude.Hashable S3RecordingDetails where

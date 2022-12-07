@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.Project where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.ProjectAppConfigResource
 import Amazonka.Evidently.Types.ProjectDataDelivery
 import Amazonka.Evidently.Types.ProjectStatus
@@ -59,9 +60,9 @@ data Project = Project'
     -- | The name or ARN of the project.
     arn :: Prelude.Text,
     -- | The date and time that the project is created.
-    createdTime :: Core.POSIX,
+    createdTime :: Data.POSIX,
     -- | The date and time that the project was most recently updated.
-    lastUpdatedTime :: Core.POSIX,
+    lastUpdatedTime :: Data.POSIX,
     -- | The name of the project.
     name :: Prelude.Text,
     -- | The current state of the project.
@@ -139,9 +140,9 @@ newProject
         experimentCount = Prelude.Nothing,
         activeExperimentCount = Prelude.Nothing,
         arn = pArn_,
-        createdTime = Core._Time Lens.# pCreatedTime_,
+        createdTime = Data._Time Lens.# pCreatedTime_,
         lastUpdatedTime =
-          Core._Time Lens.# pLastUpdatedTime_,
+          Data._Time Lens.# pLastUpdatedTime_,
         name = pName_,
         status = pStatus_
       }
@@ -194,11 +195,11 @@ project_arn = Lens.lens (\Project' {arn} -> arn) (\s@Project' {} a -> s {arn = a
 
 -- | The date and time that the project is created.
 project_createdTime :: Lens.Lens' Project Prelude.UTCTime
-project_createdTime = Lens.lens (\Project' {createdTime} -> createdTime) (\s@Project' {} a -> s {createdTime = a} :: Project) Prelude.. Core._Time
+project_createdTime = Lens.lens (\Project' {createdTime} -> createdTime) (\s@Project' {} a -> s {createdTime = a} :: Project) Prelude.. Data._Time
 
 -- | The date and time that the project was most recently updated.
 project_lastUpdatedTime :: Lens.Lens' Project Prelude.UTCTime
-project_lastUpdatedTime = Lens.lens (\Project' {lastUpdatedTime} -> lastUpdatedTime) (\s@Project' {} a -> s {lastUpdatedTime = a} :: Project) Prelude.. Core._Time
+project_lastUpdatedTime = Lens.lens (\Project' {lastUpdatedTime} -> lastUpdatedTime) (\s@Project' {} a -> s {lastUpdatedTime = a} :: Project) Prelude.. Data._Time
 
 -- | The name of the project.
 project_name :: Lens.Lens' Project Prelude.Text
@@ -208,26 +209,26 @@ project_name = Lens.lens (\Project' {name} -> name) (\s@Project' {} a -> s {name
 project_status :: Lens.Lens' Project ProjectStatus
 project_status = Lens.lens (\Project' {status} -> status) (\s@Project' {} a -> s {status = a} :: Project)
 
-instance Core.FromJSON Project where
+instance Data.FromJSON Project where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Project"
       ( \x ->
           Project'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "dataDelivery")
-            Prelude.<*> (x Core..:? "appConfigResource")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "activeLaunchCount")
-            Prelude.<*> (x Core..:? "featureCount")
-            Prelude.<*> (x Core..:? "launchCount")
-            Prelude.<*> (x Core..:? "experimentCount")
-            Prelude.<*> (x Core..:? "activeExperimentCount")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdTime")
-            Prelude.<*> (x Core..: "lastUpdatedTime")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "dataDelivery")
+            Prelude.<*> (x Data..:? "appConfigResource")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "activeLaunchCount")
+            Prelude.<*> (x Data..:? "featureCount")
+            Prelude.<*> (x Data..:? "launchCount")
+            Prelude.<*> (x Data..:? "experimentCount")
+            Prelude.<*> (x Data..:? "activeExperimentCount")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdTime")
+            Prelude.<*> (x Data..: "lastUpdatedTime")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable Project where

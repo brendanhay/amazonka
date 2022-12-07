@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,8 +108,8 @@ instance Core.AWSRequest ListSafetyRules where
     Response.receiveJSON
       ( \s h x ->
           ListSafetyRulesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "SafetyRules" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "SafetyRules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,30 +125,30 @@ instance Prelude.NFData ListSafetyRules where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf controlPanelArn
 
-instance Core.ToHeaders ListSafetyRules where
+instance Data.ToHeaders ListSafetyRules where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListSafetyRules where
+instance Data.ToPath ListSafetyRules where
   toPath ListSafetyRules' {..} =
     Prelude.mconcat
       [ "/controlpanel/",
-        Core.toBS controlPanelArn,
+        Data.toBS controlPanelArn,
         "/safetyrules"
       ]
 
-instance Core.ToQuery ListSafetyRules where
+instance Data.ToQuery ListSafetyRules where
   toQuery ListSafetyRules' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListSafetyRulesResponse' smart constructor.

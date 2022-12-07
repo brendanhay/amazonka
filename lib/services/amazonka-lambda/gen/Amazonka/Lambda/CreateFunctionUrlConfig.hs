@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -177,12 +178,12 @@ instance Core.AWSRequest CreateFunctionUrlConfig where
     Response.receiveJSON
       ( \s h x ->
           CreateFunctionUrlConfigResponse'
-            Prelude.<$> (x Core..?> "Cors")
+            Prelude.<$> (x Data..?> "Cors")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "FunctionUrl")
-            Prelude.<*> (x Core..:> "FunctionArn")
-            Prelude.<*> (x Core..:> "AuthType")
-            Prelude.<*> (x Core..:> "CreationTime")
+            Prelude.<*> (x Data..:> "FunctionUrl")
+            Prelude.<*> (x Data..:> "FunctionArn")
+            Prelude.<*> (x Data..:> "AuthType")
+            Prelude.<*> (x Data..:> "CreationTime")
       )
 
 instance Prelude.Hashable CreateFunctionUrlConfig where
@@ -199,29 +200,29 @@ instance Prelude.NFData CreateFunctionUrlConfig where
       `Prelude.seq` Prelude.rnf functionName
       `Prelude.seq` Prelude.rnf authType
 
-instance Core.ToHeaders CreateFunctionUrlConfig where
+instance Data.ToHeaders CreateFunctionUrlConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateFunctionUrlConfig where
+instance Data.ToJSON CreateFunctionUrlConfig where
   toJSON CreateFunctionUrlConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Cors" Core..=) Prelude.<$> cors,
-            Prelude.Just ("AuthType" Core..= authType)
+          [ ("Cors" Data..=) Prelude.<$> cors,
+            Prelude.Just ("AuthType" Data..= authType)
           ]
       )
 
-instance Core.ToPath CreateFunctionUrlConfig where
+instance Data.ToPath CreateFunctionUrlConfig where
   toPath CreateFunctionUrlConfig' {..} =
     Prelude.mconcat
       [ "/2021-10-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/url"
       ]
 
-instance Core.ToQuery CreateFunctionUrlConfig where
+instance Data.ToQuery CreateFunctionUrlConfig where
   toQuery CreateFunctionUrlConfig' {..} =
-    Prelude.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Data.=: qualifier]
 
 -- | /See:/ 'newCreateFunctionUrlConfigResponse' smart constructor.
 data CreateFunctionUrlConfigResponse = CreateFunctionUrlConfigResponse'

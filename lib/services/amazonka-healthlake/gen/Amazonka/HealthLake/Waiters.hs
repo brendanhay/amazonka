@@ -18,6 +18,7 @@ module Amazonka.HealthLake.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HealthLake.Lens
 import Amazonka.HealthLake.Types
 import qualified Amazonka.Prelude as Prelude

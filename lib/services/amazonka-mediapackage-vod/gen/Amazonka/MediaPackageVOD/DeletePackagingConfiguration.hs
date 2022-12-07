@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,23 +100,23 @@ instance Prelude.NFData DeletePackagingConfiguration where
   rnf DeletePackagingConfiguration' {..} =
     Prelude.rnf id
 
-instance Core.ToHeaders DeletePackagingConfiguration where
+instance Data.ToHeaders DeletePackagingConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeletePackagingConfiguration where
+instance Data.ToPath DeletePackagingConfiguration where
   toPath DeletePackagingConfiguration' {..} =
     Prelude.mconcat
-      ["/packaging_configurations/", Core.toBS id]
+      ["/packaging_configurations/", Data.toBS id]
 
-instance Core.ToQuery DeletePackagingConfiguration where
+instance Data.ToQuery DeletePackagingConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePackagingConfigurationResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.CreateJobPlaylist where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.HlsContentProtection
 import Amazonka.ElasticTranscoder.Types.PlayReadyDrm
 import qualified Amazonka.Prelude as Prelude
@@ -259,15 +260,15 @@ instance Prelude.NFData CreateJobPlaylist where
       `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf outputKeys
 
-instance Core.ToJSON CreateJobPlaylist where
+instance Data.ToJSON CreateJobPlaylist where
   toJSON CreateJobPlaylist' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("HlsContentProtection" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("HlsContentProtection" Data..=)
               Prelude.<$> hlsContentProtection,
-            ("PlayReadyDrm" Core..=) Prelude.<$> playReadyDrm,
-            ("Format" Core..=) Prelude.<$> format,
-            ("OutputKeys" Core..=) Prelude.<$> outputKeys
+            ("PlayReadyDrm" Data..=) Prelude.<$> playReadyDrm,
+            ("Format" Data..=) Prelude.<$> format,
+            ("OutputKeys" Data..=) Prelude.<$> outputKeys
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.LexRuntime.Types.IntentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexRuntime.Types.ConfirmationStatus
 import Amazonka.LexRuntime.Types.DialogActionType
 import Amazonka.LexRuntime.Types.FulfillmentState
@@ -72,7 +73,7 @@ data IntentSummary = IntentSummary'
     -- | The name of the intent.
     intentName :: Prelude.Maybe Prelude.Text,
     -- | Map of the slots that have been gathered and their values.
-    slots :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    slots :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The next action that the bot should take in its interaction with the
     -- user. The possible values are:
     --
@@ -222,7 +223,7 @@ intentSummary_intentName = Lens.lens (\IntentSummary' {intentName} -> intentName
 
 -- | Map of the slots that have been gathered and their values.
 intentSummary_slots :: Lens.Lens' IntentSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-intentSummary_slots = Lens.lens (\IntentSummary' {slots} -> slots) (\s@IntentSummary' {} a -> s {slots = a} :: IntentSummary) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+intentSummary_slots = Lens.lens (\IntentSummary' {slots} -> slots) (\s@IntentSummary' {} a -> s {slots = a} :: IntentSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The next action that the bot should take in its interaction with the
 -- user. The possible values are:
@@ -243,19 +244,19 @@ intentSummary_slots = Lens.lens (\IntentSummary' {slots} -> slots) (\s@IntentSum
 intentSummary_dialogActionType :: Lens.Lens' IntentSummary DialogActionType
 intentSummary_dialogActionType = Lens.lens (\IntentSummary' {dialogActionType} -> dialogActionType) (\s@IntentSummary' {} a -> s {dialogActionType = a} :: IntentSummary)
 
-instance Core.FromJSON IntentSummary where
+instance Data.FromJSON IntentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IntentSummary"
       ( \x ->
           IntentSummary'
-            Prelude.<$> (x Core..:? "fulfillmentState")
-            Prelude.<*> (x Core..:? "confirmationStatus")
-            Prelude.<*> (x Core..:? "checkpointLabel")
-            Prelude.<*> (x Core..:? "slotToElicit")
-            Prelude.<*> (x Core..:? "intentName")
-            Prelude.<*> (x Core..:? "slots" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "dialogActionType")
+            Prelude.<$> (x Data..:? "fulfillmentState")
+            Prelude.<*> (x Data..:? "confirmationStatus")
+            Prelude.<*> (x Data..:? "checkpointLabel")
+            Prelude.<*> (x Data..:? "slotToElicit")
+            Prelude.<*> (x Data..:? "intentName")
+            Prelude.<*> (x Data..:? "slots" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "dialogActionType")
       )
 
 instance Prelude.Hashable IntentSummary where
@@ -278,20 +279,20 @@ instance Prelude.NFData IntentSummary where
       `Prelude.seq` Prelude.rnf slots
       `Prelude.seq` Prelude.rnf dialogActionType
 
-instance Core.ToJSON IntentSummary where
+instance Data.ToJSON IntentSummary where
   toJSON IntentSummary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fulfillmentState" Core..=)
+          [ ("fulfillmentState" Data..=)
               Prelude.<$> fulfillmentState,
-            ("confirmationStatus" Core..=)
+            ("confirmationStatus" Data..=)
               Prelude.<$> confirmationStatus,
-            ("checkpointLabel" Core..=)
+            ("checkpointLabel" Data..=)
               Prelude.<$> checkpointLabel,
-            ("slotToElicit" Core..=) Prelude.<$> slotToElicit,
-            ("intentName" Core..=) Prelude.<$> intentName,
-            ("slots" Core..=) Prelude.<$> slots,
+            ("slotToElicit" Data..=) Prelude.<$> slotToElicit,
+            ("intentName" Data..=) Prelude.<$> intentName,
+            ("slots" Data..=) Prelude.<$> slots,
             Prelude.Just
-              ("dialogActionType" Core..= dialogActionType)
+              ("dialogActionType" Data..= dialogActionType)
           ]
       )

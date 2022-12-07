@@ -84,6 +84,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -324,7 +325,7 @@ instance
       "CreateDBClusterParameterGroupResult"
       ( \s h x ->
           CreateDBClusterParameterGroupResponse'
-            Prelude.<$> (x Core..@? "DBClusterParameterGroup")
+            Prelude.<$> (x Data..@? "DBClusterParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -345,29 +346,29 @@ instance Prelude.NFData CreateDBClusterParameterGroup where
       `Prelude.seq` Prelude.rnf dbParameterGroupFamily
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToHeaders CreateDBClusterParameterGroup where
+instance Data.ToHeaders CreateDBClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDBClusterParameterGroup where
+instance Data.ToPath CreateDBClusterParameterGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDBClusterParameterGroup where
+instance Data.ToQuery CreateDBClusterParameterGroup where
   toQuery CreateDBClusterParameterGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateDBClusterParameterGroup" ::
+          Data.=: ( "CreateDBClusterParameterGroup" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
         "DBClusterParameterGroupName"
-          Core.=: dbClusterParameterGroupName,
+          Data.=: dbClusterParameterGroupName,
         "DBParameterGroupFamily"
-          Core.=: dbParameterGroupFamily,
-        "Description" Core.=: description
+          Data.=: dbParameterGroupFamily,
+        "Description" Data.=: description
       ]
 
 -- | /See:/ 'newCreateDBClusterParameterGroupResponse' smart constructor.

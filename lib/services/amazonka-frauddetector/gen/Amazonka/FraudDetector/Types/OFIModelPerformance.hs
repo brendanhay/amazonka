@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.OFIModelPerformance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Online Fraud Insights (OFI) model performance score.
@@ -56,12 +57,12 @@ newOFIModelPerformance =
 oFIModelPerformance_auc :: Lens.Lens' OFIModelPerformance (Prelude.Maybe Prelude.Double)
 oFIModelPerformance_auc = Lens.lens (\OFIModelPerformance' {auc} -> auc) (\s@OFIModelPerformance' {} a -> s {auc = a} :: OFIModelPerformance)
 
-instance Core.FromJSON OFIModelPerformance where
+instance Data.FromJSON OFIModelPerformance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OFIModelPerformance"
       ( \x ->
-          OFIModelPerformance' Prelude.<$> (x Core..:? "auc")
+          OFIModelPerformance' Prelude.<$> (x Data..:? "auc")
       )
 
 instance Prelude.Hashable OFIModelPerformance where

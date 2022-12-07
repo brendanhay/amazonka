@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -80,7 +81,7 @@ instance Core.AWSRequest GetSite where
     Response.receiveJSON
       ( \s h x ->
           GetSiteResponse'
-            Prelude.<$> (x Core..?> "Site")
+            Prelude.<$> (x Data..?> "Site")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -91,22 +92,22 @@ instance Prelude.Hashable GetSite where
 instance Prelude.NFData GetSite where
   rnf GetSite' {..} = Prelude.rnf siteId
 
-instance Core.ToHeaders GetSite where
+instance Data.ToHeaders GetSite where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSite where
+instance Data.ToPath GetSite where
   toPath GetSite' {..} =
-    Prelude.mconcat ["/sites/", Core.toBS siteId]
+    Prelude.mconcat ["/sites/", Data.toBS siteId]
 
-instance Core.ToQuery GetSite where
+instance Data.ToQuery GetSite where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSiteResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.RegisteredUserQuickSightConsoleEmbeddingConfigu
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the Amazon QuickSight console that you want to embed.
@@ -122,12 +123,12 @@ instance
       Prelude.rnf initialPath
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RegisteredUserQuickSightConsoleEmbeddingConfiguration
   where
   toJSON
     RegisteredUserQuickSightConsoleEmbeddingConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("InitialPath" Core..=) Prelude.<$> initialPath]
+            [("InitialPath" Data..=) Prelude.<$> initialPath]
         )

@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,23 +93,23 @@ instance Prelude.Hashable DeleteJobTemplate where
 instance Prelude.NFData DeleteJobTemplate where
   rnf DeleteJobTemplate' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteJobTemplate where
+instance Data.ToHeaders DeleteJobTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteJobTemplate where
+instance Data.ToPath DeleteJobTemplate where
   toPath DeleteJobTemplate' {..} =
     Prelude.mconcat
-      ["/2017-08-29/jobTemplates/", Core.toBS name]
+      ["/2017-08-29/jobTemplates/", Data.toBS name]
 
-instance Core.ToQuery DeleteJobTemplate where
+instance Data.ToQuery DeleteJobTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteJobTemplateResponse' smart constructor.

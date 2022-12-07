@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,7 +132,7 @@ instance Core.AWSRequest UpdateWorkflow where
     Response.receiveJSON
       ( \s h x ->
           UpdateWorkflowResponse'
-            Prelude.<$> (x Core..?> "Name")
+            Prelude.<$> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,36 +150,36 @@ instance Prelude.NFData UpdateWorkflow where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateWorkflow where
+instance Data.ToHeaders UpdateWorkflow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdateWorkflow" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.UpdateWorkflow" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkflow where
+instance Data.ToJSON UpdateWorkflow where
   toJSON UpdateWorkflow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxConcurrentRuns" Core..=)
+          [ ("MaxConcurrentRuns" Data..=)
               Prelude.<$> maxConcurrentRuns,
-            ("DefaultRunProperties" Core..=)
+            ("DefaultRunProperties" Data..=)
               Prelude.<$> defaultRunProperties,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name)
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateWorkflow where
+instance Data.ToPath UpdateWorkflow where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateWorkflow where
+instance Data.ToQuery UpdateWorkflow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWorkflowResponse' smart constructor.

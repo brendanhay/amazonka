@@ -56,6 +56,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -251,8 +252,8 @@ instance Core.AWSRequest UpdatePackageVersionsStatus where
     Response.receiveJSON
       ( \s h x ->
           UpdatePackageVersionsStatusResponse'
-            Prelude.<$> (x Core..?> "failedVersions" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "successfulVersions"
+            Prelude.<$> (x Data..?> "failedVersions" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "successfulVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -284,43 +285,43 @@ instance Prelude.NFData UpdatePackageVersionsStatus where
       `Prelude.seq` Prelude.rnf versions
       `Prelude.seq` Prelude.rnf targetStatus
 
-instance Core.ToHeaders UpdatePackageVersionsStatus where
+instance Data.ToHeaders UpdatePackageVersionsStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePackageVersionsStatus where
+instance Data.ToJSON UpdatePackageVersionsStatus where
   toJSON UpdatePackageVersionsStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("versionRevisions" Core..=)
+          [ ("versionRevisions" Data..=)
               Prelude.<$> versionRevisions,
-            ("expectedStatus" Core..=)
+            ("expectedStatus" Data..=)
               Prelude.<$> expectedStatus,
-            Prelude.Just ("versions" Core..= versions),
-            Prelude.Just ("targetStatus" Core..= targetStatus)
+            Prelude.Just ("versions" Data..= versions),
+            Prelude.Just ("targetStatus" Data..= targetStatus)
           ]
       )
 
-instance Core.ToPath UpdatePackageVersionsStatus where
+instance Data.ToPath UpdatePackageVersionsStatus where
   toPath =
     Prelude.const "/v1/package/versions/update_status"
 
-instance Core.ToQuery UpdatePackageVersionsStatus where
+instance Data.ToQuery UpdatePackageVersionsStatus where
   toQuery UpdatePackageVersionsStatus' {..} =
     Prelude.mconcat
-      [ "domain-owner" Core.=: domainOwner,
-        "namespace" Core.=: namespace,
-        "domain" Core.=: domain,
-        "repository" Core.=: repository,
-        "format" Core.=: format,
-        "package" Core.=: package
+      [ "domain-owner" Data.=: domainOwner,
+        "namespace" Data.=: namespace,
+        "domain" Data.=: domain,
+        "repository" Data.=: repository,
+        "format" Data.=: format,
+        "package" Data.=: package
       ]
 
 -- | /See:/ 'newUpdatePackageVersionsStatusResponse' smart constructor.

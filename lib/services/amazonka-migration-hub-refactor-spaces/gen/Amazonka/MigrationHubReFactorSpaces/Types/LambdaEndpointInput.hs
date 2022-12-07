@@ -21,6 +21,7 @@ module Amazonka.MigrationHubReFactorSpaces.Types.LambdaEndpointInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The input for the Lambda endpoint type.
@@ -52,12 +53,12 @@ newLambdaEndpointInput pArn_ =
 lambdaEndpointInput_arn :: Lens.Lens' LambdaEndpointInput Prelude.Text
 lambdaEndpointInput_arn = Lens.lens (\LambdaEndpointInput' {arn} -> arn) (\s@LambdaEndpointInput' {} a -> s {arn = a} :: LambdaEndpointInput)
 
-instance Core.FromJSON LambdaEndpointInput where
+instance Data.FromJSON LambdaEndpointInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaEndpointInput"
       ( \x ->
-          LambdaEndpointInput' Prelude.<$> (x Core..: "Arn")
+          LambdaEndpointInput' Prelude.<$> (x Data..: "Arn")
       )
 
 instance Prelude.Hashable LambdaEndpointInput where
@@ -67,9 +68,9 @@ instance Prelude.Hashable LambdaEndpointInput where
 instance Prelude.NFData LambdaEndpointInput where
   rnf LambdaEndpointInput' {..} = Prelude.rnf arn
 
-instance Core.ToJSON LambdaEndpointInput where
+instance Data.ToJSON LambdaEndpointInput where
   toJSON LambdaEndpointInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Arn" Core..= arn)]
+          [Prelude.Just ("Arn" Data..= arn)]
       )

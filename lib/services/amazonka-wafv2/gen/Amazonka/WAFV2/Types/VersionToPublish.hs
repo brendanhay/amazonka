@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.VersionToPublish where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A version of the named managed rule group, that the rule group\'s vendor
@@ -88,13 +89,13 @@ instance Prelude.NFData VersionToPublish where
     Prelude.rnf forecastedLifetime
       `Prelude.seq` Prelude.rnf associatedRuleGroupArn
 
-instance Core.ToJSON VersionToPublish where
+instance Data.ToJSON VersionToPublish where
   toJSON VersionToPublish' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ForecastedLifetime" Core..=)
+          [ ("ForecastedLifetime" Data..=)
               Prelude.<$> forecastedLifetime,
-            ("AssociatedRuleGroupArn" Core..=)
+            ("AssociatedRuleGroupArn" Data..=)
               Prelude.<$> associatedRuleGroupArn
           ]
       )

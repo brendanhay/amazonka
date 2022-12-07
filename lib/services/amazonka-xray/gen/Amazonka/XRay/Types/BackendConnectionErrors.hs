@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.BackendConnectionErrors where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- |
@@ -110,19 +111,19 @@ instance Prelude.NFData BackendConnectionErrors where
       `Prelude.seq` Prelude.rnf timeoutCount
       `Prelude.seq` Prelude.rnf hTTPCode5XXCount
 
-instance Core.ToJSON BackendConnectionErrors where
+instance Data.ToJSON BackendConnectionErrors where
   toJSON BackendConnectionErrors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OtherCount" Core..=) Prelude.<$> otherCount,
-            ("UnknownHostCount" Core..=)
+          [ ("OtherCount" Data..=) Prelude.<$> otherCount,
+            ("UnknownHostCount" Data..=)
               Prelude.<$> unknownHostCount,
-            ("HTTPCode4XXCount" Core..=)
+            ("HTTPCode4XXCount" Data..=)
               Prelude.<$> hTTPCode4XXCount,
-            ("ConnectionRefusedCount" Core..=)
+            ("ConnectionRefusedCount" Data..=)
               Prelude.<$> connectionRefusedCount,
-            ("TimeoutCount" Core..=) Prelude.<$> timeoutCount,
-            ("HTTPCode5XXCount" Core..=)
+            ("TimeoutCount" Data..=) Prelude.<$> timeoutCount,
+            ("HTTPCode5XXCount" Data..=)
               Prelude.<$> hTTPCode5XXCount
           ]
       )

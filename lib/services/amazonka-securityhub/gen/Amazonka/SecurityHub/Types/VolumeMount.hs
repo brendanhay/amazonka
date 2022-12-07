@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.VolumeMount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the mounting of a volume in a container.
@@ -61,14 +62,14 @@ volumeMount_name = Lens.lens (\VolumeMount' {name} -> name) (\s@VolumeMount' {} 
 volumeMount_mountPath :: Lens.Lens' VolumeMount (Prelude.Maybe Prelude.Text)
 volumeMount_mountPath = Lens.lens (\VolumeMount' {mountPath} -> mountPath) (\s@VolumeMount' {} a -> s {mountPath = a} :: VolumeMount)
 
-instance Core.FromJSON VolumeMount where
+instance Data.FromJSON VolumeMount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VolumeMount"
       ( \x ->
           VolumeMount'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "MountPath")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "MountPath")
       )
 
 instance Prelude.Hashable VolumeMount where
@@ -81,11 +82,11 @@ instance Prelude.NFData VolumeMount where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf mountPath
 
-instance Core.ToJSON VolumeMount where
+instance Data.ToJSON VolumeMount where
   toJSON VolumeMount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("MountPath" Core..=) Prelude.<$> mountPath
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("MountPath" Data..=) Prelude.<$> mountPath
           ]
       )

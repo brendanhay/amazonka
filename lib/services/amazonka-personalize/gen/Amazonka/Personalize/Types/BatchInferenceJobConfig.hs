@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.BatchInferenceJobConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration details of a batch inference job.
@@ -65,14 +66,14 @@ newBatchInferenceJobConfig =
 batchInferenceJobConfig_itemExplorationConfig :: Lens.Lens' BatchInferenceJobConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 batchInferenceJobConfig_itemExplorationConfig = Lens.lens (\BatchInferenceJobConfig' {itemExplorationConfig} -> itemExplorationConfig) (\s@BatchInferenceJobConfig' {} a -> s {itemExplorationConfig = a} :: BatchInferenceJobConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON BatchInferenceJobConfig where
+instance Data.FromJSON BatchInferenceJobConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchInferenceJobConfig"
       ( \x ->
           BatchInferenceJobConfig'
-            Prelude.<$> ( x Core..:? "itemExplorationConfig"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "itemExplorationConfig"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -84,11 +85,11 @@ instance Prelude.NFData BatchInferenceJobConfig where
   rnf BatchInferenceJobConfig' {..} =
     Prelude.rnf itemExplorationConfig
 
-instance Core.ToJSON BatchInferenceJobConfig where
+instance Data.ToJSON BatchInferenceJobConfig where
   toJSON BatchInferenceJobConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("itemExplorationConfig" Core..=)
+          [ ("itemExplorationConfig" Data..=)
               Prelude.<$> itemExplorationConfig
           ]
       )

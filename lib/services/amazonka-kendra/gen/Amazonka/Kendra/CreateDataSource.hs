@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -336,7 +337,7 @@ instance Core.AWSRequest CreateDataSource where
       ( \s h x ->
           CreateDataSourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Id")
+            Prelude.<*> (x Data..:> "Id")
       )
 
 instance Prelude.Hashable CreateDataSource where
@@ -369,46 +370,46 @@ instance Prelude.NFData CreateDataSource where
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateDataSource where
+instance Data.ToHeaders CreateDataSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.CreateDataSource" ::
+              Data.=# ( "AWSKendraFrontendService.CreateDataSource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataSource where
+instance Data.ToJSON CreateDataSource where
   toJSON CreateDataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Schedule" Core..=) Prelude.<$> schedule,
-            ("VpcConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Schedule" Data..=) Prelude.<$> schedule,
+            ("VpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("CustomDocumentEnrichmentConfiguration" Core..=)
+            ("CustomDocumentEnrichmentConfiguration" Data..=)
               Prelude.<$> customDocumentEnrichmentConfiguration,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Configuration" Core..=) Prelude.<$> configuration,
-            ("Description" Core..=) Prelude.<$> description,
-            ("LanguageCode" Core..=) Prelude.<$> languageCode,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("Type" Core..= type')
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Configuration" Data..=) Prelude.<$> configuration,
+            ("Description" Data..=) Prelude.<$> description,
+            ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateDataSource where
+instance Data.ToPath CreateDataSource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDataSource where
+instance Data.ToQuery CreateDataSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDataSourceResponse' smart constructor.

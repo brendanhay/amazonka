@@ -145,6 +145,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -385,9 +386,9 @@ instance Core.AWSRequest GenerateDataKey where
       ( \s h x ->
           GenerateDataKeyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "KeyId")
-            Prelude.<*> (x Core..:> "Plaintext")
-            Prelude.<*> (x Core..:> "CiphertextBlob")
+            Prelude.<*> (x Data..:> "KeyId")
+            Prelude.<*> (x Data..:> "Plaintext")
+            Prelude.<*> (x Data..:> "CiphertextBlob")
       )
 
 instance Prelude.Hashable GenerateDataKey where
@@ -406,38 +407,38 @@ instance Prelude.NFData GenerateDataKey where
       `Prelude.seq` Prelude.rnf encryptionContext
       `Prelude.seq` Prelude.rnf keyId
 
-instance Core.ToHeaders GenerateDataKey where
+instance Data.ToHeaders GenerateDataKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.GenerateDataKey" ::
+              Data.=# ( "TrentService.GenerateDataKey" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GenerateDataKey where
+instance Data.ToJSON GenerateDataKey where
   toJSON GenerateDataKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            ("KeySpec" Core..=) Prelude.<$> keySpec,
-            ("NumberOfBytes" Core..=) Prelude.<$> numberOfBytes,
-            ("EncryptionContext" Core..=)
+          [ ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+            ("KeySpec" Data..=) Prelude.<$> keySpec,
+            ("NumberOfBytes" Data..=) Prelude.<$> numberOfBytes,
+            ("EncryptionContext" Data..=)
               Prelude.<$> encryptionContext,
-            Prelude.Just ("KeyId" Core..= keyId)
+            Prelude.Just ("KeyId" Data..= keyId)
           ]
       )
 
-instance Core.ToPath GenerateDataKey where
+instance Data.ToPath GenerateDataKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GenerateDataKey where
+instance Data.ToQuery GenerateDataKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGenerateDataKeyResponse' smart constructor.
@@ -452,11 +453,11 @@ data GenerateDataKeyResponse = GenerateDataKeyResponse'
     -- Services CLI, the value is Base64-encoded. Otherwise, it is not
     -- Base64-encoded. Use this data key to encrypt your data outside of KMS.
     -- Then, remove it from memory as soon as possible.
-    plaintext :: Core.Sensitive Core.Base64,
+    plaintext :: Data.Sensitive Data.Base64,
     -- | The encrypted copy of the data key. When you use the HTTP API or the
     -- Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is
     -- not Base64-encoded.
-    ciphertextBlob :: Core.Base64
+    ciphertextBlob :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -509,10 +510,10 @@ newGenerateDataKeyResponse
       { httpStatus = pHttpStatus_,
         keyId = pKeyId_,
         plaintext =
-          Core._Sensitive Prelude.. Core._Base64
+          Data._Sensitive Prelude.. Data._Base64
             Lens.# pPlaintext_,
         ciphertextBlob =
-          Core._Base64 Lens.# pCiphertextBlob_
+          Data._Base64 Lens.# pCiphertextBlob_
       }
 
 -- | The response's http status code.
@@ -534,7 +535,7 @@ generateDataKeyResponse_keyId = Lens.lens (\GenerateDataKeyResponse' {keyId} -> 
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 generateDataKeyResponse_plaintext :: Lens.Lens' GenerateDataKeyResponse Prelude.ByteString
-generateDataKeyResponse_plaintext = Lens.lens (\GenerateDataKeyResponse' {plaintext} -> plaintext) (\s@GenerateDataKeyResponse' {} a -> s {plaintext = a} :: GenerateDataKeyResponse) Prelude.. Core._Sensitive Prelude.. Core._Base64
+generateDataKeyResponse_plaintext = Lens.lens (\GenerateDataKeyResponse' {plaintext} -> plaintext) (\s@GenerateDataKeyResponse' {} a -> s {plaintext = a} :: GenerateDataKeyResponse) Prelude.. Data._Sensitive Prelude.. Data._Base64
 
 -- | The encrypted copy of the data key. When you use the HTTP API or the
 -- Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is
@@ -544,7 +545,7 @@ generateDataKeyResponse_plaintext = Lens.lens (\GenerateDataKeyResponse' {plaint
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 generateDataKeyResponse_ciphertextBlob :: Lens.Lens' GenerateDataKeyResponse Prelude.ByteString
-generateDataKeyResponse_ciphertextBlob = Lens.lens (\GenerateDataKeyResponse' {ciphertextBlob} -> ciphertextBlob) (\s@GenerateDataKeyResponse' {} a -> s {ciphertextBlob = a} :: GenerateDataKeyResponse) Prelude.. Core._Base64
+generateDataKeyResponse_ciphertextBlob = Lens.lens (\GenerateDataKeyResponse' {ciphertextBlob} -> ciphertextBlob) (\s@GenerateDataKeyResponse' {} a -> s {ciphertextBlob = a} :: GenerateDataKeyResponse) Prelude.. Data._Base64
 
 instance Prelude.NFData GenerateDataKeyResponse where
   rnf GenerateDataKeyResponse' {..} =

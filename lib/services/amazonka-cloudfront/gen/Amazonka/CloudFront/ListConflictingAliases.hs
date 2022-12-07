@@ -74,6 +74,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,7 +162,7 @@ instance Core.AWSRequest ListConflictingAliases where
     Response.receiveXML
       ( \s h x ->
           ListConflictingAliasesResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,20 +180,20 @@ instance Prelude.NFData ListConflictingAliases where
       `Prelude.seq` Prelude.rnf distributionId
       `Prelude.seq` Prelude.rnf alias
 
-instance Core.ToHeaders ListConflictingAliases where
+instance Data.ToHeaders ListConflictingAliases where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListConflictingAliases where
+instance Data.ToPath ListConflictingAliases where
   toPath =
     Prelude.const "/2020-05-31/conflicting-alias"
 
-instance Core.ToQuery ListConflictingAliases where
+instance Data.ToQuery ListConflictingAliases where
   toQuery ListConflictingAliases' {..} =
     Prelude.mconcat
-      [ "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "DistributionId" Core.=: distributionId,
-        "Alias" Core.=: alias
+      [ "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "DistributionId" Data.=: distributionId,
+        "Alias" Data.=: alias
       ]
 
 -- | /See:/ 'newListConflictingAliasesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.AudioSelector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AudioDefaultSelection
 import Amazonka.MediaConvert.Types.AudioDurationCorrection
 import Amazonka.MediaConvert.Types.AudioSelectorType
@@ -292,24 +293,24 @@ audioSelector_selectorType = Lens.lens (\AudioSelector' {selectorType} -> select
 audioSelector_tracks :: Lens.Lens' AudioSelector (Prelude.Maybe [Prelude.Natural])
 audioSelector_tracks = Lens.lens (\AudioSelector' {tracks} -> tracks) (\s@AudioSelector' {} a -> s {tracks = a} :: AudioSelector) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AudioSelector where
+instance Data.FromJSON AudioSelector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioSelector"
       ( \x ->
           AudioSelector'
-            Prelude.<$> (x Core..:? "externalAudioFileInput")
-            Prelude.<*> (x Core..:? "audioDurationCorrection")
-            Prelude.<*> (x Core..:? "pids" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "hlsRenditionGroupSettings")
-            Prelude.<*> (x Core..:? "customLanguageCode")
-            Prelude.<*> (x Core..:? "defaultSelection")
-            Prelude.<*> (x Core..:? "offset")
-            Prelude.<*> (x Core..:? "programSelection")
-            Prelude.<*> (x Core..:? "remixSettings")
-            Prelude.<*> (x Core..:? "languageCode")
-            Prelude.<*> (x Core..:? "selectorType")
-            Prelude.<*> (x Core..:? "tracks" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "externalAudioFileInput")
+            Prelude.<*> (x Data..:? "audioDurationCorrection")
+            Prelude.<*> (x Data..:? "pids" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "hlsRenditionGroupSettings")
+            Prelude.<*> (x Data..:? "customLanguageCode")
+            Prelude.<*> (x Data..:? "defaultSelection")
+            Prelude.<*> (x Data..:? "offset")
+            Prelude.<*> (x Data..:? "programSelection")
+            Prelude.<*> (x Data..:? "remixSettings")
+            Prelude.<*> (x Data..:? "languageCode")
+            Prelude.<*> (x Data..:? "selectorType")
+            Prelude.<*> (x Data..:? "tracks" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AudioSelector where
@@ -342,27 +343,27 @@ instance Prelude.NFData AudioSelector where
       `Prelude.seq` Prelude.rnf selectorType
       `Prelude.seq` Prelude.rnf tracks
 
-instance Core.ToJSON AudioSelector where
+instance Data.ToJSON AudioSelector where
   toJSON AudioSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("externalAudioFileInput" Core..=)
+          [ ("externalAudioFileInput" Data..=)
               Prelude.<$> externalAudioFileInput,
-            ("audioDurationCorrection" Core..=)
+            ("audioDurationCorrection" Data..=)
               Prelude.<$> audioDurationCorrection,
-            ("pids" Core..=) Prelude.<$> pids,
-            ("hlsRenditionGroupSettings" Core..=)
+            ("pids" Data..=) Prelude.<$> pids,
+            ("hlsRenditionGroupSettings" Data..=)
               Prelude.<$> hlsRenditionGroupSettings,
-            ("customLanguageCode" Core..=)
+            ("customLanguageCode" Data..=)
               Prelude.<$> customLanguageCode,
-            ("defaultSelection" Core..=)
+            ("defaultSelection" Data..=)
               Prelude.<$> defaultSelection,
-            ("offset" Core..=) Prelude.<$> offset,
-            ("programSelection" Core..=)
+            ("offset" Data..=) Prelude.<$> offset,
+            ("programSelection" Data..=)
               Prelude.<$> programSelection,
-            ("remixSettings" Core..=) Prelude.<$> remixSettings,
-            ("languageCode" Core..=) Prelude.<$> languageCode,
-            ("selectorType" Core..=) Prelude.<$> selectorType,
-            ("tracks" Core..=) Prelude.<$> tracks
+            ("remixSettings" Data..=) Prelude.<$> remixSettings,
+            ("languageCode" Data..=) Prelude.<$> languageCode,
+            ("selectorType" Data..=) Prelude.<$> selectorType,
+            ("tracks" Data..=) Prelude.<$> tracks
           ]
       )

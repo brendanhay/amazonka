@@ -21,6 +21,7 @@ module Amazonka.Athena.Types.NamedQuery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A query, where @QueryString@ contains the SQL statements that make up
@@ -104,18 +105,18 @@ namedQuery_database = Lens.lens (\NamedQuery' {database} -> database) (\s@NamedQ
 namedQuery_queryString :: Lens.Lens' NamedQuery Prelude.Text
 namedQuery_queryString = Lens.lens (\NamedQuery' {queryString} -> queryString) (\s@NamedQuery' {} a -> s {queryString = a} :: NamedQuery)
 
-instance Core.FromJSON NamedQuery where
+instance Data.FromJSON NamedQuery where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NamedQuery"
       ( \x ->
           NamedQuery'
-            Prelude.<$> (x Core..:? "WorkGroup")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "NamedQueryId")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "QueryString")
+            Prelude.<$> (x Data..:? "WorkGroup")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "NamedQueryId")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "QueryString")
       )
 
 instance Prelude.Hashable NamedQuery where

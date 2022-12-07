@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,21 +142,21 @@ instance Prelude.NFData DeactivateMFADevice where
     Prelude.rnf userName
       `Prelude.seq` Prelude.rnf serialNumber
 
-instance Core.ToHeaders DeactivateMFADevice where
+instance Data.ToHeaders DeactivateMFADevice where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeactivateMFADevice where
+instance Data.ToPath DeactivateMFADevice where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeactivateMFADevice where
+instance Data.ToQuery DeactivateMFADevice where
   toQuery DeactivateMFADevice' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeactivateMFADevice" :: Prelude.ByteString),
+          Data.=: ("DeactivateMFADevice" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
-        "SerialNumber" Core.=: serialNumber
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
+        "SerialNumber" Data.=: serialNumber
       ]
 
 -- | /See:/ 'newDeactivateMFADeviceResponse' smart constructor.

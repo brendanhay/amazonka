@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.LoggingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The logging configuration associated with an Amazon Chime Voice
@@ -70,14 +71,14 @@ loggingConfiguration_enableSIPLogs = Lens.lens (\LoggingConfiguration' {enableSI
 loggingConfiguration_enableMediaMetricLogs :: Lens.Lens' LoggingConfiguration (Prelude.Maybe Prelude.Bool)
 loggingConfiguration_enableMediaMetricLogs = Lens.lens (\LoggingConfiguration' {enableMediaMetricLogs} -> enableMediaMetricLogs) (\s@LoggingConfiguration' {} a -> s {enableMediaMetricLogs = a} :: LoggingConfiguration)
 
-instance Core.FromJSON LoggingConfiguration where
+instance Data.FromJSON LoggingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoggingConfiguration"
       ( \x ->
           LoggingConfiguration'
-            Prelude.<$> (x Core..:? "EnableSIPLogs")
-            Prelude.<*> (x Core..:? "EnableMediaMetricLogs")
+            Prelude.<$> (x Data..:? "EnableSIPLogs")
+            Prelude.<*> (x Data..:? "EnableMediaMetricLogs")
       )
 
 instance Prelude.Hashable LoggingConfiguration where
@@ -90,12 +91,12 @@ instance Prelude.NFData LoggingConfiguration where
     Prelude.rnf enableSIPLogs
       `Prelude.seq` Prelude.rnf enableMediaMetricLogs
 
-instance Core.ToJSON LoggingConfiguration where
+instance Data.ToJSON LoggingConfiguration where
   toJSON LoggingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EnableSIPLogs" Core..=) Prelude.<$> enableSIPLogs,
-            ("EnableMediaMetricLogs" Core..=)
+          [ ("EnableSIPLogs" Data..=) Prelude.<$> enableSIPLogs,
+            ("EnableMediaMetricLogs" Data..=)
               Prelude.<$> enableMediaMetricLogs
           ]
       )

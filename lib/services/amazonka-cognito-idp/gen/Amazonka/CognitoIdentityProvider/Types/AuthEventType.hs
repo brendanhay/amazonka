@@ -27,6 +27,7 @@ import Amazonka.CognitoIdentityProvider.Types.EventRiskType
 import Amazonka.CognitoIdentityProvider.Types.EventType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The authentication event type.
@@ -42,7 +43,7 @@ data AuthEventType = AuthEventType'
     -- the request is received.
     eventContextData :: Prelude.Maybe EventContextDataType,
     -- | The creation date
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The event risk.
     eventRisk :: Prelude.Maybe EventRiskType,
     -- | The event ID.
@@ -111,7 +112,7 @@ authEventType_eventContextData = Lens.lens (\AuthEventType' {eventContextData} -
 
 -- | The creation date
 authEventType_creationDate :: Lens.Lens' AuthEventType (Prelude.Maybe Prelude.UTCTime)
-authEventType_creationDate = Lens.lens (\AuthEventType' {creationDate} -> creationDate) (\s@AuthEventType' {} a -> s {creationDate = a} :: AuthEventType) Prelude.. Lens.mapping Core._Time
+authEventType_creationDate = Lens.lens (\AuthEventType' {creationDate} -> creationDate) (\s@AuthEventType' {} a -> s {creationDate = a} :: AuthEventType) Prelude.. Lens.mapping Data._Time
 
 -- | The event risk.
 authEventType_eventRisk :: Lens.Lens' AuthEventType (Prelude.Maybe EventRiskType)
@@ -130,21 +131,21 @@ authEventType_eventFeedback = Lens.lens (\AuthEventType' {eventFeedback} -> even
 authEventType_challengeResponses :: Lens.Lens' AuthEventType (Prelude.Maybe [ChallengeResponseType])
 authEventType_challengeResponses = Lens.lens (\AuthEventType' {challengeResponses} -> challengeResponses) (\s@AuthEventType' {} a -> s {challengeResponses = a} :: AuthEventType) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AuthEventType where
+instance Data.FromJSON AuthEventType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuthEventType"
       ( \x ->
           AuthEventType'
-            Prelude.<$> (x Core..:? "EventType")
-            Prelude.<*> (x Core..:? "EventResponse")
-            Prelude.<*> (x Core..:? "EventContextData")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "EventRisk")
-            Prelude.<*> (x Core..:? "EventId")
-            Prelude.<*> (x Core..:? "EventFeedback")
-            Prelude.<*> ( x Core..:? "ChallengeResponses"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "EventType")
+            Prelude.<*> (x Data..:? "EventResponse")
+            Prelude.<*> (x Data..:? "EventContextData")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "EventRisk")
+            Prelude.<*> (x Data..:? "EventId")
+            Prelude.<*> (x Data..:? "EventFeedback")
+            Prelude.<*> ( x Data..:? "ChallengeResponses"
+                            Data..!= Prelude.mempty
                         )
       )
 

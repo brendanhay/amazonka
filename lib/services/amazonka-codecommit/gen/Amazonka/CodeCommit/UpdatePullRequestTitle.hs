@@ -43,6 +43,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,7 +103,7 @@ instance Core.AWSRequest UpdatePullRequestTitle where
       ( \s h x ->
           UpdatePullRequestTitleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "pullRequest")
+            Prelude.<*> (x Data..:> "pullRequest")
       )
 
 instance Prelude.Hashable UpdatePullRequestTitle where
@@ -115,35 +116,35 @@ instance Prelude.NFData UpdatePullRequestTitle where
     Prelude.rnf pullRequestId
       `Prelude.seq` Prelude.rnf title
 
-instance Core.ToHeaders UpdatePullRequestTitle where
+instance Data.ToHeaders UpdatePullRequestTitle where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.UpdatePullRequestTitle" ::
+              Data.=# ( "CodeCommit_20150413.UpdatePullRequestTitle" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePullRequestTitle where
+instance Data.ToJSON UpdatePullRequestTitle where
   toJSON UpdatePullRequestTitle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("pullRequestId" Core..= pullRequestId),
-            Prelude.Just ("title" Core..= title)
+              ("pullRequestId" Data..= pullRequestId),
+            Prelude.Just ("title" Data..= title)
           ]
       )
 
-instance Core.ToPath UpdatePullRequestTitle where
+instance Data.ToPath UpdatePullRequestTitle where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdatePullRequestTitle where
+instance Data.ToQuery UpdatePullRequestTitle where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePullRequestTitleResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.WorkSpacesWeb.Types.IdentityProvider where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpacesWeb.Types.IdentityProviderType
 
@@ -90,11 +91,11 @@ data IdentityProvider = IdentityProvider'
     --     -   @MetadataFile@ OR @MetadataURL@
     --
     --     -   @IDPSignout@ /optional/
-    identityProviderDetails :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    identityProviderDetails :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The identity provider type.
     identityProviderType :: Prelude.Maybe IdentityProviderType,
     -- | The identity provider name.
-    identityProviderName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    identityProviderName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the identity provider.
     identityProviderArn :: Prelude.Text
   }
@@ -252,7 +253,7 @@ newIdentityProvider pIdentityProviderArn_ =
 --
 --     -   @IDPSignout@ /optional/
 identityProvider_identityProviderDetails :: Lens.Lens' IdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-identityProvider_identityProviderDetails = Lens.lens (\IdentityProvider' {identityProviderDetails} -> identityProviderDetails) (\s@IdentityProvider' {} a -> s {identityProviderDetails = a} :: IdentityProvider) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+identityProvider_identityProviderDetails = Lens.lens (\IdentityProvider' {identityProviderDetails} -> identityProviderDetails) (\s@IdentityProvider' {} a -> s {identityProviderDetails = a} :: IdentityProvider) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The identity provider type.
 identityProvider_identityProviderType :: Lens.Lens' IdentityProvider (Prelude.Maybe IdentityProviderType)
@@ -260,24 +261,24 @@ identityProvider_identityProviderType = Lens.lens (\IdentityProvider' {identityP
 
 -- | The identity provider name.
 identityProvider_identityProviderName :: Lens.Lens' IdentityProvider (Prelude.Maybe Prelude.Text)
-identityProvider_identityProviderName = Lens.lens (\IdentityProvider' {identityProviderName} -> identityProviderName) (\s@IdentityProvider' {} a -> s {identityProviderName = a} :: IdentityProvider) Prelude.. Lens.mapping Core._Sensitive
+identityProvider_identityProviderName = Lens.lens (\IdentityProvider' {identityProviderName} -> identityProviderName) (\s@IdentityProvider' {} a -> s {identityProviderName = a} :: IdentityProvider) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the identity provider.
 identityProvider_identityProviderArn :: Lens.Lens' IdentityProvider Prelude.Text
 identityProvider_identityProviderArn = Lens.lens (\IdentityProvider' {identityProviderArn} -> identityProviderArn) (\s@IdentityProvider' {} a -> s {identityProviderArn = a} :: IdentityProvider)
 
-instance Core.FromJSON IdentityProvider where
+instance Data.FromJSON IdentityProvider where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityProvider"
       ( \x ->
           IdentityProvider'
-            Prelude.<$> ( x Core..:? "identityProviderDetails"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "identityProviderDetails"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "identityProviderType")
-            Prelude.<*> (x Core..:? "identityProviderName")
-            Prelude.<*> (x Core..: "identityProviderArn")
+            Prelude.<*> (x Data..:? "identityProviderType")
+            Prelude.<*> (x Data..:? "identityProviderName")
+            Prelude.<*> (x Data..: "identityProviderArn")
       )
 
 instance Prelude.Hashable IdentityProvider where

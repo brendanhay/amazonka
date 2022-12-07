@@ -21,6 +21,7 @@ module Amazonka.Scheduler.Types.NetworkConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Scheduler.Types.AwsVpcConfiguration
 
@@ -60,13 +61,13 @@ newNetworkConfiguration =
 networkConfiguration_awsvpcConfiguration :: Lens.Lens' NetworkConfiguration (Prelude.Maybe AwsVpcConfiguration)
 networkConfiguration_awsvpcConfiguration = Lens.lens (\NetworkConfiguration' {awsvpcConfiguration} -> awsvpcConfiguration) (\s@NetworkConfiguration' {} a -> s {awsvpcConfiguration = a} :: NetworkConfiguration)
 
-instance Core.FromJSON NetworkConfiguration where
+instance Data.FromJSON NetworkConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkConfiguration"
       ( \x ->
           NetworkConfiguration'
-            Prelude.<$> (x Core..:? "awsvpcConfiguration")
+            Prelude.<$> (x Data..:? "awsvpcConfiguration")
       )
 
 instance Prelude.Hashable NetworkConfiguration where
@@ -77,11 +78,11 @@ instance Prelude.NFData NetworkConfiguration where
   rnf NetworkConfiguration' {..} =
     Prelude.rnf awsvpcConfiguration
 
-instance Core.ToJSON NetworkConfiguration where
+instance Data.ToJSON NetworkConfiguration where
   toJSON NetworkConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("awsvpcConfiguration" Core..=)
+          [ ("awsvpcConfiguration" Data..=)
               Prelude.<$> awsvpcConfiguration
           ]
       )

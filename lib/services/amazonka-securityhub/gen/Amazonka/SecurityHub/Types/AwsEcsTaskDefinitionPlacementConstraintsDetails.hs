@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionPlacementConstraintsDetail
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A placement constraint object to use for tasks.
@@ -64,16 +65,16 @@ awsEcsTaskDefinitionPlacementConstraintsDetails_expression :: Lens.Lens' AwsEcsT
 awsEcsTaskDefinitionPlacementConstraintsDetails_expression = Lens.lens (\AwsEcsTaskDefinitionPlacementConstraintsDetails' {expression} -> expression) (\s@AwsEcsTaskDefinitionPlacementConstraintsDetails' {} a -> s {expression = a} :: AwsEcsTaskDefinitionPlacementConstraintsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionPlacementConstraintsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionPlacementConstraintsDetails"
       ( \x ->
           AwsEcsTaskDefinitionPlacementConstraintsDetails'
-            Prelude.<$> (x Core..:? "Type")
-              Prelude.<*> (x Core..:? "Expression")
+            Prelude.<$> (x Data..:? "Type")
+              Prelude.<*> (x Data..:? "Expression")
       )
 
 instance
@@ -96,14 +97,14 @@ instance
         `Prelude.seq` Prelude.rnf expression
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionPlacementConstraintsDetails
   where
   toJSON
     AwsEcsTaskDefinitionPlacementConstraintsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Type" Core..=) Prelude.<$> type',
-              ("Expression" Core..=) Prelude.<$> expression
+            [ ("Type" Data..=) Prelude.<$> type',
+              ("Expression" Data..=) Prelude.<$> expression
             ]
         )

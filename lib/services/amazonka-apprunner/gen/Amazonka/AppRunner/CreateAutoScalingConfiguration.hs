@@ -64,6 +64,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -246,7 +247,7 @@ instance
       ( \s h x ->
           CreateAutoScalingConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "AutoScalingConfiguration")
+            Prelude.<*> (x Data..:> "AutoScalingConfiguration")
       )
 
 instance
@@ -274,43 +275,43 @@ instance
       `Prelude.seq` Prelude.rnf autoScalingConfigurationName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateAutoScalingConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.CreateAutoScalingConfiguration" ::
+              Data.=# ( "AppRunner.CreateAutoScalingConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAutoScalingConfiguration where
+instance Data.ToJSON CreateAutoScalingConfiguration where
   toJSON CreateAutoScalingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("MinSize" Core..=) Prelude.<$> minSize,
-            ("MaxConcurrency" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("MinSize" Data..=) Prelude.<$> minSize,
+            ("MaxConcurrency" Data..=)
               Prelude.<$> maxConcurrency,
-            ("MaxSize" Core..=) Prelude.<$> maxSize,
+            ("MaxSize" Data..=) Prelude.<$> maxSize,
             Prelude.Just
               ( "AutoScalingConfigurationName"
-                  Core..= autoScalingConfigurationName
+                  Data..= autoScalingConfigurationName
               )
           ]
       )
 
-instance Core.ToPath CreateAutoScalingConfiguration where
+instance Data.ToPath CreateAutoScalingConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAutoScalingConfiguration where
+instance Data.ToQuery CreateAutoScalingConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAutoScalingConfigurationResponse' smart constructor.

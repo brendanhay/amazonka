@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,9 +148,9 @@ instance Core.AWSRequest ListExclusions where
     Response.receiveJSON
       ( \s h x ->
           ListExclusionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "exclusionArns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "exclusionArns" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListExclusions where
@@ -164,36 +165,36 @@ instance Prelude.NFData ListExclusions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf assessmentRunArn
 
-instance Core.ToHeaders ListExclusions where
+instance Data.ToHeaders ListExclusions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.ListExclusions" ::
+              Data.=# ( "InspectorService.ListExclusions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListExclusions where
+instance Data.ToJSON ListExclusions where
   toJSON ListExclusions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("assessmentRunArn" Core..= assessmentRunArn)
+              ("assessmentRunArn" Data..= assessmentRunArn)
           ]
       )
 
-instance Core.ToPath ListExclusions where
+instance Data.ToPath ListExclusions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListExclusions where
+instance Data.ToQuery ListExclusions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListExclusionsResponse' smart constructor.

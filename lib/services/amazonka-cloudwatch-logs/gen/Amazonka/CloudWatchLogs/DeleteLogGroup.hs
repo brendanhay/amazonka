@@ -39,6 +39,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,32 +87,32 @@ instance Prelude.Hashable DeleteLogGroup where
 instance Prelude.NFData DeleteLogGroup where
   rnf DeleteLogGroup' {..} = Prelude.rnf logGroupName
 
-instance Core.ToHeaders DeleteLogGroup where
+instance Data.ToHeaders DeleteLogGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DeleteLogGroup" ::
+              Data.=# ( "Logs_20140328.DeleteLogGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteLogGroup where
+instance Data.ToJSON DeleteLogGroup where
   toJSON DeleteLogGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("logGroupName" Core..= logGroupName)]
+          [Prelude.Just ("logGroupName" Data..= logGroupName)]
       )
 
-instance Core.ToPath DeleteLogGroup where
+instance Data.ToPath DeleteLogGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLogGroup where
+instance Data.ToQuery DeleteLogGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLogGroupResponse' smart constructor.

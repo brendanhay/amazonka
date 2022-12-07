@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.Endpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types.Certificate
 import Amazonka.EMRContainers.Types.ConfigurationOverrides
 import Amazonka.EMRContainers.Types.EndpointState
@@ -68,7 +69,7 @@ data Endpoint = Endpoint'
     -- | The subnet IDs of the endpoint.
     subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The date and time when the endpoint was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The reasons why the endpoint has failed.
     failureReason :: Prelude.Maybe FailureReason
   }
@@ -213,36 +214,36 @@ endpoint_subnetIds = Lens.lens (\Endpoint' {subnetIds} -> subnetIds) (\s@Endpoin
 
 -- | The date and time when the endpoint was created.
 endpoint_createdAt :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.UTCTime)
-endpoint_createdAt = Lens.lens (\Endpoint' {createdAt} -> createdAt) (\s@Endpoint' {} a -> s {createdAt = a} :: Endpoint) Prelude.. Lens.mapping Core._Time
+endpoint_createdAt = Lens.lens (\Endpoint' {createdAt} -> createdAt) (\s@Endpoint' {} a -> s {createdAt = a} :: Endpoint) Prelude.. Lens.mapping Data._Time
 
 -- | The reasons why the endpoint has failed.
 endpoint_failureReason :: Lens.Lens' Endpoint (Prelude.Maybe FailureReason)
 endpoint_failureReason = Lens.lens (\Endpoint' {failureReason} -> failureReason) (\s@Endpoint' {} a -> s {failureReason = a} :: Endpoint)
 
-instance Core.FromJSON Endpoint where
+instance Data.FromJSON Endpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Endpoint"
       ( \x ->
           Endpoint'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "stateDetails")
-            Prelude.<*> (x Core..:? "securityGroup")
-            Prelude.<*> (x Core..:? "releaseLabel")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "serverUrl")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "certificateArn")
-            Prelude.<*> (x Core..:? "configurationOverrides")
-            Prelude.<*> (x Core..:? "certificateAuthority")
-            Prelude.<*> (x Core..:? "virtualClusterId")
-            Prelude.<*> (x Core..:? "executionRoleArn")
-            Prelude.<*> (x Core..:? "subnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "stateDetails")
+            Prelude.<*> (x Data..:? "securityGroup")
+            Prelude.<*> (x Data..:? "releaseLabel")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "serverUrl")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "certificateArn")
+            Prelude.<*> (x Data..:? "configurationOverrides")
+            Prelude.<*> (x Data..:? "certificateAuthority")
+            Prelude.<*> (x Data..:? "virtualClusterId")
+            Prelude.<*> (x Data..:? "executionRoleArn")
+            Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable Endpoint where

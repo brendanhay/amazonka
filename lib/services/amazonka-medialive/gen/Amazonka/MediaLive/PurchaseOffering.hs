@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,7 +159,7 @@ instance Core.AWSRequest PurchaseOffering' where
     Response.receiveJSON
       ( \s h x ->
           PurchaseOfferingResponse'
-            Prelude.<$> (x Core..?> "reservation")
+            Prelude.<$> (x Data..?> "reservation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,40 +183,40 @@ instance Prelude.NFData PurchaseOffering' where
       `Prelude.seq` Prelude.rnf offeringId
       `Prelude.seq` Prelude.rnf count
 
-instance Core.ToHeaders PurchaseOffering' where
+instance Data.ToHeaders PurchaseOffering' where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PurchaseOffering' where
+instance Data.ToJSON PurchaseOffering' where
   toJSON PurchaseOffering'' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("name" Core..=) Prelude.<$> name,
-            ("renewalSettings" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("name" Data..=) Prelude.<$> name,
+            ("renewalSettings" Data..=)
               Prelude.<$> renewalSettings,
-            ("start" Core..=) Prelude.<$> start,
-            ("requestId" Core..=) Prelude.<$> requestId,
-            Prelude.Just ("count" Core..= count)
+            ("start" Data..=) Prelude.<$> start,
+            ("requestId" Data..=) Prelude.<$> requestId,
+            Prelude.Just ("count" Data..= count)
           ]
       )
 
-instance Core.ToPath PurchaseOffering' where
+instance Data.ToPath PurchaseOffering' where
   toPath PurchaseOffering'' {..} =
     Prelude.mconcat
       [ "/prod/offerings/",
-        Core.toBS offeringId,
+        Data.toBS offeringId,
         "/purchase"
       ]
 
-instance Core.ToQuery PurchaseOffering' where
+instance Data.ToQuery PurchaseOffering' where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for PurchaseOfferingResponse

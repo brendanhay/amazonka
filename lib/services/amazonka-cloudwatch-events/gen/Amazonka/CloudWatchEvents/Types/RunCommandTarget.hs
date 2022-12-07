@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.RunCommandTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the EC2 instances that are to be sent the command,
@@ -70,13 +71,13 @@ runCommandTarget_key = Lens.lens (\RunCommandTarget' {key} -> key) (\s@RunComman
 runCommandTarget_values :: Lens.Lens' RunCommandTarget (Prelude.NonEmpty Prelude.Text)
 runCommandTarget_values = Lens.lens (\RunCommandTarget' {values} -> values) (\s@RunCommandTarget' {} a -> s {values = a} :: RunCommandTarget) Prelude.. Lens.coerced
 
-instance Core.FromJSON RunCommandTarget where
+instance Data.FromJSON RunCommandTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RunCommandTarget"
       ( \x ->
           RunCommandTarget'
-            Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Values")
+            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Values")
       )
 
 instance Prelude.Hashable RunCommandTarget where
@@ -88,11 +89,11 @@ instance Prelude.NFData RunCommandTarget where
   rnf RunCommandTarget' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON RunCommandTarget where
+instance Data.ToJSON RunCommandTarget where
   toJSON RunCommandTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Values" Core..= values)
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

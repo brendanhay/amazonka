@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.KernelGatewayAppSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CustomImage
 import Amazonka.SageMaker.Types.ResourceSpec
@@ -109,17 +110,17 @@ kernelGatewayAppSettings_defaultResourceSpec = Lens.lens (\KernelGatewayAppSetti
 kernelGatewayAppSettings_customImages :: Lens.Lens' KernelGatewayAppSettings (Prelude.Maybe [CustomImage])
 kernelGatewayAppSettings_customImages = Lens.lens (\KernelGatewayAppSettings' {customImages} -> customImages) (\s@KernelGatewayAppSettings' {} a -> s {customImages = a} :: KernelGatewayAppSettings) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON KernelGatewayAppSettings where
+instance Data.FromJSON KernelGatewayAppSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KernelGatewayAppSettings"
       ( \x ->
           KernelGatewayAppSettings'
-            Prelude.<$> ( x Core..:? "LifecycleConfigArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "LifecycleConfigArns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DefaultResourceSpec")
-            Prelude.<*> (x Core..:? "CustomImages" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DefaultResourceSpec")
+            Prelude.<*> (x Data..:? "CustomImages" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable KernelGatewayAppSettings where
@@ -134,14 +135,14 @@ instance Prelude.NFData KernelGatewayAppSettings where
       `Prelude.seq` Prelude.rnf defaultResourceSpec
       `Prelude.seq` Prelude.rnf customImages
 
-instance Core.ToJSON KernelGatewayAppSettings where
+instance Data.ToJSON KernelGatewayAppSettings where
   toJSON KernelGatewayAppSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LifecycleConfigArns" Core..=)
+          [ ("LifecycleConfigArns" Data..=)
               Prelude.<$> lifecycleConfigArns,
-            ("DefaultResourceSpec" Core..=)
+            ("DefaultResourceSpec" Data..=)
               Prelude.<$> defaultResourceSpec,
-            ("CustomImages" Core..=) Prelude.<$> customImages
+            ("CustomImages" Data..=) Prelude.<$> customImages
           ]
       )

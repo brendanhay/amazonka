@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBClusterSnapshotAttributesResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.DBClusterSnapshotAttribute
 
@@ -74,16 +75,16 @@ dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes :: Lens.Lens' DBCl
 dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes = Lens.lens (\DBClusterSnapshotAttributesResult' {dbClusterSnapshotAttributes} -> dbClusterSnapshotAttributes) (\s@DBClusterSnapshotAttributesResult' {} a -> s {dbClusterSnapshotAttributes = a} :: DBClusterSnapshotAttributesResult) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromXML
+  Data.FromXML
     DBClusterSnapshotAttributesResult
   where
   parseXML x =
     DBClusterSnapshotAttributesResult'
-      Prelude.<$> (x Core..@? "DBClusterSnapshotIdentifier")
-      Prelude.<*> ( x Core..@? "DBClusterSnapshotAttributes"
+      Prelude.<$> (x Data..@? "DBClusterSnapshotIdentifier")
+      Prelude.<*> ( x Data..@? "DBClusterSnapshotAttributes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "DBClusterSnapshotAttribute")
+                        (Data.parseXMLList "DBClusterSnapshotAttribute")
                   )
 
 instance

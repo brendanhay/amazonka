@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,8 +141,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeOutboundCrossClusterSearchConnectionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "CrossClusterSearchConnections"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "CrossClusterSearchConnections"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -169,27 +170,27 @@ instance
         `Prelude.seq` Prelude.rnf maxResults
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeOutboundCrossClusterSearchConnections
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeOutboundCrossClusterSearchConnections
   where
   toJSON
     DescribeOutboundCrossClusterSearchConnections' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("NextToken" Core..=) Prelude.<$> nextToken,
-              ("Filters" Core..=) Prelude.<$> filters,
-              ("MaxResults" Core..=) Prelude.<$> maxResults
+            [ ("NextToken" Data..=) Prelude.<$> nextToken,
+              ("Filters" Data..=) Prelude.<$> filters,
+              ("MaxResults" Data..=) Prelude.<$> maxResults
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeOutboundCrossClusterSearchConnections
   where
   toPath =
@@ -197,7 +198,7 @@ instance
       "/2015-01-01/es/ccs/outboundConnection/search"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeOutboundCrossClusterSearchConnections
   where
   toQuery = Prelude.const Prelude.mempty

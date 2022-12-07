@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -64,7 +65,7 @@ data CreateConfiguration = CreateConfiguration'
     -- ensure that the contents of the file are base64 encoded. When using the
     -- AWS Management Console, the SDK, or the AWS CLI, the contents of
     -- server.properties can be in plaintext.
-    serverProperties :: Core.Base64,
+    serverProperties :: Data.Base64,
     -- | The name of the configuration.
     name :: Prelude.Text
   }
@@ -105,7 +106,7 @@ newCreateConfiguration pServerProperties_ pName_ =
         Prelude.Nothing,
       description = Prelude.Nothing,
       serverProperties =
-        Core._Base64 Lens.# pServerProperties_,
+        Data._Base64 Lens.# pServerProperties_,
       name = pName_
     }
 
@@ -127,7 +128,7 @@ createConfiguration_description = Lens.lens (\CreateConfiguration' {description}
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 createConfiguration_serverProperties :: Lens.Lens' CreateConfiguration Prelude.ByteString
-createConfiguration_serverProperties = Lens.lens (\CreateConfiguration' {serverProperties} -> serverProperties) (\s@CreateConfiguration' {} a -> s {serverProperties = a} :: CreateConfiguration) Prelude.. Core._Base64
+createConfiguration_serverProperties = Lens.lens (\CreateConfiguration' {serverProperties} -> serverProperties) (\s@CreateConfiguration' {} a -> s {serverProperties = a} :: CreateConfiguration) Prelude.. Data._Base64
 
 -- | The name of the configuration.
 createConfiguration_name :: Lens.Lens' CreateConfiguration Prelude.Text
@@ -143,11 +144,11 @@ instance Core.AWSRequest CreateConfiguration where
     Response.receiveJSON
       ( \s h x ->
           CreateConfigurationResponse'
-            Prelude.<$> (x Core..?> "latestRevision")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "creationTime")
+            Prelude.<$> (x Data..?> "latestRevision")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "creationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,33 +166,33 @@ instance Prelude.NFData CreateConfiguration where
       `Prelude.seq` Prelude.rnf serverProperties
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateConfiguration where
+instance Data.ToHeaders CreateConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConfiguration where
+instance Data.ToJSON CreateConfiguration where
   toJSON CreateConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kafkaVersions" Core..=) Prelude.<$> kafkaVersions,
-            ("description" Core..=) Prelude.<$> description,
+          [ ("kafkaVersions" Data..=) Prelude.<$> kafkaVersions,
+            ("description" Data..=) Prelude.<$> description,
             Prelude.Just
-              ("serverProperties" Core..= serverProperties),
-            Prelude.Just ("name" Core..= name)
+              ("serverProperties" Data..= serverProperties),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateConfiguration where
+instance Data.ToPath CreateConfiguration where
   toPath = Prelude.const "/v1/configurations"
 
-instance Core.ToQuery CreateConfiguration where
+instance Data.ToQuery CreateConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConfigurationResponse' smart constructor.
@@ -206,7 +207,7 @@ data CreateConfigurationResponse = CreateConfigurationResponse'
     -- DELETING, and DELETE_FAILED.
     state :: Prelude.Maybe ConfigurationState,
     -- | The time when the configuration was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -266,7 +267,7 @@ createConfigurationResponse_state = Lens.lens (\CreateConfigurationResponse' {st
 
 -- | The time when the configuration was created.
 createConfigurationResponse_creationTime :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-createConfigurationResponse_creationTime = Lens.lens (\CreateConfigurationResponse' {creationTime} -> creationTime) (\s@CreateConfigurationResponse' {} a -> s {creationTime = a} :: CreateConfigurationResponse) Prelude.. Lens.mapping Core._Time
+createConfigurationResponse_creationTime = Lens.lens (\CreateConfigurationResponse' {creationTime} -> creationTime) (\s@CreateConfigurationResponse' {} a -> s {creationTime = a} :: CreateConfigurationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createConfigurationResponse_httpStatus :: Lens.Lens' CreateConfigurationResponse Prelude.Int

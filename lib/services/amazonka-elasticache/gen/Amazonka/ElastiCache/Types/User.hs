@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.User where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.Authentication
 import qualified Amazonka.Prelude as Prelude
 
@@ -126,20 +127,20 @@ user_userId = Lens.lens (\User' {userId} -> userId) (\s@User' {} a -> s {userId 
 user_engine :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_engine = Lens.lens (\User' {engine} -> engine) (\s@User' {} a -> s {engine = a} :: User)
 
-instance Core.FromXML User where
+instance Data.FromXML User where
   parseXML x =
     User'
-      Prelude.<$> (x Core..@? "AccessString")
-      Prelude.<*> (x Core..@? "Authentication")
-      Prelude.<*> (x Core..@? "UserName")
-      Prelude.<*> (x Core..@? "ARN")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "MinimumEngineVersion")
-      Prelude.<*> ( x Core..@? "UserGroupIds" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "AccessString")
+      Prelude.<*> (x Data..@? "Authentication")
+      Prelude.<*> (x Data..@? "UserName")
+      Prelude.<*> (x Data..@? "ARN")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "MinimumEngineVersion")
+      Prelude.<*> ( x Data..@? "UserGroupIds" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "UserId")
-      Prelude.<*> (x Core..@? "Engine")
+      Prelude.<*> (x Data..@? "UserId")
+      Prelude.<*> (x Data..@? "Engine")
 
 instance Prelude.Hashable User where
   hashWithSalt _salt User' {..} =

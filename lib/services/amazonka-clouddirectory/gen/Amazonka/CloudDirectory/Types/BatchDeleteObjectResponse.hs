@@ -21,6 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchDeleteObjectResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a DeleteObject response operation.
@@ -40,9 +41,9 @@ newBatchDeleteObjectResponse ::
 newBatchDeleteObjectResponse =
   BatchDeleteObjectResponse'
 
-instance Core.FromJSON BatchDeleteObjectResponse where
+instance Data.FromJSON BatchDeleteObjectResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDeleteObjectResponse"
       (\x -> Prelude.pure BatchDeleteObjectResponse')
 

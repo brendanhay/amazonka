@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MaintenanceCreateSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.MaintenanceDay
 import qualified Amazonka.Prelude as Prelude
 
@@ -79,13 +80,13 @@ instance Prelude.NFData MaintenanceCreateSettings where
     Prelude.rnf maintenanceDay
       `Prelude.seq` Prelude.rnf maintenanceStartTime
 
-instance Core.ToJSON MaintenanceCreateSettings where
+instance Data.ToJSON MaintenanceCreateSettings where
   toJSON MaintenanceCreateSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maintenanceDay" Core..=)
+          [ ("maintenanceDay" Data..=)
               Prelude.<$> maintenanceDay,
-            ("maintenanceStartTime" Core..=)
+            ("maintenanceStartTime" Data..=)
               Prelude.<$> maintenanceStartTime
           ]
       )

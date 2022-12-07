@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RecommendationJobInputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.EndpointInfo
 import Amazonka.SageMaker.Types.EndpointInputConfiguration
@@ -233,20 +234,20 @@ recommendationJobInputConfig_containerConfig = Lens.lens (\RecommendationJobInpu
 recommendationJobInputConfig_modelPackageVersionArn :: Lens.Lens' RecommendationJobInputConfig Prelude.Text
 recommendationJobInputConfig_modelPackageVersionArn = Lens.lens (\RecommendationJobInputConfig' {modelPackageVersionArn} -> modelPackageVersionArn) (\s@RecommendationJobInputConfig' {} a -> s {modelPackageVersionArn = a} :: RecommendationJobInputConfig)
 
-instance Core.FromJSON RecommendationJobInputConfig where
+instance Data.FromJSON RecommendationJobInputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationJobInputConfig"
       ( \x ->
           RecommendationJobInputConfig'
-            Prelude.<$> (x Core..:? "TrafficPattern")
-            Prelude.<*> (x Core..:? "JobDurationInSeconds")
-            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Core..:? "Endpoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EndpointConfigurations")
-            Prelude.<*> (x Core..:? "ResourceLimit")
-            Prelude.<*> (x Core..:? "ContainerConfig")
-            Prelude.<*> (x Core..: "ModelPackageVersionArn")
+            Prelude.<$> (x Data..:? "TrafficPattern")
+            Prelude.<*> (x Data..:? "JobDurationInSeconds")
+            Prelude.<*> (x Data..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Data..:? "Endpoints" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EndpointConfigurations")
+            Prelude.<*> (x Data..:? "ResourceLimit")
+            Prelude.<*> (x Data..:? "ContainerConfig")
+            Prelude.<*> (x Data..: "ModelPackageVersionArn")
       )
 
 instance
@@ -274,25 +275,25 @@ instance Prelude.NFData RecommendationJobInputConfig where
       `Prelude.seq` Prelude.rnf containerConfig
       `Prelude.seq` Prelude.rnf modelPackageVersionArn
 
-instance Core.ToJSON RecommendationJobInputConfig where
+instance Data.ToJSON RecommendationJobInputConfig where
   toJSON RecommendationJobInputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TrafficPattern" Core..=)
+          [ ("TrafficPattern" Data..=)
               Prelude.<$> trafficPattern,
-            ("JobDurationInSeconds" Core..=)
+            ("JobDurationInSeconds" Data..=)
               Prelude.<$> jobDurationInSeconds,
-            ("VolumeKmsKeyId" Core..=)
+            ("VolumeKmsKeyId" Data..=)
               Prelude.<$> volumeKmsKeyId,
-            ("Endpoints" Core..=) Prelude.<$> endpoints,
-            ("EndpointConfigurations" Core..=)
+            ("Endpoints" Data..=) Prelude.<$> endpoints,
+            ("EndpointConfigurations" Data..=)
               Prelude.<$> endpointConfigurations,
-            ("ResourceLimit" Core..=) Prelude.<$> resourceLimit,
-            ("ContainerConfig" Core..=)
+            ("ResourceLimit" Data..=) Prelude.<$> resourceLimit,
+            ("ContainerConfig" Data..=)
               Prelude.<$> containerConfig,
             Prelude.Just
               ( "ModelPackageVersionArn"
-                  Core..= modelPackageVersionArn
+                  Data..= modelPackageVersionArn
               )
           ]
       )

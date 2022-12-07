@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest GetUser where
       ( \s h x ->
           GetUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "User")
+            Prelude.<*> (x Data..@ "User")
       )
 
 instance Prelude.Hashable GetUser where
@@ -113,19 +114,19 @@ instance Prelude.Hashable GetUser where
 instance Prelude.NFData GetUser where
   rnf GetUser' {..} = Prelude.rnf userName
 
-instance Core.ToHeaders GetUser where
+instance Data.ToHeaders GetUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetUser where
+instance Data.ToPath GetUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetUser where
+instance Data.ToQuery GetUser where
   toQuery GetUser' {..} =
     Prelude.mconcat
-      [ "Action" Core.=: ("GetUser" :: Prelude.ByteString),
+      [ "Action" Data.=: ("GetUser" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName
       ]
 
 -- | Contains the response to a successful GetUser request.

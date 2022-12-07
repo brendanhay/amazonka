@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -66,7 +67,7 @@ data UpdateLocationHdfs = UpdateLocationHdfs'
     -- information. You can load the @krb5.conf@ file by providing the file\'s
     -- address. If you\'re using the CLI, it performs the base64 encoding for
     -- you. Otherwise, provide the base64-encoded text.
-    kerberosKrb5Conf :: Prelude.Maybe Core.Base64,
+    kerberosKrb5Conf :: Prelude.Maybe Data.Base64,
     -- | The Kerberos principal with access to the files and folders on the HDFS
     -- cluster.
     kerberosPrincipal :: Prelude.Maybe Prelude.Text,
@@ -93,7 +94,7 @@ data UpdateLocationHdfs = UpdateLocationHdfs'
     -- keytab from a file by providing the file\'s address. If you use the CLI,
     -- it performs base64 encoding for you. Otherwise, provide the
     -- base64-encoded text.
-    kerberosKeytab :: Prelude.Maybe Core.Base64,
+    kerberosKeytab :: Prelude.Maybe Data.Base64,
     -- | A subdirectory in the HDFS cluster. This subdirectory is used to read
     -- data from or write data to the HDFS cluster.
     subdirectory :: Prelude.Maybe Prelude.Text,
@@ -195,7 +196,7 @@ updateLocationHdfs_authenticationType = Lens.lens (\UpdateLocationHdfs' {authent
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 updateLocationHdfs_kerberosKrb5Conf :: Lens.Lens' UpdateLocationHdfs (Prelude.Maybe Prelude.ByteString)
-updateLocationHdfs_kerberosKrb5Conf = Lens.lens (\UpdateLocationHdfs' {kerberosKrb5Conf} -> kerberosKrb5Conf) (\s@UpdateLocationHdfs' {} a -> s {kerberosKrb5Conf = a} :: UpdateLocationHdfs) Prelude.. Lens.mapping Core._Base64
+updateLocationHdfs_kerberosKrb5Conf = Lens.lens (\UpdateLocationHdfs' {kerberosKrb5Conf} -> kerberosKrb5Conf) (\s@UpdateLocationHdfs' {} a -> s {kerberosKrb5Conf = a} :: UpdateLocationHdfs) Prelude.. Lens.mapping Data._Base64
 
 -- | The Kerberos principal with access to the files and folders on the HDFS
 -- cluster.
@@ -242,7 +243,7 @@ updateLocationHdfs_blockSize = Lens.lens (\UpdateLocationHdfs' {blockSize} -> bl
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 updateLocationHdfs_kerberosKeytab :: Lens.Lens' UpdateLocationHdfs (Prelude.Maybe Prelude.ByteString)
-updateLocationHdfs_kerberosKeytab = Lens.lens (\UpdateLocationHdfs' {kerberosKeytab} -> kerberosKeytab) (\s@UpdateLocationHdfs' {} a -> s {kerberosKeytab = a} :: UpdateLocationHdfs) Prelude.. Lens.mapping Core._Base64
+updateLocationHdfs_kerberosKeytab = Lens.lens (\UpdateLocationHdfs' {kerberosKeytab} -> kerberosKeytab) (\s@UpdateLocationHdfs' {} a -> s {kerberosKeytab = a} :: UpdateLocationHdfs) Prelude.. Lens.mapping Data._Base64
 
 -- | A subdirectory in the HDFS cluster. This subdirectory is used to read
 -- data from or write data to the HDFS cluster.
@@ -302,52 +303,52 @@ instance Prelude.NFData UpdateLocationHdfs where
       `Prelude.seq` Prelude.rnf agentArns
       `Prelude.seq` Prelude.rnf locationArn
 
-instance Core.ToHeaders UpdateLocationHdfs where
+instance Data.ToHeaders UpdateLocationHdfs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.UpdateLocationHdfs" ::
+              Data.=# ( "FmrsService.UpdateLocationHdfs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLocationHdfs where
+instance Data.ToJSON UpdateLocationHdfs where
   toJSON UpdateLocationHdfs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AuthenticationType" Core..=)
+          [ ("AuthenticationType" Data..=)
               Prelude.<$> authenticationType,
-            ("KerberosKrb5Conf" Core..=)
+            ("KerberosKrb5Conf" Data..=)
               Prelude.<$> kerberosKrb5Conf,
-            ("KerberosPrincipal" Core..=)
+            ("KerberosPrincipal" Data..=)
               Prelude.<$> kerberosPrincipal,
-            ("ReplicationFactor" Core..=)
+            ("ReplicationFactor" Data..=)
               Prelude.<$> replicationFactor,
-            ("KmsKeyProviderUri" Core..=)
+            ("KmsKeyProviderUri" Data..=)
               Prelude.<$> kmsKeyProviderUri,
-            ("QopConfiguration" Core..=)
+            ("QopConfiguration" Data..=)
               Prelude.<$> qopConfiguration,
-            ("NameNodes" Core..=) Prelude.<$> nameNodes,
-            ("SimpleUser" Core..=) Prelude.<$> simpleUser,
-            ("BlockSize" Core..=) Prelude.<$> blockSize,
-            ("KerberosKeytab" Core..=)
+            ("NameNodes" Data..=) Prelude.<$> nameNodes,
+            ("SimpleUser" Data..=) Prelude.<$> simpleUser,
+            ("BlockSize" Data..=) Prelude.<$> blockSize,
+            ("KerberosKeytab" Data..=)
               Prelude.<$> kerberosKeytab,
-            ("Subdirectory" Core..=) Prelude.<$> subdirectory,
-            ("AgentArns" Core..=) Prelude.<$> agentArns,
-            Prelude.Just ("LocationArn" Core..= locationArn)
+            ("Subdirectory" Data..=) Prelude.<$> subdirectory,
+            ("AgentArns" Data..=) Prelude.<$> agentArns,
+            Prelude.Just ("LocationArn" Data..= locationArn)
           ]
       )
 
-instance Core.ToPath UpdateLocationHdfs where
+instance Data.ToPath UpdateLocationHdfs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateLocationHdfs where
+instance Data.ToQuery UpdateLocationHdfs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLocationHdfsResponse' smart constructor.

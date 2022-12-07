@@ -41,6 +41,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,23 +95,23 @@ instance Prelude.Hashable FlushApiCache where
 instance Prelude.NFData FlushApiCache where
   rnf FlushApiCache' {..} = Prelude.rnf apiId
 
-instance Core.ToHeaders FlushApiCache where
+instance Data.ToHeaders FlushApiCache where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath FlushApiCache where
+instance Data.ToPath FlushApiCache where
   toPath FlushApiCache' {..} =
     Prelude.mconcat
-      ["/v1/apis/", Core.toBS apiId, "/FlushCache"]
+      ["/v1/apis/", Data.toBS apiId, "/FlushCache"]
 
-instance Core.ToQuery FlushApiCache where
+instance Data.ToQuery FlushApiCache where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @FlushApiCache@ operation.

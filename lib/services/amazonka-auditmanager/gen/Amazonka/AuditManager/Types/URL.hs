@@ -21,6 +21,7 @@ module Amazonka.AuditManager.Types.URL where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Short for uniform resource locator. A URL is used as a unique identifier
@@ -62,14 +63,14 @@ url_link = Lens.lens (\URL' {link} -> link) (\s@URL' {} a -> s {link = a} :: URL
 url_hyperlinkName :: Lens.Lens' URL (Prelude.Maybe Prelude.Text)
 url_hyperlinkName = Lens.lens (\URL' {hyperlinkName} -> hyperlinkName) (\s@URL' {} a -> s {hyperlinkName = a} :: URL)
 
-instance Core.FromJSON URL where
+instance Data.FromJSON URL where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "URL"
       ( \x ->
           URL'
-            Prelude.<$> (x Core..:? "link")
-            Prelude.<*> (x Core..:? "hyperlinkName")
+            Prelude.<$> (x Data..:? "link")
+            Prelude.<*> (x Data..:? "hyperlinkName")
       )
 
 instance Prelude.Hashable URL where

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,8 +102,8 @@ instance Core.AWSRequest ListConfigurationSets where
     Response.receiveJSON
       ( \s h x ->
           ListConfigurationSetsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ConfigurationSets"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ConfigurationSets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -118,26 +119,26 @@ instance Prelude.NFData ListConfigurationSets where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pageSize
 
-instance Core.ToHeaders ListConfigurationSets where
+instance Data.ToHeaders ListConfigurationSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListConfigurationSets where
+instance Data.ToPath ListConfigurationSets where
   toPath =
     Prelude.const "/v1/sms-voice/configuration-sets"
 
-instance Core.ToQuery ListConfigurationSets where
+instance Data.ToQuery ListConfigurationSets where
   toQuery ListConfigurationSets' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "PageSize" Core.=: pageSize
+      [ "NextToken" Data.=: nextToken,
+        "PageSize" Data.=: pageSize
       ]
 
 -- | An object that contains information about the configuration sets for

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -69,10 +70,10 @@ data GetInsightSummaries = GetInsightSummaries'
     groupARN :: Prelude.Maybe Prelude.Text,
     -- | The beginning of the time frame in which the insights started. The start
     -- time can\'t be more than 30 days old.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The end of the time frame in which the insights ended. The end time
     -- can\'t be more than 30 days old.
-    endTime :: Core.POSIX
+    endTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -113,8 +114,8 @@ newGetInsightSummaries pStartTime_ pEndTime_ =
       maxResults = Prelude.Nothing,
       states = Prelude.Nothing,
       groupARN = Prelude.Nothing,
-      startTime = Core._Time Lens.# pStartTime_,
-      endTime = Core._Time Lens.# pEndTime_
+      startTime = Data._Time Lens.# pStartTime_,
+      endTime = Data._Time Lens.# pEndTime_
     }
 
 -- | Pagination token.
@@ -141,12 +142,12 @@ getInsightSummaries_groupARN = Lens.lens (\GetInsightSummaries' {groupARN} -> gr
 -- | The beginning of the time frame in which the insights started. The start
 -- time can\'t be more than 30 days old.
 getInsightSummaries_startTime :: Lens.Lens' GetInsightSummaries Prelude.UTCTime
-getInsightSummaries_startTime = Lens.lens (\GetInsightSummaries' {startTime} -> startTime) (\s@GetInsightSummaries' {} a -> s {startTime = a} :: GetInsightSummaries) Prelude.. Core._Time
+getInsightSummaries_startTime = Lens.lens (\GetInsightSummaries' {startTime} -> startTime) (\s@GetInsightSummaries' {} a -> s {startTime = a} :: GetInsightSummaries) Prelude.. Data._Time
 
 -- | The end of the time frame in which the insights ended. The end time
 -- can\'t be more than 30 days old.
 getInsightSummaries_endTime :: Lens.Lens' GetInsightSummaries Prelude.UTCTime
-getInsightSummaries_endTime = Lens.lens (\GetInsightSummaries' {endTime} -> endTime) (\s@GetInsightSummaries' {} a -> s {endTime = a} :: GetInsightSummaries) Prelude.. Core._Time
+getInsightSummaries_endTime = Lens.lens (\GetInsightSummaries' {endTime} -> endTime) (\s@GetInsightSummaries' {} a -> s {endTime = a} :: GetInsightSummaries) Prelude.. Data._Time
 
 instance Core.AWSRequest GetInsightSummaries where
   type
@@ -158,8 +159,8 @@ instance Core.AWSRequest GetInsightSummaries where
     Response.receiveJSON
       ( \s h x ->
           GetInsightSummariesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "InsightSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "InsightSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -185,27 +186,27 @@ instance Prelude.NFData GetInsightSummaries where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
-instance Core.ToHeaders GetInsightSummaries where
+instance Data.ToHeaders GetInsightSummaries where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetInsightSummaries where
+instance Data.ToJSON GetInsightSummaries where
   toJSON GetInsightSummaries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("GroupName" Core..=) Prelude.<$> groupName,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("States" Core..=) Prelude.<$> states,
-            ("GroupARN" Core..=) Prelude.<$> groupARN,
-            Prelude.Just ("StartTime" Core..= startTime),
-            Prelude.Just ("EndTime" Core..= endTime)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("GroupName" Data..=) Prelude.<$> groupName,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("States" Data..=) Prelude.<$> states,
+            ("GroupARN" Data..=) Prelude.<$> groupARN,
+            Prelude.Just ("StartTime" Data..= startTime),
+            Prelude.Just ("EndTime" Data..= endTime)
           ]
       )
 
-instance Core.ToPath GetInsightSummaries where
+instance Data.ToPath GetInsightSummaries where
   toPath = Prelude.const "/InsightSummaries"
 
-instance Core.ToQuery GetInsightSummaries where
+instance Data.ToQuery GetInsightSummaries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInsightSummariesResponse' smart constructor.

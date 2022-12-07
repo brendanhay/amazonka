@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.AccountModification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.DedicatedTenancyModificationStateEnum
 import Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum
@@ -45,7 +46,7 @@ data AccountModification = AccountModification'
     errorCode :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the modification of the BYOL configuration was
     -- started.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -112,20 +113,20 @@ accountModification_errorCode = Lens.lens (\AccountModification' {errorCode} -> 
 -- | The timestamp when the modification of the BYOL configuration was
 -- started.
 accountModification_startTime :: Lens.Lens' AccountModification (Prelude.Maybe Prelude.UTCTime)
-accountModification_startTime = Lens.lens (\AccountModification' {startTime} -> startTime) (\s@AccountModification' {} a -> s {startTime = a} :: AccountModification) Prelude.. Lens.mapping Core._Time
+accountModification_startTime = Lens.lens (\AccountModification' {startTime} -> startTime) (\s@AccountModification' {} a -> s {startTime = a} :: AccountModification) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AccountModification where
+instance Data.FromJSON AccountModification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountModification"
       ( \x ->
           AccountModification'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "DedicatedTenancyManagementCidrRange")
-            Prelude.<*> (x Core..:? "ModificationState")
-            Prelude.<*> (x Core..:? "DedicatedTenancySupport")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "DedicatedTenancyManagementCidrRange")
+            Prelude.<*> (x Data..:? "ModificationState")
+            Prelude.<*> (x Data..:? "DedicatedTenancySupport")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable AccountModification where

@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.LaunchTemplateSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the launch template and the version of the launch template
@@ -153,12 +154,12 @@ launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {
 launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
 
-instance Core.FromXML LaunchTemplateSpecification where
+instance Data.FromXML LaunchTemplateSpecification where
   parseXML x =
     LaunchTemplateSpecification'
-      Prelude.<$> (x Core..@? "LaunchTemplateId")
-      Prelude.<*> (x Core..@? "Version")
-      Prelude.<*> (x Core..@? "LaunchTemplateName")
+      Prelude.<$> (x Data..@? "LaunchTemplateId")
+      Prelude.<*> (x Data..@? "Version")
+      Prelude.<*> (x Data..@? "LaunchTemplateName")
 
 instance Prelude.Hashable LaunchTemplateSpecification where
   hashWithSalt _salt LaunchTemplateSpecification' {..} =
@@ -172,10 +173,10 @@ instance Prelude.NFData LaunchTemplateSpecification where
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf launchTemplateName
 
-instance Core.ToQuery LaunchTemplateSpecification where
+instance Data.ToQuery LaunchTemplateSpecification where
   toQuery LaunchTemplateSpecification' {..} =
     Prelude.mconcat
-      [ "LaunchTemplateId" Core.=: launchTemplateId,
-        "Version" Core.=: version,
-        "LaunchTemplateName" Core.=: launchTemplateName
+      [ "LaunchTemplateId" Data.=: launchTemplateId,
+        "Version" Data.=: version,
+        "LaunchTemplateName" Data.=: launchTemplateName
       ]

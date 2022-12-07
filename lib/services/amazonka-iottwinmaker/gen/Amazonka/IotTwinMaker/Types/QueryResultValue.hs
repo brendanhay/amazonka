@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.QueryResultValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newQueryResultValue' smart constructor.
@@ -37,9 +38,9 @@ newQueryResultValue ::
   QueryResultValue
 newQueryResultValue = QueryResultValue'
 
-instance Core.FromJSON QueryResultValue where
+instance Data.FromJSON QueryResultValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryResultValue"
       (\x -> Prelude.pure QueryResultValue')
 

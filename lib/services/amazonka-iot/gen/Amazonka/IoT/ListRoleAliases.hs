@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,8 +133,8 @@ instance Core.AWSRequest ListRoleAliases where
     Response.receiveJSON
       ( \s h x ->
           ListRoleAliasesResponse'
-            Prelude.<$> (x Core..?> "nextMarker")
-            Prelude.<*> (x Core..?> "roleAliases" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextMarker")
+            Prelude.<*> (x Data..?> "roleAliases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,18 +150,18 @@ instance Prelude.NFData ListRoleAliases where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf ascendingOrder
 
-instance Core.ToHeaders ListRoleAliases where
+instance Data.ToHeaders ListRoleAliases where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListRoleAliases where
+instance Data.ToPath ListRoleAliases where
   toPath = Prelude.const "/role-aliases"
 
-instance Core.ToQuery ListRoleAliases where
+instance Data.ToQuery ListRoleAliases where
   toQuery ListRoleAliases' {..} =
     Prelude.mconcat
-      [ "marker" Core.=: marker,
-        "pageSize" Core.=: pageSize,
-        "isAscendingOrder" Core.=: ascendingOrder
+      [ "marker" Data.=: marker,
+        "pageSize" Data.=: pageSize,
+        "isAscendingOrder" Data.=: ascendingOrder
       ]
 
 -- | /See:/ 'newListRoleAliasesResponse' smart constructor.

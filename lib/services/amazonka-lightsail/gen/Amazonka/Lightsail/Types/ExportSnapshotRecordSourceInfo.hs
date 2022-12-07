@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ExportSnapshotRecordSourceInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.DiskSnapshotInfo
 import Amazonka.Lightsail.Types.ExportSnapshotRecordSourceType
 import Amazonka.Lightsail.Types.InstanceSnapshotInfo
@@ -45,7 +46,7 @@ data ExportSnapshotRecordSourceInfo = ExportSnapshotRecordSourceInfo'
     -- | A list of objects describing a disk snapshot.
     diskSnapshotInfo :: Prelude.Maybe DiskSnapshotInfo,
     -- | The date when the source instance or disk snapshot was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | A list of objects describing an instance snapshot.
     instanceSnapshotInfo :: Prelude.Maybe InstanceSnapshotInfo
   }
@@ -119,26 +120,26 @@ exportSnapshotRecordSourceInfo_diskSnapshotInfo = Lens.lens (\ExportSnapshotReco
 
 -- | The date when the source instance or disk snapshot was created.
 exportSnapshotRecordSourceInfo_createdAt :: Lens.Lens' ExportSnapshotRecordSourceInfo (Prelude.Maybe Prelude.UTCTime)
-exportSnapshotRecordSourceInfo_createdAt = Lens.lens (\ExportSnapshotRecordSourceInfo' {createdAt} -> createdAt) (\s@ExportSnapshotRecordSourceInfo' {} a -> s {createdAt = a} :: ExportSnapshotRecordSourceInfo) Prelude.. Lens.mapping Core._Time
+exportSnapshotRecordSourceInfo_createdAt = Lens.lens (\ExportSnapshotRecordSourceInfo' {createdAt} -> createdAt) (\s@ExportSnapshotRecordSourceInfo' {} a -> s {createdAt = a} :: ExportSnapshotRecordSourceInfo) Prelude.. Lens.mapping Data._Time
 
 -- | A list of objects describing an instance snapshot.
 exportSnapshotRecordSourceInfo_instanceSnapshotInfo :: Lens.Lens' ExportSnapshotRecordSourceInfo (Prelude.Maybe InstanceSnapshotInfo)
 exportSnapshotRecordSourceInfo_instanceSnapshotInfo = Lens.lens (\ExportSnapshotRecordSourceInfo' {instanceSnapshotInfo} -> instanceSnapshotInfo) (\s@ExportSnapshotRecordSourceInfo' {} a -> s {instanceSnapshotInfo = a} :: ExportSnapshotRecordSourceInfo)
 
-instance Core.FromJSON ExportSnapshotRecordSourceInfo where
+instance Data.FromJSON ExportSnapshotRecordSourceInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExportSnapshotRecordSourceInfo"
       ( \x ->
           ExportSnapshotRecordSourceInfo'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "fromResourceName")
-            Prelude.<*> (x Core..:? "fromResourceArn")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "diskSnapshotInfo")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "instanceSnapshotInfo")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "fromResourceName")
+            Prelude.<*> (x Data..:? "fromResourceArn")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "diskSnapshotInfo")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "instanceSnapshotInfo")
       )
 
 instance

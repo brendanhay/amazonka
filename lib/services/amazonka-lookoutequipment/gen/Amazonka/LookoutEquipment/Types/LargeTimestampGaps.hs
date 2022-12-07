@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.LargeTimestampGaps where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.StatisticalIssueStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,15 +79,15 @@ largeTimestampGaps_numberOfLargeTimestampGaps = Lens.lens (\LargeTimestampGaps' 
 largeTimestampGaps_status :: Lens.Lens' LargeTimestampGaps StatisticalIssueStatus
 largeTimestampGaps_status = Lens.lens (\LargeTimestampGaps' {status} -> status) (\s@LargeTimestampGaps' {} a -> s {status = a} :: LargeTimestampGaps)
 
-instance Core.FromJSON LargeTimestampGaps where
+instance Data.FromJSON LargeTimestampGaps where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LargeTimestampGaps"
       ( \x ->
           LargeTimestampGaps'
-            Prelude.<$> (x Core..:? "MaxTimestampGapInDays")
-            Prelude.<*> (x Core..:? "NumberOfLargeTimestampGaps")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..:? "MaxTimestampGapInDays")
+            Prelude.<*> (x Data..:? "NumberOfLargeTimestampGaps")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable LargeTimestampGaps where

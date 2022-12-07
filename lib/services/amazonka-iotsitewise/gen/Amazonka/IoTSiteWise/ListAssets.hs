@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -179,9 +180,9 @@ instance Core.AWSRequest ListAssets where
     Response.receiveJSON
       ( \s h x ->
           ListAssetsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "assetSummaries"
+            Prelude.<*> ( x Data..?> "assetSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -200,27 +201,27 @@ instance Prelude.NFData ListAssets where
       `Prelude.seq` Prelude.rnf assetModelId
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListAssets where
+instance Data.ToHeaders ListAssets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAssets where
+instance Data.ToPath ListAssets where
   toPath = Prelude.const "/assets"
 
-instance Core.ToQuery ListAssets where
+instance Data.ToQuery ListAssets where
   toQuery ListAssets' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "filter" Core.=: filter',
-        "assetModelId" Core.=: assetModelId,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "filter" Data.=: filter',
+        "assetModelId" Data.=: assetModelId,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListAssetsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.UtteranceList where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.UtteranceData
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ utteranceList_botVersion = Lens.lens (\UtteranceList' {botVersion} -> botVersion
 utteranceList_utterances :: Lens.Lens' UtteranceList (Prelude.Maybe [UtteranceData])
 utteranceList_utterances = Lens.lens (\UtteranceList' {utterances} -> utterances) (\s@UtteranceList' {} a -> s {utterances = a} :: UtteranceList) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON UtteranceList where
+instance Data.FromJSON UtteranceList where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UtteranceList"
       ( \x ->
           UtteranceList'
-            Prelude.<$> (x Core..:? "botVersion")
-            Prelude.<*> (x Core..:? "utterances" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "botVersion")
+            Prelude.<*> (x Data..:? "utterances" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable UtteranceList where

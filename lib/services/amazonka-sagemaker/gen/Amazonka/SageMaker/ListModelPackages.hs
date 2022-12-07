@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -77,7 +78,7 @@ data ListModelPackages = ListModelPackages'
     modelApprovalStatus :: Prelude.Maybe ModelApprovalStatus,
     -- | A filter that returns only model packages created before the specified
     -- time (timestamp).
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The parameter by which to sort the results. The default is
     -- @CreationTime@.
     sortBy :: Prelude.Maybe ModelPackageSortBy,
@@ -95,7 +96,7 @@ data ListModelPackages = ListModelPackages'
     modelPackageType :: Prelude.Maybe ModelPackageType,
     -- | A filter that returns only model packages created after the specified
     -- time (timestamp).
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -187,7 +188,7 @@ listModelPackages_modelApprovalStatus = Lens.lens (\ListModelPackages' {modelApp
 -- | A filter that returns only model packages created before the specified
 -- time (timestamp).
 listModelPackages_creationTimeBefore :: Lens.Lens' ListModelPackages (Prelude.Maybe Prelude.UTCTime)
-listModelPackages_creationTimeBefore = Lens.lens (\ListModelPackages' {creationTimeBefore} -> creationTimeBefore) (\s@ListModelPackages' {} a -> s {creationTimeBefore = a} :: ListModelPackages) Prelude.. Lens.mapping Core._Time
+listModelPackages_creationTimeBefore = Lens.lens (\ListModelPackages' {creationTimeBefore} -> creationTimeBefore) (\s@ListModelPackages' {} a -> s {creationTimeBefore = a} :: ListModelPackages) Prelude.. Lens.mapping Data._Time
 
 -- | The parameter by which to sort the results. The default is
 -- @CreationTime@.
@@ -213,7 +214,7 @@ listModelPackages_modelPackageType = Lens.lens (\ListModelPackages' {modelPackag
 -- | A filter that returns only model packages created after the specified
 -- time (timestamp).
 listModelPackages_creationTimeAfter :: Lens.Lens' ListModelPackages (Prelude.Maybe Prelude.UTCTime)
-listModelPackages_creationTimeAfter = Lens.lens (\ListModelPackages' {creationTimeAfter} -> creationTimeAfter) (\s@ListModelPackages' {} a -> s {creationTimeAfter = a} :: ListModelPackages) Prelude.. Lens.mapping Core._Time
+listModelPackages_creationTimeAfter = Lens.lens (\ListModelPackages' {creationTimeAfter} -> creationTimeAfter) (\s@ListModelPackages' {} a -> s {creationTimeAfter = a} :: ListModelPackages) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListModelPackages where
   page rq rs
@@ -246,9 +247,9 @@ instance Core.AWSRequest ListModelPackages where
     Response.receiveJSON
       ( \s h x ->
           ListModelPackagesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "ModelPackageSummaryList"
+            Prelude.<*> ( x Data..?> "ModelPackageSummaryList"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -279,47 +280,47 @@ instance Prelude.NFData ListModelPackages where
       `Prelude.seq` Prelude.rnf modelPackageType
       `Prelude.seq` Prelude.rnf creationTimeAfter
 
-instance Core.ToHeaders ListModelPackages where
+instance Data.ToHeaders ListModelPackages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListModelPackages" ::
+              Data.=# ( "SageMaker.ListModelPackages" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListModelPackages where
+instance Data.ToJSON ListModelPackages where
   toJSON ListModelPackages' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ModelPackageGroupName" Core..=)
+          [ ("ModelPackageGroupName" Data..=)
               Prelude.<$> modelPackageGroupName,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("ModelApprovalStatus" Core..=)
+            ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("ModelApprovalStatus" Data..=)
               Prelude.<$> modelApprovalStatus,
-            ("CreationTimeBefore" Core..=)
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ModelPackageType" Core..=)
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ModelPackageType" Data..=)
               Prelude.<$> modelPackageType,
-            ("CreationTimeAfter" Core..=)
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter
           ]
       )
 
-instance Core.ToPath ListModelPackages where
+instance Data.ToPath ListModelPackages where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListModelPackages where
+instance Data.ToQuery ListModelPackages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListModelPackagesResponse' smart constructor.

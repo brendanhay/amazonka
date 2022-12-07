@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.DirectConnectGatewayAttachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types.DirectConnectGatewayAttachmentState
 import Amazonka.DirectConnect.Types.DirectConnectGatewayAttachmentType
 import qualified Amazonka.Prelude as Prelude
@@ -150,19 +151,19 @@ directConnectGatewayAttachment_attachmentType = Lens.lens (\DirectConnectGateway
 directConnectGatewayAttachment_attachmentState :: Lens.Lens' DirectConnectGatewayAttachment (Prelude.Maybe DirectConnectGatewayAttachmentState)
 directConnectGatewayAttachment_attachmentState = Lens.lens (\DirectConnectGatewayAttachment' {attachmentState} -> attachmentState) (\s@DirectConnectGatewayAttachment' {} a -> s {attachmentState = a} :: DirectConnectGatewayAttachment)
 
-instance Core.FromJSON DirectConnectGatewayAttachment where
+instance Data.FromJSON DirectConnectGatewayAttachment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DirectConnectGatewayAttachment"
       ( \x ->
           DirectConnectGatewayAttachment'
-            Prelude.<$> (x Core..:? "directConnectGatewayId")
-            Prelude.<*> (x Core..:? "stateChangeError")
-            Prelude.<*> (x Core..:? "virtualInterfaceOwnerAccount")
-            Prelude.<*> (x Core..:? "virtualInterfaceId")
-            Prelude.<*> (x Core..:? "virtualInterfaceRegion")
-            Prelude.<*> (x Core..:? "attachmentType")
-            Prelude.<*> (x Core..:? "attachmentState")
+            Prelude.<$> (x Data..:? "directConnectGatewayId")
+            Prelude.<*> (x Data..:? "stateChangeError")
+            Prelude.<*> (x Data..:? "virtualInterfaceOwnerAccount")
+            Prelude.<*> (x Data..:? "virtualInterfaceId")
+            Prelude.<*> (x Data..:? "virtualInterfaceRegion")
+            Prelude.<*> (x Data..:? "attachmentType")
+            Prelude.<*> (x Data..:? "attachmentState")
       )
 
 instance

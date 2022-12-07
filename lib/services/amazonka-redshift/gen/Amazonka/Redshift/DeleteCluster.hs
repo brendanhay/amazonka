@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -238,7 +239,7 @@ instance Core.AWSRequest DeleteCluster where
       "DeleteClusterResult"
       ( \s h x ->
           DeleteClusterResponse'
-            Prelude.<$> (x Core..@? "Cluster")
+            Prelude.<$> (x Data..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -257,26 +258,26 @@ instance Prelude.NFData DeleteCluster where
       `Prelude.seq` Prelude.rnf finalClusterSnapshotIdentifier
       `Prelude.seq` Prelude.rnf clusterIdentifier
 
-instance Core.ToHeaders DeleteCluster where
+instance Data.ToHeaders DeleteCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteCluster where
+instance Data.ToPath DeleteCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteCluster where
+instance Data.ToQuery DeleteCluster where
   toQuery DeleteCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteCluster" :: Prelude.ByteString),
+          Data.=: ("DeleteCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "SkipFinalClusterSnapshot"
-          Core.=: skipFinalClusterSnapshot,
+          Data.=: skipFinalClusterSnapshot,
         "FinalClusterSnapshotRetentionPeriod"
-          Core.=: finalClusterSnapshotRetentionPeriod,
+          Data.=: finalClusterSnapshotRetentionPeriod,
         "FinalClusterSnapshotIdentifier"
-          Core.=: finalClusterSnapshotIdentifier,
-        "ClusterIdentifier" Core.=: clusterIdentifier
+          Data.=: finalClusterSnapshotIdentifier,
+        "ClusterIdentifier" Data.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newDeleteClusterResponse' smart constructor.

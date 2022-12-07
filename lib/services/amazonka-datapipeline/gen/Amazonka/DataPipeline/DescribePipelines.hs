@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataPipeline.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest DescribePipelines where
       ( \s h x ->
           DescribePipelinesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "pipelineDescriptionList"
+            Prelude.<*> ( x Data..?> "pipelineDescriptionList"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -111,32 +112,32 @@ instance Prelude.Hashable DescribePipelines where
 instance Prelude.NFData DescribePipelines where
   rnf DescribePipelines' {..} = Prelude.rnf pipelineIds
 
-instance Core.ToHeaders DescribePipelines where
+instance Data.ToHeaders DescribePipelines where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DataPipeline.DescribePipelines" ::
+              Data.=# ( "DataPipeline.DescribePipelines" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribePipelines where
+instance Data.ToJSON DescribePipelines where
   toJSON DescribePipelines' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("pipelineIds" Core..= pipelineIds)]
+          [Prelude.Just ("pipelineIds" Data..= pipelineIds)]
       )
 
-instance Core.ToPath DescribePipelines where
+instance Data.ToPath DescribePipelines where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePipelines where
+instance Data.ToQuery DescribePipelines where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of DescribePipelines.

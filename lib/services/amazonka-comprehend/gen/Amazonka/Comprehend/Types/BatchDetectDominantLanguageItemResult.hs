@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.BatchDetectDominantLanguageItemResult where
 import Amazonka.Comprehend.Types.DominantLanguage
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The result of calling the operation. The operation returns one object
@@ -68,16 +69,16 @@ batchDetectDominantLanguageItemResult_languages :: Lens.Lens' BatchDetectDominan
 batchDetectDominantLanguageItemResult_languages = Lens.lens (\BatchDetectDominantLanguageItemResult' {languages} -> languages) (\s@BatchDetectDominantLanguageItemResult' {} a -> s {languages = a} :: BatchDetectDominantLanguageItemResult) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchDetectDominantLanguageItemResult
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDetectDominantLanguageItemResult"
       ( \x ->
           BatchDetectDominantLanguageItemResult'
-            Prelude.<$> (x Core..:? "Index")
-            Prelude.<*> (x Core..:? "Languages" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Index")
+            Prelude.<*> (x Data..:? "Languages" Data..!= Prelude.mempty)
       )
 
 instance

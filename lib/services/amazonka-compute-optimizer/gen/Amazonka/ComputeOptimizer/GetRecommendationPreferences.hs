@@ -56,6 +56,7 @@ where
 import Amazonka.ComputeOptimizer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -184,8 +185,8 @@ instance Core.AWSRequest GetRecommendationPreferences where
     Response.receiveJSON
       ( \s h x ->
           GetRecommendationPreferencesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "recommendationPreferencesDetails"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "recommendationPreferencesDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -208,36 +209,36 @@ instance Prelude.NFData GetRecommendationPreferences where
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToHeaders GetRecommendationPreferences where
+instance Data.ToHeaders GetRecommendationPreferences where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComputeOptimizerService.GetRecommendationPreferences" ::
+              Data.=# ( "ComputeOptimizerService.GetRecommendationPreferences" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRecommendationPreferences where
+instance Data.ToJSON GetRecommendationPreferences where
   toJSON GetRecommendationPreferences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("scope" Core..=) Prelude.<$> scope,
-            Prelude.Just ("resourceType" Core..= resourceType)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("scope" Data..=) Prelude.<$> scope,
+            Prelude.Just ("resourceType" Data..= resourceType)
           ]
       )
 
-instance Core.ToPath GetRecommendationPreferences where
+instance Data.ToPath GetRecommendationPreferences where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRecommendationPreferences where
+instance Data.ToQuery GetRecommendationPreferences where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRecommendationPreferencesResponse' smart constructor.

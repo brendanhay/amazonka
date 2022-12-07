@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ParameterHistory where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.ParameterInlinePolicy
 import Amazonka.SSM.Types.ParameterTier
@@ -38,7 +39,7 @@ data ParameterHistory = ParameterHistory'
     -- changed the parameter.
     lastModifiedUser :: Prelude.Maybe Prelude.Text,
     -- | Date the parameter was last changed or updated.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | Parameter names can include the following letters and symbols.
     --
     -- a-zA-Z0-9_.-
@@ -62,7 +63,7 @@ data ParameterHistory = ParameterHistory'
     -- default is @text@.
     dataType :: Prelude.Maybe Prelude.Text,
     -- | The parameter value.
-    value :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    value :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -140,7 +141,7 @@ parameterHistory_lastModifiedUser = Lens.lens (\ParameterHistory' {lastModifiedU
 
 -- | Date the parameter was last changed or updated.
 parameterHistory_lastModifiedDate :: Lens.Lens' ParameterHistory (Prelude.Maybe Prelude.UTCTime)
-parameterHistory_lastModifiedDate = Lens.lens (\ParameterHistory' {lastModifiedDate} -> lastModifiedDate) (\s@ParameterHistory' {} a -> s {lastModifiedDate = a} :: ParameterHistory) Prelude.. Lens.mapping Core._Time
+parameterHistory_lastModifiedDate = Lens.lens (\ParameterHistory' {lastModifiedDate} -> lastModifiedDate) (\s@ParameterHistory' {} a -> s {lastModifiedDate = a} :: ParameterHistory) Prelude.. Lens.mapping Data._Time
 
 -- | Parameter names can include the following letters and symbols.
 --
@@ -182,27 +183,27 @@ parameterHistory_dataType = Lens.lens (\ParameterHistory' {dataType} -> dataType
 
 -- | The parameter value.
 parameterHistory_value :: Lens.Lens' ParameterHistory (Prelude.Maybe Prelude.Text)
-parameterHistory_value = Lens.lens (\ParameterHistory' {value} -> value) (\s@ParameterHistory' {} a -> s {value = a} :: ParameterHistory) Prelude.. Lens.mapping Core._Sensitive
+parameterHistory_value = Lens.lens (\ParameterHistory' {value} -> value) (\s@ParameterHistory' {} a -> s {value = a} :: ParameterHistory) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON ParameterHistory where
+instance Data.FromJSON ParameterHistory where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParameterHistory"
       ( \x ->
           ParameterHistory'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "LastModifiedUser")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "AllowedPattern")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Tier")
-            Prelude.<*> (x Core..:? "Policies" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Labels")
-            Prelude.<*> (x Core..:? "KeyId")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "DataType")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "LastModifiedUser")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "AllowedPattern")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Tier")
+            Prelude.<*> (x Data..:? "Policies" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Labels")
+            Prelude.<*> (x Data..:? "KeyId")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..:? "DataType")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable ParameterHistory where

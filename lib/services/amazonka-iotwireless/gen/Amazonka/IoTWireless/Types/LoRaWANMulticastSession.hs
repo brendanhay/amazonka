@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANMulticastSession where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The LoRaWAN information used with the multicast session.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data LoRaWANMulticastSession = LoRaWANMulticastSession'
   { dlDr :: Prelude.Maybe Prelude.Natural,
     sessionTimeout :: Prelude.Maybe Prelude.Natural,
-    sessionStartTime :: Prelude.Maybe Core.POSIX,
+    sessionStartTime :: Prelude.Maybe Data.POSIX,
     dlFreq :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,22 +70,22 @@ loRaWANMulticastSession_sessionTimeout = Lens.lens (\LoRaWANMulticastSession' {s
 
 -- | Undocumented member.
 loRaWANMulticastSession_sessionStartTime :: Lens.Lens' LoRaWANMulticastSession (Prelude.Maybe Prelude.UTCTime)
-loRaWANMulticastSession_sessionStartTime = Lens.lens (\LoRaWANMulticastSession' {sessionStartTime} -> sessionStartTime) (\s@LoRaWANMulticastSession' {} a -> s {sessionStartTime = a} :: LoRaWANMulticastSession) Prelude.. Lens.mapping Core._Time
+loRaWANMulticastSession_sessionStartTime = Lens.lens (\LoRaWANMulticastSession' {sessionStartTime} -> sessionStartTime) (\s@LoRaWANMulticastSession' {} a -> s {sessionStartTime = a} :: LoRaWANMulticastSession) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 loRaWANMulticastSession_dlFreq :: Lens.Lens' LoRaWANMulticastSession (Prelude.Maybe Prelude.Natural)
 loRaWANMulticastSession_dlFreq = Lens.lens (\LoRaWANMulticastSession' {dlFreq} -> dlFreq) (\s@LoRaWANMulticastSession' {} a -> s {dlFreq = a} :: LoRaWANMulticastSession)
 
-instance Core.FromJSON LoRaWANMulticastSession where
+instance Data.FromJSON LoRaWANMulticastSession where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoRaWANMulticastSession"
       ( \x ->
           LoRaWANMulticastSession'
-            Prelude.<$> (x Core..:? "DlDr")
-            Prelude.<*> (x Core..:? "SessionTimeout")
-            Prelude.<*> (x Core..:? "SessionStartTime")
-            Prelude.<*> (x Core..:? "DlFreq")
+            Prelude.<$> (x Data..:? "DlDr")
+            Prelude.<*> (x Data..:? "SessionTimeout")
+            Prelude.<*> (x Data..:? "SessionStartTime")
+            Prelude.<*> (x Data..:? "DlFreq")
       )
 
 instance Prelude.Hashable LoRaWANMulticastSession where
@@ -101,15 +102,15 @@ instance Prelude.NFData LoRaWANMulticastSession where
       `Prelude.seq` Prelude.rnf sessionStartTime
       `Prelude.seq` Prelude.rnf dlFreq
 
-instance Core.ToJSON LoRaWANMulticastSession where
+instance Data.ToJSON LoRaWANMulticastSession where
   toJSON LoRaWANMulticastSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DlDr" Core..=) Prelude.<$> dlDr,
-            ("SessionTimeout" Core..=)
+          [ ("DlDr" Data..=) Prelude.<$> dlDr,
+            ("SessionTimeout" Data..=)
               Prelude.<$> sessionTimeout,
-            ("SessionStartTime" Core..=)
+            ("SessionStartTime" Data..=)
               Prelude.<$> sessionStartTime,
-            ("DlFreq" Core..=) Prelude.<$> dlFreq
+            ("DlFreq" Data..=) Prelude.<$> dlFreq
           ]
       )

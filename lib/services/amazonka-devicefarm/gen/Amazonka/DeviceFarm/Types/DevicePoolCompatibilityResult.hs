@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.DevicePoolCompatibilityResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.Device
 import Amazonka.DeviceFarm.Types.IncompatibilityMessage
 import qualified Amazonka.Prelude as Prelude
@@ -73,16 +74,16 @@ devicePoolCompatibilityResult_device = Lens.lens (\DevicePoolCompatibilityResult
 devicePoolCompatibilityResult_incompatibilityMessages :: Lens.Lens' DevicePoolCompatibilityResult (Prelude.Maybe [IncompatibilityMessage])
 devicePoolCompatibilityResult_incompatibilityMessages = Lens.lens (\DevicePoolCompatibilityResult' {incompatibilityMessages} -> incompatibilityMessages) (\s@DevicePoolCompatibilityResult' {} a -> s {incompatibilityMessages = a} :: DevicePoolCompatibilityResult) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DevicePoolCompatibilityResult where
+instance Data.FromJSON DevicePoolCompatibilityResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DevicePoolCompatibilityResult"
       ( \x ->
           DevicePoolCompatibilityResult'
-            Prelude.<$> (x Core..:? "compatible")
-            Prelude.<*> (x Core..:? "device")
-            Prelude.<*> ( x Core..:? "incompatibilityMessages"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "compatible")
+            Prelude.<*> (x Data..:? "device")
+            Prelude.<*> ( x Data..:? "incompatibilityMessages"
+                            Data..!= Prelude.mempty
                         )
       )
 

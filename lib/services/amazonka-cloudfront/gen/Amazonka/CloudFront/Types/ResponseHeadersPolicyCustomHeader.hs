@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicyCustomHeader where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An HTTP response header name and its value. CloudFront includes this
@@ -89,14 +90,14 @@ responseHeadersPolicyCustomHeader_override :: Lens.Lens' ResponseHeadersPolicyCu
 responseHeadersPolicyCustomHeader_override = Lens.lens (\ResponseHeadersPolicyCustomHeader' {override} -> override) (\s@ResponseHeadersPolicyCustomHeader' {} a -> s {override = a} :: ResponseHeadersPolicyCustomHeader)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ResponseHeadersPolicyCustomHeader
   where
   parseXML x =
     ResponseHeadersPolicyCustomHeader'
-      Prelude.<$> (x Core..@ "Header")
-      Prelude.<*> (x Core..@ "Value")
-      Prelude.<*> (x Core..@ "Override")
+      Prelude.<$> (x Data..@ "Header")
+      Prelude.<*> (x Data..@ "Value")
+      Prelude.<*> (x Data..@ "Override")
 
 instance
   Prelude.Hashable
@@ -118,10 +119,10 @@ instance
       `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf override
 
-instance Core.ToXML ResponseHeadersPolicyCustomHeader where
+instance Data.ToXML ResponseHeadersPolicyCustomHeader where
   toXML ResponseHeadersPolicyCustomHeader' {..} =
     Prelude.mconcat
-      [ "Header" Core.@= header,
-        "Value" Core.@= value,
-        "Override" Core.@= override
+      [ "Header" Data.@= header,
+        "Value" Data.@= value,
+        "Override" Data.@= override
       ]

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,31 +128,31 @@ instance Prelude.NFData UpdateFindings where
       `Prelude.seq` Prelude.rnf note
       `Prelude.seq` Prelude.rnf filters
 
-instance Core.ToHeaders UpdateFindings where
+instance Data.ToHeaders UpdateFindings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFindings where
+instance Data.ToJSON UpdateFindings where
   toJSON UpdateFindings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RecordState" Core..=) Prelude.<$> recordState,
-            ("Note" Core..=) Prelude.<$> note,
-            Prelude.Just ("Filters" Core..= filters)
+          [ ("RecordState" Data..=) Prelude.<$> recordState,
+            ("Note" Data..=) Prelude.<$> note,
+            Prelude.Just ("Filters" Data..= filters)
           ]
       )
 
-instance Core.ToPath UpdateFindings where
+instance Data.ToPath UpdateFindings where
   toPath = Prelude.const "/findings"
 
-instance Core.ToQuery UpdateFindings where
+instance Data.ToQuery UpdateFindings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFindingsResponse' smart constructor.

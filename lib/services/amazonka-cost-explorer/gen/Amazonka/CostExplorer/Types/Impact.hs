@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.Impact where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The dollar value of the anomaly.
@@ -63,14 +64,14 @@ impact_totalImpact = Lens.lens (\Impact' {totalImpact} -> totalImpact) (\s@Impac
 impact_maxImpact :: Lens.Lens' Impact Prelude.Double
 impact_maxImpact = Lens.lens (\Impact' {maxImpact} -> maxImpact) (\s@Impact' {} a -> s {maxImpact = a} :: Impact)
 
-instance Core.FromJSON Impact where
+instance Data.FromJSON Impact where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Impact"
       ( \x ->
           Impact'
-            Prelude.<$> (x Core..:? "TotalImpact")
-            Prelude.<*> (x Core..: "MaxImpact")
+            Prelude.<$> (x Data..:? "TotalImpact")
+            Prelude.<*> (x Data..: "MaxImpact")
       )
 
 instance Prelude.Hashable Impact where

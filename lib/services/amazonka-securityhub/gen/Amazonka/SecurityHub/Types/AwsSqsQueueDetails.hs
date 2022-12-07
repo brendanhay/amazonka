@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsSqsQueueDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Data about a queue.
@@ -89,16 +90,16 @@ awsSqsQueueDetails_deadLetterTargetArn = Lens.lens (\AwsSqsQueueDetails' {deadLe
 awsSqsQueueDetails_kmsDataKeyReusePeriodSeconds :: Lens.Lens' AwsSqsQueueDetails (Prelude.Maybe Prelude.Int)
 awsSqsQueueDetails_kmsDataKeyReusePeriodSeconds = Lens.lens (\AwsSqsQueueDetails' {kmsDataKeyReusePeriodSeconds} -> kmsDataKeyReusePeriodSeconds) (\s@AwsSqsQueueDetails' {} a -> s {kmsDataKeyReusePeriodSeconds = a} :: AwsSqsQueueDetails)
 
-instance Core.FromJSON AwsSqsQueueDetails where
+instance Data.FromJSON AwsSqsQueueDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsSqsQueueDetails"
       ( \x ->
           AwsSqsQueueDetails'
-            Prelude.<$> (x Core..:? "KmsMasterKeyId")
-            Prelude.<*> (x Core..:? "QueueName")
-            Prelude.<*> (x Core..:? "DeadLetterTargetArn")
-            Prelude.<*> (x Core..:? "KmsDataKeyReusePeriodSeconds")
+            Prelude.<$> (x Data..:? "KmsMasterKeyId")
+            Prelude.<*> (x Data..:? "QueueName")
+            Prelude.<*> (x Data..:? "DeadLetterTargetArn")
+            Prelude.<*> (x Data..:? "KmsDataKeyReusePeriodSeconds")
       )
 
 instance Prelude.Hashable AwsSqsQueueDetails where
@@ -115,16 +116,16 @@ instance Prelude.NFData AwsSqsQueueDetails where
       `Prelude.seq` Prelude.rnf deadLetterTargetArn
       `Prelude.seq` Prelude.rnf kmsDataKeyReusePeriodSeconds
 
-instance Core.ToJSON AwsSqsQueueDetails where
+instance Data.ToJSON AwsSqsQueueDetails where
   toJSON AwsSqsQueueDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsMasterKeyId" Core..=)
+          [ ("KmsMasterKeyId" Data..=)
               Prelude.<$> kmsMasterKeyId,
-            ("QueueName" Core..=) Prelude.<$> queueName,
-            ("DeadLetterTargetArn" Core..=)
+            ("QueueName" Data..=) Prelude.<$> queueName,
+            ("DeadLetterTargetArn" Data..=)
               Prelude.<$> deadLetterTargetArn,
-            ("KmsDataKeyReusePeriodSeconds" Core..=)
+            ("KmsDataKeyReusePeriodSeconds" Data..=)
               Prelude.<$> kmsDataKeyReusePeriodSeconds
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.AppStream.Types.LastReportGenerationExecutionError where
 import Amazonka.AppStream.Types.UsageReportExecutionErrorCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the error that is returned when a usage report can\'t be
@@ -71,16 +72,16 @@ lastReportGenerationExecutionError_errorCode :: Lens.Lens' LastReportGenerationE
 lastReportGenerationExecutionError_errorCode = Lens.lens (\LastReportGenerationExecutionError' {errorCode} -> errorCode) (\s@LastReportGenerationExecutionError' {} a -> s {errorCode = a} :: LastReportGenerationExecutionError)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LastReportGenerationExecutionError
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LastReportGenerationExecutionError"
       ( \x ->
           LastReportGenerationExecutionError'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance

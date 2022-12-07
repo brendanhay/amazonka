@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest DeleteEndpointAccess where
     Response.receiveJSON
       ( \s h x ->
           DeleteEndpointAccessResponse'
-            Prelude.<$> (x Core..?> "endpoint")
+            Prelude.<$> (x Data..?> "endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,32 +99,32 @@ instance Prelude.NFData DeleteEndpointAccess where
   rnf DeleteEndpointAccess' {..} =
     Prelude.rnf endpointName
 
-instance Core.ToHeaders DeleteEndpointAccess where
+instance Data.ToHeaders DeleteEndpointAccess where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.DeleteEndpointAccess" ::
+              Data.=# ( "RedshiftServerless.DeleteEndpointAccess" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteEndpointAccess where
+instance Data.ToJSON DeleteEndpointAccess where
   toJSON DeleteEndpointAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("endpointName" Core..= endpointName)]
+          [Prelude.Just ("endpointName" Data..= endpointName)]
       )
 
-instance Core.ToPath DeleteEndpointAccess where
+instance Data.ToPath DeleteEndpointAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteEndpointAccess where
+instance Data.ToQuery DeleteEndpointAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEndpointAccessResponse' smart constructor.

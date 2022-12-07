@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.RoutingProfileQueueConfigSummary where
 import Amazonka.Connect.Types.Channel
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about a routing profile queue.
@@ -133,20 +134,20 @@ routingProfileQueueConfigSummary_channel :: Lens.Lens' RoutingProfileQueueConfig
 routingProfileQueueConfigSummary_channel = Lens.lens (\RoutingProfileQueueConfigSummary' {channel} -> channel) (\s@RoutingProfileQueueConfigSummary' {} a -> s {channel = a} :: RoutingProfileQueueConfigSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RoutingProfileQueueConfigSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RoutingProfileQueueConfigSummary"
       ( \x ->
           RoutingProfileQueueConfigSummary'
-            Prelude.<$> (x Core..: "QueueId")
-            Prelude.<*> (x Core..: "QueueArn")
-            Prelude.<*> (x Core..: "QueueName")
-            Prelude.<*> (x Core..: "Priority")
-            Prelude.<*> (x Core..: "Delay")
-            Prelude.<*> (x Core..: "Channel")
+            Prelude.<$> (x Data..: "QueueId")
+            Prelude.<*> (x Data..: "QueueArn")
+            Prelude.<*> (x Data..: "QueueName")
+            Prelude.<*> (x Data..: "Priority")
+            Prelude.<*> (x Data..: "Delay")
+            Prelude.<*> (x Data..: "Channel")
       )
 
 instance

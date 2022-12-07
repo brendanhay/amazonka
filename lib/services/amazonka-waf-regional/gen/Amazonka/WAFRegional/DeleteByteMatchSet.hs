@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,7 +129,7 @@ instance Core.AWSRequest DeleteByteMatchSet where
     Response.receiveJSON
       ( \s h x ->
           DeleteByteMatchSetResponse'
-            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,35 +143,35 @@ instance Prelude.NFData DeleteByteMatchSet where
     Prelude.rnf byteMatchSetId
       `Prelude.seq` Prelude.rnf changeToken
 
-instance Core.ToHeaders DeleteByteMatchSet where
+instance Data.ToHeaders DeleteByteMatchSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.DeleteByteMatchSet" ::
+              Data.=# ( "AWSWAF_Regional_20161128.DeleteByteMatchSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteByteMatchSet where
+instance Data.ToJSON DeleteByteMatchSet where
   toJSON DeleteByteMatchSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ByteMatchSetId" Core..= byteMatchSetId),
-            Prelude.Just ("ChangeToken" Core..= changeToken)
+              ("ByteMatchSetId" Data..= byteMatchSetId),
+            Prelude.Just ("ChangeToken" Data..= changeToken)
           ]
       )
 
-instance Core.ToPath DeleteByteMatchSet where
+instance Data.ToPath DeleteByteMatchSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteByteMatchSet where
+instance Data.ToQuery DeleteByteMatchSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteByteMatchSetResponse' smart constructor.

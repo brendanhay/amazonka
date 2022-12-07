@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -185,38 +186,38 @@ instance Prelude.NFData AcceptPage where
       `Prelude.seq` Prelude.rnf acceptType
       `Prelude.seq` Prelude.rnf acceptCode
 
-instance Core.ToHeaders AcceptPage where
+instance Data.ToHeaders AcceptPage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SSMContacts.AcceptPage" :: Prelude.ByteString),
+              Data.=# ("SSMContacts.AcceptPage" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AcceptPage where
+instance Data.ToJSON AcceptPage where
   toJSON AcceptPage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContactChannelId" Core..=)
+          [ ("ContactChannelId" Data..=)
               Prelude.<$> contactChannelId,
-            ("Note" Core..=) Prelude.<$> note,
-            ("AcceptCodeValidation" Core..=)
+            ("Note" Data..=) Prelude.<$> note,
+            ("AcceptCodeValidation" Data..=)
               Prelude.<$> acceptCodeValidation,
-            Prelude.Just ("PageId" Core..= pageId),
-            Prelude.Just ("AcceptType" Core..= acceptType),
-            Prelude.Just ("AcceptCode" Core..= acceptCode)
+            Prelude.Just ("PageId" Data..= pageId),
+            Prelude.Just ("AcceptType" Data..= acceptType),
+            Prelude.Just ("AcceptCode" Data..= acceptCode)
           ]
       )
 
-instance Core.ToPath AcceptPage where
+instance Data.ToPath AcceptPage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AcceptPage where
+instance Data.ToQuery AcceptPage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAcceptPageResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.DeployAsApplicationConfigurationDescrip
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.S3ContentBaseLocationDescription
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,15 +63,15 @@ deployAsApplicationConfigurationDescription_s3ContentLocationDescription :: Lens
 deployAsApplicationConfigurationDescription_s3ContentLocationDescription = Lens.lens (\DeployAsApplicationConfigurationDescription' {s3ContentLocationDescription} -> s3ContentLocationDescription) (\s@DeployAsApplicationConfigurationDescription' {} a -> s {s3ContentLocationDescription = a} :: DeployAsApplicationConfigurationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DeployAsApplicationConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeployAsApplicationConfigurationDescription"
       ( \x ->
           DeployAsApplicationConfigurationDescription'
-            Prelude.<$> (x Core..: "S3ContentLocationDescription")
+            Prelude.<$> (x Data..: "S3ContentLocationDescription")
       )
 
 instance

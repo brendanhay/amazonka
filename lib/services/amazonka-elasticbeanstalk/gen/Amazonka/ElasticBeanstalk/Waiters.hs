@@ -18,6 +18,7 @@ module Amazonka.ElasticBeanstalk.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.DescribeEnvironments
 import Amazonka.ElasticBeanstalk.Lens
 import Amazonka.ElasticBeanstalk.Types
@@ -42,7 +43,7 @@ newEnvironmentUpdated =
                 )
                 Prelude.. environmentDescription_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Updating"
@@ -55,7 +56,7 @@ newEnvironmentUpdated =
                 )
                 Prelude.. environmentDescription_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -79,7 +80,7 @@ newEnvironmentTerminated =
                 )
                 Prelude.. environmentDescription_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Terminating"
@@ -92,7 +93,7 @@ newEnvironmentTerminated =
                 )
                 Prelude.. environmentDescription_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -116,7 +117,7 @@ newEnvironmentExists =
                 )
                 Prelude.. environmentDescription_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Launching"
@@ -129,7 +130,7 @@ newEnvironmentExists =
                 )
                 Prelude.. environmentDescription_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

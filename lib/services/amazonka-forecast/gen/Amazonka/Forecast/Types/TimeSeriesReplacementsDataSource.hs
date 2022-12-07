@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.TimeSeriesReplacementsDataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.S3Config
 import Amazonka.Forecast.Types.Schema
 import qualified Amazonka.Prelude as Prelude
@@ -93,18 +94,18 @@ timeSeriesReplacementsDataSource_schema :: Lens.Lens' TimeSeriesReplacementsData
 timeSeriesReplacementsDataSource_schema = Lens.lens (\TimeSeriesReplacementsDataSource' {schema} -> schema) (\s@TimeSeriesReplacementsDataSource' {} a -> s {schema = a} :: TimeSeriesReplacementsDataSource)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     TimeSeriesReplacementsDataSource
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeSeriesReplacementsDataSource"
       ( \x ->
           TimeSeriesReplacementsDataSource'
-            Prelude.<$> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "TimestampFormat")
-            Prelude.<*> (x Core..: "S3Config")
-            Prelude.<*> (x Core..: "Schema")
+            Prelude.<$> (x Data..:? "Format")
+            Prelude.<*> (x Data..:? "TimestampFormat")
+            Prelude.<*> (x Data..: "S3Config")
+            Prelude.<*> (x Data..: "Schema")
       )
 
 instance
@@ -129,14 +130,14 @@ instance
       `Prelude.seq` Prelude.rnf s3Config
       `Prelude.seq` Prelude.rnf schema
 
-instance Core.ToJSON TimeSeriesReplacementsDataSource where
+instance Data.ToJSON TimeSeriesReplacementsDataSource where
   toJSON TimeSeriesReplacementsDataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Format" Core..=) Prelude.<$> format,
-            ("TimestampFormat" Core..=)
+          [ ("Format" Data..=) Prelude.<$> format,
+            ("TimestampFormat" Data..=)
               Prelude.<$> timestampFormat,
-            Prelude.Just ("S3Config" Core..= s3Config),
-            Prelude.Just ("Schema" Core..= schema)
+            Prelude.Just ("S3Config" Data..= s3Config),
+            Prelude.Just ("Schema" Data..= schema)
           ]
       )

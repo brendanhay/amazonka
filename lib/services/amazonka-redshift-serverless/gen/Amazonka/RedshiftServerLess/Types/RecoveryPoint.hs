@@ -21,6 +21,7 @@ module Amazonka.RedshiftServerLess.Types.RecoveryPoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The automatically created recovery point of a namespace. Recovery points
@@ -37,7 +38,7 @@ data RecoveryPoint = RecoveryPoint'
     -- | The name of the workgroup the recovery point is associated with.
     workgroupName :: Prelude.Maybe Prelude.Text,
     -- | The time the recovery point is created.
-    recoveryPointCreateTime :: Prelude.Maybe Core.POSIX
+    recoveryPointCreateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,19 +88,19 @@ recoveryPoint_workgroupName = Lens.lens (\RecoveryPoint' {workgroupName} -> work
 
 -- | The time the recovery point is created.
 recoveryPoint_recoveryPointCreateTime :: Lens.Lens' RecoveryPoint (Prelude.Maybe Prelude.UTCTime)
-recoveryPoint_recoveryPointCreateTime = Lens.lens (\RecoveryPoint' {recoveryPointCreateTime} -> recoveryPointCreateTime) (\s@RecoveryPoint' {} a -> s {recoveryPointCreateTime = a} :: RecoveryPoint) Prelude.. Lens.mapping Core._Time
+recoveryPoint_recoveryPointCreateTime = Lens.lens (\RecoveryPoint' {recoveryPointCreateTime} -> recoveryPointCreateTime) (\s@RecoveryPoint' {} a -> s {recoveryPointCreateTime = a} :: RecoveryPoint) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON RecoveryPoint where
+instance Data.FromJSON RecoveryPoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecoveryPoint"
       ( \x ->
           RecoveryPoint'
-            Prelude.<$> (x Core..:? "namespaceName")
-            Prelude.<*> (x Core..:? "recoveryPointId")
-            Prelude.<*> (x Core..:? "totalSizeInMegaBytes")
-            Prelude.<*> (x Core..:? "workgroupName")
-            Prelude.<*> (x Core..:? "recoveryPointCreateTime")
+            Prelude.<$> (x Data..:? "namespaceName")
+            Prelude.<*> (x Data..:? "recoveryPointId")
+            Prelude.<*> (x Data..:? "totalSizeInMegaBytes")
+            Prelude.<*> (x Data..:? "workgroupName")
+            Prelude.<*> (x Data..:? "recoveryPointCreateTime")
       )
 
 instance Prelude.Hashable RecoveryPoint where

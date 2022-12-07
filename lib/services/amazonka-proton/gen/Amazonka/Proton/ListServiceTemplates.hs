@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -121,9 +122,9 @@ instance Core.AWSRequest ListServiceTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListServiceTemplatesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "templates" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "templates" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListServiceTemplates where
@@ -136,34 +137,34 @@ instance Prelude.NFData ListServiceTemplates where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListServiceTemplates where
+instance Data.ToHeaders ListServiceTemplates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.ListServiceTemplates" ::
+              Data.=# ( "AwsProton20200720.ListServiceTemplates" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListServiceTemplates where
+instance Data.ToJSON ListServiceTemplates where
   toJSON ListServiceTemplates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListServiceTemplates where
+instance Data.ToPath ListServiceTemplates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListServiceTemplates where
+instance Data.ToQuery ListServiceTemplates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListServiceTemplatesResponse' smart constructor.

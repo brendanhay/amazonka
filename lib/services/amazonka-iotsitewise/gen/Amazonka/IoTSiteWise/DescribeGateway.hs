@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,16 +90,16 @@ instance Core.AWSRequest DescribeGateway where
     Response.receiveJSON
       ( \s h x ->
           DescribeGatewayResponse'
-            Prelude.<$> (x Core..?> "gatewayPlatform")
+            Prelude.<$> (x Data..?> "gatewayPlatform")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "gatewayId")
-            Prelude.<*> (x Core..:> "gatewayName")
-            Prelude.<*> (x Core..:> "gatewayArn")
-            Prelude.<*> ( x Core..?> "gatewayCapabilitySummaries"
+            Prelude.<*> (x Data..:> "gatewayId")
+            Prelude.<*> (x Data..:> "gatewayName")
+            Prelude.<*> (x Data..:> "gatewayArn")
+            Prelude.<*> ( x Data..?> "gatewayCapabilitySummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..:> "creationDate")
-            Prelude.<*> (x Core..:> "lastUpdateDate")
+            Prelude.<*> (x Data..:> "creationDate")
+            Prelude.<*> (x Data..:> "lastUpdateDate")
       )
 
 instance Prelude.Hashable DescribeGateway where
@@ -108,23 +109,23 @@ instance Prelude.Hashable DescribeGateway where
 instance Prelude.NFData DescribeGateway where
   rnf DescribeGateway' {..} = Prelude.rnf gatewayId
 
-instance Core.ToHeaders DescribeGateway where
+instance Data.ToHeaders DescribeGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeGateway where
+instance Data.ToPath DescribeGateway where
   toPath DescribeGateway' {..} =
     Prelude.mconcat
-      ["/20200301/gateways/", Core.toBS gatewayId]
+      ["/20200301/gateways/", Data.toBS gatewayId]
 
-instance Core.ToQuery DescribeGateway where
+instance Data.ToQuery DescribeGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeGatewayResponse' smart constructor.
@@ -149,9 +150,9 @@ data DescribeGatewayResponse = DescribeGatewayResponse'
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html DescribeGatewayCapabilityConfiguration>.
     gatewayCapabilitySummaries :: [GatewayCapabilitySummary],
     -- | The date the gateway was created, in Unix epoch time.
-    creationDate :: Core.POSIX,
+    creationDate :: Data.POSIX,
     -- | The date the gateway was last updated, in Unix epoch time.
-    lastUpdateDate :: Core.POSIX
+    lastUpdateDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -214,9 +215,9 @@ newDescribeGatewayResponse
         gatewayName = pGatewayName_,
         gatewayArn = pGatewayArn_,
         gatewayCapabilitySummaries = Prelude.mempty,
-        creationDate = Core._Time Lens.# pCreationDate_,
+        creationDate = Data._Time Lens.# pCreationDate_,
         lastUpdateDate =
-          Core._Time Lens.# pLastUpdateDate_
+          Data._Time Lens.# pLastUpdateDate_
       }
 
 -- | The gateway\'s platform.
@@ -252,11 +253,11 @@ describeGatewayResponse_gatewayCapabilitySummaries = Lens.lens (\DescribeGateway
 
 -- | The date the gateway was created, in Unix epoch time.
 describeGatewayResponse_creationDate :: Lens.Lens' DescribeGatewayResponse Prelude.UTCTime
-describeGatewayResponse_creationDate = Lens.lens (\DescribeGatewayResponse' {creationDate} -> creationDate) (\s@DescribeGatewayResponse' {} a -> s {creationDate = a} :: DescribeGatewayResponse) Prelude.. Core._Time
+describeGatewayResponse_creationDate = Lens.lens (\DescribeGatewayResponse' {creationDate} -> creationDate) (\s@DescribeGatewayResponse' {} a -> s {creationDate = a} :: DescribeGatewayResponse) Prelude.. Data._Time
 
 -- | The date the gateway was last updated, in Unix epoch time.
 describeGatewayResponse_lastUpdateDate :: Lens.Lens' DescribeGatewayResponse Prelude.UTCTime
-describeGatewayResponse_lastUpdateDate = Lens.lens (\DescribeGatewayResponse' {lastUpdateDate} -> lastUpdateDate) (\s@DescribeGatewayResponse' {} a -> s {lastUpdateDate = a} :: DescribeGatewayResponse) Prelude.. Core._Time
+describeGatewayResponse_lastUpdateDate = Lens.lens (\DescribeGatewayResponse' {lastUpdateDate} -> lastUpdateDate) (\s@DescribeGatewayResponse' {} a -> s {lastUpdateDate = a} :: DescribeGatewayResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeGatewayResponse where
   rnf DescribeGatewayResponse' {..} =

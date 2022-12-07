@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,15 +106,15 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeQuerySuggestionsConfigResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "MinimumNumberOfQueryingUsers")
-            Prelude.<*> (x Core..?> "TotalSuggestionsCount")
-            Prelude.<*> (x Core..?> "LastSuggestionsBuildTime")
-            Prelude.<*> (x Core..?> "QueryLogLookBackWindowInDays")
-            Prelude.<*> (x Core..?> "Mode")
-            Prelude.<*> (x Core..?> "MinimumQueryCount")
-            Prelude.<*> (x Core..?> "IncludeQueriesWithoutUserInformation")
-            Prelude.<*> (x Core..?> "LastClearTime")
+            Prelude.<$> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "MinimumNumberOfQueryingUsers")
+            Prelude.<*> (x Data..?> "TotalSuggestionsCount")
+            Prelude.<*> (x Data..?> "LastSuggestionsBuildTime")
+            Prelude.<*> (x Data..?> "QueryLogLookBackWindowInDays")
+            Prelude.<*> (x Data..?> "Mode")
+            Prelude.<*> (x Data..?> "MinimumQueryCount")
+            Prelude.<*> (x Data..?> "IncludeQueriesWithoutUserInformation")
+            Prelude.<*> (x Data..?> "LastClearTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,34 +135,34 @@ instance
     Prelude.rnf indexId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeQuerySuggestionsConfig
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DescribeQuerySuggestionsConfig" ::
+              Data.=# ( "AWSKendraFrontendService.DescribeQuerySuggestionsConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeQuerySuggestionsConfig where
+instance Data.ToJSON DescribeQuerySuggestionsConfig where
   toJSON DescribeQuerySuggestionsConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("IndexId" Core..= indexId)]
+          [Prelude.Just ("IndexId" Data..= indexId)]
       )
 
-instance Core.ToPath DescribeQuerySuggestionsConfig where
+instance Data.ToPath DescribeQuerySuggestionsConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeQuerySuggestionsConfig where
+instance Data.ToQuery DescribeQuerySuggestionsConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeQuerySuggestionsConfigResponse' smart constructor.
@@ -183,7 +184,7 @@ data DescribeQuerySuggestionsConfigResponse = DescribeQuerySuggestionsConfigResp
     -- from.
     totalSuggestionsCount :: Prelude.Maybe Prelude.Int,
     -- | The date-time query suggestions for an index was last updated.
-    lastSuggestionsBuildTime :: Prelude.Maybe Core.POSIX,
+    lastSuggestionsBuildTime :: Prelude.Maybe Data.POSIX,
     -- | How recent your queries are in your query log time window (in days).
     queryLogLookBackWindowInDays :: Prelude.Maybe Prelude.Int,
     -- | Whether query suggestions are currently in @ENABLED@ mode or
@@ -206,7 +207,7 @@ data DescribeQuerySuggestionsConfigResponse = DescribeQuerySuggestionsConfigResp
     -- on new queries added to the query log from the time you cleared
     -- suggestions. Amazon Kendra only considers re-occurences of a query from
     -- the time you cleared suggestions.
-    lastClearTime :: Prelude.Maybe Core.POSIX,
+    lastClearTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -311,7 +312,7 @@ describeQuerySuggestionsConfigResponse_totalSuggestionsCount = Lens.lens (\Descr
 
 -- | The date-time query suggestions for an index was last updated.
 describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.UTCTime)
-describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {lastSuggestionsBuildTime} -> lastSuggestionsBuildTime) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {lastSuggestionsBuildTime = a} :: DescribeQuerySuggestionsConfigResponse) Prelude.. Lens.mapping Core._Time
+describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {lastSuggestionsBuildTime} -> lastSuggestionsBuildTime) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {lastSuggestionsBuildTime = a} :: DescribeQuerySuggestionsConfigResponse) Prelude.. Lens.mapping Data._Time
 
 -- | How recent your queries are in your query log time window (in days).
 describeQuerySuggestionsConfigResponse_queryLogLookBackWindowInDays :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.Int)
@@ -344,7 +345,7 @@ describeQuerySuggestionsConfigResponse_includeQueriesWithoutUserInformation = Le
 -- suggestions. Amazon Kendra only considers re-occurences of a query from
 -- the time you cleared suggestions.
 describeQuerySuggestionsConfigResponse_lastClearTime :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.UTCTime)
-describeQuerySuggestionsConfigResponse_lastClearTime = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {lastClearTime} -> lastClearTime) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {lastClearTime = a} :: DescribeQuerySuggestionsConfigResponse) Prelude.. Lens.mapping Core._Time
+describeQuerySuggestionsConfigResponse_lastClearTime = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {lastClearTime} -> lastClearTime) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {lastClearTime = a} :: DescribeQuerySuggestionsConfigResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeQuerySuggestionsConfigResponse_httpStatus :: Lens.Lens' DescribeQuerySuggestionsConfigResponse Prelude.Int

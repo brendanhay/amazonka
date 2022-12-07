@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.User where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types.Authentication
 import qualified Amazonka.Prelude as Prelude
 
@@ -113,19 +114,19 @@ user_minimumEngineVersion = Lens.lens (\User' {minimumEngineVersion} -> minimumE
 user_aCLNames :: Lens.Lens' User (Prelude.Maybe [Prelude.Text])
 user_aCLNames = Lens.lens (\User' {aCLNames} -> aCLNames) (\s@User' {} a -> s {aCLNames = a} :: User) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON User where
+instance Data.FromJSON User where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "User"
       ( \x ->
           User'
-            Prelude.<$> (x Core..:? "AccessString")
-            Prelude.<*> (x Core..:? "Authentication")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "MinimumEngineVersion")
-            Prelude.<*> (x Core..:? "ACLNames" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "AccessString")
+            Prelude.<*> (x Data..:? "Authentication")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "MinimumEngineVersion")
+            Prelude.<*> (x Data..:? "ACLNames" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable User where

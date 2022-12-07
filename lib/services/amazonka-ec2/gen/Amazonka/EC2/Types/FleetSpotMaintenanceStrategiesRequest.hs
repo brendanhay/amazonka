@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FleetSpotMaintenanceStrategiesRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FleetSpotCapacityRebalanceRequest
 import qualified Amazonka.Prelude as Prelude
@@ -76,9 +77,9 @@ instance
     Prelude.rnf capacityRebalance
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     FleetSpotMaintenanceStrategiesRequest
   where
   toQuery FleetSpotMaintenanceStrategiesRequest' {..} =
     Prelude.mconcat
-      ["CapacityRebalance" Core.=: capacityRebalance]
+      ["CapacityRebalance" Data.=: capacityRebalance]

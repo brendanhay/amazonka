@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.ATIModelPerformance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Account Takeover Insights (ATI) model performance score.
@@ -68,12 +69,12 @@ newATIModelPerformance =
 aTIModelPerformance_asi :: Lens.Lens' ATIModelPerformance (Prelude.Maybe Prelude.Double)
 aTIModelPerformance_asi = Lens.lens (\ATIModelPerformance' {asi} -> asi) (\s@ATIModelPerformance' {} a -> s {asi = a} :: ATIModelPerformance)
 
-instance Core.FromJSON ATIModelPerformance where
+instance Data.FromJSON ATIModelPerformance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ATIModelPerformance"
       ( \x ->
-          ATIModelPerformance' Prelude.<$> (x Core..:? "asi")
+          ATIModelPerformance' Prelude.<$> (x Data..:? "asi")
       )
 
 instance Prelude.Hashable ATIModelPerformance where

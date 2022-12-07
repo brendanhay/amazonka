@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ExplainerConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ClarifyExplainerConfig
 
@@ -57,13 +58,13 @@ newExplainerConfig =
 explainerConfig_clarifyExplainerConfig :: Lens.Lens' ExplainerConfig (Prelude.Maybe ClarifyExplainerConfig)
 explainerConfig_clarifyExplainerConfig = Lens.lens (\ExplainerConfig' {clarifyExplainerConfig} -> clarifyExplainerConfig) (\s@ExplainerConfig' {} a -> s {clarifyExplainerConfig = a} :: ExplainerConfig)
 
-instance Core.FromJSON ExplainerConfig where
+instance Data.FromJSON ExplainerConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExplainerConfig"
       ( \x ->
           ExplainerConfig'
-            Prelude.<$> (x Core..:? "ClarifyExplainerConfig")
+            Prelude.<$> (x Data..:? "ClarifyExplainerConfig")
       )
 
 instance Prelude.Hashable ExplainerConfig where
@@ -74,11 +75,11 @@ instance Prelude.NFData ExplainerConfig where
   rnf ExplainerConfig' {..} =
     Prelude.rnf clarifyExplainerConfig
 
-instance Core.ToJSON ExplainerConfig where
+instance Data.ToJSON ExplainerConfig where
   toJSON ExplainerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClarifyExplainerConfig" Core..=)
+          [ ("ClarifyExplainerConfig" Data..=)
               Prelude.<$> clarifyExplainerConfig
           ]
       )

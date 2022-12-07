@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,7 +94,7 @@ instance Core.AWSRequest StopJobRun where
       ( \s h x ->
           StopJobRunResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "RunId")
+            Prelude.<*> (x Data..:> "RunId")
       )
 
 instance Prelude.Hashable StopJobRun where
@@ -105,31 +106,31 @@ instance Prelude.NFData StopJobRun where
   rnf StopJobRun' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf runId
 
-instance Core.ToHeaders StopJobRun where
+instance Data.ToHeaders StopJobRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopJobRun where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StopJobRun where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StopJobRun where
+instance Data.ToPath StopJobRun where
   toPath StopJobRun' {..} =
     Prelude.mconcat
       [ "/jobs/",
-        Core.toBS name,
+        Data.toBS name,
         "/jobRun/",
-        Core.toBS runId,
+        Data.toBS runId,
         "/stopJobRun"
       ]
 
-instance Core.ToQuery StopJobRun where
+instance Data.ToQuery StopJobRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopJobRunResponse' smart constructor.

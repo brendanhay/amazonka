@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -155,7 +156,7 @@ instance Core.AWSRequest StartTextDetection where
     Response.receiveJSON
       ( \s h x ->
           StartTextDetectionResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,39 +176,39 @@ instance Prelude.NFData StartTextDetection where
       `Prelude.seq` Prelude.rnf notificationChannel
       `Prelude.seq` Prelude.rnf video
 
-instance Core.ToHeaders StartTextDetection where
+instance Data.ToHeaders StartTextDetection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.StartTextDetection" ::
+              Data.=# ( "RekognitionService.StartTextDetection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartTextDetection where
+instance Data.ToJSON StartTextDetection where
   toJSON StartTextDetection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
-            ("NotificationChannel" Core..=)
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("JobTag" Data..=) Prelude.<$> jobTag,
+            ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
-            Prelude.Just ("Video" Core..= video)
+            Prelude.Just ("Video" Data..= video)
           ]
       )
 
-instance Core.ToPath StartTextDetection where
+instance Data.ToPath StartTextDetection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartTextDetection where
+instance Data.ToQuery StartTextDetection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartTextDetectionResponse' smart constructor.

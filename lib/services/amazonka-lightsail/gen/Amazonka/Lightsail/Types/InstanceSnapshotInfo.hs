@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.InstanceSnapshotInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.DiskInfo
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,15 +79,15 @@ instanceSnapshotInfo_fromBlueprintId = Lens.lens (\InstanceSnapshotInfo' {fromBl
 instanceSnapshotInfo_fromBundleId :: Lens.Lens' InstanceSnapshotInfo (Prelude.Maybe Prelude.Text)
 instanceSnapshotInfo_fromBundleId = Lens.lens (\InstanceSnapshotInfo' {fromBundleId} -> fromBundleId) (\s@InstanceSnapshotInfo' {} a -> s {fromBundleId = a} :: InstanceSnapshotInfo)
 
-instance Core.FromJSON InstanceSnapshotInfo where
+instance Data.FromJSON InstanceSnapshotInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceSnapshotInfo"
       ( \x ->
           InstanceSnapshotInfo'
-            Prelude.<$> (x Core..:? "fromDiskInfo" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "fromBlueprintId")
-            Prelude.<*> (x Core..:? "fromBundleId")
+            Prelude.<$> (x Data..:? "fromDiskInfo" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "fromBlueprintId")
+            Prelude.<*> (x Data..:? "fromBundleId")
       )
 
 instance Prelude.Hashable InstanceSnapshotInfo where

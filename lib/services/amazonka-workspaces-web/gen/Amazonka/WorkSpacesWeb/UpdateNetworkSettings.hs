@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,7 +158,7 @@ instance Core.AWSRequest UpdateNetworkSettings where
       ( \s h x ->
           UpdateNetworkSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "networkSettings")
+            Prelude.<*> (x Data..:> "networkSettings")
       )
 
 instance Prelude.Hashable UpdateNetworkSettings where
@@ -176,35 +177,35 @@ instance Prelude.NFData UpdateNetworkSettings where
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf networkSettingsArn
 
-instance Core.ToHeaders UpdateNetworkSettings where
+instance Data.ToHeaders UpdateNetworkSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNetworkSettings where
+instance Data.ToJSON UpdateNetworkSettings where
   toJSON UpdateNetworkSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("securityGroupIds" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("securityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("vpcId" Core..=) Prelude.<$> vpcId,
-            ("subnetIds" Core..=) Prelude.<$> subnetIds
+            ("vpcId" Data..=) Prelude.<$> vpcId,
+            ("subnetIds" Data..=) Prelude.<$> subnetIds
           ]
       )
 
-instance Core.ToPath UpdateNetworkSettings where
+instance Data.ToPath UpdateNetworkSettings where
   toPath UpdateNetworkSettings' {..} =
     Prelude.mconcat
-      ["/networkSettings/", Core.toBS networkSettingsArn]
+      ["/networkSettings/", Data.toBS networkSettingsArn]
 
-instance Core.ToQuery UpdateNetworkSettings where
+instance Data.ToQuery UpdateNetworkSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateNetworkSettingsResponse' smart constructor.

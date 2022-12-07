@@ -21,6 +21,7 @@ module Amazonka.WAF.Types.RuleGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -126,15 +127,15 @@ ruleGroup_metricName = Lens.lens (\RuleGroup' {metricName} -> metricName) (\s@Ru
 ruleGroup_ruleGroupId :: Lens.Lens' RuleGroup Prelude.Text
 ruleGroup_ruleGroupId = Lens.lens (\RuleGroup' {ruleGroupId} -> ruleGroupId) (\s@RuleGroup' {} a -> s {ruleGroupId = a} :: RuleGroup)
 
-instance Core.FromJSON RuleGroup where
+instance Data.FromJSON RuleGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroup"
       ( \x ->
           RuleGroup'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..: "RuleGroupId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..: "RuleGroupId")
       )
 
 instance Prelude.Hashable RuleGroup where

@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.BandwidthRateLimitInterval where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a bandwidth rate limit interval for a gateway. A bandwidth
@@ -160,19 +161,19 @@ bandwidthRateLimitInterval_endMinuteOfHour = Lens.lens (\BandwidthRateLimitInter
 bandwidthRateLimitInterval_daysOfWeek :: Lens.Lens' BandwidthRateLimitInterval (Prelude.NonEmpty Prelude.Natural)
 bandwidthRateLimitInterval_daysOfWeek = Lens.lens (\BandwidthRateLimitInterval' {daysOfWeek} -> daysOfWeek) (\s@BandwidthRateLimitInterval' {} a -> s {daysOfWeek = a} :: BandwidthRateLimitInterval) Prelude.. Lens.coerced
 
-instance Core.FromJSON BandwidthRateLimitInterval where
+instance Data.FromJSON BandwidthRateLimitInterval where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BandwidthRateLimitInterval"
       ( \x ->
           BandwidthRateLimitInterval'
-            Prelude.<$> (x Core..:? "AverageUploadRateLimitInBitsPerSec")
-            Prelude.<*> (x Core..:? "AverageDownloadRateLimitInBitsPerSec")
-            Prelude.<*> (x Core..: "StartHourOfDay")
-            Prelude.<*> (x Core..: "StartMinuteOfHour")
-            Prelude.<*> (x Core..: "EndHourOfDay")
-            Prelude.<*> (x Core..: "EndMinuteOfHour")
-            Prelude.<*> (x Core..: "DaysOfWeek")
+            Prelude.<$> (x Data..:? "AverageUploadRateLimitInBitsPerSec")
+            Prelude.<*> (x Data..:? "AverageDownloadRateLimitInBitsPerSec")
+            Prelude.<*> (x Data..: "StartHourOfDay")
+            Prelude.<*> (x Data..: "StartMinuteOfHour")
+            Prelude.<*> (x Data..: "EndHourOfDay")
+            Prelude.<*> (x Data..: "EndMinuteOfHour")
+            Prelude.<*> (x Data..: "DaysOfWeek")
       )
 
 instance Prelude.Hashable BandwidthRateLimitInterval where
@@ -196,21 +197,21 @@ instance Prelude.NFData BandwidthRateLimitInterval where
       `Prelude.seq` Prelude.rnf endMinuteOfHour
       `Prelude.seq` Prelude.rnf daysOfWeek
 
-instance Core.ToJSON BandwidthRateLimitInterval where
+instance Data.ToJSON BandwidthRateLimitInterval where
   toJSON BandwidthRateLimitInterval' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AverageUploadRateLimitInBitsPerSec" Core..=)
+          [ ("AverageUploadRateLimitInBitsPerSec" Data..=)
               Prelude.<$> averageUploadRateLimitInBitsPerSec,
-            ("AverageDownloadRateLimitInBitsPerSec" Core..=)
+            ("AverageDownloadRateLimitInBitsPerSec" Data..=)
               Prelude.<$> averageDownloadRateLimitInBitsPerSec,
             Prelude.Just
-              ("StartHourOfDay" Core..= startHourOfDay),
+              ("StartHourOfDay" Data..= startHourOfDay),
             Prelude.Just
-              ("StartMinuteOfHour" Core..= startMinuteOfHour),
-            Prelude.Just ("EndHourOfDay" Core..= endHourOfDay),
+              ("StartMinuteOfHour" Data..= startMinuteOfHour),
+            Prelude.Just ("EndHourOfDay" Data..= endHourOfDay),
             Prelude.Just
-              ("EndMinuteOfHour" Core..= endMinuteOfHour),
-            Prelude.Just ("DaysOfWeek" Core..= daysOfWeek)
+              ("EndMinuteOfHour" Data..= endMinuteOfHour),
+            Prelude.Just ("DaysOfWeek" Data..= daysOfWeek)
           ]
       )

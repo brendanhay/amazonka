@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SimpleCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.EventCondition
 import Amazonka.Pinpoint.Types.SegmentCondition
 import Amazonka.Pinpoint.Types.SegmentDimensions
@@ -80,15 +81,15 @@ simpleCondition_eventCondition = Lens.lens (\SimpleCondition' {eventCondition} -
 simpleCondition_segmentDimensions :: Lens.Lens' SimpleCondition (Prelude.Maybe SegmentDimensions)
 simpleCondition_segmentDimensions = Lens.lens (\SimpleCondition' {segmentDimensions} -> segmentDimensions) (\s@SimpleCondition' {} a -> s {segmentDimensions = a} :: SimpleCondition)
 
-instance Core.FromJSON SimpleCondition where
+instance Data.FromJSON SimpleCondition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SimpleCondition"
       ( \x ->
           SimpleCondition'
-            Prelude.<$> (x Core..:? "SegmentCondition")
-            Prelude.<*> (x Core..:? "EventCondition")
-            Prelude.<*> (x Core..:? "segmentDimensions")
+            Prelude.<$> (x Data..:? "SegmentCondition")
+            Prelude.<*> (x Data..:? "EventCondition")
+            Prelude.<*> (x Data..:? "segmentDimensions")
       )
 
 instance Prelude.Hashable SimpleCondition where
@@ -103,15 +104,15 @@ instance Prelude.NFData SimpleCondition where
       `Prelude.seq` Prelude.rnf eventCondition
       `Prelude.seq` Prelude.rnf segmentDimensions
 
-instance Core.ToJSON SimpleCondition where
+instance Data.ToJSON SimpleCondition where
   toJSON SimpleCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SegmentCondition" Core..=)
+          [ ("SegmentCondition" Data..=)
               Prelude.<$> segmentCondition,
-            ("EventCondition" Core..=)
+            ("EventCondition" Data..=)
               Prelude.<$> eventCondition,
-            ("segmentDimensions" Core..=)
+            ("segmentDimensions" Data..=)
               Prelude.<$> segmentDimensions
           ]
       )

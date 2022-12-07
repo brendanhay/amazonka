@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest GetRouteAnalysis where
     Response.receiveJSON
       ( \s h x ->
           GetRouteAnalysisResponse'
-            Prelude.<$> (x Core..?> "RouteAnalysis")
+            Prelude.<$> (x Data..?> "RouteAnalysis")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,27 +115,27 @@ instance Prelude.NFData GetRouteAnalysis where
     Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf routeAnalysisId
 
-instance Core.ToHeaders GetRouteAnalysis where
+instance Data.ToHeaders GetRouteAnalysis where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetRouteAnalysis where
+instance Data.ToPath GetRouteAnalysis where
   toPath GetRouteAnalysis' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/route-analyses/",
-        Core.toBS routeAnalysisId
+        Data.toBS routeAnalysisId
       ]
 
-instance Core.ToQuery GetRouteAnalysis where
+instance Data.ToQuery GetRouteAnalysis where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRouteAnalysisResponse' smart constructor.

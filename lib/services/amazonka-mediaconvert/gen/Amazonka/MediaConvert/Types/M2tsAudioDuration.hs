@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.M2tsAudioDuration
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify this setting only when your output will be consumed by a
@@ -45,7 +46,7 @@ import qualified Amazonka.Prelude as Prelude
 -- between audio and video duration will depend on your output audio codec.
 newtype M2tsAudioDuration = M2tsAudioDuration'
   { fromM2tsAudioDuration ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -57,18 +58,18 @@ newtype M2tsAudioDuration = M2tsAudioDuration'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern M2tsAudioDuration_DEFAULT_CODEC_DURATION :: M2tsAudioDuration

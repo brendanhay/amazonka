@@ -93,6 +93,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,7 +122,7 @@ data UploadMultipartPart = UploadMultipartPart'
     -- | The SHA256 tree hash of the data being uploaded.
     checksum :: Prelude.Text,
     -- | The data to upload.
-    body :: Core.HashedBody
+    body :: Data.HashedBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -163,7 +164,7 @@ newUploadMultipartPart ::
   -- | 'checksum'
   Prelude.Text ->
   -- | 'body'
-  Core.HashedBody ->
+  Data.HashedBody ->
   UploadMultipartPart
 newUploadMultipartPart
   pAccountId_
@@ -209,7 +210,7 @@ uploadMultipartPart_checksum :: Lens.Lens' UploadMultipartPart Prelude.Text
 uploadMultipartPart_checksum = Lens.lens (\UploadMultipartPart' {checksum} -> checksum) (\s@UploadMultipartPart' {} a -> s {checksum = a} :: UploadMultipartPart)
 
 -- | The data to upload.
-uploadMultipartPart_body :: Lens.Lens' UploadMultipartPart Core.HashedBody
+uploadMultipartPart_body :: Lens.Lens' UploadMultipartPart Data.HashedBody
 uploadMultipartPart_body = Lens.lens (\UploadMultipartPart' {body} -> body) (\s@UploadMultipartPart' {} a -> s {body = a} :: UploadMultipartPart)
 
 instance Core.AWSRequest UploadMultipartPart where
@@ -223,32 +224,32 @@ instance Core.AWSRequest UploadMultipartPart where
     Response.receiveEmpty
       ( \s h x ->
           UploadMultipartPartResponse'
-            Prelude.<$> (h Core..#? "x-amz-sha256-tree-hash")
+            Prelude.<$> (h Data..#? "x-amz-sha256-tree-hash")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.ToBody UploadMultipartPart where
-  toBody UploadMultipartPart' {..} = Core.toBody body
+instance Data.ToBody UploadMultipartPart where
+  toBody UploadMultipartPart' {..} = Data.toBody body
 
-instance Core.ToHeaders UploadMultipartPart where
+instance Data.ToHeaders UploadMultipartPart where
   toHeaders UploadMultipartPart' {..} =
     Prelude.mconcat
-      [ "Content-Range" Core.=# range,
-        "x-amz-sha256-tree-hash" Core.=# checksum
+      [ "Content-Range" Data.=# range,
+        "x-amz-sha256-tree-hash" Data.=# checksum
       ]
 
-instance Core.ToPath UploadMultipartPart where
+instance Data.ToPath UploadMultipartPart where
   toPath UploadMultipartPart' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/multipart-uploads/",
-        Core.toBS uploadId
+        Data.toBS uploadId
       ]
 
-instance Core.ToQuery UploadMultipartPart where
+instance Data.ToQuery UploadMultipartPart where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.

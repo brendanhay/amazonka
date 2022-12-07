@@ -46,6 +46,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,9 +122,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRecoveryPointRestoreMetadataResponse'
-            Prelude.<$> (x Core..?> "RecoveryPointArn")
-            Prelude.<*> (x Core..?> "BackupVaultArn")
-            Prelude.<*> ( x Core..?> "RestoreMetadata"
+            Prelude.<$> (x Data..?> "RecoveryPointArn")
+            Prelude.<*> (x Data..?> "BackupVaultArn")
+            Prelude.<*> ( x Data..?> "RestoreMetadata"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -148,30 +149,30 @@ instance
       `Prelude.seq` Prelude.rnf recoveryPointArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetRecoveryPointRestoreMetadata
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetRecoveryPointRestoreMetadata where
+instance Data.ToPath GetRecoveryPointRestoreMetadata where
   toPath GetRecoveryPointRestoreMetadata' {..} =
     Prelude.mconcat
       [ "/backup-vaults/",
-        Core.toBS backupVaultName,
+        Data.toBS backupVaultName,
         "/recovery-points/",
-        Core.toBS recoveryPointArn,
+        Data.toBS recoveryPointArn,
         "/restore-metadata"
       ]
 
-instance Core.ToQuery GetRecoveryPointRestoreMetadata where
+instance Data.ToQuery GetRecoveryPointRestoreMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRecoveryPointRestoreMetadataResponse' smart constructor.
@@ -185,7 +186,7 @@ data GetRecoveryPointRestoreMetadataResponse = GetRecoveryPointRestoreMetadataRe
     -- | The set of metadata key-value pairs that describe the original
     -- configuration of the backed-up resource. These values vary depending on
     -- the service that is being restored.
-    restoreMetadata :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    restoreMetadata :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -238,7 +239,7 @@ getRecoveryPointRestoreMetadataResponse_backupVaultArn = Lens.lens (\GetRecovery
 -- configuration of the backed-up resource. These values vary depending on
 -- the service that is being restored.
 getRecoveryPointRestoreMetadataResponse_restoreMetadata :: Lens.Lens' GetRecoveryPointRestoreMetadataResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getRecoveryPointRestoreMetadataResponse_restoreMetadata = Lens.lens (\GetRecoveryPointRestoreMetadataResponse' {restoreMetadata} -> restoreMetadata) (\s@GetRecoveryPointRestoreMetadataResponse' {} a -> s {restoreMetadata = a} :: GetRecoveryPointRestoreMetadataResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+getRecoveryPointRestoreMetadataResponse_restoreMetadata = Lens.lens (\GetRecoveryPointRestoreMetadataResponse' {restoreMetadata} -> restoreMetadata) (\s@GetRecoveryPointRestoreMetadataResponse' {} a -> s {restoreMetadata = a} :: GetRecoveryPointRestoreMetadataResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The response's http status code.
 getRecoveryPointRestoreMetadataResponse_httpStatus :: Lens.Lens' GetRecoveryPointRestoreMetadataResponse Prelude.Int

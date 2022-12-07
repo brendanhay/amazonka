@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -179,9 +180,9 @@ instance Core.AWSRequest ListAppAssessments where
     Response.receiveJSON
       ( \s h x ->
           ListAppAssessmentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "assessmentSummaries"
+            Prelude.<*> ( x Data..?> "assessmentSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -208,35 +209,35 @@ instance Prelude.NFData ListAppAssessments where
       `Prelude.seq` Prelude.rnf assessmentStatus
       `Prelude.seq` Prelude.rnf reverseOrder
 
-instance Core.ToHeaders ListAppAssessments where
+instance Data.ToHeaders ListAppAssessments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAppAssessments where
+instance Data.ToPath ListAppAssessments where
   toPath = Prelude.const "/list-app-assessments"
 
-instance Core.ToQuery ListAppAssessments where
+instance Data.ToQuery ListAppAssessments where
   toQuery ListAppAssessments' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "assessmentName" Core.=: assessmentName,
-        "complianceStatus" Core.=: complianceStatus,
-        "invoker" Core.=: invoker,
-        "maxResults" Core.=: maxResults,
-        "appArn" Core.=: appArn,
+      [ "nextToken" Data.=: nextToken,
+        "assessmentName" Data.=: assessmentName,
+        "complianceStatus" Data.=: complianceStatus,
+        "invoker" Data.=: invoker,
+        "maxResults" Data.=: maxResults,
+        "appArn" Data.=: appArn,
         "assessmentStatus"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> assessmentStatus
             ),
-        "reverseOrder" Core.=: reverseOrder
+        "reverseOrder" Data.=: reverseOrder
       ]
 
 -- | /See:/ 'newListAppAssessmentsResponse' smart constructor.

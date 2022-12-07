@@ -86,6 +86,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -196,8 +197,8 @@ instance Core.AWSRequest ListFleets where
     Response.receiveJSON
       ( \s h x ->
           ListFleetsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "FleetIds")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "FleetIds")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -215,34 +216,34 @@ instance Prelude.NFData ListFleets where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf scriptId
 
-instance Core.ToHeaders ListFleets where
+instance Data.ToHeaders ListFleets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.ListFleets" :: Prelude.ByteString),
+              Data.=# ("GameLift.ListFleets" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListFleets where
+instance Data.ToJSON ListFleets where
   toJSON ListFleets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("BuildId" Core..=) Prelude.<$> buildId,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("ScriptId" Core..=) Prelude.<$> scriptId
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("BuildId" Data..=) Prelude.<$> buildId,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("ScriptId" Data..=) Prelude.<$> scriptId
           ]
       )
 
-instance Core.ToPath ListFleets where
+instance Data.ToPath ListFleets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListFleets where
+instance Data.ToQuery ListFleets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

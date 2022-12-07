@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,32 +126,32 @@ instance Prelude.NFData DeleteDatabase where
     Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders DeleteDatabase where
+instance Data.ToHeaders DeleteDatabase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.DeleteDatabase" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.DeleteDatabase" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDatabase where
+instance Data.ToJSON DeleteDatabase where
   toJSON DeleteDatabase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("Name" Core..= name)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath DeleteDatabase where
+instance Data.ToPath DeleteDatabase where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDatabase where
+instance Data.ToQuery DeleteDatabase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDatabaseResponse' smart constructor.

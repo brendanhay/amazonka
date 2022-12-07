@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.BatchPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the batch policy.
@@ -94,14 +95,14 @@ batchPolicy_timeoutInSeconds = Lens.lens (\BatchPolicy' {timeoutInSeconds} -> ti
 batchPolicy_maxConcurrency :: Lens.Lens' BatchPolicy (Prelude.Maybe Prelude.Int)
 batchPolicy_maxConcurrency = Lens.lens (\BatchPolicy' {maxConcurrency} -> maxConcurrency) (\s@BatchPolicy' {} a -> s {maxConcurrency = a} :: BatchPolicy)
 
-instance Core.FromJSON BatchPolicy where
+instance Data.FromJSON BatchPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchPolicy"
       ( \x ->
           BatchPolicy'
-            Prelude.<$> (x Core..:? "timeoutInSeconds")
-            Prelude.<*> (x Core..:? "maxConcurrency")
+            Prelude.<$> (x Data..:? "timeoutInSeconds")
+            Prelude.<*> (x Data..:? "maxConcurrency")
       )
 
 instance Prelude.Hashable BatchPolicy where
@@ -114,13 +115,13 @@ instance Prelude.NFData BatchPolicy where
     Prelude.rnf timeoutInSeconds
       `Prelude.seq` Prelude.rnf maxConcurrency
 
-instance Core.ToJSON BatchPolicy where
+instance Data.ToJSON BatchPolicy where
   toJSON BatchPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timeoutInSeconds" Core..=)
+          [ ("timeoutInSeconds" Data..=)
               Prelude.<$> timeoutInSeconds,
-            ("maxConcurrency" Core..=)
+            ("maxConcurrency" Data..=)
               Prelude.<$> maxConcurrency
           ]
       )

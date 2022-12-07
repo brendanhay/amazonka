@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,36 +96,36 @@ instance Prelude.NFData DeleteVocabularyFilter where
   rnf DeleteVocabularyFilter' {..} =
     Prelude.rnf vocabularyFilterName
 
-instance Core.ToHeaders DeleteVocabularyFilter where
+instance Data.ToHeaders DeleteVocabularyFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.DeleteVocabularyFilter" ::
+              Data.=# ( "Transcribe.DeleteVocabularyFilter" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteVocabularyFilter where
+instance Data.ToJSON DeleteVocabularyFilter where
   toJSON DeleteVocabularyFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "VocabularyFilterName"
-                  Core..= vocabularyFilterName
+                  Data..= vocabularyFilterName
               )
           ]
       )
 
-instance Core.ToPath DeleteVocabularyFilter where
+instance Data.ToPath DeleteVocabularyFilter where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVocabularyFilter where
+instance Data.ToQuery DeleteVocabularyFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVocabularyFilterResponse' smart constructor.

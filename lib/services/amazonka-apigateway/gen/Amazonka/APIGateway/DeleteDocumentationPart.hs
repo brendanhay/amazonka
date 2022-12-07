@@ -39,6 +39,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,25 +108,25 @@ instance Prelude.NFData DeleteDocumentationPart where
     Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf documentationPartId
 
-instance Core.ToHeaders DeleteDocumentationPart where
+instance Data.ToHeaders DeleteDocumentationPart where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath DeleteDocumentationPart where
+instance Data.ToPath DeleteDocumentationPart where
   toPath DeleteDocumentationPart' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/documentation/parts/",
-        Core.toBS documentationPartId
+        Data.toBS documentationPartId
       ]
 
-instance Core.ToQuery DeleteDocumentationPart where
+instance Data.ToQuery DeleteDocumentationPart where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDocumentationPartResponse' smart constructor.

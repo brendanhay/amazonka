@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchDisassociateClientDeviceFromCoreDeviceResponse'
-            Prelude.<$> (x Core..?> "errorEntries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "errorEntries" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,36 +129,36 @@ instance
       `Prelude.seq` Prelude.rnf coreDeviceThingName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchDisassociateClientDeviceFromCoreDevice
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     BatchDisassociateClientDeviceFromCoreDevice
   where
   toJSON
     BatchDisassociateClientDeviceFromCoreDevice' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("entries" Core..=) Prelude.<$> entries]
+            [("entries" Data..=) Prelude.<$> entries]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     BatchDisassociateClientDeviceFromCoreDevice
   where
   toPath
     BatchDisassociateClientDeviceFromCoreDevice' {..} =
       Prelude.mconcat
         [ "/greengrass/v2/coreDevices/",
-          Core.toBS coreDeviceThingName,
+          Data.toBS coreDeviceThingName,
           "/disassociateClientDevices"
         ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     BatchDisassociateClientDeviceFromCoreDevice
   where
   toQuery = Prelude.const Prelude.mempty

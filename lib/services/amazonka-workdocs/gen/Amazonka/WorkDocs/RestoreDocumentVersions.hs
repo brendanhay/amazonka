@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -47,7 +48,7 @@ import Amazonka.WorkDocs.Types
 data RestoreDocumentVersions = RestoreDocumentVersions'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the document.
     documentId :: Prelude.Text
   }
@@ -79,7 +80,7 @@ newRestoreDocumentVersions pDocumentId_ =
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 restoreDocumentVersions_authenticationToken :: Lens.Lens' RestoreDocumentVersions (Prelude.Maybe Prelude.Text)
-restoreDocumentVersions_authenticationToken = Lens.lens (\RestoreDocumentVersions' {authenticationToken} -> authenticationToken) (\s@RestoreDocumentVersions' {} a -> s {authenticationToken = a} :: RestoreDocumentVersions) Prelude.. Lens.mapping Core._Sensitive
+restoreDocumentVersions_authenticationToken = Lens.lens (\RestoreDocumentVersions' {authenticationToken} -> authenticationToken) (\s@RestoreDocumentVersions' {} a -> s {authenticationToken = a} :: RestoreDocumentVersions) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the document.
 restoreDocumentVersions_documentId :: Lens.Lens' RestoreDocumentVersions Prelude.Text
@@ -105,25 +106,25 @@ instance Prelude.NFData RestoreDocumentVersions where
     Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf documentId
 
-instance Core.ToHeaders RestoreDocumentVersions where
+instance Data.ToHeaders RestoreDocumentVersions where
   toHeaders RestoreDocumentVersions' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON RestoreDocumentVersions where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON RestoreDocumentVersions where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath RestoreDocumentVersions where
+instance Data.ToPath RestoreDocumentVersions where
   toPath RestoreDocumentVersions' {..} =
     Prelude.mconcat
       [ "/api/v1/documentVersions/restore/",
-        Core.toBS documentId
+        Data.toBS documentId
       ]
 
-instance Core.ToQuery RestoreDocumentVersions where
+instance Data.ToQuery RestoreDocumentVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRestoreDocumentVersionsResponse' smart constructor.

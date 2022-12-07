@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,14 +73,14 @@ data PutAccountDetails = PutAccountDetails'
     productionAccessEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Additional email addresses that you would like to be notified regarding
     -- Amazon SES matters.
-    additionalContactEmailAddresses :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text))),
+    additionalContactEmailAddresses :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty (Data.Sensitive Prelude.Text))),
     -- | The type of email your account will send.
     mailType :: MailType,
     -- | The URL of your website. This information helps us better understand the
     -- type of content that you plan to send.
-    websiteURL :: Core.Sensitive Prelude.Text,
+    websiteURL :: Data.Sensitive Prelude.Text,
     -- | A description of the types of email that you plan to send.
-    useCaseDescription :: Core.Sensitive Prelude.Text
+    useCaseDescription :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -134,9 +135,9 @@ newPutAccountDetails
         productionAccessEnabled = Prelude.Nothing,
         additionalContactEmailAddresses = Prelude.Nothing,
         mailType = pMailType_,
-        websiteURL = Core._Sensitive Lens.# pWebsiteURL_,
+        websiteURL = Data._Sensitive Lens.# pWebsiteURL_,
         useCaseDescription =
-          Core._Sensitive Lens.# pUseCaseDescription_
+          Data._Sensitive Lens.# pUseCaseDescription_
       }
 
 -- | The language you would prefer to be contacted with.
@@ -162,7 +163,7 @@ putAccountDetails_productionAccessEnabled = Lens.lens (\PutAccountDetails' {prod
 -- | Additional email addresses that you would like to be notified regarding
 -- Amazon SES matters.
 putAccountDetails_additionalContactEmailAddresses :: Lens.Lens' PutAccountDetails (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-putAccountDetails_additionalContactEmailAddresses = Lens.lens (\PutAccountDetails' {additionalContactEmailAddresses} -> additionalContactEmailAddresses) (\s@PutAccountDetails' {} a -> s {additionalContactEmailAddresses = a} :: PutAccountDetails) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+putAccountDetails_additionalContactEmailAddresses = Lens.lens (\PutAccountDetails' {additionalContactEmailAddresses} -> additionalContactEmailAddresses) (\s@PutAccountDetails' {} a -> s {additionalContactEmailAddresses = a} :: PutAccountDetails) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The type of email your account will send.
 putAccountDetails_mailType :: Lens.Lens' PutAccountDetails MailType
@@ -171,11 +172,11 @@ putAccountDetails_mailType = Lens.lens (\PutAccountDetails' {mailType} -> mailTy
 -- | The URL of your website. This information helps us better understand the
 -- type of content that you plan to send.
 putAccountDetails_websiteURL :: Lens.Lens' PutAccountDetails Prelude.Text
-putAccountDetails_websiteURL = Lens.lens (\PutAccountDetails' {websiteURL} -> websiteURL) (\s@PutAccountDetails' {} a -> s {websiteURL = a} :: PutAccountDetails) Prelude.. Core._Sensitive
+putAccountDetails_websiteURL = Lens.lens (\PutAccountDetails' {websiteURL} -> websiteURL) (\s@PutAccountDetails' {} a -> s {websiteURL = a} :: PutAccountDetails) Prelude.. Data._Sensitive
 
 -- | A description of the types of email that you plan to send.
 putAccountDetails_useCaseDescription :: Lens.Lens' PutAccountDetails Prelude.Text
-putAccountDetails_useCaseDescription = Lens.lens (\PutAccountDetails' {useCaseDescription} -> useCaseDescription) (\s@PutAccountDetails' {} a -> s {useCaseDescription = a} :: PutAccountDetails) Prelude.. Core._Sensitive
+putAccountDetails_useCaseDescription = Lens.lens (\PutAccountDetails' {useCaseDescription} -> useCaseDescription) (\s@PutAccountDetails' {} a -> s {useCaseDescription = a} :: PutAccountDetails) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest PutAccountDetails where
   type
@@ -208,38 +209,38 @@ instance Prelude.NFData PutAccountDetails where
       `Prelude.seq` Prelude.rnf websiteURL
       `Prelude.seq` Prelude.rnf useCaseDescription
 
-instance Core.ToHeaders PutAccountDetails where
+instance Data.ToHeaders PutAccountDetails where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutAccountDetails where
+instance Data.ToJSON PutAccountDetails where
   toJSON PutAccountDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContactLanguage" Core..=)
+          [ ("ContactLanguage" Data..=)
               Prelude.<$> contactLanguage,
-            ("ProductionAccessEnabled" Core..=)
+            ("ProductionAccessEnabled" Data..=)
               Prelude.<$> productionAccessEnabled,
-            ("AdditionalContactEmailAddresses" Core..=)
+            ("AdditionalContactEmailAddresses" Data..=)
               Prelude.<$> additionalContactEmailAddresses,
-            Prelude.Just ("MailType" Core..= mailType),
-            Prelude.Just ("WebsiteURL" Core..= websiteURL),
+            Prelude.Just ("MailType" Data..= mailType),
+            Prelude.Just ("WebsiteURL" Data..= websiteURL),
             Prelude.Just
-              ("UseCaseDescription" Core..= useCaseDescription)
+              ("UseCaseDescription" Data..= useCaseDescription)
           ]
       )
 
-instance Core.ToPath PutAccountDetails where
+instance Data.ToPath PutAccountDetails where
   toPath = Prelude.const "/v2/email/account/details"
 
-instance Core.ToQuery PutAccountDetails where
+instance Data.ToQuery PutAccountDetails where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the

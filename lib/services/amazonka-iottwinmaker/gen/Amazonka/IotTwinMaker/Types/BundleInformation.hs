@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.BundleInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.PricingTier
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ bundleInformation_pricingTier = Lens.lens (\BundleInformation' {pricingTier} -> 
 bundleInformation_bundleNames :: Lens.Lens' BundleInformation (Prelude.NonEmpty Prelude.Text)
 bundleInformation_bundleNames = Lens.lens (\BundleInformation' {bundleNames} -> bundleNames) (\s@BundleInformation' {} a -> s {bundleNames = a} :: BundleInformation) Prelude.. Lens.coerced
 
-instance Core.FromJSON BundleInformation where
+instance Data.FromJSON BundleInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BundleInformation"
       ( \x ->
           BundleInformation'
-            Prelude.<$> (x Core..:? "pricingTier")
-            Prelude.<*> (x Core..: "bundleNames")
+            Prelude.<$> (x Data..:? "pricingTier")
+            Prelude.<*> (x Data..: "bundleNames")
       )
 
 instance Prelude.Hashable BundleInformation where

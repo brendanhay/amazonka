@@ -89,6 +89,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -175,7 +176,7 @@ instance Core.AWSRequest UpdateRule where
     Response.receiveJSON
       ( \s h x ->
           UpdateRuleResponse'
-            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,35 +192,35 @@ instance Prelude.NFData UpdateRule where
       `Prelude.seq` Prelude.rnf changeToken
       `Prelude.seq` Prelude.rnf updates
 
-instance Core.ToHeaders UpdateRule where
+instance Data.ToHeaders UpdateRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.UpdateRule" ::
+              Data.=# ( "AWSWAF_Regional_20161128.UpdateRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRule where
+instance Data.ToJSON UpdateRule where
   toJSON UpdateRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("RuleId" Core..= ruleId),
-            Prelude.Just ("ChangeToken" Core..= changeToken),
-            Prelude.Just ("Updates" Core..= updates)
+          [ Prelude.Just ("RuleId" Data..= ruleId),
+            Prelude.Just ("ChangeToken" Data..= changeToken),
+            Prelude.Just ("Updates" Data..= updates)
           ]
       )
 
-instance Core.ToPath UpdateRule where
+instance Data.ToPath UpdateRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateRule where
+instance Data.ToQuery UpdateRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRuleResponse' smart constructor.

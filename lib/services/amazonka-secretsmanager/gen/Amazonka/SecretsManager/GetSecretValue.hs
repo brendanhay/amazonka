@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -189,13 +190,13 @@ instance Core.AWSRequest GetSecretValue where
     Response.receiveJSON
       ( \s h x ->
           GetSecretValueResponse'
-            Prelude.<$> (x Core..?> "VersionStages")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "SecretBinary")
-            Prelude.<*> (x Core..?> "SecretString")
-            Prelude.<*> (x Core..?> "CreatedDate")
-            Prelude.<*> (x Core..?> "VersionId")
+            Prelude.<$> (x Data..?> "VersionStages")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "SecretBinary")
+            Prelude.<*> (x Data..?> "SecretString")
+            Prelude.<*> (x Data..?> "CreatedDate")
+            Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,35 +212,35 @@ instance Prelude.NFData GetSecretValue where
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf secretId
 
-instance Core.ToHeaders GetSecretValue where
+instance Data.ToHeaders GetSecretValue where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "secretsmanager.GetSecretValue" ::
+              Data.=# ( "secretsmanager.GetSecretValue" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSecretValue where
+instance Data.ToJSON GetSecretValue where
   toJSON GetSecretValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VersionStage" Core..=) Prelude.<$> versionStage,
-            ("VersionId" Core..=) Prelude.<$> versionId,
-            Prelude.Just ("SecretId" Core..= secretId)
+          [ ("VersionStage" Data..=) Prelude.<$> versionStage,
+            ("VersionId" Data..=) Prelude.<$> versionId,
+            Prelude.Just ("SecretId" Data..= secretId)
           ]
       )
 
-instance Core.ToPath GetSecretValue where
+instance Data.ToPath GetSecretValue where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSecretValue where
+instance Data.ToQuery GetSecretValue where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSecretValueResponse' smart constructor.
@@ -259,17 +260,17 @@ data GetSecretValueResponse = GetSecretValueResponse'
     -- If the secret was created by using the Secrets Manager console, or if
     -- the secret value was originally provided as a string, then this field is
     -- omitted. The secret value appears in @SecretString@ instead.
-    secretBinary :: Prelude.Maybe (Core.Sensitive Core.Base64),
+    secretBinary :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | The decrypted secret value, if the secret value was originally provided
     -- as a string or through the Secrets Manager console.
     --
     -- If this secret was created by using the console, then Secrets Manager
     -- stores the information as a JSON structure of key\/value pairs.
-    secretString :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    secretString :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The date and time that this version of the secret was created. If you
     -- don\'t specify which version in @VersionId@ or @VersionStage@, then
     -- Secrets Manager uses the @AWSCURRENT@ version.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of this version of the secret.
     versionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -361,7 +362,7 @@ getSecretValueResponse_arn = Lens.lens (\GetSecretValueResponse' {arn} -> arn) (
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 getSecretValueResponse_secretBinary :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.ByteString)
-getSecretValueResponse_secretBinary = Lens.lens (\GetSecretValueResponse' {secretBinary} -> secretBinary) (\s@GetSecretValueResponse' {} a -> s {secretBinary = a} :: GetSecretValueResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
+getSecretValueResponse_secretBinary = Lens.lens (\GetSecretValueResponse' {secretBinary} -> secretBinary) (\s@GetSecretValueResponse' {} a -> s {secretBinary = a} :: GetSecretValueResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
 
 -- | The decrypted secret value, if the secret value was originally provided
 -- as a string or through the Secrets Manager console.
@@ -369,13 +370,13 @@ getSecretValueResponse_secretBinary = Lens.lens (\GetSecretValueResponse' {secre
 -- If this secret was created by using the console, then Secrets Manager
 -- stores the information as a JSON structure of key\/value pairs.
 getSecretValueResponse_secretString :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
-getSecretValueResponse_secretString = Lens.lens (\GetSecretValueResponse' {secretString} -> secretString) (\s@GetSecretValueResponse' {} a -> s {secretString = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Core._Sensitive
+getSecretValueResponse_secretString = Lens.lens (\GetSecretValueResponse' {secretString} -> secretString) (\s@GetSecretValueResponse' {} a -> s {secretString = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The date and time that this version of the secret was created. If you
 -- don\'t specify which version in @VersionId@ or @VersionStage@, then
 -- Secrets Manager uses the @AWSCURRENT@ version.
 getSecretValueResponse_createdDate :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.UTCTime)
-getSecretValueResponse_createdDate = Lens.lens (\GetSecretValueResponse' {createdDate} -> createdDate) (\s@GetSecretValueResponse' {} a -> s {createdDate = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Core._Time
+getSecretValueResponse_createdDate = Lens.lens (\GetSecretValueResponse' {createdDate} -> createdDate) (\s@GetSecretValueResponse' {} a -> s {createdDate = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of this version of the secret.
 getSecretValueResponse_versionId :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)

@@ -53,6 +53,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -237,8 +238,8 @@ instance Core.AWSRequest MergeBranchesByThreeWay where
     Response.receiveJSON
       ( \s h x ->
           MergeBranchesByThreeWayResponse'
-            Prelude.<$> (x Core..?> "commitId")
-            Prelude.<*> (x Core..?> "treeId")
+            Prelude.<$> (x Data..?> "commitId")
+            Prelude.<*> (x Data..?> "treeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -270,54 +271,54 @@ instance Prelude.NFData MergeBranchesByThreeWay where
       `Prelude.seq` Prelude.rnf sourceCommitSpecifier
       `Prelude.seq` Prelude.rnf destinationCommitSpecifier
 
-instance Core.ToHeaders MergeBranchesByThreeWay where
+instance Data.ToHeaders MergeBranchesByThreeWay where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.MergeBranchesByThreeWay" ::
+              Data.=# ( "CodeCommit_20150413.MergeBranchesByThreeWay" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON MergeBranchesByThreeWay where
+instance Data.ToJSON MergeBranchesByThreeWay where
   toJSON MergeBranchesByThreeWay' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("keepEmptyFolders" Core..=)
+          [ ("keepEmptyFolders" Data..=)
               Prelude.<$> keepEmptyFolders,
-            ("targetBranch" Core..=) Prelude.<$> targetBranch,
-            ("conflictResolution" Core..=)
+            ("targetBranch" Data..=) Prelude.<$> targetBranch,
+            ("conflictResolution" Data..=)
               Prelude.<$> conflictResolution,
-            ("email" Core..=) Prelude.<$> email,
-            ("authorName" Core..=) Prelude.<$> authorName,
-            ("commitMessage" Core..=) Prelude.<$> commitMessage,
-            ("conflictResolutionStrategy" Core..=)
+            ("email" Data..=) Prelude.<$> email,
+            ("authorName" Data..=) Prelude.<$> authorName,
+            ("commitMessage" Data..=) Prelude.<$> commitMessage,
+            ("conflictResolutionStrategy" Data..=)
               Prelude.<$> conflictResolutionStrategy,
-            ("conflictDetailLevel" Core..=)
+            ("conflictDetailLevel" Data..=)
               Prelude.<$> conflictDetailLevel,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
+              ("repositoryName" Data..= repositoryName),
             Prelude.Just
               ( "sourceCommitSpecifier"
-                  Core..= sourceCommitSpecifier
+                  Data..= sourceCommitSpecifier
               ),
             Prelude.Just
               ( "destinationCommitSpecifier"
-                  Core..= destinationCommitSpecifier
+                  Data..= destinationCommitSpecifier
               )
           ]
       )
 
-instance Core.ToPath MergeBranchesByThreeWay where
+instance Data.ToPath MergeBranchesByThreeWay where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery MergeBranchesByThreeWay where
+instance Data.ToQuery MergeBranchesByThreeWay where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newMergeBranchesByThreeWayResponse' smart constructor.

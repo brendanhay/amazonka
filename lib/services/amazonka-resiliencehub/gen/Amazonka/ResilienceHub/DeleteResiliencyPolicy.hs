@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -119,7 +120,7 @@ instance Core.AWSRequest DeleteResiliencyPolicy where
       ( \s h x ->
           DeleteResiliencyPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "policyArn")
+            Prelude.<*> (x Data..:> "policyArn")
       )
 
 instance Prelude.Hashable DeleteResiliencyPolicy where
@@ -132,30 +133,30 @@ instance Prelude.NFData DeleteResiliencyPolicy where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf policyArn
 
-instance Core.ToHeaders DeleteResiliencyPolicy where
+instance Data.ToHeaders DeleteResiliencyPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteResiliencyPolicy where
+instance Data.ToJSON DeleteResiliencyPolicy where
   toJSON DeleteResiliencyPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("policyArn" Core..= policyArn)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("policyArn" Data..= policyArn)
           ]
       )
 
-instance Core.ToPath DeleteResiliencyPolicy where
+instance Data.ToPath DeleteResiliencyPolicy where
   toPath = Prelude.const "/delete-resiliency-policy"
 
-instance Core.ToQuery DeleteResiliencyPolicy where
+instance Data.ToQuery DeleteResiliencyPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResiliencyPolicyResponse' smart constructor.

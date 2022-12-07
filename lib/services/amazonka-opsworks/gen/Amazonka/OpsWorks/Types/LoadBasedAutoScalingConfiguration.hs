@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.LoadBasedAutoScalingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.AutoScalingThresholds
 import qualified Amazonka.Prelude as Prelude
 
@@ -94,18 +95,18 @@ loadBasedAutoScalingConfiguration_layerId :: Lens.Lens' LoadBasedAutoScalingConf
 loadBasedAutoScalingConfiguration_layerId = Lens.lens (\LoadBasedAutoScalingConfiguration' {layerId} -> layerId) (\s@LoadBasedAutoScalingConfiguration' {} a -> s {layerId = a} :: LoadBasedAutoScalingConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LoadBasedAutoScalingConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoadBasedAutoScalingConfiguration"
       ( \x ->
           LoadBasedAutoScalingConfiguration'
-            Prelude.<$> (x Core..:? "UpScaling")
-            Prelude.<*> (x Core..:? "Enable")
-            Prelude.<*> (x Core..:? "DownScaling")
-            Prelude.<*> (x Core..:? "LayerId")
+            Prelude.<$> (x Data..:? "UpScaling")
+            Prelude.<*> (x Data..:? "Enable")
+            Prelude.<*> (x Data..:? "DownScaling")
+            Prelude.<*> (x Data..:? "LayerId")
       )
 
 instance

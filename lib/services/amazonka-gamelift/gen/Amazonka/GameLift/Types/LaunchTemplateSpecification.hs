@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.LaunchTemplateSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __This data type is used with the GameLift FleetIQ and game server
@@ -98,14 +99,14 @@ instance Prelude.NFData LaunchTemplateSpecification where
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf launchTemplateName
 
-instance Core.ToJSON LaunchTemplateSpecification where
+instance Data.ToJSON LaunchTemplateSpecification where
   toJSON LaunchTemplateSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LaunchTemplateId" Core..=)
+          [ ("LaunchTemplateId" Data..=)
               Prelude.<$> launchTemplateId,
-            ("Version" Core..=) Prelude.<$> version,
-            ("LaunchTemplateName" Core..=)
+            ("Version" Data..=) Prelude.<$> version,
+            ("LaunchTemplateName" Data..=)
               Prelude.<$> launchTemplateName
           ]
       )

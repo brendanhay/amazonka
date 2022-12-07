@@ -22,6 +22,7 @@ module Amazonka.AutoScaling.Types.PredictiveScalingCustomizedScalingMetric where
 import Amazonka.AutoScaling.Types.MetricDataQuery
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a custom scaling metric for a predictive scaling policy.
@@ -61,14 +62,14 @@ predictiveScalingCustomizedScalingMetric_metricDataQueries :: Lens.Lens' Predict
 predictiveScalingCustomizedScalingMetric_metricDataQueries = Lens.lens (\PredictiveScalingCustomizedScalingMetric' {metricDataQueries} -> metricDataQueries) (\s@PredictiveScalingCustomizedScalingMetric' {} a -> s {metricDataQueries = a} :: PredictiveScalingCustomizedScalingMetric) Prelude.. Lens.coerced
 
 instance
-  Core.FromXML
+  Data.FromXML
     PredictiveScalingCustomizedScalingMetric
   where
   parseXML x =
     PredictiveScalingCustomizedScalingMetric'
-      Prelude.<$> ( x Core..@? "MetricDataQueries"
+      Prelude.<$> ( x Data..@? "MetricDataQueries"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.parseXMLList "member"
+                      Prelude.>>= Data.parseXMLList "member"
                   )
 
 instance
@@ -88,11 +89,11 @@ instance
     Prelude.rnf metricDataQueries
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PredictiveScalingCustomizedScalingMetric
   where
   toQuery PredictiveScalingCustomizedScalingMetric' {..} =
     Prelude.mconcat
       [ "MetricDataQueries"
-          Core.=: Core.toQueryList "member" metricDataQueries
+          Data.=: Data.toQueryList "member" metricDataQueries
       ]

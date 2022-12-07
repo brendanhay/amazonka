@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.ContinuousHyperParameterRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the name and range of a continuous hyperparameter.
@@ -71,15 +72,15 @@ continuousHyperParameterRange_minValue = Lens.lens (\ContinuousHyperParameterRan
 continuousHyperParameterRange_maxValue :: Lens.Lens' ContinuousHyperParameterRange (Prelude.Maybe Prelude.Double)
 continuousHyperParameterRange_maxValue = Lens.lens (\ContinuousHyperParameterRange' {maxValue} -> maxValue) (\s@ContinuousHyperParameterRange' {} a -> s {maxValue = a} :: ContinuousHyperParameterRange)
 
-instance Core.FromJSON ContinuousHyperParameterRange where
+instance Data.FromJSON ContinuousHyperParameterRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContinuousHyperParameterRange"
       ( \x ->
           ContinuousHyperParameterRange'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "minValue")
-            Prelude.<*> (x Core..:? "maxValue")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "minValue")
+            Prelude.<*> (x Data..:? "maxValue")
       )
 
 instance
@@ -97,12 +98,12 @@ instance Prelude.NFData ContinuousHyperParameterRange where
       `Prelude.seq` Prelude.rnf minValue
       `Prelude.seq` Prelude.rnf maxValue
 
-instance Core.ToJSON ContinuousHyperParameterRange where
+instance Data.ToJSON ContinuousHyperParameterRange where
   toJSON ContinuousHyperParameterRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("minValue" Core..=) Prelude.<$> minValue,
-            ("maxValue" Core..=) Prelude.<$> maxValue
+          [ ("name" Data..=) Prelude.<$> name,
+            ("minValue" Data..=) Prelude.<$> minValue,
+            ("maxValue" Data..=) Prelude.<$> maxValue
           ]
       )

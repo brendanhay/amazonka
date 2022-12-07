@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -148,8 +149,8 @@ instance Core.AWSRequest DetectText where
     Response.receiveJSON
       ( \s h x ->
           DetectTextResponse'
-            Prelude.<$> (x Core..?> "TextDetections" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "TextModelVersion")
+            Prelude.<$> (x Data..?> "TextDetections" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TextModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,34 +163,34 @@ instance Prelude.NFData DetectText where
   rnf DetectText' {..} =
     Prelude.rnf filters `Prelude.seq` Prelude.rnf image
 
-instance Core.ToHeaders DetectText where
+instance Data.ToHeaders DetectText where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.DetectText" ::
+              Data.=# ( "RekognitionService.DetectText" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DetectText where
+instance Data.ToJSON DetectText where
   toJSON DetectText' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            Prelude.Just ("Image" Core..= image)
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            Prelude.Just ("Image" Data..= image)
           ]
       )
 
-instance Core.ToPath DetectText where
+instance Data.ToPath DetectText where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetectText where
+instance Data.ToQuery DetectText where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectTextResponse' smart constructor.

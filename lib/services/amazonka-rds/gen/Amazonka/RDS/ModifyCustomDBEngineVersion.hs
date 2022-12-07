@@ -82,6 +82,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -217,7 +218,7 @@ instance Core.AWSRequest ModifyCustomDBEngineVersion where
   response =
     Response.receiveXMLWrapper
       "ModifyCustomDBEngineVersionResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable ModifyCustomDBEngineVersion where
   hashWithSalt _salt ModifyCustomDBEngineVersion' {..} =
@@ -233,23 +234,23 @@ instance Prelude.NFData ModifyCustomDBEngineVersion where
       `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf engineVersion
 
-instance Core.ToHeaders ModifyCustomDBEngineVersion where
+instance Data.ToHeaders ModifyCustomDBEngineVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyCustomDBEngineVersion where
+instance Data.ToPath ModifyCustomDBEngineVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyCustomDBEngineVersion where
+instance Data.ToQuery ModifyCustomDBEngineVersion where
   toQuery ModifyCustomDBEngineVersion' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyCustomDBEngineVersion" ::
+          Data.=: ( "ModifyCustomDBEngineVersion" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Status" Core.=: status,
-        "Description" Core.=: description,
-        "Engine" Core.=: engine,
-        "EngineVersion" Core.=: engineVersion
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Status" Data.=: status,
+        "Description" Data.=: description,
+        "Engine" Data.=: engine,
+        "EngineVersion" Data.=: engineVersion
       ]

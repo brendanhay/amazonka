@@ -101,6 +101,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -233,7 +234,7 @@ instance Core.AWSRequest CreateSnapshot where
   request overrides =
     Request.postQuery (overrides defaultService)
   response =
-    Response.receiveXML (\s h x -> Core.parseXML x)
+    Response.receiveXML (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable CreateSnapshot where
   hashWithSalt _salt CreateSnapshot' {..} =
@@ -251,25 +252,25 @@ instance Prelude.NFData CreateSnapshot where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf volumeId
 
-instance Core.ToHeaders CreateSnapshot where
+instance Data.ToHeaders CreateSnapshot where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateSnapshot where
+instance Data.ToPath CreateSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSnapshot where
+instance Data.ToQuery CreateSnapshot where
   toQuery CreateSnapshot' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateSnapshot" :: Prelude.ByteString),
+          Data.=: ("CreateSnapshot" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "OutpostArn" Core.=: outpostArn,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "OutpostArn" Data.=: outpostArn,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "VolumeId" Core.=: volumeId
+        "VolumeId" Data.=: volumeId
       ]

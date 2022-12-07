@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.DBSubnetGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types.Subnet
 import qualified Amazonka.Prelude as Prelude
 
@@ -101,17 +102,17 @@ dbSubnetGroup_dbSubnetGroupArn = Lens.lens (\DBSubnetGroup' {dbSubnetGroupArn} -
 dbSubnetGroup_vpcId :: Lens.Lens' DBSubnetGroup (Prelude.Maybe Prelude.Text)
 dbSubnetGroup_vpcId = Lens.lens (\DBSubnetGroup' {vpcId} -> vpcId) (\s@DBSubnetGroup' {} a -> s {vpcId = a} :: DBSubnetGroup)
 
-instance Core.FromXML DBSubnetGroup where
+instance Data.FromXML DBSubnetGroup where
   parseXML x =
     DBSubnetGroup'
-      Prelude.<$> (x Core..@? "DBSubnetGroupName")
-      Prelude.<*> (x Core..@? "SubnetGroupStatus")
-      Prelude.<*> ( x Core..@? "Subnets" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Subnet")
+      Prelude.<$> (x Data..@? "DBSubnetGroupName")
+      Prelude.<*> (x Data..@? "SubnetGroupStatus")
+      Prelude.<*> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Subnet")
                   )
-      Prelude.<*> (x Core..@? "DBSubnetGroupDescription")
-      Prelude.<*> (x Core..@? "DBSubnetGroupArn")
-      Prelude.<*> (x Core..@? "VpcId")
+      Prelude.<*> (x Data..@? "DBSubnetGroupDescription")
+      Prelude.<*> (x Data..@? "DBSubnetGroupArn")
+      Prelude.<*> (x Data..@? "VpcId")
 
 instance Prelude.Hashable DBSubnetGroup where
   hashWithSalt _salt DBSubnetGroup' {..} =

@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.ClassifierMetadata where
 import Amazonka.Comprehend.Types.ClassifierEvaluationMetrics
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a document classifier.
@@ -93,16 +94,16 @@ classifierMetadata_numberOfLabels = Lens.lens (\ClassifierMetadata' {numberOfLab
 classifierMetadata_numberOfTrainedDocuments :: Lens.Lens' ClassifierMetadata (Prelude.Maybe Prelude.Int)
 classifierMetadata_numberOfTrainedDocuments = Lens.lens (\ClassifierMetadata' {numberOfTrainedDocuments} -> numberOfTrainedDocuments) (\s@ClassifierMetadata' {} a -> s {numberOfTrainedDocuments = a} :: ClassifierMetadata)
 
-instance Core.FromJSON ClassifierMetadata where
+instance Data.FromJSON ClassifierMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClassifierMetadata"
       ( \x ->
           ClassifierMetadata'
-            Prelude.<$> (x Core..:? "EvaluationMetrics")
-            Prelude.<*> (x Core..:? "NumberOfTestDocuments")
-            Prelude.<*> (x Core..:? "NumberOfLabels")
-            Prelude.<*> (x Core..:? "NumberOfTrainedDocuments")
+            Prelude.<$> (x Data..:? "EvaluationMetrics")
+            Prelude.<*> (x Data..:? "NumberOfTestDocuments")
+            Prelude.<*> (x Data..:? "NumberOfLabels")
+            Prelude.<*> (x Data..:? "NumberOfTrainedDocuments")
       )
 
 instance Prelude.Hashable ClassifierMetadata where

@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -190,7 +191,7 @@ instance Core.AWSRequest ResizeCluster where
       "ResizeClusterResult"
       ( \s h x ->
           ResizeClusterResponse'
-            Prelude.<$> (x Core..@? "Cluster")
+            Prelude.<$> (x Data..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -214,27 +215,27 @@ instance Prelude.NFData ResizeCluster where
       `Prelude.seq` Prelude.rnf targetReservedNodeOfferingId
       `Prelude.seq` Prelude.rnf clusterIdentifier
 
-instance Core.ToHeaders ResizeCluster where
+instance Data.ToHeaders ResizeCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ResizeCluster where
+instance Data.ToPath ResizeCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResizeCluster where
+instance Data.ToQuery ResizeCluster where
   toQuery ResizeCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ResizeCluster" :: Prelude.ByteString),
+          Data.=: ("ResizeCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ReservedNodeId" Core.=: reservedNodeId,
-        "NodeType" Core.=: nodeType,
-        "Classic" Core.=: classic,
-        "NumberOfNodes" Core.=: numberOfNodes,
-        "ClusterType" Core.=: clusterType,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ReservedNodeId" Data.=: reservedNodeId,
+        "NodeType" Data.=: nodeType,
+        "Classic" Data.=: classic,
+        "NumberOfNodes" Data.=: numberOfNodes,
+        "ClusterType" Data.=: clusterType,
         "TargetReservedNodeOfferingId"
-          Core.=: targetReservedNodeOfferingId,
-        "ClusterIdentifier" Core.=: clusterIdentifier
+          Data.=: targetReservedNodeOfferingId,
+        "ClusterIdentifier" Data.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newResizeClusterResponse' smart constructor.

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest ModifySnapshotSchedule where
   response =
     Response.receiveXMLWrapper
       "ModifySnapshotScheduleResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable ModifySnapshotSchedule where
   hashWithSalt _salt ModifySnapshotSchedule' {..} =
@@ -119,22 +120,22 @@ instance Prelude.NFData ModifySnapshotSchedule where
     Prelude.rnf scheduleIdentifier
       `Prelude.seq` Prelude.rnf scheduleDefinitions
 
-instance Core.ToHeaders ModifySnapshotSchedule where
+instance Data.ToHeaders ModifySnapshotSchedule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifySnapshotSchedule where
+instance Data.ToPath ModifySnapshotSchedule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifySnapshotSchedule where
+instance Data.ToQuery ModifySnapshotSchedule where
   toQuery ModifySnapshotSchedule' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifySnapshotSchedule" :: Prelude.ByteString),
+          Data.=: ("ModifySnapshotSchedule" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ScheduleIdentifier" Core.=: scheduleIdentifier,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ScheduleIdentifier" Data.=: scheduleIdentifier,
         "ScheduleDefinitions"
-          Core.=: Core.toQueryList
+          Data.=: Data.toQueryList
             "ScheduleDefinition"
             scheduleDefinitions
       ]

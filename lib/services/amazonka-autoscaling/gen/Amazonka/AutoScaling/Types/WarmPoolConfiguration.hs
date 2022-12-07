@@ -24,6 +24,7 @@ import Amazonka.AutoScaling.Types.WarmPoolState
 import Amazonka.AutoScaling.Types.WarmPoolStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a warm pool configuration.
@@ -97,14 +98,14 @@ warmPoolConfiguration_instanceReusePolicy = Lens.lens (\WarmPoolConfiguration' {
 warmPoolConfiguration_maxGroupPreparedCapacity :: Lens.Lens' WarmPoolConfiguration (Prelude.Maybe Prelude.Int)
 warmPoolConfiguration_maxGroupPreparedCapacity = Lens.lens (\WarmPoolConfiguration' {maxGroupPreparedCapacity} -> maxGroupPreparedCapacity) (\s@WarmPoolConfiguration' {} a -> s {maxGroupPreparedCapacity = a} :: WarmPoolConfiguration)
 
-instance Core.FromXML WarmPoolConfiguration where
+instance Data.FromXML WarmPoolConfiguration where
   parseXML x =
     WarmPoolConfiguration'
-      Prelude.<$> (x Core..@? "PoolState")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "MinSize")
-      Prelude.<*> (x Core..@? "InstanceReusePolicy")
-      Prelude.<*> (x Core..@? "MaxGroupPreparedCapacity")
+      Prelude.<$> (x Data..@? "PoolState")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "MinSize")
+      Prelude.<*> (x Data..@? "InstanceReusePolicy")
+      Prelude.<*> (x Data..@? "MaxGroupPreparedCapacity")
 
 instance Prelude.Hashable WarmPoolConfiguration where
   hashWithSalt _salt WarmPoolConfiguration' {..} =

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,10 +109,10 @@ instance Core.AWSRequest DeletePullThroughCacheRule where
     Response.receiveJSON
       ( \s h x ->
           DeletePullThroughCacheRuleResponse'
-            Prelude.<$> (x Core..?> "upstreamRegistryUrl")
-            Prelude.<*> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "ecrRepositoryPrefix")
-            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<$> (x Data..?> "upstreamRegistryUrl")
+            Prelude.<*> (x Data..?> "registryId")
+            Prelude.<*> (x Data..?> "ecrRepositoryPrefix")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,35 +126,35 @@ instance Prelude.NFData DeletePullThroughCacheRule where
     Prelude.rnf registryId
       `Prelude.seq` Prelude.rnf ecrRepositoryPrefix
 
-instance Core.ToHeaders DeletePullThroughCacheRule where
+instance Data.ToHeaders DeletePullThroughCacheRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.DeletePullThroughCacheRule" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.DeletePullThroughCacheRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeletePullThroughCacheRule where
+instance Data.ToJSON DeletePullThroughCacheRule where
   toJSON DeletePullThroughCacheRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("ecrRepositoryPrefix" Core..= ecrRepositoryPrefix)
+              ("ecrRepositoryPrefix" Data..= ecrRepositoryPrefix)
           ]
       )
 
-instance Core.ToPath DeletePullThroughCacheRule where
+instance Data.ToPath DeletePullThroughCacheRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeletePullThroughCacheRule where
+instance Data.ToQuery DeletePullThroughCacheRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePullThroughCacheRuleResponse' smart constructor.
@@ -165,7 +166,7 @@ data DeletePullThroughCacheRuleResponse = DeletePullThroughCacheRuleResponse'
     -- | The Amazon ECR repository prefix associated with the request.
     ecrRepositoryPrefix :: Prelude.Maybe Prelude.Text,
     -- | The timestamp associated with the pull through cache rule.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -216,7 +217,7 @@ deletePullThroughCacheRuleResponse_ecrRepositoryPrefix = Lens.lens (\DeletePullT
 
 -- | The timestamp associated with the pull through cache rule.
 deletePullThroughCacheRuleResponse_createdAt :: Lens.Lens' DeletePullThroughCacheRuleResponse (Prelude.Maybe Prelude.UTCTime)
-deletePullThroughCacheRuleResponse_createdAt = Lens.lens (\DeletePullThroughCacheRuleResponse' {createdAt} -> createdAt) (\s@DeletePullThroughCacheRuleResponse' {} a -> s {createdAt = a} :: DeletePullThroughCacheRuleResponse) Prelude.. Lens.mapping Core._Time
+deletePullThroughCacheRuleResponse_createdAt = Lens.lens (\DeletePullThroughCacheRuleResponse' {createdAt} -> createdAt) (\s@DeletePullThroughCacheRuleResponse' {} a -> s {createdAt = a} :: DeletePullThroughCacheRuleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 deletePullThroughCacheRuleResponse_httpStatus :: Lens.Lens' DeletePullThroughCacheRuleResponse Prelude.Int

@@ -70,6 +70,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -203,10 +204,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeApplicableIndividualAssessmentsResponse'
-            Prelude.<$> ( x Core..?> "IndividualAssessmentNames"
+            Prelude.<$> ( x Data..?> "IndividualAssessmentNames"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Core..?> "Marker")
+              Prelude.<*> (x Data..?> "Marker")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -239,52 +240,52 @@ instance
       `Prelude.seq` Prelude.rnf targetEngineName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeApplicableIndividualAssessments
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DescribeApplicableIndividualAssessments" ::
+              Data.=# ( "AmazonDMSv20160101.DescribeApplicableIndividualAssessments" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeApplicableIndividualAssessments
   where
   toJSON DescribeApplicableIndividualAssessments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReplicationInstanceArn" Core..=)
+          [ ("ReplicationInstanceArn" Data..=)
               Prelude.<$> replicationInstanceArn,
-            ("Marker" Core..=) Prelude.<$> marker,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
-            ("ReplicationTaskArn" Core..=)
+            ("Marker" Data..=) Prelude.<$> marker,
+            ("MaxRecords" Data..=) Prelude.<$> maxRecords,
+            ("ReplicationTaskArn" Data..=)
               Prelude.<$> replicationTaskArn,
-            ("SourceEngineName" Core..=)
+            ("SourceEngineName" Data..=)
               Prelude.<$> sourceEngineName,
-            ("MigrationType" Core..=) Prelude.<$> migrationType,
-            ("TargetEngineName" Core..=)
+            ("MigrationType" Data..=) Prelude.<$> migrationType,
+            ("TargetEngineName" Data..=)
               Prelude.<$> targetEngineName
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeApplicableIndividualAssessments
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeApplicableIndividualAssessments
   where
   toQuery = Prelude.const Prelude.mempty

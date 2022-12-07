@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.InferenceInputNameConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies configuration information for the input data for the
@@ -67,16 +68,16 @@ inferenceInputNameConfiguration_timestampFormat :: Lens.Lens' InferenceInputName
 inferenceInputNameConfiguration_timestampFormat = Lens.lens (\InferenceInputNameConfiguration' {timestampFormat} -> timestampFormat) (\s@InferenceInputNameConfiguration' {} a -> s {timestampFormat = a} :: InferenceInputNameConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     InferenceInputNameConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InferenceInputNameConfiguration"
       ( \x ->
           InferenceInputNameConfiguration'
-            Prelude.<$> (x Core..:? "ComponentTimestampDelimiter")
-            Prelude.<*> (x Core..:? "TimestampFormat")
+            Prelude.<$> (x Data..:? "ComponentTimestampDelimiter")
+            Prelude.<*> (x Data..:? "TimestampFormat")
       )
 
 instance
@@ -98,13 +99,13 @@ instance
     Prelude.rnf componentTimestampDelimiter
       `Prelude.seq` Prelude.rnf timestampFormat
 
-instance Core.ToJSON InferenceInputNameConfiguration where
+instance Data.ToJSON InferenceInputNameConfiguration where
   toJSON InferenceInputNameConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ComponentTimestampDelimiter" Core..=)
+          [ ("ComponentTimestampDelimiter" Data..=)
               Prelude.<$> componentTimestampDelimiter,
-            ("TimestampFormat" Core..=)
+            ("TimestampFormat" Data..=)
               Prelude.<$> timestampFormat
           ]
       )

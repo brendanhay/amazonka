@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,9 +131,9 @@ instance Core.AWSRequest ListWorkflowStepGroups where
     Response.receiveJSON
       ( \s h x ->
           ListWorkflowStepGroupsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "workflowStepGroupsSummary"
+            Prelude.<*> ( x Data..?> "workflowStepGroupsSummary"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -149,26 +150,26 @@ instance Prelude.NFData ListWorkflowStepGroups where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf workflowId
 
-instance Core.ToHeaders ListWorkflowStepGroups where
+instance Data.ToHeaders ListWorkflowStepGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListWorkflowStepGroups where
+instance Data.ToPath ListWorkflowStepGroups where
   toPath = Prelude.const "/workflowstepgroups"
 
-instance Core.ToQuery ListWorkflowStepGroups where
+instance Data.ToQuery ListWorkflowStepGroups where
   toQuery ListWorkflowStepGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "workflowId" Core.=: workflowId
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "workflowId" Data.=: workflowId
       ]
 
 -- | /See:/ 'newListWorkflowStepGroupsResponse' smart constructor.

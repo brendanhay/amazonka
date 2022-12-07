@@ -70,6 +70,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,7 +140,7 @@ instance Core.AWSRequest CreatePartnerEventSource where
     Response.receiveJSON
       ( \s h x ->
           CreatePartnerEventSourceResponse'
-            Prelude.<$> (x Core..?> "EventSourceArn")
+            Prelude.<$> (x Data..?> "EventSourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,34 +153,34 @@ instance Prelude.NFData CreatePartnerEventSource where
   rnf CreatePartnerEventSource' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf account
 
-instance Core.ToHeaders CreatePartnerEventSource where
+instance Data.ToHeaders CreatePartnerEventSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSEvents.CreatePartnerEventSource" ::
+              Data.=# ( "AWSEvents.CreatePartnerEventSource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePartnerEventSource where
+instance Data.ToJSON CreatePartnerEventSource where
   toJSON CreatePartnerEventSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Account" Core..= account)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Account" Data..= account)
           ]
       )
 
-instance Core.ToPath CreatePartnerEventSource where
+instance Data.ToPath CreatePartnerEventSource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePartnerEventSource where
+instance Data.ToQuery CreatePartnerEventSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePartnerEventSourceResponse' smart constructor.

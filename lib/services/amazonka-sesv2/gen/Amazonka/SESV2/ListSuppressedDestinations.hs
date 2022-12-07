@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -62,7 +63,7 @@ data ListSuppressedDestinations = ListSuppressedDestinations'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Used to filter the list of suppressed email destinations so that it only
     -- includes addresses that were added to the list before a specific date.
-    endDate :: Prelude.Maybe Core.POSIX,
+    endDate :: Prelude.Maybe Data.POSIX,
     -- | The number of results to show in a single call to
     -- @ListSuppressedDestinations@. If the number of results is larger than
     -- the number you specified in this parameter, then the response includes a
@@ -70,7 +71,7 @@ data ListSuppressedDestinations = ListSuppressedDestinations'
     pageSize :: Prelude.Maybe Prelude.Int,
     -- | Used to filter the list of suppressed email destinations so that it only
     -- includes addresses that were added to the list after a specific date.
-    startDate :: Prelude.Maybe Core.POSIX,
+    startDate :: Prelude.Maybe Data.POSIX,
     -- | The factors that caused the email address to be added to .
     reasons :: Prelude.Maybe [SuppressionListReason]
   }
@@ -119,7 +120,7 @@ listSuppressedDestinations_nextToken = Lens.lens (\ListSuppressedDestinations' {
 -- | Used to filter the list of suppressed email destinations so that it only
 -- includes addresses that were added to the list before a specific date.
 listSuppressedDestinations_endDate :: Lens.Lens' ListSuppressedDestinations (Prelude.Maybe Prelude.UTCTime)
-listSuppressedDestinations_endDate = Lens.lens (\ListSuppressedDestinations' {endDate} -> endDate) (\s@ListSuppressedDestinations' {} a -> s {endDate = a} :: ListSuppressedDestinations) Prelude.. Lens.mapping Core._Time
+listSuppressedDestinations_endDate = Lens.lens (\ListSuppressedDestinations' {endDate} -> endDate) (\s@ListSuppressedDestinations' {} a -> s {endDate = a} :: ListSuppressedDestinations) Prelude.. Lens.mapping Data._Time
 
 -- | The number of results to show in a single call to
 -- @ListSuppressedDestinations@. If the number of results is larger than
@@ -131,7 +132,7 @@ listSuppressedDestinations_pageSize = Lens.lens (\ListSuppressedDestinations' {p
 -- | Used to filter the list of suppressed email destinations so that it only
 -- includes addresses that were added to the list after a specific date.
 listSuppressedDestinations_startDate :: Lens.Lens' ListSuppressedDestinations (Prelude.Maybe Prelude.UTCTime)
-listSuppressedDestinations_startDate = Lens.lens (\ListSuppressedDestinations' {startDate} -> startDate) (\s@ListSuppressedDestinations' {} a -> s {startDate = a} :: ListSuppressedDestinations) Prelude.. Lens.mapping Core._Time
+listSuppressedDestinations_startDate = Lens.lens (\ListSuppressedDestinations' {startDate} -> startDate) (\s@ListSuppressedDestinations' {} a -> s {startDate = a} :: ListSuppressedDestinations) Prelude.. Lens.mapping Data._Time
 
 -- | The factors that caused the email address to be added to .
 listSuppressedDestinations_reasons :: Lens.Lens' ListSuppressedDestinations (Prelude.Maybe [SuppressionListReason])
@@ -147,8 +148,8 @@ instance Core.AWSRequest ListSuppressedDestinations where
     Response.receiveJSON
       ( \s h x ->
           ListSuppressedDestinationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "SuppressedDestinationSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "SuppressedDestinationSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -170,31 +171,31 @@ instance Prelude.NFData ListSuppressedDestinations where
       `Prelude.seq` Prelude.rnf startDate
       `Prelude.seq` Prelude.rnf reasons
 
-instance Core.ToHeaders ListSuppressedDestinations where
+instance Data.ToHeaders ListSuppressedDestinations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListSuppressedDestinations where
+instance Data.ToPath ListSuppressedDestinations where
   toPath =
     Prelude.const "/v2/email/suppression/addresses"
 
-instance Core.ToQuery ListSuppressedDestinations where
+instance Data.ToQuery ListSuppressedDestinations where
   toQuery ListSuppressedDestinations' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "EndDate" Core.=: endDate,
-        "PageSize" Core.=: pageSize,
-        "StartDate" Core.=: startDate,
+      [ "NextToken" Data.=: nextToken,
+        "EndDate" Data.=: endDate,
+        "PageSize" Data.=: pageSize,
+        "StartDate" Data.=: startDate,
         "Reason"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> reasons)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> reasons)
       ]
 
 -- | A list of suppressed email addresses.

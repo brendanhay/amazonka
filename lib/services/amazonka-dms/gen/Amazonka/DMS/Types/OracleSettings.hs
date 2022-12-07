@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.OracleSettings where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.CharLengthSemantics
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines an Oracle endpoint.
@@ -115,7 +116,7 @@ data OracleSettings = OracleSettings'
     -- production.
     standbyDelayTime :: Prelude.Maybe Prelude.Int,
     -- | Endpoint connection password.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Fully qualified domain name of the endpoint.
     serverName :: Prelude.Maybe Prelude.Text,
     -- | For an Oracle source endpoint, the name of a key used for the
@@ -174,7 +175,7 @@ data OracleSettings = OracleSettings'
     -- set to the @Password@ request parameter when you create the endpoint to
     -- access transaction logs using Binary Reader. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration Configuration for change data capture (CDC) on an Oracle source database>.
-    asmPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    asmPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Set this attribute with @ArchivedLogDestId@ in a primary\/ standby
     -- setup. This attribute is useful in the case of a switchover. In this
     -- case, DMS needs to know which destination to get archive redo logs from
@@ -215,7 +216,7 @@ data OracleSettings = OracleSettings'
     -- to this @SecurityDbEncryptionName@ setting. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption Supported encryption methods for using Oracle as a source for DMS>
     -- in the /Database Migration Service User Guide/.
-    securityDbEncryption :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    securityDbEncryption :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | When set to @true@, this attribute specifies a parallel load when
     -- @useDirectPathFullLoad@ is set to @Y@. This attribute also only applies
     -- when you use the DMS parallel load feature. Note that the target table
@@ -726,7 +727,7 @@ oracleSettings_standbyDelayTime = Lens.lens (\OracleSettings' {standbyDelayTime}
 
 -- | Endpoint connection password.
 oracleSettings_password :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
-oracleSettings_password = Lens.lens (\OracleSettings' {password} -> password) (\s@OracleSettings' {} a -> s {password = a} :: OracleSettings) Prelude.. Lens.mapping Core._Sensitive
+oracleSettings_password = Lens.lens (\OracleSettings' {password} -> password) (\s@OracleSettings' {} a -> s {password = a} :: OracleSettings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Fully qualified domain name of the endpoint.
 oracleSettings_serverName :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
@@ -801,7 +802,7 @@ oracleSettings_retryInterval = Lens.lens (\OracleSettings' {retryInterval} -> re
 -- access transaction logs using Binary Reader. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration Configuration for change data capture (CDC) on an Oracle source database>.
 oracleSettings_asmPassword :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
-oracleSettings_asmPassword = Lens.lens (\OracleSettings' {asmPassword} -> asmPassword) (\s@OracleSettings' {} a -> s {asmPassword = a} :: OracleSettings) Prelude.. Lens.mapping Core._Sensitive
+oracleSettings_asmPassword = Lens.lens (\OracleSettings' {asmPassword} -> asmPassword) (\s@OracleSettings' {} a -> s {asmPassword = a} :: OracleSettings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Set this attribute with @ArchivedLogDestId@ in a primary\/ standby
 -- setup. This attribute is useful in the case of a switchover. In this
@@ -854,7 +855,7 @@ oracleSettings_replacePathPrefix = Lens.lens (\OracleSettings' {replacePathPrefi
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption Supported encryption methods for using Oracle as a source for DMS>
 -- in the /Database Migration Service User Guide/.
 oracleSettings_securityDbEncryption :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
-oracleSettings_securityDbEncryption = Lens.lens (\OracleSettings' {securityDbEncryption} -> securityDbEncryption) (\s@OracleSettings' {} a -> s {securityDbEncryption = a} :: OracleSettings) Prelude.. Lens.mapping Core._Sensitive
+oracleSettings_securityDbEncryption = Lens.lens (\OracleSettings' {securityDbEncryption} -> securityDbEncryption) (\s@OracleSettings' {} a -> s {securityDbEncryption = a} :: OracleSettings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | When set to @true@, this attribute specifies a parallel load when
 -- @useDirectPathFullLoad@ is set to @Y@. This attribute also only applies
@@ -959,55 +960,55 @@ oracleSettings_useLogminerReader = Lens.lens (\OracleSettings' {useLogminerReade
 oracleSettings_useAlternateFolderForOnline :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Bool)
 oracleSettings_useAlternateFolderForOnline = Lens.lens (\OracleSettings' {useAlternateFolderForOnline} -> useAlternateFolderForOnline) (\s@OracleSettings' {} a -> s {useAlternateFolderForOnline = a} :: OracleSettings)
 
-instance Core.FromJSON OracleSettings where
+instance Data.FromJSON OracleSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OracleSettings"
       ( \x ->
           OracleSettings'
-            Prelude.<$> (x Core..:? "ParallelAsmReadThreads")
-            Prelude.<*> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "ReadTableSpaceName")
-            Prelude.<*> (x Core..:? "AsmServer")
-            Prelude.<*> (x Core..:? "UseDirectPathFullLoad")
-            Prelude.<*> (x Core..:? "ArchivedLogDestId")
-            Prelude.<*> (x Core..:? "SecretsManagerOracleAsmAccessRoleArn")
-            Prelude.<*> (x Core..:? "CharLengthSemantics")
-            Prelude.<*> (x Core..:? "TrimSpaceInChar")
-            Prelude.<*> (x Core..:? "ReadAheadBlocks")
-            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
-            Prelude.<*> (x Core..:? "StandbyDelayTime")
-            Prelude.<*> (x Core..:? "Password")
-            Prelude.<*> (x Core..:? "ServerName")
-            Prelude.<*> (x Core..:? "SecurityDbEncryptionName")
-            Prelude.<*> ( x Core..:? "ExtraArchivedLogDestIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ParallelAsmReadThreads")
+            Prelude.<*> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "ReadTableSpaceName")
+            Prelude.<*> (x Data..:? "AsmServer")
+            Prelude.<*> (x Data..:? "UseDirectPathFullLoad")
+            Prelude.<*> (x Data..:? "ArchivedLogDestId")
+            Prelude.<*> (x Data..:? "SecretsManagerOracleAsmAccessRoleArn")
+            Prelude.<*> (x Data..:? "CharLengthSemantics")
+            Prelude.<*> (x Data..:? "TrimSpaceInChar")
+            Prelude.<*> (x Data..:? "ReadAheadBlocks")
+            Prelude.<*> (x Data..:? "SecretsManagerAccessRoleArn")
+            Prelude.<*> (x Data..:? "StandbyDelayTime")
+            Prelude.<*> (x Data..:? "Password")
+            Prelude.<*> (x Data..:? "ServerName")
+            Prelude.<*> (x Data..:? "SecurityDbEncryptionName")
+            Prelude.<*> ( x Data..:? "ExtraArchivedLogDestIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "OraclePathPrefix")
-            Prelude.<*> (x Core..:? "RetryInterval")
-            Prelude.<*> (x Core..:? "AsmPassword")
-            Prelude.<*> (x Core..:? "AdditionalArchivedLogDestId")
-            Prelude.<*> (x Core..:? "FailTasksOnLobTruncation")
-            Prelude.<*> (x Core..:? "ArchivedLogsOnly")
-            Prelude.<*> (x Core..:? "UsePathPrefix")
-            Prelude.<*> (x Core..:? "ReplacePathPrefix")
-            Prelude.<*> (x Core..:? "SecurityDbEncryption")
-            Prelude.<*> (x Core..:? "DirectPathParallelLoad")
-            Prelude.<*> (x Core..:? "SecretsManagerSecretId")
-            Prelude.<*> (x Core..:? "AddSupplementalLogging")
-            Prelude.<*> (x Core..:? "SpatialDataOptionToGeoJsonFunctionName")
-            Prelude.<*> (x Core..:? "AccessAlternateDirectly")
-            Prelude.<*> (x Core..:? "NumberDatatypeScale")
-            Prelude.<*> (x Core..:? "DirectPathNoLog")
-            Prelude.<*> (x Core..:? "AsmUser")
-            Prelude.<*> (x Core..:? "AllowSelectNestedTables")
-            Prelude.<*> (x Core..:? "EnableHomogenousTablespace")
-            Prelude.<*> (x Core..:? "SecretsManagerOracleAsmSecretId")
-            Prelude.<*> (x Core..:? "UseBFile")
-            Prelude.<*> (x Core..:? "UseLogminerReader")
-            Prelude.<*> (x Core..:? "UseAlternateFolderForOnline")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "OraclePathPrefix")
+            Prelude.<*> (x Data..:? "RetryInterval")
+            Prelude.<*> (x Data..:? "AsmPassword")
+            Prelude.<*> (x Data..:? "AdditionalArchivedLogDestId")
+            Prelude.<*> (x Data..:? "FailTasksOnLobTruncation")
+            Prelude.<*> (x Data..:? "ArchivedLogsOnly")
+            Prelude.<*> (x Data..:? "UsePathPrefix")
+            Prelude.<*> (x Data..:? "ReplacePathPrefix")
+            Prelude.<*> (x Data..:? "SecurityDbEncryption")
+            Prelude.<*> (x Data..:? "DirectPathParallelLoad")
+            Prelude.<*> (x Data..:? "SecretsManagerSecretId")
+            Prelude.<*> (x Data..:? "AddSupplementalLogging")
+            Prelude.<*> (x Data..:? "SpatialDataOptionToGeoJsonFunctionName")
+            Prelude.<*> (x Data..:? "AccessAlternateDirectly")
+            Prelude.<*> (x Data..:? "NumberDatatypeScale")
+            Prelude.<*> (x Data..:? "DirectPathNoLog")
+            Prelude.<*> (x Data..:? "AsmUser")
+            Prelude.<*> (x Data..:? "AllowSelectNestedTables")
+            Prelude.<*> (x Data..:? "EnableHomogenousTablespace")
+            Prelude.<*> (x Data..:? "SecretsManagerOracleAsmSecretId")
+            Prelude.<*> (x Data..:? "UseBFile")
+            Prelude.<*> (x Data..:? "UseLogminerReader")
+            Prelude.<*> (x Data..:? "UseAlternateFolderForOnline")
       )
 
 instance Prelude.Hashable OracleSettings where
@@ -1118,80 +1119,80 @@ instance Prelude.NFData OracleSettings where
       `Prelude.seq` Prelude.rnf
         useAlternateFolderForOnline
 
-instance Core.ToJSON OracleSettings where
+instance Data.ToJSON OracleSettings where
   toJSON OracleSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ParallelAsmReadThreads" Core..=)
+          [ ("ParallelAsmReadThreads" Data..=)
               Prelude.<$> parallelAsmReadThreads,
-            ("Port" Core..=) Prelude.<$> port,
-            ("ReadTableSpaceName" Core..=)
+            ("Port" Data..=) Prelude.<$> port,
+            ("ReadTableSpaceName" Data..=)
               Prelude.<$> readTableSpaceName,
-            ("AsmServer" Core..=) Prelude.<$> asmServer,
-            ("UseDirectPathFullLoad" Core..=)
+            ("AsmServer" Data..=) Prelude.<$> asmServer,
+            ("UseDirectPathFullLoad" Data..=)
               Prelude.<$> useDirectPathFullLoad,
-            ("ArchivedLogDestId" Core..=)
+            ("ArchivedLogDestId" Data..=)
               Prelude.<$> archivedLogDestId,
-            ("SecretsManagerOracleAsmAccessRoleArn" Core..=)
+            ("SecretsManagerOracleAsmAccessRoleArn" Data..=)
               Prelude.<$> secretsManagerOracleAsmAccessRoleArn,
-            ("CharLengthSemantics" Core..=)
+            ("CharLengthSemantics" Data..=)
               Prelude.<$> charLengthSemantics,
-            ("TrimSpaceInChar" Core..=)
+            ("TrimSpaceInChar" Data..=)
               Prelude.<$> trimSpaceInChar,
-            ("ReadAheadBlocks" Core..=)
+            ("ReadAheadBlocks" Data..=)
               Prelude.<$> readAheadBlocks,
-            ("SecretsManagerAccessRoleArn" Core..=)
+            ("SecretsManagerAccessRoleArn" Data..=)
               Prelude.<$> secretsManagerAccessRoleArn,
-            ("StandbyDelayTime" Core..=)
+            ("StandbyDelayTime" Data..=)
               Prelude.<$> standbyDelayTime,
-            ("Password" Core..=) Prelude.<$> password,
-            ("ServerName" Core..=) Prelude.<$> serverName,
-            ("SecurityDbEncryptionName" Core..=)
+            ("Password" Data..=) Prelude.<$> password,
+            ("ServerName" Data..=) Prelude.<$> serverName,
+            ("SecurityDbEncryptionName" Data..=)
               Prelude.<$> securityDbEncryptionName,
-            ("ExtraArchivedLogDestIds" Core..=)
+            ("ExtraArchivedLogDestIds" Data..=)
               Prelude.<$> extraArchivedLogDestIds,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("Username" Core..=) Prelude.<$> username,
-            ("OraclePathPrefix" Core..=)
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("Username" Data..=) Prelude.<$> username,
+            ("OraclePathPrefix" Data..=)
               Prelude.<$> oraclePathPrefix,
-            ("RetryInterval" Core..=) Prelude.<$> retryInterval,
-            ("AsmPassword" Core..=) Prelude.<$> asmPassword,
-            ("AdditionalArchivedLogDestId" Core..=)
+            ("RetryInterval" Data..=) Prelude.<$> retryInterval,
+            ("AsmPassword" Data..=) Prelude.<$> asmPassword,
+            ("AdditionalArchivedLogDestId" Data..=)
               Prelude.<$> additionalArchivedLogDestId,
-            ("FailTasksOnLobTruncation" Core..=)
+            ("FailTasksOnLobTruncation" Data..=)
               Prelude.<$> failTasksOnLobTruncation,
-            ("ArchivedLogsOnly" Core..=)
+            ("ArchivedLogsOnly" Data..=)
               Prelude.<$> archivedLogsOnly,
-            ("UsePathPrefix" Core..=) Prelude.<$> usePathPrefix,
-            ("ReplacePathPrefix" Core..=)
+            ("UsePathPrefix" Data..=) Prelude.<$> usePathPrefix,
+            ("ReplacePathPrefix" Data..=)
               Prelude.<$> replacePathPrefix,
-            ("SecurityDbEncryption" Core..=)
+            ("SecurityDbEncryption" Data..=)
               Prelude.<$> securityDbEncryption,
-            ("DirectPathParallelLoad" Core..=)
+            ("DirectPathParallelLoad" Data..=)
               Prelude.<$> directPathParallelLoad,
-            ("SecretsManagerSecretId" Core..=)
+            ("SecretsManagerSecretId" Data..=)
               Prelude.<$> secretsManagerSecretId,
-            ("AddSupplementalLogging" Core..=)
+            ("AddSupplementalLogging" Data..=)
               Prelude.<$> addSupplementalLogging,
-            ("SpatialDataOptionToGeoJsonFunctionName" Core..=)
+            ("SpatialDataOptionToGeoJsonFunctionName" Data..=)
               Prelude.<$> spatialDataOptionToGeoJsonFunctionName,
-            ("AccessAlternateDirectly" Core..=)
+            ("AccessAlternateDirectly" Data..=)
               Prelude.<$> accessAlternateDirectly,
-            ("NumberDatatypeScale" Core..=)
+            ("NumberDatatypeScale" Data..=)
               Prelude.<$> numberDatatypeScale,
-            ("DirectPathNoLog" Core..=)
+            ("DirectPathNoLog" Data..=)
               Prelude.<$> directPathNoLog,
-            ("AsmUser" Core..=) Prelude.<$> asmUser,
-            ("AllowSelectNestedTables" Core..=)
+            ("AsmUser" Data..=) Prelude.<$> asmUser,
+            ("AllowSelectNestedTables" Data..=)
               Prelude.<$> allowSelectNestedTables,
-            ("EnableHomogenousTablespace" Core..=)
+            ("EnableHomogenousTablespace" Data..=)
               Prelude.<$> enableHomogenousTablespace,
-            ("SecretsManagerOracleAsmSecretId" Core..=)
+            ("SecretsManagerOracleAsmSecretId" Data..=)
               Prelude.<$> secretsManagerOracleAsmSecretId,
-            ("UseBFile" Core..=) Prelude.<$> useBFile,
-            ("UseLogminerReader" Core..=)
+            ("UseBFile" Data..=) Prelude.<$> useBFile,
+            ("UseLogminerReader" Data..=)
               Prelude.<$> useLogminerReader,
-            ("UseAlternateFolderForOnline" Core..=)
+            ("UseAlternateFolderForOnline" Data..=)
               Prelude.<$> useAlternateFolderForOnline
           ]
       )

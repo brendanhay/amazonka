@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,10 +125,10 @@ instance Core.AWSRequest PutAutoScalingPolicy where
     Response.receiveJSON
       ( \s h x ->
           PutAutoScalingPolicyResponse'
-            Prelude.<$> (x Core..?> "ClusterArn")
-            Prelude.<*> (x Core..?> "ClusterId")
-            Prelude.<*> (x Core..?> "AutoScalingPolicy")
-            Prelude.<*> (x Core..?> "InstanceGroupId")
+            Prelude.<$> (x Data..?> "ClusterArn")
+            Prelude.<*> (x Data..?> "ClusterId")
+            Prelude.<*> (x Data..?> "AutoScalingPolicy")
+            Prelude.<*> (x Data..?> "InstanceGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,37 +144,37 @@ instance Prelude.NFData PutAutoScalingPolicy where
       `Prelude.seq` Prelude.rnf instanceGroupId
       `Prelude.seq` Prelude.rnf autoScalingPolicy
 
-instance Core.ToHeaders PutAutoScalingPolicy where
+instance Data.ToHeaders PutAutoScalingPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.PutAutoScalingPolicy" ::
+              Data.=# ( "ElasticMapReduce.PutAutoScalingPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutAutoScalingPolicy where
+instance Data.ToJSON PutAutoScalingPolicy where
   toJSON PutAutoScalingPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ClusterId" Core..= clusterId),
+          [ Prelude.Just ("ClusterId" Data..= clusterId),
             Prelude.Just
-              ("InstanceGroupId" Core..= instanceGroupId),
+              ("InstanceGroupId" Data..= instanceGroupId),
             Prelude.Just
-              ("AutoScalingPolicy" Core..= autoScalingPolicy)
+              ("AutoScalingPolicy" Data..= autoScalingPolicy)
           ]
       )
 
-instance Core.ToPath PutAutoScalingPolicy where
+instance Data.ToPath PutAutoScalingPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutAutoScalingPolicy where
+instance Data.ToQuery PutAutoScalingPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAutoScalingPolicyResponse' smart constructor.

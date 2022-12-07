@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicyServerTimingHeadersConfig 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration for enabling the @Server-Timing@ header in HTTP
@@ -109,13 +110,13 @@ responseHeadersPolicyServerTimingHeadersConfig_enabled :: Lens.Lens' ResponseHea
 responseHeadersPolicyServerTimingHeadersConfig_enabled = Lens.lens (\ResponseHeadersPolicyServerTimingHeadersConfig' {enabled} -> enabled) (\s@ResponseHeadersPolicyServerTimingHeadersConfig' {} a -> s {enabled = a} :: ResponseHeadersPolicyServerTimingHeadersConfig)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ResponseHeadersPolicyServerTimingHeadersConfig
   where
   parseXML x =
     ResponseHeadersPolicyServerTimingHeadersConfig'
-      Prelude.<$> (x Core..@? "SamplingRate")
-        Prelude.<*> (x Core..@ "Enabled")
+      Prelude.<$> (x Data..@? "SamplingRate")
+        Prelude.<*> (x Data..@ "Enabled")
 
 instance
   Prelude.Hashable
@@ -137,12 +138,12 @@ instance
         `Prelude.seq` Prelude.rnf enabled
 
 instance
-  Core.ToXML
+  Data.ToXML
     ResponseHeadersPolicyServerTimingHeadersConfig
   where
   toXML
     ResponseHeadersPolicyServerTimingHeadersConfig' {..} =
       Prelude.mconcat
-        [ "SamplingRate" Core.@= samplingRate,
-          "Enabled" Core.@= enabled
+        [ "SamplingRate" Data.@= samplingRate,
+          "Enabled" Data.@= enabled
         ]

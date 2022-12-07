@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ScanConditionPair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents key, value pair to be matched against given resource
@@ -67,13 +68,13 @@ scanConditionPair_value = Lens.lens (\ScanConditionPair' {value} -> value) (\s@S
 scanConditionPair_key :: Lens.Lens' ScanConditionPair Prelude.Text
 scanConditionPair_key = Lens.lens (\ScanConditionPair' {key} -> key) (\s@ScanConditionPair' {} a -> s {key = a} :: ScanConditionPair)
 
-instance Core.FromJSON ScanConditionPair where
+instance Data.FromJSON ScanConditionPair where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScanConditionPair"
       ( \x ->
           ScanConditionPair'
-            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..: "key")
+            Prelude.<$> (x Data..:? "value") Prelude.<*> (x Data..: "key")
       )
 
 instance Prelude.Hashable ScanConditionPair where
@@ -85,11 +86,11 @@ instance Prelude.NFData ScanConditionPair where
   rnf ScanConditionPair' {..} =
     Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON ScanConditionPair where
+instance Data.ToJSON ScanConditionPair where
   toJSON ScanConditionPair' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            Prelude.Just ("key" Core..= key)
+          [ ("value" Data..=) Prelude.<$> value,
+            Prelude.Just ("key" Data..= key)
           ]
       )

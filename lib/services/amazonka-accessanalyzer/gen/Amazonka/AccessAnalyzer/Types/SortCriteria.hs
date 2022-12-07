@@ -22,6 +22,7 @@ module Amazonka.AccessAnalyzer.Types.SortCriteria where
 import Amazonka.AccessAnalyzer.Types.OrderBy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The criteria used to sort.
@@ -72,11 +73,11 @@ instance Prelude.NFData SortCriteria where
     Prelude.rnf orderBy
       `Prelude.seq` Prelude.rnf attributeName
 
-instance Core.ToJSON SortCriteria where
+instance Data.ToJSON SortCriteria where
   toJSON SortCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("orderBy" Core..=) Prelude.<$> orderBy,
-            ("attributeName" Core..=) Prelude.<$> attributeName
+          [ ("orderBy" Data..=) Prelude.<$> orderBy,
+            ("attributeName" Data..=) Prelude.<$> attributeName
           ]
       )

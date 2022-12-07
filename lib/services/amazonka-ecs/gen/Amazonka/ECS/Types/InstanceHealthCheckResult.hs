@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.InstanceHealthCheckResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.InstanceHealthCheckState
 import Amazonka.ECS.Types.InstanceHealthCheckType
 import qualified Amazonka.Prelude as Prelude
@@ -36,10 +37,10 @@ data InstanceHealthCheckResult = InstanceHealthCheckResult'
     status :: Prelude.Maybe InstanceHealthCheckState,
     -- | The Unix timestamp for when the container instance health status last
     -- changed.
-    lastStatusChange :: Prelude.Maybe Core.POSIX,
+    lastStatusChange :: Prelude.Maybe Data.POSIX,
     -- | The Unix timestamp for when the container instance health status was
     -- last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX
+    lastUpdated :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,23 +82,23 @@ instanceHealthCheckResult_status = Lens.lens (\InstanceHealthCheckResult' {statu
 -- | The Unix timestamp for when the container instance health status last
 -- changed.
 instanceHealthCheckResult_lastStatusChange :: Lens.Lens' InstanceHealthCheckResult (Prelude.Maybe Prelude.UTCTime)
-instanceHealthCheckResult_lastStatusChange = Lens.lens (\InstanceHealthCheckResult' {lastStatusChange} -> lastStatusChange) (\s@InstanceHealthCheckResult' {} a -> s {lastStatusChange = a} :: InstanceHealthCheckResult) Prelude.. Lens.mapping Core._Time
+instanceHealthCheckResult_lastStatusChange = Lens.lens (\InstanceHealthCheckResult' {lastStatusChange} -> lastStatusChange) (\s@InstanceHealthCheckResult' {} a -> s {lastStatusChange = a} :: InstanceHealthCheckResult) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix timestamp for when the container instance health status was
 -- last updated.
 instanceHealthCheckResult_lastUpdated :: Lens.Lens' InstanceHealthCheckResult (Prelude.Maybe Prelude.UTCTime)
-instanceHealthCheckResult_lastUpdated = Lens.lens (\InstanceHealthCheckResult' {lastUpdated} -> lastUpdated) (\s@InstanceHealthCheckResult' {} a -> s {lastUpdated = a} :: InstanceHealthCheckResult) Prelude.. Lens.mapping Core._Time
+instanceHealthCheckResult_lastUpdated = Lens.lens (\InstanceHealthCheckResult' {lastUpdated} -> lastUpdated) (\s@InstanceHealthCheckResult' {} a -> s {lastUpdated = a} :: InstanceHealthCheckResult) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON InstanceHealthCheckResult where
+instance Data.FromJSON InstanceHealthCheckResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceHealthCheckResult"
       ( \x ->
           InstanceHealthCheckResult'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastStatusChange")
-            Prelude.<*> (x Core..:? "lastUpdated")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "lastStatusChange")
+            Prelude.<*> (x Data..:? "lastUpdated")
       )
 
 instance Prelude.Hashable InstanceHealthCheckResult where

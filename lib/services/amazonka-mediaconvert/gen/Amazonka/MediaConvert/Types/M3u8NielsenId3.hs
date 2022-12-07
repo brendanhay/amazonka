@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.M3u8NielsenId3
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If INSERT, Nielsen inaudible tones for media tracking will be detected
@@ -34,7 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 -- output.
 newtype M3u8NielsenId3 = M3u8NielsenId3'
   { fromM3u8NielsenId3 ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -46,18 +47,18 @@ newtype M3u8NielsenId3 = M3u8NielsenId3'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern M3u8NielsenId3_INSERT :: M3u8NielsenId3

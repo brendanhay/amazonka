@@ -21,6 +21,7 @@ module Amazonka.ECRPublic.Types.RepositoryCatalogData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The catalog data for a repository. This data is publicly visible in the
@@ -132,21 +133,21 @@ repositoryCatalogData_operatingSystems = Lens.lens (\RepositoryCatalogData' {ope
 repositoryCatalogData_architectures :: Lens.Lens' RepositoryCatalogData (Prelude.Maybe [Prelude.Text])
 repositoryCatalogData_architectures = Lens.lens (\RepositoryCatalogData' {architectures} -> architectures) (\s@RepositoryCatalogData' {} a -> s {architectures = a} :: RepositoryCatalogData) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RepositoryCatalogData where
+instance Data.FromJSON RepositoryCatalogData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositoryCatalogData"
       ( \x ->
           RepositoryCatalogData'
-            Prelude.<$> (x Core..:? "marketplaceCertified")
-            Prelude.<*> (x Core..:? "logoUrl")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "aboutText")
-            Prelude.<*> (x Core..:? "usageText")
-            Prelude.<*> ( x Core..:? "operatingSystems"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "marketplaceCertified")
+            Prelude.<*> (x Data..:? "logoUrl")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "aboutText")
+            Prelude.<*> (x Data..:? "usageText")
+            Prelude.<*> ( x Data..:? "operatingSystems"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "architectures" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "architectures" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RepositoryCatalogData where

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -182,7 +183,7 @@ instance Core.AWSRequest StartEngagement where
       ( \s h x ->
           StartEngagementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "EngagementArn")
+            Prelude.<*> (x Data..:> "EngagementArn")
       )
 
 instance Prelude.Hashable StartEngagement where
@@ -207,41 +208,41 @@ instance Prelude.NFData StartEngagement where
       `Prelude.seq` Prelude.rnf subject
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToHeaders StartEngagement where
+instance Data.ToHeaders StartEngagement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SSMContacts.StartEngagement" ::
+              Data.=# ( "SSMContacts.StartEngagement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartEngagement where
+instance Data.ToJSON StartEngagement where
   toJSON StartEngagement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PublicContent" Core..=) Prelude.<$> publicContent,
-            ("IdempotencyToken" Core..=)
+          [ ("PublicContent" Data..=) Prelude.<$> publicContent,
+            ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("PublicSubject" Core..=) Prelude.<$> publicSubject,
-            ("IncidentId" Core..=) Prelude.<$> incidentId,
-            Prelude.Just ("ContactId" Core..= contactId),
-            Prelude.Just ("Sender" Core..= sender),
-            Prelude.Just ("Subject" Core..= subject),
-            Prelude.Just ("Content" Core..= content)
+            ("PublicSubject" Data..=) Prelude.<$> publicSubject,
+            ("IncidentId" Data..=) Prelude.<$> incidentId,
+            Prelude.Just ("ContactId" Data..= contactId),
+            Prelude.Just ("Sender" Data..= sender),
+            Prelude.Just ("Subject" Data..= subject),
+            Prelude.Just ("Content" Data..= content)
           ]
       )
 
-instance Core.ToPath StartEngagement where
+instance Data.ToPath StartEngagement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartEngagement where
+instance Data.ToQuery StartEngagement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartEngagementResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.KendraConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides configuration information for the AMAZON.KendraSearchIntent
@@ -115,15 +116,15 @@ kendraConfiguration_kendraIndex = Lens.lens (\KendraConfiguration' {kendraIndex}
 kendraConfiguration_role :: Lens.Lens' KendraConfiguration Prelude.Text
 kendraConfiguration_role = Lens.lens (\KendraConfiguration' {role'} -> role') (\s@KendraConfiguration' {} a -> s {role' = a} :: KendraConfiguration)
 
-instance Core.FromJSON KendraConfiguration where
+instance Data.FromJSON KendraConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KendraConfiguration"
       ( \x ->
           KendraConfiguration'
-            Prelude.<$> (x Core..:? "queryFilterString")
-            Prelude.<*> (x Core..: "kendraIndex")
-            Prelude.<*> (x Core..: "role")
+            Prelude.<$> (x Data..:? "queryFilterString")
+            Prelude.<*> (x Data..: "kendraIndex")
+            Prelude.<*> (x Data..: "role")
       )
 
 instance Prelude.Hashable KendraConfiguration where
@@ -138,13 +139,13 @@ instance Prelude.NFData KendraConfiguration where
       `Prelude.seq` Prelude.rnf kendraIndex
       `Prelude.seq` Prelude.rnf role'
 
-instance Core.ToJSON KendraConfiguration where
+instance Data.ToJSON KendraConfiguration where
   toJSON KendraConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("queryFilterString" Core..=)
+          [ ("queryFilterString" Data..=)
               Prelude.<$> queryFilterString,
-            Prelude.Just ("kendraIndex" Core..= kendraIndex),
-            Prelude.Just ("role" Core..= role')
+            Prelude.Just ("kendraIndex" Data..= kendraIndex),
+            Prelude.Just ("role" Data..= role')
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.SeverityUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.SeverityLabel
 
@@ -161,12 +162,12 @@ instance Prelude.NFData SeverityUpdate where
       `Prelude.seq` Prelude.rnf label
       `Prelude.seq` Prelude.rnf normalized
 
-instance Core.ToJSON SeverityUpdate where
+instance Data.ToJSON SeverityUpdate where
   toJSON SeverityUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Product" Core..=) Prelude.<$> product,
-            ("Label" Core..=) Prelude.<$> label,
-            ("Normalized" Core..=) Prelude.<$> normalized
+          [ ("Product" Data..=) Prelude.<$> product,
+            ("Label" Data..=) Prelude.<$> label,
+            ("Normalized" Data..=) Prelude.<$> normalized
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.Snapshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a snapshot.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSnapshot' smart constructor.
 data Snapshot = Snapshot'
   { -- | The time when the snapshot was created.
-    snapshotTime :: Prelude.Maybe Core.POSIX
+    snapshotTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,14 +49,14 @@ newSnapshot =
 
 -- | The time when the snapshot was created.
 snapshot_snapshotTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
-snapshot_snapshotTime = Lens.lens (\Snapshot' {snapshotTime} -> snapshotTime) (\s@Snapshot' {} a -> s {snapshotTime = a} :: Snapshot) Prelude.. Lens.mapping Core._Time
+snapshot_snapshotTime = Lens.lens (\Snapshot' {snapshotTime} -> snapshotTime) (\s@Snapshot' {} a -> s {snapshotTime = a} :: Snapshot) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Snapshot where
+instance Data.FromJSON Snapshot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Snapshot"
       ( \x ->
-          Snapshot' Prelude.<$> (x Core..:? "SnapshotTime")
+          Snapshot' Prelude.<$> (x Data..:? "SnapshotTime")
       )
 
 instance Prelude.Hashable Snapshot where

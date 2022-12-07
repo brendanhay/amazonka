@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,8 +149,8 @@ instance Core.AWSRequest GetResourceCollection where
     Response.receiveJSON
       ( \s h x ->
           GetResourceCollectionResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ResourceCollection")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ResourceCollection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,27 +164,27 @@ instance Prelude.NFData GetResourceCollection where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceCollectionType
 
-instance Core.ToHeaders GetResourceCollection where
+instance Data.ToHeaders GetResourceCollection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetResourceCollection where
+instance Data.ToPath GetResourceCollection where
   toPath GetResourceCollection' {..} =
     Prelude.mconcat
       [ "/resource-collections/",
-        Core.toBS resourceCollectionType
+        Data.toBS resourceCollectionType
       ]
 
-instance Core.ToQuery GetResourceCollection where
+instance Data.ToQuery GetResourceCollection where
   toQuery GetResourceCollection' {..} =
-    Prelude.mconcat ["NextToken" Core.=: nextToken]
+    Prelude.mconcat ["NextToken" Data.=: nextToken]
 
 -- | /See:/ 'newGetResourceCollectionResponse' smart constructor.
 data GetResourceCollectionResponse = GetResourceCollectionResponse'

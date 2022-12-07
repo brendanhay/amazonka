@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NewDhcpConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,10 +68,10 @@ instance Prelude.NFData NewDhcpConfiguration where
   rnf NewDhcpConfiguration' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
-instance Core.ToQuery NewDhcpConfiguration where
+instance Data.ToQuery NewDhcpConfiguration where
   toQuery NewDhcpConfiguration' {..} =
     Prelude.mconcat
-      [ "Key" Core.=: key,
-        Core.toQuery
-          (Core.toQueryList "Value" Prelude.<$> values)
+      [ "Key" Data.=: key,
+        Data.toQuery
+          (Data.toQueryList "Value" Prelude.<$> values)
       ]

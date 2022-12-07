@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.NodeInputPort where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.PortType
 import qualified Amazonka.Prelude as Prelude
 
@@ -89,17 +90,17 @@ nodeInputPort_description = Lens.lens (\NodeInputPort' {description} -> descript
 nodeInputPort_maxConnections :: Lens.Lens' NodeInputPort (Prelude.Maybe Prelude.Int)
 nodeInputPort_maxConnections = Lens.lens (\NodeInputPort' {maxConnections} -> maxConnections) (\s@NodeInputPort' {} a -> s {maxConnections = a} :: NodeInputPort)
 
-instance Core.FromJSON NodeInputPort where
+instance Data.FromJSON NodeInputPort where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeInputPort"
       ( \x ->
           NodeInputPort'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DefaultValue")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "MaxConnections")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DefaultValue")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "MaxConnections")
       )
 
 instance Prelude.Hashable NodeInputPort where

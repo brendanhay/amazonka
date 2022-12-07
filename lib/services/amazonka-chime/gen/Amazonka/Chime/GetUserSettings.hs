@@ -44,6 +44,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,7 +99,7 @@ instance Core.AWSRequest GetUserSettings where
     Response.receiveJSON
       ( \s h x ->
           GetUserSettingsResponse'
-            Prelude.<$> (x Core..?> "UserSettings")
+            Prelude.<$> (x Data..?> "UserSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,20 +113,20 @@ instance Prelude.NFData GetUserSettings where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders GetUserSettings where
+instance Data.ToHeaders GetUserSettings where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetUserSettings where
+instance Data.ToPath GetUserSettings where
   toPath GetUserSettings' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/users/",
-        Core.toBS userId,
+        Data.toBS userId,
         "/settings"
       ]
 
-instance Core.ToQuery GetUserSettings where
+instance Data.ToQuery GetUserSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetUserSettingsResponse' smart constructor.

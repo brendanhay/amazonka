@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.AudioOnlyHlsSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AudioOnlyHlsSegmentType
 import Amazonka.MediaLive.Types.AudioOnlyHlsTrackType
 import Amazonka.MediaLive.Types.InputLocation
@@ -128,16 +129,16 @@ audioOnlyHlsSettings_segmentType = Lens.lens (\AudioOnlyHlsSettings' {segmentTyp
 audioOnlyHlsSettings_audioGroupId :: Lens.Lens' AudioOnlyHlsSettings (Prelude.Maybe Prelude.Text)
 audioOnlyHlsSettings_audioGroupId = Lens.lens (\AudioOnlyHlsSettings' {audioGroupId} -> audioGroupId) (\s@AudioOnlyHlsSettings' {} a -> s {audioGroupId = a} :: AudioOnlyHlsSettings)
 
-instance Core.FromJSON AudioOnlyHlsSettings where
+instance Data.FromJSON AudioOnlyHlsSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioOnlyHlsSettings"
       ( \x ->
           AudioOnlyHlsSettings'
-            Prelude.<$> (x Core..:? "audioOnlyImage")
-            Prelude.<*> (x Core..:? "audioTrackType")
-            Prelude.<*> (x Core..:? "segmentType")
-            Prelude.<*> (x Core..:? "audioGroupId")
+            Prelude.<$> (x Data..:? "audioOnlyImage")
+            Prelude.<*> (x Data..:? "audioTrackType")
+            Prelude.<*> (x Data..:? "segmentType")
+            Prelude.<*> (x Data..:? "audioGroupId")
       )
 
 instance Prelude.Hashable AudioOnlyHlsSettings where
@@ -154,15 +155,15 @@ instance Prelude.NFData AudioOnlyHlsSettings where
       `Prelude.seq` Prelude.rnf segmentType
       `Prelude.seq` Prelude.rnf audioGroupId
 
-instance Core.ToJSON AudioOnlyHlsSettings where
+instance Data.ToJSON AudioOnlyHlsSettings where
   toJSON AudioOnlyHlsSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("audioOnlyImage" Core..=)
+          [ ("audioOnlyImage" Data..=)
               Prelude.<$> audioOnlyImage,
-            ("audioTrackType" Core..=)
+            ("audioTrackType" Data..=)
               Prelude.<$> audioTrackType,
-            ("segmentType" Core..=) Prelude.<$> segmentType,
-            ("audioGroupId" Core..=) Prelude.<$> audioGroupId
+            ("segmentType" Data..=) Prelude.<$> segmentType,
+            ("audioGroupId" Data..=) Prelude.<$> audioGroupId
           ]
       )

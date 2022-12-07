@@ -86,6 +86,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -433,8 +434,8 @@ instance Core.AWSRequest SendBulkTemplatedEmail where
       ( \s h x ->
           SendBulkTemplatedEmailResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "Status" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "Status" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -466,37 +467,37 @@ instance Prelude.NFData SendBulkTemplatedEmail where
       `Prelude.seq` Prelude.rnf template
       `Prelude.seq` Prelude.rnf destinations
 
-instance Core.ToHeaders SendBulkTemplatedEmail where
+instance Data.ToHeaders SendBulkTemplatedEmail where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SendBulkTemplatedEmail where
+instance Data.ToPath SendBulkTemplatedEmail where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendBulkTemplatedEmail where
+instance Data.ToQuery SendBulkTemplatedEmail where
   toQuery SendBulkTemplatedEmail' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SendBulkTemplatedEmail" :: Prelude.ByteString),
+          Data.=: ("SendBulkTemplatedEmail" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "ReturnPath" Core.=: returnPath,
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "ReturnPath" Data.=: returnPath,
         "ReplyToAddresses"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> replyToAddresses
             ),
-        "SourceArn" Core.=: sourceArn,
+        "SourceArn" Data.=: sourceArn,
         "DefaultTags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> defaultTags),
-        "ConfigurationSetName" Core.=: configurationSetName,
-        "ReturnPathArn" Core.=: returnPathArn,
-        "DefaultTemplateData" Core.=: defaultTemplateData,
-        "TemplateArn" Core.=: templateArn,
-        "Source" Core.=: source,
-        "Template" Core.=: template,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> defaultTags),
+        "ConfigurationSetName" Data.=: configurationSetName,
+        "ReturnPathArn" Data.=: returnPathArn,
+        "DefaultTemplateData" Data.=: defaultTemplateData,
+        "TemplateArn" Data.=: templateArn,
+        "Source" Data.=: source,
+        "Template" Data.=: template,
         "Destinations"
-          Core.=: Core.toQueryList "member" destinations
+          Data.=: Data.toQueryList "member" destinations
       ]
 
 -- | /See:/ 'newSendBulkTemplatedEmailResponse' smart constructor.

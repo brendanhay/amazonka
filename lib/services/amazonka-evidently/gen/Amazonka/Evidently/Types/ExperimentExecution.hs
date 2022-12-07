@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.ExperimentExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains the date and time that the experiment started
@@ -29,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newExperimentExecution' smart constructor.
 data ExperimentExecution = ExperimentExecution'
   { -- | The date and time that the experiment ended.
-    endedTime :: Prelude.Maybe Core.POSIX,
+    endedTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the experiment started.
-    startedTime :: Prelude.Maybe Core.POSIX
+    startedTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,20 +57,20 @@ newExperimentExecution =
 
 -- | The date and time that the experiment ended.
 experimentExecution_endedTime :: Lens.Lens' ExperimentExecution (Prelude.Maybe Prelude.UTCTime)
-experimentExecution_endedTime = Lens.lens (\ExperimentExecution' {endedTime} -> endedTime) (\s@ExperimentExecution' {} a -> s {endedTime = a} :: ExperimentExecution) Prelude.. Lens.mapping Core._Time
+experimentExecution_endedTime = Lens.lens (\ExperimentExecution' {endedTime} -> endedTime) (\s@ExperimentExecution' {} a -> s {endedTime = a} :: ExperimentExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the experiment started.
 experimentExecution_startedTime :: Lens.Lens' ExperimentExecution (Prelude.Maybe Prelude.UTCTime)
-experimentExecution_startedTime = Lens.lens (\ExperimentExecution' {startedTime} -> startedTime) (\s@ExperimentExecution' {} a -> s {startedTime = a} :: ExperimentExecution) Prelude.. Lens.mapping Core._Time
+experimentExecution_startedTime = Lens.lens (\ExperimentExecution' {startedTime} -> startedTime) (\s@ExperimentExecution' {} a -> s {startedTime = a} :: ExperimentExecution) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ExperimentExecution where
+instance Data.FromJSON ExperimentExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentExecution"
       ( \x ->
           ExperimentExecution'
-            Prelude.<$> (x Core..:? "endedTime")
-            Prelude.<*> (x Core..:? "startedTime")
+            Prelude.<$> (x Data..:? "endedTime")
+            Prelude.<*> (x Data..:? "startedTime")
       )
 
 instance Prelude.Hashable ExperimentExecution where

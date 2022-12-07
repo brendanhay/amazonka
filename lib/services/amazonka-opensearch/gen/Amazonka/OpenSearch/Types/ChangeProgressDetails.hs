@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.ChangeProgressDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Container for information about a configuration change happening on a
@@ -62,14 +63,14 @@ changeProgressDetails_message = Lens.lens (\ChangeProgressDetails' {message} -> 
 changeProgressDetails_changeId :: Lens.Lens' ChangeProgressDetails (Prelude.Maybe Prelude.Text)
 changeProgressDetails_changeId = Lens.lens (\ChangeProgressDetails' {changeId} -> changeId) (\s@ChangeProgressDetails' {} a -> s {changeId = a} :: ChangeProgressDetails)
 
-instance Core.FromJSON ChangeProgressDetails where
+instance Data.FromJSON ChangeProgressDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChangeProgressDetails"
       ( \x ->
           ChangeProgressDetails'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "ChangeId")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "ChangeId")
       )
 
 instance Prelude.Hashable ChangeProgressDetails where

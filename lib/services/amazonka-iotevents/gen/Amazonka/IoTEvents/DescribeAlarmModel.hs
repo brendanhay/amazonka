@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,21 +113,21 @@ instance Core.AWSRequest DescribeAlarmModel where
     Response.receiveJSON
       ( \s h x ->
           DescribeAlarmModelResponse'
-            Prelude.<$> (x Core..?> "alarmModelName")
-            Prelude.<*> (x Core..?> "key")
-            Prelude.<*> (x Core..?> "severity")
-            Prelude.<*> (x Core..?> "roleArn")
-            Prelude.<*> (x Core..?> "alarmModelVersion")
-            Prelude.<*> (x Core..?> "alarmEventActions")
-            Prelude.<*> (x Core..?> "alarmCapabilities")
-            Prelude.<*> (x Core..?> "alarmModelArn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "alarmModelDescription")
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "lastUpdateTime")
-            Prelude.<*> (x Core..?> "statusMessage")
-            Prelude.<*> (x Core..?> "alarmNotification")
-            Prelude.<*> (x Core..?> "alarmRule")
+            Prelude.<$> (x Data..?> "alarmModelName")
+            Prelude.<*> (x Data..?> "key")
+            Prelude.<*> (x Data..?> "severity")
+            Prelude.<*> (x Data..?> "roleArn")
+            Prelude.<*> (x Data..?> "alarmModelVersion")
+            Prelude.<*> (x Data..?> "alarmEventActions")
+            Prelude.<*> (x Data..?> "alarmCapabilities")
+            Prelude.<*> (x Data..?> "alarmModelArn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "alarmModelDescription")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "lastUpdateTime")
+            Prelude.<*> (x Data..?> "statusMessage")
+            Prelude.<*> (x Data..?> "alarmNotification")
+            Prelude.<*> (x Data..?> "alarmRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,18 +141,18 @@ instance Prelude.NFData DescribeAlarmModel where
     Prelude.rnf alarmModelVersion
       `Prelude.seq` Prelude.rnf alarmModelName
 
-instance Core.ToHeaders DescribeAlarmModel where
+instance Data.ToHeaders DescribeAlarmModel where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAlarmModel where
+instance Data.ToPath DescribeAlarmModel where
   toPath DescribeAlarmModel' {..} =
     Prelude.mconcat
-      ["/alarm-models/", Core.toBS alarmModelName]
+      ["/alarm-models/", Data.toBS alarmModelName]
 
-instance Core.ToQuery DescribeAlarmModel where
+instance Data.ToQuery DescribeAlarmModel where
   toQuery DescribeAlarmModel' {..} =
     Prelude.mconcat
-      ["version" Core.=: alarmModelVersion]
+      ["version" Data.=: alarmModelVersion]
 
 -- | /See:/ 'newDescribeAlarmModelResponse' smart constructor.
 data DescribeAlarmModelResponse = DescribeAlarmModelResponse'
@@ -198,9 +199,9 @@ data DescribeAlarmModelResponse = DescribeAlarmModelResponse'
     -- | The description of the alarm model.
     alarmModelDescription :: Prelude.Maybe Prelude.Text,
     -- | The time the alarm model was created, in the Unix epoch format.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The time the alarm model was last updated, in the Unix epoch format.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | Contains information about the status of the alarm model.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | Contains information about one or more notification actions.
@@ -362,11 +363,11 @@ describeAlarmModelResponse_alarmModelDescription = Lens.lens (\DescribeAlarmMode
 
 -- | The time the alarm model was created, in the Unix epoch format.
 describeAlarmModelResponse_creationTime :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.UTCTime)
-describeAlarmModelResponse_creationTime = Lens.lens (\DescribeAlarmModelResponse' {creationTime} -> creationTime) (\s@DescribeAlarmModelResponse' {} a -> s {creationTime = a} :: DescribeAlarmModelResponse) Prelude.. Lens.mapping Core._Time
+describeAlarmModelResponse_creationTime = Lens.lens (\DescribeAlarmModelResponse' {creationTime} -> creationTime) (\s@DescribeAlarmModelResponse' {} a -> s {creationTime = a} :: DescribeAlarmModelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time the alarm model was last updated, in the Unix epoch format.
 describeAlarmModelResponse_lastUpdateTime :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.UTCTime)
-describeAlarmModelResponse_lastUpdateTime = Lens.lens (\DescribeAlarmModelResponse' {lastUpdateTime} -> lastUpdateTime) (\s@DescribeAlarmModelResponse' {} a -> s {lastUpdateTime = a} :: DescribeAlarmModelResponse) Prelude.. Lens.mapping Core._Time
+describeAlarmModelResponse_lastUpdateTime = Lens.lens (\DescribeAlarmModelResponse' {lastUpdateTime} -> lastUpdateTime) (\s@DescribeAlarmModelResponse' {} a -> s {lastUpdateTime = a} :: DescribeAlarmModelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Contains information about the status of the alarm model.
 describeAlarmModelResponse_statusMessage :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.Text)

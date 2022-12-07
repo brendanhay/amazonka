@@ -42,6 +42,7 @@ import Amazonka.AppFlow.Types.VeevaMetadata
 import Amazonka.AppFlow.Types.ZendeskMetadata
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure to specify connector-specific metadata such as
@@ -253,33 +254,33 @@ connectorMetadata_googleAnalytics = Lens.lens (\ConnectorMetadata' {googleAnalyt
 connectorMetadata_eventBridge :: Lens.Lens' ConnectorMetadata (Prelude.Maybe EventBridgeMetadata)
 connectorMetadata_eventBridge = Lens.lens (\ConnectorMetadata' {eventBridge} -> eventBridge) (\s@ConnectorMetadata' {} a -> s {eventBridge = a} :: ConnectorMetadata)
 
-instance Core.FromJSON ConnectorMetadata where
+instance Data.FromJSON ConnectorMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectorMetadata"
       ( \x ->
           ConnectorMetadata'
-            Prelude.<$> (x Core..:? "Zendesk")
-            Prelude.<*> (x Core..:? "Slack")
-            Prelude.<*> (x Core..:? "Singular")
-            Prelude.<*> (x Core..:? "S3")
-            Prelude.<*> (x Core..:? "Veeva")
-            Prelude.<*> (x Core..:? "Honeycode")
-            Prelude.<*> (x Core..:? "Salesforce")
-            Prelude.<*> (x Core..:? "Snowflake")
-            Prelude.<*> (x Core..:? "SAPOData")
-            Prelude.<*> (x Core..:? "Marketo")
-            Prelude.<*> (x Core..:? "Redshift")
-            Prelude.<*> (x Core..:? "Trendmicro")
-            Prelude.<*> (x Core..:? "InforNexus")
-            Prelude.<*> (x Core..:? "CustomerProfiles")
-            Prelude.<*> (x Core..:? "Upsolver")
-            Prelude.<*> (x Core..:? "ServiceNow")
-            Prelude.<*> (x Core..:? "Datadog")
-            Prelude.<*> (x Core..:? "Amplitude")
-            Prelude.<*> (x Core..:? "Dynatrace")
-            Prelude.<*> (x Core..:? "GoogleAnalytics")
-            Prelude.<*> (x Core..:? "EventBridge")
+            Prelude.<$> (x Data..:? "Zendesk")
+            Prelude.<*> (x Data..:? "Slack")
+            Prelude.<*> (x Data..:? "Singular")
+            Prelude.<*> (x Data..:? "S3")
+            Prelude.<*> (x Data..:? "Veeva")
+            Prelude.<*> (x Data..:? "Honeycode")
+            Prelude.<*> (x Data..:? "Salesforce")
+            Prelude.<*> (x Data..:? "Snowflake")
+            Prelude.<*> (x Data..:? "SAPOData")
+            Prelude.<*> (x Data..:? "Marketo")
+            Prelude.<*> (x Data..:? "Redshift")
+            Prelude.<*> (x Data..:? "Trendmicro")
+            Prelude.<*> (x Data..:? "InforNexus")
+            Prelude.<*> (x Data..:? "CustomerProfiles")
+            Prelude.<*> (x Data..:? "Upsolver")
+            Prelude.<*> (x Data..:? "ServiceNow")
+            Prelude.<*> (x Data..:? "Datadog")
+            Prelude.<*> (x Data..:? "Amplitude")
+            Prelude.<*> (x Data..:? "Dynatrace")
+            Prelude.<*> (x Data..:? "GoogleAnalytics")
+            Prelude.<*> (x Data..:? "EventBridge")
       )
 
 instance Prelude.Hashable ConnectorMetadata where

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,12 +94,12 @@ instance Core.AWSRequest DescribeDimension where
     Response.receiveJSON
       ( \s h x ->
           DescribeDimensionResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "type")
-            Prelude.<*> (x Core..?> "stringValues")
-            Prelude.<*> (x Core..?> "lastModifiedDate")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "creationDate")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "type")
+            Prelude.<*> (x Data..?> "stringValues")
+            Prelude.<*> (x Data..?> "lastModifiedDate")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "creationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,14 +110,14 @@ instance Prelude.Hashable DescribeDimension where
 instance Prelude.NFData DescribeDimension where
   rnf DescribeDimension' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DescribeDimension where
+instance Data.ToHeaders DescribeDimension where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDimension where
+instance Data.ToPath DescribeDimension where
   toPath DescribeDimension' {..} =
-    Prelude.mconcat ["/dimensions/", Core.toBS name]
+    Prelude.mconcat ["/dimensions/", Data.toBS name]
 
-instance Core.ToQuery DescribeDimension where
+instance Data.ToQuery DescribeDimension where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDimensionResponse' smart constructor.
@@ -130,11 +131,11 @@ data DescribeDimensionResponse = DescribeDimensionResponse'
     -- name.
     stringValues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The date the dimension was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) for the dimension.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date the dimension was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,7 +195,7 @@ describeDimensionResponse_stringValues = Lens.lens (\DescribeDimensionResponse' 
 
 -- | The date the dimension was last modified.
 describeDimensionResponse_lastModifiedDate :: Lens.Lens' DescribeDimensionResponse (Prelude.Maybe Prelude.UTCTime)
-describeDimensionResponse_lastModifiedDate = Lens.lens (\DescribeDimensionResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeDimensionResponse' {} a -> s {lastModifiedDate = a} :: DescribeDimensionResponse) Prelude.. Lens.mapping Core._Time
+describeDimensionResponse_lastModifiedDate = Lens.lens (\DescribeDimensionResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeDimensionResponse' {} a -> s {lastModifiedDate = a} :: DescribeDimensionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) for the dimension.
 describeDimensionResponse_arn :: Lens.Lens' DescribeDimensionResponse (Prelude.Maybe Prelude.Text)
@@ -202,7 +203,7 @@ describeDimensionResponse_arn = Lens.lens (\DescribeDimensionResponse' {arn} -> 
 
 -- | The date the dimension was created.
 describeDimensionResponse_creationDate :: Lens.Lens' DescribeDimensionResponse (Prelude.Maybe Prelude.UTCTime)
-describeDimensionResponse_creationDate = Lens.lens (\DescribeDimensionResponse' {creationDate} -> creationDate) (\s@DescribeDimensionResponse' {} a -> s {creationDate = a} :: DescribeDimensionResponse) Prelude.. Lens.mapping Core._Time
+describeDimensionResponse_creationDate = Lens.lens (\DescribeDimensionResponse' {creationDate} -> creationDate) (\s@DescribeDimensionResponse' {} a -> s {creationDate = a} :: DescribeDimensionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeDimensionResponse_httpStatus :: Lens.Lens' DescribeDimensionResponse Prelude.Int

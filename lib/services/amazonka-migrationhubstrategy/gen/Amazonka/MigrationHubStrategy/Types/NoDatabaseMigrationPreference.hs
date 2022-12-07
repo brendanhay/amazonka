@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.NoDatabaseMigrationPreference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.TargetDatabaseEngine
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,13 +62,13 @@ newNoDatabaseMigrationPreference
 noDatabaseMigrationPreference_targetDatabaseEngine :: Lens.Lens' NoDatabaseMigrationPreference (Prelude.NonEmpty TargetDatabaseEngine)
 noDatabaseMigrationPreference_targetDatabaseEngine = Lens.lens (\NoDatabaseMigrationPreference' {targetDatabaseEngine} -> targetDatabaseEngine) (\s@NoDatabaseMigrationPreference' {} a -> s {targetDatabaseEngine = a} :: NoDatabaseMigrationPreference) Prelude.. Lens.coerced
 
-instance Core.FromJSON NoDatabaseMigrationPreference where
+instance Data.FromJSON NoDatabaseMigrationPreference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NoDatabaseMigrationPreference"
       ( \x ->
           NoDatabaseMigrationPreference'
-            Prelude.<$> (x Core..: "targetDatabaseEngine")
+            Prelude.<$> (x Data..: "targetDatabaseEngine")
       )
 
 instance
@@ -81,13 +82,13 @@ instance Prelude.NFData NoDatabaseMigrationPreference where
   rnf NoDatabaseMigrationPreference' {..} =
     Prelude.rnf targetDatabaseEngine
 
-instance Core.ToJSON NoDatabaseMigrationPreference where
+instance Data.ToJSON NoDatabaseMigrationPreference where
   toJSON NoDatabaseMigrationPreference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "targetDatabaseEngine"
-                  Core..= targetDatabaseEngine
+                  Data..= targetDatabaseEngine
               )
           ]
       )

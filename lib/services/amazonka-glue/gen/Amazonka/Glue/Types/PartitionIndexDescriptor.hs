@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.PartitionIndexDescriptor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.BackfillError
 import Amazonka.Glue.Types.KeySchemaElement
 import Amazonka.Glue.Types.PartitionIndexStatus
@@ -131,16 +132,16 @@ partitionIndexDescriptor_keys = Lens.lens (\PartitionIndexDescriptor' {keys} -> 
 partitionIndexDescriptor_indexStatus :: Lens.Lens' PartitionIndexDescriptor PartitionIndexStatus
 partitionIndexDescriptor_indexStatus = Lens.lens (\PartitionIndexDescriptor' {indexStatus} -> indexStatus) (\s@PartitionIndexDescriptor' {} a -> s {indexStatus = a} :: PartitionIndexDescriptor)
 
-instance Core.FromJSON PartitionIndexDescriptor where
+instance Data.FromJSON PartitionIndexDescriptor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PartitionIndexDescriptor"
       ( \x ->
           PartitionIndexDescriptor'
-            Prelude.<$> (x Core..:? "BackfillErrors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "IndexName")
-            Prelude.<*> (x Core..: "Keys")
-            Prelude.<*> (x Core..: "IndexStatus")
+            Prelude.<$> (x Data..:? "BackfillErrors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "IndexName")
+            Prelude.<*> (x Data..: "Keys")
+            Prelude.<*> (x Data..: "IndexStatus")
       )
 
 instance Prelude.Hashable PartitionIndexDescriptor where

@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.WorldSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a world.
@@ -32,7 +33,7 @@ data WorldSummary = WorldSummary'
     -- | The Amazon Resource Name (arn) of the world generation job.
     generationJob :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the world was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (arn) of the world template.
     template :: Prelude.Maybe Prelude.Text
   }
@@ -73,22 +74,22 @@ worldSummary_generationJob = Lens.lens (\WorldSummary' {generationJob} -> genera
 
 -- | The time, in milliseconds since the epoch, when the world was created.
 worldSummary_createdAt :: Lens.Lens' WorldSummary (Prelude.Maybe Prelude.UTCTime)
-worldSummary_createdAt = Lens.lens (\WorldSummary' {createdAt} -> createdAt) (\s@WorldSummary' {} a -> s {createdAt = a} :: WorldSummary) Prelude.. Lens.mapping Core._Time
+worldSummary_createdAt = Lens.lens (\WorldSummary' {createdAt} -> createdAt) (\s@WorldSummary' {} a -> s {createdAt = a} :: WorldSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (arn) of the world template.
 worldSummary_template :: Lens.Lens' WorldSummary (Prelude.Maybe Prelude.Text)
 worldSummary_template = Lens.lens (\WorldSummary' {template} -> template) (\s@WorldSummary' {} a -> s {template = a} :: WorldSummary)
 
-instance Core.FromJSON WorldSummary where
+instance Data.FromJSON WorldSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorldSummary"
       ( \x ->
           WorldSummary'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "generationJob")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "template")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "generationJob")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "template")
       )
 
 instance Prelude.Hashable WorldSummary where

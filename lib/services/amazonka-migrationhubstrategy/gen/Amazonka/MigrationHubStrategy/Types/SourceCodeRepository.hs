@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.SourceCodeRepository where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object containing source code information that is linked to an
@@ -71,15 +72,15 @@ sourceCodeRepository_versionControlType = Lens.lens (\SourceCodeRepository' {ver
 sourceCodeRepository_repository :: Lens.Lens' SourceCodeRepository (Prelude.Maybe Prelude.Text)
 sourceCodeRepository_repository = Lens.lens (\SourceCodeRepository' {repository} -> repository) (\s@SourceCodeRepository' {} a -> s {repository = a} :: SourceCodeRepository)
 
-instance Core.FromJSON SourceCodeRepository where
+instance Data.FromJSON SourceCodeRepository where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceCodeRepository"
       ( \x ->
           SourceCodeRepository'
-            Prelude.<$> (x Core..:? "branch")
-            Prelude.<*> (x Core..:? "versionControlType")
-            Prelude.<*> (x Core..:? "repository")
+            Prelude.<$> (x Data..:? "branch")
+            Prelude.<*> (x Data..:? "versionControlType")
+            Prelude.<*> (x Data..:? "repository")
       )
 
 instance Prelude.Hashable SourceCodeRepository where

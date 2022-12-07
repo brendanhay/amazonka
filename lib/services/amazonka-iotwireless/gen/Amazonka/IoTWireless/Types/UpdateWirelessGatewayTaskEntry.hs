@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.UpdateWirelessGatewayTaskEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.LoRaWANUpdateGatewayTaskEntry
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,15 +73,15 @@ updateWirelessGatewayTaskEntry_arn = Lens.lens (\UpdateWirelessGatewayTaskEntry'
 updateWirelessGatewayTaskEntry_id :: Lens.Lens' UpdateWirelessGatewayTaskEntry (Prelude.Maybe Prelude.Text)
 updateWirelessGatewayTaskEntry_id = Lens.lens (\UpdateWirelessGatewayTaskEntry' {id} -> id) (\s@UpdateWirelessGatewayTaskEntry' {} a -> s {id = a} :: UpdateWirelessGatewayTaskEntry)
 
-instance Core.FromJSON UpdateWirelessGatewayTaskEntry where
+instance Data.FromJSON UpdateWirelessGatewayTaskEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpdateWirelessGatewayTaskEntry"
       ( \x ->
           UpdateWirelessGatewayTaskEntry'
-            Prelude.<$> (x Core..:? "LoRaWAN")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "LoRaWAN")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance

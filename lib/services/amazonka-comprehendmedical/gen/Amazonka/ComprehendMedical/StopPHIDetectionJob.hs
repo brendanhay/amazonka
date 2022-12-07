@@ -42,6 +42,7 @@ where
 import Amazonka.ComprehendMedical.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest StopPHIDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           StopPHIDetectionJobResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable StopPHIDetectionJob where
 instance Prelude.NFData StopPHIDetectionJob where
   rnf StopPHIDetectionJob' {..} = Prelude.rnf jobId
 
-instance Core.ToHeaders StopPHIDetectionJob where
+instance Data.ToHeaders StopPHIDetectionJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComprehendMedical_20181030.StopPHIDetectionJob" ::
+              Data.=# ( "ComprehendMedical_20181030.StopPHIDetectionJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopPHIDetectionJob where
+instance Data.ToJSON StopPHIDetectionJob where
   toJSON StopPHIDetectionJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Core..= jobId)]
+          [Prelude.Just ("JobId" Data..= jobId)]
       )
 
-instance Core.ToPath StopPHIDetectionJob where
+instance Data.ToPath StopPHIDetectionJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopPHIDetectionJob where
+instance Data.ToQuery StopPHIDetectionJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopPHIDetectionJobResponse' smart constructor.

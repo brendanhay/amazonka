@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetEnvironment where
       ( \s h x ->
           GetEnvironmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "environment")
+            Prelude.<*> (x Data..:> "environment")
       )
 
 instance Prelude.Hashable GetEnvironment where
@@ -94,32 +95,32 @@ instance Prelude.Hashable GetEnvironment where
 instance Prelude.NFData GetEnvironment where
   rnf GetEnvironment' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetEnvironment where
+instance Data.ToHeaders GetEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.GetEnvironment" ::
+              Data.=# ( "AwsProton20200720.GetEnvironment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEnvironment where
+instance Data.ToJSON GetEnvironment where
   toJSON GetEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath GetEnvironment where
+instance Data.ToPath GetEnvironment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetEnvironment where
+instance Data.ToQuery GetEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEnvironmentResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.Destination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details of the Amazon S3 bucket and KMS key used to export
@@ -75,15 +76,15 @@ destination_bucketName = Lens.lens (\Destination' {bucketName} -> bucketName) (\
 destination_kmsKeyArn :: Lens.Lens' Destination Prelude.Text
 destination_kmsKeyArn = Lens.lens (\Destination' {kmsKeyArn} -> kmsKeyArn) (\s@Destination' {} a -> s {kmsKeyArn = a} :: Destination)
 
-instance Core.FromJSON Destination where
+instance Data.FromJSON Destination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Destination"
       ( \x ->
           Destination'
-            Prelude.<$> (x Core..:? "keyPrefix")
-            Prelude.<*> (x Core..: "bucketName")
-            Prelude.<*> (x Core..: "kmsKeyArn")
+            Prelude.<$> (x Data..:? "keyPrefix")
+            Prelude.<*> (x Data..: "bucketName")
+            Prelude.<*> (x Data..: "kmsKeyArn")
       )
 
 instance Prelude.Hashable Destination where
@@ -98,12 +99,12 @@ instance Prelude.NFData Destination where
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf kmsKeyArn
 
-instance Core.ToJSON Destination where
+instance Data.ToJSON Destination where
   toJSON Destination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("keyPrefix" Core..=) Prelude.<$> keyPrefix,
-            Prelude.Just ("bucketName" Core..= bucketName),
-            Prelude.Just ("kmsKeyArn" Core..= kmsKeyArn)
+          [ ("keyPrefix" Data..=) Prelude.<$> keyPrefix,
+            Prelude.Just ("bucketName" Data..= bucketName),
+            Prelude.Just ("kmsKeyArn" Data..= kmsKeyArn)
           ]
       )

@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ instance Core.AWSRequest FinalizeCutover where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable FinalizeCutover where
   hashWithSalt _salt FinalizeCutover' {..} =
@@ -107,28 +108,28 @@ instance Prelude.Hashable FinalizeCutover where
 instance Prelude.NFData FinalizeCutover where
   rnf FinalizeCutover' {..} = Prelude.rnf sourceServerID
 
-instance Core.ToHeaders FinalizeCutover where
+instance Data.ToHeaders FinalizeCutover where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON FinalizeCutover where
+instance Data.ToJSON FinalizeCutover where
   toJSON FinalizeCutover' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("sourceServerID" Core..= sourceServerID)
+              ("sourceServerID" Data..= sourceServerID)
           ]
       )
 
-instance Core.ToPath FinalizeCutover where
+instance Data.ToPath FinalizeCutover where
   toPath = Prelude.const "/FinalizeCutover"
 
-instance Core.ToQuery FinalizeCutover where
+instance Data.ToQuery FinalizeCutover where
   toQuery = Prelude.const Prelude.mempty

@@ -59,6 +59,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,7 +82,7 @@ data CreateBranch = CreateBranch'
     -- | The basic authorization credentials for the branch. You must
     -- base64-encode the authorization credentials and provide them in the
     -- format @user:password@.
-    basicAuthCredentials :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    basicAuthCredentials :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The display name for a branch. This is used as the default domain
     -- prefix.
     displayName :: Prelude.Maybe Prelude.Text,
@@ -105,7 +106,7 @@ data CreateBranch = CreateBranch'
     -- | The framework for the branch.
     framework :: Prelude.Maybe Prelude.Text,
     -- | The build specification (build spec) for the branch.
-    buildSpec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    buildSpec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Enables pull request previews for this branch.
     enablePullRequestPreview :: Prelude.Maybe Prelude.Bool,
     -- | The unique ID for an Amplify app.
@@ -216,7 +217,7 @@ createBranch_ttl = Lens.lens (\CreateBranch' {ttl} -> ttl) (\s@CreateBranch' {} 
 -- base64-encode the authorization credentials and provide them in the
 -- format @user:password@.
 createBranch_basicAuthCredentials :: Lens.Lens' CreateBranch (Prelude.Maybe Prelude.Text)
-createBranch_basicAuthCredentials = Lens.lens (\CreateBranch' {basicAuthCredentials} -> basicAuthCredentials) (\s@CreateBranch' {} a -> s {basicAuthCredentials = a} :: CreateBranch) Prelude.. Lens.mapping Core._Sensitive
+createBranch_basicAuthCredentials = Lens.lens (\CreateBranch' {basicAuthCredentials} -> basicAuthCredentials) (\s@CreateBranch' {} a -> s {basicAuthCredentials = a} :: CreateBranch) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The display name for a branch. This is used as the default domain
 -- prefix.
@@ -262,7 +263,7 @@ createBranch_framework = Lens.lens (\CreateBranch' {framework} -> framework) (\s
 
 -- | The build specification (build spec) for the branch.
 createBranch_buildSpec :: Lens.Lens' CreateBranch (Prelude.Maybe Prelude.Text)
-createBranch_buildSpec = Lens.lens (\CreateBranch' {buildSpec} -> buildSpec) (\s@CreateBranch' {} a -> s {buildSpec = a} :: CreateBranch) Prelude.. Lens.mapping Core._Sensitive
+createBranch_buildSpec = Lens.lens (\CreateBranch' {buildSpec} -> buildSpec) (\s@CreateBranch' {} a -> s {buildSpec = a} :: CreateBranch) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Enables pull request previews for this branch.
 createBranch_enablePullRequestPreview :: Lens.Lens' CreateBranch (Prelude.Maybe Prelude.Bool)
@@ -285,7 +286,7 @@ instance Core.AWSRequest CreateBranch where
       ( \s h x ->
           CreateBranchResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "branch")
+            Prelude.<*> (x Data..:> "branch")
       )
 
 instance Prelude.Hashable CreateBranch where
@@ -330,56 +331,56 @@ instance Prelude.NFData CreateBranch where
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf branchName
 
-instance Core.ToHeaders CreateBranch where
+instance Data.ToHeaders CreateBranch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBranch where
+instance Data.ToJSON CreateBranch where
   toJSON CreateBranch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("enablePerformanceMode" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("enablePerformanceMode" Data..=)
               Prelude.<$> enablePerformanceMode,
-            ("ttl" Core..=) Prelude.<$> ttl,
-            ("basicAuthCredentials" Core..=)
+            ("ttl" Data..=) Prelude.<$> ttl,
+            ("basicAuthCredentials" Data..=)
               Prelude.<$> basicAuthCredentials,
-            ("displayName" Core..=) Prelude.<$> displayName,
-            ("description" Core..=) Prelude.<$> description,
-            ("environmentVariables" Core..=)
+            ("displayName" Data..=) Prelude.<$> displayName,
+            ("description" Data..=) Prelude.<$> description,
+            ("environmentVariables" Data..=)
               Prelude.<$> environmentVariables,
-            ("pullRequestEnvironmentName" Core..=)
+            ("pullRequestEnvironmentName" Data..=)
               Prelude.<$> pullRequestEnvironmentName,
-            ("backendEnvironmentArn" Core..=)
+            ("backendEnvironmentArn" Data..=)
               Prelude.<$> backendEnvironmentArn,
-            ("stage" Core..=) Prelude.<$> stage,
-            ("enableAutoBuild" Core..=)
+            ("stage" Data..=) Prelude.<$> stage,
+            ("enableAutoBuild" Data..=)
               Prelude.<$> enableAutoBuild,
-            ("enableNotification" Core..=)
+            ("enableNotification" Data..=)
               Prelude.<$> enableNotification,
-            ("enableBasicAuth" Core..=)
+            ("enableBasicAuth" Data..=)
               Prelude.<$> enableBasicAuth,
-            ("framework" Core..=) Prelude.<$> framework,
-            ("buildSpec" Core..=) Prelude.<$> buildSpec,
-            ("enablePullRequestPreview" Core..=)
+            ("framework" Data..=) Prelude.<$> framework,
+            ("buildSpec" Data..=) Prelude.<$> buildSpec,
+            ("enablePullRequestPreview" Data..=)
               Prelude.<$> enablePullRequestPreview,
-            Prelude.Just ("branchName" Core..= branchName)
+            Prelude.Just ("branchName" Data..= branchName)
           ]
       )
 
-instance Core.ToPath CreateBranch where
+instance Data.ToPath CreateBranch where
   toPath CreateBranch' {..} =
     Prelude.mconcat
-      ["/apps/", Core.toBS appId, "/branches"]
+      ["/apps/", Data.toBS appId, "/branches"]
 
-instance Core.ToQuery CreateBranch where
+instance Data.ToQuery CreateBranch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result structure for create branch request.

@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.DataSetEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.AssetType
 import Amazonka.DataExchange.Types.Origin
 import Amazonka.DataExchange.Types.OriginDetails
@@ -42,7 +43,7 @@ data DataSetEntry = DataSetEntry'
     -- | The type of asset that is added to a data set.
     assetType :: AssetType,
     -- | The date and time that the data set was created, in ISO 8601 format.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The description for the data set.
     description :: Prelude.Text,
     -- | The unique identifier for the data set.
@@ -54,7 +55,7 @@ data DataSetEntry = DataSetEntry'
     origin :: Origin,
     -- | The date and time that the data set was last updated, in ISO 8601
     -- format.
-    updatedAt :: Core.POSIX
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -122,12 +123,12 @@ newDataSetEntry
         originDetails = Prelude.Nothing,
         arn = pArn_,
         assetType = pAssetType_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         description = pDescription_,
         id = pId_,
         name = pName_,
         origin = pOrigin_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
 -- | The data set ID of the owned data set corresponding to the entitled data
@@ -151,7 +152,7 @@ dataSetEntry_assetType = Lens.lens (\DataSetEntry' {assetType} -> assetType) (\s
 
 -- | The date and time that the data set was created, in ISO 8601 format.
 dataSetEntry_createdAt :: Lens.Lens' DataSetEntry Prelude.UTCTime
-dataSetEntry_createdAt = Lens.lens (\DataSetEntry' {createdAt} -> createdAt) (\s@DataSetEntry' {} a -> s {createdAt = a} :: DataSetEntry) Prelude.. Core._Time
+dataSetEntry_createdAt = Lens.lens (\DataSetEntry' {createdAt} -> createdAt) (\s@DataSetEntry' {} a -> s {createdAt = a} :: DataSetEntry) Prelude.. Data._Time
 
 -- | The description for the data set.
 dataSetEntry_description :: Lens.Lens' DataSetEntry Prelude.Text
@@ -173,24 +174,24 @@ dataSetEntry_origin = Lens.lens (\DataSetEntry' {origin} -> origin) (\s@DataSetE
 -- | The date and time that the data set was last updated, in ISO 8601
 -- format.
 dataSetEntry_updatedAt :: Lens.Lens' DataSetEntry Prelude.UTCTime
-dataSetEntry_updatedAt = Lens.lens (\DataSetEntry' {updatedAt} -> updatedAt) (\s@DataSetEntry' {} a -> s {updatedAt = a} :: DataSetEntry) Prelude.. Core._Time
+dataSetEntry_updatedAt = Lens.lens (\DataSetEntry' {updatedAt} -> updatedAt) (\s@DataSetEntry' {} a -> s {updatedAt = a} :: DataSetEntry) Prelude.. Data._Time
 
-instance Core.FromJSON DataSetEntry where
+instance Data.FromJSON DataSetEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSetEntry"
       ( \x ->
           DataSetEntry'
-            Prelude.<$> (x Core..:? "SourceId")
-            Prelude.<*> (x Core..:? "OriginDetails")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "AssetType")
-            Prelude.<*> (x Core..: "CreatedAt")
-            Prelude.<*> (x Core..: "Description")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Origin")
-            Prelude.<*> (x Core..: "UpdatedAt")
+            Prelude.<$> (x Data..:? "SourceId")
+            Prelude.<*> (x Data..:? "OriginDetails")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "AssetType")
+            Prelude.<*> (x Data..: "CreatedAt")
+            Prelude.<*> (x Data..: "Description")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Origin")
+            Prelude.<*> (x Data..: "UpdatedAt")
       )
 
 instance Prelude.Hashable DataSetEntry where

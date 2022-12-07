@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.CustomRoutingEndpointConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The list of endpoint objects. For custom routing, this is a list of
@@ -74,11 +75,11 @@ instance
     Prelude.rnf endpointId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CustomRoutingEndpointConfiguration
   where
   toJSON CustomRoutingEndpointConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("EndpointId" Core..=) Prelude.<$> endpointId]
+          [("EndpointId" Data..=) Prelude.<$> endpointId]
       )

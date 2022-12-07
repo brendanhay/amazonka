@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsWafRegionalWebAclRulesListActionDetails whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The action that WAF takes when a web request matches all conditions in
@@ -58,15 +59,15 @@ awsWafRegionalWebAclRulesListActionDetails_type :: Lens.Lens' AwsWafRegionalWebA
 awsWafRegionalWebAclRulesListActionDetails_type = Lens.lens (\AwsWafRegionalWebAclRulesListActionDetails' {type'} -> type') (\s@AwsWafRegionalWebAclRulesListActionDetails' {} a -> s {type' = a} :: AwsWafRegionalWebAclRulesListActionDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsWafRegionalWebAclRulesListActionDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsWafRegionalWebAclRulesListActionDetails"
       ( \x ->
           AwsWafRegionalWebAclRulesListActionDetails'
-            Prelude.<$> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "Type")
       )
 
 instance
@@ -86,12 +87,12 @@ instance
     Prelude.rnf type'
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsWafRegionalWebAclRulesListActionDetails
   where
   toJSON
     AwsWafRegionalWebAclRulesListActionDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("Type" Core..=) Prelude.<$> type']
+            [("Type" Data..=) Prelude.<$> type']
         )

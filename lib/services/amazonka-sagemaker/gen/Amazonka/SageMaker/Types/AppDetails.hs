@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AppDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AppStatus
 import Amazonka.SageMaker.Types.AppType
@@ -38,7 +39,7 @@ data AppDetails = AppDetails'
     -- | The user profile name.
     userProfileName :: Prelude.Maybe Prelude.Text,
     -- | The creation time.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The domain ID.
     domainId :: Prelude.Maybe Prelude.Text
   }
@@ -93,24 +94,24 @@ appDetails_userProfileName = Lens.lens (\AppDetails' {userProfileName} -> userPr
 
 -- | The creation time.
 appDetails_creationTime :: Lens.Lens' AppDetails (Prelude.Maybe Prelude.UTCTime)
-appDetails_creationTime = Lens.lens (\AppDetails' {creationTime} -> creationTime) (\s@AppDetails' {} a -> s {creationTime = a} :: AppDetails) Prelude.. Lens.mapping Core._Time
+appDetails_creationTime = Lens.lens (\AppDetails' {creationTime} -> creationTime) (\s@AppDetails' {} a -> s {creationTime = a} :: AppDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The domain ID.
 appDetails_domainId :: Lens.Lens' AppDetails (Prelude.Maybe Prelude.Text)
 appDetails_domainId = Lens.lens (\AppDetails' {domainId} -> domainId) (\s@AppDetails' {} a -> s {domainId = a} :: AppDetails)
 
-instance Core.FromJSON AppDetails where
+instance Data.FromJSON AppDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppDetails"
       ( \x ->
           AppDetails'
-            Prelude.<$> (x Core..:? "AppName")
-            Prelude.<*> (x Core..:? "AppType")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "UserProfileName")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "DomainId")
+            Prelude.<$> (x Data..:? "AppName")
+            Prelude.<*> (x Data..:? "AppType")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "UserProfileName")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DomainId")
       )
 
 instance Prelude.Hashable AppDetails where

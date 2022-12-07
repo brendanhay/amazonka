@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.ListedFlow where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.Maintenance
 import Amazonka.MediaConnect.Types.SourceType
 import Amazonka.MediaConnect.Types.Status
@@ -136,19 +137,19 @@ listedFlow_flowArn = Lens.lens (\ListedFlow' {flowArn} -> flowArn) (\s@ListedFlo
 listedFlow_name :: Lens.Lens' ListedFlow Prelude.Text
 listedFlow_name = Lens.lens (\ListedFlow' {name} -> name) (\s@ListedFlow' {} a -> s {name = a} :: ListedFlow)
 
-instance Core.FromJSON ListedFlow where
+instance Data.FromJSON ListedFlow where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListedFlow"
       ( \x ->
           ListedFlow'
-            Prelude.<$> (x Core..:? "maintenance")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "description")
-            Prelude.<*> (x Core..: "sourceType")
-            Prelude.<*> (x Core..: "availabilityZone")
-            Prelude.<*> (x Core..: "flowArn")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "maintenance")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "description")
+            Prelude.<*> (x Data..: "sourceType")
+            Prelude.<*> (x Data..: "availabilityZone")
+            Prelude.<*> (x Data..: "flowArn")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable ListedFlow where

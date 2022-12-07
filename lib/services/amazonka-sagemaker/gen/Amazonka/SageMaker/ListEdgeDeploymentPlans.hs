@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -66,13 +67,13 @@ data ListEdgeDeploymentPlans = ListEdgeDeploymentPlans'
     -- need tokening.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Selects edge deployment plans that were last updated after this time.
-    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | Selects edge deployment plans with names containing this name.
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | Selects edge deployment plans that were last updated before this time.
-    lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | Selects edge deployment plans created before this time.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The column by which to sort the edge deployment plans. Can be one of
     -- @NAME@, @DEVICEFLEETNAME@, @CREATIONTIME@, @LASTMODIFIEDTIME@.
     sortBy :: Prelude.Maybe ListEdgeDeploymentPlansSortBy,
@@ -82,7 +83,7 @@ data ListEdgeDeploymentPlans = ListEdgeDeploymentPlans'
     -- name.
     deviceFleetNameContains :: Prelude.Maybe Prelude.Text,
     -- | Selects edge deployment plans created after this time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -144,7 +145,7 @@ listEdgeDeploymentPlans_nextToken = Lens.lens (\ListEdgeDeploymentPlans' {nextTo
 
 -- | Selects edge deployment plans that were last updated after this time.
 listEdgeDeploymentPlans_lastModifiedTimeAfter :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.UTCTime)
-listEdgeDeploymentPlans_lastModifiedTimeAfter = Lens.lens (\ListEdgeDeploymentPlans' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListEdgeDeploymentPlans' {} a -> s {lastModifiedTimeAfter = a} :: ListEdgeDeploymentPlans) Prelude.. Lens.mapping Core._Time
+listEdgeDeploymentPlans_lastModifiedTimeAfter = Lens.lens (\ListEdgeDeploymentPlans' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListEdgeDeploymentPlans' {} a -> s {lastModifiedTimeAfter = a} :: ListEdgeDeploymentPlans) Prelude.. Lens.mapping Data._Time
 
 -- | Selects edge deployment plans with names containing this name.
 listEdgeDeploymentPlans_nameContains :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.Text)
@@ -152,11 +153,11 @@ listEdgeDeploymentPlans_nameContains = Lens.lens (\ListEdgeDeploymentPlans' {nam
 
 -- | Selects edge deployment plans that were last updated before this time.
 listEdgeDeploymentPlans_lastModifiedTimeBefore :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.UTCTime)
-listEdgeDeploymentPlans_lastModifiedTimeBefore = Lens.lens (\ListEdgeDeploymentPlans' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListEdgeDeploymentPlans' {} a -> s {lastModifiedTimeBefore = a} :: ListEdgeDeploymentPlans) Prelude.. Lens.mapping Core._Time
+listEdgeDeploymentPlans_lastModifiedTimeBefore = Lens.lens (\ListEdgeDeploymentPlans' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListEdgeDeploymentPlans' {} a -> s {lastModifiedTimeBefore = a} :: ListEdgeDeploymentPlans) Prelude.. Lens.mapping Data._Time
 
 -- | Selects edge deployment plans created before this time.
 listEdgeDeploymentPlans_creationTimeBefore :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.UTCTime)
-listEdgeDeploymentPlans_creationTimeBefore = Lens.lens (\ListEdgeDeploymentPlans' {creationTimeBefore} -> creationTimeBefore) (\s@ListEdgeDeploymentPlans' {} a -> s {creationTimeBefore = a} :: ListEdgeDeploymentPlans) Prelude.. Lens.mapping Core._Time
+listEdgeDeploymentPlans_creationTimeBefore = Lens.lens (\ListEdgeDeploymentPlans' {creationTimeBefore} -> creationTimeBefore) (\s@ListEdgeDeploymentPlans' {} a -> s {creationTimeBefore = a} :: ListEdgeDeploymentPlans) Prelude.. Lens.mapping Data._Time
 
 -- | The column by which to sort the edge deployment plans. Can be one of
 -- @NAME@, @DEVICEFLEETNAME@, @CREATIONTIME@, @LASTMODIFIEDTIME@.
@@ -174,7 +175,7 @@ listEdgeDeploymentPlans_deviceFleetNameContains = Lens.lens (\ListEdgeDeployment
 
 -- | Selects edge deployment plans created after this time.
 listEdgeDeploymentPlans_creationTimeAfter :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.UTCTime)
-listEdgeDeploymentPlans_creationTimeAfter = Lens.lens (\ListEdgeDeploymentPlans' {creationTimeAfter} -> creationTimeAfter) (\s@ListEdgeDeploymentPlans' {} a -> s {creationTimeAfter = a} :: ListEdgeDeploymentPlans) Prelude.. Lens.mapping Core._Time
+listEdgeDeploymentPlans_creationTimeAfter = Lens.lens (\ListEdgeDeploymentPlans' {creationTimeAfter} -> creationTimeAfter) (\s@ListEdgeDeploymentPlans' {} a -> s {creationTimeAfter = a} :: ListEdgeDeploymentPlans) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListEdgeDeploymentPlans where
   page rq rs
@@ -207,9 +208,9 @@ instance Core.AWSRequest ListEdgeDeploymentPlans where
     Response.receiveJSON
       ( \s h x ->
           ListEdgeDeploymentPlansResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "EdgeDeploymentPlanSummaries"
+            Prelude.<*> ( x Data..?> "EdgeDeploymentPlanSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -240,47 +241,47 @@ instance Prelude.NFData ListEdgeDeploymentPlans where
       `Prelude.seq` Prelude.rnf deviceFleetNameContains
       `Prelude.seq` Prelude.rnf creationTimeAfter
 
-instance Core.ToHeaders ListEdgeDeploymentPlans where
+instance Data.ToHeaders ListEdgeDeploymentPlans where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListEdgeDeploymentPlans" ::
+              Data.=# ( "SageMaker.ListEdgeDeploymentPlans" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEdgeDeploymentPlans where
+instance Data.ToJSON ListEdgeDeploymentPlans where
   toJSON ListEdgeDeploymentPlans' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("LastModifiedTimeAfter" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("LastModifiedTimeAfter" Data..=)
               Prelude.<$> lastModifiedTimeAfter,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("LastModifiedTimeBefore" Core..=)
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("LastModifiedTimeBefore" Data..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("CreationTimeBefore" Core..=)
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("DeviceFleetNameContains" Core..=)
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("DeviceFleetNameContains" Data..=)
               Prelude.<$> deviceFleetNameContains,
-            ("CreationTimeAfter" Core..=)
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter
           ]
       )
 
-instance Core.ToPath ListEdgeDeploymentPlans where
+instance Data.ToPath ListEdgeDeploymentPlans where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEdgeDeploymentPlans where
+instance Data.ToQuery ListEdgeDeploymentPlans where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEdgeDeploymentPlansResponse' smart constructor.

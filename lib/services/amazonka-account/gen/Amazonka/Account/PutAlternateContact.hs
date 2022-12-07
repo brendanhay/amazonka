@@ -54,6 +54,7 @@ where
 import Amazonka.Account.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,13 +90,13 @@ data PutAlternateContact = PutAlternateContact'
     -- | Specifies which alternate contact you want to create or update.
     alternateContactType :: AlternateContactType,
     -- | Specifies an email address for the alternate contact.
-    emailAddress :: Core.Sensitive Prelude.Text,
+    emailAddress :: Data.Sensitive Prelude.Text,
     -- | Specifies a name for the alternate contact.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | Specifies a phone number for the alternate contact.
-    phoneNumber :: Core.Sensitive Prelude.Text,
+    phoneNumber :: Data.Sensitive Prelude.Text,
     -- | Specifies a title for the alternate contact.
-    title :: Core.Sensitive Prelude.Text
+    title :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -163,10 +164,10 @@ newPutAlternateContact
     PutAlternateContact'
       { accountId = Prelude.Nothing,
         alternateContactType = pAlternateContactType_,
-        emailAddress = Core._Sensitive Lens.# pEmailAddress_,
-        name = Core._Sensitive Lens.# pName_,
-        phoneNumber = Core._Sensitive Lens.# pPhoneNumber_,
-        title = Core._Sensitive Lens.# pTitle_
+        emailAddress = Data._Sensitive Lens.# pEmailAddress_,
+        name = Data._Sensitive Lens.# pName_,
+        phoneNumber = Data._Sensitive Lens.# pPhoneNumber_,
+        title = Data._Sensitive Lens.# pTitle_
       }
 
 -- | Specifies the 12 digit account ID number of the Amazon Web Services
@@ -203,19 +204,19 @@ putAlternateContact_alternateContactType = Lens.lens (\PutAlternateContact' {alt
 
 -- | Specifies an email address for the alternate contact.
 putAlternateContact_emailAddress :: Lens.Lens' PutAlternateContact Prelude.Text
-putAlternateContact_emailAddress = Lens.lens (\PutAlternateContact' {emailAddress} -> emailAddress) (\s@PutAlternateContact' {} a -> s {emailAddress = a} :: PutAlternateContact) Prelude.. Core._Sensitive
+putAlternateContact_emailAddress = Lens.lens (\PutAlternateContact' {emailAddress} -> emailAddress) (\s@PutAlternateContact' {} a -> s {emailAddress = a} :: PutAlternateContact) Prelude.. Data._Sensitive
 
 -- | Specifies a name for the alternate contact.
 putAlternateContact_name :: Lens.Lens' PutAlternateContact Prelude.Text
-putAlternateContact_name = Lens.lens (\PutAlternateContact' {name} -> name) (\s@PutAlternateContact' {} a -> s {name = a} :: PutAlternateContact) Prelude.. Core._Sensitive
+putAlternateContact_name = Lens.lens (\PutAlternateContact' {name} -> name) (\s@PutAlternateContact' {} a -> s {name = a} :: PutAlternateContact) Prelude.. Data._Sensitive
 
 -- | Specifies a phone number for the alternate contact.
 putAlternateContact_phoneNumber :: Lens.Lens' PutAlternateContact Prelude.Text
-putAlternateContact_phoneNumber = Lens.lens (\PutAlternateContact' {phoneNumber} -> phoneNumber) (\s@PutAlternateContact' {} a -> s {phoneNumber = a} :: PutAlternateContact) Prelude.. Core._Sensitive
+putAlternateContact_phoneNumber = Lens.lens (\PutAlternateContact' {phoneNumber} -> phoneNumber) (\s@PutAlternateContact' {} a -> s {phoneNumber = a} :: PutAlternateContact) Prelude.. Data._Sensitive
 
 -- | Specifies a title for the alternate contact.
 putAlternateContact_title :: Lens.Lens' PutAlternateContact Prelude.Text
-putAlternateContact_title = Lens.lens (\PutAlternateContact' {title} -> title) (\s@PutAlternateContact' {} a -> s {title = a} :: PutAlternateContact) Prelude.. Core._Sensitive
+putAlternateContact_title = Lens.lens (\PutAlternateContact' {title} -> title) (\s@PutAlternateContact' {} a -> s {title = a} :: PutAlternateContact) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest PutAlternateContact where
   type
@@ -244,37 +245,37 @@ instance Prelude.NFData PutAlternateContact where
       `Prelude.seq` Prelude.rnf phoneNumber
       `Prelude.seq` Prelude.rnf title
 
-instance Core.ToHeaders PutAlternateContact where
+instance Data.ToHeaders PutAlternateContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutAlternateContact where
+instance Data.ToJSON PutAlternateContact where
   toJSON PutAlternateContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccountId" Core..=) Prelude.<$> accountId,
+          [ ("AccountId" Data..=) Prelude.<$> accountId,
             Prelude.Just
               ( "AlternateContactType"
-                  Core..= alternateContactType
+                  Data..= alternateContactType
               ),
-            Prelude.Just ("EmailAddress" Core..= emailAddress),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("PhoneNumber" Core..= phoneNumber),
-            Prelude.Just ("Title" Core..= title)
+            Prelude.Just ("EmailAddress" Data..= emailAddress),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("PhoneNumber" Data..= phoneNumber),
+            Prelude.Just ("Title" Data..= title)
           ]
       )
 
-instance Core.ToPath PutAlternateContact where
+instance Data.ToPath PutAlternateContact where
   toPath = Prelude.const "/putAlternateContact"
 
-instance Core.ToQuery PutAlternateContact where
+instance Data.ToQuery PutAlternateContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAlternateContactResponse' smart constructor.

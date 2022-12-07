@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,7 +112,7 @@ instance Core.AWSRequest CreateVpcEndpoint where
       ( \s h x ->
           CreateVpcEndpointResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "VpcEndpoint")
+            Prelude.<*> (x Data..:> "VpcEndpoint")
       )
 
 instance Prelude.Hashable CreateVpcEndpoint where
@@ -126,23 +127,23 @@ instance Prelude.NFData CreateVpcEndpoint where
       `Prelude.seq` Prelude.rnf domainArn
       `Prelude.seq` Prelude.rnf vpcOptions
 
-instance Core.ToHeaders CreateVpcEndpoint where
+instance Data.ToHeaders CreateVpcEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateVpcEndpoint where
+instance Data.ToJSON CreateVpcEndpoint where
   toJSON CreateVpcEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("DomainArn" Core..= domainArn),
-            Prelude.Just ("VpcOptions" Core..= vpcOptions)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("DomainArn" Data..= domainArn),
+            Prelude.Just ("VpcOptions" Data..= vpcOptions)
           ]
       )
 
-instance Core.ToPath CreateVpcEndpoint where
+instance Data.ToPath CreateVpcEndpoint where
   toPath = Prelude.const "/2015-01-01/es/vpcEndpoints"
 
-instance Core.ToQuery CreateVpcEndpoint where
+instance Data.ToQuery CreateVpcEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Container for response parameters to the @CreateVpcEndpoint@ operation.

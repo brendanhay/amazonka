@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.FSxWindowsFileServerVolumeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.FSxWindowsFileServerAuthorizationConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -95,17 +96,17 @@ fSxWindowsFileServerVolumeConfiguration_authorizationConfig :: Lens.Lens' FSxWin
 fSxWindowsFileServerVolumeConfiguration_authorizationConfig = Lens.lens (\FSxWindowsFileServerVolumeConfiguration' {authorizationConfig} -> authorizationConfig) (\s@FSxWindowsFileServerVolumeConfiguration' {} a -> s {authorizationConfig = a} :: FSxWindowsFileServerVolumeConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FSxWindowsFileServerVolumeConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FSxWindowsFileServerVolumeConfiguration"
       ( \x ->
           FSxWindowsFileServerVolumeConfiguration'
-            Prelude.<$> (x Core..: "fileSystemId")
-            Prelude.<*> (x Core..: "rootDirectory")
-            Prelude.<*> (x Core..: "authorizationConfig")
+            Prelude.<$> (x Data..: "fileSystemId")
+            Prelude.<*> (x Data..: "rootDirectory")
+            Prelude.<*> (x Data..: "authorizationConfig")
       )
 
 instance
@@ -129,15 +130,15 @@ instance
       `Prelude.seq` Prelude.rnf authorizationConfig
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     FSxWindowsFileServerVolumeConfiguration
   where
   toJSON FSxWindowsFileServerVolumeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("fileSystemId" Core..= fileSystemId),
-            Prelude.Just ("rootDirectory" Core..= rootDirectory),
+          [ Prelude.Just ("fileSystemId" Data..= fileSystemId),
+            Prelude.Just ("rootDirectory" Data..= rootDirectory),
             Prelude.Just
-              ("authorizationConfig" Core..= authorizationConfig)
+              ("authorizationConfig" Data..= authorizationConfig)
           ]
       )

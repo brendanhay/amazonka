@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -181,8 +182,8 @@ instance Core.AWSRequest ListRobotApplications where
     Response.receiveJSON
       ( \s h x ->
           ListRobotApplicationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "robotApplicationSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "robotApplicationSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -202,33 +203,33 @@ instance Prelude.NFData ListRobotApplications where
       `Prelude.seq` Prelude.rnf versionQualifier
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListRobotApplications where
+instance Data.ToHeaders ListRobotApplications where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRobotApplications where
+instance Data.ToJSON ListRobotApplications where
   toJSON ListRobotApplications' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("versionQualifier" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("versionQualifier" Data..=)
               Prelude.<$> versionQualifier,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListRobotApplications where
+instance Data.ToPath ListRobotApplications where
   toPath = Prelude.const "/listRobotApplications"
 
-instance Core.ToQuery ListRobotApplications where
+instance Data.ToQuery ListRobotApplications where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRobotApplicationsResponse' smart constructor.

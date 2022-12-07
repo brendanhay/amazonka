@@ -18,6 +18,7 @@ module Amazonka.DataSync.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Lens
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude

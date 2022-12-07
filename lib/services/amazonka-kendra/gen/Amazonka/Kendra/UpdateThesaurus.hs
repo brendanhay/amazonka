@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,38 +153,38 @@ instance Prelude.NFData UpdateThesaurus where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders UpdateThesaurus where
+instance Data.ToHeaders UpdateThesaurus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.UpdateThesaurus" ::
+              Data.=# ( "AWSKendraFrontendService.UpdateThesaurus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateThesaurus where
+instance Data.ToJSON UpdateThesaurus where
   toJSON UpdateThesaurus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Description" Core..=) Prelude.<$> description,
-            ("SourceS3Path" Core..=) Prelude.<$> sourceS3Path,
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Description" Data..=) Prelude.<$> description,
+            ("SourceS3Path" Data..=) Prelude.<$> sourceS3Path,
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath UpdateThesaurus where
+instance Data.ToPath UpdateThesaurus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateThesaurus where
+instance Data.ToQuery UpdateThesaurus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateThesaurusResponse' smart constructor.

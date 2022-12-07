@@ -35,6 +35,7 @@ module Amazonka.Nimble.Types.StudioComponentStatusCode
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The current status of the studio component resource.
@@ -47,7 +48,7 @@ import qualified Amazonka.Prelude as Prelude
 -- failed.
 newtype StudioComponentStatusCode = StudioComponentStatusCode'
   { fromStudioComponentStatusCode ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -59,18 +60,18 @@ newtype StudioComponentStatusCode = StudioComponentStatusCode'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern StudioComponentStatusCode_ACTIVE_DIRECTORY_ALREADY_EXISTS :: StudioComponentStatusCode

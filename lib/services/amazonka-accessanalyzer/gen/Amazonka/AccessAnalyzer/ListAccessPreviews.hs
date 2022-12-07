@@ -47,6 +47,7 @@ where
 import Amazonka.AccessAnalyzer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,9 +136,9 @@ instance Core.AWSRequest ListAccessPreviews where
     Response.receiveJSON
       ( \s h x ->
           ListAccessPreviewsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "accessPreviews"
+            Prelude.<*> ( x Data..?> "accessPreviews"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -154,26 +155,26 @@ instance Prelude.NFData ListAccessPreviews where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf analyzerArn
 
-instance Core.ToHeaders ListAccessPreviews where
+instance Data.ToHeaders ListAccessPreviews where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAccessPreviews where
+instance Data.ToPath ListAccessPreviews where
   toPath = Prelude.const "/access-preview"
 
-instance Core.ToQuery ListAccessPreviews where
+instance Data.ToQuery ListAccessPreviews where
   toQuery ListAccessPreviews' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "analyzerArn" Core.=: analyzerArn
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "analyzerArn" Data.=: analyzerArn
       ]
 
 -- | /See:/ 'newListAccessPreviewsResponse' smart constructor.

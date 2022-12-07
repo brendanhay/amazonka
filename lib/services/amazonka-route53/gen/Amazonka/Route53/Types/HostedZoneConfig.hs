@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.HostedZoneConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 
@@ -64,11 +65,11 @@ hostedZoneConfig_privateZone = Lens.lens (\HostedZoneConfig' {privateZone} -> pr
 hostedZoneConfig_comment :: Lens.Lens' HostedZoneConfig (Prelude.Maybe Prelude.Text)
 hostedZoneConfig_comment = Lens.lens (\HostedZoneConfig' {comment} -> comment) (\s@HostedZoneConfig' {} a -> s {comment = a} :: HostedZoneConfig)
 
-instance Core.FromXML HostedZoneConfig where
+instance Data.FromXML HostedZoneConfig where
   parseXML x =
     HostedZoneConfig'
-      Prelude.<$> (x Core..@? "PrivateZone")
-      Prelude.<*> (x Core..@? "Comment")
+      Prelude.<$> (x Data..@? "PrivateZone")
+      Prelude.<*> (x Data..@? "Comment")
 
 instance Prelude.Hashable HostedZoneConfig where
   hashWithSalt _salt HostedZoneConfig' {..} =
@@ -80,9 +81,9 @@ instance Prelude.NFData HostedZoneConfig where
     Prelude.rnf privateZone
       `Prelude.seq` Prelude.rnf comment
 
-instance Core.ToXML HostedZoneConfig where
+instance Data.ToXML HostedZoneConfig where
   toXML HostedZoneConfig' {..} =
     Prelude.mconcat
-      [ "PrivateZone" Core.@= privateZone,
-        "Comment" Core.@= comment
+      [ "PrivateZone" Data.@= privateZone,
+        "Comment" Data.@= comment
       ]

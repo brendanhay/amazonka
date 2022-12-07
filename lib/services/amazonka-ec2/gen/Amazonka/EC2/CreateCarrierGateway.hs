@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,7 +135,7 @@ instance Core.AWSRequest CreateCarrierGateway where
     Response.receiveXML
       ( \s h x ->
           CreateCarrierGatewayResponse'
-            Prelude.<$> (x Core..@? "carrierGateway")
+            Prelude.<$> (x Data..@? "carrierGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,26 +153,26 @@ instance Prelude.NFData CreateCarrierGateway where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToHeaders CreateCarrierGateway where
+instance Data.ToHeaders CreateCarrierGateway where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateCarrierGateway where
+instance Data.ToPath CreateCarrierGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCarrierGateway where
+instance Data.ToQuery CreateCarrierGateway where
   toQuery CreateCarrierGateway' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateCarrierGateway" :: Prelude.ByteString),
+          Data.=: ("CreateCarrierGateway" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "VpcId" Core.=: vpcId
+        "VpcId" Data.=: vpcId
       ]
 
 -- | /See:/ 'newCreateCarrierGatewayResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -173,7 +174,7 @@ instance Core.AWSRequest PutResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           PutResourcePolicyResponse'
-            Prelude.<$> (x Core..?> "PolicyHash")
+            Prelude.<$> (x Data..?> "PolicyHash")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,37 +194,37 @@ instance Prelude.NFData PutResourcePolicy where
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf policyInJson
 
-instance Core.ToHeaders PutResourcePolicy where
+instance Data.ToHeaders PutResourcePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.PutResourcePolicy" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.PutResourcePolicy" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutResourcePolicy where
+instance Data.ToJSON PutResourcePolicy where
   toJSON PutResourcePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EnableHybrid" Core..=) Prelude.<$> enableHybrid,
-            ("PolicyHashCondition" Core..=)
+          [ ("EnableHybrid" Data..=) Prelude.<$> enableHybrid,
+            ("PolicyHashCondition" Data..=)
               Prelude.<$> policyHashCondition,
-            ("PolicyExistsCondition" Core..=)
+            ("PolicyExistsCondition" Data..=)
               Prelude.<$> policyExistsCondition,
-            ("ResourceArn" Core..=) Prelude.<$> resourceArn,
-            Prelude.Just ("PolicyInJson" Core..= policyInJson)
+            ("ResourceArn" Data..=) Prelude.<$> resourceArn,
+            Prelude.Just ("PolicyInJson" Data..= policyInJson)
           ]
       )
 
-instance Core.ToPath PutResourcePolicy where
+instance Data.ToPath PutResourcePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutResourcePolicy where
+instance Data.ToQuery PutResourcePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutResourcePolicyResponse' smart constructor.

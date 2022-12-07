@@ -21,6 +21,7 @@ module Amazonka.IoT1ClickProjects.Types.DeviceTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a device for a placement template (see
@@ -66,16 +67,16 @@ deviceTemplate_callbackOverrides = Lens.lens (\DeviceTemplate' {callbackOverride
 deviceTemplate_deviceType :: Lens.Lens' DeviceTemplate (Prelude.Maybe Prelude.Text)
 deviceTemplate_deviceType = Lens.lens (\DeviceTemplate' {deviceType} -> deviceType) (\s@DeviceTemplate' {} a -> s {deviceType = a} :: DeviceTemplate)
 
-instance Core.FromJSON DeviceTemplate where
+instance Data.FromJSON DeviceTemplate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceTemplate"
       ( \x ->
           DeviceTemplate'
-            Prelude.<$> ( x Core..:? "callbackOverrides"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "callbackOverrides"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "deviceType")
+            Prelude.<*> (x Data..:? "deviceType")
       )
 
 instance Prelude.Hashable DeviceTemplate where
@@ -88,12 +89,12 @@ instance Prelude.NFData DeviceTemplate where
     Prelude.rnf callbackOverrides
       `Prelude.seq` Prelude.rnf deviceType
 
-instance Core.ToJSON DeviceTemplate where
+instance Data.ToJSON DeviceTemplate where
   toJSON DeviceTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("callbackOverrides" Core..=)
+          [ ("callbackOverrides" Data..=)
               Prelude.<$> callbackOverrides,
-            ("deviceType" Core..=) Prelude.<$> deviceType
+            ("deviceType" Data..=) Prelude.<$> deviceType
           ]
       )

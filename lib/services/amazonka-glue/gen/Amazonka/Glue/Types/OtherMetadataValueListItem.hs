@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.OtherMetadataValueListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing other metadata for a schema version belonging to
@@ -66,14 +67,14 @@ otherMetadataValueListItem_createdTime = Lens.lens (\OtherMetadataValueListItem'
 otherMetadataValueListItem_metadataValue :: Lens.Lens' OtherMetadataValueListItem (Prelude.Maybe Prelude.Text)
 otherMetadataValueListItem_metadataValue = Lens.lens (\OtherMetadataValueListItem' {metadataValue} -> metadataValue) (\s@OtherMetadataValueListItem' {} a -> s {metadataValue = a} :: OtherMetadataValueListItem)
 
-instance Core.FromJSON OtherMetadataValueListItem where
+instance Data.FromJSON OtherMetadataValueListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OtherMetadataValueListItem"
       ( \x ->
           OtherMetadataValueListItem'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "MetadataValue")
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "MetadataValue")
       )
 
 instance Prelude.Hashable OtherMetadataValueListItem where

@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.Consolidation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The matching criteria to be used during the auto-merging process.
@@ -55,13 +56,13 @@ newConsolidation pMatchingAttributesList_ =
 consolidation_matchingAttributesList :: Lens.Lens' Consolidation (Prelude.NonEmpty (Prelude.NonEmpty Prelude.Text))
 consolidation_matchingAttributesList = Lens.lens (\Consolidation' {matchingAttributesList} -> matchingAttributesList) (\s@Consolidation' {} a -> s {matchingAttributesList = a} :: Consolidation) Prelude.. Lens.coerced
 
-instance Core.FromJSON Consolidation where
+instance Data.FromJSON Consolidation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Consolidation"
       ( \x ->
           Consolidation'
-            Prelude.<$> (x Core..: "MatchingAttributesList")
+            Prelude.<$> (x Data..: "MatchingAttributesList")
       )
 
 instance Prelude.Hashable Consolidation where
@@ -72,13 +73,13 @@ instance Prelude.NFData Consolidation where
   rnf Consolidation' {..} =
     Prelude.rnf matchingAttributesList
 
-instance Core.ToJSON Consolidation where
+instance Data.ToJSON Consolidation where
   toJSON Consolidation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "MatchingAttributesList"
-                  Core..= matchingAttributesList
+                  Data..= matchingAttributesList
               )
           ]
       )

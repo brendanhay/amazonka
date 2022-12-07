@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbProcessorFeature where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A processor feature.
@@ -64,13 +65,13 @@ awsRdsDbProcessorFeature_name = Lens.lens (\AwsRdsDbProcessorFeature' {name} -> 
 awsRdsDbProcessorFeature_value :: Lens.Lens' AwsRdsDbProcessorFeature (Prelude.Maybe Prelude.Text)
 awsRdsDbProcessorFeature_value = Lens.lens (\AwsRdsDbProcessorFeature' {value} -> value) (\s@AwsRdsDbProcessorFeature' {} a -> s {value = a} :: AwsRdsDbProcessorFeature)
 
-instance Core.FromJSON AwsRdsDbProcessorFeature where
+instance Data.FromJSON AwsRdsDbProcessorFeature where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbProcessorFeature"
       ( \x ->
           AwsRdsDbProcessorFeature'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable AwsRdsDbProcessorFeature where
@@ -82,11 +83,11 @@ instance Prelude.NFData AwsRdsDbProcessorFeature where
   rnf AwsRdsDbProcessorFeature' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON AwsRdsDbProcessorFeature where
+instance Data.ToJSON AwsRdsDbProcessorFeature where
   toJSON AwsRdsDbProcessorFeature' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

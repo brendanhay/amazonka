@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,7 +110,7 @@ instance Core.AWSRequest CreateEmailTemplate where
       ( \s h x ->
           CreateEmailTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable CreateEmailTemplate where
@@ -122,27 +123,27 @@ instance Prelude.NFData CreateEmailTemplate where
     Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf emailTemplateRequest
 
-instance Core.ToHeaders CreateEmailTemplate where
+instance Data.ToHeaders CreateEmailTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEmailTemplate where
+instance Data.ToJSON CreateEmailTemplate where
   toJSON CreateEmailTemplate' {..} =
-    Core.toJSON emailTemplateRequest
+    Data.toJSON emailTemplateRequest
 
-instance Core.ToPath CreateEmailTemplate where
+instance Data.ToPath CreateEmailTemplate where
   toPath CreateEmailTemplate' {..} =
     Prelude.mconcat
-      ["/v1/templates/", Core.toBS templateName, "/email"]
+      ["/v1/templates/", Data.toBS templateName, "/email"]
 
-instance Core.ToQuery CreateEmailTemplate where
+instance Data.ToQuery CreateEmailTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEmailTemplateResponse' smart constructor.

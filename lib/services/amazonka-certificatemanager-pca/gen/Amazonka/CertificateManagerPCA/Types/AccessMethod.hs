@@ -22,6 +22,7 @@ module Amazonka.CertificateManagerPCA.Types.AccessMethod where
 import Amazonka.CertificateManagerPCA.Types.AccessMethodType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the type and format of extension access. Only one of
@@ -73,14 +74,14 @@ accessMethod_accessMethodType = Lens.lens (\AccessMethod' {accessMethodType} -> 
 accessMethod_customObjectIdentifier :: Lens.Lens' AccessMethod (Prelude.Maybe Prelude.Text)
 accessMethod_customObjectIdentifier = Lens.lens (\AccessMethod' {customObjectIdentifier} -> customObjectIdentifier) (\s@AccessMethod' {} a -> s {customObjectIdentifier = a} :: AccessMethod)
 
-instance Core.FromJSON AccessMethod where
+instance Data.FromJSON AccessMethod where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessMethod"
       ( \x ->
           AccessMethod'
-            Prelude.<$> (x Core..:? "AccessMethodType")
-            Prelude.<*> (x Core..:? "CustomObjectIdentifier")
+            Prelude.<$> (x Data..:? "AccessMethodType")
+            Prelude.<*> (x Data..:? "CustomObjectIdentifier")
       )
 
 instance Prelude.Hashable AccessMethod where
@@ -93,13 +94,13 @@ instance Prelude.NFData AccessMethod where
     Prelude.rnf accessMethodType
       `Prelude.seq` Prelude.rnf customObjectIdentifier
 
-instance Core.ToJSON AccessMethod where
+instance Data.ToJSON AccessMethod where
   toJSON AccessMethod' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessMethodType" Core..=)
+          [ ("AccessMethodType" Data..=)
               Prelude.<$> accessMethodType,
-            ("CustomObjectIdentifier" Core..=)
+            ("CustomObjectIdentifier" Data..=)
               Prelude.<$> customObjectIdentifier
           ]
       )

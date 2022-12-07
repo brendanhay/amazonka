@@ -93,6 +93,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -189,7 +190,7 @@ instance Core.AWSRequest UpdateRateBasedRule where
     Response.receiveJSON
       ( \s h x ->
           UpdateRateBasedRuleResponse'
-            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -207,36 +208,36 @@ instance Prelude.NFData UpdateRateBasedRule where
       `Prelude.seq` Prelude.rnf updates
       `Prelude.seq` Prelude.rnf rateLimit
 
-instance Core.ToHeaders UpdateRateBasedRule where
+instance Data.ToHeaders UpdateRateBasedRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.UpdateRateBasedRule" ::
+              Data.=# ( "AWSWAF_Regional_20161128.UpdateRateBasedRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRateBasedRule where
+instance Data.ToJSON UpdateRateBasedRule where
   toJSON UpdateRateBasedRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("RuleId" Core..= ruleId),
-            Prelude.Just ("ChangeToken" Core..= changeToken),
-            Prelude.Just ("Updates" Core..= updates),
-            Prelude.Just ("RateLimit" Core..= rateLimit)
+          [ Prelude.Just ("RuleId" Data..= ruleId),
+            Prelude.Just ("ChangeToken" Data..= changeToken),
+            Prelude.Just ("Updates" Data..= updates),
+            Prelude.Just ("RateLimit" Data..= rateLimit)
           ]
       )
 
-instance Core.ToPath UpdateRateBasedRule where
+instance Data.ToPath UpdateRateBasedRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateRateBasedRule where
+instance Data.ToQuery UpdateRateBasedRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRateBasedRuleResponse' smart constructor.

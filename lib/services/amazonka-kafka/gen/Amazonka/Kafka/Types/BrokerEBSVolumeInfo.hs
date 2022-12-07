@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.BrokerEBSVolumeInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.ProvisionedThroughput
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,15 +77,15 @@ brokerEBSVolumeInfo_volumeSizeGB = Lens.lens (\BrokerEBSVolumeInfo' {volumeSizeG
 brokerEBSVolumeInfo_kafkaBrokerNodeId :: Lens.Lens' BrokerEBSVolumeInfo Prelude.Text
 brokerEBSVolumeInfo_kafkaBrokerNodeId = Lens.lens (\BrokerEBSVolumeInfo' {kafkaBrokerNodeId} -> kafkaBrokerNodeId) (\s@BrokerEBSVolumeInfo' {} a -> s {kafkaBrokerNodeId = a} :: BrokerEBSVolumeInfo)
 
-instance Core.FromJSON BrokerEBSVolumeInfo where
+instance Data.FromJSON BrokerEBSVolumeInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BrokerEBSVolumeInfo"
       ( \x ->
           BrokerEBSVolumeInfo'
-            Prelude.<$> (x Core..:? "provisionedThroughput")
-            Prelude.<*> (x Core..:? "volumeSizeGB")
-            Prelude.<*> (x Core..: "kafkaBrokerNodeId")
+            Prelude.<$> (x Data..:? "provisionedThroughput")
+            Prelude.<*> (x Data..:? "volumeSizeGB")
+            Prelude.<*> (x Data..: "kafkaBrokerNodeId")
       )
 
 instance Prelude.Hashable BrokerEBSVolumeInfo where
@@ -99,14 +100,14 @@ instance Prelude.NFData BrokerEBSVolumeInfo where
       `Prelude.seq` Prelude.rnf volumeSizeGB
       `Prelude.seq` Prelude.rnf kafkaBrokerNodeId
 
-instance Core.ToJSON BrokerEBSVolumeInfo where
+instance Data.ToJSON BrokerEBSVolumeInfo where
   toJSON BrokerEBSVolumeInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("provisionedThroughput" Core..=)
+          [ ("provisionedThroughput" Data..=)
               Prelude.<$> provisionedThroughput,
-            ("volumeSizeGB" Core..=) Prelude.<$> volumeSizeGB,
+            ("volumeSizeGB" Data..=) Prelude.<$> volumeSizeGB,
             Prelude.Just
-              ("kafkaBrokerNodeId" Core..= kafkaBrokerNodeId)
+              ("kafkaBrokerNodeId" Data..= kafkaBrokerNodeId)
           ]
       )

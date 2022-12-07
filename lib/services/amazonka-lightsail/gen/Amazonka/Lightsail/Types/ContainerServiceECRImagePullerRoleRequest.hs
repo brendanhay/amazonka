@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ContainerServiceECRImagePullerRoleRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a request to activate or deactivate the role that you can use
@@ -81,11 +82,11 @@ instance
     Prelude.rnf isActive
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ContainerServiceECRImagePullerRoleRequest
   where
   toJSON ContainerServiceECRImagePullerRoleRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("isActive" Core..=) Prelude.<$> isActive]
+          [("isActive" Data..=) Prelude.<$> isActive]
       )

@@ -44,6 +44,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,24 +113,24 @@ instance Prelude.NFData DeleteFacet where
     Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders DeleteFacet where
+instance Data.ToHeaders DeleteFacet where
   toHeaders DeleteFacet' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# schemaArn]
+      ["x-amz-data-partition" Data.=# schemaArn]
 
-instance Core.ToJSON DeleteFacet where
+instance Data.ToJSON DeleteFacet where
   toJSON DeleteFacet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DeleteFacet where
+instance Data.ToPath DeleteFacet where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/facet/delete"
 
-instance Core.ToQuery DeleteFacet where
+instance Data.ToQuery DeleteFacet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFacetResponse' smart constructor.

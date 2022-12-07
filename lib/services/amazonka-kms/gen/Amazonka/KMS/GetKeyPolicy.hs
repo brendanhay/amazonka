@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,7 +144,7 @@ instance Core.AWSRequest GetKeyPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetKeyPolicyResponse'
-            Prelude.<$> (x Core..?> "Policy")
+            Prelude.<$> (x Data..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,32 +158,32 @@ instance Prelude.NFData GetKeyPolicy where
     Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf policyName
 
-instance Core.ToHeaders GetKeyPolicy where
+instance Data.ToHeaders GetKeyPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.GetKeyPolicy" :: Prelude.ByteString),
+              Data.=# ("TrentService.GetKeyPolicy" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetKeyPolicy where
+instance Data.ToJSON GetKeyPolicy where
   toJSON GetKeyPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("KeyId" Core..= keyId),
-            Prelude.Just ("PolicyName" Core..= policyName)
+          [ Prelude.Just ("KeyId" Data..= keyId),
+            Prelude.Just ("PolicyName" Data..= policyName)
           ]
       )
 
-instance Core.ToPath GetKeyPolicy where
+instance Data.ToPath GetKeyPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetKeyPolicy where
+instance Data.ToQuery GetKeyPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetKeyPolicyResponse' smart constructor.

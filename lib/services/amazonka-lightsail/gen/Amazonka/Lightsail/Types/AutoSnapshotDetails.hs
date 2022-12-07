@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.AutoSnapshotDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.AttachedDisk
 import Amazonka.Lightsail.Types.AutoSnapshotStatus
 import qualified Amazonka.Prelude as Prelude
@@ -37,7 +38,7 @@ data AutoSnapshotDetails = AutoSnapshotDetails'
     -- | The status of the automatic snapshot.
     status :: Prelude.Maybe AutoSnapshotStatus,
     -- | The timestamp when the automatic snapshot was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,20 +84,20 @@ autoSnapshotDetails_status = Lens.lens (\AutoSnapshotDetails' {status} -> status
 
 -- | The timestamp when the automatic snapshot was created.
 autoSnapshotDetails_createdAt :: Lens.Lens' AutoSnapshotDetails (Prelude.Maybe Prelude.UTCTime)
-autoSnapshotDetails_createdAt = Lens.lens (\AutoSnapshotDetails' {createdAt} -> createdAt) (\s@AutoSnapshotDetails' {} a -> s {createdAt = a} :: AutoSnapshotDetails) Prelude.. Lens.mapping Core._Time
+autoSnapshotDetails_createdAt = Lens.lens (\AutoSnapshotDetails' {createdAt} -> createdAt) (\s@AutoSnapshotDetails' {} a -> s {createdAt = a} :: AutoSnapshotDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AutoSnapshotDetails where
+instance Data.FromJSON AutoSnapshotDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoSnapshotDetails"
       ( \x ->
           AutoSnapshotDetails'
-            Prelude.<$> ( x Core..:? "fromAttachedDisks"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "fromAttachedDisks"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "date")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Data..:? "date")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable AutoSnapshotDetails where

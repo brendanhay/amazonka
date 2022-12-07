@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.Tag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A label that consists of a key and value you define.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | The tag key.
-    key :: Core.Sensitive Prelude.Text,
+    key :: Data.Sensitive Prelude.Text,
     -- | The tag value.
-    value :: Core.Sensitive Prelude.Text
+    value :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -53,25 +54,25 @@ newTag ::
   Tag
 newTag pKey_ pValue_ =
   Tag'
-    { key = Core._Sensitive Lens.# pKey_,
-      value = Core._Sensitive Lens.# pValue_
+    { key = Data._Sensitive Lens.# pKey_,
+      value = Data._Sensitive Lens.# pValue_
     }
 
 -- | The tag key.
 tag_key :: Lens.Lens' Tag Prelude.Text
-tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag) Prelude.. Core._Sensitive
+tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag) Prelude.. Data._Sensitive
 
 -- | The tag value.
 tag_value :: Lens.Lens' Tag Prelude.Text
-tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag) Prelude.. Core._Sensitive
+tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag) Prelude.. Data._Sensitive
 
-instance Core.FromJSON Tag where
+instance Data.FromJSON Tag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Core..: "key") Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..: "key") Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable Tag where
@@ -83,11 +84,11 @@ instance Prelude.NFData Tag where
   rnf Tag' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Tag where
+instance Data.ToJSON Tag where
   toJSON Tag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("key" Core..= key),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("key" Data..= key),
+            Prelude.Just ("value" Data..= value)
           ]
       )

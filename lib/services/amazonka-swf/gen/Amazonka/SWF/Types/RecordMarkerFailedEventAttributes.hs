@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.RecordMarkerFailedEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.RecordMarkerFailedCause
 
@@ -113,17 +114,17 @@ recordMarkerFailedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' Rec
 recordMarkerFailedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\RecordMarkerFailedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@RecordMarkerFailedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: RecordMarkerFailedEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RecordMarkerFailedEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecordMarkerFailedEventAttributes"
       ( \x ->
           RecordMarkerFailedEventAttributes'
-            Prelude.<$> (x Core..: "markerName")
-            Prelude.<*> (x Core..: "cause")
-            Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Data..: "markerName")
+            Prelude.<*> (x Data..: "cause")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance

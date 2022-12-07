@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClientVpnAuthorizationRuleStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ClientVpnAuthorizationRuleStatusCode
 import qualified Amazonka.Prelude as Prelude
@@ -65,13 +66,13 @@ clientVpnAuthorizationRuleStatus_code :: Lens.Lens' ClientVpnAuthorizationRuleSt
 clientVpnAuthorizationRuleStatus_code = Lens.lens (\ClientVpnAuthorizationRuleStatus' {code} -> code) (\s@ClientVpnAuthorizationRuleStatus' {} a -> s {code = a} :: ClientVpnAuthorizationRuleStatus)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ClientVpnAuthorizationRuleStatus
   where
   parseXML x =
     ClientVpnAuthorizationRuleStatus'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance
   Prelude.Hashable

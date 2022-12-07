@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.XavcFlickerAdaptiveQuantization
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The best way to set up adaptive quantization is to keep the default
@@ -47,7 +48,7 @@ import qualified Amazonka.Prelude as Prelude
 -- quantization provides.
 newtype XavcFlickerAdaptiveQuantization = XavcFlickerAdaptiveQuantization'
   { fromXavcFlickerAdaptiveQuantization ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -59,18 +60,18 @@ newtype XavcFlickerAdaptiveQuantization = XavcFlickerAdaptiveQuantization'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern XavcFlickerAdaptiveQuantization_DISABLED :: XavcFlickerAdaptiveQuantization

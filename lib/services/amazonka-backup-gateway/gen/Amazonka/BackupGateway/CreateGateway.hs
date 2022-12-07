@@ -46,6 +46,7 @@ where
 import Amazonka.BackupGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,7 +127,7 @@ instance Core.AWSRequest CreateGateway where
     Response.receiveJSON
       ( \s h x ->
           CreateGatewayResponse'
-            Prelude.<$> (x Core..?> "GatewayArn")
+            Prelude.<$> (x Data..?> "GatewayArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,37 +145,37 @@ instance Prelude.NFData CreateGateway where
       `Prelude.seq` Prelude.rnf gatewayDisplayName
       `Prelude.seq` Prelude.rnf gatewayType
 
-instance Core.ToHeaders CreateGateway where
+instance Data.ToHeaders CreateGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BackupOnPremises_v20210101.CreateGateway" ::
+              Data.=# ( "BackupOnPremises_v20210101.CreateGateway" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateGateway where
+instance Data.ToJSON CreateGateway where
   toJSON CreateGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("ActivationKey" Core..= activationKey),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("ActivationKey" Data..= activationKey),
             Prelude.Just
-              ("GatewayDisplayName" Core..= gatewayDisplayName),
-            Prelude.Just ("GatewayType" Core..= gatewayType)
+              ("GatewayDisplayName" Data..= gatewayDisplayName),
+            Prelude.Just ("GatewayType" Data..= gatewayType)
           ]
       )
 
-instance Core.ToPath CreateGateway where
+instance Data.ToPath CreateGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateGateway where
+instance Data.ToQuery CreateGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGatewayResponse' smart constructor.

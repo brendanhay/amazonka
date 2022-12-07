@@ -27,6 +27,7 @@ import Amazonka.AppStream.Types.StreamingExperienceSettings
 import Amazonka.AppStream.Types.UserSetting
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a stack.
@@ -36,7 +37,7 @@ data Stack = Stack'
   { -- | The storage connectors to enable.
     storageConnectors :: Prelude.Maybe [StorageConnector],
     -- | The time the stack was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The domains where AppStream 2.0 streaming sessions can be embedded in an
     -- iframe. You must approve the domains that you want to host embedded
     -- AppStream 2.0 streaming sessions.
@@ -141,7 +142,7 @@ stack_storageConnectors = Lens.lens (\Stack' {storageConnectors} -> storageConne
 
 -- | The time the stack was created.
 stack_createdTime :: Lens.Lens' Stack (Prelude.Maybe Prelude.UTCTime)
-stack_createdTime = Lens.lens (\Stack' {createdTime} -> createdTime) (\s@Stack' {} a -> s {createdTime = a} :: Stack) Prelude.. Lens.mapping Core._Time
+stack_createdTime = Lens.lens (\Stack' {createdTime} -> createdTime) (\s@Stack' {} a -> s {createdTime = a} :: Stack) Prelude.. Lens.mapping Data._Time
 
 -- | The domains where AppStream 2.0 streaming sessions can be embedded in an
 -- iframe. You must approve the domains that you want to host embedded
@@ -198,28 +199,28 @@ stack_userSettings = Lens.lens (\Stack' {userSettings} -> userSettings) (\s@Stac
 stack_name :: Lens.Lens' Stack Prelude.Text
 stack_name = Lens.lens (\Stack' {name} -> name) (\s@Stack' {} a -> s {name = a} :: Stack)
 
-instance Core.FromJSON Stack where
+instance Data.FromJSON Stack where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Stack"
       ( \x ->
           Stack'
-            Prelude.<$> ( x Core..:? "StorageConnectors"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "StorageConnectors"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "EmbedHostDomains")
-            Prelude.<*> (x Core..:? "ApplicationSettings")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "StackErrors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "AccessEndpoints")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "RedirectURL")
-            Prelude.<*> (x Core..:? "StreamingExperienceSettings")
-            Prelude.<*> (x Core..:? "FeedbackURL")
-            Prelude.<*> (x Core..:? "UserSettings")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "EmbedHostDomains")
+            Prelude.<*> (x Data..:? "ApplicationSettings")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "StackErrors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "AccessEndpoints")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "RedirectURL")
+            Prelude.<*> (x Data..:? "StreamingExperienceSettings")
+            Prelude.<*> (x Data..:? "FeedbackURL")
+            Prelude.<*> (x Data..:? "UserSettings")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable Stack where

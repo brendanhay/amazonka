@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.PatchRuleGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.PatchRule
 
@@ -51,13 +52,13 @@ newPatchRuleGroup =
 patchRuleGroup_patchRules :: Lens.Lens' PatchRuleGroup [PatchRule]
 patchRuleGroup_patchRules = Lens.lens (\PatchRuleGroup' {patchRules} -> patchRules) (\s@PatchRuleGroup' {} a -> s {patchRules = a} :: PatchRuleGroup) Prelude.. Lens.coerced
 
-instance Core.FromJSON PatchRuleGroup where
+instance Data.FromJSON PatchRuleGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PatchRuleGroup"
       ( \x ->
           PatchRuleGroup'
-            Prelude.<$> (x Core..:? "PatchRules" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "PatchRules" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PatchRuleGroup where
@@ -67,9 +68,9 @@ instance Prelude.Hashable PatchRuleGroup where
 instance Prelude.NFData PatchRuleGroup where
   rnf PatchRuleGroup' {..} = Prelude.rnf patchRules
 
-instance Core.ToJSON PatchRuleGroup where
+instance Data.ToJSON PatchRuleGroup where
   toJSON PatchRuleGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("PatchRules" Core..= patchRules)]
+          [Prelude.Just ("PatchRules" Data..= patchRules)]
       )

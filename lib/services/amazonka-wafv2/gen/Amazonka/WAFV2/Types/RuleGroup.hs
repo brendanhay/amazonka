@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.RuleGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CustomResponseBody
 import Amazonka.WAFV2.Types.LabelSummary
@@ -318,27 +319,27 @@ ruleGroup_arn = Lens.lens (\RuleGroup' {arn} -> arn) (\s@RuleGroup' {} a -> s {a
 ruleGroup_visibilityConfig :: Lens.Lens' RuleGroup VisibilityConfig
 ruleGroup_visibilityConfig = Lens.lens (\RuleGroup' {visibilityConfig} -> visibilityConfig) (\s@RuleGroup' {} a -> s {visibilityConfig = a} :: RuleGroup)
 
-instance Core.FromJSON RuleGroup where
+instance Data.FromJSON RuleGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroup"
       ( \x ->
           RuleGroup'
-            Prelude.<$> ( x Core..:? "AvailableLabels"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "AvailableLabels"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Rules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LabelNamespace")
-            Prelude.<*> ( x Core..:? "CustomResponseBodies"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LabelNamespace")
+            Prelude.<*> ( x Data..:? "CustomResponseBodies"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ConsumedLabels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "Capacity")
-            Prelude.<*> (x Core..: "ARN")
-            Prelude.<*> (x Core..: "VisibilityConfig")
+            Prelude.<*> (x Data..:? "ConsumedLabels" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "Capacity")
+            Prelude.<*> (x Data..: "ARN")
+            Prelude.<*> (x Data..: "VisibilityConfig")
       )
 
 instance Prelude.Hashable RuleGroup where

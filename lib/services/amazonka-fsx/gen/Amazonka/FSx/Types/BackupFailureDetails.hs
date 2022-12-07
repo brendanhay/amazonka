@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.BackupFailureDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If backup creation fails, this structure contains the details of that
@@ -51,13 +52,13 @@ newBackupFailureDetails =
 backupFailureDetails_message :: Lens.Lens' BackupFailureDetails (Prelude.Maybe Prelude.Text)
 backupFailureDetails_message = Lens.lens (\BackupFailureDetails' {message} -> message) (\s@BackupFailureDetails' {} a -> s {message = a} :: BackupFailureDetails)
 
-instance Core.FromJSON BackupFailureDetails where
+instance Data.FromJSON BackupFailureDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackupFailureDetails"
       ( \x ->
           BackupFailureDetails'
-            Prelude.<$> (x Core..:? "Message")
+            Prelude.<$> (x Data..:? "Message")
       )
 
 instance Prelude.Hashable BackupFailureDetails where

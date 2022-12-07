@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,32 +150,32 @@ instance
       `Prelude.seq` Prelude.rnf clientID
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RemoveClientIDFromOpenIDConnectProvider
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     RemoveClientIDFromOpenIDConnectProvider
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     RemoveClientIDFromOpenIDConnectProvider
   where
   toQuery RemoveClientIDFromOpenIDConnectProvider' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "RemoveClientIDFromOpenIDConnectProvider" ::
+          Data.=: ( "RemoveClientIDFromOpenIDConnectProvider" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
         "OpenIDConnectProviderArn"
-          Core.=: openIDConnectProviderArn,
-        "ClientID" Core.=: clientID
+          Data.=: openIDConnectProviderArn,
+        "ClientID" Data.=: clientID
       ]
 
 -- | /See:/ 'newRemoveClientIDFromOpenIDConnectProviderResponse' smart constructor.

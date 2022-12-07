@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,7 +137,7 @@ data CreateJob = CreateJob'
     maxRetries :: Prelude.Maybe Prelude.Int,
     -- | The representation of a directed acyclic graph on which both the Glue
     -- Studio visual component and Glue Studio code generation is based.
-    codeGenConfigurationNodes :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text CodeGenConfigurationNode)),
+    codeGenConfigurationNodes :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text CodeGenConfigurationNode)),
     -- | The default arguments for this job.
     --
     -- You can specify arguments here that your own job-execution script
@@ -483,7 +484,7 @@ createJob_maxRetries = Lens.lens (\CreateJob' {maxRetries} -> maxRetries) (\s@Cr
 -- | The representation of a directed acyclic graph on which both the Glue
 -- Studio visual component and Glue Studio code generation is based.
 createJob_codeGenConfigurationNodes :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text CodeGenConfigurationNode))
-createJob_codeGenConfigurationNodes = Lens.lens (\CreateJob' {codeGenConfigurationNodes} -> codeGenConfigurationNodes) (\s@CreateJob' {} a -> s {codeGenConfigurationNodes = a} :: CreateJob) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createJob_codeGenConfigurationNodes = Lens.lens (\CreateJob' {codeGenConfigurationNodes} -> codeGenConfigurationNodes) (\s@CreateJob' {} a -> s {codeGenConfigurationNodes = a} :: CreateJob) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The default arguments for this job.
 --
@@ -582,7 +583,7 @@ instance Core.AWSRequest CreateJob where
     Response.receiveJSON
       ( \s h x ->
           CreateJobResponse'
-            Prelude.<$> (x Core..?> "Name")
+            Prelude.<$> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -636,62 +637,62 @@ instance Prelude.NFData CreateJob where
       `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf command
 
-instance Core.ToHeaders CreateJob where
+instance Data.ToHeaders CreateJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CreateJob" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.CreateJob" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateJob where
+instance Data.ToJSON CreateJob where
   toJSON CreateJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityConfiguration" Core..=)
+          [ ("SecurityConfiguration" Data..=)
               Prelude.<$> securityConfiguration,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("NonOverridableArguments" Core..=)
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("Timeout" Data..=) Prelude.<$> timeout,
+            ("NonOverridableArguments" Data..=)
               Prelude.<$> nonOverridableArguments,
-            ("NumberOfWorkers" Core..=)
+            ("NumberOfWorkers" Data..=)
               Prelude.<$> numberOfWorkers,
-            ("GlueVersion" Core..=) Prelude.<$> glueVersion,
-            ("NotificationProperty" Core..=)
+            ("GlueVersion" Data..=) Prelude.<$> glueVersion,
+            ("NotificationProperty" Data..=)
               Prelude.<$> notificationProperty,
-            ("WorkerType" Core..=) Prelude.<$> workerType,
-            ("ExecutionProperty" Core..=)
+            ("WorkerType" Data..=) Prelude.<$> workerType,
+            ("ExecutionProperty" Data..=)
               Prelude.<$> executionProperty,
-            ("AllocatedCapacity" Core..=)
+            ("AllocatedCapacity" Data..=)
               Prelude.<$> allocatedCapacity,
-            ("Description" Core..=) Prelude.<$> description,
-            ("MaxRetries" Core..=) Prelude.<$> maxRetries,
-            ("CodeGenConfigurationNodes" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("MaxRetries" Data..=) Prelude.<$> maxRetries,
+            ("CodeGenConfigurationNodes" Data..=)
               Prelude.<$> codeGenConfigurationNodes,
-            ("DefaultArguments" Core..=)
+            ("DefaultArguments" Data..=)
               Prelude.<$> defaultArguments,
-            ("SourceControlDetails" Core..=)
+            ("SourceControlDetails" Data..=)
               Prelude.<$> sourceControlDetails,
-            ("LogUri" Core..=) Prelude.<$> logUri,
-            ("Connections" Core..=) Prelude.<$> connections,
-            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
-            ("ExecutionClass" Core..=)
+            ("LogUri" Data..=) Prelude.<$> logUri,
+            ("Connections" Data..=) Prelude.<$> connections,
+            ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
+            ("ExecutionClass" Data..=)
               Prelude.<$> executionClass,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Role" Core..= role'),
-            Prelude.Just ("Command" Core..= command)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Role" Data..= role'),
+            Prelude.Just ("Command" Data..= command)
           ]
       )
 
-instance Core.ToPath CreateJob where
+instance Data.ToPath CreateJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateJob where
+instance Data.ToQuery CreateJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateJobResponse' smart constructor.

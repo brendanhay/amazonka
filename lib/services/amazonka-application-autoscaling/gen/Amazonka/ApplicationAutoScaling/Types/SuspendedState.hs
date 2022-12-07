@@ -21,6 +21,7 @@ module Amazonka.ApplicationAutoScaling.Types.SuspendedState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies whether the scaling activities for a scalable target are in a
@@ -96,15 +97,15 @@ suspendedState_dynamicScalingInSuspended = Lens.lens (\SuspendedState' {dynamicS
 suspendedState_scheduledScalingSuspended :: Lens.Lens' SuspendedState (Prelude.Maybe Prelude.Bool)
 suspendedState_scheduledScalingSuspended = Lens.lens (\SuspendedState' {scheduledScalingSuspended} -> scheduledScalingSuspended) (\s@SuspendedState' {} a -> s {scheduledScalingSuspended = a} :: SuspendedState)
 
-instance Core.FromJSON SuspendedState where
+instance Data.FromJSON SuspendedState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SuspendedState"
       ( \x ->
           SuspendedState'
-            Prelude.<$> (x Core..:? "DynamicScalingOutSuspended")
-            Prelude.<*> (x Core..:? "DynamicScalingInSuspended")
-            Prelude.<*> (x Core..:? "ScheduledScalingSuspended")
+            Prelude.<$> (x Data..:? "DynamicScalingOutSuspended")
+            Prelude.<*> (x Data..:? "DynamicScalingInSuspended")
+            Prelude.<*> (x Data..:? "ScheduledScalingSuspended")
       )
 
 instance Prelude.Hashable SuspendedState where
@@ -120,15 +121,15 @@ instance Prelude.NFData SuspendedState where
       `Prelude.seq` Prelude.rnf dynamicScalingInSuspended
       `Prelude.seq` Prelude.rnf scheduledScalingSuspended
 
-instance Core.ToJSON SuspendedState where
+instance Data.ToJSON SuspendedState where
   toJSON SuspendedState' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DynamicScalingOutSuspended" Core..=)
+          [ ("DynamicScalingOutSuspended" Data..=)
               Prelude.<$> dynamicScalingOutSuspended,
-            ("DynamicScalingInSuspended" Core..=)
+            ("DynamicScalingInSuspended" Data..=)
               Prelude.<$> dynamicScalingInSuspended,
-            ("ScheduledScalingSuspended" Core..=)
+            ("ScheduledScalingSuspended" Data..=)
               Prelude.<$> scheduledScalingSuspended
           ]
       )

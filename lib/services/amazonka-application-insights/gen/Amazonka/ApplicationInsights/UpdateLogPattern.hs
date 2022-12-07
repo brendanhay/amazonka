@@ -47,6 +47,7 @@ where
 import Amazonka.ApplicationInsights.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -166,8 +167,8 @@ instance Core.AWSRequest UpdateLogPattern where
     Response.receiveJSON
       ( \s h x ->
           UpdateLogPatternResponse'
-            Prelude.<$> (x Core..?> "LogPattern")
-            Prelude.<*> (x Core..?> "ResourceGroupName")
+            Prelude.<$> (x Data..?> "LogPattern")
+            Prelude.<*> (x Data..?> "ResourceGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,39 +188,39 @@ instance Prelude.NFData UpdateLogPattern where
       `Prelude.seq` Prelude.rnf patternSetName
       `Prelude.seq` Prelude.rnf patternName
 
-instance Core.ToHeaders UpdateLogPattern where
+instance Data.ToHeaders UpdateLogPattern where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "EC2WindowsBarleyService.UpdateLogPattern" ::
+              Data.=# ( "EC2WindowsBarleyService.UpdateLogPattern" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLogPattern where
+instance Data.ToJSON UpdateLogPattern where
   toJSON UpdateLogPattern' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Pattern" Core..=) Prelude.<$> pattern',
-            ("Rank" Core..=) Prelude.<$> rank,
+          [ ("Pattern" Data..=) Prelude.<$> pattern',
+            ("Rank" Data..=) Prelude.<$> rank,
             Prelude.Just
-              ("ResourceGroupName" Core..= resourceGroupName),
+              ("ResourceGroupName" Data..= resourceGroupName),
             Prelude.Just
-              ("PatternSetName" Core..= patternSetName),
-            Prelude.Just ("PatternName" Core..= patternName)
+              ("PatternSetName" Data..= patternSetName),
+            Prelude.Just ("PatternName" Data..= patternName)
           ]
       )
 
-instance Core.ToPath UpdateLogPattern where
+instance Data.ToPath UpdateLogPattern where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateLogPattern where
+instance Data.ToQuery UpdateLogPattern where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLogPatternResponse' smart constructor.

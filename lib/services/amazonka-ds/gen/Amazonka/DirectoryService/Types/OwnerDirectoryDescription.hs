@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.OwnerDirectoryDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.DirectoryVpcSettingsDescription
 import Amazonka.DirectoryService.Types.RadiusSettings
 import Amazonka.DirectoryService.Types.RadiusStatus
@@ -108,18 +109,18 @@ ownerDirectoryDescription_accountId = Lens.lens (\OwnerDirectoryDescription' {ac
 ownerDirectoryDescription_dnsIpAddrs :: Lens.Lens' OwnerDirectoryDescription (Prelude.Maybe [Prelude.Text])
 ownerDirectoryDescription_dnsIpAddrs = Lens.lens (\OwnerDirectoryDescription' {dnsIpAddrs} -> dnsIpAddrs) (\s@OwnerDirectoryDescription' {} a -> s {dnsIpAddrs = a} :: OwnerDirectoryDescription) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON OwnerDirectoryDescription where
+instance Data.FromJSON OwnerDirectoryDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OwnerDirectoryDescription"
       ( \x ->
           OwnerDirectoryDescription'
-            Prelude.<$> (x Core..:? "DirectoryId")
-            Prelude.<*> (x Core..:? "RadiusStatus")
-            Prelude.<*> (x Core..:? "VpcSettings")
-            Prelude.<*> (x Core..:? "RadiusSettings")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "DnsIpAddrs" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "DirectoryId")
+            Prelude.<*> (x Data..:? "RadiusStatus")
+            Prelude.<*> (x Data..:? "VpcSettings")
+            Prelude.<*> (x Data..:? "RadiusSettings")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "DnsIpAddrs" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable OwnerDirectoryDescription where

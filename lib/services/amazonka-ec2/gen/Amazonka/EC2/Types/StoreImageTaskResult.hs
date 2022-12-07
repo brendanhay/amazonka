@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.StoreImageTaskResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -32,7 +33,7 @@ data StoreImageTaskResult = StoreImageTaskResult'
   { -- | The ID of the AMI that is being stored.
     amiId :: Prelude.Maybe Prelude.Text,
     -- | The time the task started.
-    taskStartTime :: Prelude.Maybe Core.ISO8601,
+    taskStartTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the Amazon S3 bucket that contains the stored AMI object.
     bucket :: Prelude.Maybe Prelude.Text,
     -- | If the tasks fails, the reason for the failure is returned. If the task
@@ -88,7 +89,7 @@ storeImageTaskResult_amiId = Lens.lens (\StoreImageTaskResult' {amiId} -> amiId)
 
 -- | The time the task started.
 storeImageTaskResult_taskStartTime :: Lens.Lens' StoreImageTaskResult (Prelude.Maybe Prelude.UTCTime)
-storeImageTaskResult_taskStartTime = Lens.lens (\StoreImageTaskResult' {taskStartTime} -> taskStartTime) (\s@StoreImageTaskResult' {} a -> s {taskStartTime = a} :: StoreImageTaskResult) Prelude.. Lens.mapping Core._Time
+storeImageTaskResult_taskStartTime = Lens.lens (\StoreImageTaskResult' {taskStartTime} -> taskStartTime) (\s@StoreImageTaskResult' {} a -> s {taskStartTime = a} :: StoreImageTaskResult) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the Amazon S3 bucket that contains the stored AMI object.
 storeImageTaskResult_bucket :: Lens.Lens' StoreImageTaskResult (Prelude.Maybe Prelude.Text)
@@ -111,16 +112,16 @@ storeImageTaskResult_storeTaskState = Lens.lens (\StoreImageTaskResult' {storeTa
 storeImageTaskResult_progressPercentage :: Lens.Lens' StoreImageTaskResult (Prelude.Maybe Prelude.Int)
 storeImageTaskResult_progressPercentage = Lens.lens (\StoreImageTaskResult' {progressPercentage} -> progressPercentage) (\s@StoreImageTaskResult' {} a -> s {progressPercentage = a} :: StoreImageTaskResult)
 
-instance Core.FromXML StoreImageTaskResult where
+instance Data.FromXML StoreImageTaskResult where
   parseXML x =
     StoreImageTaskResult'
-      Prelude.<$> (x Core..@? "amiId")
-      Prelude.<*> (x Core..@? "taskStartTime")
-      Prelude.<*> (x Core..@? "bucket")
-      Prelude.<*> (x Core..@? "storeTaskFailureReason")
-      Prelude.<*> (x Core..@? "s3objectKey")
-      Prelude.<*> (x Core..@? "storeTaskState")
-      Prelude.<*> (x Core..@? "progressPercentage")
+      Prelude.<$> (x Data..@? "amiId")
+      Prelude.<*> (x Data..@? "taskStartTime")
+      Prelude.<*> (x Data..@? "bucket")
+      Prelude.<*> (x Data..@? "storeTaskFailureReason")
+      Prelude.<*> (x Data..@? "s3objectKey")
+      Prelude.<*> (x Data..@? "storeTaskState")
+      Prelude.<*> (x Data..@? "progressPercentage")
 
 instance Prelude.Hashable StoreImageTaskResult where
   hashWithSalt _salt StoreImageTaskResult' {..} =

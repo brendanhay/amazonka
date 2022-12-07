@@ -21,6 +21,7 @@ module Amazonka.CodeGuruReviewer.Types.EventInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an event. The event might be a push, pull request,
@@ -68,13 +69,13 @@ eventInfo_name = Lens.lens (\EventInfo' {name} -> name) (\s@EventInfo' {} a -> s
 eventInfo_state :: Lens.Lens' EventInfo (Prelude.Maybe Prelude.Text)
 eventInfo_state = Lens.lens (\EventInfo' {state} -> state) (\s@EventInfo' {} a -> s {state = a} :: EventInfo)
 
-instance Core.FromJSON EventInfo where
+instance Data.FromJSON EventInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventInfo"
       ( \x ->
           EventInfo'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "State")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable EventInfo where
@@ -86,11 +87,11 @@ instance Prelude.NFData EventInfo where
   rnf EventInfo' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf state
 
-instance Core.ToJSON EventInfo where
+instance Data.ToJSON EventInfo where
   toJSON EventInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("State" Core..=) Prelude.<$> state
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("State" Data..=) Prelude.<$> state
           ]
       )

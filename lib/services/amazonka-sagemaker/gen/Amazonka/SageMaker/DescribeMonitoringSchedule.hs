@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,17 +97,17 @@ instance Core.AWSRequest DescribeMonitoringSchedule where
     Response.receiveJSON
       ( \s h x ->
           DescribeMonitoringScheduleResponse'
-            Prelude.<$> (x Core..?> "EndpointName")
-            Prelude.<*> (x Core..?> "MonitoringType")
-            Prelude.<*> (x Core..?> "LastMonitoringExecutionSummary")
-            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<$> (x Data..?> "EndpointName")
+            Prelude.<*> (x Data..?> "MonitoringType")
+            Prelude.<*> (x Data..?> "LastMonitoringExecutionSummary")
+            Prelude.<*> (x Data..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "MonitoringScheduleArn")
-            Prelude.<*> (x Core..:> "MonitoringScheduleName")
-            Prelude.<*> (x Core..:> "MonitoringScheduleStatus")
-            Prelude.<*> (x Core..:> "CreationTime")
-            Prelude.<*> (x Core..:> "LastModifiedTime")
-            Prelude.<*> (x Core..:> "MonitoringScheduleConfig")
+            Prelude.<*> (x Data..:> "MonitoringScheduleArn")
+            Prelude.<*> (x Data..:> "MonitoringScheduleName")
+            Prelude.<*> (x Data..:> "MonitoringScheduleStatus")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "LastModifiedTime")
+            Prelude.<*> (x Data..:> "MonitoringScheduleConfig")
       )
 
 instance Prelude.Hashable DescribeMonitoringSchedule where
@@ -117,36 +118,36 @@ instance Prelude.NFData DescribeMonitoringSchedule where
   rnf DescribeMonitoringSchedule' {..} =
     Prelude.rnf monitoringScheduleName
 
-instance Core.ToHeaders DescribeMonitoringSchedule where
+instance Data.ToHeaders DescribeMonitoringSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeMonitoringSchedule" ::
+              Data.=# ( "SageMaker.DescribeMonitoringSchedule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeMonitoringSchedule where
+instance Data.ToJSON DescribeMonitoringSchedule where
   toJSON DescribeMonitoringSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "MonitoringScheduleName"
-                  Core..= monitoringScheduleName
+                  Data..= monitoringScheduleName
               )
           ]
       )
 
-instance Core.ToPath DescribeMonitoringSchedule where
+instance Data.ToPath DescribeMonitoringSchedule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeMonitoringSchedule where
+instance Data.ToQuery DescribeMonitoringSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeMonitoringScheduleResponse' smart constructor.
@@ -180,9 +181,9 @@ data DescribeMonitoringScheduleResponse = DescribeMonitoringScheduleResponse'
     -- | The status of an monitoring job.
     monitoringScheduleStatus :: ScheduleStatus,
     -- | The time at which the monitoring job was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The time at which the monitoring job was last modified.
-    lastModifiedTime :: Core.POSIX,
+    lastModifiedTime :: Data.POSIX,
     -- | The configuration object that specifies the monitoring schedule and
     -- defines the monitoring job.
     monitoringScheduleConfig :: MonitoringScheduleConfig
@@ -270,9 +271,9 @@ newDescribeMonitoringScheduleResponse
         monitoringScheduleStatus =
           pMonitoringScheduleStatus_,
         creationTime =
-          Core._Time Lens.# pCreationTime_,
+          Data._Time Lens.# pCreationTime_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         monitoringScheduleConfig =
           pMonitoringScheduleConfig_
       }
@@ -323,11 +324,11 @@ describeMonitoringScheduleResponse_monitoringScheduleStatus = Lens.lens (\Descri
 
 -- | The time at which the monitoring job was created.
 describeMonitoringScheduleResponse_creationTime :: Lens.Lens' DescribeMonitoringScheduleResponse Prelude.UTCTime
-describeMonitoringScheduleResponse_creationTime = Lens.lens (\DescribeMonitoringScheduleResponse' {creationTime} -> creationTime) (\s@DescribeMonitoringScheduleResponse' {} a -> s {creationTime = a} :: DescribeMonitoringScheduleResponse) Prelude.. Core._Time
+describeMonitoringScheduleResponse_creationTime = Lens.lens (\DescribeMonitoringScheduleResponse' {creationTime} -> creationTime) (\s@DescribeMonitoringScheduleResponse' {} a -> s {creationTime = a} :: DescribeMonitoringScheduleResponse) Prelude.. Data._Time
 
 -- | The time at which the monitoring job was last modified.
 describeMonitoringScheduleResponse_lastModifiedTime :: Lens.Lens' DescribeMonitoringScheduleResponse Prelude.UTCTime
-describeMonitoringScheduleResponse_lastModifiedTime = Lens.lens (\DescribeMonitoringScheduleResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeMonitoringScheduleResponse' {} a -> s {lastModifiedTime = a} :: DescribeMonitoringScheduleResponse) Prelude.. Core._Time
+describeMonitoringScheduleResponse_lastModifiedTime = Lens.lens (\DescribeMonitoringScheduleResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeMonitoringScheduleResponse' {} a -> s {lastModifiedTime = a} :: DescribeMonitoringScheduleResponse) Prelude.. Data._Time
 
 -- | The configuration object that specifies the monitoring schedule and
 -- defines the monitoring job.

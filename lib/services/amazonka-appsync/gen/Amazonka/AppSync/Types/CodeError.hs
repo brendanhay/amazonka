@@ -22,6 +22,7 @@ module Amazonka.AppSync.Types.CodeError where
 import Amazonka.AppSync.Types.CodeErrorLocation
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an AppSync error.
@@ -86,15 +87,15 @@ codeError_errorType = Lens.lens (\CodeError' {errorType} -> errorType) (\s@CodeE
 codeError_value :: Lens.Lens' CodeError (Prelude.Maybe Prelude.Text)
 codeError_value = Lens.lens (\CodeError' {value} -> value) (\s@CodeError' {} a -> s {value = a} :: CodeError)
 
-instance Core.FromJSON CodeError where
+instance Data.FromJSON CodeError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeError"
       ( \x ->
           CodeError'
-            Prelude.<$> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "errorType")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "errorType")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable CodeError where

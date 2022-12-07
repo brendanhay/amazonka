@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AuthorizationRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ClientVpnAuthorizationRuleStatus
 import qualified Amazonka.Prelude as Prelude
@@ -109,15 +110,15 @@ authorizationRule_clientVpnEndpointId = Lens.lens (\AuthorizationRule' {clientVp
 authorizationRule_groupId :: Lens.Lens' AuthorizationRule (Prelude.Maybe Prelude.Text)
 authorizationRule_groupId = Lens.lens (\AuthorizationRule' {groupId} -> groupId) (\s@AuthorizationRule' {} a -> s {groupId = a} :: AuthorizationRule)
 
-instance Core.FromXML AuthorizationRule where
+instance Data.FromXML AuthorizationRule where
   parseXML x =
     AuthorizationRule'
-      Prelude.<$> (x Core..@? "destinationCidr")
-      Prelude.<*> (x Core..@? "accessAll")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "clientVpnEndpointId")
-      Prelude.<*> (x Core..@? "groupId")
+      Prelude.<$> (x Data..@? "destinationCidr")
+      Prelude.<*> (x Data..@? "accessAll")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "clientVpnEndpointId")
+      Prelude.<*> (x Data..@? "groupId")
 
 instance Prelude.Hashable AuthorizationRule where
   hashWithSalt _salt AuthorizationRule' {..} =

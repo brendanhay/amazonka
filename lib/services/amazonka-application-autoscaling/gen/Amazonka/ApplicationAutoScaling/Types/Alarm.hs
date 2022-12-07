@@ -21,6 +21,7 @@ module Amazonka.ApplicationAutoScaling.Types.Alarm where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a CloudWatch alarm associated with a scaling policy.
@@ -65,14 +66,14 @@ alarm_alarmName = Lens.lens (\Alarm' {alarmName} -> alarmName) (\s@Alarm' {} a -
 alarm_alarmARN :: Lens.Lens' Alarm Prelude.Text
 alarm_alarmARN = Lens.lens (\Alarm' {alarmARN} -> alarmARN) (\s@Alarm' {} a -> s {alarmARN = a} :: Alarm)
 
-instance Core.FromJSON Alarm where
+instance Data.FromJSON Alarm where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Alarm"
       ( \x ->
           Alarm'
-            Prelude.<$> (x Core..: "AlarmName")
-            Prelude.<*> (x Core..: "AlarmARN")
+            Prelude.<$> (x Data..: "AlarmName")
+            Prelude.<*> (x Data..: "AlarmARN")
       )
 
 instance Prelude.Hashable Alarm where

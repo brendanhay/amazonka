@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.SamplingRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A sampling rule that services use to decide whether to instrument a
@@ -214,25 +215,25 @@ samplingRule_uRLPath = Lens.lens (\SamplingRule' {uRLPath} -> uRLPath) (\s@Sampl
 samplingRule_version :: Lens.Lens' SamplingRule Prelude.Natural
 samplingRule_version = Lens.lens (\SamplingRule' {version} -> version) (\s@SamplingRule' {} a -> s {version = a} :: SamplingRule)
 
-instance Core.FromJSON SamplingRule where
+instance Data.FromJSON SamplingRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SamplingRule"
       ( \x ->
           SamplingRule'
-            Prelude.<$> (x Core..:? "RuleARN")
-            Prelude.<*> (x Core..:? "RuleName")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "ResourceARN")
-            Prelude.<*> (x Core..: "Priority")
-            Prelude.<*> (x Core..: "FixedRate")
-            Prelude.<*> (x Core..: "ReservoirSize")
-            Prelude.<*> (x Core..: "ServiceName")
-            Prelude.<*> (x Core..: "ServiceType")
-            Prelude.<*> (x Core..: "Host")
-            Prelude.<*> (x Core..: "HTTPMethod")
-            Prelude.<*> (x Core..: "URLPath")
-            Prelude.<*> (x Core..: "Version")
+            Prelude.<$> (x Data..:? "RuleARN")
+            Prelude.<*> (x Data..:? "RuleName")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "ResourceARN")
+            Prelude.<*> (x Data..: "Priority")
+            Prelude.<*> (x Data..: "FixedRate")
+            Prelude.<*> (x Data..: "ReservoirSize")
+            Prelude.<*> (x Data..: "ServiceName")
+            Prelude.<*> (x Data..: "ServiceType")
+            Prelude.<*> (x Data..: "Host")
+            Prelude.<*> (x Data..: "HTTPMethod")
+            Prelude.<*> (x Data..: "URLPath")
+            Prelude.<*> (x Data..: "Version")
       )
 
 instance Prelude.Hashable SamplingRule where
@@ -267,22 +268,22 @@ instance Prelude.NFData SamplingRule where
       `Prelude.seq` Prelude.rnf uRLPath
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON SamplingRule where
+instance Data.ToJSON SamplingRule where
   toJSON SamplingRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RuleARN" Core..=) Prelude.<$> ruleARN,
-            ("RuleName" Core..=) Prelude.<$> ruleName,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            Prelude.Just ("ResourceARN" Core..= resourceARN),
-            Prelude.Just ("Priority" Core..= priority),
-            Prelude.Just ("FixedRate" Core..= fixedRate),
-            Prelude.Just ("ReservoirSize" Core..= reservoirSize),
-            Prelude.Just ("ServiceName" Core..= serviceName),
-            Prelude.Just ("ServiceType" Core..= serviceType),
-            Prelude.Just ("Host" Core..= host),
-            Prelude.Just ("HTTPMethod" Core..= hTTPMethod),
-            Prelude.Just ("URLPath" Core..= uRLPath),
-            Prelude.Just ("Version" Core..= version)
+          [ ("RuleARN" Data..=) Prelude.<$> ruleARN,
+            ("RuleName" Data..=) Prelude.<$> ruleName,
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            Prelude.Just ("ResourceARN" Data..= resourceARN),
+            Prelude.Just ("Priority" Data..= priority),
+            Prelude.Just ("FixedRate" Data..= fixedRate),
+            Prelude.Just ("ReservoirSize" Data..= reservoirSize),
+            Prelude.Just ("ServiceName" Data..= serviceName),
+            Prelude.Just ("ServiceType" Data..= serviceType),
+            Prelude.Just ("Host" Data..= host),
+            Prelude.Just ("HTTPMethod" Data..= hTTPMethod),
+            Prelude.Just ("URLPath" Data..= uRLPath),
+            Prelude.Just ("Version" Data..= version)
           ]
       )

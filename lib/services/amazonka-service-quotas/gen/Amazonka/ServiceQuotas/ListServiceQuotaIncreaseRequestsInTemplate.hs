@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -153,9 +154,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListServiceQuotaIncreaseRequestsInTemplateResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
               Prelude.<*> ( x
-                              Core..?> "ServiceQuotaIncreaseRequestInTemplateList"
+                              Data..?> "ServiceQuotaIncreaseRequestInTemplateList"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -184,46 +185,46 @@ instance
       `Prelude.seq` Prelude.rnf awsRegion
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListServiceQuotaIncreaseRequestsInTemplate
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ServiceQuotasV20190624.ListServiceQuotaIncreaseRequestsInTemplate" ::
+              Data.=# ( "ServiceQuotasV20190624.ListServiceQuotaIncreaseRequestsInTemplate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListServiceQuotaIncreaseRequestsInTemplate
   where
   toJSON
     ListServiceQuotaIncreaseRequestsInTemplate' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("NextToken" Core..=) Prelude.<$> nextToken,
-              ("ServiceCode" Core..=) Prelude.<$> serviceCode,
-              ("MaxResults" Core..=) Prelude.<$> maxResults,
-              ("AwsRegion" Core..=) Prelude.<$> awsRegion
+            [ ("NextToken" Data..=) Prelude.<$> nextToken,
+              ("ServiceCode" Data..=) Prelude.<$> serviceCode,
+              ("MaxResults" Data..=) Prelude.<$> maxResults,
+              ("AwsRegion" Data..=) Prelude.<$> awsRegion
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListServiceQuotaIncreaseRequestsInTemplate
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListServiceQuotaIncreaseRequestsInTemplate
   where
   toQuery = Prelude.const Prelude.mempty

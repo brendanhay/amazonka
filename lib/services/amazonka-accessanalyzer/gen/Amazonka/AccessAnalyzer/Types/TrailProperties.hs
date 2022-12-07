@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.TrailProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about the CloudTrail trail being analyzed to generate a
@@ -85,15 +86,15 @@ trailProperties_allRegions = Lens.lens (\TrailProperties' {allRegions} -> allReg
 trailProperties_cloudTrailArn :: Lens.Lens' TrailProperties Prelude.Text
 trailProperties_cloudTrailArn = Lens.lens (\TrailProperties' {cloudTrailArn} -> cloudTrailArn) (\s@TrailProperties' {} a -> s {cloudTrailArn = a} :: TrailProperties)
 
-instance Core.FromJSON TrailProperties where
+instance Data.FromJSON TrailProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrailProperties"
       ( \x ->
           TrailProperties'
-            Prelude.<$> (x Core..:? "regions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "allRegions")
-            Prelude.<*> (x Core..: "cloudTrailArn")
+            Prelude.<$> (x Data..:? "regions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "allRegions")
+            Prelude.<*> (x Data..: "cloudTrailArn")
       )
 
 instance Prelude.Hashable TrailProperties where

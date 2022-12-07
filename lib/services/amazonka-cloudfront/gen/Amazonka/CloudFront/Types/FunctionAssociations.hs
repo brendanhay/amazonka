@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.FunctionAssociations where
 import Amazonka.CloudFront.Types.FunctionAssociation
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of CloudFront functions that are associated with a cache behavior
@@ -72,13 +73,13 @@ functionAssociations_items = Lens.lens (\FunctionAssociations' {items} -> items)
 functionAssociations_quantity :: Lens.Lens' FunctionAssociations Prelude.Int
 functionAssociations_quantity = Lens.lens (\FunctionAssociations' {quantity} -> quantity) (\s@FunctionAssociations' {} a -> s {quantity = a} :: FunctionAssociations)
 
-instance Core.FromXML FunctionAssociations where
+instance Data.FromXML FunctionAssociations where
   parseXML x =
     FunctionAssociations'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "FunctionAssociation")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "FunctionAssociation")
                   )
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable FunctionAssociations where
   hashWithSalt _salt FunctionAssociations' {..} =
@@ -90,13 +91,13 @@ instance Prelude.NFData FunctionAssociations where
     Prelude.rnf items
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML FunctionAssociations where
+instance Data.ToXML FunctionAssociations where
   toXML FunctionAssociations' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML
-            ( Core.toXMLList "FunctionAssociation"
+          Data.@= Data.toXML
+            ( Data.toXMLList "FunctionAssociation"
                 Prelude.<$> items
             ),
-        "Quantity" Core.@= quantity
+        "Quantity" Data.@= quantity
       ]

@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.LifecyclePolicyPreviewFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.TagStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,9 +66,9 @@ instance Prelude.NFData LifecyclePolicyPreviewFilter where
   rnf LifecyclePolicyPreviewFilter' {..} =
     Prelude.rnf tagStatus
 
-instance Core.ToJSON LifecyclePolicyPreviewFilter where
+instance Data.ToJSON LifecyclePolicyPreviewFilter where
   toJSON LifecyclePolicyPreviewFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("tagStatus" Core..=) Prelude.<$> tagStatus]
+          [("tagStatus" Data..=) Prelude.<$> tagStatus]
       )

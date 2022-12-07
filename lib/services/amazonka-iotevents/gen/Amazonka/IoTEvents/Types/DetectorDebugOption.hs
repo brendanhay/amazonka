@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.DetectorDebugOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detector model and the specific detectors (instances) for which the
@@ -67,14 +68,14 @@ detectorDebugOption_keyValue = Lens.lens (\DetectorDebugOption' {keyValue} -> ke
 detectorDebugOption_detectorModelName :: Lens.Lens' DetectorDebugOption Prelude.Text
 detectorDebugOption_detectorModelName = Lens.lens (\DetectorDebugOption' {detectorModelName} -> detectorModelName) (\s@DetectorDebugOption' {} a -> s {detectorModelName = a} :: DetectorDebugOption)
 
-instance Core.FromJSON DetectorDebugOption where
+instance Data.FromJSON DetectorDebugOption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectorDebugOption"
       ( \x ->
           DetectorDebugOption'
-            Prelude.<$> (x Core..:? "keyValue")
-            Prelude.<*> (x Core..: "detectorModelName")
+            Prelude.<$> (x Data..:? "keyValue")
+            Prelude.<*> (x Data..: "detectorModelName")
       )
 
 instance Prelude.Hashable DetectorDebugOption where
@@ -87,12 +88,12 @@ instance Prelude.NFData DetectorDebugOption where
     Prelude.rnf keyValue
       `Prelude.seq` Prelude.rnf detectorModelName
 
-instance Core.ToJSON DetectorDebugOption where
+instance Data.ToJSON DetectorDebugOption where
   toJSON DetectorDebugOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("keyValue" Core..=) Prelude.<$> keyValue,
+          [ ("keyValue" Data..=) Prelude.<$> keyValue,
             Prelude.Just
-              ("detectorModelName" Core..= detectorModelName)
+              ("detectorModelName" Data..= detectorModelName)
           ]
       )

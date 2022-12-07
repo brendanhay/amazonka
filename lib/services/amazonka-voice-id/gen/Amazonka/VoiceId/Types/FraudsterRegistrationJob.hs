@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.FraudsterRegistrationJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.FailureDetails
 import Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus
@@ -44,9 +45,9 @@ data FraudsterRegistrationJob = FraudsterRegistrationJob'
     -- use for detecting a duplicate fraudster.
     registrationConfig :: Prelude.Maybe RegistrationConfig,
     -- | The client-provided name for the fraudster registration job.
-    jobName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    jobName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A timestamp showing when the fraudster registration job ended.
-    endedAt :: Prelude.Maybe Core.POSIX,
+    endedAt :: Prelude.Maybe Data.POSIX,
     -- | The service-generated identifier for the fraudster registration job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions
@@ -68,7 +69,7 @@ data FraudsterRegistrationJob = FraudsterRegistrationJob'
     -- that contains the list of fraudster registration job requests.
     inputDataConfig :: Prelude.Maybe InputDataConfig,
     -- | A timestamp showing the creation time of the fraudster registration job.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -152,11 +153,11 @@ fraudsterRegistrationJob_registrationConfig = Lens.lens (\FraudsterRegistrationJ
 
 -- | The client-provided name for the fraudster registration job.
 fraudsterRegistrationJob_jobName :: Lens.Lens' FraudsterRegistrationJob (Prelude.Maybe Prelude.Text)
-fraudsterRegistrationJob_jobName = Lens.lens (\FraudsterRegistrationJob' {jobName} -> jobName) (\s@FraudsterRegistrationJob' {} a -> s {jobName = a} :: FraudsterRegistrationJob) Prelude.. Lens.mapping Core._Sensitive
+fraudsterRegistrationJob_jobName = Lens.lens (\FraudsterRegistrationJob' {jobName} -> jobName) (\s@FraudsterRegistrationJob' {} a -> s {jobName = a} :: FraudsterRegistrationJob) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A timestamp showing when the fraudster registration job ended.
 fraudsterRegistrationJob_endedAt :: Lens.Lens' FraudsterRegistrationJob (Prelude.Maybe Prelude.UTCTime)
-fraudsterRegistrationJob_endedAt = Lens.lens (\FraudsterRegistrationJob' {endedAt} -> endedAt) (\s@FraudsterRegistrationJob' {} a -> s {endedAt = a} :: FraudsterRegistrationJob) Prelude.. Lens.mapping Core._Time
+fraudsterRegistrationJob_endedAt = Lens.lens (\FraudsterRegistrationJob' {endedAt} -> endedAt) (\s@FraudsterRegistrationJob' {} a -> s {endedAt = a} :: FraudsterRegistrationJob) Prelude.. Lens.mapping Data._Time
 
 -- | The service-generated identifier for the fraudster registration job.
 fraudsterRegistrationJob_jobId :: Lens.Lens' FraudsterRegistrationJob (Prelude.Maybe Prelude.Text)
@@ -192,26 +193,26 @@ fraudsterRegistrationJob_inputDataConfig = Lens.lens (\FraudsterRegistrationJob'
 
 -- | A timestamp showing the creation time of the fraudster registration job.
 fraudsterRegistrationJob_createdAt :: Lens.Lens' FraudsterRegistrationJob (Prelude.Maybe Prelude.UTCTime)
-fraudsterRegistrationJob_createdAt = Lens.lens (\FraudsterRegistrationJob' {createdAt} -> createdAt) (\s@FraudsterRegistrationJob' {} a -> s {createdAt = a} :: FraudsterRegistrationJob) Prelude.. Lens.mapping Core._Time
+fraudsterRegistrationJob_createdAt = Lens.lens (\FraudsterRegistrationJob' {createdAt} -> createdAt) (\s@FraudsterRegistrationJob' {} a -> s {createdAt = a} :: FraudsterRegistrationJob) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON FraudsterRegistrationJob where
+instance Data.FromJSON FraudsterRegistrationJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FraudsterRegistrationJob"
       ( \x ->
           FraudsterRegistrationJob'
-            Prelude.<$> (x Core..:? "OutputDataConfig")
-            Prelude.<*> (x Core..:? "JobStatus")
-            Prelude.<*> (x Core..:? "RegistrationConfig")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "EndedAt")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> (x Core..:? "FailureDetails")
-            Prelude.<*> (x Core..:? "DomainId")
-            Prelude.<*> (x Core..:? "JobProgress")
-            Prelude.<*> (x Core..:? "InputDataConfig")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "OutputDataConfig")
+            Prelude.<*> (x Data..:? "JobStatus")
+            Prelude.<*> (x Data..:? "RegistrationConfig")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "EndedAt")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "DataAccessRoleArn")
+            Prelude.<*> (x Data..:? "FailureDetails")
+            Prelude.<*> (x Data..:? "DomainId")
+            Prelude.<*> (x Data..:? "JobProgress")
+            Prelude.<*> (x Data..:? "InputDataConfig")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable FraudsterRegistrationJob where

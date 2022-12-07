@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.Group where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.InsightsConfiguration
 
@@ -101,16 +102,16 @@ group_groupName = Lens.lens (\Group' {groupName} -> groupName) (\s@Group' {} a -
 group_groupARN :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
 group_groupARN = Lens.lens (\Group' {groupARN} -> groupARN) (\s@Group' {} a -> s {groupARN = a} :: Group)
 
-instance Core.FromJSON Group where
+instance Data.FromJSON Group where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Group"
       ( \x ->
           Group'
-            Prelude.<$> (x Core..:? "InsightsConfiguration")
-            Prelude.<*> (x Core..:? "FilterExpression")
-            Prelude.<*> (x Core..:? "GroupName")
-            Prelude.<*> (x Core..:? "GroupARN")
+            Prelude.<$> (x Data..:? "InsightsConfiguration")
+            Prelude.<*> (x Data..:? "FilterExpression")
+            Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<*> (x Data..:? "GroupARN")
       )
 
 instance Prelude.Hashable Group where

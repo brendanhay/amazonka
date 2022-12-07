@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -201,7 +202,7 @@ instance Core.AWSRequest CreateBatchSegmentJob where
     Response.receiveJSON
       ( \s h x ->
           CreateBatchSegmentJobResponse'
-            Prelude.<$> (x Core..?> "batchSegmentJobArn")
+            Prelude.<$> (x Data..?> "batchSegmentJobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -227,41 +228,41 @@ instance Prelude.NFData CreateBatchSegmentJob where
       `Prelude.seq` Prelude.rnf jobOutput
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateBatchSegmentJob where
+instance Data.ToHeaders CreateBatchSegmentJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.CreateBatchSegmentJob" ::
+              Data.=# ( "AmazonPersonalize.CreateBatchSegmentJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBatchSegmentJob where
+instance Data.ToJSON CreateBatchSegmentJob where
   toJSON CreateBatchSegmentJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("filterArn" Core..=) Prelude.<$> filterArn,
-            ("numResults" Core..=) Prelude.<$> numResults,
-            Prelude.Just ("jobName" Core..= jobName),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("filterArn" Data..=) Prelude.<$> filterArn,
+            ("numResults" Data..=) Prelude.<$> numResults,
+            Prelude.Just ("jobName" Data..= jobName),
             Prelude.Just
-              ("solutionVersionArn" Core..= solutionVersionArn),
-            Prelude.Just ("jobInput" Core..= jobInput),
-            Prelude.Just ("jobOutput" Core..= jobOutput),
-            Prelude.Just ("roleArn" Core..= roleArn)
+              ("solutionVersionArn" Data..= solutionVersionArn),
+            Prelude.Just ("jobInput" Data..= jobInput),
+            Prelude.Just ("jobOutput" Data..= jobOutput),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateBatchSegmentJob where
+instance Data.ToPath CreateBatchSegmentJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateBatchSegmentJob where
+instance Data.ToQuery CreateBatchSegmentJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBatchSegmentJobResponse' smart constructor.

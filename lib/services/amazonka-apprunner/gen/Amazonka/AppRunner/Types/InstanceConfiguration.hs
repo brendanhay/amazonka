@@ -21,6 +21,7 @@ module Amazonka.AppRunner.Types.InstanceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the runtime configuration of an App Runner service instance
@@ -95,15 +96,15 @@ instanceConfiguration_memory = Lens.lens (\InstanceConfiguration' {memory} -> me
 instanceConfiguration_instanceRoleArn :: Lens.Lens' InstanceConfiguration (Prelude.Maybe Prelude.Text)
 instanceConfiguration_instanceRoleArn = Lens.lens (\InstanceConfiguration' {instanceRoleArn} -> instanceRoleArn) (\s@InstanceConfiguration' {} a -> s {instanceRoleArn = a} :: InstanceConfiguration)
 
-instance Core.FromJSON InstanceConfiguration where
+instance Data.FromJSON InstanceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceConfiguration"
       ( \x ->
           InstanceConfiguration'
-            Prelude.<$> (x Core..:? "Cpu")
-            Prelude.<*> (x Core..:? "Memory")
-            Prelude.<*> (x Core..:? "InstanceRoleArn")
+            Prelude.<$> (x Data..:? "Cpu")
+            Prelude.<*> (x Data..:? "Memory")
+            Prelude.<*> (x Data..:? "InstanceRoleArn")
       )
 
 instance Prelude.Hashable InstanceConfiguration where
@@ -118,13 +119,13 @@ instance Prelude.NFData InstanceConfiguration where
       `Prelude.seq` Prelude.rnf memory
       `Prelude.seq` Prelude.rnf instanceRoleArn
 
-instance Core.ToJSON InstanceConfiguration where
+instance Data.ToJSON InstanceConfiguration where
   toJSON InstanceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Cpu" Core..=) Prelude.<$> cpu,
-            ("Memory" Core..=) Prelude.<$> memory,
-            ("InstanceRoleArn" Core..=)
+          [ ("Cpu" Data..=) Prelude.<$> cpu,
+            ("Memory" Data..=) Prelude.<$> memory,
+            ("InstanceRoleArn" Data..=)
               Prelude.<$> instanceRoleArn
           ]
       )

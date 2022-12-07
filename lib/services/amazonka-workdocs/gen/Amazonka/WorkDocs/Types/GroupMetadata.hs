@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.GroupMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the metadata of a user group.
@@ -61,13 +62,13 @@ groupMetadata_name = Lens.lens (\GroupMetadata' {name} -> name) (\s@GroupMetadat
 groupMetadata_id :: Lens.Lens' GroupMetadata (Prelude.Maybe Prelude.Text)
 groupMetadata_id = Lens.lens (\GroupMetadata' {id} -> id) (\s@GroupMetadata' {} a -> s {id = a} :: GroupMetadata)
 
-instance Core.FromJSON GroupMetadata where
+instance Data.FromJSON GroupMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupMetadata"
       ( \x ->
           GroupMetadata'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable GroupMetadata where

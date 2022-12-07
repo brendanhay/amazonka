@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.DNISEmergencyCallingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Dialed Number Identification Service (DNIS) emergency calling
@@ -30,9 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDNISEmergencyCallingConfiguration' smart constructor.
 data DNISEmergencyCallingConfiguration = DNISEmergencyCallingConfiguration'
   { -- | The DNIS phone number to route test emergency calls to, in E.164 format.
-    testPhoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    testPhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The DNIS phone number to route emergency calls to, in E.164 format.
-    emergencyPhoneNumber :: Core.Sensitive Prelude.Text,
+    emergencyPhoneNumber :: Data.Sensitive Prelude.Text,
     -- | The country from which emergency calls are allowed, in ISO 3166-1
     -- alpha-2 format.
     callingCountry :: Prelude.Text
@@ -66,18 +67,18 @@ newDNISEmergencyCallingConfiguration
       { testPhoneNumber =
           Prelude.Nothing,
         emergencyPhoneNumber =
-          Core._Sensitive
+          Data._Sensitive
             Lens.# pEmergencyPhoneNumber_,
         callingCountry = pCallingCountry_
       }
 
 -- | The DNIS phone number to route test emergency calls to, in E.164 format.
 dNISEmergencyCallingConfiguration_testPhoneNumber :: Lens.Lens' DNISEmergencyCallingConfiguration (Prelude.Maybe Prelude.Text)
-dNISEmergencyCallingConfiguration_testPhoneNumber = Lens.lens (\DNISEmergencyCallingConfiguration' {testPhoneNumber} -> testPhoneNumber) (\s@DNISEmergencyCallingConfiguration' {} a -> s {testPhoneNumber = a} :: DNISEmergencyCallingConfiguration) Prelude.. Lens.mapping Core._Sensitive
+dNISEmergencyCallingConfiguration_testPhoneNumber = Lens.lens (\DNISEmergencyCallingConfiguration' {testPhoneNumber} -> testPhoneNumber) (\s@DNISEmergencyCallingConfiguration' {} a -> s {testPhoneNumber = a} :: DNISEmergencyCallingConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The DNIS phone number to route emergency calls to, in E.164 format.
 dNISEmergencyCallingConfiguration_emergencyPhoneNumber :: Lens.Lens' DNISEmergencyCallingConfiguration Prelude.Text
-dNISEmergencyCallingConfiguration_emergencyPhoneNumber = Lens.lens (\DNISEmergencyCallingConfiguration' {emergencyPhoneNumber} -> emergencyPhoneNumber) (\s@DNISEmergencyCallingConfiguration' {} a -> s {emergencyPhoneNumber = a} :: DNISEmergencyCallingConfiguration) Prelude.. Core._Sensitive
+dNISEmergencyCallingConfiguration_emergencyPhoneNumber = Lens.lens (\DNISEmergencyCallingConfiguration' {emergencyPhoneNumber} -> emergencyPhoneNumber) (\s@DNISEmergencyCallingConfiguration' {} a -> s {emergencyPhoneNumber = a} :: DNISEmergencyCallingConfiguration) Prelude.. Data._Sensitive
 
 -- | The country from which emergency calls are allowed, in ISO 3166-1
 -- alpha-2 format.
@@ -85,17 +86,17 @@ dNISEmergencyCallingConfiguration_callingCountry :: Lens.Lens' DNISEmergencyCall
 dNISEmergencyCallingConfiguration_callingCountry = Lens.lens (\DNISEmergencyCallingConfiguration' {callingCountry} -> callingCountry) (\s@DNISEmergencyCallingConfiguration' {} a -> s {callingCountry = a} :: DNISEmergencyCallingConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DNISEmergencyCallingConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DNISEmergencyCallingConfiguration"
       ( \x ->
           DNISEmergencyCallingConfiguration'
-            Prelude.<$> (x Core..:? "TestPhoneNumber")
-            Prelude.<*> (x Core..: "EmergencyPhoneNumber")
-            Prelude.<*> (x Core..: "CallingCountry")
+            Prelude.<$> (x Data..:? "TestPhoneNumber")
+            Prelude.<*> (x Data..: "EmergencyPhoneNumber")
+            Prelude.<*> (x Data..: "CallingCountry")
       )
 
 instance
@@ -119,19 +120,19 @@ instance
       `Prelude.seq` Prelude.rnf callingCountry
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DNISEmergencyCallingConfiguration
   where
   toJSON DNISEmergencyCallingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TestPhoneNumber" Core..=)
+          [ ("TestPhoneNumber" Data..=)
               Prelude.<$> testPhoneNumber,
             Prelude.Just
               ( "EmergencyPhoneNumber"
-                  Core..= emergencyPhoneNumber
+                  Data..= emergencyPhoneNumber
               ),
             Prelude.Just
-              ("CallingCountry" Core..= callingCountry)
+              ("CallingCountry" Data..= callingCountry)
           ]
       )

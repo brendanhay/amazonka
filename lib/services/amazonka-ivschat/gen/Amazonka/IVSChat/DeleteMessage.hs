@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVSChat.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,7 +125,7 @@ instance Core.AWSRequest DeleteMessage where
     Response.receiveJSON
       ( \s h x ->
           DeleteMessageResponse'
-            Prelude.<$> (x Core..?> "id")
+            Prelude.<$> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,32 +141,32 @@ instance Prelude.NFData DeleteMessage where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf roomIdentifier
 
-instance Core.ToHeaders DeleteMessage where
+instance Data.ToHeaders DeleteMessage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteMessage where
+instance Data.ToJSON DeleteMessage where
   toJSON DeleteMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("reason" Core..=) Prelude.<$> reason,
-            Prelude.Just ("id" Core..= id),
+          [ ("reason" Data..=) Prelude.<$> reason,
+            Prelude.Just ("id" Data..= id),
             Prelude.Just
-              ("roomIdentifier" Core..= roomIdentifier)
+              ("roomIdentifier" Data..= roomIdentifier)
           ]
       )
 
-instance Core.ToPath DeleteMessage where
+instance Data.ToPath DeleteMessage where
   toPath = Prelude.const "/DeleteMessage"
 
-instance Core.ToQuery DeleteMessage where
+instance Data.ToQuery DeleteMessage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMessageResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.AppInstanceUserMembershipSummary where
 import Amazonka.Chime.Types.ChannelMembershipType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the membership details of an @AppInstanceUser@.
@@ -31,7 +32,7 @@ data AppInstanceUserMembershipSummary = AppInstanceUserMembershipSummary'
   { -- | The type of @ChannelMembership@.
     type' :: Prelude.Maybe ChannelMembershipType,
     -- | The time at which a message was last read.
-    readMarkerTimestamp :: Prelude.Maybe Core.POSIX
+    readMarkerTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,19 +62,19 @@ appInstanceUserMembershipSummary_type = Lens.lens (\AppInstanceUserMembershipSum
 
 -- | The time at which a message was last read.
 appInstanceUserMembershipSummary_readMarkerTimestamp :: Lens.Lens' AppInstanceUserMembershipSummary (Prelude.Maybe Prelude.UTCTime)
-appInstanceUserMembershipSummary_readMarkerTimestamp = Lens.lens (\AppInstanceUserMembershipSummary' {readMarkerTimestamp} -> readMarkerTimestamp) (\s@AppInstanceUserMembershipSummary' {} a -> s {readMarkerTimestamp = a} :: AppInstanceUserMembershipSummary) Prelude.. Lens.mapping Core._Time
+appInstanceUserMembershipSummary_readMarkerTimestamp = Lens.lens (\AppInstanceUserMembershipSummary' {readMarkerTimestamp} -> readMarkerTimestamp) (\s@AppInstanceUserMembershipSummary' {} a -> s {readMarkerTimestamp = a} :: AppInstanceUserMembershipSummary) Prelude.. Lens.mapping Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AppInstanceUserMembershipSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppInstanceUserMembershipSummary"
       ( \x ->
           AppInstanceUserMembershipSummary'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "ReadMarkerTimestamp")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "ReadMarkerTimestamp")
       )
 
 instance

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,13 +120,13 @@ instance Core.AWSRequest UpdateVodSource where
     Response.receiveJSON
       ( \s h x ->
           UpdateVodSourceResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "VodSourceName")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "SourceLocationName")
-            Prelude.<*> ( x Core..?> "HttpPackageConfigurations"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "VodSourceName")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "SourceLocationName")
+            Prelude.<*> ( x Data..?> "HttpPackageConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -144,38 +145,38 @@ instance Prelude.NFData UpdateVodSource where
       `Prelude.seq` Prelude.rnf sourceLocationName
       `Prelude.seq` Prelude.rnf vodSourceName
 
-instance Core.ToHeaders UpdateVodSource where
+instance Data.ToHeaders UpdateVodSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateVodSource where
+instance Data.ToJSON UpdateVodSource where
   toJSON UpdateVodSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "HttpPackageConfigurations"
-                  Core..= httpPackageConfigurations
+                  Data..= httpPackageConfigurations
               )
           ]
       )
 
-instance Core.ToPath UpdateVodSource where
+instance Data.ToPath UpdateVodSource where
   toPath UpdateVodSource' {..} =
     Prelude.mconcat
       [ "/sourceLocation/",
-        Core.toBS sourceLocationName,
+        Data.toBS sourceLocationName,
         "/vodSource/",
-        Core.toBS vodSourceName
+        Data.toBS vodSourceName
       ]
 
-instance Core.ToQuery UpdateVodSource where
+instance Data.ToQuery UpdateVodSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateVodSourceResponse' smart constructor.
@@ -190,9 +191,9 @@ data UpdateVodSourceResponse = UpdateVodSourceResponse'
     -- | The Amazon Resource Name (ARN) associated with the VOD source.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp that indicates when the VOD source was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp that indicates when the VOD source was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the source location associated with the VOD source.
     sourceLocationName :: Prelude.Maybe Prelude.Text,
     -- | A list of HTTP package configurations for the VOD source on this
@@ -263,11 +264,11 @@ updateVodSourceResponse_arn = Lens.lens (\UpdateVodSourceResponse' {arn} -> arn)
 
 -- | The timestamp that indicates when the VOD source was last modified.
 updateVodSourceResponse_lastModifiedTime :: Lens.Lens' UpdateVodSourceResponse (Prelude.Maybe Prelude.UTCTime)
-updateVodSourceResponse_lastModifiedTime = Lens.lens (\UpdateVodSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateVodSourceResponse' {} a -> s {lastModifiedTime = a} :: UpdateVodSourceResponse) Prelude.. Lens.mapping Core._Time
+updateVodSourceResponse_lastModifiedTime = Lens.lens (\UpdateVodSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateVodSourceResponse' {} a -> s {lastModifiedTime = a} :: UpdateVodSourceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp that indicates when the VOD source was created.
 updateVodSourceResponse_creationTime :: Lens.Lens' UpdateVodSourceResponse (Prelude.Maybe Prelude.UTCTime)
-updateVodSourceResponse_creationTime = Lens.lens (\UpdateVodSourceResponse' {creationTime} -> creationTime) (\s@UpdateVodSourceResponse' {} a -> s {creationTime = a} :: UpdateVodSourceResponse) Prelude.. Lens.mapping Core._Time
+updateVodSourceResponse_creationTime = Lens.lens (\UpdateVodSourceResponse' {creationTime} -> creationTime) (\s@UpdateVodSourceResponse' {} a -> s {creationTime = a} :: UpdateVodSourceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the source location associated with the VOD source.
 updateVodSourceResponse_sourceLocationName :: Lens.Lens' UpdateVodSourceResponse (Prelude.Maybe Prelude.Text)

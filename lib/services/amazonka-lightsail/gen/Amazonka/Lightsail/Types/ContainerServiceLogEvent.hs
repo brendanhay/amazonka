@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ContainerServiceLogEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the log events of a container of an Amazon Lightsail container
@@ -31,7 +32,7 @@ data ContainerServiceLogEvent = ContainerServiceLogEvent'
   { -- | The message of the container service log event.
     message :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the container service log event was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,16 +62,16 @@ containerServiceLogEvent_message = Lens.lens (\ContainerServiceLogEvent' {messag
 
 -- | The timestamp when the container service log event was created.
 containerServiceLogEvent_createdAt :: Lens.Lens' ContainerServiceLogEvent (Prelude.Maybe Prelude.UTCTime)
-containerServiceLogEvent_createdAt = Lens.lens (\ContainerServiceLogEvent' {createdAt} -> createdAt) (\s@ContainerServiceLogEvent' {} a -> s {createdAt = a} :: ContainerServiceLogEvent) Prelude.. Lens.mapping Core._Time
+containerServiceLogEvent_createdAt = Lens.lens (\ContainerServiceLogEvent' {createdAt} -> createdAt) (\s@ContainerServiceLogEvent' {} a -> s {createdAt = a} :: ContainerServiceLogEvent) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ContainerServiceLogEvent where
+instance Data.FromJSON ContainerServiceLogEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerServiceLogEvent"
       ( \x ->
           ContainerServiceLogEvent'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable ContainerServiceLogEvent where

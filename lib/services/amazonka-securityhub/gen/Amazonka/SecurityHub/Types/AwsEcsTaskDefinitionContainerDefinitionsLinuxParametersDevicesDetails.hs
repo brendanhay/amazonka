@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxP
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A host device to expose to the container.
@@ -80,17 +81,17 @@ awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails_permission
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails_permissions = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' {permissions} -> permissions) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' {} a -> s {permissions = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails'
-            Prelude.<$> (x Core..:? "HostPath")
-              Prelude.<*> (x Core..:? "ContainerPath")
-              Prelude.<*> (x Core..:? "Permissions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "HostPath")
+              Prelude.<*> (x Data..:? "ContainerPath")
+              Prelude.<*> (x Data..:? "Permissions" Data..!= Prelude.mempty)
       )
 
 instance
@@ -115,15 +116,15 @@ instance
         `Prelude.seq` Prelude.rnf permissions
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("HostPath" Core..=) Prelude.<$> hostPath,
-              ("ContainerPath" Core..=) Prelude.<$> containerPath,
-              ("Permissions" Core..=) Prelude.<$> permissions
+            [ ("HostPath" Data..=) Prelude.<$> hostPath,
+              ("ContainerPath" Data..=) Prelude.<$> containerPath,
+              ("Permissions" Data..=) Prelude.<$> permissions
             ]
         )

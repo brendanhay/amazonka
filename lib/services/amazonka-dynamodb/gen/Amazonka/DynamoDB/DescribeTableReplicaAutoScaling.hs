@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,7 +95,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeTableReplicaAutoScalingResponse'
-            Prelude.<$> (x Core..?> "TableAutoScalingDescription")
+            Prelude.<$> (x Data..?> "TableAutoScalingDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,34 +116,34 @@ instance
     Prelude.rnf tableName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeTableReplicaAutoScaling
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.DescribeTableReplicaAutoScaling" ::
+              Data.=# ( "DynamoDB_20120810.DescribeTableReplicaAutoScaling" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTableReplicaAutoScaling where
+instance Data.ToJSON DescribeTableReplicaAutoScaling where
   toJSON DescribeTableReplicaAutoScaling' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TableName" Core..= tableName)]
+          [Prelude.Just ("TableName" Data..= tableName)]
       )
 
-instance Core.ToPath DescribeTableReplicaAutoScaling where
+instance Data.ToPath DescribeTableReplicaAutoScaling where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTableReplicaAutoScaling where
+instance Data.ToQuery DescribeTableReplicaAutoScaling where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTableReplicaAutoScalingResponse' smart constructor.

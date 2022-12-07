@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,8 +159,8 @@ instance Core.AWSRequest ListLFTags where
     Response.receiveJSON
       ( \s h x ->
           ListLFTagsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "LFTags")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "LFTags")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,33 +178,33 @@ instance Prelude.NFData ListLFTags where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf catalogId
 
-instance Core.ToHeaders ListLFTags where
+instance Data.ToHeaders ListLFTags where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListLFTags where
+instance Data.ToJSON ListLFTags where
   toJSON ListLFTags' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ResourceShareType" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ResourceShareType" Data..=)
               Prelude.<$> resourceShareType,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CatalogId" Core..=) Prelude.<$> catalogId
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CatalogId" Data..=) Prelude.<$> catalogId
           ]
       )
 
-instance Core.ToPath ListLFTags where
+instance Data.ToPath ListLFTags where
   toPath = Prelude.const "/ListLFTags"
 
-instance Core.ToQuery ListLFTags where
+instance Data.ToQuery ListLFTags where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListLFTagsResponse' smart constructor.

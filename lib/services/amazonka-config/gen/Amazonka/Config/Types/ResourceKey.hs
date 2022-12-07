@@ -22,6 +22,7 @@ module Amazonka.Config.Types.ResourceKey where
 import Amazonka.Config.Types.ResourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details that identify a resource within Config, including the
@@ -67,14 +68,14 @@ resourceKey_resourceType = Lens.lens (\ResourceKey' {resourceType} -> resourceTy
 resourceKey_resourceId :: Lens.Lens' ResourceKey Prelude.Text
 resourceKey_resourceId = Lens.lens (\ResourceKey' {resourceId} -> resourceId) (\s@ResourceKey' {} a -> s {resourceId = a} :: ResourceKey)
 
-instance Core.FromJSON ResourceKey where
+instance Data.FromJSON ResourceKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceKey"
       ( \x ->
           ResourceKey'
-            Prelude.<$> (x Core..: "resourceType")
-            Prelude.<*> (x Core..: "resourceId")
+            Prelude.<$> (x Data..: "resourceType")
+            Prelude.<*> (x Data..: "resourceId")
       )
 
 instance Prelude.Hashable ResourceKey where
@@ -87,11 +88,11 @@ instance Prelude.NFData ResourceKey where
     Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToJSON ResourceKey where
+instance Data.ToJSON ResourceKey where
   toJSON ResourceKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("resourceType" Core..= resourceType),
-            Prelude.Just ("resourceId" Core..= resourceId)
+          [ Prelude.Just ("resourceType" Data..= resourceType),
+            Prelude.Just ("resourceId" Data..= resourceId)
           ]
       )

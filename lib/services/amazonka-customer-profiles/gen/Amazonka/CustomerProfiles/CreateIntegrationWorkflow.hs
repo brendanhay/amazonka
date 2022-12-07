@@ -51,6 +51,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,8 +160,8 @@ instance Core.AWSRequest CreateIntegrationWorkflow where
       ( \s h x ->
           CreateIntegrationWorkflowResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "WorkflowId")
-            Prelude.<*> (x Core..:> "Message")
+            Prelude.<*> (x Data..:> "WorkflowId")
+            Prelude.<*> (x Data..:> "Message")
       )
 
 instance Prelude.Hashable CreateIntegrationWorkflow where
@@ -181,40 +182,40 @@ instance Prelude.NFData CreateIntegrationWorkflow where
       `Prelude.seq` Prelude.rnf objectTypeName
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateIntegrationWorkflow where
+instance Data.ToHeaders CreateIntegrationWorkflow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateIntegrationWorkflow where
+instance Data.ToJSON CreateIntegrationWorkflow where
   toJSON CreateIntegrationWorkflow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("WorkflowType" Core..= workflowType),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("WorkflowType" Data..= workflowType),
             Prelude.Just
-              ("IntegrationConfig" Core..= integrationConfig),
+              ("IntegrationConfig" Data..= integrationConfig),
             Prelude.Just
-              ("ObjectTypeName" Core..= objectTypeName),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+              ("ObjectTypeName" Data..= objectTypeName),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateIntegrationWorkflow where
+instance Data.ToPath CreateIntegrationWorkflow where
   toPath CreateIntegrationWorkflow' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/workflows/integrations"
       ]
 
-instance Core.ToQuery CreateIntegrationWorkflow where
+instance Data.ToQuery CreateIntegrationWorkflow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateIntegrationWorkflowResponse' smart constructor.

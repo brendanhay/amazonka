@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.Evidence where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.ThreatIntelligenceDetail
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,14 +55,14 @@ newEvidence =
 evidence_threatIntelligenceDetails :: Lens.Lens' Evidence (Prelude.Maybe [ThreatIntelligenceDetail])
 evidence_threatIntelligenceDetails = Lens.lens (\Evidence' {threatIntelligenceDetails} -> threatIntelligenceDetails) (\s@Evidence' {} a -> s {threatIntelligenceDetails = a} :: Evidence) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Evidence where
+instance Data.FromJSON Evidence where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Evidence"
       ( \x ->
           Evidence'
-            Prelude.<$> ( x Core..:? "threatIntelligenceDetails"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "threatIntelligenceDetails"
+                            Data..!= Prelude.mempty
                         )
       )
 

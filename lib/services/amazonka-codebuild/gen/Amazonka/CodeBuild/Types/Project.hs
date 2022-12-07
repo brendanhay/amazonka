@@ -34,6 +34,7 @@ import Amazonka.CodeBuild.Types.VpcConfig
 import Amazonka.CodeBuild.Types.Webhook
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a build project.
@@ -71,7 +72,7 @@ data Project = Project'
     -- | An array of @ProjectArtifacts@ objects.
     secondaryArtifacts :: Prelude.Maybe [ProjectArtifacts],
     -- | When the build project was created, expressed in Unix time format.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | A version of the build input to be built for this project. If not
     -- specified, the latest version is used. If specified, it must be one of:
     --
@@ -130,7 +131,7 @@ data Project = Project'
     logsConfig :: Prelude.Maybe LogsConfig,
     -- | When the build project\'s settings were last modified, expressed in Unix
     -- time format.
-    lastModified :: Prelude.Maybe Core.POSIX,
+    lastModified :: Prelude.Maybe Data.POSIX,
     -- | Contains the project identifier used with the public build APIs.
     publicProjectAlias :: Prelude.Maybe Prelude.Text,
     -- | A ProjectBuildBatchConfig object that defines the batch build options
@@ -361,7 +362,7 @@ project_secondaryArtifacts = Lens.lens (\Project' {secondaryArtifacts} -> second
 
 -- | When the build project was created, expressed in Unix time format.
 project_created :: Lens.Lens' Project (Prelude.Maybe Prelude.UTCTime)
-project_created = Lens.lens (\Project' {created} -> created) (\s@Project' {} a -> s {created = a} :: Project) Prelude.. Lens.mapping Core._Time
+project_created = Lens.lens (\Project' {created} -> created) (\s@Project' {} a -> s {created = a} :: Project) Prelude.. Lens.mapping Data._Time
 
 -- | A version of the build input to be built for this project. If not
 -- specified, the latest version is used. If specified, it must be one of:
@@ -445,7 +446,7 @@ project_logsConfig = Lens.lens (\Project' {logsConfig} -> logsConfig) (\s@Projec
 -- | When the build project\'s settings were last modified, expressed in Unix
 -- time format.
 project_lastModified :: Lens.Lens' Project (Prelude.Maybe Prelude.UTCTime)
-project_lastModified = Lens.lens (\Project' {lastModified} -> lastModified) (\s@Project' {} a -> s {lastModified = a} :: Project) Prelude.. Lens.mapping Core._Time
+project_lastModified = Lens.lens (\Project' {lastModified} -> lastModified) (\s@Project' {} a -> s {lastModified = a} :: Project) Prelude.. Lens.mapping Data._Time
 
 -- | Contains the project identifier used with the public build APIs.
 project_publicProjectAlias :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
@@ -478,48 +479,48 @@ project_artifacts = Lens.lens (\Project' {artifacts} -> artifacts) (\s@Project' 
 project_resourceAccessRole :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
 project_resourceAccessRole = Lens.lens (\Project' {resourceAccessRole} -> resourceAccessRole) (\s@Project' {} a -> s {resourceAccessRole = a} :: Project)
 
-instance Core.FromJSON Project where
+instance Data.FromJSON Project where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Project"
       ( \x ->
           Project'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "webhook")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "environment")
-            Prelude.<*> ( x Core..:? "secondarySources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "webhook")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "environment")
+            Prelude.<*> ( x Data..:? "secondarySources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "fileSystemLocations"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "fileSystemLocations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "timeoutInMinutes")
-            Prelude.<*> (x Core..:? "queuedTimeoutInMinutes")
-            Prelude.<*> (x Core..:? "vpcConfig")
-            Prelude.<*> ( x Core..:? "secondaryArtifacts"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "timeoutInMinutes")
+            Prelude.<*> (x Data..:? "queuedTimeoutInMinutes")
+            Prelude.<*> (x Data..:? "vpcConfig")
+            Prelude.<*> ( x Data..:? "secondaryArtifacts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "sourceVersion")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "concurrentBuildLimit")
-            Prelude.<*> (x Core..:? "projectVisibility")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "cache")
-            Prelude.<*> (x Core..:? "serviceRole")
-            Prelude.<*> (x Core..:? "badge")
-            Prelude.<*> ( x Core..:? "secondarySourceVersions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "created")
+            Prelude.<*> (x Data..:? "sourceVersion")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "concurrentBuildLimit")
+            Prelude.<*> (x Data..:? "projectVisibility")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "cache")
+            Prelude.<*> (x Data..:? "serviceRole")
+            Prelude.<*> (x Data..:? "badge")
+            Prelude.<*> ( x Data..:? "secondarySourceVersions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "logsConfig")
-            Prelude.<*> (x Core..:? "lastModified")
-            Prelude.<*> (x Core..:? "publicProjectAlias")
-            Prelude.<*> (x Core..:? "buildBatchConfig")
-            Prelude.<*> (x Core..:? "encryptionKey")
-            Prelude.<*> (x Core..:? "artifacts")
-            Prelude.<*> (x Core..:? "resourceAccessRole")
+            Prelude.<*> (x Data..:? "source")
+            Prelude.<*> (x Data..:? "logsConfig")
+            Prelude.<*> (x Data..:? "lastModified")
+            Prelude.<*> (x Data..:? "publicProjectAlias")
+            Prelude.<*> (x Data..:? "buildBatchConfig")
+            Prelude.<*> (x Data..:? "encryptionKey")
+            Prelude.<*> (x Data..:? "artifacts")
+            Prelude.<*> (x Data..:? "resourceAccessRole")
       )
 
 instance Prelude.Hashable Project where

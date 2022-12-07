@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -204,7 +205,7 @@ data GenerateDataSet = GenerateDataSet'
     -- with day-level granularity for the desired day. For these data sets we
     -- will look backwards in time over the range of 31 days until the first
     -- data set is found (the latest one).
-    dataSetPublicationDate :: Core.POSIX,
+    dataSetPublicationDate :: Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the Role with an attached permissions
     -- policy to interact with the provided AWS services.
     roleNameArn :: Prelude.Text,
@@ -393,7 +394,7 @@ newGenerateDataSet
         customerDefinedValues = Prelude.Nothing,
         dataSetType = pDataSetType_,
         dataSetPublicationDate =
-          Core._Time Lens.# pDataSetPublicationDate_,
+          Data._Time Lens.# pDataSetPublicationDate_,
         roleNameArn = pRoleNameArn_,
         destinationS3BucketName = pDestinationS3BucketName_,
         snsTopicArn = pSnsTopicArn_
@@ -543,7 +544,7 @@ generateDataSet_dataSetType = Lens.lens (\GenerateDataSet' {dataSetType} -> data
 -- will look backwards in time over the range of 31 days until the first
 -- data set is found (the latest one).
 generateDataSet_dataSetPublicationDate :: Lens.Lens' GenerateDataSet Prelude.UTCTime
-generateDataSet_dataSetPublicationDate = Lens.lens (\GenerateDataSet' {dataSetPublicationDate} -> dataSetPublicationDate) (\s@GenerateDataSet' {} a -> s {dataSetPublicationDate = a} :: GenerateDataSet) Prelude.. Core._Time
+generateDataSet_dataSetPublicationDate = Lens.lens (\GenerateDataSet' {dataSetPublicationDate} -> dataSetPublicationDate) (\s@GenerateDataSet' {} a -> s {dataSetPublicationDate = a} :: GenerateDataSet) Prelude.. Data._Time
 
 -- | The Amazon Resource Name (ARN) of the Role with an attached permissions
 -- policy to interact with the provided AWS services.
@@ -569,7 +570,7 @@ instance Core.AWSRequest GenerateDataSet where
     Response.receiveJSON
       ( \s h x ->
           GenerateDataSetResponse'
-            Prelude.<$> (x Core..?> "dataSetRequestId")
+            Prelude.<$> (x Data..?> "dataSetRequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -593,47 +594,47 @@ instance Prelude.NFData GenerateDataSet where
       `Prelude.seq` Prelude.rnf destinationS3BucketName
       `Prelude.seq` Prelude.rnf snsTopicArn
 
-instance Core.ToHeaders GenerateDataSet where
+instance Data.ToHeaders GenerateDataSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MarketplaceCommerceAnalytics20150701.GenerateDataSet" ::
+              Data.=# ( "MarketplaceCommerceAnalytics20150701.GenerateDataSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GenerateDataSet where
+instance Data.ToJSON GenerateDataSet where
   toJSON GenerateDataSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("destinationS3Prefix" Core..=)
+          [ ("destinationS3Prefix" Data..=)
               Prelude.<$> destinationS3Prefix,
-            ("customerDefinedValues" Core..=)
+            ("customerDefinedValues" Data..=)
               Prelude.<$> customerDefinedValues,
-            Prelude.Just ("dataSetType" Core..= dataSetType),
+            Prelude.Just ("dataSetType" Data..= dataSetType),
             Prelude.Just
               ( "dataSetPublicationDate"
-                  Core..= dataSetPublicationDate
+                  Data..= dataSetPublicationDate
               ),
-            Prelude.Just ("roleNameArn" Core..= roleNameArn),
+            Prelude.Just ("roleNameArn" Data..= roleNameArn),
             Prelude.Just
               ( "destinationS3BucketName"
-                  Core..= destinationS3BucketName
+                  Data..= destinationS3BucketName
               ),
-            Prelude.Just ("snsTopicArn" Core..= snsTopicArn)
+            Prelude.Just ("snsTopicArn" Data..= snsTopicArn)
           ]
       )
 
-instance Core.ToPath GenerateDataSet where
+instance Data.ToPath GenerateDataSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GenerateDataSet where
+instance Data.ToQuery GenerateDataSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Container for the result of the GenerateDataSet operation.

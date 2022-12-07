@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,8 +137,8 @@ instance Core.AWSRequest DescribeVolumes where
     Response.receiveJSON
       ( \s h x ->
           DescribeVolumesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Volumes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Volumes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,36 +156,36 @@ instance Prelude.NFData DescribeVolumes where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeVolumes where
+instance Data.ToHeaders DescribeVolumes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.DescribeVolumes" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.DescribeVolumes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeVolumes where
+instance Data.ToJSON DescribeVolumes where
   toJSON DescribeVolumes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("VolumeIds" Core..=) Prelude.<$> volumeIds,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("VolumeIds" Data..=) Prelude.<$> volumeIds,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeVolumes where
+instance Data.ToPath DescribeVolumes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVolumes where
+instance Data.ToQuery DescribeVolumes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeVolumesResponse' smart constructor.

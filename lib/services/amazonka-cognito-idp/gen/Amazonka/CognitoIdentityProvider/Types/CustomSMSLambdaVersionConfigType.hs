@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.CustomSMSLambdaVersionConfigType w
 import Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A custom SMS sender Lambda configuration type.
@@ -79,16 +80,16 @@ customSMSLambdaVersionConfigType_lambdaArn :: Lens.Lens' CustomSMSLambdaVersionC
 customSMSLambdaVersionConfigType_lambdaArn = Lens.lens (\CustomSMSLambdaVersionConfigType' {lambdaArn} -> lambdaArn) (\s@CustomSMSLambdaVersionConfigType' {} a -> s {lambdaArn = a} :: CustomSMSLambdaVersionConfigType)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomSMSLambdaVersionConfigType
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomSMSLambdaVersionConfigType"
       ( \x ->
           CustomSMSLambdaVersionConfigType'
-            Prelude.<$> (x Core..: "LambdaVersion")
-            Prelude.<*> (x Core..: "LambdaArn")
+            Prelude.<$> (x Data..: "LambdaVersion")
+            Prelude.<*> (x Data..: "LambdaArn")
       )
 
 instance
@@ -109,12 +110,12 @@ instance
     Prelude.rnf lambdaVersion
       `Prelude.seq` Prelude.rnf lambdaArn
 
-instance Core.ToJSON CustomSMSLambdaVersionConfigType where
+instance Data.ToJSON CustomSMSLambdaVersionConfigType where
   toJSON CustomSMSLambdaVersionConfigType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("LambdaVersion" Core..= lambdaVersion),
-            Prelude.Just ("LambdaArn" Core..= lambdaArn)
+              ("LambdaVersion" Data..= lambdaVersion),
+            Prelude.Just ("LambdaArn" Data..= lambdaArn)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesFi
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails
 
@@ -55,15 +56,15 @@ awsS3BucketBucketLifecycleConfigurationRulesFilterDetails_predicate :: Lens.Lens
 awsS3BucketBucketLifecycleConfigurationRulesFilterDetails_predicate = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails' {predicate} -> predicate) (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails' {} a -> s {predicate = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails"
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails'
-            Prelude.<$> (x Core..:? "Predicate")
+            Prelude.<$> (x Data..:? "Predicate")
       )
 
 instance
@@ -84,12 +85,12 @@ instance
       Prelude.rnf predicate
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails
   where
   toJSON
     AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("Predicate" Core..=) Prelude.<$> predicate]
+            [("Predicate" Data..=) Prelude.<$> predicate]
         )

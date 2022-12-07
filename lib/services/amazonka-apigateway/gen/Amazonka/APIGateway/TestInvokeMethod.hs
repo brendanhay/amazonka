@@ -56,6 +56,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -199,14 +200,14 @@ instance Core.AWSRequest TestInvokeMethod where
     Response.receiveJSON
       ( \s h x ->
           TestInvokeMethodResponse'
-            Prelude.<$> ( x Core..?> "multiValueHeaders"
+            Prelude.<$> ( x Data..?> "multiValueHeaders"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "headers" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "latency")
-            Prelude.<*> (x Core..?> "body")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "log")
+            Prelude.<*> (x Data..?> "headers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "latency")
+            Prelude.<*> (x Data..?> "body")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "log")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -234,44 +235,44 @@ instance Prelude.NFData TestInvokeMethod where
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf httpMethod
 
-instance Core.ToHeaders TestInvokeMethod where
+instance Data.ToHeaders TestInvokeMethod where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON TestInvokeMethod where
+instance Data.ToJSON TestInvokeMethod where
   toJSON TestInvokeMethod' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("multiValueHeaders" Core..=)
+          [ ("multiValueHeaders" Data..=)
               Prelude.<$> multiValueHeaders,
-            ("headers" Core..=) Prelude.<$> headers,
-            ("body" Core..=) Prelude.<$> body,
-            ("pathWithQueryString" Core..=)
+            ("headers" Data..=) Prelude.<$> headers,
+            ("body" Data..=) Prelude.<$> body,
+            ("pathWithQueryString" Data..=)
               Prelude.<$> pathWithQueryString,
-            ("stageVariables" Core..=)
+            ("stageVariables" Data..=)
               Prelude.<$> stageVariables,
-            ("clientCertificateId" Core..=)
+            ("clientCertificateId" Data..=)
               Prelude.<$> clientCertificateId
           ]
       )
 
-instance Core.ToPath TestInvokeMethod where
+instance Data.ToPath TestInvokeMethod where
   toPath TestInvokeMethod' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/resources/",
-        Core.toBS resourceId,
+        Data.toBS resourceId,
         "/methods/",
-        Core.toBS httpMethod
+        Data.toBS httpMethod
       ]
 
-instance Core.ToQuery TestInvokeMethod where
+instance Data.ToQuery TestInvokeMethod where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response of the test invoke request in the HTTP method.

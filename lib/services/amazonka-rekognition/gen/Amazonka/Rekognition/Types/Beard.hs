@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.Beard where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether or not the face has a beard, and the confidence level
@@ -62,14 +63,14 @@ beard_confidence = Lens.lens (\Beard' {confidence} -> confidence) (\s@Beard' {} 
 beard_value :: Lens.Lens' Beard (Prelude.Maybe Prelude.Bool)
 beard_value = Lens.lens (\Beard' {value} -> value) (\s@Beard' {} a -> s {value = a} :: Beard)
 
-instance Core.FromJSON Beard where
+instance Data.FromJSON Beard where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Beard"
       ( \x ->
           Beard'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Beard where

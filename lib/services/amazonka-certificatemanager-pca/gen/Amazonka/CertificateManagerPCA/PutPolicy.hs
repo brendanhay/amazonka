@@ -70,6 +70,7 @@ where
 import Amazonka.CertificateManagerPCA.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,32 +155,32 @@ instance Prelude.NFData PutPolicy where
     Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf policy
 
-instance Core.ToHeaders PutPolicy where
+instance Data.ToHeaders PutPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("ACMPrivateCA.PutPolicy" :: Prelude.ByteString),
+              Data.=# ("ACMPrivateCA.PutPolicy" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutPolicy where
+instance Data.ToJSON PutPolicy where
   toJSON PutPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceArn" Core..= resourceArn),
-            Prelude.Just ("Policy" Core..= policy)
+          [ Prelude.Just ("ResourceArn" Data..= resourceArn),
+            Prelude.Just ("Policy" Data..= policy)
           ]
       )
 
-instance Core.ToPath PutPolicy where
+instance Data.ToPath PutPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutPolicy where
+instance Data.ToQuery PutPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutPolicyResponse' smart constructor.

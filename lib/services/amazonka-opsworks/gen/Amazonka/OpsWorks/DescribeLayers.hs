@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest DescribeLayers where
     Response.receiveJSON
       ( \s h x ->
           DescribeLayersResponse'
-            Prelude.<$> (x Core..?> "Layers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Layers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,34 +122,34 @@ instance Prelude.NFData DescribeLayers where
     Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf layerIds
 
-instance Core.ToHeaders DescribeLayers where
+instance Data.ToHeaders DescribeLayers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DescribeLayers" ::
+              Data.=# ( "OpsWorks_20130218.DescribeLayers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLayers where
+instance Data.ToJSON DescribeLayers where
   toJSON DescribeLayers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StackId" Core..=) Prelude.<$> stackId,
-            ("LayerIds" Core..=) Prelude.<$> layerIds
+          [ ("StackId" Data..=) Prelude.<$> stackId,
+            ("LayerIds" Data..=) Prelude.<$> layerIds
           ]
       )
 
-instance Core.ToPath DescribeLayers where
+instance Data.ToPath DescribeLayers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLayers where
+instance Data.ToQuery DescribeLayers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeLayers@ request.

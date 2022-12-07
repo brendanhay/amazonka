@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.S3Metadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to Amazon S3.
@@ -39,9 +40,9 @@ newS3Metadata ::
   S3Metadata
 newS3Metadata = S3Metadata'
 
-instance Core.FromJSON S3Metadata where
+instance Data.FromJSON S3Metadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Metadata"
       (\x -> Prelude.pure S3Metadata')
 

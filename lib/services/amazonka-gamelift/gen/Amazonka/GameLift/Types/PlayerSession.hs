@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.PlayerSession where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.PlayerSessionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,11 +82,11 @@ data PlayerSession = PlayerSession'
     -- | A time stamp indicating when this data object was terminated. Format is
     -- a number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    terminationTime :: Prelude.Maybe Core.POSIX,
+    terminationTime :: Prelude.Maybe Data.POSIX,
     -- | A time stamp indicating when this data object was created. Format is a
     -- number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The DNS identifier assigned to the instance that is running the game
     -- session. Values have the following format:
     --
@@ -250,13 +251,13 @@ playerSession_fleetArn = Lens.lens (\PlayerSession' {fleetArn} -> fleetArn) (\s@
 -- a number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 playerSession_terminationTime :: Lens.Lens' PlayerSession (Prelude.Maybe Prelude.UTCTime)
-playerSession_terminationTime = Lens.lens (\PlayerSession' {terminationTime} -> terminationTime) (\s@PlayerSession' {} a -> s {terminationTime = a} :: PlayerSession) Prelude.. Lens.mapping Core._Time
+playerSession_terminationTime = Lens.lens (\PlayerSession' {terminationTime} -> terminationTime) (\s@PlayerSession' {} a -> s {terminationTime = a} :: PlayerSession) Prelude.. Lens.mapping Data._Time
 
 -- | A time stamp indicating when this data object was created. Format is a
 -- number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 playerSession_creationTime :: Lens.Lens' PlayerSession (Prelude.Maybe Prelude.UTCTime)
-playerSession_creationTime = Lens.lens (\PlayerSession' {creationTime} -> creationTime) (\s@PlayerSession' {} a -> s {creationTime = a} :: PlayerSession) Prelude.. Lens.mapping Core._Time
+playerSession_creationTime = Lens.lens (\PlayerSession' {creationTime} -> creationTime) (\s@PlayerSession' {} a -> s {creationTime = a} :: PlayerSession) Prelude.. Lens.mapping Data._Time
 
 -- | The DNS identifier assigned to the instance that is running the game
 -- session. Values have the following format:
@@ -283,24 +284,24 @@ playerSession_playerData = Lens.lens (\PlayerSession' {playerData} -> playerData
 playerSession_ipAddress :: Lens.Lens' PlayerSession (Prelude.Maybe Prelude.Text)
 playerSession_ipAddress = Lens.lens (\PlayerSession' {ipAddress} -> ipAddress) (\s@PlayerSession' {} a -> s {ipAddress = a} :: PlayerSession)
 
-instance Core.FromJSON PlayerSession where
+instance Data.FromJSON PlayerSession where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlayerSession"
       ( \x ->
           PlayerSession'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "GameSessionId")
-            Prelude.<*> (x Core..:? "FleetId")
-            Prelude.<*> (x Core..:? "PlayerSessionId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "PlayerId")
-            Prelude.<*> (x Core..:? "FleetArn")
-            Prelude.<*> (x Core..:? "TerminationTime")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "DnsName")
-            Prelude.<*> (x Core..:? "PlayerData")
-            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "GameSessionId")
+            Prelude.<*> (x Data..:? "FleetId")
+            Prelude.<*> (x Data..:? "PlayerSessionId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "PlayerId")
+            Prelude.<*> (x Data..:? "FleetArn")
+            Prelude.<*> (x Data..:? "TerminationTime")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DnsName")
+            Prelude.<*> (x Data..:? "PlayerData")
+            Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance Prelude.Hashable PlayerSession where

@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,13 +164,13 @@ instance Core.AWSRequest DeleteFleets where
     Response.receiveXML
       ( \s h x ->
           DeleteFleetsResponse'
-            Prelude.<$> ( x Core..@? "successfulFleetDeletionSet"
+            Prelude.<$> ( x Data..@? "successfulFleetDeletionSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Core..@? "unsuccessfulFleetDeletionSet"
+            Prelude.<*> ( x Data..@? "unsuccessfulFleetDeletionSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -186,22 +187,22 @@ instance Prelude.NFData DeleteFleets where
       `Prelude.seq` Prelude.rnf fleetIds
       `Prelude.seq` Prelude.rnf terminateInstances
 
-instance Core.ToHeaders DeleteFleets where
+instance Data.ToHeaders DeleteFleets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteFleets where
+instance Data.ToPath DeleteFleets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteFleets where
+instance Data.ToQuery DeleteFleets where
   toQuery DeleteFleets' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteFleets" :: Prelude.ByteString),
+          Data.=: ("DeleteFleets" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQueryList "FleetId" fleetIds,
-        "TerminateInstances" Core.=: terminateInstances
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQueryList "FleetId" fleetIds,
+        "TerminateInstances" Data.=: terminateInstances
       ]
 
 -- | /See:/ 'newDeleteFleetsResponse' smart constructor.

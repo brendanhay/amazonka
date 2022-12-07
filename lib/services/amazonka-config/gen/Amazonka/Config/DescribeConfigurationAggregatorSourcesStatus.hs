@@ -51,6 +51,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -178,8 +179,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationAggregatorSourcesStatusResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "AggregatedSourceStatusList"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "AggregatedSourceStatusList"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -208,49 +209,49 @@ instance
       `Prelude.seq` Prelude.rnf configurationAggregatorName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeConfigurationAggregatorSourcesStatus
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DescribeConfigurationAggregatorSourcesStatus" ::
+              Data.=# ( "StarlingDoveService.DescribeConfigurationAggregatorSourcesStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeConfigurationAggregatorSourcesStatus
   where
   toJSON
     DescribeConfigurationAggregatorSourcesStatus' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("NextToken" Core..=) Prelude.<$> nextToken,
-              ("UpdateStatus" Core..=) Prelude.<$> updateStatus,
-              ("Limit" Core..=) Prelude.<$> limit,
+            [ ("NextToken" Data..=) Prelude.<$> nextToken,
+              ("UpdateStatus" Data..=) Prelude.<$> updateStatus,
+              ("Limit" Data..=) Prelude.<$> limit,
               Prelude.Just
                 ( "ConfigurationAggregatorName"
-                    Core..= configurationAggregatorName
+                    Data..= configurationAggregatorName
                 )
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeConfigurationAggregatorSourcesStatus
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeConfigurationAggregatorSourcesStatus
   where
   toQuery = Prelude.const Prelude.mempty

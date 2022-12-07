@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.ReplicationGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.AutomaticFailoverStatus
 import Amazonka.ElastiCache.Types.DataTieringStatus
 import Amazonka.ElastiCache.Types.Endpoint
@@ -64,7 +65,7 @@ data ReplicationGroup = ReplicationGroup'
     -- campaign. This parameter is disabled for previous versions.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The date and time when the cluster was created.
-    replicationGroupCreateTime :: Prelude.Maybe Core.ISO8601,
+    replicationGroupCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | Indicates the status of automatic failover for this Redis replication
     -- group.
     automaticFailover :: Prelude.Maybe AutomaticFailoverStatus,
@@ -140,7 +141,7 @@ data ReplicationGroup = ReplicationGroup'
     -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
     dataTiering :: Prelude.Maybe DataTieringStatus,
     -- | The date the auth token was last modified
-    authTokenLastModifiedDate :: Prelude.Maybe Core.ISO8601,
+    authTokenLastModifiedDate :: Prelude.Maybe Data.ISO8601,
     -- | The identifier for the replication group.
     replicationGroupId :: Prelude.Maybe Prelude.Text,
     -- | The names of all the cache clusters that are part of this replication
@@ -363,7 +364,7 @@ replicationGroup_autoMinorVersionUpgrade = Lens.lens (\ReplicationGroup' {autoMi
 
 -- | The date and time when the cluster was created.
 replicationGroup_replicationGroupCreateTime :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.UTCTime)
-replicationGroup_replicationGroupCreateTime = Lens.lens (\ReplicationGroup' {replicationGroupCreateTime} -> replicationGroupCreateTime) (\s@ReplicationGroup' {} a -> s {replicationGroupCreateTime = a} :: ReplicationGroup) Prelude.. Lens.mapping Core._Time
+replicationGroup_replicationGroupCreateTime = Lens.lens (\ReplicationGroup' {replicationGroupCreateTime} -> replicationGroupCreateTime) (\s@ReplicationGroup' {} a -> s {replicationGroupCreateTime = a} :: ReplicationGroup) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the status of automatic failover for this Redis replication
 -- group.
@@ -475,7 +476,7 @@ replicationGroup_dataTiering = Lens.lens (\ReplicationGroup' {dataTiering} -> da
 
 -- | The date the auth token was last modified
 replicationGroup_authTokenLastModifiedDate :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.UTCTime)
-replicationGroup_authTokenLastModifiedDate = Lens.lens (\ReplicationGroup' {authTokenLastModifiedDate} -> authTokenLastModifiedDate) (\s@ReplicationGroup' {} a -> s {authTokenLastModifiedDate = a} :: ReplicationGroup) Prelude.. Lens.mapping Core._Time
+replicationGroup_authTokenLastModifiedDate = Lens.lens (\ReplicationGroup' {authTokenLastModifiedDate} -> authTokenLastModifiedDate) (\s@ReplicationGroup' {} a -> s {authTokenLastModifiedDate = a} :: ReplicationGroup) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier for the replication group.
 replicationGroup_replicationGroupId :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Text)
@@ -504,52 +505,52 @@ replicationGroup_multiAZ = Lens.lens (\ReplicationGroup' {multiAZ} -> multiAZ) (
 replicationGroup_configurationEndpoint :: Lens.Lens' ReplicationGroup (Prelude.Maybe Endpoint)
 replicationGroup_configurationEndpoint = Lens.lens (\ReplicationGroup' {configurationEndpoint} -> configurationEndpoint) (\s@ReplicationGroup' {} a -> s {configurationEndpoint = a} :: ReplicationGroup)
 
-instance Core.FromXML ReplicationGroup where
+instance Data.FromXML ReplicationGroup where
   parseXML x =
     ReplicationGroup'
-      Prelude.<$> (x Core..@? "TransitEncryptionEnabled")
-      Prelude.<*> ( x Core..@? "MemberClustersOutpostArns"
+      Prelude.<$> (x Data..@? "TransitEncryptionEnabled")
+      Prelude.<*> ( x Data..@? "MemberClustersOutpostArns"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "ReplicationGroupOutpostArn")
+                        (Data.parseXMLList "ReplicationGroupOutpostArn")
                   )
-      Prelude.<*> (x Core..@? "GlobalReplicationGroupInfo")
-      Prelude.<*> (x Core..@? "ClusterEnabled")
-      Prelude.<*> (x Core..@? "AutoMinorVersionUpgrade")
-      Prelude.<*> (x Core..@? "ReplicationGroupCreateTime")
-      Prelude.<*> (x Core..@? "AutomaticFailover")
-      Prelude.<*> (x Core..@? "ARN")
-      Prelude.<*> (x Core..@? "SnapshottingClusterId")
-      Prelude.<*> ( x Core..@? "LogDeliveryConfigurations"
+      Prelude.<*> (x Data..@? "GlobalReplicationGroupInfo")
+      Prelude.<*> (x Data..@? "ClusterEnabled")
+      Prelude.<*> (x Data..@? "AutoMinorVersionUpgrade")
+      Prelude.<*> (x Data..@? "ReplicationGroupCreateTime")
+      Prelude.<*> (x Data..@? "AutomaticFailover")
+      Prelude.<*> (x Data..@? "ARN")
+      Prelude.<*> (x Data..@? "SnapshottingClusterId")
+      Prelude.<*> ( x Data..@? "LogDeliveryConfigurations"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "LogDeliveryConfiguration")
+                        (Data.parseXMLList "LogDeliveryConfiguration")
                   )
-      Prelude.<*> (x Core..@? "AtRestEncryptionEnabled")
-      Prelude.<*> (x Core..@? "IpDiscovery")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "CacheNodeType")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "AuthTokenEnabled")
-      Prelude.<*> ( x Core..@? "NodeGroups" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "NodeGroup")
+      Prelude.<*> (x Data..@? "AtRestEncryptionEnabled")
+      Prelude.<*> (x Data..@? "IpDiscovery")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "CacheNodeType")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "AuthTokenEnabled")
+      Prelude.<*> ( x Data..@? "NodeGroups" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "NodeGroup")
                   )
-      Prelude.<*> (x Core..@? "SnapshotWindow")
-      Prelude.<*> (x Core..@? "SnapshotRetentionLimit")
-      Prelude.<*> ( x Core..@? "UserGroupIds" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "SnapshotWindow")
+      Prelude.<*> (x Data..@? "SnapshotRetentionLimit")
+      Prelude.<*> ( x Data..@? "UserGroupIds" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "KmsKeyId")
-      Prelude.<*> (x Core..@? "PendingModifiedValues")
-      Prelude.<*> (x Core..@? "DataTiering")
-      Prelude.<*> (x Core..@? "AuthTokenLastModifiedDate")
-      Prelude.<*> (x Core..@? "ReplicationGroupId")
-      Prelude.<*> ( x Core..@? "MemberClusters" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "ClusterId")
+      Prelude.<*> (x Data..@? "KmsKeyId")
+      Prelude.<*> (x Data..@? "PendingModifiedValues")
+      Prelude.<*> (x Data..@? "DataTiering")
+      Prelude.<*> (x Data..@? "AuthTokenLastModifiedDate")
+      Prelude.<*> (x Data..@? "ReplicationGroupId")
+      Prelude.<*> ( x Data..@? "MemberClusters" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "ClusterId")
                   )
-      Prelude.<*> (x Core..@? "NetworkType")
-      Prelude.<*> (x Core..@? "MultiAZ")
-      Prelude.<*> (x Core..@? "ConfigurationEndpoint")
+      Prelude.<*> (x Data..@? "NetworkType")
+      Prelude.<*> (x Data..@? "MultiAZ")
+      Prelude.<*> (x Data..@? "ConfigurationEndpoint")
 
 instance Prelude.Hashable ReplicationGroup where
   hashWithSalt _salt ReplicationGroup' {..} =

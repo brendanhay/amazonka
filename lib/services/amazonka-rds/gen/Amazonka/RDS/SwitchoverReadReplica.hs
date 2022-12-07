@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest SwitchoverReadReplica where
       "SwitchoverReadReplicaResult"
       ( \s h x ->
           SwitchoverReadReplicaResponse'
-            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<$> (x Data..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,20 +120,20 @@ instance Prelude.NFData SwitchoverReadReplica where
   rnf SwitchoverReadReplica' {..} =
     Prelude.rnf dbInstanceIdentifier
 
-instance Core.ToHeaders SwitchoverReadReplica where
+instance Data.ToHeaders SwitchoverReadReplica where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SwitchoverReadReplica where
+instance Data.ToPath SwitchoverReadReplica where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SwitchoverReadReplica where
+instance Data.ToQuery SwitchoverReadReplica where
   toQuery SwitchoverReadReplica' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SwitchoverReadReplica" :: Prelude.ByteString),
+          Data.=: ("SwitchoverReadReplica" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier
       ]
 
 -- | /See:/ 'newSwitchoverReadReplicaResponse' smart constructor.

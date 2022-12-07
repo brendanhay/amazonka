@@ -25,6 +25,7 @@ import Amazonka.AppFlow.Types.FlowStatus
 import Amazonka.AppFlow.Types.TriggerType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties of the flow, such as its source, destination, trigger
@@ -37,7 +38,7 @@ data FlowDefinition = FlowDefinition'
     -- | The label of the destination connector in the flow.
     destinationConnectorLabel :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the flow was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The specified name of the flow. Spaces are not allowed. Use underscores
     -- (_) or hyphens (-) only.
     flowName :: Prelude.Maybe Prelude.Text,
@@ -63,7 +64,7 @@ data FlowDefinition = FlowDefinition'
     -- | The flow\'s Amazon Resource Name (ARN).
     flowArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the flow was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Specifies the account user name that most recently updated the flow.
     lastUpdatedBy :: Prelude.Maybe Prelude.Text
   }
@@ -141,7 +142,7 @@ flowDefinition_destinationConnectorLabel = Lens.lens (\FlowDefinition' {destinat
 
 -- | Specifies when the flow was last updated.
 flowDefinition_lastUpdatedAt :: Lens.Lens' FlowDefinition (Prelude.Maybe Prelude.UTCTime)
-flowDefinition_lastUpdatedAt = Lens.lens (\FlowDefinition' {lastUpdatedAt} -> lastUpdatedAt) (\s@FlowDefinition' {} a -> s {lastUpdatedAt = a} :: FlowDefinition) Prelude.. Lens.mapping Core._Time
+flowDefinition_lastUpdatedAt = Lens.lens (\FlowDefinition' {lastUpdatedAt} -> lastUpdatedAt) (\s@FlowDefinition' {} a -> s {lastUpdatedAt = a} :: FlowDefinition) Prelude.. Lens.mapping Data._Time
 
 -- | The specified name of the flow. Spaces are not allowed. Use underscores
 -- (_) or hyphens (-) only.
@@ -189,33 +190,33 @@ flowDefinition_flowArn = Lens.lens (\FlowDefinition' {flowArn} -> flowArn) (\s@F
 
 -- | Specifies when the flow was created.
 flowDefinition_createdAt :: Lens.Lens' FlowDefinition (Prelude.Maybe Prelude.UTCTime)
-flowDefinition_createdAt = Lens.lens (\FlowDefinition' {createdAt} -> createdAt) (\s@FlowDefinition' {} a -> s {createdAt = a} :: FlowDefinition) Prelude.. Lens.mapping Core._Time
+flowDefinition_createdAt = Lens.lens (\FlowDefinition' {createdAt} -> createdAt) (\s@FlowDefinition' {} a -> s {createdAt = a} :: FlowDefinition) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the account user name that most recently updated the flow.
 flowDefinition_lastUpdatedBy :: Lens.Lens' FlowDefinition (Prelude.Maybe Prelude.Text)
 flowDefinition_lastUpdatedBy = Lens.lens (\FlowDefinition' {lastUpdatedBy} -> lastUpdatedBy) (\s@FlowDefinition' {} a -> s {lastUpdatedBy = a} :: FlowDefinition)
 
-instance Core.FromJSON FlowDefinition where
+instance Data.FromJSON FlowDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FlowDefinition"
       ( \x ->
           FlowDefinition'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "destinationConnectorLabel")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "flowName")
-            Prelude.<*> (x Core..:? "sourceConnectorLabel")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "sourceConnectorType")
-            Prelude.<*> (x Core..:? "lastRunExecutionDetails")
-            Prelude.<*> (x Core..:? "flowStatus")
-            Prelude.<*> (x Core..:? "triggerType")
-            Prelude.<*> (x Core..:? "destinationConnectorType")
-            Prelude.<*> (x Core..:? "createdBy")
-            Prelude.<*> (x Core..:? "flowArn")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "lastUpdatedBy")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "destinationConnectorLabel")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "flowName")
+            Prelude.<*> (x Data..:? "sourceConnectorLabel")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "sourceConnectorType")
+            Prelude.<*> (x Data..:? "lastRunExecutionDetails")
+            Prelude.<*> (x Data..:? "flowStatus")
+            Prelude.<*> (x Data..:? "triggerType")
+            Prelude.<*> (x Data..:? "destinationConnectorType")
+            Prelude.<*> (x Data..:? "createdBy")
+            Prelude.<*> (x Data..:? "flowArn")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "lastUpdatedBy")
       )
 
 instance Prelude.Hashable FlowDefinition where

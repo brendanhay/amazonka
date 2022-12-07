@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.CreateVehicleError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An HTTP error resulting from creating a vehicle.
@@ -70,15 +71,15 @@ createVehicleError_code = Lens.lens (\CreateVehicleError' {code} -> code) (\s@Cr
 createVehicleError_vehicleName :: Lens.Lens' CreateVehicleError (Prelude.Maybe Prelude.Text)
 createVehicleError_vehicleName = Lens.lens (\CreateVehicleError' {vehicleName} -> vehicleName) (\s@CreateVehicleError' {} a -> s {vehicleName = a} :: CreateVehicleError)
 
-instance Core.FromJSON CreateVehicleError where
+instance Data.FromJSON CreateVehicleError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CreateVehicleError"
       ( \x ->
           CreateVehicleError'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "vehicleName")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "vehicleName")
       )
 
 instance Prelude.Hashable CreateVehicleError where

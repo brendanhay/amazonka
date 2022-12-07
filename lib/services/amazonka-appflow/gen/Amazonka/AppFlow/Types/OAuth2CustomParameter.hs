@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.OAuth2CustomParameter where
 import Amazonka.AppFlow.Types.OAuth2CustomPropType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Custom parameter required for OAuth 2.0 authentication.
@@ -119,21 +120,21 @@ oAuth2CustomParameter_isSensitiveField = Lens.lens (\OAuth2CustomParameter' {isS
 oAuth2CustomParameter_isRequired :: Lens.Lens' OAuth2CustomParameter (Prelude.Maybe Prelude.Bool)
 oAuth2CustomParameter_isRequired = Lens.lens (\OAuth2CustomParameter' {isRequired} -> isRequired) (\s@OAuth2CustomParameter' {} a -> s {isRequired = a} :: OAuth2CustomParameter)
 
-instance Core.FromJSON OAuth2CustomParameter where
+instance Data.FromJSON OAuth2CustomParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OAuth2CustomParameter"
       ( \x ->
           OAuth2CustomParameter'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> ( x Core..:? "connectorSuppliedValues"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> ( x Data..:? "connectorSuppliedValues"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "label")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "isSensitiveField")
-            Prelude.<*> (x Core..:? "isRequired")
+            Prelude.<*> (x Data..:? "label")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "isSensitiveField")
+            Prelude.<*> (x Data..:? "isRequired")
       )
 
 instance Prelude.Hashable OAuth2CustomParameter where

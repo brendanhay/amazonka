@@ -21,6 +21,7 @@ module Amazonka.Location.Types.Step where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an element of a leg within a route. A step contains
@@ -44,10 +45,10 @@ data Step = Step'
     durationSeconds :: Prelude.Double,
     -- | The end position of a step. If the position the last step in the leg,
     -- this position is the same as the end position of the leg.
-    endPosition :: Core.Sensitive (Prelude.NonEmpty Prelude.Double),
+    endPosition :: Data.Sensitive (Prelude.NonEmpty Prelude.Double),
     -- | The starting position of a step. If the position is the first step in
     -- the leg, this position is the same as the start position of the leg.
-    startPosition :: Core.Sensitive (Prelude.NonEmpty Prelude.Double)
+    startPosition :: Data.Sensitive (Prelude.NonEmpty Prelude.Double)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -98,10 +99,10 @@ newStep
         distance = pDistance_,
         durationSeconds = pDurationSeconds_,
         endPosition =
-          Core._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive Prelude.. Lens.coerced
             Lens.# pEndPosition_,
         startPosition =
-          Core._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive Prelude.. Lens.coerced
             Lens.# pStartPosition_
       }
 
@@ -128,24 +129,24 @@ step_durationSeconds = Lens.lens (\Step' {durationSeconds} -> durationSeconds) (
 -- | The end position of a step. If the position the last step in the leg,
 -- this position is the same as the end position of the leg.
 step_endPosition :: Lens.Lens' Step (Prelude.NonEmpty Prelude.Double)
-step_endPosition = Lens.lens (\Step' {endPosition} -> endPosition) (\s@Step' {} a -> s {endPosition = a} :: Step) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+step_endPosition = Lens.lens (\Step' {endPosition} -> endPosition) (\s@Step' {} a -> s {endPosition = a} :: Step) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 -- | The starting position of a step. If the position is the first step in
 -- the leg, this position is the same as the start position of the leg.
 step_startPosition :: Lens.Lens' Step (Prelude.NonEmpty Prelude.Double)
-step_startPosition = Lens.lens (\Step' {startPosition} -> startPosition) (\s@Step' {} a -> s {startPosition = a} :: Step) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+step_startPosition = Lens.lens (\Step' {startPosition} -> startPosition) (\s@Step' {} a -> s {startPosition = a} :: Step) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
-instance Core.FromJSON Step where
+instance Data.FromJSON Step where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Step"
       ( \x ->
           Step'
-            Prelude.<$> (x Core..:? "GeometryOffset")
-            Prelude.<*> (x Core..: "Distance")
-            Prelude.<*> (x Core..: "DurationSeconds")
-            Prelude.<*> (x Core..: "EndPosition")
-            Prelude.<*> (x Core..: "StartPosition")
+            Prelude.<$> (x Data..:? "GeometryOffset")
+            Prelude.<*> (x Data..: "Distance")
+            Prelude.<*> (x Data..: "DurationSeconds")
+            Prelude.<*> (x Data..: "EndPosition")
+            Prelude.<*> (x Data..: "StartPosition")
       )
 
 instance Prelude.Hashable Step where

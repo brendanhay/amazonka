@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,27 +104,27 @@ instance Core.AWSRequest DescribeDomain where
       ( \s h x ->
           DescribeDomainResponse'
             Prelude.<$> ( x
-                            Core..?> "SingleSignOnManagedApplicationInstanceId"
+                            Data..?> "SingleSignOnManagedApplicationInstanceId"
                         )
-            Prelude.<*> (x Core..?> "DomainName")
-            Prelude.<*> (x Core..?> "DomainArn")
-            Prelude.<*> (x Core..?> "Url")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "DomainSettings")
-            Prelude.<*> (x Core..?> "AuthMode")
-            Prelude.<*> (x Core..?> "SecurityGroupIdForDomainBoundary")
-            Prelude.<*> (x Core..?> "KmsKeyId")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "DomainId")
-            Prelude.<*> (x Core..?> "DefaultUserSettings")
-            Prelude.<*> (x Core..?> "VpcId")
-            Prelude.<*> (x Core..?> "HomeEfsFileSystemKmsKeyId")
-            Prelude.<*> (x Core..?> "AppSecurityGroupManagement")
-            Prelude.<*> (x Core..?> "SubnetIds")
-            Prelude.<*> (x Core..?> "FailureReason")
-            Prelude.<*> (x Core..?> "AppNetworkAccessType")
-            Prelude.<*> (x Core..?> "HomeEfsFileSystemId")
+            Prelude.<*> (x Data..?> "DomainName")
+            Prelude.<*> (x Data..?> "DomainArn")
+            Prelude.<*> (x Data..?> "Url")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "DomainSettings")
+            Prelude.<*> (x Data..?> "AuthMode")
+            Prelude.<*> (x Data..?> "SecurityGroupIdForDomainBoundary")
+            Prelude.<*> (x Data..?> "KmsKeyId")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "DomainId")
+            Prelude.<*> (x Data..?> "DefaultUserSettings")
+            Prelude.<*> (x Data..?> "VpcId")
+            Prelude.<*> (x Data..?> "HomeEfsFileSystemKmsKeyId")
+            Prelude.<*> (x Data..?> "AppSecurityGroupManagement")
+            Prelude.<*> (x Data..?> "SubnetIds")
+            Prelude.<*> (x Data..?> "FailureReason")
+            Prelude.<*> (x Data..?> "AppNetworkAccessType")
+            Prelude.<*> (x Data..?> "HomeEfsFileSystemId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,30 +135,30 @@ instance Prelude.Hashable DescribeDomain where
 instance Prelude.NFData DescribeDomain where
   rnf DescribeDomain' {..} = Prelude.rnf domainId
 
-instance Core.ToHeaders DescribeDomain where
+instance Data.ToHeaders DescribeDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeDomain" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DescribeDomain" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDomain where
+instance Data.ToJSON DescribeDomain where
   toJSON DescribeDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DomainId" Core..= domainId)]
+          [Prelude.Just ("DomainId" Data..= domainId)]
       )
 
-instance Core.ToPath DescribeDomain where
+instance Data.ToPath DescribeDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDomain where
+instance Data.ToQuery DescribeDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDomainResponse' smart constructor.
@@ -173,7 +174,7 @@ data DescribeDomainResponse = DescribeDomainResponse'
     -- | The status.
     status :: Prelude.Maybe DomainStatus,
     -- | The last modified time.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | A collection of @Domain@ settings.
     domainSettings :: Prelude.Maybe DomainSettings,
     -- | The domain\'s authentication mode.
@@ -185,7 +186,7 @@ data DescribeDomainResponse = DescribeDomainResponse'
     -- volume attached to the domain.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The creation time.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The domain ID.
     domainId :: Prelude.Maybe Prelude.Text,
     -- | Settings which are applied to UserProfiles in this domain if settings
@@ -338,7 +339,7 @@ describeDomainResponse_status = Lens.lens (\DescribeDomainResponse' {status} -> 
 
 -- | The last modified time.
 describeDomainResponse_lastModifiedTime :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.UTCTime)
-describeDomainResponse_lastModifiedTime = Lens.lens (\DescribeDomainResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeDomainResponse' {} a -> s {lastModifiedTime = a} :: DescribeDomainResponse) Prelude.. Lens.mapping Core._Time
+describeDomainResponse_lastModifiedTime = Lens.lens (\DescribeDomainResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeDomainResponse' {} a -> s {lastModifiedTime = a} :: DescribeDomainResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A collection of @Domain@ settings.
 describeDomainResponse_domainSettings :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe DomainSettings)
@@ -360,7 +361,7 @@ describeDomainResponse_kmsKeyId = Lens.lens (\DescribeDomainResponse' {kmsKeyId}
 
 -- | The creation time.
 describeDomainResponse_creationTime :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.UTCTime)
-describeDomainResponse_creationTime = Lens.lens (\DescribeDomainResponse' {creationTime} -> creationTime) (\s@DescribeDomainResponse' {} a -> s {creationTime = a} :: DescribeDomainResponse) Prelude.. Lens.mapping Core._Time
+describeDomainResponse_creationTime = Lens.lens (\DescribeDomainResponse' {creationTime} -> creationTime) (\s@DescribeDomainResponse' {} a -> s {creationTime = a} :: DescribeDomainResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The domain ID.
 describeDomainResponse_domainId :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)

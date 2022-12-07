@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,23 +90,23 @@ instance Prelude.NFData DeleteReadinessCheck where
   rnf DeleteReadinessCheck' {..} =
     Prelude.rnf readinessCheckName
 
-instance Core.ToHeaders DeleteReadinessCheck where
+instance Data.ToHeaders DeleteReadinessCheck where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteReadinessCheck where
+instance Data.ToPath DeleteReadinessCheck where
   toPath DeleteReadinessCheck' {..} =
     Prelude.mconcat
-      ["/readinesschecks/", Core.toBS readinessCheckName]
+      ["/readinesschecks/", Data.toBS readinessCheckName]
 
-instance Core.ToQuery DeleteReadinessCheck where
+instance Data.ToQuery DeleteReadinessCheck where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteReadinessCheckResponse' smart constructor.

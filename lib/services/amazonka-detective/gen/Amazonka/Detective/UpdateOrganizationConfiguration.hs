@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,34 +120,34 @@ instance
       `Prelude.seq` Prelude.rnf graphArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateOrganizationConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateOrganizationConfiguration where
+instance Data.ToJSON UpdateOrganizationConfiguration where
   toJSON UpdateOrganizationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AutoEnable" Core..=) Prelude.<$> autoEnable,
-            Prelude.Just ("GraphArn" Core..= graphArn)
+          [ ("AutoEnable" Data..=) Prelude.<$> autoEnable,
+            Prelude.Just ("GraphArn" Data..= graphArn)
           ]
       )
 
-instance Core.ToPath UpdateOrganizationConfiguration where
+instance Data.ToPath UpdateOrganizationConfiguration where
   toPath =
     Prelude.const
       "/orgs/updateOrganizationConfiguration"
 
-instance Core.ToQuery UpdateOrganizationConfiguration where
+instance Data.ToQuery UpdateOrganizationConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateOrganizationConfigurationResponse' smart constructor.

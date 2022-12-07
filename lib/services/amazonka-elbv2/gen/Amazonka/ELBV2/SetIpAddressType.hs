@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,7 +107,7 @@ instance Core.AWSRequest SetIpAddressType where
       "SetIpAddressTypeResult"
       ( \s h x ->
           SetIpAddressTypeResponse'
-            Prelude.<$> (x Core..@? "IpAddressType")
+            Prelude.<$> (x Data..@? "IpAddressType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,21 +121,21 @@ instance Prelude.NFData SetIpAddressType where
     Prelude.rnf loadBalancerArn
       `Prelude.seq` Prelude.rnf ipAddressType
 
-instance Core.ToHeaders SetIpAddressType where
+instance Data.ToHeaders SetIpAddressType where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SetIpAddressType where
+instance Data.ToPath SetIpAddressType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetIpAddressType where
+instance Data.ToQuery SetIpAddressType where
   toQuery SetIpAddressType' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SetIpAddressType" :: Prelude.ByteString),
+          Data.=: ("SetIpAddressType" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "LoadBalancerArn" Core.=: loadBalancerArn,
-        "IpAddressType" Core.=: ipAddressType
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "LoadBalancerArn" Data.=: loadBalancerArn,
+        "IpAddressType" Data.=: ipAddressType
       ]
 
 -- | /See:/ 'newSetIpAddressTypeResponse' smart constructor.

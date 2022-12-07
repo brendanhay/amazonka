@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest DescribeRoleAlias where
     Response.receiveJSON
       ( \s h x ->
           DescribeRoleAliasResponse'
-            Prelude.<$> (x Core..?> "roleAliasDescription")
+            Prelude.<$> (x Data..?> "roleAliasDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,15 +99,15 @@ instance Prelude.Hashable DescribeRoleAlias where
 instance Prelude.NFData DescribeRoleAlias where
   rnf DescribeRoleAlias' {..} = Prelude.rnf roleAlias
 
-instance Core.ToHeaders DescribeRoleAlias where
+instance Data.ToHeaders DescribeRoleAlias where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeRoleAlias where
+instance Data.ToPath DescribeRoleAlias where
   toPath DescribeRoleAlias' {..} =
     Prelude.mconcat
-      ["/role-aliases/", Core.toBS roleAlias]
+      ["/role-aliases/", Data.toBS roleAlias]
 
-instance Core.ToQuery DescribeRoleAlias where
+instance Data.ToQuery DescribeRoleAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRoleAliasResponse' smart constructor.

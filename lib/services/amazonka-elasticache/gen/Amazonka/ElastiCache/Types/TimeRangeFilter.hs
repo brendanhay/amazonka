@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.TimeRangeFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters update actions from the service updates that are in available
@@ -29,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTimeRangeFilter' smart constructor.
 data TimeRangeFilter = TimeRangeFilter'
   { -- | The end time of the time range filter
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The start time of the time range filter
-    startTime :: Prelude.Maybe Core.ISO8601
+    startTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,11 +57,11 @@ newTimeRangeFilter =
 
 -- | The end time of the time range filter
 timeRangeFilter_endTime :: Lens.Lens' TimeRangeFilter (Prelude.Maybe Prelude.UTCTime)
-timeRangeFilter_endTime = Lens.lens (\TimeRangeFilter' {endTime} -> endTime) (\s@TimeRangeFilter' {} a -> s {endTime = a} :: TimeRangeFilter) Prelude.. Lens.mapping Core._Time
+timeRangeFilter_endTime = Lens.lens (\TimeRangeFilter' {endTime} -> endTime) (\s@TimeRangeFilter' {} a -> s {endTime = a} :: TimeRangeFilter) Prelude.. Lens.mapping Data._Time
 
 -- | The start time of the time range filter
 timeRangeFilter_startTime :: Lens.Lens' TimeRangeFilter (Prelude.Maybe Prelude.UTCTime)
-timeRangeFilter_startTime = Lens.lens (\TimeRangeFilter' {startTime} -> startTime) (\s@TimeRangeFilter' {} a -> s {startTime = a} :: TimeRangeFilter) Prelude.. Lens.mapping Core._Time
+timeRangeFilter_startTime = Lens.lens (\TimeRangeFilter' {startTime} -> startTime) (\s@TimeRangeFilter' {} a -> s {startTime = a} :: TimeRangeFilter) Prelude.. Lens.mapping Data._Time
 
 instance Prelude.Hashable TimeRangeFilter where
   hashWithSalt _salt TimeRangeFilter' {..} =
@@ -72,9 +73,9 @@ instance Prelude.NFData TimeRangeFilter where
     Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToQuery TimeRangeFilter where
+instance Data.ToQuery TimeRangeFilter where
   toQuery TimeRangeFilter' {..} =
     Prelude.mconcat
-      [ "EndTime" Core.=: endTime,
-        "StartTime" Core.=: startTime
+      [ "EndTime" Data.=: endTime,
+        "StartTime" Data.=: startTime
       ]

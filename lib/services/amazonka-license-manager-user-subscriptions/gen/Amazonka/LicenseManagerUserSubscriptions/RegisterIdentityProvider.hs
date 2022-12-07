@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManagerUserSubscriptions.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,7 +102,7 @@ instance Core.AWSRequest RegisterIdentityProvider where
       ( \s h x ->
           RegisterIdentityProviderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "IdentityProviderSummary")
+            Prelude.<*> (x Data..:> "IdentityProviderSummary")
       )
 
 instance Prelude.Hashable RegisterIdentityProvider where
@@ -114,33 +115,33 @@ instance Prelude.NFData RegisterIdentityProvider where
     Prelude.rnf identityProvider
       `Prelude.seq` Prelude.rnf product
 
-instance Core.ToHeaders RegisterIdentityProvider where
+instance Data.ToHeaders RegisterIdentityProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterIdentityProvider where
+instance Data.ToJSON RegisterIdentityProvider where
   toJSON RegisterIdentityProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("IdentityProvider" Core..= identityProvider),
-            Prelude.Just ("Product" Core..= product)
+              ("IdentityProvider" Data..= identityProvider),
+            Prelude.Just ("Product" Data..= product)
           ]
       )
 
-instance Core.ToPath RegisterIdentityProvider where
+instance Data.ToPath RegisterIdentityProvider where
   toPath =
     Prelude.const
       "/identity-provider/RegisterIdentityProvider"
 
-instance Core.ToQuery RegisterIdentityProvider where
+instance Data.ToQuery RegisterIdentityProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterIdentityProviderResponse' smart constructor.

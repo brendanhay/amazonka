@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VCpuInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -92,19 +93,19 @@ vCpuInfo_validCores = Lens.lens (\VCpuInfo' {validCores} -> validCores) (\s@VCpu
 vCpuInfo_defaultThreadsPerCore :: Lens.Lens' VCpuInfo (Prelude.Maybe Prelude.Int)
 vCpuInfo_defaultThreadsPerCore = Lens.lens (\VCpuInfo' {defaultThreadsPerCore} -> defaultThreadsPerCore) (\s@VCpuInfo' {} a -> s {defaultThreadsPerCore = a} :: VCpuInfo)
 
-instance Core.FromXML VCpuInfo where
+instance Data.FromXML VCpuInfo where
   parseXML x =
     VCpuInfo'
-      Prelude.<$> ( x Core..@? "validThreadsPerCore"
+      Prelude.<$> ( x Data..@? "validThreadsPerCore"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "defaultCores")
-      Prelude.<*> (x Core..@? "defaultVCpus")
-      Prelude.<*> ( x Core..@? "validCores" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "defaultCores")
+      Prelude.<*> (x Data..@? "defaultVCpus")
+      Prelude.<*> ( x Data..@? "validCores" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "defaultThreadsPerCore")
+      Prelude.<*> (x Data..@? "defaultThreadsPerCore")
 
 instance Prelude.Hashable VCpuInfo where
   hashWithSalt _salt VCpuInfo' {..} =

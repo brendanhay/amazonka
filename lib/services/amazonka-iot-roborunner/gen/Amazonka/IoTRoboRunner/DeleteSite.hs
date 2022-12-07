@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTRoboRunner.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,26 +89,26 @@ instance Prelude.Hashable DeleteSite where
 instance Prelude.NFData DeleteSite where
   rnf DeleteSite' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteSite where
+instance Data.ToHeaders DeleteSite where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSite where
+instance Data.ToJSON DeleteSite where
   toJSON DeleteSite' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("id" Data..= id)])
 
-instance Core.ToPath DeleteSite where
+instance Data.ToPath DeleteSite where
   toPath = Prelude.const "/deleteSite"
 
-instance Core.ToQuery DeleteSite where
+instance Data.ToQuery DeleteSite where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSiteResponse' smart constructor.

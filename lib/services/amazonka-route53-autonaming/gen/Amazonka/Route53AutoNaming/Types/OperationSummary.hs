@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.OperationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.OperationStatus
 
@@ -95,13 +96,13 @@ operationSummary_status = Lens.lens (\OperationSummary' {status} -> status) (\s@
 operationSummary_id :: Lens.Lens' OperationSummary (Prelude.Maybe Prelude.Text)
 operationSummary_id = Lens.lens (\OperationSummary' {id} -> id) (\s@OperationSummary' {} a -> s {id = a} :: OperationSummary)
 
-instance Core.FromJSON OperationSummary where
+instance Data.FromJSON OperationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OperationSummary"
       ( \x ->
           OperationSummary'
-            Prelude.<$> (x Core..:? "Status") Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Status") Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable OperationSummary where

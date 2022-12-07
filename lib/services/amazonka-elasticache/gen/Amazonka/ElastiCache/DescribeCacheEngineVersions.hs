@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -237,10 +238,10 @@ instance Core.AWSRequest DescribeCacheEngineVersions where
       "DescribeCacheEngineVersionsResult"
       ( \s h x ->
           DescribeCacheEngineVersionsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "CacheEngineVersions"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "CacheEngineVersions"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "CacheEngineVersion")
+                            Prelude.>>= Core.may (Data.parseXMLList "CacheEngineVersion")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -263,28 +264,28 @@ instance Prelude.NFData DescribeCacheEngineVersions where
       `Prelude.seq` Prelude.rnf cacheParameterGroupFamily
       `Prelude.seq` Prelude.rnf engineVersion
 
-instance Core.ToHeaders DescribeCacheEngineVersions where
+instance Data.ToHeaders DescribeCacheEngineVersions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeCacheEngineVersions where
+instance Data.ToPath DescribeCacheEngineVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCacheEngineVersions where
+instance Data.ToQuery DescribeCacheEngineVersions where
   toQuery DescribeCacheEngineVersions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeCacheEngineVersions" ::
+          Data.=: ( "DescribeCacheEngineVersions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords,
-        "DefaultOnly" Core.=: defaultOnly,
-        "Engine" Core.=: engine,
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
+        "DefaultOnly" Data.=: defaultOnly,
+        "Engine" Data.=: engine,
         "CacheParameterGroupFamily"
-          Core.=: cacheParameterGroupFamily,
-        "EngineVersion" Core.=: engineVersion
+          Data.=: cacheParameterGroupFamily,
+        "EngineVersion" Data.=: engineVersion
       ]
 
 -- | Represents the output of a DescribeCacheEngineVersions operation.

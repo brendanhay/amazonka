@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,19 +118,19 @@ instance Core.AWSRequest GetSchema where
     Response.receiveJSON
       ( \s h x ->
           GetSchemaResponse'
-            Prelude.<$> (x Core..?> "Compatibility")
-            Prelude.<*> (x Core..?> "RegistryName")
-            Prelude.<*> (x Core..?> "CreatedTime")
-            Prelude.<*> (x Core..?> "SchemaStatus")
-            Prelude.<*> (x Core..?> "DataFormat")
-            Prelude.<*> (x Core..?> "SchemaName")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "SchemaArn")
-            Prelude.<*> (x Core..?> "RegistryArn")
-            Prelude.<*> (x Core..?> "NextSchemaVersion")
-            Prelude.<*> (x Core..?> "SchemaCheckpoint")
-            Prelude.<*> (x Core..?> "LatestSchemaVersion")
-            Prelude.<*> (x Core..?> "UpdatedTime")
+            Prelude.<$> (x Data..?> "Compatibility")
+            Prelude.<*> (x Data..?> "RegistryName")
+            Prelude.<*> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "SchemaStatus")
+            Prelude.<*> (x Data..?> "DataFormat")
+            Prelude.<*> (x Data..?> "SchemaName")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "SchemaArn")
+            Prelude.<*> (x Data..?> "RegistryArn")
+            Prelude.<*> (x Data..?> "NextSchemaVersion")
+            Prelude.<*> (x Data..?> "SchemaCheckpoint")
+            Prelude.<*> (x Data..?> "LatestSchemaVersion")
+            Prelude.<*> (x Data..?> "UpdatedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,30 +141,30 @@ instance Prelude.Hashable GetSchema where
 instance Prelude.NFData GetSchema where
   rnf GetSchema' {..} = Prelude.rnf schemaId
 
-instance Core.ToHeaders GetSchema where
+instance Data.ToHeaders GetSchema where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetSchema" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetSchema" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSchema where
+instance Data.ToJSON GetSchema where
   toJSON GetSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SchemaId" Core..= schemaId)]
+          [Prelude.Just ("SchemaId" Data..= schemaId)]
       )
 
-instance Core.ToPath GetSchema where
+instance Data.ToPath GetSchema where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSchema where
+instance Data.ToQuery GetSchema where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSchemaResponse' smart constructor.

@@ -100,6 +100,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -252,10 +253,10 @@ instance Core.AWSRequest TransactWriteItems where
     Response.receiveJSON
       ( \s h x ->
           TransactWriteItemsResponse'
-            Prelude.<$> ( x Core..?> "ConsumedCapacity"
+            Prelude.<$> ( x Data..?> "ConsumedCapacity"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "ItemCollectionMetrics"
+            Prelude.<*> ( x Data..?> "ItemCollectionMetrics"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -275,40 +276,40 @@ instance Prelude.NFData TransactWriteItems where
       `Prelude.seq` Prelude.rnf returnItemCollectionMetrics
       `Prelude.seq` Prelude.rnf transactItems
 
-instance Core.ToHeaders TransactWriteItems where
+instance Data.ToHeaders TransactWriteItems where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.TransactWriteItems" ::
+              Data.=# ( "DynamoDB_20120810.TransactWriteItems" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TransactWriteItems where
+instance Data.ToJSON TransactWriteItems where
   toJSON TransactWriteItems' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("ReturnConsumedCapacity" Core..=)
+            ("ReturnConsumedCapacity" Data..=)
               Prelude.<$> returnConsumedCapacity,
-            ("ReturnItemCollectionMetrics" Core..=)
+            ("ReturnItemCollectionMetrics" Data..=)
               Prelude.<$> returnItemCollectionMetrics,
             Prelude.Just
-              ("TransactItems" Core..= transactItems)
+              ("TransactItems" Data..= transactItems)
           ]
       )
 
-instance Core.ToPath TransactWriteItems where
+instance Data.ToPath TransactWriteItems where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TransactWriteItems where
+instance Data.ToQuery TransactWriteItems where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTransactWriteItemsResponse' smart constructor.

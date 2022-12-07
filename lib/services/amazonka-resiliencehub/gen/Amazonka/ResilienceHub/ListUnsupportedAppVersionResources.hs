@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -155,10 +156,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListUnsupportedAppVersionResourcesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "resolutionId")
-              Prelude.<*> ( x Core..?> "unsupportedResources"
+              Prelude.<*> (x Data..:> "resolutionId")
+              Prelude.<*> ( x Data..?> "unsupportedResources"
                               Core..!@ Prelude.mempty
                           )
       )
@@ -188,36 +189,36 @@ instance
       `Prelude.seq` Prelude.rnf appVersion
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListUnsupportedAppVersionResources
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListUnsupportedAppVersionResources
   where
   toJSON ListUnsupportedAppVersionResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("resolutionId" Core..=) Prelude.<$> resolutionId,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("appArn" Core..= appArn),
-            Prelude.Just ("appVersion" Core..= appVersion)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("resolutionId" Data..=) Prelude.<$> resolutionId,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("appArn" Data..= appArn),
+            Prelude.Just ("appVersion" Data..= appVersion)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListUnsupportedAppVersionResources
   where
   toPath =
@@ -225,7 +226,7 @@ instance
       "/list-unsupported-app-version-resources"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListUnsupportedAppVersionResources
   where
   toQuery = Prelude.const Prelude.mempty

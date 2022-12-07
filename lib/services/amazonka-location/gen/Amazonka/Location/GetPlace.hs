@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -170,7 +171,7 @@ instance Core.AWSRequest GetPlace where
       ( \s h x ->
           GetPlaceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Place")
+            Prelude.<*> (x Data..:> "Place")
       )
 
 instance Prelude.Hashable GetPlace where
@@ -185,29 +186,29 @@ instance Prelude.NFData GetPlace where
       `Prelude.seq` Prelude.rnf indexName
       `Prelude.seq` Prelude.rnf placeId
 
-instance Core.ToHeaders GetPlace where
+instance Data.ToHeaders GetPlace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetPlace where
+instance Data.ToPath GetPlace where
   toPath GetPlace' {..} =
     Prelude.mconcat
       [ "/places/v0/indexes/",
-        Core.toBS indexName,
+        Data.toBS indexName,
         "/places/",
-        Core.toBS placeId
+        Data.toBS placeId
       ]
 
-instance Core.ToQuery GetPlace where
+instance Data.ToQuery GetPlace where
   toQuery GetPlace' {..} =
-    Prelude.mconcat ["language" Core.=: language]
+    Prelude.mconcat ["language" Data.=: language]
 
 -- | /See:/ 'newGetPlaceResponse' smart constructor.
 data GetPlaceResponse = GetPlaceResponse'

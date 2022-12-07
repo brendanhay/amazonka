@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,10 +135,10 @@ instance Core.AWSRequest GetServers where
     Response.receiveJSON
       ( \s h x ->
           GetServersResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "lastModifiedOn")
-            Prelude.<*> (x Core..?> "serverCatalogStatus")
-            Prelude.<*> (x Core..?> "serverList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "lastModifiedOn")
+            Prelude.<*> (x Data..?> "serverCatalogStatus")
+            Prelude.<*> (x Data..?> "serverList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,36 +154,36 @@ instance Prelude.NFData GetServers where
       `Prelude.seq` Prelude.rnf vmServerAddressList
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders GetServers where
+instance Data.ToHeaders GetServers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.GetServers" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.GetServers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetServers where
+instance Data.ToJSON GetServers where
   toJSON GetServers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("vmServerAddressList" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("vmServerAddressList" Data..=)
               Prelude.<$> vmServerAddressList,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath GetServers where
+instance Data.ToPath GetServers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetServers where
+instance Data.ToQuery GetServers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetServersResponse' smart constructor.
@@ -191,7 +192,7 @@ data GetServersResponse = GetServersResponse'
     -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The time when the server was last modified.
-    lastModifiedOn :: Prelude.Maybe Core.POSIX,
+    lastModifiedOn :: Prelude.Maybe Data.POSIX,
     -- | The status of the server catalog.
     serverCatalogStatus :: Prelude.Maybe ServerCatalogStatus,
     -- | Information about the servers.
@@ -239,7 +240,7 @@ getServersResponse_nextToken = Lens.lens (\GetServersResponse' {nextToken} -> ne
 
 -- | The time when the server was last modified.
 getServersResponse_lastModifiedOn :: Lens.Lens' GetServersResponse (Prelude.Maybe Prelude.UTCTime)
-getServersResponse_lastModifiedOn = Lens.lens (\GetServersResponse' {lastModifiedOn} -> lastModifiedOn) (\s@GetServersResponse' {} a -> s {lastModifiedOn = a} :: GetServersResponse) Prelude.. Lens.mapping Core._Time
+getServersResponse_lastModifiedOn = Lens.lens (\GetServersResponse' {lastModifiedOn} -> lastModifiedOn) (\s@GetServersResponse' {} a -> s {lastModifiedOn = a} :: GetServersResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the server catalog.
 getServersResponse_serverCatalogStatus :: Lens.Lens' GetServersResponse (Prelude.Maybe ServerCatalogStatus)

@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.CreateAssociationBatchRequestEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AlarmConfiguration
 import Amazonka.SSM.Types.AssociationComplianceSeverity
@@ -125,7 +126,7 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     -- | The document version.
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | A description of the parameters for a document.
-    parameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text])),
+    parameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text])),
     -- | The name of the SSM document that contains the configuration information
     -- for the managed node. You can specify Command or Automation runbooks.
     --
@@ -426,7 +427,7 @@ createAssociationBatchRequestEntry_documentVersion = Lens.lens (\CreateAssociati
 
 -- | A description of the parameters for a document.
 createAssociationBatchRequestEntry_parameters :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-createAssociationBatchRequestEntry_parameters = Lens.lens (\CreateAssociationBatchRequestEntry' {parameters} -> parameters) (\s@CreateAssociationBatchRequestEntry' {} a -> s {parameters = a} :: CreateAssociationBatchRequestEntry) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createAssociationBatchRequestEntry_parameters = Lens.lens (\CreateAssociationBatchRequestEntry' {parameters} -> parameters) (\s@CreateAssociationBatchRequestEntry' {} a -> s {parameters = a} :: CreateAssociationBatchRequestEntry) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the SSM document that contains the configuration information
 -- for the managed node. You can specify Command or Automation runbooks.
@@ -451,33 +452,33 @@ createAssociationBatchRequestEntry_name :: Lens.Lens' CreateAssociationBatchRequ
 createAssociationBatchRequestEntry_name = Lens.lens (\CreateAssociationBatchRequestEntry' {name} -> name) (\s@CreateAssociationBatchRequestEntry' {} a -> s {name = a} :: CreateAssociationBatchRequestEntry)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CreateAssociationBatchRequestEntry
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CreateAssociationBatchRequestEntry"
       ( \x ->
           CreateAssociationBatchRequestEntry'
-            Prelude.<$> (x Core..:? "AssociationName")
-            Prelude.<*> (x Core..:? "TargetLocations")
-            Prelude.<*> (x Core..:? "AutomationTargetParameterName")
-            Prelude.<*> (x Core..:? "TargetMaps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "OutputLocation")
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CalendarNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ScheduleExpression")
-            Prelude.<*> (x Core..:? "ScheduleOffset")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "AlarmConfiguration")
-            Prelude.<*> (x Core..:? "MaxConcurrency")
-            Prelude.<*> (x Core..:? "ApplyOnlyAtCronInterval")
-            Prelude.<*> (x Core..:? "MaxErrors")
-            Prelude.<*> (x Core..:? "ComplianceSeverity")
-            Prelude.<*> (x Core..:? "SyncCompliance")
-            Prelude.<*> (x Core..:? "DocumentVersion")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "AssociationName")
+            Prelude.<*> (x Data..:? "TargetLocations")
+            Prelude.<*> (x Data..:? "AutomationTargetParameterName")
+            Prelude.<*> (x Data..:? "TargetMaps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "OutputLocation")
+            Prelude.<*> (x Data..:? "Targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CalendarNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ScheduleExpression")
+            Prelude.<*> (x Data..:? "ScheduleOffset")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "AlarmConfiguration")
+            Prelude.<*> (x Data..:? "MaxConcurrency")
+            Prelude.<*> (x Data..:? "ApplyOnlyAtCronInterval")
+            Prelude.<*> (x Data..:? "MaxErrors")
+            Prelude.<*> (x Data..:? "ComplianceSeverity")
+            Prelude.<*> (x Data..:? "SyncCompliance")
+            Prelude.<*> (x Data..:? "DocumentVersion")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance
@@ -533,42 +534,42 @@ instance
       `Prelude.seq` Prelude.rnf name
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateAssociationBatchRequestEntry
   where
   toJSON CreateAssociationBatchRequestEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AssociationName" Core..=)
+          [ ("AssociationName" Data..=)
               Prelude.<$> associationName,
-            ("TargetLocations" Core..=)
+            ("TargetLocations" Data..=)
               Prelude.<$> targetLocations,
-            ("AutomationTargetParameterName" Core..=)
+            ("AutomationTargetParameterName" Data..=)
               Prelude.<$> automationTargetParameterName,
-            ("TargetMaps" Core..=) Prelude.<$> targetMaps,
-            ("OutputLocation" Core..=)
+            ("TargetMaps" Data..=) Prelude.<$> targetMaps,
+            ("OutputLocation" Data..=)
               Prelude.<$> outputLocation,
-            ("Targets" Core..=) Prelude.<$> targets,
-            ("CalendarNames" Core..=) Prelude.<$> calendarNames,
-            ("ScheduleExpression" Core..=)
+            ("Targets" Data..=) Prelude.<$> targets,
+            ("CalendarNames" Data..=) Prelude.<$> calendarNames,
+            ("ScheduleExpression" Data..=)
               Prelude.<$> scheduleExpression,
-            ("ScheduleOffset" Core..=)
+            ("ScheduleOffset" Data..=)
               Prelude.<$> scheduleOffset,
-            ("InstanceId" Core..=) Prelude.<$> instanceId,
-            ("AlarmConfiguration" Core..=)
+            ("InstanceId" Data..=) Prelude.<$> instanceId,
+            ("AlarmConfiguration" Data..=)
               Prelude.<$> alarmConfiguration,
-            ("MaxConcurrency" Core..=)
+            ("MaxConcurrency" Data..=)
               Prelude.<$> maxConcurrency,
-            ("ApplyOnlyAtCronInterval" Core..=)
+            ("ApplyOnlyAtCronInterval" Data..=)
               Prelude.<$> applyOnlyAtCronInterval,
-            ("MaxErrors" Core..=) Prelude.<$> maxErrors,
-            ("ComplianceSeverity" Core..=)
+            ("MaxErrors" Data..=) Prelude.<$> maxErrors,
+            ("ComplianceSeverity" Data..=)
               Prelude.<$> complianceSeverity,
-            ("SyncCompliance" Core..=)
+            ("SyncCompliance" Data..=)
               Prelude.<$> syncCompliance,
-            ("DocumentVersion" Core..=)
+            ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Name" Core..= name)
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

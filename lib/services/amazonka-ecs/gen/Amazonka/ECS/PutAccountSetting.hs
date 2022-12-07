@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -191,7 +192,7 @@ instance Core.AWSRequest PutAccountSetting where
     Response.receiveJSON
       ( \s h x ->
           PutAccountSettingResponse'
-            Prelude.<$> (x Core..?> "setting")
+            Prelude.<$> (x Data..?> "setting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -207,35 +208,35 @@ instance Prelude.NFData PutAccountSetting where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToHeaders PutAccountSetting where
+instance Data.ToHeaders PutAccountSetting where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.PutAccountSetting" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.PutAccountSetting" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutAccountSetting where
+instance Data.ToJSON PutAccountSetting where
   toJSON PutAccountSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("principalArn" Core..=) Prelude.<$> principalArn,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("value" Core..= value)
+          [ ("principalArn" Data..=) Prelude.<$> principalArn,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("value" Data..= value)
           ]
       )
 
-instance Core.ToPath PutAccountSetting where
+instance Data.ToPath PutAccountSetting where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutAccountSetting where
+instance Data.ToQuery PutAccountSetting where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAccountSettingResponse' smart constructor.

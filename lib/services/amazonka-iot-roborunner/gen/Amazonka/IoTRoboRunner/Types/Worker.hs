@@ -21,6 +21,7 @@ module Amazonka.IoTRoboRunner.Types.Worker where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTRoboRunner.Types.Orientation
 import Amazonka.IoTRoboRunner.Types.PositionCoordinates
 import Amazonka.IoTRoboRunner.Types.VendorProperties
@@ -38,8 +39,8 @@ data Worker = Worker'
     arn :: Prelude.Text,
     id :: Prelude.Text,
     fleet :: Prelude.Text,
-    createdAt :: Core.POSIX,
-    updatedAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
+    updatedAt :: Data.POSIX,
     name :: Prelude.Text,
     site :: Prelude.Text
   }
@@ -110,8 +111,8 @@ newWorker
         arn = pArn_,
         id = pId_,
         fleet = pFleet_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_,
         name = pName_,
         site = pSite_
       }
@@ -150,11 +151,11 @@ worker_fleet = Lens.lens (\Worker' {fleet} -> fleet) (\s@Worker' {} a -> s {flee
 
 -- | Undocumented member.
 worker_createdAt :: Lens.Lens' Worker Prelude.UTCTime
-worker_createdAt = Lens.lens (\Worker' {createdAt} -> createdAt) (\s@Worker' {} a -> s {createdAt = a} :: Worker) Prelude.. Core._Time
+worker_createdAt = Lens.lens (\Worker' {createdAt} -> createdAt) (\s@Worker' {} a -> s {createdAt = a} :: Worker) Prelude.. Data._Time
 
 -- | Undocumented member.
 worker_updatedAt :: Lens.Lens' Worker Prelude.UTCTime
-worker_updatedAt = Lens.lens (\Worker' {updatedAt} -> updatedAt) (\s@Worker' {} a -> s {updatedAt = a} :: Worker) Prelude.. Core._Time
+worker_updatedAt = Lens.lens (\Worker' {updatedAt} -> updatedAt) (\s@Worker' {} a -> s {updatedAt = a} :: Worker) Prelude.. Data._Time
 
 -- | Undocumented member.
 worker_name :: Lens.Lens' Worker Prelude.Text
@@ -164,24 +165,24 @@ worker_name = Lens.lens (\Worker' {name} -> name) (\s@Worker' {} a -> s {name = 
 worker_site :: Lens.Lens' Worker Prelude.Text
 worker_site = Lens.lens (\Worker' {site} -> site) (\s@Worker' {} a -> s {site = a} :: Worker)
 
-instance Core.FromJSON Worker where
+instance Data.FromJSON Worker where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Worker"
       ( \x ->
           Worker'
-            Prelude.<$> (x Core..:? "additionalTransientProperties")
-            Prelude.<*> (x Core..:? "orientation")
-            Prelude.<*> (x Core..:? "vendorProperties")
-            Prelude.<*> (x Core..:? "position")
-            Prelude.<*> (x Core..:? "additionalFixedProperties")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "fleet")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "updatedAt")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "site")
+            Prelude.<$> (x Data..:? "additionalTransientProperties")
+            Prelude.<*> (x Data..:? "orientation")
+            Prelude.<*> (x Data..:? "vendorProperties")
+            Prelude.<*> (x Data..:? "position")
+            Prelude.<*> (x Data..:? "additionalFixedProperties")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "fleet")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "updatedAt")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "site")
       )
 
 instance Prelude.Hashable Worker where

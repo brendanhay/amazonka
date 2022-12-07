@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.LogAnomalyClass where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.LogAnomalyType
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,7 @@ data LogAnomalyClass = LogAnomalyClass'
   { -- | The number of log lines where this anomalous log event occurs.
     numberOfLogLinesOccurrences :: Prelude.Maybe Prelude.Int,
     -- | The time of the first occurrence of the anomalous log event.
-    logEventTimestamp :: Prelude.Maybe Core.POSIX,
+    logEventTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The ID of the log event.
     logEventId :: Prelude.Maybe Prelude.Text,
     -- | The token where the anomaly was detected. This may refer to an exception
@@ -94,7 +95,7 @@ logAnomalyClass_numberOfLogLinesOccurrences = Lens.lens (\LogAnomalyClass' {numb
 
 -- | The time of the first occurrence of the anomalous log event.
 logAnomalyClass_logEventTimestamp :: Lens.Lens' LogAnomalyClass (Prelude.Maybe Prelude.UTCTime)
-logAnomalyClass_logEventTimestamp = Lens.lens (\LogAnomalyClass' {logEventTimestamp} -> logEventTimestamp) (\s@LogAnomalyClass' {} a -> s {logEventTimestamp = a} :: LogAnomalyClass) Prelude.. Lens.mapping Core._Time
+logAnomalyClass_logEventTimestamp = Lens.lens (\LogAnomalyClass' {logEventTimestamp} -> logEventTimestamp) (\s@LogAnomalyClass' {} a -> s {logEventTimestamp = a} :: LogAnomalyClass) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the log event.
 logAnomalyClass_logEventId :: Lens.Lens' LogAnomalyClass (Prelude.Maybe Prelude.Text)
@@ -120,19 +121,19 @@ logAnomalyClass_explanation = Lens.lens (\LogAnomalyClass' {explanation} -> expl
 logAnomalyClass_logStreamName :: Lens.Lens' LogAnomalyClass (Prelude.Maybe Prelude.Text)
 logAnomalyClass_logStreamName = Lens.lens (\LogAnomalyClass' {logStreamName} -> logStreamName) (\s@LogAnomalyClass' {} a -> s {logStreamName = a} :: LogAnomalyClass)
 
-instance Core.FromJSON LogAnomalyClass where
+instance Data.FromJSON LogAnomalyClass where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogAnomalyClass"
       ( \x ->
           LogAnomalyClass'
-            Prelude.<$> (x Core..:? "NumberOfLogLinesOccurrences")
-            Prelude.<*> (x Core..:? "LogEventTimestamp")
-            Prelude.<*> (x Core..:? "LogEventId")
-            Prelude.<*> (x Core..:? "LogAnomalyToken")
-            Prelude.<*> (x Core..:? "LogAnomalyType")
-            Prelude.<*> (x Core..:? "Explanation")
-            Prelude.<*> (x Core..:? "LogStreamName")
+            Prelude.<$> (x Data..:? "NumberOfLogLinesOccurrences")
+            Prelude.<*> (x Data..:? "LogEventTimestamp")
+            Prelude.<*> (x Data..:? "LogEventId")
+            Prelude.<*> (x Data..:? "LogAnomalyToken")
+            Prelude.<*> (x Data..:? "LogAnomalyType")
+            Prelude.<*> (x Data..:? "Explanation")
+            Prelude.<*> (x Data..:? "LogStreamName")
       )
 
 instance Prelude.Hashable LogAnomalyClass where

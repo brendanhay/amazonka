@@ -23,6 +23,7 @@ import Amazonka.AlexaBusiness.Types.PhoneNumber
 import Amazonka.AlexaBusiness.Types.SipAddress
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information related to a contact.
@@ -43,7 +44,7 @@ data ContactData = ContactData'
     -- You can specify PhoneNumber or PhoneNumbers. We recommend that you use
     -- PhoneNumbers, which lets you specify the phone number type and multiple
     -- numbers.
-    phoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    phoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The list of phone numbers for the contact.
     phoneNumbers :: Prelude.Maybe [PhoneNumber]
   }
@@ -111,25 +112,25 @@ contactData_lastName = Lens.lens (\ContactData' {lastName} -> lastName) (\s@Cont
 -- PhoneNumbers, which lets you specify the phone number type and multiple
 -- numbers.
 contactData_phoneNumber :: Lens.Lens' ContactData (Prelude.Maybe Prelude.Text)
-contactData_phoneNumber = Lens.lens (\ContactData' {phoneNumber} -> phoneNumber) (\s@ContactData' {} a -> s {phoneNumber = a} :: ContactData) Prelude.. Lens.mapping Core._Sensitive
+contactData_phoneNumber = Lens.lens (\ContactData' {phoneNumber} -> phoneNumber) (\s@ContactData' {} a -> s {phoneNumber = a} :: ContactData) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The list of phone numbers for the contact.
 contactData_phoneNumbers :: Lens.Lens' ContactData (Prelude.Maybe [PhoneNumber])
 contactData_phoneNumbers = Lens.lens (\ContactData' {phoneNumbers} -> phoneNumbers) (\s@ContactData' {} a -> s {phoneNumbers = a} :: ContactData) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ContactData where
+instance Data.FromJSON ContactData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContactData"
       ( \x ->
           ContactData'
-            Prelude.<$> (x Core..:? "FirstName")
-            Prelude.<*> (x Core..:? "SipAddresses" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "ContactArn")
-            Prelude.<*> (x Core..:? "LastName")
-            Prelude.<*> (x Core..:? "PhoneNumber")
-            Prelude.<*> (x Core..:? "PhoneNumbers" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "FirstName")
+            Prelude.<*> (x Data..:? "SipAddresses" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "ContactArn")
+            Prelude.<*> (x Data..:? "LastName")
+            Prelude.<*> (x Data..:? "PhoneNumber")
+            Prelude.<*> (x Data..:? "PhoneNumbers" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ContactData where

@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.BoxConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import Amazonka.Kendra.Types.DataSourceVpcConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -338,29 +339,29 @@ boxConfiguration_enterpriseId = Lens.lens (\BoxConfiguration' {enterpriseId} -> 
 boxConfiguration_secretArn :: Lens.Lens' BoxConfiguration Prelude.Text
 boxConfiguration_secretArn = Lens.lens (\BoxConfiguration' {secretArn} -> secretArn) (\s@BoxConfiguration' {} a -> s {secretArn = a} :: BoxConfiguration)
 
-instance Core.FromJSON BoxConfiguration where
+instance Data.FromJSON BoxConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BoxConfiguration"
       ( \x ->
           BoxConfiguration'
-            Prelude.<$> (x Core..:? "UseChangeLog")
-            Prelude.<*> (x Core..:? "VpcConfiguration")
-            Prelude.<*> (x Core..:? "FileFieldMappings")
-            Prelude.<*> (x Core..:? "CrawlWebLinks")
-            Prelude.<*> (x Core..:? "CommentFieldMappings")
-            Prelude.<*> ( x Core..:? "InclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "UseChangeLog")
+            Prelude.<*> (x Data..:? "VpcConfiguration")
+            Prelude.<*> (x Data..:? "FileFieldMappings")
+            Prelude.<*> (x Data..:? "CrawlWebLinks")
+            Prelude.<*> (x Data..:? "CommentFieldMappings")
+            Prelude.<*> ( x Data..:? "InclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "WebLinkFieldMappings")
-            Prelude.<*> (x Core..:? "CrawlTasks")
-            Prelude.<*> (x Core..:? "CrawlComments")
-            Prelude.<*> (x Core..:? "TaskFieldMappings")
-            Prelude.<*> ( x Core..:? "ExclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "WebLinkFieldMappings")
+            Prelude.<*> (x Data..:? "CrawlTasks")
+            Prelude.<*> (x Data..:? "CrawlComments")
+            Prelude.<*> (x Data..:? "TaskFieldMappings")
+            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "EnterpriseId")
-            Prelude.<*> (x Core..: "SecretArn")
+            Prelude.<*> (x Data..: "EnterpriseId")
+            Prelude.<*> (x Data..: "SecretArn")
       )
 
 instance Prelude.Hashable BoxConfiguration where
@@ -395,29 +396,29 @@ instance Prelude.NFData BoxConfiguration where
       `Prelude.seq` Prelude.rnf enterpriseId
       `Prelude.seq` Prelude.rnf secretArn
 
-instance Core.ToJSON BoxConfiguration where
+instance Data.ToJSON BoxConfiguration where
   toJSON BoxConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UseChangeLog" Core..=) Prelude.<$> useChangeLog,
-            ("VpcConfiguration" Core..=)
+          [ ("UseChangeLog" Data..=) Prelude.<$> useChangeLog,
+            ("VpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("FileFieldMappings" Core..=)
+            ("FileFieldMappings" Data..=)
               Prelude.<$> fileFieldMappings,
-            ("CrawlWebLinks" Core..=) Prelude.<$> crawlWebLinks,
-            ("CommentFieldMappings" Core..=)
+            ("CrawlWebLinks" Data..=) Prelude.<$> crawlWebLinks,
+            ("CommentFieldMappings" Data..=)
               Prelude.<$> commentFieldMappings,
-            ("InclusionPatterns" Core..=)
+            ("InclusionPatterns" Data..=)
               Prelude.<$> inclusionPatterns,
-            ("WebLinkFieldMappings" Core..=)
+            ("WebLinkFieldMappings" Data..=)
               Prelude.<$> webLinkFieldMappings,
-            ("CrawlTasks" Core..=) Prelude.<$> crawlTasks,
-            ("CrawlComments" Core..=) Prelude.<$> crawlComments,
-            ("TaskFieldMappings" Core..=)
+            ("CrawlTasks" Data..=) Prelude.<$> crawlTasks,
+            ("CrawlComments" Data..=) Prelude.<$> crawlComments,
+            ("TaskFieldMappings" Data..=)
               Prelude.<$> taskFieldMappings,
-            ("ExclusionPatterns" Core..=)
+            ("ExclusionPatterns" Data..=)
               Prelude.<$> exclusionPatterns,
-            Prelude.Just ("EnterpriseId" Core..= enterpriseId),
-            Prelude.Just ("SecretArn" Core..= secretArn)
+            Prelude.Just ("EnterpriseId" Data..= enterpriseId),
+            Prelude.Just ("SecretArn" Data..= secretArn)
           ]
       )

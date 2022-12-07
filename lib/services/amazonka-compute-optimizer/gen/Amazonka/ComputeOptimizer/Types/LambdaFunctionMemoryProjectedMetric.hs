@@ -23,6 +23,7 @@ import Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryMetricName
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryMetricStatistic
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a projected utilization metric of an Lambda function
@@ -75,17 +76,17 @@ lambdaFunctionMemoryProjectedMetric_value :: Lens.Lens' LambdaFunctionMemoryProj
 lambdaFunctionMemoryProjectedMetric_value = Lens.lens (\LambdaFunctionMemoryProjectedMetric' {value} -> value) (\s@LambdaFunctionMemoryProjectedMetric' {} a -> s {value = a} :: LambdaFunctionMemoryProjectedMetric)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LambdaFunctionMemoryProjectedMetric
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaFunctionMemoryProjectedMetric"
       ( \x ->
           LambdaFunctionMemoryProjectedMetric'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "statistic")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "statistic")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance

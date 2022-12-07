@@ -21,6 +21,7 @@ module Amazonka.SDB.Types.Item where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SDB.Types.Attribute
 
@@ -72,12 +73,12 @@ item_name = Lens.lens (\Item' {name} -> name) (\s@Item' {} a -> s {name = a} :: 
 item_attributes :: Lens.Lens' Item [Attribute]
 item_attributes = Lens.lens (\Item' {attributes} -> attributes) (\s@Item' {} a -> s {attributes = a} :: Item) Prelude.. Lens.coerced
 
-instance Core.FromXML Item where
+instance Data.FromXML Item where
   parseXML x =
     Item'
-      Prelude.<$> (x Core..@? "AlternateNameEncoding")
-      Prelude.<*> (x Core..@ "Name")
-      Prelude.<*> (Core.parseXMLList "Attribute" x)
+      Prelude.<$> (x Data..@? "AlternateNameEncoding")
+      Prelude.<*> (x Data..@ "Name")
+      Prelude.<*> (Data.parseXMLList "Attribute" x)
 
 instance Prelude.Hashable Item where
   hashWithSalt _salt Item' {..} =

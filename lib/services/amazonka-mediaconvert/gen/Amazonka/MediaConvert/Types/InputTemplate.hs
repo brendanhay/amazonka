@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.InputTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AudioSelector
 import Amazonka.MediaConvert.Types.AudioSelectorGroup
 import Amazonka.MediaConvert.Types.CaptionSelector
@@ -449,34 +450,34 @@ inputTemplate_inputScanType = Lens.lens (\InputTemplate' {inputScanType} -> inpu
 inputTemplate_videoSelector :: Lens.Lens' InputTemplate (Prelude.Maybe VideoSelector)
 inputTemplate_videoSelector = Lens.lens (\InputTemplate' {videoSelector} -> videoSelector) (\s@InputTemplate' {} a -> s {videoSelector = a} :: InputTemplate)
 
-instance Core.FromJSON InputTemplate where
+instance Data.FromJSON InputTemplate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputTemplate"
       ( \x ->
           InputTemplate'
-            Prelude.<$> (x Core..:? "deblockFilter")
-            Prelude.<*> (x Core..:? "psiControl")
-            Prelude.<*> ( x Core..:? "captionSelectors"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "deblockFilter")
+            Prelude.<*> (x Data..:? "psiControl")
+            Prelude.<*> ( x Data..:? "captionSelectors"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "audioSelectorGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "audioSelectorGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "filterStrength")
-            Prelude.<*> (x Core..:? "timecodeStart")
-            Prelude.<*> (x Core..:? "dolbyVisionMetadataXml")
-            Prelude.<*> (x Core..:? "inputClippings" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "audioSelectors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "timecodeSource")
-            Prelude.<*> (x Core..:? "programNumber")
-            Prelude.<*> (x Core..:? "crop")
-            Prelude.<*> (x Core..:? "filterEnable")
-            Prelude.<*> (x Core..:? "imageInserter")
-            Prelude.<*> (x Core..:? "denoiseFilter")
-            Prelude.<*> (x Core..:? "position")
-            Prelude.<*> (x Core..:? "inputScanType")
-            Prelude.<*> (x Core..:? "videoSelector")
+            Prelude.<*> (x Data..:? "filterStrength")
+            Prelude.<*> (x Data..:? "timecodeStart")
+            Prelude.<*> (x Data..:? "dolbyVisionMetadataXml")
+            Prelude.<*> (x Data..:? "inputClippings" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "audioSelectors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "timecodeSource")
+            Prelude.<*> (x Data..:? "programNumber")
+            Prelude.<*> (x Data..:? "crop")
+            Prelude.<*> (x Data..:? "filterEnable")
+            Prelude.<*> (x Data..:? "imageInserter")
+            Prelude.<*> (x Data..:? "denoiseFilter")
+            Prelude.<*> (x Data..:? "position")
+            Prelude.<*> (x Data..:? "inputScanType")
+            Prelude.<*> (x Data..:? "videoSelector")
       )
 
 instance Prelude.Hashable InputTemplate where
@@ -521,34 +522,34 @@ instance Prelude.NFData InputTemplate where
       `Prelude.seq` Prelude.rnf inputScanType
       `Prelude.seq` Prelude.rnf videoSelector
 
-instance Core.ToJSON InputTemplate where
+instance Data.ToJSON InputTemplate where
   toJSON InputTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deblockFilter" Core..=) Prelude.<$> deblockFilter,
-            ("psiControl" Core..=) Prelude.<$> psiControl,
-            ("captionSelectors" Core..=)
+          [ ("deblockFilter" Data..=) Prelude.<$> deblockFilter,
+            ("psiControl" Data..=) Prelude.<$> psiControl,
+            ("captionSelectors" Data..=)
               Prelude.<$> captionSelectors,
-            ("audioSelectorGroups" Core..=)
+            ("audioSelectorGroups" Data..=)
               Prelude.<$> audioSelectorGroups,
-            ("filterStrength" Core..=)
+            ("filterStrength" Data..=)
               Prelude.<$> filterStrength,
-            ("timecodeStart" Core..=) Prelude.<$> timecodeStart,
-            ("dolbyVisionMetadataXml" Core..=)
+            ("timecodeStart" Data..=) Prelude.<$> timecodeStart,
+            ("dolbyVisionMetadataXml" Data..=)
               Prelude.<$> dolbyVisionMetadataXml,
-            ("inputClippings" Core..=)
+            ("inputClippings" Data..=)
               Prelude.<$> inputClippings,
-            ("audioSelectors" Core..=)
+            ("audioSelectors" Data..=)
               Prelude.<$> audioSelectors,
-            ("timecodeSource" Core..=)
+            ("timecodeSource" Data..=)
               Prelude.<$> timecodeSource,
-            ("programNumber" Core..=) Prelude.<$> programNumber,
-            ("crop" Core..=) Prelude.<$> crop,
-            ("filterEnable" Core..=) Prelude.<$> filterEnable,
-            ("imageInserter" Core..=) Prelude.<$> imageInserter,
-            ("denoiseFilter" Core..=) Prelude.<$> denoiseFilter,
-            ("position" Core..=) Prelude.<$> position,
-            ("inputScanType" Core..=) Prelude.<$> inputScanType,
-            ("videoSelector" Core..=) Prelude.<$> videoSelector
+            ("programNumber" Data..=) Prelude.<$> programNumber,
+            ("crop" Data..=) Prelude.<$> crop,
+            ("filterEnable" Data..=) Prelude.<$> filterEnable,
+            ("imageInserter" Data..=) Prelude.<$> imageInserter,
+            ("denoiseFilter" Data..=) Prelude.<$> denoiseFilter,
+            ("position" Data..=) Prelude.<$> position,
+            ("inputScanType" Data..=) Prelude.<$> inputScanType,
+            ("videoSelector" Data..=) Prelude.<$> videoSelector
           ]
       )

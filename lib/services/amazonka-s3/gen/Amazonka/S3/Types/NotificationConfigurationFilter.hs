@@ -21,6 +21,7 @@ module Amazonka.S3.Types.NotificationConfigurationFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.S3KeyFilter
@@ -57,10 +58,10 @@ newNotificationConfigurationFilter =
 notificationConfigurationFilter_key :: Lens.Lens' NotificationConfigurationFilter (Prelude.Maybe S3KeyFilter)
 notificationConfigurationFilter_key = Lens.lens (\NotificationConfigurationFilter' {key} -> key) (\s@NotificationConfigurationFilter' {} a -> s {key = a} :: NotificationConfigurationFilter)
 
-instance Core.FromXML NotificationConfigurationFilter where
+instance Data.FromXML NotificationConfigurationFilter where
   parseXML x =
     NotificationConfigurationFilter'
-      Prelude.<$> (x Core..@? "S3Key")
+      Prelude.<$> (x Data..@? "S3Key")
 
 instance
   Prelude.Hashable
@@ -78,6 +79,6 @@ instance
   rnf NotificationConfigurationFilter' {..} =
     Prelude.rnf key
 
-instance Core.ToXML NotificationConfigurationFilter where
+instance Data.ToXML NotificationConfigurationFilter where
   toXML NotificationConfigurationFilter' {..} =
-    Prelude.mconcat ["S3Key" Core.@= key]
+    Prelude.mconcat ["S3Key" Data.@= key]

@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.CertificateSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.Certificate
 import Amazonka.Lightsail.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -96,17 +97,17 @@ certificateSummary_certificateArn = Lens.lens (\CertificateSummary' {certificate
 certificateSummary_certificateDetail :: Lens.Lens' CertificateSummary (Prelude.Maybe Certificate)
 certificateSummary_certificateDetail = Lens.lens (\CertificateSummary' {certificateDetail} -> certificateDetail) (\s@CertificateSummary' {} a -> s {certificateDetail = a} :: CertificateSummary)
 
-instance Core.FromJSON CertificateSummary where
+instance Data.FromJSON CertificateSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CertificateSummary"
       ( \x ->
           CertificateSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "domainName")
-            Prelude.<*> (x Core..:? "certificateName")
-            Prelude.<*> (x Core..:? "certificateArn")
-            Prelude.<*> (x Core..:? "certificateDetail")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "domainName")
+            Prelude.<*> (x Data..:? "certificateName")
+            Prelude.<*> (x Data..:? "certificateArn")
+            Prelude.<*> (x Data..:? "certificateDetail")
       )
 
 instance Prelude.Hashable CertificateSummary where

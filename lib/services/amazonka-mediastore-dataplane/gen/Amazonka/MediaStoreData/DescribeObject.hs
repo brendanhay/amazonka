@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaStoreData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,11 +91,11 @@ instance Core.AWSRequest DescribeObject where
     Response.receiveEmpty
       ( \s h x ->
           DescribeObjectResponse'
-            Prelude.<$> (h Core..#? "Content-Length")
-            Prelude.<*> (h Core..#? "Last-Modified")
-            Prelude.<*> (h Core..#? "Cache-Control")
-            Prelude.<*> (h Core..#? "ETag")
-            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<$> (h Data..#? "Content-Length")
+            Prelude.<*> (h Data..#? "Last-Modified")
+            Prelude.<*> (h Data..#? "Cache-Control")
+            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,14 +106,14 @@ instance Prelude.Hashable DescribeObject where
 instance Prelude.NFData DescribeObject where
   rnf DescribeObject' {..} = Prelude.rnf path
 
-instance Core.ToHeaders DescribeObject where
+instance Data.ToHeaders DescribeObject where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeObject where
+instance Data.ToPath DescribeObject where
   toPath DescribeObject' {..} =
-    Prelude.mconcat ["/", Core.toBS path]
+    Prelude.mconcat ["/", Data.toBS path]
 
-instance Core.ToQuery DescribeObject where
+instance Data.ToQuery DescribeObject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeObjectResponse' smart constructor.
@@ -120,7 +121,7 @@ data DescribeObjectResponse = DescribeObjectResponse'
   { -- | The length of the object in bytes.
     contentLength :: Prelude.Maybe Prelude.Natural,
     -- | The date and time that the object was last modified.
-    lastModified :: Prelude.Maybe Core.POSIX,
+    lastModified :: Prelude.Maybe Data.POSIX,
     -- | An optional @CacheControl@ header that allows the caller to control the
     -- object\'s cache behavior. Headers can be passed in as specified in the
     -- HTTP at
@@ -182,7 +183,7 @@ describeObjectResponse_contentLength = Lens.lens (\DescribeObjectResponse' {cont
 
 -- | The date and time that the object was last modified.
 describeObjectResponse_lastModified :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.UTCTime)
-describeObjectResponse_lastModified = Lens.lens (\DescribeObjectResponse' {lastModified} -> lastModified) (\s@DescribeObjectResponse' {} a -> s {lastModified = a} :: DescribeObjectResponse) Prelude.. Lens.mapping Core._Time
+describeObjectResponse_lastModified = Lens.lens (\DescribeObjectResponse' {lastModified} -> lastModified) (\s@DescribeObjectResponse' {} a -> s {lastModified = a} :: DescribeObjectResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An optional @CacheControl@ header that allows the caller to control the
 -- object\'s cache behavior. Headers can be passed in as specified in the

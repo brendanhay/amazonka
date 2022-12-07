@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotFleetTagSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ResourceType
 import Amazonka.EC2.Types.Tag
@@ -70,13 +71,13 @@ spotFleetTagSpecification_tags = Lens.lens (\SpotFleetTagSpecification' {tags} -
 spotFleetTagSpecification_resourceType :: Lens.Lens' SpotFleetTagSpecification (Prelude.Maybe ResourceType)
 spotFleetTagSpecification_resourceType = Lens.lens (\SpotFleetTagSpecification' {resourceType} -> resourceType) (\s@SpotFleetTagSpecification' {} a -> s {resourceType = a} :: SpotFleetTagSpecification)
 
-instance Core.FromXML SpotFleetTagSpecification where
+instance Data.FromXML SpotFleetTagSpecification where
   parseXML x =
     SpotFleetTagSpecification'
-      Prelude.<$> ( x Core..@? "tag" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tag" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "resourceType")
+      Prelude.<*> (x Data..@? "resourceType")
 
 instance Prelude.Hashable SpotFleetTagSpecification where
   hashWithSalt _salt SpotFleetTagSpecification' {..} =
@@ -88,10 +89,10 @@ instance Prelude.NFData SpotFleetTagSpecification where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToQuery SpotFleetTagSpecification where
+instance Data.ToQuery SpotFleetTagSpecification where
   toQuery SpotFleetTagSpecification' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          (Core.toQueryList "Tag" Prelude.<$> tags),
-        "ResourceType" Core.=: resourceType
+      [ Data.toQuery
+          (Data.toQueryList "Tag" Prelude.<$> tags),
+        "ResourceType" Data.=: resourceType
       ]

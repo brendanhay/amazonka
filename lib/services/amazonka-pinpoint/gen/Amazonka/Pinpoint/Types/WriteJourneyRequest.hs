@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.WriteJourneyRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Activity
 import Amazonka.Pinpoint.Types.ClosedDays
 import Amazonka.Pinpoint.Types.JourneyChannelSettings
@@ -390,34 +391,34 @@ instance Prelude.NFData WriteJourneyRequest where
       `Prelude.seq` Prelude.rnf journeyChannelSettings
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON WriteJourneyRequest where
+instance Data.ToJSON WriteJourneyRequest where
   toJSON WriteJourneyRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Schedule" Core..=) Prelude.<$> schedule,
-            ("Activities" Core..=) Prelude.<$> activities,
-            ("LastModifiedDate" Core..=)
+          [ ("Schedule" Data..=) Prelude.<$> schedule,
+            ("Activities" Data..=) Prelude.<$> activities,
+            ("LastModifiedDate" Data..=)
               Prelude.<$> lastModifiedDate,
-            ("RefreshOnSegmentUpdate" Core..=)
+            ("RefreshOnSegmentUpdate" Data..=)
               Prelude.<$> refreshOnSegmentUpdate,
-            ("Limits" Core..=) Prelude.<$> limits,
-            ("StartCondition" Core..=)
+            ("Limits" Data..=) Prelude.<$> limits,
+            ("StartCondition" Data..=)
               Prelude.<$> startCondition,
-            ("StartActivity" Core..=) Prelude.<$> startActivity,
-            ("State" Core..=) Prelude.<$> state,
-            ("CreationDate" Core..=) Prelude.<$> creationDate,
-            ("RefreshFrequency" Core..=)
+            ("StartActivity" Data..=) Prelude.<$> startActivity,
+            ("State" Data..=) Prelude.<$> state,
+            ("CreationDate" Data..=) Prelude.<$> creationDate,
+            ("RefreshFrequency" Data..=)
               Prelude.<$> refreshFrequency,
-            ("LocalTime" Core..=) Prelude.<$> localTime,
-            ("OpenHours" Core..=) Prelude.<$> openHours,
-            ("QuietTime" Core..=) Prelude.<$> quietTime,
-            ("SendingSchedule" Core..=)
+            ("LocalTime" Data..=) Prelude.<$> localTime,
+            ("OpenHours" Data..=) Prelude.<$> openHours,
+            ("QuietTime" Data..=) Prelude.<$> quietTime,
+            ("SendingSchedule" Data..=)
               Prelude.<$> sendingSchedule,
-            ("WaitForQuietTime" Core..=)
+            ("WaitForQuietTime" Data..=)
               Prelude.<$> waitForQuietTime,
-            ("ClosedDays" Core..=) Prelude.<$> closedDays,
-            ("JourneyChannelSettings" Core..=)
+            ("ClosedDays" Data..=) Prelude.<$> closedDays,
+            ("JourneyChannelSettings" Data..=)
               Prelude.<$> journeyChannelSettings,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )

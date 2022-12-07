@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.CapacityProvider where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.AutoScalingGroupProvider
 import Amazonka.ECS.Types.CapacityProviderStatus
 import Amazonka.ECS.Types.CapacityProviderUpdateStatus
@@ -236,19 +237,19 @@ capacityProvider_status = Lens.lens (\CapacityProvider' {status} -> status) (\s@
 capacityProvider_autoScalingGroupProvider :: Lens.Lens' CapacityProvider (Prelude.Maybe AutoScalingGroupProvider)
 capacityProvider_autoScalingGroupProvider = Lens.lens (\CapacityProvider' {autoScalingGroupProvider} -> autoScalingGroupProvider) (\s@CapacityProvider' {} a -> s {autoScalingGroupProvider = a} :: CapacityProvider)
 
-instance Core.FromJSON CapacityProvider where
+instance Data.FromJSON CapacityProvider where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CapacityProvider"
       ( \x ->
           CapacityProvider'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "capacityProviderArn")
-            Prelude.<*> (x Core..:? "updateStatusReason")
-            Prelude.<*> (x Core..:? "updateStatus")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "autoScalingGroupProvider")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "capacityProviderArn")
+            Prelude.<*> (x Data..:? "updateStatusReason")
+            Prelude.<*> (x Data..:? "updateStatus")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "autoScalingGroupProvider")
       )
 
 instance Prelude.Hashable CapacityProvider where

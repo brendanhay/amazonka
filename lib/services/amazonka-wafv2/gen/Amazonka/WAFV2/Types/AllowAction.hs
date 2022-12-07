@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.AllowAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CustomRequestHandling
 
@@ -73,13 +74,13 @@ newAllowAction =
 allowAction_customRequestHandling :: Lens.Lens' AllowAction (Prelude.Maybe CustomRequestHandling)
 allowAction_customRequestHandling = Lens.lens (\AllowAction' {customRequestHandling} -> customRequestHandling) (\s@AllowAction' {} a -> s {customRequestHandling = a} :: AllowAction)
 
-instance Core.FromJSON AllowAction where
+instance Data.FromJSON AllowAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AllowAction"
       ( \x ->
           AllowAction'
-            Prelude.<$> (x Core..:? "CustomRequestHandling")
+            Prelude.<$> (x Data..:? "CustomRequestHandling")
       )
 
 instance Prelude.Hashable AllowAction where
@@ -90,11 +91,11 @@ instance Prelude.NFData AllowAction where
   rnf AllowAction' {..} =
     Prelude.rnf customRequestHandling
 
-instance Core.ToJSON AllowAction where
+instance Data.ToJSON AllowAction where
   toJSON AllowAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomRequestHandling" Core..=)
+          [ ("CustomRequestHandling" Data..=)
               Prelude.<$> customRequestHandling
           ]
       )

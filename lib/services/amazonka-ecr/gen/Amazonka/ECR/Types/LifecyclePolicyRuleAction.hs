@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.LifecyclePolicyRuleAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.ImageActionType
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newLifecyclePolicyRuleAction =
 lifecyclePolicyRuleAction_type :: Lens.Lens' LifecyclePolicyRuleAction (Prelude.Maybe ImageActionType)
 lifecyclePolicyRuleAction_type = Lens.lens (\LifecyclePolicyRuleAction' {type'} -> type') (\s@LifecyclePolicyRuleAction' {} a -> s {type' = a} :: LifecyclePolicyRuleAction)
 
-instance Core.FromJSON LifecyclePolicyRuleAction where
+instance Data.FromJSON LifecyclePolicyRuleAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifecyclePolicyRuleAction"
       ( \x ->
           LifecyclePolicyRuleAction'
-            Prelude.<$> (x Core..:? "type")
+            Prelude.<$> (x Data..:? "type")
       )
 
 instance Prelude.Hashable LifecyclePolicyRuleAction where

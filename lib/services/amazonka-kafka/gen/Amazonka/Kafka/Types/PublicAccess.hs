@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.PublicAccess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Public access control for brokers.
@@ -53,12 +54,12 @@ newPublicAccess =
 publicAccess_type :: Lens.Lens' PublicAccess (Prelude.Maybe Prelude.Text)
 publicAccess_type = Lens.lens (\PublicAccess' {type'} -> type') (\s@PublicAccess' {} a -> s {type' = a} :: PublicAccess)
 
-instance Core.FromJSON PublicAccess where
+instance Data.FromJSON PublicAccess where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PublicAccess"
       ( \x ->
-          PublicAccess' Prelude.<$> (x Core..:? "type")
+          PublicAccess' Prelude.<$> (x Data..:? "type")
       )
 
 instance Prelude.Hashable PublicAccess where
@@ -68,9 +69,9 @@ instance Prelude.Hashable PublicAccess where
 instance Prelude.NFData PublicAccess where
   rnf PublicAccess' {..} = Prelude.rnf type'
 
-instance Core.ToJSON PublicAccess where
+instance Data.ToJSON PublicAccess where
   toJSON PublicAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("type" Core..=) Prelude.<$> type']
+          [("type" Data..=) Prelude.<$> type']
       )

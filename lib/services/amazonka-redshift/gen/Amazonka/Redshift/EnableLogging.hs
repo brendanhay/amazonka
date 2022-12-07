@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -215,7 +216,7 @@ instance Core.AWSRequest EnableLogging where
   response =
     Response.receiveXMLWrapper
       "EnableLoggingResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable EnableLogging where
   hashWithSalt _salt EnableLogging' {..} =
@@ -233,24 +234,24 @@ instance Prelude.NFData EnableLogging where
       `Prelude.seq` Prelude.rnf logDestinationType
       `Prelude.seq` Prelude.rnf clusterIdentifier
 
-instance Core.ToHeaders EnableLogging where
+instance Data.ToHeaders EnableLogging where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath EnableLogging where
+instance Data.ToPath EnableLogging where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnableLogging where
+instance Data.ToQuery EnableLogging where
   toQuery EnableLogging' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("EnableLogging" :: Prelude.ByteString),
+          Data.=: ("EnableLogging" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "S3KeyPrefix" Core.=: s3KeyPrefix,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "S3KeyPrefix" Data.=: s3KeyPrefix,
         "LogExports"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> logExports),
-        "BucketName" Core.=: bucketName,
-        "LogDestinationType" Core.=: logDestinationType,
-        "ClusterIdentifier" Core.=: clusterIdentifier
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> logExports),
+        "BucketName" Data.=: bucketName,
+        "LogDestinationType" Data.=: logDestinationType,
+        "ClusterIdentifier" Data.=: clusterIdentifier
       ]

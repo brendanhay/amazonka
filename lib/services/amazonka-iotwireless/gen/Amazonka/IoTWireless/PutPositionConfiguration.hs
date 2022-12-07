@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,29 +149,29 @@ instance Prelude.NFData PutPositionConfiguration where
       `Prelude.seq` Prelude.rnf resourceIdentifier
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToHeaders PutPositionConfiguration where
+instance Data.ToHeaders PutPositionConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutPositionConfiguration where
+instance Data.ToJSON PutPositionConfiguration where
   toJSON PutPositionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Destination" Core..=) Prelude.<$> destination,
-            ("Solvers" Core..=) Prelude.<$> solvers
+          [ ("Destination" Data..=) Prelude.<$> destination,
+            ("Solvers" Data..=) Prelude.<$> solvers
           ]
       )
 
-instance Core.ToPath PutPositionConfiguration where
+instance Data.ToPath PutPositionConfiguration where
   toPath PutPositionConfiguration' {..} =
     Prelude.mconcat
       [ "/position-configurations/",
-        Core.toBS resourceIdentifier
+        Data.toBS resourceIdentifier
       ]
 
-instance Core.ToQuery PutPositionConfiguration where
+instance Data.ToQuery PutPositionConfiguration where
   toQuery PutPositionConfiguration' {..} =
     Prelude.mconcat
-      ["resourceType" Core.=: resourceType]
+      ["resourceType" Data.=: resourceType]
 
 -- | /See:/ 'newPutPositionConfigurationResponse' smart constructor.
 data PutPositionConfigurationResponse = PutPositionConfigurationResponse'

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -160,19 +161,19 @@ instance Core.AWSRequest CreateApplicationVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateApplicationVersionResponse'
-            Prelude.<$> (x Core..?> "semanticVersion")
-            Prelude.<*> (x Core..?> "sourceCodeArchiveUrl")
-            Prelude.<*> (x Core..?> "sourceCodeUrl")
-            Prelude.<*> ( x Core..?> "requiredCapabilities"
+            Prelude.<$> (x Data..?> "semanticVersion")
+            Prelude.<*> (x Data..?> "sourceCodeArchiveUrl")
+            Prelude.<*> (x Data..?> "sourceCodeUrl")
+            Prelude.<*> ( x Data..?> "requiredCapabilities"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "parameterDefinitions"
+            Prelude.<*> ( x Data..?> "parameterDefinitions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "resourcesSupported")
-            Prelude.<*> (x Core..?> "applicationId")
-            Prelude.<*> (x Core..?> "templateUrl")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "resourcesSupported")
+            Prelude.<*> (x Data..?> "applicationId")
+            Prelude.<*> (x Data..?> "templateUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,39 +195,39 @@ instance Prelude.NFData CreateApplicationVersion where
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf semanticVersion
 
-instance Core.ToHeaders CreateApplicationVersion where
+instance Data.ToHeaders CreateApplicationVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApplicationVersion where
+instance Data.ToJSON CreateApplicationVersion where
   toJSON CreateApplicationVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sourceCodeArchiveUrl" Core..=)
+          [ ("sourceCodeArchiveUrl" Data..=)
               Prelude.<$> sourceCodeArchiveUrl,
-            ("sourceCodeUrl" Core..=) Prelude.<$> sourceCodeUrl,
-            ("templateBody" Core..=) Prelude.<$> templateBody,
-            ("templateUrl" Core..=) Prelude.<$> templateUrl
+            ("sourceCodeUrl" Data..=) Prelude.<$> sourceCodeUrl,
+            ("templateBody" Data..=) Prelude.<$> templateBody,
+            ("templateUrl" Data..=) Prelude.<$> templateUrl
           ]
       )
 
-instance Core.ToPath CreateApplicationVersion where
+instance Data.ToPath CreateApplicationVersion where
   toPath CreateApplicationVersion' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/versions/",
-        Core.toBS semanticVersion
+        Data.toBS semanticVersion
       ]
 
-instance Core.ToQuery CreateApplicationVersion where
+instance Data.ToQuery CreateApplicationVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateApplicationVersionResponse' smart constructor.

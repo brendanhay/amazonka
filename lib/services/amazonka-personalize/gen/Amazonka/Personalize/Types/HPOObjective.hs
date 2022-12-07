@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.HPOObjective where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metric to optimize during hyperparameter optimization (HPO).
@@ -73,15 +74,15 @@ hPOObjective_metricName = Lens.lens (\HPOObjective' {metricName} -> metricName) 
 hPOObjective_metricRegex :: Lens.Lens' HPOObjective (Prelude.Maybe Prelude.Text)
 hPOObjective_metricRegex = Lens.lens (\HPOObjective' {metricRegex} -> metricRegex) (\s@HPOObjective' {} a -> s {metricRegex = a} :: HPOObjective)
 
-instance Core.FromJSON HPOObjective where
+instance Data.FromJSON HPOObjective where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HPOObjective"
       ( \x ->
           HPOObjective'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "metricName")
-            Prelude.<*> (x Core..:? "metricRegex")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "metricName")
+            Prelude.<*> (x Data..:? "metricRegex")
       )
 
 instance Prelude.Hashable HPOObjective where
@@ -96,12 +97,12 @@ instance Prelude.NFData HPOObjective where
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf metricRegex
 
-instance Core.ToJSON HPOObjective where
+instance Data.ToJSON HPOObjective where
   toJSON HPOObjective' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("metricName" Core..=) Prelude.<$> metricName,
-            ("metricRegex" Core..=) Prelude.<$> metricRegex
+          [ ("type" Data..=) Prelude.<$> type',
+            ("metricName" Data..=) Prelude.<$> metricName,
+            ("metricRegex" Data..=) Prelude.<$> metricRegex
           ]
       )

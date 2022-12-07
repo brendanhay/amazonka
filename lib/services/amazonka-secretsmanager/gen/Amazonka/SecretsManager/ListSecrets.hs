@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -176,8 +177,8 @@ instance Core.AWSRequest ListSecrets where
     Response.receiveJSON
       ( \s h x ->
           ListSecretsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "SecretList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "SecretList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,34 +196,34 @@ instance Prelude.NFData ListSecrets where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListSecrets where
+instance Data.ToHeaders ListSecrets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("secretsmanager.ListSecrets" :: Prelude.ByteString),
+              Data.=# ("secretsmanager.ListSecrets" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSecrets where
+instance Data.ToJSON ListSecrets where
   toJSON ListSecrets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListSecrets where
+instance Data.ToPath ListSecrets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSecrets where
+instance Data.ToQuery ListSecrets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSecretsResponse' smart constructor.

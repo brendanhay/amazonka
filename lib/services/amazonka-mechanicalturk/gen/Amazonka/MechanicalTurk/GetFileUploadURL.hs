@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance Core.AWSRequest GetFileUploadURL where
     Response.receiveJSON
       ( \s h x ->
           GetFileUploadURLResponse'
-            Prelude.<$> (x Core..?> "FileUploadURL")
+            Prelude.<$> (x Data..?> "FileUploadURL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,35 +130,35 @@ instance Prelude.NFData GetFileUploadURL where
     Prelude.rnf assignmentId
       `Prelude.seq` Prelude.rnf questionIdentifier
 
-instance Core.ToHeaders GetFileUploadURL where
+instance Data.ToHeaders GetFileUploadURL where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.GetFileUploadURL" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.GetFileUploadURL" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetFileUploadURL where
+instance Data.ToJSON GetFileUploadURL where
   toJSON GetFileUploadURL' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AssignmentId" Core..= assignmentId),
+          [ Prelude.Just ("AssignmentId" Data..= assignmentId),
             Prelude.Just
-              ("QuestionIdentifier" Core..= questionIdentifier)
+              ("QuestionIdentifier" Data..= questionIdentifier)
           ]
       )
 
-instance Core.ToPath GetFileUploadURL where
+instance Data.ToPath GetFileUploadURL where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetFileUploadURL where
+instance Data.ToQuery GetFileUploadURL where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFileUploadURLResponse' smart constructor.

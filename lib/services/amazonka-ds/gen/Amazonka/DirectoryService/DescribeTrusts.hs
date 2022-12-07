@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,8 +163,8 @@ instance Core.AWSRequest DescribeTrusts where
     Response.receiveJSON
       ( \s h x ->
           DescribeTrustsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Trusts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Trusts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,36 +182,36 @@ instance Prelude.NFData DescribeTrusts where
       `Prelude.seq` Prelude.rnf trustIds
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders DescribeTrusts where
+instance Data.ToHeaders DescribeTrusts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.DescribeTrusts" ::
+              Data.=# ( "DirectoryService_20150416.DescribeTrusts" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTrusts where
+instance Data.ToJSON DescribeTrusts where
   toJSON DescribeTrusts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DirectoryId" Core..=) Prelude.<$> directoryId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("TrustIds" Core..=) Prelude.<$> trustIds,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("DirectoryId" Data..=) Prelude.<$> directoryId,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("TrustIds" Data..=) Prelude.<$> trustIds,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath DescribeTrusts where
+instance Data.ToPath DescribeTrusts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTrusts where
+instance Data.ToQuery DescribeTrusts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a DescribeTrust request.

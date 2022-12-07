@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -261,7 +262,7 @@ instance
       ( \s h x ->
           CreateHyperParameterTuningJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "HyperParameterTuningJobArn")
+            Prelude.<*> (x Data..:> "HyperParameterTuningJobArn")
       )
 
 instance
@@ -285,47 +286,47 @@ instance Prelude.NFData CreateHyperParameterTuningJob where
       `Prelude.seq` Prelude.rnf hyperParameterTuningJobName
       `Prelude.seq` Prelude.rnf hyperParameterTuningJobConfig
 
-instance Core.ToHeaders CreateHyperParameterTuningJob where
+instance Data.ToHeaders CreateHyperParameterTuningJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateHyperParameterTuningJob" ::
+              Data.=# ( "SageMaker.CreateHyperParameterTuningJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateHyperParameterTuningJob where
+instance Data.ToJSON CreateHyperParameterTuningJob where
   toJSON CreateHyperParameterTuningJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("TrainingJobDefinitions" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("TrainingJobDefinitions" Data..=)
               Prelude.<$> trainingJobDefinitions,
-            ("WarmStartConfig" Core..=)
+            ("WarmStartConfig" Data..=)
               Prelude.<$> warmStartConfig,
-            ("TrainingJobDefinition" Core..=)
+            ("TrainingJobDefinition" Data..=)
               Prelude.<$> trainingJobDefinition,
             Prelude.Just
               ( "HyperParameterTuningJobName"
-                  Core..= hyperParameterTuningJobName
+                  Data..= hyperParameterTuningJobName
               ),
             Prelude.Just
               ( "HyperParameterTuningJobConfig"
-                  Core..= hyperParameterTuningJobConfig
+                  Data..= hyperParameterTuningJobConfig
               )
           ]
       )
 
-instance Core.ToPath CreateHyperParameterTuningJob where
+instance Data.ToPath CreateHyperParameterTuningJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateHyperParameterTuningJob where
+instance Data.ToQuery CreateHyperParameterTuningJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateHyperParameterTuningJobResponse' smart constructor.

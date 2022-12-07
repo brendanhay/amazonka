@@ -46,6 +46,7 @@ where
 import Amazonka.ChimeSDKIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,11 +55,11 @@ import qualified Amazonka.Response as Response
 data ListAppInstanceUserEndpoints = ListAppInstanceUserEndpoints'
   { -- | The token passed by previous API calls until all requested endpoints are
     -- returned.
-    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The maximum number of endpoints that you want to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the @AppInstanceUser@.
-    appInstanceUserArn :: Core.Sensitive Prelude.Text
+    appInstanceUserArn :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -86,13 +87,13 @@ newListAppInstanceUserEndpoints pAppInstanceUserArn_ =
         Prelude.Nothing,
       maxResults = Prelude.Nothing,
       appInstanceUserArn =
-        Core._Sensitive Lens.# pAppInstanceUserArn_
+        Data._Sensitive Lens.# pAppInstanceUserArn_
     }
 
 -- | The token passed by previous API calls until all requested endpoints are
 -- returned.
 listAppInstanceUserEndpoints_nextToken :: Lens.Lens' ListAppInstanceUserEndpoints (Prelude.Maybe Prelude.Text)
-listAppInstanceUserEndpoints_nextToken = Lens.lens (\ListAppInstanceUserEndpoints' {nextToken} -> nextToken) (\s@ListAppInstanceUserEndpoints' {} a -> s {nextToken = a} :: ListAppInstanceUserEndpoints) Prelude.. Lens.mapping Core._Sensitive
+listAppInstanceUserEndpoints_nextToken = Lens.lens (\ListAppInstanceUserEndpoints' {nextToken} -> nextToken) (\s@ListAppInstanceUserEndpoints' {} a -> s {nextToken = a} :: ListAppInstanceUserEndpoints) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The maximum number of endpoints that you want to return.
 listAppInstanceUserEndpoints_maxResults :: Lens.Lens' ListAppInstanceUserEndpoints (Prelude.Maybe Prelude.Natural)
@@ -100,7 +101,7 @@ listAppInstanceUserEndpoints_maxResults = Lens.lens (\ListAppInstanceUserEndpoin
 
 -- | The ARN of the @AppInstanceUser@.
 listAppInstanceUserEndpoints_appInstanceUserArn :: Lens.Lens' ListAppInstanceUserEndpoints Prelude.Text
-listAppInstanceUserEndpoints_appInstanceUserArn = Lens.lens (\ListAppInstanceUserEndpoints' {appInstanceUserArn} -> appInstanceUserArn) (\s@ListAppInstanceUserEndpoints' {} a -> s {appInstanceUserArn = a} :: ListAppInstanceUserEndpoints) Prelude.. Core._Sensitive
+listAppInstanceUserEndpoints_appInstanceUserArn = Lens.lens (\ListAppInstanceUserEndpoints' {appInstanceUserArn} -> appInstanceUserArn) (\s@ListAppInstanceUserEndpoints' {} a -> s {appInstanceUserArn = a} :: ListAppInstanceUserEndpoints) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest ListAppInstanceUserEndpoints where
   type
@@ -112,8 +113,8 @@ instance Core.AWSRequest ListAppInstanceUserEndpoints where
     Response.receiveJSON
       ( \s h x ->
           ListAppInstanceUserEndpointsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "AppInstanceUserEndpoints"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "AppInstanceUserEndpoints"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -134,29 +135,29 @@ instance Prelude.NFData ListAppInstanceUserEndpoints where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf appInstanceUserArn
 
-instance Core.ToHeaders ListAppInstanceUserEndpoints where
+instance Data.ToHeaders ListAppInstanceUserEndpoints where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListAppInstanceUserEndpoints where
+instance Data.ToPath ListAppInstanceUserEndpoints where
   toPath ListAppInstanceUserEndpoints' {..} =
     Prelude.mconcat
       [ "/app-instance-users/",
-        Core.toBS appInstanceUserArn,
+        Data.toBS appInstanceUserArn,
         "/endpoints"
       ]
 
-instance Core.ToQuery ListAppInstanceUserEndpoints where
+instance Data.ToQuery ListAppInstanceUserEndpoints where
   toQuery ListAppInstanceUserEndpoints' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListAppInstanceUserEndpointsResponse' smart constructor.
 data ListAppInstanceUserEndpointsResponse = ListAppInstanceUserEndpointsResponse'
   { -- | The token passed by previous API calls until all requested endpoints are
     -- returned.
-    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The information for each requested @AppInstanceUserEndpoint@.
     appInstanceUserEndpoints :: Prelude.Maybe [AppInstanceUserEndpointSummary],
     -- | The response's http status code.
@@ -194,7 +195,7 @@ newListAppInstanceUserEndpointsResponse pHttpStatus_ =
 -- | The token passed by previous API calls until all requested endpoints are
 -- returned.
 listAppInstanceUserEndpointsResponse_nextToken :: Lens.Lens' ListAppInstanceUserEndpointsResponse (Prelude.Maybe Prelude.Text)
-listAppInstanceUserEndpointsResponse_nextToken = Lens.lens (\ListAppInstanceUserEndpointsResponse' {nextToken} -> nextToken) (\s@ListAppInstanceUserEndpointsResponse' {} a -> s {nextToken = a} :: ListAppInstanceUserEndpointsResponse) Prelude.. Lens.mapping Core._Sensitive
+listAppInstanceUserEndpointsResponse_nextToken = Lens.lens (\ListAppInstanceUserEndpointsResponse' {nextToken} -> nextToken) (\s@ListAppInstanceUserEndpointsResponse' {} a -> s {nextToken = a} :: ListAppInstanceUserEndpointsResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The information for each requested @AppInstanceUserEndpoint@.
 listAppInstanceUserEndpointsResponse_appInstanceUserEndpoints :: Lens.Lens' ListAppInstanceUserEndpointsResponse (Prelude.Maybe [AppInstanceUserEndpointSummary])

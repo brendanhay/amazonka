@@ -52,6 +52,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,8 +159,8 @@ instance Core.AWSRequest ListInstanceStorageConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListInstanceStorageConfigsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "StorageConfigs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "StorageConfigs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,31 +178,31 @@ instance Prelude.NFData ListInstanceStorageConfigs where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToHeaders ListInstanceStorageConfigs where
+instance Data.ToHeaders ListInstanceStorageConfigs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListInstanceStorageConfigs where
+instance Data.ToPath ListInstanceStorageConfigs where
   toPath ListInstanceStorageConfigs' {..} =
     Prelude.mconcat
       [ "/instance/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/storage-configs"
       ]
 
-instance Core.ToQuery ListInstanceStorageConfigs where
+instance Data.ToQuery ListInstanceStorageConfigs where
   toQuery ListInstanceStorageConfigs' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "resourceType" Core.=: resourceType
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "resourceType" Data.=: resourceType
       ]
 
 -- | /See:/ 'newListInstanceStorageConfigsResponse' smart constructor.

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,10 +120,10 @@ instance Core.AWSRequest StartImageScan where
     Response.receiveJSON
       ( \s h x ->
           StartImageScanResponse'
-            Prelude.<$> (x Core..?> "repositoryName")
-            Prelude.<*> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "imageScanStatus")
-            Prelude.<*> (x Core..?> "imageId")
+            Prelude.<$> (x Data..?> "repositoryName")
+            Prelude.<*> (x Data..?> "registryId")
+            Prelude.<*> (x Data..?> "imageScanStatus")
+            Prelude.<*> (x Data..?> "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,36 +139,36 @@ instance Prelude.NFData StartImageScan where
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf imageId
 
-instance Core.ToHeaders StartImageScan where
+instance Data.ToHeaders StartImageScan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.StartImageScan" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.StartImageScan" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartImageScan where
+instance Data.ToJSON StartImageScan where
   toJSON StartImageScan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("imageId" Core..= imageId)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("imageId" Data..= imageId)
           ]
       )
 
-instance Core.ToPath StartImageScan where
+instance Data.ToPath StartImageScan where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartImageScan where
+instance Data.ToQuery StartImageScan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartImageScanResponse' smart constructor.

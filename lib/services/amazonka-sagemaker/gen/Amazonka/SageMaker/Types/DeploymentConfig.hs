@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DeploymentConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AutoRollbackConfig
 import Amazonka.SageMaker.Types.BlueGreenUpdatePolicy
@@ -88,14 +89,14 @@ deploymentConfig_autoRollbackConfiguration = Lens.lens (\DeploymentConfig' {auto
 deploymentConfig_blueGreenUpdatePolicy :: Lens.Lens' DeploymentConfig BlueGreenUpdatePolicy
 deploymentConfig_blueGreenUpdatePolicy = Lens.lens (\DeploymentConfig' {blueGreenUpdatePolicy} -> blueGreenUpdatePolicy) (\s@DeploymentConfig' {} a -> s {blueGreenUpdatePolicy = a} :: DeploymentConfig)
 
-instance Core.FromJSON DeploymentConfig where
+instance Data.FromJSON DeploymentConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentConfig"
       ( \x ->
           DeploymentConfig'
-            Prelude.<$> (x Core..:? "AutoRollbackConfiguration")
-            Prelude.<*> (x Core..: "BlueGreenUpdatePolicy")
+            Prelude.<$> (x Data..:? "AutoRollbackConfiguration")
+            Prelude.<*> (x Data..: "BlueGreenUpdatePolicy")
       )
 
 instance Prelude.Hashable DeploymentConfig where
@@ -109,15 +110,15 @@ instance Prelude.NFData DeploymentConfig where
     Prelude.rnf autoRollbackConfiguration
       `Prelude.seq` Prelude.rnf blueGreenUpdatePolicy
 
-instance Core.ToJSON DeploymentConfig where
+instance Data.ToJSON DeploymentConfig where
   toJSON DeploymentConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AutoRollbackConfiguration" Core..=)
+          [ ("AutoRollbackConfiguration" Data..=)
               Prelude.<$> autoRollbackConfiguration,
             Prelude.Just
               ( "BlueGreenUpdatePolicy"
-                  Core..= blueGreenUpdatePolicy
+                  Data..= blueGreenUpdatePolicy
               )
           ]
       )

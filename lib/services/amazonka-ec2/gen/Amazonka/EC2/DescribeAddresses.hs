@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -244,8 +245,8 @@ instance Core.AWSRequest DescribeAddresses where
     Response.receiveXML
       ( \s h x ->
           DescribeAddressesResponse'
-            Prelude.<$> ( x Core..@? "addressesSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "addressesSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -264,28 +265,28 @@ instance Prelude.NFData DescribeAddresses where
       `Prelude.seq` Prelude.rnf publicIps
       `Prelude.seq` Prelude.rnf dryRun
 
-instance Core.ToHeaders DescribeAddresses where
+instance Data.ToHeaders DescribeAddresses where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAddresses where
+instance Data.ToPath DescribeAddresses where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAddresses where
+instance Data.ToQuery DescribeAddresses where
   toQuery DescribeAddresses' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAddresses" :: Prelude.ByteString),
+          Data.=: ("DescribeAddresses" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "AllocationId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "AllocationId"
               Prelude.<$> allocationIds
           ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        Core.toQuery
-          (Core.toQueryList "PublicIp" Prelude.<$> publicIps),
-        "DryRun" Core.=: dryRun
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        Data.toQuery
+          (Data.toQueryList "PublicIp" Prelude.<$> publicIps),
+        "DryRun" Data.=: dryRun
       ]
 
 -- | /See:/ 'newDescribeAddressesResponse' smart constructor.

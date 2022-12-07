@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ExperienceEntitiesSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.EntityDisplayData
 import Amazonka.Kendra.Types.EntityType
 import qualified Amazonka.Prelude as Prelude
@@ -80,15 +81,15 @@ experienceEntitiesSummary_displayData = Lens.lens (\ExperienceEntitiesSummary' {
 experienceEntitiesSummary_entityType :: Lens.Lens' ExperienceEntitiesSummary (Prelude.Maybe EntityType)
 experienceEntitiesSummary_entityType = Lens.lens (\ExperienceEntitiesSummary' {entityType} -> entityType) (\s@ExperienceEntitiesSummary' {} a -> s {entityType = a} :: ExperienceEntitiesSummary)
 
-instance Core.FromJSON ExperienceEntitiesSummary where
+instance Data.FromJSON ExperienceEntitiesSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperienceEntitiesSummary"
       ( \x ->
           ExperienceEntitiesSummary'
-            Prelude.<$> (x Core..:? "EntityId")
-            Prelude.<*> (x Core..:? "DisplayData")
-            Prelude.<*> (x Core..:? "EntityType")
+            Prelude.<$> (x Data..:? "EntityId")
+            Prelude.<*> (x Data..:? "DisplayData")
+            Prelude.<*> (x Data..:? "EntityType")
       )
 
 instance Prelude.Hashable ExperienceEntitiesSummary where

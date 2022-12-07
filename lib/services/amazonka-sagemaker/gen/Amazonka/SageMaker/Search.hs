@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -188,8 +189,8 @@ instance Core.AWSRequest Search where
     Response.receiveJSON
       ( \s h x ->
           SearchResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,37 +212,37 @@ instance Prelude.NFData Search where
       `Prelude.seq` Prelude.rnf searchExpression
       `Prelude.seq` Prelude.rnf resource
 
-instance Core.ToHeaders Search where
+instance Data.ToHeaders Search where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.Search" :: Prelude.ByteString),
+              Data.=# ("SageMaker.Search" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON Search where
+instance Data.ToJSON Search where
   toJSON Search' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SearchExpression" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("SearchExpression" Data..=)
               Prelude.<$> searchExpression,
-            Prelude.Just ("Resource" Core..= resource)
+            Prelude.Just ("Resource" Data..= resource)
           ]
       )
 
-instance Core.ToPath Search where
+instance Data.ToPath Search where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery Search where
+instance Data.ToQuery Search where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchResponse' smart constructor.

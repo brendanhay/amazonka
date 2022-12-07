@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.PortOverride where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Override specific listener ports used to route traffic to endpoints that
@@ -78,14 +79,14 @@ portOverride_endpointPort = Lens.lens (\PortOverride' {endpointPort} -> endpoint
 portOverride_listenerPort :: Lens.Lens' PortOverride (Prelude.Maybe Prelude.Natural)
 portOverride_listenerPort = Lens.lens (\PortOverride' {listenerPort} -> listenerPort) (\s@PortOverride' {} a -> s {listenerPort = a} :: PortOverride)
 
-instance Core.FromJSON PortOverride where
+instance Data.FromJSON PortOverride where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortOverride"
       ( \x ->
           PortOverride'
-            Prelude.<$> (x Core..:? "EndpointPort")
-            Prelude.<*> (x Core..:? "ListenerPort")
+            Prelude.<$> (x Data..:? "EndpointPort")
+            Prelude.<*> (x Data..:? "ListenerPort")
       )
 
 instance Prelude.Hashable PortOverride where
@@ -98,11 +99,11 @@ instance Prelude.NFData PortOverride where
     Prelude.rnf endpointPort
       `Prelude.seq` Prelude.rnf listenerPort
 
-instance Core.ToJSON PortOverride where
+instance Data.ToJSON PortOverride where
   toJSON PortOverride' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EndpointPort" Core..=) Prelude.<$> endpointPort,
-            ("ListenerPort" Core..=) Prelude.<$> listenerPort
+          [ ("EndpointPort" Data..=) Prelude.<$> endpointPort,
+            ("ListenerPort" Data..=) Prelude.<$> listenerPort
           ]
       )

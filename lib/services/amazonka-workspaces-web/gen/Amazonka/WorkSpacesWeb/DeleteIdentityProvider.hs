@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,25 +97,25 @@ instance Prelude.NFData DeleteIdentityProvider where
   rnf DeleteIdentityProvider' {..} =
     Prelude.rnf identityProviderArn
 
-instance Core.ToHeaders DeleteIdentityProvider where
+instance Data.ToHeaders DeleteIdentityProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteIdentityProvider where
+instance Data.ToPath DeleteIdentityProvider where
   toPath DeleteIdentityProvider' {..} =
     Prelude.mconcat
       [ "/identityProviders/",
-        Core.toBS identityProviderArn
+        Data.toBS identityProviderArn
       ]
 
-instance Core.ToQuery DeleteIdentityProvider where
+instance Data.ToQuery DeleteIdentityProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteIdentityProviderResponse' smart constructor.

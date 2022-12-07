@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.ImageResponseCard where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.Button
 import qualified Amazonka.Prelude as Prelude
 
@@ -104,16 +105,16 @@ imageResponseCard_buttons = Lens.lens (\ImageResponseCard' {buttons} -> buttons)
 imageResponseCard_title :: Lens.Lens' ImageResponseCard Prelude.Text
 imageResponseCard_title = Lens.lens (\ImageResponseCard' {title} -> title) (\s@ImageResponseCard' {} a -> s {title = a} :: ImageResponseCard)
 
-instance Core.FromJSON ImageResponseCard where
+instance Data.FromJSON ImageResponseCard where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageResponseCard"
       ( \x ->
           ImageResponseCard'
-            Prelude.<$> (x Core..:? "subtitle")
-            Prelude.<*> (x Core..:? "imageUrl")
-            Prelude.<*> (x Core..:? "buttons" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "title")
+            Prelude.<$> (x Data..:? "subtitle")
+            Prelude.<*> (x Data..:? "imageUrl")
+            Prelude.<*> (x Data..:? "buttons" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "title")
       )
 
 instance Prelude.Hashable ImageResponseCard where
@@ -130,13 +131,13 @@ instance Prelude.NFData ImageResponseCard where
       `Prelude.seq` Prelude.rnf buttons
       `Prelude.seq` Prelude.rnf title
 
-instance Core.ToJSON ImageResponseCard where
+instance Data.ToJSON ImageResponseCard where
   toJSON ImageResponseCard' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("subtitle" Core..=) Prelude.<$> subtitle,
-            ("imageUrl" Core..=) Prelude.<$> imageUrl,
-            ("buttons" Core..=) Prelude.<$> buttons,
-            Prelude.Just ("title" Core..= title)
+          [ ("subtitle" Data..=) Prelude.<$> subtitle,
+            ("imageUrl" Data..=) Prelude.<$> imageUrl,
+            ("buttons" Data..=) Prelude.<$> buttons,
+            Prelude.Just ("title" Data..= title)
           ]
       )

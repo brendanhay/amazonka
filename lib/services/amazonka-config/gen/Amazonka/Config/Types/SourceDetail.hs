@@ -24,6 +24,7 @@ import Amazonka.Config.Types.MaximumExecutionFrequency
 import Amazonka.Config.Types.MessageType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the source and the message types that trigger Config to
@@ -180,15 +181,15 @@ sourceDetail_messageType = Lens.lens (\SourceDetail' {messageType} -> messageTyp
 sourceDetail_eventSource :: Lens.Lens' SourceDetail (Prelude.Maybe EventSource)
 sourceDetail_eventSource = Lens.lens (\SourceDetail' {eventSource} -> eventSource) (\s@SourceDetail' {} a -> s {eventSource = a} :: SourceDetail)
 
-instance Core.FromJSON SourceDetail where
+instance Data.FromJSON SourceDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceDetail"
       ( \x ->
           SourceDetail'
-            Prelude.<$> (x Core..:? "MaximumExecutionFrequency")
-            Prelude.<*> (x Core..:? "MessageType")
-            Prelude.<*> (x Core..:? "EventSource")
+            Prelude.<$> (x Data..:? "MaximumExecutionFrequency")
+            Prelude.<*> (x Data..:? "MessageType")
+            Prelude.<*> (x Data..:? "EventSource")
       )
 
 instance Prelude.Hashable SourceDetail where
@@ -204,13 +205,13 @@ instance Prelude.NFData SourceDetail where
       `Prelude.seq` Prelude.rnf messageType
       `Prelude.seq` Prelude.rnf eventSource
 
-instance Core.ToJSON SourceDetail where
+instance Data.ToJSON SourceDetail where
   toJSON SourceDetail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaximumExecutionFrequency" Core..=)
+          [ ("MaximumExecutionFrequency" Data..=)
               Prelude.<$> maximumExecutionFrequency,
-            ("MessageType" Core..=) Prelude.<$> messageType,
-            ("EventSource" Core..=) Prelude.<$> eventSource
+            ("MessageType" Data..=) Prelude.<$> messageType,
+            ("EventSource" Data..=) Prelude.<$> eventSource
           ]
       )

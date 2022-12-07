@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.Patch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents metadata about a patch.
@@ -48,7 +49,7 @@ data Patch = Patch'
     -- for Ubuntu Server 20.04 LTE. Applies to Linux-based managed nodes only.
     repository :: Prelude.Maybe Prelude.Text,
     -- | The date the patch was released.
-    releaseDate :: Prelude.Maybe Core.POSIX,
+    releaseDate :: Prelude.Maybe Data.POSIX,
     -- | The Microsoft Knowledge Base ID of the patch. Applies to Windows patches
     -- only.
     kbNumber :: Prelude.Maybe Prelude.Text,
@@ -238,7 +239,7 @@ patch_repository = Lens.lens (\Patch' {repository} -> repository) (\s@Patch' {} 
 
 -- | The date the patch was released.
 patch_releaseDate :: Lens.Lens' Patch (Prelude.Maybe Prelude.UTCTime)
-patch_releaseDate = Lens.lens (\Patch' {releaseDate} -> releaseDate) (\s@Patch' {} a -> s {releaseDate = a} :: Patch) Prelude.. Lens.mapping Core._Time
+patch_releaseDate = Lens.lens (\Patch' {releaseDate} -> releaseDate) (\s@Patch' {} a -> s {releaseDate = a} :: Patch) Prelude.. Lens.mapping Data._Time
 
 -- | The Microsoft Knowledge Base ID of the patch. Applies to Windows patches
 -- only.
@@ -316,35 +317,35 @@ patch_contentUrl = Lens.lens (\Patch' {contentUrl} -> contentUrl) (\s@Patch' {} 
 patch_classification :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_classification = Lens.lens (\Patch' {classification} -> classification) (\s@Patch' {} a -> s {classification = a} :: Patch)
 
-instance Core.FromJSON Patch where
+instance Data.FromJSON Patch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Patch"
       ( \x ->
           Patch'
-            Prelude.<$> (x Core..:? "ProductFamily")
-            Prelude.<*> (x Core..:? "Product")
-            Prelude.<*> (x Core..:? "Severity")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AdvisoryIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MsrcSeverity")
-            Prelude.<*> (x Core..:? "Repository")
-            Prelude.<*> (x Core..:? "ReleaseDate")
-            Prelude.<*> (x Core..:? "KbNumber")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "BugzillaIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "Arch")
-            Prelude.<*> (x Core..:? "Epoch")
-            Prelude.<*> (x Core..:? "CVEIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MsrcNumber")
-            Prelude.<*> (x Core..:? "Release")
-            Prelude.<*> (x Core..:? "Language")
-            Prelude.<*> (x Core..:? "Vendor")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "ContentUrl")
-            Prelude.<*> (x Core..:? "Classification")
+            Prelude.<$> (x Data..:? "ProductFamily")
+            Prelude.<*> (x Data..:? "Product")
+            Prelude.<*> (x Data..:? "Severity")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AdvisoryIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MsrcSeverity")
+            Prelude.<*> (x Data..:? "Repository")
+            Prelude.<*> (x Data..:? "ReleaseDate")
+            Prelude.<*> (x Data..:? "KbNumber")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "BugzillaIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Title")
+            Prelude.<*> (x Data..:? "Arch")
+            Prelude.<*> (x Data..:? "Epoch")
+            Prelude.<*> (x Data..:? "CVEIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MsrcNumber")
+            Prelude.<*> (x Data..:? "Release")
+            Prelude.<*> (x Data..:? "Language")
+            Prelude.<*> (x Data..:? "Vendor")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..:? "ContentUrl")
+            Prelude.<*> (x Data..:? "Classification")
       )
 
 instance Prelude.Hashable Patch where

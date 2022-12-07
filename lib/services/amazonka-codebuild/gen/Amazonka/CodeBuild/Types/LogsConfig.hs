@@ -23,6 +23,7 @@ import Amazonka.CodeBuild.Types.CloudWatchLogsConfig
 import Amazonka.CodeBuild.Types.S3LogsConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about logs for a build project. These can be logs in
@@ -70,14 +71,14 @@ logsConfig_cloudWatchLogs = Lens.lens (\LogsConfig' {cloudWatchLogs} -> cloudWat
 logsConfig_s3Logs :: Lens.Lens' LogsConfig (Prelude.Maybe S3LogsConfig)
 logsConfig_s3Logs = Lens.lens (\LogsConfig' {s3Logs} -> s3Logs) (\s@LogsConfig' {} a -> s {s3Logs = a} :: LogsConfig)
 
-instance Core.FromJSON LogsConfig where
+instance Data.FromJSON LogsConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogsConfig"
       ( \x ->
           LogsConfig'
-            Prelude.<$> (x Core..:? "cloudWatchLogs")
-            Prelude.<*> (x Core..:? "s3Logs")
+            Prelude.<$> (x Data..:? "cloudWatchLogs")
+            Prelude.<*> (x Data..:? "s3Logs")
       )
 
 instance Prelude.Hashable LogsConfig where
@@ -90,12 +91,12 @@ instance Prelude.NFData LogsConfig where
     Prelude.rnf cloudWatchLogs
       `Prelude.seq` Prelude.rnf s3Logs
 
-instance Core.ToJSON LogsConfig where
+instance Data.ToJSON LogsConfig where
   toJSON LogsConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cloudWatchLogs" Core..=)
+          [ ("cloudWatchLogs" Data..=)
               Prelude.<$> cloudWatchLogs,
-            ("s3Logs" Core..=) Prelude.<$> s3Logs
+            ("s3Logs" Data..=) Prelude.<$> s3Logs
           ]
       )

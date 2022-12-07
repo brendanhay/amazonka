@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.ATIMetricDataPoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Account Takeover Insights (ATI) model performance metrics data
@@ -116,16 +117,16 @@ aTIMetricDataPoint_atodr = Lens.lens (\ATIMetricDataPoint' {atodr} -> atodr) (\s
 aTIMetricDataPoint_threshold :: Lens.Lens' ATIMetricDataPoint (Prelude.Maybe Prelude.Double)
 aTIMetricDataPoint_threshold = Lens.lens (\ATIMetricDataPoint' {threshold} -> threshold) (\s@ATIMetricDataPoint' {} a -> s {threshold = a} :: ATIMetricDataPoint)
 
-instance Core.FromJSON ATIMetricDataPoint where
+instance Data.FromJSON ATIMetricDataPoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ATIMetricDataPoint"
       ( \x ->
           ATIMetricDataPoint'
-            Prelude.<$> (x Core..:? "cr")
-            Prelude.<*> (x Core..:? "adr")
-            Prelude.<*> (x Core..:? "atodr")
-            Prelude.<*> (x Core..:? "threshold")
+            Prelude.<$> (x Data..:? "cr")
+            Prelude.<*> (x Data..:? "adr")
+            Prelude.<*> (x Data..:? "atodr")
+            Prelude.<*> (x Data..:? "threshold")
       )
 
 instance Prelude.Hashable ATIMetricDataPoint where

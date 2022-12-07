@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,7 +110,7 @@ instance Core.AWSRequest SendDataToMulticastGroup where
     Response.receiveJSON
       ( \s h x ->
           SendDataToMulticastGroupResponse'
-            Prelude.<$> (x Core..?> "MessageId")
+            Prelude.<$> (x Data..?> "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,25 +126,25 @@ instance Prelude.NFData SendDataToMulticastGroup where
       `Prelude.seq` Prelude.rnf payloadData
       `Prelude.seq` Prelude.rnf wirelessMetadata
 
-instance Core.ToHeaders SendDataToMulticastGroup where
+instance Data.ToHeaders SendDataToMulticastGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON SendDataToMulticastGroup where
+instance Data.ToJSON SendDataToMulticastGroup where
   toJSON SendDataToMulticastGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("PayloadData" Core..= payloadData),
+          [ Prelude.Just ("PayloadData" Data..= payloadData),
             Prelude.Just
-              ("WirelessMetadata" Core..= wirelessMetadata)
+              ("WirelessMetadata" Data..= wirelessMetadata)
           ]
       )
 
-instance Core.ToPath SendDataToMulticastGroup where
+instance Data.ToPath SendDataToMulticastGroup where
   toPath SendDataToMulticastGroup' {..} =
     Prelude.mconcat
-      ["/multicast-groups/", Core.toBS id, "/data"]
+      ["/multicast-groups/", Data.toBS id, "/data"]
 
-instance Core.ToQuery SendDataToMulticastGroup where
+instance Data.ToQuery SendDataToMulticastGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendDataToMulticastGroupResponse' smart constructor.

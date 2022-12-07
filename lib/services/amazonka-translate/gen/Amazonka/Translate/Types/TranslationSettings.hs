@@ -21,6 +21,7 @@ module Amazonka.Translate.Types.TranslationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Translate.Types.Formality
 import Amazonka.Translate.Types.Profanity
@@ -151,14 +152,14 @@ translationSettings_formality = Lens.lens (\TranslationSettings' {formality} -> 
 translationSettings_profanity :: Lens.Lens' TranslationSettings (Prelude.Maybe Profanity)
 translationSettings_profanity = Lens.lens (\TranslationSettings' {profanity} -> profanity) (\s@TranslationSettings' {} a -> s {profanity = a} :: TranslationSettings)
 
-instance Core.FromJSON TranslationSettings where
+instance Data.FromJSON TranslationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TranslationSettings"
       ( \x ->
           TranslationSettings'
-            Prelude.<$> (x Core..:? "Formality")
-            Prelude.<*> (x Core..:? "Profanity")
+            Prelude.<$> (x Data..:? "Formality")
+            Prelude.<*> (x Data..:? "Profanity")
       )
 
 instance Prelude.Hashable TranslationSettings where
@@ -171,11 +172,11 @@ instance Prelude.NFData TranslationSettings where
     Prelude.rnf formality
       `Prelude.seq` Prelude.rnf profanity
 
-instance Core.ToJSON TranslationSettings where
+instance Data.ToJSON TranslationSettings where
   toJSON TranslationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Formality" Core..=) Prelude.<$> formality,
-            ("Profanity" Core..=) Prelude.<$> profanity
+          [ ("Formality" Data..=) Prelude.<$> formality,
+            ("Profanity" Data..=) Prelude.<$> profanity
           ]
       )

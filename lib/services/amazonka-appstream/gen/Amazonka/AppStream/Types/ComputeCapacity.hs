@@ -21,6 +21,7 @@ module Amazonka.AppStream.Types.ComputeCapacity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the capacity for a fleet.
@@ -63,11 +64,11 @@ instance Prelude.NFData ComputeCapacity where
   rnf ComputeCapacity' {..} =
     Prelude.rnf desiredInstances
 
-instance Core.ToJSON ComputeCapacity where
+instance Data.ToJSON ComputeCapacity where
   toJSON ComputeCapacity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DesiredInstances" Core..= desiredInstances)
+              ("DesiredInstances" Data..= desiredInstances)
           ]
       )

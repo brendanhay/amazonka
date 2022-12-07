@@ -137,6 +137,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -451,7 +452,7 @@ instance Core.AWSRequest PutScalingPolicy where
     Response.receiveJSON
       ( \s h x ->
           PutScalingPolicyResponse'
-            Prelude.<$> (x Core..?> "Name")
+            Prelude.<$> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -481,45 +482,45 @@ instance Prelude.NFData PutScalingPolicy where
       `Prelude.seq` Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf metricName
 
-instance Core.ToHeaders PutScalingPolicy where
+instance Data.ToHeaders PutScalingPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.PutScalingPolicy" :: Prelude.ByteString),
+              Data.=# ("GameLift.PutScalingPolicy" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutScalingPolicy where
+instance Data.ToJSON PutScalingPolicy where
   toJSON PutScalingPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PolicyType" Core..=) Prelude.<$> policyType,
-            ("EvaluationPeriods" Core..=)
+          [ ("PolicyType" Data..=) Prelude.<$> policyType,
+            ("EvaluationPeriods" Data..=)
               Prelude.<$> evaluationPeriods,
-            ("TargetConfiguration" Core..=)
+            ("TargetConfiguration" Data..=)
               Prelude.<$> targetConfiguration,
-            ("Threshold" Core..=) Prelude.<$> threshold,
-            ("ScalingAdjustment" Core..=)
+            ("Threshold" Data..=) Prelude.<$> threshold,
+            ("ScalingAdjustment" Data..=)
               Prelude.<$> scalingAdjustment,
-            ("ComparisonOperator" Core..=)
+            ("ComparisonOperator" Data..=)
               Prelude.<$> comparisonOperator,
-            ("ScalingAdjustmentType" Core..=)
+            ("ScalingAdjustmentType" Data..=)
               Prelude.<$> scalingAdjustmentType,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("FleetId" Core..= fleetId),
-            Prelude.Just ("MetricName" Core..= metricName)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("FleetId" Data..= fleetId),
+            Prelude.Just ("MetricName" Data..= metricName)
           ]
       )
 
-instance Core.ToPath PutScalingPolicy where
+instance Data.ToPath PutScalingPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutScalingPolicy where
+instance Data.ToQuery PutScalingPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

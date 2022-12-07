@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.VpcConfigResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The VPC security groups and subnets that are attached to a Lambda
@@ -72,17 +73,17 @@ vpcConfigResponse_vpcId = Lens.lens (\VpcConfigResponse' {vpcId} -> vpcId) (\s@V
 vpcConfigResponse_subnetIds :: Lens.Lens' VpcConfigResponse (Prelude.Maybe [Prelude.Text])
 vpcConfigResponse_subnetIds = Lens.lens (\VpcConfigResponse' {subnetIds} -> subnetIds) (\s@VpcConfigResponse' {} a -> s {subnetIds = a} :: VpcConfigResponse) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON VpcConfigResponse where
+instance Data.FromJSON VpcConfigResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcConfigResponse"
       ( \x ->
           VpcConfigResponse'
-            Prelude.<$> ( x Core..:? "SecurityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable VpcConfigResponse where

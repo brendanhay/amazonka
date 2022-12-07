@@ -21,6 +21,7 @@ module Amazonka.M2.Types.EngineVersionsSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A subset of information about the engine version for a specific
@@ -66,14 +67,14 @@ engineVersionsSummary_engineType = Lens.lens (\EngineVersionsSummary' {engineTyp
 engineVersionsSummary_engineVersion :: Lens.Lens' EngineVersionsSummary Prelude.Text
 engineVersionsSummary_engineVersion = Lens.lens (\EngineVersionsSummary' {engineVersion} -> engineVersion) (\s@EngineVersionsSummary' {} a -> s {engineVersion = a} :: EngineVersionsSummary)
 
-instance Core.FromJSON EngineVersionsSummary where
+instance Data.FromJSON EngineVersionsSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EngineVersionsSummary"
       ( \x ->
           EngineVersionsSummary'
-            Prelude.<$> (x Core..: "engineType")
-            Prelude.<*> (x Core..: "engineVersion")
+            Prelude.<$> (x Data..: "engineType")
+            Prelude.<*> (x Data..: "engineVersion")
       )
 
 instance Prelude.Hashable EngineVersionsSummary where

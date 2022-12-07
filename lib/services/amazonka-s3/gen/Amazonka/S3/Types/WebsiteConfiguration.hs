@@ -21,6 +21,7 @@ module Amazonka.S3.Types.WebsiteConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ErrorDocument
@@ -108,16 +109,16 @@ instance Prelude.NFData WebsiteConfiguration where
       `Prelude.seq` Prelude.rnf redirectAllRequestsTo
       `Prelude.seq` Prelude.rnf indexDocument
 
-instance Core.ToXML WebsiteConfiguration where
+instance Data.ToXML WebsiteConfiguration where
   toXML WebsiteConfiguration' {..} =
     Prelude.mconcat
       [ "RoutingRules"
-          Core.@= Core.toXML
-            ( Core.toXMLList "RoutingRule"
+          Data.@= Data.toXML
+            ( Data.toXMLList "RoutingRule"
                 Prelude.<$> routingRules
             ),
-        "ErrorDocument" Core.@= errorDocument,
+        "ErrorDocument" Data.@= errorDocument,
         "RedirectAllRequestsTo"
-          Core.@= redirectAllRequestsTo,
-        "IndexDocument" Core.@= indexDocument
+          Data.@= redirectAllRequestsTo,
+        "IndexDocument" Data.@= indexDocument
       ]

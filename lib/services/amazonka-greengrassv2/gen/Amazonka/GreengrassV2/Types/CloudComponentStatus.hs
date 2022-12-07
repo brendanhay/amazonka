@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.CloudComponentStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.CloudComponentState
 import Amazonka.GreengrassV2.Types.VendorGuidance
 import qualified Amazonka.Prelude as Prelude
@@ -151,17 +152,17 @@ cloudComponentStatus_errors = Lens.lens (\CloudComponentStatus' {errors} -> erro
 cloudComponentStatus_componentState :: Lens.Lens' CloudComponentStatus (Prelude.Maybe CloudComponentState)
 cloudComponentStatus_componentState = Lens.lens (\CloudComponentStatus' {componentState} -> componentState) (\s@CloudComponentStatus' {} a -> s {componentState = a} :: CloudComponentStatus)
 
-instance Core.FromJSON CloudComponentStatus where
+instance Data.FromJSON CloudComponentStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudComponentStatus"
       ( \x ->
           CloudComponentStatus'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "vendorGuidance")
-            Prelude.<*> (x Core..:? "vendorGuidanceMessage")
-            Prelude.<*> (x Core..:? "errors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "componentState")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "vendorGuidance")
+            Prelude.<*> (x Data..:? "vendorGuidanceMessage")
+            Prelude.<*> (x Data..:? "errors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "componentState")
       )
 
 instance Prelude.Hashable CloudComponentStatus where

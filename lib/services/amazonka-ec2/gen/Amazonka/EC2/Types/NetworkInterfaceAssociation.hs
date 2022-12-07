@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkInterfaceAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -119,16 +120,16 @@ networkInterfaceAssociation_customerOwnedIp = Lens.lens (\NetworkInterfaceAssoci
 networkInterfaceAssociation_associationId :: Lens.Lens' NetworkInterfaceAssociation (Prelude.Maybe Prelude.Text)
 networkInterfaceAssociation_associationId = Lens.lens (\NetworkInterfaceAssociation' {associationId} -> associationId) (\s@NetworkInterfaceAssociation' {} a -> s {associationId = a} :: NetworkInterfaceAssociation)
 
-instance Core.FromXML NetworkInterfaceAssociation where
+instance Data.FromXML NetworkInterfaceAssociation where
   parseXML x =
     NetworkInterfaceAssociation'
-      Prelude.<$> (x Core..@? "allocationId")
-      Prelude.<*> (x Core..@? "ipOwnerId")
-      Prelude.<*> (x Core..@? "carrierIp")
-      Prelude.<*> (x Core..@? "publicIp")
-      Prelude.<*> (x Core..@? "publicDnsName")
-      Prelude.<*> (x Core..@? "customerOwnedIp")
-      Prelude.<*> (x Core..@? "associationId")
+      Prelude.<$> (x Data..@? "allocationId")
+      Prelude.<*> (x Data..@? "ipOwnerId")
+      Prelude.<*> (x Data..@? "carrierIp")
+      Prelude.<*> (x Data..@? "publicIp")
+      Prelude.<*> (x Data..@? "publicDnsName")
+      Prelude.<*> (x Data..@? "customerOwnedIp")
+      Prelude.<*> (x Data..@? "associationId")
 
 instance Prelude.Hashable NetworkInterfaceAssociation where
   hashWithSalt _salt NetworkInterfaceAssociation' {..} =

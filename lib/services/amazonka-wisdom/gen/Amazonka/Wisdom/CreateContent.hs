@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -197,7 +198,7 @@ instance Core.AWSRequest CreateContent where
     Response.receiveJSON
       ( \s h x ->
           CreateContentResponse'
-            Prelude.<$> (x Core..?> "content")
+            Prelude.<$> (x Data..?> "content")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -223,41 +224,41 @@ instance Prelude.NFData CreateContent where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf uploadId
 
-instance Core.ToHeaders CreateContent where
+instance Data.ToHeaders CreateContent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateContent where
+instance Data.ToJSON CreateContent where
   toJSON CreateContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("metadata" Core..=) Prelude.<$> metadata,
-            ("title" Core..=) Prelude.<$> title,
-            ("overrideLinkOutUri" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("metadata" Data..=) Prelude.<$> metadata,
+            ("title" Data..=) Prelude.<$> title,
+            ("overrideLinkOutUri" Data..=)
               Prelude.<$> overrideLinkOutUri,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("uploadId" Core..= uploadId)
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("uploadId" Data..= uploadId)
           ]
       )
 
-instance Core.ToPath CreateContent where
+instance Data.ToPath CreateContent where
   toPath CreateContent' {..} =
     Prelude.mconcat
       [ "/knowledgeBases/",
-        Core.toBS knowledgeBaseId,
+        Data.toBS knowledgeBaseId,
         "/contents"
       ]
 
-instance Core.ToQuery CreateContent where
+instance Data.ToQuery CreateContent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateContentResponse' smart constructor.

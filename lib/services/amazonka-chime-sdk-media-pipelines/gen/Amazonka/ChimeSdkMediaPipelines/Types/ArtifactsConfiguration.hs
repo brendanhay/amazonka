@@ -25,6 +25,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.ContentArtifactsConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.VideoArtifactsConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for the artifacts.
@@ -90,16 +91,16 @@ artifactsConfiguration_video = Lens.lens (\ArtifactsConfiguration' {video} -> vi
 artifactsConfiguration_content :: Lens.Lens' ArtifactsConfiguration ContentArtifactsConfiguration
 artifactsConfiguration_content = Lens.lens (\ArtifactsConfiguration' {content} -> content) (\s@ArtifactsConfiguration' {} a -> s {content = a} :: ArtifactsConfiguration)
 
-instance Core.FromJSON ArtifactsConfiguration where
+instance Data.FromJSON ArtifactsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArtifactsConfiguration"
       ( \x ->
           ArtifactsConfiguration'
-            Prelude.<$> (x Core..:? "CompositedVideo")
-            Prelude.<*> (x Core..: "Audio")
-            Prelude.<*> (x Core..: "Video")
-            Prelude.<*> (x Core..: "Content")
+            Prelude.<$> (x Data..:? "CompositedVideo")
+            Prelude.<*> (x Data..: "Audio")
+            Prelude.<*> (x Data..: "Video")
+            Prelude.<*> (x Data..: "Content")
       )
 
 instance Prelude.Hashable ArtifactsConfiguration where
@@ -116,14 +117,14 @@ instance Prelude.NFData ArtifactsConfiguration where
       `Prelude.seq` Prelude.rnf video
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToJSON ArtifactsConfiguration where
+instance Data.ToJSON ArtifactsConfiguration where
   toJSON ArtifactsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CompositedVideo" Core..=)
+          [ ("CompositedVideo" Data..=)
               Prelude.<$> compositedVideo,
-            Prelude.Just ("Audio" Core..= audio),
-            Prelude.Just ("Video" Core..= video),
-            Prelude.Just ("Content" Core..= content)
+            Prelude.Just ("Audio" Data..= audio),
+            Prelude.Just ("Video" Data..= video),
+            Prelude.Just ("Content" Data..= content)
           ]
       )

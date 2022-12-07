@@ -22,6 +22,7 @@ module Amazonka.CloudTrail.Types.Event where
 import Amazonka.CloudTrail.Types.Resource
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an event that was returned by a lookup
@@ -41,7 +42,7 @@ data Event = Event'
     -- | A list of resources referenced by the event returned.
     resources :: Prelude.Maybe [Resource],
     -- | The date and time of the event returned.
-    eventTime :: Prelude.Maybe Core.POSIX,
+    eventTime :: Prelude.Maybe Data.POSIX,
     -- | A JSON string that contains a representation of the event returned.
     cloudTrailEvent :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services access key ID that was used to sign the request.
@@ -119,7 +120,7 @@ event_resources = Lens.lens (\Event' {resources} -> resources) (\s@Event' {} a -
 
 -- | The date and time of the event returned.
 event_eventTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_eventTime = Lens.lens (\Event' {eventTime} -> eventTime) (\s@Event' {} a -> s {eventTime = a} :: Event) Prelude.. Lens.mapping Core._Time
+event_eventTime = Lens.lens (\Event' {eventTime} -> eventTime) (\s@Event' {} a -> s {eventTime = a} :: Event) Prelude.. Lens.mapping Data._Time
 
 -- | A JSON string that contains a representation of the event returned.
 event_cloudTrailEvent :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
@@ -135,21 +136,21 @@ event_accessKeyId = Lens.lens (\Event' {accessKeyId} -> accessKeyId) (\s@Event' 
 event_eventSource :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_eventSource = Lens.lens (\Event' {eventSource} -> eventSource) (\s@Event' {} a -> s {eventSource = a} :: Event)
 
-instance Core.FromJSON Event where
+instance Data.FromJSON Event where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Event"
       ( \x ->
           Event'
-            Prelude.<$> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "ReadOnly")
-            Prelude.<*> (x Core..:? "EventName")
-            Prelude.<*> (x Core..:? "EventId")
-            Prelude.<*> (x Core..:? "Resources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EventTime")
-            Prelude.<*> (x Core..:? "CloudTrailEvent")
-            Prelude.<*> (x Core..:? "AccessKeyId")
-            Prelude.<*> (x Core..:? "EventSource")
+            Prelude.<$> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "ReadOnly")
+            Prelude.<*> (x Data..:? "EventName")
+            Prelude.<*> (x Data..:? "EventId")
+            Prelude.<*> (x Data..:? "Resources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EventTime")
+            Prelude.<*> (x Data..:? "CloudTrailEvent")
+            Prelude.<*> (x Data..:? "AccessKeyId")
+            Prelude.<*> (x Data..:? "EventSource")
       )
 
 instance Prelude.Hashable Event where

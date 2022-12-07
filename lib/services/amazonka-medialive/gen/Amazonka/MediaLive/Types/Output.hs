@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Output where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.OutputSettings
 import qualified Amazonka.Prelude as Prelude
 
@@ -97,21 +98,21 @@ output_audioDescriptionNames = Lens.lens (\Output' {audioDescriptionNames} -> au
 output_outputSettings :: Lens.Lens' Output OutputSettings
 output_outputSettings = Lens.lens (\Output' {outputSettings} -> outputSettings) (\s@Output' {} a -> s {outputSettings = a} :: Output)
 
-instance Core.FromJSON Output where
+instance Data.FromJSON Output where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Output"
       ( \x ->
           Output'
-            Prelude.<$> (x Core..:? "videoDescriptionName")
-            Prelude.<*> ( x Core..:? "captionDescriptionNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "videoDescriptionName")
+            Prelude.<*> ( x Data..:? "captionDescriptionNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "outputName")
-            Prelude.<*> ( x Core..:? "audioDescriptionNames"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "outputName")
+            Prelude.<*> ( x Data..:? "audioDescriptionNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "outputSettings")
+            Prelude.<*> (x Data..: "outputSettings")
       )
 
 instance Prelude.Hashable Output where
@@ -130,18 +131,18 @@ instance Prelude.NFData Output where
       `Prelude.seq` Prelude.rnf audioDescriptionNames
       `Prelude.seq` Prelude.rnf outputSettings
 
-instance Core.ToJSON Output where
+instance Data.ToJSON Output where
   toJSON Output' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("videoDescriptionName" Core..=)
+          [ ("videoDescriptionName" Data..=)
               Prelude.<$> videoDescriptionName,
-            ("captionDescriptionNames" Core..=)
+            ("captionDescriptionNames" Data..=)
               Prelude.<$> captionDescriptionNames,
-            ("outputName" Core..=) Prelude.<$> outputName,
-            ("audioDescriptionNames" Core..=)
+            ("outputName" Data..=) Prelude.<$> outputName,
+            ("audioDescriptionNames" Data..=)
               Prelude.<$> audioDescriptionNames,
             Prelude.Just
-              ("outputSettings" Core..= outputSettings)
+              ("outputSettings" Data..= outputSettings)
           ]
       )

@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -66,11 +67,11 @@ data DescribeActivities = DescribeActivities'
     marker :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The timestamp that determines the end time of the activities. The
     -- response includes the activities performed before the specified
     -- timestamp.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies which activity types to include in the response. If this field
     -- is left empty, all activity types are returned.
     activityTypes :: Prelude.Maybe Prelude.Text,
@@ -91,7 +92,7 @@ data DescribeActivities = DescribeActivities'
     -- | The timestamp that determines the starting time of the activities. The
     -- response includes the activities performed after the specified
     -- timestamp.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -161,13 +162,13 @@ describeActivities_marker = Lens.lens (\DescribeActivities' {marker} -> marker) 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 describeActivities_authenticationToken :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Text)
-describeActivities_authenticationToken = Lens.lens (\DescribeActivities' {authenticationToken} -> authenticationToken) (\s@DescribeActivities' {} a -> s {authenticationToken = a} :: DescribeActivities) Prelude.. Lens.mapping Core._Sensitive
+describeActivities_authenticationToken = Lens.lens (\DescribeActivities' {authenticationToken} -> authenticationToken) (\s@DescribeActivities' {} a -> s {authenticationToken = a} :: DescribeActivities) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The timestamp that determines the end time of the activities. The
 -- response includes the activities performed before the specified
 -- timestamp.
 describeActivities_endTime :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.UTCTime)
-describeActivities_endTime = Lens.lens (\DescribeActivities' {endTime} -> endTime) (\s@DescribeActivities' {} a -> s {endTime = a} :: DescribeActivities) Prelude.. Lens.mapping Core._Time
+describeActivities_endTime = Lens.lens (\DescribeActivities' {endTime} -> endTime) (\s@DescribeActivities' {} a -> s {endTime = a} :: DescribeActivities) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies which activity types to include in the response. If this field
 -- is left empty, all activity types are returned.
@@ -200,7 +201,7 @@ describeActivities_includeIndirectActivities = Lens.lens (\DescribeActivities' {
 -- response includes the activities performed after the specified
 -- timestamp.
 describeActivities_startTime :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.UTCTime)
-describeActivities_startTime = Lens.lens (\DescribeActivities' {startTime} -> startTime) (\s@DescribeActivities' {} a -> s {startTime = a} :: DescribeActivities) Prelude.. Lens.mapping Core._Time
+describeActivities_startTime = Lens.lens (\DescribeActivities' {startTime} -> startTime) (\s@DescribeActivities' {} a -> s {startTime = a} :: DescribeActivities) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager DescribeActivities where
   page rq rs
@@ -234,8 +235,8 @@ instance Core.AWSRequest DescribeActivities where
     Response.receiveJSON
       ( \s h x ->
           DescribeActivitiesResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "UserActivities" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "UserActivities" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -265,30 +266,30 @@ instance Prelude.NFData DescribeActivities where
       `Prelude.seq` Prelude.rnf includeIndirectActivities
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders DescribeActivities where
+instance Data.ToHeaders DescribeActivities where
   toHeaders DescribeActivities' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DescribeActivities where
+instance Data.ToPath DescribeActivities where
   toPath = Prelude.const "/api/v1/activities"
 
-instance Core.ToQuery DescribeActivities where
+instance Data.ToQuery DescribeActivities where
   toQuery DescribeActivities' {..} =
     Prelude.mconcat
-      [ "resourceId" Core.=: resourceId,
-        "marker" Core.=: marker,
-        "endTime" Core.=: endTime,
-        "activityTypes" Core.=: activityTypes,
-        "limit" Core.=: limit,
-        "userId" Core.=: userId,
-        "organizationId" Core.=: organizationId,
+      [ "resourceId" Data.=: resourceId,
+        "marker" Data.=: marker,
+        "endTime" Data.=: endTime,
+        "activityTypes" Data.=: activityTypes,
+        "limit" Data.=: limit,
+        "userId" Data.=: userId,
+        "organizationId" Data.=: organizationId,
         "includeIndirectActivities"
-          Core.=: includeIndirectActivities,
-        "startTime" Core.=: startTime
+          Data.=: includeIndirectActivities,
+        "startTime" Data.=: startTime
       ]
 
 -- | /See:/ 'newDescribeActivitiesResponse' smart constructor.

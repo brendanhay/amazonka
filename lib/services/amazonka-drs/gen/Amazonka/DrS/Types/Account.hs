@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.Account where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | AWS account.
@@ -49,12 +50,12 @@ newAccount = Account' {accountID = Prelude.Nothing}
 account_accountID :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
 account_accountID = Lens.lens (\Account' {accountID} -> accountID) (\s@Account' {} a -> s {accountID = a} :: Account)
 
-instance Core.FromJSON Account where
+instance Data.FromJSON Account where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Account"
       ( \x ->
-          Account' Prelude.<$> (x Core..:? "accountID")
+          Account' Prelude.<$> (x Data..:? "accountID")
       )
 
 instance Prelude.Hashable Account where

@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.TriggerDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the reason the scan was triggered.
@@ -61,14 +62,14 @@ triggerDetails_description = Lens.lens (\TriggerDetails' {description} -> descri
 triggerDetails_guardDutyFindingId :: Lens.Lens' TriggerDetails (Prelude.Maybe Prelude.Text)
 triggerDetails_guardDutyFindingId = Lens.lens (\TriggerDetails' {guardDutyFindingId} -> guardDutyFindingId) (\s@TriggerDetails' {} a -> s {guardDutyFindingId = a} :: TriggerDetails)
 
-instance Core.FromJSON TriggerDetails where
+instance Data.FromJSON TriggerDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TriggerDetails"
       ( \x ->
           TriggerDetails'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "guardDutyFindingId")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "guardDutyFindingId")
       )
 
 instance Prelude.Hashable TriggerDetails where

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaStore.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetMetricPolicy where
       ( \s h x ->
           GetMetricPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "MetricPolicy")
+            Prelude.<*> (x Data..:> "MetricPolicy")
       )
 
 instance Prelude.Hashable GetMetricPolicy where
@@ -94,34 +95,34 @@ instance Prelude.Hashable GetMetricPolicy where
 instance Prelude.NFData GetMetricPolicy where
   rnf GetMetricPolicy' {..} = Prelude.rnf containerName
 
-instance Core.ToHeaders GetMetricPolicy where
+instance Data.ToHeaders GetMetricPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MediaStore_20170901.GetMetricPolicy" ::
+              Data.=# ( "MediaStore_20170901.GetMetricPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMetricPolicy where
+instance Data.ToJSON GetMetricPolicy where
   toJSON GetMetricPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ContainerName" Core..= containerName)
+              ("ContainerName" Data..= containerName)
           ]
       )
 
-instance Core.ToPath GetMetricPolicy where
+instance Data.ToPath GetMetricPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMetricPolicy where
+instance Data.ToQuery GetMetricPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMetricPolicyResponse' smart constructor.

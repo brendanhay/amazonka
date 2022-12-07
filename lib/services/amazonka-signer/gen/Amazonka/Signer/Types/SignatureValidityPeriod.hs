@@ -21,6 +21,7 @@ module Amazonka.Signer.Types.SignatureValidityPeriod where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Signer.Types.ValidityType
 
@@ -62,13 +63,13 @@ signatureValidityPeriod_type = Lens.lens (\SignatureValidityPeriod' {type'} -> t
 signatureValidityPeriod_value :: Lens.Lens' SignatureValidityPeriod (Prelude.Maybe Prelude.Int)
 signatureValidityPeriod_value = Lens.lens (\SignatureValidityPeriod' {value} -> value) (\s@SignatureValidityPeriod' {} a -> s {value = a} :: SignatureValidityPeriod)
 
-instance Core.FromJSON SignatureValidityPeriod where
+instance Data.FromJSON SignatureValidityPeriod where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SignatureValidityPeriod"
       ( \x ->
           SignatureValidityPeriod'
-            Prelude.<$> (x Core..:? "type") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "type") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable SignatureValidityPeriod where
@@ -80,11 +81,11 @@ instance Prelude.NFData SignatureValidityPeriod where
   rnf SignatureValidityPeriod' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON SignatureValidityPeriod where
+instance Data.ToJSON SignatureValidityPeriod where
   toJSON SignatureValidityPeriod' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("value" Core..=) Prelude.<$> value
+          [ ("type" Data..=) Prelude.<$> type',
+            ("value" Data..=) Prelude.<$> value
           ]
       )

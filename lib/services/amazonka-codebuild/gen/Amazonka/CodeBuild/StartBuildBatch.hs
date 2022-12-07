@@ -72,6 +72,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -683,7 +684,7 @@ instance Core.AWSRequest StartBuildBatch where
     Response.receiveJSON
       ( \s h x ->
           StartBuildBatchResponse'
-            Prelude.<$> (x Core..?> "buildBatch")
+            Prelude.<$> (x Data..?> "buildBatch")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -770,90 +771,90 @@ instance Prelude.NFData StartBuildBatch where
       `Prelude.seq` Prelude.rnf
         projectName
 
-instance Core.ToHeaders StartBuildBatch where
+instance Data.ToHeaders StartBuildBatch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.StartBuildBatch" ::
+              Data.=# ( "CodeBuild_20161006.StartBuildBatch" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartBuildBatch where
+instance Data.ToJSON StartBuildBatch where
   toJSON StartBuildBatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sourceTypeOverride" Core..=)
+          [ ("sourceTypeOverride" Data..=)
               Prelude.<$> sourceTypeOverride,
-            ("buildBatchConfigOverride" Core..=)
+            ("buildBatchConfigOverride" Data..=)
               Prelude.<$> buildBatchConfigOverride,
-            ("insecureSslOverride" Core..=)
+            ("insecureSslOverride" Data..=)
               Prelude.<$> insecureSslOverride,
-            ("encryptionKeyOverride" Core..=)
+            ("encryptionKeyOverride" Data..=)
               Prelude.<$> encryptionKeyOverride,
-            ("registryCredentialOverride" Core..=)
+            ("registryCredentialOverride" Data..=)
               Prelude.<$> registryCredentialOverride,
-            ("secondarySourcesOverride" Core..=)
+            ("secondarySourcesOverride" Data..=)
               Prelude.<$> secondarySourcesOverride,
-            ("sourceAuthOverride" Core..=)
+            ("sourceAuthOverride" Data..=)
               Prelude.<$> sourceAuthOverride,
-            ("debugSessionEnabled" Core..=)
+            ("debugSessionEnabled" Data..=)
               Prelude.<$> debugSessionEnabled,
-            ("sourceVersion" Core..=) Prelude.<$> sourceVersion,
-            ("serviceRoleOverride" Core..=)
+            ("sourceVersion" Data..=) Prelude.<$> sourceVersion,
+            ("serviceRoleOverride" Data..=)
               Prelude.<$> serviceRoleOverride,
-            ("idempotencyToken" Core..=)
+            ("idempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("certificateOverride" Core..=)
+            ("certificateOverride" Data..=)
               Prelude.<$> certificateOverride,
-            ("computeTypeOverride" Core..=)
+            ("computeTypeOverride" Data..=)
               Prelude.<$> computeTypeOverride,
-            ("queuedTimeoutInMinutesOverride" Core..=)
+            ("queuedTimeoutInMinutesOverride" Data..=)
               Prelude.<$> queuedTimeoutInMinutesOverride,
-            ("imagePullCredentialsTypeOverride" Core..=)
+            ("imagePullCredentialsTypeOverride" Data..=)
               Prelude.<$> imagePullCredentialsTypeOverride,
-            ("cacheOverride" Core..=) Prelude.<$> cacheOverride,
-            ("privilegedModeOverride" Core..=)
+            ("cacheOverride" Data..=) Prelude.<$> cacheOverride,
+            ("privilegedModeOverride" Data..=)
               Prelude.<$> privilegedModeOverride,
-            ("secondarySourcesVersionOverride" Core..=)
+            ("secondarySourcesVersionOverride" Data..=)
               Prelude.<$> secondarySourcesVersionOverride,
-            ("environmentVariablesOverride" Core..=)
+            ("environmentVariablesOverride" Data..=)
               Prelude.<$> environmentVariablesOverride,
-            ("gitSubmodulesConfigOverride" Core..=)
+            ("gitSubmodulesConfigOverride" Data..=)
               Prelude.<$> gitSubmodulesConfigOverride,
-            ("artifactsOverride" Core..=)
+            ("artifactsOverride" Data..=)
               Prelude.<$> artifactsOverride,
-            ("logsConfigOverride" Core..=)
+            ("logsConfigOverride" Data..=)
               Prelude.<$> logsConfigOverride,
-            ("gitCloneDepthOverride" Core..=)
+            ("gitCloneDepthOverride" Data..=)
               Prelude.<$> gitCloneDepthOverride,
-            ("environmentTypeOverride" Core..=)
+            ("environmentTypeOverride" Data..=)
               Prelude.<$> environmentTypeOverride,
-            ("secondaryArtifactsOverride" Core..=)
+            ("secondaryArtifactsOverride" Data..=)
               Prelude.<$> secondaryArtifactsOverride,
-            ("sourceLocationOverride" Core..=)
+            ("sourceLocationOverride" Data..=)
               Prelude.<$> sourceLocationOverride,
-            ("reportBuildBatchStatusOverride" Core..=)
+            ("reportBuildBatchStatusOverride" Data..=)
               Prelude.<$> reportBuildBatchStatusOverride,
-            ("buildTimeoutInMinutesOverride" Core..=)
+            ("buildTimeoutInMinutesOverride" Data..=)
               Prelude.<$> buildTimeoutInMinutesOverride,
-            ("buildspecOverride" Core..=)
+            ("buildspecOverride" Data..=)
               Prelude.<$> buildspecOverride,
-            ("imageOverride" Core..=) Prelude.<$> imageOverride,
-            Prelude.Just ("projectName" Core..= projectName)
+            ("imageOverride" Data..=) Prelude.<$> imageOverride,
+            Prelude.Just ("projectName" Data..= projectName)
           ]
       )
 
-instance Core.ToPath StartBuildBatch where
+instance Data.ToPath StartBuildBatch where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartBuildBatch where
+instance Data.ToQuery StartBuildBatch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartBuildBatchResponse' smart constructor.

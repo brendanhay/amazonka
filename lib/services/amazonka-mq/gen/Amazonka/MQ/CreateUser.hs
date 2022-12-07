@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -168,37 +169,37 @@ instance Prelude.NFData CreateUser where
       `Prelude.seq` Prelude.rnf brokerId
       `Prelude.seq` Prelude.rnf password
 
-instance Core.ToHeaders CreateUser where
+instance Data.ToHeaders CreateUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUser where
+instance Data.ToJSON CreateUser where
   toJSON CreateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("consoleAccess" Core..=) Prelude.<$> consoleAccess,
-            ("groups" Core..=) Prelude.<$> groups,
-            Prelude.Just ("password" Core..= password)
+          [ ("consoleAccess" Data..=) Prelude.<$> consoleAccess,
+            ("groups" Data..=) Prelude.<$> groups,
+            Prelude.Just ("password" Data..= password)
           ]
       )
 
-instance Core.ToPath CreateUser where
+instance Data.ToPath CreateUser where
   toPath CreateUser' {..} =
     Prelude.mconcat
       [ "/v1/brokers/",
-        Core.toBS brokerId,
+        Data.toBS brokerId,
         "/users/",
-        Core.toBS username
+        Data.toBS username
       ]
 
-instance Core.ToQuery CreateUser where
+instance Data.ToQuery CreateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.Config.Types.QueryInfo where
 import Amazonka.Config.Types.FieldInfo
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the query.
@@ -51,13 +52,13 @@ newQueryInfo =
 queryInfo_selectFields :: Lens.Lens' QueryInfo (Prelude.Maybe [FieldInfo])
 queryInfo_selectFields = Lens.lens (\QueryInfo' {selectFields} -> selectFields) (\s@QueryInfo' {} a -> s {selectFields = a} :: QueryInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON QueryInfo where
+instance Data.FromJSON QueryInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryInfo"
       ( \x ->
           QueryInfo'
-            Prelude.<$> (x Core..:? "SelectFields" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "SelectFields" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable QueryInfo where

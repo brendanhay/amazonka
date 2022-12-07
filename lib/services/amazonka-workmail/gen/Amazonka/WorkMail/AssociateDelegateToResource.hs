@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,36 +128,36 @@ instance Prelude.NFData AssociateDelegateToResource where
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf entityId
 
-instance Core.ToHeaders AssociateDelegateToResource where
+instance Data.ToHeaders AssociateDelegateToResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.AssociateDelegateToResource" ::
+              Data.=# ( "WorkMailService.AssociateDelegateToResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateDelegateToResource where
+instance Data.ToJSON AssociateDelegateToResource where
   toJSON AssociateDelegateToResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("ResourceId" Core..= resourceId),
-            Prelude.Just ("EntityId" Core..= entityId)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("ResourceId" Data..= resourceId),
+            Prelude.Just ("EntityId" Data..= entityId)
           ]
       )
 
-instance Core.ToPath AssociateDelegateToResource where
+instance Data.ToPath AssociateDelegateToResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateDelegateToResource where
+instance Data.ToQuery AssociateDelegateToResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateDelegateToResourceResponse' smart constructor.

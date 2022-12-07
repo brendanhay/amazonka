@@ -44,6 +44,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -55,7 +56,7 @@ data UpdateChannelFlow = UpdateChannelFlow'
     -- | Information about the processor Lambda functions
     processors :: Prelude.NonEmpty Processor,
     -- | The name of the channel flow.
-    name :: Core.Sensitive Prelude.Text
+    name :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -88,7 +89,7 @@ newUpdateChannelFlow
       { channelFlowArn =
           pChannelFlowArn_,
         processors = Lens.coerced Lens.# pProcessors_,
-        name = Core._Sensitive Lens.# pName_
+        name = Data._Sensitive Lens.# pName_
       }
 
 -- | The ARN of the channel flow.
@@ -101,7 +102,7 @@ updateChannelFlow_processors = Lens.lens (\UpdateChannelFlow' {processors} -> pr
 
 -- | The name of the channel flow.
 updateChannelFlow_name :: Lens.Lens' UpdateChannelFlow Prelude.Text
-updateChannelFlow_name = Lens.lens (\UpdateChannelFlow' {name} -> name) (\s@UpdateChannelFlow' {} a -> s {name = a} :: UpdateChannelFlow) Prelude.. Core._Sensitive
+updateChannelFlow_name = Lens.lens (\UpdateChannelFlow' {name} -> name) (\s@UpdateChannelFlow' {} a -> s {name = a} :: UpdateChannelFlow) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest UpdateChannelFlow where
   type
@@ -113,7 +114,7 @@ instance Core.AWSRequest UpdateChannelFlow where
     Response.receiveJSON
       ( \s h x ->
           UpdateChannelFlowResponse'
-            Prelude.<$> (x Core..?> "ChannelFlowArn")
+            Prelude.<$> (x Data..?> "ChannelFlowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,24 +130,24 @@ instance Prelude.NFData UpdateChannelFlow where
       `Prelude.seq` Prelude.rnf processors
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateChannelFlow where
+instance Data.ToHeaders UpdateChannelFlow where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateChannelFlow where
+instance Data.ToJSON UpdateChannelFlow where
   toJSON UpdateChannelFlow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Processors" Core..= processors),
-            Prelude.Just ("Name" Core..= name)
+          [ Prelude.Just ("Processors" Data..= processors),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateChannelFlow where
+instance Data.ToPath UpdateChannelFlow where
   toPath UpdateChannelFlow' {..} =
     Prelude.mconcat
-      ["/channel-flows/", Core.toBS channelFlowArn]
+      ["/channel-flows/", Data.toBS channelFlowArn]
 
-instance Core.ToQuery UpdateChannelFlow where
+instance Data.ToQuery UpdateChannelFlow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateChannelFlowResponse' smart constructor.

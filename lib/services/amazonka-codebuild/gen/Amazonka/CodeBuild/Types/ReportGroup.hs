@@ -25,6 +25,7 @@ import Amazonka.CodeBuild.Types.ReportType
 import Amazonka.CodeBuild.Types.Tag
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A series of reports. Each report contains information about the results
@@ -50,7 +51,7 @@ data ReportGroup = ReportGroup'
     --     The report group contains test reports.
     type' :: Prelude.Maybe ReportType,
     -- | The date and time this @ReportGroup@ was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the @ReportGroup@.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The status of the report group. This property is read-only.
@@ -67,7 +68,7 @@ data ReportGroup = ReportGroup'
     -- @ReportGroup@ is exported.
     exportConfig :: Prelude.Maybe ReportExportConfig,
     -- | The date and time this @ReportGroup@ was last modified.
-    lastModified :: Prelude.Maybe Core.POSIX
+    lastModified :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -149,7 +150,7 @@ reportGroup_type = Lens.lens (\ReportGroup' {type'} -> type') (\s@ReportGroup' {
 
 -- | The date and time this @ReportGroup@ was created.
 reportGroup_created :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.UTCTime)
-reportGroup_created = Lens.lens (\ReportGroup' {created} -> created) (\s@ReportGroup' {} a -> s {created = a} :: ReportGroup) Prelude.. Lens.mapping Core._Time
+reportGroup_created = Lens.lens (\ReportGroup' {created} -> created) (\s@ReportGroup' {} a -> s {created = a} :: ReportGroup) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the @ReportGroup@.
 reportGroup_arn :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.Text)
@@ -174,22 +175,22 @@ reportGroup_exportConfig = Lens.lens (\ReportGroup' {exportConfig} -> exportConf
 
 -- | The date and time this @ReportGroup@ was last modified.
 reportGroup_lastModified :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.UTCTime)
-reportGroup_lastModified = Lens.lens (\ReportGroup' {lastModified} -> lastModified) (\s@ReportGroup' {} a -> s {lastModified = a} :: ReportGroup) Prelude.. Lens.mapping Core._Time
+reportGroup_lastModified = Lens.lens (\ReportGroup' {lastModified} -> lastModified) (\s@ReportGroup' {} a -> s {lastModified = a} :: ReportGroup) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ReportGroup where
+instance Data.FromJSON ReportGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReportGroup"
       ( \x ->
           ReportGroup'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "exportConfig")
-            Prelude.<*> (x Core..:? "lastModified")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "created")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "exportConfig")
+            Prelude.<*> (x Data..:? "lastModified")
       )
 
 instance Prelude.Hashable ReportGroup where

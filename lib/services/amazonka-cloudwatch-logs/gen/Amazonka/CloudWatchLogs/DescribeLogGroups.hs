@@ -56,6 +56,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,8 +144,8 @@ instance Core.AWSRequest DescribeLogGroups where
     Response.receiveJSON
       ( \s h x ->
           DescribeLogGroupsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "logGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "logGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,36 +161,36 @@ instance Prelude.NFData DescribeLogGroups where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf logGroupNamePrefix
 
-instance Core.ToHeaders DescribeLogGroups where
+instance Data.ToHeaders DescribeLogGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DescribeLogGroups" ::
+              Data.=# ( "Logs_20140328.DescribeLogGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLogGroups where
+instance Data.ToJSON DescribeLogGroups where
   toJSON DescribeLogGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("limit" Core..=) Prelude.<$> limit,
-            ("logGroupNamePrefix" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("limit" Data..=) Prelude.<$> limit,
+            ("logGroupNamePrefix" Data..=)
               Prelude.<$> logGroupNamePrefix
           ]
       )
 
-instance Core.ToPath DescribeLogGroups where
+instance Data.ToPath DescribeLogGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLogGroups where
+instance Data.ToQuery DescribeLogGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLogGroupsResponse' smart constructor.

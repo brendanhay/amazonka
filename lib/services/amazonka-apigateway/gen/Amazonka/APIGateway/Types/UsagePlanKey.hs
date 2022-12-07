@@ -21,6 +21,7 @@ module Amazonka.APIGateway.Types.UsagePlanKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a usage plan key to identify a plan customer.
@@ -82,16 +83,16 @@ usagePlanKey_id = Lens.lens (\UsagePlanKey' {id} -> id) (\s@UsagePlanKey' {} a -
 usagePlanKey_value :: Lens.Lens' UsagePlanKey (Prelude.Maybe Prelude.Text)
 usagePlanKey_value = Lens.lens (\UsagePlanKey' {value} -> value) (\s@UsagePlanKey' {} a -> s {value = a} :: UsagePlanKey)
 
-instance Core.FromJSON UsagePlanKey where
+instance Data.FromJSON UsagePlanKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsagePlanKey"
       ( \x ->
           UsagePlanKey'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable UsagePlanKey where

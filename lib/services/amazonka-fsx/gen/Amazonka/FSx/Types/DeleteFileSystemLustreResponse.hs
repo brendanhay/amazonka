@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.DeleteFileSystemLustreResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ deleteFileSystemLustreResponse_finalBackupTags = Lens.lens (\DeleteFileSystemLus
 deleteFileSystemLustreResponse_finalBackupId :: Lens.Lens' DeleteFileSystemLustreResponse (Prelude.Maybe Prelude.Text)
 deleteFileSystemLustreResponse_finalBackupId = Lens.lens (\DeleteFileSystemLustreResponse' {finalBackupId} -> finalBackupId) (\s@DeleteFileSystemLustreResponse' {} a -> s {finalBackupId = a} :: DeleteFileSystemLustreResponse)
 
-instance Core.FromJSON DeleteFileSystemLustreResponse where
+instance Data.FromJSON DeleteFileSystemLustreResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeleteFileSystemLustreResponse"
       ( \x ->
           DeleteFileSystemLustreResponse'
-            Prelude.<$> (x Core..:? "FinalBackupTags")
-            Prelude.<*> (x Core..:? "FinalBackupId")
+            Prelude.<$> (x Data..:? "FinalBackupTags")
+            Prelude.<*> (x Data..:? "FinalBackupId")
       )
 
 instance

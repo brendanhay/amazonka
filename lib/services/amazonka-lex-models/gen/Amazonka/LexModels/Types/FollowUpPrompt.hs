@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.FollowUpPrompt where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.Prompt
 import Amazonka.LexModels.Types.Statement
 import qualified Amazonka.Prelude as Prelude
@@ -75,14 +76,14 @@ followUpPrompt_prompt = Lens.lens (\FollowUpPrompt' {prompt} -> prompt) (\s@Foll
 followUpPrompt_rejectionStatement :: Lens.Lens' FollowUpPrompt Statement
 followUpPrompt_rejectionStatement = Lens.lens (\FollowUpPrompt' {rejectionStatement} -> rejectionStatement) (\s@FollowUpPrompt' {} a -> s {rejectionStatement = a} :: FollowUpPrompt)
 
-instance Core.FromJSON FollowUpPrompt where
+instance Data.FromJSON FollowUpPrompt where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FollowUpPrompt"
       ( \x ->
           FollowUpPrompt'
-            Prelude.<$> (x Core..: "prompt")
-            Prelude.<*> (x Core..: "rejectionStatement")
+            Prelude.<$> (x Data..: "prompt")
+            Prelude.<*> (x Data..: "rejectionStatement")
       )
 
 instance Prelude.Hashable FollowUpPrompt where
@@ -95,12 +96,12 @@ instance Prelude.NFData FollowUpPrompt where
     Prelude.rnf prompt
       `Prelude.seq` Prelude.rnf rejectionStatement
 
-instance Core.ToJSON FollowUpPrompt where
+instance Data.ToJSON FollowUpPrompt where
   toJSON FollowUpPrompt' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("prompt" Core..= prompt),
+          [ Prelude.Just ("prompt" Data..= prompt),
             Prelude.Just
-              ("rejectionStatement" Core..= rejectionStatement)
+              ("rejectionStatement" Data..= rejectionStatement)
           ]
       )

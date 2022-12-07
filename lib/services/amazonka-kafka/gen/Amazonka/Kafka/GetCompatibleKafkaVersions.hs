@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetCompatibleKafkaVersions where
     Response.receiveJSON
       ( \s h x ->
           GetCompatibleKafkaVersionsResponse'
-            Prelude.<$> ( x Core..?> "compatibleKafkaVersions"
+            Prelude.<$> ( x Data..?> "compatibleKafkaVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -98,24 +99,24 @@ instance Prelude.NFData GetCompatibleKafkaVersions where
   rnf GetCompatibleKafkaVersions' {..} =
     Prelude.rnf clusterArn
 
-instance Core.ToHeaders GetCompatibleKafkaVersions where
+instance Data.ToHeaders GetCompatibleKafkaVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetCompatibleKafkaVersions where
+instance Data.ToPath GetCompatibleKafkaVersions where
   toPath =
     Prelude.const "/v1/compatible-kafka-versions"
 
-instance Core.ToQuery GetCompatibleKafkaVersions where
+instance Data.ToQuery GetCompatibleKafkaVersions where
   toQuery GetCompatibleKafkaVersions' {..} =
-    Prelude.mconcat ["clusterArn" Core.=: clusterArn]
+    Prelude.mconcat ["clusterArn" Data.=: clusterArn]
 
 -- | /See:/ 'newGetCompatibleKafkaVersionsResponse' smart constructor.
 data GetCompatibleKafkaVersionsResponse = GetCompatibleKafkaVersionsResponse'

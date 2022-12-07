@@ -23,6 +23,7 @@ import Amazonka.CloudSearch.Types.AnalysisScheme
 import Amazonka.CloudSearch.Types.OptionStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status and configuration of an @AnalysisScheme@.
@@ -65,11 +66,11 @@ analysisSchemeStatus_options = Lens.lens (\AnalysisSchemeStatus' {options} -> op
 analysisSchemeStatus_status :: Lens.Lens' AnalysisSchemeStatus OptionStatus
 analysisSchemeStatus_status = Lens.lens (\AnalysisSchemeStatus' {status} -> status) (\s@AnalysisSchemeStatus' {} a -> s {status = a} :: AnalysisSchemeStatus)
 
-instance Core.FromXML AnalysisSchemeStatus where
+instance Data.FromXML AnalysisSchemeStatus where
   parseXML x =
     AnalysisSchemeStatus'
-      Prelude.<$> (x Core..@ "Options")
-      Prelude.<*> (x Core..@ "Status")
+      Prelude.<$> (x Data..@ "Options")
+      Prelude.<*> (x Data..@ "Status")
 
 instance Prelude.Hashable AnalysisSchemeStatus where
   hashWithSalt _salt AnalysisSchemeStatus' {..} =

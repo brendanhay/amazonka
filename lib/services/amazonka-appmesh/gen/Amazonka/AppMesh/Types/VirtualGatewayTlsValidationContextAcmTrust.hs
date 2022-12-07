@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContextAcmTrust where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a Transport Layer Security (TLS) validation
@@ -59,15 +60,15 @@ virtualGatewayTlsValidationContextAcmTrust_certificateAuthorityArns :: Lens.Lens
 virtualGatewayTlsValidationContextAcmTrust_certificateAuthorityArns = Lens.lens (\VirtualGatewayTlsValidationContextAcmTrust' {certificateAuthorityArns} -> certificateAuthorityArns) (\s@VirtualGatewayTlsValidationContextAcmTrust' {} a -> s {certificateAuthorityArns = a} :: VirtualGatewayTlsValidationContextAcmTrust) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     VirtualGatewayTlsValidationContextAcmTrust
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewayTlsValidationContextAcmTrust"
       ( \x ->
           VirtualGatewayTlsValidationContextAcmTrust'
-            Prelude.<$> (x Core..: "certificateAuthorityArns")
+            Prelude.<$> (x Data..: "certificateAuthorityArns")
       )
 
 instance
@@ -88,16 +89,16 @@ instance
     Prelude.rnf certificateAuthorityArns
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     VirtualGatewayTlsValidationContextAcmTrust
   where
   toJSON
     VirtualGatewayTlsValidationContextAcmTrust' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
             [ Prelude.Just
                 ( "certificateAuthorityArns"
-                    Core..= certificateAuthorityArns
+                    Data..= certificateAuthorityArns
                 )
             ]
         )

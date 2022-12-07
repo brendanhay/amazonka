@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.InstancesCount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes how many instances a stack has for each status.
@@ -223,32 +224,32 @@ instancesCount_shuttingDown = Lens.lens (\InstancesCount' {shuttingDown} -> shut
 instancesCount_registering :: Lens.Lens' InstancesCount (Prelude.Maybe Prelude.Int)
 instancesCount_registering = Lens.lens (\InstancesCount' {registering} -> registering) (\s@InstancesCount' {} a -> s {registering = a} :: InstancesCount)
 
-instance Core.FromJSON InstancesCount where
+instance Data.FromJSON InstancesCount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstancesCount"
       ( \x ->
           InstancesCount'
-            Prelude.<$> (x Core..:? "Booting")
-            Prelude.<*> (x Core..:? "Deregistering")
-            Prelude.<*> (x Core..:? "RunningSetup")
-            Prelude.<*> (x Core..:? "StopFailed")
-            Prelude.<*> (x Core..:? "Terminated")
-            Prelude.<*> (x Core..:? "Requested")
-            Prelude.<*> (x Core..:? "ConnectionLost")
-            Prelude.<*> (x Core..:? "Online")
-            Prelude.<*> (x Core..:? "StartFailed")
-            Prelude.<*> (x Core..:? "Terminating")
-            Prelude.<*> (x Core..:? "Unassigning")
-            Prelude.<*> (x Core..:? "SetupFailed")
-            Prelude.<*> (x Core..:? "Rebooting")
-            Prelude.<*> (x Core..:? "Assigning")
-            Prelude.<*> (x Core..:? "Stopped")
-            Prelude.<*> (x Core..:? "Registered")
-            Prelude.<*> (x Core..:? "Pending")
-            Prelude.<*> (x Core..:? "Stopping")
-            Prelude.<*> (x Core..:? "ShuttingDown")
-            Prelude.<*> (x Core..:? "Registering")
+            Prelude.<$> (x Data..:? "Booting")
+            Prelude.<*> (x Data..:? "Deregistering")
+            Prelude.<*> (x Data..:? "RunningSetup")
+            Prelude.<*> (x Data..:? "StopFailed")
+            Prelude.<*> (x Data..:? "Terminated")
+            Prelude.<*> (x Data..:? "Requested")
+            Prelude.<*> (x Data..:? "ConnectionLost")
+            Prelude.<*> (x Data..:? "Online")
+            Prelude.<*> (x Data..:? "StartFailed")
+            Prelude.<*> (x Data..:? "Terminating")
+            Prelude.<*> (x Data..:? "Unassigning")
+            Prelude.<*> (x Data..:? "SetupFailed")
+            Prelude.<*> (x Data..:? "Rebooting")
+            Prelude.<*> (x Data..:? "Assigning")
+            Prelude.<*> (x Data..:? "Stopped")
+            Prelude.<*> (x Data..:? "Registered")
+            Prelude.<*> (x Data..:? "Pending")
+            Prelude.<*> (x Data..:? "Stopping")
+            Prelude.<*> (x Data..:? "ShuttingDown")
+            Prelude.<*> (x Data..:? "Registering")
       )
 
 instance Prelude.Hashable InstancesCount where

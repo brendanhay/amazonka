@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsBackupRecoveryPointLifecycleDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an array of Transition objects specifying how long in days
@@ -71,16 +72,16 @@ awsBackupRecoveryPointLifecycleDetails_moveToColdStorageAfterDays :: Lens.Lens' 
 awsBackupRecoveryPointLifecycleDetails_moveToColdStorageAfterDays = Lens.lens (\AwsBackupRecoveryPointLifecycleDetails' {moveToColdStorageAfterDays} -> moveToColdStorageAfterDays) (\s@AwsBackupRecoveryPointLifecycleDetails' {} a -> s {moveToColdStorageAfterDays = a} :: AwsBackupRecoveryPointLifecycleDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsBackupRecoveryPointLifecycleDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsBackupRecoveryPointLifecycleDetails"
       ( \x ->
           AwsBackupRecoveryPointLifecycleDetails'
-            Prelude.<$> (x Core..:? "DeleteAfterDays")
-            Prelude.<*> (x Core..:? "MoveToColdStorageAfterDays")
+            Prelude.<$> (x Data..:? "DeleteAfterDays")
+            Prelude.<*> (x Data..:? "MoveToColdStorageAfterDays")
       )
 
 instance
@@ -102,15 +103,15 @@ instance
       `Prelude.seq` Prelude.rnf moveToColdStorageAfterDays
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsBackupRecoveryPointLifecycleDetails
   where
   toJSON AwsBackupRecoveryPointLifecycleDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeleteAfterDays" Core..=)
+          [ ("DeleteAfterDays" Data..=)
               Prelude.<$> deleteAfterDays,
-            ("MoveToColdStorageAfterDays" Core..=)
+            ("MoveToColdStorageAfterDays" Data..=)
               Prelude.<$> moveToColdStorageAfterDays
           ]
       )

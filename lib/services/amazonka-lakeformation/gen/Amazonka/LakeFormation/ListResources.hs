@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,8 +111,8 @@ instance Core.AWSRequest ListResources where
     Response.receiveJSON
       ( \s h x ->
           ListResourcesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ResourceInfoList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ResourceInfoList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -129,32 +130,32 @@ instance Prelude.NFData ListResources where
       `Prelude.seq` Prelude.rnf filterConditionList
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListResources where
+instance Data.ToHeaders ListResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListResources where
+instance Data.ToJSON ListResources where
   toJSON ListResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("FilterConditionList" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("FilterConditionList" Data..=)
               Prelude.<$> filterConditionList,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListResources where
+instance Data.ToPath ListResources where
   toPath = Prelude.const "/ListResources"
 
-instance Core.ToQuery ListResources where
+instance Data.ToQuery ListResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResourcesResponse' smart constructor.

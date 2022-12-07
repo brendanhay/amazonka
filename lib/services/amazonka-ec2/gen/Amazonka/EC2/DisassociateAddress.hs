@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,22 +134,22 @@ instance Prelude.NFData DisassociateAddress where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf associationId
 
-instance Core.ToHeaders DisassociateAddress where
+instance Data.ToHeaders DisassociateAddress where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DisassociateAddress where
+instance Data.ToPath DisassociateAddress where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateAddress where
+instance Data.ToQuery DisassociateAddress where
   toQuery DisassociateAddress' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DisassociateAddress" :: Prelude.ByteString),
+          Data.=: ("DisassociateAddress" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "PublicIp" Core.=: publicIp,
-        "DryRun" Core.=: dryRun,
-        "AssociationId" Core.=: associationId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "PublicIp" Data.=: publicIp,
+        "DryRun" Data.=: dryRun,
+        "AssociationId" Data.=: associationId
       ]
 
 -- | /See:/ 'newDisassociateAddressResponse' smart constructor.

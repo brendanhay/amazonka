@@ -22,6 +22,7 @@ module Amazonka.ConnectCampaigns.Types.FailedCampaignStateResponse where
 import Amazonka.ConnectCampaigns.Types.GetCampaignStateBatchFailureCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Failed response of campaign state
@@ -61,14 +62,14 @@ failedCampaignStateResponse_failureCode = Lens.lens (\FailedCampaignStateRespons
 failedCampaignStateResponse_campaignId :: Lens.Lens' FailedCampaignStateResponse (Prelude.Maybe Prelude.Text)
 failedCampaignStateResponse_campaignId = Lens.lens (\FailedCampaignStateResponse' {campaignId} -> campaignId) (\s@FailedCampaignStateResponse' {} a -> s {campaignId = a} :: FailedCampaignStateResponse)
 
-instance Core.FromJSON FailedCampaignStateResponse where
+instance Data.FromJSON FailedCampaignStateResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedCampaignStateResponse"
       ( \x ->
           FailedCampaignStateResponse'
-            Prelude.<$> (x Core..:? "failureCode")
-            Prelude.<*> (x Core..:? "campaignId")
+            Prelude.<$> (x Data..:? "failureCode")
+            Prelude.<*> (x Data..:? "campaignId")
       )
 
 instance Prelude.Hashable FailedCampaignStateResponse where

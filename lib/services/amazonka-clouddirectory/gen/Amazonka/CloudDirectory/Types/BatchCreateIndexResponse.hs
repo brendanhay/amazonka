@@ -21,6 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchCreateIndexResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a CreateIndex response operation.
@@ -53,13 +54,13 @@ newBatchCreateIndexResponse =
 batchCreateIndexResponse_objectIdentifier :: Lens.Lens' BatchCreateIndexResponse (Prelude.Maybe Prelude.Text)
 batchCreateIndexResponse_objectIdentifier = Lens.lens (\BatchCreateIndexResponse' {objectIdentifier} -> objectIdentifier) (\s@BatchCreateIndexResponse' {} a -> s {objectIdentifier = a} :: BatchCreateIndexResponse)
 
-instance Core.FromJSON BatchCreateIndexResponse where
+instance Data.FromJSON BatchCreateIndexResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchCreateIndexResponse"
       ( \x ->
           BatchCreateIndexResponse'
-            Prelude.<$> (x Core..:? "ObjectIdentifier")
+            Prelude.<$> (x Data..:? "ObjectIdentifier")
       )
 
 instance Prelude.Hashable BatchCreateIndexResponse where

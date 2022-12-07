@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.Document where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.S3Object
 
@@ -56,7 +57,7 @@ data Document = Document'
     --
     -- If you\'re using an AWS SDK to call Amazon Textract, you might not need
     -- to base64-encode image bytes passed using the @Bytes@ field.
-    bytes :: Prelude.Maybe Core.Base64,
+    bytes :: Prelude.Maybe Data.Base64,
     -- | Identifies an S3 object as the document source. The maximum size of a
     -- document that\'s stored in an S3 bucket is 5 MB.
     s3Object :: Prelude.Maybe S3Object
@@ -103,7 +104,7 @@ newDocument =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 document_bytes :: Lens.Lens' Document (Prelude.Maybe Prelude.ByteString)
-document_bytes = Lens.lens (\Document' {bytes} -> bytes) (\s@Document' {} a -> s {bytes = a} :: Document) Prelude.. Lens.mapping Core._Base64
+document_bytes = Lens.lens (\Document' {bytes} -> bytes) (\s@Document' {} a -> s {bytes = a} :: Document) Prelude.. Lens.mapping Data._Base64
 
 -- | Identifies an S3 object as the document source. The maximum size of a
 -- document that\'s stored in an S3 bucket is 5 MB.
@@ -120,11 +121,11 @@ instance Prelude.NFData Document where
     Prelude.rnf bytes
       `Prelude.seq` Prelude.rnf s3Object
 
-instance Core.ToJSON Document where
+instance Data.ToJSON Document where
   toJSON Document' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Bytes" Core..=) Prelude.<$> bytes,
-            ("S3Object" Core..=) Prelude.<$> s3Object
+          [ ("Bytes" Data..=) Prelude.<$> bytes,
+            ("S3Object" Data..=) Prelude.<$> s3Object
           ]
       )

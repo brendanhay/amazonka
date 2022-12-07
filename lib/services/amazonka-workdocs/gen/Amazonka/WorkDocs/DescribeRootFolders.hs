@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,7 +69,7 @@ data DescribeRootFolders = DescribeRootFolders'
     -- | The maximum number of items to return.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | Amazon WorkDocs authentication token.
-    authenticationToken :: Core.Sensitive Prelude.Text
+    authenticationToken :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -95,7 +96,7 @@ newDescribeRootFolders pAuthenticationToken_ =
     { marker = Prelude.Nothing,
       limit = Prelude.Nothing,
       authenticationToken =
-        Core._Sensitive Lens.# pAuthenticationToken_
+        Data._Sensitive Lens.# pAuthenticationToken_
     }
 
 -- | The marker for the next set of results. (You received this marker from a
@@ -109,7 +110,7 @@ describeRootFolders_limit = Lens.lens (\DescribeRootFolders' {limit} -> limit) (
 
 -- | Amazon WorkDocs authentication token.
 describeRootFolders_authenticationToken :: Lens.Lens' DescribeRootFolders Prelude.Text
-describeRootFolders_authenticationToken = Lens.lens (\DescribeRootFolders' {authenticationToken} -> authenticationToken) (\s@DescribeRootFolders' {} a -> s {authenticationToken = a} :: DescribeRootFolders) Prelude.. Core._Sensitive
+describeRootFolders_authenticationToken = Lens.lens (\DescribeRootFolders' {authenticationToken} -> authenticationToken) (\s@DescribeRootFolders' {} a -> s {authenticationToken = a} :: DescribeRootFolders) Prelude.. Data._Sensitive
 
 instance Core.AWSPager DescribeRootFolders where
   page rq rs
@@ -143,8 +144,8 @@ instance Core.AWSRequest DescribeRootFolders where
     Response.receiveJSON
       ( \s h x ->
           DescribeRootFoldersResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "Folders" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "Folders" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,21 +161,21 @@ instance Prelude.NFData DescribeRootFolders where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf authenticationToken
 
-instance Core.ToHeaders DescribeRootFolders where
+instance Data.ToHeaders DescribeRootFolders where
   toHeaders DescribeRootFolders' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DescribeRootFolders where
+instance Data.ToPath DescribeRootFolders where
   toPath = Prelude.const "/api/v1/me/root"
 
-instance Core.ToQuery DescribeRootFolders where
+instance Data.ToQuery DescribeRootFolders where
   toQuery DescribeRootFolders' {..} =
     Prelude.mconcat
-      ["marker" Core.=: marker, "limit" Core.=: limit]
+      ["marker" Data.=: marker, "limit" Data.=: limit]
 
 -- | /See:/ 'newDescribeRootFoldersResponse' smart constructor.
 data DescribeRootFoldersResponse = DescribeRootFoldersResponse'

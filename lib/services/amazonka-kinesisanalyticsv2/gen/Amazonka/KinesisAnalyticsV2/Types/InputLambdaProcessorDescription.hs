@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.InputLambdaProcessorDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a SQL-based Kinesis Data Analytics application, an object that
@@ -100,16 +101,16 @@ inputLambdaProcessorDescription_resourceARN :: Lens.Lens' InputLambdaProcessorDe
 inputLambdaProcessorDescription_resourceARN = Lens.lens (\InputLambdaProcessorDescription' {resourceARN} -> resourceARN) (\s@InputLambdaProcessorDescription' {} a -> s {resourceARN = a} :: InputLambdaProcessorDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     InputLambdaProcessorDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputLambdaProcessorDescription"
       ( \x ->
           InputLambdaProcessorDescription'
-            Prelude.<$> (x Core..:? "RoleARN")
-            Prelude.<*> (x Core..: "ResourceARN")
+            Prelude.<$> (x Data..:? "RoleARN")
+            Prelude.<*> (x Data..: "ResourceARN")
       )
 
 instance

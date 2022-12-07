@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,8 +110,8 @@ instance Core.AWSRequest GetDatabase where
     Response.receiveJSON
       ( \s h x ->
           GetDatabaseResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Database")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Database")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,32 +129,32 @@ instance Prelude.NFData GetDatabase where
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf databaseArn
 
-instance Core.ToHeaders GetDatabase where
+instance Data.ToHeaders GetDatabase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDatabase where
+instance Data.ToJSON GetDatabase where
   toJSON GetDatabase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DatabaseId" Core..=) Prelude.<$> databaseId,
-            ("ComponentId" Core..=) Prelude.<$> componentId,
-            ("ApplicationId" Core..=) Prelude.<$> applicationId,
-            ("DatabaseArn" Core..=) Prelude.<$> databaseArn
+          [ ("DatabaseId" Data..=) Prelude.<$> databaseId,
+            ("ComponentId" Data..=) Prelude.<$> componentId,
+            ("ApplicationId" Data..=) Prelude.<$> applicationId,
+            ("DatabaseArn" Data..=) Prelude.<$> databaseArn
           ]
       )
 
-instance Core.ToPath GetDatabase where
+instance Data.ToPath GetDatabase where
   toPath = Prelude.const "/get-database"
 
-instance Core.ToQuery GetDatabase where
+instance Data.ToQuery GetDatabase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDatabaseResponse' smart constructor.

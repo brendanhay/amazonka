@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT1ClickProjects.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest GetDevicesInPlacement where
       ( \s h x ->
           GetDevicesInPlacementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "devices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "devices" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable GetDevicesInPlacement where
@@ -113,28 +114,28 @@ instance Prelude.NFData GetDevicesInPlacement where
     Prelude.rnf projectName
       `Prelude.seq` Prelude.rnf placementName
 
-instance Core.ToHeaders GetDevicesInPlacement where
+instance Data.ToHeaders GetDevicesInPlacement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDevicesInPlacement where
+instance Data.ToPath GetDevicesInPlacement where
   toPath GetDevicesInPlacement' {..} =
     Prelude.mconcat
       [ "/projects/",
-        Core.toBS projectName,
+        Data.toBS projectName,
         "/placements/",
-        Core.toBS placementName,
+        Data.toBS placementName,
         "/devices"
       ]
 
-instance Core.ToQuery GetDevicesInPlacement where
+instance Data.ToQuery GetDevicesInPlacement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDevicesInPlacementResponse' smart constructor.

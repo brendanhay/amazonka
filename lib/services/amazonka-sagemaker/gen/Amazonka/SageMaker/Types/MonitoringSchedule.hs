@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringSchedule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MonitoringExecutionSummary
 import Amazonka.SageMaker.Types.MonitoringScheduleConfig
@@ -58,11 +59,11 @@ data MonitoringSchedule = MonitoringSchedule'
     -- | The name of the monitoring schedule.
     monitoringScheduleName :: Prelude.Maybe Prelude.Text,
     -- | The last time the monitoring schedule was changed.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The type of the monitoring job definition to schedule.
     monitoringType :: Prelude.Maybe MonitoringType,
     -- | The time that the monitoring schedule was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     lastMonitoringExecutionSummary :: Prelude.Maybe MonitoringExecutionSummary,
     -- | If the monitoring schedule failed, the reason it failed.
     failureReason :: Prelude.Maybe Prelude.Text
@@ -165,7 +166,7 @@ monitoringSchedule_monitoringScheduleName = Lens.lens (\MonitoringSchedule' {mon
 
 -- | The last time the monitoring schedule was changed.
 monitoringSchedule_lastModifiedTime :: Lens.Lens' MonitoringSchedule (Prelude.Maybe Prelude.UTCTime)
-monitoringSchedule_lastModifiedTime = Lens.lens (\MonitoringSchedule' {lastModifiedTime} -> lastModifiedTime) (\s@MonitoringSchedule' {} a -> s {lastModifiedTime = a} :: MonitoringSchedule) Prelude.. Lens.mapping Core._Time
+monitoringSchedule_lastModifiedTime = Lens.lens (\MonitoringSchedule' {lastModifiedTime} -> lastModifiedTime) (\s@MonitoringSchedule' {} a -> s {lastModifiedTime = a} :: MonitoringSchedule) Prelude.. Lens.mapping Data._Time
 
 -- | The type of the monitoring job definition to schedule.
 monitoringSchedule_monitoringType :: Lens.Lens' MonitoringSchedule (Prelude.Maybe MonitoringType)
@@ -173,7 +174,7 @@ monitoringSchedule_monitoringType = Lens.lens (\MonitoringSchedule' {monitoringT
 
 -- | The time that the monitoring schedule was created.
 monitoringSchedule_creationTime :: Lens.Lens' MonitoringSchedule (Prelude.Maybe Prelude.UTCTime)
-monitoringSchedule_creationTime = Lens.lens (\MonitoringSchedule' {creationTime} -> creationTime) (\s@MonitoringSchedule' {} a -> s {creationTime = a} :: MonitoringSchedule) Prelude.. Lens.mapping Core._Time
+monitoringSchedule_creationTime = Lens.lens (\MonitoringSchedule' {creationTime} -> creationTime) (\s@MonitoringSchedule' {} a -> s {creationTime = a} :: MonitoringSchedule) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 monitoringSchedule_lastMonitoringExecutionSummary :: Lens.Lens' MonitoringSchedule (Prelude.Maybe MonitoringExecutionSummary)
@@ -183,23 +184,23 @@ monitoringSchedule_lastMonitoringExecutionSummary = Lens.lens (\MonitoringSchedu
 monitoringSchedule_failureReason :: Lens.Lens' MonitoringSchedule (Prelude.Maybe Prelude.Text)
 monitoringSchedule_failureReason = Lens.lens (\MonitoringSchedule' {failureReason} -> failureReason) (\s@MonitoringSchedule' {} a -> s {failureReason = a} :: MonitoringSchedule)
 
-instance Core.FromJSON MonitoringSchedule where
+instance Data.FromJSON MonitoringSchedule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringSchedule"
       ( \x ->
           MonitoringSchedule'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MonitoringScheduleArn")
-            Prelude.<*> (x Core..:? "EndpointName")
-            Prelude.<*> (x Core..:? "MonitoringScheduleStatus")
-            Prelude.<*> (x Core..:? "MonitoringScheduleConfig")
-            Prelude.<*> (x Core..:? "MonitoringScheduleName")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "MonitoringType")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "LastMonitoringExecutionSummary")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MonitoringScheduleArn")
+            Prelude.<*> (x Data..:? "EndpointName")
+            Prelude.<*> (x Data..:? "MonitoringScheduleStatus")
+            Prelude.<*> (x Data..:? "MonitoringScheduleConfig")
+            Prelude.<*> (x Data..:? "MonitoringScheduleName")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "MonitoringType")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "LastMonitoringExecutionSummary")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance Prelude.Hashable MonitoringSchedule where

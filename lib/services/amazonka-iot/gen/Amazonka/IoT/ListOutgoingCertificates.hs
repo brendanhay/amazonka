@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,10 +138,10 @@ instance Core.AWSRequest ListOutgoingCertificates where
     Response.receiveJSON
       ( \s h x ->
           ListOutgoingCertificatesResponse'
-            Prelude.<$> ( x Core..?> "outgoingCertificates"
+            Prelude.<$> ( x Data..?> "outgoingCertificates"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextMarker")
+            Prelude.<*> (x Data..?> "nextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,18 +157,18 @@ instance Prelude.NFData ListOutgoingCertificates where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf ascendingOrder
 
-instance Core.ToHeaders ListOutgoingCertificates where
+instance Data.ToHeaders ListOutgoingCertificates where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListOutgoingCertificates where
+instance Data.ToPath ListOutgoingCertificates where
   toPath = Prelude.const "/certificates-out-going"
 
-instance Core.ToQuery ListOutgoingCertificates where
+instance Data.ToQuery ListOutgoingCertificates where
   toQuery ListOutgoingCertificates' {..} =
     Prelude.mconcat
-      [ "marker" Core.=: marker,
-        "pageSize" Core.=: pageSize,
-        "isAscendingOrder" Core.=: ascendingOrder
+      [ "marker" Data.=: marker,
+        "pageSize" Data.=: pageSize,
+        "isAscendingOrder" Data.=: ascendingOrder
       ]
 
 -- | The output from the ListOutgoingCertificates operation.

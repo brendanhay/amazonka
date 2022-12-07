@@ -115,6 +115,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -233,35 +234,35 @@ instance Prelude.NFData UpdatePrimaryRegion where
     Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf primaryRegion
 
-instance Core.ToHeaders UpdatePrimaryRegion where
+instance Data.ToHeaders UpdatePrimaryRegion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.UpdatePrimaryRegion" ::
+              Data.=# ( "TrentService.UpdatePrimaryRegion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePrimaryRegion where
+instance Data.ToJSON UpdatePrimaryRegion where
   toJSON UpdatePrimaryRegion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("KeyId" Core..= keyId),
+          [ Prelude.Just ("KeyId" Data..= keyId),
             Prelude.Just
-              ("PrimaryRegion" Core..= primaryRegion)
+              ("PrimaryRegion" Data..= primaryRegion)
           ]
       )
 
-instance Core.ToPath UpdatePrimaryRegion where
+instance Data.ToPath UpdatePrimaryRegion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdatePrimaryRegion where
+instance Data.ToQuery UpdatePrimaryRegion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePrimaryRegionResponse' smart constructor.

@@ -24,6 +24,7 @@ import Amazonka.Budgets.Types.ScpActionDefinition
 import Amazonka.Budgets.Types.SsmActionDefinition
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies all of the type-specific parameters.
@@ -73,15 +74,15 @@ definition_scpActionDefinition = Lens.lens (\Definition' {scpActionDefinition} -
 definition_iamActionDefinition :: Lens.Lens' Definition (Prelude.Maybe IamActionDefinition)
 definition_iamActionDefinition = Lens.lens (\Definition' {iamActionDefinition} -> iamActionDefinition) (\s@Definition' {} a -> s {iamActionDefinition = a} :: Definition)
 
-instance Core.FromJSON Definition where
+instance Data.FromJSON Definition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Definition"
       ( \x ->
           Definition'
-            Prelude.<$> (x Core..:? "SsmActionDefinition")
-            Prelude.<*> (x Core..:? "ScpActionDefinition")
-            Prelude.<*> (x Core..:? "IamActionDefinition")
+            Prelude.<$> (x Data..:? "SsmActionDefinition")
+            Prelude.<*> (x Data..:? "ScpActionDefinition")
+            Prelude.<*> (x Data..:? "IamActionDefinition")
       )
 
 instance Prelude.Hashable Definition where
@@ -96,15 +97,15 @@ instance Prelude.NFData Definition where
       `Prelude.seq` Prelude.rnf scpActionDefinition
       `Prelude.seq` Prelude.rnf iamActionDefinition
 
-instance Core.ToJSON Definition where
+instance Data.ToJSON Definition where
   toJSON Definition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SsmActionDefinition" Core..=)
+          [ ("SsmActionDefinition" Data..=)
               Prelude.<$> ssmActionDefinition,
-            ("ScpActionDefinition" Core..=)
+            ("ScpActionDefinition" Data..=)
               Prelude.<$> scpActionDefinition,
-            ("IamActionDefinition" Core..=)
+            ("IamActionDefinition" Data..=)
               Prelude.<$> iamActionDefinition
           ]
       )

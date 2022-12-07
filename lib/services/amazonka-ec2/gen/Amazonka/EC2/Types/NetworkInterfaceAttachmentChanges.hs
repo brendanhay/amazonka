@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkInterfaceAttachmentChanges where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,11 +86,11 @@ instance
       `Prelude.seq` Prelude.rnf attachmentId
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     NetworkInterfaceAttachmentChanges
   where
   toQuery NetworkInterfaceAttachmentChanges' {..} =
     Prelude.mconcat
-      [ "DeleteOnTermination" Core.=: deleteOnTermination,
-        "AttachmentId" Core.=: attachmentId
+      [ "DeleteOnTermination" Data.=: deleteOnTermination,
+        "AttachmentId" Data.=: attachmentId
       ]

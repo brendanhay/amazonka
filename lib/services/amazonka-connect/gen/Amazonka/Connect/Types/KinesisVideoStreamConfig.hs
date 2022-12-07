@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.KinesisVideoStreamConfig where
 import Amazonka.Connect.Types.EncryptionConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information of a Kinesis video stream.
@@ -95,15 +96,15 @@ kinesisVideoStreamConfig_retentionPeriodHours = Lens.lens (\KinesisVideoStreamCo
 kinesisVideoStreamConfig_encryptionConfig :: Lens.Lens' KinesisVideoStreamConfig EncryptionConfig
 kinesisVideoStreamConfig_encryptionConfig = Lens.lens (\KinesisVideoStreamConfig' {encryptionConfig} -> encryptionConfig) (\s@KinesisVideoStreamConfig' {} a -> s {encryptionConfig = a} :: KinesisVideoStreamConfig)
 
-instance Core.FromJSON KinesisVideoStreamConfig where
+instance Data.FromJSON KinesisVideoStreamConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KinesisVideoStreamConfig"
       ( \x ->
           KinesisVideoStreamConfig'
-            Prelude.<$> (x Core..: "Prefix")
-            Prelude.<*> (x Core..: "RetentionPeriodHours")
-            Prelude.<*> (x Core..: "EncryptionConfig")
+            Prelude.<$> (x Data..: "Prefix")
+            Prelude.<*> (x Data..: "RetentionPeriodHours")
+            Prelude.<*> (x Data..: "EncryptionConfig")
       )
 
 instance Prelude.Hashable KinesisVideoStreamConfig where
@@ -118,16 +119,16 @@ instance Prelude.NFData KinesisVideoStreamConfig where
       `Prelude.seq` Prelude.rnf retentionPeriodHours
       `Prelude.seq` Prelude.rnf encryptionConfig
 
-instance Core.ToJSON KinesisVideoStreamConfig where
+instance Data.ToJSON KinesisVideoStreamConfig where
   toJSON KinesisVideoStreamConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Prefix" Core..= prefix),
+          [ Prelude.Just ("Prefix" Data..= prefix),
             Prelude.Just
               ( "RetentionPeriodHours"
-                  Core..= retentionPeriodHours
+                  Data..= retentionPeriodHours
               ),
             Prelude.Just
-              ("EncryptionConfig" Core..= encryptionConfig)
+              ("EncryptionConfig" Data..= encryptionConfig)
           ]
       )

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -205,7 +206,7 @@ instance Core.AWSRequest CreateBatchInferenceJob where
     Response.receiveJSON
       ( \s h x ->
           CreateBatchInferenceJobResponse'
-            Prelude.<$> (x Core..?> "batchInferenceJobArn")
+            Prelude.<$> (x Data..?> "batchInferenceJobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -233,43 +234,43 @@ instance Prelude.NFData CreateBatchInferenceJob where
       `Prelude.seq` Prelude.rnf jobOutput
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateBatchInferenceJob where
+instance Data.ToHeaders CreateBatchInferenceJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.CreateBatchInferenceJob" ::
+              Data.=# ( "AmazonPersonalize.CreateBatchInferenceJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBatchInferenceJob where
+instance Data.ToJSON CreateBatchInferenceJob where
   toJSON CreateBatchInferenceJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("filterArn" Core..=) Prelude.<$> filterArn,
-            ("numResults" Core..=) Prelude.<$> numResults,
-            ("batchInferenceJobConfig" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("filterArn" Data..=) Prelude.<$> filterArn,
+            ("numResults" Data..=) Prelude.<$> numResults,
+            ("batchInferenceJobConfig" Data..=)
               Prelude.<$> batchInferenceJobConfig,
-            Prelude.Just ("jobName" Core..= jobName),
+            Prelude.Just ("jobName" Data..= jobName),
             Prelude.Just
-              ("solutionVersionArn" Core..= solutionVersionArn),
-            Prelude.Just ("jobInput" Core..= jobInput),
-            Prelude.Just ("jobOutput" Core..= jobOutput),
-            Prelude.Just ("roleArn" Core..= roleArn)
+              ("solutionVersionArn" Data..= solutionVersionArn),
+            Prelude.Just ("jobInput" Data..= jobInput),
+            Prelude.Just ("jobOutput" Data..= jobOutput),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateBatchInferenceJob where
+instance Data.ToPath CreateBatchInferenceJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateBatchInferenceJob where
+instance Data.ToQuery CreateBatchInferenceJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBatchInferenceJobResponse' smart constructor.

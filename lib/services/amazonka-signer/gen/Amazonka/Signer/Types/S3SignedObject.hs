@@ -21,6 +21,7 @@ module Amazonka.Signer.Types.S3SignedObject where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The S3 bucket name and key where code signing saved your signed code
@@ -62,14 +63,14 @@ s3SignedObject_key = Lens.lens (\S3SignedObject' {key} -> key) (\s@S3SignedObjec
 s3SignedObject_bucketName :: Lens.Lens' S3SignedObject (Prelude.Maybe Prelude.Text)
 s3SignedObject_bucketName = Lens.lens (\S3SignedObject' {bucketName} -> bucketName) (\s@S3SignedObject' {} a -> s {bucketName = a} :: S3SignedObject)
 
-instance Core.FromJSON S3SignedObject where
+instance Data.FromJSON S3SignedObject where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3SignedObject"
       ( \x ->
           S3SignedObject'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "bucketName")
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "bucketName")
       )
 
 instance Prelude.Hashable S3SignedObject where

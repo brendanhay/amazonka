@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -76,10 +77,10 @@ instance Core.AWSRequest DescribeLimits where
       ( \s h x ->
           DescribeLimitsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ShardLimit")
-            Prelude.<*> (x Core..:> "OpenShardCount")
-            Prelude.<*> (x Core..:> "OnDemandStreamCount")
-            Prelude.<*> (x Core..:> "OnDemandStreamCountLimit")
+            Prelude.<*> (x Data..:> "ShardLimit")
+            Prelude.<*> (x Data..:> "OpenShardCount")
+            Prelude.<*> (x Data..:> "OnDemandStreamCount")
+            Prelude.<*> (x Data..:> "OnDemandStreamCountLimit")
       )
 
 instance Prelude.Hashable DescribeLimits where
@@ -89,28 +90,28 @@ instance Prelude.Hashable DescribeLimits where
 instance Prelude.NFData DescribeLimits where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeLimits where
+instance Data.ToHeaders DescribeLimits where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.DescribeLimits" ::
+              Data.=# ( "Kinesis_20131202.DescribeLimits" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLimits where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DescribeLimits where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DescribeLimits where
+instance Data.ToPath DescribeLimits where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLimits where
+instance Data.ToQuery DescribeLimits where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLimitsResponse' smart constructor.

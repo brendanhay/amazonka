@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,7 +90,7 @@ instance Core.AWSRequest DescribeEventTracker where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventTrackerResponse'
-            Prelude.<$> (x Core..?> "eventTracker")
+            Prelude.<$> (x Data..?> "eventTracker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,34 +102,34 @@ instance Prelude.NFData DescribeEventTracker where
   rnf DescribeEventTracker' {..} =
     Prelude.rnf eventTrackerArn
 
-instance Core.ToHeaders DescribeEventTracker where
+instance Data.ToHeaders DescribeEventTracker where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DescribeEventTracker" ::
+              Data.=# ( "AmazonPersonalize.DescribeEventTracker" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEventTracker where
+instance Data.ToJSON DescribeEventTracker where
   toJSON DescribeEventTracker' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("eventTrackerArn" Core..= eventTrackerArn)
+              ("eventTrackerArn" Data..= eventTrackerArn)
           ]
       )
 
-instance Core.ToPath DescribeEventTracker where
+instance Data.ToPath DescribeEventTracker where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEventTracker where
+instance Data.ToQuery DescribeEventTracker where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEventTrackerResponse' smart constructor.

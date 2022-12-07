@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,10 +115,10 @@ instance Core.AWSRequest CreateKeyPair where
     Response.receiveJSON
       ( \s h x ->
           CreateKeyPairResponse'
-            Prelude.<$> (x Core..?> "publicKeyBase64")
-            Prelude.<*> (x Core..?> "keyPair")
-            Prelude.<*> (x Core..?> "privateKeyBase64")
-            Prelude.<*> (x Core..?> "operation")
+            Prelude.<$> (x Data..?> "publicKeyBase64")
+            Prelude.<*> (x Data..?> "keyPair")
+            Prelude.<*> (x Data..?> "privateKeyBase64")
+            Prelude.<*> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,34 +132,34 @@ instance Prelude.NFData CreateKeyPair where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf keyPairName
 
-instance Core.ToHeaders CreateKeyPair where
+instance Data.ToHeaders CreateKeyPair where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.CreateKeyPair" ::
+              Data.=# ( "Lightsail_20161128.CreateKeyPair" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateKeyPair where
+instance Data.ToJSON CreateKeyPair where
   toJSON CreateKeyPair' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("keyPairName" Core..= keyPairName)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("keyPairName" Data..= keyPairName)
           ]
       )
 
-instance Core.ToPath CreateKeyPair where
+instance Data.ToPath CreateKeyPair where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateKeyPair where
+instance Data.ToQuery CreateKeyPair where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateKeyPairResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.Peering where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.PeeringState
 import Amazonka.NetworkManager.Types.PeeringType
 import Amazonka.NetworkManager.Types.Tag
@@ -49,7 +50,7 @@ data Peering = Peering'
     -- | The resource ARN of the peer.
     resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the attachment peer was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -134,24 +135,24 @@ peering_resourceArn = Lens.lens (\Peering' {resourceArn} -> resourceArn) (\s@Pee
 
 -- | The timestamp when the attachment peer was created.
 peering_createdAt :: Lens.Lens' Peering (Prelude.Maybe Prelude.UTCTime)
-peering_createdAt = Lens.lens (\Peering' {createdAt} -> createdAt) (\s@Peering' {} a -> s {createdAt = a} :: Peering) Prelude.. Lens.mapping Core._Time
+peering_createdAt = Lens.lens (\Peering' {createdAt} -> createdAt) (\s@Peering' {} a -> s {createdAt = a} :: Peering) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Peering where
+instance Data.FromJSON Peering where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Peering"
       ( \x ->
           Peering'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CoreNetworkId")
-            Prelude.<*> (x Core..:? "PeeringType")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "EdgeLocation")
-            Prelude.<*> (x Core..:? "CoreNetworkArn")
-            Prelude.<*> (x Core..:? "OwnerAccountId")
-            Prelude.<*> (x Core..:? "PeeringId")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CoreNetworkId")
+            Prelude.<*> (x Data..:? "PeeringType")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "EdgeLocation")
+            Prelude.<*> (x Data..:? "CoreNetworkArn")
+            Prelude.<*> (x Data..:? "OwnerAccountId")
+            Prelude.<*> (x Data..:? "PeeringId")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable Peering where

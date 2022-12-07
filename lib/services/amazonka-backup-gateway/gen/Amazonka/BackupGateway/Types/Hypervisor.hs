@@ -22,6 +22,7 @@ module Amazonka.BackupGateway.Types.Hypervisor where
 import Amazonka.BackupGateway.Types.HypervisorState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the hypervisor\'s permissions to which the gateway will
@@ -99,17 +100,17 @@ hypervisor_kmsKeyArn = Lens.lens (\Hypervisor' {kmsKeyArn} -> kmsKeyArn) (\s@Hyp
 hypervisor_hypervisorArn :: Lens.Lens' Hypervisor (Prelude.Maybe Prelude.Text)
 hypervisor_hypervisorArn = Lens.lens (\Hypervisor' {hypervisorArn} -> hypervisorArn) (\s@Hypervisor' {} a -> s {hypervisorArn = a} :: Hypervisor)
 
-instance Core.FromJSON Hypervisor where
+instance Data.FromJSON Hypervisor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Hypervisor"
       ( \x ->
           Hypervisor'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Host")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "KmsKeyArn")
-            Prelude.<*> (x Core..:? "HypervisorArn")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Host")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "KmsKeyArn")
+            Prelude.<*> (x Data..:? "HypervisorArn")
       )
 
 instance Prelude.Hashable Hypervisor where

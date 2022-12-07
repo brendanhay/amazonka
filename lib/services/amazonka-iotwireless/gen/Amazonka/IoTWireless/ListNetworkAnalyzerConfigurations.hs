@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,8 +104,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListNetworkAnalyzerConfigurationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "NetworkAnalyzerConfigurationList"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "NetworkAnalyzerConfigurationList"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -129,26 +130,26 @@ instance
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListNetworkAnalyzerConfigurations
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListNetworkAnalyzerConfigurations
   where
   toPath =
     Prelude.const "/network-analyzer-configurations"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListNetworkAnalyzerConfigurations
   where
   toQuery ListNetworkAnalyzerConfigurations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListNetworkAnalyzerConfigurationsResponse' smart constructor.

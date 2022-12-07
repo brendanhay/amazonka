@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.InferenceSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ModelPackageContainerDefinition
 import Amazonka.SageMaker.Types.ProductionVariantInstanceType
@@ -121,22 +122,22 @@ inferenceSpecification_supportedContentTypes = Lens.lens (\InferenceSpecificatio
 inferenceSpecification_supportedResponseMIMETypes :: Lens.Lens' InferenceSpecification [Prelude.Text]
 inferenceSpecification_supportedResponseMIMETypes = Lens.lens (\InferenceSpecification' {supportedResponseMIMETypes} -> supportedResponseMIMETypes) (\s@InferenceSpecification' {} a -> s {supportedResponseMIMETypes = a} :: InferenceSpecification) Prelude.. Lens.coerced
 
-instance Core.FromJSON InferenceSpecification where
+instance Data.FromJSON InferenceSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InferenceSpecification"
       ( \x ->
           InferenceSpecification'
-            Prelude.<$> ( x Core..:? "SupportedRealtimeInferenceInstanceTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SupportedRealtimeInferenceInstanceTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SupportedTransformInstanceTypes")
-            Prelude.<*> (x Core..: "Containers")
-            Prelude.<*> ( x Core..:? "SupportedContentTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "SupportedTransformInstanceTypes")
+            Prelude.<*> (x Data..: "Containers")
+            Prelude.<*> ( x Data..:? "SupportedContentTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "SupportedResponseMIMETypes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "SupportedResponseMIMETypes"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -157,22 +158,22 @@ instance Prelude.NFData InferenceSpecification where
       `Prelude.seq` Prelude.rnf supportedContentTypes
       `Prelude.seq` Prelude.rnf supportedResponseMIMETypes
 
-instance Core.ToJSON InferenceSpecification where
+instance Data.ToJSON InferenceSpecification where
   toJSON InferenceSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SupportedRealtimeInferenceInstanceTypes" Core..=)
+          [ ("SupportedRealtimeInferenceInstanceTypes" Data..=)
               Prelude.<$> supportedRealtimeInferenceInstanceTypes,
-            ("SupportedTransformInstanceTypes" Core..=)
+            ("SupportedTransformInstanceTypes" Data..=)
               Prelude.<$> supportedTransformInstanceTypes,
-            Prelude.Just ("Containers" Core..= containers),
+            Prelude.Just ("Containers" Data..= containers),
             Prelude.Just
               ( "SupportedContentTypes"
-                  Core..= supportedContentTypes
+                  Data..= supportedContentTypes
               ),
             Prelude.Just
               ( "SupportedResponseMIMETypes"
-                  Core..= supportedResponseMIMETypes
+                  Data..= supportedResponseMIMETypes
               )
           ]
       )

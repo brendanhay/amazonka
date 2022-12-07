@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEksClusterLoggingClusterLoggingDetails wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for a cluster logging configuration.
@@ -93,16 +94,16 @@ awsEksClusterLoggingClusterLoggingDetails_enabled :: Lens.Lens' AwsEksClusterLog
 awsEksClusterLoggingClusterLoggingDetails_enabled = Lens.lens (\AwsEksClusterLoggingClusterLoggingDetails' {enabled} -> enabled) (\s@AwsEksClusterLoggingClusterLoggingDetails' {} a -> s {enabled = a} :: AwsEksClusterLoggingClusterLoggingDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEksClusterLoggingClusterLoggingDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEksClusterLoggingClusterLoggingDetails"
       ( \x ->
           AwsEksClusterLoggingClusterLoggingDetails'
-            Prelude.<$> (x Core..:? "Types" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<$> (x Data..:? "Types" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Enabled")
       )
 
 instance
@@ -123,13 +124,13 @@ instance
     Prelude.rnf types `Prelude.seq` Prelude.rnf enabled
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEksClusterLoggingClusterLoggingDetails
   where
   toJSON AwsEksClusterLoggingClusterLoggingDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Types" Core..=) Prelude.<$> types,
-            ("Enabled" Core..=) Prelude.<$> enabled
+          [ ("Types" Data..=) Prelude.<$> types,
+            ("Enabled" Data..=) Prelude.<$> enabled
           ]
       )

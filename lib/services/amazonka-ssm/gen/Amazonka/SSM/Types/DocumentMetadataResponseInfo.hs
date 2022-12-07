@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.DocumentMetadataResponseInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.DocumentReviewerResponseSource
 
@@ -54,14 +55,14 @@ newDocumentMetadataResponseInfo =
 documentMetadataResponseInfo_reviewerResponse :: Lens.Lens' DocumentMetadataResponseInfo (Prelude.Maybe [DocumentReviewerResponseSource])
 documentMetadataResponseInfo_reviewerResponse = Lens.lens (\DocumentMetadataResponseInfo' {reviewerResponse} -> reviewerResponse) (\s@DocumentMetadataResponseInfo' {} a -> s {reviewerResponse = a} :: DocumentMetadataResponseInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DocumentMetadataResponseInfo where
+instance Data.FromJSON DocumentMetadataResponseInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentMetadataResponseInfo"
       ( \x ->
           DocumentMetadataResponseInfo'
-            Prelude.<$> ( x Core..:? "ReviewerResponse"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ReviewerResponse"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,15 +73,15 @@ data ListMonitoringExecutions = ListMonitoringExecutions'
     -- set of job executions, use it in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only jobs modified before a specified time.
-    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | Name of a specific endpoint to fetch jobs for.
     endpointName :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only jobs modified after a specified time.
-    lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | Filter for jobs scheduled after a specified time.
-    scheduledTimeAfter :: Prelude.Maybe Core.POSIX,
+    scheduledTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only jobs created before a specified time.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only the monitoring job runs of the specified
     -- monitoring type.
     monitoringTypeEquals :: Prelude.Maybe MonitoringType,
@@ -93,11 +94,11 @@ data ListMonitoringExecutions = ListMonitoringExecutions'
     -- is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filter for jobs scheduled before a specified time.
-    scheduledTimeBefore :: Prelude.Maybe Core.POSIX,
+    scheduledTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | A filter that retrieves only jobs with a specific status.
     statusEquals :: Prelude.Maybe ExecutionStatus,
     -- | A filter that returns only jobs created after a specified time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX,
+    creationTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | Gets a list of the monitoring job runs of the specified monitoring job
     -- definitions.
     monitoringJobDefinitionName :: Prelude.Maybe Prelude.Text
@@ -181,7 +182,7 @@ listMonitoringExecutions_nextToken = Lens.lens (\ListMonitoringExecutions' {next
 
 -- | A filter that returns only jobs modified before a specified time.
 listMonitoringExecutions_lastModifiedTimeAfter :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.UTCTime)
-listMonitoringExecutions_lastModifiedTimeAfter = Lens.lens (\ListMonitoringExecutions' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListMonitoringExecutions' {} a -> s {lastModifiedTimeAfter = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Core._Time
+listMonitoringExecutions_lastModifiedTimeAfter = Lens.lens (\ListMonitoringExecutions' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListMonitoringExecutions' {} a -> s {lastModifiedTimeAfter = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Data._Time
 
 -- | Name of a specific endpoint to fetch jobs for.
 listMonitoringExecutions_endpointName :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.Text)
@@ -189,15 +190,15 @@ listMonitoringExecutions_endpointName = Lens.lens (\ListMonitoringExecutions' {e
 
 -- | A filter that returns only jobs modified after a specified time.
 listMonitoringExecutions_lastModifiedTimeBefore :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.UTCTime)
-listMonitoringExecutions_lastModifiedTimeBefore = Lens.lens (\ListMonitoringExecutions' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListMonitoringExecutions' {} a -> s {lastModifiedTimeBefore = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Core._Time
+listMonitoringExecutions_lastModifiedTimeBefore = Lens.lens (\ListMonitoringExecutions' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListMonitoringExecutions' {} a -> s {lastModifiedTimeBefore = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Data._Time
 
 -- | Filter for jobs scheduled after a specified time.
 listMonitoringExecutions_scheduledTimeAfter :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.UTCTime)
-listMonitoringExecutions_scheduledTimeAfter = Lens.lens (\ListMonitoringExecutions' {scheduledTimeAfter} -> scheduledTimeAfter) (\s@ListMonitoringExecutions' {} a -> s {scheduledTimeAfter = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Core._Time
+listMonitoringExecutions_scheduledTimeAfter = Lens.lens (\ListMonitoringExecutions' {scheduledTimeAfter} -> scheduledTimeAfter) (\s@ListMonitoringExecutions' {} a -> s {scheduledTimeAfter = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns only jobs created before a specified time.
 listMonitoringExecutions_creationTimeBefore :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.UTCTime)
-listMonitoringExecutions_creationTimeBefore = Lens.lens (\ListMonitoringExecutions' {creationTimeBefore} -> creationTimeBefore) (\s@ListMonitoringExecutions' {} a -> s {creationTimeBefore = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Core._Time
+listMonitoringExecutions_creationTimeBefore = Lens.lens (\ListMonitoringExecutions' {creationTimeBefore} -> creationTimeBefore) (\s@ListMonitoringExecutions' {} a -> s {creationTimeBefore = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns only the monitoring job runs of the specified
 -- monitoring type.
@@ -220,7 +221,7 @@ listMonitoringExecutions_maxResults = Lens.lens (\ListMonitoringExecutions' {max
 
 -- | Filter for jobs scheduled before a specified time.
 listMonitoringExecutions_scheduledTimeBefore :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.UTCTime)
-listMonitoringExecutions_scheduledTimeBefore = Lens.lens (\ListMonitoringExecutions' {scheduledTimeBefore} -> scheduledTimeBefore) (\s@ListMonitoringExecutions' {} a -> s {scheduledTimeBefore = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Core._Time
+listMonitoringExecutions_scheduledTimeBefore = Lens.lens (\ListMonitoringExecutions' {scheduledTimeBefore} -> scheduledTimeBefore) (\s@ListMonitoringExecutions' {} a -> s {scheduledTimeBefore = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that retrieves only jobs with a specific status.
 listMonitoringExecutions_statusEquals :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe ExecutionStatus)
@@ -228,7 +229,7 @@ listMonitoringExecutions_statusEquals = Lens.lens (\ListMonitoringExecutions' {s
 
 -- | A filter that returns only jobs created after a specified time.
 listMonitoringExecutions_creationTimeAfter :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.UTCTime)
-listMonitoringExecutions_creationTimeAfter = Lens.lens (\ListMonitoringExecutions' {creationTimeAfter} -> creationTimeAfter) (\s@ListMonitoringExecutions' {} a -> s {creationTimeAfter = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Core._Time
+listMonitoringExecutions_creationTimeAfter = Lens.lens (\ListMonitoringExecutions' {creationTimeAfter} -> creationTimeAfter) (\s@ListMonitoringExecutions' {} a -> s {creationTimeAfter = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Data._Time
 
 -- | Gets a list of the monitoring job runs of the specified monitoring job
 -- definitions.
@@ -266,9 +267,9 @@ instance Core.AWSRequest ListMonitoringExecutions where
     Response.receiveJSON
       ( \s h x ->
           ListMonitoringExecutionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "MonitoringExecutionSummaries"
+            Prelude.<*> ( x Data..?> "MonitoringExecutionSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -309,56 +310,56 @@ instance Prelude.NFData ListMonitoringExecutions where
       `Prelude.seq` Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf monitoringJobDefinitionName
 
-instance Core.ToHeaders ListMonitoringExecutions where
+instance Data.ToHeaders ListMonitoringExecutions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListMonitoringExecutions" ::
+              Data.=# ( "SageMaker.ListMonitoringExecutions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListMonitoringExecutions where
+instance Data.ToJSON ListMonitoringExecutions where
   toJSON ListMonitoringExecutions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("LastModifiedTimeAfter" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("LastModifiedTimeAfter" Data..=)
               Prelude.<$> lastModifiedTimeAfter,
-            ("EndpointName" Core..=) Prelude.<$> endpointName,
-            ("LastModifiedTimeBefore" Core..=)
+            ("EndpointName" Data..=) Prelude.<$> endpointName,
+            ("LastModifiedTimeBefore" Data..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("ScheduledTimeAfter" Core..=)
+            ("ScheduledTimeAfter" Data..=)
               Prelude.<$> scheduledTimeAfter,
-            ("CreationTimeBefore" Core..=)
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("MonitoringTypeEquals" Core..=)
+            ("MonitoringTypeEquals" Data..=)
               Prelude.<$> monitoringTypeEquals,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MonitoringScheduleName" Core..=)
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MonitoringScheduleName" Data..=)
               Prelude.<$> monitoringScheduleName,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ScheduledTimeBefore" Core..=)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ScheduledTimeBefore" Data..=)
               Prelude.<$> scheduledTimeBefore,
-            ("StatusEquals" Core..=) Prelude.<$> statusEquals,
-            ("CreationTimeAfter" Core..=)
+            ("StatusEquals" Data..=) Prelude.<$> statusEquals,
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter,
-            ("MonitoringJobDefinitionName" Core..=)
+            ("MonitoringJobDefinitionName" Data..=)
               Prelude.<$> monitoringJobDefinitionName
           ]
       )
 
-instance Core.ToPath ListMonitoringExecutions where
+instance Data.ToPath ListMonitoringExecutions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListMonitoringExecutions where
+instance Data.ToQuery ListMonitoringExecutions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListMonitoringExecutionsResponse' smart constructor.

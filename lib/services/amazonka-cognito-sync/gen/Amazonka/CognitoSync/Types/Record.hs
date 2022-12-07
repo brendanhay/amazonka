@@ -21,6 +21,7 @@ module Amazonka.CognitoSync.Types.Record where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The basic data structure of a dataset.
@@ -30,13 +31,13 @@ data Record = Record'
   { -- | The key for the record.
     key :: Prelude.Maybe Prelude.Text,
     -- | The date on which the record was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The user\/device that made the last change to this record.
     lastModifiedBy :: Prelude.Maybe Prelude.Text,
     -- | The server sync count for this record.
     syncCount :: Prelude.Maybe Prelude.Integer,
     -- | The last modified date of the client device.
-    deviceLastModifiedDate :: Prelude.Maybe Core.POSIX,
+    deviceLastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The value for the record.
     value :: Prelude.Maybe Prelude.Text
   }
@@ -79,7 +80,7 @@ record_key = Lens.lens (\Record' {key} -> key) (\s@Record' {} a -> s {key = a} :
 
 -- | The date on which the record was last modified.
 record_lastModifiedDate :: Lens.Lens' Record (Prelude.Maybe Prelude.UTCTime)
-record_lastModifiedDate = Lens.lens (\Record' {lastModifiedDate} -> lastModifiedDate) (\s@Record' {} a -> s {lastModifiedDate = a} :: Record) Prelude.. Lens.mapping Core._Time
+record_lastModifiedDate = Lens.lens (\Record' {lastModifiedDate} -> lastModifiedDate) (\s@Record' {} a -> s {lastModifiedDate = a} :: Record) Prelude.. Lens.mapping Data._Time
 
 -- | The user\/device that made the last change to this record.
 record_lastModifiedBy :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
@@ -91,24 +92,24 @@ record_syncCount = Lens.lens (\Record' {syncCount} -> syncCount) (\s@Record' {} 
 
 -- | The last modified date of the client device.
 record_deviceLastModifiedDate :: Lens.Lens' Record (Prelude.Maybe Prelude.UTCTime)
-record_deviceLastModifiedDate = Lens.lens (\Record' {deviceLastModifiedDate} -> deviceLastModifiedDate) (\s@Record' {} a -> s {deviceLastModifiedDate = a} :: Record) Prelude.. Lens.mapping Core._Time
+record_deviceLastModifiedDate = Lens.lens (\Record' {deviceLastModifiedDate} -> deviceLastModifiedDate) (\s@Record' {} a -> s {deviceLastModifiedDate = a} :: Record) Prelude.. Lens.mapping Data._Time
 
 -- | The value for the record.
 record_value :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
 record_value = Lens.lens (\Record' {value} -> value) (\s@Record' {} a -> s {value = a} :: Record)
 
-instance Core.FromJSON Record where
+instance Data.FromJSON Record where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Record"
       ( \x ->
           Record'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "SyncCount")
-            Prelude.<*> (x Core..:? "DeviceLastModifiedDate")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "SyncCount")
+            Prelude.<*> (x Data..:? "DeviceLastModifiedDate")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Record where

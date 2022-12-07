@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.JobTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AccelerationSettings
 import Amazonka.MediaConvert.Types.HopDestination
 import Amazonka.MediaConvert.Types.JobTemplateSettings
@@ -49,7 +50,7 @@ data JobTemplate = JobTemplate'
     -- | An optional description you create for each job template.
     description :: Prelude.Maybe Prelude.Text,
     -- | The timestamp in epoch seconds when the Job template was last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | Relative priority on the job.
     priority :: Prelude.Maybe Prelude.Int,
     -- | An optional category you create to organize your job templates.
@@ -58,7 +59,7 @@ data JobTemplate = JobTemplate'
     -- visually complex content.
     accelerationSettings :: Prelude.Maybe AccelerationSettings,
     -- | The timestamp in epoch seconds for Job template creation.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Optional. The queue that jobs created from this template are assigned
     -- to. If you don\'t specify this, jobs will go to the default queue.
     queue :: Prelude.Maybe Prelude.Text,
@@ -163,7 +164,7 @@ jobTemplate_description = Lens.lens (\JobTemplate' {description} -> description)
 
 -- | The timestamp in epoch seconds when the Job template was last updated.
 jobTemplate_lastUpdated :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.UTCTime)
-jobTemplate_lastUpdated = Lens.lens (\JobTemplate' {lastUpdated} -> lastUpdated) (\s@JobTemplate' {} a -> s {lastUpdated = a} :: JobTemplate) Prelude.. Lens.mapping Core._Time
+jobTemplate_lastUpdated = Lens.lens (\JobTemplate' {lastUpdated} -> lastUpdated) (\s@JobTemplate' {} a -> s {lastUpdated = a} :: JobTemplate) Prelude.. Lens.mapping Data._Time
 
 -- | Relative priority on the job.
 jobTemplate_priority :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Int)
@@ -180,7 +181,7 @@ jobTemplate_accelerationSettings = Lens.lens (\JobTemplate' {accelerationSetting
 
 -- | The timestamp in epoch seconds for Job template creation.
 jobTemplate_createdAt :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.UTCTime)
-jobTemplate_createdAt = Lens.lens (\JobTemplate' {createdAt} -> createdAt) (\s@JobTemplate' {} a -> s {createdAt = a} :: JobTemplate) Prelude.. Lens.mapping Core._Time
+jobTemplate_createdAt = Lens.lens (\JobTemplate' {createdAt} -> createdAt) (\s@JobTemplate' {} a -> s {createdAt = a} :: JobTemplate) Prelude.. Lens.mapping Data._Time
 
 -- | Optional. The queue that jobs created from this template are assigned
 -- to. If you don\'t specify this, jobs will go to the default queue.
@@ -197,27 +198,27 @@ jobTemplate_settings = Lens.lens (\JobTemplate' {settings} -> settings) (\s@JobT
 jobTemplate_name :: Lens.Lens' JobTemplate Prelude.Text
 jobTemplate_name = Lens.lens (\JobTemplate' {name} -> name) (\s@JobTemplate' {} a -> s {name = a} :: JobTemplate)
 
-instance Core.FromJSON JobTemplate where
+instance Data.FromJSON JobTemplate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobTemplate"
       ( \x ->
           JobTemplate'
-            Prelude.<$> ( x Core..:? "hopDestinations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "hopDestinations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "statusUpdateInterval")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "lastUpdated")
-            Prelude.<*> (x Core..:? "priority")
-            Prelude.<*> (x Core..:? "category")
-            Prelude.<*> (x Core..:? "accelerationSettings")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "queue")
-            Prelude.<*> (x Core..: "settings")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "statusUpdateInterval")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastUpdated")
+            Prelude.<*> (x Data..:? "priority")
+            Prelude.<*> (x Data..:? "category")
+            Prelude.<*> (x Data..:? "accelerationSettings")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "queue")
+            Prelude.<*> (x Data..: "settings")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable JobTemplate where

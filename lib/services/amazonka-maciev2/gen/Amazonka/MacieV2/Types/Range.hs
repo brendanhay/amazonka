@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.Range where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the location of an occurrence of sensitive data in a
@@ -83,15 +84,15 @@ range_end = Lens.lens (\Range' {end} -> end) (\s@Range' {} a -> s {end = a} :: R
 range_startColumn :: Lens.Lens' Range (Prelude.Maybe Prelude.Integer)
 range_startColumn = Lens.lens (\Range' {startColumn} -> startColumn) (\s@Range' {} a -> s {startColumn = a} :: Range)
 
-instance Core.FromJSON Range where
+instance Data.FromJSON Range where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Range"
       ( \x ->
           Range'
-            Prelude.<$> (x Core..:? "start")
-            Prelude.<*> (x Core..:? "end")
-            Prelude.<*> (x Core..:? "startColumn")
+            Prelude.<$> (x Data..:? "start")
+            Prelude.<*> (x Data..:? "end")
+            Prelude.<*> (x Data..:? "startColumn")
       )
 
 instance Prelude.Hashable Range where

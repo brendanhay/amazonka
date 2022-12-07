@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsDynamoDbTableSseDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the server-side encryption for the table.
@@ -98,16 +99,16 @@ awsDynamoDbTableSseDescription_sseType = Lens.lens (\AwsDynamoDbTableSseDescript
 awsDynamoDbTableSseDescription_kmsMasterKeyArn :: Lens.Lens' AwsDynamoDbTableSseDescription (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableSseDescription_kmsMasterKeyArn = Lens.lens (\AwsDynamoDbTableSseDescription' {kmsMasterKeyArn} -> kmsMasterKeyArn) (\s@AwsDynamoDbTableSseDescription' {} a -> s {kmsMasterKeyArn = a} :: AwsDynamoDbTableSseDescription)
 
-instance Core.FromJSON AwsDynamoDbTableSseDescription where
+instance Data.FromJSON AwsDynamoDbTableSseDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsDynamoDbTableSseDescription"
       ( \x ->
           AwsDynamoDbTableSseDescription'
-            Prelude.<$> (x Core..:? "InaccessibleEncryptionDateTime")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "SseType")
-            Prelude.<*> (x Core..:? "KmsMasterKeyArn")
+            Prelude.<$> (x Data..:? "InaccessibleEncryptionDateTime")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "SseType")
+            Prelude.<*> (x Data..:? "KmsMasterKeyArn")
       )
 
 instance
@@ -133,15 +134,15 @@ instance
       `Prelude.seq` Prelude.rnf sseType
       `Prelude.seq` Prelude.rnf kmsMasterKeyArn
 
-instance Core.ToJSON AwsDynamoDbTableSseDescription where
+instance Data.ToJSON AwsDynamoDbTableSseDescription where
   toJSON AwsDynamoDbTableSseDescription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InaccessibleEncryptionDateTime" Core..=)
+          [ ("InaccessibleEncryptionDateTime" Data..=)
               Prelude.<$> inaccessibleEncryptionDateTime,
-            ("Status" Core..=) Prelude.<$> status,
-            ("SseType" Core..=) Prelude.<$> sseType,
-            ("KmsMasterKeyArn" Core..=)
+            ("Status" Data..=) Prelude.<$> status,
+            ("SseType" Data..=) Prelude.<$> sseType,
+            ("KmsMasterKeyArn" Data..=)
               Prelude.<$> kmsMasterKeyArn
           ]
       )

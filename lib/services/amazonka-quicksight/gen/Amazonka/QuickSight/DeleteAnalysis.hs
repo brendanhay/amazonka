@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -155,10 +156,10 @@ instance Core.AWSRequest DeleteAnalysis where
     Response.receiveJSON
       ( \s h x ->
           DeleteAnalysisResponse'
-            Prelude.<$> (x Core..?> "DeletionTime")
-            Prelude.<*> (x Core..?> "AnalysisId")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "DeletionTime")
+            Prelude.<*> (x Data..?> "AnalysisId")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,39 +177,39 @@ instance Prelude.NFData DeleteAnalysis where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf analysisId
 
-instance Core.ToHeaders DeleteAnalysis where
+instance Data.ToHeaders DeleteAnalysis where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteAnalysis where
+instance Data.ToPath DeleteAnalysis where
   toPath DeleteAnalysis' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/analyses/",
-        Core.toBS analysisId
+        Data.toBS analysisId
       ]
 
-instance Core.ToQuery DeleteAnalysis where
+instance Data.ToQuery DeleteAnalysis where
   toQuery DeleteAnalysis' {..} =
     Prelude.mconcat
       [ "recovery-window-in-days"
-          Core.=: recoveryWindowInDays,
+          Data.=: recoveryWindowInDays,
         "force-delete-without-recovery"
-          Core.=: forceDeleteWithoutRecovery
+          Data.=: forceDeleteWithoutRecovery
       ]
 
 -- | /See:/ 'newDeleteAnalysisResponse' smart constructor.
 data DeleteAnalysisResponse = DeleteAnalysisResponse'
   { -- | The date and time that the analysis is scheduled to be deleted.
-    deletionTime :: Prelude.Maybe Core.POSIX,
+    deletionTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the deleted analysis.
     analysisId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services request ID for this operation.
@@ -253,7 +254,7 @@ newDeleteAnalysisResponse pStatus_ =
 
 -- | The date and time that the analysis is scheduled to be deleted.
 deleteAnalysisResponse_deletionTime :: Lens.Lens' DeleteAnalysisResponse (Prelude.Maybe Prelude.UTCTime)
-deleteAnalysisResponse_deletionTime = Lens.lens (\DeleteAnalysisResponse' {deletionTime} -> deletionTime) (\s@DeleteAnalysisResponse' {} a -> s {deletionTime = a} :: DeleteAnalysisResponse) Prelude.. Lens.mapping Core._Time
+deleteAnalysisResponse_deletionTime = Lens.lens (\DeleteAnalysisResponse' {deletionTime} -> deletionTime) (\s@DeleteAnalysisResponse' {} a -> s {deletionTime = a} :: DeleteAnalysisResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the deleted analysis.
 deleteAnalysisResponse_analysisId :: Lens.Lens' DeleteAnalysisResponse (Prelude.Maybe Prelude.Text)

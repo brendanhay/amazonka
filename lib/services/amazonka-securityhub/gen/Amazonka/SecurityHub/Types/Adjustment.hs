@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Adjustment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An adjustment to the CVSS metric.
@@ -61,14 +62,14 @@ adjustment_metric = Lens.lens (\Adjustment' {metric} -> metric) (\s@Adjustment' 
 adjustment_reason :: Lens.Lens' Adjustment (Prelude.Maybe Prelude.Text)
 adjustment_reason = Lens.lens (\Adjustment' {reason} -> reason) (\s@Adjustment' {} a -> s {reason = a} :: Adjustment)
 
-instance Core.FromJSON Adjustment where
+instance Data.FromJSON Adjustment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Adjustment"
       ( \x ->
           Adjustment'
-            Prelude.<$> (x Core..:? "Metric")
-            Prelude.<*> (x Core..:? "Reason")
+            Prelude.<$> (x Data..:? "Metric")
+            Prelude.<*> (x Data..:? "Reason")
       )
 
 instance Prelude.Hashable Adjustment where
@@ -80,11 +81,11 @@ instance Prelude.NFData Adjustment where
   rnf Adjustment' {..} =
     Prelude.rnf metric `Prelude.seq` Prelude.rnf reason
 
-instance Core.ToJSON Adjustment where
+instance Data.ToJSON Adjustment where
   toJSON Adjustment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Metric" Core..=) Prelude.<$> metric,
-            ("Reason" Core..=) Prelude.<$> reason
+          [ ("Metric" Data..=) Prelude.<$> metric,
+            ("Reason" Data..=) Prelude.<$> reason
           ]
       )

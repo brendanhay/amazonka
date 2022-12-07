@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.ChoiceAnswer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.ChoiceReason
 import Amazonka.WellArchitected.Types.ChoiceStatus
@@ -83,16 +84,16 @@ choiceAnswer_reason = Lens.lens (\ChoiceAnswer' {reason} -> reason) (\s@ChoiceAn
 choiceAnswer_notes :: Lens.Lens' ChoiceAnswer (Prelude.Maybe Prelude.Text)
 choiceAnswer_notes = Lens.lens (\ChoiceAnswer' {notes} -> notes) (\s@ChoiceAnswer' {} a -> s {notes = a} :: ChoiceAnswer)
 
-instance Core.FromJSON ChoiceAnswer where
+instance Data.FromJSON ChoiceAnswer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChoiceAnswer"
       ( \x ->
           ChoiceAnswer'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ChoiceId")
-            Prelude.<*> (x Core..:? "Reason")
-            Prelude.<*> (x Core..:? "Notes")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ChoiceId")
+            Prelude.<*> (x Data..:? "Reason")
+            Prelude.<*> (x Data..:? "Notes")
       )
 
 instance Prelude.Hashable ChoiceAnswer where

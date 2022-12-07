@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -99,22 +100,22 @@ instance Core.AWSRequest DescribeStreamProcessor where
     Response.receiveJSON
       ( \s h x ->
           DescribeStreamProcessorResponse'
-            Prelude.<$> (x Core..?> "StreamProcessorArn")
-            Prelude.<*> ( x Core..?> "RegionsOfInterest"
+            Prelude.<$> (x Data..?> "StreamProcessorArn")
+            Prelude.<*> ( x Data..?> "RegionsOfInterest"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LastUpdateTimestamp")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Input")
-            Prelude.<*> (x Core..?> "Settings")
-            Prelude.<*> (x Core..?> "Output")
-            Prelude.<*> (x Core..?> "KmsKeyId")
-            Prelude.<*> (x Core..?> "DataSharingPreference")
-            Prelude.<*> (x Core..?> "StatusMessage")
-            Prelude.<*> (x Core..?> "NotificationChannel")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "LastUpdateTimestamp")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Input")
+            Prelude.<*> (x Data..?> "Settings")
+            Prelude.<*> (x Data..?> "Output")
+            Prelude.<*> (x Data..?> "KmsKeyId")
+            Prelude.<*> (x Data..?> "DataSharingPreference")
+            Prelude.<*> (x Data..?> "StatusMessage")
+            Prelude.<*> (x Data..?> "NotificationChannel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,32 +126,32 @@ instance Prelude.Hashable DescribeStreamProcessor where
 instance Prelude.NFData DescribeStreamProcessor where
   rnf DescribeStreamProcessor' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DescribeStreamProcessor where
+instance Data.ToHeaders DescribeStreamProcessor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.DescribeStreamProcessor" ::
+              Data.=# ( "RekognitionService.DescribeStreamProcessor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeStreamProcessor where
+instance Data.ToJSON DescribeStreamProcessor where
   toJSON DescribeStreamProcessor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DescribeStreamProcessor where
+instance Data.ToPath DescribeStreamProcessor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStreamProcessor where
+instance Data.ToQuery DescribeStreamProcessor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeStreamProcessorResponse' smart constructor.
@@ -166,13 +167,13 @@ data DescribeStreamProcessorResponse = DescribeStreamProcessorResponse'
     -- | The time, in Unix format, the stream processor was last updated. For
     -- example, when the stream processor moves from a running state to a
     -- failed state, or when the user starts or stops the stream processor.
-    lastUpdateTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdateTimestamp :: Prelude.Maybe Data.POSIX,
     -- | ARN of the IAM role that allows access to the stream processor.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | Current status of the stream processor.
     status :: Prelude.Maybe StreamProcessorStatus,
     -- | Date and time the stream processor was created
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Kinesis video stream that provides the source streaming video.
     input :: Prelude.Maybe StreamProcessorInput,
     -- | Input parameters used in a streaming video analyzed by a stream
@@ -288,7 +289,7 @@ describeStreamProcessorResponse_name = Lens.lens (\DescribeStreamProcessorRespon
 -- example, when the stream processor moves from a running state to a
 -- failed state, or when the user starts or stops the stream processor.
 describeStreamProcessorResponse_lastUpdateTimestamp :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.UTCTime)
-describeStreamProcessorResponse_lastUpdateTimestamp = Lens.lens (\DescribeStreamProcessorResponse' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@DescribeStreamProcessorResponse' {} a -> s {lastUpdateTimestamp = a} :: DescribeStreamProcessorResponse) Prelude.. Lens.mapping Core._Time
+describeStreamProcessorResponse_lastUpdateTimestamp = Lens.lens (\DescribeStreamProcessorResponse' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@DescribeStreamProcessorResponse' {} a -> s {lastUpdateTimestamp = a} :: DescribeStreamProcessorResponse) Prelude.. Lens.mapping Data._Time
 
 -- | ARN of the IAM role that allows access to the stream processor.
 describeStreamProcessorResponse_roleArn :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
@@ -300,7 +301,7 @@ describeStreamProcessorResponse_status = Lens.lens (\DescribeStreamProcessorResp
 
 -- | Date and time the stream processor was created
 describeStreamProcessorResponse_creationTimestamp :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.UTCTime)
-describeStreamProcessorResponse_creationTimestamp = Lens.lens (\DescribeStreamProcessorResponse' {creationTimestamp} -> creationTimestamp) (\s@DescribeStreamProcessorResponse' {} a -> s {creationTimestamp = a} :: DescribeStreamProcessorResponse) Prelude.. Lens.mapping Core._Time
+describeStreamProcessorResponse_creationTimestamp = Lens.lens (\DescribeStreamProcessorResponse' {creationTimestamp} -> creationTimestamp) (\s@DescribeStreamProcessorResponse' {} a -> s {creationTimestamp = a} :: DescribeStreamProcessorResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Kinesis video stream that provides the source streaming video.
 describeStreamProcessorResponse_input :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorInput)

@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.Pose where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates the pose of the face as determined by its pitch, roll, and
@@ -71,15 +72,15 @@ pose_pitch = Lens.lens (\Pose' {pitch} -> pitch) (\s@Pose' {} a -> s {pitch = a}
 pose_yaw :: Lens.Lens' Pose (Prelude.Maybe Prelude.Double)
 pose_yaw = Lens.lens (\Pose' {yaw} -> yaw) (\s@Pose' {} a -> s {yaw = a} :: Pose)
 
-instance Core.FromJSON Pose where
+instance Data.FromJSON Pose where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Pose"
       ( \x ->
           Pose'
-            Prelude.<$> (x Core..:? "Roll")
-            Prelude.<*> (x Core..:? "Pitch")
-            Prelude.<*> (x Core..:? "Yaw")
+            Prelude.<$> (x Data..:? "Roll")
+            Prelude.<*> (x Data..:? "Pitch")
+            Prelude.<*> (x Data..:? "Yaw")
       )
 
 instance Prelude.Hashable Pose where

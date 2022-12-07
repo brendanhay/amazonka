@@ -39,6 +39,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -49,7 +50,7 @@ import qualified Amazonka.Response as Response
 data ForgetDevice = ForgetDevice'
   { -- | A valid access token that Amazon Cognito issued to the user whose
     -- registered device you want to forget.
-    accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    accessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The device key.
     deviceKey :: Prelude.Text
   }
@@ -80,7 +81,7 @@ newForgetDevice pDeviceKey_ =
 -- | A valid access token that Amazon Cognito issued to the user whose
 -- registered device you want to forget.
 forgetDevice_accessToken :: Lens.Lens' ForgetDevice (Prelude.Maybe Prelude.Text)
-forgetDevice_accessToken = Lens.lens (\ForgetDevice' {accessToken} -> accessToken) (\s@ForgetDevice' {} a -> s {accessToken = a} :: ForgetDevice) Prelude.. Lens.mapping Core._Sensitive
+forgetDevice_accessToken = Lens.lens (\ForgetDevice' {accessToken} -> accessToken) (\s@ForgetDevice' {} a -> s {accessToken = a} :: ForgetDevice) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The device key.
 forgetDevice_deviceKey :: Lens.Lens' ForgetDevice Prelude.Text
@@ -102,34 +103,34 @@ instance Prelude.NFData ForgetDevice where
     Prelude.rnf accessToken
       `Prelude.seq` Prelude.rnf deviceKey
 
-instance Core.ToHeaders ForgetDevice where
+instance Data.ToHeaders ForgetDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.ForgetDevice" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.ForgetDevice" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ForgetDevice where
+instance Data.ToJSON ForgetDevice where
   toJSON ForgetDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessToken" Core..=) Prelude.<$> accessToken,
-            Prelude.Just ("DeviceKey" Core..= deviceKey)
+          [ ("AccessToken" Data..=) Prelude.<$> accessToken,
+            Prelude.Just ("DeviceKey" Data..= deviceKey)
           ]
       )
 
-instance Core.ToPath ForgetDevice where
+instance Data.ToPath ForgetDevice where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ForgetDevice where
+instance Data.ToQuery ForgetDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newForgetDeviceResponse' smart constructor.

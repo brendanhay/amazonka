@@ -55,6 +55,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -394,9 +395,9 @@ instance Core.AWSRequest RegisterJobDefinition where
       ( \s h x ->
           RegisterJobDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "jobDefinitionName")
-            Prelude.<*> (x Core..:> "jobDefinitionArn")
-            Prelude.<*> (x Core..:> "revision")
+            Prelude.<*> (x Data..:> "jobDefinitionName")
+            Prelude.<*> (x Data..:> "jobDefinitionArn")
+            Prelude.<*> (x Data..:> "revision")
       )
 
 instance Prelude.Hashable RegisterJobDefinition where
@@ -429,45 +430,45 @@ instance Prelude.NFData RegisterJobDefinition where
       `Prelude.seq` Prelude.rnf jobDefinitionName
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders RegisterJobDefinition where
+instance Data.ToHeaders RegisterJobDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterJobDefinition where
+instance Data.ToJSON RegisterJobDefinition where
   toJSON RegisterJobDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("timeout" Core..=) Prelude.<$> timeout,
-            ("containerProperties" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("timeout" Data..=) Prelude.<$> timeout,
+            ("containerProperties" Data..=)
               Prelude.<$> containerProperties,
-            ("retryStrategy" Core..=) Prelude.<$> retryStrategy,
-            ("platformCapabilities" Core..=)
+            ("retryStrategy" Data..=) Prelude.<$> retryStrategy,
+            ("platformCapabilities" Data..=)
               Prelude.<$> platformCapabilities,
-            ("propagateTags" Core..=) Prelude.<$> propagateTags,
-            ("nodeProperties" Core..=)
+            ("propagateTags" Data..=) Prelude.<$> propagateTags,
+            ("nodeProperties" Data..=)
               Prelude.<$> nodeProperties,
-            ("schedulingPriority" Core..=)
+            ("schedulingPriority" Data..=)
               Prelude.<$> schedulingPriority,
-            ("eksProperties" Core..=) Prelude.<$> eksProperties,
-            ("parameters" Core..=) Prelude.<$> parameters,
+            ("eksProperties" Data..=) Prelude.<$> eksProperties,
+            ("parameters" Data..=) Prelude.<$> parameters,
             Prelude.Just
-              ("jobDefinitionName" Core..= jobDefinitionName),
-            Prelude.Just ("type" Core..= type')
+              ("jobDefinitionName" Data..= jobDefinitionName),
+            Prelude.Just ("type" Data..= type')
           ]
       )
 
-instance Core.ToPath RegisterJobDefinition where
+instance Data.ToPath RegisterJobDefinition where
   toPath = Prelude.const "/v1/registerjobdefinition"
 
-instance Core.ToQuery RegisterJobDefinition where
+instance Data.ToQuery RegisterJobDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterJobDefinitionResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotLocaleHistoryEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an event that occurred affecting the bot
@@ -31,7 +32,7 @@ data BotLocaleHistoryEvent = BotLocaleHistoryEvent'
   { -- | A description of the event that occurred.
     event :: Prelude.Text,
     -- | A timestamp of the date and time that the event occurred.
-    eventDate :: Core.POSIX
+    eventDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,7 +56,7 @@ newBotLocaleHistoryEvent ::
 newBotLocaleHistoryEvent pEvent_ pEventDate_ =
   BotLocaleHistoryEvent'
     { event = pEvent_,
-      eventDate = Core._Time Lens.# pEventDate_
+      eventDate = Data._Time Lens.# pEventDate_
     }
 
 -- | A description of the event that occurred.
@@ -64,16 +65,16 @@ botLocaleHistoryEvent_event = Lens.lens (\BotLocaleHistoryEvent' {event} -> even
 
 -- | A timestamp of the date and time that the event occurred.
 botLocaleHistoryEvent_eventDate :: Lens.Lens' BotLocaleHistoryEvent Prelude.UTCTime
-botLocaleHistoryEvent_eventDate = Lens.lens (\BotLocaleHistoryEvent' {eventDate} -> eventDate) (\s@BotLocaleHistoryEvent' {} a -> s {eventDate = a} :: BotLocaleHistoryEvent) Prelude.. Core._Time
+botLocaleHistoryEvent_eventDate = Lens.lens (\BotLocaleHistoryEvent' {eventDate} -> eventDate) (\s@BotLocaleHistoryEvent' {} a -> s {eventDate = a} :: BotLocaleHistoryEvent) Prelude.. Data._Time
 
-instance Core.FromJSON BotLocaleHistoryEvent where
+instance Data.FromJSON BotLocaleHistoryEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotLocaleHistoryEvent"
       ( \x ->
           BotLocaleHistoryEvent'
-            Prelude.<$> (x Core..: "event")
-            Prelude.<*> (x Core..: "eventDate")
+            Prelude.<$> (x Data..: "event")
+            Prelude.<*> (x Data..: "eventDate")
       )
 
 instance Prelude.Hashable BotLocaleHistoryEvent where

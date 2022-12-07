@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.RedshiftInstanceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the Amazon Redshift instances that Amazon Web Services
@@ -93,17 +94,17 @@ redshiftInstanceDetails_family = Lens.lens (\RedshiftInstanceDetails' {family} -
 redshiftInstanceDetails_currentGeneration :: Lens.Lens' RedshiftInstanceDetails (Prelude.Maybe Prelude.Bool)
 redshiftInstanceDetails_currentGeneration = Lens.lens (\RedshiftInstanceDetails' {currentGeneration} -> currentGeneration) (\s@RedshiftInstanceDetails' {} a -> s {currentGeneration = a} :: RedshiftInstanceDetails)
 
-instance Core.FromJSON RedshiftInstanceDetails where
+instance Data.FromJSON RedshiftInstanceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedshiftInstanceDetails"
       ( \x ->
           RedshiftInstanceDetails'
-            Prelude.<$> (x Core..:? "SizeFlexEligible")
-            Prelude.<*> (x Core..:? "NodeType")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "Family")
-            Prelude.<*> (x Core..:? "CurrentGeneration")
+            Prelude.<$> (x Data..:? "SizeFlexEligible")
+            Prelude.<*> (x Data..:? "NodeType")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "Family")
+            Prelude.<*> (x Data..:? "CurrentGeneration")
       )
 
 instance Prelude.Hashable RedshiftInstanceDetails where

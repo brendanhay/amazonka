@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.AgentStatusSummary where
 import Amazonka.Connect.Types.AgentStatusType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information for an agent status.
@@ -80,16 +81,16 @@ agentStatusSummary_arn = Lens.lens (\AgentStatusSummary' {arn} -> arn) (\s@Agent
 agentStatusSummary_id :: Lens.Lens' AgentStatusSummary (Prelude.Maybe Prelude.Text)
 agentStatusSummary_id = Lens.lens (\AgentStatusSummary' {id} -> id) (\s@AgentStatusSummary' {} a -> s {id = a} :: AgentStatusSummary)
 
-instance Core.FromJSON AgentStatusSummary where
+instance Data.FromJSON AgentStatusSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AgentStatusSummary"
       ( \x ->
           AgentStatusSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable AgentStatusSummary where

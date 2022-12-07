@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicyCustomHeadersConfig where
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyCustomHeader
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of HTTP response header names and their values. CloudFront
@@ -70,18 +71,18 @@ responseHeadersPolicyCustomHeadersConfig_quantity :: Lens.Lens' ResponseHeadersP
 responseHeadersPolicyCustomHeadersConfig_quantity = Lens.lens (\ResponseHeadersPolicyCustomHeadersConfig' {quantity} -> quantity) (\s@ResponseHeadersPolicyCustomHeadersConfig' {} a -> s {quantity = a} :: ResponseHeadersPolicyCustomHeadersConfig)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ResponseHeadersPolicyCustomHeadersConfig
   where
   parseXML x =
     ResponseHeadersPolicyCustomHeadersConfig'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        ( Core.parseXMLList
+                        ( Data.parseXMLList
                             "ResponseHeadersPolicyCustomHeader"
                         )
                   )
-        Prelude.<*> (x Core..@ "Quantity")
+        Prelude.<*> (x Data..@ "Quantity")
 
 instance
   Prelude.Hashable
@@ -102,15 +103,15 @@ instance
       `Prelude.seq` Prelude.rnf quantity
 
 instance
-  Core.ToXML
+  Data.ToXML
     ResponseHeadersPolicyCustomHeadersConfig
   where
   toXML ResponseHeadersPolicyCustomHeadersConfig' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML
-            ( Core.toXMLList "ResponseHeadersPolicyCustomHeader"
+          Data.@= Data.toXML
+            ( Data.toXMLList "ResponseHeadersPolicyCustomHeader"
                 Prelude.<$> items
             ),
-        "Quantity" Core.@= quantity
+        "Quantity" Data.@= quantity
       ]

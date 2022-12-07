@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.DBClusterOptionGroupStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Not supported by Neptune.
@@ -62,11 +63,11 @@ dbClusterOptionGroupStatus_status = Lens.lens (\DBClusterOptionGroupStatus' {sta
 dbClusterOptionGroupStatus_dbClusterOptionGroupName :: Lens.Lens' DBClusterOptionGroupStatus (Prelude.Maybe Prelude.Text)
 dbClusterOptionGroupStatus_dbClusterOptionGroupName = Lens.lens (\DBClusterOptionGroupStatus' {dbClusterOptionGroupName} -> dbClusterOptionGroupName) (\s@DBClusterOptionGroupStatus' {} a -> s {dbClusterOptionGroupName = a} :: DBClusterOptionGroupStatus)
 
-instance Core.FromXML DBClusterOptionGroupStatus where
+instance Data.FromXML DBClusterOptionGroupStatus where
   parseXML x =
     DBClusterOptionGroupStatus'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "DBClusterOptionGroupName")
+      Prelude.<$> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "DBClusterOptionGroupName")
 
 instance Prelude.Hashable DBClusterOptionGroupStatus where
   hashWithSalt _salt DBClusterOptionGroupStatus' {..} =

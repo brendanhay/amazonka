@@ -51,6 +51,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -196,8 +197,8 @@ instance Core.AWSRequest CreateTaskTemplate where
       ( \s h x ->
           CreateTaskTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Id")
-            Prelude.<*> (x Core..:> "Arn")
+            Prelude.<*> (x Data..:> "Id")
+            Prelude.<*> (x Data..:> "Arn")
       )
 
 instance Prelude.Hashable CreateTaskTemplate where
@@ -224,41 +225,41 @@ instance Prelude.NFData CreateTaskTemplate where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf fields
 
-instance Core.ToHeaders CreateTaskTemplate where
+instance Data.ToHeaders CreateTaskTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTaskTemplate where
+instance Data.ToJSON CreateTaskTemplate where
   toJSON CreateTaskTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Constraints" Core..=) Prelude.<$> constraints,
-            ("Status" Core..=) Prelude.<$> status,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Defaults" Core..=) Prelude.<$> defaults,
-            ("ContactFlowId" Core..=) Prelude.<$> contactFlowId,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Fields" Core..= fields)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Constraints" Data..=) Prelude.<$> constraints,
+            ("Status" Data..=) Prelude.<$> status,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Defaults" Data..=) Prelude.<$> defaults,
+            ("ContactFlowId" Data..=) Prelude.<$> contactFlowId,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Fields" Data..= fields)
           ]
       )
 
-instance Core.ToPath CreateTaskTemplate where
+instance Data.ToPath CreateTaskTemplate where
   toPath CreateTaskTemplate' {..} =
     Prelude.mconcat
       [ "/instance/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/task/template"
       ]
 
-instance Core.ToQuery CreateTaskTemplate where
+instance Data.ToQuery CreateTaskTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTaskTemplateResponse' smart constructor.

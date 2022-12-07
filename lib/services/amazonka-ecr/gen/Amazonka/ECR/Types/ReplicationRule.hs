@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.ReplicationRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.ReplicationDestination
 import Amazonka.ECR.Types.RepositoryFilter
 import qualified Amazonka.Prelude as Prelude
@@ -71,14 +72,14 @@ replicationRule_repositoryFilters = Lens.lens (\ReplicationRule' {repositoryFilt
 replicationRule_destinations :: Lens.Lens' ReplicationRule [ReplicationDestination]
 replicationRule_destinations = Lens.lens (\ReplicationRule' {destinations} -> destinations) (\s@ReplicationRule' {} a -> s {destinations = a} :: ReplicationRule) Prelude.. Lens.coerced
 
-instance Core.FromJSON ReplicationRule where
+instance Data.FromJSON ReplicationRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationRule"
       ( \x ->
           ReplicationRule'
-            Prelude.<$> (x Core..:? "repositoryFilters")
-            Prelude.<*> (x Core..:? "destinations" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "repositoryFilters")
+            Prelude.<*> (x Data..:? "destinations" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ReplicationRule where
@@ -91,12 +92,12 @@ instance Prelude.NFData ReplicationRule where
     Prelude.rnf repositoryFilters
       `Prelude.seq` Prelude.rnf destinations
 
-instance Core.ToJSON ReplicationRule where
+instance Data.ToJSON ReplicationRule where
   toJSON ReplicationRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("repositoryFilters" Core..=)
+          [ ("repositoryFilters" Data..=)
               Prelude.<$> repositoryFilters,
-            Prelude.Just ("destinations" Core..= destinations)
+            Prelude.Just ("destinations" Data..= destinations)
           ]
       )

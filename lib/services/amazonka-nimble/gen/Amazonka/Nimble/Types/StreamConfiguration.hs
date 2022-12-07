@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.StreamConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.StreamConfigurationSessionStorage
 import Amazonka.Nimble.Types.StreamingClipboardMode
 import Amazonka.Nimble.Types.StreamingInstanceType
@@ -172,18 +173,18 @@ streamConfiguration_ec2InstanceTypes = Lens.lens (\StreamConfiguration' {ec2Inst
 streamConfiguration_streamingImageIds :: Lens.Lens' StreamConfiguration (Prelude.NonEmpty Prelude.Text)
 streamConfiguration_streamingImageIds = Lens.lens (\StreamConfiguration' {streamingImageIds} -> streamingImageIds) (\s@StreamConfiguration' {} a -> s {streamingImageIds = a} :: StreamConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON StreamConfiguration where
+instance Data.FromJSON StreamConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamConfiguration"
       ( \x ->
           StreamConfiguration'
-            Prelude.<$> (x Core..:? "maxStoppedSessionLengthInMinutes")
-            Prelude.<*> (x Core..:? "maxSessionLengthInMinutes")
-            Prelude.<*> (x Core..:? "sessionStorage")
-            Prelude.<*> (x Core..: "clipboardMode")
-            Prelude.<*> (x Core..: "ec2InstanceTypes")
-            Prelude.<*> (x Core..: "streamingImageIds")
+            Prelude.<$> (x Data..:? "maxStoppedSessionLengthInMinutes")
+            Prelude.<*> (x Data..:? "maxSessionLengthInMinutes")
+            Prelude.<*> (x Data..:? "sessionStorage")
+            Prelude.<*> (x Data..: "clipboardMode")
+            Prelude.<*> (x Data..: "ec2InstanceTypes")
+            Prelude.<*> (x Data..: "streamingImageIds")
       )
 
 instance Prelude.Hashable StreamConfiguration where

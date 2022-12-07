@@ -22,6 +22,7 @@ module Amazonka.Backup.Types.Condition where
 import Amazonka.Backup.Types.ConditionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an array of triplets made up of a condition type (such as
@@ -106,15 +107,15 @@ condition_conditionKey = Lens.lens (\Condition' {conditionKey} -> conditionKey) 
 condition_conditionValue :: Lens.Lens' Condition Prelude.Text
 condition_conditionValue = Lens.lens (\Condition' {conditionValue} -> conditionValue) (\s@Condition' {} a -> s {conditionValue = a} :: Condition)
 
-instance Core.FromJSON Condition where
+instance Data.FromJSON Condition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Condition"
       ( \x ->
           Condition'
-            Prelude.<$> (x Core..: "ConditionType")
-            Prelude.<*> (x Core..: "ConditionKey")
-            Prelude.<*> (x Core..: "ConditionValue")
+            Prelude.<$> (x Data..: "ConditionType")
+            Prelude.<*> (x Data..: "ConditionKey")
+            Prelude.<*> (x Data..: "ConditionValue")
       )
 
 instance Prelude.Hashable Condition where
@@ -129,14 +130,14 @@ instance Prelude.NFData Condition where
       `Prelude.seq` Prelude.rnf conditionKey
       `Prelude.seq` Prelude.rnf conditionValue
 
-instance Core.ToJSON Condition where
+instance Data.ToJSON Condition where
   toJSON Condition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ConditionType" Core..= conditionType),
-            Prelude.Just ("ConditionKey" Core..= conditionKey),
+              ("ConditionType" Data..= conditionType),
+            Prelude.Just ("ConditionKey" Data..= conditionKey),
             Prelude.Just
-              ("ConditionValue" Core..= conditionValue)
+              ("ConditionValue" Data..= conditionValue)
           ]
       )

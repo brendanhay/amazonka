@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.CollectionScheme where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.ConditionBasedCollectionScheme
 import Amazonka.IoTFleetWise.Types.TimeBasedCollectionScheme
 import qualified Amazonka.Prelude as Prelude
@@ -70,14 +71,14 @@ collectionScheme_timeBasedCollectionScheme = Lens.lens (\CollectionScheme' {time
 collectionScheme_conditionBasedCollectionScheme :: Lens.Lens' CollectionScheme (Prelude.Maybe ConditionBasedCollectionScheme)
 collectionScheme_conditionBasedCollectionScheme = Lens.lens (\CollectionScheme' {conditionBasedCollectionScheme} -> conditionBasedCollectionScheme) (\s@CollectionScheme' {} a -> s {conditionBasedCollectionScheme = a} :: CollectionScheme)
 
-instance Core.FromJSON CollectionScheme where
+instance Data.FromJSON CollectionScheme where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CollectionScheme"
       ( \x ->
           CollectionScheme'
-            Prelude.<$> (x Core..:? "timeBasedCollectionScheme")
-            Prelude.<*> (x Core..:? "conditionBasedCollectionScheme")
+            Prelude.<$> (x Data..:? "timeBasedCollectionScheme")
+            Prelude.<*> (x Data..:? "conditionBasedCollectionScheme")
       )
 
 instance Prelude.Hashable CollectionScheme where
@@ -91,13 +92,13 @@ instance Prelude.NFData CollectionScheme where
     Prelude.rnf timeBasedCollectionScheme
       `Prelude.seq` Prelude.rnf conditionBasedCollectionScheme
 
-instance Core.ToJSON CollectionScheme where
+instance Data.ToJSON CollectionScheme where
   toJSON CollectionScheme' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timeBasedCollectionScheme" Core..=)
+          [ ("timeBasedCollectionScheme" Data..=)
               Prelude.<$> timeBasedCollectionScheme,
-            ("conditionBasedCollectionScheme" Core..=)
+            ("conditionBasedCollectionScheme" Data..=)
               Prelude.<$> conditionBasedCollectionScheme
           ]
       )

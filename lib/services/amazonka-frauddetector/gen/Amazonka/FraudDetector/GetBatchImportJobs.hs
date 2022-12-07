@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,8 +111,8 @@ instance Core.AWSRequest GetBatchImportJobs where
     Response.receiveJSON
       ( \s h x ->
           GetBatchImportJobsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "batchImports" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "batchImports" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,35 +128,35 @@ instance Prelude.NFData GetBatchImportJobs where
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders GetBatchImportJobs where
+instance Data.ToHeaders GetBatchImportJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.GetBatchImportJobs" ::
+              Data.=# ( "AWSHawksNestServiceFacade.GetBatchImportJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetBatchImportJobs where
+instance Data.ToJSON GetBatchImportJobs where
   toJSON GetBatchImportJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("jobId" Core..=) Prelude.<$> jobId,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("jobId" Data..=) Prelude.<$> jobId,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath GetBatchImportJobs where
+instance Data.ToPath GetBatchImportJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetBatchImportJobs where
+instance Data.ToQuery GetBatchImportJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBatchImportJobsResponse' smart constructor.

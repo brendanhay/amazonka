@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.VariableValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The input variables to the app to be used by the InvokeScreenAutomation
@@ -60,9 +61,9 @@ instance Prelude.Hashable VariableValue where
 instance Prelude.NFData VariableValue where
   rnf VariableValue' {..} = Prelude.rnf rawValue
 
-instance Core.ToJSON VariableValue where
+instance Data.ToJSON VariableValue where
   toJSON VariableValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("rawValue" Core..= rawValue)]
+          [Prelude.Just ("rawValue" Data..= rawValue)]
       )

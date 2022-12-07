@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,17 +120,17 @@ instance Prelude.NFData DeleteThingShadow where
     Prelude.rnf shadowName
       `Prelude.seq` Prelude.rnf thingName
 
-instance Core.ToHeaders DeleteThingShadow where
+instance Data.ToHeaders DeleteThingShadow where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteThingShadow where
+instance Data.ToPath DeleteThingShadow where
   toPath DeleteThingShadow' {..} =
     Prelude.mconcat
-      ["/things/", Core.toBS thingName, "/shadow"]
+      ["/things/", Data.toBS thingName, "/shadow"]
 
-instance Core.ToQuery DeleteThingShadow where
+instance Data.ToQuery DeleteThingShadow where
   toQuery DeleteThingShadow' {..} =
-    Prelude.mconcat ["name" Core.=: shadowName]
+    Prelude.mconcat ["name" Data.=: shadowName]
 
 -- | The output from the DeleteThingShadow operation.
 --

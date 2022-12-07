@@ -21,6 +21,7 @@ module Amazonka.PrivateNetworks.Types.NetworkResourceDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types.NameValuePair
 import Amazonka.PrivateNetworks.Types.NetworkResourceDefinitionType
@@ -77,15 +78,15 @@ networkResourceDefinition_count = Lens.lens (\NetworkResourceDefinition' {count}
 networkResourceDefinition_type :: Lens.Lens' NetworkResourceDefinition NetworkResourceDefinitionType
 networkResourceDefinition_type = Lens.lens (\NetworkResourceDefinition' {type'} -> type') (\s@NetworkResourceDefinition' {} a -> s {type' = a} :: NetworkResourceDefinition)
 
-instance Core.FromJSON NetworkResourceDefinition where
+instance Data.FromJSON NetworkResourceDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkResourceDefinition"
       ( \x ->
           NetworkResourceDefinition'
-            Prelude.<$> (x Core..:? "options" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "count")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "options" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "count")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable NetworkResourceDefinition where
@@ -100,12 +101,12 @@ instance Prelude.NFData NetworkResourceDefinition where
       `Prelude.seq` Prelude.rnf count
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON NetworkResourceDefinition where
+instance Data.ToJSON NetworkResourceDefinition where
   toJSON NetworkResourceDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("options" Core..=) Prelude.<$> options,
-            Prelude.Just ("count" Core..= count),
-            Prelude.Just ("type" Core..= type')
+          [ ("options" Data..=) Prelude.<$> options,
+            Prelude.Just ("count" Data..= count),
+            Prelude.Just ("type" Data..= type')
           ]
       )

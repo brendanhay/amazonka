@@ -24,6 +24,7 @@ import Amazonka.CodeDeploy.Types.LifecycleEvent
 import Amazonka.CodeDeploy.Types.TargetStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the target Lambda function during an Lambda
@@ -39,7 +40,7 @@ data LambdaTarget = LambdaTarget'
     lambdaFunctionInfo :: Prelude.Maybe LambdaFunctionInfo,
     -- | The date and time when the target Lambda function was updated by a
     -- deployment.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The unique ID of a deployment.
     deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the target.
@@ -99,7 +100,7 @@ lambdaTarget_lambdaFunctionInfo = Lens.lens (\LambdaTarget' {lambdaFunctionInfo}
 -- | The date and time when the target Lambda function was updated by a
 -- deployment.
 lambdaTarget_lastUpdatedAt :: Lens.Lens' LambdaTarget (Prelude.Maybe Prelude.UTCTime)
-lambdaTarget_lastUpdatedAt = Lens.lens (\LambdaTarget' {lastUpdatedAt} -> lastUpdatedAt) (\s@LambdaTarget' {} a -> s {lastUpdatedAt = a} :: LambdaTarget) Prelude.. Lens.mapping Core._Time
+lambdaTarget_lastUpdatedAt = Lens.lens (\LambdaTarget' {lastUpdatedAt} -> lastUpdatedAt) (\s@LambdaTarget' {} a -> s {lastUpdatedAt = a} :: LambdaTarget) Prelude.. Lens.mapping Data._Time
 
 -- | The unique ID of a deployment.
 lambdaTarget_deploymentId :: Lens.Lens' LambdaTarget (Prelude.Maybe Prelude.Text)
@@ -113,21 +114,21 @@ lambdaTarget_targetArn = Lens.lens (\LambdaTarget' {targetArn} -> targetArn) (\s
 lambdaTarget_status :: Lens.Lens' LambdaTarget (Prelude.Maybe TargetStatus)
 lambdaTarget_status = Lens.lens (\LambdaTarget' {status} -> status) (\s@LambdaTarget' {} a -> s {status = a} :: LambdaTarget)
 
-instance Core.FromJSON LambdaTarget where
+instance Data.FromJSON LambdaTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaTarget"
       ( \x ->
           LambdaTarget'
-            Prelude.<$> (x Core..:? "targetId")
-            Prelude.<*> ( x Core..:? "lifecycleEvents"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "targetId")
+            Prelude.<*> ( x Data..:? "lifecycleEvents"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "lambdaFunctionInfo")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "deploymentId")
-            Prelude.<*> (x Core..:? "targetArn")
-            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Data..:? "lambdaFunctionInfo")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "deploymentId")
+            Prelude.<*> (x Data..:? "targetArn")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable LambdaTarget where

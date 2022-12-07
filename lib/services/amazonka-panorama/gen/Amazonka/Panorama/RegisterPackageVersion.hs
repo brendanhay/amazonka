@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,38 +152,38 @@ instance Prelude.NFData RegisterPackageVersion where
       `Prelude.seq` Prelude.rnf packageVersion
       `Prelude.seq` Prelude.rnf patchVersion
 
-instance Core.ToHeaders RegisterPackageVersion where
+instance Data.ToHeaders RegisterPackageVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterPackageVersion where
+instance Data.ToJSON RegisterPackageVersion where
   toJSON RegisterPackageVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OwnerAccount" Core..=) Prelude.<$> ownerAccount,
-            ("MarkLatest" Core..=) Prelude.<$> markLatest
+          [ ("OwnerAccount" Data..=) Prelude.<$> ownerAccount,
+            ("MarkLatest" Data..=) Prelude.<$> markLatest
           ]
       )
 
-instance Core.ToPath RegisterPackageVersion where
+instance Data.ToPath RegisterPackageVersion where
   toPath RegisterPackageVersion' {..} =
     Prelude.mconcat
       [ "/packages/",
-        Core.toBS packageId,
+        Data.toBS packageId,
         "/versions/",
-        Core.toBS packageVersion,
+        Data.toBS packageVersion,
         "/patch/",
-        Core.toBS patchVersion
+        Data.toBS patchVersion
       ]
 
-instance Core.ToQuery RegisterPackageVersion where
+instance Data.ToQuery RegisterPackageVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterPackageVersionResponse' smart constructor.

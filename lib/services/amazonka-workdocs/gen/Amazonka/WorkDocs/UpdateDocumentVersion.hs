@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -55,7 +56,7 @@ data UpdateDocumentVersion = UpdateDocumentVersion'
     versionStatus :: Prelude.Maybe DocumentVersionStatus,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the document.
     documentId :: Prelude.Text,
     -- | The version ID of the document.
@@ -101,7 +102,7 @@ updateDocumentVersion_versionStatus = Lens.lens (\UpdateDocumentVersion' {versio
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 updateDocumentVersion_authenticationToken :: Lens.Lens' UpdateDocumentVersion (Prelude.Maybe Prelude.Text)
-updateDocumentVersion_authenticationToken = Lens.lens (\UpdateDocumentVersion' {authenticationToken} -> authenticationToken) (\s@UpdateDocumentVersion' {} a -> s {authenticationToken = a} :: UpdateDocumentVersion) Prelude.. Lens.mapping Core._Sensitive
+updateDocumentVersion_authenticationToken = Lens.lens (\UpdateDocumentVersion' {authenticationToken} -> authenticationToken) (\s@UpdateDocumentVersion' {} a -> s {authenticationToken = a} :: UpdateDocumentVersion) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the document.
 updateDocumentVersion_documentId :: Lens.Lens' UpdateDocumentVersion Prelude.Text
@@ -134,33 +135,33 @@ instance Prelude.NFData UpdateDocumentVersion where
       `Prelude.seq` Prelude.rnf documentId
       `Prelude.seq` Prelude.rnf versionId
 
-instance Core.ToHeaders UpdateDocumentVersion where
+instance Data.ToHeaders UpdateDocumentVersion where
   toHeaders UpdateDocumentVersion' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON UpdateDocumentVersion where
+instance Data.ToJSON UpdateDocumentVersion where
   toJSON UpdateDocumentVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VersionStatus" Core..=)
+          [ ("VersionStatus" Data..=)
               Prelude.<$> versionStatus
           ]
       )
 
-instance Core.ToPath UpdateDocumentVersion where
+instance Data.ToPath UpdateDocumentVersion where
   toPath UpdateDocumentVersion' {..} =
     Prelude.mconcat
       [ "/api/v1/documents/",
-        Core.toBS documentId,
+        Data.toBS documentId,
         "/versions/",
-        Core.toBS versionId
+        Data.toBS versionId
       ]
 
-instance Core.ToQuery UpdateDocumentVersion where
+instance Data.ToQuery UpdateDocumentVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDocumentVersionResponse' smart constructor.

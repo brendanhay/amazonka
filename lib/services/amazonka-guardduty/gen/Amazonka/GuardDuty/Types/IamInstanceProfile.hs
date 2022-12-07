@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.IamInstanceProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the EC2 instance profile.
@@ -61,13 +62,13 @@ iamInstanceProfile_arn = Lens.lens (\IamInstanceProfile' {arn} -> arn) (\s@IamIn
 iamInstanceProfile_id :: Lens.Lens' IamInstanceProfile (Prelude.Maybe Prelude.Text)
 iamInstanceProfile_id = Lens.lens (\IamInstanceProfile' {id} -> id) (\s@IamInstanceProfile' {} a -> s {id = a} :: IamInstanceProfile)
 
-instance Core.FromJSON IamInstanceProfile where
+instance Data.FromJSON IamInstanceProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IamInstanceProfile"
       ( \x ->
           IamInstanceProfile'
-            Prelude.<$> (x Core..:? "arn") Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "arn") Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable IamInstanceProfile where

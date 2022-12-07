@@ -39,6 +39,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,21 +106,21 @@ instance Prelude.NFData DeleteScheduledAction where
     Prelude.rnf autoScalingGroupName
       `Prelude.seq` Prelude.rnf scheduledActionName
 
-instance Core.ToHeaders DeleteScheduledAction where
+instance Data.ToHeaders DeleteScheduledAction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteScheduledAction where
+instance Data.ToPath DeleteScheduledAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteScheduledAction where
+instance Data.ToQuery DeleteScheduledAction where
   toQuery DeleteScheduledAction' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteScheduledAction" :: Prelude.ByteString),
+          Data.=: ("DeleteScheduledAction" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
-        "ScheduledActionName" Core.=: scheduledActionName
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
+        "ScheduledActionName" Data.=: scheduledActionName
       ]
 
 -- | /See:/ 'newDeleteScheduledActionResponse' smart constructor.

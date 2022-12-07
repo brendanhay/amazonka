@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -201,8 +202,8 @@ instance Core.AWSRequest ListReservations where
     Response.receiveJSON
       ( \s h x ->
           ListReservationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "reservations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "reservations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,33 +233,33 @@ instance Prelude.NFData ListReservations where
       `Prelude.seq` Prelude.rnf specialFeature
       `Prelude.seq` Prelude.rnf resolution
 
-instance Core.ToHeaders ListReservations where
+instance Data.ToHeaders ListReservations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListReservations where
+instance Data.ToPath ListReservations where
   toPath = Prelude.const "/prod/reservations"
 
-instance Core.ToQuery ListReservations where
+instance Data.ToQuery ListReservations where
   toQuery ListReservations' {..} =
     Prelude.mconcat
-      [ "resourceType" Core.=: resourceType,
-        "nextToken" Core.=: nextToken,
-        "channelClass" Core.=: channelClass,
-        "codec" Core.=: codec,
-        "maxResults" Core.=: maxResults,
-        "maximumFramerate" Core.=: maximumFramerate,
-        "videoQuality" Core.=: videoQuality,
-        "maximumBitrate" Core.=: maximumBitrate,
-        "specialFeature" Core.=: specialFeature,
-        "resolution" Core.=: resolution
+      [ "resourceType" Data.=: resourceType,
+        "nextToken" Data.=: nextToken,
+        "channelClass" Data.=: channelClass,
+        "codec" Data.=: codec,
+        "maxResults" Data.=: maxResults,
+        "maximumFramerate" Data.=: maximumFramerate,
+        "videoQuality" Data.=: videoQuality,
+        "maximumBitrate" Data.=: maximumBitrate,
+        "specialFeature" Data.=: specialFeature,
+        "resolution" Data.=: resolution
       ]
 
 -- | Placeholder documentation for ListReservationsResponse

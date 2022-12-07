@@ -49,6 +49,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,30 +118,30 @@ instance Prelude.NFData StopContact where
     Prelude.rnf contactId
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders StopContact where
+instance Data.ToHeaders StopContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopContact where
+instance Data.ToJSON StopContact where
   toJSON StopContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ContactId" Core..= contactId),
-            Prelude.Just ("InstanceId" Core..= instanceId)
+          [ Prelude.Just ("ContactId" Data..= contactId),
+            Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
 
-instance Core.ToPath StopContact where
+instance Data.ToPath StopContact where
   toPath = Prelude.const "/contact/stop"
 
-instance Core.ToQuery StopContact where
+instance Data.ToQuery StopContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopContactResponse' smart constructor.

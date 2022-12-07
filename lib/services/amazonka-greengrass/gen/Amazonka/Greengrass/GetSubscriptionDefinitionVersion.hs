@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,12 +142,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetSubscriptionDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Version")
-            Prelude.<*> (x Core..?> "Definition")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Version")
+            Prelude.<*> (x Data..?> "Definition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,34 +172,34 @@ instance
       `Prelude.seq` Prelude.rnf subscriptionDefinitionVersionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetSubscriptionDefinitionVersion
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSubscriptionDefinitionVersion where
+instance Data.ToPath GetSubscriptionDefinitionVersion where
   toPath GetSubscriptionDefinitionVersion' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/subscriptions/",
-        Core.toBS subscriptionDefinitionId,
+        Data.toBS subscriptionDefinitionId,
         "/versions/",
-        Core.toBS subscriptionDefinitionVersionId
+        Data.toBS subscriptionDefinitionVersionId
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetSubscriptionDefinitionVersion
   where
   toQuery GetSubscriptionDefinitionVersion' {..} =
-    Prelude.mconcat ["NextToken" Core.=: nextToken]
+    Prelude.mconcat ["NextToken" Data.=: nextToken]
 
 -- | /See:/ 'newGetSubscriptionDefinitionVersionResponse' smart constructor.
 data GetSubscriptionDefinitionVersionResponse = GetSubscriptionDefinitionVersionResponse'

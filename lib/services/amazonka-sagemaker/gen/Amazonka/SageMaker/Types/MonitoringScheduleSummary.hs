@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringScheduleSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MonitoringType
 import Amazonka.SageMaker.Types.ScheduleStatus
@@ -40,9 +41,9 @@ data MonitoringScheduleSummary = MonitoringScheduleSummary'
     -- | The Amazon Resource Name (ARN) of the monitoring schedule.
     monitoringScheduleArn :: Prelude.Text,
     -- | The creation time of the monitoring schedule.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The last time the monitoring schedule was modified.
-    lastModifiedTime :: Core.POSIX,
+    lastModifiedTime :: Data.POSIX,
     -- | The status of the monitoring schedule.
     monitoringScheduleStatus :: ScheduleStatus
   }
@@ -97,9 +98,9 @@ newMonitoringScheduleSummary
         monitoringScheduleName =
           pMonitoringScheduleName_,
         monitoringScheduleArn = pMonitoringScheduleArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         monitoringScheduleStatus =
           pMonitoringScheduleStatus_
       }
@@ -126,30 +127,30 @@ monitoringScheduleSummary_monitoringScheduleArn = Lens.lens (\MonitoringSchedule
 
 -- | The creation time of the monitoring schedule.
 monitoringScheduleSummary_creationTime :: Lens.Lens' MonitoringScheduleSummary Prelude.UTCTime
-monitoringScheduleSummary_creationTime = Lens.lens (\MonitoringScheduleSummary' {creationTime} -> creationTime) (\s@MonitoringScheduleSummary' {} a -> s {creationTime = a} :: MonitoringScheduleSummary) Prelude.. Core._Time
+monitoringScheduleSummary_creationTime = Lens.lens (\MonitoringScheduleSummary' {creationTime} -> creationTime) (\s@MonitoringScheduleSummary' {} a -> s {creationTime = a} :: MonitoringScheduleSummary) Prelude.. Data._Time
 
 -- | The last time the monitoring schedule was modified.
 monitoringScheduleSummary_lastModifiedTime :: Lens.Lens' MonitoringScheduleSummary Prelude.UTCTime
-monitoringScheduleSummary_lastModifiedTime = Lens.lens (\MonitoringScheduleSummary' {lastModifiedTime} -> lastModifiedTime) (\s@MonitoringScheduleSummary' {} a -> s {lastModifiedTime = a} :: MonitoringScheduleSummary) Prelude.. Core._Time
+monitoringScheduleSummary_lastModifiedTime = Lens.lens (\MonitoringScheduleSummary' {lastModifiedTime} -> lastModifiedTime) (\s@MonitoringScheduleSummary' {} a -> s {lastModifiedTime = a} :: MonitoringScheduleSummary) Prelude.. Data._Time
 
 -- | The status of the monitoring schedule.
 monitoringScheduleSummary_monitoringScheduleStatus :: Lens.Lens' MonitoringScheduleSummary ScheduleStatus
 monitoringScheduleSummary_monitoringScheduleStatus = Lens.lens (\MonitoringScheduleSummary' {monitoringScheduleStatus} -> monitoringScheduleStatus) (\s@MonitoringScheduleSummary' {} a -> s {monitoringScheduleStatus = a} :: MonitoringScheduleSummary)
 
-instance Core.FromJSON MonitoringScheduleSummary where
+instance Data.FromJSON MonitoringScheduleSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringScheduleSummary"
       ( \x ->
           MonitoringScheduleSummary'
-            Prelude.<$> (x Core..:? "EndpointName")
-            Prelude.<*> (x Core..:? "MonitoringType")
-            Prelude.<*> (x Core..:? "MonitoringJobDefinitionName")
-            Prelude.<*> (x Core..: "MonitoringScheduleName")
-            Prelude.<*> (x Core..: "MonitoringScheduleArn")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "LastModifiedTime")
-            Prelude.<*> (x Core..: "MonitoringScheduleStatus")
+            Prelude.<$> (x Data..:? "EndpointName")
+            Prelude.<*> (x Data..:? "MonitoringType")
+            Prelude.<*> (x Data..:? "MonitoringJobDefinitionName")
+            Prelude.<*> (x Data..: "MonitoringScheduleName")
+            Prelude.<*> (x Data..: "MonitoringScheduleArn")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "LastModifiedTime")
+            Prelude.<*> (x Data..: "MonitoringScheduleStatus")
       )
 
 instance Prelude.Hashable MonitoringScheduleSummary where

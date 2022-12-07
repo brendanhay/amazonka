@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,9 +104,9 @@ instance Core.AWSRequest CancelMLTaskRun where
     Response.receiveJSON
       ( \s h x ->
           CancelMLTaskRunResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "TransformId")
-            Prelude.<*> (x Core..?> "TaskRunId")
+            Prelude.<$> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "TransformId")
+            Prelude.<*> (x Data..?> "TaskRunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,32 +120,32 @@ instance Prelude.NFData CancelMLTaskRun where
     Prelude.rnf transformId
       `Prelude.seq` Prelude.rnf taskRunId
 
-instance Core.ToHeaders CancelMLTaskRun where
+instance Data.ToHeaders CancelMLTaskRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CancelMLTaskRun" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.CancelMLTaskRun" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelMLTaskRun where
+instance Data.ToJSON CancelMLTaskRun where
   toJSON CancelMLTaskRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TransformId" Core..= transformId),
-            Prelude.Just ("TaskRunId" Core..= taskRunId)
+          [ Prelude.Just ("TransformId" Data..= transformId),
+            Prelude.Just ("TaskRunId" Data..= taskRunId)
           ]
       )
 
-instance Core.ToPath CancelMLTaskRun where
+instance Data.ToPath CancelMLTaskRun where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelMLTaskRun where
+instance Data.ToQuery CancelMLTaskRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelMLTaskRunResponse' smart constructor.

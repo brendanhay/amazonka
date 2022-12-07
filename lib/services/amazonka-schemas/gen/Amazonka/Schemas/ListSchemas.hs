@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,8 +144,8 @@ instance Core.AWSRequest ListSchemas where
     Response.receiveJSON
       ( \s h x ->
           ListSchemasResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Schemas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,31 +163,31 @@ instance Prelude.NFData ListSchemas where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf registryName
 
-instance Core.ToHeaders ListSchemas where
+instance Data.ToHeaders ListSchemas where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListSchemas where
+instance Data.ToPath ListSchemas where
   toPath ListSchemas' {..} =
     Prelude.mconcat
       [ "/v1/registries/name/",
-        Core.toBS registryName,
+        Data.toBS registryName,
         "/schemas"
       ]
 
-instance Core.ToQuery ListSchemas where
+instance Data.ToQuery ListSchemas where
   toQuery ListSchemas' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "schemaNamePrefix" Core.=: schemaNamePrefix,
-        "limit" Core.=: limit
+      [ "nextToken" Data.=: nextToken,
+        "schemaNamePrefix" Data.=: schemaNamePrefix,
+        "limit" Data.=: limit
       ]
 
 -- | /See:/ 'newListSchemasResponse' smart constructor.

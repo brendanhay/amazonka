@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.LambdaFunctionAssociation where
 import Amazonka.CloudFront.Types.EventType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains a Lambda\@Edge function association.
@@ -153,12 +154,12 @@ lambdaFunctionAssociation_lambdaFunctionARN = Lens.lens (\LambdaFunctionAssociat
 lambdaFunctionAssociation_eventType :: Lens.Lens' LambdaFunctionAssociation EventType
 lambdaFunctionAssociation_eventType = Lens.lens (\LambdaFunctionAssociation' {eventType} -> eventType) (\s@LambdaFunctionAssociation' {} a -> s {eventType = a} :: LambdaFunctionAssociation)
 
-instance Core.FromXML LambdaFunctionAssociation where
+instance Data.FromXML LambdaFunctionAssociation where
   parseXML x =
     LambdaFunctionAssociation'
-      Prelude.<$> (x Core..@? "IncludeBody")
-      Prelude.<*> (x Core..@ "LambdaFunctionARN")
-      Prelude.<*> (x Core..@ "EventType")
+      Prelude.<$> (x Data..@? "IncludeBody")
+      Prelude.<*> (x Data..@ "LambdaFunctionARN")
+      Prelude.<*> (x Data..@ "EventType")
 
 instance Prelude.Hashable LambdaFunctionAssociation where
   hashWithSalt _salt LambdaFunctionAssociation' {..} =
@@ -172,10 +173,10 @@ instance Prelude.NFData LambdaFunctionAssociation where
       `Prelude.seq` Prelude.rnf lambdaFunctionARN
       `Prelude.seq` Prelude.rnf eventType
 
-instance Core.ToXML LambdaFunctionAssociation where
+instance Data.ToXML LambdaFunctionAssociation where
   toXML LambdaFunctionAssociation' {..} =
     Prelude.mconcat
-      [ "IncludeBody" Core.@= includeBody,
-        "LambdaFunctionARN" Core.@= lambdaFunctionARN,
-        "EventType" Core.@= eventType
+      [ "IncludeBody" Data.@= includeBody,
+        "LambdaFunctionARN" Data.@= lambdaFunctionARN,
+        "EventType" Data.@= eventType
       ]

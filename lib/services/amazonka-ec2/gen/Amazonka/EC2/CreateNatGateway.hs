@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -202,8 +203,8 @@ instance Core.AWSRequest CreateNatGateway where
     Response.receiveXML
       ( \s h x ->
           CreateNatGatewayResponse'
-            Prelude.<$> (x Core..@? "clientToken")
-            Prelude.<*> (x Core..@? "natGateway")
+            Prelude.<$> (x Data..@? "clientToken")
+            Prelude.<*> (x Data..@? "natGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -227,29 +228,29 @@ instance Prelude.NFData CreateNatGateway where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf subnetId
 
-instance Core.ToHeaders CreateNatGateway where
+instance Data.ToHeaders CreateNatGateway where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateNatGateway where
+instance Data.ToPath CreateNatGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateNatGateway where
+instance Data.ToQuery CreateNatGateway where
   toQuery CreateNatGateway' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateNatGateway" :: Prelude.ByteString),
+          Data.=: ("CreateNatGateway" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "AllocationId" Core.=: allocationId,
-        "DryRun" Core.=: dryRun,
-        "PrivateIpAddress" Core.=: privateIpAddress,
-        "ConnectivityType" Core.=: connectivityType,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "AllocationId" Data.=: allocationId,
+        "DryRun" Data.=: dryRun,
+        "PrivateIpAddress" Data.=: privateIpAddress,
+        "ConnectivityType" Data.=: connectivityType,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "SubnetId" Core.=: subnetId
+        "SubnetId" Data.=: subnetId
       ]
 
 -- | /See:/ 'newCreateNatGatewayResponse' smart constructor.

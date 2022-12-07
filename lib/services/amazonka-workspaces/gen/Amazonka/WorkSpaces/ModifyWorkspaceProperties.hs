@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,35 +120,35 @@ instance Prelude.NFData ModifyWorkspaceProperties where
     Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf workspaceProperties
 
-instance Core.ToHeaders ModifyWorkspaceProperties where
+instance Data.ToHeaders ModifyWorkspaceProperties where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.ModifyWorkspaceProperties" ::
+              Data.=# ( "WorkspacesService.ModifyWorkspaceProperties" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ModifyWorkspaceProperties where
+instance Data.ToJSON ModifyWorkspaceProperties where
   toJSON ModifyWorkspaceProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("WorkspaceId" Core..= workspaceId),
+          [ Prelude.Just ("WorkspaceId" Data..= workspaceId),
             Prelude.Just
-              ("WorkspaceProperties" Core..= workspaceProperties)
+              ("WorkspaceProperties" Data..= workspaceProperties)
           ]
       )
 
-instance Core.ToPath ModifyWorkspaceProperties where
+instance Data.ToPath ModifyWorkspaceProperties where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyWorkspaceProperties where
+instance Data.ToQuery ModifyWorkspaceProperties where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifyWorkspacePropertiesResponse' smart constructor.

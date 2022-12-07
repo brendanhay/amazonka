@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SubnetCidrBlockState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.SubnetCidrBlockStateCode
 import qualified Amazonka.Prelude as Prelude
@@ -63,11 +64,11 @@ subnetCidrBlockState_state = Lens.lens (\SubnetCidrBlockState' {state} -> state)
 subnetCidrBlockState_statusMessage :: Lens.Lens' SubnetCidrBlockState (Prelude.Maybe Prelude.Text)
 subnetCidrBlockState_statusMessage = Lens.lens (\SubnetCidrBlockState' {statusMessage} -> statusMessage) (\s@SubnetCidrBlockState' {} a -> s {statusMessage = a} :: SubnetCidrBlockState)
 
-instance Core.FromXML SubnetCidrBlockState where
+instance Data.FromXML SubnetCidrBlockState where
   parseXML x =
     SubnetCidrBlockState'
-      Prelude.<$> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "statusMessage")
+      Prelude.<$> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "statusMessage")
 
 instance Prelude.Hashable SubnetCidrBlockState where
   hashWithSalt _salt SubnetCidrBlockState' {..} =

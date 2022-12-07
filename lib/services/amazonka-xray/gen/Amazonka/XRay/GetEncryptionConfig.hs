@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -67,7 +68,7 @@ instance Core.AWSRequest GetEncryptionConfig where
     Response.receiveJSON
       ( \s h x ->
           GetEncryptionConfigResponse'
-            Prelude.<$> (x Core..?> "EncryptionConfig")
+            Prelude.<$> (x Data..?> "EncryptionConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -78,16 +79,16 @@ instance Prelude.Hashable GetEncryptionConfig where
 instance Prelude.NFData GetEncryptionConfig where
   rnf _ = ()
 
-instance Core.ToHeaders GetEncryptionConfig where
+instance Data.ToHeaders GetEncryptionConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetEncryptionConfig where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetEncryptionConfig where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetEncryptionConfig where
+instance Data.ToPath GetEncryptionConfig where
   toPath = Prelude.const "/EncryptionConfig"
 
-instance Core.ToQuery GetEncryptionConfig where
+instance Data.ToQuery GetEncryptionConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEncryptionConfigResponse' smart constructor.

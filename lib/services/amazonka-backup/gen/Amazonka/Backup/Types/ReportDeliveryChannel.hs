@@ -21,6 +21,7 @@ module Amazonka.Backup.Types.ReportDeliveryChannel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information from your report plan about where to deliver your
@@ -87,15 +88,15 @@ reportDeliveryChannel_formats = Lens.lens (\ReportDeliveryChannel' {formats} -> 
 reportDeliveryChannel_s3BucketName :: Lens.Lens' ReportDeliveryChannel Prelude.Text
 reportDeliveryChannel_s3BucketName = Lens.lens (\ReportDeliveryChannel' {s3BucketName} -> s3BucketName) (\s@ReportDeliveryChannel' {} a -> s {s3BucketName = a} :: ReportDeliveryChannel)
 
-instance Core.FromJSON ReportDeliveryChannel where
+instance Data.FromJSON ReportDeliveryChannel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReportDeliveryChannel"
       ( \x ->
           ReportDeliveryChannel'
-            Prelude.<$> (x Core..:? "S3KeyPrefix")
-            Prelude.<*> (x Core..:? "Formats" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "S3BucketName")
+            Prelude.<$> (x Data..:? "S3KeyPrefix")
+            Prelude.<*> (x Data..:? "Formats" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "S3BucketName")
       )
 
 instance Prelude.Hashable ReportDeliveryChannel where
@@ -110,12 +111,12 @@ instance Prelude.NFData ReportDeliveryChannel where
       `Prelude.seq` Prelude.rnf formats
       `Prelude.seq` Prelude.rnf s3BucketName
 
-instance Core.ToJSON ReportDeliveryChannel where
+instance Data.ToJSON ReportDeliveryChannel where
   toJSON ReportDeliveryChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
-            ("Formats" Core..=) Prelude.<$> formats,
-            Prelude.Just ("S3BucketName" Core..= s3BucketName)
+          [ ("S3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix,
+            ("Formats" Data..=) Prelude.<$> formats,
+            Prelude.Just ("S3BucketName" Data..= s3BucketName)
           ]
       )

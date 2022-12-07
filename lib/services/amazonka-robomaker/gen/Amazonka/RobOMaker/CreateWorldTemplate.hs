@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,11 +134,11 @@ instance Core.AWSRequest CreateWorldTemplate where
     Response.receiveJSON
       ( \s h x ->
           CreateWorldTemplateResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "clientRequestToken")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "clientRequestToken")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,35 +158,35 @@ instance Prelude.NFData CreateWorldTemplate where
       `Prelude.seq` Prelude.rnf templateBody
       `Prelude.seq` Prelude.rnf templateLocation
 
-instance Core.ToHeaders CreateWorldTemplate where
+instance Data.ToHeaders CreateWorldTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorldTemplate where
+instance Data.ToJSON CreateWorldTemplate where
   toJSON CreateWorldTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("name" Core..=) Prelude.<$> name,
-            ("clientRequestToken" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("name" Data..=) Prelude.<$> name,
+            ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("templateBody" Core..=) Prelude.<$> templateBody,
-            ("templateLocation" Core..=)
+            ("templateBody" Data..=) Prelude.<$> templateBody,
+            ("templateLocation" Data..=)
               Prelude.<$> templateLocation
           ]
       )
 
-instance Core.ToPath CreateWorldTemplate where
+instance Data.ToPath CreateWorldTemplate where
   toPath = Prelude.const "/createWorldTemplate"
 
-instance Core.ToQuery CreateWorldTemplate where
+instance Data.ToQuery CreateWorldTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorldTemplateResponse' smart constructor.
@@ -202,7 +203,7 @@ data CreateWorldTemplateResponse = CreateWorldTemplateResponse'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the world template was
     -- created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -266,7 +267,7 @@ createWorldTemplateResponse_arn = Lens.lens (\CreateWorldTemplateResponse' {arn}
 -- | The time, in milliseconds since the epoch, when the world template was
 -- created.
 createWorldTemplateResponse_createdAt :: Lens.Lens' CreateWorldTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-createWorldTemplateResponse_createdAt = Lens.lens (\CreateWorldTemplateResponse' {createdAt} -> createdAt) (\s@CreateWorldTemplateResponse' {} a -> s {createdAt = a} :: CreateWorldTemplateResponse) Prelude.. Lens.mapping Core._Time
+createWorldTemplateResponse_createdAt = Lens.lens (\CreateWorldTemplateResponse' {createdAt} -> createdAt) (\s@CreateWorldTemplateResponse' {} a -> s {createdAt = a} :: CreateWorldTemplateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createWorldTemplateResponse_httpStatus :: Lens.Lens' CreateWorldTemplateResponse Prelude.Int

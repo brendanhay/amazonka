@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -140,20 +141,20 @@ instance Prelude.NFData DeleteDBSecurityGroup where
   rnf DeleteDBSecurityGroup' {..} =
     Prelude.rnf dbSecurityGroupName
 
-instance Core.ToHeaders DeleteDBSecurityGroup where
+instance Data.ToHeaders DeleteDBSecurityGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteDBSecurityGroup where
+instance Data.ToPath DeleteDBSecurityGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDBSecurityGroup where
+instance Data.ToQuery DeleteDBSecurityGroup where
   toQuery DeleteDBSecurityGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDBSecurityGroup" :: Prelude.ByteString),
+          Data.=: ("DeleteDBSecurityGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBSecurityGroupName" Core.=: dbSecurityGroupName
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBSecurityGroupName" Data.=: dbSecurityGroupName
       ]
 
 -- | /See:/ 'newDeleteDBSecurityGroupResponse' smart constructor.

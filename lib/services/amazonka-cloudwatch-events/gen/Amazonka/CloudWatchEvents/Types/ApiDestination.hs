@@ -23,6 +23,7 @@ import Amazonka.CloudWatchEvents.Types.ApiDestinationHttpMethod
 import Amazonka.CloudWatchEvents.Types.ApiDestinationState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about an API destination.
@@ -41,11 +42,11 @@ data ApiDestination = ApiDestination'
     -- | The method to use to connect to the HTTP endpoint.
     httpMethod :: Prelude.Maybe ApiDestinationHttpMethod,
     -- | A time stamp for the time that the API destination was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The state of the API destination.
     apiDestinationState :: Prelude.Maybe ApiDestinationState,
     -- | A time stamp for the time that the API destination was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the API destination.
     apiDestinationArn :: Prelude.Maybe Prelude.Text
   }
@@ -115,7 +116,7 @@ apiDestination_httpMethod = Lens.lens (\ApiDestination' {httpMethod} -> httpMeth
 
 -- | A time stamp for the time that the API destination was last modified.
 apiDestination_lastModifiedTime :: Lens.Lens' ApiDestination (Prelude.Maybe Prelude.UTCTime)
-apiDestination_lastModifiedTime = Lens.lens (\ApiDestination' {lastModifiedTime} -> lastModifiedTime) (\s@ApiDestination' {} a -> s {lastModifiedTime = a} :: ApiDestination) Prelude.. Lens.mapping Core._Time
+apiDestination_lastModifiedTime = Lens.lens (\ApiDestination' {lastModifiedTime} -> lastModifiedTime) (\s@ApiDestination' {} a -> s {lastModifiedTime = a} :: ApiDestination) Prelude.. Lens.mapping Data._Time
 
 -- | The state of the API destination.
 apiDestination_apiDestinationState :: Lens.Lens' ApiDestination (Prelude.Maybe ApiDestinationState)
@@ -123,27 +124,27 @@ apiDestination_apiDestinationState = Lens.lens (\ApiDestination' {apiDestination
 
 -- | A time stamp for the time that the API destination was created.
 apiDestination_creationTime :: Lens.Lens' ApiDestination (Prelude.Maybe Prelude.UTCTime)
-apiDestination_creationTime = Lens.lens (\ApiDestination' {creationTime} -> creationTime) (\s@ApiDestination' {} a -> s {creationTime = a} :: ApiDestination) Prelude.. Lens.mapping Core._Time
+apiDestination_creationTime = Lens.lens (\ApiDestination' {creationTime} -> creationTime) (\s@ApiDestination' {} a -> s {creationTime = a} :: ApiDestination) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the API destination.
 apiDestination_apiDestinationArn :: Lens.Lens' ApiDestination (Prelude.Maybe Prelude.Text)
 apiDestination_apiDestinationArn = Lens.lens (\ApiDestination' {apiDestinationArn} -> apiDestinationArn) (\s@ApiDestination' {} a -> s {apiDestinationArn = a} :: ApiDestination)
 
-instance Core.FromJSON ApiDestination where
+instance Data.FromJSON ApiDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApiDestination"
       ( \x ->
           ApiDestination'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "InvocationRateLimitPerSecond")
-            Prelude.<*> (x Core..:? "InvocationEndpoint")
-            Prelude.<*> (x Core..:? "ConnectionArn")
-            Prelude.<*> (x Core..:? "HttpMethod")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "ApiDestinationState")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ApiDestinationArn")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "InvocationRateLimitPerSecond")
+            Prelude.<*> (x Data..:? "InvocationEndpoint")
+            Prelude.<*> (x Data..:? "ConnectionArn")
+            Prelude.<*> (x Data..:? "HttpMethod")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "ApiDestinationState")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "ApiDestinationArn")
       )
 
 instance Prelude.Hashable ApiDestination where

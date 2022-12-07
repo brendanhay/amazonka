@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,7 +113,7 @@ instance Core.AWSRequest EnableEbsEncryptionByDefault where
     Response.receiveXML
       ( \s h x ->
           EnableEbsEncryptionByDefaultResponse'
-            Prelude.<$> (x Core..@? "ebsEncryptionByDefault")
+            Prelude.<$> (x Data..@? "ebsEncryptionByDefault")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,22 +128,22 @@ instance Prelude.NFData EnableEbsEncryptionByDefault where
   rnf EnableEbsEncryptionByDefault' {..} =
     Prelude.rnf dryRun
 
-instance Core.ToHeaders EnableEbsEncryptionByDefault where
+instance Data.ToHeaders EnableEbsEncryptionByDefault where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath EnableEbsEncryptionByDefault where
+instance Data.ToPath EnableEbsEncryptionByDefault where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnableEbsEncryptionByDefault where
+instance Data.ToQuery EnableEbsEncryptionByDefault where
   toQuery EnableEbsEncryptionByDefault' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "EnableEbsEncryptionByDefault" ::
+          Data.=: ( "EnableEbsEncryptionByDefault" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun
       ]
 
 -- | /See:/ 'newEnableEbsEncryptionByDefaultResponse' smart constructor.

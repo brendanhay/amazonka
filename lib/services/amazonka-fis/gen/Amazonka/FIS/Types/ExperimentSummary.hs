@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types.ExperimentState
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ data ExperimentSummary = ExperimentSummary'
     -- | The ID of the experiment template.
     experimentTemplateId :: Prelude.Maybe Prelude.Text,
     -- | The time that the experiment was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,19 +88,19 @@ experimentSummary_experimentTemplateId = Lens.lens (\ExperimentSummary' {experim
 
 -- | The time that the experiment was created.
 experimentSummary_creationTime :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.UTCTime)
-experimentSummary_creationTime = Lens.lens (\ExperimentSummary' {creationTime} -> creationTime) (\s@ExperimentSummary' {} a -> s {creationTime = a} :: ExperimentSummary) Prelude.. Lens.mapping Core._Time
+experimentSummary_creationTime = Lens.lens (\ExperimentSummary' {creationTime} -> creationTime) (\s@ExperimentSummary' {} a -> s {creationTime = a} :: ExperimentSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ExperimentSummary where
+instance Data.FromJSON ExperimentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentSummary"
       ( \x ->
           ExperimentSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "experimentTemplateId")
-            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "experimentTemplateId")
+            Prelude.<*> (x Data..:? "creationTime")
       )
 
 instance Prelude.Hashable ExperimentSummary where

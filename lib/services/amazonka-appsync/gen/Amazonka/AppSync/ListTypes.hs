@@ -48,6 +48,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,8 +144,8 @@ instance Core.AWSRequest ListTypes where
     Response.receiveJSON
       ( \s h x ->
           ListTypesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "types" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "types" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,28 +163,28 @@ instance Prelude.NFData ListTypes where
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf format
 
-instance Core.ToHeaders ListTypes where
+instance Data.ToHeaders ListTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListTypes where
+instance Data.ToPath ListTypes where
   toPath ListTypes' {..} =
     Prelude.mconcat
-      ["/v1/apis/", Core.toBS apiId, "/types"]
+      ["/v1/apis/", Data.toBS apiId, "/types"]
 
-instance Core.ToQuery ListTypes where
+instance Data.ToQuery ListTypes where
   toQuery ListTypes' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "format" Core.=: format
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "format" Data.=: format
       ]
 
 -- | /See:/ 'newListTypesResponse' smart constructor.

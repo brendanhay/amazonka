@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.PolicyDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.FindingAction
 import Amazonka.MacieV2.Types.FindingActor
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ policyDetails_action = Lens.lens (\PolicyDetails' {action} -> action) (\s@Policy
 policyDetails_actor :: Lens.Lens' PolicyDetails (Prelude.Maybe FindingActor)
 policyDetails_actor = Lens.lens (\PolicyDetails' {actor} -> actor) (\s@PolicyDetails' {} a -> s {actor = a} :: PolicyDetails)
 
-instance Core.FromJSON PolicyDetails where
+instance Data.FromJSON PolicyDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PolicyDetails"
       ( \x ->
           PolicyDetails'
-            Prelude.<$> (x Core..:? "action")
-            Prelude.<*> (x Core..:? "actor")
+            Prelude.<$> (x Data..:? "action")
+            Prelude.<*> (x Data..:? "actor")
       )
 
 instance Prelude.Hashable PolicyDetails where

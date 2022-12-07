@@ -46,6 +46,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ data AdminConfirmSignUp = AdminConfirmSignUp'
     -- | The user pool ID for which you want to confirm user registration.
     userPoolId :: Prelude.Text,
     -- | The user name for which you want to confirm user registration.
-    username :: Core.Sensitive Prelude.Text
+    username :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -143,7 +144,7 @@ newAdminConfirmSignUp pUserPoolId_ pUsername_ =
     { clientMetadata =
         Prelude.Nothing,
       userPoolId = pUserPoolId_,
-      username = Core._Sensitive Lens.# pUsername_
+      username = Data._Sensitive Lens.# pUsername_
     }
 
 -- | A map of custom key-value pairs that you can provide as input for any
@@ -184,7 +185,7 @@ adminConfirmSignUp_userPoolId = Lens.lens (\AdminConfirmSignUp' {userPoolId} -> 
 
 -- | The user name for which you want to confirm user registration.
 adminConfirmSignUp_username :: Lens.Lens' AdminConfirmSignUp Prelude.Text
-adminConfirmSignUp_username = Lens.lens (\AdminConfirmSignUp' {username} -> username) (\s@AdminConfirmSignUp' {} a -> s {username = a} :: AdminConfirmSignUp) Prelude.. Core._Sensitive
+adminConfirmSignUp_username = Lens.lens (\AdminConfirmSignUp' {username} -> username) (\s@AdminConfirmSignUp' {} a -> s {username = a} :: AdminConfirmSignUp) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest AdminConfirmSignUp where
   type
@@ -211,36 +212,36 @@ instance Prelude.NFData AdminConfirmSignUp where
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf username
 
-instance Core.ToHeaders AdminConfirmSignUp where
+instance Data.ToHeaders AdminConfirmSignUp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminConfirmSignUp" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminConfirmSignUp" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminConfirmSignUp where
+instance Data.ToJSON AdminConfirmSignUp where
   toJSON AdminConfirmSignUp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientMetadata" Core..=)
+          [ ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("Username" Core..= username)
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("Username" Data..= username)
           ]
       )
 
-instance Core.ToPath AdminConfirmSignUp where
+instance Data.ToPath AdminConfirmSignUp where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminConfirmSignUp where
+instance Data.ToQuery AdminConfirmSignUp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server for the request to confirm

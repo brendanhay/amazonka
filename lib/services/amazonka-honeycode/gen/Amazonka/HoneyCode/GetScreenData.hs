@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -74,7 +75,7 @@ data GetScreenData = GetScreenData'
     -- the name of the variable as defined on the screen. The value is an
     -- object which currently has only one property, rawValue, which holds the
     -- value of the variable to be passed to the screen.
-    variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive VariableValue))),
+    variables :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text (Data.Sensitive VariableValue))),
     -- | The ID of the workbook that contains the screen.
     workbookId :: Prelude.Text,
     -- | The ID of the app that contains the screen.
@@ -155,7 +156,7 @@ getScreenData_maxResults = Lens.lens (\GetScreenData' {maxResults} -> maxResults
 -- object which currently has only one property, rawValue, which holds the
 -- value of the variable to be passed to the screen.
 getScreenData_variables :: Lens.Lens' GetScreenData (Prelude.Maybe (Prelude.HashMap Prelude.Text VariableValue))
-getScreenData_variables = Lens.lens (\GetScreenData' {variables} -> variables) (\s@GetScreenData' {} a -> s {variables = a} :: GetScreenData) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+getScreenData_variables = Lens.lens (\GetScreenData' {variables} -> variables) (\s@GetScreenData' {} a -> s {variables = a} :: GetScreenData) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The ID of the workbook that contains the screen.
 getScreenData_workbookId :: Lens.Lens' GetScreenData Prelude.Text
@@ -179,10 +180,10 @@ instance Core.AWSRequest GetScreenData where
     Response.receiveJSON
       ( \s h x ->
           GetScreenDataResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "results" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "workbookCursor")
+            Prelude.<*> (x Data..?> "results" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "workbookCursor")
       )
 
 instance Prelude.Hashable GetScreenData where
@@ -203,34 +204,34 @@ instance Prelude.NFData GetScreenData where
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf screenId
 
-instance Core.ToHeaders GetScreenData where
+instance Data.ToHeaders GetScreenData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetScreenData where
+instance Data.ToJSON GetScreenData where
   toJSON GetScreenData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("variables" Core..=) Prelude.<$> variables,
-            Prelude.Just ("workbookId" Core..= workbookId),
-            Prelude.Just ("appId" Core..= appId),
-            Prelude.Just ("screenId" Core..= screenId)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("variables" Data..=) Prelude.<$> variables,
+            Prelude.Just ("workbookId" Data..= workbookId),
+            Prelude.Just ("appId" Data..= appId),
+            Prelude.Just ("screenId" Data..= screenId)
           ]
       )
 
-instance Core.ToPath GetScreenData where
+instance Data.ToPath GetScreenData where
   toPath = Prelude.const "/screendata"
 
-instance Core.ToQuery GetScreenData where
+instance Data.ToQuery GetScreenData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetScreenDataResponse' smart constructor.

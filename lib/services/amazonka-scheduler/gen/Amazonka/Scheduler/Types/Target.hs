@@ -21,6 +21,7 @@ module Amazonka.Scheduler.Types.Target where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Scheduler.Types.DeadLetterConfig
 import Amazonka.Scheduler.Types.EcsParameters
@@ -229,22 +230,22 @@ target_arn = Lens.lens (\Target' {arn} -> arn) (\s@Target' {} a -> s {arn = a} :
 target_roleArn :: Lens.Lens' Target Prelude.Text
 target_roleArn = Lens.lens (\Target' {roleArn} -> roleArn) (\s@Target' {} a -> s {roleArn = a} :: Target)
 
-instance Core.FromJSON Target where
+instance Data.FromJSON Target where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Target"
       ( \x ->
           Target'
-            Prelude.<$> (x Core..:? "KinesisParameters")
-            Prelude.<*> (x Core..:? "SageMakerPipelineParameters")
-            Prelude.<*> (x Core..:? "Input")
-            Prelude.<*> (x Core..:? "SqsParameters")
-            Prelude.<*> (x Core..:? "EcsParameters")
-            Prelude.<*> (x Core..:? "RetryPolicy")
-            Prelude.<*> (x Core..:? "EventBridgeParameters")
-            Prelude.<*> (x Core..:? "DeadLetterConfig")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "RoleArn")
+            Prelude.<$> (x Data..:? "KinesisParameters")
+            Prelude.<*> (x Data..:? "SageMakerPipelineParameters")
+            Prelude.<*> (x Data..:? "Input")
+            Prelude.<*> (x Data..:? "SqsParameters")
+            Prelude.<*> (x Data..:? "EcsParameters")
+            Prelude.<*> (x Data..:? "RetryPolicy")
+            Prelude.<*> (x Data..:? "EventBridgeParameters")
+            Prelude.<*> (x Data..:? "DeadLetterConfig")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "RoleArn")
       )
 
 instance Prelude.Hashable Target where
@@ -273,23 +274,23 @@ instance Prelude.NFData Target where
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON Target where
+instance Data.ToJSON Target where
   toJSON Target' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KinesisParameters" Core..=)
+          [ ("KinesisParameters" Data..=)
               Prelude.<$> kinesisParameters,
-            ("SageMakerPipelineParameters" Core..=)
+            ("SageMakerPipelineParameters" Data..=)
               Prelude.<$> sageMakerPipelineParameters,
-            ("Input" Core..=) Prelude.<$> input,
-            ("SqsParameters" Core..=) Prelude.<$> sqsParameters,
-            ("EcsParameters" Core..=) Prelude.<$> ecsParameters,
-            ("RetryPolicy" Core..=) Prelude.<$> retryPolicy,
-            ("EventBridgeParameters" Core..=)
+            ("Input" Data..=) Prelude.<$> input,
+            ("SqsParameters" Data..=) Prelude.<$> sqsParameters,
+            ("EcsParameters" Data..=) Prelude.<$> ecsParameters,
+            ("RetryPolicy" Data..=) Prelude.<$> retryPolicy,
+            ("EventBridgeParameters" Data..=)
               Prelude.<$> eventBridgeParameters,
-            ("DeadLetterConfig" Core..=)
+            ("DeadLetterConfig" Data..=)
               Prelude.<$> deadLetterConfig,
-            Prelude.Just ("Arn" Core..= arn),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+            Prelude.Just ("Arn" Data..= arn),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )

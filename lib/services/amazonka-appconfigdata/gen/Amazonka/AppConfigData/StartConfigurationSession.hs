@@ -50,6 +50,7 @@ where
 import Amazonka.AppConfigData.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,7 +136,7 @@ instance Core.AWSRequest StartConfigurationSession where
     Response.receiveJSON
       ( \s h x ->
           StartConfigurationSessionResponse'
-            Prelude.<$> (x Core..?> "InitialConfigurationToken")
+            Prelude.<$> (x Data..?> "InitialConfigurationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,42 +155,42 @@ instance Prelude.NFData StartConfigurationSession where
       `Prelude.seq` Prelude.rnf environmentIdentifier
       `Prelude.seq` Prelude.rnf configurationProfileIdentifier
 
-instance Core.ToHeaders StartConfigurationSession where
+instance Data.ToHeaders StartConfigurationSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartConfigurationSession where
+instance Data.ToJSON StartConfigurationSession where
   toJSON StartConfigurationSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RequiredMinimumPollIntervalInSeconds" Core..=)
+          [ ("RequiredMinimumPollIntervalInSeconds" Data..=)
               Prelude.<$> requiredMinimumPollIntervalInSeconds,
             Prelude.Just
               ( "ApplicationIdentifier"
-                  Core..= applicationIdentifier
+                  Data..= applicationIdentifier
               ),
             Prelude.Just
               ( "EnvironmentIdentifier"
-                  Core..= environmentIdentifier
+                  Data..= environmentIdentifier
               ),
             Prelude.Just
               ( "ConfigurationProfileIdentifier"
-                  Core..= configurationProfileIdentifier
+                  Data..= configurationProfileIdentifier
               )
           ]
       )
 
-instance Core.ToPath StartConfigurationSession where
+instance Data.ToPath StartConfigurationSession where
   toPath = Prelude.const "/configurationsessions"
 
-instance Core.ToQuery StartConfigurationSession where
+instance Data.ToQuery StartConfigurationSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartConfigurationSessionResponse' smart constructor.

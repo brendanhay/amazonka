@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -213,8 +214,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRateBasedStatementManagedKeysResponse'
-            Prelude.<$> (x Core..?> "ManagedKeysIPV6")
-            Prelude.<*> (x Core..?> "ManagedKeysIPV4")
+            Prelude.<$> (x Data..?> "ManagedKeysIPV6")
+            Prelude.<*> (x Data..?> "ManagedKeysIPV4")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -243,41 +244,41 @@ instance
       `Prelude.seq` Prelude.rnf ruleName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetRateBasedStatementManagedKeys
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.GetRateBasedStatementManagedKeys" ::
+              Data.=# ( "AWSWAF_20190729.GetRateBasedStatementManagedKeys" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRateBasedStatementManagedKeys where
+instance Data.ToJSON GetRateBasedStatementManagedKeys where
   toJSON GetRateBasedStatementManagedKeys' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RuleGroupRuleName" Core..=)
+          [ ("RuleGroupRuleName" Data..=)
               Prelude.<$> ruleGroupRuleName,
-            Prelude.Just ("Scope" Core..= scope),
-            Prelude.Just ("WebACLName" Core..= webACLName),
-            Prelude.Just ("WebACLId" Core..= webACLId),
-            Prelude.Just ("RuleName" Core..= ruleName)
+            Prelude.Just ("Scope" Data..= scope),
+            Prelude.Just ("WebACLName" Data..= webACLName),
+            Prelude.Just ("WebACLId" Data..= webACLId),
+            Prelude.Just ("RuleName" Data..= ruleName)
           ]
       )
 
-instance Core.ToPath GetRateBasedStatementManagedKeys where
+instance Data.ToPath GetRateBasedStatementManagedKeys where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetRateBasedStatementManagedKeys
   where
   toQuery = Prelude.const Prelude.mempty

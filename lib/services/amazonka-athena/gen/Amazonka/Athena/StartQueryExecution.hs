@@ -54,6 +54,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -206,7 +207,7 @@ instance Core.AWSRequest StartQueryExecution where
     Response.receiveJSON
       ( \s h x ->
           StartQueryExecutionResponse'
-            Prelude.<$> (x Core..?> "QueryExecutionId")
+            Prelude.<$> (x Data..?> "QueryExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -231,44 +232,44 @@ instance Prelude.NFData StartQueryExecution where
       `Prelude.seq` Prelude.rnf executionParameters
       `Prelude.seq` Prelude.rnf queryString
 
-instance Core.ToHeaders StartQueryExecution where
+instance Data.ToHeaders StartQueryExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.StartQueryExecution" ::
+              Data.=# ( "AmazonAthena.StartQueryExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartQueryExecution where
+instance Data.ToJSON StartQueryExecution where
   toJSON StartQueryExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResultReuseConfiguration" Core..=)
+          [ ("ResultReuseConfiguration" Data..=)
               Prelude.<$> resultReuseConfiguration,
-            ("ClientRequestToken" Core..=)
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("WorkGroup" Core..=) Prelude.<$> workGroup,
-            ("ResultConfiguration" Core..=)
+            ("WorkGroup" Data..=) Prelude.<$> workGroup,
+            ("ResultConfiguration" Data..=)
               Prelude.<$> resultConfiguration,
-            ("QueryExecutionContext" Core..=)
+            ("QueryExecutionContext" Data..=)
               Prelude.<$> queryExecutionContext,
-            ("ExecutionParameters" Core..=)
+            ("ExecutionParameters" Data..=)
               Prelude.<$> executionParameters,
-            Prelude.Just ("QueryString" Core..= queryString)
+            Prelude.Just ("QueryString" Data..= queryString)
           ]
       )
 
-instance Core.ToPath StartQueryExecution where
+instance Data.ToPath StartQueryExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartQueryExecution where
+instance Data.ToQuery StartQueryExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartQueryExecutionResponse' smart constructor.

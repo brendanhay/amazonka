@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,8 +85,8 @@ instance Core.AWSRequest DescribeFlow where
     Response.receiveJSON
       ( \s h x ->
           DescribeFlowResponse'
-            Prelude.<$> (x Core..?> "flow")
-            Prelude.<*> (x Core..?> "messages")
+            Prelude.<$> (x Data..?> "flow")
+            Prelude.<*> (x Data..?> "messages")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,22 +97,22 @@ instance Prelude.Hashable DescribeFlow where
 instance Prelude.NFData DescribeFlow where
   rnf DescribeFlow' {..} = Prelude.rnf flowArn
 
-instance Core.ToHeaders DescribeFlow where
+instance Data.ToHeaders DescribeFlow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeFlow where
+instance Data.ToPath DescribeFlow where
   toPath DescribeFlow' {..} =
-    Prelude.mconcat ["/v1/flows/", Core.toBS flowArn]
+    Prelude.mconcat ["/v1/flows/", Data.toBS flowArn]
 
-instance Core.ToQuery DescribeFlow where
+instance Data.ToQuery DescribeFlow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFlowResponse' smart constructor.

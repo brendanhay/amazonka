@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.AttachedPermissionsBoundary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.PermissionsBoundaryAttachmentType
 import qualified Amazonka.Prelude as Prelude
 
@@ -79,11 +80,11 @@ attachedPermissionsBoundary_permissionsBoundaryType = Lens.lens (\AttachedPermis
 attachedPermissionsBoundary_permissionsBoundaryArn :: Lens.Lens' AttachedPermissionsBoundary (Prelude.Maybe Prelude.Text)
 attachedPermissionsBoundary_permissionsBoundaryArn = Lens.lens (\AttachedPermissionsBoundary' {permissionsBoundaryArn} -> permissionsBoundaryArn) (\s@AttachedPermissionsBoundary' {} a -> s {permissionsBoundaryArn = a} :: AttachedPermissionsBoundary)
 
-instance Core.FromXML AttachedPermissionsBoundary where
+instance Data.FromXML AttachedPermissionsBoundary where
   parseXML x =
     AttachedPermissionsBoundary'
-      Prelude.<$> (x Core..@? "PermissionsBoundaryType")
-      Prelude.<*> (x Core..@? "PermissionsBoundaryArn")
+      Prelude.<$> (x Data..@? "PermissionsBoundaryType")
+      Prelude.<*> (x Data..@? "PermissionsBoundaryArn")
 
 instance Prelude.Hashable AttachedPermissionsBoundary where
   hashWithSalt _salt AttachedPermissionsBoundary' {..} =

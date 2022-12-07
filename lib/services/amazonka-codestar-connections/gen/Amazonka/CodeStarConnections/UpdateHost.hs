@@ -43,6 +43,7 @@ where
 import Amazonka.CodeStarConnections.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,37 +124,37 @@ instance Prelude.NFData UpdateHost where
       `Prelude.seq` Prelude.rnf providerEndpoint
       `Prelude.seq` Prelude.rnf hostArn
 
-instance Core.ToHeaders UpdateHost where
+instance Data.ToHeaders UpdateHost where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.codestar.connections.CodeStar_connections_20191201.UpdateHost" ::
+              Data.=# ( "com.amazonaws.codestar.connections.CodeStar_connections_20191201.UpdateHost" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateHost where
+instance Data.ToJSON UpdateHost where
   toJSON UpdateHost' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpcConfiguration" Core..=)
+          [ ("VpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("ProviderEndpoint" Core..=)
+            ("ProviderEndpoint" Data..=)
               Prelude.<$> providerEndpoint,
-            Prelude.Just ("HostArn" Core..= hostArn)
+            Prelude.Just ("HostArn" Data..= hostArn)
           ]
       )
 
-instance Core.ToPath UpdateHost where
+instance Data.ToPath UpdateHost where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateHost where
+instance Data.ToQuery UpdateHost where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateHostResponse' smart constructor.

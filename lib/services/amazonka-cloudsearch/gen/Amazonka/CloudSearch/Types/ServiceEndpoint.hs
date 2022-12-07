@@ -21,6 +21,7 @@ module Amazonka.CloudSearch.Types.ServiceEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The endpoint to which service requests can be submitted.
@@ -49,10 +50,10 @@ newServiceEndpoint =
 serviceEndpoint_endpoint :: Lens.Lens' ServiceEndpoint (Prelude.Maybe Prelude.Text)
 serviceEndpoint_endpoint = Lens.lens (\ServiceEndpoint' {endpoint} -> endpoint) (\s@ServiceEndpoint' {} a -> s {endpoint = a} :: ServiceEndpoint)
 
-instance Core.FromXML ServiceEndpoint where
+instance Data.FromXML ServiceEndpoint where
   parseXML x =
     ServiceEndpoint'
-      Prelude.<$> (x Core..@? "Endpoint")
+      Prelude.<$> (x Data..@? "Endpoint")
 
 instance Prelude.Hashable ServiceEndpoint where
   hashWithSalt _salt ServiceEndpoint' {..} =

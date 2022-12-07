@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,8 +127,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyInstanceMaintenanceOptionsResponse'
-            Prelude.<$> (x Core..@? "instanceId")
-            Prelude.<*> (x Core..@? "autoRecovery")
+            Prelude.<$> (x Data..@? "instanceId")
+            Prelude.<*> (x Data..@? "autoRecovery")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,29 +153,29 @@ instance
       `Prelude.seq` Prelude.rnf instanceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ModifyInstanceMaintenanceOptions
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyInstanceMaintenanceOptions where
+instance Data.ToPath ModifyInstanceMaintenanceOptions where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ModifyInstanceMaintenanceOptions
   where
   toQuery ModifyInstanceMaintenanceOptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyInstanceMaintenanceOptions" ::
+          Data.=: ( "ModifyInstanceMaintenanceOptions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "AutoRecovery" Core.=: autoRecovery,
-        "InstanceId" Core.=: instanceId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "AutoRecovery" Data.=: autoRecovery,
+        "InstanceId" Data.=: instanceId
       ]
 
 -- | /See:/ 'newModifyInstanceMaintenanceOptionsResponse' smart constructor.

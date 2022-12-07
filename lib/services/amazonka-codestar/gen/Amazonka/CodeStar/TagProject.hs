@@ -43,6 +43,7 @@ where
 import Amazonka.CodeStar.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,7 +91,7 @@ instance Core.AWSRequest TagProject where
     Response.receiveJSON
       ( \s h x ->
           TagProjectResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,34 +104,34 @@ instance Prelude.NFData TagProject where
   rnf TagProject' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders TagProject where
+instance Data.ToHeaders TagProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeStar_20170419.TagProject" ::
+              Data.=# ( "CodeStar_20170419.TagProject" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TagProject where
+instance Data.ToJSON TagProject where
   toJSON TagProject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("id" Core..= id),
-            Prelude.Just ("tags" Core..= tags)
+          [ Prelude.Just ("id" Data..= id),
+            Prelude.Just ("tags" Data..= tags)
           ]
       )
 
-instance Core.ToPath TagProject where
+instance Data.ToPath TagProject where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TagProject where
+instance Data.ToQuery TagProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTagProjectResponse' smart constructor.

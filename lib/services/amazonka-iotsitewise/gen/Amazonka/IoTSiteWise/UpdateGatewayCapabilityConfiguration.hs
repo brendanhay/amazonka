@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,8 +149,8 @@ instance
       ( \s h x ->
           UpdateGatewayCapabilityConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "capabilityNamespace")
-              Prelude.<*> (x Core..:> "capabilitySyncStatus")
+              Prelude.<*> (x Data..:> "capabilityNamespace")
+              Prelude.<*> (x Data..:> "capabilitySyncStatus")
       )
 
 instance
@@ -173,48 +174,48 @@ instance
       `Prelude.seq` Prelude.rnf capabilityConfiguration
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateGatewayCapabilityConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateGatewayCapabilityConfiguration
   where
   toJSON UpdateGatewayCapabilityConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("capabilityNamespace" Core..= capabilityNamespace),
+              ("capabilityNamespace" Data..= capabilityNamespace),
             Prelude.Just
               ( "capabilityConfiguration"
-                  Core..= capabilityConfiguration
+                  Data..= capabilityConfiguration
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateGatewayCapabilityConfiguration
   where
   toPath UpdateGatewayCapabilityConfiguration' {..} =
     Prelude.mconcat
       [ "/20200301/gateways/",
-        Core.toBS gatewayId,
+        Data.toBS gatewayId,
         "/capability"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateGatewayCapabilityConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

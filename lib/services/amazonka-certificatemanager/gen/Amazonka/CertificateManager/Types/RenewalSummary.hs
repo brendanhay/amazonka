@@ -24,6 +24,7 @@ import Amazonka.CertificateManager.Types.FailureReason
 import Amazonka.CertificateManager.Types.RenewalStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the status of ACM\'s
@@ -47,7 +48,7 @@ data RenewalSummary = RenewalSummary'
     -- certificate type is @AMAZON_ISSUED@.
     domainValidationOptions :: Prelude.NonEmpty DomainValidation,
     -- | The time at which the renewal summary was last updated.
-    updatedAt :: Core.POSIX
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,7 +92,7 @@ newRenewalSummary
         renewalStatus = pRenewalStatus_,
         domainValidationOptions =
           Lens.coerced Lens.# pDomainValidationOptions_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
 -- | The reason that a renewal request was unsuccessful.
@@ -115,18 +116,18 @@ renewalSummary_domainValidationOptions = Lens.lens (\RenewalSummary' {domainVali
 
 -- | The time at which the renewal summary was last updated.
 renewalSummary_updatedAt :: Lens.Lens' RenewalSummary Prelude.UTCTime
-renewalSummary_updatedAt = Lens.lens (\RenewalSummary' {updatedAt} -> updatedAt) (\s@RenewalSummary' {} a -> s {updatedAt = a} :: RenewalSummary) Prelude.. Core._Time
+renewalSummary_updatedAt = Lens.lens (\RenewalSummary' {updatedAt} -> updatedAt) (\s@RenewalSummary' {} a -> s {updatedAt = a} :: RenewalSummary) Prelude.. Data._Time
 
-instance Core.FromJSON RenewalSummary where
+instance Data.FromJSON RenewalSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RenewalSummary"
       ( \x ->
           RenewalSummary'
-            Prelude.<$> (x Core..:? "RenewalStatusReason")
-            Prelude.<*> (x Core..: "RenewalStatus")
-            Prelude.<*> (x Core..: "DomainValidationOptions")
-            Prelude.<*> (x Core..: "UpdatedAt")
+            Prelude.<$> (x Data..:? "RenewalStatusReason")
+            Prelude.<*> (x Data..: "RenewalStatus")
+            Prelude.<*> (x Data..: "DomainValidationOptions")
+            Prelude.<*> (x Data..: "UpdatedAt")
       )
 
 instance Prelude.Hashable RenewalSummary where

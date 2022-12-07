@@ -21,6 +21,7 @@ module Amazonka.SavingsPlans.Types.SavingsPlanOffering where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SavingsPlans.Types.CurrencyCode
 import Amazonka.SavingsPlans.Types.SavingsPlanOfferingProperty
@@ -148,23 +149,23 @@ savingsPlanOffering_paymentOption = Lens.lens (\SavingsPlanOffering' {paymentOpt
 savingsPlanOffering_operation :: Lens.Lens' SavingsPlanOffering (Prelude.Maybe Prelude.Text)
 savingsPlanOffering_operation = Lens.lens (\SavingsPlanOffering' {operation} -> operation) (\s@SavingsPlanOffering' {} a -> s {operation = a} :: SavingsPlanOffering)
 
-instance Core.FromJSON SavingsPlanOffering where
+instance Data.FromJSON SavingsPlanOffering where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlanOffering"
       ( \x ->
           SavingsPlanOffering'
-            Prelude.<$> (x Core..:? "productTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "planType")
-            Prelude.<*> (x Core..:? "properties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "serviceCode")
-            Prelude.<*> (x Core..:? "usageType")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "durationSeconds")
-            Prelude.<*> (x Core..:? "currency")
-            Prelude.<*> (x Core..:? "offeringId")
-            Prelude.<*> (x Core..:? "paymentOption")
-            Prelude.<*> (x Core..:? "operation")
+            Prelude.<$> (x Data..:? "productTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "planType")
+            Prelude.<*> (x Data..:? "properties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "serviceCode")
+            Prelude.<*> (x Data..:? "usageType")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "durationSeconds")
+            Prelude.<*> (x Data..:? "currency")
+            Prelude.<*> (x Data..:? "offeringId")
+            Prelude.<*> (x Data..:? "paymentOption")
+            Prelude.<*> (x Data..:? "operation")
       )
 
 instance Prelude.Hashable SavingsPlanOffering where

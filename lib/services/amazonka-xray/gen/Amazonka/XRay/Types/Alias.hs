@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.Alias where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An alias for an edge.
@@ -70,15 +71,15 @@ alias_type = Lens.lens (\Alias' {type'} -> type') (\s@Alias' {} a -> s {type' = 
 alias_names :: Lens.Lens' Alias (Prelude.Maybe [Prelude.Text])
 alias_names = Lens.lens (\Alias' {names} -> names) (\s@Alias' {} a -> s {names = a} :: Alias) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Alias where
+instance Data.FromJSON Alias where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Alias"
       ( \x ->
           Alias'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Names" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Names" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Alias where

@@ -47,6 +47,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,11 +97,11 @@ instance Core.AWSRequest GetModel where
     Response.receiveJSON
       ( \s h x ->
           GetModelResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "schema")
-            Prelude.<*> (x Core..?> "modelId")
-            Prelude.<*> (x Core..?> "contentType")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "schema")
+            Prelude.<*> (x Data..?> "modelId")
+            Prelude.<*> (x Data..?> "contentType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,27 +114,27 @@ instance Prelude.NFData GetModel where
   rnf GetModel' {..} =
     Prelude.rnf modelId `Prelude.seq` Prelude.rnf apiId
 
-instance Core.ToHeaders GetModel where
+instance Data.ToHeaders GetModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetModel where
+instance Data.ToPath GetModel where
   toPath GetModel' {..} =
     Prelude.mconcat
       [ "/v2/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/models/",
-        Core.toBS modelId
+        Data.toBS modelId
       ]
 
-instance Core.ToQuery GetModel where
+instance Data.ToQuery GetModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetModelResponse' smart constructor.

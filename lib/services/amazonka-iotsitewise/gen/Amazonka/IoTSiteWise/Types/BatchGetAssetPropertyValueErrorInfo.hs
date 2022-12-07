@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueErrorInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,7 @@ data BatchGetAssetPropertyValueErrorInfo = BatchGetAssetPropertyValueErrorInfo'
   { -- | The error code.
     errorCode :: BatchGetAssetPropertyValueErrorCode,
     -- | The date the error occurred, in Unix epoch time.
-    errorTimestamp :: Core.POSIX
+    errorTimestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,7 +60,7 @@ newBatchGetAssetPropertyValueErrorInfo
       { errorCode =
           pErrorCode_,
         errorTimestamp =
-          Core._Time Lens.# pErrorTimestamp_
+          Data._Time Lens.# pErrorTimestamp_
       }
 
 -- | The error code.
@@ -68,19 +69,19 @@ batchGetAssetPropertyValueErrorInfo_errorCode = Lens.lens (\BatchGetAssetPropert
 
 -- | The date the error occurred, in Unix epoch time.
 batchGetAssetPropertyValueErrorInfo_errorTimestamp :: Lens.Lens' BatchGetAssetPropertyValueErrorInfo Prelude.UTCTime
-batchGetAssetPropertyValueErrorInfo_errorTimestamp = Lens.lens (\BatchGetAssetPropertyValueErrorInfo' {errorTimestamp} -> errorTimestamp) (\s@BatchGetAssetPropertyValueErrorInfo' {} a -> s {errorTimestamp = a} :: BatchGetAssetPropertyValueErrorInfo) Prelude.. Core._Time
+batchGetAssetPropertyValueErrorInfo_errorTimestamp = Lens.lens (\BatchGetAssetPropertyValueErrorInfo' {errorTimestamp} -> errorTimestamp) (\s@BatchGetAssetPropertyValueErrorInfo' {} a -> s {errorTimestamp = a} :: BatchGetAssetPropertyValueErrorInfo) Prelude.. Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchGetAssetPropertyValueErrorInfo
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetAssetPropertyValueErrorInfo"
       ( \x ->
           BatchGetAssetPropertyValueErrorInfo'
-            Prelude.<$> (x Core..: "errorCode")
-            Prelude.<*> (x Core..: "errorTimestamp")
+            Prelude.<$> (x Data..: "errorCode")
+            Prelude.<*> (x Data..: "errorTimestamp")
       )
 
 instance

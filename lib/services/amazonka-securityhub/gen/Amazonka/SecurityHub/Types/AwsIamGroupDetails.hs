@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsIamGroupDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsIamAttachedManagedPolicy
 import Amazonka.SecurityHub.Types.AwsIamGroupPolicy
@@ -114,21 +115,21 @@ awsIamGroupDetails_groupId = Lens.lens (\AwsIamGroupDetails' {groupId} -> groupI
 awsIamGroupDetails_groupPolicyList :: Lens.Lens' AwsIamGroupDetails (Prelude.Maybe [AwsIamGroupPolicy])
 awsIamGroupDetails_groupPolicyList = Lens.lens (\AwsIamGroupDetails' {groupPolicyList} -> groupPolicyList) (\s@AwsIamGroupDetails' {} a -> s {groupPolicyList = a} :: AwsIamGroupDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsIamGroupDetails where
+instance Data.FromJSON AwsIamGroupDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamGroupDetails"
       ( \x ->
           AwsIamGroupDetails'
-            Prelude.<$> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "GroupName")
-            Prelude.<*> ( x Core..:? "AttachedManagedPolicies"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<*> ( x Data..:? "AttachedManagedPolicies"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "GroupId")
-            Prelude.<*> ( x Core..:? "GroupPolicyList"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "GroupId")
+            Prelude.<*> ( x Data..:? "GroupPolicyList"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -150,17 +151,17 @@ instance Prelude.NFData AwsIamGroupDetails where
       `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf groupPolicyList
 
-instance Core.ToJSON AwsIamGroupDetails where
+instance Data.ToJSON AwsIamGroupDetails where
   toJSON AwsIamGroupDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Path" Core..=) Prelude.<$> path,
-            ("GroupName" Core..=) Prelude.<$> groupName,
-            ("AttachedManagedPolicies" Core..=)
+          [ ("Path" Data..=) Prelude.<$> path,
+            ("GroupName" Data..=) Prelude.<$> groupName,
+            ("AttachedManagedPolicies" Data..=)
               Prelude.<$> attachedManagedPolicies,
-            ("CreateDate" Core..=) Prelude.<$> createDate,
-            ("GroupId" Core..=) Prelude.<$> groupId,
-            ("GroupPolicyList" Core..=)
+            ("CreateDate" Data..=) Prelude.<$> createDate,
+            ("GroupId" Data..=) Prelude.<$> groupId,
+            ("GroupPolicyList" Data..=)
               Prelude.<$> groupPolicyList
           ]
       )

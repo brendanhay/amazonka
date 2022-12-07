@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetContainerServiceDeploymentsResponse'
-            Prelude.<$> (x Core..?> "deployments" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "deployments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,34 +122,34 @@ instance
     Prelude.rnf serviceName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetContainerServiceDeployments
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetContainerServiceDeployments" ::
+              Data.=# ( "Lightsail_20161128.GetContainerServiceDeployments" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetContainerServiceDeployments where
+instance Data.ToJSON GetContainerServiceDeployments where
   toJSON GetContainerServiceDeployments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("serviceName" Core..= serviceName)]
+          [Prelude.Just ("serviceName" Data..= serviceName)]
       )
 
-instance Core.ToPath GetContainerServiceDeployments where
+instance Data.ToPath GetContainerServiceDeployments where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetContainerServiceDeployments where
+instance Data.ToQuery GetContainerServiceDeployments where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContainerServiceDeploymentsResponse' smart constructor.

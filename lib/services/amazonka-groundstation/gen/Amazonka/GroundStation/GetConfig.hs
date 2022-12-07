@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,13 +105,13 @@ instance Core.AWSRequest GetConfig where
     Response.receiveJSON
       ( \s h x ->
           GetConfigResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "configType")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "configType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "configArn")
-            Prelude.<*> (x Core..:> "configData")
-            Prelude.<*> (x Core..:> "configId")
-            Prelude.<*> (x Core..:> "name")
+            Prelude.<*> (x Data..:> "configArn")
+            Prelude.<*> (x Data..:> "configData")
+            Prelude.<*> (x Data..:> "configId")
+            Prelude.<*> (x Data..:> "name")
       )
 
 instance Prelude.Hashable GetConfig where
@@ -123,27 +124,27 @@ instance Prelude.NFData GetConfig where
     Prelude.rnf configId
       `Prelude.seq` Prelude.rnf configType
 
-instance Core.ToHeaders GetConfig where
+instance Data.ToHeaders GetConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetConfig where
+instance Data.ToPath GetConfig where
   toPath GetConfig' {..} =
     Prelude.mconcat
       [ "/config/",
-        Core.toBS configType,
+        Data.toBS configType,
         "/",
-        Core.toBS configId
+        Data.toBS configId
       ]
 
-instance Core.ToQuery GetConfig where
+instance Data.ToQuery GetConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

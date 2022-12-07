@@ -28,6 +28,7 @@ module Amazonka.MediaConvert.Types.H265FramerateConversionAlgorithm
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Choose the method that you want MediaConvert to use when increasing or
@@ -43,7 +44,7 @@ import qualified Amazonka.Prelude as Prelude
 -- the transcoding time and incurs a significant add-on cost.
 newtype H265FramerateConversionAlgorithm = H265FramerateConversionAlgorithm'
   { fromH265FramerateConversionAlgorithm ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -55,18 +56,18 @@ newtype H265FramerateConversionAlgorithm = H265FramerateConversionAlgorithm'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern H265FramerateConversionAlgorithm_DUPLICATE_DROP :: H265FramerateConversionAlgorithm

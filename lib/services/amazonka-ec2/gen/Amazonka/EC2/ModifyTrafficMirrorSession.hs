@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -213,7 +214,7 @@ instance Core.AWSRequest ModifyTrafficMirrorSession where
     Response.receiveXML
       ( \s h x ->
           ModifyTrafficMirrorSessionResponse'
-            Prelude.<$> (x Core..@? "trafficMirrorSession")
+            Prelude.<$> (x Data..@? "trafficMirrorSession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -241,34 +242,34 @@ instance Prelude.NFData ModifyTrafficMirrorSession where
       `Prelude.seq` Prelude.rnf virtualNetworkId
       `Prelude.seq` Prelude.rnf trafficMirrorSessionId
 
-instance Core.ToHeaders ModifyTrafficMirrorSession where
+instance Data.ToHeaders ModifyTrafficMirrorSession where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyTrafficMirrorSession where
+instance Data.ToPath ModifyTrafficMirrorSession where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyTrafficMirrorSession where
+instance Data.ToQuery ModifyTrafficMirrorSession where
   toQuery ModifyTrafficMirrorSession' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyTrafficMirrorSession" :: Prelude.ByteString),
+          Data.=: ("ModifyTrafficMirrorSession" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "SessionNumber" Core.=: sessionNumber,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "SessionNumber" Data.=: sessionNumber,
         "TrafficMirrorTargetId"
-          Core.=: trafficMirrorTargetId,
+          Data.=: trafficMirrorTargetId,
         "TrafficMirrorFilterId"
-          Core.=: trafficMirrorFilterId,
-        "Description" Core.=: description,
-        "PacketLength" Core.=: packetLength,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "RemoveField"
+          Data.=: trafficMirrorFilterId,
+        "Description" Data.=: description,
+        "PacketLength" Data.=: packetLength,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "RemoveField"
               Prelude.<$> removeFields
           ),
-        "VirtualNetworkId" Core.=: virtualNetworkId,
+        "VirtualNetworkId" Data.=: virtualNetworkId,
         "TrafficMirrorSessionId"
-          Core.=: trafficMirrorSessionId
+          Data.=: trafficMirrorSessionId
       ]
 
 -- | /See:/ 'newModifyTrafficMirrorSessionResponse' smart constructor.

@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,34 +119,34 @@ instance Prelude.NFData EnableAWSServiceAccess where
   rnf EnableAWSServiceAccess' {..} =
     Prelude.rnf servicePrincipal
 
-instance Core.ToHeaders EnableAWSServiceAccess where
+instance Data.ToHeaders EnableAWSServiceAccess where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.EnableAWSServiceAccess" ::
+              Data.=# ( "AWSOrganizationsV20161128.EnableAWSServiceAccess" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EnableAWSServiceAccess where
+instance Data.ToJSON EnableAWSServiceAccess where
   toJSON EnableAWSServiceAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ServicePrincipal" Core..= servicePrincipal)
+              ("ServicePrincipal" Data..= servicePrincipal)
           ]
       )
 
-instance Core.ToPath EnableAWSServiceAccess where
+instance Data.ToPath EnableAWSServiceAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnableAWSServiceAccess where
+instance Data.ToQuery EnableAWSServiceAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableAWSServiceAccessResponse' smart constructor.

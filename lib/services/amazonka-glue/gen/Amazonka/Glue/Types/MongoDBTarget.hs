@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.MongoDBTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an Amazon DocumentDB or MongoDB data store to crawl.
@@ -94,15 +95,15 @@ mongoDBTarget_path = Lens.lens (\MongoDBTarget' {path} -> path) (\s@MongoDBTarge
 mongoDBTarget_connectionName :: Lens.Lens' MongoDBTarget (Prelude.Maybe Prelude.Text)
 mongoDBTarget_connectionName = Lens.lens (\MongoDBTarget' {connectionName} -> connectionName) (\s@MongoDBTarget' {} a -> s {connectionName = a} :: MongoDBTarget)
 
-instance Core.FromJSON MongoDBTarget where
+instance Data.FromJSON MongoDBTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MongoDBTarget"
       ( \x ->
           MongoDBTarget'
-            Prelude.<$> (x Core..:? "ScanAll")
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "ConnectionName")
+            Prelude.<$> (x Data..:? "ScanAll")
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "ConnectionName")
       )
 
 instance Prelude.Hashable MongoDBTarget where
@@ -117,13 +118,13 @@ instance Prelude.NFData MongoDBTarget where
       `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf connectionName
 
-instance Core.ToJSON MongoDBTarget where
+instance Data.ToJSON MongoDBTarget where
   toJSON MongoDBTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ScanAll" Core..=) Prelude.<$> scanAll,
-            ("Path" Core..=) Prelude.<$> path,
-            ("ConnectionName" Core..=)
+          [ ("ScanAll" Data..=) Prelude.<$> scanAll,
+            ("Path" Data..=) Prelude.<$> path,
+            ("ConnectionName" Data..=)
               Prelude.<$> connectionName
           ]
       )

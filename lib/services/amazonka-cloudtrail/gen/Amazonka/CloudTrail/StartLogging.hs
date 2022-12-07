@@ -45,6 +45,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,32 +109,32 @@ instance Prelude.Hashable StartLogging where
 instance Prelude.NFData StartLogging where
   rnf StartLogging' {..} = Prelude.rnf name
 
-instance Core.ToHeaders StartLogging where
+instance Data.ToHeaders StartLogging where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StartLogging" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StartLogging" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartLogging where
+instance Data.ToJSON StartLogging where
   toJSON StartLogging' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath StartLogging where
+instance Data.ToPath StartLogging where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartLogging where
+instance Data.ToQuery StartLogging where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returns the objects or data listed below if successful. Otherwise,

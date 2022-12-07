@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -177,7 +178,7 @@ instance Core.AWSRequest GetObjectLegalHold where
     Response.receiveXML
       ( \s h x ->
           GetObjectLegalHoldResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,23 +198,23 @@ instance Prelude.NFData GetObjectLegalHold where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToHeaders GetObjectLegalHold where
+instance Data.ToHeaders GetObjectLegalHold where
   toHeaders GetObjectLegalHold' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
-instance Core.ToPath GetObjectLegalHold where
+instance Data.ToPath GetObjectLegalHold where
   toPath GetObjectLegalHold' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery GetObjectLegalHold where
+instance Data.ToQuery GetObjectLegalHold where
   toQuery GetObjectLegalHold' {..} =
     Prelude.mconcat
-      ["versionId" Core.=: versionId, "legal-hold"]
+      ["versionId" Data.=: versionId, "legal-hold"]
 
 -- | /See:/ 'newGetObjectLegalHoldResponse' smart constructor.
 data GetObjectLegalHoldResponse = GetObjectLegalHoldResponse'

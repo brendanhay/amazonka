@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -211,40 +212,40 @@ instance
       `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateQuerySuggestionsBlockList
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.UpdateQuerySuggestionsBlockList" ::
+              Data.=# ( "AWSKendraFrontendService.UpdateQuerySuggestionsBlockList" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateQuerySuggestionsBlockList where
+instance Data.ToJSON UpdateQuerySuggestionsBlockList where
   toJSON UpdateQuerySuggestionsBlockList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Description" Core..=) Prelude.<$> description,
-            ("SourceS3Path" Core..=) Prelude.<$> sourceS3Path,
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("Id" Core..= id)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Description" Data..=) Prelude.<$> description,
+            ("SourceS3Path" Data..=) Prelude.<$> sourceS3Path,
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath UpdateQuerySuggestionsBlockList where
+instance Data.ToPath UpdateQuerySuggestionsBlockList where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateQuerySuggestionsBlockList where
+instance Data.ToQuery UpdateQuerySuggestionsBlockList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateQuerySuggestionsBlockListResponse' smart constructor.

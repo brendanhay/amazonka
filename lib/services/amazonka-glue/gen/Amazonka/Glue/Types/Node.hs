@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Node where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CrawlerNodeDetails
 import Amazonka.Glue.Types.JobNodeDetails
 import Amazonka.Glue.Types.NodeType
@@ -102,18 +103,18 @@ node_uniqueId = Lens.lens (\Node' {uniqueId} -> uniqueId) (\s@Node' {} a -> s {u
 node_crawlerDetails :: Lens.Lens' Node (Prelude.Maybe CrawlerNodeDetails)
 node_crawlerDetails = Lens.lens (\Node' {crawlerDetails} -> crawlerDetails) (\s@Node' {} a -> s {crawlerDetails = a} :: Node)
 
-instance Core.FromJSON Node where
+instance Data.FromJSON Node where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Node"
       ( \x ->
           Node'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "JobDetails")
-            Prelude.<*> (x Core..:? "TriggerDetails")
-            Prelude.<*> (x Core..:? "UniqueId")
-            Prelude.<*> (x Core..:? "CrawlerDetails")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "JobDetails")
+            Prelude.<*> (x Data..:? "TriggerDetails")
+            Prelude.<*> (x Data..:? "UniqueId")
+            Prelude.<*> (x Data..:? "CrawlerDetails")
       )
 
 instance Prelude.Hashable Node where

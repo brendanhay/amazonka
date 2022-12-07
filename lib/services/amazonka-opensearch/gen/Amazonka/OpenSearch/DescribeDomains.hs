@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance Core.AWSRequest DescribeDomains where
       ( \s h x ->
           DescribeDomainsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "DomainStatusList"
+            Prelude.<*> ( x Data..?> "DomainStatusList"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -103,21 +104,21 @@ instance Prelude.Hashable DescribeDomains where
 instance Prelude.NFData DescribeDomains where
   rnf DescribeDomains' {..} = Prelude.rnf domainNames
 
-instance Core.ToHeaders DescribeDomains where
+instance Data.ToHeaders DescribeDomains where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON DescribeDomains where
+instance Data.ToJSON DescribeDomains where
   toJSON DescribeDomains' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DomainNames" Core..= domainNames)]
+          [Prelude.Just ("DomainNames" Data..= domainNames)]
       )
 
-instance Core.ToPath DescribeDomains where
+instance Data.ToPath DescribeDomains where
   toPath =
     Prelude.const "/2021-01-01/opensearch/domain-info"
 
-instance Core.ToQuery DescribeDomains where
+instance Data.ToQuery DescribeDomains where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the status of the specified domains or all domains owned by the

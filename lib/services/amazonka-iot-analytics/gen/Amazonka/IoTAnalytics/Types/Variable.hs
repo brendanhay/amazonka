@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.Variable where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.DatasetContentVersionValue
 import Amazonka.IoTAnalytics.Types.OutputFileUriValue
 import qualified Amazonka.Prelude as Prelude
@@ -100,17 +101,17 @@ variable_datasetContentVersionValue = Lens.lens (\Variable' {datasetContentVersi
 variable_name :: Lens.Lens' Variable Prelude.Text
 variable_name = Lens.lens (\Variable' {name} -> name) (\s@Variable' {} a -> s {name = a} :: Variable)
 
-instance Core.FromJSON Variable where
+instance Data.FromJSON Variable where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Variable"
       ( \x ->
           Variable'
-            Prelude.<$> (x Core..:? "doubleValue")
-            Prelude.<*> (x Core..:? "stringValue")
-            Prelude.<*> (x Core..:? "outputFileUriValue")
-            Prelude.<*> (x Core..:? "datasetContentVersionValue")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "doubleValue")
+            Prelude.<*> (x Data..:? "stringValue")
+            Prelude.<*> (x Data..:? "outputFileUriValue")
+            Prelude.<*> (x Data..:? "datasetContentVersionValue")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable Variable where
@@ -129,16 +130,16 @@ instance Prelude.NFData Variable where
       `Prelude.seq` Prelude.rnf datasetContentVersionValue
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON Variable where
+instance Data.ToJSON Variable where
   toJSON Variable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("doubleValue" Core..=) Prelude.<$> doubleValue,
-            ("stringValue" Core..=) Prelude.<$> stringValue,
-            ("outputFileUriValue" Core..=)
+          [ ("doubleValue" Data..=) Prelude.<$> doubleValue,
+            ("stringValue" Data..=) Prelude.<$> stringValue,
+            ("outputFileUriValue" Data..=)
               Prelude.<$> outputFileUriValue,
-            ("datasetContentVersionValue" Core..=)
+            ("datasetContentVersionValue" Data..=)
               Prelude.<$> datasetContentVersionValue,
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("name" Data..= name)
           ]
       )

@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,26 +153,26 @@ instance
       `Prelude.seq` Prelude.rnf serviceSpecificCredentialId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteServiceSpecificCredential
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteServiceSpecificCredential where
+instance Data.ToPath DeleteServiceSpecificCredential where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteServiceSpecificCredential where
+instance Data.ToQuery DeleteServiceSpecificCredential where
   toQuery DeleteServiceSpecificCredential' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DeleteServiceSpecificCredential" ::
+          Data.=: ( "DeleteServiceSpecificCredential" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
         "ServiceSpecificCredentialId"
-          Core.=: serviceSpecificCredentialId
+          Data.=: serviceSpecificCredentialId
       ]
 
 -- | /See:/ 'newDeleteServiceSpecificCredentialResponse' smart constructor.

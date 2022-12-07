@@ -21,6 +21,7 @@ module Amazonka.CloudWatchLogs.Types.OutputLogEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a log event.
@@ -76,15 +77,15 @@ outputLogEvent_timestamp = Lens.lens (\OutputLogEvent' {timestamp} -> timestamp)
 outputLogEvent_ingestionTime :: Lens.Lens' OutputLogEvent (Prelude.Maybe Prelude.Natural)
 outputLogEvent_ingestionTime = Lens.lens (\OutputLogEvent' {ingestionTime} -> ingestionTime) (\s@OutputLogEvent' {} a -> s {ingestionTime = a} :: OutputLogEvent)
 
-instance Core.FromJSON OutputLogEvent where
+instance Data.FromJSON OutputLogEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputLogEvent"
       ( \x ->
           OutputLogEvent'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "timestamp")
-            Prelude.<*> (x Core..:? "ingestionTime")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "timestamp")
+            Prelude.<*> (x Data..:? "ingestionTime")
       )
 
 instance Prelude.Hashable OutputLogEvent where

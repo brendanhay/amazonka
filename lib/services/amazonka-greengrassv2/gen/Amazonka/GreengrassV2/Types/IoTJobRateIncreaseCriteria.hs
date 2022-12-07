@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.IoTJobRateIncreaseCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about criteria to meet before a job increases its
@@ -70,14 +71,14 @@ ioTJobRateIncreaseCriteria_numberOfSucceededThings = Lens.lens (\IoTJobRateIncre
 ioTJobRateIncreaseCriteria_numberOfNotifiedThings :: Lens.Lens' IoTJobRateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
 ioTJobRateIncreaseCriteria_numberOfNotifiedThings = Lens.lens (\IoTJobRateIncreaseCriteria' {numberOfNotifiedThings} -> numberOfNotifiedThings) (\s@IoTJobRateIncreaseCriteria' {} a -> s {numberOfNotifiedThings = a} :: IoTJobRateIncreaseCriteria)
 
-instance Core.FromJSON IoTJobRateIncreaseCriteria where
+instance Data.FromJSON IoTJobRateIncreaseCriteria where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IoTJobRateIncreaseCriteria"
       ( \x ->
           IoTJobRateIncreaseCriteria'
-            Prelude.<$> (x Core..:? "numberOfSucceededThings")
-            Prelude.<*> (x Core..:? "numberOfNotifiedThings")
+            Prelude.<$> (x Data..:? "numberOfSucceededThings")
+            Prelude.<*> (x Data..:? "numberOfNotifiedThings")
       )
 
 instance Prelude.Hashable IoTJobRateIncreaseCriteria where
@@ -91,13 +92,13 @@ instance Prelude.NFData IoTJobRateIncreaseCriteria where
     Prelude.rnf numberOfSucceededThings
       `Prelude.seq` Prelude.rnf numberOfNotifiedThings
 
-instance Core.ToJSON IoTJobRateIncreaseCriteria where
+instance Data.ToJSON IoTJobRateIncreaseCriteria where
   toJSON IoTJobRateIncreaseCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("numberOfSucceededThings" Core..=)
+          [ ("numberOfSucceededThings" Data..=)
               Prelude.<$> numberOfSucceededThings,
-            ("numberOfNotifiedThings" Core..=)
+            ("numberOfNotifiedThings" Data..=)
               Prelude.<$> numberOfNotifiedThings
           ]
       )

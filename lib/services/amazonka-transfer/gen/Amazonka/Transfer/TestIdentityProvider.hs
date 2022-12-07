@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,7 +95,7 @@ data TestIdentityProvider = TestIdentityProvider'
     -- | The source IP address of the user account to be tested.
     sourceIp :: Prelude.Maybe Prelude.Text,
     -- | The password of the user account to be tested.
-    userPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    userPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A system-assigned identifier for a specific server. That server\'s user
     -- authentication method is tested with a user name and password.
     serverId :: Prelude.Text,
@@ -163,7 +164,7 @@ testIdentityProvider_sourceIp = Lens.lens (\TestIdentityProvider' {sourceIp} -> 
 
 -- | The password of the user account to be tested.
 testIdentityProvider_userPassword :: Lens.Lens' TestIdentityProvider (Prelude.Maybe Prelude.Text)
-testIdentityProvider_userPassword = Lens.lens (\TestIdentityProvider' {userPassword} -> userPassword) (\s@TestIdentityProvider' {} a -> s {userPassword = a} :: TestIdentityProvider) Prelude.. Lens.mapping Core._Sensitive
+testIdentityProvider_userPassword = Lens.lens (\TestIdentityProvider' {userPassword} -> userPassword) (\s@TestIdentityProvider' {} a -> s {userPassword = a} :: TestIdentityProvider) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A system-assigned identifier for a specific server. That server\'s user
 -- authentication method is tested with a user name and password.
@@ -184,11 +185,11 @@ instance Core.AWSRequest TestIdentityProvider where
     Response.receiveJSON
       ( \s h x ->
           TestIdentityProviderResponse'
-            Prelude.<$> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "Response")
+            Prelude.<$> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "Response")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "StatusCode")
-            Prelude.<*> (x Core..:> "Url")
+            Prelude.<*> (x Data..:> "StatusCode")
+            Prelude.<*> (x Data..:> "Url")
       )
 
 instance Prelude.Hashable TestIdentityProvider where
@@ -207,38 +208,38 @@ instance Prelude.NFData TestIdentityProvider where
       `Prelude.seq` Prelude.rnf serverId
       `Prelude.seq` Prelude.rnf userName
 
-instance Core.ToHeaders TestIdentityProvider where
+instance Data.ToHeaders TestIdentityProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.TestIdentityProvider" ::
+              Data.=# ( "TransferService.TestIdentityProvider" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TestIdentityProvider where
+instance Data.ToJSON TestIdentityProvider where
   toJSON TestIdentityProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ServerProtocol" Core..=)
+          [ ("ServerProtocol" Data..=)
               Prelude.<$> serverProtocol,
-            ("SourceIp" Core..=) Prelude.<$> sourceIp,
-            ("UserPassword" Core..=) Prelude.<$> userPassword,
-            Prelude.Just ("ServerId" Core..= serverId),
-            Prelude.Just ("UserName" Core..= userName)
+            ("SourceIp" Data..=) Prelude.<$> sourceIp,
+            ("UserPassword" Data..=) Prelude.<$> userPassword,
+            Prelude.Just ("ServerId" Data..= serverId),
+            Prelude.Just ("UserName" Data..= userName)
           ]
       )
 
-instance Core.ToPath TestIdentityProvider where
+instance Data.ToPath TestIdentityProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TestIdentityProvider where
+instance Data.ToQuery TestIdentityProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTestIdentityProviderResponse' smart constructor.

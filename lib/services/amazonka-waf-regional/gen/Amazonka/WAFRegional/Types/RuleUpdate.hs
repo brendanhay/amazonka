@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.RuleUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFRegional.Types.ChangeAction
 import Amazonka.WAFRegional.Types.Predicate
@@ -93,11 +94,11 @@ instance Prelude.NFData RuleUpdate where
     Prelude.rnf action
       `Prelude.seq` Prelude.rnf predicate
 
-instance Core.ToJSON RuleUpdate where
+instance Data.ToJSON RuleUpdate where
   toJSON RuleUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Core..= action),
-            Prelude.Just ("Predicate" Core..= predicate)
+          [ Prelude.Just ("Action" Data..= action),
+            Prelude.Just ("Predicate" Data..= predicate)
           ]
       )

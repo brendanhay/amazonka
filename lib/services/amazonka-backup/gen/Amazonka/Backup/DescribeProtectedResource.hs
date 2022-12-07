@@ -46,6 +46,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,9 +94,9 @@ instance Core.AWSRequest DescribeProtectedResource where
     Response.receiveJSON
       ( \s h x ->
           DescribeProtectedResourceResponse'
-            Prelude.<$> (x Core..?> "ResourceType")
-            Prelude.<*> (x Core..?> "ResourceArn")
-            Prelude.<*> (x Core..?> "LastBackupTime")
+            Prelude.<$> (x Data..?> "ResourceType")
+            Prelude.<*> (x Data..?> "ResourceArn")
+            Prelude.<*> (x Data..?> "LastBackupTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,23 +108,23 @@ instance Prelude.NFData DescribeProtectedResource where
   rnf DescribeProtectedResource' {..} =
     Prelude.rnf resourceArn
 
-instance Core.ToHeaders DescribeProtectedResource where
+instance Data.ToHeaders DescribeProtectedResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeProtectedResource where
+instance Data.ToPath DescribeProtectedResource where
   toPath DescribeProtectedResource' {..} =
     Prelude.mconcat
-      ["/resources/", Core.toBS resourceArn]
+      ["/resources/", Data.toBS resourceArn]
 
-instance Core.ToQuery DescribeProtectedResource where
+instance Data.ToQuery DescribeProtectedResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProtectedResourceResponse' smart constructor.
@@ -138,7 +139,7 @@ data DescribeProtectedResourceResponse = DescribeProtectedResourceResponse'
     -- Coordinated Universal Time (UTC). The value of @LastBackupTime@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    lastBackupTime :: Prelude.Maybe Core.POSIX,
+    lastBackupTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,7 +193,7 @@ describeProtectedResourceResponse_resourceArn = Lens.lens (\DescribeProtectedRes
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 describeProtectedResourceResponse_lastBackupTime :: Lens.Lens' DescribeProtectedResourceResponse (Prelude.Maybe Prelude.UTCTime)
-describeProtectedResourceResponse_lastBackupTime = Lens.lens (\DescribeProtectedResourceResponse' {lastBackupTime} -> lastBackupTime) (\s@DescribeProtectedResourceResponse' {} a -> s {lastBackupTime = a} :: DescribeProtectedResourceResponse) Prelude.. Lens.mapping Core._Time
+describeProtectedResourceResponse_lastBackupTime = Lens.lens (\DescribeProtectedResourceResponse' {lastBackupTime} -> lastBackupTime) (\s@DescribeProtectedResourceResponse' {} a -> s {lastBackupTime = a} :: DescribeProtectedResourceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeProtectedResourceResponse_httpStatus :: Lens.Lens' DescribeProtectedResourceResponse Prelude.Int

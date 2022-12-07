@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,8 +122,8 @@ instance Core.AWSRequest GetConsoleScreenshot where
     Response.receiveXML
       ( \s h x ->
           GetConsoleScreenshotResponse'
-            Prelude.<$> (x Core..@? "imageData")
-            Prelude.<*> (x Core..@? "instanceId")
+            Prelude.<$> (x Data..@? "imageData")
+            Prelude.<*> (x Data..@? "instanceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,22 +139,22 @@ instance Prelude.NFData GetConsoleScreenshot where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders GetConsoleScreenshot where
+instance Data.ToHeaders GetConsoleScreenshot where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetConsoleScreenshot where
+instance Data.ToPath GetConsoleScreenshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetConsoleScreenshot where
+instance Data.ToQuery GetConsoleScreenshot where
   toQuery GetConsoleScreenshot' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetConsoleScreenshot" :: Prelude.ByteString),
+          Data.=: ("GetConsoleScreenshot" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "WakeUp" Core.=: wakeUp,
-        "DryRun" Core.=: dryRun,
-        "InstanceId" Core.=: instanceId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "WakeUp" Data.=: wakeUp,
+        "DryRun" Data.=: dryRun,
+        "InstanceId" Data.=: instanceId
       ]
 
 -- | /See:/ 'newGetConsoleScreenshotResponse' smart constructor.

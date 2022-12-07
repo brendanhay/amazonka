@@ -23,6 +23,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.ConcatenationSourceType
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaCapturePipelineSourceConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The source type and media pipeline configuration settings in a
@@ -74,15 +75,15 @@ concatenationSource_type = Lens.lens (\ConcatenationSource' {type'} -> type') (\
 concatenationSource_mediaCapturePipelineSourceConfiguration :: Lens.Lens' ConcatenationSource MediaCapturePipelineSourceConfiguration
 concatenationSource_mediaCapturePipelineSourceConfiguration = Lens.lens (\ConcatenationSource' {mediaCapturePipelineSourceConfiguration} -> mediaCapturePipelineSourceConfiguration) (\s@ConcatenationSource' {} a -> s {mediaCapturePipelineSourceConfiguration = a} :: ConcatenationSource)
 
-instance Core.FromJSON ConcatenationSource where
+instance Data.FromJSON ConcatenationSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConcatenationSource"
       ( \x ->
           ConcatenationSource'
-            Prelude.<$> (x Core..: "Type")
+            Prelude.<$> (x Data..: "Type")
             Prelude.<*> ( x
-                            Core..: "MediaCapturePipelineSourceConfiguration"
+                            Data..: "MediaCapturePipelineSourceConfiguration"
                         )
       )
 
@@ -96,14 +97,14 @@ instance Prelude.NFData ConcatenationSource where
     Prelude.rnf type'
       `Prelude.seq` Prelude.rnf mediaCapturePipelineSourceConfiguration
 
-instance Core.ToJSON ConcatenationSource where
+instance Data.ToJSON ConcatenationSource where
   toJSON ConcatenationSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
+          [ Prelude.Just ("Type" Data..= type'),
             Prelude.Just
               ( "MediaCapturePipelineSourceConfiguration"
-                  Core..= mediaCapturePipelineSourceConfiguration
+                  Data..= mediaCapturePipelineSourceConfiguration
               )
           ]
       )

@@ -87,6 +87,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -975,7 +976,7 @@ instance Core.AWSRequest StartTranscriptionJob where
     Response.receiveJSON
       ( \s h x ->
           StartTranscriptionJobResponse'
-            Prelude.<$> (x Core..?> "TranscriptionJob")
+            Prelude.<$> (x Data..?> "TranscriptionJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -1023,64 +1024,64 @@ instance Prelude.NFData StartTranscriptionJob where
       `Prelude.seq` Prelude.rnf transcriptionJobName
       `Prelude.seq` Prelude.rnf media
 
-instance Core.ToHeaders StartTranscriptionJob where
+instance Data.ToHeaders StartTranscriptionJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.StartTranscriptionJob" ::
+              Data.=# ( "Transcribe.StartTranscriptionJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartTranscriptionJob where
+instance Data.ToJSON StartTranscriptionJob where
   toJSON StartTranscriptionJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("KMSEncryptionContext" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("KMSEncryptionContext" Data..=)
               Prelude.<$> kmsEncryptionContext,
-            ("IdentifyMultipleLanguages" Core..=)
+            ("IdentifyMultipleLanguages" Data..=)
               Prelude.<$> identifyMultipleLanguages,
-            ("MediaFormat" Core..=) Prelude.<$> mediaFormat,
-            ("IdentifyLanguage" Core..=)
+            ("MediaFormat" Data..=) Prelude.<$> mediaFormat,
+            ("IdentifyLanguage" Data..=)
               Prelude.<$> identifyLanguage,
-            ("ContentRedaction" Core..=)
+            ("ContentRedaction" Data..=)
               Prelude.<$> contentRedaction,
-            ("OutputKey" Core..=) Prelude.<$> outputKey,
-            ("Subtitles" Core..=) Prelude.<$> subtitles,
-            ("LanguageIdSettings" Core..=)
+            ("OutputKey" Data..=) Prelude.<$> outputKey,
+            ("Subtitles" Data..=) Prelude.<$> subtitles,
+            ("LanguageIdSettings" Data..=)
               Prelude.<$> languageIdSettings,
-            ("Settings" Core..=) Prelude.<$> settings,
-            ("MediaSampleRateHertz" Core..=)
+            ("Settings" Data..=) Prelude.<$> settings,
+            ("MediaSampleRateHertz" Data..=)
               Prelude.<$> mediaSampleRateHertz,
-            ("OutputBucketName" Core..=)
+            ("OutputBucketName" Data..=)
               Prelude.<$> outputBucketName,
-            ("LanguageCode" Core..=) Prelude.<$> languageCode,
-            ("JobExecutionSettings" Core..=)
+            ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            ("JobExecutionSettings" Data..=)
               Prelude.<$> jobExecutionSettings,
-            ("OutputEncryptionKMSKeyId" Core..=)
+            ("OutputEncryptionKMSKeyId" Data..=)
               Prelude.<$> outputEncryptionKMSKeyId,
-            ("ModelSettings" Core..=) Prelude.<$> modelSettings,
-            ("LanguageOptions" Core..=)
+            ("ModelSettings" Data..=) Prelude.<$> modelSettings,
+            ("LanguageOptions" Data..=)
               Prelude.<$> languageOptions,
             Prelude.Just
               ( "TranscriptionJobName"
-                  Core..= transcriptionJobName
+                  Data..= transcriptionJobName
               ),
-            Prelude.Just ("Media" Core..= media)
+            Prelude.Just ("Media" Data..= media)
           ]
       )
 
-instance Core.ToPath StartTranscriptionJob where
+instance Data.ToPath StartTranscriptionJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartTranscriptionJob where
+instance Data.ToQuery StartTranscriptionJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartTranscriptionJobResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,16 +92,16 @@ instance Core.AWSRequest DescribePlaceIndex where
     Response.receiveJSON
       ( \s h x ->
           DescribePlaceIndexResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PricingPlan")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PricingPlan")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CreateTime")
-            Prelude.<*> (x Core..:> "DataSource")
-            Prelude.<*> (x Core..:> "DataSourceConfiguration")
-            Prelude.<*> (x Core..:> "Description")
-            Prelude.<*> (x Core..:> "IndexArn")
-            Prelude.<*> (x Core..:> "IndexName")
-            Prelude.<*> (x Core..:> "UpdateTime")
+            Prelude.<*> (x Data..:> "CreateTime")
+            Prelude.<*> (x Data..:> "DataSource")
+            Prelude.<*> (x Data..:> "DataSourceConfiguration")
+            Prelude.<*> (x Data..:> "Description")
+            Prelude.<*> (x Data..:> "IndexArn")
+            Prelude.<*> (x Data..:> "IndexName")
+            Prelude.<*> (x Data..:> "UpdateTime")
       )
 
 instance Prelude.Hashable DescribePlaceIndex where
@@ -110,23 +111,23 @@ instance Prelude.Hashable DescribePlaceIndex where
 instance Prelude.NFData DescribePlaceIndex where
   rnf DescribePlaceIndex' {..} = Prelude.rnf indexName
 
-instance Core.ToHeaders DescribePlaceIndex where
+instance Data.ToHeaders DescribePlaceIndex where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribePlaceIndex where
+instance Data.ToPath DescribePlaceIndex where
   toPath DescribePlaceIndex' {..} =
     Prelude.mconcat
-      ["/places/v0/indexes/", Core.toBS indexName]
+      ["/places/v0/indexes/", Data.toBS indexName]
 
-instance Core.ToQuery DescribePlaceIndex where
+instance Data.ToQuery DescribePlaceIndex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePlaceIndexResponse' smart constructor.
@@ -140,7 +141,7 @@ data DescribePlaceIndexResponse = DescribePlaceIndexResponse'
     -- | The timestamp for when the place index resource was created in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | The data provider of geospatial data. Values can be one of the
     -- following:
     --
@@ -166,7 +167,7 @@ data DescribePlaceIndexResponse = DescribePlaceIndexResponse'
     -- | The timestamp for when the place index resource was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -244,14 +245,14 @@ newDescribePlaceIndexResponse
       { tags = Prelude.Nothing,
         pricingPlan = Prelude.Nothing,
         httpStatus = pHttpStatus_,
-        createTime = Core._Time Lens.# pCreateTime_,
+        createTime = Data._Time Lens.# pCreateTime_,
         dataSource = pDataSource_,
         dataSourceConfiguration =
           pDataSourceConfiguration_,
         description = pDescription_,
         indexArn = pIndexArn_,
         indexName = pIndexName_,
-        updateTime = Core._Time Lens.# pUpdateTime_
+        updateTime = Data._Time Lens.# pUpdateTime_
       }
 
 -- | Tags associated with place index resource.
@@ -270,7 +271,7 @@ describePlaceIndexResponse_httpStatus = Lens.lens (\DescribePlaceIndexResponse' 
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 describePlaceIndexResponse_createTime :: Lens.Lens' DescribePlaceIndexResponse Prelude.UTCTime
-describePlaceIndexResponse_createTime = Lens.lens (\DescribePlaceIndexResponse' {createTime} -> createTime) (\s@DescribePlaceIndexResponse' {} a -> s {createTime = a} :: DescribePlaceIndexResponse) Prelude.. Core._Time
+describePlaceIndexResponse_createTime = Lens.lens (\DescribePlaceIndexResponse' {createTime} -> createTime) (\s@DescribePlaceIndexResponse' {} a -> s {createTime = a} :: DescribePlaceIndexResponse) Prelude.. Data._Time
 
 -- | The data provider of geospatial data. Values can be one of the
 -- following:
@@ -308,7 +309,7 @@ describePlaceIndexResponse_indexName = Lens.lens (\DescribePlaceIndexResponse' {
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 describePlaceIndexResponse_updateTime :: Lens.Lens' DescribePlaceIndexResponse Prelude.UTCTime
-describePlaceIndexResponse_updateTime = Lens.lens (\DescribePlaceIndexResponse' {updateTime} -> updateTime) (\s@DescribePlaceIndexResponse' {} a -> s {updateTime = a} :: DescribePlaceIndexResponse) Prelude.. Core._Time
+describePlaceIndexResponse_updateTime = Lens.lens (\DescribePlaceIndexResponse' {updateTime} -> updateTime) (\s@DescribePlaceIndexResponse' {} a -> s {updateTime = a} :: DescribePlaceIndexResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribePlaceIndexResponse where
   rnf DescribePlaceIndexResponse' {..} =

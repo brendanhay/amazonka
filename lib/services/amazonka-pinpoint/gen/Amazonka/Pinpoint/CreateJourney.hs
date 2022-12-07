@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,7 +103,7 @@ instance Core.AWSRequest CreateJourney where
       ( \s h x ->
           CreateJourneyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable CreateJourney where
@@ -115,27 +116,27 @@ instance Prelude.NFData CreateJourney where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf writeJourneyRequest
 
-instance Core.ToHeaders CreateJourney where
+instance Data.ToHeaders CreateJourney where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateJourney where
+instance Data.ToJSON CreateJourney where
   toJSON CreateJourney' {..} =
-    Core.toJSON writeJourneyRequest
+    Data.toJSON writeJourneyRequest
 
-instance Core.ToPath CreateJourney where
+instance Data.ToPath CreateJourney where
   toPath CreateJourney' {..} =
     Prelude.mconcat
-      ["/v1/apps/", Core.toBS applicationId, "/journeys"]
+      ["/v1/apps/", Data.toBS applicationId, "/journeys"]
 
-instance Core.ToQuery CreateJourney where
+instance Data.ToQuery CreateJourney where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateJourneyResponse' smart constructor.

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,7 +110,7 @@ instance Core.AWSRequest InstallToRemoteAccessSession where
     Response.receiveJSON
       ( \s h x ->
           InstallToRemoteAccessSessionResponse'
-            Prelude.<$> (x Core..?> "appUpload")
+            Prelude.<$> (x Data..?> "appUpload")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,37 +127,37 @@ instance Prelude.NFData InstallToRemoteAccessSession where
     Prelude.rnf remoteAccessSessionArn
       `Prelude.seq` Prelude.rnf appArn
 
-instance Core.ToHeaders InstallToRemoteAccessSession where
+instance Data.ToHeaders InstallToRemoteAccessSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.InstallToRemoteAccessSession" ::
+              Data.=# ( "DeviceFarm_20150623.InstallToRemoteAccessSession" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON InstallToRemoteAccessSession where
+instance Data.ToJSON InstallToRemoteAccessSession where
   toJSON InstallToRemoteAccessSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "remoteAccessSessionArn"
-                  Core..= remoteAccessSessionArn
+                  Data..= remoteAccessSessionArn
               ),
-            Prelude.Just ("appArn" Core..= appArn)
+            Prelude.Just ("appArn" Data..= appArn)
           ]
       )
 
-instance Core.ToPath InstallToRemoteAccessSession where
+instance Data.ToPath InstallToRemoteAccessSession where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery InstallToRemoteAccessSession where
+instance Data.ToQuery InstallToRemoteAccessSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server after AWS Device Farm makes a

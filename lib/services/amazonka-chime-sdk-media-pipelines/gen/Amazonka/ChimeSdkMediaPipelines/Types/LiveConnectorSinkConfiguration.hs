@@ -23,6 +23,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorRTMPConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorSinkType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The media pipeline\'s sink configuration settings.
@@ -70,14 +71,14 @@ liveConnectorSinkConfiguration_sinkType = Lens.lens (\LiveConnectorSinkConfigura
 liveConnectorSinkConfiguration_rTMPConfiguration :: Lens.Lens' LiveConnectorSinkConfiguration LiveConnectorRTMPConfiguration
 liveConnectorSinkConfiguration_rTMPConfiguration = Lens.lens (\LiveConnectorSinkConfiguration' {rTMPConfiguration} -> rTMPConfiguration) (\s@LiveConnectorSinkConfiguration' {} a -> s {rTMPConfiguration = a} :: LiveConnectorSinkConfiguration)
 
-instance Core.FromJSON LiveConnectorSinkConfiguration where
+instance Data.FromJSON LiveConnectorSinkConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LiveConnectorSinkConfiguration"
       ( \x ->
           LiveConnectorSinkConfiguration'
-            Prelude.<$> (x Core..: "SinkType")
-            Prelude.<*> (x Core..: "RTMPConfiguration")
+            Prelude.<$> (x Data..: "SinkType")
+            Prelude.<*> (x Data..: "RTMPConfiguration")
       )
 
 instance
@@ -98,12 +99,12 @@ instance
     Prelude.rnf sinkType
       `Prelude.seq` Prelude.rnf rTMPConfiguration
 
-instance Core.ToJSON LiveConnectorSinkConfiguration where
+instance Data.ToJSON LiveConnectorSinkConfiguration where
   toJSON LiveConnectorSinkConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SinkType" Core..= sinkType),
+          [ Prelude.Just ("SinkType" Data..= sinkType),
             Prelude.Just
-              ("RTMPConfiguration" Core..= rTMPConfiguration)
+              ("RTMPConfiguration" Data..= rTMPConfiguration)
           ]
       )

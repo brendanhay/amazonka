@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CrawlerTargets where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CatalogTarget
 import Amazonka.Glue.Types.DeltaTarget
 import Amazonka.Glue.Types.DynamoDBTarget
@@ -103,21 +104,21 @@ crawlerTargets_s3Targets = Lens.lens (\CrawlerTargets' {s3Targets} -> s3Targets)
 crawlerTargets_catalogTargets :: Lens.Lens' CrawlerTargets (Prelude.Maybe [CatalogTarget])
 crawlerTargets_catalogTargets = Lens.lens (\CrawlerTargets' {catalogTargets} -> catalogTargets) (\s@CrawlerTargets' {} a -> s {catalogTargets = a} :: CrawlerTargets) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CrawlerTargets where
+instance Data.FromJSON CrawlerTargets where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CrawlerTargets"
       ( \x ->
           CrawlerTargets'
-            Prelude.<$> (x Core..:? "MongoDBTargets" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "DynamoDBTargets"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "MongoDBTargets" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "DynamoDBTargets"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DeltaTargets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "JdbcTargets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "S3Targets" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "CatalogTargets"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "DeltaTargets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "JdbcTargets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "S3Targets" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "CatalogTargets"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -139,18 +140,18 @@ instance Prelude.NFData CrawlerTargets where
       `Prelude.seq` Prelude.rnf s3Targets
       `Prelude.seq` Prelude.rnf catalogTargets
 
-instance Core.ToJSON CrawlerTargets where
+instance Data.ToJSON CrawlerTargets where
   toJSON CrawlerTargets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MongoDBTargets" Core..=)
+          [ ("MongoDBTargets" Data..=)
               Prelude.<$> mongoDBTargets,
-            ("DynamoDBTargets" Core..=)
+            ("DynamoDBTargets" Data..=)
               Prelude.<$> dynamoDBTargets,
-            ("DeltaTargets" Core..=) Prelude.<$> deltaTargets,
-            ("JdbcTargets" Core..=) Prelude.<$> jdbcTargets,
-            ("S3Targets" Core..=) Prelude.<$> s3Targets,
-            ("CatalogTargets" Core..=)
+            ("DeltaTargets" Data..=) Prelude.<$> deltaTargets,
+            ("JdbcTargets" Data..=) Prelude.<$> jdbcTargets,
+            ("S3Targets" Data..=) Prelude.<$> s3Targets,
+            ("CatalogTargets" Data..=)
               Prelude.<$> catalogTargets
           ]
       )

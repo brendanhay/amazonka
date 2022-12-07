@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,20 +128,20 @@ instance Prelude.NFData DeleteVaultAccessPolicy where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf vaultName
 
-instance Core.ToHeaders DeleteVaultAccessPolicy where
+instance Data.ToHeaders DeleteVaultAccessPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteVaultAccessPolicy where
+instance Data.ToPath DeleteVaultAccessPolicy where
   toPath DeleteVaultAccessPolicy' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/access-policy"
       ]
 
-instance Core.ToQuery DeleteVaultAccessPolicy where
+instance Data.ToQuery DeleteVaultAccessPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVaultAccessPolicyResponse' smart constructor.

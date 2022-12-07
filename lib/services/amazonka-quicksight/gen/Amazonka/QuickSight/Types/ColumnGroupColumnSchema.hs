@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ColumnGroupColumnSchema where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure describing the name, data type, and geographic role of the
@@ -51,13 +52,13 @@ newColumnGroupColumnSchema =
 columnGroupColumnSchema_name :: Lens.Lens' ColumnGroupColumnSchema (Prelude.Maybe Prelude.Text)
 columnGroupColumnSchema_name = Lens.lens (\ColumnGroupColumnSchema' {name} -> name) (\s@ColumnGroupColumnSchema' {} a -> s {name = a} :: ColumnGroupColumnSchema)
 
-instance Core.FromJSON ColumnGroupColumnSchema where
+instance Data.FromJSON ColumnGroupColumnSchema where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnGroupColumnSchema"
       ( \x ->
           ColumnGroupColumnSchema'
-            Prelude.<$> (x Core..:? "Name")
+            Prelude.<$> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable ColumnGroupColumnSchema where

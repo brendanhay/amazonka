@@ -45,6 +45,7 @@ where
 import Amazonka.CloudHSMV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,7 +122,7 @@ instance Core.AWSRequest CreateHsm where
     Response.receiveJSON
       ( \s h x ->
           CreateHsmResponse'
-            Prelude.<$> (x Core..?> "Hsm")
+            Prelude.<$> (x Data..?> "Hsm")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,34 +138,34 @@ instance Prelude.NFData CreateHsm where
       `Prelude.seq` Prelude.rnf clusterId
       `Prelude.seq` Prelude.rnf availabilityZone
 
-instance Core.ToHeaders CreateHsm where
+instance Data.ToHeaders CreateHsm where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("BaldrApiService.CreateHsm" :: Prelude.ByteString),
+              Data.=# ("BaldrApiService.CreateHsm" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateHsm where
+instance Data.ToJSON CreateHsm where
   toJSON CreateHsm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IpAddress" Core..=) Prelude.<$> ipAddress,
-            Prelude.Just ("ClusterId" Core..= clusterId),
+          [ ("IpAddress" Data..=) Prelude.<$> ipAddress,
+            Prelude.Just ("ClusterId" Data..= clusterId),
             Prelude.Just
-              ("AvailabilityZone" Core..= availabilityZone)
+              ("AvailabilityZone" Data..= availabilityZone)
           ]
       )
 
-instance Core.ToPath CreateHsm where
+instance Data.ToPath CreateHsm where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateHsm where
+instance Data.ToQuery CreateHsm where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateHsmResponse' smart constructor.

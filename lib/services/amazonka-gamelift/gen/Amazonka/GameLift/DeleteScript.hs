@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,30 +104,30 @@ instance Prelude.Hashable DeleteScript where
 instance Prelude.NFData DeleteScript where
   rnf DeleteScript' {..} = Prelude.rnf scriptId
 
-instance Core.ToHeaders DeleteScript where
+instance Data.ToHeaders DeleteScript where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.DeleteScript" :: Prelude.ByteString),
+              Data.=# ("GameLift.DeleteScript" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteScript where
+instance Data.ToJSON DeleteScript where
   toJSON DeleteScript' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ScriptId" Core..= scriptId)]
+          [Prelude.Just ("ScriptId" Data..= scriptId)]
       )
 
-instance Core.ToPath DeleteScript where
+instance Data.ToPath DeleteScript where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteScript where
+instance Data.ToQuery DeleteScript where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteScriptResponse' smart constructor.

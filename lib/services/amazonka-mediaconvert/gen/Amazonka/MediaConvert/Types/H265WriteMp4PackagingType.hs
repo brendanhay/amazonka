@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.H265WriteMp4PackagingType
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If the location of parameter set NAL units doesn\'t matter in your
@@ -43,7 +44,7 @@ import qualified Amazonka.Prelude as Prelude
 -- samples.
 newtype H265WriteMp4PackagingType = H265WriteMp4PackagingType'
   { fromH265WriteMp4PackagingType ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -55,18 +56,18 @@ newtype H265WriteMp4PackagingType = H265WriteMp4PackagingType'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern H265WriteMp4PackagingType_HEV1 :: H265WriteMp4PackagingType

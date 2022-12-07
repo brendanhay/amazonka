@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ObjectVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ChecksumAlgorithm
@@ -43,7 +44,7 @@ data ObjectVersion = ObjectVersion'
     -- | Specifies the owner of the object.
     owner :: Prelude.Maybe Owner,
     -- | Date and time the object was last modified.
-    lastModified :: Prelude.Maybe Core.ISO8601,
+    lastModified :: Prelude.Maybe Data.ISO8601,
     -- | The class of storage used to store the object.
     storageClass :: Prelude.Maybe ObjectVersionStorageClass,
     -- | The entity tag is an MD5 hash of that version of the object.
@@ -117,7 +118,7 @@ objectVersion_owner = Lens.lens (\ObjectVersion' {owner} -> owner) (\s@ObjectVer
 
 -- | Date and time the object was last modified.
 objectVersion_lastModified :: Lens.Lens' ObjectVersion (Prelude.Maybe Prelude.UTCTime)
-objectVersion_lastModified = Lens.lens (\ObjectVersion' {lastModified} -> lastModified) (\s@ObjectVersion' {} a -> s {lastModified = a} :: ObjectVersion) Prelude.. Lens.mapping Core._Time
+objectVersion_lastModified = Lens.lens (\ObjectVersion' {lastModified} -> lastModified) (\s@ObjectVersion' {} a -> s {lastModified = a} :: ObjectVersion) Prelude.. Lens.mapping Data._Time
 
 -- | The class of storage used to store the object.
 objectVersion_storageClass :: Lens.Lens' ObjectVersion (Prelude.Maybe ObjectVersionStorageClass)
@@ -131,18 +132,18 @@ objectVersion_eTag = Lens.lens (\ObjectVersion' {eTag} -> eTag) (\s@ObjectVersio
 objectVersion_versionId :: Lens.Lens' ObjectVersion (Prelude.Maybe ObjectVersionId)
 objectVersion_versionId = Lens.lens (\ObjectVersion' {versionId} -> versionId) (\s@ObjectVersion' {} a -> s {versionId = a} :: ObjectVersion)
 
-instance Core.FromXML ObjectVersion where
+instance Data.FromXML ObjectVersion where
   parseXML x =
     ObjectVersion'
-      Prelude.<$> (Core.may (Core.parseXMLList "ChecksumAlgorithm") x)
-      Prelude.<*> (x Core..@? "Key")
-      Prelude.<*> (x Core..@? "IsLatest")
-      Prelude.<*> (x Core..@? "Size")
-      Prelude.<*> (x Core..@? "Owner")
-      Prelude.<*> (x Core..@? "LastModified")
-      Prelude.<*> (x Core..@? "StorageClass")
-      Prelude.<*> (x Core..@? "ETag")
-      Prelude.<*> (x Core..@? "VersionId")
+      Prelude.<$> (Core.may (Data.parseXMLList "ChecksumAlgorithm") x)
+      Prelude.<*> (x Data..@? "Key")
+      Prelude.<*> (x Data..@? "IsLatest")
+      Prelude.<*> (x Data..@? "Size")
+      Prelude.<*> (x Data..@? "Owner")
+      Prelude.<*> (x Data..@? "LastModified")
+      Prelude.<*> (x Data..@? "StorageClass")
+      Prelude.<*> (x Data..@? "ETag")
+      Prelude.<*> (x Data..@? "VersionId")
 
 instance Prelude.Hashable ObjectVersion where
   hashWithSalt _salt ObjectVersion' {..} =

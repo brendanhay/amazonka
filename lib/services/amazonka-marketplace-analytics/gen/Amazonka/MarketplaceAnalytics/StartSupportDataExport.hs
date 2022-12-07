@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,7 +97,7 @@ data StartSupportDataExport = StartSupportDataExport'
     dataSetType :: SupportDataSetType,
     -- | The start date from which to retrieve the data set in UTC. This
     -- parameter only affects the customer_support_contacts_data data set type.
-    fromDate :: Core.POSIX,
+    fromDate :: Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the Role with an attached permissions
     -- policy to interact with the provided AWS services.
     roleNameArn :: Prelude.Text,
@@ -176,7 +177,7 @@ newStartSupportDataExport
           Prelude.Nothing,
         customerDefinedValues = Prelude.Nothing,
         dataSetType = pDataSetType_,
-        fromDate = Core._Time Lens.# pFromDate_,
+        fromDate = Data._Time Lens.# pFromDate_,
         roleNameArn = pRoleNameArn_,
         destinationS3BucketName = pDestinationS3BucketName_,
         snsTopicArn = pSnsTopicArn_
@@ -218,7 +219,7 @@ startSupportDataExport_dataSetType = Lens.lens (\StartSupportDataExport' {dataSe
 -- | The start date from which to retrieve the data set in UTC. This
 -- parameter only affects the customer_support_contacts_data data set type.
 startSupportDataExport_fromDate :: Lens.Lens' StartSupportDataExport Prelude.UTCTime
-startSupportDataExport_fromDate = Lens.lens (\StartSupportDataExport' {fromDate} -> fromDate) (\s@StartSupportDataExport' {} a -> s {fromDate = a} :: StartSupportDataExport) Prelude.. Core._Time
+startSupportDataExport_fromDate = Lens.lens (\StartSupportDataExport' {fromDate} -> fromDate) (\s@StartSupportDataExport' {} a -> s {fromDate = a} :: StartSupportDataExport) Prelude.. Data._Time
 
 -- | The Amazon Resource Name (ARN) of the Role with an attached permissions
 -- policy to interact with the provided AWS services.
@@ -244,7 +245,7 @@ instance Core.AWSRequest StartSupportDataExport where
     Response.receiveJSON
       ( \s h x ->
           StartSupportDataExportResponse'
-            Prelude.<$> (x Core..?> "dataSetRequestId")
+            Prelude.<$> (x Data..?> "dataSetRequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -268,44 +269,44 @@ instance Prelude.NFData StartSupportDataExport where
       `Prelude.seq` Prelude.rnf destinationS3BucketName
       `Prelude.seq` Prelude.rnf snsTopicArn
 
-instance Core.ToHeaders StartSupportDataExport where
+instance Data.ToHeaders StartSupportDataExport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MarketplaceCommerceAnalytics20150701.StartSupportDataExport" ::
+              Data.=# ( "MarketplaceCommerceAnalytics20150701.StartSupportDataExport" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartSupportDataExport where
+instance Data.ToJSON StartSupportDataExport where
   toJSON StartSupportDataExport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("destinationS3Prefix" Core..=)
+          [ ("destinationS3Prefix" Data..=)
               Prelude.<$> destinationS3Prefix,
-            ("customerDefinedValues" Core..=)
+            ("customerDefinedValues" Data..=)
               Prelude.<$> customerDefinedValues,
-            Prelude.Just ("dataSetType" Core..= dataSetType),
-            Prelude.Just ("fromDate" Core..= fromDate),
-            Prelude.Just ("roleNameArn" Core..= roleNameArn),
+            Prelude.Just ("dataSetType" Data..= dataSetType),
+            Prelude.Just ("fromDate" Data..= fromDate),
+            Prelude.Just ("roleNameArn" Data..= roleNameArn),
             Prelude.Just
               ( "destinationS3BucketName"
-                  Core..= destinationS3BucketName
+                  Data..= destinationS3BucketName
               ),
-            Prelude.Just ("snsTopicArn" Core..= snsTopicArn)
+            Prelude.Just ("snsTopicArn" Data..= snsTopicArn)
           ]
       )
 
-instance Core.ToPath StartSupportDataExport where
+instance Data.ToPath StartSupportDataExport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartSupportDataExport where
+instance Data.ToQuery StartSupportDataExport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Container for the result of the StartSupportDataExport operation.

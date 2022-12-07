@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -176,8 +177,8 @@ instance Core.AWSRequest ListNamespaces where
     Response.receiveJSON
       ( \s h x ->
           ListNamespacesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Namespaces" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Namespaces" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,35 +194,35 @@ instance Prelude.NFData ListNamespaces where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListNamespaces where
+instance Data.ToHeaders ListNamespaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53AutoNaming_v20170314.ListNamespaces" ::
+              Data.=# ( "Route53AutoNaming_v20170314.ListNamespaces" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListNamespaces where
+instance Data.ToJSON ListNamespaces where
   toJSON ListNamespaces' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListNamespaces where
+instance Data.ToPath ListNamespaces where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListNamespaces where
+instance Data.ToQuery ListNamespaces where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListNamespacesResponse' smart constructor.

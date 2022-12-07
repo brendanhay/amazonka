@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Tagging where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.Tag
@@ -58,7 +59,7 @@ instance Prelude.Hashable Tagging where
 instance Prelude.NFData Tagging where
   rnf Tagging' {..} = Prelude.rnf tagSet
 
-instance Core.ToXML Tagging where
+instance Data.ToXML Tagging where
   toXML Tagging' {..} =
     Prelude.mconcat
-      ["TagSet" Core.@= Core.toXMLList "Tag" tagSet]
+      ["TagSet" Data.@= Data.toXMLList "Tag" tagSet]

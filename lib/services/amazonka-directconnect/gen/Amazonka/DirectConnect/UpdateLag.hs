@@ -81,6 +81,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -160,7 +161,7 @@ instance Core.AWSRequest UpdateLag where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateLag where
   hashWithSalt _salt UpdateLag' {..} =
@@ -176,33 +177,33 @@ instance Prelude.NFData UpdateLag where
       `Prelude.seq` Prelude.rnf encryptionMode
       `Prelude.seq` Prelude.rnf lagId
 
-instance Core.ToHeaders UpdateLag where
+instance Data.ToHeaders UpdateLag where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("OvertureService.UpdateLag" :: Prelude.ByteString),
+              Data.=# ("OvertureService.UpdateLag" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLag where
+instance Data.ToJSON UpdateLag where
   toJSON UpdateLag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("minimumLinks" Core..=) Prelude.<$> minimumLinks,
-            ("lagName" Core..=) Prelude.<$> lagName,
-            ("encryptionMode" Core..=)
+          [ ("minimumLinks" Data..=) Prelude.<$> minimumLinks,
+            ("lagName" Data..=) Prelude.<$> lagName,
+            ("encryptionMode" Data..=)
               Prelude.<$> encryptionMode,
-            Prelude.Just ("lagId" Core..= lagId)
+            Prelude.Just ("lagId" Data..= lagId)
           ]
       )
 
-instance Core.ToPath UpdateLag where
+instance Data.ToPath UpdateLag where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateLag where
+instance Data.ToQuery UpdateLag where
   toQuery = Prelude.const Prelude.mempty

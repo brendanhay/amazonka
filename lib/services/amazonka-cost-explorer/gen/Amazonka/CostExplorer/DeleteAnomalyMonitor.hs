@@ -41,6 +41,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,32 +97,32 @@ instance Prelude.NFData DeleteAnomalyMonitor where
   rnf DeleteAnomalyMonitor' {..} =
     Prelude.rnf monitorArn
 
-instance Core.ToHeaders DeleteAnomalyMonitor where
+instance Data.ToHeaders DeleteAnomalyMonitor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.DeleteAnomalyMonitor" ::
+              Data.=# ( "AWSInsightsIndexService.DeleteAnomalyMonitor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAnomalyMonitor where
+instance Data.ToJSON DeleteAnomalyMonitor where
   toJSON DeleteAnomalyMonitor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("MonitorArn" Core..= monitorArn)]
+          [Prelude.Just ("MonitorArn" Data..= monitorArn)]
       )
 
-instance Core.ToPath DeleteAnomalyMonitor where
+instance Data.ToPath DeleteAnomalyMonitor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAnomalyMonitor where
+instance Data.ToQuery DeleteAnomalyMonitor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAnomalyMonitorResponse' smart constructor.

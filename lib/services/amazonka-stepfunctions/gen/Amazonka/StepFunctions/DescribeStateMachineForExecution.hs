@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,14 +104,14 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeStateMachineForExecutionResponse'
-            Prelude.<$> (x Core..?> "tracingConfiguration")
-            Prelude.<*> (x Core..?> "loggingConfiguration")
+            Prelude.<$> (x Data..?> "tracingConfiguration")
+            Prelude.<*> (x Data..?> "loggingConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "stateMachineArn")
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "definition")
-            Prelude.<*> (x Core..:> "roleArn")
-            Prelude.<*> (x Core..:> "updateDate")
+            Prelude.<*> (x Data..:> "stateMachineArn")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "definition")
+            Prelude.<*> (x Data..:> "roleArn")
+            Prelude.<*> (x Data..:> "updateDate")
       )
 
 instance
@@ -130,35 +131,35 @@ instance
     Prelude.rnf executionArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeStateMachineForExecution
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSStepFunctions.DescribeStateMachineForExecution" ::
+              Data.=# ( "AWSStepFunctions.DescribeStateMachineForExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeStateMachineForExecution where
+instance Data.ToJSON DescribeStateMachineForExecution where
   toJSON DescribeStateMachineForExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("executionArn" Core..= executionArn)]
+          [Prelude.Just ("executionArn" Data..= executionArn)]
       )
 
-instance Core.ToPath DescribeStateMachineForExecution where
+instance Data.ToPath DescribeStateMachineForExecution where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeStateMachineForExecution
   where
   toQuery = Prelude.const Prelude.mempty
@@ -177,13 +178,13 @@ data DescribeStateMachineForExecutionResponse = DescribeStateMachineForExecution
     name :: Prelude.Text,
     -- | The Amazon States Language definition of the state machine. See
     -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
-    definition :: Core.Sensitive Prelude.Text,
+    definition :: Data.Sensitive Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role of the State Machine for
     -- the execution.
     roleArn :: Prelude.Text,
     -- | The date and time the state machine associated with an execution was
     -- updated. For a newly created state machine, this is the creation date.
-    updateDate :: Core.POSIX
+    updateDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -245,11 +246,11 @@ newDescribeStateMachineForExecutionResponse
           pStateMachineArn_,
         name = pName_,
         definition =
-          Core._Sensitive
+          Data._Sensitive
             Lens.# pDefinition_,
         roleArn = pRoleArn_,
         updateDate =
-          Core._Time Lens.# pUpdateDate_
+          Data._Time Lens.# pUpdateDate_
       }
 
 -- | Selects whether X-Ray tracing is enabled.
@@ -276,7 +277,7 @@ describeStateMachineForExecutionResponse_name = Lens.lens (\DescribeStateMachine
 -- | The Amazon States Language definition of the state machine. See
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
 describeStateMachineForExecutionResponse_definition :: Lens.Lens' DescribeStateMachineForExecutionResponse Prelude.Text
-describeStateMachineForExecutionResponse_definition = Lens.lens (\DescribeStateMachineForExecutionResponse' {definition} -> definition) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {definition = a} :: DescribeStateMachineForExecutionResponse) Prelude.. Core._Sensitive
+describeStateMachineForExecutionResponse_definition = Lens.lens (\DescribeStateMachineForExecutionResponse' {definition} -> definition) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {definition = a} :: DescribeStateMachineForExecutionResponse) Prelude.. Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the IAM role of the State Machine for
 -- the execution.
@@ -286,7 +287,7 @@ describeStateMachineForExecutionResponse_roleArn = Lens.lens (\DescribeStateMach
 -- | The date and time the state machine associated with an execution was
 -- updated. For a newly created state machine, this is the creation date.
 describeStateMachineForExecutionResponse_updateDate :: Lens.Lens' DescribeStateMachineForExecutionResponse Prelude.UTCTime
-describeStateMachineForExecutionResponse_updateDate = Lens.lens (\DescribeStateMachineForExecutionResponse' {updateDate} -> updateDate) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {updateDate = a} :: DescribeStateMachineForExecutionResponse) Prelude.. Core._Time
+describeStateMachineForExecutionResponse_updateDate = Lens.lens (\DescribeStateMachineForExecutionResponse' {updateDate} -> updateDate) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {updateDate = a} :: DescribeStateMachineForExecutionResponse) Prelude.. Data._Time
 
 instance
   Prelude.NFData

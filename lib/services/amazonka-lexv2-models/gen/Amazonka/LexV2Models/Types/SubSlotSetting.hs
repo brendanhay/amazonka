@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SubSlotSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.Specifications
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,15 +67,15 @@ subSlotSetting_expression = Lens.lens (\SubSlotSetting' {expression} -> expressi
 subSlotSetting_slotSpecifications :: Lens.Lens' SubSlotSetting (Prelude.Maybe (Prelude.HashMap Prelude.Text Specifications))
 subSlotSetting_slotSpecifications = Lens.lens (\SubSlotSetting' {slotSpecifications} -> slotSpecifications) (\s@SubSlotSetting' {} a -> s {slotSpecifications = a} :: SubSlotSetting) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SubSlotSetting where
+instance Data.FromJSON SubSlotSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubSlotSetting"
       ( \x ->
           SubSlotSetting'
-            Prelude.<$> (x Core..:? "expression")
-            Prelude.<*> ( x Core..:? "slotSpecifications"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "expression")
+            Prelude.<*> ( x Data..:? "slotSpecifications"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -88,12 +89,12 @@ instance Prelude.NFData SubSlotSetting where
     Prelude.rnf expression
       `Prelude.seq` Prelude.rnf slotSpecifications
 
-instance Core.ToJSON SubSlotSetting where
+instance Data.ToJSON SubSlotSetting where
   toJSON SubSlotSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("expression" Core..=) Prelude.<$> expression,
-            ("slotSpecifications" Core..=)
+          [ ("expression" Data..=) Prelude.<$> expression,
+            ("slotSpecifications" Data..=)
               Prelude.<$> slotSpecifications
           ]
       )

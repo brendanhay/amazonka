@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,7 +134,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateSpotDatafeedSubscriptionResponse'
-            Prelude.<$> (x Core..@? "spotDatafeedSubscription")
+            Prelude.<$> (x Data..@? "spotDatafeedSubscription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,26 +159,26 @@ instance
       `Prelude.seq` Prelude.rnf bucket
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateSpotDatafeedSubscription
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateSpotDatafeedSubscription where
+instance Data.ToPath CreateSpotDatafeedSubscription where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSpotDatafeedSubscription where
+instance Data.ToQuery CreateSpotDatafeedSubscription where
   toQuery CreateSpotDatafeedSubscription' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateSpotDatafeedSubscription" ::
+          Data.=: ( "CreateSpotDatafeedSubscription" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Prefix" Core.=: prefix,
-        "Bucket" Core.=: bucket
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Prefix" Data.=: prefix,
+        "Bucket" Data.=: bucket
       ]
 
 -- | Contains the output of CreateSpotDatafeedSubscription.

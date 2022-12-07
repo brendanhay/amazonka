@@ -21,6 +21,7 @@ module Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies whether profiling is enabled or disabled for a profiling
@@ -61,13 +62,13 @@ newAgentOrchestrationConfig pProfilingEnabled_ =
 agentOrchestrationConfig_profilingEnabled :: Lens.Lens' AgentOrchestrationConfig Prelude.Bool
 agentOrchestrationConfig_profilingEnabled = Lens.lens (\AgentOrchestrationConfig' {profilingEnabled} -> profilingEnabled) (\s@AgentOrchestrationConfig' {} a -> s {profilingEnabled = a} :: AgentOrchestrationConfig)
 
-instance Core.FromJSON AgentOrchestrationConfig where
+instance Data.FromJSON AgentOrchestrationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AgentOrchestrationConfig"
       ( \x ->
           AgentOrchestrationConfig'
-            Prelude.<$> (x Core..: "profilingEnabled")
+            Prelude.<$> (x Data..: "profilingEnabled")
       )
 
 instance Prelude.Hashable AgentOrchestrationConfig where
@@ -78,11 +79,11 @@ instance Prelude.NFData AgentOrchestrationConfig where
   rnf AgentOrchestrationConfig' {..} =
     Prelude.rnf profilingEnabled
 
-instance Core.ToJSON AgentOrchestrationConfig where
+instance Data.ToJSON AgentOrchestrationConfig where
   toJSON AgentOrchestrationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("profilingEnabled" Core..= profilingEnabled)
+              ("profilingEnabled" Data..= profilingEnabled)
           ]
       )

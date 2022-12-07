@@ -23,6 +23,7 @@ import Amazonka.CodeGuruReviewer.Types.ProviderType
 import Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a repository association. The
@@ -33,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 data RepositoryAssociationSummary = RepositoryAssociationSummary'
   { -- | The time, in milliseconds since the epoch, since the repository
     -- association was last updated.
-    lastUpdatedTimeStamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimeStamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the repository association.
     name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the
@@ -181,7 +182,7 @@ newRepositoryAssociationSummary =
 -- | The time, in milliseconds since the epoch, since the repository
 -- association was last updated.
 repositoryAssociationSummary_lastUpdatedTimeStamp :: Lens.Lens' RepositoryAssociationSummary (Prelude.Maybe Prelude.UTCTime)
-repositoryAssociationSummary_lastUpdatedTimeStamp = Lens.lens (\RepositoryAssociationSummary' {lastUpdatedTimeStamp} -> lastUpdatedTimeStamp) (\s@RepositoryAssociationSummary' {} a -> s {lastUpdatedTimeStamp = a} :: RepositoryAssociationSummary) Prelude.. Lens.mapping Core._Time
+repositoryAssociationSummary_lastUpdatedTimeStamp = Lens.lens (\RepositoryAssociationSummary' {lastUpdatedTimeStamp} -> lastUpdatedTimeStamp) (\s@RepositoryAssociationSummary' {} a -> s {lastUpdatedTimeStamp = a} :: RepositoryAssociationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the repository association.
 repositoryAssociationSummary_name :: Lens.Lens' RepositoryAssociationSummary (Prelude.Maybe Prelude.Text)
@@ -255,20 +256,20 @@ repositoryAssociationSummary_providerType = Lens.lens (\RepositoryAssociationSum
 repositoryAssociationSummary_associationId :: Lens.Lens' RepositoryAssociationSummary (Prelude.Maybe Prelude.Text)
 repositoryAssociationSummary_associationId = Lens.lens (\RepositoryAssociationSummary' {associationId} -> associationId) (\s@RepositoryAssociationSummary' {} a -> s {associationId = a} :: RepositoryAssociationSummary)
 
-instance Core.FromJSON RepositoryAssociationSummary where
+instance Data.FromJSON RepositoryAssociationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositoryAssociationSummary"
       ( \x ->
           RepositoryAssociationSummary'
-            Prelude.<$> (x Core..:? "LastUpdatedTimeStamp")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AssociationArn")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "ConnectionArn")
-            Prelude.<*> (x Core..:? "ProviderType")
-            Prelude.<*> (x Core..:? "AssociationId")
+            Prelude.<$> (x Data..:? "LastUpdatedTimeStamp")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AssociationArn")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "ConnectionArn")
+            Prelude.<*> (x Data..:? "ProviderType")
+            Prelude.<*> (x Data..:? "AssociationId")
       )
 
 instance

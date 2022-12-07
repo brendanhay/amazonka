@@ -21,6 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchDetachTypedLinkResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a DetachTypedLink response operation.
@@ -40,9 +41,9 @@ newBatchDetachTypedLinkResponse ::
 newBatchDetachTypedLinkResponse =
   BatchDetachTypedLinkResponse'
 
-instance Core.FromJSON BatchDetachTypedLinkResponse where
+instance Data.FromJSON BatchDetachTypedLinkResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDetachTypedLinkResponse"
       (\x -> Prelude.pure BatchDetachTypedLinkResponse')
 

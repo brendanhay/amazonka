@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.NotificationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a notification.
@@ -101,12 +102,12 @@ notificationConfiguration_topicARN = Lens.lens (\NotificationConfiguration' {top
 notificationConfiguration_autoScalingGroupName :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
 notificationConfiguration_autoScalingGroupName = Lens.lens (\NotificationConfiguration' {autoScalingGroupName} -> autoScalingGroupName) (\s@NotificationConfiguration' {} a -> s {autoScalingGroupName = a} :: NotificationConfiguration)
 
-instance Core.FromXML NotificationConfiguration where
+instance Data.FromXML NotificationConfiguration where
   parseXML x =
     NotificationConfiguration'
-      Prelude.<$> (x Core..@? "NotificationType")
-      Prelude.<*> (x Core..@? "TopicARN")
-      Prelude.<*> (x Core..@? "AutoScalingGroupName")
+      Prelude.<$> (x Data..@? "NotificationType")
+      Prelude.<*> (x Data..@? "TopicARN")
+      Prelude.<*> (x Data..@? "AutoScalingGroupName")
 
 instance Prelude.Hashable NotificationConfiguration where
   hashWithSalt _salt NotificationConfiguration' {..} =

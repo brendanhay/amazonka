@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.VerificationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Verify OTP Message Response.
@@ -50,13 +51,13 @@ newVerificationResponse =
 verificationResponse_valid :: Lens.Lens' VerificationResponse (Prelude.Maybe Prelude.Bool)
 verificationResponse_valid = Lens.lens (\VerificationResponse' {valid} -> valid) (\s@VerificationResponse' {} a -> s {valid = a} :: VerificationResponse)
 
-instance Core.FromJSON VerificationResponse where
+instance Data.FromJSON VerificationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VerificationResponse"
       ( \x ->
           VerificationResponse'
-            Prelude.<$> (x Core..:? "Valid")
+            Prelude.<$> (x Data..:? "Valid")
       )
 
 instance Prelude.Hashable VerificationResponse where

@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.AutoScalingDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.ScaleInPolicyDescription
 import Amazonka.KafkaConnect.Types.ScaleOutPolicyDescription
 import qualified Amazonka.Prelude as Prelude
@@ -93,17 +94,17 @@ autoScalingDescription_scaleOutPolicy = Lens.lens (\AutoScalingDescription' {sca
 autoScalingDescription_scaleInPolicy :: Lens.Lens' AutoScalingDescription (Prelude.Maybe ScaleInPolicyDescription)
 autoScalingDescription_scaleInPolicy = Lens.lens (\AutoScalingDescription' {scaleInPolicy} -> scaleInPolicy) (\s@AutoScalingDescription' {} a -> s {scaleInPolicy = a} :: AutoScalingDescription)
 
-instance Core.FromJSON AutoScalingDescription where
+instance Data.FromJSON AutoScalingDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoScalingDescription"
       ( \x ->
           AutoScalingDescription'
-            Prelude.<$> (x Core..:? "mcuCount")
-            Prelude.<*> (x Core..:? "minWorkerCount")
-            Prelude.<*> (x Core..:? "maxWorkerCount")
-            Prelude.<*> (x Core..:? "scaleOutPolicy")
-            Prelude.<*> (x Core..:? "scaleInPolicy")
+            Prelude.<$> (x Data..:? "mcuCount")
+            Prelude.<*> (x Data..:? "minWorkerCount")
+            Prelude.<*> (x Data..:? "maxWorkerCount")
+            Prelude.<*> (x Data..:? "scaleOutPolicy")
+            Prelude.<*> (x Data..:? "scaleInPolicy")
       )
 
 instance Prelude.Hashable AutoScalingDescription where

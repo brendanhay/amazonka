@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.SiteToSiteVpnAttachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.Attachment
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ siteToSiteVpnAttachment_attachment = Lens.lens (\SiteToSiteVpnAttachment' {attac
 siteToSiteVpnAttachment_vpnConnectionArn :: Lens.Lens' SiteToSiteVpnAttachment (Prelude.Maybe Prelude.Text)
 siteToSiteVpnAttachment_vpnConnectionArn = Lens.lens (\SiteToSiteVpnAttachment' {vpnConnectionArn} -> vpnConnectionArn) (\s@SiteToSiteVpnAttachment' {} a -> s {vpnConnectionArn = a} :: SiteToSiteVpnAttachment)
 
-instance Core.FromJSON SiteToSiteVpnAttachment where
+instance Data.FromJSON SiteToSiteVpnAttachment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SiteToSiteVpnAttachment"
       ( \x ->
           SiteToSiteVpnAttachment'
-            Prelude.<$> (x Core..:? "Attachment")
-            Prelude.<*> (x Core..:? "VpnConnectionArn")
+            Prelude.<$> (x Data..:? "Attachment")
+            Prelude.<*> (x Data..:? "VpnConnectionArn")
       )
 
 instance Prelude.Hashable SiteToSiteVpnAttachment where

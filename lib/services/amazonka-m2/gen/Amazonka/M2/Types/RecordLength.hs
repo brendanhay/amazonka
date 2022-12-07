@@ -21,6 +21,7 @@ module Amazonka.M2.Types.RecordLength where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The length of the records in the data set.
@@ -74,11 +75,11 @@ instance Prelude.NFData RecordLength where
   rnf RecordLength' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToJSON RecordLength where
+instance Data.ToJSON RecordLength where
   toJSON RecordLength' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("max" Core..= max),
-            Prelude.Just ("min" Core..= min)
+          [ Prelude.Just ("max" Data..= max),
+            Prelude.Just ("min" Data..= min)
           ]
       )

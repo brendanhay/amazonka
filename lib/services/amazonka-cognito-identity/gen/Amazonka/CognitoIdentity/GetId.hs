@@ -47,6 +47,7 @@ where
 import Amazonka.CognitoIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -153,7 +154,7 @@ instance Core.AWSRequest GetId where
     Response.receiveJSON
       ( \s h x ->
           GetIdResponse'
-            Prelude.<$> (x Core..?> "IdentityId")
+            Prelude.<$> (x Data..?> "IdentityId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,36 +170,36 @@ instance Prelude.NFData GetId where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf identityPoolId
 
-instance Core.ToHeaders GetId where
+instance Data.ToHeaders GetId where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityService.GetId" ::
+              Data.=# ( "AWSCognitoIdentityService.GetId" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetId where
+instance Data.ToJSON GetId where
   toJSON GetId' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Logins" Core..=) Prelude.<$> logins,
-            ("AccountId" Core..=) Prelude.<$> accountId,
+          [ ("Logins" Data..=) Prelude.<$> logins,
+            ("AccountId" Data..=) Prelude.<$> accountId,
             Prelude.Just
-              ("IdentityPoolId" Core..= identityPoolId)
+              ("IdentityPoolId" Data..= identityPoolId)
           ]
       )
 
-instance Core.ToPath GetId where
+instance Data.ToPath GetId where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetId where
+instance Data.ToQuery GetId where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returned in response to a GetId request.

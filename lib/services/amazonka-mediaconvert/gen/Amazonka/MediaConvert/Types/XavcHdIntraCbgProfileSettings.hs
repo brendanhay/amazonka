@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.XavcHdIntraCbgProfileSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.XavcHdIntraCbgProfileClass
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,13 +63,13 @@ newXavcHdIntraCbgProfileSettings =
 xavcHdIntraCbgProfileSettings_xavcClass :: Lens.Lens' XavcHdIntraCbgProfileSettings (Prelude.Maybe XavcHdIntraCbgProfileClass)
 xavcHdIntraCbgProfileSettings_xavcClass = Lens.lens (\XavcHdIntraCbgProfileSettings' {xavcClass} -> xavcClass) (\s@XavcHdIntraCbgProfileSettings' {} a -> s {xavcClass = a} :: XavcHdIntraCbgProfileSettings)
 
-instance Core.FromJSON XavcHdIntraCbgProfileSettings where
+instance Data.FromJSON XavcHdIntraCbgProfileSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "XavcHdIntraCbgProfileSettings"
       ( \x ->
           XavcHdIntraCbgProfileSettings'
-            Prelude.<$> (x Core..:? "xavcClass")
+            Prelude.<$> (x Data..:? "xavcClass")
       )
 
 instance
@@ -82,9 +83,9 @@ instance Prelude.NFData XavcHdIntraCbgProfileSettings where
   rnf XavcHdIntraCbgProfileSettings' {..} =
     Prelude.rnf xavcClass
 
-instance Core.ToJSON XavcHdIntraCbgProfileSettings where
+instance Data.ToJSON XavcHdIntraCbgProfileSettings where
   toJSON XavcHdIntraCbgProfileSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("xavcClass" Core..=) Prelude.<$> xavcClass]
+          [("xavcClass" Data..=) Prelude.<$> xavcClass]
       )

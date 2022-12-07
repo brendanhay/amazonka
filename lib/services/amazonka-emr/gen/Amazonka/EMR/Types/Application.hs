@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.Application where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | With Amazon EMR release version 4.0 and later, the only accepted
@@ -96,16 +97,16 @@ application_args = Lens.lens (\Application' {args} -> args) (\s@Application' {} 
 application_version :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
 application_version = Lens.lens (\Application' {version} -> version) (\s@Application' {} a -> s {version = a} :: Application)
 
-instance Core.FromJSON Application where
+instance Data.FromJSON Application where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Application"
       ( \x ->
           Application'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AdditionalInfo" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Args" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AdditionalInfo" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Args" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable Application where
@@ -122,14 +123,14 @@ instance Prelude.NFData Application where
       `Prelude.seq` Prelude.rnf args
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON Application where
+instance Data.ToJSON Application where
   toJSON Application' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("AdditionalInfo" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("AdditionalInfo" Data..=)
               Prelude.<$> additionalInfo,
-            ("Args" Core..=) Prelude.<$> args,
-            ("Version" Core..=) Prelude.<$> version
+            ("Args" Data..=) Prelude.<$> args,
+            ("Version" Data..=) Prelude.<$> version
           ]
       )

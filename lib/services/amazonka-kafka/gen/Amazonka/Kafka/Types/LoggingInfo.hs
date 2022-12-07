@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.LoggingInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.BrokerLogs
 import qualified Amazonka.Prelude as Prelude
 
@@ -50,12 +51,12 @@ newLoggingInfo pBrokerLogs_ =
 loggingInfo_brokerLogs :: Lens.Lens' LoggingInfo BrokerLogs
 loggingInfo_brokerLogs = Lens.lens (\LoggingInfo' {brokerLogs} -> brokerLogs) (\s@LoggingInfo' {} a -> s {brokerLogs = a} :: LoggingInfo)
 
-instance Core.FromJSON LoggingInfo where
+instance Data.FromJSON LoggingInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoggingInfo"
       ( \x ->
-          LoggingInfo' Prelude.<$> (x Core..: "brokerLogs")
+          LoggingInfo' Prelude.<$> (x Data..: "brokerLogs")
       )
 
 instance Prelude.Hashable LoggingInfo where
@@ -65,9 +66,9 @@ instance Prelude.Hashable LoggingInfo where
 instance Prelude.NFData LoggingInfo where
   rnf LoggingInfo' {..} = Prelude.rnf brokerLogs
 
-instance Core.ToJSON LoggingInfo where
+instance Data.ToJSON LoggingInfo where
   toJSON LoggingInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("brokerLogs" Core..= brokerLogs)]
+          [Prelude.Just ("brokerLogs" Data..= brokerLogs)]
       )

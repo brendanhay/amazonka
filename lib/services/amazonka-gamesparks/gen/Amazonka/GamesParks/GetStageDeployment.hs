@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,7 +111,7 @@ instance Core.AWSRequest GetStageDeployment where
     Response.receiveJSON
       ( \s h x ->
           GetStageDeploymentResponse'
-            Prelude.<$> (x Core..?> "StageDeployment")
+            Prelude.<$> (x Data..?> "StageDeployment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,31 +127,31 @@ instance Prelude.NFData GetStageDeployment where
       `Prelude.seq` Prelude.rnf gameName
       `Prelude.seq` Prelude.rnf stageName
 
-instance Core.ToHeaders GetStageDeployment where
+instance Data.ToHeaders GetStageDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetStageDeployment where
+instance Data.ToPath GetStageDeployment where
   toPath GetStageDeployment' {..} =
     Prelude.mconcat
       [ "/game/",
-        Core.toBS gameName,
+        Data.toBS gameName,
         "/stage/",
-        Core.toBS stageName,
+        Data.toBS stageName,
         "/deployment"
       ]
 
-instance Core.ToQuery GetStageDeployment where
+instance Data.ToQuery GetStageDeployment where
   toQuery GetStageDeployment' {..} =
     Prelude.mconcat
-      ["DeploymentId" Core.=: deploymentId]
+      ["DeploymentId" Data.=: deploymentId]
 
 -- | /See:/ 'newGetStageDeploymentResponse' smart constructor.
 data GetStageDeploymentResponse = GetStageDeploymentResponse'

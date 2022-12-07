@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -253,7 +254,7 @@ instance Core.AWSRequest ModifyVpcEndpoint where
     Response.receiveXML
       ( \s h x ->
           ModifyVpcEndpointResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -289,50 +290,50 @@ instance Prelude.NFData ModifyVpcEndpoint where
       `Prelude.seq` Prelude.rnf removeSecurityGroupIds
       `Prelude.seq` Prelude.rnf vpcEndpointId
 
-instance Core.ToHeaders ModifyVpcEndpoint where
+instance Data.ToHeaders ModifyVpcEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyVpcEndpoint where
+instance Data.ToPath ModifyVpcEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyVpcEndpoint where
+instance Data.ToQuery ModifyVpcEndpoint where
   toQuery ModifyVpcEndpoint' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyVpcEndpoint" :: Prelude.ByteString),
+          Data.=: ("ModifyVpcEndpoint" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "PrivateDnsEnabled" Core.=: privateDnsEnabled,
-        "ResetPolicy" Core.=: resetPolicy,
-        Core.toQuery
-          ( Core.toQueryList "AddSecurityGroupId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "PrivateDnsEnabled" Data.=: privateDnsEnabled,
+        "ResetPolicy" Data.=: resetPolicy,
+        Data.toQuery
+          ( Data.toQueryList "AddSecurityGroupId"
               Prelude.<$> addSecurityGroupIds
           ),
-        Core.toQuery
-          ( Core.toQueryList "AddSubnetId"
+        Data.toQuery
+          ( Data.toQueryList "AddSubnetId"
               Prelude.<$> addSubnetIds
           ),
-        Core.toQuery
-          ( Core.toQueryList "AddRouteTableId"
+        Data.toQuery
+          ( Data.toQueryList "AddRouteTableId"
               Prelude.<$> addRouteTableIds
           ),
-        "DryRun" Core.=: dryRun,
-        "PolicyDocument" Core.=: policyDocument,
-        Core.toQuery
-          ( Core.toQueryList "RemoveSubnetId"
+        "DryRun" Data.=: dryRun,
+        "PolicyDocument" Data.=: policyDocument,
+        Data.toQuery
+          ( Data.toQueryList "RemoveSubnetId"
               Prelude.<$> removeSubnetIds
           ),
-        Core.toQuery
-          ( Core.toQueryList "RemoveRouteTableId"
+        Data.toQuery
+          ( Data.toQueryList "RemoveRouteTableId"
               Prelude.<$> removeRouteTableIds
           ),
-        "DnsOptions" Core.=: dnsOptions,
-        "IpAddressType" Core.=: ipAddressType,
-        Core.toQuery
-          ( Core.toQueryList "RemoveSecurityGroupId"
+        "DnsOptions" Data.=: dnsOptions,
+        "IpAddressType" Data.=: ipAddressType,
+        Data.toQuery
+          ( Data.toQueryList "RemoveSecurityGroupId"
               Prelude.<$> removeSecurityGroupIds
           ),
-        "VpcEndpointId" Core.=: vpcEndpointId
+        "VpcEndpointId" Data.=: vpcEndpointId
       ]
 
 -- | /See:/ 'newModifyVpcEndpointResponse' smart constructor.

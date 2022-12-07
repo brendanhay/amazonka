@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcrRepositoryImageScanningConfigurationDeta
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The image scanning configuration for a repository.
@@ -54,15 +55,15 @@ awsEcrRepositoryImageScanningConfigurationDetails_scanOnPush :: Lens.Lens' AwsEc
 awsEcrRepositoryImageScanningConfigurationDetails_scanOnPush = Lens.lens (\AwsEcrRepositoryImageScanningConfigurationDetails' {scanOnPush} -> scanOnPush) (\s@AwsEcrRepositoryImageScanningConfigurationDetails' {} a -> s {scanOnPush = a} :: AwsEcrRepositoryImageScanningConfigurationDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcrRepositoryImageScanningConfigurationDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcrRepositoryImageScanningConfigurationDetails"
       ( \x ->
           AwsEcrRepositoryImageScanningConfigurationDetails'
-            Prelude.<$> (x Core..:? "ScanOnPush")
+            Prelude.<$> (x Data..:? "ScanOnPush")
       )
 
 instance
@@ -83,12 +84,12 @@ instance
       Prelude.rnf scanOnPush
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcrRepositoryImageScanningConfigurationDetails
   where
   toJSON
     AwsEcrRepositoryImageScanningConfigurationDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("ScanOnPush" Core..=) Prelude.<$> scanOnPush]
+            [("ScanOnPush" Data..=) Prelude.<$> scanOnPush]
         )

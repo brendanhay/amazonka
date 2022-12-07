@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.EntityLabel where
 import Amazonka.Comprehend.Types.PiiEntityType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies one of the label or labels that categorize the personally
@@ -66,13 +67,13 @@ entityLabel_name = Lens.lens (\EntityLabel' {name} -> name) (\s@EntityLabel' {} 
 entityLabel_score :: Lens.Lens' EntityLabel (Prelude.Maybe Prelude.Double)
 entityLabel_score = Lens.lens (\EntityLabel' {score} -> score) (\s@EntityLabel' {} a -> s {score = a} :: EntityLabel)
 
-instance Core.FromJSON EntityLabel where
+instance Data.FromJSON EntityLabel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntityLabel"
       ( \x ->
           EntityLabel'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Score")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Score")
       )
 
 instance Prelude.Hashable EntityLabel where

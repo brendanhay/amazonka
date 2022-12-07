@@ -27,6 +27,7 @@ import Amazonka.AppSync.Types.OpenIDConnectConfig
 import Amazonka.AppSync.Types.UserPoolConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a GraphQL API.
@@ -169,27 +170,27 @@ graphqlApi_logConfig = Lens.lens (\GraphqlApi' {logConfig} -> logConfig) (\s@Gra
 graphqlApi_wafWebAclArn :: Lens.Lens' GraphqlApi (Prelude.Maybe Prelude.Text)
 graphqlApi_wafWebAclArn = Lens.lens (\GraphqlApi' {wafWebAclArn} -> wafWebAclArn) (\s@GraphqlApi' {} a -> s {wafWebAclArn = a} :: GraphqlApi)
 
-instance Core.FromJSON GraphqlApi where
+instance Data.FromJSON GraphqlApi where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GraphqlApi"
       ( \x ->
           GraphqlApi'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "xrayEnabled")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "authenticationType")
-            Prelude.<*> (x Core..:? "apiId")
-            Prelude.<*> (x Core..:? "openIDConnectConfig")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "uris" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "userPoolConfig")
-            Prelude.<*> ( x Core..:? "additionalAuthenticationProviders"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "xrayEnabled")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "authenticationType")
+            Prelude.<*> (x Data..:? "apiId")
+            Prelude.<*> (x Data..:? "openIDConnectConfig")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "uris" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "userPoolConfig")
+            Prelude.<*> ( x Data..:? "additionalAuthenticationProviders"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "lambdaAuthorizerConfig")
-            Prelude.<*> (x Core..:? "logConfig")
-            Prelude.<*> (x Core..:? "wafWebAclArn")
+            Prelude.<*> (x Data..:? "lambdaAuthorizerConfig")
+            Prelude.<*> (x Data..:? "logConfig")
+            Prelude.<*> (x Data..:? "wafWebAclArn")
       )
 
 instance Prelude.Hashable GraphqlApi where

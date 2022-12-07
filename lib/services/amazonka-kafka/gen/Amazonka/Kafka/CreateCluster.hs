@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -215,9 +216,9 @@ instance Core.AWSRequest CreateCluster where
     Response.receiveJSON
       ( \s h x ->
           CreateClusterResponse'
-            Prelude.<$> (x Core..?> "clusterArn")
-            Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "clusterName")
+            Prelude.<$> (x Data..?> "clusterArn")
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "clusterName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -251,47 +252,47 @@ instance Prelude.NFData CreateCluster where
       `Prelude.seq` Prelude.rnf numberOfBrokerNodes
       `Prelude.seq` Prelude.rnf clusterName
 
-instance Core.ToHeaders CreateCluster where
+instance Data.ToHeaders CreateCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCluster where
+instance Data.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("openMonitoring" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("openMonitoring" Data..=)
               Prelude.<$> openMonitoring,
-            ("storageMode" Core..=) Prelude.<$> storageMode,
-            ("encryptionInfo" Core..=)
+            ("storageMode" Data..=) Prelude.<$> storageMode,
+            ("encryptionInfo" Data..=)
               Prelude.<$> encryptionInfo,
-            ("clientAuthentication" Core..=)
+            ("clientAuthentication" Data..=)
               Prelude.<$> clientAuthentication,
-            ("loggingInfo" Core..=) Prelude.<$> loggingInfo,
-            ("configurationInfo" Core..=)
+            ("loggingInfo" Data..=) Prelude.<$> loggingInfo,
+            ("configurationInfo" Data..=)
               Prelude.<$> configurationInfo,
-            ("enhancedMonitoring" Core..=)
+            ("enhancedMonitoring" Data..=)
               Prelude.<$> enhancedMonitoring,
             Prelude.Just
-              ("brokerNodeGroupInfo" Core..= brokerNodeGroupInfo),
-            Prelude.Just ("kafkaVersion" Core..= kafkaVersion),
+              ("brokerNodeGroupInfo" Data..= brokerNodeGroupInfo),
+            Prelude.Just ("kafkaVersion" Data..= kafkaVersion),
             Prelude.Just
-              ("numberOfBrokerNodes" Core..= numberOfBrokerNodes),
-            Prelude.Just ("clusterName" Core..= clusterName)
+              ("numberOfBrokerNodes" Data..= numberOfBrokerNodes),
+            Prelude.Just ("clusterName" Data..= clusterName)
           ]
       )
 
-instance Core.ToPath CreateCluster where
+instance Data.ToPath CreateCluster where
   toPath = Prelude.const "/v1/clusters"
 
-instance Core.ToQuery CreateCluster where
+instance Data.ToQuery CreateCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateClusterResponse' smart constructor.

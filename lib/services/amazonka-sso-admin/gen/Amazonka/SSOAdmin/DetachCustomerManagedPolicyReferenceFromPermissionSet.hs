@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -153,49 +154,49 @@ instance
         `Prelude.seq` Prelude.rnf customerManagedPolicyReference
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DetachCustomerManagedPolicyReferenceFromPermissionSet
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SWBExternalService.DetachCustomerManagedPolicyReferenceFromPermissionSet" ::
+              Data.=# ( "SWBExternalService.DetachCustomerManagedPolicyReferenceFromPermissionSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DetachCustomerManagedPolicyReferenceFromPermissionSet
   where
   toJSON
     DetachCustomerManagedPolicyReferenceFromPermissionSet' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ Prelude.Just ("InstanceArn" Core..= instanceArn),
+            [ Prelude.Just ("InstanceArn" Data..= instanceArn),
               Prelude.Just
-                ("PermissionSetArn" Core..= permissionSetArn),
+                ("PermissionSetArn" Data..= permissionSetArn),
               Prelude.Just
                 ( "CustomerManagedPolicyReference"
-                    Core..= customerManagedPolicyReference
+                    Data..= customerManagedPolicyReference
                 )
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DetachCustomerManagedPolicyReferenceFromPermissionSet
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DetachCustomerManagedPolicyReferenceFromPermissionSet
   where
   toQuery = Prelude.const Prelude.mempty

@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,23 +90,23 @@ instance Prelude.NFData CancelSigningProfile where
   rnf CancelSigningProfile' {..} =
     Prelude.rnf profileName
 
-instance Core.ToHeaders CancelSigningProfile where
+instance Data.ToHeaders CancelSigningProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath CancelSigningProfile where
+instance Data.ToPath CancelSigningProfile where
   toPath CancelSigningProfile' {..} =
     Prelude.mconcat
-      ["/signing-profiles/", Core.toBS profileName]
+      ["/signing-profiles/", Data.toBS profileName]
 
-instance Core.ToQuery CancelSigningProfile where
+instance Data.ToQuery CancelSigningProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelSigningProfileResponse' smart constructor.

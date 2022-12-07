@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,10 +152,10 @@ instance Core.AWSRequest ListWorldTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListWorldTemplatesResponse'
-            Prelude.<$> ( x Core..?> "templateSummaries"
+            Prelude.<$> ( x Data..?> "templateSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,30 +169,30 @@ instance Prelude.NFData ListWorldTemplates where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListWorldTemplates where
+instance Data.ToHeaders ListWorldTemplates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListWorldTemplates where
+instance Data.ToJSON ListWorldTemplates where
   toJSON ListWorldTemplates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListWorldTemplates where
+instance Data.ToPath ListWorldTemplates where
   toPath = Prelude.const "/listWorldTemplates"
 
-instance Core.ToQuery ListWorldTemplates where
+instance Data.ToQuery ListWorldTemplates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListWorldTemplatesResponse' smart constructor.

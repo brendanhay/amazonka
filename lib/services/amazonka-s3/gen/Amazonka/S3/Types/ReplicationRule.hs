@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ReplicationRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.DeleteMarkerReplication
@@ -203,18 +204,18 @@ replicationRule_status = Lens.lens (\ReplicationRule' {status} -> status) (\s@Re
 replicationRule_destination :: Lens.Lens' ReplicationRule Destination
 replicationRule_destination = Lens.lens (\ReplicationRule' {destination} -> destination) (\s@ReplicationRule' {} a -> s {destination = a} :: ReplicationRule)
 
-instance Core.FromXML ReplicationRule where
+instance Data.FromXML ReplicationRule where
   parseXML x =
     ReplicationRule'
-      Prelude.<$> (x Core..@? "SourceSelectionCriteria")
-      Prelude.<*> (x Core..@? "ID")
-      Prelude.<*> (x Core..@? "ExistingObjectReplication")
-      Prelude.<*> (x Core..@? "Filter")
-      Prelude.<*> (x Core..@? "Priority")
-      Prelude.<*> (x Core..@? "Prefix")
-      Prelude.<*> (x Core..@? "DeleteMarkerReplication")
-      Prelude.<*> (x Core..@ "Status")
-      Prelude.<*> (x Core..@ "Destination")
+      Prelude.<$> (x Data..@? "SourceSelectionCriteria")
+      Prelude.<*> (x Data..@? "ID")
+      Prelude.<*> (x Data..@? "ExistingObjectReplication")
+      Prelude.<*> (x Data..@? "Filter")
+      Prelude.<*> (x Data..@? "Priority")
+      Prelude.<*> (x Data..@? "Prefix")
+      Prelude.<*> (x Data..@? "DeleteMarkerReplication")
+      Prelude.<*> (x Data..@ "Status")
+      Prelude.<*> (x Data..@ "Destination")
 
 instance Prelude.Hashable ReplicationRule where
   hashWithSalt _salt ReplicationRule' {..} =
@@ -241,19 +242,19 @@ instance Prelude.NFData ReplicationRule where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToXML ReplicationRule where
+instance Data.ToXML ReplicationRule where
   toXML ReplicationRule' {..} =
     Prelude.mconcat
       [ "SourceSelectionCriteria"
-          Core.@= sourceSelectionCriteria,
-        "ID" Core.@= id,
+          Data.@= sourceSelectionCriteria,
+        "ID" Data.@= id,
         "ExistingObjectReplication"
-          Core.@= existingObjectReplication,
-        "Filter" Core.@= filter',
-        "Priority" Core.@= priority,
-        "Prefix" Core.@= prefix,
+          Data.@= existingObjectReplication,
+        "Filter" Data.@= filter',
+        "Priority" Data.@= priority,
+        "Prefix" Data.@= prefix,
         "DeleteMarkerReplication"
-          Core.@= deleteMarkerReplication,
-        "Status" Core.@= status,
-        "Destination" Core.@= destination
+          Data.@= deleteMarkerReplication,
+        "Status" Data.@= status,
+        "Destination" Data.@= destination
       ]

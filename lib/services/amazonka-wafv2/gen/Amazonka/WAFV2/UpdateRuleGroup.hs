@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -311,7 +312,7 @@ instance Core.AWSRequest UpdateRuleGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateRuleGroupResponse'
-            Prelude.<$> (x Core..?> "NextLockToken")
+            Prelude.<$> (x Data..?> "NextLockToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -337,42 +338,42 @@ instance Prelude.NFData UpdateRuleGroup where
       `Prelude.seq` Prelude.rnf visibilityConfig
       `Prelude.seq` Prelude.rnf lockToken
 
-instance Core.ToHeaders UpdateRuleGroup where
+instance Data.ToHeaders UpdateRuleGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.UpdateRuleGroup" ::
+              Data.=# ( "AWSWAF_20190729.UpdateRuleGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRuleGroup where
+instance Data.ToJSON UpdateRuleGroup where
   toJSON UpdateRuleGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Rules" Core..=) Prelude.<$> rules,
-            ("Description" Core..=) Prelude.<$> description,
-            ("CustomResponseBodies" Core..=)
+          [ ("Rules" Data..=) Prelude.<$> rules,
+            ("Description" Data..=) Prelude.<$> description,
+            ("CustomResponseBodies" Data..=)
               Prelude.<$> customResponseBodies,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Scope" Core..= scope),
-            Prelude.Just ("Id" Core..= id),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Scope" Data..= scope),
+            Prelude.Just ("Id" Data..= id),
             Prelude.Just
-              ("VisibilityConfig" Core..= visibilityConfig),
-            Prelude.Just ("LockToken" Core..= lockToken)
+              ("VisibilityConfig" Data..= visibilityConfig),
+            Prelude.Just ("LockToken" Data..= lockToken)
           ]
       )
 
-instance Core.ToPath UpdateRuleGroup where
+instance Data.ToPath UpdateRuleGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateRuleGroup where
+instance Data.ToQuery UpdateRuleGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRuleGroupResponse' smart constructor.

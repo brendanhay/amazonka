@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest UpdateVoiceChannel where
       ( \s h x ->
           UpdateVoiceChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable UpdateVoiceChannel where
@@ -117,30 +118,30 @@ instance Prelude.NFData UpdateVoiceChannel where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf voiceChannelRequest
 
-instance Core.ToHeaders UpdateVoiceChannel where
+instance Data.ToHeaders UpdateVoiceChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateVoiceChannel where
+instance Data.ToJSON UpdateVoiceChannel where
   toJSON UpdateVoiceChannel' {..} =
-    Core.toJSON voiceChannelRequest
+    Data.toJSON voiceChannelRequest
 
-instance Core.ToPath UpdateVoiceChannel where
+instance Data.ToPath UpdateVoiceChannel where
   toPath UpdateVoiceChannel' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/channels/voice"
       ]
 
-instance Core.ToQuery UpdateVoiceChannel where
+instance Data.ToQuery UpdateVoiceChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateVoiceChannelResponse' smart constructor.

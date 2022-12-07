@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.Node where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types.Endpoint
 import qualified Amazonka.Prelude as Prelude
 
@@ -38,7 +39,7 @@ data Node = Node'
     -- | The Availability Zone in which the node resides
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the node was created.
-    createTime :: Prelude.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Data.POSIX,
     -- | The hostname for connecting to this node.
     endpoint :: Prelude.Maybe Endpoint
   }
@@ -90,23 +91,23 @@ node_availabilityZone = Lens.lens (\Node' {availabilityZone} -> availabilityZone
 
 -- | The date and time when the node was created.
 node_createTime :: Lens.Lens' Node (Prelude.Maybe Prelude.UTCTime)
-node_createTime = Lens.lens (\Node' {createTime} -> createTime) (\s@Node' {} a -> s {createTime = a} :: Node) Prelude.. Lens.mapping Core._Time
+node_createTime = Lens.lens (\Node' {createTime} -> createTime) (\s@Node' {} a -> s {createTime = a} :: Node) Prelude.. Lens.mapping Data._Time
 
 -- | The hostname for connecting to this node.
 node_endpoint :: Lens.Lens' Node (Prelude.Maybe Endpoint)
 node_endpoint = Lens.lens (\Node' {endpoint} -> endpoint) (\s@Node' {} a -> s {endpoint = a} :: Node)
 
-instance Core.FromJSON Node where
+instance Data.FromJSON Node where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Node"
       ( \x ->
           Node'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "CreateTime")
-            Prelude.<*> (x Core..:? "Endpoint")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "CreateTime")
+            Prelude.<*> (x Data..:? "Endpoint")
       )
 
 instance Prelude.Hashable Node where

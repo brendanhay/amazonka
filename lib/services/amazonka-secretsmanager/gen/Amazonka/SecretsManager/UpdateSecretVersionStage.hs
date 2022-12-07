@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -192,8 +193,8 @@ instance Core.AWSRequest UpdateSecretVersionStage where
     Response.receiveJSON
       ( \s h x ->
           UpdateSecretVersionStageResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "ARN")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "ARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,38 +212,38 @@ instance Prelude.NFData UpdateSecretVersionStage where
       `Prelude.seq` Prelude.rnf secretId
       `Prelude.seq` Prelude.rnf versionStage
 
-instance Core.ToHeaders UpdateSecretVersionStage where
+instance Data.ToHeaders UpdateSecretVersionStage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "secretsmanager.UpdateSecretVersionStage" ::
+              Data.=# ( "secretsmanager.UpdateSecretVersionStage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSecretVersionStage where
+instance Data.ToJSON UpdateSecretVersionStage where
   toJSON UpdateSecretVersionStage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MoveToVersionId" Core..=)
+          [ ("MoveToVersionId" Data..=)
               Prelude.<$> moveToVersionId,
-            ("RemoveFromVersionId" Core..=)
+            ("RemoveFromVersionId" Data..=)
               Prelude.<$> removeFromVersionId,
-            Prelude.Just ("SecretId" Core..= secretId),
-            Prelude.Just ("VersionStage" Core..= versionStage)
+            Prelude.Just ("SecretId" Data..= secretId),
+            Prelude.Just ("VersionStage" Data..= versionStage)
           ]
       )
 
-instance Core.ToPath UpdateSecretVersionStage where
+instance Data.ToPath UpdateSecretVersionStage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateSecretVersionStage where
+instance Data.ToQuery UpdateSecretVersionStage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSecretVersionStageResponse' smart constructor.

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,8 +136,8 @@ instance Core.AWSRequest CreateMitigationAction where
     Response.receiveJSON
       ( \s h x ->
           CreateMitigationActionResponse'
-            Prelude.<$> (x Core..?> "actionId")
-            Prelude.<*> (x Core..?> "actionArn")
+            Prelude.<$> (x Data..?> "actionId")
+            Prelude.<*> (x Data..?> "actionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,25 +155,25 @@ instance Prelude.NFData CreateMitigationAction where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf actionParams
 
-instance Core.ToHeaders CreateMitigationAction where
+instance Data.ToHeaders CreateMitigationAction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateMitigationAction where
+instance Data.ToJSON CreateMitigationAction where
   toJSON CreateMitigationAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("actionParams" Core..= actionParams)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("actionParams" Data..= actionParams)
           ]
       )
 
-instance Core.ToPath CreateMitigationAction where
+instance Data.ToPath CreateMitigationAction where
   toPath CreateMitigationAction' {..} =
     Prelude.mconcat
-      ["/mitigationactions/actions/", Core.toBS actionName]
+      ["/mitigationactions/actions/", Data.toBS actionName]
 
-instance Core.ToQuery CreateMitigationAction where
+instance Data.ToQuery CreateMitigationAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateMitigationActionResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,11 +98,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetFailbackReplicationConfigurationResponse'
-            Prelude.<$> (x Core..?> "bandwidthThrottling")
-              Prelude.<*> (x Core..?> "name")
-              Prelude.<*> (x Core..?> "usePrivateIP")
+            Prelude.<$> (x Data..?> "bandwidthThrottling")
+              Prelude.<*> (x Data..?> "name")
+              Prelude.<*> (x Data..?> "usePrivateIP")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "recoveryInstanceID")
+              Prelude.<*> (x Data..:> "recoveryInstanceID")
       )
 
 instance
@@ -121,33 +122,33 @@ instance
     Prelude.rnf recoveryInstanceID
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetFailbackReplicationConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetFailbackReplicationConfiguration
   where
   toJSON GetFailbackReplicationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("recoveryInstanceID" Core..= recoveryInstanceID)
+              ("recoveryInstanceID" Data..= recoveryInstanceID)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetFailbackReplicationConfiguration
   where
   toPath =
@@ -155,7 +156,7 @@ instance
       "/GetFailbackReplicationConfiguration"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetFailbackReplicationConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

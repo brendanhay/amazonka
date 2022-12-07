@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ data CreateDirectory = CreateDirectory'
     -- enforced, see
     -- <https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements Password must meet complexity requirements>
     -- on the Microsoft website.
-    password :: Core.Sensitive Prelude.Text,
+    password :: Data.Sensitive Prelude.Text,
     -- | The size of the directory.
     size :: DirectorySize
   }
@@ -177,7 +178,7 @@ newCreateDirectory pName_ pPassword_ pSize_ =
       description = Prelude.Nothing,
       shortName = Prelude.Nothing,
       name = pName_,
-      password = Core._Sensitive Lens.# pPassword_,
+      password = Data._Sensitive Lens.# pPassword_,
       size = pSize_
     }
 
@@ -233,7 +234,7 @@ createDirectory_name = Lens.lens (\CreateDirectory' {name} -> name) (\s@CreateDi
 -- <https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements Password must meet complexity requirements>
 -- on the Microsoft website.
 createDirectory_password :: Lens.Lens' CreateDirectory Prelude.Text
-createDirectory_password = Lens.lens (\CreateDirectory' {password} -> password) (\s@CreateDirectory' {} a -> s {password = a} :: CreateDirectory) Prelude.. Core._Sensitive
+createDirectory_password = Lens.lens (\CreateDirectory' {password} -> password) (\s@CreateDirectory' {} a -> s {password = a} :: CreateDirectory) Prelude.. Data._Sensitive
 
 -- | The size of the directory.
 createDirectory_size :: Lens.Lens' CreateDirectory DirectorySize
@@ -249,7 +250,7 @@ instance Core.AWSRequest CreateDirectory where
     Response.receiveJSON
       ( \s h x ->
           CreateDirectoryResponse'
-            Prelude.<$> (x Core..?> "DirectoryId")
+            Prelude.<$> (x Data..?> "DirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -273,39 +274,39 @@ instance Prelude.NFData CreateDirectory where
       `Prelude.seq` Prelude.rnf password
       `Prelude.seq` Prelude.rnf size
 
-instance Core.ToHeaders CreateDirectory where
+instance Data.ToHeaders CreateDirectory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.CreateDirectory" ::
+              Data.=# ( "DirectoryService_20150416.CreateDirectory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDirectory where
+instance Data.ToJSON CreateDirectory where
   toJSON CreateDirectory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("VpcSettings" Core..=) Prelude.<$> vpcSettings,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ShortName" Core..=) Prelude.<$> shortName,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Password" Core..= password),
-            Prelude.Just ("Size" Core..= size)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("VpcSettings" Data..=) Prelude.<$> vpcSettings,
+            ("Description" Data..=) Prelude.<$> description,
+            ("ShortName" Data..=) Prelude.<$> shortName,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Password" Data..= password),
+            Prelude.Just ("Size" Data..= size)
           ]
       )
 
-instance Core.ToPath CreateDirectory where
+instance Data.ToPath CreateDirectory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDirectory where
+instance Data.ToQuery CreateDirectory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the CreateDirectory operation.

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.DecimalNumber where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a numeric value in decimal format.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDecimalNumber' smart constructor.
 data DecimalNumber = DecimalNumber'
   { -- | The unscaled numeric value.
-    unscaledValue :: Core.Base64,
+    unscaledValue :: Data.Base64,
     -- | The scale that determines where the decimal point falls in the unscaled
     -- value.
     scale :: Prelude.Int
@@ -60,7 +61,7 @@ newDecimalNumber ::
 newDecimalNumber pUnscaledValue_ pScale_ =
   DecimalNumber'
     { unscaledValue =
-        Core._Base64 Lens.# pUnscaledValue_,
+        Data._Base64 Lens.# pUnscaledValue_,
       scale = pScale_
     }
 
@@ -70,21 +71,21 @@ newDecimalNumber pUnscaledValue_ pScale_ =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 decimalNumber_unscaledValue :: Lens.Lens' DecimalNumber Prelude.ByteString
-decimalNumber_unscaledValue = Lens.lens (\DecimalNumber' {unscaledValue} -> unscaledValue) (\s@DecimalNumber' {} a -> s {unscaledValue = a} :: DecimalNumber) Prelude.. Core._Base64
+decimalNumber_unscaledValue = Lens.lens (\DecimalNumber' {unscaledValue} -> unscaledValue) (\s@DecimalNumber' {} a -> s {unscaledValue = a} :: DecimalNumber) Prelude.. Data._Base64
 
 -- | The scale that determines where the decimal point falls in the unscaled
 -- value.
 decimalNumber_scale :: Lens.Lens' DecimalNumber Prelude.Int
 decimalNumber_scale = Lens.lens (\DecimalNumber' {scale} -> scale) (\s@DecimalNumber' {} a -> s {scale = a} :: DecimalNumber)
 
-instance Core.FromJSON DecimalNumber where
+instance Data.FromJSON DecimalNumber where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DecimalNumber"
       ( \x ->
           DecimalNumber'
-            Prelude.<$> (x Core..: "UnscaledValue")
-            Prelude.<*> (x Core..: "Scale")
+            Prelude.<$> (x Data..: "UnscaledValue")
+            Prelude.<*> (x Data..: "Scale")
       )
 
 instance Prelude.Hashable DecimalNumber where
@@ -97,12 +98,12 @@ instance Prelude.NFData DecimalNumber where
     Prelude.rnf unscaledValue
       `Prelude.seq` Prelude.rnf scale
 
-instance Core.ToJSON DecimalNumber where
+instance Data.ToJSON DecimalNumber where
   toJSON DecimalNumber' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("UnscaledValue" Core..= unscaledValue),
-            Prelude.Just ("Scale" Core..= scale)
+              ("UnscaledValue" Data..= unscaledValue),
+            Prelude.Just ("Scale" Data..= scale)
           ]
       )

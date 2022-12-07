@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PublicIpv4Pool where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PublicIpv4PoolRange
 import Amazonka.EC2.Types.Tag
@@ -115,20 +116,20 @@ publicIpv4Pool_totalAvailableAddressCount = Lens.lens (\PublicIpv4Pool' {totalAv
 publicIpv4Pool_poolAddressRanges :: Lens.Lens' PublicIpv4Pool (Prelude.Maybe [PublicIpv4PoolRange])
 publicIpv4Pool_poolAddressRanges = Lens.lens (\PublicIpv4Pool' {poolAddressRanges} -> poolAddressRanges) (\s@PublicIpv4Pool' {} a -> s {poolAddressRanges = a} :: PublicIpv4Pool) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML PublicIpv4Pool where
+instance Data.FromXML PublicIpv4Pool where
   parseXML x =
     PublicIpv4Pool'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "networkBorderGroup")
-      Prelude.<*> (x Core..@? "totalAddressCount")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "poolId")
-      Prelude.<*> (x Core..@? "totalAvailableAddressCount")
-      Prelude.<*> ( x Core..@? "poolAddressRangeSet"
+      Prelude.<*> (x Data..@? "networkBorderGroup")
+      Prelude.<*> (x Data..@? "totalAddressCount")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "poolId")
+      Prelude.<*> (x Data..@? "totalAvailableAddressCount")
+      Prelude.<*> ( x Data..@? "poolAddressRangeSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable PublicIpv4Pool where

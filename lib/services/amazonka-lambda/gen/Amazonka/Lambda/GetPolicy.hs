@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,8 +139,8 @@ instance Core.AWSRequest GetPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetPolicyResponse'
-            Prelude.<$> (x Core..?> "Policy")
-            Prelude.<*> (x Core..?> "RevisionId")
+            Prelude.<$> (x Data..?> "Policy")
+            Prelude.<*> (x Data..?> "RevisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,20 +154,20 @@ instance Prelude.NFData GetPolicy where
     Prelude.rnf qualifier
       `Prelude.seq` Prelude.rnf functionName
 
-instance Core.ToHeaders GetPolicy where
+instance Data.ToHeaders GetPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetPolicy where
+instance Data.ToPath GetPolicy where
   toPath GetPolicy' {..} =
     Prelude.mconcat
       [ "/2015-03-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/policy"
       ]
 
-instance Core.ToQuery GetPolicy where
+instance Data.ToQuery GetPolicy where
   toQuery GetPolicy' {..} =
-    Prelude.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Data.=: qualifier]
 
 -- | /See:/ 'newGetPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'

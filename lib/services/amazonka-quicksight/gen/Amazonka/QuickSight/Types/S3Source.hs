@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.S3Source where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.InputColumn
 import Amazonka.QuickSight.Types.UploadSettings
@@ -85,15 +86,15 @@ s3Source_dataSourceArn = Lens.lens (\S3Source' {dataSourceArn} -> dataSourceArn)
 s3Source_inputColumns :: Lens.Lens' S3Source (Prelude.NonEmpty InputColumn)
 s3Source_inputColumns = Lens.lens (\S3Source' {inputColumns} -> inputColumns) (\s@S3Source' {} a -> s {inputColumns = a} :: S3Source) Prelude.. Lens.coerced
 
-instance Core.FromJSON S3Source where
+instance Data.FromJSON S3Source where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Source"
       ( \x ->
           S3Source'
-            Prelude.<$> (x Core..:? "UploadSettings")
-            Prelude.<*> (x Core..: "DataSourceArn")
-            Prelude.<*> (x Core..: "InputColumns")
+            Prelude.<$> (x Data..:? "UploadSettings")
+            Prelude.<*> (x Data..: "DataSourceArn")
+            Prelude.<*> (x Data..: "InputColumns")
       )
 
 instance Prelude.Hashable S3Source where
@@ -108,13 +109,13 @@ instance Prelude.NFData S3Source where
       `Prelude.seq` Prelude.rnf dataSourceArn
       `Prelude.seq` Prelude.rnf inputColumns
 
-instance Core.ToJSON S3Source where
+instance Data.ToJSON S3Source where
   toJSON S3Source' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UploadSettings" Core..=)
+          [ ("UploadSettings" Data..=)
               Prelude.<$> uploadSettings,
-            Prelude.Just ("DataSourceArn" Core..= dataSourceArn),
-            Prelude.Just ("InputColumns" Core..= inputColumns)
+            Prelude.Just ("DataSourceArn" Data..= dataSourceArn),
+            Prelude.Just ("InputColumns" Data..= inputColumns)
           ]
       )

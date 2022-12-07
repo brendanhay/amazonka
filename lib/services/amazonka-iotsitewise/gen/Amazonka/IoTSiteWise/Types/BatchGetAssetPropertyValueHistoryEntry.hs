@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistoryEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.Quality
 import Amazonka.IoTSiteWise.Types.TimeOrdering
 import qualified Amazonka.Prelude as Prelude
@@ -52,14 +53,14 @@ data BatchGetAssetPropertyValueHistoryEntry = BatchGetAssetPropertyValueHistoryE
     assetId :: Prelude.Maybe Prelude.Text,
     -- | The inclusive end of the range from which to query historical data,
     -- expressed in seconds in Unix epoch time.
-    endDate :: Prelude.Maybe Core.POSIX,
+    endDate :: Prelude.Maybe Data.POSIX,
     -- | The quality by which to filter asset data.
     qualities :: Prelude.Maybe (Prelude.NonEmpty Quality),
     -- | The ID of the asset property.
     propertyId :: Prelude.Maybe Prelude.Text,
     -- | The exclusive start of the range from which to query historical data,
     -- expressed in seconds in Unix epoch time.
-    startDate :: Prelude.Maybe Core.POSIX,
+    startDate :: Prelude.Maybe Data.POSIX,
     -- | The chronological sorting order of the requested information.
     --
     -- Default: @ASCENDING@
@@ -134,7 +135,7 @@ batchGetAssetPropertyValueHistoryEntry_assetId = Lens.lens (\BatchGetAssetProper
 -- | The inclusive end of the range from which to query historical data,
 -- expressed in seconds in Unix epoch time.
 batchGetAssetPropertyValueHistoryEntry_endDate :: Lens.Lens' BatchGetAssetPropertyValueHistoryEntry (Prelude.Maybe Prelude.UTCTime)
-batchGetAssetPropertyValueHistoryEntry_endDate = Lens.lens (\BatchGetAssetPropertyValueHistoryEntry' {endDate} -> endDate) (\s@BatchGetAssetPropertyValueHistoryEntry' {} a -> s {endDate = a} :: BatchGetAssetPropertyValueHistoryEntry) Prelude.. Lens.mapping Core._Time
+batchGetAssetPropertyValueHistoryEntry_endDate = Lens.lens (\BatchGetAssetPropertyValueHistoryEntry' {endDate} -> endDate) (\s@BatchGetAssetPropertyValueHistoryEntry' {} a -> s {endDate = a} :: BatchGetAssetPropertyValueHistoryEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The quality by which to filter asset data.
 batchGetAssetPropertyValueHistoryEntry_qualities :: Lens.Lens' BatchGetAssetPropertyValueHistoryEntry (Prelude.Maybe (Prelude.NonEmpty Quality))
@@ -147,7 +148,7 @@ batchGetAssetPropertyValueHistoryEntry_propertyId = Lens.lens (\BatchGetAssetPro
 -- | The exclusive start of the range from which to query historical data,
 -- expressed in seconds in Unix epoch time.
 batchGetAssetPropertyValueHistoryEntry_startDate :: Lens.Lens' BatchGetAssetPropertyValueHistoryEntry (Prelude.Maybe Prelude.UTCTime)
-batchGetAssetPropertyValueHistoryEntry_startDate = Lens.lens (\BatchGetAssetPropertyValueHistoryEntry' {startDate} -> startDate) (\s@BatchGetAssetPropertyValueHistoryEntry' {} a -> s {startDate = a} :: BatchGetAssetPropertyValueHistoryEntry) Prelude.. Lens.mapping Core._Time
+batchGetAssetPropertyValueHistoryEntry_startDate = Lens.lens (\BatchGetAssetPropertyValueHistoryEntry' {startDate} -> startDate) (\s@BatchGetAssetPropertyValueHistoryEntry' {} a -> s {startDate = a} :: BatchGetAssetPropertyValueHistoryEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The chronological sorting order of the requested information.
 --
@@ -190,19 +191,19 @@ instance
       `Prelude.seq` Prelude.rnf entryId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     BatchGetAssetPropertyValueHistoryEntry
   where
   toJSON BatchGetAssetPropertyValueHistoryEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("propertyAlias" Core..=) Prelude.<$> propertyAlias,
-            ("assetId" Core..=) Prelude.<$> assetId,
-            ("endDate" Core..=) Prelude.<$> endDate,
-            ("qualities" Core..=) Prelude.<$> qualities,
-            ("propertyId" Core..=) Prelude.<$> propertyId,
-            ("startDate" Core..=) Prelude.<$> startDate,
-            ("timeOrdering" Core..=) Prelude.<$> timeOrdering,
-            Prelude.Just ("entryId" Core..= entryId)
+          [ ("propertyAlias" Data..=) Prelude.<$> propertyAlias,
+            ("assetId" Data..=) Prelude.<$> assetId,
+            ("endDate" Data..=) Prelude.<$> endDate,
+            ("qualities" Data..=) Prelude.<$> qualities,
+            ("propertyId" Data..=) Prelude.<$> propertyId,
+            ("startDate" Data..=) Prelude.<$> startDate,
+            ("timeOrdering" Data..=) Prelude.<$> timeOrdering,
+            Prelude.Just ("entryId" Data..= entryId)
           ]
       )

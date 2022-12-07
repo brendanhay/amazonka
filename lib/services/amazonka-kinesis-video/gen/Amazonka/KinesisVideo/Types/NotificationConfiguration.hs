@@ -21,6 +21,7 @@ module Amazonka.KinesisVideo.Types.NotificationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types.ConfigurationStatus
 import Amazonka.KinesisVideo.Types.NotificationDestinationConfig
 import qualified Amazonka.Prelude as Prelude
@@ -74,14 +75,14 @@ notificationConfiguration_status = Lens.lens (\NotificationConfiguration' {statu
 notificationConfiguration_destinationConfig :: Lens.Lens' NotificationConfiguration NotificationDestinationConfig
 notificationConfiguration_destinationConfig = Lens.lens (\NotificationConfiguration' {destinationConfig} -> destinationConfig) (\s@NotificationConfiguration' {} a -> s {destinationConfig = a} :: NotificationConfiguration)
 
-instance Core.FromJSON NotificationConfiguration where
+instance Data.FromJSON NotificationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotificationConfiguration"
       ( \x ->
           NotificationConfiguration'
-            Prelude.<$> (x Core..: "Status")
-            Prelude.<*> (x Core..: "DestinationConfig")
+            Prelude.<$> (x Data..: "Status")
+            Prelude.<*> (x Data..: "DestinationConfig")
       )
 
 instance Prelude.Hashable NotificationConfiguration where
@@ -94,12 +95,12 @@ instance Prelude.NFData NotificationConfiguration where
     Prelude.rnf status
       `Prelude.seq` Prelude.rnf destinationConfig
 
-instance Core.ToJSON NotificationConfiguration where
+instance Data.ToJSON NotificationConfiguration where
   toJSON NotificationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Status" Core..= status),
+          [ Prelude.Just ("Status" Data..= status),
             Prelude.Just
-              ("DestinationConfig" Core..= destinationConfig)
+              ("DestinationConfig" Data..= destinationConfig)
           ]
       )

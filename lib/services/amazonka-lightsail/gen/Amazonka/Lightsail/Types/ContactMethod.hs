@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ContactMethod where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.ContactMethodStatus
 import Amazonka.Lightsail.Types.ContactProtocol
 import Amazonka.Lightsail.Types.ResourceLocation
@@ -67,7 +68,7 @@ data ContactMethod = ContactMethod'
     -- our support team to look up your Lightsail information more easily.
     supportCode :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the contact method was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -175,23 +176,23 @@ contactMethod_supportCode = Lens.lens (\ContactMethod' {supportCode} -> supportC
 
 -- | The timestamp when the contact method was created.
 contactMethod_createdAt :: Lens.Lens' ContactMethod (Prelude.Maybe Prelude.UTCTime)
-contactMethod_createdAt = Lens.lens (\ContactMethod' {createdAt} -> createdAt) (\s@ContactMethod' {} a -> s {createdAt = a} :: ContactMethod) Prelude.. Lens.mapping Core._Time
+contactMethod_createdAt = Lens.lens (\ContactMethod' {createdAt} -> createdAt) (\s@ContactMethod' {} a -> s {createdAt = a} :: ContactMethod) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ContactMethod where
+instance Data.FromJSON ContactMethod where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContactMethod"
       ( \x ->
           ContactMethod'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "contactEndpoint")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "protocol")
-            Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "contactEndpoint")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "protocol")
+            Prelude.<*> (x Data..:? "supportCode")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable ContactMethod where

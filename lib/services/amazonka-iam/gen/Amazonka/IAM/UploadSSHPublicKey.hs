@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -165,7 +166,7 @@ instance Core.AWSRequest UploadSSHPublicKey where
       "UploadSSHPublicKeyResult"
       ( \s h x ->
           UploadSSHPublicKeyResponse'
-            Prelude.<$> (x Core..@? "SSHPublicKey")
+            Prelude.<$> (x Data..@? "SSHPublicKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,21 +180,21 @@ instance Prelude.NFData UploadSSHPublicKey where
     Prelude.rnf userName
       `Prelude.seq` Prelude.rnf sSHPublicKeyBody
 
-instance Core.ToHeaders UploadSSHPublicKey where
+instance Data.ToHeaders UploadSSHPublicKey where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UploadSSHPublicKey where
+instance Data.ToPath UploadSSHPublicKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UploadSSHPublicKey where
+instance Data.ToQuery UploadSSHPublicKey where
   toQuery UploadSSHPublicKey' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UploadSSHPublicKey" :: Prelude.ByteString),
+          Data.=: ("UploadSSHPublicKey" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
-        "SSHPublicKeyBody" Core.=: sSHPublicKeyBody
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
+        "SSHPublicKeyBody" Data.=: sSHPublicKeyBody
       ]
 
 -- | Contains the response to a successful UploadSSHPublicKey request.

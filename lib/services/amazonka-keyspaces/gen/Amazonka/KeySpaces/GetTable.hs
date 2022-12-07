@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,19 +111,19 @@ instance Core.AWSRequest GetTable where
     Response.receiveJSON
       ( \s h x ->
           GetTableResponse'
-            Prelude.<$> (x Core..?> "ttl")
-            Prelude.<*> (x Core..?> "pointInTimeRecovery")
-            Prelude.<*> (x Core..?> "capacitySpecification")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "encryptionSpecification")
-            Prelude.<*> (x Core..?> "creationTimestamp")
-            Prelude.<*> (x Core..?> "comment")
-            Prelude.<*> (x Core..?> "defaultTimeToLive")
-            Prelude.<*> (x Core..?> "schemaDefinition")
+            Prelude.<$> (x Data..?> "ttl")
+            Prelude.<*> (x Data..?> "pointInTimeRecovery")
+            Prelude.<*> (x Data..?> "capacitySpecification")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "encryptionSpecification")
+            Prelude.<*> (x Data..?> "creationTimestamp")
+            Prelude.<*> (x Data..?> "comment")
+            Prelude.<*> (x Data..?> "defaultTimeToLive")
+            Prelude.<*> (x Data..?> "schemaDefinition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "keyspaceName")
-            Prelude.<*> (x Core..:> "tableName")
-            Prelude.<*> (x Core..:> "resourceArn")
+            Prelude.<*> (x Data..:> "keyspaceName")
+            Prelude.<*> (x Data..:> "tableName")
+            Prelude.<*> (x Data..:> "resourceArn")
       )
 
 instance Prelude.Hashable GetTable where
@@ -135,32 +136,32 @@ instance Prelude.NFData GetTable where
     Prelude.rnf keyspaceName
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToHeaders GetTable where
+instance Data.ToHeaders GetTable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("KeyspacesService.GetTable" :: Prelude.ByteString),
+              Data.=# ("KeyspacesService.GetTable" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTable where
+instance Data.ToJSON GetTable where
   toJSON GetTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("keyspaceName" Core..= keyspaceName),
-            Prelude.Just ("tableName" Core..= tableName)
+          [ Prelude.Just ("keyspaceName" Data..= keyspaceName),
+            Prelude.Just ("tableName" Data..= tableName)
           ]
       )
 
-instance Core.ToPath GetTable where
+instance Data.ToPath GetTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTable where
+instance Data.ToQuery GetTable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTableResponse' smart constructor.
@@ -180,7 +181,7 @@ data GetTableResponse = GetTableResponse'
     -- | The encryption settings of the specified table.
     encryptionSpecification :: Prelude.Maybe EncryptionSpecification,
     -- | The creation timestamp of the specified table.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The the description of the specified table.
     comment :: Prelude.Maybe Comment,
     -- | The default Time to Live settings of the specified table.
@@ -292,7 +293,7 @@ getTableResponse_encryptionSpecification = Lens.lens (\GetTableResponse' {encryp
 
 -- | The creation timestamp of the specified table.
 getTableResponse_creationTimestamp :: Lens.Lens' GetTableResponse (Prelude.Maybe Prelude.UTCTime)
-getTableResponse_creationTimestamp = Lens.lens (\GetTableResponse' {creationTimestamp} -> creationTimestamp) (\s@GetTableResponse' {} a -> s {creationTimestamp = a} :: GetTableResponse) Prelude.. Lens.mapping Core._Time
+getTableResponse_creationTimestamp = Lens.lens (\GetTableResponse' {creationTimestamp} -> creationTimestamp) (\s@GetTableResponse' {} a -> s {creationTimestamp = a} :: GetTableResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The the description of the specified table.
 getTableResponse_comment :: Lens.Lens' GetTableResponse (Prelude.Maybe Comment)

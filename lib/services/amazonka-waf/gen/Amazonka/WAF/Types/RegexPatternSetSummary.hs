@@ -21,6 +21,7 @@ module Amazonka.WAF.Types.RegexPatternSetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -97,14 +98,14 @@ regexPatternSetSummary_regexPatternSetId = Lens.lens (\RegexPatternSetSummary' {
 regexPatternSetSummary_name :: Lens.Lens' RegexPatternSetSummary Prelude.Text
 regexPatternSetSummary_name = Lens.lens (\RegexPatternSetSummary' {name} -> name) (\s@RegexPatternSetSummary' {} a -> s {name = a} :: RegexPatternSetSummary)
 
-instance Core.FromJSON RegexPatternSetSummary where
+instance Data.FromJSON RegexPatternSetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegexPatternSetSummary"
       ( \x ->
           RegexPatternSetSummary'
-            Prelude.<$> (x Core..: "RegexPatternSetId")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..: "RegexPatternSetId")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable RegexPatternSetSummary where

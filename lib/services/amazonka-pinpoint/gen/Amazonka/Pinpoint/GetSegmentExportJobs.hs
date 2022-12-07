@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,7 +132,7 @@ instance Core.AWSRequest GetSegmentExportJobs where
       ( \s h x ->
           GetSegmentExportJobsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetSegmentExportJobs where
@@ -148,31 +149,31 @@ instance Prelude.NFData GetSegmentExportJobs where
       `Prelude.seq` Prelude.rnf segmentId
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders GetSegmentExportJobs where
+instance Data.ToHeaders GetSegmentExportJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSegmentExportJobs where
+instance Data.ToPath GetSegmentExportJobs where
   toPath GetSegmentExportJobs' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/segments/",
-        Core.toBS segmentId,
+        Data.toBS segmentId,
         "/jobs/export"
       ]
 
-instance Core.ToQuery GetSegmentExportJobs where
+instance Data.ToQuery GetSegmentExportJobs where
   toQuery GetSegmentExportJobs' {..} =
     Prelude.mconcat
-      ["page-size" Core.=: pageSize, "token" Core.=: token]
+      ["page-size" Data.=: pageSize, "token" Data.=: token]
 
 -- | /See:/ 'newGetSegmentExportJobsResponse' smart constructor.
 data GetSegmentExportJobsResponse = GetSegmentExportJobsResponse'

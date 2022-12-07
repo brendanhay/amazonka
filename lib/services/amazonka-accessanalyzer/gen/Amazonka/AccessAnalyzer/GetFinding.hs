@@ -43,6 +43,7 @@ where
 import Amazonka.AccessAnalyzer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest GetFinding where
     Response.receiveJSON
       ( \s h x ->
           GetFindingResponse'
-            Prelude.<$> (x Core..?> "finding")
+            Prelude.<$> (x Data..?> "finding")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,24 +115,24 @@ instance Prelude.NFData GetFinding where
     Prelude.rnf analyzerArn
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders GetFinding where
+instance Data.ToHeaders GetFinding where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetFinding where
+instance Data.ToPath GetFinding where
   toPath GetFinding' {..} =
-    Prelude.mconcat ["/finding/", Core.toBS id]
+    Prelude.mconcat ["/finding/", Data.toBS id]
 
-instance Core.ToQuery GetFinding where
+instance Data.ToQuery GetFinding where
   toQuery GetFinding' {..} =
-    Prelude.mconcat ["analyzerArn" Core.=: analyzerArn]
+    Prelude.mconcat ["analyzerArn" Data.=: analyzerArn]
 
 -- | The response to the request.
 --

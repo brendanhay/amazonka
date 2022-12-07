@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FleetLaunchTemplateOverrides where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceRequirements
 import Amazonka.EC2.Types.InstanceType
@@ -219,18 +220,18 @@ fleetLaunchTemplateOverrides_weightedCapacity = Lens.lens (\FleetLaunchTemplateO
 fleetLaunchTemplateOverrides_imageId :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
 fleetLaunchTemplateOverrides_imageId = Lens.lens (\FleetLaunchTemplateOverrides' {imageId} -> imageId) (\s@FleetLaunchTemplateOverrides' {} a -> s {imageId = a} :: FleetLaunchTemplateOverrides)
 
-instance Core.FromXML FleetLaunchTemplateOverrides where
+instance Data.FromXML FleetLaunchTemplateOverrides where
   parseXML x =
     FleetLaunchTemplateOverrides'
-      Prelude.<$> (x Core..@? "placement")
-      Prelude.<*> (x Core..@? "instanceRequirements")
-      Prelude.<*> (x Core..@? "subnetId")
-      Prelude.<*> (x Core..@? "maxPrice")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "priority")
-      Prelude.<*> (x Core..@? "weightedCapacity")
-      Prelude.<*> (x Core..@? "imageId")
+      Prelude.<$> (x Data..@? "placement")
+      Prelude.<*> (x Data..@? "instanceRequirements")
+      Prelude.<*> (x Data..@? "subnetId")
+      Prelude.<*> (x Data..@? "maxPrice")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "priority")
+      Prelude.<*> (x Data..@? "weightedCapacity")
+      Prelude.<*> (x Data..@? "imageId")
 
 instance
   Prelude.Hashable

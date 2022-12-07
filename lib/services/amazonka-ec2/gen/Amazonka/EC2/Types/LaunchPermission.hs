@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchPermission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PermissionGroup
 import qualified Amazonka.Prelude as Prelude
@@ -91,13 +92,13 @@ launchPermission_organizationalUnitArn = Lens.lens (\LaunchPermission' {organiza
 launchPermission_group :: Lens.Lens' LaunchPermission (Prelude.Maybe PermissionGroup)
 launchPermission_group = Lens.lens (\LaunchPermission' {group'} -> group') (\s@LaunchPermission' {} a -> s {group' = a} :: LaunchPermission)
 
-instance Core.FromXML LaunchPermission where
+instance Data.FromXML LaunchPermission where
   parseXML x =
     LaunchPermission'
-      Prelude.<$> (x Core..@? "organizationArn")
-      Prelude.<*> (x Core..@? "userId")
-      Prelude.<*> (x Core..@? "organizationalUnitArn")
-      Prelude.<*> (x Core..@? "group")
+      Prelude.<$> (x Data..@? "organizationArn")
+      Prelude.<*> (x Data..@? "userId")
+      Prelude.<*> (x Data..@? "organizationalUnitArn")
+      Prelude.<*> (x Data..@? "group")
 
 instance Prelude.Hashable LaunchPermission where
   hashWithSalt _salt LaunchPermission' {..} =
@@ -113,12 +114,12 @@ instance Prelude.NFData LaunchPermission where
       `Prelude.seq` Prelude.rnf organizationalUnitArn
       `Prelude.seq` Prelude.rnf group'
 
-instance Core.ToQuery LaunchPermission where
+instance Data.ToQuery LaunchPermission where
   toQuery LaunchPermission' {..} =
     Prelude.mconcat
-      [ "OrganizationArn" Core.=: organizationArn,
-        "UserId" Core.=: userId,
+      [ "OrganizationArn" Data.=: organizationArn,
+        "UserId" Data.=: userId,
         "OrganizationalUnitArn"
-          Core.=: organizationalUnitArn,
-        "Group" Core.=: group'
+          Data.=: organizationalUnitArn,
+        "Group" Data.=: group'
       ]

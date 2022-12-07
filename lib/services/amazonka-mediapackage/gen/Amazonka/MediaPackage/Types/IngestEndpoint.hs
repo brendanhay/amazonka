@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.IngestEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An endpoint for ingesting source content for a Channel.
@@ -79,16 +80,16 @@ ingestEndpoint_url = Lens.lens (\IngestEndpoint' {url} -> url) (\s@IngestEndpoin
 ingestEndpoint_id :: Lens.Lens' IngestEndpoint (Prelude.Maybe Prelude.Text)
 ingestEndpoint_id = Lens.lens (\IngestEndpoint' {id} -> id) (\s@IngestEndpoint' {} a -> s {id = a} :: IngestEndpoint)
 
-instance Core.FromJSON IngestEndpoint where
+instance Data.FromJSON IngestEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IngestEndpoint"
       ( \x ->
           IngestEndpoint'
-            Prelude.<$> (x Core..:? "password")
-            Prelude.<*> (x Core..:? "username")
-            Prelude.<*> (x Core..:? "url")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "password")
+            Prelude.<*> (x Data..:? "username")
+            Prelude.<*> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable IngestEndpoint where

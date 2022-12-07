@@ -21,6 +21,7 @@ module Amazonka.Discovery.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter that can use conditional operators.
@@ -114,12 +115,12 @@ instance Prelude.NFData Filter where
       `Prelude.seq` Prelude.rnf values
       `Prelude.seq` Prelude.rnf condition
 
-instance Core.ToJSON Filter where
+instance Data.ToJSON Filter where
   toJSON Filter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("values" Core..= values),
-            Prelude.Just ("condition" Core..= condition)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("values" Data..= values),
+            Prelude.Just ("condition" Data..= condition)
           ]
       )

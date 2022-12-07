@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.SortProperty where
 import Amazonka.AmplifyUiBuilder.Types.SortDirection
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes how to sort the data that you bind to a component.
@@ -66,14 +67,14 @@ sortProperty_direction = Lens.lens (\SortProperty' {direction} -> direction) (\s
 sortProperty_field :: Lens.Lens' SortProperty Prelude.Text
 sortProperty_field = Lens.lens (\SortProperty' {field} -> field) (\s@SortProperty' {} a -> s {field = a} :: SortProperty)
 
-instance Core.FromJSON SortProperty where
+instance Data.FromJSON SortProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SortProperty"
       ( \x ->
           SortProperty'
-            Prelude.<$> (x Core..: "direction")
-            Prelude.<*> (x Core..: "field")
+            Prelude.<$> (x Data..: "direction")
+            Prelude.<*> (x Data..: "field")
       )
 
 instance Prelude.Hashable SortProperty where
@@ -86,11 +87,11 @@ instance Prelude.NFData SortProperty where
     Prelude.rnf direction
       `Prelude.seq` Prelude.rnf field
 
-instance Core.ToJSON SortProperty where
+instance Data.ToJSON SortProperty where
   toJSON SortProperty' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("direction" Core..= direction),
-            Prelude.Just ("field" Core..= field)
+          [ Prelude.Just ("direction" Data..= direction),
+            Prelude.Just ("field" Data..= field)
           ]
       )

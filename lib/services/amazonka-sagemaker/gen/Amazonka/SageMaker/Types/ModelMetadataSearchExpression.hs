@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelMetadataSearchExpression where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ModelMetadataFilter
 
@@ -67,9 +68,9 @@ instance Prelude.NFData ModelMetadataSearchExpression where
   rnf ModelMetadataSearchExpression' {..} =
     Prelude.rnf filters
 
-instance Core.ToJSON ModelMetadataSearchExpression where
+instance Data.ToJSON ModelMetadataSearchExpression where
   toJSON ModelMetadataSearchExpression' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Filters" Core..=) Prelude.<$> filters]
+          [("Filters" Data..=) Prelude.<$> filters]
       )

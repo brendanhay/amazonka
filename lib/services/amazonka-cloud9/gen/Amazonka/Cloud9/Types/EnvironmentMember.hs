@@ -22,6 +22,7 @@ module Amazonka.Cloud9.Types.EnvironmentMember where
 import Amazonka.Cloud9.Types.Permissions
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an environment member for an Cloud9 development
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data EnvironmentMember = EnvironmentMember'
   { -- | The time, expressed in epoch time format, when the environment member
     -- last opened the environment.
-    lastAccess :: Prelude.Maybe Core.POSIX,
+    lastAccess :: Prelude.Maybe Data.POSIX,
     -- | The type of environment member permissions associated with this
     -- environment member. Available values include:
     --
@@ -103,7 +104,7 @@ newEnvironmentMember
 -- | The time, expressed in epoch time format, when the environment member
 -- last opened the environment.
 environmentMember_lastAccess :: Lens.Lens' EnvironmentMember (Prelude.Maybe Prelude.UTCTime)
-environmentMember_lastAccess = Lens.lens (\EnvironmentMember' {lastAccess} -> lastAccess) (\s@EnvironmentMember' {} a -> s {lastAccess = a} :: EnvironmentMember) Prelude.. Lens.mapping Core._Time
+environmentMember_lastAccess = Lens.lens (\EnvironmentMember' {lastAccess} -> lastAccess) (\s@EnvironmentMember' {} a -> s {lastAccess = a} :: EnvironmentMember) Prelude.. Lens.mapping Data._Time
 
 -- | The type of environment member permissions associated with this
 -- environment member. Available values include:
@@ -129,17 +130,17 @@ environmentMember_userArn = Lens.lens (\EnvironmentMember' {userArn} -> userArn)
 environmentMember_environmentId :: Lens.Lens' EnvironmentMember Prelude.Text
 environmentMember_environmentId = Lens.lens (\EnvironmentMember' {environmentId} -> environmentId) (\s@EnvironmentMember' {} a -> s {environmentId = a} :: EnvironmentMember)
 
-instance Core.FromJSON EnvironmentMember where
+instance Data.FromJSON EnvironmentMember where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentMember"
       ( \x ->
           EnvironmentMember'
-            Prelude.<$> (x Core..:? "lastAccess")
-            Prelude.<*> (x Core..: "permissions")
-            Prelude.<*> (x Core..: "userId")
-            Prelude.<*> (x Core..: "userArn")
-            Prelude.<*> (x Core..: "environmentId")
+            Prelude.<$> (x Data..:? "lastAccess")
+            Prelude.<*> (x Data..: "permissions")
+            Prelude.<*> (x Data..: "userId")
+            Prelude.<*> (x Data..: "userArn")
+            Prelude.<*> (x Data..: "environmentId")
       )
 
 instance Prelude.Hashable EnvironmentMember where

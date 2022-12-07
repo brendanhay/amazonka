@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,18 +108,18 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeModelExplainabilityJobDefinitionResponse'
-            Prelude.<$> (x Core..?> "NetworkConfig")
-              Prelude.<*> (x Core..?> "ModelExplainabilityBaselineConfig")
-              Prelude.<*> (x Core..?> "StoppingCondition")
+            Prelude.<$> (x Data..?> "NetworkConfig")
+              Prelude.<*> (x Data..?> "ModelExplainabilityBaselineConfig")
+              Prelude.<*> (x Data..?> "StoppingCondition")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "JobDefinitionArn")
-              Prelude.<*> (x Core..:> "JobDefinitionName")
-              Prelude.<*> (x Core..:> "CreationTime")
-              Prelude.<*> (x Core..:> "ModelExplainabilityAppSpecification")
-              Prelude.<*> (x Core..:> "ModelExplainabilityJobInput")
-              Prelude.<*> (x Core..:> "ModelExplainabilityJobOutputConfig")
-              Prelude.<*> (x Core..:> "JobResources")
-              Prelude.<*> (x Core..:> "RoleArn")
+              Prelude.<*> (x Data..:> "JobDefinitionArn")
+              Prelude.<*> (x Data..:> "JobDefinitionName")
+              Prelude.<*> (x Data..:> "CreationTime")
+              Prelude.<*> (x Data..:> "ModelExplainabilityAppSpecification")
+              Prelude.<*> (x Data..:> "ModelExplainabilityJobInput")
+              Prelude.<*> (x Data..:> "ModelExplainabilityJobOutputConfig")
+              Prelude.<*> (x Data..:> "JobResources")
+              Prelude.<*> (x Data..:> "RoleArn")
       )
 
 instance
@@ -138,43 +139,43 @@ instance
     Prelude.rnf jobDefinitionName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeModelExplainabilityJobDefinition
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeModelExplainabilityJobDefinition" ::
+              Data.=# ( "SageMaker.DescribeModelExplainabilityJobDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeModelExplainabilityJobDefinition
   where
   toJSON DescribeModelExplainabilityJobDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("JobDefinitionName" Core..= jobDefinitionName)
+              ("JobDefinitionName" Data..= jobDefinitionName)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeModelExplainabilityJobDefinition
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeModelExplainabilityJobDefinition
   where
   toQuery = Prelude.const Prelude.mempty
@@ -194,7 +195,7 @@ data DescribeModelExplainabilityJobDefinitionResponse = DescribeModelExplainabil
     -- within an Amazon Web Services Region in the Amazon Web Services account.
     jobDefinitionName :: Prelude.Text,
     -- | The time at which the model explainability job was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | Configures the model explainability job to run a specified Docker
     -- container image.
     modelExplainabilityAppSpecification :: ModelExplainabilityAppSpecification,
@@ -287,7 +288,7 @@ newDescribeModelExplainabilityJobDefinitionResponse
         jobDefinitionName =
           pJobDefinitionName_,
         creationTime =
-          Core._Time
+          Data._Time
             Lens.# pCreationTime_,
         modelExplainabilityAppSpecification =
           pModelExplainabilityAppSpecification_,
@@ -327,7 +328,7 @@ describeModelExplainabilityJobDefinitionResponse_jobDefinitionName = Lens.lens (
 
 -- | The time at which the model explainability job was created.
 describeModelExplainabilityJobDefinitionResponse_creationTime :: Lens.Lens' DescribeModelExplainabilityJobDefinitionResponse Prelude.UTCTime
-describeModelExplainabilityJobDefinitionResponse_creationTime = Lens.lens (\DescribeModelExplainabilityJobDefinitionResponse' {creationTime} -> creationTime) (\s@DescribeModelExplainabilityJobDefinitionResponse' {} a -> s {creationTime = a} :: DescribeModelExplainabilityJobDefinitionResponse) Prelude.. Core._Time
+describeModelExplainabilityJobDefinitionResponse_creationTime = Lens.lens (\DescribeModelExplainabilityJobDefinitionResponse' {creationTime} -> creationTime) (\s@DescribeModelExplainabilityJobDefinitionResponse' {} a -> s {creationTime = a} :: DescribeModelExplainabilityJobDefinitionResponse) Prelude.. Data._Time
 
 -- | Configures the model explainability job to run a specified Docker
 -- container image.

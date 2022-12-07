@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.SnapshotFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.SnapshotFilterName
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,11 +77,11 @@ instance Prelude.NFData SnapshotFilter where
   rnf SnapshotFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON SnapshotFilter where
+instance Data.ToJSON SnapshotFilter where
   toJSON SnapshotFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Values" Data..=) Prelude.<$> values
           ]
       )

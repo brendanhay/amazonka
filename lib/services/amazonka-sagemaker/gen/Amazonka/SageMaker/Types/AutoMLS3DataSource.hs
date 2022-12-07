@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AutoMLS3DataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AutoMLS3DataType
 
@@ -108,14 +109,14 @@ autoMLS3DataSource_s3DataType = Lens.lens (\AutoMLS3DataSource' {s3DataType} -> 
 autoMLS3DataSource_s3Uri :: Lens.Lens' AutoMLS3DataSource Prelude.Text
 autoMLS3DataSource_s3Uri = Lens.lens (\AutoMLS3DataSource' {s3Uri} -> s3Uri) (\s@AutoMLS3DataSource' {} a -> s {s3Uri = a} :: AutoMLS3DataSource)
 
-instance Core.FromJSON AutoMLS3DataSource where
+instance Data.FromJSON AutoMLS3DataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoMLS3DataSource"
       ( \x ->
           AutoMLS3DataSource'
-            Prelude.<$> (x Core..: "S3DataType")
-            Prelude.<*> (x Core..: "S3Uri")
+            Prelude.<$> (x Data..: "S3DataType")
+            Prelude.<*> (x Data..: "S3Uri")
       )
 
 instance Prelude.Hashable AutoMLS3DataSource where
@@ -128,11 +129,11 @@ instance Prelude.NFData AutoMLS3DataSource where
     Prelude.rnf s3DataType
       `Prelude.seq` Prelude.rnf s3Uri
 
-instance Core.ToJSON AutoMLS3DataSource where
+instance Data.ToJSON AutoMLS3DataSource where
   toJSON AutoMLS3DataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("S3DataType" Core..= s3DataType),
-            Prelude.Just ("S3Uri" Core..= s3Uri)
+          [ Prelude.Just ("S3DataType" Data..= s3DataType),
+            Prelude.Just ("S3Uri" Data..= s3Uri)
           ]
       )

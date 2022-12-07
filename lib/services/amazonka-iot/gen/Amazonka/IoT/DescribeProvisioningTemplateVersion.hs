@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,10 +111,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeProvisioningTemplateVersionResponse'
-            Prelude.<$> (x Core..?> "isDefaultVersion")
-              Prelude.<*> (x Core..?> "templateBody")
-              Prelude.<*> (x Core..?> "creationDate")
-              Prelude.<*> (x Core..?> "versionId")
+            Prelude.<$> (x Data..?> "isDefaultVersion")
+              Prelude.<*> (x Data..?> "templateBody")
+              Prelude.<*> (x Data..?> "creationDate")
+              Prelude.<*> (x Data..?> "versionId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,25 +137,25 @@ instance
       `Prelude.seq` Prelude.rnf versionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeProvisioningTemplateVersion
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeProvisioningTemplateVersion
   where
   toPath DescribeProvisioningTemplateVersion' {..} =
     Prelude.mconcat
       [ "/provisioning-templates/",
-        Core.toBS templateName,
+        Data.toBS templateName,
         "/versions/",
-        Core.toBS versionId
+        Data.toBS versionId
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeProvisioningTemplateVersion
   where
   toQuery = Prelude.const Prelude.mempty
@@ -166,7 +167,7 @@ data DescribeProvisioningTemplateVersionResponse = DescribeProvisioningTemplateV
     -- | The JSON formatted contents of the provisioning template version.
     templateBody :: Prelude.Maybe Prelude.Text,
     -- | The date when the provisioning template version was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The provisioning template version ID.
     versionId :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
@@ -216,7 +217,7 @@ describeProvisioningTemplateVersionResponse_templateBody = Lens.lens (\DescribeP
 
 -- | The date when the provisioning template version was created.
 describeProvisioningTemplateVersionResponse_creationDate :: Lens.Lens' DescribeProvisioningTemplateVersionResponse (Prelude.Maybe Prelude.UTCTime)
-describeProvisioningTemplateVersionResponse_creationDate = Lens.lens (\DescribeProvisioningTemplateVersionResponse' {creationDate} -> creationDate) (\s@DescribeProvisioningTemplateVersionResponse' {} a -> s {creationDate = a} :: DescribeProvisioningTemplateVersionResponse) Prelude.. Lens.mapping Core._Time
+describeProvisioningTemplateVersionResponse_creationDate = Lens.lens (\DescribeProvisioningTemplateVersionResponse' {creationDate} -> creationDate) (\s@DescribeProvisioningTemplateVersionResponse' {} a -> s {creationDate = a} :: DescribeProvisioningTemplateVersionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The provisioning template version ID.
 describeProvisioningTemplateVersionResponse_versionId :: Lens.Lens' DescribeProvisioningTemplateVersionResponse (Prelude.Maybe Prelude.Int)

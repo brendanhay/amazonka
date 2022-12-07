@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.FaceDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.AgeRange
 import Amazonka.Rekognition.Types.Beard
@@ -259,27 +260,27 @@ faceDetail_eyesOpen = Lens.lens (\FaceDetail' {eyesOpen} -> eyesOpen) (\s@FaceDe
 faceDetail_mustache :: Lens.Lens' FaceDetail (Prelude.Maybe Mustache)
 faceDetail_mustache = Lens.lens (\FaceDetail' {mustache} -> mustache) (\s@FaceDetail' {} a -> s {mustache = a} :: FaceDetail)
 
-instance Core.FromJSON FaceDetail where
+instance Data.FromJSON FaceDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FaceDetail"
       ( \x ->
           FaceDetail'
-            Prelude.<$> (x Core..:? "Beard")
-            Prelude.<*> (x Core..:? "AgeRange")
-            Prelude.<*> (x Core..:? "Quality")
-            Prelude.<*> (x Core..:? "Pose")
-            Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "MouthOpen")
-            Prelude.<*> (x Core..:? "Sunglasses")
-            Prelude.<*> (x Core..:? "BoundingBox")
-            Prelude.<*> (x Core..:? "Landmarks" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Gender")
-            Prelude.<*> (x Core..:? "Eyeglasses")
-            Prelude.<*> (x Core..:? "Emotions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Smile")
-            Prelude.<*> (x Core..:? "EyesOpen")
-            Prelude.<*> (x Core..:? "Mustache")
+            Prelude.<$> (x Data..:? "Beard")
+            Prelude.<*> (x Data..:? "AgeRange")
+            Prelude.<*> (x Data..:? "Quality")
+            Prelude.<*> (x Data..:? "Pose")
+            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "MouthOpen")
+            Prelude.<*> (x Data..:? "Sunglasses")
+            Prelude.<*> (x Data..:? "BoundingBox")
+            Prelude.<*> (x Data..:? "Landmarks" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Gender")
+            Prelude.<*> (x Data..:? "Eyeglasses")
+            Prelude.<*> (x Data..:? "Emotions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Smile")
+            Prelude.<*> (x Data..:? "EyesOpen")
+            Prelude.<*> (x Data..:? "Mustache")
       )
 
 instance Prelude.Hashable FaceDetail where

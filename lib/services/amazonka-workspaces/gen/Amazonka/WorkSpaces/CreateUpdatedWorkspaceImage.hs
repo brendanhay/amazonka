@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,7 +152,7 @@ instance Core.AWSRequest CreateUpdatedWorkspaceImage where
     Response.receiveJSON
       ( \s h x ->
           CreateUpdatedWorkspaceImageResponse'
-            Prelude.<$> (x Core..?> "ImageId")
+            Prelude.<$> (x Data..?> "ImageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,37 +170,37 @@ instance Prelude.NFData CreateUpdatedWorkspaceImage where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf sourceImageId
 
-instance Core.ToHeaders CreateUpdatedWorkspaceImage where
+instance Data.ToHeaders CreateUpdatedWorkspaceImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.CreateUpdatedWorkspaceImage" ::
+              Data.=# ( "WorkspacesService.CreateUpdatedWorkspaceImage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUpdatedWorkspaceImage where
+instance Data.ToJSON CreateUpdatedWorkspaceImage where
   toJSON CreateUpdatedWorkspaceImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Description" Core..= description),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Description" Data..= description),
             Prelude.Just
-              ("SourceImageId" Core..= sourceImageId)
+              ("SourceImageId" Data..= sourceImageId)
           ]
       )
 
-instance Core.ToPath CreateUpdatedWorkspaceImage where
+instance Data.ToPath CreateUpdatedWorkspaceImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUpdatedWorkspaceImage where
+instance Data.ToQuery CreateUpdatedWorkspaceImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUpdatedWorkspaceImageResponse' smart constructor.

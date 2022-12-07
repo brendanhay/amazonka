@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.AppFlowConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about an Amazon AppFlow flow datasource.
@@ -64,14 +65,14 @@ appFlowConfig_roleArn = Lens.lens (\AppFlowConfig' {roleArn} -> roleArn) (\s@App
 appFlowConfig_flowName :: Lens.Lens' AppFlowConfig (Prelude.Maybe Prelude.Text)
 appFlowConfig_flowName = Lens.lens (\AppFlowConfig' {flowName} -> flowName) (\s@AppFlowConfig' {} a -> s {flowName = a} :: AppFlowConfig)
 
-instance Core.FromJSON AppFlowConfig where
+instance Data.FromJSON AppFlowConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppFlowConfig"
       ( \x ->
           AppFlowConfig'
-            Prelude.<$> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "FlowName")
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "FlowName")
       )
 
 instance Prelude.Hashable AppFlowConfig where
@@ -84,11 +85,11 @@ instance Prelude.NFData AppFlowConfig where
     Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf flowName
 
-instance Core.ToJSON AppFlowConfig where
+instance Data.ToJSON AppFlowConfig where
   toJSON AppFlowConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("FlowName" Core..=) Prelude.<$> flowName
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("FlowName" Data..=) Prelude.<$> flowName
           ]
       )

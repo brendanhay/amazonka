@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.BuiltinIntentMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.Locale
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,16 +73,16 @@ builtinIntentMetadata_supportedLocales = Lens.lens (\BuiltinIntentMetadata' {sup
 builtinIntentMetadata_signature :: Lens.Lens' BuiltinIntentMetadata (Prelude.Maybe Prelude.Text)
 builtinIntentMetadata_signature = Lens.lens (\BuiltinIntentMetadata' {signature} -> signature) (\s@BuiltinIntentMetadata' {} a -> s {signature = a} :: BuiltinIntentMetadata)
 
-instance Core.FromJSON BuiltinIntentMetadata where
+instance Data.FromJSON BuiltinIntentMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BuiltinIntentMetadata"
       ( \x ->
           BuiltinIntentMetadata'
-            Prelude.<$> ( x Core..:? "supportedLocales"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "supportedLocales"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "signature")
+            Prelude.<*> (x Data..:? "signature")
       )
 
 instance Prelude.Hashable BuiltinIntentMetadata where

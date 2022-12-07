@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsDynamoDbTableDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsDynamoDbTableAttributeDefinition
 import Amazonka.SecurityHub.Types.AwsDynamoDbTableBillingModeSummary
@@ -282,36 +283,36 @@ awsDynamoDbTableDetails_sseDescription = Lens.lens (\AwsDynamoDbTableDetails' {s
 awsDynamoDbTableDetails_attributeDefinitions :: Lens.Lens' AwsDynamoDbTableDetails (Prelude.Maybe [AwsDynamoDbTableAttributeDefinition])
 awsDynamoDbTableDetails_attributeDefinitions = Lens.lens (\AwsDynamoDbTableDetails' {attributeDefinitions} -> attributeDefinitions) (\s@AwsDynamoDbTableDetails' {} a -> s {attributeDefinitions = a} :: AwsDynamoDbTableDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsDynamoDbTableDetails where
+instance Data.FromJSON AwsDynamoDbTableDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsDynamoDbTableDetails"
       ( \x ->
           AwsDynamoDbTableDetails'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "LatestStreamLabel")
-            Prelude.<*> (x Core..:? "BillingModeSummary")
-            Prelude.<*> (x Core..:? "TableStatus")
-            Prelude.<*> ( x Core..:? "LocalSecondaryIndexes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "LatestStreamLabel")
+            Prelude.<*> (x Data..:? "BillingModeSummary")
+            Prelude.<*> (x Data..:? "TableStatus")
+            Prelude.<*> ( x Data..:? "LocalSecondaryIndexes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "TableSizeBytes")
-            Prelude.<*> (x Core..:? "CreationDateTime")
-            Prelude.<*> (x Core..:? "Replicas" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ItemCount")
-            Prelude.<*> (x Core..:? "ProvisionedThroughput")
-            Prelude.<*> (x Core..:? "LatestStreamArn")
-            Prelude.<*> (x Core..:? "TableId")
-            Prelude.<*> (x Core..:? "KeySchema" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RestoreSummary")
-            Prelude.<*> ( x Core..:? "GlobalSecondaryIndexes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "TableSizeBytes")
+            Prelude.<*> (x Data..:? "CreationDateTime")
+            Prelude.<*> (x Data..:? "Replicas" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ItemCount")
+            Prelude.<*> (x Data..:? "ProvisionedThroughput")
+            Prelude.<*> (x Data..:? "LatestStreamArn")
+            Prelude.<*> (x Data..:? "TableId")
+            Prelude.<*> (x Data..:? "KeySchema" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RestoreSummary")
+            Prelude.<*> ( x Data..:? "GlobalSecondaryIndexes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StreamSpecification")
-            Prelude.<*> (x Core..:? "GlobalTableVersion")
-            Prelude.<*> (x Core..:? "SseDescription")
-            Prelude.<*> ( x Core..:? "AttributeDefinitions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "StreamSpecification")
+            Prelude.<*> (x Data..:? "GlobalTableVersion")
+            Prelude.<*> (x Data..:? "SseDescription")
+            Prelude.<*> ( x Data..:? "AttributeDefinitions"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -359,41 +360,41 @@ instance Prelude.NFData AwsDynamoDbTableDetails where
       `Prelude.seq` Prelude.rnf sseDescription
       `Prelude.seq` Prelude.rnf attributeDefinitions
 
-instance Core.ToJSON AwsDynamoDbTableDetails where
+instance Data.ToJSON AwsDynamoDbTableDetails where
   toJSON AwsDynamoDbTableDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TableName" Core..=) Prelude.<$> tableName,
-            ("LatestStreamLabel" Core..=)
+          [ ("TableName" Data..=) Prelude.<$> tableName,
+            ("LatestStreamLabel" Data..=)
               Prelude.<$> latestStreamLabel,
-            ("BillingModeSummary" Core..=)
+            ("BillingModeSummary" Data..=)
               Prelude.<$> billingModeSummary,
-            ("TableStatus" Core..=) Prelude.<$> tableStatus,
-            ("LocalSecondaryIndexes" Core..=)
+            ("TableStatus" Data..=) Prelude.<$> tableStatus,
+            ("LocalSecondaryIndexes" Data..=)
               Prelude.<$> localSecondaryIndexes,
-            ("TableSizeBytes" Core..=)
+            ("TableSizeBytes" Data..=)
               Prelude.<$> tableSizeBytes,
-            ("CreationDateTime" Core..=)
+            ("CreationDateTime" Data..=)
               Prelude.<$> creationDateTime,
-            ("Replicas" Core..=) Prelude.<$> replicas,
-            ("ItemCount" Core..=) Prelude.<$> itemCount,
-            ("ProvisionedThroughput" Core..=)
+            ("Replicas" Data..=) Prelude.<$> replicas,
+            ("ItemCount" Data..=) Prelude.<$> itemCount,
+            ("ProvisionedThroughput" Data..=)
               Prelude.<$> provisionedThroughput,
-            ("LatestStreamArn" Core..=)
+            ("LatestStreamArn" Data..=)
               Prelude.<$> latestStreamArn,
-            ("TableId" Core..=) Prelude.<$> tableId,
-            ("KeySchema" Core..=) Prelude.<$> keySchema,
-            ("RestoreSummary" Core..=)
+            ("TableId" Data..=) Prelude.<$> tableId,
+            ("KeySchema" Data..=) Prelude.<$> keySchema,
+            ("RestoreSummary" Data..=)
               Prelude.<$> restoreSummary,
-            ("GlobalSecondaryIndexes" Core..=)
+            ("GlobalSecondaryIndexes" Data..=)
               Prelude.<$> globalSecondaryIndexes,
-            ("StreamSpecification" Core..=)
+            ("StreamSpecification" Data..=)
               Prelude.<$> streamSpecification,
-            ("GlobalTableVersion" Core..=)
+            ("GlobalTableVersion" Data..=)
               Prelude.<$> globalTableVersion,
-            ("SseDescription" Core..=)
+            ("SseDescription" Data..=)
               Prelude.<$> sseDescription,
-            ("AttributeDefinitions" Core..=)
+            ("AttributeDefinitions" Data..=)
               Prelude.<$> attributeDefinitions
           ]
       )

@@ -40,6 +40,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -49,7 +50,7 @@ data UntagAttendee = UntagAttendee'
   { -- | The Amazon Chime SDK meeting ID.
     meetingId :: Prelude.Text,
     -- | The tag keys.
-    tagKeys :: Prelude.NonEmpty (Core.Sensitive Prelude.Text),
+    tagKeys :: Prelude.NonEmpty (Data.Sensitive Prelude.Text),
     -- | The Amazon Chime SDK attendee ID.
     attendeeId :: Prelude.Text
   }
@@ -116,27 +117,27 @@ instance Prelude.NFData UntagAttendee where
       `Prelude.seq` Prelude.rnf tagKeys
       `Prelude.seq` Prelude.rnf attendeeId
 
-instance Core.ToHeaders UntagAttendee where
+instance Data.ToHeaders UntagAttendee where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UntagAttendee where
+instance Data.ToJSON UntagAttendee where
   toJSON UntagAttendee' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TagKeys" Core..= tagKeys)]
+          [Prelude.Just ("TagKeys" Data..= tagKeys)]
       )
 
-instance Core.ToPath UntagAttendee where
+instance Data.ToPath UntagAttendee where
   toPath UntagAttendee' {..} =
     Prelude.mconcat
       [ "/meetings/",
-        Core.toBS meetingId,
+        Data.toBS meetingId,
         "/attendees/",
-        Core.toBS attendeeId,
+        Data.toBS attendeeId,
         "/tags"
       ]
 
-instance Core.ToQuery UntagAttendee where
+instance Data.ToQuery UntagAttendee where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["operation=delete"])

@@ -21,6 +21,7 @@ module Amazonka.CloudFormation.Types.ParameterConstraints where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of criteria that CloudFormation uses to validate parameter values.
@@ -55,11 +56,11 @@ newParameterConstraints =
 parameterConstraints_allowedValues :: Lens.Lens' ParameterConstraints (Prelude.Maybe [Prelude.Text])
 parameterConstraints_allowedValues = Lens.lens (\ParameterConstraints' {allowedValues} -> allowedValues) (\s@ParameterConstraints' {} a -> s {allowedValues = a} :: ParameterConstraints) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML ParameterConstraints where
+instance Data.FromXML ParameterConstraints where
   parseXML x =
     ParameterConstraints'
-      Prelude.<$> ( x Core..@? "AllowedValues" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "AllowedValues" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable ParameterConstraints where

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,8 +126,8 @@ instance Core.AWSRequest ListTagsForStream where
       ( \s h x ->
           ListTagsForStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "HasMoreTags")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "HasMoreTags")
       )
 
 instance Prelude.Hashable ListTagsForStream where
@@ -141,36 +142,36 @@ instance Prelude.NFData ListTagsForStream where
       `Prelude.seq` Prelude.rnf exclusiveStartTagKey
       `Prelude.seq` Prelude.rnf streamName
 
-instance Core.ToHeaders ListTagsForStream where
+instance Data.ToHeaders ListTagsForStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.ListTagsForStream" ::
+              Data.=# ( "Kinesis_20131202.ListTagsForStream" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTagsForStream where
+instance Data.ToJSON ListTagsForStream where
   toJSON ListTagsForStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("ExclusiveStartTagKey" Core..=)
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("ExclusiveStartTagKey" Data..=)
               Prelude.<$> exclusiveStartTagKey,
-            Prelude.Just ("StreamName" Core..= streamName)
+            Prelude.Just ("StreamName" Data..= streamName)
           ]
       )
 
-instance Core.ToPath ListTagsForStream where
+instance Data.ToPath ListTagsForStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTagsForStream where
+instance Data.ToQuery ListTagsForStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output for @ListTagsForStream@.

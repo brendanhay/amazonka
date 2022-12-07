@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,13 +158,13 @@ instance Core.AWSRequest DescribeProductAsAdmin where
     Response.receiveJSON
       ( \s h x ->
           DescribeProductAsAdminResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "ProvisioningArtifactSummaries"
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "ProvisioningArtifactSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Budgets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "TagOptions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ProductViewDetail")
+            Prelude.<*> (x Data..?> "Budgets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TagOptions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ProductViewDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,38 +182,38 @@ instance Prelude.NFData DescribeProductAsAdmin where
       `Prelude.seq` Prelude.rnf sourcePortfolioId
       `Prelude.seq` Prelude.rnf acceptLanguage
 
-instance Core.ToHeaders DescribeProductAsAdmin where
+instance Data.ToHeaders DescribeProductAsAdmin where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DescribeProductAsAdmin" ::
+              Data.=# ( "AWS242ServiceCatalogService.DescribeProductAsAdmin" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeProductAsAdmin where
+instance Data.ToJSON DescribeProductAsAdmin where
   toJSON DescribeProductAsAdmin' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Id" Core..=) Prelude.<$> id,
-            ("SourcePortfolioId" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Id" Data..=) Prelude.<$> id,
+            ("SourcePortfolioId" Data..=)
               Prelude.<$> sourcePortfolioId,
-            ("AcceptLanguage" Core..=)
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage
           ]
       )
 
-instance Core.ToPath DescribeProductAsAdmin where
+instance Data.ToPath DescribeProductAsAdmin where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeProductAsAdmin where
+instance Data.ToQuery DescribeProductAsAdmin where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProductAsAdminResponse' smart constructor.

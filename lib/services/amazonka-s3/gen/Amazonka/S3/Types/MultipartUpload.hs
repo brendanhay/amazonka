@@ -21,6 +21,7 @@ module Amazonka.S3.Types.MultipartUpload where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ChecksumAlgorithm
@@ -45,7 +46,7 @@ data MultipartUpload = MultipartUpload'
     -- | Identifies who initiated the multipart upload.
     initiator :: Prelude.Maybe Initiator,
     -- | Date and time at which the multipart upload was initiated.
-    initiated :: Prelude.Maybe Core.ISO8601
+    initiated :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -110,18 +111,18 @@ multipartUpload_initiator = Lens.lens (\MultipartUpload' {initiator} -> initiato
 
 -- | Date and time at which the multipart upload was initiated.
 multipartUpload_initiated :: Lens.Lens' MultipartUpload (Prelude.Maybe Prelude.UTCTime)
-multipartUpload_initiated = Lens.lens (\MultipartUpload' {initiated} -> initiated) (\s@MultipartUpload' {} a -> s {initiated = a} :: MultipartUpload) Prelude.. Lens.mapping Core._Time
+multipartUpload_initiated = Lens.lens (\MultipartUpload' {initiated} -> initiated) (\s@MultipartUpload' {} a -> s {initiated = a} :: MultipartUpload) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML MultipartUpload where
+instance Data.FromXML MultipartUpload where
   parseXML x =
     MultipartUpload'
-      Prelude.<$> (x Core..@? "ChecksumAlgorithm")
-      Prelude.<*> (x Core..@? "UploadId")
-      Prelude.<*> (x Core..@? "Key")
-      Prelude.<*> (x Core..@? "Owner")
-      Prelude.<*> (x Core..@? "StorageClass")
-      Prelude.<*> (x Core..@? "Initiator")
-      Prelude.<*> (x Core..@? "Initiated")
+      Prelude.<$> (x Data..@? "ChecksumAlgorithm")
+      Prelude.<*> (x Data..@? "UploadId")
+      Prelude.<*> (x Data..@? "Key")
+      Prelude.<*> (x Data..@? "Owner")
+      Prelude.<*> (x Data..@? "StorageClass")
+      Prelude.<*> (x Data..@? "Initiator")
+      Prelude.<*> (x Data..@? "Initiated")
 
 instance Prelude.Hashable MultipartUpload where
   hashWithSalt _salt MultipartUpload' {..} =

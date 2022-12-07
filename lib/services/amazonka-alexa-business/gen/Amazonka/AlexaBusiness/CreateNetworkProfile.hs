@@ -52,6 +52,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -75,11 +76,11 @@ data CreateNetworkProfile = CreateNetworkProfile'
     -- negotiation.
     trustAnchors :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The current password of the Wi-Fi network.
-    currentPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    currentPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The next, or subsequent, password of the Wi-Fi network. This password is
     -- asynchronously transmitted to the device and is used when the password
     -- of the network changes to NextPassword.
-    nextPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the network profile associated with a device.
     networkProfileName :: Prelude.Text,
     -- | The SSID of the Wi-Fi network.
@@ -186,13 +187,13 @@ createNetworkProfile_trustAnchors = Lens.lens (\CreateNetworkProfile' {trustAnch
 
 -- | The current password of the Wi-Fi network.
 createNetworkProfile_currentPassword :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Text)
-createNetworkProfile_currentPassword = Lens.lens (\CreateNetworkProfile' {currentPassword} -> currentPassword) (\s@CreateNetworkProfile' {} a -> s {currentPassword = a} :: CreateNetworkProfile) Prelude.. Lens.mapping Core._Sensitive
+createNetworkProfile_currentPassword = Lens.lens (\CreateNetworkProfile' {currentPassword} -> currentPassword) (\s@CreateNetworkProfile' {} a -> s {currentPassword = a} :: CreateNetworkProfile) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The next, or subsequent, password of the Wi-Fi network. This password is
 -- asynchronously transmitted to the device and is used when the password
 -- of the network changes to NextPassword.
 createNetworkProfile_nextPassword :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Text)
-createNetworkProfile_nextPassword = Lens.lens (\CreateNetworkProfile' {nextPassword} -> nextPassword) (\s@CreateNetworkProfile' {} a -> s {nextPassword = a} :: CreateNetworkProfile) Prelude.. Lens.mapping Core._Sensitive
+createNetworkProfile_nextPassword = Lens.lens (\CreateNetworkProfile' {nextPassword} -> nextPassword) (\s@CreateNetworkProfile' {} a -> s {nextPassword = a} :: CreateNetworkProfile) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the network profile associated with a device.
 createNetworkProfile_networkProfileName :: Lens.Lens' CreateNetworkProfile Prelude.Text
@@ -221,7 +222,7 @@ instance Core.AWSRequest CreateNetworkProfile where
     Response.receiveJSON
       ( \s h x ->
           CreateNetworkProfileResponse'
-            Prelude.<$> (x Core..?> "NetworkProfileArn")
+            Prelude.<$> (x Data..?> "NetworkProfileArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -253,47 +254,47 @@ instance Prelude.NFData CreateNetworkProfile where
       `Prelude.seq` Prelude.rnf securityType
       `Prelude.seq` Prelude.rnf clientRequestToken
 
-instance Core.ToHeaders CreateNetworkProfile where
+instance Data.ToHeaders CreateNetworkProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.CreateNetworkProfile" ::
+              Data.=# ( "AlexaForBusiness.CreateNetworkProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateNetworkProfile where
+instance Data.ToJSON CreateNetworkProfile where
   toJSON CreateNetworkProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("CertificateAuthorityArn" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("CertificateAuthorityArn" Data..=)
               Prelude.<$> certificateAuthorityArn,
-            ("Description" Core..=) Prelude.<$> description,
-            ("EapMethod" Core..=) Prelude.<$> eapMethod,
-            ("TrustAnchors" Core..=) Prelude.<$> trustAnchors,
-            ("CurrentPassword" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("EapMethod" Data..=) Prelude.<$> eapMethod,
+            ("TrustAnchors" Data..=) Prelude.<$> trustAnchors,
+            ("CurrentPassword" Data..=)
               Prelude.<$> currentPassword,
-            ("NextPassword" Core..=) Prelude.<$> nextPassword,
+            ("NextPassword" Data..=) Prelude.<$> nextPassword,
             Prelude.Just
-              ("NetworkProfileName" Core..= networkProfileName),
-            Prelude.Just ("Ssid" Core..= ssid),
-            Prelude.Just ("SecurityType" Core..= securityType),
+              ("NetworkProfileName" Data..= networkProfileName),
+            Prelude.Just ("Ssid" Data..= ssid),
+            Prelude.Just ("SecurityType" Data..= securityType),
             Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken)
+              ("ClientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath CreateNetworkProfile where
+instance Data.ToPath CreateNetworkProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateNetworkProfile where
+instance Data.ToQuery CreateNetworkProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateNetworkProfileResponse' smart constructor.

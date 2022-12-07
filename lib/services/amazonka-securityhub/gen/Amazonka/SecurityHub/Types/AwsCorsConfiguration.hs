@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCorsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the cross-origin resource sharing (CORS) configuration for the
@@ -102,18 +103,18 @@ awsCorsConfiguration_allowOrigins = Lens.lens (\AwsCorsConfiguration' {allowOrig
 awsCorsConfiguration_maxAge :: Lens.Lens' AwsCorsConfiguration (Prelude.Maybe Prelude.Int)
 awsCorsConfiguration_maxAge = Lens.lens (\AwsCorsConfiguration' {maxAge} -> maxAge) (\s@AwsCorsConfiguration' {} a -> s {maxAge = a} :: AwsCorsConfiguration)
 
-instance Core.FromJSON AwsCorsConfiguration where
+instance Data.FromJSON AwsCorsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCorsConfiguration"
       ( \x ->
           AwsCorsConfiguration'
-            Prelude.<$> (x Core..:? "AllowHeaders" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ExposeHeaders" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AllowCredentials")
-            Prelude.<*> (x Core..:? "AllowMethods" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AllowOrigins" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MaxAge")
+            Prelude.<$> (x Data..:? "AllowHeaders" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ExposeHeaders" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AllowCredentials")
+            Prelude.<*> (x Data..:? "AllowMethods" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AllowOrigins" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MaxAge")
       )
 
 instance Prelude.Hashable AwsCorsConfiguration where
@@ -134,16 +135,16 @@ instance Prelude.NFData AwsCorsConfiguration where
       `Prelude.seq` Prelude.rnf allowOrigins
       `Prelude.seq` Prelude.rnf maxAge
 
-instance Core.ToJSON AwsCorsConfiguration where
+instance Data.ToJSON AwsCorsConfiguration where
   toJSON AwsCorsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AllowHeaders" Core..=) Prelude.<$> allowHeaders,
-            ("ExposeHeaders" Core..=) Prelude.<$> exposeHeaders,
-            ("AllowCredentials" Core..=)
+          [ ("AllowHeaders" Data..=) Prelude.<$> allowHeaders,
+            ("ExposeHeaders" Data..=) Prelude.<$> exposeHeaders,
+            ("AllowCredentials" Data..=)
               Prelude.<$> allowCredentials,
-            ("AllowMethods" Core..=) Prelude.<$> allowMethods,
-            ("AllowOrigins" Core..=) Prelude.<$> allowOrigins,
-            ("MaxAge" Core..=) Prelude.<$> maxAge
+            ("AllowMethods" Data..=) Prelude.<$> allowMethods,
+            ("AllowOrigins" Data..=) Prelude.<$> allowOrigins,
+            ("MaxAge" Data..=) Prelude.<$> maxAge
           ]
       )

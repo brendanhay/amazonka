@@ -21,6 +21,7 @@ module Amazonka.ResourceGroups.Types.QueryError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceGroups.Types.QueryErrorCode
 
@@ -83,14 +84,14 @@ queryError_message = Lens.lens (\QueryError' {message} -> message) (\s@QueryErro
 queryError_errorCode :: Lens.Lens' QueryError (Prelude.Maybe QueryErrorCode)
 queryError_errorCode = Lens.lens (\QueryError' {errorCode} -> errorCode) (\s@QueryError' {} a -> s {errorCode = a} :: QueryError)
 
-instance Core.FromJSON QueryError where
+instance Data.FromJSON QueryError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryError"
       ( \x ->
           QueryError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable QueryError where

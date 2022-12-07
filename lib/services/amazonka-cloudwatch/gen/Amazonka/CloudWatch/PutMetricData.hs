@@ -92,6 +92,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -165,22 +166,22 @@ instance Prelude.NFData PutMetricData where
     Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf metricData
 
-instance Core.ToHeaders PutMetricData where
+instance Data.ToHeaders PutMetricData where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutMetricData where
+instance Data.ToPath PutMetricData where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutMetricData where
+instance Data.ToQuery PutMetricData where
   toQuery PutMetricData' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PutMetricData" :: Prelude.ByteString),
+          Data.=: ("PutMetricData" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "Namespace" Core.=: namespace,
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
+        "Namespace" Data.=: namespace,
         "MetricData"
-          Core.=: Core.toQueryList "member" metricData
+          Data.=: Data.toQueryList "member" metricData
       ]
 
 -- | /See:/ 'newPutMetricDataResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.Type where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import {-# SOURCE #-} Amazonka.TimeStreamQuery.Types.ColumnInfo
 import Amazonka.TimeStreamQuery.Types.ScalarType
@@ -87,16 +88,16 @@ type_timeSeriesMeasureValueColumnInfo = Lens.lens (\Type' {timeSeriesMeasureValu
 type_rowColumnInfo :: Lens.Lens' Type (Prelude.Maybe [ColumnInfo])
 type_rowColumnInfo = Lens.lens (\Type' {rowColumnInfo} -> rowColumnInfo) (\s@Type' {} a -> s {rowColumnInfo = a} :: Type) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Type where
+instance Data.FromJSON Type where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Type"
       ( \x ->
           Type'
-            Prelude.<$> (x Core..:? "ArrayColumnInfo")
-            Prelude.<*> (x Core..:? "ScalarType")
-            Prelude.<*> (x Core..:? "TimeSeriesMeasureValueColumnInfo")
-            Prelude.<*> (x Core..:? "RowColumnInfo" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ArrayColumnInfo")
+            Prelude.<*> (x Data..:? "ScalarType")
+            Prelude.<*> (x Data..:? "TimeSeriesMeasureValueColumnInfo")
+            Prelude.<*> (x Data..:? "RowColumnInfo" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Type where

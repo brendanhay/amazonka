@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.UserDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.AttachedPermissionsBoundary
 import Amazonka.IAM.Types.AttachedPolicy
 import Amazonka.IAM.Types.PolicyDetail
@@ -65,7 +66,7 @@ data UserDetail = UserDetail'
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- user was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Data.ISO8601,
     -- | A list of the inline policies embedded in the user.
     userPolicyList :: Prelude.Maybe [PolicyDetail]
   }
@@ -176,33 +177,33 @@ userDetail_userId = Lens.lens (\UserDetail' {userId} -> userId) (\s@UserDetail' 
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- user was created.
 userDetail_createDate :: Lens.Lens' UserDetail (Prelude.Maybe Prelude.UTCTime)
-userDetail_createDate = Lens.lens (\UserDetail' {createDate} -> createDate) (\s@UserDetail' {} a -> s {createDate = a} :: UserDetail) Prelude.. Lens.mapping Core._Time
+userDetail_createDate = Lens.lens (\UserDetail' {createDate} -> createDate) (\s@UserDetail' {} a -> s {createDate = a} :: UserDetail) Prelude.. Lens.mapping Data._Time
 
 -- | A list of the inline policies embedded in the user.
 userDetail_userPolicyList :: Lens.Lens' UserDetail (Prelude.Maybe [PolicyDetail])
 userDetail_userPolicyList = Lens.lens (\UserDetail' {userPolicyList} -> userPolicyList) (\s@UserDetail' {} a -> s {userPolicyList = a} :: UserDetail) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML UserDetail where
+instance Data.FromXML UserDetail where
   parseXML x =
     UserDetail'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "UserName")
-      Prelude.<*> (x Core..@? "Arn")
-      Prelude.<*> (x Core..@? "Path")
-      Prelude.<*> ( x Core..@? "GroupList" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "UserName")
+      Prelude.<*> (x Data..@? "Arn")
+      Prelude.<*> (x Data..@? "Path")
+      Prelude.<*> ( x Data..@? "GroupList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "AttachedManagedPolicies"
+      Prelude.<*> ( x Data..@? "AttachedManagedPolicies"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PermissionsBoundary")
-      Prelude.<*> (x Core..@? "UserId")
-      Prelude.<*> (x Core..@? "CreateDate")
-      Prelude.<*> ( x Core..@? "UserPolicyList" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "PermissionsBoundary")
+      Prelude.<*> (x Data..@? "UserId")
+      Prelude.<*> (x Data..@? "CreateDate")
+      Prelude.<*> ( x Data..@? "UserPolicyList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable UserDetail where

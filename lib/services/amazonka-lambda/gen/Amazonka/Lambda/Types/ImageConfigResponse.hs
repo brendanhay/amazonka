@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.ImageConfigResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.ImageConfig
 import Amazonka.Lambda.Types.ImageConfigError
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ imageConfigResponse_imageConfig = Lens.lens (\ImageConfigResponse' {imageConfig}
 imageConfigResponse_error :: Lens.Lens' ImageConfigResponse (Prelude.Maybe ImageConfigError)
 imageConfigResponse_error = Lens.lens (\ImageConfigResponse' {error} -> error) (\s@ImageConfigResponse' {} a -> s {error = a} :: ImageConfigResponse)
 
-instance Core.FromJSON ImageConfigResponse where
+instance Data.FromJSON ImageConfigResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageConfigResponse"
       ( \x ->
           ImageConfigResponse'
-            Prelude.<$> (x Core..:? "ImageConfig")
-            Prelude.<*> (x Core..:? "Error")
+            Prelude.<$> (x Data..:? "ImageConfig")
+            Prelude.<*> (x Data..:? "Error")
       )
 
 instance Prelude.Hashable ImageConfigResponse where

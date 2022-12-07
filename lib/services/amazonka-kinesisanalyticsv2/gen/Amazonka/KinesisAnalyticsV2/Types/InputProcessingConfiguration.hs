@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.InputProcessingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.InputLambdaProcessor
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,13 +76,13 @@ instance Prelude.NFData InputProcessingConfiguration where
   rnf InputProcessingConfiguration' {..} =
     Prelude.rnf inputLambdaProcessor
 
-instance Core.ToJSON InputProcessingConfiguration where
+instance Data.ToJSON InputProcessingConfiguration where
   toJSON InputProcessingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "InputLambdaProcessor"
-                  Core..= inputLambdaProcessor
+                  Data..= inputLambdaProcessor
               )
           ]
       )

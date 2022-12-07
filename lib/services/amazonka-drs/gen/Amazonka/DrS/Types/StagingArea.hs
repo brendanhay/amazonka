@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.StagingArea where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.ExtensionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -110,16 +111,16 @@ stagingArea_stagingSourceServerArn = Lens.lens (\StagingArea' {stagingSourceServ
 stagingArea_status :: Lens.Lens' StagingArea (Prelude.Maybe ExtensionStatus)
 stagingArea_status = Lens.lens (\StagingArea' {status} -> status) (\s@StagingArea' {} a -> s {status = a} :: StagingArea)
 
-instance Core.FromJSON StagingArea where
+instance Data.FromJSON StagingArea where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StagingArea"
       ( \x ->
           StagingArea'
-            Prelude.<$> (x Core..:? "stagingAccountID")
-            Prelude.<*> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "stagingSourceServerArn")
-            Prelude.<*> (x Core..:? "status")
+            Prelude.<$> (x Data..:? "stagingAccountID")
+            Prelude.<*> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "stagingSourceServerArn")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable StagingArea where

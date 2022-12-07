@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.ParameterGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a CreateParameterGroup operation. A parameter
@@ -84,16 +85,16 @@ parameterGroup_description = Lens.lens (\ParameterGroup' {description} -> descri
 parameterGroup_family :: Lens.Lens' ParameterGroup (Prelude.Maybe Prelude.Text)
 parameterGroup_family = Lens.lens (\ParameterGroup' {family} -> family) (\s@ParameterGroup' {} a -> s {family = a} :: ParameterGroup)
 
-instance Core.FromJSON ParameterGroup where
+instance Data.FromJSON ParameterGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParameterGroup"
       ( \x ->
           ParameterGroup'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Family")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Family")
       )
 
 instance Prelude.Hashable ParameterGroup where

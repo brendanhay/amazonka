@@ -79,6 +79,7 @@ where
 import Amazonka.ConnectParticipant.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -160,8 +161,8 @@ instance Core.AWSRequest CreateParticipantConnection where
     Response.receiveJSON
       ( \s h x ->
           CreateParticipantConnectionResponse'
-            Prelude.<$> (x Core..?> "ConnectionCredentials")
-            Prelude.<*> (x Core..?> "Websocket")
+            Prelude.<$> (x Data..?> "ConnectionCredentials")
+            Prelude.<*> (x Data..?> "Websocket")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,28 +178,28 @@ instance Prelude.NFData CreateParticipantConnection where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf participantToken
 
-instance Core.ToHeaders CreateParticipantConnection where
+instance Data.ToHeaders CreateParticipantConnection where
   toHeaders CreateParticipantConnection' {..} =
     Prelude.mconcat
-      [ "X-Amz-Bearer" Core.=# participantToken,
+      [ "X-Amz-Bearer" Data.=# participantToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateParticipantConnection where
+instance Data.ToJSON CreateParticipantConnection where
   toJSON CreateParticipantConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConnectParticipant" Core..=)
+          [ ("ConnectParticipant" Data..=)
               Prelude.<$> connectParticipant,
-            Prelude.Just ("Type" Core..= type')
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateParticipantConnection where
+instance Data.ToPath CreateParticipantConnection where
   toPath = Prelude.const "/participant/connection"
 
-instance Core.ToQuery CreateParticipantConnection where
+instance Data.ToQuery CreateParticipantConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateParticipantConnectionResponse' smart constructor.

@@ -52,6 +52,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,7 +96,7 @@ data StartTaskContact = StartTaskContact'
     -- | The timestamp, in Unix Epoch seconds format, at which to start running
     -- the inbound flow. The scheduled time cannot be in the past. It must be
     -- within up to 6 days in future.
-    scheduledTime :: Prelude.Maybe Core.POSIX,
+    scheduledTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -231,7 +232,7 @@ startTaskContact_contactFlowId = Lens.lens (\StartTaskContact' {contactFlowId} -
 -- the inbound flow. The scheduled time cannot be in the past. It must be
 -- within up to 6 days in future.
 startTaskContact_scheduledTime :: Lens.Lens' StartTaskContact (Prelude.Maybe Prelude.UTCTime)
-startTaskContact_scheduledTime = Lens.lens (\StartTaskContact' {scheduledTime} -> scheduledTime) (\s@StartTaskContact' {} a -> s {scheduledTime = a} :: StartTaskContact) Prelude.. Lens.mapping Core._Time
+startTaskContact_scheduledTime = Lens.lens (\StartTaskContact' {scheduledTime} -> scheduledTime) (\s@StartTaskContact' {} a -> s {scheduledTime = a} :: StartTaskContact) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -253,7 +254,7 @@ instance Core.AWSRequest StartTaskContact where
     Response.receiveJSON
       ( \s h x ->
           StartTaskContactResponse'
-            Prelude.<$> (x Core..?> "ContactId")
+            Prelude.<$> (x Data..?> "ContactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -285,42 +286,42 @@ instance Prelude.NFData StartTaskContact where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders StartTaskContact where
+instance Data.ToHeaders StartTaskContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartTaskContact where
+instance Data.ToJSON StartTaskContact where
   toJSON StartTaskContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("TaskTemplateId" Core..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("TaskTemplateId" Data..=)
               Prelude.<$> taskTemplateId,
-            ("Description" Core..=) Prelude.<$> description,
-            ("References" Core..=) Prelude.<$> references,
-            ("QuickConnectId" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("References" Data..=) Prelude.<$> references,
+            ("QuickConnectId" Data..=)
               Prelude.<$> quickConnectId,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("PreviousContactId" Core..=)
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("PreviousContactId" Data..=)
               Prelude.<$> previousContactId,
-            ("ContactFlowId" Core..=) Prelude.<$> contactFlowId,
-            ("ScheduledTime" Core..=) Prelude.<$> scheduledTime,
-            Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("Name" Core..= name)
+            ("ContactFlowId" Data..=) Prelude.<$> contactFlowId,
+            ("ScheduledTime" Data..=) Prelude.<$> scheduledTime,
+            Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath StartTaskContact where
+instance Data.ToPath StartTaskContact where
   toPath = Prelude.const "/contact/task"
 
-instance Core.ToQuery StartTaskContact where
+instance Data.ToQuery StartTaskContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartTaskContactResponse' smart constructor.

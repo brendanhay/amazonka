@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DnsServersOptionsModifyStructure where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -94,14 +95,14 @@ instance
       `Prelude.seq` Prelude.rnf customDnsServers
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DnsServersOptionsModifyStructure
   where
   toQuery DnsServersOptionsModifyStructure' {..} =
     Prelude.mconcat
-      [ "Enabled" Core.=: enabled,
-        Core.toQuery
-          ( Core.toQueryList "CustomDnsServers"
+      [ "Enabled" Data.=: enabled,
+        Data.toQuery
+          ( Data.toQueryList "CustomDnsServers"
               Prelude.<$> customDnsServers
           )
       ]

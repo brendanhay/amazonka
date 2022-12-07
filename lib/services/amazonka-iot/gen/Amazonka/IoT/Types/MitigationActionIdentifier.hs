@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.MitigationActionIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information that identifies a mitigation action. This information is
@@ -31,7 +32,7 @@ data MitigationActionIdentifier = MitigationActionIdentifier'
   { -- | The friendly name of the mitigation action.
     actionName :: Prelude.Maybe Prelude.Text,
     -- | The date when this mitigation action was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The IAM role ARN used to apply this mitigation action.
     actionArn :: Prelude.Maybe Prelude.Text
   }
@@ -66,21 +67,21 @@ mitigationActionIdentifier_actionName = Lens.lens (\MitigationActionIdentifier' 
 
 -- | The date when this mitigation action was created.
 mitigationActionIdentifier_creationDate :: Lens.Lens' MitigationActionIdentifier (Prelude.Maybe Prelude.UTCTime)
-mitigationActionIdentifier_creationDate = Lens.lens (\MitigationActionIdentifier' {creationDate} -> creationDate) (\s@MitigationActionIdentifier' {} a -> s {creationDate = a} :: MitigationActionIdentifier) Prelude.. Lens.mapping Core._Time
+mitigationActionIdentifier_creationDate = Lens.lens (\MitigationActionIdentifier' {creationDate} -> creationDate) (\s@MitigationActionIdentifier' {} a -> s {creationDate = a} :: MitigationActionIdentifier) Prelude.. Lens.mapping Data._Time
 
 -- | The IAM role ARN used to apply this mitigation action.
 mitigationActionIdentifier_actionArn :: Lens.Lens' MitigationActionIdentifier (Prelude.Maybe Prelude.Text)
 mitigationActionIdentifier_actionArn = Lens.lens (\MitigationActionIdentifier' {actionArn} -> actionArn) (\s@MitigationActionIdentifier' {} a -> s {actionArn = a} :: MitigationActionIdentifier)
 
-instance Core.FromJSON MitigationActionIdentifier where
+instance Data.FromJSON MitigationActionIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MitigationActionIdentifier"
       ( \x ->
           MitigationActionIdentifier'
-            Prelude.<$> (x Core..:? "actionName")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "actionArn")
+            Prelude.<$> (x Data..:? "actionName")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "actionArn")
       )
 
 instance Prelude.Hashable MitigationActionIdentifier where

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT1ClickDevices.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -65,10 +66,10 @@ data ListDeviceEvents = ListDeviceEvents'
     deviceId :: Prelude.Text,
     -- | The start date for the device event query, in ISO8061 format. For
     -- example, 2018-03-28T15:45:12.880Z
-    fromTimeStamp :: Core.POSIX,
+    fromTimeStamp :: Data.POSIX,
     -- | The end date for the device event query, in ISO8061 format. For example,
     -- 2018-03-28T15:45:12.880Z
-    toTimeStamp :: Core.POSIX
+    toTimeStamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -108,8 +109,8 @@ newListDeviceEvents
       { nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         deviceId = pDeviceId_,
-        fromTimeStamp = Core._Time Lens.# pFromTimeStamp_,
-        toTimeStamp = Core._Time Lens.# pToTimeStamp_
+        fromTimeStamp = Data._Time Lens.# pFromTimeStamp_,
+        toTimeStamp = Data._Time Lens.# pToTimeStamp_
       }
 
 -- | The token to retrieve the next set of results.
@@ -128,12 +129,12 @@ listDeviceEvents_deviceId = Lens.lens (\ListDeviceEvents' {deviceId} -> deviceId
 -- | The start date for the device event query, in ISO8061 format. For
 -- example, 2018-03-28T15:45:12.880Z
 listDeviceEvents_fromTimeStamp :: Lens.Lens' ListDeviceEvents Prelude.UTCTime
-listDeviceEvents_fromTimeStamp = Lens.lens (\ListDeviceEvents' {fromTimeStamp} -> fromTimeStamp) (\s@ListDeviceEvents' {} a -> s {fromTimeStamp = a} :: ListDeviceEvents) Prelude.. Core._Time
+listDeviceEvents_fromTimeStamp = Lens.lens (\ListDeviceEvents' {fromTimeStamp} -> fromTimeStamp) (\s@ListDeviceEvents' {} a -> s {fromTimeStamp = a} :: ListDeviceEvents) Prelude.. Data._Time
 
 -- | The end date for the device event query, in ISO8061 format. For example,
 -- 2018-03-28T15:45:12.880Z
 listDeviceEvents_toTimeStamp :: Lens.Lens' ListDeviceEvents Prelude.UTCTime
-listDeviceEvents_toTimeStamp = Lens.lens (\ListDeviceEvents' {toTimeStamp} -> toTimeStamp) (\s@ListDeviceEvents' {} a -> s {toTimeStamp = a} :: ListDeviceEvents) Prelude.. Core._Time
+listDeviceEvents_toTimeStamp = Lens.lens (\ListDeviceEvents' {toTimeStamp} -> toTimeStamp) (\s@ListDeviceEvents' {} a -> s {toTimeStamp = a} :: ListDeviceEvents) Prelude.. Data._Time
 
 instance Core.AWSPager ListDeviceEvents where
   page rq rs
@@ -166,8 +167,8 @@ instance Core.AWSRequest ListDeviceEvents where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceEventsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "events" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "events" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,29 +188,29 @@ instance Prelude.NFData ListDeviceEvents where
       `Prelude.seq` Prelude.rnf fromTimeStamp
       `Prelude.seq` Prelude.rnf toTimeStamp
 
-instance Core.ToHeaders ListDeviceEvents where
+instance Data.ToHeaders ListDeviceEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListDeviceEvents where
+instance Data.ToPath ListDeviceEvents where
   toPath ListDeviceEvents' {..} =
     Prelude.mconcat
-      ["/devices/", Core.toBS deviceId, "/events"]
+      ["/devices/", Data.toBS deviceId, "/events"]
 
-instance Core.ToQuery ListDeviceEvents where
+instance Data.ToQuery ListDeviceEvents where
   toQuery ListDeviceEvents' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "fromTimeStamp" Core.=: fromTimeStamp,
-        "toTimeStamp" Core.=: toTimeStamp
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "fromTimeStamp" Data.=: fromTimeStamp,
+        "toTimeStamp" Data.=: toTimeStamp
       ]
 
 -- | /See:/ 'newListDeviceEventsResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ instance Core.AWSRequest DisassociateFileSystem where
     Response.receiveJSON
       ( \s h x ->
           DisassociateFileSystemResponse'
-            Prelude.<$> (x Core..?> "FileSystemAssociationARN")
+            Prelude.<$> (x Data..?> "FileSystemAssociationARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,37 +130,37 @@ instance Prelude.NFData DisassociateFileSystem where
     Prelude.rnf forceDelete
       `Prelude.seq` Prelude.rnf fileSystemAssociationARN
 
-instance Core.ToHeaders DisassociateFileSystem where
+instance Data.ToHeaders DisassociateFileSystem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DisassociateFileSystem" ::
+              Data.=# ( "StorageGateway_20130630.DisassociateFileSystem" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateFileSystem where
+instance Data.ToJSON DisassociateFileSystem where
   toJSON DisassociateFileSystem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ForceDelete" Core..=) Prelude.<$> forceDelete,
+          [ ("ForceDelete" Data..=) Prelude.<$> forceDelete,
             Prelude.Just
               ( "FileSystemAssociationARN"
-                  Core..= fileSystemAssociationARN
+                  Data..= fileSystemAssociationARN
               )
           ]
       )
 
-instance Core.ToPath DisassociateFileSystem where
+instance Data.ToPath DisassociateFileSystem where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateFileSystem where
+instance Data.ToQuery DisassociateFileSystem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateFileSystemResponse' smart constructor.

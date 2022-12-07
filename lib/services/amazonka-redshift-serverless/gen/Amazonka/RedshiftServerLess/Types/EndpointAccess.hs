@@ -21,6 +21,7 @@ module Amazonka.RedshiftServerLess.Types.EndpointAccess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types.VpcEndpoint
 import Amazonka.RedshiftServerLess.Types.VpcSecurityGroupMembership
@@ -50,7 +51,7 @@ data EndpointAccess = EndpointAccess'
     -- | The security groups associated with the endpoint.
     vpcSecurityGroups :: Prelude.Maybe [VpcSecurityGroupMembership],
     -- | The time that the endpoint was created.
-    endpointCreateTime :: Prelude.Maybe Core.POSIX
+    endpointCreateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -139,26 +140,26 @@ endpointAccess_vpcSecurityGroups = Lens.lens (\EndpointAccess' {vpcSecurityGroup
 
 -- | The time that the endpoint was created.
 endpointAccess_endpointCreateTime :: Lens.Lens' EndpointAccess (Prelude.Maybe Prelude.UTCTime)
-endpointAccess_endpointCreateTime = Lens.lens (\EndpointAccess' {endpointCreateTime} -> endpointCreateTime) (\s@EndpointAccess' {} a -> s {endpointCreateTime = a} :: EndpointAccess) Prelude.. Lens.mapping Core._Time
+endpointAccess_endpointCreateTime = Lens.lens (\EndpointAccess' {endpointCreateTime} -> endpointCreateTime) (\s@EndpointAccess' {} a -> s {endpointCreateTime = a} :: EndpointAccess) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON EndpointAccess where
+instance Data.FromJSON EndpointAccess where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointAccess"
       ( \x ->
           EndpointAccess'
-            Prelude.<$> (x Core..:? "port")
-            Prelude.<*> (x Core..:? "endpointName")
-            Prelude.<*> (x Core..:? "workgroupName")
-            Prelude.<*> (x Core..:? "address")
-            Prelude.<*> (x Core..:? "endpointStatus")
-            Prelude.<*> (x Core..:? "subnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "endpointArn")
-            Prelude.<*> (x Core..:? "vpcEndpoint")
-            Prelude.<*> ( x Core..:? "vpcSecurityGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "port")
+            Prelude.<*> (x Data..:? "endpointName")
+            Prelude.<*> (x Data..:? "workgroupName")
+            Prelude.<*> (x Data..:? "address")
+            Prelude.<*> (x Data..:? "endpointStatus")
+            Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "endpointArn")
+            Prelude.<*> (x Data..:? "vpcEndpoint")
+            Prelude.<*> ( x Data..:? "vpcSecurityGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "endpointCreateTime")
+            Prelude.<*> (x Data..:? "endpointCreateTime")
       )
 
 instance Prelude.Hashable EndpointAccess where

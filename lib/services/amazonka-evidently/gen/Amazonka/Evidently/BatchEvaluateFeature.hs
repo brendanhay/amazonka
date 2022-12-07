@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,7 +126,7 @@ instance Core.AWSRequest BatchEvaluateFeature where
     Response.receiveJSON
       ( \s h x ->
           BatchEvaluateFeatureResponse'
-            Prelude.<$> (x Core..?> "results" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,30 +140,30 @@ instance Prelude.NFData BatchEvaluateFeature where
     Prelude.rnf project
       `Prelude.seq` Prelude.rnf requests
 
-instance Core.ToHeaders BatchEvaluateFeature where
+instance Data.ToHeaders BatchEvaluateFeature where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchEvaluateFeature where
+instance Data.ToJSON BatchEvaluateFeature where
   toJSON BatchEvaluateFeature' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("requests" Core..= requests)]
+          [Prelude.Just ("requests" Data..= requests)]
       )
 
-instance Core.ToPath BatchEvaluateFeature where
+instance Data.ToPath BatchEvaluateFeature where
   toPath BatchEvaluateFeature' {..} =
     Prelude.mconcat
-      ["/projects/", Core.toBS project, "/evaluations"]
+      ["/projects/", Data.toBS project, "/evaluations"]
 
-instance Core.ToQuery BatchEvaluateFeature where
+instance Data.ToQuery BatchEvaluateFeature where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchEvaluateFeatureResponse' smart constructor.

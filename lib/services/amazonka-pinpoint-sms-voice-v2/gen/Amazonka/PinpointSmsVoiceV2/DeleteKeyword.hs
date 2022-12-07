@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,11 +120,11 @@ instance Core.AWSRequest DeleteKeyword where
     Response.receiveJSON
       ( \s h x ->
           DeleteKeywordResponse'
-            Prelude.<$> (x Core..?> "OriginationIdentity")
-            Prelude.<*> (x Core..?> "KeywordAction")
-            Prelude.<*> (x Core..?> "OriginationIdentityArn")
-            Prelude.<*> (x Core..?> "Keyword")
-            Prelude.<*> (x Core..?> "KeywordMessage")
+            Prelude.<$> (x Data..?> "OriginationIdentity")
+            Prelude.<*> (x Data..?> "KeywordAction")
+            Prelude.<*> (x Data..?> "OriginationIdentityArn")
+            Prelude.<*> (x Data..?> "Keyword")
+            Prelude.<*> (x Data..?> "KeywordMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,35 +138,35 @@ instance Prelude.NFData DeleteKeyword where
     Prelude.rnf originationIdentity
       `Prelude.seq` Prelude.rnf keyword
 
-instance Core.ToHeaders DeleteKeyword where
+instance Data.ToHeaders DeleteKeyword where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.DeleteKeyword" ::
+              Data.=# ( "PinpointSMSVoiceV2.DeleteKeyword" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteKeyword where
+instance Data.ToJSON DeleteKeyword where
   toJSON DeleteKeyword' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OriginationIdentity" Core..= originationIdentity),
-            Prelude.Just ("Keyword" Core..= keyword)
+              ("OriginationIdentity" Data..= originationIdentity),
+            Prelude.Just ("Keyword" Data..= keyword)
           ]
       )
 
-instance Core.ToPath DeleteKeyword where
+instance Data.ToPath DeleteKeyword where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteKeyword where
+instance Data.ToQuery DeleteKeyword where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteKeywordResponse' smart constructor.

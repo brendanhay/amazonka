@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,8 +114,8 @@ instance Core.AWSRequest ListEventConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListEventConfigurationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "EventConfigurationsList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "EventConfigurationsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -132,18 +133,18 @@ instance Prelude.NFData ListEventConfigurations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToHeaders ListEventConfigurations where
+instance Data.ToHeaders ListEventConfigurations where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListEventConfigurations where
+instance Data.ToPath ListEventConfigurations where
   toPath = Prelude.const "/event-configurations"
 
-instance Core.ToQuery ListEventConfigurations where
+instance Data.ToQuery ListEventConfigurations where
   toQuery ListEventConfigurations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "resourceType" Core.=: resourceType
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "resourceType" Data.=: resourceType
       ]
 
 -- | /See:/ 'newListEventConfigurationsResponse' smart constructor.

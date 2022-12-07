@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,9 +93,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAvailabilityMonitorTestResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "GatewayARN")
-            Prelude.<*> (x Core..?> "StartTime")
+            Prelude.<$> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "GatewayARN")
+            Prelude.<*> (x Data..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,34 +116,34 @@ instance
     Prelude.rnf gatewayARN
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeAvailabilityMonitorTest
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DescribeAvailabilityMonitorTest" ::
+              Data.=# ( "StorageGateway_20130630.DescribeAvailabilityMonitorTest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAvailabilityMonitorTest where
+instance Data.ToJSON DescribeAvailabilityMonitorTest where
   toJSON DescribeAvailabilityMonitorTest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
+          [Prelude.Just ("GatewayARN" Data..= gatewayARN)]
       )
 
-instance Core.ToPath DescribeAvailabilityMonitorTest where
+instance Data.ToPath DescribeAvailabilityMonitorTest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAvailabilityMonitorTest where
+instance Data.ToQuery DescribeAvailabilityMonitorTest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAvailabilityMonitorTestResponse' smart constructor.
@@ -153,7 +154,7 @@ data DescribeAvailabilityMonitorTestResponse = DescribeAvailabilityMonitorTestRe
     gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The time the high availability monitoring test was started. If a test
     -- hasn\'t been performed, the value of this field is null.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,7 +203,7 @@ describeAvailabilityMonitorTestResponse_gatewayARN = Lens.lens (\DescribeAvailab
 -- | The time the high availability monitoring test was started. If a test
 -- hasn\'t been performed, the value of this field is null.
 describeAvailabilityMonitorTestResponse_startTime :: Lens.Lens' DescribeAvailabilityMonitorTestResponse (Prelude.Maybe Prelude.UTCTime)
-describeAvailabilityMonitorTestResponse_startTime = Lens.lens (\DescribeAvailabilityMonitorTestResponse' {startTime} -> startTime) (\s@DescribeAvailabilityMonitorTestResponse' {} a -> s {startTime = a} :: DescribeAvailabilityMonitorTestResponse) Prelude.. Lens.mapping Core._Time
+describeAvailabilityMonitorTestResponse_startTime = Lens.lens (\DescribeAvailabilityMonitorTestResponse' {startTime} -> startTime) (\s@DescribeAvailabilityMonitorTestResponse' {} a -> s {startTime = a} :: DescribeAvailabilityMonitorTestResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeAvailabilityMonitorTestResponse_httpStatus :: Lens.Lens' DescribeAvailabilityMonitorTestResponse Prelude.Int

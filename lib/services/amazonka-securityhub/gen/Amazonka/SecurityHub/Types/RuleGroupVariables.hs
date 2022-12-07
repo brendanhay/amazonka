@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.RuleGroupVariables where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.RuleGroupVariablesIpSetsDetails
 import Amazonka.SecurityHub.Types.RuleGroupVariablesPortSetsDetails
@@ -63,14 +64,14 @@ ruleGroupVariables_ipSets = Lens.lens (\RuleGroupVariables' {ipSets} -> ipSets) 
 ruleGroupVariables_portSets :: Lens.Lens' RuleGroupVariables (Prelude.Maybe RuleGroupVariablesPortSetsDetails)
 ruleGroupVariables_portSets = Lens.lens (\RuleGroupVariables' {portSets} -> portSets) (\s@RuleGroupVariables' {} a -> s {portSets = a} :: RuleGroupVariables)
 
-instance Core.FromJSON RuleGroupVariables where
+instance Data.FromJSON RuleGroupVariables where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupVariables"
       ( \x ->
           RuleGroupVariables'
-            Prelude.<$> (x Core..:? "IpSets")
-            Prelude.<*> (x Core..:? "PortSets")
+            Prelude.<$> (x Data..:? "IpSets")
+            Prelude.<*> (x Data..:? "PortSets")
       )
 
 instance Prelude.Hashable RuleGroupVariables where
@@ -83,11 +84,11 @@ instance Prelude.NFData RuleGroupVariables where
     Prelude.rnf ipSets
       `Prelude.seq` Prelude.rnf portSets
 
-instance Core.ToJSON RuleGroupVariables where
+instance Data.ToJSON RuleGroupVariables where
   toJSON RuleGroupVariables' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IpSets" Core..=) Prelude.<$> ipSets,
-            ("PortSets" Core..=) Prelude.<$> portSets
+          [ ("IpSets" Data..=) Prelude.<$> ipSets,
+            ("PortSets" Data..=) Prelude.<$> portSets
           ]
       )

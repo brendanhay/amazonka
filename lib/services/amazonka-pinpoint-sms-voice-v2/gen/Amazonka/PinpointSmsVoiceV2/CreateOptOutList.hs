@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,10 +129,10 @@ instance Core.AWSRequest CreateOptOutList where
     Response.receiveJSON
       ( \s h x ->
           CreateOptOutListResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "OptOutListArn")
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "OptOutListName")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "OptOutListArn")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "OptOutListName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,36 +148,36 @@ instance Prelude.NFData CreateOptOutList where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf optOutListName
 
-instance Core.ToHeaders CreateOptOutList where
+instance Data.ToHeaders CreateOptOutList where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.CreateOptOutList" ::
+              Data.=# ( "PinpointSMSVoiceV2.CreateOptOutList" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateOptOutList where
+instance Data.ToJSON CreateOptOutList where
   toJSON CreateOptOutList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("OptOutListName" Core..= optOutListName)
+              ("OptOutListName" Data..= optOutListName)
           ]
       )
 
-instance Core.ToPath CreateOptOutList where
+instance Data.ToPath CreateOptOutList where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateOptOutList where
+instance Data.ToQuery CreateOptOutList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateOptOutListResponse' smart constructor.
@@ -188,7 +189,7 @@ data CreateOptOutListResponse = CreateOptOutListResponse'
     optOutListArn :: Prelude.Maybe Prelude.Text,
     -- | The time when the pool was created, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the new OptOutList.
     optOutListName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -240,7 +241,7 @@ createOptOutListResponse_optOutListArn = Lens.lens (\CreateOptOutListResponse' {
 -- | The time when the pool was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 createOptOutListResponse_createdTimestamp :: Lens.Lens' CreateOptOutListResponse (Prelude.Maybe Prelude.UTCTime)
-createOptOutListResponse_createdTimestamp = Lens.lens (\CreateOptOutListResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateOptOutListResponse' {} a -> s {createdTimestamp = a} :: CreateOptOutListResponse) Prelude.. Lens.mapping Core._Time
+createOptOutListResponse_createdTimestamp = Lens.lens (\CreateOptOutListResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateOptOutListResponse' {} a -> s {createdTimestamp = a} :: CreateOptOutListResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the new OptOutList.
 createOptOutListResponse_optOutListName :: Lens.Lens' CreateOptOutListResponse (Prelude.Maybe Prelude.Text)

@@ -70,6 +70,7 @@ where
 import Amazonka.CertificateManagerPCA.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -290,7 +291,7 @@ instance Core.AWSRequest CreateCertificateAuthority where
     Response.receiveJSON
       ( \s h x ->
           CreateCertificateAuthorityResponse'
-            Prelude.<$> (x Core..?> "CertificateAuthorityArn")
+            Prelude.<$> (x Data..?> "CertificateAuthorityArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -314,48 +315,48 @@ instance Prelude.NFData CreateCertificateAuthority where
       `Prelude.seq` Prelude.rnf certificateAuthorityConfiguration
       `Prelude.seq` Prelude.rnf certificateAuthorityType
 
-instance Core.ToHeaders CreateCertificateAuthority where
+instance Data.ToHeaders CreateCertificateAuthority where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ACMPrivateCA.CreateCertificateAuthority" ::
+              Data.=# ( "ACMPrivateCA.CreateCertificateAuthority" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCertificateAuthority where
+instance Data.ToJSON CreateCertificateAuthority where
   toJSON CreateCertificateAuthority' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("KeyStorageSecurityStandard" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("KeyStorageSecurityStandard" Data..=)
               Prelude.<$> keyStorageSecurityStandard,
-            ("UsageMode" Core..=) Prelude.<$> usageMode,
-            ("IdempotencyToken" Core..=)
+            ("UsageMode" Data..=) Prelude.<$> usageMode,
+            ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("RevocationConfiguration" Core..=)
+            ("RevocationConfiguration" Data..=)
               Prelude.<$> revocationConfiguration,
             Prelude.Just
               ( "CertificateAuthorityConfiguration"
-                  Core..= certificateAuthorityConfiguration
+                  Data..= certificateAuthorityConfiguration
               ),
             Prelude.Just
               ( "CertificateAuthorityType"
-                  Core..= certificateAuthorityType
+                  Data..= certificateAuthorityType
               )
           ]
       )
 
-instance Core.ToPath CreateCertificateAuthority where
+instance Data.ToPath CreateCertificateAuthority where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCertificateAuthority where
+instance Data.ToQuery CreateCertificateAuthority where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCertificateAuthorityResponse' smart constructor.

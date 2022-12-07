@@ -21,6 +21,7 @@ module Amazonka.Route53Domains.Types.ExtraParam where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Domains.Types.ExtraParamName
 
@@ -410,7 +411,7 @@ data ExtraParam = ExtraParam'
     -- In addition, many TLDs require a @VAT_NUMBER@.
     name :: ExtraParamName,
     -- | The value that corresponds with the name of an extra parameter.
-    value :: Core.Sensitive Prelude.Text
+    value :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -813,7 +814,7 @@ newExtraParam ::
 newExtraParam pName_ pValue_ =
   ExtraParam'
     { name = pName_,
-      value = Core._Sensitive Lens.# pValue_
+      value = Data._Sensitive Lens.# pValue_
     }
 
 -- | The name of an additional parameter that is required by a top-level
@@ -1201,15 +1202,15 @@ extraParam_name = Lens.lens (\ExtraParam' {name} -> name) (\s@ExtraParam' {} a -
 
 -- | The value that corresponds with the name of an extra parameter.
 extraParam_value :: Lens.Lens' ExtraParam Prelude.Text
-extraParam_value = Lens.lens (\ExtraParam' {value} -> value) (\s@ExtraParam' {} a -> s {value = a} :: ExtraParam) Prelude.. Core._Sensitive
+extraParam_value = Lens.lens (\ExtraParam' {value} -> value) (\s@ExtraParam' {} a -> s {value = a} :: ExtraParam) Prelude.. Data._Sensitive
 
-instance Core.FromJSON ExtraParam where
+instance Data.FromJSON ExtraParam where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExtraParam"
       ( \x ->
           ExtraParam'
-            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable ExtraParam where
@@ -1221,11 +1222,11 @@ instance Prelude.NFData ExtraParam where
   rnf ExtraParam' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ExtraParam where
+instance Data.ToJSON ExtraParam where
   toJSON ExtraParam' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

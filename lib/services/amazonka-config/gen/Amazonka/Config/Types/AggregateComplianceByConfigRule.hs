@@ -22,6 +22,7 @@ module Amazonka.Config.Types.AggregateComplianceByConfigRule where
 import Amazonka.Config.Types.Compliance
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether an Config rule is compliant based on account ID,
@@ -93,18 +94,18 @@ aggregateComplianceByConfigRule_compliance :: Lens.Lens' AggregateComplianceByCo
 aggregateComplianceByConfigRule_compliance = Lens.lens (\AggregateComplianceByConfigRule' {compliance} -> compliance) (\s@AggregateComplianceByConfigRule' {} a -> s {compliance = a} :: AggregateComplianceByConfigRule)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AggregateComplianceByConfigRule
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregateComplianceByConfigRule"
       ( \x ->
           AggregateComplianceByConfigRule'
-            Prelude.<$> (x Core..:? "ConfigRuleName")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "AwsRegion")
-            Prelude.<*> (x Core..:? "Compliance")
+            Prelude.<$> (x Data..:? "ConfigRuleName")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "AwsRegion")
+            Prelude.<*> (x Data..:? "Compliance")
       )
 
 instance

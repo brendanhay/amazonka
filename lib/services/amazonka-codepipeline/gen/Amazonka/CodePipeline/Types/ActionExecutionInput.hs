@@ -23,6 +23,7 @@ import Amazonka.CodePipeline.Types.ActionTypeId
 import Amazonka.CodePipeline.Types.ArtifactDetail
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Input information used for an action execution.
@@ -120,21 +121,21 @@ actionExecutionInput_inputArtifacts = Lens.lens (\ActionExecutionInput' {inputAr
 actionExecutionInput_namespace :: Lens.Lens' ActionExecutionInput (Prelude.Maybe Prelude.Text)
 actionExecutionInput_namespace = Lens.lens (\ActionExecutionInput' {namespace} -> namespace) (\s@ActionExecutionInput' {} a -> s {namespace = a} :: ActionExecutionInput)
 
-instance Core.FromJSON ActionExecutionInput where
+instance Data.FromJSON ActionExecutionInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionExecutionInput"
       ( \x ->
           ActionExecutionInput'
-            Prelude.<$> ( x Core..:? "resolvedConfiguration"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "resolvedConfiguration"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "actionTypeId")
-            Prelude.<*> (x Core..:? "configuration" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "inputArtifacts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "namespace")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "actionTypeId")
+            Prelude.<*> (x Data..:? "configuration" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "inputArtifacts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "namespace")
       )
 
 instance Prelude.Hashable ActionExecutionInput where

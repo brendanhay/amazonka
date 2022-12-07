@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.AudioLogSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.AudioLogDestination
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,14 +68,14 @@ audioLogSetting_enabled = Lens.lens (\AudioLogSetting' {enabled} -> enabled) (\s
 audioLogSetting_destination :: Lens.Lens' AudioLogSetting AudioLogDestination
 audioLogSetting_destination = Lens.lens (\AudioLogSetting' {destination} -> destination) (\s@AudioLogSetting' {} a -> s {destination = a} :: AudioLogSetting)
 
-instance Core.FromJSON AudioLogSetting where
+instance Data.FromJSON AudioLogSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioLogSetting"
       ( \x ->
           AudioLogSetting'
-            Prelude.<$> (x Core..: "enabled")
-            Prelude.<*> (x Core..: "destination")
+            Prelude.<$> (x Data..: "enabled")
+            Prelude.<*> (x Data..: "destination")
       )
 
 instance Prelude.Hashable AudioLogSetting where
@@ -87,11 +88,11 @@ instance Prelude.NFData AudioLogSetting where
     Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToJSON AudioLogSetting where
+instance Data.ToJSON AudioLogSetting where
   toJSON AudioLogSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("enabled" Core..= enabled),
-            Prelude.Just ("destination" Core..= destination)
+          [ Prelude.Just ("enabled" Data..= enabled),
+            Prelude.Just ("destination" Data..= destination)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.PrivateNetworks.Types.NetworkResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types.HealthStatus
 import Amazonka.PrivateNetworks.Types.NameValuePair
@@ -64,7 +65,7 @@ data NetworkResource = NetworkResource'
     -- | The vendor of the network resource.
     vendor :: Prelude.Maybe Prelude.Text,
     -- | The creation time of the network resource.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -190,29 +191,29 @@ networkResource_vendor = Lens.lens (\NetworkResource' {vendor} -> vendor) (\s@Ne
 
 -- | The creation time of the network resource.
 networkResource_createdAt :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.UTCTime)
-networkResource_createdAt = Lens.lens (\NetworkResource' {createdAt} -> createdAt) (\s@NetworkResource' {} a -> s {createdAt = a} :: NetworkResource) Prelude.. Lens.mapping Core._Time
+networkResource_createdAt = Lens.lens (\NetworkResource' {createdAt} -> createdAt) (\s@NetworkResource' {} a -> s {createdAt = a} :: NetworkResource) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON NetworkResource where
+instance Data.FromJSON NetworkResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkResource"
       ( \x ->
           NetworkResource'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "model")
-            Prelude.<*> (x Core..:? "networkSiteArn")
-            Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "networkArn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "orderArn")
-            Prelude.<*> (x Core..:? "health")
-            Prelude.<*> (x Core..:? "serialNumber")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "networkResourceArn")
-            Prelude.<*> (x Core..:? "position")
-            Prelude.<*> (x Core..:? "vendor")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "model")
+            Prelude.<*> (x Data..:? "networkSiteArn")
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "networkArn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "orderArn")
+            Prelude.<*> (x Data..:? "health")
+            Prelude.<*> (x Data..:? "serialNumber")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "networkResourceArn")
+            Prelude.<*> (x Data..:? "position")
+            Prelude.<*> (x Data..:? "vendor")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable NetworkResource where

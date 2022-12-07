@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -177,8 +178,8 @@ instance Core.AWSRequest ListPermissions where
     Response.receiveJSON
       ( \s h x ->
           ListPermissionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "PrincipalResourcePermissions"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "PrincipalResourcePermissions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -204,36 +205,36 @@ instance Prelude.NFData ListPermissions where
       `Prelude.seq` Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf resource
 
-instance Core.ToHeaders ListPermissions where
+instance Data.ToHeaders ListPermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPermissions where
+instance Data.ToJSON ListPermissions where
   toJSON ListPermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Principal" Core..=) Prelude.<$> principal,
-            ("ResourceType" Core..=) Prelude.<$> resourceType,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("IncludeRelated" Core..=)
+          [ ("Principal" Data..=) Prelude.<$> principal,
+            ("ResourceType" Data..=) Prelude.<$> resourceType,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("IncludeRelated" Data..=)
               Prelude.<$> includeRelated,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("Resource" Core..=) Prelude.<$> resource
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("Resource" Data..=) Prelude.<$> resource
           ]
       )
 
-instance Core.ToPath ListPermissions where
+instance Data.ToPath ListPermissions where
   toPath = Prelude.const "/ListPermissions"
 
-instance Core.ToQuery ListPermissions where
+instance Data.ToQuery ListPermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPermissionsResponse' smart constructor.

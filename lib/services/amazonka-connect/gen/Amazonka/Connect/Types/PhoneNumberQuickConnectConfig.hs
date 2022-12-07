@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.PhoneNumberQuickConnectConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a phone number for a quick connect.
@@ -55,13 +56,13 @@ newPhoneNumberQuickConnectConfig pPhoneNumber_ =
 phoneNumberQuickConnectConfig_phoneNumber :: Lens.Lens' PhoneNumberQuickConnectConfig Prelude.Text
 phoneNumberQuickConnectConfig_phoneNumber = Lens.lens (\PhoneNumberQuickConnectConfig' {phoneNumber} -> phoneNumber) (\s@PhoneNumberQuickConnectConfig' {} a -> s {phoneNumber = a} :: PhoneNumberQuickConnectConfig)
 
-instance Core.FromJSON PhoneNumberQuickConnectConfig where
+instance Data.FromJSON PhoneNumberQuickConnectConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PhoneNumberQuickConnectConfig"
       ( \x ->
           PhoneNumberQuickConnectConfig'
-            Prelude.<$> (x Core..: "PhoneNumber")
+            Prelude.<$> (x Data..: "PhoneNumber")
       )
 
 instance
@@ -75,9 +76,9 @@ instance Prelude.NFData PhoneNumberQuickConnectConfig where
   rnf PhoneNumberQuickConnectConfig' {..} =
     Prelude.rnf phoneNumber
 
-instance Core.ToJSON PhoneNumberQuickConnectConfig where
+instance Data.ToJSON PhoneNumberQuickConnectConfig where
   toJSON PhoneNumberQuickConnectConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("PhoneNumber" Core..= phoneNumber)]
+          [Prelude.Just ("PhoneNumber" Data..= phoneNumber)]
       )

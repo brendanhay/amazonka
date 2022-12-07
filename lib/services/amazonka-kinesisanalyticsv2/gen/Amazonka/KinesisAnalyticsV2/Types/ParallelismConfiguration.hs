@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ParallelismConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.ConfigurationType
 import qualified Amazonka.Prelude as Prelude
 
@@ -150,16 +151,16 @@ instance Prelude.NFData ParallelismConfiguration where
       `Prelude.seq` Prelude.rnf parallelism
       `Prelude.seq` Prelude.rnf configurationType
 
-instance Core.ToJSON ParallelismConfiguration where
+instance Data.ToJSON ParallelismConfiguration where
   toJSON ParallelismConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ParallelismPerKPU" Core..=)
+          [ ("ParallelismPerKPU" Data..=)
               Prelude.<$> parallelismPerKPU,
-            ("AutoScalingEnabled" Core..=)
+            ("AutoScalingEnabled" Data..=)
               Prelude.<$> autoScalingEnabled,
-            ("Parallelism" Core..=) Prelude.<$> parallelism,
+            ("Parallelism" Data..=) Prelude.<$> parallelism,
             Prelude.Just
-              ("ConfigurationType" Core..= configurationType)
+              ("ConfigurationType" Data..= configurationType)
           ]
       )

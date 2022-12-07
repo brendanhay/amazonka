@@ -21,6 +21,7 @@ module Amazonka.DocumentDB.Types.EventCategoriesMap where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An event source type, accompanied by one or more event category names.
@@ -61,12 +62,12 @@ eventCategoriesMap_sourceType = Lens.lens (\EventCategoriesMap' {sourceType} -> 
 eventCategoriesMap_eventCategories :: Lens.Lens' EventCategoriesMap (Prelude.Maybe [Prelude.Text])
 eventCategoriesMap_eventCategories = Lens.lens (\EventCategoriesMap' {eventCategories} -> eventCategories) (\s@EventCategoriesMap' {} a -> s {eventCategories = a} :: EventCategoriesMap) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML EventCategoriesMap where
+instance Data.FromXML EventCategoriesMap where
   parseXML x =
     EventCategoriesMap'
-      Prelude.<$> (x Core..@? "SourceType")
-      Prelude.<*> ( x Core..@? "EventCategories" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "EventCategory")
+      Prelude.<$> (x Data..@? "SourceType")
+      Prelude.<*> ( x Data..@? "EventCategories" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "EventCategory")
                   )
 
 instance Prelude.Hashable EventCategoriesMap where

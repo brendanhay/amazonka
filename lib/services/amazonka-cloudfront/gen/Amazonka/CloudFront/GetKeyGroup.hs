@@ -50,6 +50,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,8 +92,8 @@ instance Core.AWSRequest GetKeyGroup where
     Response.receiveXML
       ( \s h x ->
           GetKeyGroupResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,15 +104,15 @@ instance Prelude.Hashable GetKeyGroup where
 instance Prelude.NFData GetKeyGroup where
   rnf GetKeyGroup' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetKeyGroup where
+instance Data.ToHeaders GetKeyGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetKeyGroup where
+instance Data.ToPath GetKeyGroup where
   toPath GetKeyGroup' {..} =
     Prelude.mconcat
-      ["/2020-05-31/key-group/", Core.toBS id]
+      ["/2020-05-31/key-group/", Data.toBS id]
 
-instance Core.ToQuery GetKeyGroup where
+instance Data.ToQuery GetKeyGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetKeyGroupResponse' smart constructor.

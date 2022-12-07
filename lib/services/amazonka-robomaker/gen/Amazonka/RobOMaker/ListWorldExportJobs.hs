@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,9 +164,9 @@ instance Core.AWSRequest ListWorldExportJobs where
     Response.receiveJSON
       ( \s h x ->
           ListWorldExportJobsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "worldExportJobSummaries"
+            Prelude.<*> ( x Data..?> "worldExportJobSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -182,31 +183,31 @@ instance Prelude.NFData ListWorldExportJobs where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListWorldExportJobs where
+instance Data.ToHeaders ListWorldExportJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListWorldExportJobs where
+instance Data.ToJSON ListWorldExportJobs where
   toJSON ListWorldExportJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListWorldExportJobs where
+instance Data.ToPath ListWorldExportJobs where
   toPath = Prelude.const "/listWorldExportJobs"
 
-instance Core.ToQuery ListWorldExportJobs where
+instance Data.ToQuery ListWorldExportJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListWorldExportJobsResponse' smart constructor.

@@ -44,6 +44,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -53,7 +54,7 @@ data BatchDetectKeyPhrases = BatchDetectKeyPhrases'
   { -- | A list containing the UTF-8 encoded text of the input documents. The
     -- list can contain a maximum of 25 documents. The maximum size of each
     -- document is 5 KB.
-    textList :: Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text)),
+    textList :: Data.Sensitive (Prelude.NonEmpty (Data.Sensitive Prelude.Text)),
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
     -- same language.
@@ -85,7 +86,7 @@ newBatchDetectKeyPhrases ::
 newBatchDetectKeyPhrases pTextList_ pLanguageCode_ =
   BatchDetectKeyPhrases'
     { textList =
-        Core._Sensitive Prelude.. Lens.coerced
+        Data._Sensitive Prelude.. Lens.coerced
           Lens.# pTextList_,
       languageCode = pLanguageCode_
     }
@@ -94,7 +95,7 @@ newBatchDetectKeyPhrases pTextList_ pLanguageCode_ =
 -- list can contain a maximum of 25 documents. The maximum size of each
 -- document is 5 KB.
 batchDetectKeyPhrases_textList :: Lens.Lens' BatchDetectKeyPhrases (Prelude.NonEmpty Prelude.Text)
-batchDetectKeyPhrases_textList = Lens.lens (\BatchDetectKeyPhrases' {textList} -> textList) (\s@BatchDetectKeyPhrases' {} a -> s {textList = a} :: BatchDetectKeyPhrases) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+batchDetectKeyPhrases_textList = Lens.lens (\BatchDetectKeyPhrases' {textList} -> textList) (\s@BatchDetectKeyPhrases' {} a -> s {textList = a} :: BatchDetectKeyPhrases) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 -- | The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
@@ -113,8 +114,8 @@ instance Core.AWSRequest BatchDetectKeyPhrases where
       ( \s h x ->
           BatchDetectKeyPhrasesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "ResultList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ResultList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ErrorList" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable BatchDetectKeyPhrases where
@@ -127,34 +128,34 @@ instance Prelude.NFData BatchDetectKeyPhrases where
     Prelude.rnf textList
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToHeaders BatchDetectKeyPhrases where
+instance Data.ToHeaders BatchDetectKeyPhrases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.BatchDetectKeyPhrases" ::
+              Data.=# ( "Comprehend_20171127.BatchDetectKeyPhrases" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDetectKeyPhrases where
+instance Data.ToJSON BatchDetectKeyPhrases where
   toJSON BatchDetectKeyPhrases' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TextList" Core..= textList),
-            Prelude.Just ("LanguageCode" Core..= languageCode)
+          [ Prelude.Just ("TextList" Data..= textList),
+            Prelude.Just ("LanguageCode" Data..= languageCode)
           ]
       )
 
-instance Core.ToPath BatchDetectKeyPhrases where
+instance Data.ToPath BatchDetectKeyPhrases where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchDetectKeyPhrases where
+instance Data.ToQuery BatchDetectKeyPhrases where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDetectKeyPhrasesResponse' smart constructor.

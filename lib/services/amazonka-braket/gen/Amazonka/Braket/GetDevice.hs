@@ -57,6 +57,7 @@ where
 import Amazonka.Braket.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,12 +98,12 @@ instance Core.AWSRequest GetDevice where
       ( \s h x ->
           GetDeviceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "deviceArn")
-            Prelude.<*> (x Core..:> "deviceCapabilities")
-            Prelude.<*> (x Core..:> "deviceName")
-            Prelude.<*> (x Core..:> "deviceStatus")
-            Prelude.<*> (x Core..:> "deviceType")
-            Prelude.<*> (x Core..:> "providerName")
+            Prelude.<*> (x Data..:> "deviceArn")
+            Prelude.<*> (x Data..:> "deviceCapabilities")
+            Prelude.<*> (x Data..:> "deviceName")
+            Prelude.<*> (x Data..:> "deviceStatus")
+            Prelude.<*> (x Data..:> "deviceType")
+            Prelude.<*> (x Data..:> "providerName")
       )
 
 instance Prelude.Hashable GetDevice where
@@ -112,22 +113,22 @@ instance Prelude.Hashable GetDevice where
 instance Prelude.NFData GetDevice where
   rnf GetDevice' {..} = Prelude.rnf deviceArn
 
-instance Core.ToHeaders GetDevice where
+instance Data.ToHeaders GetDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDevice where
+instance Data.ToPath GetDevice where
   toPath GetDevice' {..} =
-    Prelude.mconcat ["/device/", Core.toBS deviceArn]
+    Prelude.mconcat ["/device/", Data.toBS deviceArn]
 
-instance Core.ToQuery GetDevice where
+instance Data.ToQuery GetDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDeviceResponse' smart constructor.

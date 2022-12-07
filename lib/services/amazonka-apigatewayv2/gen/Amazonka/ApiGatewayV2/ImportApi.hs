@@ -59,6 +59,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,22 +139,22 @@ instance Core.AWSRequest ImportApi where
     Response.receiveJSON
       ( \s h x ->
           ImportApiResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "apiEndpoint")
-            Prelude.<*> (x Core..?> "apiId")
-            Prelude.<*> (x Core..?> "routeSelectionExpression")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "warnings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "apiKeySelectionExpression")
-            Prelude.<*> (x Core..?> "protocolType")
-            Prelude.<*> (x Core..?> "disableExecuteApiEndpoint")
-            Prelude.<*> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "disableSchemaValidation")
-            Prelude.<*> (x Core..?> "importInfo" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "corsConfiguration")
-            Prelude.<*> (x Core..?> "apiGatewayManaged")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "apiEndpoint")
+            Prelude.<*> (x Data..?> "apiId")
+            Prelude.<*> (x Data..?> "routeSelectionExpression")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "apiKeySelectionExpression")
+            Prelude.<*> (x Data..?> "protocolType")
+            Prelude.<*> (x Data..?> "disableExecuteApiEndpoint")
+            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> (x Data..?> "disableSchemaValidation")
+            Prelude.<*> (x Data..?> "importInfo" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "corsConfiguration")
+            Prelude.<*> (x Data..?> "apiGatewayManaged")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,32 +170,32 @@ instance Prelude.NFData ImportApi where
       `Prelude.seq` Prelude.rnf basepath
       `Prelude.seq` Prelude.rnf body
 
-instance Core.ToHeaders ImportApi where
+instance Data.ToHeaders ImportApi where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportApi where
+instance Data.ToJSON ImportApi where
   toJSON ImportApi' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("body" Core..= body)]
+          [Prelude.Just ("body" Data..= body)]
       )
 
-instance Core.ToPath ImportApi where
+instance Data.ToPath ImportApi where
   toPath = Prelude.const "/v2/apis"
 
-instance Core.ToQuery ImportApi where
+instance Data.ToQuery ImportApi where
   toQuery ImportApi' {..} =
     Prelude.mconcat
-      [ "failOnWarnings" Core.=: failOnWarnings,
-        "basepath" Core.=: basepath
+      [ "failOnWarnings" Data.=: failOnWarnings,
+        "basepath" Data.=: basepath
       ]
 
 -- | /See:/ 'newImportApiResponse' smart constructor.
@@ -231,7 +232,7 @@ data ImportApiResponse = ImportApiResponse'
     -- disable the default endpoint.
     disableExecuteApiEndpoint :: Prelude.Maybe Prelude.Bool,
     -- | The timestamp when the API was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | Avoid validating models when creating a deployment. Supported only for
     -- WebSocket APIs.
     disableSchemaValidation :: Prelude.Maybe Prelude.Bool,
@@ -387,7 +388,7 @@ importApiResponse_disableExecuteApiEndpoint = Lens.lens (\ImportApiResponse' {di
 
 -- | The timestamp when the API was created.
 importApiResponse_createdDate :: Lens.Lens' ImportApiResponse (Prelude.Maybe Prelude.UTCTime)
-importApiResponse_createdDate = Lens.lens (\ImportApiResponse' {createdDate} -> createdDate) (\s@ImportApiResponse' {} a -> s {createdDate = a} :: ImportApiResponse) Prelude.. Lens.mapping Core._Time
+importApiResponse_createdDate = Lens.lens (\ImportApiResponse' {createdDate} -> createdDate) (\s@ImportApiResponse' {} a -> s {createdDate = a} :: ImportApiResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Avoid validating models when creating a deployment. Supported only for
 -- WebSocket APIs.

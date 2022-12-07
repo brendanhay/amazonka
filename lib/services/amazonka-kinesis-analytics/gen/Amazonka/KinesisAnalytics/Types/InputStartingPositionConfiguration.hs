@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.InputStartingPositionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalytics.Types.InputStartingPosition
 import qualified Amazonka.Prelude as Prelude
 
@@ -89,15 +90,15 @@ inputStartingPositionConfiguration_inputStartingPosition :: Lens.Lens' InputStar
 inputStartingPositionConfiguration_inputStartingPosition = Lens.lens (\InputStartingPositionConfiguration' {inputStartingPosition} -> inputStartingPosition) (\s@InputStartingPositionConfiguration' {} a -> s {inputStartingPosition = a} :: InputStartingPositionConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     InputStartingPositionConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputStartingPositionConfiguration"
       ( \x ->
           InputStartingPositionConfiguration'
-            Prelude.<$> (x Core..:? "InputStartingPosition")
+            Prelude.<$> (x Data..:? "InputStartingPosition")
       )
 
 instance
@@ -117,13 +118,13 @@ instance
     Prelude.rnf inputStartingPosition
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     InputStartingPositionConfiguration
   where
   toJSON InputStartingPositionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InputStartingPosition" Core..=)
+          [ ("InputStartingPosition" Data..=)
               Prelude.<$> inputStartingPosition
           ]
       )

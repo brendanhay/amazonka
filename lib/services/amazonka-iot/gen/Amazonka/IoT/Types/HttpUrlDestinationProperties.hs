@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.HttpUrlDestinationProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | HTTP URL destination properties.
@@ -53,13 +54,13 @@ newHttpUrlDestinationProperties =
 httpUrlDestinationProperties_confirmationUrl :: Lens.Lens' HttpUrlDestinationProperties (Prelude.Maybe Prelude.Text)
 httpUrlDestinationProperties_confirmationUrl = Lens.lens (\HttpUrlDestinationProperties' {confirmationUrl} -> confirmationUrl) (\s@HttpUrlDestinationProperties' {} a -> s {confirmationUrl = a} :: HttpUrlDestinationProperties)
 
-instance Core.FromJSON HttpUrlDestinationProperties where
+instance Data.FromJSON HttpUrlDestinationProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpUrlDestinationProperties"
       ( \x ->
           HttpUrlDestinationProperties'
-            Prelude.<$> (x Core..:? "confirmationUrl")
+            Prelude.<$> (x Data..:? "confirmationUrl")
       )
 
 instance

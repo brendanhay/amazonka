@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.AutoScalingPolicyStateChangeReason where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,16 +77,16 @@ autoScalingPolicyStateChangeReason_code :: Lens.Lens' AutoScalingPolicyStateChan
 autoScalingPolicyStateChangeReason_code = Lens.lens (\AutoScalingPolicyStateChangeReason' {code} -> code) (\s@AutoScalingPolicyStateChangeReason' {} a -> s {code = a} :: AutoScalingPolicyStateChangeReason)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AutoScalingPolicyStateChangeReason
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoScalingPolicyStateChangeReason"
       ( \x ->
           AutoScalingPolicyStateChangeReason'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Code")
       )
 
 instance

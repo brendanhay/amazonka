@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.DiskInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a disk.
@@ -82,16 +83,16 @@ diskInfo_path = Lens.lens (\DiskInfo' {path} -> path) (\s@DiskInfo' {} a -> s {p
 diskInfo_isSystemDisk :: Lens.Lens' DiskInfo (Prelude.Maybe Prelude.Bool)
 diskInfo_isSystemDisk = Lens.lens (\DiskInfo' {isSystemDisk} -> isSystemDisk) (\s@DiskInfo' {} a -> s {isSystemDisk = a} :: DiskInfo)
 
-instance Core.FromJSON DiskInfo where
+instance Data.FromJSON DiskInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DiskInfo"
       ( \x ->
           DiskInfo'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "sizeInGb")
-            Prelude.<*> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "isSystemDisk")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "sizeInGb")
+            Prelude.<*> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "isSystemDisk")
       )
 
 instance Prelude.Hashable DiskInfo where

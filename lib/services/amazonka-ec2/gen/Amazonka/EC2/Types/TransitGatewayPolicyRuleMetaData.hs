@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayPolicyRuleMetaData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,13 +66,13 @@ transitGatewayPolicyRuleMetaData_metaDataKey :: Lens.Lens' TransitGatewayPolicyR
 transitGatewayPolicyRuleMetaData_metaDataKey = Lens.lens (\TransitGatewayPolicyRuleMetaData' {metaDataKey} -> metaDataKey) (\s@TransitGatewayPolicyRuleMetaData' {} a -> s {metaDataKey = a} :: TransitGatewayPolicyRuleMetaData)
 
 instance
-  Core.FromXML
+  Data.FromXML
     TransitGatewayPolicyRuleMetaData
   where
   parseXML x =
     TransitGatewayPolicyRuleMetaData'
-      Prelude.<$> (x Core..@? "metaDataValue")
-      Prelude.<*> (x Core..@? "metaDataKey")
+      Prelude.<$> (x Data..@? "metaDataValue")
+      Prelude.<*> (x Data..@? "metaDataKey")
 
 instance
   Prelude.Hashable

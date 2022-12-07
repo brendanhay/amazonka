@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsWafRuleDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsWafRulePredicateListDetails
 
@@ -90,16 +91,16 @@ awsWafRuleDetails_ruleId = Lens.lens (\AwsWafRuleDetails' {ruleId} -> ruleId) (\
 awsWafRuleDetails_metricName :: Lens.Lens' AwsWafRuleDetails (Prelude.Maybe Prelude.Text)
 awsWafRuleDetails_metricName = Lens.lens (\AwsWafRuleDetails' {metricName} -> metricName) (\s@AwsWafRuleDetails' {} a -> s {metricName = a} :: AwsWafRuleDetails)
 
-instance Core.FromJSON AwsWafRuleDetails where
+instance Data.FromJSON AwsWafRuleDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsWafRuleDetails"
       ( \x ->
           AwsWafRuleDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "PredicateList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RuleId")
-            Prelude.<*> (x Core..:? "MetricName")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "PredicateList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RuleId")
+            Prelude.<*> (x Data..:? "MetricName")
       )
 
 instance Prelude.Hashable AwsWafRuleDetails where
@@ -116,13 +117,13 @@ instance Prelude.NFData AwsWafRuleDetails where
       `Prelude.seq` Prelude.rnf ruleId
       `Prelude.seq` Prelude.rnf metricName
 
-instance Core.ToJSON AwsWafRuleDetails where
+instance Data.ToJSON AwsWafRuleDetails where
   toJSON AwsWafRuleDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("PredicateList" Core..=) Prelude.<$> predicateList,
-            ("RuleId" Core..=) Prelude.<$> ruleId,
-            ("MetricName" Core..=) Prelude.<$> metricName
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("PredicateList" Data..=) Prelude.<$> predicateList,
+            ("RuleId" Data..=) Prelude.<$> ruleId,
+            ("MetricName" Data..=) Prelude.<$> metricName
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FederatedAuthentication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,11 +68,11 @@ federatedAuthentication_selfServiceSamlProviderArn = Lens.lens (\FederatedAuthen
 federatedAuthentication_samlProviderArn :: Lens.Lens' FederatedAuthentication (Prelude.Maybe Prelude.Text)
 federatedAuthentication_samlProviderArn = Lens.lens (\FederatedAuthentication' {samlProviderArn} -> samlProviderArn) (\s@FederatedAuthentication' {} a -> s {samlProviderArn = a} :: FederatedAuthentication)
 
-instance Core.FromXML FederatedAuthentication where
+instance Data.FromXML FederatedAuthentication where
   parseXML x =
     FederatedAuthentication'
-      Prelude.<$> (x Core..@? "selfServiceSamlProviderArn")
-      Prelude.<*> (x Core..@? "samlProviderArn")
+      Prelude.<$> (x Data..@? "selfServiceSamlProviderArn")
+      Prelude.<*> (x Data..@? "samlProviderArn")
 
 instance Prelude.Hashable FederatedAuthentication where
   hashWithSalt _salt FederatedAuthentication' {..} =

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ColumnTag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ColumnDescription
 import Amazonka.QuickSight.Types.GeoSpatialDataRole
@@ -65,14 +66,14 @@ columnTag_columnGeographicRole = Lens.lens (\ColumnTag' {columnGeographicRole} -
 columnTag_columnDescription :: Lens.Lens' ColumnTag (Prelude.Maybe ColumnDescription)
 columnTag_columnDescription = Lens.lens (\ColumnTag' {columnDescription} -> columnDescription) (\s@ColumnTag' {} a -> s {columnDescription = a} :: ColumnTag)
 
-instance Core.FromJSON ColumnTag where
+instance Data.FromJSON ColumnTag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnTag"
       ( \x ->
           ColumnTag'
-            Prelude.<$> (x Core..:? "ColumnGeographicRole")
-            Prelude.<*> (x Core..:? "ColumnDescription")
+            Prelude.<$> (x Data..:? "ColumnGeographicRole")
+            Prelude.<*> (x Data..:? "ColumnDescription")
       )
 
 instance Prelude.Hashable ColumnTag where
@@ -85,13 +86,13 @@ instance Prelude.NFData ColumnTag where
     Prelude.rnf columnGeographicRole
       `Prelude.seq` Prelude.rnf columnDescription
 
-instance Core.ToJSON ColumnTag where
+instance Data.ToJSON ColumnTag where
   toJSON ColumnTag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ColumnGeographicRole" Core..=)
+          [ ("ColumnGeographicRole" Data..=)
               Prelude.<$> columnGeographicRole,
-            ("ColumnDescription" Core..=)
+            ("ColumnDescription" Data..=)
               Prelude.<$> columnDescription
           ]
       )

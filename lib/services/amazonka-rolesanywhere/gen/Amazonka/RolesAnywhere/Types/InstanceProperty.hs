@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.InstanceProperty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A key-value pair you set that identifies a property of the
@@ -35,7 +36,7 @@ data InstanceProperty = InstanceProperty'
     -- | The ISO-8601 time stamp of when the certificate was last used in a
     -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
     -- operation.
-    seenAt :: Prelude.Maybe Core.POSIX,
+    seenAt :: Prelude.Maybe Data.POSIX,
     -- | A list of instanceProperty objects.
     properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
@@ -77,21 +78,21 @@ instanceProperty_failed = Lens.lens (\InstanceProperty' {failed} -> failed) (\s@
 -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
 -- operation.
 instanceProperty_seenAt :: Lens.Lens' InstanceProperty (Prelude.Maybe Prelude.UTCTime)
-instanceProperty_seenAt = Lens.lens (\InstanceProperty' {seenAt} -> seenAt) (\s@InstanceProperty' {} a -> s {seenAt = a} :: InstanceProperty) Prelude.. Lens.mapping Core._Time
+instanceProperty_seenAt = Lens.lens (\InstanceProperty' {seenAt} -> seenAt) (\s@InstanceProperty' {} a -> s {seenAt = a} :: InstanceProperty) Prelude.. Lens.mapping Data._Time
 
 -- | A list of instanceProperty objects.
 instanceProperty_properties :: Lens.Lens' InstanceProperty (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 instanceProperty_properties = Lens.lens (\InstanceProperty' {properties} -> properties) (\s@InstanceProperty' {} a -> s {properties = a} :: InstanceProperty) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON InstanceProperty where
+instance Data.FromJSON InstanceProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceProperty"
       ( \x ->
           InstanceProperty'
-            Prelude.<$> (x Core..:? "failed")
-            Prelude.<*> (x Core..:? "seenAt")
-            Prelude.<*> (x Core..:? "properties" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "failed")
+            Prelude.<*> (x Data..:? "seenAt")
+            Prelude.<*> (x Data..:? "properties" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable InstanceProperty where

@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.ActiveDirectoryBackupAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Microsoft Active Directory attributes of the Amazon FSx for Windows
@@ -78,17 +79,17 @@ activeDirectoryBackupAttributes_resourceARN :: Lens.Lens' ActiveDirectoryBackupA
 activeDirectoryBackupAttributes_resourceARN = Lens.lens (\ActiveDirectoryBackupAttributes' {resourceARN} -> resourceARN) (\s@ActiveDirectoryBackupAttributes' {} a -> s {resourceARN = a} :: ActiveDirectoryBackupAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ActiveDirectoryBackupAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActiveDirectoryBackupAttributes"
       ( \x ->
           ActiveDirectoryBackupAttributes'
-            Prelude.<$> (x Core..:? "ActiveDirectoryId")
-            Prelude.<*> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "ResourceARN")
+            Prelude.<$> (x Data..:? "ActiveDirectoryId")
+            Prelude.<*> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "ResourceARN")
       )
 
 instance

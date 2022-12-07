@@ -28,6 +28,7 @@ module Amazonka.MediaConvert.Types.Xavc4kIntraVbrProfileClass
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the XAVC Intra 4k (VBR) Class to set the bitrate of your output.
@@ -35,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 -- points that are valid for that class.
 newtype Xavc4kIntraVbrProfileClass = Xavc4kIntraVbrProfileClass'
   { fromXavc4kIntraVbrProfileClass ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -47,18 +48,18 @@ newtype Xavc4kIntraVbrProfileClass = Xavc4kIntraVbrProfileClass'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern Xavc4kIntraVbrProfileClass_CLASS_100 :: Xavc4kIntraVbrProfileClass

@@ -49,6 +49,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -60,7 +61,7 @@ data StartJob = StartJob'
   { -- | The commit ID from a third-party repository provider for the job.
     commitId :: Prelude.Maybe Prelude.Text,
     -- | The commit date and time for the job.
-    commitTime :: Prelude.Maybe Core.POSIX,
+    commitTime :: Prelude.Maybe Data.POSIX,
     -- | A descriptive reason for starting this job.
     jobReason :: Prelude.Maybe Prelude.Text,
     -- | The unique ID for an existing job. This is required if the value of
@@ -135,7 +136,7 @@ startJob_commitId = Lens.lens (\StartJob' {commitId} -> commitId) (\s@StartJob' 
 
 -- | The commit date and time for the job.
 startJob_commitTime :: Lens.Lens' StartJob (Prelude.Maybe Prelude.UTCTime)
-startJob_commitTime = Lens.lens (\StartJob' {commitTime} -> commitTime) (\s@StartJob' {} a -> s {commitTime = a} :: StartJob) Prelude.. Lens.mapping Core._Time
+startJob_commitTime = Lens.lens (\StartJob' {commitTime} -> commitTime) (\s@StartJob' {} a -> s {commitTime = a} :: StartJob) Prelude.. Lens.mapping Data._Time
 
 -- | A descriptive reason for starting this job.
 startJob_jobReason :: Lens.Lens' StartJob (Prelude.Maybe Prelude.Text)
@@ -175,7 +176,7 @@ instance Core.AWSRequest StartJob where
       ( \s h x ->
           StartJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "jobSummary")
+            Prelude.<*> (x Data..:> "jobSummary")
       )
 
 instance Prelude.Hashable StartJob where
@@ -200,41 +201,41 @@ instance Prelude.NFData StartJob where
       `Prelude.seq` Prelude.rnf branchName
       `Prelude.seq` Prelude.rnf jobType
 
-instance Core.ToHeaders StartJob where
+instance Data.ToHeaders StartJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartJob where
+instance Data.ToJSON StartJob where
   toJSON StartJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("commitId" Core..=) Prelude.<$> commitId,
-            ("commitTime" Core..=) Prelude.<$> commitTime,
-            ("jobReason" Core..=) Prelude.<$> jobReason,
-            ("jobId" Core..=) Prelude.<$> jobId,
-            ("commitMessage" Core..=) Prelude.<$> commitMessage,
-            Prelude.Just ("jobType" Core..= jobType)
+          [ ("commitId" Data..=) Prelude.<$> commitId,
+            ("commitTime" Data..=) Prelude.<$> commitTime,
+            ("jobReason" Data..=) Prelude.<$> jobReason,
+            ("jobId" Data..=) Prelude.<$> jobId,
+            ("commitMessage" Data..=) Prelude.<$> commitMessage,
+            Prelude.Just ("jobType" Data..= jobType)
           ]
       )
 
-instance Core.ToPath StartJob where
+instance Data.ToPath StartJob where
   toPath StartJob' {..} =
     Prelude.mconcat
       [ "/apps/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/branches/",
-        Core.toBS branchName,
+        Data.toBS branchName,
         "/jobs"
       ]
 
-instance Core.ToQuery StartJob where
+instance Data.ToQuery StartJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result structure for the run job request.

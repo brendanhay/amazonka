@@ -49,6 +49,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,9 +117,9 @@ instance Core.AWSRequest DescribeAccountLimits where
       "DescribeAccountLimitsResult"
       ( \s h x ->
           DescribeAccountLimitsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "AccountLimits" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "AccountLimits" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -131,20 +132,20 @@ instance Prelude.NFData DescribeAccountLimits where
   rnf DescribeAccountLimits' {..} =
     Prelude.rnf nextToken
 
-instance Core.ToHeaders DescribeAccountLimits where
+instance Data.ToHeaders DescribeAccountLimits where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAccountLimits where
+instance Data.ToPath DescribeAccountLimits where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAccountLimits where
+instance Data.ToQuery DescribeAccountLimits where
   toQuery DescribeAccountLimits' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAccountLimits" :: Prelude.ByteString),
+          Data.=: ("DescribeAccountLimits" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken
       ]
 
 -- | The output for the DescribeAccountLimits action.

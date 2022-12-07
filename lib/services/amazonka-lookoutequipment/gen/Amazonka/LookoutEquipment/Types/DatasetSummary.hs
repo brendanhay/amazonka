@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.DatasetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.DatasetStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ data DatasetSummary = DatasetSummary'
     datasetArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the dataset was created in Amazon Lookout for
     -- Equipment.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,18 +83,18 @@ datasetSummary_datasetArn = Lens.lens (\DatasetSummary' {datasetArn} -> datasetA
 -- | The time at which the dataset was created in Amazon Lookout for
 -- Equipment.
 datasetSummary_createdAt :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.UTCTime)
-datasetSummary_createdAt = Lens.lens (\DatasetSummary' {createdAt} -> createdAt) (\s@DatasetSummary' {} a -> s {createdAt = a} :: DatasetSummary) Prelude.. Lens.mapping Core._Time
+datasetSummary_createdAt = Lens.lens (\DatasetSummary' {createdAt} -> createdAt) (\s@DatasetSummary' {} a -> s {createdAt = a} :: DatasetSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DatasetSummary where
+instance Data.FromJSON DatasetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetSummary"
       ( \x ->
           DatasetSummary'
-            Prelude.<$> (x Core..:? "DatasetName")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "DatasetArn")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "DatasetName")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "DatasetArn")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable DatasetSummary where

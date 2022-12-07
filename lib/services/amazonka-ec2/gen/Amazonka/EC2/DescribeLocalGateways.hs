@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -191,9 +192,9 @@ instance Core.AWSRequest DescribeLocalGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeLocalGatewaysResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "localGatewaySet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "localGatewaySet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -214,28 +215,28 @@ instance Prelude.NFData DescribeLocalGateways where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeLocalGateways where
+instance Data.ToHeaders DescribeLocalGateways where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeLocalGateways where
+instance Data.ToPath DescribeLocalGateways where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLocalGateways where
+instance Data.ToQuery DescribeLocalGateways where
   toQuery DescribeLocalGateways' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeLocalGateways" :: Prelude.ByteString),
+          Data.=: ("DescribeLocalGateways" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        Core.toQuery
-          ( Core.toQueryList "LocalGatewayId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        Data.toQuery
+          ( Data.toQueryList "LocalGatewayId"
               Prelude.<$> localGatewayIds
           ),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeLocalGatewaysResponse' smart constructor.

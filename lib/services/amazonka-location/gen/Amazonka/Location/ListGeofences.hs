@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,9 +141,9 @@ instance Core.AWSRequest ListGeofences where
     Response.receiveJSON
       ( \s h x ->
           ListGeofencesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Entries" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListGeofences where
@@ -157,35 +158,35 @@ instance Prelude.NFData ListGeofences where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf collectionName
 
-instance Core.ToHeaders ListGeofences where
+instance Data.ToHeaders ListGeofences where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListGeofences where
+instance Data.ToJSON ListGeofences where
   toJSON ListGeofences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListGeofences where
+instance Data.ToPath ListGeofences where
   toPath ListGeofences' {..} =
     Prelude.mconcat
       [ "/geofencing/v0/collections/",
-        Core.toBS collectionName,
+        Data.toBS collectionName,
         "/list-geofences"
       ]
 
-instance Core.ToQuery ListGeofences where
+instance Data.ToQuery ListGeofences where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListGeofencesResponse' smart constructor.

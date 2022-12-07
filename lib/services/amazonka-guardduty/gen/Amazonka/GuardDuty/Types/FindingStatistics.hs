@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.FindingStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about finding statistics.
@@ -53,14 +54,14 @@ newFindingStatistics =
 findingStatistics_countBySeverity :: Lens.Lens' FindingStatistics (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int))
 findingStatistics_countBySeverity = Lens.lens (\FindingStatistics' {countBySeverity} -> countBySeverity) (\s@FindingStatistics' {} a -> s {countBySeverity = a} :: FindingStatistics) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON FindingStatistics where
+instance Data.FromJSON FindingStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FindingStatistics"
       ( \x ->
           FindingStatistics'
-            Prelude.<$> ( x Core..:? "countBySeverity"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "countBySeverity"
+                            Data..!= Prelude.mempty
                         )
       )
 

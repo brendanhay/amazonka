@@ -85,6 +85,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,11 +133,11 @@ data GetInsightRuleReport = GetInsightRuleReport'
     -- | The start time of the data to use in the report. When used in a raw HTTP
     -- Query API, it is formatted as @yyyy-MM-dd\'T\'HH:mm:ss@. For example,
     -- @2019-07-01T23:59:59@.
-    startTime :: Core.ISO8601,
+    startTime :: Data.ISO8601,
     -- | The end time of the data to use in the report. When used in a raw HTTP
     -- Query API, it is formatted as @yyyy-MM-dd\'T\'HH:mm:ss@. For example,
     -- @2019-07-01T23:59:59@.
-    endTime :: Core.ISO8601,
+    endTime :: Data.ISO8601,
     -- | The period, in seconds, to use for the statistics in the
     -- @InsightRuleMetricDatapoint@ results.
     period :: Prelude.Natural
@@ -219,8 +220,8 @@ newGetInsightRuleReport
         maxContributorCount = Prelude.Nothing,
         orderBy = Prelude.Nothing,
         ruleName = pRuleName_,
-        startTime = Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_,
+        startTime = Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         period = pPeriod_
       }
 
@@ -274,13 +275,13 @@ getInsightRuleReport_ruleName = Lens.lens (\GetInsightRuleReport' {ruleName} -> 
 -- Query API, it is formatted as @yyyy-MM-dd\'T\'HH:mm:ss@. For example,
 -- @2019-07-01T23:59:59@.
 getInsightRuleReport_startTime :: Lens.Lens' GetInsightRuleReport Prelude.UTCTime
-getInsightRuleReport_startTime = Lens.lens (\GetInsightRuleReport' {startTime} -> startTime) (\s@GetInsightRuleReport' {} a -> s {startTime = a} :: GetInsightRuleReport) Prelude.. Core._Time
+getInsightRuleReport_startTime = Lens.lens (\GetInsightRuleReport' {startTime} -> startTime) (\s@GetInsightRuleReport' {} a -> s {startTime = a} :: GetInsightRuleReport) Prelude.. Data._Time
 
 -- | The end time of the data to use in the report. When used in a raw HTTP
 -- Query API, it is formatted as @yyyy-MM-dd\'T\'HH:mm:ss@. For example,
 -- @2019-07-01T23:59:59@.
 getInsightRuleReport_endTime :: Lens.Lens' GetInsightRuleReport Prelude.UTCTime
-getInsightRuleReport_endTime = Lens.lens (\GetInsightRuleReport' {endTime} -> endTime) (\s@GetInsightRuleReport' {} a -> s {endTime = a} :: GetInsightRuleReport) Prelude.. Core._Time
+getInsightRuleReport_endTime = Lens.lens (\GetInsightRuleReport' {endTime} -> endTime) (\s@GetInsightRuleReport' {} a -> s {endTime = a} :: GetInsightRuleReport) Prelude.. Data._Time
 
 -- | The period, in seconds, to use for the statistics in the
 -- @InsightRuleMetricDatapoint@ results.
@@ -298,18 +299,18 @@ instance Core.AWSRequest GetInsightRuleReport where
       "GetInsightRuleReportResult"
       ( \s h x ->
           GetInsightRuleReportResponse'
-            Prelude.<$> (x Core..@? "AggregationStatistic")
-            Prelude.<*> ( x Core..@? "MetricDatapoints"
+            Prelude.<$> (x Data..@? "AggregationStatistic")
+            Prelude.<*> ( x Data..@? "MetricDatapoints"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "AggregateValue")
-            Prelude.<*> ( x Core..@? "KeyLabels" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> (x Data..@? "AggregateValue")
+            Prelude.<*> ( x Data..@? "KeyLabels" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "ApproximateUniqueCount")
-            Prelude.<*> ( x Core..@? "Contributors" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> (x Data..@? "ApproximateUniqueCount")
+            Prelude.<*> ( x Data..@? "Contributors" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -334,28 +335,28 @@ instance Prelude.NFData GetInsightRuleReport where
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf period
 
-instance Core.ToHeaders GetInsightRuleReport where
+instance Data.ToHeaders GetInsightRuleReport where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetInsightRuleReport where
+instance Data.ToPath GetInsightRuleReport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetInsightRuleReport where
+instance Data.ToQuery GetInsightRuleReport where
   toQuery GetInsightRuleReport' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetInsightRuleReport" :: Prelude.ByteString),
+          Data.=: ("GetInsightRuleReport" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
         "Metrics"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> metrics),
-        "MaxContributorCount" Core.=: maxContributorCount,
-        "OrderBy" Core.=: orderBy,
-        "RuleName" Core.=: ruleName,
-        "StartTime" Core.=: startTime,
-        "EndTime" Core.=: endTime,
-        "Period" Core.=: period
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> metrics),
+        "MaxContributorCount" Data.=: maxContributorCount,
+        "OrderBy" Data.=: orderBy,
+        "RuleName" Data.=: ruleName,
+        "StartTime" Data.=: startTime,
+        "EndTime" Data.=: endTime,
+        "Period" Data.=: period
       ]
 
 -- | /See:/ 'newGetInsightRuleReportResponse' smart constructor.

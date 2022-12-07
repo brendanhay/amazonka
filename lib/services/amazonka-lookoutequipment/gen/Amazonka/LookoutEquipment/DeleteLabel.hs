@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,35 +106,35 @@ instance Prelude.NFData DeleteLabel where
     Prelude.rnf labelGroupName
       `Prelude.seq` Prelude.rnf labelId
 
-instance Core.ToHeaders DeleteLabel where
+instance Data.ToHeaders DeleteLabel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.DeleteLabel" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.DeleteLabel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteLabel where
+instance Data.ToJSON DeleteLabel where
   toJSON DeleteLabel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("LabelGroupName" Core..= labelGroupName),
-            Prelude.Just ("LabelId" Core..= labelId)
+              ("LabelGroupName" Data..= labelGroupName),
+            Prelude.Just ("LabelId" Data..= labelId)
           ]
       )
 
-instance Core.ToPath DeleteLabel where
+instance Data.ToPath DeleteLabel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLabel where
+instance Data.ToQuery DeleteLabel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLabelResponse' smart constructor.

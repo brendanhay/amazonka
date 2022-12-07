@@ -42,6 +42,7 @@ where
 import Amazonka.BackupGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest DeleteGateway where
     Response.receiveJSON
       ( \s h x ->
           DeleteGatewayResponse'
-            Prelude.<$> (x Core..?> "GatewayArn")
+            Prelude.<$> (x Data..?> "GatewayArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable DeleteGateway where
 instance Prelude.NFData DeleteGateway where
   rnf DeleteGateway' {..} = Prelude.rnf gatewayArn
 
-instance Core.ToHeaders DeleteGateway where
+instance Data.ToHeaders DeleteGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BackupOnPremises_v20210101.DeleteGateway" ::
+              Data.=# ( "BackupOnPremises_v20210101.DeleteGateway" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteGateway where
+instance Data.ToJSON DeleteGateway where
   toJSON DeleteGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayArn" Core..= gatewayArn)]
+          [Prelude.Just ("GatewayArn" Data..= gatewayArn)]
       )
 
-instance Core.ToPath DeleteGateway where
+instance Data.ToPath DeleteGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteGateway where
+instance Data.ToQuery DeleteGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGatewayResponse' smart constructor.

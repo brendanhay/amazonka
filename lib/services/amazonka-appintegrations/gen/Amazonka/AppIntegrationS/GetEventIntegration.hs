@@ -47,6 +47,7 @@ where
 import Amazonka.AppIntegrationS.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,12 +89,12 @@ instance Core.AWSRequest GetEventIntegration where
     Response.receiveJSON
       ( \s h x ->
           GetEventIntegrationResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "EventBridgeBus")
-            Prelude.<*> (x Core..?> "EventFilter")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "EventIntegrationArn")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "EventBridgeBus")
+            Prelude.<*> (x Data..?> "EventFilter")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "EventIntegrationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,23 +105,23 @@ instance Prelude.Hashable GetEventIntegration where
 instance Prelude.NFData GetEventIntegration where
   rnf GetEventIntegration' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetEventIntegration where
+instance Data.ToHeaders GetEventIntegration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetEventIntegration where
+instance Data.ToPath GetEventIntegration where
   toPath GetEventIntegration' {..} =
     Prelude.mconcat
-      ["/eventIntegrations/", Core.toBS name]
+      ["/eventIntegrations/", Data.toBS name]
 
-instance Core.ToQuery GetEventIntegration where
+instance Data.ToQuery GetEventIntegration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEventIntegrationResponse' smart constructor.

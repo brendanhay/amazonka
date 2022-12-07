@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -80,7 +81,7 @@ instance Core.AWSRequest GetProfile where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetProfile where
   hashWithSalt _salt GetProfile' {..} =
@@ -89,20 +90,20 @@ instance Prelude.Hashable GetProfile where
 instance Prelude.NFData GetProfile where
   rnf GetProfile' {..} = Prelude.rnf profileId
 
-instance Core.ToHeaders GetProfile where
+instance Data.ToHeaders GetProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetProfile where
+instance Data.ToPath GetProfile where
   toPath GetProfile' {..} =
-    Prelude.mconcat ["/profile/", Core.toBS profileId]
+    Prelude.mconcat ["/profile/", Data.toBS profileId]
 
-instance Core.ToQuery GetProfile where
+instance Data.ToQuery GetProfile where
   toQuery = Prelude.const Prelude.mempty

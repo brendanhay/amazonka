@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsWafWebAclDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsWafWebAclRule
 
@@ -89,16 +90,16 @@ awsWafWebAclDetails_webAclId = Lens.lens (\AwsWafWebAclDetails' {webAclId} -> we
 awsWafWebAclDetails_defaultAction :: Lens.Lens' AwsWafWebAclDetails (Prelude.Maybe Prelude.Text)
 awsWafWebAclDetails_defaultAction = Lens.lens (\AwsWafWebAclDetails' {defaultAction} -> defaultAction) (\s@AwsWafWebAclDetails' {} a -> s {defaultAction = a} :: AwsWafWebAclDetails)
 
-instance Core.FromJSON AwsWafWebAclDetails where
+instance Data.FromJSON AwsWafWebAclDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsWafWebAclDetails"
       ( \x ->
           AwsWafWebAclDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Rules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "WebAclId")
-            Prelude.<*> (x Core..:? "DefaultAction")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "WebAclId")
+            Prelude.<*> (x Data..:? "DefaultAction")
       )
 
 instance Prelude.Hashable AwsWafWebAclDetails where
@@ -115,13 +116,13 @@ instance Prelude.NFData AwsWafWebAclDetails where
       `Prelude.seq` Prelude.rnf webAclId
       `Prelude.seq` Prelude.rnf defaultAction
 
-instance Core.ToJSON AwsWafWebAclDetails where
+instance Data.ToJSON AwsWafWebAclDetails where
   toJSON AwsWafWebAclDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Rules" Core..=) Prelude.<$> rules,
-            ("WebAclId" Core..=) Prelude.<$> webAclId,
-            ("DefaultAction" Core..=) Prelude.<$> defaultAction
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Rules" Data..=) Prelude.<$> rules,
+            ("WebAclId" Data..=) Prelude.<$> webAclId,
+            ("DefaultAction" Data..=) Prelude.<$> defaultAction
           ]
       )

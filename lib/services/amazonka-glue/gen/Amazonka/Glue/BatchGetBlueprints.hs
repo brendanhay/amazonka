@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,8 +111,8 @@ instance Core.AWSRequest BatchGetBlueprints where
     Response.receiveJSON
       ( \s h x ->
           BatchGetBlueprintsResponse'
-            Prelude.<$> (x Core..?> "Blueprints" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "MissingBlueprints"
+            Prelude.<$> (x Data..?> "Blueprints" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "MissingBlueprints"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -129,35 +130,35 @@ instance Prelude.NFData BatchGetBlueprints where
       `Prelude.seq` Prelude.rnf includeParameterSpec
       `Prelude.seq` Prelude.rnf names
 
-instance Core.ToHeaders BatchGetBlueprints where
+instance Data.ToHeaders BatchGetBlueprints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.BatchGetBlueprints" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.BatchGetBlueprints" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetBlueprints where
+instance Data.ToJSON BatchGetBlueprints where
   toJSON BatchGetBlueprints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IncludeBlueprint" Core..=)
+          [ ("IncludeBlueprint" Data..=)
               Prelude.<$> includeBlueprint,
-            ("IncludeParameterSpec" Core..=)
+            ("IncludeParameterSpec" Data..=)
               Prelude.<$> includeParameterSpec,
-            Prelude.Just ("Names" Core..= names)
+            Prelude.Just ("Names" Data..= names)
           ]
       )
 
-instance Core.ToPath BatchGetBlueprints where
+instance Data.ToPath BatchGetBlueprints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetBlueprints where
+instance Data.ToQuery BatchGetBlueprints where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetBlueprintsResponse' smart constructor.

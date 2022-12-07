@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,9 +118,9 @@ instance Core.AWSRequest DeleteEventDestination where
     Response.receiveJSON
       ( \s h x ->
           DeleteEventDestinationResponse'
-            Prelude.<$> (x Core..?> "ConfigurationSetName")
-            Prelude.<*> (x Core..?> "EventDestination")
-            Prelude.<*> (x Core..?> "ConfigurationSetArn")
+            Prelude.<$> (x Data..?> "ConfigurationSetName")
+            Prelude.<*> (x Data..?> "EventDestination")
+            Prelude.<*> (x Data..?> "ConfigurationSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,40 +134,40 @@ instance Prelude.NFData DeleteEventDestination where
     Prelude.rnf configurationSetName
       `Prelude.seq` Prelude.rnf eventDestinationName
 
-instance Core.ToHeaders DeleteEventDestination where
+instance Data.ToHeaders DeleteEventDestination where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.DeleteEventDestination" ::
+              Data.=# ( "PinpointSMSVoiceV2.DeleteEventDestination" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteEventDestination where
+instance Data.ToJSON DeleteEventDestination where
   toJSON DeleteEventDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ConfigurationSetName"
-                  Core..= configurationSetName
+                  Data..= configurationSetName
               ),
             Prelude.Just
               ( "EventDestinationName"
-                  Core..= eventDestinationName
+                  Data..= eventDestinationName
               )
           ]
       )
 
-instance Core.ToPath DeleteEventDestination where
+instance Data.ToPath DeleteEventDestination where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteEventDestination where
+instance Data.ToQuery DeleteEventDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEventDestinationResponse' smart constructor.

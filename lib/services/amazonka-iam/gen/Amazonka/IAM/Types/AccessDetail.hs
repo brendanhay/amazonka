@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.AccessDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains details about when a principal in the reported
@@ -61,7 +62,7 @@ data AccessDetail = AccessDetail'
     -- This field is null if no principals in the reported Organizations entity
     -- attempted to access the service within the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
-    lastAuthenticatedTime :: Prelude.Maybe Core.ISO8601,
+    lastAuthenticatedTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the service in which access was attempted.
     serviceName :: Prelude.Text,
     -- | The namespace of the service in which access was attempted.
@@ -179,7 +180,7 @@ accessDetail_region = Lens.lens (\AccessDetail' {region} -> region) (\s@AccessDe
 -- attempted to access the service within the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
 accessDetail_lastAuthenticatedTime :: Lens.Lens' AccessDetail (Prelude.Maybe Prelude.UTCTime)
-accessDetail_lastAuthenticatedTime = Lens.lens (\AccessDetail' {lastAuthenticatedTime} -> lastAuthenticatedTime) (\s@AccessDetail' {} a -> s {lastAuthenticatedTime = a} :: AccessDetail) Prelude.. Lens.mapping Core._Time
+accessDetail_lastAuthenticatedTime = Lens.lens (\AccessDetail' {lastAuthenticatedTime} -> lastAuthenticatedTime) (\s@AccessDetail' {} a -> s {lastAuthenticatedTime = a} :: AccessDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the service in which access was attempted.
 accessDetail_serviceName :: Lens.Lens' AccessDetail Prelude.Text
@@ -198,15 +199,15 @@ accessDetail_serviceName = Lens.lens (\AccessDetail' {serviceName} -> serviceNam
 accessDetail_serviceNamespace :: Lens.Lens' AccessDetail Prelude.Text
 accessDetail_serviceNamespace = Lens.lens (\AccessDetail' {serviceNamespace} -> serviceNamespace) (\s@AccessDetail' {} a -> s {serviceNamespace = a} :: AccessDetail)
 
-instance Core.FromXML AccessDetail where
+instance Data.FromXML AccessDetail where
   parseXML x =
     AccessDetail'
-      Prelude.<$> (x Core..@? "TotalAuthenticatedEntities")
-      Prelude.<*> (x Core..@? "EntityPath")
-      Prelude.<*> (x Core..@? "Region")
-      Prelude.<*> (x Core..@? "LastAuthenticatedTime")
-      Prelude.<*> (x Core..@ "ServiceName")
-      Prelude.<*> (x Core..@ "ServiceNamespace")
+      Prelude.<$> (x Data..@? "TotalAuthenticatedEntities")
+      Prelude.<*> (x Data..@? "EntityPath")
+      Prelude.<*> (x Data..@? "Region")
+      Prelude.<*> (x Data..@? "LastAuthenticatedTime")
+      Prelude.<*> (x Data..@ "ServiceName")
+      Prelude.<*> (x Data..@ "ServiceNamespace")
 
 instance Prelude.Hashable AccessDetail where
   hashWithSalt _salt AccessDetail' {..} =

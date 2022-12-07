@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,7 +95,7 @@ instance Core.AWSRequest DeleteKnownHostKeys where
     Response.receiveJSON
       ( \s h x ->
           DeleteKnownHostKeysResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,32 +107,32 @@ instance Prelude.NFData DeleteKnownHostKeys where
   rnf DeleteKnownHostKeys' {..} =
     Prelude.rnf instanceName
 
-instance Core.ToHeaders DeleteKnownHostKeys where
+instance Data.ToHeaders DeleteKnownHostKeys where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.DeleteKnownHostKeys" ::
+              Data.=# ( "Lightsail_20161128.DeleteKnownHostKeys" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteKnownHostKeys where
+instance Data.ToJSON DeleteKnownHostKeys where
   toJSON DeleteKnownHostKeys' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("instanceName" Core..= instanceName)]
+          [Prelude.Just ("instanceName" Data..= instanceName)]
       )
 
-instance Core.ToPath DeleteKnownHostKeys where
+instance Data.ToPath DeleteKnownHostKeys where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteKnownHostKeys where
+instance Data.ToQuery DeleteKnownHostKeys where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteKnownHostKeysResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Backup.Types.ControlInputParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of parameters for a control. A control can have zero, one, or
@@ -66,14 +67,14 @@ controlInputParameter_parameterValue = Lens.lens (\ControlInputParameter' {param
 controlInputParameter_parameterName :: Lens.Lens' ControlInputParameter (Prelude.Maybe Prelude.Text)
 controlInputParameter_parameterName = Lens.lens (\ControlInputParameter' {parameterName} -> parameterName) (\s@ControlInputParameter' {} a -> s {parameterName = a} :: ControlInputParameter)
 
-instance Core.FromJSON ControlInputParameter where
+instance Data.FromJSON ControlInputParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ControlInputParameter"
       ( \x ->
           ControlInputParameter'
-            Prelude.<$> (x Core..:? "ParameterValue")
-            Prelude.<*> (x Core..:? "ParameterName")
+            Prelude.<$> (x Data..:? "ParameterValue")
+            Prelude.<*> (x Data..:? "ParameterName")
       )
 
 instance Prelude.Hashable ControlInputParameter where
@@ -86,12 +87,12 @@ instance Prelude.NFData ControlInputParameter where
     Prelude.rnf parameterValue
       `Prelude.seq` Prelude.rnf parameterName
 
-instance Core.ToJSON ControlInputParameter where
+instance Data.ToJSON ControlInputParameter where
   toJSON ControlInputParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ParameterValue" Core..=)
+          [ ("ParameterValue" Data..=)
               Prelude.<$> parameterValue,
-            ("ParameterName" Core..=) Prelude.<$> parameterName
+            ("ParameterName" Data..=) Prelude.<$> parameterName
           ]
       )

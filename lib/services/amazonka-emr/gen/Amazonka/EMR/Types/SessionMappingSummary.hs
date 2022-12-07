@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.SessionMappingSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.IdentityType
 import qualified Amazonka.Prelude as Prelude
 
@@ -41,7 +42,7 @@ data SessionMappingSummary = SessionMappingSummary'
     -- in the /Amazon Web Services SSO Identity Store API Reference/.
     identityName :: Prelude.Maybe Prelude.Text,
     -- | The time the session mapping was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The globally unique identifier (GUID) of the user or group from the
     -- Amazon Web Services SSO Identity Store.
     identityId :: Prelude.Maybe Prelude.Text,
@@ -108,7 +109,7 @@ sessionMappingSummary_identityName = Lens.lens (\SessionMappingSummary' {identit
 
 -- | The time the session mapping was created.
 sessionMappingSummary_creationTime :: Lens.Lens' SessionMappingSummary (Prelude.Maybe Prelude.UTCTime)
-sessionMappingSummary_creationTime = Lens.lens (\SessionMappingSummary' {creationTime} -> creationTime) (\s@SessionMappingSummary' {} a -> s {creationTime = a} :: SessionMappingSummary) Prelude.. Lens.mapping Core._Time
+sessionMappingSummary_creationTime = Lens.lens (\SessionMappingSummary' {creationTime} -> creationTime) (\s@SessionMappingSummary' {} a -> s {creationTime = a} :: SessionMappingSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The globally unique identifier (GUID) of the user or group from the
 -- Amazon Web Services SSO Identity Store.
@@ -120,18 +121,18 @@ sessionMappingSummary_identityId = Lens.lens (\SessionMappingSummary' {identityI
 sessionMappingSummary_identityType :: Lens.Lens' SessionMappingSummary (Prelude.Maybe IdentityType)
 sessionMappingSummary_identityType = Lens.lens (\SessionMappingSummary' {identityType} -> identityType) (\s@SessionMappingSummary' {} a -> s {identityType = a} :: SessionMappingSummary)
 
-instance Core.FromJSON SessionMappingSummary where
+instance Data.FromJSON SessionMappingSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SessionMappingSummary"
       ( \x ->
           SessionMappingSummary'
-            Prelude.<$> (x Core..:? "StudioId")
-            Prelude.<*> (x Core..:? "SessionPolicyArn")
-            Prelude.<*> (x Core..:? "IdentityName")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "IdentityId")
-            Prelude.<*> (x Core..:? "IdentityType")
+            Prelude.<$> (x Data..:? "StudioId")
+            Prelude.<*> (x Data..:? "SessionPolicyArn")
+            Prelude.<*> (x Data..:? "IdentityName")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "IdentityId")
+            Prelude.<*> (x Data..:? "IdentityType")
       )
 
 instance Prelude.Hashable SessionMappingSummary where

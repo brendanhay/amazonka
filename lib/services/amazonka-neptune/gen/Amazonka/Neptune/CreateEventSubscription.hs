@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -269,7 +270,7 @@ instance Core.AWSRequest CreateEventSubscription where
       "CreateEventSubscriptionResult"
       ( \s h x ->
           CreateEventSubscriptionResponse'
-            Prelude.<$> (x Core..@? "EventSubscription")
+            Prelude.<$> (x Data..@? "EventSubscription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -293,34 +294,34 @@ instance Prelude.NFData CreateEventSubscription where
       `Prelude.seq` Prelude.rnf subscriptionName
       `Prelude.seq` Prelude.rnf snsTopicArn
 
-instance Core.ToHeaders CreateEventSubscription where
+instance Data.ToHeaders CreateEventSubscription where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateEventSubscription where
+instance Data.ToPath CreateEventSubscription where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEventSubscription where
+instance Data.ToQuery CreateEventSubscription where
   toQuery CreateEventSubscription' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateEventSubscription" :: Prelude.ByteString),
+          Data.=: ("CreateEventSubscription" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
         "SourceIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "SourceId" Prelude.<$> sourceIds),
-        "SourceType" Core.=: sourceType,
-        "Enabled" Core.=: enabled,
+          Data.=: Data.toQuery
+            (Data.toQueryList "SourceId" Prelude.<$> sourceIds),
+        "SourceType" Data.=: sourceType,
+        "Enabled" Data.=: enabled,
         "EventCategories"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "EventCategory"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "EventCategory"
                 Prelude.<$> eventCategories
             ),
-        "SubscriptionName" Core.=: subscriptionName,
-        "SnsTopicArn" Core.=: snsTopicArn
+        "SubscriptionName" Data.=: subscriptionName,
+        "SnsTopicArn" Data.=: snsTopicArn
       ]
 
 -- | /See:/ 'newCreateEventSubscriptionResponse' smart constructor.

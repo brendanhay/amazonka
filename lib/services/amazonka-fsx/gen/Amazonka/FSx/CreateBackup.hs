@@ -94,6 +94,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -184,7 +185,7 @@ instance Core.AWSRequest CreateBackup where
     Response.receiveJSON
       ( \s h x ->
           CreateBackupResponse'
-            Prelude.<$> (x Core..?> "Backup")
+            Prelude.<$> (x Data..?> "Backup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,37 +203,37 @@ instance Prelude.NFData CreateBackup where
       `Prelude.seq` Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf volumeId
 
-instance Core.ToHeaders CreateBackup where
+instance Data.ToHeaders CreateBackup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.CreateBackup" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.CreateBackup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBackup where
+instance Data.ToJSON CreateBackup where
   toJSON CreateBackup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("FileSystemId" Core..=) Prelude.<$> fileSystemId,
-            ("VolumeId" Core..=) Prelude.<$> volumeId
+            ("FileSystemId" Data..=) Prelude.<$> fileSystemId,
+            ("VolumeId" Data..=) Prelude.<$> volumeId
           ]
       )
 
-instance Core.ToPath CreateBackup where
+instance Data.ToPath CreateBackup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateBackup where
+instance Data.ToQuery CreateBackup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response object for the @CreateBackup@ operation.

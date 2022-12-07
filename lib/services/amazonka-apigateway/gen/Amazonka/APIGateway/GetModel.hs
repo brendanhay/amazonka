@@ -47,6 +47,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ instance Core.AWSRequest GetModel where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetModel where
   hashWithSalt _salt GetModel' {..} =
@@ -129,24 +130,24 @@ instance Prelude.NFData GetModel where
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf modelName
 
-instance Core.ToHeaders GetModel where
+instance Data.ToHeaders GetModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetModel where
+instance Data.ToPath GetModel where
   toPath GetModel' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/models/",
-        Core.toBS modelName
+        Data.toBS modelName
       ]
 
-instance Core.ToQuery GetModel where
+instance Data.ToQuery GetModel where
   toQuery GetModel' {..} =
-    Prelude.mconcat ["flatten" Core.=: flatten]
+    Prelude.mconcat ["flatten" Data.=: flatten]

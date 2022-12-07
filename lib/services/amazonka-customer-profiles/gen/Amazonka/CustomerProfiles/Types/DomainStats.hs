@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.DomainStats where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Usage-specific statistics about the domain.
@@ -89,16 +90,16 @@ domainStats_objectCount = Lens.lens (\DomainStats' {objectCount} -> objectCount)
 domainStats_totalSize :: Lens.Lens' DomainStats (Prelude.Maybe Prelude.Integer)
 domainStats_totalSize = Lens.lens (\DomainStats' {totalSize} -> totalSize) (\s@DomainStats' {} a -> s {totalSize = a} :: DomainStats)
 
-instance Core.FromJSON DomainStats where
+instance Data.FromJSON DomainStats where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainStats"
       ( \x ->
           DomainStats'
-            Prelude.<$> (x Core..:? "MeteringProfileCount")
-            Prelude.<*> (x Core..:? "ProfileCount")
-            Prelude.<*> (x Core..:? "ObjectCount")
-            Prelude.<*> (x Core..:? "TotalSize")
+            Prelude.<$> (x Data..:? "MeteringProfileCount")
+            Prelude.<*> (x Data..:? "ProfileCount")
+            Prelude.<*> (x Data..:? "ObjectCount")
+            Prelude.<*> (x Data..:? "TotalSize")
       )
 
 instance Prelude.Hashable DomainStats where

@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.MaintenanceWindowIdentityForTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The maintenance window to which the specified target belongs.
@@ -63,16 +64,16 @@ maintenanceWindowIdentityForTarget_windowId :: Lens.Lens' MaintenanceWindowIdent
 maintenanceWindowIdentityForTarget_windowId = Lens.lens (\MaintenanceWindowIdentityForTarget' {windowId} -> windowId) (\s@MaintenanceWindowIdentityForTarget' {} a -> s {windowId = a} :: MaintenanceWindowIdentityForTarget)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MaintenanceWindowIdentityForTarget
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MaintenanceWindowIdentityForTarget"
       ( \x ->
           MaintenanceWindowIdentityForTarget'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "WindowId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "WindowId")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.SQS.Types.MessageSystemAttributeValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The user-specified message system attribute value. For string data
@@ -35,9 +36,9 @@ data MessageSystemAttributeValue = MessageSystemAttributeValue'
     stringListValues :: Prelude.Maybe [Prelude.Text],
     -- | Binary type attributes can store any binary data, such as compressed
     -- data, encrypted data, or images.
-    binaryValue :: Prelude.Maybe Core.Base64,
+    binaryValue :: Prelude.Maybe Data.Base64,
     -- | Not implemented. Reserved for future use.
-    binaryListValues :: Prelude.Maybe [Core.Base64],
+    binaryListValues :: Prelude.Maybe [Data.Base64],
     -- | Strings are Unicode with UTF-8 binary encoding. For a list of code
     -- values, see
     -- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters>.
@@ -108,7 +109,7 @@ messageSystemAttributeValue_stringListValues = Lens.lens (\MessageSystemAttribut
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 messageSystemAttributeValue_binaryValue :: Lens.Lens' MessageSystemAttributeValue (Prelude.Maybe Prelude.ByteString)
-messageSystemAttributeValue_binaryValue = Lens.lens (\MessageSystemAttributeValue' {binaryValue} -> binaryValue) (\s@MessageSystemAttributeValue' {} a -> s {binaryValue = a} :: MessageSystemAttributeValue) Prelude.. Lens.mapping Core._Base64
+messageSystemAttributeValue_binaryValue = Lens.lens (\MessageSystemAttributeValue' {binaryValue} -> binaryValue) (\s@MessageSystemAttributeValue' {} a -> s {binaryValue = a} :: MessageSystemAttributeValue) Prelude.. Lens.mapping Data._Base64
 
 -- | Not implemented. Reserved for future use.
 messageSystemAttributeValue_binaryListValues :: Lens.Lens' MessageSystemAttributeValue (Prelude.Maybe [Prelude.ByteString])
@@ -146,20 +147,20 @@ instance Prelude.NFData MessageSystemAttributeValue where
       `Prelude.seq` Prelude.rnf stringValue
       `Prelude.seq` Prelude.rnf dataType
 
-instance Core.ToQuery MessageSystemAttributeValue where
+instance Data.ToQuery MessageSystemAttributeValue where
   toQuery MessageSystemAttributeValue' {..} =
     Prelude.mconcat
       [ "StringListValue"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "StringListValue"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "StringListValue"
                 Prelude.<$> stringListValues
             ),
-        "BinaryValue" Core.=: binaryValue,
+        "BinaryValue" Data.=: binaryValue,
         "BinaryListValue"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "BinaryListValue"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "BinaryListValue"
                 Prelude.<$> binaryListValues
             ),
-        "StringValue" Core.=: stringValue,
-        "DataType" Core.=: dataType
+        "StringValue" Data.=: stringValue,
+        "DataType" Data.=: dataType
       ]

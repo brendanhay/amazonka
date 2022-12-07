@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,7 +91,7 @@ instance Core.AWSRequest GetModelPackageGroupPolicy where
       ( \s h x ->
           GetModelPackageGroupPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ResourcePolicy")
+            Prelude.<*> (x Data..:> "ResourcePolicy")
       )
 
 instance Prelude.Hashable GetModelPackageGroupPolicy where
@@ -101,36 +102,36 @@ instance Prelude.NFData GetModelPackageGroupPolicy where
   rnf GetModelPackageGroupPolicy' {..} =
     Prelude.rnf modelPackageGroupName
 
-instance Core.ToHeaders GetModelPackageGroupPolicy where
+instance Data.ToHeaders GetModelPackageGroupPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.GetModelPackageGroupPolicy" ::
+              Data.=# ( "SageMaker.GetModelPackageGroupPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetModelPackageGroupPolicy where
+instance Data.ToJSON GetModelPackageGroupPolicy where
   toJSON GetModelPackageGroupPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ModelPackageGroupName"
-                  Core..= modelPackageGroupName
+                  Data..= modelPackageGroupName
               )
           ]
       )
 
-instance Core.ToPath GetModelPackageGroupPolicy where
+instance Data.ToPath GetModelPackageGroupPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetModelPackageGroupPolicy where
+instance Data.ToQuery GetModelPackageGroupPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetModelPackageGroupPolicyResponse' smart constructor.

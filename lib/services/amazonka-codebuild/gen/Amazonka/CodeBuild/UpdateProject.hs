@@ -62,6 +62,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -467,7 +468,7 @@ instance Core.AWSRequest UpdateProject where
     Response.receiveJSON
       ( \s h x ->
           UpdateProjectResponse'
-            Prelude.<$> (x Core..?> "project")
+            Prelude.<$> (x Data..?> "project")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -519,61 +520,61 @@ instance Prelude.NFData UpdateProject where
       `Prelude.seq` Prelude.rnf artifacts
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateProject where
+instance Data.ToHeaders UpdateProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.UpdateProject" ::
+              Data.=# ( "CodeBuild_20161006.UpdateProject" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateProject where
+instance Data.ToJSON UpdateProject where
   toJSON UpdateProject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("environment" Core..=) Prelude.<$> environment,
-            ("secondarySources" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("environment" Data..=) Prelude.<$> environment,
+            ("secondarySources" Data..=)
               Prelude.<$> secondarySources,
-            ("badgeEnabled" Core..=) Prelude.<$> badgeEnabled,
-            ("fileSystemLocations" Core..=)
+            ("badgeEnabled" Data..=) Prelude.<$> badgeEnabled,
+            ("fileSystemLocations" Data..=)
               Prelude.<$> fileSystemLocations,
-            ("timeoutInMinutes" Core..=)
+            ("timeoutInMinutes" Data..=)
               Prelude.<$> timeoutInMinutes,
-            ("queuedTimeoutInMinutes" Core..=)
+            ("queuedTimeoutInMinutes" Data..=)
               Prelude.<$> queuedTimeoutInMinutes,
-            ("vpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("secondaryArtifacts" Core..=)
+            ("vpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("secondaryArtifacts" Data..=)
               Prelude.<$> secondaryArtifacts,
-            ("sourceVersion" Core..=) Prelude.<$> sourceVersion,
-            ("concurrentBuildLimit" Core..=)
+            ("sourceVersion" Data..=) Prelude.<$> sourceVersion,
+            ("concurrentBuildLimit" Data..=)
               Prelude.<$> concurrentBuildLimit,
-            ("description" Core..=) Prelude.<$> description,
-            ("cache" Core..=) Prelude.<$> cache,
-            ("serviceRole" Core..=) Prelude.<$> serviceRole,
-            ("secondarySourceVersions" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("cache" Data..=) Prelude.<$> cache,
+            ("serviceRole" Data..=) Prelude.<$> serviceRole,
+            ("secondarySourceVersions" Data..=)
               Prelude.<$> secondarySourceVersions,
-            ("source" Core..=) Prelude.<$> source,
-            ("logsConfig" Core..=) Prelude.<$> logsConfig,
-            ("buildBatchConfig" Core..=)
+            ("source" Data..=) Prelude.<$> source,
+            ("logsConfig" Data..=) Prelude.<$> logsConfig,
+            ("buildBatchConfig" Data..=)
               Prelude.<$> buildBatchConfig,
-            ("encryptionKey" Core..=) Prelude.<$> encryptionKey,
-            ("artifacts" Core..=) Prelude.<$> artifacts,
-            Prelude.Just ("name" Core..= name)
+            ("encryptionKey" Data..=) Prelude.<$> encryptionKey,
+            ("artifacts" Data..=) Prelude.<$> artifacts,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateProject where
+instance Data.ToPath UpdateProject where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateProject where
+instance Data.ToQuery UpdateProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProjectResponse' smart constructor.

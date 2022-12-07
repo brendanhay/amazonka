@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.JsonTokenTypeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information for the JSON token type.
@@ -68,14 +69,14 @@ jsonTokenTypeConfiguration_userNameAttributeField = Lens.lens (\JsonTokenTypeCon
 jsonTokenTypeConfiguration_groupAttributeField :: Lens.Lens' JsonTokenTypeConfiguration Prelude.Text
 jsonTokenTypeConfiguration_groupAttributeField = Lens.lens (\JsonTokenTypeConfiguration' {groupAttributeField} -> groupAttributeField) (\s@JsonTokenTypeConfiguration' {} a -> s {groupAttributeField = a} :: JsonTokenTypeConfiguration)
 
-instance Core.FromJSON JsonTokenTypeConfiguration where
+instance Data.FromJSON JsonTokenTypeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JsonTokenTypeConfiguration"
       ( \x ->
           JsonTokenTypeConfiguration'
-            Prelude.<$> (x Core..: "UserNameAttributeField")
-            Prelude.<*> (x Core..: "GroupAttributeField")
+            Prelude.<$> (x Data..: "UserNameAttributeField")
+            Prelude.<*> (x Data..: "GroupAttributeField")
       )
 
 instance Prelude.Hashable JsonTokenTypeConfiguration where
@@ -88,15 +89,15 @@ instance Prelude.NFData JsonTokenTypeConfiguration where
     Prelude.rnf userNameAttributeField
       `Prelude.seq` Prelude.rnf groupAttributeField
 
-instance Core.ToJSON JsonTokenTypeConfiguration where
+instance Data.ToJSON JsonTokenTypeConfiguration where
   toJSON JsonTokenTypeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "UserNameAttributeField"
-                  Core..= userNameAttributeField
+                  Data..= userNameAttributeField
               ),
             Prelude.Just
-              ("GroupAttributeField" Core..= groupAttributeField)
+              ("GroupAttributeField" Data..= groupAttributeField)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsServiceNetworkConfigurationAwsVpcConfigu
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For tasks that use the @awsvpc@ networking mode, the VPC subnet and
@@ -96,17 +97,17 @@ awsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails_assignPublicIp :: Le
 awsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails_assignPublicIp = Lens.lens (\AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' {assignPublicIp} -> assignPublicIp) (\s@AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' {} a -> s {assignPublicIp = a} :: AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails"
       ( \x ->
           AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails'
-            Prelude.<$> (x Core..:? "Subnets" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "SecurityGroups" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "AssignPublicIp")
+            Prelude.<$> (x Data..:? "Subnets" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "SecurityGroups" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "AssignPublicIp")
       )
 
 instance
@@ -131,17 +132,17 @@ instance
         `Prelude.seq` Prelude.rnf assignPublicIp
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails
   where
   toJSON
     AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Subnets" Core..=) Prelude.<$> subnets,
-              ("SecurityGroups" Core..=)
+            [ ("Subnets" Data..=) Prelude.<$> subnets,
+              ("SecurityGroups" Data..=)
                 Prelude.<$> securityGroups,
-              ("AssignPublicIp" Core..=)
+              ("AssignPublicIp" Data..=)
                 Prelude.<$> assignPublicIp
             ]
         )

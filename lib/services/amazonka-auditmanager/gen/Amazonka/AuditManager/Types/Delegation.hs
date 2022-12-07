@@ -23,6 +23,7 @@ import Amazonka.AuditManager.Types.DelegationStatus
 import Amazonka.AuditManager.Types.RoleType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The assignment of a control set to a delegate for review.
@@ -50,14 +51,14 @@ data Delegation = Delegation'
     -- | The unique identifier for the delegation.
     id :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the delegation was last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | The comment that\'s related to the delegation.
     comment :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the control set that\'s associated with the
     -- delegation.
     controlSetId :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the delegation was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The IAM user or role that created the delegation.
     createdBy :: Prelude.Maybe Prelude.Text
   }
@@ -152,7 +153,7 @@ delegation_id = Lens.lens (\Delegation' {id} -> id) (\s@Delegation' {} a -> s {i
 
 -- | Specifies when the delegation was last updated.
 delegation_lastUpdated :: Lens.Lens' Delegation (Prelude.Maybe Prelude.UTCTime)
-delegation_lastUpdated = Lens.lens (\Delegation' {lastUpdated} -> lastUpdated) (\s@Delegation' {} a -> s {lastUpdated = a} :: Delegation) Prelude.. Lens.mapping Core._Time
+delegation_lastUpdated = Lens.lens (\Delegation' {lastUpdated} -> lastUpdated) (\s@Delegation' {} a -> s {lastUpdated = a} :: Delegation) Prelude.. Lens.mapping Data._Time
 
 -- | The comment that\'s related to the delegation.
 delegation_comment :: Lens.Lens' Delegation (Prelude.Maybe Prelude.Text)
@@ -165,29 +166,29 @@ delegation_controlSetId = Lens.lens (\Delegation' {controlSetId} -> controlSetId
 
 -- | Specifies when the delegation was created.
 delegation_creationTime :: Lens.Lens' Delegation (Prelude.Maybe Prelude.UTCTime)
-delegation_creationTime = Lens.lens (\Delegation' {creationTime} -> creationTime) (\s@Delegation' {} a -> s {creationTime = a} :: Delegation) Prelude.. Lens.mapping Core._Time
+delegation_creationTime = Lens.lens (\Delegation' {creationTime} -> creationTime) (\s@Delegation' {} a -> s {creationTime = a} :: Delegation) Prelude.. Lens.mapping Data._Time
 
 -- | The IAM user or role that created the delegation.
 delegation_createdBy :: Lens.Lens' Delegation (Prelude.Maybe Prelude.Text)
 delegation_createdBy = Lens.lens (\Delegation' {createdBy} -> createdBy) (\s@Delegation' {} a -> s {createdBy = a} :: Delegation)
 
-instance Core.FromJSON Delegation where
+instance Data.FromJSON Delegation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Delegation"
       ( \x ->
           Delegation'
-            Prelude.<$> (x Core..:? "roleType")
-            Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "assessmentId")
-            Prelude.<*> (x Core..:? "assessmentName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "lastUpdated")
-            Prelude.<*> (x Core..:? "comment")
-            Prelude.<*> (x Core..:? "controlSetId")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "createdBy")
+            Prelude.<$> (x Data..:? "roleType")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "assessmentId")
+            Prelude.<*> (x Data..:? "assessmentName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "lastUpdated")
+            Prelude.<*> (x Data..:? "comment")
+            Prelude.<*> (x Data..:? "controlSetId")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "createdBy")
       )
 
 instance Prelude.Hashable Delegation where

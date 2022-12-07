@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.FileCacheLustreConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.FileCacheLustreDeploymentType
 import Amazonka.FSx.Types.FileCacheLustreMetadataConfiguration
 import Amazonka.FSx.Types.LustreLogConfiguration
@@ -124,18 +125,18 @@ fileCacheLustreConfiguration_perUnitStorageThroughput = Lens.lens (\FileCacheLus
 fileCacheLustreConfiguration_mountName :: Lens.Lens' FileCacheLustreConfiguration (Prelude.Maybe Prelude.Text)
 fileCacheLustreConfiguration_mountName = Lens.lens (\FileCacheLustreConfiguration' {mountName} -> mountName) (\s@FileCacheLustreConfiguration' {} a -> s {mountName = a} :: FileCacheLustreConfiguration)
 
-instance Core.FromJSON FileCacheLustreConfiguration where
+instance Data.FromJSON FileCacheLustreConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileCacheLustreConfiguration"
       ( \x ->
           FileCacheLustreConfiguration'
-            Prelude.<$> (x Core..:? "MetadataConfiguration")
-            Prelude.<*> (x Core..:? "WeeklyMaintenanceStartTime")
-            Prelude.<*> (x Core..:? "LogConfiguration")
-            Prelude.<*> (x Core..:? "DeploymentType")
-            Prelude.<*> (x Core..:? "PerUnitStorageThroughput")
-            Prelude.<*> (x Core..:? "MountName")
+            Prelude.<$> (x Data..:? "MetadataConfiguration")
+            Prelude.<*> (x Data..:? "WeeklyMaintenanceStartTime")
+            Prelude.<*> (x Data..:? "LogConfiguration")
+            Prelude.<*> (x Data..:? "DeploymentType")
+            Prelude.<*> (x Data..:? "PerUnitStorageThroughput")
+            Prelude.<*> (x Data..:? "MountName")
       )
 
 instance

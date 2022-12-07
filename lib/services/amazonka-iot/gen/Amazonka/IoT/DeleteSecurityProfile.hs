@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,20 +122,20 @@ instance Prelude.NFData DeleteSecurityProfile where
     Prelude.rnf expectedVersion
       `Prelude.seq` Prelude.rnf securityProfileName
 
-instance Core.ToHeaders DeleteSecurityProfile where
+instance Data.ToHeaders DeleteSecurityProfile where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteSecurityProfile where
+instance Data.ToPath DeleteSecurityProfile where
   toPath DeleteSecurityProfile' {..} =
     Prelude.mconcat
       [ "/security-profiles/",
-        Core.toBS securityProfileName
+        Data.toBS securityProfileName
       ]
 
-instance Core.ToQuery DeleteSecurityProfile where
+instance Data.ToQuery DeleteSecurityProfile where
   toQuery DeleteSecurityProfile' {..} =
     Prelude.mconcat
-      ["expectedVersion" Core.=: expectedVersion]
+      ["expectedVersion" Data.=: expectedVersion]
 
 -- | /See:/ 'newDeleteSecurityProfileResponse' smart constructor.
 data DeleteSecurityProfileResponse = DeleteSecurityProfileResponse'

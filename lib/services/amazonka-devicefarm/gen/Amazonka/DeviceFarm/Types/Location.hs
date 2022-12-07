@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.Location where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a latitude and longitude pair, expressed in geographic
@@ -68,14 +69,14 @@ location_latitude = Lens.lens (\Location' {latitude} -> latitude) (\s@Location' 
 location_longitude :: Lens.Lens' Location Prelude.Double
 location_longitude = Lens.lens (\Location' {longitude} -> longitude) (\s@Location' {} a -> s {longitude = a} :: Location)
 
-instance Core.FromJSON Location where
+instance Data.FromJSON Location where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Location"
       ( \x ->
           Location'
-            Prelude.<$> (x Core..: "latitude")
-            Prelude.<*> (x Core..: "longitude")
+            Prelude.<$> (x Data..: "latitude")
+            Prelude.<*> (x Data..: "longitude")
       )
 
 instance Prelude.Hashable Location where
@@ -88,11 +89,11 @@ instance Prelude.NFData Location where
     Prelude.rnf latitude
       `Prelude.seq` Prelude.rnf longitude
 
-instance Core.ToJSON Location where
+instance Data.ToJSON Location where
   toJSON Location' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("latitude" Core..= latitude),
-            Prelude.Just ("longitude" Core..= longitude)
+          [ Prelude.Just ("latitude" Data..= latitude),
+            Prelude.Just ("longitude" Data..= longitude)
           ]
       )

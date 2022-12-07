@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.QuipConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import Amazonka.Kendra.Types.DataSourceVpcConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -273,28 +274,28 @@ quipConfiguration_domain = Lens.lens (\QuipConfiguration' {domain} -> domain) (\
 quipConfiguration_secretArn :: Lens.Lens' QuipConfiguration Prelude.Text
 quipConfiguration_secretArn = Lens.lens (\QuipConfiguration' {secretArn} -> secretArn) (\s@QuipConfiguration' {} a -> s {secretArn = a} :: QuipConfiguration)
 
-instance Core.FromJSON QuipConfiguration where
+instance Data.FromJSON QuipConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QuipConfiguration"
       ( \x ->
           QuipConfiguration'
-            Prelude.<$> (x Core..:? "VpcConfiguration")
-            Prelude.<*> (x Core..:? "AttachmentFieldMappings")
-            Prelude.<*> (x Core..:? "CrawlAttachments")
-            Prelude.<*> (x Core..:? "MessageFieldMappings")
-            Prelude.<*> ( x Core..:? "InclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "VpcConfiguration")
+            Prelude.<*> (x Data..:? "AttachmentFieldMappings")
+            Prelude.<*> (x Data..:? "CrawlAttachments")
+            Prelude.<*> (x Data..:? "MessageFieldMappings")
+            Prelude.<*> ( x Data..:? "InclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CrawlFileComments")
-            Prelude.<*> (x Core..:? "FolderIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CrawlChatRooms")
-            Prelude.<*> (x Core..:? "ThreadFieldMappings")
-            Prelude.<*> ( x Core..:? "ExclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "CrawlFileComments")
+            Prelude.<*> (x Data..:? "FolderIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CrawlChatRooms")
+            Prelude.<*> (x Data..:? "ThreadFieldMappings")
+            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "Domain")
-            Prelude.<*> (x Core..: "SecretArn")
+            Prelude.<*> (x Data..: "Domain")
+            Prelude.<*> (x Data..: "SecretArn")
       )
 
 instance Prelude.Hashable QuipConfiguration where
@@ -327,30 +328,30 @@ instance Prelude.NFData QuipConfiguration where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf secretArn
 
-instance Core.ToJSON QuipConfiguration where
+instance Data.ToJSON QuipConfiguration where
   toJSON QuipConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpcConfiguration" Core..=)
+          [ ("VpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("AttachmentFieldMappings" Core..=)
+            ("AttachmentFieldMappings" Data..=)
               Prelude.<$> attachmentFieldMappings,
-            ("CrawlAttachments" Core..=)
+            ("CrawlAttachments" Data..=)
               Prelude.<$> crawlAttachments,
-            ("MessageFieldMappings" Core..=)
+            ("MessageFieldMappings" Data..=)
               Prelude.<$> messageFieldMappings,
-            ("InclusionPatterns" Core..=)
+            ("InclusionPatterns" Data..=)
               Prelude.<$> inclusionPatterns,
-            ("CrawlFileComments" Core..=)
+            ("CrawlFileComments" Data..=)
               Prelude.<$> crawlFileComments,
-            ("FolderIds" Core..=) Prelude.<$> folderIds,
-            ("CrawlChatRooms" Core..=)
+            ("FolderIds" Data..=) Prelude.<$> folderIds,
+            ("CrawlChatRooms" Data..=)
               Prelude.<$> crawlChatRooms,
-            ("ThreadFieldMappings" Core..=)
+            ("ThreadFieldMappings" Data..=)
               Prelude.<$> threadFieldMappings,
-            ("ExclusionPatterns" Core..=)
+            ("ExclusionPatterns" Data..=)
               Prelude.<$> exclusionPatterns,
-            Prelude.Just ("Domain" Core..= domain),
-            Prelude.Just ("SecretArn" Core..= secretArn)
+            Prelude.Just ("Domain" Data..= domain),
+            Prelude.Just ("SecretArn" Data..= secretArn)
           ]
       )

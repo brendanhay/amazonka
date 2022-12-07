@@ -21,6 +21,7 @@ module Amazonka.ResourceExplorer2.Types.BatchGetViewError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of error messages for any views that Amazon Web Services
@@ -72,14 +73,14 @@ batchGetViewError_errorMessage = Lens.lens (\BatchGetViewError' {errorMessage} -
 batchGetViewError_viewArn :: Lens.Lens' BatchGetViewError Prelude.Text
 batchGetViewError_viewArn = Lens.lens (\BatchGetViewError' {viewArn} -> viewArn) (\s@BatchGetViewError' {} a -> s {viewArn = a} :: BatchGetViewError)
 
-instance Core.FromJSON BatchGetViewError where
+instance Data.FromJSON BatchGetViewError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetViewError"
       ( \x ->
           BatchGetViewError'
-            Prelude.<$> (x Core..: "ErrorMessage")
-            Prelude.<*> (x Core..: "ViewArn")
+            Prelude.<$> (x Data..: "ErrorMessage")
+            Prelude.<*> (x Data..: "ViewArn")
       )
 
 instance Prelude.Hashable BatchGetViewError where

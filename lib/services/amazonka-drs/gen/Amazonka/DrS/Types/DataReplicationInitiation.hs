@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.DataReplicationInitiation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.DataReplicationInitiationStep
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,15 +73,15 @@ dataReplicationInitiation_startDateTime = Lens.lens (\DataReplicationInitiation'
 dataReplicationInitiation_steps :: Lens.Lens' DataReplicationInitiation (Prelude.Maybe [DataReplicationInitiationStep])
 dataReplicationInitiation_steps = Lens.lens (\DataReplicationInitiation' {steps} -> steps) (\s@DataReplicationInitiation' {} a -> s {steps = a} :: DataReplicationInitiation) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DataReplicationInitiation where
+instance Data.FromJSON DataReplicationInitiation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataReplicationInitiation"
       ( \x ->
           DataReplicationInitiation'
-            Prelude.<$> (x Core..:? "nextAttemptDateTime")
-            Prelude.<*> (x Core..:? "startDateTime")
-            Prelude.<*> (x Core..:? "steps" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "nextAttemptDateTime")
+            Prelude.<*> (x Data..:? "startDateTime")
+            Prelude.<*> (x Data..:? "steps" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DataReplicationInitiation where

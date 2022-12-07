@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,7 +144,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyTransitGatewayVpcAttachmentResponse'
-            Prelude.<$> (x Core..@? "transitGatewayVpcAttachment")
+            Prelude.<$> (x Data..@? "transitGatewayVpcAttachment")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,41 +173,41 @@ instance
       `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ModifyTransitGatewayVpcAttachment
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ModifyTransitGatewayVpcAttachment
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ModifyTransitGatewayVpcAttachment
   where
   toQuery ModifyTransitGatewayVpcAttachment' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyTransitGatewayVpcAttachment" ::
+          Data.=: ( "ModifyTransitGatewayVpcAttachment" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "AddSubnetIds"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "AddSubnetIds"
               Prelude.<$> addSubnetIds
           ),
-        "DryRun" Core.=: dryRun,
-        "Options" Core.=: options,
-        Core.toQuery
-          ( Core.toQueryList "RemoveSubnetIds"
+        "DryRun" Data.=: dryRun,
+        "Options" Data.=: options,
+        Data.toQuery
+          ( Data.toQueryList "RemoveSubnetIds"
               Prelude.<$> removeSubnetIds
           ),
         "TransitGatewayAttachmentId"
-          Core.=: transitGatewayAttachmentId
+          Data.=: transitGatewayAttachmentId
       ]
 
 -- | /See:/ 'newModifyTransitGatewayVpcAttachmentResponse' smart constructor.

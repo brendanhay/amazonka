@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.StartChildWorkflowExecutionFailedEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.StartChildWorkflowExecutionFailedCause
 import Amazonka.SWF.Types.WorkflowType
@@ -179,20 +180,20 @@ startChildWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId ::
 startChildWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\StartChildWorkflowExecutionFailedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@StartChildWorkflowExecutionFailedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: StartChildWorkflowExecutionFailedEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     StartChildWorkflowExecutionFailedEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StartChildWorkflowExecutionFailedEventAttributes"
       ( \x ->
           StartChildWorkflowExecutionFailedEventAttributes'
-            Prelude.<$> (x Core..:? "control")
-              Prelude.<*> (x Core..: "workflowType")
-              Prelude.<*> (x Core..: "cause")
-              Prelude.<*> (x Core..: "workflowId")
-              Prelude.<*> (x Core..: "initiatedEventId")
-              Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Data..:? "control")
+              Prelude.<*> (x Data..: "workflowType")
+              Prelude.<*> (x Data..: "cause")
+              Prelude.<*> (x Data..: "workflowId")
+              Prelude.<*> (x Data..: "initiatedEventId")
+              Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance

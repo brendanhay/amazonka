@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsDetails
 import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionInferenceAcceleratorsDetails
@@ -294,34 +295,34 @@ awsEcsTaskDefinitionDetails_networkMode = Lens.lens (\AwsEcsTaskDefinitionDetail
 awsEcsTaskDefinitionDetails_ipcMode :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionDetails_ipcMode = Lens.lens (\AwsEcsTaskDefinitionDetails' {ipcMode} -> ipcMode) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {ipcMode = a} :: AwsEcsTaskDefinitionDetails)
 
-instance Core.FromJSON AwsEcsTaskDefinitionDetails where
+instance Data.FromJSON AwsEcsTaskDefinitionDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionDetails"
       ( \x ->
           AwsEcsTaskDefinitionDetails'
-            Prelude.<$> (x Core..:? "ProxyConfiguration")
-            Prelude.<*> (x Core..:? "PidMode")
-            Prelude.<*> (x Core..:? "Cpu")
-            Prelude.<*> (x Core..:? "Memory")
-            Prelude.<*> (x Core..:? "TaskRoleArn")
-            Prelude.<*> ( x Core..:? "InferenceAccelerators"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ProxyConfiguration")
+            Prelude.<*> (x Data..:? "PidMode")
+            Prelude.<*> (x Data..:? "Cpu")
+            Prelude.<*> (x Data..:? "Memory")
+            Prelude.<*> (x Data..:? "TaskRoleArn")
+            Prelude.<*> ( x Data..:? "InferenceAccelerators"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Volumes" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "RequiresCompatibilities"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Volumes" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "RequiresCompatibilities"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "PlacementConstraints"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "PlacementConstraints"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Family")
-            Prelude.<*> ( x Core..:? "ContainerDefinitions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Family")
+            Prelude.<*> ( x Data..:? "ContainerDefinitions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ExecutionRoleArn")
-            Prelude.<*> (x Core..:? "NetworkMode")
-            Prelude.<*> (x Core..:? "IpcMode")
+            Prelude.<*> (x Data..:? "ExecutionRoleArn")
+            Prelude.<*> (x Data..:? "NetworkMode")
+            Prelude.<*> (x Data..:? "IpcMode")
       )
 
 instance Prelude.Hashable AwsEcsTaskDefinitionDetails where
@@ -358,29 +359,29 @@ instance Prelude.NFData AwsEcsTaskDefinitionDetails where
       `Prelude.seq` Prelude.rnf networkMode
       `Prelude.seq` Prelude.rnf ipcMode
 
-instance Core.ToJSON AwsEcsTaskDefinitionDetails where
+instance Data.ToJSON AwsEcsTaskDefinitionDetails where
   toJSON AwsEcsTaskDefinitionDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProxyConfiguration" Core..=)
+          [ ("ProxyConfiguration" Data..=)
               Prelude.<$> proxyConfiguration,
-            ("PidMode" Core..=) Prelude.<$> pidMode,
-            ("Cpu" Core..=) Prelude.<$> cpu,
-            ("Memory" Core..=) Prelude.<$> memory,
-            ("TaskRoleArn" Core..=) Prelude.<$> taskRoleArn,
-            ("InferenceAccelerators" Core..=)
+            ("PidMode" Data..=) Prelude.<$> pidMode,
+            ("Cpu" Data..=) Prelude.<$> cpu,
+            ("Memory" Data..=) Prelude.<$> memory,
+            ("TaskRoleArn" Data..=) Prelude.<$> taskRoleArn,
+            ("InferenceAccelerators" Data..=)
               Prelude.<$> inferenceAccelerators,
-            ("Volumes" Core..=) Prelude.<$> volumes,
-            ("RequiresCompatibilities" Core..=)
+            ("Volumes" Data..=) Prelude.<$> volumes,
+            ("RequiresCompatibilities" Data..=)
               Prelude.<$> requiresCompatibilities,
-            ("PlacementConstraints" Core..=)
+            ("PlacementConstraints" Data..=)
               Prelude.<$> placementConstraints,
-            ("Family" Core..=) Prelude.<$> family,
-            ("ContainerDefinitions" Core..=)
+            ("Family" Data..=) Prelude.<$> family,
+            ("ContainerDefinitions" Data..=)
               Prelude.<$> containerDefinitions,
-            ("ExecutionRoleArn" Core..=)
+            ("ExecutionRoleArn" Data..=)
               Prelude.<$> executionRoleArn,
-            ("NetworkMode" Core..=) Prelude.<$> networkMode,
-            ("IpcMode" Core..=) Prelude.<$> ipcMode
+            ("NetworkMode" Data..=) Prelude.<$> networkMode,
+            ("IpcMode" Data..=) Prelude.<$> ipcMode
           ]
       )

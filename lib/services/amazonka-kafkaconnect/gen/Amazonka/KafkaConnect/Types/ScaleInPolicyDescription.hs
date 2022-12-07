@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.ScaleInPolicyDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The description of the scale-in policy for the connector.
@@ -56,13 +57,13 @@ newScaleInPolicyDescription =
 scaleInPolicyDescription_cpuUtilizationPercentage :: Lens.Lens' ScaleInPolicyDescription (Prelude.Maybe Prelude.Int)
 scaleInPolicyDescription_cpuUtilizationPercentage = Lens.lens (\ScaleInPolicyDescription' {cpuUtilizationPercentage} -> cpuUtilizationPercentage) (\s@ScaleInPolicyDescription' {} a -> s {cpuUtilizationPercentage = a} :: ScaleInPolicyDescription)
 
-instance Core.FromJSON ScaleInPolicyDescription where
+instance Data.FromJSON ScaleInPolicyDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScaleInPolicyDescription"
       ( \x ->
           ScaleInPolicyDescription'
-            Prelude.<$> (x Core..:? "cpuUtilizationPercentage")
+            Prelude.<$> (x Data..:? "cpuUtilizationPercentage")
       )
 
 instance Prelude.Hashable ScaleInPolicyDescription where

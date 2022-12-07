@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -77,8 +78,8 @@ instance Core.AWSRequest GetLoggingOptions where
     Response.receiveJSON
       ( \s h x ->
           GetLoggingOptionsResponse'
-            Prelude.<$> (x Core..?> "roleArn")
-            Prelude.<*> (x Core..?> "logLevel")
+            Prelude.<$> (x Data..?> "roleArn")
+            Prelude.<*> (x Data..?> "logLevel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -89,13 +90,13 @@ instance Prelude.Hashable GetLoggingOptions where
 instance Prelude.NFData GetLoggingOptions where
   rnf _ = ()
 
-instance Core.ToHeaders GetLoggingOptions where
+instance Data.ToHeaders GetLoggingOptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetLoggingOptions where
+instance Data.ToPath GetLoggingOptions where
   toPath = Prelude.const "/loggingOptions"
 
-instance Core.ToQuery GetLoggingOptions where
+instance Data.ToQuery GetLoggingOptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the GetLoggingOptions operation.

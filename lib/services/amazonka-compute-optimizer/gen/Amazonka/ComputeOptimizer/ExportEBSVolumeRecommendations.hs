@@ -58,6 +58,7 @@ where
 import Amazonka.ComputeOptimizer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -258,8 +259,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ExportEBSVolumeRecommendationsResponse'
-            Prelude.<$> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "s3Destination")
+            Prelude.<$> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "s3Destination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -290,43 +291,43 @@ instance
       `Prelude.seq` Prelude.rnf s3DestinationConfig
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ExportEBSVolumeRecommendations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComputeOptimizerService.ExportEBSVolumeRecommendations" ::
+              Data.=# ( "ComputeOptimizerService.ExportEBSVolumeRecommendations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExportEBSVolumeRecommendations where
+instance Data.ToJSON ExportEBSVolumeRecommendations where
   toJSON ExportEBSVolumeRecommendations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accountIds" Core..=) Prelude.<$> accountIds,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("includeMemberAccounts" Core..=)
+          [ ("accountIds" Data..=) Prelude.<$> accountIds,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("includeMemberAccounts" Data..=)
               Prelude.<$> includeMemberAccounts,
-            ("fileFormat" Core..=) Prelude.<$> fileFormat,
-            ("fieldsToExport" Core..=)
+            ("fileFormat" Data..=) Prelude.<$> fileFormat,
+            ("fieldsToExport" Data..=)
               Prelude.<$> fieldsToExport,
             Prelude.Just
-              ("s3DestinationConfig" Core..= s3DestinationConfig)
+              ("s3DestinationConfig" Data..= s3DestinationConfig)
           ]
       )
 
-instance Core.ToPath ExportEBSVolumeRecommendations where
+instance Data.ToPath ExportEBSVolumeRecommendations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ExportEBSVolumeRecommendations where
+instance Data.ToQuery ExportEBSVolumeRecommendations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExportEBSVolumeRecommendationsResponse' smart constructor.

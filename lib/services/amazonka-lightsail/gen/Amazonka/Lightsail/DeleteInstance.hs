@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest DeleteInstance where
     Response.receiveJSON
       ( \s h x ->
           DeleteInstanceResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,35 +119,35 @@ instance Prelude.NFData DeleteInstance where
     Prelude.rnf forceDeleteAddOns
       `Prelude.seq` Prelude.rnf instanceName
 
-instance Core.ToHeaders DeleteInstance where
+instance Data.ToHeaders DeleteInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.DeleteInstance" ::
+              Data.=# ( "Lightsail_20161128.DeleteInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteInstance where
+instance Data.ToJSON DeleteInstance where
   toJSON DeleteInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("forceDeleteAddOns" Core..=)
+          [ ("forceDeleteAddOns" Data..=)
               Prelude.<$> forceDeleteAddOns,
-            Prelude.Just ("instanceName" Core..= instanceName)
+            Prelude.Just ("instanceName" Data..= instanceName)
           ]
       )
 
-instance Core.ToPath DeleteInstance where
+instance Data.ToPath DeleteInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteInstance where
+instance Data.ToQuery DeleteInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInstanceResponse' smart constructor.

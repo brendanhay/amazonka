@@ -62,6 +62,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -173,7 +174,7 @@ instance Core.AWSRequest CreateExtension where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateExtension where
   hashWithSalt _salt CreateExtension' {..} =
@@ -193,28 +194,28 @@ instance Prelude.NFData CreateExtension where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf actions
 
-instance Core.ToHeaders CreateExtension where
+instance Data.ToHeaders CreateExtension where
   toHeaders CreateExtension' {..} =
     Prelude.mconcat
-      [ "Latest-Version-Number" Core.=# latestVersionNumber,
+      [ "Latest-Version-Number" Data.=# latestVersionNumber,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateExtension where
+instance Data.ToJSON CreateExtension where
   toJSON CreateExtension' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Actions" Core..= actions)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Actions" Data..= actions)
           ]
       )
 
-instance Core.ToPath CreateExtension where
+instance Data.ToPath CreateExtension where
   toPath = Prelude.const "/extensions"
 
-instance Core.ToQuery CreateExtension where
+instance Data.ToQuery CreateExtension where
   toQuery = Prelude.const Prelude.mempty

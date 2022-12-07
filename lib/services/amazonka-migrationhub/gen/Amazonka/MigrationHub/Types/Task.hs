@@ -21,6 +21,7 @@ module Amazonka.MigrationHub.Types.Task where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHub.Types.MigrationStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -79,15 +80,15 @@ task_progressPercent = Lens.lens (\Task' {progressPercent} -> progressPercent) (
 task_status :: Lens.Lens' Task MigrationStatus
 task_status = Lens.lens (\Task' {status} -> status) (\s@Task' {} a -> s {status = a} :: Task)
 
-instance Core.FromJSON Task where
+instance Data.FromJSON Task where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Task"
       ( \x ->
           Task'
-            Prelude.<$> (x Core..:? "StatusDetail")
-            Prelude.<*> (x Core..:? "ProgressPercent")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..:? "StatusDetail")
+            Prelude.<*> (x Data..:? "ProgressPercent")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable Task where
@@ -102,13 +103,13 @@ instance Prelude.NFData Task where
       `Prelude.seq` Prelude.rnf progressPercent
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToJSON Task where
+instance Data.ToJSON Task where
   toJSON Task' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StatusDetail" Core..=) Prelude.<$> statusDetail,
-            ("ProgressPercent" Core..=)
+          [ ("StatusDetail" Data..=) Prelude.<$> statusDetail,
+            ("ProgressPercent" Data..=)
               Prelude.<$> progressPercent,
-            Prelude.Just ("Status" Core..= status)
+            Prelude.Just ("Status" Data..= status)
           ]
       )

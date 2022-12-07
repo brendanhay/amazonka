@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,8 +141,8 @@ instance Core.AWSRequest ListCertificates where
     Response.receiveJSON
       ( \s h x ->
           ListCertificatesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "CertificatesInfo"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "CertificatesInfo"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -159,35 +160,35 @@ instance Prelude.NFData ListCertificates where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf directoryId
 
-instance Core.ToHeaders ListCertificates where
+instance Data.ToHeaders ListCertificates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.ListCertificates" ::
+              Data.=# ( "DirectoryService_20150416.ListCertificates" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCertificates where
+instance Data.ToJSON ListCertificates where
   toJSON ListCertificates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("DirectoryId" Core..= directoryId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("DirectoryId" Data..= directoryId)
           ]
       )
 
-instance Core.ToPath ListCertificates where
+instance Data.ToPath ListCertificates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListCertificates where
+instance Data.ToQuery ListCertificates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCertificatesResponse' smart constructor.

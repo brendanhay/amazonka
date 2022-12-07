@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -55,7 +56,7 @@ data UpdateDocument = UpdateDocument'
     parentFolderId :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The resource state of the document. Only ACTIVE and RECYCLED are
     -- supported.
     resourceState :: Prelude.Maybe ResourceStateType,
@@ -107,7 +108,7 @@ updateDocument_parentFolderId = Lens.lens (\UpdateDocument' {parentFolderId} -> 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 updateDocument_authenticationToken :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
-updateDocument_authenticationToken = Lens.lens (\UpdateDocument' {authenticationToken} -> authenticationToken) (\s@UpdateDocument' {} a -> s {authenticationToken = a} :: UpdateDocument) Prelude.. Lens.mapping Core._Sensitive
+updateDocument_authenticationToken = Lens.lens (\UpdateDocument' {authenticationToken} -> authenticationToken) (\s@UpdateDocument' {} a -> s {authenticationToken = a} :: UpdateDocument) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The resource state of the document. Only ACTIVE and RECYCLED are
 -- supported.
@@ -143,31 +144,31 @@ instance Prelude.NFData UpdateDocument where
       `Prelude.seq` Prelude.rnf resourceState
       `Prelude.seq` Prelude.rnf documentId
 
-instance Core.ToHeaders UpdateDocument where
+instance Data.ToHeaders UpdateDocument where
   toHeaders UpdateDocument' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON UpdateDocument where
+instance Data.ToJSON UpdateDocument where
   toJSON UpdateDocument' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("ParentFolderId" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("ParentFolderId" Data..=)
               Prelude.<$> parentFolderId,
-            ("ResourceState" Core..=) Prelude.<$> resourceState
+            ("ResourceState" Data..=) Prelude.<$> resourceState
           ]
       )
 
-instance Core.ToPath UpdateDocument where
+instance Data.ToPath UpdateDocument where
   toPath UpdateDocument' {..} =
     Prelude.mconcat
-      ["/api/v1/documents/", Core.toBS documentId]
+      ["/api/v1/documents/", Data.toBS documentId]
 
-instance Core.ToQuery UpdateDocument where
+instance Data.ToQuery UpdateDocument where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDocumentResponse' smart constructor.

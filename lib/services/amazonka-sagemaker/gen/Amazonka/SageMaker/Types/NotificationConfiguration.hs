@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.NotificationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures Amazon SNS notifications of available or expiring work items
@@ -57,13 +58,13 @@ newNotificationConfiguration =
 notificationConfiguration_notificationTopicArn :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
 notificationConfiguration_notificationTopicArn = Lens.lens (\NotificationConfiguration' {notificationTopicArn} -> notificationTopicArn) (\s@NotificationConfiguration' {} a -> s {notificationTopicArn = a} :: NotificationConfiguration)
 
-instance Core.FromJSON NotificationConfiguration where
+instance Data.FromJSON NotificationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotificationConfiguration"
       ( \x ->
           NotificationConfiguration'
-            Prelude.<$> (x Core..:? "NotificationTopicArn")
+            Prelude.<$> (x Data..:? "NotificationTopicArn")
       )
 
 instance Prelude.Hashable NotificationConfiguration where
@@ -74,11 +75,11 @@ instance Prelude.NFData NotificationConfiguration where
   rnf NotificationConfiguration' {..} =
     Prelude.rnf notificationTopicArn
 
-instance Core.ToJSON NotificationConfiguration where
+instance Data.ToJSON NotificationConfiguration where
   toJSON NotificationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NotificationTopicArn" Core..=)
+          [ ("NotificationTopicArn" Data..=)
               Prelude.<$> notificationTopicArn
           ]
       )

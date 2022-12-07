@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.ScalarProfileRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newScalarProfileRequest' smart constructor.
@@ -57,9 +58,9 @@ instance Prelude.Hashable ScalarProfileRequest where
 instance Prelude.NFData ScalarProfileRequest where
   rnf ScalarProfileRequest' {..} = Prelude.rnf profileId
 
-instance Core.ToJSON ScalarProfileRequest where
+instance Data.ToJSON ScalarProfileRequest where
   toJSON ScalarProfileRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("profileId" Core..= profileId)]
+          [Prelude.Just ("profileId" Data..= profileId)]
       )

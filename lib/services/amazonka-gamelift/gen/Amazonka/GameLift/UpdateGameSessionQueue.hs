@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -252,7 +253,7 @@ instance Core.AWSRequest UpdateGameSessionQueue where
     Response.receiveJSON
       ( \s h x ->
           UpdateGameSessionQueueResponse'
-            Prelude.<$> (x Core..?> "GameSessionQueue")
+            Prelude.<$> (x Data..?> "GameSessionQueue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -278,46 +279,46 @@ instance Prelude.NFData UpdateGameSessionQueue where
       `Prelude.seq` Prelude.rnf customEventData
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateGameSessionQueue where
+instance Data.ToHeaders UpdateGameSessionQueue where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.UpdateGameSessionQueue" ::
+              Data.=# ( "GameLift.UpdateGameSessionQueue" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGameSessionQueue where
+instance Data.ToJSON UpdateGameSessionQueue where
   toJSON UpdateGameSessionQueue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NotificationTarget" Core..=)
+          [ ("NotificationTarget" Data..=)
               Prelude.<$> notificationTarget,
-            ("PriorityConfiguration" Core..=)
+            ("PriorityConfiguration" Data..=)
               Prelude.<$> priorityConfiguration,
-            ("TimeoutInSeconds" Core..=)
+            ("TimeoutInSeconds" Data..=)
               Prelude.<$> timeoutInSeconds,
-            ("PlayerLatencyPolicies" Core..=)
+            ("PlayerLatencyPolicies" Data..=)
               Prelude.<$> playerLatencyPolicies,
-            ("Destinations" Core..=) Prelude.<$> destinations,
-            ("FilterConfiguration" Core..=)
+            ("Destinations" Data..=) Prelude.<$> destinations,
+            ("FilterConfiguration" Data..=)
               Prelude.<$> filterConfiguration,
-            ("CustomEventData" Core..=)
+            ("CustomEventData" Data..=)
               Prelude.<$> customEventData,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateGameSessionQueue where
+instance Data.ToPath UpdateGameSessionQueue where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateGameSessionQueue where
+instance Data.ToQuery UpdateGameSessionQueue where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

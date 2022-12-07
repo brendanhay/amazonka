@@ -47,6 +47,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,8 +136,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListHostedConfigurationVersionsResponse'
-            Prelude.<$> (x Core..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,34 +164,34 @@ instance
       `Prelude.seq` Prelude.rnf configurationProfileId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListHostedConfigurationVersions
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListHostedConfigurationVersions where
+instance Data.ToPath ListHostedConfigurationVersions where
   toPath ListHostedConfigurationVersions' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/configurationprofiles/",
-        Core.toBS configurationProfileId,
+        Data.toBS configurationProfileId,
         "/hostedconfigurationversions"
       ]
 
-instance Core.ToQuery ListHostedConfigurationVersions where
+instance Data.ToQuery ListHostedConfigurationVersions where
   toQuery ListHostedConfigurationVersions' {..} =
     Prelude.mconcat
-      [ "next_token" Core.=: nextToken,
-        "max_results" Core.=: maxResults
+      [ "next_token" Data.=: nextToken,
+        "max_results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListHostedConfigurationVersionsResponse' smart constructor.

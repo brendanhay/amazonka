@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ instance Core.AWSRequest ResolveComponentCandidates where
     Response.receiveJSON
       ( \s h x ->
           ResolveComponentCandidatesResponse'
-            Prelude.<$> ( x Core..?> "resolvedComponentVersions"
+            Prelude.<$> ( x Data..?> "resolvedComponentVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -129,25 +130,25 @@ instance Prelude.NFData ResolveComponentCandidates where
     Prelude.rnf platform
       `Prelude.seq` Prelude.rnf componentCandidates
 
-instance Core.ToHeaders ResolveComponentCandidates where
+instance Data.ToHeaders ResolveComponentCandidates where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ResolveComponentCandidates where
+instance Data.ToJSON ResolveComponentCandidates where
   toJSON ResolveComponentCandidates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("platform" Core..=) Prelude.<$> platform,
-            ("componentCandidates" Core..=)
+          [ ("platform" Data..=) Prelude.<$> platform,
+            ("componentCandidates" Data..=)
               Prelude.<$> componentCandidates
           ]
       )
 
-instance Core.ToPath ResolveComponentCandidates where
+instance Data.ToPath ResolveComponentCandidates where
   toPath =
     Prelude.const
       "/greengrass/v2/resolveComponentCandidates"
 
-instance Core.ToQuery ResolveComponentCandidates where
+instance Data.ToQuery ResolveComponentCandidates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResolveComponentCandidatesResponse' smart constructor.

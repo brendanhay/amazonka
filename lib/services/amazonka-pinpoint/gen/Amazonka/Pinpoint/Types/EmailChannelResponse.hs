@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EmailChannelResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the status and settings of the email channel
@@ -217,27 +218,27 @@ emailChannelResponse_version = Lens.lens (\EmailChannelResponse' {version} -> ve
 emailChannelResponse_platform :: Lens.Lens' EmailChannelResponse Prelude.Text
 emailChannelResponse_platform = Lens.lens (\EmailChannelResponse' {platform} -> platform) (\s@EmailChannelResponse' {} a -> s {platform = a} :: EmailChannelResponse)
 
-instance Core.FromJSON EmailChannelResponse where
+instance Data.FromJSON EmailChannelResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EmailChannelResponse"
       ( \x ->
           EmailChannelResponse'
-            Prelude.<$> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "FromAddress")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "MessagesPerSecond")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "HasCredential")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "Identity")
-            Prelude.<*> (x Core..:? "ConfigurationSet")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "IsArchived")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "Platform")
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "FromAddress")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "MessagesPerSecond")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "HasCredential")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "Identity")
+            Prelude.<*> (x Data..:? "ConfigurationSet")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "IsArchived")
+            Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "Platform")
       )
 
 instance Prelude.Hashable EmailChannelResponse where

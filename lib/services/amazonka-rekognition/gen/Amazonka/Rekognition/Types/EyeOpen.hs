@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.EyeOpen where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether or not the eyes on the face are open, and the
@@ -62,14 +63,14 @@ eyeOpen_confidence = Lens.lens (\EyeOpen' {confidence} -> confidence) (\s@EyeOpe
 eyeOpen_value :: Lens.Lens' EyeOpen (Prelude.Maybe Prelude.Bool)
 eyeOpen_value = Lens.lens (\EyeOpen' {value} -> value) (\s@EyeOpen' {} a -> s {value = a} :: EyeOpen)
 
-instance Core.FromJSON EyeOpen where
+instance Data.FromJSON EyeOpen where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EyeOpen"
       ( \x ->
           EyeOpen'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable EyeOpen where

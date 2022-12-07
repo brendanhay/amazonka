@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,8 +134,8 @@ instance Core.AWSRequest ListTaskExecutions where
     Response.receiveJSON
       ( \s h x ->
           ListTaskExecutionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "TaskExecutions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "TaskExecutions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,35 +151,35 @@ instance Prelude.NFData ListTaskExecutions where
       `Prelude.seq` Prelude.rnf taskArn
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListTaskExecutions where
+instance Data.ToHeaders ListTaskExecutions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.ListTaskExecutions" ::
+              Data.=# ( "FmrsService.ListTaskExecutions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTaskExecutions where
+instance Data.ToJSON ListTaskExecutions where
   toJSON ListTaskExecutions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("TaskArn" Core..=) Prelude.<$> taskArn,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("TaskArn" Data..=) Prelude.<$> taskArn,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListTaskExecutions where
+instance Data.ToPath ListTaskExecutions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTaskExecutions where
+instance Data.ToQuery ListTaskExecutions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | ListTaskExecutionsResponse

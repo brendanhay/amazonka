@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotRecommendationResultStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.IntentStatistics
 import Amazonka.LexV2Models.Types.SlotTypeStatistics
 import qualified Amazonka.Prelude as Prelude
@@ -71,16 +72,16 @@ botRecommendationResultStatistics_intents :: Lens.Lens' BotRecommendationResultS
 botRecommendationResultStatistics_intents = Lens.lens (\BotRecommendationResultStatistics' {intents} -> intents) (\s@BotRecommendationResultStatistics' {} a -> s {intents = a} :: BotRecommendationResultStatistics)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BotRecommendationResultStatistics
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotRecommendationResultStatistics"
       ( \x ->
           BotRecommendationResultStatistics'
-            Prelude.<$> (x Core..:? "slotTypes")
-            Prelude.<*> (x Core..:? "intents")
+            Prelude.<$> (x Data..:? "slotTypes")
+            Prelude.<*> (x Data..:? "intents")
       )
 
 instance

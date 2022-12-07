@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.MetricAttributionOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.S3DataConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,14 +74,14 @@ metricAttributionOutput_s3DataDestination = Lens.lens (\MetricAttributionOutput'
 metricAttributionOutput_roleArn :: Lens.Lens' MetricAttributionOutput Prelude.Text
 metricAttributionOutput_roleArn = Lens.lens (\MetricAttributionOutput' {roleArn} -> roleArn) (\s@MetricAttributionOutput' {} a -> s {roleArn = a} :: MetricAttributionOutput)
 
-instance Core.FromJSON MetricAttributionOutput where
+instance Data.FromJSON MetricAttributionOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricAttributionOutput"
       ( \x ->
           MetricAttributionOutput'
-            Prelude.<$> (x Core..:? "s3DataDestination")
-            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Data..:? "s3DataDestination")
+            Prelude.<*> (x Data..: "roleArn")
       )
 
 instance Prelude.Hashable MetricAttributionOutput where
@@ -93,12 +94,12 @@ instance Prelude.NFData MetricAttributionOutput where
     Prelude.rnf s3DataDestination
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON MetricAttributionOutput where
+instance Data.ToJSON MetricAttributionOutput where
   toJSON MetricAttributionOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3DataDestination" Core..=)
+          [ ("s3DataDestination" Data..=)
               Prelude.<$> s3DataDestination,
-            Prelude.Just ("roleArn" Core..= roleArn)
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )

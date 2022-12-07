@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.MemberUser where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The users that belong to a group.
@@ -59,9 +60,9 @@ instance Prelude.Hashable MemberUser where
 instance Prelude.NFData MemberUser where
   rnf MemberUser' {..} = Prelude.rnf userId
 
-instance Core.ToJSON MemberUser where
+instance Data.ToJSON MemberUser where
   toJSON MemberUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("UserId" Core..= userId)]
+          [Prelude.Just ("UserId" Data..= userId)]
       )

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,8 +142,8 @@ instance Core.AWSRequest GetBucketsAggregation where
     Response.receiveJSON
       ( \s h x ->
           GetBucketsAggregationResponse'
-            Prelude.<$> (x Core..?> "totalCount")
-            Prelude.<*> (x Core..?> "buckets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "totalCount")
+            Prelude.<*> (x Data..?> "buckets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,29 +163,29 @@ instance Prelude.NFData GetBucketsAggregation where
       `Prelude.seq` Prelude.rnf aggregationField
       `Prelude.seq` Prelude.rnf bucketsAggregationType
 
-instance Core.ToHeaders GetBucketsAggregation where
+instance Data.ToHeaders GetBucketsAggregation where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetBucketsAggregation where
+instance Data.ToJSON GetBucketsAggregation where
   toJSON GetBucketsAggregation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("indexName" Core..=) Prelude.<$> indexName,
-            ("queryVersion" Core..=) Prelude.<$> queryVersion,
-            Prelude.Just ("queryString" Core..= queryString),
+          [ ("indexName" Data..=) Prelude.<$> indexName,
+            ("queryVersion" Data..=) Prelude.<$> queryVersion,
+            Prelude.Just ("queryString" Data..= queryString),
             Prelude.Just
-              ("aggregationField" Core..= aggregationField),
+              ("aggregationField" Data..= aggregationField),
             Prelude.Just
               ( "bucketsAggregationType"
-                  Core..= bucketsAggregationType
+                  Data..= bucketsAggregationType
               )
           ]
       )
 
-instance Core.ToPath GetBucketsAggregation where
+instance Data.ToPath GetBucketsAggregation where
   toPath = Prelude.const "/indices/buckets"
 
-instance Core.ToQuery GetBucketsAggregation where
+instance Data.ToQuery GetBucketsAggregation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBucketsAggregationResponse' smart constructor.

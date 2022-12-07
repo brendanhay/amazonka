@@ -86,6 +86,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -206,10 +207,10 @@ instance Core.AWSRequest GetParametersForImport where
     Response.receiveJSON
       ( \s h x ->
           GetParametersForImportResponse'
-            Prelude.<$> (x Core..?> "PublicKey")
-            Prelude.<*> (x Core..?> "KeyId")
-            Prelude.<*> (x Core..?> "ImportToken")
-            Prelude.<*> (x Core..?> "ParametersValidTo")
+            Prelude.<$> (x Data..?> "PublicKey")
+            Prelude.<*> (x Data..?> "KeyId")
+            Prelude.<*> (x Data..?> "ImportToken")
+            Prelude.<*> (x Data..?> "ParametersValidTo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -225,56 +226,56 @@ instance Prelude.NFData GetParametersForImport where
       `Prelude.seq` Prelude.rnf wrappingAlgorithm
       `Prelude.seq` Prelude.rnf wrappingKeySpec
 
-instance Core.ToHeaders GetParametersForImport where
+instance Data.ToHeaders GetParametersForImport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.GetParametersForImport" ::
+              Data.=# ( "TrentService.GetParametersForImport" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetParametersForImport where
+instance Data.ToJSON GetParametersForImport where
   toJSON GetParametersForImport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("KeyId" Core..= keyId),
+          [ Prelude.Just ("KeyId" Data..= keyId),
             Prelude.Just
-              ("WrappingAlgorithm" Core..= wrappingAlgorithm),
+              ("WrappingAlgorithm" Data..= wrappingAlgorithm),
             Prelude.Just
-              ("WrappingKeySpec" Core..= wrappingKeySpec)
+              ("WrappingKeySpec" Data..= wrappingKeySpec)
           ]
       )
 
-instance Core.ToPath GetParametersForImport where
+instance Data.ToPath GetParametersForImport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetParametersForImport where
+instance Data.ToQuery GetParametersForImport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetParametersForImportResponse' smart constructor.
 data GetParametersForImportResponse = GetParametersForImportResponse'
   { -- | The public key to use to encrypt the key material before importing it
     -- with ImportKeyMaterial.
-    publicKey :: Prelude.Maybe (Core.Sensitive Core.Base64),
+    publicKey :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the KMS key to use in a subsequent ImportKeyMaterial request. This is
     -- the same KMS key specified in the @GetParametersForImport@ request.
     keyId :: Prelude.Maybe Prelude.Text,
     -- | The import token to send in a subsequent ImportKeyMaterial request.
-    importToken :: Prelude.Maybe Core.Base64,
+    importToken :: Prelude.Maybe Data.Base64,
     -- | The time at which the import token and public key are no longer valid.
     -- After this time, you cannot use them to make an ImportKeyMaterial
     -- request and you must send another @GetParametersForImport@ request to
     -- get new ones.
-    parametersValidTo :: Prelude.Maybe Core.POSIX,
+    parametersValidTo :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -333,7 +334,7 @@ newGetParametersForImportResponse pHttpStatus_ =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 getParametersForImportResponse_publicKey :: Lens.Lens' GetParametersForImportResponse (Prelude.Maybe Prelude.ByteString)
-getParametersForImportResponse_publicKey = Lens.lens (\GetParametersForImportResponse' {publicKey} -> publicKey) (\s@GetParametersForImportResponse' {} a -> s {publicKey = a} :: GetParametersForImportResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
+getParametersForImportResponse_publicKey = Lens.lens (\GetParametersForImportResponse' {publicKey} -> publicKey) (\s@GetParametersForImportResponse' {} a -> s {publicKey = a} :: GetParametersForImportResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
@@ -348,14 +349,14 @@ getParametersForImportResponse_keyId = Lens.lens (\GetParametersForImportRespons
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 getParametersForImportResponse_importToken :: Lens.Lens' GetParametersForImportResponse (Prelude.Maybe Prelude.ByteString)
-getParametersForImportResponse_importToken = Lens.lens (\GetParametersForImportResponse' {importToken} -> importToken) (\s@GetParametersForImportResponse' {} a -> s {importToken = a} :: GetParametersForImportResponse) Prelude.. Lens.mapping Core._Base64
+getParametersForImportResponse_importToken = Lens.lens (\GetParametersForImportResponse' {importToken} -> importToken) (\s@GetParametersForImportResponse' {} a -> s {importToken = a} :: GetParametersForImportResponse) Prelude.. Lens.mapping Data._Base64
 
 -- | The time at which the import token and public key are no longer valid.
 -- After this time, you cannot use them to make an ImportKeyMaterial
 -- request and you must send another @GetParametersForImport@ request to
 -- get new ones.
 getParametersForImportResponse_parametersValidTo :: Lens.Lens' GetParametersForImportResponse (Prelude.Maybe Prelude.UTCTime)
-getParametersForImportResponse_parametersValidTo = Lens.lens (\GetParametersForImportResponse' {parametersValidTo} -> parametersValidTo) (\s@GetParametersForImportResponse' {} a -> s {parametersValidTo = a} :: GetParametersForImportResponse) Prelude.. Lens.mapping Core._Time
+getParametersForImportResponse_parametersValidTo = Lens.lens (\GetParametersForImportResponse' {parametersValidTo} -> parametersValidTo) (\s@GetParametersForImportResponse' {} a -> s {parametersValidTo = a} :: GetParametersForImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getParametersForImportResponse_httpStatus :: Lens.Lens' GetParametersForImportResponse Prelude.Int

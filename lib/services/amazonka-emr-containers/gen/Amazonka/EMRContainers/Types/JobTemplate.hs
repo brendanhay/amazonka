@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.JobTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types.JobTemplateData
 import qualified Amazonka.Prelude as Prelude
 
@@ -45,7 +46,7 @@ data JobTemplate = JobTemplate'
     -- | The user who created the job template.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the job template was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The error message in case the decryption of job template fails.
     decryptionError :: Prelude.Maybe Prelude.Text,
     -- | The job template data which holds values of StartJobRun API request.
@@ -121,7 +122,7 @@ jobTemplate_createdBy = Lens.lens (\JobTemplate' {createdBy} -> createdBy) (\s@J
 
 -- | The date and time when the job template was created.
 jobTemplate_createdAt :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.UTCTime)
-jobTemplate_createdAt = Lens.lens (\JobTemplate' {createdAt} -> createdAt) (\s@JobTemplate' {} a -> s {createdAt = a} :: JobTemplate) Prelude.. Lens.mapping Core._Time
+jobTemplate_createdAt = Lens.lens (\JobTemplate' {createdAt} -> createdAt) (\s@JobTemplate' {} a -> s {createdAt = a} :: JobTemplate) Prelude.. Lens.mapping Data._Time
 
 -- | The error message in case the decryption of job template fails.
 jobTemplate_decryptionError :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Text)
@@ -131,21 +132,21 @@ jobTemplate_decryptionError = Lens.lens (\JobTemplate' {decryptionError} -> decr
 jobTemplate_jobTemplateData :: Lens.Lens' JobTemplate JobTemplateData
 jobTemplate_jobTemplateData = Lens.lens (\JobTemplate' {jobTemplateData} -> jobTemplateData) (\s@JobTemplate' {} a -> s {jobTemplateData = a} :: JobTemplate)
 
-instance Core.FromJSON JobTemplate where
+instance Data.FromJSON JobTemplate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobTemplate"
       ( \x ->
           JobTemplate'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "kmsKeyArn")
-            Prelude.<*> (x Core..:? "createdBy")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "decryptionError")
-            Prelude.<*> (x Core..: "jobTemplateData")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "kmsKeyArn")
+            Prelude.<*> (x Data..:? "createdBy")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "decryptionError")
+            Prelude.<*> (x Data..: "jobTemplateData")
       )
 
 instance Prelude.Hashable JobTemplate where

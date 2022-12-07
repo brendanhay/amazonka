@@ -21,6 +21,7 @@ module Amazonka.SSMSAP.Types.ComponentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMSAP.Types.ComponentType
 
@@ -76,16 +77,16 @@ componentSummary_applicationId = Lens.lens (\ComponentSummary' {applicationId} -
 componentSummary_componentType :: Lens.Lens' ComponentSummary (Prelude.Maybe ComponentType)
 componentSummary_componentType = Lens.lens (\ComponentSummary' {componentType} -> componentType) (\s@ComponentSummary' {} a -> s {componentType = a} :: ComponentSummary)
 
-instance Core.FromJSON ComponentSummary where
+instance Data.FromJSON ComponentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentSummary"
       ( \x ->
           ComponentSummary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ComponentId")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "ComponentType")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ComponentId")
+            Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "ComponentType")
       )
 
 instance Prelude.Hashable ComponentSummary where

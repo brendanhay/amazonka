@@ -22,6 +22,7 @@ module Amazonka.Athena.Types.QueryStage where
 import Amazonka.Athena.Types.QueryStagePlanNode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stage statistics such as input and output rows and bytes, execution time
@@ -130,21 +131,21 @@ queryStage_stageId = Lens.lens (\QueryStage' {stageId} -> stageId) (\s@QueryStag
 queryStage_outputRows :: Lens.Lens' QueryStage (Prelude.Maybe Prelude.Integer)
 queryStage_outputRows = Lens.lens (\QueryStage' {outputRows} -> outputRows) (\s@QueryStage' {} a -> s {outputRows = a} :: QueryStage)
 
-instance Core.FromJSON QueryStage where
+instance Data.FromJSON QueryStage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryStage"
       ( \x ->
           QueryStage'
-            Prelude.<$> (x Core..:? "InputBytes")
-            Prelude.<*> (x Core..:? "OutputBytes")
-            Prelude.<*> (x Core..:? "InputRows")
-            Prelude.<*> (x Core..:? "QueryStagePlan")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "ExecutionTime")
-            Prelude.<*> (x Core..:? "SubStages" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StageId")
-            Prelude.<*> (x Core..:? "OutputRows")
+            Prelude.<$> (x Data..:? "InputBytes")
+            Prelude.<*> (x Data..:? "OutputBytes")
+            Prelude.<*> (x Data..:? "InputRows")
+            Prelude.<*> (x Data..:? "QueryStagePlan")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "ExecutionTime")
+            Prelude.<*> (x Data..:? "SubStages" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StageId")
+            Prelude.<*> (x Data..:? "OutputRows")
       )
 
 instance Prelude.Hashable QueryStage where

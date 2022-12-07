@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -129,8 +130,8 @@ instance Core.AWSRequest DescribeTemplateAlias where
     Response.receiveJSON
       ( \s h x ->
           DescribeTemplateAliasResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "TemplateAlias")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "TemplateAlias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,29 +147,29 @@ instance Prelude.NFData DescribeTemplateAlias where
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf aliasName
 
-instance Core.ToHeaders DescribeTemplateAlias where
+instance Data.ToHeaders DescribeTemplateAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeTemplateAlias where
+instance Data.ToPath DescribeTemplateAlias where
   toPath DescribeTemplateAlias' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/templates/",
-        Core.toBS templateId,
+        Data.toBS templateId,
         "/aliases/",
-        Core.toBS aliasName
+        Data.toBS aliasName
       ]
 
-instance Core.ToQuery DescribeTemplateAlias where
+instance Data.ToQuery DescribeTemplateAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTemplateAliasResponse' smart constructor.

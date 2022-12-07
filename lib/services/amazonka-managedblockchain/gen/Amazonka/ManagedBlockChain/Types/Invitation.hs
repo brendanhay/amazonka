@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.Invitation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.InvitationStatus
 import Amazonka.ManagedBlockChain.Types.NetworkSummary
 import qualified Amazonka.Prelude as Prelude
@@ -38,7 +39,7 @@ data Invitation = Invitation'
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the invitation was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the invitation:
     --
     -- -   @PENDING@ - The invitee hasn\'t created a member to join the
@@ -61,7 +62,7 @@ data Invitation = Invitation'
     -- the @ProposalThresholdPolicy@. After this date and time, the invitee can
     -- no longer create a member and join the network using this
     -- @InvitationId@.
-    expirationDate :: Prelude.Maybe Core.POSIX,
+    expirationDate :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier for the invitation.
     invitationId :: Prelude.Maybe Prelude.Text
   }
@@ -128,7 +129,7 @@ invitation_arn = Lens.lens (\Invitation' {arn} -> arn) (\s@Invitation' {} a -> s
 
 -- | The date and time that the invitation was created.
 invitation_creationDate :: Lens.Lens' Invitation (Prelude.Maybe Prelude.UTCTime)
-invitation_creationDate = Lens.lens (\Invitation' {creationDate} -> creationDate) (\s@Invitation' {} a -> s {creationDate = a} :: Invitation) Prelude.. Lens.mapping Core._Time
+invitation_creationDate = Lens.lens (\Invitation' {creationDate} -> creationDate) (\s@Invitation' {} a -> s {creationDate = a} :: Invitation) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the invitation:
 --
@@ -158,24 +159,24 @@ invitation_networkSummary = Lens.lens (\Invitation' {networkSummary} -> networkS
 -- no longer create a member and join the network using this
 -- @InvitationId@.
 invitation_expirationDate :: Lens.Lens' Invitation (Prelude.Maybe Prelude.UTCTime)
-invitation_expirationDate = Lens.lens (\Invitation' {expirationDate} -> expirationDate) (\s@Invitation' {} a -> s {expirationDate = a} :: Invitation) Prelude.. Lens.mapping Core._Time
+invitation_expirationDate = Lens.lens (\Invitation' {expirationDate} -> expirationDate) (\s@Invitation' {} a -> s {expirationDate = a} :: Invitation) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier for the invitation.
 invitation_invitationId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
 invitation_invitationId = Lens.lens (\Invitation' {invitationId} -> invitationId) (\s@Invitation' {} a -> s {invitationId = a} :: Invitation)
 
-instance Core.FromJSON Invitation where
+instance Data.FromJSON Invitation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Invitation"
       ( \x ->
           Invitation'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "NetworkSummary")
-            Prelude.<*> (x Core..:? "ExpirationDate")
-            Prelude.<*> (x Core..:? "InvitationId")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "NetworkSummary")
+            Prelude.<*> (x Data..:? "ExpirationDate")
+            Prelude.<*> (x Data..:? "InvitationId")
       )
 
 instance Prelude.Hashable Invitation where

@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,26 +140,26 @@ instance
       `Prelude.seq` Prelude.rnf networkInterfaceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ResetNetworkInterfaceAttribute
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ResetNetworkInterfaceAttribute where
+instance Data.ToPath ResetNetworkInterfaceAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResetNetworkInterfaceAttribute where
+instance Data.ToQuery ResetNetworkInterfaceAttribute where
   toQuery ResetNetworkInterfaceAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ResetNetworkInterfaceAttribute" ::
+          Data.=: ( "ResetNetworkInterfaceAttribute" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "SourceDestCheck" Core.=: sourceDestCheck,
-        "DryRun" Core.=: dryRun,
-        "NetworkInterfaceId" Core.=: networkInterfaceId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "SourceDestCheck" Data.=: sourceDestCheck,
+        "DryRun" Data.=: dryRun,
+        "NetworkInterfaceId" Data.=: networkInterfaceId
       ]
 
 -- | /See:/ 'newResetNetworkInterfaceAttributeResponse' smart constructor.

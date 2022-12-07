@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,18 +102,18 @@ instance Prelude.Hashable CancelAuditTask where
 instance Prelude.NFData CancelAuditTask where
   rnf CancelAuditTask' {..} = Prelude.rnf taskId
 
-instance Core.ToHeaders CancelAuditTask where
+instance Data.ToHeaders CancelAuditTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CancelAuditTask where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CancelAuditTask where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CancelAuditTask where
+instance Data.ToPath CancelAuditTask where
   toPath CancelAuditTask' {..} =
     Prelude.mconcat
-      ["/audit/tasks/", Core.toBS taskId, "/cancel"]
+      ["/audit/tasks/", Data.toBS taskId, "/cancel"]
 
-instance Core.ToQuery CancelAuditTask where
+instance Data.ToQuery CancelAuditTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelAuditTaskResponse' smart constructor.

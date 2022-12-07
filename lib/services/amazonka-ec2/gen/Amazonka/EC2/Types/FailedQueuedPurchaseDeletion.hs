@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FailedQueuedPurchaseDeletion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DeleteQueuedReservedInstancesError
 import qualified Amazonka.Prelude as Prelude
@@ -64,11 +65,11 @@ failedQueuedPurchaseDeletion_reservedInstancesId = Lens.lens (\FailedQueuedPurch
 failedQueuedPurchaseDeletion_error :: Lens.Lens' FailedQueuedPurchaseDeletion (Prelude.Maybe DeleteQueuedReservedInstancesError)
 failedQueuedPurchaseDeletion_error = Lens.lens (\FailedQueuedPurchaseDeletion' {error} -> error) (\s@FailedQueuedPurchaseDeletion' {} a -> s {error = a} :: FailedQueuedPurchaseDeletion)
 
-instance Core.FromXML FailedQueuedPurchaseDeletion where
+instance Data.FromXML FailedQueuedPurchaseDeletion where
   parseXML x =
     FailedQueuedPurchaseDeletion'
-      Prelude.<$> (x Core..@? "reservedInstancesId")
-      Prelude.<*> (x Core..@? "error")
+      Prelude.<$> (x Data..@? "reservedInstancesId")
+      Prelude.<*> (x Data..@? "error")
 
 instance
   Prelude.Hashable

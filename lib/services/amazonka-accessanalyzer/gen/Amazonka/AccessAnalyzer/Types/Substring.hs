@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.Substring where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A reference to a substring of a literal string in a JSON document.
@@ -62,13 +63,13 @@ substring_start = Lens.lens (\Substring' {start} -> start) (\s@Substring' {} a -
 substring_length :: Lens.Lens' Substring Prelude.Int
 substring_length = Lens.lens (\Substring' {length} -> length) (\s@Substring' {} a -> s {length = a} :: Substring)
 
-instance Core.FromJSON Substring where
+instance Data.FromJSON Substring where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Substring"
       ( \x ->
           Substring'
-            Prelude.<$> (x Core..: "start") Prelude.<*> (x Core..: "length")
+            Prelude.<$> (x Data..: "start") Prelude.<*> (x Data..: "length")
       )
 
 instance Prelude.Hashable Substring where

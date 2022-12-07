@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.FieldLevelEncryption where
 import Amazonka.CloudFront.Types.FieldLevelEncryptionConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex data type that includes the profile configurations and other
@@ -34,7 +35,7 @@ data FieldLevelEncryption = FieldLevelEncryption'
     -- be encrypted by specific public keys.
     id :: Prelude.Text,
     -- | The last time the field-level encryption configuration was changed.
-    lastModifiedTime :: Core.ISO8601,
+    lastModifiedTime :: Data.ISO8601,
     -- | A complex data type that includes the profile configurations specified
     -- for field-level encryption.
     fieldLevelEncryptionConfig :: FieldLevelEncryptionConfig
@@ -72,7 +73,7 @@ newFieldLevelEncryption
     FieldLevelEncryption'
       { id = pId_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         fieldLevelEncryptionConfig =
           pFieldLevelEncryptionConfig_
       }
@@ -85,19 +86,19 @@ fieldLevelEncryption_id = Lens.lens (\FieldLevelEncryption' {id} -> id) (\s@Fiel
 
 -- | The last time the field-level encryption configuration was changed.
 fieldLevelEncryption_lastModifiedTime :: Lens.Lens' FieldLevelEncryption Prelude.UTCTime
-fieldLevelEncryption_lastModifiedTime = Lens.lens (\FieldLevelEncryption' {lastModifiedTime} -> lastModifiedTime) (\s@FieldLevelEncryption' {} a -> s {lastModifiedTime = a} :: FieldLevelEncryption) Prelude.. Core._Time
+fieldLevelEncryption_lastModifiedTime = Lens.lens (\FieldLevelEncryption' {lastModifiedTime} -> lastModifiedTime) (\s@FieldLevelEncryption' {} a -> s {lastModifiedTime = a} :: FieldLevelEncryption) Prelude.. Data._Time
 
 -- | A complex data type that includes the profile configurations specified
 -- for field-level encryption.
 fieldLevelEncryption_fieldLevelEncryptionConfig :: Lens.Lens' FieldLevelEncryption FieldLevelEncryptionConfig
 fieldLevelEncryption_fieldLevelEncryptionConfig = Lens.lens (\FieldLevelEncryption' {fieldLevelEncryptionConfig} -> fieldLevelEncryptionConfig) (\s@FieldLevelEncryption' {} a -> s {fieldLevelEncryptionConfig = a} :: FieldLevelEncryption)
 
-instance Core.FromXML FieldLevelEncryption where
+instance Data.FromXML FieldLevelEncryption where
   parseXML x =
     FieldLevelEncryption'
-      Prelude.<$> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "LastModifiedTime")
-      Prelude.<*> (x Core..@ "FieldLevelEncryptionConfig")
+      Prelude.<$> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "LastModifiedTime")
+      Prelude.<*> (x Data..@ "FieldLevelEncryptionConfig")
 
 instance Prelude.Hashable FieldLevelEncryption where
   hashWithSalt _salt FieldLevelEncryption' {..} =

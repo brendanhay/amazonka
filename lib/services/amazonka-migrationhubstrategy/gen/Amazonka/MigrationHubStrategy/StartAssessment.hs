@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest StartAssessment where
     Response.receiveJSON
       ( \s h x ->
           StartAssessmentResponse'
-            Prelude.<$> (x Core..?> "assessmentId")
+            Prelude.<$> (x Data..?> "assessmentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,32 +116,32 @@ instance Prelude.NFData StartAssessment where
     Prelude.rnf s3bucketForAnalysisData
       `Prelude.seq` Prelude.rnf s3bucketForReportData
 
-instance Core.ToHeaders StartAssessment where
+instance Data.ToHeaders StartAssessment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartAssessment where
+instance Data.ToJSON StartAssessment where
   toJSON StartAssessment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3bucketForAnalysisData" Core..=)
+          [ ("s3bucketForAnalysisData" Data..=)
               Prelude.<$> s3bucketForAnalysisData,
-            ("s3bucketForReportData" Core..=)
+            ("s3bucketForReportData" Data..=)
               Prelude.<$> s3bucketForReportData
           ]
       )
 
-instance Core.ToPath StartAssessment where
+instance Data.ToPath StartAssessment where
   toPath = Prelude.const "/start-assessment"
 
-instance Core.ToQuery StartAssessment where
+instance Data.ToQuery StartAssessment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartAssessmentResponse' smart constructor.

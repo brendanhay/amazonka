@@ -23,6 +23,7 @@ import Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration
 import Amazonka.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for an Amazon S3 access point or multi-region access
@@ -100,15 +101,15 @@ s3AccessPointConfiguration_networkOrigin = Lens.lens (\S3AccessPointConfiguratio
 s3AccessPointConfiguration_accessPointPolicy :: Lens.Lens' S3AccessPointConfiguration (Prelude.Maybe Prelude.Text)
 s3AccessPointConfiguration_accessPointPolicy = Lens.lens (\S3AccessPointConfiguration' {accessPointPolicy} -> accessPointPolicy) (\s@S3AccessPointConfiguration' {} a -> s {accessPointPolicy = a} :: S3AccessPointConfiguration)
 
-instance Core.FromJSON S3AccessPointConfiguration where
+instance Data.FromJSON S3AccessPointConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3AccessPointConfiguration"
       ( \x ->
           S3AccessPointConfiguration'
-            Prelude.<$> (x Core..:? "publicAccessBlock")
-            Prelude.<*> (x Core..:? "networkOrigin")
-            Prelude.<*> (x Core..:? "accessPointPolicy")
+            Prelude.<$> (x Data..:? "publicAccessBlock")
+            Prelude.<*> (x Data..:? "networkOrigin")
+            Prelude.<*> (x Data..:? "accessPointPolicy")
       )
 
 instance Prelude.Hashable S3AccessPointConfiguration where
@@ -123,14 +124,14 @@ instance Prelude.NFData S3AccessPointConfiguration where
       `Prelude.seq` Prelude.rnf networkOrigin
       `Prelude.seq` Prelude.rnf accessPointPolicy
 
-instance Core.ToJSON S3AccessPointConfiguration where
+instance Data.ToJSON S3AccessPointConfiguration where
   toJSON S3AccessPointConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("publicAccessBlock" Core..=)
+          [ ("publicAccessBlock" Data..=)
               Prelude.<$> publicAccessBlock,
-            ("networkOrigin" Core..=) Prelude.<$> networkOrigin,
-            ("accessPointPolicy" Core..=)
+            ("networkOrigin" Data..=) Prelude.<$> networkOrigin,
+            ("accessPointPolicy" Data..=)
               Prelude.<$> accessPointPolicy
           ]
       )

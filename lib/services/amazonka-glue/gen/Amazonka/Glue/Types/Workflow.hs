@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Workflow where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.BlueprintDetails
 import Amazonka.Glue.Types.WorkflowGraph
 import Amazonka.Glue.Types.WorkflowRun
@@ -35,11 +36,11 @@ data Workflow = Workflow'
   { -- | The information about the last execution of the workflow.
     lastRun :: Prelude.Maybe WorkflowRun,
     -- | The date and time when the workflow was created.
-    createdOn :: Prelude.Maybe Core.POSIX,
+    createdOn :: Prelude.Maybe Data.POSIX,
     -- | The name of the workflow.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the workflow was last modified.
-    lastModifiedOn :: Prelude.Maybe Core.POSIX,
+    lastModifiedOn :: Prelude.Maybe Data.POSIX,
     -- | You can use this parameter to prevent unwanted multiple updates to data,
     -- to control costs, or in some cases, to prevent exceeding the maximum
     -- number of concurrent runs of any of the component jobs. If you leave
@@ -115,7 +116,7 @@ workflow_lastRun = Lens.lens (\Workflow' {lastRun} -> lastRun) (\s@Workflow' {} 
 
 -- | The date and time when the workflow was created.
 workflow_createdOn :: Lens.Lens' Workflow (Prelude.Maybe Prelude.UTCTime)
-workflow_createdOn = Lens.lens (\Workflow' {createdOn} -> createdOn) (\s@Workflow' {} a -> s {createdOn = a} :: Workflow) Prelude.. Lens.mapping Core._Time
+workflow_createdOn = Lens.lens (\Workflow' {createdOn} -> createdOn) (\s@Workflow' {} a -> s {createdOn = a} :: Workflow) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the workflow.
 workflow_name :: Lens.Lens' Workflow (Prelude.Maybe Prelude.Text)
@@ -123,7 +124,7 @@ workflow_name = Lens.lens (\Workflow' {name} -> name) (\s@Workflow' {} a -> s {n
 
 -- | The date and time when the workflow was last modified.
 workflow_lastModifiedOn :: Lens.Lens' Workflow (Prelude.Maybe Prelude.UTCTime)
-workflow_lastModifiedOn = Lens.lens (\Workflow' {lastModifiedOn} -> lastModifiedOn) (\s@Workflow' {} a -> s {lastModifiedOn = a} :: Workflow) Prelude.. Lens.mapping Core._Time
+workflow_lastModifiedOn = Lens.lens (\Workflow' {lastModifiedOn} -> lastModifiedOn) (\s@Workflow' {} a -> s {lastModifiedOn = a} :: Workflow) Prelude.. Lens.mapping Data._Time
 
 -- | You can use this parameter to prevent unwanted multiple updates to data,
 -- to control costs, or in some cases, to prevent exceeding the maximum
@@ -153,23 +154,23 @@ workflow_description = Lens.lens (\Workflow' {description} -> description) (\s@W
 workflow_blueprintDetails :: Lens.Lens' Workflow (Prelude.Maybe BlueprintDetails)
 workflow_blueprintDetails = Lens.lens (\Workflow' {blueprintDetails} -> blueprintDetails) (\s@Workflow' {} a -> s {blueprintDetails = a} :: Workflow)
 
-instance Core.FromJSON Workflow where
+instance Data.FromJSON Workflow where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Workflow"
       ( \x ->
           Workflow'
-            Prelude.<$> (x Core..:? "LastRun")
-            Prelude.<*> (x Core..:? "CreatedOn")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LastModifiedOn")
-            Prelude.<*> (x Core..:? "MaxConcurrentRuns")
-            Prelude.<*> (x Core..:? "Graph")
-            Prelude.<*> ( x Core..:? "DefaultRunProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "LastRun")
+            Prelude.<*> (x Data..:? "CreatedOn")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LastModifiedOn")
+            Prelude.<*> (x Data..:? "MaxConcurrentRuns")
+            Prelude.<*> (x Data..:? "Graph")
+            Prelude.<*> ( x Data..:? "DefaultRunProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "BlueprintDetails")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "BlueprintDetails")
       )
 
 instance Prelude.Hashable Workflow where

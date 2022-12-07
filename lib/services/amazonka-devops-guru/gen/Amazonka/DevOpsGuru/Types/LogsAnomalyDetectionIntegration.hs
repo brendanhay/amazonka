@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.LogsAnomalyDetectionIntegration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.OptInStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -59,15 +60,15 @@ logsAnomalyDetectionIntegration_optInStatus :: Lens.Lens' LogsAnomalyDetectionIn
 logsAnomalyDetectionIntegration_optInStatus = Lens.lens (\LogsAnomalyDetectionIntegration' {optInStatus} -> optInStatus) (\s@LogsAnomalyDetectionIntegration' {} a -> s {optInStatus = a} :: LogsAnomalyDetectionIntegration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LogsAnomalyDetectionIntegration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogsAnomalyDetectionIntegration"
       ( \x ->
           LogsAnomalyDetectionIntegration'
-            Prelude.<$> (x Core..:? "OptInStatus")
+            Prelude.<$> (x Data..:? "OptInStatus")
       )
 
 instance

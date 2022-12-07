@@ -50,6 +50,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,8 +103,8 @@ instance Core.AWSRequest DescribeFunction where
     Response.receiveXML
       ( \s h x ->
           DescribeFunctionResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,20 +117,20 @@ instance Prelude.NFData DescribeFunction where
   rnf DescribeFunction' {..} =
     Prelude.rnf stage `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders DescribeFunction where
+instance Data.ToHeaders DescribeFunction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeFunction where
+instance Data.ToPath DescribeFunction where
   toPath DescribeFunction' {..} =
     Prelude.mconcat
       [ "/2020-05-31/function/",
-        Core.toBS name,
+        Data.toBS name,
         "/describe"
       ]
 
-instance Core.ToQuery DescribeFunction where
+instance Data.ToQuery DescribeFunction where
   toQuery DescribeFunction' {..} =
-    Prelude.mconcat ["Stage" Core.=: stage]
+    Prelude.mconcat ["Stage" Data.=: stage]
 
 -- | /See:/ 'newDescribeFunctionResponse' smart constructor.
 data DescribeFunctionResponse = DescribeFunctionResponse'

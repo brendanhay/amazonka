@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,7 +73,7 @@ data DescribeFolderContents = DescribeFolderContents'
     marker :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The sorting criteria.
     sort :: Prelude.Maybe ResourceSortType,
     -- | The maximum number of items to return with this call.
@@ -141,7 +142,7 @@ describeFolderContents_marker = Lens.lens (\DescribeFolderContents' {marker} -> 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 describeFolderContents_authenticationToken :: Lens.Lens' DescribeFolderContents (Prelude.Maybe Prelude.Text)
-describeFolderContents_authenticationToken = Lens.lens (\DescribeFolderContents' {authenticationToken} -> authenticationToken) (\s@DescribeFolderContents' {} a -> s {authenticationToken = a} :: DescribeFolderContents) Prelude.. Lens.mapping Core._Sensitive
+describeFolderContents_authenticationToken = Lens.lens (\DescribeFolderContents' {authenticationToken} -> authenticationToken) (\s@DescribeFolderContents' {} a -> s {authenticationToken = a} :: DescribeFolderContents) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The sorting criteria.
 describeFolderContents_sort :: Lens.Lens' DescribeFolderContents (Prelude.Maybe ResourceSortType)
@@ -202,9 +203,9 @@ instance Core.AWSRequest DescribeFolderContents where
     Response.receiveJSON
       ( \s h x ->
           DescribeFolderContentsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "Folders" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Documents" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "Folders" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Documents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -230,28 +231,28 @@ instance Prelude.NFData DescribeFolderContents where
       `Prelude.seq` Prelude.rnf include
       `Prelude.seq` Prelude.rnf folderId
 
-instance Core.ToHeaders DescribeFolderContents where
+instance Data.ToHeaders DescribeFolderContents where
   toHeaders DescribeFolderContents' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DescribeFolderContents where
+instance Data.ToPath DescribeFolderContents where
   toPath DescribeFolderContents' {..} =
     Prelude.mconcat
-      ["/api/v1/folders/", Core.toBS folderId, "/contents"]
+      ["/api/v1/folders/", Data.toBS folderId, "/contents"]
 
-instance Core.ToQuery DescribeFolderContents where
+instance Data.ToQuery DescribeFolderContents where
   toQuery DescribeFolderContents' {..} =
     Prelude.mconcat
-      [ "type" Core.=: type',
-        "marker" Core.=: marker,
-        "sort" Core.=: sort,
-        "limit" Core.=: limit,
-        "order" Core.=: order,
-        "include" Core.=: include
+      [ "type" Data.=: type',
+        "marker" Data.=: marker,
+        "sort" Data.=: sort,
+        "limit" Data.=: limit,
+        "order" Data.=: order,
+        "include" Data.=: include
       ]
 
 -- | /See:/ 'newDescribeFolderContentsResponse' smart constructor.

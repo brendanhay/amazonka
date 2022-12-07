@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,21 +149,21 @@ instance Prelude.NFData TagPolicy where
     Prelude.rnf policyArn
       `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders TagPolicy where
+instance Data.ToHeaders TagPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath TagPolicy where
+instance Data.ToPath TagPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TagPolicy where
+instance Data.ToQuery TagPolicy where
   toQuery TagPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("TagPolicy" :: Prelude.ByteString),
+          Data.=: ("TagPolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "PolicyArn" Core.=: policyArn,
-        "Tags" Core.=: Core.toQueryList "member" tags
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "PolicyArn" Data.=: policyArn,
+        "Tags" Data.=: Data.toQueryList "member" tags
       ]
 
 -- | /See:/ 'newTagPolicyResponse' smart constructor.

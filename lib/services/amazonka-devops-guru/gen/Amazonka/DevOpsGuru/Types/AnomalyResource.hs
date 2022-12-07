@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.AnomalyResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Web Services resources in which DevOps Guru detected unusual
@@ -65,13 +66,13 @@ anomalyResource_name = Lens.lens (\AnomalyResource' {name} -> name) (\s@AnomalyR
 anomalyResource_type :: Lens.Lens' AnomalyResource (Prelude.Maybe Prelude.Text)
 anomalyResource_type = Lens.lens (\AnomalyResource' {type'} -> type') (\s@AnomalyResource' {} a -> s {type' = a} :: AnomalyResource)
 
-instance Core.FromJSON AnomalyResource where
+instance Data.FromJSON AnomalyResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnomalyResource"
       ( \x ->
           AnomalyResource'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable AnomalyResource where

@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.BusinessReportRecurrence where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The recurrence of the reports.
@@ -53,13 +54,13 @@ newBusinessReportRecurrence =
 businessReportRecurrence_startDate :: Lens.Lens' BusinessReportRecurrence (Prelude.Maybe Prelude.Text)
 businessReportRecurrence_startDate = Lens.lens (\BusinessReportRecurrence' {startDate} -> startDate) (\s@BusinessReportRecurrence' {} a -> s {startDate = a} :: BusinessReportRecurrence)
 
-instance Core.FromJSON BusinessReportRecurrence where
+instance Data.FromJSON BusinessReportRecurrence where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BusinessReportRecurrence"
       ( \x ->
           BusinessReportRecurrence'
-            Prelude.<$> (x Core..:? "StartDate")
+            Prelude.<$> (x Data..:? "StartDate")
       )
 
 instance Prelude.Hashable BusinessReportRecurrence where
@@ -70,9 +71,9 @@ instance Prelude.NFData BusinessReportRecurrence where
   rnf BusinessReportRecurrence' {..} =
     Prelude.rnf startDate
 
-instance Core.ToJSON BusinessReportRecurrence where
+instance Data.ToJSON BusinessReportRecurrence where
   toJSON BusinessReportRecurrence' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("StartDate" Core..=) Prelude.<$> startDate]
+          [("StartDate" Data..=) Prelude.<$> startDate]
       )

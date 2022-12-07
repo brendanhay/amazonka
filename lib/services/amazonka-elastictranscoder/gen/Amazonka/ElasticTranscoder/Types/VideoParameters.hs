@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.VideoParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.PresetWatermark
 import qualified Amazonka.Prelude as Prelude
 
@@ -1361,27 +1362,27 @@ videoParameters_maxFrameRate = Lens.lens (\VideoParameters' {maxFrameRate} -> ma
 videoParameters_frameRate :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
 videoParameters_frameRate = Lens.lens (\VideoParameters' {frameRate} -> frameRate) (\s@VideoParameters' {} a -> s {frameRate = a} :: VideoParameters)
 
-instance Core.FromJSON VideoParameters where
+instance Data.FromJSON VideoParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VideoParameters"
       ( \x ->
           VideoParameters'
-            Prelude.<$> (x Core..:? "SizingPolicy")
-            Prelude.<*> (x Core..:? "Watermarks" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CodecOptions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PaddingPolicy")
-            Prelude.<*> (x Core..:? "KeyframesMaxDist")
-            Prelude.<*> (x Core..:? "BitRate")
-            Prelude.<*> (x Core..:? "AspectRatio")
-            Prelude.<*> (x Core..:? "Codec")
-            Prelude.<*> (x Core..:? "FixedGOP")
-            Prelude.<*> (x Core..:? "Resolution")
-            Prelude.<*> (x Core..:? "MaxHeight")
-            Prelude.<*> (x Core..:? "DisplayAspectRatio")
-            Prelude.<*> (x Core..:? "MaxWidth")
-            Prelude.<*> (x Core..:? "MaxFrameRate")
-            Prelude.<*> (x Core..:? "FrameRate")
+            Prelude.<$> (x Data..:? "SizingPolicy")
+            Prelude.<*> (x Data..:? "Watermarks" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CodecOptions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PaddingPolicy")
+            Prelude.<*> (x Data..:? "KeyframesMaxDist")
+            Prelude.<*> (x Data..:? "BitRate")
+            Prelude.<*> (x Data..:? "AspectRatio")
+            Prelude.<*> (x Data..:? "Codec")
+            Prelude.<*> (x Data..:? "FixedGOP")
+            Prelude.<*> (x Data..:? "Resolution")
+            Prelude.<*> (x Data..:? "MaxHeight")
+            Prelude.<*> (x Data..:? "DisplayAspectRatio")
+            Prelude.<*> (x Data..:? "MaxWidth")
+            Prelude.<*> (x Data..:? "MaxFrameRate")
+            Prelude.<*> (x Data..:? "FrameRate")
       )
 
 instance Prelude.Hashable VideoParameters where
@@ -1420,26 +1421,26 @@ instance Prelude.NFData VideoParameters where
       `Prelude.seq` Prelude.rnf maxFrameRate
       `Prelude.seq` Prelude.rnf frameRate
 
-instance Core.ToJSON VideoParameters where
+instance Data.ToJSON VideoParameters where
   toJSON VideoParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SizingPolicy" Core..=) Prelude.<$> sizingPolicy,
-            ("Watermarks" Core..=) Prelude.<$> watermarks,
-            ("CodecOptions" Core..=) Prelude.<$> codecOptions,
-            ("PaddingPolicy" Core..=) Prelude.<$> paddingPolicy,
-            ("KeyframesMaxDist" Core..=)
+          [ ("SizingPolicy" Data..=) Prelude.<$> sizingPolicy,
+            ("Watermarks" Data..=) Prelude.<$> watermarks,
+            ("CodecOptions" Data..=) Prelude.<$> codecOptions,
+            ("PaddingPolicy" Data..=) Prelude.<$> paddingPolicy,
+            ("KeyframesMaxDist" Data..=)
               Prelude.<$> keyframesMaxDist,
-            ("BitRate" Core..=) Prelude.<$> bitRate,
-            ("AspectRatio" Core..=) Prelude.<$> aspectRatio,
-            ("Codec" Core..=) Prelude.<$> codec,
-            ("FixedGOP" Core..=) Prelude.<$> fixedGOP,
-            ("Resolution" Core..=) Prelude.<$> resolution,
-            ("MaxHeight" Core..=) Prelude.<$> maxHeight,
-            ("DisplayAspectRatio" Core..=)
+            ("BitRate" Data..=) Prelude.<$> bitRate,
+            ("AspectRatio" Data..=) Prelude.<$> aspectRatio,
+            ("Codec" Data..=) Prelude.<$> codec,
+            ("FixedGOP" Data..=) Prelude.<$> fixedGOP,
+            ("Resolution" Data..=) Prelude.<$> resolution,
+            ("MaxHeight" Data..=) Prelude.<$> maxHeight,
+            ("DisplayAspectRatio" Data..=)
               Prelude.<$> displayAspectRatio,
-            ("MaxWidth" Core..=) Prelude.<$> maxWidth,
-            ("MaxFrameRate" Core..=) Prelude.<$> maxFrameRate,
-            ("FrameRate" Core..=) Prelude.<$> frameRate
+            ("MaxWidth" Data..=) Prelude.<$> maxWidth,
+            ("MaxFrameRate" Data..=) Prelude.<$> maxFrameRate,
+            ("FrameRate" Data..=) Prelude.<$> frameRate
           ]
       )

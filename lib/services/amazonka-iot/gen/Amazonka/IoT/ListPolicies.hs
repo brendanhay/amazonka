@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,8 +133,8 @@ instance Core.AWSRequest ListPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListPoliciesResponse'
-            Prelude.<$> (x Core..?> "policies" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextMarker")
+            Prelude.<$> (x Data..?> "policies" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,18 +150,18 @@ instance Prelude.NFData ListPolicies where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf ascendingOrder
 
-instance Core.ToHeaders ListPolicies where
+instance Data.ToHeaders ListPolicies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListPolicies where
+instance Data.ToPath ListPolicies where
   toPath = Prelude.const "/policies"
 
-instance Core.ToQuery ListPolicies where
+instance Data.ToQuery ListPolicies where
   toQuery ListPolicies' {..} =
     Prelude.mconcat
-      [ "marker" Core.=: marker,
-        "pageSize" Core.=: pageSize,
-        "isAscendingOrder" Core.=: ascendingOrder
+      [ "marker" Data.=: marker,
+        "pageSize" Data.=: pageSize,
+        "isAscendingOrder" Data.=: ascendingOrder
       ]
 
 -- | The output from the ListPolicies operation.

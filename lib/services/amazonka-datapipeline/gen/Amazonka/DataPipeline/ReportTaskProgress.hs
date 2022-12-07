@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataPipeline.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance Core.AWSRequest ReportTaskProgress where
       ( \s h x ->
           ReportTaskProgressResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "canceled")
+            Prelude.<*> (x Data..:> "canceled")
       )
 
 instance Prelude.Hashable ReportTaskProgress where
@@ -127,34 +128,34 @@ instance Prelude.NFData ReportTaskProgress where
   rnf ReportTaskProgress' {..} =
     Prelude.rnf fields `Prelude.seq` Prelude.rnf taskId
 
-instance Core.ToHeaders ReportTaskProgress where
+instance Data.ToHeaders ReportTaskProgress where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DataPipeline.ReportTaskProgress" ::
+              Data.=# ( "DataPipeline.ReportTaskProgress" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ReportTaskProgress where
+instance Data.ToJSON ReportTaskProgress where
   toJSON ReportTaskProgress' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fields" Core..=) Prelude.<$> fields,
-            Prelude.Just ("taskId" Core..= taskId)
+          [ ("fields" Data..=) Prelude.<$> fields,
+            Prelude.Just ("taskId" Data..= taskId)
           ]
       )
 
-instance Core.ToPath ReportTaskProgress where
+instance Data.ToPath ReportTaskProgress where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ReportTaskProgress where
+instance Data.ToQuery ReportTaskProgress where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of ReportTaskProgress.

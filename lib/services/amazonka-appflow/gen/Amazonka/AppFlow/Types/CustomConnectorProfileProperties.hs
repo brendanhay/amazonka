@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.CustomConnectorProfileProperties where
 import Amazonka.AppFlow.Types.OAuth2Properties
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The profile properties required by the custom connector.
@@ -66,18 +67,18 @@ customConnectorProfileProperties_oAuth2Properties :: Lens.Lens' CustomConnectorP
 customConnectorProfileProperties_oAuth2Properties = Lens.lens (\CustomConnectorProfileProperties' {oAuth2Properties} -> oAuth2Properties) (\s@CustomConnectorProfileProperties' {} a -> s {oAuth2Properties = a} :: CustomConnectorProfileProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomConnectorProfileProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomConnectorProfileProperties"
       ( \x ->
           CustomConnectorProfileProperties'
-            Prelude.<$> ( x Core..:? "profileProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "profileProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "oAuth2Properties")
+            Prelude.<*> (x Data..:? "oAuth2Properties")
       )
 
 instance
@@ -98,13 +99,13 @@ instance
     Prelude.rnf profileProperties
       `Prelude.seq` Prelude.rnf oAuth2Properties
 
-instance Core.ToJSON CustomConnectorProfileProperties where
+instance Data.ToJSON CustomConnectorProfileProperties where
   toJSON CustomConnectorProfileProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("profileProperties" Core..=)
+          [ ("profileProperties" Data..=)
               Prelude.<$> profileProperties,
-            ("oAuth2Properties" Core..=)
+            ("oAuth2Properties" Data..=)
               Prelude.<$> oAuth2Properties
           ]
       )

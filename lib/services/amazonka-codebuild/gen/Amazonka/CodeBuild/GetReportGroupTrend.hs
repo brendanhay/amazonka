@@ -46,6 +46,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -233,8 +234,8 @@ instance Core.AWSRequest GetReportGroupTrend where
     Response.receiveJSON
       ( \s h x ->
           GetReportGroupTrendResponse'
-            Prelude.<$> (x Core..?> "stats")
-            Prelude.<*> (x Core..?> "rawData" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "stats")
+            Prelude.<*> (x Data..?> "rawData" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -250,36 +251,36 @@ instance Prelude.NFData GetReportGroupTrend where
       `Prelude.seq` Prelude.rnf reportGroupArn
       `Prelude.seq` Prelude.rnf trendField
 
-instance Core.ToHeaders GetReportGroupTrend where
+instance Data.ToHeaders GetReportGroupTrend where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.GetReportGroupTrend" ::
+              Data.=# ( "CodeBuild_20161006.GetReportGroupTrend" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetReportGroupTrend where
+instance Data.ToJSON GetReportGroupTrend where
   toJSON GetReportGroupTrend' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("numOfReports" Core..=) Prelude.<$> numOfReports,
+          [ ("numOfReports" Data..=) Prelude.<$> numOfReports,
             Prelude.Just
-              ("reportGroupArn" Core..= reportGroupArn),
-            Prelude.Just ("trendField" Core..= trendField)
+              ("reportGroupArn" Data..= reportGroupArn),
+            Prelude.Just ("trendField" Data..= trendField)
           ]
       )
 
-instance Core.ToPath GetReportGroupTrend where
+instance Data.ToPath GetReportGroupTrend where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetReportGroupTrend where
+instance Data.ToQuery GetReportGroupTrend where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetReportGroupTrendResponse' smart constructor.

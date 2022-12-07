@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest ConfirmConnection where
     Response.receiveJSON
       ( \s h x ->
           ConfirmConnectionResponse'
-            Prelude.<$> (x Core..?> "connectionState")
+            Prelude.<$> (x Data..?> "connectionState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,32 +100,32 @@ instance Prelude.Hashable ConfirmConnection where
 instance Prelude.NFData ConfirmConnection where
   rnf ConfirmConnection' {..} = Prelude.rnf connectionId
 
-instance Core.ToHeaders ConfirmConnection where
+instance Data.ToHeaders ConfirmConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.ConfirmConnection" ::
+              Data.=# ( "OvertureService.ConfirmConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ConfirmConnection where
+instance Data.ToJSON ConfirmConnection where
   toJSON ConfirmConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("connectionId" Core..= connectionId)]
+          [Prelude.Just ("connectionId" Data..= connectionId)]
       )
 
-instance Core.ToPath ConfirmConnection where
+instance Data.ToPath ConfirmConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ConfirmConnection where
+instance Data.ToQuery ConfirmConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newConfirmConnectionResponse' smart constructor.

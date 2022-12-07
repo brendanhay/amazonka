@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,8 +120,8 @@ instance Core.AWSRequest DescribeVcenterClients where
     Response.receiveJSON
       ( \s h x ->
           DescribeVcenterClientsResponse'
-            Prelude.<$> (x Core..?> "items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,25 +135,25 @@ instance Prelude.NFData DescribeVcenterClients where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeVcenterClients where
+instance Data.ToHeaders DescribeVcenterClients where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeVcenterClients where
+instance Data.ToPath DescribeVcenterClients where
   toPath = Prelude.const "/DescribeVcenterClients"
 
-instance Core.ToQuery DescribeVcenterClients where
+instance Data.ToQuery DescribeVcenterClients where
   toQuery DescribeVcenterClients' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeVcenterClientsResponse' smart constructor.

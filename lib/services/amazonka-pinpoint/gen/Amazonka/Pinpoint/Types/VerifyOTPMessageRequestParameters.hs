@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.VerifyOTPMessageRequestParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Verify OTP message request.
@@ -102,15 +103,15 @@ instance
       `Prelude.seq` Prelude.rnf destinationIdentity
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     VerifyOTPMessageRequestParameters
   where
   toJSON VerifyOTPMessageRequestParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ReferenceId" Core..= referenceId),
-            Prelude.Just ("Otp" Core..= otp),
+          [ Prelude.Just ("ReferenceId" Data..= referenceId),
+            Prelude.Just ("Otp" Data..= otp),
             Prelude.Just
-              ("DestinationIdentity" Core..= destinationIdentity)
+              ("DestinationIdentity" Data..= destinationIdentity)
           ]
       )

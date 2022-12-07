@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.Action where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.AwsApiCallAction
 import Amazonka.GuardDuty.Types.DnsRequestAction
 import Amazonka.GuardDuty.Types.KubernetesApiCallAction
@@ -108,18 +109,18 @@ action_kubernetesApiCallAction = Lens.lens (\Action' {kubernetesApiCallAction} -
 action_portProbeAction :: Lens.Lens' Action (Prelude.Maybe PortProbeAction)
 action_portProbeAction = Lens.lens (\Action' {portProbeAction} -> portProbeAction) (\s@Action' {} a -> s {portProbeAction = a} :: Action)
 
-instance Core.FromJSON Action where
+instance Data.FromJSON Action where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Action"
       ( \x ->
           Action'
-            Prelude.<$> (x Core..:? "actionType")
-            Prelude.<*> (x Core..:? "networkConnectionAction")
-            Prelude.<*> (x Core..:? "awsApiCallAction")
-            Prelude.<*> (x Core..:? "dnsRequestAction")
-            Prelude.<*> (x Core..:? "kubernetesApiCallAction")
-            Prelude.<*> (x Core..:? "portProbeAction")
+            Prelude.<$> (x Data..:? "actionType")
+            Prelude.<*> (x Data..:? "networkConnectionAction")
+            Prelude.<*> (x Data..:? "awsApiCallAction")
+            Prelude.<*> (x Data..:? "dnsRequestAction")
+            Prelude.<*> (x Data..:? "kubernetesApiCallAction")
+            Prelude.<*> (x Data..:? "portProbeAction")
       )
 
 instance Prelude.Hashable Action where

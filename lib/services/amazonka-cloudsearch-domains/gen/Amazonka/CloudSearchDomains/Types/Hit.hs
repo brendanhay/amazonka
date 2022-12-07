@@ -21,6 +21,7 @@ module Amazonka.CloudSearchDomains.Types.Hit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a document that matches the search request.
@@ -82,16 +83,16 @@ hit_fields = Lens.lens (\Hit' {fields} -> fields) (\s@Hit' {} a -> s {fields = a
 hit_id :: Lens.Lens' Hit (Prelude.Maybe Prelude.Text)
 hit_id = Lens.lens (\Hit' {id} -> id) (\s@Hit' {} a -> s {id = a} :: Hit)
 
-instance Core.FromJSON Hit where
+instance Data.FromJSON Hit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Hit"
       ( \x ->
           Hit'
-            Prelude.<$> (x Core..:? "exprs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "highlights" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "fields" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "exprs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "highlights" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "fields" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable Hit where

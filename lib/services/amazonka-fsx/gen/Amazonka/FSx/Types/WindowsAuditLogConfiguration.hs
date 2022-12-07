@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.WindowsAuditLogConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.WindowsAccessAuditLogLevel
 import qualified Amazonka.Prelude as Prelude
 
@@ -185,15 +186,15 @@ windowsAuditLogConfiguration_fileAccessAuditLogLevel = Lens.lens (\WindowsAuditL
 windowsAuditLogConfiguration_fileShareAccessAuditLogLevel :: Lens.Lens' WindowsAuditLogConfiguration WindowsAccessAuditLogLevel
 windowsAuditLogConfiguration_fileShareAccessAuditLogLevel = Lens.lens (\WindowsAuditLogConfiguration' {fileShareAccessAuditLogLevel} -> fileShareAccessAuditLogLevel) (\s@WindowsAuditLogConfiguration' {} a -> s {fileShareAccessAuditLogLevel = a} :: WindowsAuditLogConfiguration)
 
-instance Core.FromJSON WindowsAuditLogConfiguration where
+instance Data.FromJSON WindowsAuditLogConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WindowsAuditLogConfiguration"
       ( \x ->
           WindowsAuditLogConfiguration'
-            Prelude.<$> (x Core..:? "AuditLogDestination")
-            Prelude.<*> (x Core..: "FileAccessAuditLogLevel")
-            Prelude.<*> (x Core..: "FileShareAccessAuditLogLevel")
+            Prelude.<$> (x Data..:? "AuditLogDestination")
+            Prelude.<*> (x Data..: "FileAccessAuditLogLevel")
+            Prelude.<*> (x Data..: "FileShareAccessAuditLogLevel")
       )
 
 instance

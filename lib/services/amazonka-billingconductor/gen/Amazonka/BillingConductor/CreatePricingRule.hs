@@ -51,6 +51,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,12 +69,12 @@ data CreatePricingRule = CreatePricingRule'
     -- Services Marketplace.
     billingEntity :: Prelude.Maybe Prelude.Text,
     -- | The pricing rule description.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | If the @Scope@ attribute is set to @SERVICE@, the attribute indicates
     -- which service the @PricingRule@ is applicable for.
     service :: Prelude.Maybe Prelude.Text,
     -- | The pricing rule name. The names must be unique to each pricing rule.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | The scope of pricing rule that indicates if it\'s globally applicable,
     -- or it\'s service-specific.
     scope :: PricingRuleScope,
@@ -136,7 +137,7 @@ newCreatePricingRule
         billingEntity = Prelude.Nothing,
         description = Prelude.Nothing,
         service = Prelude.Nothing,
-        name = Core._Sensitive Lens.# pName_,
+        name = Data._Sensitive Lens.# pName_,
         scope = pScope_,
         type' = pType_,
         modifierPercentage = pModifierPercentage_
@@ -160,7 +161,7 @@ createPricingRule_billingEntity = Lens.lens (\CreatePricingRule' {billingEntity}
 
 -- | The pricing rule description.
 createPricingRule_description :: Lens.Lens' CreatePricingRule (Prelude.Maybe Prelude.Text)
-createPricingRule_description = Lens.lens (\CreatePricingRule' {description} -> description) (\s@CreatePricingRule' {} a -> s {description = a} :: CreatePricingRule) Prelude.. Lens.mapping Core._Sensitive
+createPricingRule_description = Lens.lens (\CreatePricingRule' {description} -> description) (\s@CreatePricingRule' {} a -> s {description = a} :: CreatePricingRule) Prelude.. Lens.mapping Data._Sensitive
 
 -- | If the @Scope@ attribute is set to @SERVICE@, the attribute indicates
 -- which service the @PricingRule@ is applicable for.
@@ -169,7 +170,7 @@ createPricingRule_service = Lens.lens (\CreatePricingRule' {service} -> service)
 
 -- | The pricing rule name. The names must be unique to each pricing rule.
 createPricingRule_name :: Lens.Lens' CreatePricingRule Prelude.Text
-createPricingRule_name = Lens.lens (\CreatePricingRule' {name} -> name) (\s@CreatePricingRule' {} a -> s {name = a} :: CreatePricingRule) Prelude.. Core._Sensitive
+createPricingRule_name = Lens.lens (\CreatePricingRule' {name} -> name) (\s@CreatePricingRule' {} a -> s {name = a} :: CreatePricingRule) Prelude.. Data._Sensitive
 
 -- | The scope of pricing rule that indicates if it\'s globally applicable,
 -- or it\'s service-specific.
@@ -194,7 +195,7 @@ instance Core.AWSRequest CreatePricingRule where
     Response.receiveJSON
       ( \s h x ->
           CreatePricingRuleResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -222,34 +223,34 @@ instance Prelude.NFData CreatePricingRule where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf modifierPercentage
 
-instance Core.ToHeaders CreatePricingRule where
+instance Data.ToHeaders CreatePricingRule where
   toHeaders CreatePricingRule' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# clientToken,
+      [ "X-Amzn-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreatePricingRule where
+instance Data.ToJSON CreatePricingRule where
   toJSON CreatePricingRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("BillingEntity" Core..=) Prelude.<$> billingEntity,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Service" Core..=) Prelude.<$> service,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Scope" Core..= scope),
-            Prelude.Just ("Type" Core..= type'),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("BillingEntity" Data..=) Prelude.<$> billingEntity,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Service" Data..=) Prelude.<$> service,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Scope" Data..= scope),
+            Prelude.Just ("Type" Data..= type'),
             Prelude.Just
-              ("ModifierPercentage" Core..= modifierPercentage)
+              ("ModifierPercentage" Data..= modifierPercentage)
           ]
       )
 
-instance Core.ToPath CreatePricingRule where
+instance Data.ToPath CreatePricingRule where
   toPath = Prelude.const "/create-pricing-rule"
 
-instance Core.ToQuery CreatePricingRule where
+instance Data.ToQuery CreatePricingRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePricingRuleResponse' smart constructor.

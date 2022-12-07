@@ -25,6 +25,7 @@ import Amazonka.Connect.Types.Threshold
 import Amazonka.Connect.Types.Unit
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a historical metric. For a description of
@@ -86,16 +87,16 @@ historicalMetric_statistic = Lens.lens (\HistoricalMetric' {statistic} -> statis
 historicalMetric_unit :: Lens.Lens' HistoricalMetric (Prelude.Maybe Unit)
 historicalMetric_unit = Lens.lens (\HistoricalMetric' {unit} -> unit) (\s@HistoricalMetric' {} a -> s {unit = a} :: HistoricalMetric)
 
-instance Core.FromJSON HistoricalMetric where
+instance Data.FromJSON HistoricalMetric where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HistoricalMetric"
       ( \x ->
           HistoricalMetric'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Threshold")
-            Prelude.<*> (x Core..:? "Statistic")
-            Prelude.<*> (x Core..:? "Unit")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Threshold")
+            Prelude.<*> (x Data..:? "Statistic")
+            Prelude.<*> (x Data..:? "Unit")
       )
 
 instance Prelude.Hashable HistoricalMetric where
@@ -112,13 +113,13 @@ instance Prelude.NFData HistoricalMetric where
       `Prelude.seq` Prelude.rnf statistic
       `Prelude.seq` Prelude.rnf unit
 
-instance Core.ToJSON HistoricalMetric where
+instance Data.ToJSON HistoricalMetric where
   toJSON HistoricalMetric' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Threshold" Core..=) Prelude.<$> threshold,
-            ("Statistic" Core..=) Prelude.<$> statistic,
-            ("Unit" Core..=) Prelude.<$> unit
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Threshold" Data..=) Prelude.<$> threshold,
+            ("Statistic" Data..=) Prelude.<$> statistic,
+            ("Unit" Data..=) Prelude.<$> unit
           ]
       )

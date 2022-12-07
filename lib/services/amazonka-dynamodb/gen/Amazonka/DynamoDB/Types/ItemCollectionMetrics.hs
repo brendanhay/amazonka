@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ItemCollectionMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -94,17 +95,17 @@ itemCollectionMetrics_sizeEstimateRangeGB = Lens.lens (\ItemCollectionMetrics' {
 itemCollectionMetrics_itemCollectionKey :: Lens.Lens' ItemCollectionMetrics (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
 itemCollectionMetrics_itemCollectionKey = Lens.lens (\ItemCollectionMetrics' {itemCollectionKey} -> itemCollectionKey) (\s@ItemCollectionMetrics' {} a -> s {itemCollectionKey = a} :: ItemCollectionMetrics) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ItemCollectionMetrics where
+instance Data.FromJSON ItemCollectionMetrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ItemCollectionMetrics"
       ( \x ->
           ItemCollectionMetrics'
-            Prelude.<$> ( x Core..:? "SizeEstimateRangeGB"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SizeEstimateRangeGB"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ItemCollectionKey"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ItemCollectionKey"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,9 +131,9 @@ instance Core.AWSRequest ListRelatedItems where
     Response.receiveJSON
       ( \s h x ->
           ListRelatedItemsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "relatedItems" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "relatedItems" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListRelatedItems where
@@ -147,32 +148,32 @@ instance Prelude.NFData ListRelatedItems where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf incidentRecordArn
 
-instance Core.ToHeaders ListRelatedItems where
+instance Data.ToHeaders ListRelatedItems where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRelatedItems where
+instance Data.ToJSON ListRelatedItems where
   toJSON ListRelatedItems' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("incidentRecordArn" Core..= incidentRecordArn)
+              ("incidentRecordArn" Data..= incidentRecordArn)
           ]
       )
 
-instance Core.ToPath ListRelatedItems where
+instance Data.ToPath ListRelatedItems where
   toPath = Prelude.const "/listRelatedItems"
 
-instance Core.ToQuery ListRelatedItems where
+instance Data.ToQuery ListRelatedItems where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRelatedItemsResponse' smart constructor.

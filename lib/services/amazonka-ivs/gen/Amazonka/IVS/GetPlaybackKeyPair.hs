@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest GetPlaybackKeyPair where
     Response.receiveJSON
       ( \s h x ->
           GetPlaybackKeyPairResponse'
-            Prelude.<$> (x Core..?> "keyPair")
+            Prelude.<$> (x Data..?> "keyPair")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,28 +100,28 @@ instance Prelude.Hashable GetPlaybackKeyPair where
 instance Prelude.NFData GetPlaybackKeyPair where
   rnf GetPlaybackKeyPair' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders GetPlaybackKeyPair where
+instance Data.ToHeaders GetPlaybackKeyPair where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetPlaybackKeyPair where
+instance Data.ToJSON GetPlaybackKeyPair where
   toJSON GetPlaybackKeyPair' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath GetPlaybackKeyPair where
+instance Data.ToPath GetPlaybackKeyPair where
   toPath = Prelude.const "/GetPlaybackKeyPair"
 
-instance Core.ToQuery GetPlaybackKeyPair where
+instance Data.ToQuery GetPlaybackKeyPair where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPlaybackKeyPairResponse' smart constructor.

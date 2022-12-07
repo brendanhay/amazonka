@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBCluster where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.ActivityStreamMode
 import Amazonka.RDS.Types.ActivityStreamStatus
@@ -133,7 +134,7 @@ data DBCluster = DBCluster'
     tagList :: Prelude.Maybe [Tag],
     -- | Specifies the latest time to which a database can be restored with
     -- point-in-time restore.
-    latestRestorableTime :: Prelude.Maybe Core.ISO8601,
+    latestRestorableTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the compute and memory capacity class of the DB instance.
     --
     -- This setting is only for non-Aurora Multi-AZ DB clusters.
@@ -153,9 +154,9 @@ data DBCluster = DBCluster'
     -- cluster can be created.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | The earliest time to which a DB cluster can be backtracked.
-    earliestBacktrackTime :: Prelude.Maybe Core.ISO8601,
+    earliestBacktrackTime :: Prelude.Maybe Data.ISO8601,
     -- | The time when a stopped DB cluster is restarted automatically.
-    automaticRestartTime :: Prelude.Maybe Core.ISO8601,
+    automaticRestartTime :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Web Services KMS key identifier for encryption of Performance
     -- Insights data.
     --
@@ -272,7 +273,7 @@ data DBCluster = DBCluster'
     readerEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The earliest time to which a database can be restored with point-in-time
     -- restore.
-    earliestRestorableTime :: Prelude.Maybe Core.ISO8601,
+    earliestRestorableTime :: Prelude.Maybe Data.ISO8601,
     -- | A value that indicates whether the mapping of Amazon Web Services
     -- Identity and Access Management (IAM) accounts to database accounts is
     -- enabled.
@@ -299,7 +300,7 @@ data DBCluster = DBCluster'
     capacity :: Prelude.Maybe Prelude.Int,
     -- | Specifies the time when the DB cluster was created, in Universal
     -- Coordinated Time (UTC).
-    clusterCreateTime :: Prelude.Maybe Core.ISO8601,
+    clusterCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | Contains one or more identifiers of the read replicas associated with
     -- this DB cluster.
     readReplicaIdentifiers :: Prelude.Maybe [Prelude.Text],
@@ -863,7 +864,7 @@ dbCluster_tagList = Lens.lens (\DBCluster' {tagList} -> tagList) (\s@DBCluster' 
 -- | Specifies the latest time to which a database can be restored with
 -- point-in-time restore.
 dbCluster_latestRestorableTime :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.UTCTime)
-dbCluster_latestRestorableTime = Lens.lens (\DBCluster' {latestRestorableTime} -> latestRestorableTime) (\s@DBCluster' {} a -> s {latestRestorableTime = a} :: DBCluster) Prelude.. Lens.mapping Core._Time
+dbCluster_latestRestorableTime = Lens.lens (\DBCluster' {latestRestorableTime} -> latestRestorableTime) (\s@DBCluster' {} a -> s {latestRestorableTime = a} :: DBCluster) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the compute and memory capacity class of the DB instance.
 --
@@ -898,11 +899,11 @@ dbCluster_availabilityZones = Lens.lens (\DBCluster' {availabilityZones} -> avai
 
 -- | The earliest time to which a DB cluster can be backtracked.
 dbCluster_earliestBacktrackTime :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.UTCTime)
-dbCluster_earliestBacktrackTime = Lens.lens (\DBCluster' {earliestBacktrackTime} -> earliestBacktrackTime) (\s@DBCluster' {} a -> s {earliestBacktrackTime = a} :: DBCluster) Prelude.. Lens.mapping Core._Time
+dbCluster_earliestBacktrackTime = Lens.lens (\DBCluster' {earliestBacktrackTime} -> earliestBacktrackTime) (\s@DBCluster' {} a -> s {earliestBacktrackTime = a} :: DBCluster) Prelude.. Lens.mapping Data._Time
 
 -- | The time when a stopped DB cluster is restarted automatically.
 dbCluster_automaticRestartTime :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.UTCTime)
-dbCluster_automaticRestartTime = Lens.lens (\DBCluster' {automaticRestartTime} -> automaticRestartTime) (\s@DBCluster' {} a -> s {automaticRestartTime = a} :: DBCluster) Prelude.. Lens.mapping Core._Time
+dbCluster_automaticRestartTime = Lens.lens (\DBCluster' {automaticRestartTime} -> automaticRestartTime) (\s@DBCluster' {} a -> s {automaticRestartTime = a} :: DBCluster) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services KMS key identifier for encryption of Performance
 -- Insights data.
@@ -1065,7 +1066,7 @@ dbCluster_readerEndpoint = Lens.lens (\DBCluster' {readerEndpoint} -> readerEndp
 -- | The earliest time to which a database can be restored with point-in-time
 -- restore.
 dbCluster_earliestRestorableTime :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.UTCTime)
-dbCluster_earliestRestorableTime = Lens.lens (\DBCluster' {earliestRestorableTime} -> earliestRestorableTime) (\s@DBCluster' {} a -> s {earliestRestorableTime = a} :: DBCluster) Prelude.. Lens.mapping Core._Time
+dbCluster_earliestRestorableTime = Lens.lens (\DBCluster' {earliestRestorableTime} -> earliestRestorableTime) (\s@DBCluster' {} a -> s {earliestRestorableTime = a} :: DBCluster) Prelude.. Lens.mapping Data._Time
 
 -- | A value that indicates whether the mapping of Amazon Web Services
 -- Identity and Access Management (IAM) accounts to database accounts is
@@ -1106,7 +1107,7 @@ dbCluster_capacity = Lens.lens (\DBCluster' {capacity} -> capacity) (\s@DBCluste
 -- | Specifies the time when the DB cluster was created, in Universal
 -- Coordinated Time (UTC).
 dbCluster_clusterCreateTime :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.UTCTime)
-dbCluster_clusterCreateTime = Lens.lens (\DBCluster' {clusterCreateTime} -> clusterCreateTime) (\s@DBCluster' {} a -> s {clusterCreateTime = a} :: DBCluster) Prelude.. Lens.mapping Core._Time
+dbCluster_clusterCreateTime = Lens.lens (\DBCluster' {clusterCreateTime} -> clusterCreateTime) (\s@DBCluster' {} a -> s {clusterCreateTime = a} :: DBCluster) Prelude.. Lens.mapping Data._Time
 
 -- | Contains one or more identifiers of the read replicas associated with
 -- this DB cluster.
@@ -1193,106 +1194,106 @@ dbCluster_globalWriteForwardingStatus = Lens.lens (\DBCluster' {globalWriteForwa
 dbCluster_vpcSecurityGroups :: Lens.Lens' DBCluster (Prelude.Maybe [VpcSecurityGroupMembership])
 dbCluster_vpcSecurityGroups = Lens.lens (\DBCluster' {vpcSecurityGroups} -> vpcSecurityGroups) (\s@DBCluster' {} a -> s {vpcSecurityGroups = a} :: DBCluster) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML DBCluster where
+instance Data.FromXML DBCluster where
   parseXML x =
     DBCluster'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "ServerlessV2ScalingConfiguration")
-      Prelude.<*> (x Core..@? "CloneGroupId")
-      Prelude.<*> (x Core..@? "DBClusterArn")
-      Prelude.<*> (x Core..@? "PerformanceInsightsRetentionPeriod")
-      Prelude.<*> (x Core..@? "HostedZoneId")
-      Prelude.<*> (x Core..@? "PercentProgress")
-      Prelude.<*> (x Core..@? "GlobalWriteForwardingRequested")
-      Prelude.<*> (x Core..@? "PreferredBackupWindow")
-      Prelude.<*> (x Core..@? "BackupRetentionPeriod")
-      Prelude.<*> (x Core..@? "CharacterSetName")
-      Prelude.<*> (x Core..@? "MasterUsername")
-      Prelude.<*> (x Core..@? "CopyTagsToSnapshot")
-      Prelude.<*> (x Core..@? "ActivityStreamStatus")
-      Prelude.<*> ( x Core..@? "DBClusterMembers"
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "ServerlessV2ScalingConfiguration")
+      Prelude.<*> (x Data..@? "CloneGroupId")
+      Prelude.<*> (x Data..@? "DBClusterArn")
+      Prelude.<*> (x Data..@? "PerformanceInsightsRetentionPeriod")
+      Prelude.<*> (x Data..@? "HostedZoneId")
+      Prelude.<*> (x Data..@? "PercentProgress")
+      Prelude.<*> (x Data..@? "GlobalWriteForwardingRequested")
+      Prelude.<*> (x Data..@? "PreferredBackupWindow")
+      Prelude.<*> (x Data..@? "BackupRetentionPeriod")
+      Prelude.<*> (x Data..@? "CharacterSetName")
+      Prelude.<*> (x Data..@? "MasterUsername")
+      Prelude.<*> (x Data..@? "CopyTagsToSnapshot")
+      Prelude.<*> (x Data..@? "ActivityStreamStatus")
+      Prelude.<*> ( x Data..@? "DBClusterMembers"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "DBClusterMember")
+                      Prelude.>>= Core.may (Data.parseXMLList "DBClusterMember")
                   )
-      Prelude.<*> (x Core..@? "DBClusterParameterGroup")
-      Prelude.<*> (x Core..@? "AutoMinorVersionUpgrade")
-      Prelude.<*> (x Core..@? "ActivityStreamMode")
-      Prelude.<*> ( x Core..@? "TagList" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<*> (x Data..@? "DBClusterParameterGroup")
+      Prelude.<*> (x Data..@? "AutoMinorVersionUpgrade")
+      Prelude.<*> (x Data..@? "ActivityStreamMode")
+      Prelude.<*> ( x Data..@? "TagList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "LatestRestorableTime")
-      Prelude.<*> (x Core..@? "DBClusterInstanceClass")
-      Prelude.<*> (x Core..@? "DatabaseName")
-      Prelude.<*> (x Core..@? "DBClusterIdentifier")
-      Prelude.<*> ( x Core..@? "DomainMemberships"
+      Prelude.<*> (x Data..@? "LatestRestorableTime")
+      Prelude.<*> (x Data..@? "DBClusterInstanceClass")
+      Prelude.<*> (x Data..@? "DatabaseName")
+      Prelude.<*> (x Data..@? "DBClusterIdentifier")
+      Prelude.<*> ( x Data..@? "DomainMemberships"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "DomainMembership")
+                      Prelude.>>= Core.may (Data.parseXMLList "DomainMembership")
                   )
-      Prelude.<*> (x Core..@? "ScalingConfigurationInfo")
-      Prelude.<*> ( x Core..@? "AvailabilityZones"
+      Prelude.<*> (x Data..@? "ScalingConfigurationInfo")
+      Prelude.<*> ( x Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "AvailabilityZone")
+                      Prelude.>>= Core.may (Data.parseXMLList "AvailabilityZone")
                   )
-      Prelude.<*> (x Core..@? "EarliestBacktrackTime")
-      Prelude.<*> (x Core..@? "AutomaticRestartTime")
-      Prelude.<*> (x Core..@? "PerformanceInsightsKMSKeyId")
-      Prelude.<*> (x Core..@? "CrossAccountClone")
-      Prelude.<*> ( x Core..@? "DBClusterOptionGroupMemberships"
+      Prelude.<*> (x Data..@? "EarliestBacktrackTime")
+      Prelude.<*> (x Data..@? "AutomaticRestartTime")
+      Prelude.<*> (x Data..@? "PerformanceInsightsKMSKeyId")
+      Prelude.<*> (x Data..@? "CrossAccountClone")
+      Prelude.<*> ( x Data..@? "DBClusterOptionGroupMemberships"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "DBClusterOptionGroup")
+                      Prelude.>>= Core.may (Data.parseXMLList "DBClusterOptionGroup")
                   )
-      Prelude.<*> (x Core..@? "DBSubnetGroup")
-      Prelude.<*> (x Core..@? "MonitoringInterval")
-      Prelude.<*> (x Core..@? "PerformanceInsightsEnabled")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "ActivityStreamKinesisStreamName")
-      Prelude.<*> (x Core..@? "HttpEndpointEnabled")
-      Prelude.<*> (x Core..@? "PubliclyAccessible")
-      Prelude.<*> (x Core..@? "StorageType")
-      Prelude.<*> (x Core..@? "BacktrackWindow")
-      Prelude.<*> ( x Core..@? "CustomEndpoints" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "DBSubnetGroup")
+      Prelude.<*> (x Data..@? "MonitoringInterval")
+      Prelude.<*> (x Data..@? "PerformanceInsightsEnabled")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "ActivityStreamKinesisStreamName")
+      Prelude.<*> (x Data..@? "HttpEndpointEnabled")
+      Prelude.<*> (x Data..@? "PubliclyAccessible")
+      Prelude.<*> (x Data..@? "StorageType")
+      Prelude.<*> (x Data..@? "BacktrackWindow")
+      Prelude.<*> ( x Data..@? "CustomEndpoints" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "ReplicationSourceIdentifier")
-      Prelude.<*> (x Core..@? "MonitoringRoleArn")
-      Prelude.<*> (x Core..@? "BacktrackConsumedChangeRecords")
-      Prelude.<*> (x Core..@? "EngineMode")
-      Prelude.<*> (x Core..@? "StorageEncrypted")
-      Prelude.<*> (x Core..@? "KmsKeyId")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "AllocatedStorage")
-      Prelude.<*> (x Core..@? "ReaderEndpoint")
-      Prelude.<*> (x Core..@? "EarliestRestorableTime")
-      Prelude.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
-      Prelude.<*> (x Core..@? "DeletionProtection")
-      Prelude.<*> (x Core..@? "PendingModifiedValues")
-      Prelude.<*> (x Core..@? "PreferredMaintenanceWindow")
-      Prelude.<*> (x Core..@? "Endpoint")
-      Prelude.<*> (x Core..@? "Capacity")
-      Prelude.<*> (x Core..@? "ClusterCreateTime")
-      Prelude.<*> ( x Core..@? "ReadReplicaIdentifiers"
+      Prelude.<*> (x Data..@? "ReplicationSourceIdentifier")
+      Prelude.<*> (x Data..@? "MonitoringRoleArn")
+      Prelude.<*> (x Data..@? "BacktrackConsumedChangeRecords")
+      Prelude.<*> (x Data..@? "EngineMode")
+      Prelude.<*> (x Data..@? "StorageEncrypted")
+      Prelude.<*> (x Data..@? "KmsKeyId")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "AllocatedStorage")
+      Prelude.<*> (x Data..@? "ReaderEndpoint")
+      Prelude.<*> (x Data..@? "EarliestRestorableTime")
+      Prelude.<*> (x Data..@? "IAMDatabaseAuthenticationEnabled")
+      Prelude.<*> (x Data..@? "DeletionProtection")
+      Prelude.<*> (x Data..@? "PendingModifiedValues")
+      Prelude.<*> (x Data..@? "PreferredMaintenanceWindow")
+      Prelude.<*> (x Data..@? "Endpoint")
+      Prelude.<*> (x Data..@? "Capacity")
+      Prelude.<*> (x Data..@? "ClusterCreateTime")
+      Prelude.<*> ( x Data..@? "ReadReplicaIdentifiers"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "ReadReplicaIdentifier")
+                      Prelude.>>= Core.may (Data.parseXMLList "ReadReplicaIdentifier")
                   )
-      Prelude.<*> (x Core..@? "DBSystemId")
-      Prelude.<*> ( x Core..@? "EnabledCloudwatchLogsExports"
+      Prelude.<*> (x Data..@? "DBSystemId")
+      Prelude.<*> ( x Data..@? "EnabledCloudwatchLogsExports"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Iops")
-      Prelude.<*> (x Core..@? "DbClusterResourceId")
-      Prelude.<*> ( x Core..@? "AssociatedRoles" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "DBClusterRole")
+      Prelude.<*> (x Data..@? "Iops")
+      Prelude.<*> (x Data..@? "DbClusterResourceId")
+      Prelude.<*> ( x Data..@? "AssociatedRoles" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "DBClusterRole")
                   )
-      Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "NetworkType")
-      Prelude.<*> (x Core..@? "MultiAZ")
-      Prelude.<*> (x Core..@? "ActivityStreamKmsKeyId")
-      Prelude.<*> (x Core..@? "GlobalWriteForwardingStatus")
-      Prelude.<*> ( x Core..@? "VpcSecurityGroups"
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "NetworkType")
+      Prelude.<*> (x Data..@? "MultiAZ")
+      Prelude.<*> (x Data..@? "ActivityStreamKmsKeyId")
+      Prelude.<*> (x Data..@? "GlobalWriteForwardingStatus")
+      Prelude.<*> ( x Data..@? "VpcSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "VpcSecurityGroupMembership")
+                        (Data.parseXMLList "VpcSecurityGroupMembership")
                   )
 
 instance Prelude.Hashable DBCluster where

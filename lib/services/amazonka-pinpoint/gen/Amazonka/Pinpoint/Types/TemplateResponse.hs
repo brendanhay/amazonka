@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.TemplateResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.TemplateType
 import qualified Amazonka.Prelude as Prelude
 
@@ -201,21 +202,21 @@ templateResponse_templateName = Lens.lens (\TemplateResponse' {templateName} -> 
 templateResponse_templateType :: Lens.Lens' TemplateResponse TemplateType
 templateResponse_templateType = Lens.lens (\TemplateResponse' {templateType} -> templateType) (\s@TemplateResponse' {} a -> s {templateType = a} :: TemplateResponse)
 
-instance Core.FromJSON TemplateResponse where
+instance Data.FromJSON TemplateResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateResponse"
       ( \x ->
           TemplateResponse'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "DefaultSubstitutions")
-            Prelude.<*> (x Core..:? "TemplateDescription")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "LastModifiedDate")
-            Prelude.<*> (x Core..: "CreationDate")
-            Prelude.<*> (x Core..: "TemplateName")
-            Prelude.<*> (x Core..: "TemplateType")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "DefaultSubstitutions")
+            Prelude.<*> (x Data..:? "TemplateDescription")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "LastModifiedDate")
+            Prelude.<*> (x Data..: "CreationDate")
+            Prelude.<*> (x Data..: "TemplateName")
+            Prelude.<*> (x Data..: "TemplateType")
       )
 
 instance Prelude.Hashable TemplateResponse where

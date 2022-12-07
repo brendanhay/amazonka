@@ -21,6 +21,7 @@ module Amazonka.Location.Types.PositionalAccuracy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the level of certainty of the position.
@@ -55,13 +56,13 @@ newPositionalAccuracy pHorizontal_ =
 positionalAccuracy_horizontal :: Lens.Lens' PositionalAccuracy Prelude.Double
 positionalAccuracy_horizontal = Lens.lens (\PositionalAccuracy' {horizontal} -> horizontal) (\s@PositionalAccuracy' {} a -> s {horizontal = a} :: PositionalAccuracy)
 
-instance Core.FromJSON PositionalAccuracy where
+instance Data.FromJSON PositionalAccuracy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PositionalAccuracy"
       ( \x ->
           PositionalAccuracy'
-            Prelude.<$> (x Core..: "Horizontal")
+            Prelude.<$> (x Data..: "Horizontal")
       )
 
 instance Prelude.Hashable PositionalAccuracy where
@@ -71,9 +72,9 @@ instance Prelude.Hashable PositionalAccuracy where
 instance Prelude.NFData PositionalAccuracy where
   rnf PositionalAccuracy' {..} = Prelude.rnf horizontal
 
-instance Core.ToJSON PositionalAccuracy where
+instance Data.ToJSON PositionalAccuracy where
   toJSON PositionalAccuracy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Horizontal" Core..= horizontal)]
+          [Prelude.Just ("Horizontal" Data..= horizontal)]
       )

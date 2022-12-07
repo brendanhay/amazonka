@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Alarm where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon CloudWatch alarm configured to monitor metrics on an endpoint.
@@ -49,11 +50,11 @@ newAlarm = Alarm' {alarmName = Prelude.Nothing}
 alarm_alarmName :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Text)
 alarm_alarmName = Lens.lens (\Alarm' {alarmName} -> alarmName) (\s@Alarm' {} a -> s {alarmName = a} :: Alarm)
 
-instance Core.FromJSON Alarm where
+instance Data.FromJSON Alarm where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Alarm"
-      (\x -> Alarm' Prelude.<$> (x Core..:? "AlarmName"))
+      (\x -> Alarm' Prelude.<$> (x Data..:? "AlarmName"))
 
 instance Prelude.Hashable Alarm where
   hashWithSalt _salt Alarm' {..} =
@@ -62,9 +63,9 @@ instance Prelude.Hashable Alarm where
 instance Prelude.NFData Alarm where
   rnf Alarm' {..} = Prelude.rnf alarmName
 
-instance Core.ToJSON Alarm where
+instance Data.ToJSON Alarm where
   toJSON Alarm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("AlarmName" Core..=) Prelude.<$> alarmName]
+          [("AlarmName" Data..=) Prelude.<$> alarmName]
       )

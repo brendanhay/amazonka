@@ -25,6 +25,7 @@ import Amazonka.AutoScaling.Types.StepAdjustment
 import Amazonka.AutoScaling.Types.TargetTrackingConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a scaling policy.
@@ -260,29 +261,29 @@ scalingPolicy_predictiveScalingConfiguration = Lens.lens (\ScalingPolicy' {predi
 scalingPolicy_minAdjustmentMagnitude :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Int)
 scalingPolicy_minAdjustmentMagnitude = Lens.lens (\ScalingPolicy' {minAdjustmentMagnitude} -> minAdjustmentMagnitude) (\s@ScalingPolicy' {} a -> s {minAdjustmentMagnitude = a} :: ScalingPolicy)
 
-instance Core.FromXML ScalingPolicy where
+instance Data.FromXML ScalingPolicy where
   parseXML x =
     ScalingPolicy'
-      Prelude.<$> (x Core..@? "PolicyName")
-      Prelude.<*> ( x Core..@? "Alarms" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "PolicyName")
+      Prelude.<*> ( x Data..@? "Alarms" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "MetricAggregationType")
-      Prelude.<*> (x Core..@? "PolicyType")
-      Prelude.<*> (x Core..@? "Cooldown")
-      Prelude.<*> (x Core..@? "AdjustmentType")
-      Prelude.<*> (x Core..@? "EstimatedInstanceWarmup")
-      Prelude.<*> (x Core..@? "Enabled")
-      Prelude.<*> (x Core..@? "AutoScalingGroupName")
-      Prelude.<*> (x Core..@? "PolicyARN")
-      Prelude.<*> (x Core..@? "TargetTrackingConfiguration")
-      Prelude.<*> (x Core..@? "MinAdjustmentStep")
-      Prelude.<*> (x Core..@? "ScalingAdjustment")
-      Prelude.<*> ( x Core..@? "StepAdjustments" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "MetricAggregationType")
+      Prelude.<*> (x Data..@? "PolicyType")
+      Prelude.<*> (x Data..@? "Cooldown")
+      Prelude.<*> (x Data..@? "AdjustmentType")
+      Prelude.<*> (x Data..@? "EstimatedInstanceWarmup")
+      Prelude.<*> (x Data..@? "Enabled")
+      Prelude.<*> (x Data..@? "AutoScalingGroupName")
+      Prelude.<*> (x Data..@? "PolicyARN")
+      Prelude.<*> (x Data..@? "TargetTrackingConfiguration")
+      Prelude.<*> (x Data..@? "MinAdjustmentStep")
+      Prelude.<*> (x Data..@? "ScalingAdjustment")
+      Prelude.<*> ( x Data..@? "StepAdjustments" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PredictiveScalingConfiguration")
-      Prelude.<*> (x Core..@? "MinAdjustmentMagnitude")
+      Prelude.<*> (x Data..@? "PredictiveScalingConfiguration")
+      Prelude.<*> (x Data..@? "MinAdjustmentMagnitude")
 
 instance Prelude.Hashable ScalingPolicy where
   hashWithSalt _salt ScalingPolicy' {..} =

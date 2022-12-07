@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsIamGroupPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A managed policy that is attached to the IAM group.
@@ -50,13 +51,13 @@ newAwsIamGroupPolicy =
 awsIamGroupPolicy_policyName :: Lens.Lens' AwsIamGroupPolicy (Prelude.Maybe Prelude.Text)
 awsIamGroupPolicy_policyName = Lens.lens (\AwsIamGroupPolicy' {policyName} -> policyName) (\s@AwsIamGroupPolicy' {} a -> s {policyName = a} :: AwsIamGroupPolicy)
 
-instance Core.FromJSON AwsIamGroupPolicy where
+instance Data.FromJSON AwsIamGroupPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamGroupPolicy"
       ( \x ->
           AwsIamGroupPolicy'
-            Prelude.<$> (x Core..:? "PolicyName")
+            Prelude.<$> (x Data..:? "PolicyName")
       )
 
 instance Prelude.Hashable AwsIamGroupPolicy where
@@ -66,9 +67,9 @@ instance Prelude.Hashable AwsIamGroupPolicy where
 instance Prelude.NFData AwsIamGroupPolicy where
   rnf AwsIamGroupPolicy' {..} = Prelude.rnf policyName
 
-instance Core.ToJSON AwsIamGroupPolicy where
+instance Data.ToJSON AwsIamGroupPolicy where
   toJSON AwsIamGroupPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("PolicyName" Core..=) Prelude.<$> policyName]
+          [("PolicyName" Data..=) Prelude.<$> policyName]
       )

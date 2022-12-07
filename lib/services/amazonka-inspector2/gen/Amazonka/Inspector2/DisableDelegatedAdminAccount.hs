@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,7 +93,7 @@ instance Core.AWSRequest DisableDelegatedAdminAccount where
       ( \s h x ->
           DisableDelegatedAdminAccountResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "delegatedAdminAccountId")
+            Prelude.<*> (x Data..:> "delegatedAdminAccountId")
       )
 
 instance
@@ -107,33 +108,33 @@ instance Prelude.NFData DisableDelegatedAdminAccount where
   rnf DisableDelegatedAdminAccount' {..} =
     Prelude.rnf delegatedAdminAccountId
 
-instance Core.ToHeaders DisableDelegatedAdminAccount where
+instance Data.ToHeaders DisableDelegatedAdminAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisableDelegatedAdminAccount where
+instance Data.ToJSON DisableDelegatedAdminAccount where
   toJSON DisableDelegatedAdminAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "delegatedAdminAccountId"
-                  Core..= delegatedAdminAccountId
+                  Data..= delegatedAdminAccountId
               )
           ]
       )
 
-instance Core.ToPath DisableDelegatedAdminAccount where
+instance Data.ToPath DisableDelegatedAdminAccount where
   toPath =
     Prelude.const "/delegatedadminaccounts/disable"
 
-instance Core.ToQuery DisableDelegatedAdminAccount where
+instance Data.ToQuery DisableDelegatedAdminAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableDelegatedAdminAccountResponse' smart constructor.

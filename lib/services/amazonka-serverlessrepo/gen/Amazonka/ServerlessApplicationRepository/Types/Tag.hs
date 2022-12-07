@@ -21,6 +21,7 @@ module Amazonka.ServerlessApplicationRepository.Types.Tag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This property corresponds to the /AWS CloudFormation
@@ -91,11 +92,11 @@ instance Prelude.NFData Tag where
   rnf Tag' {..} =
     Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON Tag where
+instance Data.ToJSON Tag where
   toJSON Tag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("value" Core..= value),
-            Prelude.Just ("key" Core..= key)
+          [ Prelude.Just ("value" Data..= value),
+            Prelude.Just ("key" Data..= key)
           ]
       )

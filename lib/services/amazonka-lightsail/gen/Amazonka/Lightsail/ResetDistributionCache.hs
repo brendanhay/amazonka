@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,9 +100,9 @@ instance Core.AWSRequest ResetDistributionCache where
     Response.receiveJSON
       ( \s h x ->
           ResetDistributionCacheResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "createTime")
-            Prelude.<*> (x Core..?> "operation")
+            Prelude.<$> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "createTime")
+            Prelude.<*> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,34 +114,34 @@ instance Prelude.NFData ResetDistributionCache where
   rnf ResetDistributionCache' {..} =
     Prelude.rnf distributionName
 
-instance Core.ToHeaders ResetDistributionCache where
+instance Data.ToHeaders ResetDistributionCache where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.ResetDistributionCache" ::
+              Data.=# ( "Lightsail_20161128.ResetDistributionCache" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResetDistributionCache where
+instance Data.ToJSON ResetDistributionCache where
   toJSON ResetDistributionCache' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("distributionName" Core..=)
+          [ ("distributionName" Data..=)
               Prelude.<$> distributionName
           ]
       )
 
-instance Core.ToPath ResetDistributionCache where
+instance Data.ToPath ResetDistributionCache where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResetDistributionCache where
+instance Data.ToQuery ResetDistributionCache where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResetDistributionCacheResponse' smart constructor.
@@ -149,7 +150,7 @@ data ResetDistributionCacheResponse = ResetDistributionCacheResponse'
     status :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the reset cache request (e.g., @1479734909.17@) in Unix
     -- time format.
-    createTime :: Prelude.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Data.POSIX,
     -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
@@ -197,7 +198,7 @@ resetDistributionCacheResponse_status = Lens.lens (\ResetDistributionCacheRespon
 -- | The timestamp of the reset cache request (e.g., @1479734909.17@) in Unix
 -- time format.
 resetDistributionCacheResponse_createTime :: Lens.Lens' ResetDistributionCacheResponse (Prelude.Maybe Prelude.UTCTime)
-resetDistributionCacheResponse_createTime = Lens.lens (\ResetDistributionCacheResponse' {createTime} -> createTime) (\s@ResetDistributionCacheResponse' {} a -> s {createTime = a} :: ResetDistributionCacheResponse) Prelude.. Lens.mapping Core._Time
+resetDistributionCacheResponse_createTime = Lens.lens (\ResetDistributionCacheResponse' {createTime} -> createTime) (\s@ResetDistributionCacheResponse' {} a -> s {createTime = a} :: ResetDistributionCacheResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources

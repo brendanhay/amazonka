@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ClarifyShapConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ClarifyShapBaselineConfig
 import Amazonka.SageMaker.Types.ClarifyTextConfig
@@ -128,17 +129,17 @@ clarifyShapConfig_numberOfSamples = Lens.lens (\ClarifyShapConfig' {numberOfSamp
 clarifyShapConfig_shapBaselineConfig :: Lens.Lens' ClarifyShapConfig ClarifyShapBaselineConfig
 clarifyShapConfig_shapBaselineConfig = Lens.lens (\ClarifyShapConfig' {shapBaselineConfig} -> shapBaselineConfig) (\s@ClarifyShapConfig' {} a -> s {shapBaselineConfig = a} :: ClarifyShapConfig)
 
-instance Core.FromJSON ClarifyShapConfig where
+instance Data.FromJSON ClarifyShapConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClarifyShapConfig"
       ( \x ->
           ClarifyShapConfig'
-            Prelude.<$> (x Core..:? "Seed")
-            Prelude.<*> (x Core..:? "TextConfig")
-            Prelude.<*> (x Core..:? "UseLogit")
-            Prelude.<*> (x Core..:? "NumberOfSamples")
-            Prelude.<*> (x Core..: "ShapBaselineConfig")
+            Prelude.<$> (x Data..:? "Seed")
+            Prelude.<*> (x Data..:? "TextConfig")
+            Prelude.<*> (x Data..:? "UseLogit")
+            Prelude.<*> (x Data..:? "NumberOfSamples")
+            Prelude.<*> (x Data..: "ShapBaselineConfig")
       )
 
 instance Prelude.Hashable ClarifyShapConfig where
@@ -157,16 +158,16 @@ instance Prelude.NFData ClarifyShapConfig where
       `Prelude.seq` Prelude.rnf numberOfSamples
       `Prelude.seq` Prelude.rnf shapBaselineConfig
 
-instance Core.ToJSON ClarifyShapConfig where
+instance Data.ToJSON ClarifyShapConfig where
   toJSON ClarifyShapConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Seed" Core..=) Prelude.<$> seed,
-            ("TextConfig" Core..=) Prelude.<$> textConfig,
-            ("UseLogit" Core..=) Prelude.<$> useLogit,
-            ("NumberOfSamples" Core..=)
+          [ ("Seed" Data..=) Prelude.<$> seed,
+            ("TextConfig" Data..=) Prelude.<$> textConfig,
+            ("UseLogit" Data..=) Prelude.<$> useLogit,
+            ("NumberOfSamples" Data..=)
               Prelude.<$> numberOfSamples,
             Prelude.Just
-              ("ShapBaselineConfig" Core..= shapBaselineConfig)
+              ("ShapBaselineConfig" Data..= shapBaselineConfig)
           ]
       )

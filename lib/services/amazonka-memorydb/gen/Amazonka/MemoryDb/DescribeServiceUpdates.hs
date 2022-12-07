@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,8 +144,8 @@ instance Core.AWSRequest DescribeServiceUpdates where
     Response.receiveJSON
       ( \s h x ->
           DescribeServiceUpdatesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ServiceUpdates" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ServiceUpdates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,38 +165,38 @@ instance Prelude.NFData DescribeServiceUpdates where
       `Prelude.seq` Prelude.rnf serviceUpdateName
       `Prelude.seq` Prelude.rnf clusterNames
 
-instance Core.ToHeaders DescribeServiceUpdates where
+instance Data.ToHeaders DescribeServiceUpdates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonMemoryDB.DescribeServiceUpdates" ::
+              Data.=# ( "AmazonMemoryDB.DescribeServiceUpdates" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeServiceUpdates where
+instance Data.ToJSON DescribeServiceUpdates where
   toJSON DescribeServiceUpdates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Status" Core..=) Prelude.<$> status,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ServiceUpdateName" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Status" Data..=) Prelude.<$> status,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ServiceUpdateName" Data..=)
               Prelude.<$> serviceUpdateName,
-            ("ClusterNames" Core..=) Prelude.<$> clusterNames
+            ("ClusterNames" Data..=) Prelude.<$> clusterNames
           ]
       )
 
-instance Core.ToPath DescribeServiceUpdates where
+instance Data.ToPath DescribeServiceUpdates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeServiceUpdates where
+instance Data.ToQuery DescribeServiceUpdates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeServiceUpdatesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ServiceEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details for an event that\'s associated with a service.
@@ -32,7 +33,7 @@ data ServiceEvent = ServiceEvent'
     -- | The ID string for the event.
     id :: Prelude.Maybe Prelude.Text,
     -- | The Unix timestamp for the time when the event was triggered.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,17 +69,17 @@ serviceEvent_id = Lens.lens (\ServiceEvent' {id} -> id) (\s@ServiceEvent' {} a -
 
 -- | The Unix timestamp for the time when the event was triggered.
 serviceEvent_createdAt :: Lens.Lens' ServiceEvent (Prelude.Maybe Prelude.UTCTime)
-serviceEvent_createdAt = Lens.lens (\ServiceEvent' {createdAt} -> createdAt) (\s@ServiceEvent' {} a -> s {createdAt = a} :: ServiceEvent) Prelude.. Lens.mapping Core._Time
+serviceEvent_createdAt = Lens.lens (\ServiceEvent' {createdAt} -> createdAt) (\s@ServiceEvent' {} a -> s {createdAt = a} :: ServiceEvent) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ServiceEvent where
+instance Data.FromJSON ServiceEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceEvent"
       ( \x ->
           ServiceEvent'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable ServiceEvent where

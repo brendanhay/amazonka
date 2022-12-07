@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.CognitoOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options to specify the Cognito user and identity pools for Kibana
@@ -84,16 +85,16 @@ cognitoOptions_identityPoolId = Lens.lens (\CognitoOptions' {identityPoolId} -> 
 cognitoOptions_userPoolId :: Lens.Lens' CognitoOptions (Prelude.Maybe Prelude.Text)
 cognitoOptions_userPoolId = Lens.lens (\CognitoOptions' {userPoolId} -> userPoolId) (\s@CognitoOptions' {} a -> s {userPoolId = a} :: CognitoOptions)
 
-instance Core.FromJSON CognitoOptions where
+instance Data.FromJSON CognitoOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CognitoOptions"
       ( \x ->
           CognitoOptions'
-            Prelude.<$> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "IdentityPoolId")
-            Prelude.<*> (x Core..:? "UserPoolId")
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "IdentityPoolId")
+            Prelude.<*> (x Data..:? "UserPoolId")
       )
 
 instance Prelude.Hashable CognitoOptions where
@@ -110,14 +111,14 @@ instance Prelude.NFData CognitoOptions where
       `Prelude.seq` Prelude.rnf identityPoolId
       `Prelude.seq` Prelude.rnf userPoolId
 
-instance Core.ToJSON CognitoOptions where
+instance Data.ToJSON CognitoOptions where
   toJSON CognitoOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("IdentityPoolId" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("IdentityPoolId" Data..=)
               Prelude.<$> identityPoolId,
-            ("UserPoolId" Core..=) Prelude.<$> userPoolId
+            ("UserPoolId" Data..=) Prelude.<$> userPoolId
           ]
       )

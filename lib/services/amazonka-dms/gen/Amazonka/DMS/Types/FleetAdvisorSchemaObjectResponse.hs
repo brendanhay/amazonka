@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.FleetAdvisorSchemaObjectResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a schema object in a Fleet Advisor collector inventory.
@@ -126,19 +127,19 @@ fleetAdvisorSchemaObjectResponse_codeSize :: Lens.Lens' FleetAdvisorSchemaObject
 fleetAdvisorSchemaObjectResponse_codeSize = Lens.lens (\FleetAdvisorSchemaObjectResponse' {codeSize} -> codeSize) (\s@FleetAdvisorSchemaObjectResponse' {} a -> s {codeSize = a} :: FleetAdvisorSchemaObjectResponse)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FleetAdvisorSchemaObjectResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FleetAdvisorSchemaObjectResponse"
       ( \x ->
           FleetAdvisorSchemaObjectResponse'
-            Prelude.<$> (x Core..:? "CodeLineCount")
-            Prelude.<*> (x Core..:? "NumberOfObjects")
-            Prelude.<*> (x Core..:? "SchemaId")
-            Prelude.<*> (x Core..:? "ObjectType")
-            Prelude.<*> (x Core..:? "CodeSize")
+            Prelude.<$> (x Data..:? "CodeLineCount")
+            Prelude.<*> (x Data..:? "NumberOfObjects")
+            Prelude.<*> (x Data..:? "SchemaId")
+            Prelude.<*> (x Data..:? "ObjectType")
+            Prelude.<*> (x Data..:? "CodeSize")
       )
 
 instance

@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationDetail wher
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.SavingsPlansDetails
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for your recommended Savings Plans.
@@ -245,32 +246,32 @@ savingsPlansPurchaseRecommendationDetail_estimatedROI :: Lens.Lens' SavingsPlans
 savingsPlansPurchaseRecommendationDetail_estimatedROI = Lens.lens (\SavingsPlansPurchaseRecommendationDetail' {estimatedROI} -> estimatedROI) (\s@SavingsPlansPurchaseRecommendationDetail' {} a -> s {estimatedROI = a} :: SavingsPlansPurchaseRecommendationDetail)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SavingsPlansPurchaseRecommendationDetail
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlansPurchaseRecommendationDetail"
       ( \x ->
           SavingsPlansPurchaseRecommendationDetail'
-            Prelude.<$> (x Core..:? "HourlyCommitmentToPurchase")
-            Prelude.<*> (x Core..:? "EstimatedSavingsPercentage")
-            Prelude.<*> (x Core..:? "EstimatedMonthlySavingsAmount")
+            Prelude.<$> (x Data..:? "HourlyCommitmentToPurchase")
+            Prelude.<*> (x Data..:? "EstimatedSavingsPercentage")
+            Prelude.<*> (x Data..:? "EstimatedMonthlySavingsAmount")
             Prelude.<*> ( x
-                            Core..:? "EstimatedOnDemandCostWithCurrentCommitment"
+                            Data..:? "EstimatedOnDemandCostWithCurrentCommitment"
                         )
-            Prelude.<*> (x Core..:? "UpfrontCost")
-            Prelude.<*> (x Core..:? "EstimatedAverageUtilization")
-            Prelude.<*> (x Core..:? "CurrentMinimumHourlyOnDemandSpend")
-            Prelude.<*> (x Core..:? "CurrencyCode")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "EstimatedOnDemandCost")
-            Prelude.<*> (x Core..:? "CurrentAverageHourlyOnDemandSpend")
-            Prelude.<*> (x Core..:? "EstimatedSavingsAmount")
-            Prelude.<*> (x Core..:? "EstimatedSPCost")
-            Prelude.<*> (x Core..:? "SavingsPlansDetails")
-            Prelude.<*> (x Core..:? "CurrentMaximumHourlyOnDemandSpend")
-            Prelude.<*> (x Core..:? "EstimatedROI")
+            Prelude.<*> (x Data..:? "UpfrontCost")
+            Prelude.<*> (x Data..:? "EstimatedAverageUtilization")
+            Prelude.<*> (x Data..:? "CurrentMinimumHourlyOnDemandSpend")
+            Prelude.<*> (x Data..:? "CurrencyCode")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "EstimatedOnDemandCost")
+            Prelude.<*> (x Data..:? "CurrentAverageHourlyOnDemandSpend")
+            Prelude.<*> (x Data..:? "EstimatedSavingsAmount")
+            Prelude.<*> (x Data..:? "EstimatedSPCost")
+            Prelude.<*> (x Data..:? "SavingsPlansDetails")
+            Prelude.<*> (x Data..:? "CurrentMaximumHourlyOnDemandSpend")
+            Prelude.<*> (x Data..:? "EstimatedROI")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.OnlineStoreConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.OnlineStoreSecurityConfig
 
@@ -81,14 +82,14 @@ onlineStoreConfig_enableOnlineStore = Lens.lens (\OnlineStoreConfig' {enableOnli
 onlineStoreConfig_securityConfig :: Lens.Lens' OnlineStoreConfig (Prelude.Maybe OnlineStoreSecurityConfig)
 onlineStoreConfig_securityConfig = Lens.lens (\OnlineStoreConfig' {securityConfig} -> securityConfig) (\s@OnlineStoreConfig' {} a -> s {securityConfig = a} :: OnlineStoreConfig)
 
-instance Core.FromJSON OnlineStoreConfig where
+instance Data.FromJSON OnlineStoreConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OnlineStoreConfig"
       ( \x ->
           OnlineStoreConfig'
-            Prelude.<$> (x Core..:? "EnableOnlineStore")
-            Prelude.<*> (x Core..:? "SecurityConfig")
+            Prelude.<$> (x Data..:? "EnableOnlineStore")
+            Prelude.<*> (x Data..:? "SecurityConfig")
       )
 
 instance Prelude.Hashable OnlineStoreConfig where
@@ -101,13 +102,13 @@ instance Prelude.NFData OnlineStoreConfig where
     Prelude.rnf enableOnlineStore
       `Prelude.seq` Prelude.rnf securityConfig
 
-instance Core.ToJSON OnlineStoreConfig where
+instance Data.ToJSON OnlineStoreConfig where
   toJSON OnlineStoreConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EnableOnlineStore" Core..=)
+          [ ("EnableOnlineStore" Data..=)
               Prelude.<$> enableOnlineStore,
-            ("SecurityConfig" Core..=)
+            ("SecurityConfig" Data..=)
               Prelude.<$> securityConfig
           ]
       )

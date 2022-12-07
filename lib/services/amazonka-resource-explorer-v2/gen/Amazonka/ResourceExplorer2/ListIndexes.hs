@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceExplorer2.Types
@@ -189,8 +190,8 @@ instance Core.AWSRequest ListIndexes where
     Response.receiveJSON
       ( \s h x ->
           ListIndexesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Indexes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Indexes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,32 +209,32 @@ instance Prelude.NFData ListIndexes where
       `Prelude.seq` Prelude.rnf regions
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListIndexes where
+instance Data.ToHeaders ListIndexes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListIndexes where
+instance Data.ToJSON ListIndexes where
   toJSON ListIndexes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Regions" Core..=) Prelude.<$> regions,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Regions" Data..=) Prelude.<$> regions,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListIndexes where
+instance Data.ToPath ListIndexes where
   toPath = Prelude.const "/ListIndexes"
 
-instance Core.ToQuery ListIndexes where
+instance Data.ToQuery ListIndexes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListIndexesResponse' smart constructor.

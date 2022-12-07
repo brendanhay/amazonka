@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,8 +98,8 @@ instance Core.AWSRequest CreateAssociationBatch where
     Response.receiveJSON
       ( \s h x ->
           CreateAssociationBatchResponse'
-            Prelude.<$> (x Core..?> "Failed" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Successful" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Failed" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Successful" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,32 +110,32 @@ instance Prelude.Hashable CreateAssociationBatch where
 instance Prelude.NFData CreateAssociationBatch where
   rnf CreateAssociationBatch' {..} = Prelude.rnf entries
 
-instance Core.ToHeaders CreateAssociationBatch where
+instance Data.ToHeaders CreateAssociationBatch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.CreateAssociationBatch" ::
+              Data.=# ( "AmazonSSM.CreateAssociationBatch" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAssociationBatch where
+instance Data.ToJSON CreateAssociationBatch where
   toJSON CreateAssociationBatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Entries" Core..= entries)]
+          [Prelude.Just ("Entries" Data..= entries)]
       )
 
-instance Core.ToPath CreateAssociationBatch where
+instance Data.ToPath CreateAssociationBatch where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAssociationBatch where
+instance Data.ToQuery CreateAssociationBatch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAssociationBatchResponse' smart constructor.

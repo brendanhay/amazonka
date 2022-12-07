@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest DescribeBatchSegmentJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeBatchSegmentJobResponse'
-            Prelude.<$> (x Core..?> "batchSegmentJob")
+            Prelude.<$> (x Data..?> "batchSegmentJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,34 +101,34 @@ instance Prelude.NFData DescribeBatchSegmentJob where
   rnf DescribeBatchSegmentJob' {..} =
     Prelude.rnf batchSegmentJobArn
 
-instance Core.ToHeaders DescribeBatchSegmentJob where
+instance Data.ToHeaders DescribeBatchSegmentJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DescribeBatchSegmentJob" ::
+              Data.=# ( "AmazonPersonalize.DescribeBatchSegmentJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeBatchSegmentJob where
+instance Data.ToJSON DescribeBatchSegmentJob where
   toJSON DescribeBatchSegmentJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("batchSegmentJobArn" Core..= batchSegmentJobArn)
+              ("batchSegmentJobArn" Data..= batchSegmentJobArn)
           ]
       )
 
-instance Core.ToPath DescribeBatchSegmentJob where
+instance Data.ToPath DescribeBatchSegmentJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeBatchSegmentJob where
+instance Data.ToQuery DescribeBatchSegmentJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeBatchSegmentJobResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.StepExecutionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.StepExecutionFilterKey
 
@@ -82,11 +83,11 @@ instance Prelude.NFData StepExecutionFilter where
   rnf StepExecutionFilter' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON StepExecutionFilter where
+instance Data.ToJSON StepExecutionFilter where
   toJSON StepExecutionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Values" Core..= values)
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.CheckDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.CheckFailureReason
 import Amazonka.WellArchitected.Types.CheckProvider
@@ -51,7 +52,7 @@ data CheckDetail = CheckDetail'
     -- | Count of flagged resources associated to the check.
     flaggedResources :: Prelude.Maybe Prelude.Natural,
     pillarId :: Prelude.Maybe Prelude.Text,
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -157,27 +158,27 @@ checkDetail_pillarId = Lens.lens (\CheckDetail' {pillarId} -> pillarId) (\s@Chec
 
 -- | Undocumented member.
 checkDetail_updatedAt :: Lens.Lens' CheckDetail (Prelude.Maybe Prelude.UTCTime)
-checkDetail_updatedAt = Lens.lens (\CheckDetail' {updatedAt} -> updatedAt) (\s@CheckDetail' {} a -> s {updatedAt = a} :: CheckDetail) Prelude.. Lens.mapping Core._Time
+checkDetail_updatedAt = Lens.lens (\CheckDetail' {updatedAt} -> updatedAt) (\s@CheckDetail' {} a -> s {updatedAt = a} :: CheckDetail) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CheckDetail where
+instance Data.FromJSON CheckDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CheckDetail"
       ( \x ->
           CheckDetail'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LensArn")
-            Prelude.<*> (x Core..:? "Provider")
-            Prelude.<*> (x Core..:? "QuestionId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ChoiceId")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "Reason")
-            Prelude.<*> (x Core..:? "FlaggedResources")
-            Prelude.<*> (x Core..:? "PillarId")
-            Prelude.<*> (x Core..:? "UpdatedAt")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LensArn")
+            Prelude.<*> (x Data..:? "Provider")
+            Prelude.<*> (x Data..:? "QuestionId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ChoiceId")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "Reason")
+            Prelude.<*> (x Data..:? "FlaggedResources")
+            Prelude.<*> (x Data..:? "PillarId")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable CheckDetail where

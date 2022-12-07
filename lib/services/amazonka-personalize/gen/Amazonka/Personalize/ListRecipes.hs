@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,8 +145,8 @@ instance Core.AWSRequest ListRecipes where
     Response.receiveJSON
       ( \s h x ->
           ListRecipesResponse'
-            Prelude.<$> (x Core..?> "recipes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "recipes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,37 +164,37 @@ instance Prelude.NFData ListRecipes where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListRecipes where
+instance Data.ToHeaders ListRecipes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.ListRecipes" ::
+              Data.=# ( "AmazonPersonalize.ListRecipes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRecipes where
+instance Data.ToJSON ListRecipes where
   toJSON ListRecipes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("recipeProvider" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("recipeProvider" Data..=)
               Prelude.<$> recipeProvider,
-            ("domain" Core..=) Prelude.<$> domain,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("domain" Data..=) Prelude.<$> domain,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListRecipes where
+instance Data.ToPath ListRecipes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRecipes where
+instance Data.ToQuery ListRecipes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRecipesResponse' smart constructor.

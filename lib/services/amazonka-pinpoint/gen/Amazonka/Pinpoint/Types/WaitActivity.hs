@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.WaitActivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.WaitTime
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,14 +71,14 @@ waitActivity_nextActivity = Lens.lens (\WaitActivity' {nextActivity} -> nextActi
 waitActivity_waitTime :: Lens.Lens' WaitActivity (Prelude.Maybe WaitTime)
 waitActivity_waitTime = Lens.lens (\WaitActivity' {waitTime} -> waitTime) (\s@WaitActivity' {} a -> s {waitTime = a} :: WaitActivity)
 
-instance Core.FromJSON WaitActivity where
+instance Data.FromJSON WaitActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WaitActivity"
       ( \x ->
           WaitActivity'
-            Prelude.<$> (x Core..:? "NextActivity")
-            Prelude.<*> (x Core..:? "WaitTime")
+            Prelude.<$> (x Data..:? "NextActivity")
+            Prelude.<*> (x Data..:? "WaitTime")
       )
 
 instance Prelude.Hashable WaitActivity where
@@ -90,11 +91,11 @@ instance Prelude.NFData WaitActivity where
     Prelude.rnf nextActivity
       `Prelude.seq` Prelude.rnf waitTime
 
-instance Core.ToJSON WaitActivity where
+instance Data.ToJSON WaitActivity where
   toJSON WaitActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextActivity" Core..=) Prelude.<$> nextActivity,
-            ("WaitTime" Core..=) Prelude.<$> waitTime
+          [ ("NextActivity" Data..=) Prelude.<$> nextActivity,
+            ("WaitTime" Data..=) Prelude.<$> waitTime
           ]
       )

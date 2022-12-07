@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorksCM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,7 +128,7 @@ instance Core.AWSRequest UpdateServer where
     Response.receiveJSON
       ( \s h x ->
           UpdateServerResponse'
-            Prelude.<$> (x Core..?> "Server")
+            Prelude.<$> (x Data..?> "Server")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,41 +148,41 @@ instance Prelude.NFData UpdateServer where
       `Prelude.seq` Prelude.rnf disableAutomatedBackup
       `Prelude.seq` Prelude.rnf serverName
 
-instance Core.ToHeaders UpdateServer where
+instance Data.ToHeaders UpdateServer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorksCM_V2016_11_01.UpdateServer" ::
+              Data.=# ( "OpsWorksCM_V2016_11_01.UpdateServer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateServer where
+instance Data.ToJSON UpdateServer where
   toJSON UpdateServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PreferredBackupWindow" Core..=)
+          [ ("PreferredBackupWindow" Data..=)
               Prelude.<$> preferredBackupWindow,
-            ("BackupRetentionCount" Core..=)
+            ("BackupRetentionCount" Data..=)
               Prelude.<$> backupRetentionCount,
-            ("PreferredMaintenanceWindow" Core..=)
+            ("PreferredMaintenanceWindow" Data..=)
               Prelude.<$> preferredMaintenanceWindow,
-            ("DisableAutomatedBackup" Core..=)
+            ("DisableAutomatedBackup" Data..=)
               Prelude.<$> disableAutomatedBackup,
-            Prelude.Just ("ServerName" Core..= serverName)
+            Prelude.Just ("ServerName" Data..= serverName)
           ]
       )
 
-instance Core.ToPath UpdateServer where
+instance Data.ToPath UpdateServer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateServer where
+instance Data.ToQuery UpdateServer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServerResponse' smart constructor.

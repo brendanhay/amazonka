@@ -24,6 +24,7 @@ import Amazonka.AppMesh.Types.HttpTimeout
 import Amazonka.AppMesh.Types.TcpTimeout
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents timeouts for different protocols.
@@ -82,16 +83,16 @@ listenerTimeout_tcp = Lens.lens (\ListenerTimeout' {tcp} -> tcp) (\s@ListenerTim
 listenerTimeout_grpc :: Lens.Lens' ListenerTimeout (Prelude.Maybe GrpcTimeout)
 listenerTimeout_grpc = Lens.lens (\ListenerTimeout' {grpc} -> grpc) (\s@ListenerTimeout' {} a -> s {grpc = a} :: ListenerTimeout)
 
-instance Core.FromJSON ListenerTimeout where
+instance Data.FromJSON ListenerTimeout where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListenerTimeout"
       ( \x ->
           ListenerTimeout'
-            Prelude.<$> (x Core..:? "http")
-            Prelude.<*> (x Core..:? "http2")
-            Prelude.<*> (x Core..:? "tcp")
-            Prelude.<*> (x Core..:? "grpc")
+            Prelude.<$> (x Data..:? "http")
+            Prelude.<*> (x Data..:? "http2")
+            Prelude.<*> (x Data..:? "tcp")
+            Prelude.<*> (x Data..:? "grpc")
       )
 
 instance Prelude.Hashable ListenerTimeout where
@@ -108,13 +109,13 @@ instance Prelude.NFData ListenerTimeout where
       `Prelude.seq` Prelude.rnf tcp
       `Prelude.seq` Prelude.rnf grpc
 
-instance Core.ToJSON ListenerTimeout where
+instance Data.ToJSON ListenerTimeout where
   toJSON ListenerTimeout' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("http" Core..=) Prelude.<$> http,
-            ("http2" Core..=) Prelude.<$> http2,
-            ("tcp" Core..=) Prelude.<$> tcp,
-            ("grpc" Core..=) Prelude.<$> grpc
+          [ ("http" Data..=) Prelude.<$> http,
+            ("http2" Data..=) Prelude.<$> http2,
+            ("tcp" Data..=) Prelude.<$> tcp,
+            ("grpc" Data..=) Prelude.<$> grpc
           ]
       )

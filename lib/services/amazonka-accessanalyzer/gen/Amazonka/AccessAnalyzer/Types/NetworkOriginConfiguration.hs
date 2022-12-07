@@ -23,6 +23,7 @@ import Amazonka.AccessAnalyzer.Types.InternetConfiguration
 import Amazonka.AccessAnalyzer.Types.VpcConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The proposed @InternetConfiguration@ or @VpcConfiguration@ to apply to
@@ -73,14 +74,14 @@ networkOriginConfiguration_vpcConfiguration = Lens.lens (\NetworkOriginConfigura
 networkOriginConfiguration_internetConfiguration :: Lens.Lens' NetworkOriginConfiguration (Prelude.Maybe InternetConfiguration)
 networkOriginConfiguration_internetConfiguration = Lens.lens (\NetworkOriginConfiguration' {internetConfiguration} -> internetConfiguration) (\s@NetworkOriginConfiguration' {} a -> s {internetConfiguration = a} :: NetworkOriginConfiguration)
 
-instance Core.FromJSON NetworkOriginConfiguration where
+instance Data.FromJSON NetworkOriginConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkOriginConfiguration"
       ( \x ->
           NetworkOriginConfiguration'
-            Prelude.<$> (x Core..:? "vpcConfiguration")
-            Prelude.<*> (x Core..:? "internetConfiguration")
+            Prelude.<$> (x Data..:? "vpcConfiguration")
+            Prelude.<*> (x Data..:? "internetConfiguration")
       )
 
 instance Prelude.Hashable NetworkOriginConfiguration where
@@ -93,13 +94,13 @@ instance Prelude.NFData NetworkOriginConfiguration where
     Prelude.rnf vpcConfiguration
       `Prelude.seq` Prelude.rnf internetConfiguration
 
-instance Core.ToJSON NetworkOriginConfiguration where
+instance Data.ToJSON NetworkOriginConfiguration where
   toJSON NetworkOriginConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("vpcConfiguration" Core..=)
+          [ ("vpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("internetConfiguration" Core..=)
+            ("internetConfiguration" Data..=)
               Prelude.<$> internetConfiguration
           ]
       )

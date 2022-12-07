@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.NielsenUniqueTicPerAudioTrackType
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | To create assets that have the same TIC values in each audio track, keep
@@ -35,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 -- (RESERVE_UNIQUE_TICS_PER_TRACK).
 newtype NielsenUniqueTicPerAudioTrackType = NielsenUniqueTicPerAudioTrackType'
   { fromNielsenUniqueTicPerAudioTrackType ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -47,18 +48,18 @@ newtype NielsenUniqueTicPerAudioTrackType = NielsenUniqueTicPerAudioTrackType'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern NielsenUniqueTicPerAudioTrackType_RESERVE_UNIQUE_TICS_PER_TRACK :: NielsenUniqueTicPerAudioTrackType

@@ -24,6 +24,7 @@ import Amazonka.Chime.Types.PhoneNumberOrderStatus
 import Amazonka.Chime.Types.PhoneNumberProductType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a phone number order created for Amazon Chime.
@@ -35,9 +36,9 @@ data PhoneNumberOrder = PhoneNumberOrder'
     -- | The phone number order product type.
     productType :: Prelude.Maybe PhoneNumberProductType,
     -- | The phone number order creation time stamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The updated phone number order time stamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The status of the phone number order.
     status :: Prelude.Maybe PhoneNumberOrderStatus,
     -- | The ordered phone number details, such as the phone number in E.164
@@ -89,11 +90,11 @@ phoneNumberOrder_productType = Lens.lens (\PhoneNumberOrder' {productType} -> pr
 
 -- | The phone number order creation time stamp, in ISO 8601 format.
 phoneNumberOrder_createdTimestamp :: Lens.Lens' PhoneNumberOrder (Prelude.Maybe Prelude.UTCTime)
-phoneNumberOrder_createdTimestamp = Lens.lens (\PhoneNumberOrder' {createdTimestamp} -> createdTimestamp) (\s@PhoneNumberOrder' {} a -> s {createdTimestamp = a} :: PhoneNumberOrder) Prelude.. Lens.mapping Core._Time
+phoneNumberOrder_createdTimestamp = Lens.lens (\PhoneNumberOrder' {createdTimestamp} -> createdTimestamp) (\s@PhoneNumberOrder' {} a -> s {createdTimestamp = a} :: PhoneNumberOrder) Prelude.. Lens.mapping Data._Time
 
 -- | The updated phone number order time stamp, in ISO 8601 format.
 phoneNumberOrder_updatedTimestamp :: Lens.Lens' PhoneNumberOrder (Prelude.Maybe Prelude.UTCTime)
-phoneNumberOrder_updatedTimestamp = Lens.lens (\PhoneNumberOrder' {updatedTimestamp} -> updatedTimestamp) (\s@PhoneNumberOrder' {} a -> s {updatedTimestamp = a} :: PhoneNumberOrder) Prelude.. Lens.mapping Core._Time
+phoneNumberOrder_updatedTimestamp = Lens.lens (\PhoneNumberOrder' {updatedTimestamp} -> updatedTimestamp) (\s@PhoneNumberOrder' {} a -> s {updatedTimestamp = a} :: PhoneNumberOrder) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the phone number order.
 phoneNumberOrder_status :: Lens.Lens' PhoneNumberOrder (Prelude.Maybe PhoneNumberOrderStatus)
@@ -104,19 +105,19 @@ phoneNumberOrder_status = Lens.lens (\PhoneNumberOrder' {status} -> status) (\s@
 phoneNumberOrder_orderedPhoneNumbers :: Lens.Lens' PhoneNumberOrder (Prelude.Maybe [OrderedPhoneNumber])
 phoneNumberOrder_orderedPhoneNumbers = Lens.lens (\PhoneNumberOrder' {orderedPhoneNumbers} -> orderedPhoneNumbers) (\s@PhoneNumberOrder' {} a -> s {orderedPhoneNumbers = a} :: PhoneNumberOrder) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PhoneNumberOrder where
+instance Data.FromJSON PhoneNumberOrder where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PhoneNumberOrder"
       ( \x ->
           PhoneNumberOrder'
-            Prelude.<$> (x Core..:? "PhoneNumberOrderId")
-            Prelude.<*> (x Core..:? "ProductType")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "UpdatedTimestamp")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> ( x Core..:? "OrderedPhoneNumbers"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "PhoneNumberOrderId")
+            Prelude.<*> (x Data..:? "ProductType")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> ( x Data..:? "OrderedPhoneNumbers"
+                            Data..!= Prelude.mempty
                         )
       )
 

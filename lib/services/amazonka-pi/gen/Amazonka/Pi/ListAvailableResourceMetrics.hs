@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pi.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -192,8 +193,8 @@ instance Core.AWSRequest ListAvailableResourceMetrics where
     Response.receiveJSON
       ( \s h x ->
           ListAvailableResourceMetricsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Metrics" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Metrics" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -216,37 +217,37 @@ instance Prelude.NFData ListAvailableResourceMetrics where
       `Prelude.seq` Prelude.rnf identifier
       `Prelude.seq` Prelude.rnf metricTypes
 
-instance Core.ToHeaders ListAvailableResourceMetrics where
+instance Data.ToHeaders ListAvailableResourceMetrics where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PerformanceInsightsv20180227.ListAvailableResourceMetrics" ::
+              Data.=# ( "PerformanceInsightsv20180227.ListAvailableResourceMetrics" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAvailableResourceMetrics where
+instance Data.ToJSON ListAvailableResourceMetrics where
   toJSON ListAvailableResourceMetrics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ServiceType" Core..= serviceType),
-            Prelude.Just ("Identifier" Core..= identifier),
-            Prelude.Just ("MetricTypes" Core..= metricTypes)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ServiceType" Data..= serviceType),
+            Prelude.Just ("Identifier" Data..= identifier),
+            Prelude.Just ("MetricTypes" Data..= metricTypes)
           ]
       )
 
-instance Core.ToPath ListAvailableResourceMetrics where
+instance Data.ToPath ListAvailableResourceMetrics where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAvailableResourceMetrics where
+instance Data.ToQuery ListAvailableResourceMetrics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAvailableResourceMetricsResponse' smart constructor.

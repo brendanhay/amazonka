@@ -22,6 +22,7 @@ module Amazonka.Budgets.Types.BudgetNotificationsForAccount where
 import Amazonka.Budgets.Types.Notification
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The budget name and associated notifications for an account.
@@ -61,14 +62,14 @@ budgetNotificationsForAccount_notifications = Lens.lens (\BudgetNotificationsFor
 budgetNotificationsForAccount_budgetName :: Lens.Lens' BudgetNotificationsForAccount (Prelude.Maybe Prelude.Text)
 budgetNotificationsForAccount_budgetName = Lens.lens (\BudgetNotificationsForAccount' {budgetName} -> budgetName) (\s@BudgetNotificationsForAccount' {} a -> s {budgetName = a} :: BudgetNotificationsForAccount)
 
-instance Core.FromJSON BudgetNotificationsForAccount where
+instance Data.FromJSON BudgetNotificationsForAccount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BudgetNotificationsForAccount"
       ( \x ->
           BudgetNotificationsForAccount'
-            Prelude.<$> (x Core..:? "Notifications" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "BudgetName")
+            Prelude.<$> (x Data..:? "Notifications" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "BudgetName")
       )
 
 instance

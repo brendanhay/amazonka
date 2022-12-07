@@ -21,6 +21,7 @@ module Amazonka.M2.Types.GdgAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The required attributes for a generation data group data set. A
@@ -76,12 +77,12 @@ instance Prelude.NFData GdgAttributes where
     Prelude.rnf limit
       `Prelude.seq` Prelude.rnf rollDisposition
 
-instance Core.ToJSON GdgAttributes where
+instance Data.ToJSON GdgAttributes where
   toJSON GdgAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("limit" Core..=) Prelude.<$> limit,
-            ("rollDisposition" Core..=)
+          [ ("limit" Data..=) Prelude.<$> limit,
+            ("rollDisposition" Data..=)
               Prelude.<$> rollDisposition
           ]
       )

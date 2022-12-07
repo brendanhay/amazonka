@@ -23,6 +23,7 @@ import Amazonka.CodeBuild.Types.AuthType
 import Amazonka.CodeBuild.Types.ServerType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the credentials for a GitHub, GitHub Enterprise, or
@@ -79,15 +80,15 @@ sourceCredentialsInfo_serverType = Lens.lens (\SourceCredentialsInfo' {serverTyp
 sourceCredentialsInfo_authType :: Lens.Lens' SourceCredentialsInfo (Prelude.Maybe AuthType)
 sourceCredentialsInfo_authType = Lens.lens (\SourceCredentialsInfo' {authType} -> authType) (\s@SourceCredentialsInfo' {} a -> s {authType = a} :: SourceCredentialsInfo)
 
-instance Core.FromJSON SourceCredentialsInfo where
+instance Data.FromJSON SourceCredentialsInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceCredentialsInfo"
       ( \x ->
           SourceCredentialsInfo'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "serverType")
-            Prelude.<*> (x Core..:? "authType")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "serverType")
+            Prelude.<*> (x Data..:? "authType")
       )
 
 instance Prelude.Hashable SourceCredentialsInfo where

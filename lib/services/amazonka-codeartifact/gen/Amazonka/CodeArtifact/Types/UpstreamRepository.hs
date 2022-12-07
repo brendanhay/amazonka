@@ -21,6 +21,7 @@ module Amazonka.CodeArtifact.Types.UpstreamRepository where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an upstream repository. A list of @UpstreamRepository@
@@ -67,11 +68,11 @@ instance Prelude.NFData UpstreamRepository where
   rnf UpstreamRepository' {..} =
     Prelude.rnf repositoryName
 
-instance Core.ToJSON UpstreamRepository where
+instance Data.ToJSON UpstreamRepository where
   toJSON UpstreamRepository' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("repositoryName" Core..= repositoryName)
+              ("repositoryName" Data..= repositoryName)
           ]
       )

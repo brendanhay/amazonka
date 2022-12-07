@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -79,7 +80,7 @@ data CreateService = CreateService'
     -- template /doesn\'t/ include a service pipeline.
     branchName :: Prelude.Maybe Prelude.Text,
     -- | A description of the Proton service.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The minor version of the service template that was used to create the
     -- service.
     templateMinorVersion :: Prelude.Maybe Prelude.Text,
@@ -94,7 +95,7 @@ data CreateService = CreateService'
     -- include a service pipeline. For more information, see
     -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-create-svc.html Create a service>
     -- in the /Proton User Guide/.
-    spec :: Core.Sensitive Prelude.Text,
+    spec :: Data.Sensitive Prelude.Text,
     -- | The major version of the service template that was used to create the
     -- service.
     templateMajorVersion :: Prelude.Text,
@@ -172,7 +173,7 @@ newCreateService
         templateMinorVersion = Prelude.Nothing,
         repositoryId = Prelude.Nothing,
         name = pName_,
-        spec = Core._Sensitive Lens.# pSpec_,
+        spec = Data._Sensitive Lens.# pSpec_,
         templateMajorVersion = pTemplateMajorVersion_,
         templateName = pTemplateName_
       }
@@ -202,7 +203,7 @@ createService_branchName = Lens.lens (\CreateService' {branchName} -> branchName
 
 -- | A description of the Proton service.
 createService_description :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
-createService_description = Lens.lens (\CreateService' {description} -> description) (\s@CreateService' {} a -> s {description = a} :: CreateService) Prelude.. Lens.mapping Core._Sensitive
+createService_description = Lens.lens (\CreateService' {description} -> description) (\s@CreateService' {} a -> s {description = a} :: CreateService) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The minor version of the service template that was used to create the
 -- service.
@@ -225,7 +226,7 @@ createService_name = Lens.lens (\CreateService' {name} -> name) (\s@CreateServic
 -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-create-svc.html Create a service>
 -- in the /Proton User Guide/.
 createService_spec :: Lens.Lens' CreateService Prelude.Text
-createService_spec = Lens.lens (\CreateService' {spec} -> spec) (\s@CreateService' {} a -> s {spec = a} :: CreateService) Prelude.. Core._Sensitive
+createService_spec = Lens.lens (\CreateService' {spec} -> spec) (\s@CreateService' {} a -> s {spec = a} :: CreateService) Prelude.. Data._Sensitive
 
 -- | The major version of the service template that was used to create the
 -- service.
@@ -247,7 +248,7 @@ instance Core.AWSRequest CreateService where
       ( \s h x ->
           CreateServiceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "service")
+            Prelude.<*> (x Data..:> "service")
       )
 
 instance Prelude.Hashable CreateService where
@@ -276,47 +277,47 @@ instance Prelude.NFData CreateService where
       `Prelude.seq` Prelude.rnf templateMajorVersion
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToHeaders CreateService where
+instance Data.ToHeaders CreateService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.CreateService" ::
+              Data.=# ( "AwsProton20200720.CreateService" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateService where
+instance Data.ToJSON CreateService where
   toJSON CreateService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("repositoryConnectionArn" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("repositoryConnectionArn" Data..=)
               Prelude.<$> repositoryConnectionArn,
-            ("branchName" Core..=) Prelude.<$> branchName,
-            ("description" Core..=) Prelude.<$> description,
-            ("templateMinorVersion" Core..=)
+            ("branchName" Data..=) Prelude.<$> branchName,
+            ("description" Data..=) Prelude.<$> description,
+            ("templateMinorVersion" Data..=)
               Prelude.<$> templateMinorVersion,
-            ("repositoryId" Core..=) Prelude.<$> repositoryId,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("spec" Core..= spec),
+            ("repositoryId" Data..=) Prelude.<$> repositoryId,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("spec" Data..= spec),
             Prelude.Just
               ( "templateMajorVersion"
-                  Core..= templateMajorVersion
+                  Data..= templateMajorVersion
               ),
-            Prelude.Just ("templateName" Core..= templateName)
+            Prelude.Just ("templateName" Data..= templateName)
           ]
       )
 
-instance Core.ToPath CreateService where
+instance Data.ToPath CreateService where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateService where
+instance Data.ToQuery CreateService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateServiceResponse' smart constructor.

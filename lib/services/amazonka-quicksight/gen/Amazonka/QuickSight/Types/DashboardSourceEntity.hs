@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DashboardSourceEntity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DashboardSourceTemplate
 
@@ -62,11 +63,11 @@ instance Prelude.NFData DashboardSourceEntity where
   rnf DashboardSourceEntity' {..} =
     Prelude.rnf sourceTemplate
 
-instance Core.ToJSON DashboardSourceEntity where
+instance Data.ToJSON DashboardSourceEntity where
   toJSON DashboardSourceEntity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceTemplate" Core..=)
+          [ ("SourceTemplate" Data..=)
               Prelude.<$> sourceTemplate
           ]
       )

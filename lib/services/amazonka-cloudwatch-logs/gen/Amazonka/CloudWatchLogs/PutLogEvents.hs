@@ -85,6 +85,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -178,8 +179,8 @@ instance Core.AWSRequest PutLogEvents where
     Response.receiveJSON
       ( \s h x ->
           PutLogEventsResponse'
-            Prelude.<$> (x Core..?> "nextSequenceToken")
-            Prelude.<*> (x Core..?> "rejectedLogEventsInfo")
+            Prelude.<$> (x Data..?> "nextSequenceToken")
+            Prelude.<*> (x Data..?> "rejectedLogEventsInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,34 +198,34 @@ instance Prelude.NFData PutLogEvents where
       `Prelude.seq` Prelude.rnf logStreamName
       `Prelude.seq` Prelude.rnf logEvents
 
-instance Core.ToHeaders PutLogEvents where
+instance Data.ToHeaders PutLogEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Logs_20140328.PutLogEvents" :: Prelude.ByteString),
+              Data.=# ("Logs_20140328.PutLogEvents" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutLogEvents where
+instance Data.ToJSON PutLogEvents where
   toJSON PutLogEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sequenceToken" Core..=) Prelude.<$> sequenceToken,
-            Prelude.Just ("logGroupName" Core..= logGroupName),
-            Prelude.Just ("logStreamName" Core..= logStreamName),
-            Prelude.Just ("logEvents" Core..= logEvents)
+          [ ("sequenceToken" Data..=) Prelude.<$> sequenceToken,
+            Prelude.Just ("logGroupName" Data..= logGroupName),
+            Prelude.Just ("logStreamName" Data..= logStreamName),
+            Prelude.Just ("logEvents" Data..= logEvents)
           ]
       )
 
-instance Core.ToPath PutLogEvents where
+instance Data.ToPath PutLogEvents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutLogEvents where
+instance Data.ToQuery PutLogEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutLogEventsResponse' smart constructor.

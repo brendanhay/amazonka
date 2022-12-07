@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,20 +95,20 @@ instance Prelude.NFData DeleteVerifiedEmailAddress where
   rnf DeleteVerifiedEmailAddress' {..} =
     Prelude.rnf emailAddress
 
-instance Core.ToHeaders DeleteVerifiedEmailAddress where
+instance Data.ToHeaders DeleteVerifiedEmailAddress where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteVerifiedEmailAddress where
+instance Data.ToPath DeleteVerifiedEmailAddress where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVerifiedEmailAddress where
+instance Data.ToQuery DeleteVerifiedEmailAddress where
   toQuery DeleteVerifiedEmailAddress' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteVerifiedEmailAddress" :: Prelude.ByteString),
+          Data.=: ("DeleteVerifiedEmailAddress" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "EmailAddress" Core.=: emailAddress
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "EmailAddress" Data.=: emailAddress
       ]
 
 -- | /See:/ 'newDeleteVerifiedEmailAddressResponse' smart constructor.

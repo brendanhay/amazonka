@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.LifeCycleLastTest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.LifeCycleLastTestFinalized
 import Amazonka.MGN.Types.LifeCycleLastTestInitiated
 import Amazonka.MGN.Types.LifeCycleLastTestReverted
@@ -73,15 +74,15 @@ lifeCycleLastTest_finalized = Lens.lens (\LifeCycleLastTest' {finalized} -> fina
 lifeCycleLastTest_initiated :: Lens.Lens' LifeCycleLastTest (Prelude.Maybe LifeCycleLastTestInitiated)
 lifeCycleLastTest_initiated = Lens.lens (\LifeCycleLastTest' {initiated} -> initiated) (\s@LifeCycleLastTest' {} a -> s {initiated = a} :: LifeCycleLastTest)
 
-instance Core.FromJSON LifeCycleLastTest where
+instance Data.FromJSON LifeCycleLastTest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifeCycleLastTest"
       ( \x ->
           LifeCycleLastTest'
-            Prelude.<$> (x Core..:? "reverted")
-            Prelude.<*> (x Core..:? "finalized")
-            Prelude.<*> (x Core..:? "initiated")
+            Prelude.<$> (x Data..:? "reverted")
+            Prelude.<*> (x Data..:? "finalized")
+            Prelude.<*> (x Data..:? "initiated")
       )
 
 instance Prelude.Hashable LifeCycleLastTest where

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -165,9 +166,9 @@ instance Core.AWSRequest ListFindings where
     Response.receiveJSON
       ( \s h x ->
           ListFindingsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "findingArns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "findingArns" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListFindings where
@@ -184,37 +185,37 @@ instance Prelude.NFData ListFindings where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListFindings where
+instance Data.ToHeaders ListFindings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.ListFindings" ::
+              Data.=# ( "InspectorService.ListFindings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListFindings where
+instance Data.ToJSON ListFindings where
   toJSON ListFindings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("assessmentRunArns" Core..=)
+          [ ("assessmentRunArns" Data..=)
               Prelude.<$> assessmentRunArns,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filter" Core..=) Prelude.<$> filter',
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filter" Data..=) Prelude.<$> filter',
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListFindings where
+instance Data.ToPath ListFindings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListFindings where
+instance Data.ToQuery ListFindings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListFindingsResponse' smart constructor.

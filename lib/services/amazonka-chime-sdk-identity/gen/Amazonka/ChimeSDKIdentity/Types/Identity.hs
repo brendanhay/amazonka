@@ -21,6 +21,7 @@ module Amazonka.ChimeSDKIdentity.Types.Identity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a user.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newIdentity' smart constructor.
 data Identity = Identity'
   { -- | The name in an Identity.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN in an Identity.
     arn :: Prelude.Maybe Prelude.Text
   }
@@ -55,19 +56,19 @@ newIdentity =
 
 -- | The name in an Identity.
 identity_name :: Lens.Lens' Identity (Prelude.Maybe Prelude.Text)
-identity_name = Lens.lens (\Identity' {name} -> name) (\s@Identity' {} a -> s {name = a} :: Identity) Prelude.. Lens.mapping Core._Sensitive
+identity_name = Lens.lens (\Identity' {name} -> name) (\s@Identity' {} a -> s {name = a} :: Identity) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN in an Identity.
 identity_arn :: Lens.Lens' Identity (Prelude.Maybe Prelude.Text)
 identity_arn = Lens.lens (\Identity' {arn} -> arn) (\s@Identity' {} a -> s {arn = a} :: Identity)
 
-instance Core.FromJSON Identity where
+instance Data.FromJSON Identity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Identity"
       ( \x ->
           Identity'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable Identity where

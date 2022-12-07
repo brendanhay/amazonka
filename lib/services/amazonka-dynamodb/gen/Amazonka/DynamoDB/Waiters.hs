@@ -18,6 +18,7 @@ module Amazonka.DynamoDB.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.DescribeTable
 import Amazonka.DynamoDB.Lens
 import Amazonka.DynamoDB.Types
@@ -51,7 +52,7 @@ newTableExists =
             ( describeTableResponse_table Prelude.. Lens._Just
                 Prelude.. tableDescription_tableStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundException"

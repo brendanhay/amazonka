@@ -63,6 +63,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -172,18 +173,18 @@ instance Core.AWSRequest PutIntegration where
     Response.receiveJSON
       ( \s h x ->
           PutIntegrationResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "IsUnstructured")
-            Prelude.<*> ( x Core..?> "ObjectTypeNames"
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "IsUnstructured")
+            Prelude.<*> ( x Data..?> "ObjectTypeNames"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "WorkflowId")
-            Prelude.<*> (x Core..?> "ObjectTypeName")
+            Prelude.<*> (x Data..?> "WorkflowId")
+            Prelude.<*> (x Data..?> "ObjectTypeName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DomainName")
-            Prelude.<*> (x Core..:> "Uri")
-            Prelude.<*> (x Core..:> "CreatedAt")
-            Prelude.<*> (x Core..:> "LastUpdatedAt")
+            Prelude.<*> (x Data..:> "DomainName")
+            Prelude.<*> (x Data..:> "Uri")
+            Prelude.<*> (x Data..:> "CreatedAt")
+            Prelude.<*> (x Data..:> "LastUpdatedAt")
       )
 
 instance Prelude.Hashable PutIntegration where
@@ -204,38 +205,38 @@ instance Prelude.NFData PutIntegration where
       `Prelude.seq` Prelude.rnf objectTypeName
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders PutIntegration where
+instance Data.ToHeaders PutIntegration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutIntegration where
+instance Data.ToJSON PutIntegration where
   toJSON PutIntegration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ObjectTypeNames" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ObjectTypeNames" Data..=)
               Prelude.<$> objectTypeNames,
-            ("Uri" Core..=) Prelude.<$> uri,
-            ("FlowDefinition" Core..=)
+            ("Uri" Data..=) Prelude.<$> uri,
+            ("FlowDefinition" Data..=)
               Prelude.<$> flowDefinition,
-            ("ObjectTypeName" Core..=)
+            ("ObjectTypeName" Data..=)
               Prelude.<$> objectTypeName
           ]
       )
 
-instance Core.ToPath PutIntegration where
+instance Data.ToPath PutIntegration where
   toPath PutIntegration' {..} =
     Prelude.mconcat
-      ["/domains/", Core.toBS domainName, "/integrations"]
+      ["/domains/", Data.toBS domainName, "/integrations"]
 
-instance Core.ToQuery PutIntegration where
+instance Data.ToQuery PutIntegration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutIntegrationResponse' smart constructor.
@@ -265,9 +266,9 @@ data PutIntegrationResponse = PutIntegrationResponse'
     -- | The URI of the S3 bucket or any other type of data source.
     uri :: Prelude.Text,
     -- | The timestamp of when the domain was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The timestamp of when the domain was most recently edited.
-    lastUpdatedAt :: Core.POSIX
+    lastUpdatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -333,8 +334,8 @@ newPutIntegrationResponse
         httpStatus = pHttpStatus_,
         domainName = pDomainName_,
         uri = pUri_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastUpdatedAt = Core._Time Lens.# pLastUpdatedAt_
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_
       }
 
 -- | The tags used to organize, track, or control access for this resource.
@@ -379,11 +380,11 @@ putIntegrationResponse_uri = Lens.lens (\PutIntegrationResponse' {uri} -> uri) (
 
 -- | The timestamp of when the domain was created.
 putIntegrationResponse_createdAt :: Lens.Lens' PutIntegrationResponse Prelude.UTCTime
-putIntegrationResponse_createdAt = Lens.lens (\PutIntegrationResponse' {createdAt} -> createdAt) (\s@PutIntegrationResponse' {} a -> s {createdAt = a} :: PutIntegrationResponse) Prelude.. Core._Time
+putIntegrationResponse_createdAt = Lens.lens (\PutIntegrationResponse' {createdAt} -> createdAt) (\s@PutIntegrationResponse' {} a -> s {createdAt = a} :: PutIntegrationResponse) Prelude.. Data._Time
 
 -- | The timestamp of when the domain was most recently edited.
 putIntegrationResponse_lastUpdatedAt :: Lens.Lens' PutIntegrationResponse Prelude.UTCTime
-putIntegrationResponse_lastUpdatedAt = Lens.lens (\PutIntegrationResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@PutIntegrationResponse' {} a -> s {lastUpdatedAt = a} :: PutIntegrationResponse) Prelude.. Core._Time
+putIntegrationResponse_lastUpdatedAt = Lens.lens (\PutIntegrationResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@PutIntegrationResponse' {} a -> s {lastUpdatedAt = a} :: PutIntegrationResponse) Prelude.. Data._Time
 
 instance Prelude.NFData PutIntegrationResponse where
   rnf PutIntegrationResponse' {..} =

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,22 +132,22 @@ instance Prelude.NFData ResetSnapshotAttribute where
       `Prelude.seq` Prelude.rnf attribute
       `Prelude.seq` Prelude.rnf snapshotId
 
-instance Core.ToHeaders ResetSnapshotAttribute where
+instance Data.ToHeaders ResetSnapshotAttribute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ResetSnapshotAttribute where
+instance Data.ToPath ResetSnapshotAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResetSnapshotAttribute where
+instance Data.ToQuery ResetSnapshotAttribute where
   toQuery ResetSnapshotAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ResetSnapshotAttribute" :: Prelude.ByteString),
+          Data.=: ("ResetSnapshotAttribute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Attribute" Core.=: attribute,
-        "SnapshotId" Core.=: snapshotId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Attribute" Data.=: attribute,
+        "SnapshotId" Data.=: snapshotId
       ]
 
 -- | /See:/ 'newResetSnapshotAttributeResponse' smart constructor.

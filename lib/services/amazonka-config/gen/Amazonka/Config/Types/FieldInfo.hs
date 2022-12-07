@@ -21,6 +21,7 @@ module Amazonka.Config.Types.FieldInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the fields such as name of the field.
@@ -49,11 +50,11 @@ newFieldInfo = FieldInfo' {name = Prelude.Nothing}
 fieldInfo_name :: Lens.Lens' FieldInfo (Prelude.Maybe Prelude.Text)
 fieldInfo_name = Lens.lens (\FieldInfo' {name} -> name) (\s@FieldInfo' {} a -> s {name = a} :: FieldInfo)
 
-instance Core.FromJSON FieldInfo where
+instance Data.FromJSON FieldInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldInfo"
-      (\x -> FieldInfo' Prelude.<$> (x Core..:? "Name"))
+      (\x -> FieldInfo' Prelude.<$> (x Data..:? "Name"))
 
 instance Prelude.Hashable FieldInfo where
   hashWithSalt _salt FieldInfo' {..} =

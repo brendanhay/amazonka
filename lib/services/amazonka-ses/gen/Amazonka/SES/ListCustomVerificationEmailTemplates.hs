@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,11 +153,11 @@ instance
       "ListCustomVerificationEmailTemplatesResult"
       ( \s h x ->
           ListCustomVerificationEmailTemplatesResponse'
-            Prelude.<$> ( x Core..@? "CustomVerificationEmailTemplates"
+            Prelude.<$> ( x Data..@? "CustomVerificationEmailTemplates"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-              Prelude.<*> (x Core..@? "NextToken")
+              Prelude.<*> (x Data..@? "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,31 +180,31 @@ instance
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListCustomVerificationEmailTemplates
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListCustomVerificationEmailTemplates
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListCustomVerificationEmailTemplates
   where
   toQuery ListCustomVerificationEmailTemplates' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ListCustomVerificationEmailTemplates" ::
+          Data.=: ( "ListCustomVerificationEmailTemplates" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | A paginated list of custom verification email templates.

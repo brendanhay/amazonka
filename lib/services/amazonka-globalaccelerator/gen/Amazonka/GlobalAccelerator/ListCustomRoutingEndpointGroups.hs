@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,8 +121,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListCustomRoutingEndpointGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "EndpointGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "EndpointGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,37 +147,37 @@ instance
       `Prelude.seq` Prelude.rnf listenerArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListCustomRoutingEndpointGroups
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.ListCustomRoutingEndpointGroups" ::
+              Data.=# ( "GlobalAccelerator_V20180706.ListCustomRoutingEndpointGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCustomRoutingEndpointGroups where
+instance Data.ToJSON ListCustomRoutingEndpointGroups where
   toJSON ListCustomRoutingEndpointGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ListenerArn" Core..= listenerArn)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ListenerArn" Data..= listenerArn)
           ]
       )
 
-instance Core.ToPath ListCustomRoutingEndpointGroups where
+instance Data.ToPath ListCustomRoutingEndpointGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListCustomRoutingEndpointGroups where
+instance Data.ToQuery ListCustomRoutingEndpointGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCustomRoutingEndpointGroupsResponse' smart constructor.

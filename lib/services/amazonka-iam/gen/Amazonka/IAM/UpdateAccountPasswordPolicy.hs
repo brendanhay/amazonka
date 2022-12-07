@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -377,35 +378,35 @@ instance Prelude.NFData UpdateAccountPasswordPolicy where
       `Prelude.seq` Prelude.rnf requireUppercaseCharacters
       `Prelude.seq` Prelude.rnf hardExpiry
 
-instance Core.ToHeaders UpdateAccountPasswordPolicy where
+instance Data.ToHeaders UpdateAccountPasswordPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateAccountPasswordPolicy where
+instance Data.ToPath UpdateAccountPasswordPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAccountPasswordPolicy where
+instance Data.ToQuery UpdateAccountPasswordPolicy where
   toQuery UpdateAccountPasswordPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "UpdateAccountPasswordPolicy" ::
+          Data.=: ( "UpdateAccountPasswordPolicy" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "MaxPasswordAge" Core.=: maxPasswordAge,
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "MaxPasswordAge" Data.=: maxPasswordAge,
         "MinimumPasswordLength"
-          Core.=: minimumPasswordLength,
+          Data.=: minimumPasswordLength,
         "AllowUsersToChangePassword"
-          Core.=: allowUsersToChangePassword,
+          Data.=: allowUsersToChangePassword,
         "PasswordReusePrevention"
-          Core.=: passwordReusePrevention,
-        "RequireNumbers" Core.=: requireNumbers,
+          Data.=: passwordReusePrevention,
+        "RequireNumbers" Data.=: requireNumbers,
         "RequireLowercaseCharacters"
-          Core.=: requireLowercaseCharacters,
-        "RequireSymbols" Core.=: requireSymbols,
+          Data.=: requireLowercaseCharacters,
+        "RequireSymbols" Data.=: requireSymbols,
         "RequireUppercaseCharacters"
-          Core.=: requireUppercaseCharacters,
-        "HardExpiry" Core.=: hardExpiry
+          Data.=: requireUppercaseCharacters,
+        "HardExpiry" Data.=: hardExpiry
       ]
 
 -- | /See:/ 'newUpdateAccountPasswordPolicyResponse' smart constructor.

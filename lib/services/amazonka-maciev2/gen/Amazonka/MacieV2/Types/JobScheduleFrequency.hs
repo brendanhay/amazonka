@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.JobScheduleFrequency where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.DailySchedule
 import Amazonka.MacieV2.Types.MonthlySchedule
 import Amazonka.MacieV2.Types.WeeklySchedule
@@ -74,15 +75,15 @@ jobScheduleFrequency_monthlySchedule = Lens.lens (\JobScheduleFrequency' {monthl
 jobScheduleFrequency_weeklySchedule :: Lens.Lens' JobScheduleFrequency (Prelude.Maybe WeeklySchedule)
 jobScheduleFrequency_weeklySchedule = Lens.lens (\JobScheduleFrequency' {weeklySchedule} -> weeklySchedule) (\s@JobScheduleFrequency' {} a -> s {weeklySchedule = a} :: JobScheduleFrequency)
 
-instance Core.FromJSON JobScheduleFrequency where
+instance Data.FromJSON JobScheduleFrequency where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobScheduleFrequency"
       ( \x ->
           JobScheduleFrequency'
-            Prelude.<$> (x Core..:? "dailySchedule")
-            Prelude.<*> (x Core..:? "monthlySchedule")
-            Prelude.<*> (x Core..:? "weeklySchedule")
+            Prelude.<$> (x Data..:? "dailySchedule")
+            Prelude.<*> (x Data..:? "monthlySchedule")
+            Prelude.<*> (x Data..:? "weeklySchedule")
       )
 
 instance Prelude.Hashable JobScheduleFrequency where
@@ -97,14 +98,14 @@ instance Prelude.NFData JobScheduleFrequency where
       `Prelude.seq` Prelude.rnf monthlySchedule
       `Prelude.seq` Prelude.rnf weeklySchedule
 
-instance Core.ToJSON JobScheduleFrequency where
+instance Data.ToJSON JobScheduleFrequency where
   toJSON JobScheduleFrequency' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("dailySchedule" Core..=) Prelude.<$> dailySchedule,
-            ("monthlySchedule" Core..=)
+          [ ("dailySchedule" Data..=) Prelude.<$> dailySchedule,
+            ("monthlySchedule" Data..=)
               Prelude.<$> monthlySchedule,
-            ("weeklySchedule" Core..=)
+            ("weeklySchedule" Data..=)
               Prelude.<$> weeklySchedule
           ]
       )

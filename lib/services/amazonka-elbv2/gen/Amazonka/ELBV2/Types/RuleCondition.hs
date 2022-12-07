@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.RuleCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types.HostHeaderConditionConfig
 import Amazonka.ELBV2.Types.HttpHeaderConditionConfig
 import Amazonka.ELBV2.Types.HttpRequestMethodConditionConfig
@@ -271,19 +272,19 @@ ruleCondition_values = Lens.lens (\RuleCondition' {values} -> values) (\s@RuleCo
 ruleCondition_queryStringConfig :: Lens.Lens' RuleCondition (Prelude.Maybe QueryStringConditionConfig)
 ruleCondition_queryStringConfig = Lens.lens (\RuleCondition' {queryStringConfig} -> queryStringConfig) (\s@RuleCondition' {} a -> s {queryStringConfig = a} :: RuleCondition)
 
-instance Core.FromXML RuleCondition where
+instance Data.FromXML RuleCondition where
   parseXML x =
     RuleCondition'
-      Prelude.<$> (x Core..@? "HttpHeaderConfig")
-      Prelude.<*> (x Core..@? "Field")
-      Prelude.<*> (x Core..@? "SourceIpConfig")
-      Prelude.<*> (x Core..@? "PathPatternConfig")
-      Prelude.<*> (x Core..@? "HttpRequestMethodConfig")
-      Prelude.<*> (x Core..@? "HostHeaderConfig")
-      Prelude.<*> ( x Core..@? "Values" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "HttpHeaderConfig")
+      Prelude.<*> (x Data..@? "Field")
+      Prelude.<*> (x Data..@? "SourceIpConfig")
+      Prelude.<*> (x Data..@? "PathPatternConfig")
+      Prelude.<*> (x Data..@? "HttpRequestMethodConfig")
+      Prelude.<*> (x Data..@? "HostHeaderConfig")
+      Prelude.<*> ( x Data..@? "Values" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "QueryStringConfig")
+      Prelude.<*> (x Data..@? "QueryStringConfig")
 
 instance Prelude.Hashable RuleCondition where
   hashWithSalt _salt RuleCondition' {..} =
@@ -307,18 +308,18 @@ instance Prelude.NFData RuleCondition where
       `Prelude.seq` Prelude.rnf values
       `Prelude.seq` Prelude.rnf queryStringConfig
 
-instance Core.ToQuery RuleCondition where
+instance Data.ToQuery RuleCondition where
   toQuery RuleCondition' {..} =
     Prelude.mconcat
-      [ "HttpHeaderConfig" Core.=: httpHeaderConfig,
-        "Field" Core.=: field,
-        "SourceIpConfig" Core.=: sourceIpConfig,
-        "PathPatternConfig" Core.=: pathPatternConfig,
+      [ "HttpHeaderConfig" Data.=: httpHeaderConfig,
+        "Field" Data.=: field,
+        "SourceIpConfig" Data.=: sourceIpConfig,
+        "PathPatternConfig" Data.=: pathPatternConfig,
         "HttpRequestMethodConfig"
-          Core.=: httpRequestMethodConfig,
-        "HostHeaderConfig" Core.=: hostHeaderConfig,
+          Data.=: httpRequestMethodConfig,
+        "HostHeaderConfig" Data.=: hostHeaderConfig,
         "Values"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> values),
-        "QueryStringConfig" Core.=: queryStringConfig
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> values),
+        "QueryStringConfig" Data.=: queryStringConfig
       ]

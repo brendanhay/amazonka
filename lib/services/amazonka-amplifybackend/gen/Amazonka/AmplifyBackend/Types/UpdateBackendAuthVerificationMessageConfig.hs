@@ -24,6 +24,7 @@ import Amazonka.AmplifyBackend.Types.EmailSettings
 import Amazonka.AmplifyBackend.Types.SmsSettings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates the configuration of the email or SMS message for the auth
@@ -100,16 +101,16 @@ instance
       `Prelude.seq` Prelude.rnf deliveryMethod
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateBackendAuthVerificationMessageConfig
   where
   toJSON
     UpdateBackendAuthVerificationMessageConfig' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("emailSettings" Core..=) Prelude.<$> emailSettings,
-              ("smsSettings" Core..=) Prelude.<$> smsSettings,
+            [ ("emailSettings" Data..=) Prelude.<$> emailSettings,
+              ("smsSettings" Data..=) Prelude.<$> smsSettings,
               Prelude.Just
-                ("deliveryMethod" Core..= deliveryMethod)
+                ("deliveryMethod" Data..= deliveryMethod)
             ]
         )

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -60,7 +61,7 @@ data CreateUser = CreateUser'
     -- | The display name for the new user.
     displayName :: Prelude.Text,
     -- | The password for the new user.
-    password :: Core.Sensitive Prelude.Text
+    password :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -99,7 +100,7 @@ newCreateUser
       { organizationId = pOrganizationId_,
         name = pName_,
         displayName = pDisplayName_,
-        password = Core._Sensitive Lens.# pPassword_
+        password = Data._Sensitive Lens.# pPassword_
       }
 
 -- | The identifier of the organization for which the user is created.
@@ -117,7 +118,7 @@ createUser_displayName = Lens.lens (\CreateUser' {displayName} -> displayName) (
 
 -- | The password for the new user.
 createUser_password :: Lens.Lens' CreateUser Prelude.Text
-createUser_password = Lens.lens (\CreateUser' {password} -> password) (\s@CreateUser' {} a -> s {password = a} :: CreateUser) Prelude.. Core._Sensitive
+createUser_password = Lens.lens (\CreateUser' {password} -> password) (\s@CreateUser' {} a -> s {password = a} :: CreateUser) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateUser where
   type AWSResponse CreateUser = CreateUserResponse
@@ -127,7 +128,7 @@ instance Core.AWSRequest CreateUser where
     Response.receiveJSON
       ( \s h x ->
           CreateUserResponse'
-            Prelude.<$> (x Core..?> "UserId")
+            Prelude.<$> (x Data..?> "UserId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,35 +146,35 @@ instance Prelude.NFData CreateUser where
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf password
 
-instance Core.ToHeaders CreateUser where
+instance Data.ToHeaders CreateUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("WorkMailService.CreateUser" :: Prelude.ByteString),
+              Data.=# ("WorkMailService.CreateUser" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUser where
+instance Data.ToJSON CreateUser where
   toJSON CreateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("DisplayName" Core..= displayName),
-            Prelude.Just ("Password" Core..= password)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("DisplayName" Data..= displayName),
+            Prelude.Just ("Password" Data..= password)
           ]
       )
 
-instance Core.ToPath CreateUser where
+instance Data.ToPath CreateUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUser where
+instance Data.ToQuery CreateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserResponse' smart constructor.

@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.ReplicationPendingModifiedValues
 import Amazonka.DMS.Types.ReplicationSubnetGroup
 import Amazonka.DMS.Types.VpcSecurityGroupMembership
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines a replication instance.
@@ -58,7 +59,7 @@ data ReplicationInstance = ReplicationInstance'
     -- | One or more private IP addresses for the replication instance.
     replicationInstancePrivateIpAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The time the replication instance was created.
-    instanceCreateTime :: Prelude.Maybe Core.POSIX,
+    instanceCreateTime :: Prelude.Maybe Data.POSIX,
     -- | The Availability Zone for the instance.
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | Specifies the accessibility options for the replication instance. A
@@ -70,7 +71,7 @@ data ReplicationInstance = ReplicationInstance'
     replicationInstancePrivateIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The expiration date of the free replication instance that is part of the
     -- Free DMS program.
-    freeUntil :: Prelude.Maybe Core.POSIX,
+    freeUntil :: Prelude.Maybe Data.POSIX,
     -- | The public IP address of the replication instance.
     replicationInstancePublicIpAddress :: Prelude.Maybe Prelude.Text,
     -- | An KMS key identifier that is used to encrypt the data on the
@@ -360,7 +361,7 @@ replicationInstance_replicationInstancePrivateIpAddresses = Lens.lens (\Replicat
 
 -- | The time the replication instance was created.
 replicationInstance_instanceCreateTime :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.UTCTime)
-replicationInstance_instanceCreateTime = Lens.lens (\ReplicationInstance' {instanceCreateTime} -> instanceCreateTime) (\s@ReplicationInstance' {} a -> s {instanceCreateTime = a} :: ReplicationInstance) Prelude.. Lens.mapping Core._Time
+replicationInstance_instanceCreateTime = Lens.lens (\ReplicationInstance' {instanceCreateTime} -> instanceCreateTime) (\s@ReplicationInstance' {} a -> s {instanceCreateTime = a} :: ReplicationInstance) Prelude.. Lens.mapping Data._Time
 
 -- | The Availability Zone for the instance.
 replicationInstance_availabilityZone :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Text)
@@ -380,7 +381,7 @@ replicationInstance_replicationInstancePrivateIpAddress = Lens.lens (\Replicatio
 -- | The expiration date of the free replication instance that is part of the
 -- Free DMS program.
 replicationInstance_freeUntil :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.UTCTime)
-replicationInstance_freeUntil = Lens.lens (\ReplicationInstance' {freeUntil} -> freeUntil) (\s@ReplicationInstance' {} a -> s {freeUntil = a} :: ReplicationInstance) Prelude.. Lens.mapping Core._Time
+replicationInstance_freeUntil = Lens.lens (\ReplicationInstance' {freeUntil} -> freeUntil) (\s@ReplicationInstance' {} a -> s {freeUntil = a} :: ReplicationInstance) Prelude.. Lens.mapping Data._Time
 
 -- | The public IP address of the replication instance.
 replicationInstance_replicationInstancePublicIpAddress :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Text)
@@ -488,44 +489,44 @@ replicationInstance_multiAZ = Lens.lens (\ReplicationInstance' {multiAZ} -> mult
 replicationInstance_vpcSecurityGroups :: Lens.Lens' ReplicationInstance (Prelude.Maybe [VpcSecurityGroupMembership])
 replicationInstance_vpcSecurityGroups = Lens.lens (\ReplicationInstance' {vpcSecurityGroups} -> vpcSecurityGroups) (\s@ReplicationInstance' {} a -> s {vpcSecurityGroups = a} :: ReplicationInstance) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ReplicationInstance where
+instance Data.FromJSON ReplicationInstance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationInstance"
       ( \x ->
           ReplicationInstance'
-            Prelude.<$> (x Core..:? "ReplicationInstanceIdentifier")
-            Prelude.<*> (x Core..:? "ReplicationInstanceArn")
-            Prelude.<*> (x Core..:? "SecondaryAvailabilityZone")
-            Prelude.<*> (x Core..:? "AutoMinorVersionUpgrade")
-            Prelude.<*> ( x Core..:? "ReplicationInstanceIpv6Addresses"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ReplicationInstanceIdentifier")
+            Prelude.<*> (x Data..:? "ReplicationInstanceArn")
+            Prelude.<*> (x Data..:? "SecondaryAvailabilityZone")
+            Prelude.<*> (x Data..:? "AutoMinorVersionUpgrade")
+            Prelude.<*> ( x Data..:? "ReplicationInstanceIpv6Addresses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ReplicationInstancePublicIpAddresses"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ReplicationInstancePublicIpAddresses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ReplicationInstancePrivateIpAddresses"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ReplicationInstancePrivateIpAddresses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "InstanceCreateTime")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "PubliclyAccessible")
-            Prelude.<*> (x Core..:? "ReplicationInstancePrivateIpAddress")
-            Prelude.<*> (x Core..:? "FreeUntil")
-            Prelude.<*> (x Core..:? "ReplicationInstancePublicIpAddress")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "AllocatedStorage")
-            Prelude.<*> (x Core..:? "PendingModifiedValues")
-            Prelude.<*> (x Core..:? "PreferredMaintenanceWindow")
-            Prelude.<*> (x Core..:? "DnsNameServers")
-            Prelude.<*> (x Core..:? "ReplicationSubnetGroup")
-            Prelude.<*> (x Core..:? "ReplicationInstanceStatus")
-            Prelude.<*> (x Core..:? "ReplicationInstanceClass")
-            Prelude.<*> (x Core..:? "EngineVersion")
-            Prelude.<*> (x Core..:? "NetworkType")
-            Prelude.<*> (x Core..:? "MultiAZ")
-            Prelude.<*> ( x Core..:? "VpcSecurityGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "InstanceCreateTime")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "PubliclyAccessible")
+            Prelude.<*> (x Data..:? "ReplicationInstancePrivateIpAddress")
+            Prelude.<*> (x Data..:? "FreeUntil")
+            Prelude.<*> (x Data..:? "ReplicationInstancePublicIpAddress")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "AllocatedStorage")
+            Prelude.<*> (x Data..:? "PendingModifiedValues")
+            Prelude.<*> (x Data..:? "PreferredMaintenanceWindow")
+            Prelude.<*> (x Data..:? "DnsNameServers")
+            Prelude.<*> (x Data..:? "ReplicationSubnetGroup")
+            Prelude.<*> (x Data..:? "ReplicationInstanceStatus")
+            Prelude.<*> (x Data..:? "ReplicationInstanceClass")
+            Prelude.<*> (x Data..:? "EngineVersion")
+            Prelude.<*> (x Data..:? "NetworkType")
+            Prelude.<*> (x Data..:? "MultiAZ")
+            Prelude.<*> ( x Data..:? "VpcSecurityGroups"
+                            Data..!= Prelude.mempty
                         )
       )
 

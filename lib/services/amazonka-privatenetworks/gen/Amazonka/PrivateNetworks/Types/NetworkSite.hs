@@ -21,6 +21,7 @@ module Amazonka.PrivateNetworks.Types.NetworkSite where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types.NetworkSiteStatus
 import Amazonka.PrivateNetworks.Types.SitePlan
@@ -40,7 +41,7 @@ data NetworkSite = NetworkSite'
     -- | The current plan of the network site.
     currentPlan :: Prelude.Maybe SitePlan,
     -- | The creation time of the network site.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The parent Availability Zone ID for the network site.
     availabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the network to which the network site
@@ -136,7 +137,7 @@ networkSite_currentPlan = Lens.lens (\NetworkSite' {currentPlan} -> currentPlan)
 
 -- | The creation time of the network site.
 networkSite_createdAt :: Lens.Lens' NetworkSite (Prelude.Maybe Prelude.UTCTime)
-networkSite_createdAt = Lens.lens (\NetworkSite' {createdAt} -> createdAt) (\s@NetworkSite' {} a -> s {createdAt = a} :: NetworkSite) Prelude.. Lens.mapping Core._Time
+networkSite_createdAt = Lens.lens (\NetworkSite' {createdAt} -> createdAt) (\s@NetworkSite' {} a -> s {createdAt = a} :: NetworkSite) Prelude.. Lens.mapping Data._Time
 
 -- | The parent Availability Zone ID for the network site.
 networkSite_availabilityZoneId :: Lens.Lens' NetworkSite (Prelude.Maybe Prelude.Text)
@@ -159,23 +160,23 @@ networkSite_networkSiteName = Lens.lens (\NetworkSite' {networkSiteName} -> netw
 networkSite_status :: Lens.Lens' NetworkSite NetworkSiteStatus
 networkSite_status = Lens.lens (\NetworkSite' {status} -> status) (\s@NetworkSite' {} a -> s {status = a} :: NetworkSite)
 
-instance Core.FromJSON NetworkSite where
+instance Data.FromJSON NetworkSite where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkSite"
       ( \x ->
           NetworkSite'
-            Prelude.<$> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "availabilityZone")
-            Prelude.<*> (x Core..:? "pendingPlan")
-            Prelude.<*> (x Core..:? "currentPlan")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "availabilityZoneId")
-            Prelude.<*> (x Core..: "networkArn")
-            Prelude.<*> (x Core..: "networkSiteArn")
-            Prelude.<*> (x Core..: "networkSiteName")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "availabilityZone")
+            Prelude.<*> (x Data..:? "pendingPlan")
+            Prelude.<*> (x Data..:? "currentPlan")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "availabilityZoneId")
+            Prelude.<*> (x Data..: "networkArn")
+            Prelude.<*> (x Data..: "networkSiteArn")
+            Prelude.<*> (x Data..: "networkSiteName")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable NetworkSite where

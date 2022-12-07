@@ -44,6 +44,7 @@ where
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,8 +98,8 @@ instance Core.AWSRequest RefreshToken where
       ( \s h x ->
           RefreshTokenResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "accessToken")
-            Prelude.<*> (x Core..:> "expiresIn")
+            Prelude.<*> (x Data..:> "accessToken")
+            Prelude.<*> (x Data..:> "expiresIn")
       )
 
 instance Prelude.Hashable RefreshToken where
@@ -111,27 +112,27 @@ instance Prelude.NFData RefreshToken where
     Prelude.rnf provider
       `Prelude.seq` Prelude.rnf refreshTokenBody
 
-instance Core.ToHeaders RefreshToken where
+instance Data.ToHeaders RefreshToken where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RefreshToken where
+instance Data.ToJSON RefreshToken where
   toJSON RefreshToken' {..} =
-    Core.toJSON refreshTokenBody
+    Data.toJSON refreshTokenBody
 
-instance Core.ToPath RefreshToken where
+instance Data.ToPath RefreshToken where
   toPath RefreshToken' {..} =
     Prelude.mconcat
-      ["/tokens/", Core.toBS provider, "/refresh"]
+      ["/tokens/", Data.toBS provider, "/refresh"]
 
-instance Core.ToQuery RefreshToken where
+instance Data.ToQuery RefreshToken where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRefreshTokenResponse' smart constructor.
@@ -139,7 +140,7 @@ data RefreshTokenResponse = RefreshTokenResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The access token.
-    accessToken :: Core.Sensitive Prelude.Text,
+    accessToken :: Data.Sensitive Prelude.Text,
     -- | The date and time when the new access token expires.
     expiresIn :: Prelude.Int
   }
@@ -172,7 +173,7 @@ newRefreshTokenResponse
   pExpiresIn_ =
     RefreshTokenResponse'
       { httpStatus = pHttpStatus_,
-        accessToken = Core._Sensitive Lens.# pAccessToken_,
+        accessToken = Data._Sensitive Lens.# pAccessToken_,
         expiresIn = pExpiresIn_
       }
 
@@ -182,7 +183,7 @@ refreshTokenResponse_httpStatus = Lens.lens (\RefreshTokenResponse' {httpStatus}
 
 -- | The access token.
 refreshTokenResponse_accessToken :: Lens.Lens' RefreshTokenResponse Prelude.Text
-refreshTokenResponse_accessToken = Lens.lens (\RefreshTokenResponse' {accessToken} -> accessToken) (\s@RefreshTokenResponse' {} a -> s {accessToken = a} :: RefreshTokenResponse) Prelude.. Core._Sensitive
+refreshTokenResponse_accessToken = Lens.lens (\RefreshTokenResponse' {accessToken} -> accessToken) (\s@RefreshTokenResponse' {} a -> s {accessToken = a} :: RefreshTokenResponse) Prelude.. Data._Sensitive
 
 -- | The date and time when the new access token expires.
 refreshTokenResponse_expiresIn :: Lens.Lens' RefreshTokenResponse Prelude.Int

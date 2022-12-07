@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -210,9 +211,9 @@ instance Core.AWSRequest ListKeyPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListKeyPoliciesResponse'
-            Prelude.<$> (x Core..?> "Truncated")
-            Prelude.<*> (x Core..?> "PolicyNames" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "Truncated")
+            Prelude.<*> (x Data..?> "PolicyNames" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -228,35 +229,35 @@ instance Prelude.NFData ListKeyPolicies where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf keyId
 
-instance Core.ToHeaders ListKeyPolicies where
+instance Data.ToHeaders ListKeyPolicies where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.ListKeyPolicies" ::
+              Data.=# ( "TrentService.ListKeyPolicies" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListKeyPolicies where
+instance Data.ToJSON ListKeyPolicies where
   toJSON ListKeyPolicies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("KeyId" Core..= keyId)
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("KeyId" Data..= keyId)
           ]
       )
 
-instance Core.ToPath ListKeyPolicies where
+instance Data.ToPath ListKeyPolicies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListKeyPolicies where
+instance Data.ToQuery ListKeyPolicies where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListKeyPoliciesResponse' smart constructor.

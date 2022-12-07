@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,32 +98,32 @@ instance Prelude.NFData DeleteAppLaunchConfiguration where
   rnf DeleteAppLaunchConfiguration' {..} =
     Prelude.rnf appId
 
-instance Core.ToHeaders DeleteAppLaunchConfiguration where
+instance Data.ToHeaders DeleteAppLaunchConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.DeleteAppLaunchConfiguration" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.DeleteAppLaunchConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAppLaunchConfiguration where
+instance Data.ToJSON DeleteAppLaunchConfiguration where
   toJSON DeleteAppLaunchConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("appId" Core..=) Prelude.<$> appId]
+          [("appId" Data..=) Prelude.<$> appId]
       )
 
-instance Core.ToPath DeleteAppLaunchConfiguration where
+instance Data.ToPath DeleteAppLaunchConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAppLaunchConfiguration where
+instance Data.ToQuery DeleteAppLaunchConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAppLaunchConfigurationResponse' smart constructor.

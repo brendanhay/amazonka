@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsApiCallActionDomainDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provided if @CallerType@ is @domain@. It provides information about the
@@ -54,13 +55,13 @@ newAwsApiCallActionDomainDetails =
 awsApiCallActionDomainDetails_domain :: Lens.Lens' AwsApiCallActionDomainDetails (Prelude.Maybe Prelude.Text)
 awsApiCallActionDomainDetails_domain = Lens.lens (\AwsApiCallActionDomainDetails' {domain} -> domain) (\s@AwsApiCallActionDomainDetails' {} a -> s {domain = a} :: AwsApiCallActionDomainDetails)
 
-instance Core.FromJSON AwsApiCallActionDomainDetails where
+instance Data.FromJSON AwsApiCallActionDomainDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsApiCallActionDomainDetails"
       ( \x ->
           AwsApiCallActionDomainDetails'
-            Prelude.<$> (x Core..:? "Domain")
+            Prelude.<$> (x Data..:? "Domain")
       )
 
 instance
@@ -74,9 +75,9 @@ instance Prelude.NFData AwsApiCallActionDomainDetails where
   rnf AwsApiCallActionDomainDetails' {..} =
     Prelude.rnf domain
 
-instance Core.ToJSON AwsApiCallActionDomainDetails where
+instance Data.ToJSON AwsApiCallActionDomainDetails where
   toJSON AwsApiCallActionDomainDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Domain" Core..=) Prelude.<$> domain]
+          [("Domain" Data..=) Prelude.<$> domain]
       )

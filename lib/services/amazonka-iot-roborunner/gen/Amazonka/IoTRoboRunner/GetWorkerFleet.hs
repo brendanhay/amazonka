@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTRoboRunner.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,14 +88,14 @@ instance Core.AWSRequest GetWorkerFleet where
     Response.receiveJSON
       ( \s h x ->
           GetWorkerFleetResponse'
-            Prelude.<$> (x Core..?> "additionalFixedProperties")
+            Prelude.<$> (x Data..?> "additionalFixedProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "id")
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "site")
-            Prelude.<*> (x Core..:> "createdAt")
-            Prelude.<*> (x Core..:> "updatedAt")
+            Prelude.<*> (x Data..:> "id")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "site")
+            Prelude.<*> (x Data..:> "createdAt")
+            Prelude.<*> (x Data..:> "updatedAt")
       )
 
 instance Prelude.Hashable GetWorkerFleet where
@@ -104,23 +105,23 @@ instance Prelude.Hashable GetWorkerFleet where
 instance Prelude.NFData GetWorkerFleet where
   rnf GetWorkerFleet' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetWorkerFleet where
+instance Data.ToHeaders GetWorkerFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetWorkerFleet where
+instance Data.ToPath GetWorkerFleet where
   toPath = Prelude.const "/getWorkerFleet"
 
-instance Core.ToQuery GetWorkerFleet where
+instance Data.ToQuery GetWorkerFleet where
   toQuery GetWorkerFleet' {..} =
-    Prelude.mconcat ["id" Core.=: id]
+    Prelude.mconcat ["id" Data.=: id]
 
 -- | /See:/ 'newGetWorkerFleetResponse' smart constructor.
 data GetWorkerFleetResponse = GetWorkerFleetResponse'
@@ -131,8 +132,8 @@ data GetWorkerFleetResponse = GetWorkerFleetResponse'
     arn :: Prelude.Text,
     name :: Prelude.Text,
     site :: Prelude.Text,
-    createdAt :: Core.POSIX,
-    updatedAt :: Core.POSIX
+    createdAt :: Data.POSIX,
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -191,8 +192,8 @@ newGetWorkerFleetResponse
         arn = pArn_,
         name = pName_,
         site = pSite_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
 -- | Undocumented member.
@@ -221,11 +222,11 @@ getWorkerFleetResponse_site = Lens.lens (\GetWorkerFleetResponse' {site} -> site
 
 -- | Undocumented member.
 getWorkerFleetResponse_createdAt :: Lens.Lens' GetWorkerFleetResponse Prelude.UTCTime
-getWorkerFleetResponse_createdAt = Lens.lens (\GetWorkerFleetResponse' {createdAt} -> createdAt) (\s@GetWorkerFleetResponse' {} a -> s {createdAt = a} :: GetWorkerFleetResponse) Prelude.. Core._Time
+getWorkerFleetResponse_createdAt = Lens.lens (\GetWorkerFleetResponse' {createdAt} -> createdAt) (\s@GetWorkerFleetResponse' {} a -> s {createdAt = a} :: GetWorkerFleetResponse) Prelude.. Data._Time
 
 -- | Undocumented member.
 getWorkerFleetResponse_updatedAt :: Lens.Lens' GetWorkerFleetResponse Prelude.UTCTime
-getWorkerFleetResponse_updatedAt = Lens.lens (\GetWorkerFleetResponse' {updatedAt} -> updatedAt) (\s@GetWorkerFleetResponse' {} a -> s {updatedAt = a} :: GetWorkerFleetResponse) Prelude.. Core._Time
+getWorkerFleetResponse_updatedAt = Lens.lens (\GetWorkerFleetResponse' {updatedAt} -> updatedAt) (\s@GetWorkerFleetResponse' {} a -> s {updatedAt = a} :: GetWorkerFleetResponse) Prelude.. Data._Time
 
 instance Prelude.NFData GetWorkerFleetResponse where
   rnf GetWorkerFleetResponse' {..} =

@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -224,7 +225,7 @@ instance Core.AWSRequest StartModelPackagingJob where
     Response.receiveJSON
       ( \s h x ->
           StartModelPackagingJobResponse'
-            Prelude.<$> (x Core..?> "JobName")
+            Prelude.<$> (x Data..?> "JobName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -246,35 +247,35 @@ instance Prelude.NFData StartModelPackagingJob where
       `Prelude.seq` Prelude.rnf modelVersion
       `Prelude.seq` Prelude.rnf configuration
 
-instance Core.ToHeaders StartModelPackagingJob where
+instance Data.ToHeaders StartModelPackagingJob where
   toHeaders StartModelPackagingJob' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# clientToken,
+      [ "X-Amzn-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON StartModelPackagingJob where
+instance Data.ToJSON StartModelPackagingJob where
   toJSON StartModelPackagingJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("JobName" Core..=) Prelude.<$> jobName,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("ModelVersion" Core..= modelVersion),
+          [ ("JobName" Data..=) Prelude.<$> jobName,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("ModelVersion" Data..= modelVersion),
             Prelude.Just
-              ("Configuration" Core..= configuration)
+              ("Configuration" Data..= configuration)
           ]
       )
 
-instance Core.ToPath StartModelPackagingJob where
+instance Data.ToPath StartModelPackagingJob where
   toPath StartModelPackagingJob' {..} =
     Prelude.mconcat
       [ "/2020-11-20/projects/",
-        Core.toBS projectName,
+        Data.toBS projectName,
         "/modelpackagingjobs"
       ]
 
-instance Core.ToQuery StartModelPackagingJob where
+instance Data.ToQuery StartModelPackagingJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartModelPackagingJobResponse' smart constructor.

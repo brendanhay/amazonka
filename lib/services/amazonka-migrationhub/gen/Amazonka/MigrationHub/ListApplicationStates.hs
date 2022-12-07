@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHub.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,8 +140,8 @@ instance Core.AWSRequest ListApplicationStates where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationStatesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ApplicationStateList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ApplicationStateList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -158,36 +159,36 @@ instance Prelude.NFData ListApplicationStates where
       `Prelude.seq` Prelude.rnf applicationIds
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListApplicationStates where
+instance Data.ToHeaders ListApplicationStates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMigrationHub.ListApplicationStates" ::
+              Data.=# ( "AWSMigrationHub.ListApplicationStates" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListApplicationStates where
+instance Data.ToJSON ListApplicationStates where
   toJSON ListApplicationStates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ApplicationIds" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ApplicationIds" Data..=)
               Prelude.<$> applicationIds,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListApplicationStates where
+instance Data.ToPath ListApplicationStates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListApplicationStates where
+instance Data.ToQuery ListApplicationStates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListApplicationStatesResponse' smart constructor.

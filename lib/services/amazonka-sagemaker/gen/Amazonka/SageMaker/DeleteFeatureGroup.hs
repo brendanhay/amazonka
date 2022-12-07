@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,34 +102,34 @@ instance Prelude.NFData DeleteFeatureGroup where
   rnf DeleteFeatureGroup' {..} =
     Prelude.rnf featureGroupName
 
-instance Core.ToHeaders DeleteFeatureGroup where
+instance Data.ToHeaders DeleteFeatureGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DeleteFeatureGroup" ::
+              Data.=# ( "SageMaker.DeleteFeatureGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteFeatureGroup where
+instance Data.ToJSON DeleteFeatureGroup where
   toJSON DeleteFeatureGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("FeatureGroupName" Core..= featureGroupName)
+              ("FeatureGroupName" Data..= featureGroupName)
           ]
       )
 
-instance Core.ToPath DeleteFeatureGroup where
+instance Data.ToPath DeleteFeatureGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteFeatureGroup where
+instance Data.ToQuery DeleteFeatureGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFeatureGroupResponse' smart constructor.

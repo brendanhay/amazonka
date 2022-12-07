@@ -42,6 +42,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,32 +94,32 @@ instance Prelude.Hashable DeleteStoredQuery where
 instance Prelude.NFData DeleteStoredQuery where
   rnf DeleteStoredQuery' {..} = Prelude.rnf queryName
 
-instance Core.ToHeaders DeleteStoredQuery where
+instance Data.ToHeaders DeleteStoredQuery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DeleteStoredQuery" ::
+              Data.=# ( "StarlingDoveService.DeleteStoredQuery" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteStoredQuery where
+instance Data.ToJSON DeleteStoredQuery where
   toJSON DeleteStoredQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("QueryName" Core..= queryName)]
+          [Prelude.Just ("QueryName" Data..= queryName)]
       )
 
-instance Core.ToPath DeleteStoredQuery where
+instance Data.ToPath DeleteStoredQuery where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteStoredQuery where
+instance Data.ToQuery DeleteStoredQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStoredQueryResponse' smart constructor.

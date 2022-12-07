@@ -43,6 +43,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest GetDomainAssociation where
       ( \s h x ->
           GetDomainAssociationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "domainAssociation")
+            Prelude.<*> (x Data..:> "domainAssociation")
       )
 
 instance Prelude.Hashable GetDomainAssociation where
@@ -113,27 +114,27 @@ instance Prelude.NFData GetDomainAssociation where
     Prelude.rnf appId
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders GetDomainAssociation where
+instance Data.ToHeaders GetDomainAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDomainAssociation where
+instance Data.ToPath GetDomainAssociation where
   toPath GetDomainAssociation' {..} =
     Prelude.mconcat
       [ "/apps/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/domains/",
-        Core.toBS domainName
+        Data.toBS domainName
       ]
 
-instance Core.ToQuery GetDomainAssociation where
+instance Data.ToQuery GetDomainAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result structure for the get domain association request.

@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -205,11 +206,11 @@ instance
       "DescribeDBClusterParameterGroupsResult"
       ( \s h x ->
           DescribeDBClusterParameterGroupsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "DBClusterParameterGroups"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "DBClusterParameterGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may
-                              (Core.parseXMLList "DBClusterParameterGroup")
+                              (Data.parseXMLList "DBClusterParameterGroup")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -237,33 +238,33 @@ instance
       `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeDBClusterParameterGroups
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBClusterParameterGroups where
+instance Data.ToPath DescribeDBClusterParameterGroups where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeDBClusterParameterGroups
   where
   toQuery DescribeDBClusterParameterGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeDBClusterParameterGroups" ::
+          Data.=: ( "DescribeDBClusterParameterGroups" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords,
         "DBClusterParameterGroupName"
-          Core.=: dbClusterParameterGroupName
+          Data.=: dbClusterParameterGroupName
       ]
 
 -- |

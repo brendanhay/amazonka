@@ -23,6 +23,7 @@ import Amazonka.Comprehend.Types.SentimentScore
 import Amazonka.Comprehend.Types.SentimentType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The result of calling the operation. The operation returns one object
@@ -77,15 +78,15 @@ batchDetectSentimentItemResult_sentimentScore = Lens.lens (\BatchDetectSentiment
 batchDetectSentimentItemResult_sentiment :: Lens.Lens' BatchDetectSentimentItemResult (Prelude.Maybe SentimentType)
 batchDetectSentimentItemResult_sentiment = Lens.lens (\BatchDetectSentimentItemResult' {sentiment} -> sentiment) (\s@BatchDetectSentimentItemResult' {} a -> s {sentiment = a} :: BatchDetectSentimentItemResult)
 
-instance Core.FromJSON BatchDetectSentimentItemResult where
+instance Data.FromJSON BatchDetectSentimentItemResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDetectSentimentItemResult"
       ( \x ->
           BatchDetectSentimentItemResult'
-            Prelude.<$> (x Core..:? "Index")
-            Prelude.<*> (x Core..:? "SentimentScore")
-            Prelude.<*> (x Core..:? "Sentiment")
+            Prelude.<$> (x Data..:? "Index")
+            Prelude.<*> (x Data..:? "SentimentScore")
+            Prelude.<*> (x Data..:? "Sentiment")
       )
 
 instance

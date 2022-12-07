@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -212,34 +213,34 @@ instance Prelude.NFData UpdateFleetMetric where
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf indexName
 
-instance Core.ToHeaders UpdateFleetMetric where
+instance Data.ToHeaders UpdateFleetMetric where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateFleetMetric where
+instance Data.ToJSON UpdateFleetMetric where
   toJSON UpdateFleetMetric' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("aggregationField" Core..=)
+          [ ("aggregationField" Data..=)
               Prelude.<$> aggregationField,
-            ("aggregationType" Core..=)
+            ("aggregationType" Data..=)
               Prelude.<$> aggregationType,
-            ("period" Core..=) Prelude.<$> period,
-            ("description" Core..=) Prelude.<$> description,
-            ("queryVersion" Core..=) Prelude.<$> queryVersion,
-            ("queryString" Core..=) Prelude.<$> queryString,
-            ("expectedVersion" Core..=)
+            ("period" Data..=) Prelude.<$> period,
+            ("description" Data..=) Prelude.<$> description,
+            ("queryVersion" Data..=) Prelude.<$> queryVersion,
+            ("queryString" Data..=) Prelude.<$> queryString,
+            ("expectedVersion" Data..=)
               Prelude.<$> expectedVersion,
-            ("unit" Core..=) Prelude.<$> unit,
-            Prelude.Just ("indexName" Core..= indexName)
+            ("unit" Data..=) Prelude.<$> unit,
+            Prelude.Just ("indexName" Data..= indexName)
           ]
       )
 
-instance Core.ToPath UpdateFleetMetric where
+instance Data.ToPath UpdateFleetMetric where
   toPath UpdateFleetMetric' {..} =
     Prelude.mconcat
-      ["/fleet-metric/", Core.toBS metricName]
+      ["/fleet-metric/", Data.toBS metricName]
 
-instance Core.ToQuery UpdateFleetMetric where
+instance Data.ToQuery UpdateFleetMetric where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFleetMetricResponse' smart constructor.

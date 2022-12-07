@@ -21,6 +21,7 @@ module Amazonka.PinpointSMSVoice.Types.CallInstructionsMessageType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that defines a message that contains text formatted using
@@ -65,9 +66,9 @@ instance Prelude.NFData CallInstructionsMessageType where
   rnf CallInstructionsMessageType' {..} =
     Prelude.rnf text
 
-instance Core.ToJSON CallInstructionsMessageType where
+instance Data.ToJSON CallInstructionsMessageType where
   toJSON CallInstructionsMessageType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Text" Core..=) Prelude.<$> text]
+          [("Text" Data..=) Prelude.<$> text]
       )

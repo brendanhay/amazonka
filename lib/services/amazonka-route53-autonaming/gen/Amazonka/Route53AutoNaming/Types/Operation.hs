@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.Operation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.OperationStatus
 import Amazonka.Route53AutoNaming.Types.OperationTargetType
@@ -55,7 +56,7 @@ data Operation = Operation'
     -- The value of @UpdateDate@ is accurate to milliseconds. For example, the
     -- value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087
     -- AM.
-    updateDate :: Prelude.Maybe Core.POSIX,
+    updateDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the target entity that\'s associated with the operation:
     --
     -- [NAMESPACE]
@@ -90,7 +91,7 @@ data Operation = Operation'
     -- format and Coordinated Universal Time (UTC). The value of @CreateDate@
     -- is accurate to milliseconds. For example, the value @1516925490.087@
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    createDate :: Prelude.Maybe Core.POSIX
+    createDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -208,7 +209,7 @@ operation_status = Lens.lens (\Operation' {status} -> status) (\s@Operation' {} 
 -- value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087
 -- AM.
 operation_updateDate :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
-operation_updateDate = Lens.lens (\Operation' {updateDate} -> updateDate) (\s@Operation' {} a -> s {updateDate = a} :: Operation) Prelude.. Lens.mapping Core._Time
+operation_updateDate = Lens.lens (\Operation' {updateDate} -> updateDate) (\s@Operation' {} a -> s {updateDate = a} :: Operation) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the target entity that\'s associated with the operation:
 --
@@ -251,22 +252,22 @@ operation_errorCode = Lens.lens (\Operation' {errorCode} -> errorCode) (\s@Opera
 -- is accurate to milliseconds. For example, the value @1516925490.087@
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 operation_createDate :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
-operation_createDate = Lens.lens (\Operation' {createDate} -> createDate) (\s@Operation' {} a -> s {createDate = a} :: Operation) Prelude.. Lens.mapping Core._Time
+operation_createDate = Lens.lens (\Operation' {createDate} -> createDate) (\s@Operation' {} a -> s {createDate = a} :: Operation) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Operation where
+instance Data.FromJSON Operation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Operation"
       ( \x ->
           Operation'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "UpdateDate")
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "CreateDate")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "UpdateDate")
+            Prelude.<*> (x Data..:? "Targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "CreateDate")
       )
 
 instance Prelude.Hashable Operation where

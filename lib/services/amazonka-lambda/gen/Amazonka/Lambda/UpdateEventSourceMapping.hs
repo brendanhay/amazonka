@@ -128,6 +128,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -474,7 +475,7 @@ instance Core.AWSRequest UpdateEventSourceMapping where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateEventSourceMapping where
   hashWithSalt _salt UpdateEventSourceMapping' {..} =
@@ -511,45 +512,45 @@ instance Prelude.NFData UpdateEventSourceMapping where
       `Prelude.seq` Prelude.rnf sourceAccessConfigurations
       `Prelude.seq` Prelude.rnf uuid
 
-instance Core.ToHeaders UpdateEventSourceMapping where
+instance Data.ToHeaders UpdateEventSourceMapping where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateEventSourceMapping where
+instance Data.ToJSON UpdateEventSourceMapping where
   toJSON UpdateEventSourceMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaximumRecordAgeInSeconds" Core..=)
+          [ ("MaximumRecordAgeInSeconds" Data..=)
               Prelude.<$> maximumRecordAgeInSeconds,
-            ("FunctionResponseTypes" Core..=)
+            ("FunctionResponseTypes" Data..=)
               Prelude.<$> functionResponseTypes,
-            ("ParallelizationFactor" Core..=)
+            ("ParallelizationFactor" Data..=)
               Prelude.<$> parallelizationFactor,
-            ("FunctionName" Core..=) Prelude.<$> functionName,
-            ("MaximumBatchingWindowInSeconds" Core..=)
+            ("FunctionName" Data..=) Prelude.<$> functionName,
+            ("MaximumBatchingWindowInSeconds" Data..=)
               Prelude.<$> maximumBatchingWindowInSeconds,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("FilterCriteria" Core..=)
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("FilterCriteria" Data..=)
               Prelude.<$> filterCriteria,
-            ("DestinationConfig" Core..=)
+            ("DestinationConfig" Data..=)
               Prelude.<$> destinationConfig,
-            ("MaximumRetryAttempts" Core..=)
+            ("MaximumRetryAttempts" Data..=)
               Prelude.<$> maximumRetryAttempts,
-            ("BatchSize" Core..=) Prelude.<$> batchSize,
-            ("BisectBatchOnFunctionError" Core..=)
+            ("BatchSize" Data..=) Prelude.<$> batchSize,
+            ("BisectBatchOnFunctionError" Data..=)
               Prelude.<$> bisectBatchOnFunctionError,
-            ("TumblingWindowInSeconds" Core..=)
+            ("TumblingWindowInSeconds" Data..=)
               Prelude.<$> tumblingWindowInSeconds,
-            ("SourceAccessConfigurations" Core..=)
+            ("SourceAccessConfigurations" Data..=)
               Prelude.<$> sourceAccessConfigurations
           ]
       )
 
-instance Core.ToPath UpdateEventSourceMapping where
+instance Data.ToPath UpdateEventSourceMapping where
   toPath UpdateEventSourceMapping' {..} =
     Prelude.mconcat
       [ "/2015-03-31/event-source-mappings/",
-        Core.toBS uuid
+        Data.toBS uuid
       ]
 
-instance Core.ToQuery UpdateEventSourceMapping where
+instance Data.ToQuery UpdateEventSourceMapping where
   toQuery = Prelude.const Prelude.mempty

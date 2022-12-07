@@ -21,6 +21,7 @@ module Amazonka.PrivateNetworks.Types.Network where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types.NetworkStatus
 
@@ -33,7 +34,7 @@ data Network = Network'
     -- | The description of the network.
     description :: Prelude.Maybe Prelude.Text,
     -- | The creation time of the network.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the network.
     networkArn :: Prelude.Text,
     -- | The name of the network.
@@ -90,7 +91,7 @@ network_description = Lens.lens (\Network' {description} -> description) (\s@Net
 
 -- | The creation time of the network.
 network_createdAt :: Lens.Lens' Network (Prelude.Maybe Prelude.UTCTime)
-network_createdAt = Lens.lens (\Network' {createdAt} -> createdAt) (\s@Network' {} a -> s {createdAt = a} :: Network) Prelude.. Lens.mapping Core._Time
+network_createdAt = Lens.lens (\Network' {createdAt} -> createdAt) (\s@Network' {} a -> s {createdAt = a} :: Network) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the network.
 network_networkArn :: Lens.Lens' Network Prelude.Text
@@ -104,18 +105,18 @@ network_networkName = Lens.lens (\Network' {networkName} -> networkName) (\s@Net
 network_status :: Lens.Lens' Network NetworkStatus
 network_status = Lens.lens (\Network' {status} -> status) (\s@Network' {} a -> s {status = a} :: Network)
 
-instance Core.FromJSON Network where
+instance Data.FromJSON Network where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Network"
       ( \x ->
           Network'
-            Prelude.<$> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..: "networkArn")
-            Prelude.<*> (x Core..: "networkName")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..: "networkArn")
+            Prelude.<*> (x Data..: "networkName")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable Network where

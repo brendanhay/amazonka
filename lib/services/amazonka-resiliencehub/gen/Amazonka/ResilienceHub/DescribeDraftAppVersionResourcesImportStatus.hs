@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -107,12 +108,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDraftAppVersionResourcesImportStatusResponse'
-            Prelude.<$> (x Core..?> "errorMessage")
+            Prelude.<$> (x Data..?> "errorMessage")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "appArn")
-              Prelude.<*> (x Core..:> "appVersion")
-              Prelude.<*> (x Core..:> "status")
-              Prelude.<*> (x Core..:> "statusChangeTime")
+              Prelude.<*> (x Data..:> "appArn")
+              Prelude.<*> (x Data..:> "appVersion")
+              Prelude.<*> (x Data..:> "status")
+              Prelude.<*> (x Data..:> "statusChangeTime")
       )
 
 instance
@@ -132,32 +133,32 @@ instance
     Prelude.rnf appArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeDraftAppVersionResourcesImportStatus
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeDraftAppVersionResourcesImportStatus
   where
   toJSON
     DescribeDraftAppVersionResourcesImportStatus' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [Prelude.Just ("appArn" Core..= appArn)]
+            [Prelude.Just ("appArn" Data..= appArn)]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeDraftAppVersionResourcesImportStatus
   where
   toPath =
@@ -165,7 +166,7 @@ instance
       "/describe-draft-app-version-resources-import-status"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeDraftAppVersionResourcesImportStatus
   where
   toQuery = Prelude.const Prelude.mempty
@@ -187,7 +188,7 @@ data DescribeDraftAppVersionResourcesImportStatusResponse = DescribeDraftAppVers
     -- | The status of the action.
     status :: ResourceImportStatusType,
     -- | The timestamp for when the status last changed.
-    statusChangeTime :: Core.POSIX
+    statusChangeTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -242,7 +243,7 @@ newDescribeDraftAppVersionResourcesImportStatusResponse
           pAppVersion_,
         status = pStatus_,
         statusChangeTime =
-          Core._Time
+          Data._Time
             Lens.# pStatusChangeTime_
       }
 
@@ -272,7 +273,7 @@ describeDraftAppVersionResourcesImportStatusResponse_status = Lens.lens (\Descri
 
 -- | The timestamp for when the status last changed.
 describeDraftAppVersionResourcesImportStatusResponse_statusChangeTime :: Lens.Lens' DescribeDraftAppVersionResourcesImportStatusResponse Prelude.UTCTime
-describeDraftAppVersionResourcesImportStatusResponse_statusChangeTime = Lens.lens (\DescribeDraftAppVersionResourcesImportStatusResponse' {statusChangeTime} -> statusChangeTime) (\s@DescribeDraftAppVersionResourcesImportStatusResponse' {} a -> s {statusChangeTime = a} :: DescribeDraftAppVersionResourcesImportStatusResponse) Prelude.. Core._Time
+describeDraftAppVersionResourcesImportStatusResponse_statusChangeTime = Lens.lens (\DescribeDraftAppVersionResourcesImportStatusResponse' {statusChangeTime} -> statusChangeTime) (\s@DescribeDraftAppVersionResourcesImportStatusResponse' {} a -> s {statusChangeTime = a} :: DescribeDraftAppVersionResourcesImportStatusResponse) Prelude.. Data._Time
 
 instance
   Prelude.NFData

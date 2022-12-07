@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -369,9 +370,9 @@ instance Core.AWSRequest GetClusterCredentials where
       "GetClusterCredentialsResult"
       ( \s h x ->
           GetClusterCredentialsResponse'
-            Prelude.<$> (x Core..@? "Expiration")
-            Prelude.<*> (x Core..@? "DbPassword")
-            Prelude.<*> (x Core..@? "DbUser")
+            Prelude.<$> (x Data..@? "Expiration")
+            Prelude.<*> (x Data..@? "DbPassword")
+            Prelude.<*> (x Data..@? "DbUser")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -393,27 +394,27 @@ instance Prelude.NFData GetClusterCredentials where
       `Prelude.seq` Prelude.rnf dbUser
       `Prelude.seq` Prelude.rnf clusterIdentifier
 
-instance Core.ToHeaders GetClusterCredentials where
+instance Data.ToHeaders GetClusterCredentials where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetClusterCredentials where
+instance Data.ToPath GetClusterCredentials where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetClusterCredentials where
+instance Data.ToQuery GetClusterCredentials where
   toQuery GetClusterCredentials' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetClusterCredentials" :: Prelude.ByteString),
+          Data.=: ("GetClusterCredentials" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "DurationSeconds" Core.=: durationSeconds,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "DurationSeconds" Data.=: durationSeconds,
         "DbGroups"
-          Core.=: Core.toQuery
-            (Core.toQueryList "DbGroup" Prelude.<$> dbGroups),
-        "AutoCreate" Core.=: autoCreate,
-        "DbName" Core.=: dbName,
-        "DbUser" Core.=: dbUser,
-        "ClusterIdentifier" Core.=: clusterIdentifier
+          Data.=: Data.toQuery
+            (Data.toQueryList "DbGroup" Prelude.<$> dbGroups),
+        "AutoCreate" Data.=: autoCreate,
+        "DbName" Data.=: dbName,
+        "DbUser" Data.=: dbUser,
+        "ClusterIdentifier" Data.=: clusterIdentifier
       ]
 
 -- | Temporary credentials with authorization to log on to an Amazon Redshift
@@ -422,10 +423,10 @@ instance Core.ToQuery GetClusterCredentials where
 -- /See:/ 'newGetClusterCredentialsResponse' smart constructor.
 data GetClusterCredentialsResponse = GetClusterCredentialsResponse'
   { -- | The date and time the password in @DbPassword@ expires.
-    expiration :: Prelude.Maybe Core.ISO8601,
+    expiration :: Prelude.Maybe Data.ISO8601,
     -- | A temporary password that authorizes the user name returned by @DbUser@
     -- to log on to the database @DbName@.
-    dbPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    dbPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A database user name that is authorized to log on to the database
     -- @DbName@ using the password @DbPassword@. If the specified DbUser exists
     -- in the database, the new user name has the same database permissions as
@@ -474,12 +475,12 @@ newGetClusterCredentialsResponse pHttpStatus_ =
 
 -- | The date and time the password in @DbPassword@ expires.
 getClusterCredentialsResponse_expiration :: Lens.Lens' GetClusterCredentialsResponse (Prelude.Maybe Prelude.UTCTime)
-getClusterCredentialsResponse_expiration = Lens.lens (\GetClusterCredentialsResponse' {expiration} -> expiration) (\s@GetClusterCredentialsResponse' {} a -> s {expiration = a} :: GetClusterCredentialsResponse) Prelude.. Lens.mapping Core._Time
+getClusterCredentialsResponse_expiration = Lens.lens (\GetClusterCredentialsResponse' {expiration} -> expiration) (\s@GetClusterCredentialsResponse' {} a -> s {expiration = a} :: GetClusterCredentialsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A temporary password that authorizes the user name returned by @DbUser@
 -- to log on to the database @DbName@.
 getClusterCredentialsResponse_dbPassword :: Lens.Lens' GetClusterCredentialsResponse (Prelude.Maybe Prelude.Text)
-getClusterCredentialsResponse_dbPassword = Lens.lens (\GetClusterCredentialsResponse' {dbPassword} -> dbPassword) (\s@GetClusterCredentialsResponse' {} a -> s {dbPassword = a} :: GetClusterCredentialsResponse) Prelude.. Lens.mapping Core._Sensitive
+getClusterCredentialsResponse_dbPassword = Lens.lens (\GetClusterCredentialsResponse' {dbPassword} -> dbPassword) (\s@GetClusterCredentialsResponse' {} a -> s {dbPassword = a} :: GetClusterCredentialsResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A database user name that is authorized to log on to the database
 -- @DbName@ using the password @DbPassword@. If the specified DbUser exists

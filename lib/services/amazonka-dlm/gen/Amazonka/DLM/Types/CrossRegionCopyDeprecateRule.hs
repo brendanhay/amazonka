@@ -22,6 +22,7 @@ module Amazonka.DLM.Types.CrossRegionCopyDeprecateRule where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.RetentionIntervalUnitValues
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[AMI policies only]__ Specifies an AMI deprecation rule for
@@ -79,14 +80,14 @@ crossRegionCopyDeprecateRule_interval = Lens.lens (\CrossRegionCopyDeprecateRule
 crossRegionCopyDeprecateRule_intervalUnit :: Lens.Lens' CrossRegionCopyDeprecateRule (Prelude.Maybe RetentionIntervalUnitValues)
 crossRegionCopyDeprecateRule_intervalUnit = Lens.lens (\CrossRegionCopyDeprecateRule' {intervalUnit} -> intervalUnit) (\s@CrossRegionCopyDeprecateRule' {} a -> s {intervalUnit = a} :: CrossRegionCopyDeprecateRule)
 
-instance Core.FromJSON CrossRegionCopyDeprecateRule where
+instance Data.FromJSON CrossRegionCopyDeprecateRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CrossRegionCopyDeprecateRule"
       ( \x ->
           CrossRegionCopyDeprecateRule'
-            Prelude.<$> (x Core..:? "Interval")
-            Prelude.<*> (x Core..:? "IntervalUnit")
+            Prelude.<$> (x Data..:? "Interval")
+            Prelude.<*> (x Data..:? "IntervalUnit")
       )
 
 instance
@@ -102,11 +103,11 @@ instance Prelude.NFData CrossRegionCopyDeprecateRule where
     Prelude.rnf interval
       `Prelude.seq` Prelude.rnf intervalUnit
 
-instance Core.ToJSON CrossRegionCopyDeprecateRule where
+instance Data.ToJSON CrossRegionCopyDeprecateRule where
   toJSON CrossRegionCopyDeprecateRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Interval" Core..=) Prelude.<$> interval,
-            ("IntervalUnit" Core..=) Prelude.<$> intervalUnit
+          [ ("Interval" Data..=) Prelude.<$> interval,
+            ("IntervalUnit" Data..=) Prelude.<$> intervalUnit
           ]
       )

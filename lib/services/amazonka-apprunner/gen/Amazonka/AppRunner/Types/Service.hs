@@ -29,6 +29,7 @@ import Amazonka.AppRunner.Types.ServiceStatus
 import Amazonka.AppRunner.Types.SourceConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an App Runner service. It can describe a service in any state,
@@ -52,7 +53,7 @@ data Service = Service'
     observabilityConfiguration :: Prelude.Maybe ServiceObservabilityConfiguration,
     -- | The time when the App Runner service was deleted. It\'s in the Unix time
     -- stamp format.
-    deletedAt :: Prelude.Maybe Core.POSIX,
+    deletedAt :: Prelude.Maybe Data.POSIX,
     -- | The encryption key that App Runner uses to encrypt the service logs and
     -- the copy of the source repository that App Runner maintains for the
     -- service. It can be either a customer-provided encryption key or an
@@ -73,10 +74,10 @@ data Service = Service'
     serviceArn :: Prelude.Text,
     -- | The time when the App Runner service was created. It\'s in the Unix time
     -- stamp format.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The time when the App Runner service was last updated at. It\'s in the
     -- Unix time stamp format.
-    updatedAt :: Core.POSIX,
+    updatedAt :: Data.POSIX,
     -- | The current state of the App Runner service. These particular values
     -- mean the following.
     --
@@ -211,8 +212,8 @@ newService
         serviceName = pServiceName_,
         serviceId = pServiceId_,
         serviceArn = pServiceArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_,
         status = pStatus_,
         sourceConfiguration = pSourceConfiguration_,
         instanceConfiguration = pInstanceConfiguration_,
@@ -228,7 +229,7 @@ service_observabilityConfiguration = Lens.lens (\Service' {observabilityConfigur
 -- | The time when the App Runner service was deleted. It\'s in the Unix time
 -- stamp format.
 service_deletedAt :: Lens.Lens' Service (Prelude.Maybe Prelude.UTCTime)
-service_deletedAt = Lens.lens (\Service' {deletedAt} -> deletedAt) (\s@Service' {} a -> s {deletedAt = a} :: Service) Prelude.. Lens.mapping Core._Time
+service_deletedAt = Lens.lens (\Service' {deletedAt} -> deletedAt) (\s@Service' {} a -> s {deletedAt = a} :: Service) Prelude.. Lens.mapping Data._Time
 
 -- | The encryption key that App Runner uses to encrypt the service logs and
 -- the copy of the source repository that App Runner maintains for the
@@ -263,12 +264,12 @@ service_serviceArn = Lens.lens (\Service' {serviceArn} -> serviceArn) (\s@Servic
 -- | The time when the App Runner service was created. It\'s in the Unix time
 -- stamp format.
 service_createdAt :: Lens.Lens' Service Prelude.UTCTime
-service_createdAt = Lens.lens (\Service' {createdAt} -> createdAt) (\s@Service' {} a -> s {createdAt = a} :: Service) Prelude.. Core._Time
+service_createdAt = Lens.lens (\Service' {createdAt} -> createdAt) (\s@Service' {} a -> s {createdAt = a} :: Service) Prelude.. Data._Time
 
 -- | The time when the App Runner service was last updated at. It\'s in the
 -- Unix time stamp format.
 service_updatedAt :: Lens.Lens' Service Prelude.UTCTime
-service_updatedAt = Lens.lens (\Service' {updatedAt} -> updatedAt) (\s@Service' {} a -> s {updatedAt = a} :: Service) Prelude.. Core._Time
+service_updatedAt = Lens.lens (\Service' {updatedAt} -> updatedAt) (\s@Service' {} a -> s {updatedAt = a} :: Service) Prelude.. Data._Time
 
 -- | The current state of the App Runner service. These particular values
 -- mean the following.
@@ -306,27 +307,27 @@ service_autoScalingConfigurationSummary = Lens.lens (\Service' {autoScalingConfi
 service_networkConfiguration :: Lens.Lens' Service NetworkConfiguration
 service_networkConfiguration = Lens.lens (\Service' {networkConfiguration} -> networkConfiguration) (\s@Service' {} a -> s {networkConfiguration = a} :: Service)
 
-instance Core.FromJSON Service where
+instance Data.FromJSON Service where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Service"
       ( \x ->
           Service'
-            Prelude.<$> (x Core..:? "ObservabilityConfiguration")
-            Prelude.<*> (x Core..:? "DeletedAt")
-            Prelude.<*> (x Core..:? "EncryptionConfiguration")
-            Prelude.<*> (x Core..:? "ServiceUrl")
-            Prelude.<*> (x Core..:? "HealthCheckConfiguration")
-            Prelude.<*> (x Core..: "ServiceName")
-            Prelude.<*> (x Core..: "ServiceId")
-            Prelude.<*> (x Core..: "ServiceArn")
-            Prelude.<*> (x Core..: "CreatedAt")
-            Prelude.<*> (x Core..: "UpdatedAt")
-            Prelude.<*> (x Core..: "Status")
-            Prelude.<*> (x Core..: "SourceConfiguration")
-            Prelude.<*> (x Core..: "InstanceConfiguration")
-            Prelude.<*> (x Core..: "AutoScalingConfigurationSummary")
-            Prelude.<*> (x Core..: "NetworkConfiguration")
+            Prelude.<$> (x Data..:? "ObservabilityConfiguration")
+            Prelude.<*> (x Data..:? "DeletedAt")
+            Prelude.<*> (x Data..:? "EncryptionConfiguration")
+            Prelude.<*> (x Data..:? "ServiceUrl")
+            Prelude.<*> (x Data..:? "HealthCheckConfiguration")
+            Prelude.<*> (x Data..: "ServiceName")
+            Prelude.<*> (x Data..: "ServiceId")
+            Prelude.<*> (x Data..: "ServiceArn")
+            Prelude.<*> (x Data..: "CreatedAt")
+            Prelude.<*> (x Data..: "UpdatedAt")
+            Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..: "SourceConfiguration")
+            Prelude.<*> (x Data..: "InstanceConfiguration")
+            Prelude.<*> (x Data..: "AutoScalingConfigurationSummary")
+            Prelude.<*> (x Data..: "NetworkConfiguration")
       )
 
 instance Prelude.Hashable Service where

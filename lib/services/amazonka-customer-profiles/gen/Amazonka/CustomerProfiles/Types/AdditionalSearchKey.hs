@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.AdditionalSearchKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A data type pair that consists of a @KeyName@ and @Values@ list that is
@@ -80,11 +81,11 @@ instance Prelude.NFData AdditionalSearchKey where
     Prelude.rnf keyName
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON AdditionalSearchKey where
+instance Data.ToJSON AdditionalSearchKey where
   toJSON AdditionalSearchKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("KeyName" Core..= keyName),
-            Prelude.Just ("Values" Core..= values)
+          [ Prelude.Just ("KeyName" Data..= keyName),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

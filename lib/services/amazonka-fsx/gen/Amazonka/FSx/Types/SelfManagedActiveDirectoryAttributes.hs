@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.SelfManagedActiveDirectoryAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of the self-managed Microsoft Active Directory (AD)
@@ -109,19 +110,19 @@ selfManagedActiveDirectoryAttributes_fileSystemAdministratorsGroup :: Lens.Lens'
 selfManagedActiveDirectoryAttributes_fileSystemAdministratorsGroup = Lens.lens (\SelfManagedActiveDirectoryAttributes' {fileSystemAdministratorsGroup} -> fileSystemAdministratorsGroup) (\s@SelfManagedActiveDirectoryAttributes' {} a -> s {fileSystemAdministratorsGroup = a} :: SelfManagedActiveDirectoryAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SelfManagedActiveDirectoryAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SelfManagedActiveDirectoryAttributes"
       ( \x ->
           SelfManagedActiveDirectoryAttributes'
-            Prelude.<$> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "DnsIps")
-            Prelude.<*> (x Core..:? "UserName")
-            Prelude.<*> (x Core..:? "OrganizationalUnitDistinguishedName")
-            Prelude.<*> (x Core..:? "FileSystemAdministratorsGroup")
+            Prelude.<$> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "DnsIps")
+            Prelude.<*> (x Data..:? "UserName")
+            Prelude.<*> (x Data..:? "OrganizationalUnitDistinguishedName")
+            Prelude.<*> (x Data..:? "FileSystemAdministratorsGroup")
       )
 
 instance

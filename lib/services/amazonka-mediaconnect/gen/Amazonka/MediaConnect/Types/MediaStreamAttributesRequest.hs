@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.MediaStreamAttributesRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.FmtpRequest
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,11 +76,11 @@ instance Prelude.NFData MediaStreamAttributesRequest where
   rnf MediaStreamAttributesRequest' {..} =
     Prelude.rnf fmtp `Prelude.seq` Prelude.rnf lang
 
-instance Core.ToJSON MediaStreamAttributesRequest where
+instance Data.ToJSON MediaStreamAttributesRequest where
   toJSON MediaStreamAttributesRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fmtp" Core..=) Prelude.<$> fmtp,
-            ("lang" Core..=) Prelude.<$> lang
+          [ ("fmtp" Data..=) Prelude.<$> fmtp,
+            ("lang" Data..=) Prelude.<$> lang
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.PostFulfillmentStatusSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.ConditionalSpecification
 import Amazonka.LexV2Models.Types.DialogState
 import Amazonka.LexV2Models.Types.ResponseSpecification
@@ -152,23 +153,23 @@ postFulfillmentStatusSpecification_failureResponse :: Lens.Lens' PostFulfillment
 postFulfillmentStatusSpecification_failureResponse = Lens.lens (\PostFulfillmentStatusSpecification' {failureResponse} -> failureResponse) (\s@PostFulfillmentStatusSpecification' {} a -> s {failureResponse = a} :: PostFulfillmentStatusSpecification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PostFulfillmentStatusSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PostFulfillmentStatusSpecification"
       ( \x ->
           PostFulfillmentStatusSpecification'
-            Prelude.<$> (x Core..:? "timeoutNextStep")
-            Prelude.<*> (x Core..:? "timeoutConditional")
-            Prelude.<*> (x Core..:? "failureNextStep")
-            Prelude.<*> (x Core..:? "timeoutResponse")
-            Prelude.<*> (x Core..:? "successNextStep")
-            Prelude.<*> (x Core..:? "successConditional")
-            Prelude.<*> (x Core..:? "successResponse")
-            Prelude.<*> (x Core..:? "failureConditional")
-            Prelude.<*> (x Core..:? "failureResponse")
+            Prelude.<$> (x Data..:? "timeoutNextStep")
+            Prelude.<*> (x Data..:? "timeoutConditional")
+            Prelude.<*> (x Data..:? "failureNextStep")
+            Prelude.<*> (x Data..:? "timeoutResponse")
+            Prelude.<*> (x Data..:? "successNextStep")
+            Prelude.<*> (x Data..:? "successConditional")
+            Prelude.<*> (x Data..:? "successResponse")
+            Prelude.<*> (x Data..:? "failureConditional")
+            Prelude.<*> (x Data..:? "failureResponse")
       )
 
 instance
@@ -204,29 +205,29 @@ instance
       `Prelude.seq` Prelude.rnf failureResponse
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     PostFulfillmentStatusSpecification
   where
   toJSON PostFulfillmentStatusSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timeoutNextStep" Core..=)
+          [ ("timeoutNextStep" Data..=)
               Prelude.<$> timeoutNextStep,
-            ("timeoutConditional" Core..=)
+            ("timeoutConditional" Data..=)
               Prelude.<$> timeoutConditional,
-            ("failureNextStep" Core..=)
+            ("failureNextStep" Data..=)
               Prelude.<$> failureNextStep,
-            ("timeoutResponse" Core..=)
+            ("timeoutResponse" Data..=)
               Prelude.<$> timeoutResponse,
-            ("successNextStep" Core..=)
+            ("successNextStep" Data..=)
               Prelude.<$> successNextStep,
-            ("successConditional" Core..=)
+            ("successConditional" Data..=)
               Prelude.<$> successConditional,
-            ("successResponse" Core..=)
+            ("successResponse" Data..=)
               Prelude.<$> successResponse,
-            ("failureConditional" Core..=)
+            ("failureConditional" Data..=)
               Prelude.<$> failureConditional,
-            ("failureResponse" Core..=)
+            ("failureResponse" Data..=)
               Prelude.<$> failureResponse
           ]
       )

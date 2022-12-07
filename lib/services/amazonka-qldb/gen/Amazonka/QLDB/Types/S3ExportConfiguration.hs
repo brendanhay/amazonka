@@ -21,6 +21,7 @@ module Amazonka.QLDB.Types.S3ExportConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types.S3EncryptionConfiguration
 
@@ -144,15 +145,15 @@ s3ExportConfiguration_prefix = Lens.lens (\S3ExportConfiguration' {prefix} -> pr
 s3ExportConfiguration_encryptionConfiguration :: Lens.Lens' S3ExportConfiguration S3EncryptionConfiguration
 s3ExportConfiguration_encryptionConfiguration = Lens.lens (\S3ExportConfiguration' {encryptionConfiguration} -> encryptionConfiguration) (\s@S3ExportConfiguration' {} a -> s {encryptionConfiguration = a} :: S3ExportConfiguration)
 
-instance Core.FromJSON S3ExportConfiguration where
+instance Data.FromJSON S3ExportConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3ExportConfiguration"
       ( \x ->
           S3ExportConfiguration'
-            Prelude.<$> (x Core..: "Bucket")
-            Prelude.<*> (x Core..: "Prefix")
-            Prelude.<*> (x Core..: "EncryptionConfiguration")
+            Prelude.<$> (x Data..: "Bucket")
+            Prelude.<*> (x Data..: "Prefix")
+            Prelude.<*> (x Data..: "EncryptionConfiguration")
       )
 
 instance Prelude.Hashable S3ExportConfiguration where
@@ -167,15 +168,15 @@ instance Prelude.NFData S3ExportConfiguration where
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf encryptionConfiguration
 
-instance Core.ToJSON S3ExportConfiguration where
+instance Data.ToJSON S3ExportConfiguration where
   toJSON S3ExportConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Bucket" Core..= bucket),
-            Prelude.Just ("Prefix" Core..= prefix),
+          [ Prelude.Just ("Bucket" Data..= bucket),
+            Prelude.Just ("Prefix" Data..= prefix),
             Prelude.Just
               ( "EncryptionConfiguration"
-                  Core..= encryptionConfiguration
+                  Data..= encryptionConfiguration
               )
           ]
       )

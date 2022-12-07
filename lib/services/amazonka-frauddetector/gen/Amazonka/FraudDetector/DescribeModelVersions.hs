@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,8 +127,8 @@ instance Core.AWSRequest DescribeModelVersions where
     Response.receiveJSON
       ( \s h x ->
           DescribeModelVersionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "modelVersionDetails"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "modelVersionDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -149,38 +150,38 @@ instance Prelude.NFData DescribeModelVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf modelId
 
-instance Core.ToHeaders DescribeModelVersions where
+instance Data.ToHeaders DescribeModelVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.DescribeModelVersions" ::
+              Data.=# ( "AWSHawksNestServiceFacade.DescribeModelVersions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeModelVersions where
+instance Data.ToJSON DescribeModelVersions where
   toJSON DescribeModelVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("modelVersionNumber" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("modelVersionNumber" Data..=)
               Prelude.<$> modelVersionNumber,
-            ("modelType" Core..=) Prelude.<$> modelType,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("modelId" Core..=) Prelude.<$> modelId
+            ("modelType" Data..=) Prelude.<$> modelType,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("modelId" Data..=) Prelude.<$> modelId
           ]
       )
 
-instance Core.ToPath DescribeModelVersions where
+instance Data.ToPath DescribeModelVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeModelVersions where
+instance Data.ToQuery DescribeModelVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeModelVersionsResponse' smart constructor.

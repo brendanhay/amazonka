@@ -22,6 +22,7 @@ module Amazonka.Config.Types.ResourceIdentifier where
 import Amazonka.Config.Types.ResourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details that identify a resource that is discovered by Config,
@@ -37,7 +38,7 @@ data ResourceIdentifier = ResourceIdentifier'
     -- | The custom name of the resource (if available).
     resourceName :: Prelude.Maybe Prelude.Text,
     -- | The time that the resource was deleted.
-    resourceDeletionTime :: Prelude.Maybe Core.POSIX
+    resourceDeletionTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,18 +81,18 @@ resourceIdentifier_resourceName = Lens.lens (\ResourceIdentifier' {resourceName}
 
 -- | The time that the resource was deleted.
 resourceIdentifier_resourceDeletionTime :: Lens.Lens' ResourceIdentifier (Prelude.Maybe Prelude.UTCTime)
-resourceIdentifier_resourceDeletionTime = Lens.lens (\ResourceIdentifier' {resourceDeletionTime} -> resourceDeletionTime) (\s@ResourceIdentifier' {} a -> s {resourceDeletionTime = a} :: ResourceIdentifier) Prelude.. Lens.mapping Core._Time
+resourceIdentifier_resourceDeletionTime = Lens.lens (\ResourceIdentifier' {resourceDeletionTime} -> resourceDeletionTime) (\s@ResourceIdentifier' {} a -> s {resourceDeletionTime = a} :: ResourceIdentifier) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ResourceIdentifier where
+instance Data.FromJSON ResourceIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceIdentifier"
       ( \x ->
           ResourceIdentifier'
-            Prelude.<$> (x Core..:? "resourceId")
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "resourceName")
-            Prelude.<*> (x Core..:? "resourceDeletionTime")
+            Prelude.<$> (x Data..:? "resourceId")
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "resourceName")
+            Prelude.<*> (x Data..:? "resourceDeletionTime")
       )
 
 instance Prelude.Hashable ResourceIdentifier where

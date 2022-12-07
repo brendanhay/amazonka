@@ -21,6 +21,7 @@ module Amazonka.WAF.Types.SampledHTTPRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAF.Types.HTTPRequest
 
@@ -48,7 +49,7 @@ data SampledHTTPRequest = SampledHTTPRequest'
     ruleWithinRuleGroup :: Prelude.Maybe Prelude.Text,
     -- | The time at which AWS WAF received the request from your AWS resource,
     -- in Unix time format (in seconds).
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The action for the @Rule@ that the request matched: @ALLOW@, @BLOCK@, or
     -- @COUNT@.
     action :: Prelude.Maybe Prelude.Text,
@@ -113,7 +114,7 @@ sampledHTTPRequest_ruleWithinRuleGroup = Lens.lens (\SampledHTTPRequest' {ruleWi
 -- | The time at which AWS WAF received the request from your AWS resource,
 -- in Unix time format (in seconds).
 sampledHTTPRequest_timestamp :: Lens.Lens' SampledHTTPRequest (Prelude.Maybe Prelude.UTCTime)
-sampledHTTPRequest_timestamp = Lens.lens (\SampledHTTPRequest' {timestamp} -> timestamp) (\s@SampledHTTPRequest' {} a -> s {timestamp = a} :: SampledHTTPRequest) Prelude.. Lens.mapping Core._Time
+sampledHTTPRequest_timestamp = Lens.lens (\SampledHTTPRequest' {timestamp} -> timestamp) (\s@SampledHTTPRequest' {} a -> s {timestamp = a} :: SampledHTTPRequest) Prelude.. Lens.mapping Data._Time
 
 -- | The action for the @Rule@ that the request matched: @ALLOW@, @BLOCK@, or
 -- @COUNT@.
@@ -131,17 +132,17 @@ sampledHTTPRequest_request = Lens.lens (\SampledHTTPRequest' {request} -> reques
 sampledHTTPRequest_weight :: Lens.Lens' SampledHTTPRequest Prelude.Natural
 sampledHTTPRequest_weight = Lens.lens (\SampledHTTPRequest' {weight} -> weight) (\s@SampledHTTPRequest' {} a -> s {weight = a} :: SampledHTTPRequest)
 
-instance Core.FromJSON SampledHTTPRequest where
+instance Data.FromJSON SampledHTTPRequest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SampledHTTPRequest"
       ( \x ->
           SampledHTTPRequest'
-            Prelude.<$> (x Core..:? "RuleWithinRuleGroup")
-            Prelude.<*> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "Action")
-            Prelude.<*> (x Core..: "Request")
-            Prelude.<*> (x Core..: "Weight")
+            Prelude.<$> (x Data..:? "RuleWithinRuleGroup")
+            Prelude.<*> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..: "Request")
+            Prelude.<*> (x Data..: "Weight")
       )
 
 instance Prelude.Hashable SampledHTTPRequest where

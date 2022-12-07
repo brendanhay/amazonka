@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,8 +165,8 @@ instance Core.AWSRequest ListWirelessDevices where
     Response.receiveJSON
       ( \s h x ->
           ListWirelessDevicesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "WirelessDeviceList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "WirelessDeviceList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -193,23 +194,23 @@ instance Prelude.NFData ListWirelessDevices where
       `Prelude.seq` Prelude.rnf multicastGroupId
       `Prelude.seq` Prelude.rnf serviceProfileId
 
-instance Core.ToHeaders ListWirelessDevices where
+instance Data.ToHeaders ListWirelessDevices where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListWirelessDevices where
+instance Data.ToPath ListWirelessDevices where
   toPath = Prelude.const "/wireless-devices"
 
-instance Core.ToQuery ListWirelessDevices where
+instance Data.ToQuery ListWirelessDevices where
   toQuery ListWirelessDevices' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "wirelessDeviceType" Core.=: wirelessDeviceType,
-        "fuotaTaskId" Core.=: fuotaTaskId,
-        "destinationName" Core.=: destinationName,
-        "deviceProfileId" Core.=: deviceProfileId,
-        "maxResults" Core.=: maxResults,
-        "multicastGroupId" Core.=: multicastGroupId,
-        "serviceProfileId" Core.=: serviceProfileId
+      [ "nextToken" Data.=: nextToken,
+        "wirelessDeviceType" Data.=: wirelessDeviceType,
+        "fuotaTaskId" Data.=: fuotaTaskId,
+        "destinationName" Data.=: destinationName,
+        "deviceProfileId" Data.=: deviceProfileId,
+        "maxResults" Data.=: maxResults,
+        "multicastGroupId" Data.=: multicastGroupId,
+        "serviceProfileId" Data.=: serviceProfileId
       ]
 
 -- | /See:/ 'newListWirelessDevicesResponse' smart constructor.

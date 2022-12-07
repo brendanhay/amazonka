@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.SubResourceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Shield.Types.SubResourceType
 import Amazonka.Shield.Types.SummarizedAttackVector
@@ -82,16 +83,16 @@ subResourceSummary_id = Lens.lens (\SubResourceSummary' {id} -> id) (\s@SubResou
 subResourceSummary_attackVectors :: Lens.Lens' SubResourceSummary (Prelude.Maybe [SummarizedAttackVector])
 subResourceSummary_attackVectors = Lens.lens (\SubResourceSummary' {attackVectors} -> attackVectors) (\s@SubResourceSummary' {} a -> s {attackVectors = a} :: SubResourceSummary) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SubResourceSummary where
+instance Data.FromJSON SubResourceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubResourceSummary"
       ( \x ->
           SubResourceSummary'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Counters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "AttackVectors" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Counters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "AttackVectors" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SubResourceSummary where

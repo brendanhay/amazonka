@@ -44,6 +44,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,7 +130,7 @@ instance Core.AWSRequest UpdateReportGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateReportGroupResponse'
-            Prelude.<$> (x Core..?> "reportGroup")
+            Prelude.<$> (x Data..?> "reportGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,35 +146,35 @@ instance Prelude.NFData UpdateReportGroup where
       `Prelude.seq` Prelude.rnf exportConfig
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders UpdateReportGroup where
+instance Data.ToHeaders UpdateReportGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.UpdateReportGroup" ::
+              Data.=# ( "CodeBuild_20161006.UpdateReportGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateReportGroup where
+instance Data.ToJSON UpdateReportGroup where
   toJSON UpdateReportGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("exportConfig" Core..=) Prelude.<$> exportConfig,
-            Prelude.Just ("arn" Core..= arn)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("exportConfig" Data..=) Prelude.<$> exportConfig,
+            Prelude.Just ("arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath UpdateReportGroup where
+instance Data.ToPath UpdateReportGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateReportGroup where
+instance Data.ToQuery UpdateReportGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateReportGroupResponse' smart constructor.

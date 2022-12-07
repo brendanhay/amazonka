@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -187,31 +188,31 @@ instance Prelude.NFData ModifySnapshotAttribute where
       `Prelude.seq` Prelude.rnf userIds
       `Prelude.seq` Prelude.rnf snapshotId
 
-instance Core.ToHeaders ModifySnapshotAttribute where
+instance Data.ToHeaders ModifySnapshotAttribute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifySnapshotAttribute where
+instance Data.ToPath ModifySnapshotAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifySnapshotAttribute where
+instance Data.ToQuery ModifySnapshotAttribute where
   toQuery ModifySnapshotAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifySnapshotAttribute" :: Prelude.ByteString),
+          Data.=: ("ModifySnapshotAttribute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "OperationType" Core.=: operationType,
-        "Attribute" Core.=: attribute,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "OperationType" Data.=: operationType,
+        "Attribute" Data.=: attribute,
         "CreateVolumePermission"
-          Core.=: createVolumePermission,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "UserGroup"
+          Data.=: createVolumePermission,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "UserGroup"
               Prelude.<$> groupNames
           ),
-        Core.toQuery
-          (Core.toQueryList "UserId" Prelude.<$> userIds),
-        "SnapshotId" Core.=: snapshotId
+        Data.toQuery
+          (Data.toQueryList "UserId" Prelude.<$> userIds),
+        "SnapshotId" Data.=: snapshotId
       ]
 
 -- | /See:/ 'newModifySnapshotAttributeResponse' smart constructor.

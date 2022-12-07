@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.ColorSpacePassthroughSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Passthrough applies no color space conversion to the output
@@ -40,9 +41,9 @@ newColorSpacePassthroughSettings ::
 newColorSpacePassthroughSettings =
   ColorSpacePassthroughSettings'
 
-instance Core.FromJSON ColorSpacePassthroughSettings where
+instance Data.FromJSON ColorSpacePassthroughSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColorSpacePassthroughSettings"
       (\x -> Prelude.pure ColorSpacePassthroughSettings')
 
@@ -56,5 +57,5 @@ instance
 instance Prelude.NFData ColorSpacePassthroughSettings where
   rnf _ = ()
 
-instance Core.ToJSON ColorSpacePassthroughSettings where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ColorSpacePassthroughSettings where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

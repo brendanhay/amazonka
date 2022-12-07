@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2SubnetDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.Ipv6CidrBlockAssociation
 
@@ -170,27 +171,27 @@ awsEc2SubnetDetails_availabilityZoneId = Lens.lens (\AwsEc2SubnetDetails' {avail
 awsEc2SubnetDetails_availableIpAddressCount :: Lens.Lens' AwsEc2SubnetDetails (Prelude.Maybe Prelude.Int)
 awsEc2SubnetDetails_availableIpAddressCount = Lens.lens (\AwsEc2SubnetDetails' {availableIpAddressCount} -> availableIpAddressCount) (\s@AwsEc2SubnetDetails' {} a -> s {availableIpAddressCount = a} :: AwsEc2SubnetDetails)
 
-instance Core.FromJSON AwsEc2SubnetDetails where
+instance Data.FromJSON AwsEc2SubnetDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2SubnetDetails"
       ( \x ->
           AwsEc2SubnetDetails'
-            Prelude.<$> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "MapPublicIpOnLaunch")
-            Prelude.<*> (x Core..:? "DefaultForAz")
-            Prelude.<*> (x Core..:? "SubnetId")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> ( x Core..:? "Ipv6CidrBlockAssociationSet"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "MapPublicIpOnLaunch")
+            Prelude.<*> (x Data..:? "DefaultForAz")
+            Prelude.<*> (x Data..:? "SubnetId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> ( x Data..:? "Ipv6CidrBlockAssociationSet"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SubnetArn")
-            Prelude.<*> (x Core..:? "CidrBlock")
-            Prelude.<*> (x Core..:? "AssignIpv6AddressOnCreation")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "AvailabilityZoneId")
-            Prelude.<*> (x Core..:? "AvailableIpAddressCount")
+            Prelude.<*> (x Data..:? "SubnetArn")
+            Prelude.<*> (x Data..:? "CidrBlock")
+            Prelude.<*> (x Data..:? "AssignIpv6AddressOnCreation")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "AvailabilityZoneId")
+            Prelude.<*> (x Data..:? "AvailableIpAddressCount")
       )
 
 instance Prelude.Hashable AwsEc2SubnetDetails where
@@ -225,28 +226,28 @@ instance Prelude.NFData AwsEc2SubnetDetails where
       `Prelude.seq` Prelude.rnf availabilityZoneId
       `Prelude.seq` Prelude.rnf availableIpAddressCount
 
-instance Core.ToJSON AwsEc2SubnetDetails where
+instance Data.ToJSON AwsEc2SubnetDetails where
   toJSON AwsEc2SubnetDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OwnerId" Core..=) Prelude.<$> ownerId,
-            ("MapPublicIpOnLaunch" Core..=)
+          [ ("OwnerId" Data..=) Prelude.<$> ownerId,
+            ("MapPublicIpOnLaunch" Data..=)
               Prelude.<$> mapPublicIpOnLaunch,
-            ("DefaultForAz" Core..=) Prelude.<$> defaultForAz,
-            ("SubnetId" Core..=) Prelude.<$> subnetId,
-            ("State" Core..=) Prelude.<$> state,
-            ("AvailabilityZone" Core..=)
+            ("DefaultForAz" Data..=) Prelude.<$> defaultForAz,
+            ("SubnetId" Data..=) Prelude.<$> subnetId,
+            ("State" Data..=) Prelude.<$> state,
+            ("AvailabilityZone" Data..=)
               Prelude.<$> availabilityZone,
-            ("Ipv6CidrBlockAssociationSet" Core..=)
+            ("Ipv6CidrBlockAssociationSet" Data..=)
               Prelude.<$> ipv6CidrBlockAssociationSet,
-            ("SubnetArn" Core..=) Prelude.<$> subnetArn,
-            ("CidrBlock" Core..=) Prelude.<$> cidrBlock,
-            ("AssignIpv6AddressOnCreation" Core..=)
+            ("SubnetArn" Data..=) Prelude.<$> subnetArn,
+            ("CidrBlock" Data..=) Prelude.<$> cidrBlock,
+            ("AssignIpv6AddressOnCreation" Data..=)
               Prelude.<$> assignIpv6AddressOnCreation,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("AvailabilityZoneId" Core..=)
+            ("VpcId" Data..=) Prelude.<$> vpcId,
+            ("AvailabilityZoneId" Data..=)
               Prelude.<$> availabilityZoneId,
-            ("AvailableIpAddressCount" Core..=)
+            ("AvailableIpAddressCount" Data..=)
               Prelude.<$> availableIpAddressCount
           ]
       )

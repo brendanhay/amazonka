@@ -21,6 +21,7 @@ module Amazonka.Detective.Types.MembershipDatasources where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types.DatasourcePackage
 import Amazonka.Detective.Types.DatasourcePackageIngestState
 import Amazonka.Detective.Types.TimestampForCollection
@@ -74,17 +75,17 @@ membershipDatasources_graphArn = Lens.lens (\MembershipDatasources' {graphArn} -
 membershipDatasources_accountId :: Lens.Lens' MembershipDatasources (Prelude.Maybe Prelude.Text)
 membershipDatasources_accountId = Lens.lens (\MembershipDatasources' {accountId} -> accountId) (\s@MembershipDatasources' {} a -> s {accountId = a} :: MembershipDatasources)
 
-instance Core.FromJSON MembershipDatasources where
+instance Data.FromJSON MembershipDatasources where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MembershipDatasources"
       ( \x ->
           MembershipDatasources'
-            Prelude.<$> ( x Core..:? "DatasourcePackageIngestHistory"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "DatasourcePackageIngestHistory"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "GraphArn")
-            Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<*> (x Data..:? "GraphArn")
+            Prelude.<*> (x Data..:? "AccountId")
       )
 
 instance Prelude.Hashable MembershipDatasources where

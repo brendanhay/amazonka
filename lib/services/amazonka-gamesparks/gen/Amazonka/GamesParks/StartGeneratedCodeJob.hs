@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,7 +115,7 @@ instance Core.AWSRequest StartGeneratedCodeJob where
     Response.receiveJSON
       ( \s h x ->
           StartGeneratedCodeJobResponse'
-            Prelude.<$> (x Core..?> "GeneratedCodeJobId")
+            Prelude.<$> (x Data..?> "GeneratedCodeJobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,35 +131,35 @@ instance Prelude.NFData StartGeneratedCodeJob where
       `Prelude.seq` Prelude.rnf generator
       `Prelude.seq` Prelude.rnf snapshotId
 
-instance Core.ToHeaders StartGeneratedCodeJob where
+instance Data.ToHeaders StartGeneratedCodeJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartGeneratedCodeJob where
+instance Data.ToJSON StartGeneratedCodeJob where
   toJSON StartGeneratedCodeJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Generator" Core..= generator)]
+          [Prelude.Just ("Generator" Data..= generator)]
       )
 
-instance Core.ToPath StartGeneratedCodeJob where
+instance Data.ToPath StartGeneratedCodeJob where
   toPath StartGeneratedCodeJob' {..} =
     Prelude.mconcat
       [ "/game/",
-        Core.toBS gameName,
+        Data.toBS gameName,
         "/snapshot/",
-        Core.toBS snapshotId,
+        Data.toBS snapshotId,
         "/generated-sdk-code-job"
       ]
 
-instance Core.ToQuery StartGeneratedCodeJob where
+instance Data.ToQuery StartGeneratedCodeJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartGeneratedCodeJobResponse' smart constructor.

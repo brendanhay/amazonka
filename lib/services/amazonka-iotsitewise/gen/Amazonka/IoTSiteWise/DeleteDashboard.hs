@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,25 +114,25 @@ instance Prelude.NFData DeleteDashboard where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf dashboardId
 
-instance Core.ToHeaders DeleteDashboard where
+instance Data.ToHeaders DeleteDashboard where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteDashboard where
+instance Data.ToPath DeleteDashboard where
   toPath DeleteDashboard' {..} =
     Prelude.mconcat
-      ["/dashboards/", Core.toBS dashboardId]
+      ["/dashboards/", Data.toBS dashboardId]
 
-instance Core.ToQuery DeleteDashboard where
+instance Data.ToQuery DeleteDashboard where
   toQuery DeleteDashboard' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | /See:/ 'newDeleteDashboardResponse' smart constructor.
 data DeleteDashboardResponse = DeleteDashboardResponse'

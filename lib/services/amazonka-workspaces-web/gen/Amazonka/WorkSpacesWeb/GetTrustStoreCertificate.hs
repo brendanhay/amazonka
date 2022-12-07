@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,8 +102,8 @@ instance Core.AWSRequest GetTrustStoreCertificate where
     Response.receiveJSON
       ( \s h x ->
           GetTrustStoreCertificateResponse'
-            Prelude.<$> (x Core..?> "trustStoreArn")
-            Prelude.<*> (x Core..?> "certificate")
+            Prelude.<$> (x Data..?> "trustStoreArn")
+            Prelude.<*> (x Data..?> "certificate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,28 +117,28 @@ instance Prelude.NFData GetTrustStoreCertificate where
     Prelude.rnf thumbprint
       `Prelude.seq` Prelude.rnf trustStoreArn
 
-instance Core.ToHeaders GetTrustStoreCertificate where
+instance Data.ToHeaders GetTrustStoreCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetTrustStoreCertificate where
+instance Data.ToPath GetTrustStoreCertificate where
   toPath GetTrustStoreCertificate' {..} =
     Prelude.mconcat
       [ "/trustStores/",
-        Core.toBS trustStoreArn,
+        Data.toBS trustStoreArn,
         "/certificate"
       ]
 
-instance Core.ToQuery GetTrustStoreCertificate where
+instance Data.ToQuery GetTrustStoreCertificate where
   toQuery GetTrustStoreCertificate' {..} =
-    Prelude.mconcat ["thumbprint" Core.=: thumbprint]
+    Prelude.mconcat ["thumbprint" Data.=: thumbprint]
 
 -- | /See:/ 'newGetTrustStoreCertificateResponse' smart constructor.
 data GetTrustStoreCertificateResponse = GetTrustStoreCertificateResponse'

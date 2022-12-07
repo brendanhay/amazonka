@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.ReportGenerator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.ReportContext
 import Amazonka.LicenseManager.Types.ReportFrequency
 import Amazonka.LicenseManager.Types.ReportType
@@ -165,25 +166,25 @@ reportGenerator_reportContext = Lens.lens (\ReportGenerator' {reportContext} -> 
 reportGenerator_reportCreatorAccount :: Lens.Lens' ReportGenerator (Prelude.Maybe Prelude.Text)
 reportGenerator_reportCreatorAccount = Lens.lens (\ReportGenerator' {reportCreatorAccount} -> reportCreatorAccount) (\s@ReportGenerator' {} a -> s {reportCreatorAccount = a} :: ReportGenerator)
 
-instance Core.FromJSON ReportGenerator where
+instance Data.FromJSON ReportGenerator where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReportGenerator"
       ( \x ->
           ReportGenerator'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ReportType" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ReportFrequency")
-            Prelude.<*> (x Core..:? "LicenseManagerReportGeneratorArn")
-            Prelude.<*> (x Core..:? "LastReportGenerationTime")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ReportGeneratorName")
-            Prelude.<*> (x Core..:? "S3Location")
-            Prelude.<*> (x Core..:? "CreateTime")
-            Prelude.<*> (x Core..:? "LastRunFailureReason")
-            Prelude.<*> (x Core..:? "LastRunStatus")
-            Prelude.<*> (x Core..:? "ReportContext")
-            Prelude.<*> (x Core..:? "ReportCreatorAccount")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ReportType" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ReportFrequency")
+            Prelude.<*> (x Data..:? "LicenseManagerReportGeneratorArn")
+            Prelude.<*> (x Data..:? "LastReportGenerationTime")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ReportGeneratorName")
+            Prelude.<*> (x Data..:? "S3Location")
+            Prelude.<*> (x Data..:? "CreateTime")
+            Prelude.<*> (x Data..:? "LastRunFailureReason")
+            Prelude.<*> (x Data..:? "LastRunStatus")
+            Prelude.<*> (x Data..:? "ReportContext")
+            Prelude.<*> (x Data..:? "ReportCreatorAccount")
       )
 
 instance Prelude.Hashable ReportGenerator where

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,8 +134,8 @@ instance Core.AWSRequest ListSolutions where
     Response.receiveJSON
       ( \s h x ->
           ListSolutionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "solutions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "solutions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,36 +151,36 @@ instance Prelude.NFData ListSolutions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf datasetGroupArn
 
-instance Core.ToHeaders ListSolutions where
+instance Data.ToHeaders ListSolutions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.ListSolutions" ::
+              Data.=# ( "AmazonPersonalize.ListSolutions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSolutions where
+instance Data.ToJSON ListSolutions where
   toJSON ListSolutions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("datasetGroupArn" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("datasetGroupArn" Data..=)
               Prelude.<$> datasetGroupArn
           ]
       )
 
-instance Core.ToPath ListSolutions where
+instance Data.ToPath ListSolutions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSolutions where
+instance Data.ToQuery ListSolutions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSolutionsResponse' smart constructor.

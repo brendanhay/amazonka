@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.TimeStreamQuery.Types.ColumnInfo where
 
-import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 data ColumnInfo
@@ -24,7 +24,7 @@ instance Prelude.Show ColumnInfo
 
 instance Prelude.Generic ColumnInfo
 
-instance Core.FromJSON ColumnInfo
+instance Data.FromJSON ColumnInfo
 
 instance Prelude.NFData ColumnInfo
 

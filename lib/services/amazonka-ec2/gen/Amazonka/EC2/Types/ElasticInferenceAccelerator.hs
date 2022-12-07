@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ElasticInferenceAccelerator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -86,7 +87,7 @@ instance Prelude.NFData ElasticInferenceAccelerator where
   rnf ElasticInferenceAccelerator' {..} =
     Prelude.rnf count `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToQuery ElasticInferenceAccelerator where
+instance Data.ToQuery ElasticInferenceAccelerator where
   toQuery ElasticInferenceAccelerator' {..} =
     Prelude.mconcat
-      ["Count" Core.=: count, "Type" Core.=: type']
+      ["Count" Data.=: count, "Type" Data.=: type']

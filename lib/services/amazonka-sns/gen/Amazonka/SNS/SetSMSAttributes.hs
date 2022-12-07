@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -334,21 +335,21 @@ instance Prelude.Hashable SetSMSAttributes where
 instance Prelude.NFData SetSMSAttributes where
   rnf SetSMSAttributes' {..} = Prelude.rnf attributes
 
-instance Core.ToHeaders SetSMSAttributes where
+instance Data.ToHeaders SetSMSAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SetSMSAttributes where
+instance Data.ToPath SetSMSAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetSMSAttributes where
+instance Data.ToQuery SetSMSAttributes where
   toQuery SetSMSAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SetSMSAttributes" :: Prelude.ByteString),
+          Data.=: ("SetSMSAttributes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
         "attributes"
-          Core.=: Core.toQueryMap "entry" "key" "value" attributes
+          Data.=: Data.toQueryMap "entry" "key" "value" attributes
       ]
 
 -- | The response for the SetSMSAttributes action.

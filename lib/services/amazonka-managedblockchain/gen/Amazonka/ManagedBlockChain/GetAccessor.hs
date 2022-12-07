@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest GetAccessor where
     Response.receiveJSON
       ( \s h x ->
           GetAccessorResponse'
-            Prelude.<$> (x Core..?> "Accessor")
+            Prelude.<$> (x Data..?> "Accessor")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,23 +100,23 @@ instance Prelude.Hashable GetAccessor where
 instance Prelude.NFData GetAccessor where
   rnf GetAccessor' {..} = Prelude.rnf accessorId
 
-instance Core.ToHeaders GetAccessor where
+instance Data.ToHeaders GetAccessor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetAccessor where
+instance Data.ToPath GetAccessor where
   toPath GetAccessor' {..} =
     Prelude.mconcat
-      ["/accessors/", Core.toBS accessorId]
+      ["/accessors/", Data.toBS accessorId]
 
-instance Core.ToQuery GetAccessor where
+instance Data.ToQuery GetAccessor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAccessorResponse' smart constructor.

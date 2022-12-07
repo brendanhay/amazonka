@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.SoftwareTokenMfaConfigType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The type used for enabling software token MFA at the user pool level.
@@ -53,13 +54,13 @@ newSoftwareTokenMfaConfigType =
 softwareTokenMfaConfigType_enabled :: Lens.Lens' SoftwareTokenMfaConfigType (Prelude.Maybe Prelude.Bool)
 softwareTokenMfaConfigType_enabled = Lens.lens (\SoftwareTokenMfaConfigType' {enabled} -> enabled) (\s@SoftwareTokenMfaConfigType' {} a -> s {enabled = a} :: SoftwareTokenMfaConfigType)
 
-instance Core.FromJSON SoftwareTokenMfaConfigType where
+instance Data.FromJSON SoftwareTokenMfaConfigType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SoftwareTokenMfaConfigType"
       ( \x ->
           SoftwareTokenMfaConfigType'
-            Prelude.<$> (x Core..:? "Enabled")
+            Prelude.<$> (x Data..:? "Enabled")
       )
 
 instance Prelude.Hashable SoftwareTokenMfaConfigType where
@@ -70,9 +71,9 @@ instance Prelude.NFData SoftwareTokenMfaConfigType where
   rnf SoftwareTokenMfaConfigType' {..} =
     Prelude.rnf enabled
 
-instance Core.ToJSON SoftwareTokenMfaConfigType where
+instance Data.ToJSON SoftwareTokenMfaConfigType where
   toJSON SoftwareTokenMfaConfigType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Enabled" Core..=) Prelude.<$> enabled]
+          [("Enabled" Data..=) Prelude.<$> enabled]
       )

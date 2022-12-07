@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ data CreateFleet = CreateFleet'
     -- | The start date and time of the request, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). The default is to start fulfilling
     -- the request immediately.
-    validFrom :: Prelude.Maybe Core.ISO8601,
+    validFrom :: Prelude.Maybe Data.ISO8601,
     -- | Indicates whether EC2 Fleet should replace unhealthy Spot Instances.
     -- Supported only for fleets of type @maintain@. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks EC2 Fleet health checks>
@@ -125,7 +126,7 @@ data CreateFleet = CreateFleet'
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). At this point, no new EC2 Fleet
     -- requests are placed or able to fulfill the request. If no value is
     -- specified, the request remains until you cancel it.
-    validUntil :: Prelude.Maybe Core.ISO8601,
+    validUntil :: Prelude.Maybe Data.ISO8601,
     -- | The key-value pair for tagging the EC2 Fleet request on creation. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging your resources>.
@@ -292,7 +293,7 @@ createFleet_context = Lens.lens (\CreateFleet' {context} -> context) (\s@CreateF
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). The default is to start fulfilling
 -- the request immediately.
 createFleet_validFrom :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.UTCTime)
-createFleet_validFrom = Lens.lens (\CreateFleet' {validFrom} -> validFrom) (\s@CreateFleet' {} a -> s {validFrom = a} :: CreateFleet) Prelude.. Lens.mapping Core._Time
+createFleet_validFrom = Lens.lens (\CreateFleet' {validFrom} -> validFrom) (\s@CreateFleet' {} a -> s {validFrom = a} :: CreateFleet) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether EC2 Fleet should replace unhealthy Spot Instances.
 -- Supported only for fleets of type @maintain@. For more information, see
@@ -322,7 +323,7 @@ createFleet_terminateInstancesWithExpiration = Lens.lens (\CreateFleet' {termina
 -- requests are placed or able to fulfill the request. If no value is
 -- specified, the request remains until you cancel it.
 createFleet_validUntil :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.UTCTime)
-createFleet_validUntil = Lens.lens (\CreateFleet' {validUntil} -> validUntil) (\s@CreateFleet' {} a -> s {validUntil = a} :: CreateFleet) Prelude.. Lens.mapping Core._Time
+createFleet_validUntil = Lens.lens (\CreateFleet' {validUntil} -> validUntil) (\s@CreateFleet' {} a -> s {validUntil = a} :: CreateFleet) Prelude.. Lens.mapping Data._Time
 
 -- | The key-value pair for tagging the EC2 Fleet request on creation. For
 -- more information, see
@@ -354,13 +355,13 @@ instance Core.AWSRequest CreateFleet where
     Response.receiveXML
       ( \s h x ->
           CreateFleetResponse'
-            Prelude.<$> ( x Core..@? "fleetInstanceSet"
+            Prelude.<$> ( x Data..@? "fleetInstanceSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "fleetId")
-            Prelude.<*> ( x Core..@? "errorSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<*> (x Data..@? "fleetId")
+            Prelude.<*> ( x Data..@? "errorSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -400,42 +401,42 @@ instance Prelude.NFData CreateFleet where
       `Prelude.seq` Prelude.rnf launchTemplateConfigs
       `Prelude.seq` Prelude.rnf targetCapacitySpecification
 
-instance Core.ToHeaders CreateFleet where
+instance Data.ToHeaders CreateFleet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateFleet where
+instance Data.ToPath CreateFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFleet where
+instance Data.ToQuery CreateFleet where
   toQuery CreateFleet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateFleet" :: Prelude.ByteString),
+          Data.=: ("CreateFleet" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "ExcessCapacityTerminationPolicy"
-          Core.=: excessCapacityTerminationPolicy,
-        "ClientToken" Core.=: clientToken,
-        "Type" Core.=: type',
-        "OnDemandOptions" Core.=: onDemandOptions,
-        "Context" Core.=: context,
-        "ValidFrom" Core.=: validFrom,
+          Data.=: excessCapacityTerminationPolicy,
+        "ClientToken" Data.=: clientToken,
+        "Type" Data.=: type',
+        "OnDemandOptions" Data.=: onDemandOptions,
+        "Context" Data.=: context,
+        "ValidFrom" Data.=: validFrom,
         "ReplaceUnhealthyInstances"
-          Core.=: replaceUnhealthyInstances,
-        "DryRun" Core.=: dryRun,
-        "SpotOptions" Core.=: spotOptions,
+          Data.=: replaceUnhealthyInstances,
+        "DryRun" Data.=: dryRun,
+        "SpotOptions" Data.=: spotOptions,
         "TerminateInstancesWithExpiration"
-          Core.=: terminateInstancesWithExpiration,
-        "ValidUntil" Core.=: validUntil,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: terminateInstancesWithExpiration,
+        "ValidUntil" Data.=: validUntil,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        Core.toQueryList
+        Data.toQueryList
           "LaunchTemplateConfigs"
           launchTemplateConfigs,
         "TargetCapacitySpecification"
-          Core.=: targetCapacitySpecification
+          Data.=: targetCapacitySpecification
       ]
 
 -- | /See:/ 'newCreateFleetResponse' smart constructor.

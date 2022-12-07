@@ -48,6 +48,7 @@ where
 import Amazonka.ControlTower.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,9 +134,9 @@ instance Core.AWSRequest ListEnabledControls where
     Response.receiveJSON
       ( \s h x ->
           ListEnabledControlsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "enabledControls"
+            Prelude.<*> ( x Data..?> "enabledControls"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -152,32 +153,32 @@ instance Prelude.NFData ListEnabledControls where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf targetIdentifier
 
-instance Core.ToHeaders ListEnabledControls where
+instance Data.ToHeaders ListEnabledControls where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEnabledControls where
+instance Data.ToJSON ListEnabledControls where
   toJSON ListEnabledControls' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("targetIdentifier" Core..= targetIdentifier)
+              ("targetIdentifier" Data..= targetIdentifier)
           ]
       )
 
-instance Core.ToPath ListEnabledControls where
+instance Data.ToPath ListEnabledControls where
   toPath = Prelude.const "/list-enabled-controls"
 
-instance Core.ToQuery ListEnabledControls where
+instance Data.ToQuery ListEnabledControls where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEnabledControlsResponse' smart constructor.

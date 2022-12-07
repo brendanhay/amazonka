@@ -59,6 +59,7 @@ where
 import Amazonka.AWSHealth.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -183,9 +184,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAffectedAccountsForOrganizationResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-              Prelude.<*> (x Core..?> "eventScopeCode")
-              Prelude.<*> ( x Core..?> "affectedAccounts"
+            Prelude.<$> (x Data..?> "nextToken")
+              Prelude.<*> (x Data..?> "eventScopeCode")
+              Prelude.<*> ( x Data..?> "affectedAccounts"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -212,44 +213,44 @@ instance
       `Prelude.seq` Prelude.rnf eventArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeAffectedAccountsForOrganization
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHealth_20160804.DescribeAffectedAccountsForOrganization" ::
+              Data.=# ( "AWSHealth_20160804.DescribeAffectedAccountsForOrganization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeAffectedAccountsForOrganization
   where
   toJSON DescribeAffectedAccountsForOrganization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("eventArn" Core..= eventArn)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("eventArn" Data..= eventArn)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeAffectedAccountsForOrganization
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeAffectedAccountsForOrganization
   where
   toQuery = Prelude.const Prelude.mempty

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,7 +93,7 @@ instance Core.AWSRequest DeleteOutboundConnection where
     Response.receiveJSON
       ( \s h x ->
           DeleteOutboundConnectionResponse'
-            Prelude.<$> (x Core..?> "Connection")
+            Prelude.<$> (x Data..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,17 +105,17 @@ instance Prelude.NFData DeleteOutboundConnection where
   rnf DeleteOutboundConnection' {..} =
     Prelude.rnf connectionId
 
-instance Core.ToHeaders DeleteOutboundConnection where
+instance Data.ToHeaders DeleteOutboundConnection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteOutboundConnection where
+instance Data.ToPath DeleteOutboundConnection where
   toPath DeleteOutboundConnection' {..} =
     Prelude.mconcat
       [ "/2021-01-01/opensearch/cc/outboundConnection/",
-        Core.toBS connectionId
+        Data.toBS connectionId
       ]
 
-instance Core.ToQuery DeleteOutboundConnection where
+instance Data.ToQuery DeleteOutboundConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Details about the deleted outbound connection.

@@ -21,6 +21,7 @@ module Amazonka.S3.Types.SelectObjectContentEventStream where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ContinuationEvent
@@ -95,14 +96,14 @@ selectObjectContentEventStream_end = Lens.lens (\SelectObjectContentEventStream'
 selectObjectContentEventStream_cont :: Lens.Lens' SelectObjectContentEventStream (Prelude.Maybe ContinuationEvent)
 selectObjectContentEventStream_cont = Lens.lens (\SelectObjectContentEventStream' {cont} -> cont) (\s@SelectObjectContentEventStream' {} a -> s {cont = a} :: SelectObjectContentEventStream)
 
-instance Core.FromXML SelectObjectContentEventStream where
+instance Data.FromXML SelectObjectContentEventStream where
   parseXML x =
     SelectObjectContentEventStream'
-      Prelude.<$> (x Core..@? "Progress")
-      Prelude.<*> (x Core..@? "Records")
-      Prelude.<*> (x Core..@? "Stats")
-      Prelude.<*> (x Core..@? "End")
-      Prelude.<*> (x Core..@? "Cont")
+      Prelude.<$> (x Data..@? "Progress")
+      Prelude.<*> (x Data..@? "Records")
+      Prelude.<*> (x Data..@? "Stats")
+      Prelude.<*> (x Data..@? "End")
+      Prelude.<*> (x Data..@? "Cont")
 
 instance
   Prelude.Hashable

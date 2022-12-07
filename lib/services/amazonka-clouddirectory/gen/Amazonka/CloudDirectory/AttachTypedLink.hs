@@ -48,6 +48,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,7 +141,7 @@ instance Core.AWSRequest AttachTypedLink where
     Response.receiveJSON
       ( \s h x ->
           AttachTypedLinkResponse'
-            Prelude.<$> (x Core..?> "TypedLinkSpecifier")
+            Prelude.<$> (x Data..?> "TypedLinkSpecifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,35 +161,35 @@ instance Prelude.NFData AttachTypedLink where
       `Prelude.seq` Prelude.rnf typedLinkFacet
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToHeaders AttachTypedLink where
+instance Data.ToHeaders AttachTypedLink where
   toHeaders AttachTypedLink' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON AttachTypedLink where
+instance Data.ToJSON AttachTypedLink where
   toJSON AttachTypedLink' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "SourceObjectReference"
-                  Core..= sourceObjectReference
+                  Data..= sourceObjectReference
               ),
             Prelude.Just
               ( "TargetObjectReference"
-                  Core..= targetObjectReference
+                  Data..= targetObjectReference
               ),
             Prelude.Just
-              ("TypedLinkFacet" Core..= typedLinkFacet),
-            Prelude.Just ("Attributes" Core..= attributes)
+              ("TypedLinkFacet" Data..= typedLinkFacet),
+            Prelude.Just ("Attributes" Data..= attributes)
           ]
       )
 
-instance Core.ToPath AttachTypedLink where
+instance Data.ToPath AttachTypedLink where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/typedlink/attach"
 
-instance Core.ToQuery AttachTypedLink where
+instance Data.ToQuery AttachTypedLink where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAttachTypedLinkResponse' smart constructor.

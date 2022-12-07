@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.S3Location where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an Amazon S3 location (bucket name, bucket owner, and object
@@ -73,15 +74,15 @@ s3Location_bucketOwner = Lens.lens (\S3Location' {bucketOwner} -> bucketOwner) (
 s3Location_bucket :: Lens.Lens' S3Location Prelude.Text
 s3Location_bucket = Lens.lens (\S3Location' {bucket} -> bucket) (\s@S3Location' {} a -> s {bucket = a} :: S3Location)
 
-instance Core.FromJSON S3Location where
+instance Data.FromJSON S3Location where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "BucketOwner")
-            Prelude.<*> (x Core..: "Bucket")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "BucketOwner")
+            Prelude.<*> (x Data..: "Bucket")
       )
 
 instance Prelude.Hashable S3Location where
@@ -96,12 +97,12 @@ instance Prelude.NFData S3Location where
       `Prelude.seq` Prelude.rnf bucketOwner
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToJSON S3Location where
+instance Data.ToJSON S3Location where
   toJSON S3Location' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("BucketOwner" Core..=) Prelude.<$> bucketOwner,
-            Prelude.Just ("Bucket" Core..= bucket)
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("BucketOwner" Data..=) Prelude.<$> bucketOwner,
+            Prelude.Just ("Bucket" Data..= bucket)
           ]
       )

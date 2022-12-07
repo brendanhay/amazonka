@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,8 +122,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeregisterTargetFromMaintenanceWindowResponse'
-            Prelude.<$> (x Core..?> "WindowTargetId")
-              Prelude.<*> (x Core..?> "WindowId")
+            Prelude.<$> (x Data..?> "WindowTargetId")
+              Prelude.<*> (x Data..?> "WindowId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,45 +148,45 @@ instance
       `Prelude.seq` Prelude.rnf windowTargetId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeregisterTargetFromMaintenanceWindow
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DeregisterTargetFromMaintenanceWindow" ::
+              Data.=# ( "AmazonSSM.DeregisterTargetFromMaintenanceWindow" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeregisterTargetFromMaintenanceWindow
   where
   toJSON DeregisterTargetFromMaintenanceWindow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Safe" Core..=) Prelude.<$> safe,
-            Prelude.Just ("WindowId" Core..= windowId),
+          [ ("Safe" Data..=) Prelude.<$> safe,
+            Prelude.Just ("WindowId" Data..= windowId),
             Prelude.Just
-              ("WindowTargetId" Core..= windowTargetId)
+              ("WindowTargetId" Data..= windowTargetId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeregisterTargetFromMaintenanceWindow
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeregisterTargetFromMaintenanceWindow
   where
   toQuery = Prelude.const Prelude.mempty

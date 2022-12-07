@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.ChangesetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types.ChangeType
 import Amazonka.FinSpaceData.Types.ChangesetErrorInfo
 import Amazonka.FinSpaceData.Types.IngestionStatus
@@ -241,25 +242,25 @@ changesetSummary_createTime = Lens.lens (\ChangesetSummary' {createTime} -> crea
 changesetSummary_errorInfo :: Lens.Lens' ChangesetSummary (Prelude.Maybe ChangesetErrorInfo)
 changesetSummary_errorInfo = Lens.lens (\ChangesetSummary' {errorInfo} -> errorInfo) (\s@ChangesetSummary' {} a -> s {errorInfo = a} :: ChangesetSummary)
 
-instance Core.FromJSON ChangesetSummary where
+instance Data.FromJSON ChangesetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChangesetSummary"
       ( \x ->
           ChangesetSummary'
-            Prelude.<$> (x Core..:? "sourceParams" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "updatedByChangesetId")
-            Prelude.<*> (x Core..:? "changeType")
-            Prelude.<*> (x Core..:? "changesetId")
-            Prelude.<*> (x Core..:? "changesetArn")
-            Prelude.<*> (x Core..:? "formatParams" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "activeUntilTimestamp")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "updatesChangesetId")
-            Prelude.<*> (x Core..:? "datasetId")
-            Prelude.<*> (x Core..:? "activeFromTimestamp")
-            Prelude.<*> (x Core..:? "createTime")
-            Prelude.<*> (x Core..:? "errorInfo")
+            Prelude.<$> (x Data..:? "sourceParams" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "updatedByChangesetId")
+            Prelude.<*> (x Data..:? "changeType")
+            Prelude.<*> (x Data..:? "changesetId")
+            Prelude.<*> (x Data..:? "changesetArn")
+            Prelude.<*> (x Data..:? "formatParams" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "activeUntilTimestamp")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "updatesChangesetId")
+            Prelude.<*> (x Data..:? "datasetId")
+            Prelude.<*> (x Data..:? "activeFromTimestamp")
+            Prelude.<*> (x Data..:? "createTime")
+            Prelude.<*> (x Data..:? "errorInfo")
       )
 
 instance Prelude.Hashable ChangesetSummary where

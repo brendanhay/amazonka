@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.AssetModelSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.AssetModelStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -41,9 +42,9 @@ data AssetModelSummary = AssetModelSummary'
     -- | The asset model description.
     description :: Prelude.Text,
     -- | The date the asset model was created, in Unix epoch time.
-    creationDate :: Core.POSIX,
+    creationDate :: Data.POSIX,
     -- | The date the asset model was last updated, in Unix epoch time.
-    lastUpdateDate :: Core.POSIX,
+    lastUpdateDate :: Data.POSIX,
     -- | The current status of the asset model.
     status :: AssetModelStatus
   }
@@ -103,8 +104,8 @@ newAssetModelSummary
         arn = pArn_,
         name = pName_,
         description = pDescription_,
-        creationDate = Core._Time Lens.# pCreationDate_,
-        lastUpdateDate = Core._Time Lens.# pLastUpdateDate_,
+        creationDate = Data._Time Lens.# pCreationDate_,
+        lastUpdateDate = Data._Time Lens.# pLastUpdateDate_,
         status = pStatus_
       }
 
@@ -130,29 +131,29 @@ assetModelSummary_description = Lens.lens (\AssetModelSummary' {description} -> 
 
 -- | The date the asset model was created, in Unix epoch time.
 assetModelSummary_creationDate :: Lens.Lens' AssetModelSummary Prelude.UTCTime
-assetModelSummary_creationDate = Lens.lens (\AssetModelSummary' {creationDate} -> creationDate) (\s@AssetModelSummary' {} a -> s {creationDate = a} :: AssetModelSummary) Prelude.. Core._Time
+assetModelSummary_creationDate = Lens.lens (\AssetModelSummary' {creationDate} -> creationDate) (\s@AssetModelSummary' {} a -> s {creationDate = a} :: AssetModelSummary) Prelude.. Data._Time
 
 -- | The date the asset model was last updated, in Unix epoch time.
 assetModelSummary_lastUpdateDate :: Lens.Lens' AssetModelSummary Prelude.UTCTime
-assetModelSummary_lastUpdateDate = Lens.lens (\AssetModelSummary' {lastUpdateDate} -> lastUpdateDate) (\s@AssetModelSummary' {} a -> s {lastUpdateDate = a} :: AssetModelSummary) Prelude.. Core._Time
+assetModelSummary_lastUpdateDate = Lens.lens (\AssetModelSummary' {lastUpdateDate} -> lastUpdateDate) (\s@AssetModelSummary' {} a -> s {lastUpdateDate = a} :: AssetModelSummary) Prelude.. Data._Time
 
 -- | The current status of the asset model.
 assetModelSummary_status :: Lens.Lens' AssetModelSummary AssetModelStatus
 assetModelSummary_status = Lens.lens (\AssetModelSummary' {status} -> status) (\s@AssetModelSummary' {} a -> s {status = a} :: AssetModelSummary)
 
-instance Core.FromJSON AssetModelSummary where
+instance Data.FromJSON AssetModelSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetModelSummary"
       ( \x ->
           AssetModelSummary'
-            Prelude.<$> (x Core..: "id")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "description")
-            Prelude.<*> (x Core..: "creationDate")
-            Prelude.<*> (x Core..: "lastUpdateDate")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..: "id")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "description")
+            Prelude.<*> (x Data..: "creationDate")
+            Prelude.<*> (x Data..: "lastUpdateDate")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable AssetModelSummary where

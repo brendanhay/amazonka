@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBClusterBacktrack where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This data type is used as a response element in the
@@ -29,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDBClusterBacktrack' smart constructor.
 data DBClusterBacktrack = DBClusterBacktrack'
   { -- | The timestamp of the time from which the DB cluster was backtracked.
-    backtrackedFrom :: Prelude.Maybe Core.ISO8601,
+    backtrackedFrom :: Prelude.Maybe Data.ISO8601,
     -- | The timestamp of the time at which the backtrack was requested.
-    backtrackRequestCreationTime :: Prelude.Maybe Core.ISO8601,
+    backtrackRequestCreationTime :: Prelude.Maybe Data.ISO8601,
     -- | Contains a user-supplied DB cluster identifier. This identifier is the
     -- unique key that identifies a DB cluster.
     dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
@@ -53,7 +54,7 @@ data DBClusterBacktrack = DBClusterBacktrack'
     --     rollback from the DB cluster.
     status :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the time to which the DB cluster was backtracked.
-    backtrackTo :: Prelude.Maybe Core.ISO8601
+    backtrackTo :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -105,11 +106,11 @@ newDBClusterBacktrack =
 
 -- | The timestamp of the time from which the DB cluster was backtracked.
 dbClusterBacktrack_backtrackedFrom :: Lens.Lens' DBClusterBacktrack (Prelude.Maybe Prelude.UTCTime)
-dbClusterBacktrack_backtrackedFrom = Lens.lens (\DBClusterBacktrack' {backtrackedFrom} -> backtrackedFrom) (\s@DBClusterBacktrack' {} a -> s {backtrackedFrom = a} :: DBClusterBacktrack) Prelude.. Lens.mapping Core._Time
+dbClusterBacktrack_backtrackedFrom = Lens.lens (\DBClusterBacktrack' {backtrackedFrom} -> backtrackedFrom) (\s@DBClusterBacktrack' {} a -> s {backtrackedFrom = a} :: DBClusterBacktrack) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of the time at which the backtrack was requested.
 dbClusterBacktrack_backtrackRequestCreationTime :: Lens.Lens' DBClusterBacktrack (Prelude.Maybe Prelude.UTCTime)
-dbClusterBacktrack_backtrackRequestCreationTime = Lens.lens (\DBClusterBacktrack' {backtrackRequestCreationTime} -> backtrackRequestCreationTime) (\s@DBClusterBacktrack' {} a -> s {backtrackRequestCreationTime = a} :: DBClusterBacktrack) Prelude.. Lens.mapping Core._Time
+dbClusterBacktrack_backtrackRequestCreationTime = Lens.lens (\DBClusterBacktrack' {backtrackRequestCreationTime} -> backtrackRequestCreationTime) (\s@DBClusterBacktrack' {} a -> s {backtrackRequestCreationTime = a} :: DBClusterBacktrack) Prelude.. Lens.mapping Data._Time
 
 -- | Contains a user-supplied DB cluster identifier. This identifier is the
 -- unique key that identifies a DB cluster.
@@ -139,17 +140,17 @@ dbClusterBacktrack_status = Lens.lens (\DBClusterBacktrack' {status} -> status) 
 
 -- | The timestamp of the time to which the DB cluster was backtracked.
 dbClusterBacktrack_backtrackTo :: Lens.Lens' DBClusterBacktrack (Prelude.Maybe Prelude.UTCTime)
-dbClusterBacktrack_backtrackTo = Lens.lens (\DBClusterBacktrack' {backtrackTo} -> backtrackTo) (\s@DBClusterBacktrack' {} a -> s {backtrackTo = a} :: DBClusterBacktrack) Prelude.. Lens.mapping Core._Time
+dbClusterBacktrack_backtrackTo = Lens.lens (\DBClusterBacktrack' {backtrackTo} -> backtrackTo) (\s@DBClusterBacktrack' {} a -> s {backtrackTo = a} :: DBClusterBacktrack) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML DBClusterBacktrack where
+instance Data.FromXML DBClusterBacktrack where
   parseXML x =
     DBClusterBacktrack'
-      Prelude.<$> (x Core..@? "BacktrackedFrom")
-      Prelude.<*> (x Core..@? "BacktrackRequestCreationTime")
-      Prelude.<*> (x Core..@? "DBClusterIdentifier")
-      Prelude.<*> (x Core..@? "BacktrackIdentifier")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "BacktrackTo")
+      Prelude.<$> (x Data..@? "BacktrackedFrom")
+      Prelude.<*> (x Data..@? "BacktrackRequestCreationTime")
+      Prelude.<*> (x Data..@? "DBClusterIdentifier")
+      Prelude.<*> (x Data..@? "BacktrackIdentifier")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "BacktrackTo")
 
 instance Prelude.Hashable DBClusterBacktrack where
   hashWithSalt _salt DBClusterBacktrack' {..} =

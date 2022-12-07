@@ -21,6 +21,7 @@ module Amazonka.MarketplaceMetering.Types.UsageRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceMetering.Types.UsageAllocation
 import qualified Amazonka.Prelude as Prelude
 
@@ -44,7 +45,7 @@ data UsageRecord = UsageRecord'
     -- Your application can meter usage for up to one hour in the past. Make
     -- sure the @timestamp@ value is not before the start of the software
     -- usage.
-    timestamp :: Core.POSIX,
+    timestamp :: Data.POSIX,
     -- | The @CustomerIdentifier@ is obtained through the @ResolveCustomer@
     -- operation and represents an individual buyer in your application.
     customerIdentifier :: Prelude.Text,
@@ -97,7 +98,7 @@ newUsageRecord
     UsageRecord'
       { quantity = Prelude.Nothing,
         usageAllocations = Prelude.Nothing,
-        timestamp = Core._Time Lens.# pTimestamp_,
+        timestamp = Data._Time Lens.# pTimestamp_,
         customerIdentifier = pCustomerIdentifier_,
         dimension = pDimension_
       }
@@ -119,7 +120,7 @@ usageRecord_usageAllocations = Lens.lens (\UsageRecord' {usageAllocations} -> us
 -- sure the @timestamp@ value is not before the start of the software
 -- usage.
 usageRecord_timestamp :: Lens.Lens' UsageRecord Prelude.UTCTime
-usageRecord_timestamp = Lens.lens (\UsageRecord' {timestamp} -> timestamp) (\s@UsageRecord' {} a -> s {timestamp = a} :: UsageRecord) Prelude.. Core._Time
+usageRecord_timestamp = Lens.lens (\UsageRecord' {timestamp} -> timestamp) (\s@UsageRecord' {} a -> s {timestamp = a} :: UsageRecord) Prelude.. Data._Time
 
 -- | The @CustomerIdentifier@ is obtained through the @ResolveCustomer@
 -- operation and represents an individual buyer in your application.
@@ -132,17 +133,17 @@ usageRecord_customerIdentifier = Lens.lens (\UsageRecord' {customerIdentifier} -
 usageRecord_dimension :: Lens.Lens' UsageRecord Prelude.Text
 usageRecord_dimension = Lens.lens (\UsageRecord' {dimension} -> dimension) (\s@UsageRecord' {} a -> s {dimension = a} :: UsageRecord)
 
-instance Core.FromJSON UsageRecord where
+instance Data.FromJSON UsageRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsageRecord"
       ( \x ->
           UsageRecord'
-            Prelude.<$> (x Core..:? "Quantity")
-            Prelude.<*> (x Core..:? "UsageAllocations")
-            Prelude.<*> (x Core..: "Timestamp")
-            Prelude.<*> (x Core..: "CustomerIdentifier")
-            Prelude.<*> (x Core..: "Dimension")
+            Prelude.<$> (x Data..:? "Quantity")
+            Prelude.<*> (x Data..:? "UsageAllocations")
+            Prelude.<*> (x Data..: "Timestamp")
+            Prelude.<*> (x Data..: "CustomerIdentifier")
+            Prelude.<*> (x Data..: "Dimension")
       )
 
 instance Prelude.Hashable UsageRecord where
@@ -161,16 +162,16 @@ instance Prelude.NFData UsageRecord where
       `Prelude.seq` Prelude.rnf customerIdentifier
       `Prelude.seq` Prelude.rnf dimension
 
-instance Core.ToJSON UsageRecord where
+instance Data.ToJSON UsageRecord where
   toJSON UsageRecord' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Quantity" Core..=) Prelude.<$> quantity,
-            ("UsageAllocations" Core..=)
+          [ ("Quantity" Data..=) Prelude.<$> quantity,
+            ("UsageAllocations" Data..=)
               Prelude.<$> usageAllocations,
-            Prelude.Just ("Timestamp" Core..= timestamp),
+            Prelude.Just ("Timestamp" Data..= timestamp),
             Prelude.Just
-              ("CustomerIdentifier" Core..= customerIdentifier),
-            Prelude.Just ("Dimension" Core..= dimension)
+              ("CustomerIdentifier" Data..= customerIdentifier),
+            Prelude.Just ("Dimension" Data..= dimension)
           ]
       )

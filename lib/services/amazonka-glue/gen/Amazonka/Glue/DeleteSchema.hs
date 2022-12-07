@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,9 +91,9 @@ instance Core.AWSRequest DeleteSchema where
     Response.receiveJSON
       ( \s h x ->
           DeleteSchemaResponse'
-            Prelude.<$> (x Core..?> "SchemaName")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "SchemaArn")
+            Prelude.<$> (x Data..?> "SchemaName")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "SchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,30 +104,30 @@ instance Prelude.Hashable DeleteSchema where
 instance Prelude.NFData DeleteSchema where
   rnf DeleteSchema' {..} = Prelude.rnf schemaId
 
-instance Core.ToHeaders DeleteSchema where
+instance Data.ToHeaders DeleteSchema where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.DeleteSchema" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.DeleteSchema" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSchema where
+instance Data.ToJSON DeleteSchema where
   toJSON DeleteSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SchemaId" Core..= schemaId)]
+          [Prelude.Just ("SchemaId" Data..= schemaId)]
       )
 
-instance Core.ToPath DeleteSchema where
+instance Data.ToPath DeleteSchema where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSchema where
+instance Data.ToQuery DeleteSchema where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSchemaResponse' smart constructor.

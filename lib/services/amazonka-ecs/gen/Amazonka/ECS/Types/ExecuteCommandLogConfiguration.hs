@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ExecuteCommandLogConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The log configuration for the results of the execute command actions.
@@ -109,17 +110,17 @@ executeCommandLogConfiguration_cloudWatchEncryptionEnabled = Lens.lens (\Execute
 executeCommandLogConfiguration_cloudWatchLogGroupName :: Lens.Lens' ExecuteCommandLogConfiguration (Prelude.Maybe Prelude.Text)
 executeCommandLogConfiguration_cloudWatchLogGroupName = Lens.lens (\ExecuteCommandLogConfiguration' {cloudWatchLogGroupName} -> cloudWatchLogGroupName) (\s@ExecuteCommandLogConfiguration' {} a -> s {cloudWatchLogGroupName = a} :: ExecuteCommandLogConfiguration)
 
-instance Core.FromJSON ExecuteCommandLogConfiguration where
+instance Data.FromJSON ExecuteCommandLogConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecuteCommandLogConfiguration"
       ( \x ->
           ExecuteCommandLogConfiguration'
-            Prelude.<$> (x Core..:? "s3KeyPrefix")
-            Prelude.<*> (x Core..:? "s3BucketName")
-            Prelude.<*> (x Core..:? "s3EncryptionEnabled")
-            Prelude.<*> (x Core..:? "cloudWatchEncryptionEnabled")
-            Prelude.<*> (x Core..:? "cloudWatchLogGroupName")
+            Prelude.<$> (x Data..:? "s3KeyPrefix")
+            Prelude.<*> (x Data..:? "s3BucketName")
+            Prelude.<*> (x Data..:? "s3EncryptionEnabled")
+            Prelude.<*> (x Data..:? "cloudWatchEncryptionEnabled")
+            Prelude.<*> (x Data..:? "cloudWatchLogGroupName")
       )
 
 instance
@@ -146,17 +147,17 @@ instance
       `Prelude.seq` Prelude.rnf cloudWatchEncryptionEnabled
       `Prelude.seq` Prelude.rnf cloudWatchLogGroupName
 
-instance Core.ToJSON ExecuteCommandLogConfiguration where
+instance Data.ToJSON ExecuteCommandLogConfiguration where
   toJSON ExecuteCommandLogConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
-            ("s3BucketName" Core..=) Prelude.<$> s3BucketName,
-            ("s3EncryptionEnabled" Core..=)
+          [ ("s3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix,
+            ("s3BucketName" Data..=) Prelude.<$> s3BucketName,
+            ("s3EncryptionEnabled" Data..=)
               Prelude.<$> s3EncryptionEnabled,
-            ("cloudWatchEncryptionEnabled" Core..=)
+            ("cloudWatchEncryptionEnabled" Data..=)
               Prelude.<$> cloudWatchEncryptionEnabled,
-            ("cloudWatchLogGroupName" Core..=)
+            ("cloudWatchLogGroupName" Data..=)
               Prelude.<$> cloudWatchLogGroupName
           ]
       )

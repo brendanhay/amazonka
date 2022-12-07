@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.PackageVersionHistory where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a package version.
@@ -32,7 +33,7 @@ data PackageVersionHistory = PackageVersionHistory'
     -- | A message associated with the package version when it was uploaded.
     commitMessage :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the package was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,17 +70,17 @@ packageVersionHistory_commitMessage = Lens.lens (\PackageVersionHistory' {commit
 
 -- | The date and time when the package was created.
 packageVersionHistory_createdAt :: Lens.Lens' PackageVersionHistory (Prelude.Maybe Prelude.UTCTime)
-packageVersionHistory_createdAt = Lens.lens (\PackageVersionHistory' {createdAt} -> createdAt) (\s@PackageVersionHistory' {} a -> s {createdAt = a} :: PackageVersionHistory) Prelude.. Lens.mapping Core._Time
+packageVersionHistory_createdAt = Lens.lens (\PackageVersionHistory' {createdAt} -> createdAt) (\s@PackageVersionHistory' {} a -> s {createdAt = a} :: PackageVersionHistory) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON PackageVersionHistory where
+instance Data.FromJSON PackageVersionHistory where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageVersionHistory"
       ( \x ->
           PackageVersionHistory'
-            Prelude.<$> (x Core..:? "PackageVersion")
-            Prelude.<*> (x Core..:? "CommitMessage")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "PackageVersion")
+            Prelude.<*> (x Data..:? "CommitMessage")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable PackageVersionHistory where

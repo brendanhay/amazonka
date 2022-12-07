@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ReplicaSettingsDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.AutoScalingSettingsDescription
 import Amazonka.DynamoDB.Types.BillingModeSummary
@@ -185,27 +186,27 @@ replicaSettingsDescription_replicaStatus = Lens.lens (\ReplicaSettingsDescriptio
 replicaSettingsDescription_regionName :: Lens.Lens' ReplicaSettingsDescription Prelude.Text
 replicaSettingsDescription_regionName = Lens.lens (\ReplicaSettingsDescription' {regionName} -> regionName) (\s@ReplicaSettingsDescription' {} a -> s {regionName = a} :: ReplicaSettingsDescription)
 
-instance Core.FromJSON ReplicaSettingsDescription where
+instance Data.FromJSON ReplicaSettingsDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicaSettingsDescription"
       ( \x ->
           ReplicaSettingsDescription'
             Prelude.<$> ( x
-                            Core..:? "ReplicaProvisionedReadCapacityAutoScalingSettings"
+                            Data..:? "ReplicaProvisionedReadCapacityAutoScalingSettings"
                         )
             Prelude.<*> ( x
-                            Core..:? "ReplicaProvisionedWriteCapacityAutoScalingSettings"
+                            Data..:? "ReplicaProvisionedWriteCapacityAutoScalingSettings"
                         )
-            Prelude.<*> ( x Core..:? "ReplicaGlobalSecondaryIndexSettings"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ReplicaGlobalSecondaryIndexSettings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ReplicaBillingModeSummary")
-            Prelude.<*> (x Core..:? "ReplicaTableClassSummary")
-            Prelude.<*> (x Core..:? "ReplicaProvisionedWriteCapacityUnits")
-            Prelude.<*> (x Core..:? "ReplicaProvisionedReadCapacityUnits")
-            Prelude.<*> (x Core..:? "ReplicaStatus")
-            Prelude.<*> (x Core..: "RegionName")
+            Prelude.<*> (x Data..:? "ReplicaBillingModeSummary")
+            Prelude.<*> (x Data..:? "ReplicaTableClassSummary")
+            Prelude.<*> (x Data..:? "ReplicaProvisionedWriteCapacityUnits")
+            Prelude.<*> (x Data..:? "ReplicaProvisionedReadCapacityUnits")
+            Prelude.<*> (x Data..:? "ReplicaStatus")
+            Prelude.<*> (x Data..: "RegionName")
       )
 
 instance Prelude.Hashable ReplicaSettingsDescription where

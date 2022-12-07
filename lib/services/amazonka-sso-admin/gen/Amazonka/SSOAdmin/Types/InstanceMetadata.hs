@@ -21,6 +21,7 @@ module Amazonka.SSOAdmin.Types.InstanceMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the IAM Identity Center instance.
@@ -73,14 +74,14 @@ instanceMetadata_instanceArn = Lens.lens (\InstanceMetadata' {instanceArn} -> in
 instanceMetadata_identityStoreId :: Lens.Lens' InstanceMetadata (Prelude.Maybe Prelude.Text)
 instanceMetadata_identityStoreId = Lens.lens (\InstanceMetadata' {identityStoreId} -> identityStoreId) (\s@InstanceMetadata' {} a -> s {identityStoreId = a} :: InstanceMetadata)
 
-instance Core.FromJSON InstanceMetadata where
+instance Data.FromJSON InstanceMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceMetadata"
       ( \x ->
           InstanceMetadata'
-            Prelude.<$> (x Core..:? "InstanceArn")
-            Prelude.<*> (x Core..:? "IdentityStoreId")
+            Prelude.<$> (x Data..:? "InstanceArn")
+            Prelude.<*> (x Data..:? "IdentityStoreId")
       )
 
 instance Prelude.Hashable InstanceMetadata where

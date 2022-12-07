@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.PortForwardingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.PortMapping
 
@@ -54,13 +55,13 @@ newPortForwardingConfig =
 portForwardingConfig_portMappings :: Lens.Lens' PortForwardingConfig (Prelude.Maybe [PortMapping])
 portForwardingConfig_portMappings = Lens.lens (\PortForwardingConfig' {portMappings} -> portMappings) (\s@PortForwardingConfig' {} a -> s {portMappings = a} :: PortForwardingConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PortForwardingConfig where
+instance Data.FromJSON PortForwardingConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortForwardingConfig"
       ( \x ->
           PortForwardingConfig'
-            Prelude.<$> (x Core..:? "portMappings" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "portMappings" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PortForwardingConfig where
@@ -71,9 +72,9 @@ instance Prelude.NFData PortForwardingConfig where
   rnf PortForwardingConfig' {..} =
     Prelude.rnf portMappings
 
-instance Core.ToJSON PortForwardingConfig where
+instance Data.ToJSON PortForwardingConfig where
   toJSON PortForwardingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("portMappings" Core..=) Prelude.<$> portMappings]
+          [("portMappings" Data..=) Prelude.<$> portMappings]
       )

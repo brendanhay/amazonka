@@ -39,6 +39,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -67,7 +68,7 @@ instance Core.AWSRequest ListSourceCredentials where
     Response.receiveJSON
       ( \s h x ->
           ListSourceCredentialsResponse'
-            Prelude.<$> ( x Core..?> "sourceCredentialsInfos"
+            Prelude.<$> ( x Data..?> "sourceCredentialsInfos"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -80,28 +81,28 @@ instance Prelude.Hashable ListSourceCredentials where
 instance Prelude.NFData ListSourceCredentials where
   rnf _ = ()
 
-instance Core.ToHeaders ListSourceCredentials where
+instance Data.ToHeaders ListSourceCredentials where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.ListSourceCredentials" ::
+              Data.=# ( "CodeBuild_20161006.ListSourceCredentials" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSourceCredentials where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ListSourceCredentials where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath ListSourceCredentials where
+instance Data.ToPath ListSourceCredentials where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSourceCredentials where
+instance Data.ToQuery ListSourceCredentials where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSourceCredentialsResponse' smart constructor.

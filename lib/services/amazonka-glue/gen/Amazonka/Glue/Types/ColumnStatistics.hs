@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.ColumnStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ColumnStatisticsData
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data ColumnStatistics = ColumnStatistics'
     -- | The data type of the column.
     columnType :: Prelude.Text,
     -- | The timestamp of when column statistics were generated.
-    analyzedTime :: Core.POSIX,
+    analyzedTime :: Data.POSIX,
     -- | A @ColumnStatisticData@ object that contains the statistics data values.
     statisticsData :: ColumnStatisticsData
   }
@@ -73,7 +74,7 @@ newColumnStatistics
     ColumnStatistics'
       { columnName = pColumnName_,
         columnType = pColumnType_,
-        analyzedTime = Core._Time Lens.# pAnalyzedTime_,
+        analyzedTime = Data._Time Lens.# pAnalyzedTime_,
         statisticsData = pStatisticsData_
       }
 
@@ -87,22 +88,22 @@ columnStatistics_columnType = Lens.lens (\ColumnStatistics' {columnType} -> colu
 
 -- | The timestamp of when column statistics were generated.
 columnStatistics_analyzedTime :: Lens.Lens' ColumnStatistics Prelude.UTCTime
-columnStatistics_analyzedTime = Lens.lens (\ColumnStatistics' {analyzedTime} -> analyzedTime) (\s@ColumnStatistics' {} a -> s {analyzedTime = a} :: ColumnStatistics) Prelude.. Core._Time
+columnStatistics_analyzedTime = Lens.lens (\ColumnStatistics' {analyzedTime} -> analyzedTime) (\s@ColumnStatistics' {} a -> s {analyzedTime = a} :: ColumnStatistics) Prelude.. Data._Time
 
 -- | A @ColumnStatisticData@ object that contains the statistics data values.
 columnStatistics_statisticsData :: Lens.Lens' ColumnStatistics ColumnStatisticsData
 columnStatistics_statisticsData = Lens.lens (\ColumnStatistics' {statisticsData} -> statisticsData) (\s@ColumnStatistics' {} a -> s {statisticsData = a} :: ColumnStatistics)
 
-instance Core.FromJSON ColumnStatistics where
+instance Data.FromJSON ColumnStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnStatistics"
       ( \x ->
           ColumnStatistics'
-            Prelude.<$> (x Core..: "ColumnName")
-            Prelude.<*> (x Core..: "ColumnType")
-            Prelude.<*> (x Core..: "AnalyzedTime")
-            Prelude.<*> (x Core..: "StatisticsData")
+            Prelude.<$> (x Data..: "ColumnName")
+            Prelude.<*> (x Data..: "ColumnType")
+            Prelude.<*> (x Data..: "AnalyzedTime")
+            Prelude.<*> (x Data..: "StatisticsData")
       )
 
 instance Prelude.Hashable ColumnStatistics where
@@ -119,14 +120,14 @@ instance Prelude.NFData ColumnStatistics where
       `Prelude.seq` Prelude.rnf analyzedTime
       `Prelude.seq` Prelude.rnf statisticsData
 
-instance Core.ToJSON ColumnStatistics where
+instance Data.ToJSON ColumnStatistics where
   toJSON ColumnStatistics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ColumnName" Core..= columnName),
-            Prelude.Just ("ColumnType" Core..= columnType),
-            Prelude.Just ("AnalyzedTime" Core..= analyzedTime),
+          [ Prelude.Just ("ColumnName" Data..= columnName),
+            Prelude.Just ("ColumnType" Data..= columnType),
+            Prelude.Just ("AnalyzedTime" Data..= analyzedTime),
             Prelude.Just
-              ("StatisticsData" Core..= statisticsData)
+              ("StatisticsData" Data..= statisticsData)
           ]
       )

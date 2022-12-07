@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.PhysicalTable where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.CustomSql
 import Amazonka.QuickSight.Types.RelationalTable
@@ -75,15 +76,15 @@ physicalTable_relationalTable = Lens.lens (\PhysicalTable' {relationalTable} -> 
 physicalTable_customSql :: Lens.Lens' PhysicalTable (Prelude.Maybe CustomSql)
 physicalTable_customSql = Lens.lens (\PhysicalTable' {customSql} -> customSql) (\s@PhysicalTable' {} a -> s {customSql = a} :: PhysicalTable)
 
-instance Core.FromJSON PhysicalTable where
+instance Data.FromJSON PhysicalTable where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PhysicalTable"
       ( \x ->
           PhysicalTable'
-            Prelude.<$> (x Core..:? "S3Source")
-            Prelude.<*> (x Core..:? "RelationalTable")
-            Prelude.<*> (x Core..:? "CustomSql")
+            Prelude.<$> (x Data..:? "S3Source")
+            Prelude.<*> (x Data..:? "RelationalTable")
+            Prelude.<*> (x Data..:? "CustomSql")
       )
 
 instance Prelude.Hashable PhysicalTable where
@@ -98,13 +99,13 @@ instance Prelude.NFData PhysicalTable where
       `Prelude.seq` Prelude.rnf relationalTable
       `Prelude.seq` Prelude.rnf customSql
 
-instance Core.ToJSON PhysicalTable where
+instance Data.ToJSON PhysicalTable where
   toJSON PhysicalTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Source" Core..=) Prelude.<$> s3Source,
-            ("RelationalTable" Core..=)
+          [ ("S3Source" Data..=) Prelude.<$> s3Source,
+            ("RelationalTable" Data..=)
               Prelude.<$> relationalTable,
-            ("CustomSql" Core..=) Prelude.<$> customSql
+            ("CustomSql" Data..=) Prelude.<$> customSql
           ]
       )

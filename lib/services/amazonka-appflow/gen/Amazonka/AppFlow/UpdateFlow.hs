@@ -48,6 +48,7 @@ where
 import Amazonka.AppFlow.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -165,7 +166,7 @@ instance Core.AWSRequest UpdateFlow where
     Response.receiveJSON
       ( \s h x ->
           UpdateFlowResponse'
-            Prelude.<$> (x Core..?> "flowStatus")
+            Prelude.<$> (x Data..?> "flowStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,40 +190,40 @@ instance Prelude.NFData UpdateFlow where
       `Prelude.seq` Prelude.rnf destinationFlowConfigList
       `Prelude.seq` Prelude.rnf tasks
 
-instance Core.ToHeaders UpdateFlow where
+instance Data.ToHeaders UpdateFlow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFlow where
+instance Data.ToJSON UpdateFlow where
   toJSON UpdateFlow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("metadataCatalogConfig" Core..=)
+          [ ("metadataCatalogConfig" Data..=)
               Prelude.<$> metadataCatalogConfig,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("flowName" Core..= flowName),
-            Prelude.Just ("triggerConfig" Core..= triggerConfig),
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("flowName" Data..= flowName),
+            Prelude.Just ("triggerConfig" Data..= triggerConfig),
             Prelude.Just
-              ("sourceFlowConfig" Core..= sourceFlowConfig),
+              ("sourceFlowConfig" Data..= sourceFlowConfig),
             Prelude.Just
               ( "destinationFlowConfigList"
-                  Core..= destinationFlowConfigList
+                  Data..= destinationFlowConfigList
               ),
-            Prelude.Just ("tasks" Core..= tasks)
+            Prelude.Just ("tasks" Data..= tasks)
           ]
       )
 
-instance Core.ToPath UpdateFlow where
+instance Data.ToPath UpdateFlow where
   toPath = Prelude.const "/update-flow"
 
-instance Core.ToQuery UpdateFlow where
+instance Data.ToQuery UpdateFlow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFlowResponse' smart constructor.

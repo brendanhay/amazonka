@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,34 +111,34 @@ instance Prelude.NFData DisableLDAPS where
     Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders DisableLDAPS where
+instance Data.ToHeaders DisableLDAPS where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.DisableLDAPS" ::
+              Data.=# ( "DirectoryService_20150416.DisableLDAPS" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisableLDAPS where
+instance Data.ToJSON DisableLDAPS where
   toJSON DisableLDAPS' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Core..= directoryId),
-            Prelude.Just ("Type" Core..= type')
+          [ Prelude.Just ("DirectoryId" Data..= directoryId),
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 
-instance Core.ToPath DisableLDAPS where
+instance Data.ToPath DisableLDAPS where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableLDAPS where
+instance Data.ToQuery DisableLDAPS where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableLDAPSResponse' smart constructor.

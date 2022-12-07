@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.AttachmentsSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AttachmentsSourceKey
 
@@ -163,12 +164,12 @@ instance Prelude.NFData AttachmentsSource where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON AttachmentsSource where
+instance Data.ToJSON AttachmentsSource where
   toJSON AttachmentsSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Name" Core..=) Prelude.<$> name,
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Name" Data..=) Prelude.<$> name,
+            ("Values" Data..=) Prelude.<$> values
           ]
       )

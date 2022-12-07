@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.TaskScheduledEventDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StepFunctions.Types.TaskCredentials
 
@@ -43,7 +44,7 @@ data TaskScheduledEventDetails = TaskScheduledEventDetails'
     -- | The JSON data passed to the resource referenced in a task state. Length
     -- constraints apply to the payload size, and are expressed as bytes in
     -- UTF-8 encoding.
-    parameters :: Core.Sensitive Prelude.Text
+    parameters :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -93,7 +94,7 @@ newTaskScheduledEventDetails
         resourceType = pResourceType_,
         resource = pResource_,
         region = pRegion_,
-        parameters = Core._Sensitive Lens.# pParameters_
+        parameters = Data._Sensitive Lens.# pParameters_
       }
 
 -- | The credentials that Step Functions uses for the task.
@@ -124,21 +125,21 @@ taskScheduledEventDetails_region = Lens.lens (\TaskScheduledEventDetails' {regio
 -- constraints apply to the payload size, and are expressed as bytes in
 -- UTF-8 encoding.
 taskScheduledEventDetails_parameters :: Lens.Lens' TaskScheduledEventDetails Prelude.Text
-taskScheduledEventDetails_parameters = Lens.lens (\TaskScheduledEventDetails' {parameters} -> parameters) (\s@TaskScheduledEventDetails' {} a -> s {parameters = a} :: TaskScheduledEventDetails) Prelude.. Core._Sensitive
+taskScheduledEventDetails_parameters = Lens.lens (\TaskScheduledEventDetails' {parameters} -> parameters) (\s@TaskScheduledEventDetails' {} a -> s {parameters = a} :: TaskScheduledEventDetails) Prelude.. Data._Sensitive
 
-instance Core.FromJSON TaskScheduledEventDetails where
+instance Data.FromJSON TaskScheduledEventDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskScheduledEventDetails"
       ( \x ->
           TaskScheduledEventDetails'
-            Prelude.<$> (x Core..:? "taskCredentials")
-            Prelude.<*> (x Core..:? "timeoutInSeconds")
-            Prelude.<*> (x Core..:? "heartbeatInSeconds")
-            Prelude.<*> (x Core..: "resourceType")
-            Prelude.<*> (x Core..: "resource")
-            Prelude.<*> (x Core..: "region")
-            Prelude.<*> (x Core..: "parameters")
+            Prelude.<$> (x Data..:? "taskCredentials")
+            Prelude.<*> (x Data..:? "timeoutInSeconds")
+            Prelude.<*> (x Data..:? "heartbeatInSeconds")
+            Prelude.<*> (x Data..: "resourceType")
+            Prelude.<*> (x Data..: "resource")
+            Prelude.<*> (x Data..: "region")
+            Prelude.<*> (x Data..: "parameters")
       )
 
 instance Prelude.Hashable TaskScheduledEventDetails where

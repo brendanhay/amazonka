@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.InferenceExecutionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.InferenceExecutionStatus
 import Amazonka.LookoutEquipment.Types.InferenceInputConfiguration
 import Amazonka.LookoutEquipment.Types.InferenceOutputConfiguration
@@ -38,10 +39,10 @@ data InferenceExecutionSummary = InferenceExecutionSummary'
     inferenceSchedulerName :: Prelude.Maybe Prelude.Text,
     -- | Indicates the start time at which the inference scheduler began the
     -- specific inference execution.
-    scheduledStartTime :: Prelude.Maybe Core.POSIX,
+    scheduledStartTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates the time reference in the dataset at which the inference
     -- execution began.
-    dataStartTime :: Prelude.Maybe Core.POSIX,
+    dataStartTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies the reason for failure when an inference execution has failed.
     failedReason :: Prelude.Maybe Prelude.Text,
     -- | Specifies configuration information for the output results from for the
@@ -49,7 +50,7 @@ data InferenceExecutionSummary = InferenceExecutionSummary'
     dataOutputConfiguration :: Prelude.Maybe InferenceOutputConfiguration,
     -- | Indicates the time reference in the dataset at which the inference
     -- execution stopped.
-    dataEndTime :: Prelude.Maybe Core.POSIX,
+    dataEndTime :: Prelude.Maybe Data.POSIX,
     customerResultObject :: Prelude.Maybe S3Object,
     -- | Indicates the status of the inference execution.
     status :: Prelude.Maybe InferenceExecutionStatus,
@@ -133,12 +134,12 @@ inferenceExecutionSummary_inferenceSchedulerName = Lens.lens (\InferenceExecutio
 -- | Indicates the start time at which the inference scheduler began the
 -- specific inference execution.
 inferenceExecutionSummary_scheduledStartTime :: Lens.Lens' InferenceExecutionSummary (Prelude.Maybe Prelude.UTCTime)
-inferenceExecutionSummary_scheduledStartTime = Lens.lens (\InferenceExecutionSummary' {scheduledStartTime} -> scheduledStartTime) (\s@InferenceExecutionSummary' {} a -> s {scheduledStartTime = a} :: InferenceExecutionSummary) Prelude.. Lens.mapping Core._Time
+inferenceExecutionSummary_scheduledStartTime = Lens.lens (\InferenceExecutionSummary' {scheduledStartTime} -> scheduledStartTime) (\s@InferenceExecutionSummary' {} a -> s {scheduledStartTime = a} :: InferenceExecutionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the time reference in the dataset at which the inference
 -- execution began.
 inferenceExecutionSummary_dataStartTime :: Lens.Lens' InferenceExecutionSummary (Prelude.Maybe Prelude.UTCTime)
-inferenceExecutionSummary_dataStartTime = Lens.lens (\InferenceExecutionSummary' {dataStartTime} -> dataStartTime) (\s@InferenceExecutionSummary' {} a -> s {dataStartTime = a} :: InferenceExecutionSummary) Prelude.. Lens.mapping Core._Time
+inferenceExecutionSummary_dataStartTime = Lens.lens (\InferenceExecutionSummary' {dataStartTime} -> dataStartTime) (\s@InferenceExecutionSummary' {} a -> s {dataStartTime = a} :: InferenceExecutionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the reason for failure when an inference execution has failed.
 inferenceExecutionSummary_failedReason :: Lens.Lens' InferenceExecutionSummary (Prelude.Maybe Prelude.Text)
@@ -152,7 +153,7 @@ inferenceExecutionSummary_dataOutputConfiguration = Lens.lens (\InferenceExecuti
 -- | Indicates the time reference in the dataset at which the inference
 -- execution stopped.
 inferenceExecutionSummary_dataEndTime :: Lens.Lens' InferenceExecutionSummary (Prelude.Maybe Prelude.UTCTime)
-inferenceExecutionSummary_dataEndTime = Lens.lens (\InferenceExecutionSummary' {dataEndTime} -> dataEndTime) (\s@InferenceExecutionSummary' {} a -> s {dataEndTime = a} :: InferenceExecutionSummary) Prelude.. Lens.mapping Core._Time
+inferenceExecutionSummary_dataEndTime = Lens.lens (\InferenceExecutionSummary' {dataEndTime} -> dataEndTime) (\s@InferenceExecutionSummary' {} a -> s {dataEndTime = a} :: InferenceExecutionSummary) Prelude.. Lens.mapping Data._Time
 
 -- |
 inferenceExecutionSummary_customerResultObject :: Lens.Lens' InferenceExecutionSummary (Prelude.Maybe S3Object)
@@ -181,24 +182,24 @@ inferenceExecutionSummary_inferenceSchedulerArn = Lens.lens (\InferenceExecution
 inferenceExecutionSummary_dataInputConfiguration :: Lens.Lens' InferenceExecutionSummary (Prelude.Maybe InferenceInputConfiguration)
 inferenceExecutionSummary_dataInputConfiguration = Lens.lens (\InferenceExecutionSummary' {dataInputConfiguration} -> dataInputConfiguration) (\s@InferenceExecutionSummary' {} a -> s {dataInputConfiguration = a} :: InferenceExecutionSummary)
 
-instance Core.FromJSON InferenceExecutionSummary where
+instance Data.FromJSON InferenceExecutionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InferenceExecutionSummary"
       ( \x ->
           InferenceExecutionSummary'
-            Prelude.<$> (x Core..:? "InferenceSchedulerName")
-            Prelude.<*> (x Core..:? "ScheduledStartTime")
-            Prelude.<*> (x Core..:? "DataStartTime")
-            Prelude.<*> (x Core..:? "FailedReason")
-            Prelude.<*> (x Core..:? "DataOutputConfiguration")
-            Prelude.<*> (x Core..:? "DataEndTime")
-            Prelude.<*> (x Core..:? "CustomerResultObject")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ModelArn")
-            Prelude.<*> (x Core..:? "ModelName")
-            Prelude.<*> (x Core..:? "InferenceSchedulerArn")
-            Prelude.<*> (x Core..:? "DataInputConfiguration")
+            Prelude.<$> (x Data..:? "InferenceSchedulerName")
+            Prelude.<*> (x Data..:? "ScheduledStartTime")
+            Prelude.<*> (x Data..:? "DataStartTime")
+            Prelude.<*> (x Data..:? "FailedReason")
+            Prelude.<*> (x Data..:? "DataOutputConfiguration")
+            Prelude.<*> (x Data..:? "DataEndTime")
+            Prelude.<*> (x Data..:? "CustomerResultObject")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ModelArn")
+            Prelude.<*> (x Data..:? "ModelName")
+            Prelude.<*> (x Data..:? "InferenceSchedulerArn")
+            Prelude.<*> (x Data..:? "DataInputConfiguration")
       )
 
 instance Prelude.Hashable InferenceExecutionSummary where

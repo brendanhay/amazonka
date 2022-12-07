@@ -57,6 +57,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,41 +155,41 @@ instance
       `Prelude.seq` Prelude.rnf outboundCallerConfig
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateQueueOutboundCallerConfig
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateQueueOutboundCallerConfig where
+instance Data.ToJSON UpdateQueueOutboundCallerConfig where
   toJSON UpdateQueueOutboundCallerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "OutboundCallerConfig"
-                  Core..= outboundCallerConfig
+                  Data..= outboundCallerConfig
               )
           ]
       )
 
-instance Core.ToPath UpdateQueueOutboundCallerConfig where
+instance Data.ToPath UpdateQueueOutboundCallerConfig where
   toPath UpdateQueueOutboundCallerConfig' {..} =
     Prelude.mconcat
       [ "/queues/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS queueId,
+        Data.toBS queueId,
         "/outbound-caller-config"
       ]
 
-instance Core.ToQuery UpdateQueueOutboundCallerConfig where
+instance Data.ToQuery UpdateQueueOutboundCallerConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateQueueOutboundCallerConfigResponse' smart constructor.

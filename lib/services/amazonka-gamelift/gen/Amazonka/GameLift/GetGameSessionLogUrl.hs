@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest GetGameSessionLogUrl where
     Response.receiveJSON
       ( \s h x ->
           GetGameSessionLogUrlResponse'
-            Prelude.<$> (x Core..?> "PreSignedUrl")
+            Prelude.<$> (x Data..?> "PreSignedUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,34 +117,34 @@ instance Prelude.NFData GetGameSessionLogUrl where
   rnf GetGameSessionLogUrl' {..} =
     Prelude.rnf gameSessionId
 
-instance Core.ToHeaders GetGameSessionLogUrl where
+instance Data.ToHeaders GetGameSessionLogUrl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.GetGameSessionLogUrl" ::
+              Data.=# ( "GameLift.GetGameSessionLogUrl" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetGameSessionLogUrl where
+instance Data.ToJSON GetGameSessionLogUrl where
   toJSON GetGameSessionLogUrl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("GameSessionId" Core..= gameSessionId)
+              ("GameSessionId" Data..= gameSessionId)
           ]
       )
 
-instance Core.ToPath GetGameSessionLogUrl where
+instance Data.ToPath GetGameSessionLogUrl where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetGameSessionLogUrl where
+instance Data.ToQuery GetGameSessionLogUrl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

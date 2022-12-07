@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.SubjectAlternativeNameMatchers where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the methods by which a subject alternative
@@ -55,13 +56,13 @@ newSubjectAlternativeNameMatchers =
 subjectAlternativeNameMatchers_exact :: Lens.Lens' SubjectAlternativeNameMatchers [Prelude.Text]
 subjectAlternativeNameMatchers_exact = Lens.lens (\SubjectAlternativeNameMatchers' {exact} -> exact) (\s@SubjectAlternativeNameMatchers' {} a -> s {exact = a} :: SubjectAlternativeNameMatchers) Prelude.. Lens.coerced
 
-instance Core.FromJSON SubjectAlternativeNameMatchers where
+instance Data.FromJSON SubjectAlternativeNameMatchers where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubjectAlternativeNameMatchers"
       ( \x ->
           SubjectAlternativeNameMatchers'
-            Prelude.<$> (x Core..:? "exact" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "exact" Data..!= Prelude.mempty)
       )
 
 instance
@@ -80,9 +81,9 @@ instance
   rnf SubjectAlternativeNameMatchers' {..} =
     Prelude.rnf exact
 
-instance Core.ToJSON SubjectAlternativeNameMatchers where
+instance Data.ToJSON SubjectAlternativeNameMatchers where
   toJSON SubjectAlternativeNameMatchers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("exact" Core..= exact)]
+          [Prelude.Just ("exact" Data..= exact)]
       )

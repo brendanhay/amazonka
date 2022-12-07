@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,34 +94,34 @@ instance Prelude.NFData DeleteExplainability where
   rnf DeleteExplainability' {..} =
     Prelude.rnf explainabilityArn
 
-instance Core.ToHeaders DeleteExplainability where
+instance Data.ToHeaders DeleteExplainability where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DeleteExplainability" ::
+              Data.=# ( "AmazonForecast.DeleteExplainability" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteExplainability where
+instance Data.ToJSON DeleteExplainability where
   toJSON DeleteExplainability' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ExplainabilityArn" Core..= explainabilityArn)
+              ("ExplainabilityArn" Data..= explainabilityArn)
           ]
       )
 
-instance Core.ToPath DeleteExplainability where
+instance Data.ToPath DeleteExplainability where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteExplainability where
+instance Data.ToQuery DeleteExplainability where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteExplainabilityResponse' smart constructor.

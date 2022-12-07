@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.Fraudster where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains all the information about a fraudster.
@@ -32,7 +33,7 @@ data Fraudster = Fraudster'
     -- | The identifier for the domain containing the fraudster.
     domainId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when Voice ID identified the fraudster.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,17 +69,17 @@ fraudster_domainId = Lens.lens (\Fraudster' {domainId} -> domainId) (\s@Fraudste
 
 -- | The timestamp when Voice ID identified the fraudster.
 fraudster_createdAt :: Lens.Lens' Fraudster (Prelude.Maybe Prelude.UTCTime)
-fraudster_createdAt = Lens.lens (\Fraudster' {createdAt} -> createdAt) (\s@Fraudster' {} a -> s {createdAt = a} :: Fraudster) Prelude.. Lens.mapping Core._Time
+fraudster_createdAt = Lens.lens (\Fraudster' {createdAt} -> createdAt) (\s@Fraudster' {} a -> s {createdAt = a} :: Fraudster) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Fraudster where
+instance Data.FromJSON Fraudster where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Fraudster"
       ( \x ->
           Fraudster'
-            Prelude.<$> (x Core..:? "GeneratedFraudsterId")
-            Prelude.<*> (x Core..:? "DomainId")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "GeneratedFraudsterId")
+            Prelude.<*> (x Data..:? "DomainId")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable Fraudster where

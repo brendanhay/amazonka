@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,7 +121,7 @@ instance Core.AWSRequest DescribeRaidArrays where
     Response.receiveJSON
       ( \s h x ->
           DescribeRaidArraysResponse'
-            Prelude.<$> (x Core..?> "RaidArrays" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "RaidArrays" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,35 +137,35 @@ instance Prelude.NFData DescribeRaidArrays where
       `Prelude.seq` Prelude.rnf raidArrayIds
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders DescribeRaidArrays where
+instance Data.ToHeaders DescribeRaidArrays where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DescribeRaidArrays" ::
+              Data.=# ( "OpsWorks_20130218.DescribeRaidArrays" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRaidArrays where
+instance Data.ToJSON DescribeRaidArrays where
   toJSON DescribeRaidArrays' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StackId" Core..=) Prelude.<$> stackId,
-            ("RaidArrayIds" Core..=) Prelude.<$> raidArrayIds,
-            ("InstanceId" Core..=) Prelude.<$> instanceId
+          [ ("StackId" Data..=) Prelude.<$> stackId,
+            ("RaidArrayIds" Data..=) Prelude.<$> raidArrayIds,
+            ("InstanceId" Data..=) Prelude.<$> instanceId
           ]
       )
 
-instance Core.ToPath DescribeRaidArrays where
+instance Data.ToPath DescribeRaidArrays where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeRaidArrays where
+instance Data.ToQuery DescribeRaidArrays where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeRaidArrays@ request.

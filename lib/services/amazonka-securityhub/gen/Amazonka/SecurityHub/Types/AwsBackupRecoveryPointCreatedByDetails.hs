@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsBackupRecoveryPointCreatedByDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the backup plan and rule that Backup used to
@@ -88,18 +89,18 @@ awsBackupRecoveryPointCreatedByDetails_backupRuleId :: Lens.Lens' AwsBackupRecov
 awsBackupRecoveryPointCreatedByDetails_backupRuleId = Lens.lens (\AwsBackupRecoveryPointCreatedByDetails' {backupRuleId} -> backupRuleId) (\s@AwsBackupRecoveryPointCreatedByDetails' {} a -> s {backupRuleId = a} :: AwsBackupRecoveryPointCreatedByDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsBackupRecoveryPointCreatedByDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsBackupRecoveryPointCreatedByDetails"
       ( \x ->
           AwsBackupRecoveryPointCreatedByDetails'
-            Prelude.<$> (x Core..:? "BackupPlanVersion")
-            Prelude.<*> (x Core..:? "BackupPlanArn")
-            Prelude.<*> (x Core..:? "BackupPlanId")
-            Prelude.<*> (x Core..:? "BackupRuleId")
+            Prelude.<$> (x Data..:? "BackupPlanVersion")
+            Prelude.<*> (x Data..:? "BackupPlanArn")
+            Prelude.<*> (x Data..:? "BackupPlanId")
+            Prelude.<*> (x Data..:? "BackupRuleId")
       )
 
 instance
@@ -125,16 +126,16 @@ instance
       `Prelude.seq` Prelude.rnf backupRuleId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsBackupRecoveryPointCreatedByDetails
   where
   toJSON AwsBackupRecoveryPointCreatedByDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BackupPlanVersion" Core..=)
+          [ ("BackupPlanVersion" Data..=)
               Prelude.<$> backupPlanVersion,
-            ("BackupPlanArn" Core..=) Prelude.<$> backupPlanArn,
-            ("BackupPlanId" Core..=) Prelude.<$> backupPlanId,
-            ("BackupRuleId" Core..=) Prelude.<$> backupRuleId
+            ("BackupPlanArn" Data..=) Prelude.<$> backupPlanArn,
+            ("BackupPlanId" Data..=) Prelude.<$> backupPlanId,
+            ("BackupRuleId" Data..=) Prelude.<$> backupRuleId
           ]
       )

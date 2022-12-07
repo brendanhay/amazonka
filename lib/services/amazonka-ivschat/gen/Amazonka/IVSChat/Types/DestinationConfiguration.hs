@@ -21,6 +21,7 @@ module Amazonka.IVSChat.Types.DestinationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVSChat.Types.CloudWatchLogsDestinationConfiguration
 import Amazonka.IVSChat.Types.FirehoseDestinationConfiguration
 import Amazonka.IVSChat.Types.S3DestinationConfiguration
@@ -83,15 +84,15 @@ destinationConfiguration_firehose = Lens.lens (\DestinationConfiguration' {fireh
 destinationConfiguration_s3 :: Lens.Lens' DestinationConfiguration (Prelude.Maybe S3DestinationConfiguration)
 destinationConfiguration_s3 = Lens.lens (\DestinationConfiguration' {s3} -> s3) (\s@DestinationConfiguration' {} a -> s {s3 = a} :: DestinationConfiguration)
 
-instance Core.FromJSON DestinationConfiguration where
+instance Data.FromJSON DestinationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DestinationConfiguration"
       ( \x ->
           DestinationConfiguration'
-            Prelude.<$> (x Core..:? "cloudWatchLogs")
-            Prelude.<*> (x Core..:? "firehose")
-            Prelude.<*> (x Core..:? "s3")
+            Prelude.<$> (x Data..:? "cloudWatchLogs")
+            Prelude.<*> (x Data..:? "firehose")
+            Prelude.<*> (x Data..:? "s3")
       )
 
 instance Prelude.Hashable DestinationConfiguration where
@@ -106,13 +107,13 @@ instance Prelude.NFData DestinationConfiguration where
       `Prelude.seq` Prelude.rnf firehose
       `Prelude.seq` Prelude.rnf s3
 
-instance Core.ToJSON DestinationConfiguration where
+instance Data.ToJSON DestinationConfiguration where
   toJSON DestinationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cloudWatchLogs" Core..=)
+          [ ("cloudWatchLogs" Data..=)
               Prelude.<$> cloudWatchLogs,
-            ("firehose" Core..=) Prelude.<$> firehose,
-            ("s3" Core..=) Prelude.<$> s3
+            ("firehose" Data..=) Prelude.<$> firehose,
+            ("s3" Data..=) Prelude.<$> s3
           ]
       )

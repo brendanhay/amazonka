@@ -48,6 +48,7 @@ where
 import Amazonka.BackupGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -60,9 +61,9 @@ data UpdateHypervisor = UpdateHypervisor'
     -- a fully-qualified domain name (FQDN).
     host :: Prelude.Maybe Prelude.Text,
     -- | The updated password for the hypervisor.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The updated username for the hypervisor.
-    username :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    username :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the hypervisor to update.
     hypervisorArn :: Prelude.Text
   }
@@ -110,11 +111,11 @@ updateHypervisor_host = Lens.lens (\UpdateHypervisor' {host} -> host) (\s@Update
 
 -- | The updated password for the hypervisor.
 updateHypervisor_password :: Lens.Lens' UpdateHypervisor (Prelude.Maybe Prelude.Text)
-updateHypervisor_password = Lens.lens (\UpdateHypervisor' {password} -> password) (\s@UpdateHypervisor' {} a -> s {password = a} :: UpdateHypervisor) Prelude.. Lens.mapping Core._Sensitive
+updateHypervisor_password = Lens.lens (\UpdateHypervisor' {password} -> password) (\s@UpdateHypervisor' {} a -> s {password = a} :: UpdateHypervisor) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The updated username for the hypervisor.
 updateHypervisor_username :: Lens.Lens' UpdateHypervisor (Prelude.Maybe Prelude.Text)
-updateHypervisor_username = Lens.lens (\UpdateHypervisor' {username} -> username) (\s@UpdateHypervisor' {} a -> s {username = a} :: UpdateHypervisor) Prelude.. Lens.mapping Core._Sensitive
+updateHypervisor_username = Lens.lens (\UpdateHypervisor' {username} -> username) (\s@UpdateHypervisor' {} a -> s {username = a} :: UpdateHypervisor) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the hypervisor to update.
 updateHypervisor_hypervisorArn :: Lens.Lens' UpdateHypervisor Prelude.Text
@@ -130,7 +131,7 @@ instance Core.AWSRequest UpdateHypervisor where
     Response.receiveJSON
       ( \s h x ->
           UpdateHypervisorResponse'
-            Prelude.<$> (x Core..?> "HypervisorArn")
+            Prelude.<$> (x Data..?> "HypervisorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,38 +151,38 @@ instance Prelude.NFData UpdateHypervisor where
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf hypervisorArn
 
-instance Core.ToHeaders UpdateHypervisor where
+instance Data.ToHeaders UpdateHypervisor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BackupOnPremises_v20210101.UpdateHypervisor" ::
+              Data.=# ( "BackupOnPremises_v20210101.UpdateHypervisor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateHypervisor where
+instance Data.ToJSON UpdateHypervisor where
   toJSON UpdateHypervisor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Host" Core..=) Prelude.<$> host,
-            ("Password" Core..=) Prelude.<$> password,
-            ("Username" Core..=) Prelude.<$> username,
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Host" Data..=) Prelude.<$> host,
+            ("Password" Data..=) Prelude.<$> password,
+            ("Username" Data..=) Prelude.<$> username,
             Prelude.Just
-              ("HypervisorArn" Core..= hypervisorArn)
+              ("HypervisorArn" Data..= hypervisorArn)
           ]
       )
 
-instance Core.ToPath UpdateHypervisor where
+instance Data.ToPath UpdateHypervisor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateHypervisor where
+instance Data.ToQuery UpdateHypervisor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateHypervisorResponse' smart constructor.

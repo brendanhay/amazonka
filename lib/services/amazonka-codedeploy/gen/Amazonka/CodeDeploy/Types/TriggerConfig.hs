@@ -22,6 +22,7 @@ module Amazonka.CodeDeploy.Types.TriggerConfig where
 import Amazonka.CodeDeploy.Types.TriggerEventType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about notification triggers for the deployment group.
@@ -77,15 +78,15 @@ triggerConfig_triggerEvents = Lens.lens (\TriggerConfig' {triggerEvents} -> trig
 triggerConfig_triggerTargetArn :: Lens.Lens' TriggerConfig (Prelude.Maybe Prelude.Text)
 triggerConfig_triggerTargetArn = Lens.lens (\TriggerConfig' {triggerTargetArn} -> triggerTargetArn) (\s@TriggerConfig' {} a -> s {triggerTargetArn = a} :: TriggerConfig)
 
-instance Core.FromJSON TriggerConfig where
+instance Data.FromJSON TriggerConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TriggerConfig"
       ( \x ->
           TriggerConfig'
-            Prelude.<$> (x Core..:? "triggerName")
-            Prelude.<*> (x Core..:? "triggerEvents" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "triggerTargetArn")
+            Prelude.<$> (x Data..:? "triggerName")
+            Prelude.<*> (x Data..:? "triggerEvents" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "triggerTargetArn")
       )
 
 instance Prelude.Hashable TriggerConfig where
@@ -100,13 +101,13 @@ instance Prelude.NFData TriggerConfig where
       `Prelude.seq` Prelude.rnf triggerEvents
       `Prelude.seq` Prelude.rnf triggerTargetArn
 
-instance Core.ToJSON TriggerConfig where
+instance Data.ToJSON TriggerConfig where
   toJSON TriggerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("triggerName" Core..=) Prelude.<$> triggerName,
-            ("triggerEvents" Core..=) Prelude.<$> triggerEvents,
-            ("triggerTargetArn" Core..=)
+          [ ("triggerName" Data..=) Prelude.<$> triggerName,
+            ("triggerEvents" Data..=) Prelude.<$> triggerEvents,
+            ("triggerTargetArn" Data..=)
               Prelude.<$> triggerTargetArn
           ]
       )

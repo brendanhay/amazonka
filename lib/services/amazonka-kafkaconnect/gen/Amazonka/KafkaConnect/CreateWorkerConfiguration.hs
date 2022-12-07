@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -58,7 +59,7 @@ data CreateWorkerConfiguration = CreateWorkerConfiguration'
     -- | The name of the worker configuration.
     name :: Prelude.Text,
     -- | Base64 encoded contents of connect-distributed.properties file.
-    propertiesFileContent :: Core.Sensitive Prelude.Text
+    propertiesFileContent :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -89,7 +90,7 @@ newCreateWorkerConfiguration
           Prelude.Nothing,
         name = pName_,
         propertiesFileContent =
-          Core._Sensitive Lens.# pPropertiesFileContent_
+          Data._Sensitive Lens.# pPropertiesFileContent_
       }
 
 -- | A summary description of the worker configuration.
@@ -102,7 +103,7 @@ createWorkerConfiguration_name = Lens.lens (\CreateWorkerConfiguration' {name} -
 
 -- | Base64 encoded contents of connect-distributed.properties file.
 createWorkerConfiguration_propertiesFileContent :: Lens.Lens' CreateWorkerConfiguration Prelude.Text
-createWorkerConfiguration_propertiesFileContent = Lens.lens (\CreateWorkerConfiguration' {propertiesFileContent} -> propertiesFileContent) (\s@CreateWorkerConfiguration' {} a -> s {propertiesFileContent = a} :: CreateWorkerConfiguration) Prelude.. Core._Sensitive
+createWorkerConfiguration_propertiesFileContent = Lens.lens (\CreateWorkerConfiguration' {propertiesFileContent} -> propertiesFileContent) (\s@CreateWorkerConfiguration' {} a -> s {propertiesFileContent = a} :: CreateWorkerConfiguration) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateWorkerConfiguration where
   type
@@ -114,10 +115,10 @@ instance Core.AWSRequest CreateWorkerConfiguration where
     Response.receiveJSON
       ( \s h x ->
           CreateWorkerConfigurationResponse'
-            Prelude.<$> (x Core..?> "latestRevision")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "workerConfigurationArn")
-            Prelude.<*> (x Core..?> "creationTime")
+            Prelude.<$> (x Data..?> "latestRevision")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "workerConfigurationArn")
+            Prelude.<*> (x Data..?> "creationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,34 +134,34 @@ instance Prelude.NFData CreateWorkerConfiguration where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf propertiesFileContent
 
-instance Core.ToHeaders CreateWorkerConfiguration where
+instance Data.ToHeaders CreateWorkerConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkerConfiguration where
+instance Data.ToJSON CreateWorkerConfiguration where
   toJSON CreateWorkerConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
+          [ ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
               ( "propertiesFileContent"
-                  Core..= propertiesFileContent
+                  Data..= propertiesFileContent
               )
           ]
       )
 
-instance Core.ToPath CreateWorkerConfiguration where
+instance Data.ToPath CreateWorkerConfiguration where
   toPath = Prelude.const "/v1/worker-configurations"
 
-instance Core.ToQuery CreateWorkerConfiguration where
+instance Data.ToQuery CreateWorkerConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorkerConfigurationResponse' smart constructor.
@@ -173,7 +174,7 @@ data CreateWorkerConfigurationResponse = CreateWorkerConfigurationResponse'
     -- configuration.
     workerConfigurationArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the worker configuration was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -226,7 +227,7 @@ createWorkerConfigurationResponse_workerConfigurationArn = Lens.lens (\CreateWor
 
 -- | The time that the worker configuration was created.
 createWorkerConfigurationResponse_creationTime :: Lens.Lens' CreateWorkerConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-createWorkerConfigurationResponse_creationTime = Lens.lens (\CreateWorkerConfigurationResponse' {creationTime} -> creationTime) (\s@CreateWorkerConfigurationResponse' {} a -> s {creationTime = a} :: CreateWorkerConfigurationResponse) Prelude.. Lens.mapping Core._Time
+createWorkerConfigurationResponse_creationTime = Lens.lens (\CreateWorkerConfigurationResponse' {creationTime} -> creationTime) (\s@CreateWorkerConfigurationResponse' {} a -> s {creationTime = a} :: CreateWorkerConfigurationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createWorkerConfigurationResponse_httpStatus :: Lens.Lens' CreateWorkerConfigurationResponse Prelude.Int

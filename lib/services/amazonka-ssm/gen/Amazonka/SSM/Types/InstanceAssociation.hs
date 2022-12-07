@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.InstanceAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | One or more association documents on the managed node.
@@ -80,16 +81,16 @@ instanceAssociation_content = Lens.lens (\InstanceAssociation' {content} -> cont
 instanceAssociation_associationId :: Lens.Lens' InstanceAssociation (Prelude.Maybe Prelude.Text)
 instanceAssociation_associationId = Lens.lens (\InstanceAssociation' {associationId} -> associationId) (\s@InstanceAssociation' {} a -> s {associationId = a} :: InstanceAssociation)
 
-instance Core.FromJSON InstanceAssociation where
+instance Data.FromJSON InstanceAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceAssociation"
       ( \x ->
           InstanceAssociation'
-            Prelude.<$> (x Core..:? "AssociationVersion")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "Content")
-            Prelude.<*> (x Core..:? "AssociationId")
+            Prelude.<$> (x Data..:? "AssociationVersion")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "Content")
+            Prelude.<*> (x Data..:? "AssociationId")
       )
 
 instance Prelude.Hashable InstanceAssociation where

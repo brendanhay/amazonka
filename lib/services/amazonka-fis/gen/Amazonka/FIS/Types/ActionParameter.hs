@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ActionParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a parameter for an action.
@@ -61,14 +62,14 @@ actionParameter_required = Lens.lens (\ActionParameter' {required} -> required) 
 actionParameter_description :: Lens.Lens' ActionParameter (Prelude.Maybe Prelude.Text)
 actionParameter_description = Lens.lens (\ActionParameter' {description} -> description) (\s@ActionParameter' {} a -> s {description = a} :: ActionParameter)
 
-instance Core.FromJSON ActionParameter where
+instance Data.FromJSON ActionParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionParameter"
       ( \x ->
           ActionParameter'
-            Prelude.<$> (x Core..:? "required")
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<$> (x Data..:? "required")
+            Prelude.<*> (x Data..:? "description")
       )
 
 instance Prelude.Hashable ActionParameter where

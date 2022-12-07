@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.LoadBalancerAddress where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a static IP address for a load balancer.
@@ -86,13 +87,13 @@ loadBalancerAddress_privateIPv4Address = Lens.lens (\LoadBalancerAddress' {priva
 loadBalancerAddress_ipAddress :: Lens.Lens' LoadBalancerAddress (Prelude.Maybe Prelude.Text)
 loadBalancerAddress_ipAddress = Lens.lens (\LoadBalancerAddress' {ipAddress} -> ipAddress) (\s@LoadBalancerAddress' {} a -> s {ipAddress = a} :: LoadBalancerAddress)
 
-instance Core.FromXML LoadBalancerAddress where
+instance Data.FromXML LoadBalancerAddress where
   parseXML x =
     LoadBalancerAddress'
-      Prelude.<$> (x Core..@? "AllocationId")
-      Prelude.<*> (x Core..@? "IPv6Address")
-      Prelude.<*> (x Core..@? "PrivateIPv4Address")
-      Prelude.<*> (x Core..@? "IpAddress")
+      Prelude.<$> (x Data..@? "AllocationId")
+      Prelude.<*> (x Data..@? "IPv6Address")
+      Prelude.<*> (x Data..@? "PrivateIPv4Address")
+      Prelude.<*> (x Data..@? "IpAddress")
 
 instance Prelude.Hashable LoadBalancerAddress where
   hashWithSalt _salt LoadBalancerAddress' {..} =

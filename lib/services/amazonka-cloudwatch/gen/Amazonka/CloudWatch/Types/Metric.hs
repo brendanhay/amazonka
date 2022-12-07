@@ -22,6 +22,7 @@ module Amazonka.CloudWatch.Types.Metric where
 import Amazonka.CloudWatch.Types.Dimension
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a specific metric.
@@ -71,14 +72,14 @@ metric_metricName = Lens.lens (\Metric' {metricName} -> metricName) (\s@Metric' 
 metric_namespace :: Lens.Lens' Metric (Prelude.Maybe Prelude.Text)
 metric_namespace = Lens.lens (\Metric' {namespace} -> namespace) (\s@Metric' {} a -> s {namespace = a} :: Metric)
 
-instance Core.FromXML Metric where
+instance Data.FromXML Metric where
   parseXML x =
     Metric'
-      Prelude.<$> ( x Core..@? "Dimensions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "MetricName")
-      Prelude.<*> (x Core..@? "Namespace")
+      Prelude.<*> (x Data..@? "MetricName")
+      Prelude.<*> (x Data..@? "Namespace")
 
 instance Prelude.Hashable Metric where
   hashWithSalt _salt Metric' {..} =
@@ -92,12 +93,12 @@ instance Prelude.NFData Metric where
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf namespace
 
-instance Core.ToQuery Metric where
+instance Data.ToQuery Metric where
   toQuery Metric' {..} =
     Prelude.mconcat
       [ "Dimensions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> dimensions),
-        "MetricName" Core.=: metricName,
-        "Namespace" Core.=: namespace
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> dimensions),
+        "MetricName" Data.=: metricName,
+        "Namespace" Data.=: namespace
       ]

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.OutputChannelMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | OutputChannel mapping settings.
@@ -71,16 +72,16 @@ outputChannelMapping_inputChannelsFineTune = Lens.lens (\OutputChannelMapping' {
 outputChannelMapping_inputChannels :: Lens.Lens' OutputChannelMapping (Prelude.Maybe [Prelude.Int])
 outputChannelMapping_inputChannels = Lens.lens (\OutputChannelMapping' {inputChannels} -> inputChannels) (\s@OutputChannelMapping' {} a -> s {inputChannels = a} :: OutputChannelMapping) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON OutputChannelMapping where
+instance Data.FromJSON OutputChannelMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputChannelMapping"
       ( \x ->
           OutputChannelMapping'
-            Prelude.<$> ( x Core..:? "inputChannelsFineTune"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "inputChannelsFineTune"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "inputChannels" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "inputChannels" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable OutputChannelMapping where
@@ -93,12 +94,12 @@ instance Prelude.NFData OutputChannelMapping where
     Prelude.rnf inputChannelsFineTune
       `Prelude.seq` Prelude.rnf inputChannels
 
-instance Core.ToJSON OutputChannelMapping where
+instance Data.ToJSON OutputChannelMapping where
   toJSON OutputChannelMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inputChannelsFineTune" Core..=)
+          [ ("inputChannelsFineTune" Data..=)
               Prelude.<$> inputChannelsFineTune,
-            ("inputChannels" Core..=) Prelude.<$> inputChannels
+            ("inputChannels" Data..=) Prelude.<$> inputChannels
           ]
       )

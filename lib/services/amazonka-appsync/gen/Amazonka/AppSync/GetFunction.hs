@@ -43,6 +43,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,7 +96,7 @@ instance Core.AWSRequest GetFunction where
     Response.receiveJSON
       ( \s h x ->
           GetFunctionResponse'
-            Prelude.<$> (x Core..?> "functionConfiguration")
+            Prelude.<$> (x Data..?> "functionConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,27 +110,27 @@ instance Prelude.NFData GetFunction where
     Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf functionId
 
-instance Core.ToHeaders GetFunction where
+instance Data.ToHeaders GetFunction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetFunction where
+instance Data.ToPath GetFunction where
   toPath GetFunction' {..} =
     Prelude.mconcat
       [ "/v1/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/functions/",
-        Core.toBS functionId
+        Data.toBS functionId
       ]
 
-instance Core.ToQuery GetFunction where
+instance Data.ToQuery GetFunction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFunctionResponse' smart constructor.

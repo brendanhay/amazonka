@@ -23,6 +23,7 @@ import Amazonka.Comprehend.Types.DocumentReaderConfig
 import Amazonka.Comprehend.Types.InputFormat
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The input properties for an inference job.
@@ -135,15 +136,15 @@ inputDataConfig_inputFormat = Lens.lens (\InputDataConfig' {inputFormat} -> inpu
 inputDataConfig_s3Uri :: Lens.Lens' InputDataConfig Prelude.Text
 inputDataConfig_s3Uri = Lens.lens (\InputDataConfig' {s3Uri} -> s3Uri) (\s@InputDataConfig' {} a -> s {s3Uri = a} :: InputDataConfig)
 
-instance Core.FromJSON InputDataConfig where
+instance Data.FromJSON InputDataConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputDataConfig"
       ( \x ->
           InputDataConfig'
-            Prelude.<$> (x Core..:? "DocumentReaderConfig")
-            Prelude.<*> (x Core..:? "InputFormat")
-            Prelude.<*> (x Core..: "S3Uri")
+            Prelude.<$> (x Data..:? "DocumentReaderConfig")
+            Prelude.<*> (x Data..:? "InputFormat")
+            Prelude.<*> (x Data..: "S3Uri")
       )
 
 instance Prelude.Hashable InputDataConfig where
@@ -158,13 +159,13 @@ instance Prelude.NFData InputDataConfig where
       `Prelude.seq` Prelude.rnf inputFormat
       `Prelude.seq` Prelude.rnf s3Uri
 
-instance Core.ToJSON InputDataConfig where
+instance Data.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DocumentReaderConfig" Core..=)
+          [ ("DocumentReaderConfig" Data..=)
               Prelude.<$> documentReaderConfig,
-            ("InputFormat" Core..=) Prelude.<$> inputFormat,
-            Prelude.Just ("S3Uri" Core..= s3Uri)
+            ("InputFormat" Data..=) Prelude.<$> inputFormat,
+            Prelude.Just ("S3Uri" Data..= s3Uri)
           ]
       )

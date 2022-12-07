@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,15 +121,15 @@ instance Core.AWSRequest GetModelVersion where
     Response.receiveJSON
       ( \s h x ->
           GetModelVersionResponse'
-            Prelude.<$> (x Core..?> "ingestedEventsDetail")
-            Prelude.<*> (x Core..?> "modelVersionNumber")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "modelType")
-            Prelude.<*> (x Core..?> "trainingDataSchema")
-            Prelude.<*> (x Core..?> "externalEventsDetail")
-            Prelude.<*> (x Core..?> "trainingDataSource")
-            Prelude.<*> (x Core..?> "modelId")
+            Prelude.<$> (x Data..?> "ingestedEventsDetail")
+            Prelude.<*> (x Data..?> "modelVersionNumber")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "modelType")
+            Prelude.<*> (x Data..?> "trainingDataSchema")
+            Prelude.<*> (x Data..?> "externalEventsDetail")
+            Prelude.<*> (x Data..?> "trainingDataSource")
+            Prelude.<*> (x Data..?> "modelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,36 +145,36 @@ instance Prelude.NFData GetModelVersion where
       `Prelude.seq` Prelude.rnf modelType
       `Prelude.seq` Prelude.rnf modelVersionNumber
 
-instance Core.ToHeaders GetModelVersion where
+instance Data.ToHeaders GetModelVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.GetModelVersion" ::
+              Data.=# ( "AWSHawksNestServiceFacade.GetModelVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetModelVersion where
+instance Data.ToJSON GetModelVersion where
   toJSON GetModelVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("modelId" Core..= modelId),
-            Prelude.Just ("modelType" Core..= modelType),
+          [ Prelude.Just ("modelId" Data..= modelId),
+            Prelude.Just ("modelType" Data..= modelType),
             Prelude.Just
-              ("modelVersionNumber" Core..= modelVersionNumber)
+              ("modelVersionNumber" Data..= modelVersionNumber)
           ]
       )
 
-instance Core.ToPath GetModelVersion where
+instance Data.ToPath GetModelVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetModelVersion where
+instance Data.ToQuery GetModelVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetModelVersionResponse' smart constructor.

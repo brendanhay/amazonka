@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,9 +125,9 @@ instance Core.AWSRequest ListTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListTemplatesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "templateSummary"
+            Prelude.<*> ( x Data..?> "templateSummary"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -143,26 +144,26 @@ instance Prelude.NFData ListTemplates where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListTemplates where
+instance Data.ToHeaders ListTemplates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListTemplates where
+instance Data.ToPath ListTemplates where
   toPath = Prelude.const "/migrationworkflowtemplates"
 
-instance Core.ToQuery ListTemplates where
+instance Data.ToQuery ListTemplates where
   toQuery ListTemplates' {..} =
     Prelude.mconcat
-      [ "name" Core.=: name,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "name" Data.=: name,
+        "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListTemplatesResponse' smart constructor.

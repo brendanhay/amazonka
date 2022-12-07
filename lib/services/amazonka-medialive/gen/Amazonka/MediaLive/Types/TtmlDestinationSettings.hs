@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.TtmlDestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.TtmlDestinationStyleControl
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newTtmlDestinationSettings =
 ttmlDestinationSettings_styleControl :: Lens.Lens' TtmlDestinationSettings (Prelude.Maybe TtmlDestinationStyleControl)
 ttmlDestinationSettings_styleControl = Lens.lens (\TtmlDestinationSettings' {styleControl} -> styleControl) (\s@TtmlDestinationSettings' {} a -> s {styleControl = a} :: TtmlDestinationSettings)
 
-instance Core.FromJSON TtmlDestinationSettings where
+instance Data.FromJSON TtmlDestinationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TtmlDestinationSettings"
       ( \x ->
           TtmlDestinationSettings'
-            Prelude.<$> (x Core..:? "styleControl")
+            Prelude.<$> (x Data..:? "styleControl")
       )
 
 instance Prelude.Hashable TtmlDestinationSettings where
@@ -74,9 +75,9 @@ instance Prelude.NFData TtmlDestinationSettings where
   rnf TtmlDestinationSettings' {..} =
     Prelude.rnf styleControl
 
-instance Core.ToJSON TtmlDestinationSettings where
+instance Data.ToJSON TtmlDestinationSettings where
   toJSON TtmlDestinationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("styleControl" Core..=) Prelude.<$> styleControl]
+          [("styleControl" Data..=) Prelude.<$> styleControl]
       )

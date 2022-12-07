@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DataSourceGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Data source information for user context filtering.
@@ -87,11 +88,11 @@ instance Prelude.NFData DataSourceGroup where
     Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf dataSourceId
 
-instance Core.ToJSON DataSourceGroup where
+instance Data.ToJSON DataSourceGroup where
   toJSON DataSourceGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GroupId" Core..= groupId),
-            Prelude.Just ("DataSourceId" Core..= dataSourceId)
+          [ Prelude.Just ("GroupId" Data..= groupId),
+            Prelude.Just ("DataSourceId" Data..= dataSourceId)
           ]
       )

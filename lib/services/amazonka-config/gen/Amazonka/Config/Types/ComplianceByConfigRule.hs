@@ -22,6 +22,7 @@ module Amazonka.Config.Types.ComplianceByConfigRule where
 import Amazonka.Config.Types.Compliance
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether an Config rule is compliant. A rule is compliant if
@@ -65,14 +66,14 @@ complianceByConfigRule_configRuleName = Lens.lens (\ComplianceByConfigRule' {con
 complianceByConfigRule_compliance :: Lens.Lens' ComplianceByConfigRule (Prelude.Maybe Compliance)
 complianceByConfigRule_compliance = Lens.lens (\ComplianceByConfigRule' {compliance} -> compliance) (\s@ComplianceByConfigRule' {} a -> s {compliance = a} :: ComplianceByConfigRule)
 
-instance Core.FromJSON ComplianceByConfigRule where
+instance Data.FromJSON ComplianceByConfigRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComplianceByConfigRule"
       ( \x ->
           ComplianceByConfigRule'
-            Prelude.<$> (x Core..:? "ConfigRuleName")
-            Prelude.<*> (x Core..:? "Compliance")
+            Prelude.<$> (x Data..:? "ConfigRuleName")
+            Prelude.<*> (x Data..:? "Compliance")
       )
 
 instance Prelude.Hashable ComplianceByConfigRule where

@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.BulkEmailEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.Destination
 import Amazonka.SESV2.Types.MessageTag
@@ -126,14 +127,14 @@ instance Prelude.NFData BulkEmailEntry where
       `Prelude.seq` Prelude.rnf replacementTags
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToJSON BulkEmailEntry where
+instance Data.ToJSON BulkEmailEntry where
   toJSON BulkEmailEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReplacementEmailContent" Core..=)
+          [ ("ReplacementEmailContent" Data..=)
               Prelude.<$> replacementEmailContent,
-            ("ReplacementTags" Core..=)
+            ("ReplacementTags" Data..=)
               Prelude.<$> replacementTags,
-            Prelude.Just ("Destination" Core..= destination)
+            Prelude.Just ("Destination" Data..= destination)
           ]
       )

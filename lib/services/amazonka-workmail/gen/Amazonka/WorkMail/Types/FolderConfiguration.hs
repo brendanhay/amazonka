@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.FolderConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.FolderName
 import Amazonka.WorkMail.Types.RetentionAction
@@ -80,15 +81,15 @@ folderConfiguration_name = Lens.lens (\FolderConfiguration' {name} -> name) (\s@
 folderConfiguration_action :: Lens.Lens' FolderConfiguration RetentionAction
 folderConfiguration_action = Lens.lens (\FolderConfiguration' {action} -> action) (\s@FolderConfiguration' {} a -> s {action = a} :: FolderConfiguration)
 
-instance Core.FromJSON FolderConfiguration where
+instance Data.FromJSON FolderConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FolderConfiguration"
       ( \x ->
           FolderConfiguration'
-            Prelude.<$> (x Core..:? "Period")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Action")
+            Prelude.<$> (x Data..:? "Period")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Action")
       )
 
 instance Prelude.Hashable FolderConfiguration where
@@ -103,12 +104,12 @@ instance Prelude.NFData FolderConfiguration where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToJSON FolderConfiguration where
+instance Data.ToJSON FolderConfiguration where
   toJSON FolderConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Period" Core..=) Prelude.<$> period,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Action" Core..= action)
+          [ ("Period" Data..=) Prelude.<$> period,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Action" Data..= action)
           ]
       )

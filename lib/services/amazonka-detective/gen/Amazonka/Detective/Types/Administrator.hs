@@ -21,6 +21,7 @@ module Amazonka.Detective.Types.Administrator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the Detective administrator account for an
@@ -36,7 +37,7 @@ data Administrator = Administrator'
     -- | The date and time when the Detective administrator account was enabled.
     -- The value is an ISO8601 formatted string. For example,
     -- @2021-08-18T16:35:56.284Z@.
-    delegationTime :: Prelude.Maybe Core.POSIX
+    delegationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,17 +79,17 @@ administrator_accountId = Lens.lens (\Administrator' {accountId} -> accountId) (
 -- The value is an ISO8601 formatted string. For example,
 -- @2021-08-18T16:35:56.284Z@.
 administrator_delegationTime :: Lens.Lens' Administrator (Prelude.Maybe Prelude.UTCTime)
-administrator_delegationTime = Lens.lens (\Administrator' {delegationTime} -> delegationTime) (\s@Administrator' {} a -> s {delegationTime = a} :: Administrator) Prelude.. Lens.mapping Core._Time
+administrator_delegationTime = Lens.lens (\Administrator' {delegationTime} -> delegationTime) (\s@Administrator' {} a -> s {delegationTime = a} :: Administrator) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Administrator where
+instance Data.FromJSON Administrator where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Administrator"
       ( \x ->
           Administrator'
-            Prelude.<$> (x Core..:? "GraphArn")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "DelegationTime")
+            Prelude.<$> (x Data..:? "GraphArn")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "DelegationTime")
       )
 
 instance Prelude.Hashable Administrator where

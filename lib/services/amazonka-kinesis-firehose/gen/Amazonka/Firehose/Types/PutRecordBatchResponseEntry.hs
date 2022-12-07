@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.PutRecordBatchResponseEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the result for an individual record from a PutRecordBatch
@@ -74,15 +75,15 @@ putRecordBatchResponseEntry_recordId = Lens.lens (\PutRecordBatchResponseEntry' 
 putRecordBatchResponseEntry_errorCode :: Lens.Lens' PutRecordBatchResponseEntry (Prelude.Maybe Prelude.Text)
 putRecordBatchResponseEntry_errorCode = Lens.lens (\PutRecordBatchResponseEntry' {errorCode} -> errorCode) (\s@PutRecordBatchResponseEntry' {} a -> s {errorCode = a} :: PutRecordBatchResponseEntry)
 
-instance Core.FromJSON PutRecordBatchResponseEntry where
+instance Data.FromJSON PutRecordBatchResponseEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PutRecordBatchResponseEntry"
       ( \x ->
           PutRecordBatchResponseEntry'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "RecordId")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "RecordId")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable PutRecordBatchResponseEntry where

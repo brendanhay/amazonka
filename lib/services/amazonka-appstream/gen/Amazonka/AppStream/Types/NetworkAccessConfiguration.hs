@@ -21,6 +21,7 @@ module Amazonka.AppStream.Types.NetworkAccessConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the network details of the fleet or image builder instance.
@@ -71,14 +72,14 @@ networkAccessConfiguration_eniPrivateIpAddress = Lens.lens (\NetworkAccessConfig
 networkAccessConfiguration_eniId :: Lens.Lens' NetworkAccessConfiguration (Prelude.Maybe Prelude.Text)
 networkAccessConfiguration_eniId = Lens.lens (\NetworkAccessConfiguration' {eniId} -> eniId) (\s@NetworkAccessConfiguration' {} a -> s {eniId = a} :: NetworkAccessConfiguration)
 
-instance Core.FromJSON NetworkAccessConfiguration where
+instance Data.FromJSON NetworkAccessConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkAccessConfiguration"
       ( \x ->
           NetworkAccessConfiguration'
-            Prelude.<$> (x Core..:? "EniPrivateIpAddress")
-            Prelude.<*> (x Core..:? "EniId")
+            Prelude.<$> (x Data..:? "EniPrivateIpAddress")
+            Prelude.<*> (x Data..:? "EniId")
       )
 
 instance Prelude.Hashable NetworkAccessConfiguration where

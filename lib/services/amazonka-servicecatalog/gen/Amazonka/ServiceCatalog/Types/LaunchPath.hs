@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.LaunchPath where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A launch path object.
@@ -61,13 +62,13 @@ launchPath_name = Lens.lens (\LaunchPath' {name} -> name) (\s@LaunchPath' {} a -
 launchPath_id :: Lens.Lens' LaunchPath (Prelude.Maybe Prelude.Text)
 launchPath_id = Lens.lens (\LaunchPath' {id} -> id) (\s@LaunchPath' {} a -> s {id = a} :: LaunchPath)
 
-instance Core.FromJSON LaunchPath where
+instance Data.FromJSON LaunchPath where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchPath"
       ( \x ->
           LaunchPath'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable LaunchPath where

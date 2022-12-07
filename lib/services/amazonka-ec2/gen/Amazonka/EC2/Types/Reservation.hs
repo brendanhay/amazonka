@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Reservation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.GroupIdentifier
 import Amazonka.EC2.Types.Instance
@@ -100,18 +101,18 @@ reservation_reservationId = Lens.lens (\Reservation' {reservationId} -> reservat
 reservation_ownerId :: Lens.Lens' Reservation Prelude.Text
 reservation_ownerId = Lens.lens (\Reservation' {ownerId} -> ownerId) (\s@Reservation' {} a -> s {ownerId = a} :: Reservation)
 
-instance Core.FromXML Reservation where
+instance Data.FromXML Reservation where
   parseXML x =
     Reservation'
-      Prelude.<$> ( x Core..@? "instancesSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "requesterId")
-      Prelude.<*> (x Core..@ "reservationId")
-      Prelude.<*> (x Core..@ "ownerId")
+      Prelude.<*> (x Data..@? "requesterId")
+      Prelude.<*> (x Data..@ "reservationId")
+      Prelude.<*> (x Data..@ "ownerId")
 
 instance Prelude.Hashable Reservation where
   hashWithSalt _salt Reservation' {..} =

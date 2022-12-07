@@ -68,6 +68,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -288,22 +289,22 @@ instance Core.AWSRequest UpdateApi where
     Response.receiveJSON
       ( \s h x ->
           UpdateApiResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "apiEndpoint")
-            Prelude.<*> (x Core..?> "apiId")
-            Prelude.<*> (x Core..?> "routeSelectionExpression")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "warnings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "apiKeySelectionExpression")
-            Prelude.<*> (x Core..?> "protocolType")
-            Prelude.<*> (x Core..?> "disableExecuteApiEndpoint")
-            Prelude.<*> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "disableSchemaValidation")
-            Prelude.<*> (x Core..?> "importInfo" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "corsConfiguration")
-            Prelude.<*> (x Core..?> "apiGatewayManaged")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "apiEndpoint")
+            Prelude.<*> (x Data..?> "apiId")
+            Prelude.<*> (x Data..?> "routeSelectionExpression")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "apiKeySelectionExpression")
+            Prelude.<*> (x Data..?> "protocolType")
+            Prelude.<*> (x Data..?> "disableExecuteApiEndpoint")
+            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> (x Data..?> "disableSchemaValidation")
+            Prelude.<*> (x Data..?> "importInfo" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "corsConfiguration")
+            Prelude.<*> (x Data..?> "apiGatewayManaged")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -337,46 +338,46 @@ instance Prelude.NFData UpdateApi where
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf apiId
 
-instance Core.ToHeaders UpdateApi where
+instance Data.ToHeaders UpdateApi where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateApi where
+instance Data.ToJSON UpdateApi where
   toJSON UpdateApi' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("credentialsArn" Core..=)
+          [ ("credentialsArn" Data..=)
               Prelude.<$> credentialsArn,
-            ("name" Core..=) Prelude.<$> name,
-            ("routeSelectionExpression" Core..=)
+            ("name" Data..=) Prelude.<$> name,
+            ("routeSelectionExpression" Data..=)
               Prelude.<$> routeSelectionExpression,
-            ("target" Core..=) Prelude.<$> target,
-            ("description" Core..=) Prelude.<$> description,
-            ("routeKey" Core..=) Prelude.<$> routeKey,
-            ("apiKeySelectionExpression" Core..=)
+            ("target" Data..=) Prelude.<$> target,
+            ("description" Data..=) Prelude.<$> description,
+            ("routeKey" Data..=) Prelude.<$> routeKey,
+            ("apiKeySelectionExpression" Data..=)
               Prelude.<$> apiKeySelectionExpression,
-            ("disableExecuteApiEndpoint" Core..=)
+            ("disableExecuteApiEndpoint" Data..=)
               Prelude.<$> disableExecuteApiEndpoint,
-            ("disableSchemaValidation" Core..=)
+            ("disableSchemaValidation" Data..=)
               Prelude.<$> disableSchemaValidation,
-            ("corsConfiguration" Core..=)
+            ("corsConfiguration" Data..=)
               Prelude.<$> corsConfiguration,
-            ("version" Core..=) Prelude.<$> version
+            ("version" Data..=) Prelude.<$> version
           ]
       )
 
-instance Core.ToPath UpdateApi where
+instance Data.ToPath UpdateApi where
   toPath UpdateApi' {..} =
-    Prelude.mconcat ["/v2/apis/", Core.toBS apiId]
+    Prelude.mconcat ["/v2/apis/", Data.toBS apiId]
 
-instance Core.ToQuery UpdateApi where
+instance Data.ToQuery UpdateApi where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateApiResponse' smart constructor.
@@ -413,7 +414,7 @@ data UpdateApiResponse = UpdateApiResponse'
     -- disable the default endpoint.
     disableExecuteApiEndpoint :: Prelude.Maybe Prelude.Bool,
     -- | The timestamp when the API was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | Avoid validating models when creating a deployment. Supported only for
     -- WebSocket APIs.
     disableSchemaValidation :: Prelude.Maybe Prelude.Bool,
@@ -569,7 +570,7 @@ updateApiResponse_disableExecuteApiEndpoint = Lens.lens (\UpdateApiResponse' {di
 
 -- | The timestamp when the API was created.
 updateApiResponse_createdDate :: Lens.Lens' UpdateApiResponse (Prelude.Maybe Prelude.UTCTime)
-updateApiResponse_createdDate = Lens.lens (\UpdateApiResponse' {createdDate} -> createdDate) (\s@UpdateApiResponse' {} a -> s {createdDate = a} :: UpdateApiResponse) Prelude.. Lens.mapping Core._Time
+updateApiResponse_createdDate = Lens.lens (\UpdateApiResponse' {createdDate} -> createdDate) (\s@UpdateApiResponse' {} a -> s {createdDate = a} :: UpdateApiResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Avoid validating models when creating a deployment. Supported only for
 -- WebSocket APIs.

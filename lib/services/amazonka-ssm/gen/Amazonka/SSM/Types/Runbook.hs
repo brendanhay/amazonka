@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.Runbook where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.Target
 import Amazonka.SSM.Types.TargetLocation
@@ -159,21 +160,21 @@ runbook_parameters = Lens.lens (\Runbook' {parameters} -> parameters) (\s@Runboo
 runbook_documentName :: Lens.Lens' Runbook Prelude.Text
 runbook_documentName = Lens.lens (\Runbook' {documentName} -> documentName) (\s@Runbook' {} a -> s {documentName = a} :: Runbook)
 
-instance Core.FromJSON Runbook where
+instance Data.FromJSON Runbook where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Runbook"
       ( \x ->
           Runbook'
-            Prelude.<$> (x Core..:? "TargetLocations")
-            Prelude.<*> (x Core..:? "TargetParameterName")
-            Prelude.<*> (x Core..:? "TargetMaps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MaxConcurrency")
-            Prelude.<*> (x Core..:? "MaxErrors")
-            Prelude.<*> (x Core..:? "DocumentVersion")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "DocumentName")
+            Prelude.<$> (x Data..:? "TargetLocations")
+            Prelude.<*> (x Data..:? "TargetParameterName")
+            Prelude.<*> (x Data..:? "TargetMaps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MaxConcurrency")
+            Prelude.<*> (x Data..:? "MaxErrors")
+            Prelude.<*> (x Data..:? "DocumentVersion")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "DocumentName")
       )
 
 instance Prelude.Hashable Runbook where
@@ -200,22 +201,22 @@ instance Prelude.NFData Runbook where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf documentName
 
-instance Core.ToJSON Runbook where
+instance Data.ToJSON Runbook where
   toJSON Runbook' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetLocations" Core..=)
+          [ ("TargetLocations" Data..=)
               Prelude.<$> targetLocations,
-            ("TargetParameterName" Core..=)
+            ("TargetParameterName" Data..=)
               Prelude.<$> targetParameterName,
-            ("TargetMaps" Core..=) Prelude.<$> targetMaps,
-            ("Targets" Core..=) Prelude.<$> targets,
-            ("MaxConcurrency" Core..=)
+            ("TargetMaps" Data..=) Prelude.<$> targetMaps,
+            ("Targets" Data..=) Prelude.<$> targets,
+            ("MaxConcurrency" Data..=)
               Prelude.<$> maxConcurrency,
-            ("MaxErrors" Core..=) Prelude.<$> maxErrors,
-            ("DocumentVersion" Core..=)
+            ("MaxErrors" Data..=) Prelude.<$> maxErrors,
+            ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("DocumentName" Core..= documentName)
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("DocumentName" Data..= documentName)
           ]
       )

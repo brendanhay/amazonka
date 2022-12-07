@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.ApplicationMetrics
 import Amazonka.ElasticBeanstalk.Types.Deployment
 import Amazonka.ElasticBeanstalk.Types.SystemStatus
@@ -50,7 +51,7 @@ data SingleInstanceHealth = SingleInstanceHealth'
     -- | Request metrics from your application.
     applicationMetrics :: Prelude.Maybe ApplicationMetrics,
     -- | The time at which the EC2 instance was launched.
-    launchedAt :: Prelude.Maybe Core.ISO8601,
+    launchedAt :: Prelude.Maybe Data.ISO8601,
     -- | Operating system metrics from the instance.
     system :: Prelude.Maybe SystemStatus,
     -- | Represents the causes, which provide more information about the current
@@ -141,7 +142,7 @@ singleInstanceHealth_applicationMetrics = Lens.lens (\SingleInstanceHealth' {app
 
 -- | The time at which the EC2 instance was launched.
 singleInstanceHealth_launchedAt :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe Prelude.UTCTime)
-singleInstanceHealth_launchedAt = Lens.lens (\SingleInstanceHealth' {launchedAt} -> launchedAt) (\s@SingleInstanceHealth' {} a -> s {launchedAt = a} :: SingleInstanceHealth) Prelude.. Lens.mapping Core._Time
+singleInstanceHealth_launchedAt = Lens.lens (\SingleInstanceHealth' {launchedAt} -> launchedAt) (\s@SingleInstanceHealth' {} a -> s {launchedAt = a} :: SingleInstanceHealth) Prelude.. Lens.mapping Data._Time
 
 -- | Operating system metrics from the instance.
 singleInstanceHealth_system :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe SystemStatus)
@@ -152,20 +153,20 @@ singleInstanceHealth_system = Lens.lens (\SingleInstanceHealth' {system} -> syst
 singleInstanceHealth_causes :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe [Prelude.Text])
 singleInstanceHealth_causes = Lens.lens (\SingleInstanceHealth' {causes} -> causes) (\s@SingleInstanceHealth' {} a -> s {causes = a} :: SingleInstanceHealth) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML SingleInstanceHealth where
+instance Data.FromXML SingleInstanceHealth where
   parseXML x =
     SingleInstanceHealth'
-      Prelude.<$> (x Core..@? "Color")
-      Prelude.<*> (x Core..@? "Deployment")
-      Prelude.<*> (x Core..@? "HealthStatus")
-      Prelude.<*> (x Core..@? "AvailabilityZone")
-      Prelude.<*> (x Core..@? "InstanceType")
-      Prelude.<*> (x Core..@? "InstanceId")
-      Prelude.<*> (x Core..@? "ApplicationMetrics")
-      Prelude.<*> (x Core..@? "LaunchedAt")
-      Prelude.<*> (x Core..@? "System")
-      Prelude.<*> ( x Core..@? "Causes" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "Color")
+      Prelude.<*> (x Data..@? "Deployment")
+      Prelude.<*> (x Data..@? "HealthStatus")
+      Prelude.<*> (x Data..@? "AvailabilityZone")
+      Prelude.<*> (x Data..@? "InstanceType")
+      Prelude.<*> (x Data..@? "InstanceId")
+      Prelude.<*> (x Data..@? "ApplicationMetrics")
+      Prelude.<*> (x Data..@? "LaunchedAt")
+      Prelude.<*> (x Data..@? "System")
+      Prelude.<*> ( x Data..@? "Causes" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable SingleInstanceHealth where

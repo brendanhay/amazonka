@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,34 +109,34 @@ instance Prelude.NFData AddTagsToStream where
     Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders AddTagsToStream where
+instance Data.ToHeaders AddTagsToStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.AddTagsToStream" ::
+              Data.=# ( "Kinesis_20131202.AddTagsToStream" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddTagsToStream where
+instance Data.ToJSON AddTagsToStream where
   toJSON AddTagsToStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Core..= streamName),
-            Prelude.Just ("Tags" Core..= tags)
+          [ Prelude.Just ("StreamName" Data..= streamName),
+            Prelude.Just ("Tags" Data..= tags)
           ]
       )
 
-instance Core.ToPath AddTagsToStream where
+instance Data.ToPath AddTagsToStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddTagsToStream where
+instance Data.ToQuery AddTagsToStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddTagsToStreamResponse' smart constructor.

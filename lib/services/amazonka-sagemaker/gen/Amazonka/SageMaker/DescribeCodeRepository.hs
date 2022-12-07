@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,12 +91,12 @@ instance Core.AWSRequest DescribeCodeRepository where
     Response.receiveJSON
       ( \s h x ->
           DescribeCodeRepositoryResponse'
-            Prelude.<$> (x Core..?> "GitConfig")
+            Prelude.<$> (x Data..?> "GitConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CodeRepositoryName")
-            Prelude.<*> (x Core..:> "CodeRepositoryArn")
-            Prelude.<*> (x Core..:> "CreationTime")
-            Prelude.<*> (x Core..:> "LastModifiedTime")
+            Prelude.<*> (x Data..:> "CodeRepositoryName")
+            Prelude.<*> (x Data..:> "CodeRepositoryArn")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "LastModifiedTime")
       )
 
 instance Prelude.Hashable DescribeCodeRepository where
@@ -106,34 +107,34 @@ instance Prelude.NFData DescribeCodeRepository where
   rnf DescribeCodeRepository' {..} =
     Prelude.rnf codeRepositoryName
 
-instance Core.ToHeaders DescribeCodeRepository where
+instance Data.ToHeaders DescribeCodeRepository where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeCodeRepository" ::
+              Data.=# ( "SageMaker.DescribeCodeRepository" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCodeRepository where
+instance Data.ToJSON DescribeCodeRepository where
   toJSON DescribeCodeRepository' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("CodeRepositoryName" Core..= codeRepositoryName)
+              ("CodeRepositoryName" Data..= codeRepositoryName)
           ]
       )
 
-instance Core.ToPath DescribeCodeRepository where
+instance Data.ToPath DescribeCodeRepository where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCodeRepository where
+instance Data.ToQuery DescribeCodeRepository where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCodeRepositoryResponse' smart constructor.
@@ -150,9 +151,9 @@ data DescribeCodeRepositoryResponse = DescribeCodeRepositoryResponse'
     -- | The Amazon Resource Name (ARN) of the Git repository.
     codeRepositoryArn :: Prelude.Text,
     -- | The date and time that the repository was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The date and time that the repository was last changed.
-    lastModifiedTime :: Core.POSIX
+    lastModifiedTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -203,9 +204,9 @@ newDescribeCodeRepositoryResponse
         codeRepositoryName = pCodeRepositoryName_,
         codeRepositoryArn = pCodeRepositoryArn_,
         creationTime =
-          Core._Time Lens.# pCreationTime_,
+          Data._Time Lens.# pCreationTime_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_
+          Data._Time Lens.# pLastModifiedTime_
       }
 
 -- | Configuration details about the repository, including the URL where the
@@ -229,11 +230,11 @@ describeCodeRepositoryResponse_codeRepositoryArn = Lens.lens (\DescribeCodeRepos
 
 -- | The date and time that the repository was created.
 describeCodeRepositoryResponse_creationTime :: Lens.Lens' DescribeCodeRepositoryResponse Prelude.UTCTime
-describeCodeRepositoryResponse_creationTime = Lens.lens (\DescribeCodeRepositoryResponse' {creationTime} -> creationTime) (\s@DescribeCodeRepositoryResponse' {} a -> s {creationTime = a} :: DescribeCodeRepositoryResponse) Prelude.. Core._Time
+describeCodeRepositoryResponse_creationTime = Lens.lens (\DescribeCodeRepositoryResponse' {creationTime} -> creationTime) (\s@DescribeCodeRepositoryResponse' {} a -> s {creationTime = a} :: DescribeCodeRepositoryResponse) Prelude.. Data._Time
 
 -- | The date and time that the repository was last changed.
 describeCodeRepositoryResponse_lastModifiedTime :: Lens.Lens' DescribeCodeRepositoryResponse Prelude.UTCTime
-describeCodeRepositoryResponse_lastModifiedTime = Lens.lens (\DescribeCodeRepositoryResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeCodeRepositoryResponse' {} a -> s {lastModifiedTime = a} :: DescribeCodeRepositoryResponse) Prelude.. Core._Time
+describeCodeRepositoryResponse_lastModifiedTime = Lens.lens (\DescribeCodeRepositoryResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeCodeRepositoryResponse' {} a -> s {lastModifiedTime = a} :: DescribeCodeRepositoryResponse) Prelude.. Data._Time
 
 instance
   Prelude.NFData

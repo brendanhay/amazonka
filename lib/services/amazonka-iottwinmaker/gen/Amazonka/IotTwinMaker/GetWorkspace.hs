@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,14 +88,14 @@ instance Core.AWSRequest GetWorkspace where
     Response.receiveJSON
       ( \s h x ->
           GetWorkspaceResponse'
-            Prelude.<$> (x Core..?> "description")
+            Prelude.<$> (x Data..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "workspaceId")
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "s3Location")
-            Prelude.<*> (x Core..:> "role")
-            Prelude.<*> (x Core..:> "creationDateTime")
-            Prelude.<*> (x Core..:> "updateDateTime")
+            Prelude.<*> (x Data..:> "workspaceId")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "s3Location")
+            Prelude.<*> (x Data..:> "role")
+            Prelude.<*> (x Data..:> "creationDateTime")
+            Prelude.<*> (x Data..:> "updateDateTime")
       )
 
 instance Prelude.Hashable GetWorkspace where
@@ -104,23 +105,23 @@ instance Prelude.Hashable GetWorkspace where
 instance Prelude.NFData GetWorkspace where
   rnf GetWorkspace' {..} = Prelude.rnf workspaceId
 
-instance Core.ToHeaders GetWorkspace where
+instance Data.ToHeaders GetWorkspace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetWorkspace where
+instance Data.ToPath GetWorkspace where
   toPath GetWorkspace' {..} =
     Prelude.mconcat
-      ["/workspaces/", Core.toBS workspaceId]
+      ["/workspaces/", Data.toBS workspaceId]
 
-instance Core.ToQuery GetWorkspace where
+instance Data.ToQuery GetWorkspace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetWorkspaceResponse' smart constructor.
@@ -139,9 +140,9 @@ data GetWorkspaceResponse = GetWorkspaceResponse'
     -- | The ARN of the execution role associated with the workspace.
     role' :: Prelude.Text,
     -- | The date and time when the workspace was created.
-    creationDateTime :: Core.POSIX,
+    creationDateTime :: Data.POSIX,
     -- | The date and time when the workspace was last updated.
-    updateDateTime :: Core.POSIX
+    updateDateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -202,8 +203,8 @@ newGetWorkspaceResponse
         s3Location = pS3Location_,
         role' = pRole_,
         creationDateTime =
-          Core._Time Lens.# pCreationDateTime_,
-        updateDateTime = Core._Time Lens.# pUpdateDateTime_
+          Data._Time Lens.# pCreationDateTime_,
+        updateDateTime = Data._Time Lens.# pUpdateDateTime_
       }
 
 -- | The description of the workspace.
@@ -233,11 +234,11 @@ getWorkspaceResponse_role = Lens.lens (\GetWorkspaceResponse' {role'} -> role') 
 
 -- | The date and time when the workspace was created.
 getWorkspaceResponse_creationDateTime :: Lens.Lens' GetWorkspaceResponse Prelude.UTCTime
-getWorkspaceResponse_creationDateTime = Lens.lens (\GetWorkspaceResponse' {creationDateTime} -> creationDateTime) (\s@GetWorkspaceResponse' {} a -> s {creationDateTime = a} :: GetWorkspaceResponse) Prelude.. Core._Time
+getWorkspaceResponse_creationDateTime = Lens.lens (\GetWorkspaceResponse' {creationDateTime} -> creationDateTime) (\s@GetWorkspaceResponse' {} a -> s {creationDateTime = a} :: GetWorkspaceResponse) Prelude.. Data._Time
 
 -- | The date and time when the workspace was last updated.
 getWorkspaceResponse_updateDateTime :: Lens.Lens' GetWorkspaceResponse Prelude.UTCTime
-getWorkspaceResponse_updateDateTime = Lens.lens (\GetWorkspaceResponse' {updateDateTime} -> updateDateTime) (\s@GetWorkspaceResponse' {} a -> s {updateDateTime = a} :: GetWorkspaceResponse) Prelude.. Core._Time
+getWorkspaceResponse_updateDateTime = Lens.lens (\GetWorkspaceResponse' {updateDateTime} -> updateDateTime) (\s@GetWorkspaceResponse' {} a -> s {updateDateTime = a} :: GetWorkspaceResponse) Prelude.. Data._Time
 
 instance Prelude.NFData GetWorkspaceResponse where
   rnf GetWorkspaceResponse' {..} =

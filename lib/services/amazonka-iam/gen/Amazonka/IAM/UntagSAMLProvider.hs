@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,21 +129,21 @@ instance Prelude.NFData UntagSAMLProvider where
     Prelude.rnf sAMLProviderArn
       `Prelude.seq` Prelude.rnf tagKeys
 
-instance Core.ToHeaders UntagSAMLProvider where
+instance Data.ToHeaders UntagSAMLProvider where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UntagSAMLProvider where
+instance Data.ToPath UntagSAMLProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UntagSAMLProvider where
+instance Data.ToQuery UntagSAMLProvider where
   toQuery UntagSAMLProvider' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UntagSAMLProvider" :: Prelude.ByteString),
+          Data.=: ("UntagSAMLProvider" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "SAMLProviderArn" Core.=: sAMLProviderArn,
-        "TagKeys" Core.=: Core.toQueryList "member" tagKeys
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "SAMLProviderArn" Data.=: sAMLProviderArn,
+        "TagKeys" Data.=: Data.toQueryList "member" tagKeys
       ]
 
 -- | /See:/ 'newUntagSAMLProviderResponse' smart constructor.

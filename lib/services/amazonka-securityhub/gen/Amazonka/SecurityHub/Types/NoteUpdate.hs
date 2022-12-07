@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.NoteUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The updated note.
@@ -72,11 +73,11 @@ instance Prelude.NFData NoteUpdate where
     Prelude.rnf text
       `Prelude.seq` Prelude.rnf updatedBy
 
-instance Core.ToJSON NoteUpdate where
+instance Data.ToJSON NoteUpdate where
   toJSON NoteUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Text" Core..= text),
-            Prelude.Just ("UpdatedBy" Core..= updatedBy)
+          [ Prelude.Just ("Text" Data..= text),
+            Prelude.Just ("UpdatedBy" Data..= updatedBy)
           ]
       )

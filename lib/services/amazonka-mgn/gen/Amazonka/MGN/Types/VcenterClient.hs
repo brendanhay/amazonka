@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.VcenterClient where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | vCenter client.
@@ -28,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newVcenterClient' smart constructor.
 data VcenterClient = VcenterClient'
   { -- | Tags for vCenter client.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | ID of vCenter client.
     vcenterClientID :: Prelude.Maybe Prelude.Text,
     -- | Tags for Source Server of vCenter client.
-    sourceServerTags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    sourceServerTags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Last seen time of vCenter client.
     lastSeenDatetime :: Prelude.Maybe Prelude.Text,
     -- | Arn of vCenter client.
@@ -85,7 +86,7 @@ newVcenterClient =
 
 -- | Tags for vCenter client.
 vcenterClient_tags :: Lens.Lens' VcenterClient (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-vcenterClient_tags = Lens.lens (\VcenterClient' {tags} -> tags) (\s@VcenterClient' {} a -> s {tags = a} :: VcenterClient) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+vcenterClient_tags = Lens.lens (\VcenterClient' {tags} -> tags) (\s@VcenterClient' {} a -> s {tags = a} :: VcenterClient) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | ID of vCenter client.
 vcenterClient_vcenterClientID :: Lens.Lens' VcenterClient (Prelude.Maybe Prelude.Text)
@@ -93,7 +94,7 @@ vcenterClient_vcenterClientID = Lens.lens (\VcenterClient' {vcenterClientID} -> 
 
 -- | Tags for Source Server of vCenter client.
 vcenterClient_sourceServerTags :: Lens.Lens' VcenterClient (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-vcenterClient_sourceServerTags = Lens.lens (\VcenterClient' {sourceServerTags} -> sourceServerTags) (\s@VcenterClient' {} a -> s {sourceServerTags = a} :: VcenterClient) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+vcenterClient_sourceServerTags = Lens.lens (\VcenterClient' {sourceServerTags} -> sourceServerTags) (\s@VcenterClient' {} a -> s {sourceServerTags = a} :: VcenterClient) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Last seen time of vCenter client.
 vcenterClient_lastSeenDatetime :: Lens.Lens' VcenterClient (Prelude.Maybe Prelude.Text)
@@ -115,22 +116,22 @@ vcenterClient_vcenterUUID = Lens.lens (\VcenterClient' {vcenterUUID} -> vcenterU
 vcenterClient_datacenterName :: Lens.Lens' VcenterClient (Prelude.Maybe Prelude.Text)
 vcenterClient_datacenterName = Lens.lens (\VcenterClient' {datacenterName} -> datacenterName) (\s@VcenterClient' {} a -> s {datacenterName = a} :: VcenterClient)
 
-instance Core.FromJSON VcenterClient where
+instance Data.FromJSON VcenterClient where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VcenterClient"
       ( \x ->
           VcenterClient'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "vcenterClientID")
-            Prelude.<*> ( x Core..:? "sourceServerTags"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "vcenterClientID")
+            Prelude.<*> ( x Data..:? "sourceServerTags"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "lastSeenDatetime")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "hostname")
-            Prelude.<*> (x Core..:? "vcenterUUID")
-            Prelude.<*> (x Core..:? "datacenterName")
+            Prelude.<*> (x Data..:? "lastSeenDatetime")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "hostname")
+            Prelude.<*> (x Data..:? "vcenterUUID")
+            Prelude.<*> (x Data..:? "datacenterName")
       )
 
 instance Prelude.Hashable VcenterClient where

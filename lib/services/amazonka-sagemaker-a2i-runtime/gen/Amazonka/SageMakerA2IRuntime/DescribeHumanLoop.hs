@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,15 +93,15 @@ instance Core.AWSRequest DescribeHumanLoop where
     Response.receiveJSON
       ( \s h x ->
           DescribeHumanLoopResponse'
-            Prelude.<$> (x Core..?> "FailureCode")
-            Prelude.<*> (x Core..?> "HumanLoopOutput")
-            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<$> (x Data..?> "FailureCode")
+            Prelude.<*> (x Data..?> "HumanLoopOutput")
+            Prelude.<*> (x Data..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CreationTime")
-            Prelude.<*> (x Core..:> "HumanLoopStatus")
-            Prelude.<*> (x Core..:> "HumanLoopName")
-            Prelude.<*> (x Core..:> "HumanLoopArn")
-            Prelude.<*> (x Core..:> "FlowDefinitionArn")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "HumanLoopStatus")
+            Prelude.<*> (x Data..:> "HumanLoopName")
+            Prelude.<*> (x Data..:> "HumanLoopArn")
+            Prelude.<*> (x Data..:> "FlowDefinitionArn")
       )
 
 instance Prelude.Hashable DescribeHumanLoop where
@@ -111,15 +112,15 @@ instance Prelude.NFData DescribeHumanLoop where
   rnf DescribeHumanLoop' {..} =
     Prelude.rnf humanLoopName
 
-instance Core.ToHeaders DescribeHumanLoop where
+instance Data.ToHeaders DescribeHumanLoop where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeHumanLoop where
+instance Data.ToPath DescribeHumanLoop where
   toPath DescribeHumanLoop' {..} =
     Prelude.mconcat
-      ["/human-loops/", Core.toBS humanLoopName]
+      ["/human-loops/", Data.toBS humanLoopName]
 
-instance Core.ToQuery DescribeHumanLoop where
+instance Data.ToQuery DescribeHumanLoop where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeHumanLoopResponse' smart constructor.
@@ -136,7 +137,7 @@ data DescribeHumanLoopResponse = DescribeHumanLoopResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The creation time when Amazon Augmented AI created the human loop.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The status of the human loop.
     humanLoopStatus :: HumanLoopStatus,
     -- | The name of the human loop. The name must be lowercase, unique within
@@ -207,7 +208,7 @@ newDescribeHumanLoopResponse
         humanLoopOutput = Prelude.Nothing,
         failureReason = Prelude.Nothing,
         httpStatus = pHttpStatus_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         humanLoopStatus = pHumanLoopStatus_,
         humanLoopName = pHumanLoopName_,
         humanLoopArn = pHumanLoopArn_,
@@ -235,7 +236,7 @@ describeHumanLoopResponse_httpStatus = Lens.lens (\DescribeHumanLoopResponse' {h
 
 -- | The creation time when Amazon Augmented AI created the human loop.
 describeHumanLoopResponse_creationTime :: Lens.Lens' DescribeHumanLoopResponse Prelude.UTCTime
-describeHumanLoopResponse_creationTime = Lens.lens (\DescribeHumanLoopResponse' {creationTime} -> creationTime) (\s@DescribeHumanLoopResponse' {} a -> s {creationTime = a} :: DescribeHumanLoopResponse) Prelude.. Core._Time
+describeHumanLoopResponse_creationTime = Lens.lens (\DescribeHumanLoopResponse' {creationTime} -> creationTime) (\s@DescribeHumanLoopResponse' {} a -> s {creationTime = a} :: DescribeHumanLoopResponse) Prelude.. Data._Time
 
 -- | The status of the human loop.
 describeHumanLoopResponse_humanLoopStatus :: Lens.Lens' DescribeHumanLoopResponse HumanLoopStatus

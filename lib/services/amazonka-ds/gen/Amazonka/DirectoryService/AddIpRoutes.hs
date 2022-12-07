@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -284,38 +285,38 @@ instance Prelude.NFData AddIpRoutes where
       `Prelude.seq` Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf ipRoutes
 
-instance Core.ToHeaders AddIpRoutes where
+instance Data.ToHeaders AddIpRoutes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.AddIpRoutes" ::
+              Data.=# ( "DirectoryService_20150416.AddIpRoutes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddIpRoutes where
+instance Data.ToJSON AddIpRoutes where
   toJSON AddIpRoutes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ ( "UpdateSecurityGroupForDirectoryControllers"
-                Core..=
+                Data..=
             )
               Prelude.<$> updateSecurityGroupForDirectoryControllers,
-            Prelude.Just ("DirectoryId" Core..= directoryId),
-            Prelude.Just ("IpRoutes" Core..= ipRoutes)
+            Prelude.Just ("DirectoryId" Data..= directoryId),
+            Prelude.Just ("IpRoutes" Data..= ipRoutes)
           ]
       )
 
-instance Core.ToPath AddIpRoutes where
+instance Data.ToPath AddIpRoutes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddIpRoutes where
+instance Data.ToQuery AddIpRoutes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddIpRoutesResponse' smart constructor.

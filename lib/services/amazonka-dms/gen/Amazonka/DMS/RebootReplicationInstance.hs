@@ -45,6 +45,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,7 +130,7 @@ instance Core.AWSRequest RebootReplicationInstance where
     Response.receiveJSON
       ( \s h x ->
           RebootReplicationInstanceResponse'
-            Prelude.<$> (x Core..?> "ReplicationInstance")
+            Prelude.<$> (x Data..?> "ReplicationInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,39 +146,39 @@ instance Prelude.NFData RebootReplicationInstance where
       `Prelude.seq` Prelude.rnf forceFailover
       `Prelude.seq` Prelude.rnf replicationInstanceArn
 
-instance Core.ToHeaders RebootReplicationInstance where
+instance Data.ToHeaders RebootReplicationInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.RebootReplicationInstance" ::
+              Data.=# ( "AmazonDMSv20160101.RebootReplicationInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RebootReplicationInstance where
+instance Data.ToJSON RebootReplicationInstance where
   toJSON RebootReplicationInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ForcePlannedFailover" Core..=)
+          [ ("ForcePlannedFailover" Data..=)
               Prelude.<$> forcePlannedFailover,
-            ("ForceFailover" Core..=) Prelude.<$> forceFailover,
+            ("ForceFailover" Data..=) Prelude.<$> forceFailover,
             Prelude.Just
               ( "ReplicationInstanceArn"
-                  Core..= replicationInstanceArn
+                  Data..= replicationInstanceArn
               )
           ]
       )
 
-instance Core.ToPath RebootReplicationInstance where
+instance Data.ToPath RebootReplicationInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RebootReplicationInstance where
+instance Data.ToQuery RebootReplicationInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRebootReplicationInstanceResponse' smart constructor.

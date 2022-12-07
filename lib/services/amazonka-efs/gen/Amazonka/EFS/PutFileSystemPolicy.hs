@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,7 +159,7 @@ instance Core.AWSRequest PutFileSystemPolicy where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable PutFileSystemPolicy where
   hashWithSalt _salt PutFileSystemPolicy' {..} =
@@ -173,26 +174,26 @@ instance Prelude.NFData PutFileSystemPolicy where
       `Prelude.seq` Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf policy
 
-instance Core.ToHeaders PutFileSystemPolicy where
+instance Data.ToHeaders PutFileSystemPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutFileSystemPolicy where
+instance Data.ToJSON PutFileSystemPolicy where
   toJSON PutFileSystemPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BypassPolicyLockoutSafetyCheck" Core..=)
+          [ ("BypassPolicyLockoutSafetyCheck" Data..=)
               Prelude.<$> bypassPolicyLockoutSafetyCheck,
-            Prelude.Just ("Policy" Core..= policy)
+            Prelude.Just ("Policy" Data..= policy)
           ]
       )
 
-instance Core.ToPath PutFileSystemPolicy where
+instance Data.ToPath PutFileSystemPolicy where
   toPath PutFileSystemPolicy' {..} =
     Prelude.mconcat
       [ "/2015-02-01/file-systems/",
-        Core.toBS fileSystemId,
+        Data.toBS fileSystemId,
         "/policy"
       ]
 
-instance Core.ToQuery PutFileSystemPolicy where
+instance Data.ToQuery PutFileSystemPolicy where
   toQuery = Prelude.const Prelude.mempty

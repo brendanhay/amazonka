@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,12 +95,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetMaintenanceWindowExecutionResponse'
-            Prelude.<$> (x Core..?> "WindowExecutionId")
-            Prelude.<*> (x Core..?> "StatusDetails")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "EndTime")
-            Prelude.<*> (x Core..?> "TaskIds" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "StartTime")
+            Prelude.<$> (x Data..?> "WindowExecutionId")
+            Prelude.<*> (x Data..?> "StatusDetails")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "EndTime")
+            Prelude.<*> (x Data..?> "TaskIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,34 +115,34 @@ instance Prelude.NFData GetMaintenanceWindowExecution where
   rnf GetMaintenanceWindowExecution' {..} =
     Prelude.rnf windowExecutionId
 
-instance Core.ToHeaders GetMaintenanceWindowExecution where
+instance Data.ToHeaders GetMaintenanceWindowExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.GetMaintenanceWindowExecution" ::
+              Data.=# ( "AmazonSSM.GetMaintenanceWindowExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMaintenanceWindowExecution where
+instance Data.ToJSON GetMaintenanceWindowExecution where
   toJSON GetMaintenanceWindowExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("WindowExecutionId" Core..= windowExecutionId)
+              ("WindowExecutionId" Data..= windowExecutionId)
           ]
       )
 
-instance Core.ToPath GetMaintenanceWindowExecution where
+instance Data.ToPath GetMaintenanceWindowExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMaintenanceWindowExecution where
+instance Data.ToQuery GetMaintenanceWindowExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMaintenanceWindowExecutionResponse' smart constructor.
@@ -153,11 +154,11 @@ data GetMaintenanceWindowExecutionResponse = GetMaintenanceWindowExecutionRespon
     -- | The status of the maintenance window execution.
     status :: Prelude.Maybe MaintenanceWindowExecutionStatus,
     -- | The time the maintenance window finished running.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the task executions from the maintenance window execution.
     taskIds :: Prelude.Maybe [Prelude.Text],
     -- | The time the maintenance window started running.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,7 +215,7 @@ getMaintenanceWindowExecutionResponse_status = Lens.lens (\GetMaintenanceWindowE
 
 -- | The time the maintenance window finished running.
 getMaintenanceWindowExecutionResponse_endTime :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-getMaintenanceWindowExecutionResponse_endTime = Lens.lens (\GetMaintenanceWindowExecutionResponse' {endTime} -> endTime) (\s@GetMaintenanceWindowExecutionResponse' {} a -> s {endTime = a} :: GetMaintenanceWindowExecutionResponse) Prelude.. Lens.mapping Core._Time
+getMaintenanceWindowExecutionResponse_endTime = Lens.lens (\GetMaintenanceWindowExecutionResponse' {endTime} -> endTime) (\s@GetMaintenanceWindowExecutionResponse' {} a -> s {endTime = a} :: GetMaintenanceWindowExecutionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the task executions from the maintenance window execution.
 getMaintenanceWindowExecutionResponse_taskIds :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Prelude.Maybe [Prelude.Text])
@@ -222,7 +223,7 @@ getMaintenanceWindowExecutionResponse_taskIds = Lens.lens (\GetMaintenanceWindow
 
 -- | The time the maintenance window started running.
 getMaintenanceWindowExecutionResponse_startTime :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-getMaintenanceWindowExecutionResponse_startTime = Lens.lens (\GetMaintenanceWindowExecutionResponse' {startTime} -> startTime) (\s@GetMaintenanceWindowExecutionResponse' {} a -> s {startTime = a} :: GetMaintenanceWindowExecutionResponse) Prelude.. Lens.mapping Core._Time
+getMaintenanceWindowExecutionResponse_startTime = Lens.lens (\GetMaintenanceWindowExecutionResponse' {startTime} -> startTime) (\s@GetMaintenanceWindowExecutionResponse' {} a -> s {startTime = a} :: GetMaintenanceWindowExecutionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getMaintenanceWindowExecutionResponse_httpStatus :: Lens.Lens' GetMaintenanceWindowExecutionResponse Prelude.Int

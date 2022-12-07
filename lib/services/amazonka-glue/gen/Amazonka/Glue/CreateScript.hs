@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,8 +103,8 @@ instance Core.AWSRequest CreateScript where
     Response.receiveJSON
       ( \s h x ->
           CreateScriptResponse'
-            Prelude.<$> (x Core..?> "ScalaCode")
-            Prelude.<*> (x Core..?> "PythonScript")
+            Prelude.<$> (x Data..?> "ScalaCode")
+            Prelude.<*> (x Data..?> "PythonScript")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,33 +120,33 @@ instance Prelude.NFData CreateScript where
       `Prelude.seq` Prelude.rnf language
       `Prelude.seq` Prelude.rnf dagEdges
 
-instance Core.ToHeaders CreateScript where
+instance Data.ToHeaders CreateScript where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CreateScript" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.CreateScript" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateScript where
+instance Data.ToJSON CreateScript where
   toJSON CreateScript' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DagNodes" Core..=) Prelude.<$> dagNodes,
-            ("Language" Core..=) Prelude.<$> language,
-            ("DagEdges" Core..=) Prelude.<$> dagEdges
+          [ ("DagNodes" Data..=) Prelude.<$> dagNodes,
+            ("Language" Data..=) Prelude.<$> language,
+            ("DagEdges" Data..=) Prelude.<$> dagEdges
           ]
       )
 
-instance Core.ToPath CreateScript where
+instance Data.ToPath CreateScript where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateScript where
+instance Data.ToQuery CreateScript where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateScriptResponse' smart constructor.

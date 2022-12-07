@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.SendQuota where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about the per-day and per-second
@@ -84,15 +85,15 @@ sendQuota_sentLast24Hours = Lens.lens (\SendQuota' {sentLast24Hours} -> sentLast
 sendQuota_maxSendRate :: Lens.Lens' SendQuota (Prelude.Maybe Prelude.Double)
 sendQuota_maxSendRate = Lens.lens (\SendQuota' {maxSendRate} -> maxSendRate) (\s@SendQuota' {} a -> s {maxSendRate = a} :: SendQuota)
 
-instance Core.FromJSON SendQuota where
+instance Data.FromJSON SendQuota where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SendQuota"
       ( \x ->
           SendQuota'
-            Prelude.<$> (x Core..:? "Max24HourSend")
-            Prelude.<*> (x Core..:? "SentLast24Hours")
-            Prelude.<*> (x Core..:? "MaxSendRate")
+            Prelude.<$> (x Data..:? "Max24HourSend")
+            Prelude.<*> (x Data..:? "SentLast24Hours")
+            Prelude.<*> (x Data..:? "MaxSendRate")
       )
 
 instance Prelude.Hashable SendQuota where

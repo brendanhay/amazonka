@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.LambdaResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.EventTriggerDefinition
 
@@ -71,14 +72,14 @@ lambdaResource_eventTriggers = Lens.lens (\LambdaResource' {eventTriggers} -> ev
 lambdaResource_lambdaArn :: Lens.Lens' LambdaResource (Prelude.Maybe Prelude.Text)
 lambdaResource_lambdaArn = Lens.lens (\LambdaResource' {lambdaArn} -> lambdaArn) (\s@LambdaResource' {} a -> s {lambdaArn = a} :: LambdaResource)
 
-instance Core.FromJSON LambdaResource where
+instance Data.FromJSON LambdaResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaResource"
       ( \x ->
           LambdaResource'
-            Prelude.<$> (x Core..:? "EventTriggers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LambdaArn")
+            Prelude.<$> (x Data..:? "EventTriggers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LambdaArn")
       )
 
 instance Prelude.Hashable LambdaResource where
@@ -91,11 +92,11 @@ instance Prelude.NFData LambdaResource where
     Prelude.rnf eventTriggers
       `Prelude.seq` Prelude.rnf lambdaArn
 
-instance Core.ToJSON LambdaResource where
+instance Data.ToJSON LambdaResource where
   toJSON LambdaResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventTriggers" Core..=) Prelude.<$> eventTriggers,
-            ("LambdaArn" Core..=) Prelude.<$> lambdaArn
+          [ ("EventTriggers" Data..=) Prelude.<$> eventTriggers,
+            ("LambdaArn" Data..=) Prelude.<$> lambdaArn
           ]
       )

@@ -24,6 +24,7 @@ import Amazonka.CloudDirectory.Types.TypedLinkAttributeRange
 import Amazonka.CloudDirectory.Types.TypedLinkSchemaAndFacetName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns a paginated list of all the outgoing TypedLinkSpecifier
@@ -127,17 +128,17 @@ instance Prelude.NFData BatchListOutgoingTypedLinks where
       `Prelude.seq` Prelude.rnf filterTypedLink
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToJSON BatchListOutgoingTypedLinks where
+instance Data.ToJSON BatchListOutgoingTypedLinks where
   toJSON BatchListOutgoingTypedLinks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("FilterAttributeRanges" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("FilterAttributeRanges" Data..=)
               Prelude.<$> filterAttributeRanges,
-            ("FilterTypedLink" Core..=)
+            ("FilterTypedLink" Data..=)
               Prelude.<$> filterTypedLink,
             Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )

@@ -50,6 +50,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,8 +94,8 @@ instance Core.AWSRequest PutManagedInsightRules where
       "PutManagedInsightRulesResult"
       ( \s h x ->
           PutManagedInsightRulesResponse'
-            Prelude.<$> ( x Core..@? "Failures" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Failures" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -107,21 +108,21 @@ instance Prelude.NFData PutManagedInsightRules where
   rnf PutManagedInsightRules' {..} =
     Prelude.rnf managedRules
 
-instance Core.ToHeaders PutManagedInsightRules where
+instance Data.ToHeaders PutManagedInsightRules where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutManagedInsightRules where
+instance Data.ToPath PutManagedInsightRules where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutManagedInsightRules where
+instance Data.ToQuery PutManagedInsightRules where
   toQuery PutManagedInsightRules' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PutManagedInsightRules" :: Prelude.ByteString),
+          Data.=: ("PutManagedInsightRules" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
         "ManagedRules"
-          Core.=: Core.toQueryList "member" managedRules
+          Data.=: Data.toQueryList "member" managedRules
       ]
 
 -- | /See:/ 'newPutManagedInsightRulesResponse' smart constructor.

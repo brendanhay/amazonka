@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointEmail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -179,44 +180,44 @@ instance
       `Prelude.seq` Prelude.rnf emailIdentity
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutEmailIdentityFeedbackAttributes
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     PutEmailIdentityFeedbackAttributes
   where
   toJSON PutEmailIdentityFeedbackAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EmailForwardingEnabled" Core..=)
+          [ ("EmailForwardingEnabled" Data..=)
               Prelude.<$> emailForwardingEnabled
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     PutEmailIdentityFeedbackAttributes
   where
   toPath PutEmailIdentityFeedbackAttributes' {..} =
     Prelude.mconcat
       [ "/v1/email/identities/",
-        Core.toBS emailIdentity,
+        Data.toBS emailIdentity,
         "/feedback"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutEmailIdentityFeedbackAttributes
   where
   toQuery = Prelude.const Prelude.mempty

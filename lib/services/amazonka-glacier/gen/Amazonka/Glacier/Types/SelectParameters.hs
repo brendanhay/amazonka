@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.SelectParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types.ExpressionType
 import Amazonka.Glacier.Types.InputSerialization
 import Amazonka.Glacier.Types.OutputSerialization
@@ -83,16 +84,16 @@ selectParameters_outputSerialization = Lens.lens (\SelectParameters' {outputSeri
 selectParameters_expressionType :: Lens.Lens' SelectParameters (Prelude.Maybe ExpressionType)
 selectParameters_expressionType = Lens.lens (\SelectParameters' {expressionType} -> expressionType) (\s@SelectParameters' {} a -> s {expressionType = a} :: SelectParameters)
 
-instance Core.FromJSON SelectParameters where
+instance Data.FromJSON SelectParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SelectParameters"
       ( \x ->
           SelectParameters'
-            Prelude.<$> (x Core..:? "InputSerialization")
-            Prelude.<*> (x Core..:? "Expression")
-            Prelude.<*> (x Core..:? "OutputSerialization")
-            Prelude.<*> (x Core..:? "ExpressionType")
+            Prelude.<$> (x Data..:? "InputSerialization")
+            Prelude.<*> (x Data..:? "Expression")
+            Prelude.<*> (x Data..:? "OutputSerialization")
+            Prelude.<*> (x Data..:? "ExpressionType")
       )
 
 instance Prelude.Hashable SelectParameters where
@@ -109,16 +110,16 @@ instance Prelude.NFData SelectParameters where
       `Prelude.seq` Prelude.rnf outputSerialization
       `Prelude.seq` Prelude.rnf expressionType
 
-instance Core.ToJSON SelectParameters where
+instance Data.ToJSON SelectParameters where
   toJSON SelectParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InputSerialization" Core..=)
+          [ ("InputSerialization" Data..=)
               Prelude.<$> inputSerialization,
-            ("Expression" Core..=) Prelude.<$> expression,
-            ("OutputSerialization" Core..=)
+            ("Expression" Data..=) Prelude.<$> expression,
+            ("OutputSerialization" Data..=)
               Prelude.<$> outputSerialization,
-            ("ExpressionType" Core..=)
+            ("ExpressionType" Data..=)
               Prelude.<$> expressionType
           ]
       )

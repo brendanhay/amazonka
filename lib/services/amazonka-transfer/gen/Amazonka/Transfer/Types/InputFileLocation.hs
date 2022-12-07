@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.InputFileLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.EfsFileLocation
 import Amazonka.Transfer.Types.S3InputFileLocation
@@ -65,14 +66,14 @@ inputFileLocation_s3FileLocation = Lens.lens (\InputFileLocation' {s3FileLocatio
 inputFileLocation_efsFileLocation :: Lens.Lens' InputFileLocation (Prelude.Maybe EfsFileLocation)
 inputFileLocation_efsFileLocation = Lens.lens (\InputFileLocation' {efsFileLocation} -> efsFileLocation) (\s@InputFileLocation' {} a -> s {efsFileLocation = a} :: InputFileLocation)
 
-instance Core.FromJSON InputFileLocation where
+instance Data.FromJSON InputFileLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputFileLocation"
       ( \x ->
           InputFileLocation'
-            Prelude.<$> (x Core..:? "S3FileLocation")
-            Prelude.<*> (x Core..:? "EfsFileLocation")
+            Prelude.<$> (x Data..:? "S3FileLocation")
+            Prelude.<*> (x Data..:? "EfsFileLocation")
       )
 
 instance Prelude.Hashable InputFileLocation where
@@ -85,13 +86,13 @@ instance Prelude.NFData InputFileLocation where
     Prelude.rnf s3FileLocation
       `Prelude.seq` Prelude.rnf efsFileLocation
 
-instance Core.ToJSON InputFileLocation where
+instance Data.ToJSON InputFileLocation where
   toJSON InputFileLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3FileLocation" Core..=)
+          [ ("S3FileLocation" Data..=)
               Prelude.<$> s3FileLocation,
-            ("EfsFileLocation" Core..=)
+            ("EfsFileLocation" Data..=)
               Prelude.<$> efsFileLocation
           ]
       )

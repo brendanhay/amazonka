@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -176,12 +177,12 @@ instance Core.AWSRequest PurchaseHostReservation where
     Response.receiveXML
       ( \s h x ->
           PurchaseHostReservationResponse'
-            Prelude.<$> (x Core..@? "clientToken")
-            Prelude.<*> (x Core..@? "totalHourlyPrice")
-            Prelude.<*> (x Core..@? "totalUpfrontPrice")
-            Prelude.<*> (x Core..@? "currencyCode")
-            Prelude.<*> ( x Core..@? "purchase" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "clientToken")
+            Prelude.<*> (x Data..@? "totalHourlyPrice")
+            Prelude.<*> (x Data..@? "totalUpfrontPrice")
+            Prelude.<*> (x Data..@? "currencyCode")
+            Prelude.<*> ( x Data..@? "purchase" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -204,28 +205,28 @@ instance Prelude.NFData PurchaseHostReservation where
       `Prelude.seq` Prelude.rnf hostIdSet
       `Prelude.seq` Prelude.rnf offeringId
 
-instance Core.ToHeaders PurchaseHostReservation where
+instance Data.ToHeaders PurchaseHostReservation where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PurchaseHostReservation where
+instance Data.ToPath PurchaseHostReservation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PurchaseHostReservation where
+instance Data.ToQuery PurchaseHostReservation where
   toQuery PurchaseHostReservation' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PurchaseHostReservation" :: Prelude.ByteString),
+          Data.=: ("PurchaseHostReservation" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "LimitPrice" Core.=: limitPrice,
-        "CurrencyCode" Core.=: currencyCode,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "LimitPrice" Data.=: limitPrice,
+        "CurrencyCode" Data.=: currencyCode,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        Core.toQueryList "HostIdSet" hostIdSet,
-        "OfferingId" Core.=: offeringId
+        Data.toQueryList "HostIdSet" hostIdSet,
+        "OfferingId" Data.=: offeringId
       ]
 
 -- | /See:/ 'newPurchaseHostReservationResponse' smart constructor.

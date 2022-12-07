@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,8 +110,8 @@ instance Core.AWSRequest PutImageRecipePolicy where
     Response.receiveJSON
       ( \s h x ->
           PutImageRecipePolicyResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "imageRecipeArn")
+            Prelude.<$> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "imageRecipeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,31 +125,31 @@ instance Prelude.NFData PutImageRecipePolicy where
     Prelude.rnf imageRecipeArn
       `Prelude.seq` Prelude.rnf policy
 
-instance Core.ToHeaders PutImageRecipePolicy where
+instance Data.ToHeaders PutImageRecipePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutImageRecipePolicy where
+instance Data.ToJSON PutImageRecipePolicy where
   toJSON PutImageRecipePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("imageRecipeArn" Core..= imageRecipeArn),
-            Prelude.Just ("policy" Core..= policy)
+              ("imageRecipeArn" Data..= imageRecipeArn),
+            Prelude.Just ("policy" Data..= policy)
           ]
       )
 
-instance Core.ToPath PutImageRecipePolicy where
+instance Data.ToPath PutImageRecipePolicy where
   toPath = Prelude.const "/PutImageRecipePolicy"
 
-instance Core.ToQuery PutImageRecipePolicy where
+instance Data.ToQuery PutImageRecipePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutImageRecipePolicyResponse' smart constructor.

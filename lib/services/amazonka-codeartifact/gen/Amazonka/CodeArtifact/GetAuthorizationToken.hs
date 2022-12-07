@@ -68,6 +68,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -148,8 +149,8 @@ instance Core.AWSRequest GetAuthorizationToken where
     Response.receiveJSON
       ( \s h x ->
           GetAuthorizationTokenResponse'
-            Prelude.<$> (x Core..?> "expiration")
-            Prelude.<*> (x Core..?> "authorizationToken")
+            Prelude.<$> (x Data..?> "expiration")
+            Prelude.<*> (x Data..?> "authorizationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,36 +166,36 @@ instance Prelude.NFData GetAuthorizationToken where
       `Prelude.seq` Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf domain
 
-instance Core.ToHeaders GetAuthorizationToken where
+instance Data.ToHeaders GetAuthorizationToken where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAuthorizationToken where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetAuthorizationToken where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetAuthorizationToken where
+instance Data.ToPath GetAuthorizationToken where
   toPath = Prelude.const "/v1/authorization-token"
 
-instance Core.ToQuery GetAuthorizationToken where
+instance Data.ToQuery GetAuthorizationToken where
   toQuery GetAuthorizationToken' {..} =
     Prelude.mconcat
-      [ "duration" Core.=: durationSeconds,
-        "domain-owner" Core.=: domainOwner,
-        "domain" Core.=: domain
+      [ "duration" Data.=: durationSeconds,
+        "domain-owner" Data.=: domainOwner,
+        "domain" Data.=: domain
       ]
 
 -- | /See:/ 'newGetAuthorizationTokenResponse' smart constructor.
 data GetAuthorizationTokenResponse = GetAuthorizationTokenResponse'
   { -- | A timestamp that specifies the date and time the authorization token
     -- expires.
-    expiration :: Prelude.Maybe Core.POSIX,
+    expiration :: Prelude.Maybe Data.POSIX,
     -- | The returned authentication token.
     authorizationToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -231,7 +232,7 @@ newGetAuthorizationTokenResponse pHttpStatus_ =
 -- | A timestamp that specifies the date and time the authorization token
 -- expires.
 getAuthorizationTokenResponse_expiration :: Lens.Lens' GetAuthorizationTokenResponse (Prelude.Maybe Prelude.UTCTime)
-getAuthorizationTokenResponse_expiration = Lens.lens (\GetAuthorizationTokenResponse' {expiration} -> expiration) (\s@GetAuthorizationTokenResponse' {} a -> s {expiration = a} :: GetAuthorizationTokenResponse) Prelude.. Lens.mapping Core._Time
+getAuthorizationTokenResponse_expiration = Lens.lens (\GetAuthorizationTokenResponse' {expiration} -> expiration) (\s@GetAuthorizationTokenResponse' {} a -> s {expiration = a} :: GetAuthorizationTokenResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The returned authentication token.
 getAuthorizationTokenResponse_authorizationToken :: Lens.Lens' GetAuthorizationTokenResponse (Prelude.Maybe Prelude.Text)

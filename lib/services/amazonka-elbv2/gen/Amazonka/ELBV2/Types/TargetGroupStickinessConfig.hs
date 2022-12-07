@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.TargetGroupStickinessConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the target group stickiness for a rule.
@@ -68,11 +69,11 @@ targetGroupStickinessConfig_durationSeconds = Lens.lens (\TargetGroupStickinessC
 targetGroupStickinessConfig_enabled :: Lens.Lens' TargetGroupStickinessConfig (Prelude.Maybe Prelude.Bool)
 targetGroupStickinessConfig_enabled = Lens.lens (\TargetGroupStickinessConfig' {enabled} -> enabled) (\s@TargetGroupStickinessConfig' {} a -> s {enabled = a} :: TargetGroupStickinessConfig)
 
-instance Core.FromXML TargetGroupStickinessConfig where
+instance Data.FromXML TargetGroupStickinessConfig where
   parseXML x =
     TargetGroupStickinessConfig'
-      Prelude.<$> (x Core..@? "DurationSeconds")
-      Prelude.<*> (x Core..@? "Enabled")
+      Prelude.<$> (x Data..@? "DurationSeconds")
+      Prelude.<*> (x Data..@? "Enabled")
 
 instance Prelude.Hashable TargetGroupStickinessConfig where
   hashWithSalt _salt TargetGroupStickinessConfig' {..} =
@@ -84,9 +85,9 @@ instance Prelude.NFData TargetGroupStickinessConfig where
     Prelude.rnf durationSeconds
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToQuery TargetGroupStickinessConfig where
+instance Data.ToQuery TargetGroupStickinessConfig where
   toQuery TargetGroupStickinessConfig' {..} =
     Prelude.mconcat
-      [ "DurationSeconds" Core.=: durationSeconds,
-        "Enabled" Core.=: enabled
+      [ "DurationSeconds" Data.=: durationSeconds,
+        "Enabled" Data.=: enabled
       ]

@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.Attribute where
 import Amazonka.Connect.Types.InstanceAttributeType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A toggle for an individual feature at the instance level.
@@ -62,14 +63,14 @@ attribute_attributeType = Lens.lens (\Attribute' {attributeType} -> attributeTyp
 attribute_value :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -> s {value = a} :: Attribute)
 
-instance Core.FromJSON Attribute where
+instance Data.FromJSON Attribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Attribute"
       ( \x ->
           Attribute'
-            Prelude.<$> (x Core..:? "AttributeType")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "AttributeType")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Attribute where

@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.CatalogItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types.CatalogItemStatus
 import Amazonka.Outposts.Types.EC2Capacity
 import Amazonka.Outposts.Types.SupportedStorageEnum
@@ -112,22 +113,22 @@ catalogItem_supportedUplinkGbps = Lens.lens (\CatalogItem' {supportedUplinkGbps}
 catalogItem_supportedStorage :: Lens.Lens' CatalogItem (Prelude.Maybe [SupportedStorageEnum])
 catalogItem_supportedStorage = Lens.lens (\CatalogItem' {supportedStorage} -> supportedStorage) (\s@CatalogItem' {} a -> s {supportedStorage = a} :: CatalogItem) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CatalogItem where
+instance Data.FromJSON CatalogItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CatalogItem"
       ( \x ->
           CatalogItem'
-            Prelude.<$> (x Core..:? "PowerKva")
-            Prelude.<*> (x Core..:? "WeightLbs")
-            Prelude.<*> (x Core..:? "EC2Capacities" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CatalogItemId")
-            Prelude.<*> (x Core..:? "ItemStatus")
-            Prelude.<*> ( x Core..:? "SupportedUplinkGbps"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "PowerKva")
+            Prelude.<*> (x Data..:? "WeightLbs")
+            Prelude.<*> (x Data..:? "EC2Capacities" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CatalogItemId")
+            Prelude.<*> (x Data..:? "ItemStatus")
+            Prelude.<*> ( x Data..:? "SupportedUplinkGbps"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "SupportedStorage"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "SupportedStorage"
+                            Data..!= Prelude.mempty
                         )
       )
 

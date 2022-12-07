@@ -86,6 +86,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -240,7 +241,7 @@ instance Core.AWSRequest AssociateAddress where
     Response.receiveXML
       ( \s h x ->
           AssociateAddressResponse'
-            Prelude.<$> (x Core..@? "associationId")
+            Prelude.<$> (x Data..@? "associationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -264,26 +265,26 @@ instance Prelude.NFData AssociateAddress where
       `Prelude.seq` Prelude.rnf networkInterfaceId
       `Prelude.seq` Prelude.rnf privateIpAddress
 
-instance Core.ToHeaders AssociateAddress where
+instance Data.ToHeaders AssociateAddress where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AssociateAddress where
+instance Data.ToPath AssociateAddress where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateAddress where
+instance Data.ToQuery AssociateAddress where
   toQuery AssociateAddress' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AssociateAddress" :: Prelude.ByteString),
+          Data.=: ("AssociateAddress" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "AllowReassociation" Core.=: allowReassociation,
-        "AllocationId" Core.=: allocationId,
-        "PublicIp" Core.=: publicIp,
-        "DryRun" Core.=: dryRun,
-        "InstanceId" Core.=: instanceId,
-        "NetworkInterfaceId" Core.=: networkInterfaceId,
-        "PrivateIpAddress" Core.=: privateIpAddress
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "AllowReassociation" Data.=: allowReassociation,
+        "AllocationId" Data.=: allocationId,
+        "PublicIp" Data.=: publicIp,
+        "DryRun" Data.=: dryRun,
+        "InstanceId" Data.=: instanceId,
+        "NetworkInterfaceId" Data.=: networkInterfaceId,
+        "PrivateIpAddress" Data.=: privateIpAddress
       ]
 
 -- | /See:/ 'newAssociateAddressResponse' smart constructor.

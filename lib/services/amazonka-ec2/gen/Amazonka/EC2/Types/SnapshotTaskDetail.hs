@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SnapshotTaskDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.UserBucketDetails
 import qualified Amazonka.Prelude as Prelude
@@ -147,20 +148,20 @@ snapshotTaskDetail_statusMessage = Lens.lens (\SnapshotTaskDetail' {statusMessag
 snapshotTaskDetail_diskImageSize :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Double)
 snapshotTaskDetail_diskImageSize = Lens.lens (\SnapshotTaskDetail' {diskImageSize} -> diskImageSize) (\s@SnapshotTaskDetail' {} a -> s {diskImageSize = a} :: SnapshotTaskDetail)
 
-instance Core.FromXML SnapshotTaskDetail where
+instance Data.FromXML SnapshotTaskDetail where
   parseXML x =
     SnapshotTaskDetail'
-      Prelude.<$> (x Core..@? "progress")
-      Prelude.<*> (x Core..@? "format")
-      Prelude.<*> (x Core..@? "userBucket")
-      Prelude.<*> (x Core..@? "snapshotId")
-      Prelude.<*> (x Core..@? "url")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "encrypted")
-      Prelude.<*> (x Core..@? "kmsKeyId")
-      Prelude.<*> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "diskImageSize")
+      Prelude.<$> (x Data..@? "progress")
+      Prelude.<*> (x Data..@? "format")
+      Prelude.<*> (x Data..@? "userBucket")
+      Prelude.<*> (x Data..@? "snapshotId")
+      Prelude.<*> (x Data..@? "url")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "encrypted")
+      Prelude.<*> (x Data..@? "kmsKeyId")
+      Prelude.<*> (x Data..@? "statusMessage")
+      Prelude.<*> (x Data..@? "diskImageSize")
 
 instance Prelude.Hashable SnapshotTaskDetail where
   hashWithSalt _salt SnapshotTaskDetail' {..} =

@@ -28,6 +28,7 @@ import Amazonka.CodeGuruReviewer.Types.SourceCodeType
 import Amazonka.CodeGuruReviewer.Types.Type
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a code review. A code review belongs to the associated
@@ -37,7 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 data CodeReview = CodeReview'
   { -- | The time, in milliseconds since the epoch, when the code review was last
     -- updated.
-    lastUpdatedTimeStamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimeStamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the code review.
     name :: Prelude.Maybe Prelude.Text,
     -- | The type of code review.
@@ -52,7 +53,7 @@ data CodeReview = CodeReview'
     associationArn :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the code review was
     -- created.
-    createdTimeStamp :: Prelude.Maybe Core.POSIX,
+    createdTimeStamp :: Prelude.Maybe Data.POSIX,
     -- | The type of the source code for the code review.
     sourceCodeType :: Prelude.Maybe SourceCodeType,
     -- | The name of the repository.
@@ -188,7 +189,7 @@ newCodeReview =
 -- | The time, in milliseconds since the epoch, when the code review was last
 -- updated.
 codeReview_lastUpdatedTimeStamp :: Lens.Lens' CodeReview (Prelude.Maybe Prelude.UTCTime)
-codeReview_lastUpdatedTimeStamp = Lens.lens (\CodeReview' {lastUpdatedTimeStamp} -> lastUpdatedTimeStamp) (\s@CodeReview' {} a -> s {lastUpdatedTimeStamp = a} :: CodeReview) Prelude.. Lens.mapping Core._Time
+codeReview_lastUpdatedTimeStamp = Lens.lens (\CodeReview' {lastUpdatedTimeStamp} -> lastUpdatedTimeStamp) (\s@CodeReview' {} a -> s {lastUpdatedTimeStamp = a} :: CodeReview) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the code review.
 codeReview_name :: Lens.Lens' CodeReview (Prelude.Maybe Prelude.Text)
@@ -213,7 +214,7 @@ codeReview_associationArn = Lens.lens (\CodeReview' {associationArn} -> associat
 -- | The time, in milliseconds since the epoch, when the code review was
 -- created.
 codeReview_createdTimeStamp :: Lens.Lens' CodeReview (Prelude.Maybe Prelude.UTCTime)
-codeReview_createdTimeStamp = Lens.lens (\CodeReview' {createdTimeStamp} -> createdTimeStamp) (\s@CodeReview' {} a -> s {createdTimeStamp = a} :: CodeReview) Prelude.. Lens.mapping Core._Time
+codeReview_createdTimeStamp = Lens.lens (\CodeReview' {createdTimeStamp} -> createdTimeStamp) (\s@CodeReview' {} a -> s {createdTimeStamp = a} :: CodeReview) Prelude.. Lens.mapping Data._Time
 
 -- | The type of the source code for the code review.
 codeReview_sourceCodeType :: Lens.Lens' CodeReview (Prelude.Maybe SourceCodeType)
@@ -276,28 +277,28 @@ codeReview_stateReason = Lens.lens (\CodeReview' {stateReason} -> stateReason) (
 codeReview_analysisTypes :: Lens.Lens' CodeReview (Prelude.Maybe [AnalysisType])
 codeReview_analysisTypes = Lens.lens (\CodeReview' {analysisTypes} -> analysisTypes) (\s@CodeReview' {} a -> s {analysisTypes = a} :: CodeReview) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CodeReview where
+instance Data.FromJSON CodeReview where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeReview"
       ( \x ->
           CodeReview'
-            Prelude.<$> (x Core..:? "LastUpdatedTimeStamp")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "PullRequestId")
-            Prelude.<*> (x Core..:? "AssociationArn")
-            Prelude.<*> (x Core..:? "CreatedTimeStamp")
-            Prelude.<*> (x Core..:? "SourceCodeType")
-            Prelude.<*> (x Core..:? "RepositoryName")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CodeReviewArn")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "Metrics")
-            Prelude.<*> (x Core..:? "ProviderType")
-            Prelude.<*> (x Core..:? "ConfigFileState")
-            Prelude.<*> (x Core..:? "StateReason")
-            Prelude.<*> (x Core..:? "AnalysisTypes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "LastUpdatedTimeStamp")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "PullRequestId")
+            Prelude.<*> (x Data..:? "AssociationArn")
+            Prelude.<*> (x Data..:? "CreatedTimeStamp")
+            Prelude.<*> (x Data..:? "SourceCodeType")
+            Prelude.<*> (x Data..:? "RepositoryName")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "CodeReviewArn")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "Metrics")
+            Prelude.<*> (x Data..:? "ProviderType")
+            Prelude.<*> (x Data..:? "ConfigFileState")
+            Prelude.<*> (x Data..:? "StateReason")
+            Prelude.<*> (x Data..:? "AnalysisTypes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CodeReview where

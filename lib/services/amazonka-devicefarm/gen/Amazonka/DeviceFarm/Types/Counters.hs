@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.Counters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents entity counters.
@@ -106,19 +107,19 @@ counters_passed = Lens.lens (\Counters' {passed} -> passed) (\s@Counters' {} a -
 counters_stopped :: Lens.Lens' Counters (Prelude.Maybe Prelude.Int)
 counters_stopped = Lens.lens (\Counters' {stopped} -> stopped) (\s@Counters' {} a -> s {stopped = a} :: Counters)
 
-instance Core.FromJSON Counters where
+instance Data.FromJSON Counters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Counters"
       ( \x ->
           Counters'
-            Prelude.<$> (x Core..:? "failed")
-            Prelude.<*> (x Core..:? "total")
-            Prelude.<*> (x Core..:? "warned")
-            Prelude.<*> (x Core..:? "errored")
-            Prelude.<*> (x Core..:? "skipped")
-            Prelude.<*> (x Core..:? "passed")
-            Prelude.<*> (x Core..:? "stopped")
+            Prelude.<$> (x Data..:? "failed")
+            Prelude.<*> (x Data..:? "total")
+            Prelude.<*> (x Data..:? "warned")
+            Prelude.<*> (x Data..:? "errored")
+            Prelude.<*> (x Data..:? "skipped")
+            Prelude.<*> (x Data..:? "passed")
+            Prelude.<*> (x Data..:? "stopped")
       )
 
 instance Prelude.Hashable Counters where

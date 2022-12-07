@@ -21,6 +21,7 @@ module Amazonka.AppIntegrationS.Types.DataIntegrationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about the DataIntegration.
@@ -70,15 +71,15 @@ dataIntegrationSummary_sourceURI = Lens.lens (\DataIntegrationSummary' {sourceUR
 dataIntegrationSummary_arn :: Lens.Lens' DataIntegrationSummary (Prelude.Maybe Prelude.Text)
 dataIntegrationSummary_arn = Lens.lens (\DataIntegrationSummary' {arn} -> arn) (\s@DataIntegrationSummary' {} a -> s {arn = a} :: DataIntegrationSummary)
 
-instance Core.FromJSON DataIntegrationSummary where
+instance Data.FromJSON DataIntegrationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataIntegrationSummary"
       ( \x ->
           DataIntegrationSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "SourceURI")
-            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "SourceURI")
+            Prelude.<*> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable DataIntegrationSummary where

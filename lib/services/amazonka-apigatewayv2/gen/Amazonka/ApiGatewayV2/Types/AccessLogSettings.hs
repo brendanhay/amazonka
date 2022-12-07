@@ -21,6 +21,7 @@ module Amazonka.ApiGatewayV2.Types.AccessLogSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for logging access in a stage.
@@ -67,14 +68,14 @@ accessLogSettings_format = Lens.lens (\AccessLogSettings' {format} -> format) (\
 accessLogSettings_destinationArn :: Lens.Lens' AccessLogSettings (Prelude.Maybe Prelude.Text)
 accessLogSettings_destinationArn = Lens.lens (\AccessLogSettings' {destinationArn} -> destinationArn) (\s@AccessLogSettings' {} a -> s {destinationArn = a} :: AccessLogSettings)
 
-instance Core.FromJSON AccessLogSettings where
+instance Data.FromJSON AccessLogSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessLogSettings"
       ( \x ->
           AccessLogSettings'
-            Prelude.<$> (x Core..:? "format")
-            Prelude.<*> (x Core..:? "destinationArn")
+            Prelude.<$> (x Data..:? "format")
+            Prelude.<*> (x Data..:? "destinationArn")
       )
 
 instance Prelude.Hashable AccessLogSettings where
@@ -87,12 +88,12 @@ instance Prelude.NFData AccessLogSettings where
     Prelude.rnf format
       `Prelude.seq` Prelude.rnf destinationArn
 
-instance Core.ToJSON AccessLogSettings where
+instance Data.ToJSON AccessLogSettings where
   toJSON AccessLogSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("format" Core..=) Prelude.<$> format,
-            ("destinationArn" Core..=)
+          [ ("format" Data..=) Prelude.<$> format,
+            ("destinationArn" Data..=)
               Prelude.<$> destinationArn
           ]
       )

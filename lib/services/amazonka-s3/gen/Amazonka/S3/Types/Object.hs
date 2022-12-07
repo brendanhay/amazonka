@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Object where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ChecksumAlgorithm
@@ -64,7 +65,7 @@ data Object = Object'
     -- | The class of storage used to store the object.
     storageClass :: ObjectStorageClass,
     -- | Creation date of the object.
-    lastModified :: Core.ISO8601
+    lastModified :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -134,7 +135,7 @@ newObject
         size = pSize_,
         key = pKey_,
         storageClass = pStorageClass_,
-        lastModified = Core._Time Lens.# pLastModified_
+        lastModified = Data._Time Lens.# pLastModified_
       }
 
 -- | The algorithm that was used to create a checksum of the object.
@@ -183,18 +184,18 @@ object_storageClass = Lens.lens (\Object' {storageClass} -> storageClass) (\s@Ob
 
 -- | Creation date of the object.
 object_lastModified :: Lens.Lens' Object Prelude.UTCTime
-object_lastModified = Lens.lens (\Object' {lastModified} -> lastModified) (\s@Object' {} a -> s {lastModified = a} :: Object) Prelude.. Core._Time
+object_lastModified = Lens.lens (\Object' {lastModified} -> lastModified) (\s@Object' {} a -> s {lastModified = a} :: Object) Prelude.. Data._Time
 
-instance Core.FromXML Object where
+instance Data.FromXML Object where
   parseXML x =
     Object'
-      Prelude.<$> (Core.may (Core.parseXMLList "ChecksumAlgorithm") x)
-      Prelude.<*> (x Core..@? "Owner")
-      Prelude.<*> (x Core..@ "ETag")
-      Prelude.<*> (x Core..@ "Size")
-      Prelude.<*> (x Core..@ "Key")
-      Prelude.<*> (x Core..@ "StorageClass")
-      Prelude.<*> (x Core..@ "LastModified")
+      Prelude.<$> (Core.may (Data.parseXMLList "ChecksumAlgorithm") x)
+      Prelude.<*> (x Data..@? "Owner")
+      Prelude.<*> (x Data..@ "ETag")
+      Prelude.<*> (x Data..@ "Size")
+      Prelude.<*> (x Data..@ "Key")
+      Prelude.<*> (x Data..@ "StorageClass")
+      Prelude.<*> (x Data..@ "LastModified")
 
 instance Prelude.Hashable Object where
   hashWithSalt _salt Object' {..} =

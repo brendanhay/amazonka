@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.CompletionReport where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.ReportFormat
 import Amazonka.FSx.Types.ReportScope
 import qualified Amazonka.Prelude as Prelude
@@ -145,16 +146,16 @@ completionReport_scope = Lens.lens (\CompletionReport' {scope} -> scope) (\s@Com
 completionReport_enabled :: Lens.Lens' CompletionReport Prelude.Bool
 completionReport_enabled = Lens.lens (\CompletionReport' {enabled} -> enabled) (\s@CompletionReport' {} a -> s {enabled = a} :: CompletionReport)
 
-instance Core.FromJSON CompletionReport where
+instance Data.FromJSON CompletionReport where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CompletionReport"
       ( \x ->
           CompletionReport'
-            Prelude.<$> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "Scope")
-            Prelude.<*> (x Core..: "Enabled")
+            Prelude.<$> (x Data..:? "Format")
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "Scope")
+            Prelude.<*> (x Data..: "Enabled")
       )
 
 instance Prelude.Hashable CompletionReport where
@@ -171,13 +172,13 @@ instance Prelude.NFData CompletionReport where
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON CompletionReport where
+instance Data.ToJSON CompletionReport where
   toJSON CompletionReport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Format" Core..=) Prelude.<$> format,
-            ("Path" Core..=) Prelude.<$> path,
-            ("Scope" Core..=) Prelude.<$> scope,
-            Prelude.Just ("Enabled" Core..= enabled)
+          [ ("Format" Data..=) Prelude.<$> format,
+            ("Path" Data..=) Prelude.<$> path,
+            ("Scope" Data..=) Prelude.<$> scope,
+            Prelude.Just ("Enabled" Data..= enabled)
           ]
       )

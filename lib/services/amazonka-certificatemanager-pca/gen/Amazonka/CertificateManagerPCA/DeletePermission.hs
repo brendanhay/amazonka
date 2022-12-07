@@ -69,6 +69,7 @@ where
 import Amazonka.CertificateManagerPCA.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -166,38 +167,38 @@ instance Prelude.NFData DeletePermission where
       `Prelude.seq` Prelude.rnf certificateAuthorityArn
       `Prelude.seq` Prelude.rnf principal
 
-instance Core.ToHeaders DeletePermission where
+instance Data.ToHeaders DeletePermission where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ACMPrivateCA.DeletePermission" ::
+              Data.=# ( "ACMPrivateCA.DeletePermission" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeletePermission where
+instance Data.ToJSON DeletePermission where
   toJSON DeletePermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceAccount" Core..=) Prelude.<$> sourceAccount,
+          [ ("SourceAccount" Data..=) Prelude.<$> sourceAccount,
             Prelude.Just
               ( "CertificateAuthorityArn"
-                  Core..= certificateAuthorityArn
+                  Data..= certificateAuthorityArn
               ),
-            Prelude.Just ("Principal" Core..= principal)
+            Prelude.Just ("Principal" Data..= principal)
           ]
       )
 
-instance Core.ToPath DeletePermission where
+instance Data.ToPath DeletePermission where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeletePermission where
+instance Data.ToQuery DeletePermission where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePermissionResponse' smart constructor.

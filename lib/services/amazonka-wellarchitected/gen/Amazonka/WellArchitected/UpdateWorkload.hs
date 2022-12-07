@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -251,7 +252,7 @@ instance Core.AWSRequest UpdateWorkload where
     Response.receiveJSON
       ( \s h x ->
           UpdateWorkloadResponse'
-            Prelude.<$> (x Core..?> "Workload")
+            Prelude.<$> (x Data..?> "Workload")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -295,51 +296,51 @@ instance Prelude.NFData UpdateWorkload where
       `Prelude.seq` Prelude.rnf improvementStatus
       `Prelude.seq` Prelude.rnf workloadId
 
-instance Core.ToHeaders UpdateWorkload where
+instance Data.ToHeaders UpdateWorkload where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkload where
+instance Data.ToJSON UpdateWorkload where
   toJSON UpdateWorkload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DiscoveryConfig" Core..=)
+          [ ("DiscoveryConfig" Data..=)
               Prelude.<$> discoveryConfig,
-            ("AccountIds" Core..=) Prelude.<$> accountIds,
-            ("Environment" Core..=) Prelude.<$> environment,
-            ("IsReviewOwnerUpdateAcknowledged" Core..=)
+            ("AccountIds" Data..=) Prelude.<$> accountIds,
+            ("Environment" Data..=) Prelude.<$> environment,
+            ("IsReviewOwnerUpdateAcknowledged" Data..=)
               Prelude.<$> isReviewOwnerUpdateAcknowledged,
-            ("Industry" Core..=) Prelude.<$> industry,
-            ("Applications" Core..=) Prelude.<$> applications,
-            ("AwsRegions" Core..=) Prelude.<$> awsRegions,
-            ("WorkloadName" Core..=) Prelude.<$> workloadName,
-            ("ReviewOwner" Core..=) Prelude.<$> reviewOwner,
-            ("NonAwsRegions" Core..=) Prelude.<$> nonAwsRegions,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Notes" Core..=) Prelude.<$> notes,
-            ("IndustryType" Core..=) Prelude.<$> industryType,
-            ("ArchitecturalDesign" Core..=)
+            ("Industry" Data..=) Prelude.<$> industry,
+            ("Applications" Data..=) Prelude.<$> applications,
+            ("AwsRegions" Data..=) Prelude.<$> awsRegions,
+            ("WorkloadName" Data..=) Prelude.<$> workloadName,
+            ("ReviewOwner" Data..=) Prelude.<$> reviewOwner,
+            ("NonAwsRegions" Data..=) Prelude.<$> nonAwsRegions,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Notes" Data..=) Prelude.<$> notes,
+            ("IndustryType" Data..=) Prelude.<$> industryType,
+            ("ArchitecturalDesign" Data..=)
               Prelude.<$> architecturalDesign,
-            ("PillarPriorities" Core..=)
+            ("PillarPriorities" Data..=)
               Prelude.<$> pillarPriorities,
-            ("ImprovementStatus" Core..=)
+            ("ImprovementStatus" Data..=)
               Prelude.<$> improvementStatus
           ]
       )
 
-instance Core.ToPath UpdateWorkload where
+instance Data.ToPath UpdateWorkload where
   toPath UpdateWorkload' {..} =
     Prelude.mconcat
-      ["/workloads/", Core.toBS workloadId]
+      ["/workloads/", Data.toBS workloadId]
 
-instance Core.ToQuery UpdateWorkload where
+instance Data.ToQuery UpdateWorkload where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Output of an update workload call.

@@ -119,6 +119,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -177,7 +178,7 @@ data GetMetricData = GetMetricData'
     -- beginning and end of an hour. For example, if the @Period@ of a metric
     -- is 5 minutes, specifying 12:05 or 12:30 as @StartTime@ can get a faster
     -- response from CloudWatch than setting 12:07 or 12:29 as the @StartTime@.
-    startTime :: Core.ISO8601,
+    startTime :: Data.ISO8601,
     -- | The time stamp indicating the latest data to be returned.
     --
     -- The value specified is exclusive; results include data points up to the
@@ -188,7 +189,7 @@ data GetMetricData = GetMetricData'
     -- beginning and end of an hour. For example, if the @Period@ of a metric
     -- is 5 minutes, specifying 12:05 or 12:30 as @EndTime@ can get a faster
     -- response from CloudWatch than setting 12:07 or 12:29 as the @EndTime@.
-    endTime :: Core.ISO8601
+    endTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -276,8 +277,8 @@ newGetMetricData pStartTime_ pEndTime_ =
       scanBy = Prelude.Nothing,
       maxDatapoints = Prelude.Nothing,
       metricDataQueries = Prelude.mempty,
-      startTime = Core._Time Lens.# pStartTime_,
-      endTime = Core._Time Lens.# pEndTime_
+      startTime = Data._Time Lens.# pStartTime_,
+      endTime = Data._Time Lens.# pEndTime_
     }
 
 -- | Include this value, if it was returned by the previous @GetMetricData@
@@ -343,7 +344,7 @@ getMetricData_metricDataQueries = Lens.lens (\GetMetricData' {metricDataQueries}
 -- is 5 minutes, specifying 12:05 or 12:30 as @StartTime@ can get a faster
 -- response from CloudWatch than setting 12:07 or 12:29 as the @StartTime@.
 getMetricData_startTime :: Lens.Lens' GetMetricData Prelude.UTCTime
-getMetricData_startTime = Lens.lens (\GetMetricData' {startTime} -> startTime) (\s@GetMetricData' {} a -> s {startTime = a} :: GetMetricData) Prelude.. Core._Time
+getMetricData_startTime = Lens.lens (\GetMetricData' {startTime} -> startTime) (\s@GetMetricData' {} a -> s {startTime = a} :: GetMetricData) Prelude.. Data._Time
 
 -- | The time stamp indicating the latest data to be returned.
 --
@@ -356,7 +357,7 @@ getMetricData_startTime = Lens.lens (\GetMetricData' {startTime} -> startTime) (
 -- is 5 minutes, specifying 12:05 or 12:30 as @EndTime@ can get a faster
 -- response from CloudWatch than setting 12:07 or 12:29 as the @EndTime@.
 getMetricData_endTime :: Lens.Lens' GetMetricData Prelude.UTCTime
-getMetricData_endTime = Lens.lens (\GetMetricData' {endTime} -> endTime) (\s@GetMetricData' {} a -> s {endTime = a} :: GetMetricData) Prelude.. Core._Time
+getMetricData_endTime = Lens.lens (\GetMetricData' {endTime} -> endTime) (\s@GetMetricData' {} a -> s {endTime = a} :: GetMetricData) Prelude.. Data._Time
 
 instance Core.AWSPager GetMetricData where
   page rq rs
@@ -394,13 +395,13 @@ instance Core.AWSRequest GetMetricData where
       "GetMetricDataResult"
       ( \s h x ->
           GetMetricDataResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "Messages" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "Messages" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "MetricDataResults"
+            Prelude.<*> ( x Data..@? "MetricDataResults"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -425,27 +426,27 @@ instance Prelude.NFData GetMetricData where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
-instance Core.ToHeaders GetMetricData where
+instance Data.ToHeaders GetMetricData where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetMetricData where
+instance Data.ToPath GetMetricData where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMetricData where
+instance Data.ToQuery GetMetricData where
   toQuery GetMetricData' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetMetricData" :: Prelude.ByteString),
+          Data.=: ("GetMetricData" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "LabelOptions" Core.=: labelOptions,
-        "ScanBy" Core.=: scanBy,
-        "MaxDatapoints" Core.=: maxDatapoints,
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "LabelOptions" Data.=: labelOptions,
+        "ScanBy" Data.=: scanBy,
+        "MaxDatapoints" Data.=: maxDatapoints,
         "MetricDataQueries"
-          Core.=: Core.toQueryList "member" metricDataQueries,
-        "StartTime" Core.=: startTime,
-        "EndTime" Core.=: endTime
+          Data.=: Data.toQueryList "member" metricDataQueries,
+        "StartTime" Data.=: startTime,
+        "EndTime" Data.=: endTime
       ]
 
 -- | /See:/ 'newGetMetricDataResponse' smart constructor.

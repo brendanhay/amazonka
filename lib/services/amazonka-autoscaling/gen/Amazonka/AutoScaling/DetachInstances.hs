@@ -60,6 +60,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,8 +131,8 @@ instance Core.AWSRequest DetachInstances where
       "DetachInstancesResult"
       ( \s h x ->
           DetachInstancesResponse'
-            Prelude.<$> ( x Core..@? "Activities" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Activities" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -148,25 +149,25 @@ instance Prelude.NFData DetachInstances where
       `Prelude.seq` Prelude.rnf autoScalingGroupName
       `Prelude.seq` Prelude.rnf shouldDecrementDesiredCapacity
 
-instance Core.ToHeaders DetachInstances where
+instance Data.ToHeaders DetachInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DetachInstances where
+instance Data.ToPath DetachInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetachInstances where
+instance Data.ToQuery DetachInstances where
   toQuery DetachInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DetachInstances" :: Prelude.ByteString),
+          Data.=: ("DetachInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
         "InstanceIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> instanceIds),
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> instanceIds),
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
         "ShouldDecrementDesiredCapacity"
-          Core.=: shouldDecrementDesiredCapacity
+          Data.=: shouldDecrementDesiredCapacity
       ]
 
 -- | /See:/ 'newDetachInstancesResponse' smart constructor.

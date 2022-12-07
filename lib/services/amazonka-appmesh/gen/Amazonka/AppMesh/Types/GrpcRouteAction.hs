@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.GrpcRouteAction where
 import Amazonka.AppMesh.Types.WeightedTarget
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the action to take if a match is determined.
@@ -59,13 +60,13 @@ newGrpcRouteAction pWeightedTargets_ =
 grpcRouteAction_weightedTargets :: Lens.Lens' GrpcRouteAction (Prelude.NonEmpty WeightedTarget)
 grpcRouteAction_weightedTargets = Lens.lens (\GrpcRouteAction' {weightedTargets} -> weightedTargets) (\s@GrpcRouteAction' {} a -> s {weightedTargets = a} :: GrpcRouteAction) Prelude.. Lens.coerced
 
-instance Core.FromJSON GrpcRouteAction where
+instance Data.FromJSON GrpcRouteAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GrpcRouteAction"
       ( \x ->
           GrpcRouteAction'
-            Prelude.<$> (x Core..: "weightedTargets")
+            Prelude.<$> (x Data..: "weightedTargets")
       )
 
 instance Prelude.Hashable GrpcRouteAction where
@@ -76,11 +77,11 @@ instance Prelude.NFData GrpcRouteAction where
   rnf GrpcRouteAction' {..} =
     Prelude.rnf weightedTargets
 
-instance Core.ToJSON GrpcRouteAction where
+instance Data.ToJSON GrpcRouteAction where
   toJSON GrpcRouteAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("weightedTargets" Core..= weightedTargets)
+              ("weightedTargets" Data..= weightedTargets)
           ]
       )

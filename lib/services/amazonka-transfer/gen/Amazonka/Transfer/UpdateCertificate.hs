@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,9 +55,9 @@ data UpdateCertificate = UpdateCertificate'
   { -- | A short description to help identify the certificate.
     description :: Prelude.Maybe Prelude.Text,
     -- | An optional date that specifies when the certificate becomes active.
-    activeDate :: Prelude.Maybe Core.POSIX,
+    activeDate :: Prelude.Maybe Data.POSIX,
     -- | An optional date that specifies when the certificate becomes inactive.
-    inactiveDate :: Prelude.Maybe Core.POSIX,
+    inactiveDate :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the certificate object that you are updating.
     certificateId :: Prelude.Text
   }
@@ -95,11 +96,11 @@ updateCertificate_description = Lens.lens (\UpdateCertificate' {description} -> 
 
 -- | An optional date that specifies when the certificate becomes active.
 updateCertificate_activeDate :: Lens.Lens' UpdateCertificate (Prelude.Maybe Prelude.UTCTime)
-updateCertificate_activeDate = Lens.lens (\UpdateCertificate' {activeDate} -> activeDate) (\s@UpdateCertificate' {} a -> s {activeDate = a} :: UpdateCertificate) Prelude.. Lens.mapping Core._Time
+updateCertificate_activeDate = Lens.lens (\UpdateCertificate' {activeDate} -> activeDate) (\s@UpdateCertificate' {} a -> s {activeDate = a} :: UpdateCertificate) Prelude.. Lens.mapping Data._Time
 
 -- | An optional date that specifies when the certificate becomes inactive.
 updateCertificate_inactiveDate :: Lens.Lens' UpdateCertificate (Prelude.Maybe Prelude.UTCTime)
-updateCertificate_inactiveDate = Lens.lens (\UpdateCertificate' {inactiveDate} -> inactiveDate) (\s@UpdateCertificate' {} a -> s {inactiveDate = a} :: UpdateCertificate) Prelude.. Lens.mapping Core._Time
+updateCertificate_inactiveDate = Lens.lens (\UpdateCertificate' {inactiveDate} -> inactiveDate) (\s@UpdateCertificate' {} a -> s {inactiveDate = a} :: UpdateCertificate) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the certificate object that you are updating.
 updateCertificate_certificateId :: Lens.Lens' UpdateCertificate Prelude.Text
@@ -116,7 +117,7 @@ instance Core.AWSRequest UpdateCertificate where
       ( \s h x ->
           UpdateCertificateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CertificateId")
+            Prelude.<*> (x Data..:> "CertificateId")
       )
 
 instance Prelude.Hashable UpdateCertificate where
@@ -133,37 +134,37 @@ instance Prelude.NFData UpdateCertificate where
       `Prelude.seq` Prelude.rnf inactiveDate
       `Prelude.seq` Prelude.rnf certificateId
 
-instance Core.ToHeaders UpdateCertificate where
+instance Data.ToHeaders UpdateCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.UpdateCertificate" ::
+              Data.=# ( "TransferService.UpdateCertificate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCertificate where
+instance Data.ToJSON UpdateCertificate where
   toJSON UpdateCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("ActiveDate" Core..=) Prelude.<$> activeDate,
-            ("InactiveDate" Core..=) Prelude.<$> inactiveDate,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("ActiveDate" Data..=) Prelude.<$> activeDate,
+            ("InactiveDate" Data..=) Prelude.<$> inactiveDate,
             Prelude.Just
-              ("CertificateId" Core..= certificateId)
+              ("CertificateId" Data..= certificateId)
           ]
       )
 
-instance Core.ToPath UpdateCertificate where
+instance Data.ToPath UpdateCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateCertificate where
+instance Data.ToQuery UpdateCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCertificateResponse' smart constructor.

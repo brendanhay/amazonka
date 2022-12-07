@@ -45,6 +45,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -164,40 +165,40 @@ instance
       `Prelude.seq` Prelude.rnf contactFlowModuleId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateContactFlowModuleMetadata
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateContactFlowModuleMetadata where
+instance Data.ToJSON UpdateContactFlowModuleMetadata where
   toJSON UpdateContactFlowModuleMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("State" Core..=) Prelude.<$> state,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("State" Data..=) Prelude.<$> state,
+            ("Description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateContactFlowModuleMetadata where
+instance Data.ToPath UpdateContactFlowModuleMetadata where
   toPath UpdateContactFlowModuleMetadata' {..} =
     Prelude.mconcat
       [ "/contact-flow-modules/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS contactFlowModuleId,
+        Data.toBS contactFlowModuleId,
         "/metadata"
       ]
 
-instance Core.ToQuery UpdateContactFlowModuleMetadata where
+instance Data.ToQuery UpdateContactFlowModuleMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateContactFlowModuleMetadataResponse' smart constructor.

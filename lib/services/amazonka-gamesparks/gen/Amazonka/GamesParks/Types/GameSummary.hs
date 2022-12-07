@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.GameSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types.GameState
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,16 +81,16 @@ gameSummary_state = Lens.lens (\GameSummary' {state} -> state) (\s@GameSummary' 
 gameSummary_description :: Lens.Lens' GameSummary (Prelude.Maybe Prelude.Text)
 gameSummary_description = Lens.lens (\GameSummary' {description} -> description) (\s@GameSummary' {} a -> s {description = a} :: GameSummary)
 
-instance Core.FromJSON GameSummary where
+instance Data.FromJSON GameSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GameSummary"
       ( \x ->
           GameSummary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable GameSummary where

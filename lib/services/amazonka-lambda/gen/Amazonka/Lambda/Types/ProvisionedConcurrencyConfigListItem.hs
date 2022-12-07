@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.ProvisionedConcurrencyConfigListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.ProvisionedConcurrencyStatusEnum
 import qualified Amazonka.Prelude as Prelude
 
@@ -128,26 +129,26 @@ provisionedConcurrencyConfigListItem_allocatedProvisionedConcurrentExecutions ::
 provisionedConcurrencyConfigListItem_allocatedProvisionedConcurrentExecutions = Lens.lens (\ProvisionedConcurrencyConfigListItem' {allocatedProvisionedConcurrentExecutions} -> allocatedProvisionedConcurrentExecutions) (\s@ProvisionedConcurrencyConfigListItem' {} a -> s {allocatedProvisionedConcurrentExecutions = a} :: ProvisionedConcurrencyConfigListItem)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ProvisionedConcurrencyConfigListItem
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisionedConcurrencyConfigListItem"
       ( \x ->
           ProvisionedConcurrencyConfigListItem'
-            Prelude.<$> (x Core..:? "FunctionArn")
+            Prelude.<$> (x Data..:? "FunctionArn")
             Prelude.<*> ( x
-                            Core..:? "AvailableProvisionedConcurrentExecutions"
+                            Data..:? "AvailableProvisionedConcurrentExecutions"
                         )
-            Prelude.<*> (x Core..:? "StatusReason")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Data..:? "StatusReason")
+            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> ( x
-                            Core..:? "RequestedProvisionedConcurrentExecutions"
+                            Data..:? "RequestedProvisionedConcurrentExecutions"
                         )
-            Prelude.<*> (x Core..:? "LastModified")
+            Prelude.<*> (x Data..:? "LastModified")
             Prelude.<*> ( x
-                            Core..:? "AllocatedProvisionedConcurrentExecutions"
+                            Data..:? "AllocatedProvisionedConcurrentExecutions"
                         )
       )
 

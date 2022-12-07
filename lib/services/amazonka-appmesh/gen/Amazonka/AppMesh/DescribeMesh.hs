@@ -43,6 +43,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,7 +106,7 @@ instance Core.AWSRequest DescribeMesh where
       ( \s h x ->
           DescribeMeshResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable DescribeMesh where
@@ -118,25 +119,25 @@ instance Prelude.NFData DescribeMesh where
     Prelude.rnf meshOwner
       `Prelude.seq` Prelude.rnf meshName
 
-instance Core.ToHeaders DescribeMesh where
+instance Data.ToHeaders DescribeMesh where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeMesh where
+instance Data.ToPath DescribeMesh where
   toPath DescribeMesh' {..} =
     Prelude.mconcat
-      ["/v20190125/meshes/", Core.toBS meshName]
+      ["/v20190125/meshes/", Data.toBS meshName]
 
-instance Core.ToQuery DescribeMesh where
+instance Data.ToQuery DescribeMesh where
   toQuery DescribeMesh' {..} =
-    Prelude.mconcat ["meshOwner" Core.=: meshOwner]
+    Prelude.mconcat ["meshOwner" Data.=: meshOwner]
 
 -- |
 --

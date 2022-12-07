@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -307,7 +308,7 @@ instance Core.AWSRequest CreateRemoteAccessSession where
     Response.receiveJSON
       ( \s h x ->
           CreateRemoteAccessSessionResponse'
-            Prelude.<$> (x Core..?> "remoteAccessSession")
+            Prelude.<$> (x Data..?> "remoteAccessSession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -341,48 +342,48 @@ instance Prelude.NFData CreateRemoteAccessSession where
       `Prelude.seq` Prelude.rnf projectArn
       `Prelude.seq` Prelude.rnf deviceArn
 
-instance Core.ToHeaders CreateRemoteAccessSession where
+instance Data.ToHeaders CreateRemoteAccessSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.CreateRemoteAccessSession" ::
+              Data.=# ( "DeviceFarm_20150623.CreateRemoteAccessSession" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRemoteAccessSession where
+instance Data.ToJSON CreateRemoteAccessSession where
   toJSON CreateRemoteAccessSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("clientId" Core..=) Prelude.<$> clientId,
-            ("remoteDebugEnabled" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("clientId" Data..=) Prelude.<$> clientId,
+            ("remoteDebugEnabled" Data..=)
               Prelude.<$> remoteDebugEnabled,
-            ("remoteRecordAppArn" Core..=)
+            ("remoteRecordAppArn" Data..=)
               Prelude.<$> remoteRecordAppArn,
-            ("remoteRecordEnabled" Core..=)
+            ("remoteRecordEnabled" Data..=)
               Prelude.<$> remoteRecordEnabled,
-            ("configuration" Core..=) Prelude.<$> configuration,
-            ("sshPublicKey" Core..=) Prelude.<$> sshPublicKey,
-            ("instanceArn" Core..=) Prelude.<$> instanceArn,
-            ("interactionMode" Core..=)
+            ("configuration" Data..=) Prelude.<$> configuration,
+            ("sshPublicKey" Data..=) Prelude.<$> sshPublicKey,
+            ("instanceArn" Data..=) Prelude.<$> instanceArn,
+            ("interactionMode" Data..=)
               Prelude.<$> interactionMode,
-            ("skipAppResign" Core..=) Prelude.<$> skipAppResign,
-            Prelude.Just ("projectArn" Core..= projectArn),
-            Prelude.Just ("deviceArn" Core..= deviceArn)
+            ("skipAppResign" Data..=) Prelude.<$> skipAppResign,
+            Prelude.Just ("projectArn" Data..= projectArn),
+            Prelude.Just ("deviceArn" Data..= deviceArn)
           ]
       )
 
-instance Core.ToPath CreateRemoteAccessSession where
+instance Data.ToPath CreateRemoteAccessSession where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateRemoteAccessSession where
+instance Data.ToQuery CreateRemoteAccessSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the server response from a request to create a remote access

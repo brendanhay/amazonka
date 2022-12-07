@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.OutputDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.MediaPackageOutputDestinationSettings
 import Amazonka.MediaLive.Types.MultiplexProgramChannelDestinationSettings
 import Amazonka.MediaLive.Types.OutputDestinationSettings
@@ -92,17 +93,17 @@ outputDestination_settings = Lens.lens (\OutputDestination' {settings} -> settin
 outputDestination_mediaPackageSettings :: Lens.Lens' OutputDestination (Prelude.Maybe [MediaPackageOutputDestinationSettings])
 outputDestination_mediaPackageSettings = Lens.lens (\OutputDestination' {mediaPackageSettings} -> mediaPackageSettings) (\s@OutputDestination' {} a -> s {mediaPackageSettings = a} :: OutputDestination) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON OutputDestination where
+instance Data.FromJSON OutputDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputDestination"
       ( \x ->
           OutputDestination'
-            Prelude.<$> (x Core..:? "multiplexSettings")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "settings" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "mediaPackageSettings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "multiplexSettings")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "settings" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "mediaPackageSettings"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -120,15 +121,15 @@ instance Prelude.NFData OutputDestination where
       `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf mediaPackageSettings
 
-instance Core.ToJSON OutputDestination where
+instance Data.ToJSON OutputDestination where
   toJSON OutputDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("multiplexSettings" Core..=)
+          [ ("multiplexSettings" Data..=)
               Prelude.<$> multiplexSettings,
-            ("id" Core..=) Prelude.<$> id,
-            ("settings" Core..=) Prelude.<$> settings,
-            ("mediaPackageSettings" Core..=)
+            ("id" Data..=) Prelude.<$> id,
+            ("settings" Data..=) Prelude.<$> settings,
+            ("mediaPackageSettings" Data..=)
               Prelude.<$> mediaPackageSettings
           ]
       )

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,8 +150,8 @@ instance Core.AWSRequest UpdateResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           UpdateResourcePolicyResponse'
-            Prelude.<$> (x Core..?> "revisionId")
-            Prelude.<*> (x Core..?> "resourceArn")
+            Prelude.<$> (x Data..?> "revisionId")
+            Prelude.<*> (x Data..?> "resourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,33 +167,33 @@ instance Prelude.NFData UpdateResourcePolicy where
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf policy
 
-instance Core.ToHeaders UpdateResourcePolicy where
+instance Data.ToHeaders UpdateResourcePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateResourcePolicy where
+instance Data.ToJSON UpdateResourcePolicy where
   toJSON UpdateResourcePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("policy" Core..= policy)]
+          [Prelude.Just ("policy" Data..= policy)]
       )
 
-instance Core.ToPath UpdateResourcePolicy where
+instance Data.ToPath UpdateResourcePolicy where
   toPath UpdateResourcePolicy' {..} =
     Prelude.mconcat
-      ["/policy/", Core.toBS resourceArn, "/"]
+      ["/policy/", Data.toBS resourceArn, "/"]
 
-instance Core.ToQuery UpdateResourcePolicy where
+instance Data.ToQuery UpdateResourcePolicy where
   toQuery UpdateResourcePolicy' {..} =
     Prelude.mconcat
-      ["expectedRevisionId" Core.=: expectedRevisionId]
+      ["expectedRevisionId" Data.=: expectedRevisionId]
 
 -- | /See:/ 'newUpdateResourcePolicyResponse' smart constructor.
 data UpdateResourcePolicyResponse = UpdateResourcePolicyResponse'

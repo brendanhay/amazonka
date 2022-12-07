@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchListObjectParentPaths where
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Retrieves all available parent paths for any object type such as node,
@@ -92,13 +93,13 @@ instance Prelude.NFData BatchListObjectParentPaths where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToJSON BatchListObjectParentPaths where
+instance Data.ToJSON BatchListObjectParentPaths where
   toJSON BatchListObjectParentPaths' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )

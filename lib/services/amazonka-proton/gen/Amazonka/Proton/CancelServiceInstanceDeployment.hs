@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -120,7 +121,7 @@ instance
       ( \s h x ->
           CancelServiceInstanceDeploymentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "serviceInstance")
+            Prelude.<*> (x Data..:> "serviceInstance")
       )
 
 instance
@@ -142,37 +143,37 @@ instance
       `Prelude.seq` Prelude.rnf serviceName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CancelServiceInstanceDeployment
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.CancelServiceInstanceDeployment" ::
+              Data.=# ( "AwsProton20200720.CancelServiceInstanceDeployment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelServiceInstanceDeployment where
+instance Data.ToJSON CancelServiceInstanceDeployment where
   toJSON CancelServiceInstanceDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("serviceInstanceName" Core..= serviceInstanceName),
-            Prelude.Just ("serviceName" Core..= serviceName)
+              ("serviceInstanceName" Data..= serviceInstanceName),
+            Prelude.Just ("serviceName" Data..= serviceName)
           ]
       )
 
-instance Core.ToPath CancelServiceInstanceDeployment where
+instance Data.ToPath CancelServiceInstanceDeployment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelServiceInstanceDeployment where
+instance Data.ToQuery CancelServiceInstanceDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelServiceInstanceDeploymentResponse' smart constructor.

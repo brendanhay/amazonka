@@ -21,6 +21,7 @@ module Amazonka.RedshiftServerLess.Types.ConfigParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An array of key-value pairs to set for advanced control over Amazon
@@ -68,14 +69,14 @@ configParameter_parameterValue = Lens.lens (\ConfigParameter' {parameterValue} -
 configParameter_parameterKey :: Lens.Lens' ConfigParameter (Prelude.Maybe Prelude.Text)
 configParameter_parameterKey = Lens.lens (\ConfigParameter' {parameterKey} -> parameterKey) (\s@ConfigParameter' {} a -> s {parameterKey = a} :: ConfigParameter)
 
-instance Core.FromJSON ConfigParameter where
+instance Data.FromJSON ConfigParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigParameter"
       ( \x ->
           ConfigParameter'
-            Prelude.<$> (x Core..:? "parameterValue")
-            Prelude.<*> (x Core..:? "parameterKey")
+            Prelude.<$> (x Data..:? "parameterValue")
+            Prelude.<*> (x Data..:? "parameterKey")
       )
 
 instance Prelude.Hashable ConfigParameter where
@@ -88,12 +89,12 @@ instance Prelude.NFData ConfigParameter where
     Prelude.rnf parameterValue
       `Prelude.seq` Prelude.rnf parameterKey
 
-instance Core.ToJSON ConfigParameter where
+instance Data.ToJSON ConfigParameter where
   toJSON ConfigParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("parameterValue" Core..=)
+          [ ("parameterValue" Data..=)
               Prelude.<$> parameterValue,
-            ("parameterKey" Core..=) Prelude.<$> parameterKey
+            ("parameterKey" Data..=) Prelude.<$> parameterKey
           ]
       )

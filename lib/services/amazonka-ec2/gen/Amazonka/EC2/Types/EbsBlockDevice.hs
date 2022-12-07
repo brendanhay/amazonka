@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.EbsBlockDevice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.VolumeType
 import qualified Amazonka.Prelude as Prelude
@@ -336,18 +337,18 @@ ebsBlockDevice_throughput = Lens.lens (\EbsBlockDevice' {throughput} -> throughp
 ebsBlockDevice_iops :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Int)
 ebsBlockDevice_iops = Lens.lens (\EbsBlockDevice' {iops} -> iops) (\s@EbsBlockDevice' {} a -> s {iops = a} :: EbsBlockDevice)
 
-instance Core.FromXML EbsBlockDevice where
+instance Data.FromXML EbsBlockDevice where
   parseXML x =
     EbsBlockDevice'
-      Prelude.<$> (x Core..@? "outpostArn")
-      Prelude.<*> (x Core..@? "deleteOnTermination")
-      Prelude.<*> (x Core..@? "snapshotId")
-      Prelude.<*> (x Core..@? "volumeType")
-      Prelude.<*> (x Core..@? "volumeSize")
-      Prelude.<*> (x Core..@? "encrypted")
-      Prelude.<*> (x Core..@? "kmsKeyId")
-      Prelude.<*> (x Core..@? "throughput")
-      Prelude.<*> (x Core..@? "iops")
+      Prelude.<$> (x Data..@? "outpostArn")
+      Prelude.<*> (x Data..@? "deleteOnTermination")
+      Prelude.<*> (x Data..@? "snapshotId")
+      Prelude.<*> (x Data..@? "volumeType")
+      Prelude.<*> (x Data..@? "volumeSize")
+      Prelude.<*> (x Data..@? "encrypted")
+      Prelude.<*> (x Data..@? "kmsKeyId")
+      Prelude.<*> (x Data..@? "throughput")
+      Prelude.<*> (x Data..@? "iops")
 
 instance Prelude.Hashable EbsBlockDevice where
   hashWithSalt _salt EbsBlockDevice' {..} =
@@ -373,16 +374,16 @@ instance Prelude.NFData EbsBlockDevice where
       `Prelude.seq` Prelude.rnf throughput
       `Prelude.seq` Prelude.rnf iops
 
-instance Core.ToQuery EbsBlockDevice where
+instance Data.ToQuery EbsBlockDevice where
   toQuery EbsBlockDevice' {..} =
     Prelude.mconcat
-      [ "OutpostArn" Core.=: outpostArn,
-        "DeleteOnTermination" Core.=: deleteOnTermination,
-        "SnapshotId" Core.=: snapshotId,
-        "VolumeType" Core.=: volumeType,
-        "VolumeSize" Core.=: volumeSize,
-        "Encrypted" Core.=: encrypted,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "Throughput" Core.=: throughput,
-        "Iops" Core.=: iops
+      [ "OutpostArn" Data.=: outpostArn,
+        "DeleteOnTermination" Data.=: deleteOnTermination,
+        "SnapshotId" Data.=: snapshotId,
+        "VolumeType" Data.=: volumeType,
+        "VolumeSize" Data.=: volumeSize,
+        "Encrypted" Data.=: encrypted,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "Throughput" Data.=: throughput,
+        "Iops" Data.=: iops
       ]

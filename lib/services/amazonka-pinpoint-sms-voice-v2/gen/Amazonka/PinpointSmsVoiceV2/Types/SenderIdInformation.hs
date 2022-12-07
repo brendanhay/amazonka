@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.SenderIdInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types.MessageType
 import qualified Amazonka.Prelude as Prelude
 
@@ -113,17 +114,17 @@ senderIdInformation_messageTypes = Lens.lens (\SenderIdInformation' {messageType
 senderIdInformation_monthlyLeasingPrice :: Lens.Lens' SenderIdInformation Prelude.Text
 senderIdInformation_monthlyLeasingPrice = Lens.lens (\SenderIdInformation' {monthlyLeasingPrice} -> monthlyLeasingPrice) (\s@SenderIdInformation' {} a -> s {monthlyLeasingPrice = a} :: SenderIdInformation)
 
-instance Core.FromJSON SenderIdInformation where
+instance Data.FromJSON SenderIdInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SenderIdInformation"
       ( \x ->
           SenderIdInformation'
-            Prelude.<$> (x Core..: "SenderIdArn")
-            Prelude.<*> (x Core..: "SenderId")
-            Prelude.<*> (x Core..: "IsoCountryCode")
-            Prelude.<*> (x Core..:? "MessageTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "MonthlyLeasingPrice")
+            Prelude.<$> (x Data..: "SenderIdArn")
+            Prelude.<*> (x Data..: "SenderId")
+            Prelude.<*> (x Data..: "IsoCountryCode")
+            Prelude.<*> (x Data..:? "MessageTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "MonthlyLeasingPrice")
       )
 
 instance Prelude.Hashable SenderIdInformation where

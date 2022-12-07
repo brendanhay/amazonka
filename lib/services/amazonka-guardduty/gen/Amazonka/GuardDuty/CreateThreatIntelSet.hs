@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -173,7 +174,7 @@ instance Core.AWSRequest CreateThreatIntelSet where
       ( \s h x ->
           CreateThreatIntelSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "threatIntelSetId")
+            Prelude.<*> (x Data..:> "threatIntelSetId")
       )
 
 instance Prelude.Hashable CreateThreatIntelSet where
@@ -196,39 +197,39 @@ instance Prelude.NFData CreateThreatIntelSet where
       `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf activate
 
-instance Core.ToHeaders CreateThreatIntelSet where
+instance Data.ToHeaders CreateThreatIntelSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateThreatIntelSet where
+instance Data.ToJSON CreateThreatIntelSet where
   toJSON CreateThreatIntelSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("format" Core..= format),
-            Prelude.Just ("location" Core..= location),
-            Prelude.Just ("activate" Core..= activate)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("format" Data..= format),
+            Prelude.Just ("location" Data..= location),
+            Prelude.Just ("activate" Data..= activate)
           ]
       )
 
-instance Core.ToPath CreateThreatIntelSet where
+instance Data.ToPath CreateThreatIntelSet where
   toPath CreateThreatIntelSet' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/threatintelset"
       ]
 
-instance Core.ToQuery CreateThreatIntelSet where
+instance Data.ToQuery CreateThreatIntelSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateThreatIntelSetResponse' smart constructor.

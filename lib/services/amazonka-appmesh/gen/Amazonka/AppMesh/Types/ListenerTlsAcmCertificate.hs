@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.ListenerTlsAcmCertificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents an Certificate Manager certificate.
@@ -64,13 +65,13 @@ newListenerTlsAcmCertificate pCertificateArn_ =
 listenerTlsAcmCertificate_certificateArn :: Lens.Lens' ListenerTlsAcmCertificate Prelude.Text
 listenerTlsAcmCertificate_certificateArn = Lens.lens (\ListenerTlsAcmCertificate' {certificateArn} -> certificateArn) (\s@ListenerTlsAcmCertificate' {} a -> s {certificateArn = a} :: ListenerTlsAcmCertificate)
 
-instance Core.FromJSON ListenerTlsAcmCertificate where
+instance Data.FromJSON ListenerTlsAcmCertificate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListenerTlsAcmCertificate"
       ( \x ->
           ListenerTlsAcmCertificate'
-            Prelude.<$> (x Core..: "certificateArn")
+            Prelude.<$> (x Data..: "certificateArn")
       )
 
 instance Prelude.Hashable ListenerTlsAcmCertificate where
@@ -81,11 +82,11 @@ instance Prelude.NFData ListenerTlsAcmCertificate where
   rnf ListenerTlsAcmCertificate' {..} =
     Prelude.rnf certificateArn
 
-instance Core.ToJSON ListenerTlsAcmCertificate where
+instance Data.ToJSON ListenerTlsAcmCertificate where
   toJSON ListenerTlsAcmCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("certificateArn" Core..= certificateArn)
+              ("certificateArn" Data..= certificateArn)
           ]
       )

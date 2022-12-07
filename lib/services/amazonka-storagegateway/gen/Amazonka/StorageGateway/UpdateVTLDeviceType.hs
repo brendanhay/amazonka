@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,7 +108,7 @@ instance Core.AWSRequest UpdateVTLDeviceType where
     Response.receiveJSON
       ( \s h x ->
           UpdateVTLDeviceTypeResponse'
-            Prelude.<$> (x Core..?> "VTLDeviceARN")
+            Prelude.<$> (x Data..?> "VTLDeviceARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,34 +122,34 @@ instance Prelude.NFData UpdateVTLDeviceType where
     Prelude.rnf vTLDeviceARN
       `Prelude.seq` Prelude.rnf deviceType
 
-instance Core.ToHeaders UpdateVTLDeviceType where
+instance Data.ToHeaders UpdateVTLDeviceType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.UpdateVTLDeviceType" ::
+              Data.=# ( "StorageGateway_20130630.UpdateVTLDeviceType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateVTLDeviceType where
+instance Data.ToJSON UpdateVTLDeviceType where
   toJSON UpdateVTLDeviceType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("VTLDeviceARN" Core..= vTLDeviceARN),
-            Prelude.Just ("DeviceType" Core..= deviceType)
+          [ Prelude.Just ("VTLDeviceARN" Data..= vTLDeviceARN),
+            Prelude.Just ("DeviceType" Data..= deviceType)
           ]
       )
 
-instance Core.ToPath UpdateVTLDeviceType where
+instance Data.ToPath UpdateVTLDeviceType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateVTLDeviceType where
+instance Data.ToQuery UpdateVTLDeviceType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | UpdateVTLDeviceTypeOutput

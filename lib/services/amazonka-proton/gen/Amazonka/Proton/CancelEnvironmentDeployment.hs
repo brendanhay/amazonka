@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -102,7 +103,7 @@ instance Core.AWSRequest CancelEnvironmentDeployment where
       ( \s h x ->
           CancelEnvironmentDeploymentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "environment")
+            Prelude.<*> (x Data..:> "environment")
       )
 
 instance Prelude.Hashable CancelEnvironmentDeployment where
@@ -113,34 +114,34 @@ instance Prelude.NFData CancelEnvironmentDeployment where
   rnf CancelEnvironmentDeployment' {..} =
     Prelude.rnf environmentName
 
-instance Core.ToHeaders CancelEnvironmentDeployment where
+instance Data.ToHeaders CancelEnvironmentDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.CancelEnvironmentDeployment" ::
+              Data.=# ( "AwsProton20200720.CancelEnvironmentDeployment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelEnvironmentDeployment where
+instance Data.ToJSON CancelEnvironmentDeployment where
   toJSON CancelEnvironmentDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("environmentName" Core..= environmentName)
+              ("environmentName" Data..= environmentName)
           ]
       )
 
-instance Core.ToPath CancelEnvironmentDeployment where
+instance Data.ToPath CancelEnvironmentDeployment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelEnvironmentDeployment where
+instance Data.ToQuery CancelEnvironmentDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelEnvironmentDeploymentResponse' smart constructor.

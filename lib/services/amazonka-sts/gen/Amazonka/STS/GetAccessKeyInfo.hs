@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,7 +120,7 @@ instance Core.AWSRequest GetAccessKeyInfo where
       "GetAccessKeyInfoResult"
       ( \s h x ->
           GetAccessKeyInfoResponse'
-            Prelude.<$> (x Core..@? "Account")
+            Prelude.<$> (x Data..@? "Account")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,20 +131,20 @@ instance Prelude.Hashable GetAccessKeyInfo where
 instance Prelude.NFData GetAccessKeyInfo where
   rnf GetAccessKeyInfo' {..} = Prelude.rnf accessKeyId
 
-instance Core.ToHeaders GetAccessKeyInfo where
+instance Data.ToHeaders GetAccessKeyInfo where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetAccessKeyInfo where
+instance Data.ToPath GetAccessKeyInfo where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAccessKeyInfo where
+instance Data.ToQuery GetAccessKeyInfo where
   toQuery GetAccessKeyInfo' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetAccessKeyInfo" :: Prelude.ByteString),
+          Data.=: ("GetAccessKeyInfo" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-06-15" :: Prelude.ByteString),
-        "AccessKeyId" Core.=: accessKeyId
+          Data.=: ("2011-06-15" :: Prelude.ByteString),
+        "AccessKeyId" Data.=: accessKeyId
       ]
 
 -- | /See:/ 'newGetAccessKeyInfoResponse' smart constructor.

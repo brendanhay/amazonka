@@ -21,6 +21,7 @@ module Amazonka.M2.Types.DeploymentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.DeploymentLifecycle
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,7 +36,7 @@ data DeploymentSummary = DeploymentSummary'
     -- | The version of the application.
     applicationVersion :: Prelude.Natural,
     -- | The timestamp when the deployment was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The unique identifier of the deployment.
     deploymentId :: Prelude.Text,
     -- | The unique identifier of the environment.
@@ -91,7 +92,7 @@ newDeploymentSummary
       { statusReason = Prelude.Nothing,
         applicationId = pApplicationId_,
         applicationVersion = pApplicationVersion_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         deploymentId = pDeploymentId_,
         environmentId = pEnvironmentId_,
         status = pStatus_
@@ -111,7 +112,7 @@ deploymentSummary_applicationVersion = Lens.lens (\DeploymentSummary' {applicati
 
 -- | The timestamp when the deployment was created.
 deploymentSummary_creationTime :: Lens.Lens' DeploymentSummary Prelude.UTCTime
-deploymentSummary_creationTime = Lens.lens (\DeploymentSummary' {creationTime} -> creationTime) (\s@DeploymentSummary' {} a -> s {creationTime = a} :: DeploymentSummary) Prelude.. Core._Time
+deploymentSummary_creationTime = Lens.lens (\DeploymentSummary' {creationTime} -> creationTime) (\s@DeploymentSummary' {} a -> s {creationTime = a} :: DeploymentSummary) Prelude.. Data._Time
 
 -- | The unique identifier of the deployment.
 deploymentSummary_deploymentId :: Lens.Lens' DeploymentSummary Prelude.Text
@@ -125,19 +126,19 @@ deploymentSummary_environmentId = Lens.lens (\DeploymentSummary' {environmentId}
 deploymentSummary_status :: Lens.Lens' DeploymentSummary DeploymentLifecycle
 deploymentSummary_status = Lens.lens (\DeploymentSummary' {status} -> status) (\s@DeploymentSummary' {} a -> s {status = a} :: DeploymentSummary)
 
-instance Core.FromJSON DeploymentSummary where
+instance Data.FromJSON DeploymentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentSummary"
       ( \x ->
           DeploymentSummary'
-            Prelude.<$> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..: "applicationId")
-            Prelude.<*> (x Core..: "applicationVersion")
-            Prelude.<*> (x Core..: "creationTime")
-            Prelude.<*> (x Core..: "deploymentId")
-            Prelude.<*> (x Core..: "environmentId")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..: "applicationId")
+            Prelude.<*> (x Data..: "applicationVersion")
+            Prelude.<*> (x Data..: "creationTime")
+            Prelude.<*> (x Data..: "deploymentId")
+            Prelude.<*> (x Data..: "environmentId")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable DeploymentSummary where

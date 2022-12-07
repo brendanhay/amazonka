@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -162,7 +163,7 @@ instance
       "RevokeClusterSecurityGroupIngressResult"
       ( \s h x ->
           RevokeClusterSecurityGroupIngressResponse'
-            Prelude.<$> (x Core..@? "ClusterSecurityGroup")
+            Prelude.<$> (x Data..@? "ClusterSecurityGroup")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,35 +191,35 @@ instance
       `Prelude.seq` Prelude.rnf clusterSecurityGroupName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RevokeClusterSecurityGroupIngress
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     RevokeClusterSecurityGroupIngress
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     RevokeClusterSecurityGroupIngress
   where
   toQuery RevokeClusterSecurityGroupIngress' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "RevokeClusterSecurityGroupIngress" ::
+          Data.=: ( "RevokeClusterSecurityGroupIngress" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "EC2SecurityGroupOwnerId"
-          Core.=: eC2SecurityGroupOwnerId,
-        "EC2SecurityGroupName" Core.=: eC2SecurityGroupName,
-        "CIDRIP" Core.=: cidrip,
+          Data.=: eC2SecurityGroupOwnerId,
+        "EC2SecurityGroupName" Data.=: eC2SecurityGroupName,
+        "CIDRIP" Data.=: cidrip,
         "ClusterSecurityGroupName"
-          Core.=: clusterSecurityGroupName
+          Data.=: clusterSecurityGroupName
       ]
 
 -- | /See:/ 'newRevokeClusterSecurityGroupIngressResponse' smart constructor.

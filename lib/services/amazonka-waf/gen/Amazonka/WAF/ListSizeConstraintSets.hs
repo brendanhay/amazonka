@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,10 +158,10 @@ instance Core.AWSRequest ListSizeConstraintSets where
     Response.receiveJSON
       ( \s h x ->
           ListSizeConstraintSetsResponse'
-            Prelude.<$> ( x Core..?> "SizeConstraintSets"
+            Prelude.<$> ( x Data..?> "SizeConstraintSets"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,34 +175,34 @@ instance Prelude.NFData ListSizeConstraintSets where
     Prelude.rnf limit
       `Prelude.seq` Prelude.rnf nextMarker
 
-instance Core.ToHeaders ListSizeConstraintSets where
+instance Data.ToHeaders ListSizeConstraintSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20150824.ListSizeConstraintSets" ::
+              Data.=# ( "AWSWAF_20150824.ListSizeConstraintSets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSizeConstraintSets where
+instance Data.ToJSON ListSizeConstraintSets where
   toJSON ListSizeConstraintSets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("NextMarker" Core..=) Prelude.<$> nextMarker
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextMarker" Data..=) Prelude.<$> nextMarker
           ]
       )
 
-instance Core.ToPath ListSizeConstraintSets where
+instance Data.ToPath ListSizeConstraintSets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSizeConstraintSets where
+instance Data.ToQuery ListSizeConstraintSets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSizeConstraintSetsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DirectoryServiceAuthenticationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,8 +72,8 @@ instance
     Prelude.rnf directoryId
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DirectoryServiceAuthenticationRequest
   where
   toQuery DirectoryServiceAuthenticationRequest' {..} =
-    Prelude.mconcat ["DirectoryId" Core.=: directoryId]
+    Prelude.mconcat ["DirectoryId" Data.=: directoryId]

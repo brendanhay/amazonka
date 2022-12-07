@@ -110,6 +110,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -608,7 +609,7 @@ instance Core.AWSRequest CreatePredictor where
     Response.receiveJSON
       ( \s h x ->
           CreatePredictorResponse'
-            Prelude.<$> (x Core..?> "PredictorArn")
+            Prelude.<$> (x Data..?> "PredictorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -648,55 +649,55 @@ instance Prelude.NFData CreatePredictor where
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf featurizationConfig
 
-instance Core.ToHeaders CreatePredictor where
+instance Data.ToHeaders CreatePredictor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.CreatePredictor" ::
+              Data.=# ( "AmazonForecast.CreatePredictor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePredictor where
+instance Data.ToJSON CreatePredictor where
   toJSON CreatePredictor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("EncryptionConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("EncryptionConfig" Data..=)
               Prelude.<$> encryptionConfig,
-            ("PerformAutoML" Core..=) Prelude.<$> performAutoML,
-            ("PerformHPO" Core..=) Prelude.<$> performHPO,
-            ("OptimizationMetric" Core..=)
+            ("PerformAutoML" Data..=) Prelude.<$> performAutoML,
+            ("PerformHPO" Data..=) Prelude.<$> performHPO,
+            ("OptimizationMetric" Data..=)
               Prelude.<$> optimizationMetric,
-            ("EvaluationParameters" Core..=)
+            ("EvaluationParameters" Data..=)
               Prelude.<$> evaluationParameters,
-            ("ForecastTypes" Core..=) Prelude.<$> forecastTypes,
-            ("AlgorithmArn" Core..=) Prelude.<$> algorithmArn,
-            ("AutoMLOverrideStrategy" Core..=)
+            ("ForecastTypes" Data..=) Prelude.<$> forecastTypes,
+            ("AlgorithmArn" Data..=) Prelude.<$> algorithmArn,
+            ("AutoMLOverrideStrategy" Data..=)
               Prelude.<$> autoMLOverrideStrategy,
-            ("HPOConfig" Core..=) Prelude.<$> hPOConfig,
-            ("TrainingParameters" Core..=)
+            ("HPOConfig" Data..=) Prelude.<$> hPOConfig,
+            ("TrainingParameters" Data..=)
               Prelude.<$> trainingParameters,
-            Prelude.Just ("PredictorName" Core..= predictorName),
+            Prelude.Just ("PredictorName" Data..= predictorName),
             Prelude.Just
-              ("ForecastHorizon" Core..= forecastHorizon),
+              ("ForecastHorizon" Data..= forecastHorizon),
             Prelude.Just
-              ("InputDataConfig" Core..= inputDataConfig),
+              ("InputDataConfig" Data..= inputDataConfig),
             Prelude.Just
-              ("FeaturizationConfig" Core..= featurizationConfig)
+              ("FeaturizationConfig" Data..= featurizationConfig)
           ]
       )
 
-instance Core.ToPath CreatePredictor where
+instance Data.ToPath CreatePredictor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePredictor where
+instance Data.ToQuery CreatePredictor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePredictorResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,32 +136,32 @@ instance Prelude.NFData ResumeContactRecording where
       `Prelude.seq` Prelude.rnf contactId
       `Prelude.seq` Prelude.rnf initialContactId
 
-instance Core.ToHeaders ResumeContactRecording where
+instance Data.ToHeaders ResumeContactRecording where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResumeContactRecording where
+instance Data.ToJSON ResumeContactRecording where
   toJSON ResumeContactRecording' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("ContactId" Core..= contactId),
+          [ Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("ContactId" Data..= contactId),
             Prelude.Just
-              ("InitialContactId" Core..= initialContactId)
+              ("InitialContactId" Data..= initialContactId)
           ]
       )
 
-instance Core.ToPath ResumeContactRecording where
+instance Data.ToPath ResumeContactRecording where
   toPath = Prelude.const "/contact/resume-recording"
 
-instance Core.ToQuery ResumeContactRecording where
+instance Data.ToQuery ResumeContactRecording where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResumeContactRecordingResponse' smart constructor.

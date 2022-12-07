@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IpamResourceCidr where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IpamComplianceStatus
 import Amazonka.EC2.Types.IpamManagementState
@@ -259,26 +260,26 @@ ipamResourceCidr_managementState = Lens.lens (\IpamResourceCidr' {managementStat
 ipamResourceCidr_ipUsage :: Lens.Lens' IpamResourceCidr (Prelude.Maybe Prelude.Double)
 ipamResourceCidr_ipUsage = Lens.lens (\IpamResourceCidr' {ipUsage} -> ipUsage) (\s@IpamResourceCidr' {} a -> s {ipUsage = a} :: IpamResourceCidr)
 
-instance Core.FromXML IpamResourceCidr where
+instance Data.FromXML IpamResourceCidr where
   parseXML x =
     IpamResourceCidr'
-      Prelude.<$> (x Core..@? "resourceId")
-      Prelude.<*> (x Core..@? "resourceType")
-      Prelude.<*> (x Core..@? "ipamScopeId")
-      Prelude.<*> (x Core..@? "resourceOwnerId")
-      Prelude.<*> (x Core..@? "overlapStatus")
-      Prelude.<*> (x Core..@? "resourceName")
-      Prelude.<*> (x Core..@? "resourceCidr")
-      Prelude.<*> (x Core..@? "complianceStatus")
-      Prelude.<*> ( x Core..@? "resourceTagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "resourceId")
+      Prelude.<*> (x Data..@? "resourceType")
+      Prelude.<*> (x Data..@? "ipamScopeId")
+      Prelude.<*> (x Data..@? "resourceOwnerId")
+      Prelude.<*> (x Data..@? "overlapStatus")
+      Prelude.<*> (x Data..@? "resourceName")
+      Prelude.<*> (x Data..@? "resourceCidr")
+      Prelude.<*> (x Data..@? "complianceStatus")
+      Prelude.<*> ( x Data..@? "resourceTagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "resourceRegion")
-      Prelude.<*> (x Core..@? "ipamPoolId")
-      Prelude.<*> (x Core..@? "ipamId")
-      Prelude.<*> (x Core..@? "vpcId")
-      Prelude.<*> (x Core..@? "managementState")
-      Prelude.<*> (x Core..@? "ipUsage")
+      Prelude.<*> (x Data..@? "resourceRegion")
+      Prelude.<*> (x Data..@? "ipamPoolId")
+      Prelude.<*> (x Data..@? "ipamId")
+      Prelude.<*> (x Data..@? "vpcId")
+      Prelude.<*> (x Data..@? "managementState")
+      Prelude.<*> (x Data..@? "ipUsage")
 
 instance Prelude.Hashable IpamResourceCidr where
   hashWithSalt _salt IpamResourceCidr' {..} =

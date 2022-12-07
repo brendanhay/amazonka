@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -180,11 +181,11 @@ instance Core.AWSRequest ListUserTags where
       "ListUserTagsResult"
       ( \s h x ->
           ListUserTagsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -200,22 +201,22 @@ instance Prelude.NFData ListUserTags where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf userName
 
-instance Core.ToHeaders ListUserTags where
+instance Data.ToHeaders ListUserTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListUserTags where
+instance Data.ToPath ListUserTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListUserTags where
+instance Data.ToQuery ListUserTags where
   toQuery ListUserTags' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListUserTags" :: Prelude.ByteString),
+          Data.=: ("ListUserTags" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "UserName" Core.=: userName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "UserName" Data.=: userName
       ]
 
 -- | /See:/ 'newListUserTagsResponse' smart constructor.

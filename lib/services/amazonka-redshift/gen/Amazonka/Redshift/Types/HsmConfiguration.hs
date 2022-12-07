@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.HsmConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.Tag
@@ -98,16 +99,16 @@ hsmConfiguration_hsmPartitionName = Lens.lens (\HsmConfiguration' {hsmPartitionN
 hsmConfiguration_hsmConfigurationIdentifier :: Lens.Lens' HsmConfiguration (Prelude.Maybe Prelude.Text)
 hsmConfiguration_hsmConfigurationIdentifier = Lens.lens (\HsmConfiguration' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@HsmConfiguration' {} a -> s {hsmConfigurationIdentifier = a} :: HsmConfiguration)
 
-instance Core.FromXML HsmConfiguration where
+instance Data.FromXML HsmConfiguration where
   parseXML x =
     HsmConfiguration'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "HsmIpAddress")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "HsmPartitionName")
-      Prelude.<*> (x Core..@? "HsmConfigurationIdentifier")
+      Prelude.<*> (x Data..@? "HsmIpAddress")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "HsmPartitionName")
+      Prelude.<*> (x Data..@? "HsmConfigurationIdentifier")
 
 instance Prelude.Hashable HsmConfiguration where
   hashWithSalt _salt HsmConfiguration' {..} =

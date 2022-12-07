@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsEnviro
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A file that contain environment variables to pass to a container.
@@ -64,15 +65,15 @@ awsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails_value :: Lens.Le
 awsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails_value = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails' {value} -> value) (\s@AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails' {} a -> s {value = a} :: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails'
-            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -94,14 +95,14 @@ instance
       Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Type" Core..=) Prelude.<$> type',
-              ("Value" Core..=) Prelude.<$> value
+            [ ("Type" Data..=) Prelude.<$> type',
+              ("Value" Data..=) Prelude.<$> value
             ]
         )

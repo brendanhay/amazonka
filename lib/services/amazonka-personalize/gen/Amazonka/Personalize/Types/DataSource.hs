@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.DataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the data source that contains the data to upload to a dataset.
@@ -59,12 +60,12 @@ newDataSource =
 dataSource_dataLocation :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_dataLocation = Lens.lens (\DataSource' {dataLocation} -> dataLocation) (\s@DataSource' {} a -> s {dataLocation = a} :: DataSource)
 
-instance Core.FromJSON DataSource where
+instance Data.FromJSON DataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSource"
       ( \x ->
-          DataSource' Prelude.<$> (x Core..:? "dataLocation")
+          DataSource' Prelude.<$> (x Data..:? "dataLocation")
       )
 
 instance Prelude.Hashable DataSource where
@@ -74,9 +75,9 @@ instance Prelude.Hashable DataSource where
 instance Prelude.NFData DataSource where
   rnf DataSource' {..} = Prelude.rnf dataLocation
 
-instance Core.ToJSON DataSource where
+instance Data.ToJSON DataSource where
   toJSON DataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("dataLocation" Core..=) Prelude.<$> dataLocation]
+          [("dataLocation" Data..=) Prelude.<$> dataLocation]
       )

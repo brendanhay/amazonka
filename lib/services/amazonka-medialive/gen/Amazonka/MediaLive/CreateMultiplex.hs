@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,7 +141,7 @@ instance Core.AWSRequest CreateMultiplex' where
     Response.receiveJSON
       ( \s h x ->
           CreateMultiplexResponse'
-            Prelude.<$> (x Core..?> "multiplex")
+            Prelude.<$> (x Data..?> "multiplex")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,35 +161,35 @@ instance Prelude.NFData CreateMultiplex' where
       `Prelude.seq` Prelude.rnf availabilityZones
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateMultiplex' where
+instance Data.ToHeaders CreateMultiplex' where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateMultiplex' where
+instance Data.ToJSON CreateMultiplex' where
   toJSON CreateMultiplex'' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("requestId" Core..= requestId),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("requestId" Data..= requestId),
             Prelude.Just
-              ("multiplexSettings" Core..= multiplexSettings),
+              ("multiplexSettings" Data..= multiplexSettings),
             Prelude.Just
-              ("availabilityZones" Core..= availabilityZones),
-            Prelude.Just ("name" Core..= name)
+              ("availabilityZones" Data..= availabilityZones),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateMultiplex' where
+instance Data.ToPath CreateMultiplex' where
   toPath = Prelude.const "/prod/multiplexes"
 
-instance Core.ToQuery CreateMultiplex' where
+instance Data.ToQuery CreateMultiplex' where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for CreateMultiplexResponse

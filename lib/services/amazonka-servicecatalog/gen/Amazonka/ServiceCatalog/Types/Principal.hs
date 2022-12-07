@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.Principal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.PrincipalType
 
@@ -71,14 +72,14 @@ principal_principalARN = Lens.lens (\Principal' {principalARN} -> principalARN) 
 principal_principalType :: Lens.Lens' Principal (Prelude.Maybe PrincipalType)
 principal_principalType = Lens.lens (\Principal' {principalType} -> principalType) (\s@Principal' {} a -> s {principalType = a} :: Principal)
 
-instance Core.FromJSON Principal where
+instance Data.FromJSON Principal where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Principal"
       ( \x ->
           Principal'
-            Prelude.<$> (x Core..:? "PrincipalARN")
-            Prelude.<*> (x Core..:? "PrincipalType")
+            Prelude.<$> (x Data..:? "PrincipalARN")
+            Prelude.<*> (x Data..:? "PrincipalType")
       )
 
 instance Prelude.Hashable Principal where

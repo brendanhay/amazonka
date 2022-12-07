@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -499,10 +500,10 @@ instance Core.AWSRequest DescribeDBEngineVersions where
       "DescribeDBEngineVersionsResult"
       ( \s h x ->
           DescribeDBEngineVersionsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "DBEngineVersions"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "DBEngineVersions"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "DBEngineVersion")
+                            Prelude.>>= Core.may (Data.parseXMLList "DBEngineVersion")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -533,34 +534,34 @@ instance Prelude.NFData DescribeDBEngineVersions where
       `Prelude.seq` Prelude.rnf listSupportedTimezones
       `Prelude.seq` Prelude.rnf engineVersion
 
-instance Core.ToHeaders DescribeDBEngineVersions where
+instance Data.ToHeaders DescribeDBEngineVersions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBEngineVersions where
+instance Data.ToPath DescribeDBEngineVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDBEngineVersions where
+instance Data.ToQuery DescribeDBEngineVersions where
   toQuery DescribeDBEngineVersions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBEngineVersions" :: Prelude.ByteString),
+          Data.=: ("DescribeDBEngineVersions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "IncludeAll" Core.=: includeAll,
-        "MaxRecords" Core.=: maxRecords,
-        "DefaultOnly" Core.=: defaultOnly,
-        "Engine" Core.=: engine,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "IncludeAll" Data.=: includeAll,
+        "MaxRecords" Data.=: maxRecords,
+        "DefaultOnly" Data.=: defaultOnly,
+        "Engine" Data.=: engine,
         "DBParameterGroupFamily"
-          Core.=: dbParameterGroupFamily,
+          Data.=: dbParameterGroupFamily,
         "ListSupportedCharacterSets"
-          Core.=: listSupportedCharacterSets,
+          Data.=: listSupportedCharacterSets,
         "ListSupportedTimezones"
-          Core.=: listSupportedTimezones,
-        "EngineVersion" Core.=: engineVersion
+          Data.=: listSupportedTimezones,
+        "EngineVersion" Data.=: engineVersion
       ]
 
 -- | Contains the result of a successful invocation of the

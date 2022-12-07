@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.BatchGetCustomDataIdentifierSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a custom data identifier.
@@ -41,7 +42,7 @@ data BatchGetCustomDataIdentifierSummary = BatchGetCustomDataIdentifierSummary'
     id :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the custom
     -- data identifier was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -105,23 +106,23 @@ batchGetCustomDataIdentifierSummary_id = Lens.lens (\BatchGetCustomDataIdentifie
 -- | The date and time, in UTC and extended ISO 8601 format, when the custom
 -- data identifier was created.
 batchGetCustomDataIdentifierSummary_createdAt :: Lens.Lens' BatchGetCustomDataIdentifierSummary (Prelude.Maybe Prelude.UTCTime)
-batchGetCustomDataIdentifierSummary_createdAt = Lens.lens (\BatchGetCustomDataIdentifierSummary' {createdAt} -> createdAt) (\s@BatchGetCustomDataIdentifierSummary' {} a -> s {createdAt = a} :: BatchGetCustomDataIdentifierSummary) Prelude.. Lens.mapping Core._Time
+batchGetCustomDataIdentifierSummary_createdAt = Lens.lens (\BatchGetCustomDataIdentifierSummary' {createdAt} -> createdAt) (\s@BatchGetCustomDataIdentifierSummary' {} a -> s {createdAt = a} :: BatchGetCustomDataIdentifierSummary) Prelude.. Lens.mapping Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchGetCustomDataIdentifierSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetCustomDataIdentifierSummary"
       ( \x ->
           BatchGetCustomDataIdentifierSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "deleted")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "deleted")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance

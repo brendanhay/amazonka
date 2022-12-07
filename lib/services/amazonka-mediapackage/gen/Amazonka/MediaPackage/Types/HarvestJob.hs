@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.HarvestJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types.S3Destination
 import Amazonka.MediaPackage.Types.Status
 import qualified Amazonka.Prelude as Prelude
@@ -140,21 +141,21 @@ harvestJob_createdAt = Lens.lens (\HarvestJob' {createdAt} -> createdAt) (\s@Har
 harvestJob_startTime :: Lens.Lens' HarvestJob (Prelude.Maybe Prelude.Text)
 harvestJob_startTime = Lens.lens (\HarvestJob' {startTime} -> startTime) (\s@HarvestJob' {} a -> s {startTime = a} :: HarvestJob)
 
-instance Core.FromJSON HarvestJob where
+instance Data.FromJSON HarvestJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HarvestJob"
       ( \x ->
           HarvestJob'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "channelId")
-            Prelude.<*> (x Core..:? "s3Destination")
-            Prelude.<*> (x Core..:? "originEndpointId")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "channelId")
+            Prelude.<*> (x Data..:? "s3Destination")
+            Prelude.<*> (x Data..:? "originEndpointId")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "startTime")
       )
 
 instance Prelude.Hashable HarvestJob where

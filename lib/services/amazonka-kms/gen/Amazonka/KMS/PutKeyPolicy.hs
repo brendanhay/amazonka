@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -341,35 +342,35 @@ instance Prelude.NFData PutKeyPolicy where
       `Prelude.seq` Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf policy
 
-instance Core.ToHeaders PutKeyPolicy where
+instance Data.ToHeaders PutKeyPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.PutKeyPolicy" :: Prelude.ByteString),
+              Data.=# ("TrentService.PutKeyPolicy" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutKeyPolicy where
+instance Data.ToJSON PutKeyPolicy where
   toJSON PutKeyPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BypassPolicyLockoutSafetyCheck" Core..=)
+          [ ("BypassPolicyLockoutSafetyCheck" Data..=)
               Prelude.<$> bypassPolicyLockoutSafetyCheck,
-            Prelude.Just ("KeyId" Core..= keyId),
-            Prelude.Just ("PolicyName" Core..= policyName),
-            Prelude.Just ("Policy" Core..= policy)
+            Prelude.Just ("KeyId" Data..= keyId),
+            Prelude.Just ("PolicyName" Data..= policyName),
+            Prelude.Just ("Policy" Data..= policy)
           ]
       )
 
-instance Core.ToPath PutKeyPolicy where
+instance Data.ToPath PutKeyPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutKeyPolicy where
+instance Data.ToQuery PutKeyPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutKeyPolicyResponse' smart constructor.

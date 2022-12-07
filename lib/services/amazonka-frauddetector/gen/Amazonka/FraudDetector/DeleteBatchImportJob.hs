@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,32 +94,32 @@ instance Prelude.Hashable DeleteBatchImportJob where
 instance Prelude.NFData DeleteBatchImportJob where
   rnf DeleteBatchImportJob' {..} = Prelude.rnf jobId
 
-instance Core.ToHeaders DeleteBatchImportJob where
+instance Data.ToHeaders DeleteBatchImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.DeleteBatchImportJob" ::
+              Data.=# ( "AWSHawksNestServiceFacade.DeleteBatchImportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteBatchImportJob where
+instance Data.ToJSON DeleteBatchImportJob where
   toJSON DeleteBatchImportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("jobId" Core..= jobId)]
+          [Prelude.Just ("jobId" Data..= jobId)]
       )
 
-instance Core.ToPath DeleteBatchImportJob where
+instance Data.ToPath DeleteBatchImportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteBatchImportJob where
+instance Data.ToQuery DeleteBatchImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBatchImportJobResponse' smart constructor.

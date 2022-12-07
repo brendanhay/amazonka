@@ -48,6 +48,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,7 +129,7 @@ instance Core.AWSRequest GetIntegrationResponse where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetIntegrationResponse where
   hashWithSalt _salt GetIntegrationResponse' {..} =
@@ -144,27 +145,27 @@ instance Prelude.NFData GetIntegrationResponse where
       `Prelude.seq` Prelude.rnf httpMethod
       `Prelude.seq` Prelude.rnf statusCode
 
-instance Core.ToHeaders GetIntegrationResponse where
+instance Data.ToHeaders GetIntegrationResponse where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetIntegrationResponse where
+instance Data.ToPath GetIntegrationResponse where
   toPath GetIntegrationResponse' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/resources/",
-        Core.toBS resourceId,
+        Data.toBS resourceId,
         "/methods/",
-        Core.toBS httpMethod,
+        Data.toBS httpMethod,
         "/integration/responses/",
-        Core.toBS statusCode
+        Data.toBS statusCode
       ]
 
-instance Core.ToQuery GetIntegrationResponse where
+instance Data.ToQuery GetIntegrationResponse where
   toQuery = Prelude.const Prelude.mempty

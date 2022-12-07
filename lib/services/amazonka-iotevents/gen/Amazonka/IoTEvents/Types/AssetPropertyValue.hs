@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.AssetPropertyValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.AssetPropertyTimestamp
 import Amazonka.IoTEvents.Types.AssetPropertyVariant
 import qualified Amazonka.Prelude as Prelude
@@ -97,15 +98,15 @@ assetPropertyValue_timestamp = Lens.lens (\AssetPropertyValue' {timestamp} -> ti
 assetPropertyValue_value :: Lens.Lens' AssetPropertyValue (Prelude.Maybe AssetPropertyVariant)
 assetPropertyValue_value = Lens.lens (\AssetPropertyValue' {value} -> value) (\s@AssetPropertyValue' {} a -> s {value = a} :: AssetPropertyValue)
 
-instance Core.FromJSON AssetPropertyValue where
+instance Data.FromJSON AssetPropertyValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetPropertyValue"
       ( \x ->
           AssetPropertyValue'
-            Prelude.<$> (x Core..:? "quality")
-            Prelude.<*> (x Core..:? "timestamp")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "quality")
+            Prelude.<*> (x Data..:? "timestamp")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable AssetPropertyValue where
@@ -120,12 +121,12 @@ instance Prelude.NFData AssetPropertyValue where
       `Prelude.seq` Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON AssetPropertyValue where
+instance Data.ToJSON AssetPropertyValue where
   toJSON AssetPropertyValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("quality" Core..=) Prelude.<$> quality,
-            ("timestamp" Core..=) Prelude.<$> timestamp,
-            ("value" Core..=) Prelude.<$> value
+          [ ("quality" Data..=) Prelude.<$> quality,
+            ("timestamp" Data..=) Prelude.<$> timestamp,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

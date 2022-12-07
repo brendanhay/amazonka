@@ -22,6 +22,7 @@ module Amazonka.CertificateManagerPCA.Types.Validity where
 import Amazonka.CertificateManagerPCA.Types.ValidityPeriodType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Validity specifies the period of time during which a certificate is
@@ -186,11 +187,11 @@ instance Prelude.NFData Validity where
   rnf Validity' {..} =
     Prelude.rnf value `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON Validity where
+instance Data.ToJSON Validity where
   toJSON Validity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Value" Core..= value),
-            Prelude.Just ("Type" Core..= type')
+          [ Prelude.Just ("Value" Data..= value),
+            Prelude.Just ("Type" Data..= type')
           ]
       )

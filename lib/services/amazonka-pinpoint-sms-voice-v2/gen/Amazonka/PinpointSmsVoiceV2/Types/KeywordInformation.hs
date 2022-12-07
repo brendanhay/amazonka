@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.KeywordInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types.KeywordAction
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,15 +81,15 @@ keywordInformation_keywordMessage = Lens.lens (\KeywordInformation' {keywordMess
 keywordInformation_keywordAction :: Lens.Lens' KeywordInformation KeywordAction
 keywordInformation_keywordAction = Lens.lens (\KeywordInformation' {keywordAction} -> keywordAction) (\s@KeywordInformation' {} a -> s {keywordAction = a} :: KeywordInformation)
 
-instance Core.FromJSON KeywordInformation where
+instance Data.FromJSON KeywordInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeywordInformation"
       ( \x ->
           KeywordInformation'
-            Prelude.<$> (x Core..: "Keyword")
-            Prelude.<*> (x Core..: "KeywordMessage")
-            Prelude.<*> (x Core..: "KeywordAction")
+            Prelude.<$> (x Data..: "Keyword")
+            Prelude.<*> (x Data..: "KeywordMessage")
+            Prelude.<*> (x Data..: "KeywordAction")
       )
 
 instance Prelude.Hashable KeywordInformation where

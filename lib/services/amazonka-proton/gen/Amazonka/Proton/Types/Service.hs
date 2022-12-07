@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.Service where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.ServicePipeline
 import Amazonka.Proton.Types.ServiceStatus
@@ -38,23 +39,23 @@ data Service = Service'
     -- deployed in Proton.
     branchName :: Prelude.Maybe Prelude.Text,
     -- | A description of the service.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the source code repository.
     repositoryId :: Prelude.Maybe Prelude.Text,
     -- | A service status message.
-    statusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    statusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The service pipeline detail data.
     pipeline :: Prelude.Maybe ServicePipeline,
     -- | The Amazon Resource Name (ARN) of the service.
     arn :: Prelude.Text,
     -- | The time when the service was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The time when the service was last modified.
-    lastModifiedAt :: Core.POSIX,
+    lastModifiedAt :: Data.POSIX,
     -- | The name of the service.
     name :: Prelude.Text,
     -- | The formatted specification that defines the service.
-    spec :: Core.Sensitive Prelude.Text,
+    spec :: Data.Sensitive Prelude.Text,
     -- | The status of the service.
     status :: ServiceStatus,
     -- | The name of the service template.
@@ -131,10 +132,10 @@ newService
         statusMessage = Prelude.Nothing,
         pipeline = Prelude.Nothing,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastModifiedAt = Core._Time Lens.# pLastModifiedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastModifiedAt = Data._Time Lens.# pLastModifiedAt_,
         name = pName_,
-        spec = Core._Sensitive Lens.# pSpec_,
+        spec = Data._Sensitive Lens.# pSpec_,
         status = pStatus_,
         templateName = pTemplateName_
       }
@@ -153,7 +154,7 @@ service_branchName = Lens.lens (\Service' {branchName} -> branchName) (\s@Servic
 
 -- | A description of the service.
 service_description :: Lens.Lens' Service (Prelude.Maybe Prelude.Text)
-service_description = Lens.lens (\Service' {description} -> description) (\s@Service' {} a -> s {description = a} :: Service) Prelude.. Lens.mapping Core._Sensitive
+service_description = Lens.lens (\Service' {description} -> description) (\s@Service' {} a -> s {description = a} :: Service) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the source code repository.
 service_repositoryId :: Lens.Lens' Service (Prelude.Maybe Prelude.Text)
@@ -161,7 +162,7 @@ service_repositoryId = Lens.lens (\Service' {repositoryId} -> repositoryId) (\s@
 
 -- | A service status message.
 service_statusMessage :: Lens.Lens' Service (Prelude.Maybe Prelude.Text)
-service_statusMessage = Lens.lens (\Service' {statusMessage} -> statusMessage) (\s@Service' {} a -> s {statusMessage = a} :: Service) Prelude.. Lens.mapping Core._Sensitive
+service_statusMessage = Lens.lens (\Service' {statusMessage} -> statusMessage) (\s@Service' {} a -> s {statusMessage = a} :: Service) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The service pipeline detail data.
 service_pipeline :: Lens.Lens' Service (Prelude.Maybe ServicePipeline)
@@ -173,11 +174,11 @@ service_arn = Lens.lens (\Service' {arn} -> arn) (\s@Service' {} a -> s {arn = a
 
 -- | The time when the service was created.
 service_createdAt :: Lens.Lens' Service Prelude.UTCTime
-service_createdAt = Lens.lens (\Service' {createdAt} -> createdAt) (\s@Service' {} a -> s {createdAt = a} :: Service) Prelude.. Core._Time
+service_createdAt = Lens.lens (\Service' {createdAt} -> createdAt) (\s@Service' {} a -> s {createdAt = a} :: Service) Prelude.. Data._Time
 
 -- | The time when the service was last modified.
 service_lastModifiedAt :: Lens.Lens' Service Prelude.UTCTime
-service_lastModifiedAt = Lens.lens (\Service' {lastModifiedAt} -> lastModifiedAt) (\s@Service' {} a -> s {lastModifiedAt = a} :: Service) Prelude.. Core._Time
+service_lastModifiedAt = Lens.lens (\Service' {lastModifiedAt} -> lastModifiedAt) (\s@Service' {} a -> s {lastModifiedAt = a} :: Service) Prelude.. Data._Time
 
 -- | The name of the service.
 service_name :: Lens.Lens' Service Prelude.Text
@@ -185,7 +186,7 @@ service_name = Lens.lens (\Service' {name} -> name) (\s@Service' {} a -> s {name
 
 -- | The formatted specification that defines the service.
 service_spec :: Lens.Lens' Service Prelude.Text
-service_spec = Lens.lens (\Service' {spec} -> spec) (\s@Service' {} a -> s {spec = a} :: Service) Prelude.. Core._Sensitive
+service_spec = Lens.lens (\Service' {spec} -> spec) (\s@Service' {} a -> s {spec = a} :: Service) Prelude.. Data._Sensitive
 
 -- | The status of the service.
 service_status :: Lens.Lens' Service ServiceStatus
@@ -195,25 +196,25 @@ service_status = Lens.lens (\Service' {status} -> status) (\s@Service' {} a -> s
 service_templateName :: Lens.Lens' Service Prelude.Text
 service_templateName = Lens.lens (\Service' {templateName} -> templateName) (\s@Service' {} a -> s {templateName = a} :: Service)
 
-instance Core.FromJSON Service where
+instance Data.FromJSON Service where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Service"
       ( \x ->
           Service'
-            Prelude.<$> (x Core..:? "repositoryConnectionArn")
-            Prelude.<*> (x Core..:? "branchName")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "repositoryId")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "pipeline")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "lastModifiedAt")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "spec")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "templateName")
+            Prelude.<$> (x Data..:? "repositoryConnectionArn")
+            Prelude.<*> (x Data..:? "branchName")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "repositoryId")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "pipeline")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "lastModifiedAt")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "spec")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "templateName")
       )
 
 instance Prelude.Hashable Service where

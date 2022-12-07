@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,9 +111,9 @@ instance Core.AWSRequest UpdateProject where
     Response.receiveJSON
       ( \s h x ->
           UpdateProjectResponse'
-            Prelude.<$> (x Core..?> "LastModifiedDate")
+            Prelude.<$> (x Data..?> "LastModifiedDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable UpdateProject where
@@ -127,37 +128,37 @@ instance Prelude.NFData UpdateProject where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateProject where
+instance Data.ToHeaders UpdateProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateProject where
+instance Data.ToJSON UpdateProject where
   toJSON UpdateProject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Sample" Core..=) Prelude.<$> sample,
-            Prelude.Just ("RoleArn" Core..= roleArn)
+          [ ("Sample" Data..=) Prelude.<$> sample,
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath UpdateProject where
+instance Data.ToPath UpdateProject where
   toPath UpdateProject' {..} =
-    Prelude.mconcat ["/projects/", Core.toBS name]
+    Prelude.mconcat ["/projects/", Data.toBS name]
 
-instance Core.ToQuery UpdateProject where
+instance Data.ToQuery UpdateProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProjectResponse' smart constructor.
 data UpdateProjectResponse = UpdateProjectResponse'
   { -- | The date and time that the project was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the project that you updated.
@@ -194,7 +195,7 @@ newUpdateProjectResponse pHttpStatus_ pName_ =
 
 -- | The date and time that the project was last modified.
 updateProjectResponse_lastModifiedDate :: Lens.Lens' UpdateProjectResponse (Prelude.Maybe Prelude.UTCTime)
-updateProjectResponse_lastModifiedDate = Lens.lens (\UpdateProjectResponse' {lastModifiedDate} -> lastModifiedDate) (\s@UpdateProjectResponse' {} a -> s {lastModifiedDate = a} :: UpdateProjectResponse) Prelude.. Lens.mapping Core._Time
+updateProjectResponse_lastModifiedDate = Lens.lens (\UpdateProjectResponse' {lastModifiedDate} -> lastModifiedDate) (\s@UpdateProjectResponse' {} a -> s {lastModifiedDate = a} :: UpdateProjectResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updateProjectResponse_httpStatus :: Lens.Lens' UpdateProjectResponse Prelude.Int

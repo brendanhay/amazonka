@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchLookupPolicy where
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Lists all policies from the root of the Directory to the object
@@ -87,13 +88,13 @@ instance Prelude.NFData BatchLookupPolicy where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToJSON BatchLookupPolicy where
+instance Data.ToJSON BatchLookupPolicy where
   toJSON BatchLookupPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )

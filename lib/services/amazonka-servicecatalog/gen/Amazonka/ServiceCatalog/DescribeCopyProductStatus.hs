@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,9 +120,9 @@ instance Core.AWSRequest DescribeCopyProductStatus where
     Response.receiveJSON
       ( \s h x ->
           DescribeCopyProductStatusResponse'
-            Prelude.<$> (x Core..?> "TargetProductId")
-            Prelude.<*> (x Core..?> "StatusDetail")
-            Prelude.<*> (x Core..?> "CopyProductStatus")
+            Prelude.<$> (x Data..?> "TargetProductId")
+            Prelude.<*> (x Data..?> "StatusDetail")
+            Prelude.<*> (x Data..?> "CopyProductStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,36 +136,36 @@ instance Prelude.NFData DescribeCopyProductStatus where
     Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf copyProductToken
 
-instance Core.ToHeaders DescribeCopyProductStatus where
+instance Data.ToHeaders DescribeCopyProductStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DescribeCopyProductStatus" ::
+              Data.=# ( "AWS242ServiceCatalogService.DescribeCopyProductStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCopyProductStatus where
+instance Data.ToJSON DescribeCopyProductStatus where
   toJSON DescribeCopyProductStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
             Prelude.Just
-              ("CopyProductToken" Core..= copyProductToken)
+              ("CopyProductToken" Data..= copyProductToken)
           ]
       )
 
-instance Core.ToPath DescribeCopyProductStatus where
+instance Data.ToPath DescribeCopyProductStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCopyProductStatus where
+instance Data.ToQuery DescribeCopyProductStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCopyProductStatusResponse' smart constructor.

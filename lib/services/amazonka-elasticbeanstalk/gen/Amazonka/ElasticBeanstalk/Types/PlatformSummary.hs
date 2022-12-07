@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.PlatformSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.PlatformStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -177,27 +178,27 @@ platformSummary_platformBranchName = Lens.lens (\PlatformSummary' {platformBranc
 platformSummary_platformArn :: Lens.Lens' PlatformSummary (Prelude.Maybe Prelude.Text)
 platformSummary_platformArn = Lens.lens (\PlatformSummary' {platformArn} -> platformArn) (\s@PlatformSummary' {} a -> s {platformArn = a} :: PlatformSummary)
 
-instance Core.FromXML PlatformSummary where
+instance Data.FromXML PlatformSummary where
   parseXML x =
     PlatformSummary'
-      Prelude.<$> (x Core..@? "PlatformBranchLifecycleState")
-      Prelude.<*> (x Core..@? "OperatingSystemName")
-      Prelude.<*> (x Core..@? "OperatingSystemVersion")
-      Prelude.<*> ( x Core..@? "SupportedTierList"
+      Prelude.<$> (x Data..@? "PlatformBranchLifecycleState")
+      Prelude.<*> (x Data..@? "OperatingSystemName")
+      Prelude.<*> (x Data..@? "OperatingSystemVersion")
+      Prelude.<*> ( x Data..@? "SupportedTierList"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PlatformStatus")
-      Prelude.<*> (x Core..@? "PlatformCategory")
-      Prelude.<*> (x Core..@? "PlatformVersion")
-      Prelude.<*> (x Core..@? "PlatformLifecycleState")
-      Prelude.<*> (x Core..@? "PlatformOwner")
-      Prelude.<*> ( x Core..@? "SupportedAddonList"
+      Prelude.<*> (x Data..@? "PlatformStatus")
+      Prelude.<*> (x Data..@? "PlatformCategory")
+      Prelude.<*> (x Data..@? "PlatformVersion")
+      Prelude.<*> (x Data..@? "PlatformLifecycleState")
+      Prelude.<*> (x Data..@? "PlatformOwner")
+      Prelude.<*> ( x Data..@? "SupportedAddonList"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PlatformBranchName")
-      Prelude.<*> (x Core..@? "PlatformArn")
+      Prelude.<*> (x Data..@? "PlatformBranchName")
+      Prelude.<*> (x Data..@? "PlatformArn")
 
 instance Prelude.Hashable PlatformSummary where
   hashWithSalt _salt PlatformSummary' {..} =

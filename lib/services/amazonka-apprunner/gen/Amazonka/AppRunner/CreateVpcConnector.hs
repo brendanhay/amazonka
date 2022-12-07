@@ -47,6 +47,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -145,7 +146,7 @@ instance Core.AWSRequest CreateVpcConnector where
       ( \s h x ->
           CreateVpcConnectorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "VpcConnector")
+            Prelude.<*> (x Data..:> "VpcConnector")
       )
 
 instance Prelude.Hashable CreateVpcConnector where
@@ -162,38 +163,38 @@ instance Prelude.NFData CreateVpcConnector where
       `Prelude.seq` Prelude.rnf vpcConnectorName
       `Prelude.seq` Prelude.rnf subnets
 
-instance Core.ToHeaders CreateVpcConnector where
+instance Data.ToHeaders CreateVpcConnector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.CreateVpcConnector" ::
+              Data.=# ( "AppRunner.CreateVpcConnector" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateVpcConnector where
+instance Data.ToJSON CreateVpcConnector where
   toJSON CreateVpcConnector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("SecurityGroups" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("SecurityGroups" Data..=)
               Prelude.<$> securityGroups,
             Prelude.Just
-              ("VpcConnectorName" Core..= vpcConnectorName),
-            Prelude.Just ("Subnets" Core..= subnets)
+              ("VpcConnectorName" Data..= vpcConnectorName),
+            Prelude.Just ("Subnets" Data..= subnets)
           ]
       )
 
-instance Core.ToPath CreateVpcConnector where
+instance Data.ToPath CreateVpcConnector where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVpcConnector where
+instance Data.ToQuery CreateVpcConnector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateVpcConnectorResponse' smart constructor.

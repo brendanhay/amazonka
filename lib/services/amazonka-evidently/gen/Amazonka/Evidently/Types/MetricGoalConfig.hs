@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.MetricGoalConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.ChangeDirectionEnum
 import Amazonka.Evidently.Types.MetricDefinitionConfig
 import qualified Amazonka.Prelude as Prelude
@@ -88,12 +89,12 @@ instance Prelude.NFData MetricGoalConfig where
     Prelude.rnf desiredChange
       `Prelude.seq` Prelude.rnf metricDefinition
 
-instance Core.ToJSON MetricGoalConfig where
+instance Data.ToJSON MetricGoalConfig where
   toJSON MetricGoalConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("desiredChange" Core..=) Prelude.<$> desiredChange,
+          [ ("desiredChange" Data..=) Prelude.<$> desiredChange,
             Prelude.Just
-              ("metricDefinition" Core..= metricDefinition)
+              ("metricDefinition" Data..= metricDefinition)
           ]
       )

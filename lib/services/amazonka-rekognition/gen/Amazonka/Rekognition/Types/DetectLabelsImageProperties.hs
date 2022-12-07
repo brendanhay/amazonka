@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.DetectLabelsImageProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.DetectLabelsImageBackground
 import Amazonka.Rekognition.Types.DetectLabelsImageForeground
@@ -110,17 +111,17 @@ detectLabelsImageProperties_background = Lens.lens (\DetectLabelsImageProperties
 detectLabelsImageProperties_dominantColors :: Lens.Lens' DetectLabelsImageProperties (Prelude.Maybe [DominantColor])
 detectLabelsImageProperties_dominantColors = Lens.lens (\DetectLabelsImageProperties' {dominantColors} -> dominantColors) (\s@DetectLabelsImageProperties' {} a -> s {dominantColors = a} :: DetectLabelsImageProperties) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DetectLabelsImageProperties where
+instance Data.FromJSON DetectLabelsImageProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectLabelsImageProperties"
       ( \x ->
           DetectLabelsImageProperties'
-            Prelude.<$> (x Core..:? "Foreground")
-            Prelude.<*> (x Core..:? "Quality")
-            Prelude.<*> (x Core..:? "Background")
-            Prelude.<*> ( x Core..:? "DominantColors"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Foreground")
+            Prelude.<*> (x Data..:? "Quality")
+            Prelude.<*> (x Data..:? "Background")
+            Prelude.<*> ( x Data..:? "DominantColors"
+                            Data..!= Prelude.mempty
                         )
       )
 

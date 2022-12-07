@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,36 +97,36 @@ instance Prelude.NFData PutLoggingOptions where
   rnf PutLoggingOptions' {..} =
     Prelude.rnf cloudWatchLogDelivery
 
-instance Core.ToHeaders PutLoggingOptions where
+instance Data.ToHeaders PutLoggingOptions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.PutLoggingOptions" ::
+              Data.=# ( "IoTAutobahnControlPlane.PutLoggingOptions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutLoggingOptions where
+instance Data.ToJSON PutLoggingOptions where
   toJSON PutLoggingOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "cloudWatchLogDelivery"
-                  Core..= cloudWatchLogDelivery
+                  Data..= cloudWatchLogDelivery
               )
           ]
       )
 
-instance Core.ToPath PutLoggingOptions where
+instance Data.ToPath PutLoggingOptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutLoggingOptions where
+instance Data.ToQuery PutLoggingOptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutLoggingOptionsResponse' smart constructor.

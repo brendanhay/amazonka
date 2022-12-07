@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.ProresSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.ProresChromaSampling
 import Amazonka.MediaConvert.Types.ProresCodecProfile
 import Amazonka.MediaConvert.Types.ProresFramerateControl
@@ -482,25 +483,25 @@ proresSettings_parDenominator = Lens.lens (\ProresSettings' {parDenominator} -> 
 proresSettings_framerateConversionAlgorithm :: Lens.Lens' ProresSettings (Prelude.Maybe ProresFramerateConversionAlgorithm)
 proresSettings_framerateConversionAlgorithm = Lens.lens (\ProresSettings' {framerateConversionAlgorithm} -> framerateConversionAlgorithm) (\s@ProresSettings' {} a -> s {framerateConversionAlgorithm = a} :: ProresSettings)
 
-instance Core.FromJSON ProresSettings where
+instance Data.FromJSON ProresSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProresSettings"
       ( \x ->
           ProresSettings'
-            Prelude.<$> (x Core..:? "parNumerator")
-            Prelude.<*> (x Core..:? "telecine")
-            Prelude.<*> (x Core..:? "framerateDenominator")
-            Prelude.<*> (x Core..:? "scanTypeConversionMode")
-            Prelude.<*> (x Core..:? "framerateControl")
-            Prelude.<*> (x Core..:? "parControl")
-            Prelude.<*> (x Core..:? "framerateNumerator")
-            Prelude.<*> (x Core..:? "codecProfile")
-            Prelude.<*> (x Core..:? "slowPal")
-            Prelude.<*> (x Core..:? "chromaSampling")
-            Prelude.<*> (x Core..:? "interlaceMode")
-            Prelude.<*> (x Core..:? "parDenominator")
-            Prelude.<*> (x Core..:? "framerateConversionAlgorithm")
+            Prelude.<$> (x Data..:? "parNumerator")
+            Prelude.<*> (x Data..:? "telecine")
+            Prelude.<*> (x Data..:? "framerateDenominator")
+            Prelude.<*> (x Data..:? "scanTypeConversionMode")
+            Prelude.<*> (x Data..:? "framerateControl")
+            Prelude.<*> (x Data..:? "parControl")
+            Prelude.<*> (x Data..:? "framerateNumerator")
+            Prelude.<*> (x Data..:? "codecProfile")
+            Prelude.<*> (x Data..:? "slowPal")
+            Prelude.<*> (x Data..:? "chromaSampling")
+            Prelude.<*> (x Data..:? "interlaceMode")
+            Prelude.<*> (x Data..:? "parDenominator")
+            Prelude.<*> (x Data..:? "framerateConversionAlgorithm")
       )
 
 instance Prelude.Hashable ProresSettings where
@@ -535,29 +536,29 @@ instance Prelude.NFData ProresSettings where
       `Prelude.seq` Prelude.rnf parDenominator
       `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
 
-instance Core.ToJSON ProresSettings where
+instance Data.ToJSON ProresSettings where
   toJSON ProresSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("parNumerator" Core..=) Prelude.<$> parNumerator,
-            ("telecine" Core..=) Prelude.<$> telecine,
-            ("framerateDenominator" Core..=)
+          [ ("parNumerator" Data..=) Prelude.<$> parNumerator,
+            ("telecine" Data..=) Prelude.<$> telecine,
+            ("framerateDenominator" Data..=)
               Prelude.<$> framerateDenominator,
-            ("scanTypeConversionMode" Core..=)
+            ("scanTypeConversionMode" Data..=)
               Prelude.<$> scanTypeConversionMode,
-            ("framerateControl" Core..=)
+            ("framerateControl" Data..=)
               Prelude.<$> framerateControl,
-            ("parControl" Core..=) Prelude.<$> parControl,
-            ("framerateNumerator" Core..=)
+            ("parControl" Data..=) Prelude.<$> parControl,
+            ("framerateNumerator" Data..=)
               Prelude.<$> framerateNumerator,
-            ("codecProfile" Core..=) Prelude.<$> codecProfile,
-            ("slowPal" Core..=) Prelude.<$> slowPal,
-            ("chromaSampling" Core..=)
+            ("codecProfile" Data..=) Prelude.<$> codecProfile,
+            ("slowPal" Data..=) Prelude.<$> slowPal,
+            ("chromaSampling" Data..=)
               Prelude.<$> chromaSampling,
-            ("interlaceMode" Core..=) Prelude.<$> interlaceMode,
-            ("parDenominator" Core..=)
+            ("interlaceMode" Data..=) Prelude.<$> interlaceMode,
+            ("parDenominator" Data..=)
               Prelude.<$> parDenominator,
-            ("framerateConversionAlgorithm" Core..=)
+            ("framerateConversionAlgorithm" Data..=)
               Prelude.<$> framerateConversionAlgorithm
           ]
       )

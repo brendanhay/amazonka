@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,20 +134,20 @@ instance Prelude.NFData UpdateThingShadow where
       `Prelude.seq` Prelude.rnf thingName
       `Prelude.seq` Prelude.rnf payload
 
-instance Core.ToBody UpdateThingShadow where
-  toBody UpdateThingShadow' {..} = Core.toBody payload
+instance Data.ToBody UpdateThingShadow where
+  toBody UpdateThingShadow' {..} = Data.toBody payload
 
-instance Core.ToHeaders UpdateThingShadow where
+instance Data.ToHeaders UpdateThingShadow where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateThingShadow where
+instance Data.ToPath UpdateThingShadow where
   toPath UpdateThingShadow' {..} =
     Prelude.mconcat
-      ["/things/", Core.toBS thingName, "/shadow"]
+      ["/things/", Data.toBS thingName, "/shadow"]
 
-instance Core.ToQuery UpdateThingShadow where
+instance Data.ToQuery UpdateThingShadow where
   toQuery UpdateThingShadow' {..} =
-    Prelude.mconcat ["name" Core.=: shadowName]
+    Prelude.mconcat ["name" Data.=: shadowName]
 
 -- | The output from the UpdateThingShadow operation.
 --

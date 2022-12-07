@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.OrganizationDataSourceConfigurations where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.OrganizationKubernetesConfiguration
 import Amazonka.GuardDuty.Types.OrganizationMalwareProtectionConfiguration
 import Amazonka.GuardDuty.Types.OrganizationS3LogsConfiguration
@@ -106,15 +107,15 @@ instance
       `Prelude.seq` Prelude.rnf kubernetes
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     OrganizationDataSourceConfigurations
   where
   toJSON OrganizationDataSourceConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("malwareProtection" Core..=)
+          [ ("malwareProtection" Data..=)
               Prelude.<$> malwareProtection,
-            ("s3Logs" Core..=) Prelude.<$> s3Logs,
-            ("kubernetes" Core..=) Prelude.<$> kubernetes
+            ("s3Logs" Data..=) Prelude.<$> s3Logs,
+            ("kubernetes" Data..=) Prelude.<$> kubernetes
           ]
       )

@@ -53,6 +53,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -173,13 +174,13 @@ instance Core.AWSRequest PostCommentForComparedCommit where
     Response.receiveJSON
       ( \s h x ->
           PostCommentForComparedCommitResponse'
-            Prelude.<$> (x Core..?> "beforeBlobId")
-            Prelude.<*> (x Core..?> "afterCommitId")
-            Prelude.<*> (x Core..?> "repositoryName")
-            Prelude.<*> (x Core..?> "beforeCommitId")
-            Prelude.<*> (x Core..?> "location")
-            Prelude.<*> (x Core..?> "comment")
-            Prelude.<*> (x Core..?> "afterBlobId")
+            Prelude.<$> (x Data..?> "beforeBlobId")
+            Prelude.<*> (x Data..?> "afterCommitId")
+            Prelude.<*> (x Data..?> "repositoryName")
+            Prelude.<*> (x Data..?> "beforeCommitId")
+            Prelude.<*> (x Data..?> "location")
+            Prelude.<*> (x Data..?> "comment")
+            Prelude.<*> (x Data..?> "afterBlobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,41 +205,41 @@ instance Prelude.NFData PostCommentForComparedCommit where
       `Prelude.seq` Prelude.rnf afterCommitId
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToHeaders PostCommentForComparedCommit where
+instance Data.ToHeaders PostCommentForComparedCommit where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.PostCommentForComparedCommit" ::
+              Data.=# ( "CodeCommit_20150413.PostCommentForComparedCommit" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PostCommentForComparedCommit where
+instance Data.ToJSON PostCommentForComparedCommit where
   toJSON PostCommentForComparedCommit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientRequestToken" Core..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("beforeCommitId" Core..=)
+            ("beforeCommitId" Data..=)
               Prelude.<$> beforeCommitId,
-            ("location" Core..=) Prelude.<$> location,
+            ("location" Data..=) Prelude.<$> location,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("afterCommitId" Core..= afterCommitId),
-            Prelude.Just ("content" Core..= content)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("afterCommitId" Data..= afterCommitId),
+            Prelude.Just ("content" Data..= content)
           ]
       )
 
-instance Core.ToPath PostCommentForComparedCommit where
+instance Data.ToPath PostCommentForComparedCommit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PostCommentForComparedCommit where
+instance Data.ToQuery PostCommentForComparedCommit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPostCommentForComparedCommitResponse' smart constructor.

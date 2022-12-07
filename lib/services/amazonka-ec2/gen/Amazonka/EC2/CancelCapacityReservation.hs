@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ instance Core.AWSRequest CancelCapacityReservation where
     Response.receiveXML
       ( \s h x ->
           CancelCapacityReservationResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,22 +128,22 @@ instance Prelude.NFData CancelCapacityReservation where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf capacityReservationId
 
-instance Core.ToHeaders CancelCapacityReservation where
+instance Data.ToHeaders CancelCapacityReservation where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CancelCapacityReservation where
+instance Data.ToPath CancelCapacityReservation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelCapacityReservation where
+instance Data.ToQuery CancelCapacityReservation where
   toQuery CancelCapacityReservation' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CancelCapacityReservation" :: Prelude.ByteString),
+          Data.=: ("CancelCapacityReservation" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
         "CapacityReservationId"
-          Core.=: capacityReservationId
+          Data.=: capacityReservationId
       ]
 
 -- | /See:/ 'newCancelCapacityReservationResponse' smart constructor.

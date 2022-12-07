@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,16 +107,16 @@ instance Core.AWSRequest GetWirelessDevice where
     Response.receiveJSON
       ( \s h x ->
           GetWirelessDeviceResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "ThingName")
-            Prelude.<*> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "ThingArn")
-            Prelude.<*> (x Core..?> "LoRaWAN")
-            Prelude.<*> (x Core..?> "DestinationName")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "Sidewalk")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "ThingName")
+            Prelude.<*> (x Data..?> "Type")
+            Prelude.<*> (x Data..?> "ThingArn")
+            Prelude.<*> (x Data..?> "LoRaWAN")
+            Prelude.<*> (x Data..?> "DestinationName")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "Sidewalk")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,18 +130,18 @@ instance Prelude.NFData GetWirelessDevice where
     Prelude.rnf identifier
       `Prelude.seq` Prelude.rnf identifierType
 
-instance Core.ToHeaders GetWirelessDevice where
+instance Data.ToHeaders GetWirelessDevice where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetWirelessDevice where
+instance Data.ToPath GetWirelessDevice where
   toPath GetWirelessDevice' {..} =
     Prelude.mconcat
-      ["/wireless-devices/", Core.toBS identifier]
+      ["/wireless-devices/", Data.toBS identifier]
 
-instance Core.ToQuery GetWirelessDevice where
+instance Data.ToQuery GetWirelessDevice where
   toQuery GetWirelessDevice' {..} =
     Prelude.mconcat
-      ["identifierType" Core.=: identifierType]
+      ["identifierType" Data.=: identifierType]
 
 -- | /See:/ 'newGetWirelessDeviceResponse' smart constructor.
 data GetWirelessDeviceResponse = GetWirelessDeviceResponse'

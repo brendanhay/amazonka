@@ -45,6 +45,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,23 +97,23 @@ instance Prelude.Hashable DeleteLifecyclePolicy where
 instance Prelude.NFData DeleteLifecyclePolicy where
   rnf DeleteLifecyclePolicy' {..} = Prelude.rnf policyId
 
-instance Core.ToHeaders DeleteLifecyclePolicy where
+instance Data.ToHeaders DeleteLifecyclePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteLifecyclePolicy where
+instance Data.ToPath DeleteLifecyclePolicy where
   toPath DeleteLifecyclePolicy' {..} =
     Prelude.mconcat
-      ["/policies/", Core.toBS policyId, "/"]
+      ["/policies/", Data.toBS policyId, "/"]
 
-instance Core.ToQuery DeleteLifecyclePolicy where
+instance Data.ToQuery DeleteLifecyclePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLifecyclePolicyResponse' smart constructor.

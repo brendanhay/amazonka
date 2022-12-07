@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.GpuDeviceInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.GpuDeviceMemoryInfo
 import qualified Amazonka.Prelude as Prelude
@@ -81,13 +82,13 @@ gpuDeviceInfo_count = Lens.lens (\GpuDeviceInfo' {count} -> count) (\s@GpuDevice
 gpuDeviceInfo_manufacturer :: Lens.Lens' GpuDeviceInfo (Prelude.Maybe Prelude.Text)
 gpuDeviceInfo_manufacturer = Lens.lens (\GpuDeviceInfo' {manufacturer} -> manufacturer) (\s@GpuDeviceInfo' {} a -> s {manufacturer = a} :: GpuDeviceInfo)
 
-instance Core.FromXML GpuDeviceInfo where
+instance Data.FromXML GpuDeviceInfo where
   parseXML x =
     GpuDeviceInfo'
-      Prelude.<$> (x Core..@? "memoryInfo")
-      Prelude.<*> (x Core..@? "name")
-      Prelude.<*> (x Core..@? "count")
-      Prelude.<*> (x Core..@? "manufacturer")
+      Prelude.<$> (x Data..@? "memoryInfo")
+      Prelude.<*> (x Data..@? "name")
+      Prelude.<*> (x Data..@? "count")
+      Prelude.<*> (x Data..@? "manufacturer")
 
 instance Prelude.Hashable GpuDeviceInfo where
   hashWithSalt _salt GpuDeviceInfo' {..} =

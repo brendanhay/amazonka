@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SalesforceKnowledgeArticleConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.SalesforceCustomKnowledgeArticleTypeConfiguration
 import Amazonka.Kendra.Types.SalesforceKnowledgeArticleState
 import Amazonka.Kendra.Types.SalesforceStandardKnowledgeArticleTypeConfiguration
@@ -87,21 +88,21 @@ salesforceKnowledgeArticleConfiguration_includedStates :: Lens.Lens' SalesforceK
 salesforceKnowledgeArticleConfiguration_includedStates = Lens.lens (\SalesforceKnowledgeArticleConfiguration' {includedStates} -> includedStates) (\s@SalesforceKnowledgeArticleConfiguration' {} a -> s {includedStates = a} :: SalesforceKnowledgeArticleConfiguration) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SalesforceKnowledgeArticleConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SalesforceKnowledgeArticleConfiguration"
       ( \x ->
           SalesforceKnowledgeArticleConfiguration'
             Prelude.<$> ( x
-                            Core..:? "StandardKnowledgeArticleTypeConfiguration"
+                            Data..:? "StandardKnowledgeArticleTypeConfiguration"
                         )
             Prelude.<*> ( x
-                            Core..:? "CustomKnowledgeArticleTypeConfigurations"
+                            Data..:? "CustomKnowledgeArticleTypeConfigurations"
                         )
-            Prelude.<*> (x Core..: "IncludedStates")
+            Prelude.<*> (x Data..: "IncludedStates")
       )
 
 instance
@@ -127,19 +128,19 @@ instance
       `Prelude.seq` Prelude.rnf includedStates
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SalesforceKnowledgeArticleConfiguration
   where
   toJSON SalesforceKnowledgeArticleConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ ( "StandardKnowledgeArticleTypeConfiguration"
-                Core..=
+                Data..=
             )
               Prelude.<$> standardKnowledgeArticleTypeConfiguration,
-            ("CustomKnowledgeArticleTypeConfigurations" Core..=)
+            ("CustomKnowledgeArticleTypeConfigurations" Data..=)
               Prelude.<$> customKnowledgeArticleTypeConfigurations,
             Prelude.Just
-              ("IncludedStates" Core..= includedStates)
+              ("IncludedStates" Data..= includedStates)
           ]
       )

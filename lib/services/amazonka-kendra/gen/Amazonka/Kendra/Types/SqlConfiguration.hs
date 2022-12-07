@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SqlConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.QueryIdentifiersEnclosingOption
 import qualified Amazonka.Prelude as Prelude
 
@@ -93,13 +94,13 @@ newSqlConfiguration =
 sqlConfiguration_queryIdentifiersEnclosingOption :: Lens.Lens' SqlConfiguration (Prelude.Maybe QueryIdentifiersEnclosingOption)
 sqlConfiguration_queryIdentifiersEnclosingOption = Lens.lens (\SqlConfiguration' {queryIdentifiersEnclosingOption} -> queryIdentifiersEnclosingOption) (\s@SqlConfiguration' {} a -> s {queryIdentifiersEnclosingOption = a} :: SqlConfiguration)
 
-instance Core.FromJSON SqlConfiguration where
+instance Data.FromJSON SqlConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SqlConfiguration"
       ( \x ->
           SqlConfiguration'
-            Prelude.<$> (x Core..:? "QueryIdentifiersEnclosingOption")
+            Prelude.<$> (x Data..:? "QueryIdentifiersEnclosingOption")
       )
 
 instance Prelude.Hashable SqlConfiguration where
@@ -111,11 +112,11 @@ instance Prelude.NFData SqlConfiguration where
   rnf SqlConfiguration' {..} =
     Prelude.rnf queryIdentifiersEnclosingOption
 
-instance Core.ToJSON SqlConfiguration where
+instance Data.ToJSON SqlConfiguration where
   toJSON SqlConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("QueryIdentifiersEnclosingOption" Core..=)
+          [ ("QueryIdentifiersEnclosingOption" Data..=)
               Prelude.<$> queryIdentifiersEnclosingOption
           ]
       )

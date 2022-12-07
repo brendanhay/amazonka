@@ -65,6 +65,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -293,14 +294,14 @@ instance Core.AWSRequest GetCostAndUsageWithResources where
     Response.receiveJSON
       ( \s h x ->
           GetCostAndUsageWithResourcesResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> ( x Core..?> "DimensionValueAttributes"
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> ( x Data..?> "DimensionValueAttributes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "GroupDefinitions"
+            Prelude.<*> ( x Data..?> "GroupDefinitions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ResultsByTime" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ResultsByTime" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -325,38 +326,38 @@ instance Prelude.NFData GetCostAndUsageWithResources where
       `Prelude.seq` Prelude.rnf granularity
       `Prelude.seq` Prelude.rnf filter'
 
-instance Core.ToHeaders GetCostAndUsageWithResources where
+instance Data.ToHeaders GetCostAndUsageWithResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.GetCostAndUsageWithResources" ::
+              Data.=# ( "AWSInsightsIndexService.GetCostAndUsageWithResources" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCostAndUsageWithResources where
+instance Data.ToJSON GetCostAndUsageWithResources where
   toJSON GetCostAndUsageWithResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("GroupBy" Core..=) Prelude.<$> groupBy,
-            ("Metrics" Core..=) Prelude.<$> metrics,
-            Prelude.Just ("TimePeriod" Core..= timePeriod),
-            Prelude.Just ("Granularity" Core..= granularity),
-            Prelude.Just ("Filter" Core..= filter')
+          [ ("NextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("GroupBy" Data..=) Prelude.<$> groupBy,
+            ("Metrics" Data..=) Prelude.<$> metrics,
+            Prelude.Just ("TimePeriod" Data..= timePeriod),
+            Prelude.Just ("Granularity" Data..= granularity),
+            Prelude.Just ("Filter" Data..= filter')
           ]
       )
 
-instance Core.ToPath GetCostAndUsageWithResources where
+instance Data.ToPath GetCostAndUsageWithResources where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCostAndUsageWithResources where
+instance Data.ToQuery GetCostAndUsageWithResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCostAndUsageWithResourcesResponse' smart constructor.

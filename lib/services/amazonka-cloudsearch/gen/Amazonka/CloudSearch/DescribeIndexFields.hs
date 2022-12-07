@@ -50,6 +50,7 @@ where
 import Amazonka.CloudSearch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,8 +126,8 @@ instance Core.AWSRequest DescribeIndexFields where
       ( \s h x ->
           DescribeIndexFieldsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "IndexFields" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "IndexFields" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -142,24 +143,24 @@ instance Prelude.NFData DescribeIndexFields where
       `Prelude.seq` Prelude.rnf fieldNames
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders DescribeIndexFields where
+instance Data.ToHeaders DescribeIndexFields where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeIndexFields where
+instance Data.ToPath DescribeIndexFields where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeIndexFields where
+instance Data.ToQuery DescribeIndexFields where
   toQuery DescribeIndexFields' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeIndexFields" :: Prelude.ByteString),
+          Data.=: ("DescribeIndexFields" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2013-01-01" :: Prelude.ByteString),
-        "Deployed" Core.=: deployed,
+          Data.=: ("2013-01-01" :: Prelude.ByteString),
+        "Deployed" Data.=: deployed,
         "FieldNames"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> fieldNames),
-        "DomainName" Core.=: domainName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> fieldNames),
+        "DomainName" Data.=: domainName
       ]
 
 -- | The result of a @DescribeIndexFields@ request. Contains the index fields

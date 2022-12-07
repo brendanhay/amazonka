@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SalesforceStandardObjectAttachmentConfiguration whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,16 +70,16 @@ salesforceStandardObjectAttachmentConfiguration_documentTitleFieldName :: Lens.L
 salesforceStandardObjectAttachmentConfiguration_documentTitleFieldName = Lens.lens (\SalesforceStandardObjectAttachmentConfiguration' {documentTitleFieldName} -> documentTitleFieldName) (\s@SalesforceStandardObjectAttachmentConfiguration' {} a -> s {documentTitleFieldName = a} :: SalesforceStandardObjectAttachmentConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SalesforceStandardObjectAttachmentConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SalesforceStandardObjectAttachmentConfiguration"
       ( \x ->
           SalesforceStandardObjectAttachmentConfiguration'
-            Prelude.<$> (x Core..:? "FieldMappings")
-              Prelude.<*> (x Core..:? "DocumentTitleFieldName")
+            Prelude.<$> (x Data..:? "FieldMappings")
+              Prelude.<*> (x Data..:? "DocumentTitleFieldName")
       )
 
 instance
@@ -101,15 +102,15 @@ instance
         `Prelude.seq` Prelude.rnf documentTitleFieldName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SalesforceStandardObjectAttachmentConfiguration
   where
   toJSON
     SalesforceStandardObjectAttachmentConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("FieldMappings" Core..=) Prelude.<$> fieldMappings,
-              ("DocumentTitleFieldName" Core..=)
+            [ ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
+              ("DocumentTitleFieldName" Data..=)
                 Prelude.<$> documentTitleFieldName
             ]
         )

@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.CookieNames
 import Amazonka.CloudFront.Types.ItemSelection
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This field is deprecated. We recommend that you use a cache policy or an
@@ -218,11 +219,11 @@ cookiePreference_whitelistedNames = Lens.lens (\CookiePreference' {whitelistedNa
 cookiePreference_forward :: Lens.Lens' CookiePreference ItemSelection
 cookiePreference_forward = Lens.lens (\CookiePreference' {forward} -> forward) (\s@CookiePreference' {} a -> s {forward = a} :: CookiePreference)
 
-instance Core.FromXML CookiePreference where
+instance Data.FromXML CookiePreference where
   parseXML x =
     CookiePreference'
-      Prelude.<$> (x Core..@? "WhitelistedNames")
-      Prelude.<*> (x Core..@ "Forward")
+      Prelude.<$> (x Data..@? "WhitelistedNames")
+      Prelude.<*> (x Data..@ "Forward")
 
 instance Prelude.Hashable CookiePreference where
   hashWithSalt _salt CookiePreference' {..} =
@@ -234,9 +235,9 @@ instance Prelude.NFData CookiePreference where
     Prelude.rnf whitelistedNames
       `Prelude.seq` Prelude.rnf forward
 
-instance Core.ToXML CookiePreference where
+instance Data.ToXML CookiePreference where
   toXML CookiePreference' {..} =
     Prelude.mconcat
-      [ "WhitelistedNames" Core.@= whitelistedNames,
-        "Forward" Core.@= forward
+      [ "WhitelistedNames" Data.@= whitelistedNames,
+        "Forward" Data.@= forward
       ]

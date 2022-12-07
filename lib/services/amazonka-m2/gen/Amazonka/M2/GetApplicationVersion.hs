@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,14 +107,14 @@ instance Core.AWSRequest GetApplicationVersion where
     Response.receiveJSON
       ( \s h x ->
           GetApplicationVersionResponse'
-            Prelude.<$> (x Core..?> "statusReason")
-            Prelude.<*> (x Core..?> "description")
+            Prelude.<$> (x Data..?> "statusReason")
+            Prelude.<*> (x Data..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "applicationVersion")
-            Prelude.<*> (x Core..:> "creationTime")
-            Prelude.<*> (x Core..:> "definitionContent")
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Data..:> "applicationVersion")
+            Prelude.<*> (x Data..:> "creationTime")
+            Prelude.<*> (x Data..:> "definitionContent")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance Prelude.Hashable GetApplicationVersion where
@@ -126,27 +127,27 @@ instance Prelude.NFData GetApplicationVersion where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf applicationVersion
 
-instance Core.ToHeaders GetApplicationVersion where
+instance Data.ToHeaders GetApplicationVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetApplicationVersion where
+instance Data.ToPath GetApplicationVersion where
   toPath GetApplicationVersion' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/versions/",
-        Core.toBS applicationVersion
+        Data.toBS applicationVersion
       ]
 
-instance Core.ToQuery GetApplicationVersion where
+instance Data.ToQuery GetApplicationVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetApplicationVersionResponse' smart constructor.
@@ -160,7 +161,7 @@ data GetApplicationVersionResponse = GetApplicationVersionResponse'
     -- | The specific version of the application.
     applicationVersion :: Prelude.Natural,
     -- | The timestamp when the application version was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The content of the application definition. This is a JSON object that
     -- contains the resource configuration\/definitions that identify an
     -- application.
@@ -225,7 +226,7 @@ newGetApplicationVersionResponse
         httpStatus = pHttpStatus_,
         applicationVersion = pApplicationVersion_,
         creationTime =
-          Core._Time Lens.# pCreationTime_,
+          Data._Time Lens.# pCreationTime_,
         definitionContent = pDefinitionContent_,
         name = pName_,
         status = pStatus_
@@ -249,7 +250,7 @@ getApplicationVersionResponse_applicationVersion = Lens.lens (\GetApplicationVer
 
 -- | The timestamp when the application version was created.
 getApplicationVersionResponse_creationTime :: Lens.Lens' GetApplicationVersionResponse Prelude.UTCTime
-getApplicationVersionResponse_creationTime = Lens.lens (\GetApplicationVersionResponse' {creationTime} -> creationTime) (\s@GetApplicationVersionResponse' {} a -> s {creationTime = a} :: GetApplicationVersionResponse) Prelude.. Core._Time
+getApplicationVersionResponse_creationTime = Lens.lens (\GetApplicationVersionResponse' {creationTime} -> creationTime) (\s@GetApplicationVersionResponse' {} a -> s {creationTime = a} :: GetApplicationVersionResponse) Prelude.. Data._Time
 
 -- | The content of the application definition. This is a JSON object that
 -- contains the resource configuration\/definitions that identify an

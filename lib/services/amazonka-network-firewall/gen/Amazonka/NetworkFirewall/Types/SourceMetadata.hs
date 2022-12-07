@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.SourceMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | High-level information about the managed rule group that your own rule
@@ -77,14 +78,14 @@ sourceMetadata_sourceArn = Lens.lens (\SourceMetadata' {sourceArn} -> sourceArn)
 sourceMetadata_sourceUpdateToken :: Lens.Lens' SourceMetadata (Prelude.Maybe Prelude.Text)
 sourceMetadata_sourceUpdateToken = Lens.lens (\SourceMetadata' {sourceUpdateToken} -> sourceUpdateToken) (\s@SourceMetadata' {} a -> s {sourceUpdateToken = a} :: SourceMetadata)
 
-instance Core.FromJSON SourceMetadata where
+instance Data.FromJSON SourceMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceMetadata"
       ( \x ->
           SourceMetadata'
-            Prelude.<$> (x Core..:? "SourceArn")
-            Prelude.<*> (x Core..:? "SourceUpdateToken")
+            Prelude.<$> (x Data..:? "SourceArn")
+            Prelude.<*> (x Data..:? "SourceUpdateToken")
       )
 
 instance Prelude.Hashable SourceMetadata where
@@ -97,12 +98,12 @@ instance Prelude.NFData SourceMetadata where
     Prelude.rnf sourceArn
       `Prelude.seq` Prelude.rnf sourceUpdateToken
 
-instance Core.ToJSON SourceMetadata where
+instance Data.ToJSON SourceMetadata where
   toJSON SourceMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceArn" Core..=) Prelude.<$> sourceArn,
-            ("SourceUpdateToken" Core..=)
+          [ ("SourceArn" Data..=) Prelude.<$> sourceArn,
+            ("SourceUpdateToken" Data..=)
               Prelude.<$> sourceUpdateToken
           ]
       )

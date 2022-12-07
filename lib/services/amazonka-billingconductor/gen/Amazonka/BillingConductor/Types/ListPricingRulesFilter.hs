@@ -21,6 +21,7 @@ module Amazonka.BillingConductor.Types.ListPricingRulesFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The filter that specifies criteria that the pricing rules returned by
@@ -61,9 +62,9 @@ instance Prelude.Hashable ListPricingRulesFilter where
 instance Prelude.NFData ListPricingRulesFilter where
   rnf ListPricingRulesFilter' {..} = Prelude.rnf arns
 
-instance Core.ToJSON ListPricingRulesFilter where
+instance Data.ToJSON ListPricingRulesFilter where
   toJSON ListPricingRulesFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Arns" Core..=) Prelude.<$> arns]
+          [("Arns" Data..=) Prelude.<$> arns]
       )

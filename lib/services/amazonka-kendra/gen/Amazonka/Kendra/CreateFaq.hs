@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -224,7 +225,7 @@ instance Core.AWSRequest CreateFaq where
     Response.receiveJSON
       ( \s h x ->
           CreateFaqResponse'
-            Prelude.<$> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -252,41 +253,41 @@ instance Prelude.NFData CreateFaq where
       `Prelude.seq` Prelude.rnf s3Path
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateFaq where
+instance Data.ToHeaders CreateFaq where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.CreateFaq" ::
+              Data.=# ( "AWSKendraFrontendService.CreateFaq" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFaq where
+instance Data.ToJSON CreateFaq where
   toJSON CreateFaq' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Description" Core..=) Prelude.<$> description,
-            ("LanguageCode" Core..=) Prelude.<$> languageCode,
-            ("FileFormat" Core..=) Prelude.<$> fileFormat,
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("S3Path" Core..= s3Path),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Description" Data..=) Prelude.<$> description,
+            ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            ("FileFormat" Data..=) Prelude.<$> fileFormat,
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("S3Path" Data..= s3Path),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateFaq where
+instance Data.ToPath CreateFaq where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFaq where
+instance Data.ToQuery CreateFaq where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFaqResponse' smart constructor.

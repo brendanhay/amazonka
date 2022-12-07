@@ -22,6 +22,7 @@ module Amazonka.ConnectContactLens.Types.CategoryDetails where
 import Amazonka.ConnectContactLens.Types.PointOfInterest
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the category rule that was matched.
@@ -51,14 +52,14 @@ newCategoryDetails =
 categoryDetails_pointsOfInterest :: Lens.Lens' CategoryDetails [PointOfInterest]
 categoryDetails_pointsOfInterest = Lens.lens (\CategoryDetails' {pointsOfInterest} -> pointsOfInterest) (\s@CategoryDetails' {} a -> s {pointsOfInterest = a} :: CategoryDetails) Prelude.. Lens.coerced
 
-instance Core.FromJSON CategoryDetails where
+instance Data.FromJSON CategoryDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CategoryDetails"
       ( \x ->
           CategoryDetails'
-            Prelude.<$> ( x Core..:? "PointsOfInterest"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "PointsOfInterest"
+                            Data..!= Prelude.mempty
                         )
       )
 

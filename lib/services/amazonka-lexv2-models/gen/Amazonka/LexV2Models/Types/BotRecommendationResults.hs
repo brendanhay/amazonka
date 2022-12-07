@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotRecommendationResults where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.BotRecommendationResultStatistics
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,15 +75,15 @@ botRecommendationResults_statistics = Lens.lens (\BotRecommendationResults' {sta
 botRecommendationResults_associatedTranscriptsUrl :: Lens.Lens' BotRecommendationResults (Prelude.Maybe Prelude.Text)
 botRecommendationResults_associatedTranscriptsUrl = Lens.lens (\BotRecommendationResults' {associatedTranscriptsUrl} -> associatedTranscriptsUrl) (\s@BotRecommendationResults' {} a -> s {associatedTranscriptsUrl = a} :: BotRecommendationResults)
 
-instance Core.FromJSON BotRecommendationResults where
+instance Data.FromJSON BotRecommendationResults where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotRecommendationResults"
       ( \x ->
           BotRecommendationResults'
-            Prelude.<$> (x Core..:? "botLocaleExportUrl")
-            Prelude.<*> (x Core..:? "statistics")
-            Prelude.<*> (x Core..:? "associatedTranscriptsUrl")
+            Prelude.<$> (x Data..:? "botLocaleExportUrl")
+            Prelude.<*> (x Data..:? "statistics")
+            Prelude.<*> (x Data..:? "associatedTranscriptsUrl")
       )
 
 instance Prelude.Hashable BotRecommendationResults where

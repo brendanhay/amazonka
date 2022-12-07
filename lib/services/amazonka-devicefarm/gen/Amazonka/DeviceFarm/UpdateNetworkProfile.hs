@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -232,7 +233,7 @@ instance Core.AWSRequest UpdateNetworkProfile where
     Response.receiveJSON
       ( \s h x ->
           UpdateNetworkProfileResponse'
-            Prelude.<$> (x Core..?> "networkProfile")
+            Prelude.<$> (x Data..?> "networkProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -266,51 +267,51 @@ instance Prelude.NFData UpdateNetworkProfile where
       `Prelude.seq` Prelude.rnf downlinkJitterMs
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders UpdateNetworkProfile where
+instance Data.ToHeaders UpdateNetworkProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.UpdateNetworkProfile" ::
+              Data.=# ( "DeviceFarm_20150623.UpdateNetworkProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNetworkProfile where
+instance Data.ToJSON UpdateNetworkProfile where
   toJSON UpdateNetworkProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("uplinkDelayMs" Core..=) Prelude.<$> uplinkDelayMs,
-            ("name" Core..=) Prelude.<$> name,
-            ("type" Core..=) Prelude.<$> type',
-            ("uplinkJitterMs" Core..=)
+          [ ("uplinkDelayMs" Data..=) Prelude.<$> uplinkDelayMs,
+            ("name" Data..=) Prelude.<$> name,
+            ("type" Data..=) Prelude.<$> type',
+            ("uplinkJitterMs" Data..=)
               Prelude.<$> uplinkJitterMs,
-            ("downlinkBandwidthBits" Core..=)
+            ("downlinkBandwidthBits" Data..=)
               Prelude.<$> downlinkBandwidthBits,
-            ("uplinkLossPercent" Core..=)
+            ("uplinkLossPercent" Data..=)
               Prelude.<$> uplinkLossPercent,
-            ("uplinkBandwidthBits" Core..=)
+            ("uplinkBandwidthBits" Data..=)
               Prelude.<$> uplinkBandwidthBits,
-            ("description" Core..=) Prelude.<$> description,
-            ("downlinkLossPercent" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("downlinkLossPercent" Data..=)
               Prelude.<$> downlinkLossPercent,
-            ("downlinkDelayMs" Core..=)
+            ("downlinkDelayMs" Data..=)
               Prelude.<$> downlinkDelayMs,
-            ("downlinkJitterMs" Core..=)
+            ("downlinkJitterMs" Data..=)
               Prelude.<$> downlinkJitterMs,
-            Prelude.Just ("arn" Core..= arn)
+            Prelude.Just ("arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath UpdateNetworkProfile where
+instance Data.ToPath UpdateNetworkProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateNetworkProfile where
+instance Data.ToQuery UpdateNetworkProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateNetworkProfileResponse' smart constructor.

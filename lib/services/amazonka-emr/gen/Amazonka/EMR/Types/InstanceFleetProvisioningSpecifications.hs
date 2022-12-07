@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceFleetProvisioningSpecifications where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.OnDemandProvisioningSpecification
 import Amazonka.EMR.Types.SpotProvisioningSpecification
 import qualified Amazonka.Prelude as Prelude
@@ -94,16 +95,16 @@ instanceFleetProvisioningSpecifications_onDemandSpecification :: Lens.Lens' Inst
 instanceFleetProvisioningSpecifications_onDemandSpecification = Lens.lens (\InstanceFleetProvisioningSpecifications' {onDemandSpecification} -> onDemandSpecification) (\s@InstanceFleetProvisioningSpecifications' {} a -> s {onDemandSpecification = a} :: InstanceFleetProvisioningSpecifications)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     InstanceFleetProvisioningSpecifications
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceFleetProvisioningSpecifications"
       ( \x ->
           InstanceFleetProvisioningSpecifications'
-            Prelude.<$> (x Core..:? "SpotSpecification")
-            Prelude.<*> (x Core..:? "OnDemandSpecification")
+            Prelude.<$> (x Data..:? "SpotSpecification")
+            Prelude.<*> (x Data..:? "OnDemandSpecification")
       )
 
 instance
@@ -125,15 +126,15 @@ instance
       `Prelude.seq` Prelude.rnf onDemandSpecification
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     InstanceFleetProvisioningSpecifications
   where
   toJSON InstanceFleetProvisioningSpecifications' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SpotSpecification" Core..=)
+          [ ("SpotSpecification" Data..=)
               Prelude.<$> spotSpecification,
-            ("OnDemandSpecification" Core..=)
+            ("OnDemandSpecification" Data..=)
               Prelude.<$> onDemandSpecification
           ]
       )

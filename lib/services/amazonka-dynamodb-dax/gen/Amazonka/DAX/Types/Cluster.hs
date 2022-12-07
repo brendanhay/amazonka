@@ -28,6 +28,7 @@ import Amazonka.DAX.Types.NotificationConfiguration
 import Amazonka.DAX.Types.ParameterGroupStatus
 import Amazonka.DAX.Types.SSEDescription
 import Amazonka.DAX.Types.SecurityGroupMembership
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains all of the attributes of a specific DAX cluster.
@@ -263,32 +264,32 @@ cluster_clusterDiscoveryEndpoint = Lens.lens (\Cluster' {clusterDiscoveryEndpoin
 cluster_clusterName :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_clusterName = Lens.lens (\Cluster' {clusterName} -> clusterName) (\s@Cluster' {} a -> s {clusterName = a} :: Cluster)
 
-instance Core.FromJSON Cluster where
+instance Data.FromJSON Cluster where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Cluster"
       ( \x ->
           Cluster'
-            Prelude.<$> (x Core..:? "ClusterArn")
-            Prelude.<*> (x Core..:? "ActiveNodes")
-            Prelude.<*> (x Core..:? "Nodes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SubnetGroup")
-            Prelude.<*> (x Core..:? "NotificationConfiguration")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "NodeType")
-            Prelude.<*> (x Core..:? "IamRoleArn")
-            Prelude.<*> ( x Core..:? "NodeIdsToRemove"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ClusterArn")
+            Prelude.<*> (x Data..:? "ActiveNodes")
+            Prelude.<*> (x Data..:? "Nodes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SubnetGroup")
+            Prelude.<*> (x Data..:? "NotificationConfiguration")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "NodeType")
+            Prelude.<*> (x Data..:? "IamRoleArn")
+            Prelude.<*> ( x Data..:? "NodeIdsToRemove"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "TotalNodes")
-            Prelude.<*> (x Core..:? "SecurityGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ParameterGroup")
-            Prelude.<*> (x Core..:? "ClusterEndpointEncryptionType")
-            Prelude.<*> (x Core..:? "SSEDescription")
-            Prelude.<*> (x Core..:? "PreferredMaintenanceWindow")
-            Prelude.<*> (x Core..:? "ClusterDiscoveryEndpoint")
-            Prelude.<*> (x Core..:? "ClusterName")
+            Prelude.<*> (x Data..:? "TotalNodes")
+            Prelude.<*> (x Data..:? "SecurityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ParameterGroup")
+            Prelude.<*> (x Data..:? "ClusterEndpointEncryptionType")
+            Prelude.<*> (x Data..:? "SSEDescription")
+            Prelude.<*> (x Data..:? "PreferredMaintenanceWindow")
+            Prelude.<*> (x Data..:? "ClusterDiscoveryEndpoint")
+            Prelude.<*> (x Data..:? "ClusterName")
       )
 
 instance Prelude.Hashable Cluster where

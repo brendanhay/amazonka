@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,9 +160,9 @@ instance Core.AWSRequest ListDeadLetterSourceQueues where
       "ListDeadLetterSourceQueuesResult"
       ( \s h x ->
           ListDeadLetterSourceQueuesResponse'
-            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.parseXMLList "QueueUrl" x)
+            Prelude.<*> (Data.parseXMLList "QueueUrl" x)
       )
 
 instance Prelude.Hashable ListDeadLetterSourceQueues where
@@ -176,22 +177,22 @@ instance Prelude.NFData ListDeadLetterSourceQueues where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf queueUrl
 
-instance Core.ToHeaders ListDeadLetterSourceQueues where
+instance Data.ToHeaders ListDeadLetterSourceQueues where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListDeadLetterSourceQueues where
+instance Data.ToPath ListDeadLetterSourceQueues where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDeadLetterSourceQueues where
+instance Data.ToQuery ListDeadLetterSourceQueues where
   toQuery ListDeadLetterSourceQueues' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListDeadLetterSourceQueues" :: Prelude.ByteString),
+          Data.=: ("ListDeadLetterSourceQueues" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-11-05" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "QueueUrl" Core.=: queueUrl
+          Data.=: ("2012-11-05" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults,
+        "QueueUrl" Data.=: queueUrl
       ]
 
 -- | A list of your dead letter source queues.

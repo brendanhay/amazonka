@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.SimulatePolicyResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.EvaluationResult
 import qualified Amazonka.Prelude as Prelude
 
@@ -97,15 +98,15 @@ simulatePolicyResponse_marker = Lens.lens (\SimulatePolicyResponse' {marker} -> 
 simulatePolicyResponse_isTruncated :: Lens.Lens' SimulatePolicyResponse (Prelude.Maybe Prelude.Bool)
 simulatePolicyResponse_isTruncated = Lens.lens (\SimulatePolicyResponse' {isTruncated} -> isTruncated) (\s@SimulatePolicyResponse' {} a -> s {isTruncated = a} :: SimulatePolicyResponse)
 
-instance Core.FromXML SimulatePolicyResponse where
+instance Data.FromXML SimulatePolicyResponse where
   parseXML x =
     SimulatePolicyResponse'
-      Prelude.<$> ( x Core..@? "EvaluationResults"
+      Prelude.<$> ( x Data..@? "EvaluationResults"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Marker")
-      Prelude.<*> (x Core..@? "IsTruncated")
+      Prelude.<*> (x Data..@? "Marker")
+      Prelude.<*> (x Data..@? "IsTruncated")
 
 instance Prelude.Hashable SimulatePolicyResponse where
   hashWithSalt _salt SimulatePolicyResponse' {..} =

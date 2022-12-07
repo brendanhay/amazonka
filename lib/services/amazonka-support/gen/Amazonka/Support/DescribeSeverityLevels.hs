@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest DescribeSeverityLevels where
     Response.receiveJSON
       ( \s h x ->
           DescribeSeverityLevelsResponse'
-            Prelude.<$> (x Core..?> "severityLevels" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "severityLevels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,32 +114,32 @@ instance Prelude.NFData DescribeSeverityLevels where
   rnf DescribeSeverityLevels' {..} =
     Prelude.rnf language
 
-instance Core.ToHeaders DescribeSeverityLevels where
+instance Data.ToHeaders DescribeSeverityLevels where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSupport_20130415.DescribeSeverityLevels" ::
+              Data.=# ( "AWSSupport_20130415.DescribeSeverityLevels" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSeverityLevels where
+instance Data.ToJSON DescribeSeverityLevels where
   toJSON DescribeSeverityLevels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("language" Core..=) Prelude.<$> language]
+          [("language" Data..=) Prelude.<$> language]
       )
 
-instance Core.ToPath DescribeSeverityLevels where
+instance Data.ToPath DescribeSeverityLevels where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSeverityLevels where
+instance Data.ToQuery DescribeSeverityLevels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The list of severity levels returned by the DescribeSeverityLevels

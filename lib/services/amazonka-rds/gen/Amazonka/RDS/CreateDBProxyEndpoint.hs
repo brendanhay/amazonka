@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -167,7 +168,7 @@ instance Core.AWSRequest CreateDBProxyEndpoint where
       "CreateDBProxyEndpointResult"
       ( \s h x ->
           CreateDBProxyEndpointResponse'
-            Prelude.<$> (x Core..@? "DBProxyEndpoint")
+            Prelude.<$> (x Data..@? "DBProxyEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,32 +190,32 @@ instance Prelude.NFData CreateDBProxyEndpoint where
       `Prelude.seq` Prelude.rnf dbProxyEndpointName
       `Prelude.seq` Prelude.rnf vpcSubnetIds
 
-instance Core.ToHeaders CreateDBProxyEndpoint where
+instance Data.ToHeaders CreateDBProxyEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDBProxyEndpoint where
+instance Data.ToPath CreateDBProxyEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDBProxyEndpoint where
+instance Data.ToQuery CreateDBProxyEndpoint where
   toQuery CreateDBProxyEndpoint' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDBProxyEndpoint" :: Prelude.ByteString),
+          Data.=: ("CreateDBProxyEndpoint" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "TargetRole" Core.=: targetRole,
-        "DBProxyName" Core.=: dbProxyName,
-        "DBProxyEndpointName" Core.=: dbProxyEndpointName,
+        "TargetRole" Data.=: targetRole,
+        "DBProxyName" Data.=: dbProxyName,
+        "DBProxyEndpointName" Data.=: dbProxyEndpointName,
         "VpcSubnetIds"
-          Core.=: Core.toQueryList "member" vpcSubnetIds
+          Data.=: Data.toQueryList "member" vpcSubnetIds
       ]
 
 -- | /See:/ 'newCreateDBProxyEndpointResponse' smart constructor.

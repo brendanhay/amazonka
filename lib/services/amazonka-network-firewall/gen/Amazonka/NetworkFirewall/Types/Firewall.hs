@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.Firewall where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.EncryptionConfiguration
 import Amazonka.NetworkFirewall.Types.SubnetMapping
 import Amazonka.NetworkFirewall.Types.Tag
@@ -223,24 +224,24 @@ firewall_subnetMappings = Lens.lens (\Firewall' {subnetMappings} -> subnetMappin
 firewall_firewallId :: Lens.Lens' Firewall Prelude.Text
 firewall_firewallId = Lens.lens (\Firewall' {firewallId} -> firewallId) (\s@Firewall' {} a -> s {firewallId = a} :: Firewall)
 
-instance Core.FromJSON Firewall where
+instance Data.FromJSON Firewall where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Firewall"
       ( \x ->
           Firewall'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "DeleteProtection")
-            Prelude.<*> (x Core..:? "SubnetChangeProtection")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "FirewallPolicyChangeProtection")
-            Prelude.<*> (x Core..:? "FirewallArn")
-            Prelude.<*> (x Core..:? "EncryptionConfiguration")
-            Prelude.<*> (x Core..:? "FirewallName")
-            Prelude.<*> (x Core..: "FirewallPolicyArn")
-            Prelude.<*> (x Core..: "VpcId")
-            Prelude.<*> (x Core..:? "SubnetMappings" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "FirewallId")
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "DeleteProtection")
+            Prelude.<*> (x Data..:? "SubnetChangeProtection")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "FirewallPolicyChangeProtection")
+            Prelude.<*> (x Data..:? "FirewallArn")
+            Prelude.<*> (x Data..:? "EncryptionConfiguration")
+            Prelude.<*> (x Data..:? "FirewallName")
+            Prelude.<*> (x Data..: "FirewallPolicyArn")
+            Prelude.<*> (x Data..: "VpcId")
+            Prelude.<*> (x Data..:? "SubnetMappings" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "FirewallId")
       )
 
 instance Prelude.Hashable Firewall where

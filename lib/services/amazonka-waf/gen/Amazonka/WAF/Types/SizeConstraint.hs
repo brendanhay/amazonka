@@ -21,6 +21,7 @@ module Amazonka.WAF.Types.SizeConstraint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAF.Types.ComparisonOperator
 import Amazonka.WAF.Types.FieldToMatch
@@ -431,16 +432,16 @@ sizeConstraint_comparisonOperator = Lens.lens (\SizeConstraint' {comparisonOpera
 sizeConstraint_size :: Lens.Lens' SizeConstraint Prelude.Natural
 sizeConstraint_size = Lens.lens (\SizeConstraint' {size} -> size) (\s@SizeConstraint' {} a -> s {size = a} :: SizeConstraint)
 
-instance Core.FromJSON SizeConstraint where
+instance Data.FromJSON SizeConstraint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SizeConstraint"
       ( \x ->
           SizeConstraint'
-            Prelude.<$> (x Core..: "FieldToMatch")
-            Prelude.<*> (x Core..: "TextTransformation")
-            Prelude.<*> (x Core..: "ComparisonOperator")
-            Prelude.<*> (x Core..: "Size")
+            Prelude.<$> (x Data..: "FieldToMatch")
+            Prelude.<*> (x Data..: "TextTransformation")
+            Prelude.<*> (x Data..: "ComparisonOperator")
+            Prelude.<*> (x Data..: "Size")
       )
 
 instance Prelude.Hashable SizeConstraint where
@@ -457,15 +458,15 @@ instance Prelude.NFData SizeConstraint where
       `Prelude.seq` Prelude.rnf comparisonOperator
       `Prelude.seq` Prelude.rnf size
 
-instance Core.ToJSON SizeConstraint where
+instance Data.ToJSON SizeConstraint where
   toJSON SizeConstraint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FieldToMatch" Core..= fieldToMatch),
+          [ Prelude.Just ("FieldToMatch" Data..= fieldToMatch),
             Prelude.Just
-              ("TextTransformation" Core..= textTransformation),
+              ("TextTransformation" Data..= textTransformation),
             Prelude.Just
-              ("ComparisonOperator" Core..= comparisonOperator),
-            Prelude.Just ("Size" Core..= size)
+              ("ComparisonOperator" Data..= comparisonOperator),
+            Prelude.Just ("Size" Data..= size)
           ]
       )

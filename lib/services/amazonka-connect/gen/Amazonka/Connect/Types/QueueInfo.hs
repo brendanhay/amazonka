@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.QueueInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If this contact was queued, this contains information about the queue.
@@ -30,7 +31,7 @@ data QueueInfo = QueueInfo'
   { -- | The unique identifier for the queue.
     id :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the contact was added to the queue.
-    enqueueTimestamp :: Prelude.Maybe Core.POSIX
+    enqueueTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,16 +60,16 @@ queueInfo_id = Lens.lens (\QueueInfo' {id} -> id) (\s@QueueInfo' {} a -> s {id =
 
 -- | The timestamp when the contact was added to the queue.
 queueInfo_enqueueTimestamp :: Lens.Lens' QueueInfo (Prelude.Maybe Prelude.UTCTime)
-queueInfo_enqueueTimestamp = Lens.lens (\QueueInfo' {enqueueTimestamp} -> enqueueTimestamp) (\s@QueueInfo' {} a -> s {enqueueTimestamp = a} :: QueueInfo) Prelude.. Lens.mapping Core._Time
+queueInfo_enqueueTimestamp = Lens.lens (\QueueInfo' {enqueueTimestamp} -> enqueueTimestamp) (\s@QueueInfo' {} a -> s {enqueueTimestamp = a} :: QueueInfo) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON QueueInfo where
+instance Data.FromJSON QueueInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueueInfo"
       ( \x ->
           QueueInfo'
-            Prelude.<$> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "EnqueueTimestamp")
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "EnqueueTimestamp")
       )
 
 instance Prelude.Hashable QueueInfo where

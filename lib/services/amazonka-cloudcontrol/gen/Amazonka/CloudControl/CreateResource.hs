@@ -54,6 +54,7 @@ where
 import Amazonka.CloudControl.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,7 +103,7 @@ data CreateResource = CreateResource'
     -- Cloud Control API currently supports JSON as a structured data format.
     --
     -- >  <p>Specify the desired state as one of the following:</p> <ul> <li> <p>A JSON blob</p> </li> <li> <p>A local path containing the desired state in JSON data format</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-create.html#resource-operations-create-desiredstate">Composing the desired state of the resource</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p> <p>For more information about the properties of a specific resource, refer to the related topic for the resource in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Resource and property types reference</a> in the <i>CloudFormation Users Guide</i>.</p>
-    desiredState :: Core.Sensitive Prelude.Text
+    desiredState :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -168,7 +169,7 @@ newCreateResource pTypeName_ pDesiredState_ =
       roleArn = Prelude.Nothing,
       typeVersionId = Prelude.Nothing,
       typeName = pTypeName_,
-      desiredState = Core._Sensitive Lens.# pDesiredState_
+      desiredState = Data._Sensitive Lens.# pDesiredState_
     }
 
 -- | A unique identifier to ensure the idempotency of the resource request.
@@ -222,7 +223,7 @@ createResource_typeName = Lens.lens (\CreateResource' {typeName} -> typeName) (\
 --
 -- >  <p>Specify the desired state as one of the following:</p> <ul> <li> <p>A JSON blob</p> </li> <li> <p>A local path containing the desired state in JSON data format</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-create.html#resource-operations-create-desiredstate">Composing the desired state of the resource</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p> <p>For more information about the properties of a specific resource, refer to the related topic for the resource in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Resource and property types reference</a> in the <i>CloudFormation Users Guide</i>.</p>
 createResource_desiredState :: Lens.Lens' CreateResource Prelude.Text
-createResource_desiredState = Lens.lens (\CreateResource' {desiredState} -> desiredState) (\s@CreateResource' {} a -> s {desiredState = a} :: CreateResource) Prelude.. Core._Sensitive
+createResource_desiredState = Lens.lens (\CreateResource' {desiredState} -> desiredState) (\s@CreateResource' {} a -> s {desiredState = a} :: CreateResource) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateResource where
   type
@@ -234,7 +235,7 @@ instance Core.AWSRequest CreateResource where
     Response.receiveJSON
       ( \s h x ->
           CreateResourceResponse'
-            Prelude.<$> (x Core..?> "ProgressEvent")
+            Prelude.<$> (x Data..?> "ProgressEvent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -254,37 +255,37 @@ instance Prelude.NFData CreateResource where
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf desiredState
 
-instance Core.ToHeaders CreateResource where
+instance Data.ToHeaders CreateResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudApiService.CreateResource" ::
+              Data.=# ( "CloudApiService.CreateResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateResource where
+instance Data.ToJSON CreateResource where
   toJSON CreateResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("TypeVersionId" Core..=) Prelude.<$> typeVersionId,
-            Prelude.Just ("TypeName" Core..= typeName),
-            Prelude.Just ("DesiredState" Core..= desiredState)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("TypeVersionId" Data..=) Prelude.<$> typeVersionId,
+            Prelude.Just ("TypeName" Data..= typeName),
+            Prelude.Just ("DesiredState" Data..= desiredState)
           ]
       )
 
-instance Core.ToPath CreateResource where
+instance Data.ToPath CreateResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateResource where
+instance Data.ToQuery CreateResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateResourceResponse' smart constructor.

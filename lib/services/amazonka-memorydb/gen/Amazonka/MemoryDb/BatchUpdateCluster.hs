@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,10 +98,10 @@ instance Core.AWSRequest BatchUpdateCluster where
     Response.receiveJSON
       ( \s h x ->
           BatchUpdateClusterResponse'
-            Prelude.<$> ( x Core..?> "ProcessedClusters"
+            Prelude.<$> ( x Data..?> "ProcessedClusters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "UnprocessedClusters"
+            Prelude.<*> ( x Data..?> "UnprocessedClusters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -116,34 +117,34 @@ instance Prelude.NFData BatchUpdateCluster where
     Prelude.rnf serviceUpdate
       `Prelude.seq` Prelude.rnf clusterNames
 
-instance Core.ToHeaders BatchUpdateCluster where
+instance Data.ToHeaders BatchUpdateCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonMemoryDB.BatchUpdateCluster" ::
+              Data.=# ( "AmazonMemoryDB.BatchUpdateCluster" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchUpdateCluster where
+instance Data.ToJSON BatchUpdateCluster where
   toJSON BatchUpdateCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ServiceUpdate" Core..=) Prelude.<$> serviceUpdate,
-            Prelude.Just ("ClusterNames" Core..= clusterNames)
+          [ ("ServiceUpdate" Data..=) Prelude.<$> serviceUpdate,
+            Prelude.Just ("ClusterNames" Data..= clusterNames)
           ]
       )
 
-instance Core.ToPath BatchUpdateCluster where
+instance Data.ToPath BatchUpdateCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchUpdateCluster where
+instance Data.ToQuery BatchUpdateCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchUpdateClusterResponse' smart constructor.

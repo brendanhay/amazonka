@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,7 +124,7 @@ instance Core.AWSRequest CreateRecipe where
       ( \s h x ->
           CreateRecipeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable CreateRecipe where
@@ -140,32 +141,32 @@ instance Prelude.NFData CreateRecipe where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf steps
 
-instance Core.ToHeaders CreateRecipe where
+instance Data.ToHeaders CreateRecipe where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRecipe where
+instance Data.ToJSON CreateRecipe where
   toJSON CreateRecipe' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Steps" Core..= steps)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Steps" Data..= steps)
           ]
       )
 
-instance Core.ToPath CreateRecipe where
+instance Data.ToPath CreateRecipe where
   toPath = Prelude.const "/recipes"
 
-instance Core.ToQuery CreateRecipe where
+instance Data.ToQuery CreateRecipe where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRecipeResponse' smart constructor.

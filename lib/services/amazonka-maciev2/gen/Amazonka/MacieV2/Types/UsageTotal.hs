@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.UsageTotal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.Currency
 import Amazonka.MacieV2.Types.UsageType
 import qualified Amazonka.Prelude as Prelude
@@ -84,15 +85,15 @@ usageTotal_currency = Lens.lens (\UsageTotal' {currency} -> currency) (\s@UsageT
 usageTotal_estimatedCost :: Lens.Lens' UsageTotal (Prelude.Maybe Prelude.Text)
 usageTotal_estimatedCost = Lens.lens (\UsageTotal' {estimatedCost} -> estimatedCost) (\s@UsageTotal' {} a -> s {estimatedCost = a} :: UsageTotal)
 
-instance Core.FromJSON UsageTotal where
+instance Data.FromJSON UsageTotal where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsageTotal"
       ( \x ->
           UsageTotal'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "currency")
-            Prelude.<*> (x Core..:? "estimatedCost")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "currency")
+            Prelude.<*> (x Data..:? "estimatedCost")
       )
 
 instance Prelude.Hashable UsageTotal where

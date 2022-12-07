@@ -41,6 +41,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,32 +93,32 @@ instance Prelude.Hashable DeleteContact where
 instance Prelude.NFData DeleteContact where
   rnf DeleteContact' {..} = Prelude.rnf contactArn
 
-instance Core.ToHeaders DeleteContact where
+instance Data.ToHeaders DeleteContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.DeleteContact" ::
+              Data.=# ( "AlexaForBusiness.DeleteContact" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteContact where
+instance Data.ToJSON DeleteContact where
   toJSON DeleteContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ContactArn" Core..= contactArn)]
+          [Prelude.Just ("ContactArn" Data..= contactArn)]
       )
 
-instance Core.ToPath DeleteContact where
+instance Data.ToPath DeleteContact where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteContact where
+instance Data.ToQuery DeleteContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteContactResponse' smart constructor.

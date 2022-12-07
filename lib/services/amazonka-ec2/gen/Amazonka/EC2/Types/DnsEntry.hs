@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DnsEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,11 +63,11 @@ dnsEntry_hostedZoneId = Lens.lens (\DnsEntry' {hostedZoneId} -> hostedZoneId) (\
 dnsEntry_dnsName :: Lens.Lens' DnsEntry (Prelude.Maybe Prelude.Text)
 dnsEntry_dnsName = Lens.lens (\DnsEntry' {dnsName} -> dnsName) (\s@DnsEntry' {} a -> s {dnsName = a} :: DnsEntry)
 
-instance Core.FromXML DnsEntry where
+instance Data.FromXML DnsEntry where
   parseXML x =
     DnsEntry'
-      Prelude.<$> (x Core..@? "hostedZoneId")
-      Prelude.<*> (x Core..@? "dnsName")
+      Prelude.<$> (x Data..@? "hostedZoneId")
+      Prelude.<*> (x Data..@? "dnsName")
 
 instance Prelude.Hashable DnsEntry where
   hashWithSalt _salt DnsEntry' {..} =

@@ -21,6 +21,7 @@ module Amazonka.Amplify.Types.SubDomainSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the settings for the subdomain.
@@ -65,14 +66,14 @@ subDomainSetting_prefix = Lens.lens (\SubDomainSetting' {prefix} -> prefix) (\s@
 subDomainSetting_branchName :: Lens.Lens' SubDomainSetting Prelude.Text
 subDomainSetting_branchName = Lens.lens (\SubDomainSetting' {branchName} -> branchName) (\s@SubDomainSetting' {} a -> s {branchName = a} :: SubDomainSetting)
 
-instance Core.FromJSON SubDomainSetting where
+instance Data.FromJSON SubDomainSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubDomainSetting"
       ( \x ->
           SubDomainSetting'
-            Prelude.<$> (x Core..: "prefix")
-            Prelude.<*> (x Core..: "branchName")
+            Prelude.<$> (x Data..: "prefix")
+            Prelude.<*> (x Data..: "branchName")
       )
 
 instance Prelude.Hashable SubDomainSetting where
@@ -85,11 +86,11 @@ instance Prelude.NFData SubDomainSetting where
     Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf branchName
 
-instance Core.ToJSON SubDomainSetting where
+instance Data.ToJSON SubDomainSetting where
   toJSON SubDomainSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("prefix" Core..= prefix),
-            Prelude.Just ("branchName" Core..= branchName)
+          [ Prelude.Just ("prefix" Data..= prefix),
+            Prelude.Just ("branchName" Data..= branchName)
           ]
       )

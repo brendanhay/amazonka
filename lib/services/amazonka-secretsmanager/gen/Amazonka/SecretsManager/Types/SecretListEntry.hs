@@ -21,6 +21,7 @@ module Amazonka.SecretsManager.Types.SecretListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecretsManager.Types.RotationRulesType
 import Amazonka.SecretsManager.Types.Tag
@@ -47,7 +48,7 @@ data SecretListEntry = SecretListEntry'
     name :: Prelude.Maybe Prelude.Text,
     -- | The date that the secret was last accessed in the Region. This field is
     -- omitted if the secret has never been retrieved in the Region.
-    lastAccessedDate :: Prelude.Maybe Core.POSIX,
+    lastAccessedDate :: Prelude.Maybe Data.POSIX,
     -- | The ARN of an Amazon Web Services Lambda function invoked by Secrets
     -- Manager to rotate and expire the secret either automatically per the
     -- schedule or manually by a call to
@@ -66,7 +67,7 @@ data SecretListEntry = SecretListEntry'
     -- secret.
     rotationEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The last date and time that this secret was modified in any way.
-    lastChangedDate :: Prelude.Maybe Core.POSIX,
+    lastChangedDate :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the KMS key that Secrets Manager uses to encrypt the secret
     -- value. If the secret is encrypted with the Amazon Web Services managed
     -- key @aws\/secretsmanager@, this field is omitted.
@@ -77,9 +78,9 @@ data SecretListEntry = SecretListEntry'
     -- @RecoveryWindowInDays@ parameter of the
     -- <https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_DeleteSecret.html DeleteSecret>
     -- operation.
-    deletedDate :: Prelude.Maybe Core.POSIX,
+    deletedDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time when a secret was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | A list of all of the currently assigned @SecretVersionStage@ staging
     -- labels and the @SecretVersionId@ attached to each one. Staging labels
     -- are used to keep track of the different versions during the rotation
@@ -92,7 +93,7 @@ data SecretListEntry = SecretListEntry'
     -- | The most recent date and time that the Secrets Manager rotation process
     -- was successfully completed. This value is null if the secret hasn\'t
     -- ever rotated.
-    lastRotatedDate :: Prelude.Maybe Core.POSIX,
+    lastRotatedDate :: Prelude.Maybe Data.POSIX,
     -- | Returns the name of the service that created the secret.
     owningService :: Prelude.Maybe Prelude.Text
   }
@@ -208,7 +209,7 @@ secretListEntry_name = Lens.lens (\SecretListEntry' {name} -> name) (\s@SecretLi
 -- | The date that the secret was last accessed in the Region. This field is
 -- omitted if the secret has never been retrieved in the Region.
 secretListEntry_lastAccessedDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
-secretListEntry_lastAccessedDate = Lens.lens (\SecretListEntry' {lastAccessedDate} -> lastAccessedDate) (\s@SecretListEntry' {} a -> s {lastAccessedDate = a} :: SecretListEntry) Prelude.. Lens.mapping Core._Time
+secretListEntry_lastAccessedDate = Lens.lens (\SecretListEntry' {lastAccessedDate} -> lastAccessedDate) (\s@SecretListEntry' {} a -> s {lastAccessedDate = a} :: SecretListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of an Amazon Web Services Lambda function invoked by Secrets
 -- Manager to rotate and expire the secret either automatically per the
@@ -241,7 +242,7 @@ secretListEntry_rotationEnabled = Lens.lens (\SecretListEntry' {rotationEnabled}
 
 -- | The last date and time that this secret was modified in any way.
 secretListEntry_lastChangedDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
-secretListEntry_lastChangedDate = Lens.lens (\SecretListEntry' {lastChangedDate} -> lastChangedDate) (\s@SecretListEntry' {} a -> s {lastChangedDate = a} :: SecretListEntry) Prelude.. Lens.mapping Core._Time
+secretListEntry_lastChangedDate = Lens.lens (\SecretListEntry' {lastChangedDate} -> lastChangedDate) (\s@SecretListEntry' {} a -> s {lastChangedDate = a} :: SecretListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the KMS key that Secrets Manager uses to encrypt the secret
 -- value. If the secret is encrypted with the Amazon Web Services managed
@@ -256,11 +257,11 @@ secretListEntry_kmsKeyId = Lens.lens (\SecretListEntry' {kmsKeyId} -> kmsKeyId) 
 -- <https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_DeleteSecret.html DeleteSecret>
 -- operation.
 secretListEntry_deletedDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
-secretListEntry_deletedDate = Lens.lens (\SecretListEntry' {deletedDate} -> deletedDate) (\s@SecretListEntry' {} a -> s {deletedDate = a} :: SecretListEntry) Prelude.. Lens.mapping Core._Time
+secretListEntry_deletedDate = Lens.lens (\SecretListEntry' {deletedDate} -> deletedDate) (\s@SecretListEntry' {} a -> s {deletedDate = a} :: SecretListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when a secret was created.
 secretListEntry_createdDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
-secretListEntry_createdDate = Lens.lens (\SecretListEntry' {createdDate} -> createdDate) (\s@SecretListEntry' {} a -> s {createdDate = a} :: SecretListEntry) Prelude.. Lens.mapping Core._Time
+secretListEntry_createdDate = Lens.lens (\SecretListEntry' {createdDate} -> createdDate) (\s@SecretListEntry' {} a -> s {createdDate = a} :: SecretListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | A list of all of the currently assigned @SecretVersionStage@ staging
 -- labels and the @SecretVersionId@ attached to each one. Staging labels
@@ -277,36 +278,36 @@ secretListEntry_secretVersionsToStages = Lens.lens (\SecretListEntry' {secretVer
 -- was successfully completed. This value is null if the secret hasn\'t
 -- ever rotated.
 secretListEntry_lastRotatedDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
-secretListEntry_lastRotatedDate = Lens.lens (\SecretListEntry' {lastRotatedDate} -> lastRotatedDate) (\s@SecretListEntry' {} a -> s {lastRotatedDate = a} :: SecretListEntry) Prelude.. Lens.mapping Core._Time
+secretListEntry_lastRotatedDate = Lens.lens (\SecretListEntry' {lastRotatedDate} -> lastRotatedDate) (\s@SecretListEntry' {} a -> s {lastRotatedDate = a} :: SecretListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | Returns the name of the service that created the secret.
 secretListEntry_owningService :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.Text)
 secretListEntry_owningService = Lens.lens (\SecretListEntry' {owningService} -> owningService) (\s@SecretListEntry' {} a -> s {owningService = a} :: SecretListEntry)
 
-instance Core.FromJSON SecretListEntry where
+instance Data.FromJSON SecretListEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecretListEntry"
       ( \x ->
           SecretListEntry'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LastAccessedDate")
-            Prelude.<*> (x Core..:? "RotationLambdaARN")
-            Prelude.<*> (x Core..:? "RotationRules")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "PrimaryRegion")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "RotationEnabled")
-            Prelude.<*> (x Core..:? "LastChangedDate")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "DeletedDate")
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> ( x Core..:? "SecretVersionsToStages"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LastAccessedDate")
+            Prelude.<*> (x Data..:? "RotationLambdaARN")
+            Prelude.<*> (x Data..:? "RotationRules")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "PrimaryRegion")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "RotationEnabled")
+            Prelude.<*> (x Data..:? "LastChangedDate")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "DeletedDate")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> ( x Data..:? "SecretVersionsToStages"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastRotatedDate")
-            Prelude.<*> (x Core..:? "OwningService")
+            Prelude.<*> (x Data..:? "LastRotatedDate")
+            Prelude.<*> (x Data..:? "OwningService")
       )
 
 instance Prelude.Hashable SecretListEntry where

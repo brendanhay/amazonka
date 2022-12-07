@@ -21,6 +21,7 @@ module Amazonka.S3.Types.RecordsEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -29,7 +30,7 @@ import Amazonka.S3.Internal
 -- /See:/ 'newRecordsEvent' smart constructor.
 data RecordsEvent = RecordsEvent'
   { -- | The byte array of partial, one or more result records.
-    payload :: Prelude.Maybe Core.Base64
+    payload :: Prelude.Maybe Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,11 +58,11 @@ newRecordsEvent =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 recordsEvent_payload :: Lens.Lens' RecordsEvent (Prelude.Maybe Prelude.ByteString)
-recordsEvent_payload = Lens.lens (\RecordsEvent' {payload} -> payload) (\s@RecordsEvent' {} a -> s {payload = a} :: RecordsEvent) Prelude.. Lens.mapping Core._Base64
+recordsEvent_payload = Lens.lens (\RecordsEvent' {payload} -> payload) (\s@RecordsEvent' {} a -> s {payload = a} :: RecordsEvent) Prelude.. Lens.mapping Data._Base64
 
-instance Core.FromXML RecordsEvent where
+instance Data.FromXML RecordsEvent where
   parseXML x =
-    RecordsEvent' Prelude.<$> (x Core..@? "Payload")
+    RecordsEvent' Prelude.<$> (x Data..@? "Payload")
 
 instance Prelude.Hashable RecordsEvent where
   hashWithSalt _salt RecordsEvent' {..} =

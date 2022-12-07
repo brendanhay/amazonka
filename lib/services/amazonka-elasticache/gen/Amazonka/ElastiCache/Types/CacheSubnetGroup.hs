@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.CacheSubnetGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.NetworkType
 import Amazonka.ElastiCache.Types.Subnet
 import qualified Amazonka.Prelude as Prelude
@@ -116,19 +117,19 @@ cacheSubnetGroup_vpcId = Lens.lens (\CacheSubnetGroup' {vpcId} -> vpcId) (\s@Cac
 cacheSubnetGroup_supportedNetworkTypes :: Lens.Lens' CacheSubnetGroup (Prelude.Maybe [NetworkType])
 cacheSubnetGroup_supportedNetworkTypes = Lens.lens (\CacheSubnetGroup' {supportedNetworkTypes} -> supportedNetworkTypes) (\s@CacheSubnetGroup' {} a -> s {supportedNetworkTypes = a} :: CacheSubnetGroup) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML CacheSubnetGroup where
+instance Data.FromXML CacheSubnetGroup where
   parseXML x =
     CacheSubnetGroup'
-      Prelude.<$> (x Core..@? "CacheSubnetGroupName")
-      Prelude.<*> ( x Core..@? "Subnets" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Subnet")
+      Prelude.<$> (x Data..@? "CacheSubnetGroupName")
+      Prelude.<*> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Subnet")
                   )
-      Prelude.<*> (x Core..@? "ARN")
-      Prelude.<*> (x Core..@? "CacheSubnetGroupDescription")
-      Prelude.<*> (x Core..@? "VpcId")
-      Prelude.<*> ( x Core..@? "SupportedNetworkTypes"
+      Prelude.<*> (x Data..@? "ARN")
+      Prelude.<*> (x Data..@? "CacheSubnetGroupDescription")
+      Prelude.<*> (x Data..@? "VpcId")
+      Prelude.<*> ( x Data..@? "SupportedNetworkTypes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable CacheSubnetGroup where

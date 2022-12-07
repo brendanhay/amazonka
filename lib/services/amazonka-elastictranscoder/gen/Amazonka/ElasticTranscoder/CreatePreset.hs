@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -167,8 +168,8 @@ instance Core.AWSRequest CreatePreset where
     Response.receiveJSON
       ( \s h x ->
           CreatePresetResponse'
-            Prelude.<$> (x Core..?> "Warning")
-            Prelude.<*> (x Core..?> "Preset")
+            Prelude.<$> (x Data..?> "Warning")
+            Prelude.<*> (x Data..?> "Preset")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,26 +191,26 @@ instance Prelude.NFData CreatePreset where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf container
 
-instance Core.ToHeaders CreatePreset where
+instance Data.ToHeaders CreatePreset where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreatePreset where
+instance Data.ToJSON CreatePreset where
   toJSON CreatePreset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Audio" Core..=) Prelude.<$> audio,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Thumbnails" Core..=) Prelude.<$> thumbnails,
-            ("Video" Core..=) Prelude.<$> video,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Container" Core..= container)
+          [ ("Audio" Data..=) Prelude.<$> audio,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Thumbnails" Data..=) Prelude.<$> thumbnails,
+            ("Video" Data..=) Prelude.<$> video,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Container" Data..= container)
           ]
       )
 
-instance Core.ToPath CreatePreset where
+instance Data.ToPath CreatePreset where
   toPath = Prelude.const "/2012-09-25/presets"
 
-instance Core.ToQuery CreatePreset where
+instance Data.ToQuery CreatePreset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The @CreatePresetResponse@ structure.

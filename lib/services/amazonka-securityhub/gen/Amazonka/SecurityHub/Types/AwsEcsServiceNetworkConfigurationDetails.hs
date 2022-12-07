@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsServiceNetworkConfigurationDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails
 
@@ -56,15 +57,15 @@ awsEcsServiceNetworkConfigurationDetails_awsVpcConfiguration :: Lens.Lens' AwsEc
 awsEcsServiceNetworkConfigurationDetails_awsVpcConfiguration = Lens.lens (\AwsEcsServiceNetworkConfigurationDetails' {awsVpcConfiguration} -> awsVpcConfiguration) (\s@AwsEcsServiceNetworkConfigurationDetails' {} a -> s {awsVpcConfiguration = a} :: AwsEcsServiceNetworkConfigurationDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsServiceNetworkConfigurationDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsServiceNetworkConfigurationDetails"
       ( \x ->
           AwsEcsServiceNetworkConfigurationDetails'
-            Prelude.<$> (x Core..:? "AwsVpcConfiguration")
+            Prelude.<$> (x Data..:? "AwsVpcConfiguration")
       )
 
 instance
@@ -84,13 +85,13 @@ instance
     Prelude.rnf awsVpcConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsServiceNetworkConfigurationDetails
   where
   toJSON AwsEcsServiceNetworkConfigurationDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AwsVpcConfiguration" Core..=)
+          [ ("AwsVpcConfiguration" Data..=)
               Prelude.<$> awsVpcConfiguration
           ]
       )

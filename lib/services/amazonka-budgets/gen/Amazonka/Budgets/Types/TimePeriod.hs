@@ -21,6 +21,7 @@ module Amazonka.Budgets.Types.TimePeriod where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The period of time that\'s covered by a budget. The period has a start
@@ -39,7 +40,7 @@ data TimePeriod = TimePeriod'
     -- the Billing and Cost Management console and the API.
     --
     -- You can change your start date with the @UpdateBudget@ operation.
-    start :: Prelude.Maybe Core.POSIX,
+    start :: Prelude.Maybe Data.POSIX,
     -- | The end date for a budget. If you didn\'t specify an end date, Amazon
     -- Web Services set your end date to @06\/15\/87 00:00 UTC@. The defaults
     -- are the same for the Billing and Cost Management console and the API.
@@ -47,7 +48,7 @@ data TimePeriod = TimePeriod'
     -- After the end date, Amazon Web Services deletes the budget and all the
     -- associated notifications and subscribers. You can change your end date
     -- with the @UpdateBudget@ operation.
-    end :: Prelude.Maybe Core.POSIX
+    end :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,7 +97,7 @@ newTimePeriod =
 --
 -- You can change your start date with the @UpdateBudget@ operation.
 timePeriod_start :: Lens.Lens' TimePeriod (Prelude.Maybe Prelude.UTCTime)
-timePeriod_start = Lens.lens (\TimePeriod' {start} -> start) (\s@TimePeriod' {} a -> s {start = a} :: TimePeriod) Prelude.. Lens.mapping Core._Time
+timePeriod_start = Lens.lens (\TimePeriod' {start} -> start) (\s@TimePeriod' {} a -> s {start = a} :: TimePeriod) Prelude.. Lens.mapping Data._Time
 
 -- | The end date for a budget. If you didn\'t specify an end date, Amazon
 -- Web Services set your end date to @06\/15\/87 00:00 UTC@. The defaults
@@ -106,15 +107,15 @@ timePeriod_start = Lens.lens (\TimePeriod' {start} -> start) (\s@TimePeriod' {} 
 -- associated notifications and subscribers. You can change your end date
 -- with the @UpdateBudget@ operation.
 timePeriod_end :: Lens.Lens' TimePeriod (Prelude.Maybe Prelude.UTCTime)
-timePeriod_end = Lens.lens (\TimePeriod' {end} -> end) (\s@TimePeriod' {} a -> s {end = a} :: TimePeriod) Prelude.. Lens.mapping Core._Time
+timePeriod_end = Lens.lens (\TimePeriod' {end} -> end) (\s@TimePeriod' {} a -> s {end = a} :: TimePeriod) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON TimePeriod where
+instance Data.FromJSON TimePeriod where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimePeriod"
       ( \x ->
           TimePeriod'
-            Prelude.<$> (x Core..:? "Start") Prelude.<*> (x Core..:? "End")
+            Prelude.<$> (x Data..:? "Start") Prelude.<*> (x Data..:? "End")
       )
 
 instance Prelude.Hashable TimePeriod where
@@ -126,11 +127,11 @@ instance Prelude.NFData TimePeriod where
   rnf TimePeriod' {..} =
     Prelude.rnf start `Prelude.seq` Prelude.rnf end
 
-instance Core.ToJSON TimePeriod where
+instance Data.ToJSON TimePeriod where
   toJSON TimePeriod' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Start" Core..=) Prelude.<$> start,
-            ("End" Core..=) Prelude.<$> end
+          [ ("Start" Data..=) Prelude.<$> start,
+            ("End" Data..=) Prelude.<$> end
           ]
       )

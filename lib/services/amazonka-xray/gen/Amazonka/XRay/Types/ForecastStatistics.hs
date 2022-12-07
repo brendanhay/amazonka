@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.ForecastStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The predicted high and low fault count. This is used to determine if a
@@ -63,14 +64,14 @@ forecastStatistics_faultCountLow = Lens.lens (\ForecastStatistics' {faultCountLo
 forecastStatistics_faultCountHigh :: Lens.Lens' ForecastStatistics (Prelude.Maybe Prelude.Integer)
 forecastStatistics_faultCountHigh = Lens.lens (\ForecastStatistics' {faultCountHigh} -> faultCountHigh) (\s@ForecastStatistics' {} a -> s {faultCountHigh = a} :: ForecastStatistics)
 
-instance Core.FromJSON ForecastStatistics where
+instance Data.FromJSON ForecastStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ForecastStatistics"
       ( \x ->
           ForecastStatistics'
-            Prelude.<$> (x Core..:? "FaultCountLow")
-            Prelude.<*> (x Core..:? "FaultCountHigh")
+            Prelude.<$> (x Data..:? "FaultCountLow")
+            Prelude.<*> (x Data..:? "FaultCountHigh")
       )
 
 instance Prelude.Hashable ForecastStatistics where

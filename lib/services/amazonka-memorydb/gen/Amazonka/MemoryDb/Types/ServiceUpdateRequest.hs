@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.ServiceUpdateRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A request to apply a service update
@@ -62,11 +63,11 @@ instance Prelude.NFData ServiceUpdateRequest where
   rnf ServiceUpdateRequest' {..} =
     Prelude.rnf serviceUpdateNameToApply
 
-instance Core.ToJSON ServiceUpdateRequest where
+instance Data.ToJSON ServiceUpdateRequest where
   toJSON ServiceUpdateRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ServiceUpdateNameToApply" Core..=)
+          [ ("ServiceUpdateNameToApply" Data..=)
               Prelude.<$> serviceUpdateNameToApply
           ]
       )

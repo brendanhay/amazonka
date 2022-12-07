@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -126,9 +127,9 @@ instance
       ( \s h x ->
           AddDraftAppVersionResourceMappingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "appArn")
-              Prelude.<*> (x Core..:> "appVersion")
-              Prelude.<*> ( x Core..?> "resourceMappings"
+              Prelude.<*> (x Data..:> "appArn")
+              Prelude.<*> (x Data..:> "appVersion")
+              Prelude.<*> ( x Data..?> "resourceMappings"
                               Core..!@ Prelude.mempty
                           )
       )
@@ -152,34 +153,34 @@ instance
       `Prelude.seq` Prelude.rnf resourceMappings
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AddDraftAppVersionResourceMappings
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AddDraftAppVersionResourceMappings
   where
   toJSON AddDraftAppVersionResourceMappings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("appArn" Core..= appArn),
+          [ Prelude.Just ("appArn" Data..= appArn),
             Prelude.Just
-              ("resourceMappings" Core..= resourceMappings)
+              ("resourceMappings" Data..= resourceMappings)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     AddDraftAppVersionResourceMappings
   where
   toPath =
@@ -187,7 +188,7 @@ instance
       "/add-draft-app-version-resource-mappings"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AddDraftAppVersionResourceMappings
   where
   toQuery = Prelude.const Prelude.mempty

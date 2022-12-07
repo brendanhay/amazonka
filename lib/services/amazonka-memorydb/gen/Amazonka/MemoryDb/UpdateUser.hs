@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,7 +107,7 @@ instance Core.AWSRequest UpdateUser where
     Response.receiveJSON
       ( \s h x ->
           UpdateUserResponse'
-            Prelude.<$> (x Core..?> "User")
+            Prelude.<$> (x Data..?> "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,34 +123,34 @@ instance Prelude.NFData UpdateUser where
       `Prelude.seq` Prelude.rnf authenticationMode
       `Prelude.seq` Prelude.rnf userName
 
-instance Core.ToHeaders UpdateUser where
+instance Data.ToHeaders UpdateUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonMemoryDB.UpdateUser" :: Prelude.ByteString),
+              Data.=# ("AmazonMemoryDB.UpdateUser" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateUser where
+instance Data.ToJSON UpdateUser where
   toJSON UpdateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessString" Core..=) Prelude.<$> accessString,
-            ("AuthenticationMode" Core..=)
+          [ ("AccessString" Data..=) Prelude.<$> accessString,
+            ("AuthenticationMode" Data..=)
               Prelude.<$> authenticationMode,
-            Prelude.Just ("UserName" Core..= userName)
+            Prelude.Just ("UserName" Data..= userName)
           ]
       )
 
-instance Core.ToPath UpdateUser where
+instance Data.ToPath UpdateUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateUser where
+instance Data.ToQuery UpdateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserResponse' smart constructor.

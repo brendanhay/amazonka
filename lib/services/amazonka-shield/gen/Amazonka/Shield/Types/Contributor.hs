@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.Contributor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A contributor to the attack and their contribution.
@@ -76,13 +77,13 @@ contributor_name = Lens.lens (\Contributor' {name} -> name) (\s@Contributor' {} 
 contributor_value :: Lens.Lens' Contributor (Prelude.Maybe Prelude.Integer)
 contributor_value = Lens.lens (\Contributor' {value} -> value) (\s@Contributor' {} a -> s {value = a} :: Contributor)
 
-instance Core.FromJSON Contributor where
+instance Data.FromJSON Contributor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Contributor"
       ( \x ->
           Contributor'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Contributor where

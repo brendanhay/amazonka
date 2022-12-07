@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -162,7 +163,7 @@ instance Core.AWSRequest CreateSnapshotCopyGrant where
       "CreateSnapshotCopyGrantResult"
       ( \s h x ->
           CreateSnapshotCopyGrantResponse'
-            Prelude.<$> (x Core..@? "SnapshotCopyGrant")
+            Prelude.<$> (x Data..@? "SnapshotCopyGrant")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,25 +179,25 @@ instance Prelude.NFData CreateSnapshotCopyGrant where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf snapshotCopyGrantName
 
-instance Core.ToHeaders CreateSnapshotCopyGrant where
+instance Data.ToHeaders CreateSnapshotCopyGrant where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateSnapshotCopyGrant where
+instance Data.ToPath CreateSnapshotCopyGrant where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSnapshotCopyGrant where
+instance Data.ToQuery CreateSnapshotCopyGrant where
   toQuery CreateSnapshotCopyGrant' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateSnapshotCopyGrant" :: Prelude.ByteString),
+          Data.=: ("CreateSnapshotCopyGrant" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "KmsKeyId" Core.=: kmsKeyId,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "KmsKeyId" Data.=: kmsKeyId,
         "SnapshotCopyGrantName"
-          Core.=: snapshotCopyGrantName
+          Data.=: snapshotCopyGrantName
       ]
 
 -- | /See:/ 'newCreateSnapshotCopyGrantResponse' smart constructor.

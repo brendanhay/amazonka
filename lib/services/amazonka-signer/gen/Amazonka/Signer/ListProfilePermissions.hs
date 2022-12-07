@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,10 +100,10 @@ instance Core.AWSRequest ListProfilePermissions where
     Response.receiveJSON
       ( \s h x ->
           ListProfilePermissionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "permissions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "revisionId")
-            Prelude.<*> (x Core..?> "policySizeBytes")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "permissions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "revisionId")
+            Prelude.<*> (x Data..?> "policySizeBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,28 +117,28 @@ instance Prelude.NFData ListProfilePermissions where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf profileName
 
-instance Core.ToHeaders ListProfilePermissions where
+instance Data.ToHeaders ListProfilePermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListProfilePermissions where
+instance Data.ToPath ListProfilePermissions where
   toPath ListProfilePermissions' {..} =
     Prelude.mconcat
       [ "/signing-profiles/",
-        Core.toBS profileName,
+        Data.toBS profileName,
         "/permissions"
       ]
 
-instance Core.ToQuery ListProfilePermissions where
+instance Data.ToQuery ListProfilePermissions where
   toQuery ListProfilePermissions' {..} =
-    Prelude.mconcat ["nextToken" Core.=: nextToken]
+    Prelude.mconcat ["nextToken" Data.=: nextToken]
 
 -- | /See:/ 'newListProfilePermissionsResponse' smart constructor.
 data ListProfilePermissionsResponse = ListProfilePermissionsResponse'

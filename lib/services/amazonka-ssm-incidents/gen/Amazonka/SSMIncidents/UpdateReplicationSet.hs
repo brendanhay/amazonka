@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,31 +126,31 @@ instance Prelude.NFData UpdateReplicationSet where
       `Prelude.seq` Prelude.rnf actions
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders UpdateReplicationSet where
+instance Data.ToHeaders UpdateReplicationSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateReplicationSet where
+instance Data.ToJSON UpdateReplicationSet where
   toJSON UpdateReplicationSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("actions" Core..= actions),
-            Prelude.Just ("arn" Core..= arn)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("actions" Data..= actions),
+            Prelude.Just ("arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath UpdateReplicationSet where
+instance Data.ToPath UpdateReplicationSet where
   toPath = Prelude.const "/updateReplicationSet"
 
-instance Core.ToQuery UpdateReplicationSet where
+instance Data.ToQuery UpdateReplicationSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateReplicationSetResponse' smart constructor.

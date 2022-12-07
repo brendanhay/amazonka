@@ -21,6 +21,7 @@ module Amazonka.AmplifyBackend.Types.LoginAuthConfigReqObj where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The request object for this operation.
@@ -86,16 +87,16 @@ loginAuthConfigReqObj_awsUserPoolsId = Lens.lens (\LoginAuthConfigReqObj' {awsUs
 loginAuthConfigReqObj_awsUserPoolsWebClientId :: Lens.Lens' LoginAuthConfigReqObj (Prelude.Maybe Prelude.Text)
 loginAuthConfigReqObj_awsUserPoolsWebClientId = Lens.lens (\LoginAuthConfigReqObj' {awsUserPoolsWebClientId} -> awsUserPoolsWebClientId) (\s@LoginAuthConfigReqObj' {} a -> s {awsUserPoolsWebClientId = a} :: LoginAuthConfigReqObj)
 
-instance Core.FromJSON LoginAuthConfigReqObj where
+instance Data.FromJSON LoginAuthConfigReqObj where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoginAuthConfigReqObj"
       ( \x ->
           LoginAuthConfigReqObj'
-            Prelude.<$> (x Core..:? "aws_cognito_identity_pool_id")
-            Prelude.<*> (x Core..:? "aws_cognito_region")
-            Prelude.<*> (x Core..:? "aws_user_pools_id")
-            Prelude.<*> (x Core..:? "aws_user_pools_web_client_id")
+            Prelude.<$> (x Data..:? "aws_cognito_identity_pool_id")
+            Prelude.<*> (x Data..:? "aws_cognito_region")
+            Prelude.<*> (x Data..:? "aws_user_pools_id")
+            Prelude.<*> (x Data..:? "aws_user_pools_web_client_id")
       )
 
 instance Prelude.Hashable LoginAuthConfigReqObj where
@@ -113,17 +114,17 @@ instance Prelude.NFData LoginAuthConfigReqObj where
       `Prelude.seq` Prelude.rnf awsUserPoolsId
       `Prelude.seq` Prelude.rnf awsUserPoolsWebClientId
 
-instance Core.ToJSON LoginAuthConfigReqObj where
+instance Data.ToJSON LoginAuthConfigReqObj where
   toJSON LoginAuthConfigReqObj' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("aws_cognito_identity_pool_id" Core..=)
+          [ ("aws_cognito_identity_pool_id" Data..=)
               Prelude.<$> awsCognitoIdentityPoolId,
-            ("aws_cognito_region" Core..=)
+            ("aws_cognito_region" Data..=)
               Prelude.<$> awsCognitoRegion,
-            ("aws_user_pools_id" Core..=)
+            ("aws_user_pools_id" Data..=)
               Prelude.<$> awsUserPoolsId,
-            ("aws_user_pools_web_client_id" Core..=)
+            ("aws_user_pools_web_client_id" Data..=)
               Prelude.<$> awsUserPoolsWebClientId
           ]
       )

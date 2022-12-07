@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProcessingOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProcessingFeatureStoreOutput
 import Amazonka.SageMaker.Types.ProcessingS3Output
@@ -96,16 +97,16 @@ processingOutput_appManaged = Lens.lens (\ProcessingOutput' {appManaged} -> appM
 processingOutput_outputName :: Lens.Lens' ProcessingOutput Prelude.Text
 processingOutput_outputName = Lens.lens (\ProcessingOutput' {outputName} -> outputName) (\s@ProcessingOutput' {} a -> s {outputName = a} :: ProcessingOutput)
 
-instance Core.FromJSON ProcessingOutput where
+instance Data.FromJSON ProcessingOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProcessingOutput"
       ( \x ->
           ProcessingOutput'
-            Prelude.<$> (x Core..:? "S3Output")
-            Prelude.<*> (x Core..:? "FeatureStoreOutput")
-            Prelude.<*> (x Core..:? "AppManaged")
-            Prelude.<*> (x Core..: "OutputName")
+            Prelude.<$> (x Data..:? "S3Output")
+            Prelude.<*> (x Data..:? "FeatureStoreOutput")
+            Prelude.<*> (x Data..:? "AppManaged")
+            Prelude.<*> (x Data..: "OutputName")
       )
 
 instance Prelude.Hashable ProcessingOutput where
@@ -122,14 +123,14 @@ instance Prelude.NFData ProcessingOutput where
       `Prelude.seq` Prelude.rnf appManaged
       `Prelude.seq` Prelude.rnf outputName
 
-instance Core.ToJSON ProcessingOutput where
+instance Data.ToJSON ProcessingOutput where
   toJSON ProcessingOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Output" Core..=) Prelude.<$> s3Output,
-            ("FeatureStoreOutput" Core..=)
+          [ ("S3Output" Data..=) Prelude.<$> s3Output,
+            ("FeatureStoreOutput" Data..=)
               Prelude.<$> featureStoreOutput,
-            ("AppManaged" Core..=) Prelude.<$> appManaged,
-            Prelude.Just ("OutputName" Core..= outputName)
+            ("AppManaged" Data..=) Prelude.<$> appManaged,
+            Prelude.Just ("OutputName" Data..= outputName)
           ]
       )

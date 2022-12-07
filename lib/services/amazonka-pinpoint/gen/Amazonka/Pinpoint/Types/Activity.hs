@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.Activity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.ConditionalSplitActivity
 import Amazonka.Pinpoint.Types.ContactCenterActivity
 import Amazonka.Pinpoint.Types.CustomMessageActivity
@@ -195,23 +196,23 @@ activity_conditionalSplit = Lens.lens (\Activity' {conditionalSplit} -> conditio
 activity_holdout :: Lens.Lens' Activity (Prelude.Maybe HoldoutActivity)
 activity_holdout = Lens.lens (\Activity' {holdout} -> holdout) (\s@Activity' {} a -> s {holdout = a} :: Activity)
 
-instance Core.FromJSON Activity where
+instance Data.FromJSON Activity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Activity"
       ( \x ->
           Activity'
-            Prelude.<$> (x Core..:? "SMS")
-            Prelude.<*> (x Core..:? "MultiCondition")
-            Prelude.<*> (x Core..:? "EMAIL")
-            Prelude.<*> (x Core..:? "PUSH")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Wait")
-            Prelude.<*> (x Core..:? "RandomSplit")
-            Prelude.<*> (x Core..:? "ContactCenter")
-            Prelude.<*> (x Core..:? "CUSTOM")
-            Prelude.<*> (x Core..:? "ConditionalSplit")
-            Prelude.<*> (x Core..:? "Holdout")
+            Prelude.<$> (x Data..:? "SMS")
+            Prelude.<*> (x Data..:? "MultiCondition")
+            Prelude.<*> (x Data..:? "EMAIL")
+            Prelude.<*> (x Data..:? "PUSH")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Wait")
+            Prelude.<*> (x Data..:? "RandomSplit")
+            Prelude.<*> (x Data..:? "ContactCenter")
+            Prelude.<*> (x Data..:? "CUSTOM")
+            Prelude.<*> (x Data..:? "ConditionalSplit")
+            Prelude.<*> (x Data..:? "Holdout")
       )
 
 instance Prelude.Hashable Activity where
@@ -242,22 +243,22 @@ instance Prelude.NFData Activity where
       `Prelude.seq` Prelude.rnf conditionalSplit
       `Prelude.seq` Prelude.rnf holdout
 
-instance Core.ToJSON Activity where
+instance Data.ToJSON Activity where
   toJSON Activity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SMS" Core..=) Prelude.<$> sms,
-            ("MultiCondition" Core..=)
+          [ ("SMS" Data..=) Prelude.<$> sms,
+            ("MultiCondition" Data..=)
               Prelude.<$> multiCondition,
-            ("EMAIL" Core..=) Prelude.<$> email,
-            ("PUSH" Core..=) Prelude.<$> push,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Wait" Core..=) Prelude.<$> wait,
-            ("RandomSplit" Core..=) Prelude.<$> randomSplit,
-            ("ContactCenter" Core..=) Prelude.<$> contactCenter,
-            ("CUSTOM" Core..=) Prelude.<$> custom,
-            ("ConditionalSplit" Core..=)
+            ("EMAIL" Data..=) Prelude.<$> email,
+            ("PUSH" Data..=) Prelude.<$> push,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Wait" Data..=) Prelude.<$> wait,
+            ("RandomSplit" Data..=) Prelude.<$> randomSplit,
+            ("ContactCenter" Data..=) Prelude.<$> contactCenter,
+            ("CUSTOM" Data..=) Prelude.<$> custom,
+            ("ConditionalSplit" Data..=)
               Prelude.<$> conditionalSplit,
-            ("Holdout" Core..=) Prelude.<$> holdout
+            ("Holdout" Data..=) Prelude.<$> holdout
           ]
       )

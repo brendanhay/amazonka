@@ -58,6 +58,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,7 +98,7 @@ instance Core.AWSRequest GetDomainName where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetDomainName where
   hashWithSalt _salt GetDomainName' {..} =
@@ -106,19 +107,19 @@ instance Prelude.Hashable GetDomainName where
 instance Prelude.NFData GetDomainName where
   rnf GetDomainName' {..} = Prelude.rnf domainName
 
-instance Core.ToHeaders GetDomainName where
+instance Data.ToHeaders GetDomainName where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetDomainName where
+instance Data.ToPath GetDomainName where
   toPath GetDomainName' {..} =
     Prelude.mconcat
-      ["/domainnames/", Core.toBS domainName]
+      ["/domainnames/", Data.toBS domainName]
 
-instance Core.ToQuery GetDomainName where
+instance Data.ToQuery GetDomainName where
   toQuery = Prelude.const Prelude.mempty

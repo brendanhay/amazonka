@@ -21,6 +21,7 @@ module Amazonka.Signer.Types.S3Source where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the S3 bucket where you saved your unsigned code.
@@ -76,15 +77,15 @@ s3Source_key = Lens.lens (\S3Source' {key} -> key) (\s@S3Source' {} a -> s {key 
 s3Source_version :: Lens.Lens' S3Source Prelude.Text
 s3Source_version = Lens.lens (\S3Source' {version} -> version) (\s@S3Source' {} a -> s {version = a} :: S3Source)
 
-instance Core.FromJSON S3Source where
+instance Data.FromJSON S3Source where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Source"
       ( \x ->
           S3Source'
-            Prelude.<$> (x Core..: "bucketName")
-            Prelude.<*> (x Core..: "key")
-            Prelude.<*> (x Core..: "version")
+            Prelude.<$> (x Data..: "bucketName")
+            Prelude.<*> (x Data..: "key")
+            Prelude.<*> (x Data..: "version")
       )
 
 instance Prelude.Hashable S3Source where
@@ -99,12 +100,12 @@ instance Prelude.NFData S3Source where
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON S3Source where
+instance Data.ToJSON S3Source where
   toJSON S3Source' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("bucketName" Core..= bucketName),
-            Prelude.Just ("key" Core..= key),
-            Prelude.Just ("version" Core..= version)
+          [ Prelude.Just ("bucketName" Data..= bucketName),
+            Prelude.Just ("key" Data..= key),
+            Prelude.Just ("version" Data..= version)
           ]
       )

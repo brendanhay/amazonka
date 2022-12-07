@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.AnalyticsConfigurationType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Pinpoint analytics configuration necessary to collect metrics
@@ -110,17 +111,17 @@ analyticsConfigurationType_externalId = Lens.lens (\AnalyticsConfigurationType' 
 analyticsConfigurationType_applicationId :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Text)
 analyticsConfigurationType_applicationId = Lens.lens (\AnalyticsConfigurationType' {applicationId} -> applicationId) (\s@AnalyticsConfigurationType' {} a -> s {applicationId = a} :: AnalyticsConfigurationType)
 
-instance Core.FromJSON AnalyticsConfigurationType where
+instance Data.FromJSON AnalyticsConfigurationType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnalyticsConfigurationType"
       ( \x ->
           AnalyticsConfigurationType'
-            Prelude.<$> (x Core..:? "UserDataShared")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "ApplicationArn")
-            Prelude.<*> (x Core..:? "ExternalId")
-            Prelude.<*> (x Core..:? "ApplicationId")
+            Prelude.<$> (x Data..:? "UserDataShared")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "ApplicationArn")
+            Prelude.<*> (x Data..:? "ExternalId")
+            Prelude.<*> (x Data..:? "ApplicationId")
       )
 
 instance Prelude.Hashable AnalyticsConfigurationType where
@@ -139,16 +140,16 @@ instance Prelude.NFData AnalyticsConfigurationType where
       `Prelude.seq` Prelude.rnf externalId
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToJSON AnalyticsConfigurationType where
+instance Data.ToJSON AnalyticsConfigurationType where
   toJSON AnalyticsConfigurationType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UserDataShared" Core..=)
+          [ ("UserDataShared" Data..=)
               Prelude.<$> userDataShared,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("ApplicationArn" Core..=)
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("ApplicationArn" Data..=)
               Prelude.<$> applicationArn,
-            ("ExternalId" Core..=) Prelude.<$> externalId,
-            ("ApplicationId" Core..=) Prelude.<$> applicationId
+            ("ExternalId" Data..=) Prelude.<$> externalId,
+            ("ApplicationId" Data..=) Prelude.<$> applicationId
           ]
       )

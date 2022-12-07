@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,8 +145,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAttributeGroupsForApplicationResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-              Prelude.<*> ( x Core..?> "attributeGroupsDetails"
+            Prelude.<$> (x Data..?> "nextToken")
+              Prelude.<*> ( x Data..?> "attributeGroupsDetails"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -172,38 +173,38 @@ instance
       `Prelude.seq` Prelude.rnf application
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListAttributeGroupsForApplication
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListAttributeGroupsForApplication
   where
   toPath ListAttributeGroupsForApplication' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS application,
+        Data.toBS application,
         "/attribute-group-details"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListAttributeGroupsForApplication
   where
   toQuery ListAttributeGroupsForApplication' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListAttributeGroupsForApplicationResponse' smart constructor.

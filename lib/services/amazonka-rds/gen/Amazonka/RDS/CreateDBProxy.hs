@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -246,7 +247,7 @@ instance Core.AWSRequest CreateDBProxy where
       "CreateDBProxyResult"
       ( \s h x ->
           CreateDBProxyResponse'
-            Prelude.<$> (x Core..@? "DBProxy")
+            Prelude.<$> (x Data..@? "DBProxy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -276,36 +277,36 @@ instance Prelude.NFData CreateDBProxy where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf vpcSubnetIds
 
-instance Core.ToHeaders CreateDBProxy where
+instance Data.ToHeaders CreateDBProxy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDBProxy where
+instance Data.ToPath CreateDBProxy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDBProxy where
+instance Data.ToQuery CreateDBProxy where
   toQuery CreateDBProxy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDBProxy" :: Prelude.ByteString),
+          Data.=: ("CreateDBProxy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "RequireTLS" Core.=: requireTLS,
-        "DebugLogging" Core.=: debugLogging,
-        "IdleClientTimeout" Core.=: idleClientTimeout,
-        "DBProxyName" Core.=: dbProxyName,
-        "EngineFamily" Core.=: engineFamily,
-        "Auth" Core.=: Core.toQueryList "member" auth,
-        "RoleArn" Core.=: roleArn,
+        "RequireTLS" Data.=: requireTLS,
+        "DebugLogging" Data.=: debugLogging,
+        "IdleClientTimeout" Data.=: idleClientTimeout,
+        "DBProxyName" Data.=: dbProxyName,
+        "EngineFamily" Data.=: engineFamily,
+        "Auth" Data.=: Data.toQueryList "member" auth,
+        "RoleArn" Data.=: roleArn,
         "VpcSubnetIds"
-          Core.=: Core.toQueryList "member" vpcSubnetIds
+          Data.=: Data.toQueryList "member" vpcSubnetIds
       ]
 
 -- | /See:/ 'newCreateDBProxyResponse' smart constructor.

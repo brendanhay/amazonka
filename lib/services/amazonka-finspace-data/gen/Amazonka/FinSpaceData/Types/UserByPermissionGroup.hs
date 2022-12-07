@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.UserByPermissionGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types.ApiAccess
 import Amazonka.FinSpaceData.Types.PermissionGroupMembershipStatus
 import Amazonka.FinSpaceData.Types.UserStatus
@@ -40,7 +41,7 @@ data UserByPermissionGroup = UserByPermissionGroup'
     --     are assigned permissions by adding them to a permission group.
     type' :: Prelude.Maybe UserType,
     -- | The first name of the user.
-    firstName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    firstName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The current status of the user account.
     --
     -- -   @CREATING@ – The user account creation is in progress.
@@ -50,7 +51,7 @@ data UserByPermissionGroup = UserByPermissionGroup'
     -- -   @DISABLED@ – The user account is currently inactive.
     status :: Prelude.Maybe UserStatus,
     -- | The last name of the user.
-    lastName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    lastName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Indicates whether the user can access FinSpace API operations.
     --
     -- -   @ENABLED@ – The user has permissions to use the API operations.
@@ -73,7 +74,7 @@ data UserByPermissionGroup = UserByPermissionGroup'
     membershipStatus :: Prelude.Maybe PermissionGroupMembershipStatus,
     -- | The email address of the user. The email address serves as a unique
     -- identifier for each user and cannot be changed after it\'s created.
-    emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    emailAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The IAM ARN identifier that is attached to FinSpace API calls.
     apiAccessPrincipalArn :: Prelude.Maybe Prelude.Text
   }
@@ -158,7 +159,7 @@ userByPermissionGroup_type = Lens.lens (\UserByPermissionGroup' {type'} -> type'
 
 -- | The first name of the user.
 userByPermissionGroup_firstName :: Lens.Lens' UserByPermissionGroup (Prelude.Maybe Prelude.Text)
-userByPermissionGroup_firstName = Lens.lens (\UserByPermissionGroup' {firstName} -> firstName) (\s@UserByPermissionGroup' {} a -> s {firstName = a} :: UserByPermissionGroup) Prelude.. Lens.mapping Core._Sensitive
+userByPermissionGroup_firstName = Lens.lens (\UserByPermissionGroup' {firstName} -> firstName) (\s@UserByPermissionGroup' {} a -> s {firstName = a} :: UserByPermissionGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The current status of the user account.
 --
@@ -172,7 +173,7 @@ userByPermissionGroup_status = Lens.lens (\UserByPermissionGroup' {status} -> st
 
 -- | The last name of the user.
 userByPermissionGroup_lastName :: Lens.Lens' UserByPermissionGroup (Prelude.Maybe Prelude.Text)
-userByPermissionGroup_lastName = Lens.lens (\UserByPermissionGroup' {lastName} -> lastName) (\s@UserByPermissionGroup' {} a -> s {lastName = a} :: UserByPermissionGroup) Prelude.. Lens.mapping Core._Sensitive
+userByPermissionGroup_lastName = Lens.lens (\UserByPermissionGroup' {lastName} -> lastName) (\s@UserByPermissionGroup' {} a -> s {lastName = a} :: UserByPermissionGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Indicates whether the user can access FinSpace API operations.
 --
@@ -203,27 +204,27 @@ userByPermissionGroup_membershipStatus = Lens.lens (\UserByPermissionGroup' {mem
 -- | The email address of the user. The email address serves as a unique
 -- identifier for each user and cannot be changed after it\'s created.
 userByPermissionGroup_emailAddress :: Lens.Lens' UserByPermissionGroup (Prelude.Maybe Prelude.Text)
-userByPermissionGroup_emailAddress = Lens.lens (\UserByPermissionGroup' {emailAddress} -> emailAddress) (\s@UserByPermissionGroup' {} a -> s {emailAddress = a} :: UserByPermissionGroup) Prelude.. Lens.mapping Core._Sensitive
+userByPermissionGroup_emailAddress = Lens.lens (\UserByPermissionGroup' {emailAddress} -> emailAddress) (\s@UserByPermissionGroup' {} a -> s {emailAddress = a} :: UserByPermissionGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The IAM ARN identifier that is attached to FinSpace API calls.
 userByPermissionGroup_apiAccessPrincipalArn :: Lens.Lens' UserByPermissionGroup (Prelude.Maybe Prelude.Text)
 userByPermissionGroup_apiAccessPrincipalArn = Lens.lens (\UserByPermissionGroup' {apiAccessPrincipalArn} -> apiAccessPrincipalArn) (\s@UserByPermissionGroup' {} a -> s {apiAccessPrincipalArn = a} :: UserByPermissionGroup)
 
-instance Core.FromJSON UserByPermissionGroup where
+instance Data.FromJSON UserByPermissionGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserByPermissionGroup"
       ( \x ->
           UserByPermissionGroup'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "firstName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastName")
-            Prelude.<*> (x Core..:? "apiAccess")
-            Prelude.<*> (x Core..:? "userId")
-            Prelude.<*> (x Core..:? "membershipStatus")
-            Prelude.<*> (x Core..:? "emailAddress")
-            Prelude.<*> (x Core..:? "apiAccessPrincipalArn")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "firstName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "lastName")
+            Prelude.<*> (x Data..:? "apiAccess")
+            Prelude.<*> (x Data..:? "userId")
+            Prelude.<*> (x Data..:? "membershipStatus")
+            Prelude.<*> (x Data..:? "emailAddress")
+            Prelude.<*> (x Data..:? "apiAccessPrincipalArn")
       )
 
 instance Prelude.Hashable UserByPermissionGroup where

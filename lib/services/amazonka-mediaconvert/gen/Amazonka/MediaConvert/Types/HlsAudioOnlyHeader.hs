@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.HlsAudioOnlyHeader
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Ignore this setting unless you are using FairPlay DRM with Verimatrix
@@ -35,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 -- remove the audio-only headers from your audio segments.
 newtype HlsAudioOnlyHeader = HlsAudioOnlyHeader'
   { fromHlsAudioOnlyHeader ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -47,18 +48,18 @@ newtype HlsAudioOnlyHeader = HlsAudioOnlyHeader'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern HlsAudioOnlyHeader_EXCLUDE :: HlsAudioOnlyHeader

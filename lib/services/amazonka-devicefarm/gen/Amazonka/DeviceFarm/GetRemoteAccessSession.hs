@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,7 +90,7 @@ instance Core.AWSRequest GetRemoteAccessSession where
     Response.receiveJSON
       ( \s h x ->
           GetRemoteAccessSessionResponse'
-            Prelude.<$> (x Core..?> "remoteAccessSession")
+            Prelude.<$> (x Data..?> "remoteAccessSession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,32 +101,32 @@ instance Prelude.Hashable GetRemoteAccessSession where
 instance Prelude.NFData GetRemoteAccessSession where
   rnf GetRemoteAccessSession' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders GetRemoteAccessSession where
+instance Data.ToHeaders GetRemoteAccessSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.GetRemoteAccessSession" ::
+              Data.=# ( "DeviceFarm_20150623.GetRemoteAccessSession" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRemoteAccessSession where
+instance Data.ToJSON GetRemoteAccessSession where
   toJSON GetRemoteAccessSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath GetRemoteAccessSession where
+instance Data.ToPath GetRemoteAccessSession where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRemoteAccessSession where
+instance Data.ToQuery GetRemoteAccessSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server that lists detailed information

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -295,7 +296,7 @@ instance Core.AWSRequest CreateSession where
     Response.receiveJSON
       ( \s h x ->
           CreateSessionResponse'
-            Prelude.<$> (x Core..?> "Session")
+            Prelude.<$> (x Data..?> "Session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -335,48 +336,48 @@ instance Prelude.NFData CreateSession where
       `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf command
 
-instance Core.ToHeaders CreateSession where
+instance Data.ToHeaders CreateSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CreateSession" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.CreateSession" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSession where
+instance Data.ToJSON CreateSession where
   toJSON CreateSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityConfiguration" Core..=)
+          [ ("SecurityConfiguration" Data..=)
               Prelude.<$> securityConfiguration,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("NumberOfWorkers" Core..=)
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("Timeout" Data..=) Prelude.<$> timeout,
+            ("NumberOfWorkers" Data..=)
               Prelude.<$> numberOfWorkers,
-            ("GlueVersion" Core..=) Prelude.<$> glueVersion,
-            ("RequestOrigin" Core..=) Prelude.<$> requestOrigin,
-            ("IdleTimeout" Core..=) Prelude.<$> idleTimeout,
-            ("WorkerType" Core..=) Prelude.<$> workerType,
-            ("Description" Core..=) Prelude.<$> description,
-            ("DefaultArguments" Core..=)
+            ("GlueVersion" Data..=) Prelude.<$> glueVersion,
+            ("RequestOrigin" Data..=) Prelude.<$> requestOrigin,
+            ("IdleTimeout" Data..=) Prelude.<$> idleTimeout,
+            ("WorkerType" Data..=) Prelude.<$> workerType,
+            ("Description" Data..=) Prelude.<$> description,
+            ("DefaultArguments" Data..=)
               Prelude.<$> defaultArguments,
-            ("Connections" Core..=) Prelude.<$> connections,
-            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("Role" Core..= role'),
-            Prelude.Just ("Command" Core..= command)
+            ("Connections" Data..=) Prelude.<$> connections,
+            ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("Role" Data..= role'),
+            Prelude.Just ("Command" Data..= command)
           ]
       )
 
-instance Core.ToPath CreateSession where
+instance Data.ToPath CreateSession where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSession where
+instance Data.ToQuery CreateSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSessionResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Schemas.Types.SearchSchemaVersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Schemas.Types.Type
 
@@ -31,7 +32,7 @@ data SearchSchemaVersionSummary = SearchSchemaVersionSummary'
     -- | The version number of the schema
     schemaVersion :: Prelude.Maybe Prelude.Text,
     -- | The date the schema version was created.
-    createdDate :: Prelude.Maybe Core.POSIX
+    createdDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,17 +69,17 @@ searchSchemaVersionSummary_schemaVersion = Lens.lens (\SearchSchemaVersionSummar
 
 -- | The date the schema version was created.
 searchSchemaVersionSummary_createdDate :: Lens.Lens' SearchSchemaVersionSummary (Prelude.Maybe Prelude.UTCTime)
-searchSchemaVersionSummary_createdDate = Lens.lens (\SearchSchemaVersionSummary' {createdDate} -> createdDate) (\s@SearchSchemaVersionSummary' {} a -> s {createdDate = a} :: SearchSchemaVersionSummary) Prelude.. Lens.mapping Core._Time
+searchSchemaVersionSummary_createdDate = Lens.lens (\SearchSchemaVersionSummary' {createdDate} -> createdDate) (\s@SearchSchemaVersionSummary' {} a -> s {createdDate = a} :: SearchSchemaVersionSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SearchSchemaVersionSummary where
+instance Data.FromJSON SearchSchemaVersionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SearchSchemaVersionSummary"
       ( \x ->
           SearchSchemaVersionSummary'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "SchemaVersion")
-            Prelude.<*> (x Core..:? "CreatedDate")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "SchemaVersion")
+            Prelude.<*> (x Data..:? "CreatedDate")
       )
 
 instance Prelude.Hashable SearchSchemaVersionSummary where

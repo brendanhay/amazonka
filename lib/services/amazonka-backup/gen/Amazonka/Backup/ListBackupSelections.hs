@@ -48,6 +48,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,8 +141,8 @@ instance Core.AWSRequest ListBackupSelections where
     Response.receiveJSON
       ( \s h x ->
           ListBackupSelectionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "BackupSelectionsList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "BackupSelectionsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -159,30 +160,30 @@ instance Prelude.NFData ListBackupSelections where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf backupPlanId
 
-instance Core.ToHeaders ListBackupSelections where
+instance Data.ToHeaders ListBackupSelections where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListBackupSelections where
+instance Data.ToPath ListBackupSelections where
   toPath ListBackupSelections' {..} =
     Prelude.mconcat
       [ "/backup/plans/",
-        Core.toBS backupPlanId,
+        Data.toBS backupPlanId,
         "/selections/"
       ]
 
-instance Core.ToQuery ListBackupSelections where
+instance Data.ToQuery ListBackupSelections where
   toQuery ListBackupSelections' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListBackupSelectionsResponse' smart constructor.

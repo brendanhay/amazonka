@@ -21,6 +21,7 @@ module Amazonka.Grafana.Types.AwsSsoAuthentication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing information about how this workspace works with
@@ -57,13 +58,13 @@ newAwsSsoAuthentication =
 awsSsoAuthentication_ssoClientId :: Lens.Lens' AwsSsoAuthentication (Prelude.Maybe Prelude.Text)
 awsSsoAuthentication_ssoClientId = Lens.lens (\AwsSsoAuthentication' {ssoClientId} -> ssoClientId) (\s@AwsSsoAuthentication' {} a -> s {ssoClientId = a} :: AwsSsoAuthentication)
 
-instance Core.FromJSON AwsSsoAuthentication where
+instance Data.FromJSON AwsSsoAuthentication where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsSsoAuthentication"
       ( \x ->
           AwsSsoAuthentication'
-            Prelude.<$> (x Core..:? "ssoClientId")
+            Prelude.<$> (x Data..:? "ssoClientId")
       )
 
 instance Prelude.Hashable AwsSsoAuthentication where

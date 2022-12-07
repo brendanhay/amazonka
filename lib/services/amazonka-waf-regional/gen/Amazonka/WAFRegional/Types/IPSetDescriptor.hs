@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.IPSetDescriptor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFRegional.Types.IPSetDescriptorType
 
@@ -139,13 +140,13 @@ iPSetDescriptor_type = Lens.lens (\IPSetDescriptor' {type'} -> type') (\s@IPSetD
 iPSetDescriptor_value :: Lens.Lens' IPSetDescriptor Prelude.Text
 iPSetDescriptor_value = Lens.lens (\IPSetDescriptor' {value} -> value) (\s@IPSetDescriptor' {} a -> s {value = a} :: IPSetDescriptor)
 
-instance Core.FromJSON IPSetDescriptor where
+instance Data.FromJSON IPSetDescriptor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IPSetDescriptor"
       ( \x ->
           IPSetDescriptor'
-            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable IPSetDescriptor where
@@ -157,11 +158,11 @@ instance Prelude.NFData IPSetDescriptor where
   rnf IPSetDescriptor' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON IPSetDescriptor where
+instance Data.ToJSON IPSetDescriptor where
   toJSON IPSetDescriptor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

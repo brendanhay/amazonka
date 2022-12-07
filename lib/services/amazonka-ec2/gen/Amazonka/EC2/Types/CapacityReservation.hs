@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CapacityReservation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CapacityAllocation
 import Amazonka.EC2.Types.CapacityReservationInstancePlatform
@@ -69,7 +70,7 @@ data CapacityReservation = CapacityReservation'
     -- Capacity Reservation expires, the reserved capacity is released and you
     -- can no longer launch instances into it. The Capacity Reservation\'s
     -- state changes to @expired@ when it reaches its end date and time.
-    endDate :: Prelude.Maybe Core.ISO8601,
+    endDate :: Prelude.Maybe Data.ISO8601,
     -- | The current state of the Capacity Reservation. A Capacity Reservation
     -- can be in one of the following states:
     --
@@ -104,9 +105,9 @@ data CapacityReservation = CapacityReservation'
     -- capacity.
     instancePlatform :: Prelude.Maybe CapacityReservationInstancePlatform,
     -- | The date and time at which the Capacity Reservation was started.
-    startDate :: Prelude.Maybe Core.ISO8601,
+    startDate :: Prelude.Maybe Data.ISO8601,
     -- | The date and time at which the Capacity Reservation was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Data.ISO8601,
     -- | The remaining capacity. Indicates the number of instances that can be
     -- launched in the Capacity Reservation.
     availableInstanceCount :: Prelude.Maybe Prelude.Int,
@@ -346,7 +347,7 @@ capacityReservation_totalInstanceCount = Lens.lens (\CapacityReservation' {total
 -- can no longer launch instances into it. The Capacity Reservation\'s
 -- state changes to @expired@ when it reaches its end date and time.
 capacityReservation_endDate :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.UTCTime)
-capacityReservation_endDate = Lens.lens (\CapacityReservation' {endDate} -> endDate) (\s@CapacityReservation' {} a -> s {endDate = a} :: CapacityReservation) Prelude.. Lens.mapping Core._Time
+capacityReservation_endDate = Lens.lens (\CapacityReservation' {endDate} -> endDate) (\s@CapacityReservation' {} a -> s {endDate = a} :: CapacityReservation) Prelude.. Lens.mapping Data._Time
 
 -- | The current state of the Capacity Reservation. A Capacity Reservation
 -- can be in one of the following states:
@@ -395,11 +396,11 @@ capacityReservation_instancePlatform = Lens.lens (\CapacityReservation' {instanc
 
 -- | The date and time at which the Capacity Reservation was started.
 capacityReservation_startDate :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.UTCTime)
-capacityReservation_startDate = Lens.lens (\CapacityReservation' {startDate} -> startDate) (\s@CapacityReservation' {} a -> s {startDate = a} :: CapacityReservation) Prelude.. Lens.mapping Core._Time
+capacityReservation_startDate = Lens.lens (\CapacityReservation' {startDate} -> startDate) (\s@CapacityReservation' {} a -> s {startDate = a} :: CapacityReservation) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time at which the Capacity Reservation was created.
 capacityReservation_createDate :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.UTCTime)
-capacityReservation_createDate = Lens.lens (\CapacityReservation' {createDate} -> createDate) (\s@CapacityReservation' {} a -> s {createDate = a} :: CapacityReservation) Prelude.. Lens.mapping Core._Time
+capacityReservation_createDate = Lens.lens (\CapacityReservation' {createDate} -> createDate) (\s@CapacityReservation' {} a -> s {createDate = a} :: CapacityReservation) Prelude.. Lens.mapping Data._Time
 
 -- | The remaining capacity. Indicates the number of instances that can be
 -- launched in the Capacity Reservation.
@@ -448,37 +449,37 @@ capacityReservation_tenancy = Lens.lens (\CapacityReservation' {tenancy} -> tena
 capacityReservation_availabilityZoneId :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.Text)
 capacityReservation_availabilityZoneId = Lens.lens (\CapacityReservation' {availabilityZoneId} -> availabilityZoneId) (\s@CapacityReservation' {} a -> s {availabilityZoneId = a} :: CapacityReservation)
 
-instance Core.FromXML CapacityReservation where
+instance Data.FromXML CapacityReservation where
   parseXML x =
     CapacityReservation'
-      Prelude.<$> (x Core..@? "ebsOptimized")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "ebsOptimized")
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "capacityReservationFleetId")
-      Prelude.<*> ( x Core..@? "capacityAllocationSet"
+      Prelude.<*> (x Data..@? "capacityReservationFleetId")
+      Prelude.<*> ( x Data..@? "capacityAllocationSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ephemeralStorage")
-      Prelude.<*> (x Core..@? "placementGroupArn")
-      Prelude.<*> (x Core..@? "outpostArn")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "totalInstanceCount")
-      Prelude.<*> (x Core..@? "endDate")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "capacityReservationId")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "capacityReservationArn")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "instancePlatform")
-      Prelude.<*> (x Core..@? "startDate")
-      Prelude.<*> (x Core..@? "createDate")
-      Prelude.<*> (x Core..@? "availableInstanceCount")
-      Prelude.<*> (x Core..@? "instanceMatchCriteria")
-      Prelude.<*> (x Core..@? "endDateType")
-      Prelude.<*> (x Core..@? "tenancy")
-      Prelude.<*> (x Core..@? "availabilityZoneId")
+      Prelude.<*> (x Data..@? "ephemeralStorage")
+      Prelude.<*> (x Data..@? "placementGroupArn")
+      Prelude.<*> (x Data..@? "outpostArn")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "totalInstanceCount")
+      Prelude.<*> (x Data..@? "endDate")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "capacityReservationId")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "capacityReservationArn")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "instancePlatform")
+      Prelude.<*> (x Data..@? "startDate")
+      Prelude.<*> (x Data..@? "createDate")
+      Prelude.<*> (x Data..@? "availableInstanceCount")
+      Prelude.<*> (x Data..@? "instanceMatchCriteria")
+      Prelude.<*> (x Data..@? "endDateType")
+      Prelude.<*> (x Data..@? "tenancy")
+      Prelude.<*> (x Data..@? "availabilityZoneId")
 
 instance Prelude.Hashable CapacityReservation where
   hashWithSalt _salt CapacityReservation' {..} =

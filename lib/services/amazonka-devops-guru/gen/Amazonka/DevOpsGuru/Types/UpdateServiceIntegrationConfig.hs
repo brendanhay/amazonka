@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.UpdateServiceIntegrationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.LogsAnomalyDetectionIntegrationConfig
 import Amazonka.DevOpsGuru.Types.OpsCenterIntegrationConfig
 import qualified Amazonka.Prelude as Prelude
@@ -86,12 +87,12 @@ instance
     Prelude.rnf opsCenter
       `Prelude.seq` Prelude.rnf logsAnomalyDetection
 
-instance Core.ToJSON UpdateServiceIntegrationConfig where
+instance Data.ToJSON UpdateServiceIntegrationConfig where
   toJSON UpdateServiceIntegrationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OpsCenter" Core..=) Prelude.<$> opsCenter,
-            ("LogsAnomalyDetection" Core..=)
+          [ ("OpsCenter" Data..=) Prelude.<$> opsCenter,
+            ("LogsAnomalyDetection" Data..=)
               Prelude.<$> logsAnomalyDetection
           ]
       )

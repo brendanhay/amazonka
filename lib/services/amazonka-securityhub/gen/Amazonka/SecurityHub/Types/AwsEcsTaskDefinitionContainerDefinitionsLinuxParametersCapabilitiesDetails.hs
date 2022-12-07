@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxP
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Linux capabilities for the container that are added to or dropped
@@ -143,16 +144,16 @@ awsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails_add :
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails_add = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails' {add} -> add) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails' {} a -> s {add = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails'
-            Prelude.<$> (x Core..:? "Drop" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "Add" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Drop" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Add" Data..!= Prelude.mempty)
       )
 
 instance
@@ -174,14 +175,14 @@ instance
       Prelude.rnf drop `Prelude.seq` Prelude.rnf add
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Drop" Core..=) Prelude.<$> drop,
-              ("Add" Core..=) Prelude.<$> add
+            [ ("Drop" Data..=) Prelude.<$> drop,
+              ("Add" Data..=) Prelude.<$> add
             ]
         )

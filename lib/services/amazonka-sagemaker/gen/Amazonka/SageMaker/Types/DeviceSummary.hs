@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DeviceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.EdgeModelSummary
 
@@ -38,9 +39,9 @@ data DeviceSummary = DeviceSummary'
     -- | A description of the device.
     description :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the last registration or de-reregistration.
-    registrationTime :: Prelude.Maybe Core.POSIX,
+    registrationTime :: Prelude.Maybe Data.POSIX,
     -- | The last heartbeat received from the device.
-    latestHeartbeat :: Prelude.Maybe Core.POSIX,
+    latestHeartbeat :: Prelude.Maybe Data.POSIX,
     -- | Edge Manager agent version.
     agentVersion :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the device.
@@ -114,11 +115,11 @@ deviceSummary_description = Lens.lens (\DeviceSummary' {description} -> descript
 
 -- | The timestamp of the last registration or de-reregistration.
 deviceSummary_registrationTime :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.UTCTime)
-deviceSummary_registrationTime = Lens.lens (\DeviceSummary' {registrationTime} -> registrationTime) (\s@DeviceSummary' {} a -> s {registrationTime = a} :: DeviceSummary) Prelude.. Lens.mapping Core._Time
+deviceSummary_registrationTime = Lens.lens (\DeviceSummary' {registrationTime} -> registrationTime) (\s@DeviceSummary' {} a -> s {registrationTime = a} :: DeviceSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The last heartbeat received from the device.
 deviceSummary_latestHeartbeat :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.UTCTime)
-deviceSummary_latestHeartbeat = Lens.lens (\DeviceSummary' {latestHeartbeat} -> latestHeartbeat) (\s@DeviceSummary' {} a -> s {latestHeartbeat = a} :: DeviceSummary) Prelude.. Lens.mapping Core._Time
+deviceSummary_latestHeartbeat = Lens.lens (\DeviceSummary' {latestHeartbeat} -> latestHeartbeat) (\s@DeviceSummary' {} a -> s {latestHeartbeat = a} :: DeviceSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Edge Manager agent version.
 deviceSummary_agentVersion :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.Text)
@@ -132,21 +133,21 @@ deviceSummary_deviceName = Lens.lens (\DeviceSummary' {deviceName} -> deviceName
 deviceSummary_deviceArn :: Lens.Lens' DeviceSummary Prelude.Text
 deviceSummary_deviceArn = Lens.lens (\DeviceSummary' {deviceArn} -> deviceArn) (\s@DeviceSummary' {} a -> s {deviceArn = a} :: DeviceSummary)
 
-instance Core.FromJSON DeviceSummary where
+instance Data.FromJSON DeviceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceSummary"
       ( \x ->
           DeviceSummary'
-            Prelude.<$> (x Core..:? "Models" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "IotThingName")
-            Prelude.<*> (x Core..:? "DeviceFleetName")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "RegistrationTime")
-            Prelude.<*> (x Core..:? "LatestHeartbeat")
-            Prelude.<*> (x Core..:? "AgentVersion")
-            Prelude.<*> (x Core..: "DeviceName")
-            Prelude.<*> (x Core..: "DeviceArn")
+            Prelude.<$> (x Data..:? "Models" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "IotThingName")
+            Prelude.<*> (x Data..:? "DeviceFleetName")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "RegistrationTime")
+            Prelude.<*> (x Data..:? "LatestHeartbeat")
+            Prelude.<*> (x Data..:? "AgentVersion")
+            Prelude.<*> (x Data..: "DeviceName")
+            Prelude.<*> (x Data..: "DeviceArn")
       )
 
 instance Prelude.Hashable DeviceSummary where

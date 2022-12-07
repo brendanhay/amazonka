@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType
 import qualified Amazonka.Prelude as Prelude
 
@@ -59,15 +60,15 @@ kafkaClusterClientAuthenticationDescription_authenticationType :: Lens.Lens' Kaf
 kafkaClusterClientAuthenticationDescription_authenticationType = Lens.lens (\KafkaClusterClientAuthenticationDescription' {authenticationType} -> authenticationType) (\s@KafkaClusterClientAuthenticationDescription' {} a -> s {authenticationType = a} :: KafkaClusterClientAuthenticationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     KafkaClusterClientAuthenticationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KafkaClusterClientAuthenticationDescription"
       ( \x ->
           KafkaClusterClientAuthenticationDescription'
-            Prelude.<$> (x Core..:? "authenticationType")
+            Prelude.<$> (x Data..:? "authenticationType")
       )
 
 instance

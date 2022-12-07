@@ -21,6 +21,7 @@ module Amazonka.Config.Types.ConformancePackInputParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Input parameters in the form of key-value pairs for the conformance
@@ -71,14 +72,14 @@ conformancePackInputParameter_parameterName = Lens.lens (\ConformancePackInputPa
 conformancePackInputParameter_parameterValue :: Lens.Lens' ConformancePackInputParameter Prelude.Text
 conformancePackInputParameter_parameterValue = Lens.lens (\ConformancePackInputParameter' {parameterValue} -> parameterValue) (\s@ConformancePackInputParameter' {} a -> s {parameterValue = a} :: ConformancePackInputParameter)
 
-instance Core.FromJSON ConformancePackInputParameter where
+instance Data.FromJSON ConformancePackInputParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConformancePackInputParameter"
       ( \x ->
           ConformancePackInputParameter'
-            Prelude.<$> (x Core..: "ParameterName")
-            Prelude.<*> (x Core..: "ParameterValue")
+            Prelude.<$> (x Data..: "ParameterName")
+            Prelude.<*> (x Data..: "ParameterValue")
       )
 
 instance
@@ -94,13 +95,13 @@ instance Prelude.NFData ConformancePackInputParameter where
     Prelude.rnf parameterName
       `Prelude.seq` Prelude.rnf parameterValue
 
-instance Core.ToJSON ConformancePackInputParameter where
+instance Data.ToJSON ConformancePackInputParameter where
   toJSON ConformancePackInputParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ParameterName" Core..= parameterName),
+              ("ParameterName" Data..= parameterName),
             Prelude.Just
-              ("ParameterValue" Core..= parameterValue)
+              ("ParameterValue" Data..= parameterValue)
           ]
       )

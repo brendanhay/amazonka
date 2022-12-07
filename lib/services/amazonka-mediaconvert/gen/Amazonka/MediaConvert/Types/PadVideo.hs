@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.PadVideo
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use this setting if your input has video and audio durations that don\'t
@@ -39,7 +40,7 @@ import qualified Amazonka.Prelude as Prelude
 -- black video, set Pad video to Disabled (DISABLED) or leave blank.
 newtype PadVideo = PadVideo'
   { fromPadVideo ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -51,18 +52,18 @@ newtype PadVideo = PadVideo'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern PadVideo_BLACK :: PadVideo

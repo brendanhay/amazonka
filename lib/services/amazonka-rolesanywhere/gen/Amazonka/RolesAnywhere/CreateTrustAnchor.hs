@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,7 +124,7 @@ instance Core.AWSRequest CreateTrustAnchor where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateTrustAnchor where
   hashWithSalt _salt CreateTrustAnchor' {..} =
@@ -139,30 +140,30 @@ instance Prelude.NFData CreateTrustAnchor where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf source
 
-instance Core.ToHeaders CreateTrustAnchor where
+instance Data.ToHeaders CreateTrustAnchor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTrustAnchor where
+instance Data.ToJSON CreateTrustAnchor where
   toJSON CreateTrustAnchor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("enabled" Core..=) Prelude.<$> enabled,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("source" Core..= source)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("enabled" Data..=) Prelude.<$> enabled,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("source" Data..= source)
           ]
       )
 
-instance Core.ToPath CreateTrustAnchor where
+instance Data.ToPath CreateTrustAnchor where
   toPath = Prelude.const "/trustanchors"
 
-instance Core.ToQuery CreateTrustAnchor where
+instance Data.ToQuery CreateTrustAnchor where
   toQuery = Prelude.const Prelude.mempty

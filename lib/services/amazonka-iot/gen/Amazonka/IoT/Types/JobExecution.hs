@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.JobExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.JobExecutionStatus
 import Amazonka.IoT.Types.JobExecutionStatusDetails
 import qualified Amazonka.Prelude as Prelude
@@ -38,7 +39,7 @@ data JobExecution = JobExecution'
     thingArn :: Prelude.Maybe Prelude.Text,
     -- | The time, in seconds since the epoch, when the job execution was last
     -- updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | A collection of name\/value pairs that describe the status of the job
     -- execution.
     statusDetails :: Prelude.Maybe JobExecutionStatusDetails,
@@ -51,12 +52,12 @@ data JobExecution = JobExecution'
     -- TIMED_OUT, CANCELED, or REJECTED).
     status :: Prelude.Maybe JobExecutionStatus,
     -- | The time, in seconds since the epoch, when the job execution started.
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     -- | The version of the job execution. Job execution versions are incremented
     -- each time they are updated by a device.
     versionNumber :: Prelude.Maybe Prelude.Integer,
     -- | The time, in seconds since the epoch, when the job execution was queued.
-    queuedAt :: Prelude.Maybe Core.POSIX,
+    queuedAt :: Prelude.Maybe Data.POSIX,
     -- | The estimated number of seconds that remain before the job execution
     -- status will be changed to @TIMED_OUT@. The timeout interval can be
     -- anywhere between 1 minute and 7 days (1 to 10080 minutes). The actual
@@ -138,7 +139,7 @@ jobExecution_thingArn = Lens.lens (\JobExecution' {thingArn} -> thingArn) (\s@Jo
 -- | The time, in seconds since the epoch, when the job execution was last
 -- updated.
 jobExecution_lastUpdatedAt :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.UTCTime)
-jobExecution_lastUpdatedAt = Lens.lens (\JobExecution' {lastUpdatedAt} -> lastUpdatedAt) (\s@JobExecution' {} a -> s {lastUpdatedAt = a} :: JobExecution) Prelude.. Lens.mapping Core._Time
+jobExecution_lastUpdatedAt = Lens.lens (\JobExecution' {lastUpdatedAt} -> lastUpdatedAt) (\s@JobExecution' {} a -> s {lastUpdatedAt = a} :: JobExecution) Prelude.. Lens.mapping Data._Time
 
 -- | A collection of name\/value pairs that describe the status of the job
 -- execution.
@@ -161,7 +162,7 @@ jobExecution_status = Lens.lens (\JobExecution' {status} -> status) (\s@JobExecu
 
 -- | The time, in seconds since the epoch, when the job execution started.
 jobExecution_startedAt :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.UTCTime)
-jobExecution_startedAt = Lens.lens (\JobExecution' {startedAt} -> startedAt) (\s@JobExecution' {} a -> s {startedAt = a} :: JobExecution) Prelude.. Lens.mapping Core._Time
+jobExecution_startedAt = Lens.lens (\JobExecution' {startedAt} -> startedAt) (\s@JobExecution' {} a -> s {startedAt = a} :: JobExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The version of the job execution. Job execution versions are incremented
 -- each time they are updated by a device.
@@ -170,7 +171,7 @@ jobExecution_versionNumber = Lens.lens (\JobExecution' {versionNumber} -> versio
 
 -- | The time, in seconds since the epoch, when the job execution was queued.
 jobExecution_queuedAt :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.UTCTime)
-jobExecution_queuedAt = Lens.lens (\JobExecution' {queuedAt} -> queuedAt) (\s@JobExecution' {} a -> s {queuedAt = a} :: JobExecution) Prelude.. Lens.mapping Core._Time
+jobExecution_queuedAt = Lens.lens (\JobExecution' {queuedAt} -> queuedAt) (\s@JobExecution' {} a -> s {queuedAt = a} :: JobExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The estimated number of seconds that remain before the job execution
 -- status will be changed to @TIMED_OUT@. The timeout interval can be
@@ -181,23 +182,23 @@ jobExecution_queuedAt = Lens.lens (\JobExecution' {queuedAt} -> queuedAt) (\s@Jo
 jobExecution_approximateSecondsBeforeTimedOut :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Integer)
 jobExecution_approximateSecondsBeforeTimedOut = Lens.lens (\JobExecution' {approximateSecondsBeforeTimedOut} -> approximateSecondsBeforeTimedOut) (\s@JobExecution' {} a -> s {approximateSecondsBeforeTimedOut = a} :: JobExecution)
 
-instance Core.FromJSON JobExecution where
+instance Data.FromJSON JobExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobExecution"
       ( \x ->
           JobExecution'
-            Prelude.<$> (x Core..:? "executionNumber")
-            Prelude.<*> (x Core..:? "thingArn")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "statusDetails")
-            Prelude.<*> (x Core..:? "jobId")
-            Prelude.<*> (x Core..:? "forceCanceled")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "startedAt")
-            Prelude.<*> (x Core..:? "versionNumber")
-            Prelude.<*> (x Core..:? "queuedAt")
-            Prelude.<*> (x Core..:? "approximateSecondsBeforeTimedOut")
+            Prelude.<$> (x Data..:? "executionNumber")
+            Prelude.<*> (x Data..:? "thingArn")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "statusDetails")
+            Prelude.<*> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "forceCanceled")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "startedAt")
+            Prelude.<*> (x Data..:? "versionNumber")
+            Prelude.<*> (x Data..:? "queuedAt")
+            Prelude.<*> (x Data..:? "approximateSecondsBeforeTimedOut")
       )
 
 instance Prelude.Hashable JobExecution where

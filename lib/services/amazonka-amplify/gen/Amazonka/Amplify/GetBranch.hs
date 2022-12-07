@@ -43,6 +43,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,7 +99,7 @@ instance Core.AWSRequest GetBranch where
       ( \s h x ->
           GetBranchResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "branch")
+            Prelude.<*> (x Data..:> "branch")
       )
 
 instance Prelude.Hashable GetBranch where
@@ -111,27 +112,27 @@ instance Prelude.NFData GetBranch where
     Prelude.rnf appId
       `Prelude.seq` Prelude.rnf branchName
 
-instance Core.ToHeaders GetBranch where
+instance Data.ToHeaders GetBranch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetBranch where
+instance Data.ToPath GetBranch where
   toPath GetBranch' {..} =
     Prelude.mconcat
       [ "/apps/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/branches/",
-        Core.toBS branchName
+        Data.toBS branchName
       ]
 
-instance Core.ToQuery GetBranch where
+instance Data.ToQuery GetBranch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBranchResponse' smart constructor.

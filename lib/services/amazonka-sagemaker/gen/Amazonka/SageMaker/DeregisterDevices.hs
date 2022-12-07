@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,35 +103,35 @@ instance Prelude.NFData DeregisterDevices where
     Prelude.rnf deviceFleetName
       `Prelude.seq` Prelude.rnf deviceNames
 
-instance Core.ToHeaders DeregisterDevices where
+instance Data.ToHeaders DeregisterDevices where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DeregisterDevices" ::
+              Data.=# ( "SageMaker.DeregisterDevices" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeregisterDevices where
+instance Data.ToJSON DeregisterDevices where
   toJSON DeregisterDevices' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DeviceFleetName" Core..= deviceFleetName),
-            Prelude.Just ("DeviceNames" Core..= deviceNames)
+              ("DeviceFleetName" Data..= deviceFleetName),
+            Prelude.Just ("DeviceNames" Data..= deviceNames)
           ]
       )
 
-instance Core.ToPath DeregisterDevices where
+instance Data.ToPath DeregisterDevices where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeregisterDevices where
+instance Data.ToQuery DeregisterDevices where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterDevicesResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.BatchDetectSyntaxItemResult where
 import Amazonka.Comprehend.Types.SyntaxToken
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The result of calling the operation. The operation returns one object
@@ -67,14 +68,14 @@ batchDetectSyntaxItemResult_index = Lens.lens (\BatchDetectSyntaxItemResult' {in
 batchDetectSyntaxItemResult_syntaxTokens :: Lens.Lens' BatchDetectSyntaxItemResult (Prelude.Maybe [SyntaxToken])
 batchDetectSyntaxItemResult_syntaxTokens = Lens.lens (\BatchDetectSyntaxItemResult' {syntaxTokens} -> syntaxTokens) (\s@BatchDetectSyntaxItemResult' {} a -> s {syntaxTokens = a} :: BatchDetectSyntaxItemResult) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON BatchDetectSyntaxItemResult where
+instance Data.FromJSON BatchDetectSyntaxItemResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDetectSyntaxItemResult"
       ( \x ->
           BatchDetectSyntaxItemResult'
-            Prelude.<$> (x Core..:? "Index")
-            Prelude.<*> (x Core..:? "SyntaxTokens" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Index")
+            Prelude.<*> (x Data..:? "SyntaxTokens" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable BatchDetectSyntaxItemResult where

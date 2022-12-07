@@ -54,6 +54,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,10 +139,10 @@ instance Core.AWSRequest CreateArchive where
     Response.receiveJSON
       ( \s h x ->
           CreateArchiveResponse'
-            Prelude.<$> (x Core..?> "ArchiveArn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "StateReason")
+            Prelude.<$> (x Data..?> "ArchiveArn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,36 +162,36 @@ instance Prelude.NFData CreateArchive where
       `Prelude.seq` Prelude.rnf archiveName
       `Prelude.seq` Prelude.rnf eventSourceArn
 
-instance Core.ToHeaders CreateArchive where
+instance Data.ToHeaders CreateArchive where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.CreateArchive" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.CreateArchive" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateArchive where
+instance Data.ToJSON CreateArchive where
   toJSON CreateArchive' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventPattern" Core..=) Prelude.<$> eventPattern,
-            ("RetentionDays" Core..=) Prelude.<$> retentionDays,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("ArchiveName" Core..= archiveName),
+          [ ("EventPattern" Data..=) Prelude.<$> eventPattern,
+            ("RetentionDays" Data..=) Prelude.<$> retentionDays,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("ArchiveName" Data..= archiveName),
             Prelude.Just
-              ("EventSourceArn" Core..= eventSourceArn)
+              ("EventSourceArn" Data..= eventSourceArn)
           ]
       )
 
-instance Core.ToPath CreateArchive where
+instance Data.ToPath CreateArchive where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateArchive where
+instance Data.ToQuery CreateArchive where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateArchiveResponse' smart constructor.
@@ -200,7 +201,7 @@ data CreateArchiveResponse = CreateArchiveResponse'
     -- | The state of the archive that was created.
     state :: Prelude.Maybe ArchiveState,
     -- | The time at which the archive was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The reason that the archive is in the state.
     stateReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -249,7 +250,7 @@ createArchiveResponse_state = Lens.lens (\CreateArchiveResponse' {state} -> stat
 
 -- | The time at which the archive was created.
 createArchiveResponse_creationTime :: Lens.Lens' CreateArchiveResponse (Prelude.Maybe Prelude.UTCTime)
-createArchiveResponse_creationTime = Lens.lens (\CreateArchiveResponse' {creationTime} -> creationTime) (\s@CreateArchiveResponse' {} a -> s {creationTime = a} :: CreateArchiveResponse) Prelude.. Lens.mapping Core._Time
+createArchiveResponse_creationTime = Lens.lens (\CreateArchiveResponse' {creationTime} -> creationTime) (\s@CreateArchiveResponse' {} a -> s {creationTime = a} :: CreateArchiveResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The reason that the archive is in the state.
 createArchiveResponse_stateReason :: Lens.Lens' CreateArchiveResponse (Prelude.Maybe Prelude.Text)

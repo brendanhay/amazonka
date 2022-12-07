@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -61,13 +62,13 @@ data DescribeGroups = DescribeGroups'
     marker :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The maximum number of items to return with this call.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the organization.
     organizationId :: Prelude.Maybe Prelude.Text,
     -- | A query to describe groups by group name.
-    searchQuery :: Core.Sensitive Prelude.Text
+    searchQuery :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -100,7 +101,7 @@ newDescribeGroups pSearchQuery_ =
       authenticationToken = Prelude.Nothing,
       limit = Prelude.Nothing,
       organizationId = Prelude.Nothing,
-      searchQuery = Core._Sensitive Lens.# pSearchQuery_
+      searchQuery = Data._Sensitive Lens.# pSearchQuery_
     }
 
 -- | The marker for the next set of results. (You received this marker from a
@@ -111,7 +112,7 @@ describeGroups_marker = Lens.lens (\DescribeGroups' {marker} -> marker) (\s@Desc
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 describeGroups_authenticationToken :: Lens.Lens' DescribeGroups (Prelude.Maybe Prelude.Text)
-describeGroups_authenticationToken = Lens.lens (\DescribeGroups' {authenticationToken} -> authenticationToken) (\s@DescribeGroups' {} a -> s {authenticationToken = a} :: DescribeGroups) Prelude.. Lens.mapping Core._Sensitive
+describeGroups_authenticationToken = Lens.lens (\DescribeGroups' {authenticationToken} -> authenticationToken) (\s@DescribeGroups' {} a -> s {authenticationToken = a} :: DescribeGroups) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The maximum number of items to return with this call.
 describeGroups_limit :: Lens.Lens' DescribeGroups (Prelude.Maybe Prelude.Natural)
@@ -123,7 +124,7 @@ describeGroups_organizationId = Lens.lens (\DescribeGroups' {organizationId} -> 
 
 -- | A query to describe groups by group name.
 describeGroups_searchQuery :: Lens.Lens' DescribeGroups Prelude.Text
-describeGroups_searchQuery = Lens.lens (\DescribeGroups' {searchQuery} -> searchQuery) (\s@DescribeGroups' {} a -> s {searchQuery = a} :: DescribeGroups) Prelude.. Core._Sensitive
+describeGroups_searchQuery = Lens.lens (\DescribeGroups' {searchQuery} -> searchQuery) (\s@DescribeGroups' {} a -> s {searchQuery = a} :: DescribeGroups) Prelude.. Data._Sensitive
 
 instance Core.AWSPager DescribeGroups where
   page rq rs
@@ -154,8 +155,8 @@ instance Core.AWSRequest DescribeGroups where
     Response.receiveJSON
       ( \s h x ->
           DescribeGroupsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "Groups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "Groups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,24 +176,24 @@ instance Prelude.NFData DescribeGroups where
       `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf searchQuery
 
-instance Core.ToHeaders DescribeGroups where
+instance Data.ToHeaders DescribeGroups where
   toHeaders DescribeGroups' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DescribeGroups where
+instance Data.ToPath DescribeGroups where
   toPath = Prelude.const "/api/v1/groups"
 
-instance Core.ToQuery DescribeGroups where
+instance Data.ToQuery DescribeGroups where
   toQuery DescribeGroups' {..} =
     Prelude.mconcat
-      [ "marker" Core.=: marker,
-        "limit" Core.=: limit,
-        "organizationId" Core.=: organizationId,
-        "searchQuery" Core.=: searchQuery
+      [ "marker" Data.=: marker,
+        "limit" Data.=: limit,
+        "organizationId" Data.=: organizationId,
+        "searchQuery" Data.=: searchQuery
       ]
 
 -- | /See:/ 'newDescribeGroupsResponse' smart constructor.

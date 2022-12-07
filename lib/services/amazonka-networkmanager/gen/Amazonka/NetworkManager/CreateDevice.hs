@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -77,7 +78,7 @@ data CreateDevice = CreateDevice'
     -- | The ID of the site.
     siteId :: Prelude.Maybe Prelude.Text,
     -- | The location of the device.
-    location :: Prelude.Maybe (Core.Sensitive Location),
+    location :: Prelude.Maybe (Data.Sensitive Location),
     -- | The serial number of the device.
     --
     -- Constraints: Maximum length of 128 characters.
@@ -176,7 +177,7 @@ createDevice_siteId = Lens.lens (\CreateDevice' {siteId} -> siteId) (\s@CreateDe
 
 -- | The location of the device.
 createDevice_location :: Lens.Lens' CreateDevice (Prelude.Maybe Location)
-createDevice_location = Lens.lens (\CreateDevice' {location} -> location) (\s@CreateDevice' {} a -> s {location = a} :: CreateDevice) Prelude.. Lens.mapping Core._Sensitive
+createDevice_location = Lens.lens (\CreateDevice' {location} -> location) (\s@CreateDevice' {} a -> s {location = a} :: CreateDevice) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The serial number of the device.
 --
@@ -202,7 +203,7 @@ instance Core.AWSRequest CreateDevice where
     Response.receiveJSON
       ( \s h x ->
           CreateDeviceResponse'
-            Prelude.<$> (x Core..?> "Device")
+            Prelude.<$> (x Data..?> "Device")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,42 +233,42 @@ instance Prelude.NFData CreateDevice where
       `Prelude.seq` Prelude.rnf vendor
       `Prelude.seq` Prelude.rnf globalNetworkId
 
-instance Core.ToHeaders CreateDevice where
+instance Data.ToHeaders CreateDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDevice where
+instance Data.ToJSON CreateDevice where
   toJSON CreateDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Model" Core..=) Prelude.<$> model,
-            ("AWSLocation" Core..=) Prelude.<$> aWSLocation,
-            ("Description" Core..=) Prelude.<$> description,
-            ("SiteId" Core..=) Prelude.<$> siteId,
-            ("Location" Core..=) Prelude.<$> location,
-            ("SerialNumber" Core..=) Prelude.<$> serialNumber,
-            ("Vendor" Core..=) Prelude.<$> vendor
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Model" Data..=) Prelude.<$> model,
+            ("AWSLocation" Data..=) Prelude.<$> aWSLocation,
+            ("Description" Data..=) Prelude.<$> description,
+            ("SiteId" Data..=) Prelude.<$> siteId,
+            ("Location" Data..=) Prelude.<$> location,
+            ("SerialNumber" Data..=) Prelude.<$> serialNumber,
+            ("Vendor" Data..=) Prelude.<$> vendor
           ]
       )
 
-instance Core.ToPath CreateDevice where
+instance Data.ToPath CreateDevice where
   toPath CreateDevice' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/devices"
       ]
 
-instance Core.ToQuery CreateDevice where
+instance Data.ToQuery CreateDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDeviceResponse' smart constructor.

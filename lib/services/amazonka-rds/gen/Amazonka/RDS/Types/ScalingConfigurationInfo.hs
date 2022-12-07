@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.ScalingConfigurationInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Shows the scaling configuration for an Aurora DB cluster in @serverless@
@@ -157,15 +158,15 @@ scalingConfigurationInfo_autoPause = Lens.lens (\ScalingConfigurationInfo' {auto
 scalingConfigurationInfo_minCapacity :: Lens.Lens' ScalingConfigurationInfo (Prelude.Maybe Prelude.Int)
 scalingConfigurationInfo_minCapacity = Lens.lens (\ScalingConfigurationInfo' {minCapacity} -> minCapacity) (\s@ScalingConfigurationInfo' {} a -> s {minCapacity = a} :: ScalingConfigurationInfo)
 
-instance Core.FromXML ScalingConfigurationInfo where
+instance Data.FromXML ScalingConfigurationInfo where
   parseXML x =
     ScalingConfigurationInfo'
-      Prelude.<$> (x Core..@? "TimeoutAction")
-      Prelude.<*> (x Core..@? "SecondsBeforeTimeout")
-      Prelude.<*> (x Core..@? "SecondsUntilAutoPause")
-      Prelude.<*> (x Core..@? "MaxCapacity")
-      Prelude.<*> (x Core..@? "AutoPause")
-      Prelude.<*> (x Core..@? "MinCapacity")
+      Prelude.<$> (x Data..@? "TimeoutAction")
+      Prelude.<*> (x Data..@? "SecondsBeforeTimeout")
+      Prelude.<*> (x Data..@? "SecondsUntilAutoPause")
+      Prelude.<*> (x Data..@? "MaxCapacity")
+      Prelude.<*> (x Data..@? "AutoPause")
+      Prelude.<*> (x Data..@? "MinCapacity")
 
 instance Prelude.Hashable ScalingConfigurationInfo where
   hashWithSalt _salt ScalingConfigurationInfo' {..} =

@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.DetectorModelConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.DetectorModelVersionStatus
 import Amazonka.IoTEvents.Types.EvaluationMethod
 import qualified Amazonka.Prelude as Prelude
@@ -54,9 +55,9 @@ data DetectorModelConfiguration = DetectorModelConfiguration'
     -- | The version of the detector model.
     detectorModelVersion :: Prelude.Maybe Prelude.Text,
     -- | The time the detector model was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The time the detector model was last updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the detector model.
     detectorModelArn :: Prelude.Maybe Prelude.Text
   }
@@ -155,32 +156,32 @@ detectorModelConfiguration_detectorModelVersion = Lens.lens (\DetectorModelConfi
 
 -- | The time the detector model was created.
 detectorModelConfiguration_creationTime :: Lens.Lens' DetectorModelConfiguration (Prelude.Maybe Prelude.UTCTime)
-detectorModelConfiguration_creationTime = Lens.lens (\DetectorModelConfiguration' {creationTime} -> creationTime) (\s@DetectorModelConfiguration' {} a -> s {creationTime = a} :: DetectorModelConfiguration) Prelude.. Lens.mapping Core._Time
+detectorModelConfiguration_creationTime = Lens.lens (\DetectorModelConfiguration' {creationTime} -> creationTime) (\s@DetectorModelConfiguration' {} a -> s {creationTime = a} :: DetectorModelConfiguration) Prelude.. Lens.mapping Data._Time
 
 -- | The time the detector model was last updated.
 detectorModelConfiguration_lastUpdateTime :: Lens.Lens' DetectorModelConfiguration (Prelude.Maybe Prelude.UTCTime)
-detectorModelConfiguration_lastUpdateTime = Lens.lens (\DetectorModelConfiguration' {lastUpdateTime} -> lastUpdateTime) (\s@DetectorModelConfiguration' {} a -> s {lastUpdateTime = a} :: DetectorModelConfiguration) Prelude.. Lens.mapping Core._Time
+detectorModelConfiguration_lastUpdateTime = Lens.lens (\DetectorModelConfiguration' {lastUpdateTime} -> lastUpdateTime) (\s@DetectorModelConfiguration' {} a -> s {lastUpdateTime = a} :: DetectorModelConfiguration) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the detector model.
 detectorModelConfiguration_detectorModelArn :: Lens.Lens' DetectorModelConfiguration (Prelude.Maybe Prelude.Text)
 detectorModelConfiguration_detectorModelArn = Lens.lens (\DetectorModelConfiguration' {detectorModelArn} -> detectorModelArn) (\s@DetectorModelConfiguration' {} a -> s {detectorModelArn = a} :: DetectorModelConfiguration)
 
-instance Core.FromJSON DetectorModelConfiguration where
+instance Data.FromJSON DetectorModelConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectorModelConfiguration"
       ( \x ->
           DetectorModelConfiguration'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "evaluationMethod")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "detectorModelName")
-            Prelude.<*> (x Core..:? "detectorModelDescription")
-            Prelude.<*> (x Core..:? "detectorModelVersion")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
-            Prelude.<*> (x Core..:? "detectorModelArn")
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "evaluationMethod")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "detectorModelName")
+            Prelude.<*> (x Data..:? "detectorModelDescription")
+            Prelude.<*> (x Data..:? "detectorModelVersion")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "detectorModelArn")
       )
 
 instance Prelude.Hashable DetectorModelConfiguration where

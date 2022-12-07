@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceNetworkInterfaceSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceIpv6Address
 import Amazonka.EC2.Types.Ipv4PrefixSpecificationRequest
@@ -408,42 +409,42 @@ instanceNetworkInterfaceSpecification_deviceIndex :: Lens.Lens' InstanceNetworkI
 instanceNetworkInterfaceSpecification_deviceIndex = Lens.lens (\InstanceNetworkInterfaceSpecification' {deviceIndex} -> deviceIndex) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {deviceIndex = a} :: InstanceNetworkInterfaceSpecification)
 
 instance
-  Core.FromXML
+  Data.FromXML
     InstanceNetworkInterfaceSpecification
   where
   parseXML x =
     InstanceNetworkInterfaceSpecification'
-      Prelude.<$> (x Core..@? "Ipv4PrefixCount")
-      Prelude.<*> (x Core..@? "InterfaceType")
-      Prelude.<*> (x Core..@? "NetworkCardIndex")
-      Prelude.<*> (x Core..@? "associatePublicIpAddress")
-      Prelude.<*> (x Core..@? "deleteOnTermination")
-      Prelude.<*> ( x Core..@? "privateIpAddressesSet"
+      Prelude.<$> (x Data..@? "Ipv4PrefixCount")
+      Prelude.<*> (x Data..@? "InterfaceType")
+      Prelude.<*> (x Data..@? "NetworkCardIndex")
+      Prelude.<*> (x Data..@? "associatePublicIpAddress")
+      Prelude.<*> (x Data..@? "deleteOnTermination")
+      Prelude.<*> ( x Data..@? "privateIpAddressesSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "subnetId")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "AssociateCarrierIpAddress")
-      Prelude.<*> (x Core..@? "networkInterfaceId")
-      Prelude.<*> (x Core..@? "ipv6AddressCount")
-      Prelude.<*> ( x Core..@? "Ipv4Prefix" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "subnetId")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "AssociateCarrierIpAddress")
+      Prelude.<*> (x Data..@? "networkInterfaceId")
+      Prelude.<*> (x Data..@? "ipv6AddressCount")
+      Prelude.<*> ( x Data..@? "Ipv4Prefix" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "privateIpAddress")
-      Prelude.<*> (x Core..@? "Ipv6PrefixCount")
-      Prelude.<*> (x Core..@? "secondaryPrivateIpAddressCount")
-      Prelude.<*> ( x Core..@? "Ipv6Prefix" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "privateIpAddress")
+      Prelude.<*> (x Data..@? "Ipv6PrefixCount")
+      Prelude.<*> (x Data..@? "secondaryPrivateIpAddressCount")
+      Prelude.<*> ( x Data..@? "Ipv6Prefix" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "SecurityGroupId" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "SecurityGroupId")
+      Prelude.<*> ( x Data..@? "SecurityGroupId" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "SecurityGroupId")
                   )
-      Prelude.<*> ( x Core..@? "ipv6AddressesSet"
+      Prelude.<*> ( x Data..@? "ipv6AddressesSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "deviceIndex")
+      Prelude.<*> (x Data..@? "deviceIndex")
 
 instance
   Prelude.Hashable
@@ -499,46 +500,46 @@ instance
       `Prelude.seq` Prelude.rnf deviceIndex
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     InstanceNetworkInterfaceSpecification
   where
   toQuery InstanceNetworkInterfaceSpecification' {..} =
     Prelude.mconcat
-      [ "Ipv4PrefixCount" Core.=: ipv4PrefixCount,
-        "InterfaceType" Core.=: interfaceType,
-        "NetworkCardIndex" Core.=: networkCardIndex,
+      [ "Ipv4PrefixCount" Data.=: ipv4PrefixCount,
+        "InterfaceType" Data.=: interfaceType,
+        "NetworkCardIndex" Data.=: networkCardIndex,
         "AssociatePublicIpAddress"
-          Core.=: associatePublicIpAddress,
-        "DeleteOnTermination" Core.=: deleteOnTermination,
-        Core.toQuery
-          ( Core.toQueryList "PrivateIpAddresses"
+          Data.=: associatePublicIpAddress,
+        "DeleteOnTermination" Data.=: deleteOnTermination,
+        Data.toQuery
+          ( Data.toQueryList "PrivateIpAddresses"
               Prelude.<$> privateIpAddresses
           ),
-        "SubnetId" Core.=: subnetId,
-        "Description" Core.=: description,
+        "SubnetId" Data.=: subnetId,
+        "Description" Data.=: description,
         "AssociateCarrierIpAddress"
-          Core.=: associateCarrierIpAddress,
-        "NetworkInterfaceId" Core.=: networkInterfaceId,
-        "Ipv6AddressCount" Core.=: ipv6AddressCount,
-        Core.toQuery
-          ( Core.toQueryList "Ipv4Prefix"
+          Data.=: associateCarrierIpAddress,
+        "NetworkInterfaceId" Data.=: networkInterfaceId,
+        "Ipv6AddressCount" Data.=: ipv6AddressCount,
+        Data.toQuery
+          ( Data.toQueryList "Ipv4Prefix"
               Prelude.<$> ipv4Prefixes
           ),
-        "PrivateIpAddress" Core.=: privateIpAddress,
-        "Ipv6PrefixCount" Core.=: ipv6PrefixCount,
+        "PrivateIpAddress" Data.=: privateIpAddress,
+        "Ipv6PrefixCount" Data.=: ipv6PrefixCount,
         "SecondaryPrivateIpAddressCount"
-          Core.=: secondaryPrivateIpAddressCount,
-        Core.toQuery
-          ( Core.toQueryList "Ipv6Prefix"
+          Data.=: secondaryPrivateIpAddressCount,
+        Data.toQuery
+          ( Data.toQueryList "Ipv6Prefix"
               Prelude.<$> ipv6Prefixes
           ),
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroupId"
+        Data.toQuery
+          ( Data.toQueryList "SecurityGroupId"
               Prelude.<$> groups
           ),
-        Core.toQuery
-          ( Core.toQueryList "Ipv6Addresses"
+        Data.toQuery
+          ( Data.toQueryList "Ipv6Addresses"
               Prelude.<$> ipv6Addresses
           ),
-        "DeviceIndex" Core.=: deviceIndex
+        "DeviceIndex" Data.=: deviceIndex
       ]

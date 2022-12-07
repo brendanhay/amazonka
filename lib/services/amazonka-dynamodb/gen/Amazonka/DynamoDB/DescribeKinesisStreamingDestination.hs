@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,8 +91,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeKinesisStreamingDestinationResponse'
-            Prelude.<$> (x Core..?> "TableName")
-              Prelude.<*> ( x Core..?> "KinesisDataStreamDestinations"
+            Prelude.<$> (x Data..?> "TableName")
+              Prelude.<*> ( x Data..?> "KinesisDataStreamDestinations"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -114,41 +115,41 @@ instance
     Prelude.rnf tableName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeKinesisStreamingDestination
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.DescribeKinesisStreamingDestination" ::
+              Data.=# ( "DynamoDB_20120810.DescribeKinesisStreamingDestination" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeKinesisStreamingDestination
   where
   toJSON DescribeKinesisStreamingDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TableName" Core..= tableName)]
+          [Prelude.Just ("TableName" Data..= tableName)]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeKinesisStreamingDestination
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeKinesisStreamingDestination
   where
   toQuery = Prelude.const Prelude.mempty

@@ -47,6 +47,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,9 +129,9 @@ instance Core.AWSRequest ListDirectories where
     Response.receiveJSON
       ( \s h x ->
           ListDirectoriesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Directories" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Directories" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListDirectories where
@@ -145,25 +146,25 @@ instance Prelude.NFData ListDirectories where
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListDirectories where
+instance Data.ToHeaders ListDirectories where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ListDirectories where
+instance Data.ToJSON ListDirectories where
   toJSON ListDirectories' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("state" Core..=) Prelude.<$> state,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("state" Data..=) Prelude.<$> state,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListDirectories where
+instance Data.ToPath ListDirectories where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/directory/list"
 
-instance Core.ToQuery ListDirectories where
+instance Data.ToQuery ListDirectories where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDirectoriesResponse' smart constructor.

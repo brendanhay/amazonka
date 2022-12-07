@@ -100,6 +100,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -364,12 +365,12 @@ instance Core.AWSRequest BatchGetItem where
     Response.receiveJSON
       ( \s h x ->
           BatchGetItemResponse'
-            Prelude.<$> ( x Core..?> "ConsumedCapacity"
+            Prelude.<$> ( x Data..?> "ConsumedCapacity"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Responses" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "UnprocessedKeys"
+            Prelude.<*> (x Data..?> "Responses" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "UnprocessedKeys"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -384,35 +385,35 @@ instance Prelude.NFData BatchGetItem where
     Prelude.rnf returnConsumedCapacity
       `Prelude.seq` Prelude.rnf requestItems
 
-instance Core.ToHeaders BatchGetItem where
+instance Data.ToHeaders BatchGetItem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.BatchGetItem" ::
+              Data.=# ( "DynamoDB_20120810.BatchGetItem" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetItem where
+instance Data.ToJSON BatchGetItem where
   toJSON BatchGetItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReturnConsumedCapacity" Core..=)
+          [ ("ReturnConsumedCapacity" Data..=)
               Prelude.<$> returnConsumedCapacity,
-            Prelude.Just ("RequestItems" Core..= requestItems)
+            Prelude.Just ("RequestItems" Data..= requestItems)
           ]
       )
 
-instance Core.ToPath BatchGetItem where
+instance Data.ToPath BatchGetItem where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetItem where
+instance Data.ToQuery BatchGetItem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @BatchGetItem@ operation.

@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.LambdaVolumeMount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.LambdaFilesystemPermission
 import qualified Amazonka.Prelude as Prelude
 
@@ -118,14 +119,14 @@ instance Prelude.NFData LambdaVolumeMount where
       `Prelude.seq` Prelude.rnf sourcePath
       `Prelude.seq` Prelude.rnf destinationPath
 
-instance Core.ToJSON LambdaVolumeMount where
+instance Data.ToJSON LambdaVolumeMount where
   toJSON LambdaVolumeMount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("addGroupOwner" Core..=) Prelude.<$> addGroupOwner,
-            ("permission" Core..=) Prelude.<$> permission,
-            Prelude.Just ("sourcePath" Core..= sourcePath),
+          [ ("addGroupOwner" Data..=) Prelude.<$> addGroupOwner,
+            ("permission" Data..=) Prelude.<$> permission,
+            Prelude.Just ("sourcePath" Data..= sourcePath),
             Prelude.Just
-              ("destinationPath" Core..= destinationPath)
+              ("destinationPath" Data..= destinationPath)
           ]
       )

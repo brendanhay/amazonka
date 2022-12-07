@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.RuleGroupSourceStatefulRulesDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.RuleGroupSourceStatefulRulesHeaderDetails
 import Amazonka.SecurityHub.Types.RuleGroupSourceStatefulRulesOptionsDetails
@@ -77,17 +78,17 @@ ruleGroupSourceStatefulRulesDetails_action :: Lens.Lens' RuleGroupSourceStateful
 ruleGroupSourceStatefulRulesDetails_action = Lens.lens (\RuleGroupSourceStatefulRulesDetails' {action} -> action) (\s@RuleGroupSourceStatefulRulesDetails' {} a -> s {action = a} :: RuleGroupSourceStatefulRulesDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RuleGroupSourceStatefulRulesDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupSourceStatefulRulesDetails"
       ( \x ->
           RuleGroupSourceStatefulRulesDetails'
-            Prelude.<$> (x Core..:? "Header")
-            Prelude.<*> (x Core..:? "RuleOptions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Action")
+            Prelude.<$> (x Data..:? "Header")
+            Prelude.<*> (x Data..:? "RuleOptions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Action")
       )
 
 instance
@@ -111,14 +112,14 @@ instance
       `Prelude.seq` Prelude.rnf action
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RuleGroupSourceStatefulRulesDetails
   where
   toJSON RuleGroupSourceStatefulRulesDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Header" Core..=) Prelude.<$> header,
-            ("RuleOptions" Core..=) Prelude.<$> ruleOptions,
-            ("Action" Core..=) Prelude.<$> action
+          [ ("Header" Data..=) Prelude.<$> header,
+            ("RuleOptions" Data..=) Prelude.<$> ruleOptions,
+            ("Action" Data..=) Prelude.<$> action
           ]
       )

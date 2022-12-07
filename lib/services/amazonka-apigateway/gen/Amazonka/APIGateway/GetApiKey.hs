@@ -51,6 +51,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest GetApiKey where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetApiKey where
   hashWithSalt _salt GetApiKey' {..} =
@@ -116,20 +117,20 @@ instance Prelude.NFData GetApiKey where
     Prelude.rnf includeValue
       `Prelude.seq` Prelude.rnf apiKey
 
-instance Core.ToHeaders GetApiKey where
+instance Data.ToHeaders GetApiKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetApiKey where
+instance Data.ToPath GetApiKey where
   toPath GetApiKey' {..} =
-    Prelude.mconcat ["/apikeys/", Core.toBS apiKey]
+    Prelude.mconcat ["/apikeys/", Data.toBS apiKey]
 
-instance Core.ToQuery GetApiKey where
+instance Data.ToQuery GetApiKey where
   toQuery GetApiKey' {..} =
     Prelude.mconcat
-      ["includeValue" Core.=: includeValue]
+      ["includeValue" Data.=: includeValue]

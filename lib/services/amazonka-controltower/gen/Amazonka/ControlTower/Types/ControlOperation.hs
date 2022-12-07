@@ -23,6 +23,7 @@ import Amazonka.ControlTower.Types.ControlOperationStatus
 import Amazonka.ControlTower.Types.ControlOperationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An operation performed by the control.
@@ -34,12 +35,12 @@ data ControlOperation = ControlOperation'
     -- | One of @IN_PROGRESS@, @SUCEEDED@, or @FAILED@.
     status :: Prelude.Maybe ControlOperationStatus,
     -- | The time that the operation finished.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | If the operation result is @FAILED@, this string contains a message
     -- explaining why the operation failed.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The time that the operation began.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,7 +83,7 @@ controlOperation_status = Lens.lens (\ControlOperation' {status} -> status) (\s@
 
 -- | The time that the operation finished.
 controlOperation_endTime :: Lens.Lens' ControlOperation (Prelude.Maybe Prelude.UTCTime)
-controlOperation_endTime = Lens.lens (\ControlOperation' {endTime} -> endTime) (\s@ControlOperation' {} a -> s {endTime = a} :: ControlOperation) Prelude.. Lens.mapping Core._Time
+controlOperation_endTime = Lens.lens (\ControlOperation' {endTime} -> endTime) (\s@ControlOperation' {} a -> s {endTime = a} :: ControlOperation) Prelude.. Lens.mapping Data._Time
 
 -- | If the operation result is @FAILED@, this string contains a message
 -- explaining why the operation failed.
@@ -91,19 +92,19 @@ controlOperation_statusMessage = Lens.lens (\ControlOperation' {statusMessage} -
 
 -- | The time that the operation began.
 controlOperation_startTime :: Lens.Lens' ControlOperation (Prelude.Maybe Prelude.UTCTime)
-controlOperation_startTime = Lens.lens (\ControlOperation' {startTime} -> startTime) (\s@ControlOperation' {} a -> s {startTime = a} :: ControlOperation) Prelude.. Lens.mapping Core._Time
+controlOperation_startTime = Lens.lens (\ControlOperation' {startTime} -> startTime) (\s@ControlOperation' {} a -> s {startTime = a} :: ControlOperation) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ControlOperation where
+instance Data.FromJSON ControlOperation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ControlOperation"
       ( \x ->
           ControlOperation'
-            Prelude.<$> (x Core..:? "operationType")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<$> (x Data..:? "operationType")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "startTime")
       )
 
 instance Prelude.Hashable ControlOperation where

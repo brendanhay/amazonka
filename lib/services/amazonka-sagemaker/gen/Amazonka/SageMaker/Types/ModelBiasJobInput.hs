@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelBiasJobInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.BatchTransformInput
 import Amazonka.SageMaker.Types.EndpointInput
@@ -74,15 +75,15 @@ modelBiasJobInput_batchTransformInput = Lens.lens (\ModelBiasJobInput' {batchTra
 modelBiasJobInput_groundTruthS3Input :: Lens.Lens' ModelBiasJobInput MonitoringGroundTruthS3Input
 modelBiasJobInput_groundTruthS3Input = Lens.lens (\ModelBiasJobInput' {groundTruthS3Input} -> groundTruthS3Input) (\s@ModelBiasJobInput' {} a -> s {groundTruthS3Input = a} :: ModelBiasJobInput)
 
-instance Core.FromJSON ModelBiasJobInput where
+instance Data.FromJSON ModelBiasJobInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelBiasJobInput"
       ( \x ->
           ModelBiasJobInput'
-            Prelude.<$> (x Core..:? "EndpointInput")
-            Prelude.<*> (x Core..:? "BatchTransformInput")
-            Prelude.<*> (x Core..: "GroundTruthS3Input")
+            Prelude.<$> (x Data..:? "EndpointInput")
+            Prelude.<*> (x Data..:? "BatchTransformInput")
+            Prelude.<*> (x Data..: "GroundTruthS3Input")
       )
 
 instance Prelude.Hashable ModelBiasJobInput where
@@ -97,14 +98,14 @@ instance Prelude.NFData ModelBiasJobInput where
       `Prelude.seq` Prelude.rnf batchTransformInput
       `Prelude.seq` Prelude.rnf groundTruthS3Input
 
-instance Core.ToJSON ModelBiasJobInput where
+instance Data.ToJSON ModelBiasJobInput where
   toJSON ModelBiasJobInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EndpointInput" Core..=) Prelude.<$> endpointInput,
-            ("BatchTransformInput" Core..=)
+          [ ("EndpointInput" Data..=) Prelude.<$> endpointInput,
+            ("BatchTransformInput" Data..=)
               Prelude.<$> batchTransformInput,
             Prelude.Just
-              ("GroundTruthS3Input" Core..= groundTruthS3Input)
+              ("GroundTruthS3Input" Data..= groundTruthS3Input)
           ]
       )

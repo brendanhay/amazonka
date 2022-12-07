@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,26 +145,26 @@ instance Core.AWSRequest CreateIntentVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateIntentVersionResponse'
-            Prelude.<$> ( x Core..?> "sampleUtterances"
+            Prelude.<$> ( x Data..?> "sampleUtterances"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "kendraConfiguration")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "dialogCodeHook")
-            Prelude.<*> (x Core..?> "outputContexts" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "fulfillmentActivity")
-            Prelude.<*> (x Core..?> "lastUpdatedDate")
-            Prelude.<*> (x Core..?> "followUpPrompt")
-            Prelude.<*> (x Core..?> "parentIntentSignature")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "rejectionStatement")
-            Prelude.<*> (x Core..?> "checksum")
-            Prelude.<*> (x Core..?> "confirmationPrompt")
-            Prelude.<*> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "slots" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "inputContexts" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "conclusionStatement")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<*> (x Data..?> "kendraConfiguration")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "dialogCodeHook")
+            Prelude.<*> (x Data..?> "outputContexts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "fulfillmentActivity")
+            Prelude.<*> (x Data..?> "lastUpdatedDate")
+            Prelude.<*> (x Data..?> "followUpPrompt")
+            Prelude.<*> (x Data..?> "parentIntentSignature")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "rejectionStatement")
+            Prelude.<*> (x Data..?> "checksum")
+            Prelude.<*> (x Data..?> "confirmationPrompt")
+            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> (x Data..?> "slots" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "inputContexts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "conclusionStatement")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,30 +177,30 @@ instance Prelude.NFData CreateIntentVersion where
   rnf CreateIntentVersion' {..} =
     Prelude.rnf checksum `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateIntentVersion where
+instance Data.ToHeaders CreateIntentVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateIntentVersion where
+instance Data.ToJSON CreateIntentVersion where
   toJSON CreateIntentVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("checksum" Core..=) Prelude.<$> checksum]
+          [("checksum" Data..=) Prelude.<$> checksum]
       )
 
-instance Core.ToPath CreateIntentVersion where
+instance Data.ToPath CreateIntentVersion where
   toPath CreateIntentVersion' {..} =
     Prelude.mconcat
-      ["/intents/", Core.toBS name, "/versions"]
+      ["/intents/", Data.toBS name, "/versions"]
 
-instance Core.ToQuery CreateIntentVersion where
+instance Data.ToQuery CreateIntentVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateIntentVersionResponse' smart constructor.
@@ -219,7 +220,7 @@ data CreateIntentVersionResponse = CreateIntentVersionResponse'
     -- | Describes how the intent is fulfilled.
     fulfillmentActivity :: Prelude.Maybe FulfillmentActivity,
     -- | The date that the intent was updated.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | If defined, Amazon Lex uses this prompt to solicit additional user
     -- activity after the intent is fulfilled.
     followUpPrompt :: Prelude.Maybe FollowUpPrompt,
@@ -237,7 +238,7 @@ data CreateIntentVersionResponse = CreateIntentVersionResponse'
     -- intent before fulfilling it.
     confirmationPrompt :: Prelude.Maybe Prompt,
     -- | The date that the intent was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | An array of slot types that defines the information required to fulfill
     -- the intent.
     slots :: Prelude.Maybe [Slot],
@@ -366,7 +367,7 @@ createIntentVersionResponse_fulfillmentActivity = Lens.lens (\CreateIntentVersio
 
 -- | The date that the intent was updated.
 createIntentVersionResponse_lastUpdatedDate :: Lens.Lens' CreateIntentVersionResponse (Prelude.Maybe Prelude.UTCTime)
-createIntentVersionResponse_lastUpdatedDate = Lens.lens (\CreateIntentVersionResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@CreateIntentVersionResponse' {} a -> s {lastUpdatedDate = a} :: CreateIntentVersionResponse) Prelude.. Lens.mapping Core._Time
+createIntentVersionResponse_lastUpdatedDate = Lens.lens (\CreateIntentVersionResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@CreateIntentVersionResponse' {} a -> s {lastUpdatedDate = a} :: CreateIntentVersionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | If defined, Amazon Lex uses this prompt to solicit additional user
 -- activity after the intent is fulfilled.
@@ -398,7 +399,7 @@ createIntentVersionResponse_confirmationPrompt = Lens.lens (\CreateIntentVersion
 
 -- | The date that the intent was created.
 createIntentVersionResponse_createdDate :: Lens.Lens' CreateIntentVersionResponse (Prelude.Maybe Prelude.UTCTime)
-createIntentVersionResponse_createdDate = Lens.lens (\CreateIntentVersionResponse' {createdDate} -> createdDate) (\s@CreateIntentVersionResponse' {} a -> s {createdDate = a} :: CreateIntentVersionResponse) Prelude.. Lens.mapping Core._Time
+createIntentVersionResponse_createdDate = Lens.lens (\CreateIntentVersionResponse' {createdDate} -> createdDate) (\s@CreateIntentVersionResponse' {} a -> s {createdDate = a} :: CreateIntentVersionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An array of slot types that defines the information required to fulfill
 -- the intent.

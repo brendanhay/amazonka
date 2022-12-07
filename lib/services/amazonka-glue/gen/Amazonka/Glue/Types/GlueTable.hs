@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.GlueTable where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The database and table in the Glue Data Catalog that is used for input
@@ -84,16 +85,16 @@ glueTable_databaseName = Lens.lens (\GlueTable' {databaseName} -> databaseName) 
 glueTable_tableName :: Lens.Lens' GlueTable Prelude.Text
 glueTable_tableName = Lens.lens (\GlueTable' {tableName} -> tableName) (\s@GlueTable' {} a -> s {tableName = a} :: GlueTable)
 
-instance Core.FromJSON GlueTable where
+instance Data.FromJSON GlueTable where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GlueTable"
       ( \x ->
           GlueTable'
-            Prelude.<$> (x Core..:? "CatalogId")
-            Prelude.<*> (x Core..:? "ConnectionName")
-            Prelude.<*> (x Core..: "DatabaseName")
-            Prelude.<*> (x Core..: "TableName")
+            Prelude.<$> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..:? "ConnectionName")
+            Prelude.<*> (x Data..: "DatabaseName")
+            Prelude.<*> (x Data..: "TableName")
       )
 
 instance Prelude.Hashable GlueTable where
@@ -110,14 +111,14 @@ instance Prelude.NFData GlueTable where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToJSON GlueTable where
+instance Data.ToJSON GlueTable where
   toJSON GlueTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("ConnectionName" Core..=)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("ConnectionName" Data..=)
               Prelude.<$> connectionName,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName)
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )

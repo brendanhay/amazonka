@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.ServiceManagedDatastoreS3StorageSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the data store that is managed by IoT
@@ -42,11 +43,11 @@ newServiceManagedDatastoreS3StorageSummary =
   ServiceManagedDatastoreS3StorageSummary'
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ServiceManagedDatastoreS3StorageSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceManagedDatastoreS3StorageSummary"
       ( \x ->
           Prelude.pure

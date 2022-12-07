@@ -54,6 +54,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -181,8 +182,8 @@ instance Core.AWSRequest DescribeSessions where
     Response.receiveJSON
       ( \s h x ->
           DescribeSessionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Sessions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Sessions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,39 +205,39 @@ instance Prelude.NFData DescribeSessions where
       `Prelude.seq` Prelude.rnf stackName
       `Prelude.seq` Prelude.rnf fleetName
 
-instance Core.ToHeaders DescribeSessions where
+instance Data.ToHeaders DescribeSessions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DescribeSessions" ::
+              Data.=# ( "PhotonAdminProxyService.DescribeSessions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSessions where
+instance Data.ToJSON DescribeSessions where
   toJSON DescribeSessions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("AuthenticationType" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("AuthenticationType" Data..=)
               Prelude.<$> authenticationType,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("UserId" Core..=) Prelude.<$> userId,
-            Prelude.Just ("StackName" Core..= stackName),
-            Prelude.Just ("FleetName" Core..= fleetName)
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("UserId" Data..=) Prelude.<$> userId,
+            Prelude.Just ("StackName" Data..= stackName),
+            Prelude.Just ("FleetName" Data..= fleetName)
           ]
       )
 
-instance Core.ToPath DescribeSessions where
+instance Data.ToPath DescribeSessions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSessions where
+instance Data.ToQuery DescribeSessions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSessionsResponse' smart constructor.

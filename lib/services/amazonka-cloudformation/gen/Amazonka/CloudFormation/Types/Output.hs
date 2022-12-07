@@ -21,6 +21,7 @@ module Amazonka.CloudFormation.Types.Output where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Output data type.
@@ -79,13 +80,13 @@ output_outputValue = Lens.lens (\Output' {outputValue} -> outputValue) (\s@Outpu
 output_exportName :: Lens.Lens' Output (Prelude.Maybe Prelude.Text)
 output_exportName = Lens.lens (\Output' {exportName} -> exportName) (\s@Output' {} a -> s {exportName = a} :: Output)
 
-instance Core.FromXML Output where
+instance Data.FromXML Output where
   parseXML x =
     Output'
-      Prelude.<$> (x Core..@? "OutputKey")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "OutputValue")
-      Prelude.<*> (x Core..@? "ExportName")
+      Prelude.<$> (x Data..@? "OutputKey")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "OutputValue")
+      Prelude.<*> (x Data..@? "ExportName")
 
 instance Prelude.Hashable Output where
   hashWithSalt _salt Output' {..} =

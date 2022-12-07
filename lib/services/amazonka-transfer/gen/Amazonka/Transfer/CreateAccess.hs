@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -367,8 +368,8 @@ instance Core.AWSRequest CreateAccess where
       ( \s h x ->
           CreateAccessResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ServerId")
-            Prelude.<*> (x Core..:> "ExternalId")
+            Prelude.<*> (x Data..:> "ServerId")
+            Prelude.<*> (x Data..:> "ExternalId")
       )
 
 instance Prelude.Hashable CreateAccess where
@@ -393,42 +394,42 @@ instance Prelude.NFData CreateAccess where
       `Prelude.seq` Prelude.rnf serverId
       `Prelude.seq` Prelude.rnf externalId
 
-instance Core.ToHeaders CreateAccess where
+instance Data.ToHeaders CreateAccess where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.CreateAccess" ::
+              Data.=# ( "TransferService.CreateAccess" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAccess where
+instance Data.ToJSON CreateAccess where
   toJSON CreateAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HomeDirectory" Core..=) Prelude.<$> homeDirectory,
-            ("Policy" Core..=) Prelude.<$> policy,
-            ("PosixProfile" Core..=) Prelude.<$> posixProfile,
-            ("HomeDirectoryType" Core..=)
+          [ ("HomeDirectory" Data..=) Prelude.<$> homeDirectory,
+            ("Policy" Data..=) Prelude.<$> policy,
+            ("PosixProfile" Data..=) Prelude.<$> posixProfile,
+            ("HomeDirectoryType" Data..=)
               Prelude.<$> homeDirectoryType,
-            ("HomeDirectoryMappings" Core..=)
+            ("HomeDirectoryMappings" Data..=)
               Prelude.<$> homeDirectoryMappings,
-            Prelude.Just ("Role" Core..= role'),
-            Prelude.Just ("ServerId" Core..= serverId),
-            Prelude.Just ("ExternalId" Core..= externalId)
+            Prelude.Just ("Role" Data..= role'),
+            Prelude.Just ("ServerId" Data..= serverId),
+            Prelude.Just ("ExternalId" Data..= externalId)
           ]
       )
 
-instance Core.ToPath CreateAccess where
+instance Data.ToPath CreateAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAccess where
+instance Data.ToQuery CreateAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAccessResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.LicenseManagerUserSubscriptions.Types.ActiveDirectoryIdentityPro
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about an Active Directory identity provider.
@@ -54,15 +55,15 @@ activeDirectoryIdentityProvider_directoryId :: Lens.Lens' ActiveDirectoryIdentit
 activeDirectoryIdentityProvider_directoryId = Lens.lens (\ActiveDirectoryIdentityProvider' {directoryId} -> directoryId) (\s@ActiveDirectoryIdentityProvider' {} a -> s {directoryId = a} :: ActiveDirectoryIdentityProvider)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ActiveDirectoryIdentityProvider
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActiveDirectoryIdentityProvider"
       ( \x ->
           ActiveDirectoryIdentityProvider'
-            Prelude.<$> (x Core..:? "DirectoryId")
+            Prelude.<$> (x Data..:? "DirectoryId")
       )
 
 instance
@@ -81,9 +82,9 @@ instance
   rnf ActiveDirectoryIdentityProvider' {..} =
     Prelude.rnf directoryId
 
-instance Core.ToJSON ActiveDirectoryIdentityProvider where
+instance Data.ToJSON ActiveDirectoryIdentityProvider where
   toJSON ActiveDirectoryIdentityProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("DirectoryId" Core..=) Prelude.<$> directoryId]
+          [("DirectoryId" Data..=) Prelude.<$> directoryId]
       )

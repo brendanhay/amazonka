@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.InterruptionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.AbsoluteTimeRange
 import Amazonka.Transcribe.Types.ParticipantRole
@@ -130,17 +131,17 @@ interruptionFilter_threshold = Lens.lens (\InterruptionFilter' {threshold} -> th
 interruptionFilter_relativeTimeRange :: Lens.Lens' InterruptionFilter (Prelude.Maybe RelativeTimeRange)
 interruptionFilter_relativeTimeRange = Lens.lens (\InterruptionFilter' {relativeTimeRange} -> relativeTimeRange) (\s@InterruptionFilter' {} a -> s {relativeTimeRange = a} :: InterruptionFilter)
 
-instance Core.FromJSON InterruptionFilter where
+instance Data.FromJSON InterruptionFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InterruptionFilter"
       ( \x ->
           InterruptionFilter'
-            Prelude.<$> (x Core..:? "Negate")
-            Prelude.<*> (x Core..:? "AbsoluteTimeRange")
-            Prelude.<*> (x Core..:? "ParticipantRole")
-            Prelude.<*> (x Core..:? "Threshold")
-            Prelude.<*> (x Core..:? "RelativeTimeRange")
+            Prelude.<$> (x Data..:? "Negate")
+            Prelude.<*> (x Data..:? "AbsoluteTimeRange")
+            Prelude.<*> (x Data..:? "ParticipantRole")
+            Prelude.<*> (x Data..:? "Threshold")
+            Prelude.<*> (x Data..:? "RelativeTimeRange")
       )
 
 instance Prelude.Hashable InterruptionFilter where
@@ -159,17 +160,17 @@ instance Prelude.NFData InterruptionFilter where
       `Prelude.seq` Prelude.rnf threshold
       `Prelude.seq` Prelude.rnf relativeTimeRange
 
-instance Core.ToJSON InterruptionFilter where
+instance Data.ToJSON InterruptionFilter where
   toJSON InterruptionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Negate" Core..=) Prelude.<$> negate,
-            ("AbsoluteTimeRange" Core..=)
+          [ ("Negate" Data..=) Prelude.<$> negate,
+            ("AbsoluteTimeRange" Data..=)
               Prelude.<$> absoluteTimeRange,
-            ("ParticipantRole" Core..=)
+            ("ParticipantRole" Data..=)
               Prelude.<$> participantRole,
-            ("Threshold" Core..=) Prelude.<$> threshold,
-            ("RelativeTimeRange" Core..=)
+            ("Threshold" Data..=) Prelude.<$> threshold,
+            ("RelativeTimeRange" Data..=)
               Prelude.<$> relativeTimeRange
           ]
       )

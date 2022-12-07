@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,8 +146,8 @@ instance Core.AWSRequest ListTableStorageOptimizers where
     Response.receiveJSON
       ( \s h x ->
           ListTableStorageOptimizersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "StorageOptimizerList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "StorageOptimizerList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -170,35 +171,35 @@ instance Prelude.NFData ListTableStorageOptimizers where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToHeaders ListTableStorageOptimizers where
+instance Data.ToHeaders ListTableStorageOptimizers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTableStorageOptimizers where
+instance Data.ToJSON ListTableStorageOptimizers where
   toJSON ListTableStorageOptimizers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StorageOptimizerType" Core..=)
+          [ ("StorageOptimizerType" Data..=)
               Prelude.<$> storageOptimizerType,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName)
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )
 
-instance Core.ToPath ListTableStorageOptimizers where
+instance Data.ToPath ListTableStorageOptimizers where
   toPath = Prelude.const "/ListTableStorageOptimizers"
 
-instance Core.ToQuery ListTableStorageOptimizers where
+instance Data.ToQuery ListTableStorageOptimizers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTableStorageOptimizersResponse' smart constructor.

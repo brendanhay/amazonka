@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.JobInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.DetectedProperties
 import Amazonka.ElasticTranscoder.Types.Encryption
 import Amazonka.ElasticTranscoder.Types.InputCaptions
@@ -407,22 +408,22 @@ jobInput_inputCaptions = Lens.lens (\JobInput' {inputCaptions} -> inputCaptions)
 jobInput_frameRate :: Lens.Lens' JobInput (Prelude.Maybe Prelude.Text)
 jobInput_frameRate = Lens.lens (\JobInput' {frameRate} -> frameRate) (\s@JobInput' {} a -> s {frameRate = a} :: JobInput)
 
-instance Core.FromJSON JobInput where
+instance Data.FromJSON JobInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobInput"
       ( \x ->
           JobInput'
-            Prelude.<$> (x Core..:? "DetectedProperties")
-            Prelude.<*> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "AspectRatio")
-            Prelude.<*> (x Core..:? "Interlaced")
-            Prelude.<*> (x Core..:? "TimeSpan")
-            Prelude.<*> (x Core..:? "Container")
-            Prelude.<*> (x Core..:? "Encryption")
-            Prelude.<*> (x Core..:? "Resolution")
-            Prelude.<*> (x Core..:? "InputCaptions")
-            Prelude.<*> (x Core..:? "FrameRate")
+            Prelude.<$> (x Data..:? "DetectedProperties")
+            Prelude.<*> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "AspectRatio")
+            Prelude.<*> (x Data..:? "Interlaced")
+            Prelude.<*> (x Data..:? "TimeSpan")
+            Prelude.<*> (x Data..:? "Container")
+            Prelude.<*> (x Data..:? "Encryption")
+            Prelude.<*> (x Data..:? "Resolution")
+            Prelude.<*> (x Data..:? "InputCaptions")
+            Prelude.<*> (x Data..:? "FrameRate")
       )
 
 instance Prelude.Hashable JobInput where
@@ -451,20 +452,20 @@ instance Prelude.NFData JobInput where
       `Prelude.seq` Prelude.rnf inputCaptions
       `Prelude.seq` Prelude.rnf frameRate
 
-instance Core.ToJSON JobInput where
+instance Data.ToJSON JobInput where
   toJSON JobInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DetectedProperties" Core..=)
+          [ ("DetectedProperties" Data..=)
               Prelude.<$> detectedProperties,
-            ("Key" Core..=) Prelude.<$> key,
-            ("AspectRatio" Core..=) Prelude.<$> aspectRatio,
-            ("Interlaced" Core..=) Prelude.<$> interlaced,
-            ("TimeSpan" Core..=) Prelude.<$> timeSpan,
-            ("Container" Core..=) Prelude.<$> container,
-            ("Encryption" Core..=) Prelude.<$> encryption,
-            ("Resolution" Core..=) Prelude.<$> resolution,
-            ("InputCaptions" Core..=) Prelude.<$> inputCaptions,
-            ("FrameRate" Core..=) Prelude.<$> frameRate
+            ("Key" Data..=) Prelude.<$> key,
+            ("AspectRatio" Data..=) Prelude.<$> aspectRatio,
+            ("Interlaced" Data..=) Prelude.<$> interlaced,
+            ("TimeSpan" Data..=) Prelude.<$> timeSpan,
+            ("Container" Data..=) Prelude.<$> container,
+            ("Encryption" Data..=) Prelude.<$> encryption,
+            ("Resolution" Data..=) Prelude.<$> resolution,
+            ("InputCaptions" Data..=) Prelude.<$> inputCaptions,
+            ("FrameRate" Data..=) Prelude.<$> frameRate
           ]
       )

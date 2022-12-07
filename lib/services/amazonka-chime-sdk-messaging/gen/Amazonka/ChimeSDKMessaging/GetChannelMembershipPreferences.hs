@@ -52,6 +52,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,9 +125,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetChannelMembershipPreferencesResponse'
-            Prelude.<$> (x Core..?> "Member")
-            Prelude.<*> (x Core..?> "Preferences")
-            Prelude.<*> (x Core..?> "ChannelArn")
+            Prelude.<$> (x Data..?> "Member")
+            Prelude.<*> (x Data..?> "Preferences")
+            Prelude.<*> (x Data..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,24 +152,24 @@ instance
       `Prelude.seq` Prelude.rnf chimeBearer
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetChannelMembershipPreferences
   where
   toHeaders GetChannelMembershipPreferences' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToPath GetChannelMembershipPreferences where
+instance Data.ToPath GetChannelMembershipPreferences where
   toPath GetChannelMembershipPreferences' {..} =
     Prelude.mconcat
       [ "/channels/",
-        Core.toBS channelArn,
+        Data.toBS channelArn,
         "/memberships/",
-        Core.toBS memberArn,
+        Data.toBS memberArn,
         "/preferences"
       ]
 
-instance Core.ToQuery GetChannelMembershipPreferences where
+instance Data.ToQuery GetChannelMembershipPreferences where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetChannelMembershipPreferencesResponse' smart constructor.

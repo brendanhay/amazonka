@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.CSVInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types.FileHeaderInfo
 import qualified Amazonka.Prelude as Prelude
 
@@ -114,18 +115,18 @@ cSVInput_recordDelimiter = Lens.lens (\CSVInput' {recordDelimiter} -> recordDeli
 cSVInput_fileHeaderInfo :: Lens.Lens' CSVInput (Prelude.Maybe FileHeaderInfo)
 cSVInput_fileHeaderInfo = Lens.lens (\CSVInput' {fileHeaderInfo} -> fileHeaderInfo) (\s@CSVInput' {} a -> s {fileHeaderInfo = a} :: CSVInput)
 
-instance Core.FromJSON CSVInput where
+instance Data.FromJSON CSVInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CSVInput"
       ( \x ->
           CSVInput'
-            Prelude.<$> (x Core..:? "QuoteCharacter")
-            Prelude.<*> (x Core..:? "Comments")
-            Prelude.<*> (x Core..:? "QuoteEscapeCharacter")
-            Prelude.<*> (x Core..:? "FieldDelimiter")
-            Prelude.<*> (x Core..:? "RecordDelimiter")
-            Prelude.<*> (x Core..:? "FileHeaderInfo")
+            Prelude.<$> (x Data..:? "QuoteCharacter")
+            Prelude.<*> (x Data..:? "Comments")
+            Prelude.<*> (x Data..:? "QuoteEscapeCharacter")
+            Prelude.<*> (x Data..:? "FieldDelimiter")
+            Prelude.<*> (x Data..:? "RecordDelimiter")
+            Prelude.<*> (x Data..:? "FileHeaderInfo")
       )
 
 instance Prelude.Hashable CSVInput where
@@ -146,20 +147,20 @@ instance Prelude.NFData CSVInput where
       `Prelude.seq` Prelude.rnf recordDelimiter
       `Prelude.seq` Prelude.rnf fileHeaderInfo
 
-instance Core.ToJSON CSVInput where
+instance Data.ToJSON CSVInput where
   toJSON CSVInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("QuoteCharacter" Core..=)
+          [ ("QuoteCharacter" Data..=)
               Prelude.<$> quoteCharacter,
-            ("Comments" Core..=) Prelude.<$> comments,
-            ("QuoteEscapeCharacter" Core..=)
+            ("Comments" Data..=) Prelude.<$> comments,
+            ("QuoteEscapeCharacter" Data..=)
               Prelude.<$> quoteEscapeCharacter,
-            ("FieldDelimiter" Core..=)
+            ("FieldDelimiter" Data..=)
               Prelude.<$> fieldDelimiter,
-            ("RecordDelimiter" Core..=)
+            ("RecordDelimiter" Data..=)
               Prelude.<$> recordDelimiter,
-            ("FileHeaderInfo" Core..=)
+            ("FileHeaderInfo" Data..=)
               Prelude.<$> fileHeaderInfo
           ]
       )

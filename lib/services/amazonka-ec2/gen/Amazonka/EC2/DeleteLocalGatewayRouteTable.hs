@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest DeleteLocalGatewayRouteTable where
     Response.receiveXML
       ( \s h x ->
           DeleteLocalGatewayRouteTableResponse'
-            Prelude.<$> (x Core..@? "localGatewayRouteTable")
+            Prelude.<$> (x Data..@? "localGatewayRouteTable")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,24 +125,24 @@ instance Prelude.NFData DeleteLocalGatewayRouteTable where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf localGatewayRouteTableId
 
-instance Core.ToHeaders DeleteLocalGatewayRouteTable where
+instance Data.ToHeaders DeleteLocalGatewayRouteTable where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteLocalGatewayRouteTable where
+instance Data.ToPath DeleteLocalGatewayRouteTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLocalGatewayRouteTable where
+instance Data.ToQuery DeleteLocalGatewayRouteTable where
   toQuery DeleteLocalGatewayRouteTable' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DeleteLocalGatewayRouteTable" ::
+          Data.=: ( "DeleteLocalGatewayRouteTable" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
         "LocalGatewayRouteTableId"
-          Core.=: localGatewayRouteTableId
+          Data.=: localGatewayRouteTableId
       ]
 
 -- | /See:/ 'newDeleteLocalGatewayRouteTableResponse' smart constructor.

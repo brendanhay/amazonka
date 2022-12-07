@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Phase2EncryptionAlgorithmsListValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,12 +56,12 @@ phase2EncryptionAlgorithmsListValue_value :: Lens.Lens' Phase2EncryptionAlgorith
 phase2EncryptionAlgorithmsListValue_value = Lens.lens (\Phase2EncryptionAlgorithmsListValue' {value} -> value) (\s@Phase2EncryptionAlgorithmsListValue' {} a -> s {value = a} :: Phase2EncryptionAlgorithmsListValue)
 
 instance
-  Core.FromXML
+  Data.FromXML
     Phase2EncryptionAlgorithmsListValue
   where
   parseXML x =
     Phase2EncryptionAlgorithmsListValue'
-      Prelude.<$> (x Core..@? "value")
+      Prelude.<$> (x Data..@? "value")
 
 instance
   Prelude.Hashable

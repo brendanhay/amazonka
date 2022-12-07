@@ -21,6 +21,7 @@ module Amazonka.KeySpaces.Types.CapacitySpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types.ThroughputMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -138,15 +139,15 @@ instance Prelude.NFData CapacitySpecification where
       `Prelude.seq` Prelude.rnf writeCapacityUnits
       `Prelude.seq` Prelude.rnf throughputMode
 
-instance Core.ToJSON CapacitySpecification where
+instance Data.ToJSON CapacitySpecification where
   toJSON CapacitySpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("readCapacityUnits" Core..=)
+          [ ("readCapacityUnits" Data..=)
               Prelude.<$> readCapacityUnits,
-            ("writeCapacityUnits" Core..=)
+            ("writeCapacityUnits" Data..=)
               Prelude.<$> writeCapacityUnits,
             Prelude.Just
-              ("throughputMode" Core..= throughputMode)
+              ("throughputMode" Data..= throughputMode)
           ]
       )

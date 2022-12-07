@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.UpsertRowData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types.CellInput
 import Amazonka.HoneyCode.Types.Filter
 import qualified Amazonka.Prelude as Prelude
@@ -137,13 +138,13 @@ instance Prelude.NFData UpsertRowData where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf cellsToUpdate
 
-instance Core.ToJSON UpsertRowData where
+instance Data.ToJSON UpsertRowData where
   toJSON UpsertRowData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("batchItemId" Core..= batchItemId),
-            Prelude.Just ("filter" Core..= filter'),
+          [ Prelude.Just ("batchItemId" Data..= batchItemId),
+            Prelude.Just ("filter" Data..= filter'),
             Prelude.Just
-              ("cellsToUpdate" Core..= cellsToUpdate)
+              ("cellsToUpdate" Data..= cellsToUpdate)
           ]
       )

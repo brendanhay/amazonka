@@ -65,6 +65,7 @@ where
 import Amazonka.CognitoSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -199,7 +200,7 @@ instance Core.AWSRequest UpdateRecords where
     Response.receiveJSON
       ( \s h x ->
           UpdateRecordsResponse'
-            Prelude.<$> (x Core..?> "Records" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Records" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -223,37 +224,37 @@ instance Prelude.NFData UpdateRecords where
       `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf syncSessionToken
 
-instance Core.ToHeaders UpdateRecords where
+instance Data.ToHeaders UpdateRecords where
   toHeaders UpdateRecords' {..} =
     Prelude.mconcat
-      [ "x-amz-Client-Context" Core.=# clientContext,
+      [ "x-amz-Client-Context" Data.=# clientContext,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON UpdateRecords where
+instance Data.ToJSON UpdateRecords where
   toJSON UpdateRecords' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeviceId" Core..=) Prelude.<$> deviceId,
-            ("RecordPatches" Core..=) Prelude.<$> recordPatches,
+          [ ("DeviceId" Data..=) Prelude.<$> deviceId,
+            ("RecordPatches" Data..=) Prelude.<$> recordPatches,
             Prelude.Just
-              ("SyncSessionToken" Core..= syncSessionToken)
+              ("SyncSessionToken" Data..= syncSessionToken)
           ]
       )
 
-instance Core.ToPath UpdateRecords where
+instance Data.ToPath UpdateRecords where
   toPath UpdateRecords' {..} =
     Prelude.mconcat
       [ "/identitypools/",
-        Core.toBS identityPoolId,
+        Data.toBS identityPoolId,
         "/identities/",
-        Core.toBS identityId,
+        Data.toBS identityId,
         "/datasets/",
-        Core.toBS datasetName
+        Data.toBS datasetName
       ]
 
-instance Core.ToQuery UpdateRecords where
+instance Data.ToQuery UpdateRecords where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returned for a successful UpdateRecordsRequest.

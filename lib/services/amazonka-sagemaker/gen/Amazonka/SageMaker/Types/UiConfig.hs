@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.UiConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provided configuration information for the worker UI for a labeling job.
@@ -216,14 +217,14 @@ uiConfig_humanTaskUiArn = Lens.lens (\UiConfig' {humanTaskUiArn} -> humanTaskUiA
 uiConfig_uiTemplateS3Uri :: Lens.Lens' UiConfig (Prelude.Maybe Prelude.Text)
 uiConfig_uiTemplateS3Uri = Lens.lens (\UiConfig' {uiTemplateS3Uri} -> uiTemplateS3Uri) (\s@UiConfig' {} a -> s {uiTemplateS3Uri = a} :: UiConfig)
 
-instance Core.FromJSON UiConfig where
+instance Data.FromJSON UiConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UiConfig"
       ( \x ->
           UiConfig'
-            Prelude.<$> (x Core..:? "HumanTaskUiArn")
-            Prelude.<*> (x Core..:? "UiTemplateS3Uri")
+            Prelude.<$> (x Data..:? "HumanTaskUiArn")
+            Prelude.<*> (x Data..:? "UiTemplateS3Uri")
       )
 
 instance Prelude.Hashable UiConfig where
@@ -236,13 +237,13 @@ instance Prelude.NFData UiConfig where
     Prelude.rnf humanTaskUiArn
       `Prelude.seq` Prelude.rnf uiTemplateS3Uri
 
-instance Core.ToJSON UiConfig where
+instance Data.ToJSON UiConfig where
   toJSON UiConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HumanTaskUiArn" Core..=)
+          [ ("HumanTaskUiArn" Data..=)
               Prelude.<$> humanTaskUiArn,
-            ("UiTemplateS3Uri" Core..=)
+            ("UiTemplateS3Uri" Data..=)
               Prelude.<$> uiTemplateS3Uri
           ]
       )

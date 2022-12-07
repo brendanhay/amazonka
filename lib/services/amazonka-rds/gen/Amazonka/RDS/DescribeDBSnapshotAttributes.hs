@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest DescribeDBSnapshotAttributes where
       "DescribeDBSnapshotAttributesResult"
       ( \s h x ->
           DescribeDBSnapshotAttributesResponse'
-            Prelude.<$> (x Core..@? "DBSnapshotAttributesResult")
+            Prelude.<$> (x Data..@? "DBSnapshotAttributesResult")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,22 +119,22 @@ instance Prelude.NFData DescribeDBSnapshotAttributes where
   rnf DescribeDBSnapshotAttributes' {..} =
     Prelude.rnf dbSnapshotIdentifier
 
-instance Core.ToHeaders DescribeDBSnapshotAttributes where
+instance Data.ToHeaders DescribeDBSnapshotAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBSnapshotAttributes where
+instance Data.ToPath DescribeDBSnapshotAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDBSnapshotAttributes where
+instance Data.ToQuery DescribeDBSnapshotAttributes where
   toQuery DescribeDBSnapshotAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeDBSnapshotAttributes" ::
+          Data.=: ( "DescribeDBSnapshotAttributes" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBSnapshotIdentifier" Data.=: dbSnapshotIdentifier
       ]
 
 -- | /See:/ 'newDescribeDBSnapshotAttributesResponse' smart constructor.

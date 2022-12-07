@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,8 +133,8 @@ instance Core.AWSRequest DescribeGlobalNetworks where
     Response.receiveJSON
       ( \s h x ->
           DescribeGlobalNetworksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "GlobalNetworks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "GlobalNetworks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,30 +150,30 @@ instance Prelude.NFData DescribeGlobalNetworks where
       `Prelude.seq` Prelude.rnf globalNetworkIds
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeGlobalNetworks where
+instance Data.ToHeaders DescribeGlobalNetworks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeGlobalNetworks where
+instance Data.ToPath DescribeGlobalNetworks where
   toPath = Prelude.const "/global-networks"
 
-instance Core.ToQuery DescribeGlobalNetworks where
+instance Data.ToQuery DescribeGlobalNetworks where
   toQuery DescribeGlobalNetworks' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
+      [ "nextToken" Data.=: nextToken,
         "globalNetworkIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> globalNetworkIds
             ),
-        "maxResults" Core.=: maxResults
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeGlobalNetworksResponse' smart constructor.

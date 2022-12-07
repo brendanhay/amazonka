@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.RdsDbInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon RDS instance.
@@ -136,21 +137,21 @@ rdsDbInstance_engine = Lens.lens (\RdsDbInstance' {engine} -> engine) (\s@RdsDbI
 rdsDbInstance_dbUser :: Lens.Lens' RdsDbInstance (Prelude.Maybe Prelude.Text)
 rdsDbInstance_dbUser = Lens.lens (\RdsDbInstance' {dbUser} -> dbUser) (\s@RdsDbInstance' {} a -> s {dbUser = a} :: RdsDbInstance)
 
-instance Core.FromJSON RdsDbInstance where
+instance Data.FromJSON RdsDbInstance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RdsDbInstance"
       ( \x ->
           RdsDbInstance'
-            Prelude.<$> (x Core..:? "StackId")
-            Prelude.<*> (x Core..:? "MissingOnRds")
-            Prelude.<*> (x Core..:? "DbInstanceIdentifier")
-            Prelude.<*> (x Core..:? "DbPassword")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "Address")
-            Prelude.<*> (x Core..:? "RdsDbInstanceArn")
-            Prelude.<*> (x Core..:? "Engine")
-            Prelude.<*> (x Core..:? "DbUser")
+            Prelude.<$> (x Data..:? "StackId")
+            Prelude.<*> (x Data..:? "MissingOnRds")
+            Prelude.<*> (x Data..:? "DbInstanceIdentifier")
+            Prelude.<*> (x Data..:? "DbPassword")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "Address")
+            Prelude.<*> (x Data..:? "RdsDbInstanceArn")
+            Prelude.<*> (x Data..:? "Engine")
+            Prelude.<*> (x Data..:? "DbUser")
       )
 
 instance Prelude.Hashable RdsDbInstance where

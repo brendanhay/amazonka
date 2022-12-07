@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.SvmActiveDirectoryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.SelfManagedActiveDirectoryAttributes
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,17 +71,17 @@ svmActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration :: Lens.
 svmActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration = Lens.lens (\SvmActiveDirectoryConfiguration' {selfManagedActiveDirectoryConfiguration} -> selfManagedActiveDirectoryConfiguration) (\s@SvmActiveDirectoryConfiguration' {} a -> s {selfManagedActiveDirectoryConfiguration = a} :: SvmActiveDirectoryConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SvmActiveDirectoryConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SvmActiveDirectoryConfiguration"
       ( \x ->
           SvmActiveDirectoryConfiguration'
-            Prelude.<$> (x Core..:? "NetBiosName")
+            Prelude.<$> (x Data..:? "NetBiosName")
             Prelude.<*> ( x
-                            Core..:? "SelfManagedActiveDirectoryConfiguration"
+                            Data..:? "SelfManagedActiveDirectoryConfiguration"
                         )
       )
 

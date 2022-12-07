@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ data CreateStateMachine = CreateStateMachine'
     name :: Prelude.Text,
     -- | The Amazon States Language definition of the state machine. See
     -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
-    definition :: Core.Sensitive Prelude.Text,
+    definition :: Data.Sensitive Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role to use for this state
     -- machine.
     roleArn :: Prelude.Text
@@ -190,7 +191,7 @@ newCreateStateMachine pName_ pDefinition_ pRoleArn_ =
       tracingConfiguration = Prelude.Nothing,
       loggingConfiguration = Prelude.Nothing,
       name = pName_,
-      definition = Core._Sensitive Lens.# pDefinition_,
+      definition = Data._Sensitive Lens.# pDefinition_,
       roleArn = pRoleArn_
     }
 
@@ -247,7 +248,7 @@ createStateMachine_name = Lens.lens (\CreateStateMachine' {name} -> name) (\s@Cr
 -- | The Amazon States Language definition of the state machine. See
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
 createStateMachine_definition :: Lens.Lens' CreateStateMachine Prelude.Text
-createStateMachine_definition = Lens.lens (\CreateStateMachine' {definition} -> definition) (\s@CreateStateMachine' {} a -> s {definition = a} :: CreateStateMachine) Prelude.. Core._Sensitive
+createStateMachine_definition = Lens.lens (\CreateStateMachine' {definition} -> definition) (\s@CreateStateMachine' {} a -> s {definition = a} :: CreateStateMachine) Prelude.. Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the IAM role to use for this state
 -- machine.
@@ -265,8 +266,8 @@ instance Core.AWSRequest CreateStateMachine where
       ( \s h x ->
           CreateStateMachineResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "stateMachineArn")
-            Prelude.<*> (x Core..:> "creationDate")
+            Prelude.<*> (x Data..:> "stateMachineArn")
+            Prelude.<*> (x Data..:> "creationDate")
       )
 
 instance Prelude.Hashable CreateStateMachine where
@@ -289,41 +290,41 @@ instance Prelude.NFData CreateStateMachine where
       `Prelude.seq` Prelude.rnf definition
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateStateMachine where
+instance Data.ToHeaders CreateStateMachine where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSStepFunctions.CreateStateMachine" ::
+              Data.=# ( "AWSStepFunctions.CreateStateMachine" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateStateMachine where
+instance Data.ToJSON CreateStateMachine where
   toJSON CreateStateMachine' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("type" Core..=) Prelude.<$> type',
-            ("tracingConfiguration" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("type" Data..=) Prelude.<$> type',
+            ("tracingConfiguration" Data..=)
               Prelude.<$> tracingConfiguration,
-            ("loggingConfiguration" Core..=)
+            ("loggingConfiguration" Data..=)
               Prelude.<$> loggingConfiguration,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("definition" Core..= definition),
-            Prelude.Just ("roleArn" Core..= roleArn)
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("definition" Data..= definition),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateStateMachine where
+instance Data.ToPath CreateStateMachine where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateStateMachine where
+instance Data.ToQuery CreateStateMachine where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStateMachineResponse' smart constructor.
@@ -334,7 +335,7 @@ data CreateStateMachineResponse = CreateStateMachineResponse'
     -- machine.
     stateMachineArn :: Prelude.Text,
     -- | The date the state machine is created.
-    creationDate :: Core.POSIX
+    creationDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -368,7 +369,7 @@ newCreateStateMachineResponse
       { httpStatus =
           pHttpStatus_,
         stateMachineArn = pStateMachineArn_,
-        creationDate = Core._Time Lens.# pCreationDate_
+        creationDate = Data._Time Lens.# pCreationDate_
       }
 
 -- | The response's http status code.
@@ -382,7 +383,7 @@ createStateMachineResponse_stateMachineArn = Lens.lens (\CreateStateMachineRespo
 
 -- | The date the state machine is created.
 createStateMachineResponse_creationDate :: Lens.Lens' CreateStateMachineResponse Prelude.UTCTime
-createStateMachineResponse_creationDate = Lens.lens (\CreateStateMachineResponse' {creationDate} -> creationDate) (\s@CreateStateMachineResponse' {} a -> s {creationDate = a} :: CreateStateMachineResponse) Prelude.. Core._Time
+createStateMachineResponse_creationDate = Lens.lens (\CreateStateMachineResponse' {creationDate} -> creationDate) (\s@CreateStateMachineResponse' {} a -> s {creationDate = a} :: CreateStateMachineResponse) Prelude.. Data._Time
 
 instance Prelude.NFData CreateStateMachineResponse where
   rnf CreateStateMachineResponse' {..} =

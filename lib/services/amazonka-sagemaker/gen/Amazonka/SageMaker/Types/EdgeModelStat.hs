@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EdgeModelStat where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Status of edge devices with this model.
@@ -127,18 +128,18 @@ edgeModelStat_activeDeviceCount = Lens.lens (\EdgeModelStat' {activeDeviceCount}
 edgeModelStat_samplingDeviceCount :: Lens.Lens' EdgeModelStat Prelude.Integer
 edgeModelStat_samplingDeviceCount = Lens.lens (\EdgeModelStat' {samplingDeviceCount} -> samplingDeviceCount) (\s@EdgeModelStat' {} a -> s {samplingDeviceCount = a} :: EdgeModelStat)
 
-instance Core.FromJSON EdgeModelStat where
+instance Data.FromJSON EdgeModelStat where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EdgeModelStat"
       ( \x ->
           EdgeModelStat'
-            Prelude.<$> (x Core..: "ModelName")
-            Prelude.<*> (x Core..: "ModelVersion")
-            Prelude.<*> (x Core..: "OfflineDeviceCount")
-            Prelude.<*> (x Core..: "ConnectedDeviceCount")
-            Prelude.<*> (x Core..: "ActiveDeviceCount")
-            Prelude.<*> (x Core..: "SamplingDeviceCount")
+            Prelude.<$> (x Data..: "ModelName")
+            Prelude.<*> (x Data..: "ModelVersion")
+            Prelude.<*> (x Data..: "OfflineDeviceCount")
+            Prelude.<*> (x Data..: "ConnectedDeviceCount")
+            Prelude.<*> (x Data..: "ActiveDeviceCount")
+            Prelude.<*> (x Data..: "SamplingDeviceCount")
       )
 
 instance Prelude.Hashable EdgeModelStat where

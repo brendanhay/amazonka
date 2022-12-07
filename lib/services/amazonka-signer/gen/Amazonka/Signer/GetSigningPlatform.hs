@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,15 +92,15 @@ instance Core.AWSRequest GetSigningPlatform where
     Response.receiveJSON
       ( \s h x ->
           GetSigningPlatformResponse'
-            Prelude.<$> (x Core..?> "signingImageFormat")
-            Prelude.<*> (x Core..?> "partner")
-            Prelude.<*> (x Core..?> "signingConfiguration")
-            Prelude.<*> (x Core..?> "displayName")
-            Prelude.<*> (x Core..?> "target")
-            Prelude.<*> (x Core..?> "category")
-            Prelude.<*> (x Core..?> "revocationSupported")
-            Prelude.<*> (x Core..?> "platformId")
-            Prelude.<*> (x Core..?> "maxSizeInMB")
+            Prelude.<$> (x Data..?> "signingImageFormat")
+            Prelude.<*> (x Data..?> "partner")
+            Prelude.<*> (x Data..?> "signingConfiguration")
+            Prelude.<*> (x Data..?> "displayName")
+            Prelude.<*> (x Data..?> "target")
+            Prelude.<*> (x Data..?> "category")
+            Prelude.<*> (x Data..?> "revocationSupported")
+            Prelude.<*> (x Data..?> "platformId")
+            Prelude.<*> (x Data..?> "maxSizeInMB")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,23 +111,23 @@ instance Prelude.Hashable GetSigningPlatform where
 instance Prelude.NFData GetSigningPlatform where
   rnf GetSigningPlatform' {..} = Prelude.rnf platformId
 
-instance Core.ToHeaders GetSigningPlatform where
+instance Data.ToHeaders GetSigningPlatform where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSigningPlatform where
+instance Data.ToPath GetSigningPlatform where
   toPath GetSigningPlatform' {..} =
     Prelude.mconcat
-      ["/signing-platforms/", Core.toBS platformId]
+      ["/signing-platforms/", Data.toBS platformId]
 
-instance Core.ToQuery GetSigningPlatform where
+instance Data.ToQuery GetSigningPlatform where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSigningPlatformResponse' smart constructor.

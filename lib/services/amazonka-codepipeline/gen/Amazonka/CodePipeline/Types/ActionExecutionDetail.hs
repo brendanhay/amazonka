@@ -24,6 +24,7 @@ import Amazonka.CodePipeline.Types.ActionExecutionOutput
 import Amazonka.CodePipeline.Types.ActionExecutionStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about an execution of an action, including the
@@ -51,9 +52,9 @@ data ActionExecutionDetail = ActionExecutionDetail'
     -- result.
     output :: Prelude.Maybe ActionExecutionOutput,
     -- | The last update time of the action execution.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The start time of the action execution.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -141,28 +142,28 @@ actionExecutionDetail_output = Lens.lens (\ActionExecutionDetail' {output} -> ou
 
 -- | The last update time of the action execution.
 actionExecutionDetail_lastUpdateTime :: Lens.Lens' ActionExecutionDetail (Prelude.Maybe Prelude.UTCTime)
-actionExecutionDetail_lastUpdateTime = Lens.lens (\ActionExecutionDetail' {lastUpdateTime} -> lastUpdateTime) (\s@ActionExecutionDetail' {} a -> s {lastUpdateTime = a} :: ActionExecutionDetail) Prelude.. Lens.mapping Core._Time
+actionExecutionDetail_lastUpdateTime = Lens.lens (\ActionExecutionDetail' {lastUpdateTime} -> lastUpdateTime) (\s@ActionExecutionDetail' {} a -> s {lastUpdateTime = a} :: ActionExecutionDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The start time of the action execution.
 actionExecutionDetail_startTime :: Lens.Lens' ActionExecutionDetail (Prelude.Maybe Prelude.UTCTime)
-actionExecutionDetail_startTime = Lens.lens (\ActionExecutionDetail' {startTime} -> startTime) (\s@ActionExecutionDetail' {} a -> s {startTime = a} :: ActionExecutionDetail) Prelude.. Lens.mapping Core._Time
+actionExecutionDetail_startTime = Lens.lens (\ActionExecutionDetail' {startTime} -> startTime) (\s@ActionExecutionDetail' {} a -> s {startTime = a} :: ActionExecutionDetail) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ActionExecutionDetail where
+instance Data.FromJSON ActionExecutionDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionExecutionDetail"
       ( \x ->
           ActionExecutionDetail'
-            Prelude.<$> (x Core..:? "actionName")
-            Prelude.<*> (x Core..:? "stageName")
-            Prelude.<*> (x Core..:? "pipelineExecutionId")
-            Prelude.<*> (x Core..:? "actionExecutionId")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "input")
-            Prelude.<*> (x Core..:? "pipelineVersion")
-            Prelude.<*> (x Core..:? "output")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<$> (x Data..:? "actionName")
+            Prelude.<*> (x Data..:? "stageName")
+            Prelude.<*> (x Data..:? "pipelineExecutionId")
+            Prelude.<*> (x Data..:? "actionExecutionId")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "input")
+            Prelude.<*> (x Data..:? "pipelineVersion")
+            Prelude.<*> (x Data..:? "output")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "startTime")
       )
 
 instance Prelude.Hashable ActionExecutionDetail where

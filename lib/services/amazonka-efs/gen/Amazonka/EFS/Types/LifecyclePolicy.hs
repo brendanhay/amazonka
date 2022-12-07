@@ -21,6 +21,7 @@ module Amazonka.EFS.Types.LifecyclePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types.TransitionToIARules
 import Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules
 import qualified Amazonka.Prelude as Prelude
@@ -87,14 +88,14 @@ lifecyclePolicy_transitionToIA = Lens.lens (\LifecyclePolicy' {transitionToIA} -
 lifecyclePolicy_transitionToPrimaryStorageClass :: Lens.Lens' LifecyclePolicy (Prelude.Maybe TransitionToPrimaryStorageClassRules)
 lifecyclePolicy_transitionToPrimaryStorageClass = Lens.lens (\LifecyclePolicy' {transitionToPrimaryStorageClass} -> transitionToPrimaryStorageClass) (\s@LifecyclePolicy' {} a -> s {transitionToPrimaryStorageClass = a} :: LifecyclePolicy)
 
-instance Core.FromJSON LifecyclePolicy where
+instance Data.FromJSON LifecyclePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifecyclePolicy"
       ( \x ->
           LifecyclePolicy'
-            Prelude.<$> (x Core..:? "TransitionToIA")
-            Prelude.<*> (x Core..:? "TransitionToPrimaryStorageClass")
+            Prelude.<$> (x Data..:? "TransitionToIA")
+            Prelude.<*> (x Data..:? "TransitionToPrimaryStorageClass")
       )
 
 instance Prelude.Hashable LifecyclePolicy where
@@ -107,13 +108,13 @@ instance Prelude.NFData LifecyclePolicy where
     Prelude.rnf transitionToIA
       `Prelude.seq` Prelude.rnf transitionToPrimaryStorageClass
 
-instance Core.ToJSON LifecyclePolicy where
+instance Data.ToJSON LifecyclePolicy where
   toJSON LifecyclePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TransitionToIA" Core..=)
+          [ ("TransitionToIA" Data..=)
               Prelude.<$> transitionToIA,
-            ("TransitionToPrimaryStorageClass" Core..=)
+            ("TransitionToPrimaryStorageClass" Data..=)
               Prelude.<$> transitionToPrimaryStorageClass
           ]
       )

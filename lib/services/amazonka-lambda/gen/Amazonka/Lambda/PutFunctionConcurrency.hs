@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,7 +146,7 @@ instance Core.AWSRequest PutFunctionConcurrency where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable PutFunctionConcurrency where
   hashWithSalt _salt PutFunctionConcurrency' {..} =
@@ -157,27 +158,27 @@ instance Prelude.NFData PutFunctionConcurrency where
     Prelude.rnf functionName
       `Prelude.seq` Prelude.rnf reservedConcurrentExecutions
 
-instance Core.ToHeaders PutFunctionConcurrency where
+instance Data.ToHeaders PutFunctionConcurrency where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutFunctionConcurrency where
+instance Data.ToJSON PutFunctionConcurrency where
   toJSON PutFunctionConcurrency' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ReservedConcurrentExecutions"
-                  Core..= reservedConcurrentExecutions
+                  Data..= reservedConcurrentExecutions
               )
           ]
       )
 
-instance Core.ToPath PutFunctionConcurrency where
+instance Data.ToPath PutFunctionConcurrency where
   toPath PutFunctionConcurrency' {..} =
     Prelude.mconcat
       [ "/2017-10-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/concurrency"
       ]
 
-instance Core.ToQuery PutFunctionConcurrency where
+instance Data.ToQuery PutFunctionConcurrency where
   toQuery = Prelude.const Prelude.mempty

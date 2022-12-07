@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ManagedJobTemplateSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about the managed template.
@@ -89,17 +90,17 @@ managedJobTemplateSummary_templateVersion = Lens.lens (\ManagedJobTemplateSummar
 managedJobTemplateSummary_templateArn :: Lens.Lens' ManagedJobTemplateSummary (Prelude.Maybe Prelude.Text)
 managedJobTemplateSummary_templateArn = Lens.lens (\ManagedJobTemplateSummary' {templateArn} -> templateArn) (\s@ManagedJobTemplateSummary' {} a -> s {templateArn = a} :: ManagedJobTemplateSummary)
 
-instance Core.FromJSON ManagedJobTemplateSummary where
+instance Data.FromJSON ManagedJobTemplateSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManagedJobTemplateSummary"
       ( \x ->
           ManagedJobTemplateSummary'
-            Prelude.<$> (x Core..:? "templateName")
-            Prelude.<*> (x Core..:? "environments" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "templateVersion")
-            Prelude.<*> (x Core..:? "templateArn")
+            Prelude.<$> (x Data..:? "templateName")
+            Prelude.<*> (x Data..:? "environments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "templateVersion")
+            Prelude.<*> (x Data..:? "templateArn")
       )
 
 instance Prelude.Hashable ManagedJobTemplateSummary where

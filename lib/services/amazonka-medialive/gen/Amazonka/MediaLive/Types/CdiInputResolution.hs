@@ -29,6 +29,7 @@ module Amazonka.MediaLive.Types.CdiInputResolution
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Maximum CDI input resolution; SD is 480i and 576i up to 30
@@ -36,7 +37,7 @@ import qualified Amazonka.Prelude as Prelude
 -- FHD is 1080p up to 60 fps, UHD is 2160p up to 60 fps
 newtype CdiInputResolution = CdiInputResolution'
   { fromCdiInputResolution ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -48,18 +49,18 @@ newtype CdiInputResolution = CdiInputResolution'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern CdiInputResolution_FHD :: CdiInputResolution

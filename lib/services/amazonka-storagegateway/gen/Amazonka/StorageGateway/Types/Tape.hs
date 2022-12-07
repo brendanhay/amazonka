@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.Tape where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a virtual tape object.
@@ -48,9 +49,9 @@ data Tape = Tape'
     vTLDevice :: Prelude.Maybe Prelude.Text,
     -- | The date that the tape is first archived with tape retention lock
     -- enabled.
-    retentionStartDate :: Prelude.Maybe Core.POSIX,
+    retentionStartDate :: Prelude.Maybe Data.POSIX,
     -- | The date that the tape enters a custom tape pool.
-    poolEntryDate :: Prelude.Maybe Core.POSIX,
+    poolEntryDate :: Prelude.Maybe Data.POSIX,
     kmsKey :: Prelude.Maybe Prelude.Text,
     -- | The size, in bytes, of the virtual tape capacity.
     tapeSizeInBytes :: Prelude.Maybe Prelude.Integer,
@@ -61,7 +62,7 @@ data Tape = Tape'
     -- Glacier Deep Archive) that corresponds to the pool.
     poolId :: Prelude.Maybe Prelude.Text,
     -- | The date the virtual tape was created.
-    tapeCreatedDate :: Prelude.Maybe Core.POSIX,
+    tapeCreatedDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the virtual tape.
     tapeARN :: Prelude.Maybe Prelude.Text
   }
@@ -165,11 +166,11 @@ tape_vTLDevice = Lens.lens (\Tape' {vTLDevice} -> vTLDevice) (\s@Tape' {} a -> s
 -- | The date that the tape is first archived with tape retention lock
 -- enabled.
 tape_retentionStartDate :: Lens.Lens' Tape (Prelude.Maybe Prelude.UTCTime)
-tape_retentionStartDate = Lens.lens (\Tape' {retentionStartDate} -> retentionStartDate) (\s@Tape' {} a -> s {retentionStartDate = a} :: Tape) Prelude.. Lens.mapping Core._Time
+tape_retentionStartDate = Lens.lens (\Tape' {retentionStartDate} -> retentionStartDate) (\s@Tape' {} a -> s {retentionStartDate = a} :: Tape) Prelude.. Lens.mapping Data._Time
 
 -- | The date that the tape enters a custom tape pool.
 tape_poolEntryDate :: Lens.Lens' Tape (Prelude.Maybe Prelude.UTCTime)
-tape_poolEntryDate = Lens.lens (\Tape' {poolEntryDate} -> poolEntryDate) (\s@Tape' {} a -> s {poolEntryDate = a} :: Tape) Prelude.. Lens.mapping Core._Time
+tape_poolEntryDate = Lens.lens (\Tape' {poolEntryDate} -> poolEntryDate) (\s@Tape' {} a -> s {poolEntryDate = a} :: Tape) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 tape_kmsKey :: Lens.Lens' Tape (Prelude.Maybe Prelude.Text)
@@ -189,31 +190,31 @@ tape_poolId = Lens.lens (\Tape' {poolId} -> poolId) (\s@Tape' {} a -> s {poolId 
 
 -- | The date the virtual tape was created.
 tape_tapeCreatedDate :: Lens.Lens' Tape (Prelude.Maybe Prelude.UTCTime)
-tape_tapeCreatedDate = Lens.lens (\Tape' {tapeCreatedDate} -> tapeCreatedDate) (\s@Tape' {} a -> s {tapeCreatedDate = a} :: Tape) Prelude.. Lens.mapping Core._Time
+tape_tapeCreatedDate = Lens.lens (\Tape' {tapeCreatedDate} -> tapeCreatedDate) (\s@Tape' {} a -> s {tapeCreatedDate = a} :: Tape) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the virtual tape.
 tape_tapeARN :: Lens.Lens' Tape (Prelude.Maybe Prelude.Text)
 tape_tapeARN = Lens.lens (\Tape' {tapeARN} -> tapeARN) (\s@Tape' {} a -> s {tapeARN = a} :: Tape)
 
-instance Core.FromJSON Tape where
+instance Data.FromJSON Tape where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Tape"
       ( \x ->
           Tape'
-            Prelude.<$> (x Core..:? "TapeBarcode")
-            Prelude.<*> (x Core..:? "Progress")
-            Prelude.<*> (x Core..:? "TapeStatus")
-            Prelude.<*> (x Core..:? "Worm")
-            Prelude.<*> (x Core..:? "TapeUsedInBytes")
-            Prelude.<*> (x Core..:? "VTLDevice")
-            Prelude.<*> (x Core..:? "RetentionStartDate")
-            Prelude.<*> (x Core..:? "PoolEntryDate")
-            Prelude.<*> (x Core..:? "KMSKey")
-            Prelude.<*> (x Core..:? "TapeSizeInBytes")
-            Prelude.<*> (x Core..:? "PoolId")
-            Prelude.<*> (x Core..:? "TapeCreatedDate")
-            Prelude.<*> (x Core..:? "TapeARN")
+            Prelude.<$> (x Data..:? "TapeBarcode")
+            Prelude.<*> (x Data..:? "Progress")
+            Prelude.<*> (x Data..:? "TapeStatus")
+            Prelude.<*> (x Data..:? "Worm")
+            Prelude.<*> (x Data..:? "TapeUsedInBytes")
+            Prelude.<*> (x Data..:? "VTLDevice")
+            Prelude.<*> (x Data..:? "RetentionStartDate")
+            Prelude.<*> (x Data..:? "PoolEntryDate")
+            Prelude.<*> (x Data..:? "KMSKey")
+            Prelude.<*> (x Data..:? "TapeSizeInBytes")
+            Prelude.<*> (x Data..:? "PoolId")
+            Prelude.<*> (x Data..:? "TapeCreatedDate")
+            Prelude.<*> (x Data..:? "TapeARN")
       )
 
 instance Prelude.Hashable Tape where

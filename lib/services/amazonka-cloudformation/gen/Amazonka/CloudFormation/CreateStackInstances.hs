@@ -53,6 +53,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -350,7 +351,7 @@ instance Core.AWSRequest CreateStackInstances where
       "CreateStackInstancesResult"
       ( \s h x ->
           CreateStackInstancesResponse'
-            Prelude.<$> (x Core..@? "OperationId")
+            Prelude.<$> (x Data..@? "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -376,33 +377,33 @@ instance Prelude.NFData CreateStackInstances where
       `Prelude.seq` Prelude.rnf stackSetName
       `Prelude.seq` Prelude.rnf regions
 
-instance Core.ToHeaders CreateStackInstances where
+instance Data.ToHeaders CreateStackInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateStackInstances where
+instance Data.ToPath CreateStackInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateStackInstances where
+instance Data.ToQuery CreateStackInstances where
   toQuery CreateStackInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateStackInstances" :: Prelude.ByteString),
+          Data.=: ("CreateStackInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "OperationPreferences" Core.=: operationPreferences,
-        "CallAs" Core.=: callAs,
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "OperationPreferences" Data.=: operationPreferences,
+        "CallAs" Data.=: callAs,
         "ParameterOverrides"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> parameterOverrides
             ),
-        "OperationId" Core.=: operationId,
+        "OperationId" Data.=: operationId,
         "Accounts"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> accounts),
-        "DeploymentTargets" Core.=: deploymentTargets,
-        "StackSetName" Core.=: stackSetName,
-        "Regions" Core.=: Core.toQueryList "member" regions
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> accounts),
+        "DeploymentTargets" Data.=: deploymentTargets,
+        "StackSetName" Data.=: stackSetName,
+        "Regions" Data.=: Data.toQueryList "member" regions
       ]
 
 -- | /See:/ 'newCreateStackInstancesResponse' smart constructor.

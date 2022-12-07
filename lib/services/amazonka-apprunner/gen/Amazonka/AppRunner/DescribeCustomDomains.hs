@@ -49,6 +49,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,12 +141,12 @@ instance Core.AWSRequest DescribeCustomDomains where
     Response.receiveJSON
       ( \s h x ->
           DescribeCustomDomainsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DNSTarget")
-            Prelude.<*> (x Core..:> "ServiceArn")
-            Prelude.<*> (x Core..?> "CustomDomains" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "VpcDNSTargets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "DNSTarget")
+            Prelude.<*> (x Data..:> "ServiceArn")
+            Prelude.<*> (x Data..?> "CustomDomains" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "VpcDNSTargets" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable DescribeCustomDomains where
@@ -160,35 +161,35 @@ instance Prelude.NFData DescribeCustomDomains where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf serviceArn
 
-instance Core.ToHeaders DescribeCustomDomains where
+instance Data.ToHeaders DescribeCustomDomains where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.DescribeCustomDomains" ::
+              Data.=# ( "AppRunner.DescribeCustomDomains" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCustomDomains where
+instance Data.ToJSON DescribeCustomDomains where
   toJSON DescribeCustomDomains' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ServiceArn" Core..= serviceArn)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ServiceArn" Data..= serviceArn)
           ]
       )
 
-instance Core.ToPath DescribeCustomDomains where
+instance Data.ToPath DescribeCustomDomains where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCustomDomains where
+instance Data.ToQuery DescribeCustomDomains where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCustomDomainsResponse' smart constructor.

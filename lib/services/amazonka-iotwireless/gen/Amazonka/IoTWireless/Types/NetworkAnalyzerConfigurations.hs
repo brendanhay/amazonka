@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.NetworkAnalyzerConfigurations where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Network analyzer configurations.
@@ -61,13 +62,13 @@ networkAnalyzerConfigurations_name = Lens.lens (\NetworkAnalyzerConfigurations' 
 networkAnalyzerConfigurations_arn :: Lens.Lens' NetworkAnalyzerConfigurations (Prelude.Maybe Prelude.Text)
 networkAnalyzerConfigurations_arn = Lens.lens (\NetworkAnalyzerConfigurations' {arn} -> arn) (\s@NetworkAnalyzerConfigurations' {} a -> s {arn = a} :: NetworkAnalyzerConfigurations)
 
-instance Core.FromJSON NetworkAnalyzerConfigurations where
+instance Data.FromJSON NetworkAnalyzerConfigurations where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkAnalyzerConfigurations"
       ( \x ->
           NetworkAnalyzerConfigurations'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Arn")
       )
 
 instance

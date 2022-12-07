@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.RuleGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.ReferenceSets
 import Amazonka.NetworkFirewall.Types.RuleVariables
 import Amazonka.NetworkFirewall.Types.RulesSource
@@ -106,16 +107,16 @@ ruleGroup_ruleVariables = Lens.lens (\RuleGroup' {ruleVariables} -> ruleVariable
 ruleGroup_rulesSource :: Lens.Lens' RuleGroup RulesSource
 ruleGroup_rulesSource = Lens.lens (\RuleGroup' {rulesSource} -> rulesSource) (\s@RuleGroup' {} a -> s {rulesSource = a} :: RuleGroup)
 
-instance Core.FromJSON RuleGroup where
+instance Data.FromJSON RuleGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroup"
       ( \x ->
           RuleGroup'
-            Prelude.<$> (x Core..:? "StatefulRuleOptions")
-            Prelude.<*> (x Core..:? "ReferenceSets")
-            Prelude.<*> (x Core..:? "RuleVariables")
-            Prelude.<*> (x Core..: "RulesSource")
+            Prelude.<$> (x Data..:? "StatefulRuleOptions")
+            Prelude.<*> (x Data..:? "ReferenceSets")
+            Prelude.<*> (x Data..:? "RuleVariables")
+            Prelude.<*> (x Data..: "RulesSource")
       )
 
 instance Prelude.Hashable RuleGroup where
@@ -132,14 +133,14 @@ instance Prelude.NFData RuleGroup where
       `Prelude.seq` Prelude.rnf ruleVariables
       `Prelude.seq` Prelude.rnf rulesSource
 
-instance Core.ToJSON RuleGroup where
+instance Data.ToJSON RuleGroup where
   toJSON RuleGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StatefulRuleOptions" Core..=)
+          [ ("StatefulRuleOptions" Data..=)
               Prelude.<$> statefulRuleOptions,
-            ("ReferenceSets" Core..=) Prelude.<$> referenceSets,
-            ("RuleVariables" Core..=) Prelude.<$> ruleVariables,
-            Prelude.Just ("RulesSource" Core..= rulesSource)
+            ("ReferenceSets" Data..=) Prelude.<$> referenceSets,
+            ("RuleVariables" Data..=) Prelude.<$> ruleVariables,
+            Prelude.Just ("RulesSource" Data..= rulesSource)
           ]
       )

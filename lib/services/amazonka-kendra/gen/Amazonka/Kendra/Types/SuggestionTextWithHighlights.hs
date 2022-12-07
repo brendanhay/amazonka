@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SuggestionTextWithHighlights where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.SuggestionHighlight
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,14 +68,14 @@ suggestionTextWithHighlights_highlights = Lens.lens (\SuggestionTextWithHighligh
 suggestionTextWithHighlights_text :: Lens.Lens' SuggestionTextWithHighlights (Prelude.Maybe Prelude.Text)
 suggestionTextWithHighlights_text = Lens.lens (\SuggestionTextWithHighlights' {text} -> text) (\s@SuggestionTextWithHighlights' {} a -> s {text = a} :: SuggestionTextWithHighlights)
 
-instance Core.FromJSON SuggestionTextWithHighlights where
+instance Data.FromJSON SuggestionTextWithHighlights where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SuggestionTextWithHighlights"
       ( \x ->
           SuggestionTextWithHighlights'
-            Prelude.<$> (x Core..:? "Highlights" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Text")
+            Prelude.<$> (x Data..:? "Highlights" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Text")
       )
 
 instance

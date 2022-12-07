@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,7 +94,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateCrossAccountAuthorizationResponse'
-            Prelude.<$> (x Core..?> "crossAccountAuthorization")
+            Prelude.<$> (x Data..?> "crossAccountAuthorization")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,34 +116,34 @@ instance
     Prelude.rnf crossAccountAuthorization
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateCrossAccountAuthorization
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCrossAccountAuthorization where
+instance Data.ToJSON CreateCrossAccountAuthorization where
   toJSON CreateCrossAccountAuthorization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "crossAccountAuthorization"
-                  Core..= crossAccountAuthorization
+                  Data..= crossAccountAuthorization
               )
           ]
       )
 
-instance Core.ToPath CreateCrossAccountAuthorization where
+instance Data.ToPath CreateCrossAccountAuthorization where
   toPath = Prelude.const "/crossaccountauthorizations"
 
-instance Core.ToQuery CreateCrossAccountAuthorization where
+instance Data.ToQuery CreateCrossAccountAuthorization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCrossAccountAuthorizationResponse' smart constructor.

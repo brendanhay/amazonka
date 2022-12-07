@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,17 +109,17 @@ instance Core.AWSRequest GetBatchJobExecution where
     Response.receiveJSON
       ( \s h x ->
           GetBatchJobExecutionResponse'
-            Prelude.<$> (x Core..?> "jobName")
-            Prelude.<*> (x Core..?> "statusReason")
-            Prelude.<*> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "endTime")
-            Prelude.<*> (x Core..?> "jobUser")
-            Prelude.<*> (x Core..?> "jobType")
+            Prelude.<$> (x Data..?> "jobName")
+            Prelude.<*> (x Data..?> "statusReason")
+            Prelude.<*> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "endTime")
+            Prelude.<*> (x Data..?> "jobUser")
+            Prelude.<*> (x Data..?> "jobType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "applicationId")
-            Prelude.<*> (x Core..:> "executionId")
-            Prelude.<*> (x Core..:> "startTime")
-            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Data..:> "applicationId")
+            Prelude.<*> (x Data..:> "executionId")
+            Prelude.<*> (x Data..:> "startTime")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance Prelude.Hashable GetBatchJobExecution where
@@ -131,27 +132,27 @@ instance Prelude.NFData GetBatchJobExecution where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf executionId
 
-instance Core.ToHeaders GetBatchJobExecution where
+instance Data.ToHeaders GetBatchJobExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetBatchJobExecution where
+instance Data.ToPath GetBatchJobExecution where
   toPath GetBatchJobExecution' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/batch-job-executions/",
-        Core.toBS executionId
+        Data.toBS executionId
       ]
 
-instance Core.ToQuery GetBatchJobExecution where
+instance Data.ToQuery GetBatchJobExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBatchJobExecutionResponse' smart constructor.
@@ -163,7 +164,7 @@ data GetBatchJobExecutionResponse = GetBatchJobExecutionResponse'
     -- | The unique identifier for this batch job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the batch job execution ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The user for the job.
     jobUser :: Prelude.Maybe Prelude.Text,
     -- | The type of job.
@@ -175,7 +176,7 @@ data GetBatchJobExecutionResponse = GetBatchJobExecutionResponse'
     -- | The unique identifier for this batch job execution.
     executionId :: Prelude.Text,
     -- | The timestamp when the batch job execution started.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The status of the batch job execution.
     status :: BatchJobExecutionStatus
   }
@@ -239,7 +240,7 @@ newGetBatchJobExecutionResponse
         httpStatus = pHttpStatus_,
         applicationId = pApplicationId_,
         executionId = pExecutionId_,
-        startTime = Core._Time Lens.# pStartTime_,
+        startTime = Data._Time Lens.# pStartTime_,
         status = pStatus_
       }
 
@@ -257,7 +258,7 @@ getBatchJobExecutionResponse_jobId = Lens.lens (\GetBatchJobExecutionResponse' {
 
 -- | The timestamp when the batch job execution ended.
 getBatchJobExecutionResponse_endTime :: Lens.Lens' GetBatchJobExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-getBatchJobExecutionResponse_endTime = Lens.lens (\GetBatchJobExecutionResponse' {endTime} -> endTime) (\s@GetBatchJobExecutionResponse' {} a -> s {endTime = a} :: GetBatchJobExecutionResponse) Prelude.. Lens.mapping Core._Time
+getBatchJobExecutionResponse_endTime = Lens.lens (\GetBatchJobExecutionResponse' {endTime} -> endTime) (\s@GetBatchJobExecutionResponse' {} a -> s {endTime = a} :: GetBatchJobExecutionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The user for the job.
 getBatchJobExecutionResponse_jobUser :: Lens.Lens' GetBatchJobExecutionResponse (Prelude.Maybe Prelude.Text)
@@ -281,7 +282,7 @@ getBatchJobExecutionResponse_executionId = Lens.lens (\GetBatchJobExecutionRespo
 
 -- | The timestamp when the batch job execution started.
 getBatchJobExecutionResponse_startTime :: Lens.Lens' GetBatchJobExecutionResponse Prelude.UTCTime
-getBatchJobExecutionResponse_startTime = Lens.lens (\GetBatchJobExecutionResponse' {startTime} -> startTime) (\s@GetBatchJobExecutionResponse' {} a -> s {startTime = a} :: GetBatchJobExecutionResponse) Prelude.. Core._Time
+getBatchJobExecutionResponse_startTime = Lens.lens (\GetBatchJobExecutionResponse' {startTime} -> startTime) (\s@GetBatchJobExecutionResponse' {} a -> s {startTime = a} :: GetBatchJobExecutionResponse) Prelude.. Data._Time
 
 -- | The status of the batch job execution.
 getBatchJobExecutionResponse_status :: Lens.Lens' GetBatchJobExecutionResponse BatchJobExecutionStatus

@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.SourceBuildInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.SourceRepository
 import Amazonka.ElasticBeanstalk.Types.SourceType
 import qualified Amazonka.Prelude as Prelude
@@ -132,12 +133,12 @@ sourceBuildInformation_sourceRepository = Lens.lens (\SourceBuildInformation' {s
 sourceBuildInformation_sourceLocation :: Lens.Lens' SourceBuildInformation Prelude.Text
 sourceBuildInformation_sourceLocation = Lens.lens (\SourceBuildInformation' {sourceLocation} -> sourceLocation) (\s@SourceBuildInformation' {} a -> s {sourceLocation = a} :: SourceBuildInformation)
 
-instance Core.FromXML SourceBuildInformation where
+instance Data.FromXML SourceBuildInformation where
   parseXML x =
     SourceBuildInformation'
-      Prelude.<$> (x Core..@ "SourceType")
-      Prelude.<*> (x Core..@ "SourceRepository")
-      Prelude.<*> (x Core..@ "SourceLocation")
+      Prelude.<$> (x Data..@ "SourceType")
+      Prelude.<*> (x Data..@ "SourceRepository")
+      Prelude.<*> (x Data..@ "SourceLocation")
 
 instance Prelude.Hashable SourceBuildInformation where
   hashWithSalt _salt SourceBuildInformation' {..} =
@@ -151,10 +152,10 @@ instance Prelude.NFData SourceBuildInformation where
       `Prelude.seq` Prelude.rnf sourceRepository
       `Prelude.seq` Prelude.rnf sourceLocation
 
-instance Core.ToQuery SourceBuildInformation where
+instance Data.ToQuery SourceBuildInformation where
   toQuery SourceBuildInformation' {..} =
     Prelude.mconcat
-      [ "SourceType" Core.=: sourceType,
-        "SourceRepository" Core.=: sourceRepository,
-        "SourceLocation" Core.=: sourceLocation
+      [ "SourceType" Data.=: sourceType,
+        "SourceRepository" Data.=: sourceRepository,
+        "SourceLocation" Data.=: sourceLocation
       ]

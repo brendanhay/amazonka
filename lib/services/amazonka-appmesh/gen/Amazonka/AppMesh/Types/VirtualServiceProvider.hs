@@ -23,6 +23,7 @@ import Amazonka.AppMesh.Types.VirtualNodeServiceProvider
 import Amazonka.AppMesh.Types.VirtualRouterServiceProvider
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the provider for a virtual service.
@@ -64,14 +65,14 @@ virtualServiceProvider_virtualRouter = Lens.lens (\VirtualServiceProvider' {virt
 virtualServiceProvider_virtualNode :: Lens.Lens' VirtualServiceProvider (Prelude.Maybe VirtualNodeServiceProvider)
 virtualServiceProvider_virtualNode = Lens.lens (\VirtualServiceProvider' {virtualNode} -> virtualNode) (\s@VirtualServiceProvider' {} a -> s {virtualNode = a} :: VirtualServiceProvider)
 
-instance Core.FromJSON VirtualServiceProvider where
+instance Data.FromJSON VirtualServiceProvider where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualServiceProvider"
       ( \x ->
           VirtualServiceProvider'
-            Prelude.<$> (x Core..:? "virtualRouter")
-            Prelude.<*> (x Core..:? "virtualNode")
+            Prelude.<$> (x Data..:? "virtualRouter")
+            Prelude.<*> (x Data..:? "virtualNode")
       )
 
 instance Prelude.Hashable VirtualServiceProvider where
@@ -84,11 +85,11 @@ instance Prelude.NFData VirtualServiceProvider where
     Prelude.rnf virtualRouter
       `Prelude.seq` Prelude.rnf virtualNode
 
-instance Core.ToJSON VirtualServiceProvider where
+instance Data.ToJSON VirtualServiceProvider where
   toJSON VirtualServiceProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("virtualRouter" Core..=) Prelude.<$> virtualRouter,
-            ("virtualNode" Core..=) Prelude.<$> virtualNode
+          [ ("virtualRouter" Data..=) Prelude.<$> virtualRouter,
+            ("virtualNode" Data..=) Prelude.<$> virtualNode
           ]
       )

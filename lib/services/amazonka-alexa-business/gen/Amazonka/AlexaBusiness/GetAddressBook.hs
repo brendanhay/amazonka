@@ -42,6 +42,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetAddressBook where
     Response.receiveJSON
       ( \s h x ->
           GetAddressBookResponse'
-            Prelude.<$> (x Core..?> "AddressBook")
+            Prelude.<$> (x Data..?> "AddressBook")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,34 +95,34 @@ instance Prelude.Hashable GetAddressBook where
 instance Prelude.NFData GetAddressBook where
   rnf GetAddressBook' {..} = Prelude.rnf addressBookArn
 
-instance Core.ToHeaders GetAddressBook where
+instance Data.ToHeaders GetAddressBook where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.GetAddressBook" ::
+              Data.=# ( "AlexaForBusiness.GetAddressBook" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAddressBook where
+instance Data.ToJSON GetAddressBook where
   toJSON GetAddressBook' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AddressBookArn" Core..= addressBookArn)
+              ("AddressBookArn" Data..= addressBookArn)
           ]
       )
 
-instance Core.ToPath GetAddressBook where
+instance Data.ToPath GetAddressBook where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAddressBook where
+instance Data.ToQuery GetAddressBook where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAddressBookResponse' smart constructor.

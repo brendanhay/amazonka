@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,18 +108,18 @@ instance Prelude.NFData DeleteFleetMetric where
     Prelude.rnf expectedVersion
       `Prelude.seq` Prelude.rnf metricName
 
-instance Core.ToHeaders DeleteFleetMetric where
+instance Data.ToHeaders DeleteFleetMetric where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteFleetMetric where
+instance Data.ToPath DeleteFleetMetric where
   toPath DeleteFleetMetric' {..} =
     Prelude.mconcat
-      ["/fleet-metric/", Core.toBS metricName]
+      ["/fleet-metric/", Data.toBS metricName]
 
-instance Core.ToQuery DeleteFleetMetric where
+instance Data.ToQuery DeleteFleetMetric where
   toQuery DeleteFleetMetric' {..} =
     Prelude.mconcat
-      ["expectedVersion" Core.=: expectedVersion]
+      ["expectedVersion" Data.=: expectedVersion]
 
 -- | /See:/ 'newDeleteFleetMetricResponse' smart constructor.
 data DeleteFleetMetricResponse = DeleteFleetMetricResponse'

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,22 +101,22 @@ instance Core.AWSRequest DescribeEdgePackagingJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeEdgePackagingJobResponse'
-            Prelude.<$> (x Core..?> "ModelSignature")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "ModelArtifact")
-            Prelude.<*> (x Core..?> "CompilationJobName")
-            Prelude.<*> (x Core..?> "ModelVersion")
-            Prelude.<*> (x Core..?> "PresetDeploymentOutput")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "ResourceKey")
-            Prelude.<*> (x Core..?> "ModelName")
-            Prelude.<*> (x Core..?> "EdgePackagingJobStatusMessage")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "OutputConfig")
+            Prelude.<$> (x Data..?> "ModelSignature")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "ModelArtifact")
+            Prelude.<*> (x Data..?> "CompilationJobName")
+            Prelude.<*> (x Data..?> "ModelVersion")
+            Prelude.<*> (x Data..?> "PresetDeploymentOutput")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "ResourceKey")
+            Prelude.<*> (x Data..?> "ModelName")
+            Prelude.<*> (x Data..?> "EdgePackagingJobStatusMessage")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "OutputConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "EdgePackagingJobArn")
-            Prelude.<*> (x Core..:> "EdgePackagingJobName")
-            Prelude.<*> (x Core..:> "EdgePackagingJobStatus")
+            Prelude.<*> (x Data..:> "EdgePackagingJobArn")
+            Prelude.<*> (x Data..:> "EdgePackagingJobName")
+            Prelude.<*> (x Data..:> "EdgePackagingJobStatus")
       )
 
 instance Prelude.Hashable DescribeEdgePackagingJob where
@@ -126,36 +127,36 @@ instance Prelude.NFData DescribeEdgePackagingJob where
   rnf DescribeEdgePackagingJob' {..} =
     Prelude.rnf edgePackagingJobName
 
-instance Core.ToHeaders DescribeEdgePackagingJob where
+instance Data.ToHeaders DescribeEdgePackagingJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeEdgePackagingJob" ::
+              Data.=# ( "SageMaker.DescribeEdgePackagingJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEdgePackagingJob where
+instance Data.ToJSON DescribeEdgePackagingJob where
   toJSON DescribeEdgePackagingJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "EdgePackagingJobName"
-                  Core..= edgePackagingJobName
+                  Data..= edgePackagingJobName
               )
           ]
       )
 
-instance Core.ToPath DescribeEdgePackagingJob where
+instance Data.ToPath DescribeEdgePackagingJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEdgePackagingJob where
+instance Data.ToQuery DescribeEdgePackagingJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEdgePackagingJobResponse' smart constructor.
@@ -175,7 +176,7 @@ data DescribeEdgePackagingJobResponse = DescribeEdgePackagingJobResponse'
     -- | The output of a SageMaker Edge Manager deployable resource.
     presetDeploymentOutput :: Prelude.Maybe EdgePresetDeploymentOutput,
     -- | The timestamp of when the job was last updated.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services KMS key to use when encrypting the EBS volume
     -- the job run on.
     resourceKey :: Prelude.Maybe Prelude.Text,
@@ -184,7 +185,7 @@ data DescribeEdgePackagingJobResponse = DescribeEdgePackagingJobResponse'
     -- | Returns a message describing the job status and error messages.
     edgePackagingJobStatusMessage :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the packaging job was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The output configuration for the edge packaging job.
     outputConfig :: Prelude.Maybe EdgeOutputConfig,
     -- | The response's http status code.
@@ -307,7 +308,7 @@ describeEdgePackagingJobResponse_presetDeploymentOutput = Lens.lens (\DescribeEd
 
 -- | The timestamp of when the job was last updated.
 describeEdgePackagingJobResponse_lastModifiedTime :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeEdgePackagingJobResponse_lastModifiedTime = Lens.lens (\DescribeEdgePackagingJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEdgePackagingJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeEdgePackagingJobResponse) Prelude.. Lens.mapping Core._Time
+describeEdgePackagingJobResponse_lastModifiedTime = Lens.lens (\DescribeEdgePackagingJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEdgePackagingJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeEdgePackagingJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services KMS key to use when encrypting the EBS volume
 -- the job run on.
@@ -324,7 +325,7 @@ describeEdgePackagingJobResponse_edgePackagingJobStatusMessage = Lens.lens (\Des
 
 -- | The timestamp of when the packaging job was created.
 describeEdgePackagingJobResponse_creationTime :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeEdgePackagingJobResponse_creationTime = Lens.lens (\DescribeEdgePackagingJobResponse' {creationTime} -> creationTime) (\s@DescribeEdgePackagingJobResponse' {} a -> s {creationTime = a} :: DescribeEdgePackagingJobResponse) Prelude.. Lens.mapping Core._Time
+describeEdgePackagingJobResponse_creationTime = Lens.lens (\DescribeEdgePackagingJobResponse' {creationTime} -> creationTime) (\s@DescribeEdgePackagingJobResponse' {} a -> s {creationTime = a} :: DescribeEdgePackagingJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The output configuration for the edge packaging job.
 describeEdgePackagingJobResponse_outputConfig :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe EdgeOutputConfig)

@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.UserGroupPendingChanges where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns the updates being applied to the user group.
@@ -62,14 +63,14 @@ userGroupPendingChanges_userIdsToRemove = Lens.lens (\UserGroupPendingChanges' {
 userGroupPendingChanges_userIdsToAdd :: Lens.Lens' UserGroupPendingChanges (Prelude.Maybe [Prelude.Text])
 userGroupPendingChanges_userIdsToAdd = Lens.lens (\UserGroupPendingChanges' {userIdsToAdd} -> userIdsToAdd) (\s@UserGroupPendingChanges' {} a -> s {userIdsToAdd = a} :: UserGroupPendingChanges) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML UserGroupPendingChanges where
+instance Data.FromXML UserGroupPendingChanges where
   parseXML x =
     UserGroupPendingChanges'
-      Prelude.<$> ( x Core..@? "UserIdsToRemove" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "UserIdsToRemove" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "UserIdsToAdd" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> ( x Data..@? "UserIdsToAdd" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable UserGroupPendingChanges where

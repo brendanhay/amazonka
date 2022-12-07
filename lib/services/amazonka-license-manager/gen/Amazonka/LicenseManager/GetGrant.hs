@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,7 +94,7 @@ instance Core.AWSRequest GetGrant where
     Response.receiveJSON
       ( \s h x ->
           GetGrantResponse'
-            Prelude.<$> (x Core..?> "Grant")
+            Prelude.<$> (x Data..?> "Grant")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,32 +108,32 @@ instance Prelude.NFData GetGrant where
     Prelude.rnf version
       `Prelude.seq` Prelude.rnf grantArn
 
-instance Core.ToHeaders GetGrant where
+instance Data.ToHeaders GetGrant where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSLicenseManager.GetGrant" :: Prelude.ByteString),
+              Data.=# ("AWSLicenseManager.GetGrant" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetGrant where
+instance Data.ToJSON GetGrant where
   toJSON GetGrant' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Version" Core..=) Prelude.<$> version,
-            Prelude.Just ("GrantArn" Core..= grantArn)
+          [ ("Version" Data..=) Prelude.<$> version,
+            Prelude.Just ("GrantArn" Data..= grantArn)
           ]
       )
 
-instance Core.ToPath GetGrant where
+instance Data.ToPath GetGrant where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetGrant where
+instance Data.ToQuery GetGrant where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGrantResponse' smart constructor.

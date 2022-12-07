@@ -21,6 +21,7 @@ module Amazonka.Rum.Types.UserDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains information about the user session that this
@@ -78,11 +79,11 @@ instance Prelude.NFData UserDetails where
     Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToJSON UserDetails where
+instance Data.ToJSON UserDetails where
   toJSON UserDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sessionId" Core..=) Prelude.<$> sessionId,
-            ("userId" Core..=) Prelude.<$> userId
+          [ ("sessionId" Data..=) Prelude.<$> sessionId,
+            ("userId" Data..=) Prelude.<$> userId
           ]
       )

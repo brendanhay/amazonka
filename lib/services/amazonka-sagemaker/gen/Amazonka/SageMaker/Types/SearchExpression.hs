@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.SearchExpression where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.BooleanOperator
 import Amazonka.SageMaker.Types.Filter
@@ -128,14 +129,14 @@ instance Prelude.NFData SearchExpression where
       `Prelude.seq` Prelude.rnf operator
       `Prelude.seq` Prelude.rnf nestedFilters
 
-instance Core.ToJSON SearchExpression where
+instance Data.ToJSON SearchExpression where
   toJSON SearchExpression' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("SubExpressions" Core..=)
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("SubExpressions" Data..=)
               Prelude.<$> subExpressions,
-            ("Operator" Core..=) Prelude.<$> operator,
-            ("NestedFilters" Core..=) Prelude.<$> nestedFilters
+            ("Operator" Data..=) Prelude.<$> operator,
+            ("NestedFilters" Data..=) Prelude.<$> nestedFilters
           ]
       )

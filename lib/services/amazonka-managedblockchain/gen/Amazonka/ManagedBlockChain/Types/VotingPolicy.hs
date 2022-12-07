@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.VotingPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.ApprovalThresholdPolicy
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,13 +66,13 @@ newVotingPolicy =
 votingPolicy_approvalThresholdPolicy :: Lens.Lens' VotingPolicy (Prelude.Maybe ApprovalThresholdPolicy)
 votingPolicy_approvalThresholdPolicy = Lens.lens (\VotingPolicy' {approvalThresholdPolicy} -> approvalThresholdPolicy) (\s@VotingPolicy' {} a -> s {approvalThresholdPolicy = a} :: VotingPolicy)
 
-instance Core.FromJSON VotingPolicy where
+instance Data.FromJSON VotingPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VotingPolicy"
       ( \x ->
           VotingPolicy'
-            Prelude.<$> (x Core..:? "ApprovalThresholdPolicy")
+            Prelude.<$> (x Data..:? "ApprovalThresholdPolicy")
       )
 
 instance Prelude.Hashable VotingPolicy where
@@ -83,11 +84,11 @@ instance Prelude.NFData VotingPolicy where
   rnf VotingPolicy' {..} =
     Prelude.rnf approvalThresholdPolicy
 
-instance Core.ToJSON VotingPolicy where
+instance Data.ToJSON VotingPolicy where
   toJSON VotingPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ApprovalThresholdPolicy" Core..=)
+          [ ("ApprovalThresholdPolicy" Data..=)
               Prelude.<$> approvalThresholdPolicy
           ]
       )

@@ -44,6 +44,7 @@ where
 import Amazonka.Budgets.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -146,38 +147,38 @@ instance Prelude.NFData UpdateNotification where
       `Prelude.seq` Prelude.rnf oldNotification
       `Prelude.seq` Prelude.rnf newNotification'
 
-instance Core.ToHeaders UpdateNotification where
+instance Data.ToHeaders UpdateNotification where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSBudgetServiceGateway.UpdateNotification" ::
+              Data.=# ( "AWSBudgetServiceGateway.UpdateNotification" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNotification where
+instance Data.ToJSON UpdateNotification where
   toJSON UpdateNotification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Core..= accountId),
-            Prelude.Just ("BudgetName" Core..= budgetName),
+          [ Prelude.Just ("AccountId" Data..= accountId),
+            Prelude.Just ("BudgetName" Data..= budgetName),
             Prelude.Just
-              ("OldNotification" Core..= oldNotification),
+              ("OldNotification" Data..= oldNotification),
             Prelude.Just
-              ("NewNotification" Core..= newNotification')
+              ("NewNotification" Data..= newNotification')
           ]
       )
 
-instance Core.ToPath UpdateNotification where
+instance Data.ToPath UpdateNotification where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateNotification where
+instance Data.ToQuery UpdateNotification where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Response of UpdateNotification

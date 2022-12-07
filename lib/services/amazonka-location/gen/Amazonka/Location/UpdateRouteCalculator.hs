@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,9 +113,9 @@ instance Core.AWSRequest UpdateRouteCalculator where
       ( \s h x ->
           UpdateRouteCalculatorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CalculatorArn")
-            Prelude.<*> (x Core..:> "CalculatorName")
-            Prelude.<*> (x Core..:> "UpdateTime")
+            Prelude.<*> (x Data..:> "CalculatorArn")
+            Prelude.<*> (x Data..:> "CalculatorName")
+            Prelude.<*> (x Data..:> "UpdateTime")
       )
 
 instance Prelude.Hashable UpdateRouteCalculator where
@@ -129,32 +130,32 @@ instance Prelude.NFData UpdateRouteCalculator where
       `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf calculatorName
 
-instance Core.ToHeaders UpdateRouteCalculator where
+instance Data.ToHeaders UpdateRouteCalculator where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRouteCalculator where
+instance Data.ToJSON UpdateRouteCalculator where
   toJSON UpdateRouteCalculator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("PricingPlan" Core..=) Prelude.<$> pricingPlan
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("PricingPlan" Data..=) Prelude.<$> pricingPlan
           ]
       )
 
-instance Core.ToPath UpdateRouteCalculator where
+instance Data.ToPath UpdateRouteCalculator where
   toPath UpdateRouteCalculator' {..} =
     Prelude.mconcat
-      ["/routes/v0/calculators/", Core.toBS calculatorName]
+      ["/routes/v0/calculators/", Data.toBS calculatorName]
 
-instance Core.ToQuery UpdateRouteCalculator where
+instance Data.ToQuery UpdateRouteCalculator where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRouteCalculatorResponse' smart constructor.
@@ -172,7 +173,7 @@ data UpdateRouteCalculatorResponse = UpdateRouteCalculatorResponse'
     -- | The timestamp for when the route calculator was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -217,7 +218,7 @@ newUpdateRouteCalculatorResponse
           pHttpStatus_,
         calculatorArn = pCalculatorArn_,
         calculatorName = pCalculatorName_,
-        updateTime = Core._Time Lens.# pUpdateTime_
+        updateTime = Data._Time Lens.# pUpdateTime_
       }
 
 -- | The response's http status code.
@@ -240,7 +241,7 @@ updateRouteCalculatorResponse_calculatorName = Lens.lens (\UpdateRouteCalculator
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 updateRouteCalculatorResponse_updateTime :: Lens.Lens' UpdateRouteCalculatorResponse Prelude.UTCTime
-updateRouteCalculatorResponse_updateTime = Lens.lens (\UpdateRouteCalculatorResponse' {updateTime} -> updateTime) (\s@UpdateRouteCalculatorResponse' {} a -> s {updateTime = a} :: UpdateRouteCalculatorResponse) Prelude.. Core._Time
+updateRouteCalculatorResponse_updateTime = Lens.lens (\UpdateRouteCalculatorResponse' {updateTime} -> updateTime) (\s@UpdateRouteCalculatorResponse' {} a -> s {updateTime = a} :: UpdateRouteCalculatorResponse) Prelude.. Data._Time
 
 instance Prelude.NFData UpdateRouteCalculatorResponse where
   rnf UpdateRouteCalculatorResponse' {..} =

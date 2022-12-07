@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.DeleteDetectorRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information used to delete the detector model.
@@ -100,13 +101,13 @@ instance Prelude.NFData DeleteDetectorRequest where
       `Prelude.seq` Prelude.rnf messageId
       `Prelude.seq` Prelude.rnf detectorModelName
 
-instance Core.ToJSON DeleteDetectorRequest where
+instance Data.ToJSON DeleteDetectorRequest where
   toJSON DeleteDetectorRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("keyValue" Core..=) Prelude.<$> keyValue,
-            Prelude.Just ("messageId" Core..= messageId),
+          [ ("keyValue" Data..=) Prelude.<$> keyValue,
+            Prelude.Just ("messageId" Data..= messageId),
             Prelude.Just
-              ("detectorModelName" Core..= detectorModelName)
+              ("detectorModelName" Data..= detectorModelName)
           ]
       )

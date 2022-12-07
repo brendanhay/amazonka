@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -712,61 +713,61 @@ instance Prelude.NFData UpdateStack where
       `Prelude.seq` Prelude.rnf agentVersion
       `Prelude.seq` Prelude.rnf stackId
 
-instance Core.ToHeaders UpdateStack where
+instance Data.ToHeaders UpdateStack where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.UpdateStack" ::
+              Data.=# ( "OpsWorks_20130218.UpdateStack" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateStack where
+instance Data.ToJSON UpdateStack where
   toJSON UpdateStack' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HostnameTheme" Core..=) Prelude.<$> hostnameTheme,
-            ("Name" Core..=) Prelude.<$> name,
-            ("DefaultSshKeyName" Core..=)
+          [ ("HostnameTheme" Data..=) Prelude.<$> hostnameTheme,
+            ("Name" Data..=) Prelude.<$> name,
+            ("DefaultSshKeyName" Data..=)
               Prelude.<$> defaultSshKeyName,
-            ("CustomJson" Core..=) Prelude.<$> customJson,
-            ("DefaultAvailabilityZone" Core..=)
+            ("CustomJson" Data..=) Prelude.<$> customJson,
+            ("DefaultAvailabilityZone" Data..=)
               Prelude.<$> defaultAvailabilityZone,
-            ("ServiceRoleArn" Core..=)
+            ("ServiceRoleArn" Data..=)
               Prelude.<$> serviceRoleArn,
-            ("DefaultRootDeviceType" Core..=)
+            ("DefaultRootDeviceType" Data..=)
               Prelude.<$> defaultRootDeviceType,
-            ("DefaultInstanceProfileArn" Core..=)
+            ("DefaultInstanceProfileArn" Data..=)
               Prelude.<$> defaultInstanceProfileArn,
-            ("ConfigurationManager" Core..=)
+            ("ConfigurationManager" Data..=)
               Prelude.<$> configurationManager,
-            ("DefaultSubnetId" Core..=)
+            ("DefaultSubnetId" Data..=)
               Prelude.<$> defaultSubnetId,
-            ("UseCustomCookbooks" Core..=)
+            ("UseCustomCookbooks" Data..=)
               Prelude.<$> useCustomCookbooks,
-            ("DefaultOs" Core..=) Prelude.<$> defaultOs,
-            ("UseOpsworksSecurityGroups" Core..=)
+            ("DefaultOs" Data..=) Prelude.<$> defaultOs,
+            ("UseOpsworksSecurityGroups" Data..=)
               Prelude.<$> useOpsworksSecurityGroups,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("ChefConfiguration" Core..=)
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("ChefConfiguration" Data..=)
               Prelude.<$> chefConfiguration,
-            ("CustomCookbooksSource" Core..=)
+            ("CustomCookbooksSource" Data..=)
               Prelude.<$> customCookbooksSource,
-            ("AgentVersion" Core..=) Prelude.<$> agentVersion,
-            Prelude.Just ("StackId" Core..= stackId)
+            ("AgentVersion" Data..=) Prelude.<$> agentVersion,
+            Prelude.Just ("StackId" Data..= stackId)
           ]
       )
 
-instance Core.ToPath UpdateStack where
+instance Data.ToPath UpdateStack where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateStack where
+instance Data.ToQuery UpdateStack where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateStackResponse' smart constructor.

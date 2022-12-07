@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -186,7 +187,7 @@ instance Core.AWSRequest CreateExperimentTemplate where
     Response.receiveJSON
       ( \s h x ->
           CreateExperimentTemplateResponse'
-            Prelude.<$> (x Core..?> "experimentTemplate")
+            Prelude.<$> (x Data..?> "experimentTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -212,38 +213,38 @@ instance Prelude.NFData CreateExperimentTemplate where
       `Prelude.seq` Prelude.rnf actions
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateExperimentTemplate where
+instance Data.ToHeaders CreateExperimentTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateExperimentTemplate where
+instance Data.ToJSON CreateExperimentTemplate where
   toJSON CreateExperimentTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("logConfiguration" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("logConfiguration" Data..=)
               Prelude.<$> logConfiguration,
-            ("targets" Core..=) Prelude.<$> targets,
-            Prelude.Just ("clientToken" Core..= clientToken),
-            Prelude.Just ("description" Core..= description),
+            ("targets" Data..=) Prelude.<$> targets,
+            Prelude.Just ("clientToken" Data..= clientToken),
+            Prelude.Just ("description" Data..= description),
             Prelude.Just
-              ("stopConditions" Core..= stopConditions),
-            Prelude.Just ("actions" Core..= actions),
-            Prelude.Just ("roleArn" Core..= roleArn)
+              ("stopConditions" Data..= stopConditions),
+            Prelude.Just ("actions" Data..= actions),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateExperimentTemplate where
+instance Data.ToPath CreateExperimentTemplate where
   toPath = Prelude.const "/experimentTemplates"
 
-instance Core.ToQuery CreateExperimentTemplate where
+instance Data.ToQuery CreateExperimentTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateExperimentTemplateResponse' smart constructor.

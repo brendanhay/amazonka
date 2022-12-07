@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ instance Core.AWSRequest DeleteDataSource where
     Response.receiveJSON
       ( \s h x ->
           DeleteDataSourceResponse'
-            Prelude.<$> (x Core..?> "DataSourceId")
+            Prelude.<$> (x Data..?> "DataSourceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,32 +102,32 @@ instance Prelude.Hashable DeleteDataSource where
 instance Prelude.NFData DeleteDataSource where
   rnf DeleteDataSource' {..} = Prelude.rnf dataSourceId
 
-instance Core.ToHeaders DeleteDataSource where
+instance Data.ToHeaders DeleteDataSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.DeleteDataSource" ::
+              Data.=# ( "AmazonML_20141212.DeleteDataSource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDataSource where
+instance Data.ToJSON DeleteDataSource where
   toJSON DeleteDataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DataSourceId" Core..= dataSourceId)]
+          [Prelude.Just ("DataSourceId" Data..= dataSourceId)]
       )
 
-instance Core.ToPath DeleteDataSource where
+instance Data.ToPath DeleteDataSource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDataSource where
+instance Data.ToQuery DeleteDataSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @DeleteDataSource@ operation.

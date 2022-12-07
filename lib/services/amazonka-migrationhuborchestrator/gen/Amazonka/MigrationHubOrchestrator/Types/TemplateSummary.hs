@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.TemplateSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of the template.
@@ -79,16 +80,16 @@ templateSummary_description = Lens.lens (\TemplateSummary' {description} -> desc
 templateSummary_id :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.Text)
 templateSummary_id = Lens.lens (\TemplateSummary' {id} -> id) (\s@TemplateSummary' {} a -> s {id = a} :: TemplateSummary)
 
-instance Core.FromJSON TemplateSummary where
+instance Data.FromJSON TemplateSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateSummary"
       ( \x ->
           TemplateSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable TemplateSummary where

@@ -21,6 +21,7 @@ module Amazonka.APIGateway.Types.TlsConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the TLS configuration for an integration.
@@ -92,13 +93,13 @@ newTlsConfig =
 tlsConfig_insecureSkipVerification :: Lens.Lens' TlsConfig (Prelude.Maybe Prelude.Bool)
 tlsConfig_insecureSkipVerification = Lens.lens (\TlsConfig' {insecureSkipVerification} -> insecureSkipVerification) (\s@TlsConfig' {} a -> s {insecureSkipVerification = a} :: TlsConfig)
 
-instance Core.FromJSON TlsConfig where
+instance Data.FromJSON TlsConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TlsConfig"
       ( \x ->
           TlsConfig'
-            Prelude.<$> (x Core..:? "insecureSkipVerification")
+            Prelude.<$> (x Data..:? "insecureSkipVerification")
       )
 
 instance Prelude.Hashable TlsConfig where
@@ -110,11 +111,11 @@ instance Prelude.NFData TlsConfig where
   rnf TlsConfig' {..} =
     Prelude.rnf insecureSkipVerification
 
-instance Core.ToJSON TlsConfig where
+instance Data.ToJSON TlsConfig where
   toJSON TlsConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("insecureSkipVerification" Core..=)
+          [ ("insecureSkipVerification" Data..=)
               Prelude.<$> insecureSkipVerification
           ]
       )

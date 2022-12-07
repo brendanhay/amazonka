@@ -23,6 +23,7 @@ import Amazonka.Comprehend.Types.AugmentedManifestsDocumentTypeFormat
 import Amazonka.Comprehend.Types.Split
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An augmented manifest file that provides training data for your custom
@@ -197,19 +198,19 @@ augmentedManifestsListItem_s3Uri = Lens.lens (\AugmentedManifestsListItem' {s3Ur
 augmentedManifestsListItem_attributeNames :: Lens.Lens' AugmentedManifestsListItem [Prelude.Text]
 augmentedManifestsListItem_attributeNames = Lens.lens (\AugmentedManifestsListItem' {attributeNames} -> attributeNames) (\s@AugmentedManifestsListItem' {} a -> s {attributeNames = a} :: AugmentedManifestsListItem) Prelude.. Lens.coerced
 
-instance Core.FromJSON AugmentedManifestsListItem where
+instance Data.FromJSON AugmentedManifestsListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AugmentedManifestsListItem"
       ( \x ->
           AugmentedManifestsListItem'
-            Prelude.<$> (x Core..:? "DocumentType")
-            Prelude.<*> (x Core..:? "AnnotationDataS3Uri")
-            Prelude.<*> (x Core..:? "SourceDocumentsS3Uri")
-            Prelude.<*> (x Core..:? "Split")
-            Prelude.<*> (x Core..: "S3Uri")
-            Prelude.<*> ( x Core..:? "AttributeNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DocumentType")
+            Prelude.<*> (x Data..:? "AnnotationDataS3Uri")
+            Prelude.<*> (x Data..:? "SourceDocumentsS3Uri")
+            Prelude.<*> (x Data..:? "Split")
+            Prelude.<*> (x Data..: "S3Uri")
+            Prelude.<*> ( x Data..:? "AttributeNames"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -231,18 +232,18 @@ instance Prelude.NFData AugmentedManifestsListItem where
       `Prelude.seq` Prelude.rnf s3Uri
       `Prelude.seq` Prelude.rnf attributeNames
 
-instance Core.ToJSON AugmentedManifestsListItem where
+instance Data.ToJSON AugmentedManifestsListItem where
   toJSON AugmentedManifestsListItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DocumentType" Core..=) Prelude.<$> documentType,
-            ("AnnotationDataS3Uri" Core..=)
+          [ ("DocumentType" Data..=) Prelude.<$> documentType,
+            ("AnnotationDataS3Uri" Data..=)
               Prelude.<$> annotationDataS3Uri,
-            ("SourceDocumentsS3Uri" Core..=)
+            ("SourceDocumentsS3Uri" Data..=)
               Prelude.<$> sourceDocumentsS3Uri,
-            ("Split" Core..=) Prelude.<$> split,
-            Prelude.Just ("S3Uri" Core..= s3Uri),
+            ("Split" Data..=) Prelude.<$> split,
+            Prelude.Just ("S3Uri" Data..= s3Uri),
             Prelude.Just
-              ("AttributeNames" Core..= attributeNames)
+              ("AttributeNames" Data..= attributeNames)
           ]
       )

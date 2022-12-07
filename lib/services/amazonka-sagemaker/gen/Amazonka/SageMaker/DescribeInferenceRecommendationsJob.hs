@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,23 +107,23 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeInferenceRecommendationsJobResponse'
-            Prelude.<$> ( x Core..?> "EndpointPerformances"
+            Prelude.<$> ( x Data..?> "EndpointPerformances"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Core..?> "InferenceRecommendations")
-              Prelude.<*> (x Core..?> "StoppingConditions")
-              Prelude.<*> (x Core..?> "CompletionTime")
-              Prelude.<*> (x Core..?> "FailureReason")
-              Prelude.<*> (x Core..?> "JobDescription")
+              Prelude.<*> (x Data..?> "InferenceRecommendations")
+              Prelude.<*> (x Data..?> "StoppingConditions")
+              Prelude.<*> (x Data..?> "CompletionTime")
+              Prelude.<*> (x Data..?> "FailureReason")
+              Prelude.<*> (x Data..?> "JobDescription")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "JobName")
-              Prelude.<*> (x Core..:> "JobType")
-              Prelude.<*> (x Core..:> "JobArn")
-              Prelude.<*> (x Core..:> "RoleArn")
-              Prelude.<*> (x Core..:> "Status")
-              Prelude.<*> (x Core..:> "CreationTime")
-              Prelude.<*> (x Core..:> "LastModifiedTime")
-              Prelude.<*> (x Core..:> "InputConfig")
+              Prelude.<*> (x Data..:> "JobName")
+              Prelude.<*> (x Data..:> "JobType")
+              Prelude.<*> (x Data..:> "JobArn")
+              Prelude.<*> (x Data..:> "RoleArn")
+              Prelude.<*> (x Data..:> "Status")
+              Prelude.<*> (x Data..:> "CreationTime")
+              Prelude.<*> (x Data..:> "LastModifiedTime")
+              Prelude.<*> (x Data..:> "InputConfig")
       )
 
 instance
@@ -142,41 +143,41 @@ instance
     Prelude.rnf jobName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeInferenceRecommendationsJob
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeInferenceRecommendationsJob" ::
+              Data.=# ( "SageMaker.DescribeInferenceRecommendationsJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeInferenceRecommendationsJob
   where
   toJSON DescribeInferenceRecommendationsJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobName" Core..= jobName)]
+          [Prelude.Just ("JobName" Data..= jobName)]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeInferenceRecommendationsJob
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeInferenceRecommendationsJob
   where
   toQuery = Prelude.const Prelude.mempty
@@ -191,7 +192,7 @@ data DescribeInferenceRecommendationsJobResponse = DescribeInferenceRecommendati
     -- | The stopping conditions that you provided when you initiated the job.
     stoppingConditions :: Prelude.Maybe RecommendationJobStoppingConditions,
     -- | A timestamp that shows when the job completed.
-    completionTime :: Prelude.Maybe Core.POSIX,
+    completionTime :: Prelude.Maybe Data.POSIX,
     -- | If the job fails, provides information why the job failed.
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | The job description that you provided when you initiated the job.
@@ -211,9 +212,9 @@ data DescribeInferenceRecommendationsJobResponse = DescribeInferenceRecommendati
     -- | The status of the job.
     status :: RecommendationJobStatus,
     -- | A timestamp that shows when the job was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | A timestamp that shows when the job was last modified.
-    lastModifiedTime :: Core.POSIX,
+    lastModifiedTime :: Data.POSIX,
     -- | Returns information about the versioned model package Amazon Resource
     -- Name (ARN), the traffic pattern, and endpoint configurations you
     -- provided when you initiated the job.
@@ -313,10 +314,10 @@ newDescribeInferenceRecommendationsJobResponse
         roleArn = pRoleArn_,
         status = pStatus_,
         creationTime =
-          Core._Time
+          Data._Time
             Lens.# pCreationTime_,
         lastModifiedTime =
-          Core._Time
+          Data._Time
             Lens.# pLastModifiedTime_,
         inputConfig = pInputConfig_
       }
@@ -336,7 +337,7 @@ describeInferenceRecommendationsJobResponse_stoppingConditions = Lens.lens (\Des
 
 -- | A timestamp that shows when the job completed.
 describeInferenceRecommendationsJobResponse_completionTime :: Lens.Lens' DescribeInferenceRecommendationsJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeInferenceRecommendationsJobResponse_completionTime = Lens.lens (\DescribeInferenceRecommendationsJobResponse' {completionTime} -> completionTime) (\s@DescribeInferenceRecommendationsJobResponse' {} a -> s {completionTime = a} :: DescribeInferenceRecommendationsJobResponse) Prelude.. Lens.mapping Core._Time
+describeInferenceRecommendationsJobResponse_completionTime = Lens.lens (\DescribeInferenceRecommendationsJobResponse' {completionTime} -> completionTime) (\s@DescribeInferenceRecommendationsJobResponse' {} a -> s {completionTime = a} :: DescribeInferenceRecommendationsJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | If the job fails, provides information why the job failed.
 describeInferenceRecommendationsJobResponse_failureReason :: Lens.Lens' DescribeInferenceRecommendationsJobResponse (Prelude.Maybe Prelude.Text)
@@ -374,11 +375,11 @@ describeInferenceRecommendationsJobResponse_status = Lens.lens (\DescribeInferen
 
 -- | A timestamp that shows when the job was created.
 describeInferenceRecommendationsJobResponse_creationTime :: Lens.Lens' DescribeInferenceRecommendationsJobResponse Prelude.UTCTime
-describeInferenceRecommendationsJobResponse_creationTime = Lens.lens (\DescribeInferenceRecommendationsJobResponse' {creationTime} -> creationTime) (\s@DescribeInferenceRecommendationsJobResponse' {} a -> s {creationTime = a} :: DescribeInferenceRecommendationsJobResponse) Prelude.. Core._Time
+describeInferenceRecommendationsJobResponse_creationTime = Lens.lens (\DescribeInferenceRecommendationsJobResponse' {creationTime} -> creationTime) (\s@DescribeInferenceRecommendationsJobResponse' {} a -> s {creationTime = a} :: DescribeInferenceRecommendationsJobResponse) Prelude.. Data._Time
 
 -- | A timestamp that shows when the job was last modified.
 describeInferenceRecommendationsJobResponse_lastModifiedTime :: Lens.Lens' DescribeInferenceRecommendationsJobResponse Prelude.UTCTime
-describeInferenceRecommendationsJobResponse_lastModifiedTime = Lens.lens (\DescribeInferenceRecommendationsJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeInferenceRecommendationsJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeInferenceRecommendationsJobResponse) Prelude.. Core._Time
+describeInferenceRecommendationsJobResponse_lastModifiedTime = Lens.lens (\DescribeInferenceRecommendationsJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeInferenceRecommendationsJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeInferenceRecommendationsJobResponse) Prelude.. Data._Time
 
 -- | Returns information about the versioned model package Amazon Resource
 -- Name (ARN), the traffic pattern, and endpoint configurations you

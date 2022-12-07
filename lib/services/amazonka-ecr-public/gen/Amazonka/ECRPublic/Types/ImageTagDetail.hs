@@ -21,6 +21,7 @@ module Amazonka.ECRPublic.Types.ImageTagDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types.ReferencedImageDetail
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data ImageTagDetail = ImageTagDetail'
     -- | An object that describes the details of an image.
     imageDetail :: Prelude.Maybe ReferencedImageDetail,
     -- | The time stamp indicating when the image tag was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,17 +70,17 @@ imageTagDetail_imageDetail = Lens.lens (\ImageTagDetail' {imageDetail} -> imageD
 
 -- | The time stamp indicating when the image tag was created.
 imageTagDetail_createdAt :: Lens.Lens' ImageTagDetail (Prelude.Maybe Prelude.UTCTime)
-imageTagDetail_createdAt = Lens.lens (\ImageTagDetail' {createdAt} -> createdAt) (\s@ImageTagDetail' {} a -> s {createdAt = a} :: ImageTagDetail) Prelude.. Lens.mapping Core._Time
+imageTagDetail_createdAt = Lens.lens (\ImageTagDetail' {createdAt} -> createdAt) (\s@ImageTagDetail' {} a -> s {createdAt = a} :: ImageTagDetail) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ImageTagDetail where
+instance Data.FromJSON ImageTagDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageTagDetail"
       ( \x ->
           ImageTagDetail'
-            Prelude.<$> (x Core..:? "imageTag")
-            Prelude.<*> (x Core..:? "imageDetail")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "imageTag")
+            Prelude.<*> (x Data..:? "imageDetail")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable ImageTagDetail where

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,8 +95,8 @@ instance Core.AWSRequest ListLocalDisks where
     Response.receiveJSON
       ( \s h x ->
           ListLocalDisksResponse'
-            Prelude.<$> (x Core..?> "Disks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "Disks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,32 +107,32 @@ instance Prelude.Hashable ListLocalDisks where
 instance Prelude.NFData ListLocalDisks where
   rnf ListLocalDisks' {..} = Prelude.rnf gatewayARN
 
-instance Core.ToHeaders ListLocalDisks where
+instance Data.ToHeaders ListLocalDisks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.ListLocalDisks" ::
+              Data.=# ( "StorageGateway_20130630.ListLocalDisks" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListLocalDisks where
+instance Data.ToJSON ListLocalDisks where
   toJSON ListLocalDisks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
+          [Prelude.Just ("GatewayARN" Data..= gatewayARN)]
       )
 
-instance Core.ToPath ListLocalDisks where
+instance Data.ToPath ListLocalDisks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListLocalDisks where
+instance Data.ToQuery ListLocalDisks where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListLocalDisksResponse' smart constructor.

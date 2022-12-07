@@ -65,6 +65,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -215,20 +216,20 @@ instance Core.AWSRequest CreateStage where
     Response.receiveJSON
       ( \s h x ->
           CreateStageResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "stageName")
-            Prelude.<*> (x Core..?> "accessLogSettings")
-            Prelude.<*> (x Core..?> "deploymentId")
-            Prelude.<*> (x Core..?> "autoDeploy")
-            Prelude.<*> (x Core..?> "lastUpdatedDate")
-            Prelude.<*> (x Core..?> "stageVariables" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "clientCertificateId")
-            Prelude.<*> (x Core..?> "lastDeploymentStatusMessage")
-            Prelude.<*> (x Core..?> "defaultRouteSettings")
-            Prelude.<*> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "apiGatewayManaged")
-            Prelude.<*> (x Core..?> "routeSettings" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "stageName")
+            Prelude.<*> (x Data..?> "accessLogSettings")
+            Prelude.<*> (x Data..?> "deploymentId")
+            Prelude.<*> (x Data..?> "autoDeploy")
+            Prelude.<*> (x Data..?> "lastUpdatedDate")
+            Prelude.<*> (x Data..?> "stageVariables" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "clientCertificateId")
+            Prelude.<*> (x Data..?> "lastDeploymentStatusMessage")
+            Prelude.<*> (x Data..?> "defaultRouteSettings")
+            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> (x Data..?> "apiGatewayManaged")
+            Prelude.<*> (x Data..?> "routeSettings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -260,44 +261,44 @@ instance Prelude.NFData CreateStage where
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf stageName
 
-instance Core.ToHeaders CreateStage where
+instance Data.ToHeaders CreateStage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateStage where
+instance Data.ToJSON CreateStage where
   toJSON CreateStage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("accessLogSettings" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("accessLogSettings" Data..=)
               Prelude.<$> accessLogSettings,
-            ("deploymentId" Core..=) Prelude.<$> deploymentId,
-            ("autoDeploy" Core..=) Prelude.<$> autoDeploy,
-            ("stageVariables" Core..=)
+            ("deploymentId" Data..=) Prelude.<$> deploymentId,
+            ("autoDeploy" Data..=) Prelude.<$> autoDeploy,
+            ("stageVariables" Data..=)
               Prelude.<$> stageVariables,
-            ("description" Core..=) Prelude.<$> description,
-            ("clientCertificateId" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("clientCertificateId" Data..=)
               Prelude.<$> clientCertificateId,
-            ("defaultRouteSettings" Core..=)
+            ("defaultRouteSettings" Data..=)
               Prelude.<$> defaultRouteSettings,
-            ("routeSettings" Core..=) Prelude.<$> routeSettings,
-            Prelude.Just ("stageName" Core..= stageName)
+            ("routeSettings" Data..=) Prelude.<$> routeSettings,
+            Prelude.Just ("stageName" Data..= stageName)
           ]
       )
 
-instance Core.ToPath CreateStage where
+instance Data.ToPath CreateStage where
   toPath CreateStage' {..} =
     Prelude.mconcat
-      ["/v2/apis/", Core.toBS apiId, "/stages"]
+      ["/v2/apis/", Data.toBS apiId, "/stages"]
 
-instance Core.ToQuery CreateStage where
+instance Data.ToQuery CreateStage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStageResponse' smart constructor.
@@ -316,7 +317,7 @@ data CreateStageResponse = CreateStageResponse'
     -- deployment. The default value is false.
     autoDeploy :: Prelude.Maybe Prelude.Bool,
     -- | The timestamp when the stage was last updated.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | A map that defines the stage variables for a stage resource. Variable
     -- names can have alphanumeric and underscore characters, and the values
     -- must match [A-Za-z0-9-._~:\/?#&=,]+.
@@ -332,7 +333,7 @@ data CreateStageResponse = CreateStageResponse'
     -- | Default route settings for the stage.
     defaultRouteSettings :: Prelude.Maybe RouteSettings,
     -- | The timestamp when the stage was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether a stage is managed by API Gateway. If you created an
     -- API using quick create, the $default stage is managed by API Gateway.
     -- You can\'t modify the $default stage.
@@ -438,7 +439,7 @@ createStageResponse_autoDeploy = Lens.lens (\CreateStageResponse' {autoDeploy} -
 
 -- | The timestamp when the stage was last updated.
 createStageResponse_lastUpdatedDate :: Lens.Lens' CreateStageResponse (Prelude.Maybe Prelude.UTCTime)
-createStageResponse_lastUpdatedDate = Lens.lens (\CreateStageResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@CreateStageResponse' {} a -> s {lastUpdatedDate = a} :: CreateStageResponse) Prelude.. Lens.mapping Core._Time
+createStageResponse_lastUpdatedDate = Lens.lens (\CreateStageResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@CreateStageResponse' {} a -> s {lastUpdatedDate = a} :: CreateStageResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A map that defines the stage variables for a stage resource. Variable
 -- names can have alphanumeric and underscore characters, and the values
@@ -466,7 +467,7 @@ createStageResponse_defaultRouteSettings = Lens.lens (\CreateStageResponse' {def
 
 -- | The timestamp when the stage was created.
 createStageResponse_createdDate :: Lens.Lens' CreateStageResponse (Prelude.Maybe Prelude.UTCTime)
-createStageResponse_createdDate = Lens.lens (\CreateStageResponse' {createdDate} -> createdDate) (\s@CreateStageResponse' {} a -> s {createdDate = a} :: CreateStageResponse) Prelude.. Lens.mapping Core._Time
+createStageResponse_createdDate = Lens.lens (\CreateStageResponse' {createdDate} -> createdDate) (\s@CreateStageResponse' {} a -> s {createdDate = a} :: CreateStageResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether a stage is managed by API Gateway. If you created an
 -- API using quick create, the $default stage is managed by API Gateway.

@@ -27,13 +27,14 @@ module Amazonka.MediaConvert.Types.MsSmoothAudioDeduplication
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings
 -- across a Microsoft Smooth output group into a single audio stream.
 newtype MsSmoothAudioDeduplication = MsSmoothAudioDeduplication'
   { fromMsSmoothAudioDeduplication ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -45,18 +46,18 @@ newtype MsSmoothAudioDeduplication = MsSmoothAudioDeduplication'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern MsSmoothAudioDeduplication_COMBINE_DUPLICATE_STREAMS :: MsSmoothAudioDeduplication

@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.DataCellsFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.ColumnWildcard
 import Amazonka.LakeFormation.Types.RowFilter
 import qualified Amazonka.Prelude as Prelude
@@ -126,19 +127,19 @@ dataCellsFilter_tableName = Lens.lens (\DataCellsFilter' {tableName} -> tableNam
 dataCellsFilter_name :: Lens.Lens' DataCellsFilter Prelude.Text
 dataCellsFilter_name = Lens.lens (\DataCellsFilter' {name} -> name) (\s@DataCellsFilter' {} a -> s {name = a} :: DataCellsFilter)
 
-instance Core.FromJSON DataCellsFilter where
+instance Data.FromJSON DataCellsFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataCellsFilter"
       ( \x ->
           DataCellsFilter'
-            Prelude.<$> (x Core..:? "RowFilter")
-            Prelude.<*> (x Core..:? "ColumnNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ColumnWildcard")
-            Prelude.<*> (x Core..: "TableCatalogId")
-            Prelude.<*> (x Core..: "DatabaseName")
-            Prelude.<*> (x Core..: "TableName")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "RowFilter")
+            Prelude.<*> (x Data..:? "ColumnNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ColumnWildcard")
+            Prelude.<*> (x Data..: "TableCatalogId")
+            Prelude.<*> (x Data..: "DatabaseName")
+            Prelude.<*> (x Data..: "TableName")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable DataCellsFilter where
@@ -161,18 +162,18 @@ instance Prelude.NFData DataCellsFilter where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON DataCellsFilter where
+instance Data.ToJSON DataCellsFilter where
   toJSON DataCellsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RowFilter" Core..=) Prelude.<$> rowFilter,
-            ("ColumnNames" Core..=) Prelude.<$> columnNames,
-            ("ColumnWildcard" Core..=)
+          [ ("RowFilter" Data..=) Prelude.<$> rowFilter,
+            ("ColumnNames" Data..=) Prelude.<$> columnNames,
+            ("ColumnWildcard" Data..=)
               Prelude.<$> columnWildcard,
             Prelude.Just
-              ("TableCatalogId" Core..= tableCatalogId),
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("Name" Core..= name)
+              ("TableCatalogId" Data..= tableCatalogId),
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("Name" Data..= name)
           ]
       )

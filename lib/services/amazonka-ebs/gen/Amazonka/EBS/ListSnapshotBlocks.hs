@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EBS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,11 +163,11 @@ instance Core.AWSRequest ListSnapshotBlocks where
     Response.receiveJSON
       ( \s h x ->
           ListSnapshotBlocksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ExpiryTime")
-            Prelude.<*> (x Core..?> "VolumeSize")
-            Prelude.<*> (x Core..?> "BlockSize")
-            Prelude.<*> (x Core..?> "Blocks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ExpiryTime")
+            Prelude.<*> (x Data..?> "VolumeSize")
+            Prelude.<*> (x Data..?> "BlockSize")
+            Prelude.<*> (x Data..?> "Blocks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,28 +185,28 @@ instance Prelude.NFData ListSnapshotBlocks where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf snapshotId
 
-instance Core.ToHeaders ListSnapshotBlocks where
+instance Data.ToHeaders ListSnapshotBlocks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListSnapshotBlocks where
+instance Data.ToPath ListSnapshotBlocks where
   toPath ListSnapshotBlocks' {..} =
     Prelude.mconcat
-      ["/snapshots/", Core.toBS snapshotId, "/blocks"]
+      ["/snapshots/", Data.toBS snapshotId, "/blocks"]
 
-instance Core.ToQuery ListSnapshotBlocks where
+instance Data.ToQuery ListSnapshotBlocks where
   toQuery ListSnapshotBlocks' {..} =
     Prelude.mconcat
-      [ "pageToken" Core.=: nextToken,
-        "startingBlockIndex" Core.=: startingBlockIndex,
-        "maxResults" Core.=: maxResults
+      [ "pageToken" Data.=: nextToken,
+        "startingBlockIndex" Data.=: startingBlockIndex,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListSnapshotBlocksResponse' smart constructor.
@@ -214,13 +215,13 @@ data ListSnapshotBlocksResponse = ListSnapshotBlocksResponse'
     -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The time when the @BlockToken@ expires.
-    expiryTime :: Prelude.Maybe Core.POSIX,
+    expiryTime :: Prelude.Maybe Data.POSIX,
     -- | The size of the volume in GB.
     volumeSize :: Prelude.Maybe Prelude.Natural,
     -- | The size of the blocks in the snapshot, in bytes.
     blockSize :: Prelude.Maybe Prelude.Int,
     -- | An array of objects containing information about the blocks.
-    blocks :: Prelude.Maybe (Core.Sensitive [Block]),
+    blocks :: Prelude.Maybe (Data.Sensitive [Block]),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -268,7 +269,7 @@ listSnapshotBlocksResponse_nextToken = Lens.lens (\ListSnapshotBlocksResponse' {
 
 -- | The time when the @BlockToken@ expires.
 listSnapshotBlocksResponse_expiryTime :: Lens.Lens' ListSnapshotBlocksResponse (Prelude.Maybe Prelude.UTCTime)
-listSnapshotBlocksResponse_expiryTime = Lens.lens (\ListSnapshotBlocksResponse' {expiryTime} -> expiryTime) (\s@ListSnapshotBlocksResponse' {} a -> s {expiryTime = a} :: ListSnapshotBlocksResponse) Prelude.. Lens.mapping Core._Time
+listSnapshotBlocksResponse_expiryTime = Lens.lens (\ListSnapshotBlocksResponse' {expiryTime} -> expiryTime) (\s@ListSnapshotBlocksResponse' {} a -> s {expiryTime = a} :: ListSnapshotBlocksResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The size of the volume in GB.
 listSnapshotBlocksResponse_volumeSize :: Lens.Lens' ListSnapshotBlocksResponse (Prelude.Maybe Prelude.Natural)
@@ -280,7 +281,7 @@ listSnapshotBlocksResponse_blockSize = Lens.lens (\ListSnapshotBlocksResponse' {
 
 -- | An array of objects containing information about the blocks.
 listSnapshotBlocksResponse_blocks :: Lens.Lens' ListSnapshotBlocksResponse (Prelude.Maybe [Block])
-listSnapshotBlocksResponse_blocks = Lens.lens (\ListSnapshotBlocksResponse' {blocks} -> blocks) (\s@ListSnapshotBlocksResponse' {} a -> s {blocks = a} :: ListSnapshotBlocksResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+listSnapshotBlocksResponse_blocks = Lens.lens (\ListSnapshotBlocksResponse' {blocks} -> blocks) (\s@ListSnapshotBlocksResponse' {} a -> s {blocks = a} :: ListSnapshotBlocksResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The response's http status code.
 listSnapshotBlocksResponse_httpStatus :: Lens.Lens' ListSnapshotBlocksResponse Prelude.Int

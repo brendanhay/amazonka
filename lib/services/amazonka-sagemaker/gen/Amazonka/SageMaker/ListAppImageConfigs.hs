@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,21 +73,21 @@ data ListAppImageConfigs = ListAppImageConfigs'
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only AppImageConfigs created on or before the
     -- specified time.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The property used to sort results. The default value is @CreationTime@.
     sortBy :: Prelude.Maybe AppImageConfigSortKey,
     -- | A filter that returns only AppImageConfigs modified on or before the
     -- specified time.
-    modifiedTimeBefore :: Prelude.Maybe Core.POSIX,
+    modifiedTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only AppImageConfigs modified on or after the
     -- specified time.
-    modifiedTimeAfter :: Prelude.Maybe Core.POSIX,
+    modifiedTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of AppImageConfigs to return in the response. The
     -- default value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only AppImageConfigs created on or after the
     -- specified time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -156,7 +157,7 @@ listAppImageConfigs_nameContains = Lens.lens (\ListAppImageConfigs' {nameContain
 -- | A filter that returns only AppImageConfigs created on or before the
 -- specified time.
 listAppImageConfigs_creationTimeBefore :: Lens.Lens' ListAppImageConfigs (Prelude.Maybe Prelude.UTCTime)
-listAppImageConfigs_creationTimeBefore = Lens.lens (\ListAppImageConfigs' {creationTimeBefore} -> creationTimeBefore) (\s@ListAppImageConfigs' {} a -> s {creationTimeBefore = a} :: ListAppImageConfigs) Prelude.. Lens.mapping Core._Time
+listAppImageConfigs_creationTimeBefore = Lens.lens (\ListAppImageConfigs' {creationTimeBefore} -> creationTimeBefore) (\s@ListAppImageConfigs' {} a -> s {creationTimeBefore = a} :: ListAppImageConfigs) Prelude.. Lens.mapping Data._Time
 
 -- | The property used to sort results. The default value is @CreationTime@.
 listAppImageConfigs_sortBy :: Lens.Lens' ListAppImageConfigs (Prelude.Maybe AppImageConfigSortKey)
@@ -165,12 +166,12 @@ listAppImageConfigs_sortBy = Lens.lens (\ListAppImageConfigs' {sortBy} -> sortBy
 -- | A filter that returns only AppImageConfigs modified on or before the
 -- specified time.
 listAppImageConfigs_modifiedTimeBefore :: Lens.Lens' ListAppImageConfigs (Prelude.Maybe Prelude.UTCTime)
-listAppImageConfigs_modifiedTimeBefore = Lens.lens (\ListAppImageConfigs' {modifiedTimeBefore} -> modifiedTimeBefore) (\s@ListAppImageConfigs' {} a -> s {modifiedTimeBefore = a} :: ListAppImageConfigs) Prelude.. Lens.mapping Core._Time
+listAppImageConfigs_modifiedTimeBefore = Lens.lens (\ListAppImageConfigs' {modifiedTimeBefore} -> modifiedTimeBefore) (\s@ListAppImageConfigs' {} a -> s {modifiedTimeBefore = a} :: ListAppImageConfigs) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns only AppImageConfigs modified on or after the
 -- specified time.
 listAppImageConfigs_modifiedTimeAfter :: Lens.Lens' ListAppImageConfigs (Prelude.Maybe Prelude.UTCTime)
-listAppImageConfigs_modifiedTimeAfter = Lens.lens (\ListAppImageConfigs' {modifiedTimeAfter} -> modifiedTimeAfter) (\s@ListAppImageConfigs' {} a -> s {modifiedTimeAfter = a} :: ListAppImageConfigs) Prelude.. Lens.mapping Core._Time
+listAppImageConfigs_modifiedTimeAfter = Lens.lens (\ListAppImageConfigs' {modifiedTimeAfter} -> modifiedTimeAfter) (\s@ListAppImageConfigs' {} a -> s {modifiedTimeAfter = a} :: ListAppImageConfigs) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of AppImageConfigs to return in the response. The
 -- default value is 10.
@@ -180,7 +181,7 @@ listAppImageConfigs_maxResults = Lens.lens (\ListAppImageConfigs' {maxResults} -
 -- | A filter that returns only AppImageConfigs created on or after the
 -- specified time.
 listAppImageConfigs_creationTimeAfter :: Lens.Lens' ListAppImageConfigs (Prelude.Maybe Prelude.UTCTime)
-listAppImageConfigs_creationTimeAfter = Lens.lens (\ListAppImageConfigs' {creationTimeAfter} -> creationTimeAfter) (\s@ListAppImageConfigs' {} a -> s {creationTimeAfter = a} :: ListAppImageConfigs) Prelude.. Lens.mapping Core._Time
+listAppImageConfigs_creationTimeAfter = Lens.lens (\ListAppImageConfigs' {creationTimeAfter} -> creationTimeAfter) (\s@ListAppImageConfigs' {} a -> s {creationTimeAfter = a} :: ListAppImageConfigs) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListAppImageConfigs where
   page rq rs
@@ -214,8 +215,8 @@ instance Core.AWSRequest ListAppImageConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListAppImageConfigsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "AppImageConfigs"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "AppImageConfigs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -245,45 +246,45 @@ instance Prelude.NFData ListAppImageConfigs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf creationTimeAfter
 
-instance Core.ToHeaders ListAppImageConfigs where
+instance Data.ToHeaders ListAppImageConfigs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListAppImageConfigs" ::
+              Data.=# ( "SageMaker.ListAppImageConfigs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAppImageConfigs where
+instance Data.ToJSON ListAppImageConfigs where
   toJSON ListAppImageConfigs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("CreationTimeBefore" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("ModifiedTimeBefore" Core..=)
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("ModifiedTimeBefore" Data..=)
               Prelude.<$> modifiedTimeBefore,
-            ("ModifiedTimeAfter" Core..=)
+            ("ModifiedTimeAfter" Data..=)
               Prelude.<$> modifiedTimeAfter,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CreationTimeAfter" Core..=)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter
           ]
       )
 
-instance Core.ToPath ListAppImageConfigs where
+instance Data.ToPath ListAppImageConfigs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAppImageConfigs where
+instance Data.ToQuery ListAppImageConfigs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAppImageConfigsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.PendingModifiedValues where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.AuthTokenUpdateStatus
 import Amazonka.ElastiCache.Types.PendingLogDeliveryConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -116,21 +117,21 @@ pendingModifiedValues_authTokenStatus = Lens.lens (\PendingModifiedValues' {auth
 pendingModifiedValues_engineVersion :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
 pendingModifiedValues_engineVersion = Lens.lens (\PendingModifiedValues' {engineVersion} -> engineVersion) (\s@PendingModifiedValues' {} a -> s {engineVersion = a} :: PendingModifiedValues)
 
-instance Core.FromXML PendingModifiedValues where
+instance Data.FromXML PendingModifiedValues where
   parseXML x =
     PendingModifiedValues'
-      Prelude.<$> ( x Core..@? "CacheNodeIdsToRemove"
+      Prelude.<$> ( x Data..@? "CacheNodeIdsToRemove"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "CacheNodeId")
+                      Prelude.>>= Core.may (Data.parseXMLList "CacheNodeId")
                   )
-      Prelude.<*> ( x Core..@? "LogDeliveryConfigurations"
+      Prelude.<*> ( x Data..@? "LogDeliveryConfigurations"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "NumCacheNodes")
-      Prelude.<*> (x Core..@? "CacheNodeType")
-      Prelude.<*> (x Core..@? "AuthTokenStatus")
-      Prelude.<*> (x Core..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "NumCacheNodes")
+      Prelude.<*> (x Data..@? "CacheNodeType")
+      Prelude.<*> (x Data..@? "AuthTokenStatus")
+      Prelude.<*> (x Data..@? "EngineVersion")
 
 instance Prelude.Hashable PendingModifiedValues where
   hashWithSalt _salt PendingModifiedValues' {..} =

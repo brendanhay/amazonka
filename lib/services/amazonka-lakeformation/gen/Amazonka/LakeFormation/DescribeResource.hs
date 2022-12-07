@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest DescribeResource where
     Response.receiveJSON
       ( \s h x ->
           DescribeResourceResponse'
-            Prelude.<$> (x Core..?> "ResourceInfo")
+            Prelude.<$> (x Data..?> "ResourceInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,28 +96,28 @@ instance Prelude.Hashable DescribeResource where
 instance Prelude.NFData DescribeResource where
   rnf DescribeResource' {..} = Prelude.rnf resourceArn
 
-instance Core.ToHeaders DescribeResource where
+instance Data.ToHeaders DescribeResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeResource where
+instance Data.ToJSON DescribeResource where
   toJSON DescribeResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
+          [Prelude.Just ("ResourceArn" Data..= resourceArn)]
       )
 
-instance Core.ToPath DescribeResource where
+instance Data.ToPath DescribeResource where
   toPath = Prelude.const "/DescribeResource"
 
-instance Core.ToQuery DescribeResource where
+instance Data.ToQuery DescribeResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeResourceResponse' smart constructor.

@@ -25,6 +25,7 @@ import Amazonka.ComprehendMedical.Types.LanguageCode
 import Amazonka.ComprehendMedical.Types.OutputDataConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a detection job.
@@ -43,11 +44,11 @@ data ComprehendMedicalAsyncJobProperties = ComprehendMedicalAsyncJobProperties'
     -- files in your S3 bucket will not be deleted. After the metadata is
     -- deleted, the job will no longer appear in the results of the
     -- @ListEntitiesDetectionV2Job@ or the @ListPHIDetectionJobs@ operation.
-    expirationTime :: Prelude.Maybe Core.POSIX,
+    expirationTime :: Prelude.Maybe Data.POSIX,
     -- | The name that you assigned to the detection job.
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The time that the detection job was submitted for processing.
-    submitTime :: Prelude.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Data.POSIX,
     -- | The AWS Key Management Service key, if any, used to encrypt the output
     -- files.
     kmsKey :: Prelude.Maybe Prelude.Text,
@@ -61,7 +62,7 @@ data ComprehendMedicalAsyncJobProperties = ComprehendMedicalAsyncJobProperties'
     -- access to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the detection job completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The language code of the input documents.
     languageCode :: Prelude.Maybe LanguageCode,
     -- | The path to the file that describes the results of a batch job.
@@ -157,7 +158,7 @@ comprehendMedicalAsyncJobProperties_jobStatus = Lens.lens (\ComprehendMedicalAsy
 -- deleted, the job will no longer appear in the results of the
 -- @ListEntitiesDetectionV2Job@ or the @ListPHIDetectionJobs@ operation.
 comprehendMedicalAsyncJobProperties_expirationTime :: Lens.Lens' ComprehendMedicalAsyncJobProperties (Prelude.Maybe Prelude.UTCTime)
-comprehendMedicalAsyncJobProperties_expirationTime = Lens.lens (\ComprehendMedicalAsyncJobProperties' {expirationTime} -> expirationTime) (\s@ComprehendMedicalAsyncJobProperties' {} a -> s {expirationTime = a} :: ComprehendMedicalAsyncJobProperties) Prelude.. Lens.mapping Core._Time
+comprehendMedicalAsyncJobProperties_expirationTime = Lens.lens (\ComprehendMedicalAsyncJobProperties' {expirationTime} -> expirationTime) (\s@ComprehendMedicalAsyncJobProperties' {} a -> s {expirationTime = a} :: ComprehendMedicalAsyncJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The name that you assigned to the detection job.
 comprehendMedicalAsyncJobProperties_jobName :: Lens.Lens' ComprehendMedicalAsyncJobProperties (Prelude.Maybe Prelude.Text)
@@ -165,7 +166,7 @@ comprehendMedicalAsyncJobProperties_jobName = Lens.lens (\ComprehendMedicalAsync
 
 -- | The time that the detection job was submitted for processing.
 comprehendMedicalAsyncJobProperties_submitTime :: Lens.Lens' ComprehendMedicalAsyncJobProperties (Prelude.Maybe Prelude.UTCTime)
-comprehendMedicalAsyncJobProperties_submitTime = Lens.lens (\ComprehendMedicalAsyncJobProperties' {submitTime} -> submitTime) (\s@ComprehendMedicalAsyncJobProperties' {} a -> s {submitTime = a} :: ComprehendMedicalAsyncJobProperties) Prelude.. Lens.mapping Core._Time
+comprehendMedicalAsyncJobProperties_submitTime = Lens.lens (\ComprehendMedicalAsyncJobProperties' {submitTime} -> submitTime) (\s@ComprehendMedicalAsyncJobProperties' {} a -> s {submitTime = a} :: ComprehendMedicalAsyncJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The AWS Key Management Service key, if any, used to encrypt the output
 -- files.
@@ -189,7 +190,7 @@ comprehendMedicalAsyncJobProperties_dataAccessRoleArn = Lens.lens (\ComprehendMe
 
 -- | The time that the detection job completed.
 comprehendMedicalAsyncJobProperties_endTime :: Lens.Lens' ComprehendMedicalAsyncJobProperties (Prelude.Maybe Prelude.UTCTime)
-comprehendMedicalAsyncJobProperties_endTime = Lens.lens (\ComprehendMedicalAsyncJobProperties' {endTime} -> endTime) (\s@ComprehendMedicalAsyncJobProperties' {} a -> s {endTime = a} :: ComprehendMedicalAsyncJobProperties) Prelude.. Lens.mapping Core._Time
+comprehendMedicalAsyncJobProperties_endTime = Lens.lens (\ComprehendMedicalAsyncJobProperties' {endTime} -> endTime) (\s@ComprehendMedicalAsyncJobProperties' {} a -> s {endTime = a} :: ComprehendMedicalAsyncJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The language code of the input documents.
 comprehendMedicalAsyncJobProperties_languageCode :: Lens.Lens' ComprehendMedicalAsyncJobProperties (Prelude.Maybe LanguageCode)
@@ -205,28 +206,28 @@ comprehendMedicalAsyncJobProperties_inputDataConfig :: Lens.Lens' ComprehendMedi
 comprehendMedicalAsyncJobProperties_inputDataConfig = Lens.lens (\ComprehendMedicalAsyncJobProperties' {inputDataConfig} -> inputDataConfig) (\s@ComprehendMedicalAsyncJobProperties' {} a -> s {inputDataConfig = a} :: ComprehendMedicalAsyncJobProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ComprehendMedicalAsyncJobProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComprehendMedicalAsyncJobProperties"
       ( \x ->
           ComprehendMedicalAsyncJobProperties'
-            Prelude.<$> (x Core..:? "OutputDataConfig")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "JobStatus")
-            Prelude.<*> (x Core..:? "ExpirationTime")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "SubmitTime")
-            Prelude.<*> (x Core..:? "KMSKey")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "ModelVersion")
-            Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "ManifestFilePath")
-            Prelude.<*> (x Core..:? "InputDataConfig")
+            Prelude.<$> (x Data..:? "OutputDataConfig")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "JobStatus")
+            Prelude.<*> (x Data..:? "ExpirationTime")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "SubmitTime")
+            Prelude.<*> (x Data..:? "KMSKey")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "ModelVersion")
+            Prelude.<*> (x Data..:? "DataAccessRoleArn")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "ManifestFilePath")
+            Prelude.<*> (x Data..:? "InputDataConfig")
       )
 
 instance

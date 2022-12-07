@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -62,7 +63,7 @@ data GetDocumentPath = GetDocumentPath'
     marker :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A comma-separated list of values. Specify @NAME@ to include the names of
     -- the parent folders.
     fields :: Prelude.Maybe Prelude.Text,
@@ -112,7 +113,7 @@ getDocumentPath_marker = Lens.lens (\GetDocumentPath' {marker} -> marker) (\s@Ge
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 getDocumentPath_authenticationToken :: Lens.Lens' GetDocumentPath (Prelude.Maybe Prelude.Text)
-getDocumentPath_authenticationToken = Lens.lens (\GetDocumentPath' {authenticationToken} -> authenticationToken) (\s@GetDocumentPath' {} a -> s {authenticationToken = a} :: GetDocumentPath) Prelude.. Lens.mapping Core._Sensitive
+getDocumentPath_authenticationToken = Lens.lens (\GetDocumentPath' {authenticationToken} -> authenticationToken) (\s@GetDocumentPath' {} a -> s {authenticationToken = a} :: GetDocumentPath) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A comma-separated list of values. Specify @NAME@ to include the names of
 -- the parent folders.
@@ -137,7 +138,7 @@ instance Core.AWSRequest GetDocumentPath where
     Response.receiveJSON
       ( \s h x ->
           GetDocumentPathResponse'
-            Prelude.<$> (x Core..?> "Path")
+            Prelude.<$> (x Data..?> "Path")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,25 +158,25 @@ instance Prelude.NFData GetDocumentPath where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf documentId
 
-instance Core.ToHeaders GetDocumentPath where
+instance Data.ToHeaders GetDocumentPath where
   toHeaders GetDocumentPath' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath GetDocumentPath where
+instance Data.ToPath GetDocumentPath where
   toPath GetDocumentPath' {..} =
     Prelude.mconcat
-      ["/api/v1/documents/", Core.toBS documentId, "/path"]
+      ["/api/v1/documents/", Data.toBS documentId, "/path"]
 
-instance Core.ToQuery GetDocumentPath where
+instance Data.ToQuery GetDocumentPath where
   toQuery GetDocumentPath' {..} =
     Prelude.mconcat
-      [ "marker" Core.=: marker,
-        "fields" Core.=: fields,
-        "limit" Core.=: limit
+      [ "marker" Data.=: marker,
+        "fields" Data.=: fields,
+        "limit" Data.=: limit
       ]
 
 -- | /See:/ 'newGetDocumentPathResponse' smart constructor.

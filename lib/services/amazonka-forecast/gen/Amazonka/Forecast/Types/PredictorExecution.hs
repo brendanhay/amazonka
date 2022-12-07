@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.PredictorExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.TestWindowSummary
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,14 +69,14 @@ predictorExecution_testWindows = Lens.lens (\PredictorExecution' {testWindows} -
 predictorExecution_algorithmArn :: Lens.Lens' PredictorExecution (Prelude.Maybe Prelude.Text)
 predictorExecution_algorithmArn = Lens.lens (\PredictorExecution' {algorithmArn} -> algorithmArn) (\s@PredictorExecution' {} a -> s {algorithmArn = a} :: PredictorExecution)
 
-instance Core.FromJSON PredictorExecution where
+instance Data.FromJSON PredictorExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PredictorExecution"
       ( \x ->
           PredictorExecution'
-            Prelude.<$> (x Core..:? "TestWindows" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AlgorithmArn")
+            Prelude.<$> (x Data..:? "TestWindows" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AlgorithmArn")
       )
 
 instance Prelude.Hashable PredictorExecution where

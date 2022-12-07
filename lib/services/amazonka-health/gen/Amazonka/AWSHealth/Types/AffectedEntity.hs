@@ -22,6 +22,7 @@ module Amazonka.AWSHealth.Types.AffectedEntity where
 import Amazonka.AWSHealth.Types.EntityStatusCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an entity that is affected by a Health event.
@@ -48,7 +49,7 @@ data AffectedEntity = AffectedEntity'
     -- | The URL of the affected entity.
     entityUrl :: Prelude.Maybe Prelude.Text,
     -- | The most recent time that the entity was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The most recent status of the entity affected by the event. The possible
     -- values are @IMPAIRED@, @UNIMPAIRED@, and @UNKNOWN@.
     statusCode :: Prelude.Maybe EntityStatusCode,
@@ -139,7 +140,7 @@ affectedEntity_entityUrl = Lens.lens (\AffectedEntity' {entityUrl} -> entityUrl)
 
 -- | The most recent time that the entity was updated.
 affectedEntity_lastUpdatedTime :: Lens.Lens' AffectedEntity (Prelude.Maybe Prelude.UTCTime)
-affectedEntity_lastUpdatedTime = Lens.lens (\AffectedEntity' {lastUpdatedTime} -> lastUpdatedTime) (\s@AffectedEntity' {} a -> s {lastUpdatedTime = a} :: AffectedEntity) Prelude.. Lens.mapping Core._Time
+affectedEntity_lastUpdatedTime = Lens.lens (\AffectedEntity' {lastUpdatedTime} -> lastUpdatedTime) (\s@AffectedEntity' {} a -> s {lastUpdatedTime = a} :: AffectedEntity) Prelude.. Lens.mapping Data._Time
 
 -- | The most recent status of the entity affected by the event. The possible
 -- values are @IMPAIRED@, @UNIMPAIRED@, and @UNKNOWN@.
@@ -152,20 +153,20 @@ affectedEntity_statusCode = Lens.lens (\AffectedEntity' {statusCode} -> statusCo
 affectedEntity_entityArn :: Lens.Lens' AffectedEntity (Prelude.Maybe Prelude.Text)
 affectedEntity_entityArn = Lens.lens (\AffectedEntity' {entityArn} -> entityArn) (\s@AffectedEntity' {} a -> s {entityArn = a} :: AffectedEntity)
 
-instance Core.FromJSON AffectedEntity where
+instance Data.FromJSON AffectedEntity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AffectedEntity"
       ( \x ->
           AffectedEntity'
-            Prelude.<$> (x Core..:? "awsAccountId")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "entityValue")
-            Prelude.<*> (x Core..:? "eventArn")
-            Prelude.<*> (x Core..:? "entityUrl")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "statusCode")
-            Prelude.<*> (x Core..:? "entityArn")
+            Prelude.<$> (x Data..:? "awsAccountId")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "entityValue")
+            Prelude.<*> (x Data..:? "eventArn")
+            Prelude.<*> (x Data..:? "entityUrl")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "statusCode")
+            Prelude.<*> (x Data..:? "entityArn")
       )
 
 instance Prelude.Hashable AffectedEntity where

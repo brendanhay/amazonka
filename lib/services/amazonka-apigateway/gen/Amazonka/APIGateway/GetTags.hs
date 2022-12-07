@@ -44,6 +44,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,7 +112,7 @@ instance Core.AWSRequest GetTags where
     Response.receiveJSON
       ( \s h x ->
           GetTagsResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,23 +128,23 @@ instance Prelude.NFData GetTags where
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders GetTags where
+instance Data.ToHeaders GetTags where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetTags where
+instance Data.ToPath GetTags where
   toPath GetTags' {..} =
-    Prelude.mconcat ["/tags/", Core.toBS resourceArn]
+    Prelude.mconcat ["/tags/", Data.toBS resourceArn]
 
-instance Core.ToQuery GetTags where
+instance Data.ToQuery GetTags where
   toQuery GetTags' {..} =
     Prelude.mconcat
-      ["limit" Core.=: limit, "position" Core.=: position]
+      ["limit" Data.=: limit, "position" Data.=: position]
 
 -- | The collection of tags. Each tag element is associated with a given
 -- resource.

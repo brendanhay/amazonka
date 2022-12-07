@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.ConnectionOAuthClientResponseParameters w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the client response parameters for the connection when OAuth is
@@ -55,15 +56,15 @@ connectionOAuthClientResponseParameters_clientID :: Lens.Lens' ConnectionOAuthCl
 connectionOAuthClientResponseParameters_clientID = Lens.lens (\ConnectionOAuthClientResponseParameters' {clientID} -> clientID) (\s@ConnectionOAuthClientResponseParameters' {} a -> s {clientID = a} :: ConnectionOAuthClientResponseParameters)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ConnectionOAuthClientResponseParameters
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionOAuthClientResponseParameters"
       ( \x ->
           ConnectionOAuthClientResponseParameters'
-            Prelude.<$> (x Core..:? "ClientID")
+            Prelude.<$> (x Data..:? "ClientID")
       )
 
 instance

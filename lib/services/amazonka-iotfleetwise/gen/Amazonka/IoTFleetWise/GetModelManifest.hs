@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,14 +90,14 @@ instance Core.AWSRequest GetModelManifest where
     Response.receiveJSON
       ( \s h x ->
           GetModelManifestResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "signalCatalogArn")
+            Prelude.<$> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "signalCatalogArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "creationTime")
-            Prelude.<*> (x Core..:> "lastModificationTime")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "creationTime")
+            Prelude.<*> (x Data..:> "lastModificationTime")
       )
 
 instance Prelude.Hashable GetModelManifest where
@@ -106,32 +107,32 @@ instance Prelude.Hashable GetModelManifest where
 instance Prelude.NFData GetModelManifest where
   rnf GetModelManifest' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetModelManifest where
+instance Data.ToHeaders GetModelManifest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.GetModelManifest" ::
+              Data.=# ( "IoTAutobahnControlPlane.GetModelManifest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetModelManifest where
+instance Data.ToJSON GetModelManifest where
   toJSON GetModelManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath GetModelManifest where
+instance Data.ToPath GetModelManifest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetModelManifest where
+instance Data.ToQuery GetModelManifest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetModelManifestResponse' smart constructor.
@@ -152,9 +153,9 @@ data GetModelManifestResponse = GetModelManifestResponse'
     arn :: Prelude.Text,
     -- | The time the vehicle model was created, in seconds since epoch (January
     -- 1, 1970 at midnight UTC time).
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The last time the vehicle model was modified.
-    lastModificationTime :: Core.POSIX
+    lastModificationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -209,9 +210,9 @@ newGetModelManifestResponse
         httpStatus = pHttpStatus_,
         name = pName_,
         arn = pArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lastModificationTime =
-          Core._Time Lens.# pLastModificationTime_
+          Data._Time Lens.# pLastModificationTime_
       }
 
 -- | The state of the vehicle model. If the status is @ACTIVE@, the vehicle
@@ -243,11 +244,11 @@ getModelManifestResponse_arn = Lens.lens (\GetModelManifestResponse' {arn} -> ar
 -- | The time the vehicle model was created, in seconds since epoch (January
 -- 1, 1970 at midnight UTC time).
 getModelManifestResponse_creationTime :: Lens.Lens' GetModelManifestResponse Prelude.UTCTime
-getModelManifestResponse_creationTime = Lens.lens (\GetModelManifestResponse' {creationTime} -> creationTime) (\s@GetModelManifestResponse' {} a -> s {creationTime = a} :: GetModelManifestResponse) Prelude.. Core._Time
+getModelManifestResponse_creationTime = Lens.lens (\GetModelManifestResponse' {creationTime} -> creationTime) (\s@GetModelManifestResponse' {} a -> s {creationTime = a} :: GetModelManifestResponse) Prelude.. Data._Time
 
 -- | The last time the vehicle model was modified.
 getModelManifestResponse_lastModificationTime :: Lens.Lens' GetModelManifestResponse Prelude.UTCTime
-getModelManifestResponse_lastModificationTime = Lens.lens (\GetModelManifestResponse' {lastModificationTime} -> lastModificationTime) (\s@GetModelManifestResponse' {} a -> s {lastModificationTime = a} :: GetModelManifestResponse) Prelude.. Core._Time
+getModelManifestResponse_lastModificationTime = Lens.lens (\GetModelManifestResponse' {lastModificationTime} -> lastModificationTime) (\s@GetModelManifestResponse' {} a -> s {lastModificationTime = a} :: GetModelManifestResponse) Prelude.. Data._Time
 
 instance Prelude.NFData GetModelManifestResponse where
   rnf GetModelManifestResponse' {..} =

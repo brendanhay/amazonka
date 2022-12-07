@@ -49,6 +49,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,12 +113,12 @@ instance Core.AWSRequest CreateDeployment where
     Response.receiveJSON
       ( \s h x ->
           CreateDeploymentResponse'
-            Prelude.<$> (x Core..?> "deploymentStatus")
-            Prelude.<*> (x Core..?> "autoDeployed")
-            Prelude.<*> (x Core..?> "deploymentId")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "deploymentStatusMessage")
-            Prelude.<*> (x Core..?> "createdDate")
+            Prelude.<$> (x Data..?> "deploymentStatus")
+            Prelude.<*> (x Data..?> "autoDeployed")
+            Prelude.<*> (x Data..?> "deploymentId")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "deploymentStatusMessage")
+            Prelude.<*> (x Data..?> "createdDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,32 +134,32 @@ instance Prelude.NFData CreateDeployment where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf apiId
 
-instance Core.ToHeaders CreateDeployment where
+instance Data.ToHeaders CreateDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDeployment where
+instance Data.ToJSON CreateDeployment where
   toJSON CreateDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("stageName" Core..=) Prelude.<$> stageName,
-            ("description" Core..=) Prelude.<$> description
+          [ ("stageName" Data..=) Prelude.<$> stageName,
+            ("description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath CreateDeployment where
+instance Data.ToPath CreateDeployment where
   toPath CreateDeployment' {..} =
     Prelude.mconcat
-      ["/v2/apis/", Core.toBS apiId, "/deployments"]
+      ["/v2/apis/", Data.toBS apiId, "/deployments"]
 
-instance Core.ToQuery CreateDeployment where
+instance Data.ToQuery CreateDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDeploymentResponse' smart constructor.
@@ -174,7 +175,7 @@ data CreateDeploymentResponse = CreateDeploymentResponse'
     -- | May contain additional feedback on the status of an API deployment.
     deploymentStatusMessage :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the Deployment resource was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -239,7 +240,7 @@ createDeploymentResponse_deploymentStatusMessage = Lens.lens (\CreateDeploymentR
 
 -- | The date and time when the Deployment resource was created.
 createDeploymentResponse_createdDate :: Lens.Lens' CreateDeploymentResponse (Prelude.Maybe Prelude.UTCTime)
-createDeploymentResponse_createdDate = Lens.lens (\CreateDeploymentResponse' {createdDate} -> createdDate) (\s@CreateDeploymentResponse' {} a -> s {createdDate = a} :: CreateDeploymentResponse) Prelude.. Lens.mapping Core._Time
+createDeploymentResponse_createdDate = Lens.lens (\CreateDeploymentResponse' {createdDate} -> createdDate) (\s@CreateDeploymentResponse' {} a -> s {createdDate = a} :: CreateDeploymentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createDeploymentResponse_httpStatus :: Lens.Lens' CreateDeploymentResponse Prelude.Int

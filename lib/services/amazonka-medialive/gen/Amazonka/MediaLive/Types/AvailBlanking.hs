@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.AvailBlanking where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AvailBlankingState
 import Amazonka.MediaLive.Types.InputLocation
 import qualified Amazonka.Prelude as Prelude
@@ -69,14 +70,14 @@ availBlanking_state = Lens.lens (\AvailBlanking' {state} -> state) (\s@AvailBlan
 availBlanking_availBlankingImage :: Lens.Lens' AvailBlanking (Prelude.Maybe InputLocation)
 availBlanking_availBlankingImage = Lens.lens (\AvailBlanking' {availBlankingImage} -> availBlankingImage) (\s@AvailBlanking' {} a -> s {availBlankingImage = a} :: AvailBlanking)
 
-instance Core.FromJSON AvailBlanking where
+instance Data.FromJSON AvailBlanking where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AvailBlanking"
       ( \x ->
           AvailBlanking'
-            Prelude.<$> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "availBlankingImage")
+            Prelude.<$> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "availBlankingImage")
       )
 
 instance Prelude.Hashable AvailBlanking where
@@ -89,12 +90,12 @@ instance Prelude.NFData AvailBlanking where
     Prelude.rnf state
       `Prelude.seq` Prelude.rnf availBlankingImage
 
-instance Core.ToJSON AvailBlanking where
+instance Data.ToJSON AvailBlanking where
   toJSON AvailBlanking' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("state" Core..=) Prelude.<$> state,
-            ("availBlankingImage" Core..=)
+          [ ("state" Data..=) Prelude.<$> state,
+            ("availBlankingImage" Data..=)
               Prelude.<$> availBlankingImage
           ]
       )

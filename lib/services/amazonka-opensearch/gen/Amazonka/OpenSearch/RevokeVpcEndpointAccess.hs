@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,25 +111,25 @@ instance Prelude.NFData RevokeVpcEndpointAccess where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf account
 
-instance Core.ToHeaders RevokeVpcEndpointAccess where
+instance Data.ToHeaders RevokeVpcEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON RevokeVpcEndpointAccess where
+instance Data.ToJSON RevokeVpcEndpointAccess where
   toJSON RevokeVpcEndpointAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Account" Core..= account)]
+          [Prelude.Just ("Account" Data..= account)]
       )
 
-instance Core.ToPath RevokeVpcEndpointAccess where
+instance Data.ToPath RevokeVpcEndpointAccess where
   toPath RevokeVpcEndpointAccess' {..} =
     Prelude.mconcat
       [ "/2021-01-01/opensearch/domain/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/revokeVpcEndpointAccess"
       ]
 
-instance Core.ToQuery RevokeVpcEndpointAccess where
+instance Data.ToQuery RevokeVpcEndpointAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRevokeVpcEndpointAccessResponse' smart constructor.

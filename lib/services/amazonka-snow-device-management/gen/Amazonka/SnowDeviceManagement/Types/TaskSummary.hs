@@ -21,6 +21,7 @@ module Amazonka.SnowDeviceManagement.Types.TaskSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SnowDeviceManagement.Types.TaskState
 
@@ -88,16 +89,16 @@ taskSummary_state = Lens.lens (\TaskSummary' {state} -> state) (\s@TaskSummary' 
 taskSummary_taskId :: Lens.Lens' TaskSummary Prelude.Text
 taskSummary_taskId = Lens.lens (\TaskSummary' {taskId} -> taskId) (\s@TaskSummary' {} a -> s {taskId = a} :: TaskSummary)
 
-instance Core.FromJSON TaskSummary where
+instance Data.FromJSON TaskSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskSummary"
       ( \x ->
           TaskSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "taskArn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..: "taskId")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "taskArn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..: "taskId")
       )
 
 instance Prelude.Hashable TaskSummary where

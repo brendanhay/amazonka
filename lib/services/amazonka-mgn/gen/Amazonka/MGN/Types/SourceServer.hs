@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.SourceServer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.DataReplicationInfo
 import Amazonka.MGN.Types.LaunchedInstance
 import Amazonka.MGN.Types.LifeCycle
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | /See:/ 'newSourceServer' smart constructor.
 data SourceServer = SourceServer'
   { -- | Source server Tags.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Source server vCenter client id.
     vcenterClientID :: Prelude.Maybe Prelude.Text,
     -- | Source server lifecycle state.
@@ -98,7 +99,7 @@ newSourceServer =
 
 -- | Source server Tags.
 sourceServer_tags :: Lens.Lens' SourceServer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-sourceServer_tags = Lens.lens (\SourceServer' {tags} -> tags) (\s@SourceServer' {} a -> s {tags = a} :: SourceServer) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+sourceServer_tags = Lens.lens (\SourceServer' {tags} -> tags) (\s@SourceServer' {} a -> s {tags = a} :: SourceServer) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Source server vCenter client id.
 sourceServer_vcenterClientID :: Lens.Lens' SourceServer (Prelude.Maybe Prelude.Text)
@@ -136,22 +137,22 @@ sourceServer_sourceServerID = Lens.lens (\SourceServer' {sourceServerID} -> sour
 sourceServer_sourceProperties :: Lens.Lens' SourceServer (Prelude.Maybe SourceProperties)
 sourceServer_sourceProperties = Lens.lens (\SourceServer' {sourceProperties} -> sourceProperties) (\s@SourceServer' {} a -> s {sourceProperties = a} :: SourceServer)
 
-instance Core.FromJSON SourceServer where
+instance Data.FromJSON SourceServer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceServer"
       ( \x ->
           SourceServer'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "vcenterClientID")
-            Prelude.<*> (x Core..:? "lifeCycle")
-            Prelude.<*> (x Core..:? "replicationType")
-            Prelude.<*> (x Core..:? "launchedInstance")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "dataReplicationInfo")
-            Prelude.<*> (x Core..:? "isArchived")
-            Prelude.<*> (x Core..:? "sourceServerID")
-            Prelude.<*> (x Core..:? "sourceProperties")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "vcenterClientID")
+            Prelude.<*> (x Data..:? "lifeCycle")
+            Prelude.<*> (x Data..:? "replicationType")
+            Prelude.<*> (x Data..:? "launchedInstance")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "dataReplicationInfo")
+            Prelude.<*> (x Data..:? "isArchived")
+            Prelude.<*> (x Data..:? "sourceServerID")
+            Prelude.<*> (x Data..:? "sourceProperties")
       )
 
 instance Prelude.Hashable SourceServer where

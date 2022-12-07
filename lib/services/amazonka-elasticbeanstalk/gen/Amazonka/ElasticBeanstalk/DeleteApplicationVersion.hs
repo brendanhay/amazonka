@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,22 +130,22 @@ instance Prelude.NFData DeleteApplicationVersion where
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf versionLabel
 
-instance Core.ToHeaders DeleteApplicationVersion where
+instance Data.ToHeaders DeleteApplicationVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteApplicationVersion where
+instance Data.ToPath DeleteApplicationVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteApplicationVersion where
+instance Data.ToQuery DeleteApplicationVersion where
   toQuery DeleteApplicationVersion' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteApplicationVersion" :: Prelude.ByteString),
+          Data.=: ("DeleteApplicationVersion" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "DeleteSourceBundle" Core.=: deleteSourceBundle,
-        "ApplicationName" Core.=: applicationName,
-        "VersionLabel" Core.=: versionLabel
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "DeleteSourceBundle" Data.=: deleteSourceBundle,
+        "ApplicationName" Data.=: applicationName,
+        "VersionLabel" Data.=: versionLabel
       ]
 
 -- | /See:/ 'newDeleteApplicationVersionResponse' smart constructor.

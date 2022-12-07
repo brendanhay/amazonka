@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -264,10 +265,10 @@ instance
       "DescribeClusterSecurityGroupsResult"
       ( \s h x ->
           DescribeClusterSecurityGroupsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "ClusterSecurityGroups"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "ClusterSecurityGroups"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "ClusterSecurityGroup")
+                            Prelude.>>= Core.may (Data.parseXMLList "ClusterSecurityGroup")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -291,31 +292,31 @@ instance Prelude.NFData DescribeClusterSecurityGroups where
       `Prelude.seq` Prelude.rnf clusterSecurityGroupName
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeClusterSecurityGroups where
+instance Data.ToHeaders DescribeClusterSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeClusterSecurityGroups where
+instance Data.ToPath DescribeClusterSecurityGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeClusterSecurityGroups where
+instance Data.ToQuery DescribeClusterSecurityGroups where
   toQuery DescribeClusterSecurityGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeClusterSecurityGroups" ::
+          Data.=: ( "DescribeClusterSecurityGroups" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "TagKeys"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
-        "Marker" Core.=: marker,
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagKey" Prelude.<$> tagKeys),
+        "Marker" Data.=: marker,
         "TagValues"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagValue" Prelude.<$> tagValues),
         "ClusterSecurityGroupName"
-          Core.=: clusterSecurityGroupName,
-        "MaxRecords" Core.=: maxRecords
+          Data.=: clusterSecurityGroupName,
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- |

@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ImportSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ImportStatus
 import Amazonka.DynamoDB.Types.InputFormat
@@ -41,7 +42,7 @@ data ImportSummary = ImportSummary'
     cloudWatchLogGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which this import task ended. (Does this include the
     -- successful complete creation of the table it was imported to?)
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The path and S3 bucket of the source file that is being imported. This
     -- includes the S3Bucket (required), S3KeyPrefix (optional) and
     -- S3BucketOwner (optional if the bucket is owned by the requester).
@@ -52,7 +53,7 @@ data ImportSummary = ImportSummary'
     -- or @ION@.
     inputFormat :: Prelude.Maybe InputFormat,
     -- | The time at which this import task began.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,7 +115,7 @@ importSummary_cloudWatchLogGroupArn = Lens.lens (\ImportSummary' {cloudWatchLogG
 -- | The time at which this import task ended. (Does this include the
 -- successful complete creation of the table it was imported to?)
 importSummary_endTime :: Lens.Lens' ImportSummary (Prelude.Maybe Prelude.UTCTime)
-importSummary_endTime = Lens.lens (\ImportSummary' {endTime} -> endTime) (\s@ImportSummary' {} a -> s {endTime = a} :: ImportSummary) Prelude.. Lens.mapping Core._Time
+importSummary_endTime = Lens.lens (\ImportSummary' {endTime} -> endTime) (\s@ImportSummary' {} a -> s {endTime = a} :: ImportSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The path and S3 bucket of the source file that is being imported. This
 -- includes the S3Bucket (required), S3KeyPrefix (optional) and
@@ -133,22 +134,22 @@ importSummary_inputFormat = Lens.lens (\ImportSummary' {inputFormat} -> inputFor
 
 -- | The time at which this import task began.
 importSummary_startTime :: Lens.Lens' ImportSummary (Prelude.Maybe Prelude.UTCTime)
-importSummary_startTime = Lens.lens (\ImportSummary' {startTime} -> startTime) (\s@ImportSummary' {} a -> s {startTime = a} :: ImportSummary) Prelude.. Lens.mapping Core._Time
+importSummary_startTime = Lens.lens (\ImportSummary' {startTime} -> startTime) (\s@ImportSummary' {} a -> s {startTime = a} :: ImportSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ImportSummary where
+instance Data.FromJSON ImportSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportSummary"
       ( \x ->
           ImportSummary'
-            Prelude.<$> (x Core..:? "TableArn")
-            Prelude.<*> (x Core..:? "ImportArn")
-            Prelude.<*> (x Core..:? "CloudWatchLogGroupArn")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "S3BucketSource")
-            Prelude.<*> (x Core..:? "ImportStatus")
-            Prelude.<*> (x Core..:? "InputFormat")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "TableArn")
+            Prelude.<*> (x Data..:? "ImportArn")
+            Prelude.<*> (x Data..:? "CloudWatchLogGroupArn")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "S3BucketSource")
+            Prelude.<*> (x Data..:? "ImportStatus")
+            Prelude.<*> (x Data..:? "InputFormat")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable ImportSummary where

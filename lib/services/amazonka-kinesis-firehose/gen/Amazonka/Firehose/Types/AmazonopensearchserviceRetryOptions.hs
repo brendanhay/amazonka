@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.AmazonopensearchserviceRetryOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newAmazonopensearchserviceRetryOptions' smart constructor.
@@ -51,15 +52,15 @@ amazonopensearchserviceRetryOptions_durationInSeconds :: Lens.Lens' Amazonopense
 amazonopensearchserviceRetryOptions_durationInSeconds = Lens.lens (\AmazonopensearchserviceRetryOptions' {durationInSeconds} -> durationInSeconds) (\s@AmazonopensearchserviceRetryOptions' {} a -> s {durationInSeconds = a} :: AmazonopensearchserviceRetryOptions)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AmazonopensearchserviceRetryOptions
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AmazonopensearchserviceRetryOptions"
       ( \x ->
           AmazonopensearchserviceRetryOptions'
-            Prelude.<$> (x Core..:? "DurationInSeconds")
+            Prelude.<$> (x Data..:? "DurationInSeconds")
       )
 
 instance
@@ -79,13 +80,13 @@ instance
     Prelude.rnf durationInSeconds
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AmazonopensearchserviceRetryOptions
   where
   toJSON AmazonopensearchserviceRetryOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DurationInSeconds" Core..=)
+          [ ("DurationInSeconds" Data..=)
               Prelude.<$> durationInSeconds
           ]
       )

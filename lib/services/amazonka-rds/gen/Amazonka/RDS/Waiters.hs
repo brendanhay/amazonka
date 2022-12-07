@@ -18,6 +18,7 @@ module Amazonka.RDS.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.DescribeDBClusterSnapshots
 import Amazonka.RDS.DescribeDBClusters
@@ -54,7 +55,7 @@ newDBClusterDeleted =
                 )
                 Prelude.. dbCluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -67,7 +68,7 @@ newDBClusterDeleted =
                 )
                 Prelude.. dbCluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "rebooting"
@@ -80,7 +81,7 @@ newDBClusterDeleted =
                 )
                 Prelude.. dbCluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "resetting-master-credentials"
@@ -93,7 +94,7 @@ newDBClusterDeleted =
                 )
                 Prelude.. dbCluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -126,7 +127,7 @@ newDBClusterSnapshotDeleted =
                 )
                 Prelude.. dbClusterSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -139,7 +140,7 @@ newDBClusterSnapshotDeleted =
                 )
                 Prelude.. dbClusterSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "rebooting"
@@ -152,7 +153,7 @@ newDBClusterSnapshotDeleted =
                 )
                 Prelude.. dbClusterSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "resetting-master-credentials"
@@ -165,7 +166,7 @@ newDBClusterSnapshotDeleted =
                 )
                 Prelude.. dbClusterSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -189,7 +190,7 @@ newDBClusterSnapshotAvailable =
                 )
                 Prelude.. dbClusterSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -202,7 +203,7 @@ newDBClusterSnapshotAvailable =
                 )
                 Prelude.. dbClusterSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -215,7 +216,7 @@ newDBClusterSnapshotAvailable =
                 )
                 Prelude.. dbClusterSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -228,7 +229,7 @@ newDBClusterSnapshotAvailable =
                 )
                 Prelude.. dbClusterSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "incompatible-restore"
@@ -241,7 +242,7 @@ newDBClusterSnapshotAvailable =
                 )
                 Prelude.. dbClusterSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "incompatible-parameters"
@@ -254,7 +255,7 @@ newDBClusterSnapshotAvailable =
                 )
                 Prelude.. dbClusterSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -278,7 +279,7 @@ newDBInstanceAvailable =
                 )
                 Prelude.. dbInstance_dbInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -291,7 +292,7 @@ newDBInstanceAvailable =
                 )
                 Prelude.. dbInstance_dbInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -304,7 +305,7 @@ newDBInstanceAvailable =
                 )
                 Prelude.. dbInstance_dbInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -317,7 +318,7 @@ newDBInstanceAvailable =
                 )
                 Prelude.. dbInstance_dbInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "incompatible-restore"
@@ -330,7 +331,7 @@ newDBInstanceAvailable =
                 )
                 Prelude.. dbInstance_dbInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "incompatible-parameters"
@@ -343,7 +344,7 @@ newDBInstanceAvailable =
                 )
                 Prelude.. dbInstance_dbInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -370,7 +371,7 @@ newDBSnapshotCompleted =
                 )
                 Prelude.. dbSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -394,7 +395,7 @@ newDBSnapshotAvailable =
                 )
                 Prelude.. dbSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -407,7 +408,7 @@ newDBSnapshotAvailable =
                 )
                 Prelude.. dbSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -420,7 +421,7 @@ newDBSnapshotAvailable =
                 )
                 Prelude.. dbSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -433,7 +434,7 @@ newDBSnapshotAvailable =
                 )
                 Prelude.. dbSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "incompatible-restore"
@@ -446,7 +447,7 @@ newDBSnapshotAvailable =
                 )
                 Prelude.. dbSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "incompatible-parameters"
@@ -459,7 +460,7 @@ newDBSnapshotAvailable =
                 )
                 Prelude.. dbSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -492,7 +493,7 @@ newDBInstanceDeleted =
                 )
                 Prelude.. dbInstance_dbInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -505,7 +506,7 @@ newDBInstanceDeleted =
                 )
                 Prelude.. dbInstance_dbInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "rebooting"
@@ -518,7 +519,7 @@ newDBInstanceDeleted =
                 )
                 Prelude.. dbInstance_dbInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "resetting-master-credentials"
@@ -531,7 +532,7 @@ newDBInstanceDeleted =
                 )
                 Prelude.. dbInstance_dbInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -555,7 +556,7 @@ newDBClusterAvailable =
                 )
                 Prelude.. dbCluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -568,7 +569,7 @@ newDBClusterAvailable =
                 )
                 Prelude.. dbCluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -581,7 +582,7 @@ newDBClusterAvailable =
                 )
                 Prelude.. dbCluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -594,7 +595,7 @@ newDBClusterAvailable =
                 )
                 Prelude.. dbCluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "incompatible-restore"
@@ -607,7 +608,7 @@ newDBClusterAvailable =
                 )
                 Prelude.. dbCluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "incompatible-parameters"
@@ -620,7 +621,7 @@ newDBClusterAvailable =
                 )
                 Prelude.. dbCluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -653,7 +654,7 @@ newDBSnapshotDeleted =
                 )
                 Prelude.. dbSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -666,7 +667,7 @@ newDBSnapshotDeleted =
                 )
                 Prelude.. dbSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "rebooting"
@@ -679,7 +680,7 @@ newDBSnapshotDeleted =
                 )
                 Prelude.. dbSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "resetting-master-credentials"
@@ -692,7 +693,7 @@ newDBSnapshotDeleted =
                 )
                 Prelude.. dbSnapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

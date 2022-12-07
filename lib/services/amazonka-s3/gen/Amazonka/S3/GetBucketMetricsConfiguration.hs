@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,7 +142,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetBucketMetricsConfigurationResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,20 +161,20 @@ instance Prelude.NFData GetBucketMetricsConfiguration where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders GetBucketMetricsConfiguration where
+instance Data.ToHeaders GetBucketMetricsConfiguration where
   toHeaders GetBucketMetricsConfiguration' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath GetBucketMetricsConfiguration where
+instance Data.ToPath GetBucketMetricsConfiguration where
   toPath GetBucketMetricsConfiguration' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery GetBucketMetricsConfiguration where
+instance Data.ToQuery GetBucketMetricsConfiguration where
   toQuery GetBucketMetricsConfiguration' {..} =
-    Prelude.mconcat ["id" Core.=: id, "metrics"]
+    Prelude.mconcat ["id" Data.=: id, "metrics"]
 
 -- | /See:/ 'newGetBucketMetricsConfigurationResponse' smart constructor.
 data GetBucketMetricsConfigurationResponse = GetBucketMetricsConfigurationResponse'

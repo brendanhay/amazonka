@@ -21,6 +21,7 @@ module Amazonka.CodeStar.Types.ProjectStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An indication of whether a project creation or deletion is failed or
@@ -67,14 +68,14 @@ projectStatus_reason = Lens.lens (\ProjectStatus' {reason} -> reason) (\s@Projec
 projectStatus_state :: Lens.Lens' ProjectStatus Prelude.Text
 projectStatus_state = Lens.lens (\ProjectStatus' {state} -> state) (\s@ProjectStatus' {} a -> s {state = a} :: ProjectStatus)
 
-instance Core.FromJSON ProjectStatus where
+instance Data.FromJSON ProjectStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectStatus"
       ( \x ->
           ProjectStatus'
-            Prelude.<$> (x Core..:? "reason")
-            Prelude.<*> (x Core..: "state")
+            Prelude.<$> (x Data..:? "reason")
+            Prelude.<*> (x Data..: "state")
       )
 
 instance Prelude.Hashable ProjectStatus where

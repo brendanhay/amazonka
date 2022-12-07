@@ -22,6 +22,7 @@ module Amazonka.Config.Types.ExecutionControls where
 import Amazonka.Config.Types.SsmControls
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The controls that Config uses for executing remediations.
@@ -51,13 +52,13 @@ newExecutionControls =
 executionControls_ssmControls :: Lens.Lens' ExecutionControls (Prelude.Maybe SsmControls)
 executionControls_ssmControls = Lens.lens (\ExecutionControls' {ssmControls} -> ssmControls) (\s@ExecutionControls' {} a -> s {ssmControls = a} :: ExecutionControls)
 
-instance Core.FromJSON ExecutionControls where
+instance Data.FromJSON ExecutionControls where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecutionControls"
       ( \x ->
           ExecutionControls'
-            Prelude.<$> (x Core..:? "SsmControls")
+            Prelude.<$> (x Data..:? "SsmControls")
       )
 
 instance Prelude.Hashable ExecutionControls where
@@ -67,9 +68,9 @@ instance Prelude.Hashable ExecutionControls where
 instance Prelude.NFData ExecutionControls where
   rnf ExecutionControls' {..} = Prelude.rnf ssmControls
 
-instance Core.ToJSON ExecutionControls where
+instance Data.ToJSON ExecutionControls where
   toJSON ExecutionControls' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("SsmControls" Core..=) Prelude.<$> ssmControls]
+          [("SsmControls" Data..=) Prelude.<$> ssmControls]
       )

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,7 +103,7 @@ instance Core.AWSRequest DescribeHostKey where
       ( \s h x ->
           DescribeHostKeyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "HostKey")
+            Prelude.<*> (x Data..:> "HostKey")
       )
 
 instance Prelude.Hashable DescribeHostKey where
@@ -115,34 +116,34 @@ instance Prelude.NFData DescribeHostKey where
     Prelude.rnf serverId
       `Prelude.seq` Prelude.rnf hostKeyId
 
-instance Core.ToHeaders DescribeHostKey where
+instance Data.ToHeaders DescribeHostKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.DescribeHostKey" ::
+              Data.=# ( "TransferService.DescribeHostKey" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeHostKey where
+instance Data.ToJSON DescribeHostKey where
   toJSON DescribeHostKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ServerId" Core..= serverId),
-            Prelude.Just ("HostKeyId" Core..= hostKeyId)
+          [ Prelude.Just ("ServerId" Data..= serverId),
+            Prelude.Just ("HostKeyId" Data..= hostKeyId)
           ]
       )
 
-instance Core.ToPath DescribeHostKey where
+instance Data.ToPath DescribeHostKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeHostKey where
+instance Data.ToQuery DescribeHostKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeHostKeyResponse' smart constructor.

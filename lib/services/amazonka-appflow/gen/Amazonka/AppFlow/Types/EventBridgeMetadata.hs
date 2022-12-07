@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.EventBridgeMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to Amazon EventBridge.
@@ -39,9 +40,9 @@ newEventBridgeMetadata ::
   EventBridgeMetadata
 newEventBridgeMetadata = EventBridgeMetadata'
 
-instance Core.FromJSON EventBridgeMetadata where
+instance Data.FromJSON EventBridgeMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventBridgeMetadata"
       (\x -> Prelude.pure EventBridgeMetadata')
 

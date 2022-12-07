@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.SourceConfiguration where
 import Amazonka.Chime.Types.SelectedVideoStreams
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Source configuration for a specified media capture pipeline.
@@ -57,13 +58,13 @@ newSourceConfiguration =
 sourceConfiguration_selectedVideoStreams :: Lens.Lens' SourceConfiguration (Prelude.Maybe SelectedVideoStreams)
 sourceConfiguration_selectedVideoStreams = Lens.lens (\SourceConfiguration' {selectedVideoStreams} -> selectedVideoStreams) (\s@SourceConfiguration' {} a -> s {selectedVideoStreams = a} :: SourceConfiguration)
 
-instance Core.FromJSON SourceConfiguration where
+instance Data.FromJSON SourceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceConfiguration"
       ( \x ->
           SourceConfiguration'
-            Prelude.<$> (x Core..:? "SelectedVideoStreams")
+            Prelude.<$> (x Data..:? "SelectedVideoStreams")
       )
 
 instance Prelude.Hashable SourceConfiguration where
@@ -74,11 +75,11 @@ instance Prelude.NFData SourceConfiguration where
   rnf SourceConfiguration' {..} =
     Prelude.rnf selectedVideoStreams
 
-instance Core.ToJSON SourceConfiguration where
+instance Data.ToJSON SourceConfiguration where
   toJSON SourceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SelectedVideoStreams" Core..=)
+          [ ("SelectedVideoStreams" Data..=)
               Prelude.<$> selectedVideoStreams
           ]
       )

@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -162,7 +163,7 @@ instance Core.AWSRequest CreateOrganization where
     Response.receiveJSON
       ( \s h x ->
           CreateOrganizationResponse'
-            Prelude.<$> (x Core..?> "OrganizationId")
+            Prelude.<$> (x Data..?> "OrganizationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,39 +185,39 @@ instance Prelude.NFData CreateOrganization where
       `Prelude.seq` Prelude.rnf enableInteroperability
       `Prelude.seq` Prelude.rnf alias
 
-instance Core.ToHeaders CreateOrganization where
+instance Data.ToHeaders CreateOrganization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.CreateOrganization" ::
+              Data.=# ( "WorkMailService.CreateOrganization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateOrganization where
+instance Data.ToJSON CreateOrganization where
   toJSON CreateOrganization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DirectoryId" Core..=) Prelude.<$> directoryId,
-            ("Domains" Core..=) Prelude.<$> domains,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("KmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("EnableInteroperability" Core..=)
+          [ ("DirectoryId" Data..=) Prelude.<$> directoryId,
+            ("Domains" Data..=) Prelude.<$> domains,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("EnableInteroperability" Data..=)
               Prelude.<$> enableInteroperability,
-            Prelude.Just ("Alias" Core..= alias)
+            Prelude.Just ("Alias" Data..= alias)
           ]
       )
 
-instance Core.ToPath CreateOrganization where
+instance Data.ToPath CreateOrganization where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateOrganization where
+instance Data.ToQuery CreateOrganization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateOrganizationResponse' smart constructor.

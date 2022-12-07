@@ -22,6 +22,7 @@ module Amazonka.ApplicationInsights.Types.ApplicationInfo where
 import Amazonka.ApplicationInsights.Types.DiscoveryType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the status of the application.
@@ -143,20 +144,20 @@ applicationInfo_remarks = Lens.lens (\ApplicationInfo' {remarks} -> remarks) (\s
 applicationInfo_opsCenterEnabled :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Bool)
 applicationInfo_opsCenterEnabled = Lens.lens (\ApplicationInfo' {opsCenterEnabled} -> opsCenterEnabled) (\s@ApplicationInfo' {} a -> s {opsCenterEnabled = a} :: ApplicationInfo)
 
-instance Core.FromJSON ApplicationInfo where
+instance Data.FromJSON ApplicationInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationInfo"
       ( \x ->
           ApplicationInfo'
-            Prelude.<$> (x Core..:? "LifeCycle")
-            Prelude.<*> (x Core..:? "AutoConfigEnabled")
-            Prelude.<*> (x Core..:? "DiscoveryType")
-            Prelude.<*> (x Core..:? "OpsItemSNSTopicArn")
-            Prelude.<*> (x Core..:? "CWEMonitorEnabled")
-            Prelude.<*> (x Core..:? "ResourceGroupName")
-            Prelude.<*> (x Core..:? "Remarks")
-            Prelude.<*> (x Core..:? "OpsCenterEnabled")
+            Prelude.<$> (x Data..:? "LifeCycle")
+            Prelude.<*> (x Data..:? "AutoConfigEnabled")
+            Prelude.<*> (x Data..:? "DiscoveryType")
+            Prelude.<*> (x Data..:? "OpsItemSNSTopicArn")
+            Prelude.<*> (x Data..:? "CWEMonitorEnabled")
+            Prelude.<*> (x Data..:? "ResourceGroupName")
+            Prelude.<*> (x Data..:? "Remarks")
+            Prelude.<*> (x Data..:? "OpsCenterEnabled")
       )
 
 instance Prelude.Hashable ApplicationInfo where

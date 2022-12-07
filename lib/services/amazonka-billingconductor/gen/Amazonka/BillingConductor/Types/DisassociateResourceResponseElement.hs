@@ -22,6 +22,7 @@ module Amazonka.BillingConductor.Types.DisassociateResourceResponseElement where
 import Amazonka.BillingConductor.Types.AssociateResourceError
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource disassociation result for a percentage custom line item.
@@ -67,15 +68,15 @@ disassociateResourceResponseElement_error :: Lens.Lens' DisassociateResourceResp
 disassociateResourceResponseElement_error = Lens.lens (\DisassociateResourceResponseElement' {error} -> error) (\s@DisassociateResourceResponseElement' {} a -> s {error = a} :: DisassociateResourceResponseElement)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DisassociateResourceResponseElement
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DisassociateResourceResponseElement"
       ( \x ->
           DisassociateResourceResponseElement'
-            Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "Error")
+            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Error")
       )
 
 instance

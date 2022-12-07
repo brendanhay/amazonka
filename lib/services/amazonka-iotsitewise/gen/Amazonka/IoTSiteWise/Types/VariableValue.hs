@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.VariableValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies a property value used in an expression.
@@ -90,14 +91,14 @@ variableValue_hierarchyId = Lens.lens (\VariableValue' {hierarchyId} -> hierarch
 variableValue_propertyId :: Lens.Lens' VariableValue Prelude.Text
 variableValue_propertyId = Lens.lens (\VariableValue' {propertyId} -> propertyId) (\s@VariableValue' {} a -> s {propertyId = a} :: VariableValue)
 
-instance Core.FromJSON VariableValue where
+instance Data.FromJSON VariableValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VariableValue"
       ( \x ->
           VariableValue'
-            Prelude.<$> (x Core..:? "hierarchyId")
-            Prelude.<*> (x Core..: "propertyId")
+            Prelude.<$> (x Data..:? "hierarchyId")
+            Prelude.<*> (x Data..: "propertyId")
       )
 
 instance Prelude.Hashable VariableValue where
@@ -110,11 +111,11 @@ instance Prelude.NFData VariableValue where
     Prelude.rnf hierarchyId
       `Prelude.seq` Prelude.rnf propertyId
 
-instance Core.ToJSON VariableValue where
+instance Data.ToJSON VariableValue where
   toJSON VariableValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("hierarchyId" Core..=) Prelude.<$> hierarchyId,
-            Prelude.Just ("propertyId" Core..= propertyId)
+          [ ("hierarchyId" Data..=) Prelude.<$> hierarchyId,
+            Prelude.Just ("propertyId" Data..= propertyId)
           ]
       )

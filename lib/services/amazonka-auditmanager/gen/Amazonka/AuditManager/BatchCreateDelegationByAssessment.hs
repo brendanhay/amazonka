@@ -44,6 +44,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,8 +106,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchCreateDelegationByAssessmentResponse'
-            Prelude.<$> (x Core..?> "errors" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "delegations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "delegations" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,46 +131,46 @@ instance
       `Prelude.seq` Prelude.rnf assessmentId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchCreateDelegationByAssessment
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     BatchCreateDelegationByAssessment
   where
   toJSON BatchCreateDelegationByAssessment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "createDelegationRequests"
-                  Core..= createDelegationRequests
+                  Data..= createDelegationRequests
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     BatchCreateDelegationByAssessment
   where
   toPath BatchCreateDelegationByAssessment' {..} =
     Prelude.mconcat
       [ "/assessments/",
-        Core.toBS assessmentId,
+        Data.toBS assessmentId,
         "/delegations"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     BatchCreateDelegationByAssessment
   where
   toQuery = Prelude.const Prelude.mempty

@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ data Query = Query'
     --
     -- -   After 4 hours, any request with the same @ClientToken@ is treated as
     --     a new request.
-    clientToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    clientToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A pagination token used to return a set of results. When the @Query@ API
     -- is invoked using @NextToken@, that particular invocation is assumed to
     -- be a subsequent invocation of a prior call to @Query@, and a result set
@@ -152,7 +153,7 @@ data Query = Query'
     -- number of rows to meet the 1 MB limit.
     maxRows :: Prelude.Maybe Prelude.Natural,
     -- | The query to be run by Timestream.
-    queryString :: Core.Sensitive Prelude.Text
+    queryString :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -245,7 +246,7 @@ newQuery pQueryString_ =
     { clientToken = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       maxRows = Prelude.Nothing,
-      queryString = Core._Sensitive Lens.# pQueryString_
+      queryString = Data._Sensitive Lens.# pQueryString_
     }
 
 -- | Unique, case-sensitive string of up to 64 ASCII characters specified
@@ -269,7 +270,7 @@ newQuery pQueryString_ =
 -- -   After 4 hours, any request with the same @ClientToken@ is treated as
 --     a new request.
 query_clientToken :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
-query_clientToken = Lens.lens (\Query' {clientToken} -> clientToken) (\s@Query' {} a -> s {clientToken = a} :: Query) Prelude.. Lens.mapping Core._Sensitive
+query_clientToken = Lens.lens (\Query' {clientToken} -> clientToken) (\s@Query' {} a -> s {clientToken = a} :: Query) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A pagination token used to return a set of results. When the @Query@ API
 -- is invoked using @NextToken@, that particular invocation is assumed to
@@ -327,7 +328,7 @@ query_maxRows = Lens.lens (\Query' {maxRows} -> maxRows) (\s@Query' {} a -> s {m
 
 -- | The query to be run by Timestream.
 query_queryString :: Lens.Lens' Query Prelude.Text
-query_queryString = Lens.lens (\Query' {queryString} -> queryString) (\s@Query' {} a -> s {queryString = a} :: Query) Prelude.. Core._Sensitive
+query_queryString = Lens.lens (\Query' {queryString} -> queryString) (\s@Query' {} a -> s {queryString = a} :: Query) Prelude.. Data._Sensitive
 
 instance Core.AWSPager Query where
   page rq rs
@@ -353,12 +354,12 @@ instance Core.AWSRequest Query where
     Response.receiveJSON
       ( \s h x ->
           QueryResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "QueryStatus")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "QueryStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "QueryId")
-            Prelude.<*> (x Core..?> "Rows" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ColumnInfo" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "QueryId")
+            Prelude.<*> (x Data..?> "Rows" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ColumnInfo" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable Query where
@@ -375,34 +376,34 @@ instance Prelude.NFData Query where
       `Prelude.seq` Prelude.rnf maxRows
       `Prelude.seq` Prelude.rnf queryString
 
-instance Core.ToHeaders Query where
+instance Data.ToHeaders Query where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Timestream_20181101.Query" :: Prelude.ByteString),
+              Data.=# ("Timestream_20181101.Query" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON Query where
+instance Data.ToJSON Query where
   toJSON Query' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxRows" Core..=) Prelude.<$> maxRows,
-            Prelude.Just ("QueryString" Core..= queryString)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxRows" Data..=) Prelude.<$> maxRows,
+            Prelude.Just ("QueryString" Data..= queryString)
           ]
       )
 
-instance Core.ToPath Query where
+instance Data.ToPath Query where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery Query where
+instance Data.ToQuery Query where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newQueryResponse' smart constructor.

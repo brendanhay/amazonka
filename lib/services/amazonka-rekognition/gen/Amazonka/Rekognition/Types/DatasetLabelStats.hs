@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.DatasetLabelStats where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Statistics about a label used in a dataset. For more information, see
@@ -66,14 +67,14 @@ datasetLabelStats_boundingBoxCount = Lens.lens (\DatasetLabelStats' {boundingBox
 datasetLabelStats_entryCount :: Lens.Lens' DatasetLabelStats (Prelude.Maybe Prelude.Natural)
 datasetLabelStats_entryCount = Lens.lens (\DatasetLabelStats' {entryCount} -> entryCount) (\s@DatasetLabelStats' {} a -> s {entryCount = a} :: DatasetLabelStats)
 
-instance Core.FromJSON DatasetLabelStats where
+instance Data.FromJSON DatasetLabelStats where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetLabelStats"
       ( \x ->
           DatasetLabelStats'
-            Prelude.<$> (x Core..:? "BoundingBoxCount")
-            Prelude.<*> (x Core..:? "EntryCount")
+            Prelude.<$> (x Data..:? "BoundingBoxCount")
+            Prelude.<*> (x Data..:? "EntryCount")
       )
 
 instance Prelude.Hashable DatasetLabelStats where

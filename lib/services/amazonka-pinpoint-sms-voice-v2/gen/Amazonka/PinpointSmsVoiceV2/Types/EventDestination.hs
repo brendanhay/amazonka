@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.EventDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types.CloudWatchLogsDestination
 import Amazonka.PinpointSmsVoiceV2.Types.EventType
 import Amazonka.PinpointSmsVoiceV2.Types.KinesisFirehoseDestination
@@ -125,18 +126,18 @@ eventDestination_enabled = Lens.lens (\EventDestination' {enabled} -> enabled) (
 eventDestination_matchingEventTypes :: Lens.Lens' EventDestination (Prelude.NonEmpty EventType)
 eventDestination_matchingEventTypes = Lens.lens (\EventDestination' {matchingEventTypes} -> matchingEventTypes) (\s@EventDestination' {} a -> s {matchingEventTypes = a} :: EventDestination) Prelude.. Lens.coerced
 
-instance Core.FromJSON EventDestination where
+instance Data.FromJSON EventDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventDestination"
       ( \x ->
           EventDestination'
-            Prelude.<$> (x Core..:? "CloudWatchLogsDestination")
-            Prelude.<*> (x Core..:? "SnsDestination")
-            Prelude.<*> (x Core..:? "KinesisFirehoseDestination")
-            Prelude.<*> (x Core..: "EventDestinationName")
-            Prelude.<*> (x Core..: "Enabled")
-            Prelude.<*> (x Core..: "MatchingEventTypes")
+            Prelude.<$> (x Data..:? "CloudWatchLogsDestination")
+            Prelude.<*> (x Data..:? "SnsDestination")
+            Prelude.<*> (x Data..:? "KinesisFirehoseDestination")
+            Prelude.<*> (x Data..: "EventDestinationName")
+            Prelude.<*> (x Data..: "Enabled")
+            Prelude.<*> (x Data..: "MatchingEventTypes")
       )
 
 instance Prelude.Hashable EventDestination where

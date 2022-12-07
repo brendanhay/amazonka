@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.CreateRemoteAccessSessionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.BillingMethod
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,14 +84,14 @@ instance
       `Prelude.seq` Prelude.rnf billingMethod
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateRemoteAccessSessionConfiguration
   where
   toJSON CreateRemoteAccessSessionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("vpceConfigurationArns" Core..=)
+          [ ("vpceConfigurationArns" Data..=)
               Prelude.<$> vpceConfigurationArns,
-            ("billingMethod" Core..=) Prelude.<$> billingMethod
+            ("billingMethod" Data..=) Prelude.<$> billingMethod
           ]
       )

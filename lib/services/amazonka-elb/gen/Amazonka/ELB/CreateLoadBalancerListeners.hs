@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,24 +119,24 @@ instance Prelude.NFData CreateLoadBalancerListeners where
     Prelude.rnf loadBalancerName
       `Prelude.seq` Prelude.rnf listeners
 
-instance Core.ToHeaders CreateLoadBalancerListeners where
+instance Data.ToHeaders CreateLoadBalancerListeners where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateLoadBalancerListeners where
+instance Data.ToPath CreateLoadBalancerListeners where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLoadBalancerListeners where
+instance Data.ToQuery CreateLoadBalancerListeners where
   toQuery CreateLoadBalancerListeners' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateLoadBalancerListeners" ::
+          Data.=: ( "CreateLoadBalancerListeners" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Core.=: loadBalancerName,
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
+        "LoadBalancerName" Data.=: loadBalancerName,
         "Listeners"
-          Core.=: Core.toQueryList "member" listeners
+          Data.=: Data.toQueryList "member" listeners
       ]
 
 -- | Contains the parameters for CreateLoadBalancerListener.

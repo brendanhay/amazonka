@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,7 +122,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateTransitVirtualInterfaceResponse'
-            Prelude.<$> (x Core..?> "virtualInterface")
+            Prelude.<$> (x Data..?> "virtualInterface")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,37 +139,37 @@ instance Prelude.NFData CreateTransitVirtualInterface where
     Prelude.rnf connectionId
       `Prelude.seq` Prelude.rnf newTransitVirtualInterface'
 
-instance Core.ToHeaders CreateTransitVirtualInterface where
+instance Data.ToHeaders CreateTransitVirtualInterface where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.CreateTransitVirtualInterface" ::
+              Data.=# ( "OvertureService.CreateTransitVirtualInterface" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTransitVirtualInterface where
+instance Data.ToJSON CreateTransitVirtualInterface where
   toJSON CreateTransitVirtualInterface' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("connectionId" Core..= connectionId),
+          [ Prelude.Just ("connectionId" Data..= connectionId),
             Prelude.Just
               ( "newTransitVirtualInterface"
-                  Core..= newTransitVirtualInterface'
+                  Data..= newTransitVirtualInterface'
               )
           ]
       )
 
-instance Core.ToPath CreateTransitVirtualInterface where
+instance Data.ToPath CreateTransitVirtualInterface where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTransitVirtualInterface where
+instance Data.ToQuery CreateTransitVirtualInterface where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTransitVirtualInterfaceResponse' smart constructor.

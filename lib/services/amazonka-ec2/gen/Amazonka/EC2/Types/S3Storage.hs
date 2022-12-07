@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.S3Storage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -40,7 +41,7 @@ data S3Storage = S3Storage'
     aWSAccessKeyId :: Prelude.Maybe Prelude.Text,
     -- | An Amazon S3 upload policy that gives Amazon EC2 permission to upload
     -- items into Amazon S3 on your behalf.
-    uploadPolicy :: Prelude.Maybe Core.Base64,
+    uploadPolicy :: Prelude.Maybe Data.Base64,
     -- | The signature of the JSON document.
     uploadPolicySignature :: Prelude.Maybe Prelude.Text,
     -- | The beginning of the file name of the AMI.
@@ -106,7 +107,7 @@ s3Storage_aWSAccessKeyId = Lens.lens (\S3Storage' {aWSAccessKeyId} -> aWSAccessK
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 s3Storage_uploadPolicy :: Lens.Lens' S3Storage (Prelude.Maybe Prelude.ByteString)
-s3Storage_uploadPolicy = Lens.lens (\S3Storage' {uploadPolicy} -> uploadPolicy) (\s@S3Storage' {} a -> s {uploadPolicy = a} :: S3Storage) Prelude.. Lens.mapping Core._Base64
+s3Storage_uploadPolicy = Lens.lens (\S3Storage' {uploadPolicy} -> uploadPolicy) (\s@S3Storage' {} a -> s {uploadPolicy = a} :: S3Storage) Prelude.. Lens.mapping Data._Base64
 
 -- | The signature of the JSON document.
 s3Storage_uploadPolicySignature :: Lens.Lens' S3Storage (Prelude.Maybe Prelude.Text)
@@ -116,14 +117,14 @@ s3Storage_uploadPolicySignature = Lens.lens (\S3Storage' {uploadPolicySignature}
 s3Storage_prefix :: Lens.Lens' S3Storage (Prelude.Maybe Prelude.Text)
 s3Storage_prefix = Lens.lens (\S3Storage' {prefix} -> prefix) (\s@S3Storage' {} a -> s {prefix = a} :: S3Storage)
 
-instance Core.FromXML S3Storage where
+instance Data.FromXML S3Storage where
   parseXML x =
     S3Storage'
-      Prelude.<$> (x Core..@? "bucket")
-      Prelude.<*> (x Core..@? "AWSAccessKeyId")
-      Prelude.<*> (x Core..@? "uploadPolicy")
-      Prelude.<*> (x Core..@? "uploadPolicySignature")
-      Prelude.<*> (x Core..@? "prefix")
+      Prelude.<$> (x Data..@? "bucket")
+      Prelude.<*> (x Data..@? "AWSAccessKeyId")
+      Prelude.<*> (x Data..@? "uploadPolicy")
+      Prelude.<*> (x Data..@? "uploadPolicySignature")
+      Prelude.<*> (x Data..@? "prefix")
 
 instance Prelude.Hashable S3Storage where
   hashWithSalt _salt S3Storage' {..} =
@@ -141,13 +142,13 @@ instance Prelude.NFData S3Storage where
       `Prelude.seq` Prelude.rnf uploadPolicySignature
       `Prelude.seq` Prelude.rnf prefix
 
-instance Core.ToQuery S3Storage where
+instance Data.ToQuery S3Storage where
   toQuery S3Storage' {..} =
     Prelude.mconcat
-      [ "Bucket" Core.=: bucket,
-        "AWSAccessKeyId" Core.=: aWSAccessKeyId,
-        "UploadPolicy" Core.=: uploadPolicy,
+      [ "Bucket" Data.=: bucket,
+        "AWSAccessKeyId" Data.=: aWSAccessKeyId,
+        "UploadPolicy" Data.=: uploadPolicy,
         "UploadPolicySignature"
-          Core.=: uploadPolicySignature,
-        "Prefix" Core.=: prefix
+          Data.=: uploadPolicySignature,
+        "Prefix" Data.=: prefix
       ]

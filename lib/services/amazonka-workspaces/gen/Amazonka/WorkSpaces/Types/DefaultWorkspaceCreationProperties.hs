@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.DefaultWorkspaceCreationProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the default values that are used to create WorkSpaces. For
@@ -149,20 +150,20 @@ defaultWorkspaceCreationProperties_customSecurityGroupId :: Lens.Lens' DefaultWo
 defaultWorkspaceCreationProperties_customSecurityGroupId = Lens.lens (\DefaultWorkspaceCreationProperties' {customSecurityGroupId} -> customSecurityGroupId) (\s@DefaultWorkspaceCreationProperties' {} a -> s {customSecurityGroupId = a} :: DefaultWorkspaceCreationProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DefaultWorkspaceCreationProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DefaultWorkspaceCreationProperties"
       ( \x ->
           DefaultWorkspaceCreationProperties'
-            Prelude.<$> (x Core..:? "UserEnabledAsLocalAdministrator")
-            Prelude.<*> (x Core..:? "EnableInternetAccess")
-            Prelude.<*> (x Core..:? "EnableWorkDocs")
-            Prelude.<*> (x Core..:? "DefaultOu")
-            Prelude.<*> (x Core..:? "EnableMaintenanceMode")
-            Prelude.<*> (x Core..:? "CustomSecurityGroupId")
+            Prelude.<$> (x Data..:? "UserEnabledAsLocalAdministrator")
+            Prelude.<*> (x Data..:? "EnableInternetAccess")
+            Prelude.<*> (x Data..:? "EnableWorkDocs")
+            Prelude.<*> (x Data..:? "DefaultOu")
+            Prelude.<*> (x Data..:? "EnableMaintenanceMode")
+            Prelude.<*> (x Data..:? "CustomSecurityGroupId")
       )
 
 instance

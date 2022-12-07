@@ -27,6 +27,7 @@ import Amazonka.Connect.Types.RoutingProfileReference
 import Amazonka.Connect.Types.UserReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Data for a user.
@@ -149,26 +150,26 @@ userData_maxSlotsByChannel = Lens.lens (\UserData' {maxSlotsByChannel} -> maxSlo
 userData_contacts :: Lens.Lens' UserData (Prelude.Maybe [AgentContactReference])
 userData_contacts = Lens.lens (\UserData' {contacts} -> contacts) (\s@UserData' {} a -> s {contacts = a} :: UserData) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON UserData where
+instance Data.FromJSON UserData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserData"
       ( \x ->
           UserData'
-            Prelude.<$> ( x Core..:? "AvailableSlotsByChannel"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "AvailableSlotsByChannel"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "User")
-            Prelude.<*> (x Core..:? "HierarchyPath")
-            Prelude.<*> (x Core..:? "RoutingProfile")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> ( x Core..:? "ActiveSlotsByChannel"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "User")
+            Prelude.<*> (x Data..:? "HierarchyPath")
+            Prelude.<*> (x Data..:? "RoutingProfile")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> ( x Data..:? "ActiveSlotsByChannel"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "MaxSlotsByChannel"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "MaxSlotsByChannel"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Contacts" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Contacts" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable UserData where

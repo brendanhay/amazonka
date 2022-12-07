@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -68,7 +69,7 @@ instance Core.AWSRequest GetLoggingOptions where
       ( \s h x ->
           GetLoggingOptionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "cloudWatchLogDelivery")
+            Prelude.<*> (x Data..:> "cloudWatchLogDelivery")
       )
 
 instance Prelude.Hashable GetLoggingOptions where
@@ -78,28 +79,28 @@ instance Prelude.Hashable GetLoggingOptions where
 instance Prelude.NFData GetLoggingOptions where
   rnf _ = ()
 
-instance Core.ToHeaders GetLoggingOptions where
+instance Data.ToHeaders GetLoggingOptions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.GetLoggingOptions" ::
+              Data.=# ( "IoTAutobahnControlPlane.GetLoggingOptions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLoggingOptions where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetLoggingOptions where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetLoggingOptions where
+instance Data.ToPath GetLoggingOptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetLoggingOptions where
+instance Data.ToQuery GetLoggingOptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLoggingOptionsResponse' smart constructor.

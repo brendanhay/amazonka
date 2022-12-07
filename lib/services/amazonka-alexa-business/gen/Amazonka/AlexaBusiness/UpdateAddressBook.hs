@@ -43,6 +43,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,36 +120,36 @@ instance Prelude.NFData UpdateAddressBook where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf addressBookArn
 
-instance Core.ToHeaders UpdateAddressBook where
+instance Data.ToHeaders UpdateAddressBook where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.UpdateAddressBook" ::
+              Data.=# ( "AlexaForBusiness.UpdateAddressBook" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAddressBook where
+instance Data.ToJSON UpdateAddressBook where
   toJSON UpdateAddressBook' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just
-              ("AddressBookArn" Core..= addressBookArn)
+              ("AddressBookArn" Data..= addressBookArn)
           ]
       )
 
-instance Core.ToPath UpdateAddressBook where
+instance Data.ToPath UpdateAddressBook where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAddressBook where
+instance Data.ToQuery UpdateAddressBook where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAddressBookResponse' smart constructor.

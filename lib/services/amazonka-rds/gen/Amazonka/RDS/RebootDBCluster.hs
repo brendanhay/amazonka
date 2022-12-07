@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance Core.AWSRequest RebootDBCluster where
       "RebootDBClusterResult"
       ( \s h x ->
           RebootDBClusterResponse'
-            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<$> (x Data..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,20 +128,20 @@ instance Prelude.NFData RebootDBCluster where
   rnf RebootDBCluster' {..} =
     Prelude.rnf dbClusterIdentifier
 
-instance Core.ToHeaders RebootDBCluster where
+instance Data.ToHeaders RebootDBCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RebootDBCluster where
+instance Data.ToPath RebootDBCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RebootDBCluster where
+instance Data.ToQuery RebootDBCluster where
   toQuery RebootDBCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RebootDBCluster" :: Prelude.ByteString),
+          Data.=: ("RebootDBCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier
       ]
 
 -- | /See:/ 'newRebootDBClusterResponse' smart constructor.

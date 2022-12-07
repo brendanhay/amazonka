@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.BackTestConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for backtest mode.
@@ -55,13 +56,13 @@ newBackTestConfiguration pRunBackTestMode_ =
 backTestConfiguration_runBackTestMode :: Lens.Lens' BackTestConfiguration Prelude.Bool
 backTestConfiguration_runBackTestMode = Lens.lens (\BackTestConfiguration' {runBackTestMode} -> runBackTestMode) (\s@BackTestConfiguration' {} a -> s {runBackTestMode = a} :: BackTestConfiguration)
 
-instance Core.FromJSON BackTestConfiguration where
+instance Data.FromJSON BackTestConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackTestConfiguration"
       ( \x ->
           BackTestConfiguration'
-            Prelude.<$> (x Core..: "RunBackTestMode")
+            Prelude.<$> (x Data..: "RunBackTestMode")
       )
 
 instance Prelude.Hashable BackTestConfiguration where
@@ -72,11 +73,11 @@ instance Prelude.NFData BackTestConfiguration where
   rnf BackTestConfiguration' {..} =
     Prelude.rnf runBackTestMode
 
-instance Core.ToJSON BackTestConfiguration where
+instance Data.ToJSON BackTestConfiguration where
   toJSON BackTestConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("RunBackTestMode" Core..= runBackTestMode)
+              ("RunBackTestMode" Data..= runBackTestMode)
           ]
       )

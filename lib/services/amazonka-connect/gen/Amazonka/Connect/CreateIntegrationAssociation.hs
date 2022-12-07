@@ -50,6 +50,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -179,8 +180,8 @@ instance Core.AWSRequest CreateIntegrationAssociation where
     Response.receiveJSON
       ( \s h x ->
           CreateIntegrationAssociationResponse'
-            Prelude.<$> (x Core..?> "IntegrationAssociationArn")
-            Prelude.<*> (x Core..?> "IntegrationAssociationId")
+            Prelude.<$> (x Data..?> "IntegrationAssociationArn")
+            Prelude.<*> (x Data..?> "IntegrationAssociationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -207,43 +208,43 @@ instance Prelude.NFData CreateIntegrationAssociation where
       `Prelude.seq` Prelude.rnf integrationType
       `Prelude.seq` Prelude.rnf integrationArn
 
-instance Core.ToHeaders CreateIntegrationAssociation where
+instance Data.ToHeaders CreateIntegrationAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateIntegrationAssociation where
+instance Data.ToJSON CreateIntegrationAssociation where
   toJSON CreateIntegrationAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("SourceType" Core..=) Prelude.<$> sourceType,
-            ("SourceApplicationName" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("SourceType" Data..=) Prelude.<$> sourceType,
+            ("SourceApplicationName" Data..=)
               Prelude.<$> sourceApplicationName,
-            ("SourceApplicationUrl" Core..=)
+            ("SourceApplicationUrl" Data..=)
               Prelude.<$> sourceApplicationUrl,
             Prelude.Just
-              ("IntegrationType" Core..= integrationType),
+              ("IntegrationType" Data..= integrationType),
             Prelude.Just
-              ("IntegrationArn" Core..= integrationArn)
+              ("IntegrationArn" Data..= integrationArn)
           ]
       )
 
-instance Core.ToPath CreateIntegrationAssociation where
+instance Data.ToPath CreateIntegrationAssociation where
   toPath CreateIntegrationAssociation' {..} =
     Prelude.mconcat
       [ "/instance/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/integration-associations"
       ]
 
-instance Core.ToQuery CreateIntegrationAssociation where
+instance Data.ToQuery CreateIntegrationAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateIntegrationAssociationResponse' smart constructor.

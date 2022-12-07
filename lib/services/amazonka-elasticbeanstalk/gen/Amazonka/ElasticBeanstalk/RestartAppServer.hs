@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,21 +127,21 @@ instance Prelude.NFData RestartAppServer where
     Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf environmentId
 
-instance Core.ToHeaders RestartAppServer where
+instance Data.ToHeaders RestartAppServer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RestartAppServer where
+instance Data.ToPath RestartAppServer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestartAppServer where
+instance Data.ToQuery RestartAppServer where
   toQuery RestartAppServer' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RestartAppServer" :: Prelude.ByteString),
+          Data.=: ("RestartAppServer" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentName" Core.=: environmentName,
-        "EnvironmentId" Core.=: environmentId
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "EnvironmentName" Data.=: environmentName,
+        "EnvironmentId" Data.=: environmentId
       ]
 
 -- | /See:/ 'newRestartAppServerResponse' smart constructor.

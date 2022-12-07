@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest DescribeRecommender where
     Response.receiveJSON
       ( \s h x ->
           DescribeRecommenderResponse'
-            Prelude.<$> (x Core..?> "recommender")
+            Prelude.<$> (x Data..?> "recommender")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,34 +117,34 @@ instance Prelude.NFData DescribeRecommender where
   rnf DescribeRecommender' {..} =
     Prelude.rnf recommenderArn
 
-instance Core.ToHeaders DescribeRecommender where
+instance Data.ToHeaders DescribeRecommender where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DescribeRecommender" ::
+              Data.=# ( "AmazonPersonalize.DescribeRecommender" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRecommender where
+instance Data.ToJSON DescribeRecommender where
   toJSON DescribeRecommender' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("recommenderArn" Core..= recommenderArn)
+              ("recommenderArn" Data..= recommenderArn)
           ]
       )
 
-instance Core.ToPath DescribeRecommender where
+instance Data.ToPath DescribeRecommender where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeRecommender where
+instance Data.ToQuery DescribeRecommender where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRecommenderResponse' smart constructor.

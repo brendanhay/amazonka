@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetInstanceState where
     Response.receiveJSON
       ( \s h x ->
           GetInstanceStateResponse'
-            Prelude.<$> (x Core..?> "state")
+            Prelude.<$> (x Data..?> "state")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,32 +96,32 @@ instance Prelude.Hashable GetInstanceState where
 instance Prelude.NFData GetInstanceState where
   rnf GetInstanceState' {..} = Prelude.rnf instanceName
 
-instance Core.ToHeaders GetInstanceState where
+instance Data.ToHeaders GetInstanceState where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetInstanceState" ::
+              Data.=# ( "Lightsail_20161128.GetInstanceState" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetInstanceState where
+instance Data.ToJSON GetInstanceState where
   toJSON GetInstanceState' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("instanceName" Core..= instanceName)]
+          [Prelude.Just ("instanceName" Data..= instanceName)]
       )
 
-instance Core.ToPath GetInstanceState where
+instance Data.ToPath GetInstanceState where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetInstanceState where
+instance Data.ToQuery GetInstanceState where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInstanceStateResponse' smart constructor.

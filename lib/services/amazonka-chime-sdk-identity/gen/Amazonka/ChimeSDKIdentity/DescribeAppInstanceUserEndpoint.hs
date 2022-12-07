@@ -43,6 +43,7 @@ where
 import Amazonka.ChimeSDKIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -50,9 +51,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDescribeAppInstanceUserEndpoint' smart constructor.
 data DescribeAppInstanceUserEndpoint = DescribeAppInstanceUserEndpoint'
   { -- | The ARN of the @AppInstanceUser@.
-    appInstanceUserArn :: Core.Sensitive Prelude.Text,
+    appInstanceUserArn :: Data.Sensitive Prelude.Text,
     -- | The unique identifier of the @AppInstanceUserEndpoint@.
-    endpointId :: Core.Sensitive Prelude.Text
+    endpointId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -78,19 +79,19 @@ newDescribeAppInstanceUserEndpoint
   pEndpointId_ =
     DescribeAppInstanceUserEndpoint'
       { appInstanceUserArn =
-          Core._Sensitive
+          Data._Sensitive
             Lens.# pAppInstanceUserArn_,
         endpointId =
-          Core._Sensitive Lens.# pEndpointId_
+          Data._Sensitive Lens.# pEndpointId_
       }
 
 -- | The ARN of the @AppInstanceUser@.
 describeAppInstanceUserEndpoint_appInstanceUserArn :: Lens.Lens' DescribeAppInstanceUserEndpoint Prelude.Text
-describeAppInstanceUserEndpoint_appInstanceUserArn = Lens.lens (\DescribeAppInstanceUserEndpoint' {appInstanceUserArn} -> appInstanceUserArn) (\s@DescribeAppInstanceUserEndpoint' {} a -> s {appInstanceUserArn = a} :: DescribeAppInstanceUserEndpoint) Prelude.. Core._Sensitive
+describeAppInstanceUserEndpoint_appInstanceUserArn = Lens.lens (\DescribeAppInstanceUserEndpoint' {appInstanceUserArn} -> appInstanceUserArn) (\s@DescribeAppInstanceUserEndpoint' {} a -> s {appInstanceUserArn = a} :: DescribeAppInstanceUserEndpoint) Prelude.. Data._Sensitive
 
 -- | The unique identifier of the @AppInstanceUserEndpoint@.
 describeAppInstanceUserEndpoint_endpointId :: Lens.Lens' DescribeAppInstanceUserEndpoint Prelude.Text
-describeAppInstanceUserEndpoint_endpointId = Lens.lens (\DescribeAppInstanceUserEndpoint' {endpointId} -> endpointId) (\s@DescribeAppInstanceUserEndpoint' {} a -> s {endpointId = a} :: DescribeAppInstanceUserEndpoint) Prelude.. Core._Sensitive
+describeAppInstanceUserEndpoint_endpointId = Lens.lens (\DescribeAppInstanceUserEndpoint' {endpointId} -> endpointId) (\s@DescribeAppInstanceUserEndpoint' {} a -> s {endpointId = a} :: DescribeAppInstanceUserEndpoint) Prelude.. Data._Sensitive
 
 instance
   Core.AWSRequest
@@ -105,7 +106,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAppInstanceUserEndpointResponse'
-            Prelude.<$> (x Core..?> "AppInstanceUserEndpoint")
+            Prelude.<$> (x Data..?> "AppInstanceUserEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,21 +129,21 @@ instance
       `Prelude.seq` Prelude.rnf endpointId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeAppInstanceUserEndpoint
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAppInstanceUserEndpoint where
+instance Data.ToPath DescribeAppInstanceUserEndpoint where
   toPath DescribeAppInstanceUserEndpoint' {..} =
     Prelude.mconcat
       [ "/app-instance-users/",
-        Core.toBS appInstanceUserArn,
+        Data.toBS appInstanceUserArn,
         "/endpoints/",
-        Core.toBS endpointId
+        Data.toBS endpointId
       ]
 
-instance Core.ToQuery DescribeAppInstanceUserEndpoint where
+instance Data.ToQuery DescribeAppInstanceUserEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAppInstanceUserEndpointResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.Container where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.ContainerServiceProtocol
 import qualified Amazonka.Prelude as Prelude
 
@@ -123,16 +124,16 @@ container_command = Lens.lens (\Container' {command} -> command) (\s@Container' 
 container_image :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_image = Lens.lens (\Container' {image} -> image) (\s@Container' {} a -> s {image = a} :: Container)
 
-instance Core.FromJSON Container where
+instance Data.FromJSON Container where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Container"
       ( \x ->
           Container'
-            Prelude.<$> (x Core..:? "environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ports" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "command" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "image")
+            Prelude.<$> (x Data..:? "environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ports" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "command" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "image")
       )
 
 instance Prelude.Hashable Container where
@@ -149,13 +150,13 @@ instance Prelude.NFData Container where
       `Prelude.seq` Prelude.rnf command
       `Prelude.seq` Prelude.rnf image
 
-instance Core.ToJSON Container where
+instance Data.ToJSON Container where
   toJSON Container' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("environment" Core..=) Prelude.<$> environment,
-            ("ports" Core..=) Prelude.<$> ports,
-            ("command" Core..=) Prelude.<$> command,
-            ("image" Core..=) Prelude.<$> image
+          [ ("environment" Data..=) Prelude.<$> environment,
+            ("ports" Data..=) Prelude.<$> ports,
+            ("command" Data..=) Prelude.<$> command,
+            ("image" Data..=) Prelude.<$> image
           ]
       )

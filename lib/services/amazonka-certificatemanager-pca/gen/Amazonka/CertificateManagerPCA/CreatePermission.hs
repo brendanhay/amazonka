@@ -67,6 +67,7 @@ where
 import Amazonka.CertificateManagerPCA.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -184,39 +185,39 @@ instance Prelude.NFData CreatePermission where
       `Prelude.seq` Prelude.rnf principal
       `Prelude.seq` Prelude.rnf actions
 
-instance Core.ToHeaders CreatePermission where
+instance Data.ToHeaders CreatePermission where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ACMPrivateCA.CreatePermission" ::
+              Data.=# ( "ACMPrivateCA.CreatePermission" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePermission where
+instance Data.ToJSON CreatePermission where
   toJSON CreatePermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceAccount" Core..=) Prelude.<$> sourceAccount,
+          [ ("SourceAccount" Data..=) Prelude.<$> sourceAccount,
             Prelude.Just
               ( "CertificateAuthorityArn"
-                  Core..= certificateAuthorityArn
+                  Data..= certificateAuthorityArn
               ),
-            Prelude.Just ("Principal" Core..= principal),
-            Prelude.Just ("Actions" Core..= actions)
+            Prelude.Just ("Principal" Data..= principal),
+            Prelude.Just ("Actions" Data..= actions)
           ]
       )
 
-instance Core.ToPath CreatePermission where
+instance Data.ToPath CreatePermission where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePermission where
+instance Data.ToQuery CreatePermission where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePermissionResponse' smart constructor.

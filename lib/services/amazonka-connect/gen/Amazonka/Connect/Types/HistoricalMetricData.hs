@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.HistoricalMetricData where
 import Amazonka.Connect.Types.HistoricalMetric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the data for a historical metric.
@@ -62,14 +63,14 @@ historicalMetricData_metric = Lens.lens (\HistoricalMetricData' {metric} -> metr
 historicalMetricData_value :: Lens.Lens' HistoricalMetricData (Prelude.Maybe Prelude.Double)
 historicalMetricData_value = Lens.lens (\HistoricalMetricData' {value} -> value) (\s@HistoricalMetricData' {} a -> s {value = a} :: HistoricalMetricData)
 
-instance Core.FromJSON HistoricalMetricData where
+instance Data.FromJSON HistoricalMetricData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HistoricalMetricData"
       ( \x ->
           HistoricalMetricData'
-            Prelude.<$> (x Core..:? "Metric")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Metric")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable HistoricalMetricData where

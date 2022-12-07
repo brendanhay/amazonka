@@ -48,6 +48,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,10 +119,10 @@ instance Core.AWSRequest UpdateArchive where
     Response.receiveJSON
       ( \s h x ->
           UpdateArchiveResponse'
-            Prelude.<$> (x Core..?> "ArchiveArn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "StateReason")
+            Prelude.<$> (x Data..?> "ArchiveArn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,34 +140,34 @@ instance Prelude.NFData UpdateArchive where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf archiveName
 
-instance Core.ToHeaders UpdateArchive where
+instance Data.ToHeaders UpdateArchive where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.UpdateArchive" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.UpdateArchive" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateArchive where
+instance Data.ToJSON UpdateArchive where
   toJSON UpdateArchive' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventPattern" Core..=) Prelude.<$> eventPattern,
-            ("RetentionDays" Core..=) Prelude.<$> retentionDays,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("ArchiveName" Core..= archiveName)
+          [ ("EventPattern" Data..=) Prelude.<$> eventPattern,
+            ("RetentionDays" Data..=) Prelude.<$> retentionDays,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("ArchiveName" Data..= archiveName)
           ]
       )
 
-instance Core.ToPath UpdateArchive where
+instance Data.ToPath UpdateArchive where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateArchive where
+instance Data.ToQuery UpdateArchive where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateArchiveResponse' smart constructor.
@@ -176,7 +177,7 @@ data UpdateArchiveResponse = UpdateArchiveResponse'
     -- | The state of the archive.
     state :: Prelude.Maybe ArchiveState,
     -- | The time at which the archive was updated.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The reason that the archive is in the current state.
     stateReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -225,7 +226,7 @@ updateArchiveResponse_state = Lens.lens (\UpdateArchiveResponse' {state} -> stat
 
 -- | The time at which the archive was updated.
 updateArchiveResponse_creationTime :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe Prelude.UTCTime)
-updateArchiveResponse_creationTime = Lens.lens (\UpdateArchiveResponse' {creationTime} -> creationTime) (\s@UpdateArchiveResponse' {} a -> s {creationTime = a} :: UpdateArchiveResponse) Prelude.. Lens.mapping Core._Time
+updateArchiveResponse_creationTime = Lens.lens (\UpdateArchiveResponse' {creationTime} -> creationTime) (\s@UpdateArchiveResponse' {} a -> s {creationTime = a} :: UpdateArchiveResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The reason that the archive is in the current state.
 updateArchiveResponse_stateReason :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe Prelude.Text)

@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.ServiceUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types.ServiceUpdateStatus
 import Amazonka.MemoryDb.Types.ServiceUpdateType
 import qualified Amazonka.Prelude as Prelude
@@ -32,7 +33,7 @@ data ServiceUpdate = ServiceUpdate'
   { -- | Reflects the nature of the service update
     type' :: Prelude.Maybe ServiceUpdateType,
     -- | The date when the service update is initially available
-    releaseDate :: Prelude.Maybe Core.POSIX,
+    releaseDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the service update
     status :: Prelude.Maybe ServiceUpdateStatus,
     -- | Provides details of the service update
@@ -40,7 +41,7 @@ data ServiceUpdate = ServiceUpdate'
     -- | The unique ID of the service update
     serviceUpdateName :: Prelude.Maybe Prelude.Text,
     -- | The date at which the service update will be automatically applied
-    autoUpdateStartDate :: Prelude.Maybe Core.POSIX,
+    autoUpdateStartDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the cluster to which the service update applies
     clusterName :: Prelude.Maybe Prelude.Text,
     -- | A list of nodes updated by the service update
@@ -91,7 +92,7 @@ serviceUpdate_type = Lens.lens (\ServiceUpdate' {type'} -> type') (\s@ServiceUpd
 
 -- | The date when the service update is initially available
 serviceUpdate_releaseDate :: Lens.Lens' ServiceUpdate (Prelude.Maybe Prelude.UTCTime)
-serviceUpdate_releaseDate = Lens.lens (\ServiceUpdate' {releaseDate} -> releaseDate) (\s@ServiceUpdate' {} a -> s {releaseDate = a} :: ServiceUpdate) Prelude.. Lens.mapping Core._Time
+serviceUpdate_releaseDate = Lens.lens (\ServiceUpdate' {releaseDate} -> releaseDate) (\s@ServiceUpdate' {} a -> s {releaseDate = a} :: ServiceUpdate) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the service update
 serviceUpdate_status :: Lens.Lens' ServiceUpdate (Prelude.Maybe ServiceUpdateStatus)
@@ -107,7 +108,7 @@ serviceUpdate_serviceUpdateName = Lens.lens (\ServiceUpdate' {serviceUpdateName}
 
 -- | The date at which the service update will be automatically applied
 serviceUpdate_autoUpdateStartDate :: Lens.Lens' ServiceUpdate (Prelude.Maybe Prelude.UTCTime)
-serviceUpdate_autoUpdateStartDate = Lens.lens (\ServiceUpdate' {autoUpdateStartDate} -> autoUpdateStartDate) (\s@ServiceUpdate' {} a -> s {autoUpdateStartDate = a} :: ServiceUpdate) Prelude.. Lens.mapping Core._Time
+serviceUpdate_autoUpdateStartDate = Lens.lens (\ServiceUpdate' {autoUpdateStartDate} -> autoUpdateStartDate) (\s@ServiceUpdate' {} a -> s {autoUpdateStartDate = a} :: ServiceUpdate) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the cluster to which the service update applies
 serviceUpdate_clusterName :: Lens.Lens' ServiceUpdate (Prelude.Maybe Prelude.Text)
@@ -117,20 +118,20 @@ serviceUpdate_clusterName = Lens.lens (\ServiceUpdate' {clusterName} -> clusterN
 serviceUpdate_nodesUpdated :: Lens.Lens' ServiceUpdate (Prelude.Maybe Prelude.Text)
 serviceUpdate_nodesUpdated = Lens.lens (\ServiceUpdate' {nodesUpdated} -> nodesUpdated) (\s@ServiceUpdate' {} a -> s {nodesUpdated = a} :: ServiceUpdate)
 
-instance Core.FromJSON ServiceUpdate where
+instance Data.FromJSON ServiceUpdate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceUpdate"
       ( \x ->
           ServiceUpdate'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "ReleaseDate")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ServiceUpdateName")
-            Prelude.<*> (x Core..:? "AutoUpdateStartDate")
-            Prelude.<*> (x Core..:? "ClusterName")
-            Prelude.<*> (x Core..:? "NodesUpdated")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "ReleaseDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ServiceUpdateName")
+            Prelude.<*> (x Data..:? "AutoUpdateStartDate")
+            Prelude.<*> (x Data..:? "ClusterName")
+            Prelude.<*> (x Data..:? "NodesUpdated")
       )
 
 instance Prelude.Hashable ServiceUpdate where

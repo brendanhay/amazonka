@@ -42,6 +42,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -78,7 +79,7 @@ instance Core.AWSRequest GetRoom where
     Response.receiveJSON
       ( \s h x ->
           GetRoomResponse'
-            Prelude.<$> (x Core..?> "Room")
+            Prelude.<$> (x Data..?> "Room")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -89,30 +90,30 @@ instance Prelude.Hashable GetRoom where
 instance Prelude.NFData GetRoom where
   rnf GetRoom' {..} = Prelude.rnf roomArn
 
-instance Core.ToHeaders GetRoom where
+instance Data.ToHeaders GetRoom where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AlexaForBusiness.GetRoom" :: Prelude.ByteString),
+              Data.=# ("AlexaForBusiness.GetRoom" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRoom where
+instance Data.ToJSON GetRoom where
   toJSON GetRoom' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("RoomArn" Core..=) Prelude.<$> roomArn]
+          [("RoomArn" Data..=) Prelude.<$> roomArn]
       )
 
-instance Core.ToPath GetRoom where
+instance Data.ToPath GetRoom where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRoom where
+instance Data.ToQuery GetRoom where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRoomResponse' smart constructor.

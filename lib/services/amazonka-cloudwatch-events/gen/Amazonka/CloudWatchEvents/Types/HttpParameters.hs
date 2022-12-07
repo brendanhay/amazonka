@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.HttpParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | These are custom parameter to be used when the target is an API Gateway
@@ -83,20 +84,20 @@ httpParameters_headerParameters = Lens.lens (\HttpParameters' {headerParameters}
 httpParameters_pathParameterValues :: Lens.Lens' HttpParameters (Prelude.Maybe [Prelude.Text])
 httpParameters_pathParameterValues = Lens.lens (\HttpParameters' {pathParameterValues} -> pathParameterValues) (\s@HttpParameters' {} a -> s {pathParameterValues = a} :: HttpParameters) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON HttpParameters where
+instance Data.FromJSON HttpParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpParameters"
       ( \x ->
           HttpParameters'
-            Prelude.<$> ( x Core..:? "QueryStringParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "QueryStringParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "HeaderParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "HeaderParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "PathParameterValues"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "PathParameterValues"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -112,15 +113,15 @@ instance Prelude.NFData HttpParameters where
       `Prelude.seq` Prelude.rnf headerParameters
       `Prelude.seq` Prelude.rnf pathParameterValues
 
-instance Core.ToJSON HttpParameters where
+instance Data.ToJSON HttpParameters where
   toJSON HttpParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("QueryStringParameters" Core..=)
+          [ ("QueryStringParameters" Data..=)
               Prelude.<$> queryStringParameters,
-            ("HeaderParameters" Core..=)
+            ("HeaderParameters" Data..=)
               Prelude.<$> headerParameters,
-            ("PathParameterValues" Core..=)
+            ("PathParameterValues" Data..=)
               Prelude.<$> pathParameterValues
           ]
       )

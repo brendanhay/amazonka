@@ -90,6 +90,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -193,7 +194,7 @@ instance Core.AWSRequest PutLifecycleConfiguration where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable PutLifecycleConfiguration where
   hashWithSalt _salt PutLifecycleConfiguration' {..} =
@@ -205,25 +206,25 @@ instance Prelude.NFData PutLifecycleConfiguration where
     Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf lifecyclePolicies
 
-instance Core.ToHeaders PutLifecycleConfiguration where
+instance Data.ToHeaders PutLifecycleConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutLifecycleConfiguration where
+instance Data.ToJSON PutLifecycleConfiguration where
   toJSON PutLifecycleConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("LifecyclePolicies" Core..= lifecyclePolicies)
+              ("LifecyclePolicies" Data..= lifecyclePolicies)
           ]
       )
 
-instance Core.ToPath PutLifecycleConfiguration where
+instance Data.ToPath PutLifecycleConfiguration where
   toPath PutLifecycleConfiguration' {..} =
     Prelude.mconcat
       [ "/2015-02-01/file-systems/",
-        Core.toBS fileSystemId,
+        Data.toBS fileSystemId,
         "/lifecycle-configuration"
       ]
 
-instance Core.ToQuery PutLifecycleConfiguration where
+instance Data.ToQuery PutLifecycleConfiguration where
   toQuery = Prelude.const Prelude.mempty

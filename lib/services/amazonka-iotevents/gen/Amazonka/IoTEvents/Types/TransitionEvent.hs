@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.TransitionEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.Action
 import qualified Amazonka.Prelude as Prelude
 
@@ -93,16 +94,16 @@ transitionEvent_condition = Lens.lens (\TransitionEvent' {condition} -> conditio
 transitionEvent_nextState :: Lens.Lens' TransitionEvent Prelude.Text
 transitionEvent_nextState = Lens.lens (\TransitionEvent' {nextState} -> nextState) (\s@TransitionEvent' {} a -> s {nextState = a} :: TransitionEvent)
 
-instance Core.FromJSON TransitionEvent where
+instance Data.FromJSON TransitionEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransitionEvent"
       ( \x ->
           TransitionEvent'
-            Prelude.<$> (x Core..:? "actions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "eventName")
-            Prelude.<*> (x Core..: "condition")
-            Prelude.<*> (x Core..: "nextState")
+            Prelude.<$> (x Data..:? "actions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "eventName")
+            Prelude.<*> (x Data..: "condition")
+            Prelude.<*> (x Data..: "nextState")
       )
 
 instance Prelude.Hashable TransitionEvent where
@@ -119,13 +120,13 @@ instance Prelude.NFData TransitionEvent where
       `Prelude.seq` Prelude.rnf condition
       `Prelude.seq` Prelude.rnf nextState
 
-instance Core.ToJSON TransitionEvent where
+instance Data.ToJSON TransitionEvent where
   toJSON TransitionEvent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("actions" Core..=) Prelude.<$> actions,
-            Prelude.Just ("eventName" Core..= eventName),
-            Prelude.Just ("condition" Core..= condition),
-            Prelude.Just ("nextState" Core..= nextState)
+          [ ("actions" Data..=) Prelude.<$> actions,
+            Prelude.Just ("eventName" Data..= eventName),
+            Prelude.Just ("condition" Data..= condition),
+            Prelude.Just ("nextState" Data..= nextState)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.ContentReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Reference information about the content.
@@ -80,16 +81,16 @@ contentReference_contentId = Lens.lens (\ContentReference' {contentId} -> conten
 contentReference_knowledgeBaseId :: Lens.Lens' ContentReference (Prelude.Maybe Prelude.Text)
 contentReference_knowledgeBaseId = Lens.lens (\ContentReference' {knowledgeBaseId} -> knowledgeBaseId) (\s@ContentReference' {} a -> s {knowledgeBaseId = a} :: ContentReference)
 
-instance Core.FromJSON ContentReference where
+instance Data.FromJSON ContentReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContentReference"
       ( \x ->
           ContentReference'
-            Prelude.<$> (x Core..:? "knowledgeBaseArn")
-            Prelude.<*> (x Core..:? "contentArn")
-            Prelude.<*> (x Core..:? "contentId")
-            Prelude.<*> (x Core..:? "knowledgeBaseId")
+            Prelude.<$> (x Data..:? "knowledgeBaseArn")
+            Prelude.<*> (x Data..:? "contentArn")
+            Prelude.<*> (x Data..:? "contentId")
+            Prelude.<*> (x Data..:? "knowledgeBaseId")
       )
 
 instance Prelude.Hashable ContentReference where

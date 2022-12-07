@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -262,7 +263,7 @@ instance Core.AWSRequest CreateSubnet where
     Response.receiveXML
       ( \s h x ->
           CreateSubnetResponse'
-            Prelude.<$> (x Core..@? "subnet")
+            Prelude.<$> (x Data..@? "subnet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -290,31 +291,31 @@ instance Prelude.NFData CreateSubnet where
       `Prelude.seq` Prelude.rnf availabilityZoneId
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToHeaders CreateSubnet where
+instance Data.ToHeaders CreateSubnet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateSubnet where
+instance Data.ToPath CreateSubnet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSubnet where
+instance Data.ToQuery CreateSubnet where
   toQuery CreateSubnet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateSubnet" :: Prelude.ByteString),
+          Data.=: ("CreateSubnet" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "OutpostArn" Core.=: outpostArn,
-        "Ipv6Native" Core.=: ipv6Native,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "DryRun" Core.=: dryRun,
-        "CidrBlock" Core.=: cidrBlock,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "OutpostArn" Data.=: outpostArn,
+        "Ipv6Native" Data.=: ipv6Native,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "DryRun" Data.=: dryRun,
+        "CidrBlock" Data.=: cidrBlock,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "Ipv6CidrBlock" Core.=: ipv6CidrBlock,
-        "AvailabilityZoneId" Core.=: availabilityZoneId,
-        "VpcId" Core.=: vpcId
+        "Ipv6CidrBlock" Data.=: ipv6CidrBlock,
+        "AvailabilityZoneId" Data.=: availabilityZoneId,
+        "VpcId" Data.=: vpcId
       ]
 
 -- | /See:/ 'newCreateSubnetResponse' smart constructor.

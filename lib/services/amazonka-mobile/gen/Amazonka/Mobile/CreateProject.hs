@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Mobile.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,7 +128,7 @@ instance Core.AWSRequest CreateProject where
     Response.receiveJSON
       ( \s h x ->
           CreateProjectResponse'
-            Prelude.<$> (x Core..?> "details")
+            Prelude.<$> (x Data..?> "details")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,29 +146,29 @@ instance Prelude.NFData CreateProject where
       `Prelude.seq` Prelude.rnf snapshotId
       `Prelude.seq` Prelude.rnf region
 
-instance Core.ToBody CreateProject where
-  toBody CreateProject' {..} = Core.toBody contents
+instance Data.ToBody CreateProject where
+  toBody CreateProject' {..} = Data.toBody contents
 
-instance Core.ToHeaders CreateProject where
+instance Data.ToHeaders CreateProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath CreateProject where
+instance Data.ToPath CreateProject where
   toPath = Prelude.const "/projects"
 
-instance Core.ToQuery CreateProject where
+instance Data.ToQuery CreateProject where
   toQuery CreateProject' {..} =
     Prelude.mconcat
-      [ "name" Core.=: name,
-        "snapshotId" Core.=: snapshotId,
-        "region" Core.=: region
+      [ "name" Data.=: name,
+        "snapshotId" Data.=: snapshotId,
+        "region" Data.=: region
       ]
 
 -- | Result structure used in response to a request to create a project.

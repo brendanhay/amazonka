@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.LifeCycleLastTestInitiated where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Lifecycle last Test initiated.
@@ -62,14 +63,14 @@ lifeCycleLastTestInitiated_apiCallDateTime = Lens.lens (\LifeCycleLastTestInitia
 lifeCycleLastTestInitiated_jobID :: Lens.Lens' LifeCycleLastTestInitiated (Prelude.Maybe Prelude.Text)
 lifeCycleLastTestInitiated_jobID = Lens.lens (\LifeCycleLastTestInitiated' {jobID} -> jobID) (\s@LifeCycleLastTestInitiated' {} a -> s {jobID = a} :: LifeCycleLastTestInitiated)
 
-instance Core.FromJSON LifeCycleLastTestInitiated where
+instance Data.FromJSON LifeCycleLastTestInitiated where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifeCycleLastTestInitiated"
       ( \x ->
           LifeCycleLastTestInitiated'
-            Prelude.<$> (x Core..:? "apiCallDateTime")
-            Prelude.<*> (x Core..:? "jobID")
+            Prelude.<$> (x Data..:? "apiCallDateTime")
+            Prelude.<*> (x Data..:? "jobID")
       )
 
 instance Prelude.Hashable LifeCycleLastTestInitiated where

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.MapFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.MapFilterComparison
 
@@ -147,15 +148,15 @@ mapFilter_comparison = Lens.lens (\MapFilter' {comparison} -> comparison) (\s@Ma
 mapFilter_value :: Lens.Lens' MapFilter (Prelude.Maybe Prelude.Text)
 mapFilter_value = Lens.lens (\MapFilter' {value} -> value) (\s@MapFilter' {} a -> s {value = a} :: MapFilter)
 
-instance Core.FromJSON MapFilter where
+instance Data.FromJSON MapFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MapFilter"
       ( \x ->
           MapFilter'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Comparison")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Comparison")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable MapFilter where
@@ -170,12 +171,12 @@ instance Prelude.NFData MapFilter where
       `Prelude.seq` Prelude.rnf comparison
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON MapFilter where
+instance Data.ToJSON MapFilter where
   toJSON MapFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Comparison" Core..=) Prelude.<$> comparison,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Comparison" Data..=) Prelude.<$> comparison,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

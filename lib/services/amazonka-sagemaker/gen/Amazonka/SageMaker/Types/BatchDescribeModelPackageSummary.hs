@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.BatchDescribeModelPackageSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.InferenceSpecification
 import Amazonka.SageMaker.Types.ModelApprovalStatus
@@ -41,7 +42,7 @@ data BatchDescribeModelPackageSummary = BatchDescribeModelPackageSummary'
     -- | The Amazon Resource Name (ARN) of the model package.
     modelPackageArn :: Prelude.Text,
     -- | The creation time of the mortgage package summary.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     inferenceSpecification :: InferenceSpecification,
     -- | The status of the mortgage package.
     modelPackageStatus :: ModelPackageStatus
@@ -98,7 +99,7 @@ newBatchDescribeModelPackageSummary
           pModelPackageGroupName_,
         modelPackageArn = pModelPackageArn_,
         creationTime =
-          Core._Time Lens.# pCreationTime_,
+          Data._Time Lens.# pCreationTime_,
         inferenceSpecification =
           pInferenceSpecification_,
         modelPackageStatus = pModelPackageStatus_
@@ -126,7 +127,7 @@ batchDescribeModelPackageSummary_modelPackageArn = Lens.lens (\BatchDescribeMode
 
 -- | The creation time of the mortgage package summary.
 batchDescribeModelPackageSummary_creationTime :: Lens.Lens' BatchDescribeModelPackageSummary Prelude.UTCTime
-batchDescribeModelPackageSummary_creationTime = Lens.lens (\BatchDescribeModelPackageSummary' {creationTime} -> creationTime) (\s@BatchDescribeModelPackageSummary' {} a -> s {creationTime = a} :: BatchDescribeModelPackageSummary) Prelude.. Core._Time
+batchDescribeModelPackageSummary_creationTime = Lens.lens (\BatchDescribeModelPackageSummary' {creationTime} -> creationTime) (\s@BatchDescribeModelPackageSummary' {} a -> s {creationTime = a} :: BatchDescribeModelPackageSummary) Prelude.. Data._Time
 
 -- | Undocumented member.
 batchDescribeModelPackageSummary_inferenceSpecification :: Lens.Lens' BatchDescribeModelPackageSummary InferenceSpecification
@@ -137,22 +138,22 @@ batchDescribeModelPackageSummary_modelPackageStatus :: Lens.Lens' BatchDescribeM
 batchDescribeModelPackageSummary_modelPackageStatus = Lens.lens (\BatchDescribeModelPackageSummary' {modelPackageStatus} -> modelPackageStatus) (\s@BatchDescribeModelPackageSummary' {} a -> s {modelPackageStatus = a} :: BatchDescribeModelPackageSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchDescribeModelPackageSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDescribeModelPackageSummary"
       ( \x ->
           BatchDescribeModelPackageSummary'
-            Prelude.<$> (x Core..:? "ModelPackageVersion")
-            Prelude.<*> (x Core..:? "ModelApprovalStatus")
-            Prelude.<*> (x Core..:? "ModelPackageDescription")
-            Prelude.<*> (x Core..: "ModelPackageGroupName")
-            Prelude.<*> (x Core..: "ModelPackageArn")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "InferenceSpecification")
-            Prelude.<*> (x Core..: "ModelPackageStatus")
+            Prelude.<$> (x Data..:? "ModelPackageVersion")
+            Prelude.<*> (x Data..:? "ModelApprovalStatus")
+            Prelude.<*> (x Data..:? "ModelPackageDescription")
+            Prelude.<*> (x Data..: "ModelPackageGroupName")
+            Prelude.<*> (x Data..: "ModelPackageArn")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "InferenceSpecification")
+            Prelude.<*> (x Data..: "ModelPackageStatus")
       )
 
 instance

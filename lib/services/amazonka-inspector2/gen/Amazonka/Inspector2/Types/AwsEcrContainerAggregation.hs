@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.AwsEcrContainerAggregation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.AwsEcrContainerSortBy
 import Amazonka.Inspector2.Types.SortOrder
 import Amazonka.Inspector2.Types.StringFilter
@@ -130,16 +131,16 @@ instance Prelude.NFData AwsEcrContainerAggregation where
       `Prelude.seq` Prelude.rnf imageTags
       `Prelude.seq` Prelude.rnf architectures
 
-instance Core.ToJSON AwsEcrContainerAggregation where
+instance Data.ToJSON AwsEcrContainerAggregation where
   toJSON AwsEcrContainerAggregation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("imageShas" Core..=) Prelude.<$> imageShas,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("repositories" Core..=) Prelude.<$> repositories,
-            ("resourceIds" Core..=) Prelude.<$> resourceIds,
-            ("imageTags" Core..=) Prelude.<$> imageTags,
-            ("architectures" Core..=) Prelude.<$> architectures
+          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            ("imageShas" Data..=) Prelude.<$> imageShas,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("repositories" Data..=) Prelude.<$> repositories,
+            ("resourceIds" Data..=) Prelude.<$> resourceIds,
+            ("imageTags" Data..=) Prelude.<$> imageTags,
+            ("architectures" Data..=) Prelude.<$> architectures
           ]
       )

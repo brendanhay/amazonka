@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,36 +128,36 @@ instance Prelude.NFData AssociateMemberToGroup where
       `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf memberId
 
-instance Core.ToHeaders AssociateMemberToGroup where
+instance Data.ToHeaders AssociateMemberToGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.AssociateMemberToGroup" ::
+              Data.=# ( "WorkMailService.AssociateMemberToGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateMemberToGroup where
+instance Data.ToJSON AssociateMemberToGroup where
   toJSON AssociateMemberToGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("GroupId" Core..= groupId),
-            Prelude.Just ("MemberId" Core..= memberId)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("GroupId" Data..= groupId),
+            Prelude.Just ("MemberId" Data..= memberId)
           ]
       )
 
-instance Core.ToPath AssociateMemberToGroup where
+instance Data.ToPath AssociateMemberToGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateMemberToGroup where
+instance Data.ToQuery AssociateMemberToGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateMemberToGroupResponse' smart constructor.

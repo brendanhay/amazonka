@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,35 +125,35 @@ instance Prelude.NFData UpdateStandardsControl where
       `Prelude.seq` Prelude.rnf controlStatus
       `Prelude.seq` Prelude.rnf standardsControlArn
 
-instance Core.ToHeaders UpdateStandardsControl where
+instance Data.ToHeaders UpdateStandardsControl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateStandardsControl where
+instance Data.ToJSON UpdateStandardsControl where
   toJSON UpdateStandardsControl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DisabledReason" Core..=)
+          [ ("DisabledReason" Data..=)
               Prelude.<$> disabledReason,
-            ("ControlStatus" Core..=) Prelude.<$> controlStatus
+            ("ControlStatus" Data..=) Prelude.<$> controlStatus
           ]
       )
 
-instance Core.ToPath UpdateStandardsControl where
+instance Data.ToPath UpdateStandardsControl where
   toPath UpdateStandardsControl' {..} =
     Prelude.mconcat
       [ "/standards/control/",
-        Core.toBS standardsControlArn
+        Data.toBS standardsControlArn
       ]
 
-instance Core.ToQuery UpdateStandardsControl where
+instance Data.ToQuery UpdateStandardsControl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateStandardsControlResponse' smart constructor.

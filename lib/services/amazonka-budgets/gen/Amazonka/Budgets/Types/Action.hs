@@ -28,6 +28,7 @@ import Amazonka.Budgets.Types.NotificationType
 import Amazonka.Budgets.Types.Subscriber
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A budget action resource.
@@ -176,22 +177,22 @@ action_status = Lens.lens (\Action' {status} -> status) (\s@Action' {} a -> s {s
 action_subscribers :: Lens.Lens' Action (Prelude.NonEmpty Subscriber)
 action_subscribers = Lens.lens (\Action' {subscribers} -> subscribers) (\s@Action' {} a -> s {subscribers = a} :: Action) Prelude.. Lens.coerced
 
-instance Core.FromJSON Action where
+instance Data.FromJSON Action where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Action"
       ( \x ->
           Action'
-            Prelude.<$> (x Core..: "ActionId")
-            Prelude.<*> (x Core..: "BudgetName")
-            Prelude.<*> (x Core..: "NotificationType")
-            Prelude.<*> (x Core..: "ActionType")
-            Prelude.<*> (x Core..: "ActionThreshold")
-            Prelude.<*> (x Core..: "Definition")
-            Prelude.<*> (x Core..: "ExecutionRoleArn")
-            Prelude.<*> (x Core..: "ApprovalModel")
-            Prelude.<*> (x Core..: "Status")
-            Prelude.<*> (x Core..: "Subscribers")
+            Prelude.<$> (x Data..: "ActionId")
+            Prelude.<*> (x Data..: "BudgetName")
+            Prelude.<*> (x Data..: "NotificationType")
+            Prelude.<*> (x Data..: "ActionType")
+            Prelude.<*> (x Data..: "ActionThreshold")
+            Prelude.<*> (x Data..: "Definition")
+            Prelude.<*> (x Data..: "ExecutionRoleArn")
+            Prelude.<*> (x Data..: "ApprovalModel")
+            Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..: "Subscribers")
       )
 
 instance Prelude.Hashable Action where

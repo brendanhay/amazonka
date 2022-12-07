@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,19 +107,19 @@ instance Core.AWSRequest DescribeThesaurus where
     Response.receiveJSON
       ( \s h x ->
           DescribeThesaurusResponse'
-            Prelude.<$> (x Core..?> "IndexId")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "TermCount")
-            Prelude.<*> (x Core..?> "ErrorMessage")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "SynonymRuleCount")
-            Prelude.<*> (x Core..?> "SourceS3Path")
-            Prelude.<*> (x Core..?> "FileSizeBytes")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "UpdatedAt")
+            Prelude.<$> (x Data..?> "IndexId")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "TermCount")
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "SynonymRuleCount")
+            Prelude.<*> (x Data..?> "SourceS3Path")
+            Prelude.<*> (x Data..?> "FileSizeBytes")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,34 +132,34 @@ instance Prelude.NFData DescribeThesaurus where
   rnf DescribeThesaurus' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders DescribeThesaurus where
+instance Data.ToHeaders DescribeThesaurus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DescribeThesaurus" ::
+              Data.=# ( "AWSKendraFrontendService.DescribeThesaurus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeThesaurus where
+instance Data.ToJSON DescribeThesaurus where
   toJSON DescribeThesaurus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath DescribeThesaurus where
+instance Data.ToPath DescribeThesaurus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeThesaurus where
+instance Data.ToQuery DescribeThesaurus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeThesaurusResponse' smart constructor.
@@ -194,9 +195,9 @@ data DescribeThesaurusResponse = DescribeThesaurusResponse'
     -- | The size of the thesaurus file in bytes.
     fileSizeBytes :: Prelude.Maybe Prelude.Integer,
     -- | The Unix datetime that the thesaurus was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Unix datetime that the thesaurus was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -324,11 +325,11 @@ describeThesaurusResponse_fileSizeBytes = Lens.lens (\DescribeThesaurusResponse'
 
 -- | The Unix datetime that the thesaurus was created.
 describeThesaurusResponse_createdAt :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.UTCTime)
-describeThesaurusResponse_createdAt = Lens.lens (\DescribeThesaurusResponse' {createdAt} -> createdAt) (\s@DescribeThesaurusResponse' {} a -> s {createdAt = a} :: DescribeThesaurusResponse) Prelude.. Lens.mapping Core._Time
+describeThesaurusResponse_createdAt = Lens.lens (\DescribeThesaurusResponse' {createdAt} -> createdAt) (\s@DescribeThesaurusResponse' {} a -> s {createdAt = a} :: DescribeThesaurusResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix datetime that the thesaurus was last updated.
 describeThesaurusResponse_updatedAt :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.UTCTime)
-describeThesaurusResponse_updatedAt = Lens.lens (\DescribeThesaurusResponse' {updatedAt} -> updatedAt) (\s@DescribeThesaurusResponse' {} a -> s {updatedAt = a} :: DescribeThesaurusResponse) Prelude.. Lens.mapping Core._Time
+describeThesaurusResponse_updatedAt = Lens.lens (\DescribeThesaurusResponse' {updatedAt} -> updatedAt) (\s@DescribeThesaurusResponse' {} a -> s {updatedAt = a} :: DescribeThesaurusResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeThesaurusResponse_httpStatus :: Lens.Lens' DescribeThesaurusResponse Prelude.Int

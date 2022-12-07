@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.PlatformProgrammingLanguage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A programming language supported by the platform.
@@ -62,11 +63,11 @@ platformProgrammingLanguage_name = Lens.lens (\PlatformProgrammingLanguage' {nam
 platformProgrammingLanguage_version :: Lens.Lens' PlatformProgrammingLanguage (Prelude.Maybe Prelude.Text)
 platformProgrammingLanguage_version = Lens.lens (\PlatformProgrammingLanguage' {version} -> version) (\s@PlatformProgrammingLanguage' {} a -> s {version = a} :: PlatformProgrammingLanguage)
 
-instance Core.FromXML PlatformProgrammingLanguage where
+instance Data.FromXML PlatformProgrammingLanguage where
   parseXML x =
     PlatformProgrammingLanguage'
-      Prelude.<$> (x Core..@? "Name")
-      Prelude.<*> (x Core..@? "Version")
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "Version")
 
 instance Prelude.Hashable PlatformProgrammingLanguage where
   hashWithSalt _salt PlatformProgrammingLanguage' {..} =

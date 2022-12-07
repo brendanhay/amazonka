@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -66,7 +67,7 @@ data GetPartitions = GetPartitions'
     -- | The time as of when to read the partition contents. If not set, the most
     -- recent transaction commit time will be used. Cannot be specified along
     -- with @TransactionId@.
-    queryAsOfTime :: Prelude.Maybe Core.POSIX,
+    queryAsOfTime :: Prelude.Maybe Data.POSIX,
     -- | An expression that filters the partitions to be returned.
     --
     -- The expression uses SQL syntax similar to the SQL @WHERE@ filter clause.
@@ -313,7 +314,7 @@ getPartitions_nextToken = Lens.lens (\GetPartitions' {nextToken} -> nextToken) (
 -- recent transaction commit time will be used. Cannot be specified along
 -- with @TransactionId@.
 getPartitions_queryAsOfTime :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.UTCTime)
-getPartitions_queryAsOfTime = Lens.lens (\GetPartitions' {queryAsOfTime} -> queryAsOfTime) (\s@GetPartitions' {} a -> s {queryAsOfTime = a} :: GetPartitions) Prelude.. Lens.mapping Core._Time
+getPartitions_queryAsOfTime = Lens.lens (\GetPartitions' {queryAsOfTime} -> queryAsOfTime) (\s@GetPartitions' {} a -> s {queryAsOfTime = a} :: GetPartitions) Prelude.. Lens.mapping Data._Time
 
 -- | An expression that filters the partitions to be returned.
 --
@@ -461,8 +462,8 @@ instance Core.AWSRequest GetPartitions where
     Response.receiveJSON
       ( \s h x ->
           GetPartitionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Partitions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Partitions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -492,41 +493,41 @@ instance Prelude.NFData GetPartitions where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToHeaders GetPartitions where
+instance Data.ToHeaders GetPartitions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetPartitions" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetPartitions" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetPartitions where
+instance Data.ToJSON GetPartitions where
   toJSON GetPartitions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("QueryAsOfTime" Core..=) Prelude.<$> queryAsOfTime,
-            ("Expression" Core..=) Prelude.<$> expression,
-            ("Segment" Core..=) Prelude.<$> segment,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("TransactionId" Core..=) Prelude.<$> transactionId,
-            ("ExcludeColumnSchema" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("QueryAsOfTime" Data..=) Prelude.<$> queryAsOfTime,
+            ("Expression" Data..=) Prelude.<$> expression,
+            ("Segment" Data..=) Prelude.<$> segment,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("TransactionId" Data..=) Prelude.<$> transactionId,
+            ("ExcludeColumnSchema" Data..=)
               Prelude.<$> excludeColumnSchema,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName)
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )
 
-instance Core.ToPath GetPartitions where
+instance Data.ToPath GetPartitions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetPartitions where
+instance Data.ToQuery GetPartitions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPartitionsResponse' smart constructor.

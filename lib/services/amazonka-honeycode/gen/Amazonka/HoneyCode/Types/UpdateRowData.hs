@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.UpdateRowData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types.CellInput
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,12 +82,12 @@ instance Prelude.NFData UpdateRowData where
     Prelude.rnf rowId
       `Prelude.seq` Prelude.rnf cellsToUpdate
 
-instance Core.ToJSON UpdateRowData where
+instance Data.ToJSON UpdateRowData where
   toJSON UpdateRowData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("rowId" Core..= rowId),
+          [ Prelude.Just ("rowId" Data..= rowId),
             Prelude.Just
-              ("cellsToUpdate" Core..= cellsToUpdate)
+              ("cellsToUpdate" Data..= cellsToUpdate)
           ]
       )

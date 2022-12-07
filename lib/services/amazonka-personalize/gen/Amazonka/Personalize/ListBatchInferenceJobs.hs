@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,8 +137,8 @@ instance Core.AWSRequest ListBatchInferenceJobs where
     Response.receiveJSON
       ( \s h x ->
           ListBatchInferenceJobsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "batchInferenceJobs"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "batchInferenceJobs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -155,36 +156,36 @@ instance Prelude.NFData ListBatchInferenceJobs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf solutionVersionArn
 
-instance Core.ToHeaders ListBatchInferenceJobs where
+instance Data.ToHeaders ListBatchInferenceJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.ListBatchInferenceJobs" ::
+              Data.=# ( "AmazonPersonalize.ListBatchInferenceJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListBatchInferenceJobs where
+instance Data.ToJSON ListBatchInferenceJobs where
   toJSON ListBatchInferenceJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("solutionVersionArn" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("solutionVersionArn" Data..=)
               Prelude.<$> solutionVersionArn
           ]
       )
 
-instance Core.ToPath ListBatchInferenceJobs where
+instance Data.ToPath ListBatchInferenceJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListBatchInferenceJobs where
+instance Data.ToQuery ListBatchInferenceJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBatchInferenceJobsResponse' smart constructor.

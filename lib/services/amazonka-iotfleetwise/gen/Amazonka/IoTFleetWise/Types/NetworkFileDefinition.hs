@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.NetworkFileDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.CanDbcDefinition
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,9 +62,9 @@ instance Prelude.Hashable NetworkFileDefinition where
 instance Prelude.NFData NetworkFileDefinition where
   rnf NetworkFileDefinition' {..} = Prelude.rnf canDbc
 
-instance Core.ToJSON NetworkFileDefinition where
+instance Data.ToJSON NetworkFileDefinition where
   toJSON NetworkFileDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("canDbc" Core..=) Prelude.<$> canDbc]
+          [("canDbc" Data..=) Prelude.<$> canDbc]
       )

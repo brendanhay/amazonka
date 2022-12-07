@@ -57,6 +57,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -75,13 +76,13 @@ data ListBackupJobs = ListBackupJobs'
     -- pointed to by the next token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns only backup jobs that were created after the specified date.
-    byCreatedAfter :: Prelude.Maybe Core.POSIX,
+    byCreatedAfter :: Prelude.Maybe Data.POSIX,
     -- | Returns only backup jobs completed after a date expressed in Unix format
     -- and Coordinated Universal Time (UTC).
-    byCompleteAfter :: Prelude.Maybe Core.POSIX,
+    byCompleteAfter :: Prelude.Maybe Data.POSIX,
     -- | Returns only backup jobs completed before a date expressed in Unix
     -- format and Coordinated Universal Time (UTC).
-    byCompleteBefore :: Prelude.Maybe Core.POSIX,
+    byCompleteBefore :: Prelude.Maybe Data.POSIX,
     -- | Returns only backup jobs for the specified resources:
     --
     -- -   @Aurora@ for Amazon Aurora
@@ -109,7 +110,7 @@ data ListBackupJobs = ListBackupJobs'
     -- -   @VirtualMachine@ for virtual machines
     byResourceType :: Prelude.Maybe Prelude.Text,
     -- | Returns only backup jobs that were created before the specified date.
-    byCreatedBefore :: Prelude.Maybe Core.POSIX,
+    byCreatedBefore :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of items to be returned.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Returns only backup jobs that are in the specified state.
@@ -227,17 +228,17 @@ listBackupJobs_nextToken = Lens.lens (\ListBackupJobs' {nextToken} -> nextToken)
 
 -- | Returns only backup jobs that were created after the specified date.
 listBackupJobs_byCreatedAfter :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.UTCTime)
-listBackupJobs_byCreatedAfter = Lens.lens (\ListBackupJobs' {byCreatedAfter} -> byCreatedAfter) (\s@ListBackupJobs' {} a -> s {byCreatedAfter = a} :: ListBackupJobs) Prelude.. Lens.mapping Core._Time
+listBackupJobs_byCreatedAfter = Lens.lens (\ListBackupJobs' {byCreatedAfter} -> byCreatedAfter) (\s@ListBackupJobs' {} a -> s {byCreatedAfter = a} :: ListBackupJobs) Prelude.. Lens.mapping Data._Time
 
 -- | Returns only backup jobs completed after a date expressed in Unix format
 -- and Coordinated Universal Time (UTC).
 listBackupJobs_byCompleteAfter :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.UTCTime)
-listBackupJobs_byCompleteAfter = Lens.lens (\ListBackupJobs' {byCompleteAfter} -> byCompleteAfter) (\s@ListBackupJobs' {} a -> s {byCompleteAfter = a} :: ListBackupJobs) Prelude.. Lens.mapping Core._Time
+listBackupJobs_byCompleteAfter = Lens.lens (\ListBackupJobs' {byCompleteAfter} -> byCompleteAfter) (\s@ListBackupJobs' {} a -> s {byCompleteAfter = a} :: ListBackupJobs) Prelude.. Lens.mapping Data._Time
 
 -- | Returns only backup jobs completed before a date expressed in Unix
 -- format and Coordinated Universal Time (UTC).
 listBackupJobs_byCompleteBefore :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.UTCTime)
-listBackupJobs_byCompleteBefore = Lens.lens (\ListBackupJobs' {byCompleteBefore} -> byCompleteBefore) (\s@ListBackupJobs' {} a -> s {byCompleteBefore = a} :: ListBackupJobs) Prelude.. Lens.mapping Core._Time
+listBackupJobs_byCompleteBefore = Lens.lens (\ListBackupJobs' {byCompleteBefore} -> byCompleteBefore) (\s@ListBackupJobs' {} a -> s {byCompleteBefore = a} :: ListBackupJobs) Prelude.. Lens.mapping Data._Time
 
 -- | Returns only backup jobs for the specified resources:
 --
@@ -269,7 +270,7 @@ listBackupJobs_byResourceType = Lens.lens (\ListBackupJobs' {byResourceType} -> 
 
 -- | Returns only backup jobs that were created before the specified date.
 listBackupJobs_byCreatedBefore :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.UTCTime)
-listBackupJobs_byCreatedBefore = Lens.lens (\ListBackupJobs' {byCreatedBefore} -> byCreatedBefore) (\s@ListBackupJobs' {} a -> s {byCreatedBefore = a} :: ListBackupJobs) Prelude.. Lens.mapping Core._Time
+listBackupJobs_byCreatedBefore = Lens.lens (\ListBackupJobs' {byCreatedBefore} -> byCreatedBefore) (\s@ListBackupJobs' {} a -> s {byCreatedBefore = a} :: ListBackupJobs) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of items to be returned.
 listBackupJobs_maxResults :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.Natural)
@@ -323,8 +324,8 @@ instance Core.AWSRequest ListBackupJobs where
     Response.receiveJSON
       ( \s h x ->
           ListBackupJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "BackupJobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "BackupJobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -356,34 +357,34 @@ instance Prelude.NFData ListBackupJobs where
       `Prelude.seq` Prelude.rnf byBackupVaultName
       `Prelude.seq` Prelude.rnf byResourceArn
 
-instance Core.ToHeaders ListBackupJobs where
+instance Data.ToHeaders ListBackupJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListBackupJobs where
+instance Data.ToPath ListBackupJobs where
   toPath = Prelude.const "/backup-jobs/"
 
-instance Core.ToQuery ListBackupJobs where
+instance Data.ToQuery ListBackupJobs where
   toQuery ListBackupJobs' {..} =
     Prelude.mconcat
-      [ "accountId" Core.=: byAccountId,
-        "nextToken" Core.=: nextToken,
-        "createdAfter" Core.=: byCreatedAfter,
-        "completeAfter" Core.=: byCompleteAfter,
-        "completeBefore" Core.=: byCompleteBefore,
-        "resourceType" Core.=: byResourceType,
-        "createdBefore" Core.=: byCreatedBefore,
-        "maxResults" Core.=: maxResults,
-        "state" Core.=: byState,
-        "backupVaultName" Core.=: byBackupVaultName,
-        "resourceArn" Core.=: byResourceArn
+      [ "accountId" Data.=: byAccountId,
+        "nextToken" Data.=: nextToken,
+        "createdAfter" Data.=: byCreatedAfter,
+        "completeAfter" Data.=: byCompleteAfter,
+        "completeBefore" Data.=: byCompleteBefore,
+        "resourceType" Data.=: byResourceType,
+        "createdBefore" Data.=: byCreatedBefore,
+        "maxResults" Data.=: maxResults,
+        "state" Data.=: byState,
+        "backupVaultName" Data.=: byBackupVaultName,
+        "resourceArn" Data.=: byResourceArn
       ]
 
 -- | /See:/ 'newListBackupJobsResponse' smart constructor.

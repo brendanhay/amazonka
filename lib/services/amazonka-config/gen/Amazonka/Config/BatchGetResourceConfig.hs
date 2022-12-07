@@ -52,6 +52,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,8 +100,8 @@ instance Core.AWSRequest BatchGetResourceConfig where
     Response.receiveJSON
       ( \s h x ->
           BatchGetResourceConfigResponse'
-            Prelude.<$> (x Core..?> "unprocessedResourceKeys")
-            Prelude.<*> ( x Core..?> "baseConfigurationItems"
+            Prelude.<$> (x Data..?> "unprocessedResourceKeys")
+            Prelude.<*> ( x Data..?> "baseConfigurationItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -114,32 +115,32 @@ instance Prelude.NFData BatchGetResourceConfig where
   rnf BatchGetResourceConfig' {..} =
     Prelude.rnf resourceKeys
 
-instance Core.ToHeaders BatchGetResourceConfig where
+instance Data.ToHeaders BatchGetResourceConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.BatchGetResourceConfig" ::
+              Data.=# ( "StarlingDoveService.BatchGetResourceConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetResourceConfig where
+instance Data.ToJSON BatchGetResourceConfig where
   toJSON BatchGetResourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("resourceKeys" Core..= resourceKeys)]
+          [Prelude.Just ("resourceKeys" Data..= resourceKeys)]
       )
 
-instance Core.ToPath BatchGetResourceConfig where
+instance Data.ToPath BatchGetResourceConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetResourceConfig where
+instance Data.ToQuery BatchGetResourceConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetResourceConfigResponse' smart constructor.

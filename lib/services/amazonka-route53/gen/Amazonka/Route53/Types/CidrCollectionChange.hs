@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.CidrCollectionChange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Types.CidrCollectionChangeAction
@@ -95,10 +96,10 @@ instance Prelude.NFData CidrCollectionChange where
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf cidrList
 
-instance Core.ToXML CidrCollectionChange where
+instance Data.ToXML CidrCollectionChange where
   toXML CidrCollectionChange' {..} =
     Prelude.mconcat
-      [ "LocationName" Core.@= locationName,
-        "Action" Core.@= action,
-        "CidrList" Core.@= Core.toXMLList "Cidr" cidrList
+      [ "LocationName" Data.@= locationName,
+        "Action" Data.@= action,
+        "CidrList" Data.@= Data.toXMLList "Cidr" cidrList
       ]

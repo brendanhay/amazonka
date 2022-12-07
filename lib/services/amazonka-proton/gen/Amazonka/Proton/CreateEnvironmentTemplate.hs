@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -81,9 +82,9 @@ data CreateEnvironmentTemplate = CreateEnvironmentTemplate'
     -- provisioned and managed infrastructure.
     provisioning :: Prelude.Maybe Provisioning,
     -- | The environment template name as displayed in the developer interface.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A description of the environment template.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A customer provided encryption key that Proton uses to encrypt data.
     encryptionKey :: Prelude.Maybe Prelude.Text,
     -- | The name of the environment template.
@@ -146,11 +147,11 @@ createEnvironmentTemplate_provisioning = Lens.lens (\CreateEnvironmentTemplate' 
 
 -- | The environment template name as displayed in the developer interface.
 createEnvironmentTemplate_displayName :: Lens.Lens' CreateEnvironmentTemplate (Prelude.Maybe Prelude.Text)
-createEnvironmentTemplate_displayName = Lens.lens (\CreateEnvironmentTemplate' {displayName} -> displayName) (\s@CreateEnvironmentTemplate' {} a -> s {displayName = a} :: CreateEnvironmentTemplate) Prelude.. Lens.mapping Core._Sensitive
+createEnvironmentTemplate_displayName = Lens.lens (\CreateEnvironmentTemplate' {displayName} -> displayName) (\s@CreateEnvironmentTemplate' {} a -> s {displayName = a} :: CreateEnvironmentTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A description of the environment template.
 createEnvironmentTemplate_description :: Lens.Lens' CreateEnvironmentTemplate (Prelude.Maybe Prelude.Text)
-createEnvironmentTemplate_description = Lens.lens (\CreateEnvironmentTemplate' {description} -> description) (\s@CreateEnvironmentTemplate' {} a -> s {description = a} :: CreateEnvironmentTemplate) Prelude.. Lens.mapping Core._Sensitive
+createEnvironmentTemplate_description = Lens.lens (\CreateEnvironmentTemplate' {description} -> description) (\s@CreateEnvironmentTemplate' {} a -> s {description = a} :: CreateEnvironmentTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A customer provided encryption key that Proton uses to encrypt data.
 createEnvironmentTemplate_encryptionKey :: Lens.Lens' CreateEnvironmentTemplate (Prelude.Maybe Prelude.Text)
@@ -171,7 +172,7 @@ instance Core.AWSRequest CreateEnvironmentTemplate where
       ( \s h x ->
           CreateEnvironmentTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "environmentTemplate")
+            Prelude.<*> (x Data..:> "environmentTemplate")
       )
 
 instance Prelude.Hashable CreateEnvironmentTemplate where
@@ -192,38 +193,38 @@ instance Prelude.NFData CreateEnvironmentTemplate where
       `Prelude.seq` Prelude.rnf encryptionKey
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateEnvironmentTemplate where
+instance Data.ToHeaders CreateEnvironmentTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.CreateEnvironmentTemplate" ::
+              Data.=# ( "AwsProton20200720.CreateEnvironmentTemplate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEnvironmentTemplate where
+instance Data.ToJSON CreateEnvironmentTemplate where
   toJSON CreateEnvironmentTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("provisioning" Core..=) Prelude.<$> provisioning,
-            ("displayName" Core..=) Prelude.<$> displayName,
-            ("description" Core..=) Prelude.<$> description,
-            ("encryptionKey" Core..=) Prelude.<$> encryptionKey,
-            Prelude.Just ("name" Core..= name)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("provisioning" Data..=) Prelude.<$> provisioning,
+            ("displayName" Data..=) Prelude.<$> displayName,
+            ("description" Data..=) Prelude.<$> description,
+            ("encryptionKey" Data..=) Prelude.<$> encryptionKey,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateEnvironmentTemplate where
+instance Data.ToPath CreateEnvironmentTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEnvironmentTemplate where
+instance Data.ToQuery CreateEnvironmentTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEnvironmentTemplateResponse' smart constructor.

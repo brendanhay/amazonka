@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.EnabledServicePrincipal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains details of a service principal that represents
@@ -34,7 +35,7 @@ data EnabledServicePrincipal = EnabledServicePrincipal'
     servicePrincipal :: Prelude.Maybe Prelude.Text,
     -- | The date that the service principal was enabled for integration with
     -- Organizations.
-    dateEnabled :: Prelude.Maybe Core.POSIX
+    dateEnabled :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,16 +69,16 @@ enabledServicePrincipal_servicePrincipal = Lens.lens (\EnabledServicePrincipal' 
 -- | The date that the service principal was enabled for integration with
 -- Organizations.
 enabledServicePrincipal_dateEnabled :: Lens.Lens' EnabledServicePrincipal (Prelude.Maybe Prelude.UTCTime)
-enabledServicePrincipal_dateEnabled = Lens.lens (\EnabledServicePrincipal' {dateEnabled} -> dateEnabled) (\s@EnabledServicePrincipal' {} a -> s {dateEnabled = a} :: EnabledServicePrincipal) Prelude.. Lens.mapping Core._Time
+enabledServicePrincipal_dateEnabled = Lens.lens (\EnabledServicePrincipal' {dateEnabled} -> dateEnabled) (\s@EnabledServicePrincipal' {} a -> s {dateEnabled = a} :: EnabledServicePrincipal) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON EnabledServicePrincipal where
+instance Data.FromJSON EnabledServicePrincipal where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnabledServicePrincipal"
       ( \x ->
           EnabledServicePrincipal'
-            Prelude.<$> (x Core..:? "ServicePrincipal")
-            Prelude.<*> (x Core..:? "DateEnabled")
+            Prelude.<$> (x Data..:? "ServicePrincipal")
+            Prelude.<*> (x Data..:? "DateEnabled")
       )
 
 instance Prelude.Hashable EnabledServicePrincipal where

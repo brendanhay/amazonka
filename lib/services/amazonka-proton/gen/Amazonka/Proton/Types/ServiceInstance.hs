@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.ServiceInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.DeploymentStatus
 
@@ -29,21 +30,21 @@ import Amazonka.Proton.Types.DeploymentStatus
 -- /See:/ 'newServiceInstance' smart constructor.
 data ServiceInstance = ServiceInstance'
   { -- | The message associated with the service instance deployment status.
-    deploymentStatusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    deploymentStatusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The service spec that was used to create the service instance.
-    spec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    spec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the service instance.
     arn :: Prelude.Text,
     -- | The time when the service instance was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The service instance deployment status.
     deploymentStatus :: DeploymentStatus,
     -- | The name of the environment that the service instance was deployed into.
     environmentName :: Prelude.Text,
     -- | The time when a deployment of the service instance was last attempted.
-    lastDeploymentAttemptedAt :: Core.POSIX,
+    lastDeploymentAttemptedAt :: Data.POSIX,
     -- | The time when the service instance was last deployed successfully.
-    lastDeploymentSucceededAt :: Core.POSIX,
+    lastDeploymentSucceededAt :: Data.POSIX,
     -- | The name of the service instance.
     name :: Prelude.Text,
     -- | The name of the service that the service instance belongs to.
@@ -137,13 +138,13 @@ newServiceInstance
           Prelude.Nothing,
         spec = Prelude.Nothing,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         deploymentStatus = pDeploymentStatus_,
         environmentName = pEnvironmentName_,
         lastDeploymentAttemptedAt =
-          Core._Time Lens.# pLastDeploymentAttemptedAt_,
+          Data._Time Lens.# pLastDeploymentAttemptedAt_,
         lastDeploymentSucceededAt =
-          Core._Time Lens.# pLastDeploymentSucceededAt_,
+          Data._Time Lens.# pLastDeploymentSucceededAt_,
         name = pName_,
         serviceName = pServiceName_,
         templateMajorVersion = pTemplateMajorVersion_,
@@ -153,11 +154,11 @@ newServiceInstance
 
 -- | The message associated with the service instance deployment status.
 serviceInstance_deploymentStatusMessage :: Lens.Lens' ServiceInstance (Prelude.Maybe Prelude.Text)
-serviceInstance_deploymentStatusMessage = Lens.lens (\ServiceInstance' {deploymentStatusMessage} -> deploymentStatusMessage) (\s@ServiceInstance' {} a -> s {deploymentStatusMessage = a} :: ServiceInstance) Prelude.. Lens.mapping Core._Sensitive
+serviceInstance_deploymentStatusMessage = Lens.lens (\ServiceInstance' {deploymentStatusMessage} -> deploymentStatusMessage) (\s@ServiceInstance' {} a -> s {deploymentStatusMessage = a} :: ServiceInstance) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The service spec that was used to create the service instance.
 serviceInstance_spec :: Lens.Lens' ServiceInstance (Prelude.Maybe Prelude.Text)
-serviceInstance_spec = Lens.lens (\ServiceInstance' {spec} -> spec) (\s@ServiceInstance' {} a -> s {spec = a} :: ServiceInstance) Prelude.. Lens.mapping Core._Sensitive
+serviceInstance_spec = Lens.lens (\ServiceInstance' {spec} -> spec) (\s@ServiceInstance' {} a -> s {spec = a} :: ServiceInstance) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the service instance.
 serviceInstance_arn :: Lens.Lens' ServiceInstance Prelude.Text
@@ -165,7 +166,7 @@ serviceInstance_arn = Lens.lens (\ServiceInstance' {arn} -> arn) (\s@ServiceInst
 
 -- | The time when the service instance was created.
 serviceInstance_createdAt :: Lens.Lens' ServiceInstance Prelude.UTCTime
-serviceInstance_createdAt = Lens.lens (\ServiceInstance' {createdAt} -> createdAt) (\s@ServiceInstance' {} a -> s {createdAt = a} :: ServiceInstance) Prelude.. Core._Time
+serviceInstance_createdAt = Lens.lens (\ServiceInstance' {createdAt} -> createdAt) (\s@ServiceInstance' {} a -> s {createdAt = a} :: ServiceInstance) Prelude.. Data._Time
 
 -- | The service instance deployment status.
 serviceInstance_deploymentStatus :: Lens.Lens' ServiceInstance DeploymentStatus
@@ -177,11 +178,11 @@ serviceInstance_environmentName = Lens.lens (\ServiceInstance' {environmentName}
 
 -- | The time when a deployment of the service instance was last attempted.
 serviceInstance_lastDeploymentAttemptedAt :: Lens.Lens' ServiceInstance Prelude.UTCTime
-serviceInstance_lastDeploymentAttemptedAt = Lens.lens (\ServiceInstance' {lastDeploymentAttemptedAt} -> lastDeploymentAttemptedAt) (\s@ServiceInstance' {} a -> s {lastDeploymentAttemptedAt = a} :: ServiceInstance) Prelude.. Core._Time
+serviceInstance_lastDeploymentAttemptedAt = Lens.lens (\ServiceInstance' {lastDeploymentAttemptedAt} -> lastDeploymentAttemptedAt) (\s@ServiceInstance' {} a -> s {lastDeploymentAttemptedAt = a} :: ServiceInstance) Prelude.. Data._Time
 
 -- | The time when the service instance was last deployed successfully.
 serviceInstance_lastDeploymentSucceededAt :: Lens.Lens' ServiceInstance Prelude.UTCTime
-serviceInstance_lastDeploymentSucceededAt = Lens.lens (\ServiceInstance' {lastDeploymentSucceededAt} -> lastDeploymentSucceededAt) (\s@ServiceInstance' {} a -> s {lastDeploymentSucceededAt = a} :: ServiceInstance) Prelude.. Core._Time
+serviceInstance_lastDeploymentSucceededAt = Lens.lens (\ServiceInstance' {lastDeploymentSucceededAt} -> lastDeploymentSucceededAt) (\s@ServiceInstance' {} a -> s {lastDeploymentSucceededAt = a} :: ServiceInstance) Prelude.. Data._Time
 
 -- | The name of the service instance.
 serviceInstance_name :: Lens.Lens' ServiceInstance Prelude.Text
@@ -206,25 +207,25 @@ serviceInstance_templateMinorVersion = Lens.lens (\ServiceInstance' {templateMin
 serviceInstance_templateName :: Lens.Lens' ServiceInstance Prelude.Text
 serviceInstance_templateName = Lens.lens (\ServiceInstance' {templateName} -> templateName) (\s@ServiceInstance' {} a -> s {templateName = a} :: ServiceInstance)
 
-instance Core.FromJSON ServiceInstance where
+instance Data.FromJSON ServiceInstance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceInstance"
       ( \x ->
           ServiceInstance'
-            Prelude.<$> (x Core..:? "deploymentStatusMessage")
-            Prelude.<*> (x Core..:? "spec")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "deploymentStatus")
-            Prelude.<*> (x Core..: "environmentName")
-            Prelude.<*> (x Core..: "lastDeploymentAttemptedAt")
-            Prelude.<*> (x Core..: "lastDeploymentSucceededAt")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "serviceName")
-            Prelude.<*> (x Core..: "templateMajorVersion")
-            Prelude.<*> (x Core..: "templateMinorVersion")
-            Prelude.<*> (x Core..: "templateName")
+            Prelude.<$> (x Data..:? "deploymentStatusMessage")
+            Prelude.<*> (x Data..:? "spec")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "deploymentStatus")
+            Prelude.<*> (x Data..: "environmentName")
+            Prelude.<*> (x Data..: "lastDeploymentAttemptedAt")
+            Prelude.<*> (x Data..: "lastDeploymentSucceededAt")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "serviceName")
+            Prelude.<*> (x Data..: "templateMajorVersion")
+            Prelude.<*> (x Data..: "templateMinorVersion")
+            Prelude.<*> (x Data..: "templateName")
       )
 
 instance Prelude.Hashable ServiceInstance where

@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.TemplateLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a template location.
@@ -75,11 +76,11 @@ instance Prelude.NFData TemplateLocation where
     Prelude.rnf s3Bucket
       `Prelude.seq` Prelude.rnf s3Key
 
-instance Core.ToJSON TemplateLocation where
+instance Data.ToJSON TemplateLocation where
   toJSON TemplateLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("s3Bucket" Core..= s3Bucket),
-            Prelude.Just ("s3Key" Core..= s3Key)
+          [ Prelude.Just ("s3Bucket" Data..= s3Bucket),
+            Prelude.Just ("s3Key" Data..= s3Key)
           ]
       )

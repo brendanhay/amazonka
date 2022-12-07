@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.HttpEndpointDestinationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.HttpEndpointBufferingHints
 import Amazonka.Firehose.Types.HttpEndpointDescription
@@ -176,23 +177,23 @@ httpEndpointDestinationDescription_s3DestinationDescription :: Lens.Lens' HttpEn
 httpEndpointDestinationDescription_s3DestinationDescription = Lens.lens (\HttpEndpointDestinationDescription' {s3DestinationDescription} -> s3DestinationDescription) (\s@HttpEndpointDestinationDescription' {} a -> s {s3DestinationDescription = a} :: HttpEndpointDestinationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     HttpEndpointDestinationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpEndpointDestinationDescription"
       ( \x ->
           HttpEndpointDestinationDescription'
-            Prelude.<$> (x Core..:? "RequestConfiguration")
-            Prelude.<*> (x Core..:? "ProcessingConfiguration")
-            Prelude.<*> (x Core..:? "RoleARN")
-            Prelude.<*> (x Core..:? "BufferingHints")
-            Prelude.<*> (x Core..:? "CloudWatchLoggingOptions")
-            Prelude.<*> (x Core..:? "S3BackupMode")
-            Prelude.<*> (x Core..:? "EndpointConfiguration")
-            Prelude.<*> (x Core..:? "RetryOptions")
-            Prelude.<*> (x Core..:? "S3DestinationDescription")
+            Prelude.<$> (x Data..:? "RequestConfiguration")
+            Prelude.<*> (x Data..:? "ProcessingConfiguration")
+            Prelude.<*> (x Data..:? "RoleARN")
+            Prelude.<*> (x Data..:? "BufferingHints")
+            Prelude.<*> (x Data..:? "CloudWatchLoggingOptions")
+            Prelude.<*> (x Data..:? "S3BackupMode")
+            Prelude.<*> (x Data..:? "EndpointConfiguration")
+            Prelude.<*> (x Data..:? "RetryOptions")
+            Prelude.<*> (x Data..:? "S3DestinationDescription")
       )
 
 instance

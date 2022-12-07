@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LicenseConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,10 +55,10 @@ newLicenseConfiguration =
 licenseConfiguration_licenseConfigurationArn :: Lens.Lens' LicenseConfiguration (Prelude.Maybe Prelude.Text)
 licenseConfiguration_licenseConfigurationArn = Lens.lens (\LicenseConfiguration' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@LicenseConfiguration' {} a -> s {licenseConfigurationArn = a} :: LicenseConfiguration)
 
-instance Core.FromXML LicenseConfiguration where
+instance Data.FromXML LicenseConfiguration where
   parseXML x =
     LicenseConfiguration'
-      Prelude.<$> (x Core..@? "licenseConfigurationArn")
+      Prelude.<$> (x Data..@? "licenseConfigurationArn")
 
 instance Prelude.Hashable LicenseConfiguration where
   hashWithSalt _salt LicenseConfiguration' {..} =

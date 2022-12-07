@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,23 +114,23 @@ instance Prelude.NFData DeleteConfigurationTemplate where
     Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToHeaders DeleteConfigurationTemplate where
+instance Data.ToHeaders DeleteConfigurationTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteConfigurationTemplate where
+instance Data.ToPath DeleteConfigurationTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteConfigurationTemplate where
+instance Data.ToQuery DeleteConfigurationTemplate where
   toQuery DeleteConfigurationTemplate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DeleteConfigurationTemplate" ::
+          Data.=: ( "DeleteConfigurationTemplate" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "ApplicationName" Core.=: applicationName,
-        "TemplateName" Core.=: templateName
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "ApplicationName" Data.=: applicationName,
+        "TemplateName" Data.=: templateName
       ]
 
 -- | /See:/ 'newDeleteConfigurationTemplateResponse' smart constructor.

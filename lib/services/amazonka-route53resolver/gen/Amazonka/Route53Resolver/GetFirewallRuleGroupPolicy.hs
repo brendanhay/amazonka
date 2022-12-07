@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,7 +86,7 @@ instance Core.AWSRequest GetFirewallRuleGroupPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetFirewallRuleGroupPolicyResponse'
-            Prelude.<$> (x Core..?> "FirewallRuleGroupPolicy")
+            Prelude.<$> (x Data..?> "FirewallRuleGroupPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,32 +97,32 @@ instance Prelude.Hashable GetFirewallRuleGroupPolicy where
 instance Prelude.NFData GetFirewallRuleGroupPolicy where
   rnf GetFirewallRuleGroupPolicy' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders GetFirewallRuleGroupPolicy where
+instance Data.ToHeaders GetFirewallRuleGroupPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.GetFirewallRuleGroupPolicy" ::
+              Data.=# ( "Route53Resolver.GetFirewallRuleGroupPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetFirewallRuleGroupPolicy where
+instance Data.ToJSON GetFirewallRuleGroupPolicy where
   toJSON GetFirewallRuleGroupPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Arn" Core..= arn)]
+          [Prelude.Just ("Arn" Data..= arn)]
       )
 
-instance Core.ToPath GetFirewallRuleGroupPolicy where
+instance Data.ToPath GetFirewallRuleGroupPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetFirewallRuleGroupPolicy where
+instance Data.ToQuery GetFirewallRuleGroupPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFirewallRuleGroupPolicyResponse' smart constructor.

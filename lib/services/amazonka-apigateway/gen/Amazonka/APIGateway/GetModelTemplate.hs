@@ -44,6 +44,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest GetModelTemplate where
     Response.receiveJSON
       ( \s h x ->
           GetModelTemplateResponse'
-            Prelude.<$> (x Core..?> "value")
+            Prelude.<$> (x Data..?> "value")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,26 +116,26 @@ instance Prelude.NFData GetModelTemplate where
     Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf modelName
 
-instance Core.ToHeaders GetModelTemplate where
+instance Data.ToHeaders GetModelTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetModelTemplate where
+instance Data.ToPath GetModelTemplate where
   toPath GetModelTemplate' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/models/",
-        Core.toBS modelName,
+        Data.toBS modelName,
         "/default_template"
       ]
 
-instance Core.ToQuery GetModelTemplate where
+instance Data.ToQuery GetModelTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents a mapping template used to transform a payload.

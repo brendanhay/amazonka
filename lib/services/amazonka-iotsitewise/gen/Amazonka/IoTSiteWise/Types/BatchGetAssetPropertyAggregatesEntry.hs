@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.AggregateType
 import Amazonka.IoTSiteWise.Types.Quality
 import Amazonka.IoTSiteWise.Types.TimeOrdering
@@ -67,10 +68,10 @@ data BatchGetAssetPropertyAggregatesEntry = BatchGetAssetPropertyAggregatesEntry
     resolution :: Prelude.Text,
     -- | The exclusive start of the range from which to query historical data,
     -- expressed in seconds in Unix epoch time.
-    startDate :: Core.POSIX,
+    startDate :: Data.POSIX,
     -- | The inclusive end of the range from which to query historical data,
     -- expressed in seconds in Unix epoch time.
-    endDate :: Core.POSIX
+    endDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -141,8 +142,8 @@ newBatchGetAssetPropertyAggregatesEntry
             Lens.# pAggregateTypes_,
         resolution = pResolution_,
         startDate =
-          Core._Time Lens.# pStartDate_,
-        endDate = Core._Time Lens.# pEndDate_
+          Data._Time Lens.# pStartDate_,
+        endDate = Data._Time Lens.# pEndDate_
       }
 
 -- | The alias that identifies the property, such as an OPC-UA server data
@@ -187,12 +188,12 @@ batchGetAssetPropertyAggregatesEntry_resolution = Lens.lens (\BatchGetAssetPrope
 -- | The exclusive start of the range from which to query historical data,
 -- expressed in seconds in Unix epoch time.
 batchGetAssetPropertyAggregatesEntry_startDate :: Lens.Lens' BatchGetAssetPropertyAggregatesEntry Prelude.UTCTime
-batchGetAssetPropertyAggregatesEntry_startDate = Lens.lens (\BatchGetAssetPropertyAggregatesEntry' {startDate} -> startDate) (\s@BatchGetAssetPropertyAggregatesEntry' {} a -> s {startDate = a} :: BatchGetAssetPropertyAggregatesEntry) Prelude.. Core._Time
+batchGetAssetPropertyAggregatesEntry_startDate = Lens.lens (\BatchGetAssetPropertyAggregatesEntry' {startDate} -> startDate) (\s@BatchGetAssetPropertyAggregatesEntry' {} a -> s {startDate = a} :: BatchGetAssetPropertyAggregatesEntry) Prelude.. Data._Time
 
 -- | The inclusive end of the range from which to query historical data,
 -- expressed in seconds in Unix epoch time.
 batchGetAssetPropertyAggregatesEntry_endDate :: Lens.Lens' BatchGetAssetPropertyAggregatesEntry Prelude.UTCTime
-batchGetAssetPropertyAggregatesEntry_endDate = Lens.lens (\BatchGetAssetPropertyAggregatesEntry' {endDate} -> endDate) (\s@BatchGetAssetPropertyAggregatesEntry' {} a -> s {endDate = a} :: BatchGetAssetPropertyAggregatesEntry) Prelude.. Core._Time
+batchGetAssetPropertyAggregatesEntry_endDate = Lens.lens (\BatchGetAssetPropertyAggregatesEntry' {endDate} -> endDate) (\s@BatchGetAssetPropertyAggregatesEntry' {} a -> s {endDate = a} :: BatchGetAssetPropertyAggregatesEntry) Prelude.. Data._Time
 
 instance
   Prelude.Hashable
@@ -229,22 +230,22 @@ instance
       `Prelude.seq` Prelude.rnf endDate
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     BatchGetAssetPropertyAggregatesEntry
   where
   toJSON BatchGetAssetPropertyAggregatesEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("propertyAlias" Core..=) Prelude.<$> propertyAlias,
-            ("assetId" Core..=) Prelude.<$> assetId,
-            ("qualities" Core..=) Prelude.<$> qualities,
-            ("propertyId" Core..=) Prelude.<$> propertyId,
-            ("timeOrdering" Core..=) Prelude.<$> timeOrdering,
-            Prelude.Just ("entryId" Core..= entryId),
+          [ ("propertyAlias" Data..=) Prelude.<$> propertyAlias,
+            ("assetId" Data..=) Prelude.<$> assetId,
+            ("qualities" Data..=) Prelude.<$> qualities,
+            ("propertyId" Data..=) Prelude.<$> propertyId,
+            ("timeOrdering" Data..=) Prelude.<$> timeOrdering,
+            Prelude.Just ("entryId" Data..= entryId),
             Prelude.Just
-              ("aggregateTypes" Core..= aggregateTypes),
-            Prelude.Just ("resolution" Core..= resolution),
-            Prelude.Just ("startDate" Core..= startDate),
-            Prelude.Just ("endDate" Core..= endDate)
+              ("aggregateTypes" Data..= aggregateTypes),
+            Prelude.Just ("resolution" Data..= resolution),
+            Prelude.Just ("startDate" Data..= startDate),
+            Prelude.Just ("endDate" Data..= endDate)
           ]
       )

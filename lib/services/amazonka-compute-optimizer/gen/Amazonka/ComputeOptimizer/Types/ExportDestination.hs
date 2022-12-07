@@ -22,6 +22,7 @@ module Amazonka.ComputeOptimizer.Types.ExportDestination where
 import Amazonka.ComputeOptimizer.Types.S3Destination
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the destination of the recommendations export and metadata
@@ -58,12 +59,12 @@ newExportDestination =
 exportDestination_s3 :: Lens.Lens' ExportDestination (Prelude.Maybe S3Destination)
 exportDestination_s3 = Lens.lens (\ExportDestination' {s3} -> s3) (\s@ExportDestination' {} a -> s {s3 = a} :: ExportDestination)
 
-instance Core.FromJSON ExportDestination where
+instance Data.FromJSON ExportDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExportDestination"
       ( \x ->
-          ExportDestination' Prelude.<$> (x Core..:? "s3")
+          ExportDestination' Prelude.<$> (x Data..:? "s3")
       )
 
 instance Prelude.Hashable ExportDestination where

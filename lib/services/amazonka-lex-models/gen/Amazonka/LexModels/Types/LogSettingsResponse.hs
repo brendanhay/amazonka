@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.LogSettingsResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.Destination
 import Amazonka.LexModels.Types.LogType
 import qualified Amazonka.Prelude as Prelude
@@ -105,17 +106,17 @@ logSettingsResponse_kmsKeyArn = Lens.lens (\LogSettingsResponse' {kmsKeyArn} -> 
 logSettingsResponse_resourceArn :: Lens.Lens' LogSettingsResponse (Prelude.Maybe Prelude.Text)
 logSettingsResponse_resourceArn = Lens.lens (\LogSettingsResponse' {resourceArn} -> resourceArn) (\s@LogSettingsResponse' {} a -> s {resourceArn = a} :: LogSettingsResponse)
 
-instance Core.FromJSON LogSettingsResponse where
+instance Data.FromJSON LogSettingsResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogSettingsResponse"
       ( \x ->
           LogSettingsResponse'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "logType")
-            Prelude.<*> (x Core..:? "resourcePrefix")
-            Prelude.<*> (x Core..:? "kmsKeyArn")
-            Prelude.<*> (x Core..:? "resourceArn")
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "logType")
+            Prelude.<*> (x Data..:? "resourcePrefix")
+            Prelude.<*> (x Data..:? "kmsKeyArn")
+            Prelude.<*> (x Data..:? "resourceArn")
       )
 
 instance Prelude.Hashable LogSettingsResponse where

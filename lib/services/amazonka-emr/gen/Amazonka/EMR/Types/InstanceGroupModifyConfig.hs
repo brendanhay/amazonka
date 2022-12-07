@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceGroupModifyConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.Configuration
 import Amazonka.EMR.Types.ReconfigurationType
 import Amazonka.EMR.Types.ShrinkPolicy
@@ -125,19 +126,19 @@ instance Prelude.NFData InstanceGroupModifyConfig where
       `Prelude.seq` Prelude.rnf instanceCount
       `Prelude.seq` Prelude.rnf instanceGroupId
 
-instance Core.ToJSON InstanceGroupModifyConfig where
+instance Data.ToJSON InstanceGroupModifyConfig where
   toJSON InstanceGroupModifyConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EC2InstanceIdsToTerminate" Core..=)
+          [ ("EC2InstanceIdsToTerminate" Data..=)
               Prelude.<$> eC2InstanceIdsToTerminate,
-            ("ShrinkPolicy" Core..=) Prelude.<$> shrinkPolicy,
-            ("Configurations" Core..=)
+            ("ShrinkPolicy" Data..=) Prelude.<$> shrinkPolicy,
+            ("Configurations" Data..=)
               Prelude.<$> configurations,
-            ("ReconfigurationType" Core..=)
+            ("ReconfigurationType" Data..=)
               Prelude.<$> reconfigurationType,
-            ("InstanceCount" Core..=) Prelude.<$> instanceCount,
+            ("InstanceCount" Data..=) Prelude.<$> instanceCount,
             Prelude.Just
-              ("InstanceGroupId" Core..= instanceGroupId)
+              ("InstanceGroupId" Data..= instanceGroupId)
           ]
       )

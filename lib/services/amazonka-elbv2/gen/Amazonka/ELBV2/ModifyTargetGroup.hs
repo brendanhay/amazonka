@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -247,8 +248,8 @@ instance Core.AWSRequest ModifyTargetGroup where
       "ModifyTargetGroupResult"
       ( \s h x ->
           ModifyTargetGroupResponse'
-            Prelude.<$> ( x Core..@? "TargetGroups" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "TargetGroups" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -279,33 +280,33 @@ instance Prelude.NFData ModifyTargetGroup where
       `Prelude.seq` Prelude.rnf matcher
       `Prelude.seq` Prelude.rnf targetGroupArn
 
-instance Core.ToHeaders ModifyTargetGroup where
+instance Data.ToHeaders ModifyTargetGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyTargetGroup where
+instance Data.ToPath ModifyTargetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyTargetGroup where
+instance Data.ToQuery ModifyTargetGroup where
   toQuery ModifyTargetGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyTargetGroup" :: Prelude.ByteString),
+          Data.=: ("ModifyTargetGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "HealthCheckProtocol" Core.=: healthCheckProtocol,
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "HealthCheckProtocol" Data.=: healthCheckProtocol,
         "HealthCheckTimeoutSeconds"
-          Core.=: healthCheckTimeoutSeconds,
-        "HealthCheckPath" Core.=: healthCheckPath,
+          Data.=: healthCheckTimeoutSeconds,
+        "HealthCheckPath" Data.=: healthCheckPath,
         "UnhealthyThresholdCount"
-          Core.=: unhealthyThresholdCount,
-        "HealthCheckEnabled" Core.=: healthCheckEnabled,
+          Data.=: unhealthyThresholdCount,
+        "HealthCheckEnabled" Data.=: healthCheckEnabled,
         "HealthCheckIntervalSeconds"
-          Core.=: healthCheckIntervalSeconds,
+          Data.=: healthCheckIntervalSeconds,
         "HealthyThresholdCount"
-          Core.=: healthyThresholdCount,
-        "HealthCheckPort" Core.=: healthCheckPort,
-        "Matcher" Core.=: matcher,
-        "TargetGroupArn" Core.=: targetGroupArn
+          Data.=: healthyThresholdCount,
+        "HealthCheckPort" Data.=: healthCheckPort,
+        "Matcher" Data.=: matcher,
+        "TargetGroupArn" Data.=: targetGroupArn
       ]
 
 -- | /See:/ 'newModifyTargetGroupResponse' smart constructor.

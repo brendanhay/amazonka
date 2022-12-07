@@ -27,10 +27,11 @@ module Amazonka.MediaLive.Types.M2tsKlv
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | M2ts Klv
-newtype M2tsKlv = M2tsKlv' {fromM2tsKlv :: Core.Text}
+newtype M2tsKlv = M2tsKlv' {fromM2tsKlv :: Data.Text}
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -41,18 +42,18 @@ newtype M2tsKlv = M2tsKlv' {fromM2tsKlv :: Core.Text}
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern M2tsKlv_NONE :: M2tsKlv

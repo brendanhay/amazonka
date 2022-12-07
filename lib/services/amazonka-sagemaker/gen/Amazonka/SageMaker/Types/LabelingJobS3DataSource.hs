@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.LabelingJobS3DataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon S3 location of the input data objects.
@@ -106,13 +107,13 @@ newLabelingJobS3DataSource pManifestS3Uri_ =
 labelingJobS3DataSource_manifestS3Uri :: Lens.Lens' LabelingJobS3DataSource Prelude.Text
 labelingJobS3DataSource_manifestS3Uri = Lens.lens (\LabelingJobS3DataSource' {manifestS3Uri} -> manifestS3Uri) (\s@LabelingJobS3DataSource' {} a -> s {manifestS3Uri = a} :: LabelingJobS3DataSource)
 
-instance Core.FromJSON LabelingJobS3DataSource where
+instance Data.FromJSON LabelingJobS3DataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelingJobS3DataSource"
       ( \x ->
           LabelingJobS3DataSource'
-            Prelude.<$> (x Core..: "ManifestS3Uri")
+            Prelude.<$> (x Data..: "ManifestS3Uri")
       )
 
 instance Prelude.Hashable LabelingJobS3DataSource where
@@ -123,11 +124,11 @@ instance Prelude.NFData LabelingJobS3DataSource where
   rnf LabelingJobS3DataSource' {..} =
     Prelude.rnf manifestS3Uri
 
-instance Core.ToJSON LabelingJobS3DataSource where
+instance Data.ToJSON LabelingJobS3DataSource where
   toJSON LabelingJobS3DataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ManifestS3Uri" Core..= manifestS3Uri)
+              ("ManifestS3Uri" Data..= manifestS3Uri)
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.DLM.Types.RetentionArchiveTier where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.RetentionIntervalUnitValues
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Snapshot policies only]__ Describes the retention rule for archived
@@ -104,15 +105,15 @@ retentionArchiveTier_count = Lens.lens (\RetentionArchiveTier' {count} -> count)
 retentionArchiveTier_intervalUnit :: Lens.Lens' RetentionArchiveTier (Prelude.Maybe RetentionIntervalUnitValues)
 retentionArchiveTier_intervalUnit = Lens.lens (\RetentionArchiveTier' {intervalUnit} -> intervalUnit) (\s@RetentionArchiveTier' {} a -> s {intervalUnit = a} :: RetentionArchiveTier)
 
-instance Core.FromJSON RetentionArchiveTier where
+instance Data.FromJSON RetentionArchiveTier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RetentionArchiveTier"
       ( \x ->
           RetentionArchiveTier'
-            Prelude.<$> (x Core..:? "Interval")
-            Prelude.<*> (x Core..:? "Count")
-            Prelude.<*> (x Core..:? "IntervalUnit")
+            Prelude.<$> (x Data..:? "Interval")
+            Prelude.<*> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "IntervalUnit")
       )
 
 instance Prelude.Hashable RetentionArchiveTier where
@@ -127,12 +128,12 @@ instance Prelude.NFData RetentionArchiveTier where
       `Prelude.seq` Prelude.rnf count
       `Prelude.seq` Prelude.rnf intervalUnit
 
-instance Core.ToJSON RetentionArchiveTier where
+instance Data.ToJSON RetentionArchiveTier where
   toJSON RetentionArchiveTier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Interval" Core..=) Prelude.<$> interval,
-            ("Count" Core..=) Prelude.<$> count,
-            ("IntervalUnit" Core..=) Prelude.<$> intervalUnit
+          [ ("Interval" Data..=) Prelude.<$> interval,
+            ("Count" Data..=) Prelude.<$> count,
+            ("IntervalUnit" Data..=) Prelude.<$> intervalUnit
           ]
       )

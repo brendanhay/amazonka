@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -126,11 +127,11 @@ instance Core.AWSRequest SearchFolders where
     Response.receiveJSON
       ( \s h x ->
           SearchFoldersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "FolderSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "FolderSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,36 +149,36 @@ instance Prelude.NFData SearchFolders where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf filters
 
-instance Core.ToHeaders SearchFolders where
+instance Data.ToHeaders SearchFolders where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchFolders where
+instance Data.ToJSON SearchFolders where
   toJSON SearchFolders' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Filters" Core..= filters)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Filters" Data..= filters)
           ]
       )
 
-instance Core.ToPath SearchFolders where
+instance Data.ToPath SearchFolders where
   toPath SearchFolders' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/search/folders"
       ]
 
-instance Core.ToQuery SearchFolders where
+instance Data.ToQuery SearchFolders where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchFoldersResponse' smart constructor.

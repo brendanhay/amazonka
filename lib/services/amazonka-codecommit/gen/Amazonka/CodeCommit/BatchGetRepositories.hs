@@ -50,6 +50,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,8 +104,8 @@ instance Core.AWSRequest BatchGetRepositories where
     Response.receiveJSON
       ( \s h x ->
           BatchGetRepositoriesResponse'
-            Prelude.<$> (x Core..?> "repositories" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "repositoriesNotFound"
+            Prelude.<$> (x Data..?> "repositories" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "repositoriesNotFound"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -118,34 +119,34 @@ instance Prelude.NFData BatchGetRepositories where
   rnf BatchGetRepositories' {..} =
     Prelude.rnf repositoryNames
 
-instance Core.ToHeaders BatchGetRepositories where
+instance Data.ToHeaders BatchGetRepositories where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.BatchGetRepositories" ::
+              Data.=# ( "CodeCommit_20150413.BatchGetRepositories" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetRepositories where
+instance Data.ToJSON BatchGetRepositories where
   toJSON BatchGetRepositories' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("repositoryNames" Core..= repositoryNames)
+              ("repositoryNames" Data..= repositoryNames)
           ]
       )
 
-instance Core.ToPath BatchGetRepositories where
+instance Data.ToPath BatchGetRepositories where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetRepositories where
+instance Data.ToQuery BatchGetRepositories where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a batch get repositories operation.

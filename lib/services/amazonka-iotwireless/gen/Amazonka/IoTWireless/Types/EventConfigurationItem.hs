@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.EventConfigurationItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.EventNotificationItemConfigurations
 import Amazonka.IoTWireless.Types.EventNotificationPartnerType
 import Amazonka.IoTWireless.Types.IdentifierType
@@ -85,16 +86,16 @@ eventConfigurationItem_identifier = Lens.lens (\EventConfigurationItem' {identif
 eventConfigurationItem_partnerType :: Lens.Lens' EventConfigurationItem (Prelude.Maybe EventNotificationPartnerType)
 eventConfigurationItem_partnerType = Lens.lens (\EventConfigurationItem' {partnerType} -> partnerType) (\s@EventConfigurationItem' {} a -> s {partnerType = a} :: EventConfigurationItem)
 
-instance Core.FromJSON EventConfigurationItem where
+instance Data.FromJSON EventConfigurationItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventConfigurationItem"
       ( \x ->
           EventConfigurationItem'
-            Prelude.<$> (x Core..:? "IdentifierType")
-            Prelude.<*> (x Core..:? "Events")
-            Prelude.<*> (x Core..:? "Identifier")
-            Prelude.<*> (x Core..:? "PartnerType")
+            Prelude.<$> (x Data..:? "IdentifierType")
+            Prelude.<*> (x Data..:? "Events")
+            Prelude.<*> (x Data..:? "Identifier")
+            Prelude.<*> (x Data..:? "PartnerType")
       )
 
 instance Prelude.Hashable EventConfigurationItem where

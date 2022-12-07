@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -172,31 +173,31 @@ instance
       `Prelude.seq` Prelude.rnf proximity
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateEventConfigurationByResourceTypes
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateEventConfigurationByResourceTypes
   where
   toJSON UpdateEventConfigurationByResourceTypes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeviceRegistrationState" Core..=)
+          [ ("DeviceRegistrationState" Data..=)
               Prelude.<$> deviceRegistrationState,
-            ("ConnectionStatus" Core..=)
+            ("ConnectionStatus" Data..=)
               Prelude.<$> connectionStatus,
-            ("MessageDeliveryStatus" Core..=)
+            ("MessageDeliveryStatus" Data..=)
               Prelude.<$> messageDeliveryStatus,
-            ("Join" Core..=) Prelude.<$> join,
-            ("Proximity" Core..=) Prelude.<$> proximity
+            ("Join" Data..=) Prelude.<$> join,
+            ("Proximity" Data..=) Prelude.<$> proximity
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateEventConfigurationByResourceTypes
   where
   toPath =
@@ -204,7 +205,7 @@ instance
       "/event-configurations-resource-types"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateEventConfigurationByResourceTypes
   where
   toQuery = Prelude.const Prelude.mempty

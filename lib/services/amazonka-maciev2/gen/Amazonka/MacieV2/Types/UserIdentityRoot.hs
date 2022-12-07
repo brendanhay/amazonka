@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.UserIdentityRoot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an Amazon Web Services account and entity
@@ -78,15 +79,15 @@ userIdentityRoot_arn = Lens.lens (\UserIdentityRoot' {arn} -> arn) (\s@UserIdent
 userIdentityRoot_accountId :: Lens.Lens' UserIdentityRoot (Prelude.Maybe Prelude.Text)
 userIdentityRoot_accountId = Lens.lens (\UserIdentityRoot' {accountId} -> accountId) (\s@UserIdentityRoot' {} a -> s {accountId = a} :: UserIdentityRoot)
 
-instance Core.FromJSON UserIdentityRoot where
+instance Data.FromJSON UserIdentityRoot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserIdentityRoot"
       ( \x ->
           UserIdentityRoot'
-            Prelude.<$> (x Core..:? "principalId")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "accountId")
+            Prelude.<$> (x Data..:? "principalId")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "accountId")
       )
 
 instance Prelude.Hashable UserIdentityRoot where

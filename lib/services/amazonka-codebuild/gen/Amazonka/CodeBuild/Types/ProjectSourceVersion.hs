@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.ProjectSourceVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A source identifier and its corresponding version.
@@ -140,14 +141,14 @@ projectSourceVersion_sourceIdentifier = Lens.lens (\ProjectSourceVersion' {sourc
 projectSourceVersion_sourceVersion :: Lens.Lens' ProjectSourceVersion Prelude.Text
 projectSourceVersion_sourceVersion = Lens.lens (\ProjectSourceVersion' {sourceVersion} -> sourceVersion) (\s@ProjectSourceVersion' {} a -> s {sourceVersion = a} :: ProjectSourceVersion)
 
-instance Core.FromJSON ProjectSourceVersion where
+instance Data.FromJSON ProjectSourceVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectSourceVersion"
       ( \x ->
           ProjectSourceVersion'
-            Prelude.<$> (x Core..: "sourceIdentifier")
-            Prelude.<*> (x Core..: "sourceVersion")
+            Prelude.<$> (x Data..: "sourceIdentifier")
+            Prelude.<*> (x Data..: "sourceVersion")
       )
 
 instance Prelude.Hashable ProjectSourceVersion where
@@ -160,13 +161,13 @@ instance Prelude.NFData ProjectSourceVersion where
     Prelude.rnf sourceIdentifier
       `Prelude.seq` Prelude.rnf sourceVersion
 
-instance Core.ToJSON ProjectSourceVersion where
+instance Data.ToJSON ProjectSourceVersion where
   toJSON ProjectSourceVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("sourceIdentifier" Core..= sourceIdentifier),
+              ("sourceIdentifier" Data..= sourceIdentifier),
             Prelude.Just
-              ("sourceVersion" Core..= sourceVersion)
+              ("sourceVersion" Data..= sourceVersion)
           ]
       )

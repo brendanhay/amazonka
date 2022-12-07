@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AuditTaskMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.AuditTaskStatus
 import Amazonka.IoT.Types.AuditTaskType
 import qualified Amazonka.Prelude as Prelude
@@ -78,15 +79,15 @@ auditTaskMetadata_taskStatus = Lens.lens (\AuditTaskMetadata' {taskStatus} -> ta
 auditTaskMetadata_taskType :: Lens.Lens' AuditTaskMetadata (Prelude.Maybe AuditTaskType)
 auditTaskMetadata_taskType = Lens.lens (\AuditTaskMetadata' {taskType} -> taskType) (\s@AuditTaskMetadata' {} a -> s {taskType = a} :: AuditTaskMetadata)
 
-instance Core.FromJSON AuditTaskMetadata where
+instance Data.FromJSON AuditTaskMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuditTaskMetadata"
       ( \x ->
           AuditTaskMetadata'
-            Prelude.<$> (x Core..:? "taskId")
-            Prelude.<*> (x Core..:? "taskStatus")
-            Prelude.<*> (x Core..:? "taskType")
+            Prelude.<$> (x Data..:? "taskId")
+            Prelude.<*> (x Data..:? "taskStatus")
+            Prelude.<*> (x Data..:? "taskType")
       )
 
 instance Prelude.Hashable AuditTaskMetadata where

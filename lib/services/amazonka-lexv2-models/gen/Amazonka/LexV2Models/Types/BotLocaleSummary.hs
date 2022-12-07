@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotLocaleSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.BotLocaleStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,12 +38,12 @@ data BotLocaleSummary = BotLocaleSummary'
     -- | The description of the bot locale.
     description :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the bot locale was last built.
-    lastBuildSubmittedDateTime :: Prelude.Maybe Core.POSIX,
+    lastBuildSubmittedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The current status of the bot locale. When the status is @Built@ the
     -- locale is ready for use.
     botLocaleStatus :: Prelude.Maybe BotLocaleStatus,
     -- | A timestamp of the date and time that the bot locale was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,7 +93,7 @@ botLocaleSummary_description = Lens.lens (\BotLocaleSummary' {description} -> de
 
 -- | A timestamp of the date and time that the bot locale was last built.
 botLocaleSummary_lastBuildSubmittedDateTime :: Lens.Lens' BotLocaleSummary (Prelude.Maybe Prelude.UTCTime)
-botLocaleSummary_lastBuildSubmittedDateTime = Lens.lens (\BotLocaleSummary' {lastBuildSubmittedDateTime} -> lastBuildSubmittedDateTime) (\s@BotLocaleSummary' {} a -> s {lastBuildSubmittedDateTime = a} :: BotLocaleSummary) Prelude.. Lens.mapping Core._Time
+botLocaleSummary_lastBuildSubmittedDateTime = Lens.lens (\BotLocaleSummary' {lastBuildSubmittedDateTime} -> lastBuildSubmittedDateTime) (\s@BotLocaleSummary' {} a -> s {lastBuildSubmittedDateTime = a} :: BotLocaleSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the bot locale. When the status is @Built@ the
 -- locale is ready for use.
@@ -101,20 +102,20 @@ botLocaleSummary_botLocaleStatus = Lens.lens (\BotLocaleSummary' {botLocaleStatu
 
 -- | A timestamp of the date and time that the bot locale was last updated.
 botLocaleSummary_lastUpdatedDateTime :: Lens.Lens' BotLocaleSummary (Prelude.Maybe Prelude.UTCTime)
-botLocaleSummary_lastUpdatedDateTime = Lens.lens (\BotLocaleSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@BotLocaleSummary' {} a -> s {lastUpdatedDateTime = a} :: BotLocaleSummary) Prelude.. Lens.mapping Core._Time
+botLocaleSummary_lastUpdatedDateTime = Lens.lens (\BotLocaleSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@BotLocaleSummary' {} a -> s {lastUpdatedDateTime = a} :: BotLocaleSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON BotLocaleSummary where
+instance Data.FromJSON BotLocaleSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotLocaleSummary"
       ( \x ->
           BotLocaleSummary'
-            Prelude.<$> (x Core..:? "localeName")
-            Prelude.<*> (x Core..:? "localeId")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "lastBuildSubmittedDateTime")
-            Prelude.<*> (x Core..:? "botLocaleStatus")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "localeName")
+            Prelude.<*> (x Data..:? "localeId")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastBuildSubmittedDateTime")
+            Prelude.<*> (x Data..:? "botLocaleStatus")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable BotLocaleSummary where

@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.JobSample where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.SampleMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,13 +99,13 @@ jobSample_size = Lens.lens (\JobSample' {size} -> size) (\s@JobSample' {} a -> s
 jobSample_mode :: Lens.Lens' JobSample (Prelude.Maybe SampleMode)
 jobSample_mode = Lens.lens (\JobSample' {mode} -> mode) (\s@JobSample' {} a -> s {mode = a} :: JobSample)
 
-instance Core.FromJSON JobSample where
+instance Data.FromJSON JobSample where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobSample"
       ( \x ->
           JobSample'
-            Prelude.<$> (x Core..:? "Size") Prelude.<*> (x Core..:? "Mode")
+            Prelude.<$> (x Data..:? "Size") Prelude.<*> (x Data..:? "Mode")
       )
 
 instance Prelude.Hashable JobSample where
@@ -116,11 +117,11 @@ instance Prelude.NFData JobSample where
   rnf JobSample' {..} =
     Prelude.rnf size `Prelude.seq` Prelude.rnf mode
 
-instance Core.ToJSON JobSample where
+instance Data.ToJSON JobSample where
   toJSON JobSample' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Size" Core..=) Prelude.<$> size,
-            ("Mode" Core..=) Prelude.<$> mode
+          [ ("Size" Data..=) Prelude.<$> size,
+            ("Mode" Data..=) Prelude.<$> mode
           ]
       )

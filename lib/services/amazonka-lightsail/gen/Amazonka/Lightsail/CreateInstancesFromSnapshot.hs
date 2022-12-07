@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -415,7 +416,7 @@ instance Core.AWSRequest CreateInstancesFromSnapshot where
     Response.receiveJSON
       ( \s h x ->
           CreateInstancesFromSnapshotResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -451,50 +452,50 @@ instance Prelude.NFData CreateInstancesFromSnapshot where
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf bundleId
 
-instance Core.ToHeaders CreateInstancesFromSnapshot where
+instance Data.ToHeaders CreateInstancesFromSnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.CreateInstancesFromSnapshot" ::
+              Data.=# ( "Lightsail_20161128.CreateInstancesFromSnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateInstancesFromSnapshot where
+instance Data.ToJSON CreateInstancesFromSnapshot where
   toJSON CreateInstancesFromSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("userData" Core..=) Prelude.<$> userData,
-            ("useLatestRestorableAutoSnapshot" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("userData" Data..=) Prelude.<$> userData,
+            ("useLatestRestorableAutoSnapshot" Data..=)
               Prelude.<$> useLatestRestorableAutoSnapshot,
-            ("attachedDiskMapping" Core..=)
+            ("attachedDiskMapping" Data..=)
               Prelude.<$> attachedDiskMapping,
-            ("instanceSnapshotName" Core..=)
+            ("instanceSnapshotName" Data..=)
               Prelude.<$> instanceSnapshotName,
-            ("sourceInstanceName" Core..=)
+            ("sourceInstanceName" Data..=)
               Prelude.<$> sourceInstanceName,
-            ("restoreDate" Core..=) Prelude.<$> restoreDate,
-            ("addOns" Core..=) Prelude.<$> addOns,
-            ("keyPairName" Core..=) Prelude.<$> keyPairName,
-            ("ipAddressType" Core..=) Prelude.<$> ipAddressType,
-            Prelude.Just ("instanceNames" Core..= instanceNames),
+            ("restoreDate" Data..=) Prelude.<$> restoreDate,
+            ("addOns" Data..=) Prelude.<$> addOns,
+            ("keyPairName" Data..=) Prelude.<$> keyPairName,
+            ("ipAddressType" Data..=) Prelude.<$> ipAddressType,
+            Prelude.Just ("instanceNames" Data..= instanceNames),
             Prelude.Just
-              ("availabilityZone" Core..= availabilityZone),
-            Prelude.Just ("bundleId" Core..= bundleId)
+              ("availabilityZone" Data..= availabilityZone),
+            Prelude.Just ("bundleId" Data..= bundleId)
           ]
       )
 
-instance Core.ToPath CreateInstancesFromSnapshot where
+instance Data.ToPath CreateInstancesFromSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateInstancesFromSnapshot where
+instance Data.ToQuery CreateInstancesFromSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateInstancesFromSnapshotResponse' smart constructor.

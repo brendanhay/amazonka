@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudFormationStackDriftInformationDetails 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the stack\'s conformity to its expected
@@ -58,15 +59,15 @@ awsCloudFormationStackDriftInformationDetails_stackDriftStatus :: Lens.Lens' Aws
 awsCloudFormationStackDriftInformationDetails_stackDriftStatus = Lens.lens (\AwsCloudFormationStackDriftInformationDetails' {stackDriftStatus} -> stackDriftStatus) (\s@AwsCloudFormationStackDriftInformationDetails' {} a -> s {stackDriftStatus = a} :: AwsCloudFormationStackDriftInformationDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCloudFormationStackDriftInformationDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudFormationStackDriftInformationDetails"
       ( \x ->
           AwsCloudFormationStackDriftInformationDetails'
-            Prelude.<$> (x Core..:? "StackDriftStatus")
+            Prelude.<$> (x Data..:? "StackDriftStatus")
       )
 
 instance
@@ -87,14 +88,14 @@ instance
       Prelude.rnf stackDriftStatus
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCloudFormationStackDriftInformationDetails
   where
   toJSON
     AwsCloudFormationStackDriftInformationDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("StackDriftStatus" Core..=)
+            [ ("StackDriftStatus" Data..=)
                 Prelude.<$> stackDriftStatus
             ]
         )

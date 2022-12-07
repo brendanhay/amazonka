@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -271,9 +272,9 @@ instance Core.AWSRequest DescribeExportTasks where
       "DescribeExportTasksResult"
       ( \s h x ->
           DescribeExportTasksResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "ExportTasks" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "ExportTask")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "ExportTasks" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "ExportTask")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -296,27 +297,27 @@ instance Prelude.NFData DescribeExportTasks where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf exportTaskIdentifier
 
-instance Core.ToHeaders DescribeExportTasks where
+instance Data.ToHeaders DescribeExportTasks where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeExportTasks where
+instance Data.ToPath DescribeExportTasks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeExportTasks where
+instance Data.ToQuery DescribeExportTasks where
   toQuery DescribeExportTasks' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeExportTasks" :: Prelude.ByteString),
+          Data.=: ("DescribeExportTasks" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "SourceArn" Core.=: sourceArn,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "SourceArn" Data.=: sourceArn,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "SourceType" Core.=: sourceType,
-        "MaxRecords" Core.=: maxRecords,
-        "ExportTaskIdentifier" Core.=: exportTaskIdentifier
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "SourceType" Data.=: sourceType,
+        "MaxRecords" Data.=: maxRecords,
+        "ExportTaskIdentifier" Data.=: exportTaskIdentifier
       ]
 
 -- | /See:/ 'newDescribeExportTasksResponse' smart constructor.

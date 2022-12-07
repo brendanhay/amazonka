@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,7 +124,7 @@ instance Core.AWSRequest UpdateProjectDataDelivery where
       ( \s h x ->
           UpdateProjectDataDeliveryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "project")
+            Prelude.<*> (x Data..:> "project")
       )
 
 instance Prelude.Hashable UpdateProjectDataDelivery where
@@ -138,33 +139,33 @@ instance Prelude.NFData UpdateProjectDataDelivery where
       `Prelude.seq` Prelude.rnf s3Destination
       `Prelude.seq` Prelude.rnf project
 
-instance Core.ToHeaders UpdateProjectDataDelivery where
+instance Data.ToHeaders UpdateProjectDataDelivery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateProjectDataDelivery where
+instance Data.ToJSON UpdateProjectDataDelivery where
   toJSON UpdateProjectDataDelivery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cloudWatchLogs" Core..=)
+          [ ("cloudWatchLogs" Data..=)
               Prelude.<$> cloudWatchLogs,
-            ("s3Destination" Core..=) Prelude.<$> s3Destination
+            ("s3Destination" Data..=) Prelude.<$> s3Destination
           ]
       )
 
-instance Core.ToPath UpdateProjectDataDelivery where
+instance Data.ToPath UpdateProjectDataDelivery where
   toPath UpdateProjectDataDelivery' {..} =
     Prelude.mconcat
-      ["/projects/", Core.toBS project, "/data-delivery"]
+      ["/projects/", Data.toBS project, "/data-delivery"]
 
-instance Core.ToQuery UpdateProjectDataDelivery where
+instance Data.ToQuery UpdateProjectDataDelivery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProjectDataDeliveryResponse' smart constructor.

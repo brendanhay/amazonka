@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CustomEntityType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a custom pattern for detecting sensitive data
@@ -93,15 +94,15 @@ customEntityType_name = Lens.lens (\CustomEntityType' {name} -> name) (\s@Custom
 customEntityType_regexString :: Lens.Lens' CustomEntityType Prelude.Text
 customEntityType_regexString = Lens.lens (\CustomEntityType' {regexString} -> regexString) (\s@CustomEntityType' {} a -> s {regexString = a} :: CustomEntityType)
 
-instance Core.FromJSON CustomEntityType where
+instance Data.FromJSON CustomEntityType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomEntityType"
       ( \x ->
           CustomEntityType'
-            Prelude.<$> (x Core..:? "ContextWords")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "RegexString")
+            Prelude.<$> (x Data..:? "ContextWords")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "RegexString")
       )
 
 instance Prelude.Hashable CustomEntityType where

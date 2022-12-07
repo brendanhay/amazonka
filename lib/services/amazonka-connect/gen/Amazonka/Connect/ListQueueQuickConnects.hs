@@ -51,6 +51,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,8 +159,8 @@ instance Core.AWSRequest ListQueueQuickConnects where
     Response.receiveJSON
       ( \s h x ->
           ListQueueQuickConnectsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "QuickConnectSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "QuickConnectSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -179,32 +180,32 @@ instance Prelude.NFData ListQueueQuickConnects where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf queueId
 
-instance Core.ToHeaders ListQueueQuickConnects where
+instance Data.ToHeaders ListQueueQuickConnects where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListQueueQuickConnects where
+instance Data.ToPath ListQueueQuickConnects where
   toPath ListQueueQuickConnects' {..} =
     Prelude.mconcat
       [ "/queues/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS queueId,
+        Data.toBS queueId,
         "/quick-connects"
       ]
 
-instance Core.ToQuery ListQueueQuickConnects where
+instance Data.ToQuery ListQueueQuickConnects where
   toQuery ListQueueQuickConnects' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListQueueQuickConnectsResponse' smart constructor.

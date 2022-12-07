@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -63,11 +64,11 @@ data CreateUser = CreateUser'
     storageRule :: Prelude.Maybe StorageRuleType,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the organization.
     organizationId :: Prelude.Maybe Prelude.Text,
     -- | The email address of the user.
-    emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    emailAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The login name of the user.
     username :: Prelude.Text,
     -- | The given name of the user.
@@ -75,7 +76,7 @@ data CreateUser = CreateUser'
     -- | The surname of the user.
     surname :: Prelude.Text,
     -- | The password of the user.
-    password :: Core.Sensitive Prelude.Text
+    password :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -129,7 +130,7 @@ newCreateUser
         username = pUsername_,
         givenName = pGivenName_,
         surname = pSurname_,
-        password = Core._Sensitive Lens.# pPassword_
+        password = Data._Sensitive Lens.# pPassword_
       }
 
 -- | The time zone ID of the user.
@@ -143,7 +144,7 @@ createUser_storageRule = Lens.lens (\CreateUser' {storageRule} -> storageRule) (
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 createUser_authenticationToken :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_authenticationToken = Lens.lens (\CreateUser' {authenticationToken} -> authenticationToken) (\s@CreateUser' {} a -> s {authenticationToken = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+createUser_authenticationToken = Lens.lens (\CreateUser' {authenticationToken} -> authenticationToken) (\s@CreateUser' {} a -> s {authenticationToken = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the organization.
 createUser_organizationId :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
@@ -151,7 +152,7 @@ createUser_organizationId = Lens.lens (\CreateUser' {organizationId} -> organiza
 
 -- | The email address of the user.
 createUser_emailAddress :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_emailAddress = Lens.lens (\CreateUser' {emailAddress} -> emailAddress) (\s@CreateUser' {} a -> s {emailAddress = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+createUser_emailAddress = Lens.lens (\CreateUser' {emailAddress} -> emailAddress) (\s@CreateUser' {} a -> s {emailAddress = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The login name of the user.
 createUser_username :: Lens.Lens' CreateUser Prelude.Text
@@ -167,7 +168,7 @@ createUser_surname = Lens.lens (\CreateUser' {surname} -> surname) (\s@CreateUse
 
 -- | The password of the user.
 createUser_password :: Lens.Lens' CreateUser Prelude.Text
-createUser_password = Lens.lens (\CreateUser' {password} -> password) (\s@CreateUser' {} a -> s {password = a} :: CreateUser) Prelude.. Core._Sensitive
+createUser_password = Lens.lens (\CreateUser' {password} -> password) (\s@CreateUser' {} a -> s {password = a} :: CreateUser) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateUser where
   type AWSResponse CreateUser = CreateUserResponse
@@ -177,7 +178,7 @@ instance Core.AWSRequest CreateUser where
     Response.receiveJSON
       ( \s h x ->
           CreateUserResponse'
-            Prelude.<$> (x Core..?> "User")
+            Prelude.<$> (x Data..?> "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -205,34 +206,34 @@ instance Prelude.NFData CreateUser where
       `Prelude.seq` Prelude.rnf surname
       `Prelude.seq` Prelude.rnf password
 
-instance Core.ToHeaders CreateUser where
+instance Data.ToHeaders CreateUser where
   toHeaders CreateUser' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateUser where
+instance Data.ToJSON CreateUser where
   toJSON CreateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TimeZoneId" Core..=) Prelude.<$> timeZoneId,
-            ("StorageRule" Core..=) Prelude.<$> storageRule,
-            ("OrganizationId" Core..=)
+          [ ("TimeZoneId" Data..=) Prelude.<$> timeZoneId,
+            ("StorageRule" Data..=) Prelude.<$> storageRule,
+            ("OrganizationId" Data..=)
               Prelude.<$> organizationId,
-            ("EmailAddress" Core..=) Prelude.<$> emailAddress,
-            Prelude.Just ("Username" Core..= username),
-            Prelude.Just ("GivenName" Core..= givenName),
-            Prelude.Just ("Surname" Core..= surname),
-            Prelude.Just ("Password" Core..= password)
+            ("EmailAddress" Data..=) Prelude.<$> emailAddress,
+            Prelude.Just ("Username" Data..= username),
+            Prelude.Just ("GivenName" Data..= givenName),
+            Prelude.Just ("Surname" Data..= surname),
+            Prelude.Just ("Password" Data..= password)
           ]
       )
 
-instance Core.ToPath CreateUser where
+instance Data.ToPath CreateUser where
   toPath = Prelude.const "/api/v1/users"
 
-instance Core.ToQuery CreateUser where
+instance Data.ToQuery CreateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserResponse' smart constructor.

@@ -50,6 +50,7 @@ where
 import Amazonka.CognitoSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,7 +98,7 @@ instance Core.AWSRequest BulkPublish where
     Response.receiveJSON
       ( \s h x ->
           BulkPublishResponse'
-            Prelude.<$> (x Core..?> "IdentityPoolId")
+            Prelude.<$> (x Data..?> "IdentityPoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,29 +109,29 @@ instance Prelude.Hashable BulkPublish where
 instance Prelude.NFData BulkPublish where
   rnf BulkPublish' {..} = Prelude.rnf identityPoolId
 
-instance Core.ToHeaders BulkPublish where
+instance Data.ToHeaders BulkPublish where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BulkPublish where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON BulkPublish where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath BulkPublish where
+instance Data.ToPath BulkPublish where
   toPath BulkPublish' {..} =
     Prelude.mconcat
       [ "/identitypools/",
-        Core.toBS identityPoolId,
+        Data.toBS identityPoolId,
         "/bulkpublish"
       ]
 
-instance Core.ToQuery BulkPublish where
+instance Data.ToQuery BulkPublish where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the BulkPublish operation.

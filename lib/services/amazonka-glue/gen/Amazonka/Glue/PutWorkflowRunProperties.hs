@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,36 +127,36 @@ instance Prelude.NFData PutWorkflowRunProperties where
       `Prelude.seq` Prelude.rnf runId
       `Prelude.seq` Prelude.rnf runProperties
 
-instance Core.ToHeaders PutWorkflowRunProperties where
+instance Data.ToHeaders PutWorkflowRunProperties where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.PutWorkflowRunProperties" ::
+              Data.=# ( "AWSGlue.PutWorkflowRunProperties" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutWorkflowRunProperties where
+instance Data.ToJSON PutWorkflowRunProperties where
   toJSON PutWorkflowRunProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("RunId" Core..= runId),
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("RunId" Data..= runId),
             Prelude.Just
-              ("RunProperties" Core..= runProperties)
+              ("RunProperties" Data..= runProperties)
           ]
       )
 
-instance Core.ToPath PutWorkflowRunProperties where
+instance Data.ToPath PutWorkflowRunProperties where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutWorkflowRunProperties where
+instance Data.ToQuery PutWorkflowRunProperties where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutWorkflowRunPropertiesResponse' smart constructor.

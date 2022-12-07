@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.Capacity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -76,15 +77,15 @@ capacity_capacityUnits = Lens.lens (\Capacity' {capacityUnits} -> capacityUnits)
 capacity_writeCapacityUnits :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Double)
 capacity_writeCapacityUnits = Lens.lens (\Capacity' {writeCapacityUnits} -> writeCapacityUnits) (\s@Capacity' {} a -> s {writeCapacityUnits = a} :: Capacity)
 
-instance Core.FromJSON Capacity where
+instance Data.FromJSON Capacity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Capacity"
       ( \x ->
           Capacity'
-            Prelude.<$> (x Core..:? "ReadCapacityUnits")
-            Prelude.<*> (x Core..:? "CapacityUnits")
-            Prelude.<*> (x Core..:? "WriteCapacityUnits")
+            Prelude.<$> (x Data..:? "ReadCapacityUnits")
+            Prelude.<*> (x Data..:? "CapacityUnits")
+            Prelude.<*> (x Data..:? "WriteCapacityUnits")
       )
 
 instance Prelude.Hashable Capacity where

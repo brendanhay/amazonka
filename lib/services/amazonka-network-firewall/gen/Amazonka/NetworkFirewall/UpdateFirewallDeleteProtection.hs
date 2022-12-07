@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -200,10 +201,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateFirewallDeleteProtectionResponse'
-            Prelude.<$> (x Core..?> "UpdateToken")
-            Prelude.<*> (x Core..?> "DeleteProtection")
-            Prelude.<*> (x Core..?> "FirewallArn")
-            Prelude.<*> (x Core..?> "FirewallName")
+            Prelude.<$> (x Data..?> "UpdateToken")
+            Prelude.<*> (x Data..?> "DeleteProtection")
+            Prelude.<*> (x Data..?> "FirewallArn")
+            Prelude.<*> (x Data..?> "FirewallName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -230,39 +231,39 @@ instance
       `Prelude.seq` Prelude.rnf deleteProtection
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateFirewallDeleteProtection
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "NetworkFirewall_20201112.UpdateFirewallDeleteProtection" ::
+              Data.=# ( "NetworkFirewall_20201112.UpdateFirewallDeleteProtection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFirewallDeleteProtection where
+instance Data.ToJSON UpdateFirewallDeleteProtection where
   toJSON UpdateFirewallDeleteProtection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UpdateToken" Core..=) Prelude.<$> updateToken,
-            ("FirewallArn" Core..=) Prelude.<$> firewallArn,
-            ("FirewallName" Core..=) Prelude.<$> firewallName,
+          [ ("UpdateToken" Data..=) Prelude.<$> updateToken,
+            ("FirewallArn" Data..=) Prelude.<$> firewallArn,
+            ("FirewallName" Data..=) Prelude.<$> firewallName,
             Prelude.Just
-              ("DeleteProtection" Core..= deleteProtection)
+              ("DeleteProtection" Data..= deleteProtection)
           ]
       )
 
-instance Core.ToPath UpdateFirewallDeleteProtection where
+instance Data.ToPath UpdateFirewallDeleteProtection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateFirewallDeleteProtection where
+instance Data.ToQuery UpdateFirewallDeleteProtection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFirewallDeleteProtectionResponse' smart constructor.

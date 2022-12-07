@@ -44,6 +44,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,7 +113,7 @@ instance Core.AWSRequest UpdateMesh where
       ( \s h x ->
           UpdateMeshResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable UpdateMesh where
@@ -127,32 +128,32 @@ instance Prelude.NFData UpdateMesh where
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf meshName
 
-instance Core.ToHeaders UpdateMesh where
+instance Data.ToHeaders UpdateMesh where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMesh where
+instance Data.ToJSON UpdateMesh where
   toJSON UpdateMesh' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("spec" Core..=) Prelude.<$> spec
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("spec" Data..=) Prelude.<$> spec
           ]
       )
 
-instance Core.ToPath UpdateMesh where
+instance Data.ToPath UpdateMesh where
   toPath UpdateMesh' {..} =
     Prelude.mconcat
-      ["/v20190125/meshes/", Core.toBS meshName]
+      ["/v20190125/meshes/", Data.toBS meshName]
 
-instance Core.ToQuery UpdateMesh where
+instance Data.ToQuery UpdateMesh where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

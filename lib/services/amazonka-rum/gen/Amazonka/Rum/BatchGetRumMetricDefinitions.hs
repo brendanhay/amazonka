@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -186,8 +187,8 @@ instance Core.AWSRequest BatchGetRumMetricDefinitions where
     Response.receiveJSON
       ( \s h x ->
           BatchGetRumMetricDefinitionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "MetricDefinitions"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "MetricDefinitions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -212,32 +213,32 @@ instance Prelude.NFData BatchGetRumMetricDefinitions where
       `Prelude.seq` Prelude.rnf appMonitorName
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToHeaders BatchGetRumMetricDefinitions where
+instance Data.ToHeaders BatchGetRumMetricDefinitions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath BatchGetRumMetricDefinitions where
+instance Data.ToPath BatchGetRumMetricDefinitions where
   toPath BatchGetRumMetricDefinitions' {..} =
     Prelude.mconcat
       [ "/rummetrics/",
-        Core.toBS appMonitorName,
+        Data.toBS appMonitorName,
         "/metrics"
       ]
 
-instance Core.ToQuery BatchGetRumMetricDefinitions where
+instance Data.ToQuery BatchGetRumMetricDefinitions where
   toQuery BatchGetRumMetricDefinitions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "destinationArn" Core.=: destinationArn,
-        "destination" Core.=: destination
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "destinationArn" Data.=: destinationArn,
+        "destination" Data.=: destination
       ]
 
 -- | /See:/ 'newBatchGetRumMetricDefinitionsResponse' smart constructor.

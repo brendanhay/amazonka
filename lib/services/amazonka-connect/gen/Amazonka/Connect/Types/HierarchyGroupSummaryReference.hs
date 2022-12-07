@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.HierarchyGroupSummaryReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the hierarchy group.
@@ -62,13 +63,13 @@ hierarchyGroupSummaryReference_arn = Lens.lens (\HierarchyGroupSummaryReference'
 hierarchyGroupSummaryReference_id :: Lens.Lens' HierarchyGroupSummaryReference (Prelude.Maybe Prelude.Text)
 hierarchyGroupSummaryReference_id = Lens.lens (\HierarchyGroupSummaryReference' {id} -> id) (\s@HierarchyGroupSummaryReference' {} a -> s {id = a} :: HierarchyGroupSummaryReference)
 
-instance Core.FromJSON HierarchyGroupSummaryReference where
+instance Data.FromJSON HierarchyGroupSummaryReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HierarchyGroupSummaryReference"
       ( \x ->
           HierarchyGroupSummaryReference'
-            Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Id")
       )
 
 instance

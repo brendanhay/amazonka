@@ -23,6 +23,7 @@ import Amazonka.AppRunner.Types.IngressVpcConfiguration
 import Amazonka.AppRunner.Types.VpcIngressConnectionStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The App Runner resource that specifies an App Runner endpoint for
@@ -46,7 +47,7 @@ data VpcIngressConnection = VpcIngressConnection'
     -- -   Type: Timestamp
     --
     -- -   Required: No
-    deletedAt :: Prelude.Maybe Core.POSIX,
+    deletedAt :: Prelude.Maybe Data.POSIX,
     -- | The Account Id you use to create the VPC Ingress Connection resource.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | Specifications for the customer’s VPC and related PrivateLink VPC
@@ -63,7 +64,7 @@ data VpcIngressConnection = VpcIngressConnection'
     -- -   Type: Timestamp
     --
     -- -   Required: Yes
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the service associated with the VPC
     -- Ingress Connection.
     serviceArn :: Prelude.Maybe Prelude.Text
@@ -146,7 +147,7 @@ vpcIngressConnection_status = Lens.lens (\VpcIngressConnection' {status} -> stat
 --
 -- -   Required: No
 vpcIngressConnection_deletedAt :: Lens.Lens' VpcIngressConnection (Prelude.Maybe Prelude.UTCTime)
-vpcIngressConnection_deletedAt = Lens.lens (\VpcIngressConnection' {deletedAt} -> deletedAt) (\s@VpcIngressConnection' {} a -> s {deletedAt = a} :: VpcIngressConnection) Prelude.. Lens.mapping Core._Time
+vpcIngressConnection_deletedAt = Lens.lens (\VpcIngressConnection' {deletedAt} -> deletedAt) (\s@VpcIngressConnection' {} a -> s {deletedAt = a} :: VpcIngressConnection) Prelude.. Lens.mapping Data._Time
 
 -- | The Account Id you use to create the VPC Ingress Connection resource.
 vpcIngressConnection_accountId :: Lens.Lens' VpcIngressConnection (Prelude.Maybe Prelude.Text)
@@ -173,28 +174,28 @@ vpcIngressConnection_vpcIngressConnectionArn = Lens.lens (\VpcIngressConnection'
 --
 -- -   Required: Yes
 vpcIngressConnection_createdAt :: Lens.Lens' VpcIngressConnection (Prelude.Maybe Prelude.UTCTime)
-vpcIngressConnection_createdAt = Lens.lens (\VpcIngressConnection' {createdAt} -> createdAt) (\s@VpcIngressConnection' {} a -> s {createdAt = a} :: VpcIngressConnection) Prelude.. Lens.mapping Core._Time
+vpcIngressConnection_createdAt = Lens.lens (\VpcIngressConnection' {createdAt} -> createdAt) (\s@VpcIngressConnection' {} a -> s {createdAt = a} :: VpcIngressConnection) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the service associated with the VPC
 -- Ingress Connection.
 vpcIngressConnection_serviceArn :: Lens.Lens' VpcIngressConnection (Prelude.Maybe Prelude.Text)
 vpcIngressConnection_serviceArn = Lens.lens (\VpcIngressConnection' {serviceArn} -> serviceArn) (\s@VpcIngressConnection' {} a -> s {serviceArn = a} :: VpcIngressConnection)
 
-instance Core.FromJSON VpcIngressConnection where
+instance Data.FromJSON VpcIngressConnection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcIngressConnection"
       ( \x ->
           VpcIngressConnection'
-            Prelude.<$> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "DeletedAt")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "IngressVpcConfiguration")
-            Prelude.<*> (x Core..:? "VpcIngressConnectionName")
-            Prelude.<*> (x Core..:? "VpcIngressConnectionArn")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "ServiceArn")
+            Prelude.<$> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "DeletedAt")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "IngressVpcConfiguration")
+            Prelude.<*> (x Data..:? "VpcIngressConnectionName")
+            Prelude.<*> (x Data..:? "VpcIngressConnectionArn")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "ServiceArn")
       )
 
 instance Prelude.Hashable VpcIngressConnection where

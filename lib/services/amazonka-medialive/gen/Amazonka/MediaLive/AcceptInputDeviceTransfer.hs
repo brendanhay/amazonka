@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,29 +103,29 @@ instance Prelude.NFData AcceptInputDeviceTransfer where
   rnf AcceptInputDeviceTransfer' {..} =
     Prelude.rnf inputDeviceId
 
-instance Core.ToHeaders AcceptInputDeviceTransfer where
+instance Data.ToHeaders AcceptInputDeviceTransfer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AcceptInputDeviceTransfer where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON AcceptInputDeviceTransfer where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath AcceptInputDeviceTransfer where
+instance Data.ToPath AcceptInputDeviceTransfer where
   toPath AcceptInputDeviceTransfer' {..} =
     Prelude.mconcat
       [ "/prod/inputDevices/",
-        Core.toBS inputDeviceId,
+        Data.toBS inputDeviceId,
         "/accept"
       ]
 
-instance Core.ToQuery AcceptInputDeviceTransfer where
+instance Data.ToQuery AcceptInputDeviceTransfer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for AcceptInputDeviceTransferResponse

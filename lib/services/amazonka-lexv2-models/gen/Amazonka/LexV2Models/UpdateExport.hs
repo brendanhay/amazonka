@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -61,7 +62,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateExport' smart constructor.
 data UpdateExport = UpdateExport'
   { -- | The new password to use to encrypt the export zip archive.
-    filePassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    filePassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The unique identifier Amazon Lex assigned to the export.
     exportId :: Prelude.Text
   }
@@ -90,7 +91,7 @@ newUpdateExport pExportId_ =
 
 -- | The new password to use to encrypt the export zip archive.
 updateExport_filePassword :: Lens.Lens' UpdateExport (Prelude.Maybe Prelude.Text)
-updateExport_filePassword = Lens.lens (\UpdateExport' {filePassword} -> filePassword) (\s@UpdateExport' {} a -> s {filePassword = a} :: UpdateExport) Prelude.. Lens.mapping Core._Sensitive
+updateExport_filePassword = Lens.lens (\UpdateExport' {filePassword} -> filePassword) (\s@UpdateExport' {} a -> s {filePassword = a} :: UpdateExport) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The unique identifier Amazon Lex assigned to the export.
 updateExport_exportId :: Lens.Lens' UpdateExport Prelude.Text
@@ -104,12 +105,12 @@ instance Core.AWSRequest UpdateExport where
     Response.receiveJSON
       ( \s h x ->
           UpdateExportResponse'
-            Prelude.<$> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "resourceSpecification")
-            Prelude.<*> (x Core..?> "exportStatus")
-            Prelude.<*> (x Core..?> "exportId")
-            Prelude.<*> (x Core..?> "lastUpdatedDateTime")
-            Prelude.<*> (x Core..?> "fileFormat")
+            Prelude.<$> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "resourceSpecification")
+            Prelude.<*> (x Data..?> "exportStatus")
+            Prelude.<*> (x Data..?> "exportId")
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
+            Prelude.<*> (x Data..?> "fileFormat")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,36 +124,36 @@ instance Prelude.NFData UpdateExport where
     Prelude.rnf filePassword
       `Prelude.seq` Prelude.rnf exportId
 
-instance Core.ToHeaders UpdateExport where
+instance Data.ToHeaders UpdateExport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateExport where
+instance Data.ToJSON UpdateExport where
   toJSON UpdateExport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("filePassword" Core..=) Prelude.<$> filePassword]
+          [("filePassword" Data..=) Prelude.<$> filePassword]
       )
 
-instance Core.ToPath UpdateExport where
+instance Data.ToPath UpdateExport where
   toPath UpdateExport' {..} =
     Prelude.mconcat
-      ["/exports/", Core.toBS exportId, "/"]
+      ["/exports/", Data.toBS exportId, "/"]
 
-instance Core.ToQuery UpdateExport where
+instance Data.ToQuery UpdateExport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateExportResponse' smart constructor.
 data UpdateExportResponse = UpdateExportResponse'
   { -- | The date and time that the export was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | A description of the type of resource that was exported, either a bot or
     -- a bot locale.
     resourceSpecification :: Prelude.Maybe ExportResourceSpecification,
@@ -162,7 +163,7 @@ data UpdateExportResponse = UpdateExportResponse'
     -- | The unique identifier Amazon Lex assigned to the export.
     exportId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the export was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The file format used for the files that define the resource. The @TSV@
     -- format is required to export a custom vocabulary only; otherwise use
     -- @LexJson@ format.
@@ -215,7 +216,7 @@ newUpdateExportResponse pHttpStatus_ =
 
 -- | The date and time that the export was created.
 updateExportResponse_creationDateTime :: Lens.Lens' UpdateExportResponse (Prelude.Maybe Prelude.UTCTime)
-updateExportResponse_creationDateTime = Lens.lens (\UpdateExportResponse' {creationDateTime} -> creationDateTime) (\s@UpdateExportResponse' {} a -> s {creationDateTime = a} :: UpdateExportResponse) Prelude.. Lens.mapping Core._Time
+updateExportResponse_creationDateTime = Lens.lens (\UpdateExportResponse' {creationDateTime} -> creationDateTime) (\s@UpdateExportResponse' {} a -> s {creationDateTime = a} :: UpdateExportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A description of the type of resource that was exported, either a bot or
 -- a bot locale.
@@ -233,7 +234,7 @@ updateExportResponse_exportId = Lens.lens (\UpdateExportResponse' {exportId} -> 
 
 -- | The date and time that the export was last updated.
 updateExportResponse_lastUpdatedDateTime :: Lens.Lens' UpdateExportResponse (Prelude.Maybe Prelude.UTCTime)
-updateExportResponse_lastUpdatedDateTime = Lens.lens (\UpdateExportResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateExportResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateExportResponse) Prelude.. Lens.mapping Core._Time
+updateExportResponse_lastUpdatedDateTime = Lens.lens (\UpdateExportResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateExportResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateExportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The file format used for the files that define the resource. The @TSV@
 -- format is required to export a custom vocabulary only; otherwise use

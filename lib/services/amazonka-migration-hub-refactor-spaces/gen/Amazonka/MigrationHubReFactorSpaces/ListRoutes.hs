@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,8 +148,8 @@ instance Core.AWSRequest ListRoutes where
     Response.receiveJSON
       ( \s h x ->
           ListRoutesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "RouteSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "RouteSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -168,32 +169,32 @@ instance Prelude.NFData ListRoutes where
       `Prelude.seq` Prelude.rnf applicationIdentifier
       `Prelude.seq` Prelude.rnf environmentIdentifier
 
-instance Core.ToHeaders ListRoutes where
+instance Data.ToHeaders ListRoutes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRoutes where
+instance Data.ToPath ListRoutes where
   toPath ListRoutes' {..} =
     Prelude.mconcat
       [ "/environments/",
-        Core.toBS environmentIdentifier,
+        Data.toBS environmentIdentifier,
         "/applications/",
-        Core.toBS applicationIdentifier,
+        Data.toBS applicationIdentifier,
         "/routes"
       ]
 
-instance Core.ToQuery ListRoutes where
+instance Data.ToQuery ListRoutes where
   toQuery ListRoutes' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListRoutesResponse' smart constructor.

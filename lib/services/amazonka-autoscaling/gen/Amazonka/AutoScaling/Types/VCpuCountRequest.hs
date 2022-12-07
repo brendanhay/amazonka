@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.VCpuCountRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the minimum and maximum for the @VCpuCount@ object when you
@@ -64,10 +65,10 @@ vCpuCountRequest_max = Lens.lens (\VCpuCountRequest' {max} -> max) (\s@VCpuCount
 vCpuCountRequest_min :: Lens.Lens' VCpuCountRequest Prelude.Natural
 vCpuCountRequest_min = Lens.lens (\VCpuCountRequest' {min} -> min) (\s@VCpuCountRequest' {} a -> s {min = a} :: VCpuCountRequest)
 
-instance Core.FromXML VCpuCountRequest where
+instance Data.FromXML VCpuCountRequest where
   parseXML x =
     VCpuCountRequest'
-      Prelude.<$> (x Core..@? "Max") Prelude.<*> (x Core..@ "Min")
+      Prelude.<$> (x Data..@? "Max") Prelude.<*> (x Data..@ "Min")
 
 instance Prelude.Hashable VCpuCountRequest where
   hashWithSalt _salt VCpuCountRequest' {..} =
@@ -78,7 +79,7 @@ instance Prelude.NFData VCpuCountRequest where
   rnf VCpuCountRequest' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery VCpuCountRequest where
+instance Data.ToQuery VCpuCountRequest where
   toQuery VCpuCountRequest' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

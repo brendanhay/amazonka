@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ThemeSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The theme summary.
@@ -30,13 +31,13 @@ data ThemeSummary = ThemeSummary'
   { -- | the display name for the theme.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time that this theme was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The latest version number for the theme.
     latestVersionNumber :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the resource.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The last date and time that this theme was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the theme. This ID is unique per Amazon Web Services Region
     -- for each Amazon Web Services account.
     themeId :: Prelude.Maybe Prelude.Text
@@ -81,7 +82,7 @@ themeSummary_name = Lens.lens (\ThemeSummary' {name} -> name) (\s@ThemeSummary' 
 
 -- | The date and time that this theme was created.
 themeSummary_createdTime :: Lens.Lens' ThemeSummary (Prelude.Maybe Prelude.UTCTime)
-themeSummary_createdTime = Lens.lens (\ThemeSummary' {createdTime} -> createdTime) (\s@ThemeSummary' {} a -> s {createdTime = a} :: ThemeSummary) Prelude.. Lens.mapping Core._Time
+themeSummary_createdTime = Lens.lens (\ThemeSummary' {createdTime} -> createdTime) (\s@ThemeSummary' {} a -> s {createdTime = a} :: ThemeSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The latest version number for the theme.
 themeSummary_latestVersionNumber :: Lens.Lens' ThemeSummary (Prelude.Maybe Prelude.Natural)
@@ -93,25 +94,25 @@ themeSummary_arn = Lens.lens (\ThemeSummary' {arn} -> arn) (\s@ThemeSummary' {} 
 
 -- | The last date and time that this theme was updated.
 themeSummary_lastUpdatedTime :: Lens.Lens' ThemeSummary (Prelude.Maybe Prelude.UTCTime)
-themeSummary_lastUpdatedTime = Lens.lens (\ThemeSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@ThemeSummary' {} a -> s {lastUpdatedTime = a} :: ThemeSummary) Prelude.. Lens.mapping Core._Time
+themeSummary_lastUpdatedTime = Lens.lens (\ThemeSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@ThemeSummary' {} a -> s {lastUpdatedTime = a} :: ThemeSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the theme. This ID is unique per Amazon Web Services Region
 -- for each Amazon Web Services account.
 themeSummary_themeId :: Lens.Lens' ThemeSummary (Prelude.Maybe Prelude.Text)
 themeSummary_themeId = Lens.lens (\ThemeSummary' {themeId} -> themeId) (\s@ThemeSummary' {} a -> s {themeId = a} :: ThemeSummary)
 
-instance Core.FromJSON ThemeSummary where
+instance Data.FromJSON ThemeSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThemeSummary"
       ( \x ->
           ThemeSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "LatestVersionNumber")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "ThemeId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "LatestVersionNumber")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "ThemeId")
       )
 
 instance Prelude.Hashable ThemeSummary where

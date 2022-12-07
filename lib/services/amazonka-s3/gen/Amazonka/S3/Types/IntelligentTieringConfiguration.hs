@@ -21,6 +21,7 @@ module Amazonka.S3.Types.IntelligentTieringConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.IntelligentTieringFilter
@@ -98,13 +99,13 @@ intelligentTieringConfiguration_status = Lens.lens (\IntelligentTieringConfigura
 intelligentTieringConfiguration_tierings :: Lens.Lens' IntelligentTieringConfiguration [Tiering]
 intelligentTieringConfiguration_tierings = Lens.lens (\IntelligentTieringConfiguration' {tierings} -> tierings) (\s@IntelligentTieringConfiguration' {} a -> s {tierings = a} :: IntelligentTieringConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromXML IntelligentTieringConfiguration where
+instance Data.FromXML IntelligentTieringConfiguration where
   parseXML x =
     IntelligentTieringConfiguration'
-      Prelude.<$> (x Core..@? "Filter")
-      Prelude.<*> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "Status")
-      Prelude.<*> (Core.parseXMLList "Tiering" x)
+      Prelude.<$> (x Data..@? "Filter")
+      Prelude.<*> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "Status")
+      Prelude.<*> (Data.parseXMLList "Tiering" x)
 
 instance
   Prelude.Hashable
@@ -128,11 +129,11 @@ instance
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf tierings
 
-instance Core.ToXML IntelligentTieringConfiguration where
+instance Data.ToXML IntelligentTieringConfiguration where
   toXML IntelligentTieringConfiguration' {..} =
     Prelude.mconcat
-      [ "Filter" Core.@= filter',
-        "Id" Core.@= id,
-        "Status" Core.@= status,
-        Core.toXMLList "Tiering" tierings
+      [ "Filter" Data.@= filter',
+        "Id" Data.@= id,
+        "Status" Data.@= status,
+        Data.toXMLList "Tiering" tierings
       ]

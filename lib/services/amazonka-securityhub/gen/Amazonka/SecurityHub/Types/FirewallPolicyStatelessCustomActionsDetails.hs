@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.FirewallPolicyStatelessCustomActionsDetails wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.StatelessCustomActionDefinition
 
@@ -65,16 +66,16 @@ firewallPolicyStatelessCustomActionsDetails_actionDefinition :: Lens.Lens' Firew
 firewallPolicyStatelessCustomActionsDetails_actionDefinition = Lens.lens (\FirewallPolicyStatelessCustomActionsDetails' {actionDefinition} -> actionDefinition) (\s@FirewallPolicyStatelessCustomActionsDetails' {} a -> s {actionDefinition = a} :: FirewallPolicyStatelessCustomActionsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FirewallPolicyStatelessCustomActionsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallPolicyStatelessCustomActionsDetails"
       ( \x ->
           FirewallPolicyStatelessCustomActionsDetails'
-            Prelude.<$> (x Core..:? "ActionName")
-              Prelude.<*> (x Core..:? "ActionDefinition")
+            Prelude.<$> (x Data..:? "ActionName")
+              Prelude.<*> (x Data..:? "ActionDefinition")
       )
 
 instance
@@ -96,15 +97,15 @@ instance
       `Prelude.seq` Prelude.rnf actionDefinition
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     FirewallPolicyStatelessCustomActionsDetails
   where
   toJSON
     FirewallPolicyStatelessCustomActionsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ActionName" Core..=) Prelude.<$> actionName,
-              ("ActionDefinition" Core..=)
+            [ ("ActionName" Data..=) Prelude.<$> actionName,
+              ("ActionDefinition" Data..=)
                 Prelude.<$> actionDefinition
             ]
         )

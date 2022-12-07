@@ -92,6 +92,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -991,7 +992,7 @@ instance Core.AWSRequest RestoreDBClusterFromS3 where
       "RestoreDBClusterFromS3Result"
       ( \s h x ->
           RestoreDBClusterFromS3Response'
-            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<$> (x Data..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -1081,72 +1082,72 @@ instance Prelude.NFData RestoreDBClusterFromS3 where
       `Prelude.seq` Prelude.rnf
         s3IngestionRoleArn
 
-instance Core.ToHeaders RestoreDBClusterFromS3 where
+instance Data.ToHeaders RestoreDBClusterFromS3 where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RestoreDBClusterFromS3 where
+instance Data.ToPath RestoreDBClusterFromS3 where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreDBClusterFromS3 where
+instance Data.ToQuery RestoreDBClusterFromS3 where
   toQuery RestoreDBClusterFromS3' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RestoreDBClusterFromS3" :: Prelude.ByteString),
+          Data.=: ("RestoreDBClusterFromS3" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "Port" Core.=: port,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "Port" Data.=: port,
         "ServerlessV2ScalingConfiguration"
-          Core.=: serverlessV2ScalingConfiguration,
+          Data.=: serverlessV2ScalingConfiguration,
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
         "PreferredBackupWindow"
-          Core.=: preferredBackupWindow,
+          Data.=: preferredBackupWindow,
         "BackupRetentionPeriod"
-          Core.=: backupRetentionPeriod,
-        "CharacterSetName" Core.=: characterSetName,
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
-        "DomainIAMRoleName" Core.=: domainIAMRoleName,
-        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
-        "DatabaseName" Core.=: databaseName,
-        "Domain" Core.=: domain,
-        "OptionGroupName" Core.=: optionGroupName,
+          Data.=: backupRetentionPeriod,
+        "CharacterSetName" Data.=: characterSetName,
+        "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
+        "DomainIAMRoleName" Data.=: domainIAMRoleName,
+        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
+        "DatabaseName" Data.=: databaseName,
+        "Domain" Data.=: domain,
+        "OptionGroupName" Data.=: optionGroupName,
         "AvailabilityZones"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "AvailabilityZone"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "AvailabilityZone"
                 Prelude.<$> availabilityZones
             ),
         "EnableIAMDatabaseAuthentication"
-          Core.=: enableIAMDatabaseAuthentication,
+          Data.=: enableIAMDatabaseAuthentication,
         "EnableCloudwatchLogsExports"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> enableCloudwatchLogsExports
             ),
-        "BacktrackWindow" Core.=: backtrackWindow,
-        "StorageEncrypted" Core.=: storageEncrypted,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "DeletionProtection" Core.=: deletionProtection,
+        "BacktrackWindow" Data.=: backtrackWindow,
+        "StorageEncrypted" Data.=: storageEncrypted,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "DeletionProtection" Data.=: deletionProtection,
         "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
+          Data.=: preferredMaintenanceWindow,
         "DBClusterParameterGroupName"
-          Core.=: dbClusterParameterGroupName,
-        "EngineVersion" Core.=: engineVersion,
-        "NetworkType" Core.=: networkType,
-        "S3Prefix" Core.=: s3Prefix,
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier,
-        "Engine" Core.=: engine,
-        "MasterUsername" Core.=: masterUsername,
-        "MasterUserPassword" Core.=: masterUserPassword,
-        "SourceEngine" Core.=: sourceEngine,
-        "SourceEngineVersion" Core.=: sourceEngineVersion,
-        "S3BucketName" Core.=: s3BucketName,
-        "S3IngestionRoleArn" Core.=: s3IngestionRoleArn
+          Data.=: dbClusterParameterGroupName,
+        "EngineVersion" Data.=: engineVersion,
+        "NetworkType" Data.=: networkType,
+        "S3Prefix" Data.=: s3Prefix,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier,
+        "Engine" Data.=: engine,
+        "MasterUsername" Data.=: masterUsername,
+        "MasterUserPassword" Data.=: masterUserPassword,
+        "SourceEngine" Data.=: sourceEngine,
+        "SourceEngineVersion" Data.=: sourceEngineVersion,
+        "S3BucketName" Data.=: s3BucketName,
+        "S3IngestionRoleArn" Data.=: s3IngestionRoleArn
       ]
 
 -- | /See:/ 'newRestoreDBClusterFromS3Response' smart constructor.

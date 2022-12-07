@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.AwsService where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an Amazon Web Service that performed an
@@ -51,12 +52,12 @@ newAwsService =
 awsService_invokedBy :: Lens.Lens' AwsService (Prelude.Maybe Prelude.Text)
 awsService_invokedBy = Lens.lens (\AwsService' {invokedBy} -> invokedBy) (\s@AwsService' {} a -> s {invokedBy = a} :: AwsService)
 
-instance Core.FromJSON AwsService where
+instance Data.FromJSON AwsService where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsService"
       ( \x ->
-          AwsService' Prelude.<$> (x Core..:? "invokedBy")
+          AwsService' Prelude.<$> (x Data..:? "invokedBy")
       )
 
 instance Prelude.Hashable AwsService where

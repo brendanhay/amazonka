@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.CreateConnectionApiKeyAuthRequestParamete
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the API key authorization parameters for the connection.
@@ -87,14 +88,14 @@ instance
       `Prelude.seq` Prelude.rnf apiKeyValue
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateConnectionApiKeyAuthRequestParameters
   where
   toJSON
     CreateConnectionApiKeyAuthRequestParameters' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ Prelude.Just ("ApiKeyName" Core..= apiKeyName),
-              Prelude.Just ("ApiKeyValue" Core..= apiKeyValue)
+            [ Prelude.Just ("ApiKeyName" Data..= apiKeyName),
+              Prelude.Just ("ApiKeyValue" Data..= apiKeyValue)
             ]
         )

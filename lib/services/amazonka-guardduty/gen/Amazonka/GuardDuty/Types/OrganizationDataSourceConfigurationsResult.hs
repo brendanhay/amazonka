@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.OrganizationDataSourceConfigurationsResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.OrganizationKubernetesConfigurationResult
 import Amazonka.GuardDuty.Types.OrganizationMalwareProtectionConfigurationResult
 import Amazonka.GuardDuty.Types.OrganizationS3LogsConfigurationResult
@@ -82,17 +83,17 @@ organizationDataSourceConfigurationsResult_s3Logs :: Lens.Lens' OrganizationData
 organizationDataSourceConfigurationsResult_s3Logs = Lens.lens (\OrganizationDataSourceConfigurationsResult' {s3Logs} -> s3Logs) (\s@OrganizationDataSourceConfigurationsResult' {} a -> s {s3Logs = a} :: OrganizationDataSourceConfigurationsResult)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     OrganizationDataSourceConfigurationsResult
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationDataSourceConfigurationsResult"
       ( \x ->
           OrganizationDataSourceConfigurationsResult'
-            Prelude.<$> (x Core..:? "malwareProtection")
-              Prelude.<*> (x Core..:? "kubernetes")
-              Prelude.<*> (x Core..: "s3Logs")
+            Prelude.<$> (x Data..:? "malwareProtection")
+              Prelude.<*> (x Data..:? "kubernetes")
+              Prelude.<*> (x Data..: "s3Logs")
       )
 
 instance

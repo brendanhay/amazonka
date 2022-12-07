@@ -21,6 +21,7 @@ module Amazonka.Comprehend.Types.SentimentScore where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the level of confidence that Amazon Comprehend has in the
@@ -92,16 +93,16 @@ sentimentScore_neutral = Lens.lens (\SentimentScore' {neutral} -> neutral) (\s@S
 sentimentScore_mixed :: Lens.Lens' SentimentScore (Prelude.Maybe Prelude.Double)
 sentimentScore_mixed = Lens.lens (\SentimentScore' {mixed} -> mixed) (\s@SentimentScore' {} a -> s {mixed = a} :: SentimentScore)
 
-instance Core.FromJSON SentimentScore where
+instance Data.FromJSON SentimentScore where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SentimentScore"
       ( \x ->
           SentimentScore'
-            Prelude.<$> (x Core..:? "Positive")
-            Prelude.<*> (x Core..:? "Negative")
-            Prelude.<*> (x Core..:? "Neutral")
-            Prelude.<*> (x Core..:? "Mixed")
+            Prelude.<$> (x Data..:? "Positive")
+            Prelude.<*> (x Data..:? "Negative")
+            Prelude.<*> (x Data..:? "Neutral")
+            Prelude.<*> (x Data..:? "Mixed")
       )
 
 instance Prelude.Hashable SentimentScore where

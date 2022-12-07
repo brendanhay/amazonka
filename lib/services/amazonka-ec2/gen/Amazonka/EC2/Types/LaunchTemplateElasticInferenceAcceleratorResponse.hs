@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateElasticInferenceAcceleratorResponse wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,12 +74,12 @@ launchTemplateElasticInferenceAcceleratorResponse_count :: Lens.Lens' LaunchTemp
 launchTemplateElasticInferenceAcceleratorResponse_count = Lens.lens (\LaunchTemplateElasticInferenceAcceleratorResponse' {count} -> count) (\s@LaunchTemplateElasticInferenceAcceleratorResponse' {} a -> s {count = a} :: LaunchTemplateElasticInferenceAcceleratorResponse)
 
 instance
-  Core.FromXML
+  Data.FromXML
     LaunchTemplateElasticInferenceAcceleratorResponse
   where
   parseXML x =
     LaunchTemplateElasticInferenceAcceleratorResponse'
-      Prelude.<$> (x Core..@? "type") Prelude.<*> (x Core..@? "count")
+      Prelude.<$> (x Data..@? "type") Prelude.<*> (x Data..@? "count")
 
 instance
   Prelude.Hashable

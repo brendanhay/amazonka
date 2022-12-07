@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.RowLevelPermissionTagRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of rules associated with a tag.
@@ -30,7 +31,7 @@ data RowLevelPermissionTagRule = RowLevelPermissionTagRule'
   { -- | A string that you want to use to filter by all the values in a column in
     -- the dataset and don’t want to list the values one by one. For example,
     -- you can use an asterisk as your match all value.
-    matchAllValue :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    matchAllValue :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string that you want to use to delimit the values when you pass the
     -- values at run time. For example, you can delimit the values with a
     -- comma.
@@ -80,7 +81,7 @@ newRowLevelPermissionTagRule pTagKey_ pColumnName_ =
 -- the dataset and don’t want to list the values one by one. For example,
 -- you can use an asterisk as your match all value.
 rowLevelPermissionTagRule_matchAllValue :: Lens.Lens' RowLevelPermissionTagRule (Prelude.Maybe Prelude.Text)
-rowLevelPermissionTagRule_matchAllValue = Lens.lens (\RowLevelPermissionTagRule' {matchAllValue} -> matchAllValue) (\s@RowLevelPermissionTagRule' {} a -> s {matchAllValue = a} :: RowLevelPermissionTagRule) Prelude.. Lens.mapping Core._Sensitive
+rowLevelPermissionTagRule_matchAllValue = Lens.lens (\RowLevelPermissionTagRule' {matchAllValue} -> matchAllValue) (\s@RowLevelPermissionTagRule' {} a -> s {matchAllValue = a} :: RowLevelPermissionTagRule) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string that you want to use to delimit the values when you pass the
 -- values at run time. For example, you can delimit the values with a
@@ -96,16 +97,16 @@ rowLevelPermissionTagRule_tagKey = Lens.lens (\RowLevelPermissionTagRule' {tagKe
 rowLevelPermissionTagRule_columnName :: Lens.Lens' RowLevelPermissionTagRule Prelude.Text
 rowLevelPermissionTagRule_columnName = Lens.lens (\RowLevelPermissionTagRule' {columnName} -> columnName) (\s@RowLevelPermissionTagRule' {} a -> s {columnName = a} :: RowLevelPermissionTagRule)
 
-instance Core.FromJSON RowLevelPermissionTagRule where
+instance Data.FromJSON RowLevelPermissionTagRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RowLevelPermissionTagRule"
       ( \x ->
           RowLevelPermissionTagRule'
-            Prelude.<$> (x Core..:? "MatchAllValue")
-            Prelude.<*> (x Core..:? "TagMultiValueDelimiter")
-            Prelude.<*> (x Core..: "TagKey")
-            Prelude.<*> (x Core..: "ColumnName")
+            Prelude.<$> (x Data..:? "MatchAllValue")
+            Prelude.<*> (x Data..:? "TagMultiValueDelimiter")
+            Prelude.<*> (x Data..: "TagKey")
+            Prelude.<*> (x Data..: "ColumnName")
       )
 
 instance Prelude.Hashable RowLevelPermissionTagRule where
@@ -122,14 +123,14 @@ instance Prelude.NFData RowLevelPermissionTagRule where
       `Prelude.seq` Prelude.rnf tagKey
       `Prelude.seq` Prelude.rnf columnName
 
-instance Core.ToJSON RowLevelPermissionTagRule where
+instance Data.ToJSON RowLevelPermissionTagRule where
   toJSON RowLevelPermissionTagRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MatchAllValue" Core..=) Prelude.<$> matchAllValue,
-            ("TagMultiValueDelimiter" Core..=)
+          [ ("MatchAllValue" Data..=) Prelude.<$> matchAllValue,
+            ("TagMultiValueDelimiter" Data..=)
               Prelude.<$> tagMultiValueDelimiter,
-            Prelude.Just ("TagKey" Core..= tagKey),
-            Prelude.Just ("ColumnName" Core..= columnName)
+            Prelude.Just ("TagKey" Data..= tagKey),
+            Prelude.Just ("ColumnName" Data..= columnName)
           ]
       )

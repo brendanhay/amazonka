@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.EthernetStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.NetworkConnectionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ ethernetStatus_connectionStatus = Lens.lens (\EthernetStatus' {connectionStatus}
 ethernetStatus_ipAddress :: Lens.Lens' EthernetStatus (Prelude.Maybe Prelude.Text)
 ethernetStatus_ipAddress = Lens.lens (\EthernetStatus' {ipAddress} -> ipAddress) (\s@EthernetStatus' {} a -> s {ipAddress = a} :: EthernetStatus)
 
-instance Core.FromJSON EthernetStatus where
+instance Data.FromJSON EthernetStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EthernetStatus"
       ( \x ->
           EthernetStatus'
-            Prelude.<$> (x Core..:? "HwAddress")
-            Prelude.<*> (x Core..:? "ConnectionStatus")
-            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<$> (x Data..:? "HwAddress")
+            Prelude.<*> (x Data..:? "ConnectionStatus")
+            Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance Prelude.Hashable EthernetStatus where

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ThemeVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ResourceStatus
 import Amazonka.QuickSight.Types.ThemeConfiguration
@@ -31,7 +32,7 @@ import Amazonka.QuickSight.Types.ThemeError
 -- /See:/ 'newThemeVersion' smart constructor.
 data ThemeVersion = ThemeVersion'
   { -- | The date and time that this theme version was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The theme configuration, which contains all the theme display
     -- properties.
     configuration :: Prelude.Maybe ThemeConfiguration,
@@ -94,7 +95,7 @@ newThemeVersion =
 
 -- | The date and time that this theme version was created.
 themeVersion_createdTime :: Lens.Lens' ThemeVersion (Prelude.Maybe Prelude.UTCTime)
-themeVersion_createdTime = Lens.lens (\ThemeVersion' {createdTime} -> createdTime) (\s@ThemeVersion' {} a -> s {createdTime = a} :: ThemeVersion) Prelude.. Lens.mapping Core._Time
+themeVersion_createdTime = Lens.lens (\ThemeVersion' {createdTime} -> createdTime) (\s@ThemeVersion' {} a -> s {createdTime = a} :: ThemeVersion) Prelude.. Lens.mapping Data._Time
 
 -- | The theme configuration, which contains all the theme display
 -- properties.
@@ -127,20 +128,20 @@ themeVersion_versionNumber = Lens.lens (\ThemeVersion' {versionNumber} -> versio
 themeVersion_baseThemeId :: Lens.Lens' ThemeVersion (Prelude.Maybe Prelude.Text)
 themeVersion_baseThemeId = Lens.lens (\ThemeVersion' {baseThemeId} -> baseThemeId) (\s@ThemeVersion' {} a -> s {baseThemeId = a} :: ThemeVersion)
 
-instance Core.FromJSON ThemeVersion where
+instance Data.FromJSON ThemeVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThemeVersion"
       ( \x ->
           ThemeVersion'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Configuration")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Errors")
-            Prelude.<*> (x Core..:? "VersionNumber")
-            Prelude.<*> (x Core..:? "BaseThemeId")
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Configuration")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Errors")
+            Prelude.<*> (x Data..:? "VersionNumber")
+            Prelude.<*> (x Data..:? "BaseThemeId")
       )
 
 instance Prelude.Hashable ThemeVersion where

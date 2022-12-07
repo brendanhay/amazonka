@@ -21,6 +21,7 @@ module Amazonka.MachineLearning.Types.S3DataSpec where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the data specification of a @DataSource@.
@@ -455,16 +456,16 @@ instance Prelude.NFData S3DataSpec where
       `Prelude.seq` Prelude.rnf dataSchema
       `Prelude.seq` Prelude.rnf dataLocationS3
 
-instance Core.ToJSON S3DataSpec where
+instance Data.ToJSON S3DataSpec where
   toJSON S3DataSpec' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSchemaLocationS3" Core..=)
+          [ ("DataSchemaLocationS3" Data..=)
               Prelude.<$> dataSchemaLocationS3,
-            ("DataRearrangement" Core..=)
+            ("DataRearrangement" Data..=)
               Prelude.<$> dataRearrangement,
-            ("DataSchema" Core..=) Prelude.<$> dataSchema,
+            ("DataSchema" Data..=) Prelude.<$> dataSchema,
             Prelude.Just
-              ("DataLocationS3" Core..= dataLocationS3)
+              ("DataLocationS3" Data..= dataLocationS3)
           ]
       )

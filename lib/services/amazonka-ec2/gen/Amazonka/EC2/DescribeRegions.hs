@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -160,8 +161,8 @@ instance Core.AWSRequest DescribeRegions where
     Response.receiveXML
       ( \s h x ->
           DescribeRegionsResponse'
-            Prelude.<$> ( x Core..@? "regionInfo" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "regionInfo" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -180,27 +181,27 @@ instance Prelude.NFData DescribeRegions where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf allRegions
 
-instance Core.ToHeaders DescribeRegions where
+instance Data.ToHeaders DescribeRegions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeRegions where
+instance Data.ToPath DescribeRegions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeRegions where
+instance Data.ToQuery DescribeRegions where
   toQuery DescribeRegions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeRegions" :: Prelude.ByteString),
+          Data.=: ("DescribeRegions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "RegionName"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "RegionName"
               Prelude.<$> regionNames
           ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "AllRegions" Core.=: allRegions
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "AllRegions" Data.=: allRegions
       ]
 
 -- | /See:/ 'newDescribeRegionsResponse' smart constructor.

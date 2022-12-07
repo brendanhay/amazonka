@@ -23,6 +23,7 @@ import Amazonka.ApiGatewayV2.Types.Cors
 import Amazonka.ApiGatewayV2.Types.ProtocolType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an API.
@@ -52,7 +53,7 @@ data Api = Api'
     -- disable the default endpoint.
     disableExecuteApiEndpoint :: Prelude.Maybe Prelude.Bool,
     -- | The timestamp when the API was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | Avoid validating models when creating a deployment. Supported only for
     -- WebSocket APIs.
     disableSchemaValidation :: Prelude.Maybe Prelude.Bool,
@@ -205,7 +206,7 @@ api_disableExecuteApiEndpoint = Lens.lens (\Api' {disableExecuteApiEndpoint} -> 
 
 -- | The timestamp when the API was created.
 api_createdDate :: Lens.Lens' Api (Prelude.Maybe Prelude.UTCTime)
-api_createdDate = Lens.lens (\Api' {createdDate} -> createdDate) (\s@Api' {} a -> s {createdDate = a} :: Api) Prelude.. Lens.mapping Core._Time
+api_createdDate = Lens.lens (\Api' {createdDate} -> createdDate) (\s@Api' {} a -> s {createdDate = a} :: Api) Prelude.. Lens.mapping Data._Time
 
 -- | Avoid validating models when creating a deployment. Supported only for
 -- WebSocket APIs.
@@ -247,28 +248,28 @@ api_name = Lens.lens (\Api' {name} -> name) (\s@Api' {} a -> s {name = a} :: Api
 api_protocolType :: Lens.Lens' Api ProtocolType
 api_protocolType = Lens.lens (\Api' {protocolType} -> protocolType) (\s@Api' {} a -> s {protocolType = a} :: Api)
 
-instance Core.FromJSON Api where
+instance Data.FromJSON Api where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Api"
       ( \x ->
           Api'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "apiEndpoint")
-            Prelude.<*> (x Core..:? "apiId")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "warnings" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "apiKeySelectionExpression")
-            Prelude.<*> (x Core..:? "disableExecuteApiEndpoint")
-            Prelude.<*> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..:? "disableSchemaValidation")
-            Prelude.<*> (x Core..:? "importInfo" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "corsConfiguration")
-            Prelude.<*> (x Core..:? "apiGatewayManaged")
-            Prelude.<*> (x Core..:? "version")
-            Prelude.<*> (x Core..: "routeSelectionExpression")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "protocolType")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "apiEndpoint")
+            Prelude.<*> (x Data..:? "apiId")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "warnings" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "apiKeySelectionExpression")
+            Prelude.<*> (x Data..:? "disableExecuteApiEndpoint")
+            Prelude.<*> (x Data..:? "createdDate")
+            Prelude.<*> (x Data..:? "disableSchemaValidation")
+            Prelude.<*> (x Data..:? "importInfo" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "corsConfiguration")
+            Prelude.<*> (x Data..:? "apiGatewayManaged")
+            Prelude.<*> (x Data..:? "version")
+            Prelude.<*> (x Data..: "routeSelectionExpression")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "protocolType")
       )
 
 instance Prelude.Hashable Api where

@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.ModelOutputConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.ModelOutputDataFormat
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,19 +81,19 @@ modelOutputConfiguration_csvIndexToVariableMap = Lens.lens (\ModelOutputConfigur
 modelOutputConfiguration_format :: Lens.Lens' ModelOutputConfiguration ModelOutputDataFormat
 modelOutputConfiguration_format = Lens.lens (\ModelOutputConfiguration' {format} -> format) (\s@ModelOutputConfiguration' {} a -> s {format = a} :: ModelOutputConfiguration)
 
-instance Core.FromJSON ModelOutputConfiguration where
+instance Data.FromJSON ModelOutputConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelOutputConfiguration"
       ( \x ->
           ModelOutputConfiguration'
-            Prelude.<$> ( x Core..:? "jsonKeyToVariableMap"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "jsonKeyToVariableMap"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "csvIndexToVariableMap"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "csvIndexToVariableMap"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "format")
+            Prelude.<*> (x Data..: "format")
       )
 
 instance Prelude.Hashable ModelOutputConfiguration where
@@ -107,14 +108,14 @@ instance Prelude.NFData ModelOutputConfiguration where
       `Prelude.seq` Prelude.rnf csvIndexToVariableMap
       `Prelude.seq` Prelude.rnf format
 
-instance Core.ToJSON ModelOutputConfiguration where
+instance Data.ToJSON ModelOutputConfiguration where
   toJSON ModelOutputConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("jsonKeyToVariableMap" Core..=)
+          [ ("jsonKeyToVariableMap" Data..=)
               Prelude.<$> jsonKeyToVariableMap,
-            ("csvIndexToVariableMap" Core..=)
+            ("csvIndexToVariableMap" Data..=)
               Prelude.<$> csvIndexToVariableMap,
-            Prelude.Just ("format" Core..= format)
+            Prelude.Just ("format" Data..= format)
           ]
       )

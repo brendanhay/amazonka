@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TargetCapacitySpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DefaultTargetCapacityType
 import Amazonka.EC2.Types.TargetCapacityUnitType
@@ -132,14 +133,14 @@ targetCapacitySpecification_onDemandTargetCapacity = Lens.lens (\TargetCapacityS
 targetCapacitySpecification_spotTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Prelude.Maybe Prelude.Int)
 targetCapacitySpecification_spotTargetCapacity = Lens.lens (\TargetCapacitySpecification' {spotTargetCapacity} -> spotTargetCapacity) (\s@TargetCapacitySpecification' {} a -> s {spotTargetCapacity = a} :: TargetCapacitySpecification)
 
-instance Core.FromXML TargetCapacitySpecification where
+instance Data.FromXML TargetCapacitySpecification where
   parseXML x =
     TargetCapacitySpecification'
-      Prelude.<$> (x Core..@? "targetCapacityUnitType")
-      Prelude.<*> (x Core..@? "totalTargetCapacity")
-      Prelude.<*> (x Core..@? "defaultTargetCapacityType")
-      Prelude.<*> (x Core..@? "onDemandTargetCapacity")
-      Prelude.<*> (x Core..@? "spotTargetCapacity")
+      Prelude.<$> (x Data..@? "targetCapacityUnitType")
+      Prelude.<*> (x Data..@? "totalTargetCapacity")
+      Prelude.<*> (x Data..@? "defaultTargetCapacityType")
+      Prelude.<*> (x Data..@? "onDemandTargetCapacity")
+      Prelude.<*> (x Data..@? "spotTargetCapacity")
 
 instance Prelude.Hashable TargetCapacitySpecification where
   hashWithSalt _salt TargetCapacitySpecification' {..} =

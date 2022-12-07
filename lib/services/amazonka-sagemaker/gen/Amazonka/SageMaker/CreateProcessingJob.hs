@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -228,7 +229,7 @@ instance Core.AWSRequest CreateProcessingJob where
       ( \s h x ->
           CreateProcessingJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ProcessingJobArn")
+            Prelude.<*> (x Data..:> "ProcessingJobArn")
       )
 
 instance Prelude.Hashable CreateProcessingJob where
@@ -259,50 +260,50 @@ instance Prelude.NFData CreateProcessingJob where
       `Prelude.seq` Prelude.rnf appSpecification
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateProcessingJob where
+instance Data.ToHeaders CreateProcessingJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateProcessingJob" ::
+              Data.=# ( "SageMaker.CreateProcessingJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateProcessingJob where
+instance Data.ToJSON CreateProcessingJob where
   toJSON CreateProcessingJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Environment" Core..=) Prelude.<$> environment,
-            ("NetworkConfig" Core..=) Prelude.<$> networkConfig,
-            ("ExperimentConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Environment" Data..=) Prelude.<$> environment,
+            ("NetworkConfig" Data..=) Prelude.<$> networkConfig,
+            ("ExperimentConfig" Data..=)
               Prelude.<$> experimentConfig,
-            ("ProcessingInputs" Core..=)
+            ("ProcessingInputs" Data..=)
               Prelude.<$> processingInputs,
-            ("StoppingCondition" Core..=)
+            ("StoppingCondition" Data..=)
               Prelude.<$> stoppingCondition,
-            ("ProcessingOutputConfig" Core..=)
+            ("ProcessingOutputConfig" Data..=)
               Prelude.<$> processingOutputConfig,
             Prelude.Just
-              ("ProcessingJobName" Core..= processingJobName),
+              ("ProcessingJobName" Data..= processingJobName),
             Prelude.Just
-              ("ProcessingResources" Core..= processingResources),
+              ("ProcessingResources" Data..= processingResources),
             Prelude.Just
-              ("AppSpecification" Core..= appSpecification),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+              ("AppSpecification" Data..= appSpecification),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateProcessingJob where
+instance Data.ToPath CreateProcessingJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateProcessingJob where
+instance Data.ToQuery CreateProcessingJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProcessingJobResponse' smart constructor.

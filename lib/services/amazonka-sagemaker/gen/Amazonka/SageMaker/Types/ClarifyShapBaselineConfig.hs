@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ClarifyShapBaselineConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for the
@@ -147,15 +148,15 @@ clarifyShapBaselineConfig_shapBaselineUri = Lens.lens (\ClarifyShapBaselineConfi
 clarifyShapBaselineConfig_mimeType :: Lens.Lens' ClarifyShapBaselineConfig (Prelude.Maybe Prelude.Text)
 clarifyShapBaselineConfig_mimeType = Lens.lens (\ClarifyShapBaselineConfig' {mimeType} -> mimeType) (\s@ClarifyShapBaselineConfig' {} a -> s {mimeType = a} :: ClarifyShapBaselineConfig)
 
-instance Core.FromJSON ClarifyShapBaselineConfig where
+instance Data.FromJSON ClarifyShapBaselineConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClarifyShapBaselineConfig"
       ( \x ->
           ClarifyShapBaselineConfig'
-            Prelude.<$> (x Core..:? "ShapBaseline")
-            Prelude.<*> (x Core..:? "ShapBaselineUri")
-            Prelude.<*> (x Core..:? "MimeType")
+            Prelude.<$> (x Data..:? "ShapBaseline")
+            Prelude.<*> (x Data..:? "ShapBaselineUri")
+            Prelude.<*> (x Data..:? "MimeType")
       )
 
 instance Prelude.Hashable ClarifyShapBaselineConfig where
@@ -170,13 +171,13 @@ instance Prelude.NFData ClarifyShapBaselineConfig where
       `Prelude.seq` Prelude.rnf shapBaselineUri
       `Prelude.seq` Prelude.rnf mimeType
 
-instance Core.ToJSON ClarifyShapBaselineConfig where
+instance Data.ToJSON ClarifyShapBaselineConfig where
   toJSON ClarifyShapBaselineConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ShapBaseline" Core..=) Prelude.<$> shapBaseline,
-            ("ShapBaselineUri" Core..=)
+          [ ("ShapBaseline" Data..=) Prelude.<$> shapBaseline,
+            ("ShapBaselineUri" Data..=)
               Prelude.<$> shapBaselineUri,
-            ("MimeType" Core..=) Prelude.<$> mimeType
+            ("MimeType" Data..=) Prelude.<$> mimeType
           ]
       )

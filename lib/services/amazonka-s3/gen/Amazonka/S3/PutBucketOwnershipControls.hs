@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,25 +168,25 @@ instance Prelude.NFData PutBucketOwnershipControls where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf ownershipControls
 
-instance Core.ToElement PutBucketOwnershipControls where
+instance Data.ToElement PutBucketOwnershipControls where
   toElement PutBucketOwnershipControls' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}OwnershipControls"
       ownershipControls
 
-instance Core.ToHeaders PutBucketOwnershipControls where
+instance Data.ToHeaders PutBucketOwnershipControls where
   toHeaders PutBucketOwnershipControls' {..} =
     Prelude.mconcat
-      [ "Content-MD5" Core.=# contentMD5,
+      [ "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath PutBucketOwnershipControls where
+instance Data.ToPath PutBucketOwnershipControls where
   toPath PutBucketOwnershipControls' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery PutBucketOwnershipControls where
+instance Data.ToQuery PutBucketOwnershipControls where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["ownershipControls"])

@@ -21,6 +21,7 @@ module Amazonka.CloudWatch.Types.Range where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies one range of days or times to exclude from use for training an
@@ -30,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data Range = Range'
   { -- | The start time of the range to exclude. The format is
     -- @yyyy-MM-dd\'T\'HH:mm:ss@. For example, @2019-07-01T23:59:59@.
-    startTime :: Core.ISO8601,
+    startTime :: Data.ISO8601,
     -- | The end time of the range to exclude. The format is
     -- @yyyy-MM-dd\'T\'HH:mm:ss@. For example, @2019-07-01T23:59:59@.
-    endTime :: Core.ISO8601
+    endTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,25 +59,25 @@ newRange ::
   Range
 newRange pStartTime_ pEndTime_ =
   Range'
-    { startTime = Core._Time Lens.# pStartTime_,
-      endTime = Core._Time Lens.# pEndTime_
+    { startTime = Data._Time Lens.# pStartTime_,
+      endTime = Data._Time Lens.# pEndTime_
     }
 
 -- | The start time of the range to exclude. The format is
 -- @yyyy-MM-dd\'T\'HH:mm:ss@. For example, @2019-07-01T23:59:59@.
 range_startTime :: Lens.Lens' Range Prelude.UTCTime
-range_startTime = Lens.lens (\Range' {startTime} -> startTime) (\s@Range' {} a -> s {startTime = a} :: Range) Prelude.. Core._Time
+range_startTime = Lens.lens (\Range' {startTime} -> startTime) (\s@Range' {} a -> s {startTime = a} :: Range) Prelude.. Data._Time
 
 -- | The end time of the range to exclude. The format is
 -- @yyyy-MM-dd\'T\'HH:mm:ss@. For example, @2019-07-01T23:59:59@.
 range_endTime :: Lens.Lens' Range Prelude.UTCTime
-range_endTime = Lens.lens (\Range' {endTime} -> endTime) (\s@Range' {} a -> s {endTime = a} :: Range) Prelude.. Core._Time
+range_endTime = Lens.lens (\Range' {endTime} -> endTime) (\s@Range' {} a -> s {endTime = a} :: Range) Prelude.. Data._Time
 
-instance Core.FromXML Range where
+instance Data.FromXML Range where
   parseXML x =
     Range'
-      Prelude.<$> (x Core..@ "StartTime")
-      Prelude.<*> (x Core..@ "EndTime")
+      Prelude.<$> (x Data..@ "StartTime")
+      Prelude.<*> (x Data..@ "EndTime")
 
 instance Prelude.Hashable Range where
   hashWithSalt _salt Range' {..} =
@@ -88,9 +89,9 @@ instance Prelude.NFData Range where
     Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
-instance Core.ToQuery Range where
+instance Data.ToQuery Range where
   toQuery Range' {..} =
     Prelude.mconcat
-      [ "StartTime" Core.=: startTime,
-        "EndTime" Core.=: endTime
+      [ "StartTime" Data.=: startTime,
+        "EndTime" Data.=: endTime
       ]

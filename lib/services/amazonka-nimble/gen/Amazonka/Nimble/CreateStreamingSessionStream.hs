@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,7 +133,7 @@ instance Core.AWSRequest CreateStreamingSessionStream where
     Response.receiveJSON
       ( \s h x ->
           CreateStreamingSessionStreamResponse'
-            Prelude.<$> (x Core..?> "stream")
+            Prelude.<$> (x Data..?> "stream")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,34 +154,34 @@ instance Prelude.NFData CreateStreamingSessionStream where
       `Prelude.seq` Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders CreateStreamingSessionStream where
+instance Data.ToHeaders CreateStreamingSessionStream where
   toHeaders CreateStreamingSessionStream' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateStreamingSessionStream where
+instance Data.ToJSON CreateStreamingSessionStream where
   toJSON CreateStreamingSessionStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("expirationInSeconds" Core..=)
+          [ ("expirationInSeconds" Data..=)
               Prelude.<$> expirationInSeconds
           ]
       )
 
-instance Core.ToPath CreateStreamingSessionStream where
+instance Data.ToPath CreateStreamingSessionStream where
   toPath CreateStreamingSessionStream' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/streaming-sessions/",
-        Core.toBS sessionId,
+        Data.toBS sessionId,
         "/streams"
       ]
 
-instance Core.ToQuery CreateStreamingSessionStream where
+instance Data.ToQuery CreateStreamingSessionStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStreamingSessionStreamResponse' smart constructor.

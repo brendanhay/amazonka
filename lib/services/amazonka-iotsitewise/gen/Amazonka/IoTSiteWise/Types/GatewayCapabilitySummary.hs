@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.GatewayCapabilitySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.CapabilitySyncStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -105,14 +106,14 @@ gatewayCapabilitySummary_capabilityNamespace = Lens.lens (\GatewayCapabilitySumm
 gatewayCapabilitySummary_capabilitySyncStatus :: Lens.Lens' GatewayCapabilitySummary CapabilitySyncStatus
 gatewayCapabilitySummary_capabilitySyncStatus = Lens.lens (\GatewayCapabilitySummary' {capabilitySyncStatus} -> capabilitySyncStatus) (\s@GatewayCapabilitySummary' {} a -> s {capabilitySyncStatus = a} :: GatewayCapabilitySummary)
 
-instance Core.FromJSON GatewayCapabilitySummary where
+instance Data.FromJSON GatewayCapabilitySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GatewayCapabilitySummary"
       ( \x ->
           GatewayCapabilitySummary'
-            Prelude.<$> (x Core..: "capabilityNamespace")
-            Prelude.<*> (x Core..: "capabilitySyncStatus")
+            Prelude.<$> (x Data..: "capabilityNamespace")
+            Prelude.<*> (x Data..: "capabilitySyncStatus")
       )
 
 instance Prelude.Hashable GatewayCapabilitySummary where

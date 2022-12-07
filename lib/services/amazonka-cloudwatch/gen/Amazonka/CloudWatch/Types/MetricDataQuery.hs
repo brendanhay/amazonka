@@ -22,6 +22,7 @@ module Amazonka.CloudWatch.Types.MetricDataQuery where
 import Amazonka.CloudWatch.Types.MetricStat
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure is used in both @GetMetricData@ and @PutMetricAlarm@. The
@@ -288,16 +289,16 @@ metricDataQuery_accountId = Lens.lens (\MetricDataQuery' {accountId} -> accountI
 metricDataQuery_id :: Lens.Lens' MetricDataQuery Prelude.Text
 metricDataQuery_id = Lens.lens (\MetricDataQuery' {id} -> id) (\s@MetricDataQuery' {} a -> s {id = a} :: MetricDataQuery)
 
-instance Core.FromXML MetricDataQuery where
+instance Data.FromXML MetricDataQuery where
   parseXML x =
     MetricDataQuery'
-      Prelude.<$> (x Core..@? "MetricStat")
-      Prelude.<*> (x Core..@? "ReturnData")
-      Prelude.<*> (x Core..@? "Label")
-      Prelude.<*> (x Core..@? "Period")
-      Prelude.<*> (x Core..@? "Expression")
-      Prelude.<*> (x Core..@? "AccountId")
-      Prelude.<*> (x Core..@ "Id")
+      Prelude.<$> (x Data..@? "MetricStat")
+      Prelude.<*> (x Data..@? "ReturnData")
+      Prelude.<*> (x Data..@? "Label")
+      Prelude.<*> (x Data..@? "Period")
+      Prelude.<*> (x Data..@? "Expression")
+      Prelude.<*> (x Data..@? "AccountId")
+      Prelude.<*> (x Data..@ "Id")
 
 instance Prelude.Hashable MetricDataQuery where
   hashWithSalt _salt MetricDataQuery' {..} =
@@ -319,14 +320,14 @@ instance Prelude.NFData MetricDataQuery where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToQuery MetricDataQuery where
+instance Data.ToQuery MetricDataQuery where
   toQuery MetricDataQuery' {..} =
     Prelude.mconcat
-      [ "MetricStat" Core.=: metricStat,
-        "ReturnData" Core.=: returnData,
-        "Label" Core.=: label,
-        "Period" Core.=: period,
-        "Expression" Core.=: expression,
-        "AccountId" Core.=: accountId,
-        "Id" Core.=: id
+      [ "MetricStat" Data.=: metricStat,
+        "ReturnData" Data.=: returnData,
+        "Label" Data.=: label,
+        "Period" Data.=: period,
+        "Expression" Data.=: expression,
+        "AccountId" Data.=: accountId,
+        "Id" Data.=: id
       ]

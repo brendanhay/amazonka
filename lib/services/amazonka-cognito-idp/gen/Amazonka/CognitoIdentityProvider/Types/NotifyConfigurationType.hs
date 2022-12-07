@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.NotifyConfigurationType where
 import Amazonka.CognitoIdentityProvider.Types.NotifyEmailType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The notify configuration type.
@@ -115,18 +116,18 @@ notifyConfigurationType_replyTo = Lens.lens (\NotifyConfigurationType' {replyTo}
 notifyConfigurationType_sourceArn :: Lens.Lens' NotifyConfigurationType Prelude.Text
 notifyConfigurationType_sourceArn = Lens.lens (\NotifyConfigurationType' {sourceArn} -> sourceArn) (\s@NotifyConfigurationType' {} a -> s {sourceArn = a} :: NotifyConfigurationType)
 
-instance Core.FromJSON NotifyConfigurationType where
+instance Data.FromJSON NotifyConfigurationType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotifyConfigurationType"
       ( \x ->
           NotifyConfigurationType'
-            Prelude.<$> (x Core..:? "From")
-            Prelude.<*> (x Core..:? "MfaEmail")
-            Prelude.<*> (x Core..:? "BlockEmail")
-            Prelude.<*> (x Core..:? "NoActionEmail")
-            Prelude.<*> (x Core..:? "ReplyTo")
-            Prelude.<*> (x Core..: "SourceArn")
+            Prelude.<$> (x Data..:? "From")
+            Prelude.<*> (x Data..:? "MfaEmail")
+            Prelude.<*> (x Data..:? "BlockEmail")
+            Prelude.<*> (x Data..:? "NoActionEmail")
+            Prelude.<*> (x Data..:? "ReplyTo")
+            Prelude.<*> (x Data..: "SourceArn")
       )
 
 instance Prelude.Hashable NotifyConfigurationType where
@@ -147,15 +148,15 @@ instance Prelude.NFData NotifyConfigurationType where
       `Prelude.seq` Prelude.rnf replyTo
       `Prelude.seq` Prelude.rnf sourceArn
 
-instance Core.ToJSON NotifyConfigurationType where
+instance Data.ToJSON NotifyConfigurationType where
   toJSON NotifyConfigurationType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("From" Core..=) Prelude.<$> from,
-            ("MfaEmail" Core..=) Prelude.<$> mfaEmail,
-            ("BlockEmail" Core..=) Prelude.<$> blockEmail,
-            ("NoActionEmail" Core..=) Prelude.<$> noActionEmail,
-            ("ReplyTo" Core..=) Prelude.<$> replyTo,
-            Prelude.Just ("SourceArn" Core..= sourceArn)
+          [ ("From" Data..=) Prelude.<$> from,
+            ("MfaEmail" Data..=) Prelude.<$> mfaEmail,
+            ("BlockEmail" Data..=) Prelude.<$> blockEmail,
+            ("NoActionEmail" Data..=) Prelude.<$> noActionEmail,
+            ("ReplyTo" Data..=) Prelude.<$> replyTo,
+            Prelude.Just ("SourceArn" Data..= sourceArn)
           ]
       )

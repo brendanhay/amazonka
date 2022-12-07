@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IpamOperatingRegion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,10 +59,10 @@ newIpamOperatingRegion =
 ipamOperatingRegion_regionName :: Lens.Lens' IpamOperatingRegion (Prelude.Maybe Prelude.Text)
 ipamOperatingRegion_regionName = Lens.lens (\IpamOperatingRegion' {regionName} -> regionName) (\s@IpamOperatingRegion' {} a -> s {regionName = a} :: IpamOperatingRegion)
 
-instance Core.FromXML IpamOperatingRegion where
+instance Data.FromXML IpamOperatingRegion where
   parseXML x =
     IpamOperatingRegion'
-      Prelude.<$> (x Core..@? "regionName")
+      Prelude.<$> (x Data..@? "regionName")
 
 instance Prelude.Hashable IpamOperatingRegion where
   hashWithSalt _salt IpamOperatingRegion' {..} =

@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.DescribeSourceServersRequestFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.LifeCycleState
 import Amazonka.MGN.Types.ReplicationType
 import qualified Amazonka.Prelude as Prelude
@@ -105,18 +106,18 @@ instance
       `Prelude.seq` Prelude.rnf replicationTypes
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeSourceServersRequestFilters
   where
   toJSON DescribeSourceServersRequestFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("lifeCycleStates" Core..=)
+          [ ("lifeCycleStates" Data..=)
               Prelude.<$> lifeCycleStates,
-            ("isArchived" Core..=) Prelude.<$> isArchived,
-            ("sourceServerIDs" Core..=)
+            ("isArchived" Data..=) Prelude.<$> isArchived,
+            ("sourceServerIDs" Data..=)
               Prelude.<$> sourceServerIDs,
-            ("replicationTypes" Core..=)
+            ("replicationTypes" Data..=)
               Prelude.<$> replicationTypes
           ]
       )

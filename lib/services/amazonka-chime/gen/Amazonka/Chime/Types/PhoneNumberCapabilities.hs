@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.PhoneNumberCapabilities where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The phone number capabilities for Amazon Chime Business Calling phone
@@ -100,18 +101,18 @@ phoneNumberCapabilities_outboundCall = Lens.lens (\PhoneNumberCapabilities' {out
 phoneNumberCapabilities_inboundMMS :: Lens.Lens' PhoneNumberCapabilities (Prelude.Maybe Prelude.Bool)
 phoneNumberCapabilities_inboundMMS = Lens.lens (\PhoneNumberCapabilities' {inboundMMS} -> inboundMMS) (\s@PhoneNumberCapabilities' {} a -> s {inboundMMS = a} :: PhoneNumberCapabilities)
 
-instance Core.FromJSON PhoneNumberCapabilities where
+instance Data.FromJSON PhoneNumberCapabilities where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PhoneNumberCapabilities"
       ( \x ->
           PhoneNumberCapabilities'
-            Prelude.<$> (x Core..:? "OutboundMMS")
-            Prelude.<*> (x Core..:? "InboundCall")
-            Prelude.<*> (x Core..:? "OutboundSMS")
-            Prelude.<*> (x Core..:? "InboundSMS")
-            Prelude.<*> (x Core..:? "OutboundCall")
-            Prelude.<*> (x Core..:? "InboundMMS")
+            Prelude.<$> (x Data..:? "OutboundMMS")
+            Prelude.<*> (x Data..:? "InboundCall")
+            Prelude.<*> (x Data..:? "OutboundSMS")
+            Prelude.<*> (x Data..:? "InboundSMS")
+            Prelude.<*> (x Data..:? "OutboundCall")
+            Prelude.<*> (x Data..:? "InboundMMS")
       )
 
 instance Prelude.Hashable PhoneNumberCapabilities where

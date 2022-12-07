@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,8 +142,8 @@ instance Core.AWSRequest DescribeInventoryDeletions where
     Response.receiveJSON
       ( \s h x ->
           DescribeInventoryDeletionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "InventoryDeletions"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "InventoryDeletions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -160,35 +161,35 @@ instance Prelude.NFData DescribeInventoryDeletions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf deletionId
 
-instance Core.ToHeaders DescribeInventoryDeletions where
+instance Data.ToHeaders DescribeInventoryDeletions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DescribeInventoryDeletions" ::
+              Data.=# ( "AmazonSSM.DescribeInventoryDeletions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeInventoryDeletions where
+instance Data.ToJSON DescribeInventoryDeletions where
   toJSON DescribeInventoryDeletions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("DeletionId" Core..=) Prelude.<$> deletionId
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("DeletionId" Data..=) Prelude.<$> deletionId
           ]
       )
 
-instance Core.ToPath DescribeInventoryDeletions where
+instance Data.ToPath DescribeInventoryDeletions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeInventoryDeletions where
+instance Data.ToQuery DescribeInventoryDeletions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeInventoryDeletionsResponse' smart constructor.

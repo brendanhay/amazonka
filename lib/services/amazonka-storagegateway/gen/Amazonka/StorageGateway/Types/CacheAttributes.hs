@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.CacheAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The refresh cache information for the file share or FSx file systems.
@@ -71,13 +72,13 @@ newCacheAttributes =
 cacheAttributes_cacheStaleTimeoutInSeconds :: Lens.Lens' CacheAttributes (Prelude.Maybe Prelude.Int)
 cacheAttributes_cacheStaleTimeoutInSeconds = Lens.lens (\CacheAttributes' {cacheStaleTimeoutInSeconds} -> cacheStaleTimeoutInSeconds) (\s@CacheAttributes' {} a -> s {cacheStaleTimeoutInSeconds = a} :: CacheAttributes)
 
-instance Core.FromJSON CacheAttributes where
+instance Data.FromJSON CacheAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CacheAttributes"
       ( \x ->
           CacheAttributes'
-            Prelude.<$> (x Core..:? "CacheStaleTimeoutInSeconds")
+            Prelude.<$> (x Data..:? "CacheStaleTimeoutInSeconds")
       )
 
 instance Prelude.Hashable CacheAttributes where
@@ -89,11 +90,11 @@ instance Prelude.NFData CacheAttributes where
   rnf CacheAttributes' {..} =
     Prelude.rnf cacheStaleTimeoutInSeconds
 
-instance Core.ToJSON CacheAttributes where
+instance Data.ToJSON CacheAttributes where
   toJSON CacheAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CacheStaleTimeoutInSeconds" Core..=)
+          [ ("CacheStaleTimeoutInSeconds" Data..=)
               Prelude.<$> cacheStaleTimeoutInSeconds
           ]
       )

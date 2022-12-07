@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -210,9 +211,9 @@ instance Core.AWSRequest GetWorkflowExecutionHistory where
     Response.receiveJSON
       ( \s h x ->
           GetWorkflowExecutionHistoryResponse'
-            Prelude.<$> (x Core..?> "nextPageToken")
+            Prelude.<$> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "events" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "events" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable GetWorkflowExecutionHistory where
@@ -231,38 +232,38 @@ instance Prelude.NFData GetWorkflowExecutionHistory where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf execution
 
-instance Core.ToHeaders GetWorkflowExecutionHistory where
+instance Data.ToHeaders GetWorkflowExecutionHistory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.GetWorkflowExecutionHistory" ::
+              Data.=# ( "SimpleWorkflowService.GetWorkflowExecutionHistory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetWorkflowExecutionHistory where
+instance Data.ToJSON GetWorkflowExecutionHistory where
   toJSON GetWorkflowExecutionHistory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maximumPageSize" Core..=)
+          [ ("maximumPageSize" Data..=)
               Prelude.<$> maximumPageSize,
-            ("nextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
-            Prelude.Just ("domain" Core..= domain),
-            Prelude.Just ("execution" Core..= execution)
+            ("nextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("reverseOrder" Data..=) Prelude.<$> reverseOrder,
+            Prelude.Just ("domain" Data..= domain),
+            Prelude.Just ("execution" Data..= execution)
           ]
       )
 
-instance Core.ToPath GetWorkflowExecutionHistory where
+instance Data.ToPath GetWorkflowExecutionHistory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetWorkflowExecutionHistory where
+instance Data.ToQuery GetWorkflowExecutionHistory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Paginated representation of a workflow history for a workflow execution.

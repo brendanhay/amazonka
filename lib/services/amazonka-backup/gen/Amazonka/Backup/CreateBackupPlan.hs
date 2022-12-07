@@ -53,6 +53,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -62,7 +63,7 @@ data CreateBackupPlan = CreateBackupPlan'
   { -- | To help organize your resources, you can assign your own metadata to the
     -- resources that you create. Each tag is a key-value pair. The specified
     -- tags are assigned to all backups created with this plan.
-    backupPlanTags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    backupPlanTags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Identifies the request and allows failed requests to be retried without
     -- the risk of running the operation twice. If the request includes a
     -- @CreatorRequestId@ that matches an existing backup plan, that plan is
@@ -114,7 +115,7 @@ newCreateBackupPlan pBackupPlan_ =
 -- resources that you create. Each tag is a key-value pair. The specified
 -- tags are assigned to all backups created with this plan.
 createBackupPlan_backupPlanTags :: Lens.Lens' CreateBackupPlan (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createBackupPlan_backupPlanTags = Lens.lens (\CreateBackupPlan' {backupPlanTags} -> backupPlanTags) (\s@CreateBackupPlan' {} a -> s {backupPlanTags = a} :: CreateBackupPlan) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createBackupPlan_backupPlanTags = Lens.lens (\CreateBackupPlan' {backupPlanTags} -> backupPlanTags) (\s@CreateBackupPlan' {} a -> s {backupPlanTags = a} :: CreateBackupPlan) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Identifies the request and allows failed requests to be retried without
 -- the risk of running the operation twice. If the request includes a
@@ -141,13 +142,13 @@ instance Core.AWSRequest CreateBackupPlan where
     Response.receiveJSON
       ( \s h x ->
           CreateBackupPlanResponse'
-            Prelude.<$> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "BackupPlanArn")
-            Prelude.<*> (x Core..?> "BackupPlanId")
-            Prelude.<*> ( x Core..?> "AdvancedBackupSettings"
+            Prelude.<$> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "BackupPlanArn")
+            Prelude.<*> (x Data..?> "BackupPlanId")
+            Prelude.<*> ( x Data..?> "AdvancedBackupSettings"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "VersionId")
+            Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,33 +164,33 @@ instance Prelude.NFData CreateBackupPlan where
       `Prelude.seq` Prelude.rnf creatorRequestId
       `Prelude.seq` Prelude.rnf backupPlan
 
-instance Core.ToHeaders CreateBackupPlan where
+instance Data.ToHeaders CreateBackupPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBackupPlan where
+instance Data.ToJSON CreateBackupPlan where
   toJSON CreateBackupPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BackupPlanTags" Core..=)
+          [ ("BackupPlanTags" Data..=)
               Prelude.<$> backupPlanTags,
-            ("CreatorRequestId" Core..=)
+            ("CreatorRequestId" Data..=)
               Prelude.<$> creatorRequestId,
-            Prelude.Just ("BackupPlan" Core..= backupPlan)
+            Prelude.Just ("BackupPlan" Data..= backupPlan)
           ]
       )
 
-instance Core.ToPath CreateBackupPlan where
+instance Data.ToPath CreateBackupPlan where
   toPath = Prelude.const "/backup/plans/"
 
-instance Core.ToQuery CreateBackupPlan where
+instance Data.ToQuery CreateBackupPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBackupPlanResponse' smart constructor.
@@ -198,7 +199,7 @@ data CreateBackupPlanResponse = CreateBackupPlanResponse'
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | An Amazon Resource Name (ARN) that uniquely identifies a backup plan;
     -- for example,
     -- @arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50@.
@@ -262,7 +263,7 @@ newCreateBackupPlanResponse pHttpStatus_ =
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 createBackupPlanResponse_creationDate :: Lens.Lens' CreateBackupPlanResponse (Prelude.Maybe Prelude.UTCTime)
-createBackupPlanResponse_creationDate = Lens.lens (\CreateBackupPlanResponse' {creationDate} -> creationDate) (\s@CreateBackupPlanResponse' {} a -> s {creationDate = a} :: CreateBackupPlanResponse) Prelude.. Lens.mapping Core._Time
+createBackupPlanResponse_creationDate = Lens.lens (\CreateBackupPlanResponse' {creationDate} -> creationDate) (\s@CreateBackupPlanResponse' {} a -> s {creationDate = a} :: CreateBackupPlanResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An Amazon Resource Name (ARN) that uniquely identifies a backup plan;
 -- for example,

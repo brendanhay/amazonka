@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.VolumeSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | EBS volume specifications such as volume type, IOPS, size (GiB) and
@@ -94,16 +95,16 @@ volumeSpecification_volumeType = Lens.lens (\VolumeSpecification' {volumeType} -
 volumeSpecification_sizeInGB :: Lens.Lens' VolumeSpecification Prelude.Int
 volumeSpecification_sizeInGB = Lens.lens (\VolumeSpecification' {sizeInGB} -> sizeInGB) (\s@VolumeSpecification' {} a -> s {sizeInGB = a} :: VolumeSpecification)
 
-instance Core.FromJSON VolumeSpecification where
+instance Data.FromJSON VolumeSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VolumeSpecification"
       ( \x ->
           VolumeSpecification'
-            Prelude.<$> (x Core..:? "Throughput")
-            Prelude.<*> (x Core..:? "Iops")
-            Prelude.<*> (x Core..: "VolumeType")
-            Prelude.<*> (x Core..: "SizeInGB")
+            Prelude.<$> (x Data..:? "Throughput")
+            Prelude.<*> (x Data..:? "Iops")
+            Prelude.<*> (x Data..: "VolumeType")
+            Prelude.<*> (x Data..: "SizeInGB")
       )
 
 instance Prelude.Hashable VolumeSpecification where
@@ -120,13 +121,13 @@ instance Prelude.NFData VolumeSpecification where
       `Prelude.seq` Prelude.rnf volumeType
       `Prelude.seq` Prelude.rnf sizeInGB
 
-instance Core.ToJSON VolumeSpecification where
+instance Data.ToJSON VolumeSpecification where
   toJSON VolumeSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Throughput" Core..=) Prelude.<$> throughput,
-            ("Iops" Core..=) Prelude.<$> iops,
-            Prelude.Just ("VolumeType" Core..= volumeType),
-            Prelude.Just ("SizeInGB" Core..= sizeInGB)
+          [ ("Throughput" Data..=) Prelude.<$> throughput,
+            ("Iops" Data..=) Prelude.<$> iops,
+            Prelude.Just ("VolumeType" Data..= volumeType),
+            Prelude.Just ("SizeInGB" Data..= sizeInGB)
           ]
       )

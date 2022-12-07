@@ -21,6 +21,7 @@ module Amazonka.CloudWatchLogs.Types.Destination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a cross-account destination that receives subscription log
@@ -107,18 +108,18 @@ destination_accessPolicy = Lens.lens (\Destination' {accessPolicy} -> accessPoli
 destination_creationTime :: Lens.Lens' Destination (Prelude.Maybe Prelude.Natural)
 destination_creationTime = Lens.lens (\Destination' {creationTime} -> creationTime) (\s@Destination' {} a -> s {creationTime = a} :: Destination)
 
-instance Core.FromJSON Destination where
+instance Data.FromJSON Destination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Destination"
       ( \x ->
           Destination'
-            Prelude.<$> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "destinationName")
-            Prelude.<*> (x Core..:? "targetArn")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "accessPolicy")
-            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<$> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "destinationName")
+            Prelude.<*> (x Data..:? "targetArn")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "accessPolicy")
+            Prelude.<*> (x Data..:? "creationTime")
       )
 
 instance Prelude.Hashable Destination where

@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.S3ExportingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information about the S3 bucket where Identity Resolution
@@ -70,14 +71,14 @@ s3ExportingConfig_s3KeyName = Lens.lens (\S3ExportingConfig' {s3KeyName} -> s3Ke
 s3ExportingConfig_s3BucketName :: Lens.Lens' S3ExportingConfig Prelude.Text
 s3ExportingConfig_s3BucketName = Lens.lens (\S3ExportingConfig' {s3BucketName} -> s3BucketName) (\s@S3ExportingConfig' {} a -> s {s3BucketName = a} :: S3ExportingConfig)
 
-instance Core.FromJSON S3ExportingConfig where
+instance Data.FromJSON S3ExportingConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3ExportingConfig"
       ( \x ->
           S3ExportingConfig'
-            Prelude.<$> (x Core..:? "S3KeyName")
-            Prelude.<*> (x Core..: "S3BucketName")
+            Prelude.<$> (x Data..:? "S3KeyName")
+            Prelude.<*> (x Data..: "S3BucketName")
       )
 
 instance Prelude.Hashable S3ExportingConfig where
@@ -90,11 +91,11 @@ instance Prelude.NFData S3ExportingConfig where
     Prelude.rnf s3KeyName
       `Prelude.seq` Prelude.rnf s3BucketName
 
-instance Core.ToJSON S3ExportingConfig where
+instance Data.ToJSON S3ExportingConfig where
   toJSON S3ExportingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3KeyName" Core..=) Prelude.<$> s3KeyName,
-            Prelude.Just ("S3BucketName" Core..= s3BucketName)
+          [ ("S3KeyName" Data..=) Prelude.<$> s3KeyName,
+            Prelude.Just ("S3BucketName" Data..= s3BucketName)
           ]
       )

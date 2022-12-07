@@ -46,6 +46,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,8 +115,8 @@ instance Core.AWSRequest ListAssessmentFrameworks where
     Response.receiveJSON
       ( \s h x ->
           ListAssessmentFrameworksResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "frameworkMetadataList"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "frameworkMetadataList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -133,26 +134,26 @@ instance Prelude.NFData ListAssessmentFrameworks where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf frameworkType
 
-instance Core.ToHeaders ListAssessmentFrameworks where
+instance Data.ToHeaders ListAssessmentFrameworks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAssessmentFrameworks where
+instance Data.ToPath ListAssessmentFrameworks where
   toPath = Prelude.const "/assessmentFrameworks"
 
-instance Core.ToQuery ListAssessmentFrameworks where
+instance Data.ToQuery ListAssessmentFrameworks where
   toQuery ListAssessmentFrameworks' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "frameworkType" Core.=: frameworkType
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "frameworkType" Data.=: frameworkType
       ]
 
 -- | /See:/ 'newListAssessmentFrameworksResponse' smart constructor.

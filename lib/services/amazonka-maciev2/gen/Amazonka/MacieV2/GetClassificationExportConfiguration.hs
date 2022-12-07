@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -72,7 +73,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetClassificationExportConfigurationResponse'
-            Prelude.<$> (x Core..?> "configuration")
+            Prelude.<$> (x Data..?> "configuration")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -90,21 +91,21 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetClassificationExportConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetClassificationExportConfiguration
   where
   toPath =
@@ -112,7 +113,7 @@ instance
       "/classification-export-configuration"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetClassificationExportConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

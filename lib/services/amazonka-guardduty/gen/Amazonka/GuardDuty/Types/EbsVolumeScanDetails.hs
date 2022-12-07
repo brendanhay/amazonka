@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.EbsVolumeScanDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.ScanDetections
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,9 +38,9 @@ data EbsVolumeScanDetails = EbsVolumeScanDetails'
     -- | Unique Id of the malware scan that generated the finding.
     scanId :: Prelude.Maybe Prelude.Text,
     -- | Returns the completion date and time of the malware scan.
-    scanCompletedAt :: Prelude.Maybe Core.POSIX,
+    scanCompletedAt :: Prelude.Maybe Data.POSIX,
     -- | Returns the start date and time of the malware scan.
-    scanStartedAt :: Prelude.Maybe Core.POSIX
+    scanStartedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,24 +93,24 @@ ebsVolumeScanDetails_scanId = Lens.lens (\EbsVolumeScanDetails' {scanId} -> scan
 
 -- | Returns the completion date and time of the malware scan.
 ebsVolumeScanDetails_scanCompletedAt :: Lens.Lens' EbsVolumeScanDetails (Prelude.Maybe Prelude.UTCTime)
-ebsVolumeScanDetails_scanCompletedAt = Lens.lens (\EbsVolumeScanDetails' {scanCompletedAt} -> scanCompletedAt) (\s@EbsVolumeScanDetails' {} a -> s {scanCompletedAt = a} :: EbsVolumeScanDetails) Prelude.. Lens.mapping Core._Time
+ebsVolumeScanDetails_scanCompletedAt = Lens.lens (\EbsVolumeScanDetails' {scanCompletedAt} -> scanCompletedAt) (\s@EbsVolumeScanDetails' {} a -> s {scanCompletedAt = a} :: EbsVolumeScanDetails) Prelude.. Lens.mapping Data._Time
 
 -- | Returns the start date and time of the malware scan.
 ebsVolumeScanDetails_scanStartedAt :: Lens.Lens' EbsVolumeScanDetails (Prelude.Maybe Prelude.UTCTime)
-ebsVolumeScanDetails_scanStartedAt = Lens.lens (\EbsVolumeScanDetails' {scanStartedAt} -> scanStartedAt) (\s@EbsVolumeScanDetails' {} a -> s {scanStartedAt = a} :: EbsVolumeScanDetails) Prelude.. Lens.mapping Core._Time
+ebsVolumeScanDetails_scanStartedAt = Lens.lens (\EbsVolumeScanDetails' {scanStartedAt} -> scanStartedAt) (\s@EbsVolumeScanDetails' {} a -> s {scanStartedAt = a} :: EbsVolumeScanDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON EbsVolumeScanDetails where
+instance Data.FromJSON EbsVolumeScanDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EbsVolumeScanDetails"
       ( \x ->
           EbsVolumeScanDetails'
-            Prelude.<$> (x Core..:? "sources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "triggerFindingId")
-            Prelude.<*> (x Core..:? "scanDetections")
-            Prelude.<*> (x Core..:? "scanId")
-            Prelude.<*> (x Core..:? "scanCompletedAt")
-            Prelude.<*> (x Core..:? "scanStartedAt")
+            Prelude.<$> (x Data..:? "sources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "triggerFindingId")
+            Prelude.<*> (x Data..:? "scanDetections")
+            Prelude.<*> (x Data..:? "scanId")
+            Prelude.<*> (x Data..:? "scanCompletedAt")
+            Prelude.<*> (x Data..:? "scanStartedAt")
       )
 
 instance Prelude.Hashable EbsVolumeScanDetails where

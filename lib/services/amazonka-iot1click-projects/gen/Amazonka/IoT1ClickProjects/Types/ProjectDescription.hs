@@ -21,6 +21,7 @@ module Amazonka.IoT1ClickProjects.Types.ProjectDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT1ClickProjects.Types.PlacementTemplate
 import qualified Amazonka.Prelude as Prelude
 
@@ -41,11 +42,11 @@ data ProjectDescription = ProjectDescription'
     projectName :: Prelude.Text,
     -- | The date when the project was originally created, in UNIX epoch time
     -- format.
-    createdDate :: Core.POSIX,
+    createdDate :: Data.POSIX,
     -- | The date when the project was last updated, in UNIX epoch time format.
     -- If the project was not updated, then @createdDate@ and @updatedDate@ are
     -- the same.
-    updatedDate :: Core.POSIX
+    updatedDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,8 +92,8 @@ newProjectDescription
         description = Prelude.Nothing,
         placementTemplate = Prelude.Nothing,
         projectName = pProjectName_,
-        createdDate = Core._Time Lens.# pCreatedDate_,
-        updatedDate = Core._Time Lens.# pUpdatedDate_
+        createdDate = Data._Time Lens.# pCreatedDate_,
+        updatedDate = Data._Time Lens.# pUpdatedDate_
       }
 
 -- | The tags (metadata key\/value pairs) associated with the project.
@@ -118,27 +119,27 @@ projectDescription_projectName = Lens.lens (\ProjectDescription' {projectName} -
 -- | The date when the project was originally created, in UNIX epoch time
 -- format.
 projectDescription_createdDate :: Lens.Lens' ProjectDescription Prelude.UTCTime
-projectDescription_createdDate = Lens.lens (\ProjectDescription' {createdDate} -> createdDate) (\s@ProjectDescription' {} a -> s {createdDate = a} :: ProjectDescription) Prelude.. Core._Time
+projectDescription_createdDate = Lens.lens (\ProjectDescription' {createdDate} -> createdDate) (\s@ProjectDescription' {} a -> s {createdDate = a} :: ProjectDescription) Prelude.. Data._Time
 
 -- | The date when the project was last updated, in UNIX epoch time format.
 -- If the project was not updated, then @createdDate@ and @updatedDate@ are
 -- the same.
 projectDescription_updatedDate :: Lens.Lens' ProjectDescription Prelude.UTCTime
-projectDescription_updatedDate = Lens.lens (\ProjectDescription' {updatedDate} -> updatedDate) (\s@ProjectDescription' {} a -> s {updatedDate = a} :: ProjectDescription) Prelude.. Core._Time
+projectDescription_updatedDate = Lens.lens (\ProjectDescription' {updatedDate} -> updatedDate) (\s@ProjectDescription' {} a -> s {updatedDate = a} :: ProjectDescription) Prelude.. Data._Time
 
-instance Core.FromJSON ProjectDescription where
+instance Data.FromJSON ProjectDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectDescription"
       ( \x ->
           ProjectDescription'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "placementTemplate")
-            Prelude.<*> (x Core..: "projectName")
-            Prelude.<*> (x Core..: "createdDate")
-            Prelude.<*> (x Core..: "updatedDate")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "placementTemplate")
+            Prelude.<*> (x Data..: "projectName")
+            Prelude.<*> (x Data..: "createdDate")
+            Prelude.<*> (x Data..: "updatedDate")
       )
 
 instance Prelude.Hashable ProjectDescription where

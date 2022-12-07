@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ActionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types.ActionTarget
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,16 +81,16 @@ actionSummary_description = Lens.lens (\ActionSummary' {description} -> descript
 actionSummary_id :: Lens.Lens' ActionSummary (Prelude.Maybe Prelude.Text)
 actionSummary_id = Lens.lens (\ActionSummary' {id} -> id) (\s@ActionSummary' {} a -> s {id = a} :: ActionSummary)
 
-instance Core.FromJSON ActionSummary where
+instance Data.FromJSON ActionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionSummary"
       ( \x ->
           ActionSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable ActionSummary where

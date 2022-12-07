@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.PublishMetricAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.Dimension
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newPublishMetricAction pDimensions_ =
 publishMetricAction_dimensions :: Lens.Lens' PublishMetricAction (Prelude.NonEmpty Dimension)
 publishMetricAction_dimensions = Lens.lens (\PublishMetricAction' {dimensions} -> dimensions) (\s@PublishMetricAction' {} a -> s {dimensions = a} :: PublishMetricAction) Prelude.. Lens.coerced
 
-instance Core.FromJSON PublishMetricAction where
+instance Data.FromJSON PublishMetricAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PublishMetricAction"
       ( \x ->
           PublishMetricAction'
-            Prelude.<$> (x Core..: "Dimensions")
+            Prelude.<$> (x Data..: "Dimensions")
       )
 
 instance Prelude.Hashable PublishMetricAction where
@@ -73,9 +74,9 @@ instance Prelude.Hashable PublishMetricAction where
 instance Prelude.NFData PublishMetricAction where
   rnf PublishMetricAction' {..} = Prelude.rnf dimensions
 
-instance Core.ToJSON PublishMetricAction where
+instance Data.ToJSON PublishMetricAction where
   toJSON PublishMetricAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Dimensions" Core..= dimensions)]
+          [Prelude.Just ("Dimensions" Data..= dimensions)]
       )

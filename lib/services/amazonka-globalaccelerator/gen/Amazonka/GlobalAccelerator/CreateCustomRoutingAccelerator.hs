@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -260,7 +261,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateCustomRoutingAcceleratorResponse'
-            Prelude.<$> (x Core..?> "Accelerator")
+            Prelude.<$> (x Data..?> "Accelerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -291,41 +292,41 @@ instance
       `Prelude.seq` Prelude.rnf idempotencyToken
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateCustomRoutingAccelerator
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.CreateCustomRoutingAccelerator" ::
+              Data.=# ( "GlobalAccelerator_V20180706.CreateCustomRoutingAccelerator" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCustomRoutingAccelerator where
+instance Data.ToJSON CreateCustomRoutingAccelerator where
   toJSON CreateCustomRoutingAccelerator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("IpAddressType" Core..=) Prelude.<$> ipAddressType,
-            ("IpAddresses" Core..=) Prelude.<$> ipAddresses,
-            Prelude.Just ("Name" Core..= name),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("IpAddressType" Data..=) Prelude.<$> ipAddressType,
+            ("IpAddresses" Data..=) Prelude.<$> ipAddresses,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("IdempotencyToken" Core..= idempotencyToken)
+              ("IdempotencyToken" Data..= idempotencyToken)
           ]
       )
 
-instance Core.ToPath CreateCustomRoutingAccelerator where
+instance Data.ToPath CreateCustomRoutingAccelerator where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCustomRoutingAccelerator where
+instance Data.ToQuery CreateCustomRoutingAccelerator where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCustomRoutingAcceleratorResponse' smart constructor.

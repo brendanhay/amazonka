@@ -21,6 +21,7 @@ module Amazonka.CloudFormation.Types.ResourceToImport where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the target resource of an import operation.
@@ -106,13 +107,13 @@ instance Prelude.NFData ResourceToImport where
       `Prelude.seq` Prelude.rnf logicalResourceId
       `Prelude.seq` Prelude.rnf resourceIdentifier
 
-instance Core.ToQuery ResourceToImport where
+instance Data.ToQuery ResourceToImport where
   toQuery ResourceToImport' {..} =
     Prelude.mconcat
-      [ "ResourceType" Core.=: resourceType,
-        "LogicalResourceId" Core.=: logicalResourceId,
+      [ "ResourceType" Data.=: resourceType,
+        "LogicalResourceId" Data.=: logicalResourceId,
         "ResourceIdentifier"
-          Core.=: Core.toQueryMap
+          Data.=: Data.toQueryMap
             "entry"
             "key"
             "value"

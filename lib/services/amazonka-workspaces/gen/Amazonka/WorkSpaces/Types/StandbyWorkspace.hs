@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.StandbyWorkspace where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.Tag
 
@@ -86,16 +87,16 @@ standbyWorkspace_primaryWorkspaceId = Lens.lens (\StandbyWorkspace' {primaryWork
 standbyWorkspace_directoryId :: Lens.Lens' StandbyWorkspace Prelude.Text
 standbyWorkspace_directoryId = Lens.lens (\StandbyWorkspace' {directoryId} -> directoryId) (\s@StandbyWorkspace' {} a -> s {directoryId = a} :: StandbyWorkspace)
 
-instance Core.FromJSON StandbyWorkspace where
+instance Data.FromJSON StandbyWorkspace where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StandbyWorkspace"
       ( \x ->
           StandbyWorkspace'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "VolumeEncryptionKey")
-            Prelude.<*> (x Core..: "PrimaryWorkspaceId")
-            Prelude.<*> (x Core..: "DirectoryId")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VolumeEncryptionKey")
+            Prelude.<*> (x Data..: "PrimaryWorkspaceId")
+            Prelude.<*> (x Data..: "DirectoryId")
       )
 
 instance Prelude.Hashable StandbyWorkspace where
@@ -112,15 +113,15 @@ instance Prelude.NFData StandbyWorkspace where
       `Prelude.seq` Prelude.rnf primaryWorkspaceId
       `Prelude.seq` Prelude.rnf directoryId
 
-instance Core.ToJSON StandbyWorkspace where
+instance Data.ToJSON StandbyWorkspace where
   toJSON StandbyWorkspace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("VolumeEncryptionKey" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("VolumeEncryptionKey" Data..=)
               Prelude.<$> volumeEncryptionKey,
             Prelude.Just
-              ("PrimaryWorkspaceId" Core..= primaryWorkspaceId),
-            Prelude.Just ("DirectoryId" Core..= directoryId)
+              ("PrimaryWorkspaceId" Data..= primaryWorkspaceId),
+            Prelude.Just ("DirectoryId" Data..= directoryId)
           ]
       )

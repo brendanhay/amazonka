@@ -21,6 +21,7 @@ module Amazonka.MediaPackageVOD.Types.DashPackage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types.DashEncryption
 import Amazonka.MediaPackageVOD.Types.DashManifest
 import Amazonka.MediaPackageVOD.Types.PeriodTriggersElement
@@ -156,19 +157,19 @@ dashPackage_includeEncoderConfigurationInSegments = Lens.lens (\DashPackage' {in
 dashPackage_dashManifests :: Lens.Lens' DashPackage [DashManifest]
 dashPackage_dashManifests = Lens.lens (\DashPackage' {dashManifests} -> dashManifests) (\s@DashPackage' {} a -> s {dashManifests = a} :: DashPackage) Prelude.. Lens.coerced
 
-instance Core.FromJSON DashPackage where
+instance Data.FromJSON DashPackage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DashPackage"
       ( \x ->
           DashPackage'
-            Prelude.<$> (x Core..:? "segmentTemplateFormat")
-            Prelude.<*> (x Core..:? "includeIframeOnlyStream")
-            Prelude.<*> (x Core..:? "segmentDurationSeconds")
-            Prelude.<*> (x Core..:? "periodTriggers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "encryption")
-            Prelude.<*> (x Core..:? "includeEncoderConfigurationInSegments")
-            Prelude.<*> (x Core..:? "dashManifests" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "segmentTemplateFormat")
+            Prelude.<*> (x Data..:? "includeIframeOnlyStream")
+            Prelude.<*> (x Data..:? "segmentDurationSeconds")
+            Prelude.<*> (x Data..:? "periodTriggers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "encryption")
+            Prelude.<*> (x Data..:? "includeEncoderConfigurationInSegments")
+            Prelude.<*> (x Data..:? "dashManifests" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DashPackage where
@@ -191,22 +192,22 @@ instance Prelude.NFData DashPackage where
       `Prelude.seq` Prelude.rnf includeEncoderConfigurationInSegments
       `Prelude.seq` Prelude.rnf dashManifests
 
-instance Core.ToJSON DashPackage where
+instance Data.ToJSON DashPackage where
   toJSON DashPackage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("segmentTemplateFormat" Core..=)
+          [ ("segmentTemplateFormat" Data..=)
               Prelude.<$> segmentTemplateFormat,
-            ("includeIframeOnlyStream" Core..=)
+            ("includeIframeOnlyStream" Data..=)
               Prelude.<$> includeIframeOnlyStream,
-            ("segmentDurationSeconds" Core..=)
+            ("segmentDurationSeconds" Data..=)
               Prelude.<$> segmentDurationSeconds,
-            ("periodTriggers" Core..=)
+            ("periodTriggers" Data..=)
               Prelude.<$> periodTriggers,
-            ("encryption" Core..=) Prelude.<$> encryption,
-            ("includeEncoderConfigurationInSegments" Core..=)
+            ("encryption" Data..=) Prelude.<$> encryption,
+            ("includeEncoderConfigurationInSegments" Data..=)
               Prelude.<$> includeEncoderConfigurationInSegments,
             Prelude.Just
-              ("dashManifests" Core..= dashManifests)
+              ("dashManifests" Data..= dashManifests)
           ]
       )

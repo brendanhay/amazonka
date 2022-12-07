@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,37 +140,37 @@ instance Prelude.NFData UpdateNode where
       `Prelude.seq` Prelude.rnf networkId
       `Prelude.seq` Prelude.rnf nodeId
 
-instance Core.ToHeaders UpdateNode where
+instance Data.ToHeaders UpdateNode where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNode where
+instance Data.ToJSON UpdateNode where
   toJSON UpdateNode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MemberId" Core..=) Prelude.<$> memberId,
-            ("LogPublishingConfiguration" Core..=)
+          [ ("MemberId" Data..=) Prelude.<$> memberId,
+            ("LogPublishingConfiguration" Data..=)
               Prelude.<$> logPublishingConfiguration
           ]
       )
 
-instance Core.ToPath UpdateNode where
+instance Data.ToPath UpdateNode where
   toPath UpdateNode' {..} =
     Prelude.mconcat
       [ "/networks/",
-        Core.toBS networkId,
+        Data.toBS networkId,
         "/nodes/",
-        Core.toBS nodeId
+        Data.toBS nodeId
       ]
 
-instance Core.ToQuery UpdateNode where
+instance Data.ToQuery UpdateNode where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateNodeResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -296,41 +297,41 @@ instance
       `Prelude.seq` Prelude.rnf backupVaultName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutBackupVaultLockConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutBackupVaultLockConfiguration where
+instance Data.ToJSON PutBackupVaultLockConfiguration where
   toJSON PutBackupVaultLockConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MinRetentionDays" Core..=)
+          [ ("MinRetentionDays" Data..=)
               Prelude.<$> minRetentionDays,
-            ("ChangeableForDays" Core..=)
+            ("ChangeableForDays" Data..=)
               Prelude.<$> changeableForDays,
-            ("MaxRetentionDays" Core..=)
+            ("MaxRetentionDays" Data..=)
               Prelude.<$> maxRetentionDays
           ]
       )
 
-instance Core.ToPath PutBackupVaultLockConfiguration where
+instance Data.ToPath PutBackupVaultLockConfiguration where
   toPath PutBackupVaultLockConfiguration' {..} =
     Prelude.mconcat
       [ "/backup-vaults/",
-        Core.toBS backupVaultName,
+        Data.toBS backupVaultName,
         "/vault-lock"
       ]
 
-instance Core.ToQuery PutBackupVaultLockConfiguration where
+instance Data.ToQuery PutBackupVaultLockConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutBackupVaultLockConfigurationResponse' smart constructor.

@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.AuthMechanismValue
 import Amazonka.DMS.Types.AuthTypeValue
 import Amazonka.DMS.Types.NestingLevelValue
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines a MongoDB endpoint.
@@ -49,7 +50,7 @@ data MongoDbSettings = MongoDbSettings'
     secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The password for the user account you use to access the MongoDB source
     -- endpoint.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The MongoDB database name. This setting isn\'t used when @AuthType@ is
     -- set to @\"no\"@.
     --
@@ -224,7 +225,7 @@ mongoDbSettings_secretsManagerAccessRoleArn = Lens.lens (\MongoDbSettings' {secr
 -- | The password for the user account you use to access the MongoDB source
 -- endpoint.
 mongoDbSettings_password :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
-mongoDbSettings_password = Lens.lens (\MongoDbSettings' {password} -> password) (\s@MongoDbSettings' {} a -> s {password = a} :: MongoDbSettings) Prelude.. Lens.mapping Core._Sensitive
+mongoDbSettings_password = Lens.lens (\MongoDbSettings' {password} -> password) (\s@MongoDbSettings' {} a -> s {password = a} :: MongoDbSettings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The MongoDB database name. This setting isn\'t used when @AuthType@ is
 -- set to @\"no\"@.
@@ -298,26 +299,26 @@ mongoDbSettings_extractDocId = Lens.lens (\MongoDbSettings' {extractDocId} -> ex
 mongoDbSettings_authType :: Lens.Lens' MongoDbSettings (Prelude.Maybe AuthTypeValue)
 mongoDbSettings_authType = Lens.lens (\MongoDbSettings' {authType} -> authType) (\s@MongoDbSettings' {} a -> s {authType = a} :: MongoDbSettings)
 
-instance Core.FromJSON MongoDbSettings where
+instance Data.FromJSON MongoDbSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MongoDbSettings"
       ( \x ->
           MongoDbSettings'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
-            Prelude.<*> (x Core..:? "Password")
-            Prelude.<*> (x Core..:? "AuthSource")
-            Prelude.<*> (x Core..:? "ServerName")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "NestingLevel")
-            Prelude.<*> (x Core..:? "DocsToInvestigate")
-            Prelude.<*> (x Core..:? "SecretsManagerSecretId")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "AuthMechanism")
-            Prelude.<*> (x Core..:? "ExtractDocId")
-            Prelude.<*> (x Core..:? "AuthType")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "SecretsManagerAccessRoleArn")
+            Prelude.<*> (x Data..:? "Password")
+            Prelude.<*> (x Data..:? "AuthSource")
+            Prelude.<*> (x Data..:? "ServerName")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "NestingLevel")
+            Prelude.<*> (x Data..:? "DocsToInvestigate")
+            Prelude.<*> (x Data..:? "SecretsManagerSecretId")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "AuthMechanism")
+            Prelude.<*> (x Data..:? "ExtractDocId")
+            Prelude.<*> (x Data..:? "AuthType")
       )
 
 instance Prelude.Hashable MongoDbSettings where
@@ -354,26 +355,26 @@ instance Prelude.NFData MongoDbSettings where
       `Prelude.seq` Prelude.rnf extractDocId
       `Prelude.seq` Prelude.rnf authType
 
-instance Core.ToJSON MongoDbSettings where
+instance Data.ToJSON MongoDbSettings where
   toJSON MongoDbSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("SecretsManagerAccessRoleArn" Core..=)
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("SecretsManagerAccessRoleArn" Data..=)
               Prelude.<$> secretsManagerAccessRoleArn,
-            ("Password" Core..=) Prelude.<$> password,
-            ("AuthSource" Core..=) Prelude.<$> authSource,
-            ("ServerName" Core..=) Prelude.<$> serverName,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("Username" Core..=) Prelude.<$> username,
-            ("NestingLevel" Core..=) Prelude.<$> nestingLevel,
-            ("DocsToInvestigate" Core..=)
+            ("Password" Data..=) Prelude.<$> password,
+            ("AuthSource" Data..=) Prelude.<$> authSource,
+            ("ServerName" Data..=) Prelude.<$> serverName,
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("Username" Data..=) Prelude.<$> username,
+            ("NestingLevel" Data..=) Prelude.<$> nestingLevel,
+            ("DocsToInvestigate" Data..=)
               Prelude.<$> docsToInvestigate,
-            ("SecretsManagerSecretId" Core..=)
+            ("SecretsManagerSecretId" Data..=)
               Prelude.<$> secretsManagerSecretId,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("AuthMechanism" Core..=) Prelude.<$> authMechanism,
-            ("ExtractDocId" Core..=) Prelude.<$> extractDocId,
-            ("AuthType" Core..=) Prelude.<$> authType
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("AuthMechanism" Data..=) Prelude.<$> authMechanism,
+            ("ExtractDocId" Data..=) Prelude.<$> extractDocId,
+            ("AuthType" Data..=) Prelude.<$> authType
           ]
       )

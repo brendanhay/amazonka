@@ -23,6 +23,7 @@ import Amazonka.ComprehendMedical.Types.Attribute
 import Amazonka.ComprehendMedical.Types.EntityType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An attribute that was extracted, but Comprehend Medical; was unable to
@@ -73,14 +74,14 @@ unmappedAttribute_type = Lens.lens (\UnmappedAttribute' {type'} -> type') (\s@Un
 unmappedAttribute_attribute :: Lens.Lens' UnmappedAttribute (Prelude.Maybe Attribute)
 unmappedAttribute_attribute = Lens.lens (\UnmappedAttribute' {attribute} -> attribute) (\s@UnmappedAttribute' {} a -> s {attribute = a} :: UnmappedAttribute)
 
-instance Core.FromJSON UnmappedAttribute where
+instance Data.FromJSON UnmappedAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnmappedAttribute"
       ( \x ->
           UnmappedAttribute'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Attribute")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Attribute")
       )
 
 instance Prelude.Hashable UnmappedAttribute where

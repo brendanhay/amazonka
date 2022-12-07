@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,7 +121,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DisassociateIdentityProviderConfigResponse'
-            Prelude.<$> (x Core..?> "update")
+            Prelude.<$> (x Data..?> "update")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,48 +146,48 @@ instance
       `Prelude.seq` Prelude.rnf identityProviderConfig
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateIdentityProviderConfig
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DisassociateIdentityProviderConfig
   where
   toJSON DisassociateIdentityProviderConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientRequestToken" Core..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             Prelude.Just
               ( "identityProviderConfig"
-                  Core..= identityProviderConfig
+                  Data..= identityProviderConfig
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateIdentityProviderConfig
   where
   toPath DisassociateIdentityProviderConfig' {..} =
     Prelude.mconcat
       [ "/clusters/",
-        Core.toBS clusterName,
+        Data.toBS clusterName,
         "/identity-provider-configs/disassociate"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateIdentityProviderConfig
   where
   toQuery = Prelude.const Prelude.mempty

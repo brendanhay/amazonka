@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -121,9 +122,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateDashboardPublishedVersionResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "DashboardId")
-            Prelude.<*> (x Core..?> "DashboardArn")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "DashboardId")
+            Prelude.<*> (x Data..?> "DashboardArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,34 +149,34 @@ instance
       `Prelude.seq` Prelude.rnf versionNumber
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateDashboardPublishedVersion
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDashboardPublishedVersion where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON UpdateDashboardPublishedVersion where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath UpdateDashboardPublishedVersion where
+instance Data.ToPath UpdateDashboardPublishedVersion where
   toPath UpdateDashboardPublishedVersion' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/dashboards/",
-        Core.toBS dashboardId,
+        Data.toBS dashboardId,
         "/versions/",
-        Core.toBS versionNumber
+        Data.toBS versionNumber
       ]
 
-instance Core.ToQuery UpdateDashboardPublishedVersion where
+instance Data.ToQuery UpdateDashboardPublishedVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDashboardPublishedVersionResponse' smart constructor.

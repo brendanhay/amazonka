@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DataSetSearchFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DataSetFilterAttribute
 import Amazonka.QuickSight.Types.FilterOperator
@@ -231,12 +232,12 @@ instance Prelude.NFData DataSetSearchFilter where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON DataSetSearchFilter where
+instance Data.ToJSON DataSetSearchFilter where
   toJSON DataSetSearchFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Operator" Core..= operator),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Operator" Data..= operator),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

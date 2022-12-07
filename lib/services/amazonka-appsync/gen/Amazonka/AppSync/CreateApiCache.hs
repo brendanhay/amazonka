@@ -47,6 +47,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -286,7 +287,7 @@ instance Core.AWSRequest CreateApiCache where
     Response.receiveJSON
       ( \s h x ->
           CreateApiCacheResponse'
-            Prelude.<$> (x Core..?> "apiCache")
+            Prelude.<$> (x Data..?> "apiCache")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -309,38 +310,38 @@ instance Prelude.NFData CreateApiCache where
       `Prelude.seq` Prelude.rnf apiCachingBehavior
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateApiCache where
+instance Data.ToHeaders CreateApiCache where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApiCache where
+instance Data.ToJSON CreateApiCache where
   toJSON CreateApiCache' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("transitEncryptionEnabled" Core..=)
+          [ ("transitEncryptionEnabled" Data..=)
               Prelude.<$> transitEncryptionEnabled,
-            ("atRestEncryptionEnabled" Core..=)
+            ("atRestEncryptionEnabled" Data..=)
               Prelude.<$> atRestEncryptionEnabled,
-            Prelude.Just ("ttl" Core..= ttl),
+            Prelude.Just ("ttl" Data..= ttl),
             Prelude.Just
-              ("apiCachingBehavior" Core..= apiCachingBehavior),
-            Prelude.Just ("type" Core..= type')
+              ("apiCachingBehavior" Data..= apiCachingBehavior),
+            Prelude.Just ("type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateApiCache where
+instance Data.ToPath CreateApiCache where
   toPath CreateApiCache' {..} =
     Prelude.mconcat
-      ["/v1/apis/", Core.toBS apiId, "/ApiCaches"]
+      ["/v1/apis/", Data.toBS apiId, "/ApiCaches"]
 
-instance Core.ToQuery CreateApiCache where
+instance Data.ToQuery CreateApiCache where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateApiCache@ operation.

@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.UserImportJobType where
 import Amazonka.CognitoIdentityProvider.Types.UserImportJobStatusType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The user import job type.
@@ -35,9 +36,9 @@ data UserImportJobType = UserImportJobType'
     -- | The job name for the user import job.
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The date when the user import job was completed.
-    completionDate :: Prelude.Maybe Core.POSIX,
+    completionDate :: Prelude.Maybe Data.POSIX,
     -- | The date the user import job was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The job ID for the user import job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The status of the user import job. One of the following:
@@ -66,7 +67,7 @@ data UserImportJobType = UserImportJobType'
     -- | The number of users that were successfully imported.
     importedUsers :: Prelude.Maybe Prelude.Integer,
     -- | The date when the user import job was started.
-    startDate :: Prelude.Maybe Core.POSIX,
+    startDate :: Prelude.Maybe Data.POSIX,
     -- | The user pool ID for the user pool that the users are being imported
     -- into.
     userPoolId :: Prelude.Maybe Prelude.Text,
@@ -171,11 +172,11 @@ userImportJobType_jobName = Lens.lens (\UserImportJobType' {jobName} -> jobName)
 
 -- | The date when the user import job was completed.
 userImportJobType_completionDate :: Lens.Lens' UserImportJobType (Prelude.Maybe Prelude.UTCTime)
-userImportJobType_completionDate = Lens.lens (\UserImportJobType' {completionDate} -> completionDate) (\s@UserImportJobType' {} a -> s {completionDate = a} :: UserImportJobType) Prelude.. Lens.mapping Core._Time
+userImportJobType_completionDate = Lens.lens (\UserImportJobType' {completionDate} -> completionDate) (\s@UserImportJobType' {} a -> s {completionDate = a} :: UserImportJobType) Prelude.. Lens.mapping Data._Time
 
 -- | The date the user import job was created.
 userImportJobType_creationDate :: Lens.Lens' UserImportJobType (Prelude.Maybe Prelude.UTCTime)
-userImportJobType_creationDate = Lens.lens (\UserImportJobType' {creationDate} -> creationDate) (\s@UserImportJobType' {} a -> s {creationDate = a} :: UserImportJobType) Prelude.. Lens.mapping Core._Time
+userImportJobType_creationDate = Lens.lens (\UserImportJobType' {creationDate} -> creationDate) (\s@UserImportJobType' {} a -> s {creationDate = a} :: UserImportJobType) Prelude.. Lens.mapping Data._Time
 
 -- | The job ID for the user import job.
 userImportJobType_jobId :: Lens.Lens' UserImportJobType (Prelude.Maybe Prelude.Text)
@@ -212,7 +213,7 @@ userImportJobType_importedUsers = Lens.lens (\UserImportJobType' {importedUsers}
 
 -- | The date when the user import job was started.
 userImportJobType_startDate :: Lens.Lens' UserImportJobType (Prelude.Maybe Prelude.UTCTime)
-userImportJobType_startDate = Lens.lens (\UserImportJobType' {startDate} -> startDate) (\s@UserImportJobType' {} a -> s {startDate = a} :: UserImportJobType) Prelude.. Lens.mapping Core._Time
+userImportJobType_startDate = Lens.lens (\UserImportJobType' {startDate} -> startDate) (\s@UserImportJobType' {} a -> s {startDate = a} :: UserImportJobType) Prelude.. Lens.mapping Data._Time
 
 -- | The user pool ID for the user pool that the users are being imported
 -- into.
@@ -233,25 +234,25 @@ userImportJobType_preSignedUrl = Lens.lens (\UserImportJobType' {preSignedUrl} -
 userImportJobType_completionMessage :: Lens.Lens' UserImportJobType (Prelude.Maybe Prelude.Text)
 userImportJobType_completionMessage = Lens.lens (\UserImportJobType' {completionMessage} -> completionMessage) (\s@UserImportJobType' {} a -> s {completionMessage = a} :: UserImportJobType)
 
-instance Core.FromJSON UserImportJobType where
+instance Data.FromJSON UserImportJobType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserImportJobType"
       ( \x ->
           UserImportJobType'
-            Prelude.<$> (x Core..:? "SkippedUsers")
-            Prelude.<*> (x Core..:? "FailedUsers")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "CompletionDate")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ImportedUsers")
-            Prelude.<*> (x Core..:? "StartDate")
-            Prelude.<*> (x Core..:? "UserPoolId")
-            Prelude.<*> (x Core..:? "CloudWatchLogsRoleArn")
-            Prelude.<*> (x Core..:? "PreSignedUrl")
-            Prelude.<*> (x Core..:? "CompletionMessage")
+            Prelude.<$> (x Data..:? "SkippedUsers")
+            Prelude.<*> (x Data..:? "FailedUsers")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "CompletionDate")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ImportedUsers")
+            Prelude.<*> (x Data..:? "StartDate")
+            Prelude.<*> (x Data..:? "UserPoolId")
+            Prelude.<*> (x Data..:? "CloudWatchLogsRoleArn")
+            Prelude.<*> (x Data..:? "PreSignedUrl")
+            Prelude.<*> (x Data..:? "CompletionMessage")
       )
 
 instance Prelude.Hashable UserImportJobType where

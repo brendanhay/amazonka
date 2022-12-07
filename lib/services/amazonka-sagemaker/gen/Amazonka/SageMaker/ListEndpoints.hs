@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,16 +69,16 @@ data ListEndpoints = ListEndpoints'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only endpoints that were modified after the
     -- specified timestamp.
-    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | A string in endpoint names. This filter returns only endpoints whose
     -- name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only endpoints that were modified before the
     -- specified timestamp.
-    lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only endpoints that were created before the
     -- specified time (timestamp).
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | Sorts the list of results. The default is @CreationTime@.
     sortBy :: Prelude.Maybe EndpointSortKey,
     -- | The maximum number of endpoints to return in the response. This value
@@ -87,7 +88,7 @@ data ListEndpoints = ListEndpoints'
     statusEquals :: Prelude.Maybe EndpointStatus,
     -- | A filter that returns only endpoints with a creation time greater than
     -- or equal to the specified time (timestamp).
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -155,7 +156,7 @@ listEndpoints_nextToken = Lens.lens (\ListEndpoints' {nextToken} -> nextToken) (
 -- | A filter that returns only endpoints that were modified after the
 -- specified timestamp.
 listEndpoints_lastModifiedTimeAfter :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.UTCTime)
-listEndpoints_lastModifiedTimeAfter = Lens.lens (\ListEndpoints' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListEndpoints' {} a -> s {lastModifiedTimeAfter = a} :: ListEndpoints) Prelude.. Lens.mapping Core._Time
+listEndpoints_lastModifiedTimeAfter = Lens.lens (\ListEndpoints' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListEndpoints' {} a -> s {lastModifiedTimeAfter = a} :: ListEndpoints) Prelude.. Lens.mapping Data._Time
 
 -- | A string in endpoint names. This filter returns only endpoints whose
 -- name contains the specified string.
@@ -165,12 +166,12 @@ listEndpoints_nameContains = Lens.lens (\ListEndpoints' {nameContains} -> nameCo
 -- | A filter that returns only endpoints that were modified before the
 -- specified timestamp.
 listEndpoints_lastModifiedTimeBefore :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.UTCTime)
-listEndpoints_lastModifiedTimeBefore = Lens.lens (\ListEndpoints' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListEndpoints' {} a -> s {lastModifiedTimeBefore = a} :: ListEndpoints) Prelude.. Lens.mapping Core._Time
+listEndpoints_lastModifiedTimeBefore = Lens.lens (\ListEndpoints' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListEndpoints' {} a -> s {lastModifiedTimeBefore = a} :: ListEndpoints) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns only endpoints that were created before the
 -- specified time (timestamp).
 listEndpoints_creationTimeBefore :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.UTCTime)
-listEndpoints_creationTimeBefore = Lens.lens (\ListEndpoints' {creationTimeBefore} -> creationTimeBefore) (\s@ListEndpoints' {} a -> s {creationTimeBefore = a} :: ListEndpoints) Prelude.. Lens.mapping Core._Time
+listEndpoints_creationTimeBefore = Lens.lens (\ListEndpoints' {creationTimeBefore} -> creationTimeBefore) (\s@ListEndpoints' {} a -> s {creationTimeBefore = a} :: ListEndpoints) Prelude.. Lens.mapping Data._Time
 
 -- | Sorts the list of results. The default is @CreationTime@.
 listEndpoints_sortBy :: Lens.Lens' ListEndpoints (Prelude.Maybe EndpointSortKey)
@@ -188,7 +189,7 @@ listEndpoints_statusEquals = Lens.lens (\ListEndpoints' {statusEquals} -> status
 -- | A filter that returns only endpoints with a creation time greater than
 -- or equal to the specified time (timestamp).
 listEndpoints_creationTimeAfter :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.UTCTime)
-listEndpoints_creationTimeAfter = Lens.lens (\ListEndpoints' {creationTimeAfter} -> creationTimeAfter) (\s@ListEndpoints' {} a -> s {creationTimeAfter = a} :: ListEndpoints) Prelude.. Lens.mapping Core._Time
+listEndpoints_creationTimeAfter = Lens.lens (\ListEndpoints' {creationTimeAfter} -> creationTimeAfter) (\s@ListEndpoints' {} a -> s {creationTimeAfter = a} :: ListEndpoints) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListEndpoints where
   page rq rs
@@ -217,9 +218,9 @@ instance Core.AWSRequest ListEndpoints where
     Response.receiveJSON
       ( \s h x ->
           ListEndpointsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Endpoints" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Endpoints" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListEndpoints where
@@ -248,44 +249,44 @@ instance Prelude.NFData ListEndpoints where
       `Prelude.seq` Prelude.rnf statusEquals
       `Prelude.seq` Prelude.rnf creationTimeAfter
 
-instance Core.ToHeaders ListEndpoints where
+instance Data.ToHeaders ListEndpoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListEndpoints" :: Prelude.ByteString),
+              Data.=# ("SageMaker.ListEndpoints" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEndpoints where
+instance Data.ToJSON ListEndpoints where
   toJSON ListEndpoints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("LastModifiedTimeAfter" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("LastModifiedTimeAfter" Data..=)
               Prelude.<$> lastModifiedTimeAfter,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("LastModifiedTimeBefore" Core..=)
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("LastModifiedTimeBefore" Data..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("CreationTimeBefore" Core..=)
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StatusEquals" Core..=) Prelude.<$> statusEquals,
-            ("CreationTimeAfter" Core..=)
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StatusEquals" Data..=) Prelude.<$> statusEquals,
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter
           ]
       )
 
-instance Core.ToPath ListEndpoints where
+instance Data.ToPath ListEndpoints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEndpoints where
+instance Data.ToQuery ListEndpoints where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEndpointsResponse' smart constructor.

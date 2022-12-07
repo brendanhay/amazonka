@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,8 +74,8 @@ instance Core.AWSRequest GetIndexingConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetIndexingConfigurationResponse'
-            Prelude.<$> (x Core..?> "thingGroupIndexingConfiguration")
-            Prelude.<*> (x Core..?> "thingIndexingConfiguration")
+            Prelude.<$> (x Data..?> "thingGroupIndexingConfiguration")
+            Prelude.<*> (x Data..?> "thingIndexingConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -85,13 +86,13 @@ instance Prelude.Hashable GetIndexingConfiguration where
 instance Prelude.NFData GetIndexingConfiguration where
   rnf _ = ()
 
-instance Core.ToHeaders GetIndexingConfiguration where
+instance Data.ToHeaders GetIndexingConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetIndexingConfiguration where
+instance Data.ToPath GetIndexingConfiguration where
   toPath = Prelude.const "/indexing/config"
 
-instance Core.ToQuery GetIndexingConfiguration where
+instance Data.ToQuery GetIndexingConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetIndexingConfigurationResponse' smart constructor.

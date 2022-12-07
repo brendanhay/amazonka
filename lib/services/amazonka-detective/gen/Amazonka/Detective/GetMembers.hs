@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,10 +113,10 @@ instance Core.AWSRequest GetMembers where
     Response.receiveJSON
       ( \s h x ->
           GetMembersResponse'
-            Prelude.<$> ( x Core..?> "UnprocessedAccounts"
+            Prelude.<$> ( x Data..?> "UnprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "MemberDetails" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "MemberDetails" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,30 +130,30 @@ instance Prelude.NFData GetMembers where
     Prelude.rnf graphArn
       `Prelude.seq` Prelude.rnf accountIds
 
-instance Core.ToHeaders GetMembers where
+instance Data.ToHeaders GetMembers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMembers where
+instance Data.ToJSON GetMembers where
   toJSON GetMembers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GraphArn" Core..= graphArn),
-            Prelude.Just ("AccountIds" Core..= accountIds)
+          [ Prelude.Just ("GraphArn" Data..= graphArn),
+            Prelude.Just ("AccountIds" Data..= accountIds)
           ]
       )
 
-instance Core.ToPath GetMembers where
+instance Data.ToPath GetMembers where
   toPath = Prelude.const "/graph/members/get"
 
-instance Core.ToQuery GetMembers where
+instance Data.ToQuery GetMembers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMembersResponse' smart constructor.

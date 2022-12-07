@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -167,7 +168,7 @@ instance Core.AWSRequest CreateClusterSubnetGroup where
       "CreateClusterSubnetGroupResult"
       ( \s h x ->
           CreateClusterSubnetGroupResponse'
-            Prelude.<$> (x Core..@? "ClusterSubnetGroup")
+            Prelude.<$> (x Data..@? "ClusterSubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,27 +186,27 @@ instance Prelude.NFData CreateClusterSubnetGroup where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToHeaders CreateClusterSubnetGroup where
+instance Data.ToHeaders CreateClusterSubnetGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateClusterSubnetGroup where
+instance Data.ToPath CreateClusterSubnetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateClusterSubnetGroup where
+instance Data.ToQuery CreateClusterSubnetGroup where
   toQuery CreateClusterSubnetGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateClusterSubnetGroup" :: Prelude.ByteString),
+          Data.=: ("CreateClusterSubnetGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
         "ClusterSubnetGroupName"
-          Core.=: clusterSubnetGroupName,
-        "Description" Core.=: description,
+          Data.=: clusterSubnetGroupName,
+        "Description" Data.=: description,
         "SubnetIds"
-          Core.=: Core.toQueryList "SubnetIdentifier" subnetIds
+          Data.=: Data.toQueryList "SubnetIdentifier" subnetIds
       ]
 
 -- | /See:/ 'newCreateClusterSubnetGroupResponse' smart constructor.

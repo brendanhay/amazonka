@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,8 +153,8 @@ instance Core.AWSRequest GetMigrations where
     Response.receiveJSON
       ( \s h x ->
           GetMigrationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "migrationSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "migrationSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -177,30 +178,30 @@ instance Prelude.NFData GetMigrations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf migrationStatusEquals
 
-instance Core.ToHeaders GetMigrations where
+instance Data.ToHeaders GetMigrations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetMigrations where
+instance Data.ToPath GetMigrations where
   toPath = Prelude.const "/migrations"
 
-instance Core.ToQuery GetMigrations where
+instance Data.ToQuery GetMigrations where
   toQuery GetMigrations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "sortByAttribute" Core.=: sortByAttribute,
-        "v1BotNameContains" Core.=: v1BotNameContains,
-        "sortByOrder" Core.=: sortByOrder,
-        "maxResults" Core.=: maxResults,
+      [ "nextToken" Data.=: nextToken,
+        "sortByAttribute" Data.=: sortByAttribute,
+        "v1BotNameContains" Data.=: v1BotNameContains,
+        "sortByOrder" Data.=: sortByOrder,
+        "maxResults" Data.=: maxResults,
         "migrationStatusEquals"
-          Core.=: migrationStatusEquals
+          Data.=: migrationStatusEquals
       ]
 
 -- | /See:/ 'newGetMigrationsResponse' smart constructor.

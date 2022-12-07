@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProcessingOutputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProcessingOutput
 
@@ -74,14 +75,14 @@ processingOutputConfig_kmsKeyId = Lens.lens (\ProcessingOutputConfig' {kmsKeyId}
 processingOutputConfig_outputs :: Lens.Lens' ProcessingOutputConfig [ProcessingOutput]
 processingOutputConfig_outputs = Lens.lens (\ProcessingOutputConfig' {outputs} -> outputs) (\s@ProcessingOutputConfig' {} a -> s {outputs = a} :: ProcessingOutputConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON ProcessingOutputConfig where
+instance Data.FromJSON ProcessingOutputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProcessingOutputConfig"
       ( \x ->
           ProcessingOutputConfig'
-            Prelude.<$> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "Outputs" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ProcessingOutputConfig where
@@ -94,11 +95,11 @@ instance Prelude.NFData ProcessingOutputConfig where
     Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf outputs
 
-instance Core.ToJSON ProcessingOutputConfig where
+instance Data.ToJSON ProcessingOutputConfig where
   toJSON ProcessingOutputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            Prelude.Just ("Outputs" Core..= outputs)
+          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            Prelude.Just ("Outputs" Data..= outputs)
           ]
       )

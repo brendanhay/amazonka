@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.ImageTestsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configure image tests for your pipeline build. Tests run after building
@@ -70,14 +71,14 @@ imageTestsConfiguration_imageTestsEnabled = Lens.lens (\ImageTestsConfiguration'
 imageTestsConfiguration_timeoutMinutes :: Lens.Lens' ImageTestsConfiguration (Prelude.Maybe Prelude.Natural)
 imageTestsConfiguration_timeoutMinutes = Lens.lens (\ImageTestsConfiguration' {timeoutMinutes} -> timeoutMinutes) (\s@ImageTestsConfiguration' {} a -> s {timeoutMinutes = a} :: ImageTestsConfiguration)
 
-instance Core.FromJSON ImageTestsConfiguration where
+instance Data.FromJSON ImageTestsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageTestsConfiguration"
       ( \x ->
           ImageTestsConfiguration'
-            Prelude.<$> (x Core..:? "imageTestsEnabled")
-            Prelude.<*> (x Core..:? "timeoutMinutes")
+            Prelude.<$> (x Data..:? "imageTestsEnabled")
+            Prelude.<*> (x Data..:? "timeoutMinutes")
       )
 
 instance Prelude.Hashable ImageTestsConfiguration where
@@ -90,13 +91,13 @@ instance Prelude.NFData ImageTestsConfiguration where
     Prelude.rnf imageTestsEnabled
       `Prelude.seq` Prelude.rnf timeoutMinutes
 
-instance Core.ToJSON ImageTestsConfiguration where
+instance Data.ToJSON ImageTestsConfiguration where
   toJSON ImageTestsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("imageTestsEnabled" Core..=)
+          [ ("imageTestsEnabled" Data..=)
               Prelude.<$> imageTestsEnabled,
-            ("timeoutMinutes" Core..=)
+            ("timeoutMinutes" Data..=)
               Prelude.<$> timeoutMinutes
           ]
       )

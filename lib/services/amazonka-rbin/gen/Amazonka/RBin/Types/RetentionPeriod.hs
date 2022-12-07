@@ -21,6 +21,7 @@ module Amazonka.RBin.Types.RetentionPeriod where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RBin.Types.RetentionPeriodUnit
 
@@ -79,14 +80,14 @@ retentionPeriod_retentionPeriodValue = Lens.lens (\RetentionPeriod' {retentionPe
 retentionPeriod_retentionPeriodUnit :: Lens.Lens' RetentionPeriod RetentionPeriodUnit
 retentionPeriod_retentionPeriodUnit = Lens.lens (\RetentionPeriod' {retentionPeriodUnit} -> retentionPeriodUnit) (\s@RetentionPeriod' {} a -> s {retentionPeriodUnit = a} :: RetentionPeriod)
 
-instance Core.FromJSON RetentionPeriod where
+instance Data.FromJSON RetentionPeriod where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RetentionPeriod"
       ( \x ->
           RetentionPeriod'
-            Prelude.<$> (x Core..: "RetentionPeriodValue")
-            Prelude.<*> (x Core..: "RetentionPeriodUnit")
+            Prelude.<$> (x Data..: "RetentionPeriodValue")
+            Prelude.<*> (x Data..: "RetentionPeriodUnit")
       )
 
 instance Prelude.Hashable RetentionPeriod where
@@ -99,15 +100,15 @@ instance Prelude.NFData RetentionPeriod where
     Prelude.rnf retentionPeriodValue
       `Prelude.seq` Prelude.rnf retentionPeriodUnit
 
-instance Core.ToJSON RetentionPeriod where
+instance Data.ToJSON RetentionPeriod where
   toJSON RetentionPeriod' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "RetentionPeriodValue"
-                  Core..= retentionPeriodValue
+                  Data..= retentionPeriodValue
               ),
             Prelude.Just
-              ("RetentionPeriodUnit" Core..= retentionPeriodUnit)
+              ("RetentionPeriodUnit" Data..= retentionPeriodUnit)
           ]
       )

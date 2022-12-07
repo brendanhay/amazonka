@@ -47,6 +47,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,8 +122,8 @@ instance Core.AWSRequest ListApiDestinations where
     Response.receiveJSON
       ( \s h x ->
           ListApiDestinationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ApiDestinations"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ApiDestinations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -142,36 +143,36 @@ instance Prelude.NFData ListApiDestinations where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf namePrefix
 
-instance Core.ToHeaders ListApiDestinations where
+instance Data.ToHeaders ListApiDestinations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSEvents.ListApiDestinations" ::
+              Data.=# ( "AWSEvents.ListApiDestinations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListApiDestinations where
+instance Data.ToJSON ListApiDestinations where
   toJSON ListApiDestinations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ConnectionArn" Core..=) Prelude.<$> connectionArn,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("NamePrefix" Core..=) Prelude.<$> namePrefix
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ConnectionArn" Data..=) Prelude.<$> connectionArn,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("NamePrefix" Data..=) Prelude.<$> namePrefix
           ]
       )
 
-instance Core.ToPath ListApiDestinations where
+instance Data.ToPath ListApiDestinations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListApiDestinations where
+instance Data.ToQuery ListApiDestinations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListApiDestinationsResponse' smart constructor.

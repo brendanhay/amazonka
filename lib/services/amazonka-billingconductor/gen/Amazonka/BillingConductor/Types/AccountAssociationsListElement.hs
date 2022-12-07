@@ -21,6 +21,7 @@ module Amazonka.BillingConductor.Types.AccountAssociationsListElement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of a linked account.
@@ -32,9 +33,9 @@ data AccountAssociationsListElement = AccountAssociationsListElement'
     -- | The associating array of account IDs.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account name.
-    accountName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    accountName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Web Services account email.
-    accountEmail :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    accountEmail :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -74,22 +75,22 @@ accountAssociationsListElement_accountId = Lens.lens (\AccountAssociationsListEl
 
 -- | The Amazon Web Services account name.
 accountAssociationsListElement_accountName :: Lens.Lens' AccountAssociationsListElement (Prelude.Maybe Prelude.Text)
-accountAssociationsListElement_accountName = Lens.lens (\AccountAssociationsListElement' {accountName} -> accountName) (\s@AccountAssociationsListElement' {} a -> s {accountName = a} :: AccountAssociationsListElement) Prelude.. Lens.mapping Core._Sensitive
+accountAssociationsListElement_accountName = Lens.lens (\AccountAssociationsListElement' {accountName} -> accountName) (\s@AccountAssociationsListElement' {} a -> s {accountName = a} :: AccountAssociationsListElement) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Web Services account email.
 accountAssociationsListElement_accountEmail :: Lens.Lens' AccountAssociationsListElement (Prelude.Maybe Prelude.Text)
-accountAssociationsListElement_accountEmail = Lens.lens (\AccountAssociationsListElement' {accountEmail} -> accountEmail) (\s@AccountAssociationsListElement' {} a -> s {accountEmail = a} :: AccountAssociationsListElement) Prelude.. Lens.mapping Core._Sensitive
+accountAssociationsListElement_accountEmail = Lens.lens (\AccountAssociationsListElement' {accountEmail} -> accountEmail) (\s@AccountAssociationsListElement' {} a -> s {accountEmail = a} :: AccountAssociationsListElement) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON AccountAssociationsListElement where
+instance Data.FromJSON AccountAssociationsListElement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountAssociationsListElement"
       ( \x ->
           AccountAssociationsListElement'
-            Prelude.<$> (x Core..:? "BillingGroupArn")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "AccountName")
-            Prelude.<*> (x Core..:? "AccountEmail")
+            Prelude.<$> (x Data..:? "BillingGroupArn")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "AccountName")
+            Prelude.<*> (x Data..:? "AccountEmail")
       )
 
 instance

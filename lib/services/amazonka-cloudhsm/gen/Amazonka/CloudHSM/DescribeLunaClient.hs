@@ -61,6 +61,7 @@ where
 import Amazonka.CloudHSM.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,11 +112,11 @@ instance Core.AWSRequest DescribeLunaClient where
     Response.receiveJSON
       ( \s h x ->
           DescribeLunaClientResponse'
-            Prelude.<$> (x Core..?> "Label")
-            Prelude.<*> (x Core..?> "LastModifiedTimestamp")
-            Prelude.<*> (x Core..?> "ClientArn")
-            Prelude.<*> (x Core..?> "Certificate")
-            Prelude.<*> (x Core..?> "CertificateFingerprint")
+            Prelude.<$> (x Data..?> "Label")
+            Prelude.<*> (x Data..?> "LastModifiedTimestamp")
+            Prelude.<*> (x Data..?> "ClientArn")
+            Prelude.<*> (x Data..?> "Certificate")
+            Prelude.<*> (x Data..?> "CertificateFingerprint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,35 +130,35 @@ instance Prelude.NFData DescribeLunaClient where
     Prelude.rnf clientArn
       `Prelude.seq` Prelude.rnf certificateFingerprint
 
-instance Core.ToHeaders DescribeLunaClient where
+instance Data.ToHeaders DescribeLunaClient where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudHsmFrontendService.DescribeLunaClient" ::
+              Data.=# ( "CloudHsmFrontendService.DescribeLunaClient" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLunaClient where
+instance Data.ToJSON DescribeLunaClient where
   toJSON DescribeLunaClient' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientArn" Core..=) Prelude.<$> clientArn,
-            ("CertificateFingerprint" Core..=)
+          [ ("ClientArn" Data..=) Prelude.<$> clientArn,
+            ("CertificateFingerprint" Data..=)
               Prelude.<$> certificateFingerprint
           ]
       )
 
-instance Core.ToPath DescribeLunaClient where
+instance Data.ToPath DescribeLunaClient where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLunaClient where
+instance Data.ToQuery DescribeLunaClient where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLunaClientResponse' smart constructor.

@@ -111,6 +111,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -336,8 +337,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GenerateDataKeyWithoutPlaintextResponse'
-            Prelude.<$> (x Core..?> "CiphertextBlob")
-            Prelude.<*> (x Core..?> "KeyId")
+            Prelude.<$> (x Data..?> "CiphertextBlob")
+            Prelude.<*> (x Data..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -366,40 +367,40 @@ instance
       `Prelude.seq` Prelude.rnf keyId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GenerateDataKeyWithoutPlaintext
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.GenerateDataKeyWithoutPlaintext" ::
+              Data.=# ( "TrentService.GenerateDataKeyWithoutPlaintext" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GenerateDataKeyWithoutPlaintext where
+instance Data.ToJSON GenerateDataKeyWithoutPlaintext where
   toJSON GenerateDataKeyWithoutPlaintext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            ("KeySpec" Core..=) Prelude.<$> keySpec,
-            ("NumberOfBytes" Core..=) Prelude.<$> numberOfBytes,
-            ("EncryptionContext" Core..=)
+          [ ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+            ("KeySpec" Data..=) Prelude.<$> keySpec,
+            ("NumberOfBytes" Data..=) Prelude.<$> numberOfBytes,
+            ("EncryptionContext" Data..=)
               Prelude.<$> encryptionContext,
-            Prelude.Just ("KeyId" Core..= keyId)
+            Prelude.Just ("KeyId" Data..= keyId)
           ]
       )
 
-instance Core.ToPath GenerateDataKeyWithoutPlaintext where
+instance Data.ToPath GenerateDataKeyWithoutPlaintext where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GenerateDataKeyWithoutPlaintext where
+instance Data.ToQuery GenerateDataKeyWithoutPlaintext where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGenerateDataKeyWithoutPlaintextResponse' smart constructor.
@@ -407,7 +408,7 @@ data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextRe
   { -- | The encrypted data key. When you use the HTTP API or the Amazon Web
     -- Services CLI, the value is Base64-encoded. Otherwise, it is not
     -- Base64-encoded.
-    ciphertextBlob :: Prelude.Maybe Core.Base64,
+    ciphertextBlob :: Prelude.Maybe Data.Base64,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the KMS key that encrypted the data key.
@@ -459,7 +460,7 @@ newGenerateDataKeyWithoutPlaintextResponse
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 generateDataKeyWithoutPlaintextResponse_ciphertextBlob :: Lens.Lens' GenerateDataKeyWithoutPlaintextResponse (Prelude.Maybe Prelude.ByteString)
-generateDataKeyWithoutPlaintextResponse_ciphertextBlob = Lens.lens (\GenerateDataKeyWithoutPlaintextResponse' {ciphertextBlob} -> ciphertextBlob) (\s@GenerateDataKeyWithoutPlaintextResponse' {} a -> s {ciphertextBlob = a} :: GenerateDataKeyWithoutPlaintextResponse) Prelude.. Lens.mapping Core._Base64
+generateDataKeyWithoutPlaintextResponse_ciphertextBlob = Lens.lens (\GenerateDataKeyWithoutPlaintextResponse' {ciphertextBlob} -> ciphertextBlob) (\s@GenerateDataKeyWithoutPlaintextResponse' {} a -> s {ciphertextBlob = a} :: GenerateDataKeyWithoutPlaintextResponse) Prelude.. Lens.mapping Data._Base64
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)

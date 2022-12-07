@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,8 +139,8 @@ instance Core.AWSRequest StartConnection where
     Response.receiveJSON
       ( \s h x ->
           StartConnectionResponse'
-            Prelude.<$> (x Core..?> "ConnectionId")
-            Prelude.<*> (x Core..?> "UnderlayIpAddress")
+            Prelude.<$> (x Data..?> "ConnectionId")
+            Prelude.<*> (x Data..?> "UnderlayIpAddress")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,37 +158,37 @@ instance Prelude.NFData StartConnection where
       `Prelude.seq` Prelude.rnf clientPublicKey
       `Prelude.seq` Prelude.rnf networkInterfaceDeviceIndex
 
-instance Core.ToHeaders StartConnection where
+instance Data.ToHeaders StartConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartConnection where
+instance Data.ToJSON StartConnection where
   toJSON StartConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DeviceSerialNumber" Core..= deviceSerialNumber),
-            Prelude.Just ("AssetId" Core..= assetId),
+              ("DeviceSerialNumber" Data..= deviceSerialNumber),
+            Prelude.Just ("AssetId" Data..= assetId),
             Prelude.Just
-              ("ClientPublicKey" Core..= clientPublicKey),
+              ("ClientPublicKey" Data..= clientPublicKey),
             Prelude.Just
               ( "NetworkInterfaceDeviceIndex"
-                  Core..= networkInterfaceDeviceIndex
+                  Data..= networkInterfaceDeviceIndex
               )
           ]
       )
 
-instance Core.ToPath StartConnection where
+instance Data.ToPath StartConnection where
   toPath = Prelude.const "/connections"
 
-instance Core.ToQuery StartConnection where
+instance Data.ToQuery StartConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartConnectionResponse' smart constructor.

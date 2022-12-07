@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -396,8 +397,8 @@ instance Core.AWSRequest CreateClassificationJob where
     Response.receiveJSON
       ( \s h x ->
           CreateClassificationJobResponse'
-            Prelude.<$> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "jobArn")
+            Prelude.<$> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "jobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -433,47 +434,47 @@ instance Prelude.NFData CreateClassificationJob where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateClassificationJob where
+instance Data.ToHeaders CreateClassificationJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateClassificationJob where
+instance Data.ToJSON CreateClassificationJob where
   toJSON CreateClassificationJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("customDataIdentifierIds" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("customDataIdentifierIds" Data..=)
               Prelude.<$> customDataIdentifierIds,
-            ("managedDataIdentifierSelector" Core..=)
+            ("managedDataIdentifierSelector" Data..=)
               Prelude.<$> managedDataIdentifierSelector,
-            ("scheduleFrequency" Core..=)
+            ("scheduleFrequency" Data..=)
               Prelude.<$> scheduleFrequency,
-            ("description" Core..=) Prelude.<$> description,
-            ("initialRun" Core..=) Prelude.<$> initialRun,
-            ("allowListIds" Core..=) Prelude.<$> allowListIds,
-            ("samplingPercentage" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("initialRun" Data..=) Prelude.<$> initialRun,
+            ("allowListIds" Data..=) Prelude.<$> allowListIds,
+            ("samplingPercentage" Data..=)
               Prelude.<$> samplingPercentage,
-            ("managedDataIdentifierIds" Core..=)
+            ("managedDataIdentifierIds" Data..=)
               Prelude.<$> managedDataIdentifierIds,
             Prelude.Just
-              ("s3JobDefinition" Core..= s3JobDefinition),
-            Prelude.Just ("jobType" Core..= jobType),
-            Prelude.Just ("clientToken" Core..= clientToken),
-            Prelude.Just ("name" Core..= name)
+              ("s3JobDefinition" Data..= s3JobDefinition),
+            Prelude.Just ("jobType" Data..= jobType),
+            Prelude.Just ("clientToken" Data..= clientToken),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateClassificationJob where
+instance Data.ToPath CreateClassificationJob where
   toPath = Prelude.const "/jobs"
 
-instance Core.ToQuery CreateClassificationJob where
+instance Data.ToQuery CreateClassificationJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateClassificationJobResponse' smart constructor.

@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,25 +103,25 @@ instance Prelude.NFData DeleteSuppressedDestination where
   rnf DeleteSuppressedDestination' {..} =
     Prelude.rnf emailAddress
 
-instance Core.ToHeaders DeleteSuppressedDestination where
+instance Data.ToHeaders DeleteSuppressedDestination where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteSuppressedDestination where
+instance Data.ToPath DeleteSuppressedDestination where
   toPath DeleteSuppressedDestination' {..} =
     Prelude.mconcat
       [ "/v2/email/suppression/addresses/",
-        Core.toBS emailAddress
+        Data.toBS emailAddress
       ]
 
-instance Core.ToQuery DeleteSuppressedDestination where
+instance Data.ToQuery DeleteSuppressedDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the

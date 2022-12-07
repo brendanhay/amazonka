@@ -22,6 +22,7 @@ module Amazonka.CodeDeploy.Types.EC2TagSet where
 import Amazonka.CodeDeploy.Types.EC2TagFilter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about groups of Amazon EC2 instance tags.
@@ -57,13 +58,13 @@ newEC2TagSet =
 eC2TagSet_ec2TagSetList :: Lens.Lens' EC2TagSet (Prelude.Maybe [[EC2TagFilter]])
 eC2TagSet_ec2TagSetList = Lens.lens (\EC2TagSet' {ec2TagSetList} -> ec2TagSetList) (\s@EC2TagSet' {} a -> s {ec2TagSetList = a} :: EC2TagSet) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EC2TagSet where
+instance Data.FromJSON EC2TagSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EC2TagSet"
       ( \x ->
           EC2TagSet'
-            Prelude.<$> (x Core..:? "ec2TagSetList" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ec2TagSetList" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EC2TagSet where
@@ -73,11 +74,11 @@ instance Prelude.Hashable EC2TagSet where
 instance Prelude.NFData EC2TagSet where
   rnf EC2TagSet' {..} = Prelude.rnf ec2TagSetList
 
-instance Core.ToJSON EC2TagSet where
+instance Data.ToJSON EC2TagSet where
   toJSON EC2TagSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ec2TagSetList" Core..=)
+          [ ("ec2TagSetList" Data..=)
               Prelude.<$> ec2TagSetList
           ]
       )

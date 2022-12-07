@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.FecOutputSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.FecOutputIncludeFec
 import qualified Amazonka.Prelude as Prelude
 
@@ -95,15 +96,15 @@ fecOutputSettings_columnDepth = Lens.lens (\FecOutputSettings' {columnDepth} -> 
 fecOutputSettings_includeFec :: Lens.Lens' FecOutputSettings (Prelude.Maybe FecOutputIncludeFec)
 fecOutputSettings_includeFec = Lens.lens (\FecOutputSettings' {includeFec} -> includeFec) (\s@FecOutputSettings' {} a -> s {includeFec = a} :: FecOutputSettings)
 
-instance Core.FromJSON FecOutputSettings where
+instance Data.FromJSON FecOutputSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FecOutputSettings"
       ( \x ->
           FecOutputSettings'
-            Prelude.<$> (x Core..:? "rowLength")
-            Prelude.<*> (x Core..:? "columnDepth")
-            Prelude.<*> (x Core..:? "includeFec")
+            Prelude.<$> (x Data..:? "rowLength")
+            Prelude.<*> (x Data..:? "columnDepth")
+            Prelude.<*> (x Data..:? "includeFec")
       )
 
 instance Prelude.Hashable FecOutputSettings where
@@ -118,12 +119,12 @@ instance Prelude.NFData FecOutputSettings where
       `Prelude.seq` Prelude.rnf columnDepth
       `Prelude.seq` Prelude.rnf includeFec
 
-instance Core.ToJSON FecOutputSettings where
+instance Data.ToJSON FecOutputSettings where
   toJSON FecOutputSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("rowLength" Core..=) Prelude.<$> rowLength,
-            ("columnDepth" Core..=) Prelude.<$> columnDepth,
-            ("includeFec" Core..=) Prelude.<$> includeFec
+          [ ("rowLength" Data..=) Prelude.<$> rowLength,
+            ("columnDepth" Data..=) Prelude.<$> columnDepth,
+            ("includeFec" Data..=) Prelude.<$> includeFec
           ]
       )

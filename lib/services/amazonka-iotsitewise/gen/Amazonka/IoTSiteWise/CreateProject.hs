@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,8 +148,8 @@ instance Core.AWSRequest CreateProject where
       ( \s h x ->
           CreateProjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "projectId")
-            Prelude.<*> (x Core..:> "projectArn")
+            Prelude.<*> (x Data..:> "projectId")
+            Prelude.<*> (x Data..:> "projectArn")
       )
 
 instance Prelude.Hashable CreateProject where
@@ -167,34 +168,34 @@ instance Prelude.NFData CreateProject where
       `Prelude.seq` Prelude.rnf portalId
       `Prelude.seq` Prelude.rnf projectName
 
-instance Core.ToHeaders CreateProject where
+instance Data.ToHeaders CreateProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateProject where
+instance Data.ToJSON CreateProject where
   toJSON CreateProject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("projectDescription" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("projectDescription" Data..=)
               Prelude.<$> projectDescription,
-            Prelude.Just ("portalId" Core..= portalId),
-            Prelude.Just ("projectName" Core..= projectName)
+            Prelude.Just ("portalId" Data..= portalId),
+            Prelude.Just ("projectName" Data..= projectName)
           ]
       )
 
-instance Core.ToPath CreateProject where
+instance Data.ToPath CreateProject where
   toPath = Prelude.const "/projects"
 
-instance Core.ToQuery CreateProject where
+instance Data.ToQuery CreateProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProjectResponse' smart constructor.

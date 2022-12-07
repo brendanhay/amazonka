@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.OrderBy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.Order
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,11 +76,11 @@ instance Prelude.NFData OrderBy where
     Prelude.rnf order
       `Prelude.seq` Prelude.rnf propertyName
 
-instance Core.ToJSON OrderBy where
+instance Data.ToJSON OrderBy where
   toJSON OrderBy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("order" Core..=) Prelude.<$> order,
-            Prelude.Just ("propertyName" Core..= propertyName)
+          [ ("order" Data..=) Prelude.<$> order,
+            Prelude.Just ("propertyName" Data..= propertyName)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.WeightedQuantileLoss where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The weighted loss value for a quantile. This object is part of the
@@ -77,14 +78,14 @@ weightedQuantileLoss_quantile = Lens.lens (\WeightedQuantileLoss' {quantile} -> 
 weightedQuantileLoss_lossValue :: Lens.Lens' WeightedQuantileLoss (Prelude.Maybe Prelude.Double)
 weightedQuantileLoss_lossValue = Lens.lens (\WeightedQuantileLoss' {lossValue} -> lossValue) (\s@WeightedQuantileLoss' {} a -> s {lossValue = a} :: WeightedQuantileLoss)
 
-instance Core.FromJSON WeightedQuantileLoss where
+instance Data.FromJSON WeightedQuantileLoss where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WeightedQuantileLoss"
       ( \x ->
           WeightedQuantileLoss'
-            Prelude.<$> (x Core..:? "Quantile")
-            Prelude.<*> (x Core..:? "LossValue")
+            Prelude.<$> (x Data..:? "Quantile")
+            Prelude.<*> (x Data..:? "LossValue")
       )
 
 instance Prelude.Hashable WeightedQuantileLoss where

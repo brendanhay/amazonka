@@ -21,6 +21,7 @@ module Amazonka.MigrationHubReFactorSpaces.Types.ServiceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types.ErrorResponse
 import Amazonka.MigrationHubReFactorSpaces.Types.LambdaEndpointSummary
 import Amazonka.MigrationHubReFactorSpaces.Types.ServiceEndpointType
@@ -33,11 +34,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newServiceSummary' smart constructor.
 data ServiceSummary = ServiceSummary'
   { -- | The tags assigned to the service.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The name of the service.
     name :: Prelude.Maybe Prelude.Text,
     -- | A timestamp that indicates when the service is created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID of the service creator.
     createdByAccountId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the service.
@@ -47,7 +48,7 @@ data ServiceSummary = ServiceSummary'
     -- | The summary of the configuration for the URL endpoint type.
     urlEndpoint :: Prelude.Maybe UrlEndpointSummary,
     -- | A timestamp that indicates when the service was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The endpoint type of the service.
     endpointType :: Prelude.Maybe ServiceEndpointType,
     -- | A description of the service.
@@ -135,7 +136,7 @@ newServiceSummary =
 
 -- | The tags assigned to the service.
 serviceSummary_tags :: Lens.Lens' ServiceSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-serviceSummary_tags = Lens.lens (\ServiceSummary' {tags} -> tags) (\s@ServiceSummary' {} a -> s {tags = a} :: ServiceSummary) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+serviceSummary_tags = Lens.lens (\ServiceSummary' {tags} -> tags) (\s@ServiceSummary' {} a -> s {tags = a} :: ServiceSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the service.
 serviceSummary_name :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
@@ -143,7 +144,7 @@ serviceSummary_name = Lens.lens (\ServiceSummary' {name} -> name) (\s@ServiceSum
 
 -- | A timestamp that indicates when the service is created.
 serviceSummary_createdTime :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.UTCTime)
-serviceSummary_createdTime = Lens.lens (\ServiceSummary' {createdTime} -> createdTime) (\s@ServiceSummary' {} a -> s {createdTime = a} :: ServiceSummary) Prelude.. Lens.mapping Core._Time
+serviceSummary_createdTime = Lens.lens (\ServiceSummary' {createdTime} -> createdTime) (\s@ServiceSummary' {} a -> s {createdTime = a} :: ServiceSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account ID of the service creator.
 serviceSummary_createdByAccountId :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
@@ -163,7 +164,7 @@ serviceSummary_urlEndpoint = Lens.lens (\ServiceSummary' {urlEndpoint} -> urlEnd
 
 -- | A timestamp that indicates when the service was last updated.
 serviceSummary_lastUpdatedTime :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.UTCTime)
-serviceSummary_lastUpdatedTime = Lens.lens (\ServiceSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@ServiceSummary' {} a -> s {lastUpdatedTime = a} :: ServiceSummary) Prelude.. Lens.mapping Core._Time
+serviceSummary_lastUpdatedTime = Lens.lens (\ServiceSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@ServiceSummary' {} a -> s {lastUpdatedTime = a} :: ServiceSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The endpoint type of the service.
 serviceSummary_endpointType :: Lens.Lens' ServiceSummary (Prelude.Maybe ServiceEndpointType)
@@ -201,29 +202,29 @@ serviceSummary_applicationId = Lens.lens (\ServiceSummary' {applicationId} -> ap
 serviceSummary_serviceId :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
 serviceSummary_serviceId = Lens.lens (\ServiceSummary' {serviceId} -> serviceId) (\s@ServiceSummary' {} a -> s {serviceId = a} :: ServiceSummary)
 
-instance Core.FromJSON ServiceSummary where
+instance Data.FromJSON ServiceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceSummary"
       ( \x ->
           ServiceSummary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "CreatedByAccountId")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "UrlEndpoint")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "EndpointType")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "OwnerAccountId")
-            Prelude.<*> (x Core..:? "LambdaEndpoint")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "EnvironmentId")
-            Prelude.<*> (x Core..:? "Error")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "ServiceId")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "CreatedByAccountId")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "UrlEndpoint")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "EndpointType")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "OwnerAccountId")
+            Prelude.<*> (x Data..:? "LambdaEndpoint")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "EnvironmentId")
+            Prelude.<*> (x Data..:? "Error")
+            Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "ServiceId")
       )
 
 instance Prelude.Hashable ServiceSummary where

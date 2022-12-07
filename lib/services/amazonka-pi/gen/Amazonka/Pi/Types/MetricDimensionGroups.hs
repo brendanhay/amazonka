@@ -21,6 +21,7 @@ module Amazonka.Pi.Types.MetricDimensionGroups where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pi.Types.DimensionGroupDetail
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ metricDimensionGroups_metric = Lens.lens (\MetricDimensionGroups' {metric} -> me
 metricDimensionGroups_groups :: Lens.Lens' MetricDimensionGroups (Prelude.Maybe [DimensionGroupDetail])
 metricDimensionGroups_groups = Lens.lens (\MetricDimensionGroups' {groups} -> groups) (\s@MetricDimensionGroups' {} a -> s {groups = a} :: MetricDimensionGroups) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON MetricDimensionGroups where
+instance Data.FromJSON MetricDimensionGroups where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricDimensionGroups"
       ( \x ->
           MetricDimensionGroups'
-            Prelude.<$> (x Core..:? "Metric")
-            Prelude.<*> (x Core..:? "Groups" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Metric")
+            Prelude.<*> (x Data..:? "Groups" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable MetricDimensionGroups where

@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.UserGroupResolutionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.UserGroupResolutionMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -90,15 +91,15 @@ userGroupResolutionConfiguration_userGroupResolutionMode :: Lens.Lens' UserGroup
 userGroupResolutionConfiguration_userGroupResolutionMode = Lens.lens (\UserGroupResolutionConfiguration' {userGroupResolutionMode} -> userGroupResolutionMode) (\s@UserGroupResolutionConfiguration' {} a -> s {userGroupResolutionMode = a} :: UserGroupResolutionConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     UserGroupResolutionConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserGroupResolutionConfiguration"
       ( \x ->
           UserGroupResolutionConfiguration'
-            Prelude.<$> (x Core..: "UserGroupResolutionMode")
+            Prelude.<$> (x Data..: "UserGroupResolutionMode")
       )
 
 instance
@@ -118,13 +119,13 @@ instance
   rnf UserGroupResolutionConfiguration' {..} =
     Prelude.rnf userGroupResolutionMode
 
-instance Core.ToJSON UserGroupResolutionConfiguration where
+instance Data.ToJSON UserGroupResolutionConfiguration where
   toJSON UserGroupResolutionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "UserGroupResolutionMode"
-                  Core..= userGroupResolutionMode
+                  Data..= userGroupResolutionMode
               )
           ]
       )

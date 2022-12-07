@@ -45,6 +45,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -52,7 +53,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateRoom' smart constructor.
 data UpdateRoom = UpdateRoom'
   { -- | The room name.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Chime account ID.
     accountId :: Prelude.Text,
     -- | The room ID.
@@ -88,7 +89,7 @@ newUpdateRoom pAccountId_ pRoomId_ =
 
 -- | The room name.
 updateRoom_name :: Lens.Lens' UpdateRoom (Prelude.Maybe Prelude.Text)
-updateRoom_name = Lens.lens (\UpdateRoom' {name} -> name) (\s@UpdateRoom' {} a -> s {name = a} :: UpdateRoom) Prelude.. Lens.mapping Core._Sensitive
+updateRoom_name = Lens.lens (\UpdateRoom' {name} -> name) (\s@UpdateRoom' {} a -> s {name = a} :: UpdateRoom) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Chime account ID.
 updateRoom_accountId :: Lens.Lens' UpdateRoom Prelude.Text
@@ -106,7 +107,7 @@ instance Core.AWSRequest UpdateRoom where
     Response.receiveJSON
       ( \s h x ->
           UpdateRoomResponse'
-            Prelude.<$> (x Core..?> "Room")
+            Prelude.<$> (x Data..?> "Room")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,26 +123,26 @@ instance Prelude.NFData UpdateRoom where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf roomId
 
-instance Core.ToHeaders UpdateRoom where
+instance Data.ToHeaders UpdateRoom where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateRoom where
+instance Data.ToJSON UpdateRoom where
   toJSON UpdateRoom' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Name" Core..=) Prelude.<$> name]
+          [("Name" Data..=) Prelude.<$> name]
       )
 
-instance Core.ToPath UpdateRoom where
+instance Data.ToPath UpdateRoom where
   toPath UpdateRoom' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/rooms/",
-        Core.toBS roomId
+        Data.toBS roomId
       ]
 
-instance Core.ToQuery UpdateRoom where
+instance Data.ToQuery UpdateRoom where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRoomResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 import Amazonka.BackupGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,8 +128,8 @@ instance Core.AWSRequest ListHypervisors where
     Response.receiveJSON
       ( \s h x ->
           ListHypervisorsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Hypervisors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Hypervisors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,34 +143,34 @@ instance Prelude.NFData ListHypervisors where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListHypervisors where
+instance Data.ToHeaders ListHypervisors where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BackupOnPremises_v20210101.ListHypervisors" ::
+              Data.=# ( "BackupOnPremises_v20210101.ListHypervisors" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListHypervisors where
+instance Data.ToJSON ListHypervisors where
   toJSON ListHypervisors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListHypervisors where
+instance Data.ToPath ListHypervisors where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListHypervisors where
+instance Data.ToQuery ListHypervisors where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListHypervisorsResponse' smart constructor.

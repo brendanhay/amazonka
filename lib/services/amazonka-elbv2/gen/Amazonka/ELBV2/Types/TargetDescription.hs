@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.TargetDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a target.
@@ -165,12 +166,12 @@ targetDescription_availabilityZone = Lens.lens (\TargetDescription' {availabilit
 targetDescription_id :: Lens.Lens' TargetDescription Prelude.Text
 targetDescription_id = Lens.lens (\TargetDescription' {id} -> id) (\s@TargetDescription' {} a -> s {id = a} :: TargetDescription)
 
-instance Core.FromXML TargetDescription where
+instance Data.FromXML TargetDescription where
   parseXML x =
     TargetDescription'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "AvailabilityZone")
-      Prelude.<*> (x Core..@ "Id")
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "AvailabilityZone")
+      Prelude.<*> (x Data..@ "Id")
 
 instance Prelude.Hashable TargetDescription where
   hashWithSalt _salt TargetDescription' {..} =
@@ -184,10 +185,10 @@ instance Prelude.NFData TargetDescription where
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToQuery TargetDescription where
+instance Data.ToQuery TargetDescription where
   toQuery TargetDescription' {..} =
     Prelude.mconcat
-      [ "Port" Core.=: port,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "Id" Core.=: id
+      [ "Port" Data.=: port,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "Id" Data.=: id
       ]

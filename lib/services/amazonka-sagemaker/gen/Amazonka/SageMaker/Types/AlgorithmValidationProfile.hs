@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AlgorithmValidationProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.TrainingJobDefinition
 import Amazonka.SageMaker.Types.TransformJobDefinition
@@ -92,15 +93,15 @@ algorithmValidationProfile_profileName = Lens.lens (\AlgorithmValidationProfile'
 algorithmValidationProfile_trainingJobDefinition :: Lens.Lens' AlgorithmValidationProfile TrainingJobDefinition
 algorithmValidationProfile_trainingJobDefinition = Lens.lens (\AlgorithmValidationProfile' {trainingJobDefinition} -> trainingJobDefinition) (\s@AlgorithmValidationProfile' {} a -> s {trainingJobDefinition = a} :: AlgorithmValidationProfile)
 
-instance Core.FromJSON AlgorithmValidationProfile where
+instance Data.FromJSON AlgorithmValidationProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlgorithmValidationProfile"
       ( \x ->
           AlgorithmValidationProfile'
-            Prelude.<$> (x Core..:? "TransformJobDefinition")
-            Prelude.<*> (x Core..: "ProfileName")
-            Prelude.<*> (x Core..: "TrainingJobDefinition")
+            Prelude.<$> (x Data..:? "TransformJobDefinition")
+            Prelude.<*> (x Data..: "ProfileName")
+            Prelude.<*> (x Data..: "TrainingJobDefinition")
       )
 
 instance Prelude.Hashable AlgorithmValidationProfile where
@@ -115,16 +116,16 @@ instance Prelude.NFData AlgorithmValidationProfile where
       `Prelude.seq` Prelude.rnf profileName
       `Prelude.seq` Prelude.rnf trainingJobDefinition
 
-instance Core.ToJSON AlgorithmValidationProfile where
+instance Data.ToJSON AlgorithmValidationProfile where
   toJSON AlgorithmValidationProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TransformJobDefinition" Core..=)
+          [ ("TransformJobDefinition" Data..=)
               Prelude.<$> transformJobDefinition,
-            Prelude.Just ("ProfileName" Core..= profileName),
+            Prelude.Just ("ProfileName" Data..= profileName),
             Prelude.Just
               ( "TrainingJobDefinition"
-                  Core..= trainingJobDefinition
+                  Data..= trainingJobDefinition
               )
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.JsonMatchPattern where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.All
 
@@ -109,14 +110,14 @@ jsonMatchPattern_all = Lens.lens (\JsonMatchPattern' {all} -> all) (\s@JsonMatch
 jsonMatchPattern_includedPaths :: Lens.Lens' JsonMatchPattern (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 jsonMatchPattern_includedPaths = Lens.lens (\JsonMatchPattern' {includedPaths} -> includedPaths) (\s@JsonMatchPattern' {} a -> s {includedPaths = a} :: JsonMatchPattern) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON JsonMatchPattern where
+instance Data.FromJSON JsonMatchPattern where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JsonMatchPattern"
       ( \x ->
           JsonMatchPattern'
-            Prelude.<$> (x Core..:? "All")
-            Prelude.<*> (x Core..:? "IncludedPaths")
+            Prelude.<$> (x Data..:? "All")
+            Prelude.<*> (x Data..:? "IncludedPaths")
       )
 
 instance Prelude.Hashable JsonMatchPattern where
@@ -129,11 +130,11 @@ instance Prelude.NFData JsonMatchPattern where
     Prelude.rnf all
       `Prelude.seq` Prelude.rnf includedPaths
 
-instance Core.ToJSON JsonMatchPattern where
+instance Data.ToJSON JsonMatchPattern where
   toJSON JsonMatchPattern' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("All" Core..=) Prelude.<$> all,
-            ("IncludedPaths" Core..=) Prelude.<$> includedPaths
+          [ ("All" Data..=) Prelude.<$> all,
+            ("IncludedPaths" Data..=) Prelude.<$> includedPaths
           ]
       )

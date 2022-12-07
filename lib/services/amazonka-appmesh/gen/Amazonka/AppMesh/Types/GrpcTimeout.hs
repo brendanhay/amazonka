@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.GrpcTimeout where
 import Amazonka.AppMesh.Types.Duration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents types of timeouts.
@@ -80,14 +81,14 @@ grpcTimeout_perRequest = Lens.lens (\GrpcTimeout' {perRequest} -> perRequest) (\
 grpcTimeout_idle :: Lens.Lens' GrpcTimeout (Prelude.Maybe Duration)
 grpcTimeout_idle = Lens.lens (\GrpcTimeout' {idle} -> idle) (\s@GrpcTimeout' {} a -> s {idle = a} :: GrpcTimeout)
 
-instance Core.FromJSON GrpcTimeout where
+instance Data.FromJSON GrpcTimeout where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GrpcTimeout"
       ( \x ->
           GrpcTimeout'
-            Prelude.<$> (x Core..:? "perRequest")
-            Prelude.<*> (x Core..:? "idle")
+            Prelude.<$> (x Data..:? "perRequest")
+            Prelude.<*> (x Data..:? "idle")
       )
 
 instance Prelude.Hashable GrpcTimeout where
@@ -100,11 +101,11 @@ instance Prelude.NFData GrpcTimeout where
     Prelude.rnf perRequest
       `Prelude.seq` Prelude.rnf idle
 
-instance Core.ToJSON GrpcTimeout where
+instance Data.ToJSON GrpcTimeout where
   toJSON GrpcTimeout' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("perRequest" Core..=) Prelude.<$> perRequest,
-            ("idle" Core..=) Prelude.<$> idle
+          [ ("perRequest" Data..=) Prelude.<$> perRequest,
+            ("idle" Data..=) Prelude.<$> idle
           ]
       )

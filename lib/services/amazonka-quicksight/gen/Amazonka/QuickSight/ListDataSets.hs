@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -134,11 +135,11 @@ instance Core.AWSRequest ListDataSets where
     Response.receiveJSON
       ( \s h x ->
           ListDataSetsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DataSetSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "DataSetSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,27 +155,27 @@ instance Prelude.NFData ListDataSets where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf awsAccountId
 
-instance Core.ToHeaders ListDataSets where
+instance Data.ToHeaders ListDataSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListDataSets where
+instance Data.ToPath ListDataSets where
   toPath ListDataSets' {..} =
     Prelude.mconcat
-      ["/accounts/", Core.toBS awsAccountId, "/data-sets"]
+      ["/accounts/", Data.toBS awsAccountId, "/data-sets"]
 
-instance Core.ToQuery ListDataSets where
+instance Data.ToQuery ListDataSets where
   toQuery ListDataSets' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListDataSetsResponse' smart constructor.

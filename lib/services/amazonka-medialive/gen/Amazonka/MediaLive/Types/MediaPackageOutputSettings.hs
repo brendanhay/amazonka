@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MediaPackageOutputSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Media Package Output Settings
@@ -40,9 +41,9 @@ newMediaPackageOutputSettings ::
 newMediaPackageOutputSettings =
   MediaPackageOutputSettings'
 
-instance Core.FromJSON MediaPackageOutputSettings where
+instance Data.FromJSON MediaPackageOutputSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MediaPackageOutputSettings"
       (\x -> Prelude.pure MediaPackageOutputSettings')
 
@@ -53,5 +54,5 @@ instance Prelude.Hashable MediaPackageOutputSettings where
 instance Prelude.NFData MediaPackageOutputSettings where
   rnf _ = ()
 
-instance Core.ToJSON MediaPackageOutputSettings where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON MediaPackageOutputSettings where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

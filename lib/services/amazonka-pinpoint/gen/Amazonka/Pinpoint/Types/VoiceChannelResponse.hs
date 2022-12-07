@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.VoiceChannelResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the status and settings of the voice channel
@@ -152,22 +153,22 @@ voiceChannelResponse_version = Lens.lens (\VoiceChannelResponse' {version} -> ve
 voiceChannelResponse_platform :: Lens.Lens' VoiceChannelResponse Prelude.Text
 voiceChannelResponse_platform = Lens.lens (\VoiceChannelResponse' {platform} -> platform) (\s@VoiceChannelResponse' {} a -> s {platform = a} :: VoiceChannelResponse)
 
-instance Core.FromJSON VoiceChannelResponse where
+instance Data.FromJSON VoiceChannelResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VoiceChannelResponse"
       ( \x ->
           VoiceChannelResponse'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "HasCredential")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "IsArchived")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "Platform")
+            Prelude.<$> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "HasCredential")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "IsArchived")
+            Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "Platform")
       )
 
 instance Prelude.Hashable VoiceChannelResponse where

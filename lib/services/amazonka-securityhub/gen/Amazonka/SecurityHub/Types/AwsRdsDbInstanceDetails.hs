@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbInstanceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsRdsDbDomainMembership
 import Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole
@@ -802,88 +803,88 @@ awsRdsDbInstanceDetails_statusInfos = Lens.lens (\AwsRdsDbInstanceDetails' {stat
 awsRdsDbInstanceDetails_vpcSecurityGroups :: Lens.Lens' AwsRdsDbInstanceDetails (Prelude.Maybe [AwsRdsDbInstanceVpcSecurityGroup])
 awsRdsDbInstanceDetails_vpcSecurityGroups = Lens.lens (\AwsRdsDbInstanceDetails' {vpcSecurityGroups} -> vpcSecurityGroups) (\s@AwsRdsDbInstanceDetails' {} a -> s {vpcSecurityGroups = a} :: AwsRdsDbInstanceDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsRdsDbInstanceDetails where
+instance Data.FromJSON AwsRdsDbInstanceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbInstanceDetails"
       ( \x ->
           AwsRdsDbInstanceDetails'
-            Prelude.<$> (x Core..:? "MaxAllocatedStorage")
-            Prelude.<*> (x Core..:? "ListenerEndpoint")
-            Prelude.<*> (x Core..:? "PerformanceInsightsRetentionPeriod")
-            Prelude.<*> ( x Core..:? "OptionGroupMemberships"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "MaxAllocatedStorage")
+            Prelude.<*> (x Data..:? "ListenerEndpoint")
+            Prelude.<*> (x Data..:? "PerformanceInsightsRetentionPeriod")
+            Prelude.<*> ( x Data..:? "OptionGroupMemberships"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DbInstanceStatus")
-            Prelude.<*> (x Core..:? "PreferredBackupWindow")
-            Prelude.<*> (x Core..:? "BackupRetentionPeriod")
-            Prelude.<*> (x Core..:? "DBInstanceClass")
-            Prelude.<*> (x Core..:? "CharacterSetName")
-            Prelude.<*> (x Core..:? "MasterUsername")
-            Prelude.<*> (x Core..:? "CopyTagsToSnapshot")
-            Prelude.<*> (x Core..:? "PromotionTier")
-            Prelude.<*> (x Core..:? "SecondaryAvailabilityZone")
-            Prelude.<*> (x Core..:? "AutoMinorVersionUpgrade")
-            Prelude.<*> (x Core..:? "DBInstanceIdentifier")
-            Prelude.<*> (x Core..:? "DbInstancePort")
-            Prelude.<*> (x Core..:? "LatestRestorableTime")
-            Prelude.<*> ( x Core..:? "ReadReplicaDBInstanceIdentifiers"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "DbInstanceStatus")
+            Prelude.<*> (x Data..:? "PreferredBackupWindow")
+            Prelude.<*> (x Data..:? "BackupRetentionPeriod")
+            Prelude.<*> (x Data..:? "DBInstanceClass")
+            Prelude.<*> (x Data..:? "CharacterSetName")
+            Prelude.<*> (x Data..:? "MasterUsername")
+            Prelude.<*> (x Data..:? "CopyTagsToSnapshot")
+            Prelude.<*> (x Data..:? "PromotionTier")
+            Prelude.<*> (x Data..:? "SecondaryAvailabilityZone")
+            Prelude.<*> (x Data..:? "AutoMinorVersionUpgrade")
+            Prelude.<*> (x Data..:? "DBInstanceIdentifier")
+            Prelude.<*> (x Data..:? "DbInstancePort")
+            Prelude.<*> (x Data..:? "LatestRestorableTime")
+            Prelude.<*> ( x Data..:? "ReadReplicaDBInstanceIdentifiers"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EnhancedMonitoringResourceArn")
-            Prelude.<*> (x Core..:? "DBClusterIdentifier")
-            Prelude.<*> ( x Core..:? "DomainMemberships"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "EnhancedMonitoringResourceArn")
+            Prelude.<*> (x Data..:? "DBClusterIdentifier")
+            Prelude.<*> ( x Data..:? "DomainMemberships"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Timezone")
-            Prelude.<*> (x Core..:? "PerformanceInsightsKmsKeyId")
-            Prelude.<*> ( x Core..:? "DbSecurityGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Timezone")
+            Prelude.<*> (x Data..:? "PerformanceInsightsKmsKeyId")
+            Prelude.<*> ( x Data..:? "DbSecurityGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DbSubnetGroup")
-            Prelude.<*> (x Core..:? "MonitoringInterval")
-            Prelude.<*> (x Core..:? "PerformanceInsightsEnabled")
-            Prelude.<*> (x Core..:? "InstanceCreateTime")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "PubliclyAccessible")
-            Prelude.<*> (x Core..:? "StorageType")
-            Prelude.<*> ( x Core..:? "ProcessorFeatures"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "DbSubnetGroup")
+            Prelude.<*> (x Data..:? "MonitoringInterval")
+            Prelude.<*> (x Data..:? "PerformanceInsightsEnabled")
+            Prelude.<*> (x Data..:? "InstanceCreateTime")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "PubliclyAccessible")
+            Prelude.<*> (x Data..:? "StorageType")
+            Prelude.<*> ( x Data..:? "ProcessorFeatures"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ReadReplicaDBClusterIdentifiers"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ReadReplicaDBClusterIdentifiers"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "TdeCredentialArn")
-            Prelude.<*> (x Core..:? "CACertificateIdentifier")
-            Prelude.<*> (x Core..:? "MonitoringRoleArn")
-            Prelude.<*> (x Core..:? "StorageEncrypted")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "Engine")
-            Prelude.<*> (x Core..:? "AllocatedStorage")
-            Prelude.<*> (x Core..:? "IAMDatabaseAuthenticationEnabled")
-            Prelude.<*> (x Core..:? "DeletionProtection")
-            Prelude.<*> (x Core..:? "PendingModifiedValues")
-            Prelude.<*> (x Core..:? "PreferredMaintenanceWindow")
-            Prelude.<*> (x Core..:? "Endpoint")
-            Prelude.<*> (x Core..:? "DbiResourceId")
-            Prelude.<*> ( x Core..:? "DbParameterGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "TdeCredentialArn")
+            Prelude.<*> (x Data..:? "CACertificateIdentifier")
+            Prelude.<*> (x Data..:? "MonitoringRoleArn")
+            Prelude.<*> (x Data..:? "StorageEncrypted")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "Engine")
+            Prelude.<*> (x Data..:? "AllocatedStorage")
+            Prelude.<*> (x Data..:? "IAMDatabaseAuthenticationEnabled")
+            Prelude.<*> (x Data..:? "DeletionProtection")
+            Prelude.<*> (x Data..:? "PendingModifiedValues")
+            Prelude.<*> (x Data..:? "PreferredMaintenanceWindow")
+            Prelude.<*> (x Data..:? "Endpoint")
+            Prelude.<*> (x Data..:? "DbiResourceId")
+            Prelude.<*> ( x Data..:? "DbParameterGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "EnabledCloudWatchLogsExports"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "EnabledCloudWatchLogsExports"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Iops")
-            Prelude.<*> ( x Core..:? "AssociatedRoles"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Iops")
+            Prelude.<*> ( x Data..:? "AssociatedRoles"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MultiAz")
-            Prelude.<*> (x Core..:? "EngineVersion")
-            Prelude.<*> (x Core..:? "DBName")
-            Prelude.<*> (x Core..:? "ReadReplicaSourceDBInstanceIdentifier")
-            Prelude.<*> (x Core..:? "LicenseModel")
-            Prelude.<*> (x Core..:? "StatusInfos" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "VpcSecurityGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "MultiAz")
+            Prelude.<*> (x Data..:? "EngineVersion")
+            Prelude.<*> (x Data..:? "DBName")
+            Prelude.<*> (x Data..:? "ReadReplicaSourceDBInstanceIdentifier")
+            Prelude.<*> (x Data..:? "LicenseModel")
+            Prelude.<*> (x Data..:? "StatusInfos" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "VpcSecurityGroups"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -1046,109 +1047,109 @@ instance Prelude.NFData AwsRdsDbInstanceDetails where
       `Prelude.seq` Prelude.rnf
         vpcSecurityGroups
 
-instance Core.ToJSON AwsRdsDbInstanceDetails where
+instance Data.ToJSON AwsRdsDbInstanceDetails where
   toJSON AwsRdsDbInstanceDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxAllocatedStorage" Core..=)
+          [ ("MaxAllocatedStorage" Data..=)
               Prelude.<$> maxAllocatedStorage,
-            ("ListenerEndpoint" Core..=)
+            ("ListenerEndpoint" Data..=)
               Prelude.<$> listenerEndpoint,
-            ("PerformanceInsightsRetentionPeriod" Core..=)
+            ("PerformanceInsightsRetentionPeriod" Data..=)
               Prelude.<$> performanceInsightsRetentionPeriod,
-            ("OptionGroupMemberships" Core..=)
+            ("OptionGroupMemberships" Data..=)
               Prelude.<$> optionGroupMemberships,
-            ("DbInstanceStatus" Core..=)
+            ("DbInstanceStatus" Data..=)
               Prelude.<$> dbInstanceStatus,
-            ("PreferredBackupWindow" Core..=)
+            ("PreferredBackupWindow" Data..=)
               Prelude.<$> preferredBackupWindow,
-            ("BackupRetentionPeriod" Core..=)
+            ("BackupRetentionPeriod" Data..=)
               Prelude.<$> backupRetentionPeriod,
-            ("DBInstanceClass" Core..=)
+            ("DBInstanceClass" Data..=)
               Prelude.<$> dbInstanceClass,
-            ("CharacterSetName" Core..=)
+            ("CharacterSetName" Data..=)
               Prelude.<$> characterSetName,
-            ("MasterUsername" Core..=)
+            ("MasterUsername" Data..=)
               Prelude.<$> masterUsername,
-            ("CopyTagsToSnapshot" Core..=)
+            ("CopyTagsToSnapshot" Data..=)
               Prelude.<$> copyTagsToSnapshot,
-            ("PromotionTier" Core..=) Prelude.<$> promotionTier,
-            ("SecondaryAvailabilityZone" Core..=)
+            ("PromotionTier" Data..=) Prelude.<$> promotionTier,
+            ("SecondaryAvailabilityZone" Data..=)
               Prelude.<$> secondaryAvailabilityZone,
-            ("AutoMinorVersionUpgrade" Core..=)
+            ("AutoMinorVersionUpgrade" Data..=)
               Prelude.<$> autoMinorVersionUpgrade,
-            ("DBInstanceIdentifier" Core..=)
+            ("DBInstanceIdentifier" Data..=)
               Prelude.<$> dbInstanceIdentifier,
-            ("DbInstancePort" Core..=)
+            ("DbInstancePort" Data..=)
               Prelude.<$> dbInstancePort,
-            ("LatestRestorableTime" Core..=)
+            ("LatestRestorableTime" Data..=)
               Prelude.<$> latestRestorableTime,
-            ("ReadReplicaDBInstanceIdentifiers" Core..=)
+            ("ReadReplicaDBInstanceIdentifiers" Data..=)
               Prelude.<$> readReplicaDBInstanceIdentifiers,
-            ("EnhancedMonitoringResourceArn" Core..=)
+            ("EnhancedMonitoringResourceArn" Data..=)
               Prelude.<$> enhancedMonitoringResourceArn,
-            ("DBClusterIdentifier" Core..=)
+            ("DBClusterIdentifier" Data..=)
               Prelude.<$> dbClusterIdentifier,
-            ("DomainMemberships" Core..=)
+            ("DomainMemberships" Data..=)
               Prelude.<$> domainMemberships,
-            ("Timezone" Core..=) Prelude.<$> timezone,
-            ("PerformanceInsightsKmsKeyId" Core..=)
+            ("Timezone" Data..=) Prelude.<$> timezone,
+            ("PerformanceInsightsKmsKeyId" Data..=)
               Prelude.<$> performanceInsightsKmsKeyId,
-            ("DbSecurityGroups" Core..=)
+            ("DbSecurityGroups" Data..=)
               Prelude.<$> dbSecurityGroups,
-            ("DbSubnetGroup" Core..=) Prelude.<$> dbSubnetGroup,
-            ("MonitoringInterval" Core..=)
+            ("DbSubnetGroup" Data..=) Prelude.<$> dbSubnetGroup,
+            ("MonitoringInterval" Data..=)
               Prelude.<$> monitoringInterval,
-            ("PerformanceInsightsEnabled" Core..=)
+            ("PerformanceInsightsEnabled" Data..=)
               Prelude.<$> performanceInsightsEnabled,
-            ("InstanceCreateTime" Core..=)
+            ("InstanceCreateTime" Data..=)
               Prelude.<$> instanceCreateTime,
-            ("AvailabilityZone" Core..=)
+            ("AvailabilityZone" Data..=)
               Prelude.<$> availabilityZone,
-            ("PubliclyAccessible" Core..=)
+            ("PubliclyAccessible" Data..=)
               Prelude.<$> publiclyAccessible,
-            ("StorageType" Core..=) Prelude.<$> storageType,
-            ("ProcessorFeatures" Core..=)
+            ("StorageType" Data..=) Prelude.<$> storageType,
+            ("ProcessorFeatures" Data..=)
               Prelude.<$> processorFeatures,
-            ("ReadReplicaDBClusterIdentifiers" Core..=)
+            ("ReadReplicaDBClusterIdentifiers" Data..=)
               Prelude.<$> readReplicaDBClusterIdentifiers,
-            ("TdeCredentialArn" Core..=)
+            ("TdeCredentialArn" Data..=)
               Prelude.<$> tdeCredentialArn,
-            ("CACertificateIdentifier" Core..=)
+            ("CACertificateIdentifier" Data..=)
               Prelude.<$> cACertificateIdentifier,
-            ("MonitoringRoleArn" Core..=)
+            ("MonitoringRoleArn" Data..=)
               Prelude.<$> monitoringRoleArn,
-            ("StorageEncrypted" Core..=)
+            ("StorageEncrypted" Data..=)
               Prelude.<$> storageEncrypted,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("Engine" Core..=) Prelude.<$> engine,
-            ("AllocatedStorage" Core..=)
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("Engine" Data..=) Prelude.<$> engine,
+            ("AllocatedStorage" Data..=)
               Prelude.<$> allocatedStorage,
-            ("IAMDatabaseAuthenticationEnabled" Core..=)
+            ("IAMDatabaseAuthenticationEnabled" Data..=)
               Prelude.<$> iAMDatabaseAuthenticationEnabled,
-            ("DeletionProtection" Core..=)
+            ("DeletionProtection" Data..=)
               Prelude.<$> deletionProtection,
-            ("PendingModifiedValues" Core..=)
+            ("PendingModifiedValues" Data..=)
               Prelude.<$> pendingModifiedValues,
-            ("PreferredMaintenanceWindow" Core..=)
+            ("PreferredMaintenanceWindow" Data..=)
               Prelude.<$> preferredMaintenanceWindow,
-            ("Endpoint" Core..=) Prelude.<$> endpoint,
-            ("DbiResourceId" Core..=) Prelude.<$> dbiResourceId,
-            ("DbParameterGroups" Core..=)
+            ("Endpoint" Data..=) Prelude.<$> endpoint,
+            ("DbiResourceId" Data..=) Prelude.<$> dbiResourceId,
+            ("DbParameterGroups" Data..=)
               Prelude.<$> dbParameterGroups,
-            ("EnabledCloudWatchLogsExports" Core..=)
+            ("EnabledCloudWatchLogsExports" Data..=)
               Prelude.<$> enabledCloudWatchLogsExports,
-            ("Iops" Core..=) Prelude.<$> iops,
-            ("AssociatedRoles" Core..=)
+            ("Iops" Data..=) Prelude.<$> iops,
+            ("AssociatedRoles" Data..=)
               Prelude.<$> associatedRoles,
-            ("MultiAz" Core..=) Prelude.<$> multiAz,
-            ("EngineVersion" Core..=) Prelude.<$> engineVersion,
-            ("DBName" Core..=) Prelude.<$> dbName,
-            ("ReadReplicaSourceDBInstanceIdentifier" Core..=)
+            ("MultiAz" Data..=) Prelude.<$> multiAz,
+            ("EngineVersion" Data..=) Prelude.<$> engineVersion,
+            ("DBName" Data..=) Prelude.<$> dbName,
+            ("ReadReplicaSourceDBInstanceIdentifier" Data..=)
               Prelude.<$> readReplicaSourceDBInstanceIdentifier,
-            ("LicenseModel" Core..=) Prelude.<$> licenseModel,
-            ("StatusInfos" Core..=) Prelude.<$> statusInfos,
-            ("VpcSecurityGroups" Core..=)
+            ("LicenseModel" Data..=) Prelude.<$> licenseModel,
+            ("StatusInfos" Data..=) Prelude.<$> statusInfos,
+            ("VpcSecurityGroups" Data..=)
               Prelude.<$> vpcSecurityGroups
           ]
       )

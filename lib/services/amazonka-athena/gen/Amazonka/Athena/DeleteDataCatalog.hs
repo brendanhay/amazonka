@@ -41,6 +41,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,32 +93,32 @@ instance Prelude.Hashable DeleteDataCatalog where
 instance Prelude.NFData DeleteDataCatalog where
   rnf DeleteDataCatalog' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteDataCatalog where
+instance Data.ToHeaders DeleteDataCatalog where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.DeleteDataCatalog" ::
+              Data.=# ( "AmazonAthena.DeleteDataCatalog" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDataCatalog where
+instance Data.ToJSON DeleteDataCatalog where
   toJSON DeleteDataCatalog' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DeleteDataCatalog where
+instance Data.ToPath DeleteDataCatalog where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDataCatalog where
+instance Data.ToQuery DeleteDataCatalog where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDataCatalogResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.AvailabilityConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.AvailabilityProviderType
 import Amazonka.WorkMail.Types.LambdaAvailabilityProvider
@@ -42,10 +43,10 @@ data AvailabilityConfiguration = AvailabilityConfiguration'
     -- @LambdaAvailabilityProvider@. Otherwise, it is not required.
     lambdaProvider :: Prelude.Maybe LambdaAvailabilityProvider,
     -- | The date and time at which the availability configuration was created.
-    dateCreated :: Prelude.Maybe Core.POSIX,
+    dateCreated :: Prelude.Maybe Data.POSIX,
     -- | The date and time at which the availability configuration was last
     -- modified.
-    dateModified :: Prelude.Maybe Core.POSIX
+    dateModified :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -104,25 +105,25 @@ availabilityConfiguration_lambdaProvider = Lens.lens (\AvailabilityConfiguration
 
 -- | The date and time at which the availability configuration was created.
 availabilityConfiguration_dateCreated :: Lens.Lens' AvailabilityConfiguration (Prelude.Maybe Prelude.UTCTime)
-availabilityConfiguration_dateCreated = Lens.lens (\AvailabilityConfiguration' {dateCreated} -> dateCreated) (\s@AvailabilityConfiguration' {} a -> s {dateCreated = a} :: AvailabilityConfiguration) Prelude.. Lens.mapping Core._Time
+availabilityConfiguration_dateCreated = Lens.lens (\AvailabilityConfiguration' {dateCreated} -> dateCreated) (\s@AvailabilityConfiguration' {} a -> s {dateCreated = a} :: AvailabilityConfiguration) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time at which the availability configuration was last
 -- modified.
 availabilityConfiguration_dateModified :: Lens.Lens' AvailabilityConfiguration (Prelude.Maybe Prelude.UTCTime)
-availabilityConfiguration_dateModified = Lens.lens (\AvailabilityConfiguration' {dateModified} -> dateModified) (\s@AvailabilityConfiguration' {} a -> s {dateModified = a} :: AvailabilityConfiguration) Prelude.. Lens.mapping Core._Time
+availabilityConfiguration_dateModified = Lens.lens (\AvailabilityConfiguration' {dateModified} -> dateModified) (\s@AvailabilityConfiguration' {} a -> s {dateModified = a} :: AvailabilityConfiguration) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AvailabilityConfiguration where
+instance Data.FromJSON AvailabilityConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AvailabilityConfiguration"
       ( \x ->
           AvailabilityConfiguration'
-            Prelude.<$> (x Core..:? "EwsProvider")
-            Prelude.<*> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "ProviderType")
-            Prelude.<*> (x Core..:? "LambdaProvider")
-            Prelude.<*> (x Core..:? "DateCreated")
-            Prelude.<*> (x Core..:? "DateModified")
+            Prelude.<$> (x Data..:? "EwsProvider")
+            Prelude.<*> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "ProviderType")
+            Prelude.<*> (x Data..:? "LambdaProvider")
+            Prelude.<*> (x Data..:? "DateCreated")
+            Prelude.<*> (x Data..:? "DateModified")
       )
 
 instance Prelude.Hashable AvailabilityConfiguration where

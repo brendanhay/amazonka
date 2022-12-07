@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -490,8 +491,8 @@ instance Core.AWSRequest Publish where
       "PublishResult"
       ( \s h x ->
           PublishResponse'
-            Prelude.<$> (x Core..@? "MessageId")
-            Prelude.<*> (x Core..@? "SequenceNumber")
+            Prelude.<$> (x Data..@? "MessageId")
+            Prelude.<*> (x Data..@? "SequenceNumber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -519,32 +520,32 @@ instance Prelude.NFData Publish where
       `Prelude.seq` Prelude.rnf subject
       `Prelude.seq` Prelude.rnf message
 
-instance Core.ToHeaders Publish where
+instance Data.ToHeaders Publish where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath Publish where
+instance Data.ToPath Publish where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery Publish where
+instance Data.ToQuery Publish where
   toQuery Publish' {..} =
     Prelude.mconcat
-      [ "Action" Core.=: ("Publish" :: Prelude.ByteString),
+      [ "Action" Data.=: ("Publish" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
         "MessageDeduplicationId"
-          Core.=: messageDeduplicationId,
-        "MessageGroupId" Core.=: messageGroupId,
-        "TargetArn" Core.=: targetArn,
-        "TopicArn" Core.=: topicArn,
+          Data.=: messageDeduplicationId,
+        "MessageGroupId" Data.=: messageGroupId,
+        "TargetArn" Data.=: targetArn,
+        "TopicArn" Data.=: topicArn,
         "MessageAttributes"
-          Core.=: Core.toQuery
-            ( Core.toQueryMap "entry" "Name" "Value"
+          Data.=: Data.toQuery
+            ( Data.toQueryMap "entry" "Name" "Value"
                 Prelude.<$> messageAttributes
             ),
-        "MessageStructure" Core.=: messageStructure,
-        "PhoneNumber" Core.=: phoneNumber,
-        "Subject" Core.=: subject,
-        "Message" Core.=: message
+        "MessageStructure" Data.=: messageStructure,
+        "PhoneNumber" Data.=: phoneNumber,
+        "Subject" Data.=: subject,
+        "Message" Data.=: message
       ]
 
 -- | Response for Publish action.

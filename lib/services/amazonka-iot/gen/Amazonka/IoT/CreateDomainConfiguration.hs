@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -203,8 +204,8 @@ instance Core.AWSRequest CreateDomainConfiguration where
     Response.receiveJSON
       ( \s h x ->
           CreateDomainConfigurationResponse'
-            Prelude.<$> (x Core..?> "domainConfigurationArn")
-            Prelude.<*> (x Core..?> "domainConfigurationName")
+            Prelude.<$> (x Data..?> "domainConfigurationArn")
+            Prelude.<*> (x Data..?> "domainConfigurationName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -228,33 +229,33 @@ instance Prelude.NFData CreateDomainConfiguration where
       `Prelude.seq` Prelude.rnf validationCertificateArn
       `Prelude.seq` Prelude.rnf domainConfigurationName
 
-instance Core.ToHeaders CreateDomainConfiguration where
+instance Data.ToHeaders CreateDomainConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateDomainConfiguration where
+instance Data.ToJSON CreateDomainConfiguration where
   toJSON CreateDomainConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("serverCertificateArns" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("serverCertificateArns" Data..=)
               Prelude.<$> serverCertificateArns,
-            ("domainName" Core..=) Prelude.<$> domainName,
-            ("authorizerConfig" Core..=)
+            ("domainName" Data..=) Prelude.<$> domainName,
+            ("authorizerConfig" Data..=)
               Prelude.<$> authorizerConfig,
-            ("serviceType" Core..=) Prelude.<$> serviceType,
-            ("validationCertificateArn" Core..=)
+            ("serviceType" Data..=) Prelude.<$> serviceType,
+            ("validationCertificateArn" Data..=)
               Prelude.<$> validationCertificateArn
           ]
       )
 
-instance Core.ToPath CreateDomainConfiguration where
+instance Data.ToPath CreateDomainConfiguration where
   toPath CreateDomainConfiguration' {..} =
     Prelude.mconcat
       [ "/domainConfigurations/",
-        Core.toBS domainConfigurationName
+        Data.toBS domainConfigurationName
       ]
 
-instance Core.ToQuery CreateDomainConfiguration where
+instance Data.ToQuery CreateDomainConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDomainConfigurationResponse' smart constructor.

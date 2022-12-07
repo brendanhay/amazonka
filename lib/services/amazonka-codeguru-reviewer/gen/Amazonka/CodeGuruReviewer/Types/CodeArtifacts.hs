@@ -21,6 +21,7 @@ module Amazonka.CodeGuruReviewer.Types.CodeArtifacts where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Code artifacts are source code artifacts and build artifacts used in a
@@ -87,14 +88,14 @@ codeArtifacts_buildArtifactsObjectKey = Lens.lens (\CodeArtifacts' {buildArtifac
 codeArtifacts_sourceCodeArtifactsObjectKey :: Lens.Lens' CodeArtifacts Prelude.Text
 codeArtifacts_sourceCodeArtifactsObjectKey = Lens.lens (\CodeArtifacts' {sourceCodeArtifactsObjectKey} -> sourceCodeArtifactsObjectKey) (\s@CodeArtifacts' {} a -> s {sourceCodeArtifactsObjectKey = a} :: CodeArtifacts)
 
-instance Core.FromJSON CodeArtifacts where
+instance Data.FromJSON CodeArtifacts where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeArtifacts"
       ( \x ->
           CodeArtifacts'
-            Prelude.<$> (x Core..:? "BuildArtifactsObjectKey")
-            Prelude.<*> (x Core..: "SourceCodeArtifactsObjectKey")
+            Prelude.<$> (x Data..:? "BuildArtifactsObjectKey")
+            Prelude.<*> (x Data..: "SourceCodeArtifactsObjectKey")
       )
 
 instance Prelude.Hashable CodeArtifacts where
@@ -108,15 +109,15 @@ instance Prelude.NFData CodeArtifacts where
     Prelude.rnf buildArtifactsObjectKey
       `Prelude.seq` Prelude.rnf sourceCodeArtifactsObjectKey
 
-instance Core.ToJSON CodeArtifacts where
+instance Data.ToJSON CodeArtifacts where
   toJSON CodeArtifacts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BuildArtifactsObjectKey" Core..=)
+          [ ("BuildArtifactsObjectKey" Data..=)
               Prelude.<$> buildArtifactsObjectKey,
             Prelude.Just
               ( "SourceCodeArtifactsObjectKey"
-                  Core..= sourceCodeArtifactsObjectKey
+                  Data..= sourceCodeArtifactsObjectKey
               )
           ]
       )

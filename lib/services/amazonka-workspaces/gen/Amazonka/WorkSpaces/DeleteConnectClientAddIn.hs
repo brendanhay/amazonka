@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,34 +111,34 @@ instance Prelude.NFData DeleteConnectClientAddIn where
     Prelude.rnf addInId
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToHeaders DeleteConnectClientAddIn where
+instance Data.ToHeaders DeleteConnectClientAddIn where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.DeleteConnectClientAddIn" ::
+              Data.=# ( "WorkspacesService.DeleteConnectClientAddIn" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteConnectClientAddIn where
+instance Data.ToJSON DeleteConnectClientAddIn where
   toJSON DeleteConnectClientAddIn' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AddInId" Core..= addInId),
-            Prelude.Just ("ResourceId" Core..= resourceId)
+          [ Prelude.Just ("AddInId" Data..= addInId),
+            Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )
 
-instance Core.ToPath DeleteConnectClientAddIn where
+instance Data.ToPath DeleteConnectClientAddIn where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteConnectClientAddIn where
+instance Data.ToQuery DeleteConnectClientAddIn where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConnectClientAddInResponse' smart constructor.

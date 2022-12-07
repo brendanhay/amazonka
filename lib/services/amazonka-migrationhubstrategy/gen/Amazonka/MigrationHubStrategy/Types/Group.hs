@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.Group where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.GroupName
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,11 +73,11 @@ instance Prelude.NFData Group where
   rnf Group' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Group where
+instance Data.ToJSON Group where
   toJSON Group' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("value" Core..=) Prelude.<$> value
+          [ ("name" Data..=) Prelude.<$> name,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

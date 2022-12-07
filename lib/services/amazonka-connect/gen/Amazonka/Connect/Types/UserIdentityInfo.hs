@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.UserIdentityInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the identity of a user.
@@ -115,17 +116,17 @@ userIdentityInfo_lastName = Lens.lens (\UserIdentityInfo' {lastName} -> lastName
 userIdentityInfo_mobile :: Lens.Lens' UserIdentityInfo (Prelude.Maybe Prelude.Text)
 userIdentityInfo_mobile = Lens.lens (\UserIdentityInfo' {mobile} -> mobile) (\s@UserIdentityInfo' {} a -> s {mobile = a} :: UserIdentityInfo)
 
-instance Core.FromJSON UserIdentityInfo where
+instance Data.FromJSON UserIdentityInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserIdentityInfo"
       ( \x ->
           UserIdentityInfo'
-            Prelude.<$> (x Core..:? "FirstName")
-            Prelude.<*> (x Core..:? "Email")
-            Prelude.<*> (x Core..:? "SecondaryEmail")
-            Prelude.<*> (x Core..:? "LastName")
-            Prelude.<*> (x Core..:? "Mobile")
+            Prelude.<$> (x Data..:? "FirstName")
+            Prelude.<*> (x Data..:? "Email")
+            Prelude.<*> (x Data..:? "SecondaryEmail")
+            Prelude.<*> (x Data..:? "LastName")
+            Prelude.<*> (x Data..:? "Mobile")
       )
 
 instance Prelude.Hashable UserIdentityInfo where
@@ -144,15 +145,15 @@ instance Prelude.NFData UserIdentityInfo where
       `Prelude.seq` Prelude.rnf lastName
       `Prelude.seq` Prelude.rnf mobile
 
-instance Core.ToJSON UserIdentityInfo where
+instance Data.ToJSON UserIdentityInfo where
   toJSON UserIdentityInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FirstName" Core..=) Prelude.<$> firstName,
-            ("Email" Core..=) Prelude.<$> email,
-            ("SecondaryEmail" Core..=)
+          [ ("FirstName" Data..=) Prelude.<$> firstName,
+            ("Email" Data..=) Prelude.<$> email,
+            ("SecondaryEmail" Data..=)
               Prelude.<$> secondaryEmail,
-            ("LastName" Core..=) Prelude.<$> lastName,
-            ("Mobile" Core..=) Prelude.<$> mobile
+            ("LastName" Data..=) Prelude.<$> lastName,
+            ("Mobile" Data..=) Prelude.<$> mobile
           ]
       )

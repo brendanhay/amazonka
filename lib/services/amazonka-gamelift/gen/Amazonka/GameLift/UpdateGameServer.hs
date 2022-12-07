@@ -83,6 +83,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -182,7 +183,7 @@ instance Core.AWSRequest UpdateGameServer where
     Response.receiveJSON
       ( \s h x ->
           UpdateGameServerResponse'
-            Prelude.<$> (x Core..?> "GameServer")
+            Prelude.<$> (x Data..?> "GameServer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,38 +203,38 @@ instance Prelude.NFData UpdateGameServer where
       `Prelude.seq` Prelude.rnf gameServerGroupName
       `Prelude.seq` Prelude.rnf gameServerId
 
-instance Core.ToHeaders UpdateGameServer where
+instance Data.ToHeaders UpdateGameServer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.UpdateGameServer" :: Prelude.ByteString),
+              Data.=# ("GameLift.UpdateGameServer" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGameServer where
+instance Data.ToJSON UpdateGameServer where
   toJSON UpdateGameServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GameServerData" Core..=)
+          [ ("GameServerData" Data..=)
               Prelude.<$> gameServerData,
-            ("HealthCheck" Core..=) Prelude.<$> healthCheck,
-            ("UtilizationStatus" Core..=)
+            ("HealthCheck" Data..=) Prelude.<$> healthCheck,
+            ("UtilizationStatus" Data..=)
               Prelude.<$> utilizationStatus,
             Prelude.Just
-              ("GameServerGroupName" Core..= gameServerGroupName),
-            Prelude.Just ("GameServerId" Core..= gameServerId)
+              ("GameServerGroupName" Data..= gameServerGroupName),
+            Prelude.Just ("GameServerId" Data..= gameServerId)
           ]
       )
 
-instance Core.ToPath UpdateGameServer where
+instance Data.ToPath UpdateGameServer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateGameServer where
+instance Data.ToQuery UpdateGameServer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGameServerResponse' smart constructor.

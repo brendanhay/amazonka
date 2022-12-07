@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -200,7 +201,7 @@ instance Core.AWSRequest UpdateChannel where
     Response.receiveJSON
       ( \s h x ->
           UpdateChannelResponse'
-            Prelude.<$> (x Core..?> "channel")
+            Prelude.<$> (x Data..?> "channel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -222,35 +223,35 @@ instance Prelude.NFData UpdateChannel where
       `Prelude.seq` Prelude.rnf recordingConfigurationArn
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders UpdateChannel where
+instance Data.ToHeaders UpdateChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateChannel where
+instance Data.ToJSON UpdateChannel where
   toJSON UpdateChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("type" Core..=) Prelude.<$> type',
-            ("latencyMode" Core..=) Prelude.<$> latencyMode,
-            ("authorized" Core..=) Prelude.<$> authorized,
-            ("recordingConfigurationArn" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("type" Data..=) Prelude.<$> type',
+            ("latencyMode" Data..=) Prelude.<$> latencyMode,
+            ("authorized" Data..=) Prelude.<$> authorized,
+            ("recordingConfigurationArn" Data..=)
               Prelude.<$> recordingConfigurationArn,
-            Prelude.Just ("arn" Core..= arn)
+            Prelude.Just ("arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath UpdateChannel where
+instance Data.ToPath UpdateChannel where
   toPath = Prelude.const "/UpdateChannel"
 
-instance Core.ToQuery UpdateChannel where
+instance Data.ToQuery UpdateChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateChannelResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.S3Destination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the location of updated firmware in S3.
@@ -61,14 +62,14 @@ s3Destination_bucket = Lens.lens (\S3Destination' {bucket} -> bucket) (\s@S3Dest
 s3Destination_prefix :: Lens.Lens' S3Destination (Prelude.Maybe Prelude.Text)
 s3Destination_prefix = Lens.lens (\S3Destination' {prefix} -> prefix) (\s@S3Destination' {} a -> s {prefix = a} :: S3Destination)
 
-instance Core.FromJSON S3Destination where
+instance Data.FromJSON S3Destination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Destination"
       ( \x ->
           S3Destination'
-            Prelude.<$> (x Core..:? "bucket")
-            Prelude.<*> (x Core..:? "prefix")
+            Prelude.<$> (x Data..:? "bucket")
+            Prelude.<*> (x Data..:? "prefix")
       )
 
 instance Prelude.Hashable S3Destination where
@@ -80,11 +81,11 @@ instance Prelude.NFData S3Destination where
   rnf S3Destination' {..} =
     Prelude.rnf bucket `Prelude.seq` Prelude.rnf prefix
 
-instance Core.ToJSON S3Destination where
+instance Data.ToJSON S3Destination where
   toJSON S3Destination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bucket" Core..=) Prelude.<$> bucket,
-            ("prefix" Core..=) Prelude.<$> prefix
+          [ ("bucket" Data..=) Prelude.<$> bucket,
+            ("prefix" Data..=) Prelude.<$> prefix
           ]
       )

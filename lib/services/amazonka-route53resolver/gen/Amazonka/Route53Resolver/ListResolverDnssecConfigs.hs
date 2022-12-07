@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,8 +164,8 @@ instance Core.AWSRequest ListResolverDnssecConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListResolverDnssecConfigsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ResolverDnssecConfigs"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ResolverDnssecConfigs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -182,35 +183,35 @@ instance Prelude.NFData ListResolverDnssecConfigs where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListResolverDnssecConfigs where
+instance Data.ToHeaders ListResolverDnssecConfigs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.ListResolverDnssecConfigs" ::
+              Data.=# ( "Route53Resolver.ListResolverDnssecConfigs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListResolverDnssecConfigs where
+instance Data.ToJSON ListResolverDnssecConfigs where
   toJSON ListResolverDnssecConfigs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListResolverDnssecConfigs where
+instance Data.ToPath ListResolverDnssecConfigs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListResolverDnssecConfigs where
+instance Data.ToQuery ListResolverDnssecConfigs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResolverDnssecConfigsResponse' smart constructor.

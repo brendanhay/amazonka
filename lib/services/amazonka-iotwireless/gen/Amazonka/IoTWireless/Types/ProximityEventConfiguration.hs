@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.ProximityEventConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.EventNotificationTopicStatus
 import Amazonka.IoTWireless.Types.SidewalkEventNotificationConfigurations
 import qualified Amazonka.Prelude as Prelude
@@ -71,14 +72,14 @@ proximityEventConfiguration_wirelessDeviceIdEventTopic = Lens.lens (\ProximityEv
 proximityEventConfiguration_sidewalk :: Lens.Lens' ProximityEventConfiguration (Prelude.Maybe SidewalkEventNotificationConfigurations)
 proximityEventConfiguration_sidewalk = Lens.lens (\ProximityEventConfiguration' {sidewalk} -> sidewalk) (\s@ProximityEventConfiguration' {} a -> s {sidewalk = a} :: ProximityEventConfiguration)
 
-instance Core.FromJSON ProximityEventConfiguration where
+instance Data.FromJSON ProximityEventConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProximityEventConfiguration"
       ( \x ->
           ProximityEventConfiguration'
-            Prelude.<$> (x Core..:? "WirelessDeviceIdEventTopic")
-            Prelude.<*> (x Core..:? "Sidewalk")
+            Prelude.<$> (x Data..:? "WirelessDeviceIdEventTopic")
+            Prelude.<*> (x Data..:? "Sidewalk")
       )
 
 instance Prelude.Hashable ProximityEventConfiguration where
@@ -92,12 +93,12 @@ instance Prelude.NFData ProximityEventConfiguration where
     Prelude.rnf wirelessDeviceIdEventTopic
       `Prelude.seq` Prelude.rnf sidewalk
 
-instance Core.ToJSON ProximityEventConfiguration where
+instance Data.ToJSON ProximityEventConfiguration where
   toJSON ProximityEventConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WirelessDeviceIdEventTopic" Core..=)
+          [ ("WirelessDeviceIdEventTopic" Data..=)
               Prelude.<$> wirelessDeviceIdEventTopic,
-            ("Sidewalk" Core..=) Prelude.<$> sidewalk
+            ("Sidewalk" Data..=) Prelude.<$> sidewalk
           ]
       )

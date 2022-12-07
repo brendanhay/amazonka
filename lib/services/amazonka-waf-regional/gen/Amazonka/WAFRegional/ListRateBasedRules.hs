@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,8 +128,8 @@ instance Core.AWSRequest ListRateBasedRules where
     Response.receiveJSON
       ( \s h x ->
           ListRateBasedRulesResponse'
-            Prelude.<$> (x Core..?> "Rules" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "Rules" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,34 +143,34 @@ instance Prelude.NFData ListRateBasedRules where
     Prelude.rnf limit
       `Prelude.seq` Prelude.rnf nextMarker
 
-instance Core.ToHeaders ListRateBasedRules where
+instance Data.ToHeaders ListRateBasedRules where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.ListRateBasedRules" ::
+              Data.=# ( "AWSWAF_Regional_20161128.ListRateBasedRules" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRateBasedRules where
+instance Data.ToJSON ListRateBasedRules where
   toJSON ListRateBasedRules' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("NextMarker" Core..=) Prelude.<$> nextMarker
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextMarker" Data..=) Prelude.<$> nextMarker
           ]
       )
 
-instance Core.ToPath ListRateBasedRules where
+instance Data.ToPath ListRateBasedRules where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRateBasedRules where
+instance Data.ToQuery ListRateBasedRules where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRateBasedRulesResponse' smart constructor.

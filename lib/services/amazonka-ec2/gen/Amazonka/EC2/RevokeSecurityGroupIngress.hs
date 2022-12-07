@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -285,10 +286,10 @@ instance Core.AWSRequest RevokeSecurityGroupIngress where
     Response.receiveXML
       ( \s h x ->
           RevokeSecurityGroupIngressResponse'
-            Prelude.<$> (x Core..@? "return")
-            Prelude.<*> ( x Core..@? "unknownIpPermissionSet"
+            Prelude.<$> (x Data..@? "return")
+            Prelude.<*> ( x Data..@? "unknownIpPermissionSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -322,38 +323,38 @@ instance Prelude.NFData RevokeSecurityGroupIngress where
       `Prelude.seq` Prelude.rnf fromPort
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToHeaders RevokeSecurityGroupIngress where
+instance Data.ToHeaders RevokeSecurityGroupIngress where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RevokeSecurityGroupIngress where
+instance Data.ToPath RevokeSecurityGroupIngress where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RevokeSecurityGroupIngress where
+instance Data.ToQuery RevokeSecurityGroupIngress where
   toQuery RevokeSecurityGroupIngress' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RevokeSecurityGroupIngress" :: Prelude.ByteString),
+          Data.=: ("RevokeSecurityGroupIngress" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "SourceSecurityGroupName"
-          Core.=: sourceSecurityGroupName,
-        "ToPort" Core.=: toPort,
-        Core.toQuery
-          ( Core.toQueryList "IpPermissions"
+          Data.=: sourceSecurityGroupName,
+        "ToPort" Data.=: toPort,
+        Data.toQuery
+          ( Data.toQueryList "IpPermissions"
               Prelude.<$> ipPermissions
           ),
-        "IpProtocol" Core.=: ipProtocol,
-        "GroupName" Core.=: groupName,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroupRuleId"
+        "IpProtocol" Data.=: ipProtocol,
+        "GroupName" Data.=: groupName,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "SecurityGroupRuleId"
               Prelude.<$> securityGroupRuleIds
           ),
-        "CidrIp" Core.=: cidrIp,
+        "CidrIp" Data.=: cidrIp,
         "SourceSecurityGroupOwnerId"
-          Core.=: sourceSecurityGroupOwnerId,
-        "FromPort" Core.=: fromPort,
-        "GroupId" Core.=: groupId
+          Data.=: sourceSecurityGroupOwnerId,
+        "FromPort" Data.=: fromPort,
+        "GroupId" Data.=: groupId
       ]
 
 -- | /See:/ 'newRevokeSecurityGroupIngressResponse' smart constructor.

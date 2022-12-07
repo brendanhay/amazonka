@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.InputConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.Interface
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,15 +85,15 @@ inputConfiguration_inputIp = Lens.lens (\InputConfiguration' {inputIp} -> inputI
 inputConfiguration_interface :: Lens.Lens' InputConfiguration Interface
 inputConfiguration_interface = Lens.lens (\InputConfiguration' {interface} -> interface) (\s@InputConfiguration' {} a -> s {interface = a} :: InputConfiguration)
 
-instance Core.FromJSON InputConfiguration where
+instance Data.FromJSON InputConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputConfiguration"
       ( \x ->
           InputConfiguration'
-            Prelude.<$> (x Core..: "inputPort")
-            Prelude.<*> (x Core..: "inputIp")
-            Prelude.<*> (x Core..: "interface")
+            Prelude.<$> (x Data..: "inputPort")
+            Prelude.<*> (x Data..: "inputIp")
+            Prelude.<*> (x Data..: "interface")
       )
 
 instance Prelude.Hashable InputConfiguration where

@@ -50,6 +50,7 @@ where
 import Amazonka.CognitoIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,8 +157,8 @@ instance Core.AWSRequest GetCredentialsForIdentity where
     Response.receiveJSON
       ( \s h x ->
           GetCredentialsForIdentityResponse'
-            Prelude.<$> (x Core..?> "Credentials")
-            Prelude.<*> (x Core..?> "IdentityId")
+            Prelude.<$> (x Data..?> "Credentials")
+            Prelude.<*> (x Data..?> "IdentityId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,35 +174,35 @@ instance Prelude.NFData GetCredentialsForIdentity where
       `Prelude.seq` Prelude.rnf customRoleArn
       `Prelude.seq` Prelude.rnf identityId
 
-instance Core.ToHeaders GetCredentialsForIdentity where
+instance Data.ToHeaders GetCredentialsForIdentity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityService.GetCredentialsForIdentity" ::
+              Data.=# ( "AWSCognitoIdentityService.GetCredentialsForIdentity" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCredentialsForIdentity where
+instance Data.ToJSON GetCredentialsForIdentity where
   toJSON GetCredentialsForIdentity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Logins" Core..=) Prelude.<$> logins,
-            ("CustomRoleArn" Core..=) Prelude.<$> customRoleArn,
-            Prelude.Just ("IdentityId" Core..= identityId)
+          [ ("Logins" Data..=) Prelude.<$> logins,
+            ("CustomRoleArn" Data..=) Prelude.<$> customRoleArn,
+            Prelude.Just ("IdentityId" Data..= identityId)
           ]
       )
 
-instance Core.ToPath GetCredentialsForIdentity where
+instance Data.ToPath GetCredentialsForIdentity where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCredentialsForIdentity where
+instance Data.ToQuery GetCredentialsForIdentity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returned in response to a successful @GetCredentialsForIdentity@

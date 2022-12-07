@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,25 +109,25 @@ instance Prelude.NFData DeleteWorkflowStepGroup where
   rnf DeleteWorkflowStepGroup' {..} =
     Prelude.rnf workflowId `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DeleteWorkflowStepGroup where
+instance Data.ToHeaders DeleteWorkflowStepGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteWorkflowStepGroup where
+instance Data.ToPath DeleteWorkflowStepGroup where
   toPath DeleteWorkflowStepGroup' {..} =
     Prelude.mconcat
-      ["/workflowstepgroup/", Core.toBS id]
+      ["/workflowstepgroup/", Data.toBS id]
 
-instance Core.ToQuery DeleteWorkflowStepGroup where
+instance Data.ToQuery DeleteWorkflowStepGroup where
   toQuery DeleteWorkflowStepGroup' {..} =
-    Prelude.mconcat ["workflowId" Core.=: workflowId]
+    Prelude.mconcat ["workflowId" Data.=: workflowId]
 
 -- | /See:/ 'newDeleteWorkflowStepGroupResponse' smart constructor.
 data DeleteWorkflowStepGroupResponse = DeleteWorkflowStepGroupResponse'

@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.NameServersUpdateState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.NameServersUpdateStateCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -97,14 +98,14 @@ nameServersUpdateState_message = Lens.lens (\NameServersUpdateState' {message} -
 nameServersUpdateState_code :: Lens.Lens' NameServersUpdateState (Prelude.Maybe NameServersUpdateStateCode)
 nameServersUpdateState_code = Lens.lens (\NameServersUpdateState' {code} -> code) (\s@NameServersUpdateState' {} a -> s {code = a} :: NameServersUpdateState)
 
-instance Core.FromJSON NameServersUpdateState where
+instance Data.FromJSON NameServersUpdateState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NameServersUpdateState"
       ( \x ->
           NameServersUpdateState'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable NameServersUpdateState where

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,11 +102,11 @@ instance Core.AWSRequest GetDeploymentStatus where
     Response.receiveJSON
       ( \s h x ->
           GetDeploymentStatusResponse'
-            Prelude.<$> (x Core..?> "DeploymentStatus")
-            Prelude.<*> (x Core..?> "ErrorMessage")
-            Prelude.<*> (x Core..?> "ErrorDetails" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "DeploymentType")
-            Prelude.<*> (x Core..?> "UpdatedAt")
+            Prelude.<$> (x Data..?> "DeploymentStatus")
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "ErrorDetails" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "DeploymentType")
+            Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,28 +120,28 @@ instance Prelude.NFData GetDeploymentStatus where
     Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf deploymentId
 
-instance Core.ToHeaders GetDeploymentStatus where
+instance Data.ToHeaders GetDeploymentStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDeploymentStatus where
+instance Data.ToPath GetDeploymentStatus where
   toPath GetDeploymentStatus' {..} =
     Prelude.mconcat
       [ "/greengrass/groups/",
-        Core.toBS groupId,
+        Data.toBS groupId,
         "/deployments/",
-        Core.toBS deploymentId,
+        Data.toBS deploymentId,
         "/status"
       ]
 
-instance Core.ToQuery GetDeploymentStatus where
+instance Data.ToQuery GetDeploymentStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDeploymentStatusResponse' smart constructor.

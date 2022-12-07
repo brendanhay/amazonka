@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,7 +86,7 @@ instance Core.AWSRequest GetSnapshotLimits where
     Response.receiveJSON
       ( \s h x ->
           GetSnapshotLimitsResponse'
-            Prelude.<$> (x Core..?> "SnapshotLimits")
+            Prelude.<$> (x Data..?> "SnapshotLimits")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,32 +97,32 @@ instance Prelude.Hashable GetSnapshotLimits where
 instance Prelude.NFData GetSnapshotLimits where
   rnf GetSnapshotLimits' {..} = Prelude.rnf directoryId
 
-instance Core.ToHeaders GetSnapshotLimits where
+instance Data.ToHeaders GetSnapshotLimits where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.GetSnapshotLimits" ::
+              Data.=# ( "DirectoryService_20150416.GetSnapshotLimits" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSnapshotLimits where
+instance Data.ToJSON GetSnapshotLimits where
   toJSON GetSnapshotLimits' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DirectoryId" Core..= directoryId)]
+          [Prelude.Just ("DirectoryId" Data..= directoryId)]
       )
 
-instance Core.ToPath GetSnapshotLimits where
+instance Data.ToPath GetSnapshotLimits where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSnapshotLimits where
+instance Data.ToQuery GetSnapshotLimits where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the GetSnapshotLimits operation.

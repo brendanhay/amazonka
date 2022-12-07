@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ConstraintDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a constraint.
@@ -133,18 +134,18 @@ constraintDetail_owner = Lens.lens (\ConstraintDetail' {owner} -> owner) (\s@Con
 constraintDetail_description :: Lens.Lens' ConstraintDetail (Prelude.Maybe Prelude.Text)
 constraintDetail_description = Lens.lens (\ConstraintDetail' {description} -> description) (\s@ConstraintDetail' {} a -> s {description = a} :: ConstraintDetail)
 
-instance Core.FromJSON ConstraintDetail where
+instance Data.FromJSON ConstraintDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConstraintDetail"
       ( \x ->
           ConstraintDetail'
-            Prelude.<$> (x Core..:? "PortfolioId")
-            Prelude.<*> (x Core..:? "ConstraintId")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "ProductId")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "PortfolioId")
+            Prelude.<*> (x Data..:? "ConstraintId")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "ProductId")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable ConstraintDetail where

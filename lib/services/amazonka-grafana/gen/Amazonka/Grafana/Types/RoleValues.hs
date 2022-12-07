@@ -21,6 +21,7 @@ module Amazonka.Grafana.Types.RoleValues where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure defines which groups defined in the SAML assertion
@@ -70,14 +71,14 @@ roleValues_admin = Lens.lens (\RoleValues' {admin} -> admin) (\s@RoleValues' {} 
 roleValues_editor :: Lens.Lens' RoleValues (Prelude.Maybe [Prelude.Text])
 roleValues_editor = Lens.lens (\RoleValues' {editor} -> editor) (\s@RoleValues' {} a -> s {editor = a} :: RoleValues) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RoleValues where
+instance Data.FromJSON RoleValues where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RoleValues"
       ( \x ->
           RoleValues'
-            Prelude.<$> (x Core..:? "admin" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "editor" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "admin" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "editor" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RoleValues where
@@ -89,11 +90,11 @@ instance Prelude.NFData RoleValues where
   rnf RoleValues' {..} =
     Prelude.rnf admin `Prelude.seq` Prelude.rnf editor
 
-instance Core.ToJSON RoleValues where
+instance Data.ToJSON RoleValues where
   toJSON RoleValues' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("admin" Core..=) Prelude.<$> admin,
-            ("editor" Core..=) Prelude.<$> editor
+          [ ("admin" Data..=) Prelude.<$> admin,
+            ("editor" Data..=) Prelude.<$> editor
           ]
       )

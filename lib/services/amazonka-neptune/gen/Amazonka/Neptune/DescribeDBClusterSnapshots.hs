@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -370,10 +371,10 @@ instance Core.AWSRequest DescribeDBClusterSnapshots where
       "DescribeDBClusterSnapshotsResult"
       ( \s h x ->
           DescribeDBClusterSnapshotsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "DBClusterSnapshots"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "DBClusterSnapshots"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "DBClusterSnapshot")
+                            Prelude.>>= Core.may (Data.parseXMLList "DBClusterSnapshot")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -400,30 +401,30 @@ instance Prelude.NFData DescribeDBClusterSnapshots where
       `Prelude.seq` Prelude.rnf includePublic
       `Prelude.seq` Prelude.rnf snapshotType
 
-instance Core.ToHeaders DescribeDBClusterSnapshots where
+instance Data.ToHeaders DescribeDBClusterSnapshots where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBClusterSnapshots where
+instance Data.ToPath DescribeDBClusterSnapshots where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDBClusterSnapshots where
+instance Data.ToQuery DescribeDBClusterSnapshots where
   toQuery DescribeDBClusterSnapshots' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBClusterSnapshots" :: Prelude.ByteString),
+          Data.=: ("DescribeDBClusterSnapshots" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "IncludeShared" Core.=: includeShared,
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "IncludeShared" Data.=: includeShared,
+        "Marker" Data.=: marker,
         "DBClusterSnapshotIdentifier"
-          Core.=: dbClusterSnapshotIdentifier,
+          Data.=: dbClusterSnapshotIdentifier,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier,
-        "MaxRecords" Core.=: maxRecords,
-        "IncludePublic" Core.=: includePublic,
-        "SnapshotType" Core.=: snapshotType
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier,
+        "MaxRecords" Data.=: maxRecords,
+        "IncludePublic" Data.=: includePublic,
+        "SnapshotType" Data.=: snapshotType
       ]
 
 -- | /See:/ 'newDescribeDBClusterSnapshotsResponse' smart constructor.

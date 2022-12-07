@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2VpcPeeringConnectionVpcInfoDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.VpcInfoCidrBlockSetDetails
 import Amazonka.SecurityHub.Types.VpcInfoIpv6CidrBlockSetDetails
@@ -115,23 +116,23 @@ awsEc2VpcPeeringConnectionVpcInfoDetails_vpcId :: Lens.Lens' AwsEc2VpcPeeringCon
 awsEc2VpcPeeringConnectionVpcInfoDetails_vpcId = Lens.lens (\AwsEc2VpcPeeringConnectionVpcInfoDetails' {vpcId} -> vpcId) (\s@AwsEc2VpcPeeringConnectionVpcInfoDetails' {} a -> s {vpcId = a} :: AwsEc2VpcPeeringConnectionVpcInfoDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEc2VpcPeeringConnectionVpcInfoDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2VpcPeeringConnectionVpcInfoDetails"
       ( \x ->
           AwsEc2VpcPeeringConnectionVpcInfoDetails'
-            Prelude.<$> (x Core..:? "OwnerId")
-            Prelude.<*> ( x Core..:? "Ipv6CidrBlockSet"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "OwnerId")
+            Prelude.<*> ( x Data..:? "Ipv6CidrBlockSet"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PeeringOptions")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "CidrBlockSet" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CidrBlock")
-            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<*> (x Data..:? "PeeringOptions")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "CidrBlockSet" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CidrBlock")
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance
@@ -163,20 +164,20 @@ instance
       `Prelude.seq` Prelude.rnf vpcId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEc2VpcPeeringConnectionVpcInfoDetails
   where
   toJSON AwsEc2VpcPeeringConnectionVpcInfoDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OwnerId" Core..=) Prelude.<$> ownerId,
-            ("Ipv6CidrBlockSet" Core..=)
+          [ ("OwnerId" Data..=) Prelude.<$> ownerId,
+            ("Ipv6CidrBlockSet" Data..=)
               Prelude.<$> ipv6CidrBlockSet,
-            ("PeeringOptions" Core..=)
+            ("PeeringOptions" Data..=)
               Prelude.<$> peeringOptions,
-            ("Region" Core..=) Prelude.<$> region,
-            ("CidrBlockSet" Core..=) Prelude.<$> cidrBlockSet,
-            ("CidrBlock" Core..=) Prelude.<$> cidrBlock,
-            ("VpcId" Core..=) Prelude.<$> vpcId
+            ("Region" Data..=) Prelude.<$> region,
+            ("CidrBlockSet" Data..=) Prelude.<$> cidrBlockSet,
+            ("CidrBlock" Data..=) Prelude.<$> cidrBlock,
+            ("VpcId" Data..=) Prelude.<$> vpcId
           ]
       )

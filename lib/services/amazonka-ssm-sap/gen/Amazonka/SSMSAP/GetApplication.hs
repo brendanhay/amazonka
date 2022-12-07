@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,8 +94,8 @@ instance Core.AWSRequest GetApplication where
     Response.receiveJSON
       ( \s h x ->
           GetApplicationResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Application")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Application")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,31 +109,31 @@ instance Prelude.NFData GetApplication where
     Prelude.rnf applicationArn
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders GetApplication where
+instance Data.ToHeaders GetApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetApplication where
+instance Data.ToJSON GetApplication where
   toJSON GetApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ApplicationArn" Core..=)
+          [ ("ApplicationArn" Data..=)
               Prelude.<$> applicationArn,
-            ("ApplicationId" Core..=) Prelude.<$> applicationId
+            ("ApplicationId" Data..=) Prelude.<$> applicationId
           ]
       )
 
-instance Core.ToPath GetApplication where
+instance Data.ToPath GetApplication where
   toPath = Prelude.const "/get-application"
 
-instance Core.ToQuery GetApplication where
+instance Data.ToQuery GetApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetApplicationResponse' smart constructor.

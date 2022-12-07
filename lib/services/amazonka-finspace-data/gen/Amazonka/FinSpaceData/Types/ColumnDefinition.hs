@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.ColumnDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types.ColumnDataType
 import qualified Amazonka.Prelude as Prelude
 
@@ -143,15 +144,15 @@ columnDefinition_columnDescription = Lens.lens (\ColumnDefinition' {columnDescri
 columnDefinition_dataType :: Lens.Lens' ColumnDefinition (Prelude.Maybe ColumnDataType)
 columnDefinition_dataType = Lens.lens (\ColumnDefinition' {dataType} -> dataType) (\s@ColumnDefinition' {} a -> s {dataType = a} :: ColumnDefinition)
 
-instance Core.FromJSON ColumnDefinition where
+instance Data.FromJSON ColumnDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnDefinition"
       ( \x ->
           ColumnDefinition'
-            Prelude.<$> (x Core..:? "columnName")
-            Prelude.<*> (x Core..:? "columnDescription")
-            Prelude.<*> (x Core..:? "dataType")
+            Prelude.<$> (x Data..:? "columnName")
+            Prelude.<*> (x Data..:? "columnDescription")
+            Prelude.<*> (x Data..:? "dataType")
       )
 
 instance Prelude.Hashable ColumnDefinition where
@@ -166,13 +167,13 @@ instance Prelude.NFData ColumnDefinition where
       `Prelude.seq` Prelude.rnf columnDescription
       `Prelude.seq` Prelude.rnf dataType
 
-instance Core.ToJSON ColumnDefinition where
+instance Data.ToJSON ColumnDefinition where
   toJSON ColumnDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("columnName" Core..=) Prelude.<$> columnName,
-            ("columnDescription" Core..=)
+          [ ("columnName" Data..=) Prelude.<$> columnName,
+            ("columnDescription" Data..=)
               Prelude.<$> columnDescription,
-            ("dataType" Core..=) Prelude.<$> dataType
+            ("dataType" Data..=) Prelude.<$> dataType
           ]
       )

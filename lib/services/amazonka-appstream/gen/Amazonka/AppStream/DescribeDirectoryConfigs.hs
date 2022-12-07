@@ -54,6 +54,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,8 +140,8 @@ instance Core.AWSRequest DescribeDirectoryConfigs where
     Response.receiveJSON
       ( \s h x ->
           DescribeDirectoryConfigsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DirectoryConfigs"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "DirectoryConfigs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -158,36 +159,36 @@ instance Prelude.NFData DescribeDirectoryConfigs where
       `Prelude.seq` Prelude.rnf directoryNames
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeDirectoryConfigs where
+instance Data.ToHeaders DescribeDirectoryConfigs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DescribeDirectoryConfigs" ::
+              Data.=# ( "PhotonAdminProxyService.DescribeDirectoryConfigs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDirectoryConfigs where
+instance Data.ToJSON DescribeDirectoryConfigs where
   toJSON DescribeDirectoryConfigs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("DirectoryNames" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("DirectoryNames" Data..=)
               Prelude.<$> directoryNames,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeDirectoryConfigs where
+instance Data.ToPath DescribeDirectoryConfigs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDirectoryConfigs where
+instance Data.ToQuery DescribeDirectoryConfigs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDirectoryConfigsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ConnectCases.Types.CommentFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter for related items of type @Comment@.
@@ -46,5 +47,5 @@ instance Prelude.Hashable CommentFilter where
 instance Prelude.NFData CommentFilter where
   rnf _ = ()
 
-instance Core.ToJSON CommentFilter where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CommentFilter where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

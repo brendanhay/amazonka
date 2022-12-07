@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.HttpUrlDestinationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | HTTP URL destination configuration used by the topic rule\'s HTTP
@@ -75,11 +76,11 @@ instance
   rnf HttpUrlDestinationConfiguration' {..} =
     Prelude.rnf confirmationUrl
 
-instance Core.ToJSON HttpUrlDestinationConfiguration where
+instance Data.ToJSON HttpUrlDestinationConfiguration where
   toJSON HttpUrlDestinationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("confirmationUrl" Core..= confirmationUrl)
+              ("confirmationUrl" Data..= confirmationUrl)
           ]
       )

@@ -23,6 +23,7 @@ import Amazonka.AmplifyUiBuilder.Types.FormActionType
 import Amazonka.AmplifyUiBuilder.Types.FormDataTypeConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the basic information about a form.
@@ -117,18 +118,18 @@ formSummary_id = Lens.lens (\FormSummary' {id} -> id) (\s@FormSummary' {} a -> s
 formSummary_name :: Lens.Lens' FormSummary Prelude.Text
 formSummary_name = Lens.lens (\FormSummary' {name} -> name) (\s@FormSummary' {} a -> s {name = a} :: FormSummary)
 
-instance Core.FromJSON FormSummary where
+instance Data.FromJSON FormSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FormSummary"
       ( \x ->
           FormSummary'
-            Prelude.<$> (x Core..: "appId")
-            Prelude.<*> (x Core..: "dataType")
-            Prelude.<*> (x Core..: "environmentName")
-            Prelude.<*> (x Core..: "formActionType")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..: "appId")
+            Prelude.<*> (x Data..: "dataType")
+            Prelude.<*> (x Data..: "environmentName")
+            Prelude.<*> (x Data..: "formActionType")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable FormSummary where

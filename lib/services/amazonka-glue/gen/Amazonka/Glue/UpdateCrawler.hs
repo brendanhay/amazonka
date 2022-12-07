@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -291,48 +292,48 @@ instance Prelude.NFData UpdateCrawler where
       `Prelude.seq` Prelude.rnf lakeFormationConfiguration
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateCrawler where
+instance Data.ToHeaders UpdateCrawler where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdateCrawler" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.UpdateCrawler" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCrawler where
+instance Data.ToJSON UpdateCrawler where
   toJSON UpdateCrawler' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Schedule" Core..=) Prelude.<$> schedule,
-            ("RecrawlPolicy" Core..=) Prelude.<$> recrawlPolicy,
-            ("Classifiers" Core..=) Prelude.<$> classifiers,
-            ("SchemaChangePolicy" Core..=)
+          [ ("Schedule" Data..=) Prelude.<$> schedule,
+            ("RecrawlPolicy" Data..=) Prelude.<$> recrawlPolicy,
+            ("Classifiers" Data..=) Prelude.<$> classifiers,
+            ("SchemaChangePolicy" Data..=)
               Prelude.<$> schemaChangePolicy,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("Configuration" Core..=) Prelude.<$> configuration,
-            ("TablePrefix" Core..=) Prelude.<$> tablePrefix,
-            ("Targets" Core..=) Prelude.<$> targets,
-            ("Description" Core..=) Prelude.<$> description,
-            ("LineageConfiguration" Core..=)
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("Configuration" Data..=) Prelude.<$> configuration,
+            ("TablePrefix" Data..=) Prelude.<$> tablePrefix,
+            ("Targets" Data..=) Prelude.<$> targets,
+            ("Description" Data..=) Prelude.<$> description,
+            ("LineageConfiguration" Data..=)
               Prelude.<$> lineageConfiguration,
-            ("Role" Core..=) Prelude.<$> role',
-            ("CrawlerSecurityConfiguration" Core..=)
+            ("Role" Data..=) Prelude.<$> role',
+            ("CrawlerSecurityConfiguration" Data..=)
               Prelude.<$> crawlerSecurityConfiguration,
-            ("LakeFormationConfiguration" Core..=)
+            ("LakeFormationConfiguration" Data..=)
               Prelude.<$> lakeFormationConfiguration,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateCrawler where
+instance Data.ToPath UpdateCrawler where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateCrawler where
+instance Data.ToQuery UpdateCrawler where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCrawlerResponse' smart constructor.

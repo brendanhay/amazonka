@@ -24,6 +24,7 @@ import Amazonka.CloudWatchEvents.Types.ConnectionHeaderParameter
 import Amazonka.CloudWatchEvents.Types.ConnectionQueryStringParameter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains additional parameters for the connection.
@@ -74,20 +75,20 @@ connectionHttpParameters_headerParameters = Lens.lens (\ConnectionHttpParameters
 connectionHttpParameters_bodyParameters :: Lens.Lens' ConnectionHttpParameters (Prelude.Maybe [ConnectionBodyParameter])
 connectionHttpParameters_bodyParameters = Lens.lens (\ConnectionHttpParameters' {bodyParameters} -> bodyParameters) (\s@ConnectionHttpParameters' {} a -> s {bodyParameters = a} :: ConnectionHttpParameters) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ConnectionHttpParameters where
+instance Data.FromJSON ConnectionHttpParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionHttpParameters"
       ( \x ->
           ConnectionHttpParameters'
-            Prelude.<$> ( x Core..:? "QueryStringParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "QueryStringParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "HeaderParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "HeaderParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "BodyParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "BodyParameters"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -103,15 +104,15 @@ instance Prelude.NFData ConnectionHttpParameters where
       `Prelude.seq` Prelude.rnf headerParameters
       `Prelude.seq` Prelude.rnf bodyParameters
 
-instance Core.ToJSON ConnectionHttpParameters where
+instance Data.ToJSON ConnectionHttpParameters where
   toJSON ConnectionHttpParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("QueryStringParameters" Core..=)
+          [ ("QueryStringParameters" Data..=)
               Prelude.<$> queryStringParameters,
-            ("HeaderParameters" Core..=)
+            ("HeaderParameters" Data..=)
               Prelude.<$> headerParameters,
-            ("BodyParameters" Core..=)
+            ("BodyParameters" Data..=)
               Prelude.<$> bodyParameters
           ]
       )

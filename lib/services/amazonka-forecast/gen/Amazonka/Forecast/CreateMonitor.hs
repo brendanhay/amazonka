@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,7 +117,7 @@ instance Core.AWSRequest CreateMonitor where
     Response.receiveJSON
       ( \s h x ->
           CreateMonitorResponse'
-            Prelude.<$> (x Core..?> "MonitorArn")
+            Prelude.<$> (x Data..?> "MonitorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,35 +133,35 @@ instance Prelude.NFData CreateMonitor where
       `Prelude.seq` Prelude.rnf monitorName
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders CreateMonitor where
+instance Data.ToHeaders CreateMonitor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.CreateMonitor" ::
+              Data.=# ( "AmazonForecast.CreateMonitor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateMonitor where
+instance Data.ToJSON CreateMonitor where
   toJSON CreateMonitor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("MonitorName" Core..= monitorName),
-            Prelude.Just ("ResourceArn" Core..= resourceArn)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("MonitorName" Data..= monitorName),
+            Prelude.Just ("ResourceArn" Data..= resourceArn)
           ]
       )
 
-instance Core.ToPath CreateMonitor where
+instance Data.ToPath CreateMonitor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateMonitor where
+instance Data.ToQuery CreateMonitor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateMonitorResponse' smart constructor.

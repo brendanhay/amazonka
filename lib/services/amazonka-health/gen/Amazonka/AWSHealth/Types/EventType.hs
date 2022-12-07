@@ -22,6 +22,7 @@ module Amazonka.AWSHealth.Types.EventType where
 import Amazonka.AWSHealth.Types.EventTypeCategory
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the metadata about a type of event that is reported by Health.
@@ -100,15 +101,15 @@ eventType_service = Lens.lens (\EventType' {service} -> service) (\s@EventType' 
 eventType_category :: Lens.Lens' EventType (Prelude.Maybe EventTypeCategory)
 eventType_category = Lens.lens (\EventType' {category} -> category) (\s@EventType' {} a -> s {category = a} :: EventType)
 
-instance Core.FromJSON EventType where
+instance Data.FromJSON EventType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventType"
       ( \x ->
           EventType'
-            Prelude.<$> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "service")
-            Prelude.<*> (x Core..:? "category")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "service")
+            Prelude.<*> (x Data..:? "category")
       )
 
 instance Prelude.Hashable EventType where

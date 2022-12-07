@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,33 +148,33 @@ instance Prelude.NFData PutStudioMembers where
       `Prelude.seq` Prelude.rnf members
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders PutStudioMembers where
+instance Data.ToHeaders PutStudioMembers where
   toHeaders PutStudioMembers' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON PutStudioMembers where
+instance Data.ToJSON PutStudioMembers where
   toJSON PutStudioMembers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("identityStoreId" Core..= identityStoreId),
-            Prelude.Just ("members" Core..= members)
+              ("identityStoreId" Data..= identityStoreId),
+            Prelude.Just ("members" Data..= members)
           ]
       )
 
-instance Core.ToPath PutStudioMembers where
+instance Data.ToPath PutStudioMembers where
   toPath PutStudioMembers' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/membership"
       ]
 
-instance Core.ToQuery PutStudioMembers where
+instance Data.ToQuery PutStudioMembers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutStudioMembersResponse' smart constructor.

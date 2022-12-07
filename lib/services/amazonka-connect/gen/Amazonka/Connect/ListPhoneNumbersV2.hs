@@ -57,6 +57,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -186,8 +187,8 @@ instance Core.AWSRequest ListPhoneNumbersV2 where
     Response.receiveJSON
       ( \s h x ->
           ListPhoneNumbersV2Response'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ListPhoneNumbersSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ListPhoneNumbersSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -211,37 +212,37 @@ instance Prelude.NFData ListPhoneNumbersV2 where
       `Prelude.seq` Prelude.rnf phoneNumberTypes
       `Prelude.seq` Prelude.rnf phoneNumberCountryCodes
 
-instance Core.ToHeaders ListPhoneNumbersV2 where
+instance Data.ToHeaders ListPhoneNumbersV2 where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPhoneNumbersV2 where
+instance Data.ToJSON ListPhoneNumbersV2 where
   toJSON ListPhoneNumbersV2' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("TargetArn" Core..=) Prelude.<$> targetArn,
-            ("PhoneNumberPrefix" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("TargetArn" Data..=) Prelude.<$> targetArn,
+            ("PhoneNumberPrefix" Data..=)
               Prelude.<$> phoneNumberPrefix,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("PhoneNumberTypes" Core..=)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("PhoneNumberTypes" Data..=)
               Prelude.<$> phoneNumberTypes,
-            ("PhoneNumberCountryCodes" Core..=)
+            ("PhoneNumberCountryCodes" Data..=)
               Prelude.<$> phoneNumberCountryCodes
           ]
       )
 
-instance Core.ToPath ListPhoneNumbersV2 where
+instance Data.ToPath ListPhoneNumbersV2 where
   toPath = Prelude.const "/phone-number/list"
 
-instance Core.ToQuery ListPhoneNumbersV2 where
+instance Data.ToQuery ListPhoneNumbersV2 where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPhoneNumbersV2Response' smart constructor.

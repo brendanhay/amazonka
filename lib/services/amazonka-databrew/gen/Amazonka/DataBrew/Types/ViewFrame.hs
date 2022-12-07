@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.ViewFrame where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.AnalyticsMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -130,16 +131,16 @@ instance Prelude.NFData ViewFrame where
       `Prelude.seq` Prelude.rnf hiddenColumns
       `Prelude.seq` Prelude.rnf startColumnIndex
 
-instance Core.ToJSON ViewFrame where
+instance Data.ToJSON ViewFrame where
   toJSON ViewFrame' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Analytics" Core..=) Prelude.<$> analytics,
-            ("StartRowIndex" Core..=) Prelude.<$> startRowIndex,
-            ("ColumnRange" Core..=) Prelude.<$> columnRange,
-            ("RowRange" Core..=) Prelude.<$> rowRange,
-            ("HiddenColumns" Core..=) Prelude.<$> hiddenColumns,
+          [ ("Analytics" Data..=) Prelude.<$> analytics,
+            ("StartRowIndex" Data..=) Prelude.<$> startRowIndex,
+            ("ColumnRange" Data..=) Prelude.<$> columnRange,
+            ("RowRange" Data..=) Prelude.<$> rowRange,
+            ("HiddenColumns" Data..=) Prelude.<$> hiddenColumns,
             Prelude.Just
-              ("StartColumnIndex" Core..= startColumnIndex)
+              ("StartColumnIndex" Data..= startColumnIndex)
           ]
       )

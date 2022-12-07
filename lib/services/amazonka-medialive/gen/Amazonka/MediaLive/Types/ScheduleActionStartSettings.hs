@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.ScheduleActionStartSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.FixedModeScheduleActionStartSettings
 import Amazonka.MediaLive.Types.FollowModeScheduleActionStartSettings
 import Amazonka.MediaLive.Types.ImmediateModeScheduleActionStartSettings
@@ -77,17 +78,17 @@ scheduleActionStartSettings_fixedModeScheduleActionStartSettings = Lens.lens (\S
 scheduleActionStartSettings_followModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Prelude.Maybe FollowModeScheduleActionStartSettings)
 scheduleActionStartSettings_followModeScheduleActionStartSettings = Lens.lens (\ScheduleActionStartSettings' {followModeScheduleActionStartSettings} -> followModeScheduleActionStartSettings) (\s@ScheduleActionStartSettings' {} a -> s {followModeScheduleActionStartSettings = a} :: ScheduleActionStartSettings)
 
-instance Core.FromJSON ScheduleActionStartSettings where
+instance Data.FromJSON ScheduleActionStartSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScheduleActionStartSettings"
       ( \x ->
           ScheduleActionStartSettings'
             Prelude.<$> ( x
-                            Core..:? "immediateModeScheduleActionStartSettings"
+                            Data..:? "immediateModeScheduleActionStartSettings"
                         )
-            Prelude.<*> (x Core..:? "fixedModeScheduleActionStartSettings")
-            Prelude.<*> (x Core..:? "followModeScheduleActionStartSettings")
+            Prelude.<*> (x Data..:? "fixedModeScheduleActionStartSettings")
+            Prelude.<*> (x Data..:? "followModeScheduleActionStartSettings")
       )
 
 instance Prelude.Hashable ScheduleActionStartSettings where
@@ -104,15 +105,15 @@ instance Prelude.NFData ScheduleActionStartSettings where
       `Prelude.seq` Prelude.rnf fixedModeScheduleActionStartSettings
       `Prelude.seq` Prelude.rnf followModeScheduleActionStartSettings
 
-instance Core.ToJSON ScheduleActionStartSettings where
+instance Data.ToJSON ScheduleActionStartSettings where
   toJSON ScheduleActionStartSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("immediateModeScheduleActionStartSettings" Core..=)
+          [ ("immediateModeScheduleActionStartSettings" Data..=)
               Prelude.<$> immediateModeScheduleActionStartSettings,
-            ("fixedModeScheduleActionStartSettings" Core..=)
+            ("fixedModeScheduleActionStartSettings" Data..=)
               Prelude.<$> fixedModeScheduleActionStartSettings,
-            ("followModeScheduleActionStartSettings" Core..=)
+            ("followModeScheduleActionStartSettings" Data..=)
               Prelude.<$> followModeScheduleActionStartSettings
           ]
       )

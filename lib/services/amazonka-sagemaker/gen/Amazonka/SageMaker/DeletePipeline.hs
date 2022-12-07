@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ instance Core.AWSRequest DeletePipeline where
     Response.receiveJSON
       ( \s h x ->
           DeletePipelineResponse'
-            Prelude.<$> (x Core..?> "PipelineArn")
+            Prelude.<$> (x Data..?> "PipelineArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,33 +121,33 @@ instance Prelude.NFData DeletePipeline where
     Prelude.rnf pipelineName
       `Prelude.seq` Prelude.rnf clientRequestToken
 
-instance Core.ToHeaders DeletePipeline where
+instance Data.ToHeaders DeletePipeline where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeletePipeline" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DeletePipeline" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeletePipeline where
+instance Data.ToJSON DeletePipeline where
   toJSON DeletePipeline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("PipelineName" Core..= pipelineName),
+          [ Prelude.Just ("PipelineName" Data..= pipelineName),
             Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken)
+              ("ClientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath DeletePipeline where
+instance Data.ToPath DeletePipeline where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeletePipeline where
+instance Data.ToQuery DeletePipeline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePipelineResponse' smart constructor.

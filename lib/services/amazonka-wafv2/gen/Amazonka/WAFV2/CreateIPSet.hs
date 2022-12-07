@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -282,7 +283,7 @@ instance Core.AWSRequest CreateIPSet where
     Response.receiveJSON
       ( \s h x ->
           CreateIPSetResponse'
-            Prelude.<$> (x Core..?> "Summary")
+            Prelude.<$> (x Data..?> "Summary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -304,39 +305,39 @@ instance Prelude.NFData CreateIPSet where
       `Prelude.seq` Prelude.rnf iPAddressVersion
       `Prelude.seq` Prelude.rnf addresses
 
-instance Core.ToHeaders CreateIPSet where
+instance Data.ToHeaders CreateIPSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.CreateIPSet" ::
+              Data.=# ( "AWSWAF_20190729.CreateIPSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateIPSet where
+instance Data.ToJSON CreateIPSet where
   toJSON CreateIPSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Scope" Core..= scope),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Scope" Data..= scope),
             Prelude.Just
-              ("IPAddressVersion" Core..= iPAddressVersion),
-            Prelude.Just ("Addresses" Core..= addresses)
+              ("IPAddressVersion" Data..= iPAddressVersion),
+            Prelude.Just ("Addresses" Data..= addresses)
           ]
       )
 
-instance Core.ToPath CreateIPSet where
+instance Data.ToPath CreateIPSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateIPSet where
+instance Data.ToQuery CreateIPSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateIPSetResponse' smart constructor.

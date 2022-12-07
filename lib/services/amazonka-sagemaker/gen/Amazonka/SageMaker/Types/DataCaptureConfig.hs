@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DataCaptureConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CaptureContentTypeHeader
 import Amazonka.SageMaker.Types.CaptureOption
@@ -168,18 +169,18 @@ dataCaptureConfig_destinationS3Uri = Lens.lens (\DataCaptureConfig' {destination
 dataCaptureConfig_captureOptions :: Lens.Lens' DataCaptureConfig (Prelude.NonEmpty CaptureOption)
 dataCaptureConfig_captureOptions = Lens.lens (\DataCaptureConfig' {captureOptions} -> captureOptions) (\s@DataCaptureConfig' {} a -> s {captureOptions = a} :: DataCaptureConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON DataCaptureConfig where
+instance Data.FromJSON DataCaptureConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataCaptureConfig"
       ( \x ->
           DataCaptureConfig'
-            Prelude.<$> (x Core..:? "CaptureContentTypeHeader")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "EnableCapture")
-            Prelude.<*> (x Core..: "InitialSamplingPercentage")
-            Prelude.<*> (x Core..: "DestinationS3Uri")
-            Prelude.<*> (x Core..: "CaptureOptions")
+            Prelude.<$> (x Data..:? "CaptureContentTypeHeader")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "EnableCapture")
+            Prelude.<*> (x Data..: "InitialSamplingPercentage")
+            Prelude.<*> (x Data..: "DestinationS3Uri")
+            Prelude.<*> (x Data..: "CaptureOptions")
       )
 
 instance Prelude.Hashable DataCaptureConfig where
@@ -201,21 +202,21 @@ instance Prelude.NFData DataCaptureConfig where
       `Prelude.seq` Prelude.rnf destinationS3Uri
       `Prelude.seq` Prelude.rnf captureOptions
 
-instance Core.ToJSON DataCaptureConfig where
+instance Data.ToJSON DataCaptureConfig where
   toJSON DataCaptureConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CaptureContentTypeHeader" Core..=)
+          [ ("CaptureContentTypeHeader" Data..=)
               Prelude.<$> captureContentTypeHeader,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("EnableCapture" Core..=) Prelude.<$> enableCapture,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("EnableCapture" Data..=) Prelude.<$> enableCapture,
             Prelude.Just
               ( "InitialSamplingPercentage"
-                  Core..= initialSamplingPercentage
+                  Data..= initialSamplingPercentage
               ),
             Prelude.Just
-              ("DestinationS3Uri" Core..= destinationS3Uri),
+              ("DestinationS3Uri" Data..= destinationS3Uri),
             Prelude.Just
-              ("CaptureOptions" Core..= captureOptions)
+              ("CaptureOptions" Data..= captureOptions)
           ]
       )

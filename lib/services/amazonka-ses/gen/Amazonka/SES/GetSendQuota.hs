@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -70,9 +71,9 @@ instance Core.AWSRequest GetSendQuota where
       "GetSendQuotaResult"
       ( \s h x ->
           GetSendQuotaResponse'
-            Prelude.<$> (x Core..@? "Max24HourSend")
-            Prelude.<*> (x Core..@? "SentLast24Hours")
-            Prelude.<*> (x Core..@? "MaxSendRate")
+            Prelude.<$> (x Data..@? "Max24HourSend")
+            Prelude.<*> (x Data..@? "SentLast24Hours")
+            Prelude.<*> (x Data..@? "MaxSendRate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -83,20 +84,20 @@ instance Prelude.Hashable GetSendQuota where
 instance Prelude.NFData GetSendQuota where
   rnf _ = ()
 
-instance Core.ToHeaders GetSendQuota where
+instance Data.ToHeaders GetSendQuota where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetSendQuota where
+instance Data.ToPath GetSendQuota where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSendQuota where
+instance Data.ToQuery GetSendQuota where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ("GetSendQuota" :: Prelude.ByteString),
+              Data.=: ("GetSendQuota" :: Prelude.ByteString),
             "Version"
-              Core.=: ("2010-12-01" :: Prelude.ByteString)
+              Data.=: ("2010-12-01" :: Prelude.ByteString)
           ]
       )
 

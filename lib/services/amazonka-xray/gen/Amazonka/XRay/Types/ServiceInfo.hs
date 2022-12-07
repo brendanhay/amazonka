@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.ServiceInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.Edge
 import Amazonka.XRay.Types.HistogramEntry
@@ -57,7 +58,7 @@ data ServiceInfo = ServiceInfo'
     -- | The service\'s state.
     state :: Prelude.Maybe Prelude.Text,
     -- | The end time of the last segment that the service generated.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | A list of names for the service, including the canonical name.
     names :: Prelude.Maybe [Prelude.Text],
     -- | A histogram that maps the spread of service response times.
@@ -71,7 +72,7 @@ data ServiceInfo = ServiceInfo'
     -- | A histogram that maps the spread of service durations.
     durationHistogram :: Prelude.Maybe [HistogramEntry],
     -- | The start time of the first segment that the service generated.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -177,7 +178,7 @@ serviceInfo_state = Lens.lens (\ServiceInfo' {state} -> state) (\s@ServiceInfo' 
 
 -- | The end time of the last segment that the service generated.
 serviceInfo_endTime :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.UTCTime)
-serviceInfo_endTime = Lens.lens (\ServiceInfo' {endTime} -> endTime) (\s@ServiceInfo' {} a -> s {endTime = a} :: ServiceInfo) Prelude.. Lens.mapping Core._Time
+serviceInfo_endTime = Lens.lens (\ServiceInfo' {endTime} -> endTime) (\s@ServiceInfo' {} a -> s {endTime = a} :: ServiceInfo) Prelude.. Lens.mapping Data._Time
 
 -- | A list of names for the service, including the canonical name.
 serviceInfo_names :: Lens.Lens' ServiceInfo (Prelude.Maybe [Prelude.Text])
@@ -205,31 +206,31 @@ serviceInfo_durationHistogram = Lens.lens (\ServiceInfo' {durationHistogram} -> 
 
 -- | The start time of the first segment that the service generated.
 serviceInfo_startTime :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.UTCTime)
-serviceInfo_startTime = Lens.lens (\ServiceInfo' {startTime} -> startTime) (\s@ServiceInfo' {} a -> s {startTime = a} :: ServiceInfo) Prelude.. Lens.mapping Core._Time
+serviceInfo_startTime = Lens.lens (\ServiceInfo' {startTime} -> startTime) (\s@ServiceInfo' {} a -> s {startTime = a} :: ServiceInfo) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ServiceInfo where
+instance Data.FromJSON ServiceInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceInfo"
       ( \x ->
           ServiceInfo'
-            Prelude.<$> (x Core..:? "Edges" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "SummaryStatistics")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "Names" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "ResponseTimeHistogram"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Edges" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "SummaryStatistics")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "Names" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "ResponseTimeHistogram"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "Root")
-            Prelude.<*> (x Core..:? "ReferenceId")
-            Prelude.<*> ( x Core..:? "DurationHistogram"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "Root")
+            Prelude.<*> (x Data..:? "ReferenceId")
+            Prelude.<*> ( x Data..:? "DurationHistogram"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable ServiceInfo where

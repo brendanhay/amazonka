@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.ManagedDataIdentifierSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.SensitiveDataItemCategory
 import qualified Amazonka.Prelude as Prelude
 
@@ -92,14 +93,14 @@ managedDataIdentifierSummary_id = Lens.lens (\ManagedDataIdentifierSummary' {id}
 managedDataIdentifierSummary_category :: Lens.Lens' ManagedDataIdentifierSummary (Prelude.Maybe SensitiveDataItemCategory)
 managedDataIdentifierSummary_category = Lens.lens (\ManagedDataIdentifierSummary' {category} -> category) (\s@ManagedDataIdentifierSummary' {} a -> s {category = a} :: ManagedDataIdentifierSummary)
 
-instance Core.FromJSON ManagedDataIdentifierSummary where
+instance Data.FromJSON ManagedDataIdentifierSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManagedDataIdentifierSummary"
       ( \x ->
           ManagedDataIdentifierSummary'
-            Prelude.<$> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "category")
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "category")
       )
 
 instance

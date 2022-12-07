@@ -21,6 +21,7 @@ module Amazonka.Budgets.Types.IamActionDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Identity and Access Management (IAM) action definition details.
@@ -81,16 +82,16 @@ iamActionDefinition_groups = Lens.lens (\IamActionDefinition' {groups} -> groups
 iamActionDefinition_policyArn :: Lens.Lens' IamActionDefinition Prelude.Text
 iamActionDefinition_policyArn = Lens.lens (\IamActionDefinition' {policyArn} -> policyArn) (\s@IamActionDefinition' {} a -> s {policyArn = a} :: IamActionDefinition)
 
-instance Core.FromJSON IamActionDefinition where
+instance Data.FromJSON IamActionDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IamActionDefinition"
       ( \x ->
           IamActionDefinition'
-            Prelude.<$> (x Core..:? "Users")
-            Prelude.<*> (x Core..:? "Roles")
-            Prelude.<*> (x Core..:? "Groups")
-            Prelude.<*> (x Core..: "PolicyArn")
+            Prelude.<$> (x Data..:? "Users")
+            Prelude.<*> (x Data..:? "Roles")
+            Prelude.<*> (x Data..:? "Groups")
+            Prelude.<*> (x Data..: "PolicyArn")
       )
 
 instance Prelude.Hashable IamActionDefinition where
@@ -107,13 +108,13 @@ instance Prelude.NFData IamActionDefinition where
       `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf policyArn
 
-instance Core.ToJSON IamActionDefinition where
+instance Data.ToJSON IamActionDefinition where
   toJSON IamActionDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Users" Core..=) Prelude.<$> users,
-            ("Roles" Core..=) Prelude.<$> roles,
-            ("Groups" Core..=) Prelude.<$> groups,
-            Prelude.Just ("PolicyArn" Core..= policyArn)
+          [ ("Users" Data..=) Prelude.<$> users,
+            ("Roles" Data..=) Prelude.<$> roles,
+            ("Groups" Data..=) Prelude.<$> groups,
+            Prelude.Just ("PolicyArn" Data..= policyArn)
           ]
       )

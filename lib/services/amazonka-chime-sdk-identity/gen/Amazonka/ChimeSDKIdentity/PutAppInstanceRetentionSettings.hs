@@ -44,6 +44,7 @@ where
 import Amazonka.ChimeSDKIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,8 +106,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PutAppInstanceRetentionSettingsResponse'
-            Prelude.<$> (x Core..?> "AppInstanceRetentionSettings")
-            Prelude.<*> (x Core..?> "InitiateDeletionTimestamp")
+            Prelude.<$> (x Data..?> "AppInstanceRetentionSettings")
+            Prelude.<*> (x Data..?> "InitiateDeletionTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,31 +130,31 @@ instance
       `Prelude.seq` Prelude.rnf appInstanceRetentionSettings
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutAppInstanceRetentionSettings
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutAppInstanceRetentionSettings where
+instance Data.ToJSON PutAppInstanceRetentionSettings where
   toJSON PutAppInstanceRetentionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "AppInstanceRetentionSettings"
-                  Core..= appInstanceRetentionSettings
+                  Data..= appInstanceRetentionSettings
               )
           ]
       )
 
-instance Core.ToPath PutAppInstanceRetentionSettings where
+instance Data.ToPath PutAppInstanceRetentionSettings where
   toPath PutAppInstanceRetentionSettings' {..} =
     Prelude.mconcat
       [ "/app-instances/",
-        Core.toBS appInstanceArn,
+        Data.toBS appInstanceArn,
         "/retention-settings"
       ]
 
-instance Core.ToQuery PutAppInstanceRetentionSettings where
+instance Data.ToQuery PutAppInstanceRetentionSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAppInstanceRetentionSettingsResponse' smart constructor.
@@ -161,7 +162,7 @@ data PutAppInstanceRetentionSettingsResponse = PutAppInstanceRetentionSettingsRe
   { -- | The time in days to retain data. Data type: number.
     appInstanceRetentionSettings :: Prelude.Maybe AppInstanceRetentionSettings,
     -- | The time at which the API deletes data.
-    initiateDeletionTimestamp :: Prelude.Maybe Core.POSIX,
+    initiateDeletionTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,7 +201,7 @@ putAppInstanceRetentionSettingsResponse_appInstanceRetentionSettings = Lens.lens
 
 -- | The time at which the API deletes data.
 putAppInstanceRetentionSettingsResponse_initiateDeletionTimestamp :: Lens.Lens' PutAppInstanceRetentionSettingsResponse (Prelude.Maybe Prelude.UTCTime)
-putAppInstanceRetentionSettingsResponse_initiateDeletionTimestamp = Lens.lens (\PutAppInstanceRetentionSettingsResponse' {initiateDeletionTimestamp} -> initiateDeletionTimestamp) (\s@PutAppInstanceRetentionSettingsResponse' {} a -> s {initiateDeletionTimestamp = a} :: PutAppInstanceRetentionSettingsResponse) Prelude.. Lens.mapping Core._Time
+putAppInstanceRetentionSettingsResponse_initiateDeletionTimestamp = Lens.lens (\PutAppInstanceRetentionSettingsResponse' {initiateDeletionTimestamp} -> initiateDeletionTimestamp) (\s@PutAppInstanceRetentionSettingsResponse' {} a -> s {initiateDeletionTimestamp = a} :: PutAppInstanceRetentionSettingsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 putAppInstanceRetentionSettingsResponse_httpStatus :: Lens.Lens' PutAppInstanceRetentionSettingsResponse Prelude.Int

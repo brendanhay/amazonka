@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Preset where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.PresetSettings
 import Amazonka.MediaConvert.Types.Type
 import qualified Amazonka.Prelude as Prelude
@@ -39,11 +40,11 @@ data Preset = Preset'
     -- | An optional description you create for each preset.
     description :: Prelude.Maybe Prelude.Text,
     -- | The timestamp in epoch seconds when the preset was last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | An optional category you create to organize your presets.
     category :: Prelude.Maybe Prelude.Text,
     -- | The timestamp in epoch seconds for preset creation.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Settings for preset
     settings :: PresetSettings,
     -- | A name you create for each preset. Each name must be unique within your
@@ -110,7 +111,7 @@ preset_description = Lens.lens (\Preset' {description} -> description) (\s@Prese
 
 -- | The timestamp in epoch seconds when the preset was last updated.
 preset_lastUpdated :: Lens.Lens' Preset (Prelude.Maybe Prelude.UTCTime)
-preset_lastUpdated = Lens.lens (\Preset' {lastUpdated} -> lastUpdated) (\s@Preset' {} a -> s {lastUpdated = a} :: Preset) Prelude.. Lens.mapping Core._Time
+preset_lastUpdated = Lens.lens (\Preset' {lastUpdated} -> lastUpdated) (\s@Preset' {} a -> s {lastUpdated = a} :: Preset) Prelude.. Lens.mapping Data._Time
 
 -- | An optional category you create to organize your presets.
 preset_category :: Lens.Lens' Preset (Prelude.Maybe Prelude.Text)
@@ -118,7 +119,7 @@ preset_category = Lens.lens (\Preset' {category} -> category) (\s@Preset' {} a -
 
 -- | The timestamp in epoch seconds for preset creation.
 preset_createdAt :: Lens.Lens' Preset (Prelude.Maybe Prelude.UTCTime)
-preset_createdAt = Lens.lens (\Preset' {createdAt} -> createdAt) (\s@Preset' {} a -> s {createdAt = a} :: Preset) Prelude.. Lens.mapping Core._Time
+preset_createdAt = Lens.lens (\Preset' {createdAt} -> createdAt) (\s@Preset' {} a -> s {createdAt = a} :: Preset) Prelude.. Lens.mapping Data._Time
 
 -- | Settings for preset
 preset_settings :: Lens.Lens' Preset PresetSettings
@@ -129,20 +130,20 @@ preset_settings = Lens.lens (\Preset' {settings} -> settings) (\s@Preset' {} a -
 preset_name :: Lens.Lens' Preset Prelude.Text
 preset_name = Lens.lens (\Preset' {name} -> name) (\s@Preset' {} a -> s {name = a} :: Preset)
 
-instance Core.FromJSON Preset where
+instance Data.FromJSON Preset where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Preset"
       ( \x ->
           Preset'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "lastUpdated")
-            Prelude.<*> (x Core..:? "category")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..: "settings")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastUpdated")
+            Prelude.<*> (x Data..:? "category")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..: "settings")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable Preset where

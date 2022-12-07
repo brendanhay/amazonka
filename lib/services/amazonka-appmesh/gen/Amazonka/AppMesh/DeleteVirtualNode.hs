@@ -47,6 +47,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,7 +123,7 @@ instance Core.AWSRequest DeleteVirtualNode where
       ( \s h x ->
           DeleteVirtualNodeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable DeleteVirtualNode where
@@ -137,29 +138,29 @@ instance Prelude.NFData DeleteVirtualNode where
       `Prelude.seq` Prelude.rnf meshName
       `Prelude.seq` Prelude.rnf virtualNodeName
 
-instance Core.ToHeaders DeleteVirtualNode where
+instance Data.ToHeaders DeleteVirtualNode where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteVirtualNode where
+instance Data.ToPath DeleteVirtualNode where
   toPath DeleteVirtualNode' {..} =
     Prelude.mconcat
       [ "/v20190125/meshes/",
-        Core.toBS meshName,
+        Data.toBS meshName,
         "/virtualNodes/",
-        Core.toBS virtualNodeName
+        Data.toBS virtualNodeName
       ]
 
-instance Core.ToQuery DeleteVirtualNode where
+instance Data.ToQuery DeleteVirtualNode where
   toQuery DeleteVirtualNode' {..} =
-    Prelude.mconcat ["meshOwner" Core.=: meshOwner]
+    Prelude.mconcat ["meshOwner" Data.=: meshOwner]
 
 -- |
 --

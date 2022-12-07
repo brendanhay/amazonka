@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.TaskRunProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ExportLabelsTaskRunProperties
 import Amazonka.Glue.Types.FindMatchesTaskRunProperties
 import Amazonka.Glue.Types.ImportLabelsTaskRunProperties
@@ -95,17 +96,17 @@ taskRunProperties_labelingSetGenerationTaskRunProperties = Lens.lens (\TaskRunPr
 taskRunProperties_exportLabelsTaskRunProperties :: Lens.Lens' TaskRunProperties (Prelude.Maybe ExportLabelsTaskRunProperties)
 taskRunProperties_exportLabelsTaskRunProperties = Lens.lens (\TaskRunProperties' {exportLabelsTaskRunProperties} -> exportLabelsTaskRunProperties) (\s@TaskRunProperties' {} a -> s {exportLabelsTaskRunProperties = a} :: TaskRunProperties)
 
-instance Core.FromJSON TaskRunProperties where
+instance Data.FromJSON TaskRunProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskRunProperties"
       ( \x ->
           TaskRunProperties'
-            Prelude.<$> (x Core..:? "ImportLabelsTaskRunProperties")
-            Prelude.<*> (x Core..:? "FindMatchesTaskRunProperties")
-            Prelude.<*> (x Core..:? "TaskType")
-            Prelude.<*> (x Core..:? "LabelingSetGenerationTaskRunProperties")
-            Prelude.<*> (x Core..:? "ExportLabelsTaskRunProperties")
+            Prelude.<$> (x Data..:? "ImportLabelsTaskRunProperties")
+            Prelude.<*> (x Data..:? "FindMatchesTaskRunProperties")
+            Prelude.<*> (x Data..:? "TaskType")
+            Prelude.<*> (x Data..:? "LabelingSetGenerationTaskRunProperties")
+            Prelude.<*> (x Data..:? "ExportLabelsTaskRunProperties")
       )
 
 instance Prelude.Hashable TaskRunProperties where

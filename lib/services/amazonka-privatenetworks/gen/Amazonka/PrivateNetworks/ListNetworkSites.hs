@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -166,8 +167,8 @@ instance Core.AWSRequest ListNetworkSites where
     Response.receiveJSON
       ( \s h x ->
           ListNetworkSitesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "networkSites" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "networkSites" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,32 +186,32 @@ instance Prelude.NFData ListNetworkSites where
       `Prelude.seq` Prelude.rnf startToken
       `Prelude.seq` Prelude.rnf networkArn
 
-instance Core.ToHeaders ListNetworkSites where
+instance Data.ToHeaders ListNetworkSites where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListNetworkSites where
+instance Data.ToJSON ListNetworkSites where
   toJSON ListNetworkSites' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("filters" Core..=) Prelude.<$> filters,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("startToken" Core..=) Prelude.<$> startToken,
-            Prelude.Just ("networkArn" Core..= networkArn)
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("startToken" Data..=) Prelude.<$> startToken,
+            Prelude.Just ("networkArn" Data..= networkArn)
           ]
       )
 
-instance Core.ToPath ListNetworkSites where
+instance Data.ToPath ListNetworkSites where
   toPath = Prelude.const "/v1/network-sites/list"
 
-instance Core.ToQuery ListNetworkSites where
+instance Data.ToQuery ListNetworkSites where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListNetworkSitesResponse' smart constructor.

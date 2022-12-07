@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.QueryStringObject where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the query string parameters that an Amazon Lightsail content
@@ -91,16 +92,16 @@ queryStringObject_queryStringsAllowList = Lens.lens (\QueryStringObject' {queryS
 queryStringObject_option :: Lens.Lens' QueryStringObject (Prelude.Maybe Prelude.Bool)
 queryStringObject_option = Lens.lens (\QueryStringObject' {option} -> option) (\s@QueryStringObject' {} a -> s {option = a} :: QueryStringObject)
 
-instance Core.FromJSON QueryStringObject where
+instance Data.FromJSON QueryStringObject where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryStringObject"
       ( \x ->
           QueryStringObject'
-            Prelude.<$> ( x Core..:? "queryStringsAllowList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "queryStringsAllowList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "option")
+            Prelude.<*> (x Data..:? "option")
       )
 
 instance Prelude.Hashable QueryStringObject where
@@ -113,12 +114,12 @@ instance Prelude.NFData QueryStringObject where
     Prelude.rnf queryStringsAllowList
       `Prelude.seq` Prelude.rnf option
 
-instance Core.ToJSON QueryStringObject where
+instance Data.ToJSON QueryStringObject where
   toJSON QueryStringObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("queryStringsAllowList" Core..=)
+          [ ("queryStringsAllowList" Data..=)
               Prelude.<$> queryStringsAllowList,
-            ("option" Core..=) Prelude.<$> option
+            ("option" Data..=) Prelude.<$> option
           ]
       )

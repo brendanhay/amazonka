@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.HsmClientCertificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.Tag
@@ -77,14 +78,14 @@ hsmClientCertificate_hsmClientCertificateIdentifier = Lens.lens (\HsmClientCerti
 hsmClientCertificate_hsmClientCertificatePublicKey :: Lens.Lens' HsmClientCertificate (Prelude.Maybe Prelude.Text)
 hsmClientCertificate_hsmClientCertificatePublicKey = Lens.lens (\HsmClientCertificate' {hsmClientCertificatePublicKey} -> hsmClientCertificatePublicKey) (\s@HsmClientCertificate' {} a -> s {hsmClientCertificatePublicKey = a} :: HsmClientCertificate)
 
-instance Core.FromXML HsmClientCertificate where
+instance Data.FromXML HsmClientCertificate where
   parseXML x =
     HsmClientCertificate'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "HsmClientCertificateIdentifier")
-      Prelude.<*> (x Core..@? "HsmClientCertificatePublicKey")
+      Prelude.<*> (x Data..@? "HsmClientCertificateIdentifier")
+      Prelude.<*> (x Data..@? "HsmClientCertificatePublicKey")
 
 instance Prelude.Hashable HsmClientCertificate where
   hashWithSalt _salt HsmClientCertificate' {..} =

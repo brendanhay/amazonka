@@ -25,6 +25,7 @@ import Amazonka.Budgets.Types.NotificationType
 import Amazonka.Budgets.Types.ThresholdType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A notification that\'s associated with a budget. A budget can have up to
@@ -160,17 +161,17 @@ notification_comparisonOperator = Lens.lens (\Notification' {comparisonOperator}
 notification_threshold :: Lens.Lens' Notification Prelude.Double
 notification_threshold = Lens.lens (\Notification' {threshold} -> threshold) (\s@Notification' {} a -> s {threshold = a} :: Notification)
 
-instance Core.FromJSON Notification where
+instance Data.FromJSON Notification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Notification"
       ( \x ->
           Notification'
-            Prelude.<$> (x Core..:? "ThresholdType")
-            Prelude.<*> (x Core..:? "NotificationState")
-            Prelude.<*> (x Core..: "NotificationType")
-            Prelude.<*> (x Core..: "ComparisonOperator")
-            Prelude.<*> (x Core..: "Threshold")
+            Prelude.<$> (x Data..:? "ThresholdType")
+            Prelude.<*> (x Data..:? "NotificationState")
+            Prelude.<*> (x Data..: "NotificationType")
+            Prelude.<*> (x Data..: "ComparisonOperator")
+            Prelude.<*> (x Data..: "Threshold")
       )
 
 instance Prelude.Hashable Notification where
@@ -189,17 +190,17 @@ instance Prelude.NFData Notification where
       `Prelude.seq` Prelude.rnf comparisonOperator
       `Prelude.seq` Prelude.rnf threshold
 
-instance Core.ToJSON Notification where
+instance Data.ToJSON Notification where
   toJSON Notification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ThresholdType" Core..=) Prelude.<$> thresholdType,
-            ("NotificationState" Core..=)
+          [ ("ThresholdType" Data..=) Prelude.<$> thresholdType,
+            ("NotificationState" Data..=)
               Prelude.<$> notificationState,
             Prelude.Just
-              ("NotificationType" Core..= notificationType),
+              ("NotificationType" Data..= notificationType),
             Prelude.Just
-              ("ComparisonOperator" Core..= comparisonOperator),
-            Prelude.Just ("Threshold" Core..= threshold)
+              ("ComparisonOperator" Data..= comparisonOperator),
+            Prelude.Just ("Threshold" Data..= threshold)
           ]
       )

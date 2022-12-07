@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest DescribeCluster where
       ( \s h x ->
           DescribeClusterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Cluster")
+            Prelude.<*> (x Data..:> "Cluster")
       )
 
 instance Prelude.Hashable DescribeCluster where
@@ -97,32 +98,32 @@ instance Prelude.Hashable DescribeCluster where
 instance Prelude.NFData DescribeCluster where
   rnf DescribeCluster' {..} = Prelude.rnf clusterId
 
-instance Core.ToHeaders DescribeCluster where
+instance Data.ToHeaders DescribeCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.DescribeCluster" ::
+              Data.=# ( "ElasticMapReduce.DescribeCluster" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCluster where
+instance Data.ToJSON DescribeCluster where
   toJSON DescribeCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ClusterId" Core..= clusterId)]
+          [Prelude.Just ("ClusterId" Data..= clusterId)]
       )
 
-instance Core.ToPath DescribeCluster where
+instance Data.ToPath DescribeCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCluster where
+instance Data.ToQuery DescribeCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | This output contains the description of the cluster.

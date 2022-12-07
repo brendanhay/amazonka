@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FpgaImageState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FpgaImageStateCode
 import qualified Amazonka.Prelude as Prelude
@@ -88,11 +89,11 @@ fpgaImageState_message = Lens.lens (\FpgaImageState' {message} -> message) (\s@F
 fpgaImageState_code :: Lens.Lens' FpgaImageState (Prelude.Maybe FpgaImageStateCode)
 fpgaImageState_code = Lens.lens (\FpgaImageState' {code} -> code) (\s@FpgaImageState' {} a -> s {code = a} :: FpgaImageState)
 
-instance Core.FromXML FpgaImageState where
+instance Data.FromXML FpgaImageState where
   parseXML x =
     FpgaImageState'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance Prelude.Hashable FpgaImageState where
   hashWithSalt _salt FpgaImageState' {..} =

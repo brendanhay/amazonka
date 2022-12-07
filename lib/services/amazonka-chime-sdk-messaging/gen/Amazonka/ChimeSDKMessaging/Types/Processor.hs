@@ -23,6 +23,7 @@ import Amazonka.ChimeSDKMessaging.Types.FallbackAction
 import Amazonka.ChimeSDKMessaging.Types.ProcessorConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The information about a processor in a channel flow.
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newProcessor' smart constructor.
 data Processor = Processor'
   { -- | The name of the channel flow.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | The information about the type of processor and its identifier.
     configuration :: ProcessorConfiguration,
     -- | The sequence in which processors run. If you have multiple processors in
@@ -91,7 +92,7 @@ newProcessor
   pExecutionOrder_
   pFallbackAction_ =
     Processor'
-      { name = Core._Sensitive Lens.# pName_,
+      { name = Data._Sensitive Lens.# pName_,
         configuration = pConfiguration_,
         executionOrder = pExecutionOrder_,
         fallbackAction = pFallbackAction_
@@ -99,7 +100,7 @@ newProcessor
 
 -- | The name of the channel flow.
 processor_name :: Lens.Lens' Processor Prelude.Text
-processor_name = Lens.lens (\Processor' {name} -> name) (\s@Processor' {} a -> s {name = a} :: Processor) Prelude.. Core._Sensitive
+processor_name = Lens.lens (\Processor' {name} -> name) (\s@Processor' {} a -> s {name = a} :: Processor) Prelude.. Data._Sensitive
 
 -- | The information about the type of processor and its identifier.
 processor_configuration :: Lens.Lens' Processor ProcessorConfiguration
@@ -123,16 +124,16 @@ processor_executionOrder = Lens.lens (\Processor' {executionOrder} -> executionO
 processor_fallbackAction :: Lens.Lens' Processor FallbackAction
 processor_fallbackAction = Lens.lens (\Processor' {fallbackAction} -> fallbackAction) (\s@Processor' {} a -> s {fallbackAction = a} :: Processor)
 
-instance Core.FromJSON Processor where
+instance Data.FromJSON Processor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Processor"
       ( \x ->
           Processor'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Configuration")
-            Prelude.<*> (x Core..: "ExecutionOrder")
-            Prelude.<*> (x Core..: "FallbackAction")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Configuration")
+            Prelude.<*> (x Data..: "ExecutionOrder")
+            Prelude.<*> (x Data..: "FallbackAction")
       )
 
 instance Prelude.Hashable Processor where
@@ -149,15 +150,15 @@ instance Prelude.NFData Processor where
       `Prelude.seq` Prelude.rnf executionOrder
       `Prelude.seq` Prelude.rnf fallbackAction
 
-instance Core.ToJSON Processor where
+instance Data.ToJSON Processor where
   toJSON Processor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Configuration" Core..= configuration),
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Configuration" Data..= configuration),
             Prelude.Just
-              ("ExecutionOrder" Core..= executionOrder),
+              ("ExecutionOrder" Data..= executionOrder),
             Prelude.Just
-              ("FallbackAction" Core..= fallbackAction)
+              ("FallbackAction" Data..= fallbackAction)
           ]
       )

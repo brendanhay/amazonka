@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchListObjectParentPathsResponse where
 import Amazonka.CloudDirectory.Types.PathToObjectIdentifiers
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a ListObjectParentPaths response operation.
@@ -68,17 +69,17 @@ batchListObjectParentPathsResponse_pathToObjectIdentifiersList :: Lens.Lens' Bat
 batchListObjectParentPathsResponse_pathToObjectIdentifiersList = Lens.lens (\BatchListObjectParentPathsResponse' {pathToObjectIdentifiersList} -> pathToObjectIdentifiersList) (\s@BatchListObjectParentPathsResponse' {} a -> s {pathToObjectIdentifiersList = a} :: BatchListObjectParentPathsResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchListObjectParentPathsResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchListObjectParentPathsResponse"
       ( \x ->
           BatchListObjectParentPathsResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> ( x Core..:? "PathToObjectIdentifiersList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> ( x Data..:? "PathToObjectIdentifiersList"
+                            Data..!= Prelude.mempty
                         )
       )
 

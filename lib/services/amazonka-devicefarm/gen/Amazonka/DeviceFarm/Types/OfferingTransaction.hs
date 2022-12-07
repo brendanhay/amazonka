@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.OfferingTransaction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.MonetaryAmount
 import Amazonka.DeviceFarm.Types.OfferingStatus
 import qualified Amazonka.Prelude as Prelude
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newOfferingTransaction' smart constructor.
 data OfferingTransaction = OfferingTransaction'
   { -- | The date on which an offering transaction was created.
-    createdOn :: Prelude.Maybe Core.POSIX,
+    createdOn :: Prelude.Maybe Data.POSIX,
     -- | The ID that corresponds to a device offering promotion.
     offeringPromotionId :: Prelude.Maybe Prelude.Text,
     -- | The transaction ID of the offering transaction.
@@ -72,7 +73,7 @@ newOfferingTransaction =
 
 -- | The date on which an offering transaction was created.
 offeringTransaction_createdOn :: Lens.Lens' OfferingTransaction (Prelude.Maybe Prelude.UTCTime)
-offeringTransaction_createdOn = Lens.lens (\OfferingTransaction' {createdOn} -> createdOn) (\s@OfferingTransaction' {} a -> s {createdOn = a} :: OfferingTransaction) Prelude.. Lens.mapping Core._Time
+offeringTransaction_createdOn = Lens.lens (\OfferingTransaction' {createdOn} -> createdOn) (\s@OfferingTransaction' {} a -> s {createdOn = a} :: OfferingTransaction) Prelude.. Lens.mapping Data._Time
 
 -- | The ID that corresponds to a device offering promotion.
 offeringTransaction_offeringPromotionId :: Lens.Lens' OfferingTransaction (Prelude.Maybe Prelude.Text)
@@ -90,17 +91,17 @@ offeringTransaction_offeringStatus = Lens.lens (\OfferingTransaction' {offeringS
 offeringTransaction_cost :: Lens.Lens' OfferingTransaction (Prelude.Maybe MonetaryAmount)
 offeringTransaction_cost = Lens.lens (\OfferingTransaction' {cost} -> cost) (\s@OfferingTransaction' {} a -> s {cost = a} :: OfferingTransaction)
 
-instance Core.FromJSON OfferingTransaction where
+instance Data.FromJSON OfferingTransaction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OfferingTransaction"
       ( \x ->
           OfferingTransaction'
-            Prelude.<$> (x Core..:? "createdOn")
-            Prelude.<*> (x Core..:? "offeringPromotionId")
-            Prelude.<*> (x Core..:? "transactionId")
-            Prelude.<*> (x Core..:? "offeringStatus")
-            Prelude.<*> (x Core..:? "cost")
+            Prelude.<$> (x Data..:? "createdOn")
+            Prelude.<*> (x Data..:? "offeringPromotionId")
+            Prelude.<*> (x Data..:? "transactionId")
+            Prelude.<*> (x Data..:? "offeringStatus")
+            Prelude.<*> (x Data..:? "cost")
       )
 
 instance Prelude.Hashable OfferingTransaction where

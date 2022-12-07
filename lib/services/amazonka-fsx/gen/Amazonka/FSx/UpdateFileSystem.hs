@@ -114,6 +114,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -342,7 +343,7 @@ instance Core.AWSRequest UpdateFileSystem where
     Response.receiveJSON
       ( \s h x ->
           UpdateFileSystemResponse'
-            Prelude.<$> (x Core..?> "FileSystem")
+            Prelude.<$> (x Data..?> "FileSystem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -366,45 +367,45 @@ instance Prelude.NFData UpdateFileSystem where
       `Prelude.seq` Prelude.rnf lustreConfiguration
       `Prelude.seq` Prelude.rnf fileSystemId
 
-instance Core.ToHeaders UpdateFileSystem where
+instance Data.ToHeaders UpdateFileSystem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.UpdateFileSystem" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.UpdateFileSystem" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFileSystem where
+instance Data.ToJSON UpdateFileSystem where
   toJSON UpdateFileSystem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("OpenZFSConfiguration" Core..=)
+            ("OpenZFSConfiguration" Data..=)
               Prelude.<$> openZFSConfiguration,
-            ("StorageCapacity" Core..=)
+            ("StorageCapacity" Data..=)
               Prelude.<$> storageCapacity,
-            ("OntapConfiguration" Core..=)
+            ("OntapConfiguration" Data..=)
               Prelude.<$> ontapConfiguration,
-            ("WindowsConfiguration" Core..=)
+            ("WindowsConfiguration" Data..=)
               Prelude.<$> windowsConfiguration,
-            ("LustreConfiguration" Core..=)
+            ("LustreConfiguration" Data..=)
               Prelude.<$> lustreConfiguration,
-            Prelude.Just ("FileSystemId" Core..= fileSystemId)
+            Prelude.Just ("FileSystemId" Data..= fileSystemId)
           ]
       )
 
-instance Core.ToPath UpdateFileSystem where
+instance Data.ToPath UpdateFileSystem where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateFileSystem where
+instance Data.ToQuery UpdateFileSystem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response object for the @UpdateFileSystem@ operation.

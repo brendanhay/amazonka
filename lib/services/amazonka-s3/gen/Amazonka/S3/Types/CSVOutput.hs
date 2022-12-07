@@ -21,6 +21,7 @@ module Amazonka.S3.Types.CSVOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.QuoteFields
@@ -134,12 +135,12 @@ instance Prelude.NFData CSVOutput where
       `Prelude.seq` Prelude.rnf fieldDelimiter
       `Prelude.seq` Prelude.rnf recordDelimiter
 
-instance Core.ToXML CSVOutput where
+instance Data.ToXML CSVOutput where
   toXML CSVOutput' {..} =
     Prelude.mconcat
-      [ "QuoteCharacter" Core.@= quoteCharacter,
-        "QuoteFields" Core.@= quoteFields,
-        "QuoteEscapeCharacter" Core.@= quoteEscapeCharacter,
-        "FieldDelimiter" Core.@= fieldDelimiter,
-        "RecordDelimiter" Core.@= recordDelimiter
+      [ "QuoteCharacter" Data.@= quoteCharacter,
+        "QuoteFields" Data.@= quoteFields,
+        "QuoteEscapeCharacter" Data.@= quoteEscapeCharacter,
+        "FieldDelimiter" Data.@= fieldDelimiter,
+        "RecordDelimiter" Data.@= recordDelimiter
       ]

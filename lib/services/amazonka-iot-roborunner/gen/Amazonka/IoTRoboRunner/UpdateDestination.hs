@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTRoboRunner.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,13 +117,13 @@ instance Core.AWSRequest UpdateDestination where
     Response.receiveJSON
       ( \s h x ->
           UpdateDestinationResponse'
-            Prelude.<$> (x Core..?> "additionalFixedProperties")
+            Prelude.<$> (x Data..?> "additionalFixedProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "id")
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "updatedAt")
-            Prelude.<*> (x Core..:> "state")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "id")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "updatedAt")
+            Prelude.<*> (x Data..:> "state")
       )
 
 instance Prelude.Hashable UpdateDestination where
@@ -139,33 +140,33 @@ instance Prelude.NFData UpdateDestination where
       `Prelude.seq` Prelude.rnf additionalFixedProperties
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateDestination where
+instance Data.ToHeaders UpdateDestination where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDestination where
+instance Data.ToJSON UpdateDestination where
   toJSON UpdateDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("state" Core..=) Prelude.<$> state,
-            ("additionalFixedProperties" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("state" Data..=) Prelude.<$> state,
+            ("additionalFixedProperties" Data..=)
               Prelude.<$> additionalFixedProperties,
-            Prelude.Just ("id" Core..= id)
+            Prelude.Just ("id" Data..= id)
           ]
       )
 
-instance Core.ToPath UpdateDestination where
+instance Data.ToPath UpdateDestination where
   toPath = Prelude.const "/updateDestination"
 
-instance Core.ToQuery UpdateDestination where
+instance Data.ToQuery UpdateDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDestinationResponse' smart constructor.
@@ -176,7 +177,7 @@ data UpdateDestinationResponse = UpdateDestinationResponse'
     arn :: Prelude.Text,
     id :: Prelude.Text,
     name :: Prelude.Text,
-    updatedAt :: Core.POSIX,
+    updatedAt :: Data.POSIX,
     state :: DestinationState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -230,7 +231,7 @@ newUpdateDestinationResponse
         arn = pArn_,
         id = pId_,
         name = pName_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_,
         state = pState_
       }
 
@@ -256,7 +257,7 @@ updateDestinationResponse_name = Lens.lens (\UpdateDestinationResponse' {name} -
 
 -- | Undocumented member.
 updateDestinationResponse_updatedAt :: Lens.Lens' UpdateDestinationResponse Prelude.UTCTime
-updateDestinationResponse_updatedAt = Lens.lens (\UpdateDestinationResponse' {updatedAt} -> updatedAt) (\s@UpdateDestinationResponse' {} a -> s {updatedAt = a} :: UpdateDestinationResponse) Prelude.. Core._Time
+updateDestinationResponse_updatedAt = Lens.lens (\UpdateDestinationResponse' {updatedAt} -> updatedAt) (\s@UpdateDestinationResponse' {} a -> s {updatedAt = a} :: UpdateDestinationResponse) Prelude.. Data._Time
 
 -- | Undocumented member.
 updateDestinationResponse_state :: Lens.Lens' UpdateDestinationResponse DestinationState

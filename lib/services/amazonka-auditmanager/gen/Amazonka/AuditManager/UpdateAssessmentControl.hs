@@ -46,6 +46,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,7 +134,7 @@ instance Core.AWSRequest UpdateAssessmentControl where
     Response.receiveJSON
       ( \s h x ->
           UpdateAssessmentControlResponse'
-            Prelude.<$> (x Core..?> "control")
+            Prelude.<$> (x Data..?> "control")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,38 +154,38 @@ instance Prelude.NFData UpdateAssessmentControl where
       `Prelude.seq` Prelude.rnf controlSetId
       `Prelude.seq` Prelude.rnf controlId
 
-instance Core.ToHeaders UpdateAssessmentControl where
+instance Data.ToHeaders UpdateAssessmentControl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAssessmentControl where
+instance Data.ToJSON UpdateAssessmentControl where
   toJSON UpdateAssessmentControl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("controlStatus" Core..=) Prelude.<$> controlStatus,
-            ("commentBody" Core..=) Prelude.<$> commentBody
+          [ ("controlStatus" Data..=) Prelude.<$> controlStatus,
+            ("commentBody" Data..=) Prelude.<$> commentBody
           ]
       )
 
-instance Core.ToPath UpdateAssessmentControl where
+instance Data.ToPath UpdateAssessmentControl where
   toPath UpdateAssessmentControl' {..} =
     Prelude.mconcat
       [ "/assessments/",
-        Core.toBS assessmentId,
+        Data.toBS assessmentId,
         "/controlSets/",
-        Core.toBS controlSetId,
+        Data.toBS controlSetId,
         "/controls/",
-        Core.toBS controlId
+        Data.toBS controlId
       ]
 
-instance Core.ToQuery UpdateAssessmentControl where
+instance Data.ToQuery UpdateAssessmentControl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAssessmentControlResponse' smart constructor.

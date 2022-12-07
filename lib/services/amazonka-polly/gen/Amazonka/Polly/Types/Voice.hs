@@ -21,6 +21,7 @@ module Amazonka.Polly.Types.Voice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Polly.Types.Engine
 import Amazonka.Polly.Types.Gender
 import Amazonka.Polly.Types.LanguageCode
@@ -137,23 +138,23 @@ voice_languageName = Lens.lens (\Voice' {languageName} -> languageName) (\s@Voic
 voice_gender :: Lens.Lens' Voice (Prelude.Maybe Gender)
 voice_gender = Lens.lens (\Voice' {gender} -> gender) (\s@Voice' {} a -> s {gender = a} :: Voice)
 
-instance Core.FromJSON Voice where
+instance Data.FromJSON Voice where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Voice"
       ( \x ->
           Voice'
-            Prelude.<$> ( x Core..:? "SupportedEngines"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SupportedEngines"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> ( x Core..:? "AdditionalLanguageCodes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> ( x Data..:? "AdditionalLanguageCodes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "LanguageName")
-            Prelude.<*> (x Core..:? "Gender")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "LanguageName")
+            Prelude.<*> (x Data..:? "Gender")
       )
 
 instance Prelude.Hashable Voice where

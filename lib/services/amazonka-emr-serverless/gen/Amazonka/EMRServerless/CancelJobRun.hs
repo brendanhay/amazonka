@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRServerless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,8 +98,8 @@ instance Core.AWSRequest CancelJobRun where
       ( \s h x ->
           CancelJobRunResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "applicationId")
-            Prelude.<*> (x Core..:> "jobRunId")
+            Prelude.<*> (x Data..:> "applicationId")
+            Prelude.<*> (x Data..:> "jobRunId")
       )
 
 instance Prelude.Hashable CancelJobRun where
@@ -111,27 +112,27 @@ instance Prelude.NFData CancelJobRun where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf jobRunId
 
-instance Core.ToHeaders CancelJobRun where
+instance Data.ToHeaders CancelJobRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath CancelJobRun where
+instance Data.ToPath CancelJobRun where
   toPath CancelJobRun' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/jobruns/",
-        Core.toBS jobRunId
+        Data.toBS jobRunId
       ]
 
-instance Core.ToQuery CancelJobRun where
+instance Data.ToQuery CancelJobRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelJobRunResponse' smart constructor.

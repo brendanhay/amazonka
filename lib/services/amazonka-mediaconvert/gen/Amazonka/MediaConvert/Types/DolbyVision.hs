@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.DolbyVision where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.DolbyVisionLevel6Metadata
 import Amazonka.MediaConvert.Types.DolbyVisionLevel6Mode
 import Amazonka.MediaConvert.Types.DolbyVisionMapping
@@ -125,16 +126,16 @@ dolbyVision_mapping = Lens.lens (\DolbyVision' {mapping} -> mapping) (\s@DolbyVi
 dolbyVision_l6Mode :: Lens.Lens' DolbyVision (Prelude.Maybe DolbyVisionLevel6Mode)
 dolbyVision_l6Mode = Lens.lens (\DolbyVision' {l6Mode} -> l6Mode) (\s@DolbyVision' {} a -> s {l6Mode = a} :: DolbyVision)
 
-instance Core.FromJSON DolbyVision where
+instance Data.FromJSON DolbyVision where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DolbyVision"
       ( \x ->
           DolbyVision'
-            Prelude.<$> (x Core..:? "l6Metadata")
-            Prelude.<*> (x Core..:? "profile")
-            Prelude.<*> (x Core..:? "mapping")
-            Prelude.<*> (x Core..:? "l6Mode")
+            Prelude.<$> (x Data..:? "l6Metadata")
+            Prelude.<*> (x Data..:? "profile")
+            Prelude.<*> (x Data..:? "mapping")
+            Prelude.<*> (x Data..:? "l6Mode")
       )
 
 instance Prelude.Hashable DolbyVision where
@@ -151,13 +152,13 @@ instance Prelude.NFData DolbyVision where
       `Prelude.seq` Prelude.rnf mapping
       `Prelude.seq` Prelude.rnf l6Mode
 
-instance Core.ToJSON DolbyVision where
+instance Data.ToJSON DolbyVision where
   toJSON DolbyVision' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("l6Metadata" Core..=) Prelude.<$> l6Metadata,
-            ("profile" Core..=) Prelude.<$> profile,
-            ("mapping" Core..=) Prelude.<$> mapping,
-            ("l6Mode" Core..=) Prelude.<$> l6Mode
+          [ ("l6Metadata" Data..=) Prelude.<$> l6Metadata,
+            ("profile" Data..=) Prelude.<$> profile,
+            ("mapping" Data..=) Prelude.<$> mapping,
+            ("l6Mode" Data..=) Prelude.<$> l6Mode
           ]
       )

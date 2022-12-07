@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.SecurityDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about endpoints.
@@ -75,17 +76,17 @@ securityDetails_securityGroupIds = Lens.lens (\SecurityDetails' {securityGroupId
 securityDetails_subnetIds :: Lens.Lens' SecurityDetails [Prelude.Text]
 securityDetails_subnetIds = Lens.lens (\SecurityDetails' {subnetIds} -> subnetIds) (\s@SecurityDetails' {} a -> s {subnetIds = a} :: SecurityDetails) Prelude.. Lens.coerced
 
-instance Core.FromJSON SecurityDetails where
+instance Data.FromJSON SecurityDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecurityDetails"
       ( \x ->
           SecurityDetails'
-            Prelude.<$> (x Core..: "roleArn")
-            Prelude.<*> ( x Core..:? "securityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..: "roleArn")
+            Prelude.<*> ( x Data..:? "securityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "subnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SecurityDetails where
@@ -100,13 +101,13 @@ instance Prelude.NFData SecurityDetails where
       `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToJSON SecurityDetails where
+instance Data.ToJSON SecurityDetails where
   toJSON SecurityDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("roleArn" Core..= roleArn),
+          [ Prelude.Just ("roleArn" Data..= roleArn),
             Prelude.Just
-              ("securityGroupIds" Core..= securityGroupIds),
-            Prelude.Just ("subnetIds" Core..= subnetIds)
+              ("securityGroupIds" Data..= securityGroupIds),
+            Prelude.Just ("subnetIds" Data..= subnetIds)
           ]
       )

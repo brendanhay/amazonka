@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayConnectPeer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TransitGatewayConnectPeerConfiguration
@@ -42,7 +43,7 @@ data TransitGatewayConnectPeer = TransitGatewayConnectPeer'
     -- | The Connect peer details.
     connectPeerConfiguration :: Prelude.Maybe TransitGatewayConnectPeerConfiguration,
     -- | The creation time.
-    creationTime :: Prelude.Maybe Core.ISO8601
+    creationTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,19 +100,19 @@ transitGatewayConnectPeer_connectPeerConfiguration = Lens.lens (\TransitGatewayC
 
 -- | The creation time.
 transitGatewayConnectPeer_creationTime :: Lens.Lens' TransitGatewayConnectPeer (Prelude.Maybe Prelude.UTCTime)
-transitGatewayConnectPeer_creationTime = Lens.lens (\TransitGatewayConnectPeer' {creationTime} -> creationTime) (\s@TransitGatewayConnectPeer' {} a -> s {creationTime = a} :: TransitGatewayConnectPeer) Prelude.. Lens.mapping Core._Time
+transitGatewayConnectPeer_creationTime = Lens.lens (\TransitGatewayConnectPeer' {creationTime} -> creationTime) (\s@TransitGatewayConnectPeer' {} a -> s {creationTime = a} :: TransitGatewayConnectPeer) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML TransitGatewayConnectPeer where
+instance Data.FromXML TransitGatewayConnectPeer where
   parseXML x =
     TransitGatewayConnectPeer'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "transitGatewayConnectPeerId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
-      Prelude.<*> (x Core..@? "connectPeerConfiguration")
-      Prelude.<*> (x Core..@? "creationTime")
+      Prelude.<*> (x Data..@? "transitGatewayConnectPeerId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
+      Prelude.<*> (x Data..@? "connectPeerConfiguration")
+      Prelude.<*> (x Data..@? "creationTime")
 
 instance Prelude.Hashable TransitGatewayConnectPeer where
   hashWithSalt _salt TransitGatewayConnectPeer' {..} =

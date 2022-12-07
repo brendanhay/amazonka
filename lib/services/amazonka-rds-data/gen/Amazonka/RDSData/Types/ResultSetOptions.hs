@@ -21,6 +21,7 @@ module Amazonka.RDSData.Types.ResultSetOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDSData.Types.DecimalReturnType
 import Amazonka.RDSData.Types.LongReturnType
@@ -107,13 +108,13 @@ instance Prelude.NFData ResultSetOptions where
     Prelude.rnf decimalReturnType
       `Prelude.seq` Prelude.rnf longReturnType
 
-instance Core.ToJSON ResultSetOptions where
+instance Data.ToJSON ResultSetOptions where
   toJSON ResultSetOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("decimalReturnType" Core..=)
+          [ ("decimalReturnType" Data..=)
               Prelude.<$> decimalReturnType,
-            ("longReturnType" Core..=)
+            ("longReturnType" Data..=)
               Prelude.<$> longReturnType
           ]
       )

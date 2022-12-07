@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.USD where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an amount of money in United States dollars.
@@ -70,15 +71,15 @@ usd_dollars = Lens.lens (\USD' {dollars} -> dollars) (\s@USD' {} a -> s {dollars
 usd_cents :: Lens.Lens' USD (Prelude.Maybe Prelude.Natural)
 usd_cents = Lens.lens (\USD' {cents} -> cents) (\s@USD' {} a -> s {cents = a} :: USD)
 
-instance Core.FromJSON USD where
+instance Data.FromJSON USD where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "USD"
       ( \x ->
           USD'
-            Prelude.<$> (x Core..:? "TenthFractionsOfACent")
-            Prelude.<*> (x Core..:? "Dollars")
-            Prelude.<*> (x Core..:? "Cents")
+            Prelude.<$> (x Data..:? "TenthFractionsOfACent")
+            Prelude.<*> (x Data..:? "Dollars")
+            Prelude.<*> (x Data..:? "Cents")
       )
 
 instance Prelude.Hashable USD where
@@ -93,13 +94,13 @@ instance Prelude.NFData USD where
       `Prelude.seq` Prelude.rnf dollars
       `Prelude.seq` Prelude.rnf cents
 
-instance Core.ToJSON USD where
+instance Data.ToJSON USD where
   toJSON USD' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TenthFractionsOfACent" Core..=)
+          [ ("TenthFractionsOfACent" Data..=)
               Prelude.<$> tenthFractionsOfACent,
-            ("Dollars" Core..=) Prelude.<$> dollars,
-            ("Cents" Core..=) Prelude.<$> cents
+            ("Dollars" Data..=) Prelude.<$> dollars,
+            ("Cents" Data..=) Prelude.<$> cents
           ]
       )

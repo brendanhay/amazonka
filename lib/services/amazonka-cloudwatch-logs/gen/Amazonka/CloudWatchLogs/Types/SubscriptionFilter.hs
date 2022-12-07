@@ -22,6 +22,7 @@ module Amazonka.CloudWatchLogs.Types.SubscriptionFilter where
 import Amazonka.CloudWatchLogs.Types.Distribution
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a subscription filter.
@@ -107,19 +108,19 @@ subscriptionFilter_destinationArn = Lens.lens (\SubscriptionFilter' {destination
 subscriptionFilter_logGroupName :: Lens.Lens' SubscriptionFilter (Prelude.Maybe Prelude.Text)
 subscriptionFilter_logGroupName = Lens.lens (\SubscriptionFilter' {logGroupName} -> logGroupName) (\s@SubscriptionFilter' {} a -> s {logGroupName = a} :: SubscriptionFilter)
 
-instance Core.FromJSON SubscriptionFilter where
+instance Data.FromJSON SubscriptionFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubscriptionFilter"
       ( \x ->
           SubscriptionFilter'
-            Prelude.<$> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "filterName")
-            Prelude.<*> (x Core..:? "distribution")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "filterPattern")
-            Prelude.<*> (x Core..:? "destinationArn")
-            Prelude.<*> (x Core..:? "logGroupName")
+            Prelude.<$> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "filterName")
+            Prelude.<*> (x Data..:? "distribution")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "filterPattern")
+            Prelude.<*> (x Data..:? "destinationArn")
+            Prelude.<*> (x Data..:? "logGroupName")
       )
 
 instance Prelude.Hashable SubscriptionFilter where

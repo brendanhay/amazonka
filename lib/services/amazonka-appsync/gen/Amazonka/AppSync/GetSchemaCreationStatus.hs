@@ -43,6 +43,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,8 +85,8 @@ instance Core.AWSRequest GetSchemaCreationStatus where
     Response.receiveJSON
       ( \s h x ->
           GetSchemaCreationStatusResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "details")
+            Prelude.<$> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "details")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,23 +97,23 @@ instance Prelude.Hashable GetSchemaCreationStatus where
 instance Prelude.NFData GetSchemaCreationStatus where
   rnf GetSchemaCreationStatus' {..} = Prelude.rnf apiId
 
-instance Core.ToHeaders GetSchemaCreationStatus where
+instance Data.ToHeaders GetSchemaCreationStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSchemaCreationStatus where
+instance Data.ToPath GetSchemaCreationStatus where
   toPath GetSchemaCreationStatus' {..} =
     Prelude.mconcat
-      ["/v1/apis/", Core.toBS apiId, "/schemacreation"]
+      ["/v1/apis/", Data.toBS apiId, "/schemacreation"]
 
-instance Core.ToQuery GetSchemaCreationStatus where
+instance Data.ToQuery GetSchemaCreationStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSchemaCreationStatusResponse' smart constructor.

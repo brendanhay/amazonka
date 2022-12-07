@@ -49,6 +49,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,9 +157,9 @@ instance Core.AWSRequest ListDefaultVocabularies where
     Response.receiveJSON
       ( \s h x ->
           ListDefaultVocabulariesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "DefaultVocabularyList"
+            Prelude.<*> ( x Data..?> "DefaultVocabularyList"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -177,35 +178,35 @@ instance Prelude.NFData ListDefaultVocabularies where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ListDefaultVocabularies where
+instance Data.ToHeaders ListDefaultVocabularies where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDefaultVocabularies where
+instance Data.ToJSON ListDefaultVocabularies where
   toJSON ListDefaultVocabularies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("LanguageCode" Core..=) Prelude.<$> languageCode,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListDefaultVocabularies where
+instance Data.ToPath ListDefaultVocabularies where
   toPath ListDefaultVocabularies' {..} =
     Prelude.mconcat
       [ "/default-vocabulary-summary/",
-        Core.toBS instanceId
+        Data.toBS instanceId
       ]
 
-instance Core.ToQuery ListDefaultVocabularies where
+instance Data.ToQuery ListDefaultVocabularies where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDefaultVocabulariesResponse' smart constructor.

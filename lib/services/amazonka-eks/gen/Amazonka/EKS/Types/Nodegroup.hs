@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.Nodegroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.AMITypes
 import Amazonka.EKS.Types.CapacityTypes
 import Amazonka.EKS.Types.LaunchTemplateSpecification
@@ -51,7 +52,7 @@ data Nodegroup = Nodegroup'
     releaseVersion :: Prelude.Maybe Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the managed node group was
     -- last modified.
-    modifiedAt :: Prelude.Maybe Core.POSIX,
+    modifiedAt :: Prelude.Maybe Data.POSIX,
     -- | If the node group wasn\'t deployed with a launch template, then this is
     -- the remote access configuration that is associated with the node group.
     -- If the node group was deployed with a launch template, then this is
@@ -116,7 +117,7 @@ data Nodegroup = Nodegroup'
     clusterName :: Prelude.Maybe Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the managed node group was
     -- created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Kubernetes version of the managed node group.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -259,7 +260,7 @@ nodegroup_releaseVersion = Lens.lens (\Nodegroup' {releaseVersion} -> releaseVer
 -- | The Unix epoch timestamp in seconds for when the managed node group was
 -- last modified.
 nodegroup_modifiedAt :: Lens.Lens' Nodegroup (Prelude.Maybe Prelude.UTCTime)
-nodegroup_modifiedAt = Lens.lens (\Nodegroup' {modifiedAt} -> modifiedAt) (\s@Nodegroup' {} a -> s {modifiedAt = a} :: Nodegroup) Prelude.. Lens.mapping Core._Time
+nodegroup_modifiedAt = Lens.lens (\Nodegroup' {modifiedAt} -> modifiedAt) (\s@Nodegroup' {} a -> s {modifiedAt = a} :: Nodegroup) Prelude.. Lens.mapping Data._Time
 
 -- | If the node group wasn\'t deployed with a launch template, then this is
 -- the remote access configuration that is associated with the node group.
@@ -362,41 +363,41 @@ nodegroup_clusterName = Lens.lens (\Nodegroup' {clusterName} -> clusterName) (\s
 -- | The Unix epoch timestamp in seconds for when the managed node group was
 -- created.
 nodegroup_createdAt :: Lens.Lens' Nodegroup (Prelude.Maybe Prelude.UTCTime)
-nodegroup_createdAt = Lens.lens (\Nodegroup' {createdAt} -> createdAt) (\s@Nodegroup' {} a -> s {createdAt = a} :: Nodegroup) Prelude.. Lens.mapping Core._Time
+nodegroup_createdAt = Lens.lens (\Nodegroup' {createdAt} -> createdAt) (\s@Nodegroup' {} a -> s {createdAt = a} :: Nodegroup) Prelude.. Lens.mapping Data._Time
 
 -- | The Kubernetes version of the managed node group.
 nodegroup_version :: Lens.Lens' Nodegroup (Prelude.Maybe Prelude.Text)
 nodegroup_version = Lens.lens (\Nodegroup' {version} -> version) (\s@Nodegroup' {} a -> s {version = a} :: Nodegroup)
 
-instance Core.FromJSON Nodegroup where
+instance Data.FromJSON Nodegroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Nodegroup"
       ( \x ->
           Nodegroup'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "releaseVersion")
-            Prelude.<*> (x Core..:? "modifiedAt")
-            Prelude.<*> (x Core..:? "remoteAccess")
-            Prelude.<*> (x Core..:? "instanceTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "updateConfig")
-            Prelude.<*> (x Core..:? "capacityType")
-            Prelude.<*> (x Core..:? "amiType")
-            Prelude.<*> (x Core..:? "diskSize")
-            Prelude.<*> (x Core..:? "subnets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "nodegroupArn")
-            Prelude.<*> (x Core..:? "launchTemplate")
-            Prelude.<*> (x Core..:? "nodegroupName")
-            Prelude.<*> (x Core..:? "taints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "nodeRole")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "labels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "health")
-            Prelude.<*> (x Core..:? "resources")
-            Prelude.<*> (x Core..:? "scalingConfig")
-            Prelude.<*> (x Core..:? "clusterName")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "releaseVersion")
+            Prelude.<*> (x Data..:? "modifiedAt")
+            Prelude.<*> (x Data..:? "remoteAccess")
+            Prelude.<*> (x Data..:? "instanceTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "updateConfig")
+            Prelude.<*> (x Data..:? "capacityType")
+            Prelude.<*> (x Data..:? "amiType")
+            Prelude.<*> (x Data..:? "diskSize")
+            Prelude.<*> (x Data..:? "subnets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "nodegroupArn")
+            Prelude.<*> (x Data..:? "launchTemplate")
+            Prelude.<*> (x Data..:? "nodegroupName")
+            Prelude.<*> (x Data..:? "taints" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "nodeRole")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "labels" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "health")
+            Prelude.<*> (x Data..:? "resources")
+            Prelude.<*> (x Data..:? "scalingConfig")
+            Prelude.<*> (x Data..:? "clusterName")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable Nodegroup where

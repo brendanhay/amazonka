@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.ChapInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes Challenge-Handshake Authentication Protocol (CHAP) information
@@ -32,7 +33,7 @@ data ChapInfo = ChapInfo'
     initiatorName :: Prelude.Maybe Prelude.Text,
     -- | The secret key that the target must provide to participate in mutual
     -- CHAP with the initiator (e.g., Windows client).
-    secretToAuthenticateTarget :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    secretToAuthenticateTarget :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the volume.
     --
     -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and
@@ -40,7 +41,7 @@ data ChapInfo = ChapInfo'
     targetARN :: Prelude.Maybe Prelude.Text,
     -- | The secret key that the initiator (for example, the Windows client) must
     -- provide to participate in mutual CHAP with the target.
-    secretToAuthenticateInitiator :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    secretToAuthenticateInitiator :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -81,7 +82,7 @@ chapInfo_initiatorName = Lens.lens (\ChapInfo' {initiatorName} -> initiatorName)
 -- | The secret key that the target must provide to participate in mutual
 -- CHAP with the initiator (e.g., Windows client).
 chapInfo_secretToAuthenticateTarget :: Lens.Lens' ChapInfo (Prelude.Maybe Prelude.Text)
-chapInfo_secretToAuthenticateTarget = Lens.lens (\ChapInfo' {secretToAuthenticateTarget} -> secretToAuthenticateTarget) (\s@ChapInfo' {} a -> s {secretToAuthenticateTarget = a} :: ChapInfo) Prelude.. Lens.mapping Core._Sensitive
+chapInfo_secretToAuthenticateTarget = Lens.lens (\ChapInfo' {secretToAuthenticateTarget} -> secretToAuthenticateTarget) (\s@ChapInfo' {} a -> s {secretToAuthenticateTarget = a} :: ChapInfo) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the volume.
 --
@@ -93,18 +94,18 @@ chapInfo_targetARN = Lens.lens (\ChapInfo' {targetARN} -> targetARN) (\s@ChapInf
 -- | The secret key that the initiator (for example, the Windows client) must
 -- provide to participate in mutual CHAP with the target.
 chapInfo_secretToAuthenticateInitiator :: Lens.Lens' ChapInfo (Prelude.Maybe Prelude.Text)
-chapInfo_secretToAuthenticateInitiator = Lens.lens (\ChapInfo' {secretToAuthenticateInitiator} -> secretToAuthenticateInitiator) (\s@ChapInfo' {} a -> s {secretToAuthenticateInitiator = a} :: ChapInfo) Prelude.. Lens.mapping Core._Sensitive
+chapInfo_secretToAuthenticateInitiator = Lens.lens (\ChapInfo' {secretToAuthenticateInitiator} -> secretToAuthenticateInitiator) (\s@ChapInfo' {} a -> s {secretToAuthenticateInitiator = a} :: ChapInfo) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON ChapInfo where
+instance Data.FromJSON ChapInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChapInfo"
       ( \x ->
           ChapInfo'
-            Prelude.<$> (x Core..:? "InitiatorName")
-            Prelude.<*> (x Core..:? "SecretToAuthenticateTarget")
-            Prelude.<*> (x Core..:? "TargetARN")
-            Prelude.<*> (x Core..:? "SecretToAuthenticateInitiator")
+            Prelude.<$> (x Data..:? "InitiatorName")
+            Prelude.<*> (x Data..:? "SecretToAuthenticateTarget")
+            Prelude.<*> (x Data..:? "TargetARN")
+            Prelude.<*> (x Data..:? "SecretToAuthenticateInitiator")
       )
 
 instance Prelude.Hashable ChapInfo where

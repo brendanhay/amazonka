@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.JourneyResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Activity
 import Amazonka.Pinpoint.Types.ClosedDays
 import Amazonka.Pinpoint.Types.JourneyChannelSettings
@@ -401,33 +402,33 @@ journeyResponse_id = Lens.lens (\JourneyResponse' {id} -> id) (\s@JourneyRespons
 journeyResponse_applicationId :: Lens.Lens' JourneyResponse Prelude.Text
 journeyResponse_applicationId = Lens.lens (\JourneyResponse' {applicationId} -> applicationId) (\s@JourneyResponse' {} a -> s {applicationId = a} :: JourneyResponse)
 
-instance Core.FromJSON JourneyResponse where
+instance Data.FromJSON JourneyResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JourneyResponse"
       ( \x ->
           JourneyResponse'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Schedule")
-            Prelude.<*> (x Core..:? "Activities" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "RefreshOnSegmentUpdate")
-            Prelude.<*> (x Core..:? "Limits")
-            Prelude.<*> (x Core..:? "StartCondition")
-            Prelude.<*> (x Core..:? "StartActivity")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "RefreshFrequency")
-            Prelude.<*> (x Core..:? "LocalTime")
-            Prelude.<*> (x Core..:? "OpenHours")
-            Prelude.<*> (x Core..:? "QuietTime")
-            Prelude.<*> (x Core..:? "SendingSchedule")
-            Prelude.<*> (x Core..:? "WaitForQuietTime")
-            Prelude.<*> (x Core..:? "ClosedDays")
-            Prelude.<*> (x Core..:? "JourneyChannelSettings")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "ApplicationId")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Schedule")
+            Prelude.<*> (x Data..:? "Activities" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "RefreshOnSegmentUpdate")
+            Prelude.<*> (x Data..:? "Limits")
+            Prelude.<*> (x Data..:? "StartCondition")
+            Prelude.<*> (x Data..:? "StartActivity")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "RefreshFrequency")
+            Prelude.<*> (x Data..:? "LocalTime")
+            Prelude.<*> (x Data..:? "OpenHours")
+            Prelude.<*> (x Data..:? "QuietTime")
+            Prelude.<*> (x Data..:? "SendingSchedule")
+            Prelude.<*> (x Data..:? "WaitForQuietTime")
+            Prelude.<*> (x Data..:? "ClosedDays")
+            Prelude.<*> (x Data..:? "JourneyChannelSettings")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "ApplicationId")
       )
 
 instance Prelude.Hashable JourneyResponse where

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Merge where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that merges a @DynamicFrame@ with a staging
@@ -94,16 +95,16 @@ merge_source = Lens.lens (\Merge' {source} -> source) (\s@Merge' {} a -> s {sour
 merge_primaryKeys :: Lens.Lens' Merge [[Prelude.Text]]
 merge_primaryKeys = Lens.lens (\Merge' {primaryKeys} -> primaryKeys) (\s@Merge' {} a -> s {primaryKeys = a} :: Merge) Prelude.. Lens.coerced
 
-instance Core.FromJSON Merge where
+instance Data.FromJSON Merge where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Merge"
       ( \x ->
           Merge'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "Source")
-            Prelude.<*> (x Core..:? "PrimaryKeys" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "Source")
+            Prelude.<*> (x Data..:? "PrimaryKeys" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Merge where
@@ -120,13 +121,13 @@ instance Prelude.NFData Merge where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf primaryKeys
 
-instance Core.ToJSON Merge where
+instance Data.ToJSON Merge where
   toJSON Merge' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Source" Core..= source),
-            Prelude.Just ("PrimaryKeys" Core..= primaryKeys)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Source" Data..= source),
+            Prelude.Just ("PrimaryKeys" Data..= primaryKeys)
           ]
       )

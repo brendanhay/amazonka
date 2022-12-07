@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,36 +160,36 @@ instance Prelude.NFData SendHeartbeat where
       `Prelude.seq` Prelude.rnf deviceName
       `Prelude.seq` Prelude.rnf deviceFleetName
 
-instance Core.ToHeaders SendHeartbeat where
+instance Data.ToHeaders SendHeartbeat where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendHeartbeat where
+instance Data.ToJSON SendHeartbeat where
   toJSON SendHeartbeat' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Models" Core..=) Prelude.<$> models,
-            ("DeploymentResult" Core..=)
+          [ ("Models" Data..=) Prelude.<$> models,
+            ("DeploymentResult" Data..=)
               Prelude.<$> deploymentResult,
-            ("AgentMetrics" Core..=) Prelude.<$> agentMetrics,
-            Prelude.Just ("AgentVersion" Core..= agentVersion),
-            Prelude.Just ("DeviceName" Core..= deviceName),
+            ("AgentMetrics" Data..=) Prelude.<$> agentMetrics,
+            Prelude.Just ("AgentVersion" Data..= agentVersion),
+            Prelude.Just ("DeviceName" Data..= deviceName),
             Prelude.Just
-              ("DeviceFleetName" Core..= deviceFleetName)
+              ("DeviceFleetName" Data..= deviceFleetName)
           ]
       )
 
-instance Core.ToPath SendHeartbeat where
+instance Data.ToPath SendHeartbeat where
   toPath = Prelude.const "/SendHeartbeat"
 
-instance Core.ToQuery SendHeartbeat where
+instance Data.ToQuery SendHeartbeat where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendHeartbeatResponse' smart constructor.

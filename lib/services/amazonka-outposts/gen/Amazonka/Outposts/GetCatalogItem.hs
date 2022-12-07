@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetCatalogItem where
     Response.receiveJSON
       ( \s h x ->
           GetCatalogItemResponse'
-            Prelude.<$> (x Core..?> "CatalogItem")
+            Prelude.<$> (x Data..?> "CatalogItem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,23 +95,23 @@ instance Prelude.Hashable GetCatalogItem where
 instance Prelude.NFData GetCatalogItem where
   rnf GetCatalogItem' {..} = Prelude.rnf catalogItemId
 
-instance Core.ToHeaders GetCatalogItem where
+instance Data.ToHeaders GetCatalogItem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetCatalogItem where
+instance Data.ToPath GetCatalogItem where
   toPath GetCatalogItem' {..} =
     Prelude.mconcat
-      ["/catalog/item/", Core.toBS catalogItemId]
+      ["/catalog/item/", Data.toBS catalogItemId]
 
-instance Core.ToQuery GetCatalogItem where
+instance Data.ToQuery GetCatalogItem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCatalogItemResponse' smart constructor.

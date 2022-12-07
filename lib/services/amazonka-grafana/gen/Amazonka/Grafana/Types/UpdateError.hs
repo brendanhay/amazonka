@@ -21,6 +21,7 @@ module Amazonka.Grafana.Types.UpdateError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types.UpdateInstruction
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,15 +81,15 @@ updateError_code = Lens.lens (\UpdateError' {code} -> code) (\s@UpdateError' {} 
 updateError_message :: Lens.Lens' UpdateError Prelude.Text
 updateError_message = Lens.lens (\UpdateError' {message} -> message) (\s@UpdateError' {} a -> s {message = a} :: UpdateError)
 
-instance Core.FromJSON UpdateError where
+instance Data.FromJSON UpdateError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpdateError"
       ( \x ->
           UpdateError'
-            Prelude.<$> (x Core..: "causedBy")
-            Prelude.<*> (x Core..: "code")
-            Prelude.<*> (x Core..: "message")
+            Prelude.<$> (x Data..: "causedBy")
+            Prelude.<*> (x Data..: "code")
+            Prelude.<*> (x Data..: "message")
       )
 
 instance Prelude.Hashable UpdateError where

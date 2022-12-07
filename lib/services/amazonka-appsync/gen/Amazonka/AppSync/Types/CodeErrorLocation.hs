@@ -21,6 +21,7 @@ module Amazonka.AppSync.Types.CodeErrorLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the location of the error in a code sample.
@@ -70,15 +71,15 @@ codeErrorLocation_span = Lens.lens (\CodeErrorLocation' {span} -> span) (\s@Code
 codeErrorLocation_column :: Lens.Lens' CodeErrorLocation (Prelude.Maybe Prelude.Int)
 codeErrorLocation_column = Lens.lens (\CodeErrorLocation' {column} -> column) (\s@CodeErrorLocation' {} a -> s {column = a} :: CodeErrorLocation)
 
-instance Core.FromJSON CodeErrorLocation where
+instance Data.FromJSON CodeErrorLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeErrorLocation"
       ( \x ->
           CodeErrorLocation'
-            Prelude.<$> (x Core..:? "line")
-            Prelude.<*> (x Core..:? "span")
-            Prelude.<*> (x Core..:? "column")
+            Prelude.<$> (x Data..:? "line")
+            Prelude.<*> (x Data..:? "span")
+            Prelude.<*> (x Data..:? "column")
       )
 
 instance Prelude.Hashable CodeErrorLocation where

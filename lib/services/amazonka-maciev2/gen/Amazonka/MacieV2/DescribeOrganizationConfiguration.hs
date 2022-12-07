@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,8 +74,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationConfigurationResponse'
-            Prelude.<$> (x Core..?> "maxAccountLimitReached")
-              Prelude.<*> (x Core..?> "autoEnable")
+            Prelude.<$> (x Data..?> "maxAccountLimitReached")
+              Prelude.<*> (x Data..?> "autoEnable")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -92,27 +93,27 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeOrganizationConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeOrganizationConfiguration
   where
   toPath = Prelude.const "/admin/configuration"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeOrganizationConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

@@ -118,6 +118,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -1057,14 +1058,14 @@ instance Core.AWSRequest Query where
     Response.receiveJSON
       ( \s h x ->
           QueryResponse'
-            Prelude.<$> ( x Core..?> "LastEvaluatedKey"
+            Prelude.<$> ( x Data..?> "LastEvaluatedKey"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Count")
-            Prelude.<*> (x Core..?> "ConsumedCapacity")
-            Prelude.<*> (x Core..?> "ScannedCount")
+            Prelude.<*> (x Data..?> "Count")
+            Prelude.<*> (x Data..?> "ConsumedCapacity")
+            Prelude.<*> (x Data..?> "ScannedCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Items" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable Query where
@@ -1107,58 +1108,58 @@ instance Prelude.NFData Query where
       `Prelude.seq` Prelude.rnf projectionExpression
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToHeaders Query where
+instance Data.ToHeaders Query where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DynamoDB_20120810.Query" :: Prelude.ByteString),
+              Data.=# ("DynamoDB_20120810.Query" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON Query where
+instance Data.ToJSON Query where
   toJSON Query' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConsistentRead" Core..=)
+          [ ("ConsistentRead" Data..=)
               Prelude.<$> consistentRead,
-            ("ExpressionAttributeValues" Core..=)
+            ("ExpressionAttributeValues" Data..=)
               Prelude.<$> expressionAttributeValues,
-            ("ExpressionAttributeNames" Core..=)
+            ("ExpressionAttributeNames" Data..=)
               Prelude.<$> expressionAttributeNames,
-            ("ScanIndexForward" Core..=)
+            ("ScanIndexForward" Data..=)
               Prelude.<$> scanIndexForward,
-            ("ConditionalOperator" Core..=)
+            ("ConditionalOperator" Data..=)
               Prelude.<$> conditionalOperator,
-            ("ReturnConsumedCapacity" Core..=)
+            ("ReturnConsumedCapacity" Data..=)
               Prelude.<$> returnConsumedCapacity,
-            ("ExclusiveStartKey" Core..=)
+            ("ExclusiveStartKey" Data..=)
               Prelude.<$> exclusiveStartKey,
-            ("FilterExpression" Core..=)
+            ("FilterExpression" Data..=)
               Prelude.<$> filterExpression,
-            ("AttributesToGet" Core..=)
+            ("AttributesToGet" Data..=)
               Prelude.<$> attributesToGet,
-            ("KeyConditionExpression" Core..=)
+            ("KeyConditionExpression" Data..=)
               Prelude.<$> keyConditionExpression,
-            ("Select" Core..=) Prelude.<$> select,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("IndexName" Core..=) Prelude.<$> indexName,
-            ("QueryFilter" Core..=) Prelude.<$> queryFilter,
-            ("KeyConditions" Core..=) Prelude.<$> keyConditions,
-            ("ProjectionExpression" Core..=)
+            ("Select" Data..=) Prelude.<$> select,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("IndexName" Data..=) Prelude.<$> indexName,
+            ("QueryFilter" Data..=) Prelude.<$> queryFilter,
+            ("KeyConditions" Data..=) Prelude.<$> keyConditions,
+            ("ProjectionExpression" Data..=)
               Prelude.<$> projectionExpression,
-            Prelude.Just ("TableName" Core..= tableName)
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )
 
-instance Core.ToPath Query where
+instance Data.ToPath Query where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery Query where
+instance Data.ToQuery Query where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @Query@ operation.

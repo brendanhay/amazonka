@@ -22,6 +22,7 @@ module Amazonka.CodeDeploy.Types.BlueInstanceTerminationOption where
 import Amazonka.CodeDeploy.Types.InstanceAction
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about whether instances in the original environment are
@@ -110,14 +111,14 @@ blueInstanceTerminationOption_terminationWaitTimeInMinutes = Lens.lens (\BlueIns
 blueInstanceTerminationOption_action :: Lens.Lens' BlueInstanceTerminationOption (Prelude.Maybe InstanceAction)
 blueInstanceTerminationOption_action = Lens.lens (\BlueInstanceTerminationOption' {action} -> action) (\s@BlueInstanceTerminationOption' {} a -> s {action = a} :: BlueInstanceTerminationOption)
 
-instance Core.FromJSON BlueInstanceTerminationOption where
+instance Data.FromJSON BlueInstanceTerminationOption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BlueInstanceTerminationOption"
       ( \x ->
           BlueInstanceTerminationOption'
-            Prelude.<$> (x Core..:? "terminationWaitTimeInMinutes")
-            Prelude.<*> (x Core..:? "action")
+            Prelude.<$> (x Data..:? "terminationWaitTimeInMinutes")
+            Prelude.<*> (x Data..:? "action")
       )
 
 instance
@@ -134,12 +135,12 @@ instance Prelude.NFData BlueInstanceTerminationOption where
     Prelude.rnf terminationWaitTimeInMinutes
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToJSON BlueInstanceTerminationOption where
+instance Data.ToJSON BlueInstanceTerminationOption where
   toJSON BlueInstanceTerminationOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("terminationWaitTimeInMinutes" Core..=)
+          [ ("terminationWaitTimeInMinutes" Data..=)
               Prelude.<$> terminationWaitTimeInMinutes,
-            ("action" Core..=) Prelude.<$> action
+            ("action" Data..=) Prelude.<$> action
           ]
       )

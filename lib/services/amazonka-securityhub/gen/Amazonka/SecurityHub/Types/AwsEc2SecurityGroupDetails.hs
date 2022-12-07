@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2SecurityGroupDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEc2SecurityGroupIpPermission
 
@@ -99,20 +100,20 @@ awsEc2SecurityGroupDetails_vpcId = Lens.lens (\AwsEc2SecurityGroupDetails' {vpcI
 awsEc2SecurityGroupDetails_groupId :: Lens.Lens' AwsEc2SecurityGroupDetails (Prelude.Maybe Prelude.Text)
 awsEc2SecurityGroupDetails_groupId = Lens.lens (\AwsEc2SecurityGroupDetails' {groupId} -> groupId) (\s@AwsEc2SecurityGroupDetails' {} a -> s {groupId = a} :: AwsEc2SecurityGroupDetails)
 
-instance Core.FromJSON AwsEc2SecurityGroupDetails where
+instance Data.FromJSON AwsEc2SecurityGroupDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2SecurityGroupDetails"
       ( \x ->
           AwsEc2SecurityGroupDetails'
-            Prelude.<$> ( x Core..:? "IpPermissionsEgress"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "IpPermissionsEgress"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "IpPermissions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "GroupName")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "GroupId")
+            Prelude.<*> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "IpPermissions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "GroupId")
       )
 
 instance Prelude.Hashable AwsEc2SecurityGroupDetails where
@@ -133,16 +134,16 @@ instance Prelude.NFData AwsEc2SecurityGroupDetails where
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToJSON AwsEc2SecurityGroupDetails where
+instance Data.ToJSON AwsEc2SecurityGroupDetails where
   toJSON AwsEc2SecurityGroupDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IpPermissionsEgress" Core..=)
+          [ ("IpPermissionsEgress" Data..=)
               Prelude.<$> ipPermissionsEgress,
-            ("OwnerId" Core..=) Prelude.<$> ownerId,
-            ("IpPermissions" Core..=) Prelude.<$> ipPermissions,
-            ("GroupName" Core..=) Prelude.<$> groupName,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("GroupId" Core..=) Prelude.<$> groupId
+            ("OwnerId" Data..=) Prelude.<$> ownerId,
+            ("IpPermissions" Data..=) Prelude.<$> ipPermissions,
+            ("GroupName" Data..=) Prelude.<$> groupName,
+            ("VpcId" Data..=) Prelude.<$> vpcId,
+            ("GroupId" Data..=) Prelude.<$> groupId
           ]
       )

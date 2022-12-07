@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.Destination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.S3Destination
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newDestination =
 destination_s3Destination :: Lens.Lens' Destination (Prelude.Maybe S3Destination)
 destination_s3Destination = Lens.lens (\Destination' {s3Destination} -> s3Destination) (\s@Destination' {} a -> s {s3Destination = a} :: Destination)
 
-instance Core.FromJSON Destination where
+instance Data.FromJSON Destination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Destination"
       ( \x ->
           Destination'
-            Prelude.<$> (x Core..:? "s3Destination")
+            Prelude.<$> (x Data..:? "s3Destination")
       )
 
 instance Prelude.Hashable Destination where
@@ -67,11 +68,11 @@ instance Prelude.Hashable Destination where
 instance Prelude.NFData Destination where
   rnf Destination' {..} = Prelude.rnf s3Destination
 
-instance Core.ToJSON Destination where
+instance Data.ToJSON Destination where
   toJSON Destination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3Destination" Core..=)
+          [ ("s3Destination" Data..=)
               Prelude.<$> s3Destination
           ]
       )

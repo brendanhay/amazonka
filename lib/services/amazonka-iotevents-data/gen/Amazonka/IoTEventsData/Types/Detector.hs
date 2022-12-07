@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.Detector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types.DetectorState
 import qualified Amazonka.Prelude as Prelude
 
@@ -38,9 +39,9 @@ data Detector = Detector'
     -- creation of this detector (instance).
     keyValue :: Prelude.Maybe Prelude.Text,
     -- | The time the detector (instance) was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The time the detector (instance) was last updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX
+    lastUpdateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,24 +96,24 @@ detector_keyValue = Lens.lens (\Detector' {keyValue} -> keyValue) (\s@Detector' 
 
 -- | The time the detector (instance) was created.
 detector_creationTime :: Lens.Lens' Detector (Prelude.Maybe Prelude.UTCTime)
-detector_creationTime = Lens.lens (\Detector' {creationTime} -> creationTime) (\s@Detector' {} a -> s {creationTime = a} :: Detector) Prelude.. Lens.mapping Core._Time
+detector_creationTime = Lens.lens (\Detector' {creationTime} -> creationTime) (\s@Detector' {} a -> s {creationTime = a} :: Detector) Prelude.. Lens.mapping Data._Time
 
 -- | The time the detector (instance) was last updated.
 detector_lastUpdateTime :: Lens.Lens' Detector (Prelude.Maybe Prelude.UTCTime)
-detector_lastUpdateTime = Lens.lens (\Detector' {lastUpdateTime} -> lastUpdateTime) (\s@Detector' {} a -> s {lastUpdateTime = a} :: Detector) Prelude.. Lens.mapping Core._Time
+detector_lastUpdateTime = Lens.lens (\Detector' {lastUpdateTime} -> lastUpdateTime) (\s@Detector' {} a -> s {lastUpdateTime = a} :: Detector) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Detector where
+instance Data.FromJSON Detector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Detector"
       ( \x ->
           Detector'
-            Prelude.<$> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "detectorModelName")
-            Prelude.<*> (x Core..:? "detectorModelVersion")
-            Prelude.<*> (x Core..:? "keyValue")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
+            Prelude.<$> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "detectorModelName")
+            Prelude.<*> (x Data..:? "detectorModelVersion")
+            Prelude.<*> (x Data..:? "keyValue")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
       )
 
 instance Prelude.Hashable Detector where

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,7 +137,7 @@ instance Core.AWSRequest ModifyAvailabilityZoneGroup where
     Response.receiveXML
       ( \s h x ->
           ModifyAvailabilityZoneGroupResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,24 +153,24 @@ instance Prelude.NFData ModifyAvailabilityZoneGroup where
       `Prelude.seq` Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf optInStatus
 
-instance Core.ToHeaders ModifyAvailabilityZoneGroup where
+instance Data.ToHeaders ModifyAvailabilityZoneGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyAvailabilityZoneGroup where
+instance Data.ToPath ModifyAvailabilityZoneGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyAvailabilityZoneGroup where
+instance Data.ToQuery ModifyAvailabilityZoneGroup where
   toQuery ModifyAvailabilityZoneGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyAvailabilityZoneGroup" ::
+          Data.=: ( "ModifyAvailabilityZoneGroup" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "GroupName" Core.=: groupName,
-        "OptInStatus" Core.=: optInStatus
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "GroupName" Data.=: groupName,
+        "OptInStatus" Data.=: optInStatus
       ]
 
 -- | /See:/ 'newModifyAvailabilityZoneGroupResponse' smart constructor.

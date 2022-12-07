@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,7 +129,7 @@ instance Core.AWSRequest GetWebACLForResource where
     Response.receiveJSON
       ( \s h x ->
           GetWebACLForResourceResponse'
-            Prelude.<$> (x Core..?> "WebACL")
+            Prelude.<$> (x Data..?> "WebACL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,32 +141,32 @@ instance Prelude.NFData GetWebACLForResource where
   rnf GetWebACLForResource' {..} =
     Prelude.rnf resourceArn
 
-instance Core.ToHeaders GetWebACLForResource where
+instance Data.ToHeaders GetWebACLForResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.GetWebACLForResource" ::
+              Data.=# ( "AWSWAF_20190729.GetWebACLForResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetWebACLForResource where
+instance Data.ToJSON GetWebACLForResource where
   toJSON GetWebACLForResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
+          [Prelude.Just ("ResourceArn" Data..= resourceArn)]
       )
 
-instance Core.ToPath GetWebACLForResource where
+instance Data.ToPath GetWebACLForResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetWebACLForResource where
+instance Data.ToQuery GetWebACLForResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetWebACLForResourceResponse' smart constructor.

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,7 +109,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           StartDataCollectionByAgentIdsResponse'
-            Prelude.<$> ( x Core..?> "agentsConfigurationStatus"
+            Prelude.<$> ( x Data..?> "agentsConfigurationStatus"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -125,32 +126,32 @@ instance Prelude.NFData StartDataCollectionByAgentIds where
   rnf StartDataCollectionByAgentIds' {..} =
     Prelude.rnf agentIds
 
-instance Core.ToHeaders StartDataCollectionByAgentIds where
+instance Data.ToHeaders StartDataCollectionByAgentIds where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSPoseidonService_V2015_11_01.StartDataCollectionByAgentIds" ::
+              Data.=# ( "AWSPoseidonService_V2015_11_01.StartDataCollectionByAgentIds" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartDataCollectionByAgentIds where
+instance Data.ToJSON StartDataCollectionByAgentIds where
   toJSON StartDataCollectionByAgentIds' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("agentIds" Core..= agentIds)]
+          [Prelude.Just ("agentIds" Data..= agentIds)]
       )
 
-instance Core.ToPath StartDataCollectionByAgentIds where
+instance Data.ToPath StartDataCollectionByAgentIds where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartDataCollectionByAgentIds where
+instance Data.ToQuery StartDataCollectionByAgentIds where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartDataCollectionByAgentIdsResponse' smart constructor.

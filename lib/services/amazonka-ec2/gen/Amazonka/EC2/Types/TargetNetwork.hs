@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TargetNetwork where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AssociationStatus
 import qualified Amazonka.Prelude as Prelude
@@ -105,17 +106,17 @@ targetNetwork_associationId = Lens.lens (\TargetNetwork' {associationId} -> asso
 targetNetwork_targetNetworkId :: Lens.Lens' TargetNetwork (Prelude.Maybe Prelude.Text)
 targetNetwork_targetNetworkId = Lens.lens (\TargetNetwork' {targetNetworkId} -> targetNetworkId) (\s@TargetNetwork' {} a -> s {targetNetworkId = a} :: TargetNetwork)
 
-instance Core.FromXML TargetNetwork where
+instance Data.FromXML TargetNetwork where
   parseXML x =
     TargetNetwork'
-      Prelude.<$> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "clientVpnEndpointId")
-      Prelude.<*> ( x Core..@? "securityGroups" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "clientVpnEndpointId")
+      Prelude.<*> ( x Data..@? "securityGroups" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "vpcId")
-      Prelude.<*> (x Core..@? "associationId")
-      Prelude.<*> (x Core..@? "targetNetworkId")
+      Prelude.<*> (x Data..@? "vpcId")
+      Prelude.<*> (x Data..@? "associationId")
+      Prelude.<*> (x Data..@? "targetNetworkId")
 
 instance Prelude.Hashable TargetNetwork where
   hashWithSalt _salt TargetNetwork' {..} =

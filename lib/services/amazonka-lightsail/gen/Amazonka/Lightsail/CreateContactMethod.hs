@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -207,7 +208,7 @@ instance Core.AWSRequest CreateContactMethod where
     Response.receiveJSON
       ( \s h x ->
           CreateContactMethodResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -221,35 +222,35 @@ instance Prelude.NFData CreateContactMethod where
     Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf contactEndpoint
 
-instance Core.ToHeaders CreateContactMethod where
+instance Data.ToHeaders CreateContactMethod where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.CreateContactMethod" ::
+              Data.=# ( "Lightsail_20161128.CreateContactMethod" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateContactMethod where
+instance Data.ToJSON CreateContactMethod where
   toJSON CreateContactMethod' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("protocol" Core..= protocol),
+          [ Prelude.Just ("protocol" Data..= protocol),
             Prelude.Just
-              ("contactEndpoint" Core..= contactEndpoint)
+              ("contactEndpoint" Data..= contactEndpoint)
           ]
       )
 
-instance Core.ToPath CreateContactMethod where
+instance Data.ToPath CreateContactMethod where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateContactMethod where
+instance Data.ToQuery CreateContactMethod where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateContactMethodResponse' smart constructor.

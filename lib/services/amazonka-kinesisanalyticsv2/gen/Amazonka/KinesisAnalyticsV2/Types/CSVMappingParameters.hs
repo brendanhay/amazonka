@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.CSVMappingParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a SQL-based Kinesis Data Analytics application, provides additional
@@ -82,14 +83,14 @@ cSVMappingParameters_recordRowDelimiter = Lens.lens (\CSVMappingParameters' {rec
 cSVMappingParameters_recordColumnDelimiter :: Lens.Lens' CSVMappingParameters Prelude.Text
 cSVMappingParameters_recordColumnDelimiter = Lens.lens (\CSVMappingParameters' {recordColumnDelimiter} -> recordColumnDelimiter) (\s@CSVMappingParameters' {} a -> s {recordColumnDelimiter = a} :: CSVMappingParameters)
 
-instance Core.FromJSON CSVMappingParameters where
+instance Data.FromJSON CSVMappingParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CSVMappingParameters"
       ( \x ->
           CSVMappingParameters'
-            Prelude.<$> (x Core..: "RecordRowDelimiter")
-            Prelude.<*> (x Core..: "RecordColumnDelimiter")
+            Prelude.<$> (x Data..: "RecordRowDelimiter")
+            Prelude.<*> (x Data..: "RecordColumnDelimiter")
       )
 
 instance Prelude.Hashable CSVMappingParameters where
@@ -102,15 +103,15 @@ instance Prelude.NFData CSVMappingParameters where
     Prelude.rnf recordRowDelimiter
       `Prelude.seq` Prelude.rnf recordColumnDelimiter
 
-instance Core.ToJSON CSVMappingParameters where
+instance Data.ToJSON CSVMappingParameters where
   toJSON CSVMappingParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("RecordRowDelimiter" Core..= recordRowDelimiter),
+              ("RecordRowDelimiter" Data..= recordRowDelimiter),
             Prelude.Just
               ( "RecordColumnDelimiter"
-                  Core..= recordColumnDelimiter
+                  Data..= recordColumnDelimiter
               )
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2NetworkAclAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An association between the network ACL and a subnet.
@@ -74,15 +75,15 @@ awsEc2NetworkAclAssociation_subnetId = Lens.lens (\AwsEc2NetworkAclAssociation' 
 awsEc2NetworkAclAssociation_networkAclAssociationId :: Lens.Lens' AwsEc2NetworkAclAssociation (Prelude.Maybe Prelude.Text)
 awsEc2NetworkAclAssociation_networkAclAssociationId = Lens.lens (\AwsEc2NetworkAclAssociation' {networkAclAssociationId} -> networkAclAssociationId) (\s@AwsEc2NetworkAclAssociation' {} a -> s {networkAclAssociationId = a} :: AwsEc2NetworkAclAssociation)
 
-instance Core.FromJSON AwsEc2NetworkAclAssociation where
+instance Data.FromJSON AwsEc2NetworkAclAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2NetworkAclAssociation"
       ( \x ->
           AwsEc2NetworkAclAssociation'
-            Prelude.<$> (x Core..:? "NetworkAclId")
-            Prelude.<*> (x Core..:? "SubnetId")
-            Prelude.<*> (x Core..:? "NetworkAclAssociationId")
+            Prelude.<$> (x Data..:? "NetworkAclId")
+            Prelude.<*> (x Data..:? "SubnetId")
+            Prelude.<*> (x Data..:? "NetworkAclAssociationId")
       )
 
 instance Prelude.Hashable AwsEc2NetworkAclAssociation where
@@ -97,13 +98,13 @@ instance Prelude.NFData AwsEc2NetworkAclAssociation where
       `Prelude.seq` Prelude.rnf subnetId
       `Prelude.seq` Prelude.rnf networkAclAssociationId
 
-instance Core.ToJSON AwsEc2NetworkAclAssociation where
+instance Data.ToJSON AwsEc2NetworkAclAssociation where
   toJSON AwsEc2NetworkAclAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NetworkAclId" Core..=) Prelude.<$> networkAclId,
-            ("SubnetId" Core..=) Prelude.<$> subnetId,
-            ("NetworkAclAssociationId" Core..=)
+          [ ("NetworkAclId" Data..=) Prelude.<$> networkAclId,
+            ("SubnetId" Data..=) Prelude.<$> subnetId,
+            ("NetworkAclAssociationId" Data..=)
               Prelude.<$> networkAclAssociationId
           ]
       )

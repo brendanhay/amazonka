@@ -52,6 +52,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,7 +139,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           ListDistributionsByResponseHeadersPolicyIdResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,31 +164,31 @@ instance
       `Prelude.seq` Prelude.rnf responseHeadersPolicyId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListDistributionsByResponseHeadersPolicyId
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListDistributionsByResponseHeadersPolicyId
   where
   toPath
     ListDistributionsByResponseHeadersPolicyId' {..} =
       Prelude.mconcat
         [ "/2020-05-31/distributionsByResponseHeadersPolicyId/",
-          Core.toBS responseHeadersPolicyId
+          Data.toBS responseHeadersPolicyId
         ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListDistributionsByResponseHeadersPolicyId
   where
   toQuery
     ListDistributionsByResponseHeadersPolicyId' {..} =
       Prelude.mconcat
-        [ "Marker" Core.=: marker,
-          "MaxItems" Core.=: maxItems
+        [ "Marker" Data.=: marker,
+          "MaxItems" Data.=: maxItems
         ]
 
 -- | /See:/ 'newListDistributionsByResponseHeadersPolicyIdResponse' smart constructor.

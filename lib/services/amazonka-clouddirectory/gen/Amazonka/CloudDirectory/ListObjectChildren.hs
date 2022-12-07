@@ -48,6 +48,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -146,8 +147,8 @@ instance Core.AWSRequest ListObjectChildren where
     Response.receiveJSON
       ( \s h x ->
           ListObjectChildrenResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Children" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Children" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,30 +168,30 @@ instance Prelude.NFData ListObjectChildren where
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToHeaders ListObjectChildren where
+instance Data.ToHeaders ListObjectChildren where
   toHeaders ListObjectChildren' {..} =
     Prelude.mconcat
-      [ "x-amz-consistency-level" Core.=# consistencyLevel,
-        "x-amz-data-partition" Core.=# directoryArn
+      [ "x-amz-consistency-level" Data.=# consistencyLevel,
+        "x-amz-data-partition" Data.=# directoryArn
       ]
 
-instance Core.ToJSON ListObjectChildren where
+instance Data.ToJSON ListObjectChildren where
   toJSON ListObjectChildren' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )
 
-instance Core.ToPath ListObjectChildren where
+instance Data.ToPath ListObjectChildren where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/object/children"
 
-instance Core.ToQuery ListObjectChildren where
+instance Data.ToQuery ListObjectChildren where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListObjectChildrenResponse' smart constructor.

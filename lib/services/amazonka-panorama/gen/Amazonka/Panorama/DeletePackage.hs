@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,24 +114,24 @@ instance Prelude.NFData DeletePackage where
     Prelude.rnf forceDelete
       `Prelude.seq` Prelude.rnf packageId
 
-instance Core.ToHeaders DeletePackage where
+instance Data.ToHeaders DeletePackage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeletePackage where
+instance Data.ToPath DeletePackage where
   toPath DeletePackage' {..} =
-    Prelude.mconcat ["/packages/", Core.toBS packageId]
+    Prelude.mconcat ["/packages/", Data.toBS packageId]
 
-instance Core.ToQuery DeletePackage where
+instance Data.ToQuery DeletePackage where
   toQuery DeletePackage' {..} =
-    Prelude.mconcat ["ForceDelete" Core.=: forceDelete]
+    Prelude.mconcat ["ForceDelete" Data.=: forceDelete]
 
 -- | /See:/ 'newDeletePackageResponse' smart constructor.
 data DeletePackageResponse = DeletePackageResponse'

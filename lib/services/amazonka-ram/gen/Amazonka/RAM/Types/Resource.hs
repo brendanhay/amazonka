@@ -21,6 +21,7 @@ module Amazonka.RAM.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types.ResourceRegionScope
 import Amazonka.RAM.Types.ResourceStatus
@@ -52,10 +53,10 @@ data Resource = Resource'
     -- | The current status of the resource.
     status :: Prelude.Maybe ResourceStatus,
     -- | The date an time when the association was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the resource was associated with the resource
     -- share.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | A message about the status of the resource.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The
@@ -156,12 +157,12 @@ resource_status = Lens.lens (\Resource' {status} -> status) (\s@Resource' {} a -
 
 -- | The date an time when the association was last updated.
 resource_lastUpdatedTime :: Lens.Lens' Resource (Prelude.Maybe Prelude.UTCTime)
-resource_lastUpdatedTime = Lens.lens (\Resource' {lastUpdatedTime} -> lastUpdatedTime) (\s@Resource' {} a -> s {lastUpdatedTime = a} :: Resource) Prelude.. Lens.mapping Core._Time
+resource_lastUpdatedTime = Lens.lens (\Resource' {lastUpdatedTime} -> lastUpdatedTime) (\s@Resource' {} a -> s {lastUpdatedTime = a} :: Resource) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the resource was associated with the resource
 -- share.
 resource_creationTime :: Lens.Lens' Resource (Prelude.Maybe Prelude.UTCTime)
-resource_creationTime = Lens.lens (\Resource' {creationTime} -> creationTime) (\s@Resource' {} a -> s {creationTime = a} :: Resource) Prelude.. Lens.mapping Core._Time
+resource_creationTime = Lens.lens (\Resource' {creationTime} -> creationTime) (\s@Resource' {} a -> s {creationTime = a} :: Resource) Prelude.. Lens.mapping Data._Time
 
 -- | A message about the status of the resource.
 resource_statusMessage :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
@@ -174,21 +175,21 @@ resource_statusMessage = Lens.lens (\Resource' {statusMessage} -> statusMessage)
 resource_resourceGroupArn :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_resourceGroupArn = Lens.lens (\Resource' {resourceGroupArn} -> resourceGroupArn) (\s@Resource' {} a -> s {resourceGroupArn = a} :: Resource)
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "resourceRegionScope")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "resourceShareArn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "resourceGroupArn")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "resourceRegionScope")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "resourceShareArn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "resourceGroupArn")
       )
 
 instance Prelude.Hashable Resource where

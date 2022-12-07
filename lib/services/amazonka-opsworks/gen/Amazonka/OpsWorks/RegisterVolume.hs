@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance Core.AWSRequest RegisterVolume where
     Response.receiveJSON
       ( \s h x ->
           RegisterVolumeResponse'
-            Prelude.<$> (x Core..?> "VolumeId")
+            Prelude.<$> (x Data..?> "VolumeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,34 +120,34 @@ instance Prelude.NFData RegisterVolume where
     Prelude.rnf ec2VolumeId
       `Prelude.seq` Prelude.rnf stackId
 
-instance Core.ToHeaders RegisterVolume where
+instance Data.ToHeaders RegisterVolume where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.RegisterVolume" ::
+              Data.=# ( "OpsWorks_20130218.RegisterVolume" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterVolume where
+instance Data.ToJSON RegisterVolume where
   toJSON RegisterVolume' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Ec2VolumeId" Core..=) Prelude.<$> ec2VolumeId,
-            Prelude.Just ("StackId" Core..= stackId)
+          [ ("Ec2VolumeId" Data..=) Prelude.<$> ec2VolumeId,
+            Prelude.Just ("StackId" Data..= stackId)
           ]
       )
 
-instance Core.ToPath RegisterVolume where
+instance Data.ToPath RegisterVolume where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterVolume where
+instance Data.ToQuery RegisterVolume where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @RegisterVolume@ request.

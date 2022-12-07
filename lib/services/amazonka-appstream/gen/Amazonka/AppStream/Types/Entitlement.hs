@@ -23,6 +23,7 @@ import Amazonka.AppStream.Types.AppVisibility
 import Amazonka.AppStream.Types.EntitlementAttribute
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an entitlement. Entitlements control access to specific
@@ -36,11 +37,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEntitlement' smart constructor.
 data Entitlement = Entitlement'
   { -- | The time when the entitlement was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the entitlement.
     description :: Prelude.Maybe Prelude.Text,
     -- | The time when the entitlement was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the entitlement.
     name :: Prelude.Text,
     -- | The name of the stack with which the entitlement is associated.
@@ -100,7 +101,7 @@ newEntitlement
 
 -- | The time when the entitlement was created.
 entitlement_createdTime :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.UTCTime)
-entitlement_createdTime = Lens.lens (\Entitlement' {createdTime} -> createdTime) (\s@Entitlement' {} a -> s {createdTime = a} :: Entitlement) Prelude.. Lens.mapping Core._Time
+entitlement_createdTime = Lens.lens (\Entitlement' {createdTime} -> createdTime) (\s@Entitlement' {} a -> s {createdTime = a} :: Entitlement) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the entitlement.
 entitlement_description :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Text)
@@ -108,7 +109,7 @@ entitlement_description = Lens.lens (\Entitlement' {description} -> description)
 
 -- | The time when the entitlement was last modified.
 entitlement_lastModifiedTime :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.UTCTime)
-entitlement_lastModifiedTime = Lens.lens (\Entitlement' {lastModifiedTime} -> lastModifiedTime) (\s@Entitlement' {} a -> s {lastModifiedTime = a} :: Entitlement) Prelude.. Lens.mapping Core._Time
+entitlement_lastModifiedTime = Lens.lens (\Entitlement' {lastModifiedTime} -> lastModifiedTime) (\s@Entitlement' {} a -> s {lastModifiedTime = a} :: Entitlement) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the entitlement.
 entitlement_name :: Lens.Lens' Entitlement Prelude.Text
@@ -126,19 +127,19 @@ entitlement_appVisibility = Lens.lens (\Entitlement' {appVisibility} -> appVisib
 entitlement_attributes :: Lens.Lens' Entitlement (Prelude.NonEmpty EntitlementAttribute)
 entitlement_attributes = Lens.lens (\Entitlement' {attributes} -> attributes) (\s@Entitlement' {} a -> s {attributes = a} :: Entitlement) Prelude.. Lens.coerced
 
-instance Core.FromJSON Entitlement where
+instance Data.FromJSON Entitlement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Entitlement"
       ( \x ->
           Entitlement'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "StackName")
-            Prelude.<*> (x Core..: "AppVisibility")
-            Prelude.<*> (x Core..: "Attributes")
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "StackName")
+            Prelude.<*> (x Data..: "AppVisibility")
+            Prelude.<*> (x Data..: "Attributes")
       )
 
 instance Prelude.Hashable Entitlement where

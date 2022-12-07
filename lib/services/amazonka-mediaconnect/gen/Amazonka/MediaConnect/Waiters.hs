@@ -18,6 +18,7 @@ module Amazonka.MediaConnect.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.DescribeFlow
 import Amazonka.MediaConnect.Lens
 import Amazonka.MediaConnect.Types
@@ -36,14 +37,14 @@ newFlowStandby =
             Core.AcceptSuccess
             ( describeFlowResponse_flow Prelude.. Lens._Just
                 Prelude.. flow_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "STOPPING"
             Core.AcceptRetry
             ( describeFlowResponse_flow Prelude.. Lens._Just
                 Prelude.. flow_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry,
           Core.matchStatus 503 Core.AcceptRetry,
@@ -52,7 +53,7 @@ newFlowStandby =
             Core.AcceptFailure
             ( describeFlowResponse_flow Prelude.. Lens._Just
                 Prelude.. flow_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -71,7 +72,7 @@ newFlowDeleted =
             Core.AcceptRetry
             ( describeFlowResponse_flow Prelude.. Lens._Just
                 Prelude.. flow_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry,
           Core.matchStatus 503 Core.AcceptRetry,
@@ -80,7 +81,7 @@ newFlowDeleted =
             Core.AcceptFailure
             ( describeFlowResponse_flow Prelude.. Lens._Just
                 Prelude.. flow_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -98,21 +99,21 @@ newFlowActive =
             Core.AcceptSuccess
             ( describeFlowResponse_flow Prelude.. Lens._Just
                 Prelude.. flow_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "STARTING"
             Core.AcceptRetry
             ( describeFlowResponse_flow Prelude.. Lens._Just
                 Prelude.. flow_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATING"
             Core.AcceptRetry
             ( describeFlowResponse_flow Prelude.. Lens._Just
                 Prelude.. flow_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry,
           Core.matchStatus 503 Core.AcceptRetry,
@@ -121,7 +122,7 @@ newFlowActive =
             Core.AcceptFailure
             ( describeFlowResponse_flow Prelude.. Lens._Just
                 Prelude.. flow_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

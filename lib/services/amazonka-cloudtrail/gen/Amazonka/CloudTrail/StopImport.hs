@@ -50,6 +50,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,15 +90,15 @@ instance Core.AWSRequest StopImport where
     Response.receiveJSON
       ( \s h x ->
           StopImportResponse'
-            Prelude.<$> (x Core..?> "ImportSource")
-            Prelude.<*> (x Core..?> "EndEventTime")
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "UpdatedTimestamp")
-            Prelude.<*> (x Core..?> "StartEventTime")
-            Prelude.<*> (x Core..?> "ImportStatistics")
-            Prelude.<*> (x Core..?> "ImportId")
-            Prelude.<*> (x Core..?> "ImportStatus")
-            Prelude.<*> (x Core..?> "Destinations")
+            Prelude.<$> (x Data..?> "ImportSource")
+            Prelude.<*> (x Data..?> "EndEventTime")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "UpdatedTimestamp")
+            Prelude.<*> (x Data..?> "StartEventTime")
+            Prelude.<*> (x Data..?> "ImportStatistics")
+            Prelude.<*> (x Data..?> "ImportId")
+            Prelude.<*> (x Data..?> "ImportStatus")
+            Prelude.<*> (x Data..?> "Destinations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,32 +109,32 @@ instance Prelude.Hashable StopImport where
 instance Prelude.NFData StopImport where
   rnf StopImport' {..} = Prelude.rnf importId
 
-instance Core.ToHeaders StopImport where
+instance Data.ToHeaders StopImport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StopImport" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StopImport" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopImport where
+instance Data.ToJSON StopImport where
   toJSON StopImport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ImportId" Core..= importId)]
+          [Prelude.Just ("ImportId" Data..= importId)]
       )
 
-instance Core.ToPath StopImport where
+instance Data.ToPath StopImport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopImport where
+instance Data.ToQuery StopImport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopImportResponse' smart constructor.
@@ -143,15 +144,15 @@ data StopImportResponse = StopImportResponse'
     -- | Used with @StartEventTime@ to bound a @StartImport@ request, and limit
     -- imported trail events to only those events logged within a specified
     -- time period.
-    endEventTime :: Prelude.Maybe Core.POSIX,
+    endEventTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp of the import\'s creation.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The timestamp of the import\'s last update.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Used with @EndEventTime@ to bound a @StartImport@ request, and limit
     -- imported trail events to only those events logged within a specified
     -- time period.
-    startEventTime :: Prelude.Maybe Core.POSIX,
+    startEventTime :: Prelude.Maybe Data.POSIX,
     -- | Returns information on the stopped import.
     importStatistics :: Prelude.Maybe ImportStatistics,
     -- | The ID for the import.
@@ -222,21 +223,21 @@ stopImportResponse_importSource = Lens.lens (\StopImportResponse' {importSource}
 -- imported trail events to only those events logged within a specified
 -- time period.
 stopImportResponse_endEventTime :: Lens.Lens' StopImportResponse (Prelude.Maybe Prelude.UTCTime)
-stopImportResponse_endEventTime = Lens.lens (\StopImportResponse' {endEventTime} -> endEventTime) (\s@StopImportResponse' {} a -> s {endEventTime = a} :: StopImportResponse) Prelude.. Lens.mapping Core._Time
+stopImportResponse_endEventTime = Lens.lens (\StopImportResponse' {endEventTime} -> endEventTime) (\s@StopImportResponse' {} a -> s {endEventTime = a} :: StopImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of the import\'s creation.
 stopImportResponse_createdTimestamp :: Lens.Lens' StopImportResponse (Prelude.Maybe Prelude.UTCTime)
-stopImportResponse_createdTimestamp = Lens.lens (\StopImportResponse' {createdTimestamp} -> createdTimestamp) (\s@StopImportResponse' {} a -> s {createdTimestamp = a} :: StopImportResponse) Prelude.. Lens.mapping Core._Time
+stopImportResponse_createdTimestamp = Lens.lens (\StopImportResponse' {createdTimestamp} -> createdTimestamp) (\s@StopImportResponse' {} a -> s {createdTimestamp = a} :: StopImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of the import\'s last update.
 stopImportResponse_updatedTimestamp :: Lens.Lens' StopImportResponse (Prelude.Maybe Prelude.UTCTime)
-stopImportResponse_updatedTimestamp = Lens.lens (\StopImportResponse' {updatedTimestamp} -> updatedTimestamp) (\s@StopImportResponse' {} a -> s {updatedTimestamp = a} :: StopImportResponse) Prelude.. Lens.mapping Core._Time
+stopImportResponse_updatedTimestamp = Lens.lens (\StopImportResponse' {updatedTimestamp} -> updatedTimestamp) (\s@StopImportResponse' {} a -> s {updatedTimestamp = a} :: StopImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Used with @EndEventTime@ to bound a @StartImport@ request, and limit
 -- imported trail events to only those events logged within a specified
 -- time period.
 stopImportResponse_startEventTime :: Lens.Lens' StopImportResponse (Prelude.Maybe Prelude.UTCTime)
-stopImportResponse_startEventTime = Lens.lens (\StopImportResponse' {startEventTime} -> startEventTime) (\s@StopImportResponse' {} a -> s {startEventTime = a} :: StopImportResponse) Prelude.. Lens.mapping Core._Time
+stopImportResponse_startEventTime = Lens.lens (\StopImportResponse' {startEventTime} -> startEventTime) (\s@StopImportResponse' {} a -> s {startEventTime = a} :: StopImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Returns information on the stopped import.
 stopImportResponse_importStatistics :: Lens.Lens' StopImportResponse (Prelude.Maybe ImportStatistics)

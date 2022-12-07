@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about a failed Lambda function schedule event that
@@ -29,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newLambdaFunctionScheduleFailedEventDetails' smart constructor.
 data LambdaFunctionScheduleFailedEventDetails = LambdaFunctionScheduleFailedEventDetails'
   { -- | The error code of the failure.
-    error :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    error :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A more detailed explanation of the cause of the failure.
-    cause :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    cause :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -57,23 +58,23 @@ newLambdaFunctionScheduleFailedEventDetails =
 
 -- | The error code of the failure.
 lambdaFunctionScheduleFailedEventDetails_error :: Lens.Lens' LambdaFunctionScheduleFailedEventDetails (Prelude.Maybe Prelude.Text)
-lambdaFunctionScheduleFailedEventDetails_error = Lens.lens (\LambdaFunctionScheduleFailedEventDetails' {error} -> error) (\s@LambdaFunctionScheduleFailedEventDetails' {} a -> s {error = a} :: LambdaFunctionScheduleFailedEventDetails) Prelude.. Lens.mapping Core._Sensitive
+lambdaFunctionScheduleFailedEventDetails_error = Lens.lens (\LambdaFunctionScheduleFailedEventDetails' {error} -> error) (\s@LambdaFunctionScheduleFailedEventDetails' {} a -> s {error = a} :: LambdaFunctionScheduleFailedEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A more detailed explanation of the cause of the failure.
 lambdaFunctionScheduleFailedEventDetails_cause :: Lens.Lens' LambdaFunctionScheduleFailedEventDetails (Prelude.Maybe Prelude.Text)
-lambdaFunctionScheduleFailedEventDetails_cause = Lens.lens (\LambdaFunctionScheduleFailedEventDetails' {cause} -> cause) (\s@LambdaFunctionScheduleFailedEventDetails' {} a -> s {cause = a} :: LambdaFunctionScheduleFailedEventDetails) Prelude.. Lens.mapping Core._Sensitive
+lambdaFunctionScheduleFailedEventDetails_cause = Lens.lens (\LambdaFunctionScheduleFailedEventDetails' {cause} -> cause) (\s@LambdaFunctionScheduleFailedEventDetails' {} a -> s {cause = a} :: LambdaFunctionScheduleFailedEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LambdaFunctionScheduleFailedEventDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaFunctionScheduleFailedEventDetails"
       ( \x ->
           LambdaFunctionScheduleFailedEventDetails'
-            Prelude.<$> (x Core..:? "error")
-            Prelude.<*> (x Core..:? "cause")
+            Prelude.<$> (x Data..:? "error")
+            Prelude.<*> (x Data..:? "cause")
       )
 
 instance

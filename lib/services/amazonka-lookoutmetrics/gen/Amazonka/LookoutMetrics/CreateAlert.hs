@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -159,7 +160,7 @@ instance Core.AWSRequest CreateAlert where
     Response.receiveJSON
       ( \s h x ->
           CreateAlertResponse'
-            Prelude.<$> (x Core..?> "AlertArn")
+            Prelude.<$> (x Data..?> "AlertArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,38 +184,38 @@ instance Prelude.NFData CreateAlert where
       `Prelude.seq` Prelude.rnf anomalyDetectorArn
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToHeaders CreateAlert where
+instance Data.ToHeaders CreateAlert where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAlert where
+instance Data.ToJSON CreateAlert where
   toJSON CreateAlert' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("AlertDescription" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("AlertDescription" Data..=)
               Prelude.<$> alertDescription,
-            ("AlertSensitivityThreshold" Core..=)
+            ("AlertSensitivityThreshold" Data..=)
               Prelude.<$> alertSensitivityThreshold,
-            ("AlertFilters" Core..=) Prelude.<$> alertFilters,
-            Prelude.Just ("AlertName" Core..= alertName),
+            ("AlertFilters" Data..=) Prelude.<$> alertFilters,
+            Prelude.Just ("AlertName" Data..= alertName),
             Prelude.Just
-              ("AnomalyDetectorArn" Core..= anomalyDetectorArn),
-            Prelude.Just ("Action" Core..= action)
+              ("AnomalyDetectorArn" Data..= anomalyDetectorArn),
+            Prelude.Just ("Action" Data..= action)
           ]
       )
 
-instance Core.ToPath CreateAlert where
+instance Data.ToPath CreateAlert where
   toPath = Prelude.const "/CreateAlert"
 
-instance Core.ToQuery CreateAlert where
+instance Data.ToQuery CreateAlert where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAlertResponse' smart constructor.

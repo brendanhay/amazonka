@@ -69,6 +69,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -309,22 +310,22 @@ instance Core.AWSRequest CreateApi where
     Response.receiveJSON
       ( \s h x ->
           CreateApiResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "apiEndpoint")
-            Prelude.<*> (x Core..?> "apiId")
-            Prelude.<*> (x Core..?> "routeSelectionExpression")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "warnings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "apiKeySelectionExpression")
-            Prelude.<*> (x Core..?> "protocolType")
-            Prelude.<*> (x Core..?> "disableExecuteApiEndpoint")
-            Prelude.<*> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "disableSchemaValidation")
-            Prelude.<*> (x Core..?> "importInfo" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "corsConfiguration")
-            Prelude.<*> (x Core..?> "apiGatewayManaged")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "apiEndpoint")
+            Prelude.<*> (x Data..?> "apiId")
+            Prelude.<*> (x Data..?> "routeSelectionExpression")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "apiKeySelectionExpression")
+            Prelude.<*> (x Data..?> "protocolType")
+            Prelude.<*> (x Data..?> "disableExecuteApiEndpoint")
+            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> (x Data..?> "disableSchemaValidation")
+            Prelude.<*> (x Data..?> "importInfo" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "corsConfiguration")
+            Prelude.<*> (x Data..?> "apiGatewayManaged")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -360,47 +361,47 @@ instance Prelude.NFData CreateApi where
       `Prelude.seq` Prelude.rnf protocolType
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateApi where
+instance Data.ToHeaders CreateApi where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApi where
+instance Data.ToJSON CreateApi where
   toJSON CreateApi' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("credentialsArn" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("credentialsArn" Data..=)
               Prelude.<$> credentialsArn,
-            ("routeSelectionExpression" Core..=)
+            ("routeSelectionExpression" Data..=)
               Prelude.<$> routeSelectionExpression,
-            ("target" Core..=) Prelude.<$> target,
-            ("description" Core..=) Prelude.<$> description,
-            ("routeKey" Core..=) Prelude.<$> routeKey,
-            ("apiKeySelectionExpression" Core..=)
+            ("target" Data..=) Prelude.<$> target,
+            ("description" Data..=) Prelude.<$> description,
+            ("routeKey" Data..=) Prelude.<$> routeKey,
+            ("apiKeySelectionExpression" Data..=)
               Prelude.<$> apiKeySelectionExpression,
-            ("disableExecuteApiEndpoint" Core..=)
+            ("disableExecuteApiEndpoint" Data..=)
               Prelude.<$> disableExecuteApiEndpoint,
-            ("disableSchemaValidation" Core..=)
+            ("disableSchemaValidation" Data..=)
               Prelude.<$> disableSchemaValidation,
-            ("corsConfiguration" Core..=)
+            ("corsConfiguration" Data..=)
               Prelude.<$> corsConfiguration,
-            ("version" Core..=) Prelude.<$> version,
-            Prelude.Just ("protocolType" Core..= protocolType),
-            Prelude.Just ("name" Core..= name)
+            ("version" Data..=) Prelude.<$> version,
+            Prelude.Just ("protocolType" Data..= protocolType),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateApi where
+instance Data.ToPath CreateApi where
   toPath = Prelude.const "/v2/apis"
 
-instance Core.ToQuery CreateApi where
+instance Data.ToQuery CreateApi where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateApiResponse' smart constructor.
@@ -437,7 +438,7 @@ data CreateApiResponse = CreateApiResponse'
     -- disable the default endpoint.
     disableExecuteApiEndpoint :: Prelude.Maybe Prelude.Bool,
     -- | The timestamp when the API was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | Avoid validating models when creating a deployment. Supported only for
     -- WebSocket APIs.
     disableSchemaValidation :: Prelude.Maybe Prelude.Bool,
@@ -593,7 +594,7 @@ createApiResponse_disableExecuteApiEndpoint = Lens.lens (\CreateApiResponse' {di
 
 -- | The timestamp when the API was created.
 createApiResponse_createdDate :: Lens.Lens' CreateApiResponse (Prelude.Maybe Prelude.UTCTime)
-createApiResponse_createdDate = Lens.lens (\CreateApiResponse' {createdDate} -> createdDate) (\s@CreateApiResponse' {} a -> s {createdDate = a} :: CreateApiResponse) Prelude.. Lens.mapping Core._Time
+createApiResponse_createdDate = Lens.lens (\CreateApiResponse' {createdDate} -> createdDate) (\s@CreateApiResponse' {} a -> s {createdDate = a} :: CreateApiResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Avoid validating models when creating a deployment. Supported only for
 -- WebSocket APIs.

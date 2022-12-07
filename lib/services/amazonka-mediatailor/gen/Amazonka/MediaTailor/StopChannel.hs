@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,26 +93,26 @@ instance Prelude.Hashable StopChannel where
 instance Prelude.NFData StopChannel where
   rnf StopChannel' {..} = Prelude.rnf channelName
 
-instance Core.ToHeaders StopChannel where
+instance Data.ToHeaders StopChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopChannel where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StopChannel where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StopChannel where
+instance Data.ToPath StopChannel where
   toPath StopChannel' {..} =
     Prelude.mconcat
-      ["/channel/", Core.toBS channelName, "/stop"]
+      ["/channel/", Data.toBS channelName, "/stop"]
 
-instance Core.ToQuery StopChannel where
+instance Data.ToQuery StopChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopChannelResponse' smart constructor.

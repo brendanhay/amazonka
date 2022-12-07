@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.AccountHealth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.AccountInsightHealth
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,14 +72,14 @@ accountHealth_insight = Lens.lens (\AccountHealth' {insight} -> insight) (\s@Acc
 accountHealth_accountId :: Lens.Lens' AccountHealth (Prelude.Maybe Prelude.Text)
 accountHealth_accountId = Lens.lens (\AccountHealth' {accountId} -> accountId) (\s@AccountHealth' {} a -> s {accountId = a} :: AccountHealth)
 
-instance Core.FromJSON AccountHealth where
+instance Data.FromJSON AccountHealth where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountHealth"
       ( \x ->
           AccountHealth'
-            Prelude.<$> (x Core..:? "Insight")
-            Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<$> (x Data..:? "Insight")
+            Prelude.<*> (x Data..:? "AccountId")
       )
 
 instance Prelude.Hashable AccountHealth where

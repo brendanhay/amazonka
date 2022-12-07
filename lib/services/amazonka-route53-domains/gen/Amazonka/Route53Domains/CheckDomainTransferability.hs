@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,7 +55,7 @@ data CheckDomainTransferability = CheckDomainTransferability'
   { -- | If the registrar for the top-level domain (TLD) requires an
     -- authorization code to transfer the domain, the code that you got from
     -- the current registrar for the domain.
-    authCode :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authCode :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the domain that you want to transfer to Route 53. The
     -- top-level domain (TLD), such as .com, must be a TLD that Route 53
     -- supports. For a list of supported TLDs, see
@@ -120,7 +121,7 @@ newCheckDomainTransferability pDomainName_ =
 -- authorization code to transfer the domain, the code that you got from
 -- the current registrar for the domain.
 checkDomainTransferability_authCode :: Lens.Lens' CheckDomainTransferability (Prelude.Maybe Prelude.Text)
-checkDomainTransferability_authCode = Lens.lens (\CheckDomainTransferability' {authCode} -> authCode) (\s@CheckDomainTransferability' {} a -> s {authCode = a} :: CheckDomainTransferability) Prelude.. Lens.mapping Core._Sensitive
+checkDomainTransferability_authCode = Lens.lens (\CheckDomainTransferability' {authCode} -> authCode) (\s@CheckDomainTransferability' {} a -> s {authCode = a} :: CheckDomainTransferability) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the domain that you want to transfer to Route 53. The
 -- top-level domain (TLD), such as .com, must be a TLD that Route 53
@@ -153,7 +154,7 @@ instance Core.AWSRequest CheckDomainTransferability where
       ( \s h x ->
           CheckDomainTransferabilityResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Transferability")
+            Prelude.<*> (x Data..:> "Transferability")
       )
 
 instance Prelude.Hashable CheckDomainTransferability where
@@ -166,34 +167,34 @@ instance Prelude.NFData CheckDomainTransferability where
     Prelude.rnf authCode
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders CheckDomainTransferability where
+instance Data.ToHeaders CheckDomainTransferability where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.CheckDomainTransferability" ::
+              Data.=# ( "Route53Domains_v20140515.CheckDomainTransferability" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CheckDomainTransferability where
+instance Data.ToJSON CheckDomainTransferability where
   toJSON CheckDomainTransferability' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AuthCode" Core..=) Prelude.<$> authCode,
-            Prelude.Just ("DomainName" Core..= domainName)
+          [ ("AuthCode" Data..=) Prelude.<$> authCode,
+            Prelude.Just ("DomainName" Data..= domainName)
           ]
       )
 
-instance Core.ToPath CheckDomainTransferability where
+instance Data.ToPath CheckDomainTransferability where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CheckDomainTransferability where
+instance Data.ToQuery CheckDomainTransferability where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The CheckDomainTransferability response includes the following elements.

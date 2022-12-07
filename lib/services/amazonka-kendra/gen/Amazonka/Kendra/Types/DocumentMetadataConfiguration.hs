@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DocumentMetadataConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DocumentAttributeValueType
 import Amazonka.Kendra.Types.Relevance
 import Amazonka.Kendra.Types.Search
@@ -91,16 +92,16 @@ documentMetadataConfiguration_name = Lens.lens (\DocumentMetadataConfiguration' 
 documentMetadataConfiguration_type :: Lens.Lens' DocumentMetadataConfiguration DocumentAttributeValueType
 documentMetadataConfiguration_type = Lens.lens (\DocumentMetadataConfiguration' {type'} -> type') (\s@DocumentMetadataConfiguration' {} a -> s {type' = a} :: DocumentMetadataConfiguration)
 
-instance Core.FromJSON DocumentMetadataConfiguration where
+instance Data.FromJSON DocumentMetadataConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentMetadataConfiguration"
       ( \x ->
           DocumentMetadataConfiguration'
-            Prelude.<$> (x Core..:? "Relevance")
-            Prelude.<*> (x Core..:? "Search")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "Relevance")
+            Prelude.<*> (x Data..:? "Search")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance
@@ -120,13 +121,13 @@ instance Prelude.NFData DocumentMetadataConfiguration where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON DocumentMetadataConfiguration where
+instance Data.ToJSON DocumentMetadataConfiguration where
   toJSON DocumentMetadataConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Relevance" Core..=) Prelude.<$> relevance,
-            ("Search" Core..=) Prelude.<$> search,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Type" Core..= type')
+          [ ("Relevance" Data..=) Prelude.<$> relevance,
+            ("Search" Data..=) Prelude.<$> search,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Type" Data..= type')
           ]
       )

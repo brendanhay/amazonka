@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.AnalysisResultLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information that you can use to locate the field in your
@@ -54,13 +55,13 @@ newAnalysisResultLocation =
 analysisResultLocation_path :: Lens.Lens' AnalysisResultLocation (Prelude.Maybe Prelude.Text)
 analysisResultLocation_path = Lens.lens (\AnalysisResultLocation' {path} -> path) (\s@AnalysisResultLocation' {} a -> s {path = a} :: AnalysisResultLocation)
 
-instance Core.FromJSON AnalysisResultLocation where
+instance Data.FromJSON AnalysisResultLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnalysisResultLocation"
       ( \x ->
           AnalysisResultLocation'
-            Prelude.<$> (x Core..:? "path")
+            Prelude.<$> (x Data..:? "path")
       )
 
 instance Prelude.Hashable AnalysisResultLocation where

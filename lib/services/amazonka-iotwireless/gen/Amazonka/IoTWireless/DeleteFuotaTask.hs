@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,14 +91,14 @@ instance Prelude.Hashable DeleteFuotaTask where
 instance Prelude.NFData DeleteFuotaTask where
   rnf DeleteFuotaTask' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteFuotaTask where
+instance Data.ToHeaders DeleteFuotaTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteFuotaTask where
+instance Data.ToPath DeleteFuotaTask where
   toPath DeleteFuotaTask' {..} =
-    Prelude.mconcat ["/fuota-tasks/", Core.toBS id]
+    Prelude.mconcat ["/fuota-tasks/", Data.toBS id]
 
-instance Core.ToQuery DeleteFuotaTask where
+instance Data.ToQuery DeleteFuotaTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFuotaTaskResponse' smart constructor.

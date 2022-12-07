@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.PropertyNameSuggestion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A property name returned from a @GetSearchSuggestions@ call that
@@ -57,13 +58,13 @@ newPropertyNameSuggestion =
 propertyNameSuggestion_propertyName :: Lens.Lens' PropertyNameSuggestion (Prelude.Maybe Prelude.Text)
 propertyNameSuggestion_propertyName = Lens.lens (\PropertyNameSuggestion' {propertyName} -> propertyName) (\s@PropertyNameSuggestion' {} a -> s {propertyName = a} :: PropertyNameSuggestion)
 
-instance Core.FromJSON PropertyNameSuggestion where
+instance Data.FromJSON PropertyNameSuggestion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PropertyNameSuggestion"
       ( \x ->
           PropertyNameSuggestion'
-            Prelude.<$> (x Core..:? "PropertyName")
+            Prelude.<$> (x Data..:? "PropertyName")
       )
 
 instance Prelude.Hashable PropertyNameSuggestion where

@@ -47,6 +47,7 @@ where
 import Amazonka.ComprehendMedical.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,10 +92,10 @@ instance Core.AWSRequest DetectPHI where
     Response.receiveJSON
       ( \s h x ->
           DetectPHIResponse'
-            Prelude.<$> (x Core..?> "PaginationToken")
+            Prelude.<$> (x Data..?> "PaginationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Entities" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "ModelVersion")
+            Prelude.<*> (x Data..?> "Entities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "ModelVersion")
       )
 
 instance Prelude.Hashable DetectPHI where
@@ -104,32 +105,32 @@ instance Prelude.Hashable DetectPHI where
 instance Prelude.NFData DetectPHI where
   rnf DetectPHI' {..} = Prelude.rnf text
 
-instance Core.ToHeaders DetectPHI where
+instance Data.ToHeaders DetectPHI where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComprehendMedical_20181030.DetectPHI" ::
+              Data.=# ( "ComprehendMedical_20181030.DetectPHI" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DetectPHI where
+instance Data.ToJSON DetectPHI where
   toJSON DetectPHI' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Text" Core..= text)]
+          [Prelude.Just ("Text" Data..= text)]
       )
 
-instance Core.ToPath DetectPHI where
+instance Data.ToPath DetectPHI where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetectPHI where
+instance Data.ToQuery DetectPHI where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectPHIResponse' smart constructor.

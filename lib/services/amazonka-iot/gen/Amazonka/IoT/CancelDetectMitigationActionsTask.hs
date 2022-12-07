@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,30 +113,30 @@ instance
     Prelude.rnf taskId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CancelDetectMitigationActionsTask
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CancelDetectMitigationActionsTask
   where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
 instance
-  Core.ToPath
+  Data.ToPath
     CancelDetectMitigationActionsTask
   where
   toPath CancelDetectMitigationActionsTask' {..} =
     Prelude.mconcat
       [ "/detect/mitigationactions/tasks/",
-        Core.toBS taskId,
+        Data.toBS taskId,
         "/cancel"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CancelDetectMitigationActionsTask
   where
   toQuery = Prelude.const Prelude.mempty

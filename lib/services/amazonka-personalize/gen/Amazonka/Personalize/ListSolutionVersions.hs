@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,8 +136,8 @@ instance Core.AWSRequest ListSolutionVersions where
     Response.receiveJSON
       ( \s h x ->
           ListSolutionVersionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "solutionVersions"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "solutionVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -154,35 +155,35 @@ instance Prelude.NFData ListSolutionVersions where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListSolutionVersions where
+instance Data.ToHeaders ListSolutionVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.ListSolutionVersions" ::
+              Data.=# ( "AmazonPersonalize.ListSolutionVersions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSolutionVersions where
+instance Data.ToJSON ListSolutionVersions where
   toJSON ListSolutionVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("solutionArn" Core..=) Prelude.<$> solutionArn,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("solutionArn" Data..=) Prelude.<$> solutionArn,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListSolutionVersions where
+instance Data.ToPath ListSolutionVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSolutionVersions where
+instance Data.ToQuery ListSolutionVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSolutionVersionsResponse' smart constructor.

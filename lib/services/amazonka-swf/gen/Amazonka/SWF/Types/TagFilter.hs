@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.TagFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to filter the workflow executions in visibility APIs based on a
@@ -71,9 +72,9 @@ instance Prelude.Hashable TagFilter where
 instance Prelude.NFData TagFilter where
   rnf TagFilter' {..} = Prelude.rnf tag
 
-instance Core.ToJSON TagFilter where
+instance Data.ToJSON TagFilter where
   toJSON TagFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("tag" Core..= tag)]
+          [Prelude.Just ("tag" Data..= tag)]
       )

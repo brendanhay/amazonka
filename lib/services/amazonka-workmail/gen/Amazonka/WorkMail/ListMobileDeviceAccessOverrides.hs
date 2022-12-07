@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,8 +162,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListMobileDeviceAccessOverridesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Overrides" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Overrides" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,40 +192,40 @@ instance
       `Prelude.seq` Prelude.rnf organizationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListMobileDeviceAccessOverrides
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.ListMobileDeviceAccessOverrides" ::
+              Data.=# ( "WorkMailService.ListMobileDeviceAccessOverrides" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListMobileDeviceAccessOverrides where
+instance Data.ToJSON ListMobileDeviceAccessOverrides where
   toJSON ListMobileDeviceAccessOverrides' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("DeviceId" Core..=) Prelude.<$> deviceId,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("UserId" Core..=) Prelude.<$> userId,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("DeviceId" Data..=) Prelude.<$> deviceId,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("UserId" Data..=) Prelude.<$> userId,
             Prelude.Just
-              ("OrganizationId" Core..= organizationId)
+              ("OrganizationId" Data..= organizationId)
           ]
       )
 
-instance Core.ToPath ListMobileDeviceAccessOverrides where
+instance Data.ToPath ListMobileDeviceAccessOverrides where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListMobileDeviceAccessOverrides where
+instance Data.ToQuery ListMobileDeviceAccessOverrides where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListMobileDeviceAccessOverridesResponse' smart constructor.

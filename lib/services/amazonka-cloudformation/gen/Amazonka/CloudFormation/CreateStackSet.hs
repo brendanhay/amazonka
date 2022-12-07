@@ -56,6 +56,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -661,7 +662,7 @@ instance Core.AWSRequest CreateStackSet where
       "CreateStackSetResult"
       ( \s h x ->
           CreateStackSetResponse'
-            Prelude.<$> (x Core..@? "StackSetId")
+            Prelude.<$> (x Data..@? "StackSetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -701,41 +702,41 @@ instance Prelude.NFData CreateStackSet where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf stackSetName
 
-instance Core.ToHeaders CreateStackSet where
+instance Data.ToHeaders CreateStackSet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateStackSet where
+instance Data.ToPath CreateStackSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateStackSet where
+instance Data.ToQuery CreateStackSet where
   toQuery CreateStackSet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateStackSet" :: Prelude.ByteString),
+          Data.=: ("CreateStackSet" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "StackId" Core.=: stackId,
-        "ClientRequestToken" Core.=: clientRequestToken,
-        "CallAs" Core.=: callAs,
-        "TemplateBody" Core.=: templateBody,
-        "Description" Core.=: description,
-        "AutoDeployment" Core.=: autoDeployment,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "StackId" Data.=: stackId,
+        "ClientRequestToken" Data.=: clientRequestToken,
+        "CallAs" Data.=: callAs,
+        "TemplateBody" Data.=: templateBody,
+        "Description" Data.=: description,
+        "AutoDeployment" Data.=: autoDeployment,
         "Capabilities"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> capabilities),
-        "ManagedExecution" Core.=: managedExecution,
-        "ExecutionRoleName" Core.=: executionRoleName,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> capabilities),
+        "ManagedExecution" Data.=: managedExecution,
+        "ExecutionRoleName" Data.=: executionRoleName,
         "AdministrationRoleARN"
-          Core.=: administrationRoleARN,
-        "PermissionModel" Core.=: permissionModel,
-        "TemplateURL" Core.=: templateURL,
+          Data.=: administrationRoleARN,
+        "PermissionModel" Data.=: permissionModel,
+        "TemplateURL" Data.=: templateURL,
         "Parameters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> parameters),
-        "StackSetName" Core.=: stackSetName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> parameters),
+        "StackSetName" Data.=: stackSetName
       ]
 
 -- | /See:/ 'newCreateStackSetResponse' smart constructor.

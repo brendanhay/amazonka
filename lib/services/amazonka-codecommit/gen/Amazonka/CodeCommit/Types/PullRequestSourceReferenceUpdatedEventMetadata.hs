@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.PullRequestSourceReferenceUpdatedEventMetadata 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an update to the source branch of a pull request.
@@ -92,18 +93,18 @@ pullRequestSourceReferenceUpdatedEventMetadata_mergeBase :: Lens.Lens' PullReque
 pullRequestSourceReferenceUpdatedEventMetadata_mergeBase = Lens.lens (\PullRequestSourceReferenceUpdatedEventMetadata' {mergeBase} -> mergeBase) (\s@PullRequestSourceReferenceUpdatedEventMetadata' {} a -> s {mergeBase = a} :: PullRequestSourceReferenceUpdatedEventMetadata)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PullRequestSourceReferenceUpdatedEventMetadata
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PullRequestSourceReferenceUpdatedEventMetadata"
       ( \x ->
           PullRequestSourceReferenceUpdatedEventMetadata'
-            Prelude.<$> (x Core..:? "afterCommitId")
-              Prelude.<*> (x Core..:? "repositoryName")
-              Prelude.<*> (x Core..:? "beforeCommitId")
-              Prelude.<*> (x Core..:? "mergeBase")
+            Prelude.<$> (x Data..:? "afterCommitId")
+              Prelude.<*> (x Data..:? "repositoryName")
+              Prelude.<*> (x Data..:? "beforeCommitId")
+              Prelude.<*> (x Data..:? "mergeBase")
       )
 
 instance

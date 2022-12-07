@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,32 +95,32 @@ instance Prelude.Hashable ClearQuerySuggestions where
 instance Prelude.NFData ClearQuerySuggestions where
   rnf ClearQuerySuggestions' {..} = Prelude.rnf indexId
 
-instance Core.ToHeaders ClearQuerySuggestions where
+instance Data.ToHeaders ClearQuerySuggestions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.ClearQuerySuggestions" ::
+              Data.=# ( "AWSKendraFrontendService.ClearQuerySuggestions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ClearQuerySuggestions where
+instance Data.ToJSON ClearQuerySuggestions where
   toJSON ClearQuerySuggestions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("IndexId" Core..= indexId)]
+          [Prelude.Just ("IndexId" Data..= indexId)]
       )
 
-instance Core.ToPath ClearQuerySuggestions where
+instance Data.ToPath ClearQuerySuggestions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ClearQuerySuggestions where
+instance Data.ToQuery ClearQuerySuggestions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newClearQuerySuggestionsResponse' smart constructor.

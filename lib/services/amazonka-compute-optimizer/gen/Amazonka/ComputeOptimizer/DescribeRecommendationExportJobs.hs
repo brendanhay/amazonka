@@ -51,6 +51,7 @@ where
 import Amazonka.ComputeOptimizer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,8 +157,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeRecommendationExportJobsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "recommendationExportJobs"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "recommendationExportJobs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -186,39 +187,39 @@ instance
       `Prelude.seq` Prelude.rnf jobIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeRecommendationExportJobs
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComputeOptimizerService.DescribeRecommendationExportJobs" ::
+              Data.=# ( "ComputeOptimizerService.DescribeRecommendationExportJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRecommendationExportJobs where
+instance Data.ToJSON DescribeRecommendationExportJobs where
   toJSON DescribeRecommendationExportJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("jobIds" Core..=) Prelude.<$> jobIds
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("jobIds" Data..=) Prelude.<$> jobIds
           ]
       )
 
-instance Core.ToPath DescribeRecommendationExportJobs where
+instance Data.ToPath DescribeRecommendationExportJobs where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeRecommendationExportJobs
   where
   toQuery = Prelude.const Prelude.mempty

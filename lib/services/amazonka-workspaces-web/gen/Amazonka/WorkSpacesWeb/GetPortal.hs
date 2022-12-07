@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,7 +82,7 @@ instance Core.AWSRequest GetPortal where
     Response.receiveJSON
       ( \s h x ->
           GetPortalResponse'
-            Prelude.<$> (x Core..?> "portal")
+            Prelude.<$> (x Data..?> "portal")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -92,22 +93,22 @@ instance Prelude.Hashable GetPortal where
 instance Prelude.NFData GetPortal where
   rnf GetPortal' {..} = Prelude.rnf portalArn
 
-instance Core.ToHeaders GetPortal where
+instance Data.ToHeaders GetPortal where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetPortal where
+instance Data.ToPath GetPortal where
   toPath GetPortal' {..} =
-    Prelude.mconcat ["/portals/", Core.toBS portalArn]
+    Prelude.mconcat ["/portals/", Data.toBS portalArn]
 
-instance Core.ToQuery GetPortal where
+instance Data.ToQuery GetPortal where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPortalResponse' smart constructor.

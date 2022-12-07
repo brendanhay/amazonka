@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types
 import qualified Amazonka.Request as Request
@@ -136,8 +137,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListJournalKinesisStreamsForLedgerResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "Streams" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "Streams" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,38 +163,38 @@ instance
       `Prelude.seq` Prelude.rnf ledgerName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListJournalKinesisStreamsForLedger
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListJournalKinesisStreamsForLedger
   where
   toPath ListJournalKinesisStreamsForLedger' {..} =
     Prelude.mconcat
       [ "/ledgers/",
-        Core.toBS ledgerName,
+        Data.toBS ledgerName,
         "/journal-kinesis-streams"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListJournalKinesisStreamsForLedger
   where
   toQuery ListJournalKinesisStreamsForLedger' {..} =
     Prelude.mconcat
-      [ "next_token" Core.=: nextToken,
-        "max_results" Core.=: maxResults
+      [ "next_token" Data.=: nextToken,
+        "max_results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListJournalKinesisStreamsForLedgerResponse' smart constructor.

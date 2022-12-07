@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.Experiment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.ExperimentExecution
 import Amazonka.Evidently.Types.ExperimentSchedule
 import Amazonka.Evidently.Types.ExperimentStatus
@@ -79,9 +80,9 @@ data Experiment = Experiment'
     -- | The ARN of the experiment.
     arn :: Prelude.Text,
     -- | The date and time that the experiment is first created.
-    createdTime :: Core.POSIX,
+    createdTime :: Data.POSIX,
     -- | The date and time that the experiment was most recently updated.
-    lastUpdatedTime :: Core.POSIX,
+    lastUpdatedTime :: Data.POSIX,
     -- | The name of the experiment.
     name :: Prelude.Text,
     -- | The current state of the experiment.
@@ -189,9 +190,9 @@ newExperiment
         metricGoals = Prelude.Nothing,
         randomizationSalt = Prelude.Nothing,
         arn = pArn_,
-        createdTime = Core._Time Lens.# pCreatedTime_,
+        createdTime = Data._Time Lens.# pCreatedTime_,
         lastUpdatedTime =
-          Core._Time Lens.# pLastUpdatedTime_,
+          Data._Time Lens.# pLastUpdatedTime_,
         name = pName_,
         status = pStatus_,
         type' = pType_
@@ -269,11 +270,11 @@ experiment_arn = Lens.lens (\Experiment' {arn} -> arn) (\s@Experiment' {} a -> s
 
 -- | The date and time that the experiment is first created.
 experiment_createdTime :: Lens.Lens' Experiment Prelude.UTCTime
-experiment_createdTime = Lens.lens (\Experiment' {createdTime} -> createdTime) (\s@Experiment' {} a -> s {createdTime = a} :: Experiment) Prelude.. Core._Time
+experiment_createdTime = Lens.lens (\Experiment' {createdTime} -> createdTime) (\s@Experiment' {} a -> s {createdTime = a} :: Experiment) Prelude.. Data._Time
 
 -- | The date and time that the experiment was most recently updated.
 experiment_lastUpdatedTime :: Lens.Lens' Experiment Prelude.UTCTime
-experiment_lastUpdatedTime = Lens.lens (\Experiment' {lastUpdatedTime} -> lastUpdatedTime) (\s@Experiment' {} a -> s {lastUpdatedTime = a} :: Experiment) Prelude.. Core._Time
+experiment_lastUpdatedTime = Lens.lens (\Experiment' {lastUpdatedTime} -> lastUpdatedTime) (\s@Experiment' {} a -> s {lastUpdatedTime = a} :: Experiment) Prelude.. Data._Time
 
 -- | The name of the experiment.
 experiment_name :: Lens.Lens' Experiment Prelude.Text
@@ -288,30 +289,30 @@ experiment_status = Lens.lens (\Experiment' {status} -> status) (\s@Experiment' 
 experiment_type :: Lens.Lens' Experiment ExperimentType
 experiment_type = Lens.lens (\Experiment' {type'} -> type') (\s@Experiment' {} a -> s {type' = a} :: Experiment)
 
-instance Core.FromJSON Experiment where
+instance Data.FromJSON Experiment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Experiment"
       ( \x ->
           Experiment'
-            Prelude.<$> (x Core..:? "schedule")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "onlineAbDefinition")
-            Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "project")
-            Prelude.<*> (x Core..:? "execution")
-            Prelude.<*> (x Core..:? "treatments")
-            Prelude.<*> (x Core..:? "samplingRate")
-            Prelude.<*> (x Core..:? "segment")
-            Prelude.<*> (x Core..:? "metricGoals")
-            Prelude.<*> (x Core..:? "randomizationSalt")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdTime")
-            Prelude.<*> (x Core..: "lastUpdatedTime")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "schedule")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "onlineAbDefinition")
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "project")
+            Prelude.<*> (x Data..:? "execution")
+            Prelude.<*> (x Data..:? "treatments")
+            Prelude.<*> (x Data..:? "samplingRate")
+            Prelude.<*> (x Data..:? "segment")
+            Prelude.<*> (x Data..:? "metricGoals")
+            Prelude.<*> (x Data..:? "randomizationSalt")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdTime")
+            Prelude.<*> (x Data..: "lastUpdatedTime")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable Experiment where

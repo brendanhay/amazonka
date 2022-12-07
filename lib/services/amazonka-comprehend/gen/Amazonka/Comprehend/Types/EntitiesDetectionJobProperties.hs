@@ -26,6 +26,7 @@ import Amazonka.Comprehend.Types.OutputDataConfig
 import Amazonka.Comprehend.Types.VpcConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an entities detection job.
@@ -48,7 +49,7 @@ data EntitiesDetectionJobProperties = EntitiesDetectionJobProperties'
     -- | The name that you assigned the entities detection job.
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The time that the entities detection job was submitted for processing.
-    submitTime :: Prelude.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier assigned to the entities detection job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that identifies the entity recognizer.
@@ -67,7 +68,7 @@ data EntitiesDetectionJobProperties = EntitiesDetectionJobProperties'
     -- to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the entities detection job completed
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The language code of the input documents.
     languageCode :: Prelude.Maybe LanguageCode,
     -- | The Amazon Resource Name (ARN) of the entities detection job. It is a
@@ -192,7 +193,7 @@ entitiesDetectionJobProperties_jobName = Lens.lens (\EntitiesDetectionJobPropert
 
 -- | The time that the entities detection job was submitted for processing.
 entitiesDetectionJobProperties_submitTime :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
-entitiesDetectionJobProperties_submitTime = Lens.lens (\EntitiesDetectionJobProperties' {submitTime} -> submitTime) (\s@EntitiesDetectionJobProperties' {} a -> s {submitTime = a} :: EntitiesDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+entitiesDetectionJobProperties_submitTime = Lens.lens (\EntitiesDetectionJobProperties' {submitTime} -> submitTime) (\s@EntitiesDetectionJobProperties' {} a -> s {submitTime = a} :: EntitiesDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier assigned to the entities detection job.
 entitiesDetectionJobProperties_jobId :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
@@ -221,7 +222,7 @@ entitiesDetectionJobProperties_dataAccessRoleArn = Lens.lens (\EntitiesDetection
 
 -- | The time that the entities detection job completed
 entitiesDetectionJobProperties_endTime :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
-entitiesDetectionJobProperties_endTime = Lens.lens (\EntitiesDetectionJobProperties' {endTime} -> endTime) (\s@EntitiesDetectionJobProperties' {} a -> s {endTime = a} :: EntitiesDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+entitiesDetectionJobProperties_endTime = Lens.lens (\EntitiesDetectionJobProperties' {endTime} -> endTime) (\s@EntitiesDetectionJobProperties' {} a -> s {endTime = a} :: EntitiesDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The language code of the input documents.
 entitiesDetectionJobProperties_languageCode :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe LanguageCode)
@@ -244,26 +245,26 @@ entitiesDetectionJobProperties_jobArn = Lens.lens (\EntitiesDetectionJobProperti
 entitiesDetectionJobProperties_inputDataConfig :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe InputDataConfig)
 entitiesDetectionJobProperties_inputDataConfig = Lens.lens (\EntitiesDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@EntitiesDetectionJobProperties' {} a -> s {inputDataConfig = a} :: EntitiesDetectionJobProperties)
 
-instance Core.FromJSON EntitiesDetectionJobProperties where
+instance Data.FromJSON EntitiesDetectionJobProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntitiesDetectionJobProperties"
       ( \x ->
           EntitiesDetectionJobProperties'
-            Prelude.<$> (x Core..:? "OutputDataConfig")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "JobStatus")
-            Prelude.<*> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "SubmitTime")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "EntityRecognizerArn")
-            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "JobArn")
-            Prelude.<*> (x Core..:? "InputDataConfig")
+            Prelude.<$> (x Data..:? "OutputDataConfig")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "JobStatus")
+            Prelude.<*> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "SubmitTime")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "EntityRecognizerArn")
+            Prelude.<*> (x Data..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Data..:? "DataAccessRoleArn")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "JobArn")
+            Prelude.<*> (x Data..:? "InputDataConfig")
       )
 
 instance

@@ -45,6 +45,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,7 +124,7 @@ instance Core.AWSRequest ListStreamingDistributions where
       ( \s h x ->
           ListStreamingDistributionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (Data.parseXML x)
       )
 
 instance Prelude.Hashable ListStreamingDistributions where
@@ -136,18 +137,18 @@ instance Prelude.NFData ListStreamingDistributions where
     Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
 
-instance Core.ToHeaders ListStreamingDistributions where
+instance Data.ToHeaders ListStreamingDistributions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListStreamingDistributions where
+instance Data.ToPath ListStreamingDistributions where
   toPath =
     Prelude.const "/2020-05-31/streaming-distribution"
 
-instance Core.ToQuery ListStreamingDistributions where
+instance Data.ToQuery ListStreamingDistributions where
   toQuery ListStreamingDistributions' {..} =
     Prelude.mconcat
-      [ "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+      [ "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | The returned result of the corresponding request.

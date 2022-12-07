@@ -23,6 +23,7 @@ import Amazonka.Config.Types.ResourceValue
 import Amazonka.Config.Types.StaticValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value is either a dynamic (resource) value or a static value. You
@@ -65,14 +66,14 @@ remediationParameterValue_staticValue = Lens.lens (\RemediationParameterValue' {
 remediationParameterValue_resourceValue :: Lens.Lens' RemediationParameterValue (Prelude.Maybe ResourceValue)
 remediationParameterValue_resourceValue = Lens.lens (\RemediationParameterValue' {resourceValue} -> resourceValue) (\s@RemediationParameterValue' {} a -> s {resourceValue = a} :: RemediationParameterValue)
 
-instance Core.FromJSON RemediationParameterValue where
+instance Data.FromJSON RemediationParameterValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RemediationParameterValue"
       ( \x ->
           RemediationParameterValue'
-            Prelude.<$> (x Core..:? "StaticValue")
-            Prelude.<*> (x Core..:? "ResourceValue")
+            Prelude.<$> (x Data..:? "StaticValue")
+            Prelude.<*> (x Data..:? "ResourceValue")
       )
 
 instance Prelude.Hashable RemediationParameterValue where
@@ -85,11 +86,11 @@ instance Prelude.NFData RemediationParameterValue where
     Prelude.rnf staticValue
       `Prelude.seq` Prelude.rnf resourceValue
 
-instance Core.ToJSON RemediationParameterValue where
+instance Data.ToJSON RemediationParameterValue where
   toJSON RemediationParameterValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StaticValue" Core..=) Prelude.<$> staticValue,
-            ("ResourceValue" Core..=) Prelude.<$> resourceValue
+          [ ("StaticValue" Data..=) Prelude.<$> staticValue,
+            ("ResourceValue" Data..=) Prelude.<$> resourceValue
           ]
       )

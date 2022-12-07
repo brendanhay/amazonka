@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.ProvisionedCapacityDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The definition for a provisioned capacity unit.
@@ -77,15 +78,15 @@ provisionedCapacityDescription_capacityId = Lens.lens (\ProvisionedCapacityDescr
 provisionedCapacityDescription_expirationDate :: Lens.Lens' ProvisionedCapacityDescription (Prelude.Maybe Prelude.Text)
 provisionedCapacityDescription_expirationDate = Lens.lens (\ProvisionedCapacityDescription' {expirationDate} -> expirationDate) (\s@ProvisionedCapacityDescription' {} a -> s {expirationDate = a} :: ProvisionedCapacityDescription)
 
-instance Core.FromJSON ProvisionedCapacityDescription where
+instance Data.FromJSON ProvisionedCapacityDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisionedCapacityDescription"
       ( \x ->
           ProvisionedCapacityDescription'
-            Prelude.<$> (x Core..:? "StartDate")
-            Prelude.<*> (x Core..:? "CapacityId")
-            Prelude.<*> (x Core..:? "ExpirationDate")
+            Prelude.<$> (x Data..:? "StartDate")
+            Prelude.<*> (x Data..:? "CapacityId")
+            Prelude.<*> (x Data..:? "ExpirationDate")
       )
 
 instance

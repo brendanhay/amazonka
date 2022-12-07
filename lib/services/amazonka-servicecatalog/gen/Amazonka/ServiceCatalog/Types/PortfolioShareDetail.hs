@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.PortfolioShareDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.DescribePortfolioShareType
 
@@ -132,17 +133,17 @@ portfolioShareDetail_sharePrincipals = Lens.lens (\PortfolioShareDetail' {shareP
 portfolioShareDetail_shareTagOptions :: Lens.Lens' PortfolioShareDetail (Prelude.Maybe Prelude.Bool)
 portfolioShareDetail_shareTagOptions = Lens.lens (\PortfolioShareDetail' {shareTagOptions} -> shareTagOptions) (\s@PortfolioShareDetail' {} a -> s {shareTagOptions = a} :: PortfolioShareDetail)
 
-instance Core.FromJSON PortfolioShareDetail where
+instance Data.FromJSON PortfolioShareDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortfolioShareDetail"
       ( \x ->
           PortfolioShareDetail'
-            Prelude.<$> (x Core..:? "PrincipalId")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Accepted")
-            Prelude.<*> (x Core..:? "SharePrincipals")
-            Prelude.<*> (x Core..:? "ShareTagOptions")
+            Prelude.<$> (x Data..:? "PrincipalId")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Accepted")
+            Prelude.<*> (x Data..:? "SharePrincipals")
+            Prelude.<*> (x Data..:? "ShareTagOptions")
       )
 
 instance Prelude.Hashable PortfolioShareDetail where

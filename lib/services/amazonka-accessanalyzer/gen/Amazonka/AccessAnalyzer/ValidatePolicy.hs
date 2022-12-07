@@ -53,6 +53,7 @@ where
 import Amazonka.AccessAnalyzer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -221,9 +222,9 @@ instance Core.AWSRequest ValidatePolicy where
     Response.receiveJSON
       ( \s h x ->
           ValidatePolicyResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "findings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "findings" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ValidatePolicy where
@@ -244,38 +245,38 @@ instance Prelude.NFData ValidatePolicy where
       `Prelude.seq` Prelude.rnf policyDocument
       `Prelude.seq` Prelude.rnf policyType
 
-instance Core.ToHeaders ValidatePolicy where
+instance Data.ToHeaders ValidatePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ValidatePolicy where
+instance Data.ToJSON ValidatePolicy where
   toJSON ValidatePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("locale" Core..=) Prelude.<$> locale,
-            ("validatePolicyResourceType" Core..=)
+          [ ("locale" Data..=) Prelude.<$> locale,
+            ("validatePolicyResourceType" Data..=)
               Prelude.<$> validatePolicyResourceType,
             Prelude.Just
-              ("policyDocument" Core..= policyDocument),
-            Prelude.Just ("policyType" Core..= policyType)
+              ("policyDocument" Data..= policyDocument),
+            Prelude.Just ("policyType" Data..= policyType)
           ]
       )
 
-instance Core.ToPath ValidatePolicy where
+instance Data.ToPath ValidatePolicy where
   toPath = Prelude.const "/policy/validation"
 
-instance Core.ToQuery ValidatePolicy where
+instance Data.ToQuery ValidatePolicy where
   toQuery ValidatePolicy' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newValidatePolicyResponse' smart constructor.

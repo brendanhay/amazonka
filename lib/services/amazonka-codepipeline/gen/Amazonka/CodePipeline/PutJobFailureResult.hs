@@ -40,6 +40,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,35 +109,35 @@ instance Prelude.NFData PutJobFailureResult where
     Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf failureDetails
 
-instance Core.ToHeaders PutJobFailureResult where
+instance Data.ToHeaders PutJobFailureResult where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.PutJobFailureResult" ::
+              Data.=# ( "CodePipeline_20150709.PutJobFailureResult" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutJobFailureResult where
+instance Data.ToJSON PutJobFailureResult where
   toJSON PutJobFailureResult' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("jobId" Core..= jobId),
+          [ Prelude.Just ("jobId" Data..= jobId),
             Prelude.Just
-              ("failureDetails" Core..= failureDetails)
+              ("failureDetails" Data..= failureDetails)
           ]
       )
 
-instance Core.ToPath PutJobFailureResult where
+instance Data.ToPath PutJobFailureResult where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutJobFailureResult where
+instance Data.ToQuery PutJobFailureResult where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutJobFailureResultResponse' smart constructor.

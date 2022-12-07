@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ServerSideEncryptionByDefault where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ServerSideEncryption
@@ -59,7 +60,7 @@ data ServerSideEncryptionByDefault = ServerSideEncryptionByDefault'
     -- For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
     -- in the /Amazon Web Services Key Management Service Developer Guide/.
-    kmsMasterKeyID :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    kmsMasterKeyID :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Server-side encryption algorithm to use for the default encryption.
     sSEAlgorithm :: ServerSideEncryption
   }
@@ -129,17 +130,17 @@ newServerSideEncryptionByDefault pSSEAlgorithm_ =
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
 serverSideEncryptionByDefault_kmsMasterKeyID :: Lens.Lens' ServerSideEncryptionByDefault (Prelude.Maybe Prelude.Text)
-serverSideEncryptionByDefault_kmsMasterKeyID = Lens.lens (\ServerSideEncryptionByDefault' {kmsMasterKeyID} -> kmsMasterKeyID) (\s@ServerSideEncryptionByDefault' {} a -> s {kmsMasterKeyID = a} :: ServerSideEncryptionByDefault) Prelude.. Lens.mapping Core._Sensitive
+serverSideEncryptionByDefault_kmsMasterKeyID = Lens.lens (\ServerSideEncryptionByDefault' {kmsMasterKeyID} -> kmsMasterKeyID) (\s@ServerSideEncryptionByDefault' {} a -> s {kmsMasterKeyID = a} :: ServerSideEncryptionByDefault) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Server-side encryption algorithm to use for the default encryption.
 serverSideEncryptionByDefault_sSEAlgorithm :: Lens.Lens' ServerSideEncryptionByDefault ServerSideEncryption
 serverSideEncryptionByDefault_sSEAlgorithm = Lens.lens (\ServerSideEncryptionByDefault' {sSEAlgorithm} -> sSEAlgorithm) (\s@ServerSideEncryptionByDefault' {} a -> s {sSEAlgorithm = a} :: ServerSideEncryptionByDefault)
 
-instance Core.FromXML ServerSideEncryptionByDefault where
+instance Data.FromXML ServerSideEncryptionByDefault where
   parseXML x =
     ServerSideEncryptionByDefault'
-      Prelude.<$> (x Core..@? "KMSMasterKeyID")
-      Prelude.<*> (x Core..@ "SSEAlgorithm")
+      Prelude.<$> (x Data..@? "KMSMasterKeyID")
+      Prelude.<*> (x Data..@ "SSEAlgorithm")
 
 instance
   Prelude.Hashable
@@ -154,9 +155,9 @@ instance Prelude.NFData ServerSideEncryptionByDefault where
     Prelude.rnf kmsMasterKeyID
       `Prelude.seq` Prelude.rnf sSEAlgorithm
 
-instance Core.ToXML ServerSideEncryptionByDefault where
+instance Data.ToXML ServerSideEncryptionByDefault where
   toXML ServerSideEncryptionByDefault' {..} =
     Prelude.mconcat
-      [ "KMSMasterKeyID" Core.@= kmsMasterKeyID,
-        "SSEAlgorithm" Core.@= sSEAlgorithm
+      [ "KMSMasterKeyID" Data.@= kmsMasterKeyID,
+        "SSEAlgorithm" Data.@= sSEAlgorithm
       ]

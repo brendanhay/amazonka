@@ -50,6 +50,7 @@ where
 import Amazonka.AmplifyBackend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,12 +133,12 @@ instance Core.AWSRequest CreateBackendAPI where
     Response.receiveJSON
       ( \s h x ->
           CreateBackendAPIResponse'
-            Prelude.<$> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "error")
-            Prelude.<*> (x Core..?> "operation")
-            Prelude.<*> (x Core..?> "appId")
-            Prelude.<*> (x Core..?> "backendEnvironmentName")
+            Prelude.<$> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "error")
+            Prelude.<*> (x Data..?> "operation")
+            Prelude.<*> (x Data..?> "appId")
+            Prelude.<*> (x Data..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,37 +156,37 @@ instance Prelude.NFData CreateBackendAPI where
       `Prelude.seq` Prelude.rnf backendEnvironmentName
       `Prelude.seq` Prelude.rnf resourceConfig
 
-instance Core.ToHeaders CreateBackendAPI where
+instance Data.ToHeaders CreateBackendAPI where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBackendAPI where
+instance Data.ToJSON CreateBackendAPI where
   toJSON CreateBackendAPI' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("resourceName" Core..= resourceName),
+          [ Prelude.Just ("resourceName" Data..= resourceName),
             Prelude.Just
               ( "backendEnvironmentName"
-                  Core..= backendEnvironmentName
+                  Data..= backendEnvironmentName
               ),
             Prelude.Just
-              ("resourceConfig" Core..= resourceConfig)
+              ("resourceConfig" Data..= resourceConfig)
           ]
       )
 
-instance Core.ToPath CreateBackendAPI where
+instance Data.ToPath CreateBackendAPI where
   toPath CreateBackendAPI' {..} =
     Prelude.mconcat
-      ["/backend/", Core.toBS appId, "/api"]
+      ["/backend/", Data.toBS appId, "/api"]
 
-instance Core.ToQuery CreateBackendAPI where
+instance Data.ToQuery CreateBackendAPI where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBackendAPIResponse' smart constructor.

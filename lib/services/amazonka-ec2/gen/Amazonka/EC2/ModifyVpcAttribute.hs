@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -170,24 +171,24 @@ instance Prelude.NFData ModifyVpcAttribute where
       `Prelude.seq` Prelude.rnf enableNetworkAddressUsageMetrics
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToHeaders ModifyVpcAttribute where
+instance Data.ToHeaders ModifyVpcAttribute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyVpcAttribute where
+instance Data.ToPath ModifyVpcAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyVpcAttribute where
+instance Data.ToQuery ModifyVpcAttribute where
   toQuery ModifyVpcAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyVpcAttribute" :: Prelude.ByteString),
+          Data.=: ("ModifyVpcAttribute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "EnableDnsSupport" Core.=: enableDnsSupport,
-        "EnableDnsHostnames" Core.=: enableDnsHostnames,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "EnableDnsSupport" Data.=: enableDnsSupport,
+        "EnableDnsHostnames" Data.=: enableDnsHostnames,
         "EnableNetworkAddressUsageMetrics"
-          Core.=: enableNetworkAddressUsageMetrics,
-        "VpcId" Core.=: vpcId
+          Data.=: enableNetworkAddressUsageMetrics,
+        "VpcId" Data.=: vpcId
       ]
 
 -- | /See:/ 'newModifyVpcAttributeResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -185,7 +186,7 @@ instance Core.AWSRequest CreateWorkgroup where
     Response.receiveJSON
       ( \s h x ->
           CreateWorkgroupResponse'
-            Prelude.<$> (x Core..?> "workgroup")
+            Prelude.<$> (x Data..?> "workgroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,46 +214,46 @@ instance Prelude.NFData CreateWorkgroup where
       `Prelude.seq` Prelude.rnf namespaceName
       `Prelude.seq` Prelude.rnf workgroupName
 
-instance Core.ToHeaders CreateWorkgroup where
+instance Data.ToHeaders CreateWorkgroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.CreateWorkgroup" ::
+              Data.=# ( "RedshiftServerless.CreateWorkgroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkgroup where
+instance Data.ToJSON CreateWorkgroup where
   toJSON CreateWorkgroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("securityGroupIds" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("securityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("baseCapacity" Core..=) Prelude.<$> baseCapacity,
-            ("publiclyAccessible" Core..=)
+            ("baseCapacity" Data..=) Prelude.<$> baseCapacity,
+            ("publiclyAccessible" Data..=)
               Prelude.<$> publiclyAccessible,
-            ("configParameters" Core..=)
+            ("configParameters" Data..=)
               Prelude.<$> configParameters,
-            ("enhancedVpcRouting" Core..=)
+            ("enhancedVpcRouting" Data..=)
               Prelude.<$> enhancedVpcRouting,
-            ("subnetIds" Core..=) Prelude.<$> subnetIds,
-            Prelude.Just ("namespaceName" Core..= namespaceName),
+            ("subnetIds" Data..=) Prelude.<$> subnetIds,
+            Prelude.Just ("namespaceName" Data..= namespaceName),
             Prelude.Just
-              ("workgroupName" Core..= workgroupName)
+              ("workgroupName" Data..= workgroupName)
           ]
       )
 
-instance Core.ToPath CreateWorkgroup where
+instance Data.ToPath CreateWorkgroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateWorkgroup where
+instance Data.ToQuery CreateWorkgroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorkgroupResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSOAdmin.Types.AccessControlAttribute
 
@@ -59,16 +60,16 @@ instanceAccessControlAttributeConfiguration_accessControlAttributes :: Lens.Lens
 instanceAccessControlAttributeConfiguration_accessControlAttributes = Lens.lens (\InstanceAccessControlAttributeConfiguration' {accessControlAttributes} -> accessControlAttributes) (\s@InstanceAccessControlAttributeConfiguration' {} a -> s {accessControlAttributes = a} :: InstanceAccessControlAttributeConfiguration) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     InstanceAccessControlAttributeConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceAccessControlAttributeConfiguration"
       ( \x ->
           InstanceAccessControlAttributeConfiguration'
-            Prelude.<$> ( x Core..:? "AccessControlAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "AccessControlAttributes"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -90,16 +91,16 @@ instance
     Prelude.rnf accessControlAttributes
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     InstanceAccessControlAttributeConfiguration
   where
   toJSON
     InstanceAccessControlAttributeConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
             [ Prelude.Just
                 ( "AccessControlAttributes"
-                    Core..= accessControlAttributes
+                    Data..= accessControlAttributes
                 )
             ]
         )

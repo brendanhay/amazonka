@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,31 +112,31 @@ instance Prelude.NFData StartCostEstimation where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf resourceCollection
 
-instance Core.ToHeaders StartCostEstimation where
+instance Data.ToHeaders StartCostEstimation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartCostEstimation where
+instance Data.ToJSON StartCostEstimation where
   toJSON StartCostEstimation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("ResourceCollection" Core..= resourceCollection)
+              ("ResourceCollection" Data..= resourceCollection)
           ]
       )
 
-instance Core.ToPath StartCostEstimation where
+instance Data.ToPath StartCostEstimation where
   toPath = Prelude.const "/cost-estimation"
 
-instance Core.ToQuery StartCostEstimation where
+instance Data.ToQuery StartCostEstimation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartCostEstimationResponse' smart constructor.

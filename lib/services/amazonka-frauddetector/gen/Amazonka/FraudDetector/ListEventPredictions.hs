@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,10 +163,10 @@ instance Core.AWSRequest ListEventPredictions where
     Response.receiveJSON
       ( \s h x ->
           ListEventPredictionsResponse'
-            Prelude.<$> ( x Core..?> "eventPredictionSummaries"
+            Prelude.<$> ( x Data..?> "eventPredictionSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,41 +190,41 @@ instance Prelude.NFData ListEventPredictions where
       `Prelude.seq` Prelude.rnf eventId
       `Prelude.seq` Prelude.rnf detectorId
 
-instance Core.ToHeaders ListEventPredictions where
+instance Data.ToHeaders ListEventPredictions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.ListEventPredictions" ::
+              Data.=# ( "AWSHawksNestServiceFacade.ListEventPredictions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEventPredictions where
+instance Data.ToJSON ListEventPredictions where
   toJSON ListEventPredictions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("eventType" Core..=) Prelude.<$> eventType,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("detectorVersionId" Core..=)
+          [ ("eventType" Data..=) Prelude.<$> eventType,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("detectorVersionId" Data..=)
               Prelude.<$> detectorVersionId,
-            ("predictionTimeRange" Core..=)
+            ("predictionTimeRange" Data..=)
               Prelude.<$> predictionTimeRange,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("eventId" Core..=) Prelude.<$> eventId,
-            ("detectorId" Core..=) Prelude.<$> detectorId
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("eventId" Data..=) Prelude.<$> eventId,
+            ("detectorId" Data..=) Prelude.<$> detectorId
           ]
       )
 
-instance Core.ToPath ListEventPredictions where
+instance Data.ToPath ListEventPredictions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEventPredictions where
+instance Data.ToQuery ListEventPredictions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEventPredictionsResponse' smart constructor.

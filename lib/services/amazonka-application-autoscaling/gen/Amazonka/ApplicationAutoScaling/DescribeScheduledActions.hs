@@ -60,6 +60,7 @@ where
 import Amazonka.ApplicationAutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -591,8 +592,8 @@ instance Core.AWSRequest DescribeScheduledActions where
     Response.receiveJSON
       ( \s h x ->
           DescribeScheduledActionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ScheduledActions"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ScheduledActions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -616,41 +617,41 @@ instance Prelude.NFData DescribeScheduledActions where
       `Prelude.seq` Prelude.rnf scheduledActionNames
       `Prelude.seq` Prelude.rnf serviceNamespace
 
-instance Core.ToHeaders DescribeScheduledActions where
+instance Data.ToHeaders DescribeScheduledActions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AnyScaleFrontendService.DescribeScheduledActions" ::
+              Data.=# ( "AnyScaleFrontendService.DescribeScheduledActions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeScheduledActions where
+instance Data.ToJSON DescribeScheduledActions where
   toJSON DescribeScheduledActions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceId" Core..=) Prelude.<$> resourceId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ScalableDimension" Core..=)
+          [ ("ResourceId" Data..=) Prelude.<$> resourceId,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ScalableDimension" Data..=)
               Prelude.<$> scalableDimension,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ScheduledActionNames" Core..=)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ScheduledActionNames" Data..=)
               Prelude.<$> scheduledActionNames,
             Prelude.Just
-              ("ServiceNamespace" Core..= serviceNamespace)
+              ("ServiceNamespace" Data..= serviceNamespace)
           ]
       )
 
-instance Core.ToPath DescribeScheduledActions where
+instance Data.ToPath DescribeScheduledActions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeScheduledActions where
+instance Data.ToQuery DescribeScheduledActions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeScheduledActionsResponse' smart constructor.

@@ -67,6 +67,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -927,7 +928,7 @@ instance Core.AWSRequest UpdateStackSet where
       "UpdateStackSetResult"
       ( \s h x ->
           UpdateStackSetResponse'
-            Prelude.<$> (x Core..@? "OperationId")
+            Prelude.<$> (x Data..@? "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -975,49 +976,49 @@ instance Prelude.NFData UpdateStackSet where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf stackSetName
 
-instance Core.ToHeaders UpdateStackSet where
+instance Data.ToHeaders UpdateStackSet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateStackSet where
+instance Data.ToPath UpdateStackSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateStackSet where
+instance Data.ToQuery UpdateStackSet where
   toQuery UpdateStackSet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateStackSet" :: Prelude.ByteString),
+          Data.=: ("UpdateStackSet" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "OperationPreferences" Core.=: operationPreferences,
-        "CallAs" Core.=: callAs,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "OperationPreferences" Data.=: operationPreferences,
+        "CallAs" Data.=: callAs,
         "Regions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> regions),
-        "UsePreviousTemplate" Core.=: usePreviousTemplate,
-        "TemplateBody" Core.=: templateBody,
-        "OperationId" Core.=: operationId,
-        "Description" Core.=: description,
-        "AutoDeployment" Core.=: autoDeployment,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> regions),
+        "UsePreviousTemplate" Data.=: usePreviousTemplate,
+        "TemplateBody" Data.=: templateBody,
+        "OperationId" Data.=: operationId,
+        "Description" Data.=: description,
+        "AutoDeployment" Data.=: autoDeployment,
         "Accounts"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> accounts),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> accounts),
         "Capabilities"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> capabilities),
-        "ManagedExecution" Core.=: managedExecution,
-        "ExecutionRoleName" Core.=: executionRoleName,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> capabilities),
+        "ManagedExecution" Data.=: managedExecution,
+        "ExecutionRoleName" Data.=: executionRoleName,
         "AdministrationRoleARN"
-          Core.=: administrationRoleARN,
-        "DeploymentTargets" Core.=: deploymentTargets,
-        "PermissionModel" Core.=: permissionModel,
-        "TemplateURL" Core.=: templateURL,
+          Data.=: administrationRoleARN,
+        "DeploymentTargets" Data.=: deploymentTargets,
+        "PermissionModel" Data.=: permissionModel,
+        "TemplateURL" Data.=: templateURL,
         "Parameters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> parameters),
-        "StackSetName" Core.=: stackSetName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> parameters),
+        "StackSetName" Data.=: stackSetName
       ]
 
 -- | /See:/ 'newUpdateStackSetResponse' smart constructor.

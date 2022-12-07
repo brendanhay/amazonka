@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.DataLakePrincipal
 import Amazonka.LakeFormation.Types.Permission
 import Amazonka.LakeFormation.Types.Resource
@@ -94,19 +95,19 @@ batchPermissionsRequestEntry_resource = Lens.lens (\BatchPermissionsRequestEntry
 batchPermissionsRequestEntry_id :: Lens.Lens' BatchPermissionsRequestEntry Prelude.Text
 batchPermissionsRequestEntry_id = Lens.lens (\BatchPermissionsRequestEntry' {id} -> id) (\s@BatchPermissionsRequestEntry' {} a -> s {id = a} :: BatchPermissionsRequestEntry)
 
-instance Core.FromJSON BatchPermissionsRequestEntry where
+instance Data.FromJSON BatchPermissionsRequestEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchPermissionsRequestEntry"
       ( \x ->
           BatchPermissionsRequestEntry'
-            Prelude.<$> (x Core..:? "Principal")
-            Prelude.<*> (x Core..:? "Permissions" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "PermissionsWithGrantOption"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Principal")
+            Prelude.<*> (x Data..:? "Permissions" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "PermissionsWithGrantOption"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Resource")
-            Prelude.<*> (x Core..: "Id")
+            Prelude.<*> (x Data..:? "Resource")
+            Prelude.<*> (x Data..: "Id")
       )
 
 instance
@@ -128,15 +129,15 @@ instance Prelude.NFData BatchPermissionsRequestEntry where
       `Prelude.seq` Prelude.rnf resource
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON BatchPermissionsRequestEntry where
+instance Data.ToJSON BatchPermissionsRequestEntry where
   toJSON BatchPermissionsRequestEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Principal" Core..=) Prelude.<$> principal,
-            ("Permissions" Core..=) Prelude.<$> permissions,
-            ("PermissionsWithGrantOption" Core..=)
+          [ ("Principal" Data..=) Prelude.<$> principal,
+            ("Permissions" Data..=) Prelude.<$> permissions,
+            ("PermissionsWithGrantOption" Data..=)
               Prelude.<$> permissionsWithGrantOption,
-            ("Resource" Core..=) Prelude.<$> resource,
-            Prelude.Just ("Id" Core..= id)
+            ("Resource" Data..=) Prelude.<$> resource,
+            Prelude.Just ("Id" Data..= id)
           ]
       )

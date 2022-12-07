@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.AbpV1_1 where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.SessionKeysAbpV1_1
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ abpV1_1_fCntStart = Lens.lens (\AbpV1_1' {fCntStart} -> fCntStart) (\s@AbpV1_1' 
 abpV1_1_devAddr :: Lens.Lens' AbpV1_1 (Prelude.Maybe Prelude.Text)
 abpV1_1_devAddr = Lens.lens (\AbpV1_1' {devAddr} -> devAddr) (\s@AbpV1_1' {} a -> s {devAddr = a} :: AbpV1_1)
 
-instance Core.FromJSON AbpV1_1 where
+instance Data.FromJSON AbpV1_1 where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AbpV1_1"
       ( \x ->
           AbpV1_1'
-            Prelude.<$> (x Core..:? "SessionKeys")
-            Prelude.<*> (x Core..:? "FCntStart")
-            Prelude.<*> (x Core..:? "DevAddr")
+            Prelude.<$> (x Data..:? "SessionKeys")
+            Prelude.<*> (x Data..:? "FCntStart")
+            Prelude.<*> (x Data..:? "DevAddr")
       )
 
 instance Prelude.Hashable AbpV1_1 where
@@ -94,12 +95,12 @@ instance Prelude.NFData AbpV1_1 where
       `Prelude.seq` Prelude.rnf fCntStart
       `Prelude.seq` Prelude.rnf devAddr
 
-instance Core.ToJSON AbpV1_1 where
+instance Data.ToJSON AbpV1_1 where
   toJSON AbpV1_1' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SessionKeys" Core..=) Prelude.<$> sessionKeys,
-            ("FCntStart" Core..=) Prelude.<$> fCntStart,
-            ("DevAddr" Core..=) Prelude.<$> devAddr
+          [ ("SessionKeys" Data..=) Prelude.<$> sessionKeys,
+            ("FCntStart" Data..=) Prelude.<$> fCntStart,
+            ("DevAddr" Data..=) Prelude.<$> devAddr
           ]
       )

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,8 +135,8 @@ instance Core.AWSRequest CreateModelManifest where
       ( \s h x ->
           CreateModelManifestResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable CreateModelManifest where
@@ -154,38 +155,38 @@ instance Prelude.NFData CreateModelManifest where
       `Prelude.seq` Prelude.rnf nodes
       `Prelude.seq` Prelude.rnf signalCatalogArn
 
-instance Core.ToHeaders CreateModelManifest where
+instance Data.ToHeaders CreateModelManifest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.CreateModelManifest" ::
+              Data.=# ( "IoTAutobahnControlPlane.CreateModelManifest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateModelManifest where
+instance Data.ToJSON CreateModelManifest where
   toJSON CreateModelManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("nodes" Core..= nodes),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("nodes" Data..= nodes),
             Prelude.Just
-              ("signalCatalogArn" Core..= signalCatalogArn)
+              ("signalCatalogArn" Data..= signalCatalogArn)
           ]
       )
 
-instance Core.ToPath CreateModelManifest where
+instance Data.ToPath CreateModelManifest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateModelManifest where
+instance Data.ToQuery CreateModelManifest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateModelManifestResponse' smart constructor.

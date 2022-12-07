@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,10 +91,10 @@ instance Core.AWSRequest ListVpcEndpoints where
       ( \s h x ->
           ListVpcEndpointsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "VpcEndpointSummaryList"
+            Prelude.<*> ( x Data..?> "VpcEndpointSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..:> "NextToken")
+            Prelude.<*> (x Data..:> "NextToken")
       )
 
 instance Prelude.Hashable ListVpcEndpoints where
@@ -103,16 +104,16 @@ instance Prelude.Hashable ListVpcEndpoints where
 instance Prelude.NFData ListVpcEndpoints where
   rnf ListVpcEndpoints' {..} = Prelude.rnf nextToken
 
-instance Core.ToHeaders ListVpcEndpoints where
+instance Data.ToHeaders ListVpcEndpoints where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListVpcEndpoints where
+instance Data.ToPath ListVpcEndpoints where
   toPath =
     Prelude.const "/2021-01-01/opensearch/vpcEndpoints"
 
-instance Core.ToQuery ListVpcEndpoints where
+instance Data.ToQuery ListVpcEndpoints where
   toQuery ListVpcEndpoints' {..} =
-    Prelude.mconcat ["nextToken" Core.=: nextToken]
+    Prelude.mconcat ["nextToken" Data.=: nextToken]
 
 -- | /See:/ 'newListVpcEndpointsResponse' smart constructor.
 data ListVpcEndpointsResponse = ListVpcEndpointsResponse'

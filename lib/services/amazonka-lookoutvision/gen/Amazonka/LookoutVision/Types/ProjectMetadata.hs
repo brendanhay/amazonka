@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.ProjectMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata about an Amazon Lookout for Vision project.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newProjectMetadata' smart constructor.
 data ProjectMetadata = ProjectMetadata'
   { -- | The unix timestamp for the date and time that the project was created.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the project.
     projectName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the project.
@@ -61,7 +62,7 @@ newProjectMetadata =
 
 -- | The unix timestamp for the date and time that the project was created.
 projectMetadata_creationTimestamp :: Lens.Lens' ProjectMetadata (Prelude.Maybe Prelude.UTCTime)
-projectMetadata_creationTimestamp = Lens.lens (\ProjectMetadata' {creationTimestamp} -> creationTimestamp) (\s@ProjectMetadata' {} a -> s {creationTimestamp = a} :: ProjectMetadata) Prelude.. Lens.mapping Core._Time
+projectMetadata_creationTimestamp = Lens.lens (\ProjectMetadata' {creationTimestamp} -> creationTimestamp) (\s@ProjectMetadata' {} a -> s {creationTimestamp = a} :: ProjectMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the project.
 projectMetadata_projectName :: Lens.Lens' ProjectMetadata (Prelude.Maybe Prelude.Text)
@@ -71,15 +72,15 @@ projectMetadata_projectName = Lens.lens (\ProjectMetadata' {projectName} -> proj
 projectMetadata_projectArn :: Lens.Lens' ProjectMetadata (Prelude.Maybe Prelude.Text)
 projectMetadata_projectArn = Lens.lens (\ProjectMetadata' {projectArn} -> projectArn) (\s@ProjectMetadata' {} a -> s {projectArn = a} :: ProjectMetadata)
 
-instance Core.FromJSON ProjectMetadata where
+instance Data.FromJSON ProjectMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectMetadata"
       ( \x ->
           ProjectMetadata'
-            Prelude.<$> (x Core..:? "CreationTimestamp")
-            Prelude.<*> (x Core..:? "ProjectName")
-            Prelude.<*> (x Core..:? "ProjectArn")
+            Prelude.<$> (x Data..:? "CreationTimestamp")
+            Prelude.<*> (x Data..:? "ProjectName")
+            Prelude.<*> (x Data..:? "ProjectArn")
       )
 
 instance Prelude.Hashable ProjectMetadata where

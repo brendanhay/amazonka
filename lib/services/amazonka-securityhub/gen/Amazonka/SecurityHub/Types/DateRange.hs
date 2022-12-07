@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.DateRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.DateRangeUnit
 
@@ -62,13 +63,13 @@ dateRange_unit = Lens.lens (\DateRange' {unit} -> unit) (\s@DateRange' {} a -> s
 dateRange_value :: Lens.Lens' DateRange (Prelude.Maybe Prelude.Int)
 dateRange_value = Lens.lens (\DateRange' {value} -> value) (\s@DateRange' {} a -> s {value = a} :: DateRange)
 
-instance Core.FromJSON DateRange where
+instance Data.FromJSON DateRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DateRange"
       ( \x ->
           DateRange'
-            Prelude.<$> (x Core..:? "Unit") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Unit") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable DateRange where
@@ -80,11 +81,11 @@ instance Prelude.NFData DateRange where
   rnf DateRange' {..} =
     Prelude.rnf unit `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON DateRange where
+instance Data.ToJSON DateRange where
   toJSON DateRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Unit" Core..=) Prelude.<$> unit,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Unit" Data..=) Prelude.<$> unit,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

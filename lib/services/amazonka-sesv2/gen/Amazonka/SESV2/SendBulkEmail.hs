@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -270,7 +271,7 @@ instance Core.AWSRequest SendBulkEmail where
       ( \s h x ->
           SendBulkEmailResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "BulkEmailEntryResults"
+            Prelude.<*> ( x Data..?> "BulkEmailEntryResults"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -301,49 +302,49 @@ instance Prelude.NFData SendBulkEmail where
       `Prelude.seq` Prelude.rnf defaultContent
       `Prelude.seq` Prelude.rnf bulkEmailEntries
 
-instance Core.ToHeaders SendBulkEmail where
+instance Data.ToHeaders SendBulkEmail where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendBulkEmail where
+instance Data.ToJSON SendBulkEmail where
   toJSON SendBulkEmail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ ( "FeedbackForwardingEmailAddressIdentityArn"
-                Core..=
+                Data..=
             )
               Prelude.<$> feedbackForwardingEmailAddressIdentityArn,
-            ("ReplyToAddresses" Core..=)
+            ("ReplyToAddresses" Data..=)
               Prelude.<$> replyToAddresses,
-            ("DefaultEmailTags" Core..=)
+            ("DefaultEmailTags" Data..=)
               Prelude.<$> defaultEmailTags,
-            ("FromEmailAddress" Core..=)
+            ("FromEmailAddress" Data..=)
               Prelude.<$> fromEmailAddress,
-            ("ConfigurationSetName" Core..=)
+            ("ConfigurationSetName" Data..=)
               Prelude.<$> configurationSetName,
-            ("FromEmailAddressIdentityArn" Core..=)
+            ("FromEmailAddressIdentityArn" Data..=)
               Prelude.<$> fromEmailAddressIdentityArn,
-            ("FeedbackForwardingEmailAddress" Core..=)
+            ("FeedbackForwardingEmailAddress" Data..=)
               Prelude.<$> feedbackForwardingEmailAddress,
             Prelude.Just
-              ("DefaultContent" Core..= defaultContent),
+              ("DefaultContent" Data..= defaultContent),
             Prelude.Just
-              ("BulkEmailEntries" Core..= bulkEmailEntries)
+              ("BulkEmailEntries" Data..= bulkEmailEntries)
           ]
       )
 
-instance Core.ToPath SendBulkEmail where
+instance Data.ToPath SendBulkEmail where
   toPath =
     Prelude.const "/v2/email/outbound-bulk-emails"
 
-instance Core.ToQuery SendBulkEmail where
+instance Data.ToQuery SendBulkEmail where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The following data is returned in JSON format by the service.

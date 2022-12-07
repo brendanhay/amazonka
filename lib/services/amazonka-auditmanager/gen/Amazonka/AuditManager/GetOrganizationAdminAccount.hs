@@ -41,6 +41,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -70,8 +71,8 @@ instance Core.AWSRequest GetOrganizationAdminAccount where
     Response.receiveJSON
       ( \s h x ->
           GetOrganizationAdminAccountResponse'
-            Prelude.<$> (x Core..?> "adminAccountId")
-            Prelude.<*> (x Core..?> "organizationId")
+            Prelude.<$> (x Data..?> "adminAccountId")
+            Prelude.<*> (x Data..?> "organizationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -82,22 +83,22 @@ instance Prelude.Hashable GetOrganizationAdminAccount where
 instance Prelude.NFData GetOrganizationAdminAccount where
   rnf _ = ()
 
-instance Core.ToHeaders GetOrganizationAdminAccount where
+instance Data.ToHeaders GetOrganizationAdminAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetOrganizationAdminAccount where
+instance Data.ToPath GetOrganizationAdminAccount where
   toPath =
     Prelude.const "/account/organizationAdminAccount"
 
-instance Core.ToQuery GetOrganizationAdminAccount where
+instance Data.ToQuery GetOrganizationAdminAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetOrganizationAdminAccountResponse' smart constructor.

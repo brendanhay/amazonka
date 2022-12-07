@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -1121,7 +1122,7 @@ instance Core.AWSRequest CreateCacheCluster where
       "CreateCacheClusterResult"
       ( \s h x ->
           CreateCacheClusterResponse'
-            Prelude.<$> (x Core..@? "CacheCluster")
+            Prelude.<$> (x Data..@? "CacheCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -1201,81 +1202,81 @@ instance Prelude.NFData CreateCacheCluster where
       `Prelude.seq` Prelude.rnf
         cacheClusterId
 
-instance Core.ToHeaders CreateCacheCluster where
+instance Data.ToHeaders CreateCacheCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateCacheCluster where
+instance Data.ToPath CreateCacheCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCacheCluster where
+instance Data.ToQuery CreateCacheCluster where
   toQuery CreateCacheCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateCacheCluster" :: Prelude.ByteString),
+          Data.=: ("CreateCacheCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "TransitEncryptionEnabled"
-          Core.=: transitEncryptionEnabled,
+          Data.=: transitEncryptionEnabled,
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "Port" Core.=: port,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "Port" Data.=: port,
         "PreferredAvailabilityZones"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "PreferredAvailabilityZone"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "PreferredAvailabilityZone"
                 Prelude.<$> preferredAvailabilityZones
             ),
-        "CacheSubnetGroupName" Core.=: cacheSubnetGroupName,
-        "OutpostMode" Core.=: outpostMode,
+        "CacheSubnetGroupName" Data.=: cacheSubnetGroupName,
+        "OutpostMode" Data.=: outpostMode,
         "PreferredOutpostArns"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "PreferredOutpostArn"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "PreferredOutpostArn"
                 Prelude.<$> preferredOutpostArns
             ),
-        "SnapshotName" Core.=: snapshotName,
+        "SnapshotName" Data.=: snapshotName,
         "SecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "SecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "SecurityGroupId"
                 Prelude.<$> securityGroupIds
             ),
         "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
-        "AuthToken" Core.=: authToken,
+          Data.=: autoMinorVersionUpgrade,
+        "AuthToken" Data.=: authToken,
         "LogDeliveryConfigurations"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "LogDeliveryConfigurationRequest"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "LogDeliveryConfigurationRequest"
                 Prelude.<$> logDeliveryConfigurations
             ),
-        "IpDiscovery" Core.=: ipDiscovery,
-        "NumCacheNodes" Core.=: numCacheNodes,
-        "CacheNodeType" Core.=: cacheNodeType,
+        "IpDiscovery" Data.=: ipDiscovery,
+        "NumCacheNodes" Data.=: numCacheNodes,
+        "CacheNodeType" Data.=: cacheNodeType,
         "CacheParameterGroupName"
-          Core.=: cacheParameterGroupName,
+          Data.=: cacheParameterGroupName,
         "PreferredAvailabilityZone"
-          Core.=: preferredAvailabilityZone,
-        "NotificationTopicArn" Core.=: notificationTopicArn,
+          Data.=: preferredAvailabilityZone,
+        "NotificationTopicArn" Data.=: notificationTopicArn,
         "SnapshotArns"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "SnapshotArn"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "SnapshotArn"
                 Prelude.<$> snapshotArns
             ),
-        "SnapshotWindow" Core.=: snapshotWindow,
-        "AZMode" Core.=: aZMode,
+        "SnapshotWindow" Data.=: snapshotWindow,
+        "AZMode" Data.=: aZMode,
         "SnapshotRetentionLimit"
-          Core.=: snapshotRetentionLimit,
+          Data.=: snapshotRetentionLimit,
         "CacheSecurityGroupNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "CacheSecurityGroupName"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "CacheSecurityGroupName"
                 Prelude.<$> cacheSecurityGroupNames
             ),
-        "PreferredOutpostArn" Core.=: preferredOutpostArn,
-        "Engine" Core.=: engine,
+        "PreferredOutpostArn" Data.=: preferredOutpostArn,
+        "Engine" Data.=: engine,
         "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
-        "ReplicationGroupId" Core.=: replicationGroupId,
-        "EngineVersion" Core.=: engineVersion,
-        "NetworkType" Core.=: networkType,
-        "CacheClusterId" Core.=: cacheClusterId
+          Data.=: preferredMaintenanceWindow,
+        "ReplicationGroupId" Data.=: replicationGroupId,
+        "EngineVersion" Data.=: engineVersion,
+        "NetworkType" Data.=: networkType,
+        "CacheClusterId" Data.=: cacheClusterId
       ]
 
 -- | /See:/ 'newCreateCacheClusterResponse' smart constructor.

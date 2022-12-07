@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.TerminationHealth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The termination health details, including the source IP address and
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTerminationHealth' smart constructor.
 data TerminationHealth = TerminationHealth'
   { -- | The timestamp, in ISO 8601 format.
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The source IP address.
     source :: Prelude.Maybe Prelude.Text
   }
@@ -57,20 +58,20 @@ newTerminationHealth =
 
 -- | The timestamp, in ISO 8601 format.
 terminationHealth_timestamp :: Lens.Lens' TerminationHealth (Prelude.Maybe Prelude.UTCTime)
-terminationHealth_timestamp = Lens.lens (\TerminationHealth' {timestamp} -> timestamp) (\s@TerminationHealth' {} a -> s {timestamp = a} :: TerminationHealth) Prelude.. Lens.mapping Core._Time
+terminationHealth_timestamp = Lens.lens (\TerminationHealth' {timestamp} -> timestamp) (\s@TerminationHealth' {} a -> s {timestamp = a} :: TerminationHealth) Prelude.. Lens.mapping Data._Time
 
 -- | The source IP address.
 terminationHealth_source :: Lens.Lens' TerminationHealth (Prelude.Maybe Prelude.Text)
 terminationHealth_source = Lens.lens (\TerminationHealth' {source} -> source) (\s@TerminationHealth' {} a -> s {source = a} :: TerminationHealth)
 
-instance Core.FromJSON TerminationHealth where
+instance Data.FromJSON TerminationHealth where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TerminationHealth"
       ( \x ->
           TerminationHealth'
-            Prelude.<$> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "Source")
+            Prelude.<$> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "Source")
       )
 
 instance Prelude.Hashable TerminationHealth where

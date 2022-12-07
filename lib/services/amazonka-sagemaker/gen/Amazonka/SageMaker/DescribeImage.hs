@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,15 +92,15 @@ instance Core.AWSRequest DescribeImage where
     Response.receiveJSON
       ( \s h x ->
           DescribeImageResponse'
-            Prelude.<$> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "ImageStatus")
-            Prelude.<*> (x Core..?> "DisplayName")
-            Prelude.<*> (x Core..?> "ImageArn")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "FailureReason")
-            Prelude.<*> (x Core..?> "ImageName")
+            Prelude.<$> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "ImageStatus")
+            Prelude.<*> (x Data..?> "DisplayName")
+            Prelude.<*> (x Data..?> "ImageArn")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "FailureReason")
+            Prelude.<*> (x Data..?> "ImageName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,30 +111,30 @@ instance Prelude.Hashable DescribeImage where
 instance Prelude.NFData DescribeImage where
   rnf DescribeImage' {..} = Prelude.rnf imageName
 
-instance Core.ToHeaders DescribeImage where
+instance Data.ToHeaders DescribeImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeImage" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DescribeImage" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeImage where
+instance Data.ToJSON DescribeImage where
   toJSON DescribeImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ImageName" Core..= imageName)]
+          [Prelude.Just ("ImageName" Data..= imageName)]
       )
 
-instance Core.ToPath DescribeImage where
+instance Data.ToPath DescribeImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeImage where
+instance Data.ToQuery DescribeImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeImageResponse' smart constructor.
@@ -150,9 +151,9 @@ data DescribeImageResponse = DescribeImageResponse'
     -- | The description of the image.
     description :: Prelude.Maybe Prelude.Text,
     -- | When the image was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | When the image was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | When a create, update, or delete operation fails, the reason for the
     -- failure.
     failureReason :: Prelude.Maybe Prelude.Text,
@@ -233,11 +234,11 @@ describeImageResponse_description = Lens.lens (\DescribeImageResponse' {descript
 
 -- | When the image was last modified.
 describeImageResponse_lastModifiedTime :: Lens.Lens' DescribeImageResponse (Prelude.Maybe Prelude.UTCTime)
-describeImageResponse_lastModifiedTime = Lens.lens (\DescribeImageResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeImageResponse' {} a -> s {lastModifiedTime = a} :: DescribeImageResponse) Prelude.. Lens.mapping Core._Time
+describeImageResponse_lastModifiedTime = Lens.lens (\DescribeImageResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeImageResponse' {} a -> s {lastModifiedTime = a} :: DescribeImageResponse) Prelude.. Lens.mapping Data._Time
 
 -- | When the image was created.
 describeImageResponse_creationTime :: Lens.Lens' DescribeImageResponse (Prelude.Maybe Prelude.UTCTime)
-describeImageResponse_creationTime = Lens.lens (\DescribeImageResponse' {creationTime} -> creationTime) (\s@DescribeImageResponse' {} a -> s {creationTime = a} :: DescribeImageResponse) Prelude.. Lens.mapping Core._Time
+describeImageResponse_creationTime = Lens.lens (\DescribeImageResponse' {creationTime} -> creationTime) (\s@DescribeImageResponse' {} a -> s {creationTime = a} :: DescribeImageResponse) Prelude.. Lens.mapping Data._Time
 
 -- | When a create, update, or delete operation fails, the reason for the
 -- failure.

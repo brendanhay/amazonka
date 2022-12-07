@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.ActiveDirectoryComputerAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An LDAP attribute of an Active Directory computer account, in the form
@@ -64,15 +65,15 @@ activeDirectoryComputerAttribute_value :: Lens.Lens' ActiveDirectoryComputerAttr
 activeDirectoryComputerAttribute_value = Lens.lens (\ActiveDirectoryComputerAttribute' {value} -> value) (\s@ActiveDirectoryComputerAttribute' {} a -> s {value = a} :: ActiveDirectoryComputerAttribute)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ActiveDirectoryComputerAttribute
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActiveDirectoryComputerAttribute"
       ( \x ->
           ActiveDirectoryComputerAttribute'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "value")
       )
 
 instance
@@ -92,11 +93,11 @@ instance
   rnf ActiveDirectoryComputerAttribute' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ActiveDirectoryComputerAttribute where
+instance Data.ToJSON ActiveDirectoryComputerAttribute where
   toJSON ActiveDirectoryComputerAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("value" Core..=) Prelude.<$> value
+          [ ("name" Data..=) Prelude.<$> name,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

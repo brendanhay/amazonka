@@ -21,6 +21,7 @@ module Amazonka.KeySpaces.Types.ClusteringKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types.SortOrder
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,13 +65,13 @@ clusteringKey_name = Lens.lens (\ClusteringKey' {name} -> name) (\s@ClusteringKe
 clusteringKey_orderBy :: Lens.Lens' ClusteringKey SortOrder
 clusteringKey_orderBy = Lens.lens (\ClusteringKey' {orderBy} -> orderBy) (\s@ClusteringKey' {} a -> s {orderBy = a} :: ClusteringKey)
 
-instance Core.FromJSON ClusteringKey where
+instance Data.FromJSON ClusteringKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusteringKey"
       ( \x ->
           ClusteringKey'
-            Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "orderBy")
+            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "orderBy")
       )
 
 instance Prelude.Hashable ClusteringKey where
@@ -82,11 +83,11 @@ instance Prelude.NFData ClusteringKey where
   rnf ClusteringKey' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf orderBy
 
-instance Core.ToJSON ClusteringKey where
+instance Data.ToJSON ClusteringKey where
   toJSON ClusteringKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("orderBy" Core..= orderBy)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("orderBy" Data..= orderBy)
           ]
       )

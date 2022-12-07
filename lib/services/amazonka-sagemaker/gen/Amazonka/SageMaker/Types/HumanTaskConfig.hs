@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.HumanTaskConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AnnotationConsolidationConfig
 import Amazonka.SageMaker.Types.PublicWorkforceTaskPrice
@@ -2227,24 +2228,24 @@ humanTaskConfig_taskTimeLimitInSeconds = Lens.lens (\HumanTaskConfig' {taskTimeL
 humanTaskConfig_annotationConsolidationConfig :: Lens.Lens' HumanTaskConfig AnnotationConsolidationConfig
 humanTaskConfig_annotationConsolidationConfig = Lens.lens (\HumanTaskConfig' {annotationConsolidationConfig} -> annotationConsolidationConfig) (\s@HumanTaskConfig' {} a -> s {annotationConsolidationConfig = a} :: HumanTaskConfig)
 
-instance Core.FromJSON HumanTaskConfig where
+instance Data.FromJSON HumanTaskConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HumanTaskConfig"
       ( \x ->
           HumanTaskConfig'
-            Prelude.<$> (x Core..:? "MaxConcurrentTaskCount")
-            Prelude.<*> (x Core..:? "PublicWorkforceTaskPrice")
-            Prelude.<*> (x Core..:? "TaskKeywords")
-            Prelude.<*> (x Core..:? "TaskAvailabilityLifetimeInSeconds")
-            Prelude.<*> (x Core..: "WorkteamArn")
-            Prelude.<*> (x Core..: "UiConfig")
-            Prelude.<*> (x Core..: "PreHumanTaskLambdaArn")
-            Prelude.<*> (x Core..: "TaskTitle")
-            Prelude.<*> (x Core..: "TaskDescription")
-            Prelude.<*> (x Core..: "NumberOfHumanWorkersPerDataObject")
-            Prelude.<*> (x Core..: "TaskTimeLimitInSeconds")
-            Prelude.<*> (x Core..: "AnnotationConsolidationConfig")
+            Prelude.<$> (x Data..:? "MaxConcurrentTaskCount")
+            Prelude.<*> (x Data..:? "PublicWorkforceTaskPrice")
+            Prelude.<*> (x Data..:? "TaskKeywords")
+            Prelude.<*> (x Data..:? "TaskAvailabilityLifetimeInSeconds")
+            Prelude.<*> (x Data..: "WorkteamArn")
+            Prelude.<*> (x Data..: "UiConfig")
+            Prelude.<*> (x Data..: "PreHumanTaskLambdaArn")
+            Prelude.<*> (x Data..: "TaskTitle")
+            Prelude.<*> (x Data..: "TaskDescription")
+            Prelude.<*> (x Data..: "NumberOfHumanWorkersPerDataObject")
+            Prelude.<*> (x Data..: "TaskTimeLimitInSeconds")
+            Prelude.<*> (x Data..: "AnnotationConsolidationConfig")
       )
 
 instance Prelude.Hashable HumanTaskConfig where
@@ -2277,37 +2278,37 @@ instance Prelude.NFData HumanTaskConfig where
       `Prelude.seq` Prelude.rnf taskTimeLimitInSeconds
       `Prelude.seq` Prelude.rnf annotationConsolidationConfig
 
-instance Core.ToJSON HumanTaskConfig where
+instance Data.ToJSON HumanTaskConfig where
   toJSON HumanTaskConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxConcurrentTaskCount" Core..=)
+          [ ("MaxConcurrentTaskCount" Data..=)
               Prelude.<$> maxConcurrentTaskCount,
-            ("PublicWorkforceTaskPrice" Core..=)
+            ("PublicWorkforceTaskPrice" Data..=)
               Prelude.<$> publicWorkforceTaskPrice,
-            ("TaskKeywords" Core..=) Prelude.<$> taskKeywords,
-            ("TaskAvailabilityLifetimeInSeconds" Core..=)
+            ("TaskKeywords" Data..=) Prelude.<$> taskKeywords,
+            ("TaskAvailabilityLifetimeInSeconds" Data..=)
               Prelude.<$> taskAvailabilityLifetimeInSeconds,
-            Prelude.Just ("WorkteamArn" Core..= workteamArn),
-            Prelude.Just ("UiConfig" Core..= uiConfig),
+            Prelude.Just ("WorkteamArn" Data..= workteamArn),
+            Prelude.Just ("UiConfig" Data..= uiConfig),
             Prelude.Just
               ( "PreHumanTaskLambdaArn"
-                  Core..= preHumanTaskLambdaArn
+                  Data..= preHumanTaskLambdaArn
               ),
-            Prelude.Just ("TaskTitle" Core..= taskTitle),
+            Prelude.Just ("TaskTitle" Data..= taskTitle),
             Prelude.Just
-              ("TaskDescription" Core..= taskDescription),
+              ("TaskDescription" Data..= taskDescription),
             Prelude.Just
               ( "NumberOfHumanWorkersPerDataObject"
-                  Core..= numberOfHumanWorkersPerDataObject
+                  Data..= numberOfHumanWorkersPerDataObject
               ),
             Prelude.Just
               ( "TaskTimeLimitInSeconds"
-                  Core..= taskTimeLimitInSeconds
+                  Data..= taskTimeLimitInSeconds
               ),
             Prelude.Just
               ( "AnnotationConsolidationConfig"
-                  Core..= annotationConsolidationConfig
+                  Data..= annotationConsolidationConfig
               )
           ]
       )

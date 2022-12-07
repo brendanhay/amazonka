@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsXrayEncryptionConfigDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the encryption configuration for X-Ray.
@@ -89,15 +90,15 @@ awsXrayEncryptionConfigDetails_status = Lens.lens (\AwsXrayEncryptionConfigDetai
 awsXrayEncryptionConfigDetails_keyId :: Lens.Lens' AwsXrayEncryptionConfigDetails (Prelude.Maybe Prelude.Text)
 awsXrayEncryptionConfigDetails_keyId = Lens.lens (\AwsXrayEncryptionConfigDetails' {keyId} -> keyId) (\s@AwsXrayEncryptionConfigDetails' {} a -> s {keyId = a} :: AwsXrayEncryptionConfigDetails)
 
-instance Core.FromJSON AwsXrayEncryptionConfigDetails where
+instance Data.FromJSON AwsXrayEncryptionConfigDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsXrayEncryptionConfigDetails"
       ( \x ->
           AwsXrayEncryptionConfigDetails'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "KeyId")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "KeyId")
       )
 
 instance
@@ -120,12 +121,12 @@ instance
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf keyId
 
-instance Core.ToJSON AwsXrayEncryptionConfigDetails where
+instance Data.ToJSON AwsXrayEncryptionConfigDetails where
   toJSON AwsXrayEncryptionConfigDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Status" Core..=) Prelude.<$> status,
-            ("KeyId" Core..=) Prelude.<$> keyId
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Status" Data..=) Prelude.<$> status,
+            ("KeyId" Data..=) Prelude.<$> keyId
           ]
       )

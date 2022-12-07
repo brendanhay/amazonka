@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.Event where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types.SourceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data Event = Event'
     -- | The Amazon Resource Name (ARN) for the event.
     sourceArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the date and time of the event.
-    date :: Prelude.Maybe Core.ISO8601,
+    date :: Prelude.Maybe Data.ISO8601,
     -- | Specifies the source type for this event.
     sourceType :: Prelude.Maybe SourceType,
     -- | Provides the identifier for the source of the event.
@@ -85,7 +86,7 @@ event_sourceArn = Lens.lens (\Event' {sourceArn} -> sourceArn) (\s@Event' {} a -
 
 -- | Specifies the date and time of the event.
 event_date :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Core._Time
+event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the source type for this event.
 event_sourceType :: Lens.Lens' Event (Prelude.Maybe SourceType)
@@ -99,16 +100,16 @@ event_sourceIdentifier = Lens.lens (\Event' {sourceIdentifier} -> sourceIdentifi
 event_eventCategories :: Lens.Lens' Event (Prelude.Maybe [Prelude.Text])
 event_eventCategories = Lens.lens (\Event' {eventCategories} -> eventCategories) (\s@Event' {} a -> s {eventCategories = a} :: Event) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML Event where
+instance Data.FromXML Event where
   parseXML x =
     Event'
-      Prelude.<$> (x Core..@? "Message")
-      Prelude.<*> (x Core..@? "SourceArn")
-      Prelude.<*> (x Core..@? "Date")
-      Prelude.<*> (x Core..@? "SourceType")
-      Prelude.<*> (x Core..@? "SourceIdentifier")
-      Prelude.<*> ( x Core..@? "EventCategories" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "EventCategory")
+      Prelude.<$> (x Data..@? "Message")
+      Prelude.<*> (x Data..@? "SourceArn")
+      Prelude.<*> (x Data..@? "Date")
+      Prelude.<*> (x Data..@? "SourceType")
+      Prelude.<*> (x Data..@? "SourceIdentifier")
+      Prelude.<*> ( x Data..@? "EventCategories" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "EventCategory")
                   )
 
 instance Prelude.Hashable Event where

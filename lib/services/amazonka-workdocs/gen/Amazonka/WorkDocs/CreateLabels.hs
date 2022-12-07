@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -52,7 +53,7 @@ import Amazonka.WorkDocs.Types
 data CreateLabels = CreateLabels'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the resource.
     resourceId :: Prelude.Text,
     -- | List of labels to add to the resource.
@@ -89,7 +90,7 @@ newCreateLabels pResourceId_ =
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 createLabels_authenticationToken :: Lens.Lens' CreateLabels (Prelude.Maybe Prelude.Text)
-createLabels_authenticationToken = Lens.lens (\CreateLabels' {authenticationToken} -> authenticationToken) (\s@CreateLabels' {} a -> s {authenticationToken = a} :: CreateLabels) Prelude.. Lens.mapping Core._Sensitive
+createLabels_authenticationToken = Lens.lens (\CreateLabels' {authenticationToken} -> authenticationToken) (\s@CreateLabels' {} a -> s {authenticationToken = a} :: CreateLabels) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the resource.
 createLabels_resourceId :: Lens.Lens' CreateLabels Prelude.Text
@@ -122,30 +123,30 @@ instance Prelude.NFData CreateLabels where
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf labels
 
-instance Core.ToHeaders CreateLabels where
+instance Data.ToHeaders CreateLabels where
   toHeaders CreateLabels' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateLabels where
+instance Data.ToJSON CreateLabels where
   toJSON CreateLabels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Labels" Core..= labels)]
+          [Prelude.Just ("Labels" Data..= labels)]
       )
 
-instance Core.ToPath CreateLabels where
+instance Data.ToPath CreateLabels where
   toPath CreateLabels' {..} =
     Prelude.mconcat
       [ "/api/v1/resources/",
-        Core.toBS resourceId,
+        Data.toBS resourceId,
         "/labels"
       ]
 
-instance Core.ToQuery CreateLabels where
+instance Data.ToQuery CreateLabels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLabelsResponse' smart constructor.

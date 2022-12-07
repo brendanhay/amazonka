@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.LifecyclePolicyPreviewResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.LifecyclePolicyRuleAction
 import qualified Amazonka.Prelude as Prelude
 
@@ -32,7 +33,7 @@ data LifecyclePolicyPreviewResult = LifecyclePolicyPreviewResult'
     appliedRulePriority :: Prelude.Maybe Prelude.Natural,
     -- | The date and time, expressed in standard JavaScript date format, at
     -- which the current image was pushed to the repository.
-    imagePushedAt :: Prelude.Maybe Core.POSIX,
+    imagePushedAt :: Prelude.Maybe Data.POSIX,
     -- | The list of tags associated with this image.
     imageTags :: Prelude.Maybe [Prelude.Text],
     -- | The type of action to be taken.
@@ -79,7 +80,7 @@ lifecyclePolicyPreviewResult_appliedRulePriority = Lens.lens (\LifecyclePolicyPr
 -- | The date and time, expressed in standard JavaScript date format, at
 -- which the current image was pushed to the repository.
 lifecyclePolicyPreviewResult_imagePushedAt :: Lens.Lens' LifecyclePolicyPreviewResult (Prelude.Maybe Prelude.UTCTime)
-lifecyclePolicyPreviewResult_imagePushedAt = Lens.lens (\LifecyclePolicyPreviewResult' {imagePushedAt} -> imagePushedAt) (\s@LifecyclePolicyPreviewResult' {} a -> s {imagePushedAt = a} :: LifecyclePolicyPreviewResult) Prelude.. Lens.mapping Core._Time
+lifecyclePolicyPreviewResult_imagePushedAt = Lens.lens (\LifecyclePolicyPreviewResult' {imagePushedAt} -> imagePushedAt) (\s@LifecyclePolicyPreviewResult' {} a -> s {imagePushedAt = a} :: LifecyclePolicyPreviewResult) Prelude.. Lens.mapping Data._Time
 
 -- | The list of tags associated with this image.
 lifecyclePolicyPreviewResult_imageTags :: Lens.Lens' LifecyclePolicyPreviewResult (Prelude.Maybe [Prelude.Text])
@@ -93,17 +94,17 @@ lifecyclePolicyPreviewResult_action = Lens.lens (\LifecyclePolicyPreviewResult' 
 lifecyclePolicyPreviewResult_imageDigest :: Lens.Lens' LifecyclePolicyPreviewResult (Prelude.Maybe Prelude.Text)
 lifecyclePolicyPreviewResult_imageDigest = Lens.lens (\LifecyclePolicyPreviewResult' {imageDigest} -> imageDigest) (\s@LifecyclePolicyPreviewResult' {} a -> s {imageDigest = a} :: LifecyclePolicyPreviewResult)
 
-instance Core.FromJSON LifecyclePolicyPreviewResult where
+instance Data.FromJSON LifecyclePolicyPreviewResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifecyclePolicyPreviewResult"
       ( \x ->
           LifecyclePolicyPreviewResult'
-            Prelude.<$> (x Core..:? "appliedRulePriority")
-            Prelude.<*> (x Core..:? "imagePushedAt")
-            Prelude.<*> (x Core..:? "imageTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "action")
-            Prelude.<*> (x Core..:? "imageDigest")
+            Prelude.<$> (x Data..:? "appliedRulePriority")
+            Prelude.<*> (x Data..:? "imagePushedAt")
+            Prelude.<*> (x Data..:? "imageTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "action")
+            Prelude.<*> (x Data..:? "imageDigest")
       )
 
 instance

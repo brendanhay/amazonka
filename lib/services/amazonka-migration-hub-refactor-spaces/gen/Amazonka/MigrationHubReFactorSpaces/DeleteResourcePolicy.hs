@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,23 +94,23 @@ instance Prelude.NFData DeleteResourcePolicy where
   rnf DeleteResourcePolicy' {..} =
     Prelude.rnf identifier
 
-instance Core.ToHeaders DeleteResourcePolicy where
+instance Data.ToHeaders DeleteResourcePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteResourcePolicy where
+instance Data.ToPath DeleteResourcePolicy where
   toPath DeleteResourcePolicy' {..} =
     Prelude.mconcat
-      ["/resourcepolicy/", Core.toBS identifier]
+      ["/resourcepolicy/", Data.toBS identifier]
 
-instance Core.ToQuery DeleteResourcePolicy where
+instance Data.ToQuery DeleteResourcePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResourcePolicyResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.KMS.Types.GrantListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types.GrantConstraints
 import Amazonka.KMS.Types.GrantOperation
 import qualified Amazonka.Prelude as Prelude
@@ -50,7 +51,7 @@ data GrantListEntry = GrantListEntry'
     -- of certain subsequent operations that the grant allows.
     constraints :: Prelude.Maybe GrantConstraints,
     -- | The date and time when the grant was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The principal that can retire the grant.
     retiringPrincipal :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the grant.
@@ -142,7 +143,7 @@ grantListEntry_constraints = Lens.lens (\GrantListEntry' {constraints} -> constr
 
 -- | The date and time when the grant was created.
 grantListEntry_creationDate :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.UTCTime)
-grantListEntry_creationDate = Lens.lens (\GrantListEntry' {creationDate} -> creationDate) (\s@GrantListEntry' {} a -> s {creationDate = a} :: GrantListEntry) Prelude.. Lens.mapping Core._Time
+grantListEntry_creationDate = Lens.lens (\GrantListEntry' {creationDate} -> creationDate) (\s@GrantListEntry' {} a -> s {creationDate = a} :: GrantListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The principal that can retire the grant.
 grantListEntry_retiringPrincipal :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
@@ -156,21 +157,21 @@ grantListEntry_grantId = Lens.lens (\GrantListEntry' {grantId} -> grantId) (\s@G
 grantListEntry_keyId :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
 grantListEntry_keyId = Lens.lens (\GrantListEntry' {keyId} -> keyId) (\s@GrantListEntry' {} a -> s {keyId = a} :: GrantListEntry)
 
-instance Core.FromJSON GrantListEntry where
+instance Data.FromJSON GrantListEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GrantListEntry"
       ( \x ->
           GrantListEntry'
-            Prelude.<$> (x Core..:? "IssuingAccount")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "GranteePrincipal")
-            Prelude.<*> (x Core..:? "Operations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Constraints")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "RetiringPrincipal")
-            Prelude.<*> (x Core..:? "GrantId")
-            Prelude.<*> (x Core..:? "KeyId")
+            Prelude.<$> (x Data..:? "IssuingAccount")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "GranteePrincipal")
+            Prelude.<*> (x Data..:? "Operations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Constraints")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "RetiringPrincipal")
+            Prelude.<*> (x Data..:? "GrantId")
+            Prelude.<*> (x Data..:? "KeyId")
       )
 
 instance Prelude.Hashable GrantListEntry where

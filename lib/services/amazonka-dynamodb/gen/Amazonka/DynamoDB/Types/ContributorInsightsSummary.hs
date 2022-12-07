@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ContributorInsightsSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ContributorInsightsStatus
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -77,15 +78,15 @@ contributorInsightsSummary_tableName = Lens.lens (\ContributorInsightsSummary' {
 contributorInsightsSummary_indexName :: Lens.Lens' ContributorInsightsSummary (Prelude.Maybe Prelude.Text)
 contributorInsightsSummary_indexName = Lens.lens (\ContributorInsightsSummary' {indexName} -> indexName) (\s@ContributorInsightsSummary' {} a -> s {indexName = a} :: ContributorInsightsSummary)
 
-instance Core.FromJSON ContributorInsightsSummary where
+instance Data.FromJSON ContributorInsightsSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContributorInsightsSummary"
       ( \x ->
           ContributorInsightsSummary'
-            Prelude.<$> (x Core..:? "ContributorInsightsStatus")
-            Prelude.<*> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "IndexName")
+            Prelude.<$> (x Data..:? "ContributorInsightsStatus")
+            Prelude.<*> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "IndexName")
       )
 
 instance Prelude.Hashable ContributorInsightsSummary where

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -173,7 +174,7 @@ instance Core.AWSRequest CreateApp where
     Response.receiveJSON
       ( \s h x ->
           CreateAppResponse'
-            Prelude.<$> (x Core..?> "AppArn")
+            Prelude.<$> (x Data..?> "AppArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,37 +196,37 @@ instance Prelude.NFData CreateApp where
       `Prelude.seq` Prelude.rnf appType
       `Prelude.seq` Prelude.rnf appName
 
-instance Core.ToHeaders CreateApp where
+instance Data.ToHeaders CreateApp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateApp" :: Prelude.ByteString),
+              Data.=# ("SageMaker.CreateApp" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApp where
+instance Data.ToJSON CreateApp where
   toJSON CreateApp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ResourceSpec" Core..=) Prelude.<$> resourceSpec,
-            Prelude.Just ("DomainId" Core..= domainId),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ResourceSpec" Data..=) Prelude.<$> resourceSpec,
+            Prelude.Just ("DomainId" Data..= domainId),
             Prelude.Just
-              ("UserProfileName" Core..= userProfileName),
-            Prelude.Just ("AppType" Core..= appType),
-            Prelude.Just ("AppName" Core..= appName)
+              ("UserProfileName" Data..= userProfileName),
+            Prelude.Just ("AppType" Data..= appType),
+            Prelude.Just ("AppName" Data..= appName)
           ]
       )
 
-instance Core.ToPath CreateApp where
+instance Data.ToPath CreateApp where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateApp where
+instance Data.ToQuery CreateApp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAppResponse' smart constructor.

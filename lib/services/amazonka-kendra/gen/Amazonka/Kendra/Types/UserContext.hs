@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.UserContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceGroup
 import qualified Amazonka.Prelude as Prelude
 
@@ -122,14 +123,14 @@ instance Prelude.NFData UserContext where
       `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf token
 
-instance Core.ToJSON UserContext where
+instance Data.ToJSON UserContext where
   toJSON UserContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSourceGroups" Core..=)
+          [ ("DataSourceGroups" Data..=)
               Prelude.<$> dataSourceGroups,
-            ("UserId" Core..=) Prelude.<$> userId,
-            ("Groups" Core..=) Prelude.<$> groups,
-            ("Token" Core..=) Prelude.<$> token
+            ("UserId" Data..=) Prelude.<$> userId,
+            ("Groups" Data..=) Prelude.<$> groups,
+            ("Token" Data..=) Prelude.<$> token
           ]
       )

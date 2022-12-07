@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.AvailableProcessorFeature where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the available processor feature information for the DB instance
@@ -78,12 +79,12 @@ availableProcessorFeature_defaultValue = Lens.lens (\AvailableProcessorFeature' 
 availableProcessorFeature_allowedValues :: Lens.Lens' AvailableProcessorFeature (Prelude.Maybe Prelude.Text)
 availableProcessorFeature_allowedValues = Lens.lens (\AvailableProcessorFeature' {allowedValues} -> allowedValues) (\s@AvailableProcessorFeature' {} a -> s {allowedValues = a} :: AvailableProcessorFeature)
 
-instance Core.FromXML AvailableProcessorFeature where
+instance Data.FromXML AvailableProcessorFeature where
   parseXML x =
     AvailableProcessorFeature'
-      Prelude.<$> (x Core..@? "Name")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "AllowedValues")
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "AllowedValues")
 
 instance Prelude.Hashable AvailableProcessorFeature where
   hashWithSalt _salt AvailableProcessorFeature' {..} =

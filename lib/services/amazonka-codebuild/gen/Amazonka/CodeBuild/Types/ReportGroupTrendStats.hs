@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.ReportGroupTrendStats where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains trend statistics for a set of reports. The actual values depend
@@ -71,15 +72,15 @@ reportGroupTrendStats_average = Lens.lens (\ReportGroupTrendStats' {average} -> 
 reportGroupTrendStats_min :: Lens.Lens' ReportGroupTrendStats (Prelude.Maybe Prelude.Text)
 reportGroupTrendStats_min = Lens.lens (\ReportGroupTrendStats' {min} -> min) (\s@ReportGroupTrendStats' {} a -> s {min = a} :: ReportGroupTrendStats)
 
-instance Core.FromJSON ReportGroupTrendStats where
+instance Data.FromJSON ReportGroupTrendStats where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReportGroupTrendStats"
       ( \x ->
           ReportGroupTrendStats'
-            Prelude.<$> (x Core..:? "max")
-            Prelude.<*> (x Core..:? "average")
-            Prelude.<*> (x Core..:? "min")
+            Prelude.<$> (x Data..:? "max")
+            Prelude.<*> (x Data..:? "average")
+            Prelude.<*> (x Data..:? "min")
       )
 
 instance Prelude.Hashable ReportGroupTrendStats where

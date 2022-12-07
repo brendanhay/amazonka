@@ -82,6 +82,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -201,7 +202,7 @@ instance Core.AWSRequest DetectStackSetDrift where
       "DetectStackSetDriftResult"
       ( \s h x ->
           DetectStackSetDriftResponse'
-            Prelude.<$> (x Core..@? "OperationId")
+            Prelude.<$> (x Data..@? "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,23 +220,23 @@ instance Prelude.NFData DetectStackSetDrift where
       `Prelude.seq` Prelude.rnf operationId
       `Prelude.seq` Prelude.rnf stackSetName
 
-instance Core.ToHeaders DetectStackSetDrift where
+instance Data.ToHeaders DetectStackSetDrift where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DetectStackSetDrift where
+instance Data.ToPath DetectStackSetDrift where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetectStackSetDrift where
+instance Data.ToQuery DetectStackSetDrift where
   toQuery DetectStackSetDrift' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DetectStackSetDrift" :: Prelude.ByteString),
+          Data.=: ("DetectStackSetDrift" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "OperationPreferences" Core.=: operationPreferences,
-        "CallAs" Core.=: callAs,
-        "OperationId" Core.=: operationId,
-        "StackSetName" Core.=: stackSetName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "OperationPreferences" Data.=: operationPreferences,
+        "CallAs" Data.=: callAs,
+        "OperationId" Data.=: operationId,
+        "StackSetName" Data.=: stackSetName
       ]
 
 -- | /See:/ 'newDetectStackSetDriftResponse' smart constructor.

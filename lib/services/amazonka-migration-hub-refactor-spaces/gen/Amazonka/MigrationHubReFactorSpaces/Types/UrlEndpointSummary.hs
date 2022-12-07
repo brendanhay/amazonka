@@ -21,6 +21,7 @@ module Amazonka.MigrationHubReFactorSpaces.Types.UrlEndpointSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of the configuration for the URL endpoint type.
@@ -88,14 +89,14 @@ urlEndpointSummary_url = Lens.lens (\UrlEndpointSummary' {url} -> url) (\s@UrlEn
 urlEndpointSummary_healthUrl :: Lens.Lens' UrlEndpointSummary (Prelude.Maybe Prelude.Text)
 urlEndpointSummary_healthUrl = Lens.lens (\UrlEndpointSummary' {healthUrl} -> healthUrl) (\s@UrlEndpointSummary' {} a -> s {healthUrl = a} :: UrlEndpointSummary)
 
-instance Core.FromJSON UrlEndpointSummary where
+instance Data.FromJSON UrlEndpointSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UrlEndpointSummary"
       ( \x ->
           UrlEndpointSummary'
-            Prelude.<$> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "HealthUrl")
+            Prelude.<$> (x Data..:? "Url")
+            Prelude.<*> (x Data..:? "HealthUrl")
       )
 
 instance Prelude.Hashable UrlEndpointSummary where

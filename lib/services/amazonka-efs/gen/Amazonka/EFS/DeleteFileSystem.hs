@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,15 +111,15 @@ instance Prelude.Hashable DeleteFileSystem where
 instance Prelude.NFData DeleteFileSystem where
   rnf DeleteFileSystem' {..} = Prelude.rnf fileSystemId
 
-instance Core.ToHeaders DeleteFileSystem where
+instance Data.ToHeaders DeleteFileSystem where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteFileSystem where
+instance Data.ToPath DeleteFileSystem where
   toPath DeleteFileSystem' {..} =
     Prelude.mconcat
-      ["/2015-02-01/file-systems/", Core.toBS fileSystemId]
+      ["/2015-02-01/file-systems/", Data.toBS fileSystemId]
 
-instance Core.ToQuery DeleteFileSystem where
+instance Data.ToQuery DeleteFileSystem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFileSystemResponse' smart constructor.

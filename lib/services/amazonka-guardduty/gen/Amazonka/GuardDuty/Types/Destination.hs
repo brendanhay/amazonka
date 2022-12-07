@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.Destination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.DestinationType
 import Amazonka.GuardDuty.Types.PublishingStatus
 import qualified Amazonka.Prelude as Prelude
@@ -85,15 +86,15 @@ destination_destinationType = Lens.lens (\Destination' {destinationType} -> dest
 destination_status :: Lens.Lens' Destination PublishingStatus
 destination_status = Lens.lens (\Destination' {status} -> status) (\s@Destination' {} a -> s {status = a} :: Destination)
 
-instance Core.FromJSON Destination where
+instance Data.FromJSON Destination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Destination"
       ( \x ->
           Destination'
-            Prelude.<$> (x Core..: "destinationId")
-            Prelude.<*> (x Core..: "destinationType")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..: "destinationId")
+            Prelude.<*> (x Data..: "destinationType")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable Destination where

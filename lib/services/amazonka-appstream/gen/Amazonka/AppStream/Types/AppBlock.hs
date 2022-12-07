@@ -23,6 +23,7 @@ import Amazonka.AppStream.Types.S3Location
 import Amazonka.AppStream.Types.ScriptDetails
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an app block.
@@ -39,7 +40,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAppBlock' smart constructor.
 data AppBlock = AppBlock'
   { -- | The created time of the app block.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The display name of the app block.
     displayName :: Prelude.Maybe Prelude.Text,
     -- | The description of the app block.
@@ -97,7 +98,7 @@ newAppBlock pName_ pArn_ pSetupScriptDetails_ =
 
 -- | The created time of the app block.
 appBlock_createdTime :: Lens.Lens' AppBlock (Prelude.Maybe Prelude.UTCTime)
-appBlock_createdTime = Lens.lens (\AppBlock' {createdTime} -> createdTime) (\s@AppBlock' {} a -> s {createdTime = a} :: AppBlock) Prelude.. Lens.mapping Core._Time
+appBlock_createdTime = Lens.lens (\AppBlock' {createdTime} -> createdTime) (\s@AppBlock' {} a -> s {createdTime = a} :: AppBlock) Prelude.. Lens.mapping Data._Time
 
 -- | The display name of the app block.
 appBlock_displayName :: Lens.Lens' AppBlock (Prelude.Maybe Prelude.Text)
@@ -123,19 +124,19 @@ appBlock_arn = Lens.lens (\AppBlock' {arn} -> arn) (\s@AppBlock' {} a -> s {arn 
 appBlock_setupScriptDetails :: Lens.Lens' AppBlock ScriptDetails
 appBlock_setupScriptDetails = Lens.lens (\AppBlock' {setupScriptDetails} -> setupScriptDetails) (\s@AppBlock' {} a -> s {setupScriptDetails = a} :: AppBlock)
 
-instance Core.FromJSON AppBlock where
+instance Data.FromJSON AppBlock where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppBlock"
       ( \x ->
           AppBlock'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SourceS3Location")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "SetupScriptDetails")
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SourceS3Location")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "SetupScriptDetails")
       )
 
 instance Prelude.Hashable AppBlock where

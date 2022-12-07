@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.ErrorReportLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamQuery.Types.S3ReportLocation
 
@@ -55,13 +56,13 @@ newErrorReportLocation =
 errorReportLocation_s3ReportLocation :: Lens.Lens' ErrorReportLocation (Prelude.Maybe S3ReportLocation)
 errorReportLocation_s3ReportLocation = Lens.lens (\ErrorReportLocation' {s3ReportLocation} -> s3ReportLocation) (\s@ErrorReportLocation' {} a -> s {s3ReportLocation = a} :: ErrorReportLocation)
 
-instance Core.FromJSON ErrorReportLocation where
+instance Data.FromJSON ErrorReportLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorReportLocation"
       ( \x ->
           ErrorReportLocation'
-            Prelude.<$> (x Core..:? "S3ReportLocation")
+            Prelude.<$> (x Data..:? "S3ReportLocation")
       )
 
 instance Prelude.Hashable ErrorReportLocation where

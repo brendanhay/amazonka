@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.ApprovalRuleTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about an approval rule template.
@@ -34,9 +35,9 @@ data ApprovalRuleTemplate = ApprovalRuleTemplate'
     lastModifiedUser :: Prelude.Maybe Prelude.Text,
     -- | The date the approval rule template was most recently changed, in
     -- timestamp format.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The date the approval rule template was created, in timestamp format.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the approval rule template.
     approvalRuleTemplateName :: Prelude.Maybe Prelude.Text,
     -- | The SHA-256 hash signature for the content of the approval rule
@@ -102,11 +103,11 @@ approvalRuleTemplate_lastModifiedUser = Lens.lens (\ApprovalRuleTemplate' {lastM
 -- | The date the approval rule template was most recently changed, in
 -- timestamp format.
 approvalRuleTemplate_lastModifiedDate :: Lens.Lens' ApprovalRuleTemplate (Prelude.Maybe Prelude.UTCTime)
-approvalRuleTemplate_lastModifiedDate = Lens.lens (\ApprovalRuleTemplate' {lastModifiedDate} -> lastModifiedDate) (\s@ApprovalRuleTemplate' {} a -> s {lastModifiedDate = a} :: ApprovalRuleTemplate) Prelude.. Lens.mapping Core._Time
+approvalRuleTemplate_lastModifiedDate = Lens.lens (\ApprovalRuleTemplate' {lastModifiedDate} -> lastModifiedDate) (\s@ApprovalRuleTemplate' {} a -> s {lastModifiedDate = a} :: ApprovalRuleTemplate) Prelude.. Lens.mapping Data._Time
 
 -- | The date the approval rule template was created, in timestamp format.
 approvalRuleTemplate_creationDate :: Lens.Lens' ApprovalRuleTemplate (Prelude.Maybe Prelude.UTCTime)
-approvalRuleTemplate_creationDate = Lens.lens (\ApprovalRuleTemplate' {creationDate} -> creationDate) (\s@ApprovalRuleTemplate' {} a -> s {creationDate = a} :: ApprovalRuleTemplate) Prelude.. Lens.mapping Core._Time
+approvalRuleTemplate_creationDate = Lens.lens (\ApprovalRuleTemplate' {creationDate} -> creationDate) (\s@ApprovalRuleTemplate' {} a -> s {creationDate = a} :: ApprovalRuleTemplate) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the approval rule template.
 approvalRuleTemplate_approvalRuleTemplateName :: Lens.Lens' ApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
@@ -125,20 +126,20 @@ approvalRuleTemplate_approvalRuleTemplateDescription = Lens.lens (\ApprovalRuleT
 approvalRuleTemplate_approvalRuleTemplateId :: Lens.Lens' ApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
 approvalRuleTemplate_approvalRuleTemplateId = Lens.lens (\ApprovalRuleTemplate' {approvalRuleTemplateId} -> approvalRuleTemplateId) (\s@ApprovalRuleTemplate' {} a -> s {approvalRuleTemplateId = a} :: ApprovalRuleTemplate)
 
-instance Core.FromJSON ApprovalRuleTemplate where
+instance Data.FromJSON ApprovalRuleTemplate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApprovalRuleTemplate"
       ( \x ->
           ApprovalRuleTemplate'
-            Prelude.<$> (x Core..:? "approvalRuleTemplateContent")
-            Prelude.<*> (x Core..:? "lastModifiedUser")
-            Prelude.<*> (x Core..:? "lastModifiedDate")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "approvalRuleTemplateName")
-            Prelude.<*> (x Core..:? "ruleContentSha256")
-            Prelude.<*> (x Core..:? "approvalRuleTemplateDescription")
-            Prelude.<*> (x Core..:? "approvalRuleTemplateId")
+            Prelude.<$> (x Data..:? "approvalRuleTemplateContent")
+            Prelude.<*> (x Data..:? "lastModifiedUser")
+            Prelude.<*> (x Data..:? "lastModifiedDate")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "approvalRuleTemplateName")
+            Prelude.<*> (x Data..:? "ruleContentSha256")
+            Prelude.<*> (x Data..:? "approvalRuleTemplateDescription")
+            Prelude.<*> (x Data..:? "approvalRuleTemplateId")
       )
 
 instance Prelude.Hashable ApprovalRuleTemplate where

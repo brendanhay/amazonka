@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.UIColorPalette where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The theme colors that apply to UI and to charts, excluding data colors.
@@ -231,28 +232,28 @@ uIColorPalette_success = Lens.lens (\UIColorPalette' {success} -> success) (\s@U
 uIColorPalette_measureForeground :: Lens.Lens' UIColorPalette (Prelude.Maybe Prelude.Text)
 uIColorPalette_measureForeground = Lens.lens (\UIColorPalette' {measureForeground} -> measureForeground) (\s@UIColorPalette' {} a -> s {measureForeground = a} :: UIColorPalette)
 
-instance Core.FromJSON UIColorPalette where
+instance Data.FromJSON UIColorPalette where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UIColorPalette"
       ( \x ->
           UIColorPalette'
-            Prelude.<$> (x Core..:? "AccentForeground")
-            Prelude.<*> (x Core..:? "Danger")
-            Prelude.<*> (x Core..:? "DangerForeground")
-            Prelude.<*> (x Core..:? "SecondaryBackground")
-            Prelude.<*> (x Core..:? "PrimaryBackground")
-            Prelude.<*> (x Core..:? "WarningForeground")
-            Prelude.<*> (x Core..:? "DimensionForeground")
-            Prelude.<*> (x Core..:? "Warning")
-            Prelude.<*> (x Core..:? "SuccessForeground")
-            Prelude.<*> (x Core..:? "PrimaryForeground")
-            Prelude.<*> (x Core..:? "SecondaryForeground")
-            Prelude.<*> (x Core..:? "Measure")
-            Prelude.<*> (x Core..:? "Dimension")
-            Prelude.<*> (x Core..:? "Accent")
-            Prelude.<*> (x Core..:? "Success")
-            Prelude.<*> (x Core..:? "MeasureForeground")
+            Prelude.<$> (x Data..:? "AccentForeground")
+            Prelude.<*> (x Data..:? "Danger")
+            Prelude.<*> (x Data..:? "DangerForeground")
+            Prelude.<*> (x Data..:? "SecondaryBackground")
+            Prelude.<*> (x Data..:? "PrimaryBackground")
+            Prelude.<*> (x Data..:? "WarningForeground")
+            Prelude.<*> (x Data..:? "DimensionForeground")
+            Prelude.<*> (x Data..:? "Warning")
+            Prelude.<*> (x Data..:? "SuccessForeground")
+            Prelude.<*> (x Data..:? "PrimaryForeground")
+            Prelude.<*> (x Data..:? "SecondaryForeground")
+            Prelude.<*> (x Data..:? "Measure")
+            Prelude.<*> (x Data..:? "Dimension")
+            Prelude.<*> (x Data..:? "Accent")
+            Prelude.<*> (x Data..:? "Success")
+            Prelude.<*> (x Data..:? "MeasureForeground")
       )
 
 instance Prelude.Hashable UIColorPalette where
@@ -293,35 +294,35 @@ instance Prelude.NFData UIColorPalette where
       `Prelude.seq` Prelude.rnf success
       `Prelude.seq` Prelude.rnf measureForeground
 
-instance Core.ToJSON UIColorPalette where
+instance Data.ToJSON UIColorPalette where
   toJSON UIColorPalette' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccentForeground" Core..=)
+          [ ("AccentForeground" Data..=)
               Prelude.<$> accentForeground,
-            ("Danger" Core..=) Prelude.<$> danger,
-            ("DangerForeground" Core..=)
+            ("Danger" Data..=) Prelude.<$> danger,
+            ("DangerForeground" Data..=)
               Prelude.<$> dangerForeground,
-            ("SecondaryBackground" Core..=)
+            ("SecondaryBackground" Data..=)
               Prelude.<$> secondaryBackground,
-            ("PrimaryBackground" Core..=)
+            ("PrimaryBackground" Data..=)
               Prelude.<$> primaryBackground,
-            ("WarningForeground" Core..=)
+            ("WarningForeground" Data..=)
               Prelude.<$> warningForeground,
-            ("DimensionForeground" Core..=)
+            ("DimensionForeground" Data..=)
               Prelude.<$> dimensionForeground,
-            ("Warning" Core..=) Prelude.<$> warning,
-            ("SuccessForeground" Core..=)
+            ("Warning" Data..=) Prelude.<$> warning,
+            ("SuccessForeground" Data..=)
               Prelude.<$> successForeground,
-            ("PrimaryForeground" Core..=)
+            ("PrimaryForeground" Data..=)
               Prelude.<$> primaryForeground,
-            ("SecondaryForeground" Core..=)
+            ("SecondaryForeground" Data..=)
               Prelude.<$> secondaryForeground,
-            ("Measure" Core..=) Prelude.<$> measure,
-            ("Dimension" Core..=) Prelude.<$> dimension,
-            ("Accent" Core..=) Prelude.<$> accent,
-            ("Success" Core..=) Prelude.<$> success,
-            ("MeasureForeground" Core..=)
+            ("Measure" Data..=) Prelude.<$> measure,
+            ("Dimension" Data..=) Prelude.<$> dimension,
+            ("Accent" Data..=) Prelude.<$> accent,
+            ("Success" Data..=) Prelude.<$> success,
+            ("MeasureForeground" Data..=)
               Prelude.<$> measureForeground
           ]
       )

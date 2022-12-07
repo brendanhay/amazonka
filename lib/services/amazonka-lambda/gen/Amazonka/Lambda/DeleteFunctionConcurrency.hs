@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,18 +127,18 @@ instance Prelude.NFData DeleteFunctionConcurrency where
   rnf DeleteFunctionConcurrency' {..} =
     Prelude.rnf functionName
 
-instance Core.ToHeaders DeleteFunctionConcurrency where
+instance Data.ToHeaders DeleteFunctionConcurrency where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteFunctionConcurrency where
+instance Data.ToPath DeleteFunctionConcurrency where
   toPath DeleteFunctionConcurrency' {..} =
     Prelude.mconcat
       [ "/2017-10-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/concurrency"
       ]
 
-instance Core.ToQuery DeleteFunctionConcurrency where
+instance Data.ToQuery DeleteFunctionConcurrency where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFunctionConcurrencyResponse' smart constructor.

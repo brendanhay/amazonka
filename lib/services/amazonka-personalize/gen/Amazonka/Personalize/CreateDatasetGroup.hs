@@ -97,6 +97,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -204,8 +205,8 @@ instance Core.AWSRequest CreateDatasetGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateDatasetGroupResponse'
-            Prelude.<$> (x Core..?> "domain")
-            Prelude.<*> (x Core..?> "datasetGroupArn")
+            Prelude.<$> (x Data..?> "domain")
+            Prelude.<*> (x Data..?> "datasetGroupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -225,37 +226,37 @@ instance Prelude.NFData CreateDatasetGroup where
       `Prelude.seq` Prelude.rnf kmsKeyArn
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateDatasetGroup where
+instance Data.ToHeaders CreateDatasetGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.CreateDatasetGroup" ::
+              Data.=# ( "AmazonPersonalize.CreateDatasetGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDatasetGroup where
+instance Data.ToJSON CreateDatasetGroup where
   toJSON CreateDatasetGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("domain" Core..=) Prelude.<$> domain,
-            ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            Prelude.Just ("name" Core..= name)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("domain" Data..=) Prelude.<$> domain,
+            ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateDatasetGroup where
+instance Data.ToPath CreateDatasetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDatasetGroup where
+instance Data.ToQuery CreateDatasetGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDatasetGroupResponse' smart constructor.

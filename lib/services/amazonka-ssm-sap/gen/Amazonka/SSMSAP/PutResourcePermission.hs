@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,7 +110,7 @@ instance Core.AWSRequest PutResourcePermission where
     Response.receiveJSON
       ( \s h x ->
           PutResourcePermissionResponse'
-            Prelude.<$> (x Core..?> "Policy")
+            Prelude.<$> (x Data..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,32 +126,32 @@ instance Prelude.NFData PutResourcePermission where
       `Prelude.seq` Prelude.rnf sourceResourceArn
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders PutResourcePermission where
+instance Data.ToHeaders PutResourcePermission where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutResourcePermission where
+instance Data.ToJSON PutResourcePermission where
   toJSON PutResourcePermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ActionType" Core..= actionType),
+          [ Prelude.Just ("ActionType" Data..= actionType),
             Prelude.Just
-              ("SourceResourceArn" Core..= sourceResourceArn),
-            Prelude.Just ("ResourceArn" Core..= resourceArn)
+              ("SourceResourceArn" Data..= sourceResourceArn),
+            Prelude.Just ("ResourceArn" Data..= resourceArn)
           ]
       )
 
-instance Core.ToPath PutResourcePermission where
+instance Data.ToPath PutResourcePermission where
   toPath = Prelude.const "/put-resource-permission"
 
-instance Core.ToQuery PutResourcePermission where
+instance Data.ToQuery PutResourcePermission where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutResourcePermissionResponse' smart constructor.

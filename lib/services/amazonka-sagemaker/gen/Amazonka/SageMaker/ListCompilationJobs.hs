@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,16 +73,16 @@ data ListCompilationJobs = ListCompilationJobs'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns the model compilation jobs that were modified
     -- after a specified time.
-    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns the model compilation jobs whose name contains a
     -- specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns the model compilation jobs that were modified
     -- before a specified time.
-    lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns the model compilation jobs that were created
     -- before a specified time.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The field by which to sort results. The default is @CreationTime@.
     sortBy :: Prelude.Maybe ListCompilationJobsSortBy,
     -- | The maximum number of model compilation jobs to return in the response.
@@ -91,7 +92,7 @@ data ListCompilationJobs = ListCompilationJobs'
     statusEquals :: Prelude.Maybe CompilationJobStatus,
     -- | A filter that returns the model compilation jobs that were created after
     -- a specified time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -159,7 +160,7 @@ listCompilationJobs_nextToken = Lens.lens (\ListCompilationJobs' {nextToken} -> 
 -- | A filter that returns the model compilation jobs that were modified
 -- after a specified time.
 listCompilationJobs_lastModifiedTimeAfter :: Lens.Lens' ListCompilationJobs (Prelude.Maybe Prelude.UTCTime)
-listCompilationJobs_lastModifiedTimeAfter = Lens.lens (\ListCompilationJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListCompilationJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListCompilationJobs) Prelude.. Lens.mapping Core._Time
+listCompilationJobs_lastModifiedTimeAfter = Lens.lens (\ListCompilationJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListCompilationJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListCompilationJobs) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns the model compilation jobs whose name contains a
 -- specified string.
@@ -169,12 +170,12 @@ listCompilationJobs_nameContains = Lens.lens (\ListCompilationJobs' {nameContain
 -- | A filter that returns the model compilation jobs that were modified
 -- before a specified time.
 listCompilationJobs_lastModifiedTimeBefore :: Lens.Lens' ListCompilationJobs (Prelude.Maybe Prelude.UTCTime)
-listCompilationJobs_lastModifiedTimeBefore = Lens.lens (\ListCompilationJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListCompilationJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListCompilationJobs) Prelude.. Lens.mapping Core._Time
+listCompilationJobs_lastModifiedTimeBefore = Lens.lens (\ListCompilationJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListCompilationJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListCompilationJobs) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns the model compilation jobs that were created
 -- before a specified time.
 listCompilationJobs_creationTimeBefore :: Lens.Lens' ListCompilationJobs (Prelude.Maybe Prelude.UTCTime)
-listCompilationJobs_creationTimeBefore = Lens.lens (\ListCompilationJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListCompilationJobs' {} a -> s {creationTimeBefore = a} :: ListCompilationJobs) Prelude.. Lens.mapping Core._Time
+listCompilationJobs_creationTimeBefore = Lens.lens (\ListCompilationJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListCompilationJobs' {} a -> s {creationTimeBefore = a} :: ListCompilationJobs) Prelude.. Lens.mapping Data._Time
 
 -- | The field by which to sort results. The default is @CreationTime@.
 listCompilationJobs_sortBy :: Lens.Lens' ListCompilationJobs (Prelude.Maybe ListCompilationJobsSortBy)
@@ -192,7 +193,7 @@ listCompilationJobs_statusEquals = Lens.lens (\ListCompilationJobs' {statusEqual
 -- | A filter that returns the model compilation jobs that were created after
 -- a specified time.
 listCompilationJobs_creationTimeAfter :: Lens.Lens' ListCompilationJobs (Prelude.Maybe Prelude.UTCTime)
-listCompilationJobs_creationTimeAfter = Lens.lens (\ListCompilationJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListCompilationJobs' {} a -> s {creationTimeAfter = a} :: ListCompilationJobs) Prelude.. Lens.mapping Core._Time
+listCompilationJobs_creationTimeAfter = Lens.lens (\ListCompilationJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListCompilationJobs' {} a -> s {creationTimeAfter = a} :: ListCompilationJobs) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListCompilationJobs where
   page rq rs
@@ -225,9 +226,9 @@ instance Core.AWSRequest ListCompilationJobs where
     Response.receiveJSON
       ( \s h x ->
           ListCompilationJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "CompilationJobSummaries"
+            Prelude.<*> ( x Data..?> "CompilationJobSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -258,46 +259,46 @@ instance Prelude.NFData ListCompilationJobs where
       `Prelude.seq` Prelude.rnf statusEquals
       `Prelude.seq` Prelude.rnf creationTimeAfter
 
-instance Core.ToHeaders ListCompilationJobs where
+instance Data.ToHeaders ListCompilationJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListCompilationJobs" ::
+              Data.=# ( "SageMaker.ListCompilationJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCompilationJobs where
+instance Data.ToJSON ListCompilationJobs where
   toJSON ListCompilationJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("LastModifiedTimeAfter" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("LastModifiedTimeAfter" Data..=)
               Prelude.<$> lastModifiedTimeAfter,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("LastModifiedTimeBefore" Core..=)
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("LastModifiedTimeBefore" Data..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("CreationTimeBefore" Core..=)
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StatusEquals" Core..=) Prelude.<$> statusEquals,
-            ("CreationTimeAfter" Core..=)
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StatusEquals" Data..=) Prelude.<$> statusEquals,
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter
           ]
       )
 
-instance Core.ToPath ListCompilationJobs where
+instance Data.ToPath ListCompilationJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListCompilationJobs where
+instance Data.ToQuery ListCompilationJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCompilationJobsResponse' smart constructor.

@@ -54,6 +54,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,8 +145,8 @@ instance Core.AWSRequest ListLexBots where
     Response.receiveJSON
       ( \s h x ->
           ListLexBotsResponse'
-            Prelude.<$> (x Core..?> "LexBots" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "LexBots" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,27 +162,27 @@ instance Prelude.NFData ListLexBots where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ListLexBots where
+instance Data.ToHeaders ListLexBots where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListLexBots where
+instance Data.ToPath ListLexBots where
   toPath ListLexBots' {..} =
     Prelude.mconcat
-      ["/instance/", Core.toBS instanceId, "/lex-bots"]
+      ["/instance/", Data.toBS instanceId, "/lex-bots"]
 
-instance Core.ToQuery ListLexBots where
+instance Data.ToQuery ListLexBots where
   toQuery ListLexBots' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListLexBotsResponse' smart constructor.

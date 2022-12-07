@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -194,10 +195,10 @@ instance Core.AWSRequest UpdateSubnetChangeProtection where
     Response.receiveJSON
       ( \s h x ->
           UpdateSubnetChangeProtectionResponse'
-            Prelude.<$> (x Core..?> "UpdateToken")
-            Prelude.<*> (x Core..?> "SubnetChangeProtection")
-            Prelude.<*> (x Core..?> "FirewallArn")
-            Prelude.<*> (x Core..?> "FirewallName")
+            Prelude.<$> (x Data..?> "UpdateToken")
+            Prelude.<*> (x Data..?> "SubnetChangeProtection")
+            Prelude.<*> (x Data..?> "FirewallArn")
+            Prelude.<*> (x Data..?> "FirewallName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,39 +219,39 @@ instance Prelude.NFData UpdateSubnetChangeProtection where
       `Prelude.seq` Prelude.rnf firewallName
       `Prelude.seq` Prelude.rnf subnetChangeProtection
 
-instance Core.ToHeaders UpdateSubnetChangeProtection where
+instance Data.ToHeaders UpdateSubnetChangeProtection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "NetworkFirewall_20201112.UpdateSubnetChangeProtection" ::
+              Data.=# ( "NetworkFirewall_20201112.UpdateSubnetChangeProtection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSubnetChangeProtection where
+instance Data.ToJSON UpdateSubnetChangeProtection where
   toJSON UpdateSubnetChangeProtection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UpdateToken" Core..=) Prelude.<$> updateToken,
-            ("FirewallArn" Core..=) Prelude.<$> firewallArn,
-            ("FirewallName" Core..=) Prelude.<$> firewallName,
+          [ ("UpdateToken" Data..=) Prelude.<$> updateToken,
+            ("FirewallArn" Data..=) Prelude.<$> firewallArn,
+            ("FirewallName" Data..=) Prelude.<$> firewallName,
             Prelude.Just
               ( "SubnetChangeProtection"
-                  Core..= subnetChangeProtection
+                  Data..= subnetChangeProtection
               )
           ]
       )
 
-instance Core.ToPath UpdateSubnetChangeProtection where
+instance Data.ToPath UpdateSubnetChangeProtection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateSubnetChangeProtection where
+instance Data.ToQuery UpdateSubnetChangeProtection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSubnetChangeProtectionResponse' smart constructor.

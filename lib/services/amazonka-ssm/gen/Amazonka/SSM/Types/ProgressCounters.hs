@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ProgressCounters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An aggregate of step execution statuses displayed in the Amazon Web
@@ -120,17 +121,17 @@ progressCounters_successSteps = Lens.lens (\ProgressCounters' {successSteps} -> 
 progressCounters_totalSteps :: Lens.Lens' ProgressCounters (Prelude.Maybe Prelude.Int)
 progressCounters_totalSteps = Lens.lens (\ProgressCounters' {totalSteps} -> totalSteps) (\s@ProgressCounters' {} a -> s {totalSteps = a} :: ProgressCounters)
 
-instance Core.FromJSON ProgressCounters where
+instance Data.FromJSON ProgressCounters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProgressCounters"
       ( \x ->
           ProgressCounters'
-            Prelude.<$> (x Core..:? "CancelledSteps")
-            Prelude.<*> (x Core..:? "TimedOutSteps")
-            Prelude.<*> (x Core..:? "FailedSteps")
-            Prelude.<*> (x Core..:? "SuccessSteps")
-            Prelude.<*> (x Core..:? "TotalSteps")
+            Prelude.<$> (x Data..:? "CancelledSteps")
+            Prelude.<*> (x Data..:? "TimedOutSteps")
+            Prelude.<*> (x Data..:? "FailedSteps")
+            Prelude.<*> (x Data..:? "SuccessSteps")
+            Prelude.<*> (x Data..:? "TotalSteps")
       )
 
 instance Prelude.Hashable ProgressCounters where

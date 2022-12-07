@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,18 +122,18 @@ instance Core.AWSRequest DescribeEdgeDeploymentPlan where
     Response.receiveJSON
       ( \s h x ->
           DescribeEdgeDeploymentPlanResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "EdgeDeploymentFailed")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "EdgeDeploymentPending")
-            Prelude.<*> (x Core..?> "EdgeDeploymentSuccess")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "EdgeDeploymentFailed")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "EdgeDeploymentPending")
+            Prelude.<*> (x Data..?> "EdgeDeploymentSuccess")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "EdgeDeploymentPlanArn")
-            Prelude.<*> (x Core..:> "EdgeDeploymentPlanName")
-            Prelude.<*> (x Core..?> "ModelConfigs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "DeviceFleetName")
-            Prelude.<*> (x Core..?> "Stages" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "EdgeDeploymentPlanArn")
+            Prelude.<*> (x Data..:> "EdgeDeploymentPlanName")
+            Prelude.<*> (x Data..?> "ModelConfigs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "DeviceFleetName")
+            Prelude.<*> (x Data..?> "Stages" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable DescribeEdgeDeploymentPlan where
@@ -147,38 +148,38 @@ instance Prelude.NFData DescribeEdgeDeploymentPlan where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf edgeDeploymentPlanName
 
-instance Core.ToHeaders DescribeEdgeDeploymentPlan where
+instance Data.ToHeaders DescribeEdgeDeploymentPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeEdgeDeploymentPlan" ::
+              Data.=# ( "SageMaker.DescribeEdgeDeploymentPlan" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEdgeDeploymentPlan where
+instance Data.ToJSON DescribeEdgeDeploymentPlan where
   toJSON DescribeEdgeDeploymentPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
               ( "EdgeDeploymentPlanName"
-                  Core..= edgeDeploymentPlanName
+                  Data..= edgeDeploymentPlanName
               )
           ]
       )
 
-instance Core.ToPath DescribeEdgeDeploymentPlan where
+instance Data.ToPath DescribeEdgeDeploymentPlan where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEdgeDeploymentPlan where
+instance Data.ToQuery DescribeEdgeDeploymentPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEdgeDeploymentPlanResponse' smart constructor.
@@ -189,9 +190,9 @@ data DescribeEdgeDeploymentPlanResponse = DescribeEdgeDeploymentPlanResponse'
     -- | The number of edge devices that failed the deployment.
     edgeDeploymentFailed :: Prelude.Maybe Prelude.Int,
     -- | The time when the edge deployment plan was last updated.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The time when the edge deployment plan was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The number of edge devices yet to pick up deployment, or in progress.
     edgeDeploymentPending :: Prelude.Maybe Prelude.Int,
     -- | The number of edge devices with the successful deployment.
@@ -287,11 +288,11 @@ describeEdgeDeploymentPlanResponse_edgeDeploymentFailed = Lens.lens (\DescribeEd
 
 -- | The time when the edge deployment plan was last updated.
 describeEdgeDeploymentPlanResponse_lastModifiedTime :: Lens.Lens' DescribeEdgeDeploymentPlanResponse (Prelude.Maybe Prelude.UTCTime)
-describeEdgeDeploymentPlanResponse_lastModifiedTime = Lens.lens (\DescribeEdgeDeploymentPlanResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEdgeDeploymentPlanResponse' {} a -> s {lastModifiedTime = a} :: DescribeEdgeDeploymentPlanResponse) Prelude.. Lens.mapping Core._Time
+describeEdgeDeploymentPlanResponse_lastModifiedTime = Lens.lens (\DescribeEdgeDeploymentPlanResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEdgeDeploymentPlanResponse' {} a -> s {lastModifiedTime = a} :: DescribeEdgeDeploymentPlanResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time when the edge deployment plan was created.
 describeEdgeDeploymentPlanResponse_creationTime :: Lens.Lens' DescribeEdgeDeploymentPlanResponse (Prelude.Maybe Prelude.UTCTime)
-describeEdgeDeploymentPlanResponse_creationTime = Lens.lens (\DescribeEdgeDeploymentPlanResponse' {creationTime} -> creationTime) (\s@DescribeEdgeDeploymentPlanResponse' {} a -> s {creationTime = a} :: DescribeEdgeDeploymentPlanResponse) Prelude.. Lens.mapping Core._Time
+describeEdgeDeploymentPlanResponse_creationTime = Lens.lens (\DescribeEdgeDeploymentPlanResponse' {creationTime} -> creationTime) (\s@DescribeEdgeDeploymentPlanResponse' {} a -> s {creationTime = a} :: DescribeEdgeDeploymentPlanResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The number of edge devices yet to pick up deployment, or in progress.
 describeEdgeDeploymentPlanResponse_edgeDeploymentPending :: Lens.Lens' DescribeEdgeDeploymentPlanResponse (Prelude.Maybe Prelude.Int)

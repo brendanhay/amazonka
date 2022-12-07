@@ -21,6 +21,7 @@ module Amazonka.IoTSecureTunneling.Types.Tunnel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSecureTunneling.Types.ConnectionState
 import Amazonka.IoTSecureTunneling.Types.DestinationConfig
 import Amazonka.IoTSecureTunneling.Types.Tag
@@ -35,7 +36,7 @@ data Tunnel = Tunnel'
   { -- | A list of tag metadata associated with the secure tunnel.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The last time the tunnel was updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The connection state of the destination application.
     destinationConnectionState :: Prelude.Maybe ConnectionState,
     -- | The status of a tunnel. Valid values are: Open and Closed.
@@ -53,7 +54,7 @@ data Tunnel = Tunnel'
     -- | The Amazon Resource Name (ARN) of a tunnel.
     tunnelArn :: Prelude.Maybe Prelude.Text,
     -- | The time when the tunnel was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The connection state of the source application.
     sourceConnectionState :: Prelude.Maybe ConnectionState
   }
@@ -113,7 +114,7 @@ tunnel_tags = Lens.lens (\Tunnel' {tags} -> tags) (\s@Tunnel' {} a -> s {tags = 
 
 -- | The last time the tunnel was updated.
 tunnel_lastUpdatedAt :: Lens.Lens' Tunnel (Prelude.Maybe Prelude.UTCTime)
-tunnel_lastUpdatedAt = Lens.lens (\Tunnel' {lastUpdatedAt} -> lastUpdatedAt) (\s@Tunnel' {} a -> s {lastUpdatedAt = a} :: Tunnel) Prelude.. Lens.mapping Core._Time
+tunnel_lastUpdatedAt = Lens.lens (\Tunnel' {lastUpdatedAt} -> lastUpdatedAt) (\s@Tunnel' {} a -> s {lastUpdatedAt = a} :: Tunnel) Prelude.. Lens.mapping Data._Time
 
 -- | The connection state of the destination application.
 tunnel_destinationConnectionState :: Lens.Lens' Tunnel (Prelude.Maybe ConnectionState)
@@ -147,29 +148,29 @@ tunnel_tunnelArn = Lens.lens (\Tunnel' {tunnelArn} -> tunnelArn) (\s@Tunnel' {} 
 
 -- | The time when the tunnel was created.
 tunnel_createdAt :: Lens.Lens' Tunnel (Prelude.Maybe Prelude.UTCTime)
-tunnel_createdAt = Lens.lens (\Tunnel' {createdAt} -> createdAt) (\s@Tunnel' {} a -> s {createdAt = a} :: Tunnel) Prelude.. Lens.mapping Core._Time
+tunnel_createdAt = Lens.lens (\Tunnel' {createdAt} -> createdAt) (\s@Tunnel' {} a -> s {createdAt = a} :: Tunnel) Prelude.. Lens.mapping Data._Time
 
 -- | The connection state of the source application.
 tunnel_sourceConnectionState :: Lens.Lens' Tunnel (Prelude.Maybe ConnectionState)
 tunnel_sourceConnectionState = Lens.lens (\Tunnel' {sourceConnectionState} -> sourceConnectionState) (\s@Tunnel' {} a -> s {sourceConnectionState = a} :: Tunnel)
 
-instance Core.FromJSON Tunnel where
+instance Data.FromJSON Tunnel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Tunnel"
       ( \x ->
           Tunnel'
-            Prelude.<$> (x Core..:? "tags")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "destinationConnectionState")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "destinationConfig")
-            Prelude.<*> (x Core..:? "tunnelId")
-            Prelude.<*> (x Core..:? "timeoutConfig")
-            Prelude.<*> (x Core..:? "tunnelArn")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "sourceConnectionState")
+            Prelude.<$> (x Data..:? "tags")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "destinationConnectionState")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "destinationConfig")
+            Prelude.<*> (x Data..:? "tunnelId")
+            Prelude.<*> (x Data..:? "timeoutConfig")
+            Prelude.<*> (x Data..:? "tunnelArn")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "sourceConnectionState")
       )
 
 instance Prelude.Hashable Tunnel where

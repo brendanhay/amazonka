@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.CopyStepDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.InputFileLocation
 import Amazonka.Transfer.Types.OverwriteExisting
@@ -117,16 +118,16 @@ copyStepDetails_sourceFileLocation = Lens.lens (\CopyStepDetails' {sourceFileLoc
 copyStepDetails_destinationFileLocation :: Lens.Lens' CopyStepDetails (Prelude.Maybe InputFileLocation)
 copyStepDetails_destinationFileLocation = Lens.lens (\CopyStepDetails' {destinationFileLocation} -> destinationFileLocation) (\s@CopyStepDetails' {} a -> s {destinationFileLocation = a} :: CopyStepDetails)
 
-instance Core.FromJSON CopyStepDetails where
+instance Data.FromJSON CopyStepDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CopyStepDetails"
       ( \x ->
           CopyStepDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "OverwriteExisting")
-            Prelude.<*> (x Core..:? "SourceFileLocation")
-            Prelude.<*> (x Core..:? "DestinationFileLocation")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "OverwriteExisting")
+            Prelude.<*> (x Data..:? "SourceFileLocation")
+            Prelude.<*> (x Data..:? "DestinationFileLocation")
       )
 
 instance Prelude.Hashable CopyStepDetails where
@@ -143,16 +144,16 @@ instance Prelude.NFData CopyStepDetails where
       `Prelude.seq` Prelude.rnf sourceFileLocation
       `Prelude.seq` Prelude.rnf destinationFileLocation
 
-instance Core.ToJSON CopyStepDetails where
+instance Data.ToJSON CopyStepDetails where
   toJSON CopyStepDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("OverwriteExisting" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("OverwriteExisting" Data..=)
               Prelude.<$> overwriteExisting,
-            ("SourceFileLocation" Core..=)
+            ("SourceFileLocation" Data..=)
               Prelude.<$> sourceFileLocation,
-            ("DestinationFileLocation" Core..=)
+            ("DestinationFileLocation" Data..=)
               Prelude.<$> destinationFileLocation
           ]
       )

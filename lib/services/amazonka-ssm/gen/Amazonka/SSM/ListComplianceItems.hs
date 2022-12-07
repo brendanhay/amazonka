@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -169,10 +170,10 @@ instance Core.AWSRequest ListComplianceItems where
     Response.receiveJSON
       ( \s h x ->
           ListComplianceItemsResponse'
-            Prelude.<$> ( x Core..?> "ComplianceItems"
+            Prelude.<$> ( x Data..?> "ComplianceItems"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,37 +193,37 @@ instance Prelude.NFData ListComplianceItems where
       `Prelude.seq` Prelude.rnf resourceIds
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListComplianceItems where
+instance Data.ToHeaders ListComplianceItems where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.ListComplianceItems" ::
+              Data.=# ( "AmazonSSM.ListComplianceItems" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListComplianceItems where
+instance Data.ToJSON ListComplianceItems where
   toJSON ListComplianceItems' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("ResourceTypes" Core..=) Prelude.<$> resourceTypes,
-            ("ResourceIds" Core..=) Prelude.<$> resourceIds,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("ResourceTypes" Data..=) Prelude.<$> resourceTypes,
+            ("ResourceIds" Data..=) Prelude.<$> resourceIds,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListComplianceItems where
+instance Data.ToPath ListComplianceItems where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListComplianceItems where
+instance Data.ToQuery ListComplianceItems where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListComplianceItemsResponse' smart constructor.

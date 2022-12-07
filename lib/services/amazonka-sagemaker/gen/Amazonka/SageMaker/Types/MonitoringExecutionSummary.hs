@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringExecutionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ExecutionStatus
 import Amazonka.SageMaker.Types.MonitoringType
@@ -42,12 +43,12 @@ data MonitoringExecutionSummary = MonitoringExecutionSummary'
     -- | The name of the monitoring schedule.
     monitoringScheduleName :: Prelude.Text,
     -- | The time the monitoring job was scheduled.
-    scheduledTime :: Core.POSIX,
+    scheduledTime :: Data.POSIX,
     -- | The time at which the monitoring job was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | A timestamp that indicates the last time the monitoring job was
     -- modified.
-    lastModifiedTime :: Core.POSIX,
+    lastModifiedTime :: Data.POSIX,
     -- | The status of the monitoring job.
     monitoringExecutionStatus :: ExecutionStatus
   }
@@ -109,10 +110,10 @@ newMonitoringExecutionSummary
         monitoringScheduleName =
           pMonitoringScheduleName_,
         scheduledTime =
-          Core._Time Lens.# pScheduledTime_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+          Data._Time Lens.# pScheduledTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         monitoringExecutionStatus =
           pMonitoringExecutionStatus_
       }
@@ -143,37 +144,37 @@ monitoringExecutionSummary_monitoringScheduleName = Lens.lens (\MonitoringExecut
 
 -- | The time the monitoring job was scheduled.
 monitoringExecutionSummary_scheduledTime :: Lens.Lens' MonitoringExecutionSummary Prelude.UTCTime
-monitoringExecutionSummary_scheduledTime = Lens.lens (\MonitoringExecutionSummary' {scheduledTime} -> scheduledTime) (\s@MonitoringExecutionSummary' {} a -> s {scheduledTime = a} :: MonitoringExecutionSummary) Prelude.. Core._Time
+monitoringExecutionSummary_scheduledTime = Lens.lens (\MonitoringExecutionSummary' {scheduledTime} -> scheduledTime) (\s@MonitoringExecutionSummary' {} a -> s {scheduledTime = a} :: MonitoringExecutionSummary) Prelude.. Data._Time
 
 -- | The time at which the monitoring job was created.
 monitoringExecutionSummary_creationTime :: Lens.Lens' MonitoringExecutionSummary Prelude.UTCTime
-monitoringExecutionSummary_creationTime = Lens.lens (\MonitoringExecutionSummary' {creationTime} -> creationTime) (\s@MonitoringExecutionSummary' {} a -> s {creationTime = a} :: MonitoringExecutionSummary) Prelude.. Core._Time
+monitoringExecutionSummary_creationTime = Lens.lens (\MonitoringExecutionSummary' {creationTime} -> creationTime) (\s@MonitoringExecutionSummary' {} a -> s {creationTime = a} :: MonitoringExecutionSummary) Prelude.. Data._Time
 
 -- | A timestamp that indicates the last time the monitoring job was
 -- modified.
 monitoringExecutionSummary_lastModifiedTime :: Lens.Lens' MonitoringExecutionSummary Prelude.UTCTime
-monitoringExecutionSummary_lastModifiedTime = Lens.lens (\MonitoringExecutionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@MonitoringExecutionSummary' {} a -> s {lastModifiedTime = a} :: MonitoringExecutionSummary) Prelude.. Core._Time
+monitoringExecutionSummary_lastModifiedTime = Lens.lens (\MonitoringExecutionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@MonitoringExecutionSummary' {} a -> s {lastModifiedTime = a} :: MonitoringExecutionSummary) Prelude.. Data._Time
 
 -- | The status of the monitoring job.
 monitoringExecutionSummary_monitoringExecutionStatus :: Lens.Lens' MonitoringExecutionSummary ExecutionStatus
 monitoringExecutionSummary_monitoringExecutionStatus = Lens.lens (\MonitoringExecutionSummary' {monitoringExecutionStatus} -> monitoringExecutionStatus) (\s@MonitoringExecutionSummary' {} a -> s {monitoringExecutionStatus = a} :: MonitoringExecutionSummary)
 
-instance Core.FromJSON MonitoringExecutionSummary where
+instance Data.FromJSON MonitoringExecutionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringExecutionSummary"
       ( \x ->
           MonitoringExecutionSummary'
-            Prelude.<$> (x Core..:? "EndpointName")
-            Prelude.<*> (x Core..:? "ProcessingJobArn")
-            Prelude.<*> (x Core..:? "MonitoringType")
-            Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..:? "MonitoringJobDefinitionName")
-            Prelude.<*> (x Core..: "MonitoringScheduleName")
-            Prelude.<*> (x Core..: "ScheduledTime")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "LastModifiedTime")
-            Prelude.<*> (x Core..: "MonitoringExecutionStatus")
+            Prelude.<$> (x Data..:? "EndpointName")
+            Prelude.<*> (x Data..:? "ProcessingJobArn")
+            Prelude.<*> (x Data..:? "MonitoringType")
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "MonitoringJobDefinitionName")
+            Prelude.<*> (x Data..: "MonitoringScheduleName")
+            Prelude.<*> (x Data..: "ScheduledTime")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "LastModifiedTime")
+            Prelude.<*> (x Data..: "MonitoringExecutionStatus")
       )
 
 instance Prelude.Hashable MonitoringExecutionSummary where

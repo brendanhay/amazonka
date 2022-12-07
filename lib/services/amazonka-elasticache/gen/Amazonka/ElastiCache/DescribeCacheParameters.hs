@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -179,14 +180,14 @@ instance Core.AWSRequest DescribeCacheParameters where
       "DescribeCacheParametersResult"
       ( \s h x ->
           DescribeCacheParametersResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "CacheNodeTypeSpecificParameters"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "CacheNodeTypeSpecificParameters"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may
-                              (Core.parseXMLList "CacheNodeTypeSpecificParameter")
+                              (Data.parseXMLList "CacheNodeTypeSpecificParameter")
                         )
-            Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "Parameter")
+            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -205,24 +206,24 @@ instance Prelude.NFData DescribeCacheParameters where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf cacheParameterGroupName
 
-instance Core.ToHeaders DescribeCacheParameters where
+instance Data.ToHeaders DescribeCacheParameters where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeCacheParameters where
+instance Data.ToPath DescribeCacheParameters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCacheParameters where
+instance Data.ToQuery DescribeCacheParameters where
   toQuery DescribeCacheParameters' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeCacheParameters" :: Prelude.ByteString),
+          Data.=: ("DescribeCacheParameters" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords,
-        "Source" Core.=: source,
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
+        "Source" Data.=: source,
         "CacheParameterGroupName"
-          Core.=: cacheParameterGroupName
+          Data.=: cacheParameterGroupName
       ]
 
 -- | Represents the output of a @DescribeCacheParameters@ operation.

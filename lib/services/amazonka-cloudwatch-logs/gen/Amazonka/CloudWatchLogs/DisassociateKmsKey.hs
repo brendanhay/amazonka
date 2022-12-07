@@ -46,6 +46,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,32 +95,32 @@ instance Prelude.NFData DisassociateKmsKey where
   rnf DisassociateKmsKey' {..} =
     Prelude.rnf logGroupName
 
-instance Core.ToHeaders DisassociateKmsKey where
+instance Data.ToHeaders DisassociateKmsKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DisassociateKmsKey" ::
+              Data.=# ( "Logs_20140328.DisassociateKmsKey" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateKmsKey where
+instance Data.ToJSON DisassociateKmsKey where
   toJSON DisassociateKmsKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("logGroupName" Core..= logGroupName)]
+          [Prelude.Just ("logGroupName" Data..= logGroupName)]
       )
 
-instance Core.ToPath DisassociateKmsKey where
+instance Data.ToPath DisassociateKmsKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateKmsKey where
+instance Data.ToQuery DisassociateKmsKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateKmsKeyResponse' smart constructor.

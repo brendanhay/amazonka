@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.AccessorSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.AccessorStatus
 import Amazonka.ManagedBlockChain.Types.AccessorType
 import qualified Amazonka.Prelude as Prelude
@@ -44,7 +45,7 @@ data AccessorSummary = AccessorSummary'
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The creation date and time of the accessor.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The current status of the accessor.
     status :: Prelude.Maybe AccessorStatus,
     -- | The unique identifier of the accessor.
@@ -100,7 +101,7 @@ accessorSummary_arn = Lens.lens (\AccessorSummary' {arn} -> arn) (\s@AccessorSum
 
 -- | The creation date and time of the accessor.
 accessorSummary_creationDate :: Lens.Lens' AccessorSummary (Prelude.Maybe Prelude.UTCTime)
-accessorSummary_creationDate = Lens.lens (\AccessorSummary' {creationDate} -> creationDate) (\s@AccessorSummary' {} a -> s {creationDate = a} :: AccessorSummary) Prelude.. Lens.mapping Core._Time
+accessorSummary_creationDate = Lens.lens (\AccessorSummary' {creationDate} -> creationDate) (\s@AccessorSummary' {} a -> s {creationDate = a} :: AccessorSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the accessor.
 accessorSummary_status :: Lens.Lens' AccessorSummary (Prelude.Maybe AccessorStatus)
@@ -110,17 +111,17 @@ accessorSummary_status = Lens.lens (\AccessorSummary' {status} -> status) (\s@Ac
 accessorSummary_id :: Lens.Lens' AccessorSummary (Prelude.Maybe Prelude.Text)
 accessorSummary_id = Lens.lens (\AccessorSummary' {id} -> id) (\s@AccessorSummary' {} a -> s {id = a} :: AccessorSummary)
 
-instance Core.FromJSON AccessorSummary where
+instance Data.FromJSON AccessorSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessorSummary"
       ( \x ->
           AccessorSummary'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable AccessorSummary where

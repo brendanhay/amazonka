@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.INDTaxDocuments where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The tax documents required in Amazon Web Services Region in India.
@@ -53,12 +54,12 @@ newINDTaxDocuments =
 iNDTaxDocuments_gstin :: Lens.Lens' INDTaxDocuments (Prelude.Maybe Prelude.Text)
 iNDTaxDocuments_gstin = Lens.lens (\INDTaxDocuments' {gstin} -> gstin) (\s@INDTaxDocuments' {} a -> s {gstin = a} :: INDTaxDocuments)
 
-instance Core.FromJSON INDTaxDocuments where
+instance Data.FromJSON INDTaxDocuments where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "INDTaxDocuments"
       ( \x ->
-          INDTaxDocuments' Prelude.<$> (x Core..:? "GSTIN")
+          INDTaxDocuments' Prelude.<$> (x Data..:? "GSTIN")
       )
 
 instance Prelude.Hashable INDTaxDocuments where
@@ -68,9 +69,9 @@ instance Prelude.Hashable INDTaxDocuments where
 instance Prelude.NFData INDTaxDocuments where
   rnf INDTaxDocuments' {..} = Prelude.rnf gstin
 
-instance Core.ToJSON INDTaxDocuments where
+instance Data.ToJSON INDTaxDocuments where
   toJSON INDTaxDocuments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("GSTIN" Core..=) Prelude.<$> gstin]
+          [("GSTIN" Data..=) Prelude.<$> gstin]
       )

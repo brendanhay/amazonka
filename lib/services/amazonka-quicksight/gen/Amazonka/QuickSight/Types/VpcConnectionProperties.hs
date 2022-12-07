@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.VpcConnectionProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | VPC connection properties.
@@ -55,13 +56,13 @@ newVpcConnectionProperties pVpcConnectionArn_ =
 vpcConnectionProperties_vpcConnectionArn :: Lens.Lens' VpcConnectionProperties Prelude.Text
 vpcConnectionProperties_vpcConnectionArn = Lens.lens (\VpcConnectionProperties' {vpcConnectionArn} -> vpcConnectionArn) (\s@VpcConnectionProperties' {} a -> s {vpcConnectionArn = a} :: VpcConnectionProperties)
 
-instance Core.FromJSON VpcConnectionProperties where
+instance Data.FromJSON VpcConnectionProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcConnectionProperties"
       ( \x ->
           VpcConnectionProperties'
-            Prelude.<$> (x Core..: "VpcConnectionArn")
+            Prelude.<$> (x Data..: "VpcConnectionArn")
       )
 
 instance Prelude.Hashable VpcConnectionProperties where
@@ -72,11 +73,11 @@ instance Prelude.NFData VpcConnectionProperties where
   rnf VpcConnectionProperties' {..} =
     Prelude.rnf vpcConnectionArn
 
-instance Core.ToJSON VpcConnectionProperties where
+instance Data.ToJSON VpcConnectionProperties where
   toJSON VpcConnectionProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("VpcConnectionArn" Core..= vpcConnectionArn)
+              ("VpcConnectionArn" Data..= vpcConnectionArn)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.QueryStringConditionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types.QueryStringKeyValuePair
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,11 +85,11 @@ newQueryStringConditionConfig =
 queryStringConditionConfig_values :: Lens.Lens' QueryStringConditionConfig (Prelude.Maybe [QueryStringKeyValuePair])
 queryStringConditionConfig_values = Lens.lens (\QueryStringConditionConfig' {values} -> values) (\s@QueryStringConditionConfig' {} a -> s {values = a} :: QueryStringConditionConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML QueryStringConditionConfig where
+instance Data.FromXML QueryStringConditionConfig where
   parseXML x =
     QueryStringConditionConfig'
-      Prelude.<$> ( x Core..@? "Values" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Values" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable QueryStringConditionConfig where
@@ -99,10 +100,10 @@ instance Prelude.NFData QueryStringConditionConfig where
   rnf QueryStringConditionConfig' {..} =
     Prelude.rnf values
 
-instance Core.ToQuery QueryStringConditionConfig where
+instance Data.ToQuery QueryStringConditionConfig where
   toQuery QueryStringConditionConfig' {..} =
     Prelude.mconcat
       [ "Values"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> values)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> values)
       ]

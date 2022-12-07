@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.LexBot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information of an Amazon Lex bot.
@@ -61,14 +62,14 @@ lexBot_name = Lens.lens (\LexBot' {name} -> name) (\s@LexBot' {} a -> s {name = 
 lexBot_lexRegion :: Lens.Lens' LexBot (Prelude.Maybe Prelude.Text)
 lexBot_lexRegion = Lens.lens (\LexBot' {lexRegion} -> lexRegion) (\s@LexBot' {} a -> s {lexRegion = a} :: LexBot)
 
-instance Core.FromJSON LexBot where
+instance Data.FromJSON LexBot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LexBot"
       ( \x ->
           LexBot'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LexRegion")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LexRegion")
       )
 
 instance Prelude.Hashable LexBot where
@@ -81,11 +82,11 @@ instance Prelude.NFData LexBot where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf lexRegion
 
-instance Core.ToJSON LexBot where
+instance Data.ToJSON LexBot where
   toJSON LexBot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("LexRegion" Core..=) Prelude.<$> lexRegion
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("LexRegion" Data..=) Prelude.<$> lexRegion
           ]
       )

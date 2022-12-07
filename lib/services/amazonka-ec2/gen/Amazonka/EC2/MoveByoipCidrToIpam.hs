@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,7 +138,7 @@ instance Core.AWSRequest MoveByoipCidrToIpam where
     Response.receiveXML
       ( \s h x ->
           MoveByoipCidrToIpamResponse'
-            Prelude.<$> (x Core..@? "byoipCidr")
+            Prelude.<$> (x Data..@? "byoipCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,23 +156,23 @@ instance Prelude.NFData MoveByoipCidrToIpam where
       `Prelude.seq` Prelude.rnf ipamPoolId
       `Prelude.seq` Prelude.rnf ipamPoolOwner
 
-instance Core.ToHeaders MoveByoipCidrToIpam where
+instance Data.ToHeaders MoveByoipCidrToIpam where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath MoveByoipCidrToIpam where
+instance Data.ToPath MoveByoipCidrToIpam where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery MoveByoipCidrToIpam where
+instance Data.ToQuery MoveByoipCidrToIpam where
   toQuery MoveByoipCidrToIpam' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("MoveByoipCidrToIpam" :: Prelude.ByteString),
+          Data.=: ("MoveByoipCidrToIpam" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Cidr" Core.=: cidr,
-        "IpamPoolId" Core.=: ipamPoolId,
-        "IpamPoolOwner" Core.=: ipamPoolOwner
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Cidr" Data.=: cidr,
+        "IpamPoolId" Data.=: ipamPoolId,
+        "IpamPoolOwner" Data.=: ipamPoolOwner
       ]
 
 -- | /See:/ 'newMoveByoipCidrToIpamResponse' smart constructor.

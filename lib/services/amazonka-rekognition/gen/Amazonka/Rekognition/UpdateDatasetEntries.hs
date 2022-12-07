@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -138,34 +139,34 @@ instance Prelude.NFData UpdateDatasetEntries where
     Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf changes
 
-instance Core.ToHeaders UpdateDatasetEntries where
+instance Data.ToHeaders UpdateDatasetEntries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.UpdateDatasetEntries" ::
+              Data.=# ( "RekognitionService.UpdateDatasetEntries" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDatasetEntries where
+instance Data.ToJSON UpdateDatasetEntries where
   toJSON UpdateDatasetEntries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DatasetArn" Core..= datasetArn),
-            Prelude.Just ("Changes" Core..= changes)
+          [ Prelude.Just ("DatasetArn" Data..= datasetArn),
+            Prelude.Just ("Changes" Data..= changes)
           ]
       )
 
-instance Core.ToPath UpdateDatasetEntries where
+instance Data.ToPath UpdateDatasetEntries where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDatasetEntries where
+instance Data.ToQuery UpdateDatasetEntries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDatasetEntriesResponse' smart constructor.

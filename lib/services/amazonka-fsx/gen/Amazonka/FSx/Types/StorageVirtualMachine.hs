@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.StorageVirtualMachine where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.LifecycleTransitionReason
 import Amazonka.FSx.Types.StorageVirtualMachineLifecycle
 import Amazonka.FSx.Types.StorageVirtualMachineRootVolumeSecurityStyle
@@ -68,7 +69,7 @@ data StorageVirtualMachine = StorageVirtualMachine'
     subtype :: Prelude.Maybe StorageVirtualMachineSubtype,
     -- | The security style of the root volume of the SVM.
     rootVolumeSecurityStyle :: Prelude.Maybe StorageVirtualMachineRootVolumeSecurityStyle,
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     resourceARN :: Prelude.Maybe Prelude.Text,
     -- | Describes why the SVM lifecycle state changed.
     lifecycleTransitionReason :: Prelude.Maybe LifecycleTransitionReason
@@ -199,7 +200,7 @@ storageVirtualMachine_rootVolumeSecurityStyle = Lens.lens (\StorageVirtualMachin
 
 -- | Undocumented member.
 storageVirtualMachine_creationTime :: Lens.Lens' StorageVirtualMachine (Prelude.Maybe Prelude.UTCTime)
-storageVirtualMachine_creationTime = Lens.lens (\StorageVirtualMachine' {creationTime} -> creationTime) (\s@StorageVirtualMachine' {} a -> s {creationTime = a} :: StorageVirtualMachine) Prelude.. Lens.mapping Core._Time
+storageVirtualMachine_creationTime = Lens.lens (\StorageVirtualMachine' {creationTime} -> creationTime) (\s@StorageVirtualMachine' {} a -> s {creationTime = a} :: StorageVirtualMachine) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 storageVirtualMachine_resourceARN :: Lens.Lens' StorageVirtualMachine (Prelude.Maybe Prelude.Text)
@@ -209,25 +210,25 @@ storageVirtualMachine_resourceARN = Lens.lens (\StorageVirtualMachine' {resource
 storageVirtualMachine_lifecycleTransitionReason :: Lens.Lens' StorageVirtualMachine (Prelude.Maybe LifecycleTransitionReason)
 storageVirtualMachine_lifecycleTransitionReason = Lens.lens (\StorageVirtualMachine' {lifecycleTransitionReason} -> lifecycleTransitionReason) (\s@StorageVirtualMachine' {} a -> s {lifecycleTransitionReason = a} :: StorageVirtualMachine)
 
-instance Core.FromJSON StorageVirtualMachine where
+instance Data.FromJSON StorageVirtualMachine where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StorageVirtualMachine"
       ( \x ->
           StorageVirtualMachine'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ActiveDirectoryConfiguration")
-            Prelude.<*> (x Core..:? "Lifecycle")
-            Prelude.<*> (x Core..:? "StorageVirtualMachineId")
-            Prelude.<*> (x Core..:? "UUID")
-            Prelude.<*> (x Core..:? "FileSystemId")
-            Prelude.<*> (x Core..:? "Endpoints")
-            Prelude.<*> (x Core..:? "Subtype")
-            Prelude.<*> (x Core..:? "RootVolumeSecurityStyle")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ResourceARN")
-            Prelude.<*> (x Core..:? "LifecycleTransitionReason")
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ActiveDirectoryConfiguration")
+            Prelude.<*> (x Data..:? "Lifecycle")
+            Prelude.<*> (x Data..:? "StorageVirtualMachineId")
+            Prelude.<*> (x Data..:? "UUID")
+            Prelude.<*> (x Data..:? "FileSystemId")
+            Prelude.<*> (x Data..:? "Endpoints")
+            Prelude.<*> (x Data..:? "Subtype")
+            Prelude.<*> (x Data..:? "RootVolumeSecurityStyle")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "LifecycleTransitionReason")
       )
 
 instance Prelude.Hashable StorageVirtualMachine where

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,8 +131,8 @@ instance Core.AWSRequest GetMobileDeviceAccessEffect where
     Response.receiveJSON
       ( \s h x ->
           GetMobileDeviceAccessEffectResponse'
-            Prelude.<$> (x Core..?> "Effect")
-            Prelude.<*> (x Core..?> "MatchedRules" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Effect")
+            Prelude.<*> (x Data..?> "MatchedRules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,40 +152,40 @@ instance Prelude.NFData GetMobileDeviceAccessEffect where
       `Prelude.seq` Prelude.rnf deviceType
       `Prelude.seq` Prelude.rnf organizationId
 
-instance Core.ToHeaders GetMobileDeviceAccessEffect where
+instance Data.ToHeaders GetMobileDeviceAccessEffect where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.GetMobileDeviceAccessEffect" ::
+              Data.=# ( "WorkMailService.GetMobileDeviceAccessEffect" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMobileDeviceAccessEffect where
+instance Data.ToJSON GetMobileDeviceAccessEffect where
   toJSON GetMobileDeviceAccessEffect' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeviceUserAgent" Core..=)
+          [ ("DeviceUserAgent" Data..=)
               Prelude.<$> deviceUserAgent,
-            ("DeviceModel" Core..=) Prelude.<$> deviceModel,
-            ("DeviceOperatingSystem" Core..=)
+            ("DeviceModel" Data..=) Prelude.<$> deviceModel,
+            ("DeviceOperatingSystem" Data..=)
               Prelude.<$> deviceOperatingSystem,
-            ("DeviceType" Core..=) Prelude.<$> deviceType,
+            ("DeviceType" Data..=) Prelude.<$> deviceType,
             Prelude.Just
-              ("OrganizationId" Core..= organizationId)
+              ("OrganizationId" Data..= organizationId)
           ]
       )
 
-instance Core.ToPath GetMobileDeviceAccessEffect where
+instance Data.ToPath GetMobileDeviceAccessEffect where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMobileDeviceAccessEffect where
+instance Data.ToQuery GetMobileDeviceAccessEffect where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMobileDeviceAccessEffectResponse' smart constructor.

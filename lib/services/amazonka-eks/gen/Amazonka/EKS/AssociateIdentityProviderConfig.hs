@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,8 +146,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AssociateIdentityProviderConfigResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "update")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,39 +174,39 @@ instance
       `Prelude.seq` Prelude.rnf oidc
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AssociateIdentityProviderConfig
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateIdentityProviderConfig where
+instance Data.ToJSON AssociateIdentityProviderConfig where
   toJSON AssociateIdentityProviderConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientRequestToken" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("oidc" Core..= oidc)
+            Prelude.Just ("oidc" Data..= oidc)
           ]
       )
 
-instance Core.ToPath AssociateIdentityProviderConfig where
+instance Data.ToPath AssociateIdentityProviderConfig where
   toPath AssociateIdentityProviderConfig' {..} =
     Prelude.mconcat
       [ "/clusters/",
-        Core.toBS clusterName,
+        Data.toBS clusterName,
         "/identity-provider-configs/associate"
       ]
 
-instance Core.ToQuery AssociateIdentityProviderConfig where
+instance Data.ToQuery AssociateIdentityProviderConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateIdentityProviderConfigResponse' smart constructor.

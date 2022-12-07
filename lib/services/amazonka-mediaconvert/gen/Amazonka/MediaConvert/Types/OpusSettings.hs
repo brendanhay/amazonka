@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.OpusSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Required when you set Codec, under AudioDescriptions>CodecSettings, to
@@ -86,15 +87,15 @@ opusSettings_bitrate = Lens.lens (\OpusSettings' {bitrate} -> bitrate) (\s@OpusS
 opusSettings_sampleRate :: Lens.Lens' OpusSettings (Prelude.Maybe Prelude.Natural)
 opusSettings_sampleRate = Lens.lens (\OpusSettings' {sampleRate} -> sampleRate) (\s@OpusSettings' {} a -> s {sampleRate = a} :: OpusSettings)
 
-instance Core.FromJSON OpusSettings where
+instance Data.FromJSON OpusSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpusSettings"
       ( \x ->
           OpusSettings'
-            Prelude.<$> (x Core..:? "channels")
-            Prelude.<*> (x Core..:? "bitrate")
-            Prelude.<*> (x Core..:? "sampleRate")
+            Prelude.<$> (x Data..:? "channels")
+            Prelude.<*> (x Data..:? "bitrate")
+            Prelude.<*> (x Data..:? "sampleRate")
       )
 
 instance Prelude.Hashable OpusSettings where
@@ -109,12 +110,12 @@ instance Prelude.NFData OpusSettings where
       `Prelude.seq` Prelude.rnf bitrate
       `Prelude.seq` Prelude.rnf sampleRate
 
-instance Core.ToJSON OpusSettings where
+instance Data.ToJSON OpusSettings where
   toJSON OpusSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("channels" Core..=) Prelude.<$> channels,
-            ("bitrate" Core..=) Prelude.<$> bitrate,
-            ("sampleRate" Core..=) Prelude.<$> sampleRate
+          [ ("channels" Data..=) Prelude.<$> channels,
+            ("bitrate" Data..=) Prelude.<$> bitrate,
+            ("sampleRate" Data..=) Prelude.<$> sampleRate
           ]
       )

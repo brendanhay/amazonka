@@ -22,6 +22,7 @@ module Amazonka.CloudTrail.Types.SourceConfig where
 import Amazonka.CloudTrail.Types.AdvancedEventSelector
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration information about the channel.
@@ -65,15 +66,15 @@ sourceConfig_applyToAllRegions = Lens.lens (\SourceConfig' {applyToAllRegions} -
 sourceConfig_advancedEventSelectors :: Lens.Lens' SourceConfig (Prelude.Maybe [AdvancedEventSelector])
 sourceConfig_advancedEventSelectors = Lens.lens (\SourceConfig' {advancedEventSelectors} -> advancedEventSelectors) (\s@SourceConfig' {} a -> s {advancedEventSelectors = a} :: SourceConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SourceConfig where
+instance Data.FromJSON SourceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceConfig"
       ( \x ->
           SourceConfig'
-            Prelude.<$> (x Core..:? "ApplyToAllRegions")
-            Prelude.<*> ( x Core..:? "AdvancedEventSelectors"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ApplyToAllRegions")
+            Prelude.<*> ( x Data..:? "AdvancedEventSelectors"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.ReviewActionDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types.ReviewActionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -40,7 +41,7 @@ data ReviewActionDetail = ReviewActionDetail'
     -- CANCELLED.
     status :: Prelude.Maybe ReviewActionStatus,
     -- | The date when the action was completed.
-    completeTime :: Prelude.Maybe Core.POSIX,
+    completeTime :: Prelude.Maybe Data.POSIX,
     -- | The type of object in TargetId.
     targetType :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the action.
@@ -109,7 +110,7 @@ reviewActionDetail_status = Lens.lens (\ReviewActionDetail' {status} -> status) 
 
 -- | The date when the action was completed.
 reviewActionDetail_completeTime :: Lens.Lens' ReviewActionDetail (Prelude.Maybe Prelude.UTCTime)
-reviewActionDetail_completeTime = Lens.lens (\ReviewActionDetail' {completeTime} -> completeTime) (\s@ReviewActionDetail' {} a -> s {completeTime = a} :: ReviewActionDetail) Prelude.. Lens.mapping Core._Time
+reviewActionDetail_completeTime = Lens.lens (\ReviewActionDetail' {completeTime} -> completeTime) (\s@ReviewActionDetail' {} a -> s {completeTime = a} :: ReviewActionDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The type of object in TargetId.
 reviewActionDetail_targetType :: Lens.Lens' ReviewActionDetail (Prelude.Maybe Prelude.Text)
@@ -127,20 +128,20 @@ reviewActionDetail_errorCode = Lens.lens (\ReviewActionDetail' {errorCode} -> er
 reviewActionDetail_result :: Lens.Lens' ReviewActionDetail (Prelude.Maybe Prelude.Text)
 reviewActionDetail_result = Lens.lens (\ReviewActionDetail' {result} -> result) (\s@ReviewActionDetail' {} a -> s {result = a} :: ReviewActionDetail)
 
-instance Core.FromJSON ReviewActionDetail where
+instance Data.FromJSON ReviewActionDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReviewActionDetail"
       ( \x ->
           ReviewActionDetail'
-            Prelude.<$> (x Core..:? "ActionName")
-            Prelude.<*> (x Core..:? "TargetId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CompleteTime")
-            Prelude.<*> (x Core..:? "TargetType")
-            Prelude.<*> (x Core..:? "ActionId")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "Result")
+            Prelude.<$> (x Data..:? "ActionName")
+            Prelude.<*> (x Data..:? "TargetId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CompleteTime")
+            Prelude.<*> (x Data..:? "TargetType")
+            Prelude.<*> (x Data..:? "ActionId")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "Result")
       )
 
 instance Prelude.Hashable ReviewActionDetail where

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,12 +103,12 @@ instance Core.AWSRequest DescribeGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeGroupResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Email")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "GroupId")
-            Prelude.<*> (x Core..?> "EnabledDate")
-            Prelude.<*> (x Core..?> "DisabledDate")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Email")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "GroupId")
+            Prelude.<*> (x Data..?> "EnabledDate")
+            Prelude.<*> (x Data..?> "DisabledDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,35 +122,35 @@ instance Prelude.NFData DescribeGroup where
     Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToHeaders DescribeGroup where
+instance Data.ToHeaders DescribeGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.DescribeGroup" ::
+              Data.=# ( "WorkMailService.DescribeGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeGroup where
+instance Data.ToJSON DescribeGroup where
   toJSON DescribeGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("GroupId" Core..= groupId)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("GroupId" Data..= groupId)
           ]
       )
 
-instance Core.ToPath DescribeGroup where
+instance Data.ToPath DescribeGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeGroup where
+instance Data.ToQuery DescribeGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeGroupResponse' smart constructor.
@@ -165,10 +166,10 @@ data DescribeGroupResponse = DescribeGroupResponse'
     groupId :: Prelude.Maybe Prelude.Text,
     -- | The date and time when a user was registered to WorkMail, in UNIX epoch
     -- time format.
-    enabledDate :: Prelude.Maybe Core.POSIX,
+    enabledDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time when a user was deregistered from WorkMail, in UNIX
     -- epoch time format.
-    disabledDate :: Prelude.Maybe Core.POSIX,
+    disabledDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -233,12 +234,12 @@ describeGroupResponse_groupId = Lens.lens (\DescribeGroupResponse' {groupId} -> 
 -- | The date and time when a user was registered to WorkMail, in UNIX epoch
 -- time format.
 describeGroupResponse_enabledDate :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.UTCTime)
-describeGroupResponse_enabledDate = Lens.lens (\DescribeGroupResponse' {enabledDate} -> enabledDate) (\s@DescribeGroupResponse' {} a -> s {enabledDate = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Core._Time
+describeGroupResponse_enabledDate = Lens.lens (\DescribeGroupResponse' {enabledDate} -> enabledDate) (\s@DescribeGroupResponse' {} a -> s {enabledDate = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when a user was deregistered from WorkMail, in UNIX
 -- epoch time format.
 describeGroupResponse_disabledDate :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.UTCTime)
-describeGroupResponse_disabledDate = Lens.lens (\DescribeGroupResponse' {disabledDate} -> disabledDate) (\s@DescribeGroupResponse' {} a -> s {disabledDate = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Core._Time
+describeGroupResponse_disabledDate = Lens.lens (\DescribeGroupResponse' {disabledDate} -> disabledDate) (\s@DescribeGroupResponse' {} a -> s {disabledDate = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeGroupResponse_httpStatus :: Lens.Lens' DescribeGroupResponse Prelude.Int

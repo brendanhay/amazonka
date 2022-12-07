@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,21 +114,21 @@ instance Prelude.NFData DeletePlacementGroup where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf groupName
 
-instance Core.ToHeaders DeletePlacementGroup where
+instance Data.ToHeaders DeletePlacementGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeletePlacementGroup where
+instance Data.ToPath DeletePlacementGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeletePlacementGroup where
+instance Data.ToQuery DeletePlacementGroup where
   toQuery DeletePlacementGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeletePlacementGroup" :: Prelude.ByteString),
+          Data.=: ("DeletePlacementGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "GroupName" Core.=: groupName
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "GroupName" Data.=: groupName
       ]
 
 -- | /See:/ 'newDeletePlacementGroupResponse' smart constructor.

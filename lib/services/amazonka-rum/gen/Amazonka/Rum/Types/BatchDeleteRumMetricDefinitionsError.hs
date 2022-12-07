@@ -21,6 +21,7 @@ module Amazonka.Rum.Types.BatchDeleteRumMetricDefinitionsError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that defines one error caused by a
@@ -84,17 +85,17 @@ batchDeleteRumMetricDefinitionsError_metricDefinitionId :: Lens.Lens' BatchDelet
 batchDeleteRumMetricDefinitionsError_metricDefinitionId = Lens.lens (\BatchDeleteRumMetricDefinitionsError' {metricDefinitionId} -> metricDefinitionId) (\s@BatchDeleteRumMetricDefinitionsError' {} a -> s {metricDefinitionId = a} :: BatchDeleteRumMetricDefinitionsError)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchDeleteRumMetricDefinitionsError
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDeleteRumMetricDefinitionsError"
       ( \x ->
           BatchDeleteRumMetricDefinitionsError'
-            Prelude.<$> (x Core..: "ErrorCode")
-            Prelude.<*> (x Core..: "ErrorMessage")
-            Prelude.<*> (x Core..: "MetricDefinitionId")
+            Prelude.<$> (x Data..: "ErrorCode")
+            Prelude.<*> (x Data..: "ErrorMessage")
+            Prelude.<*> (x Data..: "MetricDefinitionId")
       )
 
 instance

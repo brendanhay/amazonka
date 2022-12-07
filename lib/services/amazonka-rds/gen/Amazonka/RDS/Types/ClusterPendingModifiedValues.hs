@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.ClusterPendingModifiedValues where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.PendingCloudwatchLogsExports
 
@@ -135,17 +136,17 @@ clusterPendingModifiedValues_iops = Lens.lens (\ClusterPendingModifiedValues' {i
 clusterPendingModifiedValues_engineVersion :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe Prelude.Text)
 clusterPendingModifiedValues_engineVersion = Lens.lens (\ClusterPendingModifiedValues' {engineVersion} -> engineVersion) (\s@ClusterPendingModifiedValues' {} a -> s {engineVersion = a} :: ClusterPendingModifiedValues)
 
-instance Core.FromXML ClusterPendingModifiedValues where
+instance Data.FromXML ClusterPendingModifiedValues where
   parseXML x =
     ClusterPendingModifiedValues'
-      Prelude.<$> (x Core..@? "BackupRetentionPeriod")
-      Prelude.<*> (x Core..@? "DBClusterIdentifier")
-      Prelude.<*> (x Core..@? "PendingCloudwatchLogsExports")
-      Prelude.<*> (x Core..@? "MasterUserPassword")
-      Prelude.<*> (x Core..@? "AllocatedStorage")
-      Prelude.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
-      Prelude.<*> (x Core..@? "Iops")
-      Prelude.<*> (x Core..@? "EngineVersion")
+      Prelude.<$> (x Data..@? "BackupRetentionPeriod")
+      Prelude.<*> (x Data..@? "DBClusterIdentifier")
+      Prelude.<*> (x Data..@? "PendingCloudwatchLogsExports")
+      Prelude.<*> (x Data..@? "MasterUserPassword")
+      Prelude.<*> (x Data..@? "AllocatedStorage")
+      Prelude.<*> (x Data..@? "IAMDatabaseAuthenticationEnabled")
+      Prelude.<*> (x Data..@? "Iops")
+      Prelude.<*> (x Data..@? "EngineVersion")
 
 instance
   Prelude.Hashable

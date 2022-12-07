@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,8 +141,8 @@ instance Core.AWSRequest ListClusterOperations where
     Response.receiveJSON
       ( \s h x ->
           ListClusterOperationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "clusterOperationInfoList"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "clusterOperationInfoList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -159,30 +160,30 @@ instance Prelude.NFData ListClusterOperations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf clusterArn
 
-instance Core.ToHeaders ListClusterOperations where
+instance Data.ToHeaders ListClusterOperations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListClusterOperations where
+instance Data.ToPath ListClusterOperations where
   toPath ListClusterOperations' {..} =
     Prelude.mconcat
       [ "/v1/clusters/",
-        Core.toBS clusterArn,
+        Data.toBS clusterArn,
         "/operations"
       ]
 
-instance Core.ToQuery ListClusterOperations where
+instance Data.ToQuery ListClusterOperations where
   toQuery ListClusterOperations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListClusterOperationsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.AmplifyBackend.Types.SmsSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | SMS settings for authentication.
@@ -50,12 +51,12 @@ newSmsSettings =
 smsSettings_smsMessage :: Lens.Lens' SmsSettings (Prelude.Maybe Prelude.Text)
 smsSettings_smsMessage = Lens.lens (\SmsSettings' {smsMessage} -> smsMessage) (\s@SmsSettings' {} a -> s {smsMessage = a} :: SmsSettings)
 
-instance Core.FromJSON SmsSettings where
+instance Data.FromJSON SmsSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SmsSettings"
       ( \x ->
-          SmsSettings' Prelude.<$> (x Core..:? "smsMessage")
+          SmsSettings' Prelude.<$> (x Data..:? "smsMessage")
       )
 
 instance Prelude.Hashable SmsSettings where
@@ -65,9 +66,9 @@ instance Prelude.Hashable SmsSettings where
 instance Prelude.NFData SmsSettings where
   rnf SmsSettings' {..} = Prelude.rnf smsMessage
 
-instance Core.ToJSON SmsSettings where
+instance Data.ToJSON SmsSettings where
   toJSON SmsSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("smsMessage" Core..=) Prelude.<$> smsMessage]
+          [("smsMessage" Data..=) Prelude.<$> smsMessage]
       )

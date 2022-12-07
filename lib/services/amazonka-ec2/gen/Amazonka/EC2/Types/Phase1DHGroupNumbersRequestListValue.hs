@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Phase1DHGroupNumbersRequestListValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,8 +73,8 @@ instance
     Prelude.rnf value
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     Phase1DHGroupNumbersRequestListValue
   where
   toQuery Phase1DHGroupNumbersRequestListValue' {..} =
-    Prelude.mconcat ["Value" Core.=: value]
+    Prelude.mconcat ["Value" Data.=: value]

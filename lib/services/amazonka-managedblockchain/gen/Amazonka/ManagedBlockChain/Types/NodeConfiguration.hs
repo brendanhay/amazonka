@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.NodeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.NodeLogPublishingConfiguration
 import Amazonka.ManagedBlockChain.Types.StateDBType
 import qualified Amazonka.Prelude as Prelude
@@ -116,15 +117,15 @@ instance Prelude.NFData NodeConfiguration where
       `Prelude.seq` Prelude.rnf logPublishingConfiguration
       `Prelude.seq` Prelude.rnf instanceType
 
-instance Core.ToJSON NodeConfiguration where
+instance Data.ToJSON NodeConfiguration where
   toJSON NodeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AvailabilityZone" Core..=)
+          [ ("AvailabilityZone" Data..=)
               Prelude.<$> availabilityZone,
-            ("StateDB" Core..=) Prelude.<$> stateDB,
-            ("LogPublishingConfiguration" Core..=)
+            ("StateDB" Data..=) Prelude.<$> stateDB,
+            ("LogPublishingConfiguration" Data..=)
               Prelude.<$> logPublishingConfiguration,
-            Prelude.Just ("InstanceType" Core..= instanceType)
+            Prelude.Just ("InstanceType" Data..= instanceType)
           ]
       )

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -56,7 +57,7 @@ data StartQueryPlanning = StartQueryPlanning'
   { -- | A structure containing information about the query plan.
     queryPlanningContext :: QueryPlanningContext,
     -- | A PartiQL query statement used as an input to the planner service.
-    queryString :: Core.Sensitive Prelude.Text
+    queryString :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -83,7 +84,7 @@ newStartQueryPlanning
     StartQueryPlanning'
       { queryPlanningContext =
           pQueryPlanningContext_,
-        queryString = Core._Sensitive Lens.# pQueryString_
+        queryString = Data._Sensitive Lens.# pQueryString_
       }
 
 -- | A structure containing information about the query plan.
@@ -92,7 +93,7 @@ startQueryPlanning_queryPlanningContext = Lens.lens (\StartQueryPlanning' {query
 
 -- | A PartiQL query statement used as an input to the planner service.
 startQueryPlanning_queryString :: Lens.Lens' StartQueryPlanning Prelude.Text
-startQueryPlanning_queryString = Lens.lens (\StartQueryPlanning' {queryString} -> queryString) (\s@StartQueryPlanning' {} a -> s {queryString = a} :: StartQueryPlanning) Prelude.. Core._Sensitive
+startQueryPlanning_queryString = Lens.lens (\StartQueryPlanning' {queryString} -> queryString) (\s@StartQueryPlanning' {} a -> s {queryString = a} :: StartQueryPlanning) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest StartQueryPlanning where
   type
@@ -105,7 +106,7 @@ instance Core.AWSRequest StartQueryPlanning where
       ( \s h x ->
           StartQueryPlanningResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "QueryId")
+            Prelude.<*> (x Data..:> "QueryId")
       )
 
 instance Prelude.Hashable StartQueryPlanning where
@@ -118,33 +119,33 @@ instance Prelude.NFData StartQueryPlanning where
     Prelude.rnf queryPlanningContext
       `Prelude.seq` Prelude.rnf queryString
 
-instance Core.ToHeaders StartQueryPlanning where
+instance Data.ToHeaders StartQueryPlanning where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartQueryPlanning where
+instance Data.ToJSON StartQueryPlanning where
   toJSON StartQueryPlanning' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "QueryPlanningContext"
-                  Core..= queryPlanningContext
+                  Data..= queryPlanningContext
               ),
-            Prelude.Just ("QueryString" Core..= queryString)
+            Prelude.Just ("QueryString" Data..= queryString)
           ]
       )
 
-instance Core.ToPath StartQueryPlanning where
+instance Data.ToPath StartQueryPlanning where
   toPath = Prelude.const "/StartQueryPlanning"
 
-instance Core.ToQuery StartQueryPlanning where
+instance Data.ToQuery StartQueryPlanning where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A structure for the output.

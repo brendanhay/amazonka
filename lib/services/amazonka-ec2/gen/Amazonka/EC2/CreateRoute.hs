@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -293,7 +294,7 @@ instance Core.AWSRequest CreateRoute where
     Response.receiveXML
       ( \s h x ->
           CreateRouteResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -335,39 +336,39 @@ instance Prelude.NFData CreateRoute where
       `Prelude.seq` Prelude.rnf destinationIpv6CidrBlock
       `Prelude.seq` Prelude.rnf routeTableId
 
-instance Core.ToHeaders CreateRoute where
+instance Data.ToHeaders CreateRoute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateRoute where
+instance Data.ToPath CreateRoute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateRoute where
+instance Data.ToQuery CreateRoute where
   toQuery CreateRoute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateRoute" :: Prelude.ByteString),
+          Data.=: ("CreateRoute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "LocalGatewayId" Core.=: localGatewayId,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "LocalGatewayId" Data.=: localGatewayId,
         "DestinationPrefixListId"
-          Core.=: destinationPrefixListId,
-        "CarrierGatewayId" Core.=: carrierGatewayId,
-        "TransitGatewayId" Core.=: transitGatewayId,
-        "NatGatewayId" Core.=: natGatewayId,
+          Data.=: destinationPrefixListId,
+        "CarrierGatewayId" Data.=: carrierGatewayId,
+        "TransitGatewayId" Data.=: transitGatewayId,
+        "NatGatewayId" Data.=: natGatewayId,
         "VpcPeeringConnectionId"
-          Core.=: vpcPeeringConnectionId,
-        "VpcEndpointId" Core.=: vpcEndpointId,
-        "DryRun" Core.=: dryRun,
-        "DestinationCidrBlock" Core.=: destinationCidrBlock,
-        "CoreNetworkArn" Core.=: coreNetworkArn,
-        "InstanceId" Core.=: instanceId,
+          Data.=: vpcPeeringConnectionId,
+        "VpcEndpointId" Data.=: vpcEndpointId,
+        "DryRun" Data.=: dryRun,
+        "DestinationCidrBlock" Data.=: destinationCidrBlock,
+        "CoreNetworkArn" Data.=: coreNetworkArn,
+        "InstanceId" Data.=: instanceId,
         "EgressOnlyInternetGatewayId"
-          Core.=: egressOnlyInternetGatewayId,
-        "NetworkInterfaceId" Core.=: networkInterfaceId,
-        "GatewayId" Core.=: gatewayId,
+          Data.=: egressOnlyInternetGatewayId,
+        "NetworkInterfaceId" Data.=: networkInterfaceId,
+        "GatewayId" Data.=: gatewayId,
         "DestinationIpv6CidrBlock"
-          Core.=: destinationIpv6CidrBlock,
-        "RouteTableId" Core.=: routeTableId
+          Data.=: destinationIpv6CidrBlock,
+        "RouteTableId" Data.=: routeTableId
       ]
 
 -- | /See:/ 'newCreateRouteResponse' smart constructor.

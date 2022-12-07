@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.ReservedDBInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.RecurringCharge
 
@@ -61,7 +62,7 @@ data ReservedDBInstance = ReservedDBInstance'
     -- | The fixed price charged for this reserved DB instance.
     fixedPrice :: Prelude.Maybe Prelude.Double,
     -- | The time the reservation started.
-    startTime :: Prelude.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The hourly price charged for this reserved DB instance.
     usagePrice :: Prelude.Maybe Prelude.Double,
     -- | Indicates if the reservation applies to Multi-AZ deployments.
@@ -193,7 +194,7 @@ reservedDBInstance_fixedPrice = Lens.lens (\ReservedDBInstance' {fixedPrice} -> 
 
 -- | The time the reservation started.
 reservedDBInstance_startTime :: Lens.Lens' ReservedDBInstance (Prelude.Maybe Prelude.UTCTime)
-reservedDBInstance_startTime = Lens.lens (\ReservedDBInstance' {startTime} -> startTime) (\s@ReservedDBInstance' {} a -> s {startTime = a} :: ReservedDBInstance) Prelude.. Lens.mapping Core._Time
+reservedDBInstance_startTime = Lens.lens (\ReservedDBInstance' {startTime} -> startTime) (\s@ReservedDBInstance' {} a -> s {startTime = a} :: ReservedDBInstance) Prelude.. Lens.mapping Data._Time
 
 -- | The hourly price charged for this reserved DB instance.
 reservedDBInstance_usagePrice :: Lens.Lens' ReservedDBInstance (Prelude.Maybe Prelude.Double)
@@ -203,28 +204,28 @@ reservedDBInstance_usagePrice = Lens.lens (\ReservedDBInstance' {usagePrice} -> 
 reservedDBInstance_multiAZ :: Lens.Lens' ReservedDBInstance (Prelude.Maybe Prelude.Bool)
 reservedDBInstance_multiAZ = Lens.lens (\ReservedDBInstance' {multiAZ} -> multiAZ) (\s@ReservedDBInstance' {} a -> s {multiAZ = a} :: ReservedDBInstance)
 
-instance Core.FromXML ReservedDBInstance where
+instance Data.FromXML ReservedDBInstance where
   parseXML x =
     ReservedDBInstance'
-      Prelude.<$> (x Core..@? "DBInstanceClass")
-      Prelude.<*> (x Core..@? "DBInstanceCount")
-      Prelude.<*> (x Core..@? "ReservedDBInstanceId")
-      Prelude.<*> ( x Core..@? "RecurringCharges"
+      Prelude.<$> (x Data..@? "DBInstanceClass")
+      Prelude.<*> (x Data..@? "DBInstanceCount")
+      Prelude.<*> (x Data..@? "ReservedDBInstanceId")
+      Prelude.<*> ( x Data..@? "RecurringCharges"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "RecurringCharge")
+                      Prelude.>>= Core.may (Data.parseXMLList "RecurringCharge")
                   )
-      Prelude.<*> (x Core..@? "State")
-      Prelude.<*> (x Core..@? "OfferingType")
-      Prelude.<*> (x Core..@? "ReservedDBInstanceArn")
-      Prelude.<*> (x Core..@? "Duration")
-      Prelude.<*> (x Core..@? "CurrencyCode")
-      Prelude.<*> (x Core..@? "ProductDescription")
-      Prelude.<*> (x Core..@? "LeaseId")
-      Prelude.<*> (x Core..@? "ReservedDBInstancesOfferingId")
-      Prelude.<*> (x Core..@? "FixedPrice")
-      Prelude.<*> (x Core..@? "StartTime")
-      Prelude.<*> (x Core..@? "UsagePrice")
-      Prelude.<*> (x Core..@? "MultiAZ")
+      Prelude.<*> (x Data..@? "State")
+      Prelude.<*> (x Data..@? "OfferingType")
+      Prelude.<*> (x Data..@? "ReservedDBInstanceArn")
+      Prelude.<*> (x Data..@? "Duration")
+      Prelude.<*> (x Data..@? "CurrencyCode")
+      Prelude.<*> (x Data..@? "ProductDescription")
+      Prelude.<*> (x Data..@? "LeaseId")
+      Prelude.<*> (x Data..@? "ReservedDBInstancesOfferingId")
+      Prelude.<*> (x Data..@? "FixedPrice")
+      Prelude.<*> (x Data..@? "StartTime")
+      Prelude.<*> (x Data..@? "UsagePrice")
+      Prelude.<*> (x Data..@? "MultiAZ")
 
 instance Prelude.Hashable ReservedDBInstance where
   hashWithSalt _salt ReservedDBInstance' {..} =

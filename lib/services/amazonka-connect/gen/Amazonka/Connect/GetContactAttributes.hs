@@ -43,6 +43,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,7 +100,7 @@ instance Core.AWSRequest GetContactAttributes where
     Response.receiveJSON
       ( \s h x ->
           GetContactAttributesResponse'
-            Prelude.<$> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Attributes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,27 +114,27 @@ instance Prelude.NFData GetContactAttributes where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf initialContactId
 
-instance Core.ToHeaders GetContactAttributes where
+instance Data.ToHeaders GetContactAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetContactAttributes where
+instance Data.ToPath GetContactAttributes where
   toPath GetContactAttributes' {..} =
     Prelude.mconcat
       [ "/contact/attributes/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS initialContactId
+        Data.toBS initialContactId
       ]
 
-instance Core.ToQuery GetContactAttributes where
+instance Data.ToQuery GetContactAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContactAttributesResponse' smart constructor.

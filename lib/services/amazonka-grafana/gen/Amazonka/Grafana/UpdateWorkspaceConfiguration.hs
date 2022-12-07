@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,35 +122,35 @@ instance Prelude.NFData UpdateWorkspaceConfiguration where
     Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders UpdateWorkspaceConfiguration where
+instance Data.ToHeaders UpdateWorkspaceConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkspaceConfiguration where
+instance Data.ToJSON UpdateWorkspaceConfiguration where
   toJSON UpdateWorkspaceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("configuration" Core..= configuration)
+              ("configuration" Data..= configuration)
           ]
       )
 
-instance Core.ToPath UpdateWorkspaceConfiguration where
+instance Data.ToPath UpdateWorkspaceConfiguration where
   toPath UpdateWorkspaceConfiguration' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/configuration"
       ]
 
-instance Core.ToQuery UpdateWorkspaceConfiguration where
+instance Data.ToQuery UpdateWorkspaceConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWorkspaceConfigurationResponse' smart constructor.

@@ -48,6 +48,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,7 +100,7 @@ instance Core.AWSRequest GetExtension where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetExtension where
   hashWithSalt _salt GetExtension' {..} =
@@ -111,23 +112,23 @@ instance Prelude.NFData GetExtension where
     Prelude.rnf versionNumber
       `Prelude.seq` Prelude.rnf extensionIdentifier
 
-instance Core.ToHeaders GetExtension where
+instance Data.ToHeaders GetExtension where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetExtension where
+instance Data.ToPath GetExtension where
   toPath GetExtension' {..} =
     Prelude.mconcat
-      ["/extensions/", Core.toBS extensionIdentifier]
+      ["/extensions/", Data.toBS extensionIdentifier]
 
-instance Core.ToQuery GetExtension where
+instance Data.ToQuery GetExtension where
   toQuery GetExtension' {..} =
     Prelude.mconcat
-      ["version_number" Core.=: versionNumber]
+      ["version_number" Data.=: versionNumber]

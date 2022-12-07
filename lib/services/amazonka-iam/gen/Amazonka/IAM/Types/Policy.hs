@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.Policy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,7 +67,7 @@ data Policy = Policy'
     -- time when the policy was created. When a policy has more than one
     -- version, this field contains the date and time when the most recent
     -- policy version was created.
-    updateDate :: Prelude.Maybe Core.ISO8601,
+    updateDate :: Prelude.Maybe Data.ISO8601,
     -- | A friendly description of the policy.
     --
     -- This element is included in the response to the GetPolicy operation. It
@@ -75,7 +76,7 @@ data Policy = Policy'
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- policy was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Data.ISO8601,
     -- | The number of entities (users, groups, and roles) that the policy is
     -- attached to.
     attachmentCount :: Prelude.Maybe Prelude.Int,
@@ -217,7 +218,7 @@ policy_path = Lens.lens (\Policy' {path} -> path) (\s@Policy' {} a -> s {path = 
 -- version, this field contains the date and time when the most recent
 -- policy version was created.
 policy_updateDate :: Lens.Lens' Policy (Prelude.Maybe Prelude.UTCTime)
-policy_updateDate = Lens.lens (\Policy' {updateDate} -> updateDate) (\s@Policy' {} a -> s {updateDate = a} :: Policy) Prelude.. Lens.mapping Core._Time
+policy_updateDate = Lens.lens (\Policy' {updateDate} -> updateDate) (\s@Policy' {} a -> s {updateDate = a} :: Policy) Prelude.. Lens.mapping Data._Time
 
 -- | A friendly description of the policy.
 --
@@ -230,7 +231,7 @@ policy_description = Lens.lens (\Policy' {description} -> description) (\s@Polic
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- policy was created.
 policy_createDate :: Lens.Lens' Policy (Prelude.Maybe Prelude.UTCTime)
-policy_createDate = Lens.lens (\Policy' {createDate} -> createDate) (\s@Policy' {} a -> s {createDate = a} :: Policy) Prelude.. Lens.mapping Core._Time
+policy_createDate = Lens.lens (\Policy' {createDate} -> createDate) (\s@Policy' {} a -> s {createDate = a} :: Policy) Prelude.. Lens.mapping Data._Time
 
 -- | The number of entities (users, groups, and roles) that the policy is
 -- attached to.
@@ -251,23 +252,23 @@ policy_permissionsBoundaryUsageCount = Lens.lens (\Policy' {permissionsBoundaryU
 policy_isAttachable :: Lens.Lens' Policy (Prelude.Maybe Prelude.Bool)
 policy_isAttachable = Lens.lens (\Policy' {isAttachable} -> isAttachable) (\s@Policy' {} a -> s {isAttachable = a} :: Policy)
 
-instance Core.FromXML Policy where
+instance Data.FromXML Policy where
   parseXML x =
     Policy'
-      Prelude.<$> (x Core..@? "PolicyName")
-      Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "PolicyName")
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PolicyId")
-      Prelude.<*> (x Core..@? "DefaultVersionId")
-      Prelude.<*> (x Core..@? "Arn")
-      Prelude.<*> (x Core..@? "Path")
-      Prelude.<*> (x Core..@? "UpdateDate")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "CreateDate")
-      Prelude.<*> (x Core..@? "AttachmentCount")
-      Prelude.<*> (x Core..@? "PermissionsBoundaryUsageCount")
-      Prelude.<*> (x Core..@? "IsAttachable")
+      Prelude.<*> (x Data..@? "PolicyId")
+      Prelude.<*> (x Data..@? "DefaultVersionId")
+      Prelude.<*> (x Data..@? "Arn")
+      Prelude.<*> (x Data..@? "Path")
+      Prelude.<*> (x Data..@? "UpdateDate")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "CreateDate")
+      Prelude.<*> (x Data..@? "AttachmentCount")
+      Prelude.<*> (x Data..@? "PermissionsBoundaryUsageCount")
+      Prelude.<*> (x Data..@? "IsAttachable")
 
 instance Prelude.Hashable Policy where
   hashWithSalt _salt Policy' {..} =

@@ -21,6 +21,7 @@ module Amazonka.ResourceGroups.Types.FailedResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource that failed to be added to or removed from a group.
@@ -70,15 +71,15 @@ failedResource_errorCode = Lens.lens (\FailedResource' {errorCode} -> errorCode)
 failedResource_resourceArn :: Lens.Lens' FailedResource (Prelude.Maybe Prelude.Text)
 failedResource_resourceArn = Lens.lens (\FailedResource' {resourceArn} -> resourceArn) (\s@FailedResource' {} a -> s {resourceArn = a} :: FailedResource)
 
-instance Core.FromJSON FailedResource where
+instance Data.FromJSON FailedResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedResource"
       ( \x ->
           FailedResource'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "ResourceArn")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ResourceArn")
       )
 
 instance Prelude.Hashable FailedResource where

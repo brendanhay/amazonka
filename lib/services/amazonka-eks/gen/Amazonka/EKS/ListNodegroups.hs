@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,8 +165,8 @@ instance Core.AWSRequest ListNodegroups where
     Response.receiveJSON
       ( \s h x ->
           ListNodegroupsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "nodegroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "nodegroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,27 +182,27 @@ instance Prelude.NFData ListNodegroups where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf clusterName
 
-instance Core.ToHeaders ListNodegroups where
+instance Data.ToHeaders ListNodegroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListNodegroups where
+instance Data.ToPath ListNodegroups where
   toPath ListNodegroups' {..} =
     Prelude.mconcat
-      ["/clusters/", Core.toBS clusterName, "/node-groups"]
+      ["/clusters/", Data.toBS clusterName, "/node-groups"]
 
-instance Core.ToQuery ListNodegroups where
+instance Data.ToQuery ListNodegroups where
   toQuery ListNodegroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListNodegroupsResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 import Amazonka.ApplicationInsights.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,8 +103,8 @@ instance Core.AWSRequest DescribeComponent where
     Response.receiveJSON
       ( \s h x ->
           DescribeComponentResponse'
-            Prelude.<$> (x Core..?> "ResourceList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ApplicationComponent")
+            Prelude.<$> (x Data..?> "ResourceList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ApplicationComponent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,36 +118,36 @@ instance Prelude.NFData DescribeComponent where
     Prelude.rnf resourceGroupName
       `Prelude.seq` Prelude.rnf componentName
 
-instance Core.ToHeaders DescribeComponent where
+instance Data.ToHeaders DescribeComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "EC2WindowsBarleyService.DescribeComponent" ::
+              Data.=# ( "EC2WindowsBarleyService.DescribeComponent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeComponent where
+instance Data.ToJSON DescribeComponent where
   toJSON DescribeComponent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ResourceGroupName" Core..= resourceGroupName),
+              ("ResourceGroupName" Data..= resourceGroupName),
             Prelude.Just
-              ("ComponentName" Core..= componentName)
+              ("ComponentName" Data..= componentName)
           ]
       )
 
-instance Core.ToPath DescribeComponent where
+instance Data.ToPath DescribeComponent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeComponent where
+instance Data.ToQuery DescribeComponent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeComponentResponse' smart constructor.

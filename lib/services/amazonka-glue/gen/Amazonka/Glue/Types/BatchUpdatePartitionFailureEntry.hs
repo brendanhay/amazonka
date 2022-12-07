@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.BatchUpdatePartitionFailureEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ErrorDetail
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,18 +65,18 @@ batchUpdatePartitionFailureEntry_errorDetail :: Lens.Lens' BatchUpdatePartitionF
 batchUpdatePartitionFailureEntry_errorDetail = Lens.lens (\BatchUpdatePartitionFailureEntry' {errorDetail} -> errorDetail) (\s@BatchUpdatePartitionFailureEntry' {} a -> s {errorDetail = a} :: BatchUpdatePartitionFailureEntry)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchUpdatePartitionFailureEntry
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchUpdatePartitionFailureEntry"
       ( \x ->
           BatchUpdatePartitionFailureEntry'
-            Prelude.<$> ( x Core..:? "PartitionValueList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "PartitionValueList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ErrorDetail")
+            Prelude.<*> (x Data..:? "ErrorDetail")
       )
 
 instance

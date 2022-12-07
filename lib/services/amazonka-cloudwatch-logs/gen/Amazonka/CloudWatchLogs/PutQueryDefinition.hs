@@ -58,6 +58,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -179,7 +180,7 @@ instance Core.AWSRequest PutQueryDefinition where
     Response.receiveJSON
       ( \s h x ->
           PutQueryDefinitionResponse'
-            Prelude.<$> (x Core..?> "queryDefinitionId")
+            Prelude.<$> (x Data..?> "queryDefinitionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,37 +198,37 @@ instance Prelude.NFData PutQueryDefinition where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf queryString
 
-instance Core.ToHeaders PutQueryDefinition where
+instance Data.ToHeaders PutQueryDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.PutQueryDefinition" ::
+              Data.=# ( "Logs_20140328.PutQueryDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutQueryDefinition where
+instance Data.ToJSON PutQueryDefinition where
   toJSON PutQueryDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("queryDefinitionId" Core..=)
+          [ ("queryDefinitionId" Data..=)
               Prelude.<$> queryDefinitionId,
-            ("logGroupNames" Core..=) Prelude.<$> logGroupNames,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("queryString" Core..= queryString)
+            ("logGroupNames" Data..=) Prelude.<$> logGroupNames,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("queryString" Data..= queryString)
           ]
       )
 
-instance Core.ToPath PutQueryDefinition where
+instance Data.ToPath PutQueryDefinition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutQueryDefinition where
+instance Data.ToQuery PutQueryDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutQueryDefinitionResponse' smart constructor.

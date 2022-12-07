@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -309,9 +310,9 @@ instance Core.AWSRequest UpdateConstraint where
     Response.receiveJSON
       ( \s h x ->
           UpdateConstraintResponse'
-            Prelude.<$> (x Core..?> "ConstraintDetail")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ConstraintParameters")
+            Prelude.<$> (x Data..?> "ConstraintDetail")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ConstraintParameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -329,37 +330,37 @@ instance Prelude.NFData UpdateConstraint where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateConstraint where
+instance Data.ToHeaders UpdateConstraint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.UpdateConstraint" ::
+              Data.=# ( "AWS242ServiceCatalogService.UpdateConstraint" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateConstraint where
+instance Data.ToJSON UpdateConstraint where
   toJSON UpdateConstraint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("AcceptLanguage" Core..=)
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Id" Core..= id)
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath UpdateConstraint where
+instance Data.ToPath UpdateConstraint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateConstraint where
+instance Data.ToQuery UpdateConstraint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConstraintResponse' smart constructor.

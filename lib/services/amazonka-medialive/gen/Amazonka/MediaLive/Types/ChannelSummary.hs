@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.ChannelSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.CdiInputSpecification
 import Amazonka.MediaLive.Types.ChannelClass
 import Amazonka.MediaLive.Types.ChannelEgressEndpoint
@@ -208,31 +209,31 @@ channelSummary_destinations = Lens.lens (\ChannelSummary' {destinations} -> dest
 channelSummary_egressEndpoints :: Lens.Lens' ChannelSummary (Prelude.Maybe [ChannelEgressEndpoint])
 channelSummary_egressEndpoints = Lens.lens (\ChannelSummary' {egressEndpoints} -> egressEndpoints) (\s@ChannelSummary' {} a -> s {egressEndpoints = a} :: ChannelSummary) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ChannelSummary where
+instance Data.FromJSON ChannelSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelSummary"
       ( \x ->
           ChannelSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "maintenance")
-            Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "vpc")
-            Prelude.<*> (x Core..:? "logLevel")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "inputSpecification")
-            Prelude.<*> (x Core..:? "channelClass")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "cdiInputSpecification")
-            Prelude.<*> ( x Core..:? "inputAttachments"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "maintenance")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "vpc")
+            Prelude.<*> (x Data..:? "logLevel")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "inputSpecification")
+            Prelude.<*> (x Data..:? "channelClass")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "cdiInputSpecification")
+            Prelude.<*> ( x Data..:? "inputAttachments"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "pipelinesRunningCount")
-            Prelude.<*> (x Core..:? "destinations" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "egressEndpoints"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "pipelinesRunningCount")
+            Prelude.<*> (x Data..:? "destinations" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "egressEndpoints"
+                            Data..!= Prelude.mempty
                         )
       )
 

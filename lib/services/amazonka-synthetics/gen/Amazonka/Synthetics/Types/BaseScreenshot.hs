@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.BaseScreenshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure representing a screenshot that is used as a baseline during
@@ -80,16 +81,16 @@ baseScreenshot_ignoreCoordinates = Lens.lens (\BaseScreenshot' {ignoreCoordinate
 baseScreenshot_screenshotName :: Lens.Lens' BaseScreenshot Prelude.Text
 baseScreenshot_screenshotName = Lens.lens (\BaseScreenshot' {screenshotName} -> screenshotName) (\s@BaseScreenshot' {} a -> s {screenshotName = a} :: BaseScreenshot)
 
-instance Core.FromJSON BaseScreenshot where
+instance Data.FromJSON BaseScreenshot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BaseScreenshot"
       ( \x ->
           BaseScreenshot'
-            Prelude.<$> ( x Core..:? "IgnoreCoordinates"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "IgnoreCoordinates"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "ScreenshotName")
+            Prelude.<*> (x Data..: "ScreenshotName")
       )
 
 instance Prelude.Hashable BaseScreenshot where
@@ -102,13 +103,13 @@ instance Prelude.NFData BaseScreenshot where
     Prelude.rnf ignoreCoordinates
       `Prelude.seq` Prelude.rnf screenshotName
 
-instance Core.ToJSON BaseScreenshot where
+instance Data.ToJSON BaseScreenshot where
   toJSON BaseScreenshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IgnoreCoordinates" Core..=)
+          [ ("IgnoreCoordinates" Data..=)
               Prelude.<$> ignoreCoordinates,
             Prelude.Just
-              ("ScreenshotName" Core..= screenshotName)
+              ("ScreenshotName" Data..= screenshotName)
           ]
       )

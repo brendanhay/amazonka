@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -146,11 +147,11 @@ instance Core.AWSRequest ListFileSystemAssociations where
     Response.receiveJSON
       ( \s h x ->
           ListFileSystemAssociationsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> ( x Core..?> "FileSystemAssociationSummaryList"
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> ( x Data..?> "FileSystemAssociationSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,35 +167,35 @@ instance Prelude.NFData ListFileSystemAssociations where
       `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders ListFileSystemAssociations where
+instance Data.ToHeaders ListFileSystemAssociations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.ListFileSystemAssociations" ::
+              Data.=# ( "StorageGateway_20130630.ListFileSystemAssociations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListFileSystemAssociations where
+instance Data.ToJSON ListFileSystemAssociations where
   toJSON ListFileSystemAssociations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("GatewayARN" Core..=) Prelude.<$> gatewayARN,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("GatewayARN" Data..=) Prelude.<$> gatewayARN,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath ListFileSystemAssociations where
+instance Data.ToPath ListFileSystemAssociations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListFileSystemAssociations where
+instance Data.ToQuery ListFileSystemAssociations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListFileSystemAssociationsResponse' smart constructor.

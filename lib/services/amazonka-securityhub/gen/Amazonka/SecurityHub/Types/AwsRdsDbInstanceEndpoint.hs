@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbInstanceEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the connection endpoint.
@@ -73,15 +74,15 @@ awsRdsDbInstanceEndpoint_hostedZoneId = Lens.lens (\AwsRdsDbInstanceEndpoint' {h
 awsRdsDbInstanceEndpoint_address :: Lens.Lens' AwsRdsDbInstanceEndpoint (Prelude.Maybe Prelude.Text)
 awsRdsDbInstanceEndpoint_address = Lens.lens (\AwsRdsDbInstanceEndpoint' {address} -> address) (\s@AwsRdsDbInstanceEndpoint' {} a -> s {address = a} :: AwsRdsDbInstanceEndpoint)
 
-instance Core.FromJSON AwsRdsDbInstanceEndpoint where
+instance Data.FromJSON AwsRdsDbInstanceEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbInstanceEndpoint"
       ( \x ->
           AwsRdsDbInstanceEndpoint'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "HostedZoneId")
-            Prelude.<*> (x Core..:? "Address")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "HostedZoneId")
+            Prelude.<*> (x Data..:? "Address")
       )
 
 instance Prelude.Hashable AwsRdsDbInstanceEndpoint where
@@ -96,12 +97,12 @@ instance Prelude.NFData AwsRdsDbInstanceEndpoint where
       `Prelude.seq` Prelude.rnf hostedZoneId
       `Prelude.seq` Prelude.rnf address
 
-instance Core.ToJSON AwsRdsDbInstanceEndpoint where
+instance Data.ToJSON AwsRdsDbInstanceEndpoint where
   toJSON AwsRdsDbInstanceEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("HostedZoneId" Core..=) Prelude.<$> hostedZoneId,
-            ("Address" Core..=) Prelude.<$> address
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("HostedZoneId" Data..=) Prelude.<$> hostedZoneId,
+            ("Address" Data..=) Prelude.<$> address
           ]
       )

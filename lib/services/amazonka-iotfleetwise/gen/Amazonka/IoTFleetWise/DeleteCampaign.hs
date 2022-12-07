@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,8 +86,8 @@ instance Core.AWSRequest DeleteCampaign where
     Response.receiveJSON
       ( \s h x ->
           DeleteCampaignResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "arn")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,32 +98,32 @@ instance Prelude.Hashable DeleteCampaign where
 instance Prelude.NFData DeleteCampaign where
   rnf DeleteCampaign' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteCampaign where
+instance Data.ToHeaders DeleteCampaign where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.DeleteCampaign" ::
+              Data.=# ( "IoTAutobahnControlPlane.DeleteCampaign" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteCampaign where
+instance Data.ToJSON DeleteCampaign where
   toJSON DeleteCampaign' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath DeleteCampaign where
+instance Data.ToPath DeleteCampaign where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteCampaign where
+instance Data.ToQuery DeleteCampaign where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCampaignResponse' smart constructor.

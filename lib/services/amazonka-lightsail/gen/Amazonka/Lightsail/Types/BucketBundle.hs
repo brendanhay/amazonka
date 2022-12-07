@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.BucketBundle where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the specifications of a bundle that can be applied to an
@@ -104,18 +105,18 @@ bucketBundle_price = Lens.lens (\BucketBundle' {price} -> price) (\s@BucketBundl
 bucketBundle_bundleId :: Lens.Lens' BucketBundle (Prelude.Maybe Prelude.Text)
 bucketBundle_bundleId = Lens.lens (\BucketBundle' {bundleId} -> bundleId) (\s@BucketBundle' {} a -> s {bundleId = a} :: BucketBundle)
 
-instance Core.FromJSON BucketBundle where
+instance Data.FromJSON BucketBundle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BucketBundle"
       ( \x ->
           BucketBundle'
-            Prelude.<$> (x Core..:? "isActive")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "transferPerMonthInGb")
-            Prelude.<*> (x Core..:? "storagePerMonthInGb")
-            Prelude.<*> (x Core..:? "price")
-            Prelude.<*> (x Core..:? "bundleId")
+            Prelude.<$> (x Data..:? "isActive")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "transferPerMonthInGb")
+            Prelude.<*> (x Data..:? "storagePerMonthInGb")
+            Prelude.<*> (x Data..:? "price")
+            Prelude.<*> (x Data..:? "bundleId")
       )
 
 instance Prelude.Hashable BucketBundle where

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ExportTaskS3Location where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,11 +63,11 @@ exportTaskS3Location_s3Bucket = Lens.lens (\ExportTaskS3Location' {s3Bucket} -> 
 exportTaskS3Location_s3Prefix :: Lens.Lens' ExportTaskS3Location (Prelude.Maybe Prelude.Text)
 exportTaskS3Location_s3Prefix = Lens.lens (\ExportTaskS3Location' {s3Prefix} -> s3Prefix) (\s@ExportTaskS3Location' {} a -> s {s3Prefix = a} :: ExportTaskS3Location)
 
-instance Core.FromXML ExportTaskS3Location where
+instance Data.FromXML ExportTaskS3Location where
   parseXML x =
     ExportTaskS3Location'
-      Prelude.<$> (x Core..@? "s3Bucket")
-      Prelude.<*> (x Core..@? "s3Prefix")
+      Prelude.<$> (x Data..@? "s3Bucket")
+      Prelude.<*> (x Data..@? "s3Prefix")
 
 instance Prelude.Hashable ExportTaskS3Location where
   hashWithSalt _salt ExportTaskS3Location' {..} =

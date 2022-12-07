@@ -21,6 +21,7 @@ module Amazonka.Pi.Types.MetricKeyDataPoints where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pi.Types.DataPoint
 import Amazonka.Pi.Types.ResponseResourceMetricKey
 import qualified Amazonka.Prelude as Prelude
@@ -67,14 +68,14 @@ metricKeyDataPoints_dataPoints = Lens.lens (\MetricKeyDataPoints' {dataPoints} -
 metricKeyDataPoints_key :: Lens.Lens' MetricKeyDataPoints (Prelude.Maybe ResponseResourceMetricKey)
 metricKeyDataPoints_key = Lens.lens (\MetricKeyDataPoints' {key} -> key) (\s@MetricKeyDataPoints' {} a -> s {key = a} :: MetricKeyDataPoints)
 
-instance Core.FromJSON MetricKeyDataPoints where
+instance Data.FromJSON MetricKeyDataPoints where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricKeyDataPoints"
       ( \x ->
           MetricKeyDataPoints'
-            Prelude.<$> (x Core..:? "DataPoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Key")
+            Prelude.<$> (x Data..:? "DataPoints" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Key")
       )
 
 instance Prelude.Hashable MetricKeyDataPoints where

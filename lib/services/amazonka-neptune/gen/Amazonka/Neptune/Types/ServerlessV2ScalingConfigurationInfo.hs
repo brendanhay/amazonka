@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.ServerlessV2ScalingConfigurationInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Shows the scaling configuration for a Neptune Serverless DB cluster.
@@ -79,13 +80,13 @@ serverlessV2ScalingConfigurationInfo_minCapacity :: Lens.Lens' ServerlessV2Scali
 serverlessV2ScalingConfigurationInfo_minCapacity = Lens.lens (\ServerlessV2ScalingConfigurationInfo' {minCapacity} -> minCapacity) (\s@ServerlessV2ScalingConfigurationInfo' {} a -> s {minCapacity = a} :: ServerlessV2ScalingConfigurationInfo)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ServerlessV2ScalingConfigurationInfo
   where
   parseXML x =
     ServerlessV2ScalingConfigurationInfo'
-      Prelude.<$> (x Core..@? "MaxCapacity")
-      Prelude.<*> (x Core..@? "MinCapacity")
+      Prelude.<$> (x Data..@? "MaxCapacity")
+      Prelude.<*> (x Data..@? "MinCapacity")
 
 instance
   Prelude.Hashable

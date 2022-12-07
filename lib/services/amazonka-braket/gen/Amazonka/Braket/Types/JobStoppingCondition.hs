@@ -21,6 +21,7 @@ module Amazonka.Braket.Types.JobStoppingCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies limits for how long an Amazon Braket job can run.
@@ -56,13 +57,13 @@ newJobStoppingCondition =
 jobStoppingCondition_maxRuntimeInSeconds :: Lens.Lens' JobStoppingCondition (Prelude.Maybe Prelude.Natural)
 jobStoppingCondition_maxRuntimeInSeconds = Lens.lens (\JobStoppingCondition' {maxRuntimeInSeconds} -> maxRuntimeInSeconds) (\s@JobStoppingCondition' {} a -> s {maxRuntimeInSeconds = a} :: JobStoppingCondition)
 
-instance Core.FromJSON JobStoppingCondition where
+instance Data.FromJSON JobStoppingCondition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobStoppingCondition"
       ( \x ->
           JobStoppingCondition'
-            Prelude.<$> (x Core..:? "maxRuntimeInSeconds")
+            Prelude.<$> (x Data..:? "maxRuntimeInSeconds")
       )
 
 instance Prelude.Hashable JobStoppingCondition where
@@ -73,11 +74,11 @@ instance Prelude.NFData JobStoppingCondition where
   rnf JobStoppingCondition' {..} =
     Prelude.rnf maxRuntimeInSeconds
 
-instance Core.ToJSON JobStoppingCondition where
+instance Data.ToJSON JobStoppingCondition where
   toJSON JobStoppingCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maxRuntimeInSeconds" Core..=)
+          [ ("maxRuntimeInSeconds" Data..=)
               Prelude.<$> maxRuntimeInSeconds
           ]
       )

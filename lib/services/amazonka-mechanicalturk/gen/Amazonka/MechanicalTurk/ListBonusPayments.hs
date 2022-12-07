@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,9 +158,9 @@ instance Core.AWSRequest ListBonusPayments where
     Response.receiveJSON
       ( \s h x ->
           ListBonusPaymentsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "NumResults")
-            Prelude.<*> (x Core..?> "BonusPayments" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "NumResults")
+            Prelude.<*> (x Data..?> "BonusPayments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,36 +178,36 @@ instance Prelude.NFData ListBonusPayments where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf assignmentId
 
-instance Core.ToHeaders ListBonusPayments where
+instance Data.ToHeaders ListBonusPayments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.ListBonusPayments" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.ListBonusPayments" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListBonusPayments where
+instance Data.ToJSON ListBonusPayments where
   toJSON ListBonusPayments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("HITId" Core..=) Prelude.<$> hITId,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("AssignmentId" Core..=) Prelude.<$> assignmentId
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("HITId" Data..=) Prelude.<$> hITId,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("AssignmentId" Data..=) Prelude.<$> assignmentId
           ]
       )
 
-instance Core.ToPath ListBonusPayments where
+instance Data.ToPath ListBonusPayments where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListBonusPayments where
+instance Data.ToQuery ListBonusPayments where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBonusPaymentsResponse' smart constructor.

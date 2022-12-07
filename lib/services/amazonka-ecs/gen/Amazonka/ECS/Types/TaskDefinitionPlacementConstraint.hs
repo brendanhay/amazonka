@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.TaskDefinitionPlacementConstraint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.TaskDefinitionPlacementConstraintType
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,16 +82,16 @@ taskDefinitionPlacementConstraint_expression :: Lens.Lens' TaskDefinitionPlaceme
 taskDefinitionPlacementConstraint_expression = Lens.lens (\TaskDefinitionPlacementConstraint' {expression} -> expression) (\s@TaskDefinitionPlacementConstraint' {} a -> s {expression = a} :: TaskDefinitionPlacementConstraint)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     TaskDefinitionPlacementConstraint
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskDefinitionPlacementConstraint"
       ( \x ->
           TaskDefinitionPlacementConstraint'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "expression")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "expression")
       )
 
 instance
@@ -112,13 +113,13 @@ instance
       `Prelude.seq` Prelude.rnf expression
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     TaskDefinitionPlacementConstraint
   where
   toJSON TaskDefinitionPlacementConstraint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("expression" Core..=) Prelude.<$> expression
+          [ ("type" Data..=) Prelude.<$> type',
+            ("expression" Data..=) Prelude.<$> expression
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MetricsSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the metrics source.
@@ -74,15 +75,15 @@ metricsSource_contentType = Lens.lens (\MetricsSource' {contentType} -> contentT
 metricsSource_s3Uri :: Lens.Lens' MetricsSource Prelude.Text
 metricsSource_s3Uri = Lens.lens (\MetricsSource' {s3Uri} -> s3Uri) (\s@MetricsSource' {} a -> s {s3Uri = a} :: MetricsSource)
 
-instance Core.FromJSON MetricsSource where
+instance Data.FromJSON MetricsSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricsSource"
       ( \x ->
           MetricsSource'
-            Prelude.<$> (x Core..:? "ContentDigest")
-            Prelude.<*> (x Core..: "ContentType")
-            Prelude.<*> (x Core..: "S3Uri")
+            Prelude.<$> (x Data..:? "ContentDigest")
+            Prelude.<*> (x Data..: "ContentType")
+            Prelude.<*> (x Data..: "S3Uri")
       )
 
 instance Prelude.Hashable MetricsSource where
@@ -97,12 +98,12 @@ instance Prelude.NFData MetricsSource where
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf s3Uri
 
-instance Core.ToJSON MetricsSource where
+instance Data.ToJSON MetricsSource where
   toJSON MetricsSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContentDigest" Core..=) Prelude.<$> contentDigest,
-            Prelude.Just ("ContentType" Core..= contentType),
-            Prelude.Just ("S3Uri" Core..= s3Uri)
+          [ ("ContentDigest" Data..=) Prelude.<$> contentDigest,
+            Prelude.Just ("ContentType" Data..= contentType),
+            Prelude.Just ("S3Uri" Data..= s3Uri)
           ]
       )

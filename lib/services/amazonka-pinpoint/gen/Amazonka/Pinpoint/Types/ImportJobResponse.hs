@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ImportJobResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.ImportJobResource
 import Amazonka.Pinpoint.Types.JobStatus
 import qualified Amazonka.Prelude as Prelude
@@ -213,25 +214,25 @@ importJobResponse_id = Lens.lens (\ImportJobResponse' {id} -> id) (\s@ImportJobR
 importJobResponse_applicationId :: Lens.Lens' ImportJobResponse Prelude.Text
 importJobResponse_applicationId = Lens.lens (\ImportJobResponse' {applicationId} -> applicationId) (\s@ImportJobResponse' {} a -> s {applicationId = a} :: ImportJobResponse)
 
-instance Core.FromJSON ImportJobResponse where
+instance Data.FromJSON ImportJobResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportJobResponse"
       ( \x ->
           ImportJobResponse'
-            Prelude.<$> (x Core..:? "FailedPieces")
-            Prelude.<*> (x Core..:? "CompletedPieces")
-            Prelude.<*> (x Core..:? "TotalPieces")
-            Prelude.<*> (x Core..:? "CompletionDate")
-            Prelude.<*> (x Core..:? "TotalProcessed")
-            Prelude.<*> (x Core..:? "Failures" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TotalFailures")
-            Prelude.<*> (x Core..: "JobStatus")
-            Prelude.<*> (x Core..: "CreationDate")
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "Definition")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "ApplicationId")
+            Prelude.<$> (x Data..:? "FailedPieces")
+            Prelude.<*> (x Data..:? "CompletedPieces")
+            Prelude.<*> (x Data..:? "TotalPieces")
+            Prelude.<*> (x Data..:? "CompletionDate")
+            Prelude.<*> (x Data..:? "TotalProcessed")
+            Prelude.<*> (x Data..:? "Failures" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TotalFailures")
+            Prelude.<*> (x Data..: "JobStatus")
+            Prelude.<*> (x Data..: "CreationDate")
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Definition")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "ApplicationId")
       )
 
 instance Prelude.Hashable ImportJobResponse where

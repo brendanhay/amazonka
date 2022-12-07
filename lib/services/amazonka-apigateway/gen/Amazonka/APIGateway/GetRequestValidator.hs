@@ -45,6 +45,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest GetRequestValidator where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetRequestValidator where
   hashWithSalt _salt GetRequestValidator' {..} =
@@ -113,23 +114,23 @@ instance Prelude.NFData GetRequestValidator where
     Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf requestValidatorId
 
-instance Core.ToHeaders GetRequestValidator where
+instance Data.ToHeaders GetRequestValidator where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetRequestValidator where
+instance Data.ToPath GetRequestValidator where
   toPath GetRequestValidator' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/requestvalidators/",
-        Core.toBS requestValidatorId
+        Data.toBS requestValidatorId
       ]
 
-instance Core.ToQuery GetRequestValidator where
+instance Data.ToQuery GetRequestValidator where
   toQuery = Prelude.const Prelude.mempty

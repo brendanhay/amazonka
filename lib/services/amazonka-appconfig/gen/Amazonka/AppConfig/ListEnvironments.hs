@@ -45,6 +45,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,8 +116,8 @@ instance Core.AWSRequest ListEnvironments where
     Response.receiveJSON
       ( \s h x ->
           ListEnvironmentsResponse'
-            Prelude.<$> (x Core..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,30 +133,30 @@ instance Prelude.NFData ListEnvironments where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders ListEnvironments where
+instance Data.ToHeaders ListEnvironments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListEnvironments where
+instance Data.ToPath ListEnvironments where
   toPath ListEnvironments' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/environments"
       ]
 
-instance Core.ToQuery ListEnvironments where
+instance Data.ToQuery ListEnvironments where
   toQuery ListEnvironments' {..} =
     Prelude.mconcat
-      [ "next_token" Core.=: nextToken,
-        "max_results" Core.=: maxResults
+      [ "next_token" Data.=: nextToken,
+        "max_results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListEnvironmentsResponse' smart constructor.

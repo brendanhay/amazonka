@@ -21,6 +21,7 @@ module Amazonka.Kinesis.Types.SubscribeToShardEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types.ChildShard
 import Amazonka.Kinesis.Types.Record
 import qualified Amazonka.Prelude as Prelude
@@ -113,16 +114,16 @@ subscribeToShardEvent_continuationSequenceNumber = Lens.lens (\SubscribeToShardE
 subscribeToShardEvent_millisBehindLatest :: Lens.Lens' SubscribeToShardEvent Prelude.Natural
 subscribeToShardEvent_millisBehindLatest = Lens.lens (\SubscribeToShardEvent' {millisBehindLatest} -> millisBehindLatest) (\s@SubscribeToShardEvent' {} a -> s {millisBehindLatest = a} :: SubscribeToShardEvent)
 
-instance Core.FromJSON SubscribeToShardEvent where
+instance Data.FromJSON SubscribeToShardEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubscribeToShardEvent"
       ( \x ->
           SubscribeToShardEvent'
-            Prelude.<$> (x Core..:? "ChildShards" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Records" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "ContinuationSequenceNumber")
-            Prelude.<*> (x Core..: "MillisBehindLatest")
+            Prelude.<$> (x Data..:? "ChildShards" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Records" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "ContinuationSequenceNumber")
+            Prelude.<*> (x Data..: "MillisBehindLatest")
       )
 
 instance Prelude.Hashable SubscribeToShardEvent where

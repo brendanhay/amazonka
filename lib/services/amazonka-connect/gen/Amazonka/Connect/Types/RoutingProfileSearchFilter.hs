@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.RoutingProfileSearchFilter where
 import Amazonka.Connect.Types.ControlPlaneTagFilter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters to be applied to search results.
@@ -61,9 +62,9 @@ instance Prelude.NFData RoutingProfileSearchFilter where
   rnf RoutingProfileSearchFilter' {..} =
     Prelude.rnf tagFilter
 
-instance Core.ToJSON RoutingProfileSearchFilter where
+instance Data.ToJSON RoutingProfileSearchFilter where
   toJSON RoutingProfileSearchFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("TagFilter" Core..=) Prelude.<$> tagFilter]
+          [("TagFilter" Data..=) Prelude.<$> tagFilter]
       )

@@ -21,6 +21,7 @@ module Amazonka.SQS.Types.DeleteMessageBatchRequestEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Encloses a receipt handle and an identifier for it.
@@ -103,9 +104,9 @@ instance
     Prelude.rnf id
       `Prelude.seq` Prelude.rnf receiptHandle
 
-instance Core.ToQuery DeleteMessageBatchRequestEntry where
+instance Data.ToQuery DeleteMessageBatchRequestEntry where
   toQuery DeleteMessageBatchRequestEntry' {..} =
     Prelude.mconcat
-      [ "Id" Core.=: id,
-        "ReceiptHandle" Core.=: receiptHandle
+      [ "Id" Data.=: id,
+        "ReceiptHandle" Data.=: receiptHandle
       ]

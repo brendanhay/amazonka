@@ -21,6 +21,7 @@ module Amazonka.Location.Types.BatchGetDevicePositionError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.BatchItemError
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,14 +67,14 @@ batchGetDevicePositionError_deviceId = Lens.lens (\BatchGetDevicePositionError' 
 batchGetDevicePositionError_error :: Lens.Lens' BatchGetDevicePositionError BatchItemError
 batchGetDevicePositionError_error = Lens.lens (\BatchGetDevicePositionError' {error} -> error) (\s@BatchGetDevicePositionError' {} a -> s {error = a} :: BatchGetDevicePositionError)
 
-instance Core.FromJSON BatchGetDevicePositionError where
+instance Data.FromJSON BatchGetDevicePositionError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetDevicePositionError"
       ( \x ->
           BatchGetDevicePositionError'
-            Prelude.<$> (x Core..: "DeviceId")
-            Prelude.<*> (x Core..: "Error")
+            Prelude.<$> (x Data..: "DeviceId")
+            Prelude.<*> (x Data..: "Error")
       )
 
 instance Prelude.Hashable BatchGetDevicePositionError where

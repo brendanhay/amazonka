@@ -21,6 +21,7 @@ module Amazonka.CloudWatchLogs.Types.ResourcePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A policy enabling one or more entities to put logs to a log group in
@@ -74,15 +75,15 @@ resourcePolicy_lastUpdatedTime = Lens.lens (\ResourcePolicy' {lastUpdatedTime} -
 resourcePolicy_policyDocument :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Text)
 resourcePolicy_policyDocument = Lens.lens (\ResourcePolicy' {policyDocument} -> policyDocument) (\s@ResourcePolicy' {} a -> s {policyDocument = a} :: ResourcePolicy)
 
-instance Core.FromJSON ResourcePolicy where
+instance Data.FromJSON ResourcePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourcePolicy"
       ( \x ->
           ResourcePolicy'
-            Prelude.<$> (x Core..:? "policyName")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "policyDocument")
+            Prelude.<$> (x Data..:? "policyName")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "policyDocument")
       )
 
 instance Prelude.Hashable ResourcePolicy where

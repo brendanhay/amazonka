@@ -21,6 +21,7 @@ module Amazonka.CloudWatch.Types.DashboardValidationMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An error or warning for the operation.
@@ -62,11 +63,11 @@ dashboardValidationMessage_message = Lens.lens (\DashboardValidationMessage' {me
 dashboardValidationMessage_dataPath :: Lens.Lens' DashboardValidationMessage (Prelude.Maybe Prelude.Text)
 dashboardValidationMessage_dataPath = Lens.lens (\DashboardValidationMessage' {dataPath} -> dataPath) (\s@DashboardValidationMessage' {} a -> s {dataPath = a} :: DashboardValidationMessage)
 
-instance Core.FromXML DashboardValidationMessage where
+instance Data.FromXML DashboardValidationMessage where
   parseXML x =
     DashboardValidationMessage'
-      Prelude.<$> (x Core..@? "Message")
-      Prelude.<*> (x Core..@? "DataPath")
+      Prelude.<$> (x Data..@? "Message")
+      Prelude.<*> (x Data..@? "DataPath")
 
 instance Prelude.Hashable DashboardValidationMessage where
   hashWithSalt _salt DashboardValidationMessage' {..} =

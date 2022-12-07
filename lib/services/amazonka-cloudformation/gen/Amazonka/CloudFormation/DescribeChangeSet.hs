@@ -68,6 +68,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,37 +164,37 @@ instance Core.AWSRequest DescribeChangeSet where
       "DescribeChangeSetResult"
       ( \s h x ->
           DescribeChangeSetResponse'
-            Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "StackId")
-            Prelude.<*> (x Core..@? "NextToken")
-            Prelude.<*> (x Core..@? "ChangeSetId")
-            Prelude.<*> (x Core..@? "ChangeSetName")
-            Prelude.<*> ( x Core..@? "NotificationARNs"
+            Prelude.<*> (x Data..@? "StackId")
+            Prelude.<*> (x Data..@? "NextToken")
+            Prelude.<*> (x Data..@? "ChangeSetId")
+            Prelude.<*> (x Data..@? "ChangeSetName")
+            Prelude.<*> ( x Data..@? "NotificationARNs"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "StatusReason")
-            Prelude.<*> (x Core..@? "RootChangeSetId")
-            Prelude.<*> (x Core..@? "Description")
-            Prelude.<*> ( x Core..@? "Changes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> (x Data..@? "StatusReason")
+            Prelude.<*> (x Data..@? "RootChangeSetId")
+            Prelude.<*> (x Data..@? "Description")
+            Prelude.<*> ( x Data..@? "Changes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "IncludeNestedStacks")
-            Prelude.<*> (x Core..@? "StackName")
-            Prelude.<*> (x Core..@? "ParentChangeSetId")
-            Prelude.<*> ( x Core..@? "Capabilities" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> (x Data..@? "IncludeNestedStacks")
+            Prelude.<*> (x Data..@? "StackName")
+            Prelude.<*> (x Data..@? "ParentChangeSetId")
+            Prelude.<*> ( x Data..@? "Capabilities" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "CreationTime")
-            Prelude.<*> (x Core..@? "RollbackConfiguration")
-            Prelude.<*> (x Core..@? "ExecutionStatus")
-            Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> (x Data..@? "CreationTime")
+            Prelude.<*> (x Data..@? "RollbackConfiguration")
+            Prelude.<*> (x Data..@? "ExecutionStatus")
+            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "Status")
+            Prelude.<*> (x Data..@ "Status")
       )
 
 instance Prelude.Hashable DescribeChangeSet where
@@ -208,22 +209,22 @@ instance Prelude.NFData DescribeChangeSet where
       `Prelude.seq` Prelude.rnf stackName
       `Prelude.seq` Prelude.rnf changeSetName
 
-instance Core.ToHeaders DescribeChangeSet where
+instance Data.ToHeaders DescribeChangeSet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeChangeSet where
+instance Data.ToPath DescribeChangeSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeChangeSet where
+instance Data.ToQuery DescribeChangeSet where
   toQuery DescribeChangeSet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeChangeSet" :: Prelude.ByteString),
+          Data.=: ("DescribeChangeSet" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "StackName" Core.=: stackName,
-        "ChangeSetName" Core.=: changeSetName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "StackName" Data.=: stackName,
+        "ChangeSetName" Data.=: changeSetName
       ]
 
 -- | The output for the DescribeChangeSet action.
@@ -268,7 +269,7 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
     -- explicitly acknowledged when the change set was created.
     capabilities :: Prelude.Maybe [Capability],
     -- | The start time when the change set was created, in UTC.
-    creationTime :: Prelude.Maybe Core.ISO8601,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The rollback triggers for CloudFormation to monitor during stack
     -- creation and updating operations, and for the specified monitoring
     -- period afterwards.
@@ -457,7 +458,7 @@ describeChangeSetResponse_capabilities = Lens.lens (\DescribeChangeSetResponse' 
 
 -- | The start time when the change set was created, in UTC.
 describeChangeSetResponse_creationTime :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.UTCTime)
-describeChangeSetResponse_creationTime = Lens.lens (\DescribeChangeSetResponse' {creationTime} -> creationTime) (\s@DescribeChangeSetResponse' {} a -> s {creationTime = a} :: DescribeChangeSetResponse) Prelude.. Lens.mapping Core._Time
+describeChangeSetResponse_creationTime = Lens.lens (\DescribeChangeSetResponse' {creationTime} -> creationTime) (\s@DescribeChangeSetResponse' {} a -> s {creationTime = a} :: DescribeChangeSetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The rollback triggers for CloudFormation to monitor during stack
 -- creation and updating operations, and for the specified monitoring

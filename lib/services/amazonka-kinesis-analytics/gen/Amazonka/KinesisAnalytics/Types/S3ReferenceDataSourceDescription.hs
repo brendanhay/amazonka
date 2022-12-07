@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.S3ReferenceDataSourceDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the bucket name and object key name that stores the reference
@@ -88,17 +89,17 @@ s3ReferenceDataSourceDescription_referenceRoleARN :: Lens.Lens' S3ReferenceDataS
 s3ReferenceDataSourceDescription_referenceRoleARN = Lens.lens (\S3ReferenceDataSourceDescription' {referenceRoleARN} -> referenceRoleARN) (\s@S3ReferenceDataSourceDescription' {} a -> s {referenceRoleARN = a} :: S3ReferenceDataSourceDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     S3ReferenceDataSourceDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3ReferenceDataSourceDescription"
       ( \x ->
           S3ReferenceDataSourceDescription'
-            Prelude.<$> (x Core..: "BucketARN")
-            Prelude.<*> (x Core..: "FileKey")
-            Prelude.<*> (x Core..: "ReferenceRoleARN")
+            Prelude.<$> (x Data..: "BucketARN")
+            Prelude.<*> (x Data..: "FileKey")
+            Prelude.<*> (x Data..: "ReferenceRoleARN")
       )
 
 instance

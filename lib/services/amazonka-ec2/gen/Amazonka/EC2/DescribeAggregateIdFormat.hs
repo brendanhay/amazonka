@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,9 +112,9 @@ instance Core.AWSRequest DescribeAggregateIdFormat where
     Response.receiveXML
       ( \s h x ->
           DescribeAggregateIdFormatResponse'
-            Prelude.<$> (x Core..@? "useLongIdsAggregated")
-            Prelude.<*> ( x Core..@? "statusSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "useLongIdsAggregated")
+            Prelude.<*> ( x Data..@? "statusSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -126,20 +127,20 @@ instance Prelude.NFData DescribeAggregateIdFormat where
   rnf DescribeAggregateIdFormat' {..} =
     Prelude.rnf dryRun
 
-instance Core.ToHeaders DescribeAggregateIdFormat where
+instance Data.ToHeaders DescribeAggregateIdFormat where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAggregateIdFormat where
+instance Data.ToPath DescribeAggregateIdFormat where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAggregateIdFormat where
+instance Data.ToQuery DescribeAggregateIdFormat where
   toQuery DescribeAggregateIdFormat' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAggregateIdFormat" :: Prelude.ByteString),
+          Data.=: ("DescribeAggregateIdFormat" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun
       ]
 
 -- | /See:/ 'newDescribeAggregateIdFormatResponse' smart constructor.

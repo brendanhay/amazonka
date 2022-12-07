@@ -22,6 +22,7 @@ module Amazonka.CloudWatchEvents.Types.PartnerEventSourceAccount where
 import Amazonka.CloudWatchEvents.Types.EventSourceState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Web Services account that a partner event source has been
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data PartnerEventSourceAccount = PartnerEventSourceAccount'
   { -- | The date and time that the event source will expire, if the Amazon Web
     -- Services account doesn\'t create a matching event bus for it.
-    expirationTime :: Prelude.Maybe Core.POSIX,
+    expirationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID that the partner event source was
     -- offered to.
     account :: Prelude.Maybe Prelude.Text,
@@ -43,7 +44,7 @@ data PartnerEventSourceAccount = PartnerEventSourceAccount'
     -- deleted.
     state :: Prelude.Maybe EventSourceState,
     -- | The date and time the event source was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,7 +84,7 @@ newPartnerEventSourceAccount =
 -- | The date and time that the event source will expire, if the Amazon Web
 -- Services account doesn\'t create a matching event bus for it.
 partnerEventSourceAccount_expirationTime :: Lens.Lens' PartnerEventSourceAccount (Prelude.Maybe Prelude.UTCTime)
-partnerEventSourceAccount_expirationTime = Lens.lens (\PartnerEventSourceAccount' {expirationTime} -> expirationTime) (\s@PartnerEventSourceAccount' {} a -> s {expirationTime = a} :: PartnerEventSourceAccount) Prelude.. Lens.mapping Core._Time
+partnerEventSourceAccount_expirationTime = Lens.lens (\PartnerEventSourceAccount' {expirationTime} -> expirationTime) (\s@PartnerEventSourceAccount' {} a -> s {expirationTime = a} :: PartnerEventSourceAccount) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account ID that the partner event source was
 -- offered to.
@@ -101,18 +102,18 @@ partnerEventSourceAccount_state = Lens.lens (\PartnerEventSourceAccount' {state}
 
 -- | The date and time the event source was created.
 partnerEventSourceAccount_creationTime :: Lens.Lens' PartnerEventSourceAccount (Prelude.Maybe Prelude.UTCTime)
-partnerEventSourceAccount_creationTime = Lens.lens (\PartnerEventSourceAccount' {creationTime} -> creationTime) (\s@PartnerEventSourceAccount' {} a -> s {creationTime = a} :: PartnerEventSourceAccount) Prelude.. Lens.mapping Core._Time
+partnerEventSourceAccount_creationTime = Lens.lens (\PartnerEventSourceAccount' {creationTime} -> creationTime) (\s@PartnerEventSourceAccount' {} a -> s {creationTime = a} :: PartnerEventSourceAccount) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON PartnerEventSourceAccount where
+instance Data.FromJSON PartnerEventSourceAccount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PartnerEventSourceAccount"
       ( \x ->
           PartnerEventSourceAccount'
-            Prelude.<$> (x Core..:? "ExpirationTime")
-            Prelude.<*> (x Core..:? "Account")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "ExpirationTime")
+            Prelude.<*> (x Data..:? "Account")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable PartnerEventSourceAccount where

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,7 +112,7 @@ instance Core.AWSRequest DeleteAttributes where
     Response.receiveJSON
       ( \s h x ->
           DeleteAttributesResponse'
-            Prelude.<$> (x Core..?> "attributes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "attributes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,34 +126,34 @@ instance Prelude.NFData DeleteAttributes where
     Prelude.rnf cluster
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToHeaders DeleteAttributes where
+instance Data.ToHeaders DeleteAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.DeleteAttributes" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.DeleteAttributes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAttributes where
+instance Data.ToJSON DeleteAttributes where
   toJSON DeleteAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cluster" Core..=) Prelude.<$> cluster,
-            Prelude.Just ("attributes" Core..= attributes)
+          [ ("cluster" Data..=) Prelude.<$> cluster,
+            Prelude.Just ("attributes" Data..= attributes)
           ]
       )
 
-instance Core.ToPath DeleteAttributes where
+instance Data.ToPath DeleteAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAttributes where
+instance Data.ToQuery DeleteAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAttributesResponse' smart constructor.

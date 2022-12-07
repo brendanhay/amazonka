@@ -21,6 +21,7 @@ module Amazonka.AWSHealth.Types.EventAccountFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The values used to filter results from the
@@ -98,11 +99,11 @@ instance Prelude.NFData EventAccountFilter where
     Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf eventArn
 
-instance Core.ToJSON EventAccountFilter where
+instance Data.ToJSON EventAccountFilter where
   toJSON EventAccountFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("awsAccountId" Core..=) Prelude.<$> awsAccountId,
-            Prelude.Just ("eventArn" Core..= eventArn)
+          [ ("awsAccountId" Data..=) Prelude.<$> awsAccountId,
+            Prelude.Just ("eventArn" Data..= eventArn)
           ]
       )

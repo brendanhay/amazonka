@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.LoggingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that controls whether access logs are written for the
@@ -140,13 +141,13 @@ loggingConfig_bucket = Lens.lens (\LoggingConfig' {bucket} -> bucket) (\s@Loggin
 loggingConfig_prefix :: Lens.Lens' LoggingConfig Prelude.Text
 loggingConfig_prefix = Lens.lens (\LoggingConfig' {prefix} -> prefix) (\s@LoggingConfig' {} a -> s {prefix = a} :: LoggingConfig)
 
-instance Core.FromXML LoggingConfig where
+instance Data.FromXML LoggingConfig where
   parseXML x =
     LoggingConfig'
-      Prelude.<$> (x Core..@ "Enabled")
-      Prelude.<*> (x Core..@ "IncludeCookies")
-      Prelude.<*> (x Core..@ "Bucket")
-      Prelude.<*> (x Core..@ "Prefix")
+      Prelude.<$> (x Data..@ "Enabled")
+      Prelude.<*> (x Data..@ "IncludeCookies")
+      Prelude.<*> (x Data..@ "Bucket")
+      Prelude.<*> (x Data..@ "Prefix")
 
 instance Prelude.Hashable LoggingConfig where
   hashWithSalt _salt LoggingConfig' {..} =
@@ -162,11 +163,11 @@ instance Prelude.NFData LoggingConfig where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf prefix
 
-instance Core.ToXML LoggingConfig where
+instance Data.ToXML LoggingConfig where
   toXML LoggingConfig' {..} =
     Prelude.mconcat
-      [ "Enabled" Core.@= enabled,
-        "IncludeCookies" Core.@= includeCookies,
-        "Bucket" Core.@= bucket,
-        "Prefix" Core.@= prefix
+      [ "Enabled" Data.@= enabled,
+        "IncludeCookies" Data.@= includeCookies,
+        "Bucket" Data.@= bucket,
+        "Prefix" Data.@= prefix
       ]

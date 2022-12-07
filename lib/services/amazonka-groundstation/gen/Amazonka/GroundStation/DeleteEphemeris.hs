@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -80,7 +81,7 @@ instance Core.AWSRequest DeleteEphemeris where
     Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable DeleteEphemeris where
   hashWithSalt _salt DeleteEphemeris' {..} =
@@ -89,21 +90,21 @@ instance Prelude.Hashable DeleteEphemeris where
 instance Prelude.NFData DeleteEphemeris where
   rnf DeleteEphemeris' {..} = Prelude.rnf ephemerisId
 
-instance Core.ToHeaders DeleteEphemeris where
+instance Data.ToHeaders DeleteEphemeris where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteEphemeris where
+instance Data.ToPath DeleteEphemeris where
   toPath DeleteEphemeris' {..} =
     Prelude.mconcat
-      ["/ephemeris/", Core.toBS ephemerisId]
+      ["/ephemeris/", Data.toBS ephemerisId]
 
-instance Core.ToQuery DeleteEphemeris where
+instance Data.ToQuery DeleteEphemeris where
   toQuery = Prelude.const Prelude.mempty

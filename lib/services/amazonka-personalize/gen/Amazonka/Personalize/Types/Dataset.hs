@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.Dataset where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides metadata for a dataset.
@@ -30,7 +31,7 @@ data Dataset = Dataset'
   { -- | The name of the dataset.
     name :: Prelude.Maybe Prelude.Text,
     -- | The creation date and time (in Unix time) of the dataset.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | One of the following values:
     --
     -- -   Interactions
@@ -55,7 +56,7 @@ data Dataset = Dataset'
     -- | The Amazon Resource Name (ARN) of the dataset group.
     datasetGroupArn :: Prelude.Maybe Prelude.Text,
     -- | A time stamp that shows when the dataset was updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -115,7 +116,7 @@ dataset_name = Lens.lens (\Dataset' {name} -> name) (\s@Dataset' {} a -> s {name
 
 -- | The creation date and time (in Unix time) of the dataset.
 dataset_creationDateTime :: Lens.Lens' Dataset (Prelude.Maybe Prelude.UTCTime)
-dataset_creationDateTime = Lens.lens (\Dataset' {creationDateTime} -> creationDateTime) (\s@Dataset' {} a -> s {creationDateTime = a} :: Dataset) Prelude.. Lens.mapping Core._Time
+dataset_creationDateTime = Lens.lens (\Dataset' {creationDateTime} -> creationDateTime) (\s@Dataset' {} a -> s {creationDateTime = a} :: Dataset) Prelude.. Lens.mapping Data._Time
 
 -- | One of the following values:
 --
@@ -152,22 +153,22 @@ dataset_datasetGroupArn = Lens.lens (\Dataset' {datasetGroupArn} -> datasetGroup
 
 -- | A time stamp that shows when the dataset was updated.
 dataset_lastUpdatedDateTime :: Lens.Lens' Dataset (Prelude.Maybe Prelude.UTCTime)
-dataset_lastUpdatedDateTime = Lens.lens (\Dataset' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Dataset' {} a -> s {lastUpdatedDateTime = a} :: Dataset) Prelude.. Lens.mapping Core._Time
+dataset_lastUpdatedDateTime = Lens.lens (\Dataset' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Dataset' {} a -> s {lastUpdatedDateTime = a} :: Dataset) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Dataset where
+instance Data.FromJSON Dataset where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Dataset"
       ( \x ->
           Dataset'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "datasetType")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "datasetArn")
-            Prelude.<*> (x Core..:? "schemaArn")
-            Prelude.<*> (x Core..:? "datasetGroupArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "datasetType")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "datasetArn")
+            Prelude.<*> (x Data..:? "schemaArn")
+            Prelude.<*> (x Data..:? "datasetGroupArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable Dataset where

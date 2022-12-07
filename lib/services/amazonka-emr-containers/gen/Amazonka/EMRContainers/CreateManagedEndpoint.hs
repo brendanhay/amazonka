@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -192,10 +193,10 @@ instance Core.AWSRequest CreateManagedEndpoint where
     Response.receiveJSON
       ( \s h x ->
           CreateManagedEndpointResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "virtualClusterId")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "virtualClusterId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -223,44 +224,44 @@ instance Prelude.NFData CreateManagedEndpoint where
       `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateManagedEndpoint where
+instance Data.ToHeaders CreateManagedEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateManagedEndpoint where
+instance Data.ToJSON CreateManagedEndpoint where
   toJSON CreateManagedEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("certificateArn" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("certificateArn" Data..=)
               Prelude.<$> certificateArn,
-            ("configurationOverrides" Core..=)
+            ("configurationOverrides" Data..=)
               Prelude.<$> configurationOverrides,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("type" Core..= type'),
-            Prelude.Just ("releaseLabel" Core..= releaseLabel),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("type" Data..= type'),
+            Prelude.Just ("releaseLabel" Data..= releaseLabel),
             Prelude.Just
-              ("executionRoleArn" Core..= executionRoleArn),
-            Prelude.Just ("clientToken" Core..= clientToken)
+              ("executionRoleArn" Data..= executionRoleArn),
+            Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CreateManagedEndpoint where
+instance Data.ToPath CreateManagedEndpoint where
   toPath CreateManagedEndpoint' {..} =
     Prelude.mconcat
       [ "/virtualclusters/",
-        Core.toBS virtualClusterId,
+        Data.toBS virtualClusterId,
         "/endpoints"
       ]
 
-instance Core.ToQuery CreateManagedEndpoint where
+instance Data.ToQuery CreateManagedEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateManagedEndpointResponse' smart constructor.

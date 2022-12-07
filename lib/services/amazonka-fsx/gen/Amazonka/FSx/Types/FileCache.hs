@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.FileCache where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.FileCacheFailureDetails
 import Amazonka.FSx.Types.FileCacheLifecycle
 import Amazonka.FSx.Types.FileCacheLustreConfiguration
@@ -69,7 +70,7 @@ data FileCache = FileCache'
     -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html Encrypt>
     -- in the /Key Management Service API Reference/.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     resourceARN :: Prelude.Maybe Prelude.Text,
     -- | The Domain Name System (DNS) name for the cache.
     dNSName :: Prelude.Maybe Prelude.Text,
@@ -220,7 +221,7 @@ fileCache_kmsKeyId = Lens.lens (\FileCache' {kmsKeyId} -> kmsKeyId) (\s@FileCach
 
 -- | Undocumented member.
 fileCache_creationTime :: Lens.Lens' FileCache (Prelude.Maybe Prelude.UTCTime)
-fileCache_creationTime = Lens.lens (\FileCache' {creationTime} -> creationTime) (\s@FileCache' {} a -> s {creationTime = a} :: FileCache) Prelude.. Lens.mapping Core._Time
+fileCache_creationTime = Lens.lens (\FileCache' {creationTime} -> creationTime) (\s@FileCache' {} a -> s {creationTime = a} :: FileCache) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 fileCache_resourceARN :: Lens.Lens' FileCache (Prelude.Maybe Prelude.Text)
@@ -246,32 +247,32 @@ fileCache_subnetIds = Lens.lens (\FileCache' {subnetIds} -> subnetIds) (\s@FileC
 fileCache_lustreConfiguration :: Lens.Lens' FileCache (Prelude.Maybe FileCacheLustreConfiguration)
 fileCache_lustreConfiguration = Lens.lens (\FileCache' {lustreConfiguration} -> lustreConfiguration) (\s@FileCache' {} a -> s {lustreConfiguration = a} :: FileCache)
 
-instance Core.FromJSON FileCache where
+instance Data.FromJSON FileCache where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileCache"
       ( \x ->
           FileCache'
-            Prelude.<$> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "Lifecycle")
-            Prelude.<*> ( x Core..:? "DataRepositoryAssociationIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "Lifecycle")
+            Prelude.<*> ( x Data..:? "DataRepositoryAssociationIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StorageCapacity")
-            Prelude.<*> (x Core..:? "FileCacheId")
-            Prelude.<*> (x Core..:? "FailureDetails")
-            Prelude.<*> (x Core..:? "FileCacheTypeVersion")
-            Prelude.<*> (x Core..:? "FileCacheType")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ResourceARN")
-            Prelude.<*> (x Core..:? "DNSName")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> ( x Core..:? "NetworkInterfaceIds"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "StorageCapacity")
+            Prelude.<*> (x Data..:? "FileCacheId")
+            Prelude.<*> (x Data..:? "FailureDetails")
+            Prelude.<*> (x Data..:? "FileCacheTypeVersion")
+            Prelude.<*> (x Data..:? "FileCacheType")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "DNSName")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> ( x Data..:? "NetworkInterfaceIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LustreConfiguration")
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LustreConfiguration")
       )
 
 instance Prelude.Hashable FileCache where

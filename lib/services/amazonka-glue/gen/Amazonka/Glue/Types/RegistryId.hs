@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.RegistryId where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A wrapper structure that may contain the registry name and Amazon
@@ -78,11 +79,11 @@ instance Prelude.NFData RegistryId where
     Prelude.rnf registryName
       `Prelude.seq` Prelude.rnf registryArn
 
-instance Core.ToJSON RegistryId where
+instance Data.ToJSON RegistryId where
   toJSON RegistryId' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RegistryName" Core..=) Prelude.<$> registryName,
-            ("RegistryArn" Core..=) Prelude.<$> registryArn
+          [ ("RegistryName" Data..=) Prelude.<$> registryName,
+            ("RegistryArn" Data..=) Prelude.<$> registryArn
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.FirewallPolicyResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.EncryptionConfiguration
 import Amazonka.NetworkFirewall.Types.ResourceStatus
 import Amazonka.NetworkFirewall.Types.Tag
@@ -44,7 +45,7 @@ data FirewallPolicyResponse = FirewallPolicyResponse'
     -- | A description of the firewall policy.
     description :: Prelude.Maybe Prelude.Text,
     -- | The last time that the firewall policy was changed.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | A complex type that contains the Amazon Web Services KMS encryption
     -- configuration settings for your firewall policy.
     encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
@@ -153,7 +154,7 @@ firewallPolicyResponse_description = Lens.lens (\FirewallPolicyResponse' {descri
 
 -- | The last time that the firewall policy was changed.
 firewallPolicyResponse_lastModifiedTime :: Lens.Lens' FirewallPolicyResponse (Prelude.Maybe Prelude.UTCTime)
-firewallPolicyResponse_lastModifiedTime = Lens.lens (\FirewallPolicyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@FirewallPolicyResponse' {} a -> s {lastModifiedTime = a} :: FirewallPolicyResponse) Prelude.. Lens.mapping Core._Time
+firewallPolicyResponse_lastModifiedTime = Lens.lens (\FirewallPolicyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@FirewallPolicyResponse' {} a -> s {lastModifiedTime = a} :: FirewallPolicyResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A complex type that contains the Amazon Web Services KMS encryption
 -- configuration settings for your firewall policy.
@@ -186,23 +187,23 @@ firewallPolicyResponse_firewallPolicyArn = Lens.lens (\FirewallPolicyResponse' {
 firewallPolicyResponse_firewallPolicyId :: Lens.Lens' FirewallPolicyResponse Prelude.Text
 firewallPolicyResponse_firewallPolicyId = Lens.lens (\FirewallPolicyResponse' {firewallPolicyId} -> firewallPolicyId) (\s@FirewallPolicyResponse' {} a -> s {firewallPolicyId = a} :: FirewallPolicyResponse)
 
-instance Core.FromJSON FirewallPolicyResponse where
+instance Data.FromJSON FirewallPolicyResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallPolicyResponse"
       ( \x ->
           FirewallPolicyResponse'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "FirewallPolicyStatus")
-            Prelude.<*> (x Core..:? "ConsumedStatefulRuleCapacity")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "EncryptionConfiguration")
-            Prelude.<*> (x Core..:? "NumberOfAssociations")
-            Prelude.<*> (x Core..:? "ConsumedStatelessRuleCapacity")
-            Prelude.<*> (x Core..: "FirewallPolicyName")
-            Prelude.<*> (x Core..: "FirewallPolicyArn")
-            Prelude.<*> (x Core..: "FirewallPolicyId")
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "FirewallPolicyStatus")
+            Prelude.<*> (x Data..:? "ConsumedStatefulRuleCapacity")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "EncryptionConfiguration")
+            Prelude.<*> (x Data..:? "NumberOfAssociations")
+            Prelude.<*> (x Data..:? "ConsumedStatelessRuleCapacity")
+            Prelude.<*> (x Data..: "FirewallPolicyName")
+            Prelude.<*> (x Data..: "FirewallPolicyArn")
+            Prelude.<*> (x Data..: "FirewallPolicyId")
       )
 
 instance Prelude.Hashable FirewallPolicyResponse where

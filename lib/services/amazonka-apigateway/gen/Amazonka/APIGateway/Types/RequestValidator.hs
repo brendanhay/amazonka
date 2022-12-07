@@ -21,6 +21,7 @@ module Amazonka.APIGateway.Types.RequestValidator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of validation rules for incoming Method requests.
@@ -86,16 +87,16 @@ requestValidator_validateRequestParameters = Lens.lens (\RequestValidator' {vali
 requestValidator_id :: Lens.Lens' RequestValidator (Prelude.Maybe Prelude.Text)
 requestValidator_id = Lens.lens (\RequestValidator' {id} -> id) (\s@RequestValidator' {} a -> s {id = a} :: RequestValidator)
 
-instance Core.FromJSON RequestValidator where
+instance Data.FromJSON RequestValidator where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RequestValidator"
       ( \x ->
           RequestValidator'
-            Prelude.<$> (x Core..:? "validateRequestBody")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "validateRequestParameters")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "validateRequestBody")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "validateRequestParameters")
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable RequestValidator where

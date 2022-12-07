@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.Elevation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.AngleUnits
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,13 +64,13 @@ elevation_unit = Lens.lens (\Elevation' {unit} -> unit) (\s@Elevation' {} a -> s
 elevation_value :: Lens.Lens' Elevation Prelude.Double
 elevation_value = Lens.lens (\Elevation' {value} -> value) (\s@Elevation' {} a -> s {value = a} :: Elevation)
 
-instance Core.FromJSON Elevation where
+instance Data.FromJSON Elevation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Elevation"
       ( \x ->
           Elevation'
-            Prelude.<$> (x Core..: "unit") Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..: "unit") Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable Elevation where

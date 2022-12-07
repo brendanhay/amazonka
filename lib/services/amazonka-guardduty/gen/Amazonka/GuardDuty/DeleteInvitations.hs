@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,7 +95,7 @@ instance Core.AWSRequest DeleteInvitations where
       ( \s h x ->
           DeleteInvitationsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "unprocessedAccounts"
+            Prelude.<*> ( x Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -106,28 +107,28 @@ instance Prelude.Hashable DeleteInvitations where
 instance Prelude.NFData DeleteInvitations where
   rnf DeleteInvitations' {..} = Prelude.rnf accountIds
 
-instance Core.ToHeaders DeleteInvitations where
+instance Data.ToHeaders DeleteInvitations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteInvitations where
+instance Data.ToJSON DeleteInvitations where
   toJSON DeleteInvitations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("accountIds" Core..= accountIds)]
+          [Prelude.Just ("accountIds" Data..= accountIds)]
       )
 
-instance Core.ToPath DeleteInvitations where
+instance Data.ToPath DeleteInvitations where
   toPath = Prelude.const "/invitation/delete"
 
-instance Core.ToQuery DeleteInvitations where
+instance Data.ToQuery DeleteInvitations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInvitationsResponse' smart constructor.

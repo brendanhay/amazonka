@@ -21,6 +21,7 @@ module Amazonka.ChimeSDKMessaging.Types.MessageAttributeValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of message attribute values.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newMessageAttributeValue' smart constructor.
 data MessageAttributeValue = MessageAttributeValue'
   { -- | The strings in a message attribute value.
-    stringValues :: Prelude.Maybe [Core.Sensitive Prelude.Text]
+    stringValues :: Prelude.Maybe [Data.Sensitive Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -53,13 +54,13 @@ newMessageAttributeValue =
 messageAttributeValue_stringValues :: Lens.Lens' MessageAttributeValue (Prelude.Maybe [Prelude.Text])
 messageAttributeValue_stringValues = Lens.lens (\MessageAttributeValue' {stringValues} -> stringValues) (\s@MessageAttributeValue' {} a -> s {stringValues = a} :: MessageAttributeValue) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON MessageAttributeValue where
+instance Data.FromJSON MessageAttributeValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MessageAttributeValue"
       ( \x ->
           MessageAttributeValue'
-            Prelude.<$> (x Core..:? "StringValues" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "StringValues" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable MessageAttributeValue where
@@ -70,9 +71,9 @@ instance Prelude.NFData MessageAttributeValue where
   rnf MessageAttributeValue' {..} =
     Prelude.rnf stringValues
 
-instance Core.ToJSON MessageAttributeValue where
+instance Data.ToJSON MessageAttributeValue where
   toJSON MessageAttributeValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("StringValues" Core..=) Prelude.<$> stringValues]
+          [("StringValues" Data..=) Prelude.<$> stringValues]
       )

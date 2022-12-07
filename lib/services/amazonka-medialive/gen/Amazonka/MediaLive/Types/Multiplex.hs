@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Multiplex where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.MultiplexOutputDestination
 import Amazonka.MediaLive.Types.MultiplexSettings
 import Amazonka.MediaLive.Types.MultiplexState
@@ -136,24 +137,24 @@ multiplex_destinations = Lens.lens (\Multiplex' {destinations} -> destinations) 
 multiplex_programCount :: Lens.Lens' Multiplex (Prelude.Maybe Prelude.Int)
 multiplex_programCount = Lens.lens (\Multiplex' {programCount} -> programCount) (\s@Multiplex' {} a -> s {programCount = a} :: Multiplex)
 
-instance Core.FromJSON Multiplex where
+instance Data.FromJSON Multiplex where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Multiplex"
       ( \x ->
           Multiplex'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> ( x Core..:? "availabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> ( x Data..:? "availabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "multiplexSettings")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "pipelinesRunningCount")
-            Prelude.<*> (x Core..:? "destinations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "programCount")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "multiplexSettings")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "pipelinesRunningCount")
+            Prelude.<*> (x Data..:? "destinations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "programCount")
       )
 
 instance Prelude.Hashable Multiplex where

@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,9 +122,9 @@ instance Core.AWSRequest CancelRotateSecret where
     Response.receiveJSON
       ( \s h x ->
           CancelRotateSecretResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "VersionId")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,32 +135,32 @@ instance Prelude.Hashable CancelRotateSecret where
 instance Prelude.NFData CancelRotateSecret where
   rnf CancelRotateSecret' {..} = Prelude.rnf secretId
 
-instance Core.ToHeaders CancelRotateSecret where
+instance Data.ToHeaders CancelRotateSecret where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "secretsmanager.CancelRotateSecret" ::
+              Data.=# ( "secretsmanager.CancelRotateSecret" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelRotateSecret where
+instance Data.ToJSON CancelRotateSecret where
   toJSON CancelRotateSecret' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SecretId" Core..= secretId)]
+          [Prelude.Just ("SecretId" Data..= secretId)]
       )
 
-instance Core.ToPath CancelRotateSecret where
+instance Data.ToPath CancelRotateSecret where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelRotateSecret where
+instance Data.ToQuery CancelRotateSecret where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelRotateSecretResponse' smart constructor.

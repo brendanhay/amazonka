@@ -45,6 +45,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,32 +122,32 @@ instance Prelude.NFData UpdateRegionSettings where
     Prelude.rnf resourceTypeManagementPreference
       `Prelude.seq` Prelude.rnf resourceTypeOptInPreference
 
-instance Core.ToHeaders UpdateRegionSettings where
+instance Data.ToHeaders UpdateRegionSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRegionSettings where
+instance Data.ToJSON UpdateRegionSettings where
   toJSON UpdateRegionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceTypeManagementPreference" Core..=)
+          [ ("ResourceTypeManagementPreference" Data..=)
               Prelude.<$> resourceTypeManagementPreference,
-            ("ResourceTypeOptInPreference" Core..=)
+            ("ResourceTypeOptInPreference" Data..=)
               Prelude.<$> resourceTypeOptInPreference
           ]
       )
 
-instance Core.ToPath UpdateRegionSettings where
+instance Data.ToPath UpdateRegionSettings where
   toPath = Prelude.const "/account-settings"
 
-instance Core.ToQuery UpdateRegionSettings where
+instance Data.ToQuery UpdateRegionSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRegionSettingsResponse' smart constructor.

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest DescribeNotebookExecution where
     Response.receiveJSON
       ( \s h x ->
           DescribeNotebookExecutionResponse'
-            Prelude.<$> (x Core..?> "NotebookExecution")
+            Prelude.<$> (x Data..?> "NotebookExecution")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,34 +99,34 @@ instance Prelude.NFData DescribeNotebookExecution where
   rnf DescribeNotebookExecution' {..} =
     Prelude.rnf notebookExecutionId
 
-instance Core.ToHeaders DescribeNotebookExecution where
+instance Data.ToHeaders DescribeNotebookExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.DescribeNotebookExecution" ::
+              Data.=# ( "ElasticMapReduce.DescribeNotebookExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeNotebookExecution where
+instance Data.ToJSON DescribeNotebookExecution where
   toJSON DescribeNotebookExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("NotebookExecutionId" Core..= notebookExecutionId)
+              ("NotebookExecutionId" Data..= notebookExecutionId)
           ]
       )
 
-instance Core.ToPath DescribeNotebookExecution where
+instance Data.ToPath DescribeNotebookExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeNotebookExecution where
+instance Data.ToQuery DescribeNotebookExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeNotebookExecutionResponse' smart constructor.

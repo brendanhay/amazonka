@@ -28,6 +28,7 @@ import Amazonka.AppSync.Types.OpenSearchServiceDataSourceConfig
 import Amazonka.AppSync.Types.RelationalDatabaseDataSourceConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a data source.
@@ -212,23 +213,23 @@ dataSource_dynamodbConfig = Lens.lens (\DataSource' {dynamodbConfig} -> dynamodb
 dataSource_httpConfig :: Lens.Lens' DataSource (Prelude.Maybe HttpDataSourceConfig)
 dataSource_httpConfig = Lens.lens (\DataSource' {httpConfig} -> httpConfig) (\s@DataSource' {} a -> s {httpConfig = a} :: DataSource)
 
-instance Core.FromJSON DataSource where
+instance Data.FromJSON DataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSource"
       ( \x ->
           DataSource'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "dataSourceArn")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "relationalDatabaseConfig")
-            Prelude.<*> (x Core..:? "serviceRoleArn")
-            Prelude.<*> (x Core..:? "openSearchServiceConfig")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "elasticsearchConfig")
-            Prelude.<*> (x Core..:? "lambdaConfig")
-            Prelude.<*> (x Core..:? "dynamodbConfig")
-            Prelude.<*> (x Core..:? "httpConfig")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "dataSourceArn")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "relationalDatabaseConfig")
+            Prelude.<*> (x Data..:? "serviceRoleArn")
+            Prelude.<*> (x Data..:? "openSearchServiceConfig")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "elasticsearchConfig")
+            Prelude.<*> (x Data..:? "lambdaConfig")
+            Prelude.<*> (x Data..:? "dynamodbConfig")
+            Prelude.<*> (x Data..:? "httpConfig")
       )
 
 instance Prelude.Hashable DataSource where

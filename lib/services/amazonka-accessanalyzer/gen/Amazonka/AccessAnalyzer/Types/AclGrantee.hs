@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.AclGrantee where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | You specify each grantee as a type-value pair using one of these types.
@@ -66,13 +67,13 @@ aclGrantee_uri = Lens.lens (\AclGrantee' {uri} -> uri) (\s@AclGrantee' {} a -> s
 aclGrantee_id :: Lens.Lens' AclGrantee (Prelude.Maybe Prelude.Text)
 aclGrantee_id = Lens.lens (\AclGrantee' {id} -> id) (\s@AclGrantee' {} a -> s {id = a} :: AclGrantee)
 
-instance Core.FromJSON AclGrantee where
+instance Data.FromJSON AclGrantee where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AclGrantee"
       ( \x ->
           AclGrantee'
-            Prelude.<$> (x Core..:? "uri") Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "uri") Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable AclGrantee where
@@ -84,11 +85,11 @@ instance Prelude.NFData AclGrantee where
   rnf AclGrantee' {..} =
     Prelude.rnf uri `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON AclGrantee where
+instance Data.ToJSON AclGrantee where
   toJSON AclGrantee' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("uri" Core..=) Prelude.<$> uri,
-            ("id" Core..=) Prelude.<$> id
+          [ ("uri" Data..=) Prelude.<$> uri,
+            ("id" Data..=) Prelude.<$> id
           ]
       )

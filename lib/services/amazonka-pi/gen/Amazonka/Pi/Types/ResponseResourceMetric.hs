@@ -21,6 +21,7 @@ module Amazonka.Pi.Types.ResponseResourceMetric where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the full name, description, and unit of a
@@ -72,15 +73,15 @@ responseResourceMetric_metric = Lens.lens (\ResponseResourceMetric' {metric} -> 
 responseResourceMetric_unit :: Lens.Lens' ResponseResourceMetric (Prelude.Maybe Prelude.Text)
 responseResourceMetric_unit = Lens.lens (\ResponseResourceMetric' {unit} -> unit) (\s@ResponseResourceMetric' {} a -> s {unit = a} :: ResponseResourceMetric)
 
-instance Core.FromJSON ResponseResourceMetric where
+instance Data.FromJSON ResponseResourceMetric where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResponseResourceMetric"
       ( \x ->
           ResponseResourceMetric'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Metric")
-            Prelude.<*> (x Core..:? "Unit")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Metric")
+            Prelude.<*> (x Data..:? "Unit")
       )
 
 instance Prelude.Hashable ResponseResourceMetric where

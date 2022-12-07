@@ -42,6 +42,7 @@ where
 import Amazonka.CodeStarNotifications.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -55,7 +56,7 @@ data DeleteTarget = DeleteTarget'
     forceUnsubscribeAll :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client to
     -- delete.
-    targetAddress :: Core.Sensitive Prelude.Text
+    targetAddress :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -83,7 +84,7 @@ newDeleteTarget pTargetAddress_ =
     { forceUnsubscribeAll =
         Prelude.Nothing,
       targetAddress =
-        Core._Sensitive Lens.# pTargetAddress_
+        Data._Sensitive Lens.# pTargetAddress_
     }
 
 -- | A Boolean value that can be used to delete all associations with this
@@ -96,7 +97,7 @@ deleteTarget_forceUnsubscribeAll = Lens.lens (\DeleteTarget' {forceUnsubscribeAl
 -- | The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client to
 -- delete.
 deleteTarget_targetAddress :: Lens.Lens' DeleteTarget Prelude.Text
-deleteTarget_targetAddress = Lens.lens (\DeleteTarget' {targetAddress} -> targetAddress) (\s@DeleteTarget' {} a -> s {targetAddress = a} :: DeleteTarget) Prelude.. Core._Sensitive
+deleteTarget_targetAddress = Lens.lens (\DeleteTarget' {targetAddress} -> targetAddress) (\s@DeleteTarget' {} a -> s {targetAddress = a} :: DeleteTarget) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest DeleteTarget where
   type AWSResponse DeleteTarget = DeleteTargetResponse
@@ -119,32 +120,32 @@ instance Prelude.NFData DeleteTarget where
     Prelude.rnf forceUnsubscribeAll
       `Prelude.seq` Prelude.rnf targetAddress
 
-instance Core.ToHeaders DeleteTarget where
+instance Data.ToHeaders DeleteTarget where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteTarget where
+instance Data.ToJSON DeleteTarget where
   toJSON DeleteTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ForceUnsubscribeAll" Core..=)
+          [ ("ForceUnsubscribeAll" Data..=)
               Prelude.<$> forceUnsubscribeAll,
             Prelude.Just
-              ("TargetAddress" Core..= targetAddress)
+              ("TargetAddress" Data..= targetAddress)
           ]
       )
 
-instance Core.ToPath DeleteTarget where
+instance Data.ToPath DeleteTarget where
   toPath = Prelude.const "/deleteTarget"
 
-instance Core.ToQuery DeleteTarget where
+instance Data.ToQuery DeleteTarget where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTargetResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.Radios where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the set of radios and their states on a device. Examples of
@@ -83,16 +84,16 @@ radios_bluetooth = Lens.lens (\Radios' {bluetooth} -> bluetooth) (\s@Radios' {} 
 radios_nfc :: Lens.Lens' Radios (Prelude.Maybe Prelude.Bool)
 radios_nfc = Lens.lens (\Radios' {nfc} -> nfc) (\s@Radios' {} a -> s {nfc = a} :: Radios)
 
-instance Core.FromJSON Radios where
+instance Data.FromJSON Radios where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Radios"
       ( \x ->
           Radios'
-            Prelude.<$> (x Core..:? "gps")
-            Prelude.<*> (x Core..:? "wifi")
-            Prelude.<*> (x Core..:? "bluetooth")
-            Prelude.<*> (x Core..:? "nfc")
+            Prelude.<$> (x Data..:? "gps")
+            Prelude.<*> (x Data..:? "wifi")
+            Prelude.<*> (x Data..:? "bluetooth")
+            Prelude.<*> (x Data..:? "nfc")
       )
 
 instance Prelude.Hashable Radios where
@@ -109,13 +110,13 @@ instance Prelude.NFData Radios where
       `Prelude.seq` Prelude.rnf bluetooth
       `Prelude.seq` Prelude.rnf nfc
 
-instance Core.ToJSON Radios where
+instance Data.ToJSON Radios where
   toJSON Radios' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("gps" Core..=) Prelude.<$> gps,
-            ("wifi" Core..=) Prelude.<$> wifi,
-            ("bluetooth" Core..=) Prelude.<$> bluetooth,
-            ("nfc" Core..=) Prelude.<$> nfc
+          [ ("gps" Data..=) Prelude.<$> gps,
+            ("wifi" Data..=) Prelude.<$> wifi,
+            ("bluetooth" Data..=) Prelude.<$> bluetooth,
+            ("nfc" Data..=) Prelude.<$> nfc
           ]
       )

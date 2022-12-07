@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -270,55 +271,55 @@ instance Prelude.NFData UpdateMobileDeviceAccessRule where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf effect
 
-instance Core.ToHeaders UpdateMobileDeviceAccessRule where
+instance Data.ToHeaders UpdateMobileDeviceAccessRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.UpdateMobileDeviceAccessRule" ::
+              Data.=# ( "WorkMailService.UpdateMobileDeviceAccessRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMobileDeviceAccessRule where
+instance Data.ToJSON UpdateMobileDeviceAccessRule where
   toJSON UpdateMobileDeviceAccessRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeviceTypes" Core..=) Prelude.<$> deviceTypes,
-            ("NotDeviceUserAgents" Core..=)
+          [ ("DeviceTypes" Data..=) Prelude.<$> deviceTypes,
+            ("NotDeviceUserAgents" Data..=)
               Prelude.<$> notDeviceUserAgents,
-            ("DeviceUserAgents" Core..=)
+            ("DeviceUserAgents" Data..=)
               Prelude.<$> deviceUserAgents,
-            ("NotDeviceModels" Core..=)
+            ("NotDeviceModels" Data..=)
               Prelude.<$> notDeviceModels,
-            ("Description" Core..=) Prelude.<$> description,
-            ("DeviceModels" Core..=) Prelude.<$> deviceModels,
-            ("NotDeviceTypes" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("DeviceModels" Data..=) Prelude.<$> deviceModels,
+            ("NotDeviceTypes" Data..=)
               Prelude.<$> notDeviceTypes,
-            ("DeviceOperatingSystems" Core..=)
+            ("DeviceOperatingSystems" Data..=)
               Prelude.<$> deviceOperatingSystems,
-            ("NotDeviceOperatingSystems" Core..=)
+            ("NotDeviceOperatingSystems" Data..=)
               Prelude.<$> notDeviceOperatingSystems,
             Prelude.Just
-              ("OrganizationId" Core..= organizationId),
+              ("OrganizationId" Data..= organizationId),
             Prelude.Just
               ( "MobileDeviceAccessRuleId"
-                  Core..= mobileDeviceAccessRuleId
+                  Data..= mobileDeviceAccessRuleId
               ),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Effect" Core..= effect)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Effect" Data..= effect)
           ]
       )
 
-instance Core.ToPath UpdateMobileDeviceAccessRule where
+instance Data.ToPath UpdateMobileDeviceAccessRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateMobileDeviceAccessRule where
+instance Data.ToQuery UpdateMobileDeviceAccessRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMobileDeviceAccessRuleResponse' smart constructor.

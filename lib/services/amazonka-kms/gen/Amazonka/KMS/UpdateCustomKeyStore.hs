@@ -99,6 +99,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,7 +117,7 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
     -- This parameter tells KMS the current password of the @kmsuser@ crypto
     -- user (CU). It does not set or change the password of any users in the
     -- CloudHSM cluster.
-    keyStorePassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    keyStorePassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Associates the custom key store with a related CloudHSM cluster.
     --
     -- Enter the cluster ID of the cluster that you used to create the custom
@@ -198,7 +199,7 @@ updateCustomKeyStore_newCustomKeyStoreName = Lens.lens (\UpdateCustomKeyStore' {
 -- user (CU). It does not set or change the password of any users in the
 -- CloudHSM cluster.
 updateCustomKeyStore_keyStorePassword :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
-updateCustomKeyStore_keyStorePassword = Lens.lens (\UpdateCustomKeyStore' {keyStorePassword} -> keyStorePassword) (\s@UpdateCustomKeyStore' {} a -> s {keyStorePassword = a} :: UpdateCustomKeyStore) Prelude.. Lens.mapping Core._Sensitive
+updateCustomKeyStore_keyStorePassword = Lens.lens (\UpdateCustomKeyStore' {keyStorePassword} -> keyStorePassword) (\s@UpdateCustomKeyStore' {} a -> s {keyStorePassword = a} :: UpdateCustomKeyStore) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Associates the custom key store with a related CloudHSM cluster.
 --
@@ -248,40 +249,40 @@ instance Prelude.NFData UpdateCustomKeyStore where
       `Prelude.seq` Prelude.rnf cloudHsmClusterId
       `Prelude.seq` Prelude.rnf customKeyStoreId
 
-instance Core.ToHeaders UpdateCustomKeyStore where
+instance Data.ToHeaders UpdateCustomKeyStore where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.UpdateCustomKeyStore" ::
+              Data.=# ( "TrentService.UpdateCustomKeyStore" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCustomKeyStore where
+instance Data.ToJSON UpdateCustomKeyStore where
   toJSON UpdateCustomKeyStore' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NewCustomKeyStoreName" Core..=)
+          [ ("NewCustomKeyStoreName" Data..=)
               Prelude.<$> newCustomKeyStoreName',
-            ("KeyStorePassword" Core..=)
+            ("KeyStorePassword" Data..=)
               Prelude.<$> keyStorePassword,
-            ("CloudHsmClusterId" Core..=)
+            ("CloudHsmClusterId" Data..=)
               Prelude.<$> cloudHsmClusterId,
             Prelude.Just
-              ("CustomKeyStoreId" Core..= customKeyStoreId)
+              ("CustomKeyStoreId" Data..= customKeyStoreId)
           ]
       )
 
-instance Core.ToPath UpdateCustomKeyStore where
+instance Data.ToPath UpdateCustomKeyStore where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateCustomKeyStore where
+instance Data.ToQuery UpdateCustomKeyStore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCustomKeyStoreResponse' smart constructor.

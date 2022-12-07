@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -270,7 +271,7 @@ instance Core.AWSRequest CreateLoadBalancer where
     Response.receiveJSON
       ( \s h x ->
           CreateLoadBalancerResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -298,46 +299,46 @@ instance Prelude.NFData CreateLoadBalancer where
       `Prelude.seq` Prelude.rnf loadBalancerName
       `Prelude.seq` Prelude.rnf instancePort
 
-instance Core.ToHeaders CreateLoadBalancer where
+instance Data.ToHeaders CreateLoadBalancer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.CreateLoadBalancer" ::
+              Data.=# ( "Lightsail_20161128.CreateLoadBalancer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLoadBalancer where
+instance Data.ToJSON CreateLoadBalancer where
   toJSON CreateLoadBalancer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("healthCheckPath" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("healthCheckPath" Data..=)
               Prelude.<$> healthCheckPath,
-            ("certificateAlternativeNames" Core..=)
+            ("certificateAlternativeNames" Data..=)
               Prelude.<$> certificateAlternativeNames,
-            ("certificateName" Core..=)
+            ("certificateName" Data..=)
               Prelude.<$> certificateName,
-            ("ipAddressType" Core..=) Prelude.<$> ipAddressType,
-            ("certificateDomainName" Core..=)
+            ("ipAddressType" Data..=) Prelude.<$> ipAddressType,
+            ("certificateDomainName" Data..=)
               Prelude.<$> certificateDomainName,
-            ("tlsPolicyName" Core..=) Prelude.<$> tlsPolicyName,
+            ("tlsPolicyName" Data..=) Prelude.<$> tlsPolicyName,
             Prelude.Just
-              ("loadBalancerName" Core..= loadBalancerName),
-            Prelude.Just ("instancePort" Core..= instancePort)
+              ("loadBalancerName" Data..= loadBalancerName),
+            Prelude.Just ("instancePort" Data..= instancePort)
           ]
       )
 
-instance Core.ToPath CreateLoadBalancer where
+instance Data.ToPath CreateLoadBalancer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLoadBalancer where
+instance Data.ToQuery CreateLoadBalancer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLoadBalancerResponse' smart constructor.

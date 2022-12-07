@@ -22,6 +22,7 @@ module Amazonka.Braket.Types.SearchJobsFilter where
 import Amazonka.Braket.Types.SearchJobsFilterOperator
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter used to search for Amazon Braket jobs.
@@ -89,12 +90,12 @@ instance Prelude.NFData SearchJobsFilter where
       `Prelude.seq` Prelude.rnf operator
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON SearchJobsFilter where
+instance Data.ToJSON SearchJobsFilter where
   toJSON SearchJobsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("operator" Core..= operator),
-            Prelude.Just ("values" Core..= values)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("operator" Data..= operator),
+            Prelude.Just ("values" Data..= values)
           ]
       )

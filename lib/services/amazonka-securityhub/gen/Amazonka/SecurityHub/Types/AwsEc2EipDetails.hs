@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2EipDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Elastic IP address.
@@ -157,22 +158,22 @@ awsEc2EipDetails_associationId = Lens.lens (\AwsEc2EipDetails' {associationId} -
 awsEc2EipDetails_publicIpv4Pool :: Lens.Lens' AwsEc2EipDetails (Prelude.Maybe Prelude.Text)
 awsEc2EipDetails_publicIpv4Pool = Lens.lens (\AwsEc2EipDetails' {publicIpv4Pool} -> publicIpv4Pool) (\s@AwsEc2EipDetails' {} a -> s {publicIpv4Pool = a} :: AwsEc2EipDetails)
 
-instance Core.FromJSON AwsEc2EipDetails where
+instance Data.FromJSON AwsEc2EipDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2EipDetails"
       ( \x ->
           AwsEc2EipDetails'
-            Prelude.<$> (x Core..:? "AllocationId")
-            Prelude.<*> (x Core..:? "NetworkBorderGroup")
-            Prelude.<*> (x Core..:? "Domain")
-            Prelude.<*> (x Core..:? "NetworkInterfaceOwnerId")
-            Prelude.<*> (x Core..:? "PublicIp")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "NetworkInterfaceId")
-            Prelude.<*> (x Core..:? "PrivateIpAddress")
-            Prelude.<*> (x Core..:? "AssociationId")
-            Prelude.<*> (x Core..:? "PublicIpv4Pool")
+            Prelude.<$> (x Data..:? "AllocationId")
+            Prelude.<*> (x Data..:? "NetworkBorderGroup")
+            Prelude.<*> (x Data..:? "Domain")
+            Prelude.<*> (x Data..:? "NetworkInterfaceOwnerId")
+            Prelude.<*> (x Data..:? "PublicIp")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "NetworkInterfaceId")
+            Prelude.<*> (x Data..:? "PrivateIpAddress")
+            Prelude.<*> (x Data..:? "AssociationId")
+            Prelude.<*> (x Data..:? "PublicIpv4Pool")
       )
 
 instance Prelude.Hashable AwsEc2EipDetails where
@@ -201,24 +202,24 @@ instance Prelude.NFData AwsEc2EipDetails where
       `Prelude.seq` Prelude.rnf associationId
       `Prelude.seq` Prelude.rnf publicIpv4Pool
 
-instance Core.ToJSON AwsEc2EipDetails where
+instance Data.ToJSON AwsEc2EipDetails where
   toJSON AwsEc2EipDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AllocationId" Core..=) Prelude.<$> allocationId,
-            ("NetworkBorderGroup" Core..=)
+          [ ("AllocationId" Data..=) Prelude.<$> allocationId,
+            ("NetworkBorderGroup" Data..=)
               Prelude.<$> networkBorderGroup,
-            ("Domain" Core..=) Prelude.<$> domain,
-            ("NetworkInterfaceOwnerId" Core..=)
+            ("Domain" Data..=) Prelude.<$> domain,
+            ("NetworkInterfaceOwnerId" Data..=)
               Prelude.<$> networkInterfaceOwnerId,
-            ("PublicIp" Core..=) Prelude.<$> publicIp,
-            ("InstanceId" Core..=) Prelude.<$> instanceId,
-            ("NetworkInterfaceId" Core..=)
+            ("PublicIp" Data..=) Prelude.<$> publicIp,
+            ("InstanceId" Data..=) Prelude.<$> instanceId,
+            ("NetworkInterfaceId" Data..=)
               Prelude.<$> networkInterfaceId,
-            ("PrivateIpAddress" Core..=)
+            ("PrivateIpAddress" Data..=)
               Prelude.<$> privateIpAddress,
-            ("AssociationId" Core..=) Prelude.<$> associationId,
-            ("PublicIpv4Pool" Core..=)
+            ("AssociationId" Data..=) Prelude.<$> associationId,
+            ("PublicIpv4Pool" Data..=)
               Prelude.<$> publicIpv4Pool
           ]
       )

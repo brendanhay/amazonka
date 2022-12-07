@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,7 +144,7 @@ instance Core.AWSRequest UpdateServiceAction where
     Response.receiveJSON
       ( \s h x ->
           UpdateServiceActionResponse'
-            Prelude.<$> (x Core..?> "ServiceActionDetail")
+            Prelude.<$> (x Data..?> "ServiceActionDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,38 +164,38 @@ instance Prelude.NFData UpdateServiceAction where
       `Prelude.seq` Prelude.rnf definition
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateServiceAction where
+instance Data.ToHeaders UpdateServiceAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.UpdateServiceAction" ::
+              Data.=# ( "AWS242ServiceCatalogService.UpdateServiceAction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateServiceAction where
+instance Data.ToJSON UpdateServiceAction where
   toJSON UpdateServiceAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Description" Core..=) Prelude.<$> description,
-            ("AcceptLanguage" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Description" Data..=) Prelude.<$> description,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            ("Definition" Core..=) Prelude.<$> definition,
-            Prelude.Just ("Id" Core..= id)
+            ("Definition" Data..=) Prelude.<$> definition,
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath UpdateServiceAction where
+instance Data.ToPath UpdateServiceAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateServiceAction where
+instance Data.ToQuery UpdateServiceAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServiceActionResponse' smart constructor.

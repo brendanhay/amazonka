@@ -21,6 +21,7 @@ module Amazonka.CodeDeploy.Types.LambdaFunctionInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a Lambda function specified in a deployment.
@@ -101,17 +102,17 @@ lambdaFunctionInfo_currentVersion = Lens.lens (\LambdaFunctionInfo' {currentVers
 lambdaFunctionInfo_functionAlias :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Text)
 lambdaFunctionInfo_functionAlias = Lens.lens (\LambdaFunctionInfo' {functionAlias} -> functionAlias) (\s@LambdaFunctionInfo' {} a -> s {functionAlias = a} :: LambdaFunctionInfo)
 
-instance Core.FromJSON LambdaFunctionInfo where
+instance Data.FromJSON LambdaFunctionInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaFunctionInfo"
       ( \x ->
           LambdaFunctionInfo'
-            Prelude.<$> (x Core..:? "targetVersionWeight")
-            Prelude.<*> (x Core..:? "functionName")
-            Prelude.<*> (x Core..:? "targetVersion")
-            Prelude.<*> (x Core..:? "currentVersion")
-            Prelude.<*> (x Core..:? "functionAlias")
+            Prelude.<$> (x Data..:? "targetVersionWeight")
+            Prelude.<*> (x Data..:? "functionName")
+            Prelude.<*> (x Data..:? "targetVersion")
+            Prelude.<*> (x Data..:? "currentVersion")
+            Prelude.<*> (x Data..:? "functionAlias")
       )
 
 instance Prelude.Hashable LambdaFunctionInfo where

@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatusCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -92,16 +93,16 @@ inboundCrossClusterSearchConnectionStatus_statusCode :: Lens.Lens' InboundCrossC
 inboundCrossClusterSearchConnectionStatus_statusCode = Lens.lens (\InboundCrossClusterSearchConnectionStatus' {statusCode} -> statusCode) (\s@InboundCrossClusterSearchConnectionStatus' {} a -> s {statusCode = a} :: InboundCrossClusterSearchConnectionStatus)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     InboundCrossClusterSearchConnectionStatus
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InboundCrossClusterSearchConnectionStatus"
       ( \x ->
           InboundCrossClusterSearchConnectionStatus'
-            Prelude.<$> (x Core..:? "Message")
-              Prelude.<*> (x Core..:? "StatusCode")
+            Prelude.<$> (x Data..:? "Message")
+              Prelude.<*> (x Data..:? "StatusCode")
       )
 
 instance

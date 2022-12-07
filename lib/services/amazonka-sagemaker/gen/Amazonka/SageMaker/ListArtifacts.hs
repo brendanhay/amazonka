@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -70,7 +71,7 @@ data ListArtifacts = ListArtifacts'
     artifactType :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only artifacts created on or before the specified
     -- time.
-    createdBefore :: Prelude.Maybe Core.POSIX,
+    createdBefore :: Prelude.Maybe Data.POSIX,
     -- | The property used to sort results. The default value is @CreationTime@.
     sortBy :: Prelude.Maybe SortArtifactsBy,
     -- | The maximum number of artifacts to return in the response. The default
@@ -78,7 +79,7 @@ data ListArtifacts = ListArtifacts'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only artifacts created on or after the specified
     -- time.
-    createdAfter :: Prelude.Maybe Core.POSIX
+    createdAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -145,7 +146,7 @@ listArtifacts_artifactType = Lens.lens (\ListArtifacts' {artifactType} -> artifa
 -- | A filter that returns only artifacts created on or before the specified
 -- time.
 listArtifacts_createdBefore :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.UTCTime)
-listArtifacts_createdBefore = Lens.lens (\ListArtifacts' {createdBefore} -> createdBefore) (\s@ListArtifacts' {} a -> s {createdBefore = a} :: ListArtifacts) Prelude.. Lens.mapping Core._Time
+listArtifacts_createdBefore = Lens.lens (\ListArtifacts' {createdBefore} -> createdBefore) (\s@ListArtifacts' {} a -> s {createdBefore = a} :: ListArtifacts) Prelude.. Lens.mapping Data._Time
 
 -- | The property used to sort results. The default value is @CreationTime@.
 listArtifacts_sortBy :: Lens.Lens' ListArtifacts (Prelude.Maybe SortArtifactsBy)
@@ -159,7 +160,7 @@ listArtifacts_maxResults = Lens.lens (\ListArtifacts' {maxResults} -> maxResults
 -- | A filter that returns only artifacts created on or after the specified
 -- time.
 listArtifacts_createdAfter :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.UTCTime)
-listArtifacts_createdAfter = Lens.lens (\ListArtifacts' {createdAfter} -> createdAfter) (\s@ListArtifacts' {} a -> s {createdAfter = a} :: ListArtifacts) Prelude.. Lens.mapping Core._Time
+listArtifacts_createdAfter = Lens.lens (\ListArtifacts' {createdAfter} -> createdAfter) (\s@ListArtifacts' {} a -> s {createdAfter = a} :: ListArtifacts) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListArtifacts where
   page rq rs
@@ -191,8 +192,8 @@ instance Core.AWSRequest ListArtifacts where
     Response.receiveJSON
       ( \s h x ->
           ListArtifactsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ArtifactSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ArtifactSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -220,38 +221,38 @@ instance Prelude.NFData ListArtifacts where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf createdAfter
 
-instance Core.ToHeaders ListArtifacts where
+instance Data.ToHeaders ListArtifacts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListArtifacts" :: Prelude.ByteString),
+              Data.=# ("SageMaker.ListArtifacts" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListArtifacts where
+instance Data.ToJSON ListArtifacts where
   toJSON ListArtifacts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SourceUri" Core..=) Prelude.<$> sourceUri,
-            ("ArtifactType" Core..=) Prelude.<$> artifactType,
-            ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CreatedAfter" Core..=) Prelude.<$> createdAfter
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SourceUri" Data..=) Prelude.<$> sourceUri,
+            ("ArtifactType" Data..=) Prelude.<$> artifactType,
+            ("CreatedBefore" Data..=) Prelude.<$> createdBefore,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CreatedAfter" Data..=) Prelude.<$> createdAfter
           ]
       )
 
-instance Core.ToPath ListArtifacts where
+instance Data.ToPath ListArtifacts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListArtifacts where
+instance Data.ToQuery ListArtifacts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListArtifactsResponse' smart constructor.

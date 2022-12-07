@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,8 +145,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeEffectivePatchesForPatchBaselineResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "EffectivePatches"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "EffectivePatches"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -172,44 +173,44 @@ instance
       `Prelude.seq` Prelude.rnf baselineId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeEffectivePatchesForPatchBaseline
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DescribeEffectivePatchesForPatchBaseline" ::
+              Data.=# ( "AmazonSSM.DescribeEffectivePatchesForPatchBaseline" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeEffectivePatchesForPatchBaseline
   where
   toJSON DescribeEffectivePatchesForPatchBaseline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("BaselineId" Core..= baselineId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("BaselineId" Data..= baselineId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeEffectivePatchesForPatchBaseline
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeEffectivePatchesForPatchBaseline
   where
   toQuery = Prelude.const Prelude.mempty

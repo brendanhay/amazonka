@@ -91,6 +91,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,7 +162,7 @@ instance Core.AWSRequest RecordActivityTaskHeartbeat where
       ( \s h x ->
           RecordActivityTaskHeartbeatResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "cancelRequested")
+            Prelude.<*> (x Data..:> "cancelRequested")
       )
 
 instance Prelude.Hashable RecordActivityTaskHeartbeat where
@@ -174,34 +175,34 @@ instance Prelude.NFData RecordActivityTaskHeartbeat where
     Prelude.rnf details
       `Prelude.seq` Prelude.rnf taskToken
 
-instance Core.ToHeaders RecordActivityTaskHeartbeat where
+instance Data.ToHeaders RecordActivityTaskHeartbeat where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.RecordActivityTaskHeartbeat" ::
+              Data.=# ( "SimpleWorkflowService.RecordActivityTaskHeartbeat" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RecordActivityTaskHeartbeat where
+instance Data.ToJSON RecordActivityTaskHeartbeat where
   toJSON RecordActivityTaskHeartbeat' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("details" Core..=) Prelude.<$> details,
-            Prelude.Just ("taskToken" Core..= taskToken)
+          [ ("details" Data..=) Prelude.<$> details,
+            Prelude.Just ("taskToken" Data..= taskToken)
           ]
       )
 
-instance Core.ToPath RecordActivityTaskHeartbeat where
+instance Data.ToPath RecordActivityTaskHeartbeat where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RecordActivityTaskHeartbeat where
+instance Data.ToQuery RecordActivityTaskHeartbeat where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Status information about an activity task.

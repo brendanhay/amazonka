@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,30 +92,30 @@ instance Prelude.Hashable PutFeedback where
 instance Prelude.NFData PutFeedback where
   rnf PutFeedback' {..} = Prelude.rnf insightFeedback
 
-instance Core.ToHeaders PutFeedback where
+instance Data.ToHeaders PutFeedback where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutFeedback where
+instance Data.ToJSON PutFeedback where
   toJSON PutFeedback' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InsightFeedback" Core..=)
+          [ ("InsightFeedback" Data..=)
               Prelude.<$> insightFeedback
           ]
       )
 
-instance Core.ToPath PutFeedback where
+instance Data.ToPath PutFeedback where
   toPath = Prelude.const "/feedback"
 
-instance Core.ToQuery PutFeedback where
+instance Data.ToQuery PutFeedback where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutFeedbackResponse' smart constructor.

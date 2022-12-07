@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.GlobalClusterMember where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.WriteForwardingStatus
 
@@ -97,15 +98,15 @@ globalClusterMember_readers = Lens.lens (\GlobalClusterMember' {readers} -> read
 globalClusterMember_globalWriteForwardingStatus :: Lens.Lens' GlobalClusterMember (Prelude.Maybe WriteForwardingStatus)
 globalClusterMember_globalWriteForwardingStatus = Lens.lens (\GlobalClusterMember' {globalWriteForwardingStatus} -> globalWriteForwardingStatus) (\s@GlobalClusterMember' {} a -> s {globalWriteForwardingStatus = a} :: GlobalClusterMember)
 
-instance Core.FromXML GlobalClusterMember where
+instance Data.FromXML GlobalClusterMember where
   parseXML x =
     GlobalClusterMember'
-      Prelude.<$> (x Core..@? "DBClusterArn")
-      Prelude.<*> (x Core..@? "IsWriter")
-      Prelude.<*> ( x Core..@? "Readers" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "DBClusterArn")
+      Prelude.<*> (x Data..@? "IsWriter")
+      Prelude.<*> ( x Data..@? "Readers" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "GlobalWriteForwardingStatus")
+      Prelude.<*> (x Data..@? "GlobalWriteForwardingStatus")
 
 instance Prelude.Hashable GlobalClusterMember where
   hashWithSalt _salt GlobalClusterMember' {..} =

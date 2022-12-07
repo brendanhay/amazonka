@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.IntegrationType
 import Amazonka.Connect.Types.SourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about the associated AppIntegrations.
@@ -121,20 +122,20 @@ integrationAssociationSummary_sourceApplicationUrl = Lens.lens (\IntegrationAsso
 integrationAssociationSummary_integrationAssociationId :: Lens.Lens' IntegrationAssociationSummary (Prelude.Maybe Prelude.Text)
 integrationAssociationSummary_integrationAssociationId = Lens.lens (\IntegrationAssociationSummary' {integrationAssociationId} -> integrationAssociationId) (\s@IntegrationAssociationSummary' {} a -> s {integrationAssociationId = a} :: IntegrationAssociationSummary)
 
-instance Core.FromJSON IntegrationAssociationSummary where
+instance Data.FromJSON IntegrationAssociationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IntegrationAssociationSummary"
       ( \x ->
           IntegrationAssociationSummary'
-            Prelude.<$> (x Core..:? "IntegrationAssociationArn")
-            Prelude.<*> (x Core..:? "IntegrationArn")
-            Prelude.<*> (x Core..:? "SourceType")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "IntegrationType")
-            Prelude.<*> (x Core..:? "SourceApplicationName")
-            Prelude.<*> (x Core..:? "SourceApplicationUrl")
-            Prelude.<*> (x Core..:? "IntegrationAssociationId")
+            Prelude.<$> (x Data..:? "IntegrationAssociationArn")
+            Prelude.<*> (x Data..:? "IntegrationArn")
+            Prelude.<*> (x Data..:? "SourceType")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "IntegrationType")
+            Prelude.<*> (x Data..:? "SourceApplicationName")
+            Prelude.<*> (x Data..:? "SourceApplicationUrl")
+            Prelude.<*> (x Data..:? "IntegrationAssociationId")
       )
 
 instance

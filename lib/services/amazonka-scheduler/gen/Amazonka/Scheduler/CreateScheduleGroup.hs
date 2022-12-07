@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ instance Core.AWSRequest CreateScheduleGroup where
       ( \s h x ->
           CreateScheduleGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ScheduleGroupArn")
+            Prelude.<*> (x Data..:> "ScheduleGroupArn")
       )
 
 instance Prelude.Hashable CreateScheduleGroup where
@@ -130,32 +131,32 @@ instance Prelude.NFData CreateScheduleGroup where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateScheduleGroup where
+instance Data.ToHeaders CreateScheduleGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateScheduleGroup where
+instance Data.ToJSON CreateScheduleGroup where
   toJSON CreateScheduleGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 
-instance Core.ToPath CreateScheduleGroup where
+instance Data.ToPath CreateScheduleGroup where
   toPath CreateScheduleGroup' {..} =
     Prelude.mconcat
-      ["/schedule-groups/", Core.toBS name]
+      ["/schedule-groups/", Data.toBS name]
 
-instance Core.ToQuery CreateScheduleGroup where
+instance Data.ToQuery CreateScheduleGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateScheduleGroupResponse' smart constructor.

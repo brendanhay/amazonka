@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.WebhookFilterRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The event criteria that specify when a webhook notification is sent to
@@ -106,14 +107,14 @@ webhookFilterRule_matchEquals = Lens.lens (\WebhookFilterRule' {matchEquals} -> 
 webhookFilterRule_jsonPath :: Lens.Lens' WebhookFilterRule Prelude.Text
 webhookFilterRule_jsonPath = Lens.lens (\WebhookFilterRule' {jsonPath} -> jsonPath) (\s@WebhookFilterRule' {} a -> s {jsonPath = a} :: WebhookFilterRule)
 
-instance Core.FromJSON WebhookFilterRule where
+instance Data.FromJSON WebhookFilterRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WebhookFilterRule"
       ( \x ->
           WebhookFilterRule'
-            Prelude.<$> (x Core..:? "matchEquals")
-            Prelude.<*> (x Core..: "jsonPath")
+            Prelude.<$> (x Data..:? "matchEquals")
+            Prelude.<*> (x Data..: "jsonPath")
       )
 
 instance Prelude.Hashable WebhookFilterRule where
@@ -126,11 +127,11 @@ instance Prelude.NFData WebhookFilterRule where
     Prelude.rnf matchEquals
       `Prelude.seq` Prelude.rnf jsonPath
 
-instance Core.ToJSON WebhookFilterRule where
+instance Data.ToJSON WebhookFilterRule where
   toJSON WebhookFilterRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("matchEquals" Core..=) Prelude.<$> matchEquals,
-            Prelude.Just ("jsonPath" Core..= jsonPath)
+          [ ("matchEquals" Data..=) Prelude.<$> matchEquals,
+            Prelude.Just ("jsonPath" Data..= jsonPath)
           ]
       )

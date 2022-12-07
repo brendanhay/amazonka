@@ -18,6 +18,7 @@ module Amazonka.DrS.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Lens
 import Amazonka.DrS.Types
 import qualified Amazonka.Prelude as Prelude

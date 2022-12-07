@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpcIpv6CidrBlockAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.VpcCidrBlockState
 import qualified Amazonka.Prelude as Prelude
@@ -100,14 +101,14 @@ vpcIpv6CidrBlockAssociation_associationId = Lens.lens (\VpcIpv6CidrBlockAssociat
 vpcIpv6CidrBlockAssociation_ipv6CidrBlock :: Lens.Lens' VpcIpv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
 vpcIpv6CidrBlockAssociation_ipv6CidrBlock = Lens.lens (\VpcIpv6CidrBlockAssociation' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@VpcIpv6CidrBlockAssociation' {} a -> s {ipv6CidrBlock = a} :: VpcIpv6CidrBlockAssociation)
 
-instance Core.FromXML VpcIpv6CidrBlockAssociation where
+instance Data.FromXML VpcIpv6CidrBlockAssociation where
   parseXML x =
     VpcIpv6CidrBlockAssociation'
-      Prelude.<$> (x Core..@? "networkBorderGroup")
-      Prelude.<*> (x Core..@? "ipv6Pool")
-      Prelude.<*> (x Core..@? "ipv6CidrBlockState")
-      Prelude.<*> (x Core..@? "associationId")
-      Prelude.<*> (x Core..@? "ipv6CidrBlock")
+      Prelude.<$> (x Data..@? "networkBorderGroup")
+      Prelude.<*> (x Data..@? "ipv6Pool")
+      Prelude.<*> (x Data..@? "ipv6CidrBlockState")
+      Prelude.<*> (x Data..@? "associationId")
+      Prelude.<*> (x Data..@? "ipv6CidrBlock")
 
 instance Prelude.Hashable VpcIpv6CidrBlockAssociation where
   hashWithSalt _salt VpcIpv6CidrBlockAssociation' {..} =

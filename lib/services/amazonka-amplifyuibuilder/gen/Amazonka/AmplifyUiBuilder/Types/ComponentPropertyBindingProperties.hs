@@ -21,6 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.ComponentPropertyBindingProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Associates a component property to a binding property. This enables
@@ -67,16 +68,16 @@ componentPropertyBindingProperties_property :: Lens.Lens' ComponentPropertyBindi
 componentPropertyBindingProperties_property = Lens.lens (\ComponentPropertyBindingProperties' {property} -> property) (\s@ComponentPropertyBindingProperties' {} a -> s {property = a} :: ComponentPropertyBindingProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ComponentPropertyBindingProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentPropertyBindingProperties"
       ( \x ->
           ComponentPropertyBindingProperties'
-            Prelude.<$> (x Core..:? "field")
-            Prelude.<*> (x Core..: "property")
+            Prelude.<$> (x Data..:? "field")
+            Prelude.<*> (x Data..: "property")
       )
 
 instance
@@ -98,13 +99,13 @@ instance
       `Prelude.seq` Prelude.rnf property
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ComponentPropertyBindingProperties
   where
   toJSON ComponentPropertyBindingProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("field" Core..=) Prelude.<$> field,
-            Prelude.Just ("property" Core..= property)
+          [ ("field" Data..=) Prelude.<$> field,
+            Prelude.Just ("property" Data..= property)
           ]
       )

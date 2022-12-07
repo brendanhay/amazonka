@@ -21,6 +21,7 @@ module Amazonka.Amplify.Types.Artifact where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an artifact.
@@ -65,14 +66,14 @@ artifact_artifactFileName = Lens.lens (\Artifact' {artifactFileName} -> artifact
 artifact_artifactId :: Lens.Lens' Artifact Prelude.Text
 artifact_artifactId = Lens.lens (\Artifact' {artifactId} -> artifactId) (\s@Artifact' {} a -> s {artifactId = a} :: Artifact)
 
-instance Core.FromJSON Artifact where
+instance Data.FromJSON Artifact where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Artifact"
       ( \x ->
           Artifact'
-            Prelude.<$> (x Core..: "artifactFileName")
-            Prelude.<*> (x Core..: "artifactId")
+            Prelude.<$> (x Data..: "artifactFileName")
+            Prelude.<*> (x Data..: "artifactId")
       )
 
 instance Prelude.Hashable Artifact where

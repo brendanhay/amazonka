@@ -48,6 +48,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,9 +124,9 @@ instance Core.AWSRequest GetAnomalySubscriptions where
     Response.receiveJSON
       ( \s h x ->
           GetAnomalySubscriptionsResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<$> (x Data..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "AnomalySubscriptions"
+            Prelude.<*> ( x Data..?> "AnomalySubscriptions"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -144,37 +145,37 @@ instance Prelude.NFData GetAnomalySubscriptions where
       `Prelude.seq` Prelude.rnf monitorArn
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders GetAnomalySubscriptions where
+instance Data.ToHeaders GetAnomalySubscriptions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.GetAnomalySubscriptions" ::
+              Data.=# ( "AWSInsightsIndexService.GetAnomalySubscriptions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAnomalySubscriptions where
+instance Data.ToJSON GetAnomalySubscriptions where
   toJSON GetAnomalySubscriptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("SubscriptionArnList" Core..=)
+          [ ("NextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("SubscriptionArnList" Data..=)
               Prelude.<$> subscriptionArnList,
-            ("MonitorArn" Core..=) Prelude.<$> monitorArn,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MonitorArn" Data..=) Prelude.<$> monitorArn,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath GetAnomalySubscriptions where
+instance Data.ToPath GetAnomalySubscriptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAnomalySubscriptions where
+instance Data.ToQuery GetAnomalySubscriptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAnomalySubscriptionsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.PillarReviewSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.Risk
 
@@ -76,16 +77,16 @@ pillarReviewSummary_pillarId = Lens.lens (\PillarReviewSummary' {pillarId} -> pi
 pillarReviewSummary_pillarName :: Lens.Lens' PillarReviewSummary (Prelude.Maybe Prelude.Text)
 pillarReviewSummary_pillarName = Lens.lens (\PillarReviewSummary' {pillarName} -> pillarName) (\s@PillarReviewSummary' {} a -> s {pillarName = a} :: PillarReviewSummary)
 
-instance Core.FromJSON PillarReviewSummary where
+instance Data.FromJSON PillarReviewSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PillarReviewSummary"
       ( \x ->
           PillarReviewSummary'
-            Prelude.<$> (x Core..:? "RiskCounts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Notes")
-            Prelude.<*> (x Core..:? "PillarId")
-            Prelude.<*> (x Core..:? "PillarName")
+            Prelude.<$> (x Data..:? "RiskCounts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Notes")
+            Prelude.<*> (x Data..:? "PillarId")
+            Prelude.<*> (x Data..:? "PillarName")
       )
 
 instance Prelude.Hashable PillarReviewSummary where

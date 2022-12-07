@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.ScheduleConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration of the schedule of the query.
@@ -58,13 +59,13 @@ newScheduleConfiguration pScheduleExpression_ =
 scheduleConfiguration_scheduleExpression :: Lens.Lens' ScheduleConfiguration Prelude.Text
 scheduleConfiguration_scheduleExpression = Lens.lens (\ScheduleConfiguration' {scheduleExpression} -> scheduleExpression) (\s@ScheduleConfiguration' {} a -> s {scheduleExpression = a} :: ScheduleConfiguration)
 
-instance Core.FromJSON ScheduleConfiguration where
+instance Data.FromJSON ScheduleConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScheduleConfiguration"
       ( \x ->
           ScheduleConfiguration'
-            Prelude.<$> (x Core..: "ScheduleExpression")
+            Prelude.<$> (x Data..: "ScheduleExpression")
       )
 
 instance Prelude.Hashable ScheduleConfiguration where
@@ -75,11 +76,11 @@ instance Prelude.NFData ScheduleConfiguration where
   rnf ScheduleConfiguration' {..} =
     Prelude.rnf scheduleExpression
 
-instance Core.ToJSON ScheduleConfiguration where
+instance Data.ToJSON ScheduleConfiguration where
   toJSON ScheduleConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ScheduleExpression" Core..= scheduleExpression)
+              ("ScheduleExpression" Data..= scheduleExpression)
           ]
       )

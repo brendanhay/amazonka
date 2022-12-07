@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.LambdaActivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An activity that runs a Lambda function to modify the message.
@@ -97,16 +98,16 @@ lambdaActivity_lambdaName = Lens.lens (\LambdaActivity' {lambdaName} -> lambdaNa
 lambdaActivity_batchSize :: Lens.Lens' LambdaActivity Prelude.Natural
 lambdaActivity_batchSize = Lens.lens (\LambdaActivity' {batchSize} -> batchSize) (\s@LambdaActivity' {} a -> s {batchSize = a} :: LambdaActivity)
 
-instance Core.FromJSON LambdaActivity where
+instance Data.FromJSON LambdaActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaActivity"
       ( \x ->
           LambdaActivity'
-            Prelude.<$> (x Core..:? "next")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "lambdaName")
-            Prelude.<*> (x Core..: "batchSize")
+            Prelude.<$> (x Data..:? "next")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "lambdaName")
+            Prelude.<*> (x Data..: "batchSize")
       )
 
 instance Prelude.Hashable LambdaActivity where
@@ -123,13 +124,13 @@ instance Prelude.NFData LambdaActivity where
       `Prelude.seq` Prelude.rnf lambdaName
       `Prelude.seq` Prelude.rnf batchSize
 
-instance Core.ToJSON LambdaActivity where
+instance Data.ToJSON LambdaActivity where
   toJSON LambdaActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("next" Core..=) Prelude.<$> next,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("lambdaName" Core..= lambdaName),
-            Prelude.Just ("batchSize" Core..= batchSize)
+          [ ("next" Data..=) Prelude.<$> next,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("lambdaName" Data..= lambdaName),
+            Prelude.Just ("batchSize" Data..= batchSize)
           ]
       )

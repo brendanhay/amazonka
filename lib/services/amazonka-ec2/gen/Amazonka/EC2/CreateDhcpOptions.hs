@@ -88,6 +88,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,7 +158,7 @@ instance Core.AWSRequest CreateDhcpOptions where
     Response.receiveXML
       ( \s h x ->
           CreateDhcpOptionsResponse'
-            Prelude.<$> (x Core..@? "dhcpOptions")
+            Prelude.<$> (x Data..@? "dhcpOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,25 +174,25 @@ instance Prelude.NFData CreateDhcpOptions where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf dhcpConfigurations
 
-instance Core.ToHeaders CreateDhcpOptions where
+instance Data.ToHeaders CreateDhcpOptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDhcpOptions where
+instance Data.ToPath CreateDhcpOptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDhcpOptions where
+instance Data.ToQuery CreateDhcpOptions where
   toQuery CreateDhcpOptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDhcpOptions" :: Prelude.ByteString),
+          Data.=: ("CreateDhcpOptions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        Core.toQueryList
+        Data.toQueryList
           "DhcpConfiguration"
           dhcpConfigurations
       ]

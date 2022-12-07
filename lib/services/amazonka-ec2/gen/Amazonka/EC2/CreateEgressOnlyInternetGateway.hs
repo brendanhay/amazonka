@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,8 +140,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateEgressOnlyInternetGatewayResponse'
-            Prelude.<$> (x Core..@? "clientToken")
-            Prelude.<*> (x Core..@? "egressOnlyInternetGateway")
+            Prelude.<$> (x Data..@? "clientToken")
+            Prelude.<*> (x Data..@? "egressOnlyInternetGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,30 +168,30 @@ instance
       `Prelude.seq` Prelude.rnf vpcId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateEgressOnlyInternetGateway
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateEgressOnlyInternetGateway where
+instance Data.ToPath CreateEgressOnlyInternetGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEgressOnlyInternetGateway where
+instance Data.ToQuery CreateEgressOnlyInternetGateway where
   toQuery CreateEgressOnlyInternetGateway' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateEgressOnlyInternetGateway" ::
+          Data.=: ( "CreateEgressOnlyInternetGateway" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "VpcId" Core.=: vpcId
+        "VpcId" Data.=: vpcId
       ]
 
 -- | /See:/ 'newCreateEgressOnlyInternetGatewayResponse' smart constructor.

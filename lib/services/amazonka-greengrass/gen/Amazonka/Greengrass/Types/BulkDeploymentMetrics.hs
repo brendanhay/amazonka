@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.BulkDeploymentMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Relevant metrics on input records processed during bulk deployment.
@@ -95,15 +96,15 @@ bulkDeploymentMetrics_retryAttempts = Lens.lens (\BulkDeploymentMetrics' {retryA
 bulkDeploymentMetrics_invalidInputRecords :: Lens.Lens' BulkDeploymentMetrics (Prelude.Maybe Prelude.Int)
 bulkDeploymentMetrics_invalidInputRecords = Lens.lens (\BulkDeploymentMetrics' {invalidInputRecords} -> invalidInputRecords) (\s@BulkDeploymentMetrics' {} a -> s {invalidInputRecords = a} :: BulkDeploymentMetrics)
 
-instance Core.FromJSON BulkDeploymentMetrics where
+instance Data.FromJSON BulkDeploymentMetrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BulkDeploymentMetrics"
       ( \x ->
           BulkDeploymentMetrics'
-            Prelude.<$> (x Core..:? "RecordsProcessed")
-            Prelude.<*> (x Core..:? "RetryAttempts")
-            Prelude.<*> (x Core..:? "InvalidInputRecords")
+            Prelude.<$> (x Data..:? "RecordsProcessed")
+            Prelude.<*> (x Data..:? "RetryAttempts")
+            Prelude.<*> (x Data..:? "InvalidInputRecords")
       )
 
 instance Prelude.Hashable BulkDeploymentMetrics where

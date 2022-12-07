@@ -23,6 +23,7 @@ import Amazonka.Chime.Types.Member
 import Amazonka.Chime.Types.RoomMembershipRole
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The room membership details.
@@ -33,7 +34,7 @@ data RoomMembership = RoomMembership'
     -- | The room ID.
     roomId :: Prelude.Maybe Prelude.Text,
     -- | The room membership update timestamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the user that invited the room member.
     invitedBy :: Prelude.Maybe Prelude.Text,
     -- | The membership role.
@@ -79,7 +80,7 @@ roomMembership_roomId = Lens.lens (\RoomMembership' {roomId} -> roomId) (\s@Room
 
 -- | The room membership update timestamp, in ISO 8601 format.
 roomMembership_updatedTimestamp :: Lens.Lens' RoomMembership (Prelude.Maybe Prelude.UTCTime)
-roomMembership_updatedTimestamp = Lens.lens (\RoomMembership' {updatedTimestamp} -> updatedTimestamp) (\s@RoomMembership' {} a -> s {updatedTimestamp = a} :: RoomMembership) Prelude.. Lens.mapping Core._Time
+roomMembership_updatedTimestamp = Lens.lens (\RoomMembership' {updatedTimestamp} -> updatedTimestamp) (\s@RoomMembership' {} a -> s {updatedTimestamp = a} :: RoomMembership) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the user that invited the room member.
 roomMembership_invitedBy :: Lens.Lens' RoomMembership (Prelude.Maybe Prelude.Text)
@@ -89,17 +90,17 @@ roomMembership_invitedBy = Lens.lens (\RoomMembership' {invitedBy} -> invitedBy)
 roomMembership_role :: Lens.Lens' RoomMembership (Prelude.Maybe RoomMembershipRole)
 roomMembership_role = Lens.lens (\RoomMembership' {role'} -> role') (\s@RoomMembership' {} a -> s {role' = a} :: RoomMembership)
 
-instance Core.FromJSON RoomMembership where
+instance Data.FromJSON RoomMembership where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RoomMembership"
       ( \x ->
           RoomMembership'
-            Prelude.<$> (x Core..:? "Member")
-            Prelude.<*> (x Core..:? "RoomId")
-            Prelude.<*> (x Core..:? "UpdatedTimestamp")
-            Prelude.<*> (x Core..:? "InvitedBy")
-            Prelude.<*> (x Core..:? "Role")
+            Prelude.<$> (x Data..:? "Member")
+            Prelude.<*> (x Data..:? "RoomId")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
+            Prelude.<*> (x Data..:? "InvitedBy")
+            Prelude.<*> (x Data..:? "Role")
       )
 
 instance Prelude.Hashable RoomMembership where

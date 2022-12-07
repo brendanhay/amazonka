@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.ConnectPeerBgpConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a core network BGP configuration.
@@ -80,16 +81,16 @@ connectPeerBgpConfiguration_coreNetworkAsn = Lens.lens (\ConnectPeerBgpConfigura
 connectPeerBgpConfiguration_peerAddress :: Lens.Lens' ConnectPeerBgpConfiguration (Prelude.Maybe Prelude.Text)
 connectPeerBgpConfiguration_peerAddress = Lens.lens (\ConnectPeerBgpConfiguration' {peerAddress} -> peerAddress) (\s@ConnectPeerBgpConfiguration' {} a -> s {peerAddress = a} :: ConnectPeerBgpConfiguration)
 
-instance Core.FromJSON ConnectPeerBgpConfiguration where
+instance Data.FromJSON ConnectPeerBgpConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectPeerBgpConfiguration"
       ( \x ->
           ConnectPeerBgpConfiguration'
-            Prelude.<$> (x Core..:? "PeerAsn")
-            Prelude.<*> (x Core..:? "CoreNetworkAddress")
-            Prelude.<*> (x Core..:? "CoreNetworkAsn")
-            Prelude.<*> (x Core..:? "PeerAddress")
+            Prelude.<$> (x Data..:? "PeerAsn")
+            Prelude.<*> (x Data..:? "CoreNetworkAddress")
+            Prelude.<*> (x Data..:? "CoreNetworkAsn")
+            Prelude.<*> (x Data..:? "PeerAddress")
       )
 
 instance Prelude.Hashable ConnectPeerBgpConfiguration where

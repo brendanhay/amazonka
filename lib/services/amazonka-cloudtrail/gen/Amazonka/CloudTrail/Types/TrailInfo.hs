@@ -21,6 +21,7 @@ module Amazonka.CloudTrail.Types.TrailInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a CloudTrail trail, including the trail\'s name, home
@@ -71,15 +72,15 @@ trailInfo_homeRegion = Lens.lens (\TrailInfo' {homeRegion} -> homeRegion) (\s@Tr
 trailInfo_trailARN :: Lens.Lens' TrailInfo (Prelude.Maybe Prelude.Text)
 trailInfo_trailARN = Lens.lens (\TrailInfo' {trailARN} -> trailARN) (\s@TrailInfo' {} a -> s {trailARN = a} :: TrailInfo)
 
-instance Core.FromJSON TrailInfo where
+instance Data.FromJSON TrailInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrailInfo"
       ( \x ->
           TrailInfo'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "HomeRegion")
-            Prelude.<*> (x Core..:? "TrailARN")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "HomeRegion")
+            Prelude.<*> (x Data..:? "TrailARN")
       )
 
 instance Prelude.Hashable TrailInfo where

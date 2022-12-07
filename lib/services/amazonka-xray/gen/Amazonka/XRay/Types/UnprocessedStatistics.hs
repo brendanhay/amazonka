@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.UnprocessedStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Sampling statistics from a call to
@@ -72,15 +73,15 @@ unprocessedStatistics_ruleName = Lens.lens (\UnprocessedStatistics' {ruleName} -
 unprocessedStatistics_errorCode :: Lens.Lens' UnprocessedStatistics (Prelude.Maybe Prelude.Text)
 unprocessedStatistics_errorCode = Lens.lens (\UnprocessedStatistics' {errorCode} -> errorCode) (\s@UnprocessedStatistics' {} a -> s {errorCode = a} :: UnprocessedStatistics)
 
-instance Core.FromJSON UnprocessedStatistics where
+instance Data.FromJSON UnprocessedStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnprocessedStatistics"
       ( \x ->
           UnprocessedStatistics'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "RuleName")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "RuleName")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable UnprocessedStatistics where

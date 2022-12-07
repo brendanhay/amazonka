@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,8 +168,8 @@ instance Core.AWSRequest GetProvisionedProductOutputs where
     Response.receiveJSON
       ( \s h x ->
           GetProvisionedProductOutputsResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> (x Core..?> "Outputs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> (x Data..?> "Outputs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,41 +194,41 @@ instance Prelude.NFData GetProvisionedProductOutputs where
       `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf provisionedProductId
 
-instance Core.ToHeaders GetProvisionedProductOutputs where
+instance Data.ToHeaders GetProvisionedProductOutputs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.GetProvisionedProductOutputs" ::
+              Data.=# ( "AWS242ServiceCatalogService.GetProvisionedProductOutputs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetProvisionedProductOutputs where
+instance Data.ToJSON GetProvisionedProductOutputs where
   toJSON GetProvisionedProductOutputs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProvisionedProductName" Core..=)
+          [ ("ProvisionedProductName" Data..=)
               Prelude.<$> provisionedProductName,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("OutputKeys" Core..=) Prelude.<$> outputKeys,
-            ("AcceptLanguage" Core..=)
+            ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("OutputKeys" Data..=) Prelude.<$> outputKeys,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            ("ProvisionedProductId" Core..=)
+            ("ProvisionedProductId" Data..=)
               Prelude.<$> provisionedProductId
           ]
       )
 
-instance Core.ToPath GetProvisionedProductOutputs where
+instance Data.ToPath GetProvisionedProductOutputs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetProvisionedProductOutputs where
+instance Data.ToQuery GetProvisionedProductOutputs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetProvisionedProductOutputsResponse' smart constructor.

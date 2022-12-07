@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,7 +95,7 @@ instance Core.AWSRequest DeleteBatchPrediction where
     Response.receiveJSON
       ( \s h x ->
           DeleteBatchPredictionResponse'
-            Prelude.<$> (x Core..?> "BatchPredictionId")
+            Prelude.<$> (x Data..?> "BatchPredictionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,34 +107,34 @@ instance Prelude.NFData DeleteBatchPrediction where
   rnf DeleteBatchPrediction' {..} =
     Prelude.rnf batchPredictionId
 
-instance Core.ToHeaders DeleteBatchPrediction where
+instance Data.ToHeaders DeleteBatchPrediction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.DeleteBatchPrediction" ::
+              Data.=# ( "AmazonML_20141212.DeleteBatchPrediction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteBatchPrediction where
+instance Data.ToJSON DeleteBatchPrediction where
   toJSON DeleteBatchPrediction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("BatchPredictionId" Core..= batchPredictionId)
+              ("BatchPredictionId" Data..= batchPredictionId)
           ]
       )
 
-instance Core.ToPath DeleteBatchPrediction where
+instance Data.ToPath DeleteBatchPrediction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteBatchPrediction where
+instance Data.ToQuery DeleteBatchPrediction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @DeleteBatchPrediction@ operation.

@@ -21,6 +21,7 @@ module Amazonka.MachineLearning.Types.RDSMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types.RDSDatabase
 import qualified Amazonka.Prelude as Prelude
 
@@ -130,18 +131,18 @@ rDSMetadata_database = Lens.lens (\RDSMetadata' {database} -> database) (\s@RDSM
 rDSMetadata_dataPipelineId :: Lens.Lens' RDSMetadata (Prelude.Maybe Prelude.Text)
 rDSMetadata_dataPipelineId = Lens.lens (\RDSMetadata' {dataPipelineId} -> dataPipelineId) (\s@RDSMetadata' {} a -> s {dataPipelineId = a} :: RDSMetadata)
 
-instance Core.FromJSON RDSMetadata where
+instance Data.FromJSON RDSMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RDSMetadata"
       ( \x ->
           RDSMetadata'
-            Prelude.<$> (x Core..:? "DatabaseUserName")
-            Prelude.<*> (x Core..:? "ResourceRole")
-            Prelude.<*> (x Core..:? "SelectSqlQuery")
-            Prelude.<*> (x Core..:? "ServiceRole")
-            Prelude.<*> (x Core..:? "Database")
-            Prelude.<*> (x Core..:? "DataPipelineId")
+            Prelude.<$> (x Data..:? "DatabaseUserName")
+            Prelude.<*> (x Data..:? "ResourceRole")
+            Prelude.<*> (x Data..:? "SelectSqlQuery")
+            Prelude.<*> (x Data..:? "ServiceRole")
+            Prelude.<*> (x Data..:? "Database")
+            Prelude.<*> (x Data..:? "DataPipelineId")
       )
 
 instance Prelude.Hashable RDSMetadata where

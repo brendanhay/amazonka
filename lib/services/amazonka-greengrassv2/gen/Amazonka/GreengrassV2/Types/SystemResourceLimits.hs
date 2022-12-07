@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.SystemResourceLimits where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about system resource limits that the IoT
@@ -91,14 +92,14 @@ systemResourceLimits_cpus = Lens.lens (\SystemResourceLimits' {cpus} -> cpus) (\
 systemResourceLimits_memory :: Lens.Lens' SystemResourceLimits (Prelude.Maybe Prelude.Natural)
 systemResourceLimits_memory = Lens.lens (\SystemResourceLimits' {memory} -> memory) (\s@SystemResourceLimits' {} a -> s {memory = a} :: SystemResourceLimits)
 
-instance Core.FromJSON SystemResourceLimits where
+instance Data.FromJSON SystemResourceLimits where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SystemResourceLimits"
       ( \x ->
           SystemResourceLimits'
-            Prelude.<$> (x Core..:? "cpus")
-            Prelude.<*> (x Core..:? "memory")
+            Prelude.<$> (x Data..:? "cpus")
+            Prelude.<*> (x Data..:? "memory")
       )
 
 instance Prelude.Hashable SystemResourceLimits where
@@ -110,11 +111,11 @@ instance Prelude.NFData SystemResourceLimits where
   rnf SystemResourceLimits' {..} =
     Prelude.rnf cpus `Prelude.seq` Prelude.rnf memory
 
-instance Core.ToJSON SystemResourceLimits where
+instance Data.ToJSON SystemResourceLimits where
   toJSON SystemResourceLimits' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cpus" Core..=) Prelude.<$> cpus,
-            ("memory" Core..=) Prelude.<$> memory
+          [ ("cpus" Data..=) Prelude.<$> cpus,
+            ("memory" Data..=) Prelude.<$> memory
           ]
       )

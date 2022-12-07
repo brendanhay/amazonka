@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,34 +113,34 @@ instance Prelude.NFData RegisterDevices where
       `Prelude.seq` Prelude.rnf deviceFleetName
       `Prelude.seq` Prelude.rnf devices
 
-instance Core.ToHeaders RegisterDevices where
+instance Data.ToHeaders RegisterDevices where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.RegisterDevices" :: Prelude.ByteString),
+              Data.=# ("SageMaker.RegisterDevices" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterDevices where
+instance Data.ToJSON RegisterDevices where
   toJSON RegisterDevices' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("DeviceFleetName" Core..= deviceFleetName),
-            Prelude.Just ("Devices" Core..= devices)
+              ("DeviceFleetName" Data..= deviceFleetName),
+            Prelude.Just ("Devices" Data..= devices)
           ]
       )
 
-instance Core.ToPath RegisterDevices where
+instance Data.ToPath RegisterDevices where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterDevices where
+instance Data.ToQuery RegisterDevices where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterDevicesResponse' smart constructor.

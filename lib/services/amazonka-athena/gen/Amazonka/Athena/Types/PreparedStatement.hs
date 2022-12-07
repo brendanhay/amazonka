@@ -21,6 +21,7 @@ module Amazonka.Athena.Types.PreparedStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A prepared SQL statement for use with Athena.
@@ -32,7 +33,7 @@ data PreparedStatement = PreparedStatement'
     -- | The description of the prepared statement.
     description :: Prelude.Maybe Prelude.Text,
     -- | The last modified time of the prepared statement.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The query string for the prepared statement.
     queryStatement :: Prelude.Maybe Prelude.Text,
     -- | The name of the prepared statement.
@@ -78,7 +79,7 @@ preparedStatement_description = Lens.lens (\PreparedStatement' {description} -> 
 
 -- | The last modified time of the prepared statement.
 preparedStatement_lastModifiedTime :: Lens.Lens' PreparedStatement (Prelude.Maybe Prelude.UTCTime)
-preparedStatement_lastModifiedTime = Lens.lens (\PreparedStatement' {lastModifiedTime} -> lastModifiedTime) (\s@PreparedStatement' {} a -> s {lastModifiedTime = a} :: PreparedStatement) Prelude.. Lens.mapping Core._Time
+preparedStatement_lastModifiedTime = Lens.lens (\PreparedStatement' {lastModifiedTime} -> lastModifiedTime) (\s@PreparedStatement' {} a -> s {lastModifiedTime = a} :: PreparedStatement) Prelude.. Lens.mapping Data._Time
 
 -- | The query string for the prepared statement.
 preparedStatement_queryStatement :: Lens.Lens' PreparedStatement (Prelude.Maybe Prelude.Text)
@@ -88,17 +89,17 @@ preparedStatement_queryStatement = Lens.lens (\PreparedStatement' {queryStatemen
 preparedStatement_statementName :: Lens.Lens' PreparedStatement (Prelude.Maybe Prelude.Text)
 preparedStatement_statementName = Lens.lens (\PreparedStatement' {statementName} -> statementName) (\s@PreparedStatement' {} a -> s {statementName = a} :: PreparedStatement)
 
-instance Core.FromJSON PreparedStatement where
+instance Data.FromJSON PreparedStatement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PreparedStatement"
       ( \x ->
           PreparedStatement'
-            Prelude.<$> (x Core..:? "WorkGroupName")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "QueryStatement")
-            Prelude.<*> (x Core..:? "StatementName")
+            Prelude.<$> (x Data..:? "WorkGroupName")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "QueryStatement")
+            Prelude.<*> (x Data..:? "StatementName")
       )
 
 instance Prelude.Hashable PreparedStatement where

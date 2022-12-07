@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -132,11 +133,11 @@ instance Core.AWSRequest UpdateAccountCustomization where
     Response.receiveJSON
       ( \s h x ->
           UpdateAccountCustomizationResponse'
-            Prelude.<$> (x Core..?> "AwsAccountId")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Namespace")
-            Prelude.<*> (x Core..?> "AccountCustomization")
+            Prelude.<$> (x Data..?> "AwsAccountId")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Namespace")
+            Prelude.<*> (x Data..?> "AccountCustomization")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,39 +153,39 @@ instance Prelude.NFData UpdateAccountCustomization where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf accountCustomization
 
-instance Core.ToHeaders UpdateAccountCustomization where
+instance Data.ToHeaders UpdateAccountCustomization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAccountCustomization where
+instance Data.ToJSON UpdateAccountCustomization where
   toJSON UpdateAccountCustomization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "AccountCustomization"
-                  Core..= accountCustomization
+                  Data..= accountCustomization
               )
           ]
       )
 
-instance Core.ToPath UpdateAccountCustomization where
+instance Data.ToPath UpdateAccountCustomization where
   toPath UpdateAccountCustomization' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/customizations"
       ]
 
-instance Core.ToQuery UpdateAccountCustomization where
+instance Data.ToQuery UpdateAccountCustomization where
   toQuery UpdateAccountCustomization' {..} =
-    Prelude.mconcat ["namespace" Core.=: namespace]
+    Prelude.mconcat ["namespace" Data.=: namespace]
 
 -- | /See:/ 'newUpdateAccountCustomizationResponse' smart constructor.
 data UpdateAccountCustomizationResponse = UpdateAccountCustomizationResponse'

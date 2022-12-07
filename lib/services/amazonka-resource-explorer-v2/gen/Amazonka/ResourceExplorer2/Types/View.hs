@@ -21,6 +21,7 @@ module Amazonka.ResourceExplorer2.Types.View where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceExplorer2.Types.IncludedProperty
 import Amazonka.ResourceExplorer2.Types.SearchFilter
@@ -37,10 +38,10 @@ import Amazonka.ResourceExplorer2.Types.SearchFilter
 -- /See:/ 'newView' smart constructor.
 data View = View'
   { -- | The date and time when this view was last modified.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | An array of SearchFilter objects that specify which resources can be
     -- included in the results of queries made using this view.
-    filters :: Prelude.Maybe (Core.Sensitive SearchFilter),
+    filters :: Prelude.Maybe (Data.Sensitive SearchFilter),
     -- | A structure that contains additional information about the view.
     includedProperties :: Prelude.Maybe [IncludedProperty],
     -- | The Amazon Web Services account that owns this view.
@@ -106,12 +107,12 @@ newView =
 
 -- | The date and time when this view was last modified.
 view_lastUpdatedAt :: Lens.Lens' View (Prelude.Maybe Prelude.UTCTime)
-view_lastUpdatedAt = Lens.lens (\View' {lastUpdatedAt} -> lastUpdatedAt) (\s@View' {} a -> s {lastUpdatedAt = a} :: View) Prelude.. Lens.mapping Core._Time
+view_lastUpdatedAt = Lens.lens (\View' {lastUpdatedAt} -> lastUpdatedAt) (\s@View' {} a -> s {lastUpdatedAt = a} :: View) Prelude.. Lens.mapping Data._Time
 
 -- | An array of SearchFilter objects that specify which resources can be
 -- included in the results of queries made using this view.
 view_filters :: Lens.Lens' View (Prelude.Maybe SearchFilter)
-view_filters = Lens.lens (\View' {filters} -> filters) (\s@View' {} a -> s {filters = a} :: View) Prelude.. Lens.mapping Core._Sensitive
+view_filters = Lens.lens (\View' {filters} -> filters) (\s@View' {} a -> s {filters = a} :: View) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A structure that contains additional information about the view.
 view_includedProperties :: Lens.Lens' View (Prelude.Maybe [IncludedProperty])
@@ -139,20 +140,20 @@ view_scope = Lens.lens (\View' {scope} -> scope) (\s@View' {} a -> s {scope = a}
 view_viewArn :: Lens.Lens' View (Prelude.Maybe Prelude.Text)
 view_viewArn = Lens.lens (\View' {viewArn} -> viewArn) (\s@View' {} a -> s {viewArn = a} :: View)
 
-instance Core.FromJSON View where
+instance Data.FromJSON View where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "View"
       ( \x ->
           View'
-            Prelude.<$> (x Core..:? "LastUpdatedAt")
-            Prelude.<*> (x Core..:? "Filters")
-            Prelude.<*> ( x Core..:? "IncludedProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "LastUpdatedAt")
+            Prelude.<*> (x Data..:? "Filters")
+            Prelude.<*> ( x Data..:? "IncludedProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "Scope")
-            Prelude.<*> (x Core..:? "ViewArn")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "Scope")
+            Prelude.<*> (x Data..:? "ViewArn")
       )
 
 instance Prelude.Hashable View where

@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.Template where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The template schema used for the data source, where templates schemas
@@ -43,9 +44,9 @@ newTemplate ::
   Template
 newTemplate = Template'
 
-instance Core.FromJSON Template where
+instance Data.FromJSON Template where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Template"
       (\x -> Prelude.pure Template')
 
@@ -56,5 +57,5 @@ instance Prelude.Hashable Template where
 instance Prelude.NFData Template where
   rnf _ = ()
 
-instance Core.ToJSON Template where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON Template where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

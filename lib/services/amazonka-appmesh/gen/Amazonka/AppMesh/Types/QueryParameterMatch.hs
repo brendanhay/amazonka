@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.QueryParameterMatch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the query parameter to match.
@@ -50,13 +51,13 @@ newQueryParameterMatch =
 queryParameterMatch_exact :: Lens.Lens' QueryParameterMatch (Prelude.Maybe Prelude.Text)
 queryParameterMatch_exact = Lens.lens (\QueryParameterMatch' {exact} -> exact) (\s@QueryParameterMatch' {} a -> s {exact = a} :: QueryParameterMatch)
 
-instance Core.FromJSON QueryParameterMatch where
+instance Data.FromJSON QueryParameterMatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryParameterMatch"
       ( \x ->
           QueryParameterMatch'
-            Prelude.<$> (x Core..:? "exact")
+            Prelude.<$> (x Data..:? "exact")
       )
 
 instance Prelude.Hashable QueryParameterMatch where
@@ -66,9 +67,9 @@ instance Prelude.Hashable QueryParameterMatch where
 instance Prelude.NFData QueryParameterMatch where
   rnf QueryParameterMatch' {..} = Prelude.rnf exact
 
-instance Core.ToJSON QueryParameterMatch where
+instance Data.ToJSON QueryParameterMatch where
   toJSON QueryParameterMatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("exact" Core..=) Prelude.<$> exact]
+          [("exact" Data..=) Prelude.<$> exact]
       )

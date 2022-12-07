@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Page where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.Range
 
@@ -78,15 +79,15 @@ page_pageNumber = Lens.lens (\Page' {pageNumber} -> pageNumber) (\s@Page' {} a -
 page_lineRange :: Lens.Lens' Page (Prelude.Maybe Range)
 page_lineRange = Lens.lens (\Page' {lineRange} -> lineRange) (\s@Page' {} a -> s {lineRange = a} :: Page)
 
-instance Core.FromJSON Page where
+instance Data.FromJSON Page where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Page"
       ( \x ->
           Page'
-            Prelude.<$> (x Core..:? "OffsetRange")
-            Prelude.<*> (x Core..:? "PageNumber")
-            Prelude.<*> (x Core..:? "LineRange")
+            Prelude.<$> (x Data..:? "OffsetRange")
+            Prelude.<*> (x Data..:? "PageNumber")
+            Prelude.<*> (x Data..:? "LineRange")
       )
 
 instance Prelude.Hashable Page where
@@ -101,12 +102,12 @@ instance Prelude.NFData Page where
       `Prelude.seq` Prelude.rnf pageNumber
       `Prelude.seq` Prelude.rnf lineRange
 
-instance Core.ToJSON Page where
+instance Data.ToJSON Page where
   toJSON Page' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OffsetRange" Core..=) Prelude.<$> offsetRange,
-            ("PageNumber" Core..=) Prelude.<$> pageNumber,
-            ("LineRange" Core..=) Prelude.<$> lineRange
+          [ ("OffsetRange" Data..=) Prelude.<$> offsetRange,
+            ("PageNumber" Data..=) Prelude.<$> pageNumber,
+            ("LineRange" Data..=) Prelude.<$> lineRange
           ]
       )

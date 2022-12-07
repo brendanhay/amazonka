@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,10 +125,10 @@ instance Core.AWSRequest CreateConfigurationSet where
     Response.receiveJSON
       ( \s h x ->
           CreateConfigurationSetResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "ConfigurationSetName")
-            Prelude.<*> (x Core..?> "ConfigurationSetArn")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "ConfigurationSetName")
+            Prelude.<*> (x Data..?> "ConfigurationSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,38 +144,38 @@ instance Prelude.NFData CreateConfigurationSet where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf configurationSetName
 
-instance Core.ToHeaders CreateConfigurationSet where
+instance Data.ToHeaders CreateConfigurationSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.CreateConfigurationSet" ::
+              Data.=# ( "PinpointSMSVoiceV2.CreateConfigurationSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConfigurationSet where
+instance Data.ToJSON CreateConfigurationSet where
   toJSON CreateConfigurationSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
               ( "ConfigurationSetName"
-                  Core..= configurationSetName
+                  Data..= configurationSetName
               )
           ]
       )
 
-instance Core.ToPath CreateConfigurationSet where
+instance Data.ToPath CreateConfigurationSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateConfigurationSet where
+instance Data.ToQuery CreateConfigurationSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConfigurationSetResponse' smart constructor.
@@ -184,7 +185,7 @@ data CreateConfigurationSetResponse = CreateConfigurationSetResponse'
     tags :: Prelude.Maybe [Tag],
     -- | The time when the configuration set was created, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the new configuration set.
     configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the newly created configuration set.
@@ -235,7 +236,7 @@ createConfigurationSetResponse_tags = Lens.lens (\CreateConfigurationSetResponse
 -- | The time when the configuration set was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 createConfigurationSetResponse_createdTimestamp :: Lens.Lens' CreateConfigurationSetResponse (Prelude.Maybe Prelude.UTCTime)
-createConfigurationSetResponse_createdTimestamp = Lens.lens (\CreateConfigurationSetResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateConfigurationSetResponse' {} a -> s {createdTimestamp = a} :: CreateConfigurationSetResponse) Prelude.. Lens.mapping Core._Time
+createConfigurationSetResponse_createdTimestamp = Lens.lens (\CreateConfigurationSetResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateConfigurationSetResponse' {} a -> s {createdTimestamp = a} :: CreateConfigurationSetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the new configuration set.
 createConfigurationSetResponse_configurationSetName :: Lens.Lens' CreateConfigurationSetResponse (Prelude.Maybe Prelude.Text)

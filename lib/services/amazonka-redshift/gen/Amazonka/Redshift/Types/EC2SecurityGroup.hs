@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.EC2SecurityGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.Tag
@@ -84,15 +85,15 @@ eC2SecurityGroup_status = Lens.lens (\EC2SecurityGroup' {status} -> status) (\s@
 eC2SecurityGroup_eC2SecurityGroupName :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe Prelude.Text)
 eC2SecurityGroup_eC2SecurityGroupName = Lens.lens (\EC2SecurityGroup' {eC2SecurityGroupName} -> eC2SecurityGroupName) (\s@EC2SecurityGroup' {} a -> s {eC2SecurityGroupName = a} :: EC2SecurityGroup)
 
-instance Core.FromXML EC2SecurityGroup where
+instance Data.FromXML EC2SecurityGroup where
   parseXML x =
     EC2SecurityGroup'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "EC2SecurityGroupOwnerId")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "EC2SecurityGroupName")
+      Prelude.<*> (x Data..@? "EC2SecurityGroupOwnerId")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "EC2SecurityGroupName")
 
 instance Prelude.Hashable EC2SecurityGroup where
   hashWithSalt _salt EC2SecurityGroup' {..} =

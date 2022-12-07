@@ -65,6 +65,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -177,7 +178,7 @@ instance Core.AWSRequest StartDeployment where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable StartDeployment where
   hashWithSalt _salt StartDeployment' {..} =
@@ -199,47 +200,47 @@ instance Prelude.NFData StartDeployment where
       `Prelude.seq` Prelude.rnf configurationProfileId
       `Prelude.seq` Prelude.rnf configurationVersion
 
-instance Core.ToHeaders StartDeployment where
+instance Data.ToHeaders StartDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartDeployment where
+instance Data.ToJSON StartDeployment where
   toJSON StartDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just
               ( "DeploymentStrategyId"
-                  Core..= deploymentStrategyId
+                  Data..= deploymentStrategyId
               ),
             Prelude.Just
               ( "ConfigurationProfileId"
-                  Core..= configurationProfileId
+                  Data..= configurationProfileId
               ),
             Prelude.Just
               ( "ConfigurationVersion"
-                  Core..= configurationVersion
+                  Data..= configurationVersion
               )
           ]
       )
 
-instance Core.ToPath StartDeployment where
+instance Data.ToPath StartDeployment where
   toPath StartDeployment' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/environments/",
-        Core.toBS environmentId,
+        Data.toBS environmentId,
         "/deployments"
       ]
 
-instance Core.ToQuery StartDeployment where
+instance Data.ToQuery StartDeployment where
   toQuery = Prelude.const Prelude.mempty

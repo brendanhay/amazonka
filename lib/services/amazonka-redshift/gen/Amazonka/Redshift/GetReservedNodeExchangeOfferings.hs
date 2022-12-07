@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -150,10 +151,10 @@ instance
       "GetReservedNodeExchangeOfferingsResult"
       ( \s h x ->
           GetReservedNodeExchangeOfferingsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "ReservedNodeOfferings"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "ReservedNodeOfferings"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "ReservedNodeOffering")
+                            Prelude.>>= Core.may (Data.parseXMLList "ReservedNodeOffering")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -179,29 +180,29 @@ instance
       `Prelude.seq` Prelude.rnf reservedNodeId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetReservedNodeExchangeOfferings
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetReservedNodeExchangeOfferings where
+instance Data.ToPath GetReservedNodeExchangeOfferings where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetReservedNodeExchangeOfferings
   where
   toQuery GetReservedNodeExchangeOfferings' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetReservedNodeExchangeOfferings" ::
+          Data.=: ( "GetReservedNodeExchangeOfferings" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords,
-        "ReservedNodeId" Core.=: reservedNodeId
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
+        "ReservedNodeId" Data.=: reservedNodeId
       ]
 
 -- | /See:/ 'newGetReservedNodeExchangeOfferingsResponse' smart constructor.

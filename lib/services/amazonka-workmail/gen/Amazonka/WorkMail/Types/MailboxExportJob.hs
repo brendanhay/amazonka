@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.MailboxExportJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.MailboxExportJobState
 
@@ -39,14 +40,14 @@ data MailboxExportJob = MailboxExportJob'
     -- | The identifier of the mailbox export job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The mailbox export job end timestamp.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The mailbox export job description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The path to the S3 bucket and file that the mailbox export job exports
     -- to.
     s3Path :: Prelude.Maybe Prelude.Text,
     -- | The mailbox export job start timestamp.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The estimated progress of the mailbox export job, in percentage points.
     estimatedProgress :: Prelude.Maybe Prelude.Natural
   }
@@ -111,7 +112,7 @@ mailboxExportJob_jobId = Lens.lens (\MailboxExportJob' {jobId} -> jobId) (\s@Mai
 
 -- | The mailbox export job end timestamp.
 mailboxExportJob_endTime :: Lens.Lens' MailboxExportJob (Prelude.Maybe Prelude.UTCTime)
-mailboxExportJob_endTime = Lens.lens (\MailboxExportJob' {endTime} -> endTime) (\s@MailboxExportJob' {} a -> s {endTime = a} :: MailboxExportJob) Prelude.. Lens.mapping Core._Time
+mailboxExportJob_endTime = Lens.lens (\MailboxExportJob' {endTime} -> endTime) (\s@MailboxExportJob' {} a -> s {endTime = a} :: MailboxExportJob) Prelude.. Lens.mapping Data._Time
 
 -- | The mailbox export job description.
 mailboxExportJob_description :: Lens.Lens' MailboxExportJob (Prelude.Maybe Prelude.Text)
@@ -124,27 +125,27 @@ mailboxExportJob_s3Path = Lens.lens (\MailboxExportJob' {s3Path} -> s3Path) (\s@
 
 -- | The mailbox export job start timestamp.
 mailboxExportJob_startTime :: Lens.Lens' MailboxExportJob (Prelude.Maybe Prelude.UTCTime)
-mailboxExportJob_startTime = Lens.lens (\MailboxExportJob' {startTime} -> startTime) (\s@MailboxExportJob' {} a -> s {startTime = a} :: MailboxExportJob) Prelude.. Lens.mapping Core._Time
+mailboxExportJob_startTime = Lens.lens (\MailboxExportJob' {startTime} -> startTime) (\s@MailboxExportJob' {} a -> s {startTime = a} :: MailboxExportJob) Prelude.. Lens.mapping Data._Time
 
 -- | The estimated progress of the mailbox export job, in percentage points.
 mailboxExportJob_estimatedProgress :: Lens.Lens' MailboxExportJob (Prelude.Maybe Prelude.Natural)
 mailboxExportJob_estimatedProgress = Lens.lens (\MailboxExportJob' {estimatedProgress} -> estimatedProgress) (\s@MailboxExportJob' {} a -> s {estimatedProgress = a} :: MailboxExportJob)
 
-instance Core.FromJSON MailboxExportJob where
+instance Data.FromJSON MailboxExportJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MailboxExportJob"
       ( \x ->
           MailboxExportJob'
-            Prelude.<$> (x Core..:? "EntityId")
-            Prelude.<*> (x Core..:? "S3BucketName")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "S3Path")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "EstimatedProgress")
+            Prelude.<$> (x Data..:? "EntityId")
+            Prelude.<*> (x Data..:? "S3BucketName")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "S3Path")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "EstimatedProgress")
       )
 
 instance Prelude.Hashable MailboxExportJob where

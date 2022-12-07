@@ -21,6 +21,7 @@ module Amazonka.S3.Types.InventoryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.InventoryDestination
@@ -149,18 +150,18 @@ inventoryConfiguration_includedObjectVersions = Lens.lens (\InventoryConfigurati
 inventoryConfiguration_schedule :: Lens.Lens' InventoryConfiguration InventorySchedule
 inventoryConfiguration_schedule = Lens.lens (\InventoryConfiguration' {schedule} -> schedule) (\s@InventoryConfiguration' {} a -> s {schedule = a} :: InventoryConfiguration)
 
-instance Core.FromXML InventoryConfiguration where
+instance Data.FromXML InventoryConfiguration where
   parseXML x =
     InventoryConfiguration'
-      Prelude.<$> ( x Core..@? "OptionalFields" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Field")
+      Prelude.<$> ( x Data..@? "OptionalFields" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Field")
                   )
-      Prelude.<*> (x Core..@? "Filter")
-      Prelude.<*> (x Core..@ "Destination")
-      Prelude.<*> (x Core..@ "IsEnabled")
-      Prelude.<*> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "IncludedObjectVersions")
-      Prelude.<*> (x Core..@ "Schedule")
+      Prelude.<*> (x Data..@? "Filter")
+      Prelude.<*> (x Data..@ "Destination")
+      Prelude.<*> (x Data..@ "IsEnabled")
+      Prelude.<*> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "IncludedObjectVersions")
+      Prelude.<*> (x Data..@ "Schedule")
 
 instance Prelude.Hashable InventoryConfiguration where
   hashWithSalt _salt InventoryConfiguration' {..} =
@@ -182,17 +183,17 @@ instance Prelude.NFData InventoryConfiguration where
       `Prelude.seq` Prelude.rnf includedObjectVersions
       `Prelude.seq` Prelude.rnf schedule
 
-instance Core.ToXML InventoryConfiguration where
+instance Data.ToXML InventoryConfiguration where
   toXML InventoryConfiguration' {..} =
     Prelude.mconcat
       [ "OptionalFields"
-          Core.@= Core.toXML
-            (Core.toXMLList "Field" Prelude.<$> optionalFields),
-        "Filter" Core.@= filter',
-        "Destination" Core.@= destination,
-        "IsEnabled" Core.@= isEnabled,
-        "Id" Core.@= id,
+          Data.@= Data.toXML
+            (Data.toXMLList "Field" Prelude.<$> optionalFields),
+        "Filter" Data.@= filter',
+        "Destination" Data.@= destination,
+        "IsEnabled" Data.@= isEnabled,
+        "Id" Data.@= id,
         "IncludedObjectVersions"
-          Core.@= includedObjectVersions,
-        "Schedule" Core.@= schedule
+          Data.@= includedObjectVersions,
+        "Schedule" Data.@= schedule
       ]

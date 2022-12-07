@@ -21,6 +21,7 @@ module Amazonka.Location.Types.CalculateRouteTruckModeOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.TruckDimensions
 import Amazonka.Location.Types.TruckWeight
 import qualified Amazonka.Prelude as Prelude
@@ -141,13 +142,13 @@ instance
       `Prelude.seq` Prelude.rnf avoidTolls
       `Prelude.seq` Prelude.rnf weight
 
-instance Core.ToJSON CalculateRouteTruckModeOptions where
+instance Data.ToJSON CalculateRouteTruckModeOptions where
   toJSON CalculateRouteTruckModeOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AvoidFerries" Core..=) Prelude.<$> avoidFerries,
-            ("Dimensions" Core..=) Prelude.<$> dimensions,
-            ("AvoidTolls" Core..=) Prelude.<$> avoidTolls,
-            ("Weight" Core..=) Prelude.<$> weight
+          [ ("AvoidFerries" Data..=) Prelude.<$> avoidFerries,
+            ("Dimensions" Data..=) Prelude.<$> dimensions,
+            ("AvoidTolls" Data..=) Prelude.<$> avoidTolls,
+            ("Weight" Data..=) Prelude.<$> weight
           ]
       )

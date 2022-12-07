@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,7 +158,7 @@ instance Core.AWSRequest CreateProfile where
       ( \s h x ->
           CreateProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ProfileId")
+            Prelude.<*> (x Data..:> "ProfileId")
       )
 
 instance Prelude.Hashable CreateProfile where
@@ -174,37 +175,37 @@ instance Prelude.NFData CreateProfile where
       `Prelude.seq` Prelude.rnf as2Id
       `Prelude.seq` Prelude.rnf profileType
 
-instance Core.ToHeaders CreateProfile where
+instance Data.ToHeaders CreateProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.CreateProfile" ::
+              Data.=# ( "TransferService.CreateProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateProfile where
+instance Data.ToJSON CreateProfile where
   toJSON CreateProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("CertificateIds" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("CertificateIds" Data..=)
               Prelude.<$> certificateIds,
-            Prelude.Just ("As2Id" Core..= as2Id),
-            Prelude.Just ("ProfileType" Core..= profileType)
+            Prelude.Just ("As2Id" Data..= as2Id),
+            Prelude.Just ("ProfileType" Data..= profileType)
           ]
       )
 
-instance Core.ToPath CreateProfile where
+instance Data.ToPath CreateProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateProfile where
+instance Data.ToQuery CreateProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProfileResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.TaskList where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a task list.
@@ -51,11 +52,11 @@ newTaskList pName_ = TaskList' {name = pName_}
 taskList_name :: Lens.Lens' TaskList Prelude.Text
 taskList_name = Lens.lens (\TaskList' {name} -> name) (\s@TaskList' {} a -> s {name = a} :: TaskList)
 
-instance Core.FromJSON TaskList where
+instance Data.FromJSON TaskList where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskList"
-      (\x -> TaskList' Prelude.<$> (x Core..: "name"))
+      (\x -> TaskList' Prelude.<$> (x Data..: "name"))
 
 instance Prelude.Hashable TaskList where
   hashWithSalt _salt TaskList' {..} =
@@ -64,9 +65,9 @@ instance Prelude.Hashable TaskList where
 instance Prelude.NFData TaskList where
   rnf TaskList' {..} = Prelude.rnf name
 
-instance Core.ToJSON TaskList where
+instance Data.ToJSON TaskList where
   toJSON TaskList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )

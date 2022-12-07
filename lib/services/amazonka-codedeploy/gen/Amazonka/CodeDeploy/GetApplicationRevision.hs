@@ -45,6 +45,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,9 +108,9 @@ instance Core.AWSRequest GetApplicationRevision where
     Response.receiveJSON
       ( \s h x ->
           GetApplicationRevisionResponse'
-            Prelude.<$> (x Core..?> "revision")
-            Prelude.<*> (x Core..?> "revisionInfo")
-            Prelude.<*> (x Core..?> "applicationName")
+            Prelude.<$> (x Data..?> "revision")
+            Prelude.<*> (x Data..?> "revisionInfo")
+            Prelude.<*> (x Data..?> "applicationName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,35 +124,35 @@ instance Prelude.NFData GetApplicationRevision where
     Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf revision
 
-instance Core.ToHeaders GetApplicationRevision where
+instance Data.ToHeaders GetApplicationRevision where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.GetApplicationRevision" ::
+              Data.=# ( "CodeDeploy_20141006.GetApplicationRevision" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetApplicationRevision where
+instance Data.ToJSON GetApplicationRevision where
   toJSON GetApplicationRevision' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("applicationName" Core..= applicationName),
-            Prelude.Just ("revision" Core..= revision)
+              ("applicationName" Data..= applicationName),
+            Prelude.Just ("revision" Data..= revision)
           ]
       )
 
-instance Core.ToPath GetApplicationRevision where
+instance Data.ToPath GetApplicationRevision where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetApplicationRevision where
+instance Data.ToQuery GetApplicationRevision where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetApplicationRevision@ operation.

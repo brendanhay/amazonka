@@ -21,6 +21,7 @@ module Amazonka.ApiGatewayV2.Types.MutualTlsAuthentication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newMutualTlsAuthentication' smart constructor.
@@ -99,17 +100,17 @@ mutualTlsAuthentication_truststoreVersion = Lens.lens (\MutualTlsAuthentication'
 mutualTlsAuthentication_truststoreUri :: Lens.Lens' MutualTlsAuthentication (Prelude.Maybe Prelude.Text)
 mutualTlsAuthentication_truststoreUri = Lens.lens (\MutualTlsAuthentication' {truststoreUri} -> truststoreUri) (\s@MutualTlsAuthentication' {} a -> s {truststoreUri = a} :: MutualTlsAuthentication)
 
-instance Core.FromJSON MutualTlsAuthentication where
+instance Data.FromJSON MutualTlsAuthentication where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MutualTlsAuthentication"
       ( \x ->
           MutualTlsAuthentication'
-            Prelude.<$> ( x Core..:? "truststoreWarnings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "truststoreWarnings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "truststoreVersion")
-            Prelude.<*> (x Core..:? "truststoreUri")
+            Prelude.<*> (x Data..:? "truststoreVersion")
+            Prelude.<*> (x Data..:? "truststoreUri")
       )
 
 instance Prelude.Hashable MutualTlsAuthentication where

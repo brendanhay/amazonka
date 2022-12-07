@@ -21,6 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.FormStyleConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration settings for the form\'s style properties.
@@ -64,14 +65,14 @@ formStyleConfig_tokenReference = Lens.lens (\FormStyleConfig' {tokenReference} -
 formStyleConfig_value :: Lens.Lens' FormStyleConfig (Prelude.Maybe Prelude.Text)
 formStyleConfig_value = Lens.lens (\FormStyleConfig' {value} -> value) (\s@FormStyleConfig' {} a -> s {value = a} :: FormStyleConfig)
 
-instance Core.FromJSON FormStyleConfig where
+instance Data.FromJSON FormStyleConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FormStyleConfig"
       ( \x ->
           FormStyleConfig'
-            Prelude.<$> (x Core..:? "tokenReference")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "tokenReference")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable FormStyleConfig where
@@ -84,12 +85,12 @@ instance Prelude.NFData FormStyleConfig where
     Prelude.rnf tokenReference
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON FormStyleConfig where
+instance Data.ToJSON FormStyleConfig where
   toJSON FormStyleConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tokenReference" Core..=)
+          [ ("tokenReference" Data..=)
               Prelude.<$> tokenReference,
-            ("value" Core..=) Prelude.<$> value
+            ("value" Data..=) Prelude.<$> value
           ]
       )

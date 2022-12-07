@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -57,7 +58,7 @@ import qualified Amazonka.Response as Response
 data ListInferenceExecutions = ListInferenceExecutions'
   { -- | The time reference in the inferenced dataset after which Amazon Lookout
     -- for Equipment started the inference execution.
-    dataStartTimeAfter :: Prelude.Maybe Core.POSIX,
+    dataStartTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | An opaque pagination token indicating where to continue the listing of
     -- inference executions.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -67,7 +68,7 @@ data ListInferenceExecutions = ListInferenceExecutions'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The time reference in the inferenced dataset before which Amazon Lookout
     -- for Equipment stopped the inference execution.
-    dataEndTimeBefore :: Prelude.Maybe Core.POSIX,
+    dataEndTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The name of the inference scheduler for the inference execution listed.
     inferenceSchedulerName :: Prelude.Text
   }
@@ -113,7 +114,7 @@ newListInferenceExecutions pInferenceSchedulerName_ =
 -- | The time reference in the inferenced dataset after which Amazon Lookout
 -- for Equipment started the inference execution.
 listInferenceExecutions_dataStartTimeAfter :: Lens.Lens' ListInferenceExecutions (Prelude.Maybe Prelude.UTCTime)
-listInferenceExecutions_dataStartTimeAfter = Lens.lens (\ListInferenceExecutions' {dataStartTimeAfter} -> dataStartTimeAfter) (\s@ListInferenceExecutions' {} a -> s {dataStartTimeAfter = a} :: ListInferenceExecutions) Prelude.. Lens.mapping Core._Time
+listInferenceExecutions_dataStartTimeAfter = Lens.lens (\ListInferenceExecutions' {dataStartTimeAfter} -> dataStartTimeAfter) (\s@ListInferenceExecutions' {} a -> s {dataStartTimeAfter = a} :: ListInferenceExecutions) Prelude.. Lens.mapping Data._Time
 
 -- | An opaque pagination token indicating where to continue the listing of
 -- inference executions.
@@ -131,7 +132,7 @@ listInferenceExecutions_maxResults = Lens.lens (\ListInferenceExecutions' {maxRe
 -- | The time reference in the inferenced dataset before which Amazon Lookout
 -- for Equipment stopped the inference execution.
 listInferenceExecutions_dataEndTimeBefore :: Lens.Lens' ListInferenceExecutions (Prelude.Maybe Prelude.UTCTime)
-listInferenceExecutions_dataEndTimeBefore = Lens.lens (\ListInferenceExecutions' {dataEndTimeBefore} -> dataEndTimeBefore) (\s@ListInferenceExecutions' {} a -> s {dataEndTimeBefore = a} :: ListInferenceExecutions) Prelude.. Lens.mapping Core._Time
+listInferenceExecutions_dataEndTimeBefore = Lens.lens (\ListInferenceExecutions' {dataEndTimeBefore} -> dataEndTimeBefore) (\s@ListInferenceExecutions' {} a -> s {dataEndTimeBefore = a} :: ListInferenceExecutions) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the inference scheduler for the inference execution listed.
 listInferenceExecutions_inferenceSchedulerName :: Lens.Lens' ListInferenceExecutions Prelude.Text
@@ -147,8 +148,8 @@ instance Core.AWSRequest ListInferenceExecutions where
     Response.receiveJSON
       ( \s h x ->
           ListInferenceExecutionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "InferenceExecutionSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "InferenceExecutionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -172,43 +173,43 @@ instance Prelude.NFData ListInferenceExecutions where
       `Prelude.seq` Prelude.rnf dataEndTimeBefore
       `Prelude.seq` Prelude.rnf inferenceSchedulerName
 
-instance Core.ToHeaders ListInferenceExecutions where
+instance Data.ToHeaders ListInferenceExecutions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.ListInferenceExecutions" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.ListInferenceExecutions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListInferenceExecutions where
+instance Data.ToJSON ListInferenceExecutions where
   toJSON ListInferenceExecutions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataStartTimeAfter" Core..=)
+          [ ("DataStartTimeAfter" Data..=)
               Prelude.<$> dataStartTimeAfter,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Status" Core..=) Prelude.<$> status,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("DataEndTimeBefore" Core..=)
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Status" Data..=) Prelude.<$> status,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("DataEndTimeBefore" Data..=)
               Prelude.<$> dataEndTimeBefore,
             Prelude.Just
               ( "InferenceSchedulerName"
-                  Core..= inferenceSchedulerName
+                  Data..= inferenceSchedulerName
               )
           ]
       )
 
-instance Core.ToPath ListInferenceExecutions where
+instance Data.ToPath ListInferenceExecutions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListInferenceExecutions where
+instance Data.ToQuery ListInferenceExecutions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListInferenceExecutionsResponse' smart constructor.

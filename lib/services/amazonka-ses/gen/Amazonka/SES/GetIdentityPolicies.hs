@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,8 +141,8 @@ instance Core.AWSRequest GetIdentityPolicies where
       ( \s h x ->
           GetIdentityPoliciesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "Policies" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLMap "entry" "key" "value"
+            Prelude.<*> ( x Data..@? "Policies" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLMap "entry" "key" "value"
                         )
       )
 
@@ -155,22 +156,22 @@ instance Prelude.NFData GetIdentityPolicies where
     Prelude.rnf identity
       `Prelude.seq` Prelude.rnf policyNames
 
-instance Core.ToHeaders GetIdentityPolicies where
+instance Data.ToHeaders GetIdentityPolicies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetIdentityPolicies where
+instance Data.ToPath GetIdentityPolicies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetIdentityPolicies where
+instance Data.ToQuery GetIdentityPolicies where
   toQuery GetIdentityPolicies' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetIdentityPolicies" :: Prelude.ByteString),
+          Data.=: ("GetIdentityPolicies" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "Identity" Core.=: identity,
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "Identity" Data.=: identity,
         "PolicyNames"
-          Core.=: Core.toQueryList "member" policyNames
+          Data.=: Data.toQueryList "member" policyNames
       ]
 
 -- | Represents the requested sending authorization policies.

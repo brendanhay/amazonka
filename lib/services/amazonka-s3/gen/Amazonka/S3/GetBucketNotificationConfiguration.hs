@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,7 +124,7 @@ instance
     Request.s3vhost
       Prelude.. Request.get (overrides defaultService)
   response =
-    Response.receiveXML (\s h x -> Core.parseXML x)
+    Response.receiveXML (\s h x -> Data.parseXML x)
 
 instance
   Prelude.Hashable
@@ -144,24 +145,24 @@ instance
       `Prelude.seq` Prelude.rnf bucket
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetBucketNotificationConfiguration
   where
   toHeaders GetBucketNotificationConfiguration' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetBucketNotificationConfiguration
   where
   toPath GetBucketNotificationConfiguration' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetBucketNotificationConfiguration
   where
   toQuery =

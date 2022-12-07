@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -64,7 +65,7 @@ data CreateStudioComponent = CreateStudioComponent'
     -- this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Parameters for the studio component scripts.
-    scriptParameters :: Prelude.Maybe (Core.Sensitive [ScriptParameterKeyValue]),
+    scriptParameters :: Prelude.Maybe (Data.Sensitive [ScriptParameterKeyValue]),
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. If you don’t specify a client token, the AWS
     -- SDK automatically generates a client token and uses it for the request
@@ -75,7 +76,7 @@ data CreateStudioComponent = CreateStudioComponent'
     -- | The configuration of the studio component, based on component type.
     configuration :: Prelude.Maybe StudioComponentConfiguration,
     -- | The description.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | An IAM role attached to Studio Component when the system initialization
     -- script runs which give the studio component access to AWS resources when
     -- the system initialization script runs.
@@ -89,7 +90,7 @@ data CreateStudioComponent = CreateStudioComponent'
     -- | The EC2 security groups that control access to the studio component.
     ec2SecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The name for the studio component.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text,
     -- | The type of the studio component.
@@ -158,7 +159,7 @@ newCreateStudioComponent pName_ pStudioId_ pType_ =
       subtype = Prelude.Nothing,
       runtimeRoleArn = Prelude.Nothing,
       ec2SecurityGroupIds = Prelude.Nothing,
-      name = Core._Sensitive Lens.# pName_,
+      name = Data._Sensitive Lens.# pName_,
       studioId = pStudioId_,
       type' = pType_
     }
@@ -170,7 +171,7 @@ createStudioComponent_tags = Lens.lens (\CreateStudioComponent' {tags} -> tags) 
 
 -- | Parameters for the studio component scripts.
 createStudioComponent_scriptParameters :: Lens.Lens' CreateStudioComponent (Prelude.Maybe [ScriptParameterKeyValue])
-createStudioComponent_scriptParameters = Lens.lens (\CreateStudioComponent' {scriptParameters} -> scriptParameters) (\s@CreateStudioComponent' {} a -> s {scriptParameters = a} :: CreateStudioComponent) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createStudioComponent_scriptParameters = Lens.lens (\CreateStudioComponent' {scriptParameters} -> scriptParameters) (\s@CreateStudioComponent' {} a -> s {scriptParameters = a} :: CreateStudioComponent) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don’t specify a client token, the AWS
@@ -189,7 +190,7 @@ createStudioComponent_configuration = Lens.lens (\CreateStudioComponent' {config
 
 -- | The description.
 createStudioComponent_description :: Lens.Lens' CreateStudioComponent (Prelude.Maybe Prelude.Text)
-createStudioComponent_description = Lens.lens (\CreateStudioComponent' {description} -> description) (\s@CreateStudioComponent' {} a -> s {description = a} :: CreateStudioComponent) Prelude.. Lens.mapping Core._Sensitive
+createStudioComponent_description = Lens.lens (\CreateStudioComponent' {description} -> description) (\s@CreateStudioComponent' {} a -> s {description = a} :: CreateStudioComponent) Prelude.. Lens.mapping Data._Sensitive
 
 -- | An IAM role attached to Studio Component when the system initialization
 -- script runs which give the studio component access to AWS resources when
@@ -213,7 +214,7 @@ createStudioComponent_ec2SecurityGroupIds = Lens.lens (\CreateStudioComponent' {
 
 -- | The name for the studio component.
 createStudioComponent_name :: Lens.Lens' CreateStudioComponent Prelude.Text
-createStudioComponent_name = Lens.lens (\CreateStudioComponent' {name} -> name) (\s@CreateStudioComponent' {} a -> s {name = a} :: CreateStudioComponent) Prelude.. Core._Sensitive
+createStudioComponent_name = Lens.lens (\CreateStudioComponent' {name} -> name) (\s@CreateStudioComponent' {} a -> s {name = a} :: CreateStudioComponent) Prelude.. Data._Sensitive
 
 -- | The studio ID.
 createStudioComponent_studioId :: Lens.Lens' CreateStudioComponent Prelude.Text
@@ -233,7 +234,7 @@ instance Core.AWSRequest CreateStudioComponent where
     Response.receiveJSON
       ( \s h x ->
           CreateStudioComponentResponse'
-            Prelude.<$> (x Core..?> "studioComponent")
+            Prelude.<$> (x Data..?> "studioComponent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -269,46 +270,46 @@ instance Prelude.NFData CreateStudioComponent where
       `Prelude.seq` Prelude.rnf studioId
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateStudioComponent where
+instance Data.ToHeaders CreateStudioComponent where
   toHeaders CreateStudioComponent' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateStudioComponent where
+instance Data.ToJSON CreateStudioComponent where
   toJSON CreateStudioComponent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("scriptParameters" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("scriptParameters" Data..=)
               Prelude.<$> scriptParameters,
-            ("initializationScripts" Core..=)
+            ("initializationScripts" Data..=)
               Prelude.<$> initializationScripts,
-            ("configuration" Core..=) Prelude.<$> configuration,
-            ("description" Core..=) Prelude.<$> description,
-            ("secureInitializationRoleArn" Core..=)
+            ("configuration" Data..=) Prelude.<$> configuration,
+            ("description" Data..=) Prelude.<$> description,
+            ("secureInitializationRoleArn" Data..=)
               Prelude.<$> secureInitializationRoleArn,
-            ("subtype" Core..=) Prelude.<$> subtype,
-            ("runtimeRoleArn" Core..=)
+            ("subtype" Data..=) Prelude.<$> subtype,
+            ("runtimeRoleArn" Data..=)
               Prelude.<$> runtimeRoleArn,
-            ("ec2SecurityGroupIds" Core..=)
+            ("ec2SecurityGroupIds" Data..=)
               Prelude.<$> ec2SecurityGroupIds,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("type" Core..= type')
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateStudioComponent where
+instance Data.ToPath CreateStudioComponent where
   toPath CreateStudioComponent' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/studio-components"
       ]
 
-instance Core.ToQuery CreateStudioComponent where
+instance Data.ToQuery CreateStudioComponent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStudioComponentResponse' smart constructor.

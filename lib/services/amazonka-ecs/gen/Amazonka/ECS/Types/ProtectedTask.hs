@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ProtectedTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the protection status details for a task. You can
@@ -35,7 +36,7 @@ data ProtectedTask = ProtectedTask'
     -- a task, the value is @true@. Otherwise, it is @false@.
     protectionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The epoch time when protection for the task will expire.
-    expirationDate :: Prelude.Maybe Core.POSIX
+    expirationDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,17 +74,17 @@ protectedTask_protectionEnabled = Lens.lens (\ProtectedTask' {protectionEnabled}
 
 -- | The epoch time when protection for the task will expire.
 protectedTask_expirationDate :: Lens.Lens' ProtectedTask (Prelude.Maybe Prelude.UTCTime)
-protectedTask_expirationDate = Lens.lens (\ProtectedTask' {expirationDate} -> expirationDate) (\s@ProtectedTask' {} a -> s {expirationDate = a} :: ProtectedTask) Prelude.. Lens.mapping Core._Time
+protectedTask_expirationDate = Lens.lens (\ProtectedTask' {expirationDate} -> expirationDate) (\s@ProtectedTask' {} a -> s {expirationDate = a} :: ProtectedTask) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ProtectedTask where
+instance Data.FromJSON ProtectedTask where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProtectedTask"
       ( \x ->
           ProtectedTask'
-            Prelude.<$> (x Core..:? "taskArn")
-            Prelude.<*> (x Core..:? "protectionEnabled")
-            Prelude.<*> (x Core..:? "expirationDate")
+            Prelude.<$> (x Data..:? "taskArn")
+            Prelude.<*> (x Data..:? "protectionEnabled")
+            Prelude.<*> (x Data..:? "expirationDate")
       )
 
 instance Prelude.Hashable ProtectedTask where

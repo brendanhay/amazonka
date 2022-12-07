@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.ActiveTrustedSigners
 import Amazonka.CloudFront.Types.StreamingDistributionConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A streaming distribution tells CloudFront where you want RTMP content to
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newStreamingDistribution' smart constructor.
 data StreamingDistribution = StreamingDistribution'
   { -- | The date and time that the distribution was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.ISO8601,
+    lastModifiedTime :: Prelude.Maybe Data.ISO8601,
     -- | The identifier for the RTMP distribution. For example:
     -- @EGTXBD79EXAMPLE@.
     id :: Prelude.Text,
@@ -146,7 +147,7 @@ newStreamingDistribution
 
 -- | The date and time that the distribution was last modified.
 streamingDistribution_lastModifiedTime :: Lens.Lens' StreamingDistribution (Prelude.Maybe Prelude.UTCTime)
-streamingDistribution_lastModifiedTime = Lens.lens (\StreamingDistribution' {lastModifiedTime} -> lastModifiedTime) (\s@StreamingDistribution' {} a -> s {lastModifiedTime = a} :: StreamingDistribution) Prelude.. Lens.mapping Core._Time
+streamingDistribution_lastModifiedTime = Lens.lens (\StreamingDistribution' {lastModifiedTime} -> lastModifiedTime) (\s@StreamingDistribution' {} a -> s {lastModifiedTime = a} :: StreamingDistribution) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier for the RTMP distribution. For example:
 -- @EGTXBD79EXAMPLE@.
@@ -193,16 +194,16 @@ streamingDistribution_activeTrustedSigners = Lens.lens (\StreamingDistribution' 
 streamingDistribution_streamingDistributionConfig :: Lens.Lens' StreamingDistribution StreamingDistributionConfig
 streamingDistribution_streamingDistributionConfig = Lens.lens (\StreamingDistribution' {streamingDistributionConfig} -> streamingDistributionConfig) (\s@StreamingDistribution' {} a -> s {streamingDistributionConfig = a} :: StreamingDistribution)
 
-instance Core.FromXML StreamingDistribution where
+instance Data.FromXML StreamingDistribution where
   parseXML x =
     StreamingDistribution'
-      Prelude.<$> (x Core..@? "LastModifiedTime")
-      Prelude.<*> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "ARN")
-      Prelude.<*> (x Core..@ "Status")
-      Prelude.<*> (x Core..@ "DomainName")
-      Prelude.<*> (x Core..@ "ActiveTrustedSigners")
-      Prelude.<*> (x Core..@ "StreamingDistributionConfig")
+      Prelude.<$> (x Data..@? "LastModifiedTime")
+      Prelude.<*> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "ARN")
+      Prelude.<*> (x Data..@ "Status")
+      Prelude.<*> (x Data..@ "DomainName")
+      Prelude.<*> (x Data..@ "ActiveTrustedSigners")
+      Prelude.<*> (x Data..@ "StreamingDistributionConfig")
 
 instance Prelude.Hashable StreamingDistribution where
   hashWithSalt _salt StreamingDistribution' {..} =

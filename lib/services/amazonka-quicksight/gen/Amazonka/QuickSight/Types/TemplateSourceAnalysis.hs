@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.TemplateSourceAnalysis where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DataSetReference
 
@@ -80,12 +81,12 @@ instance Prelude.NFData TemplateSourceAnalysis where
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf dataSetReferences
 
-instance Core.ToJSON TemplateSourceAnalysis where
+instance Data.ToJSON TemplateSourceAnalysis where
   toJSON TemplateSourceAnalysis' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Arn" Core..= arn),
+          [ Prelude.Just ("Arn" Data..= arn),
             Prelude.Just
-              ("DataSetReferences" Core..= dataSetReferences)
+              ("DataSetReferences" Data..= dataSetReferences)
           ]
       )

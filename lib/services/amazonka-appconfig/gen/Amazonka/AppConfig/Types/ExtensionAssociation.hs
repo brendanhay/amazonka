@@ -21,6 +21,7 @@ module Amazonka.AppConfig.Types.ExtensionAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newExtensionAssociation' smart constructor.
@@ -99,18 +100,18 @@ extensionAssociation_extensionArn = Lens.lens (\ExtensionAssociation' {extension
 extensionAssociation_parameters :: Lens.Lens' ExtensionAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 extensionAssociation_parameters = Lens.lens (\ExtensionAssociation' {parameters} -> parameters) (\s@ExtensionAssociation' {} a -> s {parameters = a} :: ExtensionAssociation) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ExtensionAssociation where
+instance Data.FromJSON ExtensionAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExtensionAssociation"
       ( \x ->
           ExtensionAssociation'
-            Prelude.<$> (x Core..:? "ExtensionVersionNumber")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "ExtensionArn")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ExtensionVersionNumber")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "ExtensionArn")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ExtensionAssociation where

@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.LambdaFunction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Lambda function.
@@ -52,12 +53,12 @@ newLambdaFunction pArn_ =
 lambdaFunction_arn :: Lens.Lens' LambdaFunction Prelude.Text
 lambdaFunction_arn = Lens.lens (\LambdaFunction' {arn} -> arn) (\s@LambdaFunction' {} a -> s {arn = a} :: LambdaFunction)
 
-instance Core.FromJSON LambdaFunction where
+instance Data.FromJSON LambdaFunction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaFunction"
       ( \x ->
-          LambdaFunction' Prelude.<$> (x Core..: "arn")
+          LambdaFunction' Prelude.<$> (x Data..: "arn")
       )
 
 instance Prelude.Hashable LambdaFunction where
@@ -67,9 +68,9 @@ instance Prelude.Hashable LambdaFunction where
 instance Prelude.NFData LambdaFunction where
   rnf LambdaFunction' {..} = Prelude.rnf arn
 
-instance Core.ToJSON LambdaFunction where
+instance Data.ToJSON LambdaFunction where
   toJSON LambdaFunction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )

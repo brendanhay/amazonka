@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Fmp4HlsSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.Fmp4NielsenId3Behavior
 import Amazonka.MediaLive.Types.Fmp4TimedMetadataBehavior
 import qualified Amazonka.Prelude as Prelude
@@ -88,15 +89,15 @@ fmp4HlsSettings_nielsenId3Behavior = Lens.lens (\Fmp4HlsSettings' {nielsenId3Beh
 fmp4HlsSettings_timedMetadataBehavior :: Lens.Lens' Fmp4HlsSettings (Prelude.Maybe Fmp4TimedMetadataBehavior)
 fmp4HlsSettings_timedMetadataBehavior = Lens.lens (\Fmp4HlsSettings' {timedMetadataBehavior} -> timedMetadataBehavior) (\s@Fmp4HlsSettings' {} a -> s {timedMetadataBehavior = a} :: Fmp4HlsSettings)
 
-instance Core.FromJSON Fmp4HlsSettings where
+instance Data.FromJSON Fmp4HlsSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Fmp4HlsSettings"
       ( \x ->
           Fmp4HlsSettings'
-            Prelude.<$> (x Core..:? "audioRenditionSets")
-            Prelude.<*> (x Core..:? "nielsenId3Behavior")
-            Prelude.<*> (x Core..:? "timedMetadataBehavior")
+            Prelude.<$> (x Data..:? "audioRenditionSets")
+            Prelude.<*> (x Data..:? "nielsenId3Behavior")
+            Prelude.<*> (x Data..:? "timedMetadataBehavior")
       )
 
 instance Prelude.Hashable Fmp4HlsSettings where
@@ -111,15 +112,15 @@ instance Prelude.NFData Fmp4HlsSettings where
       `Prelude.seq` Prelude.rnf nielsenId3Behavior
       `Prelude.seq` Prelude.rnf timedMetadataBehavior
 
-instance Core.ToJSON Fmp4HlsSettings where
+instance Data.ToJSON Fmp4HlsSettings where
   toJSON Fmp4HlsSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("audioRenditionSets" Core..=)
+          [ ("audioRenditionSets" Data..=)
               Prelude.<$> audioRenditionSets,
-            ("nielsenId3Behavior" Core..=)
+            ("nielsenId3Behavior" Data..=)
               Prelude.<$> nielsenId3Behavior,
-            ("timedMetadataBehavior" Core..=)
+            ("timedMetadataBehavior" Data..=)
               Prelude.<$> timedMetadataBehavior
           ]
       )

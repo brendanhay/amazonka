@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -54,7 +55,7 @@ import qualified Amazonka.Response as Response
 data StartAppAssessment = StartAppAssessment'
   { -- | The tags assigned to the resource. A tag is a label that you assign to
     -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Used for an idempotency token. A client token is a unique,
     -- case-sensitive string of up to 64 ASCII characters. You should not reuse
     -- the same client token for other API requests.
@@ -119,7 +120,7 @@ newStartAppAssessment
 -- | The tags assigned to the resource. A tag is a label that you assign to
 -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
 startAppAssessment_tags :: Lens.Lens' StartAppAssessment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startAppAssessment_tags = Lens.lens (\StartAppAssessment' {tags} -> tags) (\s@StartAppAssessment' {} a -> s {tags = a} :: StartAppAssessment) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+startAppAssessment_tags = Lens.lens (\StartAppAssessment' {tags} -> tags) (\s@StartAppAssessment' {} a -> s {tags = a} :: StartAppAssessment) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Used for an idempotency token. A client token is a unique,
 -- case-sensitive string of up to 64 ASCII characters. You should not reuse
@@ -154,7 +155,7 @@ instance Core.AWSRequest StartAppAssessment where
       ( \s h x ->
           StartAppAssessmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "assessment")
+            Prelude.<*> (x Data..:> "assessment")
       )
 
 instance Prelude.Hashable StartAppAssessment where
@@ -173,34 +174,34 @@ instance Prelude.NFData StartAppAssessment where
       `Prelude.seq` Prelude.rnf appVersion
       `Prelude.seq` Prelude.rnf assessmentName
 
-instance Core.ToHeaders StartAppAssessment where
+instance Data.ToHeaders StartAppAssessment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartAppAssessment where
+instance Data.ToJSON StartAppAssessment where
   toJSON StartAppAssessment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("appArn" Core..= appArn),
-            Prelude.Just ("appVersion" Core..= appVersion),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("appArn" Data..= appArn),
+            Prelude.Just ("appVersion" Data..= appVersion),
             Prelude.Just
-              ("assessmentName" Core..= assessmentName)
+              ("assessmentName" Data..= assessmentName)
           ]
       )
 
-instance Core.ToPath StartAppAssessment where
+instance Data.ToPath StartAppAssessment where
   toPath = Prelude.const "/start-app-assessment"
 
-instance Core.ToQuery StartAppAssessment where
+instance Data.ToQuery StartAppAssessment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartAppAssessmentResponse' smart constructor.

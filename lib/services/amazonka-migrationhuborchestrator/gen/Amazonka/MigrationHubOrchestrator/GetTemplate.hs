@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,13 +87,13 @@ instance Core.AWSRequest GetTemplate where
     Response.receiveJSON
       ( \s h x ->
           GetTemplateResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "tools" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "inputs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "tools" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "inputs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,23 +104,23 @@ instance Prelude.Hashable GetTemplate where
 instance Prelude.NFData GetTemplate where
   rnf GetTemplate' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetTemplate where
+instance Data.ToHeaders GetTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetTemplate where
+instance Data.ToPath GetTemplate where
   toPath GetTemplate' {..} =
     Prelude.mconcat
-      ["/migrationworkflowtemplate/", Core.toBS id]
+      ["/migrationworkflowtemplate/", Data.toBS id]
 
-instance Core.ToQuery GetTemplate where
+instance Data.ToQuery GetTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTemplateResponse' smart constructor.
@@ -135,7 +136,7 @@ data GetTemplateResponse = GetTemplateResponse'
     -- | The ID of the template.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time at which the template was last created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The inputs provided for the creation of the migration workflow.
     inputs :: Prelude.Maybe [TemplateInput],
     -- | The response's http status code.
@@ -204,7 +205,7 @@ getTemplateResponse_id = Lens.lens (\GetTemplateResponse' {id} -> id) (\s@GetTem
 
 -- | The time at which the template was last created.
 getTemplateResponse_creationTime :: Lens.Lens' GetTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-getTemplateResponse_creationTime = Lens.lens (\GetTemplateResponse' {creationTime} -> creationTime) (\s@GetTemplateResponse' {} a -> s {creationTime = a} :: GetTemplateResponse) Prelude.. Lens.mapping Core._Time
+getTemplateResponse_creationTime = Lens.lens (\GetTemplateResponse' {creationTime} -> creationTime) (\s@GetTemplateResponse' {} a -> s {creationTime = a} :: GetTemplateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The inputs provided for the creation of the migration workflow.
 getTemplateResponse_inputs :: Lens.Lens' GetTemplateResponse (Prelude.Maybe [TemplateInput])

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,7 +90,7 @@ instance Core.AWSRequest RetrieveDomainAuthCode where
       ( \s h x ->
           RetrieveDomainAuthCodeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "AuthCode")
+            Prelude.<*> (x Data..:> "AuthCode")
       )
 
 instance Prelude.Hashable RetrieveDomainAuthCode where
@@ -100,32 +101,32 @@ instance Prelude.NFData RetrieveDomainAuthCode where
   rnf RetrieveDomainAuthCode' {..} =
     Prelude.rnf domainName
 
-instance Core.ToHeaders RetrieveDomainAuthCode where
+instance Data.ToHeaders RetrieveDomainAuthCode where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.RetrieveDomainAuthCode" ::
+              Data.=# ( "Route53Domains_v20140515.RetrieveDomainAuthCode" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RetrieveDomainAuthCode where
+instance Data.ToJSON RetrieveDomainAuthCode where
   toJSON RetrieveDomainAuthCode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DomainName" Core..= domainName)]
+          [Prelude.Just ("DomainName" Data..= domainName)]
       )
 
-instance Core.ToPath RetrieveDomainAuthCode where
+instance Data.ToPath RetrieveDomainAuthCode where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RetrieveDomainAuthCode where
+instance Data.ToQuery RetrieveDomainAuthCode where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The RetrieveDomainAuthCode response includes the following element.
@@ -135,7 +136,7 @@ data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The authorization code for the domain.
-    authCode :: Core.Sensitive Prelude.Text
+    authCode :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -163,7 +164,7 @@ newRetrieveDomainAuthCodeResponse
       { httpStatus =
           pHttpStatus_,
         authCode =
-          Core._Sensitive Lens.# pAuthCode_
+          Data._Sensitive Lens.# pAuthCode_
       }
 
 -- | The response's http status code.
@@ -172,7 +173,7 @@ retrieveDomainAuthCodeResponse_httpStatus = Lens.lens (\RetrieveDomainAuthCodeRe
 
 -- | The authorization code for the domain.
 retrieveDomainAuthCodeResponse_authCode :: Lens.Lens' RetrieveDomainAuthCodeResponse Prelude.Text
-retrieveDomainAuthCodeResponse_authCode = Lens.lens (\RetrieveDomainAuthCodeResponse' {authCode} -> authCode) (\s@RetrieveDomainAuthCodeResponse' {} a -> s {authCode = a} :: RetrieveDomainAuthCodeResponse) Prelude.. Core._Sensitive
+retrieveDomainAuthCodeResponse_authCode = Lens.lens (\RetrieveDomainAuthCodeResponse' {authCode} -> authCode) (\s@RetrieveDomainAuthCodeResponse' {} a -> s {authCode = a} :: RetrieveDomainAuthCodeResponse) Prelude.. Data._Sensitive
 
 instance
   Prelude.NFData

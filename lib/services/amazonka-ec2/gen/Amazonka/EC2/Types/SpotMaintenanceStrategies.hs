@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotMaintenanceStrategies where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.SpotCapacityRebalance
 import qualified Amazonka.Prelude as Prelude
@@ -68,10 +69,10 @@ newSpotMaintenanceStrategies =
 spotMaintenanceStrategies_capacityRebalance :: Lens.Lens' SpotMaintenanceStrategies (Prelude.Maybe SpotCapacityRebalance)
 spotMaintenanceStrategies_capacityRebalance = Lens.lens (\SpotMaintenanceStrategies' {capacityRebalance} -> capacityRebalance) (\s@SpotMaintenanceStrategies' {} a -> s {capacityRebalance = a} :: SpotMaintenanceStrategies)
 
-instance Core.FromXML SpotMaintenanceStrategies where
+instance Data.FromXML SpotMaintenanceStrategies where
   parseXML x =
     SpotMaintenanceStrategies'
-      Prelude.<$> (x Core..@? "capacityRebalance")
+      Prelude.<$> (x Data..@? "capacityRebalance")
 
 instance Prelude.Hashable SpotMaintenanceStrategies where
   hashWithSalt _salt SpotMaintenanceStrategies' {..} =
@@ -81,7 +82,7 @@ instance Prelude.NFData SpotMaintenanceStrategies where
   rnf SpotMaintenanceStrategies' {..} =
     Prelude.rnf capacityRebalance
 
-instance Core.ToQuery SpotMaintenanceStrategies where
+instance Data.ToQuery SpotMaintenanceStrategies where
   toQuery SpotMaintenanceStrategies' {..} =
     Prelude.mconcat
-      ["CapacityRebalance" Core.=: capacityRebalance]
+      ["CapacityRebalance" Data.=: capacityRebalance]

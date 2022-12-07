@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.TrafficDistributionGroup where
 import Amazonka.Connect.Types.TrafficDistributionGroupStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a traffic distribution group.
@@ -191,19 +192,19 @@ trafficDistributionGroup_description = Lens.lens (\TrafficDistributionGroup' {de
 trafficDistributionGroup_instanceArn :: Lens.Lens' TrafficDistributionGroup (Prelude.Maybe Prelude.Text)
 trafficDistributionGroup_instanceArn = Lens.lens (\TrafficDistributionGroup' {instanceArn} -> instanceArn) (\s@TrafficDistributionGroup' {} a -> s {instanceArn = a} :: TrafficDistributionGroup)
 
-instance Core.FromJSON TrafficDistributionGroup where
+instance Data.FromJSON TrafficDistributionGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrafficDistributionGroup"
       ( \x ->
           TrafficDistributionGroup'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "InstanceArn")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "InstanceArn")
       )
 
 instance Prelude.Hashable TrafficDistributionGroup where

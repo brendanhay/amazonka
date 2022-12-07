@@ -22,6 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError where
 import Amazonka.ChimeSDKMessaging.Types.ErrorCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of failed member ARNs, error codes, and error messages.
@@ -73,17 +74,17 @@ batchCreateChannelMembershipError_errorCode :: Lens.Lens' BatchCreateChannelMemb
 batchCreateChannelMembershipError_errorCode = Lens.lens (\BatchCreateChannelMembershipError' {errorCode} -> errorCode) (\s@BatchCreateChannelMembershipError' {} a -> s {errorCode = a} :: BatchCreateChannelMembershipError)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchCreateChannelMembershipError
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchCreateChannelMembershipError"
       ( \x ->
           BatchCreateChannelMembershipError'
-            Prelude.<$> (x Core..:? "MemberArn")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "MemberArn")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance

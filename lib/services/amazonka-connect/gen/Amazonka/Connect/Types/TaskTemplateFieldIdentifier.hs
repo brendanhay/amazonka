@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.TaskTemplateFieldIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The identifier of the task template field.
@@ -53,13 +54,13 @@ newTaskTemplateFieldIdentifier =
 taskTemplateFieldIdentifier_name :: Lens.Lens' TaskTemplateFieldIdentifier (Prelude.Maybe Prelude.Text)
 taskTemplateFieldIdentifier_name = Lens.lens (\TaskTemplateFieldIdentifier' {name} -> name) (\s@TaskTemplateFieldIdentifier' {} a -> s {name = a} :: TaskTemplateFieldIdentifier)
 
-instance Core.FromJSON TaskTemplateFieldIdentifier where
+instance Data.FromJSON TaskTemplateFieldIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskTemplateFieldIdentifier"
       ( \x ->
           TaskTemplateFieldIdentifier'
-            Prelude.<$> (x Core..:? "Name")
+            Prelude.<$> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable TaskTemplateFieldIdentifier where
@@ -70,9 +71,9 @@ instance Prelude.NFData TaskTemplateFieldIdentifier where
   rnf TaskTemplateFieldIdentifier' {..} =
     Prelude.rnf name
 
-instance Core.ToJSON TaskTemplateFieldIdentifier where
+instance Data.ToJSON TaskTemplateFieldIdentifier where
   toJSON TaskTemplateFieldIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Name" Core..=) Prelude.<$> name]
+          [("Name" Data..=) Prelude.<$> name]
       )

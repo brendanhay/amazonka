@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LocalGatewayVirtualInterfaceGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -97,21 +98,21 @@ localGatewayVirtualInterfaceGroup_localGatewayVirtualInterfaceGroupId :: Lens.Le
 localGatewayVirtualInterfaceGroup_localGatewayVirtualInterfaceGroupId = Lens.lens (\LocalGatewayVirtualInterfaceGroup' {localGatewayVirtualInterfaceGroupId} -> localGatewayVirtualInterfaceGroupId) (\s@LocalGatewayVirtualInterfaceGroup' {} a -> s {localGatewayVirtualInterfaceGroupId = a} :: LocalGatewayVirtualInterfaceGroup)
 
 instance
-  Core.FromXML
+  Data.FromXML
     LocalGatewayVirtualInterfaceGroup
   where
   parseXML x =
     LocalGatewayVirtualInterfaceGroup'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "localGatewayId")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> ( x Core..@? "localGatewayVirtualInterfaceIdSet"
+      Prelude.<*> (x Data..@? "localGatewayId")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> ( x Data..@? "localGatewayVirtualInterfaceIdSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "localGatewayVirtualInterfaceGroupId")
+      Prelude.<*> (x Data..@? "localGatewayVirtualInterfaceGroupId")
 
 instance
   Prelude.Hashable

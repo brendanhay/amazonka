@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ScheduledActionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.ScheduledActionFilterName
@@ -77,9 +78,9 @@ instance Prelude.NFData ScheduledActionFilter where
   rnf ScheduledActionFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToQuery ScheduledActionFilter where
+instance Data.ToQuery ScheduledActionFilter where
   toQuery ScheduledActionFilter' {..} =
     Prelude.mconcat
-      [ "Name" Core.=: name,
-        "Values" Core.=: Core.toQueryList "item" values
+      [ "Name" Data.=: name,
+        "Values" Data.=: Data.toQueryList "item" values
       ]

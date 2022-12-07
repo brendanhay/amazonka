@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,10 +100,10 @@ instance Core.AWSRequest DescribeOrganizationHealth where
       ( \s h x ->
           DescribeOrganizationHealthResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "OpenReactiveInsights")
-            Prelude.<*> (x Core..:> "OpenProactiveInsights")
-            Prelude.<*> (x Core..:> "MetricsAnalyzed")
-            Prelude.<*> (x Core..:> "ResourceHours")
+            Prelude.<*> (x Data..:> "OpenReactiveInsights")
+            Prelude.<*> (x Data..:> "OpenProactiveInsights")
+            Prelude.<*> (x Data..:> "MetricsAnalyzed")
+            Prelude.<*> (x Data..:> "ResourceHours")
       )
 
 instance Prelude.Hashable DescribeOrganizationHealth where
@@ -115,31 +116,31 @@ instance Prelude.NFData DescribeOrganizationHealth where
     Prelude.rnf accountIds
       `Prelude.seq` Prelude.rnf organizationalUnitIds
 
-instance Core.ToHeaders DescribeOrganizationHealth where
+instance Data.ToHeaders DescribeOrganizationHealth where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeOrganizationHealth where
+instance Data.ToJSON DescribeOrganizationHealth where
   toJSON DescribeOrganizationHealth' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccountIds" Core..=) Prelude.<$> accountIds,
-            ("OrganizationalUnitIds" Core..=)
+          [ ("AccountIds" Data..=) Prelude.<$> accountIds,
+            ("OrganizationalUnitIds" Data..=)
               Prelude.<$> organizationalUnitIds
           ]
       )
 
-instance Core.ToPath DescribeOrganizationHealth where
+instance Data.ToPath DescribeOrganizationHealth where
   toPath = Prelude.const "/organization/health"
 
-instance Core.ToQuery DescribeOrganizationHealth where
+instance Data.ToQuery DescribeOrganizationHealth where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeOrganizationHealthResponse' smart constructor.

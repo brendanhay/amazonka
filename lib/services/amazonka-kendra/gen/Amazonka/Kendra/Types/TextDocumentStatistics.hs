@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.TextDocumentStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about text documents indexed in an index.
@@ -68,14 +69,14 @@ textDocumentStatistics_indexedTextDocumentsCount = Lens.lens (\TextDocumentStati
 textDocumentStatistics_indexedTextBytes :: Lens.Lens' TextDocumentStatistics Prelude.Natural
 textDocumentStatistics_indexedTextBytes = Lens.lens (\TextDocumentStatistics' {indexedTextBytes} -> indexedTextBytes) (\s@TextDocumentStatistics' {} a -> s {indexedTextBytes = a} :: TextDocumentStatistics)
 
-instance Core.FromJSON TextDocumentStatistics where
+instance Data.FromJSON TextDocumentStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TextDocumentStatistics"
       ( \x ->
           TextDocumentStatistics'
-            Prelude.<$> (x Core..: "IndexedTextDocumentsCount")
-            Prelude.<*> (x Core..: "IndexedTextBytes")
+            Prelude.<$> (x Data..: "IndexedTextDocumentsCount")
+            Prelude.<*> (x Data..: "IndexedTextBytes")
       )
 
 instance Prelude.Hashable TextDocumentStatistics where

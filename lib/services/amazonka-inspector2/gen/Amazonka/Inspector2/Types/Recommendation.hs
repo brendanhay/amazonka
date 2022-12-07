@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.Recommendation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the recommended course of action to remediate the finding.
@@ -61,13 +62,13 @@ recommendation_url = Lens.lens (\Recommendation' {url} -> url) (\s@Recommendatio
 recommendation_text :: Lens.Lens' Recommendation (Prelude.Maybe Prelude.Text)
 recommendation_text = Lens.lens (\Recommendation' {text} -> text) (\s@Recommendation' {} a -> s {text = a} :: Recommendation)
 
-instance Core.FromJSON Recommendation where
+instance Data.FromJSON Recommendation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Recommendation"
       ( \x ->
           Recommendation'
-            Prelude.<$> (x Core..:? "Url") Prelude.<*> (x Core..:? "text")
+            Prelude.<$> (x Data..:? "Url") Prelude.<*> (x Data..:? "text")
       )
 
 instance Prelude.Hashable Recommendation where

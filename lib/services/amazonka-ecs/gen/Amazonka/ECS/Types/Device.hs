@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.Device where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.DeviceCgroupPermission
 import qualified Amazonka.Prelude as Prelude
 
@@ -79,15 +80,15 @@ device_containerPath = Lens.lens (\Device' {containerPath} -> containerPath) (\s
 device_hostPath :: Lens.Lens' Device Prelude.Text
 device_hostPath = Lens.lens (\Device' {hostPath} -> hostPath) (\s@Device' {} a -> s {hostPath = a} :: Device)
 
-instance Core.FromJSON Device where
+instance Data.FromJSON Device where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Device"
       ( \x ->
           Device'
-            Prelude.<$> (x Core..:? "permissions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "containerPath")
-            Prelude.<*> (x Core..: "hostPath")
+            Prelude.<$> (x Data..:? "permissions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "containerPath")
+            Prelude.<*> (x Data..: "hostPath")
       )
 
 instance Prelude.Hashable Device where
@@ -102,12 +103,12 @@ instance Prelude.NFData Device where
       `Prelude.seq` Prelude.rnf containerPath
       `Prelude.seq` Prelude.rnf hostPath
 
-instance Core.ToJSON Device where
+instance Data.ToJSON Device where
   toJSON Device' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("permissions" Core..=) Prelude.<$> permissions,
-            ("containerPath" Core..=) Prelude.<$> containerPath,
-            Prelude.Just ("hostPath" Core..= hostPath)
+          [ ("permissions" Data..=) Prelude.<$> permissions,
+            ("containerPath" Data..=) Prelude.<$> containerPath,
+            Prelude.Just ("hostPath" Data..= hostPath)
           ]
       )

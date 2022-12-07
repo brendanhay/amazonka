@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,7 +127,7 @@ instance Core.AWSRequest CreateCoreNetwork where
     Response.receiveJSON
       ( \s h x ->
           CreateCoreNetworkResponse'
-            Prelude.<$> (x Core..?> "CoreNetwork")
+            Prelude.<$> (x Data..?> "CoreNetwork")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,35 +147,35 @@ instance Prelude.NFData CreateCoreNetwork where
       `Prelude.seq` Prelude.rnf policyDocument
       `Prelude.seq` Prelude.rnf globalNetworkId
 
-instance Core.ToHeaders CreateCoreNetwork where
+instance Data.ToHeaders CreateCoreNetwork where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCoreNetwork where
+instance Data.ToJSON CreateCoreNetwork where
   toJSON CreateCoreNetwork' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Description" Core..=) Prelude.<$> description,
-            ("PolicyDocument" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Description" Data..=) Prelude.<$> description,
+            ("PolicyDocument" Data..=)
               Prelude.<$> policyDocument,
             Prelude.Just
-              ("GlobalNetworkId" Core..= globalNetworkId)
+              ("GlobalNetworkId" Data..= globalNetworkId)
           ]
       )
 
-instance Core.ToPath CreateCoreNetwork where
+instance Data.ToPath CreateCoreNetwork where
   toPath = Prelude.const "/core-networks"
 
-instance Core.ToQuery CreateCoreNetwork where
+instance Data.ToQuery CreateCoreNetwork where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCoreNetworkResponse' smart constructor.

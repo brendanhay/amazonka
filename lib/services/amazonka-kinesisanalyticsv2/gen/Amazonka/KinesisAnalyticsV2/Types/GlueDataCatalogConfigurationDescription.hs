@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.GlueDataCatalogConfigurationDescription
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of the Glue Data Catalog that you use for Apache Flink
@@ -58,15 +59,15 @@ glueDataCatalogConfigurationDescription_databaseARN :: Lens.Lens' GlueDataCatalo
 glueDataCatalogConfigurationDescription_databaseARN = Lens.lens (\GlueDataCatalogConfigurationDescription' {databaseARN} -> databaseARN) (\s@GlueDataCatalogConfigurationDescription' {} a -> s {databaseARN = a} :: GlueDataCatalogConfigurationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     GlueDataCatalogConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GlueDataCatalogConfigurationDescription"
       ( \x ->
           GlueDataCatalogConfigurationDescription'
-            Prelude.<$> (x Core..: "DatabaseARN")
+            Prelude.<$> (x Data..: "DatabaseARN")
       )
 
 instance

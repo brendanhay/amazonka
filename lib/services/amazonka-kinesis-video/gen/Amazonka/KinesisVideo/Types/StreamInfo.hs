@@ -21,6 +21,7 @@ module Amazonka.KinesisVideo.Types.StreamInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types.StreamStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -38,7 +39,7 @@ data StreamInfo = StreamInfo'
     -- Streams uses to encrypt data on the stream.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | A time stamp that indicates when the stream was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the stream.
     streamARN :: Prelude.Maybe Prelude.Text,
     -- | How long the stream retains data, in hours.
@@ -110,7 +111,7 @@ streamInfo_kmsKeyId = Lens.lens (\StreamInfo' {kmsKeyId} -> kmsKeyId) (\s@Stream
 
 -- | A time stamp that indicates when the stream was created.
 streamInfo_creationTime :: Lens.Lens' StreamInfo (Prelude.Maybe Prelude.UTCTime)
-streamInfo_creationTime = Lens.lens (\StreamInfo' {creationTime} -> creationTime) (\s@StreamInfo' {} a -> s {creationTime = a} :: StreamInfo) Prelude.. Lens.mapping Core._Time
+streamInfo_creationTime = Lens.lens (\StreamInfo' {creationTime} -> creationTime) (\s@StreamInfo' {} a -> s {creationTime = a} :: StreamInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the stream.
 streamInfo_streamARN :: Lens.Lens' StreamInfo (Prelude.Maybe Prelude.Text)
@@ -128,21 +129,21 @@ streamInfo_streamName = Lens.lens (\StreamInfo' {streamName} -> streamName) (\s@
 streamInfo_version :: Lens.Lens' StreamInfo (Prelude.Maybe Prelude.Text)
 streamInfo_version = Lens.lens (\StreamInfo' {version} -> version) (\s@StreamInfo' {} a -> s {version = a} :: StreamInfo)
 
-instance Core.FromJSON StreamInfo where
+instance Data.FromJSON StreamInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamInfo"
       ( \x ->
           StreamInfo'
-            Prelude.<$> (x Core..:? "DeviceName")
-            Prelude.<*> (x Core..:? "MediaType")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "StreamARN")
-            Prelude.<*> (x Core..:? "DataRetentionInHours")
-            Prelude.<*> (x Core..:? "StreamName")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "DeviceName")
+            Prelude.<*> (x Data..:? "MediaType")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "StreamARN")
+            Prelude.<*> (x Data..:? "DataRetentionInHours")
+            Prelude.<*> (x Data..:? "StreamName")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable StreamInfo where

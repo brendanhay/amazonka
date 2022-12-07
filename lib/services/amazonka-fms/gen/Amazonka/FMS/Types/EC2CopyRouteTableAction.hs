@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.EC2CopyRouteTableAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.ActionTarget
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,15 +86,15 @@ eC2CopyRouteTableAction_vpcId = Lens.lens (\EC2CopyRouteTableAction' {vpcId} -> 
 eC2CopyRouteTableAction_routeTableId :: Lens.Lens' EC2CopyRouteTableAction ActionTarget
 eC2CopyRouteTableAction_routeTableId = Lens.lens (\EC2CopyRouteTableAction' {routeTableId} -> routeTableId) (\s@EC2CopyRouteTableAction' {} a -> s {routeTableId = a} :: EC2CopyRouteTableAction)
 
-instance Core.FromJSON EC2CopyRouteTableAction where
+instance Data.FromJSON EC2CopyRouteTableAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EC2CopyRouteTableAction"
       ( \x ->
           EC2CopyRouteTableAction'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..: "VpcId")
-            Prelude.<*> (x Core..: "RouteTableId")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..: "VpcId")
+            Prelude.<*> (x Data..: "RouteTableId")
       )
 
 instance Prelude.Hashable EC2CopyRouteTableAction where

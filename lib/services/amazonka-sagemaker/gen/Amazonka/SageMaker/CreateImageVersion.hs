@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,7 +133,7 @@ instance Core.AWSRequest CreateImageVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateImageVersionResponse'
-            Prelude.<$> (x Core..?> "ImageVersionArn")
+            Prelude.<$> (x Data..?> "ImageVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,35 +149,35 @@ instance Prelude.NFData CreateImageVersion where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf imageName
 
-instance Core.ToHeaders CreateImageVersion where
+instance Data.ToHeaders CreateImageVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateImageVersion" ::
+              Data.=# ( "SageMaker.CreateImageVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateImageVersion where
+instance Data.ToJSON CreateImageVersion where
   toJSON CreateImageVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("BaseImage" Core..= baseImage),
-            Prelude.Just ("ClientToken" Core..= clientToken),
-            Prelude.Just ("ImageName" Core..= imageName)
+          [ Prelude.Just ("BaseImage" Data..= baseImage),
+            Prelude.Just ("ClientToken" Data..= clientToken),
+            Prelude.Just ("ImageName" Data..= imageName)
           ]
       )
 
-instance Core.ToPath CreateImageVersion where
+instance Data.ToPath CreateImageVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateImageVersion where
+instance Data.ToQuery CreateImageVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateImageVersionResponse' smart constructor.

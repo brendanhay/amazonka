@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,10 +107,10 @@ instance Core.AWSRequest ListVpcEndpointAccess where
       ( \s h x ->
           ListVpcEndpointAccessResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "AuthorizedPrincipalList"
+            Prelude.<*> ( x Data..?> "AuthorizedPrincipalList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..:> "NextToken")
+            Prelude.<*> (x Data..:> "NextToken")
       )
 
 instance Prelude.Hashable ListVpcEndpointAccess where
@@ -122,20 +123,20 @@ instance Prelude.NFData ListVpcEndpointAccess where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders ListVpcEndpointAccess where
+instance Data.ToHeaders ListVpcEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListVpcEndpointAccess where
+instance Data.ToPath ListVpcEndpointAccess where
   toPath ListVpcEndpointAccess' {..} =
     Prelude.mconcat
       [ "/2015-01-01/es/domain/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/listVpcEndpointAccess"
       ]
 
-instance Core.ToQuery ListVpcEndpointAccess where
+instance Data.ToQuery ListVpcEndpointAccess where
   toQuery ListVpcEndpointAccess' {..} =
-    Prelude.mconcat ["nextToken" Core.=: nextToken]
+    Prelude.mconcat ["nextToken" Data.=: nextToken]
 
 -- | Container for response parameters to the @ListVpcEndpointAccess@
 -- operation. Returns a list of accounts id and account type authorized to

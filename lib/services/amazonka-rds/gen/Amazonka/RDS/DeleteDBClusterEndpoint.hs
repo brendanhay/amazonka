@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest DeleteDBClusterEndpoint where
   response =
     Response.receiveXMLWrapper
       "DeleteDBClusterEndpointResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable DeleteDBClusterEndpoint where
   hashWithSalt _salt DeleteDBClusterEndpoint' {..} =
@@ -111,19 +112,19 @@ instance Prelude.NFData DeleteDBClusterEndpoint where
   rnf DeleteDBClusterEndpoint' {..} =
     Prelude.rnf dbClusterEndpointIdentifier
 
-instance Core.ToHeaders DeleteDBClusterEndpoint where
+instance Data.ToHeaders DeleteDBClusterEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteDBClusterEndpoint where
+instance Data.ToPath DeleteDBClusterEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDBClusterEndpoint where
+instance Data.ToQuery DeleteDBClusterEndpoint where
   toQuery DeleteDBClusterEndpoint' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDBClusterEndpoint" :: Prelude.ByteString),
+          Data.=: ("DeleteDBClusterEndpoint" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "DBClusterEndpointIdentifier"
-          Core.=: dbClusterEndpointIdentifier
+          Data.=: dbClusterEndpointIdentifier
       ]

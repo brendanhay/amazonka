@@ -73,6 +73,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,7 +168,7 @@ instance Core.AWSRequest UpdateUserPoolDomain where
     Response.receiveJSON
       ( \s h x ->
           UpdateUserPoolDomainResponse'
-            Prelude.<$> (x Core..?> "CloudFrontDomain")
+            Prelude.<$> (x Data..?> "CloudFrontDomain")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,36 +184,36 @@ instance Prelude.NFData UpdateUserPoolDomain where
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf customDomainConfig
 
-instance Core.ToHeaders UpdateUserPoolDomain where
+instance Data.ToHeaders UpdateUserPoolDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.UpdateUserPoolDomain" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.UpdateUserPoolDomain" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateUserPoolDomain where
+instance Data.ToJSON UpdateUserPoolDomain where
   toJSON UpdateUserPoolDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Domain" Core..= domain),
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
+          [ Prelude.Just ("Domain" Data..= domain),
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
             Prelude.Just
-              ("CustomDomainConfig" Core..= customDomainConfig)
+              ("CustomDomainConfig" Data..= customDomainConfig)
           ]
       )
 
-instance Core.ToPath UpdateUserPoolDomain where
+instance Data.ToPath UpdateUserPoolDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateUserPoolDomain where
+instance Data.ToQuery UpdateUserPoolDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The UpdateUserPoolDomain response output.

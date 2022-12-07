@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.SubscriberStatus
 import Amazonka.CostExplorer.Types.SubscriberType
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The recipient of @AnomalySubscription@ notifications.
@@ -75,15 +76,15 @@ subscriber_status = Lens.lens (\Subscriber' {status} -> status) (\s@Subscriber' 
 subscriber_address :: Lens.Lens' Subscriber (Prelude.Maybe Prelude.Text)
 subscriber_address = Lens.lens (\Subscriber' {address} -> address) (\s@Subscriber' {} a -> s {address = a} :: Subscriber)
 
-instance Core.FromJSON Subscriber where
+instance Data.FromJSON Subscriber where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Subscriber"
       ( \x ->
           Subscriber'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Address")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Address")
       )
 
 instance Prelude.Hashable Subscriber where
@@ -98,12 +99,12 @@ instance Prelude.NFData Subscriber where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf address
 
-instance Core.ToJSON Subscriber where
+instance Data.ToJSON Subscriber where
   toJSON Subscriber' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Status" Core..=) Prelude.<$> status,
-            ("Address" Core..=) Prelude.<$> address
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Status" Data..=) Prelude.<$> status,
+            ("Address" Data..=) Prelude.<$> address
           ]
       )

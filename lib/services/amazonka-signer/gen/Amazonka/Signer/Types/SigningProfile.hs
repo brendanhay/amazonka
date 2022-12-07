@@ -21,6 +21,7 @@ module Amazonka.Signer.Types.SigningProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Signer.Types.SignatureValidityPeriod
 import Amazonka.Signer.Types.SigningMaterial
@@ -149,25 +150,25 @@ signingProfile_signingMaterial = Lens.lens (\SigningProfile' {signingMaterial} -
 signingProfile_platformId :: Lens.Lens' SigningProfile (Prelude.Maybe Prelude.Text)
 signingProfile_platformId = Lens.lens (\SigningProfile' {platformId} -> platformId) (\s@SigningProfile' {} a -> s {platformId = a} :: SigningProfile)
 
-instance Core.FromJSON SigningProfile where
+instance Data.FromJSON SigningProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SigningProfile"
       ( \x ->
           SigningProfile'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "signatureValidityPeriod")
-            Prelude.<*> (x Core..:? "profileName")
-            Prelude.<*> ( x Core..:? "signingParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "signatureValidityPeriod")
+            Prelude.<*> (x Data..:? "profileName")
+            Prelude.<*> ( x Data..:? "signingParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "profileVersionArn")
-            Prelude.<*> (x Core..:? "platformDisplayName")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "profileVersion")
-            Prelude.<*> (x Core..:? "signingMaterial")
-            Prelude.<*> (x Core..:? "platformId")
+            Prelude.<*> (x Data..:? "profileVersionArn")
+            Prelude.<*> (x Data..:? "platformDisplayName")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "profileVersion")
+            Prelude.<*> (x Data..:? "signingMaterial")
+            Prelude.<*> (x Data..:? "platformId")
       )
 
 instance Prelude.Hashable SigningProfile where

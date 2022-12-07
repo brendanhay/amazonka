@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ServiceCollection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.ServiceName
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newServiceCollection =
 serviceCollection_serviceNames :: Lens.Lens' ServiceCollection (Prelude.Maybe [ServiceName])
 serviceCollection_serviceNames = Lens.lens (\ServiceCollection' {serviceNames} -> serviceNames) (\s@ServiceCollection' {} a -> s {serviceNames = a} :: ServiceCollection) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ServiceCollection where
+instance Data.FromJSON ServiceCollection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceCollection"
       ( \x ->
           ServiceCollection'
-            Prelude.<$> (x Core..:? "ServiceNames" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ServiceNames" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ServiceCollection where
@@ -70,9 +71,9 @@ instance Prelude.Hashable ServiceCollection where
 instance Prelude.NFData ServiceCollection where
   rnf ServiceCollection' {..} = Prelude.rnf serviceNames
 
-instance Core.ToJSON ServiceCollection where
+instance Data.ToJSON ServiceCollection where
   toJSON ServiceCollection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("ServiceNames" Core..=) Prelude.<$> serviceNames]
+          [("ServiceNames" Data..=) Prelude.<$> serviceNames]
       )

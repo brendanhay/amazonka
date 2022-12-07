@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.InstanceDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.GameServerGroupInstanceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -92,14 +93,14 @@ instanceDefinition_weightedCapacity = Lens.lens (\InstanceDefinition' {weightedC
 instanceDefinition_instanceType :: Lens.Lens' InstanceDefinition GameServerGroupInstanceType
 instanceDefinition_instanceType = Lens.lens (\InstanceDefinition' {instanceType} -> instanceType) (\s@InstanceDefinition' {} a -> s {instanceType = a} :: InstanceDefinition)
 
-instance Core.FromJSON InstanceDefinition where
+instance Data.FromJSON InstanceDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceDefinition"
       ( \x ->
           InstanceDefinition'
-            Prelude.<$> (x Core..:? "WeightedCapacity")
-            Prelude.<*> (x Core..: "InstanceType")
+            Prelude.<$> (x Data..:? "WeightedCapacity")
+            Prelude.<*> (x Data..: "InstanceType")
       )
 
 instance Prelude.Hashable InstanceDefinition where
@@ -112,12 +113,12 @@ instance Prelude.NFData InstanceDefinition where
     Prelude.rnf weightedCapacity
       `Prelude.seq` Prelude.rnf instanceType
 
-instance Core.ToJSON InstanceDefinition where
+instance Data.ToJSON InstanceDefinition where
   toJSON InstanceDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WeightedCapacity" Core..=)
+          [ ("WeightedCapacity" Data..=)
               Prelude.<$> weightedCapacity,
-            Prelude.Just ("InstanceType" Core..= instanceType)
+            Prelude.Just ("InstanceType" Data..= instanceType)
           ]
       )

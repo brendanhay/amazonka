@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Cvss where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.Adjustment
 
@@ -89,17 +90,17 @@ cvss_source = Lens.lens (\Cvss' {source} -> source) (\s@Cvss' {} a -> s {source 
 cvss_version :: Lens.Lens' Cvss (Prelude.Maybe Prelude.Text)
 cvss_version = Lens.lens (\Cvss' {version} -> version) (\s@Cvss' {} a -> s {version = a} :: Cvss)
 
-instance Core.FromJSON Cvss where
+instance Data.FromJSON Cvss where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Cvss"
       ( \x ->
           Cvss'
-            Prelude.<$> (x Core..:? "BaseScore")
-            Prelude.<*> (x Core..:? "BaseVector")
-            Prelude.<*> (x Core..:? "Adjustments" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "BaseScore")
+            Prelude.<*> (x Data..:? "BaseVector")
+            Prelude.<*> (x Data..:? "Adjustments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable Cvss where
@@ -118,14 +119,14 @@ instance Prelude.NFData Cvss where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON Cvss where
+instance Data.ToJSON Cvss where
   toJSON Cvss' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BaseScore" Core..=) Prelude.<$> baseScore,
-            ("BaseVector" Core..=) Prelude.<$> baseVector,
-            ("Adjustments" Core..=) Prelude.<$> adjustments,
-            ("Source" Core..=) Prelude.<$> source,
-            ("Version" Core..=) Prelude.<$> version
+          [ ("BaseScore" Data..=) Prelude.<$> baseScore,
+            ("BaseVector" Data..=) Prelude.<$> baseVector,
+            ("Adjustments" Data..=) Prelude.<$> adjustments,
+            ("Source" Data..=) Prelude.<$> source,
+            ("Version" Data..=) Prelude.<$> version
           ]
       )

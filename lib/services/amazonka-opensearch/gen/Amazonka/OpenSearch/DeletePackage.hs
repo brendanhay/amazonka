@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ instance Core.AWSRequest DeletePackage where
     Response.receiveJSON
       ( \s h x ->
           DeletePackageResponse'
-            Prelude.<$> (x Core..?> "PackageDetails")
+            Prelude.<$> (x Data..?> "PackageDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,15 +102,15 @@ instance Prelude.Hashable DeletePackage where
 instance Prelude.NFData DeletePackage where
   rnf DeletePackage' {..} = Prelude.rnf packageID
 
-instance Core.ToHeaders DeletePackage where
+instance Data.ToHeaders DeletePackage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeletePackage where
+instance Data.ToPath DeletePackage where
   toPath DeletePackage' {..} =
     Prelude.mconcat
-      ["/2021-01-01/packages/", Core.toBS packageID]
+      ["/2021-01-01/packages/", Data.toBS packageID]
 
-instance Core.ToQuery DeletePackage where
+instance Data.ToQuery DeletePackage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Container for the response parameters to the @DeletePackage@ operation.

@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.FmtpRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.Colorimetry
 import Amazonka.MediaConnect.Types.Range
 import Amazonka.MediaConnect.Types.ScanMode
@@ -139,17 +140,17 @@ instance Prelude.NFData FmtpRequest where
       `Prelude.seq` Prelude.rnf tcs
       `Prelude.seq` Prelude.rnf channelOrder
 
-instance Core.ToJSON FmtpRequest where
+instance Data.ToJSON FmtpRequest where
   toJSON FmtpRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("exactFramerate" Core..=)
+          [ ("exactFramerate" Data..=)
               Prelude.<$> exactFramerate,
-            ("scanMode" Core..=) Prelude.<$> scanMode,
-            ("colorimetry" Core..=) Prelude.<$> colorimetry,
-            ("par" Core..=) Prelude.<$> par,
-            ("range" Core..=) Prelude.<$> range,
-            ("tcs" Core..=) Prelude.<$> tcs,
-            ("channelOrder" Core..=) Prelude.<$> channelOrder
+            ("scanMode" Data..=) Prelude.<$> scanMode,
+            ("colorimetry" Data..=) Prelude.<$> colorimetry,
+            ("par" Data..=) Prelude.<$> par,
+            ("range" Data..=) Prelude.<$> range,
+            ("tcs" Data..=) Prelude.<$> tcs,
+            ("channelOrder" Data..=) Prelude.<$> channelOrder
           ]
       )

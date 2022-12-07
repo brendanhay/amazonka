@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,9 +157,9 @@ instance Core.AWSRequest ListWorkflows where
     Response.receiveJSON
       ( \s h x ->
           ListWorkflowsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "migrationWorkflowSummary"
+            Prelude.<*> ( x Data..?> "migrationWorkflowSummary"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -182,30 +183,30 @@ instance Prelude.NFData ListWorkflows where
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListWorkflows where
+instance Data.ToHeaders ListWorkflows where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListWorkflows where
+instance Data.ToPath ListWorkflows where
   toPath = Prelude.const "/migrationworkflows"
 
-instance Core.ToQuery ListWorkflows where
+instance Data.ToQuery ListWorkflows where
   toQuery ListWorkflows' {..} =
     Prelude.mconcat
       [ "adsApplicationConfigurationName"
-          Core.=: adsApplicationConfigurationName,
-        "name" Core.=: name,
-        "nextToken" Core.=: nextToken,
-        "status" Core.=: status,
-        "templateId" Core.=: templateId,
-        "maxResults" Core.=: maxResults
+          Data.=: adsApplicationConfigurationName,
+        "name" Data.=: name,
+        "nextToken" Data.=: nextToken,
+        "status" Data.=: status,
+        "templateId" Data.=: templateId,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListWorkflowsResponse' smart constructor.

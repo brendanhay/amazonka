@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,7 +103,7 @@ instance Core.AWSRequest AssociateIamInstanceProfile where
     Response.receiveXML
       ( \s h x ->
           AssociateIamInstanceProfileResponse'
-            Prelude.<$> (x Core..@? "iamInstanceProfileAssociation")
+            Prelude.<$> (x Data..@? "iamInstanceProfileAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,23 +117,23 @@ instance Prelude.NFData AssociateIamInstanceProfile where
     Prelude.rnf iamInstanceProfile
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders AssociateIamInstanceProfile where
+instance Data.ToHeaders AssociateIamInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AssociateIamInstanceProfile where
+instance Data.ToPath AssociateIamInstanceProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateIamInstanceProfile where
+instance Data.ToQuery AssociateIamInstanceProfile where
   toQuery AssociateIamInstanceProfile' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "AssociateIamInstanceProfile" ::
+          Data.=: ( "AssociateIamInstanceProfile" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "IamInstanceProfile" Core.=: iamInstanceProfile,
-        "InstanceId" Core.=: instanceId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "IamInstanceProfile" Data.=: iamInstanceProfile,
+        "InstanceId" Data.=: instanceId
       ]
 
 -- | /See:/ 'newAssociateIamInstanceProfileResponse' smart constructor.

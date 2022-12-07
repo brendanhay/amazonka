@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSecureTunneling.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,8 +112,8 @@ instance Core.AWSRequest ListTunnels where
     Response.receiveJSON
       ( \s h x ->
           ListTunnelsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "tunnelSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "tunnelSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -130,35 +131,35 @@ instance Prelude.NFData ListTunnels where
       `Prelude.seq` Prelude.rnf thingName
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListTunnels where
+instance Data.ToHeaders ListTunnels where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTSecuredTunneling.ListTunnels" ::
+              Data.=# ( "IoTSecuredTunneling.ListTunnels" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTunnels where
+instance Data.ToJSON ListTunnels where
   toJSON ListTunnels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("thingName" Core..=) Prelude.<$> thingName,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("thingName" Data..=) Prelude.<$> thingName,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListTunnels where
+instance Data.ToPath ListTunnels where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTunnels where
+instance Data.ToQuery ListTunnels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTunnelsResponse' smart constructor.

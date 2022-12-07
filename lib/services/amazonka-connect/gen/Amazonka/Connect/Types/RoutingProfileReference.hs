@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.RoutingProfileReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the routing profile assigned to the user.
@@ -61,13 +62,13 @@ routingProfileReference_arn = Lens.lens (\RoutingProfileReference' {arn} -> arn)
 routingProfileReference_id :: Lens.Lens' RoutingProfileReference (Prelude.Maybe Prelude.Text)
 routingProfileReference_id = Lens.lens (\RoutingProfileReference' {id} -> id) (\s@RoutingProfileReference' {} a -> s {id = a} :: RoutingProfileReference)
 
-instance Core.FromJSON RoutingProfileReference where
+instance Data.FromJSON RoutingProfileReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RoutingProfileReference"
       ( \x ->
           RoutingProfileReference'
-            Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable RoutingProfileReference where

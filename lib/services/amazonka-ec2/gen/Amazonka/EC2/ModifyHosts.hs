@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -183,11 +184,11 @@ instance Core.AWSRequest ModifyHosts where
     Response.receiveXML
       ( \s h x ->
           ModifyHostsResponse'
-            Prelude.<$> ( x Core..@? "unsuccessful" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Core..@? "successful" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<*> ( x Data..@? "successful" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -208,24 +209,24 @@ instance Prelude.NFData ModifyHosts where
       `Prelude.seq` Prelude.rnf instanceFamily
       `Prelude.seq` Prelude.rnf hostIds
 
-instance Core.ToHeaders ModifyHosts where
+instance Data.ToHeaders ModifyHosts where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyHosts where
+instance Data.ToPath ModifyHosts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyHosts where
+instance Data.ToQuery ModifyHosts where
   toQuery ModifyHosts' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyHosts" :: Prelude.ByteString),
+          Data.=: ("ModifyHosts" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "AutoPlacement" Core.=: autoPlacement,
-        "HostRecovery" Core.=: hostRecovery,
-        "InstanceType" Core.=: instanceType,
-        "InstanceFamily" Core.=: instanceFamily,
-        Core.toQueryList "HostId" hostIds
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "AutoPlacement" Data.=: autoPlacement,
+        "HostRecovery" Data.=: hostRecovery,
+        "InstanceType" Data.=: instanceType,
+        "InstanceFamily" Data.=: instanceFamily,
+        Data.toQueryList "HostId" hostIds
       ]
 
 -- | /See:/ 'newModifyHostsResponse' smart constructor.

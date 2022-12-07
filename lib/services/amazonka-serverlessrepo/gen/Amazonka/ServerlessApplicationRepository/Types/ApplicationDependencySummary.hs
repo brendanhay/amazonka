@@ -21,6 +21,7 @@ module Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySumma
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A nested application summary.
@@ -68,14 +69,14 @@ applicationDependencySummary_applicationId = Lens.lens (\ApplicationDependencySu
 applicationDependencySummary_semanticVersion :: Lens.Lens' ApplicationDependencySummary Prelude.Text
 applicationDependencySummary_semanticVersion = Lens.lens (\ApplicationDependencySummary' {semanticVersion} -> semanticVersion) (\s@ApplicationDependencySummary' {} a -> s {semanticVersion = a} :: ApplicationDependencySummary)
 
-instance Core.FromJSON ApplicationDependencySummary where
+instance Data.FromJSON ApplicationDependencySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationDependencySummary"
       ( \x ->
           ApplicationDependencySummary'
-            Prelude.<$> (x Core..: "applicationId")
-            Prelude.<*> (x Core..: "semanticVersion")
+            Prelude.<$> (x Data..: "applicationId")
+            Prelude.<*> (x Data..: "semanticVersion")
       )
 
 instance

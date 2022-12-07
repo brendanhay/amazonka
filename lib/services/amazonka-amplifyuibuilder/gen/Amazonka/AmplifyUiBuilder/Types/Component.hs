@@ -27,6 +27,7 @@ import Amazonka.AmplifyUiBuilder.Types.ComponentProperty
 import Amazonka.AmplifyUiBuilder.Types.ComponentVariant
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the configuration settings for a user interface (UI) element
@@ -40,7 +41,7 @@ data Component = Component'
   { -- | One or more key-value pairs to use when tagging the component.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time that the component was modified.
-    modifiedAt :: Prelude.Maybe Core.POSIX,
+    modifiedAt :: Prelude.Maybe Data.POSIX,
     -- | The unique ID of the component in its original source system, such as
     -- Figma.
     sourceId :: Prelude.Maybe Prelude.Text,
@@ -65,7 +66,7 @@ data Component = Component'
     -- another custom component.
     componentType :: Prelude.Text,
     -- | The time that the component was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The name of the backend environment that is a part of the Amplify app.
     environmentName :: Prelude.Text,
     -- | The unique ID of the component.
@@ -169,7 +170,7 @@ newComponent
         appId = pAppId_,
         bindingProperties = Prelude.mempty,
         componentType = pComponentType_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         environmentName = pEnvironmentName_,
         id = pId_,
         name = pName_,
@@ -184,7 +185,7 @@ component_tags = Lens.lens (\Component' {tags} -> tags) (\s@Component' {} a -> s
 
 -- | The time that the component was modified.
 component_modifiedAt :: Lens.Lens' Component (Prelude.Maybe Prelude.UTCTime)
-component_modifiedAt = Lens.lens (\Component' {modifiedAt} -> modifiedAt) (\s@Component' {} a -> s {modifiedAt = a} :: Component) Prelude.. Lens.mapping Core._Time
+component_modifiedAt = Lens.lens (\Component' {modifiedAt} -> modifiedAt) (\s@Component' {} a -> s {modifiedAt = a} :: Component) Prelude.. Lens.mapping Data._Time
 
 -- | The unique ID of the component in its original source system, such as
 -- Figma.
@@ -227,7 +228,7 @@ component_componentType = Lens.lens (\Component' {componentType} -> componentTyp
 
 -- | The time that the component was created.
 component_createdAt :: Lens.Lens' Component Prelude.UTCTime
-component_createdAt = Lens.lens (\Component' {createdAt} -> createdAt) (\s@Component' {} a -> s {createdAt = a} :: Component) Prelude.. Core._Time
+component_createdAt = Lens.lens (\Component' {createdAt} -> createdAt) (\s@Component' {} a -> s {createdAt = a} :: Component) Prelude.. Data._Time
 
 -- | The name of the backend environment that is a part of the Amplify app.
 component_environmentName :: Lens.Lens' Component Prelude.Text
@@ -257,33 +258,33 @@ component_properties = Lens.lens (\Component' {properties} -> properties) (\s@Co
 component_variants :: Lens.Lens' Component [ComponentVariant]
 component_variants = Lens.lens (\Component' {variants} -> variants) (\s@Component' {} a -> s {variants = a} :: Component) Prelude.. Lens.coerced
 
-instance Core.FromJSON Component where
+instance Data.FromJSON Component where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Component"
       ( \x ->
           Component'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "modifiedAt")
-            Prelude.<*> (x Core..:? "sourceId")
-            Prelude.<*> (x Core..:? "children" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "events" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "schemaVersion")
-            Prelude.<*> ( x Core..:? "collectionProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "modifiedAt")
+            Prelude.<*> (x Data..:? "sourceId")
+            Prelude.<*> (x Data..:? "children" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "events" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "schemaVersion")
+            Prelude.<*> ( x Data..:? "collectionProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "appId")
-            Prelude.<*> ( x Core..:? "bindingProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..: "appId")
+            Prelude.<*> ( x Data..:? "bindingProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "componentType")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "environmentName")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..:? "overrides" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "properties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "variants" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "componentType")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "environmentName")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..:? "overrides" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "properties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "variants" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Component where

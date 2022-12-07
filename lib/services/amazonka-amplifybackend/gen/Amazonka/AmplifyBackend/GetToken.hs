@@ -46,6 +46,7 @@ where
 import Amazonka.AmplifyBackend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,10 +96,10 @@ instance Core.AWSRequest GetToken where
     Response.receiveJSON
       ( \s h x ->
           GetTokenResponse'
-            Prelude.<$> (x Core..?> "challengeCode")
-            Prelude.<*> (x Core..?> "ttl")
-            Prelude.<*> (x Core..?> "sessionId")
-            Prelude.<*> (x Core..?> "appId")
+            Prelude.<$> (x Data..?> "challengeCode")
+            Prelude.<*> (x Data..?> "ttl")
+            Prelude.<*> (x Data..?> "sessionId")
+            Prelude.<*> (x Data..?> "appId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,27 +113,27 @@ instance Prelude.NFData GetToken where
     Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf appId
 
-instance Core.ToHeaders GetToken where
+instance Data.ToHeaders GetToken where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetToken where
+instance Data.ToPath GetToken where
   toPath GetToken' {..} =
     Prelude.mconcat
       [ "/backend/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/challenge/",
-        Core.toBS sessionId
+        Data.toBS sessionId
       ]
 
-instance Core.ToQuery GetToken where
+instance Data.ToQuery GetToken where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTokenResponse' smart constructor.

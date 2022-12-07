@@ -21,6 +21,7 @@ module Amazonka.AppRunner.Types.IngressVpcConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of your VPC and the associated VPC endpoint. The VPC
@@ -64,14 +65,14 @@ ingressVpcConfiguration_vpcEndpointId = Lens.lens (\IngressVpcConfiguration' {vp
 ingressVpcConfiguration_vpcId :: Lens.Lens' IngressVpcConfiguration (Prelude.Maybe Prelude.Text)
 ingressVpcConfiguration_vpcId = Lens.lens (\IngressVpcConfiguration' {vpcId} -> vpcId) (\s@IngressVpcConfiguration' {} a -> s {vpcId = a} :: IngressVpcConfiguration)
 
-instance Core.FromJSON IngressVpcConfiguration where
+instance Data.FromJSON IngressVpcConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IngressVpcConfiguration"
       ( \x ->
           IngressVpcConfiguration'
-            Prelude.<$> (x Core..:? "VpcEndpointId")
-            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<$> (x Data..:? "VpcEndpointId")
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance Prelude.Hashable IngressVpcConfiguration where
@@ -84,11 +85,11 @@ instance Prelude.NFData IngressVpcConfiguration where
     Prelude.rnf vpcEndpointId
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToJSON IngressVpcConfiguration where
+instance Data.ToJSON IngressVpcConfiguration where
   toJSON IngressVpcConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpcEndpointId" Core..=) Prelude.<$> vpcEndpointId,
-            ("VpcId" Core..=) Prelude.<$> vpcId
+          [ ("VpcEndpointId" Data..=) Prelude.<$> vpcEndpointId,
+            ("VpcId" Data..=) Prelude.<$> vpcId
           ]
       )

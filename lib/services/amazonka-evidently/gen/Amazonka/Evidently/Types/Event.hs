@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.Event where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.EventType
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data Event = Event'
   { -- | The event data.
     data' :: Prelude.Text,
     -- | The timestamp of the event.
-    timestamp :: Core.POSIX,
+    timestamp :: Data.POSIX,
     -- | @aws.evidently.evaluation@ specifies an evaluation event, which
     -- determines which feature variation that a user sees.
     -- @aws.evidently.custom@ specifies a custom event, which generates metrics
@@ -70,7 +71,7 @@ newEvent ::
 newEvent pData_ pTimestamp_ pType_ =
   Event'
     { data' = pData_,
-      timestamp = Core._Time Lens.# pTimestamp_,
+      timestamp = Data._Time Lens.# pTimestamp_,
       type' = pType_
     }
 
@@ -80,7 +81,7 @@ event_data = Lens.lens (\Event' {data'} -> data') (\s@Event' {} a -> s {data' = 
 
 -- | The timestamp of the event.
 event_timestamp :: Lens.Lens' Event Prelude.UTCTime
-event_timestamp = Lens.lens (\Event' {timestamp} -> timestamp) (\s@Event' {} a -> s {timestamp = a} :: Event) Prelude.. Core._Time
+event_timestamp = Lens.lens (\Event' {timestamp} -> timestamp) (\s@Event' {} a -> s {timestamp = a} :: Event) Prelude.. Data._Time
 
 -- | @aws.evidently.evaluation@ specifies an evaluation event, which
 -- determines which feature variation that a user sees.
@@ -101,12 +102,12 @@ instance Prelude.NFData Event where
       `Prelude.seq` Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON Event where
+instance Data.ToJSON Event where
   toJSON Event' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("data" Core..= data'),
-            Prelude.Just ("timestamp" Core..= timestamp),
-            Prelude.Just ("type" Core..= type')
+          [ Prelude.Just ("data" Data..= data'),
+            Prelude.Just ("timestamp" Data..= timestamp),
+            Prelude.Just ("type" Data..= type')
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.AssessmentTemplateFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types.DurationRange
 import qualified Amazonka.Prelude as Prelude
 
@@ -108,13 +109,13 @@ instance Prelude.NFData AssessmentTemplateFilter where
       `Prelude.seq` Prelude.rnf namePattern
       `Prelude.seq` Prelude.rnf rulesPackageArns
 
-instance Core.ToJSON AssessmentTemplateFilter where
+instance Data.ToJSON AssessmentTemplateFilter where
   toJSON AssessmentTemplateFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("durationRange" Core..=) Prelude.<$> durationRange,
-            ("namePattern" Core..=) Prelude.<$> namePattern,
-            ("rulesPackageArns" Core..=)
+          [ ("durationRange" Data..=) Prelude.<$> durationRange,
+            ("namePattern" Data..=) Prelude.<$> namePattern,
+            ("rulesPackageArns" Data..=)
               Prelude.<$> rulesPackageArns
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.CampaignResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.CampaignHook
 import Amazonka.Pinpoint.Types.CampaignLimits
 import Amazonka.Pinpoint.Types.CampaignState
@@ -340,39 +341,39 @@ campaignResponse_arn = Lens.lens (\CampaignResponse' {arn} -> arn) (\s@CampaignR
 campaignResponse_applicationId :: Lens.Lens' CampaignResponse Prelude.Text
 campaignResponse_applicationId = Lens.lens (\CampaignResponse' {applicationId} -> applicationId) (\s@CampaignResponse' {} a -> s {applicationId = a} :: CampaignResponse)
 
-instance Core.FromJSON CampaignResponse where
+instance Data.FromJSON CampaignResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CampaignResponse"
       ( \x ->
           CampaignResponse'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Schedule")
-            Prelude.<*> (x Core..:? "CustomDeliveryConfiguration")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Hook")
-            Prelude.<*> (x Core..:? "Limits")
-            Prelude.<*> (x Core..:? "TreatmentName")
-            Prelude.<*> (x Core..:? "HoldoutPercent")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> ( x Core..:? "AdditionalTreatments"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Schedule")
+            Prelude.<*> (x Data..:? "CustomDeliveryConfiguration")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Hook")
+            Prelude.<*> (x Data..:? "Limits")
+            Prelude.<*> (x Data..:? "TreatmentName")
+            Prelude.<*> (x Data..:? "HoldoutPercent")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> ( x Data..:? "AdditionalTreatments"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MessageConfiguration")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "TreatmentDescription")
-            Prelude.<*> (x Core..:? "Priority")
-            Prelude.<*> (x Core..:? "TemplateConfiguration")
-            Prelude.<*> (x Core..:? "IsPaused")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "DefaultState")
-            Prelude.<*> (x Core..: "LastModifiedDate")
-            Prelude.<*> (x Core..: "CreationDate")
-            Prelude.<*> (x Core..: "SegmentId")
-            Prelude.<*> (x Core..: "SegmentVersion")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "ApplicationId")
+            Prelude.<*> (x Data..:? "MessageConfiguration")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "TreatmentDescription")
+            Prelude.<*> (x Data..:? "Priority")
+            Prelude.<*> (x Data..:? "TemplateConfiguration")
+            Prelude.<*> (x Data..:? "IsPaused")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..:? "DefaultState")
+            Prelude.<*> (x Data..: "LastModifiedDate")
+            Prelude.<*> (x Data..: "CreationDate")
+            Prelude.<*> (x Data..: "SegmentId")
+            Prelude.<*> (x Data..: "SegmentVersion")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "ApplicationId")
       )
 
 instance Prelude.Hashable CampaignResponse where

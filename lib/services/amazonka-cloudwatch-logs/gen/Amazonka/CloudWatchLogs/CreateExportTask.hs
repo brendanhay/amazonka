@@ -76,6 +76,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -214,7 +215,7 @@ instance Core.AWSRequest CreateExportTask where
     Response.receiveJSON
       ( \s h x ->
           CreateExportTaskResponse'
-            Prelude.<$> (x Core..?> "taskId")
+            Prelude.<$> (x Data..?> "taskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -238,41 +239,41 @@ instance Prelude.NFData CreateExportTask where
       `Prelude.seq` Prelude.rnf to
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToHeaders CreateExportTask where
+instance Data.ToHeaders CreateExportTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.CreateExportTask" ::
+              Data.=# ( "Logs_20140328.CreateExportTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateExportTask where
+instance Data.ToJSON CreateExportTask where
   toJSON CreateExportTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("destinationPrefix" Core..=)
+          [ ("destinationPrefix" Data..=)
               Prelude.<$> destinationPrefix,
-            ("taskName" Core..=) Prelude.<$> taskName,
-            ("logStreamNamePrefix" Core..=)
+            ("taskName" Data..=) Prelude.<$> taskName,
+            ("logStreamNamePrefix" Data..=)
               Prelude.<$> logStreamNamePrefix,
-            Prelude.Just ("logGroupName" Core..= logGroupName),
-            Prelude.Just ("from" Core..= from),
-            Prelude.Just ("to" Core..= to),
-            Prelude.Just ("destination" Core..= destination)
+            Prelude.Just ("logGroupName" Data..= logGroupName),
+            Prelude.Just ("from" Data..= from),
+            Prelude.Just ("to" Data..= to),
+            Prelude.Just ("destination" Data..= destination)
           ]
       )
 
-instance Core.ToPath CreateExportTask where
+instance Data.ToPath CreateExportTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateExportTask where
+instance Data.ToQuery CreateExportTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateExportTaskResponse' smart constructor.

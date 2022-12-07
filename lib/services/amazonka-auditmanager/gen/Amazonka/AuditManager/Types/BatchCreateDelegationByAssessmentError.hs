@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.BatchCreateDelegationByAssessmentError where
 import Amazonka.AuditManager.Types.CreateDelegationRequest
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An error entity for the @BatchCreateDelegationByAssessment@ API. This is
@@ -80,17 +81,17 @@ batchCreateDelegationByAssessmentError_errorCode :: Lens.Lens' BatchCreateDelega
 batchCreateDelegationByAssessmentError_errorCode = Lens.lens (\BatchCreateDelegationByAssessmentError' {errorCode} -> errorCode) (\s@BatchCreateDelegationByAssessmentError' {} a -> s {errorCode = a} :: BatchCreateDelegationByAssessmentError)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchCreateDelegationByAssessmentError
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchCreateDelegationByAssessmentError"
       ( \x ->
           BatchCreateDelegationByAssessmentError'
-            Prelude.<$> (x Core..:? "createDelegationRequest")
-            Prelude.<*> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Data..:? "createDelegationRequest")
+            Prelude.<*> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance

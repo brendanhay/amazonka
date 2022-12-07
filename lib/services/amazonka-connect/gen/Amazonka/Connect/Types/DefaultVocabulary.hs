@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.DefaultVocabulary where
 import Amazonka.Connect.Types.VocabularyLanguageCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a default vocabulary.
@@ -101,16 +102,16 @@ defaultVocabulary_vocabularyId = Lens.lens (\DefaultVocabulary' {vocabularyId} -
 defaultVocabulary_vocabularyName :: Lens.Lens' DefaultVocabulary Prelude.Text
 defaultVocabulary_vocabularyName = Lens.lens (\DefaultVocabulary' {vocabularyName} -> vocabularyName) (\s@DefaultVocabulary' {} a -> s {vocabularyName = a} :: DefaultVocabulary)
 
-instance Core.FromJSON DefaultVocabulary where
+instance Data.FromJSON DefaultVocabulary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DefaultVocabulary"
       ( \x ->
           DefaultVocabulary'
-            Prelude.<$> (x Core..: "InstanceId")
-            Prelude.<*> (x Core..: "LanguageCode")
-            Prelude.<*> (x Core..: "VocabularyId")
-            Prelude.<*> (x Core..: "VocabularyName")
+            Prelude.<$> (x Data..: "InstanceId")
+            Prelude.<*> (x Data..: "LanguageCode")
+            Prelude.<*> (x Data..: "VocabularyId")
+            Prelude.<*> (x Data..: "VocabularyName")
       )
 
 instance Prelude.Hashable DefaultVocabulary where

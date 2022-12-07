@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,38 +141,38 @@ instance Prelude.NFData SubmitFeedback where
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf queryId
 
-instance Core.ToHeaders SubmitFeedback where
+instance Data.ToHeaders SubmitFeedback where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.SubmitFeedback" ::
+              Data.=# ( "AWSKendraFrontendService.SubmitFeedback" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SubmitFeedback where
+instance Data.ToJSON SubmitFeedback where
   toJSON SubmitFeedback' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClickFeedbackItems" Core..=)
+          [ ("ClickFeedbackItems" Data..=)
               Prelude.<$> clickFeedbackItems,
-            ("RelevanceFeedbackItems" Core..=)
+            ("RelevanceFeedbackItems" Data..=)
               Prelude.<$> relevanceFeedbackItems,
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("QueryId" Core..= queryId)
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("QueryId" Data..= queryId)
           ]
       )
 
-instance Core.ToPath SubmitFeedback where
+instance Data.ToPath SubmitFeedback where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SubmitFeedback where
+instance Data.ToQuery SubmitFeedback where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSubmitFeedbackResponse' smart constructor.

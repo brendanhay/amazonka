@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.H265TemporalIds
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Enables temporal layer identifiers in the encoded bitstream. Up to 3
@@ -40,7 +41,7 @@ import qualified Amazonka.Prelude as Prelude
 -- a half frame rate output.
 newtype H265TemporalIds = H265TemporalIds'
   { fromH265TemporalIds ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -52,18 +53,18 @@ newtype H265TemporalIds = H265TemporalIds'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern H265TemporalIds_DISABLED :: H265TemporalIds

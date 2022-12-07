@@ -100,6 +100,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,34 +163,34 @@ instance Prelude.NFData DisableAWSServiceAccess where
   rnf DisableAWSServiceAccess' {..} =
     Prelude.rnf servicePrincipal
 
-instance Core.ToHeaders DisableAWSServiceAccess where
+instance Data.ToHeaders DisableAWSServiceAccess where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.DisableAWSServiceAccess" ::
+              Data.=# ( "AWSOrganizationsV20161128.DisableAWSServiceAccess" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisableAWSServiceAccess where
+instance Data.ToJSON DisableAWSServiceAccess where
   toJSON DisableAWSServiceAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ServicePrincipal" Core..= servicePrincipal)
+              ("ServicePrincipal" Data..= servicePrincipal)
           ]
       )
 
-instance Core.ToPath DisableAWSServiceAccess where
+instance Data.ToPath DisableAWSServiceAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableAWSServiceAccess where
+instance Data.ToQuery DisableAWSServiceAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableAWSServiceAccessResponse' smart constructor.

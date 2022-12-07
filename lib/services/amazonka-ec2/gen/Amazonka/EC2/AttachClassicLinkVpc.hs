@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,7 +150,7 @@ instance Core.AWSRequest AttachClassicLinkVpc where
     Response.receiveXML
       ( \s h x ->
           AttachClassicLinkVpcResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,23 +168,23 @@ instance Prelude.NFData AttachClassicLinkVpc where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToHeaders AttachClassicLinkVpc where
+instance Data.ToHeaders AttachClassicLinkVpc where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AttachClassicLinkVpc where
+instance Data.ToPath AttachClassicLinkVpc where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AttachClassicLinkVpc where
+instance Data.ToQuery AttachClassicLinkVpc where
   toQuery AttachClassicLinkVpc' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AttachClassicLinkVpc" :: Prelude.ByteString),
+          Data.=: ("AttachClassicLinkVpc" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQueryList "SecurityGroupId" groups,
-        "InstanceId" Core.=: instanceId,
-        "VpcId" Core.=: vpcId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQueryList "SecurityGroupId" groups,
+        "InstanceId" Data.=: instanceId,
+        "VpcId" Data.=: vpcId
       ]
 
 -- | /See:/ 'newAttachClassicLinkVpcResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.LogConfigurations where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.LogConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newLogConfigurations =
 logConfigurations_cloudwatch :: Lens.Lens' LogConfigurations (Prelude.Maybe LogConfiguration)
 logConfigurations_cloudwatch = Lens.lens (\LogConfigurations' {cloudwatch} -> cloudwatch) (\s@LogConfigurations' {} a -> s {cloudwatch = a} :: LogConfigurations)
 
-instance Core.FromJSON LogConfigurations where
+instance Data.FromJSON LogConfigurations where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogConfigurations"
       ( \x ->
           LogConfigurations'
-            Prelude.<$> (x Core..:? "Cloudwatch")
+            Prelude.<$> (x Data..:? "Cloudwatch")
       )
 
 instance Prelude.Hashable LogConfigurations where
@@ -67,9 +68,9 @@ instance Prelude.Hashable LogConfigurations where
 instance Prelude.NFData LogConfigurations where
   rnf LogConfigurations' {..} = Prelude.rnf cloudwatch
 
-instance Core.ToJSON LogConfigurations where
+instance Data.ToJSON LogConfigurations where
   toJSON LogConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Cloudwatch" Core..=) Prelude.<$> cloudwatch]
+          [("Cloudwatch" Data..=) Prelude.<$> cloudwatch]
       )

@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.TargetGroupAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a target group attribute.
@@ -466,10 +467,10 @@ targetGroupAttribute_key = Lens.lens (\TargetGroupAttribute' {key} -> key) (\s@T
 targetGroupAttribute_value :: Lens.Lens' TargetGroupAttribute (Prelude.Maybe Prelude.Text)
 targetGroupAttribute_value = Lens.lens (\TargetGroupAttribute' {value} -> value) (\s@TargetGroupAttribute' {} a -> s {value = a} :: TargetGroupAttribute)
 
-instance Core.FromXML TargetGroupAttribute where
+instance Data.FromXML TargetGroupAttribute where
   parseXML x =
     TargetGroupAttribute'
-      Prelude.<$> (x Core..@? "Key") Prelude.<*> (x Core..@? "Value")
+      Prelude.<$> (x Data..@? "Key") Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable TargetGroupAttribute where
   hashWithSalt _salt TargetGroupAttribute' {..} =
@@ -480,7 +481,7 @@ instance Prelude.NFData TargetGroupAttribute where
   rnf TargetGroupAttribute' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToQuery TargetGroupAttribute where
+instance Data.ToQuery TargetGroupAttribute where
   toQuery TargetGroupAttribute' {..} =
     Prelude.mconcat
-      ["Key" Core.=: key, "Value" Core.=: value]
+      ["Key" Data.=: key, "Value" Data.=: value]

@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.EventType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.EventIngestion
 import Amazonka.FraudDetector.Types.IngestedEventStatistics
 import qualified Amazonka.Prelude as Prelude
@@ -144,23 +145,23 @@ eventType_eventIngestion = Lens.lens (\EventType' {eventIngestion} -> eventInges
 eventType_eventVariables :: Lens.Lens' EventType (Prelude.Maybe [Prelude.Text])
 eventType_eventVariables = Lens.lens (\EventType' {eventVariables} -> eventVariables) (\s@EventType' {} a -> s {eventVariables = a} :: EventType) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EventType where
+instance Data.FromJSON EventType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventType"
       ( \x ->
           EventType'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "createdTime")
-            Prelude.<*> (x Core..:? "entityTypes")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "ingestedEventStatistics")
-            Prelude.<*> (x Core..:? "labels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "eventIngestion")
-            Prelude.<*> ( x Core..:? "eventVariables"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "createdTime")
+            Prelude.<*> (x Data..:? "entityTypes")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "ingestedEventStatistics")
+            Prelude.<*> (x Data..:? "labels" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "eventIngestion")
+            Prelude.<*> ( x Data..:? "eventVariables"
+                            Data..!= Prelude.mempty
                         )
       )
 

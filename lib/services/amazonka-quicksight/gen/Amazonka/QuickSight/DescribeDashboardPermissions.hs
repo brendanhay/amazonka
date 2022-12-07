@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -107,11 +108,11 @@ instance Core.AWSRequest DescribeDashboardPermissions where
     Response.receiveJSON
       ( \s h x ->
           DescribeDashboardPermissionsResponse'
-            Prelude.<$> (x Core..?> "LinkSharingConfiguration")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Permissions")
-            Prelude.<*> (x Core..?> "DashboardId")
-            Prelude.<*> (x Core..?> "DashboardArn")
+            Prelude.<$> (x Data..?> "LinkSharingConfiguration")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Permissions")
+            Prelude.<*> (x Data..?> "DashboardId")
+            Prelude.<*> (x Data..?> "DashboardArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,28 +129,28 @@ instance Prelude.NFData DescribeDashboardPermissions where
     Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dashboardId
 
-instance Core.ToHeaders DescribeDashboardPermissions where
+instance Data.ToHeaders DescribeDashboardPermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeDashboardPermissions where
+instance Data.ToPath DescribeDashboardPermissions where
   toPath DescribeDashboardPermissions' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/dashboards/",
-        Core.toBS dashboardId,
+        Data.toBS dashboardId,
         "/permissions"
       ]
 
-instance Core.ToQuery DescribeDashboardPermissions where
+instance Data.ToQuery DescribeDashboardPermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDashboardPermissionsResponse' smart constructor.

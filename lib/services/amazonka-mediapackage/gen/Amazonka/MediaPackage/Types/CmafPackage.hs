@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.CmafPackage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types.CmafEncryption
 import Amazonka.MediaPackage.Types.HlsManifest
 import Amazonka.MediaPackage.Types.StreamSelection
@@ -95,17 +96,17 @@ cmafPackage_segmentDurationSeconds = Lens.lens (\CmafPackage' {segmentDurationSe
 cmafPackage_encryption :: Lens.Lens' CmafPackage (Prelude.Maybe CmafEncryption)
 cmafPackage_encryption = Lens.lens (\CmafPackage' {encryption} -> encryption) (\s@CmafPackage' {} a -> s {encryption = a} :: CmafPackage)
 
-instance Core.FromJSON CmafPackage where
+instance Data.FromJSON CmafPackage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CmafPackage"
       ( \x ->
           CmafPackage'
-            Prelude.<$> (x Core..:? "streamSelection")
-            Prelude.<*> (x Core..:? "hlsManifests" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "segmentPrefix")
-            Prelude.<*> (x Core..:? "segmentDurationSeconds")
-            Prelude.<*> (x Core..:? "encryption")
+            Prelude.<$> (x Data..:? "streamSelection")
+            Prelude.<*> (x Data..:? "hlsManifests" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "segmentPrefix")
+            Prelude.<*> (x Data..:? "segmentDurationSeconds")
+            Prelude.<*> (x Data..:? "encryption")
       )
 
 instance Prelude.Hashable CmafPackage where

@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -199,8 +200,8 @@ instance Core.AWSRequest CreateHealthCheck where
       ( \s h x ->
           CreateHealthCheckResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "HealthCheck")
-            Prelude.<*> (h Core..# "Location")
+            Prelude.<*> (x Data..@ "HealthCheck")
+            Prelude.<*> (h Data..# "Location")
       )
 
 instance Prelude.Hashable CreateHealthCheck where
@@ -213,25 +214,25 @@ instance Prelude.NFData CreateHealthCheck where
     Prelude.rnf callerReference
       `Prelude.seq` Prelude.rnf healthCheckConfig
 
-instance Core.ToElement CreateHealthCheck where
+instance Data.ToElement CreateHealthCheck where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateHealthCheckRequest"
 
-instance Core.ToHeaders CreateHealthCheck where
+instance Data.ToHeaders CreateHealthCheck where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateHealthCheck where
+instance Data.ToPath CreateHealthCheck where
   toPath = Prelude.const "/2013-04-01/healthcheck"
 
-instance Core.ToQuery CreateHealthCheck where
+instance Data.ToQuery CreateHealthCheck where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML CreateHealthCheck where
+instance Data.ToXML CreateHealthCheck where
   toXML CreateHealthCheck' {..} =
     Prelude.mconcat
-      [ "CallerReference" Core.@= callerReference,
-        "HealthCheckConfig" Core.@= healthCheckConfig
+      [ "CallerReference" Data.@= callerReference,
+        "HealthCheckConfig" Data.@= healthCheckConfig
       ]
 
 -- | A complex type containing the response information for the new health

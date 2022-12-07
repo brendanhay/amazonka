@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.NodeGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.Endpoint
 import Amazonka.ElastiCache.Types.NodeGroupMember
 import qualified Amazonka.Prelude as Prelude
@@ -119,18 +120,18 @@ nodeGroup_nodeGroupId = Lens.lens (\NodeGroup' {nodeGroupId} -> nodeGroupId) (\s
 nodeGroup_slots :: Lens.Lens' NodeGroup (Prelude.Maybe Prelude.Text)
 nodeGroup_slots = Lens.lens (\NodeGroup' {slots} -> slots) (\s@NodeGroup' {} a -> s {slots = a} :: NodeGroup)
 
-instance Core.FromXML NodeGroup where
+instance Data.FromXML NodeGroup where
   parseXML x =
     NodeGroup'
-      Prelude.<$> (x Core..@? "PrimaryEndpoint")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> ( x Core..@? "NodeGroupMembers"
+      Prelude.<$> (x Data..@? "PrimaryEndpoint")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> ( x Data..@? "NodeGroupMembers"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "NodeGroupMember")
+                      Prelude.>>= Core.may (Data.parseXMLList "NodeGroupMember")
                   )
-      Prelude.<*> (x Core..@? "ReaderEndpoint")
-      Prelude.<*> (x Core..@? "NodeGroupId")
-      Prelude.<*> (x Core..@? "Slots")
+      Prelude.<*> (x Data..@? "ReaderEndpoint")
+      Prelude.<*> (x Data..@? "NodeGroupId")
+      Prelude.<*> (x Data..@? "Slots")
 
 instance Prelude.Hashable NodeGroup where
   hashWithSalt _salt NodeGroup' {..} =

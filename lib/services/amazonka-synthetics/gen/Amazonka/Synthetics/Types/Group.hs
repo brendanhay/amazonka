@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.Group where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains information about one group.
@@ -32,13 +33,13 @@ data Group = Group'
     -- | The name of the group.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the group was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the group.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the group.
     id :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the group was most recently updated.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX
+    lastModifiedTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,7 +84,7 @@ group_name = Lens.lens (\Group' {name} -> name) (\s@Group' {} a -> s {name = a} 
 
 -- | The date and time that the group was created.
 group_createdTime :: Lens.Lens' Group (Prelude.Maybe Prelude.UTCTime)
-group_createdTime = Lens.lens (\Group' {createdTime} -> createdTime) (\s@Group' {} a -> s {createdTime = a} :: Group) Prelude.. Lens.mapping Core._Time
+group_createdTime = Lens.lens (\Group' {createdTime} -> createdTime) (\s@Group' {} a -> s {createdTime = a} :: Group) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the group.
 group_arn :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
@@ -95,20 +96,20 @@ group_id = Lens.lens (\Group' {id} -> id) (\s@Group' {} a -> s {id = a} :: Group
 
 -- | The date and time that the group was most recently updated.
 group_lastModifiedTime :: Lens.Lens' Group (Prelude.Maybe Prelude.UTCTime)
-group_lastModifiedTime = Lens.lens (\Group' {lastModifiedTime} -> lastModifiedTime) (\s@Group' {} a -> s {lastModifiedTime = a} :: Group) Prelude.. Lens.mapping Core._Time
+group_lastModifiedTime = Lens.lens (\Group' {lastModifiedTime} -> lastModifiedTime) (\s@Group' {} a -> s {lastModifiedTime = a} :: Group) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Group where
+instance Data.FromJSON Group where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Group"
       ( \x ->
           Group'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
       )
 
 instance Prelude.Hashable Group where

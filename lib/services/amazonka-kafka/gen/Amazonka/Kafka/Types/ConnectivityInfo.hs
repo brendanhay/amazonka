@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.ConnectivityInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.PublicAccess
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newConnectivityInfo =
 connectivityInfo_publicAccess :: Lens.Lens' ConnectivityInfo (Prelude.Maybe PublicAccess)
 connectivityInfo_publicAccess = Lens.lens (\ConnectivityInfo' {publicAccess} -> publicAccess) (\s@ConnectivityInfo' {} a -> s {publicAccess = a} :: ConnectivityInfo)
 
-instance Core.FromJSON ConnectivityInfo where
+instance Data.FromJSON ConnectivityInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectivityInfo"
       ( \x ->
           ConnectivityInfo'
-            Prelude.<$> (x Core..:? "publicAccess")
+            Prelude.<$> (x Data..:? "publicAccess")
       )
 
 instance Prelude.Hashable ConnectivityInfo where
@@ -67,9 +68,9 @@ instance Prelude.Hashable ConnectivityInfo where
 instance Prelude.NFData ConnectivityInfo where
   rnf ConnectivityInfo' {..} = Prelude.rnf publicAccess
 
-instance Core.ToJSON ConnectivityInfo where
+instance Data.ToJSON ConnectivityInfo where
   toJSON ConnectivityInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("publicAccess" Core..=) Prelude.<$> publicAccess]
+          [("publicAccess" Data..=) Prelude.<$> publicAccess]
       )

@@ -22,6 +22,7 @@ module Amazonka.CloudWatch.Types.MetricMathAnomalyDetector where
 import Amazonka.CloudWatch.Types.MetricDataQuery
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates the CloudWatch math expression that provides the time series
@@ -77,12 +78,12 @@ newMetricMathAnomalyDetector =
 metricMathAnomalyDetector_metricDataQueries :: Lens.Lens' MetricMathAnomalyDetector (Prelude.Maybe [MetricDataQuery])
 metricMathAnomalyDetector_metricDataQueries = Lens.lens (\MetricMathAnomalyDetector' {metricDataQueries} -> metricDataQueries) (\s@MetricMathAnomalyDetector' {} a -> s {metricDataQueries = a} :: MetricMathAnomalyDetector) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML MetricMathAnomalyDetector where
+instance Data.FromXML MetricMathAnomalyDetector where
   parseXML x =
     MetricMathAnomalyDetector'
-      Prelude.<$> ( x Core..@? "MetricDataQueries"
+      Prelude.<$> ( x Data..@? "MetricDataQueries"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable MetricMathAnomalyDetector where
@@ -93,12 +94,12 @@ instance Prelude.NFData MetricMathAnomalyDetector where
   rnf MetricMathAnomalyDetector' {..} =
     Prelude.rnf metricDataQueries
 
-instance Core.ToQuery MetricMathAnomalyDetector where
+instance Data.ToQuery MetricMathAnomalyDetector where
   toQuery MetricMathAnomalyDetector' {..} =
     Prelude.mconcat
       [ "MetricDataQueries"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> metricDataQueries
             )
       ]

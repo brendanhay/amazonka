@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2VpcEndpointServiceServiceTypeDetails whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The service type information for a VPC endpoint service.
@@ -54,15 +55,15 @@ awsEc2VpcEndpointServiceServiceTypeDetails_serviceType :: Lens.Lens' AwsEc2VpcEn
 awsEc2VpcEndpointServiceServiceTypeDetails_serviceType = Lens.lens (\AwsEc2VpcEndpointServiceServiceTypeDetails' {serviceType} -> serviceType) (\s@AwsEc2VpcEndpointServiceServiceTypeDetails' {} a -> s {serviceType = a} :: AwsEc2VpcEndpointServiceServiceTypeDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEc2VpcEndpointServiceServiceTypeDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2VpcEndpointServiceServiceTypeDetails"
       ( \x ->
           AwsEc2VpcEndpointServiceServiceTypeDetails'
-            Prelude.<$> (x Core..:? "ServiceType")
+            Prelude.<$> (x Data..:? "ServiceType")
       )
 
 instance
@@ -82,12 +83,12 @@ instance
     Prelude.rnf serviceType
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEc2VpcEndpointServiceServiceTypeDetails
   where
   toJSON
     AwsEc2VpcEndpointServiceServiceTypeDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("ServiceType" Core..=) Prelude.<$> serviceType]
+            [("ServiceType" Data..=) Prelude.<$> serviceType]
         )

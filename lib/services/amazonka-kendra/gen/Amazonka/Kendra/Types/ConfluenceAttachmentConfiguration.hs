@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ConfluenceAttachmentConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ConfluenceAttachmentToIndexFieldMapping
 import qualified Amazonka.Prelude as Prelude
 
@@ -90,16 +91,16 @@ confluenceAttachmentConfiguration_crawlAttachments :: Lens.Lens' ConfluenceAttac
 confluenceAttachmentConfiguration_crawlAttachments = Lens.lens (\ConfluenceAttachmentConfiguration' {crawlAttachments} -> crawlAttachments) (\s@ConfluenceAttachmentConfiguration' {} a -> s {crawlAttachments = a} :: ConfluenceAttachmentConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ConfluenceAttachmentConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfluenceAttachmentConfiguration"
       ( \x ->
           ConfluenceAttachmentConfiguration'
-            Prelude.<$> (x Core..:? "AttachmentFieldMappings")
-            Prelude.<*> (x Core..:? "CrawlAttachments")
+            Prelude.<$> (x Data..:? "AttachmentFieldMappings")
+            Prelude.<*> (x Data..:? "CrawlAttachments")
       )
 
 instance
@@ -122,15 +123,15 @@ instance
       `Prelude.seq` Prelude.rnf crawlAttachments
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ConfluenceAttachmentConfiguration
   where
   toJSON ConfluenceAttachmentConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AttachmentFieldMappings" Core..=)
+          [ ("AttachmentFieldMappings" Data..=)
               Prelude.<$> attachmentFieldMappings,
-            ("CrawlAttachments" Core..=)
+            ("CrawlAttachments" Data..=)
               Prelude.<$> crawlAttachments
           ]
       )

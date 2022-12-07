@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ConnectionNotification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ConnectionNotificationState
 import Amazonka.EC2.Types.ConnectionNotificationType
@@ -114,19 +115,19 @@ connectionNotification_connectionNotificationArn = Lens.lens (\ConnectionNotific
 connectionNotification_serviceId :: Lens.Lens' ConnectionNotification (Prelude.Maybe Prelude.Text)
 connectionNotification_serviceId = Lens.lens (\ConnectionNotification' {serviceId} -> serviceId) (\s@ConnectionNotification' {} a -> s {serviceId = a} :: ConnectionNotification)
 
-instance Core.FromXML ConnectionNotification where
+instance Data.FromXML ConnectionNotification where
   parseXML x =
     ConnectionNotification'
-      Prelude.<$> (x Core..@? "connectionNotificationState")
-      Prelude.<*> (x Core..@? "connectionNotificationId")
-      Prelude.<*> ( x Core..@? "connectionEvents"
+      Prelude.<$> (x Data..@? "connectionNotificationState")
+      Prelude.<*> (x Data..@? "connectionNotificationId")
+      Prelude.<*> ( x Data..@? "connectionEvents"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "vpcEndpointId")
-      Prelude.<*> (x Core..@? "connectionNotificationType")
-      Prelude.<*> (x Core..@? "connectionNotificationArn")
-      Prelude.<*> (x Core..@? "serviceId")
+      Prelude.<*> (x Data..@? "vpcEndpointId")
+      Prelude.<*> (x Data..@? "connectionNotificationType")
+      Prelude.<*> (x Data..@? "connectionNotificationArn")
+      Prelude.<*> (x Data..@? "serviceId")
 
 instance Prelude.Hashable ConnectionNotification where
   hashWithSalt _salt ConnectionNotification' {..} =

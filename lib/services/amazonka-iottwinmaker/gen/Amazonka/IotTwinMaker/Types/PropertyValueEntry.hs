@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.PropertyValueEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.EntityPropertyReference
 import Amazonka.IotTwinMaker.Types.PropertyValue
 import qualified Amazonka.Prelude as Prelude
@@ -72,14 +73,14 @@ propertyValueEntry_propertyValues = Lens.lens (\PropertyValueEntry' {propertyVal
 propertyValueEntry_entityPropertyReference :: Lens.Lens' PropertyValueEntry EntityPropertyReference
 propertyValueEntry_entityPropertyReference = Lens.lens (\PropertyValueEntry' {entityPropertyReference} -> entityPropertyReference) (\s@PropertyValueEntry' {} a -> s {entityPropertyReference = a} :: PropertyValueEntry)
 
-instance Core.FromJSON PropertyValueEntry where
+instance Data.FromJSON PropertyValueEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PropertyValueEntry"
       ( \x ->
           PropertyValueEntry'
-            Prelude.<$> (x Core..:? "propertyValues")
-            Prelude.<*> (x Core..: "entityPropertyReference")
+            Prelude.<$> (x Data..:? "propertyValues")
+            Prelude.<*> (x Data..: "entityPropertyReference")
       )
 
 instance Prelude.Hashable PropertyValueEntry where
@@ -92,15 +93,15 @@ instance Prelude.NFData PropertyValueEntry where
     Prelude.rnf propertyValues
       `Prelude.seq` Prelude.rnf entityPropertyReference
 
-instance Core.ToJSON PropertyValueEntry where
+instance Data.ToJSON PropertyValueEntry where
   toJSON PropertyValueEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("propertyValues" Core..=)
+          [ ("propertyValues" Data..=)
               Prelude.<$> propertyValues,
             Prelude.Just
               ( "entityPropertyReference"
-                  Core..= entityPropertyReference
+                  Data..= entityPropertyReference
               )
           ]
       )

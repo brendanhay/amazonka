@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,8 +134,8 @@ instance Core.AWSRequest ListScripts where
     Response.receiveJSON
       ( \s h x ->
           ListScriptsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Scripts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Scripts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,32 +149,32 @@ instance Prelude.NFData ListScripts where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders ListScripts where
+instance Data.ToHeaders ListScripts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.ListScripts" :: Prelude.ByteString),
+              Data.=# ("GameLift.ListScripts" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListScripts where
+instance Data.ToJSON ListScripts where
   toJSON ListScripts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath ListScripts where
+instance Data.ToPath ListScripts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListScripts where
+instance Data.ToQuery ListScripts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListScriptsResponse' smart constructor.

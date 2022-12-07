@@ -22,6 +22,7 @@ module Amazonka.Athena.Types.ResultSetMetadata where
 import Amazonka.Athena.Types.ColumnInfo
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata that describes the column structure and data types of a
@@ -53,13 +54,13 @@ newResultSetMetadata =
 resultSetMetadata_columnInfo :: Lens.Lens' ResultSetMetadata (Prelude.Maybe [ColumnInfo])
 resultSetMetadata_columnInfo = Lens.lens (\ResultSetMetadata' {columnInfo} -> columnInfo) (\s@ResultSetMetadata' {} a -> s {columnInfo = a} :: ResultSetMetadata) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ResultSetMetadata where
+instance Data.FromJSON ResultSetMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResultSetMetadata"
       ( \x ->
           ResultSetMetadata'
-            Prelude.<$> (x Core..:? "ColumnInfo" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ColumnInfo" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ResultSetMetadata where

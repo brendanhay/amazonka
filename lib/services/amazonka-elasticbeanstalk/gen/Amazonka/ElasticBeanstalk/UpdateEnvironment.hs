@@ -83,6 +83,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -315,7 +316,7 @@ instance Core.AWSRequest UpdateEnvironment where
   response =
     Response.receiveXMLWrapper
       "UpdateEnvironmentResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable UpdateEnvironment where
   hashWithSalt _salt UpdateEnvironment' {..} =
@@ -347,37 +348,37 @@ instance Prelude.NFData UpdateEnvironment where
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf optionSettings
 
-instance Core.ToHeaders UpdateEnvironment where
+instance Data.ToHeaders UpdateEnvironment where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateEnvironment where
+instance Data.ToPath UpdateEnvironment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateEnvironment where
+instance Data.ToQuery UpdateEnvironment where
   toQuery UpdateEnvironment' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateEnvironment" :: Prelude.ByteString),
+          Data.=: ("UpdateEnvironment" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "TemplateName" Core.=: templateName,
-        "EnvironmentName" Core.=: environmentName,
-        "GroupName" Core.=: groupName,
-        "Description" Core.=: description,
-        "Tier" Core.=: tier,
-        "SolutionStackName" Core.=: solutionStackName,
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "TemplateName" Data.=: templateName,
+        "EnvironmentName" Data.=: environmentName,
+        "GroupName" Data.=: groupName,
+        "Description" Data.=: description,
+        "Tier" Data.=: tier,
+        "SolutionStackName" Data.=: solutionStackName,
         "OptionsToRemove"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> optionsToRemove
             ),
-        "PlatformArn" Core.=: platformArn,
-        "EnvironmentId" Core.=: environmentId,
-        "VersionLabel" Core.=: versionLabel,
-        "ApplicationName" Core.=: applicationName,
+        "PlatformArn" Data.=: platformArn,
+        "EnvironmentId" Data.=: environmentId,
+        "VersionLabel" Data.=: versionLabel,
+        "ApplicationName" Data.=: applicationName,
         "OptionSettings"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> optionSettings
             )
       ]

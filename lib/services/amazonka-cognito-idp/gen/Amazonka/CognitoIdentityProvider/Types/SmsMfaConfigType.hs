@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.SmsMfaConfigType where
 import Amazonka.CognitoIdentityProvider.Types.SmsConfigurationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The SMS text message multi-factor authentication (MFA) configuration
@@ -88,14 +89,14 @@ smsMfaConfigType_smsConfiguration = Lens.lens (\SmsMfaConfigType' {smsConfigurat
 smsMfaConfigType_smsAuthenticationMessage :: Lens.Lens' SmsMfaConfigType (Prelude.Maybe Prelude.Text)
 smsMfaConfigType_smsAuthenticationMessage = Lens.lens (\SmsMfaConfigType' {smsAuthenticationMessage} -> smsAuthenticationMessage) (\s@SmsMfaConfigType' {} a -> s {smsAuthenticationMessage = a} :: SmsMfaConfigType)
 
-instance Core.FromJSON SmsMfaConfigType where
+instance Data.FromJSON SmsMfaConfigType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SmsMfaConfigType"
       ( \x ->
           SmsMfaConfigType'
-            Prelude.<$> (x Core..:? "SmsConfiguration")
-            Prelude.<*> (x Core..:? "SmsAuthenticationMessage")
+            Prelude.<$> (x Data..:? "SmsConfiguration")
+            Prelude.<*> (x Data..:? "SmsAuthenticationMessage")
       )
 
 instance Prelude.Hashable SmsMfaConfigType where
@@ -108,13 +109,13 @@ instance Prelude.NFData SmsMfaConfigType where
     Prelude.rnf smsConfiguration
       `Prelude.seq` Prelude.rnf smsAuthenticationMessage
 
-instance Core.ToJSON SmsMfaConfigType where
+instance Data.ToJSON SmsMfaConfigType where
   toJSON SmsMfaConfigType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SmsConfiguration" Core..=)
+          [ ("SmsConfiguration" Data..=)
               Prelude.<$> smsConfiguration,
-            ("SmsAuthenticationMessage" Core..=)
+            ("SmsAuthenticationMessage" Data..=)
               Prelude.<$> smsAuthenticationMessage
           ]
       )

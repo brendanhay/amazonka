@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.InstanceAccessDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.HostKeyAttributes
 import Amazonka.Lightsail.Types.InstanceAccessProtocol
 import Amazonka.Lightsail.Types.PasswordData
@@ -64,7 +65,7 @@ data InstanceAccessDetails = InstanceAccessDetails'
     -- @tempkey-cert.pub@.
     certKey :: Prelude.Maybe Prelude.Text,
     -- | For SSH access, the date on which the temporary keys expire.
-    expiresAt :: Prelude.Maybe Core.POSIX,
+    expiresAt :: Prelude.Maybe Data.POSIX,
     -- | The protocol for these Amazon Lightsail instance access details.
     protocol :: Prelude.Maybe InstanceAccessProtocol,
     -- | The public IP address of the Amazon Lightsail instance.
@@ -181,7 +182,7 @@ instanceAccessDetails_certKey = Lens.lens (\InstanceAccessDetails' {certKey} -> 
 
 -- | For SSH access, the date on which the temporary keys expire.
 instanceAccessDetails_expiresAt :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe Prelude.UTCTime)
-instanceAccessDetails_expiresAt = Lens.lens (\InstanceAccessDetails' {expiresAt} -> expiresAt) (\s@InstanceAccessDetails' {} a -> s {expiresAt = a} :: InstanceAccessDetails) Prelude.. Lens.mapping Core._Time
+instanceAccessDetails_expiresAt = Lens.lens (\InstanceAccessDetails' {expiresAt} -> expiresAt) (\s@InstanceAccessDetails' {} a -> s {expiresAt = a} :: InstanceAccessDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The protocol for these Amazon Lightsail instance access details.
 instanceAccessDetails_protocol :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe InstanceAccessProtocol)
@@ -191,22 +192,22 @@ instanceAccessDetails_protocol = Lens.lens (\InstanceAccessDetails' {protocol} -
 instanceAccessDetails_ipAddress :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe Prelude.Text)
 instanceAccessDetails_ipAddress = Lens.lens (\InstanceAccessDetails' {ipAddress} -> ipAddress) (\s@InstanceAccessDetails' {} a -> s {ipAddress = a} :: InstanceAccessDetails)
 
-instance Core.FromJSON InstanceAccessDetails where
+instance Data.FromJSON InstanceAccessDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceAccessDetails"
       ( \x ->
           InstanceAccessDetails'
-            Prelude.<$> (x Core..:? "hostKeys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "instanceName")
-            Prelude.<*> (x Core..:? "password")
-            Prelude.<*> (x Core..:? "privateKey")
-            Prelude.<*> (x Core..:? "username")
-            Prelude.<*> (x Core..:? "passwordData")
-            Prelude.<*> (x Core..:? "certKey")
-            Prelude.<*> (x Core..:? "expiresAt")
-            Prelude.<*> (x Core..:? "protocol")
-            Prelude.<*> (x Core..:? "ipAddress")
+            Prelude.<$> (x Data..:? "hostKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "instanceName")
+            Prelude.<*> (x Data..:? "password")
+            Prelude.<*> (x Data..:? "privateKey")
+            Prelude.<*> (x Data..:? "username")
+            Prelude.<*> (x Data..:? "passwordData")
+            Prelude.<*> (x Data..:? "certKey")
+            Prelude.<*> (x Data..:? "expiresAt")
+            Prelude.<*> (x Data..:? "protocol")
+            Prelude.<*> (x Data..:? "ipAddress")
       )
 
 instance Prelude.Hashable InstanceAccessDetails where

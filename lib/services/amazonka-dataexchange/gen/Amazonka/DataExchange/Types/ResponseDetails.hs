@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.ResponseDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails
 import Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails
 import Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails
@@ -114,19 +115,19 @@ responseDetails_importAssetsFromS3 = Lens.lens (\ResponseDetails' {importAssetsF
 responseDetails_importAssetFromApiGatewayApi :: Lens.Lens' ResponseDetails (Prelude.Maybe ImportAssetFromApiGatewayApiResponseDetails)
 responseDetails_importAssetFromApiGatewayApi = Lens.lens (\ResponseDetails' {importAssetFromApiGatewayApi} -> importAssetFromApiGatewayApi) (\s@ResponseDetails' {} a -> s {importAssetFromApiGatewayApi = a} :: ResponseDetails)
 
-instance Core.FromJSON ResponseDetails where
+instance Data.FromJSON ResponseDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResponseDetails"
       ( \x ->
           ResponseDetails'
-            Prelude.<$> (x Core..:? "ImportAssetFromSignedUrl")
-            Prelude.<*> (x Core..:? "ImportAssetsFromRedshiftDataShares")
-            Prelude.<*> (x Core..:? "ExportAssetToSignedUrl")
-            Prelude.<*> (x Core..:? "ExportRevisionsToS3")
-            Prelude.<*> (x Core..:? "ExportAssetsToS3")
-            Prelude.<*> (x Core..:? "ImportAssetsFromS3")
-            Prelude.<*> (x Core..:? "ImportAssetFromApiGatewayApi")
+            Prelude.<$> (x Data..:? "ImportAssetFromSignedUrl")
+            Prelude.<*> (x Data..:? "ImportAssetsFromRedshiftDataShares")
+            Prelude.<*> (x Data..:? "ExportAssetToSignedUrl")
+            Prelude.<*> (x Data..:? "ExportRevisionsToS3")
+            Prelude.<*> (x Data..:? "ExportAssetsToS3")
+            Prelude.<*> (x Data..:? "ImportAssetsFromS3")
+            Prelude.<*> (x Data..:? "ImportAssetFromApiGatewayApi")
       )
 
 instance Prelude.Hashable ResponseDetails where

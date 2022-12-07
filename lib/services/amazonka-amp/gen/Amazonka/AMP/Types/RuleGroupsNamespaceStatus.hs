@@ -22,6 +22,7 @@ module Amazonka.AMP.Types.RuleGroupsNamespaceStatus where
 import Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the status of a namespace.
@@ -65,14 +66,14 @@ ruleGroupsNamespaceStatus_statusReason = Lens.lens (\RuleGroupsNamespaceStatus' 
 ruleGroupsNamespaceStatus_statusCode :: Lens.Lens' RuleGroupsNamespaceStatus RuleGroupsNamespaceStatusCode
 ruleGroupsNamespaceStatus_statusCode = Lens.lens (\RuleGroupsNamespaceStatus' {statusCode} -> statusCode) (\s@RuleGroupsNamespaceStatus' {} a -> s {statusCode = a} :: RuleGroupsNamespaceStatus)
 
-instance Core.FromJSON RuleGroupsNamespaceStatus where
+instance Data.FromJSON RuleGroupsNamespaceStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupsNamespaceStatus"
       ( \x ->
           RuleGroupsNamespaceStatus'
-            Prelude.<$> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..: "statusCode")
+            Prelude.<$> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..: "statusCode")
       )
 
 instance Prelude.Hashable RuleGroupsNamespaceStatus where

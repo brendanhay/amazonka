@@ -40,6 +40,7 @@ module Amazonka.MediaConvert.Types.StatusUpdateInterval
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
@@ -49,7 +50,7 @@ import qualified Amazonka.Prelude as Prelude
 -- encounters an error.
 newtype StatusUpdateInterval = StatusUpdateInterval'
   { fromStatusUpdateInterval ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -61,18 +62,18 @@ newtype StatusUpdateInterval = StatusUpdateInterval'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern StatusUpdateInterval_SECONDS_10 :: StatusUpdateInterval

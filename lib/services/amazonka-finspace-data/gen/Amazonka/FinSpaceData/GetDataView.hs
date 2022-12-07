@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,20 +110,20 @@ instance Core.AWSRequest GetDataView where
     Response.receiveJSON
       ( \s h x ->
           GetDataViewResponse'
-            Prelude.<$> (x Core..?> "sortColumns" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "autoUpdate")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "lastModifiedTime")
-            Prelude.<*> (x Core..?> "dataViewArn")
-            Prelude.<*> (x Core..?> "dataViewId")
-            Prelude.<*> ( x Core..?> "partitionColumns"
+            Prelude.<$> (x Data..?> "sortColumns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "autoUpdate")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "lastModifiedTime")
+            Prelude.<*> (x Data..?> "dataViewArn")
+            Prelude.<*> (x Data..?> "dataViewId")
+            Prelude.<*> ( x Data..?> "partitionColumns"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "datasetId")
-            Prelude.<*> (x Core..?> "asOfTimestamp")
-            Prelude.<*> (x Core..?> "destinationTypeParams")
-            Prelude.<*> (x Core..?> "createTime")
-            Prelude.<*> (x Core..?> "errorInfo")
+            Prelude.<*> (x Data..?> "datasetId")
+            Prelude.<*> (x Data..?> "asOfTimestamp")
+            Prelude.<*> (x Data..?> "destinationTypeParams")
+            Prelude.<*> (x Data..?> "createTime")
+            Prelude.<*> (x Data..?> "errorInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,27 +137,27 @@ instance Prelude.NFData GetDataView where
     Prelude.rnf dataViewId
       `Prelude.seq` Prelude.rnf datasetId
 
-instance Core.ToHeaders GetDataView where
+instance Data.ToHeaders GetDataView where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDataView where
+instance Data.ToPath GetDataView where
   toPath GetDataView' {..} =
     Prelude.mconcat
       [ "/datasets/",
-        Core.toBS datasetId,
+        Data.toBS datasetId,
         "/dataviewsv2/",
-        Core.toBS dataViewId
+        Data.toBS dataViewId
       ]
 
-instance Core.ToQuery GetDataView where
+instance Data.ToQuery GetDataView where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Response from retrieving a dataview, which includes details on the

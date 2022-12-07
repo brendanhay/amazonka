@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ExportJobResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.ExportJobResource
 import Amazonka.Pinpoint.Types.JobStatus
 import qualified Amazonka.Prelude as Prelude
@@ -214,25 +215,25 @@ exportJobResponse_id = Lens.lens (\ExportJobResponse' {id} -> id) (\s@ExportJobR
 exportJobResponse_applicationId :: Lens.Lens' ExportJobResponse Prelude.Text
 exportJobResponse_applicationId = Lens.lens (\ExportJobResponse' {applicationId} -> applicationId) (\s@ExportJobResponse' {} a -> s {applicationId = a} :: ExportJobResponse)
 
-instance Core.FromJSON ExportJobResponse where
+instance Data.FromJSON ExportJobResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExportJobResponse"
       ( \x ->
           ExportJobResponse'
-            Prelude.<$> (x Core..:? "FailedPieces")
-            Prelude.<*> (x Core..:? "CompletedPieces")
-            Prelude.<*> (x Core..:? "TotalPieces")
-            Prelude.<*> (x Core..:? "CompletionDate")
-            Prelude.<*> (x Core..:? "TotalProcessed")
-            Prelude.<*> (x Core..:? "Failures" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TotalFailures")
-            Prelude.<*> (x Core..: "JobStatus")
-            Prelude.<*> (x Core..: "CreationDate")
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "Definition")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "ApplicationId")
+            Prelude.<$> (x Data..:? "FailedPieces")
+            Prelude.<*> (x Data..:? "CompletedPieces")
+            Prelude.<*> (x Data..:? "TotalPieces")
+            Prelude.<*> (x Data..:? "CompletionDate")
+            Prelude.<*> (x Data..:? "TotalProcessed")
+            Prelude.<*> (x Data..:? "Failures" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TotalFailures")
+            Prelude.<*> (x Data..: "JobStatus")
+            Prelude.<*> (x Data..: "CreationDate")
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Definition")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "ApplicationId")
       )
 
 instance Prelude.Hashable ExportJobResponse where

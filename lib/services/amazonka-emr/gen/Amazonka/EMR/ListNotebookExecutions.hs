@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -65,10 +66,10 @@ data ListNotebookExecutions = ListNotebookExecutions'
     marker :: Prelude.Maybe Prelude.Text,
     -- | The beginning of time range filter for listing notebook executions. The
     -- default is the timestamp of 30 days ago.
-    from :: Prelude.Maybe Core.POSIX,
+    from :: Prelude.Maybe Data.POSIX,
     -- | The end of time range filter for listing notebook executions. The
     -- default is the current timestamp.
-    to :: Prelude.Maybe Core.POSIX,
+    to :: Prelude.Maybe Data.POSIX,
     -- | The status filter for listing notebook executions.
     --
     -- -   @START_PENDING@ indicates that the cluster has received the
@@ -171,12 +172,12 @@ listNotebookExecutions_marker = Lens.lens (\ListNotebookExecutions' {marker} -> 
 -- | The beginning of time range filter for listing notebook executions. The
 -- default is the timestamp of 30 days ago.
 listNotebookExecutions_from :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe Prelude.UTCTime)
-listNotebookExecutions_from = Lens.lens (\ListNotebookExecutions' {from} -> from) (\s@ListNotebookExecutions' {} a -> s {from = a} :: ListNotebookExecutions) Prelude.. Lens.mapping Core._Time
+listNotebookExecutions_from = Lens.lens (\ListNotebookExecutions' {from} -> from) (\s@ListNotebookExecutions' {} a -> s {from = a} :: ListNotebookExecutions) Prelude.. Lens.mapping Data._Time
 
 -- | The end of time range filter for listing notebook executions. The
 -- default is the current timestamp.
 listNotebookExecutions_to :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe Prelude.UTCTime)
-listNotebookExecutions_to = Lens.lens (\ListNotebookExecutions' {to} -> to) (\s@ListNotebookExecutions' {} a -> s {to = a} :: ListNotebookExecutions) Prelude.. Lens.mapping Core._Time
+listNotebookExecutions_to = Lens.lens (\ListNotebookExecutions' {to} -> to) (\s@ListNotebookExecutions' {} a -> s {to = a} :: ListNotebookExecutions) Prelude.. Lens.mapping Data._Time
 
 -- | The status filter for listing notebook executions.
 --
@@ -245,8 +246,8 @@ instance Core.AWSRequest ListNotebookExecutions where
     Response.receiveJSON
       ( \s h x ->
           ListNotebookExecutionsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> ( x Core..?> "NotebookExecutions"
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> ( x Data..?> "NotebookExecutions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -268,37 +269,37 @@ instance Prelude.NFData ListNotebookExecutions where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf editorId
 
-instance Core.ToHeaders ListNotebookExecutions where
+instance Data.ToHeaders ListNotebookExecutions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.ListNotebookExecutions" ::
+              Data.=# ( "ElasticMapReduce.ListNotebookExecutions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListNotebookExecutions where
+instance Data.ToJSON ListNotebookExecutions where
   toJSON ListNotebookExecutions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("From" Core..=) Prelude.<$> from,
-            ("To" Core..=) Prelude.<$> to,
-            ("Status" Core..=) Prelude.<$> status,
-            ("EditorId" Core..=) Prelude.<$> editorId
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("From" Data..=) Prelude.<$> from,
+            ("To" Data..=) Prelude.<$> to,
+            ("Status" Data..=) Prelude.<$> status,
+            ("EditorId" Data..=) Prelude.<$> editorId
           ]
       )
 
-instance Core.ToPath ListNotebookExecutions where
+instance Data.ToPath ListNotebookExecutions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListNotebookExecutions where
+instance Data.ToQuery ListNotebookExecutions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListNotebookExecutionsResponse' smart constructor.

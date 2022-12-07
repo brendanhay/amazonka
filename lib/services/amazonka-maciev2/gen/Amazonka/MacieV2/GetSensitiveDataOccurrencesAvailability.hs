@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,8 +94,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetSensitiveDataOccurrencesAvailabilityResponse'
-            Prelude.<$> (x Core..?> "code")
-              Prelude.<*> (x Core..?> "reasons" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "code")
+              Prelude.<*> (x Data..?> "reasons" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,32 +116,32 @@ instance
     Prelude.rnf findingId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetSensitiveDataOccurrencesAvailability
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetSensitiveDataOccurrencesAvailability
   where
   toPath GetSensitiveDataOccurrencesAvailability' {..} =
     Prelude.mconcat
       [ "/findings/",
-        Core.toBS findingId,
+        Data.toBS findingId,
         "/reveal/availability"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetSensitiveDataOccurrencesAvailability
   where
   toQuery = Prelude.const Prelude.mempty

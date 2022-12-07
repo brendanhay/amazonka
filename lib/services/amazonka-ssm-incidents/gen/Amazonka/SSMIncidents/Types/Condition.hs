@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.Condition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.AttributeValueList
 
@@ -35,9 +36,9 @@ data Condition = Condition'
   { -- | The value is equal to the provided string or integer.
     equals :: Prelude.Maybe AttributeValueList,
     -- | After the specified timestamp.
-    after :: Prelude.Maybe Core.POSIX,
+    after :: Prelude.Maybe Data.POSIX,
     -- | Before the specified timestamp
-    before :: Prelude.Maybe Core.POSIX
+    before :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,11 +70,11 @@ condition_equals = Lens.lens (\Condition' {equals} -> equals) (\s@Condition' {} 
 
 -- | After the specified timestamp.
 condition_after :: Lens.Lens' Condition (Prelude.Maybe Prelude.UTCTime)
-condition_after = Lens.lens (\Condition' {after} -> after) (\s@Condition' {} a -> s {after = a} :: Condition) Prelude.. Lens.mapping Core._Time
+condition_after = Lens.lens (\Condition' {after} -> after) (\s@Condition' {} a -> s {after = a} :: Condition) Prelude.. Lens.mapping Data._Time
 
 -- | Before the specified timestamp
 condition_before :: Lens.Lens' Condition (Prelude.Maybe Prelude.UTCTime)
-condition_before = Lens.lens (\Condition' {before} -> before) (\s@Condition' {} a -> s {before = a} :: Condition) Prelude.. Lens.mapping Core._Time
+condition_before = Lens.lens (\Condition' {before} -> before) (\s@Condition' {} a -> s {before = a} :: Condition) Prelude.. Lens.mapping Data._Time
 
 instance Prelude.Hashable Condition where
   hashWithSalt _salt Condition' {..} =
@@ -87,12 +88,12 @@ instance Prelude.NFData Condition where
       `Prelude.seq` Prelude.rnf after
       `Prelude.seq` Prelude.rnf before
 
-instance Core.ToJSON Condition where
+instance Data.ToJSON Condition where
   toJSON Condition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("equals" Core..=) Prelude.<$> equals,
-            ("after" Core..=) Prelude.<$> after,
-            ("before" Core..=) Prelude.<$> before
+          [ ("equals" Data..=) Prelude.<$> equals,
+            ("after" Data..=) Prelude.<$> after,
+            ("before" Data..=) Prelude.<$> before
           ]
       )

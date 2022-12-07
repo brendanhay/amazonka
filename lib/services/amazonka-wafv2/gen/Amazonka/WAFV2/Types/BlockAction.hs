@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.BlockAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CustomResponse
 
@@ -70,13 +71,13 @@ newBlockAction =
 blockAction_customResponse :: Lens.Lens' BlockAction (Prelude.Maybe CustomResponse)
 blockAction_customResponse = Lens.lens (\BlockAction' {customResponse} -> customResponse) (\s@BlockAction' {} a -> s {customResponse = a} :: BlockAction)
 
-instance Core.FromJSON BlockAction where
+instance Data.FromJSON BlockAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BlockAction"
       ( \x ->
           BlockAction'
-            Prelude.<$> (x Core..:? "CustomResponse")
+            Prelude.<$> (x Data..:? "CustomResponse")
       )
 
 instance Prelude.Hashable BlockAction where
@@ -86,11 +87,11 @@ instance Prelude.Hashable BlockAction where
 instance Prelude.NFData BlockAction where
   rnf BlockAction' {..} = Prelude.rnf customResponse
 
-instance Core.ToJSON BlockAction where
+instance Data.ToJSON BlockAction where
   toJSON BlockAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomResponse" Core..=)
+          [ ("CustomResponse" Data..=)
               Prelude.<$> customResponse
           ]
       )

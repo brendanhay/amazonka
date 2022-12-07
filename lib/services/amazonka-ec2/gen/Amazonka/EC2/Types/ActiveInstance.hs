@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ActiveInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceHealthStatus
 import qualified Amazonka.Prelude as Prelude
@@ -91,13 +92,13 @@ activeInstance_instanceType = Lens.lens (\ActiveInstance' {instanceType} -> inst
 activeInstance_instanceId :: Lens.Lens' ActiveInstance (Prelude.Maybe Prelude.Text)
 activeInstance_instanceId = Lens.lens (\ActiveInstance' {instanceId} -> instanceId) (\s@ActiveInstance' {} a -> s {instanceId = a} :: ActiveInstance)
 
-instance Core.FromXML ActiveInstance where
+instance Data.FromXML ActiveInstance where
   parseXML x =
     ActiveInstance'
-      Prelude.<$> (x Core..@? "spotInstanceRequestId")
-      Prelude.<*> (x Core..@? "instanceHealth")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "instanceId")
+      Prelude.<$> (x Data..@? "spotInstanceRequestId")
+      Prelude.<*> (x Data..@? "instanceHealth")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "instanceId")
 
 instance Prelude.Hashable ActiveInstance where
   hashWithSalt _salt ActiveInstance' {..} =

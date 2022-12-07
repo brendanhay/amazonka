@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.VariableImportanceMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.LogOddsMetric
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,14 +55,14 @@ newVariableImportanceMetrics =
 variableImportanceMetrics_logOddsMetrics :: Lens.Lens' VariableImportanceMetrics (Prelude.Maybe [LogOddsMetric])
 variableImportanceMetrics_logOddsMetrics = Lens.lens (\VariableImportanceMetrics' {logOddsMetrics} -> logOddsMetrics) (\s@VariableImportanceMetrics' {} a -> s {logOddsMetrics = a} :: VariableImportanceMetrics) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON VariableImportanceMetrics where
+instance Data.FromJSON VariableImportanceMetrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VariableImportanceMetrics"
       ( \x ->
           VariableImportanceMetrics'
-            Prelude.<$> ( x Core..:? "logOddsMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "logOddsMetrics"
+                            Data..!= Prelude.mempty
                         )
       )
 

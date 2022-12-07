@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.EquipmentDetection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.BoundingBox
 import Amazonka.Rekognition.Types.CoversBodyPart
@@ -87,16 +88,16 @@ equipmentDetection_boundingBox = Lens.lens (\EquipmentDetection' {boundingBox} -
 equipmentDetection_coversBodyPart :: Lens.Lens' EquipmentDetection (Prelude.Maybe CoversBodyPart)
 equipmentDetection_coversBodyPart = Lens.lens (\EquipmentDetection' {coversBodyPart} -> coversBodyPart) (\s@EquipmentDetection' {} a -> s {coversBodyPart = a} :: EquipmentDetection)
 
-instance Core.FromJSON EquipmentDetection where
+instance Data.FromJSON EquipmentDetection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EquipmentDetection"
       ( \x ->
           EquipmentDetection'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "BoundingBox")
-            Prelude.<*> (x Core..:? "CoversBodyPart")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "BoundingBox")
+            Prelude.<*> (x Data..:? "CoversBodyPart")
       )
 
 instance Prelude.Hashable EquipmentDetection where

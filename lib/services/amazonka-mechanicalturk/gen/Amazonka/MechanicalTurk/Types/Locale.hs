@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.Locale where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Locale data structure represents a geographical region or location.
@@ -69,14 +70,14 @@ locale_subdivision = Lens.lens (\Locale' {subdivision} -> subdivision) (\s@Local
 locale_country :: Lens.Lens' Locale Prelude.Text
 locale_country = Lens.lens (\Locale' {country} -> country) (\s@Locale' {} a -> s {country = a} :: Locale)
 
-instance Core.FromJSON Locale where
+instance Data.FromJSON Locale where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Locale"
       ( \x ->
           Locale'
-            Prelude.<$> (x Core..:? "Subdivision")
-            Prelude.<*> (x Core..: "Country")
+            Prelude.<$> (x Data..:? "Subdivision")
+            Prelude.<*> (x Data..: "Country")
       )
 
 instance Prelude.Hashable Locale where
@@ -89,11 +90,11 @@ instance Prelude.NFData Locale where
     Prelude.rnf subdivision
       `Prelude.seq` Prelude.rnf country
 
-instance Core.ToJSON Locale where
+instance Data.ToJSON Locale where
   toJSON Locale' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Subdivision" Core..=) Prelude.<$> subdivision,
-            Prelude.Just ("Country" Core..= country)
+          [ ("Subdivision" Data..=) Prelude.<$> subdivision,
+            Prelude.Just ("Country" Data..= country)
           ]
       )

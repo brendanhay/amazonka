@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,8 +152,8 @@ instance Core.AWSRequest ListResourceDelegates where
     Response.receiveJSON
       ( \s h x ->
           ListResourceDelegatesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Delegates" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Delegates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,37 +171,37 @@ instance Prelude.NFData ListResourceDelegates where
       `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToHeaders ListResourceDelegates where
+instance Data.ToHeaders ListResourceDelegates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.ListResourceDelegates" ::
+              Data.=# ( "WorkMailService.ListResourceDelegates" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListResourceDelegates where
+instance Data.ToJSON ListResourceDelegates where
   toJSON ListResourceDelegates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("ResourceId" Core..= resourceId)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )
 
-instance Core.ToPath ListResourceDelegates where
+instance Data.ToPath ListResourceDelegates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListResourceDelegates where
+instance Data.ToQuery ListResourceDelegates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResourceDelegatesResponse' smart constructor.

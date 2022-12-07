@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceExplorer2.Types
@@ -94,9 +95,9 @@ instance Core.AWSRequest DeleteIndex where
     Response.receiveJSON
       ( \s h x ->
           DeleteIndexResponse'
-            Prelude.<$> (x Core..?> "LastUpdatedAt")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
+            Prelude.<$> (x Data..?> "LastUpdatedAt")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,34 +108,34 @@ instance Prelude.Hashable DeleteIndex where
 instance Prelude.NFData DeleteIndex where
   rnf DeleteIndex' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeleteIndex where
+instance Data.ToHeaders DeleteIndex where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteIndex where
+instance Data.ToJSON DeleteIndex where
   toJSON DeleteIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Arn" Core..= arn)]
+          [Prelude.Just ("Arn" Data..= arn)]
       )
 
-instance Core.ToPath DeleteIndex where
+instance Data.ToPath DeleteIndex where
   toPath = Prelude.const "/DeleteIndex"
 
-instance Core.ToQuery DeleteIndex where
+instance Data.ToQuery DeleteIndex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteIndexResponse' smart constructor.
 data DeleteIndexResponse = DeleteIndexResponse'
   { -- | The date and time when you last updated this index.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
     -- of the index that you successfully started the deletion process.
@@ -184,7 +185,7 @@ newDeleteIndexResponse pHttpStatus_ =
 
 -- | The date and time when you last updated this index.
 deleteIndexResponse_lastUpdatedAt :: Lens.Lens' DeleteIndexResponse (Prelude.Maybe Prelude.UTCTime)
-deleteIndexResponse_lastUpdatedAt = Lens.lens (\DeleteIndexResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DeleteIndexResponse' {} a -> s {lastUpdatedAt = a} :: DeleteIndexResponse) Prelude.. Lens.mapping Core._Time
+deleteIndexResponse_lastUpdatedAt = Lens.lens (\DeleteIndexResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DeleteIndexResponse' {} a -> s {lastUpdatedAt = a} :: DeleteIndexResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>

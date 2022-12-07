@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.RelativeAggregationDuration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.TimeDimension
 import qualified Amazonka.Prelude as Prelude
 
@@ -108,14 +109,14 @@ relativeAggregationDuration_timeDimension = Lens.lens (\RelativeAggregationDurat
 relativeAggregationDuration_timeValue :: Lens.Lens' RelativeAggregationDuration Prelude.Natural
 relativeAggregationDuration_timeValue = Lens.lens (\RelativeAggregationDuration' {timeValue} -> timeValue) (\s@RelativeAggregationDuration' {} a -> s {timeValue = a} :: RelativeAggregationDuration)
 
-instance Core.FromJSON RelativeAggregationDuration where
+instance Data.FromJSON RelativeAggregationDuration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelativeAggregationDuration"
       ( \x ->
           RelativeAggregationDuration'
-            Prelude.<$> (x Core..: "timeDimension")
-            Prelude.<*> (x Core..: "timeValue")
+            Prelude.<$> (x Data..: "timeDimension")
+            Prelude.<*> (x Data..: "timeValue")
       )
 
 instance Prelude.Hashable RelativeAggregationDuration where
@@ -128,12 +129,12 @@ instance Prelude.NFData RelativeAggregationDuration where
     Prelude.rnf timeDimension
       `Prelude.seq` Prelude.rnf timeValue
 
-instance Core.ToJSON RelativeAggregationDuration where
+instance Data.ToJSON RelativeAggregationDuration where
   toJSON RelativeAggregationDuration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("timeDimension" Core..= timeDimension),
-            Prelude.Just ("timeValue" Core..= timeValue)
+              ("timeDimension" Data..= timeDimension),
+            Prelude.Just ("timeValue" Data..= timeValue)
           ]
       )

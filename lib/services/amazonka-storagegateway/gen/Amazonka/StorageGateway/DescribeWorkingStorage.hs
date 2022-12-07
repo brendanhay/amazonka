@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,10 +98,10 @@ instance Core.AWSRequest DescribeWorkingStorage where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkingStorageResponse'
-            Prelude.<$> (x Core..?> "WorkingStorageUsedInBytes")
-            Prelude.<*> (x Core..?> "DiskIds" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "WorkingStorageAllocatedInBytes")
-            Prelude.<*> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "WorkingStorageUsedInBytes")
+            Prelude.<*> (x Data..?> "DiskIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "WorkingStorageAllocatedInBytes")
+            Prelude.<*> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,32 +113,32 @@ instance Prelude.NFData DescribeWorkingStorage where
   rnf DescribeWorkingStorage' {..} =
     Prelude.rnf gatewayARN
 
-instance Core.ToHeaders DescribeWorkingStorage where
+instance Data.ToHeaders DescribeWorkingStorage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DescribeWorkingStorage" ::
+              Data.=# ( "StorageGateway_20130630.DescribeWorkingStorage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeWorkingStorage where
+instance Data.ToJSON DescribeWorkingStorage where
   toJSON DescribeWorkingStorage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
+          [Prelude.Just ("GatewayARN" Data..= gatewayARN)]
       )
 
-instance Core.ToPath DescribeWorkingStorage where
+instance Data.ToPath DescribeWorkingStorage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeWorkingStorage where
+instance Data.ToQuery DescribeWorkingStorage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the following fields:

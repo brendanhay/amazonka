@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.ProvisionedRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.BrokerNodeGroupInfo
 import Amazonka.Kafka.Types.ClientAuthentication
 import Amazonka.Kafka.Types.ConfigurationInfo
@@ -186,26 +187,26 @@ instance Prelude.NFData ProvisionedRequest where
       `Prelude.seq` Prelude.rnf kafkaVersion
       `Prelude.seq` Prelude.rnf numberOfBrokerNodes
 
-instance Core.ToJSON ProvisionedRequest where
+instance Data.ToJSON ProvisionedRequest where
   toJSON ProvisionedRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("openMonitoring" Core..=)
+          [ ("openMonitoring" Data..=)
               Prelude.<$> openMonitoring,
-            ("storageMode" Core..=) Prelude.<$> storageMode,
-            ("encryptionInfo" Core..=)
+            ("storageMode" Data..=) Prelude.<$> storageMode,
+            ("encryptionInfo" Data..=)
               Prelude.<$> encryptionInfo,
-            ("clientAuthentication" Core..=)
+            ("clientAuthentication" Data..=)
               Prelude.<$> clientAuthentication,
-            ("loggingInfo" Core..=) Prelude.<$> loggingInfo,
-            ("configurationInfo" Core..=)
+            ("loggingInfo" Data..=) Prelude.<$> loggingInfo,
+            ("configurationInfo" Data..=)
               Prelude.<$> configurationInfo,
-            ("enhancedMonitoring" Core..=)
+            ("enhancedMonitoring" Data..=)
               Prelude.<$> enhancedMonitoring,
             Prelude.Just
-              ("brokerNodeGroupInfo" Core..= brokerNodeGroupInfo),
-            Prelude.Just ("kafkaVersion" Core..= kafkaVersion),
+              ("brokerNodeGroupInfo" Data..= brokerNodeGroupInfo),
+            Prelude.Just ("kafkaVersion" Data..= kafkaVersion),
             Prelude.Just
-              ("numberOfBrokerNodes" Core..= numberOfBrokerNodes)
+              ("numberOfBrokerNodes" Data..= numberOfBrokerNodes)
           ]
       )

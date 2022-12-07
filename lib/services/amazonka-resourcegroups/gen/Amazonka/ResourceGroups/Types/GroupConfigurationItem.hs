@@ -21,6 +21,7 @@ module Amazonka.ResourceGroups.Types.GroupConfigurationItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceGroups.Types.GroupConfigurationParameter
 
@@ -86,14 +87,14 @@ groupConfigurationItem_parameters = Lens.lens (\GroupConfigurationItem' {paramet
 groupConfigurationItem_type :: Lens.Lens' GroupConfigurationItem Prelude.Text
 groupConfigurationItem_type = Lens.lens (\GroupConfigurationItem' {type'} -> type') (\s@GroupConfigurationItem' {} a -> s {type' = a} :: GroupConfigurationItem)
 
-instance Core.FromJSON GroupConfigurationItem where
+instance Data.FromJSON GroupConfigurationItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupConfigurationItem"
       ( \x ->
           GroupConfigurationItem'
-            Prelude.<$> (x Core..:? "Parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable GroupConfigurationItem where
@@ -106,11 +107,11 @@ instance Prelude.NFData GroupConfigurationItem where
     Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON GroupConfigurationItem where
+instance Data.ToJSON GroupConfigurationItem where
   toJSON GroupConfigurationItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Type" Core..= type')
+          [ ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Type" Data..= type')
           ]
       )

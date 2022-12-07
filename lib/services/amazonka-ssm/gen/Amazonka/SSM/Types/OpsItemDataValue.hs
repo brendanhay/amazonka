@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.OpsItemDataValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.OpsItemDataType
 
@@ -66,13 +67,13 @@ opsItemDataValue_type = Lens.lens (\OpsItemDataValue' {type'} -> type') (\s@OpsI
 opsItemDataValue_value :: Lens.Lens' OpsItemDataValue (Prelude.Maybe Prelude.Text)
 opsItemDataValue_value = Lens.lens (\OpsItemDataValue' {value} -> value) (\s@OpsItemDataValue' {} a -> s {value = a} :: OpsItemDataValue)
 
-instance Core.FromJSON OpsItemDataValue where
+instance Data.FromJSON OpsItemDataValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpsItemDataValue"
       ( \x ->
           OpsItemDataValue'
-            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable OpsItemDataValue where
@@ -84,11 +85,11 @@ instance Prelude.NFData OpsItemDataValue where
   rnf OpsItemDataValue' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON OpsItemDataValue where
+instance Data.ToJSON OpsItemDataValue where
   toJSON OpsItemDataValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.RelatedItemsUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.ItemIdentifier
 import Amazonka.SSMIncidents.Types.RelatedItem
@@ -73,11 +74,11 @@ instance Prelude.NFData RelatedItemsUpdate where
     Prelude.rnf itemToRemove
       `Prelude.seq` Prelude.rnf itemToAdd
 
-instance Core.ToJSON RelatedItemsUpdate where
+instance Data.ToJSON RelatedItemsUpdate where
   toJSON RelatedItemsUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("itemToRemove" Core..=) Prelude.<$> itemToRemove,
-            ("itemToAdd" Core..=) Prelude.<$> itemToAdd
+          [ ("itemToRemove" Data..=) Prelude.<$> itemToRemove,
+            ("itemToAdd" Data..=) Prelude.<$> itemToAdd
           ]
       )

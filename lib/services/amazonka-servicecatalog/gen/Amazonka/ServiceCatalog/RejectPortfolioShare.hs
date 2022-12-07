@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -174,37 +175,37 @@ instance Prelude.NFData RejectPortfolioShare where
       `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf portfolioId
 
-instance Core.ToHeaders RejectPortfolioShare where
+instance Data.ToHeaders RejectPortfolioShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.RejectPortfolioShare" ::
+              Data.=# ( "AWS242ServiceCatalogService.RejectPortfolioShare" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RejectPortfolioShare where
+instance Data.ToJSON RejectPortfolioShare where
   toJSON RejectPortfolioShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PortfolioShareType" Core..=)
+          [ ("PortfolioShareType" Data..=)
               Prelude.<$> portfolioShareType,
-            ("AcceptLanguage" Core..=)
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("PortfolioId" Core..= portfolioId)
+            Prelude.Just ("PortfolioId" Data..= portfolioId)
           ]
       )
 
-instance Core.ToPath RejectPortfolioShare where
+instance Data.ToPath RejectPortfolioShare where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RejectPortfolioShare where
+instance Data.ToQuery RejectPortfolioShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRejectPortfolioShareResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.BillingConductor.Types.ListCustomLineItemsFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter that specifies the custom line items and billing groups to
@@ -31,7 +32,7 @@ data ListCustomLineItemsFilter = ListCustomLineItemsFilter'
   { -- | A list of custom line item ARNs to retrieve information.
     arns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of custom line items to retrieve information.
-    names :: Prelude.Maybe (Prelude.NonEmpty (Core.Sensitive Prelude.Text)),
+    names :: Prelude.Maybe (Prelude.NonEmpty (Data.Sensitive Prelude.Text)),
     -- | The billing group Amazon Resource Names (ARNs) to retrieve information.
     billingGroups :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
@@ -83,12 +84,12 @@ instance Prelude.NFData ListCustomLineItemsFilter where
       `Prelude.seq` Prelude.rnf names
       `Prelude.seq` Prelude.rnf billingGroups
 
-instance Core.ToJSON ListCustomLineItemsFilter where
+instance Data.ToJSON ListCustomLineItemsFilter where
   toJSON ListCustomLineItemsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Arns" Core..=) Prelude.<$> arns,
-            ("Names" Core..=) Prelude.<$> names,
-            ("BillingGroups" Core..=) Prelude.<$> billingGroups
+          [ ("Arns" Data..=) Prelude.<$> arns,
+            ("Names" Data..=) Prelude.<$> names,
+            ("BillingGroups" Data..=) Prelude.<$> billingGroups
           ]
       )

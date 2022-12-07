@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,8 +107,8 @@ instance Core.AWSRequest GetSamplingRules where
     Response.receiveJSON
       ( \s h x ->
           GetSamplingRulesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "SamplingRuleRecords"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "SamplingRuleRecords"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -120,20 +121,20 @@ instance Prelude.Hashable GetSamplingRules where
 instance Prelude.NFData GetSamplingRules where
   rnf GetSamplingRules' {..} = Prelude.rnf nextToken
 
-instance Core.ToHeaders GetSamplingRules where
+instance Data.ToHeaders GetSamplingRules where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetSamplingRules where
+instance Data.ToJSON GetSamplingRules where
   toJSON GetSamplingRules' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("NextToken" Core..=) Prelude.<$> nextToken]
+          [("NextToken" Data..=) Prelude.<$> nextToken]
       )
 
-instance Core.ToPath GetSamplingRules where
+instance Data.ToPath GetSamplingRules where
   toPath = Prelude.const "/GetSamplingRules"
 
-instance Core.ToQuery GetSamplingRules where
+instance Data.ToQuery GetSamplingRules where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSamplingRulesResponse' smart constructor.

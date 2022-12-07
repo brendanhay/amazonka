@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.DvbSubDestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.DvbSubSubtitleFallbackFont
 import Amazonka.MediaConvert.Types.DvbSubtitleAlignment
 import Amazonka.MediaConvert.Types.DvbSubtitleApplyFontColor
@@ -721,39 +722,39 @@ dvbSubDestinationSettings_fontColor = Lens.lens (\DvbSubDestinationSettings' {fo
 dvbSubDestinationSettings_shadowColor :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe DvbSubtitleShadowColor)
 dvbSubDestinationSettings_shadowColor = Lens.lens (\DvbSubDestinationSettings' {shadowColor} -> shadowColor) (\s@DvbSubDestinationSettings' {} a -> s {shadowColor = a} :: DvbSubDestinationSettings)
 
-instance Core.FromJSON DvbSubDestinationSettings where
+instance Data.FromJSON DvbSubDestinationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DvbSubDestinationSettings"
       ( \x ->
           DvbSubDestinationSettings'
-            Prelude.<$> (x Core..:? "ddsHandling")
-            Prelude.<*> (x Core..:? "fontResolution")
-            Prelude.<*> (x Core..:? "yPosition")
-            Prelude.<*> (x Core..:? "hexFontColor")
-            Prelude.<*> (x Core..:? "shadowXOffset")
-            Prelude.<*> (x Core..:? "alignment")
-            Prelude.<*> (x Core..:? "xPosition")
-            Prelude.<*> (x Core..:? "fontSize")
-            Prelude.<*> (x Core..:? "outlineSize")
-            Prelude.<*> (x Core..:? "applyFontColor")
-            Prelude.<*> (x Core..:? "outlineColor")
-            Prelude.<*> (x Core..:? "teletextSpacing")
-            Prelude.<*> (x Core..:? "ddsXCoordinate")
-            Prelude.<*> (x Core..:? "stylePassthrough")
-            Prelude.<*> (x Core..:? "width")
-            Prelude.<*> (x Core..:? "backgroundColor")
-            Prelude.<*> (x Core..:? "ddsYCoordinate")
-            Prelude.<*> (x Core..:? "fontOpacity")
-            Prelude.<*> (x Core..:? "fallbackFont")
-            Prelude.<*> (x Core..:? "shadowYOffset")
-            Prelude.<*> (x Core..:? "subtitlingType")
-            Prelude.<*> (x Core..:? "backgroundOpacity")
-            Prelude.<*> (x Core..:? "fontScript")
-            Prelude.<*> (x Core..:? "shadowOpacity")
-            Prelude.<*> (x Core..:? "height")
-            Prelude.<*> (x Core..:? "fontColor")
-            Prelude.<*> (x Core..:? "shadowColor")
+            Prelude.<$> (x Data..:? "ddsHandling")
+            Prelude.<*> (x Data..:? "fontResolution")
+            Prelude.<*> (x Data..:? "yPosition")
+            Prelude.<*> (x Data..:? "hexFontColor")
+            Prelude.<*> (x Data..:? "shadowXOffset")
+            Prelude.<*> (x Data..:? "alignment")
+            Prelude.<*> (x Data..:? "xPosition")
+            Prelude.<*> (x Data..:? "fontSize")
+            Prelude.<*> (x Data..:? "outlineSize")
+            Prelude.<*> (x Data..:? "applyFontColor")
+            Prelude.<*> (x Data..:? "outlineColor")
+            Prelude.<*> (x Data..:? "teletextSpacing")
+            Prelude.<*> (x Data..:? "ddsXCoordinate")
+            Prelude.<*> (x Data..:? "stylePassthrough")
+            Prelude.<*> (x Data..:? "width")
+            Prelude.<*> (x Data..:? "backgroundColor")
+            Prelude.<*> (x Data..:? "ddsYCoordinate")
+            Prelude.<*> (x Data..:? "fontOpacity")
+            Prelude.<*> (x Data..:? "fallbackFont")
+            Prelude.<*> (x Data..:? "shadowYOffset")
+            Prelude.<*> (x Data..:? "subtitlingType")
+            Prelude.<*> (x Data..:? "backgroundOpacity")
+            Prelude.<*> (x Data..:? "fontScript")
+            Prelude.<*> (x Data..:? "shadowOpacity")
+            Prelude.<*> (x Data..:? "height")
+            Prelude.<*> (x Data..:? "fontColor")
+            Prelude.<*> (x Data..:? "shadowColor")
       )
 
 instance Prelude.Hashable DvbSubDestinationSettings where
@@ -820,45 +821,45 @@ instance Prelude.NFData DvbSubDestinationSettings where
       `Prelude.seq` Prelude.rnf
         shadowColor
 
-instance Core.ToJSON DvbSubDestinationSettings where
+instance Data.ToJSON DvbSubDestinationSettings where
   toJSON DvbSubDestinationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ddsHandling" Core..=) Prelude.<$> ddsHandling,
-            ("fontResolution" Core..=)
+          [ ("ddsHandling" Data..=) Prelude.<$> ddsHandling,
+            ("fontResolution" Data..=)
               Prelude.<$> fontResolution,
-            ("yPosition" Core..=) Prelude.<$> yPosition,
-            ("hexFontColor" Core..=) Prelude.<$> hexFontColor,
-            ("shadowXOffset" Core..=) Prelude.<$> shadowXOffset,
-            ("alignment" Core..=) Prelude.<$> alignment,
-            ("xPosition" Core..=) Prelude.<$> xPosition,
-            ("fontSize" Core..=) Prelude.<$> fontSize,
-            ("outlineSize" Core..=) Prelude.<$> outlineSize,
-            ("applyFontColor" Core..=)
+            ("yPosition" Data..=) Prelude.<$> yPosition,
+            ("hexFontColor" Data..=) Prelude.<$> hexFontColor,
+            ("shadowXOffset" Data..=) Prelude.<$> shadowXOffset,
+            ("alignment" Data..=) Prelude.<$> alignment,
+            ("xPosition" Data..=) Prelude.<$> xPosition,
+            ("fontSize" Data..=) Prelude.<$> fontSize,
+            ("outlineSize" Data..=) Prelude.<$> outlineSize,
+            ("applyFontColor" Data..=)
               Prelude.<$> applyFontColor,
-            ("outlineColor" Core..=) Prelude.<$> outlineColor,
-            ("teletextSpacing" Core..=)
+            ("outlineColor" Data..=) Prelude.<$> outlineColor,
+            ("teletextSpacing" Data..=)
               Prelude.<$> teletextSpacing,
-            ("ddsXCoordinate" Core..=)
+            ("ddsXCoordinate" Data..=)
               Prelude.<$> ddsXCoordinate,
-            ("stylePassthrough" Core..=)
+            ("stylePassthrough" Data..=)
               Prelude.<$> stylePassthrough,
-            ("width" Core..=) Prelude.<$> width,
-            ("backgroundColor" Core..=)
+            ("width" Data..=) Prelude.<$> width,
+            ("backgroundColor" Data..=)
               Prelude.<$> backgroundColor,
-            ("ddsYCoordinate" Core..=)
+            ("ddsYCoordinate" Data..=)
               Prelude.<$> ddsYCoordinate,
-            ("fontOpacity" Core..=) Prelude.<$> fontOpacity,
-            ("fallbackFont" Core..=) Prelude.<$> fallbackFont,
-            ("shadowYOffset" Core..=) Prelude.<$> shadowYOffset,
-            ("subtitlingType" Core..=)
+            ("fontOpacity" Data..=) Prelude.<$> fontOpacity,
+            ("fallbackFont" Data..=) Prelude.<$> fallbackFont,
+            ("shadowYOffset" Data..=) Prelude.<$> shadowYOffset,
+            ("subtitlingType" Data..=)
               Prelude.<$> subtitlingType,
-            ("backgroundOpacity" Core..=)
+            ("backgroundOpacity" Data..=)
               Prelude.<$> backgroundOpacity,
-            ("fontScript" Core..=) Prelude.<$> fontScript,
-            ("shadowOpacity" Core..=) Prelude.<$> shadowOpacity,
-            ("height" Core..=) Prelude.<$> height,
-            ("fontColor" Core..=) Prelude.<$> fontColor,
-            ("shadowColor" Core..=) Prelude.<$> shadowColor
+            ("fontScript" Data..=) Prelude.<$> fontScript,
+            ("shadowOpacity" Data..=) Prelude.<$> shadowOpacity,
+            ("height" Data..=) Prelude.<$> height,
+            ("fontColor" Data..=) Prelude.<$> fontColor,
+            ("shadowColor" Data..=) Prelude.<$> shadowColor
           ]
       )

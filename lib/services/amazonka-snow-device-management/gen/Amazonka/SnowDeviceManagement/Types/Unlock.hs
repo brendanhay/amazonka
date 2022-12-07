@@ -21,6 +21,7 @@ module Amazonka.SnowDeviceManagement.Types.Unlock where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure used to unlock a device.
@@ -46,5 +47,5 @@ instance Prelude.Hashable Unlock where
 instance Prelude.NFData Unlock where
   rnf _ = ()
 
-instance Core.ToJSON Unlock where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON Unlock where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

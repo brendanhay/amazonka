@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHub.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,8 +163,8 @@ instance Core.AWSRequest ListCreatedArtifacts where
     Response.receiveJSON
       ( \s h x ->
           ListCreatedArtifactsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "CreatedArtifactList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "CreatedArtifactList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -183,40 +184,40 @@ instance Prelude.NFData ListCreatedArtifacts where
       `Prelude.seq` Prelude.rnf progressUpdateStream
       `Prelude.seq` Prelude.rnf migrationTaskName
 
-instance Core.ToHeaders ListCreatedArtifacts where
+instance Data.ToHeaders ListCreatedArtifacts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMigrationHub.ListCreatedArtifacts" ::
+              Data.=# ( "AWSMigrationHub.ListCreatedArtifacts" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCreatedArtifacts where
+instance Data.ToJSON ListCreatedArtifacts where
   toJSON ListCreatedArtifacts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
               ( "ProgressUpdateStream"
-                  Core..= progressUpdateStream
+                  Data..= progressUpdateStream
               ),
             Prelude.Just
-              ("MigrationTaskName" Core..= migrationTaskName)
+              ("MigrationTaskName" Data..= migrationTaskName)
           ]
       )
 
-instance Core.ToPath ListCreatedArtifacts where
+instance Data.ToPath ListCreatedArtifacts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListCreatedArtifacts where
+instance Data.ToQuery ListCreatedArtifacts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCreatedArtifactsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.Device where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.DeviceAggregatedStatus
 import Amazonka.Panorama.Types.DeviceBrand
 import Amazonka.Panorama.Types.DeviceStatus
@@ -39,9 +40,9 @@ data Device = Device'
     -- | The device\'s type.
     type' :: Prelude.Maybe DeviceType,
     -- | When the device was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The device\'s lease expiration time.
-    leaseExpirationTime :: Prelude.Maybe Core.POSIX,
+    leaseExpirationTime :: Prelude.Maybe Data.POSIX,
     -- | The device\'s provisioning status.
     provisioningStatus :: Prelude.Maybe DeviceStatus,
     -- | The device\'s ID.
@@ -50,7 +51,7 @@ data Device = Device'
     -- update job status.
     latestDeviceJob :: Prelude.Maybe LatestDeviceJob,
     -- | When the device was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | A description for the device.
     description :: Prelude.Maybe Prelude.Text,
     -- | The device\'s maker.
@@ -131,11 +132,11 @@ device_type = Lens.lens (\Device' {type'} -> type') (\s@Device' {} a -> s {type'
 
 -- | When the device was created.
 device_createdTime :: Lens.Lens' Device (Prelude.Maybe Prelude.UTCTime)
-device_createdTime = Lens.lens (\Device' {createdTime} -> createdTime) (\s@Device' {} a -> s {createdTime = a} :: Device) Prelude.. Lens.mapping Core._Time
+device_createdTime = Lens.lens (\Device' {createdTime} -> createdTime) (\s@Device' {} a -> s {createdTime = a} :: Device) Prelude.. Lens.mapping Data._Time
 
 -- | The device\'s lease expiration time.
 device_leaseExpirationTime :: Lens.Lens' Device (Prelude.Maybe Prelude.UTCTime)
-device_leaseExpirationTime = Lens.lens (\Device' {leaseExpirationTime} -> leaseExpirationTime) (\s@Device' {} a -> s {leaseExpirationTime = a} :: Device) Prelude.. Lens.mapping Core._Time
+device_leaseExpirationTime = Lens.lens (\Device' {leaseExpirationTime} -> leaseExpirationTime) (\s@Device' {} a -> s {leaseExpirationTime = a} :: Device) Prelude.. Lens.mapping Data._Time
 
 -- | The device\'s provisioning status.
 device_provisioningStatus :: Lens.Lens' Device (Prelude.Maybe DeviceStatus)
@@ -152,7 +153,7 @@ device_latestDeviceJob = Lens.lens (\Device' {latestDeviceJob} -> latestDeviceJo
 
 -- | When the device was updated.
 device_lastUpdatedTime :: Lens.Lens' Device (Prelude.Maybe Prelude.UTCTime)
-device_lastUpdatedTime = Lens.lens (\Device' {lastUpdatedTime} -> lastUpdatedTime) (\s@Device' {} a -> s {lastUpdatedTime = a} :: Device) Prelude.. Lens.mapping Core._Time
+device_lastUpdatedTime = Lens.lens (\Device' {lastUpdatedTime} -> lastUpdatedTime) (\s@Device' {} a -> s {lastUpdatedTime = a} :: Device) Prelude.. Lens.mapping Data._Time
 
 -- | A description for the device.
 device_description :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
@@ -171,25 +172,25 @@ device_deviceAggregatedStatus = Lens.lens (\Device' {deviceAggregatedStatus} -> 
 device_currentSoftware :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_currentSoftware = Lens.lens (\Device' {currentSoftware} -> currentSoftware) (\s@Device' {} a -> s {currentSoftware = a} :: Device)
 
-instance Core.FromJSON Device where
+instance Data.FromJSON Device where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Device"
       ( \x ->
           Device'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "LeaseExpirationTime")
-            Prelude.<*> (x Core..:? "ProvisioningStatus")
-            Prelude.<*> (x Core..:? "DeviceId")
-            Prelude.<*> (x Core..:? "LatestDeviceJob")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Brand")
-            Prelude.<*> (x Core..:? "DeviceAggregatedStatus")
-            Prelude.<*> (x Core..:? "CurrentSoftware")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "LeaseExpirationTime")
+            Prelude.<*> (x Data..:? "ProvisioningStatus")
+            Prelude.<*> (x Data..:? "DeviceId")
+            Prelude.<*> (x Data..:? "LatestDeviceJob")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Brand")
+            Prelude.<*> (x Data..:? "DeviceAggregatedStatus")
+            Prelude.<*> (x Data..:? "CurrentSoftware")
       )
 
 instance Prelude.Hashable Device where

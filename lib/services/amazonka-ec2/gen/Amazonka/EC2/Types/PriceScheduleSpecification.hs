@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PriceScheduleSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CurrencyCodeValues
 import qualified Amazonka.Prelude as Prelude
@@ -91,10 +92,10 @@ instance Prelude.NFData PriceScheduleSpecification where
       `Prelude.seq` Prelude.rnf price
       `Prelude.seq` Prelude.rnf term
 
-instance Core.ToQuery PriceScheduleSpecification where
+instance Data.ToQuery PriceScheduleSpecification where
   toQuery PriceScheduleSpecification' {..} =
     Prelude.mconcat
-      [ "CurrencyCode" Core.=: currencyCode,
-        "Price" Core.=: price,
-        "Term" Core.=: term
+      [ "CurrencyCode" Data.=: currencyCode,
+        "Price" Data.=: price,
+        "Term" Data.=: term
       ]

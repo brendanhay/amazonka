@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationUpdate
 import Amazonka.KinesisAnalyticsV2.Types.EnvironmentPropertyUpdates
@@ -167,23 +168,23 @@ instance
       `Prelude.seq` Prelude.rnf zeppelinApplicationConfigurationUpdate
       `Prelude.seq` Prelude.rnf flinkApplicationConfigurationUpdate
 
-instance Core.ToJSON ApplicationConfigurationUpdate where
+instance Data.ToJSON ApplicationConfigurationUpdate where
   toJSON ApplicationConfigurationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpcConfigurationUpdates" Core..=)
+          [ ("VpcConfigurationUpdates" Data..=)
               Prelude.<$> vpcConfigurationUpdates,
-            ("ApplicationCodeConfigurationUpdate" Core..=)
+            ("ApplicationCodeConfigurationUpdate" Data..=)
               Prelude.<$> applicationCodeConfigurationUpdate,
-            ("ApplicationSnapshotConfigurationUpdate" Core..=)
+            ("ApplicationSnapshotConfigurationUpdate" Data..=)
               Prelude.<$> applicationSnapshotConfigurationUpdate,
-            ("EnvironmentPropertyUpdates" Core..=)
+            ("EnvironmentPropertyUpdates" Data..=)
               Prelude.<$> environmentPropertyUpdates,
-            ("SqlApplicationConfigurationUpdate" Core..=)
+            ("SqlApplicationConfigurationUpdate" Data..=)
               Prelude.<$> sqlApplicationConfigurationUpdate,
-            ("ZeppelinApplicationConfigurationUpdate" Core..=)
+            ("ZeppelinApplicationConfigurationUpdate" Data..=)
               Prelude.<$> zeppelinApplicationConfigurationUpdate,
-            ("FlinkApplicationConfigurationUpdate" Core..=)
+            ("FlinkApplicationConfigurationUpdate" Data..=)
               Prelude.<$> flinkApplicationConfigurationUpdate
           ]
       )

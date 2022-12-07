@@ -50,6 +50,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -170,7 +171,7 @@ instance Core.AWSRequest CreateGraphqlApi where
     Response.receiveJSON
       ( \s h x ->
           CreateGraphqlApiResponse'
-            Prelude.<$> (x Core..?> "graphqlApi")
+            Prelude.<$> (x Data..?> "graphqlApi")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,42 +199,42 @@ instance Prelude.NFData CreateGraphqlApi where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf authenticationType
 
-instance Core.ToHeaders CreateGraphqlApi where
+instance Data.ToHeaders CreateGraphqlApi where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateGraphqlApi where
+instance Data.ToJSON CreateGraphqlApi where
   toJSON CreateGraphqlApi' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("xrayEnabled" Core..=) Prelude.<$> xrayEnabled,
-            ("openIDConnectConfig" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("xrayEnabled" Data..=) Prelude.<$> xrayEnabled,
+            ("openIDConnectConfig" Data..=)
               Prelude.<$> openIDConnectConfig,
-            ("userPoolConfig" Core..=)
+            ("userPoolConfig" Data..=)
               Prelude.<$> userPoolConfig,
-            ("additionalAuthenticationProviders" Core..=)
+            ("additionalAuthenticationProviders" Data..=)
               Prelude.<$> additionalAuthenticationProviders,
-            ("lambdaAuthorizerConfig" Core..=)
+            ("lambdaAuthorizerConfig" Data..=)
               Prelude.<$> lambdaAuthorizerConfig,
-            ("logConfig" Core..=) Prelude.<$> logConfig,
-            Prelude.Just ("name" Core..= name),
+            ("logConfig" Data..=) Prelude.<$> logConfig,
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("authenticationType" Core..= authenticationType)
+              ("authenticationType" Data..= authenticationType)
           ]
       )
 
-instance Core.ToPath CreateGraphqlApi where
+instance Data.ToPath CreateGraphqlApi where
   toPath = Prelude.const "/v1/apis"
 
-instance Core.ToQuery CreateGraphqlApi where
+instance Data.ToQuery CreateGraphqlApi where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGraphqlApiResponse' smart constructor.

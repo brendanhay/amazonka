@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.UntagColumnOperation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ColumnTagName
 
@@ -64,14 +65,14 @@ untagColumnOperation_columnName = Lens.lens (\UntagColumnOperation' {columnName}
 untagColumnOperation_tagNames :: Lens.Lens' UntagColumnOperation [ColumnTagName]
 untagColumnOperation_tagNames = Lens.lens (\UntagColumnOperation' {tagNames} -> tagNames) (\s@UntagColumnOperation' {} a -> s {tagNames = a} :: UntagColumnOperation) Prelude.. Lens.coerced
 
-instance Core.FromJSON UntagColumnOperation where
+instance Data.FromJSON UntagColumnOperation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UntagColumnOperation"
       ( \x ->
           UntagColumnOperation'
-            Prelude.<$> (x Core..: "ColumnName")
-            Prelude.<*> (x Core..:? "TagNames" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "ColumnName")
+            Prelude.<*> (x Data..:? "TagNames" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable UntagColumnOperation where
@@ -84,11 +85,11 @@ instance Prelude.NFData UntagColumnOperation where
     Prelude.rnf columnName
       `Prelude.seq` Prelude.rnf tagNames
 
-instance Core.ToJSON UntagColumnOperation where
+instance Data.ToJSON UntagColumnOperation where
   toJSON UntagColumnOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ColumnName" Core..= columnName),
-            Prelude.Just ("TagNames" Core..= tagNames)
+          [ Prelude.Just ("ColumnName" Data..= columnName),
+            Prelude.Just ("TagNames" Data..= tagNames)
           ]
       )

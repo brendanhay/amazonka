@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.LoadBalancerDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.Listener
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,14 +73,14 @@ loadBalancerDescription_loadBalancerName = Lens.lens (\LoadBalancerDescription' 
 loadBalancerDescription_domain :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.Text)
 loadBalancerDescription_domain = Lens.lens (\LoadBalancerDescription' {domain} -> domain) (\s@LoadBalancerDescription' {} a -> s {domain = a} :: LoadBalancerDescription)
 
-instance Core.FromXML LoadBalancerDescription where
+instance Data.FromXML LoadBalancerDescription where
   parseXML x =
     LoadBalancerDescription'
-      Prelude.<$> ( x Core..@? "Listeners" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Listeners" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "LoadBalancerName")
-      Prelude.<*> (x Core..@? "Domain")
+      Prelude.<*> (x Data..@? "LoadBalancerName")
+      Prelude.<*> (x Data..@? "Domain")
 
 instance Prelude.Hashable LoadBalancerDescription where
   hashWithSalt _salt LoadBalancerDescription' {..} =

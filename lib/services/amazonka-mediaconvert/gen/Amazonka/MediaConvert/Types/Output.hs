@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Output where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AudioDescription
 import Amazonka.MediaConvert.Types.CaptionDescription
 import Amazonka.MediaConvert.Types.ContainerSettings
@@ -180,24 +181,24 @@ output_outputSettings = Lens.lens (\Output' {outputSettings} -> outputSettings) 
 output_videoDescription :: Lens.Lens' Output (Prelude.Maybe VideoDescription)
 output_videoDescription = Lens.lens (\Output' {videoDescription} -> videoDescription) (\s@Output' {} a -> s {videoDescription = a} :: Output)
 
-instance Core.FromJSON Output where
+instance Data.FromJSON Output where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Output"
       ( \x ->
           Output'
-            Prelude.<$> (x Core..:? "containerSettings")
-            Prelude.<*> (x Core..:? "extension")
-            Prelude.<*> (x Core..:? "nameModifier")
-            Prelude.<*> ( x Core..:? "captionDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "containerSettings")
+            Prelude.<*> (x Data..:? "extension")
+            Prelude.<*> (x Data..:? "nameModifier")
+            Prelude.<*> ( x Data..:? "captionDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "preset")
-            Prelude.<*> ( x Core..:? "audioDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "preset")
+            Prelude.<*> ( x Data..:? "audioDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "outputSettings")
-            Prelude.<*> (x Core..:? "videoDescription")
+            Prelude.<*> (x Data..:? "outputSettings")
+            Prelude.<*> (x Data..:? "videoDescription")
       )
 
 instance Prelude.Hashable Output where
@@ -222,22 +223,22 @@ instance Prelude.NFData Output where
       `Prelude.seq` Prelude.rnf outputSettings
       `Prelude.seq` Prelude.rnf videoDescription
 
-instance Core.ToJSON Output where
+instance Data.ToJSON Output where
   toJSON Output' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("containerSettings" Core..=)
+          [ ("containerSettings" Data..=)
               Prelude.<$> containerSettings,
-            ("extension" Core..=) Prelude.<$> extension,
-            ("nameModifier" Core..=) Prelude.<$> nameModifier,
-            ("captionDescriptions" Core..=)
+            ("extension" Data..=) Prelude.<$> extension,
+            ("nameModifier" Data..=) Prelude.<$> nameModifier,
+            ("captionDescriptions" Data..=)
               Prelude.<$> captionDescriptions,
-            ("preset" Core..=) Prelude.<$> preset,
-            ("audioDescriptions" Core..=)
+            ("preset" Data..=) Prelude.<$> preset,
+            ("audioDescriptions" Data..=)
               Prelude.<$> audioDescriptions,
-            ("outputSettings" Core..=)
+            ("outputSettings" Data..=)
               Prelude.<$> outputSettings,
-            ("videoDescription" Core..=)
+            ("videoDescription" Data..=)
               Prelude.<$> videoDescription
           ]
       )

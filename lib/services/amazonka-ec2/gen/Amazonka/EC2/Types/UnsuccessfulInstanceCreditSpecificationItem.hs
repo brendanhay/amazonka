@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.UnsuccessfulInstanceCreditSpecificationItemError
 import qualified Amazonka.Prelude as Prelude
@@ -69,13 +70,13 @@ unsuccessfulInstanceCreditSpecificationItem_error :: Lens.Lens' UnsuccessfulInst
 unsuccessfulInstanceCreditSpecificationItem_error = Lens.lens (\UnsuccessfulInstanceCreditSpecificationItem' {error} -> error) (\s@UnsuccessfulInstanceCreditSpecificationItem' {} a -> s {error = a} :: UnsuccessfulInstanceCreditSpecificationItem)
 
 instance
-  Core.FromXML
+  Data.FromXML
     UnsuccessfulInstanceCreditSpecificationItem
   where
   parseXML x =
     UnsuccessfulInstanceCreditSpecificationItem'
-      Prelude.<$> (x Core..@? "instanceId")
-        Prelude.<*> (x Core..@? "error")
+      Prelude.<$> (x Data..@? "instanceId")
+        Prelude.<*> (x Data..@? "error")
 
 instance
   Prelude.Hashable

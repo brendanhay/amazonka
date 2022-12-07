@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.EmailTemplateContent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The content of the email, composed of a subject line, an HTML part, and
@@ -74,15 +75,15 @@ emailTemplateContent_subject = Lens.lens (\EmailTemplateContent' {subject} -> su
 emailTemplateContent_text :: Lens.Lens' EmailTemplateContent (Prelude.Maybe Prelude.Text)
 emailTemplateContent_text = Lens.lens (\EmailTemplateContent' {text} -> text) (\s@EmailTemplateContent' {} a -> s {text = a} :: EmailTemplateContent)
 
-instance Core.FromJSON EmailTemplateContent where
+instance Data.FromJSON EmailTemplateContent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EmailTemplateContent"
       ( \x ->
           EmailTemplateContent'
-            Prelude.<$> (x Core..:? "Html")
-            Prelude.<*> (x Core..:? "Subject")
-            Prelude.<*> (x Core..:? "Text")
+            Prelude.<$> (x Data..:? "Html")
+            Prelude.<*> (x Data..:? "Subject")
+            Prelude.<*> (x Data..:? "Text")
       )
 
 instance Prelude.Hashable EmailTemplateContent where
@@ -97,12 +98,12 @@ instance Prelude.NFData EmailTemplateContent where
       `Prelude.seq` Prelude.rnf subject
       `Prelude.seq` Prelude.rnf text
 
-instance Core.ToJSON EmailTemplateContent where
+instance Data.ToJSON EmailTemplateContent where
   toJSON EmailTemplateContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Html" Core..=) Prelude.<$> html,
-            ("Subject" Core..=) Prelude.<$> subject,
-            ("Text" Core..=) Prelude.<$> text
+          [ ("Html" Data..=) Prelude.<$> html,
+            ("Subject" Data..=) Prelude.<$> subject,
+            ("Text" Data..=) Prelude.<$> text
           ]
       )

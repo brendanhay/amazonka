@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.TokenData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a token.
@@ -106,20 +107,20 @@ tokenData_tokenType = Lens.lens (\TokenData' {tokenType} -> tokenType) (\s@Token
 tokenData_tokenProperties :: Lens.Lens' TokenData (Prelude.Maybe [Prelude.Text])
 tokenData_tokenProperties = Lens.lens (\TokenData' {tokenProperties} -> tokenProperties) (\s@TokenData' {} a -> s {tokenProperties = a} :: TokenData) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TokenData where
+instance Data.FromJSON TokenData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TokenData"
       ( \x ->
           TokenData'
-            Prelude.<$> (x Core..:? "LicenseArn")
-            Prelude.<*> (x Core..:? "ExpirationTime")
-            Prelude.<*> (x Core..:? "RoleArns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "TokenId")
-            Prelude.<*> (x Core..:? "TokenType")
-            Prelude.<*> ( x Core..:? "TokenProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "LicenseArn")
+            Prelude.<*> (x Data..:? "ExpirationTime")
+            Prelude.<*> (x Data..:? "RoleArns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "TokenId")
+            Prelude.<*> (x Data..:? "TokenType")
+            Prelude.<*> ( x Data..:? "TokenProperties"
+                            Data..!= Prelude.mempty
                         )
       )
 

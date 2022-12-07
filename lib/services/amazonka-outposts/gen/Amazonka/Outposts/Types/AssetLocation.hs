@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.AssetLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the position of the asset in a rack.
@@ -50,13 +51,13 @@ newAssetLocation =
 assetLocation_rackElevation :: Lens.Lens' AssetLocation (Prelude.Maybe Prelude.Double)
 assetLocation_rackElevation = Lens.lens (\AssetLocation' {rackElevation} -> rackElevation) (\s@AssetLocation' {} a -> s {rackElevation = a} :: AssetLocation)
 
-instance Core.FromJSON AssetLocation where
+instance Data.FromJSON AssetLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetLocation"
       ( \x ->
           AssetLocation'
-            Prelude.<$> (x Core..:? "RackElevation")
+            Prelude.<$> (x Data..:? "RackElevation")
       )
 
 instance Prelude.Hashable AssetLocation where

@@ -41,6 +41,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -48,7 +49,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdatePhoneNumberSettings' smart constructor.
 data UpdatePhoneNumberSettings = UpdatePhoneNumberSettings'
   { -- | The default outbound calling name for the account.
-    callingName :: Core.Sensitive Prelude.Text
+    callingName :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -68,12 +69,12 @@ newUpdatePhoneNumberSettings ::
 newUpdatePhoneNumberSettings pCallingName_ =
   UpdatePhoneNumberSettings'
     { callingName =
-        Core._Sensitive Lens.# pCallingName_
+        Data._Sensitive Lens.# pCallingName_
     }
 
 -- | The default outbound calling name for the account.
 updatePhoneNumberSettings_callingName :: Lens.Lens' UpdatePhoneNumberSettings Prelude.Text
-updatePhoneNumberSettings_callingName = Lens.lens (\UpdatePhoneNumberSettings' {callingName} -> callingName) (\s@UpdatePhoneNumberSettings' {} a -> s {callingName = a} :: UpdatePhoneNumberSettings) Prelude.. Core._Sensitive
+updatePhoneNumberSettings_callingName = Lens.lens (\UpdatePhoneNumberSettings' {callingName} -> callingName) (\s@UpdatePhoneNumberSettings' {} a -> s {callingName = a} :: UpdatePhoneNumberSettings) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest UpdatePhoneNumberSettings where
   type
@@ -93,20 +94,20 @@ instance Prelude.NFData UpdatePhoneNumberSettings where
   rnf UpdatePhoneNumberSettings' {..} =
     Prelude.rnf callingName
 
-instance Core.ToHeaders UpdatePhoneNumberSettings where
+instance Data.ToHeaders UpdatePhoneNumberSettings where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdatePhoneNumberSettings where
+instance Data.ToJSON UpdatePhoneNumberSettings where
   toJSON UpdatePhoneNumberSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("CallingName" Core..= callingName)]
+          [Prelude.Just ("CallingName" Data..= callingName)]
       )
 
-instance Core.ToPath UpdatePhoneNumberSettings where
+instance Data.ToPath UpdatePhoneNumberSettings where
   toPath = Prelude.const "/settings/phone-number"
 
-instance Core.ToQuery UpdatePhoneNumberSettings where
+instance Data.ToQuery UpdatePhoneNumberSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePhoneNumberSettingsResponse' smart constructor.

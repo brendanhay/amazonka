@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ObjectLockRetention where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ObjectLockRetentionMode
@@ -32,7 +33,7 @@ data ObjectLockRetention = ObjectLockRetention'
   { -- | Indicates the Retention mode for the specified object.
     mode :: Prelude.Maybe ObjectLockRetentionMode,
     -- | The date on which this Object Lock Retention will expire.
-    retainUntilDate :: Prelude.Maybe Core.ISO8601
+    retainUntilDate :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,13 +62,13 @@ objectLockRetention_mode = Lens.lens (\ObjectLockRetention' {mode} -> mode) (\s@
 
 -- | The date on which this Object Lock Retention will expire.
 objectLockRetention_retainUntilDate :: Lens.Lens' ObjectLockRetention (Prelude.Maybe Prelude.UTCTime)
-objectLockRetention_retainUntilDate = Lens.lens (\ObjectLockRetention' {retainUntilDate} -> retainUntilDate) (\s@ObjectLockRetention' {} a -> s {retainUntilDate = a} :: ObjectLockRetention) Prelude.. Lens.mapping Core._Time
+objectLockRetention_retainUntilDate = Lens.lens (\ObjectLockRetention' {retainUntilDate} -> retainUntilDate) (\s@ObjectLockRetention' {} a -> s {retainUntilDate = a} :: ObjectLockRetention) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML ObjectLockRetention where
+instance Data.FromXML ObjectLockRetention where
   parseXML x =
     ObjectLockRetention'
-      Prelude.<$> (x Core..@? "Mode")
-      Prelude.<*> (x Core..@? "RetainUntilDate")
+      Prelude.<$> (x Data..@? "Mode")
+      Prelude.<*> (x Data..@? "RetainUntilDate")
 
 instance Prelude.Hashable ObjectLockRetention where
   hashWithSalt _salt ObjectLockRetention' {..} =
@@ -79,9 +80,9 @@ instance Prelude.NFData ObjectLockRetention where
     Prelude.rnf mode
       `Prelude.seq` Prelude.rnf retainUntilDate
 
-instance Core.ToXML ObjectLockRetention where
+instance Data.ToXML ObjectLockRetention where
   toXML ObjectLockRetention' {..} =
     Prelude.mconcat
-      [ "Mode" Core.@= mode,
-        "RetainUntilDate" Core.@= retainUntilDate
+      [ "Mode" Data.@= mode,
+        "RetainUntilDate" Data.@= retainUntilDate
       ]

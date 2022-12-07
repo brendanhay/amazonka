@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsSsmPatch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsSsmComplianceSummary
 
@@ -51,13 +52,13 @@ newAwsSsmPatch =
 awsSsmPatch_complianceSummary :: Lens.Lens' AwsSsmPatch (Prelude.Maybe AwsSsmComplianceSummary)
 awsSsmPatch_complianceSummary = Lens.lens (\AwsSsmPatch' {complianceSummary} -> complianceSummary) (\s@AwsSsmPatch' {} a -> s {complianceSummary = a} :: AwsSsmPatch)
 
-instance Core.FromJSON AwsSsmPatch where
+instance Data.FromJSON AwsSsmPatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsSsmPatch"
       ( \x ->
           AwsSsmPatch'
-            Prelude.<$> (x Core..:? "ComplianceSummary")
+            Prelude.<$> (x Data..:? "ComplianceSummary")
       )
 
 instance Prelude.Hashable AwsSsmPatch where
@@ -67,11 +68,11 @@ instance Prelude.Hashable AwsSsmPatch where
 instance Prelude.NFData AwsSsmPatch where
   rnf AwsSsmPatch' {..} = Prelude.rnf complianceSummary
 
-instance Core.ToJSON AwsSsmPatch where
+instance Data.ToJSON AwsSsmPatch where
   toJSON AwsSsmPatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ComplianceSummary" Core..=)
+          [ ("ComplianceSummary" Data..=)
               Prelude.<$> complianceSummary
           ]
       )

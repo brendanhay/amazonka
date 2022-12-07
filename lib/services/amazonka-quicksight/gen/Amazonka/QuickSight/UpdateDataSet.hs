@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -229,11 +230,11 @@ instance Core.AWSRequest UpdateDataSet where
     Response.receiveJSON
       ( \s h x ->
           UpdateDataSetResponse'
-            Prelude.<$> (x Core..?> "IngestionArn")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "DataSetId")
-            Prelude.<*> (x Core..?> "IngestionId")
+            Prelude.<$> (x Data..?> "IngestionArn")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "DataSetId")
+            Prelude.<*> (x Data..?> "IngestionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -268,50 +269,50 @@ instance Prelude.NFData UpdateDataSet where
       `Prelude.seq` Prelude.rnf physicalTableMap
       `Prelude.seq` Prelude.rnf importMode
 
-instance Core.ToHeaders UpdateDataSet where
+instance Data.ToHeaders UpdateDataSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDataSet where
+instance Data.ToJSON UpdateDataSet where
   toJSON UpdateDataSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ColumnLevelPermissionRules" Core..=)
+          [ ("ColumnLevelPermissionRules" Data..=)
               Prelude.<$> columnLevelPermissionRules,
-            ("DataSetUsageConfiguration" Core..=)
+            ("DataSetUsageConfiguration" Data..=)
               Prelude.<$> dataSetUsageConfiguration,
-            ("RowLevelPermissionTagConfiguration" Core..=)
+            ("RowLevelPermissionTagConfiguration" Data..=)
               Prelude.<$> rowLevelPermissionTagConfiguration,
-            ("ColumnGroups" Core..=) Prelude.<$> columnGroups,
-            ("FieldFolders" Core..=) Prelude.<$> fieldFolders,
-            ("RowLevelPermissionDataSet" Core..=)
+            ("ColumnGroups" Data..=) Prelude.<$> columnGroups,
+            ("FieldFolders" Data..=) Prelude.<$> fieldFolders,
+            ("RowLevelPermissionDataSet" Data..=)
               Prelude.<$> rowLevelPermissionDataSet,
-            ("LogicalTableMap" Core..=)
+            ("LogicalTableMap" Data..=)
               Prelude.<$> logicalTableMap,
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("PhysicalTableMap" Core..= physicalTableMap),
-            Prelude.Just ("ImportMode" Core..= importMode)
+              ("PhysicalTableMap" Data..= physicalTableMap),
+            Prelude.Just ("ImportMode" Data..= importMode)
           ]
       )
 
-instance Core.ToPath UpdateDataSet where
+instance Data.ToPath UpdateDataSet where
   toPath UpdateDataSet' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/data-sets/",
-        Core.toBS dataSetId
+        Data.toBS dataSetId
       ]
 
-instance Core.ToQuery UpdateDataSet where
+instance Data.ToQuery UpdateDataSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDataSetResponse' smart constructor.

@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,36 +104,36 @@ instance Prelude.NFData DeleteMedicalTranscriptionJob where
   rnf DeleteMedicalTranscriptionJob' {..} =
     Prelude.rnf medicalTranscriptionJobName
 
-instance Core.ToHeaders DeleteMedicalTranscriptionJob where
+instance Data.ToHeaders DeleteMedicalTranscriptionJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.DeleteMedicalTranscriptionJob" ::
+              Data.=# ( "Transcribe.DeleteMedicalTranscriptionJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteMedicalTranscriptionJob where
+instance Data.ToJSON DeleteMedicalTranscriptionJob where
   toJSON DeleteMedicalTranscriptionJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "MedicalTranscriptionJobName"
-                  Core..= medicalTranscriptionJobName
+                  Data..= medicalTranscriptionJobName
               )
           ]
       )
 
-instance Core.ToPath DeleteMedicalTranscriptionJob where
+instance Data.ToPath DeleteMedicalTranscriptionJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteMedicalTranscriptionJob where
+instance Data.ToQuery DeleteMedicalTranscriptionJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMedicalTranscriptionJobResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.OutputFileUriValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value of the variable as a structure that specifies an output file
@@ -56,13 +57,13 @@ newOutputFileUriValue pFileName_ =
 outputFileUriValue_fileName :: Lens.Lens' OutputFileUriValue Prelude.Text
 outputFileUriValue_fileName = Lens.lens (\OutputFileUriValue' {fileName} -> fileName) (\s@OutputFileUriValue' {} a -> s {fileName = a} :: OutputFileUriValue)
 
-instance Core.FromJSON OutputFileUriValue where
+instance Data.FromJSON OutputFileUriValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputFileUriValue"
       ( \x ->
           OutputFileUriValue'
-            Prelude.<$> (x Core..: "fileName")
+            Prelude.<$> (x Data..: "fileName")
       )
 
 instance Prelude.Hashable OutputFileUriValue where
@@ -72,9 +73,9 @@ instance Prelude.Hashable OutputFileUriValue where
 instance Prelude.NFData OutputFileUriValue where
   rnf OutputFileUriValue' {..} = Prelude.rnf fileName
 
-instance Core.ToJSON OutputFileUriValue where
+instance Data.ToJSON OutputFileUriValue where
   toJSON OutputFileUriValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("fileName" Core..= fileName)]
+          [Prelude.Just ("fileName" Data..= fileName)]
       )

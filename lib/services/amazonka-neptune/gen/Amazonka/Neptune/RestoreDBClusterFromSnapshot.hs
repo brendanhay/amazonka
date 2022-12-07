@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -466,7 +467,7 @@ instance Core.AWSRequest RestoreDBClusterFromSnapshot where
       "RestoreDBClusterFromSnapshotResult"
       ( \s h x ->
           RestoreDBClusterFromSnapshotResponse'
-            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<$> (x Data..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -515,56 +516,56 @@ instance Prelude.NFData RestoreDBClusterFromSnapshot where
       `Prelude.seq` Prelude.rnf snapshotIdentifier
       `Prelude.seq` Prelude.rnf engine
 
-instance Core.ToHeaders RestoreDBClusterFromSnapshot where
+instance Data.ToHeaders RestoreDBClusterFromSnapshot where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RestoreDBClusterFromSnapshot where
+instance Data.ToPath RestoreDBClusterFromSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreDBClusterFromSnapshot where
+instance Data.ToQuery RestoreDBClusterFromSnapshot where
   toQuery RestoreDBClusterFromSnapshot' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "RestoreDBClusterFromSnapshot" ::
+          Data.=: ( "RestoreDBClusterFromSnapshot" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "Port" Core.=: port,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "Port" Data.=: port,
         "ServerlessV2ScalingConfiguration"
-          Core.=: serverlessV2ScalingConfiguration,
+          Data.=: serverlessV2ScalingConfiguration,
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
-        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
-        "DatabaseName" Core.=: databaseName,
-        "OptionGroupName" Core.=: optionGroupName,
+        "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
+        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
+        "DatabaseName" Data.=: databaseName,
+        "OptionGroupName" Data.=: optionGroupName,
         "AvailabilityZones"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "AvailabilityZone"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "AvailabilityZone"
                 Prelude.<$> availabilityZones
             ),
         "EnableIAMDatabaseAuthentication"
-          Core.=: enableIAMDatabaseAuthentication,
+          Data.=: enableIAMDatabaseAuthentication,
         "EnableCloudwatchLogsExports"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> enableCloudwatchLogsExports
             ),
-        "KmsKeyId" Core.=: kmsKeyId,
-        "DeletionProtection" Core.=: deletionProtection,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "DeletionProtection" Data.=: deletionProtection,
         "DBClusterParameterGroupName"
-          Core.=: dbClusterParameterGroupName,
-        "EngineVersion" Core.=: engineVersion,
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier,
-        "SnapshotIdentifier" Core.=: snapshotIdentifier,
-        "Engine" Core.=: engine
+          Data.=: dbClusterParameterGroupName,
+        "EngineVersion" Data.=: engineVersion,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier,
+        "SnapshotIdentifier" Data.=: snapshotIdentifier,
+        "Engine" Data.=: engine
       ]
 
 -- | /See:/ 'newRestoreDBClusterFromSnapshotResponse' smart constructor.

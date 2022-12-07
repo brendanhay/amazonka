@@ -21,6 +21,7 @@ module Amazonka.CognitoSync.Types.PushSync where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration options to be applied to the identity pool.
@@ -64,15 +65,15 @@ pushSync_roleArn = Lens.lens (\PushSync' {roleArn} -> roleArn) (\s@PushSync' {} 
 pushSync_applicationArns :: Lens.Lens' PushSync (Prelude.Maybe [Prelude.Text])
 pushSync_applicationArns = Lens.lens (\PushSync' {applicationArns} -> applicationArns) (\s@PushSync' {} a -> s {applicationArns = a} :: PushSync) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PushSync where
+instance Data.FromJSON PushSync where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PushSync"
       ( \x ->
           PushSync'
-            Prelude.<$> (x Core..:? "RoleArn")
-            Prelude.<*> ( x Core..:? "ApplicationArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> ( x Data..:? "ApplicationArns"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -86,12 +87,12 @@ instance Prelude.NFData PushSync where
     Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf applicationArns
 
-instance Core.ToJSON PushSync where
+instance Data.ToJSON PushSync where
   toJSON PushSync' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("ApplicationArns" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("ApplicationArns" Data..=)
               Prelude.<$> applicationArns
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringCsvDatasetFormat where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the CSV dataset format used when running a monitoring job.
@@ -53,13 +54,13 @@ newMonitoringCsvDatasetFormat =
 monitoringCsvDatasetFormat_header :: Lens.Lens' MonitoringCsvDatasetFormat (Prelude.Maybe Prelude.Bool)
 monitoringCsvDatasetFormat_header = Lens.lens (\MonitoringCsvDatasetFormat' {header} -> header) (\s@MonitoringCsvDatasetFormat' {} a -> s {header = a} :: MonitoringCsvDatasetFormat)
 
-instance Core.FromJSON MonitoringCsvDatasetFormat where
+instance Data.FromJSON MonitoringCsvDatasetFormat where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringCsvDatasetFormat"
       ( \x ->
           MonitoringCsvDatasetFormat'
-            Prelude.<$> (x Core..:? "Header")
+            Prelude.<$> (x Data..:? "Header")
       )
 
 instance Prelude.Hashable MonitoringCsvDatasetFormat where
@@ -70,9 +71,9 @@ instance Prelude.NFData MonitoringCsvDatasetFormat where
   rnf MonitoringCsvDatasetFormat' {..} =
     Prelude.rnf header
 
-instance Core.ToJSON MonitoringCsvDatasetFormat where
+instance Data.ToJSON MonitoringCsvDatasetFormat where
   toJSON MonitoringCsvDatasetFormat' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Header" Core..=) Prelude.<$> header]
+          [("Header" Data..=) Prelude.<$> header]
       )

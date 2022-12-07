@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.EndpointNetworkConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies network configuration information for the gateway associated
@@ -66,13 +67,13 @@ newEndpointNetworkConfiguration =
 endpointNetworkConfiguration_ipAddresses :: Lens.Lens' EndpointNetworkConfiguration (Prelude.Maybe [Prelude.Text])
 endpointNetworkConfiguration_ipAddresses = Lens.lens (\EndpointNetworkConfiguration' {ipAddresses} -> ipAddresses) (\s@EndpointNetworkConfiguration' {} a -> s {ipAddresses = a} :: EndpointNetworkConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EndpointNetworkConfiguration where
+instance Data.FromJSON EndpointNetworkConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointNetworkConfiguration"
       ( \x ->
           EndpointNetworkConfiguration'
-            Prelude.<$> (x Core..:? "IpAddresses" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "IpAddresses" Data..!= Prelude.mempty)
       )
 
 instance
@@ -86,9 +87,9 @@ instance Prelude.NFData EndpointNetworkConfiguration where
   rnf EndpointNetworkConfiguration' {..} =
     Prelude.rnf ipAddresses
 
-instance Core.ToJSON EndpointNetworkConfiguration where
+instance Data.ToJSON EndpointNetworkConfiguration where
   toJSON EndpointNetworkConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("IpAddresses" Core..=) Prelude.<$> ipAddresses]
+          [("IpAddresses" Data..=) Prelude.<$> ipAddresses]
       )

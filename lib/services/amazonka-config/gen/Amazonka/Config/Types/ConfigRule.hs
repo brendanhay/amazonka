@@ -25,6 +25,7 @@ import Amazonka.Config.Types.Scope
 import Amazonka.Config.Types.Source
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Config rules evaluate the configuration settings of your Amazon Web
@@ -291,22 +292,22 @@ configRule_createdBy = Lens.lens (\ConfigRule' {createdBy} -> createdBy) (\s@Con
 configRule_source :: Lens.Lens' ConfigRule Source
 configRule_source = Lens.lens (\ConfigRule' {source} -> source) (\s@ConfigRule' {} a -> s {source = a} :: ConfigRule)
 
-instance Core.FromJSON ConfigRule where
+instance Data.FromJSON ConfigRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigRule"
       ( \x ->
           ConfigRule'
-            Prelude.<$> (x Core..:? "MaximumExecutionFrequency")
-            Prelude.<*> (x Core..:? "InputParameters")
-            Prelude.<*> (x Core..:? "ConfigRuleArn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ConfigRuleId")
-            Prelude.<*> (x Core..:? "ConfigRuleName")
-            Prelude.<*> (x Core..:? "Scope")
-            Prelude.<*> (x Core..:? "ConfigRuleState")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..: "Source")
+            Prelude.<$> (x Data..:? "MaximumExecutionFrequency")
+            Prelude.<*> (x Data..:? "InputParameters")
+            Prelude.<*> (x Data..:? "ConfigRuleArn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ConfigRuleId")
+            Prelude.<*> (x Data..:? "ConfigRuleName")
+            Prelude.<*> (x Data..:? "Scope")
+            Prelude.<*> (x Data..:? "ConfigRuleState")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..: "Source")
       )
 
 instance Prelude.Hashable ConfigRule where
@@ -336,23 +337,23 @@ instance Prelude.NFData ConfigRule where
       `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf source
 
-instance Core.ToJSON ConfigRule where
+instance Data.ToJSON ConfigRule where
   toJSON ConfigRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaximumExecutionFrequency" Core..=)
+          [ ("MaximumExecutionFrequency" Data..=)
               Prelude.<$> maximumExecutionFrequency,
-            ("InputParameters" Core..=)
+            ("InputParameters" Data..=)
               Prelude.<$> inputParameters,
-            ("ConfigRuleArn" Core..=) Prelude.<$> configRuleArn,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ConfigRuleId" Core..=) Prelude.<$> configRuleId,
-            ("ConfigRuleName" Core..=)
+            ("ConfigRuleArn" Data..=) Prelude.<$> configRuleArn,
+            ("Description" Data..=) Prelude.<$> description,
+            ("ConfigRuleId" Data..=) Prelude.<$> configRuleId,
+            ("ConfigRuleName" Data..=)
               Prelude.<$> configRuleName,
-            ("Scope" Core..=) Prelude.<$> scope,
-            ("ConfigRuleState" Core..=)
+            ("Scope" Data..=) Prelude.<$> scope,
+            ("ConfigRuleState" Data..=)
               Prelude.<$> configRuleState,
-            ("CreatedBy" Core..=) Prelude.<$> createdBy,
-            Prelude.Just ("Source" Core..= source)
+            ("CreatedBy" Data..=) Prelude.<$> createdBy,
+            Prelude.Just ("Source" Data..= source)
           ]
       )

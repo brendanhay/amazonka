@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RStudioServerProDomainSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ResourceSpec
 
@@ -88,16 +89,16 @@ rStudioServerProDomainSettings_rStudioPackageManagerUrl = Lens.lens (\RStudioSer
 rStudioServerProDomainSettings_domainExecutionRoleArn :: Lens.Lens' RStudioServerProDomainSettings Prelude.Text
 rStudioServerProDomainSettings_domainExecutionRoleArn = Lens.lens (\RStudioServerProDomainSettings' {domainExecutionRoleArn} -> domainExecutionRoleArn) (\s@RStudioServerProDomainSettings' {} a -> s {domainExecutionRoleArn = a} :: RStudioServerProDomainSettings)
 
-instance Core.FromJSON RStudioServerProDomainSettings where
+instance Data.FromJSON RStudioServerProDomainSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RStudioServerProDomainSettings"
       ( \x ->
           RStudioServerProDomainSettings'
-            Prelude.<$> (x Core..:? "DefaultResourceSpec")
-            Prelude.<*> (x Core..:? "RStudioConnectUrl")
-            Prelude.<*> (x Core..:? "RStudioPackageManagerUrl")
-            Prelude.<*> (x Core..: "DomainExecutionRoleArn")
+            Prelude.<$> (x Data..:? "DefaultResourceSpec")
+            Prelude.<*> (x Data..:? "RStudioConnectUrl")
+            Prelude.<*> (x Data..:? "RStudioPackageManagerUrl")
+            Prelude.<*> (x Data..: "DomainExecutionRoleArn")
       )
 
 instance
@@ -122,19 +123,19 @@ instance
       `Prelude.seq` Prelude.rnf rStudioPackageManagerUrl
       `Prelude.seq` Prelude.rnf domainExecutionRoleArn
 
-instance Core.ToJSON RStudioServerProDomainSettings where
+instance Data.ToJSON RStudioServerProDomainSettings where
   toJSON RStudioServerProDomainSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DefaultResourceSpec" Core..=)
+          [ ("DefaultResourceSpec" Data..=)
               Prelude.<$> defaultResourceSpec,
-            ("RStudioConnectUrl" Core..=)
+            ("RStudioConnectUrl" Data..=)
               Prelude.<$> rStudioConnectUrl,
-            ("RStudioPackageManagerUrl" Core..=)
+            ("RStudioPackageManagerUrl" Data..=)
               Prelude.<$> rStudioPackageManagerUrl,
             Prelude.Just
               ( "DomainExecutionRoleArn"
-                  Core..= domainExecutionRoleArn
+                  Data..= domainExecutionRoleArn
               )
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.DatasetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.DatasetActionSummary
 import Amazonka.IoTAnalytics.Types.DatasetStatus
 import Amazonka.IoTAnalytics.Types.DatasetTrigger
@@ -39,9 +40,9 @@ data DatasetSummary = DatasetSummary'
     -- of triggers can be empty or contain up to five @DataSetTrigger@ objects
     triggers :: Prelude.Maybe [DatasetTrigger],
     -- | The time the dataset was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The last time the dataset was updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | A list of @DataActionSummary@ objects.
     actions :: Prelude.Maybe (Prelude.NonEmpty DatasetActionSummary)
   }
@@ -96,28 +97,28 @@ datasetSummary_triggers = Lens.lens (\DatasetSummary' {triggers} -> triggers) (\
 
 -- | The time the dataset was created.
 datasetSummary_creationTime :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.UTCTime)
-datasetSummary_creationTime = Lens.lens (\DatasetSummary' {creationTime} -> creationTime) (\s@DatasetSummary' {} a -> s {creationTime = a} :: DatasetSummary) Prelude.. Lens.mapping Core._Time
+datasetSummary_creationTime = Lens.lens (\DatasetSummary' {creationTime} -> creationTime) (\s@DatasetSummary' {} a -> s {creationTime = a} :: DatasetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The last time the dataset was updated.
 datasetSummary_lastUpdateTime :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.UTCTime)
-datasetSummary_lastUpdateTime = Lens.lens (\DatasetSummary' {lastUpdateTime} -> lastUpdateTime) (\s@DatasetSummary' {} a -> s {lastUpdateTime = a} :: DatasetSummary) Prelude.. Lens.mapping Core._Time
+datasetSummary_lastUpdateTime = Lens.lens (\DatasetSummary' {lastUpdateTime} -> lastUpdateTime) (\s@DatasetSummary' {} a -> s {lastUpdateTime = a} :: DatasetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | A list of @DataActionSummary@ objects.
 datasetSummary_actions :: Lens.Lens' DatasetSummary (Prelude.Maybe (Prelude.NonEmpty DatasetActionSummary))
 datasetSummary_actions = Lens.lens (\DatasetSummary' {actions} -> actions) (\s@DatasetSummary' {} a -> s {actions = a} :: DatasetSummary) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DatasetSummary where
+instance Data.FromJSON DatasetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetSummary"
       ( \x ->
           DatasetSummary'
-            Prelude.<$> (x Core..:? "datasetName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "triggers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
-            Prelude.<*> (x Core..:? "actions")
+            Prelude.<$> (x Data..:? "datasetName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "triggers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "actions")
       )
 
 instance Prelude.Hashable DatasetSummary where

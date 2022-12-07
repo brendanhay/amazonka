@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,32 +108,32 @@ instance Prelude.NFData UpdateConnectorDefinition where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf connectorDefinitionId
 
-instance Core.ToHeaders UpdateConnectorDefinition where
+instance Data.ToHeaders UpdateConnectorDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateConnectorDefinition where
+instance Data.ToJSON UpdateConnectorDefinition where
   toJSON UpdateConnectorDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Name" Core..=) Prelude.<$> name]
+          [("Name" Data..=) Prelude.<$> name]
       )
 
-instance Core.ToPath UpdateConnectorDefinition where
+instance Data.ToPath UpdateConnectorDefinition where
   toPath UpdateConnectorDefinition' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/connectors/",
-        Core.toBS connectorDefinitionId
+        Data.toBS connectorDefinitionId
       ]
 
-instance Core.ToQuery UpdateConnectorDefinition where
+instance Data.ToQuery UpdateConnectorDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConnectorDefinitionResponse' smart constructor.

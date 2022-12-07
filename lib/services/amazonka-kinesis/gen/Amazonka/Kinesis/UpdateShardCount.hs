@@ -88,6 +88,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -196,9 +197,9 @@ instance Core.AWSRequest UpdateShardCount where
     Response.receiveJSON
       ( \s h x ->
           UpdateShardCountResponse'
-            Prelude.<$> (x Core..?> "TargetShardCount")
-            Prelude.<*> (x Core..?> "CurrentShardCount")
-            Prelude.<*> (x Core..?> "StreamName")
+            Prelude.<$> (x Data..?> "TargetShardCount")
+            Prelude.<*> (x Data..?> "CurrentShardCount")
+            Prelude.<*> (x Data..?> "StreamName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -214,36 +215,36 @@ instance Prelude.NFData UpdateShardCount where
       `Prelude.seq` Prelude.rnf targetShardCount
       `Prelude.seq` Prelude.rnf scalingType
 
-instance Core.ToHeaders UpdateShardCount where
+instance Data.ToHeaders UpdateShardCount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.UpdateShardCount" ::
+              Data.=# ( "Kinesis_20131202.UpdateShardCount" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateShardCount where
+instance Data.ToJSON UpdateShardCount where
   toJSON UpdateShardCount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Core..= streamName),
+          [ Prelude.Just ("StreamName" Data..= streamName),
             Prelude.Just
-              ("TargetShardCount" Core..= targetShardCount),
-            Prelude.Just ("ScalingType" Core..= scalingType)
+              ("TargetShardCount" Data..= targetShardCount),
+            Prelude.Just ("ScalingType" Data..= scalingType)
           ]
       )
 
-instance Core.ToPath UpdateShardCount where
+instance Data.ToPath UpdateShardCount where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateShardCount where
+instance Data.ToQuery UpdateShardCount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateShardCountResponse' smart constructor.

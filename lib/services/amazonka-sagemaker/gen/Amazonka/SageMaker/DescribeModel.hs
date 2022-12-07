@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,16 +92,16 @@ instance Core.AWSRequest DescribeModel where
     Response.receiveJSON
       ( \s h x ->
           DescribeModelResponse'
-            Prelude.<$> (x Core..?> "VpcConfig")
-            Prelude.<*> (x Core..?> "EnableNetworkIsolation")
-            Prelude.<*> (x Core..?> "Containers" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PrimaryContainer")
-            Prelude.<*> (x Core..?> "InferenceExecutionConfig")
+            Prelude.<$> (x Data..?> "VpcConfig")
+            Prelude.<*> (x Data..?> "EnableNetworkIsolation")
+            Prelude.<*> (x Data..?> "Containers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PrimaryContainer")
+            Prelude.<*> (x Data..?> "InferenceExecutionConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ModelName")
-            Prelude.<*> (x Core..:> "ExecutionRoleArn")
-            Prelude.<*> (x Core..:> "CreationTime")
-            Prelude.<*> (x Core..:> "ModelArn")
+            Prelude.<*> (x Data..:> "ModelName")
+            Prelude.<*> (x Data..:> "ExecutionRoleArn")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "ModelArn")
       )
 
 instance Prelude.Hashable DescribeModel where
@@ -110,30 +111,30 @@ instance Prelude.Hashable DescribeModel where
 instance Prelude.NFData DescribeModel where
   rnf DescribeModel' {..} = Prelude.rnf modelName
 
-instance Core.ToHeaders DescribeModel where
+instance Data.ToHeaders DescribeModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeModel" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DescribeModel" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeModel where
+instance Data.ToJSON DescribeModel where
   toJSON DescribeModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ModelName" Core..= modelName)]
+          [Prelude.Just ("ModelName" Data..= modelName)]
       )
 
-instance Core.ToPath DescribeModel where
+instance Data.ToPath DescribeModel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeModel where
+instance Data.ToQuery DescribeModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeModelResponse' smart constructor.
@@ -162,7 +163,7 @@ data DescribeModelResponse = DescribeModelResponse'
     -- the model.
     executionRoleArn :: Prelude.Text,
     -- | A timestamp that shows when the model was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the model.
     modelArn :: Prelude.Text
   }
@@ -229,7 +230,7 @@ newDescribeModelResponse
         httpStatus = pHttpStatus_,
         modelName = pModelName_,
         executionRoleArn = pExecutionRoleArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         modelArn = pModelArn_
       }
 
@@ -274,7 +275,7 @@ describeModelResponse_executionRoleArn = Lens.lens (\DescribeModelResponse' {exe
 
 -- | A timestamp that shows when the model was created.
 describeModelResponse_creationTime :: Lens.Lens' DescribeModelResponse Prelude.UTCTime
-describeModelResponse_creationTime = Lens.lens (\DescribeModelResponse' {creationTime} -> creationTime) (\s@DescribeModelResponse' {} a -> s {creationTime = a} :: DescribeModelResponse) Prelude.. Core._Time
+describeModelResponse_creationTime = Lens.lens (\DescribeModelResponse' {creationTime} -> creationTime) (\s@DescribeModelResponse' {} a -> s {creationTime = a} :: DescribeModelResponse) Prelude.. Data._Time
 
 -- | The Amazon Resource Name (ARN) of the model.
 describeModelResponse_modelArn :: Lens.Lens' DescribeModelResponse Prelude.Text

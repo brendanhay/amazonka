@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,36 +125,36 @@ instance Prelude.NFData RegisterMailDomain where
       `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders RegisterMailDomain where
+instance Data.ToHeaders RegisterMailDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.RegisterMailDomain" ::
+              Data.=# ( "WorkMailService.RegisterMailDomain" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterMailDomain where
+instance Data.ToJSON RegisterMailDomain where
   toJSON RegisterMailDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("DomainName" Core..= domainName)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("DomainName" Data..= domainName)
           ]
       )
 
-instance Core.ToPath RegisterMailDomain where
+instance Data.ToPath RegisterMailDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterMailDomain where
+instance Data.ToQuery RegisterMailDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterMailDomainResponse' smart constructor.

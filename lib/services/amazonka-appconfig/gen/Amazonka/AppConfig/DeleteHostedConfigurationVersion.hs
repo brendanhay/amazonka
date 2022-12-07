@@ -41,6 +41,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,32 +136,32 @@ instance
       `Prelude.seq` Prelude.rnf versionNumber
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteHostedConfigurationVersion
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteHostedConfigurationVersion where
+instance Data.ToPath DeleteHostedConfigurationVersion where
   toPath DeleteHostedConfigurationVersion' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/configurationprofiles/",
-        Core.toBS configurationProfileId,
+        Data.toBS configurationProfileId,
         "/hostedconfigurationversions/",
-        Core.toBS versionNumber
+        Data.toBS versionNumber
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteHostedConfigurationVersion
   where
   toQuery = Prelude.const Prelude.mempty

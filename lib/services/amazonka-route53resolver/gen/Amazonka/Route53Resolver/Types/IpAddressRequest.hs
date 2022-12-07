@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.IpAddressRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | In a
@@ -77,11 +78,11 @@ instance Prelude.NFData IpAddressRequest where
   rnf IpAddressRequest' {..} =
     Prelude.rnf ip `Prelude.seq` Prelude.rnf subnetId
 
-instance Core.ToJSON IpAddressRequest where
+instance Data.ToJSON IpAddressRequest where
   toJSON IpAddressRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Ip" Core..=) Prelude.<$> ip,
-            Prelude.Just ("SubnetId" Core..= subnetId)
+          [ ("Ip" Data..=) Prelude.<$> ip,
+            Prelude.Just ("SubnetId" Data..= subnetId)
           ]
       )

@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -218,8 +219,8 @@ instance Core.AWSRequest SearchTables where
     Response.receiveJSON
       ( \s h x ->
           SearchTablesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "TableList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "TableList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -243,38 +244,38 @@ instance Prelude.NFData SearchTables where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf catalogId
 
-instance Core.ToHeaders SearchTables where
+instance Data.ToHeaders SearchTables where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.SearchTables" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.SearchTables" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchTables where
+instance Data.ToJSON SearchTables where
   toJSON SearchTables' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SearchText" Core..=) Prelude.<$> searchText,
-            ("ResourceShareType" Core..=)
+          [ ("SortCriteria" Data..=) Prelude.<$> sortCriteria,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SearchText" Data..=) Prelude.<$> searchText,
+            ("ResourceShareType" Data..=)
               Prelude.<$> resourceShareType,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CatalogId" Core..=) Prelude.<$> catalogId
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CatalogId" Data..=) Prelude.<$> catalogId
           ]
       )
 
-instance Core.ToPath SearchTables where
+instance Data.ToPath SearchTables where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SearchTables where
+instance Data.ToQuery SearchTables where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchTablesResponse' smart constructor.

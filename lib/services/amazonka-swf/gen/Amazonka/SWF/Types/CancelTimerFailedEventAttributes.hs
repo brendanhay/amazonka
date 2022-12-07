@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.CancelTimerFailedEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.CancelTimerFailedCause
 
@@ -113,17 +114,17 @@ cancelTimerFailedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' Canc
 cancelTimerFailedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\CancelTimerFailedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@CancelTimerFailedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: CancelTimerFailedEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CancelTimerFailedEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CancelTimerFailedEventAttributes"
       ( \x ->
           CancelTimerFailedEventAttributes'
-            Prelude.<$> (x Core..: "timerId")
-            Prelude.<*> (x Core..: "cause")
-            Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Data..: "timerId")
+            Prelude.<*> (x Data..: "cause")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance

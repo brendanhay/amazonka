@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -196,8 +197,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListPredictorBacktestExportJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "PredictorBacktestExportJobs"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "PredictorBacktestExportJobs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -224,37 +225,37 @@ instance
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListPredictorBacktestExportJobs
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.ListPredictorBacktestExportJobs" ::
+              Data.=# ( "AmazonForecast.ListPredictorBacktestExportJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPredictorBacktestExportJobs where
+instance Data.ToJSON ListPredictorBacktestExportJobs where
   toJSON ListPredictorBacktestExportJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListPredictorBacktestExportJobs where
+instance Data.ToPath ListPredictorBacktestExportJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPredictorBacktestExportJobs where
+instance Data.ToQuery ListPredictorBacktestExportJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPredictorBacktestExportJobsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.Backup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.ActiveDirectoryBackupAttributes
 import Amazonka.FSx.Types.BackupFailureDetails
 import Amazonka.FSx.Types.BackupLifecycle
@@ -82,7 +83,7 @@ data Backup = Backup'
     -- | The type of the file-system backup.
     type' :: BackupType,
     -- | The time when a particular backup was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The metadata of the file system associated with the backup. This
     -- metadata is persisted even if the file system is deleted.
     fileSystem :: FileSystem
@@ -182,7 +183,7 @@ newBackup
         backupId = pBackupId_,
         lifecycle = pLifecycle_,
         type' = pType_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         fileSystem = pFileSystem_
       }
 
@@ -264,35 +265,35 @@ backup_type = Lens.lens (\Backup' {type'} -> type') (\s@Backup' {} a -> s {type'
 
 -- | The time when a particular backup was created.
 backup_creationTime :: Lens.Lens' Backup Prelude.UTCTime
-backup_creationTime = Lens.lens (\Backup' {creationTime} -> creationTime) (\s@Backup' {} a -> s {creationTime = a} :: Backup) Prelude.. Core._Time
+backup_creationTime = Lens.lens (\Backup' {creationTime} -> creationTime) (\s@Backup' {} a -> s {creationTime = a} :: Backup) Prelude.. Data._Time
 
 -- | The metadata of the file system associated with the backup. This
 -- metadata is persisted even if the file system is deleted.
 backup_fileSystem :: Lens.Lens' Backup FileSystem
 backup_fileSystem = Lens.lens (\Backup' {fileSystem} -> fileSystem) (\s@Backup' {} a -> s {fileSystem = a} :: Backup)
 
-instance Core.FromJSON Backup where
+instance Data.FromJSON Backup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Backup"
       ( \x ->
           Backup'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "SourceBackupRegion")
-            Prelude.<*> (x Core..:? "FailureDetails")
-            Prelude.<*> (x Core..:? "DirectoryInformation")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "Volume")
-            Prelude.<*> (x Core..:? "ResourceARN")
-            Prelude.<*> (x Core..:? "ProgressPercent")
-            Prelude.<*> (x Core..:? "SourceBackupId")
-            Prelude.<*> (x Core..: "BackupId")
-            Prelude.<*> (x Core..: "Lifecycle")
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "FileSystem")
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "SourceBackupRegion")
+            Prelude.<*> (x Data..:? "FailureDetails")
+            Prelude.<*> (x Data..:? "DirectoryInformation")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "Volume")
+            Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "ProgressPercent")
+            Prelude.<*> (x Data..:? "SourceBackupId")
+            Prelude.<*> (x Data..: "BackupId")
+            Prelude.<*> (x Data..: "Lifecycle")
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "FileSystem")
       )
 
 instance Prelude.Hashable Backup where

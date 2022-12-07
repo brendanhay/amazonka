@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.ManagedRuleSetVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information for a single version of a managed rule set.
@@ -40,17 +41,17 @@ data ManagedRuleSetVersion = ManagedRuleSetVersion'
     --
     -- Times are in Coordinated Universal Time (UTC) format. UTC format
     -- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
-    lastUpdateTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdateTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The time that you first published this version.
     --
     -- Times are in Coordinated Universal Time (UTC) format. UTC format
     -- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
-    publishTimestamp :: Prelude.Maybe Core.POSIX,
+    publishTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The time that this version is set to expire.
     --
     -- Times are in Coordinated Universal Time (UTC) format. UTC format
     -- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
-    expiryTimestamp :: Prelude.Maybe Core.POSIX,
+    expiryTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The amount of time you expect this version of your managed rule group to
     -- last, in days.
     forecastedLifetime :: Prelude.Maybe Prelude.Natural,
@@ -126,21 +127,21 @@ newManagedRuleSetVersion =
 -- Times are in Coordinated Universal Time (UTC) format. UTC format
 -- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
 managedRuleSetVersion_lastUpdateTimestamp :: Lens.Lens' ManagedRuleSetVersion (Prelude.Maybe Prelude.UTCTime)
-managedRuleSetVersion_lastUpdateTimestamp = Lens.lens (\ManagedRuleSetVersion' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ManagedRuleSetVersion' {} a -> s {lastUpdateTimestamp = a} :: ManagedRuleSetVersion) Prelude.. Lens.mapping Core._Time
+managedRuleSetVersion_lastUpdateTimestamp = Lens.lens (\ManagedRuleSetVersion' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ManagedRuleSetVersion' {} a -> s {lastUpdateTimestamp = a} :: ManagedRuleSetVersion) Prelude.. Lens.mapping Data._Time
 
 -- | The time that you first published this version.
 --
 -- Times are in Coordinated Universal Time (UTC) format. UTC format
 -- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
 managedRuleSetVersion_publishTimestamp :: Lens.Lens' ManagedRuleSetVersion (Prelude.Maybe Prelude.UTCTime)
-managedRuleSetVersion_publishTimestamp = Lens.lens (\ManagedRuleSetVersion' {publishTimestamp} -> publishTimestamp) (\s@ManagedRuleSetVersion' {} a -> s {publishTimestamp = a} :: ManagedRuleSetVersion) Prelude.. Lens.mapping Core._Time
+managedRuleSetVersion_publishTimestamp = Lens.lens (\ManagedRuleSetVersion' {publishTimestamp} -> publishTimestamp) (\s@ManagedRuleSetVersion' {} a -> s {publishTimestamp = a} :: ManagedRuleSetVersion) Prelude.. Lens.mapping Data._Time
 
 -- | The time that this version is set to expire.
 --
 -- Times are in Coordinated Universal Time (UTC) format. UTC format
 -- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
 managedRuleSetVersion_expiryTimestamp :: Lens.Lens' ManagedRuleSetVersion (Prelude.Maybe Prelude.UTCTime)
-managedRuleSetVersion_expiryTimestamp = Lens.lens (\ManagedRuleSetVersion' {expiryTimestamp} -> expiryTimestamp) (\s@ManagedRuleSetVersion' {} a -> s {expiryTimestamp = a} :: ManagedRuleSetVersion) Prelude.. Lens.mapping Core._Time
+managedRuleSetVersion_expiryTimestamp = Lens.lens (\ManagedRuleSetVersion' {expiryTimestamp} -> expiryTimestamp) (\s@ManagedRuleSetVersion' {} a -> s {expiryTimestamp = a} :: ManagedRuleSetVersion) Prelude.. Lens.mapping Data._Time
 
 -- | The amount of time you expect this version of your managed rule group to
 -- last, in days.
@@ -164,18 +165,18 @@ managedRuleSetVersion_associatedRuleGroupArn = Lens.lens (\ManagedRuleSetVersion
 managedRuleSetVersion_capacity :: Lens.Lens' ManagedRuleSetVersion (Prelude.Maybe Prelude.Natural)
 managedRuleSetVersion_capacity = Lens.lens (\ManagedRuleSetVersion' {capacity} -> capacity) (\s@ManagedRuleSetVersion' {} a -> s {capacity = a} :: ManagedRuleSetVersion)
 
-instance Core.FromJSON ManagedRuleSetVersion where
+instance Data.FromJSON ManagedRuleSetVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManagedRuleSetVersion"
       ( \x ->
           ManagedRuleSetVersion'
-            Prelude.<$> (x Core..:? "LastUpdateTimestamp")
-            Prelude.<*> (x Core..:? "PublishTimestamp")
-            Prelude.<*> (x Core..:? "ExpiryTimestamp")
-            Prelude.<*> (x Core..:? "ForecastedLifetime")
-            Prelude.<*> (x Core..:? "AssociatedRuleGroupArn")
-            Prelude.<*> (x Core..:? "Capacity")
+            Prelude.<$> (x Data..:? "LastUpdateTimestamp")
+            Prelude.<*> (x Data..:? "PublishTimestamp")
+            Prelude.<*> (x Data..:? "ExpiryTimestamp")
+            Prelude.<*> (x Data..:? "ForecastedLifetime")
+            Prelude.<*> (x Data..:? "AssociatedRuleGroupArn")
+            Prelude.<*> (x Data..:? "Capacity")
       )
 
 instance Prelude.Hashable ManagedRuleSetVersion where

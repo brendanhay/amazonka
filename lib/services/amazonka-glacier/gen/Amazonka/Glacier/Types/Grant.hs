@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.Grant where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types.Grantee
 import Amazonka.Glacier.Types.Permission
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ grant_permission = Lens.lens (\Grant' {permission} -> permission) (\s@Grant' {} 
 grant_grantee :: Lens.Lens' Grant (Prelude.Maybe Grantee)
 grant_grantee = Lens.lens (\Grant' {grantee} -> grantee) (\s@Grant' {} a -> s {grantee = a} :: Grant)
 
-instance Core.FromJSON Grant where
+instance Data.FromJSON Grant where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Grant"
       ( \x ->
           Grant'
-            Prelude.<$> (x Core..:? "Permission")
-            Prelude.<*> (x Core..:? "Grantee")
+            Prelude.<$> (x Data..:? "Permission")
+            Prelude.<*> (x Data..:? "Grantee")
       )
 
 instance Prelude.Hashable Grant where
@@ -83,11 +84,11 @@ instance Prelude.NFData Grant where
     Prelude.rnf permission
       `Prelude.seq` Prelude.rnf grantee
 
-instance Core.ToJSON Grant where
+instance Data.ToJSON Grant where
   toJSON Grant' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Permission" Core..=) Prelude.<$> permission,
-            ("Grantee" Core..=) Prelude.<$> grantee
+          [ ("Permission" Data..=) Prelude.<$> permission,
+            ("Grantee" Data..=) Prelude.<$> grantee
           ]
       )

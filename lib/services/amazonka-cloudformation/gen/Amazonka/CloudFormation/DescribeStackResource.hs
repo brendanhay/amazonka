@@ -46,6 +46,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,7 +136,7 @@ instance Core.AWSRequest DescribeStackResource where
       "DescribeStackResourceResult"
       ( \s h x ->
           DescribeStackResourceResponse'
-            Prelude.<$> (x Core..@? "StackResourceDetail")
+            Prelude.<$> (x Data..@? "StackResourceDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,21 +150,21 @@ instance Prelude.NFData DescribeStackResource where
     Prelude.rnf stackName
       `Prelude.seq` Prelude.rnf logicalResourceId
 
-instance Core.ToHeaders DescribeStackResource where
+instance Data.ToHeaders DescribeStackResource where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeStackResource where
+instance Data.ToPath DescribeStackResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStackResource where
+instance Data.ToQuery DescribeStackResource where
   toQuery DescribeStackResource' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeStackResource" :: Prelude.ByteString),
+          Data.=: ("DescribeStackResource" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "StackName" Core.=: stackName,
-        "LogicalResourceId" Core.=: logicalResourceId
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "StackName" Data.=: stackName,
+        "LogicalResourceId" Data.=: logicalResourceId
       ]
 
 -- | The output for a DescribeStackResource action.

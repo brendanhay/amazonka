@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.ShipmentInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types.ShipmentCarrier
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ shipmentInformation_shipmentTrackingNumber = Lens.lens (\ShipmentInformation' {s
 shipmentInformation_shipmentCarrier :: Lens.Lens' ShipmentInformation (Prelude.Maybe ShipmentCarrier)
 shipmentInformation_shipmentCarrier = Lens.lens (\ShipmentInformation' {shipmentCarrier} -> shipmentCarrier) (\s@ShipmentInformation' {} a -> s {shipmentCarrier = a} :: ShipmentInformation)
 
-instance Core.FromJSON ShipmentInformation where
+instance Data.FromJSON ShipmentInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ShipmentInformation"
       ( \x ->
           ShipmentInformation'
-            Prelude.<$> (x Core..:? "ShipmentTrackingNumber")
-            Prelude.<*> (x Core..:? "ShipmentCarrier")
+            Prelude.<$> (x Data..:? "ShipmentTrackingNumber")
+            Prelude.<*> (x Data..:? "ShipmentCarrier")
       )
 
 instance Prelude.Hashable ShipmentInformation where

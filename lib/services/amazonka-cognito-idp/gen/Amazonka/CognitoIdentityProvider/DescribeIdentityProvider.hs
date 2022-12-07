@@ -43,6 +43,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest DescribeIdentityProvider where
       ( \s h x ->
           DescribeIdentityProviderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "IdentityProvider")
+            Prelude.<*> (x Data..:> "IdentityProvider")
       )
 
 instance Prelude.Hashable DescribeIdentityProvider where
@@ -114,34 +115,34 @@ instance Prelude.NFData DescribeIdentityProvider where
     Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf providerName
 
-instance Core.ToHeaders DescribeIdentityProvider where
+instance Data.ToHeaders DescribeIdentityProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.DescribeIdentityProvider" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.DescribeIdentityProvider" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeIdentityProvider where
+instance Data.ToJSON DescribeIdentityProvider where
   toJSON DescribeIdentityProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("ProviderName" Core..= providerName)
+          [ Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("ProviderName" Data..= providerName)
           ]
       )
 
-instance Core.ToPath DescribeIdentityProvider where
+instance Data.ToPath DescribeIdentityProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeIdentityProvider where
+instance Data.ToQuery DescribeIdentityProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeIdentityProviderResponse' smart constructor.

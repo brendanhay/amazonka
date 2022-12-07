@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,7 +113,7 @@ instance Core.AWSRequest GetGeneratedCodeJob where
     Response.receiveJSON
       ( \s h x ->
           GetGeneratedCodeJobResponse'
-            Prelude.<$> (x Core..?> "GeneratedCodeJob")
+            Prelude.<$> (x Data..?> "GeneratedCodeJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,29 +129,29 @@ instance Prelude.NFData GetGeneratedCodeJob where
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf snapshotId
 
-instance Core.ToHeaders GetGeneratedCodeJob where
+instance Data.ToHeaders GetGeneratedCodeJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetGeneratedCodeJob where
+instance Data.ToPath GetGeneratedCodeJob where
   toPath GetGeneratedCodeJob' {..} =
     Prelude.mconcat
       [ "/game/",
-        Core.toBS gameName,
+        Data.toBS gameName,
         "/snapshot/",
-        Core.toBS snapshotId,
+        Data.toBS snapshotId,
         "/generated-sdk-code-job/",
-        Core.toBS jobId
+        Data.toBS jobId
       ]
 
-instance Core.ToQuery GetGeneratedCodeJob where
+instance Data.ToQuery GetGeneratedCodeJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGeneratedCodeJobResponse' smart constructor.

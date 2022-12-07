@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotAliasSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.BotAliasStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -36,7 +37,7 @@ data BotAliasSummary = BotAliasSummary'
     -- | The version of the bot that the bot alias references.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the bot alias was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the bot alias.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier assigned to the bot alias. You can use this ID to
@@ -47,7 +48,7 @@ data BotAliasSummary = BotAliasSummary'
     -- | The name of the bot alias.
     botAliasName :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the bot alias was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,7 +101,7 @@ botAliasSummary_botVersion = Lens.lens (\BotAliasSummary' {botVersion} -> botVer
 
 -- | A timestamp of the date and time that the bot alias was created.
 botAliasSummary_creationDateTime :: Lens.Lens' BotAliasSummary (Prelude.Maybe Prelude.UTCTime)
-botAliasSummary_creationDateTime = Lens.lens (\BotAliasSummary' {creationDateTime} -> creationDateTime) (\s@BotAliasSummary' {} a -> s {creationDateTime = a} :: BotAliasSummary) Prelude.. Lens.mapping Core._Time
+botAliasSummary_creationDateTime = Lens.lens (\BotAliasSummary' {creationDateTime} -> creationDateTime) (\s@BotAliasSummary' {} a -> s {creationDateTime = a} :: BotAliasSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the bot alias.
 botAliasSummary_description :: Lens.Lens' BotAliasSummary (Prelude.Maybe Prelude.Text)
@@ -119,21 +120,21 @@ botAliasSummary_botAliasName = Lens.lens (\BotAliasSummary' {botAliasName} -> bo
 
 -- | A timestamp of the date and time that the bot alias was last updated.
 botAliasSummary_lastUpdatedDateTime :: Lens.Lens' BotAliasSummary (Prelude.Maybe Prelude.UTCTime)
-botAliasSummary_lastUpdatedDateTime = Lens.lens (\BotAliasSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@BotAliasSummary' {} a -> s {lastUpdatedDateTime = a} :: BotAliasSummary) Prelude.. Lens.mapping Core._Time
+botAliasSummary_lastUpdatedDateTime = Lens.lens (\BotAliasSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@BotAliasSummary' {} a -> s {lastUpdatedDateTime = a} :: BotAliasSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON BotAliasSummary where
+instance Data.FromJSON BotAliasSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotAliasSummary"
       ( \x ->
           BotAliasSummary'
-            Prelude.<$> (x Core..:? "botAliasStatus")
-            Prelude.<*> (x Core..:? "botVersion")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "botAliasId")
-            Prelude.<*> (x Core..:? "botAliasName")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "botAliasStatus")
+            Prelude.<*> (x Data..:? "botVersion")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "botAliasId")
+            Prelude.<*> (x Data..:? "botAliasName")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable BotAliasSummary where

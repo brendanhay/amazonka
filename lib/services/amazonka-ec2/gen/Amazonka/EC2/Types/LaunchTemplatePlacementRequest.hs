@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplatePlacementRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tenancy
 import qualified Amazonka.Prelude as Prelude
@@ -174,16 +175,16 @@ instance
       `Prelude.seq` Prelude.rnf tenancy
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToQuery LaunchTemplatePlacementRequest where
+instance Data.ToQuery LaunchTemplatePlacementRequest where
   toQuery LaunchTemplatePlacementRequest' {..} =
     Prelude.mconcat
-      [ "SpreadDomain" Core.=: spreadDomain,
-        "PartitionNumber" Core.=: partitionNumber,
-        "HostResourceGroupArn" Core.=: hostResourceGroupArn,
-        "HostId" Core.=: hostId,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "GroupName" Core.=: groupName,
-        "Affinity" Core.=: affinity,
-        "Tenancy" Core.=: tenancy,
-        "GroupId" Core.=: groupId
+      [ "SpreadDomain" Data.=: spreadDomain,
+        "PartitionNumber" Data.=: partitionNumber,
+        "HostResourceGroupArn" Data.=: hostResourceGroupArn,
+        "HostId" Data.=: hostId,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "GroupName" Data.=: groupName,
+        "Affinity" Data.=: affinity,
+        "Tenancy" Data.=: tenancy,
+        "GroupId" Data.=: groupId
       ]

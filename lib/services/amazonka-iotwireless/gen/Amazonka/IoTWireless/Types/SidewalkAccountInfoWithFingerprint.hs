@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.SidewalkAccountInfoWithFingerprint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a Sidewalk account.
@@ -32,7 +33,7 @@ data SidewalkAccountInfoWithFingerprint = SidewalkAccountInfoWithFingerprint'
     -- | The Sidewalk Amazon ID.
     amazonId :: Prelude.Maybe Prelude.Text,
     -- | The fingerprint of the Sidewalk application server private key.
-    fingerprint :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    fingerprint :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -69,20 +70,20 @@ sidewalkAccountInfoWithFingerprint_amazonId = Lens.lens (\SidewalkAccountInfoWit
 
 -- | The fingerprint of the Sidewalk application server private key.
 sidewalkAccountInfoWithFingerprint_fingerprint :: Lens.Lens' SidewalkAccountInfoWithFingerprint (Prelude.Maybe Prelude.Text)
-sidewalkAccountInfoWithFingerprint_fingerprint = Lens.lens (\SidewalkAccountInfoWithFingerprint' {fingerprint} -> fingerprint) (\s@SidewalkAccountInfoWithFingerprint' {} a -> s {fingerprint = a} :: SidewalkAccountInfoWithFingerprint) Prelude.. Lens.mapping Core._Sensitive
+sidewalkAccountInfoWithFingerprint_fingerprint = Lens.lens (\SidewalkAccountInfoWithFingerprint' {fingerprint} -> fingerprint) (\s@SidewalkAccountInfoWithFingerprint' {} a -> s {fingerprint = a} :: SidewalkAccountInfoWithFingerprint) Prelude.. Lens.mapping Data._Sensitive
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SidewalkAccountInfoWithFingerprint
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SidewalkAccountInfoWithFingerprint"
       ( \x ->
           SidewalkAccountInfoWithFingerprint'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "AmazonId")
-            Prelude.<*> (x Core..:? "Fingerprint")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "AmazonId")
+            Prelude.<*> (x Data..:? "Fingerprint")
       )
 
 instance

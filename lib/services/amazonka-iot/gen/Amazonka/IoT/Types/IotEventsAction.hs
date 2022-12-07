@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.IotEventsAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Sends an input to an IoT Events detector.
@@ -131,16 +132,16 @@ iotEventsAction_inputName = Lens.lens (\IotEventsAction' {inputName} -> inputNam
 iotEventsAction_roleArn :: Lens.Lens' IotEventsAction Prelude.Text
 iotEventsAction_roleArn = Lens.lens (\IotEventsAction' {roleArn} -> roleArn) (\s@IotEventsAction' {} a -> s {roleArn = a} :: IotEventsAction)
 
-instance Core.FromJSON IotEventsAction where
+instance Data.FromJSON IotEventsAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IotEventsAction"
       ( \x ->
           IotEventsAction'
-            Prelude.<$> (x Core..:? "messageId")
-            Prelude.<*> (x Core..:? "batchMode")
-            Prelude.<*> (x Core..: "inputName")
-            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Data..:? "messageId")
+            Prelude.<*> (x Data..:? "batchMode")
+            Prelude.<*> (x Data..: "inputName")
+            Prelude.<*> (x Data..: "roleArn")
       )
 
 instance Prelude.Hashable IotEventsAction where
@@ -157,13 +158,13 @@ instance Prelude.NFData IotEventsAction where
       `Prelude.seq` Prelude.rnf inputName
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON IotEventsAction where
+instance Data.ToJSON IotEventsAction where
   toJSON IotEventsAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("messageId" Core..=) Prelude.<$> messageId,
-            ("batchMode" Core..=) Prelude.<$> batchMode,
-            Prelude.Just ("inputName" Core..= inputName),
-            Prelude.Just ("roleArn" Core..= roleArn)
+          [ ("messageId" Data..=) Prelude.<$> messageId,
+            ("batchMode" Data..=) Prelude.<$> batchMode,
+            Prelude.Just ("inputName" Data..= inputName),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )

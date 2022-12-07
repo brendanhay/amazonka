@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.TrainingMetricsV2 where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.ATITrainingMetricsValue
 import Amazonka.FraudDetector.Types.OFITrainingMetricsValue
 import Amazonka.FraudDetector.Types.TFITrainingMetricsValue
@@ -73,15 +74,15 @@ trainingMetricsV2_tfi = Lens.lens (\TrainingMetricsV2' {tfi} -> tfi) (\s@Trainin
 trainingMetricsV2_ofi :: Lens.Lens' TrainingMetricsV2 (Prelude.Maybe OFITrainingMetricsValue)
 trainingMetricsV2_ofi = Lens.lens (\TrainingMetricsV2' {ofi} -> ofi) (\s@TrainingMetricsV2' {} a -> s {ofi = a} :: TrainingMetricsV2)
 
-instance Core.FromJSON TrainingMetricsV2 where
+instance Data.FromJSON TrainingMetricsV2 where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrainingMetricsV2"
       ( \x ->
           TrainingMetricsV2'
-            Prelude.<$> (x Core..:? "ati")
-            Prelude.<*> (x Core..:? "tfi")
-            Prelude.<*> (x Core..:? "ofi")
+            Prelude.<$> (x Data..:? "ati")
+            Prelude.<*> (x Data..:? "tfi")
+            Prelude.<*> (x Data..:? "ofi")
       )
 
 instance Prelude.Hashable TrainingMetricsV2 where

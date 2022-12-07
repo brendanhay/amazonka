@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,7 +137,7 @@ instance Core.AWSRequest UpdateGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateGroupResponse'
-            Prelude.<$> (x Core..?> "Group")
+            Prelude.<$> (x Data..?> "Group")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,26 +155,26 @@ instance Prelude.NFData UpdateGroup where
       `Prelude.seq` Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf groupARN
 
-instance Core.ToHeaders UpdateGroup where
+instance Data.ToHeaders UpdateGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateGroup where
+instance Data.ToJSON UpdateGroup where
   toJSON UpdateGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InsightsConfiguration" Core..=)
+          [ ("InsightsConfiguration" Data..=)
               Prelude.<$> insightsConfiguration,
-            ("FilterExpression" Core..=)
+            ("FilterExpression" Data..=)
               Prelude.<$> filterExpression,
-            ("GroupName" Core..=) Prelude.<$> groupName,
-            ("GroupARN" Core..=) Prelude.<$> groupARN
+            ("GroupName" Data..=) Prelude.<$> groupName,
+            ("GroupARN" Data..=) Prelude.<$> groupARN
           ]
       )
 
-instance Core.ToPath UpdateGroup where
+instance Data.ToPath UpdateGroup where
   toPath = Prelude.const "/UpdateGroup"
 
-instance Core.ToQuery UpdateGroup where
+instance Data.ToQuery UpdateGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGroupResponse' smart constructor.

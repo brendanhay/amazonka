@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.DateInterval
 import Amazonka.CostExplorer.Types.ReservationAggregates
 import Amazonka.CostExplorer.Types.ReservationUtilizationGroup
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of utilization, in hours.
@@ -73,15 +74,15 @@ utilizationByTime_timePeriod = Lens.lens (\UtilizationByTime' {timePeriod} -> ti
 utilizationByTime_groups :: Lens.Lens' UtilizationByTime (Prelude.Maybe [ReservationUtilizationGroup])
 utilizationByTime_groups = Lens.lens (\UtilizationByTime' {groups} -> groups) (\s@UtilizationByTime' {} a -> s {groups = a} :: UtilizationByTime) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON UtilizationByTime where
+instance Data.FromJSON UtilizationByTime where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UtilizationByTime"
       ( \x ->
           UtilizationByTime'
-            Prelude.<$> (x Core..:? "Total")
-            Prelude.<*> (x Core..:? "TimePeriod")
-            Prelude.<*> (x Core..:? "Groups" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Total")
+            Prelude.<*> (x Data..:? "TimePeriod")
+            Prelude.<*> (x Data..:? "Groups" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable UtilizationByTime where

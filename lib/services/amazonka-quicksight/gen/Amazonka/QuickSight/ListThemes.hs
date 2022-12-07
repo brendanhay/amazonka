@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -170,9 +171,9 @@ instance Core.AWSRequest ListThemes where
     Response.receiveJSON
       ( \s h x ->
           ListThemesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> ( x Core..?> "ThemeSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> ( x Data..?> "ThemeSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -192,28 +193,28 @@ instance Prelude.NFData ListThemes where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf awsAccountId
 
-instance Core.ToHeaders ListThemes where
+instance Data.ToHeaders ListThemes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListThemes where
+instance Data.ToPath ListThemes where
   toPath ListThemes' {..} =
     Prelude.mconcat
-      ["/accounts/", Core.toBS awsAccountId, "/themes"]
+      ["/accounts/", Data.toBS awsAccountId, "/themes"]
 
-instance Core.ToQuery ListThemes where
+instance Data.ToQuery ListThemes where
   toQuery ListThemes' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "type" Core.=: type',
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "type" Data.=: type',
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListThemesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.Domain where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.DomainEntry
 import Amazonka.Lightsail.Types.RegisteredDomainDelegationInfo
 import Amazonka.Lightsail.Types.ResourceLocation
@@ -58,7 +59,7 @@ data Domain = Domain'
     -- easily.
     supportCode :: Prelude.Maybe Prelude.Text,
     -- | The date when the domain recordset was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -154,23 +155,23 @@ domain_supportCode = Lens.lens (\Domain' {supportCode} -> supportCode) (\s@Domai
 
 -- | The date when the domain recordset was created.
 domain_createdAt :: Lens.Lens' Domain (Prelude.Maybe Prelude.UTCTime)
-domain_createdAt = Lens.lens (\Domain' {createdAt} -> createdAt) (\s@Domain' {} a -> s {createdAt = a} :: Domain) Prelude.. Lens.mapping Core._Time
+domain_createdAt = Lens.lens (\Domain' {createdAt} -> createdAt) (\s@Domain' {} a -> s {createdAt = a} :: Domain) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Domain where
+instance Data.FromJSON Domain where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Domain"
       ( \x ->
           Domain'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "registeredDomainDelegationInfo")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "domainEntries" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "registeredDomainDelegationInfo")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "domainEntries" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "supportCode")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable Domain where

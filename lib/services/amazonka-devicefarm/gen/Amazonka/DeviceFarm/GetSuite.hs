@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -82,7 +83,7 @@ instance Core.AWSRequest GetSuite where
     Response.receiveJSON
       ( \s h x ->
           GetSuiteResponse'
-            Prelude.<$> (x Core..?> "suite")
+            Prelude.<$> (x Data..?> "suite")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -93,32 +94,32 @@ instance Prelude.Hashable GetSuite where
 instance Prelude.NFData GetSuite where
   rnf GetSuite' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders GetSuite where
+instance Data.ToHeaders GetSuite where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.GetSuite" ::
+              Data.=# ( "DeviceFarm_20150623.GetSuite" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSuite where
+instance Data.ToJSON GetSuite where
   toJSON GetSuite' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath GetSuite where
+instance Data.ToPath GetSuite where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSuite where
+instance Data.ToQuery GetSuite where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a get suite request.

@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.ChefConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the Chef configuration.
@@ -62,14 +63,14 @@ chefConfiguration_berkshelfVersion = Lens.lens (\ChefConfiguration' {berkshelfVe
 chefConfiguration_manageBerkshelf :: Lens.Lens' ChefConfiguration (Prelude.Maybe Prelude.Bool)
 chefConfiguration_manageBerkshelf = Lens.lens (\ChefConfiguration' {manageBerkshelf} -> manageBerkshelf) (\s@ChefConfiguration' {} a -> s {manageBerkshelf = a} :: ChefConfiguration)
 
-instance Core.FromJSON ChefConfiguration where
+instance Data.FromJSON ChefConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChefConfiguration"
       ( \x ->
           ChefConfiguration'
-            Prelude.<$> (x Core..:? "BerkshelfVersion")
-            Prelude.<*> (x Core..:? "ManageBerkshelf")
+            Prelude.<$> (x Data..:? "BerkshelfVersion")
+            Prelude.<*> (x Data..:? "ManageBerkshelf")
       )
 
 instance Prelude.Hashable ChefConfiguration where
@@ -82,13 +83,13 @@ instance Prelude.NFData ChefConfiguration where
     Prelude.rnf berkshelfVersion
       `Prelude.seq` Prelude.rnf manageBerkshelf
 
-instance Core.ToJSON ChefConfiguration where
+instance Data.ToJSON ChefConfiguration where
   toJSON ChefConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BerkshelfVersion" Core..=)
+          [ ("BerkshelfVersion" Data..=)
               Prelude.<$> berkshelfVersion,
-            ("ManageBerkshelf" Core..=)
+            ("ManageBerkshelf" Data..=)
               Prelude.<$> manageBerkshelf
           ]
       )

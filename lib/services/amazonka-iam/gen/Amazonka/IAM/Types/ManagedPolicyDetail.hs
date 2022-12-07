@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.ManagedPolicyDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.PolicyVersion
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,7 +68,7 @@ data ManagedPolicyDetail = ManagedPolicyDetail'
     -- time when the policy was created. When a policy has more than one
     -- version, this field contains the date and time when the most recent
     -- policy version was created.
-    updateDate :: Prelude.Maybe Core.ISO8601,
+    updateDate :: Prelude.Maybe Data.ISO8601,
     -- | A list containing information about the versions of the policy.
     policyVersionList :: Prelude.Maybe [PolicyVersion],
     -- | A friendly description of the policy.
@@ -75,7 +76,7 @@ data ManagedPolicyDetail = ManagedPolicyDetail'
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- policy was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Data.ISO8601,
     -- | The number of principal entities (users, groups, and roles) that the
     -- policy is attached to.
     attachmentCount :: Prelude.Maybe Prelude.Int,
@@ -212,7 +213,7 @@ managedPolicyDetail_path = Lens.lens (\ManagedPolicyDetail' {path} -> path) (\s@
 -- version, this field contains the date and time when the most recent
 -- policy version was created.
 managedPolicyDetail_updateDate :: Lens.Lens' ManagedPolicyDetail (Prelude.Maybe Prelude.UTCTime)
-managedPolicyDetail_updateDate = Lens.lens (\ManagedPolicyDetail' {updateDate} -> updateDate) (\s@ManagedPolicyDetail' {} a -> s {updateDate = a} :: ManagedPolicyDetail) Prelude.. Lens.mapping Core._Time
+managedPolicyDetail_updateDate = Lens.lens (\ManagedPolicyDetail' {updateDate} -> updateDate) (\s@ManagedPolicyDetail' {} a -> s {updateDate = a} :: ManagedPolicyDetail) Prelude.. Lens.mapping Data._Time
 
 -- | A list containing information about the versions of the policy.
 managedPolicyDetail_policyVersionList :: Lens.Lens' ManagedPolicyDetail (Prelude.Maybe [PolicyVersion])
@@ -226,7 +227,7 @@ managedPolicyDetail_description = Lens.lens (\ManagedPolicyDetail' {description}
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- policy was created.
 managedPolicyDetail_createDate :: Lens.Lens' ManagedPolicyDetail (Prelude.Maybe Prelude.UTCTime)
-managedPolicyDetail_createDate = Lens.lens (\ManagedPolicyDetail' {createDate} -> createDate) (\s@ManagedPolicyDetail' {} a -> s {createDate = a} :: ManagedPolicyDetail) Prelude.. Lens.mapping Core._Time
+managedPolicyDetail_createDate = Lens.lens (\ManagedPolicyDetail' {createDate} -> createDate) (\s@ManagedPolicyDetail' {} a -> s {createDate = a} :: ManagedPolicyDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The number of principal entities (users, groups, and roles) that the
 -- policy is attached to.
@@ -247,24 +248,24 @@ managedPolicyDetail_permissionsBoundaryUsageCount = Lens.lens (\ManagedPolicyDet
 managedPolicyDetail_isAttachable :: Lens.Lens' ManagedPolicyDetail (Prelude.Maybe Prelude.Bool)
 managedPolicyDetail_isAttachable = Lens.lens (\ManagedPolicyDetail' {isAttachable} -> isAttachable) (\s@ManagedPolicyDetail' {} a -> s {isAttachable = a} :: ManagedPolicyDetail)
 
-instance Core.FromXML ManagedPolicyDetail where
+instance Data.FromXML ManagedPolicyDetail where
   parseXML x =
     ManagedPolicyDetail'
-      Prelude.<$> (x Core..@? "PolicyName")
-      Prelude.<*> (x Core..@? "PolicyId")
-      Prelude.<*> (x Core..@? "DefaultVersionId")
-      Prelude.<*> (x Core..@? "Arn")
-      Prelude.<*> (x Core..@? "Path")
-      Prelude.<*> (x Core..@? "UpdateDate")
-      Prelude.<*> ( x Core..@? "PolicyVersionList"
+      Prelude.<$> (x Data..@? "PolicyName")
+      Prelude.<*> (x Data..@? "PolicyId")
+      Prelude.<*> (x Data..@? "DefaultVersionId")
+      Prelude.<*> (x Data..@? "Arn")
+      Prelude.<*> (x Data..@? "Path")
+      Prelude.<*> (x Data..@? "UpdateDate")
+      Prelude.<*> ( x Data..@? "PolicyVersionList"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "CreateDate")
-      Prelude.<*> (x Core..@? "AttachmentCount")
-      Prelude.<*> (x Core..@? "PermissionsBoundaryUsageCount")
-      Prelude.<*> (x Core..@? "IsAttachable")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "CreateDate")
+      Prelude.<*> (x Data..@? "AttachmentCount")
+      Prelude.<*> (x Data..@? "PermissionsBoundaryUsageCount")
+      Prelude.<*> (x Data..@? "IsAttachable")
 
 instance Prelude.Hashable ManagedPolicyDetail where
   hashWithSalt _salt ManagedPolicyDetail' {..} =

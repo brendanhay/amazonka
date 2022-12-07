@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.ExpenseType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object used to store information about the Type detected by Amazon
@@ -62,14 +63,14 @@ expenseType_confidence = Lens.lens (\ExpenseType' {confidence} -> confidence) (\
 expenseType_text :: Lens.Lens' ExpenseType (Prelude.Maybe Prelude.Text)
 expenseType_text = Lens.lens (\ExpenseType' {text} -> text) (\s@ExpenseType' {} a -> s {text = a} :: ExpenseType)
 
-instance Core.FromJSON ExpenseType where
+instance Data.FromJSON ExpenseType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExpenseType"
       ( \x ->
           ExpenseType'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Text")
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Text")
       )
 
 instance Prelude.Hashable ExpenseType where

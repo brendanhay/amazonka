@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,7 +126,7 @@ instance Core.AWSRequest AssociateHostedConnection where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable AssociateHostedConnection where
   hashWithSalt _salt AssociateHostedConnection' {..} =
@@ -137,33 +138,33 @@ instance Prelude.NFData AssociateHostedConnection where
     Prelude.rnf connectionId
       `Prelude.seq` Prelude.rnf parentConnectionId
 
-instance Core.ToHeaders AssociateHostedConnection where
+instance Data.ToHeaders AssociateHostedConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.AssociateHostedConnection" ::
+              Data.=# ( "OvertureService.AssociateHostedConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateHostedConnection where
+instance Data.ToJSON AssociateHostedConnection where
   toJSON AssociateHostedConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("connectionId" Core..= connectionId),
+          [ Prelude.Just ("connectionId" Data..= connectionId),
             Prelude.Just
-              ("parentConnectionId" Core..= parentConnectionId)
+              ("parentConnectionId" Data..= parentConnectionId)
           ]
       )
 
-instance Core.ToPath AssociateHostedConnection where
+instance Data.ToPath AssociateHostedConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateHostedConnection where
+instance Data.ToQuery AssociateHostedConnection where
   toQuery = Prelude.const Prelude.mempty

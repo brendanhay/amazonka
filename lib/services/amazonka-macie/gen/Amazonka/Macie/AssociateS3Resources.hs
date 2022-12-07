@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Macie.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance Core.AWSRequest AssociateS3Resources where
     Response.receiveJSON
       ( \s h x ->
           AssociateS3ResourcesResponse'
-            Prelude.<$> ( x Core..?> "failedS3Resources"
+            Prelude.<$> ( x Data..?> "failedS3Resources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -121,35 +122,35 @@ instance Prelude.NFData AssociateS3Resources where
     Prelude.rnf memberAccountId
       `Prelude.seq` Prelude.rnf s3Resources
 
-instance Core.ToHeaders AssociateS3Resources where
+instance Data.ToHeaders AssociateS3Resources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MacieService.AssociateS3Resources" ::
+              Data.=# ( "MacieService.AssociateS3Resources" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateS3Resources where
+instance Data.ToJSON AssociateS3Resources where
   toJSON AssociateS3Resources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("memberAccountId" Core..=)
+          [ ("memberAccountId" Data..=)
               Prelude.<$> memberAccountId,
-            Prelude.Just ("s3Resources" Core..= s3Resources)
+            Prelude.Just ("s3Resources" Data..= s3Resources)
           ]
       )
 
-instance Core.ToPath AssociateS3Resources where
+instance Data.ToPath AssociateS3Resources where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateS3Resources where
+instance Data.ToQuery AssociateS3Resources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateS3ResourcesResponse' smart constructor.

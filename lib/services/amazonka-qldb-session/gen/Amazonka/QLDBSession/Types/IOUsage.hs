@@ -21,6 +21,7 @@ module Amazonka.QLDBSession.Types.IOUsage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains I\/O usage metrics for a command that was invoked.
@@ -61,14 +62,14 @@ iOUsage_readIOs = Lens.lens (\IOUsage' {readIOs} -> readIOs) (\s@IOUsage' {} a -
 iOUsage_writeIOs :: Lens.Lens' IOUsage (Prelude.Maybe Prelude.Integer)
 iOUsage_writeIOs = Lens.lens (\IOUsage' {writeIOs} -> writeIOs) (\s@IOUsage' {} a -> s {writeIOs = a} :: IOUsage)
 
-instance Core.FromJSON IOUsage where
+instance Data.FromJSON IOUsage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IOUsage"
       ( \x ->
           IOUsage'
-            Prelude.<$> (x Core..:? "ReadIOs")
-            Prelude.<*> (x Core..:? "WriteIOs")
+            Prelude.<$> (x Data..:? "ReadIOs")
+            Prelude.<*> (x Data..:? "WriteIOs")
       )
 
 instance Prelude.Hashable IOUsage where

@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,8 +137,8 @@ instance Core.AWSRequest ListCrawls where
     Response.receiveJSON
       ( \s h x ->
           ListCrawlsResponse'
-            Prelude.<$> (x Core..?> "Crawls" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Crawls" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,34 +156,34 @@ instance Prelude.NFData ListCrawls where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf crawlerName
 
-instance Core.ToHeaders ListCrawls where
+instance Data.ToHeaders ListCrawls where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.ListCrawls" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.ListCrawls" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCrawls where
+instance Data.ToJSON ListCrawls where
   toJSON ListCrawls' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("CrawlerName" Core..= crawlerName)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("CrawlerName" Data..= crawlerName)
           ]
       )
 
-instance Core.ToPath ListCrawls where
+instance Data.ToPath ListCrawls where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListCrawls where
+instance Data.ToQuery ListCrawls where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCrawlsResponse' smart constructor.

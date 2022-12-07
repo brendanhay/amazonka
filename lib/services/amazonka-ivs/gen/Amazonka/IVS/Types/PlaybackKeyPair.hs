@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.PlaybackKeyPair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A key pair used to sign and validate a playback authorization token.
@@ -91,16 +92,16 @@ playbackKeyPair_arn = Lens.lens (\PlaybackKeyPair' {arn} -> arn) (\s@PlaybackKey
 playbackKeyPair_fingerprint :: Lens.Lens' PlaybackKeyPair (Prelude.Maybe Prelude.Text)
 playbackKeyPair_fingerprint = Lens.lens (\PlaybackKeyPair' {fingerprint} -> fingerprint) (\s@PlaybackKeyPair' {} a -> s {fingerprint = a} :: PlaybackKeyPair)
 
-instance Core.FromJSON PlaybackKeyPair where
+instance Data.FromJSON PlaybackKeyPair where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlaybackKeyPair"
       ( \x ->
           PlaybackKeyPair'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "fingerprint")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "fingerprint")
       )
 
 instance Prelude.Hashable PlaybackKeyPair where

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -171,10 +172,10 @@ instance Core.AWSRequest DescribeDBProxies where
       "DescribeDBProxiesResult"
       ( \s h x ->
           DescribeDBProxiesResponse'
-            Prelude.<$> ( x Core..@? "DBProxies" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "DBProxies" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,25 +193,25 @@ instance Prelude.NFData DescribeDBProxies where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf dbProxyName
 
-instance Core.ToHeaders DescribeDBProxies where
+instance Data.ToHeaders DescribeDBProxies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBProxies where
+instance Data.ToPath DescribeDBProxies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDBProxies where
+instance Data.ToQuery DescribeDBProxies where
   toQuery DescribeDBProxies' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBProxies" :: Prelude.ByteString),
+          Data.=: ("DescribeDBProxies" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
-        "DBProxyName" Core.=: dbProxyName
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords,
+        "DBProxyName" Data.=: dbProxyName
       ]
 
 -- | /See:/ 'newDescribeDBProxiesResponse' smart constructor.

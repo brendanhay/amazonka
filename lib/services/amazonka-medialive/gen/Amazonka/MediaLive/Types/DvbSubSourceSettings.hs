@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.DvbSubSourceSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.DvbSubOcrLanguage
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,14 +75,14 @@ dvbSubSourceSettings_pid = Lens.lens (\DvbSubSourceSettings' {pid} -> pid) (\s@D
 dvbSubSourceSettings_ocrLanguage :: Lens.Lens' DvbSubSourceSettings (Prelude.Maybe DvbSubOcrLanguage)
 dvbSubSourceSettings_ocrLanguage = Lens.lens (\DvbSubSourceSettings' {ocrLanguage} -> ocrLanguage) (\s@DvbSubSourceSettings' {} a -> s {ocrLanguage = a} :: DvbSubSourceSettings)
 
-instance Core.FromJSON DvbSubSourceSettings where
+instance Data.FromJSON DvbSubSourceSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DvbSubSourceSettings"
       ( \x ->
           DvbSubSourceSettings'
-            Prelude.<$> (x Core..:? "pid")
-            Prelude.<*> (x Core..:? "ocrLanguage")
+            Prelude.<$> (x Data..:? "pid")
+            Prelude.<*> (x Data..:? "ocrLanguage")
       )
 
 instance Prelude.Hashable DvbSubSourceSettings where
@@ -94,11 +95,11 @@ instance Prelude.NFData DvbSubSourceSettings where
     Prelude.rnf pid
       `Prelude.seq` Prelude.rnf ocrLanguage
 
-instance Core.ToJSON DvbSubSourceSettings where
+instance Data.ToJSON DvbSubSourceSettings where
   toJSON DvbSubSourceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("pid" Core..=) Prelude.<$> pid,
-            ("ocrLanguage" Core..=) Prelude.<$> ocrLanguage
+          [ ("pid" Data..=) Prelude.<$> pid,
+            ("ocrLanguage" Data..=) Prelude.<$> ocrLanguage
           ]
       )

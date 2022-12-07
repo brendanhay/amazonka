@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,7 +142,7 @@ instance Core.AWSRequest AddCommunicationToCase where
     Response.receiveJSON
       ( \s h x ->
           AddCommunicationToCaseResponse'
-            Prelude.<$> (x Core..?> "result")
+            Prelude.<$> (x Data..?> "result")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,39 +160,39 @@ instance Prelude.NFData AddCommunicationToCase where
       `Prelude.seq` Prelude.rnf attachmentSetId
       `Prelude.seq` Prelude.rnf communicationBody
 
-instance Core.ToHeaders AddCommunicationToCase where
+instance Data.ToHeaders AddCommunicationToCase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSupport_20130415.AddCommunicationToCase" ::
+              Data.=# ( "AWSSupport_20130415.AddCommunicationToCase" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddCommunicationToCase where
+instance Data.ToJSON AddCommunicationToCase where
   toJSON AddCommunicationToCase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ccEmailAddresses" Core..=)
+          [ ("ccEmailAddresses" Data..=)
               Prelude.<$> ccEmailAddresses,
-            ("caseId" Core..=) Prelude.<$> caseId,
-            ("attachmentSetId" Core..=)
+            ("caseId" Data..=) Prelude.<$> caseId,
+            ("attachmentSetId" Data..=)
               Prelude.<$> attachmentSetId,
             Prelude.Just
-              ("communicationBody" Core..= communicationBody)
+              ("communicationBody" Data..= communicationBody)
           ]
       )
 
-instance Core.ToPath AddCommunicationToCase where
+instance Data.ToPath AddCommunicationToCase where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddCommunicationToCase where
+instance Data.ToQuery AddCommunicationToCase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of the AddCommunicationToCase operation.

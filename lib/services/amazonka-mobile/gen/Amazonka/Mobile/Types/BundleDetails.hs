@@ -21,6 +21,7 @@ module Amazonka.Mobile.Types.BundleDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Mobile.Types.Platform
 import qualified Amazonka.Prelude as Prelude
 
@@ -93,20 +94,20 @@ bundleDetails_bundleId = Lens.lens (\BundleDetails' {bundleId} -> bundleId) (\s@
 bundleDetails_version :: Lens.Lens' BundleDetails (Prelude.Maybe Prelude.Text)
 bundleDetails_version = Lens.lens (\BundleDetails' {version} -> version) (\s@BundleDetails' {} a -> s {version = a} :: BundleDetails)
 
-instance Core.FromJSON BundleDetails where
+instance Data.FromJSON BundleDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BundleDetails"
       ( \x ->
           BundleDetails'
-            Prelude.<$> ( x Core..:? "availablePlatforms"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "availablePlatforms"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "iconUrl")
-            Prelude.<*> (x Core..:? "title")
-            Prelude.<*> (x Core..:? "bundleId")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "iconUrl")
+            Prelude.<*> (x Data..:? "title")
+            Prelude.<*> (x Data..:? "bundleId")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable BundleDetails where

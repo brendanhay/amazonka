@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.BatchCreateVariableError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the error of the batch create variable API.
@@ -71,15 +72,15 @@ batchCreateVariableError_name = Lens.lens (\BatchCreateVariableError' {name} -> 
 batchCreateVariableError_code :: Lens.Lens' BatchCreateVariableError (Prelude.Maybe Prelude.Int)
 batchCreateVariableError_code = Lens.lens (\BatchCreateVariableError' {code} -> code) (\s@BatchCreateVariableError' {} a -> s {code = a} :: BatchCreateVariableError)
 
-instance Core.FromJSON BatchCreateVariableError where
+instance Data.FromJSON BatchCreateVariableError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchCreateVariableError"
       ( \x ->
           BatchCreateVariableError'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable BatchCreateVariableError where

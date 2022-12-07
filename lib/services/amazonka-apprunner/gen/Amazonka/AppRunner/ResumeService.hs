@@ -48,6 +48,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,9 +93,9 @@ instance Core.AWSRequest ResumeService where
     Response.receiveJSON
       ( \s h x ->
           ResumeServiceResponse'
-            Prelude.<$> (x Core..?> "OperationId")
+            Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Service")
+            Prelude.<*> (x Data..:> "Service")
       )
 
 instance Prelude.Hashable ResumeService where
@@ -104,30 +105,30 @@ instance Prelude.Hashable ResumeService where
 instance Prelude.NFData ResumeService where
   rnf ResumeService' {..} = Prelude.rnf serviceArn
 
-instance Core.ToHeaders ResumeService where
+instance Data.ToHeaders ResumeService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AppRunner.ResumeService" :: Prelude.ByteString),
+              Data.=# ("AppRunner.ResumeService" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResumeService where
+instance Data.ToJSON ResumeService where
   toJSON ResumeService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ServiceArn" Core..= serviceArn)]
+          [Prelude.Just ("ServiceArn" Data..= serviceArn)]
       )
 
-instance Core.ToPath ResumeService where
+instance Data.ToPath ResumeService where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResumeService where
+instance Data.ToQuery ResumeService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResumeServiceResponse' smart constructor.

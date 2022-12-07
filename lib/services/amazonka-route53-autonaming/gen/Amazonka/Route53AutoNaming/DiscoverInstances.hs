@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -222,7 +223,7 @@ instance Core.AWSRequest DiscoverInstances where
     Response.receiveJSON
       ( \s h x ->
           DiscoverInstancesResponse'
-            Prelude.<$> (x Core..?> "Instances" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Instances" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -244,40 +245,40 @@ instance Prelude.NFData DiscoverInstances where
       `Prelude.seq` Prelude.rnf namespaceName
       `Prelude.seq` Prelude.rnf serviceName
 
-instance Core.ToHeaders DiscoverInstances where
+instance Data.ToHeaders DiscoverInstances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53AutoNaming_v20170314.DiscoverInstances" ::
+              Data.=# ( "Route53AutoNaming_v20170314.DiscoverInstances" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DiscoverInstances where
+instance Data.ToJSON DiscoverInstances where
   toJSON DiscoverInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OptionalParameters" Core..=)
+          [ ("OptionalParameters" Data..=)
               Prelude.<$> optionalParameters,
-            ("HealthStatus" Core..=) Prelude.<$> healthStatus,
-            ("QueryParameters" Core..=)
+            ("HealthStatus" Data..=) Prelude.<$> healthStatus,
+            ("QueryParameters" Data..=)
               Prelude.<$> queryParameters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("NamespaceName" Core..= namespaceName),
-            Prelude.Just ("ServiceName" Core..= serviceName)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("NamespaceName" Data..= namespaceName),
+            Prelude.Just ("ServiceName" Data..= serviceName)
           ]
       )
 
-instance Core.ToPath DiscoverInstances where
+instance Data.ToPath DiscoverInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DiscoverInstances where
+instance Data.ToQuery DiscoverInstances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDiscoverInstancesResponse' smart constructor.

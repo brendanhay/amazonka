@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,14 +138,14 @@ instance Core.AWSRequest ListAnswers where
     Response.receiveJSON
       ( \s h x ->
           ListAnswersResponse'
-            Prelude.<$> ( x Core..?> "AnswerSummaries"
+            Prelude.<$> ( x Data..?> "AnswerSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "LensArn")
-            Prelude.<*> (x Core..?> "LensAlias")
-            Prelude.<*> (x Core..?> "MilestoneNumber")
-            Prelude.<*> (x Core..?> "WorkloadId")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "LensArn")
+            Prelude.<*> (x Data..?> "LensAlias")
+            Prelude.<*> (x Data..?> "MilestoneNumber")
+            Prelude.<*> (x Data..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,34 +167,34 @@ instance Prelude.NFData ListAnswers where
       `Prelude.seq` Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf lensAlias
 
-instance Core.ToHeaders ListAnswers where
+instance Data.ToHeaders ListAnswers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAnswers where
+instance Data.ToPath ListAnswers where
   toPath ListAnswers' {..} =
     Prelude.mconcat
       [ "/workloads/",
-        Core.toBS workloadId,
+        Data.toBS workloadId,
         "/lensReviews/",
-        Core.toBS lensAlias,
+        Data.toBS lensAlias,
         "/answers"
       ]
 
-instance Core.ToQuery ListAnswers where
+instance Data.ToQuery ListAnswers where
   toQuery ListAnswers' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "MilestoneNumber" Core.=: milestoneNumber,
-        "PillarId" Core.=: pillarId
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults,
+        "MilestoneNumber" Data.=: milestoneNumber,
+        "PillarId" Data.=: pillarId
       ]
 
 -- | Output of a list answers call.

@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.InspectorServiceAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This data type is used in the Finding data type.
@@ -73,15 +74,15 @@ inspectorServiceAttributes_rulesPackageArn = Lens.lens (\InspectorServiceAttribu
 inspectorServiceAttributes_schemaVersion :: Lens.Lens' InspectorServiceAttributes Prelude.Natural
 inspectorServiceAttributes_schemaVersion = Lens.lens (\InspectorServiceAttributes' {schemaVersion} -> schemaVersion) (\s@InspectorServiceAttributes' {} a -> s {schemaVersion = a} :: InspectorServiceAttributes)
 
-instance Core.FromJSON InspectorServiceAttributes where
+instance Data.FromJSON InspectorServiceAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InspectorServiceAttributes"
       ( \x ->
           InspectorServiceAttributes'
-            Prelude.<$> (x Core..:? "assessmentRunArn")
-            Prelude.<*> (x Core..:? "rulesPackageArn")
-            Prelude.<*> (x Core..: "schemaVersion")
+            Prelude.<$> (x Data..:? "assessmentRunArn")
+            Prelude.<*> (x Data..:? "rulesPackageArn")
+            Prelude.<*> (x Data..: "schemaVersion")
       )
 
 instance Prelude.Hashable InspectorServiceAttributes where

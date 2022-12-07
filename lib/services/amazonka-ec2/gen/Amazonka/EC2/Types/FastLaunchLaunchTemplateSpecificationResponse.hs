@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FastLaunchLaunchTemplateSpecificationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,14 +85,14 @@ fastLaunchLaunchTemplateSpecificationResponse_launchTemplateName :: Lens.Lens' F
 fastLaunchLaunchTemplateSpecificationResponse_launchTemplateName = Lens.lens (\FastLaunchLaunchTemplateSpecificationResponse' {launchTemplateName} -> launchTemplateName) (\s@FastLaunchLaunchTemplateSpecificationResponse' {} a -> s {launchTemplateName = a} :: FastLaunchLaunchTemplateSpecificationResponse)
 
 instance
-  Core.FromXML
+  Data.FromXML
     FastLaunchLaunchTemplateSpecificationResponse
   where
   parseXML x =
     FastLaunchLaunchTemplateSpecificationResponse'
-      Prelude.<$> (x Core..@? "launchTemplateId")
-        Prelude.<*> (x Core..@? "version")
-        Prelude.<*> (x Core..@? "launchTemplateName")
+      Prelude.<$> (x Data..@? "launchTemplateId")
+        Prelude.<*> (x Data..@? "version")
+        Prelude.<*> (x Data..@? "launchTemplateName")
 
 instance
   Prelude.Hashable

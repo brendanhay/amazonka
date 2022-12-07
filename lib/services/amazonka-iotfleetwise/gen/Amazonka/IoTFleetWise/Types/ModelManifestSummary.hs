@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.ModelManifestSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.ManifestStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -43,10 +44,10 @@ data ModelManifestSummary = ModelManifestSummary'
     signalCatalogArn :: Prelude.Maybe Prelude.Text,
     -- | The time the vehicle model was created, in seconds since epoch (January
     -- 1, 1970 at midnight UTC time).
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The time the vehicle model was last updated, in seconds since epoch
     -- (January 1, 1970 at midnight UTC time).
-    lastModificationTime :: Core.POSIX
+    lastModificationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,9 +91,9 @@ newModelManifestSummary
         status = Prelude.Nothing,
         description = Prelude.Nothing,
         signalCatalogArn = Prelude.Nothing,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lastModificationTime =
-          Core._Time Lens.# pLastModificationTime_
+          Data._Time Lens.# pLastModificationTime_
       }
 
 -- | The name of the vehicle model.
@@ -120,26 +121,26 @@ modelManifestSummary_signalCatalogArn = Lens.lens (\ModelManifestSummary' {signa
 -- | The time the vehicle model was created, in seconds since epoch (January
 -- 1, 1970 at midnight UTC time).
 modelManifestSummary_creationTime :: Lens.Lens' ModelManifestSummary Prelude.UTCTime
-modelManifestSummary_creationTime = Lens.lens (\ModelManifestSummary' {creationTime} -> creationTime) (\s@ModelManifestSummary' {} a -> s {creationTime = a} :: ModelManifestSummary) Prelude.. Core._Time
+modelManifestSummary_creationTime = Lens.lens (\ModelManifestSummary' {creationTime} -> creationTime) (\s@ModelManifestSummary' {} a -> s {creationTime = a} :: ModelManifestSummary) Prelude.. Data._Time
 
 -- | The time the vehicle model was last updated, in seconds since epoch
 -- (January 1, 1970 at midnight UTC time).
 modelManifestSummary_lastModificationTime :: Lens.Lens' ModelManifestSummary Prelude.UTCTime
-modelManifestSummary_lastModificationTime = Lens.lens (\ModelManifestSummary' {lastModificationTime} -> lastModificationTime) (\s@ModelManifestSummary' {} a -> s {lastModificationTime = a} :: ModelManifestSummary) Prelude.. Core._Time
+modelManifestSummary_lastModificationTime = Lens.lens (\ModelManifestSummary' {lastModificationTime} -> lastModificationTime) (\s@ModelManifestSummary' {} a -> s {lastModificationTime = a} :: ModelManifestSummary) Prelude.. Data._Time
 
-instance Core.FromJSON ModelManifestSummary where
+instance Data.FromJSON ModelManifestSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelManifestSummary"
       ( \x ->
           ModelManifestSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "signalCatalogArn")
-            Prelude.<*> (x Core..: "creationTime")
-            Prelude.<*> (x Core..: "lastModificationTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "signalCatalogArn")
+            Prelude.<*> (x Data..: "creationTime")
+            Prelude.<*> (x Data..: "lastModificationTime")
       )
 
 instance Prelude.Hashable ModelManifestSummary where

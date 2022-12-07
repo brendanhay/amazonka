@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetAssistant where
     Response.receiveJSON
       ( \s h x ->
           GetAssistantResponse'
-            Prelude.<$> (x Core..?> "assistant")
+            Prelude.<$> (x Data..?> "assistant")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,23 +96,23 @@ instance Prelude.Hashable GetAssistant where
 instance Prelude.NFData GetAssistant where
   rnf GetAssistant' {..} = Prelude.rnf assistantId
 
-instance Core.ToHeaders GetAssistant where
+instance Data.ToHeaders GetAssistant where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetAssistant where
+instance Data.ToPath GetAssistant where
   toPath GetAssistant' {..} =
     Prelude.mconcat
-      ["/assistants/", Core.toBS assistantId]
+      ["/assistants/", Data.toBS assistantId]
 
-instance Core.ToQuery GetAssistant where
+instance Data.ToQuery GetAssistant where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAssistantResponse' smart constructor.

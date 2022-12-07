@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,10 +165,10 @@ instance Core.AWSRequest DescribeIpams where
     Response.receiveXML
       ( \s h x ->
           DescribeIpamsResponse'
-            Prelude.<$> ( x Core..@? "ipamSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "ipamSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,26 +188,26 @@ instance Prelude.NFData DescribeIpams where
       `Prelude.seq` Prelude.rnf ipamIds
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeIpams where
+instance Data.ToHeaders DescribeIpams where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeIpams where
+instance Data.ToPath DescribeIpams where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeIpams where
+instance Data.ToQuery DescribeIpams where
   toQuery DescribeIpams' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeIpams" :: Prelude.ByteString),
+          Data.=: ("DescribeIpams" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "IpamId" Prelude.<$> ipamIds),
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          (Data.toQueryList "IpamId" Prelude.<$> ipamIds),
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeIpamsResponse' smart constructor.

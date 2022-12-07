@@ -54,6 +54,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -217,10 +218,10 @@ instance Core.AWSRequest DeleteFile where
       ( \s h x ->
           DeleteFileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "commitId")
-            Prelude.<*> (x Core..:> "blobId")
-            Prelude.<*> (x Core..:> "treeId")
-            Prelude.<*> (x Core..:> "filePath")
+            Prelude.<*> (x Data..:> "commitId")
+            Prelude.<*> (x Data..:> "blobId")
+            Prelude.<*> (x Data..:> "treeId")
+            Prelude.<*> (x Data..:> "filePath")
       )
 
 instance Prelude.Hashable DeleteFile where
@@ -245,43 +246,43 @@ instance Prelude.NFData DeleteFile where
       `Prelude.seq` Prelude.rnf filePath
       `Prelude.seq` Prelude.rnf parentCommitId
 
-instance Core.ToHeaders DeleteFile where
+instance Data.ToHeaders DeleteFile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.DeleteFile" ::
+              Data.=# ( "CodeCommit_20150413.DeleteFile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteFile where
+instance Data.ToJSON DeleteFile where
   toJSON DeleteFile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("keepEmptyFolders" Core..=)
+          [ ("keepEmptyFolders" Data..=)
               Prelude.<$> keepEmptyFolders,
-            ("name" Core..=) Prelude.<$> name,
-            ("email" Core..=) Prelude.<$> email,
-            ("commitMessage" Core..=) Prelude.<$> commitMessage,
+            ("name" Data..=) Prelude.<$> name,
+            ("email" Data..=) Prelude.<$> email,
+            ("commitMessage" Data..=) Prelude.<$> commitMessage,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("branchName" Core..= branchName),
-            Prelude.Just ("filePath" Core..= filePath),
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("branchName" Data..= branchName),
+            Prelude.Just ("filePath" Data..= filePath),
             Prelude.Just
-              ("parentCommitId" Core..= parentCommitId)
+              ("parentCommitId" Data..= parentCommitId)
           ]
       )
 
-instance Core.ToPath DeleteFile where
+instance Data.ToPath DeleteFile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteFile where
+instance Data.ToQuery DeleteFile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFileResponse' smart constructor.

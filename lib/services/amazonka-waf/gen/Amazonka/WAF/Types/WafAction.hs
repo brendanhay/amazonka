@@ -21,6 +21,7 @@ module Amazonka.WAF.Types.WafAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAF.Types.WafActionType
 
@@ -95,11 +96,11 @@ newWafAction pType_ = WafAction' {type' = pType_}
 wafAction_type :: Lens.Lens' WafAction WafActionType
 wafAction_type = Lens.lens (\WafAction' {type'} -> type') (\s@WafAction' {} a -> s {type' = a} :: WafAction)
 
-instance Core.FromJSON WafAction where
+instance Data.FromJSON WafAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WafAction"
-      (\x -> WafAction' Prelude.<$> (x Core..: "Type"))
+      (\x -> WafAction' Prelude.<$> (x Data..: "Type"))
 
 instance Prelude.Hashable WafAction where
   hashWithSalt _salt WafAction' {..} =
@@ -108,9 +109,9 @@ instance Prelude.Hashable WafAction where
 instance Prelude.NFData WafAction where
   rnf WafAction' {..} = Prelude.rnf type'
 
-instance Core.ToJSON WafAction where
+instance Data.ToJSON WafAction where
   toJSON WafAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Type" Core..= type')]
+          [Prelude.Just ("Type" Data..= type')]
       )

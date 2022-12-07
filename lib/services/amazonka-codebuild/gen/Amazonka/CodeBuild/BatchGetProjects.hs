@@ -43,6 +43,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,8 +94,8 @@ instance Core.AWSRequest BatchGetProjects where
     Response.receiveJSON
       ( \s h x ->
           BatchGetProjectsResponse'
-            Prelude.<$> (x Core..?> "projects" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "projectsNotFound")
+            Prelude.<$> (x Data..?> "projects" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "projectsNotFound")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,32 +106,32 @@ instance Prelude.Hashable BatchGetProjects where
 instance Prelude.NFData BatchGetProjects where
   rnf BatchGetProjects' {..} = Prelude.rnf names
 
-instance Core.ToHeaders BatchGetProjects where
+instance Data.ToHeaders BatchGetProjects where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.BatchGetProjects" ::
+              Data.=# ( "CodeBuild_20161006.BatchGetProjects" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetProjects where
+instance Data.ToJSON BatchGetProjects where
   toJSON BatchGetProjects' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("names" Core..= names)]
+          [Prelude.Just ("names" Data..= names)]
       )
 
-instance Core.ToPath BatchGetProjects where
+instance Data.ToPath BatchGetProjects where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetProjects where
+instance Data.ToQuery BatchGetProjects where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetProjectsResponse' smart constructor.

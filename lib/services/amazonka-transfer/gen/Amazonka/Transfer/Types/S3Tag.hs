@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.S3Tag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the key-value pair that are assigned to a file during the
@@ -63,13 +64,13 @@ s3Tag_key = Lens.lens (\S3Tag' {key} -> key) (\s@S3Tag' {} a -> s {key = a} :: S
 s3Tag_value :: Lens.Lens' S3Tag Prelude.Text
 s3Tag_value = Lens.lens (\S3Tag' {value} -> value) (\s@S3Tag' {} a -> s {value = a} :: S3Tag)
 
-instance Core.FromJSON S3Tag where
+instance Data.FromJSON S3Tag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Tag"
       ( \x ->
           S3Tag'
-            Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable S3Tag where
@@ -81,11 +82,11 @@ instance Prelude.NFData S3Tag where
   rnf S3Tag' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON S3Tag where
+instance Data.ToJSON S3Tag where
   toJSON S3Tag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

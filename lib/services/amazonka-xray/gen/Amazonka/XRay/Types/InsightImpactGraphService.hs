@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.InsightImpactGraphService where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.InsightImpactGraphEdge
 
@@ -145,18 +146,18 @@ insightImpactGraphService_accountId = Lens.lens (\InsightImpactGraphService' {ac
 insightImpactGraphService_referenceId :: Lens.Lens' InsightImpactGraphService (Prelude.Maybe Prelude.Int)
 insightImpactGraphService_referenceId = Lens.lens (\InsightImpactGraphService' {referenceId} -> referenceId) (\s@InsightImpactGraphService' {} a -> s {referenceId = a} :: InsightImpactGraphService)
 
-instance Core.FromJSON InsightImpactGraphService where
+instance Data.FromJSON InsightImpactGraphService where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InsightImpactGraphService"
       ( \x ->
           InsightImpactGraphService'
-            Prelude.<$> (x Core..:? "Edges" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Names" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "ReferenceId")
+            Prelude.<$> (x Data..:? "Edges" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Names" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "ReferenceId")
       )
 
 instance Prelude.Hashable InsightImpactGraphService where

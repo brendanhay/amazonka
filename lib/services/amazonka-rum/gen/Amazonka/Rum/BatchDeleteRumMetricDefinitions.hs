@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,11 +164,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteRumMetricDefinitionsResponse'
-            Prelude.<$> ( x Core..?> "MetricDefinitionIds"
+            Prelude.<$> ( x Data..?> "MetricDefinitionIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
       )
 
 instance
@@ -193,34 +194,34 @@ instance
       `Prelude.seq` Prelude.rnf metricDefinitionIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchDeleteRumMetricDefinitions
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath BatchDeleteRumMetricDefinitions where
+instance Data.ToPath BatchDeleteRumMetricDefinitions where
   toPath BatchDeleteRumMetricDefinitions' {..} =
     Prelude.mconcat
       [ "/rummetrics/",
-        Core.toBS appMonitorName,
+        Data.toBS appMonitorName,
         "/metrics"
       ]
 
-instance Core.ToQuery BatchDeleteRumMetricDefinitions where
+instance Data.ToQuery BatchDeleteRumMetricDefinitions where
   toQuery BatchDeleteRumMetricDefinitions' {..} =
     Prelude.mconcat
-      [ "destinationArn" Core.=: destinationArn,
-        "destination" Core.=: destination,
+      [ "destinationArn" Data.=: destinationArn,
+        "destination" Data.=: destination,
         "metricDefinitionIds"
-          Core.=: Core.toQueryList "member" metricDefinitionIds
+          Data.=: Data.toQueryList "member" metricDefinitionIds
       ]
 
 -- | /See:/ 'newBatchDeleteRumMetricDefinitionsResponse' smart constructor.

@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -201,7 +202,7 @@ instance Core.AWSRequest DeleteObjectTagging where
     Response.receiveEmpty
       ( \s h x ->
           DeleteObjectTaggingResponse'
-            Prelude.<$> (h Core..#? "x-amz-version-id")
+            Prelude.<$> (h Data..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,22 +220,22 @@ instance Prelude.NFData DeleteObjectTagging where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToHeaders DeleteObjectTagging where
+instance Data.ToHeaders DeleteObjectTagging where
   toHeaders DeleteObjectTagging' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath DeleteObjectTagging where
+instance Data.ToPath DeleteObjectTagging where
   toPath DeleteObjectTagging' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery DeleteObjectTagging where
+instance Data.ToQuery DeleteObjectTagging where
   toQuery DeleteObjectTagging' {..} =
     Prelude.mconcat
-      ["versionId" Core.=: versionId, "tagging"]
+      ["versionId" Data.=: versionId, "tagging"]
 
 -- | /See:/ 'newDeleteObjectTaggingResponse' smart constructor.
 data DeleteObjectTaggingResponse = DeleteObjectTaggingResponse'

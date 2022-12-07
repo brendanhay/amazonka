@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.WavSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.WavCodingMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,15 +75,15 @@ wavSettings_sampleRate = Lens.lens (\WavSettings' {sampleRate} -> sampleRate) (\
 wavSettings_codingMode :: Lens.Lens' WavSettings (Prelude.Maybe WavCodingMode)
 wavSettings_codingMode = Lens.lens (\WavSettings' {codingMode} -> codingMode) (\s@WavSettings' {} a -> s {codingMode = a} :: WavSettings)
 
-instance Core.FromJSON WavSettings where
+instance Data.FromJSON WavSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WavSettings"
       ( \x ->
           WavSettings'
-            Prelude.<$> (x Core..:? "bitDepth")
-            Prelude.<*> (x Core..:? "sampleRate")
-            Prelude.<*> (x Core..:? "codingMode")
+            Prelude.<$> (x Data..:? "bitDepth")
+            Prelude.<*> (x Data..:? "sampleRate")
+            Prelude.<*> (x Data..:? "codingMode")
       )
 
 instance Prelude.Hashable WavSettings where
@@ -97,12 +98,12 @@ instance Prelude.NFData WavSettings where
       `Prelude.seq` Prelude.rnf sampleRate
       `Prelude.seq` Prelude.rnf codingMode
 
-instance Core.ToJSON WavSettings where
+instance Data.ToJSON WavSettings where
   toJSON WavSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bitDepth" Core..=) Prelude.<$> bitDepth,
-            ("sampleRate" Core..=) Prelude.<$> sampleRate,
-            ("codingMode" Core..=) Prelude.<$> codingMode
+          [ ("bitDepth" Data..=) Prelude.<$> bitDepth,
+            ("sampleRate" Data..=) Prelude.<$> sampleRate,
+            ("codingMode" Data..=) Prelude.<$> codingMode
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SlotDateTimeRangeRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -30,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSlotDateTimeRangeRequest' smart constructor.
 data SlotDateTimeRangeRequest = SlotDateTimeRangeRequest'
   { -- | The earliest date and time, in UTC, for the Scheduled Instance to start.
-    earliestTime :: Core.ISO8601,
+    earliestTime :: Data.ISO8601,
     -- | The latest date and time, in UTC, for the Scheduled Instance to start.
     -- This value must be later than or equal to the earliest date and at most
     -- three months in the future.
-    latestTime :: Core.ISO8601
+    latestTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,19 +63,19 @@ newSlotDateTimeRangeRequest
   pLatestTime_ =
     SlotDateTimeRangeRequest'
       { earliestTime =
-          Core._Time Lens.# pEarliestTime_,
-        latestTime = Core._Time Lens.# pLatestTime_
+          Data._Time Lens.# pEarliestTime_,
+        latestTime = Data._Time Lens.# pLatestTime_
       }
 
 -- | The earliest date and time, in UTC, for the Scheduled Instance to start.
 slotDateTimeRangeRequest_earliestTime :: Lens.Lens' SlotDateTimeRangeRequest Prelude.UTCTime
-slotDateTimeRangeRequest_earliestTime = Lens.lens (\SlotDateTimeRangeRequest' {earliestTime} -> earliestTime) (\s@SlotDateTimeRangeRequest' {} a -> s {earliestTime = a} :: SlotDateTimeRangeRequest) Prelude.. Core._Time
+slotDateTimeRangeRequest_earliestTime = Lens.lens (\SlotDateTimeRangeRequest' {earliestTime} -> earliestTime) (\s@SlotDateTimeRangeRequest' {} a -> s {earliestTime = a} :: SlotDateTimeRangeRequest) Prelude.. Data._Time
 
 -- | The latest date and time, in UTC, for the Scheduled Instance to start.
 -- This value must be later than or equal to the earliest date and at most
 -- three months in the future.
 slotDateTimeRangeRequest_latestTime :: Lens.Lens' SlotDateTimeRangeRequest Prelude.UTCTime
-slotDateTimeRangeRequest_latestTime = Lens.lens (\SlotDateTimeRangeRequest' {latestTime} -> latestTime) (\s@SlotDateTimeRangeRequest' {} a -> s {latestTime = a} :: SlotDateTimeRangeRequest) Prelude.. Core._Time
+slotDateTimeRangeRequest_latestTime = Lens.lens (\SlotDateTimeRangeRequest' {latestTime} -> latestTime) (\s@SlotDateTimeRangeRequest' {} a -> s {latestTime = a} :: SlotDateTimeRangeRequest) Prelude.. Data._Time
 
 instance Prelude.Hashable SlotDateTimeRangeRequest where
   hashWithSalt _salt SlotDateTimeRangeRequest' {..} =
@@ -86,9 +87,9 @@ instance Prelude.NFData SlotDateTimeRangeRequest where
     Prelude.rnf earliestTime
       `Prelude.seq` Prelude.rnf latestTime
 
-instance Core.ToQuery SlotDateTimeRangeRequest where
+instance Data.ToQuery SlotDateTimeRangeRequest where
   toQuery SlotDateTimeRangeRequest' {..} =
     Prelude.mconcat
-      [ "EarliestTime" Core.=: earliestTime,
-        "LatestTime" Core.=: latestTime
+      [ "EarliestTime" Data.=: earliestTime,
+        "LatestTime" Data.=: latestTime
       ]

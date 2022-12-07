@@ -48,6 +48,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -173,7 +174,7 @@ instance Core.AWSRequest GetActionType where
     Response.receiveJSON
       ( \s h x ->
           GetActionTypeResponse'
-            Prelude.<$> (x Core..?> "actionType")
+            Prelude.<$> (x Data..?> "actionType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,36 +192,36 @@ instance Prelude.NFData GetActionType where
       `Prelude.seq` Prelude.rnf provider
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToHeaders GetActionType where
+instance Data.ToHeaders GetActionType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.GetActionType" ::
+              Data.=# ( "CodePipeline_20150709.GetActionType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetActionType where
+instance Data.ToJSON GetActionType where
   toJSON GetActionType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("category" Core..= category),
-            Prelude.Just ("owner" Core..= owner),
-            Prelude.Just ("provider" Core..= provider),
-            Prelude.Just ("version" Core..= version)
+          [ Prelude.Just ("category" Data..= category),
+            Prelude.Just ("owner" Data..= owner),
+            Prelude.Just ("provider" Data..= provider),
+            Prelude.Just ("version" Data..= version)
           ]
       )
 
-instance Core.ToPath GetActionType where
+instance Data.ToPath GetActionType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetActionType where
+instance Data.ToQuery GetActionType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetActionTypeResponse' smart constructor.

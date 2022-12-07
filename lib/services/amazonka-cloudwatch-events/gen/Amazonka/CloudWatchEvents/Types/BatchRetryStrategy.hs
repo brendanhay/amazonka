@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.BatchRetryStrategy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The retry strategy to use for failed jobs, if the target is an Batch
@@ -55,13 +56,13 @@ newBatchRetryStrategy =
 batchRetryStrategy_attempts :: Lens.Lens' BatchRetryStrategy (Prelude.Maybe Prelude.Int)
 batchRetryStrategy_attempts = Lens.lens (\BatchRetryStrategy' {attempts} -> attempts) (\s@BatchRetryStrategy' {} a -> s {attempts = a} :: BatchRetryStrategy)
 
-instance Core.FromJSON BatchRetryStrategy where
+instance Data.FromJSON BatchRetryStrategy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchRetryStrategy"
       ( \x ->
           BatchRetryStrategy'
-            Prelude.<$> (x Core..:? "Attempts")
+            Prelude.<$> (x Data..:? "Attempts")
       )
 
 instance Prelude.Hashable BatchRetryStrategy where
@@ -71,9 +72,9 @@ instance Prelude.Hashable BatchRetryStrategy where
 instance Prelude.NFData BatchRetryStrategy where
   rnf BatchRetryStrategy' {..} = Prelude.rnf attempts
 
-instance Core.ToJSON BatchRetryStrategy where
+instance Data.ToJSON BatchRetryStrategy where
   toJSON BatchRetryStrategy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Attempts" Core..=) Prelude.<$> attempts]
+          [("Attempts" Data..=) Prelude.<$> attempts]
       )

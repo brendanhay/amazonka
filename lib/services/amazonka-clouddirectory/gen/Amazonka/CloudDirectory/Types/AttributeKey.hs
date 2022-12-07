@@ -21,6 +21,7 @@ module Amazonka.CloudDirectory.Types.AttributeKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A unique identifier for an attribute.
@@ -79,15 +80,15 @@ attributeKey_facetName = Lens.lens (\AttributeKey' {facetName} -> facetName) (\s
 attributeKey_name :: Lens.Lens' AttributeKey Prelude.Text
 attributeKey_name = Lens.lens (\AttributeKey' {name} -> name) (\s@AttributeKey' {} a -> s {name = a} :: AttributeKey)
 
-instance Core.FromJSON AttributeKey where
+instance Data.FromJSON AttributeKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttributeKey"
       ( \x ->
           AttributeKey'
-            Prelude.<$> (x Core..: "SchemaArn")
-            Prelude.<*> (x Core..: "FacetName")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..: "SchemaArn")
+            Prelude.<*> (x Data..: "FacetName")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable AttributeKey where
@@ -102,12 +103,12 @@ instance Prelude.NFData AttributeKey where
       `Prelude.seq` Prelude.rnf facetName
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON AttributeKey where
+instance Data.ToJSON AttributeKey where
   toJSON AttributeKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SchemaArn" Core..= schemaArn),
-            Prelude.Just ("FacetName" Core..= facetName),
-            Prelude.Just ("Name" Core..= name)
+          [ Prelude.Just ("SchemaArn" Data..= schemaArn),
+            Prelude.Just ("FacetName" Data..= facetName),
+            Prelude.Just ("Name" Data..= name)
           ]
       )

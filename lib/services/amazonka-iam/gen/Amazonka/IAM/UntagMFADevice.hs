@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,21 +128,21 @@ instance Prelude.NFData UntagMFADevice where
     Prelude.rnf serialNumber
       `Prelude.seq` Prelude.rnf tagKeys
 
-instance Core.ToHeaders UntagMFADevice where
+instance Data.ToHeaders UntagMFADevice where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UntagMFADevice where
+instance Data.ToPath UntagMFADevice where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UntagMFADevice where
+instance Data.ToQuery UntagMFADevice where
   toQuery UntagMFADevice' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UntagMFADevice" :: Prelude.ByteString),
+          Data.=: ("UntagMFADevice" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "SerialNumber" Core.=: serialNumber,
-        "TagKeys" Core.=: Core.toQueryList "member" tagKeys
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "SerialNumber" Data.=: serialNumber,
+        "TagKeys" Data.=: Data.toQueryList "member" tagKeys
       ]
 
 -- | /See:/ 'newUntagMFADeviceResponse' smart constructor.

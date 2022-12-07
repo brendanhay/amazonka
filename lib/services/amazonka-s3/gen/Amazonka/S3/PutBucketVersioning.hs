@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -250,28 +251,28 @@ instance Prelude.NFData PutBucketVersioning where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf versioningConfiguration
 
-instance Core.ToElement PutBucketVersioning where
+instance Data.ToElement PutBucketVersioning where
   toElement PutBucketVersioning' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}VersioningConfiguration"
       versioningConfiguration
 
-instance Core.ToHeaders PutBucketVersioning where
+instance Data.ToHeaders PutBucketVersioning where
   toHeaders PutBucketVersioning' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
-        "Content-MD5" Core.=# contentMD5,
+          Data.=# checksumAlgorithm,
+        "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-mfa" Core.=# mfa
+          Data.=# expectedBucketOwner,
+        "x-amz-mfa" Data.=# mfa
       ]
 
-instance Core.ToPath PutBucketVersioning where
+instance Data.ToPath PutBucketVersioning where
   toPath PutBucketVersioning' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery PutBucketVersioning where
+instance Data.ToQuery PutBucketVersioning where
   toQuery =
     Prelude.const (Prelude.mconcat ["versioning"])
 

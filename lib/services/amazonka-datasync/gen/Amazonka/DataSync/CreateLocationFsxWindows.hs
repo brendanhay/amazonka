@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ data CreateLocationFsxWindows = CreateLocationFsxWindows'
     user :: Prelude.Text,
     -- | Specifies the password of the user who has the permissions to access
     -- files and folders in the file system.
-    password :: Core.Sensitive Prelude.Text
+    password :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -160,7 +161,7 @@ newCreateLocationFsxWindows
         securityGroupArns =
           Lens.coerced Lens.# pSecurityGroupArns_,
         user = pUser_,
-        password = Core._Sensitive Lens.# pPassword_
+        password = Data._Sensitive Lens.# pPassword_
       }
 
 -- | Specifies labels that help you categorize, filter, and search for your
@@ -211,7 +212,7 @@ createLocationFsxWindows_user = Lens.lens (\CreateLocationFsxWindows' {user} -> 
 -- | Specifies the password of the user who has the permissions to access
 -- files and folders in the file system.
 createLocationFsxWindows_password :: Lens.Lens' CreateLocationFsxWindows Prelude.Text
-createLocationFsxWindows_password = Lens.lens (\CreateLocationFsxWindows' {password} -> password) (\s@CreateLocationFsxWindows' {} a -> s {password = a} :: CreateLocationFsxWindows) Prelude.. Core._Sensitive
+createLocationFsxWindows_password = Lens.lens (\CreateLocationFsxWindows' {password} -> password) (\s@CreateLocationFsxWindows' {} a -> s {password = a} :: CreateLocationFsxWindows) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateLocationFsxWindows where
   type
@@ -223,7 +224,7 @@ instance Core.AWSRequest CreateLocationFsxWindows where
     Response.receiveJSON
       ( \s h x ->
           CreateLocationFsxWindowsResponse'
-            Prelude.<$> (x Core..?> "LocationArn")
+            Prelude.<$> (x Data..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -247,41 +248,41 @@ instance Prelude.NFData CreateLocationFsxWindows where
       `Prelude.seq` Prelude.rnf user
       `Prelude.seq` Prelude.rnf password
 
-instance Core.ToHeaders CreateLocationFsxWindows where
+instance Data.ToHeaders CreateLocationFsxWindows where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.CreateLocationFsxWindows" ::
+              Data.=# ( "FmrsService.CreateLocationFsxWindows" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLocationFsxWindows where
+instance Data.ToJSON CreateLocationFsxWindows where
   toJSON CreateLocationFsxWindows' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Domain" Core..=) Prelude.<$> domain,
-            ("Subdirectory" Core..=) Prelude.<$> subdirectory,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Domain" Data..=) Prelude.<$> domain,
+            ("Subdirectory" Data..=) Prelude.<$> subdirectory,
             Prelude.Just
-              ("FsxFilesystemArn" Core..= fsxFilesystemArn),
+              ("FsxFilesystemArn" Data..= fsxFilesystemArn),
             Prelude.Just
-              ("SecurityGroupArns" Core..= securityGroupArns),
-            Prelude.Just ("User" Core..= user),
-            Prelude.Just ("Password" Core..= password)
+              ("SecurityGroupArns" Data..= securityGroupArns),
+            Prelude.Just ("User" Data..= user),
+            Prelude.Just ("Password" Data..= password)
           ]
       )
 
-instance Core.ToPath CreateLocationFsxWindows where
+instance Data.ToPath CreateLocationFsxWindows where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLocationFsxWindows where
+instance Data.ToQuery CreateLocationFsxWindows where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLocationFsxWindowsResponse' smart constructor.

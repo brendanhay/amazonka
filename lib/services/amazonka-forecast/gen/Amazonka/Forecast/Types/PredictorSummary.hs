@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.PredictorSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.ReferencePredictorSummary
 import qualified Amazonka.Prelude as Prelude
 
@@ -42,7 +43,7 @@ data PredictorSummary = PredictorSummary'
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | If an error occurred, an informational message about the error.
     message :: Prelude.Maybe Prelude.Text,
     -- | Whether AutoPredictor was used to create the predictor.
@@ -65,7 +66,7 @@ data PredictorSummary = PredictorSummary'
     -- | The ARN of the predictor.
     predictorArn :: Prelude.Maybe Prelude.Text,
     -- | When the model training task was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the dataset group that contains the
     -- data used to train the predictor.
     datasetGroupArn :: Prelude.Maybe Prelude.Text,
@@ -153,7 +154,7 @@ newPredictorSummary =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 predictorSummary_lastModificationTime :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.UTCTime)
-predictorSummary_lastModificationTime = Lens.lens (\PredictorSummary' {lastModificationTime} -> lastModificationTime) (\s@PredictorSummary' {} a -> s {lastModificationTime = a} :: PredictorSummary) Prelude.. Lens.mapping Core._Time
+predictorSummary_lastModificationTime = Lens.lens (\PredictorSummary' {lastModificationTime} -> lastModificationTime) (\s@PredictorSummary' {} a -> s {lastModificationTime = a} :: PredictorSummary) Prelude.. Lens.mapping Data._Time
 
 -- | If an error occurred, an informational message about the error.
 predictorSummary_message :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.Text)
@@ -188,7 +189,7 @@ predictorSummary_predictorArn = Lens.lens (\PredictorSummary' {predictorArn} -> 
 
 -- | When the model training task was created.
 predictorSummary_creationTime :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.UTCTime)
-predictorSummary_creationTime = Lens.lens (\PredictorSummary' {creationTime} -> creationTime) (\s@PredictorSummary' {} a -> s {creationTime = a} :: PredictorSummary) Prelude.. Lens.mapping Core._Time
+predictorSummary_creationTime = Lens.lens (\PredictorSummary' {creationTime} -> creationTime) (\s@PredictorSummary' {} a -> s {creationTime = a} :: PredictorSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the dataset group that contains the
 -- data used to train the predictor.
@@ -200,21 +201,21 @@ predictorSummary_datasetGroupArn = Lens.lens (\PredictorSummary' {datasetGroupAr
 predictorSummary_referencePredictorSummary :: Lens.Lens' PredictorSummary (Prelude.Maybe ReferencePredictorSummary)
 predictorSummary_referencePredictorSummary = Lens.lens (\PredictorSummary' {referencePredictorSummary} -> referencePredictorSummary) (\s@PredictorSummary' {} a -> s {referencePredictorSummary = a} :: PredictorSummary)
 
-instance Core.FromJSON PredictorSummary where
+instance Data.FromJSON PredictorSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PredictorSummary"
       ( \x ->
           PredictorSummary'
-            Prelude.<$> (x Core..:? "LastModificationTime")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "IsAutoPredictor")
-            Prelude.<*> (x Core..:? "PredictorName")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "PredictorArn")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "DatasetGroupArn")
-            Prelude.<*> (x Core..:? "ReferencePredictorSummary")
+            Prelude.<$> (x Data..:? "LastModificationTime")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "IsAutoPredictor")
+            Prelude.<*> (x Data..:? "PredictorName")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "PredictorArn")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DatasetGroupArn")
+            Prelude.<*> (x Data..:? "ReferencePredictorSummary")
       )
 
 instance Prelude.Hashable PredictorSummary where

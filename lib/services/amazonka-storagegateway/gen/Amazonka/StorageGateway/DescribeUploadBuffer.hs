@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,10 +92,10 @@ instance Core.AWSRequest DescribeUploadBuffer where
     Response.receiveJSON
       ( \s h x ->
           DescribeUploadBufferResponse'
-            Prelude.<$> (x Core..?> "UploadBufferAllocatedInBytes")
-            Prelude.<*> (x Core..?> "DiskIds" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "GatewayARN")
-            Prelude.<*> (x Core..?> "UploadBufferUsedInBytes")
+            Prelude.<$> (x Data..?> "UploadBufferAllocatedInBytes")
+            Prelude.<*> (x Data..?> "DiskIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "GatewayARN")
+            Prelude.<*> (x Data..?> "UploadBufferUsedInBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,32 +107,32 @@ instance Prelude.NFData DescribeUploadBuffer where
   rnf DescribeUploadBuffer' {..} =
     Prelude.rnf gatewayARN
 
-instance Core.ToHeaders DescribeUploadBuffer where
+instance Data.ToHeaders DescribeUploadBuffer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DescribeUploadBuffer" ::
+              Data.=# ( "StorageGateway_20130630.DescribeUploadBuffer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeUploadBuffer where
+instance Data.ToJSON DescribeUploadBuffer where
   toJSON DescribeUploadBuffer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
+          [Prelude.Just ("GatewayARN" Data..= gatewayARN)]
       )
 
-instance Core.ToPath DescribeUploadBuffer where
+instance Data.ToPath DescribeUploadBuffer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeUploadBuffer where
+instance Data.ToQuery DescribeUploadBuffer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeUploadBufferResponse' smart constructor.

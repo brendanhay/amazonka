@@ -21,6 +21,7 @@ module Amazonka.Location.Types.CalculateRouteCarModeOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about additional route preferences for requests that
@@ -100,11 +101,11 @@ instance Prelude.NFData CalculateRouteCarModeOptions where
     Prelude.rnf avoidFerries
       `Prelude.seq` Prelude.rnf avoidTolls
 
-instance Core.ToJSON CalculateRouteCarModeOptions where
+instance Data.ToJSON CalculateRouteCarModeOptions where
   toJSON CalculateRouteCarModeOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AvoidFerries" Core..=) Prelude.<$> avoidFerries,
-            ("AvoidTolls" Core..=) Prelude.<$> avoidTolls
+          [ ("AvoidFerries" Data..=) Prelude.<$> avoidFerries,
+            ("AvoidTolls" Data..=) Prelude.<$> avoidTolls
           ]
       )

@@ -23,6 +23,7 @@ import Amazonka.Budgets.Types.AutoAdjustType
 import Amazonka.Budgets.Types.HistoricalOptions
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters that determine the budget amount for an auto-adjusting
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAutoAdjustData' smart constructor.
 data AutoAdjustData = AutoAdjustData'
   { -- | The last time that your budget was auto-adjusted.
-    lastAutoAdjustTime :: Prelude.Maybe Core.POSIX,
+    lastAutoAdjustTime :: Prelude.Maybe Data.POSIX,
     -- | The parameters that define or describe the historical data that your
     -- auto-adjusting budget is based on.
     historicalOptions :: Prelude.Maybe HistoricalOptions,
@@ -70,7 +71,7 @@ newAutoAdjustData pAutoAdjustType_ =
 
 -- | The last time that your budget was auto-adjusted.
 autoAdjustData_lastAutoAdjustTime :: Lens.Lens' AutoAdjustData (Prelude.Maybe Prelude.UTCTime)
-autoAdjustData_lastAutoAdjustTime = Lens.lens (\AutoAdjustData' {lastAutoAdjustTime} -> lastAutoAdjustTime) (\s@AutoAdjustData' {} a -> s {lastAutoAdjustTime = a} :: AutoAdjustData) Prelude.. Lens.mapping Core._Time
+autoAdjustData_lastAutoAdjustTime = Lens.lens (\AutoAdjustData' {lastAutoAdjustTime} -> lastAutoAdjustTime) (\s@AutoAdjustData' {} a -> s {lastAutoAdjustTime = a} :: AutoAdjustData) Prelude.. Lens.mapping Data._Time
 
 -- | The parameters that define or describe the historical data that your
 -- auto-adjusting budget is based on.
@@ -82,15 +83,15 @@ autoAdjustData_historicalOptions = Lens.lens (\AutoAdjustData' {historicalOption
 autoAdjustData_autoAdjustType :: Lens.Lens' AutoAdjustData AutoAdjustType
 autoAdjustData_autoAdjustType = Lens.lens (\AutoAdjustData' {autoAdjustType} -> autoAdjustType) (\s@AutoAdjustData' {} a -> s {autoAdjustType = a} :: AutoAdjustData)
 
-instance Core.FromJSON AutoAdjustData where
+instance Data.FromJSON AutoAdjustData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoAdjustData"
       ( \x ->
           AutoAdjustData'
-            Prelude.<$> (x Core..:? "LastAutoAdjustTime")
-            Prelude.<*> (x Core..:? "HistoricalOptions")
-            Prelude.<*> (x Core..: "AutoAdjustType")
+            Prelude.<$> (x Data..:? "LastAutoAdjustTime")
+            Prelude.<*> (x Data..:? "HistoricalOptions")
+            Prelude.<*> (x Data..: "AutoAdjustType")
       )
 
 instance Prelude.Hashable AutoAdjustData where
@@ -105,15 +106,15 @@ instance Prelude.NFData AutoAdjustData where
       `Prelude.seq` Prelude.rnf historicalOptions
       `Prelude.seq` Prelude.rnf autoAdjustType
 
-instance Core.ToJSON AutoAdjustData where
+instance Data.ToJSON AutoAdjustData where
   toJSON AutoAdjustData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LastAutoAdjustTime" Core..=)
+          [ ("LastAutoAdjustTime" Data..=)
               Prelude.<$> lastAutoAdjustTime,
-            ("HistoricalOptions" Core..=)
+            ("HistoricalOptions" Data..=)
               Prelude.<$> historicalOptions,
             Prelude.Just
-              ("AutoAdjustType" Core..= autoAdjustType)
+              ("AutoAdjustType" Data..= autoAdjustType)
           ]
       )

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,11 +102,11 @@ instance Core.AWSRequest DescribeAuditSuppression where
     Response.receiveJSON
       ( \s h x ->
           DescribeAuditSuppressionResponse'
-            Prelude.<$> (x Core..?> "checkName")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "resourceIdentifier")
-            Prelude.<*> (x Core..?> "expirationDate")
-            Prelude.<*> (x Core..?> "suppressIndefinitely")
+            Prelude.<$> (x Data..?> "checkName")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "resourceIdentifier")
+            Prelude.<*> (x Data..?> "expirationDate")
+            Prelude.<*> (x Data..?> "suppressIndefinitely")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,23 +120,23 @@ instance Prelude.NFData DescribeAuditSuppression where
     Prelude.rnf checkName
       `Prelude.seq` Prelude.rnf resourceIdentifier
 
-instance Core.ToHeaders DescribeAuditSuppression where
+instance Data.ToHeaders DescribeAuditSuppression where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON DescribeAuditSuppression where
+instance Data.ToJSON DescribeAuditSuppression where
   toJSON DescribeAuditSuppression' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("checkName" Core..= checkName),
+          [ Prelude.Just ("checkName" Data..= checkName),
             Prelude.Just
-              ("resourceIdentifier" Core..= resourceIdentifier)
+              ("resourceIdentifier" Data..= resourceIdentifier)
           ]
       )
 
-instance Core.ToPath DescribeAuditSuppression where
+instance Data.ToPath DescribeAuditSuppression where
   toPath = Prelude.const "/audit/suppressions/describe"
 
-instance Core.ToQuery DescribeAuditSuppression where
+instance Data.ToQuery DescribeAuditSuppression where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAuditSuppressionResponse' smart constructor.
@@ -145,7 +146,7 @@ data DescribeAuditSuppressionResponse = DescribeAuditSuppressionResponse'
     description :: Prelude.Maybe Prelude.Text,
     resourceIdentifier :: Prelude.Maybe ResourceIdentifier,
     -- | The epoch timestamp in seconds at which this suppression expires.
-    expirationDate :: Prelude.Maybe Core.POSIX,
+    expirationDate :: Prelude.Maybe Data.POSIX,
     -- | Indicates whether a suppression should exist indefinitely or not.
     suppressIndefinitely :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
@@ -201,7 +202,7 @@ describeAuditSuppressionResponse_resourceIdentifier = Lens.lens (\DescribeAuditS
 
 -- | The epoch timestamp in seconds at which this suppression expires.
 describeAuditSuppressionResponse_expirationDate :: Lens.Lens' DescribeAuditSuppressionResponse (Prelude.Maybe Prelude.UTCTime)
-describeAuditSuppressionResponse_expirationDate = Lens.lens (\DescribeAuditSuppressionResponse' {expirationDate} -> expirationDate) (\s@DescribeAuditSuppressionResponse' {} a -> s {expirationDate = a} :: DescribeAuditSuppressionResponse) Prelude.. Lens.mapping Core._Time
+describeAuditSuppressionResponse_expirationDate = Lens.lens (\DescribeAuditSuppressionResponse' {expirationDate} -> expirationDate) (\s@DescribeAuditSuppressionResponse' {} a -> s {expirationDate = a} :: DescribeAuditSuppressionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether a suppression should exist indefinitely or not.
 describeAuditSuppressionResponse_suppressIndefinitely :: Lens.Lens' DescribeAuditSuppressionResponse (Prelude.Maybe Prelude.Bool)

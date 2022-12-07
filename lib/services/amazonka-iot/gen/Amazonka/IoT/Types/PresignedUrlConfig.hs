@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.PresignedUrlConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration for pre-signed S3 URLs.
@@ -85,14 +86,14 @@ presignedUrlConfig_roleArn = Lens.lens (\PresignedUrlConfig' {roleArn} -> roleAr
 presignedUrlConfig_expiresInSec :: Lens.Lens' PresignedUrlConfig (Prelude.Maybe Prelude.Natural)
 presignedUrlConfig_expiresInSec = Lens.lens (\PresignedUrlConfig' {expiresInSec} -> expiresInSec) (\s@PresignedUrlConfig' {} a -> s {expiresInSec = a} :: PresignedUrlConfig)
 
-instance Core.FromJSON PresignedUrlConfig where
+instance Data.FromJSON PresignedUrlConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PresignedUrlConfig"
       ( \x ->
           PresignedUrlConfig'
-            Prelude.<$> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "expiresInSec")
+            Prelude.<$> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "expiresInSec")
       )
 
 instance Prelude.Hashable PresignedUrlConfig where
@@ -105,11 +106,11 @@ instance Prelude.NFData PresignedUrlConfig where
     Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf expiresInSec
 
-instance Core.ToJSON PresignedUrlConfig where
+instance Data.ToJSON PresignedUrlConfig where
   toJSON PresignedUrlConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("expiresInSec" Core..=) Prelude.<$> expiresInSec
+          [ ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("expiresInSec" Data..=) Prelude.<$> expiresInSec
           ]
       )

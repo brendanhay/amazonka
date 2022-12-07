@@ -21,6 +21,7 @@ module Amazonka.QLDBSession.Types.FetchPageRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the details of the page to be fetched.
@@ -75,13 +76,13 @@ instance Prelude.NFData FetchPageRequest where
     Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf nextPageToken
 
-instance Core.ToJSON FetchPageRequest where
+instance Data.ToJSON FetchPageRequest where
   toJSON FetchPageRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TransactionId" Core..= transactionId),
+              ("TransactionId" Data..= transactionId),
             Prelude.Just
-              ("NextPageToken" Core..= nextPageToken)
+              ("NextPageToken" Data..= nextPageToken)
           ]
       )

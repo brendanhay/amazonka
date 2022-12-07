@@ -52,6 +52,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest DeleteVpcIngressConnection where
       ( \s h x ->
           DeleteVpcIngressConnectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "VpcIngressConnection")
+            Prelude.<*> (x Data..:> "VpcIngressConnection")
       )
 
 instance Prelude.Hashable DeleteVpcIngressConnection where
@@ -113,36 +114,36 @@ instance Prelude.NFData DeleteVpcIngressConnection where
   rnf DeleteVpcIngressConnection' {..} =
     Prelude.rnf vpcIngressConnectionArn
 
-instance Core.ToHeaders DeleteVpcIngressConnection where
+instance Data.ToHeaders DeleteVpcIngressConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.DeleteVpcIngressConnection" ::
+              Data.=# ( "AppRunner.DeleteVpcIngressConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteVpcIngressConnection where
+instance Data.ToJSON DeleteVpcIngressConnection where
   toJSON DeleteVpcIngressConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "VpcIngressConnectionArn"
-                  Core..= vpcIngressConnectionArn
+                  Data..= vpcIngressConnectionArn
               )
           ]
       )
 
-instance Core.ToPath DeleteVpcIngressConnection where
+instance Data.ToPath DeleteVpcIngressConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVpcIngressConnection where
+instance Data.ToQuery DeleteVpcIngressConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVpcIngressConnectionResponse' smart constructor.

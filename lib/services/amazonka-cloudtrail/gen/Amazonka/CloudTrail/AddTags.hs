@@ -50,6 +50,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,34 +125,34 @@ instance Prelude.NFData AddTags where
     Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf tagsList
 
-instance Core.ToHeaders AddTags where
+instance Data.ToHeaders AddTags where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.AddTags" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.AddTags" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddTags where
+instance Data.ToJSON AddTags where
   toJSON AddTags' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceId" Core..= resourceId),
-            Prelude.Just ("TagsList" Core..= tagsList)
+          [ Prelude.Just ("ResourceId" Data..= resourceId),
+            Prelude.Just ("TagsList" Data..= tagsList)
           ]
       )
 
-instance Core.ToPath AddTags where
+instance Data.ToPath AddTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddTags where
+instance Data.ToQuery AddTags where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returns the objects or data if successful. Otherwise, returns an error.

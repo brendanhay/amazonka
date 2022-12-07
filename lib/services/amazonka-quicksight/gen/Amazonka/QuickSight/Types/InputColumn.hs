@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.InputColumn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.InputColumnDataType
 
@@ -64,13 +65,13 @@ inputColumn_name = Lens.lens (\InputColumn' {name} -> name) (\s@InputColumn' {} 
 inputColumn_type :: Lens.Lens' InputColumn InputColumnDataType
 inputColumn_type = Lens.lens (\InputColumn' {type'} -> type') (\s@InputColumn' {} a -> s {type' = a} :: InputColumn)
 
-instance Core.FromJSON InputColumn where
+instance Data.FromJSON InputColumn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputColumn"
       ( \x ->
           InputColumn'
-            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable InputColumn where
@@ -82,11 +83,11 @@ instance Prelude.NFData InputColumn where
   rnf InputColumn' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON InputColumn where
+instance Data.ToJSON InputColumn where
   toJSON InputColumn' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Type" Core..= type')
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Type" Data..= type')
           ]
       )

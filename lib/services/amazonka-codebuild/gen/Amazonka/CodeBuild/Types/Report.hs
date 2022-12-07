@@ -26,6 +26,7 @@ import Amazonka.CodeBuild.Types.ReportType
 import Amazonka.CodeBuild.Types.TestReportSummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the results from running a series of test cases during
@@ -49,7 +50,7 @@ data Report = Report'
     -- | The ARN of the report group associated with this report.
     reportGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time this report run occurred.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | A boolean that specifies if this report run is truncated. The list of
     -- test cases is truncated after the maximum number of test cases is
     -- reached.
@@ -58,7 +59,7 @@ data Report = Report'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time a report expires. A report expires 30 days after it is
     -- created. An expired report is not available to view in CodeBuild.
-    expired :: Prelude.Maybe Core.POSIX,
+    expired :: Prelude.Maybe Data.POSIX,
     -- | The status of this report.
     status :: Prelude.Maybe ReportStatusType,
     -- | A @CodeCoverageReportSummary@ object that contains a code coverage
@@ -156,7 +157,7 @@ report_reportGroupArn = Lens.lens (\Report' {reportGroupArn} -> reportGroupArn) 
 
 -- | The date and time this report run occurred.
 report_created :: Lens.Lens' Report (Prelude.Maybe Prelude.UTCTime)
-report_created = Lens.lens (\Report' {created} -> created) (\s@Report' {} a -> s {created = a} :: Report) Prelude.. Lens.mapping Core._Time
+report_created = Lens.lens (\Report' {created} -> created) (\s@Report' {} a -> s {created = a} :: Report) Prelude.. Lens.mapping Data._Time
 
 -- | A boolean that specifies if this report run is truncated. The list of
 -- test cases is truncated after the maximum number of test cases is
@@ -171,7 +172,7 @@ report_arn = Lens.lens (\Report' {arn} -> arn) (\s@Report' {} a -> s {arn = a} :
 -- | The date and time a report expires. A report expires 30 days after it is
 -- created. An expired report is not available to view in CodeBuild.
 report_expired :: Lens.Lens' Report (Prelude.Maybe Prelude.UTCTime)
-report_expired = Lens.lens (\Report' {expired} -> expired) (\s@Report' {} a -> s {expired = a} :: Report) Prelude.. Lens.mapping Core._Time
+report_expired = Lens.lens (\Report' {expired} -> expired) (\s@Report' {} a -> s {expired = a} :: Report) Prelude.. Lens.mapping Data._Time
 
 -- | The status of this report.
 report_status :: Lens.Lens' Report (Prelude.Maybe ReportStatusType)
@@ -196,24 +197,24 @@ report_exportConfig = Lens.lens (\Report' {exportConfig} -> exportConfig) (\s@Re
 report_testSummary :: Lens.Lens' Report (Prelude.Maybe TestReportSummary)
 report_testSummary = Lens.lens (\Report' {testSummary} -> testSummary) (\s@Report' {} a -> s {testSummary = a} :: Report)
 
-instance Core.FromJSON Report where
+instance Data.FromJSON Report where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Report"
       ( \x ->
           Report'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "reportGroupArn")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "truncated")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "expired")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "codeCoverageSummary")
-            Prelude.<*> (x Core..:? "executionId")
-            Prelude.<*> (x Core..:? "exportConfig")
-            Prelude.<*> (x Core..:? "testSummary")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "reportGroupArn")
+            Prelude.<*> (x Data..:? "created")
+            Prelude.<*> (x Data..:? "truncated")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "expired")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "codeCoverageSummary")
+            Prelude.<*> (x Data..:? "executionId")
+            Prelude.<*> (x Data..:? "exportConfig")
+            Prelude.<*> (x Data..:? "testSummary")
       )
 
 instance Prelude.Hashable Report where

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkBandwidthGbps where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,10 +78,10 @@ networkBandwidthGbps_max = Lens.lens (\NetworkBandwidthGbps' {max} -> max) (\s@N
 networkBandwidthGbps_min :: Lens.Lens' NetworkBandwidthGbps (Prelude.Maybe Prelude.Double)
 networkBandwidthGbps_min = Lens.lens (\NetworkBandwidthGbps' {min} -> min) (\s@NetworkBandwidthGbps' {} a -> s {min = a} :: NetworkBandwidthGbps)
 
-instance Core.FromXML NetworkBandwidthGbps where
+instance Data.FromXML NetworkBandwidthGbps where
   parseXML x =
     NetworkBandwidthGbps'
-      Prelude.<$> (x Core..@? "max") Prelude.<*> (x Core..@? "min")
+      Prelude.<$> (x Data..@? "max") Prelude.<*> (x Data..@? "min")
 
 instance Prelude.Hashable NetworkBandwidthGbps where
   hashWithSalt _salt NetworkBandwidthGbps' {..} =
@@ -91,7 +92,7 @@ instance Prelude.NFData NetworkBandwidthGbps where
   rnf NetworkBandwidthGbps' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery NetworkBandwidthGbps where
+instance Data.ToQuery NetworkBandwidthGbps where
   toQuery NetworkBandwidthGbps' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

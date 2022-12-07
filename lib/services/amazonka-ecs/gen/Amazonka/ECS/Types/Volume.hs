@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.Volume where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.DockerVolumeConfiguration
 import Amazonka.ECS.Types.EFSVolumeConfiguration
 import Amazonka.ECS.Types.FSxWindowsFileServerVolumeConfiguration
@@ -161,18 +162,18 @@ volume_dockerVolumeConfiguration = Lens.lens (\Volume' {dockerVolumeConfiguratio
 volume_fsxWindowsFileServerVolumeConfiguration :: Lens.Lens' Volume (Prelude.Maybe FSxWindowsFileServerVolumeConfiguration)
 volume_fsxWindowsFileServerVolumeConfiguration = Lens.lens (\Volume' {fsxWindowsFileServerVolumeConfiguration} -> fsxWindowsFileServerVolumeConfiguration) (\s@Volume' {} a -> s {fsxWindowsFileServerVolumeConfiguration = a} :: Volume)
 
-instance Core.FromJSON Volume where
+instance Data.FromJSON Volume where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Volume"
       ( \x ->
           Volume'
-            Prelude.<$> (x Core..:? "efsVolumeConfiguration")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "host")
-            Prelude.<*> (x Core..:? "dockerVolumeConfiguration")
+            Prelude.<$> (x Data..:? "efsVolumeConfiguration")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "host")
+            Prelude.<*> (x Data..:? "dockerVolumeConfiguration")
             Prelude.<*> ( x
-                            Core..:? "fsxWindowsFileServerVolumeConfiguration"
+                            Data..:? "fsxWindowsFileServerVolumeConfiguration"
                         )
       )
 
@@ -192,17 +193,17 @@ instance Prelude.NFData Volume where
       `Prelude.seq` Prelude.rnf dockerVolumeConfiguration
       `Prelude.seq` Prelude.rnf fsxWindowsFileServerVolumeConfiguration
 
-instance Core.ToJSON Volume where
+instance Data.ToJSON Volume where
   toJSON Volume' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("efsVolumeConfiguration" Core..=)
+          [ ("efsVolumeConfiguration" Data..=)
               Prelude.<$> efsVolumeConfiguration,
-            ("name" Core..=) Prelude.<$> name,
-            ("host" Core..=) Prelude.<$> host,
-            ("dockerVolumeConfiguration" Core..=)
+            ("name" Data..=) Prelude.<$> name,
+            ("host" Data..=) Prelude.<$> host,
+            ("dockerVolumeConfiguration" Data..=)
               Prelude.<$> dockerVolumeConfiguration,
-            ("fsxWindowsFileServerVolumeConfiguration" Core..=)
+            ("fsxWindowsFileServerVolumeConfiguration" Data..=)
               Prelude.<$> fsxWindowsFileServerVolumeConfiguration
           ]
       )

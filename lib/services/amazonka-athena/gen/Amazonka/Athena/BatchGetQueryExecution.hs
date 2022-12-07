@@ -49,6 +49,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,10 +96,10 @@ instance Core.AWSRequest BatchGetQueryExecution where
     Response.receiveJSON
       ( \s h x ->
           BatchGetQueryExecutionResponse'
-            Prelude.<$> ( x Core..?> "UnprocessedQueryExecutionIds"
+            Prelude.<$> ( x Data..?> "UnprocessedQueryExecutionIds"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "QueryExecutions"
+            Prelude.<*> ( x Data..?> "QueryExecutions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -112,34 +113,34 @@ instance Prelude.NFData BatchGetQueryExecution where
   rnf BatchGetQueryExecution' {..} =
     Prelude.rnf queryExecutionIds
 
-instance Core.ToHeaders BatchGetQueryExecution where
+instance Data.ToHeaders BatchGetQueryExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.BatchGetQueryExecution" ::
+              Data.=# ( "AmazonAthena.BatchGetQueryExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetQueryExecution where
+instance Data.ToJSON BatchGetQueryExecution where
   toJSON BatchGetQueryExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("QueryExecutionIds" Core..= queryExecutionIds)
+              ("QueryExecutionIds" Data..= queryExecutionIds)
           ]
       )
 
-instance Core.ToPath BatchGetQueryExecution where
+instance Data.ToPath BatchGetQueryExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetQueryExecution where
+instance Data.ToQuery BatchGetQueryExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetQueryExecutionResponse' smart constructor.

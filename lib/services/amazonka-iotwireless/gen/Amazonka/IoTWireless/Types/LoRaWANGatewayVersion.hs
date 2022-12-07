@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANGatewayVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | LoRaWANGatewayVersion object.
@@ -70,15 +71,15 @@ loRaWANGatewayVersion_station = Lens.lens (\LoRaWANGatewayVersion' {station} -> 
 loRaWANGatewayVersion_packageVersion :: Lens.Lens' LoRaWANGatewayVersion (Prelude.Maybe Prelude.Text)
 loRaWANGatewayVersion_packageVersion = Lens.lens (\LoRaWANGatewayVersion' {packageVersion} -> packageVersion) (\s@LoRaWANGatewayVersion' {} a -> s {packageVersion = a} :: LoRaWANGatewayVersion)
 
-instance Core.FromJSON LoRaWANGatewayVersion where
+instance Data.FromJSON LoRaWANGatewayVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoRaWANGatewayVersion"
       ( \x ->
           LoRaWANGatewayVersion'
-            Prelude.<$> (x Core..:? "Model")
-            Prelude.<*> (x Core..:? "Station")
-            Prelude.<*> (x Core..:? "PackageVersion")
+            Prelude.<$> (x Data..:? "Model")
+            Prelude.<*> (x Data..:? "Station")
+            Prelude.<*> (x Data..:? "PackageVersion")
       )
 
 instance Prelude.Hashable LoRaWANGatewayVersion where
@@ -93,13 +94,13 @@ instance Prelude.NFData LoRaWANGatewayVersion where
       `Prelude.seq` Prelude.rnf station
       `Prelude.seq` Prelude.rnf packageVersion
 
-instance Core.ToJSON LoRaWANGatewayVersion where
+instance Data.ToJSON LoRaWANGatewayVersion where
   toJSON LoRaWANGatewayVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Model" Core..=) Prelude.<$> model,
-            ("Station" Core..=) Prelude.<$> station,
-            ("PackageVersion" Core..=)
+          [ ("Model" Data..=) Prelude.<$> model,
+            ("Station" Data..=) Prelude.<$> station,
+            ("PackageVersion" Data..=)
               Prelude.<$> packageVersion
           ]
       )

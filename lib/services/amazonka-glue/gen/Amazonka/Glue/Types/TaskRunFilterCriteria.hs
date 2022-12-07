@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.TaskRunFilterCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.TaskStatusType
 import Amazonka.Glue.Types.TaskType
 import qualified Amazonka.Prelude as Prelude
@@ -31,11 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTaskRunFilterCriteria' smart constructor.
 data TaskRunFilterCriteria = TaskRunFilterCriteria'
   { -- | Filter on task runs started before this date.
-    startedBefore :: Prelude.Maybe Core.POSIX,
+    startedBefore :: Prelude.Maybe Data.POSIX,
     -- | The current status of the task run.
     status :: Prelude.Maybe TaskStatusType,
     -- | Filter on task runs started after this date.
-    startedAfter :: Prelude.Maybe Core.POSIX,
+    startedAfter :: Prelude.Maybe Data.POSIX,
     -- | The type of task run.
     taskRunType :: Prelude.Maybe TaskType
   }
@@ -69,7 +70,7 @@ newTaskRunFilterCriteria =
 
 -- | Filter on task runs started before this date.
 taskRunFilterCriteria_startedBefore :: Lens.Lens' TaskRunFilterCriteria (Prelude.Maybe Prelude.UTCTime)
-taskRunFilterCriteria_startedBefore = Lens.lens (\TaskRunFilterCriteria' {startedBefore} -> startedBefore) (\s@TaskRunFilterCriteria' {} a -> s {startedBefore = a} :: TaskRunFilterCriteria) Prelude.. Lens.mapping Core._Time
+taskRunFilterCriteria_startedBefore = Lens.lens (\TaskRunFilterCriteria' {startedBefore} -> startedBefore) (\s@TaskRunFilterCriteria' {} a -> s {startedBefore = a} :: TaskRunFilterCriteria) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the task run.
 taskRunFilterCriteria_status :: Lens.Lens' TaskRunFilterCriteria (Prelude.Maybe TaskStatusType)
@@ -77,7 +78,7 @@ taskRunFilterCriteria_status = Lens.lens (\TaskRunFilterCriteria' {status} -> st
 
 -- | Filter on task runs started after this date.
 taskRunFilterCriteria_startedAfter :: Lens.Lens' TaskRunFilterCriteria (Prelude.Maybe Prelude.UTCTime)
-taskRunFilterCriteria_startedAfter = Lens.lens (\TaskRunFilterCriteria' {startedAfter} -> startedAfter) (\s@TaskRunFilterCriteria' {} a -> s {startedAfter = a} :: TaskRunFilterCriteria) Prelude.. Lens.mapping Core._Time
+taskRunFilterCriteria_startedAfter = Lens.lens (\TaskRunFilterCriteria' {startedAfter} -> startedAfter) (\s@TaskRunFilterCriteria' {} a -> s {startedAfter = a} :: TaskRunFilterCriteria) Prelude.. Lens.mapping Data._Time
 
 -- | The type of task run.
 taskRunFilterCriteria_taskRunType :: Lens.Lens' TaskRunFilterCriteria (Prelude.Maybe TaskType)
@@ -97,13 +98,13 @@ instance Prelude.NFData TaskRunFilterCriteria where
       `Prelude.seq` Prelude.rnf startedAfter
       `Prelude.seq` Prelude.rnf taskRunType
 
-instance Core.ToJSON TaskRunFilterCriteria where
+instance Data.ToJSON TaskRunFilterCriteria where
   toJSON TaskRunFilterCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StartedBefore" Core..=) Prelude.<$> startedBefore,
-            ("Status" Core..=) Prelude.<$> status,
-            ("StartedAfter" Core..=) Prelude.<$> startedAfter,
-            ("TaskRunType" Core..=) Prelude.<$> taskRunType
+          [ ("StartedBefore" Data..=) Prelude.<$> startedBefore,
+            ("Status" Data..=) Prelude.<$> status,
+            ("StartedAfter" Data..=) Prelude.<$> startedAfter,
+            ("TaskRunType" Data..=) Prelude.<$> taskRunType
           ]
       )

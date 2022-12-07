@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelMetadataFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ModelMetadataFilterType
 
@@ -76,11 +77,11 @@ instance Prelude.NFData ModelMetadataFilter where
   rnf ModelMetadataFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ModelMetadataFilter where
+instance Data.ToJSON ModelMetadataFilter where
   toJSON ModelMetadataFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

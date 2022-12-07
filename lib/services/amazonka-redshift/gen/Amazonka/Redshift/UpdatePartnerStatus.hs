@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -154,7 +155,7 @@ instance Core.AWSRequest UpdatePartnerStatus where
   response =
     Response.receiveXMLWrapper
       "UpdatePartnerStatusResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable UpdatePartnerStatus where
   hashWithSalt _salt UpdatePartnerStatus' {..} =
@@ -174,23 +175,23 @@ instance Prelude.NFData UpdatePartnerStatus where
       `Prelude.seq` Prelude.rnf partnerName
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToHeaders UpdatePartnerStatus where
+instance Data.ToHeaders UpdatePartnerStatus where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdatePartnerStatus where
+instance Data.ToPath UpdatePartnerStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdatePartnerStatus where
+instance Data.ToQuery UpdatePartnerStatus where
   toQuery UpdatePartnerStatus' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdatePartnerStatus" :: Prelude.ByteString),
+          Data.=: ("UpdatePartnerStatus" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "StatusMessage" Core.=: statusMessage,
-        "AccountId" Core.=: accountId,
-        "ClusterIdentifier" Core.=: clusterIdentifier,
-        "DatabaseName" Core.=: databaseName,
-        "PartnerName" Core.=: partnerName,
-        "Status" Core.=: status
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "StatusMessage" Data.=: statusMessage,
+        "AccountId" Data.=: accountId,
+        "ClusterIdentifier" Data.=: clusterIdentifier,
+        "DatabaseName" Data.=: databaseName,
+        "PartnerName" Data.=: partnerName,
+        "Status" Data.=: status
       ]

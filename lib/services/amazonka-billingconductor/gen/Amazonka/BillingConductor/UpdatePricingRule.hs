@@ -55,6 +55,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -65,11 +66,11 @@ data UpdatePricingRule = UpdatePricingRule'
     modifierPercentage :: Prelude.Maybe Prelude.Double,
     -- | The new name of the pricing rule. The name must be unique to each
     -- pricing rule.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The new pricing rule type.
     type' :: Prelude.Maybe PricingRuleType,
     -- | The new description for the pricing rule.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the pricing rule to update.
     arn :: Prelude.Text
   }
@@ -114,7 +115,7 @@ updatePricingRule_modifierPercentage = Lens.lens (\UpdatePricingRule' {modifierP
 -- | The new name of the pricing rule. The name must be unique to each
 -- pricing rule.
 updatePricingRule_name :: Lens.Lens' UpdatePricingRule (Prelude.Maybe Prelude.Text)
-updatePricingRule_name = Lens.lens (\UpdatePricingRule' {name} -> name) (\s@UpdatePricingRule' {} a -> s {name = a} :: UpdatePricingRule) Prelude.. Lens.mapping Core._Sensitive
+updatePricingRule_name = Lens.lens (\UpdatePricingRule' {name} -> name) (\s@UpdatePricingRule' {} a -> s {name = a} :: UpdatePricingRule) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The new pricing rule type.
 updatePricingRule_type :: Lens.Lens' UpdatePricingRule (Prelude.Maybe PricingRuleType)
@@ -122,7 +123,7 @@ updatePricingRule_type = Lens.lens (\UpdatePricingRule' {type'} -> type') (\s@Up
 
 -- | The new description for the pricing rule.
 updatePricingRule_description :: Lens.Lens' UpdatePricingRule (Prelude.Maybe Prelude.Text)
-updatePricingRule_description = Lens.lens (\UpdatePricingRule' {description} -> description) (\s@UpdatePricingRule' {} a -> s {description = a} :: UpdatePricingRule) Prelude.. Lens.mapping Core._Sensitive
+updatePricingRule_description = Lens.lens (\UpdatePricingRule' {description} -> description) (\s@UpdatePricingRule' {} a -> s {description = a} :: UpdatePricingRule) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the pricing rule to update.
 updatePricingRule_arn :: Lens.Lens' UpdatePricingRule Prelude.Text
@@ -138,16 +139,16 @@ instance Core.AWSRequest UpdatePricingRule where
     Response.receiveJSON
       ( \s h x ->
           UpdatePricingRuleResponse'
-            Prelude.<$> (x Core..?> "ModifierPercentage")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "BillingEntity")
-            Prelude.<*> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "Service")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "Scope")
-            Prelude.<*> (x Core..?> "AssociatedPricingPlanCount")
+            Prelude.<$> (x Data..?> "ModifierPercentage")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "BillingEntity")
+            Prelude.<*> (x Data..?> "Type")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "Service")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "Scope")
+            Prelude.<*> (x Data..?> "AssociatedPricingPlanCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,34 +168,34 @@ instance Prelude.NFData UpdatePricingRule where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders UpdatePricingRule where
+instance Data.ToHeaders UpdatePricingRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePricingRule where
+instance Data.ToJSON UpdatePricingRule where
   toJSON UpdatePricingRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ModifierPercentage" Core..=)
+          [ ("ModifierPercentage" Data..=)
               Prelude.<$> modifierPercentage,
-            ("Name" Core..=) Prelude.<$> name,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Arn" Core..= arn)
+            ("Name" Data..=) Prelude.<$> name,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath UpdatePricingRule where
+instance Data.ToPath UpdatePricingRule where
   toPath = Prelude.const "/update-pricing-rule"
 
-instance Core.ToQuery UpdatePricingRule where
+instance Data.ToQuery UpdatePricingRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePricingRuleResponse' smart constructor.
@@ -203,7 +204,7 @@ data UpdatePricingRuleResponse = UpdatePricingRuleResponse'
     modifierPercentage :: Prelude.Maybe Prelude.Double,
     -- | The new name of the pricing rule. The name must be unique to each
     -- pricing rule.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The seller of services provided by Amazon Web Services, their
     -- affiliates, or third-party providers selling services via Amazon Web
     -- Services Marketplace.
@@ -213,7 +214,7 @@ data UpdatePricingRuleResponse = UpdatePricingRuleResponse'
     -- | The Amazon Resource Name (ARN) of the successfully updated pricing rule.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The new description for the pricing rule.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | If the @Scope@ attribute is set to @SERVICE@, the attribute indicates
     -- which service the @PricingRule@ is applicable for.
     service :: Prelude.Maybe Prelude.Text,
@@ -290,7 +291,7 @@ updatePricingRuleResponse_modifierPercentage = Lens.lens (\UpdatePricingRuleResp
 -- | The new name of the pricing rule. The name must be unique to each
 -- pricing rule.
 updatePricingRuleResponse_name :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Text)
-updatePricingRuleResponse_name = Lens.lens (\UpdatePricingRuleResponse' {name} -> name) (\s@UpdatePricingRuleResponse' {} a -> s {name = a} :: UpdatePricingRuleResponse) Prelude.. Lens.mapping Core._Sensitive
+updatePricingRuleResponse_name = Lens.lens (\UpdatePricingRuleResponse' {name} -> name) (\s@UpdatePricingRuleResponse' {} a -> s {name = a} :: UpdatePricingRuleResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The seller of services provided by Amazon Web Services, their
 -- affiliates, or third-party providers selling services via Amazon Web
@@ -308,7 +309,7 @@ updatePricingRuleResponse_arn = Lens.lens (\UpdatePricingRuleResponse' {arn} -> 
 
 -- | The new description for the pricing rule.
 updatePricingRuleResponse_description :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Text)
-updatePricingRuleResponse_description = Lens.lens (\UpdatePricingRuleResponse' {description} -> description) (\s@UpdatePricingRuleResponse' {} a -> s {description = a} :: UpdatePricingRuleResponse) Prelude.. Lens.mapping Core._Sensitive
+updatePricingRuleResponse_description = Lens.lens (\UpdatePricingRuleResponse' {description} -> description) (\s@UpdatePricingRuleResponse' {} a -> s {description = a} :: UpdatePricingRuleResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | If the @Scope@ attribute is set to @SERVICE@, the attribute indicates
 -- which service the @PricingRule@ is applicable for.

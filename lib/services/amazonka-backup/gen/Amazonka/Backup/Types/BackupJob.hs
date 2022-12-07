@@ -23,6 +23,7 @@ import Amazonka.Backup.Types.BackupJobState
 import Amazonka.Backup.Types.RecoveryPointCreator
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains detailed information about a backup job.
@@ -42,7 +43,7 @@ data BackupJob = BackupJob'
     -- format and Coordinated Universal Time (UTC). The value of
     -- @CompletionDate@ is accurate to milliseconds. For example, the value
     -- 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
-    completionDate :: Prelude.Maybe Core.POSIX,
+    completionDate :: Prelude.Maybe Data.POSIX,
     -- | The name of a logical container where backups are stored. Backup vaults
     -- are identified by names that are unique to the account used to create
     -- them and the Amazon Web Services Region where they are created. They
@@ -54,7 +55,7 @@ data BackupJob = BackupJob'
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The size, in bytes, of a backup.
     backupSizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
@@ -87,7 +88,7 @@ data BackupJob = BackupJob'
     -- value of @ExpectedCompletionDate@ is accurate to milliseconds. For
     -- example, the value 1516925490.087 represents Friday, January 26, 2018
     -- 12:11:30.087 AM.
-    expectedCompletionDate :: Prelude.Maybe Core.POSIX,
+    expectedCompletionDate :: Prelude.Maybe Data.POSIX,
     -- | Uniquely identifies a request to Backup to back up a resource.
     backupJobId :: Prelude.Maybe Prelude.Text,
     -- | An ARN that uniquely identifies a resource. The format of the ARN
@@ -100,7 +101,7 @@ data BackupJob = BackupJob'
     -- @StartBy@ time would be 8:00 PM on the date specified. The value of
     -- @StartBy@ is accurate to milliseconds. For example, the value
     -- 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
-    startBy :: Prelude.Maybe Core.POSIX,
+    startBy :: Prelude.Maybe Data.POSIX,
     -- | A detailed message explaining the status of the job to back up a
     -- resource.
     statusMessage :: Prelude.Maybe Prelude.Text,
@@ -247,7 +248,7 @@ backupJob_recoveryPointArn = Lens.lens (\BackupJob' {recoveryPointArn} -> recove
 -- @CompletionDate@ is accurate to milliseconds. For example, the value
 -- 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
 backupJob_completionDate :: Lens.Lens' BackupJob (Prelude.Maybe Prelude.UTCTime)
-backupJob_completionDate = Lens.lens (\BackupJob' {completionDate} -> completionDate) (\s@BackupJob' {} a -> s {completionDate = a} :: BackupJob) Prelude.. Lens.mapping Core._Time
+backupJob_completionDate = Lens.lens (\BackupJob' {completionDate} -> completionDate) (\s@BackupJob' {} a -> s {completionDate = a} :: BackupJob) Prelude.. Lens.mapping Data._Time
 
 -- | The name of a logical container where backups are stored. Backup vaults
 -- are identified by names that are unique to the account used to create
@@ -265,7 +266,7 @@ backupJob_state = Lens.lens (\BackupJob' {state} -> state) (\s@BackupJob' {} a -
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 backupJob_creationDate :: Lens.Lens' BackupJob (Prelude.Maybe Prelude.UTCTime)
-backupJob_creationDate = Lens.lens (\BackupJob' {creationDate} -> creationDate) (\s@BackupJob' {} a -> s {creationDate = a} :: BackupJob) Prelude.. Lens.mapping Core._Time
+backupJob_creationDate = Lens.lens (\BackupJob' {creationDate} -> creationDate) (\s@BackupJob' {} a -> s {creationDate = a} :: BackupJob) Prelude.. Lens.mapping Data._Time
 
 -- | The size, in bytes, of a backup.
 backupJob_backupSizeInBytes :: Lens.Lens' BackupJob (Prelude.Maybe Prelude.Integer)
@@ -314,7 +315,7 @@ backupJob_percentDone = Lens.lens (\BackupJob' {percentDone} -> percentDone) (\s
 -- example, the value 1516925490.087 represents Friday, January 26, 2018
 -- 12:11:30.087 AM.
 backupJob_expectedCompletionDate :: Lens.Lens' BackupJob (Prelude.Maybe Prelude.UTCTime)
-backupJob_expectedCompletionDate = Lens.lens (\BackupJob' {expectedCompletionDate} -> expectedCompletionDate) (\s@BackupJob' {} a -> s {expectedCompletionDate = a} :: BackupJob) Prelude.. Lens.mapping Core._Time
+backupJob_expectedCompletionDate = Lens.lens (\BackupJob' {expectedCompletionDate} -> expectedCompletionDate) (\s@BackupJob' {} a -> s {expectedCompletionDate = a} :: BackupJob) Prelude.. Lens.mapping Data._Time
 
 -- | Uniquely identifies a request to Backup to back up a resource.
 backupJob_backupJobId :: Lens.Lens' BackupJob (Prelude.Maybe Prelude.Text)
@@ -333,7 +334,7 @@ backupJob_resourceArn = Lens.lens (\BackupJob' {resourceArn} -> resourceArn) (\s
 -- @StartBy@ is accurate to milliseconds. For example, the value
 -- 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
 backupJob_startBy :: Lens.Lens' BackupJob (Prelude.Maybe Prelude.UTCTime)
-backupJob_startBy = Lens.lens (\BackupJob' {startBy} -> startBy) (\s@BackupJob' {} a -> s {startBy = a} :: BackupJob) Prelude.. Lens.mapping Core._Time
+backupJob_startBy = Lens.lens (\BackupJob' {startBy} -> startBy) (\s@BackupJob' {} a -> s {startBy = a} :: BackupJob) Prelude.. Lens.mapping Data._Time
 
 -- | A detailed message explaining the status of the job to back up a
 -- resource.
@@ -351,32 +352,32 @@ backupJob_createdBy = Lens.lens (\BackupJob' {createdBy} -> createdBy) (\s@Backu
 backupJob_bytesTransferred :: Lens.Lens' BackupJob (Prelude.Maybe Prelude.Integer)
 backupJob_bytesTransferred = Lens.lens (\BackupJob' {bytesTransferred} -> bytesTransferred) (\s@BackupJob' {} a -> s {bytesTransferred = a} :: BackupJob)
 
-instance Core.FromJSON BackupJob where
+instance Data.FromJSON BackupJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackupJob"
       ( \x ->
           BackupJob'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "RecoveryPointArn")
-            Prelude.<*> (x Core..:? "CompletionDate")
-            Prelude.<*> (x Core..:? "BackupVaultName")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "BackupSizeInBytes")
-            Prelude.<*> (x Core..:? "BackupVaultArn")
-            Prelude.<*> (x Core..:? "BackupOptions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "IamRoleArn")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "BackupType")
-            Prelude.<*> (x Core..:? "PercentDone")
-            Prelude.<*> (x Core..:? "ExpectedCompletionDate")
-            Prelude.<*> (x Core..:? "BackupJobId")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "StartBy")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "BytesTransferred")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "RecoveryPointArn")
+            Prelude.<*> (x Data..:? "CompletionDate")
+            Prelude.<*> (x Data..:? "BackupVaultName")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "BackupSizeInBytes")
+            Prelude.<*> (x Data..:? "BackupVaultArn")
+            Prelude.<*> (x Data..:? "BackupOptions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "IamRoleArn")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "BackupType")
+            Prelude.<*> (x Data..:? "PercentDone")
+            Prelude.<*> (x Data..:? "ExpectedCompletionDate")
+            Prelude.<*> (x Data..:? "BackupJobId")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "StartBy")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "BytesTransferred")
       )
 
 instance Prelude.Hashable BackupJob where

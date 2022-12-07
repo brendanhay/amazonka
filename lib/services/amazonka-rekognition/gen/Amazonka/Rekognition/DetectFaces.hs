@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -164,8 +165,8 @@ instance Core.AWSRequest DetectFaces where
     Response.receiveJSON
       ( \s h x ->
           DetectFacesResponse'
-            Prelude.<$> (x Core..?> "FaceDetails" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "OrientationCorrection")
+            Prelude.<$> (x Data..?> "FaceDetails" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "OrientationCorrection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,34 +180,34 @@ instance Prelude.NFData DetectFaces where
     Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf image
 
-instance Core.ToHeaders DetectFaces where
+instance Data.ToHeaders DetectFaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.DetectFaces" ::
+              Data.=# ( "RekognitionService.DetectFaces" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DetectFaces where
+instance Data.ToJSON DetectFaces where
   toJSON DetectFaces' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Attributes" Core..=) Prelude.<$> attributes,
-            Prelude.Just ("Image" Core..= image)
+          [ ("Attributes" Data..=) Prelude.<$> attributes,
+            Prelude.Just ("Image" Data..= image)
           ]
       )
 
-instance Core.ToPath DetectFaces where
+instance Data.ToPath DetectFaces where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetectFaces where
+instance Data.ToQuery DetectFaces where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectFacesResponse' smart constructor.

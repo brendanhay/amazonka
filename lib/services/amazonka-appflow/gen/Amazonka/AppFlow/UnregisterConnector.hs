@@ -43,6 +43,7 @@ where
 import Amazonka.AppFlow.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,31 +118,31 @@ instance Prelude.NFData UnregisterConnector where
     Prelude.rnf forceDelete
       `Prelude.seq` Prelude.rnf connectorLabel
 
-instance Core.ToHeaders UnregisterConnector where
+instance Data.ToHeaders UnregisterConnector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UnregisterConnector where
+instance Data.ToJSON UnregisterConnector where
   toJSON UnregisterConnector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("forceDelete" Core..=) Prelude.<$> forceDelete,
+          [ ("forceDelete" Data..=) Prelude.<$> forceDelete,
             Prelude.Just
-              ("connectorLabel" Core..= connectorLabel)
+              ("connectorLabel" Data..= connectorLabel)
           ]
       )
 
-instance Core.ToPath UnregisterConnector where
+instance Data.ToPath UnregisterConnector where
   toPath = Prelude.const "/unregister-connector"
 
-instance Core.ToQuery UnregisterConnector where
+instance Data.ToQuery UnregisterConnector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUnregisterConnectorResponse' smart constructor.

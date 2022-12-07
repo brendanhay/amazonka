@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHub.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,37 +139,37 @@ instance Prelude.NFData DeleteProgressUpdateStream where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf progressUpdateStreamName
 
-instance Core.ToHeaders DeleteProgressUpdateStream where
+instance Data.ToHeaders DeleteProgressUpdateStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMigrationHub.DeleteProgressUpdateStream" ::
+              Data.=# ( "AWSMigrationHub.DeleteProgressUpdateStream" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteProgressUpdateStream where
+instance Data.ToJSON DeleteProgressUpdateStream where
   toJSON DeleteProgressUpdateStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DryRun" Core..=) Prelude.<$> dryRun,
+          [ ("DryRun" Data..=) Prelude.<$> dryRun,
             Prelude.Just
               ( "ProgressUpdateStreamName"
-                  Core..= progressUpdateStreamName
+                  Data..= progressUpdateStreamName
               )
           ]
       )
 
-instance Core.ToPath DeleteProgressUpdateStream where
+instance Data.ToPath DeleteProgressUpdateStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteProgressUpdateStream where
+instance Data.ToQuery DeleteProgressUpdateStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProgressUpdateStreamResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.DatasetContentStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.DatasetContentState
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ datasetContentStatus_state = Lens.lens (\DatasetContentStatus' {state} -> state)
 datasetContentStatus_reason :: Lens.Lens' DatasetContentStatus (Prelude.Maybe Prelude.Text)
 datasetContentStatus_reason = Lens.lens (\DatasetContentStatus' {reason} -> reason) (\s@DatasetContentStatus' {} a -> s {reason = a} :: DatasetContentStatus)
 
-instance Core.FromJSON DatasetContentStatus where
+instance Data.FromJSON DatasetContentStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetContentStatus"
       ( \x ->
           DatasetContentStatus'
-            Prelude.<$> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "reason")
+            Prelude.<$> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "reason")
       )
 
 instance Prelude.Hashable DatasetContentStatus where

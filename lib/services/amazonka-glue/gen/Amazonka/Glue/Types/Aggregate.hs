@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Aggregate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.AggregateOperation
 import qualified Amazonka.Prelude as Prelude
 
@@ -90,16 +91,16 @@ aggregate_groups = Lens.lens (\Aggregate' {groups} -> groups) (\s@Aggregate' {} 
 aggregate_aggs :: Lens.Lens' Aggregate (Prelude.NonEmpty AggregateOperation)
 aggregate_aggs = Lens.lens (\Aggregate' {aggs} -> aggs) (\s@Aggregate' {} a -> s {aggs = a} :: Aggregate) Prelude.. Lens.coerced
 
-instance Core.FromJSON Aggregate where
+instance Data.FromJSON Aggregate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Aggregate"
       ( \x ->
           Aggregate'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..:? "Groups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Aggs")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..:? "Groups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Aggs")
       )
 
 instance Prelude.Hashable Aggregate where
@@ -116,13 +117,13 @@ instance Prelude.NFData Aggregate where
       `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf aggs
 
-instance Core.ToJSON Aggregate where
+instance Data.ToJSON Aggregate where
   toJSON Aggregate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Groups" Core..= groups),
-            Prelude.Just ("Aggs" Core..= aggs)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Groups" Data..= groups),
+            Prelude.Just ("Aggs" Data..= aggs)
           ]
       )

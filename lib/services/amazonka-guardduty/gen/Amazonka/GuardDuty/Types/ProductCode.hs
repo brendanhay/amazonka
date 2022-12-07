@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ProductCode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the product code for the EC2 instance.
@@ -61,14 +62,14 @@ productCode_code = Lens.lens (\ProductCode' {code} -> code) (\s@ProductCode' {} 
 productCode_productType :: Lens.Lens' ProductCode (Prelude.Maybe Prelude.Text)
 productCode_productType = Lens.lens (\ProductCode' {productType} -> productType) (\s@ProductCode' {} a -> s {productType = a} :: ProductCode)
 
-instance Core.FromJSON ProductCode where
+instance Data.FromJSON ProductCode where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProductCode"
       ( \x ->
           ProductCode'
-            Prelude.<$> (x Core..:? "productCodeId")
-            Prelude.<*> (x Core..:? "productCodeType")
+            Prelude.<$> (x Data..:? "productCodeId")
+            Prelude.<*> (x Data..:? "productCodeType")
       )
 
 instance Prelude.Hashable ProductCode where

@@ -22,6 +22,7 @@ module Amazonka.CodeCommit.Types.File where
 import Amazonka.CodeCommit.Types.FileModeTypeEnum
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a file in a repository.
@@ -86,16 +87,16 @@ file_blobId = Lens.lens (\File' {blobId} -> blobId) (\s@File' {} a -> s {blobId 
 file_relativePath :: Lens.Lens' File (Prelude.Maybe Prelude.Text)
 file_relativePath = Lens.lens (\File' {relativePath} -> relativePath) (\s@File' {} a -> s {relativePath = a} :: File)
 
-instance Core.FromJSON File where
+instance Data.FromJSON File where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "File"
       ( \x ->
           File'
-            Prelude.<$> (x Core..:? "fileMode")
-            Prelude.<*> (x Core..:? "absolutePath")
-            Prelude.<*> (x Core..:? "blobId")
-            Prelude.<*> (x Core..:? "relativePath")
+            Prelude.<$> (x Data..:? "fileMode")
+            Prelude.<*> (x Data..:? "absolutePath")
+            Prelude.<*> (x Data..:? "blobId")
+            Prelude.<*> (x Data..:? "relativePath")
       )
 
 instance Prelude.Hashable File where

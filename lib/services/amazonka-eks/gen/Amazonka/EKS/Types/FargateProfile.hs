@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.FargateProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.FargateProfileSelector
 import Amazonka.EKS.Types.FargateProfileStatus
 import qualified Amazonka.Prelude as Prelude
@@ -55,7 +56,7 @@ data FargateProfile = FargateProfile'
     clusterName :: Prelude.Maybe Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the Fargate profile was
     -- created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -151,23 +152,23 @@ fargateProfile_clusterName = Lens.lens (\FargateProfile' {clusterName} -> cluste
 -- | The Unix epoch timestamp in seconds for when the Fargate profile was
 -- created.
 fargateProfile_createdAt :: Lens.Lens' FargateProfile (Prelude.Maybe Prelude.UTCTime)
-fargateProfile_createdAt = Lens.lens (\FargateProfile' {createdAt} -> createdAt) (\s@FargateProfile' {} a -> s {createdAt = a} :: FargateProfile) Prelude.. Lens.mapping Core._Time
+fargateProfile_createdAt = Lens.lens (\FargateProfile' {createdAt} -> createdAt) (\s@FargateProfile' {} a -> s {createdAt = a} :: FargateProfile) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON FargateProfile where
+instance Data.FromJSON FargateProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FargateProfile"
       ( \x ->
           FargateProfile'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "fargateProfileArn")
-            Prelude.<*> (x Core..:? "subnets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "fargateProfileName")
-            Prelude.<*> (x Core..:? "selectors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "podExecutionRoleArn")
-            Prelude.<*> (x Core..:? "clusterName")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "fargateProfileArn")
+            Prelude.<*> (x Data..:? "subnets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "fargateProfileName")
+            Prelude.<*> (x Data..:? "selectors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "podExecutionRoleArn")
+            Prelude.<*> (x Data..:? "clusterName")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable FargateProfile where

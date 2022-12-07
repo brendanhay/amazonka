@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.OperatingSystem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.OperatingSystemConfigurationManager
 import qualified Amazonka.Prelude as Prelude
 
@@ -114,21 +115,21 @@ operatingSystem_id = Lens.lens (\OperatingSystem' {id} -> id) (\s@OperatingSyste
 operatingSystem_reportedName :: Lens.Lens' OperatingSystem (Prelude.Maybe Prelude.Text)
 operatingSystem_reportedName = Lens.lens (\OperatingSystem' {reportedName} -> reportedName) (\s@OperatingSystem' {} a -> s {reportedName = a} :: OperatingSystem)
 
-instance Core.FromJSON OperatingSystem where
+instance Data.FromJSON OperatingSystem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OperatingSystem"
       ( \x ->
           OperatingSystem'
-            Prelude.<$> ( x Core..:? "ConfigurationManagers"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ConfigurationManagers"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Supported")
-            Prelude.<*> (x Core..:? "ReportedVersion")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ReportedName")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Supported")
+            Prelude.<*> (x Data..:? "ReportedVersion")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ReportedName")
       )
 
 instance Prelude.Hashable OperatingSystem where

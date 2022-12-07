@@ -21,6 +21,7 @@ module Amazonka.Braket.Types.JobOutputDataConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the path to the S3 location where you want to store job
@@ -73,14 +74,14 @@ jobOutputDataConfig_kmsKeyId = Lens.lens (\JobOutputDataConfig' {kmsKeyId} -> km
 jobOutputDataConfig_s3Path :: Lens.Lens' JobOutputDataConfig Prelude.Text
 jobOutputDataConfig_s3Path = Lens.lens (\JobOutputDataConfig' {s3Path} -> s3Path) (\s@JobOutputDataConfig' {} a -> s {s3Path = a} :: JobOutputDataConfig)
 
-instance Core.FromJSON JobOutputDataConfig where
+instance Data.FromJSON JobOutputDataConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobOutputDataConfig"
       ( \x ->
           JobOutputDataConfig'
-            Prelude.<$> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..: "s3Path")
+            Prelude.<$> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..: "s3Path")
       )
 
 instance Prelude.Hashable JobOutputDataConfig where
@@ -93,11 +94,11 @@ instance Prelude.NFData JobOutputDataConfig where
     Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf s3Path
 
-instance Core.ToJSON JobOutputDataConfig where
+instance Data.ToJSON JobOutputDataConfig where
   toJSON JobOutputDataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            Prelude.Just ("s3Path" Core..= s3Path)
+          [ ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            Prelude.Just ("s3Path" Data..= s3Path)
           ]
       )

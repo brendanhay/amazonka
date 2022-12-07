@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,38 +146,38 @@ instance Prelude.NFData VoteOnProposal where
       `Prelude.seq` Prelude.rnf voterMemberId
       `Prelude.seq` Prelude.rnf vote
 
-instance Core.ToHeaders VoteOnProposal where
+instance Data.ToHeaders VoteOnProposal where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON VoteOnProposal where
+instance Data.ToJSON VoteOnProposal where
   toJSON VoteOnProposal' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("VoterMemberId" Core..= voterMemberId),
-            Prelude.Just ("Vote" Core..= vote)
+              ("VoterMemberId" Data..= voterMemberId),
+            Prelude.Just ("Vote" Data..= vote)
           ]
       )
 
-instance Core.ToPath VoteOnProposal where
+instance Data.ToPath VoteOnProposal where
   toPath VoteOnProposal' {..} =
     Prelude.mconcat
       [ "/networks/",
-        Core.toBS networkId,
+        Data.toBS networkId,
         "/proposals/",
-        Core.toBS proposalId,
+        Data.toBS proposalId,
         "/votes"
       ]
 
-instance Core.ToQuery VoteOnProposal where
+instance Data.ToQuery VoteOnProposal where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newVoteOnProposalResponse' smart constructor.

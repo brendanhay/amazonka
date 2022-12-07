@@ -89,6 +89,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -190,7 +191,7 @@ instance Core.AWSRequest UpdateXssMatchSet where
     Response.receiveJSON
       ( \s h x ->
           UpdateXssMatchSetResponse'
-            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -206,36 +207,36 @@ instance Prelude.NFData UpdateXssMatchSet where
       `Prelude.seq` Prelude.rnf changeToken
       `Prelude.seq` Prelude.rnf updates
 
-instance Core.ToHeaders UpdateXssMatchSet where
+instance Data.ToHeaders UpdateXssMatchSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.UpdateXssMatchSet" ::
+              Data.=# ( "AWSWAF_Regional_20161128.UpdateXssMatchSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateXssMatchSet where
+instance Data.ToJSON UpdateXssMatchSet where
   toJSON UpdateXssMatchSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("XssMatchSetId" Core..= xssMatchSetId),
-            Prelude.Just ("ChangeToken" Core..= changeToken),
-            Prelude.Just ("Updates" Core..= updates)
+              ("XssMatchSetId" Data..= xssMatchSetId),
+            Prelude.Just ("ChangeToken" Data..= changeToken),
+            Prelude.Just ("Updates" Data..= updates)
           ]
       )
 
-instance Core.ToPath UpdateXssMatchSet where
+instance Data.ToPath UpdateXssMatchSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateXssMatchSet where
+instance Data.ToQuery UpdateXssMatchSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response to an UpdateXssMatchSets request.

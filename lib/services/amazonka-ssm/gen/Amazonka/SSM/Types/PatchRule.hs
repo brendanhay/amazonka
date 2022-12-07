@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.PatchRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.PatchComplianceLevel
 import Amazonka.SSM.Types.PatchFilterGroup
@@ -125,17 +126,17 @@ patchRule_approveUntilDate = Lens.lens (\PatchRule' {approveUntilDate} -> approv
 patchRule_patchFilterGroup :: Lens.Lens' PatchRule PatchFilterGroup
 patchRule_patchFilterGroup = Lens.lens (\PatchRule' {patchFilterGroup} -> patchFilterGroup) (\s@PatchRule' {} a -> s {patchFilterGroup = a} :: PatchRule)
 
-instance Core.FromJSON PatchRule where
+instance Data.FromJSON PatchRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PatchRule"
       ( \x ->
           PatchRule'
-            Prelude.<$> (x Core..:? "ApproveAfterDays")
-            Prelude.<*> (x Core..:? "EnableNonSecurity")
-            Prelude.<*> (x Core..:? "ComplianceLevel")
-            Prelude.<*> (x Core..:? "ApproveUntilDate")
-            Prelude.<*> (x Core..: "PatchFilterGroup")
+            Prelude.<$> (x Data..:? "ApproveAfterDays")
+            Prelude.<*> (x Data..:? "EnableNonSecurity")
+            Prelude.<*> (x Data..:? "ComplianceLevel")
+            Prelude.<*> (x Data..:? "ApproveUntilDate")
+            Prelude.<*> (x Data..: "PatchFilterGroup")
       )
 
 instance Prelude.Hashable PatchRule where
@@ -154,19 +155,19 @@ instance Prelude.NFData PatchRule where
       `Prelude.seq` Prelude.rnf approveUntilDate
       `Prelude.seq` Prelude.rnf patchFilterGroup
 
-instance Core.ToJSON PatchRule where
+instance Data.ToJSON PatchRule where
   toJSON PatchRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ApproveAfterDays" Core..=)
+          [ ("ApproveAfterDays" Data..=)
               Prelude.<$> approveAfterDays,
-            ("EnableNonSecurity" Core..=)
+            ("EnableNonSecurity" Data..=)
               Prelude.<$> enableNonSecurity,
-            ("ComplianceLevel" Core..=)
+            ("ComplianceLevel" Data..=)
               Prelude.<$> complianceLevel,
-            ("ApproveUntilDate" Core..=)
+            ("ApproveUntilDate" Data..=)
               Prelude.<$> approveUntilDate,
             Prelude.Just
-              ("PatchFilterGroup" Core..= patchFilterGroup)
+              ("PatchFilterGroup" Data..= patchFilterGroup)
           ]
       )

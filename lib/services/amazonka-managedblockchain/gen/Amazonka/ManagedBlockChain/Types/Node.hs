@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.Node where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.NodeFrameworkAttributes
 import Amazonka.ManagedBlockChain.Types.NodeLogPublishingConfiguration
 import Amazonka.ManagedBlockChain.Types.NodeStatus
@@ -52,7 +53,7 @@ data Node = Node'
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the node was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the node.
     --
     -- -   @CREATING@ - The Amazon Web Services account is in the process of
@@ -262,7 +263,7 @@ node_arn = Lens.lens (\Node' {arn} -> arn) (\s@Node' {} a -> s {arn = a} :: Node
 
 -- | The date and time that the node was created.
 node_creationDate :: Lens.Lens' Node (Prelude.Maybe Prelude.UTCTime)
-node_creationDate = Lens.lens (\Node' {creationDate} -> creationDate) (\s@Node' {} a -> s {creationDate = a} :: Node) Prelude.. Lens.mapping Core._Time
+node_creationDate = Lens.lens (\Node' {creationDate} -> creationDate) (\s@Node' {} a -> s {creationDate = a} :: Node) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the node.
 --
@@ -344,25 +345,25 @@ node_stateDB = Lens.lens (\Node' {stateDB} -> stateDB) (\s@Node' {} a -> s {stat
 node_logPublishingConfiguration :: Lens.Lens' Node (Prelude.Maybe NodeLogPublishingConfiguration)
 node_logPublishingConfiguration = Lens.lens (\Node' {logPublishingConfiguration} -> logPublishingConfiguration) (\s@Node' {} a -> s {logPublishingConfiguration = a} :: Node)
 
-instance Core.FromJSON Node where
+instance Data.FromJSON Node where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Node"
       ( \x ->
           Node'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MemberId")
-            Prelude.<*> (x Core..:? "FrameworkAttributes")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "KmsKeyArn")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "NetworkId")
-            Prelude.<*> (x Core..:? "StateDB")
-            Prelude.<*> (x Core..:? "LogPublishingConfiguration")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MemberId")
+            Prelude.<*> (x Data..:? "FrameworkAttributes")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "KmsKeyArn")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "NetworkId")
+            Prelude.<*> (x Data..:? "StateDB")
+            Prelude.<*> (x Data..:? "LogPublishingConfiguration")
       )
 
 instance Prelude.Hashable Node where

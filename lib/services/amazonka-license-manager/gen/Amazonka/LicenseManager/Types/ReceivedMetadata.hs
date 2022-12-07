@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.ReceivedMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.AllowedOperation
 import Amazonka.LicenseManager.Types.ReceivedStatus
 import qualified Amazonka.Prelude as Prelude
@@ -73,15 +74,15 @@ receivedMetadata_receivedStatus = Lens.lens (\ReceivedMetadata' {receivedStatus}
 receivedMetadata_receivedStatusReason :: Lens.Lens' ReceivedMetadata (Prelude.Maybe Prelude.Text)
 receivedMetadata_receivedStatusReason = Lens.lens (\ReceivedMetadata' {receivedStatusReason} -> receivedStatusReason) (\s@ReceivedMetadata' {} a -> s {receivedStatusReason = a} :: ReceivedMetadata)
 
-instance Core.FromJSON ReceivedMetadata where
+instance Data.FromJSON ReceivedMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReceivedMetadata"
       ( \x ->
           ReceivedMetadata'
-            Prelude.<$> (x Core..:? "AllowedOperations")
-            Prelude.<*> (x Core..:? "ReceivedStatus")
-            Prelude.<*> (x Core..:? "ReceivedStatusReason")
+            Prelude.<$> (x Data..:? "AllowedOperations")
+            Prelude.<*> (x Data..:? "ReceivedStatus")
+            Prelude.<*> (x Data..:? "ReceivedStatusReason")
       )
 
 instance Prelude.Hashable ReceivedMetadata where

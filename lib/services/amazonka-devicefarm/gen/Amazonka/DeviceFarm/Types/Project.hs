@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.Project where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.VpcConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data Project = Project'
     -- | The VPC security groups and subnets that are attached to a project.
     vpcConfig :: Prelude.Maybe VpcConfig,
     -- | When the project was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The project\'s ARN.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The default number of minutes (at the project level) a test run executes
@@ -82,7 +83,7 @@ project_vpcConfig = Lens.lens (\Project' {vpcConfig} -> vpcConfig) (\s@Project' 
 
 -- | When the project was created.
 project_created :: Lens.Lens' Project (Prelude.Maybe Prelude.UTCTime)
-project_created = Lens.lens (\Project' {created} -> created) (\s@Project' {} a -> s {created = a} :: Project) Prelude.. Lens.mapping Core._Time
+project_created = Lens.lens (\Project' {created} -> created) (\s@Project' {} a -> s {created = a} :: Project) Prelude.. Lens.mapping Data._Time
 
 -- | The project\'s ARN.
 project_arn :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
@@ -93,17 +94,17 @@ project_arn = Lens.lens (\Project' {arn} -> arn) (\s@Project' {} a -> s {arn = a
 project_defaultJobTimeoutMinutes :: Lens.Lens' Project (Prelude.Maybe Prelude.Int)
 project_defaultJobTimeoutMinutes = Lens.lens (\Project' {defaultJobTimeoutMinutes} -> defaultJobTimeoutMinutes) (\s@Project' {} a -> s {defaultJobTimeoutMinutes = a} :: Project)
 
-instance Core.FromJSON Project where
+instance Data.FromJSON Project where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Project"
       ( \x ->
           Project'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "vpcConfig")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "defaultJobTimeoutMinutes")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "vpcConfig")
+            Prelude.<*> (x Data..:? "created")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "defaultJobTimeoutMinutes")
       )
 
 instance Prelude.Hashable Project where

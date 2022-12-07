@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.VirtualRouterListener where
 import Amazonka.AppMesh.Types.PortMapping
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a virtual router listener.
@@ -52,13 +53,13 @@ newVirtualRouterListener pPortMapping_ =
 virtualRouterListener_portMapping :: Lens.Lens' VirtualRouterListener PortMapping
 virtualRouterListener_portMapping = Lens.lens (\VirtualRouterListener' {portMapping} -> portMapping) (\s@VirtualRouterListener' {} a -> s {portMapping = a} :: VirtualRouterListener)
 
-instance Core.FromJSON VirtualRouterListener where
+instance Data.FromJSON VirtualRouterListener where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualRouterListener"
       ( \x ->
           VirtualRouterListener'
-            Prelude.<$> (x Core..: "portMapping")
+            Prelude.<$> (x Data..: "portMapping")
       )
 
 instance Prelude.Hashable VirtualRouterListener where
@@ -69,9 +70,9 @@ instance Prelude.NFData VirtualRouterListener where
   rnf VirtualRouterListener' {..} =
     Prelude.rnf portMapping
 
-instance Core.ToJSON VirtualRouterListener where
+instance Data.ToJSON VirtualRouterListener where
   toJSON VirtualRouterListener' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("portMapping" Core..= portMapping)]
+          [Prelude.Just ("portMapping" Data..= portMapping)]
       )

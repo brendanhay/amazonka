@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.GroupDefinition where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.GroupDefinitionType
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a group when you specify a group by criteria or in the
@@ -63,13 +64,13 @@ groupDefinition_key = Lens.lens (\GroupDefinition' {key} -> key) (\s@GroupDefini
 groupDefinition_type :: Lens.Lens' GroupDefinition (Prelude.Maybe GroupDefinitionType)
 groupDefinition_type = Lens.lens (\GroupDefinition' {type'} -> type') (\s@GroupDefinition' {} a -> s {type' = a} :: GroupDefinition)
 
-instance Core.FromJSON GroupDefinition where
+instance Data.FromJSON GroupDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupDefinition"
       ( \x ->
           GroupDefinition'
-            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "Key") Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable GroupDefinition where
@@ -81,11 +82,11 @@ instance Prelude.NFData GroupDefinition where
   rnf GroupDefinition' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON GroupDefinition where
+instance Data.ToJSON GroupDefinition where
   toJSON GroupDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Type" Core..=) Prelude.<$> type'
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )

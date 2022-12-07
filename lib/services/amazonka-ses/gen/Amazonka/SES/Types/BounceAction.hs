@@ -21,6 +21,7 @@ module Amazonka.SES.Types.BounceAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | When included in a receipt rule, this action rejects the received email
@@ -121,14 +122,14 @@ bounceAction_message = Lens.lens (\BounceAction' {message} -> message) (\s@Bounc
 bounceAction_sender :: Lens.Lens' BounceAction Prelude.Text
 bounceAction_sender = Lens.lens (\BounceAction' {sender} -> sender) (\s@BounceAction' {} a -> s {sender = a} :: BounceAction)
 
-instance Core.FromXML BounceAction where
+instance Data.FromXML BounceAction where
   parseXML x =
     BounceAction'
-      Prelude.<$> (x Core..@? "TopicArn")
-      Prelude.<*> (x Core..@? "StatusCode")
-      Prelude.<*> (x Core..@ "SmtpReplyCode")
-      Prelude.<*> (x Core..@ "Message")
-      Prelude.<*> (x Core..@ "Sender")
+      Prelude.<$> (x Data..@? "TopicArn")
+      Prelude.<*> (x Data..@? "StatusCode")
+      Prelude.<*> (x Data..@ "SmtpReplyCode")
+      Prelude.<*> (x Data..@ "Message")
+      Prelude.<*> (x Data..@ "Sender")
 
 instance Prelude.Hashable BounceAction where
   hashWithSalt _salt BounceAction' {..} =
@@ -146,12 +147,12 @@ instance Prelude.NFData BounceAction where
       `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf sender
 
-instance Core.ToQuery BounceAction where
+instance Data.ToQuery BounceAction where
   toQuery BounceAction' {..} =
     Prelude.mconcat
-      [ "TopicArn" Core.=: topicArn,
-        "StatusCode" Core.=: statusCode,
-        "SmtpReplyCode" Core.=: smtpReplyCode,
-        "Message" Core.=: message,
-        "Sender" Core.=: sender
+      [ "TopicArn" Data.=: topicArn,
+        "StatusCode" Data.=: statusCode,
+        "SmtpReplyCode" Data.=: smtpReplyCode,
+        "Message" Data.=: message,
+        "Sender" Data.=: sender
       ]

@@ -21,6 +21,7 @@ module Amazonka.M2.Types.ApplicationVersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.ApplicationVersionLifecycle
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data ApplicationVersionSummary = ApplicationVersionSummary'
     -- | The application version.
     applicationVersion :: Prelude.Natural,
     -- | The timestamp when the application version was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The status of the application.
     status :: ApplicationVersionLifecycle
   }
@@ -70,7 +71,7 @@ newApplicationVersionSummary
       { statusReason =
           Prelude.Nothing,
         applicationVersion = pApplicationVersion_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         status = pStatus_
       }
 
@@ -84,22 +85,22 @@ applicationVersionSummary_applicationVersion = Lens.lens (\ApplicationVersionSum
 
 -- | The timestamp when the application version was created.
 applicationVersionSummary_creationTime :: Lens.Lens' ApplicationVersionSummary Prelude.UTCTime
-applicationVersionSummary_creationTime = Lens.lens (\ApplicationVersionSummary' {creationTime} -> creationTime) (\s@ApplicationVersionSummary' {} a -> s {creationTime = a} :: ApplicationVersionSummary) Prelude.. Core._Time
+applicationVersionSummary_creationTime = Lens.lens (\ApplicationVersionSummary' {creationTime} -> creationTime) (\s@ApplicationVersionSummary' {} a -> s {creationTime = a} :: ApplicationVersionSummary) Prelude.. Data._Time
 
 -- | The status of the application.
 applicationVersionSummary_status :: Lens.Lens' ApplicationVersionSummary ApplicationVersionLifecycle
 applicationVersionSummary_status = Lens.lens (\ApplicationVersionSummary' {status} -> status) (\s@ApplicationVersionSummary' {} a -> s {status = a} :: ApplicationVersionSummary)
 
-instance Core.FromJSON ApplicationVersionSummary where
+instance Data.FromJSON ApplicationVersionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationVersionSummary"
       ( \x ->
           ApplicationVersionSummary'
-            Prelude.<$> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..: "applicationVersion")
-            Prelude.<*> (x Core..: "creationTime")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..: "applicationVersion")
+            Prelude.<*> (x Data..: "creationTime")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable ApplicationVersionSummary where

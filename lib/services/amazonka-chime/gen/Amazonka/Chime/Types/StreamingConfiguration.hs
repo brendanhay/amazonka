@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.StreamingConfiguration where
 import Amazonka.Chime.Types.StreamingNotificationTarget
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The streaming configuration associated with an Amazon Chime Voice
@@ -77,15 +78,15 @@ streamingConfiguration_disabled = Lens.lens (\StreamingConfiguration' {disabled}
 streamingConfiguration_dataRetentionInHours :: Lens.Lens' StreamingConfiguration Prelude.Natural
 streamingConfiguration_dataRetentionInHours = Lens.lens (\StreamingConfiguration' {dataRetentionInHours} -> dataRetentionInHours) (\s@StreamingConfiguration' {} a -> s {dataRetentionInHours = a} :: StreamingConfiguration)
 
-instance Core.FromJSON StreamingConfiguration where
+instance Data.FromJSON StreamingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamingConfiguration"
       ( \x ->
           StreamingConfiguration'
-            Prelude.<$> (x Core..:? "StreamingNotificationTargets")
-            Prelude.<*> (x Core..:? "Disabled")
-            Prelude.<*> (x Core..: "DataRetentionInHours")
+            Prelude.<$> (x Data..:? "StreamingNotificationTargets")
+            Prelude.<*> (x Data..:? "Disabled")
+            Prelude.<*> (x Data..: "DataRetentionInHours")
       )
 
 instance Prelude.Hashable StreamingConfiguration where
@@ -101,16 +102,16 @@ instance Prelude.NFData StreamingConfiguration where
       `Prelude.seq` Prelude.rnf disabled
       `Prelude.seq` Prelude.rnf dataRetentionInHours
 
-instance Core.ToJSON StreamingConfiguration where
+instance Data.ToJSON StreamingConfiguration where
   toJSON StreamingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StreamingNotificationTargets" Core..=)
+          [ ("StreamingNotificationTargets" Data..=)
               Prelude.<$> streamingNotificationTargets,
-            ("Disabled" Core..=) Prelude.<$> disabled,
+            ("Disabled" Data..=) Prelude.<$> disabled,
             Prelude.Just
               ( "DataRetentionInHours"
-                  Core..= dataRetentionInHours
+                  Data..= dataRetentionInHours
               )
           ]
       )

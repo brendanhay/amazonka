@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest DescribeManagedEndpoint where
     Response.receiveJSON
       ( \s h x ->
           DescribeManagedEndpointResponse'
-            Prelude.<$> (x Core..?> "endpoint")
+            Prelude.<$> (x Data..?> "endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,27 +114,27 @@ instance Prelude.NFData DescribeManagedEndpoint where
     Prelude.rnf id
       `Prelude.seq` Prelude.rnf virtualClusterId
 
-instance Core.ToHeaders DescribeManagedEndpoint where
+instance Data.ToHeaders DescribeManagedEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeManagedEndpoint where
+instance Data.ToPath DescribeManagedEndpoint where
   toPath DescribeManagedEndpoint' {..} =
     Prelude.mconcat
       [ "/virtualclusters/",
-        Core.toBS virtualClusterId,
+        Data.toBS virtualClusterId,
         "/endpoints/",
-        Core.toBS id
+        Data.toBS id
       ]
 
-instance Core.ToQuery DescribeManagedEndpoint where
+instance Data.ToQuery DescribeManagedEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeManagedEndpointResponse' smart constructor.

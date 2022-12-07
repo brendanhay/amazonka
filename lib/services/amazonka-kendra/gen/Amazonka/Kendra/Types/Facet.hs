@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.Facet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a document attribute. You can use document attributes
@@ -137,13 +138,13 @@ instance Prelude.NFData Facet where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf documentAttributeKey
 
-instance Core.ToJSON Facet where
+instance Data.ToJSON Facet where
   toJSON Facet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Facets" Core..=) Prelude.<$> facets,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("DocumentAttributeKey" Core..=)
+          [ ("Facets" Data..=) Prelude.<$> facets,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("DocumentAttributeKey" Data..=)
               Prelude.<$> documentAttributeKey
           ]
       )

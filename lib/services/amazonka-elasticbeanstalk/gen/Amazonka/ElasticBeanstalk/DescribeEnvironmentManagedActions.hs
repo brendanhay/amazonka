@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,8 +112,8 @@ instance
       "DescribeEnvironmentManagedActionsResult"
       ( \s h x ->
           DescribeEnvironmentManagedActionsResponse'
-            Prelude.<$> ( x Core..@? "ManagedActions" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList1 "member")
+            Prelude.<$> ( x Data..@? "ManagedActions" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList1 "member")
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -138,32 +139,32 @@ instance
       `Prelude.seq` Prelude.rnf environmentId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeEnvironmentManagedActions
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeEnvironmentManagedActions
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeEnvironmentManagedActions
   where
   toQuery DescribeEnvironmentManagedActions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeEnvironmentManagedActions" ::
+          Data.=: ( "DescribeEnvironmentManagedActions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentName" Core.=: environmentName,
-        "Status" Core.=: status,
-        "EnvironmentId" Core.=: environmentId
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "EnvironmentName" Data.=: environmentName,
+        "Status" Data.=: status,
+        "EnvironmentId" Data.=: environmentId
       ]
 
 -- | The result message containing a list of managed actions.

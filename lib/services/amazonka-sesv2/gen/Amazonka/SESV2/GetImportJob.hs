@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,15 +93,15 @@ instance Core.AWSRequest GetImportJob where
     Response.receiveJSON
       ( \s h x ->
           GetImportJobResponse'
-            Prelude.<$> (x Core..?> "JobStatus")
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "JobId")
-            Prelude.<*> (x Core..?> "ImportDestination")
-            Prelude.<*> (x Core..?> "FailureInfo")
-            Prelude.<*> (x Core..?> "FailedRecordsCount")
-            Prelude.<*> (x Core..?> "ProcessedRecordsCount")
-            Prelude.<*> (x Core..?> "CompletedTimestamp")
-            Prelude.<*> (x Core..?> "ImportDataSource")
+            Prelude.<$> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "ImportDestination")
+            Prelude.<*> (x Data..?> "FailureInfo")
+            Prelude.<*> (x Data..?> "FailedRecordsCount")
+            Prelude.<*> (x Data..?> "ProcessedRecordsCount")
+            Prelude.<*> (x Data..?> "CompletedTimestamp")
+            Prelude.<*> (x Data..?> "ImportDataSource")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,23 +112,23 @@ instance Prelude.Hashable GetImportJob where
 instance Prelude.NFData GetImportJob where
   rnf GetImportJob' {..} = Prelude.rnf jobId
 
-instance Core.ToHeaders GetImportJob where
+instance Data.ToHeaders GetImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetImportJob where
+instance Data.ToPath GetImportJob where
   toPath GetImportJob' {..} =
     Prelude.mconcat
-      ["/v2/email/import-jobs/", Core.toBS jobId]
+      ["/v2/email/import-jobs/", Data.toBS jobId]
 
-instance Core.ToQuery GetImportJob where
+instance Data.ToQuery GetImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the
@@ -138,7 +139,7 @@ data GetImportJobResponse = GetImportJobResponse'
   { -- | The status of the import job.
     jobStatus :: Prelude.Maybe JobStatus,
     -- | The time stamp of when the import job was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | A string that represents the import job ID.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The destination of the import job.
@@ -151,7 +152,7 @@ data GetImportJobResponse = GetImportJobResponse'
     -- | The current number of records processed.
     processedRecordsCount :: Prelude.Maybe Prelude.Int,
     -- | The time stamp of when the import job was completed.
-    completedTimestamp :: Prelude.Maybe Core.POSIX,
+    completedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The data source of the import job.
     importDataSource :: Prelude.Maybe ImportDataSource,
     -- | The response's http status code.
@@ -211,7 +212,7 @@ getImportJobResponse_jobStatus = Lens.lens (\GetImportJobResponse' {jobStatus} -
 
 -- | The time stamp of when the import job was created.
 getImportJobResponse_createdTimestamp :: Lens.Lens' GetImportJobResponse (Prelude.Maybe Prelude.UTCTime)
-getImportJobResponse_createdTimestamp = Lens.lens (\GetImportJobResponse' {createdTimestamp} -> createdTimestamp) (\s@GetImportJobResponse' {} a -> s {createdTimestamp = a} :: GetImportJobResponse) Prelude.. Lens.mapping Core._Time
+getImportJobResponse_createdTimestamp = Lens.lens (\GetImportJobResponse' {createdTimestamp} -> createdTimestamp) (\s@GetImportJobResponse' {} a -> s {createdTimestamp = a} :: GetImportJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A string that represents the import job ID.
 getImportJobResponse_jobId :: Lens.Lens' GetImportJobResponse (Prelude.Maybe Prelude.Text)
@@ -236,7 +237,7 @@ getImportJobResponse_processedRecordsCount = Lens.lens (\GetImportJobResponse' {
 
 -- | The time stamp of when the import job was completed.
 getImportJobResponse_completedTimestamp :: Lens.Lens' GetImportJobResponse (Prelude.Maybe Prelude.UTCTime)
-getImportJobResponse_completedTimestamp = Lens.lens (\GetImportJobResponse' {completedTimestamp} -> completedTimestamp) (\s@GetImportJobResponse' {} a -> s {completedTimestamp = a} :: GetImportJobResponse) Prelude.. Lens.mapping Core._Time
+getImportJobResponse_completedTimestamp = Lens.lens (\GetImportJobResponse' {completedTimestamp} -> completedTimestamp) (\s@GetImportJobResponse' {} a -> s {completedTimestamp = a} :: GetImportJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The data source of the import job.
 getImportJobResponse_importDataSource :: Lens.Lens' GetImportJobResponse (Prelude.Maybe ImportDataSource)

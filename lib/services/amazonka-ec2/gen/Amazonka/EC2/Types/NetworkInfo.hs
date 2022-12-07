@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.EfaInfo
 import Amazonka.EC2.Types.EnaSupport
@@ -162,23 +163,23 @@ networkInfo_enaSupport = Lens.lens (\NetworkInfo' {enaSupport} -> enaSupport) (\
 networkInfo_maximumNetworkCards :: Lens.Lens' NetworkInfo (Prelude.Maybe Prelude.Int)
 networkInfo_maximumNetworkCards = Lens.lens (\NetworkInfo' {maximumNetworkCards} -> maximumNetworkCards) (\s@NetworkInfo' {} a -> s {maximumNetworkCards = a} :: NetworkInfo)
 
-instance Core.FromXML NetworkInfo where
+instance Data.FromXML NetworkInfo where
   parseXML x =
     NetworkInfo'
-      Prelude.<$> (x Core..@? "ipv4AddressesPerInterface")
-      Prelude.<*> (x Core..@? "ipv6Supported")
-      Prelude.<*> (x Core..@? "networkPerformance")
-      Prelude.<*> (x Core..@? "efaInfo")
-      Prelude.<*> (x Core..@? "defaultNetworkCardIndex")
-      Prelude.<*> (x Core..@? "efaSupported")
-      Prelude.<*> (x Core..@? "ipv6AddressesPerInterface")
-      Prelude.<*> ( x Core..@? "networkCards" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "ipv4AddressesPerInterface")
+      Prelude.<*> (x Data..@? "ipv6Supported")
+      Prelude.<*> (x Data..@? "networkPerformance")
+      Prelude.<*> (x Data..@? "efaInfo")
+      Prelude.<*> (x Data..@? "defaultNetworkCardIndex")
+      Prelude.<*> (x Data..@? "efaSupported")
+      Prelude.<*> (x Data..@? "ipv6AddressesPerInterface")
+      Prelude.<*> ( x Data..@? "networkCards" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "maximumNetworkInterfaces")
-      Prelude.<*> (x Core..@? "encryptionInTransitSupported")
-      Prelude.<*> (x Core..@? "enaSupport")
-      Prelude.<*> (x Core..@? "maximumNetworkCards")
+      Prelude.<*> (x Data..@? "maximumNetworkInterfaces")
+      Prelude.<*> (x Data..@? "encryptionInTransitSupported")
+      Prelude.<*> (x Data..@? "enaSupport")
+      Prelude.<*> (x Data..@? "maximumNetworkCards")
 
 instance Prelude.Hashable NetworkInfo where
   hashWithSalt _salt NetworkInfo' {..} =

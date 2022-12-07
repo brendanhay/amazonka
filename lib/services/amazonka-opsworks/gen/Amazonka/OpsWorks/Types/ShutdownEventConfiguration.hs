@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.ShutdownEventConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Shutdown event configuration.
@@ -71,14 +72,14 @@ shutdownEventConfiguration_delayUntilElbConnectionsDrained = Lens.lens (\Shutdow
 shutdownEventConfiguration_executionTimeout :: Lens.Lens' ShutdownEventConfiguration (Prelude.Maybe Prelude.Int)
 shutdownEventConfiguration_executionTimeout = Lens.lens (\ShutdownEventConfiguration' {executionTimeout} -> executionTimeout) (\s@ShutdownEventConfiguration' {} a -> s {executionTimeout = a} :: ShutdownEventConfiguration)
 
-instance Core.FromJSON ShutdownEventConfiguration where
+instance Data.FromJSON ShutdownEventConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ShutdownEventConfiguration"
       ( \x ->
           ShutdownEventConfiguration'
-            Prelude.<$> (x Core..:? "DelayUntilElbConnectionsDrained")
-            Prelude.<*> (x Core..:? "ExecutionTimeout")
+            Prelude.<$> (x Data..:? "DelayUntilElbConnectionsDrained")
+            Prelude.<*> (x Data..:? "ExecutionTimeout")
       )
 
 instance Prelude.Hashable ShutdownEventConfiguration where
@@ -92,13 +93,13 @@ instance Prelude.NFData ShutdownEventConfiguration where
     Prelude.rnf delayUntilElbConnectionsDrained
       `Prelude.seq` Prelude.rnf executionTimeout
 
-instance Core.ToJSON ShutdownEventConfiguration where
+instance Data.ToJSON ShutdownEventConfiguration where
   toJSON ShutdownEventConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DelayUntilElbConnectionsDrained" Core..=)
+          [ ("DelayUntilElbConnectionsDrained" Data..=)
               Prelude.<$> delayUntilElbConnectionsDrained,
-            ("ExecutionTimeout" Core..=)
+            ("ExecutionTimeout" Data..=)
               Prelude.<$> executionTimeout
           ]
       )

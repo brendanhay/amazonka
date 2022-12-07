@@ -49,6 +49,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,10 +150,10 @@ instance Core.AWSRequest DescribeStacks where
       "DescribeStacksResult"
       ( \s h x ->
           DescribeStacksResponse'
-            Prelude.<$> ( x Core..@? "Stacks" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Stacks" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "NextToken")
+            Prelude.<*> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,21 +167,21 @@ instance Prelude.NFData DescribeStacks where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders DescribeStacks where
+instance Data.ToHeaders DescribeStacks where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeStacks where
+instance Data.ToPath DescribeStacks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStacks where
+instance Data.ToQuery DescribeStacks where
   toQuery DescribeStacks' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeStacks" :: Prelude.ByteString),
+          Data.=: ("DescribeStacks" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "StackName" Core.=: stackName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "StackName" Data.=: stackName
       ]
 
 -- | The output for a DescribeStacks action.

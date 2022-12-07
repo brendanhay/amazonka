@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ZeppelinMonitoringConfigurationDescript
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.LogLevel
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,15 +57,15 @@ zeppelinMonitoringConfigurationDescription_logLevel :: Lens.Lens' ZeppelinMonito
 zeppelinMonitoringConfigurationDescription_logLevel = Lens.lens (\ZeppelinMonitoringConfigurationDescription' {logLevel} -> logLevel) (\s@ZeppelinMonitoringConfigurationDescription' {} a -> s {logLevel = a} :: ZeppelinMonitoringConfigurationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ZeppelinMonitoringConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ZeppelinMonitoringConfigurationDescription"
       ( \x ->
           ZeppelinMonitoringConfigurationDescription'
-            Prelude.<$> (x Core..:? "LogLevel")
+            Prelude.<$> (x Data..:? "LogLevel")
       )
 
 instance

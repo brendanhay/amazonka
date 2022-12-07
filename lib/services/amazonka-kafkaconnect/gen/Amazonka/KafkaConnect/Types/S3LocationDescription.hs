@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.S3LocationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The description of the location of an object in Amazon S3.
@@ -70,15 +71,15 @@ s3LocationDescription_objectVersion = Lens.lens (\S3LocationDescription' {object
 s3LocationDescription_bucketArn :: Lens.Lens' S3LocationDescription (Prelude.Maybe Prelude.Text)
 s3LocationDescription_bucketArn = Lens.lens (\S3LocationDescription' {bucketArn} -> bucketArn) (\s@S3LocationDescription' {} a -> s {bucketArn = a} :: S3LocationDescription)
 
-instance Core.FromJSON S3LocationDescription where
+instance Data.FromJSON S3LocationDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3LocationDescription"
       ( \x ->
           S3LocationDescription'
-            Prelude.<$> (x Core..:? "fileKey")
-            Prelude.<*> (x Core..:? "objectVersion")
-            Prelude.<*> (x Core..:? "bucketArn")
+            Prelude.<$> (x Data..:? "fileKey")
+            Prelude.<*> (x Data..:? "objectVersion")
+            Prelude.<*> (x Data..:? "bucketArn")
       )
 
 instance Prelude.Hashable S3LocationDescription where

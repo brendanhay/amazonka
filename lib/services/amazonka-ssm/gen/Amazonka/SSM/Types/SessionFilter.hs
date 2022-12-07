@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.SessionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.SessionFilterKey
 
@@ -165,11 +166,11 @@ instance Prelude.NFData SessionFilter where
   rnf SessionFilter' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON SessionFilter where
+instance Data.ToJSON SessionFilter where
   toJSON SessionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("key" Core..= key),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("key" Data..= key),
+            Prelude.Just ("value" Data..= value)
           ]
       )

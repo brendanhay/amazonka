@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.OutputGroupDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.OutputDetail
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newOutputGroupDetail =
 outputGroupDetail_outputDetails :: Lens.Lens' OutputGroupDetail (Prelude.Maybe [OutputDetail])
 outputGroupDetail_outputDetails = Lens.lens (\OutputGroupDetail' {outputDetails} -> outputDetails) (\s@OutputGroupDetail' {} a -> s {outputDetails = a} :: OutputGroupDetail) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON OutputGroupDetail where
+instance Data.FromJSON OutputGroupDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputGroupDetail"
       ( \x ->
           OutputGroupDetail'
-            Prelude.<$> (x Core..:? "outputDetails" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "outputDetails" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable OutputGroupDetail where

@@ -21,6 +21,7 @@ module Amazonka.WAF.Types.RegexMatchSetUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAF.Types.ChangeAction
 import Amazonka.WAF.Types.RegexMatchTuple
@@ -103,12 +104,12 @@ instance Prelude.NFData RegexMatchSetUpdate where
     Prelude.rnf action
       `Prelude.seq` Prelude.rnf regexMatchTuple
 
-instance Core.ToJSON RegexMatchSetUpdate where
+instance Data.ToJSON RegexMatchSetUpdate where
   toJSON RegexMatchSetUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Core..= action),
+          [ Prelude.Just ("Action" Data..= action),
             Prelude.Just
-              ("RegexMatchTuple" Core..= regexMatchTuple)
+              ("RegexMatchTuple" Data..= regexMatchTuple)
           ]
       )

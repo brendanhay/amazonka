@@ -43,6 +43,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,21 +95,21 @@ instance Prelude.NFData DeleteDashboards where
   rnf DeleteDashboards' {..} =
     Prelude.rnf dashboardNames
 
-instance Core.ToHeaders DeleteDashboards where
+instance Data.ToHeaders DeleteDashboards where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteDashboards where
+instance Data.ToPath DeleteDashboards where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDashboards where
+instance Data.ToQuery DeleteDashboards where
   toQuery DeleteDashboards' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDashboards" :: Prelude.ByteString),
+          Data.=: ("DeleteDashboards" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
         "DashboardNames"
-          Core.=: Core.toQueryList "member" dashboardNames
+          Data.=: Data.toQueryList "member" dashboardNames
       ]
 
 -- | /See:/ 'newDeleteDashboardsResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,13 +88,13 @@ instance Core.AWSRequest GetCell where
     Response.receiveJSON
       ( \s h x ->
           GetCellResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "parentReadinessScopes"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "parentReadinessScopes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "cellArn")
-            Prelude.<*> (x Core..?> "cellName")
-            Prelude.<*> (x Core..?> "cells" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "cellArn")
+            Prelude.<*> (x Data..?> "cellName")
+            Prelude.<*> (x Data..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,22 +105,22 @@ instance Prelude.Hashable GetCell where
 instance Prelude.NFData GetCell where
   rnf GetCell' {..} = Prelude.rnf cellName
 
-instance Core.ToHeaders GetCell where
+instance Data.ToHeaders GetCell where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetCell where
+instance Data.ToPath GetCell where
   toPath GetCell' {..} =
-    Prelude.mconcat ["/cells/", Core.toBS cellName]
+    Prelude.mconcat ["/cells/", Data.toBS cellName]
 
-instance Core.ToQuery GetCell where
+instance Data.ToQuery GetCell where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCellResponse' smart constructor.

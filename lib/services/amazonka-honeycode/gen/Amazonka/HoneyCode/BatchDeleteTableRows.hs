@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -183,11 +184,11 @@ instance Core.AWSRequest BatchDeleteTableRows where
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteTableRowsResponse'
-            Prelude.<$> ( x Core..?> "failedBatchItems"
+            Prelude.<$> ( x Data..?> "failedBatchItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "workbookCursor")
+            Prelude.<*> (x Data..:> "workbookCursor")
       )
 
 instance Prelude.Hashable BatchDeleteTableRows where
@@ -204,38 +205,38 @@ instance Prelude.NFData BatchDeleteTableRows where
       `Prelude.seq` Prelude.rnf tableId
       `Prelude.seq` Prelude.rnf rowIds
 
-instance Core.ToHeaders BatchDeleteTableRows where
+instance Data.ToHeaders BatchDeleteTableRows where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDeleteTableRows where
+instance Data.ToJSON BatchDeleteTableRows where
   toJSON BatchDeleteTableRows' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientRequestToken" Core..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("rowIds" Core..= rowIds)
+            Prelude.Just ("rowIds" Data..= rowIds)
           ]
       )
 
-instance Core.ToPath BatchDeleteTableRows where
+instance Data.ToPath BatchDeleteTableRows where
   toPath BatchDeleteTableRows' {..} =
     Prelude.mconcat
       [ "/workbooks/",
-        Core.toBS workbookId,
+        Data.toBS workbookId,
         "/tables/",
-        Core.toBS tableId,
+        Data.toBS tableId,
         "/rows/batchdelete"
       ]
 
-instance Core.ToQuery BatchDeleteTableRows where
+instance Data.ToQuery BatchDeleteTableRows where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDeleteTableRowsResponse' smart constructor.

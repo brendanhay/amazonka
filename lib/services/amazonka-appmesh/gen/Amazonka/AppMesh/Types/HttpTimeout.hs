@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.HttpTimeout where
 import Amazonka.AppMesh.Types.Duration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents types of timeouts.
@@ -80,14 +81,14 @@ httpTimeout_perRequest = Lens.lens (\HttpTimeout' {perRequest} -> perRequest) (\
 httpTimeout_idle :: Lens.Lens' HttpTimeout (Prelude.Maybe Duration)
 httpTimeout_idle = Lens.lens (\HttpTimeout' {idle} -> idle) (\s@HttpTimeout' {} a -> s {idle = a} :: HttpTimeout)
 
-instance Core.FromJSON HttpTimeout where
+instance Data.FromJSON HttpTimeout where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpTimeout"
       ( \x ->
           HttpTimeout'
-            Prelude.<$> (x Core..:? "perRequest")
-            Prelude.<*> (x Core..:? "idle")
+            Prelude.<$> (x Data..:? "perRequest")
+            Prelude.<*> (x Data..:? "idle")
       )
 
 instance Prelude.Hashable HttpTimeout where
@@ -100,11 +101,11 @@ instance Prelude.NFData HttpTimeout where
     Prelude.rnf perRequest
       `Prelude.seq` Prelude.rnf idle
 
-instance Core.ToJSON HttpTimeout where
+instance Data.ToJSON HttpTimeout where
   toJSON HttpTimeout' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("perRequest" Core..=) Prelude.<$> perRequest,
-            ("idle" Core..=) Prelude.<$> idle
+          [ ("perRequest" Data..=) Prelude.<$> perRequest,
+            ("idle" Data..=) Prelude.<$> idle
           ]
       )

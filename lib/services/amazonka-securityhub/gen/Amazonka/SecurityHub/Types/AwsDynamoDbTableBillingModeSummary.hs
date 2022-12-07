@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsDynamoDbTableBillingModeSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the billing for read\/write capacity on the
@@ -86,16 +87,16 @@ awsDynamoDbTableBillingModeSummary_lastUpdateToPayPerRequestDateTime :: Lens.Len
 awsDynamoDbTableBillingModeSummary_lastUpdateToPayPerRequestDateTime = Lens.lens (\AwsDynamoDbTableBillingModeSummary' {lastUpdateToPayPerRequestDateTime} -> lastUpdateToPayPerRequestDateTime) (\s@AwsDynamoDbTableBillingModeSummary' {} a -> s {lastUpdateToPayPerRequestDateTime = a} :: AwsDynamoDbTableBillingModeSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsDynamoDbTableBillingModeSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsDynamoDbTableBillingModeSummary"
       ( \x ->
           AwsDynamoDbTableBillingModeSummary'
-            Prelude.<$> (x Core..:? "BillingMode")
-            Prelude.<*> (x Core..:? "LastUpdateToPayPerRequestDateTime")
+            Prelude.<$> (x Data..:? "BillingMode")
+            Prelude.<*> (x Data..:? "LastUpdateToPayPerRequestDateTime")
       )
 
 instance
@@ -117,14 +118,14 @@ instance
       `Prelude.seq` Prelude.rnf lastUpdateToPayPerRequestDateTime
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsDynamoDbTableBillingModeSummary
   where
   toJSON AwsDynamoDbTableBillingModeSummary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BillingMode" Core..=) Prelude.<$> billingMode,
-            ("LastUpdateToPayPerRequestDateTime" Core..=)
+          [ ("BillingMode" Data..=) Prelude.<$> billingMode,
+            ("LastUpdateToPayPerRequestDateTime" Data..=)
               Prelude.<$> lastUpdateToPayPerRequestDateTime
           ]
       )

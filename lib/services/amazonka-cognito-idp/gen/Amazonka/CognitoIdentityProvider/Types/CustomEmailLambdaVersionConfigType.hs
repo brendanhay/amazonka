@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.CustomEmailLambdaVersionConfigType
 import Amazonka.CognitoIdentityProvider.Types.CustomEmailSenderLambdaVersionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A custom email sender Lambda configuration type.
@@ -79,16 +80,16 @@ customEmailLambdaVersionConfigType_lambdaArn :: Lens.Lens' CustomEmailLambdaVers
 customEmailLambdaVersionConfigType_lambdaArn = Lens.lens (\CustomEmailLambdaVersionConfigType' {lambdaArn} -> lambdaArn) (\s@CustomEmailLambdaVersionConfigType' {} a -> s {lambdaArn = a} :: CustomEmailLambdaVersionConfigType)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomEmailLambdaVersionConfigType
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomEmailLambdaVersionConfigType"
       ( \x ->
           CustomEmailLambdaVersionConfigType'
-            Prelude.<$> (x Core..: "LambdaVersion")
-            Prelude.<*> (x Core..: "LambdaArn")
+            Prelude.<$> (x Data..: "LambdaVersion")
+            Prelude.<*> (x Data..: "LambdaArn")
       )
 
 instance
@@ -110,14 +111,14 @@ instance
       `Prelude.seq` Prelude.rnf lambdaArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CustomEmailLambdaVersionConfigType
   where
   toJSON CustomEmailLambdaVersionConfigType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("LambdaVersion" Core..= lambdaVersion),
-            Prelude.Just ("LambdaArn" Core..= lambdaArn)
+              ("LambdaVersion" Data..= lambdaVersion),
+            Prelude.Just ("LambdaArn" Data..= lambdaArn)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MarketplaceCatalog.Types.Change where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceCatalog.Types.Entity
 import Amazonka.MarketplaceCatalog.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -121,14 +122,14 @@ instance Prelude.NFData Change where
       `Prelude.seq` Prelude.rnf entity
       `Prelude.seq` Prelude.rnf details
 
-instance Core.ToJSON Change where
+instance Data.ToJSON Change where
   toJSON Change' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ChangeName" Core..=) Prelude.<$> changeName,
-            ("EntityTags" Core..=) Prelude.<$> entityTags,
-            Prelude.Just ("ChangeType" Core..= changeType),
-            Prelude.Just ("Entity" Core..= entity),
-            Prelude.Just ("Details" Core..= details)
+          [ ("ChangeName" Data..=) Prelude.<$> changeName,
+            ("EntityTags" Data..=) Prelude.<$> entityTags,
+            Prelude.Just ("ChangeType" Data..= changeType),
+            Prelude.Just ("Entity" Data..= entity),
+            Prelude.Just ("Details" Data..= details)
           ]
       )

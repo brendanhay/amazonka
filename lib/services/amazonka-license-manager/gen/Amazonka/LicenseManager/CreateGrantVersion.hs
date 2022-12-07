@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -153,9 +154,9 @@ instance Core.AWSRequest CreateGrantVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateGrantVersionResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "GrantArn")
-            Prelude.<*> (x Core..?> "Version")
+            Prelude.<$> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "GrantArn")
+            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,40 +180,40 @@ instance Prelude.NFData CreateGrantVersion where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf grantArn
 
-instance Core.ToHeaders CreateGrantVersion where
+instance Data.ToHeaders CreateGrantVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.CreateGrantVersion" ::
+              Data.=# ( "AWSLicenseManager.CreateGrantVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateGrantVersion where
+instance Data.ToJSON CreateGrantVersion where
   toJSON CreateGrantVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceVersion" Core..=) Prelude.<$> sourceVersion,
-            ("StatusReason" Core..=) Prelude.<$> statusReason,
-            ("AllowedOperations" Core..=)
+          [ ("SourceVersion" Data..=) Prelude.<$> sourceVersion,
+            ("StatusReason" Data..=) Prelude.<$> statusReason,
+            ("AllowedOperations" Data..=)
               Prelude.<$> allowedOperations,
-            ("Status" Core..=) Prelude.<$> status,
-            ("GrantName" Core..=) Prelude.<$> grantName,
-            Prelude.Just ("ClientToken" Core..= clientToken),
-            Prelude.Just ("GrantArn" Core..= grantArn)
+            ("Status" Data..=) Prelude.<$> status,
+            ("GrantName" Data..=) Prelude.<$> grantName,
+            Prelude.Just ("ClientToken" Data..= clientToken),
+            Prelude.Just ("GrantArn" Data..= grantArn)
           ]
       )
 
-instance Core.ToPath CreateGrantVersion where
+instance Data.ToPath CreateGrantVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateGrantVersion where
+instance Data.ToQuery CreateGrantVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGrantVersionResponse' smart constructor.

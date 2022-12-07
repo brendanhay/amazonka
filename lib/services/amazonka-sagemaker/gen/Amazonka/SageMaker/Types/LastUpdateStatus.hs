@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.LastUpdateStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.LastUpdateStatusValue
 
@@ -64,14 +65,14 @@ lastUpdateStatus_failureReason = Lens.lens (\LastUpdateStatus' {failureReason} -
 lastUpdateStatus_status :: Lens.Lens' LastUpdateStatus LastUpdateStatusValue
 lastUpdateStatus_status = Lens.lens (\LastUpdateStatus' {status} -> status) (\s@LastUpdateStatus' {} a -> s {status = a} :: LastUpdateStatus)
 
-instance Core.FromJSON LastUpdateStatus where
+instance Data.FromJSON LastUpdateStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LastUpdateStatus"
       ( \x ->
           LastUpdateStatus'
-            Prelude.<$> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable LastUpdateStatus where

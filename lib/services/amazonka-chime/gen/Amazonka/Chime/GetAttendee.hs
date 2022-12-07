@@ -46,6 +46,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,7 +99,7 @@ instance Core.AWSRequest GetAttendee where
     Response.receiveJSON
       ( \s h x ->
           GetAttendeeResponse'
-            Prelude.<$> (x Core..?> "Attendee")
+            Prelude.<$> (x Data..?> "Attendee")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,19 +113,19 @@ instance Prelude.NFData GetAttendee where
     Prelude.rnf meetingId
       `Prelude.seq` Prelude.rnf attendeeId
 
-instance Core.ToHeaders GetAttendee where
+instance Data.ToHeaders GetAttendee where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetAttendee where
+instance Data.ToPath GetAttendee where
   toPath GetAttendee' {..} =
     Prelude.mconcat
       [ "/meetings/",
-        Core.toBS meetingId,
+        Data.toBS meetingId,
         "/attendees/",
-        Core.toBS attendeeId
+        Data.toBS attendeeId
       ]
 
-instance Core.ToQuery GetAttendee where
+instance Data.ToQuery GetAttendee where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAttendeeResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.CodeStarNotifications.Types.ListEventTypesFilter where
 import Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a filter to apply to the list of returned event types.
@@ -79,11 +80,11 @@ instance Prelude.NFData ListEventTypesFilter where
   rnf ListEventTypesFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ListEventTypesFilter where
+instance Data.ToJSON ListEventTypesFilter where
   toJSON ListEventTypesFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

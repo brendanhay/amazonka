@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DatabaseConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.AclConfiguration
 import Amazonka.Kendra.Types.ColumnConfiguration
 import Amazonka.Kendra.Types.ConnectionConfiguration
@@ -121,18 +122,18 @@ databaseConfiguration_connectionConfiguration = Lens.lens (\DatabaseConfiguratio
 databaseConfiguration_columnConfiguration :: Lens.Lens' DatabaseConfiguration ColumnConfiguration
 databaseConfiguration_columnConfiguration = Lens.lens (\DatabaseConfiguration' {columnConfiguration} -> columnConfiguration) (\s@DatabaseConfiguration' {} a -> s {columnConfiguration = a} :: DatabaseConfiguration)
 
-instance Core.FromJSON DatabaseConfiguration where
+instance Data.FromJSON DatabaseConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatabaseConfiguration"
       ( \x ->
           DatabaseConfiguration'
-            Prelude.<$> (x Core..:? "VpcConfiguration")
-            Prelude.<*> (x Core..:? "AclConfiguration")
-            Prelude.<*> (x Core..:? "SqlConfiguration")
-            Prelude.<*> (x Core..: "DatabaseEngineType")
-            Prelude.<*> (x Core..: "ConnectionConfiguration")
-            Prelude.<*> (x Core..: "ColumnConfiguration")
+            Prelude.<$> (x Data..:? "VpcConfiguration")
+            Prelude.<*> (x Data..:? "AclConfiguration")
+            Prelude.<*> (x Data..:? "SqlConfiguration")
+            Prelude.<*> (x Data..: "DatabaseEngineType")
+            Prelude.<*> (x Data..: "ConnectionConfiguration")
+            Prelude.<*> (x Data..: "ColumnConfiguration")
       )
 
 instance Prelude.Hashable DatabaseConfiguration where
@@ -153,23 +154,23 @@ instance Prelude.NFData DatabaseConfiguration where
       `Prelude.seq` Prelude.rnf connectionConfiguration
       `Prelude.seq` Prelude.rnf columnConfiguration
 
-instance Core.ToJSON DatabaseConfiguration where
+instance Data.ToJSON DatabaseConfiguration where
   toJSON DatabaseConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpcConfiguration" Core..=)
+          [ ("VpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("AclConfiguration" Core..=)
+            ("AclConfiguration" Data..=)
               Prelude.<$> aclConfiguration,
-            ("SqlConfiguration" Core..=)
+            ("SqlConfiguration" Data..=)
               Prelude.<$> sqlConfiguration,
             Prelude.Just
-              ("DatabaseEngineType" Core..= databaseEngineType),
+              ("DatabaseEngineType" Data..= databaseEngineType),
             Prelude.Just
               ( "ConnectionConfiguration"
-                  Core..= connectionConfiguration
+                  Data..= connectionConfiguration
               ),
             Prelude.Just
-              ("ColumnConfiguration" Core..= columnConfiguration)
+              ("ColumnConfiguration" Data..= columnConfiguration)
           ]
       )

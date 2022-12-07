@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.ImageIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object with identifying information for an image in an Amazon ECR
@@ -62,14 +63,14 @@ imageIdentifier_imageTag = Lens.lens (\ImageIdentifier' {imageTag} -> imageTag) 
 imageIdentifier_imageDigest :: Lens.Lens' ImageIdentifier (Prelude.Maybe Prelude.Text)
 imageIdentifier_imageDigest = Lens.lens (\ImageIdentifier' {imageDigest} -> imageDigest) (\s@ImageIdentifier' {} a -> s {imageDigest = a} :: ImageIdentifier)
 
-instance Core.FromJSON ImageIdentifier where
+instance Data.FromJSON ImageIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageIdentifier"
       ( \x ->
           ImageIdentifier'
-            Prelude.<$> (x Core..:? "imageTag")
-            Prelude.<*> (x Core..:? "imageDigest")
+            Prelude.<$> (x Data..:? "imageTag")
+            Prelude.<*> (x Data..:? "imageDigest")
       )
 
 instance Prelude.Hashable ImageIdentifier where
@@ -82,11 +83,11 @@ instance Prelude.NFData ImageIdentifier where
     Prelude.rnf imageTag
       `Prelude.seq` Prelude.rnf imageDigest
 
-instance Core.ToJSON ImageIdentifier where
+instance Data.ToJSON ImageIdentifier where
   toJSON ImageIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("imageTag" Core..=) Prelude.<$> imageTag,
-            ("imageDigest" Core..=) Prelude.<$> imageDigest
+          [ ("imageTag" Data..=) Prelude.<$> imageTag,
+            ("imageDigest" Data..=) Prelude.<$> imageDigest
           ]
       )

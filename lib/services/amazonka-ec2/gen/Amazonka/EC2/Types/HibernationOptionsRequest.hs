@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.HibernationOptionsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,6 +77,6 @@ instance Prelude.NFData HibernationOptionsRequest where
   rnf HibernationOptionsRequest' {..} =
     Prelude.rnf configured
 
-instance Core.ToQuery HibernationOptionsRequest where
+instance Data.ToQuery HibernationOptionsRequest where
   toQuery HibernationOptionsRequest' {..} =
-    Prelude.mconcat ["Configured" Core.=: configured]
+    Prelude.mconcat ["Configured" Data.=: configured]

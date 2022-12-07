@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.SageMakerMachineLearningModelResourceData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.ResourceDownloadOwnerSetting
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,17 +77,17 @@ sageMakerMachineLearningModelResourceData_ownerSetting :: Lens.Lens' SageMakerMa
 sageMakerMachineLearningModelResourceData_ownerSetting = Lens.lens (\SageMakerMachineLearningModelResourceData' {ownerSetting} -> ownerSetting) (\s@SageMakerMachineLearningModelResourceData' {} a -> s {ownerSetting = a} :: SageMakerMachineLearningModelResourceData)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SageMakerMachineLearningModelResourceData
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SageMakerMachineLearningModelResourceData"
       ( \x ->
           SageMakerMachineLearningModelResourceData'
-            Prelude.<$> (x Core..:? "DestinationPath")
-              Prelude.<*> (x Core..:? "SageMakerJobArn")
-              Prelude.<*> (x Core..:? "OwnerSetting")
+            Prelude.<$> (x Data..:? "DestinationPath")
+              Prelude.<*> (x Data..:? "SageMakerJobArn")
+              Prelude.<*> (x Data..:? "OwnerSetting")
       )
 
 instance
@@ -110,16 +111,16 @@ instance
       `Prelude.seq` Prelude.rnf ownerSetting
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SageMakerMachineLearningModelResourceData
   where
   toJSON SageMakerMachineLearningModelResourceData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DestinationPath" Core..=)
+          [ ("DestinationPath" Data..=)
               Prelude.<$> destinationPath,
-            ("SageMakerJobArn" Core..=)
+            ("SageMakerJobArn" Data..=)
               Prelude.<$> sageMakerJobArn,
-            ("OwnerSetting" Core..=) Prelude.<$> ownerSetting
+            ("OwnerSetting" Data..=) Prelude.<$> ownerSetting
           ]
       )

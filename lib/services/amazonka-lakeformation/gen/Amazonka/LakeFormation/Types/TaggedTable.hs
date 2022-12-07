@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.TaggedTable where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.ColumnLFTag
 import Amazonka.LakeFormation.Types.LFTagPair
 import Amazonka.LakeFormation.Types.TableResource
@@ -82,17 +83,17 @@ taggedTable_lFTagOnDatabase = Lens.lens (\TaggedTable' {lFTagOnDatabase} -> lFTa
 taggedTable_lFTagsOnColumns :: Lens.Lens' TaggedTable (Prelude.Maybe [ColumnLFTag])
 taggedTable_lFTagsOnColumns = Lens.lens (\TaggedTable' {lFTagsOnColumns} -> lFTagsOnColumns) (\s@TaggedTable' {} a -> s {lFTagsOnColumns = a} :: TaggedTable) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TaggedTable where
+instance Data.FromJSON TaggedTable where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaggedTable"
       ( \x ->
           TaggedTable'
-            Prelude.<$> (x Core..:? "LFTagsOnTable")
-            Prelude.<*> (x Core..:? "Table")
-            Prelude.<*> (x Core..:? "LFTagOnDatabase")
-            Prelude.<*> ( x Core..:? "LFTagsOnColumns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "LFTagsOnTable")
+            Prelude.<*> (x Data..:? "Table")
+            Prelude.<*> (x Data..:? "LFTagOnDatabase")
+            Prelude.<*> ( x Data..:? "LFTagsOnColumns"
+                            Data..!= Prelude.mempty
                         )
       )
 

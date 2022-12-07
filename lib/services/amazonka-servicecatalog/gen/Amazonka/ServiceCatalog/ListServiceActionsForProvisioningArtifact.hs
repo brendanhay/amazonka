@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -188,8 +189,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListServiceActionsForProvisioningArtifactResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-              Prelude.<*> ( x Core..?> "ServiceActionSummaries"
+            Prelude.<$> (x Data..?> "NextPageToken")
+              Prelude.<*> ( x Data..?> "ServiceActionSummaries"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -220,50 +221,50 @@ instance
       `Prelude.seq` Prelude.rnf provisioningArtifactId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListServiceActionsForProvisioningArtifact
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ListServiceActionsForProvisioningArtifact" ::
+              Data.=# ( "AWS242ServiceCatalogService.ListServiceActionsForProvisioningArtifact" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListServiceActionsForProvisioningArtifact
   where
   toJSON ListServiceActionsForProvisioningArtifact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Core..=)
+          [ ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("ProductId" Core..= productId),
+            Prelude.Just ("ProductId" Data..= productId),
             Prelude.Just
               ( "ProvisioningArtifactId"
-                  Core..= provisioningArtifactId
+                  Data..= provisioningArtifactId
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListServiceActionsForProvisioningArtifact
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListServiceActionsForProvisioningArtifact
   where
   toQuery = Prelude.const Prelude.mempty

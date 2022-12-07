@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.HealthCheckConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.HealthCheckType
 
@@ -245,15 +246,15 @@ healthCheckConfig_resourcePath = Lens.lens (\HealthCheckConfig' {resourcePath} -
 healthCheckConfig_type :: Lens.Lens' HealthCheckConfig HealthCheckType
 healthCheckConfig_type = Lens.lens (\HealthCheckConfig' {type'} -> type') (\s@HealthCheckConfig' {} a -> s {type' = a} :: HealthCheckConfig)
 
-instance Core.FromJSON HealthCheckConfig where
+instance Data.FromJSON HealthCheckConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HealthCheckConfig"
       ( \x ->
           HealthCheckConfig'
-            Prelude.<$> (x Core..:? "FailureThreshold")
-            Prelude.<*> (x Core..:? "ResourcePath")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "FailureThreshold")
+            Prelude.<*> (x Data..:? "ResourcePath")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable HealthCheckConfig where
@@ -268,13 +269,13 @@ instance Prelude.NFData HealthCheckConfig where
       `Prelude.seq` Prelude.rnf resourcePath
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON HealthCheckConfig where
+instance Data.ToJSON HealthCheckConfig where
   toJSON HealthCheckConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FailureThreshold" Core..=)
+          [ ("FailureThreshold" Data..=)
               Prelude.<$> failureThreshold,
-            ("ResourcePath" Core..=) Prelude.<$> resourcePath,
-            Prelude.Just ("Type" Core..= type')
+            ("ResourcePath" Data..=) Prelude.<$> resourcePath,
+            Prelude.Just ("Type" Data..= type')
           ]
       )

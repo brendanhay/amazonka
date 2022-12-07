@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -153,7 +154,7 @@ instance
       ( \s h x ->
           GetJourneyExecutionActivityMetricsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (Core.eitherParseJSON x)
+              Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance
@@ -181,42 +182,42 @@ instance
       `Prelude.seq` Prelude.rnf journeyId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetJourneyExecutionActivityMetrics
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetJourneyExecutionActivityMetrics
   where
   toPath GetJourneyExecutionActivityMetrics' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/journeys/",
-        Core.toBS journeyId,
+        Data.toBS journeyId,
         "/activities/",
-        Core.toBS journeyActivityId,
+        Data.toBS journeyActivityId,
         "/execution-metrics"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetJourneyExecutionActivityMetrics
   where
   toQuery GetJourneyExecutionActivityMetrics' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "page-size" Core.=: pageSize
+      [ "next-token" Data.=: nextToken,
+        "page-size" Data.=: pageSize
       ]
 
 -- | /See:/ 'newGetJourneyExecutionActivityMetricsResponse' smart constructor.

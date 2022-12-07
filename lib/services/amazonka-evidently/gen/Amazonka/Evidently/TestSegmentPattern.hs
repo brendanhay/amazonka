@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest TestSegmentPattern where
       ( \s h x ->
           TestSegmentPatternResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "match")
+            Prelude.<*> (x Data..:> "match")
       )
 
 instance Prelude.Hashable TestSegmentPattern where
@@ -116,30 +117,30 @@ instance Prelude.NFData TestSegmentPattern where
     Prelude.rnf pattern'
       `Prelude.seq` Prelude.rnf payload
 
-instance Core.ToHeaders TestSegmentPattern where
+instance Data.ToHeaders TestSegmentPattern where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TestSegmentPattern where
+instance Data.ToJSON TestSegmentPattern where
   toJSON TestSegmentPattern' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("pattern" Core..= pattern'),
-            Prelude.Just ("payload" Core..= payload)
+          [ Prelude.Just ("pattern" Data..= pattern'),
+            Prelude.Just ("payload" Data..= payload)
           ]
       )
 
-instance Core.ToPath TestSegmentPattern where
+instance Data.ToPath TestSegmentPattern where
   toPath = Prelude.const "/test-segment-pattern"
 
-instance Core.ToQuery TestSegmentPattern where
+instance Data.ToQuery TestSegmentPattern where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTestSegmentPatternResponse' smart constructor.

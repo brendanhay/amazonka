@@ -22,6 +22,7 @@ module Amazonka.BackupStorage.Types.Chunk where
 import Amazonka.BackupStorage.Types.DataChecksumAlgorithm
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Chunk
@@ -104,17 +105,17 @@ chunk_checksumAlgorithm = Lens.lens (\Chunk' {checksumAlgorithm} -> checksumAlgo
 chunk_chunkToken :: Lens.Lens' Chunk Prelude.Text
 chunk_chunkToken = Lens.lens (\Chunk' {chunkToken} -> chunkToken) (\s@Chunk' {} a -> s {chunkToken = a} :: Chunk)
 
-instance Core.FromJSON Chunk where
+instance Data.FromJSON Chunk where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Chunk"
       ( \x ->
           Chunk'
-            Prelude.<$> (x Core..: "Index")
-            Prelude.<*> (x Core..: "Length")
-            Prelude.<*> (x Core..: "Checksum")
-            Prelude.<*> (x Core..: "ChecksumAlgorithm")
-            Prelude.<*> (x Core..: "ChunkToken")
+            Prelude.<$> (x Data..: "Index")
+            Prelude.<*> (x Data..: "Length")
+            Prelude.<*> (x Data..: "Checksum")
+            Prelude.<*> (x Data..: "ChecksumAlgorithm")
+            Prelude.<*> (x Data..: "ChunkToken")
       )
 
 instance Prelude.Hashable Chunk where

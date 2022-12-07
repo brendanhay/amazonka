@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -106,10 +107,10 @@ instance Core.AWSRequest DescribeTemplatePermissions where
     Response.receiveJSON
       ( \s h x ->
           DescribeTemplatePermissionsResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Permissions")
-            Prelude.<*> (x Core..?> "TemplateId")
-            Prelude.<*> (x Core..?> "TemplateArn")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Permissions")
+            Prelude.<*> (x Data..?> "TemplateId")
+            Prelude.<*> (x Data..?> "TemplateArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,28 +124,28 @@ instance Prelude.NFData DescribeTemplatePermissions where
     Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf templateId
 
-instance Core.ToHeaders DescribeTemplatePermissions where
+instance Data.ToHeaders DescribeTemplatePermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeTemplatePermissions where
+instance Data.ToPath DescribeTemplatePermissions where
   toPath DescribeTemplatePermissions' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/templates/",
-        Core.toBS templateId,
+        Data.toBS templateId,
         "/permissions"
       ]
 
-instance Core.ToQuery DescribeTemplatePermissions where
+instance Data.ToQuery DescribeTemplatePermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTemplatePermissionsResponse' smart constructor.

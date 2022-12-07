@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AuthResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.Allowed
 import Amazonka.IoT.Types.AuthDecision
 import Amazonka.IoT.Types.AuthInfo
@@ -98,19 +99,19 @@ authResult_authInfo = Lens.lens (\AuthResult' {authInfo} -> authInfo) (\s@AuthRe
 authResult_authDecision :: Lens.Lens' AuthResult (Prelude.Maybe AuthDecision)
 authResult_authDecision = Lens.lens (\AuthResult' {authDecision} -> authDecision) (\s@AuthResult' {} a -> s {authDecision = a} :: AuthResult)
 
-instance Core.FromJSON AuthResult where
+instance Data.FromJSON AuthResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuthResult"
       ( \x ->
           AuthResult'
-            Prelude.<$> (x Core..:? "allowed")
-            Prelude.<*> (x Core..:? "denied")
-            Prelude.<*> ( x Core..:? "missingContextValues"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "allowed")
+            Prelude.<*> (x Data..:? "denied")
+            Prelude.<*> ( x Data..:? "missingContextValues"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "authInfo")
-            Prelude.<*> (x Core..:? "authDecision")
+            Prelude.<*> (x Data..:? "authInfo")
+            Prelude.<*> (x Data..:? "authDecision")
       )
 
 instance Prelude.Hashable AuthResult where

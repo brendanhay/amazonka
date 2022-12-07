@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Rectangle where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use Rectangle to identify a specific area of the video frame.
@@ -85,16 +86,16 @@ rectangle_y = Lens.lens (\Rectangle' {y} -> y) (\s@Rectangle' {} a -> s {y = a} 
 rectangle_height :: Lens.Lens' Rectangle (Prelude.Maybe Prelude.Natural)
 rectangle_height = Lens.lens (\Rectangle' {height} -> height) (\s@Rectangle' {} a -> s {height = a} :: Rectangle)
 
-instance Core.FromJSON Rectangle where
+instance Data.FromJSON Rectangle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Rectangle"
       ( \x ->
           Rectangle'
-            Prelude.<$> (x Core..:? "x")
-            Prelude.<*> (x Core..:? "width")
-            Prelude.<*> (x Core..:? "y")
-            Prelude.<*> (x Core..:? "height")
+            Prelude.<$> (x Data..:? "x")
+            Prelude.<*> (x Data..:? "width")
+            Prelude.<*> (x Data..:? "y")
+            Prelude.<*> (x Data..:? "height")
       )
 
 instance Prelude.Hashable Rectangle where
@@ -111,13 +112,13 @@ instance Prelude.NFData Rectangle where
       `Prelude.seq` Prelude.rnf y
       `Prelude.seq` Prelude.rnf height
 
-instance Core.ToJSON Rectangle where
+instance Data.ToJSON Rectangle where
   toJSON Rectangle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("x" Core..=) Prelude.<$> x,
-            ("width" Core..=) Prelude.<$> width,
-            ("y" Core..=) Prelude.<$> y,
-            ("height" Core..=) Prelude.<$> height
+          [ ("x" Data..=) Prelude.<$> x,
+            ("width" Data..=) Prelude.<$> width,
+            ("y" Data..=) Prelude.<$> y,
+            ("height" Data..=) Prelude.<$> height
           ]
       )

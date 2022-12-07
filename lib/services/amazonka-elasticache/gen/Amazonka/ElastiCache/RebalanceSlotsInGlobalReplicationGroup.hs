@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance
       "RebalanceSlotsInGlobalReplicationGroupResult"
       ( \s h x ->
           RebalanceSlotsInGlobalReplicationGroupResponse'
-            Prelude.<$> (x Core..@? "GlobalReplicationGroup")
+            Prelude.<$> (x Data..@? "GlobalReplicationGroup")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,32 +132,32 @@ instance
       `Prelude.seq` Prelude.rnf applyImmediately
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RebalanceSlotsInGlobalReplicationGroup
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     RebalanceSlotsInGlobalReplicationGroup
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     RebalanceSlotsInGlobalReplicationGroup
   where
   toQuery RebalanceSlotsInGlobalReplicationGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "RebalanceSlotsInGlobalReplicationGroup" ::
+          Data.=: ( "RebalanceSlotsInGlobalReplicationGroup" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "GlobalReplicationGroupId"
-          Core.=: globalReplicationGroupId,
-        "ApplyImmediately" Core.=: applyImmediately
+          Data.=: globalReplicationGroupId,
+        "ApplyImmediately" Data.=: applyImmediately
       ]
 
 -- | /See:/ 'newRebalanceSlotsInGlobalReplicationGroupResponse' smart constructor.

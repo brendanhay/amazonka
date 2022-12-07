@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,18 +103,18 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeModelBiasJobDefinitionResponse'
-            Prelude.<$> (x Core..?> "NetworkConfig")
-            Prelude.<*> (x Core..?> "ModelBiasBaselineConfig")
-            Prelude.<*> (x Core..?> "StoppingCondition")
+            Prelude.<$> (x Data..?> "NetworkConfig")
+            Prelude.<*> (x Data..?> "ModelBiasBaselineConfig")
+            Prelude.<*> (x Data..?> "StoppingCondition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "JobDefinitionArn")
-            Prelude.<*> (x Core..:> "JobDefinitionName")
-            Prelude.<*> (x Core..:> "CreationTime")
-            Prelude.<*> (x Core..:> "ModelBiasAppSpecification")
-            Prelude.<*> (x Core..:> "ModelBiasJobInput")
-            Prelude.<*> (x Core..:> "ModelBiasJobOutputConfig")
-            Prelude.<*> (x Core..:> "JobResources")
-            Prelude.<*> (x Core..:> "RoleArn")
+            Prelude.<*> (x Data..:> "JobDefinitionArn")
+            Prelude.<*> (x Data..:> "JobDefinitionName")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "ModelBiasAppSpecification")
+            Prelude.<*> (x Data..:> "ModelBiasJobInput")
+            Prelude.<*> (x Data..:> "ModelBiasJobOutputConfig")
+            Prelude.<*> (x Data..:> "JobResources")
+            Prelude.<*> (x Data..:> "RoleArn")
       )
 
 instance
@@ -133,36 +134,36 @@ instance
     Prelude.rnf jobDefinitionName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeModelBiasJobDefinition
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeModelBiasJobDefinition" ::
+              Data.=# ( "SageMaker.DescribeModelBiasJobDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeModelBiasJobDefinition where
+instance Data.ToJSON DescribeModelBiasJobDefinition where
   toJSON DescribeModelBiasJobDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("JobDefinitionName" Core..= jobDefinitionName)
+              ("JobDefinitionName" Data..= jobDefinitionName)
           ]
       )
 
-instance Core.ToPath DescribeModelBiasJobDefinition where
+instance Data.ToPath DescribeModelBiasJobDefinition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeModelBiasJobDefinition where
+instance Data.ToQuery DescribeModelBiasJobDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeModelBiasJobDefinitionResponse' smart constructor.
@@ -180,7 +181,7 @@ data DescribeModelBiasJobDefinitionResponse = DescribeModelBiasJobDefinitionResp
     -- Amazon Web Services Region in the Amazon Web Services account.
     jobDefinitionName :: Prelude.Text,
     -- | The time at which the model bias job was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | Configures the model bias job to run a specified Docker container image.
     modelBiasAppSpecification :: ModelBiasAppSpecification,
     -- | Inputs for the model bias job.
@@ -270,7 +271,7 @@ newDescribeModelBiasJobDefinitionResponse
         jobDefinitionName =
           pJobDefinitionName_,
         creationTime =
-          Core._Time Lens.# pCreationTime_,
+          Data._Time Lens.# pCreationTime_,
         modelBiasAppSpecification =
           pModelBiasAppSpecification_,
         modelBiasJobInput =
@@ -308,7 +309,7 @@ describeModelBiasJobDefinitionResponse_jobDefinitionName = Lens.lens (\DescribeM
 
 -- | The time at which the model bias job was created.
 describeModelBiasJobDefinitionResponse_creationTime :: Lens.Lens' DescribeModelBiasJobDefinitionResponse Prelude.UTCTime
-describeModelBiasJobDefinitionResponse_creationTime = Lens.lens (\DescribeModelBiasJobDefinitionResponse' {creationTime} -> creationTime) (\s@DescribeModelBiasJobDefinitionResponse' {} a -> s {creationTime = a} :: DescribeModelBiasJobDefinitionResponse) Prelude.. Core._Time
+describeModelBiasJobDefinitionResponse_creationTime = Lens.lens (\DescribeModelBiasJobDefinitionResponse' {creationTime} -> creationTime) (\s@DescribeModelBiasJobDefinitionResponse' {} a -> s {creationTime = a} :: DescribeModelBiasJobDefinitionResponse) Prelude.. Data._Time
 
 -- | Configures the model bias job to run a specified Docker container image.
 describeModelBiasJobDefinitionResponse_modelBiasAppSpecification :: Lens.Lens' DescribeModelBiasJobDefinitionResponse ModelBiasAppSpecification

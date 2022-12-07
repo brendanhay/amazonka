@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.EC2CreateRouteAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.ActionTarget
 import qualified Amazonka.Prelude as Prelude
 
@@ -122,19 +123,19 @@ eC2CreateRouteAction_destinationIpv6CidrBlock = Lens.lens (\EC2CreateRouteAction
 eC2CreateRouteAction_routeTableId :: Lens.Lens' EC2CreateRouteAction ActionTarget
 eC2CreateRouteAction_routeTableId = Lens.lens (\EC2CreateRouteAction' {routeTableId} -> routeTableId) (\s@EC2CreateRouteAction' {} a -> s {routeTableId = a} :: EC2CreateRouteAction)
 
-instance Core.FromJSON EC2CreateRouteAction where
+instance Data.FromJSON EC2CreateRouteAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EC2CreateRouteAction"
       ( \x ->
           EC2CreateRouteAction'
-            Prelude.<$> (x Core..:? "DestinationPrefixListId")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "VpcEndpointId")
-            Prelude.<*> (x Core..:? "DestinationCidrBlock")
-            Prelude.<*> (x Core..:? "GatewayId")
-            Prelude.<*> (x Core..:? "DestinationIpv6CidrBlock")
-            Prelude.<*> (x Core..: "RouteTableId")
+            Prelude.<$> (x Data..:? "DestinationPrefixListId")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "VpcEndpointId")
+            Prelude.<*> (x Data..:? "DestinationCidrBlock")
+            Prelude.<*> (x Data..:? "GatewayId")
+            Prelude.<*> (x Data..:? "DestinationIpv6CidrBlock")
+            Prelude.<*> (x Data..: "RouteTableId")
       )
 
 instance Prelude.Hashable EC2CreateRouteAction where

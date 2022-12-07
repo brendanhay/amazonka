@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,8 +143,8 @@ instance Core.AWSRequest ListRecommenders where
     Response.receiveJSON
       ( \s h x ->
           ListRecommendersResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "recommenders" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "recommenders" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,36 +160,36 @@ instance Prelude.NFData ListRecommenders where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf datasetGroupArn
 
-instance Core.ToHeaders ListRecommenders where
+instance Data.ToHeaders ListRecommenders where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.ListRecommenders" ::
+              Data.=# ( "AmazonPersonalize.ListRecommenders" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRecommenders where
+instance Data.ToJSON ListRecommenders where
   toJSON ListRecommenders' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("datasetGroupArn" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("datasetGroupArn" Data..=)
               Prelude.<$> datasetGroupArn
           ]
       )
 
-instance Core.ToPath ListRecommenders where
+instance Data.ToPath ListRecommenders where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRecommenders where
+instance Data.ToQuery ListRecommenders where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRecommendersResponse' smart constructor.

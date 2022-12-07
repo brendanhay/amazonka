@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,11 +103,11 @@ instance Core.AWSRequest GetMailDomain where
     Response.receiveJSON
       ( \s h x ->
           GetMailDomainResponse'
-            Prelude.<$> (x Core..?> "Records" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "IsTestDomain")
-            Prelude.<*> (x Core..?> "DkimVerificationStatus")
-            Prelude.<*> (x Core..?> "IsDefault")
-            Prelude.<*> (x Core..?> "OwnershipVerificationStatus")
+            Prelude.<$> (x Data..?> "Records" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "IsTestDomain")
+            Prelude.<*> (x Data..?> "DkimVerificationStatus")
+            Prelude.<*> (x Data..?> "IsDefault")
+            Prelude.<*> (x Data..?> "OwnershipVerificationStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,35 +121,35 @@ instance Prelude.NFData GetMailDomain where
     Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders GetMailDomain where
+instance Data.ToHeaders GetMailDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.GetMailDomain" ::
+              Data.=# ( "WorkMailService.GetMailDomain" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMailDomain where
+instance Data.ToJSON GetMailDomain where
   toJSON GetMailDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("DomainName" Core..= domainName)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("DomainName" Data..= domainName)
           ]
       )
 
-instance Core.ToPath GetMailDomain where
+instance Data.ToPath GetMailDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMailDomain where
+instance Data.ToQuery GetMailDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMailDomainResponse' smart constructor.

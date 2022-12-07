@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ResourceTargetDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.RequiresRecreation
 import Amazonka.ServiceCatalog.Types.ResourceAttribute
@@ -78,15 +79,15 @@ resourceTargetDefinition_attribute = Lens.lens (\ResourceTargetDefinition' {attr
 resourceTargetDefinition_requiresRecreation :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe RequiresRecreation)
 resourceTargetDefinition_requiresRecreation = Lens.lens (\ResourceTargetDefinition' {requiresRecreation} -> requiresRecreation) (\s@ResourceTargetDefinition' {} a -> s {requiresRecreation = a} :: ResourceTargetDefinition)
 
-instance Core.FromJSON ResourceTargetDefinition where
+instance Data.FromJSON ResourceTargetDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceTargetDefinition"
       ( \x ->
           ResourceTargetDefinition'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Attribute")
-            Prelude.<*> (x Core..:? "RequiresRecreation")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Attribute")
+            Prelude.<*> (x Data..:? "RequiresRecreation")
       )
 
 instance Prelude.Hashable ResourceTargetDefinition where

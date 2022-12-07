@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,8 +133,8 @@ instance Core.AWSRequest ListCompatibleImages where
     Response.receiveJSON
       ( \s h x ->
           ListCompatibleImagesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "CompatibleImages"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "CompatibleImages"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -149,34 +150,34 @@ instance Prelude.NFData ListCompatibleImages where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListCompatibleImages where
+instance Data.ToHeaders ListCompatibleImages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.ListCompatibleImages" ::
+              Data.=# ( "AWSIESnowballJobManagementService.ListCompatibleImages" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCompatibleImages where
+instance Data.ToJSON ListCompatibleImages where
   toJSON ListCompatibleImages' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListCompatibleImages where
+instance Data.ToPath ListCompatibleImages where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListCompatibleImages where
+instance Data.ToQuery ListCompatibleImages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCompatibleImagesResponse' smart constructor.

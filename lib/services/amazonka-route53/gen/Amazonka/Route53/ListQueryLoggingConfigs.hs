@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -200,11 +201,11 @@ instance Core.AWSRequest ListQueryLoggingConfigs where
     Response.receiveXML
       ( \s h x ->
           ListQueryLoggingConfigsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "QueryLoggingConfigs"
+            Prelude.<*> ( x Data..@? "QueryLoggingConfigs"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "QueryLoggingConfig"
+                            Prelude.>>= Data.parseXMLList "QueryLoggingConfig"
                         )
       )
 
@@ -220,19 +221,19 @@ instance Prelude.NFData ListQueryLoggingConfigs where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListQueryLoggingConfigs where
+instance Data.ToHeaders ListQueryLoggingConfigs where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListQueryLoggingConfigs where
+instance Data.ToPath ListQueryLoggingConfigs where
   toPath =
     Prelude.const "/2013-04-01/queryloggingconfig"
 
-instance Core.ToQuery ListQueryLoggingConfigs where
+instance Data.ToQuery ListQueryLoggingConfigs where
   toQuery ListQueryLoggingConfigs' {..} =
     Prelude.mconcat
-      [ "hostedzoneid" Core.=: hostedZoneId,
-        "nexttoken" Core.=: nextToken,
-        "maxresults" Core.=: maxResults
+      [ "hostedzoneid" Data.=: hostedZoneId,
+        "nexttoken" Data.=: nextToken,
+        "maxresults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListQueryLoggingConfigsResponse' smart constructor.

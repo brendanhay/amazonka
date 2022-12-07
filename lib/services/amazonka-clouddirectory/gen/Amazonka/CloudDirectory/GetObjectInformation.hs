@@ -45,6 +45,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,8 +112,8 @@ instance Core.AWSRequest GetObjectInformation where
     Response.receiveJSON
       ( \s h x ->
           GetObjectInformationResponse'
-            Prelude.<$> (x Core..?> "ObjectIdentifier")
-            Prelude.<*> (x Core..?> "SchemaFacets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "ObjectIdentifier")
+            Prelude.<*> (x Data..?> "SchemaFacets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,28 +129,28 @@ instance Prelude.NFData GetObjectInformation where
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToHeaders GetObjectInformation where
+instance Data.ToHeaders GetObjectInformation where
   toHeaders GetObjectInformation' {..} =
     Prelude.mconcat
-      [ "x-amz-consistency-level" Core.=# consistencyLevel,
-        "x-amz-data-partition" Core.=# directoryArn
+      [ "x-amz-consistency-level" Data.=# consistencyLevel,
+        "x-amz-data-partition" Data.=# directoryArn
       ]
 
-instance Core.ToJSON GetObjectInformation where
+instance Data.ToJSON GetObjectInformation where
   toJSON GetObjectInformation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )
 
-instance Core.ToPath GetObjectInformation where
+instance Data.ToPath GetObjectInformation where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/object/information"
 
-instance Core.ToQuery GetObjectInformation where
+instance Data.ToQuery GetObjectInformation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetObjectInformationResponse' smart constructor.

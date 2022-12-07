@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -175,7 +176,7 @@ instance Core.AWSRequest UpdateJobFromSourceControl where
     Response.receiveJSON
       ( \s h x ->
           UpdateJobFromSourceControlResponse'
-            Prelude.<$> (x Core..?> "JobName")
+            Prelude.<$> (x Data..?> "JobName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,43 +204,43 @@ instance Prelude.NFData UpdateJobFromSourceControl where
       `Prelude.seq` Prelude.rnf provider
       `Prelude.seq` Prelude.rnf authStrategy
 
-instance Core.ToHeaders UpdateJobFromSourceControl where
+instance Data.ToHeaders UpdateJobFromSourceControl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.UpdateJobFromSourceControl" ::
+              Data.=# ( "AWSGlue.UpdateJobFromSourceControl" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateJobFromSourceControl where
+instance Data.ToJSON UpdateJobFromSourceControl where
   toJSON UpdateJobFromSourceControl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RepositoryOwner" Core..=)
+          [ ("RepositoryOwner" Data..=)
               Prelude.<$> repositoryOwner,
-            ("CommitId" Core..=) Prelude.<$> commitId,
-            ("BranchName" Core..=) Prelude.<$> branchName,
-            ("Folder" Core..=) Prelude.<$> folder,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("RepositoryName" Core..=)
+            ("CommitId" Data..=) Prelude.<$> commitId,
+            ("BranchName" Data..=) Prelude.<$> branchName,
+            ("Folder" Data..=) Prelude.<$> folder,
+            ("JobName" Data..=) Prelude.<$> jobName,
+            ("RepositoryName" Data..=)
               Prelude.<$> repositoryName,
-            ("AuthToken" Core..=) Prelude.<$> authToken,
-            ("Provider" Core..=) Prelude.<$> provider,
-            ("AuthStrategy" Core..=) Prelude.<$> authStrategy
+            ("AuthToken" Data..=) Prelude.<$> authToken,
+            ("Provider" Data..=) Prelude.<$> provider,
+            ("AuthStrategy" Data..=) Prelude.<$> authStrategy
           ]
       )
 
-instance Core.ToPath UpdateJobFromSourceControl where
+instance Data.ToPath UpdateJobFromSourceControl where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateJobFromSourceControl where
+instance Data.ToQuery UpdateJobFromSourceControl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateJobFromSourceControlResponse' smart constructor.

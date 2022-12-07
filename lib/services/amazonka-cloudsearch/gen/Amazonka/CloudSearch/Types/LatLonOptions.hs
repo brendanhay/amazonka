@@ -21,6 +21,7 @@ module Amazonka.CloudSearch.Types.LatLonOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options for a latlon field. A latlon field contains a location stored as
@@ -102,15 +103,15 @@ latLonOptions_defaultValue = Lens.lens (\LatLonOptions' {defaultValue} -> defaul
 latLonOptions_returnEnabled :: Lens.Lens' LatLonOptions (Prelude.Maybe Prelude.Bool)
 latLonOptions_returnEnabled = Lens.lens (\LatLonOptions' {returnEnabled} -> returnEnabled) (\s@LatLonOptions' {} a -> s {returnEnabled = a} :: LatLonOptions)
 
-instance Core.FromXML LatLonOptions where
+instance Data.FromXML LatLonOptions where
   parseXML x =
     LatLonOptions'
-      Prelude.<$> (x Core..@? "SourceField")
-      Prelude.<*> (x Core..@? "FacetEnabled")
-      Prelude.<*> (x Core..@? "SearchEnabled")
-      Prelude.<*> (x Core..@? "SortEnabled")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "ReturnEnabled")
+      Prelude.<$> (x Data..@? "SourceField")
+      Prelude.<*> (x Data..@? "FacetEnabled")
+      Prelude.<*> (x Data..@? "SearchEnabled")
+      Prelude.<*> (x Data..@? "SortEnabled")
+      Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "ReturnEnabled")
 
 instance Prelude.Hashable LatLonOptions where
   hashWithSalt _salt LatLonOptions' {..} =
@@ -130,13 +131,13 @@ instance Prelude.NFData LatLonOptions where
       `Prelude.seq` Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf returnEnabled
 
-instance Core.ToQuery LatLonOptions where
+instance Data.ToQuery LatLonOptions where
   toQuery LatLonOptions' {..} =
     Prelude.mconcat
-      [ "SourceField" Core.=: sourceField,
-        "FacetEnabled" Core.=: facetEnabled,
-        "SearchEnabled" Core.=: searchEnabled,
-        "SortEnabled" Core.=: sortEnabled,
-        "DefaultValue" Core.=: defaultValue,
-        "ReturnEnabled" Core.=: returnEnabled
+      [ "SourceField" Data.=: sourceField,
+        "FacetEnabled" Data.=: facetEnabled,
+        "SearchEnabled" Data.=: searchEnabled,
+        "SortEnabled" Data.=: sortEnabled,
+        "DefaultValue" Data.=: defaultValue,
+        "ReturnEnabled" Data.=: returnEnabled
       ]

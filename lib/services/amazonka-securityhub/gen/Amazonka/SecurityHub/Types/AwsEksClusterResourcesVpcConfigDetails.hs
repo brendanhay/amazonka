@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEksClusterResourcesVpcConfigDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the VPC configuration used by the cluster control
@@ -70,18 +71,18 @@ awsEksClusterResourcesVpcConfigDetails_subnetIds :: Lens.Lens' AwsEksClusterReso
 awsEksClusterResourcesVpcConfigDetails_subnetIds = Lens.lens (\AwsEksClusterResourcesVpcConfigDetails' {subnetIds} -> subnetIds) (\s@AwsEksClusterResourcesVpcConfigDetails' {} a -> s {subnetIds = a} :: AwsEksClusterResourcesVpcConfigDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEksClusterResourcesVpcConfigDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEksClusterResourcesVpcConfigDetails"
       ( \x ->
           AwsEksClusterResourcesVpcConfigDetails'
-            Prelude.<$> ( x Core..:? "SecurityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
       )
 
 instance
@@ -103,14 +104,14 @@ instance
       `Prelude.seq` Prelude.rnf subnetIds
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEksClusterResourcesVpcConfigDetails
   where
   toJSON AwsEksClusterResourcesVpcConfigDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityGroupIds" Core..=)
+          [ ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("SubnetIds" Core..=) Prelude.<$> subnetIds
+            ("SubnetIds" Data..=) Prelude.<$> subnetIds
           ]
       )

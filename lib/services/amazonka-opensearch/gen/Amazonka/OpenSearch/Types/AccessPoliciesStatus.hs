@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.AccessPoliciesStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,14 +74,14 @@ accessPoliciesStatus_options = Lens.lens (\AccessPoliciesStatus' {options} -> op
 accessPoliciesStatus_status :: Lens.Lens' AccessPoliciesStatus OptionStatus
 accessPoliciesStatus_status = Lens.lens (\AccessPoliciesStatus' {status} -> status) (\s@AccessPoliciesStatus' {} a -> s {status = a} :: AccessPoliciesStatus)
 
-instance Core.FromJSON AccessPoliciesStatus where
+instance Data.FromJSON AccessPoliciesStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessPoliciesStatus"
       ( \x ->
           AccessPoliciesStatus'
-            Prelude.<$> (x Core..: "Options")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..: "Options")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable AccessPoliciesStatus where

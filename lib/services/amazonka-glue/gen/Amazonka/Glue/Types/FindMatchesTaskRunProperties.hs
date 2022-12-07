@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.FindMatchesTaskRunProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies configuration properties for a Find Matches task run.
@@ -71,15 +72,15 @@ findMatchesTaskRunProperties_jobRunId = Lens.lens (\FindMatchesTaskRunProperties
 findMatchesTaskRunProperties_jobId :: Lens.Lens' FindMatchesTaskRunProperties (Prelude.Maybe Prelude.Text)
 findMatchesTaskRunProperties_jobId = Lens.lens (\FindMatchesTaskRunProperties' {jobId} -> jobId) (\s@FindMatchesTaskRunProperties' {} a -> s {jobId = a} :: FindMatchesTaskRunProperties)
 
-instance Core.FromJSON FindMatchesTaskRunProperties where
+instance Data.FromJSON FindMatchesTaskRunProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FindMatchesTaskRunProperties"
       ( \x ->
           FindMatchesTaskRunProperties'
-            Prelude.<$> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "JobRunId")
-            Prelude.<*> (x Core..:? "JobId")
+            Prelude.<$> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "JobRunId")
+            Prelude.<*> (x Data..:? "JobId")
       )
 
 instance

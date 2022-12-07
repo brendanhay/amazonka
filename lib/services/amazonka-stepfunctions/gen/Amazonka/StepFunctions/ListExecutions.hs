@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -186,9 +187,9 @@ instance Core.AWSRequest ListExecutions where
     Response.receiveJSON
       ( \s h x ->
           ListExecutionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "executions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "executions" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListExecutions where
@@ -205,37 +206,37 @@ instance Prelude.NFData ListExecutions where
       `Prelude.seq` Prelude.rnf statusFilter
       `Prelude.seq` Prelude.rnf stateMachineArn
 
-instance Core.ToHeaders ListExecutions where
+instance Data.ToHeaders ListExecutions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSStepFunctions.ListExecutions" ::
+              Data.=# ( "AWSStepFunctions.ListExecutions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListExecutions where
+instance Data.ToJSON ListExecutions where
   toJSON ListExecutions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("statusFilter" Core..=) Prelude.<$> statusFilter,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("statusFilter" Data..=) Prelude.<$> statusFilter,
             Prelude.Just
-              ("stateMachineArn" Core..= stateMachineArn)
+              ("stateMachineArn" Data..= stateMachineArn)
           ]
       )
 
-instance Core.ToPath ListExecutions where
+instance Data.ToPath ListExecutions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListExecutions where
+instance Data.ToQuery ListExecutions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListExecutionsResponse' smart constructor.

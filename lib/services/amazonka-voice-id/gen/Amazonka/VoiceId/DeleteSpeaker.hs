@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -48,7 +49,7 @@ data DeleteSpeaker = DeleteSpeaker'
   { -- | The identifier of the domain containing the speaker.
     domainId :: Prelude.Text,
     -- | The identifier of the speaker you want to delete.
-    speakerId :: Core.Sensitive Prelude.Text
+    speakerId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -72,7 +73,7 @@ newDeleteSpeaker ::
 newDeleteSpeaker pDomainId_ pSpeakerId_ =
   DeleteSpeaker'
     { domainId = pDomainId_,
-      speakerId = Core._Sensitive Lens.# pSpeakerId_
+      speakerId = Data._Sensitive Lens.# pSpeakerId_
     }
 
 -- | The identifier of the domain containing the speaker.
@@ -81,7 +82,7 @@ deleteSpeaker_domainId = Lens.lens (\DeleteSpeaker' {domainId} -> domainId) (\s@
 
 -- | The identifier of the speaker you want to delete.
 deleteSpeaker_speakerId :: Lens.Lens' DeleteSpeaker Prelude.Text
-deleteSpeaker_speakerId = Lens.lens (\DeleteSpeaker' {speakerId} -> speakerId) (\s@DeleteSpeaker' {} a -> s {speakerId = a} :: DeleteSpeaker) Prelude.. Core._Sensitive
+deleteSpeaker_speakerId = Lens.lens (\DeleteSpeaker' {speakerId} -> speakerId) (\s@DeleteSpeaker' {} a -> s {speakerId = a} :: DeleteSpeaker) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest DeleteSpeaker where
   type
@@ -102,32 +103,32 @@ instance Prelude.NFData DeleteSpeaker where
     Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf speakerId
 
-instance Core.ToHeaders DeleteSpeaker where
+instance Data.ToHeaders DeleteSpeaker where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("VoiceID.DeleteSpeaker" :: Prelude.ByteString),
+              Data.=# ("VoiceID.DeleteSpeaker" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSpeaker where
+instance Data.ToJSON DeleteSpeaker where
   toJSON DeleteSpeaker' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DomainId" Core..= domainId),
-            Prelude.Just ("SpeakerId" Core..= speakerId)
+          [ Prelude.Just ("DomainId" Data..= domainId),
+            Prelude.Just ("SpeakerId" Data..= speakerId)
           ]
       )
 
-instance Core.ToPath DeleteSpeaker where
+instance Data.ToPath DeleteSpeaker where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSpeaker where
+instance Data.ToQuery DeleteSpeaker where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSpeakerResponse' smart constructor.

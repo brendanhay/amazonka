@@ -48,6 +48,7 @@ where
 import Amazonka.AMP.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -150,9 +151,9 @@ instance Core.AWSRequest ListRuleGroupsNamespaces where
     Response.receiveJSON
       ( \s h x ->
           ListRuleGroupsNamespacesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "ruleGroupsNamespaces"
+            Prelude.<*> ( x Data..?> "ruleGroupsNamespaces"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -171,31 +172,31 @@ instance Prelude.NFData ListRuleGroupsNamespaces where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders ListRuleGroupsNamespaces where
+instance Data.ToHeaders ListRuleGroupsNamespaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRuleGroupsNamespaces where
+instance Data.ToPath ListRuleGroupsNamespaces where
   toPath ListRuleGroupsNamespaces' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/rulegroupsnamespaces"
       ]
 
-instance Core.ToQuery ListRuleGroupsNamespaces where
+instance Data.ToQuery ListRuleGroupsNamespaces where
   toQuery ListRuleGroupsNamespaces' {..} =
     Prelude.mconcat
-      [ "name" Core.=: name,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "name" Data.=: name,
+        "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | Represents the output of a ListRuleGroupsNamespaces operation.

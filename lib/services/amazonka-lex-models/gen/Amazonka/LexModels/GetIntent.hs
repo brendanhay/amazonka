@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,26 +114,26 @@ instance Core.AWSRequest GetIntent where
     Response.receiveJSON
       ( \s h x ->
           GetIntentResponse'
-            Prelude.<$> ( x Core..?> "sampleUtterances"
+            Prelude.<$> ( x Data..?> "sampleUtterances"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "kendraConfiguration")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "dialogCodeHook")
-            Prelude.<*> (x Core..?> "outputContexts" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "fulfillmentActivity")
-            Prelude.<*> (x Core..?> "lastUpdatedDate")
-            Prelude.<*> (x Core..?> "followUpPrompt")
-            Prelude.<*> (x Core..?> "parentIntentSignature")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "rejectionStatement")
-            Prelude.<*> (x Core..?> "checksum")
-            Prelude.<*> (x Core..?> "confirmationPrompt")
-            Prelude.<*> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "slots" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "inputContexts" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "conclusionStatement")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<*> (x Data..?> "kendraConfiguration")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "dialogCodeHook")
+            Prelude.<*> (x Data..?> "outputContexts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "fulfillmentActivity")
+            Prelude.<*> (x Data..?> "lastUpdatedDate")
+            Prelude.<*> (x Data..?> "followUpPrompt")
+            Prelude.<*> (x Data..?> "parentIntentSignature")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "rejectionStatement")
+            Prelude.<*> (x Data..?> "checksum")
+            Prelude.<*> (x Data..?> "confirmationPrompt")
+            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> (x Data..?> "slots" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "inputContexts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "conclusionStatement")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,27 +146,27 @@ instance Prelude.NFData GetIntent where
   rnf GetIntent' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
-instance Core.ToHeaders GetIntent where
+instance Data.ToHeaders GetIntent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetIntent where
+instance Data.ToPath GetIntent where
   toPath GetIntent' {..} =
     Prelude.mconcat
       [ "/intents/",
-        Core.toBS name,
+        Data.toBS name,
         "/versions/",
-        Core.toBS version
+        Data.toBS version
       ]
 
-instance Core.ToQuery GetIntent where
+instance Data.ToQuery GetIntent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetIntentResponse' smart constructor.
@@ -188,7 +189,7 @@ data GetIntentResponse = GetIntentResponse'
     fulfillmentActivity :: Prelude.Maybe FulfillmentActivity,
     -- | The date that the intent was updated. When you create a resource, the
     -- creation date and the last updated date are the same.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | If defined in the bot, Amazon Lex uses this prompt to solicit additional
     -- user activity after the intent is fulfilled. For more information, see
     -- PutIntent.
@@ -208,7 +209,7 @@ data GetIntentResponse = GetIntentResponse'
     -- PutIntent.
     confirmationPrompt :: Prelude.Maybe Prompt,
     -- | The date that the intent was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | An array of intent slots configured for the intent.
     slots :: Prelude.Maybe [Slot],
     -- | An array of @InputContext@ objects that lists the contexts that must be
@@ -343,7 +344,7 @@ getIntentResponse_fulfillmentActivity = Lens.lens (\GetIntentResponse' {fulfillm
 -- | The date that the intent was updated. When you create a resource, the
 -- creation date and the last updated date are the same.
 getIntentResponse_lastUpdatedDate :: Lens.Lens' GetIntentResponse (Prelude.Maybe Prelude.UTCTime)
-getIntentResponse_lastUpdatedDate = Lens.lens (\GetIntentResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetIntentResponse' {} a -> s {lastUpdatedDate = a} :: GetIntentResponse) Prelude.. Lens.mapping Core._Time
+getIntentResponse_lastUpdatedDate = Lens.lens (\GetIntentResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetIntentResponse' {} a -> s {lastUpdatedDate = a} :: GetIntentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | If defined in the bot, Amazon Lex uses this prompt to solicit additional
 -- user activity after the intent is fulfilled. For more information, see
@@ -377,7 +378,7 @@ getIntentResponse_confirmationPrompt = Lens.lens (\GetIntentResponse' {confirmat
 
 -- | The date that the intent was created.
 getIntentResponse_createdDate :: Lens.Lens' GetIntentResponse (Prelude.Maybe Prelude.UTCTime)
-getIntentResponse_createdDate = Lens.lens (\GetIntentResponse' {createdDate} -> createdDate) (\s@GetIntentResponse' {} a -> s {createdDate = a} :: GetIntentResponse) Prelude.. Lens.mapping Core._Time
+getIntentResponse_createdDate = Lens.lens (\GetIntentResponse' {createdDate} -> createdDate) (\s@GetIntentResponse' {} a -> s {createdDate = a} :: GetIntentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An array of intent slots configured for the intent.
 getIntentResponse_slots :: Lens.Lens' GetIntentResponse (Prelude.Maybe [Slot])

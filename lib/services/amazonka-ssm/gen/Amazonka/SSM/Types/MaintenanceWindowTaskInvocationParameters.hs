@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.MaintenanceWindowAutomationParameters
 import Amazonka.SSM.Types.MaintenanceWindowLambdaParameters
@@ -85,18 +86,18 @@ maintenanceWindowTaskInvocationParameters_runCommand :: Lens.Lens' MaintenanceWi
 maintenanceWindowTaskInvocationParameters_runCommand = Lens.lens (\MaintenanceWindowTaskInvocationParameters' {runCommand} -> runCommand) (\s@MaintenanceWindowTaskInvocationParameters' {} a -> s {runCommand = a} :: MaintenanceWindowTaskInvocationParameters)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MaintenanceWindowTaskInvocationParameters
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MaintenanceWindowTaskInvocationParameters"
       ( \x ->
           MaintenanceWindowTaskInvocationParameters'
-            Prelude.<$> (x Core..:? "Automation")
-              Prelude.<*> (x Core..:? "Lambda")
-              Prelude.<*> (x Core..:? "StepFunctions")
-              Prelude.<*> (x Core..:? "RunCommand")
+            Prelude.<$> (x Data..:? "Automation")
+              Prelude.<*> (x Data..:? "Lambda")
+              Prelude.<*> (x Data..:? "StepFunctions")
+              Prelude.<*> (x Data..:? "RunCommand")
       )
 
 instance
@@ -122,15 +123,15 @@ instance
       `Prelude.seq` Prelude.rnf runCommand
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     MaintenanceWindowTaskInvocationParameters
   where
   toJSON MaintenanceWindowTaskInvocationParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Automation" Core..=) Prelude.<$> automation,
-            ("Lambda" Core..=) Prelude.<$> lambda,
-            ("StepFunctions" Core..=) Prelude.<$> stepFunctions,
-            ("RunCommand" Core..=) Prelude.<$> runCommand
+          [ ("Automation" Data..=) Prelude.<$> automation,
+            ("Lambda" Data..=) Prelude.<$> lambda,
+            ("StepFunctions" Data..=) Prelude.<$> stepFunctions,
+            ("RunCommand" Data..=) Prelude.<$> runCommand
           ]
       )

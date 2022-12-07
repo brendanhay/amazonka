@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.EventFeedbackType where
 import Amazonka.CognitoIdentityProvider.Types.FeedbackValueType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the event feedback type.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEventFeedbackType' smart constructor.
 data EventFeedbackType = EventFeedbackType'
   { -- | The event feedback date.
-    feedbackDate :: Prelude.Maybe Core.POSIX,
+    feedbackDate :: Prelude.Maybe Data.POSIX,
     -- | The event feedback value.
     feedbackValue :: FeedbackValueType,
     -- | The provider.
@@ -65,7 +66,7 @@ newEventFeedbackType pFeedbackValue_ pProvider_ =
 
 -- | The event feedback date.
 eventFeedbackType_feedbackDate :: Lens.Lens' EventFeedbackType (Prelude.Maybe Prelude.UTCTime)
-eventFeedbackType_feedbackDate = Lens.lens (\EventFeedbackType' {feedbackDate} -> feedbackDate) (\s@EventFeedbackType' {} a -> s {feedbackDate = a} :: EventFeedbackType) Prelude.. Lens.mapping Core._Time
+eventFeedbackType_feedbackDate = Lens.lens (\EventFeedbackType' {feedbackDate} -> feedbackDate) (\s@EventFeedbackType' {} a -> s {feedbackDate = a} :: EventFeedbackType) Prelude.. Lens.mapping Data._Time
 
 -- | The event feedback value.
 eventFeedbackType_feedbackValue :: Lens.Lens' EventFeedbackType FeedbackValueType
@@ -75,15 +76,15 @@ eventFeedbackType_feedbackValue = Lens.lens (\EventFeedbackType' {feedbackValue}
 eventFeedbackType_provider :: Lens.Lens' EventFeedbackType Prelude.Text
 eventFeedbackType_provider = Lens.lens (\EventFeedbackType' {provider} -> provider) (\s@EventFeedbackType' {} a -> s {provider = a} :: EventFeedbackType)
 
-instance Core.FromJSON EventFeedbackType where
+instance Data.FromJSON EventFeedbackType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventFeedbackType"
       ( \x ->
           EventFeedbackType'
-            Prelude.<$> (x Core..:? "FeedbackDate")
-            Prelude.<*> (x Core..: "FeedbackValue")
-            Prelude.<*> (x Core..: "Provider")
+            Prelude.<$> (x Data..:? "FeedbackDate")
+            Prelude.<*> (x Data..: "FeedbackValue")
+            Prelude.<*> (x Data..: "Provider")
       )
 
 instance Prelude.Hashable EventFeedbackType where

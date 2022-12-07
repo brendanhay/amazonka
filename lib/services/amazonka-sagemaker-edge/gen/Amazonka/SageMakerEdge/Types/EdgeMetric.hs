@@ -21,6 +21,7 @@ module Amazonka.SageMakerEdge.Types.EdgeMetric where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information required for edge device metrics.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEdgeMetric' smart constructor.
 data EdgeMetric = EdgeMetric'
   { -- | Timestamp of when the metric was requested.
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | Returns the name of the metric.
     metricName :: Prelude.Maybe Prelude.Text,
     -- | The dimension of metrics published.
@@ -65,7 +66,7 @@ newEdgeMetric =
 
 -- | Timestamp of when the metric was requested.
 edgeMetric_timestamp :: Lens.Lens' EdgeMetric (Prelude.Maybe Prelude.UTCTime)
-edgeMetric_timestamp = Lens.lens (\EdgeMetric' {timestamp} -> timestamp) (\s@EdgeMetric' {} a -> s {timestamp = a} :: EdgeMetric) Prelude.. Lens.mapping Core._Time
+edgeMetric_timestamp = Lens.lens (\EdgeMetric' {timestamp} -> timestamp) (\s@EdgeMetric' {} a -> s {timestamp = a} :: EdgeMetric) Prelude.. Lens.mapping Data._Time
 
 -- | Returns the name of the metric.
 edgeMetric_metricName :: Lens.Lens' EdgeMetric (Prelude.Maybe Prelude.Text)
@@ -93,13 +94,13 @@ instance Prelude.NFData EdgeMetric where
       `Prelude.seq` Prelude.rnf dimension
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON EdgeMetric where
+instance Data.ToJSON EdgeMetric where
   toJSON EdgeMetric' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Timestamp" Core..=) Prelude.<$> timestamp,
-            ("MetricName" Core..=) Prelude.<$> metricName,
-            ("Dimension" Core..=) Prelude.<$> dimension,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Timestamp" Data..=) Prelude.<$> timestamp,
+            ("MetricName" Data..=) Prelude.<$> metricName,
+            ("Dimension" Data..=) Prelude.<$> dimension,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

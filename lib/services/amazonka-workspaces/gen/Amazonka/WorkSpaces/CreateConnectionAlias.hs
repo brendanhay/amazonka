@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,7 +119,7 @@ instance Core.AWSRequest CreateConnectionAlias where
     Response.receiveJSON
       ( \s h x ->
           CreateConnectionAliasResponse'
-            Prelude.<$> (x Core..?> "AliasId")
+            Prelude.<$> (x Data..?> "AliasId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,35 +133,35 @@ instance Prelude.NFData CreateConnectionAlias where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf connectionString
 
-instance Core.ToHeaders CreateConnectionAlias where
+instance Data.ToHeaders CreateConnectionAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.CreateConnectionAlias" ::
+              Data.=# ( "WorkspacesService.CreateConnectionAlias" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConnectionAlias where
+instance Data.ToJSON CreateConnectionAlias where
   toJSON CreateConnectionAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("ConnectionString" Core..= connectionString)
+              ("ConnectionString" Data..= connectionString)
           ]
       )
 
-instance Core.ToPath CreateConnectionAlias where
+instance Data.ToPath CreateConnectionAlias where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateConnectionAlias where
+instance Data.ToQuery CreateConnectionAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConnectionAliasResponse' smart constructor.

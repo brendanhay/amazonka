@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.TableClassSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.TableClass
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTableClassSummary' smart constructor.
 data TableClassSummary = TableClassSummary'
   { -- | The date and time at which the table class was last updated.
-    lastUpdateDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateDateTime :: Prelude.Maybe Data.POSIX,
     -- | The table class of the specified table. Valid values are @STANDARD@ and
     -- @STANDARD_INFREQUENT_ACCESS@.
     tableClass :: Prelude.Maybe TableClass
@@ -61,21 +62,21 @@ newTableClassSummary =
 
 -- | The date and time at which the table class was last updated.
 tableClassSummary_lastUpdateDateTime :: Lens.Lens' TableClassSummary (Prelude.Maybe Prelude.UTCTime)
-tableClassSummary_lastUpdateDateTime = Lens.lens (\TableClassSummary' {lastUpdateDateTime} -> lastUpdateDateTime) (\s@TableClassSummary' {} a -> s {lastUpdateDateTime = a} :: TableClassSummary) Prelude.. Lens.mapping Core._Time
+tableClassSummary_lastUpdateDateTime = Lens.lens (\TableClassSummary' {lastUpdateDateTime} -> lastUpdateDateTime) (\s@TableClassSummary' {} a -> s {lastUpdateDateTime = a} :: TableClassSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The table class of the specified table. Valid values are @STANDARD@ and
 -- @STANDARD_INFREQUENT_ACCESS@.
 tableClassSummary_tableClass :: Lens.Lens' TableClassSummary (Prelude.Maybe TableClass)
 tableClassSummary_tableClass = Lens.lens (\TableClassSummary' {tableClass} -> tableClass) (\s@TableClassSummary' {} a -> s {tableClass = a} :: TableClassSummary)
 
-instance Core.FromJSON TableClassSummary where
+instance Data.FromJSON TableClassSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TableClassSummary"
       ( \x ->
           TableClassSummary'
-            Prelude.<$> (x Core..:? "LastUpdateDateTime")
-            Prelude.<*> (x Core..:? "TableClass")
+            Prelude.<$> (x Data..:? "LastUpdateDateTime")
+            Prelude.<*> (x Data..:? "TableClass")
       )
 
 instance Prelude.Hashable TableClassSummary where

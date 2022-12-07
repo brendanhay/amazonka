@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProductionVariantStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.VariantStatus
 
@@ -31,7 +32,7 @@ data ProductionVariantStatus = ProductionVariantStatus'
   { -- | A message that describes the status of the production variant.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The start time of the current status change.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The endpoint variant status which describes the current deployment stage
     -- status or operational status.
     --
@@ -94,7 +95,7 @@ productionVariantStatus_statusMessage = Lens.lens (\ProductionVariantStatus' {st
 
 -- | The start time of the current status change.
 productionVariantStatus_startTime :: Lens.Lens' ProductionVariantStatus (Prelude.Maybe Prelude.UTCTime)
-productionVariantStatus_startTime = Lens.lens (\ProductionVariantStatus' {startTime} -> startTime) (\s@ProductionVariantStatus' {} a -> s {startTime = a} :: ProductionVariantStatus) Prelude.. Lens.mapping Core._Time
+productionVariantStatus_startTime = Lens.lens (\ProductionVariantStatus' {startTime} -> startTime) (\s@ProductionVariantStatus' {} a -> s {startTime = a} :: ProductionVariantStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The endpoint variant status which describes the current deployment stage
 -- status or operational status.
@@ -113,15 +114,15 @@ productionVariantStatus_startTime = Lens.lens (\ProductionVariantStatus' {startT
 productionVariantStatus_status :: Lens.Lens' ProductionVariantStatus VariantStatus
 productionVariantStatus_status = Lens.lens (\ProductionVariantStatus' {status} -> status) (\s@ProductionVariantStatus' {} a -> s {status = a} :: ProductionVariantStatus)
 
-instance Core.FromJSON ProductionVariantStatus where
+instance Data.FromJSON ProductionVariantStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProductionVariantStatus"
       ( \x ->
           ProductionVariantStatus'
-            Prelude.<$> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable ProductionVariantStatus where

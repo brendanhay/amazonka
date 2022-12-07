@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -178,10 +179,10 @@ instance Core.AWSRequest DescribeEndpointAccess where
       "DescribeEndpointAccessResult"
       ( \s h x ->
           DescribeEndpointAccessResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "EndpointAccessList"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "EndpointAccessList"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -204,25 +205,25 @@ instance Prelude.NFData DescribeEndpointAccess where
       `Prelude.seq` Prelude.rnf resourceOwner
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToHeaders DescribeEndpointAccess where
+instance Data.ToHeaders DescribeEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeEndpointAccess where
+instance Data.ToPath DescribeEndpointAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEndpointAccess where
+instance Data.ToQuery DescribeEndpointAccess where
   toQuery DescribeEndpointAccess' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeEndpointAccess" :: Prelude.ByteString),
+          Data.=: ("DescribeEndpointAccess" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Core.=: clusterIdentifier,
-        "Marker" Core.=: marker,
-        "EndpointName" Core.=: endpointName,
-        "MaxRecords" Core.=: maxRecords,
-        "ResourceOwner" Core.=: resourceOwner,
-        "VpcId" Core.=: vpcId
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ClusterIdentifier" Data.=: clusterIdentifier,
+        "Marker" Data.=: marker,
+        "EndpointName" Data.=: endpointName,
+        "MaxRecords" Data.=: maxRecords,
+        "ResourceOwner" Data.=: resourceOwner,
+        "VpcId" Data.=: vpcId
       ]
 
 -- | /See:/ 'newDescribeEndpointAccessResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.Measurement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.MeasurementProcessingConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -59,13 +60,13 @@ newMeasurement =
 measurement_processingConfig :: Lens.Lens' Measurement (Prelude.Maybe MeasurementProcessingConfig)
 measurement_processingConfig = Lens.lens (\Measurement' {processingConfig} -> processingConfig) (\s@Measurement' {} a -> s {processingConfig = a} :: Measurement)
 
-instance Core.FromJSON Measurement where
+instance Data.FromJSON Measurement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Measurement"
       ( \x ->
           Measurement'
-            Prelude.<$> (x Core..:? "processingConfig")
+            Prelude.<$> (x Data..:? "processingConfig")
       )
 
 instance Prelude.Hashable Measurement where
@@ -75,11 +76,11 @@ instance Prelude.Hashable Measurement where
 instance Prelude.NFData Measurement where
   rnf Measurement' {..} = Prelude.rnf processingConfig
 
-instance Core.ToJSON Measurement where
+instance Data.ToJSON Measurement where
   toJSON Measurement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("processingConfig" Core..=)
+          [ ("processingConfig" Data..=)
               Prelude.<$> processingConfig
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchAttachToIndex where
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attaches the specified object to the specified index inside a BatchRead
@@ -81,13 +82,13 @@ instance Prelude.NFData BatchAttachToIndex where
     Prelude.rnf indexReference
       `Prelude.seq` Prelude.rnf targetReference
 
-instance Core.ToJSON BatchAttachToIndex where
+instance Data.ToJSON BatchAttachToIndex where
   toJSON BatchAttachToIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("IndexReference" Core..= indexReference),
+              ("IndexReference" Data..= indexReference),
             Prelude.Just
-              ("TargetReference" Core..= targetReference)
+              ("TargetReference" Data..= targetReference)
           ]
       )

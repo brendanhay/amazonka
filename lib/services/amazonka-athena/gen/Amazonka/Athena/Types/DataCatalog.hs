@@ -22,6 +22,7 @@ module Amazonka.Athena.Types.DataCatalog where
 import Amazonka.Athena.Types.DataCatalogType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a data catalog in an Amazon Web Services
@@ -208,16 +209,16 @@ dataCatalog_name = Lens.lens (\DataCatalog' {name} -> name) (\s@DataCatalog' {} 
 dataCatalog_type :: Lens.Lens' DataCatalog DataCatalogType
 dataCatalog_type = Lens.lens (\DataCatalog' {type'} -> type') (\s@DataCatalog' {} a -> s {type' = a} :: DataCatalog)
 
-instance Core.FromJSON DataCatalog where
+instance Data.FromJSON DataCatalog where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataCatalog"
       ( \x ->
           DataCatalog'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable DataCatalog where

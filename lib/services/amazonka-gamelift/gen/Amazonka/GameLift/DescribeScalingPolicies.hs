@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -241,8 +242,8 @@ instance Core.AWSRequest DescribeScalingPolicies where
     Response.receiveJSON
       ( \s h x ->
           DescribeScalingPoliciesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ScalingPolicies"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ScalingPolicies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -264,37 +265,37 @@ instance Prelude.NFData DescribeScalingPolicies where
       `Prelude.seq` Prelude.rnf statusFilter
       `Prelude.seq` Prelude.rnf fleetId
 
-instance Core.ToHeaders DescribeScalingPolicies where
+instance Data.ToHeaders DescribeScalingPolicies where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeScalingPolicies" ::
+              Data.=# ( "GameLift.DescribeScalingPolicies" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeScalingPolicies where
+instance Data.ToJSON DescribeScalingPolicies where
   toJSON DescribeScalingPolicies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Location" Core..=) Prelude.<$> location,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("StatusFilter" Core..=) Prelude.<$> statusFilter,
-            Prelude.Just ("FleetId" Core..= fleetId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Location" Data..=) Prelude.<$> location,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("StatusFilter" Data..=) Prelude.<$> statusFilter,
+            Prelude.Just ("FleetId" Data..= fleetId)
           ]
       )
 
-instance Core.ToPath DescribeScalingPolicies where
+instance Data.ToPath DescribeScalingPolicies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeScalingPolicies where
+instance Data.ToQuery DescribeScalingPolicies where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -206,7 +207,7 @@ instance Core.AWSRequest TerminateEnvironment where
   response =
     Response.receiveXMLWrapper
       "TerminateEnvironmentResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable TerminateEnvironment where
   hashWithSalt _salt TerminateEnvironment' {..} =
@@ -222,21 +223,21 @@ instance Prelude.NFData TerminateEnvironment where
       `Prelude.seq` Prelude.rnf environmentId
       `Prelude.seq` Prelude.rnf terminateResources
 
-instance Core.ToHeaders TerminateEnvironment where
+instance Data.ToHeaders TerminateEnvironment where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath TerminateEnvironment where
+instance Data.ToPath TerminateEnvironment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TerminateEnvironment where
+instance Data.ToQuery TerminateEnvironment where
   toQuery TerminateEnvironment' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("TerminateEnvironment" :: Prelude.ByteString),
+          Data.=: ("TerminateEnvironment" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentName" Core.=: environmentName,
-        "ForceTerminate" Core.=: forceTerminate,
-        "EnvironmentId" Core.=: environmentId,
-        "TerminateResources" Core.=: terminateResources
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "EnvironmentName" Data.=: environmentName,
+        "ForceTerminate" Data.=: forceTerminate,
+        "EnvironmentId" Data.=: environmentId,
+        "TerminateResources" Data.=: terminateResources
       ]

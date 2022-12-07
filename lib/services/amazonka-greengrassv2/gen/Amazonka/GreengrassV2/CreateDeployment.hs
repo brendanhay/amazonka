@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -233,9 +234,9 @@ instance Core.AWSRequest CreateDeployment where
     Response.receiveJSON
       ( \s h x ->
           CreateDeploymentResponse'
-            Prelude.<$> (x Core..?> "iotJobArn")
-            Prelude.<*> (x Core..?> "iotJobId")
-            Prelude.<*> (x Core..?> "deploymentId")
+            Prelude.<$> (x Data..?> "iotJobArn")
+            Prelude.<*> (x Data..?> "iotJobId")
+            Prelude.<*> (x Data..?> "deploymentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -261,32 +262,32 @@ instance Prelude.NFData CreateDeployment where
       `Prelude.seq` Prelude.rnf components
       `Prelude.seq` Prelude.rnf targetArn
 
-instance Core.ToHeaders CreateDeployment where
+instance Data.ToHeaders CreateDeployment where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateDeployment where
+instance Data.ToJSON CreateDeployment where
   toJSON CreateDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("iotJobConfiguration" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("iotJobConfiguration" Data..=)
               Prelude.<$> iotJobConfiguration,
-            ("deploymentName" Core..=)
+            ("deploymentName" Data..=)
               Prelude.<$> deploymentName,
-            ("parentTargetArn" Core..=)
+            ("parentTargetArn" Data..=)
               Prelude.<$> parentTargetArn,
-            ("deploymentPolicies" Core..=)
+            ("deploymentPolicies" Data..=)
               Prelude.<$> deploymentPolicies,
-            ("components" Core..=) Prelude.<$> components,
-            Prelude.Just ("targetArn" Core..= targetArn)
+            ("components" Data..=) Prelude.<$> components,
+            Prelude.Just ("targetArn" Data..= targetArn)
           ]
       )
 
-instance Core.ToPath CreateDeployment where
+instance Data.ToPath CreateDeployment where
   toPath = Prelude.const "/greengrass/v2/deployments"
 
-instance Core.ToQuery CreateDeployment where
+instance Data.ToQuery CreateDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDeploymentResponse' smart constructor.

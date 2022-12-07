@@ -49,6 +49,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,8 +155,8 @@ instance Core.AWSRequest ListAttachedIndices where
     Response.receiveJSON
       ( \s h x ->
           ListAttachedIndicesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "IndexAttachments"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "IndexAttachments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -177,30 +178,30 @@ instance Prelude.NFData ListAttachedIndices where
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf targetReference
 
-instance Core.ToHeaders ListAttachedIndices where
+instance Data.ToHeaders ListAttachedIndices where
   toHeaders ListAttachedIndices' {..} =
     Prelude.mconcat
-      [ "x-amz-consistency-level" Core.=# consistencyLevel,
-        "x-amz-data-partition" Core.=# directoryArn
+      [ "x-amz-consistency-level" Data.=# consistencyLevel,
+        "x-amz-data-partition" Data.=# directoryArn
       ]
 
-instance Core.ToJSON ListAttachedIndices where
+instance Data.ToJSON ListAttachedIndices where
   toJSON ListAttachedIndices' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("TargetReference" Core..= targetReference)
+              ("TargetReference" Data..= targetReference)
           ]
       )
 
-instance Core.ToPath ListAttachedIndices where
+instance Data.ToPath ListAttachedIndices where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/object/indices"
 
-instance Core.ToQuery ListAttachedIndices where
+instance Data.ToQuery ListAttachedIndices where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAttachedIndicesResponse' smart constructor.

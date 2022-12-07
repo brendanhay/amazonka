@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -113,8 +114,8 @@ instance Core.AWSRequest PutDraftAppVersionTemplate where
     Response.receiveJSON
       ( \s h x ->
           PutDraftAppVersionTemplateResponse'
-            Prelude.<$> (x Core..?> "appVersion")
-            Prelude.<*> (x Core..?> "appArn")
+            Prelude.<$> (x Data..?> "appVersion")
+            Prelude.<*> (x Data..?> "appArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,32 +129,32 @@ instance Prelude.NFData PutDraftAppVersionTemplate where
     Prelude.rnf appArn
       `Prelude.seq` Prelude.rnf appTemplateBody
 
-instance Core.ToHeaders PutDraftAppVersionTemplate where
+instance Data.ToHeaders PutDraftAppVersionTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutDraftAppVersionTemplate where
+instance Data.ToJSON PutDraftAppVersionTemplate where
   toJSON PutDraftAppVersionTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("appArn" Core..= appArn),
+          [ Prelude.Just ("appArn" Data..= appArn),
             Prelude.Just
-              ("appTemplateBody" Core..= appTemplateBody)
+              ("appTemplateBody" Data..= appTemplateBody)
           ]
       )
 
-instance Core.ToPath PutDraftAppVersionTemplate where
+instance Data.ToPath PutDraftAppVersionTemplate where
   toPath =
     Prelude.const "/put-draft-app-version-template"
 
-instance Core.ToQuery PutDraftAppVersionTemplate where
+instance Data.ToQuery PutDraftAppVersionTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutDraftAppVersionTemplateResponse' smart constructor.

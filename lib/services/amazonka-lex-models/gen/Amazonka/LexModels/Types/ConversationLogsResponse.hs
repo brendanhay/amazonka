@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.ConversationLogsResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.LogSettingsResponse
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ conversationLogsResponse_logSettings = Lens.lens (\ConversationLogsResponse' {lo
 conversationLogsResponse_iamRoleArn :: Lens.Lens' ConversationLogsResponse (Prelude.Maybe Prelude.Text)
 conversationLogsResponse_iamRoleArn = Lens.lens (\ConversationLogsResponse' {iamRoleArn} -> iamRoleArn) (\s@ConversationLogsResponse' {} a -> s {iamRoleArn = a} :: ConversationLogsResponse)
 
-instance Core.FromJSON ConversationLogsResponse where
+instance Data.FromJSON ConversationLogsResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConversationLogsResponse"
       ( \x ->
           ConversationLogsResponse'
-            Prelude.<$> (x Core..:? "logSettings" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "iamRoleArn")
+            Prelude.<$> (x Data..:? "logSettings" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "iamRoleArn")
       )
 
 instance Prelude.Hashable ConversationLogsResponse where

@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.QueryResultItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.AdditionalResultAttribute
 import Amazonka.Kendra.Types.DocumentAttribute
 import Amazonka.Kendra.Types.QueryResultType
@@ -191,26 +192,26 @@ queryResultItem_documentId = Lens.lens (\QueryResultItem' {documentId} -> docume
 queryResultItem_documentURI :: Lens.Lens' QueryResultItem (Prelude.Maybe Prelude.Text)
 queryResultItem_documentURI = Lens.lens (\QueryResultItem' {documentURI} -> documentURI) (\s@QueryResultItem' {} a -> s {documentURI = a} :: QueryResultItem)
 
-instance Core.FromJSON QueryResultItem where
+instance Data.FromJSON QueryResultItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryResultItem"
       ( \x ->
           QueryResultItem'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DocumentTitle")
-            Prelude.<*> ( x Core..:? "DocumentAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DocumentTitle")
+            Prelude.<*> ( x Data..:? "DocumentAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ScoreAttributes")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "FeedbackToken")
-            Prelude.<*> ( x Core..:? "AdditionalAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ScoreAttributes")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "FeedbackToken")
+            Prelude.<*> ( x Data..:? "AdditionalAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DocumentExcerpt")
-            Prelude.<*> (x Core..:? "DocumentId")
-            Prelude.<*> (x Core..:? "DocumentURI")
+            Prelude.<*> (x Data..:? "DocumentExcerpt")
+            Prelude.<*> (x Data..:? "DocumentId")
+            Prelude.<*> (x Data..:? "DocumentURI")
       )
 
 instance Prelude.Hashable QueryResultItem where

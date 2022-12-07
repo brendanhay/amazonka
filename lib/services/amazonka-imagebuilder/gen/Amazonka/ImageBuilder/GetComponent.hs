@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,8 +89,8 @@ instance Core.AWSRequest GetComponent where
     Response.receiveJSON
       ( \s h x ->
           GetComponentResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "component")
+            Prelude.<$> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "component")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,25 +103,25 @@ instance Prelude.NFData GetComponent where
   rnf GetComponent' {..} =
     Prelude.rnf componentBuildVersionArn
 
-instance Core.ToHeaders GetComponent where
+instance Data.ToHeaders GetComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetComponent where
+instance Data.ToPath GetComponent where
   toPath = Prelude.const "/GetComponent"
 
-instance Core.ToQuery GetComponent where
+instance Data.ToQuery GetComponent where
   toQuery GetComponent' {..} =
     Prelude.mconcat
       [ "componentBuildVersionArn"
-          Core.=: componentBuildVersionArn
+          Data.=: componentBuildVersionArn
       ]
 
 -- | /See:/ 'newGetComponentResponse' smart constructor.

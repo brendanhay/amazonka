@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.S3DestinationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.BufferingHints
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.CompressionFormat
@@ -194,22 +195,22 @@ instance Prelude.NFData S3DestinationConfiguration where
       `Prelude.seq` Prelude.rnf roleARN
       `Prelude.seq` Prelude.rnf bucketARN
 
-instance Core.ToJSON S3DestinationConfiguration where
+instance Data.ToJSON S3DestinationConfiguration where
   toJSON S3DestinationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BufferingHints" Core..=)
+          [ ("BufferingHints" Data..=)
               Prelude.<$> bufferingHints,
-            ("CloudWatchLoggingOptions" Core..=)
+            ("CloudWatchLoggingOptions" Data..=)
               Prelude.<$> cloudWatchLoggingOptions,
-            ("EncryptionConfiguration" Core..=)
+            ("EncryptionConfiguration" Data..=)
               Prelude.<$> encryptionConfiguration,
-            ("Prefix" Core..=) Prelude.<$> prefix,
-            ("CompressionFormat" Core..=)
+            ("Prefix" Data..=) Prelude.<$> prefix,
+            ("CompressionFormat" Data..=)
               Prelude.<$> compressionFormat,
-            ("ErrorOutputPrefix" Core..=)
+            ("ErrorOutputPrefix" Data..=)
               Prelude.<$> errorOutputPrefix,
-            Prelude.Just ("RoleARN" Core..= roleARN),
-            Prelude.Just ("BucketARN" Core..= bucketARN)
+            Prelude.Just ("RoleARN" Data..= roleARN),
+            Prelude.Just ("BucketARN" Data..= bucketARN)
           ]
       )

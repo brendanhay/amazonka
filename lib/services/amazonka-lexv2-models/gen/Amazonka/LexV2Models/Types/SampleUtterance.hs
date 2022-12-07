@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SampleUtterance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A sample utterance that invokes an intent or respond to a slot
@@ -56,12 +57,12 @@ newSampleUtterance pUtterance_ =
 sampleUtterance_utterance :: Lens.Lens' SampleUtterance Prelude.Text
 sampleUtterance_utterance = Lens.lens (\SampleUtterance' {utterance} -> utterance) (\s@SampleUtterance' {} a -> s {utterance = a} :: SampleUtterance)
 
-instance Core.FromJSON SampleUtterance where
+instance Data.FromJSON SampleUtterance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SampleUtterance"
       ( \x ->
-          SampleUtterance' Prelude.<$> (x Core..: "utterance")
+          SampleUtterance' Prelude.<$> (x Data..: "utterance")
       )
 
 instance Prelude.Hashable SampleUtterance where
@@ -71,9 +72,9 @@ instance Prelude.Hashable SampleUtterance where
 instance Prelude.NFData SampleUtterance where
   rnf SampleUtterance' {..} = Prelude.rnf utterance
 
-instance Core.ToJSON SampleUtterance where
+instance Data.ToJSON SampleUtterance where
   toJSON SampleUtterance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("utterance" Core..= utterance)]
+          [Prelude.Just ("utterance" Data..= utterance)]
       )

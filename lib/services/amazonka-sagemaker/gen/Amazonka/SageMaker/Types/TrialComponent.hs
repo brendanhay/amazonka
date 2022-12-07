@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TrialComponent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MetadataProperties
 import Amazonka.SageMaker.Types.Parent
@@ -56,9 +57,9 @@ data TrialComponent = TrialComponent'
     -- | The output artifacts of the component.
     outputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
     -- | When the component ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | When the component was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) and job type of the source of the
     -- component.
     source :: Prelude.Maybe TrialComponentSource,
@@ -69,14 +70,14 @@ data TrialComponent = TrialComponent'
     -- | The Amazon Resource Name (ARN) of the lineage group resource.
     lineageGroupArn :: Prelude.Maybe Prelude.Text,
     -- | When the component was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The input artifacts of the component.
     inputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
     lastModifiedBy :: Prelude.Maybe UserContext,
     -- | Who created the trial component.
     createdBy :: Prelude.Maybe UserContext,
     -- | When the component started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The hyperparameters of the component.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue)
   }
@@ -200,11 +201,11 @@ trialComponent_outputArtifacts = Lens.lens (\TrialComponent' {outputArtifacts} -
 
 -- | When the component ended.
 trialComponent_endTime :: Lens.Lens' TrialComponent (Prelude.Maybe Prelude.UTCTime)
-trialComponent_endTime = Lens.lens (\TrialComponent' {endTime} -> endTime) (\s@TrialComponent' {} a -> s {endTime = a} :: TrialComponent) Prelude.. Lens.mapping Core._Time
+trialComponent_endTime = Lens.lens (\TrialComponent' {endTime} -> endTime) (\s@TrialComponent' {} a -> s {endTime = a} :: TrialComponent) Prelude.. Lens.mapping Data._Time
 
 -- | When the component was last modified.
 trialComponent_lastModifiedTime :: Lens.Lens' TrialComponent (Prelude.Maybe Prelude.UTCTime)
-trialComponent_lastModifiedTime = Lens.lens (\TrialComponent' {lastModifiedTime} -> lastModifiedTime) (\s@TrialComponent' {} a -> s {lastModifiedTime = a} :: TrialComponent) Prelude.. Lens.mapping Core._Time
+trialComponent_lastModifiedTime = Lens.lens (\TrialComponent' {lastModifiedTime} -> lastModifiedTime) (\s@TrialComponent' {} a -> s {lastModifiedTime = a} :: TrialComponent) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) and job type of the source of the
 -- component.
@@ -223,7 +224,7 @@ trialComponent_lineageGroupArn = Lens.lens (\TrialComponent' {lineageGroupArn} -
 
 -- | When the component was created.
 trialComponent_creationTime :: Lens.Lens' TrialComponent (Prelude.Maybe Prelude.UTCTime)
-trialComponent_creationTime = Lens.lens (\TrialComponent' {creationTime} -> creationTime) (\s@TrialComponent' {} a -> s {creationTime = a} :: TrialComponent) Prelude.. Lens.mapping Core._Time
+trialComponent_creationTime = Lens.lens (\TrialComponent' {creationTime} -> creationTime) (\s@TrialComponent' {} a -> s {creationTime = a} :: TrialComponent) Prelude.. Lens.mapping Data._Time
 
 -- | The input artifacts of the component.
 trialComponent_inputArtifacts :: Lens.Lens' TrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
@@ -239,40 +240,40 @@ trialComponent_createdBy = Lens.lens (\TrialComponent' {createdBy} -> createdBy)
 
 -- | When the component started.
 trialComponent_startTime :: Lens.Lens' TrialComponent (Prelude.Maybe Prelude.UTCTime)
-trialComponent_startTime = Lens.lens (\TrialComponent' {startTime} -> startTime) (\s@TrialComponent' {} a -> s {startTime = a} :: TrialComponent) Prelude.. Lens.mapping Core._Time
+trialComponent_startTime = Lens.lens (\TrialComponent' {startTime} -> startTime) (\s@TrialComponent' {} a -> s {startTime = a} :: TrialComponent) Prelude.. Lens.mapping Data._Time
 
 -- | The hyperparameters of the component.
 trialComponent_parameters :: Lens.Lens' TrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue))
 trialComponent_parameters = Lens.lens (\TrialComponent' {parameters} -> parameters) (\s@TrialComponent' {} a -> s {parameters = a} :: TrialComponent) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TrialComponent where
+instance Data.FromJSON TrialComponent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrialComponent"
       ( \x ->
           TrialComponent'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TrialComponentArn")
-            Prelude.<*> (x Core..:? "TrialComponentName")
-            Prelude.<*> (x Core..:? "SourceDetail")
-            Prelude.<*> (x Core..:? "MetadataProperties")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Metrics" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "OutputArtifacts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TrialComponentArn")
+            Prelude.<*> (x Data..:? "TrialComponentName")
+            Prelude.<*> (x Data..:? "SourceDetail")
+            Prelude.<*> (x Data..:? "MetadataProperties")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Metrics" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "OutputArtifacts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "Parents" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LineageGroupArn")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "InputArtifacts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "Parents" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LineageGroupArn")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "InputArtifacts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TrialComponent where

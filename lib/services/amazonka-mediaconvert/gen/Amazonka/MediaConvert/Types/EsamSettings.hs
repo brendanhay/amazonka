@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.EsamSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.EsamManifestConfirmConditionNotification
 import Amazonka.MediaConvert.Types.EsamSignalProcessingNotification
 import qualified Amazonka.Prelude as Prelude
@@ -99,15 +100,15 @@ esamSettings_signalProcessingNotification = Lens.lens (\EsamSettings' {signalPro
 esamSettings_manifestConfirmConditionNotification :: Lens.Lens' EsamSettings (Prelude.Maybe EsamManifestConfirmConditionNotification)
 esamSettings_manifestConfirmConditionNotification = Lens.lens (\EsamSettings' {manifestConfirmConditionNotification} -> manifestConfirmConditionNotification) (\s@EsamSettings' {} a -> s {manifestConfirmConditionNotification = a} :: EsamSettings)
 
-instance Core.FromJSON EsamSettings where
+instance Data.FromJSON EsamSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EsamSettings"
       ( \x ->
           EsamSettings'
-            Prelude.<$> (x Core..:? "responseSignalPreroll")
-            Prelude.<*> (x Core..:? "signalProcessingNotification")
-            Prelude.<*> (x Core..:? "manifestConfirmConditionNotification")
+            Prelude.<$> (x Data..:? "responseSignalPreroll")
+            Prelude.<*> (x Data..:? "signalProcessingNotification")
+            Prelude.<*> (x Data..:? "manifestConfirmConditionNotification")
       )
 
 instance Prelude.Hashable EsamSettings where
@@ -122,15 +123,15 @@ instance Prelude.NFData EsamSettings where
       `Prelude.seq` Prelude.rnf signalProcessingNotification
       `Prelude.seq` Prelude.rnf manifestConfirmConditionNotification
 
-instance Core.ToJSON EsamSettings where
+instance Data.ToJSON EsamSettings where
   toJSON EsamSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("responseSignalPreroll" Core..=)
+          [ ("responseSignalPreroll" Data..=)
               Prelude.<$> responseSignalPreroll,
-            ("signalProcessingNotification" Core..=)
+            ("signalProcessingNotification" Data..=)
               Prelude.<$> signalProcessingNotification,
-            ("manifestConfirmConditionNotification" Core..=)
+            ("manifestConfirmConditionNotification" Data..=)
               Prelude.<$> manifestConfirmConditionNotification
           ]
       )

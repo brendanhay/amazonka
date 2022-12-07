@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -182,14 +183,14 @@ instance Core.AWSRequest ListHostedZones where
     Response.receiveXML
       ( \s h x ->
           ListHostedZonesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "NextMarker")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "HostedZones" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "HostedZone"
+            Prelude.<*> ( x Data..@? "HostedZones" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "HostedZone"
                         )
-            Prelude.<*> (x Core..@ "IsTruncated")
-            Prelude.<*> (x Core..@ "MaxItems")
+            Prelude.<*> (x Data..@ "IsTruncated")
+            Prelude.<*> (x Data..@ "MaxItems")
       )
 
 instance Prelude.Hashable ListHostedZones where
@@ -204,18 +205,18 @@ instance Prelude.NFData ListHostedZones where
       `Prelude.seq` Prelude.rnf delegationSetId
       `Prelude.seq` Prelude.rnf maxItems
 
-instance Core.ToHeaders ListHostedZones where
+instance Data.ToHeaders ListHostedZones where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListHostedZones where
+instance Data.ToPath ListHostedZones where
   toPath = Prelude.const "/2013-04-01/hostedzone"
 
-instance Core.ToQuery ListHostedZones where
+instance Data.ToQuery ListHostedZones where
   toQuery ListHostedZones' {..} =
     Prelude.mconcat
-      [ "marker" Core.=: marker,
-        "delegationsetid" Core.=: delegationSetId,
-        "maxitems" Core.=: maxItems
+      [ "marker" Data.=: marker,
+        "delegationsetid" Data.=: delegationSetId,
+        "maxitems" Data.=: maxItems
       ]
 
 -- | /See:/ 'newListHostedZonesResponse' smart constructor.

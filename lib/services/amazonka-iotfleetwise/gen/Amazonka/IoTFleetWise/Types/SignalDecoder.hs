@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.SignalDecoder where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.CanSignal
 import Amazonka.IoTFleetWise.Types.ObdSignal
 import Amazonka.IoTFleetWise.Types.SignalDecoderType
@@ -121,17 +122,17 @@ signalDecoder_type = Lens.lens (\SignalDecoder' {type'} -> type') (\s@SignalDeco
 signalDecoder_interfaceId :: Lens.Lens' SignalDecoder Prelude.Text
 signalDecoder_interfaceId = Lens.lens (\SignalDecoder' {interfaceId} -> interfaceId) (\s@SignalDecoder' {} a -> s {interfaceId = a} :: SignalDecoder)
 
-instance Core.FromJSON SignalDecoder where
+instance Data.FromJSON SignalDecoder where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SignalDecoder"
       ( \x ->
           SignalDecoder'
-            Prelude.<$> (x Core..:? "canSignal")
-            Prelude.<*> (x Core..:? "obdSignal")
-            Prelude.<*> (x Core..: "fullyQualifiedName")
-            Prelude.<*> (x Core..: "type")
-            Prelude.<*> (x Core..: "interfaceId")
+            Prelude.<$> (x Data..:? "canSignal")
+            Prelude.<*> (x Data..:? "obdSignal")
+            Prelude.<*> (x Data..: "fullyQualifiedName")
+            Prelude.<*> (x Data..: "type")
+            Prelude.<*> (x Data..: "interfaceId")
       )
 
 instance Prelude.Hashable SignalDecoder where
@@ -150,15 +151,15 @@ instance Prelude.NFData SignalDecoder where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf interfaceId
 
-instance Core.ToJSON SignalDecoder where
+instance Data.ToJSON SignalDecoder where
   toJSON SignalDecoder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("canSignal" Core..=) Prelude.<$> canSignal,
-            ("obdSignal" Core..=) Prelude.<$> obdSignal,
+          [ ("canSignal" Data..=) Prelude.<$> canSignal,
+            ("obdSignal" Data..=) Prelude.<$> obdSignal,
             Prelude.Just
-              ("fullyQualifiedName" Core..= fullyQualifiedName),
-            Prelude.Just ("type" Core..= type'),
-            Prelude.Just ("interfaceId" Core..= interfaceId)
+              ("fullyQualifiedName" Data..= fullyQualifiedName),
+            Prelude.Just ("type" Data..= type'),
+            Prelude.Just ("interfaceId" Data..= interfaceId)
           ]
       )

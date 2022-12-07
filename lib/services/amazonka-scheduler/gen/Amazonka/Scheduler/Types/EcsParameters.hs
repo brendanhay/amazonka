@@ -21,6 +21,7 @@ module Amazonka.Scheduler.Types.EcsParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Scheduler.Types.CapacityProviderStrategyItem
 import Amazonka.Scheduler.Types.LaunchType
@@ -257,32 +258,32 @@ ecsParameters_taskCount = Lens.lens (\EcsParameters' {taskCount} -> taskCount) (
 ecsParameters_taskDefinitionArn :: Lens.Lens' EcsParameters Prelude.Text
 ecsParameters_taskDefinitionArn = Lens.lens (\EcsParameters' {taskDefinitionArn} -> taskDefinitionArn) (\s@EcsParameters' {} a -> s {taskDefinitionArn = a} :: EcsParameters)
 
-instance Core.FromJSON EcsParameters where
+instance Data.FromJSON EcsParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EcsParameters"
       ( \x ->
           EcsParameters'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "PlacementStrategy"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "PlacementStrategy"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "NetworkConfiguration")
-            Prelude.<*> (x Core..:? "EnableExecuteCommand")
-            Prelude.<*> ( x Core..:? "CapacityProviderStrategy"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "NetworkConfiguration")
+            Prelude.<*> (x Data..:? "EnableExecuteCommand")
+            Prelude.<*> ( x Data..:? "CapacityProviderStrategy"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "PlacementConstraints"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "PlacementConstraints"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PropagateTags")
-            Prelude.<*> (x Core..:? "ReferenceId")
-            Prelude.<*> (x Core..:? "LaunchType")
-            Prelude.<*> (x Core..:? "PlatformVersion")
-            Prelude.<*> (x Core..:? "EnableECSManagedTags")
-            Prelude.<*> (x Core..:? "Group")
-            Prelude.<*> (x Core..:? "TaskCount")
-            Prelude.<*> (x Core..: "TaskDefinitionArn")
+            Prelude.<*> (x Data..:? "PropagateTags")
+            Prelude.<*> (x Data..:? "ReferenceId")
+            Prelude.<*> (x Data..:? "LaunchType")
+            Prelude.<*> (x Data..:? "PlatformVersion")
+            Prelude.<*> (x Data..:? "EnableECSManagedTags")
+            Prelude.<*> (x Data..:? "Group")
+            Prelude.<*> (x Data..:? "TaskCount")
+            Prelude.<*> (x Data..: "TaskDefinitionArn")
       )
 
 instance Prelude.Hashable EcsParameters where
@@ -319,31 +320,31 @@ instance Prelude.NFData EcsParameters where
       `Prelude.seq` Prelude.rnf taskCount
       `Prelude.seq` Prelude.rnf taskDefinitionArn
 
-instance Core.ToJSON EcsParameters where
+instance Data.ToJSON EcsParameters where
   toJSON EcsParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("PlacementStrategy" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("PlacementStrategy" Data..=)
               Prelude.<$> placementStrategy,
-            ("NetworkConfiguration" Core..=)
+            ("NetworkConfiguration" Data..=)
               Prelude.<$> networkConfiguration,
-            ("EnableExecuteCommand" Core..=)
+            ("EnableExecuteCommand" Data..=)
               Prelude.<$> enableExecuteCommand,
-            ("CapacityProviderStrategy" Core..=)
+            ("CapacityProviderStrategy" Data..=)
               Prelude.<$> capacityProviderStrategy,
-            ("PlacementConstraints" Core..=)
+            ("PlacementConstraints" Data..=)
               Prelude.<$> placementConstraints,
-            ("PropagateTags" Core..=) Prelude.<$> propagateTags,
-            ("ReferenceId" Core..=) Prelude.<$> referenceId,
-            ("LaunchType" Core..=) Prelude.<$> launchType,
-            ("PlatformVersion" Core..=)
+            ("PropagateTags" Data..=) Prelude.<$> propagateTags,
+            ("ReferenceId" Data..=) Prelude.<$> referenceId,
+            ("LaunchType" Data..=) Prelude.<$> launchType,
+            ("PlatformVersion" Data..=)
               Prelude.<$> platformVersion,
-            ("EnableECSManagedTags" Core..=)
+            ("EnableECSManagedTags" Data..=)
               Prelude.<$> enableECSManagedTags,
-            ("Group" Core..=) Prelude.<$> group',
-            ("TaskCount" Core..=) Prelude.<$> taskCount,
+            ("Group" Data..=) Prelude.<$> group',
+            ("TaskCount" Data..=) Prelude.<$> taskCount,
             Prelude.Just
-              ("TaskDefinitionArn" Core..= taskDefinitionArn)
+              ("TaskDefinitionArn" Data..= taskDefinitionArn)
           ]
       )

@@ -26,6 +26,7 @@ import Amazonka.AppMesh.Types.HttpPathMatch
 import Amazonka.AppMesh.Types.HttpQueryParameter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the criteria for determining a request match.
@@ -126,19 +127,19 @@ httpGatewayRouteMatch_queryParameters = Lens.lens (\HttpGatewayRouteMatch' {quer
 httpGatewayRouteMatch_prefix :: Lens.Lens' HttpGatewayRouteMatch (Prelude.Maybe Prelude.Text)
 httpGatewayRouteMatch_prefix = Lens.lens (\HttpGatewayRouteMatch' {prefix} -> prefix) (\s@HttpGatewayRouteMatch' {} a -> s {prefix = a} :: HttpGatewayRouteMatch)
 
-instance Core.FromJSON HttpGatewayRouteMatch where
+instance Data.FromJSON HttpGatewayRouteMatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpGatewayRouteMatch"
       ( \x ->
           HttpGatewayRouteMatch'
-            Prelude.<$> (x Core..:? "port")
-            Prelude.<*> (x Core..:? "headers")
-            Prelude.<*> (x Core..:? "method")
-            Prelude.<*> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "hostname")
-            Prelude.<*> (x Core..:? "queryParameters")
-            Prelude.<*> (x Core..:? "prefix")
+            Prelude.<$> (x Data..:? "port")
+            Prelude.<*> (x Data..:? "headers")
+            Prelude.<*> (x Data..:? "method")
+            Prelude.<*> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "hostname")
+            Prelude.<*> (x Data..:? "queryParameters")
+            Prelude.<*> (x Data..:? "prefix")
       )
 
 instance Prelude.Hashable HttpGatewayRouteMatch where
@@ -161,17 +162,17 @@ instance Prelude.NFData HttpGatewayRouteMatch where
       `Prelude.seq` Prelude.rnf queryParameters
       `Prelude.seq` Prelude.rnf prefix
 
-instance Core.ToJSON HttpGatewayRouteMatch where
+instance Data.ToJSON HttpGatewayRouteMatch where
   toJSON HttpGatewayRouteMatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("port" Core..=) Prelude.<$> port,
-            ("headers" Core..=) Prelude.<$> headers,
-            ("method" Core..=) Prelude.<$> method,
-            ("path" Core..=) Prelude.<$> path,
-            ("hostname" Core..=) Prelude.<$> hostname,
-            ("queryParameters" Core..=)
+          [ ("port" Data..=) Prelude.<$> port,
+            ("headers" Data..=) Prelude.<$> headers,
+            ("method" Data..=) Prelude.<$> method,
+            ("path" Data..=) Prelude.<$> path,
+            ("hostname" Data..=) Prelude.<$> hostname,
+            ("queryParameters" Data..=)
               Prelude.<$> queryParameters,
-            ("prefix" Core..=) Prelude.<$> prefix
+            ("prefix" Data..=) Prelude.<$> prefix
           ]
       )

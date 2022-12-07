@@ -52,6 +52,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -160,7 +161,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PutRepositoryPermissionsPolicyResponse'
-            Prelude.<$> (x Core..?> "policy")
+            Prelude.<$> (x Data..?> "policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,40 +190,40 @@ instance
       `Prelude.seq` Prelude.rnf policyDocument
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutRepositoryPermissionsPolicy
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRepositoryPermissionsPolicy where
+instance Data.ToJSON PutRepositoryPermissionsPolicy where
   toJSON PutRepositoryPermissionsPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("policyRevision" Core..=)
+          [ ("policyRevision" Data..=)
               Prelude.<$> policyRevision,
             Prelude.Just
-              ("policyDocument" Core..= policyDocument)
+              ("policyDocument" Data..= policyDocument)
           ]
       )
 
-instance Core.ToPath PutRepositoryPermissionsPolicy where
+instance Data.ToPath PutRepositoryPermissionsPolicy where
   toPath =
     Prelude.const "/v1/repository/permissions/policy"
 
-instance Core.ToQuery PutRepositoryPermissionsPolicy where
+instance Data.ToQuery PutRepositoryPermissionsPolicy where
   toQuery PutRepositoryPermissionsPolicy' {..} =
     Prelude.mconcat
-      [ "domain-owner" Core.=: domainOwner,
-        "domain" Core.=: domain,
-        "repository" Core.=: repository
+      [ "domain-owner" Data.=: domainOwner,
+        "domain" Data.=: domain,
+        "repository" Data.=: repository
       ]
 
 -- | /See:/ 'newPutRepositoryPermissionsPolicyResponse' smart constructor.

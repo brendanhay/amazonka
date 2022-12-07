@@ -62,6 +62,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -460,7 +461,7 @@ instance Core.AWSRequest CreateProject where
     Response.receiveJSON
       ( \s h x ->
           CreateProjectResponse'
-            Prelude.<$> (x Core..?> "project")
+            Prelude.<$> (x Data..?> "project")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -512,61 +513,61 @@ instance Prelude.NFData CreateProject where
       `Prelude.seq` Prelude.rnf environment
       `Prelude.seq` Prelude.rnf serviceRole
 
-instance Core.ToHeaders CreateProject where
+instance Data.ToHeaders CreateProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.CreateProject" ::
+              Data.=# ( "CodeBuild_20161006.CreateProject" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateProject where
+instance Data.ToJSON CreateProject where
   toJSON CreateProject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("secondarySources" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("secondarySources" Data..=)
               Prelude.<$> secondarySources,
-            ("badgeEnabled" Core..=) Prelude.<$> badgeEnabled,
-            ("fileSystemLocations" Core..=)
+            ("badgeEnabled" Data..=) Prelude.<$> badgeEnabled,
+            ("fileSystemLocations" Data..=)
               Prelude.<$> fileSystemLocations,
-            ("timeoutInMinutes" Core..=)
+            ("timeoutInMinutes" Data..=)
               Prelude.<$> timeoutInMinutes,
-            ("queuedTimeoutInMinutes" Core..=)
+            ("queuedTimeoutInMinutes" Data..=)
               Prelude.<$> queuedTimeoutInMinutes,
-            ("vpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("secondaryArtifacts" Core..=)
+            ("vpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("secondaryArtifacts" Data..=)
               Prelude.<$> secondaryArtifacts,
-            ("sourceVersion" Core..=) Prelude.<$> sourceVersion,
-            ("concurrentBuildLimit" Core..=)
+            ("sourceVersion" Data..=) Prelude.<$> sourceVersion,
+            ("concurrentBuildLimit" Data..=)
               Prelude.<$> concurrentBuildLimit,
-            ("description" Core..=) Prelude.<$> description,
-            ("cache" Core..=) Prelude.<$> cache,
-            ("secondarySourceVersions" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("cache" Data..=) Prelude.<$> cache,
+            ("secondarySourceVersions" Data..=)
               Prelude.<$> secondarySourceVersions,
-            ("logsConfig" Core..=) Prelude.<$> logsConfig,
-            ("buildBatchConfig" Core..=)
+            ("logsConfig" Data..=) Prelude.<$> logsConfig,
+            ("buildBatchConfig" Data..=)
               Prelude.<$> buildBatchConfig,
-            ("encryptionKey" Core..=) Prelude.<$> encryptionKey,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("source" Core..= source),
-            Prelude.Just ("artifacts" Core..= artifacts),
-            Prelude.Just ("environment" Core..= environment),
-            Prelude.Just ("serviceRole" Core..= serviceRole)
+            ("encryptionKey" Data..=) Prelude.<$> encryptionKey,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("source" Data..= source),
+            Prelude.Just ("artifacts" Data..= artifacts),
+            Prelude.Just ("environment" Data..= environment),
+            Prelude.Just ("serviceRole" Data..= serviceRole)
           ]
       )
 
-instance Core.ToPath CreateProject where
+instance Data.ToPath CreateProject where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateProject where
+instance Data.ToQuery CreateProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProjectResponse' smart constructor.

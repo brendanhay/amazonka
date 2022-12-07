@@ -44,6 +44,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,7 +86,7 @@ instance Core.AWSRequest UpdateAccount where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateAccount where
   hashWithSalt _salt UpdateAccount' {..} =
@@ -94,26 +95,26 @@ instance Prelude.Hashable UpdateAccount where
 instance Prelude.NFData UpdateAccount where
   rnf UpdateAccount' {..} = Prelude.rnf patchOperations
 
-instance Core.ToHeaders UpdateAccount where
+instance Data.ToHeaders UpdateAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON UpdateAccount where
+instance Data.ToJSON UpdateAccount where
   toJSON UpdateAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("patchOperations" Core..=)
+          [ ("patchOperations" Data..=)
               Prelude.<$> patchOperations
           ]
       )
 
-instance Core.ToPath UpdateAccount where
+instance Data.ToPath UpdateAccount where
   toPath = Prelude.const "/account"
 
-instance Core.ToQuery UpdateAccount where
+instance Data.ToQuery UpdateAccount where
   toQuery = Prelude.const Prelude.mempty

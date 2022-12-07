@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest DescribeConfigurations where
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationsResponse'
-            Prelude.<$> (x Core..?> "configurations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "configurations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,34 +117,34 @@ instance Prelude.NFData DescribeConfigurations where
   rnf DescribeConfigurations' {..} =
     Prelude.rnf configurationIds
 
-instance Core.ToHeaders DescribeConfigurations where
+instance Data.ToHeaders DescribeConfigurations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSPoseidonService_V2015_11_01.DescribeConfigurations" ::
+              Data.=# ( "AWSPoseidonService_V2015_11_01.DescribeConfigurations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeConfigurations where
+instance Data.ToJSON DescribeConfigurations where
   toJSON DescribeConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("configurationIds" Core..= configurationIds)
+              ("configurationIds" Data..= configurationIds)
           ]
       )
 
-instance Core.ToPath DescribeConfigurations where
+instance Data.ToPath DescribeConfigurations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeConfigurations where
+instance Data.ToQuery DescribeConfigurations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeConfigurationsResponse' smart constructor.

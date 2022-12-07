@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,9 +125,9 @@ instance Core.AWSRequest ExecuteQuery where
     Response.receiveJSON
       ( \s h x ->
           ExecuteQueryResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "rows" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "columnDescriptions"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "rows" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "columnDescriptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -146,33 +147,33 @@ instance Prelude.NFData ExecuteQuery where
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf queryStatement
 
-instance Core.ToHeaders ExecuteQuery where
+instance Data.ToHeaders ExecuteQuery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExecuteQuery where
+instance Data.ToJSON ExecuteQuery where
   toJSON ExecuteQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("workspaceId" Core..= workspaceId),
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("workspaceId" Data..= workspaceId),
             Prelude.Just
-              ("queryStatement" Core..= queryStatement)
+              ("queryStatement" Data..= queryStatement)
           ]
       )
 
-instance Core.ToPath ExecuteQuery where
+instance Data.ToPath ExecuteQuery where
   toPath = Prelude.const "/queries/execution"
 
-instance Core.ToQuery ExecuteQuery where
+instance Data.ToQuery ExecuteQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExecuteQueryResponse' smart constructor.

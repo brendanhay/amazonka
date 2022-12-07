@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkInterfaceCount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,10 +69,10 @@ networkInterfaceCount_max = Lens.lens (\NetworkInterfaceCount' {max} -> max) (\s
 networkInterfaceCount_min :: Lens.Lens' NetworkInterfaceCount (Prelude.Maybe Prelude.Int)
 networkInterfaceCount_min = Lens.lens (\NetworkInterfaceCount' {min} -> min) (\s@NetworkInterfaceCount' {} a -> s {min = a} :: NetworkInterfaceCount)
 
-instance Core.FromXML NetworkInterfaceCount where
+instance Data.FromXML NetworkInterfaceCount where
   parseXML x =
     NetworkInterfaceCount'
-      Prelude.<$> (x Core..@? "max") Prelude.<*> (x Core..@? "min")
+      Prelude.<$> (x Data..@? "max") Prelude.<*> (x Data..@? "min")
 
 instance Prelude.Hashable NetworkInterfaceCount where
   hashWithSalt _salt NetworkInterfaceCount' {..} =
@@ -82,7 +83,7 @@ instance Prelude.NFData NetworkInterfaceCount where
   rnf NetworkInterfaceCount' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery NetworkInterfaceCount where
+instance Data.ToQuery NetworkInterfaceCount where
   toQuery NetworkInterfaceCount' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

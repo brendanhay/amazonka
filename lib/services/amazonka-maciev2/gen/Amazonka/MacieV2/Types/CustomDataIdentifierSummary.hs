@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.CustomDataIdentifierSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a custom data identifier.
@@ -37,7 +38,7 @@ data CustomDataIdentifierSummary = CustomDataIdentifierSummary'
     id :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the custom
     -- data identifier was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,19 +91,19 @@ customDataIdentifierSummary_id = Lens.lens (\CustomDataIdentifierSummary' {id} -
 -- | The date and time, in UTC and extended ISO 8601 format, when the custom
 -- data identifier was created.
 customDataIdentifierSummary_createdAt :: Lens.Lens' CustomDataIdentifierSummary (Prelude.Maybe Prelude.UTCTime)
-customDataIdentifierSummary_createdAt = Lens.lens (\CustomDataIdentifierSummary' {createdAt} -> createdAt) (\s@CustomDataIdentifierSummary' {} a -> s {createdAt = a} :: CustomDataIdentifierSummary) Prelude.. Lens.mapping Core._Time
+customDataIdentifierSummary_createdAt = Lens.lens (\CustomDataIdentifierSummary' {createdAt} -> createdAt) (\s@CustomDataIdentifierSummary' {} a -> s {createdAt = a} :: CustomDataIdentifierSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CustomDataIdentifierSummary where
+instance Data.FromJSON CustomDataIdentifierSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomDataIdentifierSummary"
       ( \x ->
           CustomDataIdentifierSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable CustomDataIdentifierSummary where

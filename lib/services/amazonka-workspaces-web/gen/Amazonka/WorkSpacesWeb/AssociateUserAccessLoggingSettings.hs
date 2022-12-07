@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,8 +107,8 @@ instance
       ( \s h x ->
           AssociateUserAccessLoggingSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "portalArn")
-              Prelude.<*> (x Core..:> "userAccessLoggingSettingsArn")
+              Prelude.<*> (x Data..:> "portalArn")
+              Prelude.<*> (x Data..:> "userAccessLoggingSettingsArn")
       )
 
 instance
@@ -129,44 +130,44 @@ instance
       `Prelude.seq` Prelude.rnf userAccessLoggingSettingsArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AssociateUserAccessLoggingSettings
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AssociateUserAccessLoggingSettings
   where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
 instance
-  Core.ToPath
+  Data.ToPath
     AssociateUserAccessLoggingSettings
   where
   toPath AssociateUserAccessLoggingSettings' {..} =
     Prelude.mconcat
       [ "/portals/",
-        Core.toBS portalArn,
+        Data.toBS portalArn,
         "/userAccessLoggingSettings"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AssociateUserAccessLoggingSettings
   where
   toQuery AssociateUserAccessLoggingSettings' {..} =
     Prelude.mconcat
       [ "userAccessLoggingSettingsArn"
-          Core.=: userAccessLoggingSettingsArn
+          Data.=: userAccessLoggingSettingsArn
       ]
 
 -- | /See:/ 'newAssociateUserAccessLoggingSettingsResponse' smart constructor.

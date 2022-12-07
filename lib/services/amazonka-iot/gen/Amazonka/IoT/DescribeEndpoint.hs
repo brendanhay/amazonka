@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,7 +128,7 @@ instance Core.AWSRequest DescribeEndpoint where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointResponse'
-            Prelude.<$> (x Core..?> "endpointAddress")
+            Prelude.<$> (x Data..?> "endpointAddress")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,16 +139,16 @@ instance Prelude.Hashable DescribeEndpoint where
 instance Prelude.NFData DescribeEndpoint where
   rnf DescribeEndpoint' {..} = Prelude.rnf endpointType
 
-instance Core.ToHeaders DescribeEndpoint where
+instance Data.ToHeaders DescribeEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeEndpoint where
+instance Data.ToPath DescribeEndpoint where
   toPath = Prelude.const "/endpoint"
 
-instance Core.ToQuery DescribeEndpoint where
+instance Data.ToQuery DescribeEndpoint where
   toQuery DescribeEndpoint' {..} =
     Prelude.mconcat
-      ["endpointType" Core.=: endpointType]
+      ["endpointType" Data.=: endpointType]
 
 -- | The output from the DescribeEndpoint operation.
 --

@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.PrivateIp where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a private IP address associated with a
@@ -63,14 +64,14 @@ privateIp_privateIpAddress = Lens.lens (\PrivateIp' {privateIpAddress} -> privat
 privateIp_privateDnsName :: Lens.Lens' PrivateIp (Prelude.Maybe Prelude.Text)
 privateIp_privateDnsName = Lens.lens (\PrivateIp' {privateDnsName} -> privateDnsName) (\s@PrivateIp' {} a -> s {privateDnsName = a} :: PrivateIp)
 
-instance Core.FromJSON PrivateIp where
+instance Data.FromJSON PrivateIp where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PrivateIp"
       ( \x ->
           PrivateIp'
-            Prelude.<$> (x Core..:? "privateIpAddress")
-            Prelude.<*> (x Core..:? "privateDnsName")
+            Prelude.<$> (x Data..:? "privateIpAddress")
+            Prelude.<*> (x Data..:? "privateDnsName")
       )
 
 instance Prelude.Hashable PrivateIp where

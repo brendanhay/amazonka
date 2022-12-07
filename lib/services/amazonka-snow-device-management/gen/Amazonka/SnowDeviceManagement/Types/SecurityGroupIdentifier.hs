@@ -21,6 +21,7 @@ module Amazonka.SnowDeviceManagement.Types.SecurityGroupIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the device\'s security group.
@@ -62,14 +63,14 @@ securityGroupIdentifier_groupName = Lens.lens (\SecurityGroupIdentifier' {groupN
 securityGroupIdentifier_groupId :: Lens.Lens' SecurityGroupIdentifier (Prelude.Maybe Prelude.Text)
 securityGroupIdentifier_groupId = Lens.lens (\SecurityGroupIdentifier' {groupId} -> groupId) (\s@SecurityGroupIdentifier' {} a -> s {groupId = a} :: SecurityGroupIdentifier)
 
-instance Core.FromJSON SecurityGroupIdentifier where
+instance Data.FromJSON SecurityGroupIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecurityGroupIdentifier"
       ( \x ->
           SecurityGroupIdentifier'
-            Prelude.<$> (x Core..:? "groupName")
-            Prelude.<*> (x Core..:? "groupId")
+            Prelude.<$> (x Data..:? "groupName")
+            Prelude.<*> (x Data..:? "groupId")
       )
 
 instance Prelude.Hashable SecurityGroupIdentifier where

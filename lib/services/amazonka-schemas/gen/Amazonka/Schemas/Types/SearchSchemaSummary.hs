@@ -21,6 +21,7 @@ module Amazonka.Schemas.Types.SearchSchemaSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Schemas.Types.SearchSchemaVersionSummary
 
@@ -79,16 +80,16 @@ searchSchemaSummary_schemaName = Lens.lens (\SearchSchemaSummary' {schemaName} -
 searchSchemaSummary_schemaArn :: Lens.Lens' SearchSchemaSummary (Prelude.Maybe Prelude.Text)
 searchSchemaSummary_schemaArn = Lens.lens (\SearchSchemaSummary' {schemaArn} -> schemaArn) (\s@SearchSchemaSummary' {} a -> s {schemaArn = a} :: SearchSchemaSummary)
 
-instance Core.FromJSON SearchSchemaSummary where
+instance Data.FromJSON SearchSchemaSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SearchSchemaSummary"
       ( \x ->
           SearchSchemaSummary'
-            Prelude.<$> (x Core..:? "RegistryName")
-            Prelude.<*> (x Core..:? "SchemaVersions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SchemaName")
-            Prelude.<*> (x Core..:? "SchemaArn")
+            Prelude.<$> (x Data..:? "RegistryName")
+            Prelude.<*> (x Data..:? "SchemaVersions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SchemaName")
+            Prelude.<*> (x Data..:? "SchemaArn")
       )
 
 instance Prelude.Hashable SearchSchemaSummary where

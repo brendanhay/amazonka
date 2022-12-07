@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelPackageStatusDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ModelPackageStatusItem
 
@@ -66,17 +67,17 @@ modelPackageStatusDetails_imageScanStatuses = Lens.lens (\ModelPackageStatusDeta
 modelPackageStatusDetails_validationStatuses :: Lens.Lens' ModelPackageStatusDetails [ModelPackageStatusItem]
 modelPackageStatusDetails_validationStatuses = Lens.lens (\ModelPackageStatusDetails' {validationStatuses} -> validationStatuses) (\s@ModelPackageStatusDetails' {} a -> s {validationStatuses = a} :: ModelPackageStatusDetails) Prelude.. Lens.coerced
 
-instance Core.FromJSON ModelPackageStatusDetails where
+instance Data.FromJSON ModelPackageStatusDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelPackageStatusDetails"
       ( \x ->
           ModelPackageStatusDetails'
-            Prelude.<$> ( x Core..:? "ImageScanStatuses"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ImageScanStatuses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ValidationStatuses"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ValidationStatuses"
+                            Data..!= Prelude.mempty
                         )
       )
 

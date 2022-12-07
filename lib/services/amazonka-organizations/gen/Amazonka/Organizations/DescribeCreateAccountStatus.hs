@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ instance Core.AWSRequest DescribeCreateAccountStatus where
     Response.receiveJSON
       ( \s h x ->
           DescribeCreateAccountStatusResponse'
-            Prelude.<$> (x Core..?> "CreateAccountStatus")
+            Prelude.<$> (x Data..?> "CreateAccountStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,36 +126,36 @@ instance Prelude.NFData DescribeCreateAccountStatus where
   rnf DescribeCreateAccountStatus' {..} =
     Prelude.rnf createAccountRequestId
 
-instance Core.ToHeaders DescribeCreateAccountStatus where
+instance Data.ToHeaders DescribeCreateAccountStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.DescribeCreateAccountStatus" ::
+              Data.=# ( "AWSOrganizationsV20161128.DescribeCreateAccountStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCreateAccountStatus where
+instance Data.ToJSON DescribeCreateAccountStatus where
   toJSON DescribeCreateAccountStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "CreateAccountRequestId"
-                  Core..= createAccountRequestId
+                  Data..= createAccountRequestId
               )
           ]
       )
 
-instance Core.ToPath DescribeCreateAccountStatus where
+instance Data.ToPath DescribeCreateAccountStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCreateAccountStatus where
+instance Data.ToQuery DescribeCreateAccountStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCreateAccountStatusResponse' smart constructor.

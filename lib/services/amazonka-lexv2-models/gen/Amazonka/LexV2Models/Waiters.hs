@@ -18,6 +18,7 @@ module Amazonka.LexV2Models.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.DescribeBot
 import Amazonka.LexV2Models.DescribeBotAlias
 import Amazonka.LexV2Models.DescribeBotLocale
@@ -41,28 +42,28 @@ newBotLocaleBuilt =
             Core.AcceptSuccess
             ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Deleting"
             Core.AcceptFailure
             ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "NotBuilt"
             Core.AcceptFailure
             ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -80,21 +81,21 @@ newBotImportCompleted =
             Core.AcceptSuccess
             ( describeImportResponse_importStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Deleting"
             Core.AcceptFailure
             ( describeImportResponse_importStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeImportResponse_importStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -113,35 +114,35 @@ newBotLocaleExpressTestingAvailable =
             Core.AcceptSuccess
             ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "ReadyExpressTesting"
             Core.AcceptSuccess
             ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Deleting"
             Core.AcceptFailure
             ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "NotBuilt"
             Core.AcceptFailure
             ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -158,25 +159,25 @@ newBotAvailable =
             "Available"
             Core.AcceptSuccess
             ( describeBotResponse_botStatus Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Deleting"
             Core.AcceptFailure
             ( describeBotResponse_botStatus Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeBotResponse_botStatus Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Inactive"
             Core.AcceptFailure
             ( describeBotResponse_botStatus Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -194,21 +195,21 @@ newBotAliasAvailable =
             Core.AcceptSuccess
             ( describeBotAliasResponse_botAliasStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeBotAliasResponse_botAliasStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Deleting"
             Core.AcceptFailure
             ( describeBotAliasResponse_botAliasStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -226,35 +227,35 @@ newBotLocaleCreated =
             Core.AcceptSuccess
             ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "ReadyExpressTesting"
             Core.AcceptSuccess
             ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "NotBuilt"
             Core.AcceptSuccess
             ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Deleting"
             Core.AcceptFailure
             ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -272,21 +273,21 @@ newBotVersionAvailable =
             Core.AcceptSuccess
             ( describeBotVersionResponse_botStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Deleting"
             Core.AcceptFailure
             ( describeBotVersionResponse_botStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeBotVersionResponse_botStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 404 Core.AcceptRetry
         ]
@@ -305,21 +306,21 @@ newBotExportCompleted =
             Core.AcceptSuccess
             ( describeExportResponse_exportStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Deleting"
             Core.AcceptFailure
             ( describeExportResponse_exportStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeExportResponse_exportStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

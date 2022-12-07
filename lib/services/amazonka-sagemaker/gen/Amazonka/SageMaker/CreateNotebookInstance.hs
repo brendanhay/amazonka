@@ -95,6 +95,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -444,7 +445,7 @@ instance Core.AWSRequest CreateNotebookInstance where
     Response.receiveJSON
       ( \s h x ->
           CreateNotebookInstanceResponse'
-            Prelude.<$> (x Core..?> "NotebookInstanceArn")
+            Prelude.<$> (x Data..?> "NotebookInstanceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -486,60 +487,60 @@ instance Prelude.NFData CreateNotebookInstance where
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateNotebookInstance where
+instance Data.ToHeaders CreateNotebookInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateNotebookInstance" ::
+              Data.=# ( "SageMaker.CreateNotebookInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateNotebookInstance where
+instance Data.ToJSON CreateNotebookInstance where
   toJSON CreateNotebookInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("SecurityGroupIds" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("InstanceMetadataServiceConfiguration" Core..=)
+            ("InstanceMetadataServiceConfiguration" Data..=)
               Prelude.<$> instanceMetadataServiceConfiguration,
-            ("SubnetId" Core..=) Prelude.<$> subnetId,
-            ("AcceleratorTypes" Core..=)
+            ("SubnetId" Data..=) Prelude.<$> subnetId,
+            ("AcceleratorTypes" Data..=)
               Prelude.<$> acceleratorTypes,
-            ("DirectInternetAccess" Core..=)
+            ("DirectInternetAccess" Data..=)
               Prelude.<$> directInternetAccess,
-            ("AdditionalCodeRepositories" Core..=)
+            ("AdditionalCodeRepositories" Data..=)
               Prelude.<$> additionalCodeRepositories,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("PlatformIdentifier" Core..=)
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("PlatformIdentifier" Data..=)
               Prelude.<$> platformIdentifier,
-            ("VolumeSizeInGB" Core..=)
+            ("VolumeSizeInGB" Data..=)
               Prelude.<$> volumeSizeInGB,
-            ("LifecycleConfigName" Core..=)
+            ("LifecycleConfigName" Data..=)
               Prelude.<$> lifecycleConfigName,
-            ("DefaultCodeRepository" Core..=)
+            ("DefaultCodeRepository" Data..=)
               Prelude.<$> defaultCodeRepository,
-            ("RootAccess" Core..=) Prelude.<$> rootAccess,
+            ("RootAccess" Data..=) Prelude.<$> rootAccess,
             Prelude.Just
               ( "NotebookInstanceName"
-                  Core..= notebookInstanceName
+                  Data..= notebookInstanceName
               ),
-            Prelude.Just ("InstanceType" Core..= instanceType),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+            Prelude.Just ("InstanceType" Data..= instanceType),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateNotebookInstance where
+instance Data.ToPath CreateNotebookInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateNotebookInstance where
+instance Data.ToQuery CreateNotebookInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateNotebookInstanceResponse' smart constructor.

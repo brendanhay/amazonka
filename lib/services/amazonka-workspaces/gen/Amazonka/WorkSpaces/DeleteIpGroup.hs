@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,32 +96,32 @@ instance Prelude.Hashable DeleteIpGroup where
 instance Prelude.NFData DeleteIpGroup where
   rnf DeleteIpGroup' {..} = Prelude.rnf groupId
 
-instance Core.ToHeaders DeleteIpGroup where
+instance Data.ToHeaders DeleteIpGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.DeleteIpGroup" ::
+              Data.=# ( "WorkspacesService.DeleteIpGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteIpGroup where
+instance Data.ToJSON DeleteIpGroup where
   toJSON DeleteIpGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GroupId" Core..= groupId)]
+          [Prelude.Just ("GroupId" Data..= groupId)]
       )
 
-instance Core.ToPath DeleteIpGroup where
+instance Data.ToPath DeleteIpGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteIpGroup where
+instance Data.ToQuery DeleteIpGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteIpGroupResponse' smart constructor.

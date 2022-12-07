@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ instance Core.AWSRequest ExportSnapshot where
     Response.receiveJSON
       ( \s h x ->
           ExportSnapshotResponse'
-            Prelude.<$> (x Core..?> "S3Url")
+            Prelude.<$> (x Data..?> "S3Url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,28 +112,28 @@ instance Prelude.NFData ExportSnapshot where
     Prelude.rnf gameName
       `Prelude.seq` Prelude.rnf snapshotId
 
-instance Core.ToHeaders ExportSnapshot where
+instance Data.ToHeaders ExportSnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ExportSnapshot where
+instance Data.ToPath ExportSnapshot where
   toPath ExportSnapshot' {..} =
     Prelude.mconcat
       [ "/game/",
-        Core.toBS gameName,
+        Data.toBS gameName,
         "/snapshot/",
-        Core.toBS snapshotId,
+        Data.toBS snapshotId,
         "/export"
       ]
 
-instance Core.ToQuery ExportSnapshot where
+instance Data.ToQuery ExportSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExportSnapshotResponse' smart constructor.

@@ -64,6 +64,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -168,36 +169,36 @@ instance Prelude.NFData StartContactRecording where
       `Prelude.seq` Prelude.rnf initialContactId
       `Prelude.seq` Prelude.rnf voiceRecordingConfiguration
 
-instance Core.ToHeaders StartContactRecording where
+instance Data.ToHeaders StartContactRecording where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartContactRecording where
+instance Data.ToJSON StartContactRecording where
   toJSON StartContactRecording' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("ContactId" Core..= contactId),
+          [ Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("ContactId" Data..= contactId),
             Prelude.Just
-              ("InitialContactId" Core..= initialContactId),
+              ("InitialContactId" Data..= initialContactId),
             Prelude.Just
               ( "VoiceRecordingConfiguration"
-                  Core..= voiceRecordingConfiguration
+                  Data..= voiceRecordingConfiguration
               )
           ]
       )
 
-instance Core.ToPath StartContactRecording where
+instance Data.ToPath StartContactRecording where
   toPath = Prelude.const "/contact/start-recording"
 
-instance Core.ToQuery StartContactRecording where
+instance Data.ToQuery StartContactRecording where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartContactRecordingResponse' smart constructor.

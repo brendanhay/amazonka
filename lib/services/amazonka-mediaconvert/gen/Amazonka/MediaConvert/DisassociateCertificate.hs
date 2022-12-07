@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,23 +98,23 @@ instance Prelude.Hashable DisassociateCertificate where
 instance Prelude.NFData DisassociateCertificate where
   rnf DisassociateCertificate' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DisassociateCertificate where
+instance Data.ToHeaders DisassociateCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DisassociateCertificate where
+instance Data.ToPath DisassociateCertificate where
   toPath DisassociateCertificate' {..} =
     Prelude.mconcat
-      ["/2017-08-29/certificates/", Core.toBS arn]
+      ["/2017-08-29/certificates/", Data.toBS arn]
 
-instance Core.ToQuery DisassociateCertificate where
+instance Data.ToQuery DisassociateCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateCertificateResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.CreateRowData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types.CellInput
 import qualified Amazonka.Prelude as Prelude
 
@@ -93,12 +94,12 @@ instance Prelude.NFData CreateRowData where
     Prelude.rnf batchItemId
       `Prelude.seq` Prelude.rnf cellsToCreate
 
-instance Core.ToJSON CreateRowData where
+instance Data.ToJSON CreateRowData where
   toJSON CreateRowData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("batchItemId" Core..= batchItemId),
+          [ Prelude.Just ("batchItemId" Data..= batchItemId),
             Prelude.Just
-              ("cellsToCreate" Core..= cellsToCreate)
+              ("cellsToCreate" Data..= cellsToCreate)
           ]
       )

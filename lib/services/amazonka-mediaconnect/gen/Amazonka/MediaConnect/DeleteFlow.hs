@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -82,8 +83,8 @@ instance Core.AWSRequest DeleteFlow where
     Response.receiveJSON
       ( \s h x ->
           DeleteFlowResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "flowArn")
+            Prelude.<$> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,22 +95,22 @@ instance Prelude.Hashable DeleteFlow where
 instance Prelude.NFData DeleteFlow where
   rnf DeleteFlow' {..} = Prelude.rnf flowArn
 
-instance Core.ToHeaders DeleteFlow where
+instance Data.ToHeaders DeleteFlow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteFlow where
+instance Data.ToPath DeleteFlow where
   toPath DeleteFlow' {..} =
-    Prelude.mconcat ["/v1/flows/", Core.toBS flowArn]
+    Prelude.mconcat ["/v1/flows/", Data.toBS flowArn]
 
-instance Core.ToQuery DeleteFlow where
+instance Data.ToQuery DeleteFlow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFlowResponse' smart constructor.

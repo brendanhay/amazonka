@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,7 +74,7 @@ instance Core.AWSRequest GetRegistrationCode where
     Response.receiveJSON
       ( \s h x ->
           GetRegistrationCodeResponse'
-            Prelude.<$> (x Core..?> "registrationCode")
+            Prelude.<$> (x Data..?> "registrationCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -84,13 +85,13 @@ instance Prelude.Hashable GetRegistrationCode where
 instance Prelude.NFData GetRegistrationCode where
   rnf _ = ()
 
-instance Core.ToHeaders GetRegistrationCode where
+instance Data.ToHeaders GetRegistrationCode where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetRegistrationCode where
+instance Data.ToPath GetRegistrationCode where
   toPath = Prelude.const "/registrationcode"
 
-instance Core.ToQuery GetRegistrationCode where
+instance Data.ToQuery GetRegistrationCode where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the GetRegistrationCode operation.

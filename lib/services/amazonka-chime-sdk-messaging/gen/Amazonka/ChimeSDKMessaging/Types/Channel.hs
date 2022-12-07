@@ -25,6 +25,7 @@ import Amazonka.ChimeSDKMessaging.Types.ElasticChannelConfiguration
 import Amazonka.ChimeSDKMessaging.Types.Identity
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a channel.
@@ -32,18 +33,18 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newChannel' smart constructor.
 data Channel = Channel'
   { -- | The time at which a channel was last updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The time at which a member sent the last message in the channel.
-    lastMessageTimestamp :: Prelude.Maybe Core.POSIX,
+    lastMessageTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The name of a channel.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The attributes required to configure and create an elastic channel. An
     -- elastic channel can support a maximum of 1-million members.
     elasticChannelConfiguration :: Prelude.Maybe ElasticChannelConfiguration,
     -- | The channel\'s metadata.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The time at which the @AppInstanceUser@ created the channel.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The ARN of a channel.
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | The channel\'s privacy setting.
@@ -106,15 +107,15 @@ newChannel =
 
 -- | The time at which a channel was last updated.
 channel_lastUpdatedTimestamp :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
-channel_lastUpdatedTimestamp = Lens.lens (\Channel' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@Channel' {} a -> s {lastUpdatedTimestamp = a} :: Channel) Prelude.. Lens.mapping Core._Time
+channel_lastUpdatedTimestamp = Lens.lens (\Channel' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@Channel' {} a -> s {lastUpdatedTimestamp = a} :: Channel) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which a member sent the last message in the channel.
 channel_lastMessageTimestamp :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
-channel_lastMessageTimestamp = Lens.lens (\Channel' {lastMessageTimestamp} -> lastMessageTimestamp) (\s@Channel' {} a -> s {lastMessageTimestamp = a} :: Channel) Prelude.. Lens.mapping Core._Time
+channel_lastMessageTimestamp = Lens.lens (\Channel' {lastMessageTimestamp} -> lastMessageTimestamp) (\s@Channel' {} a -> s {lastMessageTimestamp = a} :: Channel) Prelude.. Lens.mapping Data._Time
 
 -- | The name of a channel.
 channel_name :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
-channel_name = Lens.lens (\Channel' {name} -> name) (\s@Channel' {} a -> s {name = a} :: Channel) Prelude.. Lens.mapping Core._Sensitive
+channel_name = Lens.lens (\Channel' {name} -> name) (\s@Channel' {} a -> s {name = a} :: Channel) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The attributes required to configure and create an elastic channel. An
 -- elastic channel can support a maximum of 1-million members.
@@ -123,11 +124,11 @@ channel_elasticChannelConfiguration = Lens.lens (\Channel' {elasticChannelConfig
 
 -- | The channel\'s metadata.
 channel_metadata :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
-channel_metadata = Lens.lens (\Channel' {metadata} -> metadata) (\s@Channel' {} a -> s {metadata = a} :: Channel) Prelude.. Lens.mapping Core._Sensitive
+channel_metadata = Lens.lens (\Channel' {metadata} -> metadata) (\s@Channel' {} a -> s {metadata = a} :: Channel) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The time at which the @AppInstanceUser@ created the channel.
 channel_createdTimestamp :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
-channel_createdTimestamp = Lens.lens (\Channel' {createdTimestamp} -> createdTimestamp) (\s@Channel' {} a -> s {createdTimestamp = a} :: Channel) Prelude.. Lens.mapping Core._Time
+channel_createdTimestamp = Lens.lens (\Channel' {createdTimestamp} -> createdTimestamp) (\s@Channel' {} a -> s {createdTimestamp = a} :: Channel) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of a channel.
 channel_channelArn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
@@ -149,23 +150,23 @@ channel_createdBy = Lens.lens (\Channel' {createdBy} -> createdBy) (\s@Channel' 
 channel_channelFlowArn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_channelFlowArn = Lens.lens (\Channel' {channelFlowArn} -> channelFlowArn) (\s@Channel' {} a -> s {channelFlowArn = a} :: Channel)
 
-instance Core.FromJSON Channel where
+instance Data.FromJSON Channel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Channel"
       ( \x ->
           Channel'
-            Prelude.<$> (x Core..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "LastMessageTimestamp")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ElasticChannelConfiguration")
-            Prelude.<*> (x Core..:? "Metadata")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "ChannelArn")
-            Prelude.<*> (x Core..:? "Privacy")
-            Prelude.<*> (x Core..:? "Mode")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "ChannelFlowArn")
+            Prelude.<$> (x Data..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "LastMessageTimestamp")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ElasticChannelConfiguration")
+            Prelude.<*> (x Data..:? "Metadata")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "ChannelArn")
+            Prelude.<*> (x Data..:? "Privacy")
+            Prelude.<*> (x Data..:? "Mode")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "ChannelFlowArn")
       )
 
 instance Prelude.Hashable Channel where

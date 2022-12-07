@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.AwsEcrContainerImageDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The image details of the Amazon ECR container image.
@@ -42,7 +43,7 @@ data AwsEcrContainerImageDetails = AwsEcrContainerImageDetails'
     -- | The image hash of the Amazon ECR container image.
     imageHash :: Prelude.Maybe Prelude.Text,
     -- | The date and time the Amazon ECR container image was pushed.
-    pushedAt :: Prelude.Maybe Core.POSIX
+    pushedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,22 +115,22 @@ awsEcrContainerImageDetails_imageHash = Lens.lens (\AwsEcrContainerImageDetails'
 
 -- | The date and time the Amazon ECR container image was pushed.
 awsEcrContainerImageDetails_pushedAt :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.UTCTime)
-awsEcrContainerImageDetails_pushedAt = Lens.lens (\AwsEcrContainerImageDetails' {pushedAt} -> pushedAt) (\s@AwsEcrContainerImageDetails' {} a -> s {pushedAt = a} :: AwsEcrContainerImageDetails) Prelude.. Lens.mapping Core._Time
+awsEcrContainerImageDetails_pushedAt = Lens.lens (\AwsEcrContainerImageDetails' {pushedAt} -> pushedAt) (\s@AwsEcrContainerImageDetails' {} a -> s {pushedAt = a} :: AwsEcrContainerImageDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AwsEcrContainerImageDetails where
+instance Data.FromJSON AwsEcrContainerImageDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcrContainerImageDetails"
       ( \x ->
           AwsEcrContainerImageDetails'
-            Prelude.<$> (x Core..:? "author")
-            Prelude.<*> (x Core..:? "registry")
-            Prelude.<*> (x Core..:? "repositoryName")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "imageTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "architecture")
-            Prelude.<*> (x Core..:? "imageHash")
-            Prelude.<*> (x Core..:? "pushedAt")
+            Prelude.<$> (x Data..:? "author")
+            Prelude.<*> (x Data..:? "registry")
+            Prelude.<*> (x Data..:? "repositoryName")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "imageTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "architecture")
+            Prelude.<*> (x Data..:? "imageHash")
+            Prelude.<*> (x Data..:? "pushedAt")
       )
 
 instance Prelude.Hashable AwsEcrContainerImageDetails where

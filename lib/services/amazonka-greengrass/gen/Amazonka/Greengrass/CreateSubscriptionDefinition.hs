@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,13 +123,13 @@ instance Core.AWSRequest CreateSubscriptionDefinition where
     Response.receiveJSON
       ( \s h x ->
           CreateSubscriptionDefinitionResponse'
-            Prelude.<$> (x Core..?> "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "LatestVersion")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "LatestVersionArn")
+            Prelude.<$> (x Data..?> "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "LatestVersion")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "LatestVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,31 +150,31 @@ instance Prelude.NFData CreateSubscriptionDefinition where
       `Prelude.seq` Prelude.rnf initialVersion
       `Prelude.seq` Prelude.rnf amznClientToken
 
-instance Core.ToHeaders CreateSubscriptionDefinition where
+instance Data.ToHeaders CreateSubscriptionDefinition where
   toHeaders CreateSubscriptionDefinition' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
+      [ "X-Amzn-Client-Token" Data.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateSubscriptionDefinition where
+instance Data.ToJSON CreateSubscriptionDefinition where
   toJSON CreateSubscriptionDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name,
-            ("InitialVersion" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("Name" Data..=) Prelude.<$> name,
+            ("InitialVersion" Data..=)
               Prelude.<$> initialVersion
           ]
       )
 
-instance Core.ToPath CreateSubscriptionDefinition where
+instance Data.ToPath CreateSubscriptionDefinition where
   toPath =
     Prelude.const
       "/greengrass/definition/subscriptions"
 
-instance Core.ToQuery CreateSubscriptionDefinition where
+instance Data.ToQuery CreateSubscriptionDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSubscriptionDefinitionResponse' smart constructor.

@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -148,11 +149,11 @@ instance Core.AWSRequest GetFaceDetection where
     Response.receiveJSON
       ( \s h x ->
           GetFaceDetectionResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "JobStatus")
-            Prelude.<*> (x Core..?> "Faces" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "VideoMetadata")
-            Prelude.<*> (x Core..?> "StatusMessage")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "Faces" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "VideoMetadata")
+            Prelude.<*> (x Data..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,35 +169,35 @@ instance Prelude.NFData GetFaceDetection where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders GetFaceDetection where
+instance Data.ToHeaders GetFaceDetection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.GetFaceDetection" ::
+              Data.=# ( "RekognitionService.GetFaceDetection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetFaceDetection where
+instance Data.ToJSON GetFaceDetection where
   toJSON GetFaceDetection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("JobId" Core..= jobId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("JobId" Data..= jobId)
           ]
       )
 
-instance Core.ToPath GetFaceDetection where
+instance Data.ToPath GetFaceDetection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetFaceDetection where
+instance Data.ToQuery GetFaceDetection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFaceDetectionResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.IntentStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The object that contains the statistical summary of recommended intents
@@ -57,13 +58,13 @@ newIntentStatistics =
 intentStatistics_discoveredIntentCount :: Lens.Lens' IntentStatistics (Prelude.Maybe Prelude.Int)
 intentStatistics_discoveredIntentCount = Lens.lens (\IntentStatistics' {discoveredIntentCount} -> discoveredIntentCount) (\s@IntentStatistics' {} a -> s {discoveredIntentCount = a} :: IntentStatistics)
 
-instance Core.FromJSON IntentStatistics where
+instance Data.FromJSON IntentStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IntentStatistics"
       ( \x ->
           IntentStatistics'
-            Prelude.<$> (x Core..:? "discoveredIntentCount")
+            Prelude.<$> (x Data..:? "discoveredIntentCount")
       )
 
 instance Prelude.Hashable IntentStatistics where

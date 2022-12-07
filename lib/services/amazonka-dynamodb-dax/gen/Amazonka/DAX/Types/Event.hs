@@ -22,6 +22,7 @@ module Amazonka.DAX.Types.Event where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types.SourceType
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a single occurrence of something interesting within the
@@ -36,7 +37,7 @@ data Event = Event'
     -- level, the source would be the node ID.
     sourceName :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the event occurred.
-    date :: Prelude.Maybe Core.POSIX,
+    date :: Prelude.Maybe Data.POSIX,
     -- | Specifies the origin of this event - a cluster, a parameter group, a
     -- node ID, etc.
     sourceType :: Prelude.Maybe SourceType
@@ -81,23 +82,23 @@ event_sourceName = Lens.lens (\Event' {sourceName} -> sourceName) (\s@Event' {} 
 
 -- | The date and time when the event occurred.
 event_date :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Core._Time
+event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the origin of this event - a cluster, a parameter group, a
 -- node ID, etc.
 event_sourceType :: Lens.Lens' Event (Prelude.Maybe SourceType)
 event_sourceType = Lens.lens (\Event' {sourceType} -> sourceType) (\s@Event' {} a -> s {sourceType = a} :: Event)
 
-instance Core.FromJSON Event where
+instance Data.FromJSON Event where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Event"
       ( \x ->
           Event'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "SourceName")
-            Prelude.<*> (x Core..:? "Date")
-            Prelude.<*> (x Core..:? "SourceType")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "SourceName")
+            Prelude.<*> (x Data..:? "Date")
+            Prelude.<*> (x Data..:? "SourceType")
       )
 
 instance Prelude.Hashable Event where

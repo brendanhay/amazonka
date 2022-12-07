@@ -22,6 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.ChannelModeratorSummary where
 import Amazonka.ChimeSDKMessaging.Types.Identity
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the details of a @ChannelModerator@.
@@ -54,13 +55,13 @@ newChannelModeratorSummary =
 channelModeratorSummary_moderator :: Lens.Lens' ChannelModeratorSummary (Prelude.Maybe Identity)
 channelModeratorSummary_moderator = Lens.lens (\ChannelModeratorSummary' {moderator} -> moderator) (\s@ChannelModeratorSummary' {} a -> s {moderator = a} :: ChannelModeratorSummary)
 
-instance Core.FromJSON ChannelModeratorSummary where
+instance Data.FromJSON ChannelModeratorSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelModeratorSummary"
       ( \x ->
           ChannelModeratorSummary'
-            Prelude.<$> (x Core..:? "Moderator")
+            Prelude.<$> (x Data..:? "Moderator")
       )
 
 instance Prelude.Hashable ChannelModeratorSummary where

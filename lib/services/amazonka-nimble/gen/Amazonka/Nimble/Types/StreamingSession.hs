@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.StreamingSession where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.StreamingSessionState
 import Amazonka.Nimble.Types.StreamingSessionStatusCode
 import qualified Amazonka.Prelude as Prelude
@@ -40,14 +41,14 @@ data StreamingSession = StreamingSession'
     streamingImageId :: Prelude.Maybe Prelude.Text,
     -- | The time the streaming session will automatically be stopped if the user
     -- doesn’t stop the session themselves.
-    stopAt :: Prelude.Maybe Core.POSIX,
+    stopAt :: Prelude.Maybe Data.POSIX,
     -- | The user ID of the user that most recently updated the resource.
     updatedBy :: Prelude.Maybe Prelude.Text,
     -- | The EC2 Instance type used for the streaming session.
     ec2InstanceType :: Prelude.Maybe Prelude.Text,
     -- | The time the streaming session will automatically terminate if not
     -- terminated by the user.
-    terminateAt :: Prelude.Maybe Core.POSIX,
+    terminateAt :: Prelude.Maybe Data.POSIX,
     -- | The user ID of the user that stopped the streaming session.
     stoppedBy :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the resource.
@@ -57,11 +58,11 @@ data StreamingSession = StreamingSession'
     -- | The user ID of the user that started the streaming session.
     startedBy :: Prelude.Maybe Prelude.Text,
     -- | The time the session entered START_IN_PROGRESS state.
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     -- | The session ID.
     sessionId :: Prelude.Maybe Prelude.Text,
     -- | The time the session entered STOP_IN_PROGRESS state.
-    stoppedAt :: Prelude.Maybe Core.POSIX,
+    stoppedAt :: Prelude.Maybe Data.POSIX,
     -- | The status code.
     statusCode :: Prelude.Maybe StreamingSessionStatusCode,
     -- | The user ID of the user that created the streaming session.
@@ -73,9 +74,9 @@ data StreamingSession = StreamingSession'
     -- the virtual workstation.
     ownedBy :: Prelude.Maybe Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Unix epoch timestamp in seconds for when the resource was updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -175,7 +176,7 @@ streamingSession_streamingImageId = Lens.lens (\StreamingSession' {streamingImag
 -- | The time the streaming session will automatically be stopped if the user
 -- doesn’t stop the session themselves.
 streamingSession_stopAt :: Lens.Lens' StreamingSession (Prelude.Maybe Prelude.UTCTime)
-streamingSession_stopAt = Lens.lens (\StreamingSession' {stopAt} -> stopAt) (\s@StreamingSession' {} a -> s {stopAt = a} :: StreamingSession) Prelude.. Lens.mapping Core._Time
+streamingSession_stopAt = Lens.lens (\StreamingSession' {stopAt} -> stopAt) (\s@StreamingSession' {} a -> s {stopAt = a} :: StreamingSession) Prelude.. Lens.mapping Data._Time
 
 -- | The user ID of the user that most recently updated the resource.
 streamingSession_updatedBy :: Lens.Lens' StreamingSession (Prelude.Maybe Prelude.Text)
@@ -188,7 +189,7 @@ streamingSession_ec2InstanceType = Lens.lens (\StreamingSession' {ec2InstanceTyp
 -- | The time the streaming session will automatically terminate if not
 -- terminated by the user.
 streamingSession_terminateAt :: Lens.Lens' StreamingSession (Prelude.Maybe Prelude.UTCTime)
-streamingSession_terminateAt = Lens.lens (\StreamingSession' {terminateAt} -> terminateAt) (\s@StreamingSession' {} a -> s {terminateAt = a} :: StreamingSession) Prelude.. Lens.mapping Core._Time
+streamingSession_terminateAt = Lens.lens (\StreamingSession' {terminateAt} -> terminateAt) (\s@StreamingSession' {} a -> s {terminateAt = a} :: StreamingSession) Prelude.. Lens.mapping Data._Time
 
 -- | The user ID of the user that stopped the streaming session.
 streamingSession_stoppedBy :: Lens.Lens' StreamingSession (Prelude.Maybe Prelude.Text)
@@ -208,7 +209,7 @@ streamingSession_startedBy = Lens.lens (\StreamingSession' {startedBy} -> starte
 
 -- | The time the session entered START_IN_PROGRESS state.
 streamingSession_startedAt :: Lens.Lens' StreamingSession (Prelude.Maybe Prelude.UTCTime)
-streamingSession_startedAt = Lens.lens (\StreamingSession' {startedAt} -> startedAt) (\s@StreamingSession' {} a -> s {startedAt = a} :: StreamingSession) Prelude.. Lens.mapping Core._Time
+streamingSession_startedAt = Lens.lens (\StreamingSession' {startedAt} -> startedAt) (\s@StreamingSession' {} a -> s {startedAt = a} :: StreamingSession) Prelude.. Lens.mapping Data._Time
 
 -- | The session ID.
 streamingSession_sessionId :: Lens.Lens' StreamingSession (Prelude.Maybe Prelude.Text)
@@ -216,7 +217,7 @@ streamingSession_sessionId = Lens.lens (\StreamingSession' {sessionId} -> sessio
 
 -- | The time the session entered STOP_IN_PROGRESS state.
 streamingSession_stoppedAt :: Lens.Lens' StreamingSession (Prelude.Maybe Prelude.UTCTime)
-streamingSession_stoppedAt = Lens.lens (\StreamingSession' {stoppedAt} -> stoppedAt) (\s@StreamingSession' {} a -> s {stoppedAt = a} :: StreamingSession) Prelude.. Lens.mapping Core._Time
+streamingSession_stoppedAt = Lens.lens (\StreamingSession' {stoppedAt} -> stoppedAt) (\s@StreamingSession' {} a -> s {stoppedAt = a} :: StreamingSession) Prelude.. Lens.mapping Data._Time
 
 -- | The status code.
 streamingSession_statusCode :: Lens.Lens' StreamingSession (Prelude.Maybe StreamingSessionStatusCode)
@@ -238,38 +239,38 @@ streamingSession_ownedBy = Lens.lens (\StreamingSession' {ownedBy} -> ownedBy) (
 
 -- | The Unix epoch timestamp in seconds for when the resource was created.
 streamingSession_createdAt :: Lens.Lens' StreamingSession (Prelude.Maybe Prelude.UTCTime)
-streamingSession_createdAt = Lens.lens (\StreamingSession' {createdAt} -> createdAt) (\s@StreamingSession' {} a -> s {createdAt = a} :: StreamingSession) Prelude.. Lens.mapping Core._Time
+streamingSession_createdAt = Lens.lens (\StreamingSession' {createdAt} -> createdAt) (\s@StreamingSession' {} a -> s {createdAt = a} :: StreamingSession) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix epoch timestamp in seconds for when the resource was updated.
 streamingSession_updatedAt :: Lens.Lens' StreamingSession (Prelude.Maybe Prelude.UTCTime)
-streamingSession_updatedAt = Lens.lens (\StreamingSession' {updatedAt} -> updatedAt) (\s@StreamingSession' {} a -> s {updatedAt = a} :: StreamingSession) Prelude.. Lens.mapping Core._Time
+streamingSession_updatedAt = Lens.lens (\StreamingSession' {updatedAt} -> updatedAt) (\s@StreamingSession' {} a -> s {updatedAt = a} :: StreamingSession) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON StreamingSession where
+instance Data.FromJSON StreamingSession where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamingSession"
       ( \x ->
           StreamingSession'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "launchProfileId")
-            Prelude.<*> (x Core..:? "streamingImageId")
-            Prelude.<*> (x Core..:? "stopAt")
-            Prelude.<*> (x Core..:? "updatedBy")
-            Prelude.<*> (x Core..:? "ec2InstanceType")
-            Prelude.<*> (x Core..:? "terminateAt")
-            Prelude.<*> (x Core..:? "stoppedBy")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "startedBy")
-            Prelude.<*> (x Core..:? "startedAt")
-            Prelude.<*> (x Core..:? "sessionId")
-            Prelude.<*> (x Core..:? "stoppedAt")
-            Prelude.<*> (x Core..:? "statusCode")
-            Prelude.<*> (x Core..:? "createdBy")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "ownedBy")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "launchProfileId")
+            Prelude.<*> (x Data..:? "streamingImageId")
+            Prelude.<*> (x Data..:? "stopAt")
+            Prelude.<*> (x Data..:? "updatedBy")
+            Prelude.<*> (x Data..:? "ec2InstanceType")
+            Prelude.<*> (x Data..:? "terminateAt")
+            Prelude.<*> (x Data..:? "stoppedBy")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "startedBy")
+            Prelude.<*> (x Data..:? "startedAt")
+            Prelude.<*> (x Data..:? "sessionId")
+            Prelude.<*> (x Data..:? "stoppedAt")
+            Prelude.<*> (x Data..:? "statusCode")
+            Prelude.<*> (x Data..:? "createdBy")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "ownedBy")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable StreamingSession where

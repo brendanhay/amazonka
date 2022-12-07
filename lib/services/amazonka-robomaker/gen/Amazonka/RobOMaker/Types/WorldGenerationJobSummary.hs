@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.WorldGenerationJobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.WorldCount
 import Amazonka.RobOMaker.Types.WorldGenerationJobStatus
@@ -63,7 +64,7 @@ data WorldGenerationJobSummary = WorldGenerationJobSummary'
     status :: Prelude.Maybe WorldGenerationJobStatus,
     -- | The time, in milliseconds since the epoch, when the world generator job
     -- was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (arn) of the world template.
     template :: Prelude.Maybe Prelude.Text
   }
@@ -172,25 +173,25 @@ worldGenerationJobSummary_status = Lens.lens (\WorldGenerationJobSummary' {statu
 -- | The time, in milliseconds since the epoch, when the world generator job
 -- was created.
 worldGenerationJobSummary_createdAt :: Lens.Lens' WorldGenerationJobSummary (Prelude.Maybe Prelude.UTCTime)
-worldGenerationJobSummary_createdAt = Lens.lens (\WorldGenerationJobSummary' {createdAt} -> createdAt) (\s@WorldGenerationJobSummary' {} a -> s {createdAt = a} :: WorldGenerationJobSummary) Prelude.. Lens.mapping Core._Time
+worldGenerationJobSummary_createdAt = Lens.lens (\WorldGenerationJobSummary' {createdAt} -> createdAt) (\s@WorldGenerationJobSummary' {} a -> s {createdAt = a} :: WorldGenerationJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (arn) of the world template.
 worldGenerationJobSummary_template :: Lens.Lens' WorldGenerationJobSummary (Prelude.Maybe Prelude.Text)
 worldGenerationJobSummary_template = Lens.lens (\WorldGenerationJobSummary' {template} -> template) (\s@WorldGenerationJobSummary' {} a -> s {template = a} :: WorldGenerationJobSummary)
 
-instance Core.FromJSON WorldGenerationJobSummary where
+instance Data.FromJSON WorldGenerationJobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorldGenerationJobSummary"
       ( \x ->
           WorldGenerationJobSummary'
-            Prelude.<$> (x Core..:? "worldCount")
-            Prelude.<*> (x Core..:? "succeededWorldCount")
-            Prelude.<*> (x Core..:? "failedWorldCount")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "template")
+            Prelude.<$> (x Data..:? "worldCount")
+            Prelude.<*> (x Data..:? "succeededWorldCount")
+            Prelude.<*> (x Data..:? "failedWorldCount")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "template")
       )
 
 instance Prelude.Hashable WorldGenerationJobSummary where

@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.Sasl where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.Iam
 import Amazonka.Kafka.Types.Scram
 import qualified Amazonka.Prelude as Prelude
@@ -63,13 +64,13 @@ sasl_scram = Lens.lens (\Sasl' {scram} -> scram) (\s@Sasl' {} a -> s {scram = a}
 sasl_iam :: Lens.Lens' Sasl (Prelude.Maybe Iam)
 sasl_iam = Lens.lens (\Sasl' {iam} -> iam) (\s@Sasl' {} a -> s {iam = a} :: Sasl)
 
-instance Core.FromJSON Sasl where
+instance Data.FromJSON Sasl where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Sasl"
       ( \x ->
           Sasl'
-            Prelude.<$> (x Core..:? "scram") Prelude.<*> (x Core..:? "iam")
+            Prelude.<$> (x Data..:? "scram") Prelude.<*> (x Data..:? "iam")
       )
 
 instance Prelude.Hashable Sasl where
@@ -81,11 +82,11 @@ instance Prelude.NFData Sasl where
   rnf Sasl' {..} =
     Prelude.rnf scram `Prelude.seq` Prelude.rnf iam
 
-instance Core.ToJSON Sasl where
+instance Data.ToJSON Sasl where
   toJSON Sasl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("scram" Core..=) Prelude.<$> scram,
-            ("iam" Core..=) Prelude.<$> iam
+          [ ("scram" Data..=) Prelude.<$> scram,
+            ("iam" Data..=) Prelude.<$> iam
           ]
       )

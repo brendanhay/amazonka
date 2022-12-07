@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -185,7 +186,7 @@ instance Core.AWSRequest StartMailboxExportJob where
     Response.receiveJSON
       ( \s h x ->
           StartMailboxExportJobResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,41 +212,41 @@ instance Prelude.NFData StartMailboxExportJob where
       `Prelude.seq` Prelude.rnf s3BucketName
       `Prelude.seq` Prelude.rnf s3Prefix
 
-instance Core.ToHeaders StartMailboxExportJob where
+instance Data.ToHeaders StartMailboxExportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.StartMailboxExportJob" ::
+              Data.=# ( "WorkMailService.StartMailboxExportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartMailboxExportJob where
+instance Data.ToJSON StartMailboxExportJob where
   toJSON StartMailboxExportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("ClientToken" Core..= clientToken),
+          [ ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("ClientToken" Data..= clientToken),
             Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("EntityId" Core..= entityId),
-            Prelude.Just ("RoleArn" Core..= roleArn),
-            Prelude.Just ("KmsKeyArn" Core..= kmsKeyArn),
-            Prelude.Just ("S3BucketName" Core..= s3BucketName),
-            Prelude.Just ("S3Prefix" Core..= s3Prefix)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("EntityId" Data..= entityId),
+            Prelude.Just ("RoleArn" Data..= roleArn),
+            Prelude.Just ("KmsKeyArn" Data..= kmsKeyArn),
+            Prelude.Just ("S3BucketName" Data..= s3BucketName),
+            Prelude.Just ("S3Prefix" Data..= s3Prefix)
           ]
       )
 
-instance Core.ToPath StartMailboxExportJob where
+instance Data.ToPath StartMailboxExportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartMailboxExportJob where
+instance Data.ToQuery StartMailboxExportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartMailboxExportJobResponse' smart constructor.

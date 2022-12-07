@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.TagCollection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of Amazon Web Services tags.
@@ -158,14 +159,14 @@ tagCollection_appBoundaryKey = Lens.lens (\TagCollection' {appBoundaryKey} -> ap
 tagCollection_tagValues :: Lens.Lens' TagCollection [Prelude.Text]
 tagCollection_tagValues = Lens.lens (\TagCollection' {tagValues} -> tagValues) (\s@TagCollection' {} a -> s {tagValues = a} :: TagCollection) Prelude.. Lens.coerced
 
-instance Core.FromJSON TagCollection where
+instance Data.FromJSON TagCollection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TagCollection"
       ( \x ->
           TagCollection'
-            Prelude.<$> (x Core..: "AppBoundaryKey")
-            Prelude.<*> (x Core..:? "TagValues" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "AppBoundaryKey")
+            Prelude.<*> (x Data..:? "TagValues" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TagCollection where
@@ -178,12 +179,12 @@ instance Prelude.NFData TagCollection where
     Prelude.rnf appBoundaryKey
       `Prelude.seq` Prelude.rnf tagValues
 
-instance Core.ToJSON TagCollection where
+instance Data.ToJSON TagCollection where
   toJSON TagCollection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AppBoundaryKey" Core..= appBoundaryKey),
-            Prelude.Just ("TagValues" Core..= tagValues)
+              ("AppBoundaryKey" Data..= appBoundaryKey),
+            Prelude.Just ("TagValues" Data..= tagValues)
           ]
       )

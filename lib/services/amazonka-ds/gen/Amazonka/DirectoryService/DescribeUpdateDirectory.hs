@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,8 +147,8 @@ instance Core.AWSRequest DescribeUpdateDirectory where
     Response.receiveJSON
       ( \s h x ->
           DescribeUpdateDirectoryResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "UpdateActivities"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "UpdateActivities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -167,36 +168,36 @@ instance Prelude.NFData DescribeUpdateDirectory where
       `Prelude.seq` Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf updateType
 
-instance Core.ToHeaders DescribeUpdateDirectory where
+instance Data.ToHeaders DescribeUpdateDirectory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.DescribeUpdateDirectory" ::
+              Data.=# ( "DirectoryService_20150416.DescribeUpdateDirectory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeUpdateDirectory where
+instance Data.ToJSON DescribeUpdateDirectory where
   toJSON DescribeUpdateDirectory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("RegionName" Core..=) Prelude.<$> regionName,
-            Prelude.Just ("DirectoryId" Core..= directoryId),
-            Prelude.Just ("UpdateType" Core..= updateType)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("RegionName" Data..=) Prelude.<$> regionName,
+            Prelude.Just ("DirectoryId" Data..= directoryId),
+            Prelude.Just ("UpdateType" Data..= updateType)
           ]
       )
 
-instance Core.ToPath DescribeUpdateDirectory where
+instance Data.ToPath DescribeUpdateDirectory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeUpdateDirectory where
+instance Data.ToQuery DescribeUpdateDirectory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeUpdateDirectoryResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,12 +122,12 @@ instance Core.AWSRequest GetCoreDefinitionVersion where
     Response.receiveJSON
       ( \s h x ->
           GetCoreDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Version")
-            Prelude.<*> (x Core..?> "Definition")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Version")
+            Prelude.<*> (x Data..?> "Definition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,27 +141,27 @@ instance Prelude.NFData GetCoreDefinitionVersion where
     Prelude.rnf coreDefinitionId
       `Prelude.seq` Prelude.rnf coreDefinitionVersionId
 
-instance Core.ToHeaders GetCoreDefinitionVersion where
+instance Data.ToHeaders GetCoreDefinitionVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetCoreDefinitionVersion where
+instance Data.ToPath GetCoreDefinitionVersion where
   toPath GetCoreDefinitionVersion' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/cores/",
-        Core.toBS coreDefinitionId,
+        Data.toBS coreDefinitionId,
         "/versions/",
-        Core.toBS coreDefinitionVersionId
+        Data.toBS coreDefinitionVersionId
       ]
 
-instance Core.ToQuery GetCoreDefinitionVersion where
+instance Data.ToQuery GetCoreDefinitionVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCoreDefinitionVersionResponse' smart constructor.

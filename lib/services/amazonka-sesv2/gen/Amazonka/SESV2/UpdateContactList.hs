@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,34 +124,34 @@ instance Prelude.NFData UpdateContactList where
       `Prelude.seq` Prelude.rnf topics
       `Prelude.seq` Prelude.rnf contactListName
 
-instance Core.ToHeaders UpdateContactList where
+instance Data.ToHeaders UpdateContactList where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateContactList where
+instance Data.ToJSON UpdateContactList where
   toJSON UpdateContactList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("Topics" Core..=) Prelude.<$> topics
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Topics" Data..=) Prelude.<$> topics
           ]
       )
 
-instance Core.ToPath UpdateContactList where
+instance Data.ToPath UpdateContactList where
   toPath UpdateContactList' {..} =
     Prelude.mconcat
       [ "/v2/email/contact-lists/",
-        Core.toBS contactListName
+        Data.toBS contactListName
       ]
 
-instance Core.ToQuery UpdateContactList where
+instance Data.ToQuery UpdateContactList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateContactListResponse' smart constructor.

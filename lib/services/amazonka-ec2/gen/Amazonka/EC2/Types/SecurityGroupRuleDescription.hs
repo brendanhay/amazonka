@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SecurityGroupRuleDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -79,9 +80,9 @@ instance Prelude.NFData SecurityGroupRuleDescription where
     Prelude.rnf securityGroupRuleId
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToQuery SecurityGroupRuleDescription where
+instance Data.ToQuery SecurityGroupRuleDescription where
   toQuery SecurityGroupRuleDescription' {..} =
     Prelude.mconcat
-      [ "SecurityGroupRuleId" Core.=: securityGroupRuleId,
-        "Description" Core.=: description
+      [ "SecurityGroupRuleId" Data.=: securityGroupRuleId,
+        "Description" Data.=: description
       ]

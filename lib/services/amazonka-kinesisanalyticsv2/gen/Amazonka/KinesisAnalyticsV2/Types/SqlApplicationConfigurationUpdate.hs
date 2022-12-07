@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfigurationUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.InputUpdate
 import Amazonka.KinesisAnalyticsV2.Types.OutputUpdate
 import Amazonka.KinesisAnalyticsV2.Types.ReferenceDataSourceUpdate
@@ -107,15 +108,15 @@ instance
       `Prelude.seq` Prelude.rnf referenceDataSourceUpdates
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SqlApplicationConfigurationUpdate
   where
   toJSON SqlApplicationConfigurationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InputUpdates" Core..=) Prelude.<$> inputUpdates,
-            ("OutputUpdates" Core..=) Prelude.<$> outputUpdates,
-            ("ReferenceDataSourceUpdates" Core..=)
+          [ ("InputUpdates" Data..=) Prelude.<$> inputUpdates,
+            ("OutputUpdates" Data..=) Prelude.<$> outputUpdates,
+            ("ReferenceDataSourceUpdates" Data..=)
               Prelude.<$> referenceDataSourceUpdates
           ]
       )

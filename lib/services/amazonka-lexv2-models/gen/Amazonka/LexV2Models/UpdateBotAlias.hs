@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -171,19 +172,19 @@ instance Core.AWSRequest UpdateBotAlias where
     Response.receiveJSON
       ( \s h x ->
           UpdateBotAliasResponse'
-            Prelude.<$> (x Core..?> "botAliasStatus")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "sentimentAnalysisSettings")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botAliasId")
-            Prelude.<*> (x Core..?> "conversationLogSettings")
-            Prelude.<*> ( x Core..?> "botAliasLocaleSettings"
+            Prelude.<$> (x Data..?> "botAliasStatus")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "sentimentAnalysisSettings")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botAliasId")
+            Prelude.<*> (x Data..?> "conversationLogSettings")
+            Prelude.<*> ( x Data..?> "botAliasLocaleSettings"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "botAliasName")
-            Prelude.<*> (x Core..?> "lastUpdatedDateTime")
+            Prelude.<*> (x Data..?> "botAliasName")
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -209,44 +210,44 @@ instance Prelude.NFData UpdateBotAlias where
       `Prelude.seq` Prelude.rnf botAliasName
       `Prelude.seq` Prelude.rnf botId
 
-instance Core.ToHeaders UpdateBotAlias where
+instance Data.ToHeaders UpdateBotAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBotAlias where
+instance Data.ToJSON UpdateBotAlias where
   toJSON UpdateBotAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("botVersion" Core..=) Prelude.<$> botVersion,
-            ("description" Core..=) Prelude.<$> description,
-            ("sentimentAnalysisSettings" Core..=)
+          [ ("botVersion" Data..=) Prelude.<$> botVersion,
+            ("description" Data..=) Prelude.<$> description,
+            ("sentimentAnalysisSettings" Data..=)
               Prelude.<$> sentimentAnalysisSettings,
-            ("conversationLogSettings" Core..=)
+            ("conversationLogSettings" Data..=)
               Prelude.<$> conversationLogSettings,
-            ("botAliasLocaleSettings" Core..=)
+            ("botAliasLocaleSettings" Data..=)
               Prelude.<$> botAliasLocaleSettings,
-            Prelude.Just ("botAliasName" Core..= botAliasName)
+            Prelude.Just ("botAliasName" Data..= botAliasName)
           ]
       )
 
-instance Core.ToPath UpdateBotAlias where
+instance Data.ToPath UpdateBotAlias where
   toPath UpdateBotAlias' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botaliases/",
-        Core.toBS botAliasId,
+        Data.toBS botAliasId,
         "/"
       ]
 
-instance Core.ToQuery UpdateBotAlias where
+instance Data.ToQuery UpdateBotAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBotAliasResponse' smart constructor.
@@ -257,7 +258,7 @@ data UpdateBotAliasResponse = UpdateBotAliasResponse'
     -- | The updated version of the bot that the alias points to.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the bot was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The updated description of the bot alias.
     description :: Prelude.Maybe Prelude.Text,
     sentimentAnalysisSettings :: Prelude.Maybe SentimentAnalysisSettings,
@@ -273,7 +274,7 @@ data UpdateBotAliasResponse = UpdateBotAliasResponse'
     -- | The updated name of the bot alias.
     botAliasName :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the bot was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -344,7 +345,7 @@ updateBotAliasResponse_botVersion = Lens.lens (\UpdateBotAliasResponse' {botVers
 
 -- | A timestamp of the date and time that the bot was created.
 updateBotAliasResponse_creationDateTime :: Lens.Lens' UpdateBotAliasResponse (Prelude.Maybe Prelude.UTCTime)
-updateBotAliasResponse_creationDateTime = Lens.lens (\UpdateBotAliasResponse' {creationDateTime} -> creationDateTime) (\s@UpdateBotAliasResponse' {} a -> s {creationDateTime = a} :: UpdateBotAliasResponse) Prelude.. Lens.mapping Core._Time
+updateBotAliasResponse_creationDateTime = Lens.lens (\UpdateBotAliasResponse' {creationDateTime} -> creationDateTime) (\s@UpdateBotAliasResponse' {} a -> s {creationDateTime = a} :: UpdateBotAliasResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The updated description of the bot alias.
 updateBotAliasResponse_description :: Lens.Lens' UpdateBotAliasResponse (Prelude.Maybe Prelude.Text)
@@ -377,7 +378,7 @@ updateBotAliasResponse_botAliasName = Lens.lens (\UpdateBotAliasResponse' {botAl
 
 -- | A timestamp of the date and time that the bot was last updated.
 updateBotAliasResponse_lastUpdatedDateTime :: Lens.Lens' UpdateBotAliasResponse (Prelude.Maybe Prelude.UTCTime)
-updateBotAliasResponse_lastUpdatedDateTime = Lens.lens (\UpdateBotAliasResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateBotAliasResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateBotAliasResponse) Prelude.. Lens.mapping Core._Time
+updateBotAliasResponse_lastUpdatedDateTime = Lens.lens (\UpdateBotAliasResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateBotAliasResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateBotAliasResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updateBotAliasResponse_httpStatus :: Lens.Lens' UpdateBotAliasResponse Prelude.Int

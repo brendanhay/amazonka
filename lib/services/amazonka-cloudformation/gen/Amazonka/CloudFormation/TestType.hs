@@ -75,6 +75,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -238,7 +239,7 @@ instance Core.AWSRequest TestType where
       "TestTypeResult"
       ( \s h x ->
           TestTypeResponse'
-            Prelude.<$> (x Core..@? "TypeVersionArn")
+            Prelude.<$> (x Data..@? "TypeVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -258,23 +259,23 @@ instance Prelude.NFData TestType where
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf versionId
 
-instance Core.ToHeaders TestType where
+instance Data.ToHeaders TestType where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath TestType where
+instance Data.ToPath TestType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TestType where
+instance Data.ToQuery TestType where
   toQuery TestType' {..} =
     Prelude.mconcat
-      [ "Action" Core.=: ("TestType" :: Prelude.ByteString),
+      [ "Action" Data.=: ("TestType" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "Type" Core.=: type',
-        "Arn" Core.=: arn,
-        "LogDeliveryBucket" Core.=: logDeliveryBucket,
-        "TypeName" Core.=: typeName,
-        "VersionId" Core.=: versionId
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "Type" Data.=: type',
+        "Arn" Data.=: arn,
+        "LogDeliveryBucket" Data.=: logDeliveryBucket,
+        "TypeName" Data.=: typeName,
+        "VersionId" Data.=: versionId
       ]
 
 -- | /See:/ 'newTestTypeResponse' smart constructor.

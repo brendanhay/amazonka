@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,48 +129,48 @@ instance
         `Prelude.seq` Prelude.rnf configurationIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateConfigurationItemsFromApplication
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSPoseidonService_V2015_11_01.DisassociateConfigurationItemsFromApplication" ::
+              Data.=# ( "AWSPoseidonService_V2015_11_01.DisassociateConfigurationItemsFromApplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DisassociateConfigurationItemsFromApplication
   where
   toJSON
     DisassociateConfigurationItemsFromApplication' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
             [ Prelude.Just
                 ( "applicationConfigurationId"
-                    Core..= applicationConfigurationId
+                    Data..= applicationConfigurationId
                 ),
               Prelude.Just
-                ("configurationIds" Core..= configurationIds)
+                ("configurationIds" Data..= configurationIds)
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateConfigurationItemsFromApplication
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateConfigurationItemsFromApplication
   where
   toQuery = Prelude.const Prelude.mempty

@@ -39,6 +39,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,25 +92,25 @@ instance Prelude.NFData DeleteDeploymentStrategy where
   rnf DeleteDeploymentStrategy' {..} =
     Prelude.rnf deploymentStrategyId
 
-instance Core.ToHeaders DeleteDeploymentStrategy where
+instance Data.ToHeaders DeleteDeploymentStrategy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteDeploymentStrategy where
+instance Data.ToPath DeleteDeploymentStrategy where
   toPath DeleteDeploymentStrategy' {..} =
     Prelude.mconcat
       [ "/deployementstrategies/",
-        Core.toBS deploymentStrategyId
+        Data.toBS deploymentStrategyId
       ]
 
-instance Core.ToQuery DeleteDeploymentStrategy where
+instance Data.ToQuery DeleteDeploymentStrategy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDeploymentStrategyResponse' smart constructor.

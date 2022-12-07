@@ -22,6 +22,7 @@ module Amazonka.AppStream.Types.CertificateBasedAuthProperties where
 import Amazonka.AppStream.Types.CertificateBasedAuthStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The certificate-based authentication properties used to authenticate
@@ -72,14 +73,14 @@ certificateBasedAuthProperties_certificateAuthorityArn = Lens.lens (\Certificate
 certificateBasedAuthProperties_status :: Lens.Lens' CertificateBasedAuthProperties (Prelude.Maybe CertificateBasedAuthStatus)
 certificateBasedAuthProperties_status = Lens.lens (\CertificateBasedAuthProperties' {status} -> status) (\s@CertificateBasedAuthProperties' {} a -> s {status = a} :: CertificateBasedAuthProperties)
 
-instance Core.FromJSON CertificateBasedAuthProperties where
+instance Data.FromJSON CertificateBasedAuthProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CertificateBasedAuthProperties"
       ( \x ->
           CertificateBasedAuthProperties'
-            Prelude.<$> (x Core..:? "CertificateAuthorityArn")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "CertificateAuthorityArn")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance
@@ -101,12 +102,12 @@ instance
     Prelude.rnf certificateAuthorityArn
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToJSON CertificateBasedAuthProperties where
+instance Data.ToJSON CertificateBasedAuthProperties where
   toJSON CertificateBasedAuthProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CertificateAuthorityArn" Core..=)
+          [ ("CertificateAuthorityArn" Data..=)
               Prelude.<$> certificateAuthorityArn,
-            ("Status" Core..=) Prelude.<$> status
+            ("Status" Data..=) Prelude.<$> status
           ]
       )

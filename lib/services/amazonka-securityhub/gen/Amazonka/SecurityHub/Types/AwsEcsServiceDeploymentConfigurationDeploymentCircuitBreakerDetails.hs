@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsServiceDeploymentConfigurationDeployment
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Determines whether a service deployment fails if a service cannot reach
@@ -71,16 +72,16 @@ awsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails_rollback :: 
 awsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails_rollback = Lens.lens (\AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails' {rollback} -> rollback) (\s@AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails' {} a -> s {rollback = a} :: AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails"
       ( \x ->
           AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails'
-            Prelude.<$> (x Core..:? "Enable")
-              Prelude.<*> (x Core..:? "Rollback")
+            Prelude.<$> (x Data..:? "Enable")
+              Prelude.<*> (x Data..:? "Rollback")
       )
 
 instance
@@ -103,14 +104,14 @@ instance
         `Prelude.seq` Prelude.rnf rollback
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails
   where
   toJSON
     AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Enable" Core..=) Prelude.<$> enable,
-              ("Rollback" Core..=) Prelude.<$> rollback
+            [ ("Enable" Data..=) Prelude.<$> enable,
+              ("Rollback" Data..=) Prelude.<$> rollback
             ]
         )

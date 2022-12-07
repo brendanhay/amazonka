@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,11 +107,11 @@ instance Core.AWSRequest GetLaunchProfileDetails where
     Response.receiveJSON
       ( \s h x ->
           GetLaunchProfileDetailsResponse'
-            Prelude.<$> (x Core..?> "launchProfile")
-            Prelude.<*> ( x Core..?> "studioComponentSummaries"
+            Prelude.<$> (x Data..?> "launchProfile")
+            Prelude.<*> ( x Data..?> "studioComponentSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "streamingImages"
+            Prelude.<*> ( x Data..?> "streamingImages"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -126,28 +127,28 @@ instance Prelude.NFData GetLaunchProfileDetails where
     Prelude.rnf launchProfileId
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders GetLaunchProfileDetails where
+instance Data.ToHeaders GetLaunchProfileDetails where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetLaunchProfileDetails where
+instance Data.ToPath GetLaunchProfileDetails where
   toPath GetLaunchProfileDetails' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/launch-profiles/",
-        Core.toBS launchProfileId,
+        Data.toBS launchProfileId,
         "/details"
       ]
 
-instance Core.ToQuery GetLaunchProfileDetails where
+instance Data.ToQuery GetLaunchProfileDetails where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLaunchProfileDetailsResponse' smart constructor.

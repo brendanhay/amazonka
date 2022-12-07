@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,20 +93,20 @@ instance Prelude.Hashable Unsubscribe where
 instance Prelude.NFData Unsubscribe where
   rnf Unsubscribe' {..} = Prelude.rnf subscriptionArn
 
-instance Core.ToHeaders Unsubscribe where
+instance Data.ToHeaders Unsubscribe where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath Unsubscribe where
+instance Data.ToPath Unsubscribe where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery Unsubscribe where
+instance Data.ToQuery Unsubscribe where
   toQuery Unsubscribe' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("Unsubscribe" :: Prelude.ByteString),
+          Data.=: ("Unsubscribe" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "SubscriptionArn" Core.=: subscriptionArn
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "SubscriptionArn" Data.=: subscriptionArn
       ]
 
 -- | /See:/ 'newUnsubscribeResponse' smart constructor.

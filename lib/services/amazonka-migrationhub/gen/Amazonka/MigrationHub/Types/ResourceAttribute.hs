@@ -21,6 +21,7 @@ module Amazonka.MigrationHub.Types.ResourceAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHub.Types.ResourceAttributeType
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,13 +82,13 @@ resourceAttribute_type = Lens.lens (\ResourceAttribute' {type'} -> type') (\s@Re
 resourceAttribute_value :: Lens.Lens' ResourceAttribute Prelude.Text
 resourceAttribute_value = Lens.lens (\ResourceAttribute' {value} -> value) (\s@ResourceAttribute' {} a -> s {value = a} :: ResourceAttribute)
 
-instance Core.FromJSON ResourceAttribute where
+instance Data.FromJSON ResourceAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceAttribute"
       ( \x ->
           ResourceAttribute'
-            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable ResourceAttribute where
@@ -99,11 +100,11 @@ instance Prelude.NFData ResourceAttribute where
   rnf ResourceAttribute' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ResourceAttribute where
+instance Data.ToJSON ResourceAttribute where
   toJSON ResourceAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

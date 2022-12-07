@@ -24,6 +24,7 @@ import Amazonka.AlexaBusiness.Types.TemperatureUnit
 import Amazonka.AlexaBusiness.Types.WakeWord
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The data of a room profile.
@@ -130,21 +131,21 @@ profileData_address = Lens.lens (\ProfileData' {address} -> address) (\s@Profile
 profileData_temperatureUnit :: Lens.Lens' ProfileData (Prelude.Maybe TemperatureUnit)
 profileData_temperatureUnit = Lens.lens (\ProfileData' {temperatureUnit} -> temperatureUnit) (\s@ProfileData' {} a -> s {temperatureUnit = a} :: ProfileData)
 
-instance Core.FromJSON ProfileData where
+instance Data.FromJSON ProfileData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProfileData"
       ( \x ->
           ProfileData'
-            Prelude.<$> (x Core..:? "DistanceUnit")
-            Prelude.<*> (x Core..:? "ProfileName")
-            Prelude.<*> (x Core..:? "WakeWord")
-            Prelude.<*> (x Core..:? "Locale")
-            Prelude.<*> (x Core..:? "Timezone")
-            Prelude.<*> (x Core..:? "ProfileArn")
-            Prelude.<*> (x Core..:? "IsDefault")
-            Prelude.<*> (x Core..:? "Address")
-            Prelude.<*> (x Core..:? "TemperatureUnit")
+            Prelude.<$> (x Data..:? "DistanceUnit")
+            Prelude.<*> (x Data..:? "ProfileName")
+            Prelude.<*> (x Data..:? "WakeWord")
+            Prelude.<*> (x Data..:? "Locale")
+            Prelude.<*> (x Data..:? "Timezone")
+            Prelude.<*> (x Data..:? "ProfileArn")
+            Prelude.<*> (x Data..:? "IsDefault")
+            Prelude.<*> (x Data..:? "Address")
+            Prelude.<*> (x Data..:? "TemperatureUnit")
       )
 
 instance Prelude.Hashable ProfileData where

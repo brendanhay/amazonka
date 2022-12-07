@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.CanvasAppSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.TimeSeriesForecastingSettings
 
@@ -54,13 +55,13 @@ newCanvasAppSettings =
 canvasAppSettings_timeSeriesForecastingSettings :: Lens.Lens' CanvasAppSettings (Prelude.Maybe TimeSeriesForecastingSettings)
 canvasAppSettings_timeSeriesForecastingSettings = Lens.lens (\CanvasAppSettings' {timeSeriesForecastingSettings} -> timeSeriesForecastingSettings) (\s@CanvasAppSettings' {} a -> s {timeSeriesForecastingSettings = a} :: CanvasAppSettings)
 
-instance Core.FromJSON CanvasAppSettings where
+instance Data.FromJSON CanvasAppSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CanvasAppSettings"
       ( \x ->
           CanvasAppSettings'
-            Prelude.<$> (x Core..:? "TimeSeriesForecastingSettings")
+            Prelude.<$> (x Data..:? "TimeSeriesForecastingSettings")
       )
 
 instance Prelude.Hashable CanvasAppSettings where
@@ -72,11 +73,11 @@ instance Prelude.NFData CanvasAppSettings where
   rnf CanvasAppSettings' {..} =
     Prelude.rnf timeSeriesForecastingSettings
 
-instance Core.ToJSON CanvasAppSettings where
+instance Data.ToJSON CanvasAppSettings where
   toJSON CanvasAppSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TimeSeriesForecastingSettings" Core..=)
+          [ ("TimeSeriesForecastingSettings" Data..=)
               Prelude.<$> timeSeriesForecastingSettings
           ]
       )

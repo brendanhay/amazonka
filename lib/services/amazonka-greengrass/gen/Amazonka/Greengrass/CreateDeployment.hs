@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,8 +134,8 @@ instance Core.AWSRequest CreateDeployment where
     Response.receiveJSON
       ( \s h x ->
           CreateDeploymentResponse'
-            Prelude.<$> (x Core..?> "DeploymentId")
-            Prelude.<*> (x Core..?> "DeploymentArn")
+            Prelude.<$> (x Data..?> "DeploymentId")
+            Prelude.<*> (x Data..?> "DeploymentArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,35 +155,35 @@ instance Prelude.NFData CreateDeployment where
       `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf deploymentType
 
-instance Core.ToHeaders CreateDeployment where
+instance Data.ToHeaders CreateDeployment where
   toHeaders CreateDeployment' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
+      [ "X-Amzn-Client-Token" Data.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateDeployment where
+instance Data.ToJSON CreateDeployment where
   toJSON CreateDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeploymentId" Core..=) Prelude.<$> deploymentId,
-            ("GroupVersionId" Core..=)
+          [ ("DeploymentId" Data..=) Prelude.<$> deploymentId,
+            ("GroupVersionId" Data..=)
               Prelude.<$> groupVersionId,
             Prelude.Just
-              ("DeploymentType" Core..= deploymentType)
+              ("DeploymentType" Data..= deploymentType)
           ]
       )
 
-instance Core.ToPath CreateDeployment where
+instance Data.ToPath CreateDeployment where
   toPath CreateDeployment' {..} =
     Prelude.mconcat
       [ "/greengrass/groups/",
-        Core.toBS groupId,
+        Data.toBS groupId,
         "/deployments"
       ]
 
-instance Core.ToQuery CreateDeployment where
+instance Data.ToQuery CreateDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDeploymentResponse' smart constructor.

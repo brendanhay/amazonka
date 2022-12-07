@@ -49,6 +49,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,8 +172,8 @@ instance Core.AWSRequest ListDeviceEvents where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceEventsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "DeviceEvents" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "DeviceEvents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,36 +191,36 @@ instance Prelude.NFData ListDeviceEvents where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf deviceArn
 
-instance Core.ToHeaders ListDeviceEvents where
+instance Data.ToHeaders ListDeviceEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.ListDeviceEvents" ::
+              Data.=# ( "AlexaForBusiness.ListDeviceEvents" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDeviceEvents where
+instance Data.ToJSON ListDeviceEvents where
   toJSON ListDeviceEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventType" Core..=) Prelude.<$> eventType,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("DeviceArn" Core..= deviceArn)
+          [ ("EventType" Data..=) Prelude.<$> eventType,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("DeviceArn" Data..= deviceArn)
           ]
       )
 
-instance Core.ToPath ListDeviceEvents where
+instance Data.ToPath ListDeviceEvents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDeviceEvents where
+instance Data.ToQuery ListDeviceEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDeviceEventsResponse' smart constructor.

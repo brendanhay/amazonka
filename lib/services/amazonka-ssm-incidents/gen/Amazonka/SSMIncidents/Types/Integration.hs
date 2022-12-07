@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.Integration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.PagerDutyConfiguration
 
@@ -57,13 +58,13 @@ newIntegration =
 integration_pagerDutyConfiguration :: Lens.Lens' Integration (Prelude.Maybe PagerDutyConfiguration)
 integration_pagerDutyConfiguration = Lens.lens (\Integration' {pagerDutyConfiguration} -> pagerDutyConfiguration) (\s@Integration' {} a -> s {pagerDutyConfiguration = a} :: Integration)
 
-instance Core.FromJSON Integration where
+instance Data.FromJSON Integration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Integration"
       ( \x ->
           Integration'
-            Prelude.<$> (x Core..:? "pagerDutyConfiguration")
+            Prelude.<$> (x Data..:? "pagerDutyConfiguration")
       )
 
 instance Prelude.Hashable Integration where
@@ -74,11 +75,11 @@ instance Prelude.NFData Integration where
   rnf Integration' {..} =
     Prelude.rnf pagerDutyConfiguration
 
-instance Core.ToJSON Integration where
+instance Data.ToJSON Integration where
   toJSON Integration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("pagerDutyConfiguration" Core..=)
+          [ ("pagerDutyConfiguration" Data..=)
               Prelude.<$> pagerDutyConfiguration
           ]
       )

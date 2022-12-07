@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.DatasetExportJobOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.S3DataConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,13 +56,13 @@ newDatasetExportJobOutput pS3DataDestination_ =
 datasetExportJobOutput_s3DataDestination :: Lens.Lens' DatasetExportJobOutput S3DataConfig
 datasetExportJobOutput_s3DataDestination = Lens.lens (\DatasetExportJobOutput' {s3DataDestination} -> s3DataDestination) (\s@DatasetExportJobOutput' {} a -> s {s3DataDestination = a} :: DatasetExportJobOutput)
 
-instance Core.FromJSON DatasetExportJobOutput where
+instance Data.FromJSON DatasetExportJobOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetExportJobOutput"
       ( \x ->
           DatasetExportJobOutput'
-            Prelude.<$> (x Core..: "s3DataDestination")
+            Prelude.<$> (x Data..: "s3DataDestination")
       )
 
 instance Prelude.Hashable DatasetExportJobOutput where
@@ -72,11 +73,11 @@ instance Prelude.NFData DatasetExportJobOutput where
   rnf DatasetExportJobOutput' {..} =
     Prelude.rnf s3DataDestination
 
-instance Core.ToJSON DatasetExportJobOutput where
+instance Data.ToJSON DatasetExportJobOutput where
   toJSON DatasetExportJobOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("s3DataDestination" Core..= s3DataDestination)
+              ("s3DataDestination" Data..= s3DataDestination)
           ]
       )

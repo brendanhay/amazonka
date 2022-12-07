@@ -21,6 +21,7 @@ module Amazonka.Schemas.Types.RegistrySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newRegistrySummary' smart constructor.
@@ -68,15 +69,15 @@ registrySummary_registryName = Lens.lens (\RegistrySummary' {registryName} -> re
 registrySummary_registryArn :: Lens.Lens' RegistrySummary (Prelude.Maybe Prelude.Text)
 registrySummary_registryArn = Lens.lens (\RegistrySummary' {registryArn} -> registryArn) (\s@RegistrySummary' {} a -> s {registryArn = a} :: RegistrySummary)
 
-instance Core.FromJSON RegistrySummary where
+instance Data.FromJSON RegistrySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegistrySummary"
       ( \x ->
           RegistrySummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RegistryName")
-            Prelude.<*> (x Core..:? "RegistryArn")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RegistryName")
+            Prelude.<*> (x Data..:? "RegistryArn")
       )
 
 instance Prelude.Hashable RegistrySummary where

@@ -99,6 +99,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -450,8 +451,8 @@ instance Core.AWSRequest CreateBroker where
     Response.receiveJSON
       ( \s h x ->
           CreateBrokerResponse'
-            Prelude.<$> (x Core..?> "brokerId")
-            Prelude.<*> (x Core..?> "brokerArn")
+            Prelude.<$> (x Data..?> "brokerId")
+            Prelude.<*> (x Data..?> "brokerArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -499,59 +500,59 @@ instance Prelude.NFData CreateBroker where
       `Prelude.seq` Prelude.rnf engineType
       `Prelude.seq` Prelude.rnf publiclyAccessible
 
-instance Core.ToHeaders CreateBroker where
+instance Data.ToHeaders CreateBroker where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBroker where
+instance Data.ToJSON CreateBroker where
   toJSON CreateBroker' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("ldapServerMetadata" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("ldapServerMetadata" Data..=)
               Prelude.<$> ldapServerMetadata,
-            ("configuration" Core..=) Prelude.<$> configuration,
-            ("storageType" Core..=) Prelude.<$> storageType,
-            ("creatorRequestId" Core..=)
+            ("configuration" Data..=) Prelude.<$> configuration,
+            ("storageType" Data..=) Prelude.<$> storageType,
+            ("creatorRequestId" Data..=)
               Prelude.<$> creatorRequestId,
-            ("logs" Core..=) Prelude.<$> logs,
-            ("securityGroups" Core..=)
+            ("logs" Data..=) Prelude.<$> logs,
+            ("securityGroups" Data..=)
               Prelude.<$> securityGroups,
-            ("authenticationStrategy" Core..=)
+            ("authenticationStrategy" Data..=)
               Prelude.<$> authenticationStrategy,
-            ("maintenanceWindowStartTime" Core..=)
+            ("maintenanceWindowStartTime" Data..=)
               Prelude.<$> maintenanceWindowStartTime,
-            ("subnetIds" Core..=) Prelude.<$> subnetIds,
-            ("encryptionOptions" Core..=)
+            ("subnetIds" Data..=) Prelude.<$> subnetIds,
+            ("encryptionOptions" Data..=)
               Prelude.<$> encryptionOptions,
-            Prelude.Just ("engineVersion" Core..= engineVersion),
+            Prelude.Just ("engineVersion" Data..= engineVersion),
             Prelude.Just
-              ("hostInstanceType" Core..= hostInstanceType),
+              ("hostInstanceType" Data..= hostInstanceType),
             Prelude.Just
               ( "autoMinorVersionUpgrade"
-                  Core..= autoMinorVersionUpgrade
+                  Data..= autoMinorVersionUpgrade
               ),
-            Prelude.Just ("users" Core..= users),
-            Prelude.Just ("brokerName" Core..= brokerName),
+            Prelude.Just ("users" Data..= users),
+            Prelude.Just ("brokerName" Data..= brokerName),
             Prelude.Just
-              ("deploymentMode" Core..= deploymentMode),
-            Prelude.Just ("engineType" Core..= engineType),
+              ("deploymentMode" Data..= deploymentMode),
+            Prelude.Just ("engineType" Data..= engineType),
             Prelude.Just
-              ("publiclyAccessible" Core..= publiclyAccessible)
+              ("publiclyAccessible" Data..= publiclyAccessible)
           ]
       )
 
-instance Core.ToPath CreateBroker where
+instance Data.ToPath CreateBroker where
   toPath = Prelude.const "/v1/brokers"
 
-instance Core.ToQuery CreateBroker where
+instance Data.ToQuery CreateBroker where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBrokerResponse' smart constructor.

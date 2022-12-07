@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,8 +152,8 @@ instance Core.AWSRequest CreateLabelGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateLabelGroupResponse'
-            Prelude.<$> (x Core..?> "LabelGroupArn")
-            Prelude.<*> (x Core..?> "LabelGroupName")
+            Prelude.<$> (x Data..?> "LabelGroupArn")
+            Prelude.<*> (x Data..?> "LabelGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,37 +171,37 @@ instance Prelude.NFData CreateLabelGroup where
       `Prelude.seq` Prelude.rnf labelGroupName
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateLabelGroup where
+instance Data.ToHeaders CreateLabelGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.CreateLabelGroup" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.CreateLabelGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLabelGroup where
+instance Data.ToJSON CreateLabelGroup where
   toJSON CreateLabelGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("FaultCodes" Core..=) Prelude.<$> faultCodes,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("FaultCodes" Data..=) Prelude.<$> faultCodes,
             Prelude.Just
-              ("LabelGroupName" Core..= labelGroupName),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+              ("LabelGroupName" Data..= labelGroupName),
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CreateLabelGroup where
+instance Data.ToPath CreateLabelGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLabelGroup where
+instance Data.ToQuery CreateLabelGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLabelGroupResponse' smart constructor.

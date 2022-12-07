@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.DataSourceConfigurationsResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.CloudTrailConfigurationResult
 import Amazonka.GuardDuty.Types.DNSLogsConfigurationResult
 import Amazonka.GuardDuty.Types.FlowLogsConfigurationResult
@@ -131,18 +132,18 @@ dataSourceConfigurationsResult_flowLogs = Lens.lens (\DataSourceConfigurationsRe
 dataSourceConfigurationsResult_s3Logs :: Lens.Lens' DataSourceConfigurationsResult S3LogsConfigurationResult
 dataSourceConfigurationsResult_s3Logs = Lens.lens (\DataSourceConfigurationsResult' {s3Logs} -> s3Logs) (\s@DataSourceConfigurationsResult' {} a -> s {s3Logs = a} :: DataSourceConfigurationsResult)
 
-instance Core.FromJSON DataSourceConfigurationsResult where
+instance Data.FromJSON DataSourceConfigurationsResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSourceConfigurationsResult"
       ( \x ->
           DataSourceConfigurationsResult'
-            Prelude.<$> (x Core..:? "malwareProtection")
-            Prelude.<*> (x Core..:? "kubernetes")
-            Prelude.<*> (x Core..: "cloudTrail")
-            Prelude.<*> (x Core..: "dnsLogs")
-            Prelude.<*> (x Core..: "flowLogs")
-            Prelude.<*> (x Core..: "s3Logs")
+            Prelude.<$> (x Data..:? "malwareProtection")
+            Prelude.<*> (x Data..:? "kubernetes")
+            Prelude.<*> (x Data..: "cloudTrail")
+            Prelude.<*> (x Data..: "dnsLogs")
+            Prelude.<*> (x Data..: "flowLogs")
+            Prelude.<*> (x Data..: "s3Logs")
       )
 
 instance

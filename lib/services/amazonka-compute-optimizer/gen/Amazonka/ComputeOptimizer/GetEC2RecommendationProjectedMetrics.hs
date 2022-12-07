@@ -54,6 +54,7 @@ where
 import Amazonka.ComputeOptimizer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -71,9 +72,9 @@ data GetEC2RecommendationProjectedMetrics = GetEC2RecommendationProjectedMetrics
     -- | The granularity, in seconds, of the projected metrics data points.
     period :: Prelude.Int,
     -- | The timestamp of the first projected metrics data point to return.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The timestamp of the last projected metrics data point to return.
-    endTime :: Core.POSIX
+    endTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -123,8 +124,8 @@ newGetEC2RecommendationProjectedMetrics
         stat = pStat_,
         period = pPeriod_,
         startTime =
-          Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_
+          Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_
       }
 
 -- | An object to specify the preferences for the Amazon EC2 recommendation
@@ -147,11 +148,11 @@ getEC2RecommendationProjectedMetrics_period = Lens.lens (\GetEC2RecommendationPr
 
 -- | The timestamp of the first projected metrics data point to return.
 getEC2RecommendationProjectedMetrics_startTime :: Lens.Lens' GetEC2RecommendationProjectedMetrics Prelude.UTCTime
-getEC2RecommendationProjectedMetrics_startTime = Lens.lens (\GetEC2RecommendationProjectedMetrics' {startTime} -> startTime) (\s@GetEC2RecommendationProjectedMetrics' {} a -> s {startTime = a} :: GetEC2RecommendationProjectedMetrics) Prelude.. Core._Time
+getEC2RecommendationProjectedMetrics_startTime = Lens.lens (\GetEC2RecommendationProjectedMetrics' {startTime} -> startTime) (\s@GetEC2RecommendationProjectedMetrics' {} a -> s {startTime = a} :: GetEC2RecommendationProjectedMetrics) Prelude.. Data._Time
 
 -- | The timestamp of the last projected metrics data point to return.
 getEC2RecommendationProjectedMetrics_endTime :: Lens.Lens' GetEC2RecommendationProjectedMetrics Prelude.UTCTime
-getEC2RecommendationProjectedMetrics_endTime = Lens.lens (\GetEC2RecommendationProjectedMetrics' {endTime} -> endTime) (\s@GetEC2RecommendationProjectedMetrics' {} a -> s {endTime = a} :: GetEC2RecommendationProjectedMetrics) Prelude.. Core._Time
+getEC2RecommendationProjectedMetrics_endTime = Lens.lens (\GetEC2RecommendationProjectedMetrics' {endTime} -> endTime) (\s@GetEC2RecommendationProjectedMetrics' {} a -> s {endTime = a} :: GetEC2RecommendationProjectedMetrics) Prelude.. Data._Time
 
 instance
   Core.AWSRequest
@@ -166,7 +167,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetEC2RecommendationProjectedMetricsResponse'
-            Prelude.<$> ( x Core..?> "recommendedOptionProjectedMetrics"
+            Prelude.<$> ( x Data..?> "recommendedOptionProjectedMetrics"
                             Core..!@ Prelude.mempty
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -200,48 +201,48 @@ instance
       `Prelude.seq` Prelude.rnf endTime
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetEC2RecommendationProjectedMetrics
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComputeOptimizerService.GetEC2RecommendationProjectedMetrics" ::
+              Data.=# ( "ComputeOptimizerService.GetEC2RecommendationProjectedMetrics" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetEC2RecommendationProjectedMetrics
   where
   toJSON GetEC2RecommendationProjectedMetrics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("recommendationPreferences" Core..=)
+          [ ("recommendationPreferences" Data..=)
               Prelude.<$> recommendationPreferences,
-            Prelude.Just ("instanceArn" Core..= instanceArn),
-            Prelude.Just ("stat" Core..= stat),
-            Prelude.Just ("period" Core..= period),
-            Prelude.Just ("startTime" Core..= startTime),
-            Prelude.Just ("endTime" Core..= endTime)
+            Prelude.Just ("instanceArn" Data..= instanceArn),
+            Prelude.Just ("stat" Data..= stat),
+            Prelude.Just ("period" Data..= period),
+            Prelude.Just ("startTime" Data..= startTime),
+            Prelude.Just ("endTime" Data..= endTime)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetEC2RecommendationProjectedMetrics
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetEC2RecommendationProjectedMetrics
   where
   toQuery = Prelude.const Prelude.mempty

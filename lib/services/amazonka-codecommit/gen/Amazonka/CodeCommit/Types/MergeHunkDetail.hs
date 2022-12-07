@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.MergeHunkDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the details of a merge hunk that contains a conflict
@@ -74,15 +75,15 @@ mergeHunkDetail_hunkContent = Lens.lens (\MergeHunkDetail' {hunkContent} -> hunk
 mergeHunkDetail_startLine :: Lens.Lens' MergeHunkDetail (Prelude.Maybe Prelude.Int)
 mergeHunkDetail_startLine = Lens.lens (\MergeHunkDetail' {startLine} -> startLine) (\s@MergeHunkDetail' {} a -> s {startLine = a} :: MergeHunkDetail)
 
-instance Core.FromJSON MergeHunkDetail where
+instance Data.FromJSON MergeHunkDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MergeHunkDetail"
       ( \x ->
           MergeHunkDetail'
-            Prelude.<$> (x Core..:? "endLine")
-            Prelude.<*> (x Core..:? "hunkContent")
-            Prelude.<*> (x Core..:? "startLine")
+            Prelude.<$> (x Data..:? "endLine")
+            Prelude.<*> (x Data..:? "hunkContent")
+            Prelude.<*> (x Data..:? "startLine")
       )
 
 instance Prelude.Hashable MergeHunkDetail where

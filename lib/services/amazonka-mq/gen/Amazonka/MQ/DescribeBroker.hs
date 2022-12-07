@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,41 +112,41 @@ instance Core.AWSRequest DescribeBroker where
     Response.receiveJSON
       ( \s h x ->
           DescribeBrokerResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "brokerName")
-            Prelude.<*> (x Core..?> "engineType")
-            Prelude.<*> (x Core..?> "autoMinorVersionUpgrade")
-            Prelude.<*> (x Core..?> "created")
-            Prelude.<*> ( x Core..?> "pendingSecurityGroups"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "brokerName")
+            Prelude.<*> (x Data..?> "engineType")
+            Prelude.<*> (x Data..?> "autoMinorVersionUpgrade")
+            Prelude.<*> (x Data..?> "created")
+            Prelude.<*> ( x Data..?> "pendingSecurityGroups"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ldapServerMetadata")
-            Prelude.<*> (x Core..?> "deploymentMode")
-            Prelude.<*> ( x Core..?> "brokerInstances"
+            Prelude.<*> (x Data..?> "ldapServerMetadata")
+            Prelude.<*> (x Data..?> "deploymentMode")
+            Prelude.<*> ( x Data..?> "brokerInstances"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "users" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "pendingEngineVersion")
-            Prelude.<*> (x Core..?> "publiclyAccessible")
-            Prelude.<*> (x Core..?> "storageType")
-            Prelude.<*> (x Core..?> "configurations")
-            Prelude.<*> (x Core..?> "brokerState")
-            Prelude.<*> (x Core..?> "brokerId")
-            Prelude.<*> (x Core..?> "logs")
-            Prelude.<*> (x Core..?> "pendingHostInstanceType")
-            Prelude.<*> (x Core..?> "securityGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "actionsRequired"
+            Prelude.<*> (x Data..?> "users" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "pendingEngineVersion")
+            Prelude.<*> (x Data..?> "publiclyAccessible")
+            Prelude.<*> (x Data..?> "storageType")
+            Prelude.<*> (x Data..?> "configurations")
+            Prelude.<*> (x Data..?> "brokerState")
+            Prelude.<*> (x Data..?> "brokerId")
+            Prelude.<*> (x Data..?> "logs")
+            Prelude.<*> (x Data..?> "pendingHostInstanceType")
+            Prelude.<*> (x Data..?> "securityGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "actionsRequired"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "hostInstanceType")
-            Prelude.<*> (x Core..?> "authenticationStrategy")
-            Prelude.<*> (x Core..?> "maintenanceWindowStartTime")
-            Prelude.<*> (x Core..?> "brokerArn")
-            Prelude.<*> (x Core..?> "pendingLdapServerMetadata")
-            Prelude.<*> (x Core..?> "subnetIds" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "engineVersion")
-            Prelude.<*> (x Core..?> "pendingAuthenticationStrategy")
-            Prelude.<*> (x Core..?> "encryptionOptions")
+            Prelude.<*> (x Data..?> "hostInstanceType")
+            Prelude.<*> (x Data..?> "authenticationStrategy")
+            Prelude.<*> (x Data..?> "maintenanceWindowStartTime")
+            Prelude.<*> (x Data..?> "brokerArn")
+            Prelude.<*> (x Data..?> "pendingLdapServerMetadata")
+            Prelude.<*> (x Data..?> "subnetIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "engineVersion")
+            Prelude.<*> (x Data..?> "pendingAuthenticationStrategy")
+            Prelude.<*> (x Data..?> "encryptionOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,23 +157,23 @@ instance Prelude.Hashable DescribeBroker where
 instance Prelude.NFData DescribeBroker where
   rnf DescribeBroker' {..} = Prelude.rnf brokerId
 
-instance Core.ToHeaders DescribeBroker where
+instance Data.ToHeaders DescribeBroker where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeBroker where
+instance Data.ToPath DescribeBroker where
   toPath DescribeBroker' {..} =
     Prelude.mconcat
-      ["/v1/brokers/", Core.toBS brokerId]
+      ["/v1/brokers/", Data.toBS brokerId]
 
-instance Core.ToQuery DescribeBroker where
+instance Data.ToQuery DescribeBroker where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeBrokerResponse' smart constructor.
@@ -193,7 +194,7 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
     -- manual broker reboot.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The time when the broker was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The list of pending security groups to authorize connections to brokers.
     pendingSecurityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The metadata of the LDAP server used to authenticate and authorize
@@ -412,7 +413,7 @@ describeBrokerResponse_autoMinorVersionUpgrade = Lens.lens (\DescribeBrokerRespo
 
 -- | The time when the broker was created.
 describeBrokerResponse_created :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.UTCTime)
-describeBrokerResponse_created = Lens.lens (\DescribeBrokerResponse' {created} -> created) (\s@DescribeBrokerResponse' {} a -> s {created = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Core._Time
+describeBrokerResponse_created = Lens.lens (\DescribeBrokerResponse' {created} -> created) (\s@DescribeBrokerResponse' {} a -> s {created = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The list of pending security groups to authorize connections to brokers.
 describeBrokerResponse_pendingSecurityGroups :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe [Prelude.Text])

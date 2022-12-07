@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pi.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -168,8 +169,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAvailableResourceDimensionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "MetricDimensions"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "MetricDimensions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -200,39 +201,39 @@ instance
       `Prelude.seq` Prelude.rnf metrics
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListAvailableResourceDimensions
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PerformanceInsightsv20180227.ListAvailableResourceDimensions" ::
+              Data.=# ( "PerformanceInsightsv20180227.ListAvailableResourceDimensions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAvailableResourceDimensions where
+instance Data.ToJSON ListAvailableResourceDimensions where
   toJSON ListAvailableResourceDimensions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ServiceType" Core..= serviceType),
-            Prelude.Just ("Identifier" Core..= identifier),
-            Prelude.Just ("Metrics" Core..= metrics)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ServiceType" Data..= serviceType),
+            Prelude.Just ("Identifier" Data..= identifier),
+            Prelude.Just ("Metrics" Data..= metrics)
           ]
       )
 
-instance Core.ToPath ListAvailableResourceDimensions where
+instance Data.ToPath ListAvailableResourceDimensions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAvailableResourceDimensions where
+instance Data.ToQuery ListAvailableResourceDimensions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAvailableResourceDimensionsResponse' smart constructor.

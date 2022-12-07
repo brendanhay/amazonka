@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,8 +135,8 @@ instance Core.AWSRequest DescribeRegions where
     Response.receiveJSON
       ( \s h x ->
           DescribeRegionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "RegionsDescription"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "RegionsDescription"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -153,35 +154,35 @@ instance Prelude.NFData DescribeRegions where
       `Prelude.seq` Prelude.rnf regionName
       `Prelude.seq` Prelude.rnf directoryId
 
-instance Core.ToHeaders DescribeRegions where
+instance Data.ToHeaders DescribeRegions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.DescribeRegions" ::
+              Data.=# ( "DirectoryService_20150416.DescribeRegions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRegions where
+instance Data.ToJSON DescribeRegions where
   toJSON DescribeRegions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("RegionName" Core..=) Prelude.<$> regionName,
-            Prelude.Just ("DirectoryId" Core..= directoryId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("RegionName" Data..=) Prelude.<$> regionName,
+            Prelude.Just ("DirectoryId" Data..= directoryId)
           ]
       )
 
-instance Core.ToPath DescribeRegions where
+instance Data.ToPath DescribeRegions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeRegions where
+instance Data.ToQuery DescribeRegions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRegionsResponse' smart constructor.

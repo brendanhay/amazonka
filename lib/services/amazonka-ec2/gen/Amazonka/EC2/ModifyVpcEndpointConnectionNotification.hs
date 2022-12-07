@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,7 +138,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyVpcEndpointConnectionNotificationResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,38 +165,38 @@ instance
       `Prelude.seq` Prelude.rnf connectionNotificationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ModifyVpcEndpointConnectionNotification
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ModifyVpcEndpointConnectionNotification
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ModifyVpcEndpointConnectionNotification
   where
   toQuery ModifyVpcEndpointConnectionNotification' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyVpcEndpointConnectionNotification" ::
+          Data.=: ( "ModifyVpcEndpointConnectionNotification" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "ConnectionEvents"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "ConnectionEvents"
               Prelude.<$> connectionEvents
           ),
-        "DryRun" Core.=: dryRun,
+        "DryRun" Data.=: dryRun,
         "ConnectionNotificationArn"
-          Core.=: connectionNotificationArn,
+          Data.=: connectionNotificationArn,
         "ConnectionNotificationId"
-          Core.=: connectionNotificationId
+          Data.=: connectionNotificationId
       ]
 
 -- | /See:/ 'newModifyVpcEndpointConnectionNotificationResponse' smart constructor.

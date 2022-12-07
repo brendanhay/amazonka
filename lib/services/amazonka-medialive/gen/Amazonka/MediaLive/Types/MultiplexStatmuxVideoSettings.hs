@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MultiplexStatmuxVideoSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Statmux rate control settings
@@ -86,15 +87,15 @@ multiplexStatmuxVideoSettings_priority = Lens.lens (\MultiplexStatmuxVideoSettin
 multiplexStatmuxVideoSettings_maximumBitrate :: Lens.Lens' MultiplexStatmuxVideoSettings (Prelude.Maybe Prelude.Natural)
 multiplexStatmuxVideoSettings_maximumBitrate = Lens.lens (\MultiplexStatmuxVideoSettings' {maximumBitrate} -> maximumBitrate) (\s@MultiplexStatmuxVideoSettings' {} a -> s {maximumBitrate = a} :: MultiplexStatmuxVideoSettings)
 
-instance Core.FromJSON MultiplexStatmuxVideoSettings where
+instance Data.FromJSON MultiplexStatmuxVideoSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiplexStatmuxVideoSettings"
       ( \x ->
           MultiplexStatmuxVideoSettings'
-            Prelude.<$> (x Core..:? "minimumBitrate")
-            Prelude.<*> (x Core..:? "priority")
-            Prelude.<*> (x Core..:? "maximumBitrate")
+            Prelude.<$> (x Data..:? "minimumBitrate")
+            Prelude.<*> (x Data..:? "priority")
+            Prelude.<*> (x Data..:? "maximumBitrate")
       )
 
 instance
@@ -112,14 +113,14 @@ instance Prelude.NFData MultiplexStatmuxVideoSettings where
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf maximumBitrate
 
-instance Core.ToJSON MultiplexStatmuxVideoSettings where
+instance Data.ToJSON MultiplexStatmuxVideoSettings where
   toJSON MultiplexStatmuxVideoSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("minimumBitrate" Core..=)
+          [ ("minimumBitrate" Data..=)
               Prelude.<$> minimumBitrate,
-            ("priority" Core..=) Prelude.<$> priority,
-            ("maximumBitrate" Core..=)
+            ("priority" Data..=) Prelude.<$> priority,
+            ("maximumBitrate" Data..=)
               Prelude.<$> maximumBitrate
           ]
       )

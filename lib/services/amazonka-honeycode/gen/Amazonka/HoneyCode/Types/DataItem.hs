@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.DataItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types.Format
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,15 +78,15 @@ dataItem_overrideFormat = Lens.lens (\DataItem' {overrideFormat} -> overrideForm
 dataItem_rawValue :: Lens.Lens' DataItem (Prelude.Maybe Prelude.Text)
 dataItem_rawValue = Lens.lens (\DataItem' {rawValue} -> rawValue) (\s@DataItem' {} a -> s {rawValue = a} :: DataItem)
 
-instance Core.FromJSON DataItem where
+instance Data.FromJSON DataItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataItem"
       ( \x ->
           DataItem'
-            Prelude.<$> (x Core..:? "formattedValue")
-            Prelude.<*> (x Core..:? "overrideFormat")
-            Prelude.<*> (x Core..:? "rawValue")
+            Prelude.<$> (x Data..:? "formattedValue")
+            Prelude.<*> (x Data..:? "overrideFormat")
+            Prelude.<*> (x Data..:? "rawValue")
       )
 
 instance Prelude.Hashable DataItem where

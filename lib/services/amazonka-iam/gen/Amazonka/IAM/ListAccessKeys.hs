@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -193,12 +194,12 @@ instance Core.AWSRequest ListAccessKeys where
       "ListAccessKeysResult"
       ( \s h x ->
           ListAccessKeysResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "AccessKeyMetadata"
+            Prelude.<*> ( x Data..@? "AccessKeyMetadata"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -214,22 +215,22 @@ instance Prelude.NFData ListAccessKeys where
       `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf maxItems
 
-instance Core.ToHeaders ListAccessKeys where
+instance Data.ToHeaders ListAccessKeys where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListAccessKeys where
+instance Data.ToPath ListAccessKeys where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAccessKeys where
+instance Data.ToQuery ListAccessKeys where
   toQuery ListAccessKeys' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListAccessKeys" :: Prelude.ByteString),
+          Data.=: ("ListAccessKeys" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "UserName" Core.=: userName,
-        "MaxItems" Core.=: maxItems
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "UserName" Data.=: userName,
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | Contains the response to a successful ListAccessKeys request.

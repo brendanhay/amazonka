@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.AacSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AacAudioDescriptionBroadcasterMix
 import Amazonka.MediaConvert.Types.AacCodecProfile
 import Amazonka.MediaConvert.Types.AacCodingMode
@@ -203,21 +204,21 @@ aacSettings_rateControlMode = Lens.lens (\AacSettings' {rateControlMode} -> rate
 aacSettings_rawFormat :: Lens.Lens' AacSettings (Prelude.Maybe AacRawFormat)
 aacSettings_rawFormat = Lens.lens (\AacSettings' {rawFormat} -> rawFormat) (\s@AacSettings' {} a -> s {rawFormat = a} :: AacSettings)
 
-instance Core.FromJSON AacSettings where
+instance Data.FromJSON AacSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AacSettings"
       ( \x ->
           AacSettings'
-            Prelude.<$> (x Core..:? "bitrate")
-            Prelude.<*> (x Core..:? "specification")
-            Prelude.<*> (x Core..:? "sampleRate")
-            Prelude.<*> (x Core..:? "codecProfile")
-            Prelude.<*> (x Core..:? "vbrQuality")
-            Prelude.<*> (x Core..:? "codingMode")
-            Prelude.<*> (x Core..:? "audioDescriptionBroadcasterMix")
-            Prelude.<*> (x Core..:? "rateControlMode")
-            Prelude.<*> (x Core..:? "rawFormat")
+            Prelude.<$> (x Data..:? "bitrate")
+            Prelude.<*> (x Data..:? "specification")
+            Prelude.<*> (x Data..:? "sampleRate")
+            Prelude.<*> (x Data..:? "codecProfile")
+            Prelude.<*> (x Data..:? "vbrQuality")
+            Prelude.<*> (x Data..:? "codingMode")
+            Prelude.<*> (x Data..:? "audioDescriptionBroadcasterMix")
+            Prelude.<*> (x Data..:? "rateControlMode")
+            Prelude.<*> (x Data..:? "rawFormat")
       )
 
 instance Prelude.Hashable AacSettings where
@@ -244,20 +245,20 @@ instance Prelude.NFData AacSettings where
       `Prelude.seq` Prelude.rnf rateControlMode
       `Prelude.seq` Prelude.rnf rawFormat
 
-instance Core.ToJSON AacSettings where
+instance Data.ToJSON AacSettings where
   toJSON AacSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bitrate" Core..=) Prelude.<$> bitrate,
-            ("specification" Core..=) Prelude.<$> specification,
-            ("sampleRate" Core..=) Prelude.<$> sampleRate,
-            ("codecProfile" Core..=) Prelude.<$> codecProfile,
-            ("vbrQuality" Core..=) Prelude.<$> vbrQuality,
-            ("codingMode" Core..=) Prelude.<$> codingMode,
-            ("audioDescriptionBroadcasterMix" Core..=)
+          [ ("bitrate" Data..=) Prelude.<$> bitrate,
+            ("specification" Data..=) Prelude.<$> specification,
+            ("sampleRate" Data..=) Prelude.<$> sampleRate,
+            ("codecProfile" Data..=) Prelude.<$> codecProfile,
+            ("vbrQuality" Data..=) Prelude.<$> vbrQuality,
+            ("codingMode" Data..=) Prelude.<$> codingMode,
+            ("audioDescriptionBroadcasterMix" Data..=)
               Prelude.<$> audioDescriptionBroadcasterMix,
-            ("rateControlMode" Core..=)
+            ("rateControlMode" Data..=)
               Prelude.<$> rateControlMode,
-            ("rawFormat" Core..=) Prelude.<$> rawFormat
+            ("rawFormat" Data..=) Prelude.<$> rawFormat
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.UpdateFileCacheLustreConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration update for an Amazon File Cache resource.
@@ -70,13 +71,13 @@ instance
     Prelude.rnf weeklyMaintenanceStartTime
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateFileCacheLustreConfiguration
   where
   toJSON UpdateFileCacheLustreConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WeeklyMaintenanceStartTime" Core..=)
+          [ ("WeeklyMaintenanceStartTime" Data..=)
               Prelude.<$> weeklyMaintenanceStartTime
           ]
       )

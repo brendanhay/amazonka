@@ -43,6 +43,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetVoiceConnectorProxy where
     Response.receiveJSON
       ( \s h x ->
           GetVoiceConnectorProxyResponse'
-            Prelude.<$> (x Core..?> "Proxy")
+            Prelude.<$> (x Data..?> "Proxy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,18 +100,18 @@ instance Prelude.NFData GetVoiceConnectorProxy where
   rnf GetVoiceConnectorProxy' {..} =
     Prelude.rnf voiceConnectorId
 
-instance Core.ToHeaders GetVoiceConnectorProxy where
+instance Data.ToHeaders GetVoiceConnectorProxy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetVoiceConnectorProxy where
+instance Data.ToPath GetVoiceConnectorProxy where
   toPath GetVoiceConnectorProxy' {..} =
     Prelude.mconcat
       [ "/voice-connectors/",
-        Core.toBS voiceConnectorId,
+        Data.toBS voiceConnectorId,
         "/programmable-numbers/proxy"
       ]
 
-instance Core.ToQuery GetVoiceConnectorProxy where
+instance Data.ToQuery GetVoiceConnectorProxy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetVoiceConnectorProxyResponse' smart constructor.

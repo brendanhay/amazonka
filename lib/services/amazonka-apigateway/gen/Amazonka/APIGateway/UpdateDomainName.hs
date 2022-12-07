@@ -58,6 +58,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,7 +113,7 @@ instance Core.AWSRequest UpdateDomainName where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateDomainName where
   hashWithSalt _salt UpdateDomainName' {..} =
@@ -124,28 +125,28 @@ instance Prelude.NFData UpdateDomainName where
     Prelude.rnf patchOperations
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders UpdateDomainName where
+instance Data.ToHeaders UpdateDomainName where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON UpdateDomainName where
+instance Data.ToJSON UpdateDomainName where
   toJSON UpdateDomainName' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("patchOperations" Core..=)
+          [ ("patchOperations" Data..=)
               Prelude.<$> patchOperations
           ]
       )
 
-instance Core.ToPath UpdateDomainName where
+instance Data.ToPath UpdateDomainName where
   toPath UpdateDomainName' {..} =
     Prelude.mconcat
-      ["/domainnames/", Core.toBS domainName]
+      ["/domainnames/", Data.toBS domainName]
 
-instance Core.ToQuery UpdateDomainName where
+instance Data.ToQuery UpdateDomainName where
   toQuery = Prelude.const Prelude.mempty

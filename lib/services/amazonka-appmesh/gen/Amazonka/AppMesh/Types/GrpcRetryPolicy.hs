@@ -24,6 +24,7 @@ import Amazonka.AppMesh.Types.GrpcRetryPolicyEvent
 import Amazonka.AppMesh.Types.TcpRetryPolicyEvent
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a retry policy. Specify at least one value for
@@ -133,17 +134,17 @@ grpcRetryPolicy_maxRetries = Lens.lens (\GrpcRetryPolicy' {maxRetries} -> maxRet
 grpcRetryPolicy_perRetryTimeout :: Lens.Lens' GrpcRetryPolicy Duration
 grpcRetryPolicy_perRetryTimeout = Lens.lens (\GrpcRetryPolicy' {perRetryTimeout} -> perRetryTimeout) (\s@GrpcRetryPolicy' {} a -> s {perRetryTimeout = a} :: GrpcRetryPolicy)
 
-instance Core.FromJSON GrpcRetryPolicy where
+instance Data.FromJSON GrpcRetryPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GrpcRetryPolicy"
       ( \x ->
           GrpcRetryPolicy'
-            Prelude.<$> (x Core..:? "grpcRetryEvents")
-            Prelude.<*> (x Core..:? "httpRetryEvents")
-            Prelude.<*> (x Core..:? "tcpRetryEvents")
-            Prelude.<*> (x Core..: "maxRetries")
-            Prelude.<*> (x Core..: "perRetryTimeout")
+            Prelude.<$> (x Data..:? "grpcRetryEvents")
+            Prelude.<*> (x Data..:? "httpRetryEvents")
+            Prelude.<*> (x Data..:? "tcpRetryEvents")
+            Prelude.<*> (x Data..: "maxRetries")
+            Prelude.<*> (x Data..: "perRetryTimeout")
       )
 
 instance Prelude.Hashable GrpcRetryPolicy where
@@ -162,18 +163,18 @@ instance Prelude.NFData GrpcRetryPolicy where
       `Prelude.seq` Prelude.rnf maxRetries
       `Prelude.seq` Prelude.rnf perRetryTimeout
 
-instance Core.ToJSON GrpcRetryPolicy where
+instance Data.ToJSON GrpcRetryPolicy where
   toJSON GrpcRetryPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("grpcRetryEvents" Core..=)
+          [ ("grpcRetryEvents" Data..=)
               Prelude.<$> grpcRetryEvents,
-            ("httpRetryEvents" Core..=)
+            ("httpRetryEvents" Data..=)
               Prelude.<$> httpRetryEvents,
-            ("tcpRetryEvents" Core..=)
+            ("tcpRetryEvents" Data..=)
               Prelude.<$> tcpRetryEvents,
-            Prelude.Just ("maxRetries" Core..= maxRetries),
+            Prelude.Just ("maxRetries" Data..= maxRetries),
             Prelude.Just
-              ("perRetryTimeout" Core..= perRetryTimeout)
+              ("perRetryTimeout" Data..= perRetryTimeout)
           ]
       )

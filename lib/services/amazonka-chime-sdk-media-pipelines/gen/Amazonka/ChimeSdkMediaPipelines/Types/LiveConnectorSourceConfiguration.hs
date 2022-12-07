@@ -23,6 +23,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.ChimeSdkMeetingLiveConnectorConfigu
 import Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorSourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The data source configuration object of a streaming media pipeline.
@@ -72,17 +73,17 @@ liveConnectorSourceConfiguration_chimeSdkMeetingLiveConnectorConfiguration :: Le
 liveConnectorSourceConfiguration_chimeSdkMeetingLiveConnectorConfiguration = Lens.lens (\LiveConnectorSourceConfiguration' {chimeSdkMeetingLiveConnectorConfiguration} -> chimeSdkMeetingLiveConnectorConfiguration) (\s@LiveConnectorSourceConfiguration' {} a -> s {chimeSdkMeetingLiveConnectorConfiguration = a} :: LiveConnectorSourceConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LiveConnectorSourceConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LiveConnectorSourceConfiguration"
       ( \x ->
           LiveConnectorSourceConfiguration'
-            Prelude.<$> (x Core..: "SourceType")
+            Prelude.<$> (x Data..: "SourceType")
             Prelude.<*> ( x
-                            Core..: "ChimeSdkMeetingLiveConnectorConfiguration"
+                            Data..: "ChimeSdkMeetingLiveConnectorConfiguration"
                         )
       )
 
@@ -104,14 +105,14 @@ instance
     Prelude.rnf sourceType
       `Prelude.seq` Prelude.rnf chimeSdkMeetingLiveConnectorConfiguration
 
-instance Core.ToJSON LiveConnectorSourceConfiguration where
+instance Data.ToJSON LiveConnectorSourceConfiguration where
   toJSON LiveConnectorSourceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SourceType" Core..= sourceType),
+          [ Prelude.Just ("SourceType" Data..= sourceType),
             Prelude.Just
               ( "ChimeSdkMeetingLiveConnectorConfiguration"
-                  Core..= chimeSdkMeetingLiveConnectorConfiguration
+                  Data..= chimeSdkMeetingLiveConnectorConfiguration
               )
           ]
       )

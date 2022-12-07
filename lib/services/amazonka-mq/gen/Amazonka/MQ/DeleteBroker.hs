@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -81,7 +82,7 @@ instance Core.AWSRequest DeleteBroker where
     Response.receiveJSON
       ( \s h x ->
           DeleteBrokerResponse'
-            Prelude.<$> (x Core..?> "brokerId")
+            Prelude.<$> (x Data..?> "brokerId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -92,23 +93,23 @@ instance Prelude.Hashable DeleteBroker where
 instance Prelude.NFData DeleteBroker where
   rnf DeleteBroker' {..} = Prelude.rnf brokerId
 
-instance Core.ToHeaders DeleteBroker where
+instance Data.ToHeaders DeleteBroker where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteBroker where
+instance Data.ToPath DeleteBroker where
   toPath DeleteBroker' {..} =
     Prelude.mconcat
-      ["/v1/brokers/", Core.toBS brokerId]
+      ["/v1/brokers/", Data.toBS brokerId]
 
-instance Core.ToQuery DeleteBroker where
+instance Data.ToQuery DeleteBroker where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBrokerResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ScheduledInstancesBlockDeviceMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ScheduledInstancesEbs
 import qualified Amazonka.Prelude as Prelude
@@ -138,13 +139,13 @@ instance
       `Prelude.seq` Prelude.rnf virtualName
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ScheduledInstancesBlockDeviceMapping
   where
   toQuery ScheduledInstancesBlockDeviceMapping' {..} =
     Prelude.mconcat
-      [ "Ebs" Core.=: ebs,
-        "DeviceName" Core.=: deviceName,
-        "NoDevice" Core.=: noDevice,
-        "VirtualName" Core.=: virtualName
+      [ "Ebs" Data.=: ebs,
+        "DeviceName" Data.=: deviceName,
+        "NoDevice" Data.=: noDevice,
+        "VirtualName" Data.=: virtualName
       ]

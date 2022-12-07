@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.PendingLogDeliveryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.DestinationDetails
 import Amazonka.ElastiCache.Types.DestinationType
 import Amazonka.ElastiCache.Types.LogFormat
@@ -90,13 +91,13 @@ pendingLogDeliveryConfiguration_logFormat = Lens.lens (\PendingLogDeliveryConfig
 pendingLogDeliveryConfiguration_destinationDetails :: Lens.Lens' PendingLogDeliveryConfiguration (Prelude.Maybe DestinationDetails)
 pendingLogDeliveryConfiguration_destinationDetails = Lens.lens (\PendingLogDeliveryConfiguration' {destinationDetails} -> destinationDetails) (\s@PendingLogDeliveryConfiguration' {} a -> s {destinationDetails = a} :: PendingLogDeliveryConfiguration)
 
-instance Core.FromXML PendingLogDeliveryConfiguration where
+instance Data.FromXML PendingLogDeliveryConfiguration where
   parseXML x =
     PendingLogDeliveryConfiguration'
-      Prelude.<$> (x Core..@? "LogType")
-      Prelude.<*> (x Core..@? "DestinationType")
-      Prelude.<*> (x Core..@? "LogFormat")
-      Prelude.<*> (x Core..@? "DestinationDetails")
+      Prelude.<$> (x Data..@? "LogType")
+      Prelude.<*> (x Data..@? "DestinationType")
+      Prelude.<*> (x Data..@? "LogFormat")
+      Prelude.<*> (x Data..@? "DestinationDetails")
 
 instance
   Prelude.Hashable

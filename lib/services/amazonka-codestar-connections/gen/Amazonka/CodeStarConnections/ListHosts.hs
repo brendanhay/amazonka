@@ -44,6 +44,7 @@ where
 import Amazonka.CodeStarConnections.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,8 +102,8 @@ instance Core.AWSRequest ListHosts where
     Response.receiveJSON
       ( \s h x ->
           ListHostsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Hosts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Hosts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,34 +117,34 @@ instance Prelude.NFData ListHosts where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListHosts where
+instance Data.ToHeaders ListHosts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.codestar.connections.CodeStar_connections_20191201.ListHosts" ::
+              Data.=# ( "com.amazonaws.codestar.connections.CodeStar_connections_20191201.ListHosts" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListHosts where
+instance Data.ToJSON ListHosts where
   toJSON ListHosts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListHosts where
+instance Data.ToPath ListHosts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListHosts where
+instance Data.ToQuery ListHosts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListHostsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsKmsKeyDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata about an KMS key.
@@ -193,20 +194,20 @@ awsKmsKeyDetails_keyId = Lens.lens (\AwsKmsKeyDetails' {keyId} -> keyId) (\s@Aws
 awsKmsKeyDetails_origin :: Lens.Lens' AwsKmsKeyDetails (Prelude.Maybe Prelude.Text)
 awsKmsKeyDetails_origin = Lens.lens (\AwsKmsKeyDetails' {origin} -> origin) (\s@AwsKmsKeyDetails' {} a -> s {origin = a} :: AwsKmsKeyDetails)
 
-instance Core.FromJSON AwsKmsKeyDetails where
+instance Data.FromJSON AwsKmsKeyDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsKmsKeyDetails"
       ( \x ->
           AwsKmsKeyDetails'
-            Prelude.<$> (x Core..:? "AWSAccountId")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "KeyRotationStatus")
-            Prelude.<*> (x Core..:? "KeyManager")
-            Prelude.<*> (x Core..:? "KeyState")
-            Prelude.<*> (x Core..:? "KeyId")
-            Prelude.<*> (x Core..:? "Origin")
+            Prelude.<$> (x Data..:? "AWSAccountId")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "KeyRotationStatus")
+            Prelude.<*> (x Data..:? "KeyManager")
+            Prelude.<*> (x Data..:? "KeyState")
+            Prelude.<*> (x Data..:? "KeyId")
+            Prelude.<*> (x Data..:? "Origin")
       )
 
 instance Prelude.Hashable AwsKmsKeyDetails where
@@ -231,18 +232,18 @@ instance Prelude.NFData AwsKmsKeyDetails where
       `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf origin
 
-instance Core.ToJSON AwsKmsKeyDetails where
+instance Data.ToJSON AwsKmsKeyDetails where
   toJSON AwsKmsKeyDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AWSAccountId" Core..=) Prelude.<$> aWSAccountId,
-            ("CreationDate" Core..=) Prelude.<$> creationDate,
-            ("Description" Core..=) Prelude.<$> description,
-            ("KeyRotationStatus" Core..=)
+          [ ("AWSAccountId" Data..=) Prelude.<$> aWSAccountId,
+            ("CreationDate" Data..=) Prelude.<$> creationDate,
+            ("Description" Data..=) Prelude.<$> description,
+            ("KeyRotationStatus" Data..=)
               Prelude.<$> keyRotationStatus,
-            ("KeyManager" Core..=) Prelude.<$> keyManager,
-            ("KeyState" Core..=) Prelude.<$> keyState,
-            ("KeyId" Core..=) Prelude.<$> keyId,
-            ("Origin" Core..=) Prelude.<$> origin
+            ("KeyManager" Data..=) Prelude.<$> keyManager,
+            ("KeyState" Data..=) Prelude.<$> keyState,
+            ("KeyId" Data..=) Prelude.<$> keyId,
+            ("Origin" Data..=) Prelude.<$> origin
           ]
       )

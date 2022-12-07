@@ -45,6 +45,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,7 +89,7 @@ instance Core.AWSRequest UpdatePipeline where
     Response.receiveJSON
       ( \s h x ->
           UpdatePipelineResponse'
-            Prelude.<$> (x Core..?> "pipeline")
+            Prelude.<$> (x Data..?> "pipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,32 +100,32 @@ instance Prelude.Hashable UpdatePipeline where
 instance Prelude.NFData UpdatePipeline where
   rnf UpdatePipeline' {..} = Prelude.rnf pipeline
 
-instance Core.ToHeaders UpdatePipeline where
+instance Data.ToHeaders UpdatePipeline where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.UpdatePipeline" ::
+              Data.=# ( "CodePipeline_20150709.UpdatePipeline" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePipeline where
+instance Data.ToJSON UpdatePipeline where
   toJSON UpdatePipeline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("pipeline" Core..= pipeline)]
+          [Prelude.Just ("pipeline" Data..= pipeline)]
       )
 
-instance Core.ToPath UpdatePipeline where
+instance Data.ToPath UpdatePipeline where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdatePipeline where
+instance Data.ToQuery UpdatePipeline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an @UpdatePipeline@ action.

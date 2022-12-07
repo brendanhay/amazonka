@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,8 +99,8 @@ instance Core.AWSRequest AddFlowVpcInterfaces where
     Response.receiveJSON
       ( \s h x ->
           AddFlowVpcInterfacesResponse'
-            Prelude.<$> (x Core..?> "vpcInterfaces" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "flowArn")
+            Prelude.<$> (x Data..?> "vpcInterfaces" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,32 +114,32 @@ instance Prelude.NFData AddFlowVpcInterfaces where
     Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf vpcInterfaces
 
-instance Core.ToHeaders AddFlowVpcInterfaces where
+instance Data.ToHeaders AddFlowVpcInterfaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddFlowVpcInterfaces where
+instance Data.ToJSON AddFlowVpcInterfaces where
   toJSON AddFlowVpcInterfaces' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("vpcInterfaces" Core..= vpcInterfaces)
+              ("vpcInterfaces" Data..= vpcInterfaces)
           ]
       )
 
-instance Core.ToPath AddFlowVpcInterfaces where
+instance Data.ToPath AddFlowVpcInterfaces where
   toPath AddFlowVpcInterfaces' {..} =
     Prelude.mconcat
-      ["/v1/flows/", Core.toBS flowArn, "/vpcInterfaces"]
+      ["/v1/flows/", Data.toBS flowArn, "/vpcInterfaces"]
 
-instance Core.ToQuery AddFlowVpcInterfaces where
+instance Data.ToQuery AddFlowVpcInterfaces where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddFlowVpcInterfacesResponse' smart constructor.

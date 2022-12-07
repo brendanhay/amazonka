@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,10 +148,10 @@ instance Core.AWSRequest CompleteLayerUpload where
     Response.receiveJSON
       ( \s h x ->
           CompleteLayerUploadResponse'
-            Prelude.<$> (x Core..?> "uploadId")
-            Prelude.<*> (x Core..?> "repositoryName")
-            Prelude.<*> (x Core..?> "layerDigest")
-            Prelude.<*> (x Core..?> "registryId")
+            Prelude.<$> (x Data..?> "uploadId")
+            Prelude.<*> (x Data..?> "repositoryName")
+            Prelude.<*> (x Data..?> "layerDigest")
+            Prelude.<*> (x Data..?> "registryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,37 +169,37 @@ instance Prelude.NFData CompleteLayerUpload where
       `Prelude.seq` Prelude.rnf uploadId
       `Prelude.seq` Prelude.rnf layerDigests
 
-instance Core.ToHeaders CompleteLayerUpload where
+instance Data.ToHeaders CompleteLayerUpload where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SpencerFrontendService.CompleteLayerUpload" ::
+              Data.=# ( "SpencerFrontendService.CompleteLayerUpload" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CompleteLayerUpload where
+instance Data.ToJSON CompleteLayerUpload where
   toJSON CompleteLayerUpload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("uploadId" Core..= uploadId),
-            Prelude.Just ("layerDigests" Core..= layerDigests)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("uploadId" Data..= uploadId),
+            Prelude.Just ("layerDigests" Data..= layerDigests)
           ]
       )
 
-instance Core.ToPath CompleteLayerUpload where
+instance Data.ToPath CompleteLayerUpload where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CompleteLayerUpload where
+instance Data.ToQuery CompleteLayerUpload where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCompleteLayerUploadResponse' smart constructor.

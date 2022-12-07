@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,16 +164,16 @@ instance
       ( \s h x ->
           PutProvisionedConcurrencyConfigResponse'
             Prelude.<$> ( x
-                            Core..?> "AvailableProvisionedConcurrentExecutions"
+                            Data..?> "AvailableProvisionedConcurrentExecutions"
                         )
-            Prelude.<*> (x Core..?> "StatusReason")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<*> (x Data..?> "StatusReason")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> ( x
-                            Core..?> "RequestedProvisionedConcurrentExecutions"
+                            Data..?> "RequestedProvisionedConcurrentExecutions"
                         )
-            Prelude.<*> (x Core..?> "LastModified")
+            Prelude.<*> (x Data..?> "LastModified")
             Prelude.<*> ( x
-                            Core..?> "AllocatedProvisionedConcurrentExecutions"
+                            Data..?> "AllocatedProvisionedConcurrentExecutions"
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -198,33 +199,33 @@ instance
       `Prelude.seq` Prelude.rnf provisionedConcurrentExecutions
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutProvisionedConcurrencyConfig
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutProvisionedConcurrencyConfig where
+instance Data.ToJSON PutProvisionedConcurrencyConfig where
   toJSON PutProvisionedConcurrencyConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ProvisionedConcurrentExecutions"
-                  Core..= provisionedConcurrentExecutions
+                  Data..= provisionedConcurrentExecutions
               )
           ]
       )
 
-instance Core.ToPath PutProvisionedConcurrencyConfig where
+instance Data.ToPath PutProvisionedConcurrencyConfig where
   toPath PutProvisionedConcurrencyConfig' {..} =
     Prelude.mconcat
       [ "/2019-09-30/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/provisioned-concurrency"
       ]
 
-instance Core.ToQuery PutProvisionedConcurrencyConfig where
+instance Data.ToQuery PutProvisionedConcurrencyConfig where
   toQuery PutProvisionedConcurrencyConfig' {..} =
-    Prelude.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Data.=: qualifier]
 
 -- | /See:/ 'newPutProvisionedConcurrencyConfigResponse' smart constructor.
 data PutProvisionedConcurrencyConfigResponse = PutProvisionedConcurrencyConfigResponse'

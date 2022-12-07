@@ -49,6 +49,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -146,7 +147,7 @@ instance Core.AWSRequest StartContactStreaming where
       ( \s h x ->
           StartContactStreamingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "StreamingId")
+            Prelude.<*> (x Data..:> "StreamingId")
       )
 
 instance Prelude.Hashable StartContactStreaming where
@@ -163,35 +164,35 @@ instance Prelude.NFData StartContactStreaming where
       `Prelude.seq` Prelude.rnf chatStreamingConfiguration
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders StartContactStreaming where
+instance Data.ToHeaders StartContactStreaming where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartContactStreaming where
+instance Data.ToJSON StartContactStreaming where
   toJSON StartContactStreaming' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("ContactId" Core..= contactId),
+          [ Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("ContactId" Data..= contactId),
             Prelude.Just
               ( "ChatStreamingConfiguration"
-                  Core..= chatStreamingConfiguration
+                  Data..= chatStreamingConfiguration
               ),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath StartContactStreaming where
+instance Data.ToPath StartContactStreaming where
   toPath = Prelude.const "/contact/start-streaming"
 
-instance Core.ToQuery StartContactStreaming where
+instance Data.ToQuery StartContactStreaming where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartContactStreamingResponse' smart constructor.

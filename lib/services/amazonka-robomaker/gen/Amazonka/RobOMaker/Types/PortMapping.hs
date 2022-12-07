@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.PortMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a port mapping.
@@ -77,15 +78,15 @@ portMapping_jobPort = Lens.lens (\PortMapping' {jobPort} -> jobPort) (\s@PortMap
 portMapping_applicationPort :: Lens.Lens' PortMapping Prelude.Natural
 portMapping_applicationPort = Lens.lens (\PortMapping' {applicationPort} -> applicationPort) (\s@PortMapping' {} a -> s {applicationPort = a} :: PortMapping)
 
-instance Core.FromJSON PortMapping where
+instance Data.FromJSON PortMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortMapping"
       ( \x ->
           PortMapping'
-            Prelude.<$> (x Core..:? "enableOnPublicIp")
-            Prelude.<*> (x Core..: "jobPort")
-            Prelude.<*> (x Core..: "applicationPort")
+            Prelude.<$> (x Data..:? "enableOnPublicIp")
+            Prelude.<*> (x Data..: "jobPort")
+            Prelude.<*> (x Data..: "applicationPort")
       )
 
 instance Prelude.Hashable PortMapping where
@@ -100,14 +101,14 @@ instance Prelude.NFData PortMapping where
       `Prelude.seq` Prelude.rnf jobPort
       `Prelude.seq` Prelude.rnf applicationPort
 
-instance Core.ToJSON PortMapping where
+instance Data.ToJSON PortMapping where
   toJSON PortMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("enableOnPublicIp" Core..=)
+          [ ("enableOnPublicIp" Data..=)
               Prelude.<$> enableOnPublicIp,
-            Prelude.Just ("jobPort" Core..= jobPort),
+            Prelude.Just ("jobPort" Data..= jobPort),
             Prelude.Just
-              ("applicationPort" Core..= applicationPort)
+              ("applicationPort" Data..= applicationPort)
           ]
       )

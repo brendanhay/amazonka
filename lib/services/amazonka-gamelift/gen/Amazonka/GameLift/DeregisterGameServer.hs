@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,35 +128,35 @@ instance Prelude.NFData DeregisterGameServer where
     Prelude.rnf gameServerGroupName
       `Prelude.seq` Prelude.rnf gameServerId
 
-instance Core.ToHeaders DeregisterGameServer where
+instance Data.ToHeaders DeregisterGameServer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DeregisterGameServer" ::
+              Data.=# ( "GameLift.DeregisterGameServer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeregisterGameServer where
+instance Data.ToJSON DeregisterGameServer where
   toJSON DeregisterGameServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("GameServerGroupName" Core..= gameServerGroupName),
-            Prelude.Just ("GameServerId" Core..= gameServerId)
+              ("GameServerGroupName" Data..= gameServerGroupName),
+            Prelude.Just ("GameServerId" Data..= gameServerId)
           ]
       )
 
-instance Core.ToPath DeregisterGameServer where
+instance Data.ToPath DeregisterGameServer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeregisterGameServer where
+instance Data.ToQuery DeregisterGameServer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterGameServerResponse' smart constructor.

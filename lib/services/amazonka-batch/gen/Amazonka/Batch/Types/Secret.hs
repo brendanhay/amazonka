@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.Secret where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the secret to expose to your container.
@@ -100,14 +101,14 @@ secret_name = Lens.lens (\Secret' {name} -> name) (\s@Secret' {} a -> s {name = 
 secret_valueFrom :: Lens.Lens' Secret Prelude.Text
 secret_valueFrom = Lens.lens (\Secret' {valueFrom} -> valueFrom) (\s@Secret' {} a -> s {valueFrom = a} :: Secret)
 
-instance Core.FromJSON Secret where
+instance Data.FromJSON Secret where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Secret"
       ( \x ->
           Secret'
-            Prelude.<$> (x Core..: "name")
-            Prelude.<*> (x Core..: "valueFrom")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "valueFrom")
       )
 
 instance Prelude.Hashable Secret where
@@ -120,11 +121,11 @@ instance Prelude.NFData Secret where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf valueFrom
 
-instance Core.ToJSON Secret where
+instance Data.ToJSON Secret where
   toJSON Secret' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("valueFrom" Core..= valueFrom)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("valueFrom" Data..= valueFrom)
           ]
       )

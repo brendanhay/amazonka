@@ -21,6 +21,7 @@ module Amazonka.ApiGatewayV2.Types.ApiMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an API mapping.
@@ -83,16 +84,16 @@ apiMapping_stage = Lens.lens (\ApiMapping' {stage} -> stage) (\s@ApiMapping' {} 
 apiMapping_apiId :: Lens.Lens' ApiMapping Prelude.Text
 apiMapping_apiId = Lens.lens (\ApiMapping' {apiId} -> apiId) (\s@ApiMapping' {} a -> s {apiId = a} :: ApiMapping)
 
-instance Core.FromJSON ApiMapping where
+instance Data.FromJSON ApiMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApiMapping"
       ( \x ->
           ApiMapping'
-            Prelude.<$> (x Core..:? "apiMappingKey")
-            Prelude.<*> (x Core..:? "apiMappingId")
-            Prelude.<*> (x Core..: "stage")
-            Prelude.<*> (x Core..: "apiId")
+            Prelude.<$> (x Data..:? "apiMappingKey")
+            Prelude.<*> (x Data..:? "apiMappingId")
+            Prelude.<*> (x Data..: "stage")
+            Prelude.<*> (x Data..: "apiId")
       )
 
 instance Prelude.Hashable ApiMapping where

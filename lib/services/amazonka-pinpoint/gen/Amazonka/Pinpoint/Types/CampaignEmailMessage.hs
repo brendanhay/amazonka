@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.CampaignEmailMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the content and \"From\" address for an email message that\'s
@@ -90,16 +91,16 @@ campaignEmailMessage_title = Lens.lens (\CampaignEmailMessage' {title} -> title)
 campaignEmailMessage_htmlBody :: Lens.Lens' CampaignEmailMessage (Prelude.Maybe Prelude.Text)
 campaignEmailMessage_htmlBody = Lens.lens (\CampaignEmailMessage' {htmlBody} -> htmlBody) (\s@CampaignEmailMessage' {} a -> s {htmlBody = a} :: CampaignEmailMessage)
 
-instance Core.FromJSON CampaignEmailMessage where
+instance Data.FromJSON CampaignEmailMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CampaignEmailMessage"
       ( \x ->
           CampaignEmailMessage'
-            Prelude.<$> (x Core..:? "FromAddress")
-            Prelude.<*> (x Core..:? "Body")
-            Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "HtmlBody")
+            Prelude.<$> (x Data..:? "FromAddress")
+            Prelude.<*> (x Data..:? "Body")
+            Prelude.<*> (x Data..:? "Title")
+            Prelude.<*> (x Data..:? "HtmlBody")
       )
 
 instance Prelude.Hashable CampaignEmailMessage where
@@ -116,13 +117,13 @@ instance Prelude.NFData CampaignEmailMessage where
       `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf htmlBody
 
-instance Core.ToJSON CampaignEmailMessage where
+instance Data.ToJSON CampaignEmailMessage where
   toJSON CampaignEmailMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FromAddress" Core..=) Prelude.<$> fromAddress,
-            ("Body" Core..=) Prelude.<$> body,
-            ("Title" Core..=) Prelude.<$> title,
-            ("HtmlBody" Core..=) Prelude.<$> htmlBody
+          [ ("FromAddress" Data..=) Prelude.<$> fromAddress,
+            ("Body" Data..=) Prelude.<$> body,
+            ("Title" Data..=) Prelude.<$> title,
+            ("HtmlBody" Data..=) Prelude.<$> htmlBody
           ]
       )

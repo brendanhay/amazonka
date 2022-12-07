@@ -45,6 +45,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,7 +109,7 @@ instance Core.AWSRequest BatchPutFieldOptions where
     Response.receiveJSON
       ( \s h x ->
           BatchPutFieldOptionsResponse'
-            Prelude.<$> (x Core..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,35 +125,35 @@ instance Prelude.NFData BatchPutFieldOptions where
       `Prelude.seq` Prelude.rnf fieldId
       `Prelude.seq` Prelude.rnf options
 
-instance Core.ToHeaders BatchPutFieldOptions where
+instance Data.ToHeaders BatchPutFieldOptions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchPutFieldOptions where
+instance Data.ToJSON BatchPutFieldOptions where
   toJSON BatchPutFieldOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("options" Core..= options)]
+          [Prelude.Just ("options" Data..= options)]
       )
 
-instance Core.ToPath BatchPutFieldOptions where
+instance Data.ToPath BatchPutFieldOptions where
   toPath BatchPutFieldOptions' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainId,
+        Data.toBS domainId,
         "/fields/",
-        Core.toBS fieldId,
+        Data.toBS fieldId,
         "/options"
       ]
 
-instance Core.ToQuery BatchPutFieldOptions where
+instance Data.ToQuery BatchPutFieldOptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchPutFieldOptionsResponse' smart constructor.

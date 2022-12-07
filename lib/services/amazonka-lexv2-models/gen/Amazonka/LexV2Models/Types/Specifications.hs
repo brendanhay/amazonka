@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.Specifications where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.SubSlotValueElicitationSetting
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,14 +72,14 @@ specifications_slotTypeId = Lens.lens (\Specifications' {slotTypeId} -> slotType
 specifications_valueElicitationSetting :: Lens.Lens' Specifications SubSlotValueElicitationSetting
 specifications_valueElicitationSetting = Lens.lens (\Specifications' {valueElicitationSetting} -> valueElicitationSetting) (\s@Specifications' {} a -> s {valueElicitationSetting = a} :: Specifications)
 
-instance Core.FromJSON Specifications where
+instance Data.FromJSON Specifications where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Specifications"
       ( \x ->
           Specifications'
-            Prelude.<$> (x Core..: "slotTypeId")
-            Prelude.<*> (x Core..: "valueElicitationSetting")
+            Prelude.<$> (x Data..: "slotTypeId")
+            Prelude.<*> (x Data..: "valueElicitationSetting")
       )
 
 instance Prelude.Hashable Specifications where
@@ -91,14 +92,14 @@ instance Prelude.NFData Specifications where
     Prelude.rnf slotTypeId
       `Prelude.seq` Prelude.rnf valueElicitationSetting
 
-instance Core.ToJSON Specifications where
+instance Data.ToJSON Specifications where
   toJSON Specifications' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("slotTypeId" Core..= slotTypeId),
+          [ Prelude.Just ("slotTypeId" Data..= slotTypeId),
             Prelude.Just
               ( "valueElicitationSetting"
-                  Core..= valueElicitationSetting
+                  Data..= valueElicitationSetting
               )
           ]
       )

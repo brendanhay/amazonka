@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,31 +121,31 @@ instance
     Prelude.rnf id `Prelude.seq` Prelude.rnf thingArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AssociateWirelessGatewayWithThing
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AssociateWirelessGatewayWithThing
   where
   toJSON AssociateWirelessGatewayWithThing' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ThingArn" Core..= thingArn)]
+          [Prelude.Just ("ThingArn" Data..= thingArn)]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     AssociateWirelessGatewayWithThing
   where
   toPath AssociateWirelessGatewayWithThing' {..} =
     Prelude.mconcat
-      ["/wireless-gateways/", Core.toBS id, "/thing"]
+      ["/wireless-gateways/", Data.toBS id, "/thing"]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AssociateWirelessGatewayWithThing
   where
   toQuery = Prelude.const Prelude.mempty

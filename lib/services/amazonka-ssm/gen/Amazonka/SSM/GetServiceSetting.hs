@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,7 +148,7 @@ instance Core.AWSRequest GetServiceSetting where
     Response.receiveJSON
       ( \s h x ->
           GetServiceSettingResponse'
-            Prelude.<$> (x Core..?> "ServiceSetting")
+            Prelude.<$> (x Data..?> "ServiceSetting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,32 +159,32 @@ instance Prelude.Hashable GetServiceSetting where
 instance Prelude.NFData GetServiceSetting where
   rnf GetServiceSetting' {..} = Prelude.rnf settingId
 
-instance Core.ToHeaders GetServiceSetting where
+instance Data.ToHeaders GetServiceSetting where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.GetServiceSetting" ::
+              Data.=# ( "AmazonSSM.GetServiceSetting" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetServiceSetting where
+instance Data.ToJSON GetServiceSetting where
   toJSON GetServiceSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SettingId" Core..= settingId)]
+          [Prelude.Just ("SettingId" Data..= settingId)]
       )
 
-instance Core.ToPath GetServiceSetting where
+instance Data.ToPath GetServiceSetting where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetServiceSetting where
+instance Data.ToQuery GetServiceSetting where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The query result body of the GetServiceSetting API operation.

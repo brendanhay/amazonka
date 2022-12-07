@@ -42,6 +42,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,35 +116,35 @@ instance Prelude.NFData DisassociateApplicationFleet where
     Prelude.rnf fleetName
       `Prelude.seq` Prelude.rnf applicationArn
 
-instance Core.ToHeaders DisassociateApplicationFleet where
+instance Data.ToHeaders DisassociateApplicationFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DisassociateApplicationFleet" ::
+              Data.=# ( "PhotonAdminProxyService.DisassociateApplicationFleet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateApplicationFleet where
+instance Data.ToJSON DisassociateApplicationFleet where
   toJSON DisassociateApplicationFleet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FleetName" Core..= fleetName),
+          [ Prelude.Just ("FleetName" Data..= fleetName),
             Prelude.Just
-              ("ApplicationArn" Core..= applicationArn)
+              ("ApplicationArn" Data..= applicationArn)
           ]
       )
 
-instance Core.ToPath DisassociateApplicationFleet where
+instance Data.ToPath DisassociateApplicationFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateApplicationFleet where
+instance Data.ToQuery DisassociateApplicationFleet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateApplicationFleetResponse' smart constructor.

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -206,8 +207,8 @@ instance Core.AWSRequest AssociateMacSecKey where
     Response.receiveJSON
       ( \s h x ->
           AssociateMacSecKeyResponse'
-            Prelude.<$> (x Core..?> "macSecKeys" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "connectionId")
+            Prelude.<$> (x Data..?> "macSecKeys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "connectionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -225,36 +226,36 @@ instance Prelude.NFData AssociateMacSecKey where
       `Prelude.seq` Prelude.rnf ckn
       `Prelude.seq` Prelude.rnf connectionId
 
-instance Core.ToHeaders AssociateMacSecKey where
+instance Data.ToHeaders AssociateMacSecKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.AssociateMacSecKey" ::
+              Data.=# ( "OvertureService.AssociateMacSecKey" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateMacSecKey where
+instance Data.ToJSON AssociateMacSecKey where
   toJSON AssociateMacSecKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cak" Core..=) Prelude.<$> cak,
-            ("secretARN" Core..=) Prelude.<$> secretARN,
-            ("ckn" Core..=) Prelude.<$> ckn,
-            Prelude.Just ("connectionId" Core..= connectionId)
+          [ ("cak" Data..=) Prelude.<$> cak,
+            ("secretARN" Data..=) Prelude.<$> secretARN,
+            ("ckn" Data..=) Prelude.<$> ckn,
+            Prelude.Just ("connectionId" Data..= connectionId)
           ]
       )
 
-instance Core.ToPath AssociateMacSecKey where
+instance Data.ToPath AssociateMacSecKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateMacSecKey where
+instance Data.ToQuery AssociateMacSecKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateMacSecKeyResponse' smart constructor.

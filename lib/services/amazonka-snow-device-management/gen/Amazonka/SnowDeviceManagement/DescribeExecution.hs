@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,12 +105,12 @@ instance Core.AWSRequest DescribeExecution where
     Response.receiveJSON
       ( \s h x ->
           DescribeExecutionResponse'
-            Prelude.<$> (x Core..?> "lastUpdatedAt")
-            Prelude.<*> (x Core..?> "taskId")
-            Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "executionId")
-            Prelude.<*> (x Core..?> "startedAt")
-            Prelude.<*> (x Core..?> "managedDeviceId")
+            Prelude.<$> (x Data..?> "lastUpdatedAt")
+            Prelude.<*> (x Data..?> "taskId")
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "executionId")
+            Prelude.<*> (x Data..?> "startedAt")
+            Prelude.<*> (x Data..?> "managedDeviceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,36 +124,36 @@ instance Prelude.NFData DescribeExecution where
     Prelude.rnf managedDeviceId
       `Prelude.seq` Prelude.rnf taskId
 
-instance Core.ToHeaders DescribeExecution where
+instance Data.ToHeaders DescribeExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeExecution where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DescribeExecution where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DescribeExecution where
+instance Data.ToPath DescribeExecution where
   toPath DescribeExecution' {..} =
     Prelude.mconcat
       [ "/task/",
-        Core.toBS taskId,
+        Data.toBS taskId,
         "/execution/",
-        Core.toBS managedDeviceId
+        Data.toBS managedDeviceId
       ]
 
-instance Core.ToQuery DescribeExecution where
+instance Data.ToQuery DescribeExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeExecutionResponse' smart constructor.
 data DescribeExecutionResponse = DescribeExecutionResponse'
   { -- | When the status of the execution was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The ID of the task being executed on the device.
     taskId :: Prelude.Maybe Prelude.Text,
     -- | The current state of the execution.
@@ -160,7 +161,7 @@ data DescribeExecutionResponse = DescribeExecutionResponse'
     -- | The ID of the execution.
     executionId :: Prelude.Maybe Prelude.Text,
     -- | When the execution began.
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     -- | The ID of the managed device that the task is being executed on.
     managedDeviceId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -207,7 +208,7 @@ newDescribeExecutionResponse pHttpStatus_ =
 
 -- | When the status of the execution was last updated.
 describeExecutionResponse_lastUpdatedAt :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-describeExecutionResponse_lastUpdatedAt = Lens.lens (\DescribeExecutionResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeExecutionResponse' {} a -> s {lastUpdatedAt = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Core._Time
+describeExecutionResponse_lastUpdatedAt = Lens.lens (\DescribeExecutionResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeExecutionResponse' {} a -> s {lastUpdatedAt = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the task being executed on the device.
 describeExecutionResponse_taskId :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
@@ -223,7 +224,7 @@ describeExecutionResponse_executionId = Lens.lens (\DescribeExecutionResponse' {
 
 -- | When the execution began.
 describeExecutionResponse_startedAt :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-describeExecutionResponse_startedAt = Lens.lens (\DescribeExecutionResponse' {startedAt} -> startedAt) (\s@DescribeExecutionResponse' {} a -> s {startedAt = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Core._Time
+describeExecutionResponse_startedAt = Lens.lens (\DescribeExecutionResponse' {startedAt} -> startedAt) (\s@DescribeExecutionResponse' {} a -> s {startedAt = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the managed device that the task is being executed on.
 describeExecutionResponse_managedDeviceId :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)

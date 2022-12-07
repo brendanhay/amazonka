@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.OpsItemEventSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.OpsItemIdentity
 
@@ -32,7 +33,7 @@ data OpsItemEventSummary = OpsItemEventSummary'
   { -- | The type of information provided as a detail.
     detailType :: Prelude.Maybe Prelude.Text,
     -- | The date and time the OpsItem event was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the OpsItem.
     opsItemId :: Prelude.Maybe Prelude.Text,
     -- | The source of the OpsItem event.
@@ -86,7 +87,7 @@ opsItemEventSummary_detailType = Lens.lens (\OpsItemEventSummary' {detailType} -
 
 -- | The date and time the OpsItem event was created.
 opsItemEventSummary_createdTime :: Lens.Lens' OpsItemEventSummary (Prelude.Maybe Prelude.UTCTime)
-opsItemEventSummary_createdTime = Lens.lens (\OpsItemEventSummary' {createdTime} -> createdTime) (\s@OpsItemEventSummary' {} a -> s {createdTime = a} :: OpsItemEventSummary) Prelude.. Lens.mapping Core._Time
+opsItemEventSummary_createdTime = Lens.lens (\OpsItemEventSummary' {createdTime} -> createdTime) (\s@OpsItemEventSummary' {} a -> s {createdTime = a} :: OpsItemEventSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the OpsItem.
 opsItemEventSummary_opsItemId :: Lens.Lens' OpsItemEventSummary (Prelude.Maybe Prelude.Text)
@@ -108,19 +109,19 @@ opsItemEventSummary_createdBy = Lens.lens (\OpsItemEventSummary' {createdBy} -> 
 opsItemEventSummary_detail :: Lens.Lens' OpsItemEventSummary (Prelude.Maybe Prelude.Text)
 opsItemEventSummary_detail = Lens.lens (\OpsItemEventSummary' {detail} -> detail) (\s@OpsItemEventSummary' {} a -> s {detail = a} :: OpsItemEventSummary)
 
-instance Core.FromJSON OpsItemEventSummary where
+instance Data.FromJSON OpsItemEventSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpsItemEventSummary"
       ( \x ->
           OpsItemEventSummary'
-            Prelude.<$> (x Core..:? "DetailType")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "OpsItemId")
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "EventId")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "Detail")
+            Prelude.<$> (x Data..:? "DetailType")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "OpsItemId")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "EventId")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "Detail")
       )
 
 instance Prelude.Hashable OpsItemEventSummary where

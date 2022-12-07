@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,8 +122,8 @@ instance Core.AWSRequest DescribeLoa where
     Response.receiveJSON
       ( \s h x ->
           DescribeLoaResponse'
-            Prelude.<$> (x Core..?> "loaContent")
-            Prelude.<*> (x Core..?> "loaContentType")
+            Prelude.<$> (x Data..?> "loaContent")
+            Prelude.<*> (x Data..?> "loaContentType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,36 +139,36 @@ instance Prelude.NFData DescribeLoa where
       `Prelude.seq` Prelude.rnf loaContentType
       `Prelude.seq` Prelude.rnf connectionId
 
-instance Core.ToHeaders DescribeLoa where
+instance Data.ToHeaders DescribeLoa where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DescribeLoa" ::
+              Data.=# ( "OvertureService.DescribeLoa" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLoa where
+instance Data.ToJSON DescribeLoa where
   toJSON DescribeLoa' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("providerName" Core..=) Prelude.<$> providerName,
-            ("loaContentType" Core..=)
+          [ ("providerName" Data..=) Prelude.<$> providerName,
+            ("loaContentType" Data..=)
               Prelude.<$> loaContentType,
-            Prelude.Just ("connectionId" Core..= connectionId)
+            Prelude.Just ("connectionId" Data..= connectionId)
           ]
       )
 
-instance Core.ToPath DescribeLoa where
+instance Data.ToPath DescribeLoa where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLoa where
+instance Data.ToQuery DescribeLoa where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Information about a Letter of Authorization - Connecting Facility
@@ -176,7 +177,7 @@ instance Core.ToQuery DescribeLoa where
 -- /See:/ 'newDescribeLoaResponse' smart constructor.
 data DescribeLoaResponse = DescribeLoaResponse'
   { -- | The binary contents of the LOA-CFA document.
-    loaContent :: Prelude.Maybe Core.Base64,
+    loaContent :: Prelude.Maybe Data.Base64,
     -- | The standard media type for the LOA-CFA document. The only supported
     -- value is application\/pdf.
     loaContentType :: Prelude.Maybe LoaContentType,
@@ -220,7 +221,7 @@ newDescribeLoaResponse pHttpStatus_ =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 describeLoaResponse_loaContent :: Lens.Lens' DescribeLoaResponse (Prelude.Maybe Prelude.ByteString)
-describeLoaResponse_loaContent = Lens.lens (\DescribeLoaResponse' {loaContent} -> loaContent) (\s@DescribeLoaResponse' {} a -> s {loaContent = a} :: DescribeLoaResponse) Prelude.. Lens.mapping Core._Base64
+describeLoaResponse_loaContent = Lens.lens (\DescribeLoaResponse' {loaContent} -> loaContent) (\s@DescribeLoaResponse' {} a -> s {loaContent = a} :: DescribeLoaResponse) Prelude.. Lens.mapping Data._Base64
 
 -- | The standard media type for the LOA-CFA document. The only supported
 -- value is application\/pdf.

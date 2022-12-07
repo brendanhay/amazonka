@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceEventWindowAssociationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -105,21 +106,21 @@ instance
       `Prelude.seq` Prelude.rnf instanceIds
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     InstanceEventWindowAssociationRequest
   where
   toQuery InstanceEventWindowAssociationRequest' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          ( Core.toQueryList "InstanceTag"
+      [ Data.toQuery
+          ( Data.toQueryList "InstanceTag"
               Prelude.<$> instanceTags
           ),
-        Core.toQuery
-          ( Core.toQueryList "DedicatedHostId"
+        Data.toQuery
+          ( Data.toQueryList "DedicatedHostId"
               Prelude.<$> dedicatedHostIds
           ),
-        Core.toQuery
-          ( Core.toQueryList "InstanceId"
+        Data.toQuery
+          ( Data.toQueryList "InstanceId"
               Prelude.<$> instanceIds
           )
       ]

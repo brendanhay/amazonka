@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.AssetModelCompositeModel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.AssetModelProperty
 import qualified Amazonka.Prelude as Prelude
 
@@ -99,17 +100,17 @@ assetModelCompositeModel_name = Lens.lens (\AssetModelCompositeModel' {name} -> 
 assetModelCompositeModel_type :: Lens.Lens' AssetModelCompositeModel Prelude.Text
 assetModelCompositeModel_type = Lens.lens (\AssetModelCompositeModel' {type'} -> type') (\s@AssetModelCompositeModel' {} a -> s {type' = a} :: AssetModelCompositeModel)
 
-instance Core.FromJSON AssetModelCompositeModel where
+instance Data.FromJSON AssetModelCompositeModel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetModelCompositeModel"
       ( \x ->
           AssetModelCompositeModel'
-            Prelude.<$> (x Core..:? "properties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "properties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable AssetModelCompositeModel where
@@ -128,14 +129,14 @@ instance Prelude.NFData AssetModelCompositeModel where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON AssetModelCompositeModel where
+instance Data.ToJSON AssetModelCompositeModel where
   toJSON AssetModelCompositeModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("properties" Core..=) Prelude.<$> properties,
-            ("description" Core..=) Prelude.<$> description,
-            ("id" Core..=) Prelude.<$> id,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("type" Core..= type')
+          [ ("properties" Data..=) Prelude.<$> properties,
+            ("description" Data..=) Prelude.<$> description,
+            ("id" Data..=) Prelude.<$> id,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("type" Data..= type')
           ]
       )

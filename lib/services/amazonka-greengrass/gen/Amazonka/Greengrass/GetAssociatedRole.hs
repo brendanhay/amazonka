@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,8 +85,8 @@ instance Core.AWSRequest GetAssociatedRole where
     Response.receiveJSON
       ( \s h x ->
           GetAssociatedRoleResponse'
-            Prelude.<$> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "AssociatedAt")
+            Prelude.<$> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "AssociatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,23 +97,23 @@ instance Prelude.Hashable GetAssociatedRole where
 instance Prelude.NFData GetAssociatedRole where
   rnf GetAssociatedRole' {..} = Prelude.rnf groupId
 
-instance Core.ToHeaders GetAssociatedRole where
+instance Data.ToHeaders GetAssociatedRole where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetAssociatedRole where
+instance Data.ToPath GetAssociatedRole where
   toPath GetAssociatedRole' {..} =
     Prelude.mconcat
-      ["/greengrass/groups/", Core.toBS groupId, "/role"]
+      ["/greengrass/groups/", Data.toBS groupId, "/role"]
 
-instance Core.ToQuery GetAssociatedRole where
+instance Data.ToQuery GetAssociatedRole where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAssociatedRoleResponse' smart constructor.

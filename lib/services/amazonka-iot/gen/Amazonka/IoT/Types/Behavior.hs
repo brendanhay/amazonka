@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.Behavior where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.BehaviorCriteria
 import Amazonka.IoT.Types.MetricDimension
 import qualified Amazonka.Prelude as Prelude
@@ -104,17 +105,17 @@ behavior_metric = Lens.lens (\Behavior' {metric} -> metric) (\s@Behavior' {} a -
 behavior_name :: Lens.Lens' Behavior Prelude.Text
 behavior_name = Lens.lens (\Behavior' {name} -> name) (\s@Behavior' {} a -> s {name = a} :: Behavior)
 
-instance Core.FromJSON Behavior where
+instance Data.FromJSON Behavior where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Behavior"
       ( \x ->
           Behavior'
-            Prelude.<$> (x Core..:? "suppressAlerts")
-            Prelude.<*> (x Core..:? "criteria")
-            Prelude.<*> (x Core..:? "metricDimension")
-            Prelude.<*> (x Core..:? "metric")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "suppressAlerts")
+            Prelude.<*> (x Data..:? "criteria")
+            Prelude.<*> (x Data..:? "metricDimension")
+            Prelude.<*> (x Data..:? "metric")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable Behavior where
@@ -133,16 +134,16 @@ instance Prelude.NFData Behavior where
       `Prelude.seq` Prelude.rnf metric
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON Behavior where
+instance Data.ToJSON Behavior where
   toJSON Behavior' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("suppressAlerts" Core..=)
+          [ ("suppressAlerts" Data..=)
               Prelude.<$> suppressAlerts,
-            ("criteria" Core..=) Prelude.<$> criteria,
-            ("metricDimension" Core..=)
+            ("criteria" Data..=) Prelude.<$> criteria,
+            ("metricDimension" Data..=)
               Prelude.<$> metricDimension,
-            ("metric" Core..=) Prelude.<$> metric,
-            Prelude.Just ("name" Core..= name)
+            ("metric" Data..=) Prelude.<$> metric,
+            Prelude.Just ("name" Data..= name)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.NodePropertiesSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the properties of a node that\'s associated
@@ -81,15 +82,15 @@ nodePropertiesSummary_nodeIndex = Lens.lens (\NodePropertiesSummary' {nodeIndex}
 nodePropertiesSummary_numNodes :: Lens.Lens' NodePropertiesSummary (Prelude.Maybe Prelude.Int)
 nodePropertiesSummary_numNodes = Lens.lens (\NodePropertiesSummary' {numNodes} -> numNodes) (\s@NodePropertiesSummary' {} a -> s {numNodes = a} :: NodePropertiesSummary)
 
-instance Core.FromJSON NodePropertiesSummary where
+instance Data.FromJSON NodePropertiesSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodePropertiesSummary"
       ( \x ->
           NodePropertiesSummary'
-            Prelude.<$> (x Core..:? "isMainNode")
-            Prelude.<*> (x Core..:? "nodeIndex")
-            Prelude.<*> (x Core..:? "numNodes")
+            Prelude.<$> (x Data..:? "isMainNode")
+            Prelude.<*> (x Data..:? "nodeIndex")
+            Prelude.<*> (x Data..:? "numNodes")
       )
 
 instance Prelude.Hashable NodePropertiesSummary where

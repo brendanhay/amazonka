@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.KnownFraudsterRisk where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details produced as a result of performing known fraudster risk
@@ -71,14 +72,14 @@ knownFraudsterRisk_generatedFraudsterId = Lens.lens (\KnownFraudsterRisk' {gener
 knownFraudsterRisk_riskScore :: Lens.Lens' KnownFraudsterRisk Prelude.Natural
 knownFraudsterRisk_riskScore = Lens.lens (\KnownFraudsterRisk' {riskScore} -> riskScore) (\s@KnownFraudsterRisk' {} a -> s {riskScore = a} :: KnownFraudsterRisk)
 
-instance Core.FromJSON KnownFraudsterRisk where
+instance Data.FromJSON KnownFraudsterRisk where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KnownFraudsterRisk"
       ( \x ->
           KnownFraudsterRisk'
-            Prelude.<$> (x Core..:? "GeneratedFraudsterId")
-            Prelude.<*> (x Core..: "RiskScore")
+            Prelude.<$> (x Data..:? "GeneratedFraudsterId")
+            Prelude.<*> (x Data..: "RiskScore")
       )
 
 instance Prelude.Hashable KnownFraudsterRisk where

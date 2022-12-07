@@ -73,6 +73,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -542,10 +543,10 @@ instance Core.AWSRequest PutScalingPolicy where
       "PutScalingPolicyResult"
       ( \s h x ->
           PutScalingPolicyResponse'
-            Prelude.<$> ( x Core..@? "Alarms" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Alarms" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "PolicyARN")
+            Prelude.<*> (x Data..@? "PolicyARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -583,42 +584,42 @@ instance Prelude.NFData PutScalingPolicy where
       `Prelude.seq` Prelude.rnf autoScalingGroupName
       `Prelude.seq` Prelude.rnf policyName
 
-instance Core.ToHeaders PutScalingPolicy where
+instance Data.ToHeaders PutScalingPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutScalingPolicy where
+instance Data.ToPath PutScalingPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutScalingPolicy where
+instance Data.ToQuery PutScalingPolicy where
   toQuery PutScalingPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PutScalingPolicy" :: Prelude.ByteString),
+          Data.=: ("PutScalingPolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
         "MetricAggregationType"
-          Core.=: metricAggregationType,
-        "PolicyType" Core.=: policyType,
-        "Cooldown" Core.=: cooldown,
-        "AdjustmentType" Core.=: adjustmentType,
+          Data.=: metricAggregationType,
+        "PolicyType" Data.=: policyType,
+        "Cooldown" Data.=: cooldown,
+        "AdjustmentType" Data.=: adjustmentType,
         "EstimatedInstanceWarmup"
-          Core.=: estimatedInstanceWarmup,
-        "Enabled" Core.=: enabled,
+          Data.=: estimatedInstanceWarmup,
+        "Enabled" Data.=: enabled,
         "TargetTrackingConfiguration"
-          Core.=: targetTrackingConfiguration,
-        "MinAdjustmentStep" Core.=: minAdjustmentStep,
-        "ScalingAdjustment" Core.=: scalingAdjustment,
+          Data.=: targetTrackingConfiguration,
+        "MinAdjustmentStep" Data.=: minAdjustmentStep,
+        "ScalingAdjustment" Data.=: scalingAdjustment,
         "StepAdjustments"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> stepAdjustments
             ),
         "PredictiveScalingConfiguration"
-          Core.=: predictiveScalingConfiguration,
+          Data.=: predictiveScalingConfiguration,
         "MinAdjustmentMagnitude"
-          Core.=: minAdjustmentMagnitude,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
-        "PolicyName" Core.=: policyName
+          Data.=: minAdjustmentMagnitude,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
+        "PolicyName" Data.=: policyName
       ]
 
 -- | Contains the output of PutScalingPolicy.

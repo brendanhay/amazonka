@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,21 +123,21 @@ instance Prelude.NFData DeleteServerCertificate where
   rnf DeleteServerCertificate' {..} =
     Prelude.rnf serverCertificateName
 
-instance Core.ToHeaders DeleteServerCertificate where
+instance Data.ToHeaders DeleteServerCertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteServerCertificate where
+instance Data.ToPath DeleteServerCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteServerCertificate where
+instance Data.ToQuery DeleteServerCertificate where
   toQuery DeleteServerCertificate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteServerCertificate" :: Prelude.ByteString),
+          Data.=: ("DeleteServerCertificate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
         "ServerCertificateName"
-          Core.=: serverCertificateName
+          Data.=: serverCertificateName
       ]
 
 -- | /See:/ 'newDeleteServerCertificateResponse' smart constructor.

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -199,9 +200,9 @@ instance Core.AWSRequest ListAccessPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListAccessPoliciesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "accessPolicySummaries"
+            Prelude.<*> ( x Data..?> "accessPolicySummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -226,30 +227,30 @@ instance Prelude.NFData ListAccessPolicies where
       `Prelude.seq` Prelude.rnf identityId
       `Prelude.seq` Prelude.rnf identityType
 
-instance Core.ToHeaders ListAccessPolicies where
+instance Data.ToHeaders ListAccessPolicies where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAccessPolicies where
+instance Data.ToPath ListAccessPolicies where
   toPath = Prelude.const "/access-policies"
 
-instance Core.ToQuery ListAccessPolicies where
+instance Data.ToQuery ListAccessPolicies where
   toQuery ListAccessPolicies' {..} =
     Prelude.mconcat
-      [ "resourceId" Core.=: resourceId,
-        "iamArn" Core.=: iamArn,
-        "resourceType" Core.=: resourceType,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "identityId" Core.=: identityId,
-        "identityType" Core.=: identityType
+      [ "resourceId" Data.=: resourceId,
+        "iamArn" Data.=: iamArn,
+        "resourceType" Data.=: resourceType,
+        "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "identityId" Data.=: identityId,
+        "identityType" Data.=: identityType
       ]
 
 -- | /See:/ 'newListAccessPoliciesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2NetworkInterfaceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEc2NetworkInterfaceAttachment
 import Amazonka.SecurityHub.Types.AwsEc2NetworkInterfaceIpV6AddressDetail
@@ -120,22 +121,22 @@ awsEc2NetworkInterfaceDetails_securityGroups = Lens.lens (\AwsEc2NetworkInterfac
 awsEc2NetworkInterfaceDetails_ipV6Addresses :: Lens.Lens' AwsEc2NetworkInterfaceDetails (Prelude.Maybe [AwsEc2NetworkInterfaceIpV6AddressDetail])
 awsEc2NetworkInterfaceDetails_ipV6Addresses = Lens.lens (\AwsEc2NetworkInterfaceDetails' {ipV6Addresses} -> ipV6Addresses) (\s@AwsEc2NetworkInterfaceDetails' {} a -> s {ipV6Addresses = a} :: AwsEc2NetworkInterfaceDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsEc2NetworkInterfaceDetails where
+instance Data.FromJSON AwsEc2NetworkInterfaceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2NetworkInterfaceDetails"
       ( \x ->
           AwsEc2NetworkInterfaceDetails'
-            Prelude.<$> (x Core..:? "Attachment")
-            Prelude.<*> (x Core..:? "SourceDestCheck")
-            Prelude.<*> ( x Core..:? "PrivateIpAddresses"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Attachment")
+            Prelude.<*> (x Data..:? "SourceDestCheck")
+            Prelude.<*> ( x Data..:? "PrivateIpAddresses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PublicIp")
-            Prelude.<*> (x Core..:? "NetworkInterfaceId")
-            Prelude.<*> (x Core..:? "PublicDnsName")
-            Prelude.<*> (x Core..:? "SecurityGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "IpV6Addresses" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PublicIp")
+            Prelude.<*> (x Data..:? "NetworkInterfaceId")
+            Prelude.<*> (x Data..:? "PublicDnsName")
+            Prelude.<*> (x Data..:? "SecurityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "IpV6Addresses" Data..!= Prelude.mempty)
       )
 
 instance
@@ -163,21 +164,21 @@ instance Prelude.NFData AwsEc2NetworkInterfaceDetails where
       `Prelude.seq` Prelude.rnf securityGroups
       `Prelude.seq` Prelude.rnf ipV6Addresses
 
-instance Core.ToJSON AwsEc2NetworkInterfaceDetails where
+instance Data.ToJSON AwsEc2NetworkInterfaceDetails where
   toJSON AwsEc2NetworkInterfaceDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Attachment" Core..=) Prelude.<$> attachment,
-            ("SourceDestCheck" Core..=)
+          [ ("Attachment" Data..=) Prelude.<$> attachment,
+            ("SourceDestCheck" Data..=)
               Prelude.<$> sourceDestCheck,
-            ("PrivateIpAddresses" Core..=)
+            ("PrivateIpAddresses" Data..=)
               Prelude.<$> privateIpAddresses,
-            ("PublicIp" Core..=) Prelude.<$> publicIp,
-            ("NetworkInterfaceId" Core..=)
+            ("PublicIp" Data..=) Prelude.<$> publicIp,
+            ("NetworkInterfaceId" Data..=)
               Prelude.<$> networkInterfaceId,
-            ("PublicDnsName" Core..=) Prelude.<$> publicDnsName,
-            ("SecurityGroups" Core..=)
+            ("PublicDnsName" Data..=) Prelude.<$> publicDnsName,
+            ("SecurityGroups" Data..=)
               Prelude.<$> securityGroups,
-            ("IpV6Addresses" Core..=) Prelude.<$> ipV6Addresses
+            ("IpV6Addresses" Data..=) Prelude.<$> ipV6Addresses
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ReplicaModifications where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ReplicaModificationsStatus
@@ -62,10 +63,10 @@ newReplicaModifications pStatus_ =
 replicaModifications_status :: Lens.Lens' ReplicaModifications ReplicaModificationsStatus
 replicaModifications_status = Lens.lens (\ReplicaModifications' {status} -> status) (\s@ReplicaModifications' {} a -> s {status = a} :: ReplicaModifications)
 
-instance Core.FromXML ReplicaModifications where
+instance Data.FromXML ReplicaModifications where
   parseXML x =
     ReplicaModifications'
-      Prelude.<$> (x Core..@ "Status")
+      Prelude.<$> (x Data..@ "Status")
 
 instance Prelude.Hashable ReplicaModifications where
   hashWithSalt _salt ReplicaModifications' {..} =
@@ -74,6 +75,6 @@ instance Prelude.Hashable ReplicaModifications where
 instance Prelude.NFData ReplicaModifications where
   rnf ReplicaModifications' {..} = Prelude.rnf status
 
-instance Core.ToXML ReplicaModifications where
+instance Data.ToXML ReplicaModifications where
   toXML ReplicaModifications' {..} =
-    Prelude.mconcat ["Status" Core.@= status]
+    Prelude.mconcat ["Status" Data.@= status]

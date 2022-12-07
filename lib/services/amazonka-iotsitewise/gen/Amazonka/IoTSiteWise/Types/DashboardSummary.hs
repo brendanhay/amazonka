@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.DashboardSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a dashboard summary.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDashboardSummary' smart constructor.
 data DashboardSummary = DashboardSummary'
   { -- | The date the dashboard was created, in Unix epoch time.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The date the dashboard was last updated, in Unix epoch time.
-    lastUpdateDate :: Prelude.Maybe Core.POSIX,
+    lastUpdateDate :: Prelude.Maybe Data.POSIX,
     -- | The dashboard\'s description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the dashboard.
@@ -74,11 +75,11 @@ newDashboardSummary pId_ pName_ =
 
 -- | The date the dashboard was created, in Unix epoch time.
 dashboardSummary_creationDate :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.UTCTime)
-dashboardSummary_creationDate = Lens.lens (\DashboardSummary' {creationDate} -> creationDate) (\s@DashboardSummary' {} a -> s {creationDate = a} :: DashboardSummary) Prelude.. Lens.mapping Core._Time
+dashboardSummary_creationDate = Lens.lens (\DashboardSummary' {creationDate} -> creationDate) (\s@DashboardSummary' {} a -> s {creationDate = a} :: DashboardSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The date the dashboard was last updated, in Unix epoch time.
 dashboardSummary_lastUpdateDate :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.UTCTime)
-dashboardSummary_lastUpdateDate = Lens.lens (\DashboardSummary' {lastUpdateDate} -> lastUpdateDate) (\s@DashboardSummary' {} a -> s {lastUpdateDate = a} :: DashboardSummary) Prelude.. Lens.mapping Core._Time
+dashboardSummary_lastUpdateDate = Lens.lens (\DashboardSummary' {lastUpdateDate} -> lastUpdateDate) (\s@DashboardSummary' {} a -> s {lastUpdateDate = a} :: DashboardSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The dashboard\'s description.
 dashboardSummary_description :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.Text)
@@ -92,17 +93,17 @@ dashboardSummary_id = Lens.lens (\DashboardSummary' {id} -> id) (\s@DashboardSum
 dashboardSummary_name :: Lens.Lens' DashboardSummary Prelude.Text
 dashboardSummary_name = Lens.lens (\DashboardSummary' {name} -> name) (\s@DashboardSummary' {} a -> s {name = a} :: DashboardSummary)
 
-instance Core.FromJSON DashboardSummary where
+instance Data.FromJSON DashboardSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DashboardSummary"
       ( \x ->
           DashboardSummary'
-            Prelude.<$> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "lastUpdateDate")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "lastUpdateDate")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable DashboardSummary where

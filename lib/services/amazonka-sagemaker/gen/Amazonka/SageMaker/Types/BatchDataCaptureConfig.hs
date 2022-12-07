@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.BatchDataCaptureConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration to control how SageMaker captures inference data for batch
@@ -115,15 +116,15 @@ batchDataCaptureConfig_generateInferenceId = Lens.lens (\BatchDataCaptureConfig'
 batchDataCaptureConfig_destinationS3Uri :: Lens.Lens' BatchDataCaptureConfig Prelude.Text
 batchDataCaptureConfig_destinationS3Uri = Lens.lens (\BatchDataCaptureConfig' {destinationS3Uri} -> destinationS3Uri) (\s@BatchDataCaptureConfig' {} a -> s {destinationS3Uri = a} :: BatchDataCaptureConfig)
 
-instance Core.FromJSON BatchDataCaptureConfig where
+instance Data.FromJSON BatchDataCaptureConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDataCaptureConfig"
       ( \x ->
           BatchDataCaptureConfig'
-            Prelude.<$> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "GenerateInferenceId")
-            Prelude.<*> (x Core..: "DestinationS3Uri")
+            Prelude.<$> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "GenerateInferenceId")
+            Prelude.<*> (x Data..: "DestinationS3Uri")
       )
 
 instance Prelude.Hashable BatchDataCaptureConfig where
@@ -138,14 +139,14 @@ instance Prelude.NFData BatchDataCaptureConfig where
       `Prelude.seq` Prelude.rnf generateInferenceId
       `Prelude.seq` Prelude.rnf destinationS3Uri
 
-instance Core.ToJSON BatchDataCaptureConfig where
+instance Data.ToJSON BatchDataCaptureConfig where
   toJSON BatchDataCaptureConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("GenerateInferenceId" Core..=)
+          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("GenerateInferenceId" Data..=)
               Prelude.<$> generateInferenceId,
             Prelude.Just
-              ("DestinationS3Uri" Core..= destinationS3Uri)
+              ("DestinationS3Uri" Data..= destinationS3Uri)
           ]
       )

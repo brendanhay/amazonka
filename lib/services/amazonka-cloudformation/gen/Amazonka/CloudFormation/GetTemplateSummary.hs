@@ -65,6 +65,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -262,26 +263,26 @@ instance Core.AWSRequest GetTemplateSummary where
       "GetTemplateSummaryResult"
       ( \s h x ->
           GetTemplateSummaryResponse'
-            Prelude.<$> (x Core..@? "CapabilitiesReason")
-            Prelude.<*> (x Core..@? "Metadata")
-            Prelude.<*> ( x Core..@? "ResourceTypes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "CapabilitiesReason")
+            Prelude.<*> (x Data..@? "Metadata")
+            Prelude.<*> ( x Data..@? "ResourceTypes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "ResourceIdentifierSummaries"
+            Prelude.<*> ( x Data..@? "ResourceIdentifierSummaries"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "Description")
-            Prelude.<*> ( x Core..@? "Capabilities" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> (x Data..@? "Description")
+            Prelude.<*> ( x Data..@? "Capabilities" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "DeclaredTransforms"
+            Prelude.<*> ( x Data..@? "DeclaredTransforms"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "Version")
-            Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> (x Data..@? "Version")
+            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -302,24 +303,24 @@ instance Prelude.NFData GetTemplateSummary where
       `Prelude.seq` Prelude.rnf stackName
       `Prelude.seq` Prelude.rnf templateURL
 
-instance Core.ToHeaders GetTemplateSummary where
+instance Data.ToHeaders GetTemplateSummary where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetTemplateSummary where
+instance Data.ToPath GetTemplateSummary where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTemplateSummary where
+instance Data.ToQuery GetTemplateSummary where
   toQuery GetTemplateSummary' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetTemplateSummary" :: Prelude.ByteString),
+          Data.=: ("GetTemplateSummary" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "StackSetName" Core.=: stackSetName,
-        "CallAs" Core.=: callAs,
-        "TemplateBody" Core.=: templateBody,
-        "StackName" Core.=: stackName,
-        "TemplateURL" Core.=: templateURL
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "StackSetName" Data.=: stackSetName,
+        "CallAs" Data.=: callAs,
+        "TemplateBody" Data.=: templateBody,
+        "StackName" Data.=: stackName,
+        "TemplateURL" Data.=: templateURL
       ]
 
 -- | The output for the GetTemplateSummary action.

@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.Container where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.HealthStatus
 import Amazonka.ECS.Types.ManagedAgent
 import Amazonka.ECS.Types.NetworkBinding
@@ -227,32 +228,32 @@ container_image = Lens.lens (\Container' {image} -> image) (\s@Container' {} a -
 container_networkInterfaces :: Lens.Lens' Container (Prelude.Maybe [NetworkInterface])
 container_networkInterfaces = Lens.lens (\Container' {networkInterfaces} -> networkInterfaces) (\s@Container' {} a -> s {networkInterfaces = a} :: Container) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Container where
+instance Data.FromJSON Container where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Container"
       ( \x ->
           Container'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "memory")
-            Prelude.<*> (x Core..:? "cpu")
-            Prelude.<*> (x Core..:? "taskArn")
-            Prelude.<*> (x Core..:? "memoryReservation")
-            Prelude.<*> (x Core..:? "healthStatus")
-            Prelude.<*> (x Core..:? "lastStatus")
-            Prelude.<*> (x Core..:? "gpuIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "runtimeId")
-            Prelude.<*> (x Core..:? "containerArn")
-            Prelude.<*> (x Core..:? "managedAgents" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "networkBindings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "memory")
+            Prelude.<*> (x Data..:? "cpu")
+            Prelude.<*> (x Data..:? "taskArn")
+            Prelude.<*> (x Data..:? "memoryReservation")
+            Prelude.<*> (x Data..:? "healthStatus")
+            Prelude.<*> (x Data..:? "lastStatus")
+            Prelude.<*> (x Data..:? "gpuIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "runtimeId")
+            Prelude.<*> (x Data..:? "containerArn")
+            Prelude.<*> (x Data..:? "managedAgents" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "networkBindings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "reason")
-            Prelude.<*> (x Core..:? "exitCode")
-            Prelude.<*> (x Core..:? "imageDigest")
-            Prelude.<*> (x Core..:? "image")
-            Prelude.<*> ( x Core..:? "networkInterfaces"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "reason")
+            Prelude.<*> (x Data..:? "exitCode")
+            Prelude.<*> (x Data..:? "imageDigest")
+            Prelude.<*> (x Data..:? "image")
+            Prelude.<*> ( x Data..:? "networkInterfaces"
+                            Data..!= Prelude.mempty
                         )
       )
 

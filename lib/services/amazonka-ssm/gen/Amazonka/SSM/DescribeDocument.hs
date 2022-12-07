@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ instance Core.AWSRequest DescribeDocument where
     Response.receiveJSON
       ( \s h x ->
           DescribeDocumentResponse'
-            Prelude.<$> (x Core..?> "Document")
+            Prelude.<$> (x Data..?> "Document")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,34 +132,34 @@ instance Prelude.NFData DescribeDocument where
       `Prelude.seq` Prelude.rnf documentVersion
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders DescribeDocument where
+instance Data.ToHeaders DescribeDocument where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DescribeDocument" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.DescribeDocument" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDocument where
+instance Data.ToJSON DescribeDocument where
   toJSON DescribeDocument' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VersionName" Core..=) Prelude.<$> versionName,
-            ("DocumentVersion" Core..=)
+          [ ("VersionName" Data..=) Prelude.<$> versionName,
+            ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath DescribeDocument where
+instance Data.ToPath DescribeDocument where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDocument where
+instance Data.ToQuery DescribeDocument where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDocumentResponse' smart constructor.

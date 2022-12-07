@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,36 +141,36 @@ instance Prelude.NFData CreateConditionalForwarder where
       `Prelude.seq` Prelude.rnf remoteDomainName
       `Prelude.seq` Prelude.rnf dnsIpAddrs
 
-instance Core.ToHeaders CreateConditionalForwarder where
+instance Data.ToHeaders CreateConditionalForwarder where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.CreateConditionalForwarder" ::
+              Data.=# ( "DirectoryService_20150416.CreateConditionalForwarder" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConditionalForwarder where
+instance Data.ToJSON CreateConditionalForwarder where
   toJSON CreateConditionalForwarder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Core..= directoryId),
+          [ Prelude.Just ("DirectoryId" Data..= directoryId),
             Prelude.Just
-              ("RemoteDomainName" Core..= remoteDomainName),
-            Prelude.Just ("DnsIpAddrs" Core..= dnsIpAddrs)
+              ("RemoteDomainName" Data..= remoteDomainName),
+            Prelude.Just ("DnsIpAddrs" Data..= dnsIpAddrs)
           ]
       )
 
-instance Core.ToPath CreateConditionalForwarder where
+instance Data.ToPath CreateConditionalForwarder where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateConditionalForwarder where
+instance Data.ToQuery CreateConditionalForwarder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a CreateConditinalForwarder request.

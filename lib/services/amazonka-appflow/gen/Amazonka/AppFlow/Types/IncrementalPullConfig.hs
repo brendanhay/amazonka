@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.IncrementalPullConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration used when importing incremental records from
@@ -57,13 +58,13 @@ newIncrementalPullConfig =
 incrementalPullConfig_datetimeTypeFieldName :: Lens.Lens' IncrementalPullConfig (Prelude.Maybe Prelude.Text)
 incrementalPullConfig_datetimeTypeFieldName = Lens.lens (\IncrementalPullConfig' {datetimeTypeFieldName} -> datetimeTypeFieldName) (\s@IncrementalPullConfig' {} a -> s {datetimeTypeFieldName = a} :: IncrementalPullConfig)
 
-instance Core.FromJSON IncrementalPullConfig where
+instance Data.FromJSON IncrementalPullConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IncrementalPullConfig"
       ( \x ->
           IncrementalPullConfig'
-            Prelude.<$> (x Core..:? "datetimeTypeFieldName")
+            Prelude.<$> (x Data..:? "datetimeTypeFieldName")
       )
 
 instance Prelude.Hashable IncrementalPullConfig where
@@ -74,11 +75,11 @@ instance Prelude.NFData IncrementalPullConfig where
   rnf IncrementalPullConfig' {..} =
     Prelude.rnf datetimeTypeFieldName
 
-instance Core.ToJSON IncrementalPullConfig where
+instance Data.ToJSON IncrementalPullConfig where
   toJSON IncrementalPullConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("datetimeTypeFieldName" Core..=)
+          [ ("datetimeTypeFieldName" Data..=)
               Prelude.<$> datetimeTypeFieldName
           ]
       )

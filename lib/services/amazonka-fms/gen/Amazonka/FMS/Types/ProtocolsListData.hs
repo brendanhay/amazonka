@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.ProtocolsListData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Firewall Manager protocols list.
@@ -38,9 +39,9 @@ data ProtocolsListData = ProtocolsListData'
     -- list.
     listUpdateToken :: Prelude.Maybe Prelude.Text,
     -- | The time that the Firewall Manager protocols list was last updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The time that the Firewall Manager protocols list was created.
-    createTime :: Prelude.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the Firewall Manager protocols list.
     listName :: Prelude.Text,
     -- | An array of protocols in the Firewall Manager protocols list.
@@ -106,11 +107,11 @@ protocolsListData_listUpdateToken = Lens.lens (\ProtocolsListData' {listUpdateTo
 
 -- | The time that the Firewall Manager protocols list was last updated.
 protocolsListData_lastUpdateTime :: Lens.Lens' ProtocolsListData (Prelude.Maybe Prelude.UTCTime)
-protocolsListData_lastUpdateTime = Lens.lens (\ProtocolsListData' {lastUpdateTime} -> lastUpdateTime) (\s@ProtocolsListData' {} a -> s {lastUpdateTime = a} :: ProtocolsListData) Prelude.. Lens.mapping Core._Time
+protocolsListData_lastUpdateTime = Lens.lens (\ProtocolsListData' {lastUpdateTime} -> lastUpdateTime) (\s@ProtocolsListData' {} a -> s {lastUpdateTime = a} :: ProtocolsListData) Prelude.. Lens.mapping Data._Time
 
 -- | The time that the Firewall Manager protocols list was created.
 protocolsListData_createTime :: Lens.Lens' ProtocolsListData (Prelude.Maybe Prelude.UTCTime)
-protocolsListData_createTime = Lens.lens (\ProtocolsListData' {createTime} -> createTime) (\s@ProtocolsListData' {} a -> s {createTime = a} :: ProtocolsListData) Prelude.. Lens.mapping Core._Time
+protocolsListData_createTime = Lens.lens (\ProtocolsListData' {createTime} -> createTime) (\s@ProtocolsListData' {} a -> s {createTime = a} :: ProtocolsListData) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the Firewall Manager protocols list.
 protocolsListData_listName :: Lens.Lens' ProtocolsListData Prelude.Text
@@ -120,21 +121,21 @@ protocolsListData_listName = Lens.lens (\ProtocolsListData' {listName} -> listNa
 protocolsListData_protocolsList :: Lens.Lens' ProtocolsListData [Prelude.Text]
 protocolsListData_protocolsList = Lens.lens (\ProtocolsListData' {protocolsList} -> protocolsList) (\s@ProtocolsListData' {} a -> s {protocolsList = a} :: ProtocolsListData) Prelude.. Lens.coerced
 
-instance Core.FromJSON ProtocolsListData where
+instance Data.FromJSON ProtocolsListData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProtocolsListData"
       ( \x ->
           ProtocolsListData'
-            Prelude.<$> (x Core..:? "ListId")
-            Prelude.<*> ( x Core..:? "PreviousProtocolsList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ListId")
+            Prelude.<*> ( x Data..:? "PreviousProtocolsList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ListUpdateToken")
-            Prelude.<*> (x Core..:? "LastUpdateTime")
-            Prelude.<*> (x Core..:? "CreateTime")
-            Prelude.<*> (x Core..: "ListName")
-            Prelude.<*> (x Core..:? "ProtocolsList" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ListUpdateToken")
+            Prelude.<*> (x Data..:? "LastUpdateTime")
+            Prelude.<*> (x Data..:? "CreateTime")
+            Prelude.<*> (x Data..: "ListName")
+            Prelude.<*> (x Data..:? "ProtocolsList" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ProtocolsListData where
@@ -157,20 +158,20 @@ instance Prelude.NFData ProtocolsListData where
       `Prelude.seq` Prelude.rnf listName
       `Prelude.seq` Prelude.rnf protocolsList
 
-instance Core.ToJSON ProtocolsListData where
+instance Data.ToJSON ProtocolsListData where
   toJSON ProtocolsListData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ListId" Core..=) Prelude.<$> listId,
-            ("PreviousProtocolsList" Core..=)
+          [ ("ListId" Data..=) Prelude.<$> listId,
+            ("PreviousProtocolsList" Data..=)
               Prelude.<$> previousProtocolsList,
-            ("ListUpdateToken" Core..=)
+            ("ListUpdateToken" Data..=)
               Prelude.<$> listUpdateToken,
-            ("LastUpdateTime" Core..=)
+            ("LastUpdateTime" Data..=)
               Prelude.<$> lastUpdateTime,
-            ("CreateTime" Core..=) Prelude.<$> createTime,
-            Prelude.Just ("ListName" Core..= listName),
+            ("CreateTime" Data..=) Prelude.<$> createTime,
+            Prelude.Just ("ListName" Data..= listName),
             Prelude.Just
-              ("ProtocolsList" Core..= protocolsList)
+              ("ProtocolsList" Data..= protocolsList)
           ]
       )

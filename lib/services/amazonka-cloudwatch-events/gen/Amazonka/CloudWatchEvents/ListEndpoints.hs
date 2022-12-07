@@ -49,6 +49,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,8 +139,8 @@ instance Core.AWSRequest ListEndpoints where
     Response.receiveJSON
       ( \s h x ->
           ListEndpointsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Endpoints" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Endpoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,34 +158,34 @@ instance Prelude.NFData ListEndpoints where
       `Prelude.seq` Prelude.rnf namePrefix
       `Prelude.seq` Prelude.rnf homeRegion
 
-instance Core.ToHeaders ListEndpoints where
+instance Data.ToHeaders ListEndpoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.ListEndpoints" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.ListEndpoints" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEndpoints where
+instance Data.ToJSON ListEndpoints where
   toJSON ListEndpoints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("NamePrefix" Core..=) Prelude.<$> namePrefix,
-            ("HomeRegion" Core..=) Prelude.<$> homeRegion
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NamePrefix" Data..=) Prelude.<$> namePrefix,
+            ("HomeRegion" Data..=) Prelude.<$> homeRegion
           ]
       )
 
-instance Core.ToPath ListEndpoints where
+instance Data.ToPath ListEndpoints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEndpoints where
+instance Data.ToQuery ListEndpoints where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEndpointsResponse' smart constructor.

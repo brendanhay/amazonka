@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.NetworkInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.CanInterface
 import Amazonka.IoTFleetWise.Types.NetworkInterfaceType
 import Amazonka.IoTFleetWise.Types.ObdInterface
@@ -105,16 +106,16 @@ networkInterface_interfaceId = Lens.lens (\NetworkInterface' {interfaceId} -> in
 networkInterface_type :: Lens.Lens' NetworkInterface NetworkInterfaceType
 networkInterface_type = Lens.lens (\NetworkInterface' {type'} -> type') (\s@NetworkInterface' {} a -> s {type' = a} :: NetworkInterface)
 
-instance Core.FromJSON NetworkInterface where
+instance Data.FromJSON NetworkInterface where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> (x Core..:? "obdInterface")
-            Prelude.<*> (x Core..:? "canInterface")
-            Prelude.<*> (x Core..: "interfaceId")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "obdInterface")
+            Prelude.<*> (x Data..:? "canInterface")
+            Prelude.<*> (x Data..: "interfaceId")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable NetworkInterface where
@@ -131,13 +132,13 @@ instance Prelude.NFData NetworkInterface where
       `Prelude.seq` Prelude.rnf interfaceId
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON NetworkInterface where
+instance Data.ToJSON NetworkInterface where
   toJSON NetworkInterface' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("obdInterface" Core..=) Prelude.<$> obdInterface,
-            ("canInterface" Core..=) Prelude.<$> canInterface,
-            Prelude.Just ("interfaceId" Core..= interfaceId),
-            Prelude.Just ("type" Core..= type')
+          [ ("obdInterface" Data..=) Prelude.<$> obdInterface,
+            ("canInterface" Data..=) Prelude.<$> canInterface,
+            Prelude.Just ("interfaceId" Data..= interfaceId),
+            Prelude.Just ("type" Data..= type')
           ]
       )

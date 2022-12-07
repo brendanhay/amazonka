@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.LifeCycleLastCutover where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.LifeCycleLastCutoverFinalized
 import Amazonka.MGN.Types.LifeCycleLastCutoverInitiated
 import Amazonka.MGN.Types.LifeCycleLastCutoverReverted
@@ -73,15 +74,15 @@ lifeCycleLastCutover_finalized = Lens.lens (\LifeCycleLastCutover' {finalized} -
 lifeCycleLastCutover_initiated :: Lens.Lens' LifeCycleLastCutover (Prelude.Maybe LifeCycleLastCutoverInitiated)
 lifeCycleLastCutover_initiated = Lens.lens (\LifeCycleLastCutover' {initiated} -> initiated) (\s@LifeCycleLastCutover' {} a -> s {initiated = a} :: LifeCycleLastCutover)
 
-instance Core.FromJSON LifeCycleLastCutover where
+instance Data.FromJSON LifeCycleLastCutover where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifeCycleLastCutover"
       ( \x ->
           LifeCycleLastCutover'
-            Prelude.<$> (x Core..:? "reverted")
-            Prelude.<*> (x Core..:? "finalized")
-            Prelude.<*> (x Core..:? "initiated")
+            Prelude.<$> (x Data..:? "reverted")
+            Prelude.<*> (x Data..:? "finalized")
+            Prelude.<*> (x Data..:? "initiated")
       )
 
 instance Prelude.Hashable LifeCycleLastCutover where

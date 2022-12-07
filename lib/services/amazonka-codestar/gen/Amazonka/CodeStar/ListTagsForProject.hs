@@ -45,6 +45,7 @@ where
 import Amazonka.CodeStar.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,8 +107,8 @@ instance Core.AWSRequest ListTagsForProject where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForProjectResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,35 +124,35 @@ instance Prelude.NFData ListTagsForProject where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders ListTagsForProject where
+instance Data.ToHeaders ListTagsForProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeStar_20170419.ListTagsForProject" ::
+              Data.=# ( "CodeStar_20170419.ListTagsForProject" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTagsForProject where
+instance Data.ToJSON ListTagsForProject where
   toJSON ListTagsForProject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("id" Core..= id)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("id" Data..= id)
           ]
       )
 
-instance Core.ToPath ListTagsForProject where
+instance Data.ToPath ListTagsForProject where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTagsForProject where
+instance Data.ToQuery ListTagsForProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTagsForProjectResponse' smart constructor.

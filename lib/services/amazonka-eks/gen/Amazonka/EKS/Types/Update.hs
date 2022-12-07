@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.Update where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.ErrorDetail
 import Amazonka.EKS.Types.UpdateParam
 import Amazonka.EKS.Types.UpdateStatus
@@ -42,7 +43,7 @@ data Update = Update'
     -- | A key-value map that contains the parameters associated with the update.
     params :: Prelude.Maybe [UpdateParam],
     -- | The Unix epoch timestamp in seconds for when the update was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,20 +100,20 @@ update_params = Lens.lens (\Update' {params} -> params) (\s@Update' {} a -> s {p
 
 -- | The Unix epoch timestamp in seconds for when the update was created.
 update_createdAt :: Lens.Lens' Update (Prelude.Maybe Prelude.UTCTime)
-update_createdAt = Lens.lens (\Update' {createdAt} -> createdAt) (\s@Update' {} a -> s {createdAt = a} :: Update) Prelude.. Lens.mapping Core._Time
+update_createdAt = Lens.lens (\Update' {createdAt} -> createdAt) (\s@Update' {} a -> s {createdAt = a} :: Update) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Update where
+instance Data.FromJSON Update where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Update"
       ( \x ->
           Update'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "errors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "params" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "errors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "params" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable Update where

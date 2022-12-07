@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,12 +110,12 @@ instance Core.AWSRequest GetSAMLProvider where
       "GetSAMLProviderResult"
       ( \s h x ->
           GetSAMLProviderResponse'
-            Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "SAMLMetadataDocument")
-            Prelude.<*> (x Core..@? "CreateDate")
-            Prelude.<*> (x Core..@? "ValidUntil")
+            Prelude.<*> (x Data..@? "SAMLMetadataDocument")
+            Prelude.<*> (x Data..@? "CreateDate")
+            Prelude.<*> (x Data..@? "ValidUntil")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,20 +127,20 @@ instance Prelude.NFData GetSAMLProvider where
   rnf GetSAMLProvider' {..} =
     Prelude.rnf sAMLProviderArn
 
-instance Core.ToHeaders GetSAMLProvider where
+instance Data.ToHeaders GetSAMLProvider where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetSAMLProvider where
+instance Data.ToPath GetSAMLProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSAMLProvider where
+instance Data.ToQuery GetSAMLProvider where
   toQuery GetSAMLProvider' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetSAMLProvider" :: Prelude.ByteString),
+          Data.=: ("GetSAMLProvider" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "SAMLProviderArn" Core.=: sAMLProviderArn
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "SAMLProviderArn" Data.=: sAMLProviderArn
       ]
 
 -- | Contains the response to a successful GetSAMLProvider request.
@@ -156,9 +157,9 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse'
     -- provider.
     sAMLMetadataDocument :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the SAML provider was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Data.ISO8601,
     -- | The expiration date and time for the SAML provider.
-    validUntil :: Prelude.Maybe Core.ISO8601,
+    validUntil :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,11 +215,11 @@ getSAMLProviderResponse_sAMLMetadataDocument = Lens.lens (\GetSAMLProviderRespon
 
 -- | The date and time when the SAML provider was created.
 getSAMLProviderResponse_createDate :: Lens.Lens' GetSAMLProviderResponse (Prelude.Maybe Prelude.UTCTime)
-getSAMLProviderResponse_createDate = Lens.lens (\GetSAMLProviderResponse' {createDate} -> createDate) (\s@GetSAMLProviderResponse' {} a -> s {createDate = a} :: GetSAMLProviderResponse) Prelude.. Lens.mapping Core._Time
+getSAMLProviderResponse_createDate = Lens.lens (\GetSAMLProviderResponse' {createDate} -> createDate) (\s@GetSAMLProviderResponse' {} a -> s {createDate = a} :: GetSAMLProviderResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The expiration date and time for the SAML provider.
 getSAMLProviderResponse_validUntil :: Lens.Lens' GetSAMLProviderResponse (Prelude.Maybe Prelude.UTCTime)
-getSAMLProviderResponse_validUntil = Lens.lens (\GetSAMLProviderResponse' {validUntil} -> validUntil) (\s@GetSAMLProviderResponse' {} a -> s {validUntil = a} :: GetSAMLProviderResponse) Prelude.. Lens.mapping Core._Time
+getSAMLProviderResponse_validUntil = Lens.lens (\GetSAMLProviderResponse' {validUntil} -> validUntil) (\s@GetSAMLProviderResponse' {} a -> s {validUntil = a} :: GetSAMLProviderResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getSAMLProviderResponse_httpStatus :: Lens.Lens' GetSAMLProviderResponse Prelude.Int

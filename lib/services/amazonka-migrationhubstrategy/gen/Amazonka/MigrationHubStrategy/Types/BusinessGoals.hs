@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.BusinessGoals where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Business goals that you specify.
@@ -87,19 +88,19 @@ businessGoals_speedOfMigration = Lens.lens (\BusinessGoals' {speedOfMigration} -
 businessGoals_modernizeInfrastructureWithCloudNativeTechnologies :: Lens.Lens' BusinessGoals (Prelude.Maybe Prelude.Natural)
 businessGoals_modernizeInfrastructureWithCloudNativeTechnologies = Lens.lens (\BusinessGoals' {modernizeInfrastructureWithCloudNativeTechnologies} -> modernizeInfrastructureWithCloudNativeTechnologies) (\s@BusinessGoals' {} a -> s {modernizeInfrastructureWithCloudNativeTechnologies = a} :: BusinessGoals)
 
-instance Core.FromJSON BusinessGoals where
+instance Data.FromJSON BusinessGoals where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BusinessGoals"
       ( \x ->
           BusinessGoals'
             Prelude.<$> ( x
-                            Core..:? "reduceOperationalOverheadWithManagedServices"
+                            Data..:? "reduceOperationalOverheadWithManagedServices"
                         )
-            Prelude.<*> (x Core..:? "licenseCostReduction")
-            Prelude.<*> (x Core..:? "speedOfMigration")
+            Prelude.<*> (x Data..:? "licenseCostReduction")
+            Prelude.<*> (x Data..:? "speedOfMigration")
             Prelude.<*> ( x
-                            Core..:? "modernizeInfrastructureWithCloudNativeTechnologies"
+                            Data..:? "modernizeInfrastructureWithCloudNativeTechnologies"
                         )
       )
 
@@ -120,20 +121,20 @@ instance Prelude.NFData BusinessGoals where
       `Prelude.seq` Prelude.rnf
         modernizeInfrastructureWithCloudNativeTechnologies
 
-instance Core.ToJSON BusinessGoals where
+instance Data.ToJSON BusinessGoals where
   toJSON BusinessGoals' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ ( "reduceOperationalOverheadWithManagedServices"
-                Core..=
+                Data..=
             )
               Prelude.<$> reduceOperationalOverheadWithManagedServices,
-            ("licenseCostReduction" Core..=)
+            ("licenseCostReduction" Data..=)
               Prelude.<$> licenseCostReduction,
-            ("speedOfMigration" Core..=)
+            ("speedOfMigration" Data..=)
               Prelude.<$> speedOfMigration,
             ( "modernizeInfrastructureWithCloudNativeTechnologies"
-                Core..=
+                Data..=
             )
               Prelude.<$> modernizeInfrastructureWithCloudNativeTechnologies
           ]

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,8 +145,8 @@ instance Core.AWSRequest UpdateVehicle where
     Response.receiveJSON
       ( \s h x ->
           UpdateVehicleResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "vehicleName")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "vehicleName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,40 +166,40 @@ instance Prelude.NFData UpdateVehicle where
       `Prelude.seq` Prelude.rnf attributeUpdateMode
       `Prelude.seq` Prelude.rnf vehicleName
 
-instance Core.ToHeaders UpdateVehicle where
+instance Data.ToHeaders UpdateVehicle where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.UpdateVehicle" ::
+              Data.=# ( "IoTAutobahnControlPlane.UpdateVehicle" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateVehicle where
+instance Data.ToJSON UpdateVehicle where
   toJSON UpdateVehicle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("modelManifestArn" Core..=)
+          [ ("modelManifestArn" Data..=)
               Prelude.<$> modelManifestArn,
-            ("attributes" Core..=) Prelude.<$> attributes,
-            ("decoderManifestArn" Core..=)
+            ("attributes" Data..=) Prelude.<$> attributes,
+            ("decoderManifestArn" Data..=)
               Prelude.<$> decoderManifestArn,
-            ("attributeUpdateMode" Core..=)
+            ("attributeUpdateMode" Data..=)
               Prelude.<$> attributeUpdateMode,
-            Prelude.Just ("vehicleName" Core..= vehicleName)
+            Prelude.Just ("vehicleName" Data..= vehicleName)
           ]
       )
 
-instance Core.ToPath UpdateVehicle where
+instance Data.ToPath UpdateVehicle where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateVehicle where
+instance Data.ToQuery UpdateVehicle where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateVehicleResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,8 +129,8 @@ instance Core.AWSRequest DescribeReservedInstances where
     Response.receiveJSON
       ( \s h x ->
           DescribeReservedInstancesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ReservedInstances"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ReservedInstances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -147,20 +148,20 @@ instance Prelude.NFData DescribeReservedInstances where
       `Prelude.seq` Prelude.rnf reservedInstanceId
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeReservedInstances where
+instance Data.ToHeaders DescribeReservedInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeReservedInstances where
+instance Data.ToPath DescribeReservedInstances where
   toPath =
     Prelude.const
       "/2021-01-01/opensearch/reservedInstances"
 
-instance Core.ToQuery DescribeReservedInstances where
+instance Data.ToQuery DescribeReservedInstances where
   toQuery DescribeReservedInstances' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "reservationId" Core.=: reservedInstanceId,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "reservationId" Data.=: reservedInstanceId,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | Container for results from @DescribeReservedInstances@

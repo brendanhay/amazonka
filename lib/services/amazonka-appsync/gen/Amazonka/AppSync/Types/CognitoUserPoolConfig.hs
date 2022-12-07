@@ -21,6 +21,7 @@ module Amazonka.AppSync.Types.CognitoUserPoolConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon Cognito user pool configuration.
@@ -78,15 +79,15 @@ cognitoUserPoolConfig_userPoolId = Lens.lens (\CognitoUserPoolConfig' {userPoolI
 cognitoUserPoolConfig_awsRegion :: Lens.Lens' CognitoUserPoolConfig Prelude.Text
 cognitoUserPoolConfig_awsRegion = Lens.lens (\CognitoUserPoolConfig' {awsRegion} -> awsRegion) (\s@CognitoUserPoolConfig' {} a -> s {awsRegion = a} :: CognitoUserPoolConfig)
 
-instance Core.FromJSON CognitoUserPoolConfig where
+instance Data.FromJSON CognitoUserPoolConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CognitoUserPoolConfig"
       ( \x ->
           CognitoUserPoolConfig'
-            Prelude.<$> (x Core..:? "appIdClientRegex")
-            Prelude.<*> (x Core..: "userPoolId")
-            Prelude.<*> (x Core..: "awsRegion")
+            Prelude.<$> (x Data..:? "appIdClientRegex")
+            Prelude.<*> (x Data..: "userPoolId")
+            Prelude.<*> (x Data..: "awsRegion")
       )
 
 instance Prelude.Hashable CognitoUserPoolConfig where
@@ -101,13 +102,13 @@ instance Prelude.NFData CognitoUserPoolConfig where
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf awsRegion
 
-instance Core.ToJSON CognitoUserPoolConfig where
+instance Data.ToJSON CognitoUserPoolConfig where
   toJSON CognitoUserPoolConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("appIdClientRegex" Core..=)
+          [ ("appIdClientRegex" Data..=)
               Prelude.<$> appIdClientRegex,
-            Prelude.Just ("userPoolId" Core..= userPoolId),
-            Prelude.Just ("awsRegion" Core..= awsRegion)
+            Prelude.Just ("userPoolId" Data..= userPoolId),
+            Prelude.Just ("awsRegion" Data..= awsRegion)
           ]
       )

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,19 +113,19 @@ instance Core.AWSRequest GetChangeset where
     Response.receiveJSON
       ( \s h x ->
           GetChangesetResponse'
-            Prelude.<$> (x Core..?> "sourceParams" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "updatedByChangesetId")
-            Prelude.<*> (x Core..?> "changeType")
-            Prelude.<*> (x Core..?> "changesetId")
-            Prelude.<*> (x Core..?> "changesetArn")
-            Prelude.<*> (x Core..?> "formatParams" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "activeUntilTimestamp")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "updatesChangesetId")
-            Prelude.<*> (x Core..?> "datasetId")
-            Prelude.<*> (x Core..?> "activeFromTimestamp")
-            Prelude.<*> (x Core..?> "createTime")
-            Prelude.<*> (x Core..?> "errorInfo")
+            Prelude.<$> (x Data..?> "sourceParams" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "updatedByChangesetId")
+            Prelude.<*> (x Data..?> "changeType")
+            Prelude.<*> (x Data..?> "changesetId")
+            Prelude.<*> (x Data..?> "changesetArn")
+            Prelude.<*> (x Data..?> "formatParams" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "activeUntilTimestamp")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "updatesChangesetId")
+            Prelude.<*> (x Data..?> "datasetId")
+            Prelude.<*> (x Data..?> "activeFromTimestamp")
+            Prelude.<*> (x Data..?> "createTime")
+            Prelude.<*> (x Data..?> "errorInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,27 +139,27 @@ instance Prelude.NFData GetChangeset where
     Prelude.rnf datasetId
       `Prelude.seq` Prelude.rnf changesetId
 
-instance Core.ToHeaders GetChangeset where
+instance Data.ToHeaders GetChangeset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetChangeset where
+instance Data.ToPath GetChangeset where
   toPath GetChangeset' {..} =
     Prelude.mconcat
       [ "/datasets/",
-        Core.toBS datasetId,
+        Data.toBS datasetId,
         "/changesetsv2/",
-        Core.toBS changesetId
+        Data.toBS changesetId
       ]
 
-instance Core.ToQuery GetChangeset where
+instance Data.ToQuery GetChangeset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response from a describe changeset operation

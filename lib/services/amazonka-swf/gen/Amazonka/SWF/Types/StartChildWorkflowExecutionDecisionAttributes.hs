@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.StartChildWorkflowExecutionDecisionAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.ChildPolicy
 import Amazonka.SWF.Types.TaskList
@@ -446,25 +447,25 @@ instance
         `Prelude.seq` Prelude.rnf workflowId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StartChildWorkflowExecutionDecisionAttributes
   where
   toJSON
     StartChildWorkflowExecutionDecisionAttributes' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("lambdaRole" Core..=) Prelude.<$> lambdaRole,
-              ("tagList" Core..=) Prelude.<$> tagList,
-              ("taskPriority" Core..=) Prelude.<$> taskPriority,
-              ("input" Core..=) Prelude.<$> input,
-              ("taskList" Core..=) Prelude.<$> taskList,
-              ("taskStartToCloseTimeout" Core..=)
+            [ ("lambdaRole" Data..=) Prelude.<$> lambdaRole,
+              ("tagList" Data..=) Prelude.<$> tagList,
+              ("taskPriority" Data..=) Prelude.<$> taskPriority,
+              ("input" Data..=) Prelude.<$> input,
+              ("taskList" Data..=) Prelude.<$> taskList,
+              ("taskStartToCloseTimeout" Data..=)
                 Prelude.<$> taskStartToCloseTimeout,
-              ("childPolicy" Core..=) Prelude.<$> childPolicy,
-              ("control" Core..=) Prelude.<$> control,
-              ("executionStartToCloseTimeout" Core..=)
+              ("childPolicy" Data..=) Prelude.<$> childPolicy,
+              ("control" Data..=) Prelude.<$> control,
+              ("executionStartToCloseTimeout" Data..=)
                 Prelude.<$> executionStartToCloseTimeout,
-              Prelude.Just ("workflowType" Core..= workflowType),
-              Prelude.Just ("workflowId" Core..= workflowId)
+              Prelude.Just ("workflowType" Data..= workflowType),
+              Prelude.Just ("workflowId" Data..= workflowId)
             ]
         )

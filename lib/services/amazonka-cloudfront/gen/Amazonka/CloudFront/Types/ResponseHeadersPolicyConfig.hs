@@ -25,6 +25,7 @@ import Amazonka.CloudFront.Types.ResponseHeadersPolicySecurityHeadersConfig
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyServerTimingHeadersConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A response headers policy configuration.
@@ -131,15 +132,15 @@ responseHeadersPolicyConfig_customHeadersConfig = Lens.lens (\ResponseHeadersPol
 responseHeadersPolicyConfig_name :: Lens.Lens' ResponseHeadersPolicyConfig Prelude.Text
 responseHeadersPolicyConfig_name = Lens.lens (\ResponseHeadersPolicyConfig' {name} -> name) (\s@ResponseHeadersPolicyConfig' {} a -> s {name = a} :: ResponseHeadersPolicyConfig)
 
-instance Core.FromXML ResponseHeadersPolicyConfig where
+instance Data.FromXML ResponseHeadersPolicyConfig where
   parseXML x =
     ResponseHeadersPolicyConfig'
-      Prelude.<$> (x Core..@? "ServerTimingHeadersConfig")
-      Prelude.<*> (x Core..@? "Comment")
-      Prelude.<*> (x Core..@? "SecurityHeadersConfig")
-      Prelude.<*> (x Core..@? "CorsConfig")
-      Prelude.<*> (x Core..@? "CustomHeadersConfig")
-      Prelude.<*> (x Core..@ "Name")
+      Prelude.<$> (x Data..@? "ServerTimingHeadersConfig")
+      Prelude.<*> (x Data..@? "Comment")
+      Prelude.<*> (x Data..@? "SecurityHeadersConfig")
+      Prelude.<*> (x Data..@? "CorsConfig")
+      Prelude.<*> (x Data..@? "CustomHeadersConfig")
+      Prelude.<*> (x Data..@ "Name")
 
 instance Prelude.Hashable ResponseHeadersPolicyConfig where
   hashWithSalt _salt ResponseHeadersPolicyConfig' {..} =
@@ -160,15 +161,15 @@ instance Prelude.NFData ResponseHeadersPolicyConfig where
       `Prelude.seq` Prelude.rnf customHeadersConfig
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToXML ResponseHeadersPolicyConfig where
+instance Data.ToXML ResponseHeadersPolicyConfig where
   toXML ResponseHeadersPolicyConfig' {..} =
     Prelude.mconcat
       [ "ServerTimingHeadersConfig"
-          Core.@= serverTimingHeadersConfig,
-        "Comment" Core.@= comment,
+          Data.@= serverTimingHeadersConfig,
+        "Comment" Data.@= comment,
         "SecurityHeadersConfig"
-          Core.@= securityHeadersConfig,
-        "CorsConfig" Core.@= corsConfig,
-        "CustomHeadersConfig" Core.@= customHeadersConfig,
-        "Name" Core.@= name
+          Data.@= securityHeadersConfig,
+        "CorsConfig" Data.@= corsConfig,
+        "CustomHeadersConfig" Data.@= customHeadersConfig,
+        "Name" Data.@= name
       ]

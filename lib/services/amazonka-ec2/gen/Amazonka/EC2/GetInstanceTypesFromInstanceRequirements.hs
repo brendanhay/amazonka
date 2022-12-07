@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -207,9 +208,9 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetInstanceTypesFromInstanceRequirementsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-              Prelude.<*> ( x Core..@? "instanceTypeSet" Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+              Prelude.<*> ( x Data..@? "instanceTypeSet" Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Data.parseXMLList "item")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -241,39 +242,39 @@ instance
       `Prelude.seq` Prelude.rnf instanceRequirements
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetInstanceTypesFromInstanceRequirements
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetInstanceTypesFromInstanceRequirements
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetInstanceTypesFromInstanceRequirements
   where
   toQuery GetInstanceTypesFromInstanceRequirements' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetInstanceTypesFromInstanceRequirements" ::
+          Data.=: ( "GetInstanceTypesFromInstanceRequirements" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQueryList
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQueryList
           "ArchitectureType"
           architectureTypes,
-        Core.toQueryList
+        Data.toQueryList
           "VirtualizationType"
           virtualizationTypes,
-        "InstanceRequirements" Core.=: instanceRequirements
+        "InstanceRequirements" Data.=: instanceRequirements
       ]
 
 -- | /See:/ 'newGetInstanceTypesFromInstanceRequirementsResponse' smart constructor.

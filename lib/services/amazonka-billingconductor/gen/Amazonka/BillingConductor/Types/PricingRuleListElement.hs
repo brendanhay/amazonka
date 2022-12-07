@@ -23,6 +23,7 @@ import Amazonka.BillingConductor.Types.PricingRuleScope
 import Amazonka.BillingConductor.Types.PricingRuleType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of a pricing rule.
@@ -32,7 +33,7 @@ data PricingRuleListElement = PricingRuleListElement'
   { -- | A percentage modifier applied on the public pricing rates.
     modifierPercentage :: Prelude.Maybe Prelude.Double,
     -- | The name of a pricing rule.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The seller of services provided by Amazon Web Services, their
     -- affiliates, or third-party providers selling services via Amazon Web
     -- Services Marketplace.
@@ -42,7 +43,7 @@ data PricingRuleListElement = PricingRuleListElement'
     -- | The Amazon Resource Name (ARN) used to uniquely identify a pricing rule.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The pricing rule description.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | If the @Scope@ attribute is @SERVICE@, this attribute indicates which
     -- service the @PricingRule@ is applicable for.
     service :: Prelude.Maybe Prelude.Text,
@@ -115,7 +116,7 @@ pricingRuleListElement_modifierPercentage = Lens.lens (\PricingRuleListElement' 
 
 -- | The name of a pricing rule.
 pricingRuleListElement_name :: Lens.Lens' PricingRuleListElement (Prelude.Maybe Prelude.Text)
-pricingRuleListElement_name = Lens.lens (\PricingRuleListElement' {name} -> name) (\s@PricingRuleListElement' {} a -> s {name = a} :: PricingRuleListElement) Prelude.. Lens.mapping Core._Sensitive
+pricingRuleListElement_name = Lens.lens (\PricingRuleListElement' {name} -> name) (\s@PricingRuleListElement' {} a -> s {name = a} :: PricingRuleListElement) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The seller of services provided by Amazon Web Services, their
 -- affiliates, or third-party providers selling services via Amazon Web
@@ -133,7 +134,7 @@ pricingRuleListElement_arn = Lens.lens (\PricingRuleListElement' {arn} -> arn) (
 
 -- | The pricing rule description.
 pricingRuleListElement_description :: Lens.Lens' PricingRuleListElement (Prelude.Maybe Prelude.Text)
-pricingRuleListElement_description = Lens.lens (\PricingRuleListElement' {description} -> description) (\s@PricingRuleListElement' {} a -> s {description = a} :: PricingRuleListElement) Prelude.. Lens.mapping Core._Sensitive
+pricingRuleListElement_description = Lens.lens (\PricingRuleListElement' {description} -> description) (\s@PricingRuleListElement' {} a -> s {description = a} :: PricingRuleListElement) Prelude.. Lens.mapping Data._Sensitive
 
 -- | If the @Scope@ attribute is @SERVICE@, this attribute indicates which
 -- service the @PricingRule@ is applicable for.
@@ -157,23 +158,23 @@ pricingRuleListElement_associatedPricingPlanCount = Lens.lens (\PricingRuleListE
 pricingRuleListElement_creationTime :: Lens.Lens' PricingRuleListElement (Prelude.Maybe Prelude.Integer)
 pricingRuleListElement_creationTime = Lens.lens (\PricingRuleListElement' {creationTime} -> creationTime) (\s@PricingRuleListElement' {} a -> s {creationTime = a} :: PricingRuleListElement)
 
-instance Core.FromJSON PricingRuleListElement where
+instance Data.FromJSON PricingRuleListElement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PricingRuleListElement"
       ( \x ->
           PricingRuleListElement'
-            Prelude.<$> (x Core..:? "ModifierPercentage")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "BillingEntity")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Service")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "Scope")
-            Prelude.<*> (x Core..:? "AssociatedPricingPlanCount")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "ModifierPercentage")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "BillingEntity")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Service")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "Scope")
+            Prelude.<*> (x Data..:? "AssociatedPricingPlanCount")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable PricingRuleListElement where

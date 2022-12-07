@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,7 +120,7 @@ instance Core.AWSRequest DeleteBGPPeer where
     Response.receiveJSON
       ( \s h x ->
           DeleteBGPPeerResponse'
-            Prelude.<$> (x Core..?> "virtualInterface")
+            Prelude.<$> (x Data..?> "virtualInterface")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,38 +138,38 @@ instance Prelude.NFData DeleteBGPPeer where
       `Prelude.seq` Prelude.rnf asn
       `Prelude.seq` Prelude.rnf virtualInterfaceId
 
-instance Core.ToHeaders DeleteBGPPeer where
+instance Data.ToHeaders DeleteBGPPeer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DeleteBGPPeer" ::
+              Data.=# ( "OvertureService.DeleteBGPPeer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteBGPPeer where
+instance Data.ToJSON DeleteBGPPeer where
   toJSON DeleteBGPPeer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bgpPeerId" Core..=) Prelude.<$> bgpPeerId,
-            ("customerAddress" Core..=)
+          [ ("bgpPeerId" Data..=) Prelude.<$> bgpPeerId,
+            ("customerAddress" Data..=)
               Prelude.<$> customerAddress,
-            ("asn" Core..=) Prelude.<$> asn,
-            ("virtualInterfaceId" Core..=)
+            ("asn" Data..=) Prelude.<$> asn,
+            ("virtualInterfaceId" Data..=)
               Prelude.<$> virtualInterfaceId
           ]
       )
 
-instance Core.ToPath DeleteBGPPeer where
+instance Data.ToPath DeleteBGPPeer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteBGPPeer where
+instance Data.ToQuery DeleteBGPPeer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBGPPeerResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.DataSourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.DataSourceType
 
@@ -143,17 +144,17 @@ dataSourceConfig_s3Bucket = Lens.lens (\DataSourceConfig' {s3Bucket} -> s3Bucket
 dataSourceConfig_s3Keys :: Lens.Lens' DataSourceConfig (Prelude.NonEmpty Prelude.Text)
 dataSourceConfig_s3Keys = Lens.lens (\DataSourceConfig' {s3Keys} -> s3Keys) (\s@DataSourceConfig' {} a -> s {s3Keys = a} :: DataSourceConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON DataSourceConfig where
+instance Data.FromJSON DataSourceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSourceConfig"
       ( \x ->
           DataSourceConfig'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "s3Bucket")
-            Prelude.<*> (x Core..: "s3Keys")
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "s3Bucket")
+            Prelude.<*> (x Data..: "s3Keys")
       )
 
 instance Prelude.Hashable DataSourceConfig where
@@ -172,14 +173,14 @@ instance Prelude.NFData DataSourceConfig where
       `Prelude.seq` Prelude.rnf s3Bucket
       `Prelude.seq` Prelude.rnf s3Keys
 
-instance Core.ToJSON DataSourceConfig where
+instance Data.ToJSON DataSourceConfig where
   toJSON DataSourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("destination" Core..=) Prelude.<$> destination,
-            ("type" Core..=) Prelude.<$> type',
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("s3Bucket" Core..= s3Bucket),
-            Prelude.Just ("s3Keys" Core..= s3Keys)
+          [ ("destination" Data..=) Prelude.<$> destination,
+            ("type" Data..=) Prelude.<$> type',
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("s3Bucket" Data..= s3Bucket),
+            Prelude.Just ("s3Keys" Data..= s3Keys)
           ]
       )

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpace.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,7 +143,7 @@ instance Core.AWSRequest UpdateEnvironment where
     Response.receiveJSON
       ( \s h x ->
           UpdateEnvironmentResponse'
-            Prelude.<$> (x Core..?> "environment")
+            Prelude.<$> (x Data..?> "environment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,36 +163,36 @@ instance Prelude.NFData UpdateEnvironment where
       `Prelude.seq` Prelude.rnf federationMode
       `Prelude.seq` Prelude.rnf environmentId
 
-instance Core.ToHeaders UpdateEnvironment where
+instance Data.ToHeaders UpdateEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEnvironment where
+instance Data.ToJSON UpdateEnvironment where
   toJSON UpdateEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("federationParameters" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("federationParameters" Data..=)
               Prelude.<$> federationParameters,
-            ("description" Core..=) Prelude.<$> description,
-            ("federationMode" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("federationMode" Data..=)
               Prelude.<$> federationMode
           ]
       )
 
-instance Core.ToPath UpdateEnvironment where
+instance Data.ToPath UpdateEnvironment where
   toPath UpdateEnvironment' {..} =
     Prelude.mconcat
-      ["/environment/", Core.toBS environmentId]
+      ["/environment/", Data.toBS environmentId]
 
-instance Core.ToQuery UpdateEnvironment where
+instance Data.ToQuery UpdateEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEnvironmentResponse' smart constructor.

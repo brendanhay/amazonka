@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.HostReservation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CurrencyCodeValues
 import Amazonka.EC2.Types.PaymentOption
@@ -38,7 +39,7 @@ data HostReservation = HostReservation'
     -- | The hourly price of the reservation.
     hourlyPrice :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the reservation started.
-    start :: Prelude.Maybe Core.ISO8601,
+    start :: Prelude.Maybe Data.ISO8601,
     -- | The state of the reservation.
     state :: Prelude.Maybe ReservationState,
     -- | The number of Dedicated Hosts the reservation is associated with.
@@ -52,7 +53,7 @@ data HostReservation = HostReservation'
     -- specified. At this time, the only supported currency is @USD@.
     currencyCode :: Prelude.Maybe CurrencyCodeValues,
     -- | The date and time that the reservation ends.
-    end :: Prelude.Maybe Core.ISO8601,
+    end :: Prelude.Maybe Data.ISO8601,
     -- | The instance family of the Dedicated Host Reservation. The instance
     -- family on the Dedicated Host must be the same in order for it to benefit
     -- from the reservation.
@@ -139,7 +140,7 @@ hostReservation_hourlyPrice = Lens.lens (\HostReservation' {hourlyPrice} -> hour
 
 -- | The date and time that the reservation started.
 hostReservation_start :: Lens.Lens' HostReservation (Prelude.Maybe Prelude.UTCTime)
-hostReservation_start = Lens.lens (\HostReservation' {start} -> start) (\s@HostReservation' {} a -> s {start = a} :: HostReservation) Prelude.. Lens.mapping Core._Time
+hostReservation_start = Lens.lens (\HostReservation' {start} -> start) (\s@HostReservation' {} a -> s {start = a} :: HostReservation) Prelude.. Lens.mapping Data._Time
 
 -- | The state of the reservation.
 hostReservation_state :: Lens.Lens' HostReservation (Prelude.Maybe ReservationState)
@@ -165,7 +166,7 @@ hostReservation_currencyCode = Lens.lens (\HostReservation' {currencyCode} -> cu
 
 -- | The date and time that the reservation ends.
 hostReservation_end :: Lens.Lens' HostReservation (Prelude.Maybe Prelude.UTCTime)
-hostReservation_end = Lens.lens (\HostReservation' {end} -> end) (\s@HostReservation' {} a -> s {end = a} :: HostReservation) Prelude.. Lens.mapping Core._Time
+hostReservation_end = Lens.lens (\HostReservation' {end} -> end) (\s@HostReservation' {} a -> s {end = a} :: HostReservation) Prelude.. Lens.mapping Data._Time
 
 -- | The instance family of the Dedicated Host Reservation. The instance
 -- family on the Dedicated Host must be the same in order for it to benefit
@@ -190,27 +191,27 @@ hostReservation_hostIdSet = Lens.lens (\HostReservation' {hostIdSet} -> hostIdSe
 hostReservation_paymentOption :: Lens.Lens' HostReservation (Prelude.Maybe PaymentOption)
 hostReservation_paymentOption = Lens.lens (\HostReservation' {paymentOption} -> paymentOption) (\s@HostReservation' {} a -> s {paymentOption = a} :: HostReservation)
 
-instance Core.FromXML HostReservation where
+instance Data.FromXML HostReservation where
   parseXML x =
     HostReservation'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "hourlyPrice")
-      Prelude.<*> (x Core..@? "start")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "count")
-      Prelude.<*> (x Core..@? "upfrontPrice")
-      Prelude.<*> (x Core..@? "duration")
-      Prelude.<*> (x Core..@? "currencyCode")
-      Prelude.<*> (x Core..@? "end")
-      Prelude.<*> (x Core..@? "instanceFamily")
-      Prelude.<*> (x Core..@? "hostReservationId")
-      Prelude.<*> (x Core..@? "offeringId")
-      Prelude.<*> ( x Core..@? "hostIdSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "hourlyPrice")
+      Prelude.<*> (x Data..@? "start")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "count")
+      Prelude.<*> (x Data..@? "upfrontPrice")
+      Prelude.<*> (x Data..@? "duration")
+      Prelude.<*> (x Data..@? "currencyCode")
+      Prelude.<*> (x Data..@? "end")
+      Prelude.<*> (x Data..@? "instanceFamily")
+      Prelude.<*> (x Data..@? "hostReservationId")
+      Prelude.<*> (x Data..@? "offeringId")
+      Prelude.<*> ( x Data..@? "hostIdSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "paymentOption")
+      Prelude.<*> (x Data..@? "paymentOption")
 
 instance Prelude.Hashable HostReservation where
   hashWithSalt _salt HostReservation' {..} =

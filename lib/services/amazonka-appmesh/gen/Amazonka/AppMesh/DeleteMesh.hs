@@ -46,6 +46,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,7 +89,7 @@ instance Core.AWSRequest DeleteMesh where
       ( \s h x ->
           DeleteMeshResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable DeleteMesh where
@@ -98,23 +99,23 @@ instance Prelude.Hashable DeleteMesh where
 instance Prelude.NFData DeleteMesh where
   rnf DeleteMesh' {..} = Prelude.rnf meshName
 
-instance Core.ToHeaders DeleteMesh where
+instance Data.ToHeaders DeleteMesh where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteMesh where
+instance Data.ToPath DeleteMesh where
   toPath DeleteMesh' {..} =
     Prelude.mconcat
-      ["/v20190125/meshes/", Core.toBS meshName]
+      ["/v20190125/meshes/", Data.toBS meshName]
 
-instance Core.ToQuery DeleteMesh where
+instance Data.ToQuery DeleteMesh where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

@@ -23,6 +23,7 @@ import Amazonka.Chime.Types.ArtifactsState
 import Amazonka.Chime.Types.VideoMuxType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The video artifact configuration object.
@@ -66,14 +67,14 @@ videoArtifactsConfiguration_muxType = Lens.lens (\VideoArtifactsConfiguration' {
 videoArtifactsConfiguration_state :: Lens.Lens' VideoArtifactsConfiguration ArtifactsState
 videoArtifactsConfiguration_state = Lens.lens (\VideoArtifactsConfiguration' {state} -> state) (\s@VideoArtifactsConfiguration' {} a -> s {state = a} :: VideoArtifactsConfiguration)
 
-instance Core.FromJSON VideoArtifactsConfiguration where
+instance Data.FromJSON VideoArtifactsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VideoArtifactsConfiguration"
       ( \x ->
           VideoArtifactsConfiguration'
-            Prelude.<$> (x Core..:? "MuxType")
-            Prelude.<*> (x Core..: "State")
+            Prelude.<$> (x Data..:? "MuxType")
+            Prelude.<*> (x Data..: "State")
       )
 
 instance Prelude.Hashable VideoArtifactsConfiguration where
@@ -85,11 +86,11 @@ instance Prelude.NFData VideoArtifactsConfiguration where
   rnf VideoArtifactsConfiguration' {..} =
     Prelude.rnf muxType `Prelude.seq` Prelude.rnf state
 
-instance Core.ToJSON VideoArtifactsConfiguration where
+instance Data.ToJSON VideoArtifactsConfiguration where
   toJSON VideoArtifactsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MuxType" Core..=) Prelude.<$> muxType,
-            Prelude.Just ("State" Core..= state)
+          [ ("MuxType" Data..=) Prelude.<$> muxType,
+            Prelude.Just ("State" Data..= state)
           ]
       )

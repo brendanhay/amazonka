@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,9 +131,9 @@ instance Core.AWSRequest ListProjects where
     Response.receiveJSON
       ( \s h x ->
           ListProjectsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "projectSummaries"
+            Prelude.<*> ( x Data..?> "projectSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -149,26 +150,26 @@ instance Prelude.NFData ListProjects where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf portalId
 
-instance Core.ToHeaders ListProjects where
+instance Data.ToHeaders ListProjects where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListProjects where
+instance Data.ToPath ListProjects where
   toPath = Prelude.const "/projects"
 
-instance Core.ToQuery ListProjects where
+instance Data.ToQuery ListProjects where
   toQuery ListProjects' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "portalId" Core.=: portalId
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "portalId" Data.=: portalId
       ]
 
 -- | /See:/ 'newListProjectsResponse' smart constructor.

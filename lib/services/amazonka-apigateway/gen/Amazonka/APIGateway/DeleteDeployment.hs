@@ -40,6 +40,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,25 +106,25 @@ instance Prelude.NFData DeleteDeployment where
     Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf deploymentId
 
-instance Core.ToHeaders DeleteDeployment where
+instance Data.ToHeaders DeleteDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath DeleteDeployment where
+instance Data.ToPath DeleteDeployment where
   toPath DeleteDeployment' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/deployments/",
-        Core.toBS deploymentId
+        Data.toBS deploymentId
       ]
 
-instance Core.ToQuery DeleteDeployment where
+instance Data.ToQuery DeleteDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDeploymentResponse' smart constructor.

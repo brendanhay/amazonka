@@ -43,6 +43,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,22 +109,22 @@ instance Prelude.NFData LogoutUser where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders LogoutUser where
+instance Data.ToHeaders LogoutUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON LogoutUser where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON LogoutUser where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath LogoutUser where
+instance Data.ToPath LogoutUser where
   toPath LogoutUser' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/users/",
-        Core.toBS userId
+        Data.toBS userId
       ]
 
-instance Core.ToQuery LogoutUser where
+instance Data.ToQuery LogoutUser where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["operation=logout"])

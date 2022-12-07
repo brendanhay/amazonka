@@ -21,6 +21,7 @@ module Amazonka.Rum.Types.RumEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains the information for one performance event that
@@ -38,7 +39,7 @@ data RumEvent = RumEvent'
     -- | A unique ID for this event.
     id :: Prelude.Text,
     -- | The exact time that this event occurred.
-    timestamp :: Core.POSIX,
+    timestamp :: Data.POSIX,
     -- | The JSON schema that denotes the type of event this is, such as a page
     -- load or a new session.
     type' :: Prelude.Text
@@ -81,7 +82,7 @@ newRumEvent pDetails_ pId_ pTimestamp_ pType_ =
     { metadata = Prelude.Nothing,
       details = pDetails_,
       id = pId_,
-      timestamp = Core._Time Lens.# pTimestamp_,
+      timestamp = Data._Time Lens.# pTimestamp_,
       type' = pType_
     }
 
@@ -102,7 +103,7 @@ rumEvent_id = Lens.lens (\RumEvent' {id} -> id) (\s@RumEvent' {} a -> s {id = a}
 
 -- | The exact time that this event occurred.
 rumEvent_timestamp :: Lens.Lens' RumEvent Prelude.UTCTime
-rumEvent_timestamp = Lens.lens (\RumEvent' {timestamp} -> timestamp) (\s@RumEvent' {} a -> s {timestamp = a} :: RumEvent) Prelude.. Core._Time
+rumEvent_timestamp = Lens.lens (\RumEvent' {timestamp} -> timestamp) (\s@RumEvent' {} a -> s {timestamp = a} :: RumEvent) Prelude.. Data._Time
 
 -- | The JSON schema that denotes the type of event this is, such as a page
 -- load or a new session.
@@ -125,14 +126,14 @@ instance Prelude.NFData RumEvent where
       `Prelude.seq` Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON RumEvent where
+instance Data.ToJSON RumEvent where
   toJSON RumEvent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("metadata" Core..=) Prelude.<$> metadata,
-            Prelude.Just ("details" Core..= details),
-            Prelude.Just ("id" Core..= id),
-            Prelude.Just ("timestamp" Core..= timestamp),
-            Prelude.Just ("type" Core..= type')
+          [ ("metadata" Data..=) Prelude.<$> metadata,
+            Prelude.Just ("details" Data..= details),
+            Prelude.Just ("id" Data..= id),
+            Prelude.Just ("timestamp" Data..= timestamp),
+            Prelude.Just ("type" Data..= type')
           ]
       )

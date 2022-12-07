@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.UserIdentity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information for a user identity in an access policy.
@@ -51,11 +52,11 @@ newUserIdentity pId_ = UserIdentity' {id = pId_}
 userIdentity_id :: Lens.Lens' UserIdentity Prelude.Text
 userIdentity_id = Lens.lens (\UserIdentity' {id} -> id) (\s@UserIdentity' {} a -> s {id = a} :: UserIdentity)
 
-instance Core.FromJSON UserIdentity where
+instance Data.FromJSON UserIdentity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserIdentity"
-      (\x -> UserIdentity' Prelude.<$> (x Core..: "id"))
+      (\x -> UserIdentity' Prelude.<$> (x Data..: "id"))
 
 instance Prelude.Hashable UserIdentity where
   hashWithSalt _salt UserIdentity' {..} =
@@ -64,7 +65,7 @@ instance Prelude.Hashable UserIdentity where
 instance Prelude.NFData UserIdentity where
   rnf UserIdentity' {..} = Prelude.rnf id
 
-instance Core.ToJSON UserIdentity where
+instance Data.ToJSON UserIdentity where
   toJSON UserIdentity' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("id" Data..= id)])

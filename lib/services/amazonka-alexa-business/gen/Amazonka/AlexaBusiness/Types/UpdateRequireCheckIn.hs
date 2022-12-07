@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.UpdateRequireCheckIn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates settings for the require check in feature that are applied to a
@@ -77,12 +78,12 @@ instance Prelude.NFData UpdateRequireCheckIn where
     Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf releaseAfterMinutes
 
-instance Core.ToJSON UpdateRequireCheckIn where
+instance Data.ToJSON UpdateRequireCheckIn where
   toJSON UpdateRequireCheckIn' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Enabled" Core..=) Prelude.<$> enabled,
-            ("ReleaseAfterMinutes" Core..=)
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
+            ("ReleaseAfterMinutes" Data..=)
               Prelude.<$> releaseAfterMinutes
           ]
       )

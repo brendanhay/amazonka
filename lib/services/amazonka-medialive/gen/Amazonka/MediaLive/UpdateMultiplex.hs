@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest UpdateMultiplex' where
     Response.receiveJSON
       ( \s h x ->
           UpdateMultiplexResponse'
-            Prelude.<$> (x Core..?> "multiplex")
+            Prelude.<$> (x Data..?> "multiplex")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,33 +124,33 @@ instance Prelude.NFData UpdateMultiplex' where
       `Prelude.seq` Prelude.rnf multiplexSettings
       `Prelude.seq` Prelude.rnf multiplexId
 
-instance Core.ToHeaders UpdateMultiplex' where
+instance Data.ToHeaders UpdateMultiplex' where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMultiplex' where
+instance Data.ToJSON UpdateMultiplex' where
   toJSON UpdateMultiplex'' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("multiplexSettings" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("multiplexSettings" Data..=)
               Prelude.<$> multiplexSettings
           ]
       )
 
-instance Core.ToPath UpdateMultiplex' where
+instance Data.ToPath UpdateMultiplex' where
   toPath UpdateMultiplex'' {..} =
     Prelude.mconcat
-      ["/prod/multiplexes/", Core.toBS multiplexId]
+      ["/prod/multiplexes/", Data.toBS multiplexId]
 
-instance Core.ToQuery UpdateMultiplex' where
+instance Data.ToQuery UpdateMultiplex' where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for UpdateMultiplexResponse

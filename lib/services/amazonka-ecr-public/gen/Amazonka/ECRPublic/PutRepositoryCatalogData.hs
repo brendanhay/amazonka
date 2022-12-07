@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,7 +121,7 @@ instance Core.AWSRequest PutRepositoryCatalogData where
     Response.receiveJSON
       ( \s h x ->
           PutRepositoryCatalogDataResponse'
-            Prelude.<$> (x Core..?> "catalogData")
+            Prelude.<$> (x Data..?> "catalogData")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,36 +137,36 @@ instance Prelude.NFData PutRepositoryCatalogData where
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf catalogData
 
-instance Core.ToHeaders PutRepositoryCatalogData where
+instance Data.ToHeaders PutRepositoryCatalogData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SpencerFrontendService.PutRepositoryCatalogData" ::
+              Data.=# ( "SpencerFrontendService.PutRepositoryCatalogData" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRepositoryCatalogData where
+instance Data.ToJSON PutRepositoryCatalogData where
   toJSON PutRepositoryCatalogData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("catalogData" Core..= catalogData)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("catalogData" Data..= catalogData)
           ]
       )
 
-instance Core.ToPath PutRepositoryCatalogData where
+instance Data.ToPath PutRepositoryCatalogData where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutRepositoryCatalogData where
+instance Data.ToQuery PutRepositoryCatalogData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRepositoryCatalogDataResponse' smart constructor.

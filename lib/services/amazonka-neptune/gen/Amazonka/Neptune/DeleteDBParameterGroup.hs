@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,20 +116,20 @@ instance Prelude.NFData DeleteDBParameterGroup where
   rnf DeleteDBParameterGroup' {..} =
     Prelude.rnf dbParameterGroupName
 
-instance Core.ToHeaders DeleteDBParameterGroup where
+instance Data.ToHeaders DeleteDBParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteDBParameterGroup where
+instance Data.ToPath DeleteDBParameterGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDBParameterGroup where
+instance Data.ToQuery DeleteDBParameterGroup where
   toQuery DeleteDBParameterGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDBParameterGroup" :: Prelude.ByteString),
+          Data.=: ("DeleteDBParameterGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBParameterGroupName" Core.=: dbParameterGroupName
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBParameterGroupName" Data.=: dbParameterGroupName
       ]
 
 -- | /See:/ 'newDeleteDBParameterGroupResponse' smart constructor.

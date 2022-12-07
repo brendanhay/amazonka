@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,19 +97,19 @@ instance Core.AWSRequest DescribeDataIngestionJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeDataIngestionJobResponse'
-            Prelude.<$> (x Core..?> "DataStartTime")
-            Prelude.<*> (x Core..?> "IngestedDataSize")
-            Prelude.<*> (x Core..?> "FailedReason")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "DataEndTime")
-            Prelude.<*> (x Core..?> "JobId")
-            Prelude.<*> (x Core..?> "StatusDetail")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "DatasetArn")
-            Prelude.<*> (x Core..?> "IngestionInputConfiguration")
-            Prelude.<*> (x Core..?> "IngestedFilesSummary")
-            Prelude.<*> (x Core..?> "DataQualitySummary")
-            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<$> (x Data..?> "DataStartTime")
+            Prelude.<*> (x Data..?> "IngestedDataSize")
+            Prelude.<*> (x Data..?> "FailedReason")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "DataEndTime")
+            Prelude.<*> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "StatusDetail")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "DatasetArn")
+            Prelude.<*> (x Data..?> "IngestionInputConfiguration")
+            Prelude.<*> (x Data..?> "IngestedFilesSummary")
+            Prelude.<*> (x Data..?> "DataQualitySummary")
+            Prelude.<*> (x Data..?> "CreatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,39 +120,39 @@ instance Prelude.Hashable DescribeDataIngestionJob where
 instance Prelude.NFData DescribeDataIngestionJob where
   rnf DescribeDataIngestionJob' {..} = Prelude.rnf jobId
 
-instance Core.ToHeaders DescribeDataIngestionJob where
+instance Data.ToHeaders DescribeDataIngestionJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.DescribeDataIngestionJob" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.DescribeDataIngestionJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDataIngestionJob where
+instance Data.ToJSON DescribeDataIngestionJob where
   toJSON DescribeDataIngestionJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Core..= jobId)]
+          [Prelude.Just ("JobId" Data..= jobId)]
       )
 
-instance Core.ToPath DescribeDataIngestionJob where
+instance Data.ToPath DescribeDataIngestionJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDataIngestionJob where
+instance Data.ToQuery DescribeDataIngestionJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDataIngestionJobResponse' smart constructor.
 data DescribeDataIngestionJobResponse = DescribeDataIngestionJobResponse'
   { -- | Indicates the earliest timestamp corresponding to data that was
     -- successfully ingested during this specific ingestion job.
-    dataStartTime :: Prelude.Maybe Core.POSIX,
+    dataStartTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates the size of the ingested dataset.
     ingestedDataSize :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the reason for failure when a data ingestion job has failed.
@@ -161,7 +162,7 @@ data DescribeDataIngestionJobResponse = DescribeDataIngestionJobResponse'
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates the latest timestamp corresponding to data that was
     -- successfully ingested during this specific ingestion job.
-    dataEndTime :: Prelude.Maybe Core.POSIX,
+    dataEndTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates the job ID of the data ingestion job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | Provides details about status of the ingestion job that is currently in
@@ -182,7 +183,7 @@ data DescribeDataIngestionJobResponse = DescribeDataIngestionJobResponse'
     -- InsufficientSensorData, and DuplicateTimeStamps.
     dataQualitySummary :: Prelude.Maybe DataQualitySummary,
     -- | The time at which the data ingestion job was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -259,7 +260,7 @@ newDescribeDataIngestionJobResponse pHttpStatus_ =
 -- | Indicates the earliest timestamp corresponding to data that was
 -- successfully ingested during this specific ingestion job.
 describeDataIngestionJobResponse_dataStartTime :: Lens.Lens' DescribeDataIngestionJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeDataIngestionJobResponse_dataStartTime = Lens.lens (\DescribeDataIngestionJobResponse' {dataStartTime} -> dataStartTime) (\s@DescribeDataIngestionJobResponse' {} a -> s {dataStartTime = a} :: DescribeDataIngestionJobResponse) Prelude.. Lens.mapping Core._Time
+describeDataIngestionJobResponse_dataStartTime = Lens.lens (\DescribeDataIngestionJobResponse' {dataStartTime} -> dataStartTime) (\s@DescribeDataIngestionJobResponse' {} a -> s {dataStartTime = a} :: DescribeDataIngestionJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the size of the ingested dataset.
 describeDataIngestionJobResponse_ingestedDataSize :: Lens.Lens' DescribeDataIngestionJobResponse (Prelude.Maybe Prelude.Natural)
@@ -277,7 +278,7 @@ describeDataIngestionJobResponse_roleArn = Lens.lens (\DescribeDataIngestionJobR
 -- | Indicates the latest timestamp corresponding to data that was
 -- successfully ingested during this specific ingestion job.
 describeDataIngestionJobResponse_dataEndTime :: Lens.Lens' DescribeDataIngestionJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeDataIngestionJobResponse_dataEndTime = Lens.lens (\DescribeDataIngestionJobResponse' {dataEndTime} -> dataEndTime) (\s@DescribeDataIngestionJobResponse' {} a -> s {dataEndTime = a} :: DescribeDataIngestionJobResponse) Prelude.. Lens.mapping Core._Time
+describeDataIngestionJobResponse_dataEndTime = Lens.lens (\DescribeDataIngestionJobResponse' {dataEndTime} -> dataEndTime) (\s@DescribeDataIngestionJobResponse' {} a -> s {dataEndTime = a} :: DescribeDataIngestionJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the job ID of the data ingestion job.
 describeDataIngestionJobResponse_jobId :: Lens.Lens' DescribeDataIngestionJobResponse (Prelude.Maybe Prelude.Text)
@@ -315,7 +316,7 @@ describeDataIngestionJobResponse_dataQualitySummary = Lens.lens (\DescribeDataIn
 
 -- | The time at which the data ingestion job was created.
 describeDataIngestionJobResponse_createdAt :: Lens.Lens' DescribeDataIngestionJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeDataIngestionJobResponse_createdAt = Lens.lens (\DescribeDataIngestionJobResponse' {createdAt} -> createdAt) (\s@DescribeDataIngestionJobResponse' {} a -> s {createdAt = a} :: DescribeDataIngestionJobResponse) Prelude.. Lens.mapping Core._Time
+describeDataIngestionJobResponse_createdAt = Lens.lens (\DescribeDataIngestionJobResponse' {createdAt} -> createdAt) (\s@DescribeDataIngestionJobResponse' {} a -> s {createdAt = a} :: DescribeDataIngestionJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeDataIngestionJobResponse_httpStatus :: Lens.Lens' DescribeDataIngestionJobResponse Prelude.Int

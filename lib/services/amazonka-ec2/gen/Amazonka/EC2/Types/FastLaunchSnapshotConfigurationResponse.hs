@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FastLaunchSnapshotConfigurationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -59,12 +60,12 @@ fastLaunchSnapshotConfigurationResponse_targetResourceCount :: Lens.Lens' FastLa
 fastLaunchSnapshotConfigurationResponse_targetResourceCount = Lens.lens (\FastLaunchSnapshotConfigurationResponse' {targetResourceCount} -> targetResourceCount) (\s@FastLaunchSnapshotConfigurationResponse' {} a -> s {targetResourceCount = a} :: FastLaunchSnapshotConfigurationResponse)
 
 instance
-  Core.FromXML
+  Data.FromXML
     FastLaunchSnapshotConfigurationResponse
   where
   parseXML x =
     FastLaunchSnapshotConfigurationResponse'
-      Prelude.<$> (x Core..@? "targetResourceCount")
+      Prelude.<$> (x Data..@? "targetResourceCount")
 
 instance
   Prelude.Hashable

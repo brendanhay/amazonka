@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.ConnectionPoolConfigurationInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Displays the settings that control the size and behavior of the
@@ -153,16 +154,16 @@ connectionPoolConfigurationInfo_maxConnectionsPercent = Lens.lens (\ConnectionPo
 connectionPoolConfigurationInfo_sessionPinningFilters :: Lens.Lens' ConnectionPoolConfigurationInfo (Prelude.Maybe [Prelude.Text])
 connectionPoolConfigurationInfo_sessionPinningFilters = Lens.lens (\ConnectionPoolConfigurationInfo' {sessionPinningFilters} -> sessionPinningFilters) (\s@ConnectionPoolConfigurationInfo' {} a -> s {sessionPinningFilters = a} :: ConnectionPoolConfigurationInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML ConnectionPoolConfigurationInfo where
+instance Data.FromXML ConnectionPoolConfigurationInfo where
   parseXML x =
     ConnectionPoolConfigurationInfo'
-      Prelude.<$> (x Core..@? "MaxIdleConnectionsPercent")
-      Prelude.<*> (x Core..@? "InitQuery")
-      Prelude.<*> (x Core..@? "ConnectionBorrowTimeout")
-      Prelude.<*> (x Core..@? "MaxConnectionsPercent")
-      Prelude.<*> ( x Core..@? "SessionPinningFilters"
+      Prelude.<$> (x Data..@? "MaxIdleConnectionsPercent")
+      Prelude.<*> (x Data..@? "InitQuery")
+      Prelude.<*> (x Data..@? "ConnectionBorrowTimeout")
+      Prelude.<*> (x Data..@? "MaxConnectionsPercent")
+      Prelude.<*> ( x Data..@? "SessionPinningFilters"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance

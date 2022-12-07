@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.EnableAlarmActionRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information needed to enable the alarm.
@@ -106,14 +107,14 @@ instance Prelude.NFData EnableAlarmActionRequest where
       `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf alarmModelName
 
-instance Core.ToJSON EnableAlarmActionRequest where
+instance Data.ToJSON EnableAlarmActionRequest where
   toJSON EnableAlarmActionRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("keyValue" Core..=) Prelude.<$> keyValue,
-            ("note" Core..=) Prelude.<$> note,
-            Prelude.Just ("requestId" Core..= requestId),
+          [ ("keyValue" Data..=) Prelude.<$> keyValue,
+            ("note" Data..=) Prelude.<$> note,
+            Prelude.Just ("requestId" Data..= requestId),
             Prelude.Just
-              ("alarmModelName" Core..= alarmModelName)
+              ("alarmModelName" Data..= alarmModelName)
           ]
       )

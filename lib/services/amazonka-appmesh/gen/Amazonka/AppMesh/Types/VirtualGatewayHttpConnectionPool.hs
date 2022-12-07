@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.VirtualGatewayHttpConnectionPool where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a type of connection pool.
@@ -71,16 +72,16 @@ virtualGatewayHttpConnectionPool_maxConnections :: Lens.Lens' VirtualGatewayHttp
 virtualGatewayHttpConnectionPool_maxConnections = Lens.lens (\VirtualGatewayHttpConnectionPool' {maxConnections} -> maxConnections) (\s@VirtualGatewayHttpConnectionPool' {} a -> s {maxConnections = a} :: VirtualGatewayHttpConnectionPool)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     VirtualGatewayHttpConnectionPool
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewayHttpConnectionPool"
       ( \x ->
           VirtualGatewayHttpConnectionPool'
-            Prelude.<$> (x Core..:? "maxPendingRequests")
-            Prelude.<*> (x Core..: "maxConnections")
+            Prelude.<$> (x Data..:? "maxPendingRequests")
+            Prelude.<*> (x Data..: "maxConnections")
       )
 
 instance
@@ -101,13 +102,13 @@ instance
     Prelude.rnf maxPendingRequests
       `Prelude.seq` Prelude.rnf maxConnections
 
-instance Core.ToJSON VirtualGatewayHttpConnectionPool where
+instance Data.ToJSON VirtualGatewayHttpConnectionPool where
   toJSON VirtualGatewayHttpConnectionPool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maxPendingRequests" Core..=)
+          [ ("maxPendingRequests" Data..=)
               Prelude.<$> maxPendingRequests,
             Prelude.Just
-              ("maxConnections" Core..= maxConnections)
+              ("maxConnections" Data..= maxConnections)
           ]
       )

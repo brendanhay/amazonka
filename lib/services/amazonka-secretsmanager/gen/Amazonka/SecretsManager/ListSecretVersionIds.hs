@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -193,10 +194,10 @@ instance Core.AWSRequest ListSecretVersionIds where
     Response.receiveJSON
       ( \s h x ->
           ListSecretVersionIdsResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -214,37 +215,37 @@ instance Prelude.NFData ListSecretVersionIds where
       `Prelude.seq` Prelude.rnf includeDeprecated
       `Prelude.seq` Prelude.rnf secretId
 
-instance Core.ToHeaders ListSecretVersionIds where
+instance Data.ToHeaders ListSecretVersionIds where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "secretsmanager.ListSecretVersionIds" ::
+              Data.=# ( "secretsmanager.ListSecretVersionIds" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSecretVersionIds where
+instance Data.ToJSON ListSecretVersionIds where
   toJSON ListSecretVersionIds' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("IncludeDeprecated" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("IncludeDeprecated" Data..=)
               Prelude.<$> includeDeprecated,
-            Prelude.Just ("SecretId" Core..= secretId)
+            Prelude.Just ("SecretId" Data..= secretId)
           ]
       )
 
-instance Core.ToPath ListSecretVersionIds where
+instance Data.ToPath ListSecretVersionIds where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSecretVersionIds where
+instance Data.ToQuery ListSecretVersionIds where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSecretVersionIdsResponse' smart constructor.

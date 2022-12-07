@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.Column where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a column that stores your data.
@@ -71,13 +72,13 @@ column_name = Lens.lens (\Column' {name} -> name) (\s@Column' {} a -> s {name = 
 column_type :: Lens.Lens' Column Prelude.Text
 column_type = Lens.lens (\Column' {type'} -> type') (\s@Column' {} a -> s {type' = a} :: Column)
 
-instance Core.FromJSON Column where
+instance Data.FromJSON Column where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Column"
       ( \x ->
           Column'
-            Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable Column where
@@ -89,11 +90,11 @@ instance Prelude.NFData Column where
   rnf Column' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON Column where
+instance Data.ToJSON Column where
   toJSON Column' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("type" Core..= type')
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("type" Data..= type')
           ]
       )

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,7 +120,7 @@ instance Core.AWSRequest GetCardinality where
     Response.receiveJSON
       ( \s h x ->
           GetCardinalityResponse'
-            Prelude.<$> (x Core..?> "cardinality")
+            Prelude.<$> (x Data..?> "cardinality")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,25 +138,25 @@ instance Prelude.NFData GetCardinality where
       `Prelude.seq` Prelude.rnf queryVersion
       `Prelude.seq` Prelude.rnf queryString
 
-instance Core.ToHeaders GetCardinality where
+instance Data.ToHeaders GetCardinality where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetCardinality where
+instance Data.ToJSON GetCardinality where
   toJSON GetCardinality' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("aggregationField" Core..=)
+          [ ("aggregationField" Data..=)
               Prelude.<$> aggregationField,
-            ("indexName" Core..=) Prelude.<$> indexName,
-            ("queryVersion" Core..=) Prelude.<$> queryVersion,
-            Prelude.Just ("queryString" Core..= queryString)
+            ("indexName" Data..=) Prelude.<$> indexName,
+            ("queryVersion" Data..=) Prelude.<$> queryVersion,
+            Prelude.Just ("queryString" Data..= queryString)
           ]
       )
 
-instance Core.ToPath GetCardinality where
+instance Data.ToPath GetCardinality where
   toPath = Prelude.const "/indices/cardinality"
 
-instance Core.ToQuery GetCardinality where
+instance Data.ToQuery GetCardinality where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCardinalityResponse' smart constructor.

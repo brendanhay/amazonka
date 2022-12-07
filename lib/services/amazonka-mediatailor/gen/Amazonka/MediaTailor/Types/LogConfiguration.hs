@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.LogConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns Amazon CloudWatch log settings for a playback configuration.
@@ -79,13 +80,13 @@ newLogConfiguration pPercentEnabled_ =
 logConfiguration_percentEnabled :: Lens.Lens' LogConfiguration Prelude.Int
 logConfiguration_percentEnabled = Lens.lens (\LogConfiguration' {percentEnabled} -> percentEnabled) (\s@LogConfiguration' {} a -> s {percentEnabled = a} :: LogConfiguration)
 
-instance Core.FromJSON LogConfiguration where
+instance Data.FromJSON LogConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogConfiguration"
       ( \x ->
           LogConfiguration'
-            Prelude.<$> (x Core..: "PercentEnabled")
+            Prelude.<$> (x Data..: "PercentEnabled")
       )
 
 instance Prelude.Hashable LogConfiguration where

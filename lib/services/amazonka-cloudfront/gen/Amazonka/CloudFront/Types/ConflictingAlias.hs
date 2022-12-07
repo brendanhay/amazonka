@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.ConflictingAlias where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An alias (also called a CNAME) and the CloudFront distribution and
@@ -80,12 +81,12 @@ conflictingAlias_distributionId = Lens.lens (\ConflictingAlias' {distributionId}
 conflictingAlias_accountId :: Lens.Lens' ConflictingAlias (Prelude.Maybe Prelude.Text)
 conflictingAlias_accountId = Lens.lens (\ConflictingAlias' {accountId} -> accountId) (\s@ConflictingAlias' {} a -> s {accountId = a} :: ConflictingAlias)
 
-instance Core.FromXML ConflictingAlias where
+instance Data.FromXML ConflictingAlias where
   parseXML x =
     ConflictingAlias'
-      Prelude.<$> (x Core..@? "Alias")
-      Prelude.<*> (x Core..@? "DistributionId")
-      Prelude.<*> (x Core..@? "AccountId")
+      Prelude.<$> (x Data..@? "Alias")
+      Prelude.<*> (x Data..@? "DistributionId")
+      Prelude.<*> (x Data..@? "AccountId")
 
 instance Prelude.Hashable ConflictingAlias where
   hashWithSalt _salt ConflictingAlias' {..} =

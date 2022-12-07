@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.CreateExperimentTemplateTargetInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types.ExperimentTemplateTargetInputFilter
 import qualified Amazonka.Prelude as Prelude
 
@@ -180,18 +181,18 @@ instance
       `Prelude.seq` Prelude.rnf selectionMode
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateExperimentTemplateTargetInput
   where
   toJSON CreateExperimentTemplateTargetInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("filters" Core..=) Prelude.<$> filters,
-            ("resourceTags" Core..=) Prelude.<$> resourceTags,
-            ("parameters" Core..=) Prelude.<$> parameters,
-            ("resourceArns" Core..=) Prelude.<$> resourceArns,
-            Prelude.Just ("resourceType" Core..= resourceType),
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("resourceTags" Data..=) Prelude.<$> resourceTags,
+            ("parameters" Data..=) Prelude.<$> parameters,
+            ("resourceArns" Data..=) Prelude.<$> resourceArns,
+            Prelude.Just ("resourceType" Data..= resourceType),
             Prelude.Just
-              ("selectionMode" Core..= selectionMode)
+              ("selectionMode" Data..= selectionMode)
           ]
       )

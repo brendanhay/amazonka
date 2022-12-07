@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.RecordColumn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the mapping of each data element in the streaming source to
@@ -92,15 +93,15 @@ recordColumn_name = Lens.lens (\RecordColumn' {name} -> name) (\s@RecordColumn' 
 recordColumn_sqlType :: Lens.Lens' RecordColumn Prelude.Text
 recordColumn_sqlType = Lens.lens (\RecordColumn' {sqlType} -> sqlType) (\s@RecordColumn' {} a -> s {sqlType = a} :: RecordColumn)
 
-instance Core.FromJSON RecordColumn where
+instance Data.FromJSON RecordColumn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecordColumn"
       ( \x ->
           RecordColumn'
-            Prelude.<$> (x Core..:? "Mapping")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "SqlType")
+            Prelude.<$> (x Data..:? "Mapping")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "SqlType")
       )
 
 instance Prelude.Hashable RecordColumn where
@@ -115,12 +116,12 @@ instance Prelude.NFData RecordColumn where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sqlType
 
-instance Core.ToJSON RecordColumn where
+instance Data.ToJSON RecordColumn where
   toJSON RecordColumn' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Mapping" Core..=) Prelude.<$> mapping,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("SqlType" Core..= sqlType)
+          [ ("Mapping" Data..=) Prelude.<$> mapping,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("SqlType" Data..= sqlType)
           ]
       )

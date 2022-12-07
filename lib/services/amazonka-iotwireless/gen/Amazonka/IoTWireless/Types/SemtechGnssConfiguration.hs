@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.SemtechGnssConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.PositionConfigurationFec
 import Amazonka.IoTWireless.Types.PositionConfigurationStatus
 import qualified Amazonka.Prelude as Prelude
@@ -76,11 +77,11 @@ instance Prelude.NFData SemtechGnssConfiguration where
   rnf SemtechGnssConfiguration' {..} =
     Prelude.rnf status `Prelude.seq` Prelude.rnf fec
 
-instance Core.ToJSON SemtechGnssConfiguration where
+instance Data.ToJSON SemtechGnssConfiguration where
   toJSON SemtechGnssConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Status" Core..= status),
-            Prelude.Just ("Fec" Core..= fec)
+          [ Prelude.Just ("Status" Data..= status),
+            Prelude.Just ("Fec" Data..= fec)
           ]
       )

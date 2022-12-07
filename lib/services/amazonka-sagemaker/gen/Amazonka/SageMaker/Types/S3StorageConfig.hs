@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.S3StorageConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Simple Storage (Amazon S3) location and and security
@@ -101,15 +102,15 @@ s3StorageConfig_kmsKeyId = Lens.lens (\S3StorageConfig' {kmsKeyId} -> kmsKeyId) 
 s3StorageConfig_s3Uri :: Lens.Lens' S3StorageConfig Prelude.Text
 s3StorageConfig_s3Uri = Lens.lens (\S3StorageConfig' {s3Uri} -> s3Uri) (\s@S3StorageConfig' {} a -> s {s3Uri = a} :: S3StorageConfig)
 
-instance Core.FromJSON S3StorageConfig where
+instance Data.FromJSON S3StorageConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3StorageConfig"
       ( \x ->
           S3StorageConfig'
-            Prelude.<$> (x Core..:? "ResolvedOutputS3Uri")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..: "S3Uri")
+            Prelude.<$> (x Data..:? "ResolvedOutputS3Uri")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..: "S3Uri")
       )
 
 instance Prelude.Hashable S3StorageConfig where
@@ -124,13 +125,13 @@ instance Prelude.NFData S3StorageConfig where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf s3Uri
 
-instance Core.ToJSON S3StorageConfig where
+instance Data.ToJSON S3StorageConfig where
   toJSON S3StorageConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResolvedOutputS3Uri" Core..=)
+          [ ("ResolvedOutputS3Uri" Data..=)
               Prelude.<$> resolvedOutputS3Uri,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            Prelude.Just ("S3Uri" Core..= s3Uri)
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            Prelude.Just ("S3Uri" Data..= s3Uri)
           ]
       )

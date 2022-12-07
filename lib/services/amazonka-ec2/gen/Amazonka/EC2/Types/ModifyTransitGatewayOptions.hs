@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ModifyTransitGatewayOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AutoAcceptSharedAttachmentsValue
 import Amazonka.EC2.Types.DefaultRouteTableAssociationValue
@@ -199,28 +200,28 @@ instance Prelude.NFData ModifyTransitGatewayOptions where
       `Prelude.seq` Prelude.rnf defaultRouteTablePropagation
       `Prelude.seq` Prelude.rnf addTransitGatewayCidrBlocks
 
-instance Core.ToQuery ModifyTransitGatewayOptions where
+instance Data.ToQuery ModifyTransitGatewayOptions where
   toQuery ModifyTransitGatewayOptions' {..} =
     Prelude.mconcat
       [ "AssociationDefaultRouteTableId"
-          Core.=: associationDefaultRouteTableId,
-        "DnsSupport" Core.=: dnsSupport,
+          Data.=: associationDefaultRouteTableId,
+        "DnsSupport" Data.=: dnsSupport,
         "DefaultRouteTableAssociation"
-          Core.=: defaultRouteTableAssociation,
-        Core.toQuery
-          ( Core.toQueryList "RemoveTransitGatewayCidrBlocks"
+          Data.=: defaultRouteTableAssociation,
+        Data.toQuery
+          ( Data.toQueryList "RemoveTransitGatewayCidrBlocks"
               Prelude.<$> removeTransitGatewayCidrBlocks
           ),
         "PropagationDefaultRouteTableId"
-          Core.=: propagationDefaultRouteTableId,
+          Data.=: propagationDefaultRouteTableId,
         "AutoAcceptSharedAttachments"
-          Core.=: autoAcceptSharedAttachments,
-        "AmazonSideAsn" Core.=: amazonSideAsn,
-        "VpnEcmpSupport" Core.=: vpnEcmpSupport,
+          Data.=: autoAcceptSharedAttachments,
+        "AmazonSideAsn" Data.=: amazonSideAsn,
+        "VpnEcmpSupport" Data.=: vpnEcmpSupport,
         "DefaultRouteTablePropagation"
-          Core.=: defaultRouteTablePropagation,
-        Core.toQuery
-          ( Core.toQueryList "AddTransitGatewayCidrBlocks"
+          Data.=: defaultRouteTablePropagation,
+        Data.toQuery
+          ( Data.toQueryList "AddTransitGatewayCidrBlocks"
               Prelude.<$> addTransitGatewayCidrBlocks
           )
       ]

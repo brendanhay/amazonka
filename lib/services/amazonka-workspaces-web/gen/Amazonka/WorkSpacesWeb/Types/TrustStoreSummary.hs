@@ -21,6 +21,7 @@ module Amazonka.WorkSpacesWeb.Types.TrustStoreSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of the trust store.
@@ -50,13 +51,13 @@ newTrustStoreSummary =
 trustStoreSummary_trustStoreArn :: Lens.Lens' TrustStoreSummary (Prelude.Maybe Prelude.Text)
 trustStoreSummary_trustStoreArn = Lens.lens (\TrustStoreSummary' {trustStoreArn} -> trustStoreArn) (\s@TrustStoreSummary' {} a -> s {trustStoreArn = a} :: TrustStoreSummary)
 
-instance Core.FromJSON TrustStoreSummary where
+instance Data.FromJSON TrustStoreSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrustStoreSummary"
       ( \x ->
           TrustStoreSummary'
-            Prelude.<$> (x Core..:? "trustStoreArn")
+            Prelude.<$> (x Data..:? "trustStoreArn")
       )
 
 instance Prelude.Hashable TrustStoreSummary where

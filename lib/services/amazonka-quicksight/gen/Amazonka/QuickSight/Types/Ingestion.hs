@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.Ingestion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ErrorInfo
 import Amazonka.QuickSight.Types.IngestionRequestSource
@@ -52,7 +53,7 @@ data Ingestion = Ingestion'
     -- | Ingestion status.
     ingestionStatus :: IngestionStatus,
     -- | The time that this ingestion started.
-    createdTime :: Core.POSIX
+    createdTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -105,7 +106,7 @@ newIngestion pArn_ pIngestionStatus_ pCreatedTime_ =
       errorInfo = Prelude.Nothing,
       arn = pArn_,
       ingestionStatus = pIngestionStatus_,
-      createdTime = Core._Time Lens.# pCreatedTime_
+      createdTime = Data._Time Lens.# pCreatedTime_
     }
 
 -- | Type of this ingestion.
@@ -150,25 +151,25 @@ ingestion_ingestionStatus = Lens.lens (\Ingestion' {ingestionStatus} -> ingestio
 
 -- | The time that this ingestion started.
 ingestion_createdTime :: Lens.Lens' Ingestion Prelude.UTCTime
-ingestion_createdTime = Lens.lens (\Ingestion' {createdTime} -> createdTime) (\s@Ingestion' {} a -> s {createdTime = a} :: Ingestion) Prelude.. Core._Time
+ingestion_createdTime = Lens.lens (\Ingestion' {createdTime} -> createdTime) (\s@Ingestion' {} a -> s {createdTime = a} :: Ingestion) Prelude.. Data._Time
 
-instance Core.FromJSON Ingestion where
+instance Data.FromJSON Ingestion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Ingestion"
       ( \x ->
           Ingestion'
-            Prelude.<$> (x Core..:? "RequestType")
-            Prelude.<*> (x Core..:? "IngestionSizeInBytes")
-            Prelude.<*> (x Core..:? "IngestionTimeInSeconds")
-            Prelude.<*> (x Core..:? "RequestSource")
-            Prelude.<*> (x Core..:? "QueueInfo")
-            Prelude.<*> (x Core..:? "RowInfo")
-            Prelude.<*> (x Core..:? "IngestionId")
-            Prelude.<*> (x Core..:? "ErrorInfo")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "IngestionStatus")
-            Prelude.<*> (x Core..: "CreatedTime")
+            Prelude.<$> (x Data..:? "RequestType")
+            Prelude.<*> (x Data..:? "IngestionSizeInBytes")
+            Prelude.<*> (x Data..:? "IngestionTimeInSeconds")
+            Prelude.<*> (x Data..:? "RequestSource")
+            Prelude.<*> (x Data..:? "QueueInfo")
+            Prelude.<*> (x Data..:? "RowInfo")
+            Prelude.<*> (x Data..:? "IngestionId")
+            Prelude.<*> (x Data..:? "ErrorInfo")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "IngestionStatus")
+            Prelude.<*> (x Data..: "CreatedTime")
       )
 
 instance Prelude.Hashable Ingestion where

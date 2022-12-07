@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -79,7 +80,7 @@ instance Core.AWSRequest GetCrl where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetCrl where
   hashWithSalt _salt GetCrl' {..} =
@@ -88,20 +89,20 @@ instance Prelude.Hashable GetCrl where
 instance Prelude.NFData GetCrl where
   rnf GetCrl' {..} = Prelude.rnf crlId
 
-instance Core.ToHeaders GetCrl where
+instance Data.ToHeaders GetCrl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetCrl where
+instance Data.ToPath GetCrl where
   toPath GetCrl' {..} =
-    Prelude.mconcat ["/crl/", Core.toBS crlId]
+    Prelude.mconcat ["/crl/", Data.toBS crlId]
 
-instance Core.ToQuery GetCrl where
+instance Data.ToQuery GetCrl where
   toQuery = Prelude.const Prelude.mempty

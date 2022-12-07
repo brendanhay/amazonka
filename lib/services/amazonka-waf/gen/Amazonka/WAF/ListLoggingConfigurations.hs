@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,10 +158,10 @@ instance Core.AWSRequest ListLoggingConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListLoggingConfigurationsResponse'
-            Prelude.<$> ( x Core..?> "LoggingConfigurations"
+            Prelude.<$> ( x Data..?> "LoggingConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,34 +175,34 @@ instance Prelude.NFData ListLoggingConfigurations where
     Prelude.rnf limit
       `Prelude.seq` Prelude.rnf nextMarker
 
-instance Core.ToHeaders ListLoggingConfigurations where
+instance Data.ToHeaders ListLoggingConfigurations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20150824.ListLoggingConfigurations" ::
+              Data.=# ( "AWSWAF_20150824.ListLoggingConfigurations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListLoggingConfigurations where
+instance Data.ToJSON ListLoggingConfigurations where
   toJSON ListLoggingConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("NextMarker" Core..=) Prelude.<$> nextMarker
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextMarker" Data..=) Prelude.<$> nextMarker
           ]
       )
 
-instance Core.ToPath ListLoggingConfigurations where
+instance Data.ToPath ListLoggingConfigurations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListLoggingConfigurations where
+instance Data.ToQuery ListLoggingConfigurations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListLoggingConfigurationsResponse' smart constructor.

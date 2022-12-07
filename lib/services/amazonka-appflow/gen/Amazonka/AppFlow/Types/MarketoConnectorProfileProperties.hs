@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.MarketoConnectorProfileProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile properties required when using Marketo.
@@ -56,15 +57,15 @@ marketoConnectorProfileProperties_instanceUrl :: Lens.Lens' MarketoConnectorProf
 marketoConnectorProfileProperties_instanceUrl = Lens.lens (\MarketoConnectorProfileProperties' {instanceUrl} -> instanceUrl) (\s@MarketoConnectorProfileProperties' {} a -> s {instanceUrl = a} :: MarketoConnectorProfileProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MarketoConnectorProfileProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MarketoConnectorProfileProperties"
       ( \x ->
           MarketoConnectorProfileProperties'
-            Prelude.<$> (x Core..: "instanceUrl")
+            Prelude.<$> (x Data..: "instanceUrl")
       )
 
 instance
@@ -84,11 +85,11 @@ instance
     Prelude.rnf instanceUrl
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     MarketoConnectorProfileProperties
   where
   toJSON MarketoConnectorProfileProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("instanceUrl" Core..= instanceUrl)]
+          [Prelude.Just ("instanceUrl" Data..= instanceUrl)]
       )

@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.DateFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details on the time range used to filter findings.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDateFilter' smart constructor.
 data DateFilter = DateFilter'
   { -- | A timestamp representing the start of the time period filtered on.
-    startInclusive :: Prelude.Maybe Core.POSIX,
+    startInclusive :: Prelude.Maybe Data.POSIX,
     -- | A timestamp representing the end of the time period filtered on.
-    endInclusive :: Prelude.Maybe Core.POSIX
+    endInclusive :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,20 +56,20 @@ newDateFilter =
 
 -- | A timestamp representing the start of the time period filtered on.
 dateFilter_startInclusive :: Lens.Lens' DateFilter (Prelude.Maybe Prelude.UTCTime)
-dateFilter_startInclusive = Lens.lens (\DateFilter' {startInclusive} -> startInclusive) (\s@DateFilter' {} a -> s {startInclusive = a} :: DateFilter) Prelude.. Lens.mapping Core._Time
+dateFilter_startInclusive = Lens.lens (\DateFilter' {startInclusive} -> startInclusive) (\s@DateFilter' {} a -> s {startInclusive = a} :: DateFilter) Prelude.. Lens.mapping Data._Time
 
 -- | A timestamp representing the end of the time period filtered on.
 dateFilter_endInclusive :: Lens.Lens' DateFilter (Prelude.Maybe Prelude.UTCTime)
-dateFilter_endInclusive = Lens.lens (\DateFilter' {endInclusive} -> endInclusive) (\s@DateFilter' {} a -> s {endInclusive = a} :: DateFilter) Prelude.. Lens.mapping Core._Time
+dateFilter_endInclusive = Lens.lens (\DateFilter' {endInclusive} -> endInclusive) (\s@DateFilter' {} a -> s {endInclusive = a} :: DateFilter) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DateFilter where
+instance Data.FromJSON DateFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DateFilter"
       ( \x ->
           DateFilter'
-            Prelude.<$> (x Core..:? "startInclusive")
-            Prelude.<*> (x Core..:? "endInclusive")
+            Prelude.<$> (x Data..:? "startInclusive")
+            Prelude.<*> (x Data..:? "endInclusive")
       )
 
 instance Prelude.Hashable DateFilter where
@@ -81,12 +82,12 @@ instance Prelude.NFData DateFilter where
     Prelude.rnf startInclusive
       `Prelude.seq` Prelude.rnf endInclusive
 
-instance Core.ToJSON DateFilter where
+instance Data.ToJSON DateFilter where
   toJSON DateFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("startInclusive" Core..=)
+          [ ("startInclusive" Data..=)
               Prelude.<$> startInclusive,
-            ("endInclusive" Core..=) Prelude.<$> endInclusive
+            ("endInclusive" Data..=) Prelude.<$> endInclusive
           ]
       )

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,10 +141,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetColumnStatisticsForPartitionResponse'
-            Prelude.<$> ( x Core..?> "ColumnStatisticsList"
+            Prelude.<$> ( x Data..?> "ColumnStatisticsList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,40 +173,40 @@ instance
       `Prelude.seq` Prelude.rnf columnNames
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetColumnStatisticsForPartition
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.GetColumnStatisticsForPartition" ::
+              Data.=# ( "AWSGlue.GetColumnStatisticsForPartition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetColumnStatisticsForPartition where
+instance Data.ToJSON GetColumnStatisticsForPartition where
   toJSON GetColumnStatisticsForPartition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
             Prelude.Just
-              ("PartitionValues" Core..= partitionValues),
-            Prelude.Just ("ColumnNames" Core..= columnNames)
+              ("PartitionValues" Data..= partitionValues),
+            Prelude.Just ("ColumnNames" Data..= columnNames)
           ]
       )
 
-instance Core.ToPath GetColumnStatisticsForPartition where
+instance Data.ToPath GetColumnStatisticsForPartition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetColumnStatisticsForPartition where
+instance Data.ToQuery GetColumnStatisticsForPartition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetColumnStatisticsForPartitionResponse' smart constructor.

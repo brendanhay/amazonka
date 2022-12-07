@@ -21,6 +21,7 @@ module Amazonka.SavingsPlans.Types.SavingsPlanRateProperty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey
 
@@ -62,13 +63,13 @@ savingsPlanRateProperty_name = Lens.lens (\SavingsPlanRateProperty' {name} -> na
 savingsPlanRateProperty_value :: Lens.Lens' SavingsPlanRateProperty (Prelude.Maybe Prelude.Text)
 savingsPlanRateProperty_value = Lens.lens (\SavingsPlanRateProperty' {value} -> value) (\s@SavingsPlanRateProperty' {} a -> s {value = a} :: SavingsPlanRateProperty)
 
-instance Core.FromJSON SavingsPlanRateProperty where
+instance Data.FromJSON SavingsPlanRateProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlanRateProperty"
       ( \x ->
           SavingsPlanRateProperty'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable SavingsPlanRateProperty where

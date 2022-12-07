@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.S3ParquetSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.GlueSchema
 import Amazonka.Glue.Types.ParquetCompressionType
 import Amazonka.Glue.Types.S3DirectSourceAdditionalOptions
@@ -198,23 +199,23 @@ s3ParquetSource_name = Lens.lens (\S3ParquetSource' {name} -> name) (\s@S3Parque
 s3ParquetSource_paths :: Lens.Lens' S3ParquetSource [Prelude.Text]
 s3ParquetSource_paths = Lens.lens (\S3ParquetSource' {paths} -> paths) (\s@S3ParquetSource' {} a -> s {paths = a} :: S3ParquetSource) Prelude.. Lens.coerced
 
-instance Core.FromJSON S3ParquetSource where
+instance Data.FromJSON S3ParquetSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3ParquetSource"
       ( \x ->
           S3ParquetSource'
-            Prelude.<$> (x Core..:? "OutputSchemas" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "GroupFiles")
-            Prelude.<*> (x Core..:? "MaxBand")
-            Prelude.<*> (x Core..:? "MaxFilesInBand")
-            Prelude.<*> (x Core..:? "Recurse")
-            Prelude.<*> (x Core..:? "AdditionalOptions")
-            Prelude.<*> (x Core..:? "CompressionType")
-            Prelude.<*> (x Core..:? "Exclusions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "GroupSize")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..:? "Paths" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "GroupFiles")
+            Prelude.<*> (x Data..:? "MaxBand")
+            Prelude.<*> (x Data..:? "MaxFilesInBand")
+            Prelude.<*> (x Data..:? "Recurse")
+            Prelude.<*> (x Data..:? "AdditionalOptions")
+            Prelude.<*> (x Data..:? "CompressionType")
+            Prelude.<*> (x Data..:? "Exclusions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "GroupSize")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..:? "Paths" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable S3ParquetSource where
@@ -245,23 +246,23 @@ instance Prelude.NFData S3ParquetSource where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf paths
 
-instance Core.ToJSON S3ParquetSource where
+instance Data.ToJSON S3ParquetSource where
   toJSON S3ParquetSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutputSchemas" Core..=) Prelude.<$> outputSchemas,
-            ("GroupFiles" Core..=) Prelude.<$> groupFiles,
-            ("MaxBand" Core..=) Prelude.<$> maxBand,
-            ("MaxFilesInBand" Core..=)
+          [ ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
+            ("GroupFiles" Data..=) Prelude.<$> groupFiles,
+            ("MaxBand" Data..=) Prelude.<$> maxBand,
+            ("MaxFilesInBand" Data..=)
               Prelude.<$> maxFilesInBand,
-            ("Recurse" Core..=) Prelude.<$> recurse,
-            ("AdditionalOptions" Core..=)
+            ("Recurse" Data..=) Prelude.<$> recurse,
+            ("AdditionalOptions" Data..=)
               Prelude.<$> additionalOptions,
-            ("CompressionType" Core..=)
+            ("CompressionType" Data..=)
               Prelude.<$> compressionType,
-            ("Exclusions" Core..=) Prelude.<$> exclusions,
-            ("GroupSize" Core..=) Prelude.<$> groupSize,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Paths" Core..= paths)
+            ("Exclusions" Data..=) Prelude.<$> exclusions,
+            ("GroupSize" Data..=) Prelude.<$> groupSize,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Paths" Data..= paths)
           ]
       )

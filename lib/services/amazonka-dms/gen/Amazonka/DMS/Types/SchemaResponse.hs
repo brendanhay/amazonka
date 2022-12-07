@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.DatabaseShortInfoResponse
 import Amazonka.DMS.Types.SchemaShortInfoResponse
 import Amazonka.DMS.Types.ServerShortInfoResponse
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a schema in a Fleet Advisor collector inventory.
@@ -141,21 +142,21 @@ schemaResponse_schemaId = Lens.lens (\SchemaResponse' {schemaId} -> schemaId) (\
 schemaResponse_codeSize :: Lens.Lens' SchemaResponse (Prelude.Maybe Prelude.Integer)
 schemaResponse_codeSize = Lens.lens (\SchemaResponse' {codeSize} -> codeSize) (\s@SchemaResponse' {} a -> s {codeSize = a} :: SchemaResponse)
 
-instance Core.FromJSON SchemaResponse where
+instance Data.FromJSON SchemaResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaResponse"
       ( \x ->
           SchemaResponse'
-            Prelude.<$> (x Core..:? "DatabaseInstance")
-            Prelude.<*> (x Core..:? "Similarity")
-            Prelude.<*> (x Core..:? "OriginalSchema")
-            Prelude.<*> (x Core..:? "CodeLineCount")
-            Prelude.<*> (x Core..:? "SchemaName")
-            Prelude.<*> (x Core..:? "Server")
-            Prelude.<*> (x Core..:? "Complexity")
-            Prelude.<*> (x Core..:? "SchemaId")
-            Prelude.<*> (x Core..:? "CodeSize")
+            Prelude.<$> (x Data..:? "DatabaseInstance")
+            Prelude.<*> (x Data..:? "Similarity")
+            Prelude.<*> (x Data..:? "OriginalSchema")
+            Prelude.<*> (x Data..:? "CodeLineCount")
+            Prelude.<*> (x Data..:? "SchemaName")
+            Prelude.<*> (x Data..:? "Server")
+            Prelude.<*> (x Data..:? "Complexity")
+            Prelude.<*> (x Data..:? "SchemaId")
+            Prelude.<*> (x Data..:? "CodeSize")
       )
 
 instance Prelude.Hashable SchemaResponse where

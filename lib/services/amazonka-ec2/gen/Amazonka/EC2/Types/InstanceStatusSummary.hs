@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceStatusSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceStatusDetails
 import Amazonka.EC2.Types.SummaryStatus
@@ -66,13 +67,13 @@ instanceStatusSummary_details = Lens.lens (\InstanceStatusSummary' {details} -> 
 instanceStatusSummary_status :: Lens.Lens' InstanceStatusSummary SummaryStatus
 instanceStatusSummary_status = Lens.lens (\InstanceStatusSummary' {status} -> status) (\s@InstanceStatusSummary' {} a -> s {status = a} :: InstanceStatusSummary)
 
-instance Core.FromXML InstanceStatusSummary where
+instance Data.FromXML InstanceStatusSummary where
   parseXML x =
     InstanceStatusSummary'
-      Prelude.<$> ( x Core..@? "details" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "details" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@ "status")
+      Prelude.<*> (x Data..@ "status")
 
 instance Prelude.Hashable InstanceStatusSummary where
   hashWithSalt _salt InstanceStatusSummary' {..} =

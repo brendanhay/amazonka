@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.ProvisionalConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a provisional configuration.
@@ -55,13 +56,13 @@ newProvisionalConfiguration pMaxTimeToLiveInMinutes_ =
 provisionalConfiguration_maxTimeToLiveInMinutes :: Lens.Lens' ProvisionalConfiguration Prelude.Int
 provisionalConfiguration_maxTimeToLiveInMinutes = Lens.lens (\ProvisionalConfiguration' {maxTimeToLiveInMinutes} -> maxTimeToLiveInMinutes) (\s@ProvisionalConfiguration' {} a -> s {maxTimeToLiveInMinutes = a} :: ProvisionalConfiguration)
 
-instance Core.FromJSON ProvisionalConfiguration where
+instance Data.FromJSON ProvisionalConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisionalConfiguration"
       ( \x ->
           ProvisionalConfiguration'
-            Prelude.<$> (x Core..: "MaxTimeToLiveInMinutes")
+            Prelude.<$> (x Data..: "MaxTimeToLiveInMinutes")
       )
 
 instance Prelude.Hashable ProvisionalConfiguration where
@@ -72,13 +73,13 @@ instance Prelude.NFData ProvisionalConfiguration where
   rnf ProvisionalConfiguration' {..} =
     Prelude.rnf maxTimeToLiveInMinutes
 
-instance Core.ToJSON ProvisionalConfiguration where
+instance Data.ToJSON ProvisionalConfiguration where
   toJSON ProvisionalConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "MaxTimeToLiveInMinutes"
-                  Core..= maxTimeToLiveInMinutes
+                  Data..= maxTimeToLiveInMinutes
               )
           ]
       )

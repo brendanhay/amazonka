@@ -47,6 +47,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,7 +153,7 @@ instance Core.AWSRequest CreateRepository where
     Response.receiveJSON
       ( \s h x ->
           CreateRepositoryResponse'
-            Prelude.<$> (x Core..?> "repository")
+            Prelude.<$> (x Data..?> "repository")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,36 +175,36 @@ instance Prelude.NFData CreateRepository where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf repository
 
-instance Core.ToHeaders CreateRepository where
+instance Data.ToHeaders CreateRepository where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRepository where
+instance Data.ToJSON CreateRepository where
   toJSON CreateRepository' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("upstreams" Core..=) Prelude.<$> upstreams,
-            ("description" Core..=) Prelude.<$> description
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("upstreams" Data..=) Prelude.<$> upstreams,
+            ("description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath CreateRepository where
+instance Data.ToPath CreateRepository where
   toPath = Prelude.const "/v1/repository"
 
-instance Core.ToQuery CreateRepository where
+instance Data.ToQuery CreateRepository where
   toQuery CreateRepository' {..} =
     Prelude.mconcat
-      [ "domain-owner" Core.=: domainOwner,
-        "domain" Core.=: domain,
-        "repository" Core.=: repository
+      [ "domain-owner" Data.=: domainOwner,
+        "domain" Data.=: domain,
+        "repository" Data.=: repository
       ]
 
 -- | /See:/ 'newCreateRepositoryResponse' smart constructor.

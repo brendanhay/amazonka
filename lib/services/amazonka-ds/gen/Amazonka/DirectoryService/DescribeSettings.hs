@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,9 +112,9 @@ instance Core.AWSRequest DescribeSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeSettingsResponse'
-            Prelude.<$> (x Core..?> "DirectoryId")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "SettingEntries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "DirectoryId")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "SettingEntries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,35 +130,35 @@ instance Prelude.NFData DescribeSettings where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf directoryId
 
-instance Core.ToHeaders DescribeSettings where
+instance Data.ToHeaders DescribeSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.DescribeSettings" ::
+              Data.=# ( "DirectoryService_20150416.DescribeSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSettings where
+instance Data.ToJSON DescribeSettings where
   toJSON DescribeSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Status" Core..=) Prelude.<$> status,
-            Prelude.Just ("DirectoryId" Core..= directoryId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Status" Data..=) Prelude.<$> status,
+            Prelude.Just ("DirectoryId" Data..= directoryId)
           ]
       )
 
-instance Core.ToPath DescribeSettings where
+instance Data.ToPath DescribeSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSettings where
+instance Data.ToQuery DescribeSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSettingsResponse' smart constructor.

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -112,9 +113,9 @@ instance Core.AWSRequest DescribeAppVersionTemplate where
       ( \s h x ->
           DescribeAppVersionTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "appArn")
-            Prelude.<*> (x Core..:> "appTemplateBody")
-            Prelude.<*> (x Core..:> "appVersion")
+            Prelude.<*> (x Data..:> "appArn")
+            Prelude.<*> (x Data..:> "appTemplateBody")
+            Prelude.<*> (x Data..:> "appVersion")
       )
 
 instance Prelude.Hashable DescribeAppVersionTemplate where
@@ -127,31 +128,31 @@ instance Prelude.NFData DescribeAppVersionTemplate where
     Prelude.rnf appArn
       `Prelude.seq` Prelude.rnf appVersion
 
-instance Core.ToHeaders DescribeAppVersionTemplate where
+instance Data.ToHeaders DescribeAppVersionTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAppVersionTemplate where
+instance Data.ToJSON DescribeAppVersionTemplate where
   toJSON DescribeAppVersionTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("appArn" Core..= appArn),
-            Prelude.Just ("appVersion" Core..= appVersion)
+          [ Prelude.Just ("appArn" Data..= appArn),
+            Prelude.Just ("appVersion" Data..= appVersion)
           ]
       )
 
-instance Core.ToPath DescribeAppVersionTemplate where
+instance Data.ToPath DescribeAppVersionTemplate where
   toPath =
     Prelude.const "/describe-app-version-template"
 
-instance Core.ToQuery DescribeAppVersionTemplate where
+instance Data.ToQuery DescribeAppVersionTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAppVersionTemplateResponse' smart constructor.

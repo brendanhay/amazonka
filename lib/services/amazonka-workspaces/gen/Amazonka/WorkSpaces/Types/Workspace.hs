@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.Workspace where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.ModificationState
 import Amazonka.WorkSpaces.Types.RelatedWorkspaceProperties
@@ -230,32 +231,32 @@ workspace_modificationStates = Lens.lens (\Workspace' {modificationStates} -> mo
 workspace_ipAddress :: Lens.Lens' Workspace (Prelude.Maybe Prelude.Text)
 workspace_ipAddress = Lens.lens (\Workspace' {ipAddress} -> ipAddress) (\s@Workspace' {} a -> s {ipAddress = a} :: Workspace)
 
-instance Core.FromJSON Workspace where
+instance Data.FromJSON Workspace where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Workspace"
       ( \x ->
           Workspace'
-            Prelude.<$> (x Core..:? "WorkspaceProperties")
-            Prelude.<*> (x Core..:? "DirectoryId")
-            Prelude.<*> ( x Core..:? "RelatedWorkspaces"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "WorkspaceProperties")
+            Prelude.<*> (x Data..:? "DirectoryId")
+            Prelude.<*> ( x Data..:? "RelatedWorkspaces"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "VolumeEncryptionKey")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "UserName")
-            Prelude.<*> (x Core..:? "SubnetId")
-            Prelude.<*> (x Core..:? "ComputerName")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "WorkspaceId")
-            Prelude.<*> (x Core..:? "UserVolumeEncryptionEnabled")
-            Prelude.<*> (x Core..:? "BundleId")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "RootVolumeEncryptionEnabled")
-            Prelude.<*> ( x Core..:? "ModificationStates"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "VolumeEncryptionKey")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "UserName")
+            Prelude.<*> (x Data..:? "SubnetId")
+            Prelude.<*> (x Data..:? "ComputerName")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "WorkspaceId")
+            Prelude.<*> (x Data..:? "UserVolumeEncryptionEnabled")
+            Prelude.<*> (x Data..:? "BundleId")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "RootVolumeEncryptionEnabled")
+            Prelude.<*> ( x Data..:? "ModificationStates"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance Prelude.Hashable Workspace where

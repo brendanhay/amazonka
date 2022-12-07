@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.VolumeiSCSIAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Lists iSCSI information about a volume.
@@ -89,17 +90,17 @@ volumeiSCSIAttributes_chapEnabled = Lens.lens (\VolumeiSCSIAttributes' {chapEnab
 volumeiSCSIAttributes_networkInterfaceId :: Lens.Lens' VolumeiSCSIAttributes (Prelude.Maybe Prelude.Text)
 volumeiSCSIAttributes_networkInterfaceId = Lens.lens (\VolumeiSCSIAttributes' {networkInterfaceId} -> networkInterfaceId) (\s@VolumeiSCSIAttributes' {} a -> s {networkInterfaceId = a} :: VolumeiSCSIAttributes)
 
-instance Core.FromJSON VolumeiSCSIAttributes where
+instance Data.FromJSON VolumeiSCSIAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VolumeiSCSIAttributes"
       ( \x ->
           VolumeiSCSIAttributes'
-            Prelude.<$> (x Core..:? "NetworkInterfacePort")
-            Prelude.<*> (x Core..:? "LunNumber")
-            Prelude.<*> (x Core..:? "TargetARN")
-            Prelude.<*> (x Core..:? "ChapEnabled")
-            Prelude.<*> (x Core..:? "NetworkInterfaceId")
+            Prelude.<$> (x Data..:? "NetworkInterfacePort")
+            Prelude.<*> (x Data..:? "LunNumber")
+            Prelude.<*> (x Data..:? "TargetARN")
+            Prelude.<*> (x Data..:? "ChapEnabled")
+            Prelude.<*> (x Data..:? "NetworkInterfaceId")
       )
 
 instance Prelude.Hashable VolumeiSCSIAttributes where

@@ -48,6 +48,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,9 +141,9 @@ instance Core.AWSRequest UpdateFramework where
     Response.receiveJSON
       ( \s h x ->
           UpdateFrameworkResponse'
-            Prelude.<$> (x Core..?> "FrameworkArn")
-            Prelude.<*> (x Core..?> "FrameworkName")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Data..?> "FrameworkArn")
+            Prelude.<*> (x Data..?> "FrameworkName")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,36 +161,36 @@ instance Prelude.NFData UpdateFramework where
       `Prelude.seq` Prelude.rnf frameworkControls
       `Prelude.seq` Prelude.rnf frameworkName
 
-instance Core.ToHeaders UpdateFramework where
+instance Data.ToHeaders UpdateFramework where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFramework where
+instance Data.ToJSON UpdateFramework where
   toJSON UpdateFramework' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FrameworkDescription" Core..=)
+          [ ("FrameworkDescription" Data..=)
               Prelude.<$> frameworkDescription,
-            ("IdempotencyToken" Core..=)
+            ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("FrameworkControls" Core..=)
+            ("FrameworkControls" Data..=)
               Prelude.<$> frameworkControls
           ]
       )
 
-instance Core.ToPath UpdateFramework where
+instance Data.ToPath UpdateFramework where
   toPath UpdateFramework' {..} =
     Prelude.mconcat
-      ["/audit/frameworks/", Core.toBS frameworkName]
+      ["/audit/frameworks/", Data.toBS frameworkName]
 
-instance Core.ToQuery UpdateFramework where
+instance Data.ToQuery UpdateFramework where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFrameworkResponse' smart constructor.
@@ -205,7 +206,7 @@ data UpdateFrameworkResponse = UpdateFrameworkResponse'
     -- Coordinated Universal Time (UTC). The value of @CreationTime@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -261,7 +262,7 @@ updateFrameworkResponse_frameworkName = Lens.lens (\UpdateFrameworkResponse' {fr
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 updateFrameworkResponse_creationTime :: Lens.Lens' UpdateFrameworkResponse (Prelude.Maybe Prelude.UTCTime)
-updateFrameworkResponse_creationTime = Lens.lens (\UpdateFrameworkResponse' {creationTime} -> creationTime) (\s@UpdateFrameworkResponse' {} a -> s {creationTime = a} :: UpdateFrameworkResponse) Prelude.. Lens.mapping Core._Time
+updateFrameworkResponse_creationTime = Lens.lens (\UpdateFrameworkResponse' {creationTime} -> creationTime) (\s@UpdateFrameworkResponse' {} a -> s {creationTime = a} :: UpdateFrameworkResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updateFrameworkResponse_httpStatus :: Lens.Lens' UpdateFrameworkResponse Prelude.Int

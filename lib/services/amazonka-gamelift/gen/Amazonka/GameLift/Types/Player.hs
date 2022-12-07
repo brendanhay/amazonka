@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.Player where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.AttributeValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -118,18 +119,18 @@ player_latencyInMs = Lens.lens (\Player' {latencyInMs} -> latencyInMs) (\s@Playe
 player_playerId :: Lens.Lens' Player (Prelude.Maybe Prelude.Text)
 player_playerId = Lens.lens (\Player' {playerId} -> playerId) (\s@Player' {} a -> s {playerId = a} :: Player)
 
-instance Core.FromJSON Player where
+instance Data.FromJSON Player where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Player"
       ( \x ->
           Player'
-            Prelude.<$> (x Core..:? "Team")
-            Prelude.<*> ( x Core..:? "PlayerAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Team")
+            Prelude.<*> ( x Data..:? "PlayerAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LatencyInMs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PlayerId")
+            Prelude.<*> (x Data..:? "LatencyInMs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PlayerId")
       )
 
 instance Prelude.Hashable Player where
@@ -146,14 +147,14 @@ instance Prelude.NFData Player where
       `Prelude.seq` Prelude.rnf latencyInMs
       `Prelude.seq` Prelude.rnf playerId
 
-instance Core.ToJSON Player where
+instance Data.ToJSON Player where
   toJSON Player' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Team" Core..=) Prelude.<$> team,
-            ("PlayerAttributes" Core..=)
+          [ ("Team" Data..=) Prelude.<$> team,
+            ("PlayerAttributes" Data..=)
               Prelude.<$> playerAttributes,
-            ("LatencyInMs" Core..=) Prelude.<$> latencyInMs,
-            ("PlayerId" Core..=) Prelude.<$> playerId
+            ("LatencyInMs" Data..=) Prelude.<$> latencyInMs,
+            ("PlayerId" Data..=) Prelude.<$> playerId
           ]
       )

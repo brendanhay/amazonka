@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -279,7 +280,7 @@ instance Core.AWSRequest RegisterContainerInstance where
     Response.receiveJSON
       ( \s h x ->
           RegisterContainerInstanceResponse'
-            Prelude.<$> (x Core..?> "containerInstance")
+            Prelude.<$> (x Data..?> "containerInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -307,46 +308,46 @@ instance Prelude.NFData RegisterContainerInstance where
       `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf totalResources
 
-instance Core.ToHeaders RegisterContainerInstance where
+instance Data.ToHeaders RegisterContainerInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.RegisterContainerInstance" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.RegisterContainerInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterContainerInstance where
+instance Data.ToJSON RegisterContainerInstance where
   toJSON RegisterContainerInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("cluster" Core..=) Prelude.<$> cluster,
-            ("versionInfo" Core..=) Prelude.<$> versionInfo,
-            ("instanceIdentityDocumentSignature" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("cluster" Data..=) Prelude.<$> cluster,
+            ("versionInfo" Data..=) Prelude.<$> versionInfo,
+            ("instanceIdentityDocumentSignature" Data..=)
               Prelude.<$> instanceIdentityDocumentSignature,
-            ("platformDevices" Core..=)
+            ("platformDevices" Data..=)
               Prelude.<$> platformDevices,
-            ("containerInstanceArn" Core..=)
+            ("containerInstanceArn" Data..=)
               Prelude.<$> containerInstanceArn,
-            ("instanceIdentityDocument" Core..=)
+            ("instanceIdentityDocument" Data..=)
               Prelude.<$> instanceIdentityDocument,
-            ("attributes" Core..=) Prelude.<$> attributes,
-            ("totalResources" Core..=)
+            ("attributes" Data..=) Prelude.<$> attributes,
+            ("totalResources" Data..=)
               Prelude.<$> totalResources
           ]
       )
 
-instance Core.ToPath RegisterContainerInstance where
+instance Data.ToPath RegisterContainerInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterContainerInstance where
+instance Data.ToQuery RegisterContainerInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterContainerInstanceResponse' smart constructor.

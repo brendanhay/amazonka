@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.Threshold where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.ThresholdType
 import Amazonka.DataBrew.Types.ThresholdUnit
 import qualified Amazonka.Prelude as Prelude
@@ -83,15 +84,15 @@ threshold_unit = Lens.lens (\Threshold' {unit} -> unit) (\s@Threshold' {} a -> s
 threshold_value :: Lens.Lens' Threshold Prelude.Double
 threshold_value = Lens.lens (\Threshold' {value} -> value) (\s@Threshold' {} a -> s {value = a} :: Threshold)
 
-instance Core.FromJSON Threshold where
+instance Data.FromJSON Threshold where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Threshold"
       ( \x ->
           Threshold'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Unit")
-            Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Unit")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable Threshold where
@@ -106,12 +107,12 @@ instance Prelude.NFData Threshold where
       `Prelude.seq` Prelude.rnf unit
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Threshold where
+instance Data.ToJSON Threshold where
   toJSON Threshold' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Unit" Core..=) Prelude.<$> unit,
-            Prelude.Just ("Value" Core..= value)
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Unit" Data..=) Prelude.<$> unit,
+            Prelude.Just ("Value" Data..= value)
           ]
       )

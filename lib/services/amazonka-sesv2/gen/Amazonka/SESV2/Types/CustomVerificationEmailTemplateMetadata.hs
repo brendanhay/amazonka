@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.CustomVerificationEmailTemplateMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a custom verification email template.
@@ -98,19 +99,19 @@ customVerificationEmailTemplateMetadata_failureRedirectionURL :: Lens.Lens' Cust
 customVerificationEmailTemplateMetadata_failureRedirectionURL = Lens.lens (\CustomVerificationEmailTemplateMetadata' {failureRedirectionURL} -> failureRedirectionURL) (\s@CustomVerificationEmailTemplateMetadata' {} a -> s {failureRedirectionURL = a} :: CustomVerificationEmailTemplateMetadata)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomVerificationEmailTemplateMetadata
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomVerificationEmailTemplateMetadata"
       ( \x ->
           CustomVerificationEmailTemplateMetadata'
-            Prelude.<$> (x Core..:? "TemplateName")
-            Prelude.<*> (x Core..:? "SuccessRedirectionURL")
-            Prelude.<*> (x Core..:? "FromEmailAddress")
-            Prelude.<*> (x Core..:? "TemplateSubject")
-            Prelude.<*> (x Core..:? "FailureRedirectionURL")
+            Prelude.<$> (x Data..:? "TemplateName")
+            Prelude.<*> (x Data..:? "SuccessRedirectionURL")
+            Prelude.<*> (x Data..:? "FromEmailAddress")
+            Prelude.<*> (x Data..:? "TemplateSubject")
+            Prelude.<*> (x Data..:? "FailureRedirectionURL")
       )
 
 instance

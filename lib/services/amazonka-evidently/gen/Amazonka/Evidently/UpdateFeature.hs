@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -211,7 +212,7 @@ instance Core.AWSRequest UpdateFeature where
       ( \s h x ->
           UpdateFeatureResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "feature")
+            Prelude.<*> (x Data..:> "feature")
       )
 
 instance Prelude.Hashable UpdateFeature where
@@ -236,45 +237,45 @@ instance Prelude.NFData UpdateFeature where
       `Prelude.seq` Prelude.rnf feature
       `Prelude.seq` Prelude.rnf project
 
-instance Core.ToHeaders UpdateFeature where
+instance Data.ToHeaders UpdateFeature where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFeature where
+instance Data.ToJSON UpdateFeature where
   toJSON UpdateFeature' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("evaluationStrategy" Core..=)
+          [ ("evaluationStrategy" Data..=)
               Prelude.<$> evaluationStrategy,
-            ("description" Core..=) Prelude.<$> description,
-            ("addOrUpdateVariations" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("addOrUpdateVariations" Data..=)
               Prelude.<$> addOrUpdateVariations,
-            ("entityOverrides" Core..=)
+            ("entityOverrides" Data..=)
               Prelude.<$> entityOverrides,
-            ("removeVariations" Core..=)
+            ("removeVariations" Data..=)
               Prelude.<$> removeVariations,
-            ("defaultVariation" Core..=)
+            ("defaultVariation" Data..=)
               Prelude.<$> defaultVariation
           ]
       )
 
-instance Core.ToPath UpdateFeature where
+instance Data.ToPath UpdateFeature where
   toPath UpdateFeature' {..} =
     Prelude.mconcat
       [ "/projects/",
-        Core.toBS project,
+        Data.toBS project,
         "/features/",
-        Core.toBS feature
+        Data.toBS feature
       ]
 
-instance Core.ToQuery UpdateFeature where
+instance Data.ToQuery UpdateFeature where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFeatureResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.CodeHookSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.LambdaCodeHook
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,13 +57,13 @@ newCodeHookSpecification pLambdaCodeHook_ =
 codeHookSpecification_lambdaCodeHook :: Lens.Lens' CodeHookSpecification LambdaCodeHook
 codeHookSpecification_lambdaCodeHook = Lens.lens (\CodeHookSpecification' {lambdaCodeHook} -> lambdaCodeHook) (\s@CodeHookSpecification' {} a -> s {lambdaCodeHook = a} :: CodeHookSpecification)
 
-instance Core.FromJSON CodeHookSpecification where
+instance Data.FromJSON CodeHookSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeHookSpecification"
       ( \x ->
           CodeHookSpecification'
-            Prelude.<$> (x Core..: "lambdaCodeHook")
+            Prelude.<$> (x Data..: "lambdaCodeHook")
       )
 
 instance Prelude.Hashable CodeHookSpecification where
@@ -73,11 +74,11 @@ instance Prelude.NFData CodeHookSpecification where
   rnf CodeHookSpecification' {..} =
     Prelude.rnf lambdaCodeHook
 
-instance Core.ToJSON CodeHookSpecification where
+instance Data.ToJSON CodeHookSpecification where
   toJSON CodeHookSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("lambdaCodeHook" Core..= lambdaCodeHook)
+              ("lambdaCodeHook" Data..= lambdaCodeHook)
           ]
       )

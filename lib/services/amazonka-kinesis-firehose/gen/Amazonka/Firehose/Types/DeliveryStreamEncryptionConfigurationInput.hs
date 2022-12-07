@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.DeliveryStreamEncryptionConfigurationInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.KeyType
 import qualified Amazonka.Prelude as Prelude
 
@@ -167,14 +168,14 @@ instance
       `Prelude.seq` Prelude.rnf keyType
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeliveryStreamEncryptionConfigurationInput
   where
   toJSON
     DeliveryStreamEncryptionConfigurationInput' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("KeyARN" Core..=) Prelude.<$> keyARN,
-              Prelude.Just ("KeyType" Core..= keyType)
+            [ ("KeyARN" Data..=) Prelude.<$> keyARN,
+              Prelude.Just ("KeyType" Data..= keyType)
             ]
         )

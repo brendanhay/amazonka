@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.HyperParameterSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ParameterRange
 import Amazonka.SageMaker.Types.ParameterType
@@ -122,19 +123,19 @@ hyperParameterSpecification_name = Lens.lens (\HyperParameterSpecification' {nam
 hyperParameterSpecification_type :: Lens.Lens' HyperParameterSpecification ParameterType
 hyperParameterSpecification_type = Lens.lens (\HyperParameterSpecification' {type'} -> type') (\s@HyperParameterSpecification' {} a -> s {type' = a} :: HyperParameterSpecification)
 
-instance Core.FromJSON HyperParameterSpecification where
+instance Data.FromJSON HyperParameterSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HyperParameterSpecification"
       ( \x ->
           HyperParameterSpecification'
-            Prelude.<$> (x Core..:? "DefaultValue")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "IsTunable")
-            Prelude.<*> (x Core..:? "Range")
-            Prelude.<*> (x Core..:? "IsRequired")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "DefaultValue")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "IsTunable")
+            Prelude.<*> (x Data..:? "Range")
+            Prelude.<*> (x Data..:? "IsRequired")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable HyperParameterSpecification where
@@ -157,16 +158,16 @@ instance Prelude.NFData HyperParameterSpecification where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON HyperParameterSpecification where
+instance Data.ToJSON HyperParameterSpecification where
   toJSON HyperParameterSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DefaultValue" Core..=) Prelude.<$> defaultValue,
-            ("Description" Core..=) Prelude.<$> description,
-            ("IsTunable" Core..=) Prelude.<$> isTunable,
-            ("Range" Core..=) Prelude.<$> range,
-            ("IsRequired" Core..=) Prelude.<$> isRequired,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Type" Core..= type')
+          [ ("DefaultValue" Data..=) Prelude.<$> defaultValue,
+            ("Description" Data..=) Prelude.<$> description,
+            ("IsTunable" Data..=) Prelude.<$> isTunable,
+            ("Range" Data..=) Prelude.<$> range,
+            ("IsRequired" Data..=) Prelude.<$> isRequired,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Type" Data..= type')
           ]
       )

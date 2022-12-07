@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.ZendeskConnectorProfileProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile properties required when using Zendesk.
@@ -56,15 +57,15 @@ zendeskConnectorProfileProperties_instanceUrl :: Lens.Lens' ZendeskConnectorProf
 zendeskConnectorProfileProperties_instanceUrl = Lens.lens (\ZendeskConnectorProfileProperties' {instanceUrl} -> instanceUrl) (\s@ZendeskConnectorProfileProperties' {} a -> s {instanceUrl = a} :: ZendeskConnectorProfileProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ZendeskConnectorProfileProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ZendeskConnectorProfileProperties"
       ( \x ->
           ZendeskConnectorProfileProperties'
-            Prelude.<$> (x Core..: "instanceUrl")
+            Prelude.<$> (x Data..: "instanceUrl")
       )
 
 instance
@@ -84,11 +85,11 @@ instance
     Prelude.rnf instanceUrl
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ZendeskConnectorProfileProperties
   where
   toJSON ZendeskConnectorProfileProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("instanceUrl" Core..= instanceUrl)]
+          [Prelude.Just ("instanceUrl" Data..= instanceUrl)]
       )

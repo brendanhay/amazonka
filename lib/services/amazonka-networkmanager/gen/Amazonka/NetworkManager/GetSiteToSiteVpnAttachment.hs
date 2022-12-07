@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetSiteToSiteVpnAttachment where
     Response.receiveJSON
       ( \s h x ->
           GetSiteToSiteVpnAttachmentResponse'
-            Prelude.<$> (x Core..?> "SiteToSiteVpnAttachment")
+            Prelude.<$> (x Data..?> "SiteToSiteVpnAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,25 +99,25 @@ instance Prelude.NFData GetSiteToSiteVpnAttachment where
   rnf GetSiteToSiteVpnAttachment' {..} =
     Prelude.rnf attachmentId
 
-instance Core.ToHeaders GetSiteToSiteVpnAttachment where
+instance Data.ToHeaders GetSiteToSiteVpnAttachment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSiteToSiteVpnAttachment where
+instance Data.ToPath GetSiteToSiteVpnAttachment where
   toPath GetSiteToSiteVpnAttachment' {..} =
     Prelude.mconcat
       [ "/site-to-site-vpn-attachments/",
-        Core.toBS attachmentId
+        Data.toBS attachmentId
       ]
 
-instance Core.ToQuery GetSiteToSiteVpnAttachment where
+instance Data.ToQuery GetSiteToSiteVpnAttachment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSiteToSiteVpnAttachmentResponse' smart constructor.

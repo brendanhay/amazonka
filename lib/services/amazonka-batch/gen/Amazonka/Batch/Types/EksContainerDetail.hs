@@ -25,6 +25,7 @@ import Amazonka.Batch.Types.EksContainerSecurityContext
 import Amazonka.Batch.Types.EksContainerVolumeMount
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details for container properties that are returned by @DescribeJobs@
@@ -276,23 +277,23 @@ eksContainerDetail_image = Lens.lens (\EksContainerDetail' {image} -> image) (\s
 eksContainerDetail_volumeMounts :: Lens.Lens' EksContainerDetail (Prelude.Maybe [EksContainerVolumeMount])
 eksContainerDetail_volumeMounts = Lens.lens (\EksContainerDetail' {volumeMounts} -> volumeMounts) (\s@EksContainerDetail' {} a -> s {volumeMounts = a} :: EksContainerDetail) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EksContainerDetail where
+instance Data.FromJSON EksContainerDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksContainerDetail"
       ( \x ->
           EksContainerDetail'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "command" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "imagePullPolicy")
-            Prelude.<*> (x Core..:? "securityContext")
-            Prelude.<*> (x Core..:? "reason")
-            Prelude.<*> (x Core..:? "exitCode")
-            Prelude.<*> (x Core..:? "resources")
-            Prelude.<*> (x Core..:? "args" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "env" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "image")
-            Prelude.<*> (x Core..:? "volumeMounts" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "command" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "imagePullPolicy")
+            Prelude.<*> (x Data..:? "securityContext")
+            Prelude.<*> (x Data..:? "reason")
+            Prelude.<*> (x Data..:? "exitCode")
+            Prelude.<*> (x Data..:? "resources")
+            Prelude.<*> (x Data..:? "args" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "env" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "image")
+            Prelude.<*> (x Data..:? "volumeMounts" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EksContainerDetail where

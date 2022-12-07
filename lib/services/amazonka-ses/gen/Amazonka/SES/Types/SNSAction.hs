@@ -21,6 +21,7 @@ module Amazonka.SES.Types.SNSAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.SNSActionEncoding
 
@@ -105,11 +106,11 @@ sNSAction_encoding = Lens.lens (\SNSAction' {encoding} -> encoding) (\s@SNSActio
 sNSAction_topicArn :: Lens.Lens' SNSAction Prelude.Text
 sNSAction_topicArn = Lens.lens (\SNSAction' {topicArn} -> topicArn) (\s@SNSAction' {} a -> s {topicArn = a} :: SNSAction)
 
-instance Core.FromXML SNSAction where
+instance Data.FromXML SNSAction where
   parseXML x =
     SNSAction'
-      Prelude.<$> (x Core..@? "Encoding")
-      Prelude.<*> (x Core..@ "TopicArn")
+      Prelude.<$> (x Data..@? "Encoding")
+      Prelude.<*> (x Data..@ "TopicArn")
 
 instance Prelude.Hashable SNSAction where
   hashWithSalt _salt SNSAction' {..} =
@@ -121,9 +122,9 @@ instance Prelude.NFData SNSAction where
     Prelude.rnf encoding
       `Prelude.seq` Prelude.rnf topicArn
 
-instance Core.ToQuery SNSAction where
+instance Data.ToQuery SNSAction where
   toQuery SNSAction' {..} =
     Prelude.mconcat
-      [ "Encoding" Core.=: encoding,
-        "TopicArn" Core.=: topicArn
+      [ "Encoding" Data.=: encoding,
+        "TopicArn" Data.=: topicArn
       ]

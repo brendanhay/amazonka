@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.OutboundCallerConfig
 import Amazonka.Connect.Types.QueueStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a queue.
@@ -132,21 +133,21 @@ queue_maxContacts = Lens.lens (\Queue' {maxContacts} -> maxContacts) (\s@Queue' 
 queue_outboundCallerConfig :: Lens.Lens' Queue (Prelude.Maybe OutboundCallerConfig)
 queue_outboundCallerConfig = Lens.lens (\Queue' {outboundCallerConfig} -> outboundCallerConfig) (\s@Queue' {} a -> s {outboundCallerConfig = a} :: Queue)
 
-instance Core.FromJSON Queue where
+instance Data.FromJSON Queue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Queue"
       ( \x ->
           Queue'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "QueueArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "QueueId")
-            Prelude.<*> (x Core..:? "HoursOfOperationId")
-            Prelude.<*> (x Core..:? "MaxContacts")
-            Prelude.<*> (x Core..:? "OutboundCallerConfig")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "QueueArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "QueueId")
+            Prelude.<*> (x Data..:? "HoursOfOperationId")
+            Prelude.<*> (x Data..:? "MaxContacts")
+            Prelude.<*> (x Data..:? "OutboundCallerConfig")
       )
 
 instance Prelude.Hashable Queue where

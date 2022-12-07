@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.ComponentBindingPropertiesValue where
 import Amazonka.AmplifyUiBuilder.Types.ComponentBindingPropertiesValueProperties
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the data binding configuration for a component at runtime.
@@ -76,17 +77,17 @@ componentBindingPropertiesValue_bindingProperties :: Lens.Lens' ComponentBinding
 componentBindingPropertiesValue_bindingProperties = Lens.lens (\ComponentBindingPropertiesValue' {bindingProperties} -> bindingProperties) (\s@ComponentBindingPropertiesValue' {} a -> s {bindingProperties = a} :: ComponentBindingPropertiesValue)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ComponentBindingPropertiesValue
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentBindingPropertiesValue"
       ( \x ->
           ComponentBindingPropertiesValue'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "defaultValue")
-            Prelude.<*> (x Core..:? "bindingProperties")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "defaultValue")
+            Prelude.<*> (x Data..:? "bindingProperties")
       )
 
 instance
@@ -109,13 +110,13 @@ instance
       `Prelude.seq` Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf bindingProperties
 
-instance Core.ToJSON ComponentBindingPropertiesValue where
+instance Data.ToJSON ComponentBindingPropertiesValue where
   toJSON ComponentBindingPropertiesValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("defaultValue" Core..=) Prelude.<$> defaultValue,
-            ("bindingProperties" Core..=)
+          [ ("type" Data..=) Prelude.<$> type',
+            ("defaultValue" Data..=) Prelude.<$> defaultValue,
+            ("bindingProperties" Data..=)
               Prelude.<$> bindingProperties
           ]
       )

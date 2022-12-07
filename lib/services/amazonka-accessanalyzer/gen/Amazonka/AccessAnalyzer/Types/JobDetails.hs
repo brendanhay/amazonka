@@ -23,6 +23,7 @@ import Amazonka.AccessAnalyzer.Types.JobError
 import Amazonka.AccessAnalyzer.Types.JobStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about the policy generation request.
@@ -32,7 +33,7 @@ data JobDetails = JobDetails'
   { -- | The job error for the policy generation request.
     jobError :: Prelude.Maybe JobError,
     -- | A timestamp of when the job was completed.
-    completedOn :: Prelude.Maybe Core.POSIX,
+    completedOn :: Prelude.Maybe Data.POSIX,
     -- | The @JobId@ that is returned by the @StartPolicyGeneration@ operation.
     -- The @JobId@ can be used with @GetGeneratedPolicy@ to retrieve the
     -- generated policies or used with @CancelPolicyGeneration@ to cancel the
@@ -41,7 +42,7 @@ data JobDetails = JobDetails'
     -- | The status of the job request.
     status :: JobStatus,
     -- | A timestamp of when the job was started.
-    startedOn :: Core.POSIX
+    startedOn :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,7 +80,7 @@ newJobDetails pJobId_ pStatus_ pStartedOn_ =
       completedOn = Prelude.Nothing,
       jobId = pJobId_,
       status = pStatus_,
-      startedOn = Core._Time Lens.# pStartedOn_
+      startedOn = Data._Time Lens.# pStartedOn_
     }
 
 -- | The job error for the policy generation request.
@@ -88,7 +89,7 @@ jobDetails_jobError = Lens.lens (\JobDetails' {jobError} -> jobError) (\s@JobDet
 
 -- | A timestamp of when the job was completed.
 jobDetails_completedOn :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.UTCTime)
-jobDetails_completedOn = Lens.lens (\JobDetails' {completedOn} -> completedOn) (\s@JobDetails' {} a -> s {completedOn = a} :: JobDetails) Prelude.. Lens.mapping Core._Time
+jobDetails_completedOn = Lens.lens (\JobDetails' {completedOn} -> completedOn) (\s@JobDetails' {} a -> s {completedOn = a} :: JobDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The @JobId@ that is returned by the @StartPolicyGeneration@ operation.
 -- The @JobId@ can be used with @GetGeneratedPolicy@ to retrieve the
@@ -103,19 +104,19 @@ jobDetails_status = Lens.lens (\JobDetails' {status} -> status) (\s@JobDetails' 
 
 -- | A timestamp of when the job was started.
 jobDetails_startedOn :: Lens.Lens' JobDetails Prelude.UTCTime
-jobDetails_startedOn = Lens.lens (\JobDetails' {startedOn} -> startedOn) (\s@JobDetails' {} a -> s {startedOn = a} :: JobDetails) Prelude.. Core._Time
+jobDetails_startedOn = Lens.lens (\JobDetails' {startedOn} -> startedOn) (\s@JobDetails' {} a -> s {startedOn = a} :: JobDetails) Prelude.. Data._Time
 
-instance Core.FromJSON JobDetails where
+instance Data.FromJSON JobDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobDetails"
       ( \x ->
           JobDetails'
-            Prelude.<$> (x Core..:? "jobError")
-            Prelude.<*> (x Core..:? "completedOn")
-            Prelude.<*> (x Core..: "jobId")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "startedOn")
+            Prelude.<$> (x Data..:? "jobError")
+            Prelude.<*> (x Data..:? "completedOn")
+            Prelude.<*> (x Data..: "jobId")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "startedOn")
       )
 
 instance Prelude.Hashable JobDetails where

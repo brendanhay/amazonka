@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.HttpUrlDestinationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an HTTP URL destination.
@@ -56,13 +57,13 @@ newHttpUrlDestinationSummary =
 httpUrlDestinationSummary_confirmationUrl :: Lens.Lens' HttpUrlDestinationSummary (Prelude.Maybe Prelude.Text)
 httpUrlDestinationSummary_confirmationUrl = Lens.lens (\HttpUrlDestinationSummary' {confirmationUrl} -> confirmationUrl) (\s@HttpUrlDestinationSummary' {} a -> s {confirmationUrl = a} :: HttpUrlDestinationSummary)
 
-instance Core.FromJSON HttpUrlDestinationSummary where
+instance Data.FromJSON HttpUrlDestinationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpUrlDestinationSummary"
       ( \x ->
           HttpUrlDestinationSummary'
-            Prelude.<$> (x Core..:? "confirmationUrl")
+            Prelude.<$> (x Data..:? "confirmationUrl")
       )
 
 instance Prelude.Hashable HttpUrlDestinationSummary where

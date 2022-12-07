@@ -21,6 +21,7 @@ module Amazonka.Location.Types.Place where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.PlaceGeometry
 import Amazonka.Location.Types.TimeZone
 import qualified Amazonka.Prelude as Prelude
@@ -245,26 +246,26 @@ place_municipality = Lens.lens (\Place' {municipality} -> municipality) (\s@Plac
 place_geometry :: Lens.Lens' Place PlaceGeometry
 place_geometry = Lens.lens (\Place' {geometry} -> geometry) (\s@Place' {} a -> s {geometry = a} :: Place)
 
-instance Core.FromJSON Place where
+instance Data.FromJSON Place where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Place"
       ( \x ->
           Place'
-            Prelude.<$> (x Core..:? "AddressNumber")
-            Prelude.<*> (x Core..:? "PostalCode")
-            Prelude.<*> (x Core..:? "Neighborhood")
-            Prelude.<*> (x Core..:? "UnitNumber")
-            Prelude.<*> (x Core..:? "Country")
-            Prelude.<*> (x Core..:? "Label")
-            Prelude.<*> (x Core..:? "UnitType")
-            Prelude.<*> (x Core..:? "TimeZone")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "SubRegion")
-            Prelude.<*> (x Core..:? "Interpolated")
-            Prelude.<*> (x Core..:? "Street")
-            Prelude.<*> (x Core..:? "Municipality")
-            Prelude.<*> (x Core..: "Geometry")
+            Prelude.<$> (x Data..:? "AddressNumber")
+            Prelude.<*> (x Data..:? "PostalCode")
+            Prelude.<*> (x Data..:? "Neighborhood")
+            Prelude.<*> (x Data..:? "UnitNumber")
+            Prelude.<*> (x Data..:? "Country")
+            Prelude.<*> (x Data..:? "Label")
+            Prelude.<*> (x Data..:? "UnitType")
+            Prelude.<*> (x Data..:? "TimeZone")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "SubRegion")
+            Prelude.<*> (x Data..:? "Interpolated")
+            Prelude.<*> (x Data..:? "Street")
+            Prelude.<*> (x Data..:? "Municipality")
+            Prelude.<*> (x Data..: "Geometry")
       )
 
 instance Prelude.Hashable Place where

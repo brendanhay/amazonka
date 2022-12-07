@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -52,7 +53,7 @@ data DescribeFraudster = DescribeFraudster'
   { -- | The identifier of the domain containing the fraudster.
     domainId :: Prelude.Text,
     -- | The identifier of the fraudster you are describing.
-    fraudsterId :: Core.Sensitive Prelude.Text
+    fraudsterId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -76,7 +77,7 @@ newDescribeFraudster ::
 newDescribeFraudster pDomainId_ pFraudsterId_ =
   DescribeFraudster'
     { domainId = pDomainId_,
-      fraudsterId = Core._Sensitive Lens.# pFraudsterId_
+      fraudsterId = Data._Sensitive Lens.# pFraudsterId_
     }
 
 -- | The identifier of the domain containing the fraudster.
@@ -85,7 +86,7 @@ describeFraudster_domainId = Lens.lens (\DescribeFraudster' {domainId} -> domain
 
 -- | The identifier of the fraudster you are describing.
 describeFraudster_fraudsterId :: Lens.Lens' DescribeFraudster Prelude.Text
-describeFraudster_fraudsterId = Lens.lens (\DescribeFraudster' {fraudsterId} -> fraudsterId) (\s@DescribeFraudster' {} a -> s {fraudsterId = a} :: DescribeFraudster) Prelude.. Core._Sensitive
+describeFraudster_fraudsterId = Lens.lens (\DescribeFraudster' {fraudsterId} -> fraudsterId) (\s@DescribeFraudster' {} a -> s {fraudsterId = a} :: DescribeFraudster) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest DescribeFraudster where
   type
@@ -97,7 +98,7 @@ instance Core.AWSRequest DescribeFraudster where
     Response.receiveJSON
       ( \s h x ->
           DescribeFraudsterResponse'
-            Prelude.<$> (x Core..?> "Fraudster")
+            Prelude.<$> (x Data..?> "Fraudster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,32 +112,32 @@ instance Prelude.NFData DescribeFraudster where
     Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf fraudsterId
 
-instance Core.ToHeaders DescribeFraudster where
+instance Data.ToHeaders DescribeFraudster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("VoiceID.DescribeFraudster" :: Prelude.ByteString),
+              Data.=# ("VoiceID.DescribeFraudster" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFraudster where
+instance Data.ToJSON DescribeFraudster where
   toJSON DescribeFraudster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DomainId" Core..= domainId),
-            Prelude.Just ("FraudsterId" Core..= fraudsterId)
+          [ Prelude.Just ("DomainId" Data..= domainId),
+            Prelude.Just ("FraudsterId" Data..= fraudsterId)
           ]
       )
 
-instance Core.ToPath DescribeFraudster where
+instance Data.ToPath DescribeFraudster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFraudster where
+instance Data.ToQuery DescribeFraudster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFraudsterResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.MonitoringConfigurationUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.ConfigurationType
 import Amazonka.KinesisAnalyticsV2.Types.LogLevel
 import Amazonka.KinesisAnalyticsV2.Types.MetricsLevel
@@ -105,15 +106,15 @@ instance Prelude.NFData MonitoringConfigurationUpdate where
       `Prelude.seq` Prelude.rnf configurationTypeUpdate
       `Prelude.seq` Prelude.rnf logLevelUpdate
 
-instance Core.ToJSON MonitoringConfigurationUpdate where
+instance Data.ToJSON MonitoringConfigurationUpdate where
   toJSON MonitoringConfigurationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MetricsLevelUpdate" Core..=)
+          [ ("MetricsLevelUpdate" Data..=)
               Prelude.<$> metricsLevelUpdate,
-            ("ConfigurationTypeUpdate" Core..=)
+            ("ConfigurationTypeUpdate" Data..=)
               Prelude.<$> configurationTypeUpdate,
-            ("LogLevelUpdate" Core..=)
+            ("LogLevelUpdate" Data..=)
               Prelude.<$> logLevelUpdate
           ]
       )

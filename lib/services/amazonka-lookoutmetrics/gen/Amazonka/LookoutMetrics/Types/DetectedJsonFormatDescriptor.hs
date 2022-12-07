@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.DetectedJsonFormatDescriptor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.DetectedField
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ detectedJsonFormatDescriptor_fileCompression = Lens.lens (\DetectedJsonFormatDes
 detectedJsonFormatDescriptor_charset :: Lens.Lens' DetectedJsonFormatDescriptor (Prelude.Maybe DetectedField)
 detectedJsonFormatDescriptor_charset = Lens.lens (\DetectedJsonFormatDescriptor' {charset} -> charset) (\s@DetectedJsonFormatDescriptor' {} a -> s {charset = a} :: DetectedJsonFormatDescriptor)
 
-instance Core.FromJSON DetectedJsonFormatDescriptor where
+instance Data.FromJSON DetectedJsonFormatDescriptor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectedJsonFormatDescriptor"
       ( \x ->
           DetectedJsonFormatDescriptor'
-            Prelude.<$> (x Core..:? "FileCompression")
-            Prelude.<*> (x Core..:? "Charset")
+            Prelude.<$> (x Data..:? "FileCompression")
+            Prelude.<*> (x Data..:? "Charset")
       )
 
 instance

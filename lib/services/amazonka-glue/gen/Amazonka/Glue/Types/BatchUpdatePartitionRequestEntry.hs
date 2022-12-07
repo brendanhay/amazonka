@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.BatchUpdatePartitionRequestEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.PartitionInput
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,13 +85,13 @@ instance
     Prelude.rnf partitionValueList
       `Prelude.seq` Prelude.rnf partitionInput
 
-instance Core.ToJSON BatchUpdatePartitionRequestEntry where
+instance Data.ToJSON BatchUpdatePartitionRequestEntry where
   toJSON BatchUpdatePartitionRequestEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PartitionValueList" Core..= partitionValueList),
+              ("PartitionValueList" Data..= partitionValueList),
             Prelude.Just
-              ("PartitionInput" Core..= partitionInput)
+              ("PartitionInput" Data..= partitionInput)
           ]
       )

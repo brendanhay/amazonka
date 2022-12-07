@@ -21,6 +21,7 @@ module Amazonka.CodeDeploy.Types.DeploymentOverview where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the deployment status of the instances in the
@@ -104,18 +105,18 @@ deploymentOverview_pending = Lens.lens (\DeploymentOverview' {pending} -> pendin
 deploymentOverview_inProgress :: Lens.Lens' DeploymentOverview (Prelude.Maybe Prelude.Integer)
 deploymentOverview_inProgress = Lens.lens (\DeploymentOverview' {inProgress} -> inProgress) (\s@DeploymentOverview' {} a -> s {inProgress = a} :: DeploymentOverview)
 
-instance Core.FromJSON DeploymentOverview where
+instance Data.FromJSON DeploymentOverview where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentOverview"
       ( \x ->
           DeploymentOverview'
-            Prelude.<$> (x Core..:? "Failed")
-            Prelude.<*> (x Core..:? "Succeeded")
-            Prelude.<*> (x Core..:? "Ready")
-            Prelude.<*> (x Core..:? "Skipped")
-            Prelude.<*> (x Core..:? "Pending")
-            Prelude.<*> (x Core..:? "InProgress")
+            Prelude.<$> (x Data..:? "Failed")
+            Prelude.<*> (x Data..:? "Succeeded")
+            Prelude.<*> (x Data..:? "Ready")
+            Prelude.<*> (x Data..:? "Skipped")
+            Prelude.<*> (x Data..:? "Pending")
+            Prelude.<*> (x Data..:? "InProgress")
       )
 
 instance Prelude.Hashable DeploymentOverview where

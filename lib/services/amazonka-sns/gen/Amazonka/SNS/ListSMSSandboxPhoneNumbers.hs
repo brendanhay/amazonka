@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,10 +135,10 @@ instance Core.AWSRequest ListSMSSandboxPhoneNumbers where
       "ListSMSSandboxPhoneNumbersResult"
       ( \s h x ->
           ListSMSSandboxPhoneNumbersResponse'
-            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "PhoneNumbers" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "PhoneNumbers" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -151,21 +152,21 @@ instance Prelude.NFData ListSMSSandboxPhoneNumbers where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListSMSSandboxPhoneNumbers where
+instance Data.ToHeaders ListSMSSandboxPhoneNumbers where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListSMSSandboxPhoneNumbers where
+instance Data.ToPath ListSMSSandboxPhoneNumbers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSMSSandboxPhoneNumbers where
+instance Data.ToQuery ListSMSSandboxPhoneNumbers where
   toQuery ListSMSSandboxPhoneNumbers' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListSMSSandboxPhoneNumbers" :: Prelude.ByteString),
+          Data.=: ("ListSMSSandboxPhoneNumbers" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListSMSSandboxPhoneNumbersResponse' smart constructor.

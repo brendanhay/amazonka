@@ -21,6 +21,7 @@ module Amazonka.M2.Types.VsamDetailAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.AlternateKey
 import Amazonka.M2.Types.PrimaryKey
 import qualified Amazonka.Prelude as Prelude
@@ -117,18 +118,18 @@ vsamDetailAttributes_cacheAtStartup = Lens.lens (\VsamDetailAttributes' {cacheAt
 vsamDetailAttributes_alternateKeys :: Lens.Lens' VsamDetailAttributes (Prelude.Maybe [AlternateKey])
 vsamDetailAttributes_alternateKeys = Lens.lens (\VsamDetailAttributes' {alternateKeys} -> alternateKeys) (\s@VsamDetailAttributes' {} a -> s {alternateKeys = a} :: VsamDetailAttributes) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON VsamDetailAttributes where
+instance Data.FromJSON VsamDetailAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VsamDetailAttributes"
       ( \x ->
           VsamDetailAttributes'
-            Prelude.<$> (x Core..:? "primaryKey")
-            Prelude.<*> (x Core..:? "encoding")
-            Prelude.<*> (x Core..:? "recordFormat")
-            Prelude.<*> (x Core..:? "compressed")
-            Prelude.<*> (x Core..:? "cacheAtStartup")
-            Prelude.<*> (x Core..:? "alternateKeys" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "primaryKey")
+            Prelude.<*> (x Data..:? "encoding")
+            Prelude.<*> (x Data..:? "recordFormat")
+            Prelude.<*> (x Data..:? "compressed")
+            Prelude.<*> (x Data..:? "cacheAtStartup")
+            Prelude.<*> (x Data..:? "alternateKeys" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable VsamDetailAttributes where

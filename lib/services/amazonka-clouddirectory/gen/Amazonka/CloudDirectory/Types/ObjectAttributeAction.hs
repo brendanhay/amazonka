@@ -23,6 +23,7 @@ import Amazonka.CloudDirectory.Types.TypedAttributeValue
 import Amazonka.CloudDirectory.Types.UpdateActionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The action to take on the object attribute.
@@ -75,13 +76,13 @@ instance Prelude.NFData ObjectAttributeAction where
     Prelude.rnf objectAttributeUpdateValue
       `Prelude.seq` Prelude.rnf objectAttributeActionType
 
-instance Core.ToJSON ObjectAttributeAction where
+instance Data.ToJSON ObjectAttributeAction where
   toJSON ObjectAttributeAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ObjectAttributeUpdateValue" Core..=)
+          [ ("ObjectAttributeUpdateValue" Data..=)
               Prelude.<$> objectAttributeUpdateValue,
-            ("ObjectAttributeActionType" Core..=)
+            ("ObjectAttributeActionType" Data..=)
               Prelude.<$> objectAttributeActionType
           ]
       )

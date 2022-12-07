@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.UpdateTagCollectionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A new collection of Amazon Web Services resources that are defined by an
@@ -138,12 +139,12 @@ instance Prelude.NFData UpdateTagCollectionFilter where
     Prelude.rnf appBoundaryKey
       `Prelude.seq` Prelude.rnf tagValues
 
-instance Core.ToJSON UpdateTagCollectionFilter where
+instance Data.ToJSON UpdateTagCollectionFilter where
   toJSON UpdateTagCollectionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AppBoundaryKey" Core..= appBoundaryKey),
-            Prelude.Just ("TagValues" Core..= tagValues)
+              ("AppBoundaryKey" Data..= appBoundaryKey),
+            Prelude.Just ("TagValues" Data..= tagValues)
           ]
       )

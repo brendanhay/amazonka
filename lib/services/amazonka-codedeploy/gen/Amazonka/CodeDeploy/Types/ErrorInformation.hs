@@ -22,6 +22,7 @@ module Amazonka.CodeDeploy.Types.ErrorInformation where
 import Amazonka.CodeDeploy.Types.DeployErrorCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a deployment error.
@@ -197,14 +198,14 @@ errorInformation_message = Lens.lens (\ErrorInformation' {message} -> message) (
 errorInformation_code :: Lens.Lens' ErrorInformation (Prelude.Maybe DeployErrorCode)
 errorInformation_code = Lens.lens (\ErrorInformation' {code} -> code) (\s@ErrorInformation' {} a -> s {code = a} :: ErrorInformation)
 
-instance Core.FromJSON ErrorInformation where
+instance Data.FromJSON ErrorInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorInformation"
       ( \x ->
           ErrorInformation'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable ErrorInformation where

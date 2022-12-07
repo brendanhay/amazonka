@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,18 +128,18 @@ instance Prelude.NFData DeleteBucketOwnershipControls where
     Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders DeleteBucketOwnershipControls where
+instance Data.ToHeaders DeleteBucketOwnershipControls where
   toHeaders DeleteBucketOwnershipControls' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath DeleteBucketOwnershipControls where
+instance Data.ToPath DeleteBucketOwnershipControls where
   toPath DeleteBucketOwnershipControls' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery DeleteBucketOwnershipControls where
+instance Data.ToQuery DeleteBucketOwnershipControls where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["ownershipControls"])

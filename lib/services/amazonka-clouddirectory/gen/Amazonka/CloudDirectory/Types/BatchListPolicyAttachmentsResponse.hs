@@ -21,6 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchListPolicyAttachmentsResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a ListPolicyAttachments response operation.
@@ -63,17 +64,17 @@ batchListPolicyAttachmentsResponse_objectIdentifiers :: Lens.Lens' BatchListPoli
 batchListPolicyAttachmentsResponse_objectIdentifiers = Lens.lens (\BatchListPolicyAttachmentsResponse' {objectIdentifiers} -> objectIdentifiers) (\s@BatchListPolicyAttachmentsResponse' {} a -> s {objectIdentifiers = a} :: BatchListPolicyAttachmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchListPolicyAttachmentsResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchListPolicyAttachmentsResponse"
       ( \x ->
           BatchListPolicyAttachmentsResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> ( x Core..:? "ObjectIdentifiers"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> ( x Data..:? "ObjectIdentifiers"
+                            Data..!= Prelude.mempty
                         )
       )
 

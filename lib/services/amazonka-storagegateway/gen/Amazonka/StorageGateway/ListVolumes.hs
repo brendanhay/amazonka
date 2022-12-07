@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,9 +150,9 @@ instance Core.AWSRequest ListVolumes where
     Response.receiveJSON
       ( \s h x ->
           ListVolumesResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "VolumeInfos" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "VolumeInfos" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,35 +168,35 @@ instance Prelude.NFData ListVolumes where
       `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders ListVolumes where
+instance Data.ToHeaders ListVolumes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.ListVolumes" ::
+              Data.=# ( "StorageGateway_20130630.ListVolumes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListVolumes where
+instance Data.ToJSON ListVolumes where
   toJSON ListVolumes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("GatewayARN" Core..=) Prelude.<$> gatewayARN,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("GatewayARN" Data..=) Prelude.<$> gatewayARN,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath ListVolumes where
+instance Data.ToPath ListVolumes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListVolumes where
+instance Data.ToQuery ListVolumes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the following fields:

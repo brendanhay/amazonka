@@ -40,6 +40,7 @@ where
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,29 +114,29 @@ instance Prelude.NFData DeleteTheme where
       `Prelude.seq` Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DeleteTheme where
+instance Data.ToHeaders DeleteTheme where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteTheme where
+instance Data.ToPath DeleteTheme where
   toPath DeleteTheme' {..} =
     Prelude.mconcat
       [ "/app/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/environment/",
-        Core.toBS environmentName,
+        Data.toBS environmentName,
         "/themes/",
-        Core.toBS id
+        Data.toBS id
       ]
 
-instance Core.ToQuery DeleteTheme where
+instance Data.ToQuery DeleteTheme where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteThemeResponse' smart constructor.

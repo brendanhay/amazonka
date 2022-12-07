@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.EncryptionAtRest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The data-volume encryption details.
@@ -58,13 +59,13 @@ newEncryptionAtRest pDataVolumeKMSKeyId_ =
 encryptionAtRest_dataVolumeKMSKeyId :: Lens.Lens' EncryptionAtRest Prelude.Text
 encryptionAtRest_dataVolumeKMSKeyId = Lens.lens (\EncryptionAtRest' {dataVolumeKMSKeyId} -> dataVolumeKMSKeyId) (\s@EncryptionAtRest' {} a -> s {dataVolumeKMSKeyId = a} :: EncryptionAtRest)
 
-instance Core.FromJSON EncryptionAtRest where
+instance Data.FromJSON EncryptionAtRest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionAtRest"
       ( \x ->
           EncryptionAtRest'
-            Prelude.<$> (x Core..: "dataVolumeKMSKeyId")
+            Prelude.<$> (x Data..: "dataVolumeKMSKeyId")
       )
 
 instance Prelude.Hashable EncryptionAtRest where
@@ -75,11 +76,11 @@ instance Prelude.NFData EncryptionAtRest where
   rnf EncryptionAtRest' {..} =
     Prelude.rnf dataVolumeKMSKeyId
 
-instance Core.ToJSON EncryptionAtRest where
+instance Data.ToJSON EncryptionAtRest where
   toJSON EncryptionAtRest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("dataVolumeKMSKeyId" Core..= dataVolumeKMSKeyId)
+              ("dataVolumeKMSKeyId" Data..= dataVolumeKMSKeyId)
           ]
       )

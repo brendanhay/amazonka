@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.ImageLayerAggregation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.ImageLayerSortBy
 import Amazonka.Inspector2.Types.SortOrder
 import Amazonka.Inspector2.Types.StringFilter
@@ -107,14 +108,14 @@ instance Prelude.NFData ImageLayerAggregation where
       `Prelude.seq` Prelude.rnf resourceIds
       `Prelude.seq` Prelude.rnf layerHashes
 
-instance Core.ToJSON ImageLayerAggregation where
+instance Data.ToJSON ImageLayerAggregation where
   toJSON ImageLayerAggregation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("repositories" Core..=) Prelude.<$> repositories,
-            ("resourceIds" Core..=) Prelude.<$> resourceIds,
-            ("layerHashes" Core..=) Prelude.<$> layerHashes
+          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("repositories" Data..=) Prelude.<$> repositories,
+            ("resourceIds" Data..=) Prelude.<$> resourceIds,
+            ("layerHashes" Data..=) Prelude.<$> layerHashes
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.QualificationType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types.QualificationTypeStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,7 +67,7 @@ data QualificationType = QualificationType'
     -- disabled and Workers can request a Qualification only once.
     retryDelayInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | The date and time the Qualification type was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The answers to the Qualification test specified in the Test parameter.
     answerKey :: Prelude.Maybe Prelude.Text,
     -- | Specifies that requests for the Qualification type are granted
@@ -215,7 +216,7 @@ qualificationType_retryDelayInSeconds = Lens.lens (\QualificationType' {retryDel
 
 -- | The date and time the Qualification type was created.
 qualificationType_creationTime :: Lens.Lens' QualificationType (Prelude.Maybe Prelude.UTCTime)
-qualificationType_creationTime = Lens.lens (\QualificationType' {creationTime} -> creationTime) (\s@QualificationType' {} a -> s {creationTime = a} :: QualificationType) Prelude.. Lens.mapping Core._Time
+qualificationType_creationTime = Lens.lens (\QualificationType' {creationTime} -> creationTime) (\s@QualificationType' {} a -> s {creationTime = a} :: QualificationType) Prelude.. Lens.mapping Data._Time
 
 -- | The answers to the Qualification test specified in the Test parameter.
 qualificationType_answerKey :: Lens.Lens' QualificationType (Prelude.Maybe Prelude.Text)
@@ -241,25 +242,25 @@ qualificationType_isRequestable = Lens.lens (\QualificationType' {isRequestable}
 qualificationType_qualificationTypeStatus :: Lens.Lens' QualificationType (Prelude.Maybe QualificationTypeStatus)
 qualificationType_qualificationTypeStatus = Lens.lens (\QualificationType' {qualificationTypeStatus} -> qualificationTypeStatus) (\s@QualificationType' {} a -> s {qualificationTypeStatus = a} :: QualificationType)
 
-instance Core.FromJSON QualificationType where
+instance Data.FromJSON QualificationType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QualificationType"
       ( \x ->
           QualificationType'
-            Prelude.<$> (x Core..:? "QualificationTypeId")
-            Prelude.<*> (x Core..:? "AutoGrantedValue")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "TestDurationInSeconds")
-            Prelude.<*> (x Core..:? "Keywords")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Test")
-            Prelude.<*> (x Core..:? "RetryDelayInSeconds")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "AnswerKey")
-            Prelude.<*> (x Core..:? "AutoGranted")
-            Prelude.<*> (x Core..:? "IsRequestable")
-            Prelude.<*> (x Core..:? "QualificationTypeStatus")
+            Prelude.<$> (x Data..:? "QualificationTypeId")
+            Prelude.<*> (x Data..:? "AutoGrantedValue")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "TestDurationInSeconds")
+            Prelude.<*> (x Data..:? "Keywords")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Test")
+            Prelude.<*> (x Data..:? "RetryDelayInSeconds")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "AnswerKey")
+            Prelude.<*> (x Data..:? "AutoGranted")
+            Prelude.<*> (x Data..:? "IsRequestable")
+            Prelude.<*> (x Data..:? "QualificationTypeStatus")
       )
 
 instance Prelude.Hashable QualificationType where

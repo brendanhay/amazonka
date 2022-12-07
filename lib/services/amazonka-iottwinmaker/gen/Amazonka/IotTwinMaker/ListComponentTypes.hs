@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,11 +125,11 @@ instance Core.AWSRequest ListComponentTypes where
     Response.receiveJSON
       ( \s h x ->
           ListComponentTypesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "maxResults")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "maxResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "workspaceId")
-            Prelude.<*> ( x Core..?> "componentTypeSummaries"
+            Prelude.<*> (x Data..:> "workspaceId")
+            Prelude.<*> ( x Data..?> "componentTypeSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -147,36 +148,36 @@ instance Prelude.NFData ListComponentTypes where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders ListComponentTypes where
+instance Data.ToHeaders ListComponentTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListComponentTypes where
+instance Data.ToJSON ListComponentTypes where
   toJSON ListComponentTypes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListComponentTypes where
+instance Data.ToPath ListComponentTypes where
   toPath ListComponentTypes' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/component-types-list"
       ]
 
-instance Core.ToQuery ListComponentTypes where
+instance Data.ToQuery ListComponentTypes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListComponentTypesResponse' smart constructor.

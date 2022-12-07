@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -67,10 +68,10 @@ data UpdateNamespace = UpdateNamespace'
     defaultIamRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The password of the administrator for the first database created in the
     -- namespace.
-    adminUserPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    adminUserPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The username of the administrator for the first database created in the
     -- namespace.
-    adminUsername :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    adminUsername :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the namespace.
     namespaceName :: Prelude.Text
   }
@@ -139,12 +140,12 @@ updateNamespace_defaultIamRoleArn = Lens.lens (\UpdateNamespace' {defaultIamRole
 -- | The password of the administrator for the first database created in the
 -- namespace.
 updateNamespace_adminUserPassword :: Lens.Lens' UpdateNamespace (Prelude.Maybe Prelude.Text)
-updateNamespace_adminUserPassword = Lens.lens (\UpdateNamespace' {adminUserPassword} -> adminUserPassword) (\s@UpdateNamespace' {} a -> s {adminUserPassword = a} :: UpdateNamespace) Prelude.. Lens.mapping Core._Sensitive
+updateNamespace_adminUserPassword = Lens.lens (\UpdateNamespace' {adminUserPassword} -> adminUserPassword) (\s@UpdateNamespace' {} a -> s {adminUserPassword = a} :: UpdateNamespace) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The username of the administrator for the first database created in the
 -- namespace.
 updateNamespace_adminUsername :: Lens.Lens' UpdateNamespace (Prelude.Maybe Prelude.Text)
-updateNamespace_adminUsername = Lens.lens (\UpdateNamespace' {adminUsername} -> adminUsername) (\s@UpdateNamespace' {} a -> s {adminUsername = a} :: UpdateNamespace) Prelude.. Lens.mapping Core._Sensitive
+updateNamespace_adminUsername = Lens.lens (\UpdateNamespace' {adminUsername} -> adminUsername) (\s@UpdateNamespace' {} a -> s {adminUsername = a} :: UpdateNamespace) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the namespace.
 updateNamespace_namespaceName :: Lens.Lens' UpdateNamespace Prelude.Text
@@ -161,7 +162,7 @@ instance Core.AWSRequest UpdateNamespace where
       ( \s h x ->
           UpdateNamespaceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "namespace")
+            Prelude.<*> (x Data..:> "namespace")
       )
 
 instance Prelude.Hashable UpdateNamespace where
@@ -184,42 +185,42 @@ instance Prelude.NFData UpdateNamespace where
       `Prelude.seq` Prelude.rnf adminUsername
       `Prelude.seq` Prelude.rnf namespaceName
 
-instance Core.ToHeaders UpdateNamespace where
+instance Data.ToHeaders UpdateNamespace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.UpdateNamespace" ::
+              Data.=# ( "RedshiftServerless.UpdateNamespace" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNamespace where
+instance Data.ToJSON UpdateNamespace where
   toJSON UpdateNamespace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("logExports" Core..=) Prelude.<$> logExports,
-            ("iamRoles" Core..=) Prelude.<$> iamRoles,
-            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("defaultIamRoleArn" Core..=)
+          [ ("logExports" Data..=) Prelude.<$> logExports,
+            ("iamRoles" Data..=) Prelude.<$> iamRoles,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("defaultIamRoleArn" Data..=)
               Prelude.<$> defaultIamRoleArn,
-            ("adminUserPassword" Core..=)
+            ("adminUserPassword" Data..=)
               Prelude.<$> adminUserPassword,
-            ("adminUsername" Core..=) Prelude.<$> adminUsername,
+            ("adminUsername" Data..=) Prelude.<$> adminUsername,
             Prelude.Just
-              ("namespaceName" Core..= namespaceName)
+              ("namespaceName" Data..= namespaceName)
           ]
       )
 
-instance Core.ToPath UpdateNamespace where
+instance Data.ToPath UpdateNamespace where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateNamespace where
+instance Data.ToQuery UpdateNamespace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateNamespaceResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.ResetActionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the configuration information of a reset action.
@@ -50,13 +51,13 @@ newResetActionConfiguration =
 resetActionConfiguration_note :: Lens.Lens' ResetActionConfiguration (Prelude.Maybe Prelude.Text)
 resetActionConfiguration_note = Lens.lens (\ResetActionConfiguration' {note} -> note) (\s@ResetActionConfiguration' {} a -> s {note = a} :: ResetActionConfiguration)
 
-instance Core.FromJSON ResetActionConfiguration where
+instance Data.FromJSON ResetActionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResetActionConfiguration"
       ( \x ->
           ResetActionConfiguration'
-            Prelude.<$> (x Core..:? "note")
+            Prelude.<$> (x Data..:? "note")
       )
 
 instance Prelude.Hashable ResetActionConfiguration where

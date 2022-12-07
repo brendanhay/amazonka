@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.PortRangeFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that describes the details of a port range filter.
@@ -61,14 +62,14 @@ portRangeFilter_beginInclusive = Lens.lens (\PortRangeFilter' {beginInclusive} -
 portRangeFilter_endInclusive :: Lens.Lens' PortRangeFilter (Prelude.Maybe Prelude.Natural)
 portRangeFilter_endInclusive = Lens.lens (\PortRangeFilter' {endInclusive} -> endInclusive) (\s@PortRangeFilter' {} a -> s {endInclusive = a} :: PortRangeFilter)
 
-instance Core.FromJSON PortRangeFilter where
+instance Data.FromJSON PortRangeFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortRangeFilter"
       ( \x ->
           PortRangeFilter'
-            Prelude.<$> (x Core..:? "beginInclusive")
-            Prelude.<*> (x Core..:? "endInclusive")
+            Prelude.<$> (x Data..:? "beginInclusive")
+            Prelude.<*> (x Data..:? "endInclusive")
       )
 
 instance Prelude.Hashable PortRangeFilter where
@@ -81,12 +82,12 @@ instance Prelude.NFData PortRangeFilter where
     Prelude.rnf beginInclusive
       `Prelude.seq` Prelude.rnf endInclusive
 
-instance Core.ToJSON PortRangeFilter where
+instance Data.ToJSON PortRangeFilter where
   toJSON PortRangeFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("beginInclusive" Core..=)
+          [ ("beginInclusive" Data..=)
               Prelude.<$> beginInclusive,
-            ("endInclusive" Core..=) Prelude.<$> endInclusive
+            ("endInclusive" Data..=) Prelude.<$> endInclusive
           ]
       )

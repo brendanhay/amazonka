@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.NoiseReducer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.NoiseReducerFilter
 import Amazonka.MediaConvert.Types.NoiseReducerFilterSettings
 import Amazonka.MediaConvert.Types.NoiseReducerSpatialFilterSettings
@@ -106,16 +107,16 @@ noiseReducer_filter = Lens.lens (\NoiseReducer' {filter'} -> filter') (\s@NoiseR
 noiseReducer_filterSettings :: Lens.Lens' NoiseReducer (Prelude.Maybe NoiseReducerFilterSettings)
 noiseReducer_filterSettings = Lens.lens (\NoiseReducer' {filterSettings} -> filterSettings) (\s@NoiseReducer' {} a -> s {filterSettings = a} :: NoiseReducer)
 
-instance Core.FromJSON NoiseReducer where
+instance Data.FromJSON NoiseReducer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NoiseReducer"
       ( \x ->
           NoiseReducer'
-            Prelude.<$> (x Core..:? "spatialFilterSettings")
-            Prelude.<*> (x Core..:? "temporalFilterSettings")
-            Prelude.<*> (x Core..:? "filter")
-            Prelude.<*> (x Core..:? "filterSettings")
+            Prelude.<$> (x Data..:? "spatialFilterSettings")
+            Prelude.<*> (x Data..:? "temporalFilterSettings")
+            Prelude.<*> (x Data..:? "filter")
+            Prelude.<*> (x Data..:? "filterSettings")
       )
 
 instance Prelude.Hashable NoiseReducer where
@@ -132,16 +133,16 @@ instance Prelude.NFData NoiseReducer where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf filterSettings
 
-instance Core.ToJSON NoiseReducer where
+instance Data.ToJSON NoiseReducer where
   toJSON NoiseReducer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("spatialFilterSettings" Core..=)
+          [ ("spatialFilterSettings" Data..=)
               Prelude.<$> spatialFilterSettings,
-            ("temporalFilterSettings" Core..=)
+            ("temporalFilterSettings" Data..=)
               Prelude.<$> temporalFilterSettings,
-            ("filter" Core..=) Prelude.<$> filter',
-            ("filterSettings" Core..=)
+            ("filter" Data..=) Prelude.<$> filter',
+            ("filterSettings" Data..=)
               Prelude.<$> filterSettings
           ]
       )

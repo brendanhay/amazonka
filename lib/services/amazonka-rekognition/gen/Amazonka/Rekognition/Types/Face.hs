@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.Face where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.BoundingBox
 
@@ -105,18 +106,18 @@ face_externalImageId = Lens.lens (\Face' {externalImageId} -> externalImageId) (
 face_imageId :: Lens.Lens' Face (Prelude.Maybe Prelude.Text)
 face_imageId = Lens.lens (\Face' {imageId} -> imageId) (\s@Face' {} a -> s {imageId = a} :: Face)
 
-instance Core.FromJSON Face where
+instance Data.FromJSON Face where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Face"
       ( \x ->
           Face'
-            Prelude.<$> (x Core..:? "IndexFacesModelVersion")
-            Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "FaceId")
-            Prelude.<*> (x Core..:? "BoundingBox")
-            Prelude.<*> (x Core..:? "ExternalImageId")
-            Prelude.<*> (x Core..:? "ImageId")
+            Prelude.<$> (x Data..:? "IndexFacesModelVersion")
+            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "FaceId")
+            Prelude.<*> (x Data..:? "BoundingBox")
+            Prelude.<*> (x Data..:? "ExternalImageId")
+            Prelude.<*> (x Data..:? "ImageId")
       )
 
 instance Prelude.Hashable Face where

@@ -21,6 +21,7 @@ module Amazonka.CodeDeploy.Types.ELBInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a load balancer in Elastic Load Balancing to use in a
@@ -66,11 +67,11 @@ newELBInfo = ELBInfo' {name = Prelude.Nothing}
 eLBInfo_name :: Lens.Lens' ELBInfo (Prelude.Maybe Prelude.Text)
 eLBInfo_name = Lens.lens (\ELBInfo' {name} -> name) (\s@ELBInfo' {} a -> s {name = a} :: ELBInfo)
 
-instance Core.FromJSON ELBInfo where
+instance Data.FromJSON ELBInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ELBInfo"
-      (\x -> ELBInfo' Prelude.<$> (x Core..:? "name"))
+      (\x -> ELBInfo' Prelude.<$> (x Data..:? "name"))
 
 instance Prelude.Hashable ELBInfo where
   hashWithSalt _salt ELBInfo' {..} =
@@ -79,9 +80,9 @@ instance Prelude.Hashable ELBInfo where
 instance Prelude.NFData ELBInfo where
   rnf ELBInfo' {..} = Prelude.rnf name
 
-instance Core.ToJSON ELBInfo where
+instance Data.ToJSON ELBInfo where
   toJSON ELBInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("name" Core..=) Prelude.<$> name]
+          [("name" Data..=) Prelude.<$> name]
       )

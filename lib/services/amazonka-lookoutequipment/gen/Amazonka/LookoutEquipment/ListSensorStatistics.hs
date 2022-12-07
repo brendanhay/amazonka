@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,10 +132,10 @@ instance Core.AWSRequest ListSensorStatistics where
     Response.receiveJSON
       ( \s h x ->
           ListSensorStatisticsResponse'
-            Prelude.<$> ( x Core..?> "SensorStatisticsSummaries"
+            Prelude.<$> ( x Data..?> "SensorStatisticsSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,37 +153,37 @@ instance Prelude.NFData ListSensorStatistics where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf datasetName
 
-instance Core.ToHeaders ListSensorStatistics where
+instance Data.ToHeaders ListSensorStatistics where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.ListSensorStatistics" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.ListSensorStatistics" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSensorStatistics where
+instance Data.ToJSON ListSensorStatistics where
   toJSON ListSensorStatistics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IngestionJobId" Core..=)
+          [ ("IngestionJobId" Data..=)
               Prelude.<$> ingestionJobId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("DatasetName" Core..= datasetName)
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("DatasetName" Data..= datasetName)
           ]
       )
 
-instance Core.ToPath ListSensorStatistics where
+instance Data.ToPath ListSensorStatistics where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSensorStatistics where
+instance Data.ToQuery ListSensorStatistics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSensorStatisticsResponse' smart constructor.

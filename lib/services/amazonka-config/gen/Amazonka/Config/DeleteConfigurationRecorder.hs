@@ -48,6 +48,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,36 +111,36 @@ instance Prelude.NFData DeleteConfigurationRecorder where
   rnf DeleteConfigurationRecorder' {..} =
     Prelude.rnf configurationRecorderName
 
-instance Core.ToHeaders DeleteConfigurationRecorder where
+instance Data.ToHeaders DeleteConfigurationRecorder where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DeleteConfigurationRecorder" ::
+              Data.=# ( "StarlingDoveService.DeleteConfigurationRecorder" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteConfigurationRecorder where
+instance Data.ToJSON DeleteConfigurationRecorder where
   toJSON DeleteConfigurationRecorder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ConfigurationRecorderName"
-                  Core..= configurationRecorderName
+                  Data..= configurationRecorderName
               )
           ]
       )
 
-instance Core.ToPath DeleteConfigurationRecorder where
+instance Data.ToPath DeleteConfigurationRecorder where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteConfigurationRecorder where
+instance Data.ToQuery DeleteConfigurationRecorder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConfigurationRecorderResponse' smart constructor.

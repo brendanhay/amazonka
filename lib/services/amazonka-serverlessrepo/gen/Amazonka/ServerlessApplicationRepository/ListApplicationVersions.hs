@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,8 +132,8 @@ instance Core.AWSRequest ListApplicationVersions where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationVersionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "versions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,30 +149,30 @@ instance Prelude.NFData ListApplicationVersions where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders ListApplicationVersions where
+instance Data.ToHeaders ListApplicationVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListApplicationVersions where
+instance Data.ToPath ListApplicationVersions where
   toPath ListApplicationVersions' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/versions"
       ]
 
-instance Core.ToQuery ListApplicationVersions where
+instance Data.ToQuery ListApplicationVersions where
   toQuery ListApplicationVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxItems" Core.=: maxItems
+      [ "nextToken" Data.=: nextToken,
+        "maxItems" Data.=: maxItems
       ]
 
 -- | /See:/ 'newListApplicationVersionsResponse' smart constructor.

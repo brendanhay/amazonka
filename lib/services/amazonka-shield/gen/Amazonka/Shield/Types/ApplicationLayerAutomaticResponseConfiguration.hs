@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.ApplicationLayerAutomaticResponseConfiguration wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Shield.Types.ApplicationLayerAutomaticResponseStatus
 import Amazonka.Shield.Types.ResponseAction
@@ -96,16 +97,16 @@ applicationLayerAutomaticResponseConfiguration_action :: Lens.Lens' ApplicationL
 applicationLayerAutomaticResponseConfiguration_action = Lens.lens (\ApplicationLayerAutomaticResponseConfiguration' {action} -> action) (\s@ApplicationLayerAutomaticResponseConfiguration' {} a -> s {action = a} :: ApplicationLayerAutomaticResponseConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ApplicationLayerAutomaticResponseConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationLayerAutomaticResponseConfiguration"
       ( \x ->
           ApplicationLayerAutomaticResponseConfiguration'
-            Prelude.<$> (x Core..: "Status")
-              Prelude.<*> (x Core..: "Action")
+            Prelude.<$> (x Data..: "Status")
+              Prelude.<*> (x Data..: "Action")
       )
 
 instance

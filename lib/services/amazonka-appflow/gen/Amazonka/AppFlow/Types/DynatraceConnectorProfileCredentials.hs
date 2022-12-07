@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.DynatraceConnectorProfileCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile credentials required by Dynatrace.
@@ -72,11 +73,11 @@ instance
     Prelude.rnf apiToken
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DynatraceConnectorProfileCredentials
   where
   toJSON DynatraceConnectorProfileCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("apiToken" Core..= apiToken)]
+          [Prelude.Just ("apiToken" Data..= apiToken)]
       )

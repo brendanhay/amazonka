@@ -39,6 +39,7 @@ where
 import Amazonka.BackupStorage.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,27 +100,27 @@ instance Prelude.NFData DeleteObject where
     Prelude.rnf backupJobId
       `Prelude.seq` Prelude.rnf objectName
 
-instance Core.ToHeaders DeleteObject where
+instance Data.ToHeaders DeleteObject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteObject where
+instance Data.ToPath DeleteObject where
   toPath DeleteObject' {..} =
     Prelude.mconcat
       [ "/backup-jobs/",
-        Core.toBS backupJobId,
+        Data.toBS backupJobId,
         "/object/",
-        Core.toBS objectName
+        Data.toBS objectName
       ]
 
-instance Core.ToQuery DeleteObject where
+instance Data.ToQuery DeleteObject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteObjectResponse' smart constructor.

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,15 +94,15 @@ instance Core.AWSRequest DescribeRouteCalculator where
     Response.receiveJSON
       ( \s h x ->
           DescribeRouteCalculatorResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PricingPlan")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PricingPlan")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CalculatorArn")
-            Prelude.<*> (x Core..:> "CalculatorName")
-            Prelude.<*> (x Core..:> "CreateTime")
-            Prelude.<*> (x Core..:> "DataSource")
-            Prelude.<*> (x Core..:> "Description")
-            Prelude.<*> (x Core..:> "UpdateTime")
+            Prelude.<*> (x Data..:> "CalculatorArn")
+            Prelude.<*> (x Data..:> "CalculatorName")
+            Prelude.<*> (x Data..:> "CreateTime")
+            Prelude.<*> (x Data..:> "DataSource")
+            Prelude.<*> (x Data..:> "Description")
+            Prelude.<*> (x Data..:> "UpdateTime")
       )
 
 instance Prelude.Hashable DescribeRouteCalculator where
@@ -112,23 +113,23 @@ instance Prelude.NFData DescribeRouteCalculator where
   rnf DescribeRouteCalculator' {..} =
     Prelude.rnf calculatorName
 
-instance Core.ToHeaders DescribeRouteCalculator where
+instance Data.ToHeaders DescribeRouteCalculator where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeRouteCalculator where
+instance Data.ToPath DescribeRouteCalculator where
   toPath DescribeRouteCalculator' {..} =
     Prelude.mconcat
-      ["/routes/v0/calculators/", Core.toBS calculatorName]
+      ["/routes/v0/calculators/", Data.toBS calculatorName]
 
-instance Core.ToQuery DescribeRouteCalculator where
+instance Data.ToQuery DescribeRouteCalculator where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRouteCalculatorResponse' smart constructor.
@@ -152,7 +153,7 @@ data DescribeRouteCalculatorResponse = DescribeRouteCalculatorResponse'
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
     --
     -- -   For example, @2020–07-2T12:15:20.000Z+01:00@
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | The data provider of traffic and road network data. Indicates one of the
     -- available providers:
     --
@@ -170,7 +171,7 @@ data DescribeRouteCalculatorResponse = DescribeRouteCalculatorResponse'
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
     --
     -- -   For example, @2020–07-2T12:15:20.000Z+01:00@
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -251,11 +252,11 @@ newDescribeRouteCalculatorResponse
         calculatorArn = pCalculatorArn_,
         calculatorName = pCalculatorName_,
         createTime =
-          Core._Time Lens.# pCreateTime_,
+          Data._Time Lens.# pCreateTime_,
         dataSource = pDataSource_,
         description = pDescription_,
         updateTime =
-          Core._Time Lens.# pUpdateTime_
+          Data._Time Lens.# pUpdateTime_
       }
 
 -- | Tags associated with route calculator resource.
@@ -288,7 +289,7 @@ describeRouteCalculatorResponse_calculatorName = Lens.lens (\DescribeRouteCalcul
 --
 -- -   For example, @2020–07-2T12:15:20.000Z+01:00@
 describeRouteCalculatorResponse_createTime :: Lens.Lens' DescribeRouteCalculatorResponse Prelude.UTCTime
-describeRouteCalculatorResponse_createTime = Lens.lens (\DescribeRouteCalculatorResponse' {createTime} -> createTime) (\s@DescribeRouteCalculatorResponse' {} a -> s {createTime = a} :: DescribeRouteCalculatorResponse) Prelude.. Core._Time
+describeRouteCalculatorResponse_createTime = Lens.lens (\DescribeRouteCalculatorResponse' {createTime} -> createTime) (\s@DescribeRouteCalculatorResponse' {} a -> s {createTime = a} :: DescribeRouteCalculatorResponse) Prelude.. Data._Time
 
 -- | The data provider of traffic and road network data. Indicates one of the
 -- available providers:
@@ -312,7 +313,7 @@ describeRouteCalculatorResponse_description = Lens.lens (\DescribeRouteCalculato
 --
 -- -   For example, @2020–07-2T12:15:20.000Z+01:00@
 describeRouteCalculatorResponse_updateTime :: Lens.Lens' DescribeRouteCalculatorResponse Prelude.UTCTime
-describeRouteCalculatorResponse_updateTime = Lens.lens (\DescribeRouteCalculatorResponse' {updateTime} -> updateTime) (\s@DescribeRouteCalculatorResponse' {} a -> s {updateTime = a} :: DescribeRouteCalculatorResponse) Prelude.. Core._Time
+describeRouteCalculatorResponse_updateTime = Lens.lens (\DescribeRouteCalculatorResponse' {updateTime} -> updateTime) (\s@DescribeRouteCalculatorResponse' {} a -> s {updateTime = a} :: DescribeRouteCalculatorResponse) Prelude.. Data._Time
 
 instance
   Prelude.NFData

@@ -21,6 +21,7 @@ module Amazonka.CloudFormation.Types.TemplateParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The TemplateParameter data type.
@@ -82,13 +83,13 @@ templateParameter_description = Lens.lens (\TemplateParameter' {description} -> 
 templateParameter_parameterKey :: Lens.Lens' TemplateParameter (Prelude.Maybe Prelude.Text)
 templateParameter_parameterKey = Lens.lens (\TemplateParameter' {parameterKey} -> parameterKey) (\s@TemplateParameter' {} a -> s {parameterKey = a} :: TemplateParameter)
 
-instance Core.FromXML TemplateParameter where
+instance Data.FromXML TemplateParameter where
   parseXML x =
     TemplateParameter'
-      Prelude.<$> (x Core..@? "NoEcho")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "ParameterKey")
+      Prelude.<$> (x Data..@? "NoEcho")
+      Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "ParameterKey")
 
 instance Prelude.Hashable TemplateParameter where
   hashWithSalt _salt TemplateParameter' {..} =

@@ -45,6 +45,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,23 +159,23 @@ instance Prelude.NFData SetTypeDefaultVersion where
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf versionId
 
-instance Core.ToHeaders SetTypeDefaultVersion where
+instance Data.ToHeaders SetTypeDefaultVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SetTypeDefaultVersion where
+instance Data.ToPath SetTypeDefaultVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetTypeDefaultVersion where
+instance Data.ToQuery SetTypeDefaultVersion where
   toQuery SetTypeDefaultVersion' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SetTypeDefaultVersion" :: Prelude.ByteString),
+          Data.=: ("SetTypeDefaultVersion" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "Type" Core.=: type',
-        "Arn" Core.=: arn,
-        "TypeName" Core.=: typeName,
-        "VersionId" Core.=: versionId
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "Type" Data.=: type',
+        "Arn" Data.=: arn,
+        "TypeName" Data.=: typeName,
+        "VersionId" Data.=: versionId
       ]
 
 -- | /See:/ 'newSetTypeDefaultVersionResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.BillingConductor.Types.AssociateResourceError where
 import Amazonka.BillingConductor.Types.AssociateResourceErrorReason
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of a resource association error.
@@ -62,14 +63,14 @@ associateResourceError_message = Lens.lens (\AssociateResourceError' {message} -
 associateResourceError_reason :: Lens.Lens' AssociateResourceError (Prelude.Maybe AssociateResourceErrorReason)
 associateResourceError_reason = Lens.lens (\AssociateResourceError' {reason} -> reason) (\s@AssociateResourceError' {} a -> s {reason = a} :: AssociateResourceError)
 
-instance Core.FromJSON AssociateResourceError where
+instance Data.FromJSON AssociateResourceError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssociateResourceError"
       ( \x ->
           AssociateResourceError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Reason")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Reason")
       )
 
 instance Prelude.Hashable AssociateResourceError where

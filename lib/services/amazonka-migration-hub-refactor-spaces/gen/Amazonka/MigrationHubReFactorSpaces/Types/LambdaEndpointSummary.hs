@@ -21,6 +21,7 @@ module Amazonka.MigrationHubReFactorSpaces.Types.LambdaEndpointSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary for the Lambda endpoint type.
@@ -50,13 +51,13 @@ newLambdaEndpointSummary =
 lambdaEndpointSummary_arn :: Lens.Lens' LambdaEndpointSummary (Prelude.Maybe Prelude.Text)
 lambdaEndpointSummary_arn = Lens.lens (\LambdaEndpointSummary' {arn} -> arn) (\s@LambdaEndpointSummary' {} a -> s {arn = a} :: LambdaEndpointSummary)
 
-instance Core.FromJSON LambdaEndpointSummary where
+instance Data.FromJSON LambdaEndpointSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaEndpointSummary"
       ( \x ->
           LambdaEndpointSummary'
-            Prelude.<$> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable LambdaEndpointSummary where

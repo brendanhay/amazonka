@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,8 +137,8 @@ instance Core.AWSRequest GetQuerySuggestions where
     Response.receiveJSON
       ( \s h x ->
           GetQuerySuggestionsResponse'
-            Prelude.<$> (x Core..?> "QuerySuggestionsId")
-            Prelude.<*> (x Core..?> "Suggestions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "QuerySuggestionsId")
+            Prelude.<*> (x Data..?> "Suggestions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,36 +154,36 @@ instance Prelude.NFData GetQuerySuggestions where
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf queryText
 
-instance Core.ToHeaders GetQuerySuggestions where
+instance Data.ToHeaders GetQuerySuggestions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.GetQuerySuggestions" ::
+              Data.=# ( "AWSKendraFrontendService.GetQuerySuggestions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetQuerySuggestions where
+instance Data.ToJSON GetQuerySuggestions where
   toJSON GetQuerySuggestions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxSuggestionsCount" Core..=)
+          [ ("MaxSuggestionsCount" Data..=)
               Prelude.<$> maxSuggestionsCount,
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("QueryText" Core..= queryText)
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("QueryText" Data..= queryText)
           ]
       )
 
-instance Core.ToPath GetQuerySuggestions where
+instance Data.ToPath GetQuerySuggestions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetQuerySuggestions where
+instance Data.ToQuery GetQuerySuggestions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetQuerySuggestionsResponse' smart constructor.

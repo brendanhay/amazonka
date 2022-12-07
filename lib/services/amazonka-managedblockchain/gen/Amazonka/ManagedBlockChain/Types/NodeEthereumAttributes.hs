@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attributes of an Ethereum node.
@@ -86,14 +87,14 @@ nodeEthereumAttributes_httpEndpoint = Lens.lens (\NodeEthereumAttributes' {httpE
 nodeEthereumAttributes_webSocketEndpoint :: Lens.Lens' NodeEthereumAttributes (Prelude.Maybe Prelude.Text)
 nodeEthereumAttributes_webSocketEndpoint = Lens.lens (\NodeEthereumAttributes' {webSocketEndpoint} -> webSocketEndpoint) (\s@NodeEthereumAttributes' {} a -> s {webSocketEndpoint = a} :: NodeEthereumAttributes)
 
-instance Core.FromJSON NodeEthereumAttributes where
+instance Data.FromJSON NodeEthereumAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeEthereumAttributes"
       ( \x ->
           NodeEthereumAttributes'
-            Prelude.<$> (x Core..:? "HttpEndpoint")
-            Prelude.<*> (x Core..:? "WebSocketEndpoint")
+            Prelude.<$> (x Data..:? "HttpEndpoint")
+            Prelude.<*> (x Data..:? "WebSocketEndpoint")
       )
 
 instance Prelude.Hashable NodeEthereumAttributes where

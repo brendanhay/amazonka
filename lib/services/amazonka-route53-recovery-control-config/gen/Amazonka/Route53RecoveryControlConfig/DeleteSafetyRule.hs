@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,23 +95,23 @@ instance Prelude.Hashable DeleteSafetyRule where
 instance Prelude.NFData DeleteSafetyRule where
   rnf DeleteSafetyRule' {..} = Prelude.rnf safetyRuleArn
 
-instance Core.ToHeaders DeleteSafetyRule where
+instance Data.ToHeaders DeleteSafetyRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteSafetyRule where
+instance Data.ToPath DeleteSafetyRule where
   toPath DeleteSafetyRule' {..} =
     Prelude.mconcat
-      ["/safetyrule/", Core.toBS safetyRuleArn]
+      ["/safetyrule/", Data.toBS safetyRuleArn]
 
-instance Core.ToQuery DeleteSafetyRule where
+instance Data.ToQuery DeleteSafetyRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSafetyRuleResponse' smart constructor.

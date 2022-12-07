@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -174,10 +175,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAssociationExecutionsResponse'
-            Prelude.<$> ( x Core..?> "AssociationExecutions"
+            Prelude.<$> ( x Data..?> "AssociationExecutions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,37 +199,37 @@ instance Prelude.NFData DescribeAssociationExecutions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf associationId
 
-instance Core.ToHeaders DescribeAssociationExecutions where
+instance Data.ToHeaders DescribeAssociationExecutions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DescribeAssociationExecutions" ::
+              Data.=# ( "AmazonSSM.DescribeAssociationExecutions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAssociationExecutions where
+instance Data.ToJSON DescribeAssociationExecutions where
   toJSON DescribeAssociationExecutions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("AssociationId" Core..= associationId)
+              ("AssociationId" Data..= associationId)
           ]
       )
 
-instance Core.ToPath DescribeAssociationExecutions where
+instance Data.ToPath DescribeAssociationExecutions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAssociationExecutions where
+instance Data.ToQuery DescribeAssociationExecutions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAssociationExecutionsResponse' smart constructor.

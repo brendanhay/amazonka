@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -71,7 +72,7 @@ data CreateLocationHdfs = CreateLocationHdfs'
     --
     -- If @KERBEROS@ is specified for @AuthenticationType@, this parameter is
     -- required.
-    kerberosKrb5Conf :: Prelude.Maybe Core.Base64,
+    kerberosKrb5Conf :: Prelude.Maybe Data.Base64,
     -- | The Kerberos principal with access to the files and folders on the HDFS
     -- cluster.
     --
@@ -107,7 +108,7 @@ data CreateLocationHdfs = CreateLocationHdfs'
     --
     -- If @KERBEROS@ is specified for @AuthenticationType@, this parameter is
     -- required.
-    kerberosKeytab :: Prelude.Maybe Core.Base64,
+    kerberosKeytab :: Prelude.Maybe Data.Base64,
     -- | A subdirectory in the HDFS cluster. This subdirectory is used to read
     -- data from or write data to the HDFS cluster. If the subdirectory isn\'t
     -- specified, it will default to @\/@.
@@ -248,7 +249,7 @@ createLocationHdfs_tags = Lens.lens (\CreateLocationHdfs' {tags} -> tags) (\s@Cr
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 createLocationHdfs_kerberosKrb5Conf :: Lens.Lens' CreateLocationHdfs (Prelude.Maybe Prelude.ByteString)
-createLocationHdfs_kerberosKrb5Conf = Lens.lens (\CreateLocationHdfs' {kerberosKrb5Conf} -> kerberosKrb5Conf) (\s@CreateLocationHdfs' {} a -> s {kerberosKrb5Conf = a} :: CreateLocationHdfs) Prelude.. Lens.mapping Core._Base64
+createLocationHdfs_kerberosKrb5Conf = Lens.lens (\CreateLocationHdfs' {kerberosKrb5Conf} -> kerberosKrb5Conf) (\s@CreateLocationHdfs' {} a -> s {kerberosKrb5Conf = a} :: CreateLocationHdfs) Prelude.. Lens.mapping Data._Base64
 
 -- | The Kerberos principal with access to the files and folders on the HDFS
 -- cluster.
@@ -302,7 +303,7 @@ createLocationHdfs_blockSize = Lens.lens (\CreateLocationHdfs' {blockSize} -> bl
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 createLocationHdfs_kerberosKeytab :: Lens.Lens' CreateLocationHdfs (Prelude.Maybe Prelude.ByteString)
-createLocationHdfs_kerberosKeytab = Lens.lens (\CreateLocationHdfs' {kerberosKeytab} -> kerberosKeytab) (\s@CreateLocationHdfs' {} a -> s {kerberosKeytab = a} :: CreateLocationHdfs) Prelude.. Lens.mapping Core._Base64
+createLocationHdfs_kerberosKeytab = Lens.lens (\CreateLocationHdfs' {kerberosKeytab} -> kerberosKeytab) (\s@CreateLocationHdfs' {} a -> s {kerberosKeytab = a} :: CreateLocationHdfs) Prelude.. Lens.mapping Data._Base64
 
 -- | A subdirectory in the HDFS cluster. This subdirectory is used to read
 -- data from or write data to the HDFS cluster. If the subdirectory isn\'t
@@ -336,7 +337,7 @@ instance Core.AWSRequest CreateLocationHdfs where
     Response.receiveJSON
       ( \s h x ->
           CreateLocationHdfsResponse'
-            Prelude.<$> (x Core..?> "LocationArn")
+            Prelude.<$> (x Data..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -372,52 +373,52 @@ instance Prelude.NFData CreateLocationHdfs where
       `Prelude.seq` Prelude.rnf authenticationType
       `Prelude.seq` Prelude.rnf agentArns
 
-instance Core.ToHeaders CreateLocationHdfs where
+instance Data.ToHeaders CreateLocationHdfs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.CreateLocationHdfs" ::
+              Data.=# ( "FmrsService.CreateLocationHdfs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLocationHdfs where
+instance Data.ToJSON CreateLocationHdfs where
   toJSON CreateLocationHdfs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("KerberosKrb5Conf" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("KerberosKrb5Conf" Data..=)
               Prelude.<$> kerberosKrb5Conf,
-            ("KerberosPrincipal" Core..=)
+            ("KerberosPrincipal" Data..=)
               Prelude.<$> kerberosPrincipal,
-            ("ReplicationFactor" Core..=)
+            ("ReplicationFactor" Data..=)
               Prelude.<$> replicationFactor,
-            ("KmsKeyProviderUri" Core..=)
+            ("KmsKeyProviderUri" Data..=)
               Prelude.<$> kmsKeyProviderUri,
-            ("QopConfiguration" Core..=)
+            ("QopConfiguration" Data..=)
               Prelude.<$> qopConfiguration,
-            ("SimpleUser" Core..=) Prelude.<$> simpleUser,
-            ("BlockSize" Core..=) Prelude.<$> blockSize,
-            ("KerberosKeytab" Core..=)
+            ("SimpleUser" Data..=) Prelude.<$> simpleUser,
+            ("BlockSize" Data..=) Prelude.<$> blockSize,
+            ("KerberosKeytab" Data..=)
               Prelude.<$> kerberosKeytab,
-            ("Subdirectory" Core..=) Prelude.<$> subdirectory,
-            Prelude.Just ("NameNodes" Core..= nameNodes),
+            ("Subdirectory" Data..=) Prelude.<$> subdirectory,
+            Prelude.Just ("NameNodes" Data..= nameNodes),
             Prelude.Just
-              ("AuthenticationType" Core..= authenticationType),
-            Prelude.Just ("AgentArns" Core..= agentArns)
+              ("AuthenticationType" Data..= authenticationType),
+            Prelude.Just ("AgentArns" Data..= agentArns)
           ]
       )
 
-instance Core.ToPath CreateLocationHdfs where
+instance Data.ToPath CreateLocationHdfs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLocationHdfs where
+instance Data.ToQuery CreateLocationHdfs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLocationHdfsResponse' smart constructor.

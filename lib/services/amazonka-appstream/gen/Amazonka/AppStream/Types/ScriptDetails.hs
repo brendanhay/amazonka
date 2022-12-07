@@ -22,6 +22,7 @@ module Amazonka.AppStream.Types.ScriptDetails where
 import Amazonka.AppStream.Types.S3Location
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the details of the script.
@@ -90,16 +91,16 @@ scriptDetails_executablePath = Lens.lens (\ScriptDetails' {executablePath} -> ex
 scriptDetails_timeoutInSeconds :: Lens.Lens' ScriptDetails Prelude.Int
 scriptDetails_timeoutInSeconds = Lens.lens (\ScriptDetails' {timeoutInSeconds} -> timeoutInSeconds) (\s@ScriptDetails' {} a -> s {timeoutInSeconds = a} :: ScriptDetails)
 
-instance Core.FromJSON ScriptDetails where
+instance Data.FromJSON ScriptDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScriptDetails"
       ( \x ->
           ScriptDetails'
-            Prelude.<$> (x Core..:? "ExecutableParameters")
-            Prelude.<*> (x Core..: "ScriptS3Location")
-            Prelude.<*> (x Core..: "ExecutablePath")
-            Prelude.<*> (x Core..: "TimeoutInSeconds")
+            Prelude.<$> (x Data..:? "ExecutableParameters")
+            Prelude.<*> (x Data..: "ScriptS3Location")
+            Prelude.<*> (x Data..: "ExecutablePath")
+            Prelude.<*> (x Data..: "TimeoutInSeconds")
       )
 
 instance Prelude.Hashable ScriptDetails where
@@ -116,17 +117,17 @@ instance Prelude.NFData ScriptDetails where
       `Prelude.seq` Prelude.rnf executablePath
       `Prelude.seq` Prelude.rnf timeoutInSeconds
 
-instance Core.ToJSON ScriptDetails where
+instance Data.ToJSON ScriptDetails where
   toJSON ScriptDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExecutableParameters" Core..=)
+          [ ("ExecutableParameters" Data..=)
               Prelude.<$> executableParameters,
             Prelude.Just
-              ("ScriptS3Location" Core..= scriptS3Location),
+              ("ScriptS3Location" Data..= scriptS3Location),
             Prelude.Just
-              ("ExecutablePath" Core..= executablePath),
+              ("ExecutablePath" Data..= executablePath),
             Prelude.Just
-              ("TimeoutInSeconds" Core..= timeoutInSeconds)
+              ("TimeoutInSeconds" Data..= timeoutInSeconds)
           ]
       )

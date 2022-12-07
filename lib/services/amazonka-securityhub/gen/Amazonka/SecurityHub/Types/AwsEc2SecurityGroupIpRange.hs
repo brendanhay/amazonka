@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2SecurityGroupIpRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A range of IPv4 addresses.
@@ -59,13 +60,13 @@ newAwsEc2SecurityGroupIpRange =
 awsEc2SecurityGroupIpRange_cidrIp :: Lens.Lens' AwsEc2SecurityGroupIpRange (Prelude.Maybe Prelude.Text)
 awsEc2SecurityGroupIpRange_cidrIp = Lens.lens (\AwsEc2SecurityGroupIpRange' {cidrIp} -> cidrIp) (\s@AwsEc2SecurityGroupIpRange' {} a -> s {cidrIp = a} :: AwsEc2SecurityGroupIpRange)
 
-instance Core.FromJSON AwsEc2SecurityGroupIpRange where
+instance Data.FromJSON AwsEc2SecurityGroupIpRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2SecurityGroupIpRange"
       ( \x ->
           AwsEc2SecurityGroupIpRange'
-            Prelude.<$> (x Core..:? "CidrIp")
+            Prelude.<$> (x Data..:? "CidrIp")
       )
 
 instance Prelude.Hashable AwsEc2SecurityGroupIpRange where
@@ -76,9 +77,9 @@ instance Prelude.NFData AwsEc2SecurityGroupIpRange where
   rnf AwsEc2SecurityGroupIpRange' {..} =
     Prelude.rnf cidrIp
 
-instance Core.ToJSON AwsEc2SecurityGroupIpRange where
+instance Data.ToJSON AwsEc2SecurityGroupIpRange where
   toJSON AwsEc2SecurityGroupIpRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("CidrIp" Core..=) Prelude.<$> cidrIp]
+          [("CidrIp" Data..=) Prelude.<$> cidrIp]
       )

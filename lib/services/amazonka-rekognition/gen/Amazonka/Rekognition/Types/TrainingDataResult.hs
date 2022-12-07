@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.TrainingDataResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.TrainingData
 import Amazonka.Rekognition.Types.ValidationData
@@ -79,15 +80,15 @@ trainingDataResult_input = Lens.lens (\TrainingDataResult' {input} -> input) (\s
 trainingDataResult_output :: Lens.Lens' TrainingDataResult (Prelude.Maybe TrainingData)
 trainingDataResult_output = Lens.lens (\TrainingDataResult' {output} -> output) (\s@TrainingDataResult' {} a -> s {output = a} :: TrainingDataResult)
 
-instance Core.FromJSON TrainingDataResult where
+instance Data.FromJSON TrainingDataResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrainingDataResult"
       ( \x ->
           TrainingDataResult'
-            Prelude.<$> (x Core..:? "Validation")
-            Prelude.<*> (x Core..:? "Input")
-            Prelude.<*> (x Core..:? "Output")
+            Prelude.<$> (x Data..:? "Validation")
+            Prelude.<*> (x Data..:? "Input")
+            Prelude.<*> (x Data..:? "Output")
       )
 
 instance Prelude.Hashable TrainingDataResult where

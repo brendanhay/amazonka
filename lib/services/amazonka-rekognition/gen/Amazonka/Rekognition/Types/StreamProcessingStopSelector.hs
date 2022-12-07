@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.StreamProcessingStopSelector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies when to stop processing the stream. You can specify a maximum
@@ -71,11 +72,11 @@ instance Prelude.NFData StreamProcessingStopSelector where
   rnf StreamProcessingStopSelector' {..} =
     Prelude.rnf maxDurationInSeconds
 
-instance Core.ToJSON StreamProcessingStopSelector where
+instance Data.ToJSON StreamProcessingStopSelector where
   toJSON StreamProcessingStopSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxDurationInSeconds" Core..=)
+          [ ("MaxDurationInSeconds" Data..=)
               Prelude.<$> maxDurationInSeconds
           ]
       )

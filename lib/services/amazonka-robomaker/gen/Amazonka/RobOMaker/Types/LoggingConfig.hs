@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.LoggingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The logging configuration.
@@ -59,13 +60,13 @@ newLoggingConfig =
 loggingConfig_recordAllRosTopics :: Lens.Lens' LoggingConfig (Prelude.Maybe Prelude.Bool)
 loggingConfig_recordAllRosTopics = Lens.lens (\LoggingConfig' {recordAllRosTopics} -> recordAllRosTopics) (\s@LoggingConfig' {} a -> s {recordAllRosTopics = a} :: LoggingConfig)
 
-instance Core.FromJSON LoggingConfig where
+instance Data.FromJSON LoggingConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoggingConfig"
       ( \x ->
           LoggingConfig'
-            Prelude.<$> (x Core..:? "recordAllRosTopics")
+            Prelude.<$> (x Data..:? "recordAllRosTopics")
       )
 
 instance Prelude.Hashable LoggingConfig where
@@ -76,11 +77,11 @@ instance Prelude.NFData LoggingConfig where
   rnf LoggingConfig' {..} =
     Prelude.rnf recordAllRosTopics
 
-instance Core.ToJSON LoggingConfig where
+instance Data.ToJSON LoggingConfig where
   toJSON LoggingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("recordAllRosTopics" Core..=)
+          [ ("recordAllRosTopics" Data..=)
               Prelude.<$> recordAllRosTopics
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.Connection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types.ConnectionState
 import Amazonka.DirectConnect.Types.HasLogicalRedundancy
 import Amazonka.DirectConnect.Types.MacSecKey
@@ -84,7 +85,7 @@ data Connection = Connection'
     -- | The ID of the VLAN.
     vlan :: Prelude.Maybe Prelude.Int,
     -- | The time of the most recent call to DescribeLoa for this connection.
-    loaIssueTime :: Prelude.Maybe Core.POSIX,
+    loaIssueTime :: Prelude.Maybe Data.POSIX,
     -- | The Direct Connect endpoint on which the physical connection terminates.
     awsDevice :: Prelude.Maybe Prelude.Text,
     -- | The ID of the connection.
@@ -303,7 +304,7 @@ connection_vlan = Lens.lens (\Connection' {vlan} -> vlan) (\s@Connection' {} a -
 
 -- | The time of the most recent call to DescribeLoa for this connection.
 connection_loaIssueTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
-connection_loaIssueTime = Lens.lens (\Connection' {loaIssueTime} -> loaIssueTime) (\s@Connection' {} a -> s {loaIssueTime = a} :: Connection) Prelude.. Lens.mapping Core._Time
+connection_loaIssueTime = Lens.lens (\Connection' {loaIssueTime} -> loaIssueTime) (\s@Connection' {} a -> s {loaIssueTime = a} :: Connection) Prelude.. Lens.mapping Data._Time
 
 -- | The Direct Connect endpoint on which the physical connection terminates.
 connection_awsDevice :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
@@ -350,34 +351,34 @@ connection_connectionName = Lens.lens (\Connection' {connectionName} -> connecti
 connection_awsDeviceV2 :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
 connection_awsDeviceV2 = Lens.lens (\Connection' {awsDeviceV2} -> awsDeviceV2) (\s@Connection' {} a -> s {awsDeviceV2 = a} :: Connection)
 
-instance Core.FromJSON Connection where
+instance Data.FromJSON Connection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Connection"
       ( \x ->
           Connection'
-            Prelude.<$> (x Core..:? "tags")
-            Prelude.<*> (x Core..:? "macSecKeys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "macSecCapable")
-            Prelude.<*> (x Core..:? "providerName")
-            Prelude.<*> (x Core..:? "bandwidth")
-            Prelude.<*> (x Core..:? "jumboFrameCapable")
-            Prelude.<*> (x Core..:? "portEncryptionStatus")
-            Prelude.<*> (x Core..:? "lagId")
-            Prelude.<*> (x Core..:? "connectionState")
-            Prelude.<*> (x Core..:? "hasLogicalRedundancy")
-            Prelude.<*> (x Core..:? "vlan")
-            Prelude.<*> (x Core..:? "loaIssueTime")
-            Prelude.<*> (x Core..:? "awsDevice")
-            Prelude.<*> (x Core..:? "connectionId")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "partnerName")
-            Prelude.<*> (x Core..:? "ownerAccount")
-            Prelude.<*> (x Core..:? "awsLogicalDeviceId")
-            Prelude.<*> (x Core..:? "encryptionMode")
-            Prelude.<*> (x Core..:? "connectionName")
-            Prelude.<*> (x Core..:? "awsDeviceV2")
+            Prelude.<$> (x Data..:? "tags")
+            Prelude.<*> (x Data..:? "macSecKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "macSecCapable")
+            Prelude.<*> (x Data..:? "providerName")
+            Prelude.<*> (x Data..:? "bandwidth")
+            Prelude.<*> (x Data..:? "jumboFrameCapable")
+            Prelude.<*> (x Data..:? "portEncryptionStatus")
+            Prelude.<*> (x Data..:? "lagId")
+            Prelude.<*> (x Data..:? "connectionState")
+            Prelude.<*> (x Data..:? "hasLogicalRedundancy")
+            Prelude.<*> (x Data..:? "vlan")
+            Prelude.<*> (x Data..:? "loaIssueTime")
+            Prelude.<*> (x Data..:? "awsDevice")
+            Prelude.<*> (x Data..:? "connectionId")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "partnerName")
+            Prelude.<*> (x Data..:? "ownerAccount")
+            Prelude.<*> (x Data..:? "awsLogicalDeviceId")
+            Prelude.<*> (x Data..:? "encryptionMode")
+            Prelude.<*> (x Data..:? "connectionName")
+            Prelude.<*> (x Data..:? "awsDeviceV2")
       )
 
 instance Prelude.Hashable Connection where

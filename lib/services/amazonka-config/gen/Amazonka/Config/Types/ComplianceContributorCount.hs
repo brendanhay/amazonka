@@ -21,6 +21,7 @@ module Amazonka.Config.Types.ComplianceContributorCount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The number of Amazon Web Services resources or Config rules responsible
@@ -66,14 +67,14 @@ complianceContributorCount_cappedCount = Lens.lens (\ComplianceContributorCount'
 complianceContributorCount_capExceeded :: Lens.Lens' ComplianceContributorCount (Prelude.Maybe Prelude.Bool)
 complianceContributorCount_capExceeded = Lens.lens (\ComplianceContributorCount' {capExceeded} -> capExceeded) (\s@ComplianceContributorCount' {} a -> s {capExceeded = a} :: ComplianceContributorCount)
 
-instance Core.FromJSON ComplianceContributorCount where
+instance Data.FromJSON ComplianceContributorCount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComplianceContributorCount"
       ( \x ->
           ComplianceContributorCount'
-            Prelude.<$> (x Core..:? "CappedCount")
-            Prelude.<*> (x Core..:? "CapExceeded")
+            Prelude.<$> (x Data..:? "CappedCount")
+            Prelude.<*> (x Data..:? "CapExceeded")
       )
 
 instance Prelude.Hashable ComplianceContributorCount where

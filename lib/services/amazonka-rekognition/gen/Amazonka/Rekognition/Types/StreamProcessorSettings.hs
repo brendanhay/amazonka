@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.StreamProcessorSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.ConnectedHomeSettings
 import Amazonka.Rekognition.Types.FaceSearchSettings
@@ -66,14 +67,14 @@ streamProcessorSettings_connectedHome = Lens.lens (\StreamProcessorSettings' {co
 streamProcessorSettings_faceSearch :: Lens.Lens' StreamProcessorSettings (Prelude.Maybe FaceSearchSettings)
 streamProcessorSettings_faceSearch = Lens.lens (\StreamProcessorSettings' {faceSearch} -> faceSearch) (\s@StreamProcessorSettings' {} a -> s {faceSearch = a} :: StreamProcessorSettings)
 
-instance Core.FromJSON StreamProcessorSettings where
+instance Data.FromJSON StreamProcessorSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamProcessorSettings"
       ( \x ->
           StreamProcessorSettings'
-            Prelude.<$> (x Core..:? "ConnectedHome")
-            Prelude.<*> (x Core..:? "FaceSearch")
+            Prelude.<$> (x Data..:? "ConnectedHome")
+            Prelude.<*> (x Data..:? "FaceSearch")
       )
 
 instance Prelude.Hashable StreamProcessorSettings where
@@ -86,11 +87,11 @@ instance Prelude.NFData StreamProcessorSettings where
     Prelude.rnf connectedHome
       `Prelude.seq` Prelude.rnf faceSearch
 
-instance Core.ToJSON StreamProcessorSettings where
+instance Data.ToJSON StreamProcessorSettings where
   toJSON StreamProcessorSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConnectedHome" Core..=) Prelude.<$> connectedHome,
-            ("FaceSearch" Core..=) Prelude.<$> faceSearch
+          [ ("ConnectedHome" Data..=) Prelude.<$> connectedHome,
+            ("FaceSearch" Data..=) Prelude.<$> faceSearch
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.TestGridSessionArtifact where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.TestGridSessionArtifactType
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ data TestGridSessionArtifact = TestGridSessionArtifact'
     -- | The file name of the artifact.
     filename :: Prelude.Maybe Prelude.Text,
     -- | A semi-stable URL to the content of the object.
-    url :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    url :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -73,17 +74,17 @@ testGridSessionArtifact_filename = Lens.lens (\TestGridSessionArtifact' {filenam
 
 -- | A semi-stable URL to the content of the object.
 testGridSessionArtifact_url :: Lens.Lens' TestGridSessionArtifact (Prelude.Maybe Prelude.Text)
-testGridSessionArtifact_url = Lens.lens (\TestGridSessionArtifact' {url} -> url) (\s@TestGridSessionArtifact' {} a -> s {url = a} :: TestGridSessionArtifact) Prelude.. Lens.mapping Core._Sensitive
+testGridSessionArtifact_url = Lens.lens (\TestGridSessionArtifact' {url} -> url) (\s@TestGridSessionArtifact' {} a -> s {url = a} :: TestGridSessionArtifact) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON TestGridSessionArtifact where
+instance Data.FromJSON TestGridSessionArtifact where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TestGridSessionArtifact"
       ( \x ->
           TestGridSessionArtifact'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "filename")
-            Prelude.<*> (x Core..:? "url")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "filename")
+            Prelude.<*> (x Data..:? "url")
       )
 
 instance Prelude.Hashable TestGridSessionArtifact where

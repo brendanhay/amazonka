@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.SetSourceRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.Encryption
 import Amazonka.MediaConnect.Types.MediaStreamSourceConfigurationRequest
 import Amazonka.MediaConnect.Types.Protocol
@@ -298,34 +299,34 @@ instance Prelude.NFData SetSourceRequest where
       `Prelude.seq` Prelude.rnf minLatency
       `Prelude.seq` Prelude.rnf sourceListenerPort
 
-instance Core.ToJSON SetSourceRequest where
+instance Data.ToJSON SetSourceRequest where
   toJSON SetSourceRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maxLatency" Core..=) Prelude.<$> maxLatency,
-            ("name" Core..=) Prelude.<$> name,
-            ("mediaStreamSourceConfigurations" Core..=)
+          [ ("maxLatency" Data..=) Prelude.<$> maxLatency,
+            ("name" Data..=) Prelude.<$> name,
+            ("mediaStreamSourceConfigurations" Data..=)
               Prelude.<$> mediaStreamSourceConfigurations,
-            ("entitlementArn" Core..=)
+            ("entitlementArn" Data..=)
               Prelude.<$> entitlementArn,
-            ("vpcInterfaceName" Core..=)
+            ("vpcInterfaceName" Data..=)
               Prelude.<$> vpcInterfaceName,
-            ("maxSyncBuffer" Core..=) Prelude.<$> maxSyncBuffer,
-            ("maxBitrate" Core..=) Prelude.<$> maxBitrate,
-            ("streamId" Core..=) Prelude.<$> streamId,
-            ("senderIpAddress" Core..=)
+            ("maxSyncBuffer" Data..=) Prelude.<$> maxSyncBuffer,
+            ("maxBitrate" Data..=) Prelude.<$> maxBitrate,
+            ("streamId" Data..=) Prelude.<$> streamId,
+            ("senderIpAddress" Data..=)
               Prelude.<$> senderIpAddress,
-            ("decryption" Core..=) Prelude.<$> decryption,
-            ("description" Core..=) Prelude.<$> description,
-            ("sourceListenerAddress" Core..=)
+            ("decryption" Data..=) Prelude.<$> decryption,
+            ("description" Data..=) Prelude.<$> description,
+            ("sourceListenerAddress" Data..=)
               Prelude.<$> sourceListenerAddress,
-            ("senderControlPort" Core..=)
+            ("senderControlPort" Data..=)
               Prelude.<$> senderControlPort,
-            ("protocol" Core..=) Prelude.<$> protocol,
-            ("ingestPort" Core..=) Prelude.<$> ingestPort,
-            ("whitelistCidr" Core..=) Prelude.<$> whitelistCidr,
-            ("minLatency" Core..=) Prelude.<$> minLatency,
-            ("sourceListenerPort" Core..=)
+            ("protocol" Data..=) Prelude.<$> protocol,
+            ("ingestPort" Data..=) Prelude.<$> ingestPort,
+            ("whitelistCidr" Data..=) Prelude.<$> whitelistCidr,
+            ("minLatency" Data..=) Prelude.<$> minLatency,
+            ("sourceListenerPort" Data..=)
               Prelude.<$> sourceListenerPort
           ]
       )

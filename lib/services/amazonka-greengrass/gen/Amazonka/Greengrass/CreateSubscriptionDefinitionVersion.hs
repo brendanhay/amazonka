@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,9 +116,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateSubscriptionDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "Arn") Prelude.<*> (x Core..?> "Id")
-              Prelude.<*> (x Core..?> "CreationTimestamp")
-              Prelude.<*> (x Core..?> "Version")
+            Prelude.<$> (x Data..?> "Arn") Prelude.<*> (x Data..?> "Id")
+              Prelude.<*> (x Data..?> "CreationTimestamp")
+              Prelude.<*> (x Data..?> "Version")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,41 +143,41 @@ instance
       `Prelude.seq` Prelude.rnf subscriptionDefinitionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateSubscriptionDefinitionVersion
   where
   toHeaders CreateSubscriptionDefinitionVersion' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
+      [ "X-Amzn-Client-Token" Data.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateSubscriptionDefinitionVersion
   where
   toJSON CreateSubscriptionDefinitionVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Subscriptions" Core..=)
+          [ ("Subscriptions" Data..=)
               Prelude.<$> subscriptions
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateSubscriptionDefinitionVersion
   where
   toPath CreateSubscriptionDefinitionVersion' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/subscriptions/",
-        Core.toBS subscriptionDefinitionId,
+        Data.toBS subscriptionDefinitionId,
         "/versions"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateSubscriptionDefinitionVersion
   where
   toQuery = Prelude.const Prelude.mempty

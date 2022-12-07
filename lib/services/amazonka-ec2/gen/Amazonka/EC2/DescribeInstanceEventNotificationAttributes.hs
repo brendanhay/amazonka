@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceEventNotificationAttributesResponse'
-            Prelude.<$> (x Core..@? "instanceTagAttribute")
+            Prelude.<$> (x Data..@? "instanceTagAttribute")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,31 +120,31 @@ instance
     Prelude.rnf dryRun
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeInstanceEventNotificationAttributes
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeInstanceEventNotificationAttributes
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeInstanceEventNotificationAttributes
   where
   toQuery
     DescribeInstanceEventNotificationAttributes' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "DescribeInstanceEventNotificationAttributes" ::
+            Data.=: ( "DescribeInstanceEventNotificationAttributes" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Core.=: dryRun
+            Data.=: ("2016-11-15" :: Prelude.ByteString),
+          "DryRun" Data.=: dryRun
         ]
 
 -- | /See:/ 'newDescribeInstanceEventNotificationAttributesResponse' smart constructor.

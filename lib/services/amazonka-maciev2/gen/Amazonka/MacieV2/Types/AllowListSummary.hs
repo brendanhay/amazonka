@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.AllowListSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a subset of information about an allow list.
@@ -37,10 +38,10 @@ data AllowListSummary = AllowListSummary'
     id :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the allow
     -- list was created in Amazon Macie.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time, in UTC and extended ISO 8601 format, when the allow
     -- list\'s settings were most recently changed in Amazon Macie.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,25 +97,25 @@ allowListSummary_id = Lens.lens (\AllowListSummary' {id} -> id) (\s@AllowListSum
 -- | The date and time, in UTC and extended ISO 8601 format, when the allow
 -- list was created in Amazon Macie.
 allowListSummary_createdAt :: Lens.Lens' AllowListSummary (Prelude.Maybe Prelude.UTCTime)
-allowListSummary_createdAt = Lens.lens (\AllowListSummary' {createdAt} -> createdAt) (\s@AllowListSummary' {} a -> s {createdAt = a} :: AllowListSummary) Prelude.. Lens.mapping Core._Time
+allowListSummary_createdAt = Lens.lens (\AllowListSummary' {createdAt} -> createdAt) (\s@AllowListSummary' {} a -> s {createdAt = a} :: AllowListSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time, in UTC and extended ISO 8601 format, when the allow
 -- list\'s settings were most recently changed in Amazon Macie.
 allowListSummary_updatedAt :: Lens.Lens' AllowListSummary (Prelude.Maybe Prelude.UTCTime)
-allowListSummary_updatedAt = Lens.lens (\AllowListSummary' {updatedAt} -> updatedAt) (\s@AllowListSummary' {} a -> s {updatedAt = a} :: AllowListSummary) Prelude.. Lens.mapping Core._Time
+allowListSummary_updatedAt = Lens.lens (\AllowListSummary' {updatedAt} -> updatedAt) (\s@AllowListSummary' {} a -> s {updatedAt = a} :: AllowListSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AllowListSummary where
+instance Data.FromJSON AllowListSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AllowListSummary"
       ( \x ->
           AllowListSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable AllowListSummary where

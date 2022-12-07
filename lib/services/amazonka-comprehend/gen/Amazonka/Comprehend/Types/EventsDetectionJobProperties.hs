@@ -25,6 +25,7 @@ import Amazonka.Comprehend.Types.LanguageCode
 import Amazonka.Comprehend.Types.OutputDataConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an events detection job.
@@ -41,14 +42,14 @@ data EventsDetectionJobProperties = EventsDetectionJobProperties'
     -- | The name you assigned the events detection job.
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The time that the events detection job was submitted for processing.
-    submitTime :: Prelude.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier assigned to the events detection job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Identify and Access Management
     -- (IAM) role that grants Amazon Comprehend read access to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the events detection job completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The types of events that are detected by the job.
     targetEventTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The language code of the input documents.
@@ -149,7 +150,7 @@ eventsDetectionJobProperties_jobName = Lens.lens (\EventsDetectionJobProperties'
 
 -- | The time that the events detection job was submitted for processing.
 eventsDetectionJobProperties_submitTime :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
-eventsDetectionJobProperties_submitTime = Lens.lens (\EventsDetectionJobProperties' {submitTime} -> submitTime) (\s@EventsDetectionJobProperties' {} a -> s {submitTime = a} :: EventsDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+eventsDetectionJobProperties_submitTime = Lens.lens (\EventsDetectionJobProperties' {submitTime} -> submitTime) (\s@EventsDetectionJobProperties' {} a -> s {submitTime = a} :: EventsDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier assigned to the events detection job.
 eventsDetectionJobProperties_jobId :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe Prelude.Text)
@@ -162,7 +163,7 @@ eventsDetectionJobProperties_dataAccessRoleArn = Lens.lens (\EventsDetectionJobP
 
 -- | The time that the events detection job completed.
 eventsDetectionJobProperties_endTime :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
-eventsDetectionJobProperties_endTime = Lens.lens (\EventsDetectionJobProperties' {endTime} -> endTime) (\s@EventsDetectionJobProperties' {} a -> s {endTime = a} :: EventsDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+eventsDetectionJobProperties_endTime = Lens.lens (\EventsDetectionJobProperties' {endTime} -> endTime) (\s@EventsDetectionJobProperties' {} a -> s {endTime = a} :: EventsDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The types of events that are detected by the job.
 eventsDetectionJobProperties_targetEventTypes :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -189,24 +190,24 @@ eventsDetectionJobProperties_jobArn = Lens.lens (\EventsDetectionJobProperties' 
 eventsDetectionJobProperties_inputDataConfig :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe InputDataConfig)
 eventsDetectionJobProperties_inputDataConfig = Lens.lens (\EventsDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@EventsDetectionJobProperties' {} a -> s {inputDataConfig = a} :: EventsDetectionJobProperties)
 
-instance Core.FromJSON EventsDetectionJobProperties where
+instance Data.FromJSON EventsDetectionJobProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventsDetectionJobProperties"
       ( \x ->
           EventsDetectionJobProperties'
-            Prelude.<$> (x Core..:? "OutputDataConfig")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "JobStatus")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "SubmitTime")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "TargetEventTypes")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "JobArn")
-            Prelude.<*> (x Core..:? "InputDataConfig")
+            Prelude.<$> (x Data..:? "OutputDataConfig")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "JobStatus")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "SubmitTime")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "DataAccessRoleArn")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "TargetEventTypes")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "JobArn")
+            Prelude.<*> (x Data..:? "InputDataConfig")
       )
 
 instance

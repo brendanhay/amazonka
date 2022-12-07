@@ -22,6 +22,7 @@ module Amazonka.CloudSearchDomains.Types.SuggestModel where
 import Amazonka.CloudSearchDomains.Types.SuggestionMatch
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Container for the suggestion information returned in a
@@ -72,15 +73,15 @@ suggestModel_query = Lens.lens (\SuggestModel' {query} -> query) (\s@SuggestMode
 suggestModel_suggestions :: Lens.Lens' SuggestModel (Prelude.Maybe [SuggestionMatch])
 suggestModel_suggestions = Lens.lens (\SuggestModel' {suggestions} -> suggestions) (\s@SuggestModel' {} a -> s {suggestions = a} :: SuggestModel) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SuggestModel where
+instance Data.FromJSON SuggestModel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SuggestModel"
       ( \x ->
           SuggestModel'
-            Prelude.<$> (x Core..:? "found")
-            Prelude.<*> (x Core..:? "query")
-            Prelude.<*> (x Core..:? "suggestions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "found")
+            Prelude.<*> (x Data..:? "query")
+            Prelude.<*> (x Data..:? "suggestions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SuggestModel where

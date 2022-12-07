@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.ModerationLabel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a single type of inappropriate, unwanted, or
@@ -92,15 +93,15 @@ moderationLabel_confidence = Lens.lens (\ModerationLabel' {confidence} -> confid
 moderationLabel_parentName :: Lens.Lens' ModerationLabel (Prelude.Maybe Prelude.Text)
 moderationLabel_parentName = Lens.lens (\ModerationLabel' {parentName} -> parentName) (\s@ModerationLabel' {} a -> s {parentName = a} :: ModerationLabel)
 
-instance Core.FromJSON ModerationLabel where
+instance Data.FromJSON ModerationLabel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModerationLabel"
       ( \x ->
           ModerationLabel'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "ParentName")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "ParentName")
       )
 
 instance Prelude.Hashable ModerationLabel where

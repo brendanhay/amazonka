@@ -62,6 +62,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -186,10 +187,10 @@ instance Core.AWSRequest DescribeScalingActivities where
       "DescribeScalingActivitiesResult"
       ( \s h x ->
           DescribeScalingActivitiesResponse'
-            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "Activities" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "Activities" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -209,26 +210,26 @@ instance Prelude.NFData DescribeScalingActivities where
       `Prelude.seq` Prelude.rnf autoScalingGroupName
       `Prelude.seq` Prelude.rnf activityIds
 
-instance Core.ToHeaders DescribeScalingActivities where
+instance Data.ToHeaders DescribeScalingActivities where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeScalingActivities where
+instance Data.ToPath DescribeScalingActivities where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeScalingActivities where
+instance Data.ToQuery DescribeScalingActivities where
   toQuery DescribeScalingActivities' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeScalingActivities" :: Prelude.ByteString),
+          Data.=: ("DescribeScalingActivities" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "IncludeDeletedGroups" Core.=: includeDeletedGroups,
-        "MaxRecords" Core.=: maxRecords,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "IncludeDeletedGroups" Data.=: includeDeletedGroups,
+        "MaxRecords" Data.=: maxRecords,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
         "ActivityIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> activityIds)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> activityIds)
       ]
 
 -- | /See:/ 'newDescribeScalingActivitiesResponse' smart constructor.

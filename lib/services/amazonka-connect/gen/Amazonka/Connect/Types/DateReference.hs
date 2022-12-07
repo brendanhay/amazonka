@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.DateReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a reference when the @referenceType@ is @DATE@.
@@ -62,13 +63,13 @@ dateReference_name = Lens.lens (\DateReference' {name} -> name) (\s@DateReferenc
 dateReference_value :: Lens.Lens' DateReference (Prelude.Maybe Prelude.Text)
 dateReference_value = Lens.lens (\DateReference' {value} -> value) (\s@DateReference' {} a -> s {value = a} :: DateReference)
 
-instance Core.FromJSON DateReference where
+instance Data.FromJSON DateReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DateReference"
       ( \x ->
           DateReference'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable DateReference where

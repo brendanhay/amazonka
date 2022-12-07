@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.DatabaseConfigDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information used for assessing databases.
@@ -53,13 +54,13 @@ newDatabaseConfigDetail =
 databaseConfigDetail_secretName :: Lens.Lens' DatabaseConfigDetail (Prelude.Maybe Prelude.Text)
 databaseConfigDetail_secretName = Lens.lens (\DatabaseConfigDetail' {secretName} -> secretName) (\s@DatabaseConfigDetail' {} a -> s {secretName = a} :: DatabaseConfigDetail)
 
-instance Core.FromJSON DatabaseConfigDetail where
+instance Data.FromJSON DatabaseConfigDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatabaseConfigDetail"
       ( \x ->
           DatabaseConfigDetail'
-            Prelude.<$> (x Core..:? "secretName")
+            Prelude.<$> (x Data..:? "secretName")
       )
 
 instance Prelude.Hashable DatabaseConfigDetail where

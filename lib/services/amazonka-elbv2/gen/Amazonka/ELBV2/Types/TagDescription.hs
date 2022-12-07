@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.TagDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,13 +63,13 @@ tagDescription_tags = Lens.lens (\TagDescription' {tags} -> tags) (\s@TagDescrip
 tagDescription_resourceArn :: Lens.Lens' TagDescription (Prelude.Maybe Prelude.Text)
 tagDescription_resourceArn = Lens.lens (\TagDescription' {resourceArn} -> resourceArn) (\s@TagDescription' {} a -> s {resourceArn = a} :: TagDescription)
 
-instance Core.FromXML TagDescription where
+instance Data.FromXML TagDescription where
   parseXML x =
     TagDescription'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList1 "member")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList1 "member")
                   )
-      Prelude.<*> (x Core..@? "ResourceArn")
+      Prelude.<*> (x Data..@? "ResourceArn")
 
 instance Prelude.Hashable TagDescription where
   hashWithSalt _salt TagDescription' {..} =

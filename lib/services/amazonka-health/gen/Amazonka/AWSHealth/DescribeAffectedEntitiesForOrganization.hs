@@ -70,6 +70,7 @@ where
 import Amazonka.AWSHealth.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -191,9 +192,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAffectedEntitiesForOrganizationResponse'
-            Prelude.<$> (x Core..?> "entities" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "nextToken")
-              Prelude.<*> (x Core..?> "failedSet" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "entities" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "nextToken")
+              Prelude.<*> (x Data..?> "failedSet" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -220,48 +221,48 @@ instance
       `Prelude.seq` Prelude.rnf organizationEntityFilters
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeAffectedEntitiesForOrganization
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHealth_20160804.DescribeAffectedEntitiesForOrganization" ::
+              Data.=# ( "AWSHealth_20160804.DescribeAffectedEntitiesForOrganization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeAffectedEntitiesForOrganization
   where
   toJSON DescribeAffectedEntitiesForOrganization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("locale" Core..=) Prelude.<$> locale,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("locale" Data..=) Prelude.<$> locale,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
               ( "organizationEntityFilters"
-                  Core..= organizationEntityFilters
+                  Data..= organizationEntityFilters
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeAffectedEntitiesForOrganization
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeAffectedEntitiesForOrganization
   where
   toQuery = Prelude.const Prelude.mempty

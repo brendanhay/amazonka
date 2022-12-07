@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.RouteAnalysis where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.RouteAnalysisEndpointOptions
 import Amazonka.NetworkManager.Types.RouteAnalysisPath
 import Amazonka.NetworkManager.Types.RouteAnalysisStatus
@@ -42,7 +43,7 @@ data RouteAnalysis = RouteAnalysis'
     -- analyzed if the forward path analysis does not succeed.
     includeReturnPath :: Prelude.Maybe Prelude.Bool,
     -- | The time that the analysis started.
-    startTimestamp :: Prelude.Maybe Core.POSIX,
+    startTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The status of the route analysis.
     status :: Prelude.Maybe RouteAnalysisStatus,
     -- | The source.
@@ -128,7 +129,7 @@ routeAnalysis_includeReturnPath = Lens.lens (\RouteAnalysis' {includeReturnPath}
 
 -- | The time that the analysis started.
 routeAnalysis_startTimestamp :: Lens.Lens' RouteAnalysis (Prelude.Maybe Prelude.UTCTime)
-routeAnalysis_startTimestamp = Lens.lens (\RouteAnalysis' {startTimestamp} -> startTimestamp) (\s@RouteAnalysis' {} a -> s {startTimestamp = a} :: RouteAnalysis) Prelude.. Lens.mapping Core._Time
+routeAnalysis_startTimestamp = Lens.lens (\RouteAnalysis' {startTimestamp} -> startTimestamp) (\s@RouteAnalysis' {} a -> s {startTimestamp = a} :: RouteAnalysis) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the route analysis.
 routeAnalysis_status :: Lens.Lens' RouteAnalysis (Prelude.Maybe RouteAnalysisStatus)
@@ -151,23 +152,23 @@ routeAnalysis_useMiddleboxes = Lens.lens (\RouteAnalysis' {useMiddleboxes} -> us
 routeAnalysis_forwardPath :: Lens.Lens' RouteAnalysis (Prelude.Maybe RouteAnalysisPath)
 routeAnalysis_forwardPath = Lens.lens (\RouteAnalysis' {forwardPath} -> forwardPath) (\s@RouteAnalysis' {} a -> s {forwardPath = a} :: RouteAnalysis)
 
-instance Core.FromJSON RouteAnalysis where
+instance Data.FromJSON RouteAnalysis where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RouteAnalysis"
       ( \x ->
           RouteAnalysis'
-            Prelude.<$> (x Core..:? "GlobalNetworkId")
-            Prelude.<*> (x Core..:? "Destination")
-            Prelude.<*> (x Core..:? "ReturnPath")
-            Prelude.<*> (x Core..:? "RouteAnalysisId")
-            Prelude.<*> (x Core..:? "IncludeReturnPath")
-            Prelude.<*> (x Core..:? "StartTimestamp")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "OwnerAccountId")
-            Prelude.<*> (x Core..:? "UseMiddleboxes")
-            Prelude.<*> (x Core..:? "ForwardPath")
+            Prelude.<$> (x Data..:? "GlobalNetworkId")
+            Prelude.<*> (x Data..:? "Destination")
+            Prelude.<*> (x Data..:? "ReturnPath")
+            Prelude.<*> (x Data..:? "RouteAnalysisId")
+            Prelude.<*> (x Data..:? "IncludeReturnPath")
+            Prelude.<*> (x Data..:? "StartTimestamp")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "OwnerAccountId")
+            Prelude.<*> (x Data..:? "UseMiddleboxes")
+            Prelude.<*> (x Data..:? "ForwardPath")
       )
 
 instance Prelude.Hashable RouteAnalysis where

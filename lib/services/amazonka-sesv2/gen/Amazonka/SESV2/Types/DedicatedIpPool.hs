@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.DedicatedIpPool where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.ScalingMode
 
@@ -84,14 +85,14 @@ dedicatedIpPool_poolName = Lens.lens (\DedicatedIpPool' {poolName} -> poolName) 
 dedicatedIpPool_scalingMode :: Lens.Lens' DedicatedIpPool ScalingMode
 dedicatedIpPool_scalingMode = Lens.lens (\DedicatedIpPool' {scalingMode} -> scalingMode) (\s@DedicatedIpPool' {} a -> s {scalingMode = a} :: DedicatedIpPool)
 
-instance Core.FromJSON DedicatedIpPool where
+instance Data.FromJSON DedicatedIpPool where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DedicatedIpPool"
       ( \x ->
           DedicatedIpPool'
-            Prelude.<$> (x Core..: "PoolName")
-            Prelude.<*> (x Core..: "ScalingMode")
+            Prelude.<$> (x Data..: "PoolName")
+            Prelude.<*> (x Data..: "ScalingMode")
       )
 
 instance Prelude.Hashable DedicatedIpPool where

@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.CountAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CustomRequestHandling
 
@@ -73,13 +74,13 @@ newCountAction =
 countAction_customRequestHandling :: Lens.Lens' CountAction (Prelude.Maybe CustomRequestHandling)
 countAction_customRequestHandling = Lens.lens (\CountAction' {customRequestHandling} -> customRequestHandling) (\s@CountAction' {} a -> s {customRequestHandling = a} :: CountAction)
 
-instance Core.FromJSON CountAction where
+instance Data.FromJSON CountAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CountAction"
       ( \x ->
           CountAction'
-            Prelude.<$> (x Core..:? "CustomRequestHandling")
+            Prelude.<$> (x Data..:? "CustomRequestHandling")
       )
 
 instance Prelude.Hashable CountAction where
@@ -90,11 +91,11 @@ instance Prelude.NFData CountAction where
   rnf CountAction' {..} =
     Prelude.rnf customRequestHandling
 
-instance Core.ToJSON CountAction where
+instance Data.ToJSON CountAction where
   toJSON CountAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomRequestHandling" Core..=)
+          [ ("CustomRequestHandling" Data..=)
               Prelude.<$> customRequestHandling
           ]
       )

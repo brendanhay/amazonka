@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.WorkflowStep where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.CopyStepDetails
 import Amazonka.Transfer.Types.CustomStepDetails
@@ -156,17 +157,17 @@ workflowStep_deleteStepDetails = Lens.lens (\WorkflowStep' {deleteStepDetails} -
 workflowStep_copyStepDetails :: Lens.Lens' WorkflowStep (Prelude.Maybe CopyStepDetails)
 workflowStep_copyStepDetails = Lens.lens (\WorkflowStep' {copyStepDetails} -> copyStepDetails) (\s@WorkflowStep' {} a -> s {copyStepDetails = a} :: WorkflowStep)
 
-instance Core.FromJSON WorkflowStep where
+instance Data.FromJSON WorkflowStep where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowStep"
       ( \x ->
           WorkflowStep'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "TagStepDetails")
-            Prelude.<*> (x Core..:? "CustomStepDetails")
-            Prelude.<*> (x Core..:? "DeleteStepDetails")
-            Prelude.<*> (x Core..:? "CopyStepDetails")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "TagStepDetails")
+            Prelude.<*> (x Data..:? "CustomStepDetails")
+            Prelude.<*> (x Data..:? "DeleteStepDetails")
+            Prelude.<*> (x Data..:? "CopyStepDetails")
       )
 
 instance Prelude.Hashable WorkflowStep where
@@ -185,18 +186,18 @@ instance Prelude.NFData WorkflowStep where
       `Prelude.seq` Prelude.rnf deleteStepDetails
       `Prelude.seq` Prelude.rnf copyStepDetails
 
-instance Core.ToJSON WorkflowStep where
+instance Data.ToJSON WorkflowStep where
   toJSON WorkflowStep' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("TagStepDetails" Core..=)
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("TagStepDetails" Data..=)
               Prelude.<$> tagStepDetails,
-            ("CustomStepDetails" Core..=)
+            ("CustomStepDetails" Data..=)
               Prelude.<$> customStepDetails,
-            ("DeleteStepDetails" Core..=)
+            ("DeleteStepDetails" Data..=)
               Prelude.<$> deleteStepDetails,
-            ("CopyStepDetails" Core..=)
+            ("CopyStepDetails" Data..=)
               Prelude.<$> copyStepDetails
           ]
       )

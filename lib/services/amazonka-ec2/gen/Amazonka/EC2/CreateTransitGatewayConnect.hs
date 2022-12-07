@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,7 +140,7 @@ instance Core.AWSRequest CreateTransitGatewayConnect where
     Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayConnectResponse'
-            Prelude.<$> (x Core..@? "transitGatewayConnect")
+            Prelude.<$> (x Data..@? "transitGatewayConnect")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,29 +158,29 @@ instance Prelude.NFData CreateTransitGatewayConnect where
       `Prelude.seq` Prelude.rnf transportTransitGatewayAttachmentId
       `Prelude.seq` Prelude.rnf options
 
-instance Core.ToHeaders CreateTransitGatewayConnect where
+instance Data.ToHeaders CreateTransitGatewayConnect where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateTransitGatewayConnect where
+instance Data.ToPath CreateTransitGatewayConnect where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTransitGatewayConnect where
+instance Data.ToQuery CreateTransitGatewayConnect where
   toQuery CreateTransitGatewayConnect' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateTransitGatewayConnect" ::
+          Data.=: ( "CreateTransitGatewayConnect" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "TransportTransitGatewayAttachmentId"
-          Core.=: transportTransitGatewayAttachmentId,
-        "Options" Core.=: options
+          Data.=: transportTransitGatewayAttachmentId,
+        "Options" Data.=: options
       ]
 
 -- | /See:/ 'newCreateTransitGatewayConnectResponse' smart constructor.

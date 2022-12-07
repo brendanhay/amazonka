@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,12 +123,12 @@ instance Core.AWSRequest GetPrefetchSchedule where
     Response.receiveJSON
       ( \s h x ->
           GetPrefetchScheduleResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "StreamId")
-            Prelude.<*> (x Core..?> "Retrieval")
-            Prelude.<*> (x Core..?> "PlaybackConfigurationName")
-            Prelude.<*> (x Core..?> "Consumption")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "StreamId")
+            Prelude.<*> (x Data..?> "Retrieval")
+            Prelude.<*> (x Data..?> "PlaybackConfigurationName")
+            Prelude.<*> (x Data..?> "Consumption")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,27 +142,27 @@ instance Prelude.NFData GetPrefetchSchedule where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf playbackConfigurationName
 
-instance Core.ToHeaders GetPrefetchSchedule where
+instance Data.ToHeaders GetPrefetchSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetPrefetchSchedule where
+instance Data.ToPath GetPrefetchSchedule where
   toPath GetPrefetchSchedule' {..} =
     Prelude.mconcat
       [ "/prefetchSchedule/",
-        Core.toBS playbackConfigurationName,
+        Data.toBS playbackConfigurationName,
         "/",
-        Core.toBS name
+        Data.toBS name
       ]
 
-instance Core.ToQuery GetPrefetchSchedule where
+instance Data.ToQuery GetPrefetchSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPrefetchScheduleResponse' smart constructor.

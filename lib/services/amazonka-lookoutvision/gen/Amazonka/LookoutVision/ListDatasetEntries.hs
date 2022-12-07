@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -78,10 +79,10 @@ data ListDatasetEntries = ListDatasetEntries'
     sourceRefContains :: Prelude.Maybe Prelude.Text,
     -- | Only includes entries after the specified date in the response. For
     -- example, @2020-06-23T00:00:00@.
-    afterCreationDate :: Prelude.Maybe Core.POSIX,
+    afterCreationDate :: Prelude.Maybe Data.POSIX,
     -- | Only includes entries before the specified date in the response. For
     -- example, @2020-06-23T00:00:00@.
-    beforeCreationDate :: Prelude.Maybe Core.POSIX,
+    beforeCreationDate :: Prelude.Maybe Data.POSIX,
     -- | Specify @normal@ to include only normal images. Specify @anomaly@ to
     -- only include anomalous entries. If you don\'t specify a value, Amazon
     -- Lookout for Vision returns normal and anomalous images.
@@ -178,12 +179,12 @@ listDatasetEntries_sourceRefContains = Lens.lens (\ListDatasetEntries' {sourceRe
 -- | Only includes entries after the specified date in the response. For
 -- example, @2020-06-23T00:00:00@.
 listDatasetEntries_afterCreationDate :: Lens.Lens' ListDatasetEntries (Prelude.Maybe Prelude.UTCTime)
-listDatasetEntries_afterCreationDate = Lens.lens (\ListDatasetEntries' {afterCreationDate} -> afterCreationDate) (\s@ListDatasetEntries' {} a -> s {afterCreationDate = a} :: ListDatasetEntries) Prelude.. Lens.mapping Core._Time
+listDatasetEntries_afterCreationDate = Lens.lens (\ListDatasetEntries' {afterCreationDate} -> afterCreationDate) (\s@ListDatasetEntries' {} a -> s {afterCreationDate = a} :: ListDatasetEntries) Prelude.. Lens.mapping Data._Time
 
 -- | Only includes entries before the specified date in the response. For
 -- example, @2020-06-23T00:00:00@.
 listDatasetEntries_beforeCreationDate :: Lens.Lens' ListDatasetEntries (Prelude.Maybe Prelude.UTCTime)
-listDatasetEntries_beforeCreationDate = Lens.lens (\ListDatasetEntries' {beforeCreationDate} -> beforeCreationDate) (\s@ListDatasetEntries' {} a -> s {beforeCreationDate = a} :: ListDatasetEntries) Prelude.. Lens.mapping Core._Time
+listDatasetEntries_beforeCreationDate = Lens.lens (\ListDatasetEntries' {beforeCreationDate} -> beforeCreationDate) (\s@ListDatasetEntries' {} a -> s {beforeCreationDate = a} :: ListDatasetEntries) Prelude.. Lens.mapping Data._Time
 
 -- | Specify @normal@ to include only normal images. Specify @anomaly@ to
 -- only include anomalous entries. If you don\'t specify a value, Amazon
@@ -239,8 +240,8 @@ instance Core.AWSRequest ListDatasetEntries where
     Response.receiveJSON
       ( \s h x ->
           ListDatasetEntriesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "DatasetEntries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "DatasetEntries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -268,37 +269,37 @@ instance Prelude.NFData ListDatasetEntries where
       `Prelude.seq` Prelude.rnf projectName
       `Prelude.seq` Prelude.rnf datasetType
 
-instance Core.ToHeaders ListDatasetEntries where
+instance Data.ToHeaders ListDatasetEntries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListDatasetEntries where
+instance Data.ToPath ListDatasetEntries where
   toPath ListDatasetEntries' {..} =
     Prelude.mconcat
       [ "/2020-11-20/projects/",
-        Core.toBS projectName,
+        Data.toBS projectName,
         "/datasets/",
-        Core.toBS datasetType,
+        Data.toBS datasetType,
         "/entries"
       ]
 
-instance Core.ToQuery ListDatasetEntries where
+instance Data.ToQuery ListDatasetEntries where
   toQuery ListDatasetEntries' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "labeled" Core.=: labeled,
-        "sourceRefContains" Core.=: sourceRefContains,
-        "createdAfter" Core.=: afterCreationDate,
-        "createdBefore" Core.=: beforeCreationDate,
-        "anomalyClass" Core.=: anomalyClass,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "labeled" Data.=: labeled,
+        "sourceRefContains" Data.=: sourceRefContains,
+        "createdAfter" Data.=: afterCreationDate,
+        "createdBefore" Data.=: beforeCreationDate,
+        "anomalyClass" Data.=: anomalyClass,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListDatasetEntriesResponse' smart constructor.

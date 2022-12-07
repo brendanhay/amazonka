@@ -57,6 +57,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -177,7 +178,7 @@ instance Core.AWSRequest CreateApiKey where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateApiKey where
   hashWithSalt _salt CreateApiKey' {..} =
@@ -201,33 +202,33 @@ instance Prelude.NFData CreateApiKey where
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToHeaders CreateApiKey where
+instance Data.ToHeaders CreateApiKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON CreateApiKey where
+instance Data.ToJSON CreateApiKey where
   toJSON CreateApiKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("generateDistinctId" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("generateDistinctId" Data..=)
               Prelude.<$> generateDistinctId,
-            ("customerId" Core..=) Prelude.<$> customerId,
-            ("name" Core..=) Prelude.<$> name,
-            ("description" Core..=) Prelude.<$> description,
-            ("stageKeys" Core..=) Prelude.<$> stageKeys,
-            ("enabled" Core..=) Prelude.<$> enabled,
-            ("value" Core..=) Prelude.<$> value
+            ("customerId" Data..=) Prelude.<$> customerId,
+            ("name" Data..=) Prelude.<$> name,
+            ("description" Data..=) Prelude.<$> description,
+            ("stageKeys" Data..=) Prelude.<$> stageKeys,
+            ("enabled" Data..=) Prelude.<$> enabled,
+            ("value" Data..=) Prelude.<$> value
           ]
       )
 
-instance Core.ToPath CreateApiKey where
+instance Data.ToPath CreateApiKey where
   toPath = Prelude.const "/apikeys"
 
-instance Core.ToQuery CreateApiKey where
+instance Data.ToQuery CreateApiKey where
   toQuery = Prelude.const Prelude.mempty

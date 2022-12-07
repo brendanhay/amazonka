@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -177,8 +178,8 @@ instance Core.AWSRequest ListDocuments where
     Response.receiveJSON
       ( \s h x ->
           ListDocumentsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DocumentIdentifiers"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "DocumentIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -198,35 +199,35 @@ instance Prelude.NFData ListDocuments where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf documentFilterList
 
-instance Core.ToHeaders ListDocuments where
+instance Data.ToHeaders ListDocuments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.ListDocuments" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.ListDocuments" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDocuments where
+instance Data.ToJSON ListDocuments where
   toJSON ListDocuments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("DocumentFilterList" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("DocumentFilterList" Data..=)
               Prelude.<$> documentFilterList
           ]
       )
 
-instance Core.ToPath ListDocuments where
+instance Data.ToPath ListDocuments where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDocuments where
+instance Data.ToQuery ListDocuments where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDocumentsResponse' smart constructor.

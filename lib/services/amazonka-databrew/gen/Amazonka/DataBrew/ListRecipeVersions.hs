@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,9 +132,9 @@ instance Core.AWSRequest ListRecipeVersions where
     Response.receiveJSON
       ( \s h x ->
           ListRecipeVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Recipes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Recipes" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListRecipeVersions where
@@ -148,26 +149,26 @@ instance Prelude.NFData ListRecipeVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders ListRecipeVersions where
+instance Data.ToHeaders ListRecipeVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRecipeVersions where
+instance Data.ToPath ListRecipeVersions where
   toPath = Prelude.const "/recipeVersions"
 
-instance Core.ToQuery ListRecipeVersions where
+instance Data.ToQuery ListRecipeVersions where
   toQuery ListRecipeVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "name" Core.=: name
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "name" Data.=: name
       ]
 
 -- | /See:/ 'newListRecipeVersionsResponse' smart constructor.

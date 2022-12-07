@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsLambdaFunctionVpcConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The VPC security groups and subnets that are attached to a Lambda
@@ -72,17 +73,17 @@ awsLambdaFunctionVpcConfig_vpcId = Lens.lens (\AwsLambdaFunctionVpcConfig' {vpcI
 awsLambdaFunctionVpcConfig_subnetIds :: Lens.Lens' AwsLambdaFunctionVpcConfig (Prelude.Maybe [Prelude.Text])
 awsLambdaFunctionVpcConfig_subnetIds = Lens.lens (\AwsLambdaFunctionVpcConfig' {subnetIds} -> subnetIds) (\s@AwsLambdaFunctionVpcConfig' {} a -> s {subnetIds = a} :: AwsLambdaFunctionVpcConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsLambdaFunctionVpcConfig where
+instance Data.FromJSON AwsLambdaFunctionVpcConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsLambdaFunctionVpcConfig"
       ( \x ->
           AwsLambdaFunctionVpcConfig'
-            Prelude.<$> ( x Core..:? "SecurityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AwsLambdaFunctionVpcConfig where
@@ -97,13 +98,13 @@ instance Prelude.NFData AwsLambdaFunctionVpcConfig where
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToJSON AwsLambdaFunctionVpcConfig where
+instance Data.ToJSON AwsLambdaFunctionVpcConfig where
   toJSON AwsLambdaFunctionVpcConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityGroupIds" Core..=)
+          [ ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("SubnetIds" Core..=) Prelude.<$> subnetIds
+            ("VpcId" Data..=) Prelude.<$> vpcId,
+            ("SubnetIds" Data..=) Prelude.<$> subnetIds
           ]
       )

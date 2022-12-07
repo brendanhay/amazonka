@@ -46,6 +46,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,7 +128,7 @@ data StartRestoreJob = StartRestoreJob'
     --     is a file path. Use @ItemsToRestore@ to restore specific files or
     --     directories rather than the entire file system. This parameter is
     --     optional. For example, @\"itemsToRestore\":\"[\\\"\/my.test\\\"]\"@.
-    metadata :: Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)
+    metadata :: Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -311,7 +312,7 @@ startRestoreJob_recoveryPointArn = Lens.lens (\StartRestoreJob' {recoveryPointAr
 --     directories rather than the entire file system. This parameter is
 --     optional. For example, @\"itemsToRestore\":\"[\\\"\/my.test\\\"]\"@.
 startRestoreJob_metadata :: Lens.Lens' StartRestoreJob (Prelude.HashMap Prelude.Text Prelude.Text)
-startRestoreJob_metadata = Lens.lens (\StartRestoreJob' {metadata} -> metadata) (\s@StartRestoreJob' {} a -> s {metadata = a} :: StartRestoreJob) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+startRestoreJob_metadata = Lens.lens (\StartRestoreJob' {metadata} -> metadata) (\s@StartRestoreJob' {} a -> s {metadata = a} :: StartRestoreJob) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 instance Core.AWSRequest StartRestoreJob where
   type
@@ -323,7 +324,7 @@ instance Core.AWSRequest StartRestoreJob where
     Response.receiveJSON
       ( \s h x ->
           StartRestoreJobResponse'
-            Prelude.<$> (x Core..?> "RestoreJobId")
+            Prelude.<$> (x Data..?> "RestoreJobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -343,35 +344,35 @@ instance Prelude.NFData StartRestoreJob where
       `Prelude.seq` Prelude.rnf recoveryPointArn
       `Prelude.seq` Prelude.rnf metadata
 
-instance Core.ToHeaders StartRestoreJob where
+instance Data.ToHeaders StartRestoreJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartRestoreJob where
+instance Data.ToJSON StartRestoreJob where
   toJSON StartRestoreJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceType" Core..=) Prelude.<$> resourceType,
-            ("IdempotencyToken" Core..=)
+          [ ("ResourceType" Data..=) Prelude.<$> resourceType,
+            ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
+            ("IamRoleArn" Data..=) Prelude.<$> iamRoleArn,
             Prelude.Just
-              ("RecoveryPointArn" Core..= recoveryPointArn),
-            Prelude.Just ("Metadata" Core..= metadata)
+              ("RecoveryPointArn" Data..= recoveryPointArn),
+            Prelude.Just ("Metadata" Data..= metadata)
           ]
       )
 
-instance Core.ToPath StartRestoreJob where
+instance Data.ToPath StartRestoreJob where
   toPath = Prelude.const "/restore-jobs"
 
-instance Core.ToQuery StartRestoreJob where
+instance Data.ToQuery StartRestoreJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartRestoreJobResponse' smart constructor.

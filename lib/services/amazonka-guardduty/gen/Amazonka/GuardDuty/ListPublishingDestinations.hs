@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,9 +118,9 @@ instance Core.AWSRequest ListPublishingDestinations where
     Response.receiveJSON
       ( \s h x ->
           ListPublishingDestinationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "destinations" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListPublishingDestinations where
@@ -134,30 +135,30 @@ instance Prelude.NFData ListPublishingDestinations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf detectorId
 
-instance Core.ToHeaders ListPublishingDestinations where
+instance Data.ToHeaders ListPublishingDestinations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListPublishingDestinations where
+instance Data.ToPath ListPublishingDestinations where
   toPath ListPublishingDestinations' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/publishingDestination"
       ]
 
-instance Core.ToQuery ListPublishingDestinations where
+instance Data.ToQuery ListPublishingDestinations where
   toQuery ListPublishingDestinations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListPublishingDestinationsResponse' smart constructor.

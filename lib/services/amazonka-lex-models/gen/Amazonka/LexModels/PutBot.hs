@@ -92,6 +92,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -813,26 +814,26 @@ instance Core.AWSRequest PutBot where
     Response.receiveJSON
       ( \s h x ->
           PutBotResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "detectSentiment")
-            Prelude.<*> (x Core..?> "voiceId")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "nluIntentConfidenceThreshold")
-            Prelude.<*> (x Core..?> "locale")
-            Prelude.<*> (x Core..?> "lastUpdatedDate")
-            Prelude.<*> (x Core..?> "intents" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "idleSessionTTLInSeconds")
-            Prelude.<*> (x Core..?> "enableModelImprovements")
-            Prelude.<*> (x Core..?> "checksum")
-            Prelude.<*> (x Core..?> "childDirected")
-            Prelude.<*> (x Core..?> "createVersion")
-            Prelude.<*> (x Core..?> "abortStatement")
-            Prelude.<*> (x Core..?> "clarificationPrompt")
-            Prelude.<*> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "failureReason")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "detectSentiment")
+            Prelude.<*> (x Data..?> "voiceId")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "nluIntentConfidenceThreshold")
+            Prelude.<*> (x Data..?> "locale")
+            Prelude.<*> (x Data..?> "lastUpdatedDate")
+            Prelude.<*> (x Data..?> "intents" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "idleSessionTTLInSeconds")
+            Prelude.<*> (x Data..?> "enableModelImprovements")
+            Prelude.<*> (x Data..?> "checksum")
+            Prelude.<*> (x Data..?> "childDirected")
+            Prelude.<*> (x Data..?> "createVersion")
+            Prelude.<*> (x Data..?> "abortStatement")
+            Prelude.<*> (x Data..?> "clarificationPrompt")
+            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> (x Data..?> "failureReason")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -874,53 +875,53 @@ instance Prelude.NFData PutBot where
       `Prelude.seq` Prelude.rnf locale
       `Prelude.seq` Prelude.rnf childDirected
 
-instance Core.ToHeaders PutBot where
+instance Data.ToHeaders PutBot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutBot where
+instance Data.ToJSON PutBot where
   toJSON PutBot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("detectSentiment" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("detectSentiment" Data..=)
               Prelude.<$> detectSentiment,
-            ("voiceId" Core..=) Prelude.<$> voiceId,
-            ("nluIntentConfidenceThreshold" Core..=)
+            ("voiceId" Data..=) Prelude.<$> voiceId,
+            ("nluIntentConfidenceThreshold" Data..=)
               Prelude.<$> nluIntentConfidenceThreshold,
-            ("intents" Core..=) Prelude.<$> intents,
-            ("description" Core..=) Prelude.<$> description,
-            ("idleSessionTTLInSeconds" Core..=)
+            ("intents" Data..=) Prelude.<$> intents,
+            ("description" Data..=) Prelude.<$> description,
+            ("idleSessionTTLInSeconds" Data..=)
               Prelude.<$> idleSessionTTLInSeconds,
-            ("enableModelImprovements" Core..=)
+            ("enableModelImprovements" Data..=)
               Prelude.<$> enableModelImprovements,
-            ("checksum" Core..=) Prelude.<$> checksum,
-            ("createVersion" Core..=) Prelude.<$> createVersion,
-            ("abortStatement" Core..=)
+            ("checksum" Data..=) Prelude.<$> checksum,
+            ("createVersion" Data..=) Prelude.<$> createVersion,
+            ("abortStatement" Data..=)
               Prelude.<$> abortStatement,
-            ("clarificationPrompt" Core..=)
+            ("clarificationPrompt" Data..=)
               Prelude.<$> clarificationPrompt,
-            ("processBehavior" Core..=)
+            ("processBehavior" Data..=)
               Prelude.<$> processBehavior,
-            Prelude.Just ("locale" Core..= locale),
+            Prelude.Just ("locale" Data..= locale),
             Prelude.Just
-              ("childDirected" Core..= childDirected)
+              ("childDirected" Data..= childDirected)
           ]
       )
 
-instance Core.ToPath PutBot where
+instance Data.ToPath PutBot where
   toPath PutBot' {..} =
     Prelude.mconcat
-      ["/bots/", Core.toBS name, "/versions/$LATEST"]
+      ["/bots/", Data.toBS name, "/versions/$LATEST"]
 
-instance Core.ToQuery PutBot where
+instance Data.ToQuery PutBot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutBotResponse' smart constructor.
@@ -951,7 +952,7 @@ data PutBotResponse = PutBotResponse'
     locale :: Prelude.Maybe Locale,
     -- | The date that the bot was updated. When you create a resource, the
     -- creation date and last updated date are the same.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | An array of @Intent@ objects. For more information, see PutBot.
     intents :: Prelude.Maybe [Intent],
     -- | When you send a request to create a bot with @processBehavior@ set to
@@ -1017,7 +1018,7 @@ data PutBotResponse = PutBotResponse'
     -- intent. For more information, see PutBot.
     clarificationPrompt :: Prelude.Maybe Prompt,
     -- | The date that the bot was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
     -- to build the bot.
     failureReason :: Prelude.Maybe Prelude.Text,
@@ -1203,7 +1204,7 @@ putBotResponse_locale = Lens.lens (\PutBotResponse' {locale} -> locale) (\s@PutB
 -- | The date that the bot was updated. When you create a resource, the
 -- creation date and last updated date are the same.
 putBotResponse_lastUpdatedDate :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.UTCTime)
-putBotResponse_lastUpdatedDate = Lens.lens (\PutBotResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@PutBotResponse' {} a -> s {lastUpdatedDate = a} :: PutBotResponse) Prelude.. Lens.mapping Core._Time
+putBotResponse_lastUpdatedDate = Lens.lens (\PutBotResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@PutBotResponse' {} a -> s {lastUpdatedDate = a} :: PutBotResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An array of @Intent@ objects. For more information, see PutBot.
 putBotResponse_intents :: Lens.Lens' PutBotResponse (Prelude.Maybe [Intent])
@@ -1291,7 +1292,7 @@ putBotResponse_clarificationPrompt = Lens.lens (\PutBotResponse' {clarificationP
 
 -- | The date that the bot was created.
 putBotResponse_createdDate :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.UTCTime)
-putBotResponse_createdDate = Lens.lens (\PutBotResponse' {createdDate} -> createdDate) (\s@PutBotResponse' {} a -> s {createdDate = a} :: PutBotResponse) Prelude.. Lens.mapping Core._Time
+putBotResponse_createdDate = Lens.lens (\PutBotResponse' {createdDate} -> createdDate) (\s@PutBotResponse' {} a -> s {createdDate = a} :: PutBotResponse) Prelude.. Lens.mapping Data._Time
 
 -- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
 -- to build the bot.

@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.LogsSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types.PendingLogs
 import qualified Amazonka.Prelude as Prelude
 
@@ -103,17 +104,17 @@ logsSummary_generalLogGroup = Lens.lens (\LogsSummary' {generalLogGroup} -> gene
 logsSummary_general :: Lens.Lens' LogsSummary Prelude.Bool
 logsSummary_general = Lens.lens (\LogsSummary' {general} -> general) (\s@LogsSummary' {} a -> s {general = a} :: LogsSummary)
 
-instance Core.FromJSON LogsSummary where
+instance Data.FromJSON LogsSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogsSummary"
       ( \x ->
           LogsSummary'
-            Prelude.<$> (x Core..:? "auditLogGroup")
-            Prelude.<*> (x Core..:? "audit")
-            Prelude.<*> (x Core..:? "pending")
-            Prelude.<*> (x Core..: "generalLogGroup")
-            Prelude.<*> (x Core..: "general")
+            Prelude.<$> (x Data..:? "auditLogGroup")
+            Prelude.<*> (x Data..:? "audit")
+            Prelude.<*> (x Data..:? "pending")
+            Prelude.<*> (x Data..: "generalLogGroup")
+            Prelude.<*> (x Data..: "general")
       )
 
 instance Prelude.Hashable LogsSummary where

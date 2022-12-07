@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ContainerServicePower where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the powers that can be specified for an Amazon Lightsail
@@ -104,18 +105,18 @@ containerServicePower_powerId = Lens.lens (\ContainerServicePower' {powerId} -> 
 containerServicePower_ramSizeInGb :: Lens.Lens' ContainerServicePower (Prelude.Maybe Prelude.Double)
 containerServicePower_ramSizeInGb = Lens.lens (\ContainerServicePower' {ramSizeInGb} -> ramSizeInGb) (\s@ContainerServicePower' {} a -> s {ramSizeInGb = a} :: ContainerServicePower)
 
-instance Core.FromJSON ContainerServicePower where
+instance Data.FromJSON ContainerServicePower where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerServicePower"
       ( \x ->
           ContainerServicePower'
-            Prelude.<$> (x Core..:? "cpuCount")
-            Prelude.<*> (x Core..:? "isActive")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "price")
-            Prelude.<*> (x Core..:? "powerId")
-            Prelude.<*> (x Core..:? "ramSizeInGb")
+            Prelude.<$> (x Data..:? "cpuCount")
+            Prelude.<*> (x Data..:? "isActive")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "price")
+            Prelude.<*> (x Data..:? "powerId")
+            Prelude.<*> (x Data..:? "ramSizeInGb")
       )
 
 instance Prelude.Hashable ContainerServicePower where

@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,8 +129,8 @@ instance
       "RegisterInstancesWithLoadBalancerResult"
       ( \s h x ->
           RegisterInstancesWithLoadBalancerResponse'
-            Prelude.<$> ( x Core..@? "Instances" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Instances" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -153,32 +154,32 @@ instance
       `Prelude.seq` Prelude.rnf instances
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RegisterInstancesWithLoadBalancer
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     RegisterInstancesWithLoadBalancer
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     RegisterInstancesWithLoadBalancer
   where
   toQuery RegisterInstancesWithLoadBalancer' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "RegisterInstancesWithLoadBalancer" ::
+          Data.=: ( "RegisterInstancesWithLoadBalancer" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Core.=: loadBalancerName,
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
+        "LoadBalancerName" Data.=: loadBalancerName,
         "Instances"
-          Core.=: Core.toQueryList "member" instances
+          Data.=: Data.toQueryList "member" instances
       ]
 
 -- | Contains the output of RegisterInstancesWithLoadBalancer.

@@ -44,6 +44,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ instance Core.AWSRequest CreateSipMediaApplication where
     Response.receiveJSON
       ( \s h x ->
           CreateSipMediaApplicationResponse'
-            Prelude.<$> (x Core..?> "SipMediaApplication")
+            Prelude.<$> (x Data..?> "SipMediaApplication")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,23 +132,23 @@ instance Prelude.NFData CreateSipMediaApplication where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf endpoints
 
-instance Core.ToHeaders CreateSipMediaApplication where
+instance Data.ToHeaders CreateSipMediaApplication where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateSipMediaApplication where
+instance Data.ToJSON CreateSipMediaApplication where
   toJSON CreateSipMediaApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AwsRegion" Core..= awsRegion),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Endpoints" Core..= endpoints)
+          [ Prelude.Just ("AwsRegion" Data..= awsRegion),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Endpoints" Data..= endpoints)
           ]
       )
 
-instance Core.ToPath CreateSipMediaApplication where
+instance Data.ToPath CreateSipMediaApplication where
   toPath = Prelude.const "/sip-media-applications"
 
-instance Core.ToQuery CreateSipMediaApplication where
+instance Data.ToQuery CreateSipMediaApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSipMediaApplicationResponse' smart constructor.

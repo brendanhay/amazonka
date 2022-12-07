@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProcessingInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.DatasetDefinition
 import Amazonka.SageMaker.Types.ProcessingS3Input
@@ -93,16 +94,16 @@ processingInput_appManaged = Lens.lens (\ProcessingInput' {appManaged} -> appMan
 processingInput_inputName :: Lens.Lens' ProcessingInput Prelude.Text
 processingInput_inputName = Lens.lens (\ProcessingInput' {inputName} -> inputName) (\s@ProcessingInput' {} a -> s {inputName = a} :: ProcessingInput)
 
-instance Core.FromJSON ProcessingInput where
+instance Data.FromJSON ProcessingInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProcessingInput"
       ( \x ->
           ProcessingInput'
-            Prelude.<$> (x Core..:? "S3Input")
-            Prelude.<*> (x Core..:? "DatasetDefinition")
-            Prelude.<*> (x Core..:? "AppManaged")
-            Prelude.<*> (x Core..: "InputName")
+            Prelude.<$> (x Data..:? "S3Input")
+            Prelude.<*> (x Data..:? "DatasetDefinition")
+            Prelude.<*> (x Data..:? "AppManaged")
+            Prelude.<*> (x Data..: "InputName")
       )
 
 instance Prelude.Hashable ProcessingInput where
@@ -119,14 +120,14 @@ instance Prelude.NFData ProcessingInput where
       `Prelude.seq` Prelude.rnf appManaged
       `Prelude.seq` Prelude.rnf inputName
 
-instance Core.ToJSON ProcessingInput where
+instance Data.ToJSON ProcessingInput where
   toJSON ProcessingInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Input" Core..=) Prelude.<$> s3Input,
-            ("DatasetDefinition" Core..=)
+          [ ("S3Input" Data..=) Prelude.<$> s3Input,
+            ("DatasetDefinition" Data..=)
               Prelude.<$> datasetDefinition,
-            ("AppManaged" Core..=) Prelude.<$> appManaged,
-            Prelude.Just ("InputName" Core..= inputName)
+            ("AppManaged" Data..=) Prelude.<$> appManaged,
+            Prelude.Just ("InputName" Data..= inputName)
           ]
       )

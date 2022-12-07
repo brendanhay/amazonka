@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.SmbMountOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types.SmbVersion
 import qualified Amazonka.Prelude as Prelude
 
@@ -60,12 +61,12 @@ newSmbMountOptions =
 smbMountOptions_version :: Lens.Lens' SmbMountOptions (Prelude.Maybe SmbVersion)
 smbMountOptions_version = Lens.lens (\SmbMountOptions' {version} -> version) (\s@SmbMountOptions' {} a -> s {version = a} :: SmbMountOptions)
 
-instance Core.FromJSON SmbMountOptions where
+instance Data.FromJSON SmbMountOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SmbMountOptions"
       ( \x ->
-          SmbMountOptions' Prelude.<$> (x Core..:? "Version")
+          SmbMountOptions' Prelude.<$> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable SmbMountOptions where
@@ -75,9 +76,9 @@ instance Prelude.Hashable SmbMountOptions where
 instance Prelude.NFData SmbMountOptions where
   rnf SmbMountOptions' {..} = Prelude.rnf version
 
-instance Core.ToJSON SmbMountOptions where
+instance Data.ToJSON SmbMountOptions where
   toJSON SmbMountOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Version" Core..=) Prelude.<$> version]
+          [("Version" Data..=) Prelude.<$> version]
       )

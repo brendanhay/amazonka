@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.SearchResourcesSimpleCriterion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.SearchResourcesComparator
 import Amazonka.MacieV2.Types.SearchResourcesSimpleCriterionKey
 import qualified Amazonka.Prelude as Prelude
@@ -157,12 +158,12 @@ instance
       `Prelude.seq` Prelude.rnf comparator
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON SearchResourcesSimpleCriterion where
+instance Data.ToJSON SearchResourcesSimpleCriterion where
   toJSON SearchResourcesSimpleCriterion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("comparator" Core..=) Prelude.<$> comparator,
-            ("values" Core..=) Prelude.<$> values
+          [ ("key" Data..=) Prelude.<$> key,
+            ("comparator" Data..=) Prelude.<$> comparator,
+            ("values" Data..=) Prelude.<$> values
           ]
       )

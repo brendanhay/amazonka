@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchDetachFromIndex where
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detaches the specified object from the specified index inside a
@@ -81,13 +82,13 @@ instance Prelude.NFData BatchDetachFromIndex where
     Prelude.rnf indexReference
       `Prelude.seq` Prelude.rnf targetReference
 
-instance Core.ToJSON BatchDetachFromIndex where
+instance Data.ToJSON BatchDetachFromIndex where
   toJSON BatchDetachFromIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("IndexReference" Core..= indexReference),
+              ("IndexReference" Data..= indexReference),
             Prelude.Just
-              ("TargetReference" Core..= targetReference)
+              ("TargetReference" Data..= targetReference)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.TriggerNodeDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.Trigger
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newTriggerNodeDetails =
 triggerNodeDetails_trigger :: Lens.Lens' TriggerNodeDetails (Prelude.Maybe Trigger)
 triggerNodeDetails_trigger = Lens.lens (\TriggerNodeDetails' {trigger} -> trigger) (\s@TriggerNodeDetails' {} a -> s {trigger = a} :: TriggerNodeDetails)
 
-instance Core.FromJSON TriggerNodeDetails where
+instance Data.FromJSON TriggerNodeDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TriggerNodeDetails"
       ( \x ->
           TriggerNodeDetails'
-            Prelude.<$> (x Core..:? "Trigger")
+            Prelude.<$> (x Data..:? "Trigger")
       )
 
 instance Prelude.Hashable TriggerNodeDetails where

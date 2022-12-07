@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainDomainEndpointOption
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about additional options for the domain endpoint.
@@ -97,19 +98,19 @@ awsOpenSearchServiceDomainDomainEndpointOptionsDetails_customEndpoint :: Lens.Le
 awsOpenSearchServiceDomainDomainEndpointOptionsDetails_customEndpoint = Lens.lens (\AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {customEndpoint} -> customEndpoint) (\s@AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {} a -> s {customEndpoint = a} :: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsOpenSearchServiceDomainDomainEndpointOptionsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsOpenSearchServiceDomainDomainEndpointOptionsDetails"
       ( \x ->
           AwsOpenSearchServiceDomainDomainEndpointOptionsDetails'
-            Prelude.<$> (x Core..:? "CustomEndpointCertificateArn")
-              Prelude.<*> (x Core..:? "TLSSecurityPolicy")
-              Prelude.<*> (x Core..:? "CustomEndpointEnabled")
-              Prelude.<*> (x Core..:? "EnforceHTTPS")
-              Prelude.<*> (x Core..:? "CustomEndpoint")
+            Prelude.<$> (x Data..:? "CustomEndpointCertificateArn")
+              Prelude.<*> (x Data..:? "TLSSecurityPolicy")
+              Prelude.<*> (x Data..:? "CustomEndpointEnabled")
+              Prelude.<*> (x Data..:? "EnforceHTTPS")
+              Prelude.<*> (x Data..:? "CustomEndpoint")
       )
 
 instance
@@ -139,21 +140,21 @@ instance
         `Prelude.seq` Prelude.rnf customEndpoint
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsOpenSearchServiceDomainDomainEndpointOptionsDetails
   where
   toJSON
     AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("CustomEndpointCertificateArn" Core..=)
+            [ ("CustomEndpointCertificateArn" Data..=)
                 Prelude.<$> customEndpointCertificateArn,
-              ("TLSSecurityPolicy" Core..=)
+              ("TLSSecurityPolicy" Data..=)
                 Prelude.<$> tLSSecurityPolicy,
-              ("CustomEndpointEnabled" Core..=)
+              ("CustomEndpointEnabled" Data..=)
                 Prelude.<$> customEndpointEnabled,
-              ("EnforceHTTPS" Core..=) Prelude.<$> enforceHTTPS,
-              ("CustomEndpoint" Core..=)
+              ("EnforceHTTPS" Data..=) Prelude.<$> enforceHTTPS,
+              ("CustomEndpoint" Data..=)
                 Prelude.<$> customEndpoint
             ]
         )

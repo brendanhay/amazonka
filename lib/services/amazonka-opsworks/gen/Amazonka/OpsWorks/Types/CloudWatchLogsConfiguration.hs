@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.CloudWatchLogsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.CloudWatchLogsLogStream
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ cloudWatchLogsConfiguration_logStreams = Lens.lens (\CloudWatchLogsConfiguration
 cloudWatchLogsConfiguration_enabled :: Lens.Lens' CloudWatchLogsConfiguration (Prelude.Maybe Prelude.Bool)
 cloudWatchLogsConfiguration_enabled = Lens.lens (\CloudWatchLogsConfiguration' {enabled} -> enabled) (\s@CloudWatchLogsConfiguration' {} a -> s {enabled = a} :: CloudWatchLogsConfiguration)
 
-instance Core.FromJSON CloudWatchLogsConfiguration where
+instance Data.FromJSON CloudWatchLogsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchLogsConfiguration"
       ( \x ->
           CloudWatchLogsConfiguration'
-            Prelude.<$> (x Core..:? "LogStreams" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<$> (x Data..:? "LogStreams" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Enabled")
       )
 
 instance Prelude.Hashable CloudWatchLogsConfiguration where
@@ -83,11 +84,11 @@ instance Prelude.NFData CloudWatchLogsConfiguration where
     Prelude.rnf logStreams
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON CloudWatchLogsConfiguration where
+instance Data.ToJSON CloudWatchLogsConfiguration where
   toJSON CloudWatchLogsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LogStreams" Core..=) Prelude.<$> logStreams,
-            ("Enabled" Core..=) Prelude.<$> enabled
+          [ ("LogStreams" Data..=) Prelude.<$> logStreams,
+            ("Enabled" Data..=) Prelude.<$> enabled
           ]
       )

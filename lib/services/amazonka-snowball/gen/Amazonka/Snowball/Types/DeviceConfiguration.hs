@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.DeviceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.SnowconeDeviceConfiguration
 
@@ -54,13 +55,13 @@ newDeviceConfiguration =
 deviceConfiguration_snowconeDeviceConfiguration :: Lens.Lens' DeviceConfiguration (Prelude.Maybe SnowconeDeviceConfiguration)
 deviceConfiguration_snowconeDeviceConfiguration = Lens.lens (\DeviceConfiguration' {snowconeDeviceConfiguration} -> snowconeDeviceConfiguration) (\s@DeviceConfiguration' {} a -> s {snowconeDeviceConfiguration = a} :: DeviceConfiguration)
 
-instance Core.FromJSON DeviceConfiguration where
+instance Data.FromJSON DeviceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceConfiguration"
       ( \x ->
           DeviceConfiguration'
-            Prelude.<$> (x Core..:? "SnowconeDeviceConfiguration")
+            Prelude.<$> (x Data..:? "SnowconeDeviceConfiguration")
       )
 
 instance Prelude.Hashable DeviceConfiguration where
@@ -72,11 +73,11 @@ instance Prelude.NFData DeviceConfiguration where
   rnf DeviceConfiguration' {..} =
     Prelude.rnf snowconeDeviceConfiguration
 
-instance Core.ToJSON DeviceConfiguration where
+instance Data.ToJSON DeviceConfiguration where
   toJSON DeviceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SnowconeDeviceConfiguration" Core..=)
+          [ ("SnowconeDeviceConfiguration" Data..=)
               Prelude.<$> snowconeDeviceConfiguration
           ]
       )

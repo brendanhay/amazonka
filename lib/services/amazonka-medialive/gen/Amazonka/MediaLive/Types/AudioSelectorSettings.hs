@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.AudioSelectorSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AudioHlsRenditionSelection
 import Amazonka.MediaLive.Types.AudioLanguageSelection
 import Amazonka.MediaLive.Types.AudioPidSelection
@@ -80,16 +81,16 @@ audioSelectorSettings_audioLanguageSelection = Lens.lens (\AudioSelectorSettings
 audioSelectorSettings_audioTrackSelection :: Lens.Lens' AudioSelectorSettings (Prelude.Maybe AudioTrackSelection)
 audioSelectorSettings_audioTrackSelection = Lens.lens (\AudioSelectorSettings' {audioTrackSelection} -> audioTrackSelection) (\s@AudioSelectorSettings' {} a -> s {audioTrackSelection = a} :: AudioSelectorSettings)
 
-instance Core.FromJSON AudioSelectorSettings where
+instance Data.FromJSON AudioSelectorSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioSelectorSettings"
       ( \x ->
           AudioSelectorSettings'
-            Prelude.<$> (x Core..:? "audioHlsRenditionSelection")
-            Prelude.<*> (x Core..:? "audioPidSelection")
-            Prelude.<*> (x Core..:? "audioLanguageSelection")
-            Prelude.<*> (x Core..:? "audioTrackSelection")
+            Prelude.<$> (x Data..:? "audioHlsRenditionSelection")
+            Prelude.<*> (x Data..:? "audioPidSelection")
+            Prelude.<*> (x Data..:? "audioLanguageSelection")
+            Prelude.<*> (x Data..:? "audioTrackSelection")
       )
 
 instance Prelude.Hashable AudioSelectorSettings where
@@ -107,17 +108,17 @@ instance Prelude.NFData AudioSelectorSettings where
       `Prelude.seq` Prelude.rnf audioLanguageSelection
       `Prelude.seq` Prelude.rnf audioTrackSelection
 
-instance Core.ToJSON AudioSelectorSettings where
+instance Data.ToJSON AudioSelectorSettings where
   toJSON AudioSelectorSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("audioHlsRenditionSelection" Core..=)
+          [ ("audioHlsRenditionSelection" Data..=)
               Prelude.<$> audioHlsRenditionSelection,
-            ("audioPidSelection" Core..=)
+            ("audioPidSelection" Data..=)
               Prelude.<$> audioPidSelection,
-            ("audioLanguageSelection" Core..=)
+            ("audioLanguageSelection" Data..=)
               Prelude.<$> audioLanguageSelection,
-            ("audioTrackSelection" Core..=)
+            ("audioTrackSelection" Data..=)
               Prelude.<$> audioTrackSelection
           ]
       )

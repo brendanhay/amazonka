@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.AutomaticInputFailoverSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.FailoverCondition
 import Amazonka.MediaLive.Types.InputPreference
 import qualified Amazonka.Prelude as Prelude
@@ -108,18 +109,18 @@ automaticInputFailoverSettings_inputPreference = Lens.lens (\AutomaticInputFailo
 automaticInputFailoverSettings_secondaryInputId :: Lens.Lens' AutomaticInputFailoverSettings Prelude.Text
 automaticInputFailoverSettings_secondaryInputId = Lens.lens (\AutomaticInputFailoverSettings' {secondaryInputId} -> secondaryInputId) (\s@AutomaticInputFailoverSettings' {} a -> s {secondaryInputId = a} :: AutomaticInputFailoverSettings)
 
-instance Core.FromJSON AutomaticInputFailoverSettings where
+instance Data.FromJSON AutomaticInputFailoverSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutomaticInputFailoverSettings"
       ( \x ->
           AutomaticInputFailoverSettings'
-            Prelude.<$> (x Core..:? "errorClearTimeMsec")
-            Prelude.<*> ( x Core..:? "failoverConditions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "errorClearTimeMsec")
+            Prelude.<*> ( x Data..:? "failoverConditions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "inputPreference")
-            Prelude.<*> (x Core..: "secondaryInputId")
+            Prelude.<*> (x Data..:? "inputPreference")
+            Prelude.<*> (x Data..: "secondaryInputId")
       )
 
 instance
@@ -144,17 +145,17 @@ instance
       `Prelude.seq` Prelude.rnf inputPreference
       `Prelude.seq` Prelude.rnf secondaryInputId
 
-instance Core.ToJSON AutomaticInputFailoverSettings where
+instance Data.ToJSON AutomaticInputFailoverSettings where
   toJSON AutomaticInputFailoverSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("errorClearTimeMsec" Core..=)
+          [ ("errorClearTimeMsec" Data..=)
               Prelude.<$> errorClearTimeMsec,
-            ("failoverConditions" Core..=)
+            ("failoverConditions" Data..=)
               Prelude.<$> failoverConditions,
-            ("inputPreference" Core..=)
+            ("inputPreference" Data..=)
               Prelude.<$> inputPreference,
             Prelude.Just
-              ("secondaryInputId" Core..= secondaryInputId)
+              ("secondaryInputId" Data..= secondaryInputId)
           ]
       )

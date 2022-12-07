@@ -21,6 +21,7 @@ module Amazonka.ElasticInference.Types.ElasticInferenceAccelerator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticInference.Types.ElasticInferenceAcceleratorHealth
 import qualified Amazonka.Prelude as Prelude
 
@@ -96,17 +97,17 @@ elasticInferenceAccelerator_attachedResource = Lens.lens (\ElasticInferenceAccel
 elasticInferenceAccelerator_acceleratorId :: Lens.Lens' ElasticInferenceAccelerator (Prelude.Maybe Prelude.Text)
 elasticInferenceAccelerator_acceleratorId = Lens.lens (\ElasticInferenceAccelerator' {acceleratorId} -> acceleratorId) (\s@ElasticInferenceAccelerator' {} a -> s {acceleratorId = a} :: ElasticInferenceAccelerator)
 
-instance Core.FromJSON ElasticInferenceAccelerator where
+instance Data.FromJSON ElasticInferenceAccelerator where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ElasticInferenceAccelerator"
       ( \x ->
           ElasticInferenceAccelerator'
-            Prelude.<$> (x Core..:? "acceleratorHealth")
-            Prelude.<*> (x Core..:? "acceleratorType")
-            Prelude.<*> (x Core..:? "availabilityZone")
-            Prelude.<*> (x Core..:? "attachedResource")
-            Prelude.<*> (x Core..:? "acceleratorId")
+            Prelude.<$> (x Data..:? "acceleratorHealth")
+            Prelude.<*> (x Data..:? "acceleratorType")
+            Prelude.<*> (x Data..:? "availabilityZone")
+            Prelude.<*> (x Data..:? "attachedResource")
+            Prelude.<*> (x Data..:? "acceleratorId")
       )
 
 instance Prelude.Hashable ElasticInferenceAccelerator where

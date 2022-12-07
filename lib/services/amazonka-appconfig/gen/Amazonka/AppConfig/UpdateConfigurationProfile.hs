@@ -53,6 +53,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,7 +148,7 @@ instance Core.AWSRequest UpdateConfigurationProfile where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateConfigurationProfile where
   hashWithSalt _salt UpdateConfigurationProfile' {..} =
@@ -167,37 +168,37 @@ instance Prelude.NFData UpdateConfigurationProfile where
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf configurationProfileId
 
-instance Core.ToHeaders UpdateConfigurationProfile where
+instance Data.ToHeaders UpdateConfigurationProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateConfigurationProfile where
+instance Data.ToJSON UpdateConfigurationProfile where
   toJSON UpdateConfigurationProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("RetrievalRoleArn" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("RetrievalRoleArn" Data..=)
               Prelude.<$> retrievalRoleArn,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Validators" Core..=) Prelude.<$> validators
+            ("Description" Data..=) Prelude.<$> description,
+            ("Validators" Data..=) Prelude.<$> validators
           ]
       )
 
-instance Core.ToPath UpdateConfigurationProfile where
+instance Data.ToPath UpdateConfigurationProfile where
   toPath UpdateConfigurationProfile' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/configurationprofiles/",
-        Core.toBS configurationProfileId
+        Data.toBS configurationProfileId
       ]
 
-instance Core.ToQuery UpdateConfigurationProfile where
+instance Data.ToQuery UpdateConfigurationProfile where
   toQuery = Prelude.const Prelude.mempty

@@ -21,13 +21,14 @@ module Amazonka.PrivateNetworks.Types.UpdateNetworkSiteResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types.NetworkSite
 
 -- | /See:/ 'newUpdateNetworkSiteResponse' smart constructor.
 data UpdateNetworkSiteResponse = UpdateNetworkSiteResponse'
   { -- | The network site tags.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Information about the network site.
     networkSite :: Prelude.Maybe NetworkSite
   }
@@ -54,20 +55,20 @@ newUpdateNetworkSiteResponse =
 
 -- | The network site tags.
 updateNetworkSiteResponse_tags :: Lens.Lens' UpdateNetworkSiteResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateNetworkSiteResponse_tags = Lens.lens (\UpdateNetworkSiteResponse' {tags} -> tags) (\s@UpdateNetworkSiteResponse' {} a -> s {tags = a} :: UpdateNetworkSiteResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+updateNetworkSiteResponse_tags = Lens.lens (\UpdateNetworkSiteResponse' {tags} -> tags) (\s@UpdateNetworkSiteResponse' {} a -> s {tags = a} :: UpdateNetworkSiteResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Information about the network site.
 updateNetworkSiteResponse_networkSite :: Lens.Lens' UpdateNetworkSiteResponse (Prelude.Maybe NetworkSite)
 updateNetworkSiteResponse_networkSite = Lens.lens (\UpdateNetworkSiteResponse' {networkSite} -> networkSite) (\s@UpdateNetworkSiteResponse' {} a -> s {networkSite = a} :: UpdateNetworkSiteResponse)
 
-instance Core.FromJSON UpdateNetworkSiteResponse where
+instance Data.FromJSON UpdateNetworkSiteResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpdateNetworkSiteResponse"
       ( \x ->
           UpdateNetworkSiteResponse'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "networkSite")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "networkSite")
       )
 
 instance Prelude.Hashable UpdateNetworkSiteResponse where

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DestinationOptionsResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DestinationFileFormat
 import qualified Amazonka.Prelude as Prelude
@@ -76,12 +77,12 @@ destinationOptionsResponse_hiveCompatiblePartitions = Lens.lens (\DestinationOpt
 destinationOptionsResponse_fileFormat :: Lens.Lens' DestinationOptionsResponse (Prelude.Maybe DestinationFileFormat)
 destinationOptionsResponse_fileFormat = Lens.lens (\DestinationOptionsResponse' {fileFormat} -> fileFormat) (\s@DestinationOptionsResponse' {} a -> s {fileFormat = a} :: DestinationOptionsResponse)
 
-instance Core.FromXML DestinationOptionsResponse where
+instance Data.FromXML DestinationOptionsResponse where
   parseXML x =
     DestinationOptionsResponse'
-      Prelude.<$> (x Core..@? "perHourPartition")
-      Prelude.<*> (x Core..@? "hiveCompatiblePartitions")
-      Prelude.<*> (x Core..@? "fileFormat")
+      Prelude.<$> (x Data..@? "perHourPartition")
+      Prelude.<*> (x Data..@? "hiveCompatiblePartitions")
+      Prelude.<*> (x Data..@? "fileFormat")
 
 instance Prelude.Hashable DestinationOptionsResponse where
   hashWithSalt _salt DestinationOptionsResponse' {..} =

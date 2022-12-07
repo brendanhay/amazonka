@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.EcrRepositoryMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.EcrScanFrequency
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ ecrRepositoryMetadata_name = Lens.lens (\EcrRepositoryMetadata' {name} -> name) 
 ecrRepositoryMetadata_scanFrequency :: Lens.Lens' EcrRepositoryMetadata (Prelude.Maybe EcrScanFrequency)
 ecrRepositoryMetadata_scanFrequency = Lens.lens (\EcrRepositoryMetadata' {scanFrequency} -> scanFrequency) (\s@EcrRepositoryMetadata' {} a -> s {scanFrequency = a} :: EcrRepositoryMetadata)
 
-instance Core.FromJSON EcrRepositoryMetadata where
+instance Data.FromJSON EcrRepositoryMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EcrRepositoryMetadata"
       ( \x ->
           EcrRepositoryMetadata'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "scanFrequency")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "scanFrequency")
       )
 
 instance Prelude.Hashable EcrRepositoryMetadata where

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,8 +108,8 @@ instance Core.AWSRequest ListLabelGroups where
     Response.receiveJSON
       ( \s h x ->
           ListLabelGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "LabelGroupSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "LabelGroupSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -126,36 +127,36 @@ instance Prelude.NFData ListLabelGroups where
       `Prelude.seq` Prelude.rnf labelGroupNameBeginsWith
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListLabelGroups where
+instance Data.ToHeaders ListLabelGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.ListLabelGroups" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.ListLabelGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListLabelGroups where
+instance Data.ToJSON ListLabelGroups where
   toJSON ListLabelGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("LabelGroupNameBeginsWith" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("LabelGroupNameBeginsWith" Data..=)
               Prelude.<$> labelGroupNameBeginsWith,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListLabelGroups where
+instance Data.ToPath ListLabelGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListLabelGroups where
+instance Data.ToQuery ListLabelGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListLabelGroupsResponse' smart constructor.

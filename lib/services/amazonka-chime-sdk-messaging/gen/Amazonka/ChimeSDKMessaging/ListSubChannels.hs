@@ -49,6 +49,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -57,7 +58,7 @@ import qualified Amazonka.Response as Response
 data ListSubChannels = ListSubChannels'
   { -- | The token passed by previous API calls until all requested sub-channels
     -- are returned.
-    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The maximum number of sub-channels that you want to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of elastic channel.
@@ -100,7 +101,7 @@ newListSubChannels pChannelArn_ pChimeBearer_ =
 -- | The token passed by previous API calls until all requested sub-channels
 -- are returned.
 listSubChannels_nextToken :: Lens.Lens' ListSubChannels (Prelude.Maybe Prelude.Text)
-listSubChannels_nextToken = Lens.lens (\ListSubChannels' {nextToken} -> nextToken) (\s@ListSubChannels' {} a -> s {nextToken = a} :: ListSubChannels) Prelude.. Lens.mapping Core._Sensitive
+listSubChannels_nextToken = Lens.lens (\ListSubChannels' {nextToken} -> nextToken) (\s@ListSubChannels' {} a -> s {nextToken = a} :: ListSubChannels) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The maximum number of sub-channels that you want to return.
 listSubChannels_maxResults :: Lens.Lens' ListSubChannels (Prelude.Maybe Prelude.Natural)
@@ -124,9 +125,9 @@ instance Core.AWSRequest ListSubChannels where
     Response.receiveJSON
       ( \s h x ->
           ListSubChannelsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ChannelArn")
-            Prelude.<*> (x Core..?> "SubChannels" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ChannelArn")
+            Prelude.<*> (x Data..?> "SubChannels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,28 +145,28 @@ instance Prelude.NFData ListSubChannels where
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf chimeBearer
 
-instance Core.ToHeaders ListSubChannels where
+instance Data.ToHeaders ListSubChannels where
   toHeaders ListSubChannels' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToPath ListSubChannels where
+instance Data.ToPath ListSubChannels where
   toPath ListSubChannels' {..} =
     Prelude.mconcat
-      ["/channels/", Core.toBS channelArn, "/subchannels"]
+      ["/channels/", Data.toBS channelArn, "/subchannels"]
 
-instance Core.ToQuery ListSubChannels where
+instance Data.ToQuery ListSubChannels where
   toQuery ListSubChannels' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListSubChannelsResponse' smart constructor.
 data ListSubChannelsResponse = ListSubChannelsResponse'
   { -- | The token passed by previous API calls until all requested sub-channels
     -- are returned.
-    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of elastic channel.
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | The information about each sub-channel.
@@ -207,7 +208,7 @@ newListSubChannelsResponse pHttpStatus_ =
 -- | The token passed by previous API calls until all requested sub-channels
 -- are returned.
 listSubChannelsResponse_nextToken :: Lens.Lens' ListSubChannelsResponse (Prelude.Maybe Prelude.Text)
-listSubChannelsResponse_nextToken = Lens.lens (\ListSubChannelsResponse' {nextToken} -> nextToken) (\s@ListSubChannelsResponse' {} a -> s {nextToken = a} :: ListSubChannelsResponse) Prelude.. Lens.mapping Core._Sensitive
+listSubChannelsResponse_nextToken = Lens.lens (\ListSubChannelsResponse' {nextToken} -> nextToken) (\s@ListSubChannelsResponse' {} a -> s {nextToken = a} :: ListSubChannelsResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of elastic channel.
 listSubChannelsResponse_channelArn :: Lens.Lens' ListSubChannelsResponse (Prelude.Maybe Prelude.Text)

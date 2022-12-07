@@ -42,6 +42,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,43 +117,43 @@ instance
     Prelude.rnf memberAccountId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RegisterOrganizationDelegatedAdmin
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.RegisterOrganizationDelegatedAdmin" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.RegisterOrganizationDelegatedAdmin" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RegisterOrganizationDelegatedAdmin
   where
   toJSON RegisterOrganizationDelegatedAdmin' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("MemberAccountId" Core..= memberAccountId)
+              ("MemberAccountId" Data..= memberAccountId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     RegisterOrganizationDelegatedAdmin
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     RegisterOrganizationDelegatedAdmin
   where
   toQuery = Prelude.const Prelude.mempty

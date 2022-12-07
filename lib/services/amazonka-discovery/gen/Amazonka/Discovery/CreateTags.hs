@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,35 +120,35 @@ instance Prelude.NFData CreateTags where
     Prelude.rnf configurationIds
       `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders CreateTags where
+instance Data.ToHeaders CreateTags where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSPoseidonService_V2015_11_01.CreateTags" ::
+              Data.=# ( "AWSPoseidonService_V2015_11_01.CreateTags" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTags where
+instance Data.ToJSON CreateTags where
   toJSON CreateTags' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("configurationIds" Core..= configurationIds),
-            Prelude.Just ("tags" Core..= tags)
+              ("configurationIds" Data..= configurationIds),
+            Prelude.Just ("tags" Data..= tags)
           ]
       )
 
-instance Core.ToPath CreateTags where
+instance Data.ToPath CreateTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTags where
+instance Data.ToQuery CreateTags where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTagsResponse' smart constructor.

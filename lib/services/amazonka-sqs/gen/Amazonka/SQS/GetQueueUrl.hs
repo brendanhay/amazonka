@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,7 +122,7 @@ instance Core.AWSRequest GetQueueUrl where
       ( \s h x ->
           GetQueueUrlResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "QueueUrl")
+            Prelude.<*> (x Data..@ "QueueUrl")
       )
 
 instance Prelude.Hashable GetQueueUrl where
@@ -134,22 +135,22 @@ instance Prelude.NFData GetQueueUrl where
     Prelude.rnf queueOwnerAWSAccountId
       `Prelude.seq` Prelude.rnf queueName
 
-instance Core.ToHeaders GetQueueUrl where
+instance Data.ToHeaders GetQueueUrl where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetQueueUrl where
+instance Data.ToPath GetQueueUrl where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetQueueUrl where
+instance Data.ToQuery GetQueueUrl where
   toQuery GetQueueUrl' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetQueueUrl" :: Prelude.ByteString),
+          Data.=: ("GetQueueUrl" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-11-05" :: Prelude.ByteString),
+          Data.=: ("2012-11-05" :: Prelude.ByteString),
         "QueueOwnerAWSAccountId"
-          Core.=: queueOwnerAWSAccountId,
-        "QueueName" Core.=: queueName
+          Data.=: queueOwnerAWSAccountId,
+        "QueueName" Data.=: queueName
       ]
 
 -- | For more information, see

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -52,7 +53,7 @@ data DeleteApplication = DeleteApplication'
   { -- | The name of the application to delete.
     applicationName :: Prelude.Text,
     -- | Use the @DescribeApplication@ operation to get this value.
-    createTimestamp :: Core.POSIX
+    createTimestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,7 +81,7 @@ newDeleteApplication
       { applicationName =
           pApplicationName_,
         createTimestamp =
-          Core._Time Lens.# pCreateTimestamp_
+          Data._Time Lens.# pCreateTimestamp_
       }
 
 -- | The name of the application to delete.
@@ -89,7 +90,7 @@ deleteApplication_applicationName = Lens.lens (\DeleteApplication' {applicationN
 
 -- | Use the @DescribeApplication@ operation to get this value.
 deleteApplication_createTimestamp :: Lens.Lens' DeleteApplication Prelude.UTCTime
-deleteApplication_createTimestamp = Lens.lens (\DeleteApplication' {createTimestamp} -> createTimestamp) (\s@DeleteApplication' {} a -> s {createTimestamp = a} :: DeleteApplication) Prelude.. Core._Time
+deleteApplication_createTimestamp = Lens.lens (\DeleteApplication' {createTimestamp} -> createTimestamp) (\s@DeleteApplication' {} a -> s {createTimestamp = a} :: DeleteApplication) Prelude.. Data._Time
 
 instance Core.AWSRequest DeleteApplication where
   type
@@ -114,36 +115,36 @@ instance Prelude.NFData DeleteApplication where
     Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf createTimestamp
 
-instance Core.ToHeaders DeleteApplication where
+instance Data.ToHeaders DeleteApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20180523.DeleteApplication" ::
+              Data.=# ( "KinesisAnalytics_20180523.DeleteApplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteApplication where
+instance Data.ToJSON DeleteApplication where
   toJSON DeleteApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ApplicationName" Core..= applicationName),
+              ("ApplicationName" Data..= applicationName),
             Prelude.Just
-              ("CreateTimestamp" Core..= createTimestamp)
+              ("CreateTimestamp" Data..= createTimestamp)
           ]
       )
 
-instance Core.ToPath DeleteApplication where
+instance Data.ToPath DeleteApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteApplication where
+instance Data.ToQuery DeleteApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteApplicationResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.DeviceInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.InstanceProfile
 import Amazonka.DeviceFarm.Types.InstanceStatus
 import qualified Amazonka.Prelude as Prelude
@@ -99,18 +100,18 @@ deviceInstance_deviceArn = Lens.lens (\DeviceInstance' {deviceArn} -> deviceArn)
 deviceInstance_udid :: Lens.Lens' DeviceInstance (Prelude.Maybe Prelude.Text)
 deviceInstance_udid = Lens.lens (\DeviceInstance' {udid} -> udid) (\s@DeviceInstance' {} a -> s {udid = a} :: DeviceInstance)
 
-instance Core.FromJSON DeviceInstance where
+instance Data.FromJSON DeviceInstance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceInstance"
       ( \x ->
           DeviceInstance'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "instanceProfile")
-            Prelude.<*> (x Core..:? "labels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "deviceArn")
-            Prelude.<*> (x Core..:? "udid")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "instanceProfile")
+            Prelude.<*> (x Data..:? "labels" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "deviceArn")
+            Prelude.<*> (x Data..:? "udid")
       )
 
 instance Prelude.Hashable DeviceInstance where

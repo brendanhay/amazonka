@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelPackageContainerDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ModelInput
 
@@ -192,24 +193,24 @@ modelPackageContainerDefinition_image :: Lens.Lens' ModelPackageContainerDefinit
 modelPackageContainerDefinition_image = Lens.lens (\ModelPackageContainerDefinition' {image} -> image) (\s@ModelPackageContainerDefinition' {} a -> s {image = a} :: ModelPackageContainerDefinition)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ModelPackageContainerDefinition
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelPackageContainerDefinition"
       ( \x ->
           ModelPackageContainerDefinition'
-            Prelude.<$> (x Core..:? "Environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ContainerHostname")
-            Prelude.<*> (x Core..:? "ModelDataUrl")
-            Prelude.<*> (x Core..:? "ModelInput")
-            Prelude.<*> (x Core..:? "ProductId")
-            Prelude.<*> (x Core..:? "NearestModelName")
-            Prelude.<*> (x Core..:? "FrameworkVersion")
-            Prelude.<*> (x Core..:? "ImageDigest")
-            Prelude.<*> (x Core..:? "Framework")
-            Prelude.<*> (x Core..: "Image")
+            Prelude.<$> (x Data..:? "Environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ContainerHostname")
+            Prelude.<*> (x Data..:? "ModelDataUrl")
+            Prelude.<*> (x Data..:? "ModelInput")
+            Prelude.<*> (x Data..:? "ProductId")
+            Prelude.<*> (x Data..:? "NearestModelName")
+            Prelude.<*> (x Data..:? "FrameworkVersion")
+            Prelude.<*> (x Data..:? "ImageDigest")
+            Prelude.<*> (x Data..:? "Framework")
+            Prelude.<*> (x Data..: "Image")
       )
 
 instance
@@ -246,22 +247,22 @@ instance
       `Prelude.seq` Prelude.rnf framework
       `Prelude.seq` Prelude.rnf image
 
-instance Core.ToJSON ModelPackageContainerDefinition where
+instance Data.ToJSON ModelPackageContainerDefinition where
   toJSON ModelPackageContainerDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Environment" Core..=) Prelude.<$> environment,
-            ("ContainerHostname" Core..=)
+          [ ("Environment" Data..=) Prelude.<$> environment,
+            ("ContainerHostname" Data..=)
               Prelude.<$> containerHostname,
-            ("ModelDataUrl" Core..=) Prelude.<$> modelDataUrl,
-            ("ModelInput" Core..=) Prelude.<$> modelInput,
-            ("ProductId" Core..=) Prelude.<$> productId,
-            ("NearestModelName" Core..=)
+            ("ModelDataUrl" Data..=) Prelude.<$> modelDataUrl,
+            ("ModelInput" Data..=) Prelude.<$> modelInput,
+            ("ProductId" Data..=) Prelude.<$> productId,
+            ("NearestModelName" Data..=)
               Prelude.<$> nearestModelName,
-            ("FrameworkVersion" Core..=)
+            ("FrameworkVersion" Data..=)
               Prelude.<$> frameworkVersion,
-            ("ImageDigest" Core..=) Prelude.<$> imageDigest,
-            ("Framework" Core..=) Prelude.<$> framework,
-            Prelude.Just ("Image" Core..= image)
+            ("ImageDigest" Data..=) Prelude.<$> imageDigest,
+            ("Framework" Data..=) Prelude.<$> framework,
+            Prelude.Just ("Image" Data..= image)
           ]
       )

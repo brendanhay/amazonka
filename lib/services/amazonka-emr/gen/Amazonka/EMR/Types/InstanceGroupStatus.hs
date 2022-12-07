@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceGroupStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.InstanceGroupState
 import Amazonka.EMR.Types.InstanceGroupStateChangeReason
 import Amazonka.EMR.Types.InstanceGroupTimeline
@@ -74,15 +75,15 @@ instanceGroupStatus_timeline = Lens.lens (\InstanceGroupStatus' {timeline} -> ti
 instanceGroupStatus_state :: Lens.Lens' InstanceGroupStatus (Prelude.Maybe InstanceGroupState)
 instanceGroupStatus_state = Lens.lens (\InstanceGroupStatus' {state} -> state) (\s@InstanceGroupStatus' {} a -> s {state = a} :: InstanceGroupStatus)
 
-instance Core.FromJSON InstanceGroupStatus where
+instance Data.FromJSON InstanceGroupStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceGroupStatus"
       ( \x ->
           InstanceGroupStatus'
-            Prelude.<$> (x Core..:? "StateChangeReason")
-            Prelude.<*> (x Core..:? "Timeline")
-            Prelude.<*> (x Core..:? "State")
+            Prelude.<$> (x Data..:? "StateChangeReason")
+            Prelude.<*> (x Data..:? "Timeline")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable InstanceGroupStatus where

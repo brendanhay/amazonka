@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -71,7 +72,7 @@ instance Core.AWSRequest DescribeServiceIntegration where
     Response.receiveJSON
       ( \s h x ->
           DescribeServiceIntegrationResponse'
-            Prelude.<$> (x Core..?> "ServiceIntegration")
+            Prelude.<$> (x Data..?> "ServiceIntegration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -82,21 +83,21 @@ instance Prelude.Hashable DescribeServiceIntegration where
 instance Prelude.NFData DescribeServiceIntegration where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeServiceIntegration where
+instance Data.ToHeaders DescribeServiceIntegration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeServiceIntegration where
+instance Data.ToPath DescribeServiceIntegration where
   toPath = Prelude.const "/service-integrations"
 
-instance Core.ToQuery DescribeServiceIntegration where
+instance Data.ToQuery DescribeServiceIntegration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeServiceIntegrationResponse' smart constructor.

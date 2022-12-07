@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,9 +137,9 @@ instance Core.AWSRequest UpdateApp where
     Response.receiveJSON
       ( \s h x ->
           UpdateAppResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "appSummary")
-            Prelude.<*> (x Core..?> "serverGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "appSummary")
+            Prelude.<*> (x Data..?> "serverGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,38 +161,38 @@ instance Prelude.NFData UpdateApp where
       `Prelude.seq` Prelude.rnf serverGroups
       `Prelude.seq` Prelude.rnf appId
 
-instance Core.ToHeaders UpdateApp where
+instance Data.ToHeaders UpdateApp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.UpdateApp" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.UpdateApp" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateApp where
+instance Data.ToJSON UpdateApp where
   toJSON UpdateApp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("name" Core..=) Prelude.<$> name,
-            ("roleName" Core..=) Prelude.<$> roleName,
-            ("description" Core..=) Prelude.<$> description,
-            ("serverGroups" Core..=) Prelude.<$> serverGroups,
-            ("appId" Core..=) Prelude.<$> appId
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("name" Data..=) Prelude.<$> name,
+            ("roleName" Data..=) Prelude.<$> roleName,
+            ("description" Data..=) Prelude.<$> description,
+            ("serverGroups" Data..=) Prelude.<$> serverGroups,
+            ("appId" Data..=) Prelude.<$> appId
           ]
       )
 
-instance Core.ToPath UpdateApp where
+instance Data.ToPath UpdateApp where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateApp where
+instance Data.ToQuery UpdateApp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAppResponse' smart constructor.

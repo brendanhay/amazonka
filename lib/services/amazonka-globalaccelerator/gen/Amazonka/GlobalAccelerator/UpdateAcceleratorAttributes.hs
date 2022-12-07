@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,7 +165,7 @@ instance Core.AWSRequest UpdateAcceleratorAttributes where
     Response.receiveJSON
       ( \s h x ->
           UpdateAcceleratorAttributesResponse'
-            Prelude.<$> (x Core..?> "AcceleratorAttributes")
+            Prelude.<$> (x Data..?> "AcceleratorAttributes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,40 +183,40 @@ instance Prelude.NFData UpdateAcceleratorAttributes where
       `Prelude.seq` Prelude.rnf flowLogsS3Prefix
       `Prelude.seq` Prelude.rnf acceleratorArn
 
-instance Core.ToHeaders UpdateAcceleratorAttributes where
+instance Data.ToHeaders UpdateAcceleratorAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.UpdateAcceleratorAttributes" ::
+              Data.=# ( "GlobalAccelerator_V20180706.UpdateAcceleratorAttributes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAcceleratorAttributes where
+instance Data.ToJSON UpdateAcceleratorAttributes where
   toJSON UpdateAcceleratorAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FlowLogsEnabled" Core..=)
+          [ ("FlowLogsEnabled" Data..=)
               Prelude.<$> flowLogsEnabled,
-            ("FlowLogsS3Bucket" Core..=)
+            ("FlowLogsS3Bucket" Data..=)
               Prelude.<$> flowLogsS3Bucket,
-            ("FlowLogsS3Prefix" Core..=)
+            ("FlowLogsS3Prefix" Data..=)
               Prelude.<$> flowLogsS3Prefix,
             Prelude.Just
-              ("AcceleratorArn" Core..= acceleratorArn)
+              ("AcceleratorArn" Data..= acceleratorArn)
           ]
       )
 
-instance Core.ToPath UpdateAcceleratorAttributes where
+instance Data.ToPath UpdateAcceleratorAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAcceleratorAttributes where
+instance Data.ToQuery UpdateAcceleratorAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAcceleratorAttributesResponse' smart constructor.

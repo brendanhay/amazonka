@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryReadiness.Types.RecoveryGroupOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of the application, typically containing multiple
@@ -86,16 +87,16 @@ recoveryGroupOutput_recoveryGroupName = Lens.lens (\RecoveryGroupOutput' {recove
 recoveryGroupOutput_cells :: Lens.Lens' RecoveryGroupOutput [Prelude.Text]
 recoveryGroupOutput_cells = Lens.lens (\RecoveryGroupOutput' {cells} -> cells) (\s@RecoveryGroupOutput' {} a -> s {cells = a} :: RecoveryGroupOutput) Prelude.. Lens.coerced
 
-instance Core.FromJSON RecoveryGroupOutput where
+instance Data.FromJSON RecoveryGroupOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecoveryGroupOutput"
       ( \x ->
           RecoveryGroupOutput'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "recoveryGroupArn")
-            Prelude.<*> (x Core..: "recoveryGroupName")
-            Prelude.<*> (x Core..:? "cells" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "recoveryGroupArn")
+            Prelude.<*> (x Data..: "recoveryGroupName")
+            Prelude.<*> (x Data..:? "cells" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RecoveryGroupOutput where

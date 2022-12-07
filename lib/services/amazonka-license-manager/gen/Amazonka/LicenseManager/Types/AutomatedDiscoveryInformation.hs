@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.AutomatedDiscoveryInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes automated discovery.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAutomatedDiscoveryInformation' smart constructor.
 data AutomatedDiscoveryInformation = AutomatedDiscoveryInformation'
   { -- | Time that automated discovery last ran.
-    lastRunTime :: Prelude.Maybe Core.POSIX
+    lastRunTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,15 +52,15 @@ newAutomatedDiscoveryInformation =
 
 -- | Time that automated discovery last ran.
 automatedDiscoveryInformation_lastRunTime :: Lens.Lens' AutomatedDiscoveryInformation (Prelude.Maybe Prelude.UTCTime)
-automatedDiscoveryInformation_lastRunTime = Lens.lens (\AutomatedDiscoveryInformation' {lastRunTime} -> lastRunTime) (\s@AutomatedDiscoveryInformation' {} a -> s {lastRunTime = a} :: AutomatedDiscoveryInformation) Prelude.. Lens.mapping Core._Time
+automatedDiscoveryInformation_lastRunTime = Lens.lens (\AutomatedDiscoveryInformation' {lastRunTime} -> lastRunTime) (\s@AutomatedDiscoveryInformation' {} a -> s {lastRunTime = a} :: AutomatedDiscoveryInformation) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AutomatedDiscoveryInformation where
+instance Data.FromJSON AutomatedDiscoveryInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutomatedDiscoveryInformation"
       ( \x ->
           AutomatedDiscoveryInformation'
-            Prelude.<$> (x Core..:? "LastRunTime")
+            Prelude.<$> (x Data..:? "LastRunTime")
       )
 
 instance

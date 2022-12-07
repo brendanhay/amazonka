@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.QueueTransition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Description of the source and destination queues between which the job
@@ -32,7 +33,7 @@ data QueueTransition = QueueTransition'
     destinationQueue :: Prelude.Maybe Prelude.Text,
     -- | The time, in Unix epoch format, that the job moved from the source queue
     -- to the destination queue.
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The queue that the job was on before the transition.
     sourceQueue :: Prelude.Maybe Prelude.Text
   }
@@ -69,21 +70,21 @@ queueTransition_destinationQueue = Lens.lens (\QueueTransition' {destinationQueu
 -- | The time, in Unix epoch format, that the job moved from the source queue
 -- to the destination queue.
 queueTransition_timestamp :: Lens.Lens' QueueTransition (Prelude.Maybe Prelude.UTCTime)
-queueTransition_timestamp = Lens.lens (\QueueTransition' {timestamp} -> timestamp) (\s@QueueTransition' {} a -> s {timestamp = a} :: QueueTransition) Prelude.. Lens.mapping Core._Time
+queueTransition_timestamp = Lens.lens (\QueueTransition' {timestamp} -> timestamp) (\s@QueueTransition' {} a -> s {timestamp = a} :: QueueTransition) Prelude.. Lens.mapping Data._Time
 
 -- | The queue that the job was on before the transition.
 queueTransition_sourceQueue :: Lens.Lens' QueueTransition (Prelude.Maybe Prelude.Text)
 queueTransition_sourceQueue = Lens.lens (\QueueTransition' {sourceQueue} -> sourceQueue) (\s@QueueTransition' {} a -> s {sourceQueue = a} :: QueueTransition)
 
-instance Core.FromJSON QueueTransition where
+instance Data.FromJSON QueueTransition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueueTransition"
       ( \x ->
           QueueTransition'
-            Prelude.<$> (x Core..:? "destinationQueue")
-            Prelude.<*> (x Core..:? "timestamp")
-            Prelude.<*> (x Core..:? "sourceQueue")
+            Prelude.<$> (x Data..:? "destinationQueue")
+            Prelude.<*> (x Data..:? "timestamp")
+            Prelude.<*> (x Data..:? "sourceQueue")
       )
 
 instance Prelude.Hashable QueueTransition where

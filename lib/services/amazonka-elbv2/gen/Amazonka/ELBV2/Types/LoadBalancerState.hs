@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.LoadBalancerState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types.LoadBalancerStateEnum
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,10 +78,10 @@ loadBalancerState_code = Lens.lens (\LoadBalancerState' {code} -> code) (\s@Load
 loadBalancerState_reason :: Lens.Lens' LoadBalancerState (Prelude.Maybe Prelude.Text)
 loadBalancerState_reason = Lens.lens (\LoadBalancerState' {reason} -> reason) (\s@LoadBalancerState' {} a -> s {reason = a} :: LoadBalancerState)
 
-instance Core.FromXML LoadBalancerState where
+instance Data.FromXML LoadBalancerState where
   parseXML x =
     LoadBalancerState'
-      Prelude.<$> (x Core..@? "Code") Prelude.<*> (x Core..@? "Reason")
+      Prelude.<$> (x Data..@? "Code") Prelude.<*> (x Data..@? "Reason")
 
 instance Prelude.Hashable LoadBalancerState where
   hashWithSalt _salt LoadBalancerState' {..} =

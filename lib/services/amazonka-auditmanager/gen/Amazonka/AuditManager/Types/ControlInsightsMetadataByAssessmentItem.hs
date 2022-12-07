@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.ControlInsightsMetadataByAssessmentItem where
 import Amazonka.AuditManager.Types.EvidenceInsights
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the latest analytics data for a specific control in a
@@ -40,7 +41,7 @@ data ControlInsightsMetadataByAssessmentItem = ControlInsightsMetadataByAssessme
     -- | The unique identifier for the assessment control.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time when the assessment control insights were last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | The name of the control set that the assessment control belongs to.
     controlSetName :: Prelude.Maybe Prelude.Text
   }
@@ -91,26 +92,26 @@ controlInsightsMetadataByAssessmentItem_id = Lens.lens (\ControlInsightsMetadata
 
 -- | The time when the assessment control insights were last updated.
 controlInsightsMetadataByAssessmentItem_lastUpdated :: Lens.Lens' ControlInsightsMetadataByAssessmentItem (Prelude.Maybe Prelude.UTCTime)
-controlInsightsMetadataByAssessmentItem_lastUpdated = Lens.lens (\ControlInsightsMetadataByAssessmentItem' {lastUpdated} -> lastUpdated) (\s@ControlInsightsMetadataByAssessmentItem' {} a -> s {lastUpdated = a} :: ControlInsightsMetadataByAssessmentItem) Prelude.. Lens.mapping Core._Time
+controlInsightsMetadataByAssessmentItem_lastUpdated = Lens.lens (\ControlInsightsMetadataByAssessmentItem' {lastUpdated} -> lastUpdated) (\s@ControlInsightsMetadataByAssessmentItem' {} a -> s {lastUpdated = a} :: ControlInsightsMetadataByAssessmentItem) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the control set that the assessment control belongs to.
 controlInsightsMetadataByAssessmentItem_controlSetName :: Lens.Lens' ControlInsightsMetadataByAssessmentItem (Prelude.Maybe Prelude.Text)
 controlInsightsMetadataByAssessmentItem_controlSetName = Lens.lens (\ControlInsightsMetadataByAssessmentItem' {controlSetName} -> controlSetName) (\s@ControlInsightsMetadataByAssessmentItem' {} a -> s {controlSetName = a} :: ControlInsightsMetadataByAssessmentItem)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ControlInsightsMetadataByAssessmentItem
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ControlInsightsMetadataByAssessmentItem"
       ( \x ->
           ControlInsightsMetadataByAssessmentItem'
-            Prelude.<$> (x Core..:? "evidenceInsights")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "lastUpdated")
-            Prelude.<*> (x Core..:? "controlSetName")
+            Prelude.<$> (x Data..:? "evidenceInsights")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "lastUpdated")
+            Prelude.<*> (x Data..:? "controlSetName")
       )
 
 instance

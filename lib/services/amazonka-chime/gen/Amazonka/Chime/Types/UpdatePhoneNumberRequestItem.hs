@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.UpdatePhoneNumberRequestItem where
 import Amazonka.Chime.Types.PhoneNumberProductType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The phone number ID, product type, or calling name fields to update,
@@ -32,7 +33,7 @@ data UpdatePhoneNumberRequestItem = UpdatePhoneNumberRequestItem'
   { -- | The product type to update.
     productType :: Prelude.Maybe PhoneNumberProductType,
     -- | The outbound calling name to update.
-    callingName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    callingName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The phone number ID to update.
     phoneNumberId :: Prelude.Text
   }
@@ -69,7 +70,7 @@ updatePhoneNumberRequestItem_productType = Lens.lens (\UpdatePhoneNumberRequestI
 
 -- | The outbound calling name to update.
 updatePhoneNumberRequestItem_callingName :: Lens.Lens' UpdatePhoneNumberRequestItem (Prelude.Maybe Prelude.Text)
-updatePhoneNumberRequestItem_callingName = Lens.lens (\UpdatePhoneNumberRequestItem' {callingName} -> callingName) (\s@UpdatePhoneNumberRequestItem' {} a -> s {callingName = a} :: UpdatePhoneNumberRequestItem) Prelude.. Lens.mapping Core._Sensitive
+updatePhoneNumberRequestItem_callingName = Lens.lens (\UpdatePhoneNumberRequestItem' {callingName} -> callingName) (\s@UpdatePhoneNumberRequestItem' {} a -> s {callingName = a} :: UpdatePhoneNumberRequestItem) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The phone number ID to update.
 updatePhoneNumberRequestItem_phoneNumberId :: Lens.Lens' UpdatePhoneNumberRequestItem Prelude.Text
@@ -90,13 +91,13 @@ instance Prelude.NFData UpdatePhoneNumberRequestItem where
       `Prelude.seq` Prelude.rnf callingName
       `Prelude.seq` Prelude.rnf phoneNumberId
 
-instance Core.ToJSON UpdatePhoneNumberRequestItem where
+instance Data.ToJSON UpdatePhoneNumberRequestItem where
   toJSON UpdatePhoneNumberRequestItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProductType" Core..=) Prelude.<$> productType,
-            ("CallingName" Core..=) Prelude.<$> callingName,
+          [ ("ProductType" Data..=) Prelude.<$> productType,
+            ("CallingName" Data..=) Prelude.<$> callingName,
             Prelude.Just
-              ("PhoneNumberId" Core..= phoneNumberId)
+              ("PhoneNumberId" Data..= phoneNumberId)
           ]
       )

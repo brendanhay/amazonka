@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -176,7 +177,7 @@ instance Core.AWSRequest CreateKnowledgeBase where
     Response.receiveJSON
       ( \s h x ->
           CreateKnowledgeBaseResponse'
-            Prelude.<$> (x Core..?> "knowledgeBase")
+            Prelude.<$> (x Data..?> "knowledgeBase")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,40 +203,40 @@ instance Prelude.NFData CreateKnowledgeBase where
       `Prelude.seq` Prelude.rnf knowledgeBaseType
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateKnowledgeBase where
+instance Data.ToHeaders CreateKnowledgeBase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateKnowledgeBase where
+instance Data.ToJSON CreateKnowledgeBase where
   toJSON CreateKnowledgeBase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("sourceConfiguration" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("sourceConfiguration" Data..=)
               Prelude.<$> sourceConfiguration,
-            ("serverSideEncryptionConfiguration" Core..=)
+            ("serverSideEncryptionConfiguration" Data..=)
               Prelude.<$> serverSideEncryptionConfiguration,
-            ("description" Core..=) Prelude.<$> description,
-            ("renderingConfiguration" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("renderingConfiguration" Data..=)
               Prelude.<$> renderingConfiguration,
             Prelude.Just
-              ("knowledgeBaseType" Core..= knowledgeBaseType),
-            Prelude.Just ("name" Core..= name)
+              ("knowledgeBaseType" Data..= knowledgeBaseType),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateKnowledgeBase where
+instance Data.ToPath CreateKnowledgeBase where
   toPath = Prelude.const "/knowledgeBases"
 
-instance Core.ToQuery CreateKnowledgeBase where
+instance Data.ToQuery CreateKnowledgeBase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateKnowledgeBaseResponse' smart constructor.

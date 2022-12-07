@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.TemplateVersionResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a specific version of a message template.
@@ -146,19 +147,19 @@ templateVersionResponse_templateName = Lens.lens (\TemplateVersionResponse' {tem
 templateVersionResponse_templateType :: Lens.Lens' TemplateVersionResponse Prelude.Text
 templateVersionResponse_templateType = Lens.lens (\TemplateVersionResponse' {templateType} -> templateType) (\s@TemplateVersionResponse' {} a -> s {templateType = a} :: TemplateVersionResponse)
 
-instance Core.FromJSON TemplateVersionResponse where
+instance Data.FromJSON TemplateVersionResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateVersionResponse"
       ( \x ->
           TemplateVersionResponse'
-            Prelude.<$> (x Core..:? "DefaultSubstitutions")
-            Prelude.<*> (x Core..:? "TemplateDescription")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "LastModifiedDate")
-            Prelude.<*> (x Core..: "CreationDate")
-            Prelude.<*> (x Core..: "TemplateName")
-            Prelude.<*> (x Core..: "TemplateType")
+            Prelude.<$> (x Data..:? "DefaultSubstitutions")
+            Prelude.<*> (x Data..:? "TemplateDescription")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "LastModifiedDate")
+            Prelude.<*> (x Data..: "CreationDate")
+            Prelude.<*> (x Data..: "TemplateName")
+            Prelude.<*> (x Data..: "TemplateType")
       )
 
 instance Prelude.Hashable TemplateVersionResponse where

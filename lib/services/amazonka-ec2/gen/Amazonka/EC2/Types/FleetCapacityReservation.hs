@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FleetCapacityReservation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CapacityReservationInstancePlatform
 import Amazonka.EC2.Types.InstanceType
@@ -58,7 +59,7 @@ data FleetCapacityReservation = FleetCapacityReservation'
     -- in the Amazon EC2 User Guide.
     priority :: Prelude.Maybe Prelude.Natural,
     -- | The date and time at which the Capacity Reservation was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Data.ISO8601,
     -- | The weight of the instance type in the Capacity Reservation Fleet. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-weight Instance type weight>
@@ -175,7 +176,7 @@ fleetCapacityReservation_priority = Lens.lens (\FleetCapacityReservation' {prior
 
 -- | The date and time at which the Capacity Reservation was created.
 fleetCapacityReservation_createDate :: Lens.Lens' FleetCapacityReservation (Prelude.Maybe Prelude.UTCTime)
-fleetCapacityReservation_createDate = Lens.lens (\FleetCapacityReservation' {createDate} -> createDate) (\s@FleetCapacityReservation' {} a -> s {createDate = a} :: FleetCapacityReservation) Prelude.. Lens.mapping Core._Time
+fleetCapacityReservation_createDate = Lens.lens (\FleetCapacityReservation' {createDate} -> createDate) (\s@FleetCapacityReservation' {} a -> s {createDate = a} :: FleetCapacityReservation) Prelude.. Lens.mapping Data._Time
 
 -- | The weight of the instance type in the Capacity Reservation Fleet. For
 -- more information, see
@@ -189,20 +190,20 @@ fleetCapacityReservation_weight = Lens.lens (\FleetCapacityReservation' {weight}
 fleetCapacityReservation_availabilityZoneId :: Lens.Lens' FleetCapacityReservation (Prelude.Maybe Prelude.Text)
 fleetCapacityReservation_availabilityZoneId = Lens.lens (\FleetCapacityReservation' {availabilityZoneId} -> availabilityZoneId) (\s@FleetCapacityReservation' {} a -> s {availabilityZoneId = a} :: FleetCapacityReservation)
 
-instance Core.FromXML FleetCapacityReservation where
+instance Data.FromXML FleetCapacityReservation where
   parseXML x =
     FleetCapacityReservation'
-      Prelude.<$> (x Core..@? "ebsOptimized")
-      Prelude.<*> (x Core..@? "totalInstanceCount")
-      Prelude.<*> (x Core..@? "capacityReservationId")
-      Prelude.<*> (x Core..@? "fulfilledCapacity")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "instancePlatform")
-      Prelude.<*> (x Core..@? "priority")
-      Prelude.<*> (x Core..@? "createDate")
-      Prelude.<*> (x Core..@? "weight")
-      Prelude.<*> (x Core..@? "availabilityZoneId")
+      Prelude.<$> (x Data..@? "ebsOptimized")
+      Prelude.<*> (x Data..@? "totalInstanceCount")
+      Prelude.<*> (x Data..@? "capacityReservationId")
+      Prelude.<*> (x Data..@? "fulfilledCapacity")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "instancePlatform")
+      Prelude.<*> (x Data..@? "priority")
+      Prelude.<*> (x Data..@? "createDate")
+      Prelude.<*> (x Data..@? "weight")
+      Prelude.<*> (x Data..@? "availabilityZoneId")
 
 instance Prelude.Hashable FleetCapacityReservation where
   hashWithSalt _salt FleetCapacityReservation' {..} =

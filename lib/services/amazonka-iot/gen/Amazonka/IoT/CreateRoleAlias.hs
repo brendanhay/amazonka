@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,8 +162,8 @@ instance Core.AWSRequest CreateRoleAlias where
     Response.receiveJSON
       ( \s h x ->
           CreateRoleAliasResponse'
-            Prelude.<$> (x Core..?> "roleAlias")
-            Prelude.<*> (x Core..?> "roleAliasArn")
+            Prelude.<$> (x Data..?> "roleAlias")
+            Prelude.<*> (x Data..?> "roleAliasArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,26 +181,26 @@ instance Prelude.NFData CreateRoleAlias where
       `Prelude.seq` Prelude.rnf roleAlias
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateRoleAlias where
+instance Data.ToHeaders CreateRoleAlias where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateRoleAlias where
+instance Data.ToJSON CreateRoleAlias where
   toJSON CreateRoleAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("credentialDurationSeconds" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("credentialDurationSeconds" Data..=)
               Prelude.<$> credentialDurationSeconds,
-            Prelude.Just ("roleArn" Core..= roleArn)
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateRoleAlias where
+instance Data.ToPath CreateRoleAlias where
   toPath CreateRoleAlias' {..} =
     Prelude.mconcat
-      ["/role-aliases/", Core.toBS roleAlias]
+      ["/role-aliases/", Data.toBS roleAlias]
 
-instance Core.ToQuery CreateRoleAlias where
+instance Data.ToQuery CreateRoleAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRoleAliasResponse' smart constructor.

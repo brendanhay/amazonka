@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -79,7 +80,7 @@ instance Core.AWSRequest DeleteCrl where
     Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable DeleteCrl where
   hashWithSalt _salt DeleteCrl' {..} =
@@ -88,20 +89,20 @@ instance Prelude.Hashable DeleteCrl where
 instance Prelude.NFData DeleteCrl where
   rnf DeleteCrl' {..} = Prelude.rnf crlId
 
-instance Core.ToHeaders DeleteCrl where
+instance Data.ToHeaders DeleteCrl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteCrl where
+instance Data.ToPath DeleteCrl where
   toPath DeleteCrl' {..} =
-    Prelude.mconcat ["/crl/", Core.toBS crlId]
+    Prelude.mconcat ["/crl/", Data.toBS crlId]
 
-instance Core.ToQuery DeleteCrl where
+instance Data.ToQuery DeleteCrl where
   toQuery = Prelude.const Prelude.mempty

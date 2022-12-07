@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -181,7 +182,7 @@ instance Core.AWSRequest CreateUserProfile where
     Response.receiveJSON
       ( \s h x ->
           CreateUserProfileResponse'
-            Prelude.<$> (x Core..?> "UserProfileArn")
+            Prelude.<$> (x Data..?> "UserProfileArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,41 +204,41 @@ instance Prelude.NFData CreateUserProfile where
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf userProfileName
 
-instance Core.ToHeaders CreateUserProfile where
+instance Data.ToHeaders CreateUserProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateUserProfile" ::
+              Data.=# ( "SageMaker.CreateUserProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUserProfile where
+instance Data.ToJSON CreateUserProfile where
   toJSON CreateUserProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("SingleSignOnUserValue" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("SingleSignOnUserValue" Data..=)
               Prelude.<$> singleSignOnUserValue,
-            ("UserSettings" Core..=) Prelude.<$> userSettings,
-            ("SingleSignOnUserIdentifier" Core..=)
+            ("UserSettings" Data..=) Prelude.<$> userSettings,
+            ("SingleSignOnUserIdentifier" Data..=)
               Prelude.<$> singleSignOnUserIdentifier,
-            Prelude.Just ("DomainId" Core..= domainId),
+            Prelude.Just ("DomainId" Data..= domainId),
             Prelude.Just
-              ("UserProfileName" Core..= userProfileName)
+              ("UserProfileName" Data..= userProfileName)
           ]
       )
 
-instance Core.ToPath CreateUserProfile where
+instance Data.ToPath CreateUserProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUserProfile where
+instance Data.ToQuery CreateUserProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserProfileResponse' smart constructor.

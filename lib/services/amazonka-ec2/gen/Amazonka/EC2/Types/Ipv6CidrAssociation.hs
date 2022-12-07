@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Ipv6CidrAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,11 +64,11 @@ ipv6CidrAssociation_associatedResource = Lens.lens (\Ipv6CidrAssociation' {assoc
 ipv6CidrAssociation_ipv6Cidr :: Lens.Lens' Ipv6CidrAssociation (Prelude.Maybe Prelude.Text)
 ipv6CidrAssociation_ipv6Cidr = Lens.lens (\Ipv6CidrAssociation' {ipv6Cidr} -> ipv6Cidr) (\s@Ipv6CidrAssociation' {} a -> s {ipv6Cidr = a} :: Ipv6CidrAssociation)
 
-instance Core.FromXML Ipv6CidrAssociation where
+instance Data.FromXML Ipv6CidrAssociation where
   parseXML x =
     Ipv6CidrAssociation'
-      Prelude.<$> (x Core..@? "associatedResource")
-      Prelude.<*> (x Core..@? "ipv6Cidr")
+      Prelude.<$> (x Data..@? "associatedResource")
+      Prelude.<*> (x Data..@? "ipv6Cidr")
 
 instance Prelude.Hashable Ipv6CidrAssociation where
   hashWithSalt _salt Ipv6CidrAssociation' {..} =

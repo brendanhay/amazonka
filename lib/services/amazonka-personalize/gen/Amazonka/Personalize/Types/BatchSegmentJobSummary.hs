@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.BatchSegmentJobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A truncated version of the
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newBatchSegmentJobSummary' smart constructor.
 data BatchSegmentJobSummary = BatchSegmentJobSummary'
   { -- | The time at which the batch segment job was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the batch segment job.
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The status of the batch segment job. The status is one of the following
@@ -50,7 +51,7 @@ data BatchSegmentJobSummary = BatchSegmentJobSummary'
     -- segment job to generate batch segments.
     solutionVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the batch segment job was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | If the batch segment job failed, the reason for the failure.
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the batch segment job.
@@ -105,7 +106,7 @@ newBatchSegmentJobSummary =
 
 -- | The time at which the batch segment job was created.
 batchSegmentJobSummary_creationDateTime :: Lens.Lens' BatchSegmentJobSummary (Prelude.Maybe Prelude.UTCTime)
-batchSegmentJobSummary_creationDateTime = Lens.lens (\BatchSegmentJobSummary' {creationDateTime} -> creationDateTime) (\s@BatchSegmentJobSummary' {} a -> s {creationDateTime = a} :: BatchSegmentJobSummary) Prelude.. Lens.mapping Core._Time
+batchSegmentJobSummary_creationDateTime = Lens.lens (\BatchSegmentJobSummary' {creationDateTime} -> creationDateTime) (\s@BatchSegmentJobSummary' {} a -> s {creationDateTime = a} :: BatchSegmentJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the batch segment job.
 batchSegmentJobSummary_jobName :: Lens.Lens' BatchSegmentJobSummary (Prelude.Maybe Prelude.Text)
@@ -131,7 +132,7 @@ batchSegmentJobSummary_solutionVersionArn = Lens.lens (\BatchSegmentJobSummary' 
 
 -- | The time at which the batch segment job was last updated.
 batchSegmentJobSummary_lastUpdatedDateTime :: Lens.Lens' BatchSegmentJobSummary (Prelude.Maybe Prelude.UTCTime)
-batchSegmentJobSummary_lastUpdatedDateTime = Lens.lens (\BatchSegmentJobSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@BatchSegmentJobSummary' {} a -> s {lastUpdatedDateTime = a} :: BatchSegmentJobSummary) Prelude.. Lens.mapping Core._Time
+batchSegmentJobSummary_lastUpdatedDateTime = Lens.lens (\BatchSegmentJobSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@BatchSegmentJobSummary' {} a -> s {lastUpdatedDateTime = a} :: BatchSegmentJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | If the batch segment job failed, the reason for the failure.
 batchSegmentJobSummary_failureReason :: Lens.Lens' BatchSegmentJobSummary (Prelude.Maybe Prelude.Text)
@@ -141,19 +142,19 @@ batchSegmentJobSummary_failureReason = Lens.lens (\BatchSegmentJobSummary' {fail
 batchSegmentJobSummary_batchSegmentJobArn :: Lens.Lens' BatchSegmentJobSummary (Prelude.Maybe Prelude.Text)
 batchSegmentJobSummary_batchSegmentJobArn = Lens.lens (\BatchSegmentJobSummary' {batchSegmentJobArn} -> batchSegmentJobArn) (\s@BatchSegmentJobSummary' {} a -> s {batchSegmentJobArn = a} :: BatchSegmentJobSummary)
 
-instance Core.FromJSON BatchSegmentJobSummary where
+instance Data.FromJSON BatchSegmentJobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchSegmentJobSummary"
       ( \x ->
           BatchSegmentJobSummary'
-            Prelude.<$> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "jobName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "solutionVersionArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "failureReason")
-            Prelude.<*> (x Core..:? "batchSegmentJobArn")
+            Prelude.<$> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "jobName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "solutionVersionArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "failureReason")
+            Prelude.<*> (x Data..:? "batchSegmentJobArn")
       )
 
 instance Prelude.Hashable BatchSegmentJobSummary where

@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.CustomPluginDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a custom plugin.
@@ -62,14 +63,14 @@ customPluginDescription_revision = Lens.lens (\CustomPluginDescription' {revisio
 customPluginDescription_customPluginArn :: Lens.Lens' CustomPluginDescription (Prelude.Maybe Prelude.Text)
 customPluginDescription_customPluginArn = Lens.lens (\CustomPluginDescription' {customPluginArn} -> customPluginArn) (\s@CustomPluginDescription' {} a -> s {customPluginArn = a} :: CustomPluginDescription)
 
-instance Core.FromJSON CustomPluginDescription where
+instance Data.FromJSON CustomPluginDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomPluginDescription"
       ( \x ->
           CustomPluginDescription'
-            Prelude.<$> (x Core..:? "revision")
-            Prelude.<*> (x Core..:? "customPluginArn")
+            Prelude.<$> (x Data..:? "revision")
+            Prelude.<*> (x Data..:? "customPluginArn")
       )
 
 instance Prelude.Hashable CustomPluginDescription where

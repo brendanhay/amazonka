@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,8 +151,8 @@ instance Core.AWSRequest ListStreamingSessions where
     Response.receiveJSON
       ( \s h x ->
           ListStreamingSessionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "sessions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "sessions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,32 +172,32 @@ instance Prelude.NFData ListStreamingSessions where
       `Prelude.seq` Prelude.rnf ownedBy
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders ListStreamingSessions where
+instance Data.ToHeaders ListStreamingSessions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListStreamingSessions where
+instance Data.ToPath ListStreamingSessions where
   toPath ListStreamingSessions' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/streaming-sessions"
       ]
 
-instance Core.ToQuery ListStreamingSessions where
+instance Data.ToQuery ListStreamingSessions where
   toQuery ListStreamingSessions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "sessionIds" Core.=: sessionIds,
-        "createdBy" Core.=: createdBy,
-        "ownedBy" Core.=: ownedBy
+      [ "nextToken" Data.=: nextToken,
+        "sessionIds" Data.=: sessionIds,
+        "createdBy" Data.=: createdBy,
+        "ownedBy" Data.=: ownedBy
       ]
 
 -- | /See:/ 'newListStreamingSessionsResponse' smart constructor.

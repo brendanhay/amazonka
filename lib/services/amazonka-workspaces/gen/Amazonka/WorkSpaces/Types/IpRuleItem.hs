@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.IpRuleItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a rule for an IP access control group.
@@ -61,14 +62,14 @@ ipRuleItem_ipRule = Lens.lens (\IpRuleItem' {ipRule} -> ipRule) (\s@IpRuleItem' 
 ipRuleItem_ruleDesc :: Lens.Lens' IpRuleItem (Prelude.Maybe Prelude.Text)
 ipRuleItem_ruleDesc = Lens.lens (\IpRuleItem' {ruleDesc} -> ruleDesc) (\s@IpRuleItem' {} a -> s {ruleDesc = a} :: IpRuleItem)
 
-instance Core.FromJSON IpRuleItem where
+instance Data.FromJSON IpRuleItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IpRuleItem"
       ( \x ->
           IpRuleItem'
-            Prelude.<$> (x Core..:? "ipRule")
-            Prelude.<*> (x Core..:? "ruleDesc")
+            Prelude.<$> (x Data..:? "ipRule")
+            Prelude.<*> (x Data..:? "ruleDesc")
       )
 
 instance Prelude.Hashable IpRuleItem where
@@ -81,11 +82,11 @@ instance Prelude.NFData IpRuleItem where
     Prelude.rnf ipRule
       `Prelude.seq` Prelude.rnf ruleDesc
 
-instance Core.ToJSON IpRuleItem where
+instance Data.ToJSON IpRuleItem where
   toJSON IpRuleItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ipRule" Core..=) Prelude.<$> ipRule,
-            ("ruleDesc" Core..=) Prelude.<$> ruleDesc
+          [ ("ipRule" Data..=) Prelude.<$> ipRule,
+            ("ruleDesc" Data..=) Prelude.<$> ruleDesc
           ]
       )

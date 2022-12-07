@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ instance Core.AWSRequest DescribeStep where
     Response.receiveJSON
       ( \s h x ->
           DescribeStepResponse'
-            Prelude.<$> (x Core..?> "Step")
+            Prelude.<$> (x Data..?> "Step")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,34 +112,34 @@ instance Prelude.NFData DescribeStep where
     Prelude.rnf clusterId
       `Prelude.seq` Prelude.rnf stepId
 
-instance Core.ToHeaders DescribeStep where
+instance Data.ToHeaders DescribeStep where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.DescribeStep" ::
+              Data.=# ( "ElasticMapReduce.DescribeStep" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeStep where
+instance Data.ToJSON DescribeStep where
   toJSON DescribeStep' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ClusterId" Core..= clusterId),
-            Prelude.Just ("StepId" Core..= stepId)
+          [ Prelude.Just ("ClusterId" Data..= clusterId),
+            Prelude.Just ("StepId" Data..= stepId)
           ]
       )
 
-instance Core.ToPath DescribeStep where
+instance Data.ToPath DescribeStep where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStep where
+instance Data.ToQuery DescribeStep where
   toQuery = Prelude.const Prelude.mempty
 
 -- | This output contains the description of the cluster step.

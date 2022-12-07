@@ -21,6 +21,7 @@ module Amazonka.Schemas.Types.DiscovererSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Schemas.Types.DiscovererState
 
@@ -99,18 +100,18 @@ discovererSummary_crossAccount = Lens.lens (\DiscovererSummary' {crossAccount} -
 discovererSummary_discovererArn :: Lens.Lens' DiscovererSummary (Prelude.Maybe Prelude.Text)
 discovererSummary_discovererArn = Lens.lens (\DiscovererSummary' {discovererArn} -> discovererArn) (\s@DiscovererSummary' {} a -> s {discovererArn = a} :: DiscovererSummary)
 
-instance Core.FromJSON DiscovererSummary where
+instance Data.FromJSON DiscovererSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DiscovererSummary"
       ( \x ->
           DiscovererSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DiscovererId")
-            Prelude.<*> (x Core..:? "SourceArn")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CrossAccount")
-            Prelude.<*> (x Core..:? "DiscovererArn")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DiscovererId")
+            Prelude.<*> (x Data..:? "SourceArn")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "CrossAccount")
+            Prelude.<*> (x Data..:? "DiscovererArn")
       )
 
 instance Prelude.Hashable DiscovererSummary where

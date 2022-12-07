@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,32 +104,32 @@ instance Prelude.NFData EnableDomainAutoRenew where
   rnf EnableDomainAutoRenew' {..} =
     Prelude.rnf domainName
 
-instance Core.ToHeaders EnableDomainAutoRenew where
+instance Data.ToHeaders EnableDomainAutoRenew where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.EnableDomainAutoRenew" ::
+              Data.=# ( "Route53Domains_v20140515.EnableDomainAutoRenew" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EnableDomainAutoRenew where
+instance Data.ToJSON EnableDomainAutoRenew where
   toJSON EnableDomainAutoRenew' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DomainName" Core..= domainName)]
+          [Prelude.Just ("DomainName" Data..= domainName)]
       )
 
-instance Core.ToPath EnableDomainAutoRenew where
+instance Data.ToPath EnableDomainAutoRenew where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnableDomainAutoRenew where
+instance Data.ToQuery EnableDomainAutoRenew where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableDomainAutoRenewResponse' smart constructor.

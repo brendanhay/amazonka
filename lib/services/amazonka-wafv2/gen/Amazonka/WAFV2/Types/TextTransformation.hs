@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.TextTransformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.TextTransformationType
 
@@ -427,14 +428,14 @@ textTransformation_priority = Lens.lens (\TextTransformation' {priority} -> prio
 textTransformation_type :: Lens.Lens' TextTransformation TextTransformationType
 textTransformation_type = Lens.lens (\TextTransformation' {type'} -> type') (\s@TextTransformation' {} a -> s {type' = a} :: TextTransformation)
 
-instance Core.FromJSON TextTransformation where
+instance Data.FromJSON TextTransformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TextTransformation"
       ( \x ->
           TextTransformation'
-            Prelude.<$> (x Core..: "Priority")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..: "Priority")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable TextTransformation where
@@ -447,11 +448,11 @@ instance Prelude.NFData TextTransformation where
     Prelude.rnf priority
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON TextTransformation where
+instance Data.ToJSON TextTransformation where
   toJSON TextTransformation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Priority" Core..= priority),
-            Prelude.Just ("Type" Core..= type')
+          [ Prelude.Just ("Priority" Data..= priority),
+            Prelude.Just ("Type" Data..= type')
           ]
       )

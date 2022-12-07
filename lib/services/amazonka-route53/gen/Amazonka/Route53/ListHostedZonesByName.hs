@@ -104,6 +104,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -226,16 +227,16 @@ instance Core.AWSRequest ListHostedZonesByName where
     Response.receiveXML
       ( \s h x ->
           ListHostedZonesByNameResponse'
-            Prelude.<$> (x Core..@? "HostedZoneId")
-            Prelude.<*> (x Core..@? "NextDNSName")
-            Prelude.<*> (x Core..@? "NextHostedZoneId")
-            Prelude.<*> (x Core..@? "DNSName")
+            Prelude.<$> (x Data..@? "HostedZoneId")
+            Prelude.<*> (x Data..@? "NextDNSName")
+            Prelude.<*> (x Data..@? "NextHostedZoneId")
+            Prelude.<*> (x Data..@? "DNSName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "HostedZones" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "HostedZone"
+            Prelude.<*> ( x Data..@? "HostedZones" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "HostedZone"
                         )
-            Prelude.<*> (x Core..@ "IsTruncated")
-            Prelude.<*> (x Core..@ "MaxItems")
+            Prelude.<*> (x Data..@ "IsTruncated")
+            Prelude.<*> (x Data..@ "MaxItems")
       )
 
 instance Prelude.Hashable ListHostedZonesByName where
@@ -250,19 +251,19 @@ instance Prelude.NFData ListHostedZonesByName where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf dNSName
 
-instance Core.ToHeaders ListHostedZonesByName where
+instance Data.ToHeaders ListHostedZonesByName where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListHostedZonesByName where
+instance Data.ToPath ListHostedZonesByName where
   toPath =
     Prelude.const "/2013-04-01/hostedzonesbyname"
 
-instance Core.ToQuery ListHostedZonesByName where
+instance Data.ToQuery ListHostedZonesByName where
   toQuery ListHostedZonesByName' {..} =
     Prelude.mconcat
-      [ "hostedzoneid" Core.=: hostedZoneId,
-        "maxitems" Core.=: maxItems,
-        "dnsname" Core.=: dNSName
+      [ "hostedzoneid" Data.=: hostedZoneId,
+        "maxitems" Data.=: maxItems,
+        "dnsname" Data.=: dNSName
       ]
 
 -- | A complex type that contains the response information for the request.

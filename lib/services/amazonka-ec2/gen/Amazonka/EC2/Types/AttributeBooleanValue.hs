@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AttributeBooleanValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,10 +52,10 @@ newAttributeBooleanValue =
 attributeBooleanValue_value :: Lens.Lens' AttributeBooleanValue (Prelude.Maybe Prelude.Bool)
 attributeBooleanValue_value = Lens.lens (\AttributeBooleanValue' {value} -> value) (\s@AttributeBooleanValue' {} a -> s {value = a} :: AttributeBooleanValue)
 
-instance Core.FromXML AttributeBooleanValue where
+instance Data.FromXML AttributeBooleanValue where
   parseXML x =
     AttributeBooleanValue'
-      Prelude.<$> (x Core..@? "value")
+      Prelude.<$> (x Data..@? "value")
 
 instance Prelude.Hashable AttributeBooleanValue where
   hashWithSalt _salt AttributeBooleanValue' {..} =
@@ -63,6 +64,6 @@ instance Prelude.Hashable AttributeBooleanValue where
 instance Prelude.NFData AttributeBooleanValue where
   rnf AttributeBooleanValue' {..} = Prelude.rnf value
 
-instance Core.ToQuery AttributeBooleanValue where
+instance Data.ToQuery AttributeBooleanValue where
   toQuery AttributeBooleanValue' {..} =
-    Prelude.mconcat ["Value" Core.=: value]
+    Prelude.mconcat ["Value" Data.=: value]

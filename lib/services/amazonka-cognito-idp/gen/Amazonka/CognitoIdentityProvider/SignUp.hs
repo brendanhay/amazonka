@@ -72,6 +72,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,7 +118,7 @@ data SignUp = SignUp'
     -- | A keyed-hash message authentication code (HMAC) calculated using the
     -- secret key of a user pool client and username plus the client ID in the
     -- message.
-    secretHash :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    secretHash :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Contextual data about your user session, such as the device fingerprint,
     -- IP address, or location. Amazon Cognito advanced security evaluates the
     -- risk of an authentication event based on the context that your app
@@ -131,11 +132,11 @@ data SignUp = SignUp'
     -- | The validation data in the request to register a user.
     validationData :: Prelude.Maybe [AttributeType],
     -- | The ID of the client associated with the user pool.
-    clientId :: Core.Sensitive Prelude.Text,
+    clientId :: Data.Sensitive Prelude.Text,
     -- | The user name of the user you want to register.
-    username :: Core.Sensitive Prelude.Text,
+    username :: Data.Sensitive Prelude.Text,
     -- | The password of the user you want to register.
-    password :: Core.Sensitive Prelude.Text
+    password :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -218,9 +219,9 @@ newSignUp pClientId_ pUsername_ pPassword_ =
       userContextData = Prelude.Nothing,
       userAttributes = Prelude.Nothing,
       validationData = Prelude.Nothing,
-      clientId = Core._Sensitive Lens.# pClientId_,
-      username = Core._Sensitive Lens.# pUsername_,
-      password = Core._Sensitive Lens.# pPassword_
+      clientId = Data._Sensitive Lens.# pClientId_,
+      username = Data._Sensitive Lens.# pUsername_,
+      password = Data._Sensitive Lens.# pPassword_
     }
 
 -- | The Amazon Pinpoint analytics metadata that contributes to your metrics
@@ -265,7 +266,7 @@ signUp_clientMetadata = Lens.lens (\SignUp' {clientMetadata} -> clientMetadata) 
 -- secret key of a user pool client and username plus the client ID in the
 -- message.
 signUp_secretHash :: Lens.Lens' SignUp (Prelude.Maybe Prelude.Text)
-signUp_secretHash = Lens.lens (\SignUp' {secretHash} -> secretHash) (\s@SignUp' {} a -> s {secretHash = a} :: SignUp) Prelude.. Lens.mapping Core._Sensitive
+signUp_secretHash = Lens.lens (\SignUp' {secretHash} -> secretHash) (\s@SignUp' {} a -> s {secretHash = a} :: SignUp) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Contextual data about your user session, such as the device fingerprint,
 -- IP address, or location. Amazon Cognito advanced security evaluates the
@@ -287,15 +288,15 @@ signUp_validationData = Lens.lens (\SignUp' {validationData} -> validationData) 
 
 -- | The ID of the client associated with the user pool.
 signUp_clientId :: Lens.Lens' SignUp Prelude.Text
-signUp_clientId = Lens.lens (\SignUp' {clientId} -> clientId) (\s@SignUp' {} a -> s {clientId = a} :: SignUp) Prelude.. Core._Sensitive
+signUp_clientId = Lens.lens (\SignUp' {clientId} -> clientId) (\s@SignUp' {} a -> s {clientId = a} :: SignUp) Prelude.. Data._Sensitive
 
 -- | The user name of the user you want to register.
 signUp_username :: Lens.Lens' SignUp Prelude.Text
-signUp_username = Lens.lens (\SignUp' {username} -> username) (\s@SignUp' {} a -> s {username = a} :: SignUp) Prelude.. Core._Sensitive
+signUp_username = Lens.lens (\SignUp' {username} -> username) (\s@SignUp' {} a -> s {username = a} :: SignUp) Prelude.. Data._Sensitive
 
 -- | The password of the user you want to register.
 signUp_password :: Lens.Lens' SignUp Prelude.Text
-signUp_password = Lens.lens (\SignUp' {password} -> password) (\s@SignUp' {} a -> s {password = a} :: SignUp) Prelude.. Core._Sensitive
+signUp_password = Lens.lens (\SignUp' {password} -> password) (\s@SignUp' {} a -> s {password = a} :: SignUp) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest SignUp where
   type AWSResponse SignUp = SignUpResponse
@@ -305,10 +306,10 @@ instance Core.AWSRequest SignUp where
     Response.receiveJSON
       ( \s h x ->
           SignUpResponse'
-            Prelude.<$> (x Core..?> "CodeDeliveryDetails")
+            Prelude.<$> (x Data..?> "CodeDeliveryDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "UserConfirmed")
-            Prelude.<*> (x Core..:> "UserSub")
+            Prelude.<*> (x Data..:> "UserConfirmed")
+            Prelude.<*> (x Data..:> "UserSub")
       )
 
 instance Prelude.Hashable SignUp where
@@ -335,46 +336,46 @@ instance Prelude.NFData SignUp where
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf password
 
-instance Core.ToHeaders SignUp where
+instance Data.ToHeaders SignUp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.SignUp" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.SignUp" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SignUp where
+instance Data.ToJSON SignUp where
   toJSON SignUp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AnalyticsMetadata" Core..=)
+          [ ("AnalyticsMetadata" Data..=)
               Prelude.<$> analyticsMetadata,
-            ("ClientMetadata" Core..=)
+            ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
-            ("SecretHash" Core..=) Prelude.<$> secretHash,
-            ("UserContextData" Core..=)
+            ("SecretHash" Data..=) Prelude.<$> secretHash,
+            ("UserContextData" Data..=)
               Prelude.<$> userContextData,
-            ("UserAttributes" Core..=)
+            ("UserAttributes" Data..=)
               Prelude.<$> userAttributes,
-            ("ValidationData" Core..=)
+            ("ValidationData" Data..=)
               Prelude.<$> validationData,
-            Prelude.Just ("ClientId" Core..= clientId),
-            Prelude.Just ("Username" Core..= username),
-            Prelude.Just ("Password" Core..= password)
+            Prelude.Just ("ClientId" Data..= clientId),
+            Prelude.Just ("Username" Data..= username),
+            Prelude.Just ("Password" Data..= password)
           ]
       )
 
-instance Core.ToPath SignUp where
+instance Data.ToPath SignUp where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SignUp where
+instance Data.ToQuery SignUp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response from the server for a registration request.

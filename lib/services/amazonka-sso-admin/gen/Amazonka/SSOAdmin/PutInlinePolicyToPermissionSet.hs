@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -153,38 +154,38 @@ instance
       `Prelude.seq` Prelude.rnf inlinePolicy
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutInlinePolicyToPermissionSet
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SWBExternalService.PutInlinePolicyToPermissionSet" ::
+              Data.=# ( "SWBExternalService.PutInlinePolicyToPermissionSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutInlinePolicyToPermissionSet where
+instance Data.ToJSON PutInlinePolicyToPermissionSet where
   toJSON PutInlinePolicyToPermissionSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceArn" Core..= instanceArn),
+          [ Prelude.Just ("InstanceArn" Data..= instanceArn),
             Prelude.Just
-              ("PermissionSetArn" Core..= permissionSetArn),
-            Prelude.Just ("InlinePolicy" Core..= inlinePolicy)
+              ("PermissionSetArn" Data..= permissionSetArn),
+            Prelude.Just ("InlinePolicy" Data..= inlinePolicy)
           ]
       )
 
-instance Core.ToPath PutInlinePolicyToPermissionSet where
+instance Data.ToPath PutInlinePolicyToPermissionSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutInlinePolicyToPermissionSet where
+instance Data.ToQuery PutInlinePolicyToPermissionSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutInlinePolicyToPermissionSetResponse' smart constructor.

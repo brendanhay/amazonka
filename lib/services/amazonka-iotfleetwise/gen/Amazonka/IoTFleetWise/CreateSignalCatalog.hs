@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,8 +122,8 @@ instance Core.AWSRequest CreateSignalCatalog where
       ( \s h x ->
           CreateSignalCatalogResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable CreateSignalCatalog where
@@ -139,36 +140,36 @@ instance Prelude.NFData CreateSignalCatalog where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateSignalCatalog where
+instance Data.ToHeaders CreateSignalCatalog where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.CreateSignalCatalog" ::
+              Data.=# ( "IoTAutobahnControlPlane.CreateSignalCatalog" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSignalCatalog where
+instance Data.ToJSON CreateSignalCatalog where
   toJSON CreateSignalCatalog' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("nodes" Core..=) Prelude.<$> nodes,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("nodes" Data..=) Prelude.<$> nodes,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateSignalCatalog where
+instance Data.ToPath CreateSignalCatalog where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSignalCatalog where
+instance Data.ToQuery CreateSignalCatalog where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSignalCatalogResponse' smart constructor.

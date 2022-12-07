@@ -45,6 +45,7 @@ where
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,9 +101,9 @@ instance Core.AWSRequest ExchangeCodeForToken where
       ( \s h x ->
           ExchangeCodeForTokenResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "accessToken")
-            Prelude.<*> (x Core..:> "expiresIn")
-            Prelude.<*> (x Core..:> "refreshToken")
+            Prelude.<*> (x Data..:> "accessToken")
+            Prelude.<*> (x Data..:> "expiresIn")
+            Prelude.<*> (x Data..:> "refreshToken")
       )
 
 instance Prelude.Hashable ExchangeCodeForToken where
@@ -115,26 +116,26 @@ instance Prelude.NFData ExchangeCodeForToken where
     Prelude.rnf provider
       `Prelude.seq` Prelude.rnf request
 
-instance Core.ToHeaders ExchangeCodeForToken where
+instance Data.ToHeaders ExchangeCodeForToken where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExchangeCodeForToken where
+instance Data.ToJSON ExchangeCodeForToken where
   toJSON ExchangeCodeForToken' {..} =
-    Core.toJSON request
+    Data.toJSON request
 
-instance Core.ToPath ExchangeCodeForToken where
+instance Data.ToPath ExchangeCodeForToken where
   toPath ExchangeCodeForToken' {..} =
-    Prelude.mconcat ["/tokens/", Core.toBS provider]
+    Prelude.mconcat ["/tokens/", Data.toBS provider]
 
-instance Core.ToQuery ExchangeCodeForToken where
+instance Data.ToQuery ExchangeCodeForToken where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExchangeCodeForTokenResponse' smart constructor.
@@ -142,12 +143,12 @@ data ExchangeCodeForTokenResponse = ExchangeCodeForTokenResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The access token.
-    accessToken :: Core.Sensitive Prelude.Text,
+    accessToken :: Data.Sensitive Prelude.Text,
     -- | The date and time when the new access token expires.
     expiresIn :: Prelude.Int,
     -- | The token to use to refresh a previously issued access token that might
     -- have expired.
-    refreshToken :: Core.Sensitive Prelude.Text
+    refreshToken :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -186,10 +187,10 @@ newExchangeCodeForTokenResponse
       { httpStatus =
           pHttpStatus_,
         accessToken =
-          Core._Sensitive Lens.# pAccessToken_,
+          Data._Sensitive Lens.# pAccessToken_,
         expiresIn = pExpiresIn_,
         refreshToken =
-          Core._Sensitive Lens.# pRefreshToken_
+          Data._Sensitive Lens.# pRefreshToken_
       }
 
 -- | The response's http status code.
@@ -198,7 +199,7 @@ exchangeCodeForTokenResponse_httpStatus = Lens.lens (\ExchangeCodeForTokenRespon
 
 -- | The access token.
 exchangeCodeForTokenResponse_accessToken :: Lens.Lens' ExchangeCodeForTokenResponse Prelude.Text
-exchangeCodeForTokenResponse_accessToken = Lens.lens (\ExchangeCodeForTokenResponse' {accessToken} -> accessToken) (\s@ExchangeCodeForTokenResponse' {} a -> s {accessToken = a} :: ExchangeCodeForTokenResponse) Prelude.. Core._Sensitive
+exchangeCodeForTokenResponse_accessToken = Lens.lens (\ExchangeCodeForTokenResponse' {accessToken} -> accessToken) (\s@ExchangeCodeForTokenResponse' {} a -> s {accessToken = a} :: ExchangeCodeForTokenResponse) Prelude.. Data._Sensitive
 
 -- | The date and time when the new access token expires.
 exchangeCodeForTokenResponse_expiresIn :: Lens.Lens' ExchangeCodeForTokenResponse Prelude.Int
@@ -207,7 +208,7 @@ exchangeCodeForTokenResponse_expiresIn = Lens.lens (\ExchangeCodeForTokenRespons
 -- | The token to use to refresh a previously issued access token that might
 -- have expired.
 exchangeCodeForTokenResponse_refreshToken :: Lens.Lens' ExchangeCodeForTokenResponse Prelude.Text
-exchangeCodeForTokenResponse_refreshToken = Lens.lens (\ExchangeCodeForTokenResponse' {refreshToken} -> refreshToken) (\s@ExchangeCodeForTokenResponse' {} a -> s {refreshToken = a} :: ExchangeCodeForTokenResponse) Prelude.. Core._Sensitive
+exchangeCodeForTokenResponse_refreshToken = Lens.lens (\ExchangeCodeForTokenResponse' {refreshToken} -> refreshToken) (\s@ExchangeCodeForTokenResponse' {} a -> s {refreshToken = a} :: ExchangeCodeForTokenResponse) Prelude.. Data._Sensitive
 
 instance Prelude.NFData ExchangeCodeForTokenResponse where
   rnf ExchangeCodeForTokenResponse' {..} =

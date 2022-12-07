@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.StandardsStatusReason where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.StatusReasonCode
 
@@ -59,13 +60,13 @@ newStandardsStatusReason pStatusReasonCode_ =
 standardsStatusReason_statusReasonCode :: Lens.Lens' StandardsStatusReason StatusReasonCode
 standardsStatusReason_statusReasonCode = Lens.lens (\StandardsStatusReason' {statusReasonCode} -> statusReasonCode) (\s@StandardsStatusReason' {} a -> s {statusReasonCode = a} :: StandardsStatusReason)
 
-instance Core.FromJSON StandardsStatusReason where
+instance Data.FromJSON StandardsStatusReason where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StandardsStatusReason"
       ( \x ->
           StandardsStatusReason'
-            Prelude.<$> (x Core..: "StatusReasonCode")
+            Prelude.<$> (x Data..: "StatusReasonCode")
       )
 
 instance Prelude.Hashable StandardsStatusReason where

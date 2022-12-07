@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.IspPlacement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.PlacementStatistics
 
@@ -67,14 +68,14 @@ ispPlacement_placementStatistics = Lens.lens (\IspPlacement' {placementStatistic
 ispPlacement_ispName :: Lens.Lens' IspPlacement (Prelude.Maybe Prelude.Text)
 ispPlacement_ispName = Lens.lens (\IspPlacement' {ispName} -> ispName) (\s@IspPlacement' {} a -> s {ispName = a} :: IspPlacement)
 
-instance Core.FromJSON IspPlacement where
+instance Data.FromJSON IspPlacement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IspPlacement"
       ( \x ->
           IspPlacement'
-            Prelude.<$> (x Core..:? "PlacementStatistics")
-            Prelude.<*> (x Core..:? "IspName")
+            Prelude.<$> (x Data..:? "PlacementStatistics")
+            Prelude.<*> (x Data..:? "IspName")
       )
 
 instance Prelude.Hashable IspPlacement where

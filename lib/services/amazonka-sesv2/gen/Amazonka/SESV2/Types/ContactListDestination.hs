@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.ContactListDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.ContactListImportAction
 
@@ -87,14 +88,14 @@ contactListDestination_contactListName = Lens.lens (\ContactListDestination' {co
 contactListDestination_contactListImportAction :: Lens.Lens' ContactListDestination ContactListImportAction
 contactListDestination_contactListImportAction = Lens.lens (\ContactListDestination' {contactListImportAction} -> contactListImportAction) (\s@ContactListDestination' {} a -> s {contactListImportAction = a} :: ContactListDestination)
 
-instance Core.FromJSON ContactListDestination where
+instance Data.FromJSON ContactListDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContactListDestination"
       ( \x ->
           ContactListDestination'
-            Prelude.<$> (x Core..: "ContactListName")
-            Prelude.<*> (x Core..: "ContactListImportAction")
+            Prelude.<$> (x Data..: "ContactListName")
+            Prelude.<*> (x Data..: "ContactListImportAction")
       )
 
 instance Prelude.Hashable ContactListDestination where
@@ -107,15 +108,15 @@ instance Prelude.NFData ContactListDestination where
     Prelude.rnf contactListName
       `Prelude.seq` Prelude.rnf contactListImportAction
 
-instance Core.ToJSON ContactListDestination where
+instance Data.ToJSON ContactListDestination where
   toJSON ContactListDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ContactListName" Core..= contactListName),
+              ("ContactListName" Data..= contactListName),
             Prelude.Just
               ( "ContactListImportAction"
-                  Core..= contactListImportAction
+                  Data..= contactListImportAction
               )
           ]
       )

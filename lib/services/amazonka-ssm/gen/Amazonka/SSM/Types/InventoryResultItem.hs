@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.InventoryResultItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The inventory result item.
@@ -104,17 +105,17 @@ inventoryResultItem_schemaVersion = Lens.lens (\InventoryResultItem' {schemaVers
 inventoryResultItem_content :: Lens.Lens' InventoryResultItem [Prelude.HashMap Prelude.Text Prelude.Text]
 inventoryResultItem_content = Lens.lens (\InventoryResultItem' {content} -> content) (\s@InventoryResultItem' {} a -> s {content = a} :: InventoryResultItem) Prelude.. Lens.coerced
 
-instance Core.FromJSON InventoryResultItem where
+instance Data.FromJSON InventoryResultItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InventoryResultItem"
       ( \x ->
           InventoryResultItem'
-            Prelude.<$> (x Core..:? "ContentHash")
-            Prelude.<*> (x Core..:? "CaptureTime")
-            Prelude.<*> (x Core..: "TypeName")
-            Prelude.<*> (x Core..: "SchemaVersion")
-            Prelude.<*> (x Core..:? "Content" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ContentHash")
+            Prelude.<*> (x Data..:? "CaptureTime")
+            Prelude.<*> (x Data..: "TypeName")
+            Prelude.<*> (x Data..: "SchemaVersion")
+            Prelude.<*> (x Data..:? "Content" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable InventoryResultItem where

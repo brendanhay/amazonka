@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,10 +116,10 @@ instance Core.AWSRequest CreateReadinessCheck where
     Response.receiveJSON
       ( \s h x ->
           CreateReadinessCheckResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "resourceSet")
-            Prelude.<*> (x Core..?> "readinessCheckName")
-            Prelude.<*> (x Core..?> "readinessCheckArn")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "resourceSet")
+            Prelude.<*> (x Data..?> "readinessCheckName")
+            Prelude.<*> (x Data..?> "readinessCheckArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,33 +135,33 @@ instance Prelude.NFData CreateReadinessCheck where
       `Prelude.seq` Prelude.rnf resourceSetName
       `Prelude.seq` Prelude.rnf readinessCheckName
 
-instance Core.ToHeaders CreateReadinessCheck where
+instance Data.ToHeaders CreateReadinessCheck where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateReadinessCheck where
+instance Data.ToJSON CreateReadinessCheck where
   toJSON CreateReadinessCheck' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("resourceSetName" Core..= resourceSetName),
+              ("resourceSetName" Data..= resourceSetName),
             Prelude.Just
-              ("readinessCheckName" Core..= readinessCheckName)
+              ("readinessCheckName" Data..= readinessCheckName)
           ]
       )
 
-instance Core.ToPath CreateReadinessCheck where
+instance Data.ToPath CreateReadinessCheck where
   toPath = Prelude.const "/readinesschecks"
 
-instance Core.ToQuery CreateReadinessCheck where
+instance Data.ToQuery CreateReadinessCheck where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateReadinessCheckResponse' smart constructor.

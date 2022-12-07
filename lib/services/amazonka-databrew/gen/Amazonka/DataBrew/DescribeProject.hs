@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,21 +97,21 @@ instance Core.AWSRequest DescribeProject where
     Response.receiveJSON
       ( \s h x ->
           DescribeProjectResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "OpenedBy")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "LastModifiedDate")
-            Prelude.<*> (x Core..?> "RecipeName")
-            Prelude.<*> (x Core..?> "DatasetName")
-            Prelude.<*> (x Core..?> "SessionStatus")
-            Prelude.<*> (x Core..?> "CreateDate")
-            Prelude.<*> (x Core..?> "OpenDate")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
-            Prelude.<*> (x Core..?> "ResourceArn")
-            Prelude.<*> (x Core..?> "CreatedBy")
-            Prelude.<*> (x Core..?> "Sample")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "OpenedBy")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "LastModifiedDate")
+            Prelude.<*> (x Data..?> "RecipeName")
+            Prelude.<*> (x Data..?> "DatasetName")
+            Prelude.<*> (x Data..?> "SessionStatus")
+            Prelude.<*> (x Data..?> "CreateDate")
+            Prelude.<*> (x Data..?> "OpenDate")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "ResourceArn")
+            Prelude.<*> (x Data..?> "CreatedBy")
+            Prelude.<*> (x Data..?> "Sample")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable DescribeProject where
@@ -120,22 +121,22 @@ instance Prelude.Hashable DescribeProject where
 instance Prelude.NFData DescribeProject where
   rnf DescribeProject' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DescribeProject where
+instance Data.ToHeaders DescribeProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeProject where
+instance Data.ToPath DescribeProject where
   toPath DescribeProject' {..} =
-    Prelude.mconcat ["/projects/", Core.toBS name]
+    Prelude.mconcat ["/projects/", Data.toBS name]
 
-instance Core.ToQuery DescribeProject where
+instance Data.ToQuery DescribeProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProjectResponse' smart constructor.
@@ -148,7 +149,7 @@ data DescribeProjectResponse = DescribeProjectResponse'
     -- when DataBrew runs the job.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the project was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The recipe associated with this job.
     recipeName :: Prelude.Maybe Prelude.Text,
     -- | The dataset associated with the project.
@@ -162,9 +163,9 @@ data DescribeProjectResponse = DescribeProjectResponse'
     -- -   @ASSIGNED@ - the session is ready for use.
     sessionStatus :: Prelude.Maybe SessionStatus,
     -- | The date and time that the project was created.
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the project was opened.
-    openDate :: Prelude.Maybe Core.POSIX,
+    openDate :: Prelude.Maybe Data.POSIX,
     -- | The identifier (user name) of the user who last modified the project.
     lastModifiedBy :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the project.
@@ -263,7 +264,7 @@ describeProjectResponse_roleArn = Lens.lens (\DescribeProjectResponse' {roleArn}
 
 -- | The date and time that the project was last modified.
 describeProjectResponse_lastModifiedDate :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.UTCTime)
-describeProjectResponse_lastModifiedDate = Lens.lens (\DescribeProjectResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeProjectResponse' {} a -> s {lastModifiedDate = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Core._Time
+describeProjectResponse_lastModifiedDate = Lens.lens (\DescribeProjectResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeProjectResponse' {} a -> s {lastModifiedDate = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The recipe associated with this job.
 describeProjectResponse_recipeName :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
@@ -285,11 +286,11 @@ describeProjectResponse_sessionStatus = Lens.lens (\DescribeProjectResponse' {se
 
 -- | The date and time that the project was created.
 describeProjectResponse_createDate :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.UTCTime)
-describeProjectResponse_createDate = Lens.lens (\DescribeProjectResponse' {createDate} -> createDate) (\s@DescribeProjectResponse' {} a -> s {createDate = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Core._Time
+describeProjectResponse_createDate = Lens.lens (\DescribeProjectResponse' {createDate} -> createDate) (\s@DescribeProjectResponse' {} a -> s {createDate = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the project was opened.
 describeProjectResponse_openDate :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.UTCTime)
-describeProjectResponse_openDate = Lens.lens (\DescribeProjectResponse' {openDate} -> openDate) (\s@DescribeProjectResponse' {} a -> s {openDate = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Core._Time
+describeProjectResponse_openDate = Lens.lens (\DescribeProjectResponse' {openDate} -> openDate) (\s@DescribeProjectResponse' {} a -> s {openDate = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier (user name) of the user who last modified the project.
 describeProjectResponse_lastModifiedBy :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)

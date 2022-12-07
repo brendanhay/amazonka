@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -57,9 +58,9 @@ data CreateUser = CreateUser'
   { -- | A token that ensures idempotency. This token expires in 10 minutes.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The first name of the user that you want to register.
-    firstName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    firstName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The last name of the user that you want to register.
-    lastName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    lastName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The option to indicate whether the user can use the
     -- @GetProgrammaticAccessCredentials@ API to obtain credentials that can
     -- then be used to access other FinSpace Data API operations.
@@ -76,7 +77,7 @@ data CreateUser = CreateUser'
     -- | The email address of the user that you want to register. The email
     -- address serves as a uniquer identifier for each user and cannot be
     -- changed after it\'s created.
-    emailAddress :: Core.Sensitive Prelude.Text,
+    emailAddress :: Data.Sensitive Prelude.Text,
     -- | The option to indicate the type of user. Use one of the following
     -- options to specify this parameter:
     --
@@ -141,7 +142,7 @@ newCreateUser pEmailAddress_ pType_ =
       lastName = Prelude.Nothing,
       apiAccess = Prelude.Nothing,
       apiAccessPrincipalArn = Prelude.Nothing,
-      emailAddress = Core._Sensitive Lens.# pEmailAddress_,
+      emailAddress = Data._Sensitive Lens.# pEmailAddress_,
       type' = pType_
     }
 
@@ -151,11 +152,11 @@ createUser_clientToken = Lens.lens (\CreateUser' {clientToken} -> clientToken) (
 
 -- | The first name of the user that you want to register.
 createUser_firstName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_firstName = Lens.lens (\CreateUser' {firstName} -> firstName) (\s@CreateUser' {} a -> s {firstName = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+createUser_firstName = Lens.lens (\CreateUser' {firstName} -> firstName) (\s@CreateUser' {} a -> s {firstName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The last name of the user that you want to register.
 createUser_lastName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_lastName = Lens.lens (\CreateUser' {lastName} -> lastName) (\s@CreateUser' {} a -> s {lastName = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+createUser_lastName = Lens.lens (\CreateUser' {lastName} -> lastName) (\s@CreateUser' {} a -> s {lastName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The option to indicate whether the user can use the
 -- @GetProgrammaticAccessCredentials@ API to obtain credentials that can
@@ -178,7 +179,7 @@ createUser_apiAccessPrincipalArn = Lens.lens (\CreateUser' {apiAccessPrincipalAr
 -- address serves as a uniquer identifier for each user and cannot be
 -- changed after it\'s created.
 createUser_emailAddress :: Lens.Lens' CreateUser Prelude.Text
-createUser_emailAddress = Lens.lens (\CreateUser' {emailAddress} -> emailAddress) (\s@CreateUser' {} a -> s {emailAddress = a} :: CreateUser) Prelude.. Core._Sensitive
+createUser_emailAddress = Lens.lens (\CreateUser' {emailAddress} -> emailAddress) (\s@CreateUser' {} a -> s {emailAddress = a} :: CreateUser) Prelude.. Data._Sensitive
 
 -- | The option to indicate the type of user. Use one of the following
 -- options to specify this parameter:
@@ -199,7 +200,7 @@ instance Core.AWSRequest CreateUser where
     Response.receiveJSON
       ( \s h x ->
           CreateUserResponse'
-            Prelude.<$> (x Core..?> "userId")
+            Prelude.<$> (x Data..?> "userId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -223,36 +224,36 @@ instance Prelude.NFData CreateUser where
       `Prelude.seq` Prelude.rnf emailAddress
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateUser where
+instance Data.ToHeaders CreateUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUser where
+instance Data.ToJSON CreateUser where
   toJSON CreateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("firstName" Core..=) Prelude.<$> firstName,
-            ("lastName" Core..=) Prelude.<$> lastName,
-            ("ApiAccess" Core..=) Prelude.<$> apiAccess,
-            ("apiAccessPrincipalArn" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("firstName" Data..=) Prelude.<$> firstName,
+            ("lastName" Data..=) Prelude.<$> lastName,
+            ("ApiAccess" Data..=) Prelude.<$> apiAccess,
+            ("apiAccessPrincipalArn" Data..=)
               Prelude.<$> apiAccessPrincipalArn,
-            Prelude.Just ("emailAddress" Core..= emailAddress),
-            Prelude.Just ("type" Core..= type')
+            Prelude.Just ("emailAddress" Data..= emailAddress),
+            Prelude.Just ("type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateUser where
+instance Data.ToPath CreateUser where
   toPath = Prelude.const "/user"
 
-instance Core.ToQuery CreateUser where
+instance Data.ToQuery CreateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.TFITrainingMetricsValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.TFIMetricDataPoint
 import Amazonka.FraudDetector.Types.TFIModelPerformance
 import qualified Amazonka.Prelude as Prelude
@@ -64,16 +65,16 @@ tFITrainingMetricsValue_metricDataPoints = Lens.lens (\TFITrainingMetricsValue' 
 tFITrainingMetricsValue_modelPerformance :: Lens.Lens' TFITrainingMetricsValue (Prelude.Maybe TFIModelPerformance)
 tFITrainingMetricsValue_modelPerformance = Lens.lens (\TFITrainingMetricsValue' {modelPerformance} -> modelPerformance) (\s@TFITrainingMetricsValue' {} a -> s {modelPerformance = a} :: TFITrainingMetricsValue)
 
-instance Core.FromJSON TFITrainingMetricsValue where
+instance Data.FromJSON TFITrainingMetricsValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TFITrainingMetricsValue"
       ( \x ->
           TFITrainingMetricsValue'
-            Prelude.<$> ( x Core..:? "metricDataPoints"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "metricDataPoints"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "modelPerformance")
+            Prelude.<*> (x Data..:? "modelPerformance")
       )
 
 instance Prelude.Hashable TFITrainingMetricsValue where

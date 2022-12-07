@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,14 +69,14 @@ data ListEndpointConfigs = ListEndpointConfigs'
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only endpoint configurations created before the
     -- specified time (timestamp).
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The field to sort results by. The default is @CreationTime@.
     sortBy :: Prelude.Maybe EndpointConfigSortKey,
     -- | The maximum number of training jobs to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only endpoint configurations with a creation time
     -- greater than or equal to the specified time (timestamp).
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -136,7 +137,7 @@ listEndpointConfigs_nameContains = Lens.lens (\ListEndpointConfigs' {nameContain
 -- | A filter that returns only endpoint configurations created before the
 -- specified time (timestamp).
 listEndpointConfigs_creationTimeBefore :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe Prelude.UTCTime)
-listEndpointConfigs_creationTimeBefore = Lens.lens (\ListEndpointConfigs' {creationTimeBefore} -> creationTimeBefore) (\s@ListEndpointConfigs' {} a -> s {creationTimeBefore = a} :: ListEndpointConfigs) Prelude.. Lens.mapping Core._Time
+listEndpointConfigs_creationTimeBefore = Lens.lens (\ListEndpointConfigs' {creationTimeBefore} -> creationTimeBefore) (\s@ListEndpointConfigs' {} a -> s {creationTimeBefore = a} :: ListEndpointConfigs) Prelude.. Lens.mapping Data._Time
 
 -- | The field to sort results by. The default is @CreationTime@.
 listEndpointConfigs_sortBy :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe EndpointConfigSortKey)
@@ -149,7 +150,7 @@ listEndpointConfigs_maxResults = Lens.lens (\ListEndpointConfigs' {maxResults} -
 -- | A filter that returns only endpoint configurations with a creation time
 -- greater than or equal to the specified time (timestamp).
 listEndpointConfigs_creationTimeAfter :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe Prelude.UTCTime)
-listEndpointConfigs_creationTimeAfter = Lens.lens (\ListEndpointConfigs' {creationTimeAfter} -> creationTimeAfter) (\s@ListEndpointConfigs' {} a -> s {creationTimeAfter = a} :: ListEndpointConfigs) Prelude.. Lens.mapping Core._Time
+listEndpointConfigs_creationTimeAfter = Lens.lens (\ListEndpointConfigs' {creationTimeAfter} -> creationTimeAfter) (\s@ListEndpointConfigs' {} a -> s {creationTimeAfter = a} :: ListEndpointConfigs) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListEndpointConfigs where
   page rq rs
@@ -182,9 +183,9 @@ instance Core.AWSRequest ListEndpointConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListEndpointConfigsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "EndpointConfigs"
+            Prelude.<*> ( x Data..?> "EndpointConfigs"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -209,41 +210,41 @@ instance Prelude.NFData ListEndpointConfigs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf creationTimeAfter
 
-instance Core.ToHeaders ListEndpointConfigs where
+instance Data.ToHeaders ListEndpointConfigs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListEndpointConfigs" ::
+              Data.=# ( "SageMaker.ListEndpointConfigs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEndpointConfigs where
+instance Data.ToJSON ListEndpointConfigs where
   toJSON ListEndpointConfigs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("CreationTimeBefore" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CreationTimeAfter" Core..=)
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter
           ]
       )
 
-instance Core.ToPath ListEndpointConfigs where
+instance Data.ToPath ListEndpointConfigs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEndpointConfigs where
+instance Data.ToQuery ListEndpointConfigs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEndpointConfigsResponse' smart constructor.

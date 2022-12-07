@@ -49,6 +49,7 @@ where
 import Amazonka.CodeGuruReviewer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -194,8 +195,8 @@ instance Core.AWSRequest ListCodeReviews where
     Response.receiveJSON
       ( \s h x ->
           ListCodeReviewsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "CodeReviewSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "CodeReviewSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -219,39 +220,39 @@ instance Prelude.NFData ListCodeReviews where
       `Prelude.seq` Prelude.rnf states
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders ListCodeReviews where
+instance Data.ToHeaders ListCodeReviews where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListCodeReviews where
+instance Data.ToPath ListCodeReviews where
   toPath = Prelude.const "/codereviews"
 
-instance Core.ToQuery ListCodeReviews where
+instance Data.ToQuery ListCodeReviews where
   toQuery ListCodeReviews' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
+      [ "NextToken" Data.=: nextToken,
         "ProviderTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> providerTypes
             ),
-        "MaxResults" Core.=: maxResults,
+        "MaxResults" Data.=: maxResults,
         "RepositoryNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> repositoryNames
             ),
         "States"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> states),
-        "Type" Core.=: type'
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> states),
+        "Type" Data.=: type'
       ]
 
 -- | /See:/ 'newListCodeReviewsResponse' smart constructor.

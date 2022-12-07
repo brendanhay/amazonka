@@ -45,6 +45,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,7 +90,7 @@ instance Core.AWSRequest GetQueryRuntimeStatistics where
     Response.receiveJSON
       ( \s h x ->
           GetQueryRuntimeStatisticsResponse'
-            Prelude.<$> (x Core..?> "QueryRuntimeStatistics")
+            Prelude.<$> (x Data..?> "QueryRuntimeStatistics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,34 +102,34 @@ instance Prelude.NFData GetQueryRuntimeStatistics where
   rnf GetQueryRuntimeStatistics' {..} =
     Prelude.rnf queryExecutionId
 
-instance Core.ToHeaders GetQueryRuntimeStatistics where
+instance Data.ToHeaders GetQueryRuntimeStatistics where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.GetQueryRuntimeStatistics" ::
+              Data.=# ( "AmazonAthena.GetQueryRuntimeStatistics" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetQueryRuntimeStatistics where
+instance Data.ToJSON GetQueryRuntimeStatistics where
   toJSON GetQueryRuntimeStatistics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("QueryExecutionId" Core..= queryExecutionId)
+              ("QueryExecutionId" Data..= queryExecutionId)
           ]
       )
 
-instance Core.ToPath GetQueryRuntimeStatistics where
+instance Data.ToPath GetQueryRuntimeStatistics where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetQueryRuntimeStatistics where
+instance Data.ToQuery GetQueryRuntimeStatistics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetQueryRuntimeStatisticsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.SpendLimit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types.SpendLimitName
 import qualified Amazonka.Prelude as Prelude
 
@@ -114,16 +115,16 @@ spendLimit_maxLimit = Lens.lens (\SpendLimit' {maxLimit} -> maxLimit) (\s@SpendL
 spendLimit_overridden :: Lens.Lens' SpendLimit Prelude.Bool
 spendLimit_overridden = Lens.lens (\SpendLimit' {overridden} -> overridden) (\s@SpendLimit' {} a -> s {overridden = a} :: SpendLimit)
 
-instance Core.FromJSON SpendLimit where
+instance Data.FromJSON SpendLimit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SpendLimit"
       ( \x ->
           SpendLimit'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "EnforcedLimit")
-            Prelude.<*> (x Core..: "MaxLimit")
-            Prelude.<*> (x Core..: "Overridden")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "EnforcedLimit")
+            Prelude.<*> (x Data..: "MaxLimit")
+            Prelude.<*> (x Data..: "Overridden")
       )
 
 instance Prelude.Hashable SpendLimit where

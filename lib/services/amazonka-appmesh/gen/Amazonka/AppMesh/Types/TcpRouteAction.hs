@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.TcpRouteAction where
 import Amazonka.AppMesh.Types.WeightedTarget
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the action to take if a match is determined.
@@ -59,13 +60,13 @@ newTcpRouteAction pWeightedTargets_ =
 tcpRouteAction_weightedTargets :: Lens.Lens' TcpRouteAction (Prelude.NonEmpty WeightedTarget)
 tcpRouteAction_weightedTargets = Lens.lens (\TcpRouteAction' {weightedTargets} -> weightedTargets) (\s@TcpRouteAction' {} a -> s {weightedTargets = a} :: TcpRouteAction) Prelude.. Lens.coerced
 
-instance Core.FromJSON TcpRouteAction where
+instance Data.FromJSON TcpRouteAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TcpRouteAction"
       ( \x ->
           TcpRouteAction'
-            Prelude.<$> (x Core..: "weightedTargets")
+            Prelude.<$> (x Data..: "weightedTargets")
       )
 
 instance Prelude.Hashable TcpRouteAction where
@@ -75,11 +76,11 @@ instance Prelude.Hashable TcpRouteAction where
 instance Prelude.NFData TcpRouteAction where
   rnf TcpRouteAction' {..} = Prelude.rnf weightedTargets
 
-instance Core.ToJSON TcpRouteAction where
+instance Data.ToJSON TcpRouteAction where
   toJSON TcpRouteAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("weightedTargets" Core..= weightedTargets)
+              ("weightedTargets" Data..= weightedTargets)
           ]
       )

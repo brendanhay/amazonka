@@ -48,6 +48,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,9 +136,9 @@ instance Core.AWSRequest CreateBackupSelection where
     Response.receiveJSON
       ( \s h x ->
           CreateBackupSelectionResponse'
-            Prelude.<$> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "SelectionId")
-            Prelude.<*> (x Core..?> "BackupPlanId")
+            Prelude.<$> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "SelectionId")
+            Prelude.<*> (x Data..?> "BackupPlanId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,37 +154,37 @@ instance Prelude.NFData CreateBackupSelection where
       `Prelude.seq` Prelude.rnf backupPlanId
       `Prelude.seq` Prelude.rnf backupSelection
 
-instance Core.ToHeaders CreateBackupSelection where
+instance Data.ToHeaders CreateBackupSelection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBackupSelection where
+instance Data.ToJSON CreateBackupSelection where
   toJSON CreateBackupSelection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CreatorRequestId" Core..=)
+          [ ("CreatorRequestId" Data..=)
               Prelude.<$> creatorRequestId,
             Prelude.Just
-              ("BackupSelection" Core..= backupSelection)
+              ("BackupSelection" Data..= backupSelection)
           ]
       )
 
-instance Core.ToPath CreateBackupSelection where
+instance Data.ToPath CreateBackupSelection where
   toPath CreateBackupSelection' {..} =
     Prelude.mconcat
       [ "/backup/plans/",
-        Core.toBS backupPlanId,
+        Data.toBS backupPlanId,
         "/selections/"
       ]
 
-instance Core.ToQuery CreateBackupSelection where
+instance Data.ToQuery CreateBackupSelection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBackupSelectionResponse' smart constructor.
@@ -192,7 +193,7 @@ data CreateBackupSelectionResponse = CreateBackupSelectionResponse'
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | Uniquely identifies the body of a request to assign a set of resources
     -- to a backup plan.
     selectionId :: Prelude.Maybe Prelude.Text,
@@ -240,7 +241,7 @@ newCreateBackupSelectionResponse pHttpStatus_ =
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 createBackupSelectionResponse_creationDate :: Lens.Lens' CreateBackupSelectionResponse (Prelude.Maybe Prelude.UTCTime)
-createBackupSelectionResponse_creationDate = Lens.lens (\CreateBackupSelectionResponse' {creationDate} -> creationDate) (\s@CreateBackupSelectionResponse' {} a -> s {creationDate = a} :: CreateBackupSelectionResponse) Prelude.. Lens.mapping Core._Time
+createBackupSelectionResponse_creationDate = Lens.lens (\CreateBackupSelectionResponse' {creationDate} -> creationDate) (\s@CreateBackupSelectionResponse' {} a -> s {creationDate = a} :: CreateBackupSelectionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Uniquely identifies the body of a request to assign a set of resources
 -- to a backup plan.

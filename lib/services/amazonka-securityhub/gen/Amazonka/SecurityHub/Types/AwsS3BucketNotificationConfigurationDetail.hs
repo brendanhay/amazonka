@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfigurationDetail whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfigurationFilter
 
@@ -109,18 +110,18 @@ awsS3BucketNotificationConfigurationDetail_events :: Lens.Lens' AwsS3BucketNotif
 awsS3BucketNotificationConfigurationDetail_events = Lens.lens (\AwsS3BucketNotificationConfigurationDetail' {events} -> events) (\s@AwsS3BucketNotificationConfigurationDetail' {} a -> s {events = a} :: AwsS3BucketNotificationConfigurationDetail) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketNotificationConfigurationDetail
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketNotificationConfigurationDetail"
       ( \x ->
           AwsS3BucketNotificationConfigurationDetail'
-            Prelude.<$> (x Core..:? "Destination")
-              Prelude.<*> (x Core..:? "Type")
-              Prelude.<*> (x Core..:? "Filter")
-              Prelude.<*> (x Core..:? "Events" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Destination")
+              Prelude.<*> (x Data..:? "Type")
+              Prelude.<*> (x Data..:? "Filter")
+              Prelude.<*> (x Data..:? "Events" Data..!= Prelude.mempty)
       )
 
 instance
@@ -146,16 +147,16 @@ instance
       `Prelude.seq` Prelude.rnf events
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketNotificationConfigurationDetail
   where
   toJSON
     AwsS3BucketNotificationConfigurationDetail' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Destination" Core..=) Prelude.<$> destination,
-              ("Type" Core..=) Prelude.<$> type',
-              ("Filter" Core..=) Prelude.<$> filter',
-              ("Events" Core..=) Prelude.<$> events
+            [ ("Destination" Data..=) Prelude.<$> destination,
+              ("Type" Data..=) Prelude.<$> type',
+              ("Filter" Data..=) Prelude.<$> filter',
+              ("Events" Data..=) Prelude.<$> events
             ]
         )

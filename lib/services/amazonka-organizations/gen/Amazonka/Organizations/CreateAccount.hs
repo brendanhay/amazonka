@@ -121,6 +121,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -206,9 +207,9 @@ data CreateAccount = CreateAccount'
     --
     -- You can\'t access the root user of the account or remove an account that
     -- was created with an invalid email address.
-    email :: Core.Sensitive Prelude.Text,
+    email :: Data.Sensitive Prelude.Text,
     -- | The friendly name of the member account.
-    accountName :: Core.Sensitive Prelude.Text
+    accountName :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -311,8 +312,8 @@ newCreateAccount pEmail_ pAccountName_ =
     { tags = Prelude.Nothing,
       roleName = Prelude.Nothing,
       iamUserAccessToBilling = Prelude.Nothing,
-      email = Core._Sensitive Lens.# pEmail_,
-      accountName = Core._Sensitive Lens.# pAccountName_
+      email = Data._Sensitive Lens.# pEmail_,
+      accountName = Data._Sensitive Lens.# pAccountName_
     }
 
 -- | A list of tags that you want to attach to the newly created account. For
@@ -400,11 +401,11 @@ createAccount_iamUserAccessToBilling = Lens.lens (\CreateAccount' {iamUserAccess
 -- You can\'t access the root user of the account or remove an account that
 -- was created with an invalid email address.
 createAccount_email :: Lens.Lens' CreateAccount Prelude.Text
-createAccount_email = Lens.lens (\CreateAccount' {email} -> email) (\s@CreateAccount' {} a -> s {email = a} :: CreateAccount) Prelude.. Core._Sensitive
+createAccount_email = Lens.lens (\CreateAccount' {email} -> email) (\s@CreateAccount' {} a -> s {email = a} :: CreateAccount) Prelude.. Data._Sensitive
 
 -- | The friendly name of the member account.
 createAccount_accountName :: Lens.Lens' CreateAccount Prelude.Text
-createAccount_accountName = Lens.lens (\CreateAccount' {accountName} -> accountName) (\s@CreateAccount' {} a -> s {accountName = a} :: CreateAccount) Prelude.. Core._Sensitive
+createAccount_accountName = Lens.lens (\CreateAccount' {accountName} -> accountName) (\s@CreateAccount' {} a -> s {accountName = a} :: CreateAccount) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateAccount where
   type
@@ -416,7 +417,7 @@ instance Core.AWSRequest CreateAccount where
     Response.receiveJSON
       ( \s h x ->
           CreateAccountResponse'
-            Prelude.<$> (x Core..?> "CreateAccountStatus")
+            Prelude.<$> (x Data..?> "CreateAccountStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -436,38 +437,38 @@ instance Prelude.NFData CreateAccount where
       `Prelude.seq` Prelude.rnf email
       `Prelude.seq` Prelude.rnf accountName
 
-instance Core.ToHeaders CreateAccount where
+instance Data.ToHeaders CreateAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.CreateAccount" ::
+              Data.=# ( "AWSOrganizationsV20161128.CreateAccount" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAccount where
+instance Data.ToJSON CreateAccount where
   toJSON CreateAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("RoleName" Core..=) Prelude.<$> roleName,
-            ("IamUserAccessToBilling" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("RoleName" Data..=) Prelude.<$> roleName,
+            ("IamUserAccessToBilling" Data..=)
               Prelude.<$> iamUserAccessToBilling,
-            Prelude.Just ("Email" Core..= email),
-            Prelude.Just ("AccountName" Core..= accountName)
+            Prelude.Just ("Email" Data..= email),
+            Prelude.Just ("AccountName" Data..= accountName)
           ]
       )
 
-instance Core.ToPath CreateAccount where
+instance Data.ToPath CreateAccount where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAccount where
+instance Data.ToQuery CreateAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAccountResponse' smart constructor.

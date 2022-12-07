@@ -75,6 +75,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,7 +164,7 @@ instance Core.AWSRequest MergeProfiles where
     Response.receiveJSON
       ( \s h x ->
           MergeProfilesResponse'
-            Prelude.<$> (x Core..?> "Message")
+            Prelude.<$> (x Data..?> "Message")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,40 +182,40 @@ instance Prelude.NFData MergeProfiles where
       `Prelude.seq` Prelude.rnf mainProfileId
       `Prelude.seq` Prelude.rnf profileIdsToBeMerged
 
-instance Core.ToHeaders MergeProfiles where
+instance Data.ToHeaders MergeProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON MergeProfiles where
+instance Data.ToJSON MergeProfiles where
   toJSON MergeProfiles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FieldSourceProfileIds" Core..=)
+          [ ("FieldSourceProfileIds" Data..=)
               Prelude.<$> fieldSourceProfileIds,
-            Prelude.Just ("MainProfileId" Core..= mainProfileId),
+            Prelude.Just ("MainProfileId" Data..= mainProfileId),
             Prelude.Just
               ( "ProfileIdsToBeMerged"
-                  Core..= profileIdsToBeMerged
+                  Data..= profileIdsToBeMerged
               )
           ]
       )
 
-instance Core.ToPath MergeProfiles where
+instance Data.ToPath MergeProfiles where
   toPath MergeProfiles' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/profiles/objects/merge"
       ]
 
-instance Core.ToQuery MergeProfiles where
+instance Data.ToQuery MergeProfiles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newMergeProfilesResponse' smart constructor.

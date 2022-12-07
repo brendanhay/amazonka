@@ -21,6 +21,7 @@ module Amazonka.Discovery.Types.AgentInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types.AgentNetworkInfo
 import Amazonka.Discovery.Types.AgentStatus
 import qualified Amazonka.Prelude as Prelude
@@ -142,24 +143,24 @@ agentInfo_registeredTime = Lens.lens (\AgentInfo' {registeredTime} -> registered
 agentInfo_version :: Lens.Lens' AgentInfo (Prelude.Maybe Prelude.Text)
 agentInfo_version = Lens.lens (\AgentInfo' {version} -> version) (\s@AgentInfo' {} a -> s {version = a} :: AgentInfo)
 
-instance Core.FromJSON AgentInfo where
+instance Data.FromJSON AgentInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AgentInfo"
       ( \x ->
           AgentInfo'
-            Prelude.<$> (x Core..:? "agentType")
-            Prelude.<*> (x Core..:? "collectionStatus")
-            Prelude.<*> (x Core..:? "connectorId")
-            Prelude.<*> (x Core..:? "lastHealthPingTime")
-            Prelude.<*> (x Core..:? "hostName")
-            Prelude.<*> (x Core..:? "agentId")
-            Prelude.<*> (x Core..:? "health")
-            Prelude.<*> ( x Core..:? "agentNetworkInfoList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "agentType")
+            Prelude.<*> (x Data..:? "collectionStatus")
+            Prelude.<*> (x Data..:? "connectorId")
+            Prelude.<*> (x Data..:? "lastHealthPingTime")
+            Prelude.<*> (x Data..:? "hostName")
+            Prelude.<*> (x Data..:? "agentId")
+            Prelude.<*> (x Data..:? "health")
+            Prelude.<*> ( x Data..:? "agentNetworkInfoList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "registeredTime")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<*> (x Data..:? "registeredTime")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable AgentInfo where

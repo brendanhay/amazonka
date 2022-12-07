@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.APNSVoipChannelResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the status and settings of the APNs (Apple
@@ -173,24 +174,24 @@ aPNSVoipChannelResponse_version = Lens.lens (\APNSVoipChannelResponse' {version}
 aPNSVoipChannelResponse_platform :: Lens.Lens' APNSVoipChannelResponse Prelude.Text
 aPNSVoipChannelResponse_platform = Lens.lens (\APNSVoipChannelResponse' {platform} -> platform) (\s@APNSVoipChannelResponse' {} a -> s {platform = a} :: APNSVoipChannelResponse)
 
-instance Core.FromJSON APNSVoipChannelResponse where
+instance Data.FromJSON APNSVoipChannelResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "APNSVoipChannelResponse"
       ( \x ->
           APNSVoipChannelResponse'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "HasTokenKey")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "HasCredential")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "DefaultAuthenticationMethod")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "IsArchived")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "Platform")
+            Prelude.<$> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "HasTokenKey")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "HasCredential")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "DefaultAuthenticationMethod")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "IsArchived")
+            Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "Platform")
       )
 
 instance Prelude.Hashable APNSVoipChannelResponse where

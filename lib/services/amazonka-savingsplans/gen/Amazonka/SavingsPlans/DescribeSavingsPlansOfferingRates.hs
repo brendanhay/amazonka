@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -182,8 +183,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeSavingsPlansOfferingRatesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-              Prelude.<*> (x Core..?> "searchResults" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+              Prelude.<*> (x Data..?> "searchResults" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -222,51 +223,51 @@ instance
       `Prelude.seq` Prelude.rnf serviceCodes
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeSavingsPlansOfferingRates
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeSavingsPlansOfferingRates
   where
   toJSON DescribeSavingsPlansOfferingRates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("usageTypes" Core..=) Prelude.<$> usageTypes,
-            ("operations" Core..=) Prelude.<$> operations,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("savingsPlanOfferingIds" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("usageTypes" Data..=) Prelude.<$> usageTypes,
+            ("operations" Data..=) Prelude.<$> operations,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("savingsPlanOfferingIds" Data..=)
               Prelude.<$> savingsPlanOfferingIds,
-            ("savingsPlanPaymentOptions" Core..=)
+            ("savingsPlanPaymentOptions" Data..=)
               Prelude.<$> savingsPlanPaymentOptions,
-            ("products" Core..=) Prelude.<$> products,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("savingsPlanTypes" Core..=)
+            ("products" Data..=) Prelude.<$> products,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("savingsPlanTypes" Data..=)
               Prelude.<$> savingsPlanTypes,
-            ("serviceCodes" Core..=) Prelude.<$> serviceCodes
+            ("serviceCodes" Data..=) Prelude.<$> serviceCodes
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeSavingsPlansOfferingRates
   where
   toPath =
     Prelude.const "/DescribeSavingsPlansOfferingRates"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeSavingsPlansOfferingRates
   where
   toQuery = Prelude.const Prelude.mempty

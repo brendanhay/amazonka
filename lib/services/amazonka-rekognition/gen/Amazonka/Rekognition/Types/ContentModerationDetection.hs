@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.ContentModerationDetection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.ModerationLabel
 
@@ -73,14 +74,14 @@ contentModerationDetection_timestamp = Lens.lens (\ContentModerationDetection' {
 contentModerationDetection_moderationLabel :: Lens.Lens' ContentModerationDetection (Prelude.Maybe ModerationLabel)
 contentModerationDetection_moderationLabel = Lens.lens (\ContentModerationDetection' {moderationLabel} -> moderationLabel) (\s@ContentModerationDetection' {} a -> s {moderationLabel = a} :: ContentModerationDetection)
 
-instance Core.FromJSON ContentModerationDetection where
+instance Data.FromJSON ContentModerationDetection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContentModerationDetection"
       ( \x ->
           ContentModerationDetection'
-            Prelude.<$> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "ModerationLabel")
+            Prelude.<$> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "ModerationLabel")
       )
 
 instance Prelude.Hashable ContentModerationDetection where

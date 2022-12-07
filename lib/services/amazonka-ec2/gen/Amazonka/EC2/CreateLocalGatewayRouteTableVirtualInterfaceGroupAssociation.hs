@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,7 +144,7 @@ instance
       ( \s h x ->
           CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse'
             Prelude.<$> ( x
-                            Core..@? "localGatewayRouteTableVirtualInterfaceGroupAssociation"
+                            Data..@? "localGatewayRouteTableVirtualInterfaceGroupAssociation"
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -172,39 +173,39 @@ instance
         `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroupId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation
   where
   toQuery
     CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation" ::
+            Data.=: ( "CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Core.=: dryRun,
-          Core.toQuery
-            ( Core.toQueryList "TagSpecification"
+            Data.=: ("2016-11-15" :: Prelude.ByteString),
+          "DryRun" Data.=: dryRun,
+          Data.toQuery
+            ( Data.toQueryList "TagSpecification"
                 Prelude.<$> tagSpecifications
             ),
           "LocalGatewayRouteTableId"
-            Core.=: localGatewayRouteTableId,
+            Data.=: localGatewayRouteTableId,
           "LocalGatewayVirtualInterfaceGroupId"
-            Core.=: localGatewayVirtualInterfaceGroupId
+            Data.=: localGatewayVirtualInterfaceGroupId
         ]
 
 -- | /See:/ 'newCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse' smart constructor.

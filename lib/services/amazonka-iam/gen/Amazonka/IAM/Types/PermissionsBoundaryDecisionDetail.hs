@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.PermissionsBoundaryDecisionDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the effect that a permissions boundary has on
@@ -79,12 +80,12 @@ permissionsBoundaryDecisionDetail_allowedByPermissionsBoundary :: Lens.Lens' Per
 permissionsBoundaryDecisionDetail_allowedByPermissionsBoundary = Lens.lens (\PermissionsBoundaryDecisionDetail' {allowedByPermissionsBoundary} -> allowedByPermissionsBoundary) (\s@PermissionsBoundaryDecisionDetail' {} a -> s {allowedByPermissionsBoundary = a} :: PermissionsBoundaryDecisionDetail)
 
 instance
-  Core.FromXML
+  Data.FromXML
     PermissionsBoundaryDecisionDetail
   where
   parseXML x =
     PermissionsBoundaryDecisionDetail'
-      Prelude.<$> (x Core..@? "AllowedByPermissionsBoundary")
+      Prelude.<$> (x Data..@? "AllowedByPermissionsBoundary")
 
 instance
   Prelude.Hashable

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,7 +97,7 @@ instance Core.AWSRequest DeleteDevice where
     Response.receiveJSON
       ( \s h x ->
           DeleteDeviceResponse'
-            Prelude.<$> (x Core..?> "Device")
+            Prelude.<$> (x Data..?> "Device")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,27 +111,27 @@ instance Prelude.NFData DeleteDevice where
     Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf deviceId
 
-instance Core.ToHeaders DeleteDevice where
+instance Data.ToHeaders DeleteDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteDevice where
+instance Data.ToPath DeleteDevice where
   toPath DeleteDevice' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/devices/",
-        Core.toBS deviceId
+        Data.toBS deviceId
       ]
 
-instance Core.ToQuery DeleteDevice where
+instance Data.ToQuery DeleteDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDeviceResponse' smart constructor.

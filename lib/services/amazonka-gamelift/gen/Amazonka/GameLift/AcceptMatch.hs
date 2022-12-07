@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,34 +164,34 @@ instance Prelude.NFData AcceptMatch where
       `Prelude.seq` Prelude.rnf playerIds
       `Prelude.seq` Prelude.rnf acceptanceType
 
-instance Core.ToHeaders AcceptMatch where
+instance Data.ToHeaders AcceptMatch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.AcceptMatch" :: Prelude.ByteString),
+              Data.=# ("GameLift.AcceptMatch" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AcceptMatch where
+instance Data.ToJSON AcceptMatch where
   toJSON AcceptMatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TicketId" Core..= ticketId),
-            Prelude.Just ("PlayerIds" Core..= playerIds),
+          [ Prelude.Just ("TicketId" Data..= ticketId),
+            Prelude.Just ("PlayerIds" Data..= playerIds),
             Prelude.Just
-              ("AcceptanceType" Core..= acceptanceType)
+              ("AcceptanceType" Data..= acceptanceType)
           ]
       )
 
-instance Core.ToPath AcceptMatch where
+instance Data.ToPath AcceptMatch where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AcceptMatch where
+instance Data.ToQuery AcceptMatch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAcceptMatchResponse' smart constructor.

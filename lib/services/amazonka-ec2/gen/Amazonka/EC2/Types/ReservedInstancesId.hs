@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ReservedInstancesId where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,10 +55,10 @@ newReservedInstancesId =
 reservedInstancesId_reservedInstancesId :: Lens.Lens' ReservedInstancesId (Prelude.Maybe Prelude.Text)
 reservedInstancesId_reservedInstancesId = Lens.lens (\ReservedInstancesId' {reservedInstancesId} -> reservedInstancesId) (\s@ReservedInstancesId' {} a -> s {reservedInstancesId = a} :: ReservedInstancesId)
 
-instance Core.FromXML ReservedInstancesId where
+instance Data.FromXML ReservedInstancesId where
   parseXML x =
     ReservedInstancesId'
-      Prelude.<$> (x Core..@? "reservedInstancesId")
+      Prelude.<$> (x Data..@? "reservedInstancesId")
 
 instance Prelude.Hashable ReservedInstancesId where
   hashWithSalt _salt ReservedInstancesId' {..} =

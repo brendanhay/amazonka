@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,11 +90,11 @@ instance Core.AWSRequest DescribeLocationNfs where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationNfsResponse'
-            Prelude.<$> (x Core..?> "OnPremConfig")
-            Prelude.<*> (x Core..?> "MountOptions")
-            Prelude.<*> (x Core..?> "LocationArn")
-            Prelude.<*> (x Core..?> "LocationUri")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Data..?> "OnPremConfig")
+            Prelude.<*> (x Data..?> "MountOptions")
+            Prelude.<*> (x Data..?> "LocationArn")
+            Prelude.<*> (x Data..?> "LocationUri")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,32 +106,32 @@ instance Prelude.NFData DescribeLocationNfs where
   rnf DescribeLocationNfs' {..} =
     Prelude.rnf locationArn
 
-instance Core.ToHeaders DescribeLocationNfs where
+instance Data.ToHeaders DescribeLocationNfs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.DescribeLocationNfs" ::
+              Data.=# ( "FmrsService.DescribeLocationNfs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLocationNfs where
+instance Data.ToJSON DescribeLocationNfs where
   toJSON DescribeLocationNfs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LocationArn" Core..= locationArn)]
+          [Prelude.Just ("LocationArn" Data..= locationArn)]
       )
 
-instance Core.ToPath DescribeLocationNfs where
+instance Data.ToPath DescribeLocationNfs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLocationNfs where
+instance Data.ToQuery DescribeLocationNfs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | DescribeLocationNfsResponse
@@ -145,7 +146,7 @@ data DescribeLocationNfsResponse = DescribeLocationNfsResponse'
     -- | The URL of the source NFS location that was described.
     locationUri :: Prelude.Maybe Prelude.Text,
     -- | The time that the NFS location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,7 +204,7 @@ describeLocationNfsResponse_locationUri = Lens.lens (\DescribeLocationNfsRespons
 
 -- | The time that the NFS location was created.
 describeLocationNfsResponse_creationTime :: Lens.Lens' DescribeLocationNfsResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationNfsResponse_creationTime = Lens.lens (\DescribeLocationNfsResponse' {creationTime} -> creationTime) (\s@DescribeLocationNfsResponse' {} a -> s {creationTime = a} :: DescribeLocationNfsResponse) Prelude.. Lens.mapping Core._Time
+describeLocationNfsResponse_creationTime = Lens.lens (\DescribeLocationNfsResponse' {creationTime} -> creationTime) (\s@DescribeLocationNfsResponse' {} a -> s {creationTime = a} :: DescribeLocationNfsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeLocationNfsResponse_httpStatus :: Lens.Lens' DescribeLocationNfsResponse Prelude.Int

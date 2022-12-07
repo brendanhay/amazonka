@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.GlobalConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.GlobalConfigurationInputEndAction
 import Amazonka.MediaLive.Types.GlobalConfigurationLowFramerateInputs
 import Amazonka.MediaLive.Types.GlobalConfigurationOutputLockingMode
@@ -145,18 +146,18 @@ globalConfiguration_outputTimingSource = Lens.lens (\GlobalConfiguration' {outpu
 globalConfiguration_initialAudioGain :: Lens.Lens' GlobalConfiguration (Prelude.Maybe Prelude.Int)
 globalConfiguration_initialAudioGain = Lens.lens (\GlobalConfiguration' {initialAudioGain} -> initialAudioGain) (\s@GlobalConfiguration' {} a -> s {initialAudioGain = a} :: GlobalConfiguration)
 
-instance Core.FromJSON GlobalConfiguration where
+instance Data.FromJSON GlobalConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GlobalConfiguration"
       ( \x ->
           GlobalConfiguration'
-            Prelude.<$> (x Core..:? "inputLossBehavior")
-            Prelude.<*> (x Core..:? "supportLowFramerateInputs")
-            Prelude.<*> (x Core..:? "inputEndAction")
-            Prelude.<*> (x Core..:? "outputLockingMode")
-            Prelude.<*> (x Core..:? "outputTimingSource")
-            Prelude.<*> (x Core..:? "initialAudioGain")
+            Prelude.<$> (x Data..:? "inputLossBehavior")
+            Prelude.<*> (x Data..:? "supportLowFramerateInputs")
+            Prelude.<*> (x Data..:? "inputEndAction")
+            Prelude.<*> (x Data..:? "outputLockingMode")
+            Prelude.<*> (x Data..:? "outputTimingSource")
+            Prelude.<*> (x Data..:? "initialAudioGain")
       )
 
 instance Prelude.Hashable GlobalConfiguration where
@@ -177,21 +178,21 @@ instance Prelude.NFData GlobalConfiguration where
       `Prelude.seq` Prelude.rnf outputTimingSource
       `Prelude.seq` Prelude.rnf initialAudioGain
 
-instance Core.ToJSON GlobalConfiguration where
+instance Data.ToJSON GlobalConfiguration where
   toJSON GlobalConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inputLossBehavior" Core..=)
+          [ ("inputLossBehavior" Data..=)
               Prelude.<$> inputLossBehavior,
-            ("supportLowFramerateInputs" Core..=)
+            ("supportLowFramerateInputs" Data..=)
               Prelude.<$> supportLowFramerateInputs,
-            ("inputEndAction" Core..=)
+            ("inputEndAction" Data..=)
               Prelude.<$> inputEndAction,
-            ("outputLockingMode" Core..=)
+            ("outputLockingMode" Data..=)
               Prelude.<$> outputLockingMode,
-            ("outputTimingSource" Core..=)
+            ("outputTimingSource" Data..=)
               Prelude.<$> outputTimingSource,
-            ("initialAudioGain" Core..=)
+            ("initialAudioGain" Data..=)
               Prelude.<$> initialAudioGain
           ]
       )

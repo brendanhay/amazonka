@@ -49,6 +49,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,7 +136,7 @@ instance Core.AWSRequest GetChannelMessage where
     Response.receiveJSON
       ( \s h x ->
           GetChannelMessageResponse'
-            Prelude.<$> (x Core..?> "ChannelMessage")
+            Prelude.<$> (x Data..?> "ChannelMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,24 +154,24 @@ instance Prelude.NFData GetChannelMessage where
       `Prelude.seq` Prelude.rnf messageId
       `Prelude.seq` Prelude.rnf chimeBearer
 
-instance Core.ToHeaders GetChannelMessage where
+instance Data.ToHeaders GetChannelMessage where
   toHeaders GetChannelMessage' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToPath GetChannelMessage where
+instance Data.ToPath GetChannelMessage where
   toPath GetChannelMessage' {..} =
     Prelude.mconcat
       [ "/channels/",
-        Core.toBS channelArn,
+        Data.toBS channelArn,
         "/messages/",
-        Core.toBS messageId
+        Data.toBS messageId
       ]
 
-instance Core.ToQuery GetChannelMessage where
+instance Data.ToQuery GetChannelMessage where
   toQuery GetChannelMessage' {..} =
     Prelude.mconcat
-      ["sub-channel-id" Core.=: subChannelId]
+      ["sub-channel-id" Data.=: subChannelId]
 
 -- | /See:/ 'newGetChannelMessageResponse' smart constructor.
 data GetChannelMessageResponse = GetChannelMessageResponse'

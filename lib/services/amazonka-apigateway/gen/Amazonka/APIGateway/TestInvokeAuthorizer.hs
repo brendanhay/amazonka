@@ -56,6 +56,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -188,13 +189,13 @@ instance Core.AWSRequest TestInvokeAuthorizer where
     Response.receiveJSON
       ( \s h x ->
           TestInvokeAuthorizerResponse'
-            Prelude.<$> (x Core..?> "policy")
-            Prelude.<*> (x Core..?> "principalId")
-            Prelude.<*> (x Core..?> "latency")
-            Prelude.<*> (x Core..?> "clientStatus")
-            Prelude.<*> (x Core..?> "claims" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "authorization" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "log")
+            Prelude.<$> (x Data..?> "policy")
+            Prelude.<*> (x Data..?> "principalId")
+            Prelude.<*> (x Data..?> "latency")
+            Prelude.<*> (x Data..?> "clientStatus")
+            Prelude.<*> (x Data..?> "claims" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "authorization" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "log")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -220,42 +221,42 @@ instance Prelude.NFData TestInvokeAuthorizer where
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf authorizerId
 
-instance Core.ToHeaders TestInvokeAuthorizer where
+instance Data.ToHeaders TestInvokeAuthorizer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON TestInvokeAuthorizer where
+instance Data.ToJSON TestInvokeAuthorizer where
   toJSON TestInvokeAuthorizer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("multiValueHeaders" Core..=)
+          [ ("multiValueHeaders" Data..=)
               Prelude.<$> multiValueHeaders,
-            ("headers" Core..=) Prelude.<$> headers,
-            ("body" Core..=) Prelude.<$> body,
-            ("pathWithQueryString" Core..=)
+            ("headers" Data..=) Prelude.<$> headers,
+            ("body" Data..=) Prelude.<$> body,
+            ("pathWithQueryString" Data..=)
               Prelude.<$> pathWithQueryString,
-            ("additionalContext" Core..=)
+            ("additionalContext" Data..=)
               Prelude.<$> additionalContext,
-            ("stageVariables" Core..=)
+            ("stageVariables" Data..=)
               Prelude.<$> stageVariables
           ]
       )
 
-instance Core.ToPath TestInvokeAuthorizer where
+instance Data.ToPath TestInvokeAuthorizer where
   toPath TestInvokeAuthorizer' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/authorizers/",
-        Core.toBS authorizerId
+        Data.toBS authorizerId
       ]
 
-instance Core.ToQuery TestInvokeAuthorizer where
+instance Data.ToQuery TestInvokeAuthorizer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response of the test invoke request for a custom

@@ -43,6 +43,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,30 +110,30 @@ instance Prelude.NFData AssociateLexBot where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf lexBot
 
-instance Core.ToHeaders AssociateLexBot where
+instance Data.ToHeaders AssociateLexBot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateLexBot where
+instance Data.ToJSON AssociateLexBot where
   toJSON AssociateLexBot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LexBot" Core..= lexBot)]
+          [Prelude.Just ("LexBot" Data..= lexBot)]
       )
 
-instance Core.ToPath AssociateLexBot where
+instance Data.ToPath AssociateLexBot where
   toPath AssociateLexBot' {..} =
     Prelude.mconcat
-      ["/instance/", Core.toBS instanceId, "/lex-bot"]
+      ["/instance/", Data.toBS instanceId, "/lex-bot"]
 
-instance Core.ToQuery AssociateLexBot where
+instance Data.ToQuery AssociateLexBot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateLexBotResponse' smart constructor.

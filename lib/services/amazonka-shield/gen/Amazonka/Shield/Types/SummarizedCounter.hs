@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.SummarizedCounter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The counter that describes a DDoS attack.
@@ -97,18 +98,18 @@ summarizedCounter_n = Lens.lens (\SummarizedCounter' {n} -> n) (\s@SummarizedCou
 summarizedCounter_unit :: Lens.Lens' SummarizedCounter (Prelude.Maybe Prelude.Text)
 summarizedCounter_unit = Lens.lens (\SummarizedCounter' {unit} -> unit) (\s@SummarizedCounter' {} a -> s {unit = a} :: SummarizedCounter)
 
-instance Core.FromJSON SummarizedCounter where
+instance Data.FromJSON SummarizedCounter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SummarizedCounter"
       ( \x ->
           SummarizedCounter'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Max")
-            Prelude.<*> (x Core..:? "Average")
-            Prelude.<*> (x Core..:? "Sum")
-            Prelude.<*> (x Core..:? "N")
-            Prelude.<*> (x Core..:? "Unit")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Max")
+            Prelude.<*> (x Data..:? "Average")
+            Prelude.<*> (x Data..:? "Sum")
+            Prelude.<*> (x Data..:? "N")
+            Prelude.<*> (x Data..:? "Unit")
       )
 
 instance Prelude.Hashable SummarizedCounter where

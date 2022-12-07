@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ServiceInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.Action
 import Amazonka.GuardDuty.Types.EbsVolumeScanDetails
 import Amazonka.GuardDuty.Types.Evidence
@@ -173,25 +174,25 @@ serviceInfo_serviceName = Lens.lens (\ServiceInfo' {serviceName} -> serviceName)
 serviceInfo_eventLastSeen :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
 serviceInfo_eventLastSeen = Lens.lens (\ServiceInfo' {eventLastSeen} -> eventLastSeen) (\s@ServiceInfo' {} a -> s {eventLastSeen = a} :: ServiceInfo)
 
-instance Core.FromJSON ServiceInfo where
+instance Data.FromJSON ServiceInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceInfo"
       ( \x ->
           ServiceInfo'
-            Prelude.<$> (x Core..:? "additionalInfo")
-            Prelude.<*> (x Core..:? "resourceRole")
-            Prelude.<*> (x Core..:? "evidence")
-            Prelude.<*> (x Core..:? "userFeedback")
-            Prelude.<*> (x Core..:? "featureName")
-            Prelude.<*> (x Core..:? "count")
-            Prelude.<*> (x Core..:? "eventFirstSeen")
-            Prelude.<*> (x Core..:? "archived")
-            Prelude.<*> (x Core..:? "action")
-            Prelude.<*> (x Core..:? "ebsVolumeScanDetails")
-            Prelude.<*> (x Core..:? "detectorId")
-            Prelude.<*> (x Core..:? "serviceName")
-            Prelude.<*> (x Core..:? "eventLastSeen")
+            Prelude.<$> (x Data..:? "additionalInfo")
+            Prelude.<*> (x Data..:? "resourceRole")
+            Prelude.<*> (x Data..:? "evidence")
+            Prelude.<*> (x Data..:? "userFeedback")
+            Prelude.<*> (x Data..:? "featureName")
+            Prelude.<*> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "eventFirstSeen")
+            Prelude.<*> (x Data..:? "archived")
+            Prelude.<*> (x Data..:? "action")
+            Prelude.<*> (x Data..:? "ebsVolumeScanDetails")
+            Prelude.<*> (x Data..:? "detectorId")
+            Prelude.<*> (x Data..:? "serviceName")
+            Prelude.<*> (x Data..:? "eventLastSeen")
       )
 
 instance Prelude.Hashable ServiceInfo where

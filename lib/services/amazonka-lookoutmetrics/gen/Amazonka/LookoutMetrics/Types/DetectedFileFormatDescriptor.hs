@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.DetectedFileFormatDescriptor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.DetectedCsvFormatDescriptor
 import Amazonka.LookoutMetrics.Types.DetectedJsonFormatDescriptor
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ detectedFileFormatDescriptor_jsonFormatDescriptor = Lens.lens (\DetectedFileForm
 detectedFileFormatDescriptor_csvFormatDescriptor :: Lens.Lens' DetectedFileFormatDescriptor (Prelude.Maybe DetectedCsvFormatDescriptor)
 detectedFileFormatDescriptor_csvFormatDescriptor = Lens.lens (\DetectedFileFormatDescriptor' {csvFormatDescriptor} -> csvFormatDescriptor) (\s@DetectedFileFormatDescriptor' {} a -> s {csvFormatDescriptor = a} :: DetectedFileFormatDescriptor)
 
-instance Core.FromJSON DetectedFileFormatDescriptor where
+instance Data.FromJSON DetectedFileFormatDescriptor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectedFileFormatDescriptor"
       ( \x ->
           DetectedFileFormatDescriptor'
-            Prelude.<$> (x Core..:? "JsonFormatDescriptor")
-            Prelude.<*> (x Core..:? "CsvFormatDescriptor")
+            Prelude.<$> (x Data..:? "JsonFormatDescriptor")
+            Prelude.<*> (x Data..:? "CsvFormatDescriptor")
       )
 
 instance

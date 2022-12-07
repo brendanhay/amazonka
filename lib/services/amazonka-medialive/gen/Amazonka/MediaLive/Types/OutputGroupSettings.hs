@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.OutputGroupSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.ArchiveGroupSettings
 import Amazonka.MediaLive.Types.FrameCaptureGroupSettings
 import Amazonka.MediaLive.Types.HlsGroupSettings
@@ -116,20 +117,20 @@ outputGroupSettings_hlsGroupSettings = Lens.lens (\OutputGroupSettings' {hlsGrou
 outputGroupSettings_msSmoothGroupSettings :: Lens.Lens' OutputGroupSettings (Prelude.Maybe MsSmoothGroupSettings)
 outputGroupSettings_msSmoothGroupSettings = Lens.lens (\OutputGroupSettings' {msSmoothGroupSettings} -> msSmoothGroupSettings) (\s@OutputGroupSettings' {} a -> s {msSmoothGroupSettings = a} :: OutputGroupSettings)
 
-instance Core.FromJSON OutputGroupSettings where
+instance Data.FromJSON OutputGroupSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputGroupSettings"
       ( \x ->
           OutputGroupSettings'
-            Prelude.<$> (x Core..:? "rtmpGroupSettings")
-            Prelude.<*> (x Core..:? "udpGroupSettings")
-            Prelude.<*> (x Core..:? "frameCaptureGroupSettings")
-            Prelude.<*> (x Core..:? "multiplexGroupSettings")
-            Prelude.<*> (x Core..:? "archiveGroupSettings")
-            Prelude.<*> (x Core..:? "mediaPackageGroupSettings")
-            Prelude.<*> (x Core..:? "hlsGroupSettings")
-            Prelude.<*> (x Core..:? "msSmoothGroupSettings")
+            Prelude.<$> (x Data..:? "rtmpGroupSettings")
+            Prelude.<*> (x Data..:? "udpGroupSettings")
+            Prelude.<*> (x Data..:? "frameCaptureGroupSettings")
+            Prelude.<*> (x Data..:? "multiplexGroupSettings")
+            Prelude.<*> (x Data..:? "archiveGroupSettings")
+            Prelude.<*> (x Data..:? "mediaPackageGroupSettings")
+            Prelude.<*> (x Data..:? "hlsGroupSettings")
+            Prelude.<*> (x Data..:? "msSmoothGroupSettings")
       )
 
 instance Prelude.Hashable OutputGroupSettings where
@@ -154,25 +155,25 @@ instance Prelude.NFData OutputGroupSettings where
       `Prelude.seq` Prelude.rnf hlsGroupSettings
       `Prelude.seq` Prelude.rnf msSmoothGroupSettings
 
-instance Core.ToJSON OutputGroupSettings where
+instance Data.ToJSON OutputGroupSettings where
   toJSON OutputGroupSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("rtmpGroupSettings" Core..=)
+          [ ("rtmpGroupSettings" Data..=)
               Prelude.<$> rtmpGroupSettings,
-            ("udpGroupSettings" Core..=)
+            ("udpGroupSettings" Data..=)
               Prelude.<$> udpGroupSettings,
-            ("frameCaptureGroupSettings" Core..=)
+            ("frameCaptureGroupSettings" Data..=)
               Prelude.<$> frameCaptureGroupSettings,
-            ("multiplexGroupSettings" Core..=)
+            ("multiplexGroupSettings" Data..=)
               Prelude.<$> multiplexGroupSettings,
-            ("archiveGroupSettings" Core..=)
+            ("archiveGroupSettings" Data..=)
               Prelude.<$> archiveGroupSettings,
-            ("mediaPackageGroupSettings" Core..=)
+            ("mediaPackageGroupSettings" Data..=)
               Prelude.<$> mediaPackageGroupSettings,
-            ("hlsGroupSettings" Core..=)
+            ("hlsGroupSettings" Data..=)
               Prelude.<$> hlsGroupSettings,
-            ("msSmoothGroupSettings" Core..=)
+            ("msSmoothGroupSettings" Data..=)
               Prelude.<$> msSmoothGroupSettings
           ]
       )

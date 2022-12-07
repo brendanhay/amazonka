@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.PrefetchConsumption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.AvailMatchingCriteria
 import qualified Amazonka.Prelude as Prelude
 
@@ -36,12 +37,12 @@ data PrefetchConsumption = PrefetchConsumption'
     -- | The time when prefetched ads are considered for use in an ad break. If
     -- you don\'t specify @StartTime@, the prefetched ads are available after
     -- MediaTailor retrives them from the ad decision server.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The time when MediaTailor no longer considers the prefetched ads for use
     -- in an ad break. MediaTailor automatically deletes prefetch schedules no
     -- less than seven days after the end time. If you\'d like to manually
     -- delete the prefetch schedule, you can call @DeletePrefetchSchedule@.
-    endTime :: Core.POSIX
+    endTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,7 +75,7 @@ newPrefetchConsumption pEndTime_ =
     { availMatchingCriteria =
         Prelude.Nothing,
       startTime = Prelude.Nothing,
-      endTime = Core._Time Lens.# pEndTime_
+      endTime = Data._Time Lens.# pEndTime_
     }
 
 -- | If you only want MediaTailor to insert prefetched ads into avails (ad
@@ -87,26 +88,26 @@ prefetchConsumption_availMatchingCriteria = Lens.lens (\PrefetchConsumption' {av
 -- you don\'t specify @StartTime@, the prefetched ads are available after
 -- MediaTailor retrives them from the ad decision server.
 prefetchConsumption_startTime :: Lens.Lens' PrefetchConsumption (Prelude.Maybe Prelude.UTCTime)
-prefetchConsumption_startTime = Lens.lens (\PrefetchConsumption' {startTime} -> startTime) (\s@PrefetchConsumption' {} a -> s {startTime = a} :: PrefetchConsumption) Prelude.. Lens.mapping Core._Time
+prefetchConsumption_startTime = Lens.lens (\PrefetchConsumption' {startTime} -> startTime) (\s@PrefetchConsumption' {} a -> s {startTime = a} :: PrefetchConsumption) Prelude.. Lens.mapping Data._Time
 
 -- | The time when MediaTailor no longer considers the prefetched ads for use
 -- in an ad break. MediaTailor automatically deletes prefetch schedules no
 -- less than seven days after the end time. If you\'d like to manually
 -- delete the prefetch schedule, you can call @DeletePrefetchSchedule@.
 prefetchConsumption_endTime :: Lens.Lens' PrefetchConsumption Prelude.UTCTime
-prefetchConsumption_endTime = Lens.lens (\PrefetchConsumption' {endTime} -> endTime) (\s@PrefetchConsumption' {} a -> s {endTime = a} :: PrefetchConsumption) Prelude.. Core._Time
+prefetchConsumption_endTime = Lens.lens (\PrefetchConsumption' {endTime} -> endTime) (\s@PrefetchConsumption' {} a -> s {endTime = a} :: PrefetchConsumption) Prelude.. Data._Time
 
-instance Core.FromJSON PrefetchConsumption where
+instance Data.FromJSON PrefetchConsumption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PrefetchConsumption"
       ( \x ->
           PrefetchConsumption'
-            Prelude.<$> ( x Core..:? "AvailMatchingCriteria"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "AvailMatchingCriteria"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..: "EndTime")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..: "EndTime")
       )
 
 instance Prelude.Hashable PrefetchConsumption where
@@ -121,13 +122,13 @@ instance Prelude.NFData PrefetchConsumption where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
-instance Core.ToJSON PrefetchConsumption where
+instance Data.ToJSON PrefetchConsumption where
   toJSON PrefetchConsumption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AvailMatchingCriteria" Core..=)
+          [ ("AvailMatchingCriteria" Data..=)
               Prelude.<$> availMatchingCriteria,
-            ("StartTime" Core..=) Prelude.<$> startTime,
-            Prelude.Just ("EndTime" Core..= endTime)
+            ("StartTime" Data..=) Prelude.<$> startTime,
+            Prelude.Just ("EndTime" Data..= endTime)
           ]
       )

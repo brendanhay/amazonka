@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -287,7 +288,7 @@ instance Core.AWSRequest CreateCompilationJob where
       ( \s h x ->
           CreateCompilationJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CompilationJobArn")
+            Prelude.<*> (x Data..:> "CompilationJobArn")
       )
 
 instance Prelude.Hashable CreateCompilationJob where
@@ -312,43 +313,43 @@ instance Prelude.NFData CreateCompilationJob where
       `Prelude.seq` Prelude.rnf outputConfig
       `Prelude.seq` Prelude.rnf stoppingCondition
 
-instance Core.ToHeaders CreateCompilationJob where
+instance Data.ToHeaders CreateCompilationJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateCompilationJob" ::
+              Data.=# ( "SageMaker.CreateCompilationJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCompilationJob where
+instance Data.ToJSON CreateCompilationJob where
   toJSON CreateCompilationJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("InputConfig" Core..=) Prelude.<$> inputConfig,
-            ("ModelPackageVersionArn" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("InputConfig" Data..=) Prelude.<$> inputConfig,
+            ("ModelPackageVersionArn" Data..=)
               Prelude.<$> modelPackageVersionArn,
             Prelude.Just
-              ("CompilationJobName" Core..= compilationJobName),
-            Prelude.Just ("RoleArn" Core..= roleArn),
-            Prelude.Just ("OutputConfig" Core..= outputConfig),
+              ("CompilationJobName" Data..= compilationJobName),
+            Prelude.Just ("RoleArn" Data..= roleArn),
+            Prelude.Just ("OutputConfig" Data..= outputConfig),
             Prelude.Just
-              ("StoppingCondition" Core..= stoppingCondition)
+              ("StoppingCondition" Data..= stoppingCondition)
           ]
       )
 
-instance Core.ToPath CreateCompilationJob where
+instance Data.ToPath CreateCompilationJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCompilationJob where
+instance Data.ToQuery CreateCompilationJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCompilationJobResponse' smart constructor.

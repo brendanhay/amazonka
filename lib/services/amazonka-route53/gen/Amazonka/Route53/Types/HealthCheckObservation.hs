@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.HealthCheckObservation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Types.HealthCheckRegion
@@ -84,12 +85,12 @@ healthCheckObservation_region = Lens.lens (\HealthCheckObservation' {region} -> 
 healthCheckObservation_iPAddress :: Lens.Lens' HealthCheckObservation (Prelude.Maybe Prelude.Text)
 healthCheckObservation_iPAddress = Lens.lens (\HealthCheckObservation' {iPAddress} -> iPAddress) (\s@HealthCheckObservation' {} a -> s {iPAddress = a} :: HealthCheckObservation)
 
-instance Core.FromXML HealthCheckObservation where
+instance Data.FromXML HealthCheckObservation where
   parseXML x =
     HealthCheckObservation'
-      Prelude.<$> (x Core..@? "StatusReport")
-      Prelude.<*> (x Core..@? "Region")
-      Prelude.<*> (x Core..@? "IPAddress")
+      Prelude.<$> (x Data..@? "StatusReport")
+      Prelude.<*> (x Data..@? "Region")
+      Prelude.<*> (x Data..@? "IPAddress")
 
 instance Prelude.Hashable HealthCheckObservation where
   hashWithSalt _salt HealthCheckObservation' {..} =

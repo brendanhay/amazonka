@@ -22,6 +22,7 @@ module Amazonka.AppConfig.Types.ConfigurationProfile where
 import Amazonka.AppConfig.Types.Validator
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newConfigurationProfile' smart constructor.
@@ -141,20 +142,20 @@ configurationProfile_applicationId = Lens.lens (\ConfigurationProfile' {applicat
 configurationProfile_validators :: Lens.Lens' ConfigurationProfile (Prelude.Maybe [Validator])
 configurationProfile_validators = Lens.lens (\ConfigurationProfile' {validators} -> validators) (\s@ConfigurationProfile' {} a -> s {validators = a} :: ConfigurationProfile) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ConfigurationProfile where
+instance Data.FromJSON ConfigurationProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigurationProfile"
       ( \x ->
           ConfigurationProfile'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "RetrievalRoleArn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LocationUri")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "Validators" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "RetrievalRoleArn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LocationUri")
+            Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "Validators" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ConfigurationProfile where

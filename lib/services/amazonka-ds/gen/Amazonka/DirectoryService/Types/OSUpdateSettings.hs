@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.OSUpdateSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.OSVersion
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newOSUpdateSettings =
 oSUpdateSettings_oSVersion :: Lens.Lens' OSUpdateSettings (Prelude.Maybe OSVersion)
 oSUpdateSettings_oSVersion = Lens.lens (\OSUpdateSettings' {oSVersion} -> oSVersion) (\s@OSUpdateSettings' {} a -> s {oSVersion = a} :: OSUpdateSettings)
 
-instance Core.FromJSON OSUpdateSettings where
+instance Data.FromJSON OSUpdateSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OSUpdateSettings"
       ( \x ->
           OSUpdateSettings'
-            Prelude.<$> (x Core..:? "OSVersion")
+            Prelude.<$> (x Data..:? "OSVersion")
       )
 
 instance Prelude.Hashable OSUpdateSettings where
@@ -67,9 +68,9 @@ instance Prelude.Hashable OSUpdateSettings where
 instance Prelude.NFData OSUpdateSettings where
   rnf OSUpdateSettings' {..} = Prelude.rnf oSVersion
 
-instance Core.ToJSON OSUpdateSettings where
+instance Data.ToJSON OSUpdateSettings where
   toJSON OSUpdateSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("OSVersion" Core..=) Prelude.<$> oSVersion]
+          [("OSVersion" Data..=) Prelude.<$> oSVersion]
       )

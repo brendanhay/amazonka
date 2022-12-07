@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,8 +153,8 @@ instance Core.AWSRequest ListModelManifests where
     Response.receiveJSON
       ( \s h x ->
           ListModelManifestsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "summaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "summaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,36 +170,36 @@ instance Prelude.NFData ListModelManifests where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf signalCatalogArn
 
-instance Core.ToHeaders ListModelManifests where
+instance Data.ToHeaders ListModelManifests where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.ListModelManifests" ::
+              Data.=# ( "IoTAutobahnControlPlane.ListModelManifests" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListModelManifests where
+instance Data.ToJSON ListModelManifests where
   toJSON ListModelManifests' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("signalCatalogArn" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("signalCatalogArn" Data..=)
               Prelude.<$> signalCatalogArn
           ]
       )
 
-instance Core.ToPath ListModelManifests where
+instance Data.ToPath ListModelManifests where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListModelManifests where
+instance Data.ToQuery ListModelManifests where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListModelManifestsResponse' smart constructor.

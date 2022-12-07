@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.SolutionVersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the properties of a solution version. For a
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 data SolutionVersionSummary = SolutionVersionSummary'
   { -- | The date and time (in Unix time) that this version of a solution was
     -- created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The status of the solution version.
     --
     -- A solution version can be in one of the following states:
@@ -43,7 +44,7 @@ data SolutionVersionSummary = SolutionVersionSummary'
     solutionVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the solution version was last
     -- updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | If a solution version fails, the reason behind the failure.
     failureReason :: Prelude.Maybe Prelude.Text
   }
@@ -87,7 +88,7 @@ newSolutionVersionSummary =
 -- | The date and time (in Unix time) that this version of a solution was
 -- created.
 solutionVersionSummary_creationDateTime :: Lens.Lens' SolutionVersionSummary (Prelude.Maybe Prelude.UTCTime)
-solutionVersionSummary_creationDateTime = Lens.lens (\SolutionVersionSummary' {creationDateTime} -> creationDateTime) (\s@SolutionVersionSummary' {} a -> s {creationDateTime = a} :: SolutionVersionSummary) Prelude.. Lens.mapping Core._Time
+solutionVersionSummary_creationDateTime = Lens.lens (\SolutionVersionSummary' {creationDateTime} -> creationDateTime) (\s@SolutionVersionSummary' {} a -> s {creationDateTime = a} :: SolutionVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the solution version.
 --
@@ -104,23 +105,23 @@ solutionVersionSummary_solutionVersionArn = Lens.lens (\SolutionVersionSummary' 
 -- | The date and time (in Unix time) that the solution version was last
 -- updated.
 solutionVersionSummary_lastUpdatedDateTime :: Lens.Lens' SolutionVersionSummary (Prelude.Maybe Prelude.UTCTime)
-solutionVersionSummary_lastUpdatedDateTime = Lens.lens (\SolutionVersionSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SolutionVersionSummary' {} a -> s {lastUpdatedDateTime = a} :: SolutionVersionSummary) Prelude.. Lens.mapping Core._Time
+solutionVersionSummary_lastUpdatedDateTime = Lens.lens (\SolutionVersionSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SolutionVersionSummary' {} a -> s {lastUpdatedDateTime = a} :: SolutionVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | If a solution version fails, the reason behind the failure.
 solutionVersionSummary_failureReason :: Lens.Lens' SolutionVersionSummary (Prelude.Maybe Prelude.Text)
 solutionVersionSummary_failureReason = Lens.lens (\SolutionVersionSummary' {failureReason} -> failureReason) (\s@SolutionVersionSummary' {} a -> s {failureReason = a} :: SolutionVersionSummary)
 
-instance Core.FromJSON SolutionVersionSummary where
+instance Data.FromJSON SolutionVersionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SolutionVersionSummary"
       ( \x ->
           SolutionVersionSummary'
-            Prelude.<$> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "solutionVersionArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "solutionVersionArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable SolutionVersionSummary where

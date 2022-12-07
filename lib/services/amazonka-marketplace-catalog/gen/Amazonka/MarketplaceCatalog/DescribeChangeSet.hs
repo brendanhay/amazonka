@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceCatalog.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,15 +112,15 @@ instance Core.AWSRequest DescribeChangeSet where
     Response.receiveJSON
       ( \s h x ->
           DescribeChangeSetResponse'
-            Prelude.<$> (x Core..?> "FailureDescription")
-            Prelude.<*> (x Core..?> "FailureCode")
-            Prelude.<*> (x Core..?> "ChangeSetId")
-            Prelude.<*> (x Core..?> "ChangeSetName")
-            Prelude.<*> (x Core..?> "ChangeSetArn")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "EndTime")
-            Prelude.<*> (x Core..?> "ChangeSet" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "StartTime")
+            Prelude.<$> (x Data..?> "FailureDescription")
+            Prelude.<*> (x Data..?> "FailureCode")
+            Prelude.<*> (x Data..?> "ChangeSetId")
+            Prelude.<*> (x Data..?> "ChangeSetName")
+            Prelude.<*> (x Data..?> "ChangeSetArn")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "EndTime")
+            Prelude.<*> (x Data..?> "ChangeSet" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,25 +134,25 @@ instance Prelude.NFData DescribeChangeSet where
     Prelude.rnf catalog
       `Prelude.seq` Prelude.rnf changeSetId
 
-instance Core.ToHeaders DescribeChangeSet where
+instance Data.ToHeaders DescribeChangeSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeChangeSet where
+instance Data.ToPath DescribeChangeSet where
   toPath = Prelude.const "/DescribeChangeSet"
 
-instance Core.ToQuery DescribeChangeSet where
+instance Data.ToQuery DescribeChangeSet where
   toQuery DescribeChangeSet' {..} =
     Prelude.mconcat
-      [ "catalog" Core.=: catalog,
-        "changeSetId" Core.=: changeSetId
+      [ "catalog" Data.=: catalog,
+        "changeSetId" Data.=: changeSetId
       ]
 
 -- | /See:/ 'newDescribeChangeSetResponse' smart constructor.

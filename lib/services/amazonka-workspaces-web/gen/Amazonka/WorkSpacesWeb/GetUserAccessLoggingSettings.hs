@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetUserAccessLoggingSettings where
     Response.receiveJSON
       ( \s h x ->
           GetUserAccessLoggingSettingsResponse'
-            Prelude.<$> (x Core..?> "userAccessLoggingSettings")
+            Prelude.<$> (x Data..?> "userAccessLoggingSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,25 +104,25 @@ instance Prelude.NFData GetUserAccessLoggingSettings where
   rnf GetUserAccessLoggingSettings' {..} =
     Prelude.rnf userAccessLoggingSettingsArn
 
-instance Core.ToHeaders GetUserAccessLoggingSettings where
+instance Data.ToHeaders GetUserAccessLoggingSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetUserAccessLoggingSettings where
+instance Data.ToPath GetUserAccessLoggingSettings where
   toPath GetUserAccessLoggingSettings' {..} =
     Prelude.mconcat
       [ "/userAccessLoggingSettings/",
-        Core.toBS userAccessLoggingSettingsArn
+        Data.toBS userAccessLoggingSettingsArn
       ]
 
-instance Core.ToQuery GetUserAccessLoggingSettings where
+instance Data.ToQuery GetUserAccessLoggingSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetUserAccessLoggingSettingsResponse' smart constructor.

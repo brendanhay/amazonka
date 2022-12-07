@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.LaunchGroupConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that defines one launch group in a launch. A launch group is
@@ -100,13 +101,13 @@ instance Prelude.NFData LaunchGroupConfig where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf variation
 
-instance Core.ToJSON LaunchGroupConfig where
+instance Data.ToJSON LaunchGroupConfig where
   toJSON LaunchGroupConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("feature" Core..= feature),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("variation" Core..= variation)
+          [ ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("feature" Data..= feature),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("variation" Data..= variation)
           ]
       )

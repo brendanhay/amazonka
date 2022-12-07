@@ -81,6 +81,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -182,9 +183,9 @@ instance Core.AWSRequest CreateEmailIdentity where
     Response.receiveJSON
       ( \s h x ->
           CreateEmailIdentityResponse'
-            Prelude.<$> (x Core..?> "VerifiedForSendingStatus")
-            Prelude.<*> (x Core..?> "DkimAttributes")
-            Prelude.<*> (x Core..?> "IdentityType")
+            Prelude.<$> (x Data..?> "VerifiedForSendingStatus")
+            Prelude.<*> (x Data..?> "DkimAttributes")
+            Prelude.<*> (x Data..?> "IdentityType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,35 +203,35 @@ instance Prelude.NFData CreateEmailIdentity where
       `Prelude.seq` Prelude.rnf dkimSigningAttributes
       `Prelude.seq` Prelude.rnf emailIdentity
 
-instance Core.ToHeaders CreateEmailIdentity where
+instance Data.ToHeaders CreateEmailIdentity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEmailIdentity where
+instance Data.ToJSON CreateEmailIdentity where
   toJSON CreateEmailIdentity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ConfigurationSetName" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ConfigurationSetName" Data..=)
               Prelude.<$> configurationSetName,
-            ("DkimSigningAttributes" Core..=)
+            ("DkimSigningAttributes" Data..=)
               Prelude.<$> dkimSigningAttributes,
             Prelude.Just
-              ("EmailIdentity" Core..= emailIdentity)
+              ("EmailIdentity" Data..= emailIdentity)
           ]
       )
 
-instance Core.ToPath CreateEmailIdentity where
+instance Data.ToPath CreateEmailIdentity where
   toPath = Prelude.const "/v2/email/identities"
 
-instance Core.ToQuery CreateEmailIdentity where
+instance Data.ToQuery CreateEmailIdentity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | If the email identity is a domain, this object contains information

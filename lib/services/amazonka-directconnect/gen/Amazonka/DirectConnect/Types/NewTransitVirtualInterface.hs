@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.NewTransitVirtualInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types.AddressFamily
 import Amazonka.DirectConnect.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -193,24 +194,24 @@ instance Prelude.NFData NewTransitVirtualInterface where
       `Prelude.seq` Prelude.rnf enableSiteLink
       `Prelude.seq` Prelude.rnf virtualInterfaceName
 
-instance Core.ToJSON NewTransitVirtualInterface where
+instance Data.ToJSON NewTransitVirtualInterface where
   toJSON NewTransitVirtualInterface' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("addressFamily" Core..=) Prelude.<$> addressFamily,
-            ("authKey" Core..=) Prelude.<$> authKey,
-            ("directConnectGatewayId" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("addressFamily" Data..=) Prelude.<$> addressFamily,
+            ("authKey" Data..=) Prelude.<$> authKey,
+            ("directConnectGatewayId" Data..=)
               Prelude.<$> directConnectGatewayId,
-            ("vlan" Core..=) Prelude.<$> vlan,
-            ("customerAddress" Core..=)
+            ("vlan" Data..=) Prelude.<$> vlan,
+            ("customerAddress" Data..=)
               Prelude.<$> customerAddress,
-            ("asn" Core..=) Prelude.<$> asn,
-            ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
-            ("mtu" Core..=) Prelude.<$> mtu,
-            ("enableSiteLink" Core..=)
+            ("asn" Data..=) Prelude.<$> asn,
+            ("amazonAddress" Data..=) Prelude.<$> amazonAddress,
+            ("mtu" Data..=) Prelude.<$> mtu,
+            ("enableSiteLink" Data..=)
               Prelude.<$> enableSiteLink,
-            ("virtualInterfaceName" Core..=)
+            ("virtualInterfaceName" Data..=)
               Prelude.<$> virtualInterfaceName
           ]
       )

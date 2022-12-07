@@ -22,6 +22,7 @@ module Amazonka.Braket.Types.JobSummary where
 import Amazonka.Braket.Types.JobPrimaryStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information about an Amazon Braket job.
@@ -32,11 +33,11 @@ data JobSummary = JobSummary'
     -- manage metadata for Amazon Braket resources.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The date and time that the Amazon Braket job ended.
-    endedAt :: Prelude.Maybe Core.POSIX,
+    endedAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the Amazon Braket job was started.
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the Amazon Braket job was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | Provides summary information about the primary device used by an Amazon
     -- Braket job.
     device :: Prelude.Text,
@@ -96,7 +97,7 @@ newJobSummary
       { tags = Prelude.Nothing,
         endedAt = Prelude.Nothing,
         startedAt = Prelude.Nothing,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         device = pDevice_,
         jobArn = pJobArn_,
         jobName = pJobName_,
@@ -110,15 +111,15 @@ jobSummary_tags = Lens.lens (\JobSummary' {tags} -> tags) (\s@JobSummary' {} a -
 
 -- | The date and time that the Amazon Braket job ended.
 jobSummary_endedAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.UTCTime)
-jobSummary_endedAt = Lens.lens (\JobSummary' {endedAt} -> endedAt) (\s@JobSummary' {} a -> s {endedAt = a} :: JobSummary) Prelude.. Lens.mapping Core._Time
+jobSummary_endedAt = Lens.lens (\JobSummary' {endedAt} -> endedAt) (\s@JobSummary' {} a -> s {endedAt = a} :: JobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the Amazon Braket job was started.
 jobSummary_startedAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.UTCTime)
-jobSummary_startedAt = Lens.lens (\JobSummary' {startedAt} -> startedAt) (\s@JobSummary' {} a -> s {startedAt = a} :: JobSummary) Prelude.. Lens.mapping Core._Time
+jobSummary_startedAt = Lens.lens (\JobSummary' {startedAt} -> startedAt) (\s@JobSummary' {} a -> s {startedAt = a} :: JobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the Amazon Braket job was created.
 jobSummary_createdAt :: Lens.Lens' JobSummary Prelude.UTCTime
-jobSummary_createdAt = Lens.lens (\JobSummary' {createdAt} -> createdAt) (\s@JobSummary' {} a -> s {createdAt = a} :: JobSummary) Prelude.. Core._Time
+jobSummary_createdAt = Lens.lens (\JobSummary' {createdAt} -> createdAt) (\s@JobSummary' {} a -> s {createdAt = a} :: JobSummary) Prelude.. Data._Time
 
 -- | Provides summary information about the primary device used by an Amazon
 -- Braket job.
@@ -137,20 +138,20 @@ jobSummary_jobName = Lens.lens (\JobSummary' {jobName} -> jobName) (\s@JobSummar
 jobSummary_status :: Lens.Lens' JobSummary JobPrimaryStatus
 jobSummary_status = Lens.lens (\JobSummary' {status} -> status) (\s@JobSummary' {} a -> s {status = a} :: JobSummary)
 
-instance Core.FromJSON JobSummary where
+instance Data.FromJSON JobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobSummary"
       ( \x ->
           JobSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "endedAt")
-            Prelude.<*> (x Core..:? "startedAt")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "device")
-            Prelude.<*> (x Core..: "jobArn")
-            Prelude.<*> (x Core..: "jobName")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "endedAt")
+            Prelude.<*> (x Data..:? "startedAt")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "device")
+            Prelude.<*> (x Data..: "jobArn")
+            Prelude.<*> (x Data..: "jobName")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable JobSummary where

@@ -45,6 +45,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,37 +137,37 @@ instance Prelude.NFData UpdateWorkGroup where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf workGroup
 
-instance Core.ToHeaders UpdateWorkGroup where
+instance Data.ToHeaders UpdateWorkGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.UpdateWorkGroup" ::
+              Data.=# ( "AmazonAthena.UpdateWorkGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkGroup where
+instance Data.ToJSON UpdateWorkGroup where
   toJSON UpdateWorkGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConfigurationUpdates" Core..=)
+          [ ("ConfigurationUpdates" Data..=)
               Prelude.<$> configurationUpdates,
-            ("State" Core..=) Prelude.<$> state,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("WorkGroup" Core..= workGroup)
+            ("State" Data..=) Prelude.<$> state,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("WorkGroup" Data..= workGroup)
           ]
       )
 
-instance Core.ToPath UpdateWorkGroup where
+instance Data.ToPath UpdateWorkGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateWorkGroup where
+instance Data.ToQuery UpdateWorkGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWorkGroupResponse' smart constructor.

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHub.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,8 +143,8 @@ instance Core.AWSRequest ListMigrationTasks where
     Response.receiveJSON
       ( \s h x ->
           ListMigrationTasksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "MigrationTaskSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "MigrationTaskSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -161,35 +162,35 @@ instance Prelude.NFData ListMigrationTasks where
       `Prelude.seq` Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListMigrationTasks where
+instance Data.ToHeaders ListMigrationTasks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMigrationHub.ListMigrationTasks" ::
+              Data.=# ( "AWSMigrationHub.ListMigrationTasks" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListMigrationTasks where
+instance Data.ToJSON ListMigrationTasks where
   toJSON ListMigrationTasks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ResourceName" Core..=) Prelude.<$> resourceName,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ResourceName" Data..=) Prelude.<$> resourceName,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListMigrationTasks where
+instance Data.ToPath ListMigrationTasks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListMigrationTasks where
+instance Data.ToQuery ListMigrationTasks where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListMigrationTasksResponse' smart constructor.

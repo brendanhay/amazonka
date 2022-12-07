@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -82,7 +83,7 @@ instance Core.AWSRequest StartTrigger where
     Response.receiveJSON
       ( \s h x ->
           StartTriggerResponse'
-            Prelude.<$> (x Core..?> "Name")
+            Prelude.<$> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -93,30 +94,30 @@ instance Prelude.Hashable StartTrigger where
 instance Prelude.NFData StartTrigger where
   rnf StartTrigger' {..} = Prelude.rnf name
 
-instance Core.ToHeaders StartTrigger where
+instance Data.ToHeaders StartTrigger where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.StartTrigger" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.StartTrigger" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartTrigger where
+instance Data.ToJSON StartTrigger where
   toJSON StartTrigger' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath StartTrigger where
+instance Data.ToPath StartTrigger where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartTrigger where
+instance Data.ToQuery StartTrigger where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartTriggerResponse' smart constructor.

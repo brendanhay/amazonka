@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetInstanceSnapshot where
     Response.receiveJSON
       ( \s h x ->
           GetInstanceSnapshotResponse'
-            Prelude.<$> (x Core..?> "instanceSnapshot")
+            Prelude.<$> (x Data..?> "instanceSnapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,36 +99,36 @@ instance Prelude.NFData GetInstanceSnapshot where
   rnf GetInstanceSnapshot' {..} =
     Prelude.rnf instanceSnapshotName
 
-instance Core.ToHeaders GetInstanceSnapshot where
+instance Data.ToHeaders GetInstanceSnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetInstanceSnapshot" ::
+              Data.=# ( "Lightsail_20161128.GetInstanceSnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetInstanceSnapshot where
+instance Data.ToJSON GetInstanceSnapshot where
   toJSON GetInstanceSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "instanceSnapshotName"
-                  Core..= instanceSnapshotName
+                  Data..= instanceSnapshotName
               )
           ]
       )
 
-instance Core.ToPath GetInstanceSnapshot where
+instance Data.ToPath GetInstanceSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetInstanceSnapshot where
+instance Data.ToQuery GetInstanceSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInstanceSnapshotResponse' smart constructor.

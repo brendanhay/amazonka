@@ -24,6 +24,7 @@ import Amazonka.AppMesh.Types.RouteSpec
 import Amazonka.AppMesh.Types.RouteStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a route returned by a describe operation.
@@ -118,18 +119,18 @@ routeData_status = Lens.lens (\RouteData' {status} -> status) (\s@RouteData' {} 
 routeData_virtualRouterName :: Lens.Lens' RouteData Prelude.Text
 routeData_virtualRouterName = Lens.lens (\RouteData' {virtualRouterName} -> virtualRouterName) (\s@RouteData' {} a -> s {virtualRouterName = a} :: RouteData)
 
-instance Core.FromJSON RouteData where
+instance Data.FromJSON RouteData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RouteData"
       ( \x ->
           RouteData'
-            Prelude.<$> (x Core..: "meshName")
-            Prelude.<*> (x Core..: "metadata")
-            Prelude.<*> (x Core..: "routeName")
-            Prelude.<*> (x Core..: "spec")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "virtualRouterName")
+            Prelude.<$> (x Data..: "meshName")
+            Prelude.<*> (x Data..: "metadata")
+            Prelude.<*> (x Data..: "routeName")
+            Prelude.<*> (x Data..: "spec")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "virtualRouterName")
       )
 
 instance Prelude.Hashable RouteData where

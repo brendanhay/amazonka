@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.TopicFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used for filtering by a specific topic preference.
@@ -77,12 +78,12 @@ instance Prelude.NFData TopicFilter where
     Prelude.rnf topicName
       `Prelude.seq` Prelude.rnf useDefaultIfPreferenceUnavailable
 
-instance Core.ToJSON TopicFilter where
+instance Data.ToJSON TopicFilter where
   toJSON TopicFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TopicName" Core..=) Prelude.<$> topicName,
-            ("UseDefaultIfPreferenceUnavailable" Core..=)
+          [ ("TopicName" Data..=) Prelude.<$> topicName,
+            ("UseDefaultIfPreferenceUnavailable" Data..=)
               Prelude.<$> useDefaultIfPreferenceUnavailable
           ]
       )

@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,28 +107,28 @@ instance Core.AWSRequest DescribeTransformJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeTransformJobResponse'
-            Prelude.<$> (x Core..?> "MaxConcurrentTransforms")
-            Prelude.<*> (x Core..?> "ModelClientConfig")
-            Prelude.<*> (x Core..?> "Environment" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "TransformOutput")
-            Prelude.<*> (x Core..?> "ExperimentConfig")
-            Prelude.<*> (x Core..?> "AutoMLJobArn")
-            Prelude.<*> (x Core..?> "TransformEndTime")
-            Prelude.<*> (x Core..?> "MaxPayloadInMB")
-            Prelude.<*> (x Core..?> "BatchStrategy")
-            Prelude.<*> (x Core..?> "DataCaptureConfig")
-            Prelude.<*> (x Core..?> "LabelingJobArn")
-            Prelude.<*> (x Core..?> "DataProcessing")
-            Prelude.<*> (x Core..?> "TransformStartTime")
-            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<$> (x Data..?> "MaxConcurrentTransforms")
+            Prelude.<*> (x Data..?> "ModelClientConfig")
+            Prelude.<*> (x Data..?> "Environment" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TransformOutput")
+            Prelude.<*> (x Data..?> "ExperimentConfig")
+            Prelude.<*> (x Data..?> "AutoMLJobArn")
+            Prelude.<*> (x Data..?> "TransformEndTime")
+            Prelude.<*> (x Data..?> "MaxPayloadInMB")
+            Prelude.<*> (x Data..?> "BatchStrategy")
+            Prelude.<*> (x Data..?> "DataCaptureConfig")
+            Prelude.<*> (x Data..?> "LabelingJobArn")
+            Prelude.<*> (x Data..?> "DataProcessing")
+            Prelude.<*> (x Data..?> "TransformStartTime")
+            Prelude.<*> (x Data..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "TransformJobName")
-            Prelude.<*> (x Core..:> "TransformJobArn")
-            Prelude.<*> (x Core..:> "TransformJobStatus")
-            Prelude.<*> (x Core..:> "ModelName")
-            Prelude.<*> (x Core..:> "TransformInput")
-            Prelude.<*> (x Core..:> "TransformResources")
-            Prelude.<*> (x Core..:> "CreationTime")
+            Prelude.<*> (x Data..:> "TransformJobName")
+            Prelude.<*> (x Data..:> "TransformJobArn")
+            Prelude.<*> (x Data..:> "TransformJobStatus")
+            Prelude.<*> (x Data..:> "ModelName")
+            Prelude.<*> (x Data..:> "TransformInput")
+            Prelude.<*> (x Data..:> "TransformResources")
+            Prelude.<*> (x Data..:> "CreationTime")
       )
 
 instance Prelude.Hashable DescribeTransformJob where
@@ -138,34 +139,34 @@ instance Prelude.NFData DescribeTransformJob where
   rnf DescribeTransformJob' {..} =
     Prelude.rnf transformJobName
 
-instance Core.ToHeaders DescribeTransformJob where
+instance Data.ToHeaders DescribeTransformJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeTransformJob" ::
+              Data.=# ( "SageMaker.DescribeTransformJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTransformJob where
+instance Data.ToJSON DescribeTransformJob where
   toJSON DescribeTransformJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TransformJobName" Core..= transformJobName)
+              ("TransformJobName" Data..= transformJobName)
           ]
       )
 
-instance Core.ToPath DescribeTransformJob where
+instance Data.ToPath DescribeTransformJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTransformJob where
+instance Data.ToQuery DescribeTransformJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTransformJobResponse' smart constructor.
@@ -188,7 +189,7 @@ data DescribeTransformJobResponse = DescribeTransformJobResponse'
     -- | Indicates when the transform job has been completed, or has stopped or
     -- failed. You are billed for the time interval between this time and the
     -- value of @TransformStartTime@.
-    transformEndTime :: Prelude.Maybe Core.POSIX,
+    transformEndTime :: Prelude.Maybe Data.POSIX,
     -- | The maximum payload size, in MB, used in the transform job.
     maxPayloadInMB :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the number of records to include in a mini-batch for an HTTP
@@ -208,7 +209,7 @@ data DescribeTransformJobResponse = DescribeTransformJobResponse'
     -- | Indicates when the transform job starts on ML instances. You are billed
     -- for the time interval between this time and the value of
     -- @TransformEndTime@.
-    transformStartTime :: Prelude.Maybe Core.POSIX,
+    transformStartTime :: Prelude.Maybe Data.POSIX,
     -- | If the transform job failed, @FailureReason@ describes why it failed. A
     -- transform job creates a log file, which includes error messages, and
     -- stores it as an Amazon S3 object. For more information, see
@@ -232,7 +233,7 @@ data DescribeTransformJobResponse = DescribeTransformJobResponse'
     -- count, to use for the transform job.
     transformResources :: TransformResources,
     -- | A timestamp that shows when the transform Job was created.
-    creationTime :: Core.POSIX
+    creationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -359,7 +360,7 @@ newDescribeTransformJobResponse
         transformInput = pTransformInput_,
         transformResources = pTransformResources_,
         creationTime =
-          Core._Time Lens.# pCreationTime_
+          Data._Time Lens.# pCreationTime_
       }
 
 -- | The maximum number of parallel requests on each instance node that can
@@ -394,7 +395,7 @@ describeTransformJobResponse_autoMLJobArn = Lens.lens (\DescribeTransformJobResp
 -- failed. You are billed for the time interval between this time and the
 -- value of @TransformStartTime@.
 describeTransformJobResponse_transformEndTime :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeTransformJobResponse_transformEndTime = Lens.lens (\DescribeTransformJobResponse' {transformEndTime} -> transformEndTime) (\s@DescribeTransformJobResponse' {} a -> s {transformEndTime = a} :: DescribeTransformJobResponse) Prelude.. Lens.mapping Core._Time
+describeTransformJobResponse_transformEndTime = Lens.lens (\DescribeTransformJobResponse' {transformEndTime} -> transformEndTime) (\s@DescribeTransformJobResponse' {} a -> s {transformEndTime = a} :: DescribeTransformJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum payload size, in MB, used in the transform job.
 describeTransformJobResponse_maxPayloadInMB :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe Prelude.Natural)
@@ -427,7 +428,7 @@ describeTransformJobResponse_dataProcessing = Lens.lens (\DescribeTransformJobRe
 -- for the time interval between this time and the value of
 -- @TransformEndTime@.
 describeTransformJobResponse_transformStartTime :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeTransformJobResponse_transformStartTime = Lens.lens (\DescribeTransformJobResponse' {transformStartTime} -> transformStartTime) (\s@DescribeTransformJobResponse' {} a -> s {transformStartTime = a} :: DescribeTransformJobResponse) Prelude.. Lens.mapping Core._Time
+describeTransformJobResponse_transformStartTime = Lens.lens (\DescribeTransformJobResponse' {transformStartTime} -> transformStartTime) (\s@DescribeTransformJobResponse' {} a -> s {transformStartTime = a} :: DescribeTransformJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | If the transform job failed, @FailureReason@ describes why it failed. A
 -- transform job creates a log file, which includes error messages, and
@@ -469,7 +470,7 @@ describeTransformJobResponse_transformResources = Lens.lens (\DescribeTransformJ
 
 -- | A timestamp that shows when the transform Job was created.
 describeTransformJobResponse_creationTime :: Lens.Lens' DescribeTransformJobResponse Prelude.UTCTime
-describeTransformJobResponse_creationTime = Lens.lens (\DescribeTransformJobResponse' {creationTime} -> creationTime) (\s@DescribeTransformJobResponse' {} a -> s {creationTime = a} :: DescribeTransformJobResponse) Prelude.. Core._Time
+describeTransformJobResponse_creationTime = Lens.lens (\DescribeTransformJobResponse' {creationTime} -> creationTime) (\s@DescribeTransformJobResponse' {} a -> s {creationTime = a} :: DescribeTransformJobResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeTransformJobResponse where
   rnf DescribeTransformJobResponse' {..} =

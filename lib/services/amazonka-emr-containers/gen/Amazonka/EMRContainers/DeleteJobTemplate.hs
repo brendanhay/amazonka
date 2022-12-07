@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest DeleteJobTemplate where
     Response.receiveJSON
       ( \s h x ->
           DeleteJobTemplateResponse'
-            Prelude.<$> (x Core..?> "id")
+            Prelude.<$> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,22 +98,22 @@ instance Prelude.Hashable DeleteJobTemplate where
 instance Prelude.NFData DeleteJobTemplate where
   rnf DeleteJobTemplate' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteJobTemplate where
+instance Data.ToHeaders DeleteJobTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteJobTemplate where
+instance Data.ToPath DeleteJobTemplate where
   toPath DeleteJobTemplate' {..} =
-    Prelude.mconcat ["/jobtemplates/", Core.toBS id]
+    Prelude.mconcat ["/jobtemplates/", Data.toBS id]
 
-instance Core.ToQuery DeleteJobTemplate where
+instance Data.ToQuery DeleteJobTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteJobTemplateResponse' smart constructor.

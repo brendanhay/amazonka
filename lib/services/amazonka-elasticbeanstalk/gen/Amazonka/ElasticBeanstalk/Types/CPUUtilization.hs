@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.CPUUtilization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | CPU utilization metrics for an instance.
@@ -175,17 +176,17 @@ cPUUtilization_system = Lens.lens (\CPUUtilization' {system} -> system) (\s@CPUU
 cPUUtilization_idle :: Lens.Lens' CPUUtilization (Prelude.Maybe Prelude.Double)
 cPUUtilization_idle = Lens.lens (\CPUUtilization' {idle} -> idle) (\s@CPUUtilization' {} a -> s {idle = a} :: CPUUtilization)
 
-instance Core.FromXML CPUUtilization where
+instance Data.FromXML CPUUtilization where
   parseXML x =
     CPUUtilization'
-      Prelude.<$> (x Core..@? "Nice")
-      Prelude.<*> (x Core..@? "User")
-      Prelude.<*> (x Core..@? "SoftIRQ")
-      Prelude.<*> (x Core..@? "IOWait")
-      Prelude.<*> (x Core..@? "Privileged")
-      Prelude.<*> (x Core..@? "IRQ")
-      Prelude.<*> (x Core..@? "System")
-      Prelude.<*> (x Core..@? "Idle")
+      Prelude.<$> (x Data..@? "Nice")
+      Prelude.<*> (x Data..@? "User")
+      Prelude.<*> (x Data..@? "SoftIRQ")
+      Prelude.<*> (x Data..@? "IOWait")
+      Prelude.<*> (x Data..@? "Privileged")
+      Prelude.<*> (x Data..@? "IRQ")
+      Prelude.<*> (x Data..@? "System")
+      Prelude.<*> (x Data..@? "Idle")
 
 instance Prelude.Hashable CPUUtilization where
   hashWithSalt _salt CPUUtilization' {..} =

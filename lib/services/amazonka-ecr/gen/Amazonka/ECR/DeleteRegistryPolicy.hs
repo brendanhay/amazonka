@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -68,8 +69,8 @@ instance Core.AWSRequest DeleteRegistryPolicy where
     Response.receiveJSON
       ( \s h x ->
           DeleteRegistryPolicyResponse'
-            Prelude.<$> (x Core..?> "policyText")
-            Prelude.<*> (x Core..?> "registryId")
+            Prelude.<$> (x Data..?> "policyText")
+            Prelude.<*> (x Data..?> "registryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -80,28 +81,28 @@ instance Prelude.Hashable DeleteRegistryPolicy where
 instance Prelude.NFData DeleteRegistryPolicy where
   rnf _ = ()
 
-instance Core.ToHeaders DeleteRegistryPolicy where
+instance Data.ToHeaders DeleteRegistryPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.DeleteRegistryPolicy" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.DeleteRegistryPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRegistryPolicy where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DeleteRegistryPolicy where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DeleteRegistryPolicy where
+instance Data.ToPath DeleteRegistryPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRegistryPolicy where
+instance Data.ToQuery DeleteRegistryPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRegistryPolicyResponse' smart constructor.

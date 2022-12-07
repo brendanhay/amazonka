@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -208,7 +209,7 @@ instance Core.AWSRequest UpdateUserSettings where
       ( \s h x ->
           UpdateUserSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "userSettings")
+            Prelude.<*> (x Data..:> "userSettings")
       )
 
 instance Prelude.Hashable UpdateUserSettings where
@@ -235,41 +236,41 @@ instance Prelude.NFData UpdateUserSettings where
       `Prelude.seq` Prelude.rnf uploadAllowed
       `Prelude.seq` Prelude.rnf userSettingsArn
 
-instance Core.ToHeaders UpdateUserSettings where
+instance Data.ToHeaders UpdateUserSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateUserSettings where
+instance Data.ToJSON UpdateUserSettings where
   toJSON UpdateUserSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("printAllowed" Core..=) Prelude.<$> printAllowed,
-            ("idleDisconnectTimeoutInMinutes" Core..=)
+          [ ("printAllowed" Data..=) Prelude.<$> printAllowed,
+            ("idleDisconnectTimeoutInMinutes" Data..=)
               Prelude.<$> idleDisconnectTimeoutInMinutes,
-            ("disconnectTimeoutInMinutes" Core..=)
+            ("disconnectTimeoutInMinutes" Data..=)
               Prelude.<$> disconnectTimeoutInMinutes,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("copyAllowed" Core..=) Prelude.<$> copyAllowed,
-            ("downloadAllowed" Core..=)
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("copyAllowed" Data..=) Prelude.<$> copyAllowed,
+            ("downloadAllowed" Data..=)
               Prelude.<$> downloadAllowed,
-            ("pasteAllowed" Core..=) Prelude.<$> pasteAllowed,
-            ("uploadAllowed" Core..=) Prelude.<$> uploadAllowed
+            ("pasteAllowed" Data..=) Prelude.<$> pasteAllowed,
+            ("uploadAllowed" Data..=) Prelude.<$> uploadAllowed
           ]
       )
 
-instance Core.ToPath UpdateUserSettings where
+instance Data.ToPath UpdateUserSettings where
   toPath UpdateUserSettings' {..} =
     Prelude.mconcat
-      ["/userSettings/", Core.toBS userSettingsArn]
+      ["/userSettings/", Data.toBS userSettingsArn]
 
-instance Core.ToQuery UpdateUserSettings where
+instance Data.ToQuery UpdateUserSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserSettingsResponse' smart constructor.

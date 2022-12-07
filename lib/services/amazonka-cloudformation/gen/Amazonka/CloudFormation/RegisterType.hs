@@ -78,6 +78,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -341,7 +342,7 @@ instance Core.AWSRequest RegisterType where
       "RegisterTypeResult"
       ( \s h x ->
           RegisterTypeResponse'
-            Prelude.<$> (x Core..@? "RegistrationToken")
+            Prelude.<$> (x Data..@? "RegistrationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -363,25 +364,25 @@ instance Prelude.NFData RegisterType where
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf schemaHandlerPackage
 
-instance Core.ToHeaders RegisterType where
+instance Data.ToHeaders RegisterType where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RegisterType where
+instance Data.ToPath RegisterType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterType where
+instance Data.ToQuery RegisterType where
   toQuery RegisterType' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RegisterType" :: Prelude.ByteString),
+          Data.=: ("RegisterType" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "Type" Core.=: type',
-        "ClientRequestToken" Core.=: clientRequestToken,
-        "ExecutionRoleArn" Core.=: executionRoleArn,
-        "LoggingConfig" Core.=: loggingConfig,
-        "TypeName" Core.=: typeName,
-        "SchemaHandlerPackage" Core.=: schemaHandlerPackage
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "Type" Data.=: type',
+        "ClientRequestToken" Data.=: clientRequestToken,
+        "ExecutionRoleArn" Data.=: executionRoleArn,
+        "LoggingConfig" Data.=: loggingConfig,
+        "TypeName" Data.=: typeName,
+        "SchemaHandlerPackage" Data.=: schemaHandlerPackage
       ]
 
 -- | /See:/ 'newRegisterTypeResponse' smart constructor.

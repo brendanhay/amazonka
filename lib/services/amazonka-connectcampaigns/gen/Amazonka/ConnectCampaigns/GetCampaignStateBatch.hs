@@ -43,6 +43,7 @@ where
 import Amazonka.ConnectCampaigns.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,8 +89,8 @@ instance Core.AWSRequest GetCampaignStateBatch where
     Response.receiveJSON
       ( \s h x ->
           GetCampaignStateBatchResponse'
-            Prelude.<$> (x Core..?> "failedRequests" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "successfulRequests"
+            Prelude.<$> (x Data..?> "failedRequests" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "successfulRequests"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -103,28 +104,28 @@ instance Prelude.NFData GetCampaignStateBatch where
   rnf GetCampaignStateBatch' {..} =
     Prelude.rnf campaignIds
 
-instance Core.ToHeaders GetCampaignStateBatch where
+instance Data.ToHeaders GetCampaignStateBatch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCampaignStateBatch where
+instance Data.ToJSON GetCampaignStateBatch where
   toJSON GetCampaignStateBatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("campaignIds" Core..= campaignIds)]
+          [Prelude.Just ("campaignIds" Data..= campaignIds)]
       )
 
-instance Core.ToPath GetCampaignStateBatch where
+instance Data.ToPath GetCampaignStateBatch where
   toPath = Prelude.const "/campaigns-state"
 
-instance Core.ToQuery GetCampaignStateBatch where
+instance Data.ToQuery GetCampaignStateBatch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | GetCampaignStateBatchResponse

@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.SignalCatalogSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a collection of standardized signals, which can be
@@ -30,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 data SignalCatalogSummary = SignalCatalogSummary'
   { -- | The time the signal catalog was last updated in seconds since epoch
     -- (January 1, 1970 at midnight UTC time).
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the signal catalog.
     name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the signal catalog.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The time the signal catalog was created in seconds since epoch (January
     -- 1, 1970 at midnight UTC time).
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,7 +73,7 @@ newSignalCatalogSummary =
 -- | The time the signal catalog was last updated in seconds since epoch
 -- (January 1, 1970 at midnight UTC time).
 signalCatalogSummary_lastModificationTime :: Lens.Lens' SignalCatalogSummary (Prelude.Maybe Prelude.UTCTime)
-signalCatalogSummary_lastModificationTime = Lens.lens (\SignalCatalogSummary' {lastModificationTime} -> lastModificationTime) (\s@SignalCatalogSummary' {} a -> s {lastModificationTime = a} :: SignalCatalogSummary) Prelude.. Lens.mapping Core._Time
+signalCatalogSummary_lastModificationTime = Lens.lens (\SignalCatalogSummary' {lastModificationTime} -> lastModificationTime) (\s@SignalCatalogSummary' {} a -> s {lastModificationTime = a} :: SignalCatalogSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the signal catalog.
 signalCatalogSummary_name :: Lens.Lens' SignalCatalogSummary (Prelude.Maybe Prelude.Text)
@@ -85,18 +86,18 @@ signalCatalogSummary_arn = Lens.lens (\SignalCatalogSummary' {arn} -> arn) (\s@S
 -- | The time the signal catalog was created in seconds since epoch (January
 -- 1, 1970 at midnight UTC time).
 signalCatalogSummary_creationTime :: Lens.Lens' SignalCatalogSummary (Prelude.Maybe Prelude.UTCTime)
-signalCatalogSummary_creationTime = Lens.lens (\SignalCatalogSummary' {creationTime} -> creationTime) (\s@SignalCatalogSummary' {} a -> s {creationTime = a} :: SignalCatalogSummary) Prelude.. Lens.mapping Core._Time
+signalCatalogSummary_creationTime = Lens.lens (\SignalCatalogSummary' {creationTime} -> creationTime) (\s@SignalCatalogSummary' {} a -> s {creationTime = a} :: SignalCatalogSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SignalCatalogSummary where
+instance Data.FromJSON SignalCatalogSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SignalCatalogSummary"
       ( \x ->
           SignalCatalogSummary'
-            Prelude.<$> (x Core..:? "lastModificationTime")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<$> (x Data..:? "lastModificationTime")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "creationTime")
       )
 
 instance Prelude.Hashable SignalCatalogSummary where

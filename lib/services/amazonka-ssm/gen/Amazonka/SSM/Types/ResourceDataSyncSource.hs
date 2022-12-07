@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ResourceDataSyncSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.ResourceDataSyncAwsOrganizationsSource
 
@@ -146,18 +147,18 @@ instance Prelude.NFData ResourceDataSyncSource where
       `Prelude.seq` Prelude.rnf sourceType
       `Prelude.seq` Prelude.rnf sourceRegions
 
-instance Core.ToJSON ResourceDataSyncSource where
+instance Data.ToJSON ResourceDataSyncSource where
   toJSON ResourceDataSyncSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EnableAllOpsDataSources" Core..=)
+          [ ("EnableAllOpsDataSources" Data..=)
               Prelude.<$> enableAllOpsDataSources,
-            ("AwsOrganizationsSource" Core..=)
+            ("AwsOrganizationsSource" Data..=)
               Prelude.<$> awsOrganizationsSource,
-            ("IncludeFutureRegions" Core..=)
+            ("IncludeFutureRegions" Data..=)
               Prelude.<$> includeFutureRegions,
-            Prelude.Just ("SourceType" Core..= sourceType),
+            Prelude.Just ("SourceType" Data..= sourceType),
             Prelude.Just
-              ("SourceRegions" Core..= sourceRegions)
+              ("SourceRegions" Data..= sourceRegions)
           ]
       )

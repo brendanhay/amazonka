@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,9 +164,9 @@ instance Core.AWSRequest DescribeIpamScopes where
     Response.receiveXML
       ( \s h x ->
           DescribeIpamScopesResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "ipamScopeSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "ipamScopeSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -186,26 +187,26 @@ instance Prelude.NFData DescribeIpamScopes where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf ipamScopeIds
 
-instance Core.ToHeaders DescribeIpamScopes where
+instance Data.ToHeaders DescribeIpamScopes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeIpamScopes where
+instance Data.ToPath DescribeIpamScopes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeIpamScopes where
+instance Data.ToQuery DescribeIpamScopes where
   toQuery DescribeIpamScopes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeIpamScopes" :: Prelude.ByteString),
+          Data.=: ("DescribeIpamScopes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          ( Core.toQueryList "IpamScopeId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          ( Data.toQueryList "IpamScopeId"
               Prelude.<$> ipamScopeIds
           )
       ]

@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.FailedItemDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types.FailedItemErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ failedItemDetails_failureCode = Lens.lens (\FailedItemDetails' {failureCode} -> 
 failedItemDetails_retryable :: Lens.Lens' FailedItemDetails Prelude.Bool
 failedItemDetails_retryable = Lens.lens (\FailedItemDetails' {retryable} -> retryable) (\s@FailedItemDetails' {} a -> s {retryable = a} :: FailedItemDetails)
 
-instance Core.FromJSON FailedItemDetails where
+instance Data.FromJSON FailedItemDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedItemDetails"
       ( \x ->
           FailedItemDetails'
-            Prelude.<$> (x Core..: "failureCode")
-            Prelude.<*> (x Core..: "retryable")
+            Prelude.<$> (x Data..: "failureCode")
+            Prelude.<*> (x Data..: "retryable")
       )
 
 instance Prelude.Hashable FailedItemDetails where

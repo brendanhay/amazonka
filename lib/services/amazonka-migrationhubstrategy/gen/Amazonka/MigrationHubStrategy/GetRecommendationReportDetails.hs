@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,8 +92,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRecommendationReportDetailsResponse'
-            Prelude.<$> (x Core..?> "recommendationReportDetails")
-            Prelude.<*> (x Core..?> "id")
+            Prelude.<$> (x Data..?> "recommendationReportDetails")
+            Prelude.<*> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,25 +114,25 @@ instance
     Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetRecommendationReportDetails
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetRecommendationReportDetails where
+instance Data.ToPath GetRecommendationReportDetails where
   toPath GetRecommendationReportDetails' {..} =
     Prelude.mconcat
-      ["/get-recommendation-report-details/", Core.toBS id]
+      ["/get-recommendation-report-details/", Data.toBS id]
 
-instance Core.ToQuery GetRecommendationReportDetails where
+instance Data.ToQuery GetRecommendationReportDetails where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRecommendationReportDetailsResponse' smart constructor.

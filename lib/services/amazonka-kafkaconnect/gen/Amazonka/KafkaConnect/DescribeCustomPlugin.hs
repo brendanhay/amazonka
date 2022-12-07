@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,13 +93,13 @@ instance Core.AWSRequest DescribeCustomPlugin where
     Response.receiveJSON
       ( \s h x ->
           DescribeCustomPluginResponse'
-            Prelude.<$> (x Core..?> "latestRevision")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "stateDescription")
-            Prelude.<*> (x Core..?> "customPluginState")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "customPluginArn")
+            Prelude.<$> (x Data..?> "latestRevision")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "stateDescription")
+            Prelude.<*> (x Data..?> "customPluginState")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "customPluginArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,23 +111,23 @@ instance Prelude.NFData DescribeCustomPlugin where
   rnf DescribeCustomPlugin' {..} =
     Prelude.rnf customPluginArn
 
-instance Core.ToHeaders DescribeCustomPlugin where
+instance Data.ToHeaders DescribeCustomPlugin where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeCustomPlugin where
+instance Data.ToPath DescribeCustomPlugin where
   toPath DescribeCustomPlugin' {..} =
     Prelude.mconcat
-      ["/v1/custom-plugins/", Core.toBS customPluginArn]
+      ["/v1/custom-plugins/", Data.toBS customPluginArn]
 
-instance Core.ToQuery DescribeCustomPlugin where
+instance Data.ToQuery DescribeCustomPlugin where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCustomPluginResponse' smart constructor.
@@ -143,7 +144,7 @@ data DescribeCustomPluginResponse = DescribeCustomPluginResponse'
     -- | The description of the custom plugin.
     description :: Prelude.Maybe Prelude.Text,
     -- | The time that the custom plugin was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the custom plugin.
     customPluginArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -215,7 +216,7 @@ describeCustomPluginResponse_description = Lens.lens (\DescribeCustomPluginRespo
 
 -- | The time that the custom plugin was created.
 describeCustomPluginResponse_creationTime :: Lens.Lens' DescribeCustomPluginResponse (Prelude.Maybe Prelude.UTCTime)
-describeCustomPluginResponse_creationTime = Lens.lens (\DescribeCustomPluginResponse' {creationTime} -> creationTime) (\s@DescribeCustomPluginResponse' {} a -> s {creationTime = a} :: DescribeCustomPluginResponse) Prelude.. Lens.mapping Core._Time
+describeCustomPluginResponse_creationTime = Lens.lens (\DescribeCustomPluginResponse' {creationTime} -> creationTime) (\s@DescribeCustomPluginResponse' {} a -> s {creationTime = a} :: DescribeCustomPluginResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the custom plugin.
 describeCustomPluginResponse_customPluginArn :: Lens.Lens' DescribeCustomPluginResponse (Prelude.Maybe Prelude.Text)

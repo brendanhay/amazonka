@@ -18,6 +18,7 @@ module Amazonka.MediaLive.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.DescribeChannel
 import Amazonka.MediaLive.DescribeInput
 import Amazonka.MediaLive.DescribeMultiplex
@@ -37,13 +38,13 @@ newChannelDeleted =
             "DELETED"
             Core.AcceptSuccess
             ( describeChannelResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "DELETING"
             Core.AcceptRetry
             ( describeChannelResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry
         ]
@@ -61,13 +62,13 @@ newMultiplexDeleted =
             "DELETED"
             Core.AcceptSuccess
             ( describeMultiplexResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "DELETING"
             Core.AcceptRetry
             ( describeMultiplexResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry
         ]
@@ -85,20 +86,20 @@ newChannelCreated =
             "IDLE"
             Core.AcceptSuccess
             ( describeChannelResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATING"
             Core.AcceptRetry
             ( describeChannelResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry,
           Core.matchAll
             "CREATE_FAILED"
             Core.AcceptFailure
             ( describeChannelResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -115,13 +116,13 @@ newInputDeleted =
             "DELETED"
             Core.AcceptSuccess
             ( describeInputResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "DELETING"
             Core.AcceptRetry
             ( describeInputResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry
         ]
@@ -139,19 +140,19 @@ newInputDetached =
             "DETACHED"
             Core.AcceptSuccess
             ( describeInputResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATING"
             Core.AcceptRetry
             ( describeInputResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "ATTACHED"
             Core.AcceptRetry
             ( describeInputResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry
         ]
@@ -169,13 +170,13 @@ newMultiplexStopped =
             "IDLE"
             Core.AcceptSuccess
             ( describeMultiplexResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "STOPPING"
             Core.AcceptRetry
             ( describeMultiplexResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry
         ]
@@ -193,13 +194,13 @@ newChannelRunning =
             "RUNNING"
             Core.AcceptSuccess
             ( describeChannelResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "STARTING"
             Core.AcceptRetry
             ( describeChannelResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry
         ]
@@ -217,13 +218,13 @@ newMultiplexRunning =
             "RUNNING"
             Core.AcceptSuccess
             ( describeMultiplexResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "STARTING"
             Core.AcceptRetry
             ( describeMultiplexResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry
         ]
@@ -241,20 +242,20 @@ newMultiplexCreated =
             "IDLE"
             Core.AcceptSuccess
             ( describeMultiplexResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATING"
             Core.AcceptRetry
             ( describeMultiplexResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry,
           Core.matchAll
             "CREATE_FAILED"
             Core.AcceptFailure
             ( describeMultiplexResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -271,13 +272,13 @@ newChannelStopped =
             "IDLE"
             Core.AcceptSuccess
             ( describeChannelResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "STOPPING"
             Core.AcceptRetry
             ( describeChannelResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry
         ]
@@ -295,13 +296,13 @@ newInputAttached =
             "ATTACHED"
             Core.AcceptSuccess
             ( describeInputResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "DETACHED"
             Core.AcceptRetry
             ( describeInputResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry
         ]

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,7 +57,7 @@ import Amazonka.WorkSpacesWeb.Types
 data CreateNetworkSettings = CreateNetworkSettings'
   { -- | The tags to add to the network settings resource. A tag is a key-value
     -- pair.
-    tags :: Prelude.Maybe [Core.Sensitive Tag],
+    tags :: Prelude.Maybe [Data.Sensitive Tag],
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Idempotency ensures that an API request
     -- completes only once. With an idempotent request, if the original request
@@ -169,7 +170,7 @@ instance Core.AWSRequest CreateNetworkSettings where
       ( \s h x ->
           CreateNetworkSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "networkSettingsArn")
+            Prelude.<*> (x Data..:> "networkSettingsArn")
       )
 
 instance Prelude.Hashable CreateNetworkSettings where
@@ -188,34 +189,34 @@ instance Prelude.NFData CreateNetworkSettings where
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToHeaders CreateNetworkSettings where
+instance Data.ToHeaders CreateNetworkSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateNetworkSettings where
+instance Data.ToJSON CreateNetworkSettings where
   toJSON CreateNetworkSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("securityGroupIds" Core..= securityGroupIds),
-            Prelude.Just ("subnetIds" Core..= subnetIds),
-            Prelude.Just ("vpcId" Core..= vpcId)
+              ("securityGroupIds" Data..= securityGroupIds),
+            Prelude.Just ("subnetIds" Data..= subnetIds),
+            Prelude.Just ("vpcId" Data..= vpcId)
           ]
       )
 
-instance Core.ToPath CreateNetworkSettings where
+instance Data.ToPath CreateNetworkSettings where
   toPath = Prelude.const "/networkSettings"
 
-instance Core.ToQuery CreateNetworkSettings where
+instance Data.ToQuery CreateNetworkSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateNetworkSettingsResponse' smart constructor.

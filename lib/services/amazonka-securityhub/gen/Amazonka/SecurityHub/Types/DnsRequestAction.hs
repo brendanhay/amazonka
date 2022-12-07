@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.DnsRequestAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provided if @ActionType@ is @DNS_REQUEST@. It provides details about the
@@ -71,15 +72,15 @@ dnsRequestAction_blocked = Lens.lens (\DnsRequestAction' {blocked} -> blocked) (
 dnsRequestAction_protocol :: Lens.Lens' DnsRequestAction (Prelude.Maybe Prelude.Text)
 dnsRequestAction_protocol = Lens.lens (\DnsRequestAction' {protocol} -> protocol) (\s@DnsRequestAction' {} a -> s {protocol = a} :: DnsRequestAction)
 
-instance Core.FromJSON DnsRequestAction where
+instance Data.FromJSON DnsRequestAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DnsRequestAction"
       ( \x ->
           DnsRequestAction'
-            Prelude.<$> (x Core..:? "Domain")
-            Prelude.<*> (x Core..:? "Blocked")
-            Prelude.<*> (x Core..:? "Protocol")
+            Prelude.<$> (x Data..:? "Domain")
+            Prelude.<*> (x Data..:? "Blocked")
+            Prelude.<*> (x Data..:? "Protocol")
       )
 
 instance Prelude.Hashable DnsRequestAction where
@@ -94,12 +95,12 @@ instance Prelude.NFData DnsRequestAction where
       `Prelude.seq` Prelude.rnf blocked
       `Prelude.seq` Prelude.rnf protocol
 
-instance Core.ToJSON DnsRequestAction where
+instance Data.ToJSON DnsRequestAction where
   toJSON DnsRequestAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Domain" Core..=) Prelude.<$> domain,
-            ("Blocked" Core..=) Prelude.<$> blocked,
-            ("Protocol" Core..=) Prelude.<$> protocol
+          [ ("Domain" Data..=) Prelude.<$> domain,
+            ("Blocked" Data..=) Prelude.<$> blocked,
+            ("Protocol" Data..=) Prelude.<$> protocol
           ]
       )

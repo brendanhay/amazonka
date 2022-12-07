@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,7 +89,7 @@ instance Core.AWSRequest GetResolverEndpoint where
     Response.receiveJSON
       ( \s h x ->
           GetResolverEndpointResponse'
-            Prelude.<$> (x Core..?> "ResolverEndpoint")
+            Prelude.<$> (x Data..?> "ResolverEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,34 +101,34 @@ instance Prelude.NFData GetResolverEndpoint where
   rnf GetResolverEndpoint' {..} =
     Prelude.rnf resolverEndpointId
 
-instance Core.ToHeaders GetResolverEndpoint where
+instance Data.ToHeaders GetResolverEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.GetResolverEndpoint" ::
+              Data.=# ( "Route53Resolver.GetResolverEndpoint" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResolverEndpoint where
+instance Data.ToJSON GetResolverEndpoint where
   toJSON GetResolverEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ResolverEndpointId" Core..= resolverEndpointId)
+              ("ResolverEndpointId" Data..= resolverEndpointId)
           ]
       )
 
-instance Core.ToPath GetResolverEndpoint where
+instance Data.ToPath GetResolverEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetResolverEndpoint where
+instance Data.ToQuery GetResolverEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResolverEndpointResponse' smart constructor.

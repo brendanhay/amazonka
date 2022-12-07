@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,20 +101,20 @@ instance Core.AWSRequest DescribeExplainability where
     Response.receiveJSON
       ( \s h x ->
           DescribeExplainabilityResponse'
-            Prelude.<$> (x Core..?> "LastModificationTime")
-            Prelude.<*> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "ExplainabilityConfig")
-            Prelude.<*> (x Core..?> "EnableVisualization")
-            Prelude.<*> (x Core..?> "StartDateTime")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ExplainabilityArn")
-            Prelude.<*> (x Core..?> "ExplainabilityName")
-            Prelude.<*> (x Core..?> "EstimatedTimeRemainingInMinutes")
-            Prelude.<*> (x Core..?> "Schema")
-            Prelude.<*> (x Core..?> "DataSource")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "ResourceArn")
-            Prelude.<*> (x Core..?> "EndDateTime")
+            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "ExplainabilityConfig")
+            Prelude.<*> (x Data..?> "EnableVisualization")
+            Prelude.<*> (x Data..?> "StartDateTime")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ExplainabilityArn")
+            Prelude.<*> (x Data..?> "ExplainabilityName")
+            Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
+            Prelude.<*> (x Data..?> "Schema")
+            Prelude.<*> (x Data..?> "DataSource")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "ResourceArn")
+            Prelude.<*> (x Data..?> "EndDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,34 +126,34 @@ instance Prelude.NFData DescribeExplainability where
   rnf DescribeExplainability' {..} =
     Prelude.rnf explainabilityArn
 
-instance Core.ToHeaders DescribeExplainability where
+instance Data.ToHeaders DescribeExplainability where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DescribeExplainability" ::
+              Data.=# ( "AmazonForecast.DescribeExplainability" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeExplainability where
+instance Data.ToJSON DescribeExplainability where
   toJSON DescribeExplainability' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ExplainabilityArn" Core..= explainabilityArn)
+              ("ExplainabilityArn" Data..= explainabilityArn)
           ]
       )
 
-instance Core.ToPath DescribeExplainability where
+instance Data.ToPath DescribeExplainability where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeExplainability where
+instance Data.ToQuery DescribeExplainability where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeExplainabilityResponse' smart constructor.
@@ -169,7 +170,7 @@ data DescribeExplainabilityResponse = DescribeExplainabilityResponse'
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | If an error occurred, a message about the error.
     message :: Prelude.Maybe Prelude.Text,
     -- | The configuration settings that define the granularity of time series
@@ -200,7 +201,7 @@ data DescribeExplainabilityResponse = DescribeExplainabilityResponse'
     schema :: Prelude.Maybe Schema,
     dataSource :: Prelude.Maybe DataSource,
     -- | When the Explainability resource was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the Predictor or Forecast used to
     -- create the Explainability resource.
     resourceArn :: Prelude.Maybe Prelude.Text,
@@ -311,7 +312,7 @@ newDescribeExplainabilityResponse pHttpStatus_ =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 describeExplainabilityResponse_lastModificationTime :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.UTCTime)
-describeExplainabilityResponse_lastModificationTime = Lens.lens (\DescribeExplainabilityResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeExplainabilityResponse' {} a -> s {lastModificationTime = a} :: DescribeExplainabilityResponse) Prelude.. Lens.mapping Core._Time
+describeExplainabilityResponse_lastModificationTime = Lens.lens (\DescribeExplainabilityResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeExplainabilityResponse' {} a -> s {lastModificationTime = a} :: DescribeExplainabilityResponse) Prelude.. Lens.mapping Data._Time
 
 -- | If an error occurred, a message about the error.
 describeExplainabilityResponse_message :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.Text)
@@ -366,7 +367,7 @@ describeExplainabilityResponse_dataSource = Lens.lens (\DescribeExplainabilityRe
 
 -- | When the Explainability resource was created.
 describeExplainabilityResponse_creationTime :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.UTCTime)
-describeExplainabilityResponse_creationTime = Lens.lens (\DescribeExplainabilityResponse' {creationTime} -> creationTime) (\s@DescribeExplainabilityResponse' {} a -> s {creationTime = a} :: DescribeExplainabilityResponse) Prelude.. Lens.mapping Core._Time
+describeExplainabilityResponse_creationTime = Lens.lens (\DescribeExplainabilityResponse' {creationTime} -> creationTime) (\s@DescribeExplainabilityResponse' {} a -> s {creationTime = a} :: DescribeExplainabilityResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the Predictor or Forecast used to
 -- create the Explainability resource.

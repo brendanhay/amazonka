@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.Ec2InstanceAggregation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.Ec2InstanceSortBy
 import Amazonka.Inspector2.Types.MapFilter
 import Amazonka.Inspector2.Types.SortOrder
@@ -129,16 +130,16 @@ instance Prelude.NFData Ec2InstanceAggregation where
       `Prelude.seq` Prelude.rnf instanceIds
       `Prelude.seq` Prelude.rnf amis
 
-instance Core.ToJSON Ec2InstanceAggregation where
+instance Data.ToJSON Ec2InstanceAggregation where
   toJSON Ec2InstanceAggregation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("instanceTags" Core..=) Prelude.<$> instanceTags,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("operatingSystems" Core..=)
+          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            ("instanceTags" Data..=) Prelude.<$> instanceTags,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("operatingSystems" Data..=)
               Prelude.<$> operatingSystems,
-            ("instanceIds" Core..=) Prelude.<$> instanceIds,
-            ("amis" Core..=) Prelude.<$> amis
+            ("instanceIds" Data..=) Prelude.<$> instanceIds,
+            ("amis" Data..=) Prelude.<$> amis
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.Attribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The attributes from the JSON payload that are made available by the
@@ -77,12 +78,12 @@ newAttribute pJsonPath_ =
 attribute_jsonPath :: Lens.Lens' Attribute Prelude.Text
 attribute_jsonPath = Lens.lens (\Attribute' {jsonPath} -> jsonPath) (\s@Attribute' {} a -> s {jsonPath = a} :: Attribute)
 
-instance Core.FromJSON Attribute where
+instance Data.FromJSON Attribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Attribute"
       ( \x ->
-          Attribute' Prelude.<$> (x Core..: "jsonPath")
+          Attribute' Prelude.<$> (x Data..: "jsonPath")
       )
 
 instance Prelude.Hashable Attribute where
@@ -92,9 +93,9 @@ instance Prelude.Hashable Attribute where
 instance Prelude.NFData Attribute where
   rnf Attribute' {..} = Prelude.rnf jsonPath
 
-instance Core.ToJSON Attribute where
+instance Data.ToJSON Attribute where
   toJSON Attribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("jsonPath" Core..= jsonPath)]
+          [Prelude.Just ("jsonPath" Data..= jsonPath)]
       )

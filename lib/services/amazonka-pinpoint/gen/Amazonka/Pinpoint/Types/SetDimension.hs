@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SetDimension where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.DimensionType
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,14 +78,14 @@ setDimension_dimensionType = Lens.lens (\SetDimension' {dimensionType} -> dimens
 setDimension_values :: Lens.Lens' SetDimension [Prelude.Text]
 setDimension_values = Lens.lens (\SetDimension' {values} -> values) (\s@SetDimension' {} a -> s {values = a} :: SetDimension) Prelude.. Lens.coerced
 
-instance Core.FromJSON SetDimension where
+instance Data.FromJSON SetDimension where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SetDimension"
       ( \x ->
           SetDimension'
-            Prelude.<$> (x Core..:? "DimensionType")
-            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "DimensionType")
+            Prelude.<*> (x Data..:? "Values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SetDimension where
@@ -97,11 +98,11 @@ instance Prelude.NFData SetDimension where
     Prelude.rnf dimensionType
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON SetDimension where
+instance Data.ToJSON SetDimension where
   toJSON SetDimension' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DimensionType" Core..=) Prelude.<$> dimensionType,
-            Prelude.Just ("Values" Core..= values)
+          [ ("DimensionType" Data..=) Prelude.<$> dimensionType,
+            Prelude.Just ("Values" Data..= values)
           ]
       )

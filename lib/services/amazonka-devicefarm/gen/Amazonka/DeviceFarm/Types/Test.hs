@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.Test where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.Counters
 import Amazonka.DeviceFarm.Types.DeviceMinutes
 import Amazonka.DeviceFarm.Types.ExecutionResult
@@ -80,9 +81,9 @@ data Test = Test'
     -- -   XCTEST_UI
     type' :: Prelude.Maybe TestType,
     -- | The test\'s start time.
-    started :: Prelude.Maybe Core.POSIX,
+    started :: Prelude.Maybe Data.POSIX,
     -- | When the test was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | Represents the total (metered or unmetered) minutes used by the test.
     deviceMinutes :: Prelude.Maybe DeviceMinutes,
     -- | The test\'s ARN.
@@ -130,7 +131,7 @@ data Test = Test'
     -- -   STOPPED
     result :: Prelude.Maybe ExecutionResult,
     -- | The test\'s stop time.
-    stopped :: Prelude.Maybe Core.POSIX
+    stopped :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -312,11 +313,11 @@ test_type = Lens.lens (\Test' {type'} -> type') (\s@Test' {} a -> s {type' = a} 
 
 -- | The test\'s start time.
 test_started :: Lens.Lens' Test (Prelude.Maybe Prelude.UTCTime)
-test_started = Lens.lens (\Test' {started} -> started) (\s@Test' {} a -> s {started = a} :: Test) Prelude.. Lens.mapping Core._Time
+test_started = Lens.lens (\Test' {started} -> started) (\s@Test' {} a -> s {started = a} :: Test) Prelude.. Lens.mapping Data._Time
 
 -- | When the test was created.
 test_created :: Lens.Lens' Test (Prelude.Maybe Prelude.UTCTime)
-test_created = Lens.lens (\Test' {created} -> created) (\s@Test' {} a -> s {created = a} :: Test) Prelude.. Lens.mapping Core._Time
+test_created = Lens.lens (\Test' {created} -> created) (\s@Test' {} a -> s {created = a} :: Test) Prelude.. Lens.mapping Data._Time
 
 -- | Represents the total (metered or unmetered) minutes used by the test.
 test_deviceMinutes :: Lens.Lens' Test (Prelude.Maybe DeviceMinutes)
@@ -376,25 +377,25 @@ test_result = Lens.lens (\Test' {result} -> result) (\s@Test' {} a -> s {result 
 
 -- | The test\'s stop time.
 test_stopped :: Lens.Lens' Test (Prelude.Maybe Prelude.UTCTime)
-test_stopped = Lens.lens (\Test' {stopped} -> stopped) (\s@Test' {} a -> s {stopped = a} :: Test) Prelude.. Lens.mapping Core._Time
+test_stopped = Lens.lens (\Test' {stopped} -> stopped) (\s@Test' {} a -> s {stopped = a} :: Test) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Test where
+instance Data.FromJSON Test where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Test"
       ( \x ->
           Test'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "started")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "deviceMinutes")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "counters")
-            Prelude.<*> (x Core..:? "result")
-            Prelude.<*> (x Core..:? "stopped")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "started")
+            Prelude.<*> (x Data..:? "created")
+            Prelude.<*> (x Data..:? "deviceMinutes")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "counters")
+            Prelude.<*> (x Data..:? "result")
+            Prelude.<*> (x Data..:? "stopped")
       )
 
 instance Prelude.Hashable Test where

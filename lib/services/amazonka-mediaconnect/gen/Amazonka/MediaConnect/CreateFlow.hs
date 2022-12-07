@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -179,7 +180,7 @@ instance Core.AWSRequest CreateFlow where
     Response.receiveJSON
       ( \s h x ->
           CreateFlowResponse'
-            Prelude.<$> (x Core..?> "flow")
+            Prelude.<$> (x Data..?> "flow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -209,40 +210,40 @@ instance Prelude.NFData CreateFlow where
       `Prelude.seq` Prelude.rnf mediaStreams
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateFlow where
+instance Data.ToHeaders CreateFlow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFlow where
+instance Data.ToJSON CreateFlow where
   toJSON CreateFlow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sources" Core..=) Prelude.<$> sources,
-            ("maintenance" Core..=) Prelude.<$> maintenance,
-            ("vpcInterfaces" Core..=) Prelude.<$> vpcInterfaces,
-            ("entitlements" Core..=) Prelude.<$> entitlements,
-            ("availabilityZone" Core..=)
+          [ ("sources" Data..=) Prelude.<$> sources,
+            ("maintenance" Data..=) Prelude.<$> maintenance,
+            ("vpcInterfaces" Data..=) Prelude.<$> vpcInterfaces,
+            ("entitlements" Data..=) Prelude.<$> entitlements,
+            ("availabilityZone" Data..=)
               Prelude.<$> availabilityZone,
-            ("source" Core..=) Prelude.<$> source,
-            ("outputs" Core..=) Prelude.<$> outputs,
-            ("sourceFailoverConfig" Core..=)
+            ("source" Data..=) Prelude.<$> source,
+            ("outputs" Data..=) Prelude.<$> outputs,
+            ("sourceFailoverConfig" Data..=)
               Prelude.<$> sourceFailoverConfig,
-            ("mediaStreams" Core..=) Prelude.<$> mediaStreams,
-            Prelude.Just ("name" Core..= name)
+            ("mediaStreams" Data..=) Prelude.<$> mediaStreams,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateFlow where
+instance Data.ToPath CreateFlow where
   toPath = Prelude.const "/v1/flows"
 
-instance Core.ToQuery CreateFlow where
+instance Data.ToQuery CreateFlow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFlowResponse' smart constructor.

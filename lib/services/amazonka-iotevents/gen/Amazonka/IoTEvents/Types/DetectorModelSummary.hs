@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.DetectorModelSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the detector model.
@@ -32,7 +33,7 @@ data DetectorModelSummary = DetectorModelSummary'
     -- | A brief description of the detector model.
     detectorModelDescription :: Prelude.Maybe Prelude.Text,
     -- | The time the detector model was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,17 +70,17 @@ detectorModelSummary_detectorModelDescription = Lens.lens (\DetectorModelSummary
 
 -- | The time the detector model was created.
 detectorModelSummary_creationTime :: Lens.Lens' DetectorModelSummary (Prelude.Maybe Prelude.UTCTime)
-detectorModelSummary_creationTime = Lens.lens (\DetectorModelSummary' {creationTime} -> creationTime) (\s@DetectorModelSummary' {} a -> s {creationTime = a} :: DetectorModelSummary) Prelude.. Lens.mapping Core._Time
+detectorModelSummary_creationTime = Lens.lens (\DetectorModelSummary' {creationTime} -> creationTime) (\s@DetectorModelSummary' {} a -> s {creationTime = a} :: DetectorModelSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DetectorModelSummary where
+instance Data.FromJSON DetectorModelSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectorModelSummary"
       ( \x ->
           DetectorModelSummary'
-            Prelude.<$> (x Core..:? "detectorModelName")
-            Prelude.<*> (x Core..:? "detectorModelDescription")
-            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<$> (x Data..:? "detectorModelName")
+            Prelude.<*> (x Data..:? "detectorModelDescription")
+            Prelude.<*> (x Data..:? "creationTime")
       )
 
 instance Prelude.Hashable DetectorModelSummary where

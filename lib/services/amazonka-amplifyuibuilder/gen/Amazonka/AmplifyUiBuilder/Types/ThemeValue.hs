@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.ThemeValue where
 import {-# SOURCE #-} Amazonka.AmplifyUiBuilder.Types.ThemeValues
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of a theme\'s properties.
@@ -62,14 +63,14 @@ themeValue_children = Lens.lens (\ThemeValue' {children} -> children) (\s@ThemeV
 themeValue_value :: Lens.Lens' ThemeValue (Prelude.Maybe Prelude.Text)
 themeValue_value = Lens.lens (\ThemeValue' {value} -> value) (\s@ThemeValue' {} a -> s {value = a} :: ThemeValue)
 
-instance Core.FromJSON ThemeValue where
+instance Data.FromJSON ThemeValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThemeValue"
       ( \x ->
           ThemeValue'
-            Prelude.<$> (x Core..:? "children" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "children" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ThemeValue where
@@ -82,11 +83,11 @@ instance Prelude.NFData ThemeValue where
     Prelude.rnf children
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ThemeValue where
+instance Data.ToJSON ThemeValue where
   toJSON ThemeValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("children" Core..=) Prelude.<$> children,
-            ("value" Core..=) Prelude.<$> value
+          [ ("children" Data..=) Prelude.<$> children,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

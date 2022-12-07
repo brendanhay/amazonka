@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.AdditionalAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,10 +84,10 @@ additionalAttribute_key = Lens.lens (\AdditionalAttribute' {key} -> key) (\s@Add
 additionalAttribute_value :: Lens.Lens' AdditionalAttribute (Prelude.Maybe Prelude.Text)
 additionalAttribute_value = Lens.lens (\AdditionalAttribute' {value} -> value) (\s@AdditionalAttribute' {} a -> s {value = a} :: AdditionalAttribute)
 
-instance Core.FromXML AdditionalAttribute where
+instance Data.FromXML AdditionalAttribute where
   parseXML x =
     AdditionalAttribute'
-      Prelude.<$> (x Core..@? "Key") Prelude.<*> (x Core..@? "Value")
+      Prelude.<$> (x Data..@? "Key") Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable AdditionalAttribute where
   hashWithSalt _salt AdditionalAttribute' {..} =
@@ -97,7 +98,7 @@ instance Prelude.NFData AdditionalAttribute where
   rnf AdditionalAttribute' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToQuery AdditionalAttribute where
+instance Data.ToQuery AdditionalAttribute where
   toQuery AdditionalAttribute' {..} =
     Prelude.mconcat
-      ["Key" Core.=: key, "Value" Core.=: value]
+      ["Key" Data.=: key, "Value" Data.=: value]

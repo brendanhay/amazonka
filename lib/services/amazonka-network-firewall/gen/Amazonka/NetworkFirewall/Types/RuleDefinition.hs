@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.RuleDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.MatchAttributes
 import qualified Amazonka.Prelude as Prelude
 
@@ -170,14 +171,14 @@ ruleDefinition_matchAttributes = Lens.lens (\RuleDefinition' {matchAttributes} -
 ruleDefinition_actions :: Lens.Lens' RuleDefinition [Prelude.Text]
 ruleDefinition_actions = Lens.lens (\RuleDefinition' {actions} -> actions) (\s@RuleDefinition' {} a -> s {actions = a} :: RuleDefinition) Prelude.. Lens.coerced
 
-instance Core.FromJSON RuleDefinition where
+instance Data.FromJSON RuleDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleDefinition"
       ( \x ->
           RuleDefinition'
-            Prelude.<$> (x Core..: "MatchAttributes")
-            Prelude.<*> (x Core..:? "Actions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "MatchAttributes")
+            Prelude.<*> (x Data..:? "Actions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RuleDefinition where
@@ -190,12 +191,12 @@ instance Prelude.NFData RuleDefinition where
     Prelude.rnf matchAttributes
       `Prelude.seq` Prelude.rnf actions
 
-instance Core.ToJSON RuleDefinition where
+instance Data.ToJSON RuleDefinition where
   toJSON RuleDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("MatchAttributes" Core..= matchAttributes),
-            Prelude.Just ("Actions" Core..= actions)
+              ("MatchAttributes" Data..= matchAttributes),
+            Prelude.Just ("Actions" Data..= actions)
           ]
       )

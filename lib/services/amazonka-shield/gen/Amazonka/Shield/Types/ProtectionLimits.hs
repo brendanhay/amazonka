@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.ProtectionLimits where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Shield.Types.Limit
 
@@ -57,14 +58,14 @@ newProtectionLimits =
 protectionLimits_protectedResourceTypeLimits :: Lens.Lens' ProtectionLimits [Limit]
 protectionLimits_protectedResourceTypeLimits = Lens.lens (\ProtectionLimits' {protectedResourceTypeLimits} -> protectedResourceTypeLimits) (\s@ProtectionLimits' {} a -> s {protectedResourceTypeLimits = a} :: ProtectionLimits) Prelude.. Lens.coerced
 
-instance Core.FromJSON ProtectionLimits where
+instance Data.FromJSON ProtectionLimits where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProtectionLimits"
       ( \x ->
           ProtectionLimits'
-            Prelude.<$> ( x Core..:? "ProtectedResourceTypeLimits"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ProtectedResourceTypeLimits"
+                            Data..!= Prelude.mempty
                         )
       )
 

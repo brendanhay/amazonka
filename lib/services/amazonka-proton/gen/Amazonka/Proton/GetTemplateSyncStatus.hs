@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -115,9 +116,9 @@ instance Core.AWSRequest GetTemplateSyncStatus where
     Response.receiveJSON
       ( \s h x ->
           GetTemplateSyncStatusResponse'
-            Prelude.<$> (x Core..?> "latestSync")
-            Prelude.<*> (x Core..?> "desiredState")
-            Prelude.<*> (x Core..?> "latestSuccessfulSync")
+            Prelude.<$> (x Data..?> "latestSync")
+            Prelude.<*> (x Data..?> "desiredState")
+            Prelude.<*> (x Data..?> "latestSuccessfulSync")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,36 +134,36 @@ instance Prelude.NFData GetTemplateSyncStatus where
       `Prelude.seq` Prelude.rnf templateType
       `Prelude.seq` Prelude.rnf templateVersion
 
-instance Core.ToHeaders GetTemplateSyncStatus where
+instance Data.ToHeaders GetTemplateSyncStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.GetTemplateSyncStatus" ::
+              Data.=# ( "AwsProton20200720.GetTemplateSyncStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTemplateSyncStatus where
+instance Data.ToJSON GetTemplateSyncStatus where
   toJSON GetTemplateSyncStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("templateName" Core..= templateName),
-            Prelude.Just ("templateType" Core..= templateType),
+          [ Prelude.Just ("templateName" Data..= templateName),
+            Prelude.Just ("templateType" Data..= templateType),
             Prelude.Just
-              ("templateVersion" Core..= templateVersion)
+              ("templateVersion" Data..= templateVersion)
           ]
       )
 
-instance Core.ToPath GetTemplateSyncStatus where
+instance Data.ToPath GetTemplateSyncStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTemplateSyncStatus where
+instance Data.ToQuery GetTemplateSyncStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTemplateSyncStatusResponse' smart constructor.

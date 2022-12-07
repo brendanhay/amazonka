@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.TimelineEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.EventReference
 
@@ -35,12 +36,12 @@ data TimelineEvent = TimelineEvent'
     -- | The ID of the timeline event.
     eventId :: Prelude.Text,
     -- | The time that the event occurred.
-    eventTime :: Core.POSIX,
+    eventTime :: Data.POSIX,
     -- | The type of event that occurred. Currently Incident Manager supports
     -- only the @Custom Event@ type.
     eventType :: Prelude.Text,
     -- | The time that the timeline event was last updated.
-    eventUpdatedTime :: Core.POSIX,
+    eventUpdatedTime :: Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the incident that the event occurred
     -- during.
     incidentRecordArn :: Prelude.Text
@@ -95,10 +96,10 @@ newTimelineEvent
       { eventReferences = Prelude.Nothing,
         eventData = pEventData_,
         eventId = pEventId_,
-        eventTime = Core._Time Lens.# pEventTime_,
+        eventTime = Data._Time Lens.# pEventTime_,
         eventType = pEventType_,
         eventUpdatedTime =
-          Core._Time Lens.# pEventUpdatedTime_,
+          Data._Time Lens.# pEventUpdatedTime_,
         incidentRecordArn = pIncidentRecordArn_
       }
 
@@ -116,7 +117,7 @@ timelineEvent_eventId = Lens.lens (\TimelineEvent' {eventId} -> eventId) (\s@Tim
 
 -- | The time that the event occurred.
 timelineEvent_eventTime :: Lens.Lens' TimelineEvent Prelude.UTCTime
-timelineEvent_eventTime = Lens.lens (\TimelineEvent' {eventTime} -> eventTime) (\s@TimelineEvent' {} a -> s {eventTime = a} :: TimelineEvent) Prelude.. Core._Time
+timelineEvent_eventTime = Lens.lens (\TimelineEvent' {eventTime} -> eventTime) (\s@TimelineEvent' {} a -> s {eventTime = a} :: TimelineEvent) Prelude.. Data._Time
 
 -- | The type of event that occurred. Currently Incident Manager supports
 -- only the @Custom Event@ type.
@@ -125,28 +126,28 @@ timelineEvent_eventType = Lens.lens (\TimelineEvent' {eventType} -> eventType) (
 
 -- | The time that the timeline event was last updated.
 timelineEvent_eventUpdatedTime :: Lens.Lens' TimelineEvent Prelude.UTCTime
-timelineEvent_eventUpdatedTime = Lens.lens (\TimelineEvent' {eventUpdatedTime} -> eventUpdatedTime) (\s@TimelineEvent' {} a -> s {eventUpdatedTime = a} :: TimelineEvent) Prelude.. Core._Time
+timelineEvent_eventUpdatedTime = Lens.lens (\TimelineEvent' {eventUpdatedTime} -> eventUpdatedTime) (\s@TimelineEvent' {} a -> s {eventUpdatedTime = a} :: TimelineEvent) Prelude.. Data._Time
 
 -- | The Amazon Resource Name (ARN) of the incident that the event occurred
 -- during.
 timelineEvent_incidentRecordArn :: Lens.Lens' TimelineEvent Prelude.Text
 timelineEvent_incidentRecordArn = Lens.lens (\TimelineEvent' {incidentRecordArn} -> incidentRecordArn) (\s@TimelineEvent' {} a -> s {incidentRecordArn = a} :: TimelineEvent)
 
-instance Core.FromJSON TimelineEvent where
+instance Data.FromJSON TimelineEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimelineEvent"
       ( \x ->
           TimelineEvent'
-            Prelude.<$> ( x Core..:? "eventReferences"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "eventReferences"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "eventData")
-            Prelude.<*> (x Core..: "eventId")
-            Prelude.<*> (x Core..: "eventTime")
-            Prelude.<*> (x Core..: "eventType")
-            Prelude.<*> (x Core..: "eventUpdatedTime")
-            Prelude.<*> (x Core..: "incidentRecordArn")
+            Prelude.<*> (x Data..: "eventData")
+            Prelude.<*> (x Data..: "eventId")
+            Prelude.<*> (x Data..: "eventTime")
+            Prelude.<*> (x Data..: "eventType")
+            Prelude.<*> (x Data..: "eventUpdatedTime")
+            Prelude.<*> (x Data..: "incidentRecordArn")
       )
 
 instance Prelude.Hashable TimelineEvent where

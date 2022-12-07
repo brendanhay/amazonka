@@ -43,6 +43,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,37 +135,37 @@ instance Prelude.NFData UpdateQuickConnectName where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf quickConnectId
 
-instance Core.ToHeaders UpdateQuickConnectName where
+instance Data.ToHeaders UpdateQuickConnectName where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateQuickConnectName where
+instance Data.ToJSON UpdateQuickConnectName where
   toJSON UpdateQuickConnectName' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateQuickConnectName where
+instance Data.ToPath UpdateQuickConnectName where
   toPath UpdateQuickConnectName' {..} =
     Prelude.mconcat
       [ "/quick-connects/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS quickConnectId,
+        Data.toBS quickConnectId,
         "/name"
       ]
 
-instance Core.ToQuery UpdateQuickConnectName where
+instance Data.ToQuery UpdateQuickConnectName where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateQuickConnectNameResponse' smart constructor.

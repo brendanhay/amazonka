@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.DatasetParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.DatetimeOptions
 import Amazonka.DataBrew.Types.FilterExpression
 import Amazonka.DataBrew.Types.ParameterType
@@ -109,17 +110,17 @@ datasetParameter_name = Lens.lens (\DatasetParameter' {name} -> name) (\s@Datase
 datasetParameter_type :: Lens.Lens' DatasetParameter ParameterType
 datasetParameter_type = Lens.lens (\DatasetParameter' {type'} -> type') (\s@DatasetParameter' {} a -> s {type' = a} :: DatasetParameter)
 
-instance Core.FromJSON DatasetParameter where
+instance Data.FromJSON DatasetParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetParameter"
       ( \x ->
           DatasetParameter'
-            Prelude.<$> (x Core..:? "DatetimeOptions")
-            Prelude.<*> (x Core..:? "Filter")
-            Prelude.<*> (x Core..:? "CreateColumn")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "DatetimeOptions")
+            Prelude.<*> (x Data..:? "Filter")
+            Prelude.<*> (x Data..:? "CreateColumn")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable DatasetParameter where
@@ -138,15 +139,15 @@ instance Prelude.NFData DatasetParameter where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON DatasetParameter where
+instance Data.ToJSON DatasetParameter where
   toJSON DatasetParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DatetimeOptions" Core..=)
+          [ ("DatetimeOptions" Data..=)
               Prelude.<$> datetimeOptions,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("CreateColumn" Core..=) Prelude.<$> createColumn,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Type" Core..= type')
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("CreateColumn" Data..=) Prelude.<$> createColumn,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Type" Data..= type')
           ]
       )

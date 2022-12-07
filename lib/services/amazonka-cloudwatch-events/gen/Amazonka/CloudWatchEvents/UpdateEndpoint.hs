@@ -58,6 +58,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,15 +150,15 @@ instance Core.AWSRequest UpdateEndpoint where
     Response.receiveJSON
       ( \s h x ->
           UpdateEndpointResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "EndpointId")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "RoutingConfig")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "ReplicationConfig")
-            Prelude.<*> (x Core..?> "EndpointUrl")
-            Prelude.<*> (x Core..?> "EventBuses")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "EndpointId")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "RoutingConfig")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "ReplicationConfig")
+            Prelude.<*> (x Data..?> "EndpointUrl")
+            Prelude.<*> (x Data..?> "EventBuses")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,37 +180,37 @@ instance Prelude.NFData UpdateEndpoint where
       `Prelude.seq` Prelude.rnf eventBuses
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateEndpoint where
+instance Data.ToHeaders UpdateEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.UpdateEndpoint" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.UpdateEndpoint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEndpoint where
+instance Data.ToJSON UpdateEndpoint where
   toJSON UpdateEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("RoutingConfig" Core..=) Prelude.<$> routingConfig,
-            ("ReplicationConfig" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("RoutingConfig" Data..=) Prelude.<$> routingConfig,
+            ("ReplicationConfig" Data..=)
               Prelude.<$> replicationConfig,
-            ("Description" Core..=) Prelude.<$> description,
-            ("EventBuses" Core..=) Prelude.<$> eventBuses,
-            Prelude.Just ("Name" Core..= name)
+            ("Description" Data..=) Prelude.<$> description,
+            ("EventBuses" Data..=) Prelude.<$> eventBuses,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateEndpoint where
+instance Data.ToPath UpdateEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateEndpoint where
+instance Data.ToQuery UpdateEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEndpointResponse' smart constructor.

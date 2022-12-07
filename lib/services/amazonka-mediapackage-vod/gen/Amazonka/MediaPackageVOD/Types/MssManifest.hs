@@ -21,6 +21,7 @@ module Amazonka.MediaPackageVOD.Types.MssManifest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types.StreamSelection
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,14 +62,14 @@ mssManifest_streamSelection = Lens.lens (\MssManifest' {streamSelection} -> stre
 mssManifest_manifestName :: Lens.Lens' MssManifest (Prelude.Maybe Prelude.Text)
 mssManifest_manifestName = Lens.lens (\MssManifest' {manifestName} -> manifestName) (\s@MssManifest' {} a -> s {manifestName = a} :: MssManifest)
 
-instance Core.FromJSON MssManifest where
+instance Data.FromJSON MssManifest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MssManifest"
       ( \x ->
           MssManifest'
-            Prelude.<$> (x Core..:? "streamSelection")
-            Prelude.<*> (x Core..:? "manifestName")
+            Prelude.<$> (x Data..:? "streamSelection")
+            Prelude.<*> (x Data..:? "manifestName")
       )
 
 instance Prelude.Hashable MssManifest where
@@ -81,12 +82,12 @@ instance Prelude.NFData MssManifest where
     Prelude.rnf streamSelection
       `Prelude.seq` Prelude.rnf manifestName
 
-instance Core.ToJSON MssManifest where
+instance Data.ToJSON MssManifest where
   toJSON MssManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("streamSelection" Core..=)
+          [ ("streamSelection" Data..=)
               Prelude.<$> streamSelection,
-            ("manifestName" Core..=) Prelude.<$> manifestName
+            ("manifestName" Data..=) Prelude.<$> manifestName
           ]
       )

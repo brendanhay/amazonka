@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,8 +127,8 @@ instance Core.AWSRequest ListOutposts where
     Response.receiveJSON
       ( \s h x ->
           ListOutpostsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Outposts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Outposts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,38 +148,38 @@ instance Prelude.NFData ListOutposts where
       `Prelude.seq` Prelude.rnf availabilityZoneFilter
       `Prelude.seq` Prelude.rnf availabilityZoneIdFilter
 
-instance Core.ToHeaders ListOutposts where
+instance Data.ToHeaders ListOutposts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListOutposts where
+instance Data.ToPath ListOutposts where
   toPath = Prelude.const "/outposts"
 
-instance Core.ToQuery ListOutposts where
+instance Data.ToQuery ListOutposts where
   toQuery ListOutposts' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults,
         "LifeCycleStatusFilter"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> lifeCycleStatusFilter
             ),
         "AvailabilityZoneFilter"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> availabilityZoneFilter
             ),
         "AvailabilityZoneIdFilter"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> availabilityZoneIdFilter
             )
       ]

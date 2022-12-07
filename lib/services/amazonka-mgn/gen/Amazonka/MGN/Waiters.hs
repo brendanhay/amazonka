@@ -18,6 +18,7 @@ module Amazonka.MGN.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Lens
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude

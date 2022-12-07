@@ -21,6 +21,7 @@ module Amazonka.QLDBSession.Types.StartTransactionResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDBSession.Types.TimingInformation
 
@@ -63,14 +64,14 @@ startTransactionResult_timingInformation = Lens.lens (\StartTransactionResult' {
 startTransactionResult_transactionId :: Lens.Lens' StartTransactionResult (Prelude.Maybe Prelude.Text)
 startTransactionResult_transactionId = Lens.lens (\StartTransactionResult' {transactionId} -> transactionId) (\s@StartTransactionResult' {} a -> s {transactionId = a} :: StartTransactionResult)
 
-instance Core.FromJSON StartTransactionResult where
+instance Data.FromJSON StartTransactionResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StartTransactionResult"
       ( \x ->
           StartTransactionResult'
-            Prelude.<$> (x Core..:? "TimingInformation")
-            Prelude.<*> (x Core..:? "TransactionId")
+            Prelude.<$> (x Data..:? "TimingInformation")
+            Prelude.<*> (x Data..:? "TransactionId")
       )
 
 instance Prelude.Hashable StartTransactionResult where

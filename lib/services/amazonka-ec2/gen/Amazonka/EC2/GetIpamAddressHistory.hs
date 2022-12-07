@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -65,7 +66,7 @@ data GetIpamAddressHistory = GetIpamAddressHistory'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The end of the time period for which you are looking for history. If you
     -- omit this option, it will default to the current time.
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | A check for whether you have the required permissions for the action
     -- without actually making the request and provides an error response. If
     -- you have the required permissions, the error response is
@@ -78,7 +79,7 @@ data GetIpamAddressHistory = GetIpamAddressHistory'
     vpcId :: Prelude.Maybe Prelude.Text,
     -- | The start of the time period for which you are looking for history. If
     -- you omit this option, it will default to the value of EndTime.
-    startTime :: Prelude.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The CIDR you want the history of. The CIDR can be an IPv4 or IPv6 IP
     -- address range. If you enter a \/16 IPv4 CIDR, you will get records that
     -- match it exactly. You will not get records for any subnets within the
@@ -146,7 +147,7 @@ getIpamAddressHistory_nextToken = Lens.lens (\GetIpamAddressHistory' {nextToken}
 -- | The end of the time period for which you are looking for history. If you
 -- omit this option, it will default to the current time.
 getIpamAddressHistory_endTime :: Lens.Lens' GetIpamAddressHistory (Prelude.Maybe Prelude.UTCTime)
-getIpamAddressHistory_endTime = Lens.lens (\GetIpamAddressHistory' {endTime} -> endTime) (\s@GetIpamAddressHistory' {} a -> s {endTime = a} :: GetIpamAddressHistory) Prelude.. Lens.mapping Core._Time
+getIpamAddressHistory_endTime = Lens.lens (\GetIpamAddressHistory' {endTime} -> endTime) (\s@GetIpamAddressHistory' {} a -> s {endTime = a} :: GetIpamAddressHistory) Prelude.. Lens.mapping Data._Time
 
 -- | A check for whether you have the required permissions for the action
 -- without actually making the request and provides an error response. If
@@ -167,7 +168,7 @@ getIpamAddressHistory_vpcId = Lens.lens (\GetIpamAddressHistory' {vpcId} -> vpcI
 -- | The start of the time period for which you are looking for history. If
 -- you omit this option, it will default to the value of EndTime.
 getIpamAddressHistory_startTime :: Lens.Lens' GetIpamAddressHistory (Prelude.Maybe Prelude.UTCTime)
-getIpamAddressHistory_startTime = Lens.lens (\GetIpamAddressHistory' {startTime} -> startTime) (\s@GetIpamAddressHistory' {} a -> s {startTime = a} :: GetIpamAddressHistory) Prelude.. Lens.mapping Core._Time
+getIpamAddressHistory_startTime = Lens.lens (\GetIpamAddressHistory' {startTime} -> startTime) (\s@GetIpamAddressHistory' {} a -> s {startTime = a} :: GetIpamAddressHistory) Prelude.. Lens.mapping Data._Time
 
 -- | The CIDR you want the history of. The CIDR can be an IPv4 or IPv6 IP
 -- address range. If you enter a \/16 IPv4 CIDR, you will get records that
@@ -212,10 +213,10 @@ instance Core.AWSRequest GetIpamAddressHistory where
     Response.receiveXML
       ( \s h x ->
           GetIpamAddressHistoryResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "historyRecordSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "historyRecordSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -242,27 +243,27 @@ instance Prelude.NFData GetIpamAddressHistory where
       `Prelude.seq` Prelude.rnf cidr
       `Prelude.seq` Prelude.rnf ipamScopeId
 
-instance Core.ToHeaders GetIpamAddressHistory where
+instance Data.ToHeaders GetIpamAddressHistory where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetIpamAddressHistory where
+instance Data.ToPath GetIpamAddressHistory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetIpamAddressHistory where
+instance Data.ToQuery GetIpamAddressHistory where
   toQuery GetIpamAddressHistory' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetIpamAddressHistory" :: Prelude.ByteString),
+          Data.=: ("GetIpamAddressHistory" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "EndTime" Core.=: endTime,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        "VpcId" Core.=: vpcId,
-        "StartTime" Core.=: startTime,
-        "Cidr" Core.=: cidr,
-        "IpamScopeId" Core.=: ipamScopeId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "EndTime" Data.=: endTime,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        "VpcId" Data.=: vpcId,
+        "StartTime" Data.=: startTime,
+        "Cidr" Data.=: cidr,
+        "IpamScopeId" Data.=: ipamScopeId
       ]
 
 -- | /See:/ 'newGetIpamAddressHistoryResponse' smart constructor.

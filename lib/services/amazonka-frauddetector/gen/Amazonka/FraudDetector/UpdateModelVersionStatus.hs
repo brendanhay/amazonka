@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,37 +150,37 @@ instance Prelude.NFData UpdateModelVersionStatus where
       `Prelude.seq` Prelude.rnf modelVersionNumber
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToHeaders UpdateModelVersionStatus where
+instance Data.ToHeaders UpdateModelVersionStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.UpdateModelVersionStatus" ::
+              Data.=# ( "AWSHawksNestServiceFacade.UpdateModelVersionStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateModelVersionStatus where
+instance Data.ToJSON UpdateModelVersionStatus where
   toJSON UpdateModelVersionStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("modelId" Core..= modelId),
-            Prelude.Just ("modelType" Core..= modelType),
+          [ Prelude.Just ("modelId" Data..= modelId),
+            Prelude.Just ("modelType" Data..= modelType),
             Prelude.Just
-              ("modelVersionNumber" Core..= modelVersionNumber),
-            Prelude.Just ("status" Core..= status)
+              ("modelVersionNumber" Data..= modelVersionNumber),
+            Prelude.Just ("status" Data..= status)
           ]
       )
 
-instance Core.ToPath UpdateModelVersionStatus where
+instance Data.ToPath UpdateModelVersionStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateModelVersionStatus where
+instance Data.ToQuery UpdateModelVersionStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateModelVersionStatusResponse' smart constructor.

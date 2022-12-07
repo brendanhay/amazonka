@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,23 +93,23 @@ instance Prelude.Hashable DeleteInput where
 instance Prelude.NFData DeleteInput where
   rnf DeleteInput' {..} = Prelude.rnf inputId
 
-instance Core.ToHeaders DeleteInput where
+instance Data.ToHeaders DeleteInput where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteInput where
+instance Data.ToPath DeleteInput where
   toPath DeleteInput' {..} =
     Prelude.mconcat
-      ["/prod/inputs/", Core.toBS inputId]
+      ["/prod/inputs/", Data.toBS inputId]
 
-instance Core.ToQuery DeleteInput where
+instance Data.ToQuery DeleteInput where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for DeleteInputResponse

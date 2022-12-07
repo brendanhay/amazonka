@@ -22,6 +22,7 @@ module Amazonka.AccessAnalyzer.Types.AccessPreviewStatusReason where
 import Amazonka.AccessAnalyzer.Types.AccessPreviewStatusReasonCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides more details about the current status of the access preview.
@@ -56,13 +57,13 @@ newAccessPreviewStatusReason pCode_ =
 accessPreviewStatusReason_code :: Lens.Lens' AccessPreviewStatusReason AccessPreviewStatusReasonCode
 accessPreviewStatusReason_code = Lens.lens (\AccessPreviewStatusReason' {code} -> code) (\s@AccessPreviewStatusReason' {} a -> s {code = a} :: AccessPreviewStatusReason)
 
-instance Core.FromJSON AccessPreviewStatusReason where
+instance Data.FromJSON AccessPreviewStatusReason where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessPreviewStatusReason"
       ( \x ->
           AccessPreviewStatusReason'
-            Prelude.<$> (x Core..: "code")
+            Prelude.<$> (x Data..: "code")
       )
 
 instance Prelude.Hashable AccessPreviewStatusReason where

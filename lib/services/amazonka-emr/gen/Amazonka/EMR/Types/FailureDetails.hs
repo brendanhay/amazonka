@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.FailureDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the step failure. The service attempts to detect the root
@@ -86,15 +87,15 @@ failureDetails_reason = Lens.lens (\FailureDetails' {reason} -> reason) (\s@Fail
 failureDetails_logFile :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
 failureDetails_logFile = Lens.lens (\FailureDetails' {logFile} -> logFile) (\s@FailureDetails' {} a -> s {logFile = a} :: FailureDetails)
 
-instance Core.FromJSON FailureDetails where
+instance Data.FromJSON FailureDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailureDetails"
       ( \x ->
           FailureDetails'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Reason")
-            Prelude.<*> (x Core..:? "LogFile")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Reason")
+            Prelude.<*> (x Data..:? "LogFile")
       )
 
 instance Prelude.Hashable FailureDetails where

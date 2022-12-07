@@ -23,6 +23,7 @@ import Amazonka.AlexaBusiness.Types.NetworkEapMethod
 import Amazonka.AlexaBusiness.Types.NetworkSecurityType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The network profile associated with a device.
@@ -43,11 +44,11 @@ data NetworkProfile = NetworkProfile'
     -- negotiation.
     trustAnchors :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The current password of the Wi-Fi network.
-    currentPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    currentPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The next, or subsequent, password of the Wi-Fi network. This password is
     -- asynchronously transmitted to the device and is used when the password
     -- of the network changes to NextPassword.
-    nextPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The SSID of the Wi-Fi network.
     ssid :: Prelude.Maybe Prelude.Text,
     -- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
@@ -135,13 +136,13 @@ networkProfile_trustAnchors = Lens.lens (\NetworkProfile' {trustAnchors} -> trus
 
 -- | The current password of the Wi-Fi network.
 networkProfile_currentPassword :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Text)
-networkProfile_currentPassword = Lens.lens (\NetworkProfile' {currentPassword} -> currentPassword) (\s@NetworkProfile' {} a -> s {currentPassword = a} :: NetworkProfile) Prelude.. Lens.mapping Core._Sensitive
+networkProfile_currentPassword = Lens.lens (\NetworkProfile' {currentPassword} -> currentPassword) (\s@NetworkProfile' {} a -> s {currentPassword = a} :: NetworkProfile) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The next, or subsequent, password of the Wi-Fi network. This password is
 -- asynchronously transmitted to the device and is used when the password
 -- of the network changes to NextPassword.
 networkProfile_nextPassword :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Text)
-networkProfile_nextPassword = Lens.lens (\NetworkProfile' {nextPassword} -> nextPassword) (\s@NetworkProfile' {} a -> s {nextPassword = a} :: NetworkProfile) Prelude.. Lens.mapping Core._Sensitive
+networkProfile_nextPassword = Lens.lens (\NetworkProfile' {nextPassword} -> nextPassword) (\s@NetworkProfile' {} a -> s {nextPassword = a} :: NetworkProfile) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The SSID of the Wi-Fi network.
 networkProfile_ssid :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Text)
@@ -160,22 +161,22 @@ networkProfile_networkProfileArn = Lens.lens (\NetworkProfile' {networkProfileAr
 networkProfile_networkProfileName :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Text)
 networkProfile_networkProfileName = Lens.lens (\NetworkProfile' {networkProfileName} -> networkProfileName) (\s@NetworkProfile' {} a -> s {networkProfileName = a} :: NetworkProfile)
 
-instance Core.FromJSON NetworkProfile where
+instance Data.FromJSON NetworkProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkProfile"
       ( \x ->
           NetworkProfile'
-            Prelude.<$> (x Core..:? "CertificateAuthorityArn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "EapMethod")
-            Prelude.<*> (x Core..:? "TrustAnchors")
-            Prelude.<*> (x Core..:? "CurrentPassword")
-            Prelude.<*> (x Core..:? "NextPassword")
-            Prelude.<*> (x Core..:? "Ssid")
-            Prelude.<*> (x Core..:? "SecurityType")
-            Prelude.<*> (x Core..:? "NetworkProfileArn")
-            Prelude.<*> (x Core..:? "NetworkProfileName")
+            Prelude.<$> (x Data..:? "CertificateAuthorityArn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "EapMethod")
+            Prelude.<*> (x Data..:? "TrustAnchors")
+            Prelude.<*> (x Data..:? "CurrentPassword")
+            Prelude.<*> (x Data..:? "NextPassword")
+            Prelude.<*> (x Data..:? "Ssid")
+            Prelude.<*> (x Data..:? "SecurityType")
+            Prelude.<*> (x Data..:? "NetworkProfileArn")
+            Prelude.<*> (x Data..:? "NetworkProfileName")
       )
 
 instance Prelude.Hashable NetworkProfile where

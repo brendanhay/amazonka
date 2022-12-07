@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.Row where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.QueryResultValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -50,13 +51,13 @@ newRow = Row' {rowData = Prelude.Nothing}
 row_rowData :: Lens.Lens' Row (Prelude.Maybe [QueryResultValue])
 row_rowData = Lens.lens (\Row' {rowData} -> rowData) (\s@Row' {} a -> s {rowData = a} :: Row) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Row where
+instance Data.FromJSON Row where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Row"
       ( \x ->
           Row'
-            Prelude.<$> (x Core..:? "rowData" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "rowData" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Row where

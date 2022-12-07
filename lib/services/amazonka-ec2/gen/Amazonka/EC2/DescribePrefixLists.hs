@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -179,9 +180,9 @@ instance Core.AWSRequest DescribePrefixLists where
     Response.receiveXML
       ( \s h x ->
           DescribePrefixListsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "prefixListSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "prefixListSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -202,26 +203,26 @@ instance Prelude.NFData DescribePrefixLists where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf prefixListIds
 
-instance Core.ToHeaders DescribePrefixLists where
+instance Data.ToHeaders DescribePrefixLists where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribePrefixLists where
+instance Data.ToPath DescribePrefixLists where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePrefixLists where
+instance Data.ToQuery DescribePrefixLists where
   toQuery DescribePrefixLists' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribePrefixLists" :: Prelude.ByteString),
+          Data.=: ("DescribePrefixLists" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          ( Core.toQueryList "PrefixListId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          ( Data.toQueryList "PrefixListId"
               Prelude.<$> prefixListIds
           )
       ]

@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.CloudWatchLogsLogStream where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.CloudWatchLogsEncoding
 import Amazonka.OpsWorks.Types.CloudWatchLogsInitialPosition
 import Amazonka.OpsWorks.Types.CloudWatchLogsTimeZone
@@ -244,23 +245,23 @@ cloudWatchLogsLogStream_batchSize = Lens.lens (\CloudWatchLogsLogStream' {batchS
 cloudWatchLogsLogStream_logGroupName :: Lens.Lens' CloudWatchLogsLogStream (Prelude.Maybe Prelude.Text)
 cloudWatchLogsLogStream_logGroupName = Lens.lens (\CloudWatchLogsLogStream' {logGroupName} -> logGroupName) (\s@CloudWatchLogsLogStream' {} a -> s {logGroupName = a} :: CloudWatchLogsLogStream)
 
-instance Core.FromJSON CloudWatchLogsLogStream where
+instance Data.FromJSON CloudWatchLogsLogStream where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchLogsLogStream"
       ( \x ->
           CloudWatchLogsLogStream'
-            Prelude.<$> (x Core..:? "BatchCount")
-            Prelude.<*> (x Core..:? "MultiLineStartPattern")
-            Prelude.<*> (x Core..:? "FileFingerprintLines")
-            Prelude.<*> (x Core..:? "Encoding")
-            Prelude.<*> (x Core..:? "TimeZone")
-            Prelude.<*> (x Core..:? "DatetimeFormat")
-            Prelude.<*> (x Core..:? "InitialPosition")
-            Prelude.<*> (x Core..:? "File")
-            Prelude.<*> (x Core..:? "BufferDuration")
-            Prelude.<*> (x Core..:? "BatchSize")
-            Prelude.<*> (x Core..:? "LogGroupName")
+            Prelude.<$> (x Data..:? "BatchCount")
+            Prelude.<*> (x Data..:? "MultiLineStartPattern")
+            Prelude.<*> (x Data..:? "FileFingerprintLines")
+            Prelude.<*> (x Data..:? "Encoding")
+            Prelude.<*> (x Data..:? "TimeZone")
+            Prelude.<*> (x Data..:? "DatetimeFormat")
+            Prelude.<*> (x Data..:? "InitialPosition")
+            Prelude.<*> (x Data..:? "File")
+            Prelude.<*> (x Data..:? "BufferDuration")
+            Prelude.<*> (x Data..:? "BatchSize")
+            Prelude.<*> (x Data..:? "LogGroupName")
       )
 
 instance Prelude.Hashable CloudWatchLogsLogStream where
@@ -291,25 +292,25 @@ instance Prelude.NFData CloudWatchLogsLogStream where
       `Prelude.seq` Prelude.rnf batchSize
       `Prelude.seq` Prelude.rnf logGroupName
 
-instance Core.ToJSON CloudWatchLogsLogStream where
+instance Data.ToJSON CloudWatchLogsLogStream where
   toJSON CloudWatchLogsLogStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BatchCount" Core..=) Prelude.<$> batchCount,
-            ("MultiLineStartPattern" Core..=)
+          [ ("BatchCount" Data..=) Prelude.<$> batchCount,
+            ("MultiLineStartPattern" Data..=)
               Prelude.<$> multiLineStartPattern,
-            ("FileFingerprintLines" Core..=)
+            ("FileFingerprintLines" Data..=)
               Prelude.<$> fileFingerprintLines,
-            ("Encoding" Core..=) Prelude.<$> encoding,
-            ("TimeZone" Core..=) Prelude.<$> timeZone,
-            ("DatetimeFormat" Core..=)
+            ("Encoding" Data..=) Prelude.<$> encoding,
+            ("TimeZone" Data..=) Prelude.<$> timeZone,
+            ("DatetimeFormat" Data..=)
               Prelude.<$> datetimeFormat,
-            ("InitialPosition" Core..=)
+            ("InitialPosition" Data..=)
               Prelude.<$> initialPosition,
-            ("File" Core..=) Prelude.<$> file,
-            ("BufferDuration" Core..=)
+            ("File" Data..=) Prelude.<$> file,
+            ("BufferDuration" Data..=)
               Prelude.<$> bufferDuration,
-            ("BatchSize" Core..=) Prelude.<$> batchSize,
-            ("LogGroupName" Core..=) Prelude.<$> logGroupName
+            ("BatchSize" Data..=) Prelude.<$> batchSize,
+            ("LogGroupName" Data..=) Prelude.<$> logGroupName
           ]
       )

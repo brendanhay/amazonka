@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest DeleteSnapshot where
     Response.receiveJSON
       ( \s h x ->
           DeleteSnapshotResponse'
-            Prelude.<$> (x Core..?> "snapshot")
+            Prelude.<$> (x Data..?> "snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable DeleteSnapshot where
 instance Prelude.NFData DeleteSnapshot where
   rnf DeleteSnapshot' {..} = Prelude.rnf snapshotName
 
-instance Core.ToHeaders DeleteSnapshot where
+instance Data.ToHeaders DeleteSnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.DeleteSnapshot" ::
+              Data.=# ( "RedshiftServerless.DeleteSnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSnapshot where
+instance Data.ToJSON DeleteSnapshot where
   toJSON DeleteSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("snapshotName" Core..= snapshotName)]
+          [Prelude.Just ("snapshotName" Data..= snapshotName)]
       )
 
-instance Core.ToPath DeleteSnapshot where
+instance Data.ToPath DeleteSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSnapshot where
+instance Data.ToQuery DeleteSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSnapshotResponse' smart constructor.

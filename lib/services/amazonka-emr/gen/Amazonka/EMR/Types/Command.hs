@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.Command where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An entity describing an executable that runs on a cluster.
@@ -70,15 +71,15 @@ command_scriptPath = Lens.lens (\Command' {scriptPath} -> scriptPath) (\s@Comman
 command_args :: Lens.Lens' Command (Prelude.Maybe [Prelude.Text])
 command_args = Lens.lens (\Command' {args} -> args) (\s@Command' {} a -> s {args = a} :: Command) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Command where
+instance Data.FromJSON Command where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Command"
       ( \x ->
           Command'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ScriptPath")
-            Prelude.<*> (x Core..:? "Args" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ScriptPath")
+            Prelude.<*> (x Data..:? "Args" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Command where

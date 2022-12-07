@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClientConnectOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,9 +81,9 @@ instance Prelude.NFData ClientConnectOptions where
     Prelude.rnf lambdaFunctionArn
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToQuery ClientConnectOptions where
+instance Data.ToQuery ClientConnectOptions where
   toQuery ClientConnectOptions' {..} =
     Prelude.mconcat
-      [ "LambdaFunctionArn" Core.=: lambdaFunctionArn,
-        "Enabled" Core.=: enabled
+      [ "LambdaFunctionArn" Data.=: lambdaFunctionArn,
+        "Enabled" Data.=: enabled
       ]

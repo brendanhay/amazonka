@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -224,8 +225,8 @@ instance Core.AWSRequest GetSessionEmbedUrl where
     Response.receiveJSON
       ( \s h x ->
           GetSessionEmbedUrlResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "EmbedUrl")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "EmbedUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -244,31 +245,31 @@ instance Prelude.NFData GetSessionEmbedUrl where
       `Prelude.seq` Prelude.rnf entryPoint
       `Prelude.seq` Prelude.rnf awsAccountId
 
-instance Core.ToHeaders GetSessionEmbedUrl where
+instance Data.ToHeaders GetSessionEmbedUrl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSessionEmbedUrl where
+instance Data.ToPath GetSessionEmbedUrl where
   toPath GetSessionEmbedUrl' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/session-embed-url"
       ]
 
-instance Core.ToQuery GetSessionEmbedUrl where
+instance Data.ToQuery GetSessionEmbedUrl where
   toQuery GetSessionEmbedUrl' {..} =
     Prelude.mconcat
-      [ "session-lifetime" Core.=: sessionLifetimeInMinutes,
-        "user-arn" Core.=: userArn,
-        "entry-point" Core.=: entryPoint
+      [ "session-lifetime" Data.=: sessionLifetimeInMinutes,
+        "user-arn" Data.=: userArn,
+        "entry-point" Data.=: entryPoint
       ]
 
 -- | /See:/ 'newGetSessionEmbedUrlResponse' smart constructor.
@@ -280,7 +281,7 @@ data GetSessionEmbedUrlResponse = GetSessionEmbedUrlResponse'
     -- The API operation provides the URL with an @auth_code@ value that
     -- enables one (and only one) sign-on to a user session that is valid for
     -- 10 hours.
-    embedUrl :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    embedUrl :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -325,7 +326,7 @@ getSessionEmbedUrlResponse_requestId = Lens.lens (\GetSessionEmbedUrlResponse' {
 -- enables one (and only one) sign-on to a user session that is valid for
 -- 10 hours.
 getSessionEmbedUrlResponse_embedUrl :: Lens.Lens' GetSessionEmbedUrlResponse (Prelude.Maybe Prelude.Text)
-getSessionEmbedUrlResponse_embedUrl = Lens.lens (\GetSessionEmbedUrlResponse' {embedUrl} -> embedUrl) (\s@GetSessionEmbedUrlResponse' {} a -> s {embedUrl = a} :: GetSessionEmbedUrlResponse) Prelude.. Lens.mapping Core._Sensitive
+getSessionEmbedUrlResponse_embedUrl = Lens.lens (\GetSessionEmbedUrlResponse' {embedUrl} -> embedUrl) (\s@GetSessionEmbedUrlResponse' {} a -> s {embedUrl = a} :: GetSessionEmbedUrlResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The HTTP status of the request.
 getSessionEmbedUrlResponse_status :: Lens.Lens' GetSessionEmbedUrlResponse Prelude.Int

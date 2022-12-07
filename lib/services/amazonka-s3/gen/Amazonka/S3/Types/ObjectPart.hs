@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ObjectPart where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -161,15 +162,15 @@ objectPart_size = Lens.lens (\ObjectPart' {size} -> size) (\s@ObjectPart' {} a -
 objectPart_checksumSHA256 :: Lens.Lens' ObjectPart (Prelude.Maybe Prelude.Text)
 objectPart_checksumSHA256 = Lens.lens (\ObjectPart' {checksumSHA256} -> checksumSHA256) (\s@ObjectPart' {} a -> s {checksumSHA256 = a} :: ObjectPart)
 
-instance Core.FromXML ObjectPart where
+instance Data.FromXML ObjectPart where
   parseXML x =
     ObjectPart'
-      Prelude.<$> (x Core..@? "ChecksumCRC32C")
-      Prelude.<*> (x Core..@? "ChecksumSHA1")
-      Prelude.<*> (x Core..@? "ChecksumCRC32")
-      Prelude.<*> (x Core..@? "PartNumber")
-      Prelude.<*> (x Core..@? "Size")
-      Prelude.<*> (x Core..@? "ChecksumSHA256")
+      Prelude.<$> (x Data..@? "ChecksumCRC32C")
+      Prelude.<*> (x Data..@? "ChecksumSHA1")
+      Prelude.<*> (x Data..@? "ChecksumCRC32")
+      Prelude.<*> (x Data..@? "PartNumber")
+      Prelude.<*> (x Data..@? "Size")
+      Prelude.<*> (x Data..@? "ChecksumSHA256")
 
 instance Prelude.Hashable ObjectPart where
   hashWithSalt _salt ObjectPart' {..} =

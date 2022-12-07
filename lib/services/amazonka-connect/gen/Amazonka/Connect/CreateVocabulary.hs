@@ -53,6 +53,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -197,9 +198,9 @@ instance Core.AWSRequest CreateVocabulary where
       ( \s h x ->
           CreateVocabularyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "VocabularyArn")
-            Prelude.<*> (x Core..:> "VocabularyId")
-            Prelude.<*> (x Core..:> "State")
+            Prelude.<*> (x Data..:> "VocabularyArn")
+            Prelude.<*> (x Data..:> "VocabularyId")
+            Prelude.<*> (x Data..:> "State")
       )
 
 instance Prelude.Hashable CreateVocabulary where
@@ -220,36 +221,36 @@ instance Prelude.NFData CreateVocabulary where
       `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToHeaders CreateVocabulary where
+instance Data.ToHeaders CreateVocabulary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateVocabulary where
+instance Data.ToJSON CreateVocabulary where
   toJSON CreateVocabulary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("VocabularyName" Core..= vocabularyName),
-            Prelude.Just ("LanguageCode" Core..= languageCode),
-            Prelude.Just ("Content" Core..= content)
+              ("VocabularyName" Data..= vocabularyName),
+            Prelude.Just ("LanguageCode" Data..= languageCode),
+            Prelude.Just ("Content" Data..= content)
           ]
       )
 
-instance Core.ToPath CreateVocabulary where
+instance Data.ToPath CreateVocabulary where
   toPath CreateVocabulary' {..} =
     Prelude.mconcat
-      ["/vocabulary/", Core.toBS instanceId]
+      ["/vocabulary/", Data.toBS instanceId]
 
-instance Core.ToQuery CreateVocabulary where
+instance Data.ToQuery CreateVocabulary where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateVocabularyResponse' smart constructor.

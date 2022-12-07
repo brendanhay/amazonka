@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.AssessmentReportsDestination where
 import Amazonka.AuditManager.Types.AssessmentReportDestinationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The location where Audit Manager saves assessment reports for the given
@@ -64,14 +65,14 @@ assessmentReportsDestination_destination = Lens.lens (\AssessmentReportsDestinat
 assessmentReportsDestination_destinationType :: Lens.Lens' AssessmentReportsDestination (Prelude.Maybe AssessmentReportDestinationType)
 assessmentReportsDestination_destinationType = Lens.lens (\AssessmentReportsDestination' {destinationType} -> destinationType) (\s@AssessmentReportsDestination' {} a -> s {destinationType = a} :: AssessmentReportsDestination)
 
-instance Core.FromJSON AssessmentReportsDestination where
+instance Data.FromJSON AssessmentReportsDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssessmentReportsDestination"
       ( \x ->
           AssessmentReportsDestination'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "destinationType")
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "destinationType")
       )
 
 instance
@@ -87,12 +88,12 @@ instance Prelude.NFData AssessmentReportsDestination where
     Prelude.rnf destination
       `Prelude.seq` Prelude.rnf destinationType
 
-instance Core.ToJSON AssessmentReportsDestination where
+instance Data.ToJSON AssessmentReportsDestination where
   toJSON AssessmentReportsDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("destination" Core..=) Prelude.<$> destination,
-            ("destinationType" Core..=)
+          [ ("destination" Data..=) Prelude.<$> destination,
+            ("destinationType" Data..=)
               Prelude.<$> destinationType
           ]
       )

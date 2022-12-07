@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types.ExperimentTargetFilter
 import qualified Amazonka.Prelude as Prelude
 
@@ -101,18 +102,18 @@ experimentTarget_resourceArns = Lens.lens (\ExperimentTarget' {resourceArns} -> 
 experimentTarget_selectionMode :: Lens.Lens' ExperimentTarget (Prelude.Maybe Prelude.Text)
 experimentTarget_selectionMode = Lens.lens (\ExperimentTarget' {selectionMode} -> selectionMode) (\s@ExperimentTarget' {} a -> s {selectionMode = a} :: ExperimentTarget)
 
-instance Core.FromJSON ExperimentTarget where
+instance Data.FromJSON ExperimentTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentTarget"
       ( \x ->
           ExperimentTarget'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "filters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resourceTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resourceArns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "selectionMode")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "filters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceArns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "selectionMode")
       )
 
 instance Prelude.Hashable ExperimentTarget where

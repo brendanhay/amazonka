@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyValueHistorySuccessEntry 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.AssetPropertyValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,17 +71,17 @@ batchGetAssetPropertyValueHistorySuccessEntry_assetPropertyValueHistory :: Lens.
 batchGetAssetPropertyValueHistorySuccessEntry_assetPropertyValueHistory = Lens.lens (\BatchGetAssetPropertyValueHistorySuccessEntry' {assetPropertyValueHistory} -> assetPropertyValueHistory) (\s@BatchGetAssetPropertyValueHistorySuccessEntry' {} a -> s {assetPropertyValueHistory = a} :: BatchGetAssetPropertyValueHistorySuccessEntry) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchGetAssetPropertyValueHistorySuccessEntry
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetAssetPropertyValueHistorySuccessEntry"
       ( \x ->
           BatchGetAssetPropertyValueHistorySuccessEntry'
-            Prelude.<$> (x Core..: "entryId")
-              Prelude.<*> ( x Core..:? "assetPropertyValueHistory"
-                              Core..!= Prelude.mempty
+            Prelude.<$> (x Data..: "entryId")
+              Prelude.<*> ( x Data..:? "assetPropertyValueHistory"
+                              Data..!= Prelude.mempty
                           )
       )
 

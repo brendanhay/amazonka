@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -433,9 +434,9 @@ instance Core.AWSRequest RegisterUser where
     Response.receiveJSON
       ( \s h x ->
           RegisterUserResponse'
-            Prelude.<$> (x Core..?> "UserInvitationUrl")
-            Prelude.<*> (x Core..?> "User")
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<$> (x Data..?> "UserInvitationUrl")
+            Prelude.<*> (x Data..?> "User")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -469,49 +470,49 @@ instance Prelude.NFData RegisterUser where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf namespace
 
-instance Core.ToHeaders RegisterUser where
+instance Data.ToHeaders RegisterUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterUser where
+instance Data.ToJSON RegisterUser where
   toJSON RegisterUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IamArn" Core..=) Prelude.<$> iamArn,
-            ("ExternalLoginFederationProviderType" Core..=)
+          [ ("IamArn" Data..=) Prelude.<$> iamArn,
+            ("ExternalLoginFederationProviderType" Data..=)
               Prelude.<$> externalLoginFederationProviderType,
-            ("CustomFederationProviderUrl" Core..=)
+            ("CustomFederationProviderUrl" Data..=)
               Prelude.<$> customFederationProviderUrl,
-            ("UserName" Core..=) Prelude.<$> userName,
-            ("ExternalLoginId" Core..=)
+            ("UserName" Data..=) Prelude.<$> userName,
+            ("ExternalLoginId" Data..=)
               Prelude.<$> externalLoginId,
-            ("CustomPermissionsName" Core..=)
+            ("CustomPermissionsName" Data..=)
               Prelude.<$> customPermissionsName,
-            ("SessionName" Core..=) Prelude.<$> sessionName,
-            Prelude.Just ("IdentityType" Core..= identityType),
-            Prelude.Just ("Email" Core..= email),
-            Prelude.Just ("UserRole" Core..= userRole)
+            ("SessionName" Data..=) Prelude.<$> sessionName,
+            Prelude.Just ("IdentityType" Data..= identityType),
+            Prelude.Just ("Email" Data..= email),
+            Prelude.Just ("UserRole" Data..= userRole)
           ]
       )
 
-instance Core.ToPath RegisterUser where
+instance Data.ToPath RegisterUser where
   toPath RegisterUser' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/namespaces/",
-        Core.toBS namespace,
+        Data.toBS namespace,
         "/users"
       ]
 
-instance Core.ToQuery RegisterUser where
+instance Data.ToQuery RegisterUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterUserResponse' smart constructor.

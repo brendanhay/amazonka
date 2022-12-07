@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,7 +86,7 @@ instance Core.AWSRequest GetResolverRule where
     Response.receiveJSON
       ( \s h x ->
           GetResolverRuleResponse'
-            Prelude.<$> (x Core..?> "ResolverRule")
+            Prelude.<$> (x Data..?> "ResolverRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,34 +97,34 @@ instance Prelude.Hashable GetResolverRule where
 instance Prelude.NFData GetResolverRule where
   rnf GetResolverRule' {..} = Prelude.rnf resolverRuleId
 
-instance Core.ToHeaders GetResolverRule where
+instance Data.ToHeaders GetResolverRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.GetResolverRule" ::
+              Data.=# ( "Route53Resolver.GetResolverRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResolverRule where
+instance Data.ToJSON GetResolverRule where
   toJSON GetResolverRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ResolverRuleId" Core..= resolverRuleId)
+              ("ResolverRuleId" Data..= resolverRuleId)
           ]
       )
 
-instance Core.ToPath GetResolverRule where
+instance Data.ToPath GetResolverRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetResolverRule where
+instance Data.ToQuery GetResolverRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResolverRuleResponse' smart constructor.

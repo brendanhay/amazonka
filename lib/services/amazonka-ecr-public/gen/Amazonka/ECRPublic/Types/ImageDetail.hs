@@ -21,6 +21,7 @@ module Amazonka.ECRPublic.Types.ImageDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that describes an image returned by a DescribeImages
@@ -32,7 +33,7 @@ data ImageDetail = ImageDetail'
     artifactMediaType :: Prelude.Maybe Prelude.Text,
     -- | The date and time, expressed in standard JavaScript date format, at
     -- which the current image was pushed to the repository.
-    imagePushedAt :: Prelude.Maybe Core.POSIX,
+    imagePushedAt :: Prelude.Maybe Data.POSIX,
     -- | The name of the repository to which this image belongs.
     repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The size, in bytes, of the image in the repository.
@@ -113,7 +114,7 @@ imageDetail_artifactMediaType = Lens.lens (\ImageDetail' {artifactMediaType} -> 
 -- | The date and time, expressed in standard JavaScript date format, at
 -- which the current image was pushed to the repository.
 imageDetail_imagePushedAt :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.UTCTime)
-imageDetail_imagePushedAt = Lens.lens (\ImageDetail' {imagePushedAt} -> imagePushedAt) (\s@ImageDetail' {} a -> s {imagePushedAt = a} :: ImageDetail) Prelude.. Lens.mapping Core._Time
+imageDetail_imagePushedAt = Lens.lens (\ImageDetail' {imagePushedAt} -> imagePushedAt) (\s@ImageDetail' {} a -> s {imagePushedAt = a} :: ImageDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the repository to which this image belongs.
 imageDetail_repositoryName :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
@@ -149,20 +150,20 @@ imageDetail_imageManifestMediaType = Lens.lens (\ImageDetail' {imageManifestMedi
 imageDetail_imageDigest :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
 imageDetail_imageDigest = Lens.lens (\ImageDetail' {imageDigest} -> imageDigest) (\s@ImageDetail' {} a -> s {imageDigest = a} :: ImageDetail)
 
-instance Core.FromJSON ImageDetail where
+instance Data.FromJSON ImageDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageDetail"
       ( \x ->
           ImageDetail'
-            Prelude.<$> (x Core..:? "artifactMediaType")
-            Prelude.<*> (x Core..:? "imagePushedAt")
-            Prelude.<*> (x Core..:? "repositoryName")
-            Prelude.<*> (x Core..:? "imageSizeInBytes")
-            Prelude.<*> (x Core..:? "imageTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "registryId")
-            Prelude.<*> (x Core..:? "imageManifestMediaType")
-            Prelude.<*> (x Core..:? "imageDigest")
+            Prelude.<$> (x Data..:? "artifactMediaType")
+            Prelude.<*> (x Data..:? "imagePushedAt")
+            Prelude.<*> (x Data..:? "repositoryName")
+            Prelude.<*> (x Data..:? "imageSizeInBytes")
+            Prelude.<*> (x Data..:? "imageTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "registryId")
+            Prelude.<*> (x Data..:? "imageManifestMediaType")
+            Prelude.<*> (x Data..:? "imageDigest")
       )
 
 instance Prelude.Hashable ImageDetail where

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClassicLinkInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.GroupIdentifier
 import Amazonka.EC2.Types.Tag
@@ -87,16 +88,16 @@ classicLinkInstance_vpcId = Lens.lens (\ClassicLinkInstance' {vpcId} -> vpcId) (
 classicLinkInstance_groups :: Lens.Lens' ClassicLinkInstance (Prelude.Maybe [GroupIdentifier])
 classicLinkInstance_groups = Lens.lens (\ClassicLinkInstance' {groups} -> groups) (\s@ClassicLinkInstance' {} a -> s {groups = a} :: ClassicLinkInstance) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML ClassicLinkInstance where
+instance Data.FromXML ClassicLinkInstance where
   parseXML x =
     ClassicLinkInstance'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "vpcId")
-      Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "vpcId")
+      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable ClassicLinkInstance where

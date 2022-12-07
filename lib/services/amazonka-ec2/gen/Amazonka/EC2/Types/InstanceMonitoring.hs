@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceMonitoring where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Monitoring
 import qualified Amazonka.Prelude as Prelude
@@ -63,11 +64,11 @@ instanceMonitoring_monitoring = Lens.lens (\InstanceMonitoring' {monitoring} -> 
 instanceMonitoring_instanceId :: Lens.Lens' InstanceMonitoring (Prelude.Maybe Prelude.Text)
 instanceMonitoring_instanceId = Lens.lens (\InstanceMonitoring' {instanceId} -> instanceId) (\s@InstanceMonitoring' {} a -> s {instanceId = a} :: InstanceMonitoring)
 
-instance Core.FromXML InstanceMonitoring where
+instance Data.FromXML InstanceMonitoring where
   parseXML x =
     InstanceMonitoring'
-      Prelude.<$> (x Core..@? "monitoring")
-      Prelude.<*> (x Core..@? "instanceId")
+      Prelude.<$> (x Data..@? "monitoring")
+      Prelude.<*> (x Data..@? "instanceId")
 
 instance Prelude.Hashable InstanceMonitoring where
   hashWithSalt _salt InstanceMonitoring' {..} =

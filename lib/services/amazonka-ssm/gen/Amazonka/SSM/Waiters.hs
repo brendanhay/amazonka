@@ -18,6 +18,7 @@ module Amazonka.SSM.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.GetCommandInvocation
 import Amazonka.SSM.Lens
@@ -36,56 +37,56 @@ newCommandExecuted =
             Core.AcceptRetry
             ( getCommandInvocationResponse_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "InProgress"
             Core.AcceptRetry
             ( getCommandInvocationResponse_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Delayed"
             Core.AcceptRetry
             ( getCommandInvocationResponse_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Success"
             Core.AcceptSuccess
             ( getCommandInvocationResponse_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Cancelled"
             Core.AcceptFailure
             ( getCommandInvocationResponse_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "TimedOut"
             Core.AcceptFailure
             ( getCommandInvocationResponse_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( getCommandInvocationResponse_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Cancelling"
             Core.AcceptFailure
             ( getCommandInvocationResponse_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "InvocationDoesNotExist"

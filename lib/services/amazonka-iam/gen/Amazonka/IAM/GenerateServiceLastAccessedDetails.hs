@@ -100,6 +100,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -179,7 +180,7 @@ instance
       "GenerateServiceLastAccessedDetailsResult"
       ( \s h x ->
           GenerateServiceLastAccessedDetailsResponse'
-            Prelude.<$> (x Core..@? "JobId")
+            Prelude.<$> (x Data..@? "JobId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,31 +203,31 @@ instance
       `Prelude.seq` Prelude.rnf arn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GenerateServiceLastAccessedDetails
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GenerateServiceLastAccessedDetails
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GenerateServiceLastAccessedDetails
   where
   toQuery GenerateServiceLastAccessedDetails' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GenerateServiceLastAccessedDetails" ::
+          Data.=: ( "GenerateServiceLastAccessedDetails" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Granularity" Core.=: granularity,
-        "Arn" Core.=: arn
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Granularity" Data.=: granularity,
+        "Arn" Data.=: arn
       ]
 
 -- | /See:/ 'newGenerateServiceLastAccessedDetailsResponse' smart constructor.

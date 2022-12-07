@@ -50,6 +50,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,8 +150,8 @@ instance Core.AWSRequest ListCustomLineItems where
     Response.receiveJSON
       ( \s h x ->
           ListCustomLineItemsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "CustomLineItems"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "CustomLineItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -170,32 +171,32 @@ instance Prelude.NFData ListCustomLineItems where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListCustomLineItems where
+instance Data.ToHeaders ListCustomLineItems where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCustomLineItems where
+instance Data.ToJSON ListCustomLineItems where
   toJSON ListCustomLineItems' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("BillingPeriod" Core..=) Prelude.<$> billingPeriod,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListCustomLineItems where
+instance Data.ToPath ListCustomLineItems where
   toPath = Prelude.const "/list-custom-line-items"
 
-instance Core.ToQuery ListCustomLineItems where
+instance Data.ToQuery ListCustomLineItems where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCustomLineItemsResponse' smart constructor.

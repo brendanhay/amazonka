@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -70,7 +71,7 @@ instance Core.AWSRequest GetAccountAlias where
     Response.receiveJSON
       ( \s h x ->
           GetAccountAliasResponse'
-            Prelude.<$> (x Core..?> "accountAlias")
+            Prelude.<$> (x Data..?> "accountAlias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -81,24 +82,24 @@ instance Prelude.Hashable GetAccountAlias where
 instance Prelude.NFData GetAccountAlias where
   rnf _ = ()
 
-instance Core.ToHeaders GetAccountAlias where
+instance Data.ToHeaders GetAccountAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAccountAlias where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetAccountAlias where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetAccountAlias where
+instance Data.ToPath GetAccountAlias where
   toPath = Prelude.const "/control/get-account-alias"
 
-instance Core.ToQuery GetAccountAlias where
+instance Data.ToQuery GetAccountAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAccountAliasResponse' smart constructor.

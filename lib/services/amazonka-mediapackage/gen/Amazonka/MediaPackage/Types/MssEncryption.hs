@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.MssEncryption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types.SpekeKeyProvider
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,13 +56,13 @@ newMssEncryption pSpekeKeyProvider_ =
 mssEncryption_spekeKeyProvider :: Lens.Lens' MssEncryption SpekeKeyProvider
 mssEncryption_spekeKeyProvider = Lens.lens (\MssEncryption' {spekeKeyProvider} -> spekeKeyProvider) (\s@MssEncryption' {} a -> s {spekeKeyProvider = a} :: MssEncryption)
 
-instance Core.FromJSON MssEncryption where
+instance Data.FromJSON MssEncryption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MssEncryption"
       ( \x ->
           MssEncryption'
-            Prelude.<$> (x Core..: "spekeKeyProvider")
+            Prelude.<$> (x Data..: "spekeKeyProvider")
       )
 
 instance Prelude.Hashable MssEncryption where
@@ -71,11 +72,11 @@ instance Prelude.Hashable MssEncryption where
 instance Prelude.NFData MssEncryption where
   rnf MssEncryption' {..} = Prelude.rnf spekeKeyProvider
 
-instance Core.ToJSON MssEncryption where
+instance Data.ToJSON MssEncryption where
   toJSON MssEncryption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("spekeKeyProvider" Core..= spekeKeyProvider)
+              ("spekeKeyProvider" Data..= spekeKeyProvider)
           ]
       )

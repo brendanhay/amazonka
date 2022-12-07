@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.S3OutputLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An S3 bucket where you want to store the results of this request.
@@ -70,15 +71,15 @@ s3OutputLocation_outputS3BucketName = Lens.lens (\S3OutputLocation' {outputS3Buc
 s3OutputLocation_outputS3KeyPrefix :: Lens.Lens' S3OutputLocation (Prelude.Maybe Prelude.Text)
 s3OutputLocation_outputS3KeyPrefix = Lens.lens (\S3OutputLocation' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@S3OutputLocation' {} a -> s {outputS3KeyPrefix = a} :: S3OutputLocation)
 
-instance Core.FromJSON S3OutputLocation where
+instance Data.FromJSON S3OutputLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3OutputLocation"
       ( \x ->
           S3OutputLocation'
-            Prelude.<$> (x Core..:? "OutputS3Region")
-            Prelude.<*> (x Core..:? "OutputS3BucketName")
-            Prelude.<*> (x Core..:? "OutputS3KeyPrefix")
+            Prelude.<$> (x Data..:? "OutputS3Region")
+            Prelude.<*> (x Data..:? "OutputS3BucketName")
+            Prelude.<*> (x Data..:? "OutputS3KeyPrefix")
       )
 
 instance Prelude.Hashable S3OutputLocation where
@@ -93,15 +94,15 @@ instance Prelude.NFData S3OutputLocation where
       `Prelude.seq` Prelude.rnf outputS3BucketName
       `Prelude.seq` Prelude.rnf outputS3KeyPrefix
 
-instance Core.ToJSON S3OutputLocation where
+instance Data.ToJSON S3OutputLocation where
   toJSON S3OutputLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutputS3Region" Core..=)
+          [ ("OutputS3Region" Data..=)
               Prelude.<$> outputS3Region,
-            ("OutputS3BucketName" Core..=)
+            ("OutputS3BucketName" Data..=)
               Prelude.<$> outputS3BucketName,
-            ("OutputS3KeyPrefix" Core..=)
+            ("OutputS3KeyPrefix" Data..=)
               Prelude.<$> outputS3KeyPrefix
           ]
       )

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,7 +90,7 @@ instance Core.AWSRequest DeleteMLTransform where
     Response.receiveJSON
       ( \s h x ->
           DeleteMLTransformResponse'
-            Prelude.<$> (x Core..?> "TransformId")
+            Prelude.<$> (x Data..?> "TransformId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,30 +101,30 @@ instance Prelude.Hashable DeleteMLTransform where
 instance Prelude.NFData DeleteMLTransform where
   rnf DeleteMLTransform' {..} = Prelude.rnf transformId
 
-instance Core.ToHeaders DeleteMLTransform where
+instance Data.ToHeaders DeleteMLTransform where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.DeleteMLTransform" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.DeleteMLTransform" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteMLTransform where
+instance Data.ToJSON DeleteMLTransform where
   toJSON DeleteMLTransform' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TransformId" Core..= transformId)]
+          [Prelude.Just ("TransformId" Data..= transformId)]
       )
 
-instance Core.ToPath DeleteMLTransform where
+instance Data.ToPath DeleteMLTransform where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteMLTransform where
+instance Data.ToQuery DeleteMLTransform where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMLTransformResponse' smart constructor.

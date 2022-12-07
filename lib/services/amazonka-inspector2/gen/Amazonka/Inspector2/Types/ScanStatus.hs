@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.ScanStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.ScanStatusCode
 import Amazonka.Inspector2.Types.ScanStatusReason
 import qualified Amazonka.Prelude as Prelude
@@ -67,14 +68,14 @@ scanStatus_reason = Lens.lens (\ScanStatus' {reason} -> reason) (\s@ScanStatus' 
 scanStatus_statusCode :: Lens.Lens' ScanStatus ScanStatusCode
 scanStatus_statusCode = Lens.lens (\ScanStatus' {statusCode} -> statusCode) (\s@ScanStatus' {} a -> s {statusCode = a} :: ScanStatus)
 
-instance Core.FromJSON ScanStatus where
+instance Data.FromJSON ScanStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScanStatus"
       ( \x ->
           ScanStatus'
-            Prelude.<$> (x Core..: "reason")
-            Prelude.<*> (x Core..: "statusCode")
+            Prelude.<$> (x Data..: "reason")
+            Prelude.<*> (x Data..: "statusCode")
       )
 
 instance Prelude.Hashable ScanStatus where

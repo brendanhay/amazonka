@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest CreateImportJob where
       ( \s h x ->
           CreateImportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable CreateImportJob where
@@ -113,30 +114,30 @@ instance Prelude.NFData CreateImportJob where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf importJobRequest
 
-instance Core.ToHeaders CreateImportJob where
+instance Data.ToHeaders CreateImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateImportJob where
+instance Data.ToJSON CreateImportJob where
   toJSON CreateImportJob' {..} =
-    Core.toJSON importJobRequest
+    Data.toJSON importJobRequest
 
-instance Core.ToPath CreateImportJob where
+instance Data.ToPath CreateImportJob where
   toPath CreateImportJob' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/jobs/import"
       ]
 
-instance Core.ToQuery CreateImportJob where
+instance Data.ToQuery CreateImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateImportJobResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.VirtualGatewayListenerTlsAcmCertificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents an Certificate Manager certificate.
@@ -66,15 +67,15 @@ virtualGatewayListenerTlsAcmCertificate_certificateArn :: Lens.Lens' VirtualGate
 virtualGatewayListenerTlsAcmCertificate_certificateArn = Lens.lens (\VirtualGatewayListenerTlsAcmCertificate' {certificateArn} -> certificateArn) (\s@VirtualGatewayListenerTlsAcmCertificate' {} a -> s {certificateArn = a} :: VirtualGatewayListenerTlsAcmCertificate)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     VirtualGatewayListenerTlsAcmCertificate
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewayListenerTlsAcmCertificate"
       ( \x ->
           VirtualGatewayListenerTlsAcmCertificate'
-            Prelude.<$> (x Core..: "certificateArn")
+            Prelude.<$> (x Data..: "certificateArn")
       )
 
 instance
@@ -94,13 +95,13 @@ instance
     Prelude.rnf certificateArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     VirtualGatewayListenerTlsAcmCertificate
   where
   toJSON VirtualGatewayListenerTlsAcmCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("certificateArn" Core..= certificateArn)
+              ("certificateArn" Data..= certificateArn)
           ]
       )

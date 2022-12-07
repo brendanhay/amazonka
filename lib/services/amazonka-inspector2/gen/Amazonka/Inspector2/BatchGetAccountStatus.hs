@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,9 +90,9 @@ instance Core.AWSRequest BatchGetAccountStatus where
     Response.receiveJSON
       ( \s h x ->
           BatchGetAccountStatusResponse'
-            Prelude.<$> (x Core..?> "failedAccounts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "failedAccounts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "accounts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "accounts" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable BatchGetAccountStatus where
@@ -102,28 +103,28 @@ instance Prelude.NFData BatchGetAccountStatus where
   rnf BatchGetAccountStatus' {..} =
     Prelude.rnf accountIds
 
-instance Core.ToHeaders BatchGetAccountStatus where
+instance Data.ToHeaders BatchGetAccountStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetAccountStatus where
+instance Data.ToJSON BatchGetAccountStatus where
   toJSON BatchGetAccountStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("accountIds" Core..=) Prelude.<$> accountIds]
+          [("accountIds" Data..=) Prelude.<$> accountIds]
       )
 
-instance Core.ToPath BatchGetAccountStatus where
+instance Data.ToPath BatchGetAccountStatus where
   toPath = Prelude.const "/status/batch/get"
 
-instance Core.ToQuery BatchGetAccountStatus where
+instance Data.ToQuery BatchGetAccountStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetAccountStatusResponse' smart constructor.

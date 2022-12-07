@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration containing information about the customer managed key
@@ -60,15 +61,15 @@ serverSideEncryptionConfiguration_kmsKeyId :: Lens.Lens' ServerSideEncryptionCon
 serverSideEncryptionConfiguration_kmsKeyId = Lens.lens (\ServerSideEncryptionConfiguration' {kmsKeyId} -> kmsKeyId) (\s@ServerSideEncryptionConfiguration' {} a -> s {kmsKeyId = a} :: ServerSideEncryptionConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ServerSideEncryptionConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerSideEncryptionConfiguration"
       ( \x ->
           ServerSideEncryptionConfiguration'
-            Prelude.<$> (x Core..: "KmsKeyId")
+            Prelude.<$> (x Data..: "KmsKeyId")
       )
 
 instance
@@ -88,11 +89,11 @@ instance
     Prelude.rnf kmsKeyId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ServerSideEncryptionConfiguration
   where
   toJSON ServerSideEncryptionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("KmsKeyId" Core..= kmsKeyId)]
+          [Prelude.Just ("KmsKeyId" Data..= kmsKeyId)]
       )

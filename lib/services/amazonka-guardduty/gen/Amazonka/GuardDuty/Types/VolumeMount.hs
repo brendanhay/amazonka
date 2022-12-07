@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.VolumeMount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Container volume mount.
@@ -61,14 +62,14 @@ volumeMount_name = Lens.lens (\VolumeMount' {name} -> name) (\s@VolumeMount' {} 
 volumeMount_mountPath :: Lens.Lens' VolumeMount (Prelude.Maybe Prelude.Text)
 volumeMount_mountPath = Lens.lens (\VolumeMount' {mountPath} -> mountPath) (\s@VolumeMount' {} a -> s {mountPath = a} :: VolumeMount)
 
-instance Core.FromJSON VolumeMount where
+instance Data.FromJSON VolumeMount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VolumeMount"
       ( \x ->
           VolumeMount'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "mountPath")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "mountPath")
       )
 
 instance Prelude.Hashable VolumeMount where

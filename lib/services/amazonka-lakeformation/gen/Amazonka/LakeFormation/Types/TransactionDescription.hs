@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.TransactionDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.TransactionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTransactionDescription' smart constructor.
 data TransactionDescription = TransactionDescription'
   { -- | The time when the transaction started.
-    transactionStartTime :: Prelude.Maybe Core.POSIX,
+    transactionStartTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the transaction.
     transactionId :: Prelude.Maybe Prelude.Text,
     -- | A status of ACTIVE, COMMITTED, or ABORTED.
     transactionStatus :: Prelude.Maybe TransactionStatus,
     -- | The time when the transaction committed or aborted, if it is not
     -- currently active.
-    transactionEndTime :: Prelude.Maybe Core.POSIX
+    transactionEndTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,7 +70,7 @@ newTransactionDescription =
 
 -- | The time when the transaction started.
 transactionDescription_transactionStartTime :: Lens.Lens' TransactionDescription (Prelude.Maybe Prelude.UTCTime)
-transactionDescription_transactionStartTime = Lens.lens (\TransactionDescription' {transactionStartTime} -> transactionStartTime) (\s@TransactionDescription' {} a -> s {transactionStartTime = a} :: TransactionDescription) Prelude.. Lens.mapping Core._Time
+transactionDescription_transactionStartTime = Lens.lens (\TransactionDescription' {transactionStartTime} -> transactionStartTime) (\s@TransactionDescription' {} a -> s {transactionStartTime = a} :: TransactionDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the transaction.
 transactionDescription_transactionId :: Lens.Lens' TransactionDescription (Prelude.Maybe Prelude.Text)
@@ -82,18 +83,18 @@ transactionDescription_transactionStatus = Lens.lens (\TransactionDescription' {
 -- | The time when the transaction committed or aborted, if it is not
 -- currently active.
 transactionDescription_transactionEndTime :: Lens.Lens' TransactionDescription (Prelude.Maybe Prelude.UTCTime)
-transactionDescription_transactionEndTime = Lens.lens (\TransactionDescription' {transactionEndTime} -> transactionEndTime) (\s@TransactionDescription' {} a -> s {transactionEndTime = a} :: TransactionDescription) Prelude.. Lens.mapping Core._Time
+transactionDescription_transactionEndTime = Lens.lens (\TransactionDescription' {transactionEndTime} -> transactionEndTime) (\s@TransactionDescription' {} a -> s {transactionEndTime = a} :: TransactionDescription) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON TransactionDescription where
+instance Data.FromJSON TransactionDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransactionDescription"
       ( \x ->
           TransactionDescription'
-            Prelude.<$> (x Core..:? "TransactionStartTime")
-            Prelude.<*> (x Core..:? "TransactionId")
-            Prelude.<*> (x Core..:? "TransactionStatus")
-            Prelude.<*> (x Core..:? "TransactionEndTime")
+            Prelude.<$> (x Data..:? "TransactionStartTime")
+            Prelude.<*> (x Data..:? "TransactionId")
+            Prelude.<*> (x Data..:? "TransactionStatus")
+            Prelude.<*> (x Data..:? "TransactionEndTime")
       )
 
 instance Prelude.Hashable TransactionDescription where

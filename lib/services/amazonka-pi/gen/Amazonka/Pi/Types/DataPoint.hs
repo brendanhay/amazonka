@@ -21,6 +21,7 @@ module Amazonka.Pi.Types.DataPoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A timestamp, and a single numerical value, which together represent a
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDataPoint' smart constructor.
 data DataPoint = DataPoint'
   { -- | The time, in epoch format, associated with a particular @Value@.
-    timestamp :: Core.POSIX,
+    timestamp :: Data.POSIX,
     -- | The actual value associated with a particular @Timestamp@.
     value :: Prelude.Double
   }
@@ -55,26 +56,26 @@ newDataPoint ::
 newDataPoint pTimestamp_ pValue_ =
   DataPoint'
     { timestamp =
-        Core._Time Lens.# pTimestamp_,
+        Data._Time Lens.# pTimestamp_,
       value = pValue_
     }
 
 -- | The time, in epoch format, associated with a particular @Value@.
 dataPoint_timestamp :: Lens.Lens' DataPoint Prelude.UTCTime
-dataPoint_timestamp = Lens.lens (\DataPoint' {timestamp} -> timestamp) (\s@DataPoint' {} a -> s {timestamp = a} :: DataPoint) Prelude.. Core._Time
+dataPoint_timestamp = Lens.lens (\DataPoint' {timestamp} -> timestamp) (\s@DataPoint' {} a -> s {timestamp = a} :: DataPoint) Prelude.. Data._Time
 
 -- | The actual value associated with a particular @Timestamp@.
 dataPoint_value :: Lens.Lens' DataPoint Prelude.Double
 dataPoint_value = Lens.lens (\DataPoint' {value} -> value) (\s@DataPoint' {} a -> s {value = a} :: DataPoint)
 
-instance Core.FromJSON DataPoint where
+instance Data.FromJSON DataPoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataPoint"
       ( \x ->
           DataPoint'
-            Prelude.<$> (x Core..: "Timestamp")
-            Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Timestamp")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable DataPoint where

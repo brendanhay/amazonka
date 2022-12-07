@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.NonCompliantResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.ResourceIdentifier
 import Amazonka.IoT.Types.ResourceType
 import qualified Amazonka.Prelude as Prelude
@@ -74,15 +75,15 @@ nonCompliantResource_additionalInfo = Lens.lens (\NonCompliantResource' {additio
 nonCompliantResource_resourceIdentifier :: Lens.Lens' NonCompliantResource (Prelude.Maybe ResourceIdentifier)
 nonCompliantResource_resourceIdentifier = Lens.lens (\NonCompliantResource' {resourceIdentifier} -> resourceIdentifier) (\s@NonCompliantResource' {} a -> s {resourceIdentifier = a} :: NonCompliantResource)
 
-instance Core.FromJSON NonCompliantResource where
+instance Data.FromJSON NonCompliantResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NonCompliantResource"
       ( \x ->
           NonCompliantResource'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "additionalInfo" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resourceIdentifier")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "additionalInfo" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceIdentifier")
       )
 
 instance Prelude.Hashable NonCompliantResource where

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,8 +155,8 @@ instance Core.AWSRequest ListCheckSummaries where
     Response.receiveJSON
       ( \s h x ->
           ListCheckSummariesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "CheckSummaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "CheckSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,39 +180,39 @@ instance Prelude.NFData ListCheckSummaries where
       `Prelude.seq` Prelude.rnf questionId
       `Prelude.seq` Prelude.rnf choiceId
 
-instance Core.ToHeaders ListCheckSummaries where
+instance Data.ToHeaders ListCheckSummaries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCheckSummaries where
+instance Data.ToJSON ListCheckSummaries where
   toJSON ListCheckSummaries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("LensArn" Core..= lensArn),
-            Prelude.Just ("PillarId" Core..= pillarId),
-            Prelude.Just ("QuestionId" Core..= questionId),
-            Prelude.Just ("ChoiceId" Core..= choiceId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("LensArn" Data..= lensArn),
+            Prelude.Just ("PillarId" Data..= pillarId),
+            Prelude.Just ("QuestionId" Data..= questionId),
+            Prelude.Just ("ChoiceId" Data..= choiceId)
           ]
       )
 
-instance Core.ToPath ListCheckSummaries where
+instance Data.ToPath ListCheckSummaries where
   toPath ListCheckSummaries' {..} =
     Prelude.mconcat
       [ "/workloads/",
-        Core.toBS workloadId,
+        Data.toBS workloadId,
         "/checkSummaries"
       ]
 
-instance Core.ToQuery ListCheckSummaries where
+instance Data.ToQuery ListCheckSummaries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCheckSummariesResponse' smart constructor.

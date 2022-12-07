@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.RegexPatternSetReferenceStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.FieldToMatch
 import Amazonka.WAFV2.Types.TextTransformation
@@ -112,17 +113,17 @@ regexPatternSetReferenceStatement_textTransformations :: Lens.Lens' RegexPattern
 regexPatternSetReferenceStatement_textTransformations = Lens.lens (\RegexPatternSetReferenceStatement' {textTransformations} -> textTransformations) (\s@RegexPatternSetReferenceStatement' {} a -> s {textTransformations = a} :: RegexPatternSetReferenceStatement) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RegexPatternSetReferenceStatement
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegexPatternSetReferenceStatement"
       ( \x ->
           RegexPatternSetReferenceStatement'
-            Prelude.<$> (x Core..: "ARN")
-            Prelude.<*> (x Core..: "FieldToMatch")
-            Prelude.<*> (x Core..: "TextTransformations")
+            Prelude.<$> (x Data..: "ARN")
+            Prelude.<*> (x Data..: "FieldToMatch")
+            Prelude.<*> (x Data..: "TextTransformations")
       )
 
 instance
@@ -146,15 +147,15 @@ instance
       `Prelude.seq` Prelude.rnf textTransformations
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RegexPatternSetReferenceStatement
   where
   toJSON RegexPatternSetReferenceStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ARN" Core..= arn),
-            Prelude.Just ("FieldToMatch" Core..= fieldToMatch),
+          [ Prelude.Just ("ARN" Data..= arn),
+            Prelude.Just ("FieldToMatch" Data..= fieldToMatch),
             Prelude.Just
-              ("TextTransformations" Core..= textTransformations)
+              ("TextTransformations" Data..= textTransformations)
           ]
       )

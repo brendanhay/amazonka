@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.Configuration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration specification to be used when provisioning virtual
@@ -33,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newConfiguration' smart constructor.
 data Configuration = Configuration'
   { -- | A set of properties specified within a configuration classification.
-    properties :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    properties :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | A list of additional configurations to apply within a configuration
     -- object.
     configurations :: Prelude.Maybe [Configuration],
@@ -69,7 +70,7 @@ newConfiguration pClassification_ =
 
 -- | A set of properties specified within a configuration classification.
 configuration_properties :: Lens.Lens' Configuration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-configuration_properties = Lens.lens (\Configuration' {properties} -> properties) (\s@Configuration' {} a -> s {properties = a} :: Configuration) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+configuration_properties = Lens.lens (\Configuration' {properties} -> properties) (\s@Configuration' {} a -> s {properties = a} :: Configuration) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | A list of additional configurations to apply within a configuration
 -- object.
@@ -80,15 +81,15 @@ configuration_configurations = Lens.lens (\Configuration' {configurations} -> co
 configuration_classification :: Lens.Lens' Configuration Prelude.Text
 configuration_classification = Lens.lens (\Configuration' {classification} -> classification) (\s@Configuration' {} a -> s {classification = a} :: Configuration)
 
-instance Core.FromJSON Configuration where
+instance Data.FromJSON Configuration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Configuration"
       ( \x ->
           Configuration'
-            Prelude.<$> (x Core..:? "properties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "configurations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "classification")
+            Prelude.<$> (x Data..:? "properties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "configurations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "classification")
       )
 
 instance Prelude.Hashable Configuration where
@@ -103,14 +104,14 @@ instance Prelude.NFData Configuration where
       `Prelude.seq` Prelude.rnf configurations
       `Prelude.seq` Prelude.rnf classification
 
-instance Core.ToJSON Configuration where
+instance Data.ToJSON Configuration where
   toJSON Configuration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("properties" Core..=) Prelude.<$> properties,
-            ("configurations" Core..=)
+          [ ("properties" Data..=) Prelude.<$> properties,
+            ("configurations" Data..=)
               Prelude.<$> configurations,
             Prelude.Just
-              ("classification" Core..= classification)
+              ("classification" Data..= classification)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.VolumeFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.VolumeFilterName
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,11 +77,11 @@ instance Prelude.NFData VolumeFilter where
   rnf VolumeFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON VolumeFilter where
+instance Data.ToJSON VolumeFilter where
   toJSON VolumeFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Values" Data..=) Prelude.<$> values
           ]
       )

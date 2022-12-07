@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.PortalStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.MonitorErrorDetails
 import Amazonka.IoTSiteWise.Types.PortalState
 import qualified Amazonka.Prelude as Prelude
@@ -65,13 +66,13 @@ portalStatus_error = Lens.lens (\PortalStatus' {error} -> error) (\s@PortalStatu
 portalStatus_state :: Lens.Lens' PortalStatus PortalState
 portalStatus_state = Lens.lens (\PortalStatus' {state} -> state) (\s@PortalStatus' {} a -> s {state = a} :: PortalStatus)
 
-instance Core.FromJSON PortalStatus where
+instance Data.FromJSON PortalStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortalStatus"
       ( \x ->
           PortalStatus'
-            Prelude.<$> (x Core..:? "error") Prelude.<*> (x Core..: "state")
+            Prelude.<$> (x Data..:? "error") Prelude.<*> (x Data..: "state")
       )
 
 instance Prelude.Hashable PortalStatus where

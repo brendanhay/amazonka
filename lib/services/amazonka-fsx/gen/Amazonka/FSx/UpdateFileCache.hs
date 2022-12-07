@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,7 +107,7 @@ instance Core.AWSRequest UpdateFileCache where
     Response.receiveJSON
       ( \s h x ->
           UpdateFileCacheResponse'
-            Prelude.<$> (x Core..?> "FileCache")
+            Prelude.<$> (x Data..?> "FileCache")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,37 +123,37 @@ instance Prelude.NFData UpdateFileCache where
       `Prelude.seq` Prelude.rnf lustreConfiguration
       `Prelude.seq` Prelude.rnf fileCacheId
 
-instance Core.ToHeaders UpdateFileCache where
+instance Data.ToHeaders UpdateFileCache where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.UpdateFileCache" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.UpdateFileCache" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFileCache where
+instance Data.ToJSON UpdateFileCache where
   toJSON UpdateFileCache' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("LustreConfiguration" Core..=)
+            ("LustreConfiguration" Data..=)
               Prelude.<$> lustreConfiguration,
-            Prelude.Just ("FileCacheId" Core..= fileCacheId)
+            Prelude.Just ("FileCacheId" Data..= fileCacheId)
           ]
       )
 
-instance Core.ToPath UpdateFileCache where
+instance Data.ToPath UpdateFileCache where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateFileCache where
+instance Data.ToQuery UpdateFileCache where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFileCacheResponse' smart constructor.

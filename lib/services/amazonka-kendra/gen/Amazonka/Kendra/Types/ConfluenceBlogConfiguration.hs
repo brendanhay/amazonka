@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ConfluenceBlogConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ConfluenceBlogToIndexFieldMapping
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,13 +81,13 @@ newConfluenceBlogConfiguration =
 confluenceBlogConfiguration_blogFieldMappings :: Lens.Lens' ConfluenceBlogConfiguration (Prelude.Maybe (Prelude.NonEmpty ConfluenceBlogToIndexFieldMapping))
 confluenceBlogConfiguration_blogFieldMappings = Lens.lens (\ConfluenceBlogConfiguration' {blogFieldMappings} -> blogFieldMappings) (\s@ConfluenceBlogConfiguration' {} a -> s {blogFieldMappings = a} :: ConfluenceBlogConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ConfluenceBlogConfiguration where
+instance Data.FromJSON ConfluenceBlogConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfluenceBlogConfiguration"
       ( \x ->
           ConfluenceBlogConfiguration'
-            Prelude.<$> (x Core..:? "BlogFieldMappings")
+            Prelude.<$> (x Data..:? "BlogFieldMappings")
       )
 
 instance Prelude.Hashable ConfluenceBlogConfiguration where
@@ -97,11 +98,11 @@ instance Prelude.NFData ConfluenceBlogConfiguration where
   rnf ConfluenceBlogConfiguration' {..} =
     Prelude.rnf blogFieldMappings
 
-instance Core.ToJSON ConfluenceBlogConfiguration where
+instance Data.ToJSON ConfluenceBlogConfiguration where
   toJSON ConfluenceBlogConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BlogFieldMappings" Core..=)
+          [ ("BlogFieldMappings" Data..=)
               Prelude.<$> blogFieldMappings
           ]
       )

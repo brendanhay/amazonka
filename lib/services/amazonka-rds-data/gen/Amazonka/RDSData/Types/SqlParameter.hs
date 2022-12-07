@@ -21,6 +21,7 @@ module Amazonka.RDSData.Types.SqlParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDSData.Types.Field
 import Amazonka.RDSData.Types.TypeHint
@@ -150,12 +151,12 @@ instance Prelude.NFData SqlParameter where
       `Prelude.seq` Prelude.rnf typeHint
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON SqlParameter where
+instance Data.ToJSON SqlParameter where
   toJSON SqlParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("typeHint" Core..=) Prelude.<$> typeHint,
-            ("value" Core..=) Prelude.<$> value
+          [ ("name" Data..=) Prelude.<$> name,
+            ("typeHint" Data..=) Prelude.<$> typeHint,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

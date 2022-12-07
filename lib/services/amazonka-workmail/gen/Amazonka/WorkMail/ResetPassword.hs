@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -55,7 +56,7 @@ data ResetPassword = ResetPassword'
     -- | The identifier of the user for whom the password is reset.
     userId :: Prelude.Text,
     -- | The new password for the user.
-    password :: Core.Sensitive Prelude.Text
+    password :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -85,7 +86,7 @@ newResetPassword pOrganizationId_ pUserId_ pPassword_ =
   ResetPassword'
     { organizationId = pOrganizationId_,
       userId = pUserId_,
-      password = Core._Sensitive Lens.# pPassword_
+      password = Data._Sensitive Lens.# pPassword_
     }
 
 -- | The identifier of the organization that contains the user for which the
@@ -99,7 +100,7 @@ resetPassword_userId = Lens.lens (\ResetPassword' {userId} -> userId) (\s@ResetP
 
 -- | The new password for the user.
 resetPassword_password :: Lens.Lens' ResetPassword Prelude.Text
-resetPassword_password = Lens.lens (\ResetPassword' {password} -> password) (\s@ResetPassword' {} a -> s {password = a} :: ResetPassword) Prelude.. Core._Sensitive
+resetPassword_password = Lens.lens (\ResetPassword' {password} -> password) (\s@ResetPassword' {} a -> s {password = a} :: ResetPassword) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest ResetPassword where
   type
@@ -126,36 +127,36 @@ instance Prelude.NFData ResetPassword where
       `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf password
 
-instance Core.ToHeaders ResetPassword where
+instance Data.ToHeaders ResetPassword where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.ResetPassword" ::
+              Data.=# ( "WorkMailService.ResetPassword" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResetPassword where
+instance Data.ToJSON ResetPassword where
   toJSON ResetPassword' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("UserId" Core..= userId),
-            Prelude.Just ("Password" Core..= password)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("UserId" Data..= userId),
+            Prelude.Just ("Password" Data..= password)
           ]
       )
 
-instance Core.ToPath ResetPassword where
+instance Data.ToPath ResetPassword where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResetPassword where
+instance Data.ToQuery ResetPassword where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResetPasswordResponse' smart constructor.

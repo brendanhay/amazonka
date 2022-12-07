@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.FaultRootCause where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.FaultRootCauseService
 
@@ -65,14 +66,14 @@ faultRootCause_services = Lens.lens (\FaultRootCause' {services} -> services) (\
 faultRootCause_clientImpacting :: Lens.Lens' FaultRootCause (Prelude.Maybe Prelude.Bool)
 faultRootCause_clientImpacting = Lens.lens (\FaultRootCause' {clientImpacting} -> clientImpacting) (\s@FaultRootCause' {} a -> s {clientImpacting = a} :: FaultRootCause)
 
-instance Core.FromJSON FaultRootCause where
+instance Data.FromJSON FaultRootCause where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FaultRootCause"
       ( \x ->
           FaultRootCause'
-            Prelude.<$> (x Core..:? "Services" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ClientImpacting")
+            Prelude.<$> (x Data..:? "Services" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ClientImpacting")
       )
 
 instance Prelude.Hashable FaultRootCause where

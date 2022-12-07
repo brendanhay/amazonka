@@ -21,6 +21,7 @@ module Amazonka.MigrationHub.Types.MigrationTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHub.Types.ResourceAttribute
 import Amazonka.MigrationHub.Types.Task
 import qualified Amazonka.Prelude as Prelude
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newMigrationTask' smart constructor.
 data MigrationTask = MigrationTask'
   { -- | The timestamp when the task was gathered.
-    updateDateTime :: Prelude.Maybe Core.POSIX,
+    updateDateTime :: Prelude.Maybe Data.POSIX,
     -- | Task object encapsulating task information.
     task :: Prelude.Maybe Task,
     -- | Unique identifier that references the migration task. /Do not store
@@ -78,7 +79,7 @@ newMigrationTask =
 
 -- | The timestamp when the task was gathered.
 migrationTask_updateDateTime :: Lens.Lens' MigrationTask (Prelude.Maybe Prelude.UTCTime)
-migrationTask_updateDateTime = Lens.lens (\MigrationTask' {updateDateTime} -> updateDateTime) (\s@MigrationTask' {} a -> s {updateDateTime = a} :: MigrationTask) Prelude.. Lens.mapping Core._Time
+migrationTask_updateDateTime = Lens.lens (\MigrationTask' {updateDateTime} -> updateDateTime) (\s@MigrationTask' {} a -> s {updateDateTime = a} :: MigrationTask) Prelude.. Lens.mapping Data._Time
 
 -- | Task object encapsulating task information.
 migrationTask_task :: Lens.Lens' MigrationTask (Prelude.Maybe Task)
@@ -99,18 +100,18 @@ migrationTask_progressUpdateStream = Lens.lens (\MigrationTask' {progressUpdateS
 migrationTask_resourceAttributeList :: Lens.Lens' MigrationTask (Prelude.Maybe [ResourceAttribute])
 migrationTask_resourceAttributeList = Lens.lens (\MigrationTask' {resourceAttributeList} -> resourceAttributeList) (\s@MigrationTask' {} a -> s {resourceAttributeList = a} :: MigrationTask) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON MigrationTask where
+instance Data.FromJSON MigrationTask where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MigrationTask"
       ( \x ->
           MigrationTask'
-            Prelude.<$> (x Core..:? "UpdateDateTime")
-            Prelude.<*> (x Core..:? "Task")
-            Prelude.<*> (x Core..:? "MigrationTaskName")
-            Prelude.<*> (x Core..:? "ProgressUpdateStream")
-            Prelude.<*> ( x Core..:? "ResourceAttributeList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "UpdateDateTime")
+            Prelude.<*> (x Data..:? "Task")
+            Prelude.<*> (x Data..:? "MigrationTaskName")
+            Prelude.<*> (x Data..:? "ProgressUpdateStream")
+            Prelude.<*> ( x Data..:? "ResourceAttributeList"
+                            Data..!= Prelude.mempty
                         )
       )
 

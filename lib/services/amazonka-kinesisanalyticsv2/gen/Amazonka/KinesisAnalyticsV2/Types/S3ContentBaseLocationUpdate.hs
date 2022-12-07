@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.S3ContentBaseLocationUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The information required to update the S3 base location that holds the
@@ -73,13 +74,13 @@ instance Prelude.NFData S3ContentBaseLocationUpdate where
     Prelude.rnf bucketARNUpdate
       `Prelude.seq` Prelude.rnf basePathUpdate
 
-instance Core.ToJSON S3ContentBaseLocationUpdate where
+instance Data.ToJSON S3ContentBaseLocationUpdate where
   toJSON S3ContentBaseLocationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BucketARNUpdate" Core..=)
+          [ ("BucketARNUpdate" Data..=)
               Prelude.<$> bucketARNUpdate,
-            ("BasePathUpdate" Core..=)
+            ("BasePathUpdate" Data..=)
               Prelude.<$> basePathUpdate
           ]
       )

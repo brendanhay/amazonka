@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.AmplitudeSourceProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Amplitude is being used as a
@@ -53,13 +54,13 @@ newAmplitudeSourceProperties pObject_ =
 amplitudeSourceProperties_object :: Lens.Lens' AmplitudeSourceProperties Prelude.Text
 amplitudeSourceProperties_object = Lens.lens (\AmplitudeSourceProperties' {object'} -> object') (\s@AmplitudeSourceProperties' {} a -> s {object' = a} :: AmplitudeSourceProperties)
 
-instance Core.FromJSON AmplitudeSourceProperties where
+instance Data.FromJSON AmplitudeSourceProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AmplitudeSourceProperties"
       ( \x ->
           AmplitudeSourceProperties'
-            Prelude.<$> (x Core..: "object")
+            Prelude.<$> (x Data..: "object")
       )
 
 instance Prelude.Hashable AmplitudeSourceProperties where
@@ -70,9 +71,9 @@ instance Prelude.NFData AmplitudeSourceProperties where
   rnf AmplitudeSourceProperties' {..} =
     Prelude.rnf object'
 
-instance Core.ToJSON AmplitudeSourceProperties where
+instance Data.ToJSON AmplitudeSourceProperties where
   toJSON AmplitudeSourceProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("object" Core..= object')]
+          [Prelude.Just ("object" Data..= object')]
       )

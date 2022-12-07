@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.BatchDetectEntitiesItemResult where
 import Amazonka.Comprehend.Types.Entity
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The result of calling the operation. The operation returns one object
@@ -67,14 +68,14 @@ batchDetectEntitiesItemResult_entities = Lens.lens (\BatchDetectEntitiesItemResu
 batchDetectEntitiesItemResult_index :: Lens.Lens' BatchDetectEntitiesItemResult (Prelude.Maybe Prelude.Int)
 batchDetectEntitiesItemResult_index = Lens.lens (\BatchDetectEntitiesItemResult' {index} -> index) (\s@BatchDetectEntitiesItemResult' {} a -> s {index = a} :: BatchDetectEntitiesItemResult)
 
-instance Core.FromJSON BatchDetectEntitiesItemResult where
+instance Data.FromJSON BatchDetectEntitiesItemResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDetectEntitiesItemResult"
       ( \x ->
           BatchDetectEntitiesItemResult'
-            Prelude.<$> (x Core..:? "Entities" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Index")
+            Prelude.<$> (x Data..:? "Entities" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Index")
       )
 
 instance

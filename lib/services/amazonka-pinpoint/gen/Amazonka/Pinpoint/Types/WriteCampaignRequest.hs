@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.WriteCampaignRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.CampaignHook
 import Amazonka.Pinpoint.Types.CampaignLimits
 import Amazonka.Pinpoint.Types.CustomDeliveryConfiguration
@@ -282,33 +283,33 @@ instance Prelude.NFData WriteCampaignRequest where
       `Prelude.seq` Prelude.rnf templateConfiguration
       `Prelude.seq` Prelude.rnf isPaused
 
-instance Core.ToJSON WriteCampaignRequest where
+instance Data.ToJSON WriteCampaignRequest where
   toJSON WriteCampaignRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("Schedule" Core..=) Prelude.<$> schedule,
-            ("CustomDeliveryConfiguration" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("Schedule" Data..=) Prelude.<$> schedule,
+            ("CustomDeliveryConfiguration" Data..=)
               Prelude.<$> customDeliveryConfiguration,
-            ("Name" Core..=) Prelude.<$> name,
-            ("Hook" Core..=) Prelude.<$> hook,
-            ("SegmentVersion" Core..=)
+            ("Name" Data..=) Prelude.<$> name,
+            ("Hook" Data..=) Prelude.<$> hook,
+            ("SegmentVersion" Data..=)
               Prelude.<$> segmentVersion,
-            ("Limits" Core..=) Prelude.<$> limits,
-            ("TreatmentName" Core..=) Prelude.<$> treatmentName,
-            ("HoldoutPercent" Core..=)
+            ("Limits" Data..=) Prelude.<$> limits,
+            ("TreatmentName" Data..=) Prelude.<$> treatmentName,
+            ("HoldoutPercent" Data..=)
               Prelude.<$> holdoutPercent,
-            ("SegmentId" Core..=) Prelude.<$> segmentId,
-            ("AdditionalTreatments" Core..=)
+            ("SegmentId" Data..=) Prelude.<$> segmentId,
+            ("AdditionalTreatments" Data..=)
               Prelude.<$> additionalTreatments,
-            ("MessageConfiguration" Core..=)
+            ("MessageConfiguration" Data..=)
               Prelude.<$> messageConfiguration,
-            ("Description" Core..=) Prelude.<$> description,
-            ("TreatmentDescription" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("TreatmentDescription" Data..=)
               Prelude.<$> treatmentDescription,
-            ("Priority" Core..=) Prelude.<$> priority,
-            ("TemplateConfiguration" Core..=)
+            ("Priority" Data..=) Prelude.<$> priority,
+            ("TemplateConfiguration" Data..=)
               Prelude.<$> templateConfiguration,
-            ("IsPaused" Core..=) Prelude.<$> isPaused
+            ("IsPaused" Data..=) Prelude.<$> isPaused
           ]
       )

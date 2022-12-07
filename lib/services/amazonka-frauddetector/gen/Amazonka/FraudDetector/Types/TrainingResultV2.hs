@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.TrainingResultV2 where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.AggregatedVariablesImportanceMetrics
 import Amazonka.FraudDetector.Types.DataValidationMetrics
 import Amazonka.FraudDetector.Types.TrainingMetricsV2
@@ -104,16 +105,16 @@ trainingResultV2_dataValidationMetrics = Lens.lens (\TrainingResultV2' {dataVali
 trainingResultV2_aggregatedVariablesImportanceMetrics :: Lens.Lens' TrainingResultV2 (Prelude.Maybe AggregatedVariablesImportanceMetrics)
 trainingResultV2_aggregatedVariablesImportanceMetrics = Lens.lens (\TrainingResultV2' {aggregatedVariablesImportanceMetrics} -> aggregatedVariablesImportanceMetrics) (\s@TrainingResultV2' {} a -> s {aggregatedVariablesImportanceMetrics = a} :: TrainingResultV2)
 
-instance Core.FromJSON TrainingResultV2 where
+instance Data.FromJSON TrainingResultV2 where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrainingResultV2"
       ( \x ->
           TrainingResultV2'
-            Prelude.<$> (x Core..:? "trainingMetricsV2")
-            Prelude.<*> (x Core..:? "variableImportanceMetrics")
-            Prelude.<*> (x Core..:? "dataValidationMetrics")
-            Prelude.<*> (x Core..:? "aggregatedVariablesImportanceMetrics")
+            Prelude.<$> (x Data..:? "trainingMetricsV2")
+            Prelude.<*> (x Data..:? "variableImportanceMetrics")
+            Prelude.<*> (x Data..:? "dataValidationMetrics")
+            Prelude.<*> (x Data..:? "aggregatedVariablesImportanceMetrics")
       )
 
 instance Prelude.Hashable TrainingResultV2 where

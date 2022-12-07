@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2NetworkAclDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEc2NetworkAclAssociation
 import Amazonka.SecurityHub.Types.AwsEc2NetworkAclEntry
@@ -102,18 +103,18 @@ awsEc2NetworkAclDetails_entries = Lens.lens (\AwsEc2NetworkAclDetails' {entries}
 awsEc2NetworkAclDetails_vpcId :: Lens.Lens' AwsEc2NetworkAclDetails (Prelude.Maybe Prelude.Text)
 awsEc2NetworkAclDetails_vpcId = Lens.lens (\AwsEc2NetworkAclDetails' {vpcId} -> vpcId) (\s@AwsEc2NetworkAclDetails' {} a -> s {vpcId = a} :: AwsEc2NetworkAclDetails)
 
-instance Core.FromJSON AwsEc2NetworkAclDetails where
+instance Data.FromJSON AwsEc2NetworkAclDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2NetworkAclDetails"
       ( \x ->
           AwsEc2NetworkAclDetails'
-            Prelude.<$> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "NetworkAclId")
-            Prelude.<*> (x Core..:? "Associations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "IsDefault")
-            Prelude.<*> (x Core..:? "Entries" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<$> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "NetworkAclId")
+            Prelude.<*> (x Data..:? "Associations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "IsDefault")
+            Prelude.<*> (x Data..:? "Entries" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance Prelude.Hashable AwsEc2NetworkAclDetails where
@@ -134,15 +135,15 @@ instance Prelude.NFData AwsEc2NetworkAclDetails where
       `Prelude.seq` Prelude.rnf entries
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToJSON AwsEc2NetworkAclDetails where
+instance Data.ToJSON AwsEc2NetworkAclDetails where
   toJSON AwsEc2NetworkAclDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OwnerId" Core..=) Prelude.<$> ownerId,
-            ("NetworkAclId" Core..=) Prelude.<$> networkAclId,
-            ("Associations" Core..=) Prelude.<$> associations,
-            ("IsDefault" Core..=) Prelude.<$> isDefault,
-            ("Entries" Core..=) Prelude.<$> entries,
-            ("VpcId" Core..=) Prelude.<$> vpcId
+          [ ("OwnerId" Data..=) Prelude.<$> ownerId,
+            ("NetworkAclId" Data..=) Prelude.<$> networkAclId,
+            ("Associations" Data..=) Prelude.<$> associations,
+            ("IsDefault" Data..=) Prelude.<$> isDefault,
+            ("Entries" Data..=) Prelude.<$> entries,
+            ("VpcId" Data..=) Prelude.<$> vpcId
           ]
       )

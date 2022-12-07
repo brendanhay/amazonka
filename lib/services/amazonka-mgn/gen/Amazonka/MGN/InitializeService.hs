@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -76,24 +77,24 @@ instance Prelude.Hashable InitializeService where
 instance Prelude.NFData InitializeService where
   rnf _ = ()
 
-instance Core.ToHeaders InitializeService where
+instance Data.ToHeaders InitializeService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON InitializeService where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON InitializeService where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath InitializeService where
+instance Data.ToPath InitializeService where
   toPath = Prelude.const "/InitializeService"
 
-instance Core.ToQuery InitializeService where
+instance Data.ToQuery InitializeService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newInitializeServiceResponse' smart constructor.

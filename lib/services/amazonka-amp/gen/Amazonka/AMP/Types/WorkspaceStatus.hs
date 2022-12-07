@@ -22,6 +22,7 @@ module Amazonka.AMP.Types.WorkspaceStatus where
 import Amazonka.AMP.Types.WorkspaceStatusCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the status of a workspace.
@@ -53,13 +54,13 @@ newWorkspaceStatus pStatusCode_ =
 workspaceStatus_statusCode :: Lens.Lens' WorkspaceStatus WorkspaceStatusCode
 workspaceStatus_statusCode = Lens.lens (\WorkspaceStatus' {statusCode} -> statusCode) (\s@WorkspaceStatus' {} a -> s {statusCode = a} :: WorkspaceStatus)
 
-instance Core.FromJSON WorkspaceStatus where
+instance Data.FromJSON WorkspaceStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkspaceStatus"
       ( \x ->
           WorkspaceStatus'
-            Prelude.<$> (x Core..: "statusCode")
+            Prelude.<$> (x Data..: "statusCode")
       )
 
 instance Prelude.Hashable WorkspaceStatus where

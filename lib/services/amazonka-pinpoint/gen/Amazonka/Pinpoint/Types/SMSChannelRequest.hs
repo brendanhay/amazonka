@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SMSChannelRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the status and settings of the SMS channel for an application.
@@ -88,12 +89,12 @@ instance Prelude.NFData SMSChannelRequest where
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf shortCode
 
-instance Core.ToJSON SMSChannelRequest where
+instance Data.ToJSON SMSChannelRequest where
   toJSON SMSChannelRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SenderId" Core..=) Prelude.<$> senderId,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("ShortCode" Core..=) Prelude.<$> shortCode
+          [ ("SenderId" Data..=) Prelude.<$> senderId,
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("ShortCode" Data..=) Prelude.<$> shortCode
           ]
       )

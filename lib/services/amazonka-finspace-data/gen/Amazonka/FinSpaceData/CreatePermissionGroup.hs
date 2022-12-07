@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -55,9 +56,9 @@ data CreatePermissionGroup = CreatePermissionGroup'
   { -- | A token that ensures idempotency. This token expires in 10 minutes.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A brief description for the permission group.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the permission group.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | The option to indicate FinSpace application permissions that are granted
     -- to a specific group.
     --
@@ -139,7 +140,7 @@ newCreatePermissionGroup pName_ =
     { clientToken =
         Prelude.Nothing,
       description = Prelude.Nothing,
-      name = Core._Sensitive Lens.# pName_,
+      name = Data._Sensitive Lens.# pName_,
       applicationPermissions = Prelude.mempty
     }
 
@@ -149,11 +150,11 @@ createPermissionGroup_clientToken = Lens.lens (\CreatePermissionGroup' {clientTo
 
 -- | A brief description for the permission group.
 createPermissionGroup_description :: Lens.Lens' CreatePermissionGroup (Prelude.Maybe Prelude.Text)
-createPermissionGroup_description = Lens.lens (\CreatePermissionGroup' {description} -> description) (\s@CreatePermissionGroup' {} a -> s {description = a} :: CreatePermissionGroup) Prelude.. Lens.mapping Core._Sensitive
+createPermissionGroup_description = Lens.lens (\CreatePermissionGroup' {description} -> description) (\s@CreatePermissionGroup' {} a -> s {description = a} :: CreatePermissionGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the permission group.
 createPermissionGroup_name :: Lens.Lens' CreatePermissionGroup Prelude.Text
-createPermissionGroup_name = Lens.lens (\CreatePermissionGroup' {name} -> name) (\s@CreatePermissionGroup' {} a -> s {name = a} :: CreatePermissionGroup) Prelude.. Core._Sensitive
+createPermissionGroup_name = Lens.lens (\CreatePermissionGroup' {name} -> name) (\s@CreatePermissionGroup' {} a -> s {name = a} :: CreatePermissionGroup) Prelude.. Data._Sensitive
 
 -- | The option to indicate FinSpace application permissions that are granted
 -- to a specific group.
@@ -195,7 +196,7 @@ instance Core.AWSRequest CreatePermissionGroup where
     Response.receiveJSON
       ( \s h x ->
           CreatePermissionGroupResponse'
-            Prelude.<$> (x Core..?> "permissionGroupId")
+            Prelude.<$> (x Data..?> "permissionGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,35 +214,35 @@ instance Prelude.NFData CreatePermissionGroup where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf applicationPermissions
 
-instance Core.ToHeaders CreatePermissionGroup where
+instance Data.ToHeaders CreatePermissionGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePermissionGroup where
+instance Data.ToJSON CreatePermissionGroup where
   toJSON CreatePermissionGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
               ( "applicationPermissions"
-                  Core..= applicationPermissions
+                  Data..= applicationPermissions
               )
           ]
       )
 
-instance Core.ToPath CreatePermissionGroup where
+instance Data.ToPath CreatePermissionGroup where
   toPath = Prelude.const "/permission-group"
 
-instance Core.ToQuery CreatePermissionGroup where
+instance Data.ToQuery CreatePermissionGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePermissionGroupResponse' smart constructor.

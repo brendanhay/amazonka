@@ -23,6 +23,7 @@ import Amazonka.Athena.Types.EngineVersion
 import Amazonka.Athena.Types.WorkGroupState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary information for the workgroup, which includes its name,
@@ -37,7 +38,7 @@ data WorkGroupSummary = WorkGroupSummary'
     -- | The workgroup description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The workgroup creation date and time.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The engine version setting for all queries on the workgroup. Queries on
     -- the @AmazonAthenaPreviewFunctionality@ workgroup run on the preview
     -- engine regardless of this setting.
@@ -89,7 +90,7 @@ workGroupSummary_description = Lens.lens (\WorkGroupSummary' {description} -> de
 
 -- | The workgroup creation date and time.
 workGroupSummary_creationTime :: Lens.Lens' WorkGroupSummary (Prelude.Maybe Prelude.UTCTime)
-workGroupSummary_creationTime = Lens.lens (\WorkGroupSummary' {creationTime} -> creationTime) (\s@WorkGroupSummary' {} a -> s {creationTime = a} :: WorkGroupSummary) Prelude.. Lens.mapping Core._Time
+workGroupSummary_creationTime = Lens.lens (\WorkGroupSummary' {creationTime} -> creationTime) (\s@WorkGroupSummary' {} a -> s {creationTime = a} :: WorkGroupSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The engine version setting for all queries on the workgroup. Queries on
 -- the @AmazonAthenaPreviewFunctionality@ workgroup run on the preview
@@ -97,17 +98,17 @@ workGroupSummary_creationTime = Lens.lens (\WorkGroupSummary' {creationTime} -> 
 workGroupSummary_engineVersion :: Lens.Lens' WorkGroupSummary (Prelude.Maybe EngineVersion)
 workGroupSummary_engineVersion = Lens.lens (\WorkGroupSummary' {engineVersion} -> engineVersion) (\s@WorkGroupSummary' {} a -> s {engineVersion = a} :: WorkGroupSummary)
 
-instance Core.FromJSON WorkGroupSummary where
+instance Data.FromJSON WorkGroupSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkGroupSummary"
       ( \x ->
           WorkGroupSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "EngineVersion")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "EngineVersion")
       )
 
 instance Prelude.Hashable WorkGroupSummary where

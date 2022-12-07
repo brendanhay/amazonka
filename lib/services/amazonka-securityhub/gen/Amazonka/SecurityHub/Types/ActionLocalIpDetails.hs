@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.ActionLocalIpDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the IP address where the scanned port is
@@ -54,13 +55,13 @@ newActionLocalIpDetails =
 actionLocalIpDetails_ipAddressV4 :: Lens.Lens' ActionLocalIpDetails (Prelude.Maybe Prelude.Text)
 actionLocalIpDetails_ipAddressV4 = Lens.lens (\ActionLocalIpDetails' {ipAddressV4} -> ipAddressV4) (\s@ActionLocalIpDetails' {} a -> s {ipAddressV4 = a} :: ActionLocalIpDetails)
 
-instance Core.FromJSON ActionLocalIpDetails where
+instance Data.FromJSON ActionLocalIpDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionLocalIpDetails"
       ( \x ->
           ActionLocalIpDetails'
-            Prelude.<$> (x Core..:? "IpAddressV4")
+            Prelude.<$> (x Data..:? "IpAddressV4")
       )
 
 instance Prelude.Hashable ActionLocalIpDetails where
@@ -71,9 +72,9 @@ instance Prelude.NFData ActionLocalIpDetails where
   rnf ActionLocalIpDetails' {..} =
     Prelude.rnf ipAddressV4
 
-instance Core.ToJSON ActionLocalIpDetails where
+instance Data.ToJSON ActionLocalIpDetails where
   toJSON ActionLocalIpDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("IpAddressV4" Core..=) Prelude.<$> ipAddressV4]
+          [("IpAddressV4" Data..=) Prelude.<$> ipAddressV4]
       )

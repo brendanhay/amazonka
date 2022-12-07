@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateEnclaveOptionsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,8 +78,8 @@ instance
     Prelude.rnf enabled
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     LaunchTemplateEnclaveOptionsRequest
   where
   toQuery LaunchTemplateEnclaveOptionsRequest' {..} =
-    Prelude.mconcat ["Enabled" Core.=: enabled]
+    Prelude.mconcat ["Enabled" Data.=: enabled]

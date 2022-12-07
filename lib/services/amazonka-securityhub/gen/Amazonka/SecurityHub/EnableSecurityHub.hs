@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,31 +144,31 @@ instance Prelude.NFData EnableSecurityHub where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf enableDefaultStandards
 
-instance Core.ToHeaders EnableSecurityHub where
+instance Data.ToHeaders EnableSecurityHub where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EnableSecurityHub where
+instance Data.ToJSON EnableSecurityHub where
   toJSON EnableSecurityHub' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("EnableDefaultStandards" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("EnableDefaultStandards" Data..=)
               Prelude.<$> enableDefaultStandards
           ]
       )
 
-instance Core.ToPath EnableSecurityHub where
+instance Data.ToPath EnableSecurityHub where
   toPath = Prelude.const "/accounts"
 
-instance Core.ToQuery EnableSecurityHub where
+instance Data.ToQuery EnableSecurityHub where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableSecurityHubResponse' smart constructor.

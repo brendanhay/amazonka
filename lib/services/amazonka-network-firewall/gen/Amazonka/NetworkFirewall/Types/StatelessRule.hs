@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.StatelessRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.RuleDefinition
 import qualified Amazonka.Prelude as Prelude
 
@@ -114,14 +115,14 @@ statelessRule_ruleDefinition = Lens.lens (\StatelessRule' {ruleDefinition} -> ru
 statelessRule_priority :: Lens.Lens' StatelessRule Prelude.Natural
 statelessRule_priority = Lens.lens (\StatelessRule' {priority} -> priority) (\s@StatelessRule' {} a -> s {priority = a} :: StatelessRule)
 
-instance Core.FromJSON StatelessRule where
+instance Data.FromJSON StatelessRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatelessRule"
       ( \x ->
           StatelessRule'
-            Prelude.<$> (x Core..: "RuleDefinition")
-            Prelude.<*> (x Core..: "Priority")
+            Prelude.<$> (x Data..: "RuleDefinition")
+            Prelude.<*> (x Data..: "Priority")
       )
 
 instance Prelude.Hashable StatelessRule where
@@ -134,12 +135,12 @@ instance Prelude.NFData StatelessRule where
     Prelude.rnf ruleDefinition
       `Prelude.seq` Prelude.rnf priority
 
-instance Core.ToJSON StatelessRule where
+instance Data.ToJSON StatelessRule where
   toJSON StatelessRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("RuleDefinition" Core..= ruleDefinition),
-            Prelude.Just ("Priority" Core..= priority)
+              ("RuleDefinition" Data..= ruleDefinition),
+            Prelude.Just ("Priority" Data..= priority)
           ]
       )

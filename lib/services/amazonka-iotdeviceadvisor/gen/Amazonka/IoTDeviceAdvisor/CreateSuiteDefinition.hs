@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,10 +101,10 @@ instance Core.AWSRequest CreateSuiteDefinition where
     Response.receiveJSON
       ( \s h x ->
           CreateSuiteDefinitionResponse'
-            Prelude.<$> (x Core..?> "suiteDefinitionName")
-            Prelude.<*> (x Core..?> "suiteDefinitionArn")
-            Prelude.<*> (x Core..?> "suiteDefinitionId")
-            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<$> (x Data..?> "suiteDefinitionName")
+            Prelude.<*> (x Data..?> "suiteDefinitionArn")
+            Prelude.<*> (x Data..?> "suiteDefinitionId")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,31 +118,31 @@ instance Prelude.NFData CreateSuiteDefinition where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf suiteDefinitionConfiguration
 
-instance Core.ToHeaders CreateSuiteDefinition where
+instance Data.ToHeaders CreateSuiteDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSuiteDefinition where
+instance Data.ToJSON CreateSuiteDefinition where
   toJSON CreateSuiteDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("suiteDefinitionConfiguration" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("suiteDefinitionConfiguration" Data..=)
               Prelude.<$> suiteDefinitionConfiguration
           ]
       )
 
-instance Core.ToPath CreateSuiteDefinition where
+instance Data.ToPath CreateSuiteDefinition where
   toPath = Prelude.const "/suiteDefinitions"
 
-instance Core.ToQuery CreateSuiteDefinition where
+instance Data.ToQuery CreateSuiteDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSuiteDefinitionResponse' smart constructor.
@@ -154,7 +155,7 @@ data CreateSuiteDefinitionResponse = CreateSuiteDefinitionResponse'
     suiteDefinitionId :: Prelude.Maybe Prelude.Text,
     -- | Creates a Device Advisor test suite with TimeStamp of when it was
     -- created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,7 +208,7 @@ createSuiteDefinitionResponse_suiteDefinitionId = Lens.lens (\CreateSuiteDefinit
 -- | Creates a Device Advisor test suite with TimeStamp of when it was
 -- created.
 createSuiteDefinitionResponse_createdAt :: Lens.Lens' CreateSuiteDefinitionResponse (Prelude.Maybe Prelude.UTCTime)
-createSuiteDefinitionResponse_createdAt = Lens.lens (\CreateSuiteDefinitionResponse' {createdAt} -> createdAt) (\s@CreateSuiteDefinitionResponse' {} a -> s {createdAt = a} :: CreateSuiteDefinitionResponse) Prelude.. Lens.mapping Core._Time
+createSuiteDefinitionResponse_createdAt = Lens.lens (\CreateSuiteDefinitionResponse' {createdAt} -> createdAt) (\s@CreateSuiteDefinitionResponse' {} a -> s {createdAt = a} :: CreateSuiteDefinitionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createSuiteDefinitionResponse_httpStatus :: Lens.Lens' CreateSuiteDefinitionResponse Prelude.Int

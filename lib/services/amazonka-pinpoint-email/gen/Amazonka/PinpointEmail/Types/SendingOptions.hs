@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.SendingOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to enable or disable email sending for messages that use this
@@ -54,13 +55,13 @@ newSendingOptions =
 sendingOptions_sendingEnabled :: Lens.Lens' SendingOptions (Prelude.Maybe Prelude.Bool)
 sendingOptions_sendingEnabled = Lens.lens (\SendingOptions' {sendingEnabled} -> sendingEnabled) (\s@SendingOptions' {} a -> s {sendingEnabled = a} :: SendingOptions)
 
-instance Core.FromJSON SendingOptions where
+instance Data.FromJSON SendingOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SendingOptions"
       ( \x ->
           SendingOptions'
-            Prelude.<$> (x Core..:? "SendingEnabled")
+            Prelude.<$> (x Data..:? "SendingEnabled")
       )
 
 instance Prelude.Hashable SendingOptions where
@@ -70,11 +71,11 @@ instance Prelude.Hashable SendingOptions where
 instance Prelude.NFData SendingOptions where
   rnf SendingOptions' {..} = Prelude.rnf sendingEnabled
 
-instance Core.ToJSON SendingOptions where
+instance Data.ToJSON SendingOptions where
   toJSON SendingOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SendingEnabled" Core..=)
+          [ ("SendingEnabled" Data..=)
               Prelude.<$> sendingEnabled
           ]
       )

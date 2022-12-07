@@ -29,6 +29,7 @@ import Amazonka.AppStream.Types.ResourceError
 import Amazonka.AppStream.Types.VpcConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a virtual machine that is used to create an image.
@@ -36,7 +37,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newImageBuilder' smart constructor.
 data ImageBuilder = ImageBuilder'
   { -- | The time stamp when the image builder was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The reason why the last state change occurred.
     stateChangeReason :: Prelude.Maybe ImageBuilderStateChangeReason,
     -- | The VPC configuration of the image builder.
@@ -304,7 +305,7 @@ newImageBuilder pName_ =
 
 -- | The time stamp when the image builder was created.
 imageBuilder_createdTime :: Lens.Lens' ImageBuilder (Prelude.Maybe Prelude.UTCTime)
-imageBuilder_createdTime = Lens.lens (\ImageBuilder' {createdTime} -> createdTime) (\s@ImageBuilder' {} a -> s {createdTime = a} :: ImageBuilder) Prelude.. Lens.mapping Core._Time
+imageBuilder_createdTime = Lens.lens (\ImageBuilder' {createdTime} -> createdTime) (\s@ImageBuilder' {} a -> s {createdTime = a} :: ImageBuilder) Prelude.. Lens.mapping Data._Time
 
 -- | The reason why the last state change occurred.
 imageBuilder_stateChangeReason :: Lens.Lens' ImageBuilder (Prelude.Maybe ImageBuilderStateChangeReason)
@@ -454,32 +455,32 @@ imageBuilder_enableDefaultInternetAccess = Lens.lens (\ImageBuilder' {enableDefa
 imageBuilder_name :: Lens.Lens' ImageBuilder Prelude.Text
 imageBuilder_name = Lens.lens (\ImageBuilder' {name} -> name) (\s@ImageBuilder' {} a -> s {name = a} :: ImageBuilder)
 
-instance Core.FromJSON ImageBuilder where
+instance Data.FromJSON ImageBuilder where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageBuilder"
       ( \x ->
           ImageBuilder'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "StateChangeReason")
-            Prelude.<*> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "NetworkAccessConfiguration")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "AccessEndpoints")
-            Prelude.<*> (x Core..:? "ImageArn")
-            Prelude.<*> (x Core..:? "Platform")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "IamRoleArn")
-            Prelude.<*> (x Core..:? "DomainJoinInfo")
-            Prelude.<*> ( x Core..:? "ImageBuilderErrors"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "StateChangeReason")
+            Prelude.<*> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "NetworkAccessConfiguration")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "AccessEndpoints")
+            Prelude.<*> (x Data..:? "ImageArn")
+            Prelude.<*> (x Data..:? "Platform")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "IamRoleArn")
+            Prelude.<*> (x Data..:? "DomainJoinInfo")
+            Prelude.<*> ( x Data..:? "ImageBuilderErrors"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AppstreamAgentVersion")
-            Prelude.<*> (x Core..:? "EnableDefaultInternetAccess")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<*> (x Data..:? "AppstreamAgentVersion")
+            Prelude.<*> (x Data..:? "EnableDefaultInternetAccess")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable ImageBuilder where

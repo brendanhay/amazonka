@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.Channel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.ResponseOutputItem
 import Amazonka.MediaTailor.Types.SlateSource
 import qualified Amazonka.Prelude as Prelude
@@ -43,9 +44,9 @@ data Channel = Channel'
     -- @PlaybackMode@.
     fillerSlate :: Prelude.Maybe SlateSource,
     -- | The timestamp of when the channel was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp of when the channel was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the channel.
     arn :: Prelude.Text,
     -- | The name of the channel.
@@ -155,11 +156,11 @@ channel_fillerSlate = Lens.lens (\Channel' {fillerSlate} -> fillerSlate) (\s@Cha
 
 -- | The timestamp of when the channel was last modified.
 channel_lastModifiedTime :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
-channel_lastModifiedTime = Lens.lens (\Channel' {lastModifiedTime} -> lastModifiedTime) (\s@Channel' {} a -> s {lastModifiedTime = a} :: Channel) Prelude.. Lens.mapping Core._Time
+channel_lastModifiedTime = Lens.lens (\Channel' {lastModifiedTime} -> lastModifiedTime) (\s@Channel' {} a -> s {lastModifiedTime = a} :: Channel) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of when the channel was created.
 channel_creationTime :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
-channel_creationTime = Lens.lens (\Channel' {creationTime} -> creationTime) (\s@Channel' {} a -> s {creationTime = a} :: Channel) Prelude.. Lens.mapping Core._Time
+channel_creationTime = Lens.lens (\Channel' {creationTime} -> creationTime) (\s@Channel' {} a -> s {creationTime = a} :: Channel) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the channel.
 channel_arn :: Lens.Lens' Channel Prelude.Text
@@ -192,22 +193,22 @@ channel_playbackMode = Lens.lens (\Channel' {playbackMode} -> playbackMode) (\s@
 channel_tier :: Lens.Lens' Channel Prelude.Text
 channel_tier = Lens.lens (\Channel' {tier} -> tier) (\s@Channel' {} a -> s {tier = a} :: Channel)
 
-instance Core.FromJSON Channel where
+instance Data.FromJSON Channel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Channel"
       ( \x ->
           Channel'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "FillerSlate")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "ChannelName")
-            Prelude.<*> (x Core..: "ChannelState")
-            Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "PlaybackMode")
-            Prelude.<*> (x Core..: "Tier")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "FillerSlate")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "ChannelName")
+            Prelude.<*> (x Data..: "ChannelState")
+            Prelude.<*> (x Data..:? "Outputs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "PlaybackMode")
+            Prelude.<*> (x Data..: "Tier")
       )
 
 instance Prelude.Hashable Channel where

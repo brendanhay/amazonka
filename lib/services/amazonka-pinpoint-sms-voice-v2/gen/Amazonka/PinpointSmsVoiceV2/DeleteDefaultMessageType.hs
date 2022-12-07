@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,9 +105,9 @@ instance Core.AWSRequest DeleteDefaultMessageType where
     Response.receiveJSON
       ( \s h x ->
           DeleteDefaultMessageTypeResponse'
-            Prelude.<$> (x Core..?> "MessageType")
-            Prelude.<*> (x Core..?> "ConfigurationSetName")
-            Prelude.<*> (x Core..?> "ConfigurationSetArn")
+            Prelude.<$> (x Data..?> "MessageType")
+            Prelude.<*> (x Data..?> "ConfigurationSetName")
+            Prelude.<*> (x Data..?> "ConfigurationSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,36 +119,36 @@ instance Prelude.NFData DeleteDefaultMessageType where
   rnf DeleteDefaultMessageType' {..} =
     Prelude.rnf configurationSetName
 
-instance Core.ToHeaders DeleteDefaultMessageType where
+instance Data.ToHeaders DeleteDefaultMessageType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.DeleteDefaultMessageType" ::
+              Data.=# ( "PinpointSMSVoiceV2.DeleteDefaultMessageType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDefaultMessageType where
+instance Data.ToJSON DeleteDefaultMessageType where
   toJSON DeleteDefaultMessageType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ConfigurationSetName"
-                  Core..= configurationSetName
+                  Data..= configurationSetName
               )
           ]
       )
 
-instance Core.ToPath DeleteDefaultMessageType where
+instance Data.ToPath DeleteDefaultMessageType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDefaultMessageType where
+instance Data.ToQuery DeleteDefaultMessageType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDefaultMessageTypeResponse' smart constructor.

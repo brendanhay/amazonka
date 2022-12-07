@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -170,8 +171,8 @@ instance Core.AWSRequest GetManagedRuleSet where
     Response.receiveJSON
       ( \s h x ->
           GetManagedRuleSetResponse'
-            Prelude.<$> (x Core..?> "ManagedRuleSet")
-            Prelude.<*> (x Core..?> "LockToken")
+            Prelude.<$> (x Data..?> "ManagedRuleSet")
+            Prelude.<*> (x Data..?> "LockToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,35 +188,35 @@ instance Prelude.NFData GetManagedRuleSet where
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders GetManagedRuleSet where
+instance Data.ToHeaders GetManagedRuleSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.GetManagedRuleSet" ::
+              Data.=# ( "AWSWAF_20190729.GetManagedRuleSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetManagedRuleSet where
+instance Data.ToJSON GetManagedRuleSet where
   toJSON GetManagedRuleSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Scope" Core..= scope),
-            Prelude.Just ("Id" Core..= id)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Scope" Data..= scope),
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath GetManagedRuleSet where
+instance Data.ToPath GetManagedRuleSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetManagedRuleSet where
+instance Data.ToQuery GetManagedRuleSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetManagedRuleSetResponse' smart constructor.

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,36 +124,36 @@ instance Prelude.NFData ModifyAccount where
     Prelude.rnf dedicatedTenancyManagementCidrRange
       `Prelude.seq` Prelude.rnf dedicatedTenancySupport
 
-instance Core.ToHeaders ModifyAccount where
+instance Data.ToHeaders ModifyAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.ModifyAccount" ::
+              Data.=# ( "WorkspacesService.ModifyAccount" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ModifyAccount where
+instance Data.ToJSON ModifyAccount where
   toJSON ModifyAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DedicatedTenancyManagementCidrRange" Core..=)
+          [ ("DedicatedTenancyManagementCidrRange" Data..=)
               Prelude.<$> dedicatedTenancyManagementCidrRange,
-            ("DedicatedTenancySupport" Core..=)
+            ("DedicatedTenancySupport" Data..=)
               Prelude.<$> dedicatedTenancySupport
           ]
       )
 
-instance Core.ToPath ModifyAccount where
+instance Data.ToPath ModifyAccount where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyAccount where
+instance Data.ToQuery ModifyAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifyAccountResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.SidewalkResourceTypeEventConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.EventNotificationTopicStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -59,15 +60,15 @@ sidewalkResourceTypeEventConfiguration_wirelessDeviceEventTopic :: Lens.Lens' Si
 sidewalkResourceTypeEventConfiguration_wirelessDeviceEventTopic = Lens.lens (\SidewalkResourceTypeEventConfiguration' {wirelessDeviceEventTopic} -> wirelessDeviceEventTopic) (\s@SidewalkResourceTypeEventConfiguration' {} a -> s {wirelessDeviceEventTopic = a} :: SidewalkResourceTypeEventConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SidewalkResourceTypeEventConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SidewalkResourceTypeEventConfiguration"
       ( \x ->
           SidewalkResourceTypeEventConfiguration'
-            Prelude.<$> (x Core..:? "WirelessDeviceEventTopic")
+            Prelude.<$> (x Data..:? "WirelessDeviceEventTopic")
       )
 
 instance
@@ -88,13 +89,13 @@ instance
     Prelude.rnf wirelessDeviceEventTopic
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SidewalkResourceTypeEventConfiguration
   where
   toJSON SidewalkResourceTypeEventConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WirelessDeviceEventTopic" Core..=)
+          [ ("WirelessDeviceEventTopic" Data..=)
               Prelude.<$> wirelessDeviceEventTopic
           ]
       )

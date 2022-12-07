@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Mobile.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,7 +110,7 @@ instance Core.AWSRequest ExportBundle where
     Response.receiveJSON
       ( \s h x ->
           ExportBundleResponse'
-            Prelude.<$> (x Core..?> "downloadUrl")
+            Prelude.<$> (x Data..?> "downloadUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,29 +126,29 @@ instance Prelude.NFData ExportBundle where
       `Prelude.seq` Prelude.rnf platform
       `Prelude.seq` Prelude.rnf bundleId
 
-instance Core.ToHeaders ExportBundle where
+instance Data.ToHeaders ExportBundle where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExportBundle where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ExportBundle where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath ExportBundle where
+instance Data.ToPath ExportBundle where
   toPath ExportBundle' {..} =
-    Prelude.mconcat ["/bundles/", Core.toBS bundleId]
+    Prelude.mconcat ["/bundles/", Data.toBS bundleId]
 
-instance Core.ToQuery ExportBundle where
+instance Data.ToQuery ExportBundle where
   toQuery ExportBundle' {..} =
     Prelude.mconcat
-      [ "projectId" Core.=: projectId,
-        "platform" Core.=: platform
+      [ "projectId" Data.=: projectId,
+        "platform" Data.=: platform
       ]
 
 -- | Result structure which contains link to download custom-generated SDK

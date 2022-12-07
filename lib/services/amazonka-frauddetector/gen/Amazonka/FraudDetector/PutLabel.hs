@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,35 +119,35 @@ instance Prelude.NFData PutLabel where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders PutLabel where
+instance Data.ToHeaders PutLabel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.PutLabel" ::
+              Data.=# ( "AWSHawksNestServiceFacade.PutLabel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutLabel where
+instance Data.ToJSON PutLabel where
   toJSON PutLabel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath PutLabel where
+instance Data.ToPath PutLabel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutLabel where
+instance Data.ToQuery PutLabel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutLabelResponse' smart constructor.

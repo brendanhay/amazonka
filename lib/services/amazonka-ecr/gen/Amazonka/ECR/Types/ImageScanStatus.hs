@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.ImageScanStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.ScanStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ imageScanStatus_status = Lens.lens (\ImageScanStatus' {status} -> status) (\s@Im
 imageScanStatus_description :: Lens.Lens' ImageScanStatus (Prelude.Maybe Prelude.Text)
 imageScanStatus_description = Lens.lens (\ImageScanStatus' {description} -> description) (\s@ImageScanStatus' {} a -> s {description = a} :: ImageScanStatus)
 
-instance Core.FromJSON ImageScanStatus where
+instance Data.FromJSON ImageScanStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageScanStatus"
       ( \x ->
           ImageScanStatus'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
       )
 
 instance Prelude.Hashable ImageScanStatus where

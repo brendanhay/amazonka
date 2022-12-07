@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.FunctionMetadata where
 import Amazonka.CloudFront.Types.FunctionStage
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata about a CloudFront function.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newFunctionMetadata' smart constructor.
 data FunctionMetadata = FunctionMetadata'
   { -- | The date and time when the function was created.
-    createdTime :: Prelude.Maybe Core.ISO8601,
+    createdTime :: Prelude.Maybe Data.ISO8601,
     -- | The stage that the function is in, either @DEVELOPMENT@ or @LIVE@.
     --
     -- When a function is in the @DEVELOPMENT@ stage, you can test the function
@@ -42,7 +43,7 @@ data FunctionMetadata = FunctionMetadata'
     -- identifies the function.
     functionARN :: Prelude.Text,
     -- | The date and time when the function was most recently updated.
-    lastModifiedTime :: Core.ISO8601
+    lastModifiedTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,12 +81,12 @@ newFunctionMetadata pFunctionARN_ pLastModifiedTime_ =
       stage = Prelude.Nothing,
       functionARN = pFunctionARN_,
       lastModifiedTime =
-        Core._Time Lens.# pLastModifiedTime_
+        Data._Time Lens.# pLastModifiedTime_
     }
 
 -- | The date and time when the function was created.
 functionMetadata_createdTime :: Lens.Lens' FunctionMetadata (Prelude.Maybe Prelude.UTCTime)
-functionMetadata_createdTime = Lens.lens (\FunctionMetadata' {createdTime} -> createdTime) (\s@FunctionMetadata' {} a -> s {createdTime = a} :: FunctionMetadata) Prelude.. Lens.mapping Core._Time
+functionMetadata_createdTime = Lens.lens (\FunctionMetadata' {createdTime} -> createdTime) (\s@FunctionMetadata' {} a -> s {createdTime = a} :: FunctionMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The stage that the function is in, either @DEVELOPMENT@ or @LIVE@.
 --
@@ -104,15 +105,15 @@ functionMetadata_functionARN = Lens.lens (\FunctionMetadata' {functionARN} -> fu
 
 -- | The date and time when the function was most recently updated.
 functionMetadata_lastModifiedTime :: Lens.Lens' FunctionMetadata Prelude.UTCTime
-functionMetadata_lastModifiedTime = Lens.lens (\FunctionMetadata' {lastModifiedTime} -> lastModifiedTime) (\s@FunctionMetadata' {} a -> s {lastModifiedTime = a} :: FunctionMetadata) Prelude.. Core._Time
+functionMetadata_lastModifiedTime = Lens.lens (\FunctionMetadata' {lastModifiedTime} -> lastModifiedTime) (\s@FunctionMetadata' {} a -> s {lastModifiedTime = a} :: FunctionMetadata) Prelude.. Data._Time
 
-instance Core.FromXML FunctionMetadata where
+instance Data.FromXML FunctionMetadata where
   parseXML x =
     FunctionMetadata'
-      Prelude.<$> (x Core..@? "CreatedTime")
-      Prelude.<*> (x Core..@? "Stage")
-      Prelude.<*> (x Core..@ "FunctionARN")
-      Prelude.<*> (x Core..@ "LastModifiedTime")
+      Prelude.<$> (x Data..@? "CreatedTime")
+      Prelude.<*> (x Data..@? "Stage")
+      Prelude.<*> (x Data..@ "FunctionARN")
+      Prelude.<*> (x Data..@ "LastModifiedTime")
 
 instance Prelude.Hashable FunctionMetadata where
   hashWithSalt _salt FunctionMetadata' {..} =

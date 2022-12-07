@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,8 +122,8 @@ instance Core.AWSRequest ListApplicationInstances where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationInstancesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ApplicationInstances"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ApplicationInstances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -142,27 +143,27 @@ instance Prelude.NFData ListApplicationInstances where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf statusFilter
 
-instance Core.ToHeaders ListApplicationInstances where
+instance Data.ToHeaders ListApplicationInstances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListApplicationInstances where
+instance Data.ToPath ListApplicationInstances where
   toPath = Prelude.const "/application-instances"
 
-instance Core.ToQuery ListApplicationInstances where
+instance Data.ToQuery ListApplicationInstances where
   toQuery ListApplicationInstances' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "deviceId" Core.=: deviceId,
-        "maxResults" Core.=: maxResults,
-        "statusFilter" Core.=: statusFilter
+      [ "nextToken" Data.=: nextToken,
+        "deviceId" Data.=: deviceId,
+        "maxResults" Data.=: maxResults,
+        "statusFilter" Data.=: statusFilter
       ]
 
 -- | /See:/ 'newListApplicationInstancesResponse' smart constructor.

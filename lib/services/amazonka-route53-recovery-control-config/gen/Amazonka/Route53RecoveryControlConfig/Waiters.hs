@@ -18,6 +18,7 @@ module Amazonka.Route53RecoveryControlConfig.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryControlConfig.DescribeCluster
 import Amazonka.Route53RecoveryControlConfig.DescribeControlPanel
@@ -41,7 +42,7 @@ newRoutingControlDeleted =
                 Prelude.. Lens._Just
                 Prelude.. routingControl_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry
         ]
@@ -61,7 +62,7 @@ newClusterCreated =
             ( describeClusterResponse_cluster Prelude.. Lens._Just
                 Prelude.. cluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "PENDING"
@@ -69,7 +70,7 @@ newClusterCreated =
             ( describeClusterResponse_cluster Prelude.. Lens._Just
                 Prelude.. cluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry
         ]
@@ -90,7 +91,7 @@ newControlPanelCreated =
                 Prelude.. Lens._Just
                 Prelude.. controlPanel_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "PENDING"
@@ -99,7 +100,7 @@ newControlPanelCreated =
                 Prelude.. Lens._Just
                 Prelude.. controlPanel_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry
         ]
@@ -121,7 +122,7 @@ newControlPanelDeleted =
                 Prelude.. Lens._Just
                 Prelude.. controlPanel_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry
         ]
@@ -142,7 +143,7 @@ newClusterDeleted =
             ( describeClusterResponse_cluster Prelude.. Lens._Just
                 Prelude.. cluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry
         ]
@@ -163,7 +164,7 @@ newRoutingControlCreated =
                 Prelude.. Lens._Just
                 Prelude.. routingControl_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "PENDING"
@@ -172,7 +173,7 @@ newRoutingControlCreated =
                 Prelude.. Lens._Just
                 Prelude.. routingControl_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry
         ]

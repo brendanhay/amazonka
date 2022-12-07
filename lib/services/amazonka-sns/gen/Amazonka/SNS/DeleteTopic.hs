@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,20 +86,20 @@ instance Prelude.Hashable DeleteTopic where
 instance Prelude.NFData DeleteTopic where
   rnf DeleteTopic' {..} = Prelude.rnf topicArn
 
-instance Core.ToHeaders DeleteTopic where
+instance Data.ToHeaders DeleteTopic where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteTopic where
+instance Data.ToPath DeleteTopic where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteTopic where
+instance Data.ToQuery DeleteTopic where
   toQuery DeleteTopic' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteTopic" :: Prelude.ByteString),
+          Data.=: ("DeleteTopic" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "TopicArn" Core.=: topicArn
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "TopicArn" Data.=: topicArn
       ]
 
 -- | /See:/ 'newDeleteTopicResponse' smart constructor.

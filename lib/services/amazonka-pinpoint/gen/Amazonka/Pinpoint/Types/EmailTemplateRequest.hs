@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EmailTemplateRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the content and settings for a message template that can be
@@ -184,18 +185,18 @@ instance Prelude.NFData EmailTemplateRequest where
       `Prelude.seq` Prelude.rnf htmlPart
       `Prelude.seq` Prelude.rnf templateDescription
 
-instance Core.ToJSON EmailTemplateRequest where
+instance Data.ToJSON EmailTemplateRequest where
   toJSON EmailTemplateRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("RecommenderId" Core..=) Prelude.<$> recommenderId,
-            ("DefaultSubstitutions" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("RecommenderId" Data..=) Prelude.<$> recommenderId,
+            ("DefaultSubstitutions" Data..=)
               Prelude.<$> defaultSubstitutions,
-            ("TextPart" Core..=) Prelude.<$> textPart,
-            ("Subject" Core..=) Prelude.<$> subject,
-            ("HtmlPart" Core..=) Prelude.<$> htmlPart,
-            ("TemplateDescription" Core..=)
+            ("TextPart" Data..=) Prelude.<$> textPart,
+            ("Subject" Data..=) Prelude.<$> subject,
+            ("HtmlPart" Data..=) Prelude.<$> htmlPart,
+            ("TemplateDescription" Data..=)
               Prelude.<$> templateDescription
           ]
       )

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest DeleteACL where
     Response.receiveJSON
       ( \s h x ->
           DeleteACLResponse'
-            Prelude.<$> (x Core..?> "ACL")
+            Prelude.<$> (x Data..?> "ACL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,30 +95,30 @@ instance Prelude.Hashable DeleteACL where
 instance Prelude.NFData DeleteACL where
   rnf DeleteACL' {..} = Prelude.rnf aCLName
 
-instance Core.ToHeaders DeleteACL where
+instance Data.ToHeaders DeleteACL where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonMemoryDB.DeleteACL" :: Prelude.ByteString),
+              Data.=# ("AmazonMemoryDB.DeleteACL" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteACL where
+instance Data.ToJSON DeleteACL where
   toJSON DeleteACL' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ACLName" Core..= aCLName)]
+          [Prelude.Just ("ACLName" Data..= aCLName)]
       )
 
-instance Core.ToPath DeleteACL where
+instance Data.ToPath DeleteACL where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteACL where
+instance Data.ToQuery DeleteACL where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteACLResponse' smart constructor.

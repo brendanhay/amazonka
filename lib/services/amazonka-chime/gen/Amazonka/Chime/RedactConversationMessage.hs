@@ -44,6 +44,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,24 +128,24 @@ instance Prelude.NFData RedactConversationMessage where
       `Prelude.seq` Prelude.rnf conversationId
       `Prelude.seq` Prelude.rnf messageId
 
-instance Core.ToHeaders RedactConversationMessage where
+instance Data.ToHeaders RedactConversationMessage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON RedactConversationMessage where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON RedactConversationMessage where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath RedactConversationMessage where
+instance Data.ToPath RedactConversationMessage where
   toPath RedactConversationMessage' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/conversations/",
-        Core.toBS conversationId,
+        Data.toBS conversationId,
         "/messages/",
-        Core.toBS messageId
+        Data.toBS messageId
       ]
 
-instance Core.ToQuery RedactConversationMessage where
+instance Data.ToQuery RedactConversationMessage where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["operation=redact"])

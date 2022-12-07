@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,37 +148,37 @@ instance Prelude.NFData ModifySamlProperties where
       `Prelude.seq` Prelude.rnf propertiesToDelete
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToHeaders ModifySamlProperties where
+instance Data.ToHeaders ModifySamlProperties where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.ModifySamlProperties" ::
+              Data.=# ( "WorkspacesService.ModifySamlProperties" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ModifySamlProperties where
+instance Data.ToJSON ModifySamlProperties where
   toJSON ModifySamlProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SamlProperties" Core..=)
+          [ ("SamlProperties" Data..=)
               Prelude.<$> samlProperties,
-            ("PropertiesToDelete" Core..=)
+            ("PropertiesToDelete" Data..=)
               Prelude.<$> propertiesToDelete,
-            Prelude.Just ("ResourceId" Core..= resourceId)
+            Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )
 
-instance Core.ToPath ModifySamlProperties where
+instance Data.ToPath ModifySamlProperties where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifySamlProperties where
+instance Data.ToQuery ModifySamlProperties where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifySamlPropertiesResponse' smart constructor.

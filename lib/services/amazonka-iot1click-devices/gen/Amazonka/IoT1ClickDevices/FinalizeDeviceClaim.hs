@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT1ClickDevices.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,7 +110,7 @@ instance Core.AWSRequest FinalizeDeviceClaim where
     Response.receiveJSON
       ( \s h x ->
           FinalizeDeviceClaimResponse'
-            Prelude.<$> (x Core..?> "state")
+            Prelude.<$> (x Data..?> "state")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,30 +123,30 @@ instance Prelude.NFData FinalizeDeviceClaim where
   rnf FinalizeDeviceClaim' {..} =
     Prelude.rnf tags `Prelude.seq` Prelude.rnf deviceId
 
-instance Core.ToHeaders FinalizeDeviceClaim where
+instance Data.ToHeaders FinalizeDeviceClaim where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON FinalizeDeviceClaim where
+instance Data.ToJSON FinalizeDeviceClaim where
   toJSON FinalizeDeviceClaim' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("tags" Core..=) Prelude.<$> tags]
+          [("tags" Data..=) Prelude.<$> tags]
       )
 
-instance Core.ToPath FinalizeDeviceClaim where
+instance Data.ToPath FinalizeDeviceClaim where
   toPath FinalizeDeviceClaim' {..} =
     Prelude.mconcat
-      ["/devices/", Core.toBS deviceId, "/finalize-claim"]
+      ["/devices/", Data.toBS deviceId, "/finalize-claim"]
 
-instance Core.ToQuery FinalizeDeviceClaim where
+instance Data.ToQuery FinalizeDeviceClaim where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newFinalizeDeviceClaimResponse' smart constructor.

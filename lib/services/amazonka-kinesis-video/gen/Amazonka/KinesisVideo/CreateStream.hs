@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -252,7 +253,7 @@ instance Core.AWSRequest CreateStream where
     Response.receiveJSON
       ( \s h x ->
           CreateStreamResponse'
-            Prelude.<$> (x Core..?> "StreamARN")
+            Prelude.<$> (x Data..?> "StreamARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -274,27 +275,27 @@ instance Prelude.NFData CreateStream where
       `Prelude.seq` Prelude.rnf dataRetentionInHours
       `Prelude.seq` Prelude.rnf streamName
 
-instance Core.ToHeaders CreateStream where
+instance Data.ToHeaders CreateStream where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateStream where
+instance Data.ToJSON CreateStream where
   toJSON CreateStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("DeviceName" Core..=) Prelude.<$> deviceName,
-            ("MediaType" Core..=) Prelude.<$> mediaType,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("DataRetentionInHours" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("DeviceName" Data..=) Prelude.<$> deviceName,
+            ("MediaType" Data..=) Prelude.<$> mediaType,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("DataRetentionInHours" Data..=)
               Prelude.<$> dataRetentionInHours,
-            Prelude.Just ("StreamName" Core..= streamName)
+            Prelude.Just ("StreamName" Data..= streamName)
           ]
       )
 
-instance Core.ToPath CreateStream where
+instance Data.ToPath CreateStream where
   toPath = Prelude.const "/createStream"
 
-instance Core.ToQuery CreateStream where
+instance Data.ToQuery CreateStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStreamResponse' smart constructor.

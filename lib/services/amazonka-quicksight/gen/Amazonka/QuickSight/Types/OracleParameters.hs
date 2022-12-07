@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.OracleParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for Oracle.
@@ -76,15 +77,15 @@ oracleParameters_port = Lens.lens (\OracleParameters' {port} -> port) (\s@Oracle
 oracleParameters_database :: Lens.Lens' OracleParameters Prelude.Text
 oracleParameters_database = Lens.lens (\OracleParameters' {database} -> database) (\s@OracleParameters' {} a -> s {database = a} :: OracleParameters)
 
-instance Core.FromJSON OracleParameters where
+instance Data.FromJSON OracleParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OracleParameters"
       ( \x ->
           OracleParameters'
-            Prelude.<$> (x Core..: "Host")
-            Prelude.<*> (x Core..: "Port")
-            Prelude.<*> (x Core..: "Database")
+            Prelude.<$> (x Data..: "Host")
+            Prelude.<*> (x Data..: "Port")
+            Prelude.<*> (x Data..: "Database")
       )
 
 instance Prelude.Hashable OracleParameters where
@@ -99,12 +100,12 @@ instance Prelude.NFData OracleParameters where
       `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf database
 
-instance Core.ToJSON OracleParameters where
+instance Data.ToJSON OracleParameters where
   toJSON OracleParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Host" Core..= host),
-            Prelude.Just ("Port" Core..= port),
-            Prelude.Just ("Database" Core..= database)
+          [ Prelude.Just ("Host" Data..= host),
+            Prelude.Just ("Port" Data..= port),
+            Prelude.Just ("Database" Data..= database)
           ]
       )

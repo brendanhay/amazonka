@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.IosImportClientBrandingAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The client branding attributes to import for iOS device types. These
@@ -52,7 +53,7 @@ data IosImportClientBrandingAttributes = IosImportClientBrandingAttributes'
     -- density (or \@1x), where one pixel is equal to one point. The only image
     -- format accepted is a binary data object that is converted from a @.png@
     -- file.
-    logo :: Prelude.Maybe Core.Base64,
+    logo :: Prelude.Maybe Data.Base64,
     -- | The \@3x version of the logo. This is the higher resolution display that
     -- offers a scale factor of 3.0 (or \@3x). The only image format accepted
     -- is a binary data object that is converted from a @.png@ file.
@@ -60,7 +61,7 @@ data IosImportClientBrandingAttributes = IosImportClientBrandingAttributes'
     -- For more information about iOS image size and resolution, see
     -- <https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/ Image Size and Resolution>
     -- in the /Apple Human Interface Guidelines/.
-    logo3x :: Prelude.Maybe Core.Base64,
+    logo3x :: Prelude.Maybe Data.Base64,
     -- | The login message. Specified as a key value pair, in which the key is a
     -- locale and the value is the localized message for that locale. The only
     -- key supported is @en_US@. The HTML tags supported include the following:
@@ -76,7 +77,7 @@ data IosImportClientBrandingAttributes = IosImportClientBrandingAttributes'
     -- For more information about iOS image size and resolution, see
     -- <https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/ Image Size and Resolution>
     -- in the /Apple Human Interface Guidelines/.
-    logo2x :: Prelude.Maybe Core.Base64
+    logo2x :: Prelude.Maybe Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -189,7 +190,7 @@ iosImportClientBrandingAttributes_supportEmail = Lens.lens (\IosImportClientBran
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 iosImportClientBrandingAttributes_logo :: Lens.Lens' IosImportClientBrandingAttributes (Prelude.Maybe Prelude.ByteString)
-iosImportClientBrandingAttributes_logo = Lens.lens (\IosImportClientBrandingAttributes' {logo} -> logo) (\s@IosImportClientBrandingAttributes' {} a -> s {logo = a} :: IosImportClientBrandingAttributes) Prelude.. Lens.mapping Core._Base64
+iosImportClientBrandingAttributes_logo = Lens.lens (\IosImportClientBrandingAttributes' {logo} -> logo) (\s@IosImportClientBrandingAttributes' {} a -> s {logo = a} :: IosImportClientBrandingAttributes) Prelude.. Lens.mapping Data._Base64
 
 -- | The \@3x version of the logo. This is the higher resolution display that
 -- offers a scale factor of 3.0 (or \@3x). The only image format accepted
@@ -203,7 +204,7 @@ iosImportClientBrandingAttributes_logo = Lens.lens (\IosImportClientBrandingAttr
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 iosImportClientBrandingAttributes_logo3x :: Lens.Lens' IosImportClientBrandingAttributes (Prelude.Maybe Prelude.ByteString)
-iosImportClientBrandingAttributes_logo3x = Lens.lens (\IosImportClientBrandingAttributes' {logo3x} -> logo3x) (\s@IosImportClientBrandingAttributes' {} a -> s {logo3x = a} :: IosImportClientBrandingAttributes) Prelude.. Lens.mapping Core._Base64
+iosImportClientBrandingAttributes_logo3x = Lens.lens (\IosImportClientBrandingAttributes' {logo3x} -> logo3x) (\s@IosImportClientBrandingAttributes' {} a -> s {logo3x = a} :: IosImportClientBrandingAttributes) Prelude.. Lens.mapping Data._Base64
 
 -- | The login message. Specified as a key value pair, in which the key is a
 -- locale and the value is the localized message for that locale. The only
@@ -229,7 +230,7 @@ iosImportClientBrandingAttributes_forgotPasswordLink = Lens.lens (\IosImportClie
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 iosImportClientBrandingAttributes_logo2x :: Lens.Lens' IosImportClientBrandingAttributes (Prelude.Maybe Prelude.ByteString)
-iosImportClientBrandingAttributes_logo2x = Lens.lens (\IosImportClientBrandingAttributes' {logo2x} -> logo2x) (\s@IosImportClientBrandingAttributes' {} a -> s {logo2x = a} :: IosImportClientBrandingAttributes) Prelude.. Lens.mapping Core._Base64
+iosImportClientBrandingAttributes_logo2x = Lens.lens (\IosImportClientBrandingAttributes' {logo2x} -> logo2x) (\s@IosImportClientBrandingAttributes' {} a -> s {logo2x = a} :: IosImportClientBrandingAttributes) Prelude.. Lens.mapping Data._Base64
 
 instance
   Prelude.Hashable
@@ -260,19 +261,19 @@ instance
       `Prelude.seq` Prelude.rnf logo2x
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     IosImportClientBrandingAttributes
   where
   toJSON IosImportClientBrandingAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SupportLink" Core..=) Prelude.<$> supportLink,
-            ("SupportEmail" Core..=) Prelude.<$> supportEmail,
-            ("Logo" Core..=) Prelude.<$> logo,
-            ("Logo3x" Core..=) Prelude.<$> logo3x,
-            ("LoginMessage" Core..=) Prelude.<$> loginMessage,
-            ("ForgotPasswordLink" Core..=)
+          [ ("SupportLink" Data..=) Prelude.<$> supportLink,
+            ("SupportEmail" Data..=) Prelude.<$> supportEmail,
+            ("Logo" Data..=) Prelude.<$> logo,
+            ("Logo3x" Data..=) Prelude.<$> logo3x,
+            ("LoginMessage" Data..=) Prelude.<$> loginMessage,
+            ("ForgotPasswordLink" Data..=)
               Prelude.<$> forgotPasswordLink,
-            ("Logo2x" Core..=) Prelude.<$> logo2x
+            ("Logo2x" Data..=) Prelude.<$> logo2x
           ]
       )

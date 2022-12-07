@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -192,7 +193,7 @@ instance
       ( \s h x ->
           DescribeDefaultClusterParametersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "DefaultClusterParameters")
+            Prelude.<*> (x Data..@ "DefaultClusterParameters")
       )
 
 instance
@@ -216,29 +217,29 @@ instance
       `Prelude.seq` Prelude.rnf parameterGroupFamily
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeDefaultClusterParameters
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDefaultClusterParameters where
+instance Data.ToPath DescribeDefaultClusterParameters where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeDefaultClusterParameters
   where
   toQuery DescribeDefaultClusterParameters' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeDefaultClusterParameters" ::
+          Data.=: ( "DescribeDefaultClusterParameters" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords,
-        "ParameterGroupFamily" Core.=: parameterGroupFamily
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
+        "ParameterGroupFamily" Data.=: parameterGroupFamily
       ]
 
 -- | /See:/ 'newDescribeDefaultClusterParametersResponse' smart constructor.

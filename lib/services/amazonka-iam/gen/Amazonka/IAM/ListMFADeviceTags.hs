@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -166,11 +167,11 @@ instance Core.AWSRequest ListMFADeviceTags where
       "ListMFADeviceTagsResult"
       ( \s h x ->
           ListMFADeviceTagsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -186,22 +187,22 @@ instance Prelude.NFData ListMFADeviceTags where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf serialNumber
 
-instance Core.ToHeaders ListMFADeviceTags where
+instance Data.ToHeaders ListMFADeviceTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListMFADeviceTags where
+instance Data.ToPath ListMFADeviceTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListMFADeviceTags where
+instance Data.ToQuery ListMFADeviceTags where
   toQuery ListMFADeviceTags' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListMFADeviceTags" :: Prelude.ByteString),
+          Data.=: ("ListMFADeviceTags" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "SerialNumber" Core.=: serialNumber
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "SerialNumber" Data.=: serialNumber
       ]
 
 -- | /See:/ 'newListMFADeviceTagsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.KinesisStreamConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the Amazon Kinesis data stream where you are
@@ -87,11 +88,11 @@ kinesisStreamConfig_roleARN = Lens.lens (\KinesisStreamConfig' {roleARN} -> role
 kinesisStreamConfig_streamARN :: Lens.Lens' KinesisStreamConfig Prelude.Text
 kinesisStreamConfig_streamARN = Lens.lens (\KinesisStreamConfig' {streamARN} -> streamARN) (\s@KinesisStreamConfig' {} a -> s {streamARN = a} :: KinesisStreamConfig)
 
-instance Core.FromXML KinesisStreamConfig where
+instance Data.FromXML KinesisStreamConfig where
   parseXML x =
     KinesisStreamConfig'
-      Prelude.<$> (x Core..@ "RoleARN")
-      Prelude.<*> (x Core..@ "StreamARN")
+      Prelude.<$> (x Data..@ "RoleARN")
+      Prelude.<*> (x Data..@ "StreamARN")
 
 instance Prelude.Hashable KinesisStreamConfig where
   hashWithSalt _salt KinesisStreamConfig' {..} =
@@ -103,9 +104,9 @@ instance Prelude.NFData KinesisStreamConfig where
     Prelude.rnf roleARN
       `Prelude.seq` Prelude.rnf streamARN
 
-instance Core.ToXML KinesisStreamConfig where
+instance Data.ToXML KinesisStreamConfig where
   toXML KinesisStreamConfig' {..} =
     Prelude.mconcat
-      [ "RoleARN" Core.@= roleARN,
-        "StreamARN" Core.@= streamARN
+      [ "RoleARN" Data.@= roleARN,
+        "StreamARN" Data.@= streamARN
       ]

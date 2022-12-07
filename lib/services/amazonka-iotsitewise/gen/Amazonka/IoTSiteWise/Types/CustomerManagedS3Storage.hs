@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.CustomerManagedS3Storage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a customer managed Amazon S3 bucket.
@@ -90,14 +91,14 @@ customerManagedS3Storage_s3ResourceArn = Lens.lens (\CustomerManagedS3Storage' {
 customerManagedS3Storage_roleArn :: Lens.Lens' CustomerManagedS3Storage Prelude.Text
 customerManagedS3Storage_roleArn = Lens.lens (\CustomerManagedS3Storage' {roleArn} -> roleArn) (\s@CustomerManagedS3Storage' {} a -> s {roleArn = a} :: CustomerManagedS3Storage)
 
-instance Core.FromJSON CustomerManagedS3Storage where
+instance Data.FromJSON CustomerManagedS3Storage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomerManagedS3Storage"
       ( \x ->
           CustomerManagedS3Storage'
-            Prelude.<$> (x Core..: "s3ResourceArn")
-            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Data..: "s3ResourceArn")
+            Prelude.<*> (x Data..: "roleArn")
       )
 
 instance Prelude.Hashable CustomerManagedS3Storage where
@@ -110,12 +111,12 @@ instance Prelude.NFData CustomerManagedS3Storage where
     Prelude.rnf s3ResourceArn
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON CustomerManagedS3Storage where
+instance Data.ToJSON CustomerManagedS3Storage where
   toJSON CustomerManagedS3Storage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("s3ResourceArn" Core..= s3ResourceArn),
-            Prelude.Just ("roleArn" Core..= roleArn)
+              ("s3ResourceArn" Data..= s3ResourceArn),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )

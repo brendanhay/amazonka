@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.TagKeyOnly where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,6 +58,6 @@ instance Prelude.Hashable TagKeyOnly where
 instance Prelude.NFData TagKeyOnly where
   rnf TagKeyOnly' {..} = Prelude.rnf key
 
-instance Core.ToQuery TagKeyOnly where
+instance Data.ToQuery TagKeyOnly where
   toQuery TagKeyOnly' {..} =
-    Prelude.mconcat ["Key" Core.=: key]
+    Prelude.mconcat ["Key" Data.=: key]

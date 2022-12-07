@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.JobDriver where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types.SparkSqlJobDriver
 import Amazonka.EMRContainers.Types.SparkSubmitJobDriver
 import qualified Amazonka.Prelude as Prelude
@@ -65,14 +66,14 @@ jobDriver_sparkSqlJobDriver = Lens.lens (\JobDriver' {sparkSqlJobDriver} -> spar
 jobDriver_sparkSubmitJobDriver :: Lens.Lens' JobDriver (Prelude.Maybe SparkSubmitJobDriver)
 jobDriver_sparkSubmitJobDriver = Lens.lens (\JobDriver' {sparkSubmitJobDriver} -> sparkSubmitJobDriver) (\s@JobDriver' {} a -> s {sparkSubmitJobDriver = a} :: JobDriver)
 
-instance Core.FromJSON JobDriver where
+instance Data.FromJSON JobDriver where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobDriver"
       ( \x ->
           JobDriver'
-            Prelude.<$> (x Core..:? "sparkSqlJobDriver")
-            Prelude.<*> (x Core..:? "sparkSubmitJobDriver")
+            Prelude.<$> (x Data..:? "sparkSqlJobDriver")
+            Prelude.<*> (x Data..:? "sparkSubmitJobDriver")
       )
 
 instance Prelude.Hashable JobDriver where
@@ -85,13 +86,13 @@ instance Prelude.NFData JobDriver where
     Prelude.rnf sparkSqlJobDriver
       `Prelude.seq` Prelude.rnf sparkSubmitJobDriver
 
-instance Core.ToJSON JobDriver where
+instance Data.ToJSON JobDriver where
   toJSON JobDriver' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sparkSqlJobDriver" Core..=)
+          [ ("sparkSqlJobDriver" Data..=)
               Prelude.<$> sparkSqlJobDriver,
-            ("sparkSubmitJobDriver" Core..=)
+            ("sparkSubmitJobDriver" Data..=)
               Prelude.<$> sparkSubmitJobDriver
           ]
       )

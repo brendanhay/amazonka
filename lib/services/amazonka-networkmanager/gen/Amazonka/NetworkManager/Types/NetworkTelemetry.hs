@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.NetworkTelemetry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.ConnectionHealth
 import qualified Amazonka.Prelude as Prelude
 
@@ -125,21 +126,21 @@ networkTelemetry_awsRegion = Lens.lens (\NetworkTelemetry' {awsRegion} -> awsReg
 networkTelemetry_resourceArn :: Lens.Lens' NetworkTelemetry (Prelude.Maybe Prelude.Text)
 networkTelemetry_resourceArn = Lens.lens (\NetworkTelemetry' {resourceArn} -> resourceArn) (\s@NetworkTelemetry' {} a -> s {resourceArn = a} :: NetworkTelemetry)
 
-instance Core.FromJSON NetworkTelemetry where
+instance Data.FromJSON NetworkTelemetry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkTelemetry"
       ( \x ->
           NetworkTelemetry'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "CoreNetworkId")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "Address")
-            Prelude.<*> (x Core..:? "RegisteredGatewayArn")
-            Prelude.<*> (x Core..:? "Health")
-            Prelude.<*> (x Core..:? "AwsRegion")
-            Prelude.<*> (x Core..:? "ResourceArn")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "CoreNetworkId")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "Address")
+            Prelude.<*> (x Data..:? "RegisteredGatewayArn")
+            Prelude.<*> (x Data..:? "Health")
+            Prelude.<*> (x Data..:? "AwsRegion")
+            Prelude.<*> (x Data..:? "ResourceArn")
       )
 
 instance Prelude.Hashable NetworkTelemetry where

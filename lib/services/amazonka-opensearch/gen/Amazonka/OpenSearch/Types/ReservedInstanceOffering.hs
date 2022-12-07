@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.ReservedInstanceOffering where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.OpenSearchPartitionInstanceType
 import Amazonka.OpenSearch.Types.RecurringCharge
 import Amazonka.OpenSearch.Types.ReservedInstancePaymentOption
@@ -131,22 +132,22 @@ reservedInstanceOffering_paymentOption = Lens.lens (\ReservedInstanceOffering' {
 reservedInstanceOffering_usagePrice :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe Prelude.Double)
 reservedInstanceOffering_usagePrice = Lens.lens (\ReservedInstanceOffering' {usagePrice} -> usagePrice) (\s@ReservedInstanceOffering' {} a -> s {usagePrice = a} :: ReservedInstanceOffering)
 
-instance Core.FromJSON ReservedInstanceOffering where
+instance Data.FromJSON ReservedInstanceOffering where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReservedInstanceOffering"
       ( \x ->
           ReservedInstanceOffering'
-            Prelude.<$> ( x Core..:? "RecurringCharges"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "RecurringCharges"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "Duration")
-            Prelude.<*> (x Core..:? "CurrencyCode")
-            Prelude.<*> (x Core..:? "FixedPrice")
-            Prelude.<*> (x Core..:? "ReservedInstanceOfferingId")
-            Prelude.<*> (x Core..:? "PaymentOption")
-            Prelude.<*> (x Core..:? "UsagePrice")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "Duration")
+            Prelude.<*> (x Data..:? "CurrencyCode")
+            Prelude.<*> (x Data..:? "FixedPrice")
+            Prelude.<*> (x Data..:? "ReservedInstanceOfferingId")
+            Prelude.<*> (x Data..:? "PaymentOption")
+            Prelude.<*> (x Data..:? "UsagePrice")
       )
 
 instance Prelude.Hashable ReservedInstanceOffering where

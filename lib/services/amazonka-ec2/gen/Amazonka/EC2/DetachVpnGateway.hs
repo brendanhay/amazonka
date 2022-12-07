@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,22 +134,22 @@ instance Prelude.NFData DetachVpnGateway where
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf vpnGatewayId
 
-instance Core.ToHeaders DetachVpnGateway where
+instance Data.ToHeaders DetachVpnGateway where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DetachVpnGateway where
+instance Data.ToPath DetachVpnGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetachVpnGateway where
+instance Data.ToQuery DetachVpnGateway where
   toQuery DetachVpnGateway' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DetachVpnGateway" :: Prelude.ByteString),
+          Data.=: ("DetachVpnGateway" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "VpcId" Core.=: vpcId,
-        "VpnGatewayId" Core.=: vpnGatewayId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "VpcId" Data.=: vpcId,
+        "VpnGatewayId" Data.=: vpnGatewayId
       ]
 
 -- | /See:/ 'newDetachVpnGatewayResponse' smart constructor.

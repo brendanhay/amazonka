@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ProvisioningArtifactProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ProvisioningArtifactType
 
@@ -178,15 +179,15 @@ instance
       `Prelude.seq` Prelude.rnf info
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToJSON ProvisioningArtifactProperties where
+instance Data.ToJSON ProvisioningArtifactProperties where
   toJSON ProvisioningArtifactProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Type" Core..=) Prelude.<$> type',
-            ("DisableTemplateValidation" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Type" Data..=) Prelude.<$> type',
+            ("DisableTemplateValidation" Data..=)
               Prelude.<$> disableTemplateValidation,
-            ("Info" Core..=) Prelude.<$> info,
-            ("Description" Core..=) Prelude.<$> description
+            ("Info" Data..=) Prelude.<$> info,
+            ("Description" Data..=) Prelude.<$> description
           ]
       )

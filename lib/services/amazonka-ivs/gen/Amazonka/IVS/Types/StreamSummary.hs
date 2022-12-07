@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.StreamSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types.StreamHealth
 import Amazonka.IVS.Types.StreamState
 import qualified Amazonka.Prelude as Prelude
@@ -46,7 +47,7 @@ data StreamSummary = StreamSummary'
     health :: Prelude.Maybe StreamHealth,
     -- | Time of the stream’s start. This is an ISO 8601 timestamp; /note that
     -- this is returned as a string/.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -115,20 +116,20 @@ streamSummary_health = Lens.lens (\StreamSummary' {health} -> health) (\s@Stream
 -- | Time of the stream’s start. This is an ISO 8601 timestamp; /note that
 -- this is returned as a string/.
 streamSummary_startTime :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.UTCTime)
-streamSummary_startTime = Lens.lens (\StreamSummary' {startTime} -> startTime) (\s@StreamSummary' {} a -> s {startTime = a} :: StreamSummary) Prelude.. Lens.mapping Core._Time
+streamSummary_startTime = Lens.lens (\StreamSummary' {startTime} -> startTime) (\s@StreamSummary' {} a -> s {startTime = a} :: StreamSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON StreamSummary where
+instance Data.FromJSON StreamSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamSummary"
       ( \x ->
           StreamSummary'
-            Prelude.<$> (x Core..:? "viewerCount")
-            Prelude.<*> (x Core..:? "channelArn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "streamId")
-            Prelude.<*> (x Core..:? "health")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<$> (x Data..:? "viewerCount")
+            Prelude.<*> (x Data..:? "channelArn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "streamId")
+            Prelude.<*> (x Data..:? "health")
+            Prelude.<*> (x Data..:? "startTime")
       )
 
 instance Prelude.Hashable StreamSummary where

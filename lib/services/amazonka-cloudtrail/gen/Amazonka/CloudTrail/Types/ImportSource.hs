@@ -22,6 +22,7 @@ module Amazonka.CloudTrail.Types.ImportSource where
 import Amazonka.CloudTrail.Types.S3ImportSource
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The import source.
@@ -52,11 +53,11 @@ newImportSource pS3_ = ImportSource' {s3 = pS3_}
 importSource_s3 :: Lens.Lens' ImportSource S3ImportSource
 importSource_s3 = Lens.lens (\ImportSource' {s3} -> s3) (\s@ImportSource' {} a -> s {s3 = a} :: ImportSource)
 
-instance Core.FromJSON ImportSource where
+instance Data.FromJSON ImportSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportSource"
-      (\x -> ImportSource' Prelude.<$> (x Core..: "S3"))
+      (\x -> ImportSource' Prelude.<$> (x Data..: "S3"))
 
 instance Prelude.Hashable ImportSource where
   hashWithSalt _salt ImportSource' {..} =
@@ -65,7 +66,7 @@ instance Prelude.Hashable ImportSource where
 instance Prelude.NFData ImportSource where
   rnf ImportSource' {..} = Prelude.rnf s3
 
-instance Core.ToJSON ImportSource where
+instance Data.ToJSON ImportSource where
   toJSON ImportSource' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("S3" Core..= s3)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("S3" Data..= s3)])

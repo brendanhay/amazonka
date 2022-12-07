@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,7 +103,7 @@ instance Core.AWSRequest StartFileTransfer where
       ( \s h x ->
           StartFileTransferResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "TransferId")
+            Prelude.<*> (x Data..:> "TransferId")
       )
 
 instance Prelude.Hashable StartFileTransfer where
@@ -115,35 +116,35 @@ instance Prelude.NFData StartFileTransfer where
     Prelude.rnf connectorId
       `Prelude.seq` Prelude.rnf sendFilePaths
 
-instance Core.ToHeaders StartFileTransfer where
+instance Data.ToHeaders StartFileTransfer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.StartFileTransfer" ::
+              Data.=# ( "TransferService.StartFileTransfer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartFileTransfer where
+instance Data.ToJSON StartFileTransfer where
   toJSON StartFileTransfer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ConnectorId" Core..= connectorId),
+          [ Prelude.Just ("ConnectorId" Data..= connectorId),
             Prelude.Just
-              ("SendFilePaths" Core..= sendFilePaths)
+              ("SendFilePaths" Data..= sendFilePaths)
           ]
       )
 
-instance Core.ToPath StartFileTransfer where
+instance Data.ToPath StartFileTransfer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartFileTransfer where
+instance Data.ToQuery StartFileTransfer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartFileTransferResponse' smart constructor.

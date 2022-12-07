@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.SatelliteListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.EphemerisMetaData
 import qualified Amazonka.Prelude as Prelude
 
@@ -92,18 +93,18 @@ satelliteListItem_noradSatelliteID = Lens.lens (\SatelliteListItem' {noradSatell
 satelliteListItem_groundStations :: Lens.Lens' SatelliteListItem (Prelude.Maybe [Prelude.Text])
 satelliteListItem_groundStations = Lens.lens (\SatelliteListItem' {groundStations} -> groundStations) (\s@SatelliteListItem' {} a -> s {groundStations = a} :: SatelliteListItem) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SatelliteListItem where
+instance Data.FromJSON SatelliteListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SatelliteListItem"
       ( \x ->
           SatelliteListItem'
-            Prelude.<$> (x Core..:? "satelliteArn")
-            Prelude.<*> (x Core..:? "currentEphemeris")
-            Prelude.<*> (x Core..:? "satelliteId")
-            Prelude.<*> (x Core..:? "noradSatelliteID")
-            Prelude.<*> ( x Core..:? "groundStations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "satelliteArn")
+            Prelude.<*> (x Data..:? "currentEphemeris")
+            Prelude.<*> (x Data..:? "satelliteId")
+            Prelude.<*> (x Data..:? "noradSatelliteID")
+            Prelude.<*> ( x Data..:? "groundStations"
+                            Data..!= Prelude.mempty
                         )
       )
 

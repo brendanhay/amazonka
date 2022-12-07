@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -172,7 +173,7 @@ instance Core.AWSRequest UpdateNodegroupConfig where
     Response.receiveJSON
       ( \s h x ->
           UpdateNodegroupConfigResponse'
-            Prelude.<$> (x Core..?> "update")
+            Prelude.<$> (x Data..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,41 +197,41 @@ instance Prelude.NFData UpdateNodegroupConfig where
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf nodegroupName
 
-instance Core.ToHeaders UpdateNodegroupConfig where
+instance Data.ToHeaders UpdateNodegroupConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNodegroupConfig where
+instance Data.ToJSON UpdateNodegroupConfig where
   toJSON UpdateNodegroupConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientRequestToken" Core..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("updateConfig" Core..=) Prelude.<$> updateConfig,
-            ("taints" Core..=) Prelude.<$> taints,
-            ("labels" Core..=) Prelude.<$> labels,
-            ("scalingConfig" Core..=) Prelude.<$> scalingConfig
+            ("updateConfig" Data..=) Prelude.<$> updateConfig,
+            ("taints" Data..=) Prelude.<$> taints,
+            ("labels" Data..=) Prelude.<$> labels,
+            ("scalingConfig" Data..=) Prelude.<$> scalingConfig
           ]
       )
 
-instance Core.ToPath UpdateNodegroupConfig where
+instance Data.ToPath UpdateNodegroupConfig where
   toPath UpdateNodegroupConfig' {..} =
     Prelude.mconcat
       [ "/clusters/",
-        Core.toBS clusterName,
+        Data.toBS clusterName,
         "/node-groups/",
-        Core.toBS nodegroupName,
+        Data.toBS nodegroupName,
         "/update-config"
       ]
 
-instance Core.ToQuery UpdateNodegroupConfig where
+instance Data.ToQuery UpdateNodegroupConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateNodegroupConfigResponse' smart constructor.

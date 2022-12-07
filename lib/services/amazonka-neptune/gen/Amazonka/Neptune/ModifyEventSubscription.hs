@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,7 +165,7 @@ instance Core.AWSRequest ModifyEventSubscription where
       "ModifyEventSubscriptionResult"
       ( \s h x ->
           ModifyEventSubscriptionResponse'
-            Prelude.<$> (x Core..@? "EventSubscription")
+            Prelude.<$> (x Data..@? "EventSubscription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,28 +185,28 @@ instance Prelude.NFData ModifyEventSubscription where
       `Prelude.seq` Prelude.rnf eventCategories
       `Prelude.seq` Prelude.rnf subscriptionName
 
-instance Core.ToHeaders ModifyEventSubscription where
+instance Data.ToHeaders ModifyEventSubscription where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyEventSubscription where
+instance Data.ToPath ModifyEventSubscription where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyEventSubscription where
+instance Data.ToQuery ModifyEventSubscription where
   toQuery ModifyEventSubscription' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyEventSubscription" :: Prelude.ByteString),
+          Data.=: ("ModifyEventSubscription" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "SourceType" Core.=: sourceType,
-        "Enabled" Core.=: enabled,
-        "SnsTopicArn" Core.=: snsTopicArn,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "SourceType" Data.=: sourceType,
+        "Enabled" Data.=: enabled,
+        "SnsTopicArn" Data.=: snsTopicArn,
         "EventCategories"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "EventCategory"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "EventCategory"
                 Prelude.<$> eventCategories
             ),
-        "SubscriptionName" Core.=: subscriptionName
+        "SubscriptionName" Data.=: subscriptionName
       ]
 
 -- | /See:/ 'newModifyEventSubscriptionResponse' smart constructor.

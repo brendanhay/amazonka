@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types
 import qualified Amazonka.Request as Request
@@ -111,7 +112,7 @@ instance Core.AWSRequest DescribeJournalKinesisStream where
     Response.receiveJSON
       ( \s h x ->
           DescribeJournalKinesisStreamResponse'
-            Prelude.<$> (x Core..?> "Stream")
+            Prelude.<$> (x Data..?> "Stream")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,27 +129,27 @@ instance Prelude.NFData DescribeJournalKinesisStream where
     Prelude.rnf ledgerName
       `Prelude.seq` Prelude.rnf streamId
 
-instance Core.ToHeaders DescribeJournalKinesisStream where
+instance Data.ToHeaders DescribeJournalKinesisStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeJournalKinesisStream where
+instance Data.ToPath DescribeJournalKinesisStream where
   toPath DescribeJournalKinesisStream' {..} =
     Prelude.mconcat
       [ "/ledgers/",
-        Core.toBS ledgerName,
+        Data.toBS ledgerName,
         "/journal-kinesis-streams/",
-        Core.toBS streamId
+        Data.toBS streamId
       ]
 
-instance Core.ToQuery DescribeJournalKinesisStream where
+instance Data.ToQuery DescribeJournalKinesisStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeJournalKinesisStreamResponse' smart constructor.

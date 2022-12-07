@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.FirewallPolicyMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | High-level information about a firewall policy, returned by operations
@@ -67,13 +68,13 @@ firewallPolicyMetadata_name = Lens.lens (\FirewallPolicyMetadata' {name} -> name
 firewallPolicyMetadata_arn :: Lens.Lens' FirewallPolicyMetadata (Prelude.Maybe Prelude.Text)
 firewallPolicyMetadata_arn = Lens.lens (\FirewallPolicyMetadata' {arn} -> arn) (\s@FirewallPolicyMetadata' {} a -> s {arn = a} :: FirewallPolicyMetadata)
 
-instance Core.FromJSON FirewallPolicyMetadata where
+instance Data.FromJSON FirewallPolicyMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallPolicyMetadata"
       ( \x ->
           FirewallPolicyMetadata'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable FirewallPolicyMetadata where

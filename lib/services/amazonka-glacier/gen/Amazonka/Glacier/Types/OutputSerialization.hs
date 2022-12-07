@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.OutputSerialization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types.CSVOutput
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,12 +52,12 @@ newOutputSerialization =
 outputSerialization_csv :: Lens.Lens' OutputSerialization (Prelude.Maybe CSVOutput)
 outputSerialization_csv = Lens.lens (\OutputSerialization' {csv} -> csv) (\s@OutputSerialization' {} a -> s {csv = a} :: OutputSerialization)
 
-instance Core.FromJSON OutputSerialization where
+instance Data.FromJSON OutputSerialization where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputSerialization"
       ( \x ->
-          OutputSerialization' Prelude.<$> (x Core..:? "csv")
+          OutputSerialization' Prelude.<$> (x Data..:? "csv")
       )
 
 instance Prelude.Hashable OutputSerialization where
@@ -66,7 +67,7 @@ instance Prelude.Hashable OutputSerialization where
 instance Prelude.NFData OutputSerialization where
   rnf OutputSerialization' {..} = Prelude.rnf csv
 
-instance Core.ToJSON OutputSerialization where
+instance Data.ToJSON OutputSerialization where
   toJSON OutputSerialization' {..} =
-    Core.object
-      (Prelude.catMaybes [("csv" Core..=) Prelude.<$> csv])
+    Data.object
+      (Prelude.catMaybes [("csv" Data..=) Prelude.<$> csv])

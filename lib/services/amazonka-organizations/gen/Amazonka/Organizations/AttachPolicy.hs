@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -176,34 +177,34 @@ instance Prelude.NFData AttachPolicy where
     Prelude.rnf policyId
       `Prelude.seq` Prelude.rnf targetId
 
-instance Core.ToHeaders AttachPolicy where
+instance Data.ToHeaders AttachPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.AttachPolicy" ::
+              Data.=# ( "AWSOrganizationsV20161128.AttachPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AttachPolicy where
+instance Data.ToJSON AttachPolicy where
   toJSON AttachPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("PolicyId" Core..= policyId),
-            Prelude.Just ("TargetId" Core..= targetId)
+          [ Prelude.Just ("PolicyId" Data..= policyId),
+            Prelude.Just ("TargetId" Data..= targetId)
           ]
       )
 
-instance Core.ToPath AttachPolicy where
+instance Data.ToPath AttachPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AttachPolicy where
+instance Data.ToQuery AttachPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAttachPolicyResponse' smart constructor.

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -188,11 +189,11 @@ instance Core.AWSRequest QueryTableRows where
     Response.receiveJSON
       ( \s h x ->
           QueryTableRowsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "columnIds")
-            Prelude.<*> (x Core..?> "rows" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "workbookCursor")
+            Prelude.<*> (x Data..:> "columnIds")
+            Prelude.<*> (x Data..?> "rows" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "workbookCursor")
       )
 
 instance Prelude.Hashable QueryTableRows where
@@ -211,39 +212,39 @@ instance Prelude.NFData QueryTableRows where
       `Prelude.seq` Prelude.rnf tableId
       `Prelude.seq` Prelude.rnf filterFormula
 
-instance Core.ToHeaders QueryTableRows where
+instance Data.ToHeaders QueryTableRows where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON QueryTableRows where
+instance Data.ToJSON QueryTableRows where
   toJSON QueryTableRows' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("filterFormula" Core..= filterFormula)
+              ("filterFormula" Data..= filterFormula)
           ]
       )
 
-instance Core.ToPath QueryTableRows where
+instance Data.ToPath QueryTableRows where
   toPath QueryTableRows' {..} =
     Prelude.mconcat
       [ "/workbooks/",
-        Core.toBS workbookId,
+        Data.toBS workbookId,
         "/tables/",
-        Core.toBS tableId,
+        Data.toBS tableId,
         "/rows/query"
       ]
 
-instance Core.ToQuery QueryTableRows where
+instance Data.ToQuery QueryTableRows where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newQueryTableRowsResponse' smart constructor.

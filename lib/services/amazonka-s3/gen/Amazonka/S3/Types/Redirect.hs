@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Redirect where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.Protocol
@@ -151,14 +152,14 @@ redirect_protocol = Lens.lens (\Redirect' {protocol} -> protocol) (\s@Redirect' 
 redirect_httpRedirectCode :: Lens.Lens' Redirect (Prelude.Maybe Prelude.Text)
 redirect_httpRedirectCode = Lens.lens (\Redirect' {httpRedirectCode} -> httpRedirectCode) (\s@Redirect' {} a -> s {httpRedirectCode = a} :: Redirect)
 
-instance Core.FromXML Redirect where
+instance Data.FromXML Redirect where
   parseXML x =
     Redirect'
-      Prelude.<$> (x Core..@? "HostName")
-      Prelude.<*> (x Core..@? "ReplaceKeyPrefixWith")
-      Prelude.<*> (x Core..@? "ReplaceKeyWith")
-      Prelude.<*> (x Core..@? "Protocol")
-      Prelude.<*> (x Core..@? "HttpRedirectCode")
+      Prelude.<$> (x Data..@? "HostName")
+      Prelude.<*> (x Data..@? "ReplaceKeyPrefixWith")
+      Prelude.<*> (x Data..@? "ReplaceKeyWith")
+      Prelude.<*> (x Data..@? "Protocol")
+      Prelude.<*> (x Data..@? "HttpRedirectCode")
 
 instance Prelude.Hashable Redirect where
   hashWithSalt _salt Redirect' {..} =
@@ -176,12 +177,12 @@ instance Prelude.NFData Redirect where
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf httpRedirectCode
 
-instance Core.ToXML Redirect where
+instance Data.ToXML Redirect where
   toXML Redirect' {..} =
     Prelude.mconcat
-      [ "HostName" Core.@= hostName,
-        "ReplaceKeyPrefixWith" Core.@= replaceKeyPrefixWith,
-        "ReplaceKeyWith" Core.@= replaceKeyWith,
-        "Protocol" Core.@= protocol,
-        "HttpRedirectCode" Core.@= httpRedirectCode
+      [ "HostName" Data.@= hostName,
+        "ReplaceKeyPrefixWith" Data.@= replaceKeyPrefixWith,
+        "ReplaceKeyWith" Data.@= replaceKeyWith,
+        "Protocol" Data.@= protocol,
+        "HttpRedirectCode" Data.@= httpRedirectCode
       ]

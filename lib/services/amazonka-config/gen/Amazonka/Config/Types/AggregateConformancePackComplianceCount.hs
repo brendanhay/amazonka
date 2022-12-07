@@ -21,6 +21,7 @@ module Amazonka.Config.Types.AggregateConformancePackComplianceCount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The number of conformance packs that are compliant and noncompliant.
@@ -64,16 +65,16 @@ aggregateConformancePackComplianceCount_nonCompliantConformancePackCount :: Lens
 aggregateConformancePackComplianceCount_nonCompliantConformancePackCount = Lens.lens (\AggregateConformancePackComplianceCount' {nonCompliantConformancePackCount} -> nonCompliantConformancePackCount) (\s@AggregateConformancePackComplianceCount' {} a -> s {nonCompliantConformancePackCount = a} :: AggregateConformancePackComplianceCount)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AggregateConformancePackComplianceCount
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregateConformancePackComplianceCount"
       ( \x ->
           AggregateConformancePackComplianceCount'
-            Prelude.<$> (x Core..:? "CompliantConformancePackCount")
-            Prelude.<*> (x Core..:? "NonCompliantConformancePackCount")
+            Prelude.<$> (x Data..:? "CompliantConformancePackCount")
+            Prelude.<*> (x Data..:? "NonCompliantConformancePackCount")
       )
 
 instance

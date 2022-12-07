@@ -26,6 +26,7 @@ import Amazonka.ComputeOptimizer.Types.VolumeConfiguration
 import Amazonka.ComputeOptimizer.Types.VolumeRecommendationOption
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon Elastic Block Store (Amazon EBS) volume
@@ -38,7 +39,7 @@ data VolumeRecommendation = VolumeRecommendation'
     -- volume doesn\'t have sufficient capacity.
     currentPerformanceRisk :: Prelude.Maybe CurrentPerformanceRisk,
     -- | The timestamp of when the volume recommendation was last generated.
-    lastRefreshTimestamp :: Prelude.Maybe Core.POSIX,
+    lastRefreshTimestamp :: Prelude.Maybe Data.POSIX,
     -- | An array of objects that describe the current configuration of the
     -- volume.
     currentConfiguration :: Prelude.Maybe VolumeConfiguration,
@@ -137,7 +138,7 @@ volumeRecommendation_currentPerformanceRisk = Lens.lens (\VolumeRecommendation' 
 
 -- | The timestamp of when the volume recommendation was last generated.
 volumeRecommendation_lastRefreshTimestamp :: Lens.Lens' VolumeRecommendation (Prelude.Maybe Prelude.UTCTime)
-volumeRecommendation_lastRefreshTimestamp = Lens.lens (\VolumeRecommendation' {lastRefreshTimestamp} -> lastRefreshTimestamp) (\s@VolumeRecommendation' {} a -> s {lastRefreshTimestamp = a} :: VolumeRecommendation) Prelude.. Lens.mapping Core._Time
+volumeRecommendation_lastRefreshTimestamp = Lens.lens (\VolumeRecommendation' {lastRefreshTimestamp} -> lastRefreshTimestamp) (\s@VolumeRecommendation' {} a -> s {lastRefreshTimestamp = a} :: VolumeRecommendation) Prelude.. Lens.mapping Data._Time
 
 -- | An array of objects that describe the current configuration of the
 -- volume.
@@ -182,25 +183,25 @@ volumeRecommendation_volumeRecommendationOptions = Lens.lens (\VolumeRecommendat
 volumeRecommendation_finding :: Lens.Lens' VolumeRecommendation (Prelude.Maybe EBSFinding)
 volumeRecommendation_finding = Lens.lens (\VolumeRecommendation' {finding} -> finding) (\s@VolumeRecommendation' {} a -> s {finding = a} :: VolumeRecommendation)
 
-instance Core.FromJSON VolumeRecommendation where
+instance Data.FromJSON VolumeRecommendation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VolumeRecommendation"
       ( \x ->
           VolumeRecommendation'
-            Prelude.<$> (x Core..:? "currentPerformanceRisk")
-            Prelude.<*> (x Core..:? "lastRefreshTimestamp")
-            Prelude.<*> (x Core..:? "currentConfiguration")
-            Prelude.<*> (x Core..:? "volumeArn")
-            Prelude.<*> (x Core..:? "lookBackPeriodInDays")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> ( x Core..:? "utilizationMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "currentPerformanceRisk")
+            Prelude.<*> (x Data..:? "lastRefreshTimestamp")
+            Prelude.<*> (x Data..:? "currentConfiguration")
+            Prelude.<*> (x Data..:? "volumeArn")
+            Prelude.<*> (x Data..:? "lookBackPeriodInDays")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> ( x Data..:? "utilizationMetrics"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "volumeRecommendationOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "volumeRecommendationOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "finding")
+            Prelude.<*> (x Data..:? "finding")
       )
 
 instance Prelude.Hashable VolumeRecommendation where

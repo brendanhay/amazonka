@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -191,39 +192,39 @@ instance Prelude.NFData AddApplicationOutput where
       `Prelude.seq` Prelude.rnf currentApplicationVersionId
       `Prelude.seq` Prelude.rnf output
 
-instance Core.ToHeaders AddApplicationOutput where
+instance Data.ToHeaders AddApplicationOutput where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20150814.AddApplicationOutput" ::
+              Data.=# ( "KinesisAnalytics_20150814.AddApplicationOutput" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddApplicationOutput where
+instance Data.ToJSON AddApplicationOutput where
   toJSON AddApplicationOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ApplicationName" Core..= applicationName),
+              ("ApplicationName" Data..= applicationName),
             Prelude.Just
               ( "CurrentApplicationVersionId"
-                  Core..= currentApplicationVersionId
+                  Data..= currentApplicationVersionId
               ),
-            Prelude.Just ("Output" Core..= output)
+            Prelude.Just ("Output" Data..= output)
           ]
       )
 
-instance Core.ToPath AddApplicationOutput where
+instance Data.ToPath AddApplicationOutput where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddApplicationOutput where
+instance Data.ToQuery AddApplicationOutput where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.SocketAddress where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An IP address\/port combination.
@@ -61,14 +62,14 @@ socketAddress_port = Lens.lens (\SocketAddress' {port} -> port) (\s@SocketAddres
 socketAddress_ipAddress :: Lens.Lens' SocketAddress (Prelude.Maybe Prelude.Text)
 socketAddress_ipAddress = Lens.lens (\SocketAddress' {ipAddress} -> ipAddress) (\s@SocketAddress' {} a -> s {ipAddress = a} :: SocketAddress)
 
-instance Core.FromJSON SocketAddress where
+instance Data.FromJSON SocketAddress where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SocketAddress"
       ( \x ->
           SocketAddress'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance Prelude.Hashable SocketAddress where

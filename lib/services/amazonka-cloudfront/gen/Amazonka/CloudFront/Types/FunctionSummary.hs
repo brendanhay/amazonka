@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.FunctionConfig
 import Amazonka.CloudFront.Types.FunctionMetadata
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration information and metadata about a CloudFront
@@ -91,13 +92,13 @@ functionSummary_functionConfig = Lens.lens (\FunctionSummary' {functionConfig} -
 functionSummary_functionMetadata :: Lens.Lens' FunctionSummary FunctionMetadata
 functionSummary_functionMetadata = Lens.lens (\FunctionSummary' {functionMetadata} -> functionMetadata) (\s@FunctionSummary' {} a -> s {functionMetadata = a} :: FunctionSummary)
 
-instance Core.FromXML FunctionSummary where
+instance Data.FromXML FunctionSummary where
   parseXML x =
     FunctionSummary'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@ "Name")
-      Prelude.<*> (x Core..@ "FunctionConfig")
-      Prelude.<*> (x Core..@ "FunctionMetadata")
+      Prelude.<$> (x Data..@? "Status")
+      Prelude.<*> (x Data..@ "Name")
+      Prelude.<*> (x Data..@ "FunctionConfig")
+      Prelude.<*> (x Data..@ "FunctionMetadata")
 
 instance Prelude.Hashable FunctionSummary where
   hashWithSalt _salt FunctionSummary' {..} =

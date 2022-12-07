@@ -54,6 +54,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -69,7 +70,7 @@ data CreateReplicationTask = CreateReplicationTask'
     -- operation to start. Specifying both values results in an error.
     --
     -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
-    cdcStartTime :: Prelude.Maybe Core.POSIX,
+    cdcStartTime :: Prelude.Maybe Data.POSIX,
     -- | Supplemental information that the task requires to migrate the data for
     -- certain source and target endpoints. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
@@ -286,7 +287,7 @@ createReplicationTask_tags = Lens.lens (\CreateReplicationTask' {tags} -> tags) 
 --
 -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
 createReplicationTask_cdcStartTime :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.UTCTime)
-createReplicationTask_cdcStartTime = Lens.lens (\CreateReplicationTask' {cdcStartTime} -> cdcStartTime) (\s@CreateReplicationTask' {} a -> s {cdcStartTime = a} :: CreateReplicationTask) Prelude.. Lens.mapping Core._Time
+createReplicationTask_cdcStartTime = Lens.lens (\CreateReplicationTask' {cdcStartTime} -> cdcStartTime) (\s@CreateReplicationTask' {} a -> s {cdcStartTime = a} :: CreateReplicationTask) Prelude.. Lens.mapping Data._Time
 
 -- | Supplemental information that the task requires to migrate the data for
 -- certain source and target endpoints. For more information, see
@@ -395,7 +396,7 @@ instance Core.AWSRequest CreateReplicationTask where
     Response.receiveJSON
       ( \s h x ->
           CreateReplicationTaskResponse'
-            Prelude.<$> (x Core..?> "ReplicationTask")
+            Prelude.<$> (x Data..?> "ReplicationTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -431,58 +432,58 @@ instance Prelude.NFData CreateReplicationTask where
       `Prelude.seq` Prelude.rnf migrationType
       `Prelude.seq` Prelude.rnf tableMappings
 
-instance Core.ToHeaders CreateReplicationTask where
+instance Data.ToHeaders CreateReplicationTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.CreateReplicationTask" ::
+              Data.=# ( "AmazonDMSv20160101.CreateReplicationTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateReplicationTask where
+instance Data.ToJSON CreateReplicationTask where
   toJSON CreateReplicationTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("CdcStartTime" Core..=) Prelude.<$> cdcStartTime,
-            ("TaskData" Core..=) Prelude.<$> taskData,
-            ("CdcStartPosition" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("CdcStartTime" Data..=) Prelude.<$> cdcStartTime,
+            ("TaskData" Data..=) Prelude.<$> taskData,
+            ("CdcStartPosition" Data..=)
               Prelude.<$> cdcStartPosition,
-            ("ReplicationTaskSettings" Core..=)
+            ("ReplicationTaskSettings" Data..=)
               Prelude.<$> replicationTaskSettings,
-            ("ResourceIdentifier" Core..=)
+            ("ResourceIdentifier" Data..=)
               Prelude.<$> resourceIdentifier,
-            ("CdcStopPosition" Core..=)
+            ("CdcStopPosition" Data..=)
               Prelude.<$> cdcStopPosition,
             Prelude.Just
               ( "ReplicationTaskIdentifier"
-                  Core..= replicationTaskIdentifier
+                  Data..= replicationTaskIdentifier
               ),
             Prelude.Just
-              ("SourceEndpointArn" Core..= sourceEndpointArn),
+              ("SourceEndpointArn" Data..= sourceEndpointArn),
             Prelude.Just
-              ("TargetEndpointArn" Core..= targetEndpointArn),
+              ("TargetEndpointArn" Data..= targetEndpointArn),
             Prelude.Just
               ( "ReplicationInstanceArn"
-                  Core..= replicationInstanceArn
+                  Data..= replicationInstanceArn
               ),
-            Prelude.Just ("MigrationType" Core..= migrationType),
+            Prelude.Just ("MigrationType" Data..= migrationType),
             Prelude.Just
-              ("TableMappings" Core..= tableMappings)
+              ("TableMappings" Data..= tableMappings)
           ]
       )
 
-instance Core.ToPath CreateReplicationTask where
+instance Data.ToPath CreateReplicationTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateReplicationTask where
+instance Data.ToQuery CreateReplicationTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

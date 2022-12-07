@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -50,7 +51,7 @@ import Amazonka.WorkDocs.Types
 data DeleteDocumentVersion = DeleteDocumentVersion'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of a document.
     documentId :: Prelude.Text,
     -- | The version ID of a document.
@@ -101,7 +102,7 @@ newDeleteDocumentVersion
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 deleteDocumentVersion_authenticationToken :: Lens.Lens' DeleteDocumentVersion (Prelude.Maybe Prelude.Text)
-deleteDocumentVersion_authenticationToken = Lens.lens (\DeleteDocumentVersion' {authenticationToken} -> authenticationToken) (\s@DeleteDocumentVersion' {} a -> s {authenticationToken = a} :: DeleteDocumentVersion) Prelude.. Lens.mapping Core._Sensitive
+deleteDocumentVersion_authenticationToken = Lens.lens (\DeleteDocumentVersion' {authenticationToken} -> authenticationToken) (\s@DeleteDocumentVersion' {} a -> s {authenticationToken = a} :: DeleteDocumentVersion) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of a document.
 deleteDocumentVersion_documentId :: Lens.Lens' DeleteDocumentVersion Prelude.Text
@@ -139,27 +140,27 @@ instance Prelude.NFData DeleteDocumentVersion where
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf deletePriorVersions
 
-instance Core.ToHeaders DeleteDocumentVersion where
+instance Data.ToHeaders DeleteDocumentVersion where
   toHeaders DeleteDocumentVersion' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DeleteDocumentVersion where
+instance Data.ToPath DeleteDocumentVersion where
   toPath DeleteDocumentVersion' {..} =
     Prelude.mconcat
       [ "/api/v1/documentVersions/",
-        Core.toBS documentId,
+        Data.toBS documentId,
         "/versions/",
-        Core.toBS versionId
+        Data.toBS versionId
       ]
 
-instance Core.ToQuery DeleteDocumentVersion where
+instance Data.ToQuery DeleteDocumentVersion where
   toQuery DeleteDocumentVersion' {..} =
     Prelude.mconcat
-      ["deletePriorVersions" Core.=: deletePriorVersions]
+      ["deletePriorVersions" Data.=: deletePriorVersions]
 
 -- | /See:/ 'newDeleteDocumentVersionResponse' smart constructor.
 data DeleteDocumentVersionResponse = DeleteDocumentVersionResponse'

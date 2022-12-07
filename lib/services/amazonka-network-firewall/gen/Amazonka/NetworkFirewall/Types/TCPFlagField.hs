@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.TCPFlagField where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.TCPFlag
 import qualified Amazonka.Prelude as Prelude
 
@@ -102,14 +103,14 @@ tCPFlagField_masks = Lens.lens (\TCPFlagField' {masks} -> masks) (\s@TCPFlagFiel
 tCPFlagField_flags :: Lens.Lens' TCPFlagField [TCPFlag]
 tCPFlagField_flags = Lens.lens (\TCPFlagField' {flags} -> flags) (\s@TCPFlagField' {} a -> s {flags = a} :: TCPFlagField) Prelude.. Lens.coerced
 
-instance Core.FromJSON TCPFlagField where
+instance Data.FromJSON TCPFlagField where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TCPFlagField"
       ( \x ->
           TCPFlagField'
-            Prelude.<$> (x Core..:? "Masks" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Flags" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Masks" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Flags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TCPFlagField where
@@ -121,11 +122,11 @@ instance Prelude.NFData TCPFlagField where
   rnf TCPFlagField' {..} =
     Prelude.rnf masks `Prelude.seq` Prelude.rnf flags
 
-instance Core.ToJSON TCPFlagField where
+instance Data.ToJSON TCPFlagField where
   toJSON TCPFlagField' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Masks" Core..=) Prelude.<$> masks,
-            Prelude.Just ("Flags" Core..= flags)
+          [ ("Masks" Data..=) Prelude.<$> masks,
+            Prelude.Just ("Flags" Data..= flags)
           ]
       )

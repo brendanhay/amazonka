@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,9 +159,9 @@ instance Core.AWSRequest ListSchedules where
     Response.receiveJSON
       ( \s h x ->
           ListSchedulesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Schedules" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Schedules" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListSchedules where
@@ -179,28 +180,28 @@ instance Prelude.NFData ListSchedules where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf namePrefix
 
-instance Core.ToHeaders ListSchedules where
+instance Data.ToHeaders ListSchedules where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListSchedules where
+instance Data.ToPath ListSchedules where
   toPath = Prelude.const "/schedules"
 
-instance Core.ToQuery ListSchedules where
+instance Data.ToQuery ListSchedules where
   toQuery ListSchedules' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "State" Core.=: state,
-        "ScheduleGroup" Core.=: groupName,
-        "MaxResults" Core.=: maxResults,
-        "NamePrefix" Core.=: namePrefix
+      [ "NextToken" Data.=: nextToken,
+        "State" Data.=: state,
+        "ScheduleGroup" Data.=: groupName,
+        "MaxResults" Data.=: maxResults,
+        "NamePrefix" Data.=: namePrefix
       ]
 
 -- | /See:/ 'newListSchedulesResponse' smart constructor.

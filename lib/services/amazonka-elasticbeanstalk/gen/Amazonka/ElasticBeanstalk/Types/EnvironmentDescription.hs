@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.EnvironmentDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.EnvironmentHealth
 import Amazonka.ElasticBeanstalk.Types.EnvironmentHealthStatus
 import Amazonka.ElasticBeanstalk.Types.EnvironmentLink
@@ -94,9 +95,9 @@ data EnvironmentDescription = EnvironmentDescription'
     -- | The name of the @SolutionStack@ deployed with this environment.
     solutionStackName :: Prelude.Maybe Prelude.Text,
     -- | The last modified date for this environment.
-    dateUpdated :: Prelude.Maybe Core.ISO8601,
+    dateUpdated :: Prelude.Maybe Data.ISO8601,
     -- | The creation date for this environment.
-    dateCreated :: Prelude.Maybe Core.ISO8601,
+    dateCreated :: Prelude.Maybe Data.ISO8601,
     -- | The environment\'s Amazon Resource Name (ARN), which can be used in
     -- other API requests that require an ARN.
     environmentArn :: Prelude.Maybe Prelude.Text,
@@ -323,11 +324,11 @@ environmentDescription_solutionStackName = Lens.lens (\EnvironmentDescription' {
 
 -- | The last modified date for this environment.
 environmentDescription_dateUpdated :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.UTCTime)
-environmentDescription_dateUpdated = Lens.lens (\EnvironmentDescription' {dateUpdated} -> dateUpdated) (\s@EnvironmentDescription' {} a -> s {dateUpdated = a} :: EnvironmentDescription) Prelude.. Lens.mapping Core._Time
+environmentDescription_dateUpdated = Lens.lens (\EnvironmentDescription' {dateUpdated} -> dateUpdated) (\s@EnvironmentDescription' {} a -> s {dateUpdated = a} :: EnvironmentDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The creation date for this environment.
 environmentDescription_dateCreated :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.UTCTime)
-environmentDescription_dateCreated = Lens.lens (\EnvironmentDescription' {dateCreated} -> dateCreated) (\s@EnvironmentDescription' {} a -> s {dateCreated = a} :: EnvironmentDescription) Prelude.. Lens.mapping Core._Time
+environmentDescription_dateCreated = Lens.lens (\EnvironmentDescription' {dateCreated} -> dateCreated) (\s@EnvironmentDescription' {} a -> s {dateCreated = a} :: EnvironmentDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The environment\'s Amazon Resource Name (ARN), which can be used in
 -- other API requests that require an ARN.
@@ -365,33 +366,33 @@ environmentDescription_versionLabel = Lens.lens (\EnvironmentDescription' {versi
 environmentDescription_applicationName :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
 environmentDescription_applicationName = Lens.lens (\EnvironmentDescription' {applicationName} -> applicationName) (\s@EnvironmentDescription' {} a -> s {applicationName = a} :: EnvironmentDescription)
 
-instance Core.FromXML EnvironmentDescription where
+instance Data.FromXML EnvironmentDescription where
   parseXML x =
     EnvironmentDescription'
-      Prelude.<$> (x Core..@? "TemplateName")
-      Prelude.<*> (x Core..@? "CNAME")
-      Prelude.<*> (x Core..@? "EnvironmentName")
-      Prelude.<*> (x Core..@? "HealthStatus")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "Tier")
-      Prelude.<*> (x Core..@? "AbortableOperationInProgress")
-      Prelude.<*> (x Core..@? "EndpointURL")
-      Prelude.<*> (x Core..@? "Health")
-      Prelude.<*> (x Core..@? "SolutionStackName")
-      Prelude.<*> (x Core..@? "DateUpdated")
-      Prelude.<*> (x Core..@? "DateCreated")
-      Prelude.<*> (x Core..@? "EnvironmentArn")
-      Prelude.<*> ( x Core..@? "EnvironmentLinks"
+      Prelude.<$> (x Data..@? "TemplateName")
+      Prelude.<*> (x Data..@? "CNAME")
+      Prelude.<*> (x Data..@? "EnvironmentName")
+      Prelude.<*> (x Data..@? "HealthStatus")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "Tier")
+      Prelude.<*> (x Data..@? "AbortableOperationInProgress")
+      Prelude.<*> (x Data..@? "EndpointURL")
+      Prelude.<*> (x Data..@? "Health")
+      Prelude.<*> (x Data..@? "SolutionStackName")
+      Prelude.<*> (x Data..@? "DateUpdated")
+      Prelude.<*> (x Data..@? "DateCreated")
+      Prelude.<*> (x Data..@? "EnvironmentArn")
+      Prelude.<*> ( x Data..@? "EnvironmentLinks"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Resources")
-      Prelude.<*> (x Core..@? "PlatformArn")
-      Prelude.<*> (x Core..@? "EnvironmentId")
-      Prelude.<*> (x Core..@? "OperationsRole")
-      Prelude.<*> (x Core..@? "VersionLabel")
-      Prelude.<*> (x Core..@? "ApplicationName")
+      Prelude.<*> (x Data..@? "Resources")
+      Prelude.<*> (x Data..@? "PlatformArn")
+      Prelude.<*> (x Data..@? "EnvironmentId")
+      Prelude.<*> (x Data..@? "OperationsRole")
+      Prelude.<*> (x Data..@? "VersionLabel")
+      Prelude.<*> (x Data..@? "ApplicationName")
 
 instance Prelude.Hashable EnvironmentDescription where
   hashWithSalt _salt EnvironmentDescription' {..} =

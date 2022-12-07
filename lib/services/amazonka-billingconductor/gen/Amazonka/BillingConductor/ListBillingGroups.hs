@@ -50,6 +50,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -146,8 +147,8 @@ instance Core.AWSRequest ListBillingGroups where
     Response.receiveJSON
       ( \s h x ->
           ListBillingGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "BillingGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "BillingGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,32 +166,32 @@ instance Prelude.NFData ListBillingGroups where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListBillingGroups where
+instance Data.ToHeaders ListBillingGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListBillingGroups where
+instance Data.ToJSON ListBillingGroups where
   toJSON ListBillingGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("BillingPeriod" Core..=) Prelude.<$> billingPeriod,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListBillingGroups where
+instance Data.ToPath ListBillingGroups where
   toPath = Prelude.const "/list-billing-groups"
 
-instance Core.ToQuery ListBillingGroups where
+instance Data.ToQuery ListBillingGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBillingGroupsResponse' smart constructor.

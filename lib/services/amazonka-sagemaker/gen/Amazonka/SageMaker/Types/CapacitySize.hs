@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.CapacitySize where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CapacitySizeType
 
@@ -84,13 +85,13 @@ capacitySize_type = Lens.lens (\CapacitySize' {type'} -> type') (\s@CapacitySize
 capacitySize_value :: Lens.Lens' CapacitySize Prelude.Natural
 capacitySize_value = Lens.lens (\CapacitySize' {value} -> value) (\s@CapacitySize' {} a -> s {value = a} :: CapacitySize)
 
-instance Core.FromJSON CapacitySize where
+instance Data.FromJSON CapacitySize where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CapacitySize"
       ( \x ->
           CapacitySize'
-            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable CapacitySize where
@@ -102,11 +103,11 @@ instance Prelude.NFData CapacitySize where
   rnf CapacitySize' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON CapacitySize where
+instance Data.ToJSON CapacitySize where
   toJSON CapacitySize' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,34 +108,34 @@ instance Prelude.NFData CancelTaskExecution where
   rnf CancelTaskExecution' {..} =
     Prelude.rnf taskExecutionArn
 
-instance Core.ToHeaders CancelTaskExecution where
+instance Data.ToHeaders CancelTaskExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.CancelTaskExecution" ::
+              Data.=# ( "FmrsService.CancelTaskExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelTaskExecution where
+instance Data.ToJSON CancelTaskExecution where
   toJSON CancelTaskExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TaskExecutionArn" Core..= taskExecutionArn)
+              ("TaskExecutionArn" Data..= taskExecutionArn)
           ]
       )
 
-instance Core.ToPath CancelTaskExecution where
+instance Data.ToPath CancelTaskExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelTaskExecution where
+instance Data.ToQuery CancelTaskExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelTaskExecutionResponse' smart constructor.

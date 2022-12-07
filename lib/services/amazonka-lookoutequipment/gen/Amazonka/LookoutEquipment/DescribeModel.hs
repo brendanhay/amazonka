@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,27 +106,27 @@ instance Core.AWSRequest DescribeModel where
     Response.receiveJSON
       ( \s h x ->
           DescribeModelResponse'
-            Prelude.<$> (x Core..?> "ServerSideKmsKeyId")
-            Prelude.<*> (x Core..?> "FailedReason")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "DataPreProcessingConfiguration")
-            Prelude.<*> (x Core..?> "LabelsInputConfiguration")
-            Prelude.<*> (x Core..?> "DatasetName")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "LastUpdatedTime")
-            Prelude.<*> (x Core..?> "DatasetArn")
-            Prelude.<*> (x Core..?> "TrainingExecutionStartTime")
-            Prelude.<*> (x Core..?> "TrainingDataStartTime")
-            Prelude.<*> (x Core..?> "ModelMetrics")
-            Prelude.<*> (x Core..?> "ModelArn")
-            Prelude.<*> (x Core..?> "ModelName")
-            Prelude.<*> (x Core..?> "Schema")
-            Prelude.<*> (x Core..?> "EvaluationDataStartTime")
-            Prelude.<*> (x Core..?> "TrainingDataEndTime")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "EvaluationDataEndTime")
-            Prelude.<*> (x Core..?> "OffCondition")
-            Prelude.<*> (x Core..?> "TrainingExecutionEndTime")
+            Prelude.<$> (x Data..?> "ServerSideKmsKeyId")
+            Prelude.<*> (x Data..?> "FailedReason")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "DataPreProcessingConfiguration")
+            Prelude.<*> (x Data..?> "LabelsInputConfiguration")
+            Prelude.<*> (x Data..?> "DatasetName")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "LastUpdatedTime")
+            Prelude.<*> (x Data..?> "DatasetArn")
+            Prelude.<*> (x Data..?> "TrainingExecutionStartTime")
+            Prelude.<*> (x Data..?> "TrainingDataStartTime")
+            Prelude.<*> (x Data..?> "ModelMetrics")
+            Prelude.<*> (x Data..?> "ModelArn")
+            Prelude.<*> (x Data..?> "ModelName")
+            Prelude.<*> (x Data..?> "Schema")
+            Prelude.<*> (x Data..?> "EvaluationDataStartTime")
+            Prelude.<*> (x Data..?> "TrainingDataEndTime")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "EvaluationDataEndTime")
+            Prelude.<*> (x Data..?> "OffCondition")
+            Prelude.<*> (x Data..?> "TrainingExecutionEndTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,32 +137,32 @@ instance Prelude.Hashable DescribeModel where
 instance Prelude.NFData DescribeModel where
   rnf DescribeModel' {..} = Prelude.rnf modelName
 
-instance Core.ToHeaders DescribeModel where
+instance Data.ToHeaders DescribeModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.DescribeModel" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.DescribeModel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeModel where
+instance Data.ToJSON DescribeModel where
   toJSON DescribeModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ModelName" Core..= modelName)]
+          [Prelude.Just ("ModelName" Data..= modelName)]
       )
 
-instance Core.ToPath DescribeModel where
+instance Data.ToPath DescribeModel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeModel where
+instance Data.ToQuery DescribeModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeModelResponse' smart constructor.
@@ -196,15 +197,15 @@ data DescribeModelResponse = DescribeModelResponse'
     status :: Prelude.Maybe ModelStatus,
     -- | Indicates the last time the ML model was updated. The type of update is
     -- not specified.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resouce Name (ARN) of the dataset used to create the ML model
     -- being described.
     datasetArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates the time at which the training of the ML model began.
-    trainingExecutionStartTime :: Prelude.Maybe Core.POSIX,
+    trainingExecutionStartTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates the time reference in the dataset that was used to begin the
     -- subset of training data for the ML model.
-    trainingDataStartTime :: Prelude.Maybe Core.POSIX,
+    trainingDataStartTime :: Prelude.Maybe Data.POSIX,
     -- | The Model Metrics show an aggregated summary of the model\'s performance
     -- within the evaluation time range. This is the JSON content of the
     -- metrics created when evaluating the model.
@@ -218,21 +219,21 @@ data DescribeModelResponse = DescribeModelResponse'
     schema :: Prelude.Maybe Prelude.Text,
     -- | Indicates the time reference in the dataset that was used to begin the
     -- subset of evaluation data for the ML model.
-    evaluationDataStartTime :: Prelude.Maybe Core.POSIX,
+    evaluationDataStartTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates the time reference in the dataset that was used to end the
     -- subset of training data for the ML model.
-    trainingDataEndTime :: Prelude.Maybe Core.POSIX,
+    trainingDataEndTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates the time and date at which the ML model was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Indicates the time reference in the dataset that was used to end the
     -- subset of evaluation data for the ML model.
-    evaluationDataEndTime :: Prelude.Maybe Core.POSIX,
+    evaluationDataEndTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates that the asset associated with this sensor has been shut off.
     -- As long as this condition is met, Lookout for Equipment will not use
     -- data from this asset for training, evaluation, or inference.
     offCondition :: Prelude.Maybe Prelude.Text,
     -- | Indicates the time at which the training of the ML model was completed.
-    trainingExecutionEndTime :: Prelude.Maybe Core.POSIX,
+    trainingExecutionEndTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -390,7 +391,7 @@ describeModelResponse_status = Lens.lens (\DescribeModelResponse' {status} -> st
 -- | Indicates the last time the ML model was updated. The type of update is
 -- not specified.
 describeModelResponse_lastUpdatedTime :: Lens.Lens' DescribeModelResponse (Prelude.Maybe Prelude.UTCTime)
-describeModelResponse_lastUpdatedTime = Lens.lens (\DescribeModelResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribeModelResponse' {} a -> s {lastUpdatedTime = a} :: DescribeModelResponse) Prelude.. Lens.mapping Core._Time
+describeModelResponse_lastUpdatedTime = Lens.lens (\DescribeModelResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribeModelResponse' {} a -> s {lastUpdatedTime = a} :: DescribeModelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resouce Name (ARN) of the dataset used to create the ML model
 -- being described.
@@ -399,12 +400,12 @@ describeModelResponse_datasetArn = Lens.lens (\DescribeModelResponse' {datasetAr
 
 -- | Indicates the time at which the training of the ML model began.
 describeModelResponse_trainingExecutionStartTime :: Lens.Lens' DescribeModelResponse (Prelude.Maybe Prelude.UTCTime)
-describeModelResponse_trainingExecutionStartTime = Lens.lens (\DescribeModelResponse' {trainingExecutionStartTime} -> trainingExecutionStartTime) (\s@DescribeModelResponse' {} a -> s {trainingExecutionStartTime = a} :: DescribeModelResponse) Prelude.. Lens.mapping Core._Time
+describeModelResponse_trainingExecutionStartTime = Lens.lens (\DescribeModelResponse' {trainingExecutionStartTime} -> trainingExecutionStartTime) (\s@DescribeModelResponse' {} a -> s {trainingExecutionStartTime = a} :: DescribeModelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the time reference in the dataset that was used to begin the
 -- subset of training data for the ML model.
 describeModelResponse_trainingDataStartTime :: Lens.Lens' DescribeModelResponse (Prelude.Maybe Prelude.UTCTime)
-describeModelResponse_trainingDataStartTime = Lens.lens (\DescribeModelResponse' {trainingDataStartTime} -> trainingDataStartTime) (\s@DescribeModelResponse' {} a -> s {trainingDataStartTime = a} :: DescribeModelResponse) Prelude.. Lens.mapping Core._Time
+describeModelResponse_trainingDataStartTime = Lens.lens (\DescribeModelResponse' {trainingDataStartTime} -> trainingDataStartTime) (\s@DescribeModelResponse' {} a -> s {trainingDataStartTime = a} :: DescribeModelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Model Metrics show an aggregated summary of the model\'s performance
 -- within the evaluation time range. This is the JSON content of the
@@ -428,21 +429,21 @@ describeModelResponse_schema = Lens.lens (\DescribeModelResponse' {schema} -> sc
 -- | Indicates the time reference in the dataset that was used to begin the
 -- subset of evaluation data for the ML model.
 describeModelResponse_evaluationDataStartTime :: Lens.Lens' DescribeModelResponse (Prelude.Maybe Prelude.UTCTime)
-describeModelResponse_evaluationDataStartTime = Lens.lens (\DescribeModelResponse' {evaluationDataStartTime} -> evaluationDataStartTime) (\s@DescribeModelResponse' {} a -> s {evaluationDataStartTime = a} :: DescribeModelResponse) Prelude.. Lens.mapping Core._Time
+describeModelResponse_evaluationDataStartTime = Lens.lens (\DescribeModelResponse' {evaluationDataStartTime} -> evaluationDataStartTime) (\s@DescribeModelResponse' {} a -> s {evaluationDataStartTime = a} :: DescribeModelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the time reference in the dataset that was used to end the
 -- subset of training data for the ML model.
 describeModelResponse_trainingDataEndTime :: Lens.Lens' DescribeModelResponse (Prelude.Maybe Prelude.UTCTime)
-describeModelResponse_trainingDataEndTime = Lens.lens (\DescribeModelResponse' {trainingDataEndTime} -> trainingDataEndTime) (\s@DescribeModelResponse' {} a -> s {trainingDataEndTime = a} :: DescribeModelResponse) Prelude.. Lens.mapping Core._Time
+describeModelResponse_trainingDataEndTime = Lens.lens (\DescribeModelResponse' {trainingDataEndTime} -> trainingDataEndTime) (\s@DescribeModelResponse' {} a -> s {trainingDataEndTime = a} :: DescribeModelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the time and date at which the ML model was created.
 describeModelResponse_createdAt :: Lens.Lens' DescribeModelResponse (Prelude.Maybe Prelude.UTCTime)
-describeModelResponse_createdAt = Lens.lens (\DescribeModelResponse' {createdAt} -> createdAt) (\s@DescribeModelResponse' {} a -> s {createdAt = a} :: DescribeModelResponse) Prelude.. Lens.mapping Core._Time
+describeModelResponse_createdAt = Lens.lens (\DescribeModelResponse' {createdAt} -> createdAt) (\s@DescribeModelResponse' {} a -> s {createdAt = a} :: DescribeModelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the time reference in the dataset that was used to end the
 -- subset of evaluation data for the ML model.
 describeModelResponse_evaluationDataEndTime :: Lens.Lens' DescribeModelResponse (Prelude.Maybe Prelude.UTCTime)
-describeModelResponse_evaluationDataEndTime = Lens.lens (\DescribeModelResponse' {evaluationDataEndTime} -> evaluationDataEndTime) (\s@DescribeModelResponse' {} a -> s {evaluationDataEndTime = a} :: DescribeModelResponse) Prelude.. Lens.mapping Core._Time
+describeModelResponse_evaluationDataEndTime = Lens.lens (\DescribeModelResponse' {evaluationDataEndTime} -> evaluationDataEndTime) (\s@DescribeModelResponse' {} a -> s {evaluationDataEndTime = a} :: DescribeModelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates that the asset associated with this sensor has been shut off.
 -- As long as this condition is met, Lookout for Equipment will not use
@@ -452,7 +453,7 @@ describeModelResponse_offCondition = Lens.lens (\DescribeModelResponse' {offCond
 
 -- | Indicates the time at which the training of the ML model was completed.
 describeModelResponse_trainingExecutionEndTime :: Lens.Lens' DescribeModelResponse (Prelude.Maybe Prelude.UTCTime)
-describeModelResponse_trainingExecutionEndTime = Lens.lens (\DescribeModelResponse' {trainingExecutionEndTime} -> trainingExecutionEndTime) (\s@DescribeModelResponse' {} a -> s {trainingExecutionEndTime = a} :: DescribeModelResponse) Prelude.. Lens.mapping Core._Time
+describeModelResponse_trainingExecutionEndTime = Lens.lens (\DescribeModelResponse' {trainingExecutionEndTime} -> trainingExecutionEndTime) (\s@DescribeModelResponse' {} a -> s {trainingExecutionEndTime = a} :: DescribeModelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeModelResponse_httpStatus :: Lens.Lens' DescribeModelResponse Prelude.Int

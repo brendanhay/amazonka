@@ -21,6 +21,7 @@ module Amazonka.KMS.Types.MultiRegionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types.MultiRegionKey
 import Amazonka.KMS.Types.MultiRegionKeyType
 import qualified Amazonka.Prelude as Prelude
@@ -83,15 +84,15 @@ multiRegionConfiguration_replicaKeys = Lens.lens (\MultiRegionConfiguration' {re
 multiRegionConfiguration_multiRegionKeyType :: Lens.Lens' MultiRegionConfiguration (Prelude.Maybe MultiRegionKeyType)
 multiRegionConfiguration_multiRegionKeyType = Lens.lens (\MultiRegionConfiguration' {multiRegionKeyType} -> multiRegionKeyType) (\s@MultiRegionConfiguration' {} a -> s {multiRegionKeyType = a} :: MultiRegionConfiguration)
 
-instance Core.FromJSON MultiRegionConfiguration where
+instance Data.FromJSON MultiRegionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiRegionConfiguration"
       ( \x ->
           MultiRegionConfiguration'
-            Prelude.<$> (x Core..:? "PrimaryKey")
-            Prelude.<*> (x Core..:? "ReplicaKeys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MultiRegionKeyType")
+            Prelude.<$> (x Data..:? "PrimaryKey")
+            Prelude.<*> (x Data..:? "ReplicaKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MultiRegionKeyType")
       )
 
 instance Prelude.Hashable MultiRegionConfiguration where

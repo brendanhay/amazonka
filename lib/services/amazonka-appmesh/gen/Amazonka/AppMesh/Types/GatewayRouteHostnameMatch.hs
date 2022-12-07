@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.GatewayRouteHostnameMatch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the gateway route host name to match.
@@ -61,14 +62,14 @@ gatewayRouteHostnameMatch_exact = Lens.lens (\GatewayRouteHostnameMatch' {exact}
 gatewayRouteHostnameMatch_suffix :: Lens.Lens' GatewayRouteHostnameMatch (Prelude.Maybe Prelude.Text)
 gatewayRouteHostnameMatch_suffix = Lens.lens (\GatewayRouteHostnameMatch' {suffix} -> suffix) (\s@GatewayRouteHostnameMatch' {} a -> s {suffix = a} :: GatewayRouteHostnameMatch)
 
-instance Core.FromJSON GatewayRouteHostnameMatch where
+instance Data.FromJSON GatewayRouteHostnameMatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GatewayRouteHostnameMatch"
       ( \x ->
           GatewayRouteHostnameMatch'
-            Prelude.<$> (x Core..:? "exact")
-            Prelude.<*> (x Core..:? "suffix")
+            Prelude.<$> (x Data..:? "exact")
+            Prelude.<*> (x Data..:? "suffix")
       )
 
 instance Prelude.Hashable GatewayRouteHostnameMatch where
@@ -80,11 +81,11 @@ instance Prelude.NFData GatewayRouteHostnameMatch where
   rnf GatewayRouteHostnameMatch' {..} =
     Prelude.rnf exact `Prelude.seq` Prelude.rnf suffix
 
-instance Core.ToJSON GatewayRouteHostnameMatch where
+instance Data.ToJSON GatewayRouteHostnameMatch where
   toJSON GatewayRouteHostnameMatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("exact" Core..=) Prelude.<$> exact,
-            ("suffix" Core..=) Prelude.<$> suffix
+          [ ("exact" Data..=) Prelude.<$> exact,
+            ("suffix" Data..=) Prelude.<$> suffix
           ]
       )

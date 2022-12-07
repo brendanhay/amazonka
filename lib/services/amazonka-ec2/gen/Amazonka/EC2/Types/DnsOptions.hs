@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DnsOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DnsRecordIpType
 import qualified Amazonka.Prelude as Prelude
@@ -52,10 +53,10 @@ newDnsOptions =
 dnsOptions_dnsRecordIpType :: Lens.Lens' DnsOptions (Prelude.Maybe DnsRecordIpType)
 dnsOptions_dnsRecordIpType = Lens.lens (\DnsOptions' {dnsRecordIpType} -> dnsRecordIpType) (\s@DnsOptions' {} a -> s {dnsRecordIpType = a} :: DnsOptions)
 
-instance Core.FromXML DnsOptions where
+instance Data.FromXML DnsOptions where
   parseXML x =
     DnsOptions'
-      Prelude.<$> (x Core..@? "dnsRecordIpType")
+      Prelude.<$> (x Data..@? "dnsRecordIpType")
 
 instance Prelude.Hashable DnsOptions where
   hashWithSalt _salt DnsOptions' {..} =

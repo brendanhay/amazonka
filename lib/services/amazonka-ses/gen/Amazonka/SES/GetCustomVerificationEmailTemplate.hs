@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,12 +109,12 @@ instance
       "GetCustomVerificationEmailTemplateResult"
       ( \s h x ->
           GetCustomVerificationEmailTemplateResponse'
-            Prelude.<$> (x Core..@? "TemplateName")
-              Prelude.<*> (x Core..@? "SuccessRedirectionURL")
-              Prelude.<*> (x Core..@? "FromEmailAddress")
-              Prelude.<*> (x Core..@? "TemplateContent")
-              Prelude.<*> (x Core..@? "TemplateSubject")
-              Prelude.<*> (x Core..@? "FailureRedirectionURL")
+            Prelude.<$> (x Data..@? "TemplateName")
+              Prelude.<*> (x Data..@? "SuccessRedirectionURL")
+              Prelude.<*> (x Data..@? "FromEmailAddress")
+              Prelude.<*> (x Data..@? "TemplateContent")
+              Prelude.<*> (x Data..@? "TemplateSubject")
+              Prelude.<*> (x Data..@? "FailureRedirectionURL")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,30 +135,30 @@ instance
     Prelude.rnf templateName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetCustomVerificationEmailTemplate
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetCustomVerificationEmailTemplate
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetCustomVerificationEmailTemplate
   where
   toQuery GetCustomVerificationEmailTemplate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetCustomVerificationEmailTemplate" ::
+          Data.=: ( "GetCustomVerificationEmailTemplate" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "TemplateName" Core.=: templateName
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "TemplateName" Data.=: templateName
       ]
 
 -- | The content of the custom verification email template.

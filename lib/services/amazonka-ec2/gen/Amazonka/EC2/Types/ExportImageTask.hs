@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ExportImageTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ExportTaskS3Location
 import Amazonka.EC2.Types.Tag
@@ -121,19 +122,19 @@ exportImageTask_statusMessage = Lens.lens (\ExportImageTask' {statusMessage} -> 
 exportImageTask_imageId :: Lens.Lens' ExportImageTask (Prelude.Maybe Prelude.Text)
 exportImageTask_imageId = Lens.lens (\ExportImageTask' {imageId} -> imageId) (\s@ExportImageTask' {} a -> s {imageId = a} :: ExportImageTask)
 
-instance Core.FromXML ExportImageTask where
+instance Data.FromXML ExportImageTask where
   parseXML x =
     ExportImageTask'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "progress")
-      Prelude.<*> (x Core..@? "exportImageTaskId")
-      Prelude.<*> (x Core..@? "s3ExportLocation")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "imageId")
+      Prelude.<*> (x Data..@? "progress")
+      Prelude.<*> (x Data..@? "exportImageTaskId")
+      Prelude.<*> (x Data..@? "s3ExportLocation")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "statusMessage")
+      Prelude.<*> (x Data..@? "imageId")
 
 instance Prelude.Hashable ExportImageTask where
   hashWithSalt _salt ExportImageTask' {..} =

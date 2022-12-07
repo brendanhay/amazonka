@@ -22,6 +22,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.AudioConcatenationConfiguration whe
 import Amazonka.ChimeSdkMediaPipelines.Types.AudioArtifactsConcatenationState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The audio artifact concatenation configuration object.
@@ -57,15 +58,15 @@ audioConcatenationConfiguration_state :: Lens.Lens' AudioConcatenationConfigurat
 audioConcatenationConfiguration_state = Lens.lens (\AudioConcatenationConfiguration' {state} -> state) (\s@AudioConcatenationConfiguration' {} a -> s {state = a} :: AudioConcatenationConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AudioConcatenationConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioConcatenationConfiguration"
       ( \x ->
           AudioConcatenationConfiguration'
-            Prelude.<$> (x Core..: "State")
+            Prelude.<$> (x Data..: "State")
       )
 
 instance
@@ -84,9 +85,9 @@ instance
   rnf AudioConcatenationConfiguration' {..} =
     Prelude.rnf state
 
-instance Core.ToJSON AudioConcatenationConfiguration where
+instance Data.ToJSON AudioConcatenationConfiguration where
   toJSON AudioConcatenationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("State" Core..= state)]
+          [Prelude.Just ("State" Data..= state)]
       )

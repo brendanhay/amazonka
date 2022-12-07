@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.GroupCertificateAuthorityProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a certificate authority for a group.
@@ -64,16 +65,16 @@ groupCertificateAuthorityProperties_groupCertificateAuthorityId :: Lens.Lens' Gr
 groupCertificateAuthorityProperties_groupCertificateAuthorityId = Lens.lens (\GroupCertificateAuthorityProperties' {groupCertificateAuthorityId} -> groupCertificateAuthorityId) (\s@GroupCertificateAuthorityProperties' {} a -> s {groupCertificateAuthorityId = a} :: GroupCertificateAuthorityProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     GroupCertificateAuthorityProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupCertificateAuthorityProperties"
       ( \x ->
           GroupCertificateAuthorityProperties'
-            Prelude.<$> (x Core..:? "GroupCertificateAuthorityArn")
-            Prelude.<*> (x Core..:? "GroupCertificateAuthorityId")
+            Prelude.<$> (x Data..:? "GroupCertificateAuthorityArn")
+            Prelude.<*> (x Data..:? "GroupCertificateAuthorityId")
       )
 
 instance

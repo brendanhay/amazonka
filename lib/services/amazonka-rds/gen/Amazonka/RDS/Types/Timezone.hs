@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.Timezone where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A time zone associated with a @DBInstance@ or a @DBSnapshot@. This data
@@ -52,9 +53,9 @@ newTimezone =
 timezone_timezoneName :: Lens.Lens' Timezone (Prelude.Maybe Prelude.Text)
 timezone_timezoneName = Lens.lens (\Timezone' {timezoneName} -> timezoneName) (\s@Timezone' {} a -> s {timezoneName = a} :: Timezone)
 
-instance Core.FromXML Timezone where
+instance Data.FromXML Timezone where
   parseXML x =
-    Timezone' Prelude.<$> (x Core..@? "TimezoneName")
+    Timezone' Prelude.<$> (x Data..@? "TimezoneName")
 
 instance Prelude.Hashable Timezone where
   hashWithSalt _salt Timezone' {..} =

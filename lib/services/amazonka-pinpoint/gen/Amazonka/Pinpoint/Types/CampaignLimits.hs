@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.CampaignLimits where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a campaign, specifies limits on the messages that the campaign can
@@ -126,17 +127,17 @@ campaignLimits_session = Lens.lens (\CampaignLimits' {session} -> session) (\s@C
 campaignLimits_daily :: Lens.Lens' CampaignLimits (Prelude.Maybe Prelude.Int)
 campaignLimits_daily = Lens.lens (\CampaignLimits' {daily} -> daily) (\s@CampaignLimits' {} a -> s {daily = a} :: CampaignLimits)
 
-instance Core.FromJSON CampaignLimits where
+instance Data.FromJSON CampaignLimits where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CampaignLimits"
       ( \x ->
           CampaignLimits'
-            Prelude.<$> (x Core..:? "MaximumDuration")
-            Prelude.<*> (x Core..:? "Total")
-            Prelude.<*> (x Core..:? "MessagesPerSecond")
-            Prelude.<*> (x Core..:? "Session")
-            Prelude.<*> (x Core..:? "Daily")
+            Prelude.<$> (x Data..:? "MaximumDuration")
+            Prelude.<*> (x Data..:? "Total")
+            Prelude.<*> (x Data..:? "MessagesPerSecond")
+            Prelude.<*> (x Data..:? "Session")
+            Prelude.<*> (x Data..:? "Daily")
       )
 
 instance Prelude.Hashable CampaignLimits where
@@ -155,16 +156,16 @@ instance Prelude.NFData CampaignLimits where
       `Prelude.seq` Prelude.rnf session
       `Prelude.seq` Prelude.rnf daily
 
-instance Core.ToJSON CampaignLimits where
+instance Data.ToJSON CampaignLimits where
   toJSON CampaignLimits' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaximumDuration" Core..=)
+          [ ("MaximumDuration" Data..=)
               Prelude.<$> maximumDuration,
-            ("Total" Core..=) Prelude.<$> total,
-            ("MessagesPerSecond" Core..=)
+            ("Total" Data..=) Prelude.<$> total,
+            ("MessagesPerSecond" Data..=)
               Prelude.<$> messagesPerSecond,
-            ("Session" Core..=) Prelude.<$> session,
-            ("Daily" Core..=) Prelude.<$> daily
+            ("Session" Data..=) Prelude.<$> session,
+            ("Daily" Data..=) Prelude.<$> daily
           ]
       )

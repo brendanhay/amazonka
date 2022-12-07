@@ -63,6 +63,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -176,8 +177,8 @@ instance Core.AWSRequest ListPhoneNumbers where
     Response.receiveJSON
       ( \s h x ->
           ListPhoneNumbersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "PhoneNumberSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "PhoneNumberSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -199,35 +200,35 @@ instance Prelude.NFData ListPhoneNumbers where
       `Prelude.seq` Prelude.rnf phoneNumberCountryCodes
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ListPhoneNumbers where
+instance Data.ToHeaders ListPhoneNumbers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListPhoneNumbers where
+instance Data.ToPath ListPhoneNumbers where
   toPath ListPhoneNumbers' {..} =
     Prelude.mconcat
-      ["/phone-numbers-summary/", Core.toBS instanceId]
+      ["/phone-numbers-summary/", Data.toBS instanceId]
 
-instance Core.ToQuery ListPhoneNumbers where
+instance Data.ToQuery ListPhoneNumbers where
   toQuery ListPhoneNumbers' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
         "phoneNumberTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> phoneNumberTypes
             ),
         "phoneNumberCountryCodes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> phoneNumberCountryCodes
             )
       ]

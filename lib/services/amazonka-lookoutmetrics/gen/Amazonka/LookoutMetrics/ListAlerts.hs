@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,8 +114,8 @@ instance Core.AWSRequest ListAlerts where
     Response.receiveJSON
       ( \s h x ->
           ListAlertsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "AlertSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "AlertSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -132,32 +133,32 @@ instance Prelude.NFData ListAlerts where
       `Prelude.seq` Prelude.rnf anomalyDetectorArn
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListAlerts where
+instance Data.ToHeaders ListAlerts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAlerts where
+instance Data.ToJSON ListAlerts where
   toJSON ListAlerts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("AnomalyDetectorArn" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("AnomalyDetectorArn" Data..=)
               Prelude.<$> anomalyDetectorArn,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListAlerts where
+instance Data.ToPath ListAlerts where
   toPath = Prelude.const "/ListAlerts"
 
-instance Core.ToQuery ListAlerts where
+instance Data.ToQuery ListAlerts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAlertsResponse' smart constructor.

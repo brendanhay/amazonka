@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,11 +127,11 @@ instance Core.AWSRequest PublishBatch where
       "PublishBatchResult"
       ( \s h x ->
           PublishBatchResponse'
-            Prelude.<$> ( x Core..@? "Failed" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Failed" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "Successful" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> ( x Data..@? "Successful" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -145,22 +146,22 @@ instance Prelude.NFData PublishBatch where
     Prelude.rnf topicArn
       `Prelude.seq` Prelude.rnf publishBatchRequestEntries
 
-instance Core.ToHeaders PublishBatch where
+instance Data.ToHeaders PublishBatch where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PublishBatch where
+instance Data.ToPath PublishBatch where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PublishBatch where
+instance Data.ToQuery PublishBatch where
   toQuery PublishBatch' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PublishBatch" :: Prelude.ByteString),
+          Data.=: ("PublishBatch" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "TopicArn" Core.=: topicArn,
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "TopicArn" Data.=: topicArn,
         "PublishBatchRequestEntries"
-          Core.=: Core.toQueryList "member" publishBatchRequestEntries
+          Data.=: Data.toQueryList "member" publishBatchRequestEntries
       ]
 
 -- | /See:/ 'newPublishBatchResponse' smart constructor.

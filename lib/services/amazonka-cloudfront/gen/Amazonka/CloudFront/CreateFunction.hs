@@ -59,6 +59,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -74,7 +75,7 @@ data CreateFunction = CreateFunction'
     -- function, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html Writing function code for CloudFront Functions>
     -- in the /Amazon CloudFront Developer Guide/.
-    functionCode :: Core.Sensitive Core.Base64
+    functionCode :: Data.Sensitive Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -115,7 +116,7 @@ newCreateFunction
       { name = pName_,
         functionConfig = pFunctionConfig_,
         functionCode =
-          Core._Sensitive Prelude.. Core._Base64
+          Data._Sensitive Prelude.. Data._Base64
             Lens.# pFunctionCode_
       }
 
@@ -137,7 +138,7 @@ createFunction_functionConfig = Lens.lens (\CreateFunction' {functionConfig} -> 
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 createFunction_functionCode :: Lens.Lens' CreateFunction Prelude.ByteString
-createFunction_functionCode = Lens.lens (\CreateFunction' {functionCode} -> functionCode) (\s@CreateFunction' {} a -> s {functionCode = a} :: CreateFunction) Prelude.. Core._Sensitive Prelude.. Core._Base64
+createFunction_functionCode = Lens.lens (\CreateFunction' {functionCode} -> functionCode) (\s@CreateFunction' {} a -> s {functionCode = a} :: CreateFunction) Prelude.. Data._Sensitive Prelude.. Data._Base64
 
 instance Core.AWSRequest CreateFunction where
   type
@@ -149,9 +150,9 @@ instance Core.AWSRequest CreateFunction where
     Response.receiveXML
       ( \s h x ->
           CreateFunctionResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "Location")
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "Location")
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,26 +168,26 @@ instance Prelude.NFData CreateFunction where
       `Prelude.seq` Prelude.rnf functionConfig
       `Prelude.seq` Prelude.rnf functionCode
 
-instance Core.ToElement CreateFunction where
+instance Data.ToElement CreateFunction where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}CreateFunctionRequest"
 
-instance Core.ToHeaders CreateFunction where
+instance Data.ToHeaders CreateFunction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateFunction where
+instance Data.ToPath CreateFunction where
   toPath = Prelude.const "/2020-05-31/function"
 
-instance Core.ToQuery CreateFunction where
+instance Data.ToQuery CreateFunction where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML CreateFunction where
+instance Data.ToXML CreateFunction where
   toXML CreateFunction' {..} =
     Prelude.mconcat
-      [ "Name" Core.@= name,
-        "FunctionConfig" Core.@= functionConfig,
-        "FunctionCode" Core.@= functionCode
+      [ "Name" Data.@= name,
+        "FunctionConfig" Data.@= functionConfig,
+        "FunctionCode" Data.@= functionCode
       ]
 
 -- | /See:/ 'newCreateFunctionResponse' smart constructor.

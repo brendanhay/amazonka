@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MultiplexVideoSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.MultiplexStatmuxVideoSettings
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ multiplexVideoSettings_constantBitrate = Lens.lens (\MultiplexVideoSettings' {co
 multiplexVideoSettings_statmuxSettings :: Lens.Lens' MultiplexVideoSettings (Prelude.Maybe MultiplexStatmuxVideoSettings)
 multiplexVideoSettings_statmuxSettings = Lens.lens (\MultiplexVideoSettings' {statmuxSettings} -> statmuxSettings) (\s@MultiplexVideoSettings' {} a -> s {statmuxSettings = a} :: MultiplexVideoSettings)
 
-instance Core.FromJSON MultiplexVideoSettings where
+instance Data.FromJSON MultiplexVideoSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiplexVideoSettings"
       ( \x ->
           MultiplexVideoSettings'
-            Prelude.<$> (x Core..:? "constantBitrate")
-            Prelude.<*> (x Core..:? "statmuxSettings")
+            Prelude.<$> (x Data..:? "constantBitrate")
+            Prelude.<*> (x Data..:? "statmuxSettings")
       )
 
 instance Prelude.Hashable MultiplexVideoSettings where
@@ -89,13 +90,13 @@ instance Prelude.NFData MultiplexVideoSettings where
     Prelude.rnf constantBitrate
       `Prelude.seq` Prelude.rnf statmuxSettings
 
-instance Core.ToJSON MultiplexVideoSettings where
+instance Data.ToJSON MultiplexVideoSettings where
   toJSON MultiplexVideoSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("constantBitrate" Core..=)
+          [ ("constantBitrate" Data..=)
               Prelude.<$> constantBitrate,
-            ("statmuxSettings" Core..=)
+            ("statmuxSettings" Data..=)
               Prelude.<$> statmuxSettings
           ]
       )

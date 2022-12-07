@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.DatasetImportJobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.ImportMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 data DatasetImportJobSummary = DatasetImportJobSummary'
   { -- | The date and time (in Unix time) that the dataset import job was
     -- created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the dataset import job.
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The status of the dataset import job.
@@ -50,7 +51,7 @@ data DatasetImportJobSummary = DatasetImportJobSummary'
     importMode :: Prelude.Maybe ImportMode,
     -- | The date and time (in Unix time) that the dataset import job status was
     -- last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | If a dataset import job fails, the reason behind the failure.
     failureReason :: Prelude.Maybe Prelude.Text
   }
@@ -102,7 +103,7 @@ newDatasetImportJobSummary =
 -- | The date and time (in Unix time) that the dataset import job was
 -- created.
 datasetImportJobSummary_creationDateTime :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.UTCTime)
-datasetImportJobSummary_creationDateTime = Lens.lens (\DatasetImportJobSummary' {creationDateTime} -> creationDateTime) (\s@DatasetImportJobSummary' {} a -> s {creationDateTime = a} :: DatasetImportJobSummary) Prelude.. Lens.mapping Core._Time
+datasetImportJobSummary_creationDateTime = Lens.lens (\DatasetImportJobSummary' {creationDateTime} -> creationDateTime) (\s@DatasetImportJobSummary' {} a -> s {creationDateTime = a} :: DatasetImportJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the dataset import job.
 datasetImportJobSummary_jobName :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.Text)
@@ -129,25 +130,25 @@ datasetImportJobSummary_importMode = Lens.lens (\DatasetImportJobSummary' {impor
 -- | The date and time (in Unix time) that the dataset import job status was
 -- last updated.
 datasetImportJobSummary_lastUpdatedDateTime :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.UTCTime)
-datasetImportJobSummary_lastUpdatedDateTime = Lens.lens (\DatasetImportJobSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetImportJobSummary' {} a -> s {lastUpdatedDateTime = a} :: DatasetImportJobSummary) Prelude.. Lens.mapping Core._Time
+datasetImportJobSummary_lastUpdatedDateTime = Lens.lens (\DatasetImportJobSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetImportJobSummary' {} a -> s {lastUpdatedDateTime = a} :: DatasetImportJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | If a dataset import job fails, the reason behind the failure.
 datasetImportJobSummary_failureReason :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.Text)
 datasetImportJobSummary_failureReason = Lens.lens (\DatasetImportJobSummary' {failureReason} -> failureReason) (\s@DatasetImportJobSummary' {} a -> s {failureReason = a} :: DatasetImportJobSummary)
 
-instance Core.FromJSON DatasetImportJobSummary where
+instance Data.FromJSON DatasetImportJobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetImportJobSummary"
       ( \x ->
           DatasetImportJobSummary'
-            Prelude.<$> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "jobName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "datasetImportJobArn")
-            Prelude.<*> (x Core..:? "importMode")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "jobName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "datasetImportJobArn")
+            Prelude.<*> (x Data..:? "importMode")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable DatasetImportJobSummary where

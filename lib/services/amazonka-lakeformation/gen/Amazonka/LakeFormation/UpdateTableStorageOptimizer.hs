@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,7 +121,7 @@ instance Core.AWSRequest UpdateTableStorageOptimizer where
     Response.receiveJSON
       ( \s h x ->
           UpdateTableStorageOptimizerResponse'
-            Prelude.<$> (x Core..?> "Result")
+            Prelude.<$> (x Data..?> "Result")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,35 +139,35 @@ instance Prelude.NFData UpdateTableStorageOptimizer where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf storageOptimizerConfig
 
-instance Core.ToHeaders UpdateTableStorageOptimizer where
+instance Data.ToHeaders UpdateTableStorageOptimizer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTableStorageOptimizer where
+instance Data.ToJSON UpdateTableStorageOptimizer where
   toJSON UpdateTableStorageOptimizer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
             Prelude.Just
               ( "StorageOptimizerConfig"
-                  Core..= storageOptimizerConfig
+                  Data..= storageOptimizerConfig
               )
           ]
       )
 
-instance Core.ToPath UpdateTableStorageOptimizer where
+instance Data.ToPath UpdateTableStorageOptimizer where
   toPath = Prelude.const "/UpdateTableStorageOptimizer"
 
-instance Core.ToQuery UpdateTableStorageOptimizer where
+instance Data.ToQuery UpdateTableStorageOptimizer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTableStorageOptimizerResponse' smart constructor.

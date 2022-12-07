@@ -48,6 +48,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,8 +150,8 @@ instance Core.AWSRequest ListResolversByFunction where
     Response.receiveJSON
       ( \s h x ->
           ListResolversByFunctionResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "resolvers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "resolvers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,32 +169,32 @@ instance Prelude.NFData ListResolversByFunction where
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf functionId
 
-instance Core.ToHeaders ListResolversByFunction where
+instance Data.ToHeaders ListResolversByFunction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListResolversByFunction where
+instance Data.ToPath ListResolversByFunction where
   toPath ListResolversByFunction' {..} =
     Prelude.mconcat
       [ "/v1/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/functions/",
-        Core.toBS functionId,
+        Data.toBS functionId,
         "/resolvers"
       ]
 
-instance Core.ToQuery ListResolversByFunction where
+instance Data.ToQuery ListResolversByFunction where
   toQuery ListResolversByFunction' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListResolversByFunctionResponse' smart constructor.

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,8 +122,8 @@ instance Core.AWSRequest ModifySnapshotTier where
     Response.receiveXML
       ( \s h x ->
           ModifySnapshotTierResponse'
-            Prelude.<$> (x Core..@? "snapshotId")
-            Prelude.<*> (x Core..@? "tieringStartTime")
+            Prelude.<$> (x Data..@? "snapshotId")
+            Prelude.<*> (x Data..@? "tieringStartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,22 +139,22 @@ instance Prelude.NFData ModifySnapshotTier where
       `Prelude.seq` Prelude.rnf storageTier
       `Prelude.seq` Prelude.rnf snapshotId
 
-instance Core.ToHeaders ModifySnapshotTier where
+instance Data.ToHeaders ModifySnapshotTier where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifySnapshotTier where
+instance Data.ToPath ModifySnapshotTier where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifySnapshotTier where
+instance Data.ToQuery ModifySnapshotTier where
   toQuery ModifySnapshotTier' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifySnapshotTier" :: Prelude.ByteString),
+          Data.=: ("ModifySnapshotTier" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "StorageTier" Core.=: storageTier,
-        "SnapshotId" Core.=: snapshotId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "StorageTier" Data.=: storageTier,
+        "SnapshotId" Data.=: snapshotId
       ]
 
 -- | /See:/ 'newModifySnapshotTierResponse' smart constructor.
@@ -161,7 +162,7 @@ data ModifySnapshotTierResponse = ModifySnapshotTierResponse'
   { -- | The ID of the snapshot.
     snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the archive process was started.
-    tieringStartTime :: Prelude.Maybe Core.ISO8601,
+    tieringStartTime :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,7 +199,7 @@ modifySnapshotTierResponse_snapshotId = Lens.lens (\ModifySnapshotTierResponse' 
 
 -- | The date and time when the archive process was started.
 modifySnapshotTierResponse_tieringStartTime :: Lens.Lens' ModifySnapshotTierResponse (Prelude.Maybe Prelude.UTCTime)
-modifySnapshotTierResponse_tieringStartTime = Lens.lens (\ModifySnapshotTierResponse' {tieringStartTime} -> tieringStartTime) (\s@ModifySnapshotTierResponse' {} a -> s {tieringStartTime = a} :: ModifySnapshotTierResponse) Prelude.. Lens.mapping Core._Time
+modifySnapshotTierResponse_tieringStartTime = Lens.lens (\ModifySnapshotTierResponse' {tieringStartTime} -> tieringStartTime) (\s@ModifySnapshotTierResponse' {} a -> s {tieringStartTime = a} :: ModifySnapshotTierResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 modifySnapshotTierResponse_httpStatus :: Lens.Lens' ModifySnapshotTierResponse Prelude.Int

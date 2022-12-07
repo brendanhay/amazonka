@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.StudioSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.AuthMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -42,7 +43,7 @@ data StudioSummary = StudioSummary'
     -- Services SSO.
     authMode :: Prelude.Maybe AuthMode,
     -- | The time when the Amazon EMR Studio was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the Virtual Private Cloud (Amazon VPC) associated with the
     -- Amazon EMR Studio.
     vpcId :: Prelude.Maybe Prelude.Text
@@ -108,26 +109,26 @@ studioSummary_authMode = Lens.lens (\StudioSummary' {authMode} -> authMode) (\s@
 
 -- | The time when the Amazon EMR Studio was created.
 studioSummary_creationTime :: Lens.Lens' StudioSummary (Prelude.Maybe Prelude.UTCTime)
-studioSummary_creationTime = Lens.lens (\StudioSummary' {creationTime} -> creationTime) (\s@StudioSummary' {} a -> s {creationTime = a} :: StudioSummary) Prelude.. Lens.mapping Core._Time
+studioSummary_creationTime = Lens.lens (\StudioSummary' {creationTime} -> creationTime) (\s@StudioSummary' {} a -> s {creationTime = a} :: StudioSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the Virtual Private Cloud (Amazon VPC) associated with the
 -- Amazon EMR Studio.
 studioSummary_vpcId :: Lens.Lens' StudioSummary (Prelude.Maybe Prelude.Text)
 studioSummary_vpcId = Lens.lens (\StudioSummary' {vpcId} -> vpcId) (\s@StudioSummary' {} a -> s {vpcId = a} :: StudioSummary)
 
-instance Core.FromJSON StudioSummary where
+instance Data.FromJSON StudioSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StudioSummary"
       ( \x ->
           StudioSummary'
-            Prelude.<$> (x Core..:? "StudioId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "AuthMode")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<$> (x Data..:? "StudioId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Url")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "AuthMode")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance Prelude.Hashable StudioSummary where

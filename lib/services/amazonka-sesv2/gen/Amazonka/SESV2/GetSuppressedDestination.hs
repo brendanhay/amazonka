@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,7 +92,7 @@ instance Core.AWSRequest GetSuppressedDestination where
       ( \s h x ->
           GetSuppressedDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "SuppressedDestination")
+            Prelude.<*> (x Data..:> "SuppressedDestination")
       )
 
 instance Prelude.Hashable GetSuppressedDestination where
@@ -102,25 +103,25 @@ instance Prelude.NFData GetSuppressedDestination where
   rnf GetSuppressedDestination' {..} =
     Prelude.rnf emailAddress
 
-instance Core.ToHeaders GetSuppressedDestination where
+instance Data.ToHeaders GetSuppressedDestination where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSuppressedDestination where
+instance Data.ToPath GetSuppressedDestination where
   toPath GetSuppressedDestination' {..} =
     Prelude.mconcat
       [ "/v2/email/suppression/addresses/",
-        Core.toBS emailAddress
+        Data.toBS emailAddress
       ]
 
-instance Core.ToQuery GetSuppressedDestination where
+instance Data.ToQuery GetSuppressedDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Information about the suppressed email address.

@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.HlsWebdavSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.HlsWebdavHttpTransferMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,17 +99,17 @@ hlsWebdavSettings_restartDelay = Lens.lens (\HlsWebdavSettings' {restartDelay} -
 hlsWebdavSettings_filecacheDuration :: Lens.Lens' HlsWebdavSettings (Prelude.Maybe Prelude.Natural)
 hlsWebdavSettings_filecacheDuration = Lens.lens (\HlsWebdavSettings' {filecacheDuration} -> filecacheDuration) (\s@HlsWebdavSettings' {} a -> s {filecacheDuration = a} :: HlsWebdavSettings)
 
-instance Core.FromJSON HlsWebdavSettings where
+instance Data.FromJSON HlsWebdavSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsWebdavSettings"
       ( \x ->
           HlsWebdavSettings'
-            Prelude.<$> (x Core..:? "numRetries")
-            Prelude.<*> (x Core..:? "connectionRetryInterval")
-            Prelude.<*> (x Core..:? "httpTransferMode")
-            Prelude.<*> (x Core..:? "restartDelay")
-            Prelude.<*> (x Core..:? "filecacheDuration")
+            Prelude.<$> (x Data..:? "numRetries")
+            Prelude.<*> (x Data..:? "connectionRetryInterval")
+            Prelude.<*> (x Data..:? "httpTransferMode")
+            Prelude.<*> (x Data..:? "restartDelay")
+            Prelude.<*> (x Data..:? "filecacheDuration")
       )
 
 instance Prelude.Hashable HlsWebdavSettings where
@@ -127,17 +128,17 @@ instance Prelude.NFData HlsWebdavSettings where
       `Prelude.seq` Prelude.rnf restartDelay
       `Prelude.seq` Prelude.rnf filecacheDuration
 
-instance Core.ToJSON HlsWebdavSettings where
+instance Data.ToJSON HlsWebdavSettings where
   toJSON HlsWebdavSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("numRetries" Core..=) Prelude.<$> numRetries,
-            ("connectionRetryInterval" Core..=)
+          [ ("numRetries" Data..=) Prelude.<$> numRetries,
+            ("connectionRetryInterval" Data..=)
               Prelude.<$> connectionRetryInterval,
-            ("httpTransferMode" Core..=)
+            ("httpTransferMode" Data..=)
               Prelude.<$> httpTransferMode,
-            ("restartDelay" Core..=) Prelude.<$> restartDelay,
-            ("filecacheDuration" Core..=)
+            ("restartDelay" Data..=) Prelude.<$> restartDelay,
+            ("filecacheDuration" Data..=)
               Prelude.<$> filecacheDuration
           ]
       )

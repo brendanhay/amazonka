@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.LogsAnomalyDetectionIntegration
 import Amazonka.DevOpsGuru.Types.OpsCenterIntegration
 import qualified Amazonka.Prelude as Prelude
@@ -74,14 +75,14 @@ serviceIntegrationConfig_opsCenter = Lens.lens (\ServiceIntegrationConfig' {opsC
 serviceIntegrationConfig_logsAnomalyDetection :: Lens.Lens' ServiceIntegrationConfig (Prelude.Maybe LogsAnomalyDetectionIntegration)
 serviceIntegrationConfig_logsAnomalyDetection = Lens.lens (\ServiceIntegrationConfig' {logsAnomalyDetection} -> logsAnomalyDetection) (\s@ServiceIntegrationConfig' {} a -> s {logsAnomalyDetection = a} :: ServiceIntegrationConfig)
 
-instance Core.FromJSON ServiceIntegrationConfig where
+instance Data.FromJSON ServiceIntegrationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceIntegrationConfig"
       ( \x ->
           ServiceIntegrationConfig'
-            Prelude.<$> (x Core..:? "OpsCenter")
-            Prelude.<*> (x Core..:? "LogsAnomalyDetection")
+            Prelude.<$> (x Data..:? "OpsCenter")
+            Prelude.<*> (x Data..:? "LogsAnomalyDetection")
       )
 
 instance Prelude.Hashable ServiceIntegrationConfig where

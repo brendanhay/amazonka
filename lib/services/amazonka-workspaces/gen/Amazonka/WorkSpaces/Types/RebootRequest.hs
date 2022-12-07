@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.RebootRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the information used to reboot a WorkSpace.
@@ -59,9 +60,9 @@ instance Prelude.Hashable RebootRequest where
 instance Prelude.NFData RebootRequest where
   rnf RebootRequest' {..} = Prelude.rnf workspaceId
 
-instance Core.ToJSON RebootRequest where
+instance Data.ToJSON RebootRequest where
   toJSON RebootRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("WorkspaceId" Core..= workspaceId)]
+          [Prelude.Just ("WorkspaceId" Data..= workspaceId)]
       )

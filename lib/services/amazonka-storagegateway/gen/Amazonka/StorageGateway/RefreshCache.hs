@@ -89,6 +89,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -184,8 +185,8 @@ instance Core.AWSRequest RefreshCache where
     Response.receiveJSON
       ( \s h x ->
           RefreshCacheResponse'
-            Prelude.<$> (x Core..?> "FileShareARN")
-            Prelude.<*> (x Core..?> "NotificationId")
+            Prelude.<$> (x Data..?> "FileShareARN")
+            Prelude.<*> (x Data..?> "NotificationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,35 +202,35 @@ instance Prelude.NFData RefreshCache where
       `Prelude.seq` Prelude.rnf folderList
       `Prelude.seq` Prelude.rnf fileShareARN
 
-instance Core.ToHeaders RefreshCache where
+instance Data.ToHeaders RefreshCache where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.RefreshCache" ::
+              Data.=# ( "StorageGateway_20130630.RefreshCache" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RefreshCache where
+instance Data.ToJSON RefreshCache where
   toJSON RefreshCache' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Recursive" Core..=) Prelude.<$> recursive,
-            ("FolderList" Core..=) Prelude.<$> folderList,
-            Prelude.Just ("FileShareARN" Core..= fileShareARN)
+          [ ("Recursive" Data..=) Prelude.<$> recursive,
+            ("FolderList" Data..=) Prelude.<$> folderList,
+            Prelude.Just ("FileShareARN" Data..= fileShareARN)
           ]
       )
 
-instance Core.ToPath RefreshCache where
+instance Data.ToPath RefreshCache where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RefreshCache where
+instance Data.ToQuery RefreshCache where
   toQuery = Prelude.const Prelude.mempty
 
 -- | RefreshCacheOutput

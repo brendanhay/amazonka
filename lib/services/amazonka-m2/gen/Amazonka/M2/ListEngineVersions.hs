@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,9 +134,9 @@ instance Core.AWSRequest ListEngineVersions where
     Response.receiveJSON
       ( \s h x ->
           ListEngineVersionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "engineVersions"
+            Prelude.<*> ( x Data..?> "engineVersions"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -152,26 +153,26 @@ instance Prelude.NFData ListEngineVersions where
       `Prelude.seq` Prelude.rnf engineType
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListEngineVersions where
+instance Data.ToHeaders ListEngineVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListEngineVersions where
+instance Data.ToPath ListEngineVersions where
   toPath = Prelude.const "/engine-versions"
 
-instance Core.ToQuery ListEngineVersions where
+instance Data.ToQuery ListEngineVersions where
   toQuery ListEngineVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "engineType" Core.=: engineType,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "engineType" Data.=: engineType,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListEngineVersionsResponse' smart constructor.

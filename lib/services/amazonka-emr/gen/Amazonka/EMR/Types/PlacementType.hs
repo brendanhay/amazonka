@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.PlacementType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon EC2 Availability Zone configuration of the cluster (job
@@ -96,13 +97,13 @@ instance Prelude.NFData PlacementType where
     Prelude.rnf availabilityZones
       `Prelude.seq` Prelude.rnf availabilityZone
 
-instance Core.ToJSON PlacementType where
+instance Data.ToJSON PlacementType where
   toJSON PlacementType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AvailabilityZones" Core..=)
+          [ ("AvailabilityZones" Data..=)
               Prelude.<$> availabilityZones,
-            ("AvailabilityZone" Core..=)
+            ("AvailabilityZone" Data..=)
               Prelude.<$> availabilityZone
           ]
       )

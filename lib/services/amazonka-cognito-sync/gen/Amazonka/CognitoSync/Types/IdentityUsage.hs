@@ -21,6 +21,7 @@ module Amazonka.CognitoSync.Types.IdentityUsage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Usage information for the identity.
@@ -30,7 +31,7 @@ data IdentityUsage = IdentityUsage'
   { -- | Number of datasets for the identity.
     datasetCount :: Prelude.Maybe Prelude.Int,
     -- | Date on which the identity was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | Total data storage for this identity.
     dataStorage :: Prelude.Maybe Prelude.Integer,
     -- | A name-spaced GUID (for example,
@@ -82,7 +83,7 @@ identityUsage_datasetCount = Lens.lens (\IdentityUsage' {datasetCount} -> datase
 
 -- | Date on which the identity was last modified.
 identityUsage_lastModifiedDate :: Lens.Lens' IdentityUsage (Prelude.Maybe Prelude.UTCTime)
-identityUsage_lastModifiedDate = Lens.lens (\IdentityUsage' {lastModifiedDate} -> lastModifiedDate) (\s@IdentityUsage' {} a -> s {lastModifiedDate = a} :: IdentityUsage) Prelude.. Lens.mapping Core._Time
+identityUsage_lastModifiedDate = Lens.lens (\IdentityUsage' {lastModifiedDate} -> lastModifiedDate) (\s@IdentityUsage' {} a -> s {lastModifiedDate = a} :: IdentityUsage) Prelude.. Lens.mapping Data._Time
 
 -- | Total data storage for this identity.
 identityUsage_dataStorage :: Lens.Lens' IdentityUsage (Prelude.Maybe Prelude.Integer)
@@ -100,17 +101,17 @@ identityUsage_identityPoolId = Lens.lens (\IdentityUsage' {identityPoolId} -> id
 identityUsage_identityId :: Lens.Lens' IdentityUsage (Prelude.Maybe Prelude.Text)
 identityUsage_identityId = Lens.lens (\IdentityUsage' {identityId} -> identityId) (\s@IdentityUsage' {} a -> s {identityId = a} :: IdentityUsage)
 
-instance Core.FromJSON IdentityUsage where
+instance Data.FromJSON IdentityUsage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityUsage"
       ( \x ->
           IdentityUsage'
-            Prelude.<$> (x Core..:? "DatasetCount")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "DataStorage")
-            Prelude.<*> (x Core..:? "IdentityPoolId")
-            Prelude.<*> (x Core..:? "IdentityId")
+            Prelude.<$> (x Data..:? "DatasetCount")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "DataStorage")
+            Prelude.<*> (x Data..:? "IdentityPoolId")
+            Prelude.<*> (x Data..:? "IdentityId")
       )
 
 instance Prelude.Hashable IdentityUsage where

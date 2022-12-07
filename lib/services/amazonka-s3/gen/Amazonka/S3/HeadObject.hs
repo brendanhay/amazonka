@@ -167,6 +167,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -186,7 +187,7 @@ data HeadObject = HeadObject'
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | Return the object only if it has not been modified since the specified
     -- time; otherwise, return a 412 (precondition failed) error.
-    ifUnmodifiedSince :: Prelude.Maybe Core.ISO8601,
+    ifUnmodifiedSince :: Prelude.Maybe Data.ISO8601,
     -- | Because @HeadObject@ returns only the metadata for an object, this
     -- parameter has no effect.
     range :: Prelude.Maybe Prelude.Text,
@@ -209,7 +210,7 @@ data HeadObject = HeadObject'
     ifMatch :: Prelude.Maybe Prelude.Text,
     -- | Return the object only if it has been modified since the specified time;
     -- otherwise, return a 304 (not modified) error.
-    ifModifiedSince :: Prelude.Maybe Core.ISO8601,
+    ifModifiedSince :: Prelude.Maybe Data.ISO8601,
     -- | Return the object only if its entity tag (ETag) is different from the
     -- one specified; otherwise, return a 304 (not modified) error.
     ifNoneMatch :: Prelude.Maybe Prelude.Text,
@@ -220,7 +221,7 @@ data HeadObject = HeadObject'
     -- discarded; Amazon S3 does not store the encryption key. The key must be
     -- appropriate for use with the algorithm specified in the
     -- @x-amz-server-side-encryption-customer-algorithm@ header.
-    sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the bucket containing the object.
     --
     -- When using this action with an access point, you must direct requests to
@@ -370,7 +371,7 @@ headObject_requestPayer = Lens.lens (\HeadObject' {requestPayer} -> requestPayer
 -- | Return the object only if it has not been modified since the specified
 -- time; otherwise, return a 412 (precondition failed) error.
 headObject_ifUnmodifiedSince :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.UTCTime)
-headObject_ifUnmodifiedSince = Lens.lens (\HeadObject' {ifUnmodifiedSince} -> ifUnmodifiedSince) (\s@HeadObject' {} a -> s {ifUnmodifiedSince = a} :: HeadObject) Prelude.. Lens.mapping Core._Time
+headObject_ifUnmodifiedSince = Lens.lens (\HeadObject' {ifUnmodifiedSince} -> ifUnmodifiedSince) (\s@HeadObject' {} a -> s {ifUnmodifiedSince = a} :: HeadObject) Prelude.. Lens.mapping Data._Time
 
 -- | Because @HeadObject@ returns only the metadata for an object, this
 -- parameter has no effect.
@@ -405,7 +406,7 @@ headObject_ifMatch = Lens.lens (\HeadObject' {ifMatch} -> ifMatch) (\s@HeadObjec
 -- | Return the object only if it has been modified since the specified time;
 -- otherwise, return a 304 (not modified) error.
 headObject_ifModifiedSince :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.UTCTime)
-headObject_ifModifiedSince = Lens.lens (\HeadObject' {ifModifiedSince} -> ifModifiedSince) (\s@HeadObject' {} a -> s {ifModifiedSince = a} :: HeadObject) Prelude.. Lens.mapping Core._Time
+headObject_ifModifiedSince = Lens.lens (\HeadObject' {ifModifiedSince} -> ifModifiedSince) (\s@HeadObject' {} a -> s {ifModifiedSince = a} :: HeadObject) Prelude.. Lens.mapping Data._Time
 
 -- | Return the object only if its entity tag (ETag) is different from the
 -- one specified; otherwise, return a 304 (not modified) error.
@@ -422,7 +423,7 @@ headObject_versionId = Lens.lens (\HeadObject' {versionId} -> versionId) (\s@Hea
 -- appropriate for use with the algorithm specified in the
 -- @x-amz-server-side-encryption-customer-algorithm@ header.
 headObject_sSECustomerKey :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
-headObject_sSECustomerKey = Lens.lens (\HeadObject' {sSECustomerKey} -> sSECustomerKey) (\s@HeadObject' {} a -> s {sSECustomerKey = a} :: HeadObject) Prelude.. Lens.mapping Core._Sensitive
+headObject_sSECustomerKey = Lens.lens (\HeadObject' {sSECustomerKey} -> sSECustomerKey) (\s@HeadObject' {} a -> s {sSECustomerKey = a} :: HeadObject) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the bucket containing the object.
 --
@@ -460,48 +461,48 @@ instance Core.AWSRequest HeadObject where
     Response.receiveEmpty
       ( \s h x ->
           HeadObjectResponse'
-            Prelude.<$> (h Core..#? "x-amz-server-side-encryption")
-            Prelude.<*> (h Core..#? "x-amz-mp-parts-count")
-            Prelude.<*> (h Core..#? "x-amz-checksum-crc32c")
-            Prelude.<*> (h Core..#? "x-amz-object-lock-mode")
+            Prelude.<$> (h Data..#? "x-amz-server-side-encryption")
+            Prelude.<*> (h Data..#? "x-amz-mp-parts-count")
+            Prelude.<*> (h Data..#? "x-amz-checksum-crc32c")
+            Prelude.<*> (h Data..#? "x-amz-object-lock-mode")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
+                            Data..#? "x-amz-server-side-encryption-bucket-key-enabled"
                         )
-            Prelude.<*> (h Core..#? "x-amz-website-redirect-location")
-            Prelude.<*> (h Core..#? "x-amz-expiration")
-            Prelude.<*> (h Core..#? "x-amz-request-charged")
-            Prelude.<*> (h Core..#? "x-amz-object-lock-retain-until-date")
-            Prelude.<*> (h Core..#? "x-amz-checksum-sha1")
-            Prelude.<*> (h Core..#? "x-amz-replication-status")
-            Prelude.<*> (Core.parseHeadersMap "x-amz-meta-" h)
-            Prelude.<*> (h Core..#? "x-amz-checksum-crc32")
-            Prelude.<*> (h Core..#? "x-amz-restore")
-            Prelude.<*> (h Core..#? "Content-Language")
+            Prelude.<*> (h Data..#? "x-amz-website-redirect-location")
+            Prelude.<*> (h Data..#? "x-amz-expiration")
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
+            Prelude.<*> (h Data..#? "x-amz-object-lock-retain-until-date")
+            Prelude.<*> (h Data..#? "x-amz-checksum-sha1")
+            Prelude.<*> (h Data..#? "x-amz-replication-status")
+            Prelude.<*> (Data.parseHeadersMap "x-amz-meta-" h)
+            Prelude.<*> (h Data..#? "x-amz-checksum-crc32")
+            Prelude.<*> (h Data..#? "x-amz-restore")
+            Prelude.<*> (h Data..#? "Content-Language")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-aws-kms-key-id"
+                            Data..#? "x-amz-server-side-encryption-aws-kms-key-id"
                         )
-            Prelude.<*> (h Core..#? "Content-Disposition")
-            Prelude.<*> (h Core..#? "x-amz-object-lock-legal-hold")
-            Prelude.<*> (h Core..#? "x-amz-checksum-sha256")
-            Prelude.<*> (h Core..#? "accept-ranges")
-            Prelude.<*> (h Core..#? "Content-Length")
+            Prelude.<*> (h Data..#? "Content-Disposition")
+            Prelude.<*> (h Data..#? "x-amz-object-lock-legal-hold")
+            Prelude.<*> (h Data..#? "x-amz-checksum-sha256")
+            Prelude.<*> (h Data..#? "accept-ranges")
+            Prelude.<*> (h Data..#? "Content-Length")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-customer-algorithm"
+                            Data..#? "x-amz-server-side-encryption-customer-algorithm"
                         )
-            Prelude.<*> (h Core..#? "Last-Modified")
-            Prelude.<*> (h Core..#? "Cache-Control")
-            Prelude.<*> (h Core..#? "Content-Encoding")
-            Prelude.<*> (h Core..#? "x-amz-missing-meta")
+            Prelude.<*> (h Data..#? "Last-Modified")
+            Prelude.<*> (h Data..#? "Cache-Control")
+            Prelude.<*> (h Data..#? "Content-Encoding")
+            Prelude.<*> (h Data..#? "x-amz-missing-meta")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-customer-key-MD5"
+                            Data..#? "x-amz-server-side-encryption-customer-key-MD5"
                         )
-            Prelude.<*> (h Core..#? "x-amz-archive-status")
-            Prelude.<*> (h Core..#? "Expires")
-            Prelude.<*> (h Core..#? "x-amz-storage-class")
-            Prelude.<*> (h Core..#? "ETag")
-            Prelude.<*> (h Core..#? "x-amz-delete-marker")
-            Prelude.<*> (h Core..#? "Content-Type")
-            Prelude.<*> (h Core..#? "x-amz-version-id")
+            Prelude.<*> (h Data..#? "x-amz-archive-status")
+            Prelude.<*> (h Data..#? "Expires")
+            Prelude.<*> (h Data..#? "x-amz-storage-class")
+            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<*> (h Data..#? "x-amz-delete-marker")
+            Prelude.<*> (h Data..#? "Content-Type")
+            Prelude.<*> (h Data..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -541,36 +542,36 @@ instance Prelude.NFData HeadObject where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToHeaders HeadObject where
+instance Data.ToHeaders HeadObject where
   toHeaders HeadObject' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer,
-        "If-Unmodified-Since" Core.=# ifUnmodifiedSince,
-        "Range" Core.=# range,
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer,
+        "If-Unmodified-Since" Data.=# ifUnmodifiedSince,
+        "Range" Data.=# range,
         "x-amz-server-side-encryption-customer-algorithm"
-          Core.=# sSECustomerAlgorithm,
-        "x-amz-checksum-mode" Core.=# checksumMode,
+          Data.=# sSECustomerAlgorithm,
+        "x-amz-checksum-mode" Data.=# checksumMode,
         "x-amz-server-side-encryption-customer-key-MD5"
-          Core.=# sSECustomerKeyMD5,
-        "If-Match" Core.=# ifMatch,
-        "If-Modified-Since" Core.=# ifModifiedSince,
-        "If-None-Match" Core.=# ifNoneMatch,
+          Data.=# sSECustomerKeyMD5,
+        "If-Match" Data.=# ifMatch,
+        "If-Modified-Since" Data.=# ifModifiedSince,
+        "If-None-Match" Data.=# ifNoneMatch,
         "x-amz-server-side-encryption-customer-key"
-          Core.=# sSECustomerKey
+          Data.=# sSECustomerKey
       ]
 
-instance Core.ToPath HeadObject where
+instance Data.ToPath HeadObject where
   toPath HeadObject' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery HeadObject where
+instance Data.ToQuery HeadObject where
   toQuery HeadObject' {..} =
     Prelude.mconcat
-      [ "partNumber" Core.=: partNumber,
-        "versionId" Core.=: versionId
+      [ "partNumber" Data.=: partNumber,
+        "versionId" Data.=: versionId
       ]
 
 -- | /See:/ 'newHeadObjectResponse' smart constructor.
@@ -613,7 +614,7 @@ data HeadObjectResponse = HeadObjectResponse'
     -- | The date and time when the Object Lock retention period expires. This
     -- header is only returned if the requester has the @s3:GetObjectRetention@
     -- permission.
-    objectLockRetainUntilDate :: Prelude.Maybe Core.ISO8601,
+    objectLockRetainUntilDate :: Prelude.Maybe Data.ISO8601,
     -- | The base64-encoded, 160-bit SHA-1 digest of the object. This will only
     -- be present if it was uploaded with the object. With multipart uploads,
     -- this may not be a checksum value of the object. For more information
@@ -690,7 +691,7 @@ data HeadObjectResponse = HeadObjectResponse'
     -- | If present, specifies the ID of the Amazon Web Services Key Management
     -- Service (Amazon Web Services KMS) symmetric customer managed key that
     -- was used for the object.
-    sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies presentational information for the object.
     contentDisposition :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether a legal hold is in effect for this object. This header
@@ -716,7 +717,7 @@ data HeadObjectResponse = HeadObjectResponse'
     -- encryption algorithm used.
     sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
     -- | Creation date of the object.
-    lastModified :: Prelude.Maybe Core.ISO8601,
+    lastModified :: Prelude.Maybe Data.ISO8601,
     -- | Specifies caching behavior along the request\/reply chain.
     cacheControl :: Prelude.Maybe Prelude.Text,
     -- | Specifies what content encodings have been applied to the object and
@@ -736,7 +737,7 @@ data HeadObjectResponse = HeadObjectResponse'
     -- | The archive state of the head object.
     archiveStatus :: Prelude.Maybe ArchiveStatus,
     -- | The date and time at which the object is no longer cacheable.
-    expires :: Prelude.Maybe Core.ISO8601,
+    expires :: Prelude.Maybe Data.ISO8601,
     -- | Provides storage class information of the object. Amazon S3 returns this
     -- header for all objects except for S3 Standard storage class objects.
     --
@@ -1048,7 +1049,7 @@ headObjectResponse_requestCharged = Lens.lens (\HeadObjectResponse' {requestChar
 -- header is only returned if the requester has the @s3:GetObjectRetention@
 -- permission.
 headObjectResponse_objectLockRetainUntilDate :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.UTCTime)
-headObjectResponse_objectLockRetainUntilDate = Lens.lens (\HeadObjectResponse' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@HeadObjectResponse' {} a -> s {objectLockRetainUntilDate = a} :: HeadObjectResponse) Prelude.. Lens.mapping Core._Time
+headObjectResponse_objectLockRetainUntilDate = Lens.lens (\HeadObjectResponse' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@HeadObjectResponse' {} a -> s {objectLockRetainUntilDate = a} :: HeadObjectResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The base64-encoded, 160-bit SHA-1 digest of the object. This will only
 -- be present if it was uploaded with the object. With multipart uploads,
@@ -1139,7 +1140,7 @@ headObjectResponse_contentLanguage = Lens.lens (\HeadObjectResponse' {contentLan
 -- Service (Amazon Web Services KMS) symmetric customer managed key that
 -- was used for the object.
 headObjectResponse_sSEKMSKeyId :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
-headObjectResponse_sSEKMSKeyId = Lens.lens (\HeadObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@HeadObjectResponse' {} a -> s {sSEKMSKeyId = a} :: HeadObjectResponse) Prelude.. Lens.mapping Core._Sensitive
+headObjectResponse_sSEKMSKeyId = Lens.lens (\HeadObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@HeadObjectResponse' {} a -> s {sSEKMSKeyId = a} :: HeadObjectResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies presentational information for the object.
 headObjectResponse_contentDisposition :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
@@ -1179,7 +1180,7 @@ headObjectResponse_sSECustomerAlgorithm = Lens.lens (\HeadObjectResponse' {sSECu
 
 -- | Creation date of the object.
 headObjectResponse_lastModified :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.UTCTime)
-headObjectResponse_lastModified = Lens.lens (\HeadObjectResponse' {lastModified} -> lastModified) (\s@HeadObjectResponse' {} a -> s {lastModified = a} :: HeadObjectResponse) Prelude.. Lens.mapping Core._Time
+headObjectResponse_lastModified = Lens.lens (\HeadObjectResponse' {lastModified} -> lastModified) (\s@HeadObjectResponse' {} a -> s {lastModified = a} :: HeadObjectResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies caching behavior along the request\/reply chain.
 headObjectResponse_cacheControl :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
@@ -1211,7 +1212,7 @@ headObjectResponse_archiveStatus = Lens.lens (\HeadObjectResponse' {archiveStatu
 
 -- | The date and time at which the object is no longer cacheable.
 headObjectResponse_expires :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.UTCTime)
-headObjectResponse_expires = Lens.lens (\HeadObjectResponse' {expires} -> expires) (\s@HeadObjectResponse' {} a -> s {expires = a} :: HeadObjectResponse) Prelude.. Lens.mapping Core._Time
+headObjectResponse_expires = Lens.lens (\HeadObjectResponse' {expires} -> expires) (\s@HeadObjectResponse' {} a -> s {expires = a} :: HeadObjectResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Provides storage class information of the object. Amazon S3 returns this
 -- header for all objects except for S3 Standard storage class objects.

@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.OverrideButtonConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.ButtonAction
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ overrideButtonConfiguration_link = Lens.lens (\OverrideButtonConfiguration' {lin
 overrideButtonConfiguration_buttonAction :: Lens.Lens' OverrideButtonConfiguration ButtonAction
 overrideButtonConfiguration_buttonAction = Lens.lens (\OverrideButtonConfiguration' {buttonAction} -> buttonAction) (\s@OverrideButtonConfiguration' {} a -> s {buttonAction = a} :: OverrideButtonConfiguration)
 
-instance Core.FromJSON OverrideButtonConfiguration where
+instance Data.FromJSON OverrideButtonConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OverrideButtonConfiguration"
       ( \x ->
           OverrideButtonConfiguration'
-            Prelude.<$> (x Core..:? "Link")
-            Prelude.<*> (x Core..: "ButtonAction")
+            Prelude.<$> (x Data..:? "Link")
+            Prelude.<*> (x Data..: "ButtonAction")
       )
 
 instance Prelude.Hashable OverrideButtonConfiguration where
@@ -85,11 +86,11 @@ instance Prelude.NFData OverrideButtonConfiguration where
     Prelude.rnf link
       `Prelude.seq` Prelude.rnf buttonAction
 
-instance Core.ToJSON OverrideButtonConfiguration where
+instance Data.ToJSON OverrideButtonConfiguration where
   toJSON OverrideButtonConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Link" Core..=) Prelude.<$> link,
-            Prelude.Just ("ButtonAction" Core..= buttonAction)
+          [ ("Link" Data..=) Prelude.<$> link,
+            Prelude.Just ("ButtonAction" Data..= buttonAction)
           ]
       )

@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,19 +101,19 @@ instance Core.AWSRequest DescribeTaskExecution where
     Response.receiveJSON
       ( \s h x ->
           DescribeTaskExecutionResponse'
-            Prelude.<$> (x Core..?> "Excludes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "FilesTransferred")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Options")
-            Prelude.<*> (x Core..?> "EstimatedFilesToTransfer")
-            Prelude.<*> (x Core..?> "Includes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Result")
-            Prelude.<*> (x Core..?> "EstimatedBytesToTransfer")
-            Prelude.<*> (x Core..?> "BytesCompressed")
-            Prelude.<*> (x Core..?> "BytesTransferred")
-            Prelude.<*> (x Core..?> "TaskExecutionArn")
-            Prelude.<*> (x Core..?> "BytesWritten")
-            Prelude.<*> (x Core..?> "StartTime")
+            Prelude.<$> (x Data..?> "Excludes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "FilesTransferred")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Options")
+            Prelude.<*> (x Data..?> "EstimatedFilesToTransfer")
+            Prelude.<*> (x Data..?> "Includes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Result")
+            Prelude.<*> (x Data..?> "EstimatedBytesToTransfer")
+            Prelude.<*> (x Data..?> "BytesCompressed")
+            Prelude.<*> (x Data..?> "BytesTransferred")
+            Prelude.<*> (x Data..?> "TaskExecutionArn")
+            Prelude.<*> (x Data..?> "BytesWritten")
+            Prelude.<*> (x Data..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,34 +125,34 @@ instance Prelude.NFData DescribeTaskExecution where
   rnf DescribeTaskExecution' {..} =
     Prelude.rnf taskExecutionArn
 
-instance Core.ToHeaders DescribeTaskExecution where
+instance Data.ToHeaders DescribeTaskExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.DescribeTaskExecution" ::
+              Data.=# ( "FmrsService.DescribeTaskExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTaskExecution where
+instance Data.ToJSON DescribeTaskExecution where
   toJSON DescribeTaskExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TaskExecutionArn" Core..= taskExecutionArn)
+              ("TaskExecutionArn" Data..= taskExecutionArn)
           ]
       )
 
-instance Core.ToPath DescribeTaskExecution where
+instance Data.ToPath DescribeTaskExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTaskExecution where
+instance Data.ToQuery DescribeTaskExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | DescribeTaskExecutionResponse
@@ -216,7 +217,7 @@ data DescribeTaskExecutionResponse = DescribeTaskExecutionResponse'
     -- Services storage resource.
     bytesWritten :: Prelude.Maybe Prelude.Integer,
     -- | The time that the task execution was started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -398,7 +399,7 @@ describeTaskExecutionResponse_bytesWritten = Lens.lens (\DescribeTaskExecutionRe
 
 -- | The time that the task execution was started.
 describeTaskExecutionResponse_startTime :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-describeTaskExecutionResponse_startTime = Lens.lens (\DescribeTaskExecutionResponse' {startTime} -> startTime) (\s@DescribeTaskExecutionResponse' {} a -> s {startTime = a} :: DescribeTaskExecutionResponse) Prelude.. Lens.mapping Core._Time
+describeTaskExecutionResponse_startTime = Lens.lens (\DescribeTaskExecutionResponse' {startTime} -> startTime) (\s@DescribeTaskExecutionResponse' {} a -> s {startTime = a} :: DescribeTaskExecutionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeTaskExecutionResponse_httpStatus :: Lens.Lens' DescribeTaskExecutionResponse Prelude.Int

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -217,7 +218,7 @@ instance Core.AWSRequest UpdateVoiceTemplate where
       ( \s h x ->
           UpdateVoiceTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable UpdateVoiceTemplate where
@@ -234,31 +235,31 @@ instance Prelude.NFData UpdateVoiceTemplate where
       `Prelude.seq` Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf voiceTemplateRequest
 
-instance Core.ToHeaders UpdateVoiceTemplate where
+instance Data.ToHeaders UpdateVoiceTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateVoiceTemplate where
+instance Data.ToJSON UpdateVoiceTemplate where
   toJSON UpdateVoiceTemplate' {..} =
-    Core.toJSON voiceTemplateRequest
+    Data.toJSON voiceTemplateRequest
 
-instance Core.ToPath UpdateVoiceTemplate where
+instance Data.ToPath UpdateVoiceTemplate where
   toPath UpdateVoiceTemplate' {..} =
     Prelude.mconcat
-      ["/v1/templates/", Core.toBS templateName, "/voice"]
+      ["/v1/templates/", Data.toBS templateName, "/voice"]
 
-instance Core.ToQuery UpdateVoiceTemplate where
+instance Data.ToQuery UpdateVoiceTemplate where
   toQuery UpdateVoiceTemplate' {..} =
     Prelude.mconcat
-      [ "create-new-version" Core.=: createNewVersion,
-        "version" Core.=: version
+      [ "create-new-version" Data.=: createNewVersion,
+        "version" Data.=: version
       ]
 
 -- | /See:/ 'newUpdateVoiceTemplateResponse' smart constructor.

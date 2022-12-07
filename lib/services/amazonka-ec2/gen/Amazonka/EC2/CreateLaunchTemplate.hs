@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,7 +93,7 @@ data CreateLaunchTemplate = CreateLaunchTemplate'
     -- | A name for the launch template.
     launchTemplateName :: Prelude.Text,
     -- | The information for the launch template.
-    launchTemplateData :: Core.Sensitive RequestLaunchTemplateData
+    launchTemplateData :: Data.Sensitive RequestLaunchTemplateData
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -145,7 +146,7 @@ newCreateLaunchTemplate
         tagSpecifications = Prelude.Nothing,
         launchTemplateName = pLaunchTemplateName_,
         launchTemplateData =
-          Core._Sensitive Lens.# pLaunchTemplateData_
+          Data._Sensitive Lens.# pLaunchTemplateData_
       }
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
@@ -183,7 +184,7 @@ createLaunchTemplate_launchTemplateName = Lens.lens (\CreateLaunchTemplate' {lau
 
 -- | The information for the launch template.
 createLaunchTemplate_launchTemplateData :: Lens.Lens' CreateLaunchTemplate RequestLaunchTemplateData
-createLaunchTemplate_launchTemplateData = Lens.lens (\CreateLaunchTemplate' {launchTemplateData} -> launchTemplateData) (\s@CreateLaunchTemplate' {} a -> s {launchTemplateData = a} :: CreateLaunchTemplate) Prelude.. Core._Sensitive
+createLaunchTemplate_launchTemplateData = Lens.lens (\CreateLaunchTemplate' {launchTemplateData} -> launchTemplateData) (\s@CreateLaunchTemplate' {} a -> s {launchTemplateData = a} :: CreateLaunchTemplate) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateLaunchTemplate where
   type
@@ -195,8 +196,8 @@ instance Core.AWSRequest CreateLaunchTemplate where
     Response.receiveXML
       ( \s h x ->
           CreateLaunchTemplateResponse'
-            Prelude.<$> (x Core..@? "launchTemplate")
-            Prelude.<*> (x Core..@? "warning")
+            Prelude.<$> (x Data..@? "launchTemplate")
+            Prelude.<*> (x Data..@? "warning")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,28 +219,28 @@ instance Prelude.NFData CreateLaunchTemplate where
       `Prelude.seq` Prelude.rnf launchTemplateName
       `Prelude.seq` Prelude.rnf launchTemplateData
 
-instance Core.ToHeaders CreateLaunchTemplate where
+instance Data.ToHeaders CreateLaunchTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateLaunchTemplate where
+instance Data.ToPath CreateLaunchTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLaunchTemplate where
+instance Data.ToQuery CreateLaunchTemplate where
   toQuery CreateLaunchTemplate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateLaunchTemplate" :: Prelude.ByteString),
+          Data.=: ("CreateLaunchTemplate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "DryRun" Core.=: dryRun,
-        "VersionDescription" Core.=: versionDescription,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "DryRun" Data.=: dryRun,
+        "VersionDescription" Data.=: versionDescription,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "LaunchTemplateName" Core.=: launchTemplateName,
-        "LaunchTemplateData" Core.=: launchTemplateData
+        "LaunchTemplateName" Data.=: launchTemplateName,
+        "LaunchTemplateData" Data.=: launchTemplateData
       ]
 
 -- | /See:/ 'newCreateLaunchTemplateResponse' smart constructor.

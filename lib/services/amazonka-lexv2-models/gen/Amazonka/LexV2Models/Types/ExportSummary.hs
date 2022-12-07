@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.ExportSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.ExportResourceSpecification
 import Amazonka.LexV2Models.Types.ExportStatus
 import Amazonka.LexV2Models.Types.ImportExportFileFormat
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newExportSummary' smart constructor.
 data ExportSummary = ExportSummary'
   { -- | The date and time that the export was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | Information about the bot or bot locale that was exported.
     resourceSpecification :: Prelude.Maybe ExportResourceSpecification,
     -- | The status of the export. When the status is @Completed@ the export is
@@ -40,7 +41,7 @@ data ExportSummary = ExportSummary'
     -- | The unique identifier that Amazon Lex assigned to the export.
     exportId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the export was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The file format used in the export files.
     fileFormat :: Prelude.Maybe ImportExportFileFormat
   }
@@ -80,7 +81,7 @@ newExportSummary =
 
 -- | The date and time that the export was created.
 exportSummary_creationDateTime :: Lens.Lens' ExportSummary (Prelude.Maybe Prelude.UTCTime)
-exportSummary_creationDateTime = Lens.lens (\ExportSummary' {creationDateTime} -> creationDateTime) (\s@ExportSummary' {} a -> s {creationDateTime = a} :: ExportSummary) Prelude.. Lens.mapping Core._Time
+exportSummary_creationDateTime = Lens.lens (\ExportSummary' {creationDateTime} -> creationDateTime) (\s@ExportSummary' {} a -> s {creationDateTime = a} :: ExportSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the bot or bot locale that was exported.
 exportSummary_resourceSpecification :: Lens.Lens' ExportSummary (Prelude.Maybe ExportResourceSpecification)
@@ -97,24 +98,24 @@ exportSummary_exportId = Lens.lens (\ExportSummary' {exportId} -> exportId) (\s@
 
 -- | The date and time that the export was last updated.
 exportSummary_lastUpdatedDateTime :: Lens.Lens' ExportSummary (Prelude.Maybe Prelude.UTCTime)
-exportSummary_lastUpdatedDateTime = Lens.lens (\ExportSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@ExportSummary' {} a -> s {lastUpdatedDateTime = a} :: ExportSummary) Prelude.. Lens.mapping Core._Time
+exportSummary_lastUpdatedDateTime = Lens.lens (\ExportSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@ExportSummary' {} a -> s {lastUpdatedDateTime = a} :: ExportSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The file format used in the export files.
 exportSummary_fileFormat :: Lens.Lens' ExportSummary (Prelude.Maybe ImportExportFileFormat)
 exportSummary_fileFormat = Lens.lens (\ExportSummary' {fileFormat} -> fileFormat) (\s@ExportSummary' {} a -> s {fileFormat = a} :: ExportSummary)
 
-instance Core.FromJSON ExportSummary where
+instance Data.FromJSON ExportSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExportSummary"
       ( \x ->
           ExportSummary'
-            Prelude.<$> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "resourceSpecification")
-            Prelude.<*> (x Core..:? "exportStatus")
-            Prelude.<*> (x Core..:? "exportId")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "fileFormat")
+            Prelude.<$> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "resourceSpecification")
+            Prelude.<*> (x Data..:? "exportStatus")
+            Prelude.<*> (x Data..:? "exportId")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "fileFormat")
       )
 
 instance Prelude.Hashable ExportSummary where

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ServiceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PayerResponsibility
 import Amazonka.EC2.Types.PrivateDnsNameConfiguration
@@ -197,43 +198,43 @@ serviceConfiguration_serviceName = Lens.lens (\ServiceConfiguration' {serviceNam
 serviceConfiguration_serviceId :: Lens.Lens' ServiceConfiguration (Prelude.Maybe Prelude.Text)
 serviceConfiguration_serviceId = Lens.lens (\ServiceConfiguration' {serviceId} -> serviceId) (\s@ServiceConfiguration' {} a -> s {serviceId = a} :: ServiceConfiguration)
 
-instance Core.FromXML ServiceConfiguration where
+instance Data.FromXML ServiceConfiguration where
   parseXML x =
     ServiceConfiguration'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "gatewayLoadBalancerArnSet"
+      Prelude.<*> ( x Data..@? "gatewayLoadBalancerArnSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "acceptanceRequired")
-      Prelude.<*> ( x Core..@? "supportedIpAddressTypeSet"
+      Prelude.<*> (x Data..@? "acceptanceRequired")
+      Prelude.<*> ( x Data..@? "supportedIpAddressTypeSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "availabilityZoneSet"
+      Prelude.<*> ( x Data..@? "availabilityZoneSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "serviceType" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "serviceType" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "privateDnsNameConfiguration")
-      Prelude.<*> (x Core..@? "payerResponsibility")
-      Prelude.<*> (x Core..@? "managesVpcEndpoints")
-      Prelude.<*> ( x Core..@? "baseEndpointDnsNameSet"
+      Prelude.<*> (x Data..@? "privateDnsNameConfiguration")
+      Prelude.<*> (x Data..@? "payerResponsibility")
+      Prelude.<*> (x Data..@? "managesVpcEndpoints")
+      Prelude.<*> ( x Data..@? "baseEndpointDnsNameSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "networkLoadBalancerArnSet"
+      Prelude.<*> ( x Data..@? "networkLoadBalancerArnSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "privateDnsName")
-      Prelude.<*> (x Core..@? "serviceState")
-      Prelude.<*> (x Core..@? "serviceName")
-      Prelude.<*> (x Core..@? "serviceId")
+      Prelude.<*> (x Data..@? "privateDnsName")
+      Prelude.<*> (x Data..@? "serviceState")
+      Prelude.<*> (x Data..@? "serviceName")
+      Prelude.<*> (x Data..@? "serviceId")
 
 instance Prelude.Hashable ServiceConfiguration where
   hashWithSalt _salt ServiceConfiguration' {..} =

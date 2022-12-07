@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.IamUser where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an Identity and Access Management (IAM) user
@@ -89,16 +90,16 @@ iamUser_arn = Lens.lens (\IamUser' {arn} -> arn) (\s@IamUser' {} a -> s {arn = a
 iamUser_accountId :: Lens.Lens' IamUser (Prelude.Maybe Prelude.Text)
 iamUser_accountId = Lens.lens (\IamUser' {accountId} -> accountId) (\s@IamUser' {} a -> s {accountId = a} :: IamUser)
 
-instance Core.FromJSON IamUser where
+instance Data.FromJSON IamUser where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IamUser"
       ( \x ->
           IamUser'
-            Prelude.<$> (x Core..:? "principalId")
-            Prelude.<*> (x Core..:? "userName")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "accountId")
+            Prelude.<$> (x Data..:? "principalId")
+            Prelude.<*> (x Data..:? "userName")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "accountId")
       )
 
 instance Prelude.Hashable IamUser where

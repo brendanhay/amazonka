@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.RevealConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.RevealStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -108,14 +109,14 @@ revealConfiguration_kmsKeyId = Lens.lens (\RevealConfiguration' {kmsKeyId} -> km
 revealConfiguration_status :: Lens.Lens' RevealConfiguration RevealStatus
 revealConfiguration_status = Lens.lens (\RevealConfiguration' {status} -> status) (\s@RevealConfiguration' {} a -> s {status = a} :: RevealConfiguration)
 
-instance Core.FromJSON RevealConfiguration where
+instance Data.FromJSON RevealConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RevealConfiguration"
       ( \x ->
           RevealConfiguration'
-            Prelude.<$> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable RevealConfiguration where
@@ -128,11 +129,11 @@ instance Prelude.NFData RevealConfiguration where
     Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToJSON RevealConfiguration where
+instance Data.ToJSON RevealConfiguration where
   toJSON RevealConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            Prelude.Just ("status" Core..= status)
+          [ ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            Prelude.Just ("status" Data..= status)
           ]
       )

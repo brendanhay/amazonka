@@ -44,6 +44,7 @@ where
 import Amazonka.APIGatewayManagementAPI.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,9 +85,9 @@ instance Core.AWSRequest GetConnection where
     Response.receiveJSON
       ( \s h x ->
           GetConnectionResponse'
-            Prelude.<$> (x Core..?> "connectedAt")
-            Prelude.<*> (x Core..?> "lastActiveAt")
-            Prelude.<*> (x Core..?> "identity")
+            Prelude.<$> (x Data..?> "connectedAt")
+            Prelude.<*> (x Data..?> "lastActiveAt")
+            Prelude.<*> (x Data..?> "identity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,31 +98,31 @@ instance Prelude.Hashable GetConnection where
 instance Prelude.NFData GetConnection where
   rnf GetConnection' {..} = Prelude.rnf connectionId
 
-instance Core.ToHeaders GetConnection where
+instance Data.ToHeaders GetConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetConnection where
+instance Data.ToPath GetConnection where
   toPath GetConnection' {..} =
     Prelude.mconcat
-      ["/@connections/", Core.toBS connectionId]
+      ["/@connections/", Data.toBS connectionId]
 
-instance Core.ToQuery GetConnection where
+instance Data.ToQuery GetConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetConnectionResponse' smart constructor.
 data GetConnectionResponse = GetConnectionResponse'
   { -- | The time in ISO 8601 format for when the connection was established.
-    connectedAt :: Prelude.Maybe Core.POSIX,
+    connectedAt :: Prelude.Maybe Data.POSIX,
     -- | The time in ISO 8601 format for when the connection was last active.
-    lastActiveAt :: Prelude.Maybe Core.POSIX,
+    lastActiveAt :: Prelude.Maybe Data.POSIX,
     identity :: Prelude.Maybe Identity,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -158,11 +159,11 @@ newGetConnectionResponse pHttpStatus_ =
 
 -- | The time in ISO 8601 format for when the connection was established.
 getConnectionResponse_connectedAt :: Lens.Lens' GetConnectionResponse (Prelude.Maybe Prelude.UTCTime)
-getConnectionResponse_connectedAt = Lens.lens (\GetConnectionResponse' {connectedAt} -> connectedAt) (\s@GetConnectionResponse' {} a -> s {connectedAt = a} :: GetConnectionResponse) Prelude.. Lens.mapping Core._Time
+getConnectionResponse_connectedAt = Lens.lens (\GetConnectionResponse' {connectedAt} -> connectedAt) (\s@GetConnectionResponse' {} a -> s {connectedAt = a} :: GetConnectionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time in ISO 8601 format for when the connection was last active.
 getConnectionResponse_lastActiveAt :: Lens.Lens' GetConnectionResponse (Prelude.Maybe Prelude.UTCTime)
-getConnectionResponse_lastActiveAt = Lens.lens (\GetConnectionResponse' {lastActiveAt} -> lastActiveAt) (\s@GetConnectionResponse' {} a -> s {lastActiveAt = a} :: GetConnectionResponse) Prelude.. Lens.mapping Core._Time
+getConnectionResponse_lastActiveAt = Lens.lens (\GetConnectionResponse' {lastActiveAt} -> lastActiveAt) (\s@GetConnectionResponse' {} a -> s {lastActiveAt = a} :: GetConnectionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 getConnectionResponse_identity :: Lens.Lens' GetConnectionResponse (Prelude.Maybe Identity)

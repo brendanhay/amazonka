@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.ActionContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the context of an action in the stage of a pipeline to a job
@@ -65,14 +66,14 @@ actionContext_name = Lens.lens (\ActionContext' {name} -> name) (\s@ActionContex
 actionContext_actionExecutionId :: Lens.Lens' ActionContext (Prelude.Maybe Prelude.Text)
 actionContext_actionExecutionId = Lens.lens (\ActionContext' {actionExecutionId} -> actionExecutionId) (\s@ActionContext' {} a -> s {actionExecutionId = a} :: ActionContext)
 
-instance Core.FromJSON ActionContext where
+instance Data.FromJSON ActionContext where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionContext"
       ( \x ->
           ActionContext'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "actionExecutionId")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "actionExecutionId")
       )
 
 instance Prelude.Hashable ActionContext where

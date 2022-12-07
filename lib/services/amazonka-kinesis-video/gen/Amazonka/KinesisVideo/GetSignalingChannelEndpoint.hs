@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,7 +117,7 @@ instance Core.AWSRequest GetSignalingChannelEndpoint where
     Response.receiveJSON
       ( \s h x ->
           GetSignalingChannelEndpointResponse'
-            Prelude.<$> ( x Core..?> "ResourceEndpointList"
+            Prelude.<$> ( x Data..?> "ResourceEndpointList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -134,23 +135,23 @@ instance Prelude.NFData GetSignalingChannelEndpoint where
       singleMasterChannelEndpointConfiguration
       `Prelude.seq` Prelude.rnf channelARN
 
-instance Core.ToHeaders GetSignalingChannelEndpoint where
+instance Data.ToHeaders GetSignalingChannelEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetSignalingChannelEndpoint where
+instance Data.ToJSON GetSignalingChannelEndpoint where
   toJSON GetSignalingChannelEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SingleMasterChannelEndpointConfiguration" Core..=)
+          [ ("SingleMasterChannelEndpointConfiguration" Data..=)
               Prelude.<$> singleMasterChannelEndpointConfiguration,
-            Prelude.Just ("ChannelARN" Core..= channelARN)
+            Prelude.Just ("ChannelARN" Data..= channelARN)
           ]
       )
 
-instance Core.ToPath GetSignalingChannelEndpoint where
+instance Data.ToPath GetSignalingChannelEndpoint where
   toPath = Prelude.const "/getSignalingChannelEndpoint"
 
-instance Core.ToQuery GetSignalingChannelEndpoint where
+instance Data.ToQuery GetSignalingChannelEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSignalingChannelEndpointResponse' smart constructor.

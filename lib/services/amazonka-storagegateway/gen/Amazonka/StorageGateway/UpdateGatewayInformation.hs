@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,8 +144,8 @@ instance Core.AWSRequest UpdateGatewayInformation where
     Response.receiveJSON
       ( \s h x ->
           UpdateGatewayInformationResponse'
-            Prelude.<$> (x Core..?> "GatewayName")
-            Prelude.<*> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "GatewayName")
+            Prelude.<*> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,40 +165,40 @@ instance Prelude.NFData UpdateGatewayInformation where
       `Prelude.seq` Prelude.rnf gatewayTimezone
       `Prelude.seq` Prelude.rnf gatewayARN
 
-instance Core.ToHeaders UpdateGatewayInformation where
+instance Data.ToHeaders UpdateGatewayInformation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.UpdateGatewayInformation" ::
+              Data.=# ( "StorageGateway_20130630.UpdateGatewayInformation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGatewayInformation where
+instance Data.ToJSON UpdateGatewayInformation where
   toJSON UpdateGatewayInformation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CloudWatchLogGroupARN" Core..=)
+          [ ("CloudWatchLogGroupARN" Data..=)
               Prelude.<$> cloudWatchLogGroupARN,
-            ("GatewayName" Core..=) Prelude.<$> gatewayName,
-            ("GatewayCapacity" Core..=)
+            ("GatewayName" Data..=) Prelude.<$> gatewayName,
+            ("GatewayCapacity" Data..=)
               Prelude.<$> gatewayCapacity,
-            ("GatewayTimezone" Core..=)
+            ("GatewayTimezone" Data..=)
               Prelude.<$> gatewayTimezone,
-            Prelude.Just ("GatewayARN" Core..= gatewayARN)
+            Prelude.Just ("GatewayARN" Data..= gatewayARN)
           ]
       )
 
-instance Core.ToPath UpdateGatewayInformation where
+instance Data.ToPath UpdateGatewayInformation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateGatewayInformation where
+instance Data.ToQuery UpdateGatewayInformation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway

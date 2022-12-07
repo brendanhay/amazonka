@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.AgentListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types.AgentStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,15 +75,15 @@ agentListEntry_status = Lens.lens (\AgentListEntry' {status} -> status) (\s@Agen
 agentListEntry_agentArn :: Lens.Lens' AgentListEntry (Prelude.Maybe Prelude.Text)
 agentListEntry_agentArn = Lens.lens (\AgentListEntry' {agentArn} -> agentArn) (\s@AgentListEntry' {} a -> s {agentArn = a} :: AgentListEntry)
 
-instance Core.FromJSON AgentListEntry where
+instance Data.FromJSON AgentListEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AgentListEntry"
       ( \x ->
           AgentListEntry'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AgentArn")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "AgentArn")
       )
 
 instance Prelude.Hashable AgentListEntry where

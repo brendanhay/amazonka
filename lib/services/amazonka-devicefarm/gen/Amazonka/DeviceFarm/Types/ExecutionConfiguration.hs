@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.ExecutionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents configuration information about a test run, such as the
@@ -130,17 +131,17 @@ instance Prelude.NFData ExecutionConfiguration where
       `Prelude.seq` Prelude.rnf appPackagesCleanup
       `Prelude.seq` Prelude.rnf skipAppResign
 
-instance Core.ToJSON ExecutionConfiguration where
+instance Data.ToJSON ExecutionConfiguration where
   toJSON ExecutionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("jobTimeoutMinutes" Core..=)
+          [ ("jobTimeoutMinutes" Data..=)
               Prelude.<$> jobTimeoutMinutes,
-            ("videoCapture" Core..=) Prelude.<$> videoCapture,
-            ("accountsCleanup" Core..=)
+            ("videoCapture" Data..=) Prelude.<$> videoCapture,
+            ("accountsCleanup" Data..=)
               Prelude.<$> accountsCleanup,
-            ("appPackagesCleanup" Core..=)
+            ("appPackagesCleanup" Data..=)
               Prelude.<$> appPackagesCleanup,
-            ("skipAppResign" Core..=) Prelude.<$> skipAppResign
+            ("skipAppResign" Data..=) Prelude.<$> skipAppResign
           ]
       )

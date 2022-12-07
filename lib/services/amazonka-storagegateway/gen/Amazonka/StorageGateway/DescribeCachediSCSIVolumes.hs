@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,7 +99,7 @@ instance Core.AWSRequest DescribeCachediSCSIVolumes where
     Response.receiveJSON
       ( \s h x ->
           DescribeCachediSCSIVolumesResponse'
-            Prelude.<$> ( x Core..?> "CachediSCSIVolumes"
+            Prelude.<$> ( x Data..?> "CachediSCSIVolumes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -112,32 +113,32 @@ instance Prelude.NFData DescribeCachediSCSIVolumes where
   rnf DescribeCachediSCSIVolumes' {..} =
     Prelude.rnf volumeARNs
 
-instance Core.ToHeaders DescribeCachediSCSIVolumes where
+instance Data.ToHeaders DescribeCachediSCSIVolumes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DescribeCachediSCSIVolumes" ::
+              Data.=# ( "StorageGateway_20130630.DescribeCachediSCSIVolumes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCachediSCSIVolumes where
+instance Data.ToJSON DescribeCachediSCSIVolumes where
   toJSON DescribeCachediSCSIVolumes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("VolumeARNs" Core..= volumeARNs)]
+          [Prelude.Just ("VolumeARNs" Data..= volumeARNs)]
       )
 
-instance Core.ToPath DescribeCachediSCSIVolumes where
+instance Data.ToPath DescribeCachediSCSIVolumes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCachediSCSIVolumes where
+instance Data.ToQuery DescribeCachediSCSIVolumes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the following fields:

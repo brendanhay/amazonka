@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.S3Object where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the S3 bucket name and object name.
@@ -77,15 +78,15 @@ s3Object_bucket = Lens.lens (\S3Object' {bucket} -> bucket) (\s@S3Object' {} a -
 s3Object_version :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
 s3Object_version = Lens.lens (\S3Object' {version} -> version) (\s@S3Object' {} a -> s {version = a} :: S3Object)
 
-instance Core.FromJSON S3Object where
+instance Data.FromJSON S3Object where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Object"
       ( \x ->
           S3Object'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Bucket")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Bucket")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable S3Object where
@@ -100,12 +101,12 @@ instance Prelude.NFData S3Object where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON S3Object where
+instance Data.ToJSON S3Object where
   toJSON S3Object' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Bucket" Core..=) Prelude.<$> bucket,
-            ("Version" Core..=) Prelude.<$> version
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Bucket" Data..=) Prelude.<$> bucket,
+            ("Version" Data..=) Prelude.<$> version
           ]
       )

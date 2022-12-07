@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -154,8 +155,8 @@ instance Core.AWSRequest ListDecoderManifestSignals where
     Response.receiveJSON
       ( \s h x ->
           ListDecoderManifestSignalsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "signalDecoders")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "signalDecoders")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,35 +172,35 @@ instance Prelude.NFData ListDecoderManifestSignals where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders ListDecoderManifestSignals where
+instance Data.ToHeaders ListDecoderManifestSignals where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.ListDecoderManifestSignals" ::
+              Data.=# ( "IoTAutobahnControlPlane.ListDecoderManifestSignals" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDecoderManifestSignals where
+instance Data.ToJSON ListDecoderManifestSignals where
   toJSON ListDecoderManifestSignals' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("name" Core..= name)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath ListDecoderManifestSignals where
+instance Data.ToPath ListDecoderManifestSignals where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDecoderManifestSignals where
+instance Data.ToQuery ListDecoderManifestSignals where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDecoderManifestSignalsResponse' smart constructor.

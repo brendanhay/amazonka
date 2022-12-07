@@ -48,6 +48,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -145,7 +146,7 @@ instance Core.AWSRequest CreateDomainAssociation where
       ( \s h x ->
           CreateDomainAssociationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "domainAssociation")
+            Prelude.<*> (x Data..:> "domainAssociation")
       )
 
 instance Prelude.Hashable CreateDomainAssociation where
@@ -166,39 +167,39 @@ instance Prelude.NFData CreateDomainAssociation where
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf subDomainSettings
 
-instance Core.ToHeaders CreateDomainAssociation where
+instance Data.ToHeaders CreateDomainAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDomainAssociation where
+instance Data.ToJSON CreateDomainAssociation where
   toJSON CreateDomainAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("autoSubDomainIAMRole" Core..=)
+          [ ("autoSubDomainIAMRole" Data..=)
               Prelude.<$> autoSubDomainIAMRole,
-            ("autoSubDomainCreationPatterns" Core..=)
+            ("autoSubDomainCreationPatterns" Data..=)
               Prelude.<$> autoSubDomainCreationPatterns,
-            ("enableAutoSubDomain" Core..=)
+            ("enableAutoSubDomain" Data..=)
               Prelude.<$> enableAutoSubDomain,
-            Prelude.Just ("domainName" Core..= domainName),
+            Prelude.Just ("domainName" Data..= domainName),
             Prelude.Just
-              ("subDomainSettings" Core..= subDomainSettings)
+              ("subDomainSettings" Data..= subDomainSettings)
           ]
       )
 
-instance Core.ToPath CreateDomainAssociation where
+instance Data.ToPath CreateDomainAssociation where
   toPath CreateDomainAssociation' {..} =
     Prelude.mconcat
-      ["/apps/", Core.toBS appId, "/domains"]
+      ["/apps/", Data.toBS appId, "/domains"]
 
-instance Core.ToQuery CreateDomainAssociation where
+instance Data.ToQuery CreateDomainAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result structure for the create domain association request.

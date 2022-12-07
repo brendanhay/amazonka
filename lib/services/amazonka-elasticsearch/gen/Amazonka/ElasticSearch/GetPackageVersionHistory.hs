@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,9 +119,9 @@ instance Core.AWSRequest GetPackageVersionHistory where
     Response.receiveJSON
       ( \s h x ->
           GetPackageVersionHistoryResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "PackageID")
-            Prelude.<*> ( x Core..?> "PackageVersionHistoryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "PackageID")
+            Prelude.<*> ( x Data..?> "PackageVersionHistoryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -138,22 +139,22 @@ instance Prelude.NFData GetPackageVersionHistory where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf packageID
 
-instance Core.ToHeaders GetPackageVersionHistory where
+instance Data.ToHeaders GetPackageVersionHistory where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetPackageVersionHistory where
+instance Data.ToPath GetPackageVersionHistory where
   toPath GetPackageVersionHistory' {..} =
     Prelude.mconcat
       [ "/2015-01-01/packages/",
-        Core.toBS packageID,
+        Data.toBS packageID,
         "/history"
       ]
 
-instance Core.ToQuery GetPackageVersionHistory where
+instance Data.ToQuery GetPackageVersionHistory where
   toQuery GetPackageVersionHistory' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | Container for response returned by @ GetPackageVersionHistory @

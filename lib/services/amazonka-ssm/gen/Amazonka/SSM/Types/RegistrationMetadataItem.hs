@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.RegistrationMetadataItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Reserved for internal use.
@@ -74,11 +75,11 @@ instance Prelude.NFData RegistrationMetadataItem where
   rnf RegistrationMetadataItem' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON RegistrationMetadataItem where
+instance Data.ToJSON RegistrationMetadataItem where
   toJSON RegistrationMetadataItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

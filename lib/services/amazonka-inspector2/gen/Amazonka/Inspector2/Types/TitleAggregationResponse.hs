@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.TitleAggregationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.SeverityCounts
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,16 +85,16 @@ titleAggregationResponse_vulnerabilityId = Lens.lens (\TitleAggregationResponse'
 titleAggregationResponse_title :: Lens.Lens' TitleAggregationResponse Prelude.Text
 titleAggregationResponse_title = Lens.lens (\TitleAggregationResponse' {title} -> title) (\s@TitleAggregationResponse' {} a -> s {title = a} :: TitleAggregationResponse)
 
-instance Core.FromJSON TitleAggregationResponse where
+instance Data.FromJSON TitleAggregationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TitleAggregationResponse"
       ( \x ->
           TitleAggregationResponse'
-            Prelude.<$> (x Core..:? "severityCounts")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "vulnerabilityId")
-            Prelude.<*> (x Core..: "title")
+            Prelude.<$> (x Data..:? "severityCounts")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "vulnerabilityId")
+            Prelude.<*> (x Data..: "title")
       )
 
 instance Prelude.Hashable TitleAggregationResponse where

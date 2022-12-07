@@ -49,6 +49,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,8 +172,8 @@ instance Core.AWSRequest CreateRoutingProfile where
     Response.receiveJSON
       ( \s h x ->
           CreateRoutingProfileResponse'
-            Prelude.<$> (x Core..?> "RoutingProfileArn")
-            Prelude.<*> (x Core..?> "RoutingProfileId")
+            Prelude.<$> (x Data..?> "RoutingProfileArn")
+            Prelude.<*> (x Data..?> "RoutingProfileId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,40 +197,40 @@ instance Prelude.NFData CreateRoutingProfile where
       `Prelude.seq` Prelude.rnf defaultOutboundQueueId
       `Prelude.seq` Prelude.rnf mediaConcurrencies
 
-instance Core.ToHeaders CreateRoutingProfile where
+instance Data.ToHeaders CreateRoutingProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRoutingProfile where
+instance Data.ToJSON CreateRoutingProfile where
   toJSON CreateRoutingProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("QueueConfigs" Core..=) Prelude.<$> queueConfigs,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Description" Core..= description),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("QueueConfigs" Data..=) Prelude.<$> queueConfigs,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Description" Data..= description),
             Prelude.Just
               ( "DefaultOutboundQueueId"
-                  Core..= defaultOutboundQueueId
+                  Data..= defaultOutboundQueueId
               ),
             Prelude.Just
-              ("MediaConcurrencies" Core..= mediaConcurrencies)
+              ("MediaConcurrencies" Data..= mediaConcurrencies)
           ]
       )
 
-instance Core.ToPath CreateRoutingProfile where
+instance Data.ToPath CreateRoutingProfile where
   toPath CreateRoutingProfile' {..} =
     Prelude.mconcat
-      ["/routing-profiles/", Core.toBS instanceId]
+      ["/routing-profiles/", Data.toBS instanceId]
 
-instance Core.ToQuery CreateRoutingProfile where
+instance Data.ToQuery CreateRoutingProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRoutingProfileResponse' smart constructor.

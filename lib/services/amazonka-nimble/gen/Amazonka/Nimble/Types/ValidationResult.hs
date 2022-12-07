@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.ValidationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.LaunchProfileValidationState
 import Amazonka.Nimble.Types.LaunchProfileValidationStatusCode
 import Amazonka.Nimble.Types.LaunchProfileValidationType
@@ -97,16 +98,16 @@ validationResult_statusMessage = Lens.lens (\ValidationResult' {statusMessage} -
 validationResult_type :: Lens.Lens' ValidationResult LaunchProfileValidationType
 validationResult_type = Lens.lens (\ValidationResult' {type'} -> type') (\s@ValidationResult' {} a -> s {type' = a} :: ValidationResult)
 
-instance Core.FromJSON ValidationResult where
+instance Data.FromJSON ValidationResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ValidationResult"
       ( \x ->
           ValidationResult'
-            Prelude.<$> (x Core..: "state")
-            Prelude.<*> (x Core..: "statusCode")
-            Prelude.<*> (x Core..: "statusMessage")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..: "state")
+            Prelude.<*> (x Data..: "statusCode")
+            Prelude.<*> (x Data..: "statusMessage")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable ValidationResult where

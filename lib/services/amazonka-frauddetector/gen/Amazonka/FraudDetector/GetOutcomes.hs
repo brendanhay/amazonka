@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,8 +108,8 @@ instance Core.AWSRequest GetOutcomes where
     Response.receiveJSON
       ( \s h x ->
           GetOutcomesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "outcomes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "outcomes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,35 +125,35 @@ instance Prelude.NFData GetOutcomes where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders GetOutcomes where
+instance Data.ToHeaders GetOutcomes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.GetOutcomes" ::
+              Data.=# ( "AWSHawksNestServiceFacade.GetOutcomes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetOutcomes where
+instance Data.ToJSON GetOutcomes where
   toJSON GetOutcomes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("name" Data..=) Prelude.<$> name,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath GetOutcomes where
+instance Data.ToPath GetOutcomes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetOutcomes where
+instance Data.ToQuery GetOutcomes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetOutcomesResponse' smart constructor.

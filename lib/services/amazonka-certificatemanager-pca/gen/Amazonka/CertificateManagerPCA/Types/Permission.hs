@@ -22,6 +22,7 @@ module Amazonka.CertificateManagerPCA.Types.Permission where
 import Amazonka.CertificateManagerPCA.Types.ActionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Permissions designate which private CA actions can be performed by an
@@ -47,7 +48,7 @@ data Permission = Permission'
     -- permission was issued.
     certificateAuthorityArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the permission was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The ID of the account that assigned the permission.
     sourceAccount :: Prelude.Maybe Prelude.Text,
     -- | The private CA actions that can be performed by the designated Amazon
@@ -106,7 +107,7 @@ permission_certificateAuthorityArn = Lens.lens (\Permission' {certificateAuthori
 
 -- | The time at which the permission was created.
 permission_createdAt :: Lens.Lens' Permission (Prelude.Maybe Prelude.UTCTime)
-permission_createdAt = Lens.lens (\Permission' {createdAt} -> createdAt) (\s@Permission' {} a -> s {createdAt = a} :: Permission) Prelude.. Lens.mapping Core._Time
+permission_createdAt = Lens.lens (\Permission' {createdAt} -> createdAt) (\s@Permission' {} a -> s {createdAt = a} :: Permission) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the account that assigned the permission.
 permission_sourceAccount :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
@@ -117,18 +118,18 @@ permission_sourceAccount = Lens.lens (\Permission' {sourceAccount} -> sourceAcco
 permission_actions :: Lens.Lens' Permission (Prelude.Maybe (Prelude.NonEmpty ActionType))
 permission_actions = Lens.lens (\Permission' {actions} -> actions) (\s@Permission' {} a -> s {actions = a} :: Permission) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Permission where
+instance Data.FromJSON Permission where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Permission"
       ( \x ->
           Permission'
-            Prelude.<$> (x Core..:? "Principal")
-            Prelude.<*> (x Core..:? "Policy")
-            Prelude.<*> (x Core..:? "CertificateAuthorityArn")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "SourceAccount")
-            Prelude.<*> (x Core..:? "Actions")
+            Prelude.<$> (x Data..:? "Principal")
+            Prelude.<*> (x Data..:? "Policy")
+            Prelude.<*> (x Data..:? "CertificateAuthorityArn")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "SourceAccount")
+            Prelude.<*> (x Data..:? "Actions")
       )
 
 instance Prelude.Hashable Permission where

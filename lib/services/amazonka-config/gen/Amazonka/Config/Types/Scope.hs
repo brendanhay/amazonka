@@ -21,6 +21,7 @@ module Amazonka.Config.Types.Scope where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines which resources trigger an evaluation for an Config rule. The
@@ -105,17 +106,17 @@ scope_complianceResourceId = Lens.lens (\Scope' {complianceResourceId} -> compli
 scope_complianceResourceTypes :: Lens.Lens' Scope (Prelude.Maybe [Prelude.Text])
 scope_complianceResourceTypes = Lens.lens (\Scope' {complianceResourceTypes} -> complianceResourceTypes) (\s@Scope' {} a -> s {complianceResourceTypes = a} :: Scope) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Scope where
+instance Data.FromJSON Scope where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scope"
       ( \x ->
           Scope'
-            Prelude.<$> (x Core..:? "TagValue")
-            Prelude.<*> (x Core..:? "TagKey")
-            Prelude.<*> (x Core..:? "ComplianceResourceId")
-            Prelude.<*> ( x Core..:? "ComplianceResourceTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "TagValue")
+            Prelude.<*> (x Data..:? "TagKey")
+            Prelude.<*> (x Data..:? "ComplianceResourceId")
+            Prelude.<*> ( x Data..:? "ComplianceResourceTypes"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -133,15 +134,15 @@ instance Prelude.NFData Scope where
       `Prelude.seq` Prelude.rnf complianceResourceId
       `Prelude.seq` Prelude.rnf complianceResourceTypes
 
-instance Core.ToJSON Scope where
+instance Data.ToJSON Scope where
   toJSON Scope' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TagValue" Core..=) Prelude.<$> tagValue,
-            ("TagKey" Core..=) Prelude.<$> tagKey,
-            ("ComplianceResourceId" Core..=)
+          [ ("TagValue" Data..=) Prelude.<$> tagValue,
+            ("TagKey" Data..=) Prelude.<$> tagKey,
+            ("ComplianceResourceId" Data..=)
               Prelude.<$> complianceResourceId,
-            ("ComplianceResourceTypes" Core..=)
+            ("ComplianceResourceTypes" Data..=)
               Prelude.<$> complianceResourceTypes
           ]
       )

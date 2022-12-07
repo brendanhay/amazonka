@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateRenewalSummary
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateDomainValidationOption
 
@@ -145,20 +146,20 @@ awsCertificateManagerCertificateRenewalSummary_updatedAt :: Lens.Lens' AwsCertif
 awsCertificateManagerCertificateRenewalSummary_updatedAt = Lens.lens (\AwsCertificateManagerCertificateRenewalSummary' {updatedAt} -> updatedAt) (\s@AwsCertificateManagerCertificateRenewalSummary' {} a -> s {updatedAt = a} :: AwsCertificateManagerCertificateRenewalSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCertificateManagerCertificateRenewalSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCertificateManagerCertificateRenewalSummary"
       ( \x ->
           AwsCertificateManagerCertificateRenewalSummary'
-            Prelude.<$> ( x Core..:? "DomainValidationOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "DomainValidationOptions"
+                            Data..!= Prelude.mempty
                         )
-              Prelude.<*> (x Core..:? "RenewalStatusReason")
-              Prelude.<*> (x Core..:? "RenewalStatus")
-              Prelude.<*> (x Core..:? "UpdatedAt")
+              Prelude.<*> (x Data..:? "RenewalStatusReason")
+              Prelude.<*> (x Data..:? "RenewalStatus")
+              Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance
@@ -186,18 +187,18 @@ instance
         `Prelude.seq` Prelude.rnf updatedAt
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCertificateManagerCertificateRenewalSummary
   where
   toJSON
     AwsCertificateManagerCertificateRenewalSummary' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("DomainValidationOptions" Core..=)
+            [ ("DomainValidationOptions" Data..=)
                 Prelude.<$> domainValidationOptions,
-              ("RenewalStatusReason" Core..=)
+              ("RenewalStatusReason" Data..=)
                 Prelude.<$> renewalStatusReason,
-              ("RenewalStatus" Core..=) Prelude.<$> renewalStatus,
-              ("UpdatedAt" Core..=) Prelude.<$> updatedAt
+              ("RenewalStatus" Data..=) Prelude.<$> renewalStatus,
+              ("UpdatedAt" Data..=) Prelude.<$> updatedAt
             ]
         )

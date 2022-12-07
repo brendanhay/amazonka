@@ -47,6 +47,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -222,7 +223,7 @@ instance
       ( \s h x ->
           UpdatePullRequestApprovalRuleContentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "approvalRule")
+              Prelude.<*> (x Data..:> "approvalRule")
       )
 
 instance
@@ -249,48 +250,48 @@ instance
       `Prelude.seq` Prelude.rnf newRuleContent'
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdatePullRequestApprovalRuleContent
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.UpdatePullRequestApprovalRuleContent" ::
+              Data.=# ( "CodeCommit_20150413.UpdatePullRequestApprovalRuleContent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdatePullRequestApprovalRuleContent
   where
   toJSON UpdatePullRequestApprovalRuleContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("existingRuleContentSha256" Core..=)
+          [ ("existingRuleContentSha256" Data..=)
               Prelude.<$> existingRuleContentSha256,
-            Prelude.Just ("pullRequestId" Core..= pullRequestId),
+            Prelude.Just ("pullRequestId" Data..= pullRequestId),
             Prelude.Just
-              ("approvalRuleName" Core..= approvalRuleName),
+              ("approvalRuleName" Data..= approvalRuleName),
             Prelude.Just
-              ("newRuleContent" Core..= newRuleContent')
+              ("newRuleContent" Data..= newRuleContent')
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdatePullRequestApprovalRuleContent
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdatePullRequestApprovalRuleContent
   where
   toQuery = Prelude.const Prelude.mempty

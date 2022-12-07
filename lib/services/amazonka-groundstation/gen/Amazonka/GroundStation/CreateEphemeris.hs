@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -58,7 +59,7 @@ data CreateEphemeris = CreateEphemeris'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | An overall expiration time for the ephemeris in UTC, after which it will
     -- become @EXPIRED@.
-    expirationTime :: Prelude.Maybe Core.POSIX,
+    expirationTime :: Prelude.Maybe Data.POSIX,
     -- | Whether to set the ephemeris status to @ENABLED@ after validation.
     --
     -- Setting this to false will set the ephemeris status to @DISABLED@ after
@@ -143,7 +144,7 @@ createEphemeris_tags = Lens.lens (\CreateEphemeris' {tags} -> tags) (\s@CreateEp
 -- | An overall expiration time for the ephemeris in UTC, after which it will
 -- become @EXPIRED@.
 createEphemeris_expirationTime :: Lens.Lens' CreateEphemeris (Prelude.Maybe Prelude.UTCTime)
-createEphemeris_expirationTime = Lens.lens (\CreateEphemeris' {expirationTime} -> expirationTime) (\s@CreateEphemeris' {} a -> s {expirationTime = a} :: CreateEphemeris) Prelude.. Lens.mapping Core._Time
+createEphemeris_expirationTime = Lens.lens (\CreateEphemeris' {expirationTime} -> expirationTime) (\s@CreateEphemeris' {} a -> s {expirationTime = a} :: CreateEphemeris) Prelude.. Lens.mapping Data._Time
 
 -- | Whether to set the ephemeris status to @ENABLED@ after validation.
 --
@@ -187,7 +188,7 @@ instance Core.AWSRequest CreateEphemeris where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateEphemeris where
   hashWithSalt _salt CreateEphemeris' {..} =
@@ -211,35 +212,35 @@ instance Prelude.NFData CreateEphemeris where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf satelliteId
 
-instance Core.ToHeaders CreateEphemeris where
+instance Data.ToHeaders CreateEphemeris where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEphemeris where
+instance Data.ToJSON CreateEphemeris where
   toJSON CreateEphemeris' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("expirationTime" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("expirationTime" Data..=)
               Prelude.<$> expirationTime,
-            ("enabled" Core..=) Prelude.<$> enabled,
-            ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("priority" Core..=) Prelude.<$> priority,
-            ("ephemeris" Core..=) Prelude.<$> ephemeris,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("satelliteId" Core..= satelliteId)
+            ("enabled" Data..=) Prelude.<$> enabled,
+            ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("priority" Data..=) Prelude.<$> priority,
+            ("ephemeris" Data..=) Prelude.<$> ephemeris,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("satelliteId" Data..= satelliteId)
           ]
       )
 
-instance Core.ToPath CreateEphemeris where
+instance Data.ToPath CreateEphemeris where
   toPath = Prelude.const "/ephemeris"
 
-instance Core.ToQuery CreateEphemeris where
+instance Data.ToQuery CreateEphemeris where
   toQuery = Prelude.const Prelude.mempty

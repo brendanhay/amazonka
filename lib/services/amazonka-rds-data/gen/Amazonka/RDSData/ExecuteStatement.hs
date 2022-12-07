@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDSData.Types
 import qualified Amazonka.Request as Request
@@ -288,11 +289,11 @@ instance Core.AWSRequest ExecuteStatement where
     Response.receiveJSON
       ( \s h x ->
           ExecuteStatementResponse'
-            Prelude.<$> (x Core..?> "records" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "columnMetadata" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "numberOfRecordsUpdated")
-            Prelude.<*> (x Core..?> "formattedRecords")
-            Prelude.<*> ( x Core..?> "generatedFields"
+            Prelude.<$> (x Data..?> "records" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "columnMetadata" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "numberOfRecordsUpdated")
+            Prelude.<*> (x Data..?> "formattedRecords")
+            Prelude.<*> ( x Data..?> "generatedFields"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -326,43 +327,43 @@ instance Prelude.NFData ExecuteStatement where
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf sql
 
-instance Core.ToHeaders ExecuteStatement where
+instance Data.ToHeaders ExecuteStatement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExecuteStatement where
+instance Data.ToJSON ExecuteStatement where
   toJSON ExecuteStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("continueAfterTimeout" Core..=)
+          [ ("continueAfterTimeout" Data..=)
               Prelude.<$> continueAfterTimeout,
-            ("database" Core..=) Prelude.<$> database,
-            ("resultSetOptions" Core..=)
+            ("database" Data..=) Prelude.<$> database,
+            ("resultSetOptions" Data..=)
               Prelude.<$> resultSetOptions,
-            ("includeResultMetadata" Core..=)
+            ("includeResultMetadata" Data..=)
               Prelude.<$> includeResultMetadata,
-            ("transactionId" Core..=) Prelude.<$> transactionId,
-            ("formatRecordsAs" Core..=)
+            ("transactionId" Data..=) Prelude.<$> transactionId,
+            ("formatRecordsAs" Data..=)
               Prelude.<$> formatRecordsAs,
-            ("schema" Core..=) Prelude.<$> schema,
-            ("parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("resourceArn" Core..= resourceArn),
-            Prelude.Just ("secretArn" Core..= secretArn),
-            Prelude.Just ("sql" Core..= sql)
+            ("schema" Data..=) Prelude.<$> schema,
+            ("parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("resourceArn" Data..= resourceArn),
+            Prelude.Just ("secretArn" Data..= secretArn),
+            Prelude.Just ("sql" Data..= sql)
           ]
       )
 
-instance Core.ToPath ExecuteStatement where
+instance Data.ToPath ExecuteStatement where
   toPath = Prelude.const "/Execute"
 
-instance Core.ToQuery ExecuteStatement where
+instance Data.ToQuery ExecuteStatement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response elements represent the output of a request to run a SQL

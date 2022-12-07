@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetDevicePool where
     Response.receiveJSON
       ( \s h x ->
           GetDevicePoolResponse'
-            Prelude.<$> (x Core..?> "devicePool")
+            Prelude.<$> (x Data..?> "devicePool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,32 +96,32 @@ instance Prelude.Hashable GetDevicePool where
 instance Prelude.NFData GetDevicePool where
   rnf GetDevicePool' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders GetDevicePool where
+instance Data.ToHeaders GetDevicePool where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.GetDevicePool" ::
+              Data.=# ( "DeviceFarm_20150623.GetDevicePool" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDevicePool where
+instance Data.ToJSON GetDevicePool where
   toJSON GetDevicePool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath GetDevicePool where
+instance Data.ToPath GetDevicePool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDevicePool where
+instance Data.ToQuery GetDevicePool where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a get device pool request.

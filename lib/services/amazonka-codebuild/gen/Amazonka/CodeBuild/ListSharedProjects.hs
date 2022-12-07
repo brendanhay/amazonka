@@ -49,6 +49,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -194,8 +195,8 @@ instance Core.AWSRequest ListSharedProjects where
     Response.receiveJSON
       ( \s h x ->
           ListSharedProjectsResponse'
-            Prelude.<$> (x Core..?> "projects")
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "projects")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,36 +214,36 @@ instance Prelude.NFData ListSharedProjects where
       `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListSharedProjects where
+instance Data.ToHeaders ListSharedProjects where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.ListSharedProjects" ::
+              Data.=# ( "CodeBuild_20161006.ListSharedProjects" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSharedProjects where
+instance Data.ToJSON ListSharedProjects where
   toJSON ListSharedProjects' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListSharedProjects where
+instance Data.ToPath ListSharedProjects where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSharedProjects where
+instance Data.ToQuery ListSharedProjects where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSharedProjectsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.Finding where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.ClassificationDetails
 import Amazonka.MacieV2.Types.FindingCategory
 import Amazonka.MacieV2.Types.FindingType
@@ -77,13 +78,13 @@ data Finding = Finding'
     category :: Prelude.Maybe FindingCategory,
     -- | The date and time, in UTC and extended ISO 8601 format, when the finding
     -- was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time, in UTC and extended ISO 8601 format, when the finding
     -- was last updated. For sensitive data findings, this value is the same as
     -- the value for the createdAt property. All sensitive data findings are
     -- considered new (unique) because they derive from individual
     -- classification jobs.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether the finding is a sample finding. A /sample finding/ is
     -- a finding that uses example data to demonstrate what a finding might
     -- contain.
@@ -252,7 +253,7 @@ finding_category = Lens.lens (\Finding' {category} -> category) (\s@Finding' {} 
 -- | The date and time, in UTC and extended ISO 8601 format, when the finding
 -- was created.
 finding_createdAt :: Lens.Lens' Finding (Prelude.Maybe Prelude.UTCTime)
-finding_createdAt = Lens.lens (\Finding' {createdAt} -> createdAt) (\s@Finding' {} a -> s {createdAt = a} :: Finding) Prelude.. Lens.mapping Core._Time
+finding_createdAt = Lens.lens (\Finding' {createdAt} -> createdAt) (\s@Finding' {} a -> s {createdAt = a} :: Finding) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time, in UTC and extended ISO 8601 format, when the finding
 -- was last updated. For sensitive data findings, this value is the same as
@@ -260,7 +261,7 @@ finding_createdAt = Lens.lens (\Finding' {createdAt} -> createdAt) (\s@Finding' 
 -- considered new (unique) because they derive from individual
 -- classification jobs.
 finding_updatedAt :: Lens.Lens' Finding (Prelude.Maybe Prelude.UTCTime)
-finding_updatedAt = Lens.lens (\Finding' {updatedAt} -> updatedAt) (\s@Finding' {} a -> s {updatedAt = a} :: Finding) Prelude.. Lens.mapping Core._Time
+finding_updatedAt = Lens.lens (\Finding' {updatedAt} -> updatedAt) (\s@Finding' {} a -> s {updatedAt = a} :: Finding) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether the finding is a sample finding. A /sample finding/ is
 -- a finding that uses example data to demonstrate what a finding might
@@ -268,30 +269,30 @@ finding_updatedAt = Lens.lens (\Finding' {updatedAt} -> updatedAt) (\s@Finding' 
 finding_sample :: Lens.Lens' Finding (Prelude.Maybe Prelude.Bool)
 finding_sample = Lens.lens (\Finding' {sample} -> sample) (\s@Finding' {} a -> s {sample = a} :: Finding)
 
-instance Core.FromJSON Finding where
+instance Data.FromJSON Finding where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Finding"
       ( \x ->
           Finding'
-            Prelude.<$> (x Core..:? "severity")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "policyDetails")
-            Prelude.<*> (x Core..:? "classificationDetails")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "count")
-            Prelude.<*> (x Core..:? "partition")
-            Prelude.<*> (x Core..:? "archived")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "title")
-            Prelude.<*> (x Core..:? "resourcesAffected")
-            Prelude.<*> (x Core..:? "schemaVersion")
-            Prelude.<*> (x Core..:? "category")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "updatedAt")
-            Prelude.<*> (x Core..:? "sample")
+            Prelude.<$> (x Data..:? "severity")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "policyDetails")
+            Prelude.<*> (x Data..:? "classificationDetails")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "partition")
+            Prelude.<*> (x Data..:? "archived")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "title")
+            Prelude.<*> (x Data..:? "resourcesAffected")
+            Prelude.<*> (x Data..:? "schemaVersion")
+            Prelude.<*> (x Data..:? "category")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "updatedAt")
+            Prelude.<*> (x Data..:? "sample")
       )
 
 instance Prelude.Hashable Finding where

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,32 +96,32 @@ instance Prelude.NFData StartCrawlerSchedule where
   rnf StartCrawlerSchedule' {..} =
     Prelude.rnf crawlerName
 
-instance Core.ToHeaders StartCrawlerSchedule where
+instance Data.ToHeaders StartCrawlerSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.StartCrawlerSchedule" ::
+              Data.=# ( "AWSGlue.StartCrawlerSchedule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartCrawlerSchedule where
+instance Data.ToJSON StartCrawlerSchedule where
   toJSON StartCrawlerSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("CrawlerName" Core..= crawlerName)]
+          [Prelude.Just ("CrawlerName" Data..= crawlerName)]
       )
 
-instance Core.ToPath StartCrawlerSchedule where
+instance Data.ToPath StartCrawlerSchedule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartCrawlerSchedule where
+instance Data.ToQuery StartCrawlerSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartCrawlerScheduleResponse' smart constructor.

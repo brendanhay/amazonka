@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.BackendServerDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,13 +64,13 @@ backendServerDescription_policyNames = Lens.lens (\BackendServerDescription' {po
 backendServerDescription_instancePort :: Lens.Lens' BackendServerDescription (Prelude.Maybe Prelude.Natural)
 backendServerDescription_instancePort = Lens.lens (\BackendServerDescription' {instancePort} -> instancePort) (\s@BackendServerDescription' {} a -> s {instancePort = a} :: BackendServerDescription)
 
-instance Core.FromXML BackendServerDescription where
+instance Data.FromXML BackendServerDescription where
   parseXML x =
     BackendServerDescription'
-      Prelude.<$> ( x Core..@? "PolicyNames" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "PolicyNames" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "InstancePort")
+      Prelude.<*> (x Data..@? "InstancePort")
 
 instance Prelude.Hashable BackendServerDescription where
   hashWithSalt _salt BackendServerDescription' {..} =

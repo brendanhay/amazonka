@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2VpnConnectionOptionsTunnelOptionsDetails
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The VPN tunnel options.
@@ -243,42 +244,42 @@ awsEc2VpnConnectionOptionsTunnelOptionsDetails_replayWindowSize :: Lens.Lens' Aw
 awsEc2VpnConnectionOptionsTunnelOptionsDetails_replayWindowSize = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {replayWindowSize} -> replayWindowSize) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {replayWindowSize = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEc2VpnConnectionOptionsTunnelOptionsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2VpnConnectionOptionsTunnelOptionsDetails"
       ( \x ->
           AwsEc2VpnConnectionOptionsTunnelOptionsDetails'
-            Prelude.<$> (x Core..:? "Phase1LifetimeSeconds")
-              Prelude.<*> (x Core..:? "Phase2LifetimeSeconds")
-              Prelude.<*> ( x Core..:? "Phase2EncryptionAlgorithms"
-                              Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Phase1LifetimeSeconds")
+              Prelude.<*> (x Data..:? "Phase2LifetimeSeconds")
+              Prelude.<*> ( x Data..:? "Phase2EncryptionAlgorithms"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> ( x Core..:? "Phase1DhGroupNumbers"
-                              Core..!= Prelude.mempty
+              Prelude.<*> ( x Data..:? "Phase1DhGroupNumbers"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> ( x Core..:? "Phase1IntegrityAlgorithms"
-                              Core..!= Prelude.mempty
+              Prelude.<*> ( x Data..:? "Phase1IntegrityAlgorithms"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> (x Core..:? "DpdTimeoutSeconds")
-              Prelude.<*> (x Core..:? "IkeVersions" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "PreSharedKey")
-              Prelude.<*> ( x Core..:? "Phase2DhGroupNumbers"
-                              Core..!= Prelude.mempty
+              Prelude.<*> (x Data..:? "DpdTimeoutSeconds")
+              Prelude.<*> (x Data..:? "IkeVersions" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "PreSharedKey")
+              Prelude.<*> ( x Data..:? "Phase2DhGroupNumbers"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> (x Core..:? "RekeyFuzzPercentage")
-              Prelude.<*> (x Core..:? "RekeyMarginTimeSeconds")
-              Prelude.<*> ( x Core..:? "Phase2IntegrityAlgorithms"
-                              Core..!= Prelude.mempty
+              Prelude.<*> (x Data..:? "RekeyFuzzPercentage")
+              Prelude.<*> (x Data..:? "RekeyMarginTimeSeconds")
+              Prelude.<*> ( x Data..:? "Phase2IntegrityAlgorithms"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> ( x Core..:? "Phase1EncryptionAlgorithms"
-                              Core..!= Prelude.mempty
+              Prelude.<*> ( x Data..:? "Phase1EncryptionAlgorithms"
+                              Data..!= Prelude.mempty
                           )
-              Prelude.<*> (x Core..:? "TunnelInsideCidr")
-              Prelude.<*> (x Core..:? "OutsideIpAddress")
-              Prelude.<*> (x Core..:? "ReplayWindowSize")
+              Prelude.<*> (x Data..:? "TunnelInsideCidr")
+              Prelude.<*> (x Data..:? "OutsideIpAddress")
+              Prelude.<*> (x Data..:? "ReplayWindowSize")
       )
 
 instance
@@ -329,42 +330,42 @@ instance
         `Prelude.seq` Prelude.rnf replayWindowSize
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEc2VpnConnectionOptionsTunnelOptionsDetails
   where
   toJSON
     AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Phase1LifetimeSeconds" Core..=)
+            [ ("Phase1LifetimeSeconds" Data..=)
                 Prelude.<$> phase1LifetimeSeconds,
-              ("Phase2LifetimeSeconds" Core..=)
+              ("Phase2LifetimeSeconds" Data..=)
                 Prelude.<$> phase2LifetimeSeconds,
-              ("Phase2EncryptionAlgorithms" Core..=)
+              ("Phase2EncryptionAlgorithms" Data..=)
                 Prelude.<$> phase2EncryptionAlgorithms,
-              ("Phase1DhGroupNumbers" Core..=)
+              ("Phase1DhGroupNumbers" Data..=)
                 Prelude.<$> phase1DhGroupNumbers,
-              ("Phase1IntegrityAlgorithms" Core..=)
+              ("Phase1IntegrityAlgorithms" Data..=)
                 Prelude.<$> phase1IntegrityAlgorithms,
-              ("DpdTimeoutSeconds" Core..=)
+              ("DpdTimeoutSeconds" Data..=)
                 Prelude.<$> dpdTimeoutSeconds,
-              ("IkeVersions" Core..=) Prelude.<$> ikeVersions,
-              ("PreSharedKey" Core..=) Prelude.<$> preSharedKey,
-              ("Phase2DhGroupNumbers" Core..=)
+              ("IkeVersions" Data..=) Prelude.<$> ikeVersions,
+              ("PreSharedKey" Data..=) Prelude.<$> preSharedKey,
+              ("Phase2DhGroupNumbers" Data..=)
                 Prelude.<$> phase2DhGroupNumbers,
-              ("RekeyFuzzPercentage" Core..=)
+              ("RekeyFuzzPercentage" Data..=)
                 Prelude.<$> rekeyFuzzPercentage,
-              ("RekeyMarginTimeSeconds" Core..=)
+              ("RekeyMarginTimeSeconds" Data..=)
                 Prelude.<$> rekeyMarginTimeSeconds,
-              ("Phase2IntegrityAlgorithms" Core..=)
+              ("Phase2IntegrityAlgorithms" Data..=)
                 Prelude.<$> phase2IntegrityAlgorithms,
-              ("Phase1EncryptionAlgorithms" Core..=)
+              ("Phase1EncryptionAlgorithms" Data..=)
                 Prelude.<$> phase1EncryptionAlgorithms,
-              ("TunnelInsideCidr" Core..=)
+              ("TunnelInsideCidr" Data..=)
                 Prelude.<$> tunnelInsideCidr,
-              ("OutsideIpAddress" Core..=)
+              ("OutsideIpAddress" Data..=)
                 Prelude.<$> outsideIpAddress,
-              ("ReplayWindowSize" Core..=)
+              ("ReplayWindowSize" Data..=)
                 Prelude.<$> replayWindowSize
             ]
         )

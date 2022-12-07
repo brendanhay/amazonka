@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.DescribeEndpointsMode
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Optional field, defaults to DEFAULT. Specify DEFAULT for this operation
@@ -35,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 -- your endpoints if any exist, or an empty list if none exist.
 newtype DescribeEndpointsMode = DescribeEndpointsMode'
   { fromDescribeEndpointsMode ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -47,18 +48,18 @@ newtype DescribeEndpointsMode = DescribeEndpointsMode'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern DescribeEndpointsMode_DEFAULT :: DescribeEndpointsMode

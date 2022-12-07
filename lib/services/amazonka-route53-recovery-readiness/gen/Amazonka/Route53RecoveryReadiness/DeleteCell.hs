@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,22 +84,22 @@ instance Prelude.Hashable DeleteCell where
 instance Prelude.NFData DeleteCell where
   rnf DeleteCell' {..} = Prelude.rnf cellName
 
-instance Core.ToHeaders DeleteCell where
+instance Data.ToHeaders DeleteCell where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteCell where
+instance Data.ToPath DeleteCell where
   toPath DeleteCell' {..} =
-    Prelude.mconcat ["/cells/", Core.toBS cellName]
+    Prelude.mconcat ["/cells/", Data.toBS cellName]
 
-instance Core.ToQuery DeleteCell where
+instance Data.ToQuery DeleteCell where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCellResponse' smart constructor.

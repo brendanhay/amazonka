@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,8 +149,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetTransitGatewayRegistrationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "TransitGatewayRegistrations"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "TransitGatewayRegistrations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -178,37 +179,37 @@ instance
       `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetTransitGatewayRegistrations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetTransitGatewayRegistrations where
+instance Data.ToPath GetTransitGatewayRegistrations where
   toPath GetTransitGatewayRegistrations' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/transit-gateway-registrations"
       ]
 
-instance Core.ToQuery GetTransitGatewayRegistrations where
+instance Data.ToQuery GetTransitGatewayRegistrations where
   toQuery GetTransitGatewayRegistrations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
+      [ "nextToken" Data.=: nextToken,
         "transitGatewayArns"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> transitGatewayArns
             ),
-        "maxResults" Core.=: maxResults
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetTransitGatewayRegistrationsResponse' smart constructor.

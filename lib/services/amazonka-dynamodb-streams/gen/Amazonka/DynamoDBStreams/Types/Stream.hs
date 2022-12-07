@@ -21,6 +21,7 @@ module Amazonka.DynamoDBStreams.Types.Stream where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDBStreams.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -104,15 +105,15 @@ stream_streamLabel = Lens.lens (\Stream' {streamLabel} -> streamLabel) (\s@Strea
 stream_streamArn :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
 stream_streamArn = Lens.lens (\Stream' {streamArn} -> streamArn) (\s@Stream' {} a -> s {streamArn = a} :: Stream)
 
-instance Core.FromJSON Stream where
+instance Data.FromJSON Stream where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Stream"
       ( \x ->
           Stream'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "StreamLabel")
-            Prelude.<*> (x Core..:? "StreamArn")
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "StreamLabel")
+            Prelude.<*> (x Data..:? "StreamArn")
       )
 
 instance Prelude.Hashable Stream where

@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.FilterCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.DateFilter
 import Amazonka.Inspector2.Types.MapFilter
 import Amazonka.Inspector2.Types.NumberFilter
@@ -364,44 +365,44 @@ filterCriteria_ec2InstanceSubnetId = Lens.lens (\FilterCriteria' {ec2InstanceSub
 filterCriteria_updatedAt :: Lens.Lens' FilterCriteria (Prelude.Maybe (Prelude.NonEmpty DateFilter))
 filterCriteria_updatedAt = Lens.lens (\FilterCriteria' {updatedAt} -> updatedAt) (\s@FilterCriteria' {} a -> s {updatedAt = a} :: FilterCriteria) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON FilterCriteria where
+instance Data.FromJSON FilterCriteria where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FilterCriteria"
       ( \x ->
           FilterCriteria'
-            Prelude.<$> (x Core..:? "awsAccountId")
-            Prelude.<*> (x Core..:? "ec2InstanceImageId")
-            Prelude.<*> (x Core..:? "networkProtocol")
-            Prelude.<*> (x Core..:? "resourceId")
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "ecrImageRegistry")
-            Prelude.<*> (x Core..:? "severity")
-            Prelude.<*> (x Core..:? "portRange")
-            Prelude.<*> (x Core..:? "ecrImageArchitecture")
-            Prelude.<*> (x Core..:? "findingStatus")
-            Prelude.<*> (x Core..:? "vulnerablePackages")
-            Prelude.<*> (x Core..:? "vulnerabilitySource")
-            Prelude.<*> (x Core..:? "ecrImageRepositoryName")
-            Prelude.<*> (x Core..:? "inspectorScore")
-            Prelude.<*> (x Core..:? "ecrImageTags")
-            Prelude.<*> (x Core..:? "resourceTags")
-            Prelude.<*> (x Core..:? "ecrImageHash")
-            Prelude.<*> (x Core..:? "title")
-            Prelude.<*> (x Core..:? "firstObservedAt")
-            Prelude.<*> (x Core..:? "ecrImagePushedAt")
-            Prelude.<*> (x Core..:? "vendorSeverity")
-            Prelude.<*> (x Core..:? "lastObservedAt")
-            Prelude.<*> (x Core..:? "ec2InstanceVpcId")
-            Prelude.<*> (x Core..:? "componentId")
-            Prelude.<*> (x Core..:? "relatedVulnerabilities")
-            Prelude.<*> (x Core..:? "findingType")
-            Prelude.<*> (x Core..:? "componentType")
-            Prelude.<*> (x Core..:? "vulnerabilityId")
-            Prelude.<*> (x Core..:? "fixAvailable")
-            Prelude.<*> (x Core..:? "findingArn")
-            Prelude.<*> (x Core..:? "ec2InstanceSubnetId")
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<$> (x Data..:? "awsAccountId")
+            Prelude.<*> (x Data..:? "ec2InstanceImageId")
+            Prelude.<*> (x Data..:? "networkProtocol")
+            Prelude.<*> (x Data..:? "resourceId")
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "ecrImageRegistry")
+            Prelude.<*> (x Data..:? "severity")
+            Prelude.<*> (x Data..:? "portRange")
+            Prelude.<*> (x Data..:? "ecrImageArchitecture")
+            Prelude.<*> (x Data..:? "findingStatus")
+            Prelude.<*> (x Data..:? "vulnerablePackages")
+            Prelude.<*> (x Data..:? "vulnerabilitySource")
+            Prelude.<*> (x Data..:? "ecrImageRepositoryName")
+            Prelude.<*> (x Data..:? "inspectorScore")
+            Prelude.<*> (x Data..:? "ecrImageTags")
+            Prelude.<*> (x Data..:? "resourceTags")
+            Prelude.<*> (x Data..:? "ecrImageHash")
+            Prelude.<*> (x Data..:? "title")
+            Prelude.<*> (x Data..:? "firstObservedAt")
+            Prelude.<*> (x Data..:? "ecrImagePushedAt")
+            Prelude.<*> (x Data..:? "vendorSeverity")
+            Prelude.<*> (x Data..:? "lastObservedAt")
+            Prelude.<*> (x Data..:? "ec2InstanceVpcId")
+            Prelude.<*> (x Data..:? "componentId")
+            Prelude.<*> (x Data..:? "relatedVulnerabilities")
+            Prelude.<*> (x Data..:? "findingType")
+            Prelude.<*> (x Data..:? "componentType")
+            Prelude.<*> (x Data..:? "vulnerabilityId")
+            Prelude.<*> (x Data..:? "fixAvailable")
+            Prelude.<*> (x Data..:? "findingArn")
+            Prelude.<*> (x Data..:? "ec2InstanceSubnetId")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable FilterCriteria where
@@ -484,57 +485,57 @@ instance Prelude.NFData FilterCriteria where
       `Prelude.seq` Prelude.rnf
         updatedAt
 
-instance Core.ToJSON FilterCriteria where
+instance Data.ToJSON FilterCriteria where
   toJSON FilterCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("awsAccountId" Core..=) Prelude.<$> awsAccountId,
-            ("ec2InstanceImageId" Core..=)
+          [ ("awsAccountId" Data..=) Prelude.<$> awsAccountId,
+            ("ec2InstanceImageId" Data..=)
               Prelude.<$> ec2InstanceImageId,
-            ("networkProtocol" Core..=)
+            ("networkProtocol" Data..=)
               Prelude.<$> networkProtocol,
-            ("resourceId" Core..=) Prelude.<$> resourceId,
-            ("resourceType" Core..=) Prelude.<$> resourceType,
-            ("ecrImageRegistry" Core..=)
+            ("resourceId" Data..=) Prelude.<$> resourceId,
+            ("resourceType" Data..=) Prelude.<$> resourceType,
+            ("ecrImageRegistry" Data..=)
               Prelude.<$> ecrImageRegistry,
-            ("severity" Core..=) Prelude.<$> severity,
-            ("portRange" Core..=) Prelude.<$> portRange,
-            ("ecrImageArchitecture" Core..=)
+            ("severity" Data..=) Prelude.<$> severity,
+            ("portRange" Data..=) Prelude.<$> portRange,
+            ("ecrImageArchitecture" Data..=)
               Prelude.<$> ecrImageArchitecture,
-            ("findingStatus" Core..=) Prelude.<$> findingStatus,
-            ("vulnerablePackages" Core..=)
+            ("findingStatus" Data..=) Prelude.<$> findingStatus,
+            ("vulnerablePackages" Data..=)
               Prelude.<$> vulnerablePackages,
-            ("vulnerabilitySource" Core..=)
+            ("vulnerabilitySource" Data..=)
               Prelude.<$> vulnerabilitySource,
-            ("ecrImageRepositoryName" Core..=)
+            ("ecrImageRepositoryName" Data..=)
               Prelude.<$> ecrImageRepositoryName,
-            ("inspectorScore" Core..=)
+            ("inspectorScore" Data..=)
               Prelude.<$> inspectorScore,
-            ("ecrImageTags" Core..=) Prelude.<$> ecrImageTags,
-            ("resourceTags" Core..=) Prelude.<$> resourceTags,
-            ("ecrImageHash" Core..=) Prelude.<$> ecrImageHash,
-            ("title" Core..=) Prelude.<$> title,
-            ("firstObservedAt" Core..=)
+            ("ecrImageTags" Data..=) Prelude.<$> ecrImageTags,
+            ("resourceTags" Data..=) Prelude.<$> resourceTags,
+            ("ecrImageHash" Data..=) Prelude.<$> ecrImageHash,
+            ("title" Data..=) Prelude.<$> title,
+            ("firstObservedAt" Data..=)
               Prelude.<$> firstObservedAt,
-            ("ecrImagePushedAt" Core..=)
+            ("ecrImagePushedAt" Data..=)
               Prelude.<$> ecrImagePushedAt,
-            ("vendorSeverity" Core..=)
+            ("vendorSeverity" Data..=)
               Prelude.<$> vendorSeverity,
-            ("lastObservedAt" Core..=)
+            ("lastObservedAt" Data..=)
               Prelude.<$> lastObservedAt,
-            ("ec2InstanceVpcId" Core..=)
+            ("ec2InstanceVpcId" Data..=)
               Prelude.<$> ec2InstanceVpcId,
-            ("componentId" Core..=) Prelude.<$> componentId,
-            ("relatedVulnerabilities" Core..=)
+            ("componentId" Data..=) Prelude.<$> componentId,
+            ("relatedVulnerabilities" Data..=)
               Prelude.<$> relatedVulnerabilities,
-            ("findingType" Core..=) Prelude.<$> findingType,
-            ("componentType" Core..=) Prelude.<$> componentType,
-            ("vulnerabilityId" Core..=)
+            ("findingType" Data..=) Prelude.<$> findingType,
+            ("componentType" Data..=) Prelude.<$> componentType,
+            ("vulnerabilityId" Data..=)
               Prelude.<$> vulnerabilityId,
-            ("fixAvailable" Core..=) Prelude.<$> fixAvailable,
-            ("findingArn" Core..=) Prelude.<$> findingArn,
-            ("ec2InstanceSubnetId" Core..=)
+            ("fixAvailable" Data..=) Prelude.<$> fixAvailable,
+            ("findingArn" Data..=) Prelude.<$> findingArn,
+            ("ec2InstanceSubnetId" Data..=)
               Prelude.<$> ec2InstanceSubnetId,
-            ("updatedAt" Core..=) Prelude.<$> updatedAt
+            ("updatedAt" Data..=) Prelude.<$> updatedAt
           ]
       )

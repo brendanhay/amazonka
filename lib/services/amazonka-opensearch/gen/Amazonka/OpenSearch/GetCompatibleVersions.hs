@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance Core.AWSRequest GetCompatibleVersions where
     Response.receiveJSON
       ( \s h x ->
           GetCompatibleVersionsResponse'
-            Prelude.<$> ( x Core..?> "CompatibleVersions"
+            Prelude.<$> ( x Data..?> "CompatibleVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -105,17 +106,17 @@ instance Prelude.NFData GetCompatibleVersions where
   rnf GetCompatibleVersions' {..} =
     Prelude.rnf domainName
 
-instance Core.ToHeaders GetCompatibleVersions where
+instance Data.ToHeaders GetCompatibleVersions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetCompatibleVersions where
+instance Data.ToPath GetCompatibleVersions where
   toPath =
     Prelude.const
       "/2021-01-01/opensearch/compatibleVersions"
 
-instance Core.ToQuery GetCompatibleVersions where
+instance Data.ToQuery GetCompatibleVersions where
   toQuery GetCompatibleVersions' {..} =
-    Prelude.mconcat ["domainName" Core.=: domainName]
+    Prelude.mconcat ["domainName" Data.=: domainName]
 
 -- | Container for the response returned by the @GetCompatibleVersions@
 -- operation.

@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -225,11 +226,11 @@ instance Core.AWSRequest CreateTemplate where
     Response.receiveJSON
       ( \s h x ->
           CreateTemplateResponse'
-            Prelude.<$> (x Core..?> "CreationStatus")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "TemplateId")
-            Prelude.<*> (x Core..?> "VersionArn")
+            Prelude.<$> (x Data..?> "CreationStatus")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "TemplateId")
+            Prelude.<*> (x Data..?> "VersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -253,40 +254,40 @@ instance Prelude.NFData CreateTemplate where
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf sourceEntity
 
-instance Core.ToHeaders CreateTemplate where
+instance Data.ToHeaders CreateTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTemplate where
+instance Data.ToJSON CreateTemplate where
   toJSON CreateTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name,
-            ("Permissions" Core..=) Prelude.<$> permissions,
-            ("VersionDescription" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Name" Data..=) Prelude.<$> name,
+            ("Permissions" Data..=) Prelude.<$> permissions,
+            ("VersionDescription" Data..=)
               Prelude.<$> versionDescription,
-            Prelude.Just ("SourceEntity" Core..= sourceEntity)
+            Prelude.Just ("SourceEntity" Data..= sourceEntity)
           ]
       )
 
-instance Core.ToPath CreateTemplate where
+instance Data.ToPath CreateTemplate where
   toPath CreateTemplate' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/templates/",
-        Core.toBS templateId
+        Data.toBS templateId
       ]
 
-instance Core.ToQuery CreateTemplate where
+instance Data.ToQuery CreateTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTemplateResponse' smart constructor.

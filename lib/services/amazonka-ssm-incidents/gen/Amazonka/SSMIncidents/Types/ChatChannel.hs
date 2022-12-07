@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.ChatChannel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.EmptyChatChannel
 
@@ -71,14 +72,14 @@ chatChannel_empty = Lens.lens (\ChatChannel' {empty} -> empty) (\s@ChatChannel' 
 chatChannel_chatbotSns :: Lens.Lens' ChatChannel (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 chatChannel_chatbotSns = Lens.lens (\ChatChannel' {chatbotSns} -> chatbotSns) (\s@ChatChannel' {} a -> s {chatbotSns = a} :: ChatChannel) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ChatChannel where
+instance Data.FromJSON ChatChannel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChatChannel"
       ( \x ->
           ChatChannel'
-            Prelude.<$> (x Core..:? "empty")
-            Prelude.<*> (x Core..:? "chatbotSns")
+            Prelude.<$> (x Data..:? "empty")
+            Prelude.<*> (x Data..:? "chatbotSns")
       )
 
 instance Prelude.Hashable ChatChannel where
@@ -91,11 +92,11 @@ instance Prelude.NFData ChatChannel where
     Prelude.rnf empty
       `Prelude.seq` Prelude.rnf chatbotSns
 
-instance Core.ToJSON ChatChannel where
+instance Data.ToJSON ChatChannel where
   toJSON ChatChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("empty" Core..=) Prelude.<$> empty,
-            ("chatbotSns" Core..=) Prelude.<$> chatbotSns
+          [ ("empty" Data..=) Prelude.<$> empty,
+            ("chatbotSns" Data..=) Prelude.<$> chatbotSns
           ]
       )

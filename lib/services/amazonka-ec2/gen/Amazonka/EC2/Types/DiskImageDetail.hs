@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DiskImageDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DiskImageFormat
 import qualified Amazonka.Prelude as Prelude
@@ -120,10 +121,10 @@ instance Prelude.NFData DiskImageDetail where
       `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf importManifestUrl
 
-instance Core.ToQuery DiskImageDetail where
+instance Data.ToQuery DiskImageDetail where
   toQuery DiskImageDetail' {..} =
     Prelude.mconcat
-      [ "Bytes" Core.=: bytes,
-        "Format" Core.=: format,
-        "ImportManifestUrl" Core.=: importManifestUrl
+      [ "Bytes" Data.=: bytes,
+        "Format" Data.=: format,
+        "ImportManifestUrl" Data.=: importManifestUrl
       ]

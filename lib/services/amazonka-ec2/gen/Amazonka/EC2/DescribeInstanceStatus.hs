@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -360,10 +361,10 @@ instance Core.AWSRequest DescribeInstanceStatus where
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceStatusResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "instanceStatusSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "instanceStatusSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -386,27 +387,27 @@ instance Prelude.NFData DescribeInstanceStatus where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceIds
 
-instance Core.ToHeaders DescribeInstanceStatus where
+instance Data.ToHeaders DescribeInstanceStatus where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeInstanceStatus where
+instance Data.ToPath DescribeInstanceStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeInstanceStatus where
+instance Data.ToQuery DescribeInstanceStatus where
   toQuery DescribeInstanceStatus' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeInstanceStatus" :: Prelude.ByteString),
+          Data.=: ("DescribeInstanceStatus" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "IncludeAllInstances" Core.=: includeAllInstances,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          ( Core.toQueryList "InstanceId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "IncludeAllInstances" Data.=: includeAllInstances,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          ( Data.toQueryList "InstanceId"
               Prelude.<$> instanceIds
           )
       ]

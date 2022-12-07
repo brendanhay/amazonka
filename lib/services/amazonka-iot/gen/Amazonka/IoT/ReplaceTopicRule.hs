@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,18 +112,18 @@ instance Prelude.NFData ReplaceTopicRule where
     Prelude.rnf ruleName
       `Prelude.seq` Prelude.rnf topicRulePayload
 
-instance Core.ToHeaders ReplaceTopicRule where
+instance Data.ToHeaders ReplaceTopicRule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ReplaceTopicRule where
+instance Data.ToJSON ReplaceTopicRule where
   toJSON ReplaceTopicRule' {..} =
-    Core.toJSON topicRulePayload
+    Data.toJSON topicRulePayload
 
-instance Core.ToPath ReplaceTopicRule where
+instance Data.ToPath ReplaceTopicRule where
   toPath ReplaceTopicRule' {..} =
-    Prelude.mconcat ["/rules/", Core.toBS ruleName]
+    Prelude.mconcat ["/rules/", Data.toBS ruleName]
 
-instance Core.ToQuery ReplaceTopicRule where
+instance Data.ToQuery ReplaceTopicRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newReplaceTopicRuleResponse' smart constructor.

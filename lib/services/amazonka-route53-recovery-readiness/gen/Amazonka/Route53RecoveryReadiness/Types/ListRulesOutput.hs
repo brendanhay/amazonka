@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryReadiness.Types.ListRulesOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Readiness rule information, including the resource type, rule ID, and
@@ -81,15 +82,15 @@ listRulesOutput_ruleId = Lens.lens (\ListRulesOutput' {ruleId} -> ruleId) (\s@Li
 listRulesOutput_resourceType :: Lens.Lens' ListRulesOutput Prelude.Text
 listRulesOutput_resourceType = Lens.lens (\ListRulesOutput' {resourceType} -> resourceType) (\s@ListRulesOutput' {} a -> s {resourceType = a} :: ListRulesOutput)
 
-instance Core.FromJSON ListRulesOutput where
+instance Data.FromJSON ListRulesOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListRulesOutput"
       ( \x ->
           ListRulesOutput'
-            Prelude.<$> (x Core..: "ruleDescription")
-            Prelude.<*> (x Core..: "ruleId")
-            Prelude.<*> (x Core..: "resourceType")
+            Prelude.<$> (x Data..: "ruleDescription")
+            Prelude.<*> (x Data..: "ruleId")
+            Prelude.<*> (x Data..: "resourceType")
       )
 
 instance Prelude.Hashable ListRulesOutput where

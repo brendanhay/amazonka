@@ -63,6 +63,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -164,7 +165,7 @@ instance Core.AWSRequest UpdateRealtimeLogConfig where
     Response.receiveXML
       ( \s h x ->
           UpdateRealtimeLogConfigResponse'
-            Prelude.<$> (x Core..@? "RealtimeLogConfig")
+            Prelude.<$> (x Data..@? "RealtimeLogConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,33 +185,33 @@ instance Prelude.NFData UpdateRealtimeLogConfig where
       `Prelude.seq` Prelude.rnf fields
       `Prelude.seq` Prelude.rnf samplingRate
 
-instance Core.ToElement UpdateRealtimeLogConfig where
+instance Data.ToElement UpdateRealtimeLogConfig where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}UpdateRealtimeLogConfigRequest"
 
-instance Core.ToHeaders UpdateRealtimeLogConfig where
+instance Data.ToHeaders UpdateRealtimeLogConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateRealtimeLogConfig where
+instance Data.ToPath UpdateRealtimeLogConfig where
   toPath =
     Prelude.const "/2020-05-31/realtime-log-config/"
 
-instance Core.ToQuery UpdateRealtimeLogConfig where
+instance Data.ToQuery UpdateRealtimeLogConfig where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML UpdateRealtimeLogConfig where
+instance Data.ToXML UpdateRealtimeLogConfig where
   toXML UpdateRealtimeLogConfig' {..} =
     Prelude.mconcat
-      [ "Name" Core.@= name,
-        "ARN" Core.@= arn,
+      [ "Name" Data.@= name,
+        "ARN" Data.@= arn,
         "EndPoints"
-          Core.@= Core.toXML
-            (Core.toXMLList "member" Prelude.<$> endPoints),
+          Data.@= Data.toXML
+            (Data.toXMLList "member" Prelude.<$> endPoints),
         "Fields"
-          Core.@= Core.toXML
-            (Core.toXMLList "Field" Prelude.<$> fields),
-        "SamplingRate" Core.@= samplingRate
+          Data.@= Data.toXML
+            (Data.toXMLList "Field" Prelude.<$> fields),
+        "SamplingRate" Data.@= samplingRate
       ]
 
 -- | /See:/ 'newUpdateRealtimeLogConfigResponse' smart constructor.

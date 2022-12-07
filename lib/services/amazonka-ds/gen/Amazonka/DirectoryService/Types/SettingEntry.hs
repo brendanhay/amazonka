@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.SettingEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.DirectoryConfigurationStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -52,10 +53,10 @@ data SettingEntry = SettingEntry'
     -- | The valid range of values for the directory setting.
     allowedValues :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the directory setting was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the request to update a directory setting was
     -- last submitted.
-    lastRequestedDateTime :: Prelude.Maybe Core.POSIX
+    lastRequestedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -150,31 +151,31 @@ settingEntry_allowedValues = Lens.lens (\SettingEntry' {allowedValues} -> allowe
 
 -- | The date and time when the directory setting was last updated.
 settingEntry_lastUpdatedDateTime :: Lens.Lens' SettingEntry (Prelude.Maybe Prelude.UTCTime)
-settingEntry_lastUpdatedDateTime = Lens.lens (\SettingEntry' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SettingEntry' {} a -> s {lastUpdatedDateTime = a} :: SettingEntry) Prelude.. Lens.mapping Core._Time
+settingEntry_lastUpdatedDateTime = Lens.lens (\SettingEntry' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SettingEntry' {} a -> s {lastUpdatedDateTime = a} :: SettingEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the request to update a directory setting was
 -- last submitted.
 settingEntry_lastRequestedDateTime :: Lens.Lens' SettingEntry (Prelude.Maybe Prelude.UTCTime)
-settingEntry_lastRequestedDateTime = Lens.lens (\SettingEntry' {lastRequestedDateTime} -> lastRequestedDateTime) (\s@SettingEntry' {} a -> s {lastRequestedDateTime = a} :: SettingEntry) Prelude.. Lens.mapping Core._Time
+settingEntry_lastRequestedDateTime = Lens.lens (\SettingEntry' {lastRequestedDateTime} -> lastRequestedDateTime) (\s@SettingEntry' {} a -> s {lastRequestedDateTime = a} :: SettingEntry) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SettingEntry where
+instance Data.FromJSON SettingEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SettingEntry"
       ( \x ->
           SettingEntry'
-            Prelude.<$> ( x Core..:? "RequestDetailedStatus"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "RequestDetailedStatus"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "RequestStatusMessage")
-            Prelude.<*> (x Core..:? "AppliedValue")
-            Prelude.<*> (x Core..:? "RequestedValue")
-            Prelude.<*> (x Core..:? "RequestStatus")
-            Prelude.<*> (x Core..:? "AllowedValues")
-            Prelude.<*> (x Core..:? "LastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "LastRequestedDateTime")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "RequestStatusMessage")
+            Prelude.<*> (x Data..:? "AppliedValue")
+            Prelude.<*> (x Data..:? "RequestedValue")
+            Prelude.<*> (x Data..:? "RequestStatus")
+            Prelude.<*> (x Data..:? "AllowedValues")
+            Prelude.<*> (x Data..:? "LastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "LastRequestedDateTime")
       )
 
 instance Prelude.Hashable SettingEntry where

@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.DetectorVersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.DetectorVersionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,16 +82,16 @@ detectorVersionSummary_description = Lens.lens (\DetectorVersionSummary' {descri
 detectorVersionSummary_lastUpdatedTime :: Lens.Lens' DetectorVersionSummary (Prelude.Maybe Prelude.Text)
 detectorVersionSummary_lastUpdatedTime = Lens.lens (\DetectorVersionSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@DetectorVersionSummary' {} a -> s {lastUpdatedTime = a} :: DetectorVersionSummary)
 
-instance Core.FromJSON DetectorVersionSummary where
+instance Data.FromJSON DetectorVersionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectorVersionSummary"
       ( \x ->
           DetectorVersionSummary'
-            Prelude.<$> (x Core..:? "detectorVersionId")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
+            Prelude.<$> (x Data..:? "detectorVersionId")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
       )
 
 instance Prelude.Hashable DetectorVersionSummary where

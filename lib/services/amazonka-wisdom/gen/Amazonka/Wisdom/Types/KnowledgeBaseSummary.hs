@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.KnowledgeBaseSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Wisdom.Types.KnowledgeBaseStatus
 import Amazonka.Wisdom.Types.KnowledgeBaseType
@@ -153,22 +154,22 @@ knowledgeBaseSummary_name = Lens.lens (\KnowledgeBaseSummary' {name} -> name) (\
 knowledgeBaseSummary_status :: Lens.Lens' KnowledgeBaseSummary KnowledgeBaseStatus
 knowledgeBaseSummary_status = Lens.lens (\KnowledgeBaseSummary' {status} -> status) (\s@KnowledgeBaseSummary' {} a -> s {status = a} :: KnowledgeBaseSummary)
 
-instance Core.FromJSON KnowledgeBaseSummary where
+instance Data.FromJSON KnowledgeBaseSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KnowledgeBaseSummary"
       ( \x ->
           KnowledgeBaseSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "sourceConfiguration")
-            Prelude.<*> (x Core..:? "serverSideEncryptionConfiguration")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "renderingConfiguration")
-            Prelude.<*> (x Core..: "knowledgeBaseArn")
-            Prelude.<*> (x Core..: "knowledgeBaseId")
-            Prelude.<*> (x Core..: "knowledgeBaseType")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "sourceConfiguration")
+            Prelude.<*> (x Data..:? "serverSideEncryptionConfiguration")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "renderingConfiguration")
+            Prelude.<*> (x Data..: "knowledgeBaseArn")
+            Prelude.<*> (x Data..: "knowledgeBaseId")
+            Prelude.<*> (x Data..: "knowledgeBaseType")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable KnowledgeBaseSummary where

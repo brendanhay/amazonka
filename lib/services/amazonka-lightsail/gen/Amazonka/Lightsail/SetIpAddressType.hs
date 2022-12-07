@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,7 +147,7 @@ instance Core.AWSRequest SetIpAddressType where
     Response.receiveJSON
       ( \s h x ->
           SetIpAddressTypeResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,36 +163,36 @@ instance Prelude.NFData SetIpAddressType where
       `Prelude.seq` Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf ipAddressType
 
-instance Core.ToHeaders SetIpAddressType where
+instance Data.ToHeaders SetIpAddressType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.SetIpAddressType" ::
+              Data.=# ( "Lightsail_20161128.SetIpAddressType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetIpAddressType where
+instance Data.ToJSON SetIpAddressType where
   toJSON SetIpAddressType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("resourceType" Core..= resourceType),
-            Prelude.Just ("resourceName" Core..= resourceName),
+          [ Prelude.Just ("resourceType" Data..= resourceType),
+            Prelude.Just ("resourceName" Data..= resourceName),
             Prelude.Just
-              ("ipAddressType" Core..= ipAddressType)
+              ("ipAddressType" Data..= ipAddressType)
           ]
       )
 
-instance Core.ToPath SetIpAddressType where
+instance Data.ToPath SetIpAddressType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetIpAddressType where
+instance Data.ToQuery SetIpAddressType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetIpAddressTypeResponse' smart constructor.

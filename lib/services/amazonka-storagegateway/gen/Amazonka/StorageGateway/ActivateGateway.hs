@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -321,7 +322,7 @@ instance Core.AWSRequest ActivateGateway where
     Response.receiveJSON
       ( \s h x ->
           ActivateGatewayResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -347,43 +348,43 @@ instance Prelude.NFData ActivateGateway where
       `Prelude.seq` Prelude.rnf gatewayTimezone
       `Prelude.seq` Prelude.rnf gatewayRegion
 
-instance Core.ToHeaders ActivateGateway where
+instance Data.ToHeaders ActivateGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.ActivateGateway" ::
+              Data.=# ( "StorageGateway_20130630.ActivateGateway" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ActivateGateway where
+instance Data.ToJSON ActivateGateway where
   toJSON ActivateGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("GatewayType" Core..=) Prelude.<$> gatewayType,
-            ("MediumChangerType" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("GatewayType" Data..=) Prelude.<$> gatewayType,
+            ("MediumChangerType" Data..=)
               Prelude.<$> mediumChangerType,
-            ("TapeDriveType" Core..=) Prelude.<$> tapeDriveType,
-            Prelude.Just ("ActivationKey" Core..= activationKey),
-            Prelude.Just ("GatewayName" Core..= gatewayName),
+            ("TapeDriveType" Data..=) Prelude.<$> tapeDriveType,
+            Prelude.Just ("ActivationKey" Data..= activationKey),
+            Prelude.Just ("GatewayName" Data..= gatewayName),
             Prelude.Just
-              ("GatewayTimezone" Core..= gatewayTimezone),
+              ("GatewayTimezone" Data..= gatewayTimezone),
             Prelude.Just
-              ("GatewayRegion" Core..= gatewayRegion)
+              ("GatewayRegion" Data..= gatewayRegion)
           ]
       )
 
-instance Core.ToPath ActivateGateway where
+instance Data.ToPath ActivateGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ActivateGateway where
+instance Data.ToQuery ActivateGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Storage Gateway returns the Amazon Resource Name (ARN) of the activated

@@ -47,6 +47,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,8 +142,8 @@ instance Core.AWSRequest DescribeDefaultParameters where
     Response.receiveJSON
       ( \s h x ->
           DescribeDefaultParametersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Parameters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,34 +157,34 @@ instance Prelude.NFData DescribeDefaultParameters where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeDefaultParameters where
+instance Data.ToHeaders DescribeDefaultParameters where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDAXV3.DescribeDefaultParameters" ::
+              Data.=# ( "AmazonDAXV3.DescribeDefaultParameters" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDefaultParameters where
+instance Data.ToJSON DescribeDefaultParameters where
   toJSON DescribeDefaultParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeDefaultParameters where
+instance Data.ToPath DescribeDefaultParameters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDefaultParameters where
+instance Data.ToQuery DescribeDefaultParameters where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDefaultParametersResponse' smart constructor.

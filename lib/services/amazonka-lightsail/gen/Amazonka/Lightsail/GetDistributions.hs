@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,8 +117,8 @@ instance Core.AWSRequest GetDistributions where
     Response.receiveJSON
       ( \s h x ->
           GetDistributionsResponse'
-            Prelude.<$> (x Core..?> "nextPageToken")
-            Prelude.<*> (x Core..?> "distributions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextPageToken")
+            Prelude.<*> (x Data..?> "distributions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,35 +132,35 @@ instance Prelude.NFData GetDistributions where
     Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf distributionName
 
-instance Core.ToHeaders GetDistributions where
+instance Data.ToHeaders GetDistributions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetDistributions" ::
+              Data.=# ( "Lightsail_20161128.GetDistributions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDistributions where
+instance Data.ToJSON GetDistributions where
   toJSON GetDistributions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("pageToken" Core..=) Prelude.<$> pageToken,
-            ("distributionName" Core..=)
+          [ ("pageToken" Data..=) Prelude.<$> pageToken,
+            ("distributionName" Data..=)
               Prelude.<$> distributionName
           ]
       )
 
-instance Core.ToPath GetDistributions where
+instance Data.ToPath GetDistributions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDistributions where
+instance Data.ToQuery GetDistributions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDistributionsResponse' smart constructor.

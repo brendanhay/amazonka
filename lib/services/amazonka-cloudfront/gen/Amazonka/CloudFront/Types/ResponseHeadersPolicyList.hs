@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicyList where
 import Amazonka.CloudFront.Types.ResponseHeadersPolicySummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of response headers policies.
@@ -93,16 +94,16 @@ responseHeadersPolicyList_maxItems = Lens.lens (\ResponseHeadersPolicyList' {max
 responseHeadersPolicyList_quantity :: Lens.Lens' ResponseHeadersPolicyList Prelude.Int
 responseHeadersPolicyList_quantity = Lens.lens (\ResponseHeadersPolicyList' {quantity} -> quantity) (\s@ResponseHeadersPolicyList' {} a -> s {quantity = a} :: ResponseHeadersPolicyList)
 
-instance Core.FromXML ResponseHeadersPolicyList where
+instance Data.FromXML ResponseHeadersPolicyList where
   parseXML x =
     ResponseHeadersPolicyList'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "ResponseHeadersPolicySummary")
+                        (Data.parseXMLList "ResponseHeadersPolicySummary")
                   )
-      Prelude.<*> (x Core..@? "NextMarker")
-      Prelude.<*> (x Core..@ "MaxItems")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@? "NextMarker")
+      Prelude.<*> (x Data..@ "MaxItems")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable ResponseHeadersPolicyList where
   hashWithSalt _salt ResponseHeadersPolicyList' {..} =

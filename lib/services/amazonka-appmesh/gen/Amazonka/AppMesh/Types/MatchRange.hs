@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.MatchRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the range of values to match on. The first
@@ -65,13 +66,13 @@ matchRange_end = Lens.lens (\MatchRange' {end} -> end) (\s@MatchRange' {} a -> s
 matchRange_start :: Lens.Lens' MatchRange Prelude.Integer
 matchRange_start = Lens.lens (\MatchRange' {start} -> start) (\s@MatchRange' {} a -> s {start = a} :: MatchRange)
 
-instance Core.FromJSON MatchRange where
+instance Data.FromJSON MatchRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MatchRange"
       ( \x ->
           MatchRange'
-            Prelude.<$> (x Core..: "end") Prelude.<*> (x Core..: "start")
+            Prelude.<$> (x Data..: "end") Prelude.<*> (x Data..: "start")
       )
 
 instance Prelude.Hashable MatchRange where
@@ -83,11 +84,11 @@ instance Prelude.NFData MatchRange where
   rnf MatchRange' {..} =
     Prelude.rnf end `Prelude.seq` Prelude.rnf start
 
-instance Core.ToJSON MatchRange where
+instance Data.ToJSON MatchRange where
   toJSON MatchRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("end" Core..= end),
-            Prelude.Just ("start" Core..= start)
+          [ Prelude.Just ("end" Data..= end),
+            Prelude.Just ("start" Data..= start)
           ]
       )

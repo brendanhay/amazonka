@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,8 +150,8 @@ instance Core.AWSRequest GetSlotTypes where
     Response.receiveJSON
       ( \s h x ->
           GetSlotTypesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "slotTypes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "slotTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,26 +167,26 @@ instance Prelude.NFData GetSlotTypes where
       `Prelude.seq` Prelude.rnf nameContains
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders GetSlotTypes where
+instance Data.ToHeaders GetSlotTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSlotTypes where
+instance Data.ToPath GetSlotTypes where
   toPath = Prelude.const "/slottypes/"
 
-instance Core.ToQuery GetSlotTypes where
+instance Data.ToQuery GetSlotTypes where
   toQuery GetSlotTypes' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "nameContains" Core.=: nameContains,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "nameContains" Data.=: nameContains,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetSlotTypesResponse' smart constructor.

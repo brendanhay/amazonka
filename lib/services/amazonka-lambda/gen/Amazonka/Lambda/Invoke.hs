@@ -97,6 +97,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -285,10 +286,10 @@ instance Core.AWSRequest Invoke where
     Response.receiveBytes
       ( \s h x ->
           InvokeResponse'
-            Prelude.<$> (h Core..#? "X-Amz-Executed-Version")
-            Prelude.<*> (h Core..#? "X-Amz-Function-Error")
+            Prelude.<$> (h Data..#? "X-Amz-Executed-Version")
+            Prelude.<*> (h Data..#? "X-Amz-Function-Error")
             Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
-            Prelude.<*> (h Core..#? "X-Amz-Log-Result")
+            Prelude.<*> (h Data..#? "X-Amz-Log-Result")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -310,28 +311,28 @@ instance Prelude.NFData Invoke where
       `Prelude.seq` Prelude.rnf functionName
       `Prelude.seq` Prelude.rnf payload
 
-instance Core.ToBody Invoke where
-  toBody Invoke' {..} = Core.toBody payload
+instance Data.ToBody Invoke where
+  toBody Invoke' {..} = Data.toBody payload
 
-instance Core.ToHeaders Invoke where
+instance Data.ToHeaders Invoke where
   toHeaders Invoke' {..} =
     Prelude.mconcat
-      [ "X-Amz-Log-Type" Core.=# logType,
-        "X-Amz-Client-Context" Core.=# clientContext,
-        "X-Amz-Invocation-Type" Core.=# invocationType
+      [ "X-Amz-Log-Type" Data.=# logType,
+        "X-Amz-Client-Context" Data.=# clientContext,
+        "X-Amz-Invocation-Type" Data.=# invocationType
       ]
 
-instance Core.ToPath Invoke where
+instance Data.ToPath Invoke where
   toPath Invoke' {..} =
     Prelude.mconcat
       [ "/2015-03-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/invocations"
       ]
 
-instance Core.ToQuery Invoke where
+instance Data.ToQuery Invoke where
   toQuery Invoke' {..} =
-    Prelude.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Data.=: qualifier]
 
 -- | /See:/ 'newInvokeResponse' smart constructor.
 data InvokeResponse = InvokeResponse'

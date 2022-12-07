@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.CommentMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.CommentStatusType
 import Amazonka.WorkDocs.Types.User
@@ -30,7 +31,7 @@ import Amazonka.WorkDocs.Types.User
 -- /See:/ 'newCommentMetadata' smart constructor.
 data CommentMetadata = CommentMetadata'
   { -- | The timestamp that the comment was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The status of the comment.
     commentStatus :: Prelude.Maybe CommentStatusType,
     -- | The ID of the comment.
@@ -73,7 +74,7 @@ newCommentMetadata =
 
 -- | The timestamp that the comment was created.
 commentMetadata_createdTimestamp :: Lens.Lens' CommentMetadata (Prelude.Maybe Prelude.UTCTime)
-commentMetadata_createdTimestamp = Lens.lens (\CommentMetadata' {createdTimestamp} -> createdTimestamp) (\s@CommentMetadata' {} a -> s {createdTimestamp = a} :: CommentMetadata) Prelude.. Lens.mapping Core._Time
+commentMetadata_createdTimestamp = Lens.lens (\CommentMetadata' {createdTimestamp} -> createdTimestamp) (\s@CommentMetadata' {} a -> s {createdTimestamp = a} :: CommentMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the comment.
 commentMetadata_commentStatus :: Lens.Lens' CommentMetadata (Prelude.Maybe CommentStatusType)
@@ -91,17 +92,17 @@ commentMetadata_contributor = Lens.lens (\CommentMetadata' {contributor} -> cont
 commentMetadata_recipientId :: Lens.Lens' CommentMetadata (Prelude.Maybe Prelude.Text)
 commentMetadata_recipientId = Lens.lens (\CommentMetadata' {recipientId} -> recipientId) (\s@CommentMetadata' {} a -> s {recipientId = a} :: CommentMetadata)
 
-instance Core.FromJSON CommentMetadata where
+instance Data.FromJSON CommentMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CommentMetadata"
       ( \x ->
           CommentMetadata'
-            Prelude.<$> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "CommentStatus")
-            Prelude.<*> (x Core..:? "CommentId")
-            Prelude.<*> (x Core..:? "Contributor")
-            Prelude.<*> (x Core..:? "RecipientId")
+            Prelude.<$> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "CommentStatus")
+            Prelude.<*> (x Data..:? "CommentId")
+            Prelude.<*> (x Data..:? "Contributor")
+            Prelude.<*> (x Data..:? "RecipientId")
       )
 
 instance Prelude.Hashable CommentMetadata where

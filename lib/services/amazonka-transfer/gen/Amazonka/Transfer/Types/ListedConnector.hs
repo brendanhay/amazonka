@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.ListedConnector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns details of the connector that is specified.
@@ -70,15 +71,15 @@ listedConnector_arn = Lens.lens (\ListedConnector' {arn} -> arn) (\s@ListedConne
 listedConnector_url :: Lens.Lens' ListedConnector (Prelude.Maybe Prelude.Text)
 listedConnector_url = Lens.lens (\ListedConnector' {url} -> url) (\s@ListedConnector' {} a -> s {url = a} :: ListedConnector)
 
-instance Core.FromJSON ListedConnector where
+instance Data.FromJSON ListedConnector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListedConnector"
       ( \x ->
           ListedConnector'
-            Prelude.<$> (x Core..:? "ConnectorId")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Url")
+            Prelude.<$> (x Data..:? "ConnectorId")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Url")
       )
 
 instance Prelude.Hashable ListedConnector where

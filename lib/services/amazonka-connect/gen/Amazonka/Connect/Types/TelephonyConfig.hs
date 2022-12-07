@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.TelephonyConfig where
 import Amazonka.Connect.Types.Distribution
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The distribution of traffic between the instance and its replicas.
@@ -51,13 +52,13 @@ newTelephonyConfig =
 telephonyConfig_distributions :: Lens.Lens' TelephonyConfig [Distribution]
 telephonyConfig_distributions = Lens.lens (\TelephonyConfig' {distributions} -> distributions) (\s@TelephonyConfig' {} a -> s {distributions = a} :: TelephonyConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON TelephonyConfig where
+instance Data.FromJSON TelephonyConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TelephonyConfig"
       ( \x ->
           TelephonyConfig'
-            Prelude.<$> (x Core..:? "Distributions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Distributions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TelephonyConfig where
@@ -67,11 +68,11 @@ instance Prelude.Hashable TelephonyConfig where
 instance Prelude.NFData TelephonyConfig where
   rnf TelephonyConfig' {..} = Prelude.rnf distributions
 
-instance Core.ToJSON TelephonyConfig where
+instance Data.ToJSON TelephonyConfig where
   toJSON TelephonyConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("Distributions" Core..= distributions)
+              ("Distributions" Data..= distributions)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.TextLogSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.TextLogDestination
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ textLogSetting_enabled = Lens.lens (\TextLogSetting' {enabled} -> enabled) (\s@T
 textLogSetting_destination :: Lens.Lens' TextLogSetting TextLogDestination
 textLogSetting_destination = Lens.lens (\TextLogSetting' {destination} -> destination) (\s@TextLogSetting' {} a -> s {destination = a} :: TextLogSetting)
 
-instance Core.FromJSON TextLogSetting where
+instance Data.FromJSON TextLogSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TextLogSetting"
       ( \x ->
           TextLogSetting'
-            Prelude.<$> (x Core..: "enabled")
-            Prelude.<*> (x Core..: "destination")
+            Prelude.<$> (x Data..: "enabled")
+            Prelude.<*> (x Data..: "destination")
       )
 
 instance Prelude.Hashable TextLogSetting where
@@ -85,11 +86,11 @@ instance Prelude.NFData TextLogSetting where
     Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToJSON TextLogSetting where
+instance Data.ToJSON TextLogSetting where
   toJSON TextLogSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("enabled" Core..= enabled),
-            Prelude.Just ("destination" Core..= destination)
+          [ Prelude.Just ("enabled" Data..= enabled),
+            Prelude.Just ("destination" Data..= destination)
           ]
       )

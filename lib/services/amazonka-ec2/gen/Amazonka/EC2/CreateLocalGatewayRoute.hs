@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,7 +149,7 @@ instance Core.AWSRequest CreateLocalGatewayRoute where
     Response.receiveXML
       ( \s h x ->
           CreateLocalGatewayRouteResponse'
-            Prelude.<$> (x Core..@? "route")
+            Prelude.<$> (x Data..@? "route")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,26 +169,26 @@ instance Prelude.NFData CreateLocalGatewayRoute where
       `Prelude.seq` Prelude.rnf destinationCidrBlock
       `Prelude.seq` Prelude.rnf localGatewayRouteTableId
 
-instance Core.ToHeaders CreateLocalGatewayRoute where
+instance Data.ToHeaders CreateLocalGatewayRoute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateLocalGatewayRoute where
+instance Data.ToPath CreateLocalGatewayRoute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLocalGatewayRoute where
+instance Data.ToQuery CreateLocalGatewayRoute where
   toQuery CreateLocalGatewayRoute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateLocalGatewayRoute" :: Prelude.ByteString),
+          Data.=: ("CreateLocalGatewayRoute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "NetworkInterfaceId" Core.=: networkInterfaceId,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "NetworkInterfaceId" Data.=: networkInterfaceId,
         "LocalGatewayVirtualInterfaceGroupId"
-          Core.=: localGatewayVirtualInterfaceGroupId,
-        "DestinationCidrBlock" Core.=: destinationCidrBlock,
+          Data.=: localGatewayVirtualInterfaceGroupId,
+        "DestinationCidrBlock" Data.=: destinationCidrBlock,
         "LocalGatewayRouteTableId"
-          Core.=: localGatewayRouteTableId
+          Data.=: localGatewayRouteTableId
       ]
 
 -- | /See:/ 'newCreateLocalGatewayRouteResponse' smart constructor.

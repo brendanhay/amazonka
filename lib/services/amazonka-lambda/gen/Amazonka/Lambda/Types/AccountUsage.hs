@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.AccountUsage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The number of functions and amount of storage in use.
@@ -64,14 +65,14 @@ accountUsage_totalCodeSize = Lens.lens (\AccountUsage' {totalCodeSize} -> totalC
 accountUsage_functionCount :: Lens.Lens' AccountUsage (Prelude.Maybe Prelude.Integer)
 accountUsage_functionCount = Lens.lens (\AccountUsage' {functionCount} -> functionCount) (\s@AccountUsage' {} a -> s {functionCount = a} :: AccountUsage)
 
-instance Core.FromJSON AccountUsage where
+instance Data.FromJSON AccountUsage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountUsage"
       ( \x ->
           AccountUsage'
-            Prelude.<$> (x Core..:? "TotalCodeSize")
-            Prelude.<*> (x Core..:? "FunctionCount")
+            Prelude.<$> (x Data..:? "TotalCodeSize")
+            Prelude.<*> (x Data..:? "FunctionCount")
       )
 
 instance Prelude.Hashable AccountUsage where

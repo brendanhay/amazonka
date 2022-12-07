@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -280,38 +281,38 @@ instance Prelude.NFData PutPrincipalMapping where
       `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf groupMembers
 
-instance Core.ToHeaders PutPrincipalMapping where
+instance Data.ToHeaders PutPrincipalMapping where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.PutPrincipalMapping" ::
+              Data.=# ( "AWSKendraFrontendService.PutPrincipalMapping" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutPrincipalMapping where
+instance Data.ToJSON PutPrincipalMapping where
   toJSON PutPrincipalMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSourceId" Core..=) Prelude.<$> dataSourceId,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("OrderingId" Core..=) Prelude.<$> orderingId,
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("GroupId" Core..= groupId),
-            Prelude.Just ("GroupMembers" Core..= groupMembers)
+          [ ("DataSourceId" Data..=) Prelude.<$> dataSourceId,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("OrderingId" Data..=) Prelude.<$> orderingId,
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("GroupId" Data..= groupId),
+            Prelude.Just ("GroupMembers" Data..= groupMembers)
           ]
       )
 
-instance Core.ToPath PutPrincipalMapping where
+instance Data.ToPath PutPrincipalMapping where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutPrincipalMapping where
+instance Data.ToQuery PutPrincipalMapping where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutPrincipalMappingResponse' smart constructor.

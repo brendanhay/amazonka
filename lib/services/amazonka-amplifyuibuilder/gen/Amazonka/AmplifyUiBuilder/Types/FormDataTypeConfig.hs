@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.FormDataTypeConfig where
 import Amazonka.AmplifyUiBuilder.Types.FormDataSourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the data type configuration for the data source associated
@@ -74,14 +75,14 @@ formDataTypeConfig_dataSourceType = Lens.lens (\FormDataTypeConfig' {dataSourceT
 formDataTypeConfig_dataTypeName :: Lens.Lens' FormDataTypeConfig Prelude.Text
 formDataTypeConfig_dataTypeName = Lens.lens (\FormDataTypeConfig' {dataTypeName} -> dataTypeName) (\s@FormDataTypeConfig' {} a -> s {dataTypeName = a} :: FormDataTypeConfig)
 
-instance Core.FromJSON FormDataTypeConfig where
+instance Data.FromJSON FormDataTypeConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FormDataTypeConfig"
       ( \x ->
           FormDataTypeConfig'
-            Prelude.<$> (x Core..: "dataSourceType")
-            Prelude.<*> (x Core..: "dataTypeName")
+            Prelude.<$> (x Data..: "dataSourceType")
+            Prelude.<*> (x Data..: "dataTypeName")
       )
 
 instance Prelude.Hashable FormDataTypeConfig where
@@ -94,12 +95,12 @@ instance Prelude.NFData FormDataTypeConfig where
     Prelude.rnf dataSourceType
       `Prelude.seq` Prelude.rnf dataTypeName
 
-instance Core.ToJSON FormDataTypeConfig where
+instance Data.ToJSON FormDataTypeConfig where
   toJSON FormDataTypeConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("dataSourceType" Core..= dataSourceType),
-            Prelude.Just ("dataTypeName" Core..= dataTypeName)
+              ("dataSourceType" Data..= dataSourceType),
+            Prelude.Just ("dataTypeName" Data..= dataTypeName)
           ]
       )

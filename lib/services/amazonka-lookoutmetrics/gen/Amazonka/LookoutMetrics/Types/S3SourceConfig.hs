@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.S3SourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.FileFormatDescriptor
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,16 +85,16 @@ s3SourceConfig_templatedPathList = Lens.lens (\S3SourceConfig' {templatedPathLis
 s3SourceConfig_historicalDataPathList :: Lens.Lens' S3SourceConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 s3SourceConfig_historicalDataPathList = Lens.lens (\S3SourceConfig' {historicalDataPathList} -> historicalDataPathList) (\s@S3SourceConfig' {} a -> s {historicalDataPathList = a} :: S3SourceConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON S3SourceConfig where
+instance Data.FromJSON S3SourceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3SourceConfig"
       ( \x ->
           S3SourceConfig'
-            Prelude.<$> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "FileFormatDescriptor")
-            Prelude.<*> (x Core..:? "TemplatedPathList")
-            Prelude.<*> (x Core..:? "HistoricalDataPathList")
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "FileFormatDescriptor")
+            Prelude.<*> (x Data..:? "TemplatedPathList")
+            Prelude.<*> (x Data..:? "HistoricalDataPathList")
       )
 
 instance Prelude.Hashable S3SourceConfig where
@@ -110,16 +111,16 @@ instance Prelude.NFData S3SourceConfig where
       `Prelude.seq` Prelude.rnf templatedPathList
       `Prelude.seq` Prelude.rnf historicalDataPathList
 
-instance Core.ToJSON S3SourceConfig where
+instance Data.ToJSON S3SourceConfig where
   toJSON S3SourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("FileFormatDescriptor" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("FileFormatDescriptor" Data..=)
               Prelude.<$> fileFormatDescriptor,
-            ("TemplatedPathList" Core..=)
+            ("TemplatedPathList" Data..=)
               Prelude.<$> templatedPathList,
-            ("HistoricalDataPathList" Core..=)
+            ("HistoricalDataPathList" Data..=)
               Prelude.<$> historicalDataPathList
           ]
       )

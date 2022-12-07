@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.OrderableDBInstanceOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types.AvailabilityZone
 import qualified Amazonka.Prelude as Prelude
 
@@ -244,33 +245,33 @@ orderableDBInstanceOption_minIopsPerGib = Lens.lens (\OrderableDBInstanceOption'
 orderableDBInstanceOption_licenseModel :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Text)
 orderableDBInstanceOption_licenseModel = Lens.lens (\OrderableDBInstanceOption' {licenseModel} -> licenseModel) (\s@OrderableDBInstanceOption' {} a -> s {licenseModel = a} :: OrderableDBInstanceOption)
 
-instance Core.FromXML OrderableDBInstanceOption where
+instance Data.FromXML OrderableDBInstanceOption where
   parseXML x =
     OrderableDBInstanceOption'
-      Prelude.<$> (x Core..@? "SupportsStorageEncryption")
-      Prelude.<*> (x Core..@? "MaxStorageSize")
-      Prelude.<*> (x Core..@? "MultiAZCapable")
-      Prelude.<*> (x Core..@? "DBInstanceClass")
-      Prelude.<*> (x Core..@? "Vpc")
-      Prelude.<*> (x Core..@? "SupportsPerformanceInsights")
-      Prelude.<*> ( x Core..@? "AvailabilityZones"
+      Prelude.<$> (x Data..@? "SupportsStorageEncryption")
+      Prelude.<*> (x Data..@? "MaxStorageSize")
+      Prelude.<*> (x Data..@? "MultiAZCapable")
+      Prelude.<*> (x Data..@? "DBInstanceClass")
+      Prelude.<*> (x Data..@? "Vpc")
+      Prelude.<*> (x Data..@? "SupportsPerformanceInsights")
+      Prelude.<*> ( x Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "AvailabilityZone")
+                      Prelude.>>= Core.may (Data.parseXMLList "AvailabilityZone")
                   )
-      Prelude.<*> (x Core..@? "MinIopsPerDbInstance")
-      Prelude.<*> (x Core..@? "MinStorageSize")
-      Prelude.<*> (x Core..@? "StorageType")
-      Prelude.<*> (x Core..@? "SupportsIops")
-      Prelude.<*> (x Core..@? "MaxIopsPerDbInstance")
-      Prelude.<*> (x Core..@? "SupportsIAMDatabaseAuthentication")
-      Prelude.<*> (x Core..@? "SupportsEnhancedMonitoring")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "ReadReplicaCapable")
-      Prelude.<*> (x Core..@? "SupportsGlobalDatabases")
-      Prelude.<*> (x Core..@? "MaxIopsPerGib")
-      Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "MinIopsPerGib")
-      Prelude.<*> (x Core..@? "LicenseModel")
+      Prelude.<*> (x Data..@? "MinIopsPerDbInstance")
+      Prelude.<*> (x Data..@? "MinStorageSize")
+      Prelude.<*> (x Data..@? "StorageType")
+      Prelude.<*> (x Data..@? "SupportsIops")
+      Prelude.<*> (x Data..@? "MaxIopsPerDbInstance")
+      Prelude.<*> (x Data..@? "SupportsIAMDatabaseAuthentication")
+      Prelude.<*> (x Data..@? "SupportsEnhancedMonitoring")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "ReadReplicaCapable")
+      Prelude.<*> (x Data..@? "SupportsGlobalDatabases")
+      Prelude.<*> (x Data..@? "MaxIopsPerGib")
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "MinIopsPerGib")
+      Prelude.<*> (x Data..@? "LicenseModel")
 
 instance Prelude.Hashable OrderableDBInstanceOption where
   hashWithSalt _salt OrderableDBInstanceOption' {..} =

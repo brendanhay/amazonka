@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -226,11 +227,11 @@ instance Core.AWSRequest SetSubnets where
       "SetSubnetsResult"
       ( \s h x ->
           SetSubnetsResponse'
-            Prelude.<$> ( x Core..@? "AvailabilityZones"
+            Prelude.<$> ( x Data..@? "AvailabilityZones"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "IpAddressType")
+            Prelude.<*> (x Data..@? "IpAddressType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -248,29 +249,29 @@ instance Prelude.NFData SetSubnets where
       `Prelude.seq` Prelude.rnf ipAddressType
       `Prelude.seq` Prelude.rnf loadBalancerArn
 
-instance Core.ToHeaders SetSubnets where
+instance Data.ToHeaders SetSubnets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SetSubnets where
+instance Data.ToPath SetSubnets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetSubnets where
+instance Data.ToQuery SetSubnets where
   toQuery SetSubnets' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SetSubnets" :: Prelude.ByteString),
+          Data.=: ("SetSubnets" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
         "Subnets"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> subnets),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> subnets),
         "SubnetMappings"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> subnetMappings
             ),
-        "IpAddressType" Core.=: ipAddressType,
-        "LoadBalancerArn" Core.=: loadBalancerArn
+        "IpAddressType" Data.=: ipAddressType,
+        "LoadBalancerArn" Data.=: loadBalancerArn
       ]
 
 -- | /See:/ 'newSetSubnetsResponse' smart constructor.

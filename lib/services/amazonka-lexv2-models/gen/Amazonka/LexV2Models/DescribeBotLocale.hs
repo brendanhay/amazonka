@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,26 +131,26 @@ instance Core.AWSRequest DescribeBotLocale where
     Response.receiveJSON
       ( \s h x ->
           DescribeBotLocaleResponse'
-            Prelude.<$> (x Core..?> "nluIntentConfidenceThreshold")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "slotTypesCount")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "localeName")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> ( x Core..?> "botLocaleHistoryEvents"
+            Prelude.<$> (x Data..?> "nluIntentConfidenceThreshold")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "slotTypesCount")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "localeName")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> ( x Data..?> "botLocaleHistoryEvents"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "recommendedActions"
+            Prelude.<*> ( x Data..?> "recommendedActions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "lastBuildSubmittedDateTime")
-            Prelude.<*> (x Core..?> "botLocaleStatus")
-            Prelude.<*> (x Core..?> "voiceSettings")
-            Prelude.<*> (x Core..?> "failureReasons" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "lastUpdatedDateTime")
-            Prelude.<*> (x Core..?> "intentsCount")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "lastBuildSubmittedDateTime")
+            Prelude.<*> (x Data..?> "botLocaleStatus")
+            Prelude.<*> (x Data..?> "voiceSettings")
+            Prelude.<*> (x Data..?> "failureReasons" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
+            Prelude.<*> (x Data..?> "intentsCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,30 +166,30 @@ instance Prelude.NFData DescribeBotLocale where
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
 
-instance Core.ToHeaders DescribeBotLocale where
+instance Data.ToHeaders DescribeBotLocale where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeBotLocale where
+instance Data.ToPath DescribeBotLocale where
   toPath DescribeBotLocale' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/"
       ]
 
-instance Core.ToQuery DescribeBotLocale where
+instance Data.ToQuery DescribeBotLocale where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeBotLocaleResponse' smart constructor.
@@ -202,7 +203,7 @@ data DescribeBotLocaleResponse = DescribeBotLocaleResponse'
     -- | The number of slot types defined for the locale.
     slotTypesCount :: Prelude.Maybe Prelude.Int,
     -- | The date and time that the locale was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the locale.
     localeName :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the described locale.
@@ -218,7 +219,7 @@ data DescribeBotLocaleResponse = DescribeBotLocaleResponse'
     -- | The identifier of the bot associated with the locale.
     botId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the locale was last submitted for building.
-    lastBuildSubmittedDateTime :: Prelude.Maybe Core.POSIX,
+    lastBuildSubmittedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The status of the bot. If the status is @Failed@, the reasons for the
     -- failure are listed in the @failureReasons@ field.
     botLocaleStatus :: Prelude.Maybe BotLocaleStatus,
@@ -229,7 +230,7 @@ data DescribeBotLocaleResponse = DescribeBotLocaleResponse'
     -- build the bot.
     failureReasons :: Prelude.Maybe [Prelude.Text],
     -- | The date and time that the locale was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The number of intents defined for the locale.
     intentsCount :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
@@ -327,7 +328,7 @@ describeBotLocaleResponse_slotTypesCount = Lens.lens (\DescribeBotLocaleResponse
 
 -- | The date and time that the locale was created.
 describeBotLocaleResponse_creationDateTime :: Lens.Lens' DescribeBotLocaleResponse (Prelude.Maybe Prelude.UTCTime)
-describeBotLocaleResponse_creationDateTime = Lens.lens (\DescribeBotLocaleResponse' {creationDateTime} -> creationDateTime) (\s@DescribeBotLocaleResponse' {} a -> s {creationDateTime = a} :: DescribeBotLocaleResponse) Prelude.. Lens.mapping Core._Time
+describeBotLocaleResponse_creationDateTime = Lens.lens (\DescribeBotLocaleResponse' {creationDateTime} -> creationDateTime) (\s@DescribeBotLocaleResponse' {} a -> s {creationDateTime = a} :: DescribeBotLocaleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the locale.
 describeBotLocaleResponse_localeName :: Lens.Lens' DescribeBotLocaleResponse (Prelude.Maybe Prelude.Text)
@@ -357,7 +358,7 @@ describeBotLocaleResponse_botId = Lens.lens (\DescribeBotLocaleResponse' {botId}
 
 -- | The date and time that the locale was last submitted for building.
 describeBotLocaleResponse_lastBuildSubmittedDateTime :: Lens.Lens' DescribeBotLocaleResponse (Prelude.Maybe Prelude.UTCTime)
-describeBotLocaleResponse_lastBuildSubmittedDateTime = Lens.lens (\DescribeBotLocaleResponse' {lastBuildSubmittedDateTime} -> lastBuildSubmittedDateTime) (\s@DescribeBotLocaleResponse' {} a -> s {lastBuildSubmittedDateTime = a} :: DescribeBotLocaleResponse) Prelude.. Lens.mapping Core._Time
+describeBotLocaleResponse_lastBuildSubmittedDateTime = Lens.lens (\DescribeBotLocaleResponse' {lastBuildSubmittedDateTime} -> lastBuildSubmittedDateTime) (\s@DescribeBotLocaleResponse' {} a -> s {lastBuildSubmittedDateTime = a} :: DescribeBotLocaleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the bot. If the status is @Failed@, the reasons for the
 -- failure are listed in the @failureReasons@ field.
@@ -376,7 +377,7 @@ describeBotLocaleResponse_failureReasons = Lens.lens (\DescribeBotLocaleResponse
 
 -- | The date and time that the locale was last updated.
 describeBotLocaleResponse_lastUpdatedDateTime :: Lens.Lens' DescribeBotLocaleResponse (Prelude.Maybe Prelude.UTCTime)
-describeBotLocaleResponse_lastUpdatedDateTime = Lens.lens (\DescribeBotLocaleResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeBotLocaleResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeBotLocaleResponse) Prelude.. Lens.mapping Core._Time
+describeBotLocaleResponse_lastUpdatedDateTime = Lens.lens (\DescribeBotLocaleResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeBotLocaleResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeBotLocaleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The number of intents defined for the locale.
 describeBotLocaleResponse_intentsCount :: Lens.Lens' DescribeBotLocaleResponse (Prelude.Maybe Prelude.Int)

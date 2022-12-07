@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.Deserializer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.HiveJsonSerDe
 import Amazonka.Firehose.Types.OpenXJsonSerDe
 import qualified Amazonka.Prelude as Prelude
@@ -95,14 +96,14 @@ deserializer_hiveJsonSerDe = Lens.lens (\Deserializer' {hiveJsonSerDe} -> hiveJs
 deserializer_openXJsonSerDe :: Lens.Lens' Deserializer (Prelude.Maybe OpenXJsonSerDe)
 deserializer_openXJsonSerDe = Lens.lens (\Deserializer' {openXJsonSerDe} -> openXJsonSerDe) (\s@Deserializer' {} a -> s {openXJsonSerDe = a} :: Deserializer)
 
-instance Core.FromJSON Deserializer where
+instance Data.FromJSON Deserializer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Deserializer"
       ( \x ->
           Deserializer'
-            Prelude.<$> (x Core..:? "HiveJsonSerDe")
-            Prelude.<*> (x Core..:? "OpenXJsonSerDe")
+            Prelude.<$> (x Data..:? "HiveJsonSerDe")
+            Prelude.<*> (x Data..:? "OpenXJsonSerDe")
       )
 
 instance Prelude.Hashable Deserializer where
@@ -115,12 +116,12 @@ instance Prelude.NFData Deserializer where
     Prelude.rnf hiveJsonSerDe
       `Prelude.seq` Prelude.rnf openXJsonSerDe
 
-instance Core.ToJSON Deserializer where
+instance Data.ToJSON Deserializer where
   toJSON Deserializer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HiveJsonSerDe" Core..=) Prelude.<$> hiveJsonSerDe,
-            ("OpenXJsonSerDe" Core..=)
+          [ ("HiveJsonSerDe" Data..=) Prelude.<$> hiveJsonSerDe,
+            ("OpenXJsonSerDe" Data..=)
               Prelude.<$> openXJsonSerDe
           ]
       )

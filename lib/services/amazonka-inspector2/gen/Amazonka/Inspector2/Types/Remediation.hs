@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.Remediation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.Recommendation
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newRemediation =
 remediation_recommendation :: Lens.Lens' Remediation (Prelude.Maybe Recommendation)
 remediation_recommendation = Lens.lens (\Remediation' {recommendation} -> recommendation) (\s@Remediation' {} a -> s {recommendation = a} :: Remediation)
 
-instance Core.FromJSON Remediation where
+instance Data.FromJSON Remediation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Remediation"
       ( \x ->
           Remediation'
-            Prelude.<$> (x Core..:? "recommendation")
+            Prelude.<$> (x Data..:? "recommendation")
       )
 
 instance Prelude.Hashable Remediation where

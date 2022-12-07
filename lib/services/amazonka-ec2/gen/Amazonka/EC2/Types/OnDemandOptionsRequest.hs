@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.OnDemandOptionsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CapacityReservationOptionsRequest
 import Amazonka.EC2.Types.FleetOnDemandAllocationStrategy
@@ -194,15 +195,15 @@ instance Prelude.NFData OnDemandOptionsRequest where
       `Prelude.seq` Prelude.rnf allocationStrategy
       `Prelude.seq` Prelude.rnf maxTotalPrice
 
-instance Core.ToQuery OnDemandOptionsRequest where
+instance Data.ToQuery OnDemandOptionsRequest where
   toQuery OnDemandOptionsRequest' {..} =
     Prelude.mconcat
-      [ "SingleInstanceType" Core.=: singleInstanceType,
+      [ "SingleInstanceType" Data.=: singleInstanceType,
         "SingleAvailabilityZone"
-          Core.=: singleAvailabilityZone,
-        "MinTargetCapacity" Core.=: minTargetCapacity,
+          Data.=: singleAvailabilityZone,
+        "MinTargetCapacity" Data.=: minTargetCapacity,
         "CapacityReservationOptions"
-          Core.=: capacityReservationOptions,
-        "AllocationStrategy" Core.=: allocationStrategy,
-        "MaxTotalPrice" Core.=: maxTotalPrice
+          Data.=: capacityReservationOptions,
+        "AllocationStrategy" Data.=: allocationStrategy,
+        "MaxTotalPrice" Data.=: maxTotalPrice
       ]

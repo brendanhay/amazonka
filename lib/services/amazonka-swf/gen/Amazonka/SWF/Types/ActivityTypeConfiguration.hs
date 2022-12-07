@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.ActivityTypeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.TaskList
 
@@ -227,18 +228,18 @@ activityTypeConfiguration_defaultTaskList = Lens.lens (\ActivityTypeConfiguratio
 activityTypeConfiguration_defaultTaskScheduleToCloseTimeout :: Lens.Lens' ActivityTypeConfiguration (Prelude.Maybe Prelude.Text)
 activityTypeConfiguration_defaultTaskScheduleToCloseTimeout = Lens.lens (\ActivityTypeConfiguration' {defaultTaskScheduleToCloseTimeout} -> defaultTaskScheduleToCloseTimeout) (\s@ActivityTypeConfiguration' {} a -> s {defaultTaskScheduleToCloseTimeout = a} :: ActivityTypeConfiguration)
 
-instance Core.FromJSON ActivityTypeConfiguration where
+instance Data.FromJSON ActivityTypeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActivityTypeConfiguration"
       ( \x ->
           ActivityTypeConfiguration'
-            Prelude.<$> (x Core..:? "defaultTaskStartToCloseTimeout")
-            Prelude.<*> (x Core..:? "defaultTaskHeartbeatTimeout")
-            Prelude.<*> (x Core..:? "defaultTaskPriority")
-            Prelude.<*> (x Core..:? "defaultTaskScheduleToStartTimeout")
-            Prelude.<*> (x Core..:? "defaultTaskList")
-            Prelude.<*> (x Core..:? "defaultTaskScheduleToCloseTimeout")
+            Prelude.<$> (x Data..:? "defaultTaskStartToCloseTimeout")
+            Prelude.<*> (x Data..:? "defaultTaskHeartbeatTimeout")
+            Prelude.<*> (x Data..:? "defaultTaskPriority")
+            Prelude.<*> (x Data..:? "defaultTaskScheduleToStartTimeout")
+            Prelude.<*> (x Data..:? "defaultTaskList")
+            Prelude.<*> (x Data..:? "defaultTaskScheduleToCloseTimeout")
       )
 
 instance Prelude.Hashable ActivityTypeConfiguration where

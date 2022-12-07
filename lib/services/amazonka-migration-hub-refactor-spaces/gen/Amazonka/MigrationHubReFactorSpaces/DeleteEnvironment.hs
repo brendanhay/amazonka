@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,11 +93,11 @@ instance Core.AWSRequest DeleteEnvironment where
     Response.receiveJSON
       ( \s h x ->
           DeleteEnvironmentResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "LastUpdatedTime")
-            Prelude.<*> (x Core..?> "EnvironmentId")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "LastUpdatedTime")
+            Prelude.<*> (x Data..?> "EnvironmentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,23 +109,23 @@ instance Prelude.NFData DeleteEnvironment where
   rnf DeleteEnvironment' {..} =
     Prelude.rnf environmentIdentifier
 
-instance Core.ToHeaders DeleteEnvironment where
+instance Data.ToHeaders DeleteEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteEnvironment where
+instance Data.ToPath DeleteEnvironment where
   toPath DeleteEnvironment' {..} =
     Prelude.mconcat
-      ["/environments/", Core.toBS environmentIdentifier]
+      ["/environments/", Data.toBS environmentIdentifier]
 
-instance Core.ToQuery DeleteEnvironment where
+instance Data.ToQuery DeleteEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEnvironmentResponse' smart constructor.
@@ -136,7 +137,7 @@ data DeleteEnvironmentResponse = DeleteEnvironmentResponse'
     -- | The current state of the environment.
     state :: Prelude.Maybe EnvironmentState,
     -- | A timestamp that indicates when the environment was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the environment.
     environmentId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -191,7 +192,7 @@ deleteEnvironmentResponse_state = Lens.lens (\DeleteEnvironmentResponse' {state}
 
 -- | A timestamp that indicates when the environment was last updated.
 deleteEnvironmentResponse_lastUpdatedTime :: Lens.Lens' DeleteEnvironmentResponse (Prelude.Maybe Prelude.UTCTime)
-deleteEnvironmentResponse_lastUpdatedTime = Lens.lens (\DeleteEnvironmentResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DeleteEnvironmentResponse' {} a -> s {lastUpdatedTime = a} :: DeleteEnvironmentResponse) Prelude.. Lens.mapping Core._Time
+deleteEnvironmentResponse_lastUpdatedTime = Lens.lens (\DeleteEnvironmentResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DeleteEnvironmentResponse' {} a -> s {lastUpdatedTime = a} :: DeleteEnvironmentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of the environment.
 deleteEnvironmentResponse_environmentId :: Lens.Lens' DeleteEnvironmentResponse (Prelude.Maybe Prelude.Text)

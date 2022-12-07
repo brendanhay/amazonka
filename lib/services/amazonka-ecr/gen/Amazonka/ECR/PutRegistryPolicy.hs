@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,8 +100,8 @@ instance Core.AWSRequest PutRegistryPolicy where
     Response.receiveJSON
       ( \s h x ->
           PutRegistryPolicyResponse'
-            Prelude.<$> (x Core..?> "policyText")
-            Prelude.<*> (x Core..?> "registryId")
+            Prelude.<$> (x Data..?> "policyText")
+            Prelude.<*> (x Data..?> "registryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,32 +112,32 @@ instance Prelude.Hashable PutRegistryPolicy where
 instance Prelude.NFData PutRegistryPolicy where
   rnf PutRegistryPolicy' {..} = Prelude.rnf policyText
 
-instance Core.ToHeaders PutRegistryPolicy where
+instance Data.ToHeaders PutRegistryPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.PutRegistryPolicy" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.PutRegistryPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRegistryPolicy where
+instance Data.ToJSON PutRegistryPolicy where
   toJSON PutRegistryPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("policyText" Core..= policyText)]
+          [Prelude.Just ("policyText" Data..= policyText)]
       )
 
-instance Core.ToPath PutRegistryPolicy where
+instance Data.ToPath PutRegistryPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutRegistryPolicy where
+instance Data.ToQuery PutRegistryPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRegistryPolicyResponse' smart constructor.

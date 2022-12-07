@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -168,11 +169,11 @@ instance Core.AWSRequest ListServerCertificateTags where
       "ListServerCertificateTagsResult"
       ( \s h x ->
           ListServerCertificateTagsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -188,23 +189,23 @@ instance Prelude.NFData ListServerCertificateTags where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf serverCertificateName
 
-instance Core.ToHeaders ListServerCertificateTags where
+instance Data.ToHeaders ListServerCertificateTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListServerCertificateTags where
+instance Data.ToPath ListServerCertificateTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListServerCertificateTags where
+instance Data.ToQuery ListServerCertificateTags where
   toQuery ListServerCertificateTags' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListServerCertificateTags" :: Prelude.ByteString),
+          Data.=: ("ListServerCertificateTags" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
         "ServerCertificateName"
-          Core.=: serverCertificateName
+          Data.=: serverCertificateName
       ]
 
 -- | /See:/ 'newListServerCertificateTagsResponse' smart constructor.

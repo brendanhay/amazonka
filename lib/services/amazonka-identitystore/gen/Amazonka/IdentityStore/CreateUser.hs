@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IdentityStore.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -69,25 +70,25 @@ data CreateUser = CreateUser'
     -- symbols, numbers, and punctuation. This value is specified at the time
     -- the user is created and stored as an attribute of the user object in the
     -- identity store.
-    userName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    userName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing the user\'s geographical region or location.
-    locale :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    locale :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing the user\'s time zone.
-    timezone :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    timezone :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing the user\'s name. This value is typically formatted
     -- for display when the user is referenced. For example, \"John Doe.\"
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string indicating the user\'s type. Possible values depend on each
     -- customer\'s specific needs, so they are left unspecified.
-    userType :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    userType :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing a URL that may be associated with the user.
-    profileUrl :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    profileUrl :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing the preferred language of the user. For example,
     -- \"American English\" or \"en-us.\"
-    preferredLanguage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    preferredLanguage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing the user\'s title. Possible values are left
     -- unspecified given that they depend on each customer\'s specific needs.
-    title :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    title :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A list of @Email@ objects containing email addresses associated with the
     -- user.
     emails :: Prelude.Maybe (Prelude.NonEmpty Email),
@@ -95,7 +96,7 @@ data CreateUser = CreateUser'
     -- user.
     addresses :: Prelude.Maybe (Prelude.NonEmpty Address),
     -- | A string containing an alternate name for the user.
-    nickName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nickName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A list of @PhoneNumber@ objects containing phone numbers associated with
     -- the user.
     phoneNumbers :: Prelude.Maybe (Prelude.NonEmpty PhoneNumber),
@@ -182,39 +183,39 @@ createUser_name = Lens.lens (\CreateUser' {name} -> name) (\s@CreateUser' {} a -
 -- the user is created and stored as an attribute of the user object in the
 -- identity store.
 createUser_userName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_userName = Lens.lens (\CreateUser' {userName} -> userName) (\s@CreateUser' {} a -> s {userName = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+createUser_userName = Lens.lens (\CreateUser' {userName} -> userName) (\s@CreateUser' {} a -> s {userName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing the user\'s geographical region or location.
 createUser_locale :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_locale = Lens.lens (\CreateUser' {locale} -> locale) (\s@CreateUser' {} a -> s {locale = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+createUser_locale = Lens.lens (\CreateUser' {locale} -> locale) (\s@CreateUser' {} a -> s {locale = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing the user\'s time zone.
 createUser_timezone :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_timezone = Lens.lens (\CreateUser' {timezone} -> timezone) (\s@CreateUser' {} a -> s {timezone = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+createUser_timezone = Lens.lens (\CreateUser' {timezone} -> timezone) (\s@CreateUser' {} a -> s {timezone = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing the user\'s name. This value is typically formatted
 -- for display when the user is referenced. For example, \"John Doe.\"
 createUser_displayName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_displayName = Lens.lens (\CreateUser' {displayName} -> displayName) (\s@CreateUser' {} a -> s {displayName = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+createUser_displayName = Lens.lens (\CreateUser' {displayName} -> displayName) (\s@CreateUser' {} a -> s {displayName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string indicating the user\'s type. Possible values depend on each
 -- customer\'s specific needs, so they are left unspecified.
 createUser_userType :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_userType = Lens.lens (\CreateUser' {userType} -> userType) (\s@CreateUser' {} a -> s {userType = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+createUser_userType = Lens.lens (\CreateUser' {userType} -> userType) (\s@CreateUser' {} a -> s {userType = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing a URL that may be associated with the user.
 createUser_profileUrl :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_profileUrl = Lens.lens (\CreateUser' {profileUrl} -> profileUrl) (\s@CreateUser' {} a -> s {profileUrl = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+createUser_profileUrl = Lens.lens (\CreateUser' {profileUrl} -> profileUrl) (\s@CreateUser' {} a -> s {profileUrl = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing the preferred language of the user. For example,
 -- \"American English\" or \"en-us.\"
 createUser_preferredLanguage :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_preferredLanguage = Lens.lens (\CreateUser' {preferredLanguage} -> preferredLanguage) (\s@CreateUser' {} a -> s {preferredLanguage = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+createUser_preferredLanguage = Lens.lens (\CreateUser' {preferredLanguage} -> preferredLanguage) (\s@CreateUser' {} a -> s {preferredLanguage = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing the user\'s title. Possible values are left
 -- unspecified given that they depend on each customer\'s specific needs.
 createUser_title :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_title = Lens.lens (\CreateUser' {title} -> title) (\s@CreateUser' {} a -> s {title = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+createUser_title = Lens.lens (\CreateUser' {title} -> title) (\s@CreateUser' {} a -> s {title = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A list of @Email@ objects containing email addresses associated with the
 -- user.
@@ -228,7 +229,7 @@ createUser_addresses = Lens.lens (\CreateUser' {addresses} -> addresses) (\s@Cre
 
 -- | A string containing an alternate name for the user.
 createUser_nickName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_nickName = Lens.lens (\CreateUser' {nickName} -> nickName) (\s@CreateUser' {} a -> s {nickName = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+createUser_nickName = Lens.lens (\CreateUser' {nickName} -> nickName) (\s@CreateUser' {} a -> s {nickName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A list of @PhoneNumber@ objects containing phone numbers associated with
 -- the user.
@@ -248,8 +249,8 @@ instance Core.AWSRequest CreateUser where
       ( \s h x ->
           CreateUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "UserId")
-            Prelude.<*> (x Core..:> "IdentityStoreId")
+            Prelude.<*> (x Data..:> "UserId")
+            Prelude.<*> (x Data..:> "IdentityStoreId")
       )
 
 instance Prelude.Hashable CreateUser where
@@ -286,48 +287,48 @@ instance Prelude.NFData CreateUser where
       `Prelude.seq` Prelude.rnf phoneNumbers
       `Prelude.seq` Prelude.rnf identityStoreId
 
-instance Core.ToHeaders CreateUser where
+instance Data.ToHeaders CreateUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIdentityStore.CreateUser" ::
+              Data.=# ( "AWSIdentityStore.CreateUser" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUser where
+instance Data.ToJSON CreateUser where
   toJSON CreateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("UserName" Core..=) Prelude.<$> userName,
-            ("Locale" Core..=) Prelude.<$> locale,
-            ("Timezone" Core..=) Prelude.<$> timezone,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("UserType" Core..=) Prelude.<$> userType,
-            ("ProfileUrl" Core..=) Prelude.<$> profileUrl,
-            ("PreferredLanguage" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("UserName" Data..=) Prelude.<$> userName,
+            ("Locale" Data..=) Prelude.<$> locale,
+            ("Timezone" Data..=) Prelude.<$> timezone,
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("UserType" Data..=) Prelude.<$> userType,
+            ("ProfileUrl" Data..=) Prelude.<$> profileUrl,
+            ("PreferredLanguage" Data..=)
               Prelude.<$> preferredLanguage,
-            ("Title" Core..=) Prelude.<$> title,
-            ("Emails" Core..=) Prelude.<$> emails,
-            ("Addresses" Core..=) Prelude.<$> addresses,
-            ("NickName" Core..=) Prelude.<$> nickName,
-            ("PhoneNumbers" Core..=) Prelude.<$> phoneNumbers,
+            ("Title" Data..=) Prelude.<$> title,
+            ("Emails" Data..=) Prelude.<$> emails,
+            ("Addresses" Data..=) Prelude.<$> addresses,
+            ("NickName" Data..=) Prelude.<$> nickName,
+            ("PhoneNumbers" Data..=) Prelude.<$> phoneNumbers,
             Prelude.Just
-              ("IdentityStoreId" Core..= identityStoreId)
+              ("IdentityStoreId" Data..= identityStoreId)
           ]
       )
 
-instance Core.ToPath CreateUser where
+instance Data.ToPath CreateUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUser where
+instance Data.ToQuery CreateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserResponse' smart constructor.

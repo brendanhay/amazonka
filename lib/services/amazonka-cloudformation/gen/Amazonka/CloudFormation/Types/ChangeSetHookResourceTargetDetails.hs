@@ -22,6 +22,7 @@ module Amazonka.CloudFormation.Types.ChangeSetHookResourceTargetDetails where
 import Amazonka.CloudFormation.Types.ChangeAction
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies @RESOURCE@ type target details for activated hooks.
@@ -73,14 +74,14 @@ changeSetHookResourceTargetDetails_logicalResourceId :: Lens.Lens' ChangeSetHook
 changeSetHookResourceTargetDetails_logicalResourceId = Lens.lens (\ChangeSetHookResourceTargetDetails' {logicalResourceId} -> logicalResourceId) (\s@ChangeSetHookResourceTargetDetails' {} a -> s {logicalResourceId = a} :: ChangeSetHookResourceTargetDetails)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ChangeSetHookResourceTargetDetails
   where
   parseXML x =
     ChangeSetHookResourceTargetDetails'
-      Prelude.<$> (x Core..@? "ResourceType")
-      Prelude.<*> (x Core..@? "ResourceAction")
-      Prelude.<*> (x Core..@? "LogicalResourceId")
+      Prelude.<$> (x Data..@? "ResourceType")
+      Prelude.<*> (x Data..@? "ResourceAction")
+      Prelude.<*> (x Data..@? "LogicalResourceId")
 
 instance
   Prelude.Hashable

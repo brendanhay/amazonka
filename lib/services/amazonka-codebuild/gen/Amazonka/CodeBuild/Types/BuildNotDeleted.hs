@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.BuildNotDeleted where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a build that could not be successfully deleted.
@@ -64,14 +65,14 @@ buildNotDeleted_id = Lens.lens (\BuildNotDeleted' {id} -> id) (\s@BuildNotDelete
 buildNotDeleted_statusCode :: Lens.Lens' BuildNotDeleted (Prelude.Maybe Prelude.Text)
 buildNotDeleted_statusCode = Lens.lens (\BuildNotDeleted' {statusCode} -> statusCode) (\s@BuildNotDeleted' {} a -> s {statusCode = a} :: BuildNotDeleted)
 
-instance Core.FromJSON BuildNotDeleted where
+instance Data.FromJSON BuildNotDeleted where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BuildNotDeleted"
       ( \x ->
           BuildNotDeleted'
-            Prelude.<$> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "statusCode")
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "statusCode")
       )
 
 instance Prelude.Hashable BuildNotDeleted where

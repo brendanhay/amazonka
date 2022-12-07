@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -204,44 +205,44 @@ instance Prelude.NFData CreateEdgePackagingJob where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf outputConfig
 
-instance Core.ToHeaders CreateEdgePackagingJob where
+instance Data.ToHeaders CreateEdgePackagingJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateEdgePackagingJob" ::
+              Data.=# ( "SageMaker.CreateEdgePackagingJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEdgePackagingJob where
+instance Data.ToJSON CreateEdgePackagingJob where
   toJSON CreateEdgePackagingJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ResourceKey" Core..=) Prelude.<$> resourceKey,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ResourceKey" Data..=) Prelude.<$> resourceKey,
             Prelude.Just
               ( "EdgePackagingJobName"
-                  Core..= edgePackagingJobName
+                  Data..= edgePackagingJobName
               ),
             Prelude.Just
-              ("CompilationJobName" Core..= compilationJobName),
-            Prelude.Just ("ModelName" Core..= modelName),
-            Prelude.Just ("ModelVersion" Core..= modelVersion),
-            Prelude.Just ("RoleArn" Core..= roleArn),
-            Prelude.Just ("OutputConfig" Core..= outputConfig)
+              ("CompilationJobName" Data..= compilationJobName),
+            Prelude.Just ("ModelName" Data..= modelName),
+            Prelude.Just ("ModelVersion" Data..= modelVersion),
+            Prelude.Just ("RoleArn" Data..= roleArn),
+            Prelude.Just ("OutputConfig" Data..= outputConfig)
           ]
       )
 
-instance Core.ToPath CreateEdgePackagingJob where
+instance Data.ToPath CreateEdgePackagingJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEdgePackagingJob where
+instance Data.ToQuery CreateEdgePackagingJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEdgePackagingJobResponse' smart constructor.

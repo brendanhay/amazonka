@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.PublishFindingToSnsParams where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Parameters to define a mitigation action that publishes findings to
@@ -54,13 +55,13 @@ newPublishFindingToSnsParams pTopicArn_ =
 publishFindingToSnsParams_topicArn :: Lens.Lens' PublishFindingToSnsParams Prelude.Text
 publishFindingToSnsParams_topicArn = Lens.lens (\PublishFindingToSnsParams' {topicArn} -> topicArn) (\s@PublishFindingToSnsParams' {} a -> s {topicArn = a} :: PublishFindingToSnsParams)
 
-instance Core.FromJSON PublishFindingToSnsParams where
+instance Data.FromJSON PublishFindingToSnsParams where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PublishFindingToSnsParams"
       ( \x ->
           PublishFindingToSnsParams'
-            Prelude.<$> (x Core..: "topicArn")
+            Prelude.<$> (x Data..: "topicArn")
       )
 
 instance Prelude.Hashable PublishFindingToSnsParams where
@@ -71,9 +72,9 @@ instance Prelude.NFData PublishFindingToSnsParams where
   rnf PublishFindingToSnsParams' {..} =
     Prelude.rnf topicArn
 
-instance Core.ToJSON PublishFindingToSnsParams where
+instance Data.ToJSON PublishFindingToSnsParams where
   toJSON PublishFindingToSnsParams' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("topicArn" Core..= topicArn)]
+          [Prelude.Just ("topicArn" Data..= topicArn)]
       )

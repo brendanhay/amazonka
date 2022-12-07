@@ -22,6 +22,7 @@ module Amazonka.CloudFormation.Types.StackResourceDriftInformationSummary where
 import Amazonka.CloudFormation.Types.StackResourceDriftStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summarizes information about whether the resource\'s actual
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 data StackResourceDriftInformationSummary = StackResourceDriftInformationSummary'
   { -- | When CloudFormation last checked if the resource had drifted from its
     -- expected configuration.
-    lastCheckTimestamp :: Prelude.Maybe Core.ISO8601,
+    lastCheckTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | Status of the resource\'s actual configuration compared to its expected
     -- configuration.
     --
@@ -110,7 +111,7 @@ newStackResourceDriftInformationSummary
 -- | When CloudFormation last checked if the resource had drifted from its
 -- expected configuration.
 stackResourceDriftInformationSummary_lastCheckTimestamp :: Lens.Lens' StackResourceDriftInformationSummary (Prelude.Maybe Prelude.UTCTime)
-stackResourceDriftInformationSummary_lastCheckTimestamp = Lens.lens (\StackResourceDriftInformationSummary' {lastCheckTimestamp} -> lastCheckTimestamp) (\s@StackResourceDriftInformationSummary' {} a -> s {lastCheckTimestamp = a} :: StackResourceDriftInformationSummary) Prelude.. Lens.mapping Core._Time
+stackResourceDriftInformationSummary_lastCheckTimestamp = Lens.lens (\StackResourceDriftInformationSummary' {lastCheckTimestamp} -> lastCheckTimestamp) (\s@StackResourceDriftInformationSummary' {} a -> s {lastCheckTimestamp = a} :: StackResourceDriftInformationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Status of the resource\'s actual configuration compared to its expected
 -- configuration.
@@ -139,13 +140,13 @@ stackResourceDriftInformationSummary_stackResourceDriftStatus :: Lens.Lens' Stac
 stackResourceDriftInformationSummary_stackResourceDriftStatus = Lens.lens (\StackResourceDriftInformationSummary' {stackResourceDriftStatus} -> stackResourceDriftStatus) (\s@StackResourceDriftInformationSummary' {} a -> s {stackResourceDriftStatus = a} :: StackResourceDriftInformationSummary)
 
 instance
-  Core.FromXML
+  Data.FromXML
     StackResourceDriftInformationSummary
   where
   parseXML x =
     StackResourceDriftInformationSummary'
-      Prelude.<$> (x Core..@? "LastCheckTimestamp")
-      Prelude.<*> (x Core..@ "StackResourceDriftStatus")
+      Prelude.<$> (x Data..@? "LastCheckTimestamp")
+      Prelude.<*> (x Data..@ "StackResourceDriftStatus")
 
 instance
   Prelude.Hashable

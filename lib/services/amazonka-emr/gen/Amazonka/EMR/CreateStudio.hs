@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -305,8 +306,8 @@ instance Core.AWSRequest CreateStudio where
     Response.receiveJSON
       ( \s h x ->
           CreateStudioResponse'
-            Prelude.<$> (x Core..?> "StudioId")
-            Prelude.<*> (x Core..?> "Url")
+            Prelude.<$> (x Data..?> "StudioId")
+            Prelude.<*> (x Data..?> "Url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -342,53 +343,53 @@ instance Prelude.NFData CreateStudio where
       `Prelude.seq` Prelude.rnf engineSecurityGroupId
       `Prelude.seq` Prelude.rnf defaultS3Location
 
-instance Core.ToHeaders CreateStudio where
+instance Data.ToHeaders CreateStudio where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.CreateStudio" ::
+              Data.=# ( "ElasticMapReduce.CreateStudio" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateStudio where
+instance Data.ToJSON CreateStudio where
   toJSON CreateStudio' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("IdpRelayStateParameterName" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("IdpRelayStateParameterName" Data..=)
               Prelude.<$> idpRelayStateParameterName,
-            ("IdpAuthUrl" Core..=) Prelude.<$> idpAuthUrl,
-            ("Description" Core..=) Prelude.<$> description,
-            ("UserRole" Core..=) Prelude.<$> userRole,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("AuthMode" Core..= authMode),
-            Prelude.Just ("VpcId" Core..= vpcId),
-            Prelude.Just ("SubnetIds" Core..= subnetIds),
-            Prelude.Just ("ServiceRole" Core..= serviceRole),
+            ("IdpAuthUrl" Data..=) Prelude.<$> idpAuthUrl,
+            ("Description" Data..=) Prelude.<$> description,
+            ("UserRole" Data..=) Prelude.<$> userRole,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("AuthMode" Data..= authMode),
+            Prelude.Just ("VpcId" Data..= vpcId),
+            Prelude.Just ("SubnetIds" Data..= subnetIds),
+            Prelude.Just ("ServiceRole" Data..= serviceRole),
             Prelude.Just
               ( "WorkspaceSecurityGroupId"
-                  Core..= workspaceSecurityGroupId
+                  Data..= workspaceSecurityGroupId
               ),
             Prelude.Just
               ( "EngineSecurityGroupId"
-                  Core..= engineSecurityGroupId
+                  Data..= engineSecurityGroupId
               ),
             Prelude.Just
-              ("DefaultS3Location" Core..= defaultS3Location)
+              ("DefaultS3Location" Data..= defaultS3Location)
           ]
       )
 
-instance Core.ToPath CreateStudio where
+instance Data.ToPath CreateStudio where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateStudio where
+instance Data.ToQuery CreateStudio where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStudioResponse' smart constructor.

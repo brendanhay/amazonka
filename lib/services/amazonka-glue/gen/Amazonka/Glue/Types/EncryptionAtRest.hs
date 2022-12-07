@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.EncryptionAtRest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CatalogEncryptionMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ encryptionAtRest_sseAwsKmsKeyId = Lens.lens (\EncryptionAtRest' {sseAwsKmsKeyId}
 encryptionAtRest_catalogEncryptionMode :: Lens.Lens' EncryptionAtRest CatalogEncryptionMode
 encryptionAtRest_catalogEncryptionMode = Lens.lens (\EncryptionAtRest' {catalogEncryptionMode} -> catalogEncryptionMode) (\s@EncryptionAtRest' {} a -> s {catalogEncryptionMode = a} :: EncryptionAtRest)
 
-instance Core.FromJSON EncryptionAtRest where
+instance Data.FromJSON EncryptionAtRest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionAtRest"
       ( \x ->
           EncryptionAtRest'
-            Prelude.<$> (x Core..:? "SseAwsKmsKeyId")
-            Prelude.<*> (x Core..: "CatalogEncryptionMode")
+            Prelude.<$> (x Data..:? "SseAwsKmsKeyId")
+            Prelude.<*> (x Data..: "CatalogEncryptionMode")
       )
 
 instance Prelude.Hashable EncryptionAtRest where
@@ -84,15 +85,15 @@ instance Prelude.NFData EncryptionAtRest where
     Prelude.rnf sseAwsKmsKeyId
       `Prelude.seq` Prelude.rnf catalogEncryptionMode
 
-instance Core.ToJSON EncryptionAtRest where
+instance Data.ToJSON EncryptionAtRest where
   toJSON EncryptionAtRest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SseAwsKmsKeyId" Core..=)
+          [ ("SseAwsKmsKeyId" Data..=)
               Prelude.<$> sseAwsKmsKeyId,
             Prelude.Just
               ( "CatalogEncryptionMode"
-                  Core..= catalogEncryptionMode
+                  Data..= catalogEncryptionMode
               )
           ]
       )

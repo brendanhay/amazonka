@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.Pipeline where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.Notifications
 import Amazonka.ElasticTranscoder.Types.PipelineOutputConfig
 import qualified Amazonka.Prelude as Prelude
@@ -549,23 +550,23 @@ pipeline_role = Lens.lens (\Pipeline' {role'} -> role') (\s@Pipeline' {} a -> s 
 pipeline_contentConfig :: Lens.Lens' Pipeline (Prelude.Maybe PipelineOutputConfig)
 pipeline_contentConfig = Lens.lens (\Pipeline' {contentConfig} -> contentConfig) (\s@Pipeline' {} a -> s {contentConfig = a} :: Pipeline)
 
-instance Core.FromJSON Pipeline where
+instance Data.FromJSON Pipeline where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Pipeline"
       ( \x ->
           Pipeline'
-            Prelude.<$> (x Core..:? "Notifications")
-            Prelude.<*> (x Core..:? "ThumbnailConfig")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "InputBucket")
-            Prelude.<*> (x Core..:? "AwsKmsKeyArn")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "OutputBucket")
-            Prelude.<*> (x Core..:? "Role")
-            Prelude.<*> (x Core..:? "ContentConfig")
+            Prelude.<$> (x Data..:? "Notifications")
+            Prelude.<*> (x Data..:? "ThumbnailConfig")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "InputBucket")
+            Prelude.<*> (x Data..:? "AwsKmsKeyArn")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "OutputBucket")
+            Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "ContentConfig")
       )
 
 instance Prelude.Hashable Pipeline where

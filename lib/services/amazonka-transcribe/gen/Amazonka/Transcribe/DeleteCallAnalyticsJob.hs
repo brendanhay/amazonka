@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,36 +102,36 @@ instance Prelude.NFData DeleteCallAnalyticsJob where
   rnf DeleteCallAnalyticsJob' {..} =
     Prelude.rnf callAnalyticsJobName
 
-instance Core.ToHeaders DeleteCallAnalyticsJob where
+instance Data.ToHeaders DeleteCallAnalyticsJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.DeleteCallAnalyticsJob" ::
+              Data.=# ( "Transcribe.DeleteCallAnalyticsJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteCallAnalyticsJob where
+instance Data.ToJSON DeleteCallAnalyticsJob where
   toJSON DeleteCallAnalyticsJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "CallAnalyticsJobName"
-                  Core..= callAnalyticsJobName
+                  Data..= callAnalyticsJobName
               )
           ]
       )
 
-instance Core.ToPath DeleteCallAnalyticsJob where
+instance Data.ToPath DeleteCallAnalyticsJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteCallAnalyticsJob where
+instance Data.ToQuery DeleteCallAnalyticsJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCallAnalyticsJobResponse' smart constructor.

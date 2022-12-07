@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.DropNullFields where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.NullCheckBoxList
 import Amazonka.Glue.Types.NullValueField
 import qualified Amazonka.Prelude as Prelude
@@ -107,16 +108,16 @@ dropNullFields_name = Lens.lens (\DropNullFields' {name} -> name) (\s@DropNullFi
 dropNullFields_inputs :: Lens.Lens' DropNullFields (Prelude.NonEmpty Prelude.Text)
 dropNullFields_inputs = Lens.lens (\DropNullFields' {inputs} -> inputs) (\s@DropNullFields' {} a -> s {inputs = a} :: DropNullFields) Prelude.. Lens.coerced
 
-instance Core.FromJSON DropNullFields where
+instance Data.FromJSON DropNullFields where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DropNullFields"
       ( \x ->
           DropNullFields'
-            Prelude.<$> (x Core..:? "NullCheckBoxList")
-            Prelude.<*> (x Core..:? "NullTextList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
+            Prelude.<$> (x Data..:? "NullCheckBoxList")
+            Prelude.<*> (x Data..:? "NullTextList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
       )
 
 instance Prelude.Hashable DropNullFields where
@@ -133,14 +134,14 @@ instance Prelude.NFData DropNullFields where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf inputs
 
-instance Core.ToJSON DropNullFields where
+instance Data.ToJSON DropNullFields where
   toJSON DropNullFields' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NullCheckBoxList" Core..=)
+          [ ("NullCheckBoxList" Data..=)
               Prelude.<$> nullCheckBoxList,
-            ("NullTextList" Core..=) Prelude.<$> nullTextList,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs)
+            ("NullTextList" Data..=) Prelude.<$> nullTextList,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs)
           ]
       )

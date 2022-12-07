@@ -88,6 +88,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ data RestoreTableToPointInTime = RestoreTableToPointInTime'
     -- | The billing mode of the restored table.
     billingModeOverride :: Prelude.Maybe BillingMode,
     -- | Time in the past to restore the table to.
-    restoreDateTime :: Prelude.Maybe Core.POSIX,
+    restoreDateTime :: Prelude.Maybe Data.POSIX,
     -- | Name of the source table that is being restored.
     sourceTableName :: Prelude.Maybe Prelude.Text,
     -- | List of global secondary indexes for the restored table. The indexes
@@ -209,7 +210,7 @@ restoreTableToPointInTime_billingModeOverride = Lens.lens (\RestoreTableToPointI
 
 -- | Time in the past to restore the table to.
 restoreTableToPointInTime_restoreDateTime :: Lens.Lens' RestoreTableToPointInTime (Prelude.Maybe Prelude.UTCTime)
-restoreTableToPointInTime_restoreDateTime = Lens.lens (\RestoreTableToPointInTime' {restoreDateTime} -> restoreDateTime) (\s@RestoreTableToPointInTime' {} a -> s {restoreDateTime = a} :: RestoreTableToPointInTime) Prelude.. Lens.mapping Core._Time
+restoreTableToPointInTime_restoreDateTime = Lens.lens (\RestoreTableToPointInTime' {restoreDateTime} -> restoreDateTime) (\s@RestoreTableToPointInTime' {} a -> s {restoreDateTime = a} :: RestoreTableToPointInTime) Prelude.. Lens.mapping Data._Time
 
 -- | Name of the source table that is being restored.
 restoreTableToPointInTime_sourceTableName :: Lens.Lens' RestoreTableToPointInTime (Prelude.Maybe Prelude.Text)
@@ -235,7 +236,7 @@ instance Core.AWSRequest RestoreTableToPointInTime where
     Response.receiveJSON
       ( \s h x ->
           RestoreTableToPointInTimeResponse'
-            Prelude.<$> (x Core..?> "TableDescription")
+            Prelude.<$> (x Data..?> "TableDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -266,52 +267,52 @@ instance Prelude.NFData RestoreTableToPointInTime where
       `Prelude.seq` Prelude.rnf globalSecondaryIndexOverride
       `Prelude.seq` Prelude.rnf targetTableName
 
-instance Core.ToHeaders RestoreTableToPointInTime where
+instance Data.ToHeaders RestoreTableToPointInTime where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.RestoreTableToPointInTime" ::
+              Data.=# ( "DynamoDB_20120810.RestoreTableToPointInTime" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RestoreTableToPointInTime where
+instance Data.ToJSON RestoreTableToPointInTime where
   toJSON RestoreTableToPointInTime' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProvisionedThroughputOverride" Core..=)
+          [ ("ProvisionedThroughputOverride" Data..=)
               Prelude.<$> provisionedThroughputOverride,
-            ("LocalSecondaryIndexOverride" Core..=)
+            ("LocalSecondaryIndexOverride" Data..=)
               Prelude.<$> localSecondaryIndexOverride,
-            ("SSESpecificationOverride" Core..=)
+            ("SSESpecificationOverride" Data..=)
               Prelude.<$> sSESpecificationOverride,
-            ("SourceTableArn" Core..=)
+            ("SourceTableArn" Data..=)
               Prelude.<$> sourceTableArn,
-            ("UseLatestRestorableTime" Core..=)
+            ("UseLatestRestorableTime" Data..=)
               Prelude.<$> useLatestRestorableTime,
-            ("BillingModeOverride" Core..=)
+            ("BillingModeOverride" Data..=)
               Prelude.<$> billingModeOverride,
-            ("RestoreDateTime" Core..=)
+            ("RestoreDateTime" Data..=)
               Prelude.<$> restoreDateTime,
-            ("SourceTableName" Core..=)
+            ("SourceTableName" Data..=)
               Prelude.<$> sourceTableName,
-            ("GlobalSecondaryIndexOverride" Core..=)
+            ("GlobalSecondaryIndexOverride" Data..=)
               Prelude.<$> globalSecondaryIndexOverride,
             Prelude.Just
-              ("TargetTableName" Core..= targetTableName)
+              ("TargetTableName" Data..= targetTableName)
           ]
       )
 
-instance Core.ToPath RestoreTableToPointInTime where
+instance Data.ToPath RestoreTableToPointInTime where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreTableToPointInTime where
+instance Data.ToQuery RestoreTableToPointInTime where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRestoreTableToPointInTimeResponse' smart constructor.

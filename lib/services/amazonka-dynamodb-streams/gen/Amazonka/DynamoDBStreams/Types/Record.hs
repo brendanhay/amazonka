@@ -21,6 +21,7 @@ module Amazonka.DynamoDBStreams.Types.Record where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Types.Identity
 import Amazonka.DynamoDBStreams.Types.OperationType
@@ -185,19 +186,19 @@ record_awsRegion = Lens.lens (\Record' {awsRegion} -> awsRegion) (\s@Record' {} 
 record_eventSource :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
 record_eventSource = Lens.lens (\Record' {eventSource} -> eventSource) (\s@Record' {} a -> s {eventSource = a} :: Record)
 
-instance Core.FromJSON Record where
+instance Data.FromJSON Record where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Record"
       ( \x ->
           Record'
-            Prelude.<$> (x Core..:? "userIdentity")
-            Prelude.<*> (x Core..:? "dynamodb")
-            Prelude.<*> (x Core..:? "eventVersion")
-            Prelude.<*> (x Core..:? "eventName")
-            Prelude.<*> (x Core..:? "eventID")
-            Prelude.<*> (x Core..:? "awsRegion")
-            Prelude.<*> (x Core..:? "eventSource")
+            Prelude.<$> (x Data..:? "userIdentity")
+            Prelude.<*> (x Data..:? "dynamodb")
+            Prelude.<*> (x Data..:? "eventVersion")
+            Prelude.<*> (x Data..:? "eventName")
+            Prelude.<*> (x Data..:? "eventID")
+            Prelude.<*> (x Data..:? "awsRegion")
+            Prelude.<*> (x Data..:? "eventSource")
       )
 
 instance Prelude.Hashable Record where

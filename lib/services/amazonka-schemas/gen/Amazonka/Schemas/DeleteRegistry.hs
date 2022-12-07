@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,23 +86,23 @@ instance Prelude.Hashable DeleteRegistry where
 instance Prelude.NFData DeleteRegistry where
   rnf DeleteRegistry' {..} = Prelude.rnf registryName
 
-instance Core.ToHeaders DeleteRegistry where
+instance Data.ToHeaders DeleteRegistry where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteRegistry where
+instance Data.ToPath DeleteRegistry where
   toPath DeleteRegistry' {..} =
     Prelude.mconcat
-      ["/v1/registries/name/", Core.toBS registryName]
+      ["/v1/registries/name/", Data.toBS registryName]
 
-instance Core.ToQuery DeleteRegistry where
+instance Data.ToQuery DeleteRegistry where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRegistryResponse' smart constructor.

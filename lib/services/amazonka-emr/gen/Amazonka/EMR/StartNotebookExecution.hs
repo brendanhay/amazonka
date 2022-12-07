@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -207,7 +208,7 @@ instance Core.AWSRequest StartNotebookExecution where
     Response.receiveJSON
       ( \s h x ->
           StartNotebookExecutionResponse'
-            Prelude.<$> (x Core..?> "NotebookExecutionId")
+            Prelude.<$> (x Data..?> "NotebookExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -233,44 +234,44 @@ instance Prelude.NFData StartNotebookExecution where
       `Prelude.seq` Prelude.rnf executionEngine
       `Prelude.seq` Prelude.rnf serviceRole
 
-instance Core.ToHeaders StartNotebookExecution where
+instance Data.ToHeaders StartNotebookExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.StartNotebookExecution" ::
+              Data.=# ( "ElasticMapReduce.StartNotebookExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartNotebookExecution where
+instance Data.ToJSON StartNotebookExecution where
   toJSON StartNotebookExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("NotebookInstanceSecurityGroupId" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("NotebookInstanceSecurityGroupId" Data..=)
               Prelude.<$> notebookInstanceSecurityGroupId,
-            ("NotebookExecutionName" Core..=)
+            ("NotebookExecutionName" Data..=)
               Prelude.<$> notebookExecutionName,
-            ("NotebookParams" Core..=)
+            ("NotebookParams" Data..=)
               Prelude.<$> notebookParams,
-            Prelude.Just ("EditorId" Core..= editorId),
-            Prelude.Just ("RelativePath" Core..= relativePath),
+            Prelude.Just ("EditorId" Data..= editorId),
+            Prelude.Just ("RelativePath" Data..= relativePath),
             Prelude.Just
-              ("ExecutionEngine" Core..= executionEngine),
-            Prelude.Just ("ServiceRole" Core..= serviceRole)
+              ("ExecutionEngine" Data..= executionEngine),
+            Prelude.Just ("ServiceRole" Data..= serviceRole)
           ]
       )
 
-instance Core.ToPath StartNotebookExecution where
+instance Data.ToPath StartNotebookExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartNotebookExecution where
+instance Data.ToQuery StartNotebookExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartNotebookExecutionResponse' smart constructor.

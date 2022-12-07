@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.FunctionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.EncodingType
 import Amazonka.Greengrass.Types.FunctionConfigurationEnvironment
 import qualified Amazonka.Prelude as Prelude
@@ -138,20 +139,20 @@ functionConfiguration_pinned = Lens.lens (\FunctionConfiguration' {pinned} -> pi
 functionConfiguration_encodingType :: Lens.Lens' FunctionConfiguration (Prelude.Maybe EncodingType)
 functionConfiguration_encodingType = Lens.lens (\FunctionConfiguration' {encodingType} -> encodingType) (\s@FunctionConfiguration' {} a -> s {encodingType = a} :: FunctionConfiguration)
 
-instance Core.FromJSON FunctionConfiguration where
+instance Data.FromJSON FunctionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FunctionConfiguration"
       ( \x ->
           FunctionConfiguration'
-            Prelude.<$> (x Core..:? "Timeout")
-            Prelude.<*> (x Core..:? "MemorySize")
-            Prelude.<*> (x Core..:? "ExecArgs")
-            Prelude.<*> (x Core..:? "Environment")
-            Prelude.<*> (x Core..:? "FunctionRuntimeOverride")
-            Prelude.<*> (x Core..:? "Executable")
-            Prelude.<*> (x Core..:? "Pinned")
-            Prelude.<*> (x Core..:? "EncodingType")
+            Prelude.<$> (x Data..:? "Timeout")
+            Prelude.<*> (x Data..:? "MemorySize")
+            Prelude.<*> (x Data..:? "ExecArgs")
+            Prelude.<*> (x Data..:? "Environment")
+            Prelude.<*> (x Data..:? "FunctionRuntimeOverride")
+            Prelude.<*> (x Data..:? "Executable")
+            Prelude.<*> (x Data..:? "Pinned")
+            Prelude.<*> (x Data..:? "EncodingType")
       )
 
 instance Prelude.Hashable FunctionConfiguration where
@@ -176,18 +177,18 @@ instance Prelude.NFData FunctionConfiguration where
       `Prelude.seq` Prelude.rnf pinned
       `Prelude.seq` Prelude.rnf encodingType
 
-instance Core.ToJSON FunctionConfiguration where
+instance Data.ToJSON FunctionConfiguration where
   toJSON FunctionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Timeout" Core..=) Prelude.<$> timeout,
-            ("MemorySize" Core..=) Prelude.<$> memorySize,
-            ("ExecArgs" Core..=) Prelude.<$> execArgs,
-            ("Environment" Core..=) Prelude.<$> environment,
-            ("FunctionRuntimeOverride" Core..=)
+          [ ("Timeout" Data..=) Prelude.<$> timeout,
+            ("MemorySize" Data..=) Prelude.<$> memorySize,
+            ("ExecArgs" Data..=) Prelude.<$> execArgs,
+            ("Environment" Data..=) Prelude.<$> environment,
+            ("FunctionRuntimeOverride" Data..=)
               Prelude.<$> functionRuntimeOverride,
-            ("Executable" Core..=) Prelude.<$> executable,
-            ("Pinned" Core..=) Prelude.<$> pinned,
-            ("EncodingType" Core..=) Prelude.<$> encodingType
+            ("Executable" Data..=) Prelude.<$> executable,
+            ("Pinned" Data..=) Prelude.<$> pinned,
+            ("EncodingType" Data..=) Prelude.<$> encodingType
           ]
       )

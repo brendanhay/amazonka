@@ -22,6 +22,7 @@ module Amazonka.CodeDeploy.Types.AutoRollbackConfiguration where
 import Amazonka.CodeDeploy.Types.AutoRollbackEvent
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a configuration for automatically rolling back to a
@@ -68,14 +69,14 @@ autoRollbackConfiguration_enabled = Lens.lens (\AutoRollbackConfiguration' {enab
 autoRollbackConfiguration_events :: Lens.Lens' AutoRollbackConfiguration (Prelude.Maybe [AutoRollbackEvent])
 autoRollbackConfiguration_events = Lens.lens (\AutoRollbackConfiguration' {events} -> events) (\s@AutoRollbackConfiguration' {} a -> s {events = a} :: AutoRollbackConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AutoRollbackConfiguration where
+instance Data.FromJSON AutoRollbackConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoRollbackConfiguration"
       ( \x ->
           AutoRollbackConfiguration'
-            Prelude.<$> (x Core..:? "enabled")
-            Prelude.<*> (x Core..:? "events" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "events" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AutoRollbackConfiguration where
@@ -88,11 +89,11 @@ instance Prelude.NFData AutoRollbackConfiguration where
     Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf events
 
-instance Core.ToJSON AutoRollbackConfiguration where
+instance Data.ToJSON AutoRollbackConfiguration where
   toJSON AutoRollbackConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("enabled" Core..=) Prelude.<$> enabled,
-            ("events" Core..=) Prelude.<$> events
+          [ ("enabled" Data..=) Prelude.<$> enabled,
+            ("events" Data..=) Prelude.<$> events
           ]
       )

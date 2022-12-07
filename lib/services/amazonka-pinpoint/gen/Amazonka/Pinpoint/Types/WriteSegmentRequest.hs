@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.WriteSegmentRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.SegmentDimensions
 import Amazonka.Pinpoint.Types.SegmentGroupList
 import qualified Amazonka.Prelude as Prelude
@@ -112,13 +113,13 @@ instance Prelude.NFData WriteSegmentRequest where
       `Prelude.seq` Prelude.rnf dimensions
       `Prelude.seq` Prelude.rnf segmentGroups
 
-instance Core.ToJSON WriteSegmentRequest where
+instance Data.ToJSON WriteSegmentRequest where
   toJSON WriteSegmentRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name,
-            ("Dimensions" Core..=) Prelude.<$> dimensions,
-            ("SegmentGroups" Core..=) Prelude.<$> segmentGroups
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("Name" Data..=) Prelude.<$> name,
+            ("Dimensions" Data..=) Prelude.<$> dimensions,
+            ("SegmentGroups" Data..=) Prelude.<$> segmentGroups
           ]
       )

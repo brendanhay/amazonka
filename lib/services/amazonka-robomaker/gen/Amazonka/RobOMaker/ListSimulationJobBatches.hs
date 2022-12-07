@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,8 +158,8 @@ instance Core.AWSRequest ListSimulationJobBatches where
     Response.receiveJSON
       ( \s h x ->
           ListSimulationJobBatchesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "simulationJobBatchSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "simulationJobBatchSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -176,31 +177,31 @@ instance Prelude.NFData ListSimulationJobBatches where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListSimulationJobBatches where
+instance Data.ToHeaders ListSimulationJobBatches where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSimulationJobBatches where
+instance Data.ToJSON ListSimulationJobBatches where
   toJSON ListSimulationJobBatches' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListSimulationJobBatches where
+instance Data.ToPath ListSimulationJobBatches where
   toPath = Prelude.const "/listSimulationJobBatches"
 
-instance Core.ToQuery ListSimulationJobBatches where
+instance Data.ToQuery ListSimulationJobBatches where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSimulationJobBatchesResponse' smart constructor.

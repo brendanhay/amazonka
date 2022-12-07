@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.AccountAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types.AccountAttributeName
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,13 +65,13 @@ accountAttribute_name = Lens.lens (\AccountAttribute' {name} -> name) (\s@Accoun
 accountAttribute_value :: Lens.Lens' AccountAttribute Prelude.Text
 accountAttribute_value = Lens.lens (\AccountAttribute' {value} -> value) (\s@AccountAttribute' {} a -> s {value = a} :: AccountAttribute)
 
-instance Core.FromJSON AccountAttribute where
+instance Data.FromJSON AccountAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountAttribute"
       ( \x ->
           AccountAttribute'
-            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable AccountAttribute where

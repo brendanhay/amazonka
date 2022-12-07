@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.Compatibility where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Compatibility information.
@@ -70,16 +71,16 @@ compatibility_defaultVersion = Lens.lens (\Compatibility' {defaultVersion} -> de
 compatibility_platformVersions :: Lens.Lens' Compatibility (Prelude.Maybe [Prelude.Text])
 compatibility_platformVersions = Lens.lens (\Compatibility' {platformVersions} -> platformVersions) (\s@Compatibility' {} a -> s {platformVersions = a} :: Compatibility) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Compatibility where
+instance Data.FromJSON Compatibility where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Compatibility"
       ( \x ->
           Compatibility'
-            Prelude.<$> (x Core..:? "clusterVersion")
-            Prelude.<*> (x Core..:? "defaultVersion")
-            Prelude.<*> ( x Core..:? "platformVersions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "clusterVersion")
+            Prelude.<*> (x Data..:? "defaultVersion")
+            Prelude.<*> ( x Data..:? "platformVersions"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.TagOptionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a TagOption.
@@ -61,14 +62,14 @@ tagOptionSummary_key = Lens.lens (\TagOptionSummary' {key} -> key) (\s@TagOption
 tagOptionSummary_values :: Lens.Lens' TagOptionSummary (Prelude.Maybe [Prelude.Text])
 tagOptionSummary_values = Lens.lens (\TagOptionSummary' {values} -> values) (\s@TagOptionSummary' {} a -> s {values = a} :: TagOptionSummary) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TagOptionSummary where
+instance Data.FromJSON TagOptionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TagOptionSummary"
       ( \x ->
           TagOptionSummary'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TagOptionSummary where

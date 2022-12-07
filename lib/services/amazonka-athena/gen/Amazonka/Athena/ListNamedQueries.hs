@@ -54,6 +54,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,8 +152,8 @@ instance Core.AWSRequest ListNamedQueries where
     Response.receiveJSON
       ( \s h x ->
           ListNamedQueriesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "NamedQueryIds")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "NamedQueryIds")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,35 +169,35 @@ instance Prelude.NFData ListNamedQueries where
       `Prelude.seq` Prelude.rnf workGroup
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListNamedQueries where
+instance Data.ToHeaders ListNamedQueries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.ListNamedQueries" ::
+              Data.=# ( "AmazonAthena.ListNamedQueries" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListNamedQueries where
+instance Data.ToJSON ListNamedQueries where
   toJSON ListNamedQueries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("WorkGroup" Core..=) Prelude.<$> workGroup,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("WorkGroup" Data..=) Prelude.<$> workGroup,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListNamedQueries where
+instance Data.ToPath ListNamedQueries where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListNamedQueries where
+instance Data.ToQuery ListNamedQueries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListNamedQueriesResponse' smart constructor.

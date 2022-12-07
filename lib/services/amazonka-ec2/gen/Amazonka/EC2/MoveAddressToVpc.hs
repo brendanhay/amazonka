@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,8 +118,8 @@ instance Core.AWSRequest MoveAddressToVpc where
     Response.receiveXML
       ( \s h x ->
           MoveAddressToVpcResponse'
-            Prelude.<$> (x Core..@? "allocationId")
-            Prelude.<*> (x Core..@? "status")
+            Prelude.<$> (x Data..@? "allocationId")
+            Prelude.<*> (x Data..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,21 +133,21 @@ instance Prelude.NFData MoveAddressToVpc where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf publicIp
 
-instance Core.ToHeaders MoveAddressToVpc where
+instance Data.ToHeaders MoveAddressToVpc where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath MoveAddressToVpc where
+instance Data.ToPath MoveAddressToVpc where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery MoveAddressToVpc where
+instance Data.ToQuery MoveAddressToVpc where
   toQuery MoveAddressToVpc' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("MoveAddressToVpc" :: Prelude.ByteString),
+          Data.=: ("MoveAddressToVpc" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "PublicIp" Core.=: publicIp
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "PublicIp" Data.=: publicIp
       ]
 
 -- | /See:/ 'newMoveAddressToVpcResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.CodeDeploy.Types.TargetGroupInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a target group in Elastic Load Balancing to use in a
@@ -67,12 +68,12 @@ newTargetGroupInfo =
 targetGroupInfo_name :: Lens.Lens' TargetGroupInfo (Prelude.Maybe Prelude.Text)
 targetGroupInfo_name = Lens.lens (\TargetGroupInfo' {name} -> name) (\s@TargetGroupInfo' {} a -> s {name = a} :: TargetGroupInfo)
 
-instance Core.FromJSON TargetGroupInfo where
+instance Data.FromJSON TargetGroupInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetGroupInfo"
       ( \x ->
-          TargetGroupInfo' Prelude.<$> (x Core..:? "name")
+          TargetGroupInfo' Prelude.<$> (x Data..:? "name")
       )
 
 instance Prelude.Hashable TargetGroupInfo where
@@ -82,9 +83,9 @@ instance Prelude.Hashable TargetGroupInfo where
 instance Prelude.NFData TargetGroupInfo where
   rnf TargetGroupInfo' {..} = Prelude.rnf name
 
-instance Core.ToJSON TargetGroupInfo where
+instance Data.ToJSON TargetGroupInfo where
   toJSON TargetGroupInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("name" Core..=) Prelude.<$> name]
+          [("name" Data..=) Prelude.<$> name]
       )

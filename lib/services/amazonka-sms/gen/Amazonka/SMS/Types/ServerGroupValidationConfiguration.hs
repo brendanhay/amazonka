@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.ServerGroupValidationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.ServerValidationConfiguration
 
@@ -65,17 +66,17 @@ serverGroupValidationConfiguration_serverValidationConfigurations :: Lens.Lens' 
 serverGroupValidationConfiguration_serverValidationConfigurations = Lens.lens (\ServerGroupValidationConfiguration' {serverValidationConfigurations} -> serverValidationConfigurations) (\s@ServerGroupValidationConfiguration' {} a -> s {serverValidationConfigurations = a} :: ServerGroupValidationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ServerGroupValidationConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerGroupValidationConfiguration"
       ( \x ->
           ServerGroupValidationConfiguration'
-            Prelude.<$> (x Core..:? "serverGroupId")
-            Prelude.<*> ( x Core..:? "serverValidationConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "serverGroupId")
+            Prelude.<*> ( x Data..:? "serverValidationConfigurations"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -98,14 +99,14 @@ instance
       `Prelude.seq` Prelude.rnf serverValidationConfigurations
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ServerGroupValidationConfiguration
   where
   toJSON ServerGroupValidationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("serverGroupId" Core..=) Prelude.<$> serverGroupId,
-            ("serverValidationConfigurations" Core..=)
+          [ ("serverGroupId" Data..=) Prelude.<$> serverGroupId,
+            ("serverValidationConfigurations" Data..=)
               Prelude.<$> serverValidationConfigurations
           ]
       )

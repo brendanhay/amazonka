@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.UpdateDeviceCertificateParams where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.DeviceCertificateUpdateAction
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newUpdateDeviceCertificateParams pAction_ =
 updateDeviceCertificateParams_action :: Lens.Lens' UpdateDeviceCertificateParams DeviceCertificateUpdateAction
 updateDeviceCertificateParams_action = Lens.lens (\UpdateDeviceCertificateParams' {action} -> action) (\s@UpdateDeviceCertificateParams' {} a -> s {action = a} :: UpdateDeviceCertificateParams)
 
-instance Core.FromJSON UpdateDeviceCertificateParams where
+instance Data.FromJSON UpdateDeviceCertificateParams where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpdateDeviceCertificateParams"
       ( \x ->
           UpdateDeviceCertificateParams'
-            Prelude.<$> (x Core..: "action")
+            Prelude.<$> (x Data..: "action")
       )
 
 instance
@@ -77,9 +78,9 @@ instance Prelude.NFData UpdateDeviceCertificateParams where
   rnf UpdateDeviceCertificateParams' {..} =
     Prelude.rnf action
 
-instance Core.ToJSON UpdateDeviceCertificateParams where
+instance Data.ToJSON UpdateDeviceCertificateParams where
   toJSON UpdateDeviceCertificateParams' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("action" Core..= action)]
+          [Prelude.Just ("action" Data..= action)]
       )

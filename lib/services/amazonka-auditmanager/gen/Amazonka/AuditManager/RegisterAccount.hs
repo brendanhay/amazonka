@@ -43,6 +43,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,7 +94,7 @@ instance Core.AWSRequest RegisterAccount where
     Response.receiveJSON
       ( \s h x ->
           RegisterAccountResponse'
-            Prelude.<$> (x Core..?> "status")
+            Prelude.<$> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,31 +108,31 @@ instance Prelude.NFData RegisterAccount where
     Prelude.rnf kmsKey
       `Prelude.seq` Prelude.rnf delegatedAdminAccount
 
-instance Core.ToHeaders RegisterAccount where
+instance Data.ToHeaders RegisterAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterAccount where
+instance Data.ToJSON RegisterAccount where
   toJSON RegisterAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsKey" Core..=) Prelude.<$> kmsKey,
-            ("delegatedAdminAccount" Core..=)
+          [ ("kmsKey" Data..=) Prelude.<$> kmsKey,
+            ("delegatedAdminAccount" Data..=)
               Prelude.<$> delegatedAdminAccount
           ]
       )
 
-instance Core.ToPath RegisterAccount where
+instance Data.ToPath RegisterAccount where
   toPath = Prelude.const "/account/registerAccount"
 
-instance Core.ToQuery RegisterAccount where
+instance Data.ToQuery RegisterAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterAccountResponse' smart constructor.

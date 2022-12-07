@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Owner where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -62,11 +63,11 @@ owner_displayName = Lens.lens (\Owner' {displayName} -> displayName) (\s@Owner' 
 owner_id :: Lens.Lens' Owner (Prelude.Maybe Prelude.Text)
 owner_id = Lens.lens (\Owner' {id} -> id) (\s@Owner' {} a -> s {id = a} :: Owner)
 
-instance Core.FromXML Owner where
+instance Data.FromXML Owner where
   parseXML x =
     Owner'
-      Prelude.<$> (x Core..@? "DisplayName")
-      Prelude.<*> (x Core..@? "ID")
+      Prelude.<$> (x Data..@? "DisplayName")
+      Prelude.<*> (x Data..@? "ID")
 
 instance Prelude.Hashable Owner where
   hashWithSalt _salt Owner' {..} =
@@ -78,7 +79,7 @@ instance Prelude.NFData Owner where
     Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToXML Owner where
+instance Data.ToXML Owner where
   toXML Owner' {..} =
     Prelude.mconcat
-      ["DisplayName" Core.@= displayName, "ID" Core.@= id]
+      ["DisplayName" Data.@= displayName, "ID" Data.@= id]

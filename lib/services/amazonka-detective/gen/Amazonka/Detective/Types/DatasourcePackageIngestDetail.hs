@@ -21,6 +21,7 @@ module Amazonka.Detective.Types.DatasourcePackageIngestDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types.DatasourcePackageIngestState
 import Amazonka.Detective.Types.TimestampForCollection
 import qualified Amazonka.Prelude as Prelude
@@ -64,15 +65,15 @@ datasourcePackageIngestDetail_datasourcePackageIngestState = Lens.lens (\Datasou
 datasourcePackageIngestDetail_lastIngestStateChange :: Lens.Lens' DatasourcePackageIngestDetail (Prelude.Maybe (Prelude.HashMap DatasourcePackageIngestState TimestampForCollection))
 datasourcePackageIngestDetail_lastIngestStateChange = Lens.lens (\DatasourcePackageIngestDetail' {lastIngestStateChange} -> lastIngestStateChange) (\s@DatasourcePackageIngestDetail' {} a -> s {lastIngestStateChange = a} :: DatasourcePackageIngestDetail) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DatasourcePackageIngestDetail where
+instance Data.FromJSON DatasourcePackageIngestDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasourcePackageIngestDetail"
       ( \x ->
           DatasourcePackageIngestDetail'
-            Prelude.<$> (x Core..:? "DatasourcePackageIngestState")
-            Prelude.<*> ( x Core..:? "LastIngestStateChange"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DatasourcePackageIngestState")
+            Prelude.<*> ( x Data..:? "LastIngestStateChange"
+                            Data..!= Prelude.mempty
                         )
       )
 

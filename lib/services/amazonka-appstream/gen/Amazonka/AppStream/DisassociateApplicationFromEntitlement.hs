@@ -43,6 +43,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,48 +142,48 @@ instance
       `Prelude.seq` Prelude.rnf applicationIdentifier
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateApplicationFromEntitlement
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DisassociateApplicationFromEntitlement" ::
+              Data.=# ( "PhotonAdminProxyService.DisassociateApplicationFromEntitlement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DisassociateApplicationFromEntitlement
   where
   toJSON DisassociateApplicationFromEntitlement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StackName" Core..= stackName),
+          [ Prelude.Just ("StackName" Data..= stackName),
             Prelude.Just
-              ("EntitlementName" Core..= entitlementName),
+              ("EntitlementName" Data..= entitlementName),
             Prelude.Just
               ( "ApplicationIdentifier"
-                  Core..= applicationIdentifier
+                  Data..= applicationIdentifier
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateApplicationFromEntitlement
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateApplicationFromEntitlement
   where
   toQuery = Prelude.const Prelude.mempty

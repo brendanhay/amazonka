@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.Delete where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -135,19 +136,19 @@ instance Prelude.NFData Delete where
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToJSON Delete where
+instance Data.ToJSON Delete where
   toJSON Delete' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExpressionAttributeValues" Core..=)
+          [ ("ExpressionAttributeValues" Data..=)
               Prelude.<$> expressionAttributeValues,
-            ("ExpressionAttributeNames" Core..=)
+            ("ExpressionAttributeNames" Data..=)
               Prelude.<$> expressionAttributeNames,
-            ("ReturnValuesOnConditionCheckFailure" Core..=)
+            ("ReturnValuesOnConditionCheckFailure" Data..=)
               Prelude.<$> returnValuesOnConditionCheckFailure,
-            ("ConditionExpression" Core..=)
+            ("ConditionExpression" Data..=)
               Prelude.<$> conditionExpression,
-            Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("TableName" Core..= tableName)
+            Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )

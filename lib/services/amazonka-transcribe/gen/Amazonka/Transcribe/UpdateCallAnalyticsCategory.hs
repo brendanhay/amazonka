@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,7 +113,7 @@ instance Core.AWSRequest UpdateCallAnalyticsCategory where
     Response.receiveJSON
       ( \s h x ->
           UpdateCallAnalyticsCategoryResponse'
-            Prelude.<$> (x Core..?> "CategoryProperties")
+            Prelude.<$> (x Data..?> "CategoryProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,34 +127,34 @@ instance Prelude.NFData UpdateCallAnalyticsCategory where
     Prelude.rnf categoryName
       `Prelude.seq` Prelude.rnf rules
 
-instance Core.ToHeaders UpdateCallAnalyticsCategory where
+instance Data.ToHeaders UpdateCallAnalyticsCategory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.UpdateCallAnalyticsCategory" ::
+              Data.=# ( "Transcribe.UpdateCallAnalyticsCategory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCallAnalyticsCategory where
+instance Data.ToJSON UpdateCallAnalyticsCategory where
   toJSON UpdateCallAnalyticsCategory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("CategoryName" Core..= categoryName),
-            Prelude.Just ("Rules" Core..= rules)
+          [ Prelude.Just ("CategoryName" Data..= categoryName),
+            Prelude.Just ("Rules" Data..= rules)
           ]
       )
 
-instance Core.ToPath UpdateCallAnalyticsCategory where
+instance Data.ToPath UpdateCallAnalyticsCategory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateCallAnalyticsCategory where
+instance Data.ToQuery UpdateCallAnalyticsCategory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCallAnalyticsCategoryResponse' smart constructor.

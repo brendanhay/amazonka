@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.TimestreamAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.TimestreamDimension
 import Amazonka.IoT.Types.TimestreamTimestamp
 import qualified Amazonka.Prelude as Prelude
@@ -135,17 +136,17 @@ timestreamAction_tableName = Lens.lens (\TimestreamAction' {tableName} -> tableN
 timestreamAction_dimensions :: Lens.Lens' TimestreamAction (Prelude.NonEmpty TimestreamDimension)
 timestreamAction_dimensions = Lens.lens (\TimestreamAction' {dimensions} -> dimensions) (\s@TimestreamAction' {} a -> s {dimensions = a} :: TimestreamAction) Prelude.. Lens.coerced
 
-instance Core.FromJSON TimestreamAction where
+instance Data.FromJSON TimestreamAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimestreamAction"
       ( \x ->
           TimestreamAction'
-            Prelude.<$> (x Core..:? "timestamp")
-            Prelude.<*> (x Core..: "roleArn")
-            Prelude.<*> (x Core..: "databaseName")
-            Prelude.<*> (x Core..: "tableName")
-            Prelude.<*> (x Core..: "dimensions")
+            Prelude.<$> (x Data..:? "timestamp")
+            Prelude.<*> (x Data..: "roleArn")
+            Prelude.<*> (x Data..: "databaseName")
+            Prelude.<*> (x Data..: "tableName")
+            Prelude.<*> (x Data..: "dimensions")
       )
 
 instance Prelude.Hashable TimestreamAction where
@@ -164,14 +165,14 @@ instance Prelude.NFData TimestreamAction where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf dimensions
 
-instance Core.ToJSON TimestreamAction where
+instance Data.ToJSON TimestreamAction where
   toJSON TimestreamAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timestamp" Core..=) Prelude.<$> timestamp,
-            Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("databaseName" Core..= databaseName),
-            Prelude.Just ("tableName" Core..= tableName),
-            Prelude.Just ("dimensions" Core..= dimensions)
+          [ ("timestamp" Data..=) Prelude.<$> timestamp,
+            Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("databaseName" Data..= databaseName),
+            Prelude.Just ("tableName" Data..= tableName),
+            Prelude.Just ("dimensions" Data..= dimensions)
           ]
       )

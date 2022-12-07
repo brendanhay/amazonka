@@ -22,6 +22,7 @@ module Amazonka.AlexaBusiness.Types.IPDialIn where
 import Amazonka.AlexaBusiness.Types.CommsProtocol
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The IP endpoint and protocol for calling.
@@ -66,14 +67,14 @@ iPDialIn_endpoint = Lens.lens (\IPDialIn' {endpoint} -> endpoint) (\s@IPDialIn' 
 iPDialIn_commsProtocol :: Lens.Lens' IPDialIn CommsProtocol
 iPDialIn_commsProtocol = Lens.lens (\IPDialIn' {commsProtocol} -> commsProtocol) (\s@IPDialIn' {} a -> s {commsProtocol = a} :: IPDialIn)
 
-instance Core.FromJSON IPDialIn where
+instance Data.FromJSON IPDialIn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IPDialIn"
       ( \x ->
           IPDialIn'
-            Prelude.<$> (x Core..: "Endpoint")
-            Prelude.<*> (x Core..: "CommsProtocol")
+            Prelude.<$> (x Data..: "Endpoint")
+            Prelude.<*> (x Data..: "CommsProtocol")
       )
 
 instance Prelude.Hashable IPDialIn where
@@ -86,12 +87,12 @@ instance Prelude.NFData IPDialIn where
     Prelude.rnf endpoint
       `Prelude.seq` Prelude.rnf commsProtocol
 
-instance Core.ToJSON IPDialIn where
+instance Data.ToJSON IPDialIn where
   toJSON IPDialIn' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Endpoint" Core..= endpoint),
+          [ Prelude.Just ("Endpoint" Data..= endpoint),
             Prelude.Just
-              ("CommsProtocol" Core..= commsProtocol)
+              ("CommsProtocol" Data..= commsProtocol)
           ]
       )

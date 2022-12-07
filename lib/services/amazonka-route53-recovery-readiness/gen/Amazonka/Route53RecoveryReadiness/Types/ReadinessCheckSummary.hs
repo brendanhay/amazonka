@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryReadiness.Types.Readiness
 
@@ -63,14 +64,14 @@ readinessCheckSummary_readiness = Lens.lens (\ReadinessCheckSummary' {readiness}
 readinessCheckSummary_readinessCheckName :: Lens.Lens' ReadinessCheckSummary (Prelude.Maybe Prelude.Text)
 readinessCheckSummary_readinessCheckName = Lens.lens (\ReadinessCheckSummary' {readinessCheckName} -> readinessCheckName) (\s@ReadinessCheckSummary' {} a -> s {readinessCheckName = a} :: ReadinessCheckSummary)
 
-instance Core.FromJSON ReadinessCheckSummary where
+instance Data.FromJSON ReadinessCheckSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReadinessCheckSummary"
       ( \x ->
           ReadinessCheckSummary'
-            Prelude.<$> (x Core..:? "readiness")
-            Prelude.<*> (x Core..:? "readinessCheckName")
+            Prelude.<$> (x Data..:? "readiness")
+            Prelude.<*> (x Data..:? "readinessCheckName")
       )
 
 instance Prelude.Hashable ReadinessCheckSummary where

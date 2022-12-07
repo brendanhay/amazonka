@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.EbuTtDDestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.EbuTtDDestinationStyleControl
 import Amazonka.MediaLive.Types.EbuTtDFillLineGapControl
 import qualified Amazonka.Prelude as Prelude
@@ -145,16 +146,16 @@ ebuTtDDestinationSettings_fontFamily = Lens.lens (\EbuTtDDestinationSettings' {f
 ebuTtDDestinationSettings_copyrightHolder :: Lens.Lens' EbuTtDDestinationSettings (Prelude.Maybe Prelude.Text)
 ebuTtDDestinationSettings_copyrightHolder = Lens.lens (\EbuTtDDestinationSettings' {copyrightHolder} -> copyrightHolder) (\s@EbuTtDDestinationSettings' {} a -> s {copyrightHolder = a} :: EbuTtDDestinationSettings)
 
-instance Core.FromJSON EbuTtDDestinationSettings where
+instance Data.FromJSON EbuTtDDestinationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EbuTtDDestinationSettings"
       ( \x ->
           EbuTtDDestinationSettings'
-            Prelude.<$> (x Core..:? "fillLineGap")
-            Prelude.<*> (x Core..:? "styleControl")
-            Prelude.<*> (x Core..:? "fontFamily")
-            Prelude.<*> (x Core..:? "copyrightHolder")
+            Prelude.<$> (x Data..:? "fillLineGap")
+            Prelude.<*> (x Data..:? "styleControl")
+            Prelude.<*> (x Data..:? "fontFamily")
+            Prelude.<*> (x Data..:? "copyrightHolder")
       )
 
 instance Prelude.Hashable EbuTtDDestinationSettings where
@@ -171,14 +172,14 @@ instance Prelude.NFData EbuTtDDestinationSettings where
       `Prelude.seq` Prelude.rnf fontFamily
       `Prelude.seq` Prelude.rnf copyrightHolder
 
-instance Core.ToJSON EbuTtDDestinationSettings where
+instance Data.ToJSON EbuTtDDestinationSettings where
   toJSON EbuTtDDestinationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fillLineGap" Core..=) Prelude.<$> fillLineGap,
-            ("styleControl" Core..=) Prelude.<$> styleControl,
-            ("fontFamily" Core..=) Prelude.<$> fontFamily,
-            ("copyrightHolder" Core..=)
+          [ ("fillLineGap" Data..=) Prelude.<$> fillLineGap,
+            ("styleControl" Data..=) Prelude.<$> styleControl,
+            ("fontFamily" Data..=) Prelude.<$> fontFamily,
+            ("copyrightHolder" Data..=)
               Prelude.<$> copyrightHolder
           ]
       )

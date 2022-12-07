@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.TimeStreamQuery.Types.Row where
 
-import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 data Row
@@ -24,7 +24,7 @@ instance Prelude.Show Row
 
 instance Prelude.Generic Row
 
-instance Core.FromJSON Row
+instance Data.FromJSON Row
 
 instance Prelude.NFData Row
 

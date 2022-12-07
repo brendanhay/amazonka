@@ -21,6 +21,7 @@ module Amazonka.LexRuntime.Types.Button where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an option to be shown on the client platform (Facebook,
@@ -69,13 +70,13 @@ button_text = Lens.lens (\Button' {text} -> text) (\s@Button' {} a -> s {text = 
 button_value :: Lens.Lens' Button Prelude.Text
 button_value = Lens.lens (\Button' {value} -> value) (\s@Button' {} a -> s {value = a} :: Button)
 
-instance Core.FromJSON Button where
+instance Data.FromJSON Button where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Button"
       ( \x ->
           Button'
-            Prelude.<$> (x Core..: "text") Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..: "text") Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable Button where

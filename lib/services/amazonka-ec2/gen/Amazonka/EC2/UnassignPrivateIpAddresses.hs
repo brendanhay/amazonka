@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,28 +124,28 @@ instance Prelude.NFData UnassignPrivateIpAddresses where
       `Prelude.seq` Prelude.rnf ipv4Prefixes
       `Prelude.seq` Prelude.rnf networkInterfaceId
 
-instance Core.ToHeaders UnassignPrivateIpAddresses where
+instance Data.ToHeaders UnassignPrivateIpAddresses where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UnassignPrivateIpAddresses where
+instance Data.ToPath UnassignPrivateIpAddresses where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UnassignPrivateIpAddresses where
+instance Data.ToQuery UnassignPrivateIpAddresses where
   toQuery UnassignPrivateIpAddresses' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UnassignPrivateIpAddresses" :: Prelude.ByteString),
+          Data.=: ("UnassignPrivateIpAddresses" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "PrivateIpAddress"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "PrivateIpAddress"
               Prelude.<$> privateIpAddresses
           ),
-        Core.toQuery
-          ( Core.toQueryList "Ipv4Prefix"
+        Data.toQuery
+          ( Data.toQueryList "Ipv4Prefix"
               Prelude.<$> ipv4Prefixes
           ),
-        "NetworkInterfaceId" Core.=: networkInterfaceId
+        "NetworkInterfaceId" Data.=: networkInterfaceId
       ]
 
 -- | /See:/ 'newUnassignPrivateIpAddressesResponse' smart constructor.

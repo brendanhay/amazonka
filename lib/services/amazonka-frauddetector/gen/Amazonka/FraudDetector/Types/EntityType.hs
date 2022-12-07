@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.EntityType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The entity type details.
@@ -88,17 +89,17 @@ entityType_description = Lens.lens (\EntityType' {description} -> description) (
 entityType_lastUpdatedTime :: Lens.Lens' EntityType (Prelude.Maybe Prelude.Text)
 entityType_lastUpdatedTime = Lens.lens (\EntityType' {lastUpdatedTime} -> lastUpdatedTime) (\s@EntityType' {} a -> s {lastUpdatedTime = a} :: EntityType)
 
-instance Core.FromJSON EntityType where
+instance Data.FromJSON EntityType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntityType"
       ( \x ->
           EntityType'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "createdTime")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "createdTime")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
       )
 
 instance Prelude.Hashable EntityType where

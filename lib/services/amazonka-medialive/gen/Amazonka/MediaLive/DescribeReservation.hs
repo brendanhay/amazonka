@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,25 +107,25 @@ instance Core.AWSRequest DescribeReservation where
     Response.receiveJSON
       ( \s h x ->
           DescribeReservationResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "renewalSettings")
-            Prelude.<*> (x Core..?> "start")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "resourceSpecification")
-            Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "offeringType")
-            Prelude.<*> (x Core..?> "durationUnits")
-            Prelude.<*> (x Core..?> "count")
-            Prelude.<*> (x Core..?> "duration")
-            Prelude.<*> (x Core..?> "currencyCode")
-            Prelude.<*> (x Core..?> "end")
-            Prelude.<*> (x Core..?> "region")
-            Prelude.<*> (x Core..?> "offeringId")
-            Prelude.<*> (x Core..?> "offeringDescription")
-            Prelude.<*> (x Core..?> "reservationId")
-            Prelude.<*> (x Core..?> "fixedPrice")
-            Prelude.<*> (x Core..?> "usagePrice")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "renewalSettings")
+            Prelude.<*> (x Data..?> "start")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "resourceSpecification")
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "offeringType")
+            Prelude.<*> (x Data..?> "durationUnits")
+            Prelude.<*> (x Data..?> "count")
+            Prelude.<*> (x Data..?> "duration")
+            Prelude.<*> (x Data..?> "currencyCode")
+            Prelude.<*> (x Data..?> "end")
+            Prelude.<*> (x Data..?> "region")
+            Prelude.<*> (x Data..?> "offeringId")
+            Prelude.<*> (x Data..?> "offeringDescription")
+            Prelude.<*> (x Data..?> "reservationId")
+            Prelude.<*> (x Data..?> "fixedPrice")
+            Prelude.<*> (x Data..?> "usagePrice")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,23 +137,23 @@ instance Prelude.NFData DescribeReservation where
   rnf DescribeReservation' {..} =
     Prelude.rnf reservationId
 
-instance Core.ToHeaders DescribeReservation where
+instance Data.ToHeaders DescribeReservation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeReservation where
+instance Data.ToPath DescribeReservation where
   toPath DescribeReservation' {..} =
     Prelude.mconcat
-      ["/prod/reservations/", Core.toBS reservationId]
+      ["/prod/reservations/", Data.toBS reservationId]
 
-instance Core.ToQuery DescribeReservation where
+instance Data.ToQuery DescribeReservation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for DescribeReservationResponse

@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.ListEntitiesFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that filters items in a list of entities.
@@ -86,14 +87,14 @@ instance Prelude.NFData ListEntitiesFilter where
       `Prelude.seq` Prelude.rnf externalId
       `Prelude.seq` Prelude.rnf componentTypeId
 
-instance Core.ToJSON ListEntitiesFilter where
+instance Data.ToJSON ListEntitiesFilter where
   toJSON ListEntitiesFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("parentEntityId" Core..=)
+          [ ("parentEntityId" Data..=)
               Prelude.<$> parentEntityId,
-            ("externalId" Core..=) Prelude.<$> externalId,
-            ("componentTypeId" Core..=)
+            ("externalId" Data..=) Prelude.<$> externalId,
+            ("componentTypeId" Data..=)
               Prelude.<$> componentTypeId
           ]
       )

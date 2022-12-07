@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,18 +119,18 @@ instance Prelude.NFData DeleteBucketTagging where
     Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders DeleteBucketTagging where
+instance Data.ToHeaders DeleteBucketTagging where
   toHeaders DeleteBucketTagging' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath DeleteBucketTagging where
+instance Data.ToPath DeleteBucketTagging where
   toPath DeleteBucketTagging' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery DeleteBucketTagging where
+instance Data.ToQuery DeleteBucketTagging where
   toQuery = Prelude.const (Prelude.mconcat ["tagging"])
 
 -- | /See:/ 'newDeleteBucketTaggingResponse' smart constructor.

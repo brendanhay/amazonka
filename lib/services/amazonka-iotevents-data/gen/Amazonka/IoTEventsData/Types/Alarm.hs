@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.Alarm where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types.AlarmState
 import qualified Amazonka.Prelude as Prelude
 
@@ -41,9 +42,9 @@ data Alarm = Alarm'
     -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key key>.
     keyValue :: Prelude.Maybe Prelude.Text,
     -- | The time the alarm was created, in the Unix epoch format.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The time the alarm was last updated, in the Unix epoch format.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX
+    lastUpdateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,25 +108,25 @@ alarm_keyValue = Lens.lens (\Alarm' {keyValue} -> keyValue) (\s@Alarm' {} a -> s
 
 -- | The time the alarm was created, in the Unix epoch format.
 alarm_creationTime :: Lens.Lens' Alarm (Prelude.Maybe Prelude.UTCTime)
-alarm_creationTime = Lens.lens (\Alarm' {creationTime} -> creationTime) (\s@Alarm' {} a -> s {creationTime = a} :: Alarm) Prelude.. Lens.mapping Core._Time
+alarm_creationTime = Lens.lens (\Alarm' {creationTime} -> creationTime) (\s@Alarm' {} a -> s {creationTime = a} :: Alarm) Prelude.. Lens.mapping Data._Time
 
 -- | The time the alarm was last updated, in the Unix epoch format.
 alarm_lastUpdateTime :: Lens.Lens' Alarm (Prelude.Maybe Prelude.UTCTime)
-alarm_lastUpdateTime = Lens.lens (\Alarm' {lastUpdateTime} -> lastUpdateTime) (\s@Alarm' {} a -> s {lastUpdateTime = a} :: Alarm) Prelude.. Lens.mapping Core._Time
+alarm_lastUpdateTime = Lens.lens (\Alarm' {lastUpdateTime} -> lastUpdateTime) (\s@Alarm' {} a -> s {lastUpdateTime = a} :: Alarm) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Alarm where
+instance Data.FromJSON Alarm where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Alarm"
       ( \x ->
           Alarm'
-            Prelude.<$> (x Core..:? "alarmModelName")
-            Prelude.<*> (x Core..:? "alarmState")
-            Prelude.<*> (x Core..:? "severity")
-            Prelude.<*> (x Core..:? "alarmModelVersion")
-            Prelude.<*> (x Core..:? "keyValue")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
+            Prelude.<$> (x Data..:? "alarmModelName")
+            Prelude.<*> (x Data..:? "alarmState")
+            Prelude.<*> (x Data..:? "severity")
+            Prelude.<*> (x Data..:? "alarmModelVersion")
+            Prelude.<*> (x Data..:? "keyValue")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
       )
 
 instance Prelude.Hashable Alarm where

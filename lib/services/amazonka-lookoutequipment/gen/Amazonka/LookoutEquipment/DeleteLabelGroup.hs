@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,34 +96,34 @@ instance Prelude.NFData DeleteLabelGroup where
   rnf DeleteLabelGroup' {..} =
     Prelude.rnf labelGroupName
 
-instance Core.ToHeaders DeleteLabelGroup where
+instance Data.ToHeaders DeleteLabelGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.DeleteLabelGroup" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.DeleteLabelGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteLabelGroup where
+instance Data.ToJSON DeleteLabelGroup where
   toJSON DeleteLabelGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("LabelGroupName" Core..= labelGroupName)
+              ("LabelGroupName" Data..= labelGroupName)
           ]
       )
 
-instance Core.ToPath DeleteLabelGroup where
+instance Data.ToPath DeleteLabelGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLabelGroup where
+instance Data.ToQuery DeleteLabelGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLabelGroupResponse' smart constructor.

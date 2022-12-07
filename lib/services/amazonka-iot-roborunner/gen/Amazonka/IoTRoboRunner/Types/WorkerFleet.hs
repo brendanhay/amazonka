@@ -21,6 +21,7 @@ module Amazonka.IoTRoboRunner.Types.WorkerFleet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of workers organized within a facility.
@@ -32,8 +33,8 @@ data WorkerFleet = WorkerFleet'
     id :: Prelude.Text,
     name :: Prelude.Text,
     site :: Prelude.Text,
-    createdAt :: Core.POSIX,
-    updatedAt :: Core.POSIX
+    createdAt :: Data.POSIX,
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,8 +87,8 @@ newWorkerFleet
         id = pId_,
         name = pName_,
         site = pSite_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
 -- | Undocumented member.
@@ -112,25 +113,25 @@ workerFleet_site = Lens.lens (\WorkerFleet' {site} -> site) (\s@WorkerFleet' {} 
 
 -- | Undocumented member.
 workerFleet_createdAt :: Lens.Lens' WorkerFleet Prelude.UTCTime
-workerFleet_createdAt = Lens.lens (\WorkerFleet' {createdAt} -> createdAt) (\s@WorkerFleet' {} a -> s {createdAt = a} :: WorkerFleet) Prelude.. Core._Time
+workerFleet_createdAt = Lens.lens (\WorkerFleet' {createdAt} -> createdAt) (\s@WorkerFleet' {} a -> s {createdAt = a} :: WorkerFleet) Prelude.. Data._Time
 
 -- | Undocumented member.
 workerFleet_updatedAt :: Lens.Lens' WorkerFleet Prelude.UTCTime
-workerFleet_updatedAt = Lens.lens (\WorkerFleet' {updatedAt} -> updatedAt) (\s@WorkerFleet' {} a -> s {updatedAt = a} :: WorkerFleet) Prelude.. Core._Time
+workerFleet_updatedAt = Lens.lens (\WorkerFleet' {updatedAt} -> updatedAt) (\s@WorkerFleet' {} a -> s {updatedAt = a} :: WorkerFleet) Prelude.. Data._Time
 
-instance Core.FromJSON WorkerFleet where
+instance Data.FromJSON WorkerFleet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkerFleet"
       ( \x ->
           WorkerFleet'
-            Prelude.<$> (x Core..:? "additionalFixedProperties")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "site")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "updatedAt")
+            Prelude.<$> (x Data..:? "additionalFixedProperties")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "site")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "updatedAt")
       )
 
 instance Prelude.Hashable WorkerFleet where

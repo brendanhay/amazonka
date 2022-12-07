@@ -22,6 +22,7 @@ module Amazonka.ConnectCampaigns.Types.OutboundCallConfig where
 import Amazonka.ConnectCampaigns.Types.AnswerMachineDetectionConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration used for outbound calls.
@@ -83,16 +84,16 @@ outboundCallConfig_connectContactFlowId = Lens.lens (\OutboundCallConfig' {conne
 outboundCallConfig_connectQueueId :: Lens.Lens' OutboundCallConfig Prelude.Text
 outboundCallConfig_connectQueueId = Lens.lens (\OutboundCallConfig' {connectQueueId} -> connectQueueId) (\s@OutboundCallConfig' {} a -> s {connectQueueId = a} :: OutboundCallConfig)
 
-instance Core.FromJSON OutboundCallConfig where
+instance Data.FromJSON OutboundCallConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutboundCallConfig"
       ( \x ->
           OutboundCallConfig'
-            Prelude.<$> (x Core..:? "answerMachineDetectionConfig")
-            Prelude.<*> (x Core..:? "connectSourcePhoneNumber")
-            Prelude.<*> (x Core..: "connectContactFlowId")
-            Prelude.<*> (x Core..: "connectQueueId")
+            Prelude.<$> (x Data..:? "answerMachineDetectionConfig")
+            Prelude.<*> (x Data..:? "connectSourcePhoneNumber")
+            Prelude.<*> (x Data..: "connectContactFlowId")
+            Prelude.<*> (x Data..: "connectQueueId")
       )
 
 instance Prelude.Hashable OutboundCallConfig where
@@ -110,19 +111,19 @@ instance Prelude.NFData OutboundCallConfig where
       `Prelude.seq` Prelude.rnf connectContactFlowId
       `Prelude.seq` Prelude.rnf connectQueueId
 
-instance Core.ToJSON OutboundCallConfig where
+instance Data.ToJSON OutboundCallConfig where
   toJSON OutboundCallConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("answerMachineDetectionConfig" Core..=)
+          [ ("answerMachineDetectionConfig" Data..=)
               Prelude.<$> answerMachineDetectionConfig,
-            ("connectSourcePhoneNumber" Core..=)
+            ("connectSourcePhoneNumber" Data..=)
               Prelude.<$> connectSourcePhoneNumber,
             Prelude.Just
               ( "connectContactFlowId"
-                  Core..= connectContactFlowId
+                  Data..= connectContactFlowId
               ),
             Prelude.Just
-              ("connectQueueId" Core..= connectQueueId)
+              ("connectQueueId" Data..= connectQueueId)
           ]
       )

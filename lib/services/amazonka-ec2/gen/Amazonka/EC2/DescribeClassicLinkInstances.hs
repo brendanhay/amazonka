@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -241,10 +242,10 @@ instance Core.AWSRequest DescribeClassicLinkInstances where
     Response.receiveXML
       ( \s h x ->
           DescribeClassicLinkInstancesResponse'
-            Prelude.<$> ( x Core..@? "instancesSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -267,28 +268,28 @@ instance Prelude.NFData DescribeClassicLinkInstances where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceIds
 
-instance Core.ToHeaders DescribeClassicLinkInstances where
+instance Data.ToHeaders DescribeClassicLinkInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeClassicLinkInstances where
+instance Data.ToPath DescribeClassicLinkInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeClassicLinkInstances where
+instance Data.ToQuery DescribeClassicLinkInstances where
   toQuery DescribeClassicLinkInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeClassicLinkInstances" ::
+          Data.=: ( "DescribeClassicLinkInstances" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          ( Core.toQueryList "InstanceId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          ( Data.toQueryList "InstanceId"
               Prelude.<$> instanceIds
           )
       ]

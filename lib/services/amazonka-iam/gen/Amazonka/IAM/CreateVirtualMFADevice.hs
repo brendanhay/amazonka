@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -208,7 +209,7 @@ instance Core.AWSRequest CreateVirtualMFADevice where
       ( \s h x ->
           CreateVirtualMFADeviceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "VirtualMFADevice")
+            Prelude.<*> (x Data..@ "VirtualMFADevice")
       )
 
 instance Prelude.Hashable CreateVirtualMFADevice where
@@ -223,24 +224,24 @@ instance Prelude.NFData CreateVirtualMFADevice where
       `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf virtualMFADeviceName
 
-instance Core.ToHeaders CreateVirtualMFADevice where
+instance Data.ToHeaders CreateVirtualMFADevice where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateVirtualMFADevice where
+instance Data.ToPath CreateVirtualMFADevice where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVirtualMFADevice where
+instance Data.ToQuery CreateVirtualMFADevice where
   toQuery CreateVirtualMFADevice' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateVirtualMFADevice" :: Prelude.ByteString),
+          Data.=: ("CreateVirtualMFADevice" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "Path" Core.=: path,
-        "VirtualMFADeviceName" Core.=: virtualMFADeviceName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "Path" Data.=: path,
+        "VirtualMFADeviceName" Data.=: virtualMFADeviceName
       ]
 
 -- | Contains the response to a successful CreateVirtualMFADevice request.

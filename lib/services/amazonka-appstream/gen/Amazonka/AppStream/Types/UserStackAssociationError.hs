@@ -23,6 +23,7 @@ import Amazonka.AppStream.Types.UserStackAssociation
 import Amazonka.AppStream.Types.UserStackAssociationErrorCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the error that is returned when a user can’t be associated
@@ -80,15 +81,15 @@ userStackAssociationError_errorMessage = Lens.lens (\UserStackAssociationError' 
 userStackAssociationError_errorCode :: Lens.Lens' UserStackAssociationError (Prelude.Maybe UserStackAssociationErrorCode)
 userStackAssociationError_errorCode = Lens.lens (\UserStackAssociationError' {errorCode} -> errorCode) (\s@UserStackAssociationError' {} a -> s {errorCode = a} :: UserStackAssociationError)
 
-instance Core.FromJSON UserStackAssociationError where
+instance Data.FromJSON UserStackAssociationError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserStackAssociationError"
       ( \x ->
           UserStackAssociationError'
-            Prelude.<$> (x Core..:? "UserStackAssociation")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "UserStackAssociation")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable UserStackAssociationError where

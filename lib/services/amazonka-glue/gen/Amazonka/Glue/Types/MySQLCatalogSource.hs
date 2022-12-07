@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.MySQLCatalogSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a MySQL data source in the Glue Data Catalog.
@@ -76,15 +77,15 @@ mySQLCatalogSource_database = Lens.lens (\MySQLCatalogSource' {database} -> data
 mySQLCatalogSource_table :: Lens.Lens' MySQLCatalogSource Prelude.Text
 mySQLCatalogSource_table = Lens.lens (\MySQLCatalogSource' {table} -> table) (\s@MySQLCatalogSource' {} a -> s {table = a} :: MySQLCatalogSource)
 
-instance Core.FromJSON MySQLCatalogSource where
+instance Data.FromJSON MySQLCatalogSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MySQLCatalogSource"
       ( \x ->
           MySQLCatalogSource'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "Table")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "Table")
       )
 
 instance Prelude.Hashable MySQLCatalogSource where
@@ -99,12 +100,12 @@ instance Prelude.NFData MySQLCatalogSource where
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf table
 
-instance Core.ToJSON MySQLCatalogSource where
+instance Data.ToJSON MySQLCatalogSource where
   toJSON MySQLCatalogSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("Table" Core..= table)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("Table" Data..= table)
           ]
       )

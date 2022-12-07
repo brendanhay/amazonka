@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance Core.AWSRequest DescribeElasticsearchDomains where
       ( \s h x ->
           DescribeElasticsearchDomainsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "DomainStatusList"
+            Prelude.<*> ( x Data..?> "DomainStatusList"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -107,20 +108,20 @@ instance Prelude.NFData DescribeElasticsearchDomains where
   rnf DescribeElasticsearchDomains' {..} =
     Prelude.rnf domainNames
 
-instance Core.ToHeaders DescribeElasticsearchDomains where
+instance Data.ToHeaders DescribeElasticsearchDomains where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON DescribeElasticsearchDomains where
+instance Data.ToJSON DescribeElasticsearchDomains where
   toJSON DescribeElasticsearchDomains' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DomainNames" Core..= domainNames)]
+          [Prelude.Just ("DomainNames" Data..= domainNames)]
       )
 
-instance Core.ToPath DescribeElasticsearchDomains where
+instance Data.ToPath DescribeElasticsearchDomains where
   toPath = Prelude.const "/2015-01-01/es/domain-info"
 
-instance Core.ToQuery DescribeElasticsearchDomains where
+instance Data.ToQuery DescribeElasticsearchDomains where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a @DescribeElasticsearchDomains@ request. Contains the

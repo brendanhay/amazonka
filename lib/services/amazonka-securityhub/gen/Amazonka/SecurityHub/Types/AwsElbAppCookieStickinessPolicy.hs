@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElbAppCookieStickinessPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a stickiness policy that was created using
@@ -67,16 +68,16 @@ awsElbAppCookieStickinessPolicy_cookieName :: Lens.Lens' AwsElbAppCookieStickine
 awsElbAppCookieStickinessPolicy_cookieName = Lens.lens (\AwsElbAppCookieStickinessPolicy' {cookieName} -> cookieName) (\s@AwsElbAppCookieStickinessPolicy' {} a -> s {cookieName = a} :: AwsElbAppCookieStickinessPolicy)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElbAppCookieStickinessPolicy
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElbAppCookieStickinessPolicy"
       ( \x ->
           AwsElbAppCookieStickinessPolicy'
-            Prelude.<$> (x Core..:? "PolicyName")
-            Prelude.<*> (x Core..:? "CookieName")
+            Prelude.<$> (x Data..:? "PolicyName")
+            Prelude.<*> (x Data..:? "CookieName")
       )
 
 instance
@@ -97,11 +98,11 @@ instance
     Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf cookieName
 
-instance Core.ToJSON AwsElbAppCookieStickinessPolicy where
+instance Data.ToJSON AwsElbAppCookieStickinessPolicy where
   toJSON AwsElbAppCookieStickinessPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PolicyName" Core..=) Prelude.<$> policyName,
-            ("CookieName" Core..=) Prelude.<$> cookieName
+          [ ("PolicyName" Data..=) Prelude.<$> policyName,
+            ("CookieName" Data..=) Prelude.<$> cookieName
           ]
       )

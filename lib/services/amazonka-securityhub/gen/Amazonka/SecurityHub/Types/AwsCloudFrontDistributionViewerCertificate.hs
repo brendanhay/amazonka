@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudFrontDistributionViewerCertificate whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the TLS\/SSL configuration that the
@@ -144,21 +145,21 @@ awsCloudFrontDistributionViewerCertificate_certificateSource :: Lens.Lens' AwsCl
 awsCloudFrontDistributionViewerCertificate_certificateSource = Lens.lens (\AwsCloudFrontDistributionViewerCertificate' {certificateSource} -> certificateSource) (\s@AwsCloudFrontDistributionViewerCertificate' {} a -> s {certificateSource = a} :: AwsCloudFrontDistributionViewerCertificate)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCloudFrontDistributionViewerCertificate
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudFrontDistributionViewerCertificate"
       ( \x ->
           AwsCloudFrontDistributionViewerCertificate'
-            Prelude.<$> (x Core..:? "IamCertificateId")
-              Prelude.<*> (x Core..:? "CloudFrontDefaultCertificate")
-              Prelude.<*> (x Core..:? "Certificate")
-              Prelude.<*> (x Core..:? "MinimumProtocolVersion")
-              Prelude.<*> (x Core..:? "AcmCertificateArn")
-              Prelude.<*> (x Core..:? "SslSupportMethod")
-              Prelude.<*> (x Core..:? "CertificateSource")
+            Prelude.<$> (x Data..:? "IamCertificateId")
+              Prelude.<*> (x Data..:? "CloudFrontDefaultCertificate")
+              Prelude.<*> (x Data..:? "Certificate")
+              Prelude.<*> (x Data..:? "MinimumProtocolVersion")
+              Prelude.<*> (x Data..:? "AcmCertificateArn")
+              Prelude.<*> (x Data..:? "SslSupportMethod")
+              Prelude.<*> (x Data..:? "CertificateSource")
       )
 
 instance
@@ -190,25 +191,25 @@ instance
       `Prelude.seq` Prelude.rnf certificateSource
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCloudFrontDistributionViewerCertificate
   where
   toJSON
     AwsCloudFrontDistributionViewerCertificate' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("IamCertificateId" Core..=)
+            [ ("IamCertificateId" Data..=)
                 Prelude.<$> iamCertificateId,
-              ("CloudFrontDefaultCertificate" Core..=)
+              ("CloudFrontDefaultCertificate" Data..=)
                 Prelude.<$> cloudFrontDefaultCertificate,
-              ("Certificate" Core..=) Prelude.<$> certificate,
-              ("MinimumProtocolVersion" Core..=)
+              ("Certificate" Data..=) Prelude.<$> certificate,
+              ("MinimumProtocolVersion" Data..=)
                 Prelude.<$> minimumProtocolVersion,
-              ("AcmCertificateArn" Core..=)
+              ("AcmCertificateArn" Data..=)
                 Prelude.<$> acmCertificateArn,
-              ("SslSupportMethod" Core..=)
+              ("SslSupportMethod" Data..=)
                 Prelude.<$> sslSupportMethod,
-              ("CertificateSource" Core..=)
+              ("CertificateSource" Data..=)
                 Prelude.<$> certificateSource
             ]
         )

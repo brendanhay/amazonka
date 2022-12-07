@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -241,9 +242,9 @@ instance Core.AWSRequest DownloadDBLogFilePortion where
       "DownloadDBLogFilePortionResult"
       ( \s h x ->
           DownloadDBLogFilePortionResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "AdditionalDataPending")
-            Prelude.<*> (x Core..@? "LogFileData")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "AdditionalDataPending")
+            Prelude.<*> (x Data..@? "LogFileData")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -261,23 +262,23 @@ instance Prelude.NFData DownloadDBLogFilePortion where
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
       `Prelude.seq` Prelude.rnf logFileName
 
-instance Core.ToHeaders DownloadDBLogFilePortion where
+instance Data.ToHeaders DownloadDBLogFilePortion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DownloadDBLogFilePortion where
+instance Data.ToPath DownloadDBLogFilePortion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DownloadDBLogFilePortion where
+instance Data.ToQuery DownloadDBLogFilePortion where
   toQuery DownloadDBLogFilePortion' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DownloadDBLogFilePortion" :: Prelude.ByteString),
+          Data.=: ("DownloadDBLogFilePortion" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "NumberOfLines" Core.=: numberOfLines,
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
-        "LogFileName" Core.=: logFileName
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "NumberOfLines" Data.=: numberOfLines,
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier,
+        "LogFileName" Data.=: logFileName
       ]
 
 -- | This data type is used as a response element to

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -107,8 +108,8 @@ instance Core.AWSRequest DeleteRecommendationTemplate where
       ( \s h x ->
           DeleteRecommendationTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "recommendationTemplateArn")
-            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Data..:> "recommendationTemplateArn")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance
@@ -124,34 +125,34 @@ instance Prelude.NFData DeleteRecommendationTemplate where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf recommendationTemplateArn
 
-instance Core.ToHeaders DeleteRecommendationTemplate where
+instance Data.ToHeaders DeleteRecommendationTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRecommendationTemplate where
+instance Data.ToJSON DeleteRecommendationTemplate where
   toJSON DeleteRecommendationTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
               ( "recommendationTemplateArn"
-                  Core..= recommendationTemplateArn
+                  Data..= recommendationTemplateArn
               )
           ]
       )
 
-instance Core.ToPath DeleteRecommendationTemplate where
+instance Data.ToPath DeleteRecommendationTemplate where
   toPath =
     Prelude.const "/delete-recommendation-template"
 
-instance Core.ToQuery DeleteRecommendationTemplate where
+instance Data.ToQuery DeleteRecommendationTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRecommendationTemplateResponse' smart constructor.

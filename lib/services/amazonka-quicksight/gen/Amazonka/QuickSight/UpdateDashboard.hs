@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -274,12 +275,12 @@ instance Core.AWSRequest UpdateDashboard where
     Response.receiveJSON
       ( \s h x ->
           UpdateDashboardResponse'
-            Prelude.<$> (x Core..?> "CreationStatus")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "DashboardId")
-            Prelude.<*> (x Core..?> "VersionArn")
+            Prelude.<$> (x Data..?> "CreationStatus")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "DashboardId")
+            Prelude.<*> (x Data..?> "VersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -305,42 +306,42 @@ instance Prelude.NFData UpdateDashboard where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sourceEntity
 
-instance Core.ToHeaders UpdateDashboard where
+instance Data.ToHeaders UpdateDashboard where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDashboard where
+instance Data.ToJSON UpdateDashboard where
   toJSON UpdateDashboard' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ThemeArn" Core..=) Prelude.<$> themeArn,
-            ("VersionDescription" Core..=)
+          [ ("ThemeArn" Data..=) Prelude.<$> themeArn,
+            ("VersionDescription" Data..=)
               Prelude.<$> versionDescription,
-            ("DashboardPublishOptions" Core..=)
+            ("DashboardPublishOptions" Data..=)
               Prelude.<$> dashboardPublishOptions,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("SourceEntity" Core..= sourceEntity)
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("SourceEntity" Data..= sourceEntity)
           ]
       )
 
-instance Core.ToPath UpdateDashboard where
+instance Data.ToPath UpdateDashboard where
   toPath UpdateDashboard' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/dashboards/",
-        Core.toBS dashboardId
+        Data.toBS dashboardId
       ]
 
-instance Core.ToQuery UpdateDashboard where
+instance Data.ToQuery UpdateDashboard where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDashboardResponse' smart constructor.

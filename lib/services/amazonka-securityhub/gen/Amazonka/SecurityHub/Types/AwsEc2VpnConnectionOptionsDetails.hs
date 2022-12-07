@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2VpnConnectionOptionsDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEc2VpnConnectionOptionsTunnelOptionsDetails
 
@@ -64,16 +65,16 @@ awsEc2VpnConnectionOptionsDetails_staticRoutesOnly :: Lens.Lens' AwsEc2VpnConnec
 awsEc2VpnConnectionOptionsDetails_staticRoutesOnly = Lens.lens (\AwsEc2VpnConnectionOptionsDetails' {staticRoutesOnly} -> staticRoutesOnly) (\s@AwsEc2VpnConnectionOptionsDetails' {} a -> s {staticRoutesOnly = a} :: AwsEc2VpnConnectionOptionsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEc2VpnConnectionOptionsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2VpnConnectionOptionsDetails"
       ( \x ->
           AwsEc2VpnConnectionOptionsDetails'
-            Prelude.<$> (x Core..:? "TunnelOptions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StaticRoutesOnly")
+            Prelude.<$> (x Data..:? "TunnelOptions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StaticRoutesOnly")
       )
 
 instance
@@ -95,14 +96,14 @@ instance
       `Prelude.seq` Prelude.rnf staticRoutesOnly
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEc2VpnConnectionOptionsDetails
   where
   toJSON AwsEc2VpnConnectionOptionsDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TunnelOptions" Core..=) Prelude.<$> tunnelOptions,
-            ("StaticRoutesOnly" Core..=)
+          [ ("TunnelOptions" Data..=) Prelude.<$> tunnelOptions,
+            ("StaticRoutesOnly" Data..=)
               Prelude.<$> staticRoutesOnly
           ]
       )

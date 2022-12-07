@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,9 +120,9 @@ instance
       "DisableAvailabilityZonesForLoadBalancerResult"
       ( \s h x ->
           DisableAvailabilityZonesForLoadBalancerResponse'
-            Prelude.<$> ( x Core..@? "AvailabilityZones"
+            Prelude.<$> ( x Data..@? "AvailabilityZones"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -145,32 +146,32 @@ instance
       `Prelude.seq` Prelude.rnf availabilityZones
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisableAvailabilityZonesForLoadBalancer
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisableAvailabilityZonesForLoadBalancer
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisableAvailabilityZonesForLoadBalancer
   where
   toQuery DisableAvailabilityZonesForLoadBalancer' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DisableAvailabilityZonesForLoadBalancer" ::
+          Data.=: ( "DisableAvailabilityZonesForLoadBalancer" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Core.=: loadBalancerName,
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
+        "LoadBalancerName" Data.=: loadBalancerName,
         "AvailabilityZones"
-          Core.=: Core.toQueryList "member" availabilityZones
+          Data.=: Data.toQueryList "member" availabilityZones
       ]
 
 -- | Contains the output for DisableAvailabilityZonesForLoadBalancer.

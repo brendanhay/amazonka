@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -173,12 +174,12 @@ instance Core.AWSRequest DescribeOptedOutNumbers where
     Response.receiveJSON
       ( \s h x ->
           DescribeOptedOutNumbersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "OptOutListArn")
-            Prelude.<*> ( x Core..?> "OptedOutNumbers"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "OptOutListArn")
+            Prelude.<*> ( x Data..?> "OptedOutNumbers"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "OptOutListName")
+            Prelude.<*> (x Data..?> "OptOutListName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,39 +199,39 @@ instance Prelude.NFData DescribeOptedOutNumbers where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf optOutListName
 
-instance Core.ToHeaders DescribeOptedOutNumbers where
+instance Data.ToHeaders DescribeOptedOutNumbers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.DescribeOptedOutNumbers" ::
+              Data.=# ( "PinpointSMSVoiceV2.DescribeOptedOutNumbers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeOptedOutNumbers where
+instance Data.ToJSON DescribeOptedOutNumbers where
   toJSON DescribeOptedOutNumbers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("OptedOutNumbers" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("OptedOutNumbers" Data..=)
               Prelude.<$> optedOutNumbers,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("OptOutListName" Core..= optOutListName)
+              ("OptOutListName" Data..= optOutListName)
           ]
       )
 
-instance Core.ToPath DescribeOptedOutNumbers where
+instance Data.ToPath DescribeOptedOutNumbers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeOptedOutNumbers where
+instance Data.ToQuery DescribeOptedOutNumbers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeOptedOutNumbersResponse' smart constructor.

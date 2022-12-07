@@ -46,6 +46,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,9 +125,9 @@ instance Core.AWSRequest ListCasesForContact where
     Response.receiveJSON
       ( \s h x ->
           ListCasesForContactResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "cases" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "cases" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListCasesForContact where
@@ -143,36 +144,36 @@ instance Prelude.NFData ListCasesForContact where
       `Prelude.seq` Prelude.rnf contactArn
       `Prelude.seq` Prelude.rnf domainId
 
-instance Core.ToHeaders ListCasesForContact where
+instance Data.ToHeaders ListCasesForContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCasesForContact where
+instance Data.ToJSON ListCasesForContact where
   toJSON ListCasesForContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("contactArn" Core..= contactArn)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("contactArn" Data..= contactArn)
           ]
       )
 
-instance Core.ToPath ListCasesForContact where
+instance Data.ToPath ListCasesForContact where
   toPath ListCasesForContact' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainId,
+        Data.toBS domainId,
         "/list-cases-for-contact"
       ]
 
-instance Core.ToQuery ListCasesForContact where
+instance Data.ToQuery ListCasesForContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCasesForContactResponse' smart constructor.

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -171,8 +172,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAuditMitigationActionsExecutionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-              Prelude.<*> ( x Core..?> "actionsExecutions"
+            Prelude.<$> (x Data..?> "nextToken")
+              Prelude.<*> ( x Data..?> "actionsExecutions"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -203,29 +204,29 @@ instance
       `Prelude.seq` Prelude.rnf findingId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListAuditMitigationActionsExecutions
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListAuditMitigationActionsExecutions
   where
   toPath =
     Prelude.const "/audit/mitigationactions/executions"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListAuditMitigationActionsExecutions
   where
   toQuery ListAuditMitigationActionsExecutions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "actionStatus" Core.=: actionStatus,
-        "taskId" Core.=: taskId,
-        "findingId" Core.=: findingId
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "actionStatus" Data.=: actionStatus,
+        "taskId" Data.=: taskId,
+        "findingId" Data.=: findingId
       ]
 
 -- | /See:/ 'newListAuditMitigationActionsExecutionsResponse' smart constructor.

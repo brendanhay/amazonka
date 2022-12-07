@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -120,10 +121,10 @@ instance Core.AWSRequest DeleteThemeAlias where
     Response.receiveJSON
       ( \s h x ->
           DeleteThemeAliasResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "AliasName")
-            Prelude.<*> (x Core..?> "ThemeId")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "AliasName")
+            Prelude.<*> (x Data..?> "ThemeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,29 +140,29 @@ instance Prelude.NFData DeleteThemeAlias where
       `Prelude.seq` Prelude.rnf themeId
       `Prelude.seq` Prelude.rnf aliasName
 
-instance Core.ToHeaders DeleteThemeAlias where
+instance Data.ToHeaders DeleteThemeAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteThemeAlias where
+instance Data.ToPath DeleteThemeAlias where
   toPath DeleteThemeAlias' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/themes/",
-        Core.toBS themeId,
+        Data.toBS themeId,
         "/aliases/",
-        Core.toBS aliasName
+        Data.toBS aliasName
       ]
 
-instance Core.ToQuery DeleteThemeAlias where
+instance Data.ToQuery DeleteThemeAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteThemeAliasResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.JourneySMSMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.MessageType
 import qualified Amazonka.Prelude as Prelude
 
@@ -129,17 +130,17 @@ journeySMSMessage_templateId = Lens.lens (\JourneySMSMessage' {templateId} -> te
 journeySMSMessage_originationNumber :: Lens.Lens' JourneySMSMessage (Prelude.Maybe Prelude.Text)
 journeySMSMessage_originationNumber = Lens.lens (\JourneySMSMessage' {originationNumber} -> originationNumber) (\s@JourneySMSMessage' {} a -> s {originationNumber = a} :: JourneySMSMessage)
 
-instance Core.FromJSON JourneySMSMessage where
+instance Data.FromJSON JourneySMSMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JourneySMSMessage"
       ( \x ->
           JourneySMSMessage'
-            Prelude.<$> (x Core..:? "EntityId")
-            Prelude.<*> (x Core..:? "MessageType")
-            Prelude.<*> (x Core..:? "SenderId")
-            Prelude.<*> (x Core..:? "TemplateId")
-            Prelude.<*> (x Core..:? "OriginationNumber")
+            Prelude.<$> (x Data..:? "EntityId")
+            Prelude.<*> (x Data..:? "MessageType")
+            Prelude.<*> (x Data..:? "SenderId")
+            Prelude.<*> (x Data..:? "TemplateId")
+            Prelude.<*> (x Data..:? "OriginationNumber")
       )
 
 instance Prelude.Hashable JourneySMSMessage where
@@ -158,15 +159,15 @@ instance Prelude.NFData JourneySMSMessage where
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf originationNumber
 
-instance Core.ToJSON JourneySMSMessage where
+instance Data.ToJSON JourneySMSMessage where
   toJSON JourneySMSMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EntityId" Core..=) Prelude.<$> entityId,
-            ("MessageType" Core..=) Prelude.<$> messageType,
-            ("SenderId" Core..=) Prelude.<$> senderId,
-            ("TemplateId" Core..=) Prelude.<$> templateId,
-            ("OriginationNumber" Core..=)
+          [ ("EntityId" Data..=) Prelude.<$> entityId,
+            ("MessageType" Data..=) Prelude.<$> messageType,
+            ("SenderId" Data..=) Prelude.<$> senderId,
+            ("TemplateId" Data..=) Prelude.<$> templateId,
+            ("OriginationNumber" Data..=)
               Prelude.<$> originationNumber
           ]
       )

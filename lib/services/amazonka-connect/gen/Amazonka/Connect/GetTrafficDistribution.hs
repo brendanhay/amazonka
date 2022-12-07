@@ -45,6 +45,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,9 +87,9 @@ instance Core.AWSRequest GetTrafficDistribution where
     Response.receiveJSON
       ( \s h x ->
           GetTrafficDistributionResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "TelephonyConfig")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "TelephonyConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,23 +100,23 @@ instance Prelude.Hashable GetTrafficDistribution where
 instance Prelude.NFData GetTrafficDistribution where
   rnf GetTrafficDistribution' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetTrafficDistribution where
+instance Data.ToHeaders GetTrafficDistribution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetTrafficDistribution where
+instance Data.ToPath GetTrafficDistribution where
   toPath GetTrafficDistribution' {..} =
     Prelude.mconcat
-      ["/traffic-distribution/", Core.toBS id]
+      ["/traffic-distribution/", Data.toBS id]
 
-instance Core.ToQuery GetTrafficDistribution where
+instance Data.ToQuery GetTrafficDistribution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTrafficDistributionResponse' smart constructor.

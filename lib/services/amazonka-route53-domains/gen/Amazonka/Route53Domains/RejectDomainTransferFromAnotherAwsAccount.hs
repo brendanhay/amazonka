@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           RejectDomainTransferFromAnotherAwsAccountResponse'
-            Prelude.<$> (x Core..?> "OperationId")
+            Prelude.<$> (x Data..?> "OperationId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,41 +137,41 @@ instance
     Prelude.rnf domainName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RejectDomainTransferFromAnotherAwsAccount
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.RejectDomainTransferFromAnotherAwsAccount" ::
+              Data.=# ( "Route53Domains_v20140515.RejectDomainTransferFromAnotherAwsAccount" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RejectDomainTransferFromAnotherAwsAccount
   where
   toJSON RejectDomainTransferFromAnotherAwsAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DomainName" Core..= domainName)]
+          [Prelude.Just ("DomainName" Data..= domainName)]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     RejectDomainTransferFromAnotherAwsAccount
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     RejectDomainTransferFromAnotherAwsAccount
   where
   toQuery = Prelude.const Prelude.mempty

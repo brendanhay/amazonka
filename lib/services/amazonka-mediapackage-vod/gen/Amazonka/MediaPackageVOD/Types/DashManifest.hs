@@ -21,6 +21,7 @@ module Amazonka.MediaPackageVOD.Types.DashManifest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types.ManifestLayout
 import Amazonka.MediaPackageVOD.Types.Profile
 import Amazonka.MediaPackageVOD.Types.ScteMarkersSource
@@ -127,18 +128,18 @@ dashManifest_scteMarkersSource = Lens.lens (\DashManifest' {scteMarkersSource} -
 dashManifest_minBufferTimeSeconds :: Lens.Lens' DashManifest (Prelude.Maybe Prelude.Int)
 dashManifest_minBufferTimeSeconds = Lens.lens (\DashManifest' {minBufferTimeSeconds} -> minBufferTimeSeconds) (\s@DashManifest' {} a -> s {minBufferTimeSeconds = a} :: DashManifest)
 
-instance Core.FromJSON DashManifest where
+instance Data.FromJSON DashManifest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DashManifest"
       ( \x ->
           DashManifest'
-            Prelude.<$> (x Core..:? "profile")
-            Prelude.<*> (x Core..:? "streamSelection")
-            Prelude.<*> (x Core..:? "manifestName")
-            Prelude.<*> (x Core..:? "manifestLayout")
-            Prelude.<*> (x Core..:? "scteMarkersSource")
-            Prelude.<*> (x Core..:? "minBufferTimeSeconds")
+            Prelude.<$> (x Data..:? "profile")
+            Prelude.<*> (x Data..:? "streamSelection")
+            Prelude.<*> (x Data..:? "manifestName")
+            Prelude.<*> (x Data..:? "manifestLayout")
+            Prelude.<*> (x Data..:? "scteMarkersSource")
+            Prelude.<*> (x Data..:? "minBufferTimeSeconds")
       )
 
 instance Prelude.Hashable DashManifest where
@@ -159,19 +160,19 @@ instance Prelude.NFData DashManifest where
       `Prelude.seq` Prelude.rnf scteMarkersSource
       `Prelude.seq` Prelude.rnf minBufferTimeSeconds
 
-instance Core.ToJSON DashManifest where
+instance Data.ToJSON DashManifest where
   toJSON DashManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("profile" Core..=) Prelude.<$> profile,
-            ("streamSelection" Core..=)
+          [ ("profile" Data..=) Prelude.<$> profile,
+            ("streamSelection" Data..=)
               Prelude.<$> streamSelection,
-            ("manifestName" Core..=) Prelude.<$> manifestName,
-            ("manifestLayout" Core..=)
+            ("manifestName" Data..=) Prelude.<$> manifestName,
+            ("manifestLayout" Data..=)
               Prelude.<$> manifestLayout,
-            ("scteMarkersSource" Core..=)
+            ("scteMarkersSource" Data..=)
               Prelude.<$> scteMarkersSource,
-            ("minBufferTimeSeconds" Core..=)
+            ("minBufferTimeSeconds" Data..=)
               Prelude.<$> minBufferTimeSeconds
           ]
       )

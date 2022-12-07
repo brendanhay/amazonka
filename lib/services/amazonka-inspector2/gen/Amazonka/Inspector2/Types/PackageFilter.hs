@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.PackageFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.NumberFilter
 import Amazonka.Inspector2.Types.StringFilter
 import qualified Amazonka.Prelude as Prelude
@@ -102,18 +103,18 @@ packageFilter_architecture = Lens.lens (\PackageFilter' {architecture} -> archit
 packageFilter_version :: Lens.Lens' PackageFilter (Prelude.Maybe StringFilter)
 packageFilter_version = Lens.lens (\PackageFilter' {version} -> version) (\s@PackageFilter' {} a -> s {version = a} :: PackageFilter)
 
-instance Core.FromJSON PackageFilter where
+instance Data.FromJSON PackageFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageFilter"
       ( \x ->
           PackageFilter'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "epoch")
-            Prelude.<*> (x Core..:? "release")
-            Prelude.<*> (x Core..:? "sourceLayerHash")
-            Prelude.<*> (x Core..:? "architecture")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "epoch")
+            Prelude.<*> (x Data..:? "release")
+            Prelude.<*> (x Data..:? "sourceLayerHash")
+            Prelude.<*> (x Data..:? "architecture")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable PackageFilter where
@@ -134,16 +135,16 @@ instance Prelude.NFData PackageFilter where
       `Prelude.seq` Prelude.rnf architecture
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON PackageFilter where
+instance Data.ToJSON PackageFilter where
   toJSON PackageFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("epoch" Core..=) Prelude.<$> epoch,
-            ("release" Core..=) Prelude.<$> release,
-            ("sourceLayerHash" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("epoch" Data..=) Prelude.<$> epoch,
+            ("release" Data..=) Prelude.<$> release,
+            ("sourceLayerHash" Data..=)
               Prelude.<$> sourceLayerHash,
-            ("architecture" Core..=) Prelude.<$> architecture,
-            ("version" Core..=) Prelude.<$> version
+            ("architecture" Data..=) Prelude.<$> architecture,
+            ("version" Data..=) Prelude.<$> version
           ]
       )

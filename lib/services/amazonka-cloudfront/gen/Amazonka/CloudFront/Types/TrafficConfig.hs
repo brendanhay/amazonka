@@ -24,6 +24,7 @@ import Amazonka.CloudFront.Types.ContinuousDeploymentSingleHeaderConfig
 import Amazonka.CloudFront.Types.ContinuousDeploymentSingleWeightConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The traffic configuration of your continuous deployment.
@@ -76,12 +77,12 @@ trafficConfig_singleHeaderConfig = Lens.lens (\TrafficConfig' {singleHeaderConfi
 trafficConfig_type :: Lens.Lens' TrafficConfig ContinuousDeploymentPolicyType
 trafficConfig_type = Lens.lens (\TrafficConfig' {type'} -> type') (\s@TrafficConfig' {} a -> s {type' = a} :: TrafficConfig)
 
-instance Core.FromXML TrafficConfig where
+instance Data.FromXML TrafficConfig where
   parseXML x =
     TrafficConfig'
-      Prelude.<$> (x Core..@? "SingleWeightConfig")
-      Prelude.<*> (x Core..@? "SingleHeaderConfig")
-      Prelude.<*> (x Core..@ "Type")
+      Prelude.<$> (x Data..@? "SingleWeightConfig")
+      Prelude.<*> (x Data..@? "SingleHeaderConfig")
+      Prelude.<*> (x Data..@ "Type")
 
 instance Prelude.Hashable TrafficConfig where
   hashWithSalt _salt TrafficConfig' {..} =
@@ -95,10 +96,10 @@ instance Prelude.NFData TrafficConfig where
       `Prelude.seq` Prelude.rnf singleHeaderConfig
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToXML TrafficConfig where
+instance Data.ToXML TrafficConfig where
   toXML TrafficConfig' {..} =
     Prelude.mconcat
-      [ "SingleWeightConfig" Core.@= singleWeightConfig,
-        "SingleHeaderConfig" Core.@= singleHeaderConfig,
-        "Type" Core.@= type'
+      [ "SingleWeightConfig" Data.@= singleWeightConfig,
+        "SingleHeaderConfig" Data.@= singleHeaderConfig,
+        "Type" Data.@= type'
       ]

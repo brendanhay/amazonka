@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ExecutionParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of an execution parameter value that is passed to a self-service
@@ -71,15 +72,15 @@ executionParameter_type = Lens.lens (\ExecutionParameter' {type'} -> type') (\s@
 executionParameter_defaultValues :: Lens.Lens' ExecutionParameter (Prelude.Maybe [Prelude.Text])
 executionParameter_defaultValues = Lens.lens (\ExecutionParameter' {defaultValues} -> defaultValues) (\s@ExecutionParameter' {} a -> s {defaultValues = a} :: ExecutionParameter) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ExecutionParameter where
+instance Data.FromJSON ExecutionParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecutionParameter"
       ( \x ->
           ExecutionParameter'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DefaultValues" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DefaultValues" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ExecutionParameter where

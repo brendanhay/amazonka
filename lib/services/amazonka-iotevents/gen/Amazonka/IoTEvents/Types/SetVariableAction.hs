@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.SetVariableAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the variable and its new value.
@@ -65,14 +66,14 @@ setVariableAction_variableName = Lens.lens (\SetVariableAction' {variableName} -
 setVariableAction_value :: Lens.Lens' SetVariableAction Prelude.Text
 setVariableAction_value = Lens.lens (\SetVariableAction' {value} -> value) (\s@SetVariableAction' {} a -> s {value = a} :: SetVariableAction)
 
-instance Core.FromJSON SetVariableAction where
+instance Data.FromJSON SetVariableAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SetVariableAction"
       ( \x ->
           SetVariableAction'
-            Prelude.<$> (x Core..: "variableName")
-            Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..: "variableName")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable SetVariableAction where
@@ -85,11 +86,11 @@ instance Prelude.NFData SetVariableAction where
     Prelude.rnf variableName
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON SetVariableAction where
+instance Data.ToJSON SetVariableAction where
   toJSON SetVariableAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("variableName" Core..= variableName),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("variableName" Data..= variableName),
+            Prelude.Just ("value" Data..= value)
           ]
       )

@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,27 +152,27 @@ instance
     Prelude.rnf bucket `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteBucketIntelligentTieringConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteBucketIntelligentTieringConfiguration
   where
   toPath
     DeleteBucketIntelligentTieringConfiguration' {..} =
-      Prelude.mconcat ["/", Core.toBS bucket]
+      Prelude.mconcat ["/", Data.toBS bucket]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteBucketIntelligentTieringConfiguration
   where
   toQuery
     DeleteBucketIntelligentTieringConfiguration' {..} =
       Prelude.mconcat
-        ["id" Core.=: id, "intelligent-tiering"]
+        ["id" Data.=: id, "intelligent-tiering"]
 
 -- | /See:/ 'newDeleteBucketIntelligentTieringConfigurationResponse' smart constructor.
 data DeleteBucketIntelligentTieringConfigurationResponse = DeleteBucketIntelligentTieringConfigurationResponse'

@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ServiceActionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ServiceActionDefinitionType
 
@@ -80,16 +81,16 @@ serviceActionSummary_id = Lens.lens (\ServiceActionSummary' {id} -> id) (\s@Serv
 serviceActionSummary_description :: Lens.Lens' ServiceActionSummary (Prelude.Maybe Prelude.Text)
 serviceActionSummary_description = Lens.lens (\ServiceActionSummary' {description} -> description) (\s@ServiceActionSummary' {} a -> s {description = a} :: ServiceActionSummary)
 
-instance Core.FromJSON ServiceActionSummary where
+instance Data.FromJSON ServiceActionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceActionSummary"
       ( \x ->
           ServiceActionSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "DefinitionType")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "DefinitionType")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable ServiceActionSummary where

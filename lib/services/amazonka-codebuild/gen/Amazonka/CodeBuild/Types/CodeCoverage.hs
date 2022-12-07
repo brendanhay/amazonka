@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.CodeCoverage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains code coverage report information.
@@ -46,7 +47,7 @@ data CodeCoverage = CodeCoverage'
     -- | The number of conditional branches that are not covered by your tests.
     branchesMissed :: Prelude.Maybe Prelude.Natural,
     -- | The date and time that the tests were run.
-    expired :: Prelude.Maybe Core.POSIX,
+    expired :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the code coverage report.
     id :: Prelude.Maybe Prelude.Text,
     -- | The number of conditional branches that are covered by your tests.
@@ -125,7 +126,7 @@ codeCoverage_branchesMissed = Lens.lens (\CodeCoverage' {branchesMissed} -> bran
 
 -- | The date and time that the tests were run.
 codeCoverage_expired :: Lens.Lens' CodeCoverage (Prelude.Maybe Prelude.UTCTime)
-codeCoverage_expired = Lens.lens (\CodeCoverage' {expired} -> expired) (\s@CodeCoverage' {} a -> s {expired = a} :: CodeCoverage) Prelude.. Lens.mapping Core._Time
+codeCoverage_expired = Lens.lens (\CodeCoverage' {expired} -> expired) (\s@CodeCoverage' {} a -> s {expired = a} :: CodeCoverage) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the code coverage report.
 codeCoverage_id :: Lens.Lens' CodeCoverage (Prelude.Maybe Prelude.Text)
@@ -139,22 +140,22 @@ codeCoverage_branchesCovered = Lens.lens (\CodeCoverage' {branchesCovered} -> br
 codeCoverage_branchCoveragePercentage :: Lens.Lens' CodeCoverage (Prelude.Maybe Prelude.Double)
 codeCoverage_branchCoveragePercentage = Lens.lens (\CodeCoverage' {branchCoveragePercentage} -> branchCoveragePercentage) (\s@CodeCoverage' {} a -> s {branchCoveragePercentage = a} :: CodeCoverage)
 
-instance Core.FromJSON CodeCoverage where
+instance Data.FromJSON CodeCoverage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeCoverage"
       ( \x ->
           CodeCoverage'
-            Prelude.<$> (x Core..:? "linesCovered")
-            Prelude.<*> (x Core..:? "lineCoveragePercentage")
-            Prelude.<*> (x Core..:? "filePath")
-            Prelude.<*> (x Core..:? "reportARN")
-            Prelude.<*> (x Core..:? "linesMissed")
-            Prelude.<*> (x Core..:? "branchesMissed")
-            Prelude.<*> (x Core..:? "expired")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "branchesCovered")
-            Prelude.<*> (x Core..:? "branchCoveragePercentage")
+            Prelude.<$> (x Data..:? "linesCovered")
+            Prelude.<*> (x Data..:? "lineCoveragePercentage")
+            Prelude.<*> (x Data..:? "filePath")
+            Prelude.<*> (x Data..:? "reportARN")
+            Prelude.<*> (x Data..:? "linesMissed")
+            Prelude.<*> (x Data..:? "branchesMissed")
+            Prelude.<*> (x Data..:? "expired")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "branchesCovered")
+            Prelude.<*> (x Data..:? "branchCoveragePercentage")
       )
 
 instance Prelude.Hashable CodeCoverage where

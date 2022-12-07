@@ -57,6 +57,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -193,9 +194,9 @@ instance Core.AWSRequest GetLogEvents where
     Response.receiveJSON
       ( \s h x ->
           GetLogEventsResponse'
-            Prelude.<$> (x Core..?> "nextForwardToken")
-            Prelude.<*> (x Core..?> "events" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextBackwardToken")
+            Prelude.<$> (x Data..?> "nextForwardToken")
+            Prelude.<*> (x Data..?> "events" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextBackwardToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,38 +220,38 @@ instance Prelude.NFData GetLogEvents where
       `Prelude.seq` Prelude.rnf logGroupName
       `Prelude.seq` Prelude.rnf logStreamName
 
-instance Core.ToHeaders GetLogEvents where
+instance Data.ToHeaders GetLogEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Logs_20140328.GetLogEvents" :: Prelude.ByteString),
+              Data.=# ("Logs_20140328.GetLogEvents" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLogEvents where
+instance Data.ToJSON GetLogEvents where
   toJSON GetLogEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("startFromHead" Core..=) Prelude.<$> startFromHead,
-            ("endTime" Core..=) Prelude.<$> endTime,
-            ("limit" Core..=) Prelude.<$> limit,
-            ("startTime" Core..=) Prelude.<$> startTime,
-            Prelude.Just ("logGroupName" Core..= logGroupName),
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("startFromHead" Data..=) Prelude.<$> startFromHead,
+            ("endTime" Data..=) Prelude.<$> endTime,
+            ("limit" Data..=) Prelude.<$> limit,
+            ("startTime" Data..=) Prelude.<$> startTime,
+            Prelude.Just ("logGroupName" Data..= logGroupName),
             Prelude.Just
-              ("logStreamName" Core..= logStreamName)
+              ("logStreamName" Data..= logStreamName)
           ]
       )
 
-instance Core.ToPath GetLogEvents where
+instance Data.ToPath GetLogEvents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetLogEvents where
+instance Data.ToQuery GetLogEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLogEventsResponse' smart constructor.

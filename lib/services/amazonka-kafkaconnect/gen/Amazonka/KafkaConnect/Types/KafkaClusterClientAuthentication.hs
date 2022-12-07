@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.KafkaClusterClientAuthentication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,11 +78,11 @@ instance
   rnf KafkaClusterClientAuthentication' {..} =
     Prelude.rnf authenticationType
 
-instance Core.ToJSON KafkaClusterClientAuthentication where
+instance Data.ToJSON KafkaClusterClientAuthentication where
   toJSON KafkaClusterClientAuthentication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("authenticationType" Core..= authenticationType)
+              ("authenticationType" Data..= authenticationType)
           ]
       )

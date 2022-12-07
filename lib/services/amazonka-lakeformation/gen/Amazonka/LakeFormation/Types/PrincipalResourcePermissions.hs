@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.PrincipalResourcePermissions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.DataLakePrincipal
 import Amazonka.LakeFormation.Types.DetailsMap
 import Amazonka.LakeFormation.Types.Permission
@@ -102,19 +103,19 @@ principalResourcePermissions_permissionsWithGrantOption = Lens.lens (\PrincipalR
 principalResourcePermissions_resource :: Lens.Lens' PrincipalResourcePermissions (Prelude.Maybe Resource)
 principalResourcePermissions_resource = Lens.lens (\PrincipalResourcePermissions' {resource} -> resource) (\s@PrincipalResourcePermissions' {} a -> s {resource = a} :: PrincipalResourcePermissions)
 
-instance Core.FromJSON PrincipalResourcePermissions where
+instance Data.FromJSON PrincipalResourcePermissions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PrincipalResourcePermissions"
       ( \x ->
           PrincipalResourcePermissions'
-            Prelude.<$> (x Core..:? "Principal")
-            Prelude.<*> (x Core..:? "AdditionalDetails")
-            Prelude.<*> (x Core..:? "Permissions" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "PermissionsWithGrantOption"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Principal")
+            Prelude.<*> (x Data..:? "AdditionalDetails")
+            Prelude.<*> (x Data..:? "Permissions" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "PermissionsWithGrantOption"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Resource")
+            Prelude.<*> (x Data..:? "Resource")
       )
 
 instance

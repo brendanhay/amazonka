@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SessionCommand where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @SessionCommand@ that runs the job.
@@ -67,14 +68,14 @@ sessionCommand_name = Lens.lens (\SessionCommand' {name} -> name) (\s@SessionCom
 sessionCommand_pythonVersion :: Lens.Lens' SessionCommand (Prelude.Maybe Prelude.Text)
 sessionCommand_pythonVersion = Lens.lens (\SessionCommand' {pythonVersion} -> pythonVersion) (\s@SessionCommand' {} a -> s {pythonVersion = a} :: SessionCommand)
 
-instance Core.FromJSON SessionCommand where
+instance Data.FromJSON SessionCommand where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SessionCommand"
       ( \x ->
           SessionCommand'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "PythonVersion")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "PythonVersion")
       )
 
 instance Prelude.Hashable SessionCommand where
@@ -87,11 +88,11 @@ instance Prelude.NFData SessionCommand where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf pythonVersion
 
-instance Core.ToJSON SessionCommand where
+instance Data.ToJSON SessionCommand where
   toJSON SessionCommand' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("PythonVersion" Core..=) Prelude.<$> pythonVersion
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("PythonVersion" Data..=) Prelude.<$> pythonVersion
           ]
       )

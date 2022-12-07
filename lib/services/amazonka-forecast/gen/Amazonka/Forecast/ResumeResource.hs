@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,32 +86,32 @@ instance Prelude.Hashable ResumeResource where
 instance Prelude.NFData ResumeResource where
   rnf ResumeResource' {..} = Prelude.rnf resourceArn
 
-instance Core.ToHeaders ResumeResource where
+instance Data.ToHeaders ResumeResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.ResumeResource" ::
+              Data.=# ( "AmazonForecast.ResumeResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResumeResource where
+instance Data.ToJSON ResumeResource where
   toJSON ResumeResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
+          [Prelude.Just ("ResourceArn" Data..= resourceArn)]
       )
 
-instance Core.ToPath ResumeResource where
+instance Data.ToPath ResumeResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResumeResource where
+instance Data.ToQuery ResumeResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResumeResourceResponse' smart constructor.

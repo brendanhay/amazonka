@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.WorkflowExecutionTerminatedEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.ChildPolicy
 import Amazonka.SWF.Types.WorkflowExecutionTerminatedCause
@@ -134,18 +135,18 @@ workflowExecutionTerminatedEventAttributes_childPolicy :: Lens.Lens' WorkflowExe
 workflowExecutionTerminatedEventAttributes_childPolicy = Lens.lens (\WorkflowExecutionTerminatedEventAttributes' {childPolicy} -> childPolicy) (\s@WorkflowExecutionTerminatedEventAttributes' {} a -> s {childPolicy = a} :: WorkflowExecutionTerminatedEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     WorkflowExecutionTerminatedEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowExecutionTerminatedEventAttributes"
       ( \x ->
           WorkflowExecutionTerminatedEventAttributes'
-            Prelude.<$> (x Core..:? "details")
-              Prelude.<*> (x Core..:? "reason")
-              Prelude.<*> (x Core..:? "cause")
-              Prelude.<*> (x Core..: "childPolicy")
+            Prelude.<$> (x Data..:? "details")
+              Prelude.<*> (x Data..:? "reason")
+              Prelude.<*> (x Data..:? "cause")
+              Prelude.<*> (x Data..: "childPolicy")
       )
 
 instance

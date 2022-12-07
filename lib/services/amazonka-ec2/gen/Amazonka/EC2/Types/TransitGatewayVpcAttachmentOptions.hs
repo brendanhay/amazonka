@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayVpcAttachmentOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ApplianceModeSupportValue
 import Amazonka.EC2.Types.DnsSupportValue
@@ -76,14 +77,14 @@ transitGatewayVpcAttachmentOptions_applianceModeSupport :: Lens.Lens' TransitGat
 transitGatewayVpcAttachmentOptions_applianceModeSupport = Lens.lens (\TransitGatewayVpcAttachmentOptions' {applianceModeSupport} -> applianceModeSupport) (\s@TransitGatewayVpcAttachmentOptions' {} a -> s {applianceModeSupport = a} :: TransitGatewayVpcAttachmentOptions)
 
 instance
-  Core.FromXML
+  Data.FromXML
     TransitGatewayVpcAttachmentOptions
   where
   parseXML x =
     TransitGatewayVpcAttachmentOptions'
-      Prelude.<$> (x Core..@? "dnsSupport")
-      Prelude.<*> (x Core..@? "ipv6Support")
-      Prelude.<*> (x Core..@? "applianceModeSupport")
+      Prelude.<$> (x Data..@? "dnsSupport")
+      Prelude.<*> (x Data..@? "ipv6Support")
+      Prelude.<*> (x Data..@? "applianceModeSupport")
 
 instance
   Prelude.Hashable

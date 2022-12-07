@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.ShardConfigurationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A request to configure the sharding properties of a cluster
@@ -61,9 +62,9 @@ instance Prelude.NFData ShardConfigurationRequest where
   rnf ShardConfigurationRequest' {..} =
     Prelude.rnf shardCount
 
-instance Core.ToJSON ShardConfigurationRequest where
+instance Data.ToJSON ShardConfigurationRequest where
   toJSON ShardConfigurationRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("ShardCount" Core..=) Prelude.<$> shardCount]
+          [("ShardCount" Data..=) Prelude.<$> shardCount]
       )

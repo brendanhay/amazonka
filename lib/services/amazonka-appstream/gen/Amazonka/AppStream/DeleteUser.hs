@@ -42,6 +42,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -51,7 +52,7 @@ data DeleteUser = DeleteUser'
   { -- | The email address of the user.
     --
     -- Users\' email addresses are case-sensitive.
-    userName :: Core.Sensitive Prelude.Text,
+    userName :: Data.Sensitive Prelude.Text,
     -- | The authentication type for the user. You must specify USERPOOL.
     authenticationType :: AuthenticationType
   }
@@ -79,7 +80,7 @@ newDeleteUser ::
 newDeleteUser pUserName_ pAuthenticationType_ =
   DeleteUser'
     { userName =
-        Core._Sensitive Lens.# pUserName_,
+        Data._Sensitive Lens.# pUserName_,
       authenticationType = pAuthenticationType_
     }
 
@@ -87,7 +88,7 @@ newDeleteUser pUserName_ pAuthenticationType_ =
 --
 -- Users\' email addresses are case-sensitive.
 deleteUser_userName :: Lens.Lens' DeleteUser Prelude.Text
-deleteUser_userName = Lens.lens (\DeleteUser' {userName} -> userName) (\s@DeleteUser' {} a -> s {userName = a} :: DeleteUser) Prelude.. Core._Sensitive
+deleteUser_userName = Lens.lens (\DeleteUser' {userName} -> userName) (\s@DeleteUser' {} a -> s {userName = a} :: DeleteUser) Prelude.. Data._Sensitive
 
 -- | The authentication type for the user. You must specify USERPOOL.
 deleteUser_authenticationType :: Lens.Lens' DeleteUser AuthenticationType
@@ -114,35 +115,35 @@ instance Prelude.NFData DeleteUser where
     Prelude.rnf userName
       `Prelude.seq` Prelude.rnf authenticationType
 
-instance Core.ToHeaders DeleteUser where
+instance Data.ToHeaders DeleteUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DeleteUser" ::
+              Data.=# ( "PhotonAdminProxyService.DeleteUser" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteUser where
+instance Data.ToJSON DeleteUser where
   toJSON DeleteUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserName" Core..= userName),
+          [ Prelude.Just ("UserName" Data..= userName),
             Prelude.Just
-              ("AuthenticationType" Core..= authenticationType)
+              ("AuthenticationType" Data..= authenticationType)
           ]
       )
 
-instance Core.ToPath DeleteUser where
+instance Data.ToPath DeleteUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteUser where
+instance Data.ToQuery DeleteUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserResponse' smart constructor.

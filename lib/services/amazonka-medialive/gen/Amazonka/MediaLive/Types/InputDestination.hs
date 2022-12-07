@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.InputDestinationVpc
 import qualified Amazonka.Prelude as Prelude
 
@@ -82,16 +83,16 @@ inputDestination_ip = Lens.lens (\InputDestination' {ip} -> ip) (\s@InputDestina
 inputDestination_url :: Lens.Lens' InputDestination (Prelude.Maybe Prelude.Text)
 inputDestination_url = Lens.lens (\InputDestination' {url} -> url) (\s@InputDestination' {} a -> s {url = a} :: InputDestination)
 
-instance Core.FromJSON InputDestination where
+instance Data.FromJSON InputDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputDestination"
       ( \x ->
           InputDestination'
-            Prelude.<$> (x Core..:? "port")
-            Prelude.<*> (x Core..:? "vpc")
-            Prelude.<*> (x Core..:? "ip")
-            Prelude.<*> (x Core..:? "url")
+            Prelude.<$> (x Data..:? "port")
+            Prelude.<*> (x Data..:? "vpc")
+            Prelude.<*> (x Data..:? "ip")
+            Prelude.<*> (x Data..:? "url")
       )
 
 instance Prelude.Hashable InputDestination where

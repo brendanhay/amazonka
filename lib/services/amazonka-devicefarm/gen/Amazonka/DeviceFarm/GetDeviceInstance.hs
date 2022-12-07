@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetDeviceInstance where
     Response.receiveJSON
       ( \s h x ->
           GetDeviceInstanceResponse'
-            Prelude.<$> (x Core..?> "deviceInstance")
+            Prelude.<$> (x Data..?> "deviceInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,32 +99,32 @@ instance Prelude.Hashable GetDeviceInstance where
 instance Prelude.NFData GetDeviceInstance where
   rnf GetDeviceInstance' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders GetDeviceInstance where
+instance Data.ToHeaders GetDeviceInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.GetDeviceInstance" ::
+              Data.=# ( "DeviceFarm_20150623.GetDeviceInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDeviceInstance where
+instance Data.ToJSON GetDeviceInstance where
   toJSON GetDeviceInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath GetDeviceInstance where
+instance Data.ToPath GetDeviceInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDeviceInstance where
+instance Data.ToQuery GetDeviceInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDeviceInstanceResponse' smart constructor.

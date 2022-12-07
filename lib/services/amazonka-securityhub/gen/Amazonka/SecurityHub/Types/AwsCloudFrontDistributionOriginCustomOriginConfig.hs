@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginCustomOriginCon
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginSslProtocols
 
@@ -120,20 +121,20 @@ awsCloudFrontDistributionOriginCustomOriginConfig_originSslProtocols :: Lens.Len
 awsCloudFrontDistributionOriginCustomOriginConfig_originSslProtocols = Lens.lens (\AwsCloudFrontDistributionOriginCustomOriginConfig' {originSslProtocols} -> originSslProtocols) (\s@AwsCloudFrontDistributionOriginCustomOriginConfig' {} a -> s {originSslProtocols = a} :: AwsCloudFrontDistributionOriginCustomOriginConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCloudFrontDistributionOriginCustomOriginConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudFrontDistributionOriginCustomOriginConfig"
       ( \x ->
           AwsCloudFrontDistributionOriginCustomOriginConfig'
-            Prelude.<$> (x Core..:? "HttpsPort")
-              Prelude.<*> (x Core..:? "HttpPort")
-              Prelude.<*> (x Core..:? "OriginKeepaliveTimeout")
-              Prelude.<*> (x Core..:? "OriginProtocolPolicy")
-              Prelude.<*> (x Core..:? "OriginReadTimeout")
-              Prelude.<*> (x Core..:? "OriginSslProtocols")
+            Prelude.<$> (x Data..:? "HttpsPort")
+              Prelude.<*> (x Data..:? "HttpPort")
+              Prelude.<*> (x Data..:? "OriginKeepaliveTimeout")
+              Prelude.<*> (x Data..:? "OriginProtocolPolicy")
+              Prelude.<*> (x Data..:? "OriginReadTimeout")
+              Prelude.<*> (x Data..:? "OriginSslProtocols")
       )
 
 instance
@@ -164,22 +165,22 @@ instance
         `Prelude.seq` Prelude.rnf originSslProtocols
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCloudFrontDistributionOriginCustomOriginConfig
   where
   toJSON
     AwsCloudFrontDistributionOriginCustomOriginConfig' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("HttpsPort" Core..=) Prelude.<$> httpsPort,
-              ("HttpPort" Core..=) Prelude.<$> httpPort,
-              ("OriginKeepaliveTimeout" Core..=)
+            [ ("HttpsPort" Data..=) Prelude.<$> httpsPort,
+              ("HttpPort" Data..=) Prelude.<$> httpPort,
+              ("OriginKeepaliveTimeout" Data..=)
                 Prelude.<$> originKeepaliveTimeout,
-              ("OriginProtocolPolicy" Core..=)
+              ("OriginProtocolPolicy" Data..=)
                 Prelude.<$> originProtocolPolicy,
-              ("OriginReadTimeout" Core..=)
+              ("OriginReadTimeout" Data..=)
                 Prelude.<$> originReadTimeout,
-              ("OriginSslProtocols" Core..=)
+              ("OriginSslProtocols" Data..=)
                 Prelude.<$> originSslProtocols
             ]
         )

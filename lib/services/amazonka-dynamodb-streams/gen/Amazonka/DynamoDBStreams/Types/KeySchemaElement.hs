@@ -21,6 +21,7 @@ module Amazonka.DynamoDBStreams.Types.KeySchemaElement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Types.KeyType
 import qualified Amazonka.Prelude as Prelude
@@ -121,14 +122,14 @@ keySchemaElement_attributeName = Lens.lens (\KeySchemaElement' {attributeName} -
 keySchemaElement_keyType :: Lens.Lens' KeySchemaElement KeyType
 keySchemaElement_keyType = Lens.lens (\KeySchemaElement' {keyType} -> keyType) (\s@KeySchemaElement' {} a -> s {keyType = a} :: KeySchemaElement)
 
-instance Core.FromJSON KeySchemaElement where
+instance Data.FromJSON KeySchemaElement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeySchemaElement"
       ( \x ->
           KeySchemaElement'
-            Prelude.<$> (x Core..: "AttributeName")
-            Prelude.<*> (x Core..: "KeyType")
+            Prelude.<$> (x Data..: "AttributeName")
+            Prelude.<*> (x Data..: "KeyType")
       )
 
 instance Prelude.Hashable KeySchemaElement where

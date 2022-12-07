@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.LicenseConfigurationUsage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.ResourceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ data LicenseConfigurationUsage = LicenseConfigurationUsage'
     consumedLicenses :: Prelude.Maybe Prelude.Integer,
     -- | Time when the license configuration was initially associated with the
     -- resource.
-    associationTime :: Prelude.Maybe Core.POSIX,
+    associationTime :: Prelude.Maybe Data.POSIX,
     -- | Amazon Resource Name (ARN) of the resource.
     resourceArn :: Prelude.Maybe Prelude.Text,
     -- | Status of the resource.
@@ -93,7 +94,7 @@ licenseConfigurationUsage_consumedLicenses = Lens.lens (\LicenseConfigurationUsa
 -- | Time when the license configuration was initially associated with the
 -- resource.
 licenseConfigurationUsage_associationTime :: Lens.Lens' LicenseConfigurationUsage (Prelude.Maybe Prelude.UTCTime)
-licenseConfigurationUsage_associationTime = Lens.lens (\LicenseConfigurationUsage' {associationTime} -> associationTime) (\s@LicenseConfigurationUsage' {} a -> s {associationTime = a} :: LicenseConfigurationUsage) Prelude.. Lens.mapping Core._Time
+licenseConfigurationUsage_associationTime = Lens.lens (\LicenseConfigurationUsage' {associationTime} -> associationTime) (\s@LicenseConfigurationUsage' {} a -> s {associationTime = a} :: LicenseConfigurationUsage) Prelude.. Lens.mapping Data._Time
 
 -- | Amazon Resource Name (ARN) of the resource.
 licenseConfigurationUsage_resourceArn :: Lens.Lens' LicenseConfigurationUsage (Prelude.Maybe Prelude.Text)
@@ -103,18 +104,18 @@ licenseConfigurationUsage_resourceArn = Lens.lens (\LicenseConfigurationUsage' {
 licenseConfigurationUsage_resourceStatus :: Lens.Lens' LicenseConfigurationUsage (Prelude.Maybe Prelude.Text)
 licenseConfigurationUsage_resourceStatus = Lens.lens (\LicenseConfigurationUsage' {resourceStatus} -> resourceStatus) (\s@LicenseConfigurationUsage' {} a -> s {resourceStatus = a} :: LicenseConfigurationUsage)
 
-instance Core.FromJSON LicenseConfigurationUsage where
+instance Data.FromJSON LicenseConfigurationUsage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LicenseConfigurationUsage"
       ( \x ->
           LicenseConfigurationUsage'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "ResourceOwnerId")
-            Prelude.<*> (x Core..:? "ConsumedLicenses")
-            Prelude.<*> (x Core..:? "AssociationTime")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "ResourceStatus")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "ResourceOwnerId")
+            Prelude.<*> (x Data..:? "ConsumedLicenses")
+            Prelude.<*> (x Data..:? "AssociationTime")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "ResourceStatus")
       )
 
 instance Prelude.Hashable LicenseConfigurationUsage where

@@ -48,6 +48,7 @@ where
 import Amazonka.ComprehendMedical.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,10 +90,10 @@ instance Core.AWSRequest InferICD10CM where
     Response.receiveJSON
       ( \s h x ->
           InferICD10CMResponse'
-            Prelude.<$> (x Core..?> "PaginationToken")
-            Prelude.<*> (x Core..?> "ModelVersion")
+            Prelude.<$> (x Data..?> "PaginationToken")
+            Prelude.<*> (x Data..?> "ModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Entities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Entities" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable InferICD10CM where
@@ -102,32 +103,32 @@ instance Prelude.Hashable InferICD10CM where
 instance Prelude.NFData InferICD10CM where
   rnf InferICD10CM' {..} = Prelude.rnf text
 
-instance Core.ToHeaders InferICD10CM where
+instance Data.ToHeaders InferICD10CM where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComprehendMedical_20181030.InferICD10CM" ::
+              Data.=# ( "ComprehendMedical_20181030.InferICD10CM" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON InferICD10CM where
+instance Data.ToJSON InferICD10CM where
   toJSON InferICD10CM' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Text" Core..= text)]
+          [Prelude.Just ("Text" Data..= text)]
       )
 
-instance Core.ToPath InferICD10CM where
+instance Data.ToPath InferICD10CM where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery InferICD10CM where
+instance Data.ToQuery InferICD10CM where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newInferICD10CMResponse' smart constructor.

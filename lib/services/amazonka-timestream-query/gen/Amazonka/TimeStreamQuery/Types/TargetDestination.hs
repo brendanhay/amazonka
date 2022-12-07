@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.TargetDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamQuery.Types.TimestreamDestination
 
@@ -55,13 +56,13 @@ newTargetDestination =
 targetDestination_timestreamDestination :: Lens.Lens' TargetDestination (Prelude.Maybe TimestreamDestination)
 targetDestination_timestreamDestination = Lens.lens (\TargetDestination' {timestreamDestination} -> timestreamDestination) (\s@TargetDestination' {} a -> s {timestreamDestination = a} :: TargetDestination)
 
-instance Core.FromJSON TargetDestination where
+instance Data.FromJSON TargetDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetDestination"
       ( \x ->
           TargetDestination'
-            Prelude.<$> (x Core..:? "TimestreamDestination")
+            Prelude.<$> (x Data..:? "TimestreamDestination")
       )
 
 instance Prelude.Hashable TargetDestination where

@@ -48,6 +48,7 @@ where
 import Amazonka.CloudHSMV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,7 +126,7 @@ instance Core.AWSRequest DeleteHsm where
     Response.receiveJSON
       ( \s h x ->
           DeleteHsmResponse'
-            Prelude.<$> (x Core..?> "HsmId")
+            Prelude.<$> (x Data..?> "HsmId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,34 +144,34 @@ instance Prelude.NFData DeleteHsm where
       `Prelude.seq` Prelude.rnf eniId
       `Prelude.seq` Prelude.rnf clusterId
 
-instance Core.ToHeaders DeleteHsm where
+instance Data.ToHeaders DeleteHsm where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("BaldrApiService.DeleteHsm" :: Prelude.ByteString),
+              Data.=# ("BaldrApiService.DeleteHsm" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteHsm where
+instance Data.ToJSON DeleteHsm where
   toJSON DeleteHsm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HsmId" Core..=) Prelude.<$> hsmId,
-            ("EniIp" Core..=) Prelude.<$> eniIp,
-            ("EniId" Core..=) Prelude.<$> eniId,
-            Prelude.Just ("ClusterId" Core..= clusterId)
+          [ ("HsmId" Data..=) Prelude.<$> hsmId,
+            ("EniIp" Data..=) Prelude.<$> eniIp,
+            ("EniId" Data..=) Prelude.<$> eniId,
+            Prelude.Just ("ClusterId" Data..= clusterId)
           ]
       )
 
-instance Core.ToPath DeleteHsm where
+instance Data.ToPath DeleteHsm where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteHsm where
+instance Data.ToQuery DeleteHsm where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteHsmResponse' smart constructor.

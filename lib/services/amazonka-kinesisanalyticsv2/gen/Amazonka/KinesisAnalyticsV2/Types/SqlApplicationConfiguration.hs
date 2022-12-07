@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.Input
 import Amazonka.KinesisAnalyticsV2.Types.Output
 import Amazonka.KinesisAnalyticsV2.Types.ReferenceDataSource
@@ -96,13 +97,13 @@ instance Prelude.NFData SqlApplicationConfiguration where
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf referenceDataSources
 
-instance Core.ToJSON SqlApplicationConfiguration where
+instance Data.ToJSON SqlApplicationConfiguration where
   toJSON SqlApplicationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Outputs" Core..=) Prelude.<$> outputs,
-            ("Inputs" Core..=) Prelude.<$> inputs,
-            ("ReferenceDataSources" Core..=)
+          [ ("Outputs" Data..=) Prelude.<$> outputs,
+            ("Inputs" Data..=) Prelude.<$> inputs,
+            ("ReferenceDataSources" Data..=)
               Prelude.<$> referenceDataSources
           ]
       )

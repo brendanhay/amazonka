@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.CaptionSourceSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AncillarySourceSettings
 import Amazonka.MediaConvert.Types.CaptionSourceType
 import Amazonka.MediaConvert.Types.DvbSubSourceSettings
@@ -172,20 +173,20 @@ captionSourceSettings_trackSourceSettings = Lens.lens (\CaptionSourceSettings' {
 captionSourceSettings_teletextSourceSettings :: Lens.Lens' CaptionSourceSettings (Prelude.Maybe TeletextSourceSettings)
 captionSourceSettings_teletextSourceSettings = Lens.lens (\CaptionSourceSettings' {teletextSourceSettings} -> teletextSourceSettings) (\s@CaptionSourceSettings' {} a -> s {teletextSourceSettings = a} :: CaptionSourceSettings)
 
-instance Core.FromJSON CaptionSourceSettings where
+instance Data.FromJSON CaptionSourceSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptionSourceSettings"
       ( \x ->
           CaptionSourceSettings'
-            Prelude.<$> (x Core..:? "fileSourceSettings")
-            Prelude.<*> (x Core..:? "ancillarySourceSettings")
-            Prelude.<*> (x Core..:? "dvbSubSourceSettings")
-            Prelude.<*> (x Core..:? "webvttHlsSourceSettings")
-            Prelude.<*> (x Core..:? "sourceType")
-            Prelude.<*> (x Core..:? "embeddedSourceSettings")
-            Prelude.<*> (x Core..:? "trackSourceSettings")
-            Prelude.<*> (x Core..:? "teletextSourceSettings")
+            Prelude.<$> (x Data..:? "fileSourceSettings")
+            Prelude.<*> (x Data..:? "ancillarySourceSettings")
+            Prelude.<*> (x Data..:? "dvbSubSourceSettings")
+            Prelude.<*> (x Data..:? "webvttHlsSourceSettings")
+            Prelude.<*> (x Data..:? "sourceType")
+            Prelude.<*> (x Data..:? "embeddedSourceSettings")
+            Prelude.<*> (x Data..:? "trackSourceSettings")
+            Prelude.<*> (x Data..:? "teletextSourceSettings")
       )
 
 instance Prelude.Hashable CaptionSourceSettings where
@@ -210,24 +211,24 @@ instance Prelude.NFData CaptionSourceSettings where
       `Prelude.seq` Prelude.rnf trackSourceSettings
       `Prelude.seq` Prelude.rnf teletextSourceSettings
 
-instance Core.ToJSON CaptionSourceSettings where
+instance Data.ToJSON CaptionSourceSettings where
   toJSON CaptionSourceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fileSourceSettings" Core..=)
+          [ ("fileSourceSettings" Data..=)
               Prelude.<$> fileSourceSettings,
-            ("ancillarySourceSettings" Core..=)
+            ("ancillarySourceSettings" Data..=)
               Prelude.<$> ancillarySourceSettings,
-            ("dvbSubSourceSettings" Core..=)
+            ("dvbSubSourceSettings" Data..=)
               Prelude.<$> dvbSubSourceSettings,
-            ("webvttHlsSourceSettings" Core..=)
+            ("webvttHlsSourceSettings" Data..=)
               Prelude.<$> webvttHlsSourceSettings,
-            ("sourceType" Core..=) Prelude.<$> sourceType,
-            ("embeddedSourceSettings" Core..=)
+            ("sourceType" Data..=) Prelude.<$> sourceType,
+            ("embeddedSourceSettings" Data..=)
               Prelude.<$> embeddedSourceSettings,
-            ("trackSourceSettings" Core..=)
+            ("trackSourceSettings" Data..=)
               Prelude.<$> trackSourceSettings,
-            ("teletextSourceSettings" Core..=)
+            ("teletextSourceSettings" Data..=)
               Prelude.<$> teletextSourceSettings
           ]
       )

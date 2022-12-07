@@ -22,6 +22,7 @@ module Amazonka.CodePipeline.Types.StageExecution where
 import Amazonka.CodePipeline.Types.StageExecutionStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the run of a stage.
@@ -79,14 +80,14 @@ stageExecution_pipelineExecutionId = Lens.lens (\StageExecution' {pipelineExecut
 stageExecution_status :: Lens.Lens' StageExecution StageExecutionStatus
 stageExecution_status = Lens.lens (\StageExecution' {status} -> status) (\s@StageExecution' {} a -> s {status = a} :: StageExecution)
 
-instance Core.FromJSON StageExecution where
+instance Data.FromJSON StageExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StageExecution"
       ( \x ->
           StageExecution'
-            Prelude.<$> (x Core..: "pipelineExecutionId")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..: "pipelineExecutionId")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable StageExecution where

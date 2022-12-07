@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState
 import qualified Amazonka.Prelude as Prelude
 
@@ -92,19 +93,19 @@ transitGatewayConnectPeerAssociation_transitGatewayConnectPeerArn :: Lens.Lens' 
 transitGatewayConnectPeerAssociation_transitGatewayConnectPeerArn = Lens.lens (\TransitGatewayConnectPeerAssociation' {transitGatewayConnectPeerArn} -> transitGatewayConnectPeerArn) (\s@TransitGatewayConnectPeerAssociation' {} a -> s {transitGatewayConnectPeerArn = a} :: TransitGatewayConnectPeerAssociation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     TransitGatewayConnectPeerAssociation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransitGatewayConnectPeerAssociation"
       ( \x ->
           TransitGatewayConnectPeerAssociation'
-            Prelude.<$> (x Core..:? "GlobalNetworkId")
-            Prelude.<*> (x Core..:? "LinkId")
-            Prelude.<*> (x Core..:? "DeviceId")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "TransitGatewayConnectPeerArn")
+            Prelude.<$> (x Data..:? "GlobalNetworkId")
+            Prelude.<*> (x Data..:? "LinkId")
+            Prelude.<*> (x Data..:? "DeviceId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "TransitGatewayConnectPeerArn")
       )
 
 instance

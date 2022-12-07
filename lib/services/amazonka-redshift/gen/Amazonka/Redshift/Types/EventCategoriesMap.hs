@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.EventCategoriesMap where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.EventInfoMap
@@ -66,12 +67,12 @@ eventCategoriesMap_sourceType = Lens.lens (\EventCategoriesMap' {sourceType} -> 
 eventCategoriesMap_events :: Lens.Lens' EventCategoriesMap (Prelude.Maybe [EventInfoMap])
 eventCategoriesMap_events = Lens.lens (\EventCategoriesMap' {events} -> events) (\s@EventCategoriesMap' {} a -> s {events = a} :: EventCategoriesMap) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML EventCategoriesMap where
+instance Data.FromXML EventCategoriesMap where
   parseXML x =
     EventCategoriesMap'
-      Prelude.<$> (x Core..@? "SourceType")
-      Prelude.<*> ( x Core..@? "Events" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "EventInfoMap")
+      Prelude.<$> (x Data..@? "SourceType")
+      Prelude.<*> ( x Data..@? "Events" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "EventInfoMap")
                   )
 
 instance Prelude.Hashable EventCategoriesMap where

@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.FirewallSubnetMissingVPCEndpointViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The violation details for a firewall subnet\'s VPC endpoint that\'s
@@ -84,18 +85,18 @@ firewallSubnetMissingVPCEndpointViolation_vpcId :: Lens.Lens' FirewallSubnetMiss
 firewallSubnetMissingVPCEndpointViolation_vpcId = Lens.lens (\FirewallSubnetMissingVPCEndpointViolation' {vpcId} -> vpcId) (\s@FirewallSubnetMissingVPCEndpointViolation' {} a -> s {vpcId = a} :: FirewallSubnetMissingVPCEndpointViolation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FirewallSubnetMissingVPCEndpointViolation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallSubnetMissingVPCEndpointViolation"
       ( \x ->
           FirewallSubnetMissingVPCEndpointViolation'
-            Prelude.<$> (x Core..:? "SubnetAvailabilityZoneId")
-              Prelude.<*> (x Core..:? "SubnetAvailabilityZone")
-              Prelude.<*> (x Core..:? "FirewallSubnetId")
-              Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<$> (x Data..:? "SubnetAvailabilityZoneId")
+              Prelude.<*> (x Data..:? "SubnetAvailabilityZone")
+              Prelude.<*> (x Data..:? "FirewallSubnetId")
+              Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance

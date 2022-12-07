@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SecurityGroupIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,11 +64,11 @@ securityGroupIdentifier_groupName = Lens.lens (\SecurityGroupIdentifier' {groupN
 securityGroupIdentifier_groupId :: Lens.Lens' SecurityGroupIdentifier (Prelude.Maybe Prelude.Text)
 securityGroupIdentifier_groupId = Lens.lens (\SecurityGroupIdentifier' {groupId} -> groupId) (\s@SecurityGroupIdentifier' {} a -> s {groupId = a} :: SecurityGroupIdentifier)
 
-instance Core.FromXML SecurityGroupIdentifier where
+instance Data.FromXML SecurityGroupIdentifier where
   parseXML x =
     SecurityGroupIdentifier'
-      Prelude.<$> (x Core..@? "groupName")
-      Prelude.<*> (x Core..@? "groupId")
+      Prelude.<$> (x Data..@? "groupName")
+      Prelude.<*> (x Data..@? "groupId")
 
 instance Prelude.Hashable SecurityGroupIdentifier where
   hashWithSalt _salt SecurityGroupIdentifier' {..} =

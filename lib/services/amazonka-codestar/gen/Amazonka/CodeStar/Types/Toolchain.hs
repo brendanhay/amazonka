@@ -22,6 +22,7 @@ module Amazonka.CodeStar.Types.Toolchain where
 import Amazonka.CodeStar.Types.ToolchainSource
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The toolchain template file provided with the project request. AWS
@@ -35,7 +36,7 @@ data Toolchain = Toolchain'
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The list of parameter overrides to be passed into the toolchain template
     -- during stack provisioning, if any.
-    stackParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)),
+    stackParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)),
     -- | The Amazon S3 location where the toolchain template file provided with
     -- the project request is stored. AWS CodeStar retrieves the file during
     -- project creation.
@@ -99,13 +100,13 @@ instance Prelude.NFData Toolchain where
       `Prelude.seq` Prelude.rnf stackParameters
       `Prelude.seq` Prelude.rnf source
 
-instance Core.ToJSON Toolchain where
+instance Data.ToJSON Toolchain where
   toJSON Toolchain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("stackParameters" Core..=)
+          [ ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("stackParameters" Data..=)
               Prelude.<$> stackParameters,
-            Prelude.Just ("source" Core..= source)
+            Prelude.Just ("source" Data..= source)
           ]
       )

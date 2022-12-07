@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,8 +113,8 @@ instance Core.AWSRequest DeleteChapCredentials where
     Response.receiveJSON
       ( \s h x ->
           DeleteChapCredentialsResponse'
-            Prelude.<$> (x Core..?> "InitiatorName")
-            Prelude.<*> (x Core..?> "TargetARN")
+            Prelude.<$> (x Data..?> "InitiatorName")
+            Prelude.<*> (x Data..?> "TargetARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,35 +128,35 @@ instance Prelude.NFData DeleteChapCredentials where
     Prelude.rnf targetARN
       `Prelude.seq` Prelude.rnf initiatorName
 
-instance Core.ToHeaders DeleteChapCredentials where
+instance Data.ToHeaders DeleteChapCredentials where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DeleteChapCredentials" ::
+              Data.=# ( "StorageGateway_20130630.DeleteChapCredentials" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteChapCredentials where
+instance Data.ToJSON DeleteChapCredentials where
   toJSON DeleteChapCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TargetARN" Core..= targetARN),
+          [ Prelude.Just ("TargetARN" Data..= targetARN),
             Prelude.Just
-              ("InitiatorName" Core..= initiatorName)
+              ("InitiatorName" Data..= initiatorName)
           ]
       )
 
-instance Core.ToPath DeleteChapCredentials where
+instance Data.ToPath DeleteChapCredentials where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteChapCredentials where
+instance Data.ToQuery DeleteChapCredentials where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the following fields:

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,7 +137,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PutRegistryScanningConfigurationResponse'
-            Prelude.<$> (x Core..?> "registryScanningConfiguration")
+            Prelude.<$> (x Data..?> "registryScanningConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,37 +160,37 @@ instance
       `Prelude.seq` Prelude.rnf scanType
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutRegistryScanningConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.PutRegistryScanningConfiguration" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.PutRegistryScanningConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRegistryScanningConfiguration where
+instance Data.ToJSON PutRegistryScanningConfiguration where
   toJSON PutRegistryScanningConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("rules" Core..=) Prelude.<$> rules,
-            ("scanType" Core..=) Prelude.<$> scanType
+          [ ("rules" Data..=) Prelude.<$> rules,
+            ("scanType" Data..=) Prelude.<$> scanType
           ]
       )
 
-instance Core.ToPath PutRegistryScanningConfiguration where
+instance Data.ToPath PutRegistryScanningConfiguration where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutRegistryScanningConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

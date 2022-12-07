@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -246,10 +247,10 @@ instance Core.AWSRequest DescribeHsmConfigurations where
       "DescribeHsmConfigurationsResult"
       ( \s h x ->
           DescribeHsmConfigurationsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "HsmConfigurations"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "HsmConfigurations"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "HsmConfiguration")
+                            Prelude.>>= Core.may (Data.parseXMLList "HsmConfiguration")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -270,29 +271,29 @@ instance Prelude.NFData DescribeHsmConfigurations where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier
 
-instance Core.ToHeaders DescribeHsmConfigurations where
+instance Data.ToHeaders DescribeHsmConfigurations where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeHsmConfigurations where
+instance Data.ToPath DescribeHsmConfigurations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeHsmConfigurations where
+instance Data.ToQuery DescribeHsmConfigurations where
   toQuery DescribeHsmConfigurations' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeHsmConfigurations" :: Prelude.ByteString),
+          Data.=: ("DescribeHsmConfigurations" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "TagKeys"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
-        "Marker" Core.=: marker,
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagKey" Prelude.<$> tagKeys),
+        "Marker" Data.=: marker,
         "TagValues"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "MaxRecords" Core.=: maxRecords,
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagValue" Prelude.<$> tagValues),
+        "MaxRecords" Data.=: maxRecords,
         "HsmConfigurationIdentifier"
-          Core.=: hsmConfigurationIdentifier
+          Data.=: hsmConfigurationIdentifier
       ]
 
 -- |

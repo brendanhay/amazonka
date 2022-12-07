@@ -23,6 +23,7 @@ import Amazonka.AuditManager.Types.AWSAccount
 import Amazonka.AuditManager.Types.AWSService
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The wrapper that contains the Amazon Web Services accounts and services
@@ -70,14 +71,14 @@ scope_awsAccounts = Lens.lens (\Scope' {awsAccounts} -> awsAccounts) (\s@Scope' 
 scope_awsServices :: Lens.Lens' Scope (Prelude.Maybe [AWSService])
 scope_awsServices = Lens.lens (\Scope' {awsServices} -> awsServices) (\s@Scope' {} a -> s {awsServices = a} :: Scope) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Scope where
+instance Data.FromJSON Scope where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scope"
       ( \x ->
           Scope'
-            Prelude.<$> (x Core..:? "awsAccounts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "awsServices" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "awsAccounts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "awsServices" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Scope where
@@ -90,11 +91,11 @@ instance Prelude.NFData Scope where
     Prelude.rnf awsAccounts
       `Prelude.seq` Prelude.rnf awsServices
 
-instance Core.ToJSON Scope where
+instance Data.ToJSON Scope where
   toJSON Scope' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("awsAccounts" Core..=) Prelude.<$> awsAccounts,
-            ("awsServices" Core..=) Prelude.<$> awsServices
+          [ ("awsAccounts" Data..=) Prelude.<$> awsAccounts,
+            ("awsServices" Data..=) Prelude.<$> awsServices
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.SslConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an app\'s SSL configuration.
@@ -73,15 +74,15 @@ sslConfiguration_privateKey = Lens.lens (\SslConfiguration' {privateKey} -> priv
 sslConfiguration_certificate :: Lens.Lens' SslConfiguration (Prelude.Maybe Prelude.Text)
 sslConfiguration_certificate = Lens.lens (\SslConfiguration' {certificate} -> certificate) (\s@SslConfiguration' {} a -> s {certificate = a} :: SslConfiguration)
 
-instance Core.FromJSON SslConfiguration where
+instance Data.FromJSON SslConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SslConfiguration"
       ( \x ->
           SslConfiguration'
-            Prelude.<$> (x Core..:? "Chain")
-            Prelude.<*> (x Core..:? "PrivateKey")
-            Prelude.<*> (x Core..:? "Certificate")
+            Prelude.<$> (x Data..:? "Chain")
+            Prelude.<*> (x Data..:? "PrivateKey")
+            Prelude.<*> (x Data..:? "Certificate")
       )
 
 instance Prelude.Hashable SslConfiguration where
@@ -96,12 +97,12 @@ instance Prelude.NFData SslConfiguration where
       `Prelude.seq` Prelude.rnf privateKey
       `Prelude.seq` Prelude.rnf certificate
 
-instance Core.ToJSON SslConfiguration where
+instance Data.ToJSON SslConfiguration where
   toJSON SslConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Chain" Core..=) Prelude.<$> chain,
-            ("PrivateKey" Core..=) Prelude.<$> privateKey,
-            ("Certificate" Core..=) Prelude.<$> certificate
+          [ ("Chain" Data..=) Prelude.<$> chain,
+            ("PrivateKey" Data..=) Prelude.<$> privateKey,
+            ("Certificate" Data..=) Prelude.<$> certificate
           ]
       )

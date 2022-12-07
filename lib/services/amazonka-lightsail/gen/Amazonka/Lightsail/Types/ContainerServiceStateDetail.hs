@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ContainerServiceStateDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.ContainerServiceStateDetailCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -177,14 +178,14 @@ containerServiceStateDetail_message = Lens.lens (\ContainerServiceStateDetail' {
 containerServiceStateDetail_code :: Lens.Lens' ContainerServiceStateDetail (Prelude.Maybe ContainerServiceStateDetailCode)
 containerServiceStateDetail_code = Lens.lens (\ContainerServiceStateDetail' {code} -> code) (\s@ContainerServiceStateDetail' {} a -> s {code = a} :: ContainerServiceStateDetail)
 
-instance Core.FromJSON ContainerServiceStateDetail where
+instance Data.FromJSON ContainerServiceStateDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerServiceStateDetail"
       ( \x ->
           ContainerServiceStateDetail'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable ContainerServiceStateDetail where

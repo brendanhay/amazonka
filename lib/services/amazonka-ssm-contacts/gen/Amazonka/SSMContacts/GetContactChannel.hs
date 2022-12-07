@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,13 +95,13 @@ instance Core.AWSRequest GetContactChannel where
     Response.receiveJSON
       ( \s h x ->
           GetContactChannelResponse'
-            Prelude.<$> (x Core..?> "ActivationStatus")
+            Prelude.<$> (x Data..?> "ActivationStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ContactArn")
-            Prelude.<*> (x Core..:> "ContactChannelArn")
-            Prelude.<*> (x Core..:> "Name")
-            Prelude.<*> (x Core..:> "Type")
-            Prelude.<*> (x Core..:> "DeliveryAddress")
+            Prelude.<*> (x Data..:> "ContactArn")
+            Prelude.<*> (x Data..:> "ContactChannelArn")
+            Prelude.<*> (x Data..:> "Name")
+            Prelude.<*> (x Data..:> "Type")
+            Prelude.<*> (x Data..:> "DeliveryAddress")
       )
 
 instance Prelude.Hashable GetContactChannel where
@@ -111,34 +112,34 @@ instance Prelude.NFData GetContactChannel where
   rnf GetContactChannel' {..} =
     Prelude.rnf contactChannelId
 
-instance Core.ToHeaders GetContactChannel where
+instance Data.ToHeaders GetContactChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SSMContacts.GetContactChannel" ::
+              Data.=# ( "SSMContacts.GetContactChannel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetContactChannel where
+instance Data.ToJSON GetContactChannel where
   toJSON GetContactChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ContactChannelId" Core..= contactChannelId)
+              ("ContactChannelId" Data..= contactChannelId)
           ]
       )
 
-instance Core.ToPath GetContactChannel where
+instance Data.ToPath GetContactChannel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetContactChannel where
+instance Data.ToQuery GetContactChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContactChannelResponse' smart constructor.

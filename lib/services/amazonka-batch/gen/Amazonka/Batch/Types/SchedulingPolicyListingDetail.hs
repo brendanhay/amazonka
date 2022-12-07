@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.SchedulingPolicyListingDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the details of a scheduling policy that\'s
@@ -53,13 +54,13 @@ newSchedulingPolicyListingDetail pArn_ =
 schedulingPolicyListingDetail_arn :: Lens.Lens' SchedulingPolicyListingDetail Prelude.Text
 schedulingPolicyListingDetail_arn = Lens.lens (\SchedulingPolicyListingDetail' {arn} -> arn) (\s@SchedulingPolicyListingDetail' {} a -> s {arn = a} :: SchedulingPolicyListingDetail)
 
-instance Core.FromJSON SchedulingPolicyListingDetail where
+instance Data.FromJSON SchedulingPolicyListingDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchedulingPolicyListingDetail"
       ( \x ->
           SchedulingPolicyListingDetail'
-            Prelude.<$> (x Core..: "arn")
+            Prelude.<$> (x Data..: "arn")
       )
 
 instance

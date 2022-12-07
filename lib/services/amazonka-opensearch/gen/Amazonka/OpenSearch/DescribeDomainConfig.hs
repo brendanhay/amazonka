@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,7 +90,7 @@ instance Core.AWSRequest DescribeDomainConfig where
       ( \s h x ->
           DescribeDomainConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DomainConfig")
+            Prelude.<*> (x Data..:> "DomainConfig")
       )
 
 instance Prelude.Hashable DescribeDomainConfig where
@@ -100,18 +101,18 @@ instance Prelude.NFData DescribeDomainConfig where
   rnf DescribeDomainConfig' {..} =
     Prelude.rnf domainName
 
-instance Core.ToHeaders DescribeDomainConfig where
+instance Data.ToHeaders DescribeDomainConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDomainConfig where
+instance Data.ToPath DescribeDomainConfig where
   toPath DescribeDomainConfig' {..} =
     Prelude.mconcat
       [ "/2021-01-01/opensearch/domain/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/config"
       ]
 
-instance Core.ToQuery DescribeDomainConfig where
+instance Data.ToQuery DescribeDomainConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the configuration information of the requested domain.

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ instance Core.AWSRequest PutBackupPolicy where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable PutBackupPolicy where
   hashWithSalt _salt PutBackupPolicy' {..} =
@@ -107,23 +108,23 @@ instance Prelude.NFData PutBackupPolicy where
     Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf backupPolicy
 
-instance Core.ToHeaders PutBackupPolicy where
+instance Data.ToHeaders PutBackupPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutBackupPolicy where
+instance Data.ToJSON PutBackupPolicy where
   toJSON PutBackupPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("BackupPolicy" Core..= backupPolicy)]
+          [Prelude.Just ("BackupPolicy" Data..= backupPolicy)]
       )
 
-instance Core.ToPath PutBackupPolicy where
+instance Data.ToPath PutBackupPolicy where
   toPath PutBackupPolicy' {..} =
     Prelude.mconcat
       [ "/2015-02-01/file-systems/",
-        Core.toBS fileSystemId,
+        Data.toBS fileSystemId,
         "/backup-policy"
       ]
 
-instance Core.ToQuery PutBackupPolicy where
+instance Data.ToQuery PutBackupPolicy where
   toQuery = Prelude.const Prelude.mempty

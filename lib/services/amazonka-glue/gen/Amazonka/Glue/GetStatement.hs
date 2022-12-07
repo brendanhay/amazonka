@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance Core.AWSRequest GetStatement where
     Response.receiveJSON
       ( \s h x ->
           GetStatementResponse'
-            Prelude.<$> (x Core..?> "Statement")
+            Prelude.<$> (x Data..?> "Statement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,33 +122,33 @@ instance Prelude.NFData GetStatement where
       `Prelude.seq` Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders GetStatement where
+instance Data.ToHeaders GetStatement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetStatement" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetStatement" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetStatement where
+instance Data.ToJSON GetStatement where
   toJSON GetStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RequestOrigin" Core..=) Prelude.<$> requestOrigin,
-            Prelude.Just ("SessionId" Core..= sessionId),
-            Prelude.Just ("Id" Core..= id)
+          [ ("RequestOrigin" Data..=) Prelude.<$> requestOrigin,
+            Prelude.Just ("SessionId" Data..= sessionId),
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath GetStatement where
+instance Data.ToPath GetStatement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetStatement where
+instance Data.ToQuery GetStatement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetStatementResponse' smart constructor.

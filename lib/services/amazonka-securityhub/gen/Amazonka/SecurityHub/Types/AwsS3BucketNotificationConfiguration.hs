@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfigurationDetail
 
@@ -55,16 +56,16 @@ awsS3BucketNotificationConfiguration_configurations :: Lens.Lens' AwsS3BucketNot
 awsS3BucketNotificationConfiguration_configurations = Lens.lens (\AwsS3BucketNotificationConfiguration' {configurations} -> configurations) (\s@AwsS3BucketNotificationConfiguration' {} a -> s {configurations = a} :: AwsS3BucketNotificationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketNotificationConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketNotificationConfiguration"
       ( \x ->
           AwsS3BucketNotificationConfiguration'
-            Prelude.<$> ( x Core..:? "Configurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "Configurations"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -85,13 +86,13 @@ instance
     Prelude.rnf configurations
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketNotificationConfiguration
   where
   toJSON AwsS3BucketNotificationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Configurations" Core..=)
+          [ ("Configurations" Data..=)
               Prelude.<$> configurations
           ]
       )

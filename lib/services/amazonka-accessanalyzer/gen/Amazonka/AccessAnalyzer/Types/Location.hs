@@ -23,6 +23,7 @@ import Amazonka.AccessAnalyzer.Types.PathElement
 import Amazonka.AccessAnalyzer.Types.Span
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A location in a policy that is represented as a path through the JSON
@@ -63,14 +64,14 @@ location_path = Lens.lens (\Location' {path} -> path) (\s@Location' {} a -> s {p
 location_span :: Lens.Lens' Location Span
 location_span = Lens.lens (\Location' {span} -> span) (\s@Location' {} a -> s {span = a} :: Location)
 
-instance Core.FromJSON Location where
+instance Data.FromJSON Location where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Location"
       ( \x ->
           Location'
-            Prelude.<$> (x Core..:? "path" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "span")
+            Prelude.<$> (x Data..:? "path" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "span")
       )
 
 instance Prelude.Hashable Location where

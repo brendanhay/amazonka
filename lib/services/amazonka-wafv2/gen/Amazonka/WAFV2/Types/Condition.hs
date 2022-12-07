@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.Condition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.ActionCondition
 import Amazonka.WAFV2.Types.LabelNameCondition
@@ -78,14 +79,14 @@ condition_labelNameCondition = Lens.lens (\Condition' {labelNameCondition} -> la
 condition_actionCondition :: Lens.Lens' Condition (Prelude.Maybe ActionCondition)
 condition_actionCondition = Lens.lens (\Condition' {actionCondition} -> actionCondition) (\s@Condition' {} a -> s {actionCondition = a} :: Condition)
 
-instance Core.FromJSON Condition where
+instance Data.FromJSON Condition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Condition"
       ( \x ->
           Condition'
-            Prelude.<$> (x Core..:? "LabelNameCondition")
-            Prelude.<*> (x Core..:? "ActionCondition")
+            Prelude.<$> (x Data..:? "LabelNameCondition")
+            Prelude.<*> (x Data..:? "ActionCondition")
       )
 
 instance Prelude.Hashable Condition where
@@ -98,13 +99,13 @@ instance Prelude.NFData Condition where
     Prelude.rnf labelNameCondition
       `Prelude.seq` Prelude.rnf actionCondition
 
-instance Core.ToJSON Condition where
+instance Data.ToJSON Condition where
   toJSON Condition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LabelNameCondition" Core..=)
+          [ ("LabelNameCondition" Data..=)
               Prelude.<$> labelNameCondition,
-            ("ActionCondition" Core..=)
+            ("ActionCondition" Data..=)
               Prelude.<$> actionCondition
           ]
       )

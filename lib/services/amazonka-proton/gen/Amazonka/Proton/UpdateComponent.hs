@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -68,15 +69,15 @@ data UpdateComponent = UpdateComponent'
   { -- | The service spec that you want the component to use to access service
     -- inputs. Set this only when the component is attached to a service
     -- instance.
-    serviceSpec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    serviceSpec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A path to the Infrastructure as Code (IaC) file describing
     -- infrastructure that a custom component provisions.
     --
     -- Components support a single IaC file, even if you use Terraform as your
     -- template language.
-    templateFile :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    templateFile :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | An optional customer-provided description of the component.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the service that @serviceInstanceName@ is associated with.
     -- Don\'t specify to keep the component\'s current service instance
     -- attachment. Specify an empty string to detach the component from the
@@ -182,7 +183,7 @@ newUpdateComponent pDeploymentType_ pName_ =
 -- inputs. Set this only when the component is attached to a service
 -- instance.
 updateComponent_serviceSpec :: Lens.Lens' UpdateComponent (Prelude.Maybe Prelude.Text)
-updateComponent_serviceSpec = Lens.lens (\UpdateComponent' {serviceSpec} -> serviceSpec) (\s@UpdateComponent' {} a -> s {serviceSpec = a} :: UpdateComponent) Prelude.. Lens.mapping Core._Sensitive
+updateComponent_serviceSpec = Lens.lens (\UpdateComponent' {serviceSpec} -> serviceSpec) (\s@UpdateComponent' {} a -> s {serviceSpec = a} :: UpdateComponent) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A path to the Infrastructure as Code (IaC) file describing
 -- infrastructure that a custom component provisions.
@@ -190,11 +191,11 @@ updateComponent_serviceSpec = Lens.lens (\UpdateComponent' {serviceSpec} -> serv
 -- Components support a single IaC file, even if you use Terraform as your
 -- template language.
 updateComponent_templateFile :: Lens.Lens' UpdateComponent (Prelude.Maybe Prelude.Text)
-updateComponent_templateFile = Lens.lens (\UpdateComponent' {templateFile} -> templateFile) (\s@UpdateComponent' {} a -> s {templateFile = a} :: UpdateComponent) Prelude.. Lens.mapping Core._Sensitive
+updateComponent_templateFile = Lens.lens (\UpdateComponent' {templateFile} -> templateFile) (\s@UpdateComponent' {} a -> s {templateFile = a} :: UpdateComponent) Prelude.. Lens.mapping Data._Sensitive
 
 -- | An optional customer-provided description of the component.
 updateComponent_description :: Lens.Lens' UpdateComponent (Prelude.Maybe Prelude.Text)
-updateComponent_description = Lens.lens (\UpdateComponent' {description} -> description) (\s@UpdateComponent' {} a -> s {description = a} :: UpdateComponent) Prelude.. Lens.mapping Core._Sensitive
+updateComponent_description = Lens.lens (\UpdateComponent' {description} -> description) (\s@UpdateComponent' {} a -> s {description = a} :: UpdateComponent) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the service that @serviceInstanceName@ is associated with.
 -- Don\'t specify to keep the component\'s current service instance
@@ -246,7 +247,7 @@ instance Core.AWSRequest UpdateComponent where
       ( \s h x ->
           UpdateComponentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "component")
+            Prelude.<*> (x Data..:> "component")
       )
 
 instance Prelude.Hashable UpdateComponent where
@@ -269,41 +270,41 @@ instance Prelude.NFData UpdateComponent where
       `Prelude.seq` Prelude.rnf deploymentType
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateComponent where
+instance Data.ToHeaders UpdateComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.UpdateComponent" ::
+              Data.=# ( "AwsProton20200720.UpdateComponent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateComponent where
+instance Data.ToJSON UpdateComponent where
   toJSON UpdateComponent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("serviceSpec" Core..=) Prelude.<$> serviceSpec,
-            ("templateFile" Core..=) Prelude.<$> templateFile,
-            ("description" Core..=) Prelude.<$> description,
-            ("serviceName" Core..=) Prelude.<$> serviceName,
-            ("serviceInstanceName" Core..=)
+          [ ("serviceSpec" Data..=) Prelude.<$> serviceSpec,
+            ("templateFile" Data..=) Prelude.<$> templateFile,
+            ("description" Data..=) Prelude.<$> description,
+            ("serviceName" Data..=) Prelude.<$> serviceName,
+            ("serviceInstanceName" Data..=)
               Prelude.<$> serviceInstanceName,
             Prelude.Just
-              ("deploymentType" Core..= deploymentType),
-            Prelude.Just ("name" Core..= name)
+              ("deploymentType" Data..= deploymentType),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateComponent where
+instance Data.ToPath UpdateComponent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateComponent where
+instance Data.ToQuery UpdateComponent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateComponentResponse' smart constructor.

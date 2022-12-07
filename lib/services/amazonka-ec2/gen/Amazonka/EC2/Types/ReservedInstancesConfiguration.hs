@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ReservedInstancesConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceType
 import Amazonka.EC2.Types.Scope
@@ -105,14 +106,14 @@ reservedInstancesConfiguration_scope = Lens.lens (\ReservedInstancesConfiguratio
 reservedInstancesConfiguration_instanceCount :: Lens.Lens' ReservedInstancesConfiguration (Prelude.Maybe Prelude.Int)
 reservedInstancesConfiguration_instanceCount = Lens.lens (\ReservedInstancesConfiguration' {instanceCount} -> instanceCount) (\s@ReservedInstancesConfiguration' {} a -> s {instanceCount = a} :: ReservedInstancesConfiguration)
 
-instance Core.FromXML ReservedInstancesConfiguration where
+instance Data.FromXML ReservedInstancesConfiguration where
   parseXML x =
     ReservedInstancesConfiguration'
-      Prelude.<$> (x Core..@? "platform")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "scope")
-      Prelude.<*> (x Core..@? "instanceCount")
+      Prelude.<$> (x Data..@? "platform")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "scope")
+      Prelude.<*> (x Data..@? "instanceCount")
 
 instance
   Prelude.Hashable
@@ -138,12 +139,12 @@ instance
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf instanceCount
 
-instance Core.ToQuery ReservedInstancesConfiguration where
+instance Data.ToQuery ReservedInstancesConfiguration where
   toQuery ReservedInstancesConfiguration' {..} =
     Prelude.mconcat
-      [ "Platform" Core.=: platform,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "InstanceType" Core.=: instanceType,
-        "Scope" Core.=: scope,
-        "InstanceCount" Core.=: instanceCount
+      [ "Platform" Data.=: platform,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "InstanceType" Data.=: instanceType,
+        "Scope" Data.=: scope,
+        "InstanceCount" Data.=: instanceCount
       ]

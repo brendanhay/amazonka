@@ -21,6 +21,7 @@ module Amazonka.CodeGuruReviewer.Types.CommitDiffSourceCodeType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A type of
@@ -81,15 +82,15 @@ commitDiffSourceCodeType_mergeBaseCommit = Lens.lens (\CommitDiffSourceCodeType'
 commitDiffSourceCodeType_destinationCommit :: Lens.Lens' CommitDiffSourceCodeType (Prelude.Maybe Prelude.Text)
 commitDiffSourceCodeType_destinationCommit = Lens.lens (\CommitDiffSourceCodeType' {destinationCommit} -> destinationCommit) (\s@CommitDiffSourceCodeType' {} a -> s {destinationCommit = a} :: CommitDiffSourceCodeType)
 
-instance Core.FromJSON CommitDiffSourceCodeType where
+instance Data.FromJSON CommitDiffSourceCodeType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CommitDiffSourceCodeType"
       ( \x ->
           CommitDiffSourceCodeType'
-            Prelude.<$> (x Core..:? "SourceCommit")
-            Prelude.<*> (x Core..:? "MergeBaseCommit")
-            Prelude.<*> (x Core..:? "DestinationCommit")
+            Prelude.<$> (x Data..:? "SourceCommit")
+            Prelude.<*> (x Data..:? "MergeBaseCommit")
+            Prelude.<*> (x Data..:? "DestinationCommit")
       )
 
 instance Prelude.Hashable CommitDiffSourceCodeType where
@@ -104,14 +105,14 @@ instance Prelude.NFData CommitDiffSourceCodeType where
       `Prelude.seq` Prelude.rnf mergeBaseCommit
       `Prelude.seq` Prelude.rnf destinationCommit
 
-instance Core.ToJSON CommitDiffSourceCodeType where
+instance Data.ToJSON CommitDiffSourceCodeType where
   toJSON CommitDiffSourceCodeType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceCommit" Core..=) Prelude.<$> sourceCommit,
-            ("MergeBaseCommit" Core..=)
+          [ ("SourceCommit" Data..=) Prelude.<$> sourceCommit,
+            ("MergeBaseCommit" Data..=)
               Prelude.<$> mergeBaseCommit,
-            ("DestinationCommit" Core..=)
+            ("DestinationCommit" Data..=)
               Prelude.<$> destinationCommit
           ]
       )

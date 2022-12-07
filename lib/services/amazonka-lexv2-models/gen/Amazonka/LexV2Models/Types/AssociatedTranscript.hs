@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.AssociatedTranscript where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The object containing information that associates the recommended
@@ -57,13 +58,13 @@ newAssociatedTranscript =
 associatedTranscript_transcript :: Lens.Lens' AssociatedTranscript (Prelude.Maybe Prelude.Text)
 associatedTranscript_transcript = Lens.lens (\AssociatedTranscript' {transcript} -> transcript) (\s@AssociatedTranscript' {} a -> s {transcript = a} :: AssociatedTranscript)
 
-instance Core.FromJSON AssociatedTranscript where
+instance Data.FromJSON AssociatedTranscript where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssociatedTranscript"
       ( \x ->
           AssociatedTranscript'
-            Prelude.<$> (x Core..:? "transcript")
+            Prelude.<$> (x Data..:? "transcript")
       )
 
 instance Prelude.Hashable AssociatedTranscript where

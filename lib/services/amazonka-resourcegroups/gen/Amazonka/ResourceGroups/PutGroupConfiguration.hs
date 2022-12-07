@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroups.Types
@@ -144,22 +145,22 @@ instance Prelude.NFData PutGroupConfiguration where
     Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf group'
 
-instance Core.ToHeaders PutGroupConfiguration where
+instance Data.ToHeaders PutGroupConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutGroupConfiguration where
+instance Data.ToJSON PutGroupConfiguration where
   toJSON PutGroupConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Configuration" Core..=) Prelude.<$> configuration,
-            ("Group" Core..=) Prelude.<$> group'
+          [ ("Configuration" Data..=) Prelude.<$> configuration,
+            ("Group" Data..=) Prelude.<$> group'
           ]
       )
 
-instance Core.ToPath PutGroupConfiguration where
+instance Data.ToPath PutGroupConfiguration where
   toPath = Prelude.const "/put-group-configuration"
 
-instance Core.ToQuery PutGroupConfiguration where
+instance Data.ToQuery PutGroupConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutGroupConfigurationResponse' smart constructor.

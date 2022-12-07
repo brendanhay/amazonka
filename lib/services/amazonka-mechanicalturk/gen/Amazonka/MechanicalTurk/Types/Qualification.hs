@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.Qualification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types.Locale
 import Amazonka.MechanicalTurk.Types.QualificationStatus
 import qualified Amazonka.Prelude as Prelude
@@ -43,7 +44,7 @@ data Qualification = Qualification'
     -- Worker\'s Qualification was revoked, and then re-granted based on a new
     -- Qualification request, GrantTime is the date and time of the last call
     -- to the AcceptQualificationRequest operation.
-    grantTime :: Prelude.Maybe Core.POSIX,
+    grantTime :: Prelude.Maybe Data.POSIX,
     localeValue :: Prelude.Maybe Locale
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -106,24 +107,24 @@ qualification_status = Lens.lens (\Qualification' {status} -> status) (\s@Qualif
 -- Qualification request, GrantTime is the date and time of the last call
 -- to the AcceptQualificationRequest operation.
 qualification_grantTime :: Lens.Lens' Qualification (Prelude.Maybe Prelude.UTCTime)
-qualification_grantTime = Lens.lens (\Qualification' {grantTime} -> grantTime) (\s@Qualification' {} a -> s {grantTime = a} :: Qualification) Prelude.. Lens.mapping Core._Time
+qualification_grantTime = Lens.lens (\Qualification' {grantTime} -> grantTime) (\s@Qualification' {} a -> s {grantTime = a} :: Qualification) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 qualification_localeValue :: Lens.Lens' Qualification (Prelude.Maybe Locale)
 qualification_localeValue = Lens.lens (\Qualification' {localeValue} -> localeValue) (\s@Qualification' {} a -> s {localeValue = a} :: Qualification)
 
-instance Core.FromJSON Qualification where
+instance Data.FromJSON Qualification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Qualification"
       ( \x ->
           Qualification'
-            Prelude.<$> (x Core..:? "QualificationTypeId")
-            Prelude.<*> (x Core..:? "IntegerValue")
-            Prelude.<*> (x Core..:? "WorkerId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "GrantTime")
-            Prelude.<*> (x Core..:? "LocaleValue")
+            Prelude.<$> (x Data..:? "QualificationTypeId")
+            Prelude.<*> (x Data..:? "IntegerValue")
+            Prelude.<*> (x Data..:? "WorkerId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "GrantTime")
+            Prelude.<*> (x Data..:? "LocaleValue")
       )
 
 instance Prelude.Hashable Qualification where

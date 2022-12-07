@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.OidcIdentityProviderConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.ConfigStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -186,24 +187,24 @@ oidcIdentityProviderConfig_clusterName = Lens.lens (\OidcIdentityProviderConfig'
 oidcIdentityProviderConfig_usernameClaim :: Lens.Lens' OidcIdentityProviderConfig (Prelude.Maybe Prelude.Text)
 oidcIdentityProviderConfig_usernameClaim = Lens.lens (\OidcIdentityProviderConfig' {usernameClaim} -> usernameClaim) (\s@OidcIdentityProviderConfig' {} a -> s {usernameClaim = a} :: OidcIdentityProviderConfig)
 
-instance Core.FromJSON OidcIdentityProviderConfig where
+instance Data.FromJSON OidcIdentityProviderConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OidcIdentityProviderConfig"
       ( \x ->
           OidcIdentityProviderConfig'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "requiredClaims" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "clientId")
-            Prelude.<*> (x Core..:? "identityProviderConfigName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "usernamePrefix")
-            Prelude.<*> (x Core..:? "groupsClaim")
-            Prelude.<*> (x Core..:? "identityProviderConfigArn")
-            Prelude.<*> (x Core..:? "issuerUrl")
-            Prelude.<*> (x Core..:? "groupsPrefix")
-            Prelude.<*> (x Core..:? "clusterName")
-            Prelude.<*> (x Core..:? "usernameClaim")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "requiredClaims" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "clientId")
+            Prelude.<*> (x Data..:? "identityProviderConfigName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "usernamePrefix")
+            Prelude.<*> (x Data..:? "groupsClaim")
+            Prelude.<*> (x Data..:? "identityProviderConfigArn")
+            Prelude.<*> (x Data..:? "issuerUrl")
+            Prelude.<*> (x Data..:? "groupsPrefix")
+            Prelude.<*> (x Data..:? "clusterName")
+            Prelude.<*> (x Data..:? "usernameClaim")
       )
 
 instance Prelude.Hashable OidcIdentityProviderConfig where

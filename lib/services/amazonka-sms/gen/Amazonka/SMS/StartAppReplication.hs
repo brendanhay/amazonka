@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,32 +92,32 @@ instance Prelude.Hashable StartAppReplication where
 instance Prelude.NFData StartAppReplication where
   rnf StartAppReplication' {..} = Prelude.rnf appId
 
-instance Core.ToHeaders StartAppReplication where
+instance Data.ToHeaders StartAppReplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.StartAppReplication" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.StartAppReplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartAppReplication where
+instance Data.ToJSON StartAppReplication where
   toJSON StartAppReplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("appId" Core..=) Prelude.<$> appId]
+          [("appId" Data..=) Prelude.<$> appId]
       )
 
-instance Core.ToPath StartAppReplication where
+instance Data.ToPath StartAppReplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartAppReplication where
+instance Data.ToQuery StartAppReplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartAppReplicationResponse' smart constructor.

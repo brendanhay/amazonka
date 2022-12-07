@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.S3Object where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.KeyValuePair
 import Amazonka.MacieV2.Types.ServerSideEncryption
 import Amazonka.MacieV2.Types.StorageClass
@@ -50,7 +51,7 @@ data S3Object = S3Object'
     bucketArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the object
     -- was last modified.
-    lastModified :: Prelude.Maybe Core.POSIX,
+    lastModified :: Prelude.Maybe Data.POSIX,
     -- | The entity tag (ETag) that identifies the affected version of the
     -- object. If the object was overwritten or changed after Amazon Macie
     -- produced the finding, this value might be different from the current
@@ -155,7 +156,7 @@ s3Object_bucketArn = Lens.lens (\S3Object' {bucketArn} -> bucketArn) (\s@S3Objec
 -- | The date and time, in UTC and extended ISO 8601 format, when the object
 -- was last modified.
 s3Object_lastModified :: Lens.Lens' S3Object (Prelude.Maybe Prelude.UTCTime)
-s3Object_lastModified = Lens.lens (\S3Object' {lastModified} -> lastModified) (\s@S3Object' {} a -> s {lastModified = a} :: S3Object) Prelude.. Lens.mapping Core._Time
+s3Object_lastModified = Lens.lens (\S3Object' {lastModified} -> lastModified) (\s@S3Object' {} a -> s {lastModified = a} :: S3Object) Prelude.. Lens.mapping Data._Time
 
 -- | The entity tag (ETag) that identifies the affected version of the
 -- object. If the object was overwritten or changed after Amazon Macie
@@ -172,24 +173,24 @@ s3Object_storageClass = Lens.lens (\S3Object' {storageClass} -> storageClass) (\
 s3Object_versionId :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
 s3Object_versionId = Lens.lens (\S3Object' {versionId} -> versionId) (\s@S3Object' {} a -> s {versionId = a} :: S3Object)
 
-instance Core.FromJSON S3Object where
+instance Data.FromJSON S3Object where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Object"
       ( \x ->
           S3Object'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "serverSideEncryption")
-            Prelude.<*> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "extension")
-            Prelude.<*> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "publicAccess")
-            Prelude.<*> (x Core..:? "size")
-            Prelude.<*> (x Core..:? "bucketArn")
-            Prelude.<*> (x Core..:? "lastModified")
-            Prelude.<*> (x Core..:? "eTag")
-            Prelude.<*> (x Core..:? "storageClass")
-            Prelude.<*> (x Core..:? "versionId")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "serverSideEncryption")
+            Prelude.<*> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "extension")
+            Prelude.<*> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "publicAccess")
+            Prelude.<*> (x Data..:? "size")
+            Prelude.<*> (x Data..:? "bucketArn")
+            Prelude.<*> (x Data..:? "lastModified")
+            Prelude.<*> (x Data..:? "eTag")
+            Prelude.<*> (x Data..:? "storageClass")
+            Prelude.<*> (x Data..:? "versionId")
       )
 
 instance Prelude.Hashable S3Object where

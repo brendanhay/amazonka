@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataPipeline.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,13 +108,13 @@ instance Core.AWSRequest GetPipelineDefinition where
     Response.receiveJSON
       ( \s h x ->
           GetPipelineDefinitionResponse'
-            Prelude.<$> ( x Core..?> "parameterValues"
+            Prelude.<$> ( x Data..?> "parameterValues"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "pipelineObjects"
+            Prelude.<*> ( x Data..?> "pipelineObjects"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "parameterObjects"
+            Prelude.<*> ( x Data..?> "parameterObjects"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -129,34 +130,34 @@ instance Prelude.NFData GetPipelineDefinition where
     Prelude.rnf version
       `Prelude.seq` Prelude.rnf pipelineId
 
-instance Core.ToHeaders GetPipelineDefinition where
+instance Data.ToHeaders GetPipelineDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DataPipeline.GetPipelineDefinition" ::
+              Data.=# ( "DataPipeline.GetPipelineDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetPipelineDefinition where
+instance Data.ToJSON GetPipelineDefinition where
   toJSON GetPipelineDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("version" Core..=) Prelude.<$> version,
-            Prelude.Just ("pipelineId" Core..= pipelineId)
+          [ ("version" Data..=) Prelude.<$> version,
+            Prelude.Just ("pipelineId" Data..= pipelineId)
           ]
       )
 
-instance Core.ToPath GetPipelineDefinition where
+instance Data.ToPath GetPipelineDefinition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetPipelineDefinition where
+instance Data.ToQuery GetPipelineDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of GetPipelineDefinition.

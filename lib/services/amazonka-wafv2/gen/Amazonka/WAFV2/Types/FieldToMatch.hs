@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.FieldToMatch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.AllQueryArguments
 import Amazonka.WAFV2.Types.Body
@@ -297,22 +298,22 @@ fieldToMatch_queryString = Lens.lens (\FieldToMatch' {queryString} -> queryStrin
 fieldToMatch_singleQueryArgument :: Lens.Lens' FieldToMatch (Prelude.Maybe SingleQueryArgument)
 fieldToMatch_singleQueryArgument = Lens.lens (\FieldToMatch' {singleQueryArgument} -> singleQueryArgument) (\s@FieldToMatch' {} a -> s {singleQueryArgument = a} :: FieldToMatch)
 
-instance Core.FromJSON FieldToMatch where
+instance Data.FromJSON FieldToMatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldToMatch"
       ( \x ->
           FieldToMatch'
-            Prelude.<$> (x Core..:? "UriPath")
-            Prelude.<*> (x Core..:? "Method")
-            Prelude.<*> (x Core..:? "Headers")
-            Prelude.<*> (x Core..:? "JsonBody")
-            Prelude.<*> (x Core..:? "AllQueryArguments")
-            Prelude.<*> (x Core..:? "Body")
-            Prelude.<*> (x Core..:? "SingleHeader")
-            Prelude.<*> (x Core..:? "Cookies")
-            Prelude.<*> (x Core..:? "QueryString")
-            Prelude.<*> (x Core..:? "SingleQueryArgument")
+            Prelude.<$> (x Data..:? "UriPath")
+            Prelude.<*> (x Data..:? "Method")
+            Prelude.<*> (x Data..:? "Headers")
+            Prelude.<*> (x Data..:? "JsonBody")
+            Prelude.<*> (x Data..:? "AllQueryArguments")
+            Prelude.<*> (x Data..:? "Body")
+            Prelude.<*> (x Data..:? "SingleHeader")
+            Prelude.<*> (x Data..:? "Cookies")
+            Prelude.<*> (x Data..:? "QueryString")
+            Prelude.<*> (x Data..:? "SingleQueryArgument")
       )
 
 instance Prelude.Hashable FieldToMatch where
@@ -341,21 +342,21 @@ instance Prelude.NFData FieldToMatch where
       `Prelude.seq` Prelude.rnf queryString
       `Prelude.seq` Prelude.rnf singleQueryArgument
 
-instance Core.ToJSON FieldToMatch where
+instance Data.ToJSON FieldToMatch where
   toJSON FieldToMatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UriPath" Core..=) Prelude.<$> uriPath,
-            ("Method" Core..=) Prelude.<$> method,
-            ("Headers" Core..=) Prelude.<$> headers,
-            ("JsonBody" Core..=) Prelude.<$> jsonBody,
-            ("AllQueryArguments" Core..=)
+          [ ("UriPath" Data..=) Prelude.<$> uriPath,
+            ("Method" Data..=) Prelude.<$> method,
+            ("Headers" Data..=) Prelude.<$> headers,
+            ("JsonBody" Data..=) Prelude.<$> jsonBody,
+            ("AllQueryArguments" Data..=)
               Prelude.<$> allQueryArguments,
-            ("Body" Core..=) Prelude.<$> body,
-            ("SingleHeader" Core..=) Prelude.<$> singleHeader,
-            ("Cookies" Core..=) Prelude.<$> cookies,
-            ("QueryString" Core..=) Prelude.<$> queryString,
-            ("SingleQueryArgument" Core..=)
+            ("Body" Data..=) Prelude.<$> body,
+            ("SingleHeader" Data..=) Prelude.<$> singleHeader,
+            ("Cookies" Data..=) Prelude.<$> cookies,
+            ("QueryString" Data..=) Prelude.<$> queryString,
+            ("SingleQueryArgument" Data..=)
               Prelude.<$> singleQueryArgument
           ]
       )

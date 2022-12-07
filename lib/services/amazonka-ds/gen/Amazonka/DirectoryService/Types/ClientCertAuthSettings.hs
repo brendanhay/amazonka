@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.ClientCertAuthSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the client certificate authentication
@@ -58,13 +59,13 @@ newClientCertAuthSettings =
 clientCertAuthSettings_oCSPUrl :: Lens.Lens' ClientCertAuthSettings (Prelude.Maybe Prelude.Text)
 clientCertAuthSettings_oCSPUrl = Lens.lens (\ClientCertAuthSettings' {oCSPUrl} -> oCSPUrl) (\s@ClientCertAuthSettings' {} a -> s {oCSPUrl = a} :: ClientCertAuthSettings)
 
-instance Core.FromJSON ClientCertAuthSettings where
+instance Data.FromJSON ClientCertAuthSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClientCertAuthSettings"
       ( \x ->
           ClientCertAuthSettings'
-            Prelude.<$> (x Core..:? "OCSPUrl")
+            Prelude.<$> (x Data..:? "OCSPUrl")
       )
 
 instance Prelude.Hashable ClientCertAuthSettings where
@@ -74,9 +75,9 @@ instance Prelude.Hashable ClientCertAuthSettings where
 instance Prelude.NFData ClientCertAuthSettings where
   rnf ClientCertAuthSettings' {..} = Prelude.rnf oCSPUrl
 
-instance Core.ToJSON ClientCertAuthSettings where
+instance Data.ToJSON ClientCertAuthSettings where
   toJSON ClientCertAuthSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("OCSPUrl" Core..=) Prelude.<$> oCSPUrl]
+          [("OCSPUrl" Data..=) Prelude.<$> oCSPUrl]
       )

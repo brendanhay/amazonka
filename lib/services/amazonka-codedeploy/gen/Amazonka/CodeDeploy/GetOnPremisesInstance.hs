@@ -42,6 +42,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,7 +89,7 @@ instance Core.AWSRequest GetOnPremisesInstance where
     Response.receiveJSON
       ( \s h x ->
           GetOnPremisesInstanceResponse'
-            Prelude.<$> (x Core..?> "instanceInfo")
+            Prelude.<$> (x Data..?> "instanceInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,32 +101,32 @@ instance Prelude.NFData GetOnPremisesInstance where
   rnf GetOnPremisesInstance' {..} =
     Prelude.rnf instanceName
 
-instance Core.ToHeaders GetOnPremisesInstance where
+instance Data.ToHeaders GetOnPremisesInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.GetOnPremisesInstance" ::
+              Data.=# ( "CodeDeploy_20141006.GetOnPremisesInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetOnPremisesInstance where
+instance Data.ToJSON GetOnPremisesInstance where
   toJSON GetOnPremisesInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("instanceName" Core..= instanceName)]
+          [Prelude.Just ("instanceName" Data..= instanceName)]
       )
 
-instance Core.ToPath GetOnPremisesInstance where
+instance Data.ToPath GetOnPremisesInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetOnPremisesInstance where
+instance Data.ToQuery GetOnPremisesInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetOnPremisesInstance@ operation.

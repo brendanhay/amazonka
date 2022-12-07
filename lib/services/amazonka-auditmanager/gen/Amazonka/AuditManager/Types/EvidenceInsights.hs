@@ -21,6 +21,7 @@ module Amazonka.AuditManager.Types.EvidenceInsights where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A breakdown of the latest compliance check status for the evidence in
@@ -114,15 +115,15 @@ evidenceInsights_inconclusiveEvidenceCount = Lens.lens (\EvidenceInsights' {inco
 evidenceInsights_noncompliantEvidenceCount :: Lens.Lens' EvidenceInsights (Prelude.Maybe Prelude.Int)
 evidenceInsights_noncompliantEvidenceCount = Lens.lens (\EvidenceInsights' {noncompliantEvidenceCount} -> noncompliantEvidenceCount) (\s@EvidenceInsights' {} a -> s {noncompliantEvidenceCount = a} :: EvidenceInsights)
 
-instance Core.FromJSON EvidenceInsights where
+instance Data.FromJSON EvidenceInsights where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EvidenceInsights"
       ( \x ->
           EvidenceInsights'
-            Prelude.<$> (x Core..:? "compliantEvidenceCount")
-            Prelude.<*> (x Core..:? "inconclusiveEvidenceCount")
-            Prelude.<*> (x Core..:? "noncompliantEvidenceCount")
+            Prelude.<$> (x Data..:? "compliantEvidenceCount")
+            Prelude.<*> (x Data..:? "inconclusiveEvidenceCount")
+            Prelude.<*> (x Data..:? "noncompliantEvidenceCount")
       )
 
 instance Prelude.Hashable EvidenceInsights where

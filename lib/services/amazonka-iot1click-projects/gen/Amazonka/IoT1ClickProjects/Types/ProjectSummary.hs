@@ -21,6 +21,7 @@ module Amazonka.IoT1ClickProjects.Types.ProjectSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object providing summary information for a particular project for an
@@ -36,11 +37,11 @@ data ProjectSummary = ProjectSummary'
     projectName :: Prelude.Text,
     -- | The date when the project was originally created, in UNIX epoch time
     -- format.
-    createdDate :: Core.POSIX,
+    createdDate :: Data.POSIX,
     -- | The date when the project was last updated, in UNIX epoch time format.
     -- If the project was not updated, then @createdDate@ and @updatedDate@ are
     -- the same.
-    updatedDate :: Core.POSIX
+    updatedDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,8 +81,8 @@ newProjectSummary
       { tags = Prelude.Nothing,
         arn = Prelude.Nothing,
         projectName = pProjectName_,
-        createdDate = Core._Time Lens.# pCreatedDate_,
-        updatedDate = Core._Time Lens.# pUpdatedDate_
+        createdDate = Data._Time Lens.# pCreatedDate_,
+        updatedDate = Data._Time Lens.# pUpdatedDate_
       }
 
 -- | The tags (metadata key\/value pairs) associated with the project.
@@ -99,25 +100,25 @@ projectSummary_projectName = Lens.lens (\ProjectSummary' {projectName} -> projec
 -- | The date when the project was originally created, in UNIX epoch time
 -- format.
 projectSummary_createdDate :: Lens.Lens' ProjectSummary Prelude.UTCTime
-projectSummary_createdDate = Lens.lens (\ProjectSummary' {createdDate} -> createdDate) (\s@ProjectSummary' {} a -> s {createdDate = a} :: ProjectSummary) Prelude.. Core._Time
+projectSummary_createdDate = Lens.lens (\ProjectSummary' {createdDate} -> createdDate) (\s@ProjectSummary' {} a -> s {createdDate = a} :: ProjectSummary) Prelude.. Data._Time
 
 -- | The date when the project was last updated, in UNIX epoch time format.
 -- If the project was not updated, then @createdDate@ and @updatedDate@ are
 -- the same.
 projectSummary_updatedDate :: Lens.Lens' ProjectSummary Prelude.UTCTime
-projectSummary_updatedDate = Lens.lens (\ProjectSummary' {updatedDate} -> updatedDate) (\s@ProjectSummary' {} a -> s {updatedDate = a} :: ProjectSummary) Prelude.. Core._Time
+projectSummary_updatedDate = Lens.lens (\ProjectSummary' {updatedDate} -> updatedDate) (\s@ProjectSummary' {} a -> s {updatedDate = a} :: ProjectSummary) Prelude.. Data._Time
 
-instance Core.FromJSON ProjectSummary where
+instance Data.FromJSON ProjectSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectSummary"
       ( \x ->
           ProjectSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..: "projectName")
-            Prelude.<*> (x Core..: "createdDate")
-            Prelude.<*> (x Core..: "updatedDate")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..: "projectName")
+            Prelude.<*> (x Data..: "createdDate")
+            Prelude.<*> (x Data..: "updatedDate")
       )
 
 instance Prelude.Hashable ProjectSummary where

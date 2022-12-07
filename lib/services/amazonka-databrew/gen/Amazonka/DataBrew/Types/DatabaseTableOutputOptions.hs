@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.DatabaseTableOutputOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.S3Location
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ databaseTableOutputOptions_tempDirectory = Lens.lens (\DatabaseTableOutputOption
 databaseTableOutputOptions_tableName :: Lens.Lens' DatabaseTableOutputOptions Prelude.Text
 databaseTableOutputOptions_tableName = Lens.lens (\DatabaseTableOutputOptions' {tableName} -> tableName) (\s@DatabaseTableOutputOptions' {} a -> s {tableName = a} :: DatabaseTableOutputOptions)
 
-instance Core.FromJSON DatabaseTableOutputOptions where
+instance Data.FromJSON DatabaseTableOutputOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatabaseTableOutputOptions"
       ( \x ->
           DatabaseTableOutputOptions'
-            Prelude.<$> (x Core..:? "TempDirectory")
-            Prelude.<*> (x Core..: "TableName")
+            Prelude.<$> (x Data..:? "TempDirectory")
+            Prelude.<*> (x Data..: "TableName")
       )
 
 instance Prelude.Hashable DatabaseTableOutputOptions where
@@ -89,11 +90,11 @@ instance Prelude.NFData DatabaseTableOutputOptions where
     Prelude.rnf tempDirectory
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToJSON DatabaseTableOutputOptions where
+instance Data.ToJSON DatabaseTableOutputOptions where
   toJSON DatabaseTableOutputOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TempDirectory" Core..=) Prelude.<$> tempDirectory,
-            Prelude.Just ("TableName" Core..= tableName)
+          [ ("TempDirectory" Data..=) Prelude.<$> tempDirectory,
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )

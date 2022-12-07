@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,8 +116,8 @@ instance Core.AWSRequest GetTraceGraph where
     Response.receiveJSON
       ( \s h x ->
           GetTraceGraphResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Services" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Services" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,22 +131,22 @@ instance Prelude.NFData GetTraceGraph where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf traceIds
 
-instance Core.ToHeaders GetTraceGraph where
+instance Data.ToHeaders GetTraceGraph where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetTraceGraph where
+instance Data.ToJSON GetTraceGraph where
   toJSON GetTraceGraph' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            Prelude.Just ("TraceIds" Core..= traceIds)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            Prelude.Just ("TraceIds" Data..= traceIds)
           ]
       )
 
-instance Core.ToPath GetTraceGraph where
+instance Data.ToPath GetTraceGraph where
   toPath = Prelude.const "/TraceGraph"
 
-instance Core.ToQuery GetTraceGraph where
+instance Data.ToQuery GetTraceGraph where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTraceGraphResponse' smart constructor.

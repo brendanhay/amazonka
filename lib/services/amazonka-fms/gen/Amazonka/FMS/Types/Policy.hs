@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.Policy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.CustomerPolicyScopeIdType
 import Amazonka.FMS.Types.ResourceTag
 import Amazonka.FMS.Types.SecurityServicePolicyData
@@ -443,28 +444,28 @@ policy_excludeResourceTags = Lens.lens (\Policy' {excludeResourceTags} -> exclud
 policy_remediationEnabled :: Lens.Lens' Policy Prelude.Bool
 policy_remediationEnabled = Lens.lens (\Policy' {remediationEnabled} -> remediationEnabled) (\s@Policy' {} a -> s {remediationEnabled = a} :: Policy)
 
-instance Core.FromJSON Policy where
+instance Data.FromJSON Policy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Policy"
       ( \x ->
           Policy'
-            Prelude.<$> (x Core..:? "PolicyId")
-            Prelude.<*> (x Core..:? "PolicyUpdateToken")
-            Prelude.<*> (x Core..:? "ResourceTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ExcludeMap" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResourceSetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DeleteUnusedFMManagedResources")
-            Prelude.<*> (x Core..:? "PolicyDescription")
-            Prelude.<*> (x Core..:? "IncludeMap" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "ResourceTypeList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "PolicyId")
+            Prelude.<*> (x Data..:? "PolicyUpdateToken")
+            Prelude.<*> (x Data..:? "ResourceTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ExcludeMap" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResourceSetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DeleteUnusedFMManagedResources")
+            Prelude.<*> (x Data..:? "PolicyDescription")
+            Prelude.<*> (x Data..:? "IncludeMap" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "ResourceTypeList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "PolicyName")
-            Prelude.<*> (x Core..: "SecurityServicePolicyData")
-            Prelude.<*> (x Core..: "ResourceType")
-            Prelude.<*> (x Core..: "ExcludeResourceTags")
-            Prelude.<*> (x Core..: "RemediationEnabled")
+            Prelude.<*> (x Data..: "PolicyName")
+            Prelude.<*> (x Data..: "SecurityServicePolicyData")
+            Prelude.<*> (x Data..: "ResourceType")
+            Prelude.<*> (x Data..: "ExcludeResourceTags")
+            Prelude.<*> (x Data..: "RemediationEnabled")
       )
 
 instance Prelude.Hashable Policy where
@@ -501,33 +502,33 @@ instance Prelude.NFData Policy where
       `Prelude.seq` Prelude.rnf excludeResourceTags
       `Prelude.seq` Prelude.rnf remediationEnabled
 
-instance Core.ToJSON Policy where
+instance Data.ToJSON Policy where
   toJSON Policy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PolicyId" Core..=) Prelude.<$> policyId,
-            ("PolicyUpdateToken" Core..=)
+          [ ("PolicyId" Data..=) Prelude.<$> policyId,
+            ("PolicyUpdateToken" Data..=)
               Prelude.<$> policyUpdateToken,
-            ("ResourceTags" Core..=) Prelude.<$> resourceTags,
-            ("ExcludeMap" Core..=) Prelude.<$> excludeMap,
-            ("ResourceSetIds" Core..=)
+            ("ResourceTags" Data..=) Prelude.<$> resourceTags,
+            ("ExcludeMap" Data..=) Prelude.<$> excludeMap,
+            ("ResourceSetIds" Data..=)
               Prelude.<$> resourceSetIds,
-            ("DeleteUnusedFMManagedResources" Core..=)
+            ("DeleteUnusedFMManagedResources" Data..=)
               Prelude.<$> deleteUnusedFMManagedResources,
-            ("PolicyDescription" Core..=)
+            ("PolicyDescription" Data..=)
               Prelude.<$> policyDescription,
-            ("IncludeMap" Core..=) Prelude.<$> includeMap,
-            ("ResourceTypeList" Core..=)
+            ("IncludeMap" Data..=) Prelude.<$> includeMap,
+            ("ResourceTypeList" Data..=)
               Prelude.<$> resourceTypeList,
-            Prelude.Just ("PolicyName" Core..= policyName),
+            Prelude.Just ("PolicyName" Data..= policyName),
             Prelude.Just
               ( "SecurityServicePolicyData"
-                  Core..= securityServicePolicyData
+                  Data..= securityServicePolicyData
               ),
-            Prelude.Just ("ResourceType" Core..= resourceType),
+            Prelude.Just ("ResourceType" Data..= resourceType),
             Prelude.Just
-              ("ExcludeResourceTags" Core..= excludeResourceTags),
+              ("ExcludeResourceTags" Data..= excludeResourceTags),
             Prelude.Just
-              ("RemediationEnabled" Core..= remediationEnabled)
+              ("RemediationEnabled" Data..= remediationEnabled)
           ]
       )

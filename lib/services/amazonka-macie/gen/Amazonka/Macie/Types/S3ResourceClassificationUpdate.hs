@@ -21,6 +21,7 @@ module Amazonka.Macie.Types.S3ResourceClassificationUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Macie.Types.ClassificationTypeUpdate
 import qualified Amazonka.Prelude as Prelude
 
@@ -110,15 +111,15 @@ instance
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf classificationTypeUpdate
 
-instance Core.ToJSON S3ResourceClassificationUpdate where
+instance Data.ToJSON S3ResourceClassificationUpdate where
   toJSON S3ResourceClassificationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("prefix" Core..=) Prelude.<$> prefix,
-            Prelude.Just ("bucketName" Core..= bucketName),
+          [ ("prefix" Data..=) Prelude.<$> prefix,
+            Prelude.Just ("bucketName" Data..= bucketName),
             Prelude.Just
               ( "classificationTypeUpdate"
-                  Core..= classificationTypeUpdate
+                  Data..= classificationTypeUpdate
               )
           ]
       )

@@ -48,6 +48,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,8 +139,8 @@ instance Core.AWSRequest DescribeDestinations where
     Response.receiveJSON
       ( \s h x ->
           DescribeDestinationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "destinations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,36 +156,36 @@ instance Prelude.NFData DescribeDestinations where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf destinationNamePrefix
 
-instance Core.ToHeaders DescribeDestinations where
+instance Data.ToHeaders DescribeDestinations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DescribeDestinations" ::
+              Data.=# ( "Logs_20140328.DescribeDestinations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDestinations where
+instance Data.ToJSON DescribeDestinations where
   toJSON DescribeDestinations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("limit" Core..=) Prelude.<$> limit,
-            ("DestinationNamePrefix" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("limit" Data..=) Prelude.<$> limit,
+            ("DestinationNamePrefix" Data..=)
               Prelude.<$> destinationNamePrefix
           ]
       )
 
-instance Core.ToPath DescribeDestinations where
+instance Data.ToPath DescribeDestinations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDestinations where
+instance Data.ToQuery DescribeDestinations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDestinationsResponse' smart constructor.

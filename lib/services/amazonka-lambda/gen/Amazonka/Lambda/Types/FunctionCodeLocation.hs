@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.FunctionCodeLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a function\'s deployment package.
@@ -79,16 +80,16 @@ functionCodeLocation_repositoryType = Lens.lens (\FunctionCodeLocation' {reposit
 functionCodeLocation_resolvedImageUri :: Lens.Lens' FunctionCodeLocation (Prelude.Maybe Prelude.Text)
 functionCodeLocation_resolvedImageUri = Lens.lens (\FunctionCodeLocation' {resolvedImageUri} -> resolvedImageUri) (\s@FunctionCodeLocation' {} a -> s {resolvedImageUri = a} :: FunctionCodeLocation)
 
-instance Core.FromJSON FunctionCodeLocation where
+instance Data.FromJSON FunctionCodeLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FunctionCodeLocation"
       ( \x ->
           FunctionCodeLocation'
-            Prelude.<$> (x Core..:? "ImageUri")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "RepositoryType")
-            Prelude.<*> (x Core..:? "ResolvedImageUri")
+            Prelude.<$> (x Data..:? "ImageUri")
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "RepositoryType")
+            Prelude.<*> (x Data..:? "ResolvedImageUri")
       )
 
 instance Prelude.Hashable FunctionCodeLocation where

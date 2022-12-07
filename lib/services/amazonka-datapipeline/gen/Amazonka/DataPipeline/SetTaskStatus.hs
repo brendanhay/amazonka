@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataPipeline.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -184,36 +185,36 @@ instance Prelude.NFData SetTaskStatus where
       `Prelude.seq` Prelude.rnf taskId
       `Prelude.seq` Prelude.rnf taskStatus
 
-instance Core.ToHeaders SetTaskStatus where
+instance Data.ToHeaders SetTaskStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DataPipeline.SetTaskStatus" :: Prelude.ByteString),
+              Data.=# ("DataPipeline.SetTaskStatus" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetTaskStatus where
+instance Data.ToJSON SetTaskStatus where
   toJSON SetTaskStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("errorMessage" Core..=) Prelude.<$> errorMessage,
-            ("errorId" Core..=) Prelude.<$> errorId,
-            ("errorStackTrace" Core..=)
+          [ ("errorMessage" Data..=) Prelude.<$> errorMessage,
+            ("errorId" Data..=) Prelude.<$> errorId,
+            ("errorStackTrace" Data..=)
               Prelude.<$> errorStackTrace,
-            Prelude.Just ("taskId" Core..= taskId),
-            Prelude.Just ("taskStatus" Core..= taskStatus)
+            Prelude.Just ("taskId" Data..= taskId),
+            Prelude.Just ("taskStatus" Data..= taskStatus)
           ]
       )
 
-instance Core.ToPath SetTaskStatus where
+instance Data.ToPath SetTaskStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetTaskStatus where
+instance Data.ToQuery SetTaskStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of SetTaskStatus.

@@ -39,6 +39,7 @@ import Amazonka.CognitoIdentityProvider.Types.VerificationMessageTemplateType
 import Amazonka.CognitoIdentityProvider.Types.VerifiedAttributeType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A container for information about the user pool.
@@ -78,7 +79,7 @@ data UserPoolType = UserPoolType'
     --     token.
     mfaConfiguration :: Prelude.Maybe UserPoolMfaType,
     -- | The date the user pool was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The reason why the SMS configuration can\'t send the messages to your
     -- users.
     --
@@ -110,7 +111,7 @@ data UserPoolType = UserPoolType'
     -- | The Amazon Resource Name (ARN) for the user pool.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date the user pool was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The status of a user pool.
     status :: Prelude.Maybe StatusType,
     -- | The ID of the user pool.
@@ -428,7 +429,7 @@ userPoolType_mfaConfiguration = Lens.lens (\UserPoolType' {mfaConfiguration} -> 
 
 -- | The date the user pool was last modified.
 userPoolType_lastModifiedDate :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.UTCTime)
-userPoolType_lastModifiedDate = Lens.lens (\UserPoolType' {lastModifiedDate} -> lastModifiedDate) (\s@UserPoolType' {} a -> s {lastModifiedDate = a} :: UserPoolType) Prelude.. Lens.mapping Core._Time
+userPoolType_lastModifiedDate = Lens.lens (\UserPoolType' {lastModifiedDate} -> lastModifiedDate) (\s@UserPoolType' {} a -> s {lastModifiedDate = a} :: UserPoolType) Prelude.. Lens.mapping Data._Time
 
 -- | The reason why the SMS configuration can\'t send the messages to your
 -- users.
@@ -470,7 +471,7 @@ userPoolType_arn = Lens.lens (\UserPoolType' {arn} -> arn) (\s@UserPoolType' {} 
 
 -- | The date the user pool was created.
 userPoolType_creationDate :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.UTCTime)
-userPoolType_creationDate = Lens.lens (\UserPoolType' {creationDate} -> creationDate) (\s@UserPoolType' {} a -> s {creationDate = a} :: UserPoolType) Prelude.. Lens.mapping Core._Time
+userPoolType_creationDate = Lens.lens (\UserPoolType' {creationDate} -> creationDate) (\s@UserPoolType' {} a -> s {creationDate = a} :: UserPoolType) Prelude.. Lens.mapping Data._Time
 
 -- | The status of a user pool.
 userPoolType_status :: Lens.Lens' UserPoolType (Prelude.Maybe StatusType)
@@ -586,51 +587,51 @@ userPoolType_customDomain = Lens.lens (\UserPoolType' {customDomain} -> customDo
 userPoolType_userPoolAddOns :: Lens.Lens' UserPoolType (Prelude.Maybe UserPoolAddOnsType)
 userPoolType_userPoolAddOns = Lens.lens (\UserPoolType' {userPoolAddOns} -> userPoolAddOns) (\s@UserPoolType' {} a -> s {userPoolAddOns = a} :: UserPoolType)
 
-instance Core.FromJSON UserPoolType where
+instance Data.FromJSON UserPoolType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserPoolType"
       ( \x ->
           UserPoolType'
-            Prelude.<$> (x Core..:? "EmailConfiguration")
-            Prelude.<*> (x Core..:? "SchemaAttributes")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AdminCreateUserConfig")
-            Prelude.<*> (x Core..:? "VerificationMessageTemplate")
-            Prelude.<*> ( x Core..:? "AliasAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "EmailConfiguration")
+            Prelude.<*> (x Data..:? "SchemaAttributes")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AdminCreateUserConfig")
+            Prelude.<*> (x Data..:? "VerificationMessageTemplate")
+            Prelude.<*> ( x Data..:? "AliasAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DeviceConfiguration")
-            Prelude.<*> (x Core..:? "MfaConfiguration")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "SmsConfigurationFailure")
-            Prelude.<*> (x Core..:? "UsernameConfiguration")
-            Prelude.<*> (x Core..:? "Domain")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> ( x Core..:? "AutoVerifiedAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "DeviceConfiguration")
+            Prelude.<*> (x Data..:? "MfaConfiguration")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "SmsConfigurationFailure")
+            Prelude.<*> (x Data..:? "UsernameConfiguration")
+            Prelude.<*> (x Data..:? "Domain")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> ( x Data..:? "AutoVerifiedAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SmsConfiguration")
-            Prelude.<*> (x Core..:? "Policies")
-            Prelude.<*> (x Core..:? "SmsVerificationMessage")
-            Prelude.<*> (x Core..:? "EmailVerificationSubject")
-            Prelude.<*> (x Core..:? "AccountRecoverySetting")
-            Prelude.<*> (x Core..:? "UserAttributeUpdateSettings")
-            Prelude.<*> (x Core..:? "UserPoolTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DeletionProtection")
-            Prelude.<*> (x Core..:? "EmailVerificationMessage")
-            Prelude.<*> (x Core..:? "SmsAuthenticationMessage")
-            Prelude.<*> (x Core..:? "EmailConfigurationFailure")
-            Prelude.<*> ( x Core..:? "UsernameAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "SmsConfiguration")
+            Prelude.<*> (x Data..:? "Policies")
+            Prelude.<*> (x Data..:? "SmsVerificationMessage")
+            Prelude.<*> (x Data..:? "EmailVerificationSubject")
+            Prelude.<*> (x Data..:? "AccountRecoverySetting")
+            Prelude.<*> (x Data..:? "UserAttributeUpdateSettings")
+            Prelude.<*> (x Data..:? "UserPoolTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DeletionProtection")
+            Prelude.<*> (x Data..:? "EmailVerificationMessage")
+            Prelude.<*> (x Data..:? "SmsAuthenticationMessage")
+            Prelude.<*> (x Data..:? "EmailConfigurationFailure")
+            Prelude.<*> ( x Data..:? "UsernameAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EstimatedNumberOfUsers")
-            Prelude.<*> (x Core..:? "LambdaConfig")
-            Prelude.<*> (x Core..:? "CustomDomain")
-            Prelude.<*> (x Core..:? "UserPoolAddOns")
+            Prelude.<*> (x Data..:? "EstimatedNumberOfUsers")
+            Prelude.<*> (x Data..:? "LambdaConfig")
+            Prelude.<*> (x Data..:? "CustomDomain")
+            Prelude.<*> (x Data..:? "UserPoolAddOns")
       )
 
 instance Prelude.Hashable UserPoolType where

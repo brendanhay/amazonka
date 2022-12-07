@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,8 +108,8 @@ instance Core.AWSRequest ListResourcePolicies where
     Response.receiveJSON
       ( \s h x ->
           ListResourcePoliciesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ResourcePolicies"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ResourcePolicies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -121,20 +122,20 @@ instance Prelude.Hashable ListResourcePolicies where
 instance Prelude.NFData ListResourcePolicies where
   rnf ListResourcePolicies' {..} = Prelude.rnf nextToken
 
-instance Core.ToHeaders ListResourcePolicies where
+instance Data.ToHeaders ListResourcePolicies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ListResourcePolicies where
+instance Data.ToJSON ListResourcePolicies where
   toJSON ListResourcePolicies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("NextToken" Core..=) Prelude.<$> nextToken]
+          [("NextToken" Data..=) Prelude.<$> nextToken]
       )
 
-instance Core.ToPath ListResourcePolicies where
+instance Data.ToPath ListResourcePolicies where
   toPath = Prelude.const "/ListResourcePolicies"
 
-instance Core.ToQuery ListResourcePolicies where
+instance Data.ToQuery ListResourcePolicies where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResourcePoliciesResponse' smart constructor.

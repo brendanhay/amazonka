@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.OutputDataConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about how to store model training results (model
@@ -178,14 +179,14 @@ outputDataConfig_kmsKeyId = Lens.lens (\OutputDataConfig' {kmsKeyId} -> kmsKeyId
 outputDataConfig_s3OutputPath :: Lens.Lens' OutputDataConfig Prelude.Text
 outputDataConfig_s3OutputPath = Lens.lens (\OutputDataConfig' {s3OutputPath} -> s3OutputPath) (\s@OutputDataConfig' {} a -> s {s3OutputPath = a} :: OutputDataConfig)
 
-instance Core.FromJSON OutputDataConfig where
+instance Data.FromJSON OutputDataConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputDataConfig"
       ( \x ->
           OutputDataConfig'
-            Prelude.<$> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..: "S3OutputPath")
+            Prelude.<$> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..: "S3OutputPath")
       )
 
 instance Prelude.Hashable OutputDataConfig where
@@ -198,11 +199,11 @@ instance Prelude.NFData OutputDataConfig where
     Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf s3OutputPath
 
-instance Core.ToJSON OutputDataConfig where
+instance Data.ToJSON OutputDataConfig where
   toJSON OutputDataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            Prelude.Just ("S3OutputPath" Core..= s3OutputPath)
+          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            Prelude.Just ("S3OutputPath" Data..= s3OutputPath)
           ]
       )

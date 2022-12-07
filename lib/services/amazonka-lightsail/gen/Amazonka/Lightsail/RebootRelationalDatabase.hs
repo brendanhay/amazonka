@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance Core.AWSRequest RebootRelationalDatabase where
     Response.receiveJSON
       ( \s h x ->
           RebootRelationalDatabaseResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,36 +104,36 @@ instance Prelude.NFData RebootRelationalDatabase where
   rnf RebootRelationalDatabase' {..} =
     Prelude.rnf relationalDatabaseName
 
-instance Core.ToHeaders RebootRelationalDatabase where
+instance Data.ToHeaders RebootRelationalDatabase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.RebootRelationalDatabase" ::
+              Data.=# ( "Lightsail_20161128.RebootRelationalDatabase" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RebootRelationalDatabase where
+instance Data.ToJSON RebootRelationalDatabase where
   toJSON RebootRelationalDatabase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "relationalDatabaseName"
-                  Core..= relationalDatabaseName
+                  Data..= relationalDatabaseName
               )
           ]
       )
 
-instance Core.ToPath RebootRelationalDatabase where
+instance Data.ToPath RebootRelationalDatabase where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RebootRelationalDatabase where
+instance Data.ToQuery RebootRelationalDatabase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRebootRelationalDatabaseResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ErrorDocument where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -67,9 +68,9 @@ newErrorDocument pKey_ = ErrorDocument' {key = pKey_}
 errorDocument_key :: Lens.Lens' ErrorDocument ObjectKey
 errorDocument_key = Lens.lens (\ErrorDocument' {key} -> key) (\s@ErrorDocument' {} a -> s {key = a} :: ErrorDocument)
 
-instance Core.FromXML ErrorDocument where
+instance Data.FromXML ErrorDocument where
   parseXML x =
-    ErrorDocument' Prelude.<$> (x Core..@ "Key")
+    ErrorDocument' Prelude.<$> (x Data..@ "Key")
 
 instance Prelude.Hashable ErrorDocument where
   hashWithSalt _salt ErrorDocument' {..} =
@@ -78,6 +79,6 @@ instance Prelude.Hashable ErrorDocument where
 instance Prelude.NFData ErrorDocument where
   rnf ErrorDocument' {..} = Prelude.rnf key
 
-instance Core.ToXML ErrorDocument where
+instance Data.ToXML ErrorDocument where
   toXML ErrorDocument' {..} =
-    Prelude.mconcat ["Key" Core.@= key]
+    Prelude.mconcat ["Key" Data.@= key]

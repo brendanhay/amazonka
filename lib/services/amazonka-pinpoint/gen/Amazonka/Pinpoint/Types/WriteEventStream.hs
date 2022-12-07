@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.WriteEventStream where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the Amazon Resource Name (ARN) of an event stream to publish
@@ -104,14 +105,14 @@ instance Prelude.NFData WriteEventStream where
     Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf destinationStreamArn
 
-instance Core.ToJSON WriteEventStream where
+instance Data.ToJSON WriteEventStream where
   toJSON WriteEventStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("RoleArn" Core..= roleArn),
+          [ Prelude.Just ("RoleArn" Data..= roleArn),
             Prelude.Just
               ( "DestinationStreamArn"
-                  Core..= destinationStreamArn
+                  Data..= destinationStreamArn
               )
           ]
       )

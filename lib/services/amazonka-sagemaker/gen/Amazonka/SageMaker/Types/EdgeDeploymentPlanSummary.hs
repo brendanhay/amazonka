@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EdgeDeploymentPlanSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information summarizing an edge deployment plan.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEdgeDeploymentPlanSummary' smart constructor.
 data EdgeDeploymentPlanSummary = EdgeDeploymentPlanSummary'
   { -- | The time when the edge deployment plan was last updated.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The time when the edge deployment plan was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the edge deployment plan.
     edgeDeploymentPlanArn :: Prelude.Text,
     -- | The name of the edge deployment plan.
@@ -107,11 +108,11 @@ newEdgeDeploymentPlanSummary
 
 -- | The time when the edge deployment plan was last updated.
 edgeDeploymentPlanSummary_lastModifiedTime :: Lens.Lens' EdgeDeploymentPlanSummary (Prelude.Maybe Prelude.UTCTime)
-edgeDeploymentPlanSummary_lastModifiedTime = Lens.lens (\EdgeDeploymentPlanSummary' {lastModifiedTime} -> lastModifiedTime) (\s@EdgeDeploymentPlanSummary' {} a -> s {lastModifiedTime = a} :: EdgeDeploymentPlanSummary) Prelude.. Lens.mapping Core._Time
+edgeDeploymentPlanSummary_lastModifiedTime = Lens.lens (\EdgeDeploymentPlanSummary' {lastModifiedTime} -> lastModifiedTime) (\s@EdgeDeploymentPlanSummary' {} a -> s {lastModifiedTime = a} :: EdgeDeploymentPlanSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The time when the edge deployment plan was created.
 edgeDeploymentPlanSummary_creationTime :: Lens.Lens' EdgeDeploymentPlanSummary (Prelude.Maybe Prelude.UTCTime)
-edgeDeploymentPlanSummary_creationTime = Lens.lens (\EdgeDeploymentPlanSummary' {creationTime} -> creationTime) (\s@EdgeDeploymentPlanSummary' {} a -> s {creationTime = a} :: EdgeDeploymentPlanSummary) Prelude.. Lens.mapping Core._Time
+edgeDeploymentPlanSummary_creationTime = Lens.lens (\EdgeDeploymentPlanSummary' {creationTime} -> creationTime) (\s@EdgeDeploymentPlanSummary' {} a -> s {creationTime = a} :: EdgeDeploymentPlanSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the edge deployment plan.
 edgeDeploymentPlanSummary_edgeDeploymentPlanArn :: Lens.Lens' EdgeDeploymentPlanSummary Prelude.Text
@@ -138,20 +139,20 @@ edgeDeploymentPlanSummary_edgeDeploymentPending = Lens.lens (\EdgeDeploymentPlan
 edgeDeploymentPlanSummary_edgeDeploymentFailed :: Lens.Lens' EdgeDeploymentPlanSummary Prelude.Int
 edgeDeploymentPlanSummary_edgeDeploymentFailed = Lens.lens (\EdgeDeploymentPlanSummary' {edgeDeploymentFailed} -> edgeDeploymentFailed) (\s@EdgeDeploymentPlanSummary' {} a -> s {edgeDeploymentFailed = a} :: EdgeDeploymentPlanSummary)
 
-instance Core.FromJSON EdgeDeploymentPlanSummary where
+instance Data.FromJSON EdgeDeploymentPlanSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EdgeDeploymentPlanSummary"
       ( \x ->
           EdgeDeploymentPlanSummary'
-            Prelude.<$> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..: "EdgeDeploymentPlanArn")
-            Prelude.<*> (x Core..: "EdgeDeploymentPlanName")
-            Prelude.<*> (x Core..: "DeviceFleetName")
-            Prelude.<*> (x Core..: "EdgeDeploymentSuccess")
-            Prelude.<*> (x Core..: "EdgeDeploymentPending")
-            Prelude.<*> (x Core..: "EdgeDeploymentFailed")
+            Prelude.<$> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..: "EdgeDeploymentPlanArn")
+            Prelude.<*> (x Data..: "EdgeDeploymentPlanName")
+            Prelude.<*> (x Data..: "DeviceFleetName")
+            Prelude.<*> (x Data..: "EdgeDeploymentSuccess")
+            Prelude.<*> (x Data..: "EdgeDeploymentPending")
+            Prelude.<*> (x Data..: "EdgeDeploymentFailed")
       )
 
 instance Prelude.Hashable EdgeDeploymentPlanSummary where

@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.AlarmSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types.AlarmStateName
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,9 +64,9 @@ data AlarmSummary = AlarmSummary'
     -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key key>.
     keyValue :: Prelude.Maybe Prelude.Text,
     -- | The time the alarm was created, in the Unix epoch format.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The time the alarm was last updated, in the Unix epoch format.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX
+    lastUpdateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -170,24 +171,24 @@ alarmSummary_keyValue = Lens.lens (\AlarmSummary' {keyValue} -> keyValue) (\s@Al
 
 -- | The time the alarm was created, in the Unix epoch format.
 alarmSummary_creationTime :: Lens.Lens' AlarmSummary (Prelude.Maybe Prelude.UTCTime)
-alarmSummary_creationTime = Lens.lens (\AlarmSummary' {creationTime} -> creationTime) (\s@AlarmSummary' {} a -> s {creationTime = a} :: AlarmSummary) Prelude.. Lens.mapping Core._Time
+alarmSummary_creationTime = Lens.lens (\AlarmSummary' {creationTime} -> creationTime) (\s@AlarmSummary' {} a -> s {creationTime = a} :: AlarmSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The time the alarm was last updated, in the Unix epoch format.
 alarmSummary_lastUpdateTime :: Lens.Lens' AlarmSummary (Prelude.Maybe Prelude.UTCTime)
-alarmSummary_lastUpdateTime = Lens.lens (\AlarmSummary' {lastUpdateTime} -> lastUpdateTime) (\s@AlarmSummary' {} a -> s {lastUpdateTime = a} :: AlarmSummary) Prelude.. Lens.mapping Core._Time
+alarmSummary_lastUpdateTime = Lens.lens (\AlarmSummary' {lastUpdateTime} -> lastUpdateTime) (\s@AlarmSummary' {} a -> s {lastUpdateTime = a} :: AlarmSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AlarmSummary where
+instance Data.FromJSON AlarmSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlarmSummary"
       ( \x ->
           AlarmSummary'
-            Prelude.<$> (x Core..:? "alarmModelName")
-            Prelude.<*> (x Core..:? "alarmModelVersion")
-            Prelude.<*> (x Core..:? "stateName")
-            Prelude.<*> (x Core..:? "keyValue")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
+            Prelude.<$> (x Data..:? "alarmModelName")
+            Prelude.<*> (x Data..:? "alarmModelVersion")
+            Prelude.<*> (x Data..:? "stateName")
+            Prelude.<*> (x Data..:? "keyValue")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
       )
 
 instance Prelude.Hashable AlarmSummary where

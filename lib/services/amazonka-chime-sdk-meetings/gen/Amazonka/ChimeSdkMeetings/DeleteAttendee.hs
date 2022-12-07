@@ -44,6 +44,7 @@ where
 import Amazonka.ChimeSdkMeetings.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,19 +108,19 @@ instance Prelude.NFData DeleteAttendee where
     Prelude.rnf meetingId
       `Prelude.seq` Prelude.rnf attendeeId
 
-instance Core.ToHeaders DeleteAttendee where
+instance Data.ToHeaders DeleteAttendee where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteAttendee where
+instance Data.ToPath DeleteAttendee where
   toPath DeleteAttendee' {..} =
     Prelude.mconcat
       [ "/meetings/",
-        Core.toBS meetingId,
+        Data.toBS meetingId,
         "/attendees/",
-        Core.toBS attendeeId
+        Data.toBS attendeeId
       ]
 
-instance Core.ToQuery DeleteAttendee where
+instance Data.ToQuery DeleteAttendee where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAttendeeResponse' smart constructor.

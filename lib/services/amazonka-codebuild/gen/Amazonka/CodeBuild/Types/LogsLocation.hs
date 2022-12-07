@@ -23,6 +23,7 @@ import Amazonka.CodeBuild.Types.CloudWatchLogsConfig
 import Amazonka.CodeBuild.Types.S3LogsConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about build logs in CloudWatch Logs.
@@ -135,20 +136,20 @@ logsLocation_s3DeepLink = Lens.lens (\LogsLocation' {s3DeepLink} -> s3DeepLink) 
 logsLocation_streamName :: Lens.Lens' LogsLocation (Prelude.Maybe Prelude.Text)
 logsLocation_streamName = Lens.lens (\LogsLocation' {streamName} -> streamName) (\s@LogsLocation' {} a -> s {streamName = a} :: LogsLocation)
 
-instance Core.FromJSON LogsLocation where
+instance Data.FromJSON LogsLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogsLocation"
       ( \x ->
           LogsLocation'
-            Prelude.<$> (x Core..:? "cloudWatchLogs")
-            Prelude.<*> (x Core..:? "s3Logs")
-            Prelude.<*> (x Core..:? "groupName")
-            Prelude.<*> (x Core..:? "s3LogsArn")
-            Prelude.<*> (x Core..:? "deepLink")
-            Prelude.<*> (x Core..:? "cloudWatchLogsArn")
-            Prelude.<*> (x Core..:? "s3DeepLink")
-            Prelude.<*> (x Core..:? "streamName")
+            Prelude.<$> (x Data..:? "cloudWatchLogs")
+            Prelude.<*> (x Data..:? "s3Logs")
+            Prelude.<*> (x Data..:? "groupName")
+            Prelude.<*> (x Data..:? "s3LogsArn")
+            Prelude.<*> (x Data..:? "deepLink")
+            Prelude.<*> (x Data..:? "cloudWatchLogsArn")
+            Prelude.<*> (x Data..:? "s3DeepLink")
+            Prelude.<*> (x Data..:? "streamName")
       )
 
 instance Prelude.Hashable LogsLocation where

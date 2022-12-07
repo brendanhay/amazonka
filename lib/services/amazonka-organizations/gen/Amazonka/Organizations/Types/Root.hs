@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.Root where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types.PolicyTypeSummary
 import qualified Amazonka.Prelude as Prelude
 
@@ -134,16 +135,16 @@ root_policyTypes = Lens.lens (\Root' {policyTypes} -> policyTypes) (\s@Root' {} 
 root_id :: Lens.Lens' Root (Prelude.Maybe Prelude.Text)
 root_id = Lens.lens (\Root' {id} -> id) (\s@Root' {} a -> s {id = a} :: Root)
 
-instance Core.FromJSON Root where
+instance Data.FromJSON Root where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Root"
       ( \x ->
           Root'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "PolicyTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "PolicyTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable Root where

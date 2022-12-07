@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -148,8 +149,8 @@ instance Core.AWSRequest ListRegistries where
     Response.receiveJSON
       ( \s h x ->
           ListRegistriesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Registries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Registries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,27 +168,27 @@ instance Prelude.NFData ListRegistries where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf scope
 
-instance Core.ToHeaders ListRegistries where
+instance Data.ToHeaders ListRegistries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRegistries where
+instance Data.ToPath ListRegistries where
   toPath = Prelude.const "/v1/registries"
 
-instance Core.ToQuery ListRegistries where
+instance Data.ToQuery ListRegistries where
   toQuery ListRegistries' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "registryNamePrefix" Core.=: registryNamePrefix,
-        "limit" Core.=: limit,
-        "scope" Core.=: scope
+      [ "nextToken" Data.=: nextToken,
+        "registryNamePrefix" Data.=: registryNamePrefix,
+        "limit" Data.=: limit,
+        "scope" Data.=: scope
       ]
 
 -- | /See:/ 'newListRegistriesResponse' smart constructor.

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -89,7 +90,7 @@ instance Core.AWSRequest DeleteEventSubscription where
       "DeleteEventSubscriptionResult"
       ( \s h x ->
           DeleteEventSubscriptionResponse'
-            Prelude.<$> (x Core..@? "EventSubscription")
+            Prelude.<$> (x Data..@? "EventSubscription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,20 +102,20 @@ instance Prelude.NFData DeleteEventSubscription where
   rnf DeleteEventSubscription' {..} =
     Prelude.rnf subscriptionName
 
-instance Core.ToHeaders DeleteEventSubscription where
+instance Data.ToHeaders DeleteEventSubscription where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteEventSubscription where
+instance Data.ToPath DeleteEventSubscription where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteEventSubscription where
+instance Data.ToQuery DeleteEventSubscription where
   toQuery DeleteEventSubscription' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteEventSubscription" :: Prelude.ByteString),
+          Data.=: ("DeleteEventSubscription" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "SubscriptionName" Core.=: subscriptionName
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "SubscriptionName" Data.=: subscriptionName
       ]
 
 -- | /See:/ 'newDeleteEventSubscriptionResponse' smart constructor.

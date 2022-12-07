@@ -21,6 +21,7 @@ module Amazonka.WAF.Types.HTTPRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAF.Types.HTTPHeader
 
@@ -155,18 +156,18 @@ hTTPRequest_uri = Lens.lens (\HTTPRequest' {uri} -> uri) (\s@HTTPRequest' {} a -
 hTTPRequest_clientIP :: Lens.Lens' HTTPRequest (Prelude.Maybe Prelude.Text)
 hTTPRequest_clientIP = Lens.lens (\HTTPRequest' {clientIP} -> clientIP) (\s@HTTPRequest' {} a -> s {clientIP = a} :: HTTPRequest)
 
-instance Core.FromJSON HTTPRequest where
+instance Data.FromJSON HTTPRequest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HTTPRequest"
       ( \x ->
           HTTPRequest'
-            Prelude.<$> (x Core..:? "HTTPVersion")
-            Prelude.<*> (x Core..:? "Method")
-            Prelude.<*> (x Core..:? "Headers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Country")
-            Prelude.<*> (x Core..:? "URI")
-            Prelude.<*> (x Core..:? "ClientIP")
+            Prelude.<$> (x Data..:? "HTTPVersion")
+            Prelude.<*> (x Data..:? "Method")
+            Prelude.<*> (x Data..:? "Headers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Country")
+            Prelude.<*> (x Data..:? "URI")
+            Prelude.<*> (x Data..:? "ClientIP")
       )
 
 instance Prelude.Hashable HTTPRequest where

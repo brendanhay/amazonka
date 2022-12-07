@@ -83,6 +83,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,9 +138,9 @@ instance Core.AWSRequest PutRecord where
     Response.receiveJSON
       ( \s h x ->
           PutRecordResponse'
-            Prelude.<$> (x Core..?> "Encrypted")
+            Prelude.<$> (x Data..?> "Encrypted")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "RecordId")
+            Prelude.<*> (x Data..:> "RecordId")
       )
 
 instance Prelude.Hashable PutRecord where
@@ -152,35 +153,35 @@ instance Prelude.NFData PutRecord where
     Prelude.rnf deliveryStreamName
       `Prelude.seq` Prelude.rnf record
 
-instance Core.ToHeaders PutRecord where
+instance Data.ToHeaders PutRecord where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Firehose_20150804.PutRecord" ::
+              Data.=# ( "Firehose_20150804.PutRecord" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRecord where
+instance Data.ToJSON PutRecord where
   toJSON PutRecord' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DeliveryStreamName" Core..= deliveryStreamName),
-            Prelude.Just ("Record" Core..= record)
+              ("DeliveryStreamName" Data..= deliveryStreamName),
+            Prelude.Just ("Record" Data..= record)
           ]
       )
 
-instance Core.ToPath PutRecord where
+instance Data.ToPath PutRecord where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutRecord where
+instance Data.ToQuery PutRecord where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRecordResponse' smart constructor.

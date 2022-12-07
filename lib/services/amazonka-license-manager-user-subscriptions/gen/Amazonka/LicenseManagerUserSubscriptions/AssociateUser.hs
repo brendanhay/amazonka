@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManagerUserSubscriptions.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,7 +125,7 @@ instance Core.AWSRequest AssociateUser where
       ( \s h x ->
           AssociateUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "InstanceUserSummary")
+            Prelude.<*> (x Data..:> "InstanceUserSummary")
       )
 
 instance Prelude.Hashable AssociateUser where
@@ -141,33 +142,33 @@ instance Prelude.NFData AssociateUser where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf username
 
-instance Core.ToHeaders AssociateUser where
+instance Data.ToHeaders AssociateUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateUser where
+instance Data.ToJSON AssociateUser where
   toJSON AssociateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Domain" Core..=) Prelude.<$> domain,
+          [ ("Domain" Data..=) Prelude.<$> domain,
             Prelude.Just
-              ("IdentityProvider" Core..= identityProvider),
-            Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("Username" Core..= username)
+              ("IdentityProvider" Data..= identityProvider),
+            Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("Username" Data..= username)
           ]
       )
 
-instance Core.ToPath AssociateUser where
+instance Data.ToPath AssociateUser where
   toPath = Prelude.const "/user/AssociateUser"
 
-instance Core.ToQuery AssociateUser where
+instance Data.ToQuery AssociateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateUserResponse' smart constructor.

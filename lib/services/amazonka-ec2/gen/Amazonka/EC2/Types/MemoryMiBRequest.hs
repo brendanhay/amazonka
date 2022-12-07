@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.MemoryMiBRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -79,7 +80,7 @@ instance Prelude.NFData MemoryMiBRequest where
   rnf MemoryMiBRequest' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery MemoryMiBRequest where
+instance Data.ToQuery MemoryMiBRequest where
   toQuery MemoryMiBRequest' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

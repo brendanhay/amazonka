@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.ClusterStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.ClusterState
 import Amazonka.EMR.Types.ClusterStateChangeReason
 import Amazonka.EMR.Types.ClusterTimeline
@@ -76,15 +77,15 @@ clusterStatus_timeline = Lens.lens (\ClusterStatus' {timeline} -> timeline) (\s@
 clusterStatus_state :: Lens.Lens' ClusterStatus (Prelude.Maybe ClusterState)
 clusterStatus_state = Lens.lens (\ClusterStatus' {state} -> state) (\s@ClusterStatus' {} a -> s {state = a} :: ClusterStatus)
 
-instance Core.FromJSON ClusterStatus where
+instance Data.FromJSON ClusterStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusterStatus"
       ( \x ->
           ClusterStatus'
-            Prelude.<$> (x Core..:? "StateChangeReason")
-            Prelude.<*> (x Core..:? "Timeline")
-            Prelude.<*> (x Core..:? "State")
+            Prelude.<$> (x Data..:? "StateChangeReason")
+            Prelude.<*> (x Data..:? "Timeline")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable ClusterStatus where

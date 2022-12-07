@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,36 +145,36 @@ instance Prelude.NFData DeleteProvisionedProductPlan where
       `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf planId
 
-instance Core.ToHeaders DeleteProvisionedProductPlan where
+instance Data.ToHeaders DeleteProvisionedProductPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DeleteProvisionedProductPlan" ::
+              Data.=# ( "AWS242ServiceCatalogService.DeleteProvisionedProductPlan" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteProvisionedProductPlan where
+instance Data.ToJSON DeleteProvisionedProductPlan where
   toJSON DeleteProvisionedProductPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IgnoreErrors" Core..=) Prelude.<$> ignoreErrors,
-            ("AcceptLanguage" Core..=)
+          [ ("IgnoreErrors" Data..=) Prelude.<$> ignoreErrors,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("PlanId" Core..= planId)
+            Prelude.Just ("PlanId" Data..= planId)
           ]
       )
 
-instance Core.ToPath DeleteProvisionedProductPlan where
+instance Data.ToPath DeleteProvisionedProductPlan where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteProvisionedProductPlan where
+instance Data.ToQuery DeleteProvisionedProductPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProvisionedProductPlanResponse' smart constructor.

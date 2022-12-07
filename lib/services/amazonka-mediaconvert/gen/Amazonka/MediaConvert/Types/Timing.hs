@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Timing where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about when jobs are submitted, started, and finished is
@@ -29,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTiming' smart constructor.
 data Timing = Timing'
   { -- | The time, in Unix epoch format, that you submitted the job.
-    submitTime :: Prelude.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Data.POSIX,
     -- | The time, in Unix epoch format, that the transcoding job finished
-    finishTime :: Prelude.Maybe Core.POSIX,
+    finishTime :: Prelude.Maybe Data.POSIX,
     -- | The time, in Unix epoch format, that transcoding for the job began.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,25 +62,25 @@ newTiming =
 
 -- | The time, in Unix epoch format, that you submitted the job.
 timing_submitTime :: Lens.Lens' Timing (Prelude.Maybe Prelude.UTCTime)
-timing_submitTime = Lens.lens (\Timing' {submitTime} -> submitTime) (\s@Timing' {} a -> s {submitTime = a} :: Timing) Prelude.. Lens.mapping Core._Time
+timing_submitTime = Lens.lens (\Timing' {submitTime} -> submitTime) (\s@Timing' {} a -> s {submitTime = a} :: Timing) Prelude.. Lens.mapping Data._Time
 
 -- | The time, in Unix epoch format, that the transcoding job finished
 timing_finishTime :: Lens.Lens' Timing (Prelude.Maybe Prelude.UTCTime)
-timing_finishTime = Lens.lens (\Timing' {finishTime} -> finishTime) (\s@Timing' {} a -> s {finishTime = a} :: Timing) Prelude.. Lens.mapping Core._Time
+timing_finishTime = Lens.lens (\Timing' {finishTime} -> finishTime) (\s@Timing' {} a -> s {finishTime = a} :: Timing) Prelude.. Lens.mapping Data._Time
 
 -- | The time, in Unix epoch format, that transcoding for the job began.
 timing_startTime :: Lens.Lens' Timing (Prelude.Maybe Prelude.UTCTime)
-timing_startTime = Lens.lens (\Timing' {startTime} -> startTime) (\s@Timing' {} a -> s {startTime = a} :: Timing) Prelude.. Lens.mapping Core._Time
+timing_startTime = Lens.lens (\Timing' {startTime} -> startTime) (\s@Timing' {} a -> s {startTime = a} :: Timing) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Timing where
+instance Data.FromJSON Timing where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Timing"
       ( \x ->
           Timing'
-            Prelude.<$> (x Core..:? "submitTime")
-            Prelude.<*> (x Core..:? "finishTime")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<$> (x Data..:? "submitTime")
+            Prelude.<*> (x Data..:? "finishTime")
+            Prelude.<*> (x Data..:? "startTime")
       )
 
 instance Prelude.Hashable Timing where

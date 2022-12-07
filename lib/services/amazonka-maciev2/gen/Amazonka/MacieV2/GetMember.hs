@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,15 +93,15 @@ instance Core.AWSRequest GetMember where
     Response.receiveJSON
       ( \s h x ->
           GetMemberResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "email")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "masterAccountId")
-            Prelude.<*> (x Core..?> "accountId")
-            Prelude.<*> (x Core..?> "invitedAt")
-            Prelude.<*> (x Core..?> "administratorAccountId")
-            Prelude.<*> (x Core..?> "relationshipStatus")
-            Prelude.<*> (x Core..?> "updatedAt")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "email")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "masterAccountId")
+            Prelude.<*> (x Data..?> "accountId")
+            Prelude.<*> (x Data..?> "invitedAt")
+            Prelude.<*> (x Data..?> "administratorAccountId")
+            Prelude.<*> (x Data..?> "relationshipStatus")
+            Prelude.<*> (x Data..?> "updatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,22 +112,22 @@ instance Prelude.Hashable GetMember where
 instance Prelude.NFData GetMember where
   rnf GetMember' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetMember where
+instance Data.ToHeaders GetMember where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetMember where
+instance Data.ToPath GetMember where
   toPath GetMember' {..} =
-    Prelude.mconcat ["/members/", Core.toBS id]
+    Prelude.mconcat ["/members/", Data.toBS id]
 
-instance Core.ToQuery GetMember where
+instance Data.ToQuery GetMember where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMemberResponse' smart constructor.
@@ -147,7 +148,7 @@ data GetMemberResponse = GetMemberResponse'
     -- | The date and time, in UTC and extended ISO 8601 format, when an Amazon
     -- Macie membership invitation was last sent to the account. This value is
     -- null if an invitation hasn\'t been sent to the account.
-    invitedAt :: Prelude.Maybe Core.POSIX,
+    invitedAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID for the administrator account.
     administratorAccountId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the relationship between the account and the
@@ -156,7 +157,7 @@ data GetMemberResponse = GetMemberResponse'
     -- | The date and time, in UTC and extended ISO 8601 format, of the most
     -- recent change to the status of the relationship between the account and
     -- the administrator account.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -242,7 +243,7 @@ getMemberResponse_accountId = Lens.lens (\GetMemberResponse' {accountId} -> acco
 -- Macie membership invitation was last sent to the account. This value is
 -- null if an invitation hasn\'t been sent to the account.
 getMemberResponse_invitedAt :: Lens.Lens' GetMemberResponse (Prelude.Maybe Prelude.UTCTime)
-getMemberResponse_invitedAt = Lens.lens (\GetMemberResponse' {invitedAt} -> invitedAt) (\s@GetMemberResponse' {} a -> s {invitedAt = a} :: GetMemberResponse) Prelude.. Lens.mapping Core._Time
+getMemberResponse_invitedAt = Lens.lens (\GetMemberResponse' {invitedAt} -> invitedAt) (\s@GetMemberResponse' {} a -> s {invitedAt = a} :: GetMemberResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account ID for the administrator account.
 getMemberResponse_administratorAccountId :: Lens.Lens' GetMemberResponse (Prelude.Maybe Prelude.Text)
@@ -257,7 +258,7 @@ getMemberResponse_relationshipStatus = Lens.lens (\GetMemberResponse' {relations
 -- recent change to the status of the relationship between the account and
 -- the administrator account.
 getMemberResponse_updatedAt :: Lens.Lens' GetMemberResponse (Prelude.Maybe Prelude.UTCTime)
-getMemberResponse_updatedAt = Lens.lens (\GetMemberResponse' {updatedAt} -> updatedAt) (\s@GetMemberResponse' {} a -> s {updatedAt = a} :: GetMemberResponse) Prelude.. Lens.mapping Core._Time
+getMemberResponse_updatedAt = Lens.lens (\GetMemberResponse' {updatedAt} -> updatedAt) (\s@GetMemberResponse' {} a -> s {updatedAt = a} :: GetMemberResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getMemberResponse_httpStatus :: Lens.Lens' GetMemberResponse Prelude.Int

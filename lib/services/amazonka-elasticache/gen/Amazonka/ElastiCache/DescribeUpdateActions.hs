@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -215,9 +216,9 @@ instance Core.AWSRequest DescribeUpdateActions where
       "DescribeUpdateActionsResult"
       ( \s h x ->
           DescribeUpdateActionsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "UpdateActions" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "UpdateAction")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "UpdateActions" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "UpdateAction")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -248,47 +249,47 @@ instance Prelude.NFData DescribeUpdateActions where
       `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf serviceUpdateTimeRange
 
-instance Core.ToHeaders DescribeUpdateActions where
+instance Data.ToHeaders DescribeUpdateActions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeUpdateActions where
+instance Data.ToPath DescribeUpdateActions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeUpdateActions where
+instance Data.ToQuery DescribeUpdateActions where
   toQuery DescribeUpdateActions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeUpdateActions" :: Prelude.ByteString),
+          Data.=: ("DescribeUpdateActions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "CacheClusterIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> cacheClusterIds
             ),
         "ReplicationGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> replicationGroupIds
             ),
-        "Marker" Core.=: marker,
+        "Marker" Data.=: marker,
         "UpdateActionStatus"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> updateActionStatus
             ),
         "ShowNodeLevelUpdateStatus"
-          Core.=: showNodeLevelUpdateStatus,
-        "MaxRecords" Core.=: maxRecords,
-        "ServiceUpdateName" Core.=: serviceUpdateName,
+          Data.=: showNodeLevelUpdateStatus,
+        "MaxRecords" Data.=: maxRecords,
+        "ServiceUpdateName" Data.=: serviceUpdateName,
         "ServiceUpdateStatus"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> serviceUpdateStatus
             ),
-        "Engine" Core.=: engine,
+        "Engine" Data.=: engine,
         "ServiceUpdateTimeRange"
-          Core.=: serviceUpdateTimeRange
+          Data.=: serviceUpdateTimeRange
       ]
 
 -- | /See:/ 'newDescribeUpdateActionsResponse' smart constructor.

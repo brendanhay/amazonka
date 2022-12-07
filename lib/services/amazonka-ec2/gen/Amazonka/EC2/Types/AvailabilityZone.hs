@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AvailabilityZone where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AvailabilityZoneMessage
 import Amazonka.EC2.Types.AvailabilityZoneOptInStatus
@@ -194,22 +195,22 @@ availabilityZone_regionName = Lens.lens (\AvailabilityZone' {regionName} -> regi
 availabilityZone_zoneId :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
 availabilityZone_zoneId = Lens.lens (\AvailabilityZone' {zoneId} -> zoneId) (\s@AvailabilityZone' {} a -> s {zoneId = a} :: AvailabilityZone)
 
-instance Core.FromXML AvailabilityZone where
+instance Data.FromXML AvailabilityZone where
   parseXML x =
     AvailabilityZone'
-      Prelude.<$> (x Core..@? "zoneType")
-      Prelude.<*> (x Core..@? "parentZoneId")
-      Prelude.<*> (x Core..@? "parentZoneName")
-      Prelude.<*> (x Core..@? "zoneName")
-      Prelude.<*> (x Core..@? "networkBorderGroup")
-      Prelude.<*> (x Core..@? "zoneState")
-      Prelude.<*> (x Core..@? "optInStatus")
-      Prelude.<*> (x Core..@? "groupName")
-      Prelude.<*> ( x Core..@? "messageSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "zoneType")
+      Prelude.<*> (x Data..@? "parentZoneId")
+      Prelude.<*> (x Data..@? "parentZoneName")
+      Prelude.<*> (x Data..@? "zoneName")
+      Prelude.<*> (x Data..@? "networkBorderGroup")
+      Prelude.<*> (x Data..@? "zoneState")
+      Prelude.<*> (x Data..@? "optInStatus")
+      Prelude.<*> (x Data..@? "groupName")
+      Prelude.<*> ( x Data..@? "messageSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "regionName")
-      Prelude.<*> (x Core..@? "zoneId")
+      Prelude.<*> (x Data..@? "regionName")
+      Prelude.<*> (x Data..@? "zoneId")
 
 instance Prelude.Hashable AvailabilityZone where
   hashWithSalt _salt AvailabilityZone' {..} =

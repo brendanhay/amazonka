@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.InstalledComponent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.InstalledComponentLifecycleState
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ data InstalledComponent = InstalledComponent'
     --
     -- A component does not need to see a state change for this field to
     -- update.
-    lastReportedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastReportedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The status codes that indicate the reason for failure whenever the
     -- @lifecycleState@ has an error or is in a broken state.
     --
@@ -61,7 +62,7 @@ data InstalledComponent = InstalledComponent'
     -- reflects component disruptions and deployments. If a component only sees
     -- a configuration update during a deployment, it might not undergo a state
     -- change and this status would not be updated.
-    lastStatusChangeTimestamp :: Prelude.Maybe Core.POSIX,
+    lastStatusChangeTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Whether or not the component is a root component.
     isRoot :: Prelude.Maybe Prelude.Bool
   }
@@ -140,7 +141,7 @@ installedComponent_componentName = Lens.lens (\InstalledComponent' {componentNam
 -- A component does not need to see a state change for this field to
 -- update.
 installedComponent_lastReportedTimestamp :: Lens.Lens' InstalledComponent (Prelude.Maybe Prelude.UTCTime)
-installedComponent_lastReportedTimestamp = Lens.lens (\InstalledComponent' {lastReportedTimestamp} -> lastReportedTimestamp) (\s@InstalledComponent' {} a -> s {lastReportedTimestamp = a} :: InstalledComponent) Prelude.. Lens.mapping Core._Time
+installedComponent_lastReportedTimestamp = Lens.lens (\InstalledComponent' {lastReportedTimestamp} -> lastReportedTimestamp) (\s@InstalledComponent' {} a -> s {lastReportedTimestamp = a} :: InstalledComponent) Prelude.. Lens.mapping Data._Time
 
 -- | The status codes that indicate the reason for failure whenever the
 -- @lifecycleState@ has an error or is in a broken state.
@@ -174,29 +175,29 @@ installedComponent_lastInstallationSource = Lens.lens (\InstalledComponent' {las
 -- a configuration update during a deployment, it might not undergo a state
 -- change and this status would not be updated.
 installedComponent_lastStatusChangeTimestamp :: Lens.Lens' InstalledComponent (Prelude.Maybe Prelude.UTCTime)
-installedComponent_lastStatusChangeTimestamp = Lens.lens (\InstalledComponent' {lastStatusChangeTimestamp} -> lastStatusChangeTimestamp) (\s@InstalledComponent' {} a -> s {lastStatusChangeTimestamp = a} :: InstalledComponent) Prelude.. Lens.mapping Core._Time
+installedComponent_lastStatusChangeTimestamp = Lens.lens (\InstalledComponent' {lastStatusChangeTimestamp} -> lastStatusChangeTimestamp) (\s@InstalledComponent' {} a -> s {lastStatusChangeTimestamp = a} :: InstalledComponent) Prelude.. Lens.mapping Data._Time
 
 -- | Whether or not the component is a root component.
 installedComponent_isRoot :: Lens.Lens' InstalledComponent (Prelude.Maybe Prelude.Bool)
 installedComponent_isRoot = Lens.lens (\InstalledComponent' {isRoot} -> isRoot) (\s@InstalledComponent' {} a -> s {isRoot = a} :: InstalledComponent)
 
-instance Core.FromJSON InstalledComponent where
+instance Data.FromJSON InstalledComponent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstalledComponent"
       ( \x ->
           InstalledComponent'
-            Prelude.<$> (x Core..:? "componentVersion")
-            Prelude.<*> (x Core..:? "componentName")
-            Prelude.<*> (x Core..:? "lastReportedTimestamp")
-            Prelude.<*> ( x Core..:? "lifecycleStatusCodes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "componentVersion")
+            Prelude.<*> (x Data..:? "componentName")
+            Prelude.<*> (x Data..:? "lastReportedTimestamp")
+            Prelude.<*> ( x Data..:? "lifecycleStatusCodes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "lifecycleState")
-            Prelude.<*> (x Core..:? "lifecycleStateDetails")
-            Prelude.<*> (x Core..:? "lastInstallationSource")
-            Prelude.<*> (x Core..:? "lastStatusChangeTimestamp")
-            Prelude.<*> (x Core..:? "isRoot")
+            Prelude.<*> (x Data..:? "lifecycleState")
+            Prelude.<*> (x Data..:? "lifecycleStateDetails")
+            Prelude.<*> (x Data..:? "lastInstallationSource")
+            Prelude.<*> (x Data..:? "lastStatusChangeTimestamp")
+            Prelude.<*> (x Data..:? "isRoot")
       )
 
 instance Prelude.Hashable InstalledComponent where

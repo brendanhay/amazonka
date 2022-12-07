@@ -53,6 +53,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -60,13 +61,13 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateCustomLineItem' smart constructor.
 data UpdateCustomLineItem = UpdateCustomLineItem'
   { -- | The new name for the custom line item.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A @ListCustomLineItemChargeDetails@ containing the new charge details
     -- for the custom line item.
     chargeDetails :: Prelude.Maybe UpdateCustomLineItemChargeDetails,
     billingPeriodRange :: Prelude.Maybe CustomLineItemBillingPeriodRange,
     -- | The new line item description of the custom line item.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the custom line item to be updated.
     arn :: Prelude.Text
   }
@@ -105,7 +106,7 @@ newUpdateCustomLineItem pArn_ =
 
 -- | The new name for the custom line item.
 updateCustomLineItem_name :: Lens.Lens' UpdateCustomLineItem (Prelude.Maybe Prelude.Text)
-updateCustomLineItem_name = Lens.lens (\UpdateCustomLineItem' {name} -> name) (\s@UpdateCustomLineItem' {} a -> s {name = a} :: UpdateCustomLineItem) Prelude.. Lens.mapping Core._Sensitive
+updateCustomLineItem_name = Lens.lens (\UpdateCustomLineItem' {name} -> name) (\s@UpdateCustomLineItem' {} a -> s {name = a} :: UpdateCustomLineItem) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A @ListCustomLineItemChargeDetails@ containing the new charge details
 -- for the custom line item.
@@ -118,7 +119,7 @@ updateCustomLineItem_billingPeriodRange = Lens.lens (\UpdateCustomLineItem' {bil
 
 -- | The new line item description of the custom line item.
 updateCustomLineItem_description :: Lens.Lens' UpdateCustomLineItem (Prelude.Maybe Prelude.Text)
-updateCustomLineItem_description = Lens.lens (\UpdateCustomLineItem' {description} -> description) (\s@UpdateCustomLineItem' {} a -> s {description = a} :: UpdateCustomLineItem) Prelude.. Lens.mapping Core._Sensitive
+updateCustomLineItem_description = Lens.lens (\UpdateCustomLineItem' {description} -> description) (\s@UpdateCustomLineItem' {} a -> s {description = a} :: UpdateCustomLineItem) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the custom line item to be updated.
 updateCustomLineItem_arn :: Lens.Lens' UpdateCustomLineItem Prelude.Text
@@ -134,13 +135,13 @@ instance Core.AWSRequest UpdateCustomLineItem where
     Response.receiveJSON
       ( \s h x ->
           UpdateCustomLineItemResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "ChargeDetails")
-            Prelude.<*> (x Core..?> "BillingGroupArn")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "AssociationSize")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "ChargeDetails")
+            Prelude.<*> (x Data..?> "BillingGroupArn")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "AssociationSize")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,40 +161,40 @@ instance Prelude.NFData UpdateCustomLineItem where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders UpdateCustomLineItem where
+instance Data.ToHeaders UpdateCustomLineItem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCustomLineItem where
+instance Data.ToJSON UpdateCustomLineItem where
   toJSON UpdateCustomLineItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("ChargeDetails" Core..=) Prelude.<$> chargeDetails,
-            ("BillingPeriodRange" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("ChargeDetails" Data..=) Prelude.<$> chargeDetails,
+            ("BillingPeriodRange" Data..=)
               Prelude.<$> billingPeriodRange,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Arn" Core..= arn)
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath UpdateCustomLineItem where
+instance Data.ToPath UpdateCustomLineItem where
   toPath = Prelude.const "/update-custom-line-item"
 
-instance Core.ToQuery UpdateCustomLineItem where
+instance Data.ToQuery UpdateCustomLineItem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCustomLineItemResponse' smart constructor.
 data UpdateCustomLineItemResponse = UpdateCustomLineItemResponse'
   { -- | The name of the successfully updated custom line item.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A @ListCustomLineItemChargeDetails@ containing the charge details of the
     -- successfully updated custom line item.
     chargeDetails :: Prelude.Maybe ListCustomLineItemChargeDetails,
@@ -204,7 +205,7 @@ data UpdateCustomLineItemResponse = UpdateCustomLineItemResponse'
     -- | The number of resources that are associated to the custom line item.
     associationSize :: Prelude.Maybe Prelude.Natural,
     -- | The description of the successfully updated custom line item.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The most recent time when the custom line item was modified.
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
@@ -255,7 +256,7 @@ newUpdateCustomLineItemResponse pHttpStatus_ =
 
 -- | The name of the successfully updated custom line item.
 updateCustomLineItemResponse_name :: Lens.Lens' UpdateCustomLineItemResponse (Prelude.Maybe Prelude.Text)
-updateCustomLineItemResponse_name = Lens.lens (\UpdateCustomLineItemResponse' {name} -> name) (\s@UpdateCustomLineItemResponse' {} a -> s {name = a} :: UpdateCustomLineItemResponse) Prelude.. Lens.mapping Core._Sensitive
+updateCustomLineItemResponse_name = Lens.lens (\UpdateCustomLineItemResponse' {name} -> name) (\s@UpdateCustomLineItemResponse' {} a -> s {name = a} :: UpdateCustomLineItemResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A @ListCustomLineItemChargeDetails@ containing the charge details of the
 -- successfully updated custom line item.
@@ -276,7 +277,7 @@ updateCustomLineItemResponse_associationSize = Lens.lens (\UpdateCustomLineItemR
 
 -- | The description of the successfully updated custom line item.
 updateCustomLineItemResponse_description :: Lens.Lens' UpdateCustomLineItemResponse (Prelude.Maybe Prelude.Text)
-updateCustomLineItemResponse_description = Lens.lens (\UpdateCustomLineItemResponse' {description} -> description) (\s@UpdateCustomLineItemResponse' {} a -> s {description = a} :: UpdateCustomLineItemResponse) Prelude.. Lens.mapping Core._Sensitive
+updateCustomLineItemResponse_description = Lens.lens (\UpdateCustomLineItemResponse' {description} -> description) (\s@UpdateCustomLineItemResponse' {} a -> s {description = a} :: UpdateCustomLineItemResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The most recent time when the custom line item was modified.
 updateCustomLineItemResponse_lastModifiedTime :: Lens.Lens' UpdateCustomLineItemResponse (Prelude.Maybe Prelude.Integer)

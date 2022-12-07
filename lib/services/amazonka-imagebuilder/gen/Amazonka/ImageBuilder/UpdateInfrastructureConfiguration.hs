@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -299,9 +300,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateInfrastructureConfigurationResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-              Prelude.<*> (x Core..?> "requestId")
-              Prelude.<*> (x Core..?> "infrastructureConfigurationArn")
+            Prelude.<$> (x Data..?> "clientToken")
+              Prelude.<*> (x Data..?> "requestId")
+              Prelude.<*> (x Data..?> "infrastructureConfigurationArn")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -346,58 +347,58 @@ instance
       `Prelude.seq` Prelude.rnf clientToken
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateInfrastructureConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateInfrastructureConfiguration
   where
   toJSON UpdateInfrastructureConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("instanceTypes" Core..=) Prelude.<$> instanceTypes,
-            ("securityGroupIds" Core..=)
+          [ ("instanceTypes" Data..=) Prelude.<$> instanceTypes,
+            ("securityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("subnetId" Core..=) Prelude.<$> subnetId,
-            ("description" Core..=) Prelude.<$> description,
-            ("resourceTags" Core..=) Prelude.<$> resourceTags,
-            ("keyPair" Core..=) Prelude.<$> keyPair,
-            ("logging" Core..=) Prelude.<$> logging,
-            ("snsTopicArn" Core..=) Prelude.<$> snsTopicArn,
-            ("instanceMetadataOptions" Core..=)
+            ("subnetId" Data..=) Prelude.<$> subnetId,
+            ("description" Data..=) Prelude.<$> description,
+            ("resourceTags" Data..=) Prelude.<$> resourceTags,
+            ("keyPair" Data..=) Prelude.<$> keyPair,
+            ("logging" Data..=) Prelude.<$> logging,
+            ("snsTopicArn" Data..=) Prelude.<$> snsTopicArn,
+            ("instanceMetadataOptions" Data..=)
               Prelude.<$> instanceMetadataOptions,
-            ("terminateInstanceOnFailure" Core..=)
+            ("terminateInstanceOnFailure" Data..=)
               Prelude.<$> terminateInstanceOnFailure,
             Prelude.Just
               ( "infrastructureConfigurationArn"
-                  Core..= infrastructureConfigurationArn
+                  Data..= infrastructureConfigurationArn
               ),
             Prelude.Just
-              ("instanceProfileName" Core..= instanceProfileName),
-            Prelude.Just ("clientToken" Core..= clientToken)
+              ("instanceProfileName" Data..= instanceProfileName),
+            Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateInfrastructureConfiguration
   where
   toPath =
     Prelude.const "/UpdateInfrastructureConfiguration"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateInfrastructureConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

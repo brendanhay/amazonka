@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -167,9 +168,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AddApplicationVpcConfigurationResponse'
-            Prelude.<$> (x Core..?> "ApplicationARN")
-            Prelude.<*> (x Core..?> "ApplicationVersionId")
-            Prelude.<*> (x Core..?> "VpcConfigurationDescription")
+            Prelude.<$> (x Data..?> "ApplicationARN")
+            Prelude.<*> (x Data..?> "ApplicationVersionId")
+            Prelude.<*> (x Data..?> "VpcConfigurationDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,42 +197,42 @@ instance
       `Prelude.seq` Prelude.rnf vpcConfiguration
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AddApplicationVpcConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20180523.AddApplicationVpcConfiguration" ::
+              Data.=# ( "KinesisAnalytics_20180523.AddApplicationVpcConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddApplicationVpcConfiguration where
+instance Data.ToJSON AddApplicationVpcConfiguration where
   toJSON AddApplicationVpcConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConditionalToken" Core..=)
+          [ ("ConditionalToken" Data..=)
               Prelude.<$> conditionalToken,
-            ("CurrentApplicationVersionId" Core..=)
+            ("CurrentApplicationVersionId" Data..=)
               Prelude.<$> currentApplicationVersionId,
             Prelude.Just
-              ("ApplicationName" Core..= applicationName),
+              ("ApplicationName" Data..= applicationName),
             Prelude.Just
-              ("VpcConfiguration" Core..= vpcConfiguration)
+              ("VpcConfiguration" Data..= vpcConfiguration)
           ]
       )
 
-instance Core.ToPath AddApplicationVpcConfiguration where
+instance Data.ToPath AddApplicationVpcConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddApplicationVpcConfiguration where
+instance Data.ToQuery AddApplicationVpcConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddApplicationVpcConfigurationResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.InstanceInformationFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.InstanceInformationFilterKey
 
@@ -82,11 +83,11 @@ instance Prelude.NFData InstanceInformationFilter where
   rnf InstanceInformationFilter' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf valueSet
 
-instance Core.ToJSON InstanceInformationFilter where
+instance Data.ToJSON InstanceInformationFilter where
   toJSON InstanceInformationFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("key" Core..= key),
-            Prelude.Just ("valueSet" Core..= valueSet)
+          [ Prelude.Just ("key" Data..= key),
+            Prelude.Just ("valueSet" Data..= valueSet)
           ]
       )

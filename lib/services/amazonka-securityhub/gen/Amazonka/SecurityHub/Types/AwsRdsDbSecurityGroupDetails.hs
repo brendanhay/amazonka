@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbSecurityGroupDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsRdsDbSecurityGroupEc2SecurityGroup
 import Amazonka.SecurityHub.Types.AwsRdsDbSecurityGroupIpRange
@@ -112,21 +113,21 @@ awsRdsDbSecurityGroupDetails_ipRanges = Lens.lens (\AwsRdsDbSecurityGroupDetails
 awsRdsDbSecurityGroupDetails_vpcId :: Lens.Lens' AwsRdsDbSecurityGroupDetails (Prelude.Maybe Prelude.Text)
 awsRdsDbSecurityGroupDetails_vpcId = Lens.lens (\AwsRdsDbSecurityGroupDetails' {vpcId} -> vpcId) (\s@AwsRdsDbSecurityGroupDetails' {} a -> s {vpcId = a} :: AwsRdsDbSecurityGroupDetails)
 
-instance Core.FromJSON AwsRdsDbSecurityGroupDetails where
+instance Data.FromJSON AwsRdsDbSecurityGroupDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbSecurityGroupDetails"
       ( \x ->
           AwsRdsDbSecurityGroupDetails'
-            Prelude.<$> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "DbSecurityGroupDescription")
-            Prelude.<*> (x Core..:? "DbSecurityGroupName")
-            Prelude.<*> ( x Core..:? "Ec2SecurityGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "DbSecurityGroupDescription")
+            Prelude.<*> (x Data..:? "DbSecurityGroupName")
+            Prelude.<*> ( x Data..:? "Ec2SecurityGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DbSecurityGroupArn")
-            Prelude.<*> (x Core..:? "IpRanges" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<*> (x Data..:? "DbSecurityGroupArn")
+            Prelude.<*> (x Data..:? "IpRanges" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance
@@ -152,20 +153,20 @@ instance Prelude.NFData AwsRdsDbSecurityGroupDetails where
       `Prelude.seq` Prelude.rnf ipRanges
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToJSON AwsRdsDbSecurityGroupDetails where
+instance Data.ToJSON AwsRdsDbSecurityGroupDetails where
   toJSON AwsRdsDbSecurityGroupDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OwnerId" Core..=) Prelude.<$> ownerId,
-            ("DbSecurityGroupDescription" Core..=)
+          [ ("OwnerId" Data..=) Prelude.<$> ownerId,
+            ("DbSecurityGroupDescription" Data..=)
               Prelude.<$> dbSecurityGroupDescription,
-            ("DbSecurityGroupName" Core..=)
+            ("DbSecurityGroupName" Data..=)
               Prelude.<$> dbSecurityGroupName,
-            ("Ec2SecurityGroups" Core..=)
+            ("Ec2SecurityGroups" Data..=)
               Prelude.<$> ec2SecurityGroups,
-            ("DbSecurityGroupArn" Core..=)
+            ("DbSecurityGroupArn" Data..=)
               Prelude.<$> dbSecurityGroupArn,
-            ("IpRanges" Core..=) Prelude.<$> ipRanges,
-            ("VpcId" Core..=) Prelude.<$> vpcId
+            ("IpRanges" Data..=) Prelude.<$> ipRanges,
+            ("VpcId" Data..=) Prelude.<$> vpcId
           ]
       )

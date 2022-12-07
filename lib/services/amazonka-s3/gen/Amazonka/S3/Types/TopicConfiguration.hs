@@ -21,6 +21,7 @@ module Amazonka.S3.Types.TopicConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.Event
@@ -96,13 +97,13 @@ topicConfiguration_topicArn = Lens.lens (\TopicConfiguration' {topicArn} -> topi
 topicConfiguration_events :: Lens.Lens' TopicConfiguration [Event]
 topicConfiguration_events = Lens.lens (\TopicConfiguration' {events} -> events) (\s@TopicConfiguration' {} a -> s {events = a} :: TopicConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromXML TopicConfiguration where
+instance Data.FromXML TopicConfiguration where
   parseXML x =
     TopicConfiguration'
-      Prelude.<$> (x Core..@? "Id")
-      Prelude.<*> (x Core..@? "Filter")
-      Prelude.<*> (x Core..@ "Topic")
-      Prelude.<*> (Core.parseXMLList "Event" x)
+      Prelude.<$> (x Data..@? "Id")
+      Prelude.<*> (x Data..@? "Filter")
+      Prelude.<*> (x Data..@ "Topic")
+      Prelude.<*> (Data.parseXMLList "Event" x)
 
 instance Prelude.Hashable TopicConfiguration where
   hashWithSalt _salt TopicConfiguration' {..} =
@@ -118,11 +119,11 @@ instance Prelude.NFData TopicConfiguration where
       `Prelude.seq` Prelude.rnf topicArn
       `Prelude.seq` Prelude.rnf events
 
-instance Core.ToXML TopicConfiguration where
+instance Data.ToXML TopicConfiguration where
   toXML TopicConfiguration' {..} =
     Prelude.mconcat
-      [ "Id" Core.@= id,
-        "Filter" Core.@= filter',
-        "Topic" Core.@= topicArn,
-        Core.toXMLList "Event" events
+      [ "Id" Data.@= id,
+        "Filter" Data.@= filter',
+        "Topic" Data.@= topicArn,
+        Data.toXMLList "Event" events
       ]

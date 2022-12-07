@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -198,36 +199,36 @@ instance Prelude.NFData DeleteIPSet where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf lockToken
 
-instance Core.ToHeaders DeleteIPSet where
+instance Data.ToHeaders DeleteIPSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.DeleteIPSet" ::
+              Data.=# ( "AWSWAF_20190729.DeleteIPSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteIPSet where
+instance Data.ToJSON DeleteIPSet where
   toJSON DeleteIPSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Scope" Core..= scope),
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("LockToken" Core..= lockToken)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Scope" Data..= scope),
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("LockToken" Data..= lockToken)
           ]
       )
 
-instance Core.ToPath DeleteIPSet where
+instance Data.ToPath DeleteIPSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteIPSet where
+instance Data.ToQuery DeleteIPSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteIPSetResponse' smart constructor.

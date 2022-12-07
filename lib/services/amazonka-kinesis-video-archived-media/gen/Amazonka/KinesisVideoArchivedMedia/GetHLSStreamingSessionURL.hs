@@ -215,6 +215,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideoArchivedMedia.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -763,7 +764,7 @@ instance Core.AWSRequest GetHLSStreamingSessionURL where
     Response.receiveJSON
       ( \s h x ->
           GetHLSStreamingSessionURLResponse'
-            Prelude.<$> (x Core..?> "HLSStreamingSessionURL")
+            Prelude.<$> (x Data..?> "HLSStreamingSessionURL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -791,34 +792,34 @@ instance Prelude.NFData GetHLSStreamingSessionURL where
       `Prelude.seq` Prelude.rnf discontinuityMode
       `Prelude.seq` Prelude.rnf playbackMode
 
-instance Core.ToHeaders GetHLSStreamingSessionURL where
+instance Data.ToHeaders GetHLSStreamingSessionURL where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetHLSStreamingSessionURL where
+instance Data.ToJSON GetHLSStreamingSessionURL where
   toJSON GetHLSStreamingSessionURL' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HLSFragmentSelector" Core..=)
+          [ ("HLSFragmentSelector" Data..=)
               Prelude.<$> hLSFragmentSelector,
-            ("DisplayFragmentTimestamp" Core..=)
+            ("DisplayFragmentTimestamp" Data..=)
               Prelude.<$> displayFragmentTimestamp,
-            ("Expires" Core..=) Prelude.<$> expires,
-            ("StreamARN" Core..=) Prelude.<$> streamARN,
-            ("MaxMediaPlaylistFragmentResults" Core..=)
+            ("Expires" Data..=) Prelude.<$> expires,
+            ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("MaxMediaPlaylistFragmentResults" Data..=)
               Prelude.<$> maxMediaPlaylistFragmentResults,
-            ("StreamName" Core..=) Prelude.<$> streamName,
-            ("ContainerFormat" Core..=)
+            ("StreamName" Data..=) Prelude.<$> streamName,
+            ("ContainerFormat" Data..=)
               Prelude.<$> containerFormat,
-            ("DiscontinuityMode" Core..=)
+            ("DiscontinuityMode" Data..=)
               Prelude.<$> discontinuityMode,
-            ("PlaybackMode" Core..=) Prelude.<$> playbackMode
+            ("PlaybackMode" Data..=) Prelude.<$> playbackMode
           ]
       )
 
-instance Core.ToPath GetHLSStreamingSessionURL where
+instance Data.ToPath GetHLSStreamingSessionURL where
   toPath = Prelude.const "/getHLSStreamingSessionURL"
 
-instance Core.ToQuery GetHLSStreamingSessionURL where
+instance Data.ToQuery GetHLSStreamingSessionURL where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetHLSStreamingSessionURLResponse' smart constructor.

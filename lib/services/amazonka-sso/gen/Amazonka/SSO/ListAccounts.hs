@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -66,7 +67,7 @@ data ListAccounts = ListAccounts'
     -- see
     -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
     -- in the /IAM Identity Center OIDC API Reference Guide/.
-    accessToken :: Core.Sensitive Prelude.Text
+    accessToken :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -95,7 +96,7 @@ newListAccounts pAccessToken_ =
   ListAccounts'
     { nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      accessToken = Core._Sensitive Lens.# pAccessToken_
+      accessToken = Data._Sensitive Lens.# pAccessToken_
     }
 
 -- | (Optional) When requesting subsequent pages, this is the page token from
@@ -112,7 +113,7 @@ listAccounts_maxResults = Lens.lens (\ListAccounts' {maxResults} -> maxResults) 
 -- <https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken>
 -- in the /IAM Identity Center OIDC API Reference Guide/.
 listAccounts_accessToken :: Lens.Lens' ListAccounts Prelude.Text
-listAccounts_accessToken = Lens.lens (\ListAccounts' {accessToken} -> accessToken) (\s@ListAccounts' {} a -> s {accessToken = a} :: ListAccounts) Prelude.. Core._Sensitive
+listAccounts_accessToken = Lens.lens (\ListAccounts' {accessToken} -> accessToken) (\s@ListAccounts' {} a -> s {accessToken = a} :: ListAccounts) Prelude.. Data._Sensitive
 
 instance Core.AWSPager ListAccounts where
   page rq rs
@@ -142,8 +143,8 @@ instance Core.AWSRequest ListAccounts where
     Response.receiveJSON
       ( \s h x ->
           ListAccountsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "accountList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "accountList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,22 +160,22 @@ instance Prelude.NFData ListAccounts where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf accessToken
 
-instance Core.ToHeaders ListAccounts where
+instance Data.ToHeaders ListAccounts where
   toHeaders ListAccounts' {..} =
     Prelude.mconcat
-      [ "x-amz-sso_bearer_token" Core.=# accessToken,
+      [ "x-amz-sso_bearer_token" Data.=# accessToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath ListAccounts where
+instance Data.ToPath ListAccounts where
   toPath = Prelude.const "/assignment/accounts"
 
-instance Core.ToQuery ListAccounts where
+instance Data.ToQuery ListAccounts where
   toQuery ListAccounts' {..} =
     Prelude.mconcat
-      [ "next_token" Core.=: nextToken,
-        "max_result" Core.=: maxResults
+      [ "next_token" Data.=: nextToken,
+        "max_result" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListAccountsResponse' smart constructor.

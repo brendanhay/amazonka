@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -160,8 +161,8 @@ instance Core.AWSRequest DescribeParameters where
     Response.receiveJSON
       ( \s h x ->
           DescribeParametersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Parameters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,37 +180,37 @@ instance Prelude.NFData DescribeParameters where
       `Prelude.seq` Prelude.rnf parameterFilters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeParameters where
+instance Data.ToHeaders DescribeParameters where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DescribeParameters" ::
+              Data.=# ( "AmazonSSM.DescribeParameters" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeParameters where
+instance Data.ToJSON DescribeParameters where
   toJSON DescribeParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("ParameterFilters" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("ParameterFilters" Data..=)
               Prelude.<$> parameterFilters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeParameters where
+instance Data.ToPath DescribeParameters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeParameters where
+instance Data.ToQuery DescribeParameters where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeParametersResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.CreateExperimentTemplateActionInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an action for an experiment template.
@@ -129,16 +130,16 @@ instance
       `Prelude.seq` Prelude.rnf actionId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateExperimentTemplateActionInput
   where
   toJSON CreateExperimentTemplateActionInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("startAfter" Core..=) Prelude.<$> startAfter,
-            ("targets" Core..=) Prelude.<$> targets,
-            ("description" Core..=) Prelude.<$> description,
-            ("parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("actionId" Core..= actionId)
+          [ ("startAfter" Data..=) Prelude.<$> startAfter,
+            ("targets" Data..=) Prelude.<$> targets,
+            ("description" Data..=) Prelude.<$> description,
+            ("parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("actionId" Data..= actionId)
           ]
       )

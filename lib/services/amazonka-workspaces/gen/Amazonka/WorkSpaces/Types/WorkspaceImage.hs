@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.WorkspaceImage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.OperatingSystem
 import Amazonka.WorkSpaces.Types.UpdateResult
@@ -40,7 +41,7 @@ data WorkspaceImage = WorkspaceImage'
     -- | The date when the image was created. If the image has been shared, the
     -- Amazon Web Services account that the image has been shared with sees the
     -- original creation date of the image.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The status of the image.
     state :: Prelude.Maybe WorkspaceImageState,
     -- | The description of the image.
@@ -128,7 +129,7 @@ workspaceImage_errorMessage = Lens.lens (\WorkspaceImage' {errorMessage} -> erro
 -- Amazon Web Services account that the image has been shared with sees the
 -- original creation date of the image.
 workspaceImage_created :: Lens.Lens' WorkspaceImage (Prelude.Maybe Prelude.UTCTime)
-workspaceImage_created = Lens.lens (\WorkspaceImage' {created} -> created) (\s@WorkspaceImage' {} a -> s {created = a} :: WorkspaceImage) Prelude.. Lens.mapping Core._Time
+workspaceImage_created = Lens.lens (\WorkspaceImage' {created} -> created) (\s@WorkspaceImage' {} a -> s {created = a} :: WorkspaceImage) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the image.
 workspaceImage_state :: Lens.Lens' WorkspaceImage (Prelude.Maybe WorkspaceImageState)
@@ -161,23 +162,23 @@ workspaceImage_imageId = Lens.lens (\WorkspaceImage' {imageId} -> imageId) (\s@W
 workspaceImage_updates :: Lens.Lens' WorkspaceImage (Prelude.Maybe UpdateResult)
 workspaceImage_updates = Lens.lens (\WorkspaceImage' {updates} -> updates) (\s@WorkspaceImage' {} a -> s {updates = a} :: WorkspaceImage)
 
-instance Core.FromJSON WorkspaceImage where
+instance Data.FromJSON WorkspaceImage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkspaceImage"
       ( \x ->
           WorkspaceImage'
-            Prelude.<$> (x Core..:? "OperatingSystem")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "Created")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "RequiredTenancy")
-            Prelude.<*> (x Core..:? "OwnerAccountId")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "ImageId")
-            Prelude.<*> (x Core..:? "Updates")
+            Prelude.<$> (x Data..:? "OperatingSystem")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "Created")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "RequiredTenancy")
+            Prelude.<*> (x Data..:? "OwnerAccountId")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ImageId")
+            Prelude.<*> (x Data..:? "Updates")
       )
 
 instance Prelude.Hashable WorkspaceImage where

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EndpointOutputConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProductionVariantInstanceType
 
@@ -97,16 +98,16 @@ endpointOutputConfiguration_instanceType = Lens.lens (\EndpointOutputConfigurati
 endpointOutputConfiguration_initialInstanceCount :: Lens.Lens' EndpointOutputConfiguration Prelude.Int
 endpointOutputConfiguration_initialInstanceCount = Lens.lens (\EndpointOutputConfiguration' {initialInstanceCount} -> initialInstanceCount) (\s@EndpointOutputConfiguration' {} a -> s {initialInstanceCount = a} :: EndpointOutputConfiguration)
 
-instance Core.FromJSON EndpointOutputConfiguration where
+instance Data.FromJSON EndpointOutputConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointOutputConfiguration"
       ( \x ->
           EndpointOutputConfiguration'
-            Prelude.<$> (x Core..: "EndpointName")
-            Prelude.<*> (x Core..: "VariantName")
-            Prelude.<*> (x Core..: "InstanceType")
-            Prelude.<*> (x Core..: "InitialInstanceCount")
+            Prelude.<$> (x Data..: "EndpointName")
+            Prelude.<*> (x Data..: "VariantName")
+            Prelude.<*> (x Data..: "InstanceType")
+            Prelude.<*> (x Data..: "InitialInstanceCount")
       )
 
 instance Prelude.Hashable EndpointOutputConfiguration where

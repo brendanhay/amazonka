@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.TriggerUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.Action
 import Amazonka.Glue.Types.EventBatchingCondition
 import Amazonka.Glue.Types.Predicate
@@ -133,16 +134,16 @@ instance Prelude.NFData TriggerUpdate where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf actions
 
-instance Core.ToJSON TriggerUpdate where
+instance Data.ToJSON TriggerUpdate where
   toJSON TriggerUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventBatchingCondition" Core..=)
+          [ ("EventBatchingCondition" Data..=)
               Prelude.<$> eventBatchingCondition,
-            ("Schedule" Core..=) Prelude.<$> schedule,
-            ("Name" Core..=) Prelude.<$> name,
-            ("Predicate" Core..=) Prelude.<$> predicate,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Actions" Core..=) Prelude.<$> actions
+            ("Schedule" Data..=) Prelude.<$> schedule,
+            ("Name" Data..=) Prelude.<$> name,
+            ("Predicate" Data..=) Prelude.<$> predicate,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Actions" Data..=) Prelude.<$> actions
           ]
       )

@@ -27,6 +27,7 @@ import Amazonka.AmplifyUiBuilder.Types.FormStyle
 import Amazonka.AmplifyUiBuilder.Types.SectionalElement
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the configuration settings for a @Form@ user interface (UI)
@@ -187,26 +188,26 @@ form_sectionalElements = Lens.lens (\Form' {sectionalElements} -> sectionalEleme
 form_style :: Lens.Lens' Form FormStyle
 form_style = Lens.lens (\Form' {style} -> style) (\s@Form' {} a -> s {style = a} :: Form)
 
-instance Core.FromJSON Form where
+instance Data.FromJSON Form where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Form"
       ( \x ->
           Form'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "cta")
-            Prelude.<*> (x Core..: "appId")
-            Prelude.<*> (x Core..: "dataType")
-            Prelude.<*> (x Core..: "environmentName")
-            Prelude.<*> (x Core..:? "fields" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "formActionType")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "schemaVersion")
-            Prelude.<*> ( x Core..:? "sectionalElements"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "cta")
+            Prelude.<*> (x Data..: "appId")
+            Prelude.<*> (x Data..: "dataType")
+            Prelude.<*> (x Data..: "environmentName")
+            Prelude.<*> (x Data..:? "fields" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "formActionType")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "schemaVersion")
+            Prelude.<*> ( x Data..:? "sectionalElements"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "style")
+            Prelude.<*> (x Data..: "style")
       )
 
 instance Prelude.Hashable Form where

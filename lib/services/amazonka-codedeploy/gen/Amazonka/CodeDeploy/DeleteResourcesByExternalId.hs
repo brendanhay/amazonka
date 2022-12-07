@@ -41,6 +41,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,32 +98,32 @@ instance Prelude.NFData DeleteResourcesByExternalId where
   rnf DeleteResourcesByExternalId' {..} =
     Prelude.rnf externalId
 
-instance Core.ToHeaders DeleteResourcesByExternalId where
+instance Data.ToHeaders DeleteResourcesByExternalId where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.DeleteResourcesByExternalId" ::
+              Data.=# ( "CodeDeploy_20141006.DeleteResourcesByExternalId" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteResourcesByExternalId where
+instance Data.ToJSON DeleteResourcesByExternalId where
   toJSON DeleteResourcesByExternalId' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("externalId" Core..=) Prelude.<$> externalId]
+          [("externalId" Data..=) Prelude.<$> externalId]
       )
 
-instance Core.ToPath DeleteResourcesByExternalId where
+instance Data.ToPath DeleteResourcesByExternalId where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteResourcesByExternalId where
+instance Data.ToQuery DeleteResourcesByExternalId where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResourcesByExternalIdResponse' smart constructor.

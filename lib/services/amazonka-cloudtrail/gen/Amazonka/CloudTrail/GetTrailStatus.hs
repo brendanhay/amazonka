@@ -62,6 +62,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,23 +121,23 @@ instance Core.AWSRequest GetTrailStatus where
     Response.receiveJSON
       ( \s h x ->
           GetTrailStatusResponse'
-            Prelude.<$> (x Core..?> "LatestCloudWatchLogsDeliveryTime")
-            Prelude.<*> (x Core..?> "LatestNotificationTime")
-            Prelude.<*> (x Core..?> "TimeLoggingStarted")
-            Prelude.<*> (x Core..?> "LatestNotificationAttemptTime")
-            Prelude.<*> (x Core..?> "StartLoggingTime")
-            Prelude.<*> (x Core..?> "LatestCloudWatchLogsDeliveryError")
-            Prelude.<*> (x Core..?> "LatestDeliveryTime")
-            Prelude.<*> (x Core..?> "LatestDeliveryError")
-            Prelude.<*> (x Core..?> "IsLogging")
-            Prelude.<*> (x Core..?> "LatestNotificationAttemptSucceeded")
-            Prelude.<*> (x Core..?> "LatestNotificationError")
-            Prelude.<*> (x Core..?> "StopLoggingTime")
-            Prelude.<*> (x Core..?> "LatestDigestDeliveryTime")
-            Prelude.<*> (x Core..?> "LatestDigestDeliveryError")
-            Prelude.<*> (x Core..?> "LatestDeliveryAttemptTime")
-            Prelude.<*> (x Core..?> "TimeLoggingStopped")
-            Prelude.<*> (x Core..?> "LatestDeliveryAttemptSucceeded")
+            Prelude.<$> (x Data..?> "LatestCloudWatchLogsDeliveryTime")
+            Prelude.<*> (x Data..?> "LatestNotificationTime")
+            Prelude.<*> (x Data..?> "TimeLoggingStarted")
+            Prelude.<*> (x Data..?> "LatestNotificationAttemptTime")
+            Prelude.<*> (x Data..?> "StartLoggingTime")
+            Prelude.<*> (x Data..?> "LatestCloudWatchLogsDeliveryError")
+            Prelude.<*> (x Data..?> "LatestDeliveryTime")
+            Prelude.<*> (x Data..?> "LatestDeliveryError")
+            Prelude.<*> (x Data..?> "IsLogging")
+            Prelude.<*> (x Data..?> "LatestNotificationAttemptSucceeded")
+            Prelude.<*> (x Data..?> "LatestNotificationError")
+            Prelude.<*> (x Data..?> "StopLoggingTime")
+            Prelude.<*> (x Data..?> "LatestDigestDeliveryTime")
+            Prelude.<*> (x Data..?> "LatestDigestDeliveryError")
+            Prelude.<*> (x Data..?> "LatestDeliveryAttemptTime")
+            Prelude.<*> (x Data..?> "TimeLoggingStopped")
+            Prelude.<*> (x Data..?> "LatestDeliveryAttemptSucceeded")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,32 +148,32 @@ instance Prelude.Hashable GetTrailStatus where
 instance Prelude.NFData GetTrailStatus where
   rnf GetTrailStatus' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetTrailStatus where
+instance Data.ToHeaders GetTrailStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetTrailStatus" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetTrailStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTrailStatus where
+instance Data.ToJSON GetTrailStatus where
   toJSON GetTrailStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath GetTrailStatus where
+instance Data.ToPath GetTrailStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTrailStatus where
+instance Data.ToQuery GetTrailStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returns the objects or data listed below if successful. Otherwise,
@@ -182,24 +183,24 @@ instance Core.ToQuery GetTrailStatus where
 data GetTrailStatusResponse = GetTrailStatusResponse'
   { -- | Displays the most recent date and time when CloudTrail delivered logs to
     -- CloudWatch Logs.
-    latestCloudWatchLogsDeliveryTime :: Prelude.Maybe Core.POSIX,
+    latestCloudWatchLogsDeliveryTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies the date and time of the most recent Amazon SNS notification
     -- that CloudTrail has written a new log file to an account\'s Amazon S3
     -- bucket.
-    latestNotificationTime :: Prelude.Maybe Core.POSIX,
+    latestNotificationTime :: Prelude.Maybe Data.POSIX,
     -- | This field is no longer in use.
     timeLoggingStarted :: Prelude.Maybe Prelude.Text,
     -- | This field is no longer in use.
     latestNotificationAttemptTime :: Prelude.Maybe Prelude.Text,
     -- | Specifies the most recent date and time when CloudTrail started
     -- recording API calls for an Amazon Web Services account.
-    startLoggingTime :: Prelude.Maybe Core.POSIX,
+    startLoggingTime :: Prelude.Maybe Data.POSIX,
     -- | Displays any CloudWatch Logs error that CloudTrail encountered when
     -- attempting to deliver logs to CloudWatch Logs.
     latestCloudWatchLogsDeliveryError :: Prelude.Maybe Prelude.Text,
     -- | Specifies the date and time that CloudTrail last delivered log files to
     -- an account\'s Amazon S3 bucket.
-    latestDeliveryTime :: Prelude.Maybe Core.POSIX,
+    latestDeliveryTime :: Prelude.Maybe Data.POSIX,
     -- | Displays any Amazon S3 error that CloudTrail encountered when attempting
     -- to deliver log files to the designated bucket. For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses>
@@ -223,10 +224,10 @@ data GetTrailStatusResponse = GetTrailStatusResponse'
     latestNotificationError :: Prelude.Maybe Prelude.Text,
     -- | Specifies the most recent date and time when CloudTrail stopped
     -- recording API calls for an Amazon Web Services account.
-    stopLoggingTime :: Prelude.Maybe Core.POSIX,
+    stopLoggingTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies the date and time that CloudTrail last delivered a digest file
     -- to an account\'s Amazon S3 bucket.
-    latestDigestDeliveryTime :: Prelude.Maybe Core.POSIX,
+    latestDigestDeliveryTime :: Prelude.Maybe Data.POSIX,
     -- | Displays any Amazon S3 error that CloudTrail encountered when attempting
     -- to deliver a digest file to the designated bucket. For more information,
     -- see
@@ -355,13 +356,13 @@ newGetTrailStatusResponse pHttpStatus_ =
 -- | Displays the most recent date and time when CloudTrail delivered logs to
 -- CloudWatch Logs.
 getTrailStatusResponse_latestCloudWatchLogsDeliveryTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.UTCTime)
-getTrailStatusResponse_latestCloudWatchLogsDeliveryTime = Lens.lens (\GetTrailStatusResponse' {latestCloudWatchLogsDeliveryTime} -> latestCloudWatchLogsDeliveryTime) (\s@GetTrailStatusResponse' {} a -> s {latestCloudWatchLogsDeliveryTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Core._Time
+getTrailStatusResponse_latestCloudWatchLogsDeliveryTime = Lens.lens (\GetTrailStatusResponse' {latestCloudWatchLogsDeliveryTime} -> latestCloudWatchLogsDeliveryTime) (\s@GetTrailStatusResponse' {} a -> s {latestCloudWatchLogsDeliveryTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the date and time of the most recent Amazon SNS notification
 -- that CloudTrail has written a new log file to an account\'s Amazon S3
 -- bucket.
 getTrailStatusResponse_latestNotificationTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.UTCTime)
-getTrailStatusResponse_latestNotificationTime = Lens.lens (\GetTrailStatusResponse' {latestNotificationTime} -> latestNotificationTime) (\s@GetTrailStatusResponse' {} a -> s {latestNotificationTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Core._Time
+getTrailStatusResponse_latestNotificationTime = Lens.lens (\GetTrailStatusResponse' {latestNotificationTime} -> latestNotificationTime) (\s@GetTrailStatusResponse' {} a -> s {latestNotificationTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Data._Time
 
 -- | This field is no longer in use.
 getTrailStatusResponse_timeLoggingStarted :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
@@ -374,7 +375,7 @@ getTrailStatusResponse_latestNotificationAttemptTime = Lens.lens (\GetTrailStatu
 -- | Specifies the most recent date and time when CloudTrail started
 -- recording API calls for an Amazon Web Services account.
 getTrailStatusResponse_startLoggingTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.UTCTime)
-getTrailStatusResponse_startLoggingTime = Lens.lens (\GetTrailStatusResponse' {startLoggingTime} -> startLoggingTime) (\s@GetTrailStatusResponse' {} a -> s {startLoggingTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Core._Time
+getTrailStatusResponse_startLoggingTime = Lens.lens (\GetTrailStatusResponse' {startLoggingTime} -> startLoggingTime) (\s@GetTrailStatusResponse' {} a -> s {startLoggingTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Displays any CloudWatch Logs error that CloudTrail encountered when
 -- attempting to deliver logs to CloudWatch Logs.
@@ -384,7 +385,7 @@ getTrailStatusResponse_latestCloudWatchLogsDeliveryError = Lens.lens (\GetTrailS
 -- | Specifies the date and time that CloudTrail last delivered log files to
 -- an account\'s Amazon S3 bucket.
 getTrailStatusResponse_latestDeliveryTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.UTCTime)
-getTrailStatusResponse_latestDeliveryTime = Lens.lens (\GetTrailStatusResponse' {latestDeliveryTime} -> latestDeliveryTime) (\s@GetTrailStatusResponse' {} a -> s {latestDeliveryTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Core._Time
+getTrailStatusResponse_latestDeliveryTime = Lens.lens (\GetTrailStatusResponse' {latestDeliveryTime} -> latestDeliveryTime) (\s@GetTrailStatusResponse' {} a -> s {latestDeliveryTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Displays any Amazon S3 error that CloudTrail encountered when attempting
 -- to deliver log files to the designated bucket. For more information, see
@@ -418,12 +419,12 @@ getTrailStatusResponse_latestNotificationError = Lens.lens (\GetTrailStatusRespo
 -- | Specifies the most recent date and time when CloudTrail stopped
 -- recording API calls for an Amazon Web Services account.
 getTrailStatusResponse_stopLoggingTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.UTCTime)
-getTrailStatusResponse_stopLoggingTime = Lens.lens (\GetTrailStatusResponse' {stopLoggingTime} -> stopLoggingTime) (\s@GetTrailStatusResponse' {} a -> s {stopLoggingTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Core._Time
+getTrailStatusResponse_stopLoggingTime = Lens.lens (\GetTrailStatusResponse' {stopLoggingTime} -> stopLoggingTime) (\s@GetTrailStatusResponse' {} a -> s {stopLoggingTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the date and time that CloudTrail last delivered a digest file
 -- to an account\'s Amazon S3 bucket.
 getTrailStatusResponse_latestDigestDeliveryTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.UTCTime)
-getTrailStatusResponse_latestDigestDeliveryTime = Lens.lens (\GetTrailStatusResponse' {latestDigestDeliveryTime} -> latestDigestDeliveryTime) (\s@GetTrailStatusResponse' {} a -> s {latestDigestDeliveryTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Core._Time
+getTrailStatusResponse_latestDigestDeliveryTime = Lens.lens (\GetTrailStatusResponse' {latestDigestDeliveryTime} -> latestDigestDeliveryTime) (\s@GetTrailStatusResponse' {} a -> s {latestDigestDeliveryTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Displays any Amazon S3 error that CloudTrail encountered when attempting
 -- to deliver a digest file to the designated bucket. For more information,

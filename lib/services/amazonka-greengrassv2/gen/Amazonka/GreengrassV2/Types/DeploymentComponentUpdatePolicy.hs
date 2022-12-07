@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction
 import qualified Amazonka.Prelude as Prelude
 
@@ -132,16 +133,16 @@ deploymentComponentUpdatePolicy_action :: Lens.Lens' DeploymentComponentUpdatePo
 deploymentComponentUpdatePolicy_action = Lens.lens (\DeploymentComponentUpdatePolicy' {action} -> action) (\s@DeploymentComponentUpdatePolicy' {} a -> s {action = a} :: DeploymentComponentUpdatePolicy)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DeploymentComponentUpdatePolicy
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentComponentUpdatePolicy"
       ( \x ->
           DeploymentComponentUpdatePolicy'
-            Prelude.<$> (x Core..:? "timeoutInSeconds")
-            Prelude.<*> (x Core..:? "action")
+            Prelude.<$> (x Data..:? "timeoutInSeconds")
+            Prelude.<*> (x Data..:? "action")
       )
 
 instance
@@ -162,12 +163,12 @@ instance
     Prelude.rnf timeoutInSeconds
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToJSON DeploymentComponentUpdatePolicy where
+instance Data.ToJSON DeploymentComponentUpdatePolicy where
   toJSON DeploymentComponentUpdatePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timeoutInSeconds" Core..=)
+          [ ("timeoutInSeconds" Data..=)
               Prelude.<$> timeoutInSeconds,
-            ("action" Core..=) Prelude.<$> action
+            ("action" Data..=) Prelude.<$> action
           ]
       )

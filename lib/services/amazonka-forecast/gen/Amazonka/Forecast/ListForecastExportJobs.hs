@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -203,8 +204,8 @@ instance Core.AWSRequest ListForecastExportJobs where
     Response.receiveJSON
       ( \s h x ->
           ListForecastExportJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ForecastExportJobs"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ForecastExportJobs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -222,35 +223,35 @@ instance Prelude.NFData ListForecastExportJobs where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListForecastExportJobs where
+instance Data.ToHeaders ListForecastExportJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.ListForecastExportJobs" ::
+              Data.=# ( "AmazonForecast.ListForecastExportJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListForecastExportJobs where
+instance Data.ToJSON ListForecastExportJobs where
   toJSON ListForecastExportJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListForecastExportJobs where
+instance Data.ToPath ListForecastExportJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListForecastExportJobs where
+instance Data.ToQuery ListForecastExportJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListForecastExportJobsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpcCidrBlockAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.VpcCidrBlockState
 import qualified Amazonka.Prelude as Prelude
@@ -73,12 +74,12 @@ vpcCidrBlockAssociation_cidrBlock = Lens.lens (\VpcCidrBlockAssociation' {cidrBl
 vpcCidrBlockAssociation_associationId :: Lens.Lens' VpcCidrBlockAssociation (Prelude.Maybe Prelude.Text)
 vpcCidrBlockAssociation_associationId = Lens.lens (\VpcCidrBlockAssociation' {associationId} -> associationId) (\s@VpcCidrBlockAssociation' {} a -> s {associationId = a} :: VpcCidrBlockAssociation)
 
-instance Core.FromXML VpcCidrBlockAssociation where
+instance Data.FromXML VpcCidrBlockAssociation where
   parseXML x =
     VpcCidrBlockAssociation'
-      Prelude.<$> (x Core..@? "cidrBlockState")
-      Prelude.<*> (x Core..@? "cidrBlock")
-      Prelude.<*> (x Core..@? "associationId")
+      Prelude.<$> (x Data..@? "cidrBlockState")
+      Prelude.<*> (x Data..@? "cidrBlock")
+      Prelude.<*> (x Data..@? "associationId")
 
 instance Prelude.Hashable VpcCidrBlockAssociation where
   hashWithSalt _salt VpcCidrBlockAssociation' {..} =

@@ -49,6 +49,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,9 +172,9 @@ instance Core.AWSRequest DescribePullRequestEvents where
     Response.receiveJSON
       ( \s h x ->
           DescribePullRequestEventsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "pullRequestEvents"
+            Prelude.<*> ( x Data..?> "pullRequestEvents"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -194,39 +195,39 @@ instance Prelude.NFData DescribePullRequestEvents where
       `Prelude.seq` Prelude.rnf pullRequestEventType
       `Prelude.seq` Prelude.rnf pullRequestId
 
-instance Core.ToHeaders DescribePullRequestEvents where
+instance Data.ToHeaders DescribePullRequestEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.DescribePullRequestEvents" ::
+              Data.=# ( "CodeCommit_20150413.DescribePullRequestEvents" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribePullRequestEvents where
+instance Data.ToJSON DescribePullRequestEvents where
   toJSON DescribePullRequestEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("actorArn" Core..=) Prelude.<$> actorArn,
-            ("pullRequestEventType" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("actorArn" Data..=) Prelude.<$> actorArn,
+            ("pullRequestEventType" Data..=)
               Prelude.<$> pullRequestEventType,
             Prelude.Just
-              ("pullRequestId" Core..= pullRequestId)
+              ("pullRequestId" Data..= pullRequestId)
           ]
       )
 
-instance Core.ToPath DescribePullRequestEvents where
+instance Data.ToPath DescribePullRequestEvents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePullRequestEvents where
+instance Data.ToQuery DescribePullRequestEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePullRequestEventsResponse' smart constructor.

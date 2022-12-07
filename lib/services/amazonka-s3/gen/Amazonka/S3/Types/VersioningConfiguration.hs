@@ -21,6 +21,7 @@ module Amazonka.S3.Types.VersioningConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.BucketVersioningStatus
@@ -87,9 +88,9 @@ instance Prelude.NFData VersioningConfiguration where
     Prelude.rnf mfaDelete
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToXML VersioningConfiguration where
+instance Data.ToXML VersioningConfiguration where
   toXML VersioningConfiguration' {..} =
     Prelude.mconcat
-      [ "MfaDelete" Core.@= mfaDelete,
-        "Status" Core.@= status
+      [ "MfaDelete" Data.@= mfaDelete,
+        "Status" Data.@= status
       ]

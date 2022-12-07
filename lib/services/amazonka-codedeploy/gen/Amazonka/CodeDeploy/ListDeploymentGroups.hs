@@ -48,6 +48,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,11 +131,11 @@ instance Core.AWSRequest ListDeploymentGroups where
     Response.receiveJSON
       ( \s h x ->
           ListDeploymentGroupsResponse'
-            Prelude.<$> ( x Core..?> "deploymentGroups"
+            Prelude.<$> ( x Data..?> "deploymentGroups"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "applicationName")
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "applicationName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,35 +149,35 @@ instance Prelude.NFData ListDeploymentGroups where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders ListDeploymentGroups where
+instance Data.ToHeaders ListDeploymentGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.ListDeploymentGroups" ::
+              Data.=# ( "CodeDeploy_20141006.ListDeploymentGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDeploymentGroups where
+instance Data.ToJSON ListDeploymentGroups where
   toJSON ListDeploymentGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
-              ("applicationName" Core..= applicationName)
+              ("applicationName" Data..= applicationName)
           ]
       )
 
-instance Core.ToPath ListDeploymentGroups where
+instance Data.ToPath ListDeploymentGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDeploymentGroups where
+instance Data.ToQuery ListDeploymentGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @ListDeploymentGroups@ operation.

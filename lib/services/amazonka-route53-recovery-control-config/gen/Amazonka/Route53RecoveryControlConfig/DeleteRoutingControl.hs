@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,23 +100,23 @@ instance Prelude.NFData DeleteRoutingControl where
   rnf DeleteRoutingControl' {..} =
     Prelude.rnf routingControlArn
 
-instance Core.ToHeaders DeleteRoutingControl where
+instance Data.ToHeaders DeleteRoutingControl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteRoutingControl where
+instance Data.ToPath DeleteRoutingControl where
   toPath DeleteRoutingControl' {..} =
     Prelude.mconcat
-      ["/routingcontrol/", Core.toBS routingControlArn]
+      ["/routingcontrol/", Data.toBS routingControlArn]
 
-instance Core.ToQuery DeleteRoutingControl where
+instance Data.ToQuery DeleteRoutingControl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRoutingControlResponse' smart constructor.

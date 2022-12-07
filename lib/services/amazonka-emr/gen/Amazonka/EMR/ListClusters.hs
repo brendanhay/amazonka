@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -69,9 +70,9 @@ data ListClusters = ListClusters'
     -- | The pagination token that indicates the next set of results to retrieve.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The creation date and time end value filter for listing clusters.
-    createdBefore :: Prelude.Maybe Core.POSIX,
+    createdBefore :: Prelude.Maybe Data.POSIX,
     -- | The creation date and time beginning value filter for listing clusters.
-    createdAfter :: Prelude.Maybe Core.POSIX
+    createdAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,11 +115,11 @@ listClusters_marker = Lens.lens (\ListClusters' {marker} -> marker) (\s@ListClus
 
 -- | The creation date and time end value filter for listing clusters.
 listClusters_createdBefore :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.UTCTime)
-listClusters_createdBefore = Lens.lens (\ListClusters' {createdBefore} -> createdBefore) (\s@ListClusters' {} a -> s {createdBefore = a} :: ListClusters) Prelude.. Lens.mapping Core._Time
+listClusters_createdBefore = Lens.lens (\ListClusters' {createdBefore} -> createdBefore) (\s@ListClusters' {} a -> s {createdBefore = a} :: ListClusters) Prelude.. Lens.mapping Data._Time
 
 -- | The creation date and time beginning value filter for listing clusters.
 listClusters_createdAfter :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.UTCTime)
-listClusters_createdAfter = Lens.lens (\ListClusters' {createdAfter} -> createdAfter) (\s@ListClusters' {} a -> s {createdAfter = a} :: ListClusters) Prelude.. Lens.mapping Core._Time
+listClusters_createdAfter = Lens.lens (\ListClusters' {createdAfter} -> createdAfter) (\s@ListClusters' {} a -> s {createdAfter = a} :: ListClusters) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListClusters where
   page rq rs
@@ -147,8 +148,8 @@ instance Core.AWSRequest ListClusters where
     Response.receiveJSON
       ( \s h x ->
           ListClustersResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "Clusters" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "Clusters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,36 +167,36 @@ instance Prelude.NFData ListClusters where
       `Prelude.seq` Prelude.rnf createdBefore
       `Prelude.seq` Prelude.rnf createdAfter
 
-instance Core.ToHeaders ListClusters where
+instance Data.ToHeaders ListClusters where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.ListClusters" ::
+              Data.=# ( "ElasticMapReduce.ListClusters" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListClusters where
+instance Data.ToJSON ListClusters where
   toJSON ListClusters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClusterStates" Core..=) Prelude.<$> clusterStates,
-            ("Marker" Core..=) Prelude.<$> marker,
-            ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
-            ("CreatedAfter" Core..=) Prelude.<$> createdAfter
+          [ ("ClusterStates" Data..=) Prelude.<$> clusterStates,
+            ("Marker" Data..=) Prelude.<$> marker,
+            ("CreatedBefore" Data..=) Prelude.<$> createdBefore,
+            ("CreatedAfter" Data..=) Prelude.<$> createdAfter
           ]
       )
 
-instance Core.ToPath ListClusters where
+instance Data.ToPath ListClusters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListClusters where
+instance Data.ToQuery ListClusters where
   toQuery = Prelude.const Prelude.mempty
 
 -- | This contains a ClusterSummaryList with the cluster details; for

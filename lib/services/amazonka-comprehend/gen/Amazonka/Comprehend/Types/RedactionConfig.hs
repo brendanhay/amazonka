@@ -23,6 +23,7 @@ import Amazonka.Comprehend.Types.PiiEntitiesDetectionMaskMode
 import Amazonka.Comprehend.Types.PiiEntityType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides configuration parameters for PII entity redaction.
@@ -78,15 +79,15 @@ redactionConfig_piiEntityTypes = Lens.lens (\RedactionConfig' {piiEntityTypes} -
 redactionConfig_maskCharacter :: Lens.Lens' RedactionConfig (Prelude.Maybe Prelude.Text)
 redactionConfig_maskCharacter = Lens.lens (\RedactionConfig' {maskCharacter} -> maskCharacter) (\s@RedactionConfig' {} a -> s {maskCharacter = a} :: RedactionConfig)
 
-instance Core.FromJSON RedactionConfig where
+instance Data.FromJSON RedactionConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedactionConfig"
       ( \x ->
           RedactionConfig'
-            Prelude.<$> (x Core..:? "MaskMode")
-            Prelude.<*> (x Core..:? "PiiEntityTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MaskCharacter")
+            Prelude.<$> (x Data..:? "MaskMode")
+            Prelude.<*> (x Data..:? "PiiEntityTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MaskCharacter")
       )
 
 instance Prelude.Hashable RedactionConfig where
@@ -101,13 +102,13 @@ instance Prelude.NFData RedactionConfig where
       `Prelude.seq` Prelude.rnf piiEntityTypes
       `Prelude.seq` Prelude.rnf maskCharacter
 
-instance Core.ToJSON RedactionConfig where
+instance Data.ToJSON RedactionConfig where
   toJSON RedactionConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaskMode" Core..=) Prelude.<$> maskMode,
-            ("PiiEntityTypes" Core..=)
+          [ ("MaskMode" Data..=) Prelude.<$> maskMode,
+            ("PiiEntityTypes" Data..=)
               Prelude.<$> piiEntityTypes,
-            ("MaskCharacter" Core..=) Prelude.<$> maskCharacter
+            ("MaskCharacter" Data..=) Prelude.<$> maskCharacter
           ]
       )

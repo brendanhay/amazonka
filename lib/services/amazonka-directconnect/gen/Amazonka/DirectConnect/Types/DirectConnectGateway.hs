@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.DirectConnectGateway where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types.DirectConnectGatewayState
 import qualified Amazonka.Prelude as Prelude
 
@@ -142,18 +143,18 @@ directConnectGateway_directConnectGatewayName = Lens.lens (\DirectConnectGateway
 directConnectGateway_ownerAccount :: Lens.Lens' DirectConnectGateway (Prelude.Maybe Prelude.Text)
 directConnectGateway_ownerAccount = Lens.lens (\DirectConnectGateway' {ownerAccount} -> ownerAccount) (\s@DirectConnectGateway' {} a -> s {ownerAccount = a} :: DirectConnectGateway)
 
-instance Core.FromJSON DirectConnectGateway where
+instance Data.FromJSON DirectConnectGateway where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DirectConnectGateway"
       ( \x ->
           DirectConnectGateway'
-            Prelude.<$> (x Core..:? "directConnectGatewayId")
-            Prelude.<*> (x Core..:? "stateChangeError")
-            Prelude.<*> (x Core..:? "directConnectGatewayState")
-            Prelude.<*> (x Core..:? "amazonSideAsn")
-            Prelude.<*> (x Core..:? "directConnectGatewayName")
-            Prelude.<*> (x Core..:? "ownerAccount")
+            Prelude.<$> (x Data..:? "directConnectGatewayId")
+            Prelude.<*> (x Data..:? "stateChangeError")
+            Prelude.<*> (x Data..:? "directConnectGatewayState")
+            Prelude.<*> (x Data..:? "amazonSideAsn")
+            Prelude.<*> (x Data..:? "directConnectGatewayName")
+            Prelude.<*> (x Data..:? "ownerAccount")
       )
 
 instance Prelude.Hashable DirectConnectGateway where

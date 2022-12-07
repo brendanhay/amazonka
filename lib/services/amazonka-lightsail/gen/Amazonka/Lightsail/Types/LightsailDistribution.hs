@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.LightsailDistribution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.CacheBehavior
 import Amazonka.Lightsail.Types.CacheBehaviorPerPath
 import Amazonka.Lightsail.Types.CacheSettings
@@ -97,7 +98,7 @@ data LightsailDistribution = LightsailDistribution'
     -- The distribution pulls, caches, and serves content from the origin.
     origin :: Prelude.Maybe Origin,
     -- | The timestamp when the distribution was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | An object that describes the default cache behavior of the distribution.
     defaultCacheBehavior :: Prelude.Maybe CacheBehavior
   }
@@ -298,40 +299,40 @@ lightsailDistribution_origin = Lens.lens (\LightsailDistribution' {origin} -> or
 
 -- | The timestamp when the distribution was created.
 lightsailDistribution_createdAt :: Lens.Lens' LightsailDistribution (Prelude.Maybe Prelude.UTCTime)
-lightsailDistribution_createdAt = Lens.lens (\LightsailDistribution' {createdAt} -> createdAt) (\s@LightsailDistribution' {} a -> s {createdAt = a} :: LightsailDistribution) Prelude.. Lens.mapping Core._Time
+lightsailDistribution_createdAt = Lens.lens (\LightsailDistribution' {createdAt} -> createdAt) (\s@LightsailDistribution' {} a -> s {createdAt = a} :: LightsailDistribution) Prelude.. Lens.mapping Data._Time
 
 -- | An object that describes the default cache behavior of the distribution.
 lightsailDistribution_defaultCacheBehavior :: Lens.Lens' LightsailDistribution (Prelude.Maybe CacheBehavior)
 lightsailDistribution_defaultCacheBehavior = Lens.lens (\LightsailDistribution' {defaultCacheBehavior} -> defaultCacheBehavior) (\s@LightsailDistribution' {} a -> s {defaultCacheBehavior = a} :: LightsailDistribution)
 
-instance Core.FromJSON LightsailDistribution where
+instance Data.FromJSON LightsailDistribution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LightsailDistribution"
       ( \x ->
           LightsailDistribution'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "isEnabled")
-            Prelude.<*> (x Core..:? "domainName")
-            Prelude.<*> (x Core..:? "cacheBehaviorSettings")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "originPublicDNS")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "certificateName")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "ableToUpdateBundle")
-            Prelude.<*> (x Core..:? "bundleId")
-            Prelude.<*> ( x Core..:? "alternativeDomainNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "isEnabled")
+            Prelude.<*> (x Data..:? "domainName")
+            Prelude.<*> (x Data..:? "cacheBehaviorSettings")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "originPublicDNS")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "certificateName")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "ableToUpdateBundle")
+            Prelude.<*> (x Data..:? "bundleId")
+            Prelude.<*> ( x Data..:? "alternativeDomainNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "cacheBehaviors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "ipAddressType")
-            Prelude.<*> (x Core..:? "origin")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "defaultCacheBehavior")
+            Prelude.<*> (x Data..:? "cacheBehaviors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "supportCode")
+            Prelude.<*> (x Data..:? "ipAddressType")
+            Prelude.<*> (x Data..:? "origin")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "defaultCacheBehavior")
       )
 
 instance Prelude.Hashable LightsailDistribution where

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,13 +104,13 @@ instance Core.AWSRequest GetWirelessGateway where
     Response.receiveJSON
       ( \s h x ->
           GetWirelessGatewayResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "ThingName")
-            Prelude.<*> (x Core..?> "ThingArn")
-            Prelude.<*> (x Core..?> "LoRaWAN")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Description")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "ThingName")
+            Prelude.<*> (x Data..?> "ThingArn")
+            Prelude.<*> (x Data..?> "LoRaWAN")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,18 +124,18 @@ instance Prelude.NFData GetWirelessGateway where
     Prelude.rnf identifier
       `Prelude.seq` Prelude.rnf identifierType
 
-instance Core.ToHeaders GetWirelessGateway where
+instance Data.ToHeaders GetWirelessGateway where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetWirelessGateway where
+instance Data.ToPath GetWirelessGateway where
   toPath GetWirelessGateway' {..} =
     Prelude.mconcat
-      ["/wireless-gateways/", Core.toBS identifier]
+      ["/wireless-gateways/", Data.toBS identifier]
 
-instance Core.ToQuery GetWirelessGateway where
+instance Data.ToQuery GetWirelessGateway where
   toQuery GetWirelessGateway' {..} =
     Prelude.mconcat
-      ["identifierType" Core.=: identifierType]
+      ["identifierType" Data.=: identifierType]
 
 -- | /See:/ 'newGetWirelessGatewayResponse' smart constructor.
 data GetWirelessGatewayResponse = GetWirelessGatewayResponse'

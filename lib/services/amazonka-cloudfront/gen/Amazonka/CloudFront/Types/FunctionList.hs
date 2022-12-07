@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.FunctionList where
 import Amazonka.CloudFront.Types.FunctionSummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of CloudFront functions.
@@ -93,15 +94,15 @@ functionList_maxItems = Lens.lens (\FunctionList' {maxItems} -> maxItems) (\s@Fu
 functionList_quantity :: Lens.Lens' FunctionList Prelude.Int
 functionList_quantity = Lens.lens (\FunctionList' {quantity} -> quantity) (\s@FunctionList' {} a -> s {quantity = a} :: FunctionList)
 
-instance Core.FromXML FunctionList where
+instance Data.FromXML FunctionList where
   parseXML x =
     FunctionList'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "FunctionSummary")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "FunctionSummary")
                   )
-      Prelude.<*> (x Core..@? "NextMarker")
-      Prelude.<*> (x Core..@ "MaxItems")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@? "NextMarker")
+      Prelude.<*> (x Data..@ "MaxItems")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable FunctionList where
   hashWithSalt _salt FunctionList' {..} =

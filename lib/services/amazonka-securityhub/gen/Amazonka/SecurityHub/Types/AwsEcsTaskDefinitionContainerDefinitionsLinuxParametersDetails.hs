@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxP
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
 import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails
@@ -130,21 +131,21 @@ awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_sharedMemorySize 
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_sharedMemorySize = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {sharedMemorySize} -> sharedMemorySize) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {} a -> s {sharedMemorySize = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'
-            Prelude.<$> (x Core..:? "Devices" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "Swappiness")
-              Prelude.<*> (x Core..:? "Tmpfs" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "InitProcessEnabled")
-              Prelude.<*> (x Core..:? "MaxSwap")
-              Prelude.<*> (x Core..:? "Capabilities")
-              Prelude.<*> (x Core..:? "SharedMemorySize")
+            Prelude.<$> (x Data..:? "Devices" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Swappiness")
+              Prelude.<*> (x Data..:? "Tmpfs" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "InitProcessEnabled")
+              Prelude.<*> (x Data..:? "MaxSwap")
+              Prelude.<*> (x Data..:? "Capabilities")
+              Prelude.<*> (x Data..:? "SharedMemorySize")
       )
 
 instance
@@ -177,21 +178,21 @@ instance
         `Prelude.seq` Prelude.rnf sharedMemorySize
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Devices" Core..=) Prelude.<$> devices,
-              ("Swappiness" Core..=) Prelude.<$> swappiness,
-              ("Tmpfs" Core..=) Prelude.<$> tmpfs,
-              ("InitProcessEnabled" Core..=)
+            [ ("Devices" Data..=) Prelude.<$> devices,
+              ("Swappiness" Data..=) Prelude.<$> swappiness,
+              ("Tmpfs" Data..=) Prelude.<$> tmpfs,
+              ("InitProcessEnabled" Data..=)
                 Prelude.<$> initProcessEnabled,
-              ("MaxSwap" Core..=) Prelude.<$> maxSwap,
-              ("Capabilities" Core..=) Prelude.<$> capabilities,
-              ("SharedMemorySize" Core..=)
+              ("MaxSwap" Data..=) Prelude.<$> maxSwap,
+              ("Capabilities" Data..=) Prelude.<$> capabilities,
+              ("SharedMemorySize" Data..=)
                 Prelude.<$> sharedMemorySize
             ]
         )

@@ -21,6 +21,7 @@ module Amazonka.MarketplaceCatalog.Types.EntitySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This object is a container for common summary information about the
@@ -114,18 +115,18 @@ entitySummary_entityType = Lens.lens (\EntitySummary' {entityType} -> entityType
 entitySummary_entityArn :: Lens.Lens' EntitySummary (Prelude.Maybe Prelude.Text)
 entitySummary_entityArn = Lens.lens (\EntitySummary' {entityArn} -> entityArn) (\s@EntitySummary' {} a -> s {entityArn = a} :: EntitySummary)
 
-instance Core.FromJSON EntitySummary where
+instance Data.FromJSON EntitySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntitySummary"
       ( \x ->
           EntitySummary'
-            Prelude.<$> (x Core..:? "EntityId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "Visibility")
-            Prelude.<*> (x Core..:? "EntityType")
-            Prelude.<*> (x Core..:? "EntityArn")
+            Prelude.<$> (x Data..:? "EntityId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "Visibility")
+            Prelude.<*> (x Data..:? "EntityType")
+            Prelude.<*> (x Data..:? "EntityArn")
       )
 
 instance Prelude.Hashable EntitySummary where

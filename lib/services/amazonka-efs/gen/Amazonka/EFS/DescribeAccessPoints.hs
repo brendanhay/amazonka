@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,8 +140,8 @@ instance Core.AWSRequest DescribeAccessPoints where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccessPointsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "AccessPoints" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "AccessPoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,19 +159,19 @@ instance Prelude.NFData DescribeAccessPoints where
       `Prelude.seq` Prelude.rnf accessPointId
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeAccessPoints where
+instance Data.ToHeaders DescribeAccessPoints where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAccessPoints where
+instance Data.ToPath DescribeAccessPoints where
   toPath = Prelude.const "/2015-02-01/access-points"
 
-instance Core.ToQuery DescribeAccessPoints where
+instance Data.ToQuery DescribeAccessPoints where
   toQuery DescribeAccessPoints' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "FileSystemId" Core.=: fileSystemId,
-        "AccessPointId" Core.=: accessPointId,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "FileSystemId" Data.=: fileSystemId,
+        "AccessPointId" Data.=: accessPointId,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeAccessPointsResponse' smart constructor.

@@ -41,6 +41,7 @@ where
 import Amazonka.AccessAnalyzer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,32 +131,32 @@ instance Prelude.NFData StartResourceScan where
       `Prelude.seq` Prelude.rnf analyzerArn
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders StartResourceScan where
+instance Data.ToHeaders StartResourceScan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartResourceScan where
+instance Data.ToJSON StartResourceScan where
   toJSON StartResourceScan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resourceOwnerAccount" Core..=)
+          [ ("resourceOwnerAccount" Data..=)
               Prelude.<$> resourceOwnerAccount,
-            Prelude.Just ("analyzerArn" Core..= analyzerArn),
-            Prelude.Just ("resourceArn" Core..= resourceArn)
+            Prelude.Just ("analyzerArn" Data..= analyzerArn),
+            Prelude.Just ("resourceArn" Data..= resourceArn)
           ]
       )
 
-instance Core.ToPath StartResourceScan where
+instance Data.ToPath StartResourceScan where
   toPath = Prelude.const "/resource/scan"
 
-instance Core.ToQuery StartResourceScan where
+instance Data.ToQuery StartResourceScan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartResourceScanResponse' smart constructor.

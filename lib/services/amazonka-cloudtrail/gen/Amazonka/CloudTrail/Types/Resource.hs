@@ -21,6 +21,7 @@ module Amazonka.CloudTrail.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the type and name of a resource referenced by an event.
@@ -88,14 +89,14 @@ resource_resourceType = Lens.lens (\Resource' {resourceType} -> resourceType) (\
 resource_resourceName :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_resourceName = Lens.lens (\Resource' {resourceName} -> resourceName) (\s@Resource' {} a -> s {resourceName = a} :: Resource)
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "ResourceName")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "ResourceName")
       )
 
 instance Prelude.Hashable Resource where

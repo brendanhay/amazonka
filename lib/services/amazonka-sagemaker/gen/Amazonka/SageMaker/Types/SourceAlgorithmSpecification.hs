@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.SourceAlgorithmSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.SourceAlgorithm
 
@@ -56,13 +57,13 @@ newSourceAlgorithmSpecification pSourceAlgorithms_ =
 sourceAlgorithmSpecification_sourceAlgorithms :: Lens.Lens' SourceAlgorithmSpecification (Prelude.NonEmpty SourceAlgorithm)
 sourceAlgorithmSpecification_sourceAlgorithms = Lens.lens (\SourceAlgorithmSpecification' {sourceAlgorithms} -> sourceAlgorithms) (\s@SourceAlgorithmSpecification' {} a -> s {sourceAlgorithms = a} :: SourceAlgorithmSpecification) Prelude.. Lens.coerced
 
-instance Core.FromJSON SourceAlgorithmSpecification where
+instance Data.FromJSON SourceAlgorithmSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceAlgorithmSpecification"
       ( \x ->
           SourceAlgorithmSpecification'
-            Prelude.<$> (x Core..: "SourceAlgorithms")
+            Prelude.<$> (x Data..: "SourceAlgorithms")
       )
 
 instance
@@ -76,11 +77,11 @@ instance Prelude.NFData SourceAlgorithmSpecification where
   rnf SourceAlgorithmSpecification' {..} =
     Prelude.rnf sourceAlgorithms
 
-instance Core.ToJSON SourceAlgorithmSpecification where
+instance Data.ToJSON SourceAlgorithmSpecification where
   toJSON SourceAlgorithmSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("SourceAlgorithms" Core..= sourceAlgorithms)
+              ("SourceAlgorithms" Data..= sourceAlgorithms)
           ]
       )

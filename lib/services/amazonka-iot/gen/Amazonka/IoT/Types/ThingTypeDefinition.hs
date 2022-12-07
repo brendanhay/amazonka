@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ThingTypeDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.ThingTypeMetadata
 import Amazonka.IoT.Types.ThingTypeProperties
 import qualified Amazonka.Prelude as Prelude
@@ -89,16 +90,16 @@ thingTypeDefinition_thingTypeArn = Lens.lens (\ThingTypeDefinition' {thingTypeAr
 thingTypeDefinition_thingTypeProperties :: Lens.Lens' ThingTypeDefinition (Prelude.Maybe ThingTypeProperties)
 thingTypeDefinition_thingTypeProperties = Lens.lens (\ThingTypeDefinition' {thingTypeProperties} -> thingTypeProperties) (\s@ThingTypeDefinition' {} a -> s {thingTypeProperties = a} :: ThingTypeDefinition)
 
-instance Core.FromJSON ThingTypeDefinition where
+instance Data.FromJSON ThingTypeDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThingTypeDefinition"
       ( \x ->
           ThingTypeDefinition'
-            Prelude.<$> (x Core..:? "thingTypeMetadata")
-            Prelude.<*> (x Core..:? "thingTypeName")
-            Prelude.<*> (x Core..:? "thingTypeArn")
-            Prelude.<*> (x Core..:? "thingTypeProperties")
+            Prelude.<$> (x Data..:? "thingTypeMetadata")
+            Prelude.<*> (x Data..:? "thingTypeName")
+            Prelude.<*> (x Data..:? "thingTypeArn")
+            Prelude.<*> (x Data..:? "thingTypeProperties")
       )
 
 instance Prelude.Hashable ThingTypeDefinition where

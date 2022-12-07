@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,7 +128,7 @@ instance Core.AWSRequest CreateSchema where
     Response.receiveJSON
       ( \s h x ->
           CreateSchemaResponse'
-            Prelude.<$> (x Core..?> "schemaArn")
+            Prelude.<$> (x Data..?> "schemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,35 +144,35 @@ instance Prelude.NFData CreateSchema where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf schema
 
-instance Core.ToHeaders CreateSchema where
+instance Data.ToHeaders CreateSchema where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.CreateSchema" ::
+              Data.=# ( "AmazonPersonalize.CreateSchema" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSchema where
+instance Data.ToJSON CreateSchema where
   toJSON CreateSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("domain" Core..=) Prelude.<$> domain,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("schema" Core..= schema)
+          [ ("domain" Data..=) Prelude.<$> domain,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("schema" Data..= schema)
           ]
       )
 
-instance Core.ToPath CreateSchema where
+instance Data.ToPath CreateSchema where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSchema where
+instance Data.ToQuery CreateSchema where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSchemaResponse' smart constructor.

@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.CurrentMetricName
 import Amazonka.Connect.Types.Unit
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a real-time metric. For a description of each
@@ -66,13 +67,13 @@ currentMetric_name = Lens.lens (\CurrentMetric' {name} -> name) (\s@CurrentMetri
 currentMetric_unit :: Lens.Lens' CurrentMetric (Prelude.Maybe Unit)
 currentMetric_unit = Lens.lens (\CurrentMetric' {unit} -> unit) (\s@CurrentMetric' {} a -> s {unit = a} :: CurrentMetric)
 
-instance Core.FromJSON CurrentMetric where
+instance Data.FromJSON CurrentMetric where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CurrentMetric"
       ( \x ->
           CurrentMetric'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Unit")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Unit")
       )
 
 instance Prelude.Hashable CurrentMetric where
@@ -84,11 +85,11 @@ instance Prelude.NFData CurrentMetric where
   rnf CurrentMetric' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf unit
 
-instance Core.ToJSON CurrentMetric where
+instance Data.ToJSON CurrentMetric where
   toJSON CurrentMetric' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Unit" Core..=) Prelude.<$> unit
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Unit" Data..=) Prelude.<$> unit
           ]
       )

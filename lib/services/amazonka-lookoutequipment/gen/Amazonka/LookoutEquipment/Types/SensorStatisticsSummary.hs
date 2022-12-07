@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.SensorStatisticsSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.CategoricalValues
 import Amazonka.LookoutEquipment.Types.CountPercent
 import Amazonka.LookoutEquipment.Types.LargeTimestampGaps
@@ -36,7 +37,7 @@ import qualified Amazonka.Prelude as Prelude
 data SensorStatisticsSummary = SensorStatisticsSummary'
   { -- | Indicates the time reference to indicate the beginning of valid data
     -- associated with the sensor that the statistics belong to.
-    dataStartTime :: Prelude.Maybe Core.POSIX,
+    dataStartTime :: Prelude.Maybe Data.POSIX,
     -- | Parameter that describes potential risk about whether data associated
     -- with the sensor has more than one operating mode.
     multipleOperatingModes :: Prelude.Maybe MultipleOperatingModes,
@@ -54,7 +55,7 @@ data SensorStatisticsSummary = SensorStatisticsSummary'
     missingValues :: Prelude.Maybe CountPercent,
     -- | Indicates the time reference to indicate the end of valid data
     -- associated with the sensor that the statistics belong to.
-    dataEndTime :: Prelude.Maybe Core.POSIX,
+    dataEndTime :: Prelude.Maybe Data.POSIX,
     -- | Name of the component to which the particular sensor belongs for which
     -- the statistics belong to.
     componentName :: Prelude.Maybe Prelude.Text,
@@ -145,7 +146,7 @@ newSensorStatisticsSummary =
 -- | Indicates the time reference to indicate the beginning of valid data
 -- associated with the sensor that the statistics belong to.
 sensorStatisticsSummary_dataStartTime :: Lens.Lens' SensorStatisticsSummary (Prelude.Maybe Prelude.UTCTime)
-sensorStatisticsSummary_dataStartTime = Lens.lens (\SensorStatisticsSummary' {dataStartTime} -> dataStartTime) (\s@SensorStatisticsSummary' {} a -> s {dataStartTime = a} :: SensorStatisticsSummary) Prelude.. Lens.mapping Core._Time
+sensorStatisticsSummary_dataStartTime = Lens.lens (\SensorStatisticsSummary' {dataStartTime} -> dataStartTime) (\s@SensorStatisticsSummary' {} a -> s {dataStartTime = a} :: SensorStatisticsSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Parameter that describes potential risk about whether data associated
 -- with the sensor has more than one operating mode.
@@ -175,7 +176,7 @@ sensorStatisticsSummary_missingValues = Lens.lens (\SensorStatisticsSummary' {mi
 -- | Indicates the time reference to indicate the end of valid data
 -- associated with the sensor that the statistics belong to.
 sensorStatisticsSummary_dataEndTime :: Lens.Lens' SensorStatisticsSummary (Prelude.Maybe Prelude.UTCTime)
-sensorStatisticsSummary_dataEndTime = Lens.lens (\SensorStatisticsSummary' {dataEndTime} -> dataEndTime) (\s@SensorStatisticsSummary' {} a -> s {dataEndTime = a} :: SensorStatisticsSummary) Prelude.. Lens.mapping Core._Time
+sensorStatisticsSummary_dataEndTime = Lens.lens (\SensorStatisticsSummary' {dataEndTime} -> dataEndTime) (\s@SensorStatisticsSummary' {} a -> s {dataEndTime = a} :: SensorStatisticsSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Name of the component to which the particular sensor belongs for which
 -- the statistics belong to.
@@ -207,25 +208,25 @@ sensorStatisticsSummary_invalidDateEntries = Lens.lens (\SensorStatisticsSummary
 sensorStatisticsSummary_sensorName :: Lens.Lens' SensorStatisticsSummary (Prelude.Maybe Prelude.Text)
 sensorStatisticsSummary_sensorName = Lens.lens (\SensorStatisticsSummary' {sensorName} -> sensorName) (\s@SensorStatisticsSummary' {} a -> s {sensorName = a} :: SensorStatisticsSummary)
 
-instance Core.FromJSON SensorStatisticsSummary where
+instance Data.FromJSON SensorStatisticsSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SensorStatisticsSummary"
       ( \x ->
           SensorStatisticsSummary'
-            Prelude.<$> (x Core..:? "DataStartTime")
-            Prelude.<*> (x Core..:? "MultipleOperatingModes")
-            Prelude.<*> (x Core..:? "CategoricalValues")
-            Prelude.<*> (x Core..:? "DataExists")
-            Prelude.<*> (x Core..:? "InvalidValues")
-            Prelude.<*> (x Core..:? "MissingValues")
-            Prelude.<*> (x Core..:? "DataEndTime")
-            Prelude.<*> (x Core..:? "ComponentName")
-            Prelude.<*> (x Core..:? "DuplicateTimestamps")
-            Prelude.<*> (x Core..:? "LargeTimestampGaps")
-            Prelude.<*> (x Core..:? "MonotonicValues")
-            Prelude.<*> (x Core..:? "InvalidDateEntries")
-            Prelude.<*> (x Core..:? "SensorName")
+            Prelude.<$> (x Data..:? "DataStartTime")
+            Prelude.<*> (x Data..:? "MultipleOperatingModes")
+            Prelude.<*> (x Data..:? "CategoricalValues")
+            Prelude.<*> (x Data..:? "DataExists")
+            Prelude.<*> (x Data..:? "InvalidValues")
+            Prelude.<*> (x Data..:? "MissingValues")
+            Prelude.<*> (x Data..:? "DataEndTime")
+            Prelude.<*> (x Data..:? "ComponentName")
+            Prelude.<*> (x Data..:? "DuplicateTimestamps")
+            Prelude.<*> (x Data..:? "LargeTimestampGaps")
+            Prelude.<*> (x Data..:? "MonotonicValues")
+            Prelude.<*> (x Data..:? "InvalidDateEntries")
+            Prelude.<*> (x Data..:? "SensorName")
       )
 
 instance Prelude.Hashable SensorStatisticsSummary where

@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,32 +100,32 @@ instance Prelude.NFData RemoveAutoTerminationPolicy where
   rnf RemoveAutoTerminationPolicy' {..} =
     Prelude.rnf clusterId
 
-instance Core.ToHeaders RemoveAutoTerminationPolicy where
+instance Data.ToHeaders RemoveAutoTerminationPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.RemoveAutoTerminationPolicy" ::
+              Data.=# ( "ElasticMapReduce.RemoveAutoTerminationPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RemoveAutoTerminationPolicy where
+instance Data.ToJSON RemoveAutoTerminationPolicy where
   toJSON RemoveAutoTerminationPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ClusterId" Core..= clusterId)]
+          [Prelude.Just ("ClusterId" Data..= clusterId)]
       )
 
-instance Core.ToPath RemoveAutoTerminationPolicy where
+instance Data.ToPath RemoveAutoTerminationPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveAutoTerminationPolicy where
+instance Data.ToQuery RemoveAutoTerminationPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveAutoTerminationPolicyResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Purchase where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CurrencyCodeValues
 import Amazonka.EC2.Types.PaymentOption
@@ -124,19 +125,19 @@ purchase_hostIdSet = Lens.lens (\Purchase' {hostIdSet} -> hostIdSet) (\s@Purchas
 purchase_paymentOption :: Lens.Lens' Purchase (Prelude.Maybe PaymentOption)
 purchase_paymentOption = Lens.lens (\Purchase' {paymentOption} -> paymentOption) (\s@Purchase' {} a -> s {paymentOption = a} :: Purchase)
 
-instance Core.FromXML Purchase where
+instance Data.FromXML Purchase where
   parseXML x =
     Purchase'
-      Prelude.<$> (x Core..@? "hourlyPrice")
-      Prelude.<*> (x Core..@? "upfrontPrice")
-      Prelude.<*> (x Core..@? "duration")
-      Prelude.<*> (x Core..@? "currencyCode")
-      Prelude.<*> (x Core..@? "instanceFamily")
-      Prelude.<*> (x Core..@? "hostReservationId")
-      Prelude.<*> ( x Core..@? "hostIdSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "hourlyPrice")
+      Prelude.<*> (x Data..@? "upfrontPrice")
+      Prelude.<*> (x Data..@? "duration")
+      Prelude.<*> (x Data..@? "currencyCode")
+      Prelude.<*> (x Data..@? "instanceFamily")
+      Prelude.<*> (x Data..@? "hostReservationId")
+      Prelude.<*> ( x Data..@? "hostIdSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "paymentOption")
+      Prelude.<*> (x Data..@? "paymentOption")
 
 instance Prelude.Hashable Purchase where
   hashWithSalt _salt Purchase' {..} =

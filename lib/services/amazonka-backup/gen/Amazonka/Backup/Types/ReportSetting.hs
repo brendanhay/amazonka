@@ -21,6 +21,7 @@ module Amazonka.Backup.Types.ReportSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains detailed information about a report setting.
@@ -81,15 +82,15 @@ reportSetting_numberOfFrameworks = Lens.lens (\ReportSetting' {numberOfFramework
 reportSetting_reportTemplate :: Lens.Lens' ReportSetting Prelude.Text
 reportSetting_reportTemplate = Lens.lens (\ReportSetting' {reportTemplate} -> reportTemplate) (\s@ReportSetting' {} a -> s {reportTemplate = a} :: ReportSetting)
 
-instance Core.FromJSON ReportSetting where
+instance Data.FromJSON ReportSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReportSetting"
       ( \x ->
           ReportSetting'
-            Prelude.<$> (x Core..:? "FrameworkArns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "NumberOfFrameworks")
-            Prelude.<*> (x Core..: "ReportTemplate")
+            Prelude.<$> (x Data..:? "FrameworkArns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "NumberOfFrameworks")
+            Prelude.<*> (x Data..: "ReportTemplate")
       )
 
 instance Prelude.Hashable ReportSetting where
@@ -104,14 +105,14 @@ instance Prelude.NFData ReportSetting where
       `Prelude.seq` Prelude.rnf numberOfFrameworks
       `Prelude.seq` Prelude.rnf reportTemplate
 
-instance Core.ToJSON ReportSetting where
+instance Data.ToJSON ReportSetting where
   toJSON ReportSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FrameworkArns" Core..=) Prelude.<$> frameworkArns,
-            ("NumberOfFrameworks" Core..=)
+          [ ("FrameworkArns" Data..=) Prelude.<$> frameworkArns,
+            ("NumberOfFrameworks" Data..=)
               Prelude.<$> numberOfFrameworks,
             Prelude.Just
-              ("ReportTemplate" Core..= reportTemplate)
+              ("ReportTemplate" Data..= reportTemplate)
           ]
       )

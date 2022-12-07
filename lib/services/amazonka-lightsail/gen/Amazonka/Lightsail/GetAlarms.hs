@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,8 +139,8 @@ instance Core.AWSRequest GetAlarms where
     Response.receiveJSON
       ( \s h x ->
           GetAlarmsResponse'
-            Prelude.<$> (x Core..?> "alarms" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<$> (x Data..?> "alarms" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,36 +156,36 @@ instance Prelude.NFData GetAlarms where
       `Prelude.seq` Prelude.rnf alarmName
       `Prelude.seq` Prelude.rnf monitoredResourceName
 
-instance Core.ToHeaders GetAlarms where
+instance Data.ToHeaders GetAlarms where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetAlarms" ::
+              Data.=# ( "Lightsail_20161128.GetAlarms" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAlarms where
+instance Data.ToJSON GetAlarms where
   toJSON GetAlarms' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("pageToken" Core..=) Prelude.<$> pageToken,
-            ("alarmName" Core..=) Prelude.<$> alarmName,
-            ("monitoredResourceName" Core..=)
+          [ ("pageToken" Data..=) Prelude.<$> pageToken,
+            ("alarmName" Data..=) Prelude.<$> alarmName,
+            ("monitoredResourceName" Data..=)
               Prelude.<$> monitoredResourceName
           ]
       )
 
-instance Core.ToPath GetAlarms where
+instance Data.ToPath GetAlarms where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAlarms where
+instance Data.ToQuery GetAlarms where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAlarmsResponse' smart constructor.

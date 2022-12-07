@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.User where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.LocaleType
 import Amazonka.WorkDocs.Types.UserStatusType
@@ -38,7 +39,7 @@ data User = User'
     -- | The time zone ID of the user.
     timeZoneId :: Prelude.Maybe Prelude.Text,
     -- | The time when the user was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The login name of the user.
     username :: Prelude.Maybe Prelude.Text,
     -- | The locale of the user.
@@ -56,11 +57,11 @@ data User = User'
     -- | The ID of the organization.
     organizationId :: Prelude.Maybe Prelude.Text,
     -- | The email address of the user.
-    emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    emailAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the root folder.
     rootFolderId :: Prelude.Maybe Prelude.Text,
     -- | The time when the user was modified.
-    modifiedTimestamp :: Prelude.Maybe Core.POSIX
+    modifiedTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -136,7 +137,7 @@ user_timeZoneId = Lens.lens (\User' {timeZoneId} -> timeZoneId) (\s@User' {} a -
 
 -- | The time when the user was created.
 user_createdTimestamp :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
-user_createdTimestamp = Lens.lens (\User' {createdTimestamp} -> createdTimestamp) (\s@User' {} a -> s {createdTimestamp = a} :: User) Prelude.. Lens.mapping Core._Time
+user_createdTimestamp = Lens.lens (\User' {createdTimestamp} -> createdTimestamp) (\s@User' {} a -> s {createdTimestamp = a} :: User) Prelude.. Lens.mapping Data._Time
 
 -- | The login name of the user.
 user_username :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
@@ -172,7 +173,7 @@ user_organizationId = Lens.lens (\User' {organizationId} -> organizationId) (\s@
 
 -- | The email address of the user.
 user_emailAddress :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_emailAddress = Lens.lens (\User' {emailAddress} -> emailAddress) (\s@User' {} a -> s {emailAddress = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+user_emailAddress = Lens.lens (\User' {emailAddress} -> emailAddress) (\s@User' {} a -> s {emailAddress = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the root folder.
 user_rootFolderId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
@@ -180,29 +181,29 @@ user_rootFolderId = Lens.lens (\User' {rootFolderId} -> rootFolderId) (\s@User' 
 
 -- | The time when the user was modified.
 user_modifiedTimestamp :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
-user_modifiedTimestamp = Lens.lens (\User' {modifiedTimestamp} -> modifiedTimestamp) (\s@User' {} a -> s {modifiedTimestamp = a} :: User) Prelude.. Lens.mapping Core._Time
+user_modifiedTimestamp = Lens.lens (\User' {modifiedTimestamp} -> modifiedTimestamp) (\s@User' {} a -> s {modifiedTimestamp = a} :: User) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON User where
+instance Data.FromJSON User where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "User"
       ( \x ->
           User'
-            Prelude.<$> (x Core..:? "RecycleBinFolderId")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "TimeZoneId")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "Locale")
-            Prelude.<*> (x Core..:? "GivenName")
-            Prelude.<*> (x Core..:? "Storage")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Surname")
-            Prelude.<*> (x Core..:? "OrganizationId")
-            Prelude.<*> (x Core..:? "EmailAddress")
-            Prelude.<*> (x Core..:? "RootFolderId")
-            Prelude.<*> (x Core..:? "ModifiedTimestamp")
+            Prelude.<$> (x Data..:? "RecycleBinFolderId")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "TimeZoneId")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "Locale")
+            Prelude.<*> (x Data..:? "GivenName")
+            Prelude.<*> (x Data..:? "Storage")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Surname")
+            Prelude.<*> (x Data..:? "OrganizationId")
+            Prelude.<*> (x Data..:? "EmailAddress")
+            Prelude.<*> (x Data..:? "RootFolderId")
+            Prelude.<*> (x Data..:? "ModifiedTimestamp")
       )
 
 instance Prelude.Hashable User where

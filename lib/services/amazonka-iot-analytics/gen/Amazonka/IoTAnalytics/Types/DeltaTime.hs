@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.DeltaTime where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to limit data to that which has arrived since the last execution of
@@ -96,14 +97,14 @@ deltaTime_offsetSeconds = Lens.lens (\DeltaTime' {offsetSeconds} -> offsetSecond
 deltaTime_timeExpression :: Lens.Lens' DeltaTime Prelude.Text
 deltaTime_timeExpression = Lens.lens (\DeltaTime' {timeExpression} -> timeExpression) (\s@DeltaTime' {} a -> s {timeExpression = a} :: DeltaTime)
 
-instance Core.FromJSON DeltaTime where
+instance Data.FromJSON DeltaTime where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeltaTime"
       ( \x ->
           DeltaTime'
-            Prelude.<$> (x Core..: "offsetSeconds")
-            Prelude.<*> (x Core..: "timeExpression")
+            Prelude.<$> (x Data..: "offsetSeconds")
+            Prelude.<*> (x Data..: "timeExpression")
       )
 
 instance Prelude.Hashable DeltaTime where
@@ -116,13 +117,13 @@ instance Prelude.NFData DeltaTime where
     Prelude.rnf offsetSeconds
       `Prelude.seq` Prelude.rnf timeExpression
 
-instance Core.ToJSON DeltaTime where
+instance Data.ToJSON DeltaTime where
   toJSON DeltaTime' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("offsetSeconds" Core..= offsetSeconds),
+              ("offsetSeconds" Data..= offsetSeconds),
             Prelude.Just
-              ("timeExpression" Core..= timeExpression)
+              ("timeExpression" Data..= timeExpression)
           ]
       )

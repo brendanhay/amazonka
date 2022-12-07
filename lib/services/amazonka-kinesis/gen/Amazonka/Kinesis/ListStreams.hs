@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,8 +135,8 @@ instance Core.AWSRequest ListStreams where
       ( \s h x ->
           ListStreamsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "StreamNames" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "HasMoreStreams")
+            Prelude.<*> (x Data..?> "StreamNames" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "HasMoreStreams")
       )
 
 instance Prelude.Hashable ListStreams where
@@ -148,35 +149,35 @@ instance Prelude.NFData ListStreams where
     Prelude.rnf limit
       `Prelude.seq` Prelude.rnf exclusiveStartStreamName
 
-instance Core.ToHeaders ListStreams where
+instance Data.ToHeaders ListStreams where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.ListStreams" ::
+              Data.=# ( "Kinesis_20131202.ListStreams" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListStreams where
+instance Data.ToJSON ListStreams where
   toJSON ListStreams' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("ExclusiveStartStreamName" Core..=)
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("ExclusiveStartStreamName" Data..=)
               Prelude.<$> exclusiveStartStreamName
           ]
       )
 
-instance Core.ToPath ListStreams where
+instance Data.ToPath ListStreams where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListStreams where
+instance Data.ToQuery ListStreams where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output for @ListStreams@.

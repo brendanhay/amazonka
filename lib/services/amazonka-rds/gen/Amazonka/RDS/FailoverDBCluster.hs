@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -155,7 +156,7 @@ instance Core.AWSRequest FailoverDBCluster where
       "FailoverDBClusterResult"
       ( \s h x ->
           FailoverDBClusterResponse'
-            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<$> (x Data..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,22 +171,22 @@ instance Prelude.NFData FailoverDBCluster where
     Prelude.rnf targetDBInstanceIdentifier
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
 
-instance Core.ToHeaders FailoverDBCluster where
+instance Data.ToHeaders FailoverDBCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath FailoverDBCluster where
+instance Data.ToPath FailoverDBCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery FailoverDBCluster where
+instance Data.ToQuery FailoverDBCluster where
   toQuery FailoverDBCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("FailoverDBCluster" :: Prelude.ByteString),
+          Data.=: ("FailoverDBCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "TargetDBInstanceIdentifier"
-          Core.=: targetDBInstanceIdentifier,
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier
+          Data.=: targetDBInstanceIdentifier,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier
       ]
 
 -- | /See:/ 'newFailoverDBClusterResponse' smart constructor.

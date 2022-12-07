@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.ErrorHandlingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings that determine how Amazon AppFlow handles an error when
@@ -78,15 +79,15 @@ errorHandlingConfig_bucketName = Lens.lens (\ErrorHandlingConfig' {bucketName} -
 errorHandlingConfig_failOnFirstDestinationError :: Lens.Lens' ErrorHandlingConfig (Prelude.Maybe Prelude.Bool)
 errorHandlingConfig_failOnFirstDestinationError = Lens.lens (\ErrorHandlingConfig' {failOnFirstDestinationError} -> failOnFirstDestinationError) (\s@ErrorHandlingConfig' {} a -> s {failOnFirstDestinationError = a} :: ErrorHandlingConfig)
 
-instance Core.FromJSON ErrorHandlingConfig where
+instance Data.FromJSON ErrorHandlingConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorHandlingConfig"
       ( \x ->
           ErrorHandlingConfig'
-            Prelude.<$> (x Core..:? "bucketPrefix")
-            Prelude.<*> (x Core..:? "bucketName")
-            Prelude.<*> (x Core..:? "failOnFirstDestinationError")
+            Prelude.<$> (x Data..:? "bucketPrefix")
+            Prelude.<*> (x Data..:? "bucketName")
+            Prelude.<*> (x Data..:? "failOnFirstDestinationError")
       )
 
 instance Prelude.Hashable ErrorHandlingConfig where
@@ -101,13 +102,13 @@ instance Prelude.NFData ErrorHandlingConfig where
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf failOnFirstDestinationError
 
-instance Core.ToJSON ErrorHandlingConfig where
+instance Data.ToJSON ErrorHandlingConfig where
   toJSON ErrorHandlingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bucketPrefix" Core..=) Prelude.<$> bucketPrefix,
-            ("bucketName" Core..=) Prelude.<$> bucketName,
-            ("failOnFirstDestinationError" Core..=)
+          [ ("bucketPrefix" Data..=) Prelude.<$> bucketPrefix,
+            ("bucketName" Data..=) Prelude.<$> bucketName,
+            ("failOnFirstDestinationError" Data..=)
               Prelude.<$> failOnFirstDestinationError
           ]
       )

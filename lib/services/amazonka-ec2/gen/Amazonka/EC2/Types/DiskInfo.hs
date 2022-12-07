@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DiskInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DiskType
 import qualified Amazonka.Prelude as Prelude
@@ -72,12 +73,12 @@ diskInfo_sizeInGB = Lens.lens (\DiskInfo' {sizeInGB} -> sizeInGB) (\s@DiskInfo' 
 diskInfo_count :: Lens.Lens' DiskInfo (Prelude.Maybe Prelude.Int)
 diskInfo_count = Lens.lens (\DiskInfo' {count} -> count) (\s@DiskInfo' {} a -> s {count = a} :: DiskInfo)
 
-instance Core.FromXML DiskInfo where
+instance Data.FromXML DiskInfo where
   parseXML x =
     DiskInfo'
-      Prelude.<$> (x Core..@? "type")
-      Prelude.<*> (x Core..@? "sizeInGB")
-      Prelude.<*> (x Core..@? "count")
+      Prelude.<$> (x Data..@? "type")
+      Prelude.<*> (x Data..@? "sizeInGB")
+      Prelude.<*> (x Data..@? "count")
 
 instance Prelude.Hashable DiskInfo where
   hashWithSalt _salt DiskInfo' {..} =

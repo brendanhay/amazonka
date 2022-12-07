@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpcEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DnsEntry
 import Amazonka.EC2.Types.DnsOptions
@@ -55,7 +56,7 @@ data VpcEndpoint = VpcEndpoint'
     -- | The ID of the endpoint.
     vpcEndpointId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the endpoint was created.
-    creationTimestamp :: Prelude.Maybe Core.ISO8601,
+    creationTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The last error that occurred for endpoint.
     lastError :: Prelude.Maybe LastError,
     -- | The policy document associated with the endpoint, if applicable.
@@ -189,7 +190,7 @@ vpcEndpoint_vpcEndpointId = Lens.lens (\VpcEndpoint' {vpcEndpointId} -> vpcEndpo
 
 -- | The date and time that the endpoint was created.
 vpcEndpoint_creationTimestamp :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.UTCTime)
-vpcEndpoint_creationTimestamp = Lens.lens (\VpcEndpoint' {creationTimestamp} -> creationTimestamp) (\s@VpcEndpoint' {} a -> s {creationTimestamp = a} :: VpcEndpoint) Prelude.. Lens.mapping Core._Time
+vpcEndpoint_creationTimestamp = Lens.lens (\VpcEndpoint' {creationTimestamp} -> creationTimestamp) (\s@VpcEndpoint' {} a -> s {creationTimestamp = a} :: VpcEndpoint) Prelude.. Lens.mapping Data._Time
 
 -- | The last error that occurred for endpoint.
 vpcEndpoint_lastError :: Lens.Lens' VpcEndpoint (Prelude.Maybe LastError)
@@ -232,40 +233,40 @@ vpcEndpoint_subnetIds = Lens.lens (\VpcEndpoint' {subnetIds} -> subnetIds) (\s@V
 vpcEndpoint_groups :: Lens.Lens' VpcEndpoint (Prelude.Maybe [SecurityGroupIdentifier])
 vpcEndpoint_groups = Lens.lens (\VpcEndpoint' {groups} -> groups) (\s@VpcEndpoint' {} a -> s {groups = a} :: VpcEndpoint) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML VpcEndpoint where
+instance Data.FromXML VpcEndpoint where
   parseXML x =
     VpcEndpoint'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "privateDnsEnabled")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "requesterManaged")
-      Prelude.<*> (x Core..@? "vpcEndpointType")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> ( x Core..@? "routeTableIdSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "privateDnsEnabled")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "requesterManaged")
+      Prelude.<*> (x Data..@? "vpcEndpointType")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> ( x Data..@? "routeTableIdSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "vpcEndpointId")
-      Prelude.<*> (x Core..@? "creationTimestamp")
-      Prelude.<*> (x Core..@? "lastError")
-      Prelude.<*> (x Core..@? "policyDocument")
-      Prelude.<*> ( x Core..@? "dnsEntrySet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "vpcEndpointId")
+      Prelude.<*> (x Data..@? "creationTimestamp")
+      Prelude.<*> (x Data..@? "lastError")
+      Prelude.<*> (x Data..@? "policyDocument")
+      Prelude.<*> ( x Data..@? "dnsEntrySet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "vpcId")
-      Prelude.<*> (x Core..@? "serviceName")
-      Prelude.<*> (x Core..@? "dnsOptions")
-      Prelude.<*> ( x Core..@? "networkInterfaceIdSet"
+      Prelude.<*> (x Data..@? "vpcId")
+      Prelude.<*> (x Data..@? "serviceName")
+      Prelude.<*> (x Data..@? "dnsOptions")
+      Prelude.<*> ( x Data..@? "networkInterfaceIdSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ipAddressType")
-      Prelude.<*> ( x Core..@? "subnetIdSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "ipAddressType")
+      Prelude.<*> ( x Data..@? "subnetIdSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable VpcEndpoint where

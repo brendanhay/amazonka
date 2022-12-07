@@ -22,6 +22,7 @@ module Amazonka.DLM.Types.RetainRule where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.RetentionIntervalUnitValues
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Snapshot and AMI policies only]__ Specifies a retention rule for
@@ -123,15 +124,15 @@ retainRule_count = Lens.lens (\RetainRule' {count} -> count) (\s@RetainRule' {} 
 retainRule_intervalUnit :: Lens.Lens' RetainRule (Prelude.Maybe RetentionIntervalUnitValues)
 retainRule_intervalUnit = Lens.lens (\RetainRule' {intervalUnit} -> intervalUnit) (\s@RetainRule' {} a -> s {intervalUnit = a} :: RetainRule)
 
-instance Core.FromJSON RetainRule where
+instance Data.FromJSON RetainRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RetainRule"
       ( \x ->
           RetainRule'
-            Prelude.<$> (x Core..:? "Interval")
-            Prelude.<*> (x Core..:? "Count")
-            Prelude.<*> (x Core..:? "IntervalUnit")
+            Prelude.<$> (x Data..:? "Interval")
+            Prelude.<*> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "IntervalUnit")
       )
 
 instance Prelude.Hashable RetainRule where
@@ -146,12 +147,12 @@ instance Prelude.NFData RetainRule where
       `Prelude.seq` Prelude.rnf count
       `Prelude.seq` Prelude.rnf intervalUnit
 
-instance Core.ToJSON RetainRule where
+instance Data.ToJSON RetainRule where
   toJSON RetainRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Interval" Core..=) Prelude.<$> interval,
-            ("Count" Core..=) Prelude.<$> count,
-            ("IntervalUnit" Core..=) Prelude.<$> intervalUnit
+          [ ("Interval" Data..=) Prelude.<$> interval,
+            ("Count" Data..=) Prelude.<$> count,
+            ("IntervalUnit" Data..=) Prelude.<$> intervalUnit
           ]
       )

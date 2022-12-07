@@ -54,6 +54,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,7 +134,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PutLifecycleEventHookExecutionStatusResponse'
-            Prelude.<$> (x Core..?> "lifecycleEventHookExecutionId")
+            Prelude.<$> (x Data..?> "lifecycleEventHookExecutionId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,45 +159,45 @@ instance
       `Prelude.seq` Prelude.rnf lifecycleEventHookExecutionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutLifecycleEventHookExecutionStatus
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.PutLifecycleEventHookExecutionStatus" ::
+              Data.=# ( "CodeDeploy_20141006.PutLifecycleEventHookExecutionStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     PutLifecycleEventHookExecutionStatus
   where
   toJSON PutLifecycleEventHookExecutionStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deploymentId" Core..=) Prelude.<$> deploymentId,
-            ("status" Core..=) Prelude.<$> status,
-            ("lifecycleEventHookExecutionId" Core..=)
+          [ ("deploymentId" Data..=) Prelude.<$> deploymentId,
+            ("status" Data..=) Prelude.<$> status,
+            ("lifecycleEventHookExecutionId" Data..=)
               Prelude.<$> lifecycleEventHookExecutionId
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     PutLifecycleEventHookExecutionStatus
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutLifecycleEventHookExecutionStatus
   where
   toQuery = Prelude.const Prelude.mempty

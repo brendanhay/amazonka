@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.FlowLogsConfigurationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.DataSourceStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -53,13 +54,13 @@ newFlowLogsConfigurationResult pStatus_ =
 flowLogsConfigurationResult_status :: Lens.Lens' FlowLogsConfigurationResult DataSourceStatus
 flowLogsConfigurationResult_status = Lens.lens (\FlowLogsConfigurationResult' {status} -> status) (\s@FlowLogsConfigurationResult' {} a -> s {status = a} :: FlowLogsConfigurationResult)
 
-instance Core.FromJSON FlowLogsConfigurationResult where
+instance Data.FromJSON FlowLogsConfigurationResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FlowLogsConfigurationResult"
       ( \x ->
           FlowLogsConfigurationResult'
-            Prelude.<$> (x Core..: "status")
+            Prelude.<$> (x Data..: "status")
       )
 
 instance Prelude.Hashable FlowLogsConfigurationResult where

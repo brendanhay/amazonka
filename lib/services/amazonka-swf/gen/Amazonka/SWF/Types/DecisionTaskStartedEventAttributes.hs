@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.DecisionTaskStartedEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @DecisionTaskStarted@ event.
@@ -78,16 +79,16 @@ decisionTaskStartedEventAttributes_scheduledEventId :: Lens.Lens' DecisionTaskSt
 decisionTaskStartedEventAttributes_scheduledEventId = Lens.lens (\DecisionTaskStartedEventAttributes' {scheduledEventId} -> scheduledEventId) (\s@DecisionTaskStartedEventAttributes' {} a -> s {scheduledEventId = a} :: DecisionTaskStartedEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DecisionTaskStartedEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DecisionTaskStartedEventAttributes"
       ( \x ->
           DecisionTaskStartedEventAttributes'
-            Prelude.<$> (x Core..:? "identity")
-            Prelude.<*> (x Core..: "scheduledEventId")
+            Prelude.<$> (x Data..:? "identity")
+            Prelude.<*> (x Data..: "scheduledEventId")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.TaskCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about the credentials that Step Functions uses for a
@@ -54,12 +55,12 @@ newTaskCredentials =
 taskCredentials_roleArn :: Lens.Lens' TaskCredentials (Prelude.Maybe Prelude.Text)
 taskCredentials_roleArn = Lens.lens (\TaskCredentials' {roleArn} -> roleArn) (\s@TaskCredentials' {} a -> s {roleArn = a} :: TaskCredentials)
 
-instance Core.FromJSON TaskCredentials where
+instance Data.FromJSON TaskCredentials where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskCredentials"
       ( \x ->
-          TaskCredentials' Prelude.<$> (x Core..:? "roleArn")
+          TaskCredentials' Prelude.<$> (x Data..:? "roleArn")
       )
 
 instance Prelude.Hashable TaskCredentials where

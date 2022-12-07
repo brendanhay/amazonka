@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.BatchPrediction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.AsyncJobStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -182,27 +183,27 @@ batchPrediction_startTime = Lens.lens (\BatchPrediction' {startTime} -> startTim
 batchPrediction_failureReason :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
 batchPrediction_failureReason = Lens.lens (\BatchPrediction' {failureReason} -> failureReason) (\s@BatchPrediction' {} a -> s {failureReason = a} :: BatchPrediction)
 
-instance Core.FromJSON BatchPrediction where
+instance Data.FromJSON BatchPrediction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchPrediction"
       ( \x ->
           BatchPrediction'
-            Prelude.<$> (x Core..:? "inputPath")
-            Prelude.<*> (x Core..:? "detectorVersion")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "jobId")
-            Prelude.<*> (x Core..:? "detectorName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "completionTime")
-            Prelude.<*> (x Core..:? "outputPath")
-            Prelude.<*> (x Core..:? "iamRoleArn")
-            Prelude.<*> (x Core..:? "lastHeartbeatTime")
-            Prelude.<*> (x Core..:? "totalRecordsCount")
-            Prelude.<*> (x Core..:? "eventTypeName")
-            Prelude.<*> (x Core..:? "processedRecordsCount")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "inputPath")
+            Prelude.<*> (x Data..:? "detectorVersion")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "detectorName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "completionTime")
+            Prelude.<*> (x Data..:? "outputPath")
+            Prelude.<*> (x Data..:? "iamRoleArn")
+            Prelude.<*> (x Data..:? "lastHeartbeatTime")
+            Prelude.<*> (x Data..:? "totalRecordsCount")
+            Prelude.<*> (x Data..:? "eventTypeName")
+            Prelude.<*> (x Data..:? "processedRecordsCount")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable BatchPrediction where

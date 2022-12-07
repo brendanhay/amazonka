@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcrContainerImageDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Amazon ECR image.
@@ -134,18 +135,18 @@ awsEcrContainerImageDetails_imageDigest = Lens.lens (\AwsEcrContainerImageDetail
 awsEcrContainerImageDetails_architecture :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
 awsEcrContainerImageDetails_architecture = Lens.lens (\AwsEcrContainerImageDetails' {architecture} -> architecture) (\s@AwsEcrContainerImageDetails' {} a -> s {architecture = a} :: AwsEcrContainerImageDetails)
 
-instance Core.FromJSON AwsEcrContainerImageDetails where
+instance Data.FromJSON AwsEcrContainerImageDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcrContainerImageDetails"
       ( \x ->
           AwsEcrContainerImageDetails'
-            Prelude.<$> (x Core..:? "RepositoryName")
-            Prelude.<*> (x Core..:? "ImageTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ImagePublishedAt")
-            Prelude.<*> (x Core..:? "RegistryId")
-            Prelude.<*> (x Core..:? "ImageDigest")
-            Prelude.<*> (x Core..:? "Architecture")
+            Prelude.<$> (x Data..:? "RepositoryName")
+            Prelude.<*> (x Data..:? "ImageTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ImagePublishedAt")
+            Prelude.<*> (x Data..:? "RegistryId")
+            Prelude.<*> (x Data..:? "ImageDigest")
+            Prelude.<*> (x Data..:? "Architecture")
       )
 
 instance Prelude.Hashable AwsEcrContainerImageDetails where
@@ -166,17 +167,17 @@ instance Prelude.NFData AwsEcrContainerImageDetails where
       `Prelude.seq` Prelude.rnf imageDigest
       `Prelude.seq` Prelude.rnf architecture
 
-instance Core.ToJSON AwsEcrContainerImageDetails where
+instance Data.ToJSON AwsEcrContainerImageDetails where
   toJSON AwsEcrContainerImageDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RepositoryName" Core..=)
+          [ ("RepositoryName" Data..=)
               Prelude.<$> repositoryName,
-            ("ImageTags" Core..=) Prelude.<$> imageTags,
-            ("ImagePublishedAt" Core..=)
+            ("ImageTags" Data..=) Prelude.<$> imageTags,
+            ("ImagePublishedAt" Data..=)
               Prelude.<$> imagePublishedAt,
-            ("RegistryId" Core..=) Prelude.<$> registryId,
-            ("ImageDigest" Core..=) Prelude.<$> imageDigest,
-            ("Architecture" Core..=) Prelude.<$> architecture
+            ("RegistryId" Data..=) Prelude.<$> registryId,
+            ("ImageDigest" Data..=) Prelude.<$> imageDigest,
+            ("Architecture" Data..=) Prelude.<$> architecture
           ]
       )

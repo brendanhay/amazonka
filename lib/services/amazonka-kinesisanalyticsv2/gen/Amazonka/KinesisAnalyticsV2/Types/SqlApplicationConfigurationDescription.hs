@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfigurationDescription 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.InputDescription
 import Amazonka.KinesisAnalyticsV2.Types.OutputDescription
 import Amazonka.KinesisAnalyticsV2.Types.ReferenceDataSourceDescription
@@ -86,22 +87,22 @@ sqlApplicationConfigurationDescription_outputDescriptions :: Lens.Lens' SqlAppli
 sqlApplicationConfigurationDescription_outputDescriptions = Lens.lens (\SqlApplicationConfigurationDescription' {outputDescriptions} -> outputDescriptions) (\s@SqlApplicationConfigurationDescription' {} a -> s {outputDescriptions = a} :: SqlApplicationConfigurationDescription) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SqlApplicationConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SqlApplicationConfigurationDescription"
       ( \x ->
           SqlApplicationConfigurationDescription'
-            Prelude.<$> ( x Core..:? "ReferenceDataSourceDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ReferenceDataSourceDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "InputDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "InputDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "OutputDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "OutputDescriptions"
+                            Data..!= Prelude.mempty
                         )
       )
 

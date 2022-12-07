@@ -50,6 +50,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -238,9 +239,9 @@ instance Core.AWSRequest ListStackSetOperationResults where
       "ListStackSetOperationResultsResult"
       ( \s h x ->
           ListStackSetOperationResultsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "Summaries" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "Summaries" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -266,29 +267,29 @@ instance Prelude.NFData ListStackSetOperationResults where
       `Prelude.seq` Prelude.rnf stackSetName
       `Prelude.seq` Prelude.rnf operationId
 
-instance Core.ToHeaders ListStackSetOperationResults where
+instance Data.ToHeaders ListStackSetOperationResults where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListStackSetOperationResults where
+instance Data.ToPath ListStackSetOperationResults where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListStackSetOperationResults where
+instance Data.ToQuery ListStackSetOperationResults where
   toQuery ListStackSetOperationResults' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ListStackSetOperationResults" ::
+          Data.=: ( "ListStackSetOperationResults" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "CallAs" Core.=: callAs,
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "CallAs" Data.=: callAs,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> filters),
-        "MaxResults" Core.=: maxResults,
-        "StackSetName" Core.=: stackSetName,
-        "OperationId" Core.=: operationId
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> filters),
+        "MaxResults" Data.=: maxResults,
+        "StackSetName" Data.=: stackSetName,
+        "OperationId" Data.=: operationId
       ]
 
 -- | /See:/ 'newListStackSetOperationResultsResponse' smart constructor.

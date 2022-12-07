@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.ClusterIssue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.ClusterIssueCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,15 +74,15 @@ clusterIssue_code = Lens.lens (\ClusterIssue' {code} -> code) (\s@ClusterIssue' 
 clusterIssue_resourceIds :: Lens.Lens' ClusterIssue (Prelude.Maybe [Prelude.Text])
 clusterIssue_resourceIds = Lens.lens (\ClusterIssue' {resourceIds} -> resourceIds) (\s@ClusterIssue' {} a -> s {resourceIds = a} :: ClusterIssue) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ClusterIssue where
+instance Data.FromJSON ClusterIssue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusterIssue"
       ( \x ->
           ClusterIssue'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "resourceIds" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "resourceIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ClusterIssue where

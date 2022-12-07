@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.DeleteObjectInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object to delete from the governed table.
@@ -91,13 +92,13 @@ instance Prelude.NFData DeleteObjectInput where
       `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf uri
 
-instance Core.ToJSON DeleteObjectInput where
+instance Data.ToJSON DeleteObjectInput where
   toJSON DeleteObjectInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PartitionValues" Core..=)
+          [ ("PartitionValues" Data..=)
               Prelude.<$> partitionValues,
-            ("ETag" Core..=) Prelude.<$> eTag,
-            Prelude.Just ("Uri" Core..= uri)
+            ("ETag" Data..=) Prelude.<$> eTag,
+            Prelude.Just ("Uri" Data..= uri)
           ]
       )

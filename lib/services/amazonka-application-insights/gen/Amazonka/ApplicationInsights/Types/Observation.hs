@@ -23,6 +23,7 @@ import Amazonka.ApplicationInsights.Types.CloudWatchEventSource
 import Amazonka.ApplicationInsights.Types.LogFilter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an anomaly or error with the application.
@@ -76,7 +77,7 @@ data Observation = Observation'
     -- | The source type of the observation.
     sourceType :: Prelude.Maybe Prelude.Text,
     -- | The time when the observation ended, in epoch seconds.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the observation type.
     id :: Prelude.Maybe Prelude.Text,
     -- | The type of EBS CloudWatch event, such as @createVolume@, @deleteVolume@
@@ -107,7 +108,7 @@ data Observation = Observation'
     codeDeployApplication :: Prelude.Maybe Prelude.Text,
     -- | The timestamp in the CloudWatch Logs that specifies when the matched
     -- line occurred.
-    lineTime :: Prelude.Maybe Core.POSIX,
+    lineTime :: Prelude.Maybe Data.POSIX,
     -- | The deployment ID of the CodeDeploy-based observation related to the
     -- detected problem.
     codeDeployDeploymentId :: Prelude.Maybe Prelude.Text,
@@ -120,7 +121,7 @@ data Observation = Observation'
     -- | The service to which the AWS Health Event belongs, such as EC2.
     healthService :: Prelude.Maybe Prelude.Text,
     -- | The time when the observation was first detected, in epoch seconds.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The namespace of the observation metric.
     metricNamespace :: Prelude.Maybe Prelude.Text,
     -- | The message of an RDS event.
@@ -380,7 +381,7 @@ observation_sourceType = Lens.lens (\Observation' {sourceType} -> sourceType) (\
 
 -- | The time when the observation ended, in epoch seconds.
 observation_endTime :: Lens.Lens' Observation (Prelude.Maybe Prelude.UTCTime)
-observation_endTime = Lens.lens (\Observation' {endTime} -> endTime) (\s@Observation' {} a -> s {endTime = a} :: Observation) Prelude.. Lens.mapping Core._Time
+observation_endTime = Lens.lens (\Observation' {endTime} -> endTime) (\s@Observation' {} a -> s {endTime = a} :: Observation) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the observation type.
 observation_id :: Lens.Lens' Observation (Prelude.Maybe Prelude.Text)
@@ -437,7 +438,7 @@ observation_codeDeployApplication = Lens.lens (\Observation' {codeDeployApplicat
 -- | The timestamp in the CloudWatch Logs that specifies when the matched
 -- line occurred.
 observation_lineTime :: Lens.Lens' Observation (Prelude.Maybe Prelude.UTCTime)
-observation_lineTime = Lens.lens (\Observation' {lineTime} -> lineTime) (\s@Observation' {} a -> s {lineTime = a} :: Observation) Prelude.. Lens.mapping Core._Time
+observation_lineTime = Lens.lens (\Observation' {lineTime} -> lineTime) (\s@Observation' {} a -> s {lineTime = a} :: Observation) Prelude.. Lens.mapping Data._Time
 
 -- | The deployment ID of the CodeDeploy-based observation related to the
 -- detected problem.
@@ -462,7 +463,7 @@ observation_healthService = Lens.lens (\Observation' {healthService} -> healthSe
 
 -- | The time when the observation was first detected, in epoch seconds.
 observation_startTime :: Lens.Lens' Observation (Prelude.Maybe Prelude.UTCTime)
-observation_startTime = Lens.lens (\Observation' {startTime} -> startTime) (\s@Observation' {} a -> s {startTime = a} :: Observation) Prelude.. Lens.mapping Core._Time
+observation_startTime = Lens.lens (\Observation' {startTime} -> startTime) (\s@Observation' {} a -> s {startTime = a} :: Observation) Prelude.. Lens.mapping Data._Time
 
 -- | The namespace of the observation metric.
 observation_metricNamespace :: Lens.Lens' Observation (Prelude.Maybe Prelude.Text)
@@ -480,57 +481,57 @@ observation_xRayRequestCount = Lens.lens (\Observation' {xRayRequestCount} -> xR
 observation_value :: Lens.Lens' Observation (Prelude.Maybe Prelude.Double)
 observation_value = Lens.lens (\Observation' {value} -> value) (\s@Observation' {} a -> s {value = a} :: Observation)
 
-instance Core.FromJSON Observation where
+instance Data.FromJSON Observation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Observation"
       ( \x ->
           Observation'
-            Prelude.<$> (x Core..:? "CloudWatchEventId")
-            Prelude.<*> (x Core..:? "XRayFaultPercent")
-            Prelude.<*> (x Core..:? "LogFilter")
-            Prelude.<*> (x Core..:? "LogGroup")
-            Prelude.<*> (x Core..:? "CodeDeployState")
-            Prelude.<*> (x Core..:? "CodeDeployInstanceGroupId")
-            Prelude.<*> (x Core..:? "CodeDeployDeploymentGroup")
-            Prelude.<*> (x Core..:? "SourceARN")
-            Prelude.<*> (x Core..:? "XRayRequestAverageLatency")
-            Prelude.<*> (x Core..:? "HealthEventDescription")
-            Prelude.<*> (x Core..:? "XRayThrottlePercent")
-            Prelude.<*> (x Core..:? "EbsCause")
-            Prelude.<*> (x Core..:? "HealthEventTypeCategory")
-            Prelude.<*> (x Core..:? "XRayNodeType")
-            Prelude.<*> (x Core..:? "StatesArn")
-            Prelude.<*> (x Core..:? "StatesInput")
-            Prelude.<*> (x Core..:? "HealthEventArn")
-            Prelude.<*> (x Core..:? "EbsRequestId")
-            Prelude.<*> (x Core..:? "XRayErrorPercent")
-            Prelude.<*> (x Core..:? "CloudWatchEventSource")
-            Prelude.<*> (x Core..:? "SourceType")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "EbsEvent")
-            Prelude.<*> (x Core..:? "RdsEventCategories")
-            Prelude.<*> (x Core..:? "Ec2State")
-            Prelude.<*> (x Core..:? "StatesStatus")
-            Prelude.<*> (x Core..:? "HealthEventTypeCode")
-            Prelude.<*> (x Core..:? "StatesExecutionArn")
-            Prelude.<*> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..:? "S3EventName")
-            Prelude.<*> (x Core..:? "EbsResult")
-            Prelude.<*> (x Core..:? "CloudWatchEventDetailType")
-            Prelude.<*> (x Core..:? "CodeDeployApplication")
-            Prelude.<*> (x Core..:? "LineTime")
-            Prelude.<*> (x Core..:? "CodeDeployDeploymentId")
-            Prelude.<*> (x Core..:? "LogText")
-            Prelude.<*> (x Core..:? "XRayNodeName")
-            Prelude.<*> (x Core..:? "Unit")
-            Prelude.<*> (x Core..:? "HealthService")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "MetricNamespace")
-            Prelude.<*> (x Core..:? "RdsEventMessage")
-            Prelude.<*> (x Core..:? "XRayRequestCount")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "CloudWatchEventId")
+            Prelude.<*> (x Data..:? "XRayFaultPercent")
+            Prelude.<*> (x Data..:? "LogFilter")
+            Prelude.<*> (x Data..:? "LogGroup")
+            Prelude.<*> (x Data..:? "CodeDeployState")
+            Prelude.<*> (x Data..:? "CodeDeployInstanceGroupId")
+            Prelude.<*> (x Data..:? "CodeDeployDeploymentGroup")
+            Prelude.<*> (x Data..:? "SourceARN")
+            Prelude.<*> (x Data..:? "XRayRequestAverageLatency")
+            Prelude.<*> (x Data..:? "HealthEventDescription")
+            Prelude.<*> (x Data..:? "XRayThrottlePercent")
+            Prelude.<*> (x Data..:? "EbsCause")
+            Prelude.<*> (x Data..:? "HealthEventTypeCategory")
+            Prelude.<*> (x Data..:? "XRayNodeType")
+            Prelude.<*> (x Data..:? "StatesArn")
+            Prelude.<*> (x Data..:? "StatesInput")
+            Prelude.<*> (x Data..:? "HealthEventArn")
+            Prelude.<*> (x Data..:? "EbsRequestId")
+            Prelude.<*> (x Data..:? "XRayErrorPercent")
+            Prelude.<*> (x Data..:? "CloudWatchEventSource")
+            Prelude.<*> (x Data..:? "SourceType")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "EbsEvent")
+            Prelude.<*> (x Data..:? "RdsEventCategories")
+            Prelude.<*> (x Data..:? "Ec2State")
+            Prelude.<*> (x Data..:? "StatesStatus")
+            Prelude.<*> (x Data..:? "HealthEventTypeCode")
+            Prelude.<*> (x Data..:? "StatesExecutionArn")
+            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "S3EventName")
+            Prelude.<*> (x Data..:? "EbsResult")
+            Prelude.<*> (x Data..:? "CloudWatchEventDetailType")
+            Prelude.<*> (x Data..:? "CodeDeployApplication")
+            Prelude.<*> (x Data..:? "LineTime")
+            Prelude.<*> (x Data..:? "CodeDeployDeploymentId")
+            Prelude.<*> (x Data..:? "LogText")
+            Prelude.<*> (x Data..:? "XRayNodeName")
+            Prelude.<*> (x Data..:? "Unit")
+            Prelude.<*> (x Data..:? "HealthService")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "MetricNamespace")
+            Prelude.<*> (x Data..:? "RdsEventMessage")
+            Prelude.<*> (x Data..:? "XRayRequestCount")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Observation where

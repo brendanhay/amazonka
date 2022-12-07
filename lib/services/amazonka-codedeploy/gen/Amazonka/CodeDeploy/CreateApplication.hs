@@ -44,6 +44,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,7 +120,7 @@ instance Core.AWSRequest CreateApplication where
     Response.receiveJSON
       ( \s h x ->
           CreateApplicationResponse'
-            Prelude.<$> (x Core..?> "applicationId")
+            Prelude.<$> (x Data..?> "applicationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,37 +136,37 @@ instance Prelude.NFData CreateApplication where
       `Prelude.seq` Prelude.rnf computePlatform
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders CreateApplication where
+instance Data.ToHeaders CreateApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.CreateApplication" ::
+              Data.=# ( "CodeDeploy_20141006.CreateApplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApplication where
+instance Data.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("computePlatform" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("computePlatform" Data..=)
               Prelude.<$> computePlatform,
             Prelude.Just
-              ("applicationName" Core..= applicationName)
+              ("applicationName" Data..= applicationName)
           ]
       )
 
-instance Core.ToPath CreateApplication where
+instance Data.ToPath CreateApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateApplication where
+instance Data.ToQuery CreateApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateApplication@ operation.

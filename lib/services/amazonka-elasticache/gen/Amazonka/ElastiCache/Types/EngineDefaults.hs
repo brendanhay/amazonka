@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.EngineDefaults where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.CacheNodeTypeSpecificParameter
 import Amazonka.ElastiCache.Types.Parameter
 import qualified Amazonka.Prelude as Prelude
@@ -99,18 +100,18 @@ engineDefaults_cacheParameterGroupFamily = Lens.lens (\EngineDefaults' {cachePar
 engineDefaults_parameters :: Lens.Lens' EngineDefaults (Prelude.Maybe [Parameter])
 engineDefaults_parameters = Lens.lens (\EngineDefaults' {parameters} -> parameters) (\s@EngineDefaults' {} a -> s {parameters = a} :: EngineDefaults) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML EngineDefaults where
+instance Data.FromXML EngineDefaults where
   parseXML x =
     EngineDefaults'
-      Prelude.<$> (x Core..@? "Marker")
-      Prelude.<*> ( x Core..@? "CacheNodeTypeSpecificParameters"
+      Prelude.<$> (x Data..@? "Marker")
+      Prelude.<*> ( x Data..@? "CacheNodeTypeSpecificParameters"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "CacheNodeTypeSpecificParameter")
+                        (Data.parseXMLList "CacheNodeTypeSpecificParameter")
                   )
-      Prelude.<*> (x Core..@? "CacheParameterGroupFamily")
-      Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Parameter")
+      Prelude.<*> (x Data..@? "CacheParameterGroupFamily")
+      Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                   )
 
 instance Prelude.Hashable EngineDefaults where

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,8 +89,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetWirelessGatewayCertificateResponse'
-            Prelude.<$> (x Core..?> "IotCertificateId")
-            Prelude.<*> (x Core..?> "LoRaWANNetworkServerCertificateId")
+            Prelude.<$> (x Data..?> "IotCertificateId")
+            Prelude.<*> (x Data..?> "LoRaWANNetworkServerCertificateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,15 +105,15 @@ instance Prelude.NFData GetWirelessGatewayCertificate where
   rnf GetWirelessGatewayCertificate' {..} =
     Prelude.rnf id
 
-instance Core.ToHeaders GetWirelessGatewayCertificate where
+instance Data.ToHeaders GetWirelessGatewayCertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetWirelessGatewayCertificate where
+instance Data.ToPath GetWirelessGatewayCertificate where
   toPath GetWirelessGatewayCertificate' {..} =
     Prelude.mconcat
-      ["/wireless-gateways/", Core.toBS id, "/certificate"]
+      ["/wireless-gateways/", Data.toBS id, "/certificate"]
 
-instance Core.ToQuery GetWirelessGatewayCertificate where
+instance Data.ToQuery GetWirelessGatewayCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetWirelessGatewayCertificateResponse' smart constructor.

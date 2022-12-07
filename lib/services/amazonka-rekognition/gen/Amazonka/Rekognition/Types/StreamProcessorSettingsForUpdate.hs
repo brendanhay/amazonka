@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.StreamProcessorSettingsForUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.ConnectedHomeSettingsForUpdate
 
@@ -72,11 +73,11 @@ instance
   rnf StreamProcessorSettingsForUpdate' {..} =
     Prelude.rnf connectedHomeForUpdate
 
-instance Core.ToJSON StreamProcessorSettingsForUpdate where
+instance Data.ToJSON StreamProcessorSettingsForUpdate where
   toJSON StreamProcessorSettingsForUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConnectedHomeForUpdate" Core..=)
+          [ ("ConnectedHomeForUpdate" Data..=)
               Prelude.<$> connectedHomeForUpdate
           ]
       )

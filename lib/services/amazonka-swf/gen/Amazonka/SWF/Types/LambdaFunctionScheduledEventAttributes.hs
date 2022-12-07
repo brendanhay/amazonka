@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.LambdaFunctionScheduledEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @LambdaFunctionScheduled@ event. It isn\'t
@@ -123,20 +124,20 @@ lambdaFunctionScheduledEventAttributes_decisionTaskCompletedEventId :: Lens.Lens
 lambdaFunctionScheduledEventAttributes_decisionTaskCompletedEventId = Lens.lens (\LambdaFunctionScheduledEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@LambdaFunctionScheduledEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: LambdaFunctionScheduledEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LambdaFunctionScheduledEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaFunctionScheduledEventAttributes"
       ( \x ->
           LambdaFunctionScheduledEventAttributes'
-            Prelude.<$> (x Core..:? "input")
-            Prelude.<*> (x Core..:? "startToCloseTimeout")
-            Prelude.<*> (x Core..:? "control")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Data..:? "input")
+            Prelude.<*> (x Data..:? "startToCloseTimeout")
+            Prelude.<*> (x Data..:? "control")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance

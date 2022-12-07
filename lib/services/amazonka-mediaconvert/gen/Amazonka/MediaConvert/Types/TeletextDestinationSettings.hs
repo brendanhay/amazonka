@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.TeletextDestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.TeletextPageType
 import qualified Amazonka.Prelude as Prelude
 
@@ -89,14 +90,14 @@ teletextDestinationSettings_pageNumber = Lens.lens (\TeletextDestinationSettings
 teletextDestinationSettings_pageTypes :: Lens.Lens' TeletextDestinationSettings (Prelude.Maybe [TeletextPageType])
 teletextDestinationSettings_pageTypes = Lens.lens (\TeletextDestinationSettings' {pageTypes} -> pageTypes) (\s@TeletextDestinationSettings' {} a -> s {pageTypes = a} :: TeletextDestinationSettings) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TeletextDestinationSettings where
+instance Data.FromJSON TeletextDestinationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TeletextDestinationSettings"
       ( \x ->
           TeletextDestinationSettings'
-            Prelude.<$> (x Core..:? "pageNumber")
-            Prelude.<*> (x Core..:? "pageTypes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "pageNumber")
+            Prelude.<*> (x Data..:? "pageTypes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TeletextDestinationSettings where
@@ -109,11 +110,11 @@ instance Prelude.NFData TeletextDestinationSettings where
     Prelude.rnf pageNumber
       `Prelude.seq` Prelude.rnf pageTypes
 
-instance Core.ToJSON TeletextDestinationSettings where
+instance Data.ToJSON TeletextDestinationSettings where
   toJSON TeletextDestinationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("pageNumber" Core..=) Prelude.<$> pageNumber,
-            ("pageTypes" Core..=) Prelude.<$> pageTypes
+          [ ("pageNumber" Data..=) Prelude.<$> pageNumber,
+            ("pageTypes" Data..=) Prelude.<$> pageTypes
           ]
       )

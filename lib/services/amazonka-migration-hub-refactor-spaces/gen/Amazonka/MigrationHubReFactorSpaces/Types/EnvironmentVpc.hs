@@ -21,6 +21,7 @@ module Amazonka.MigrationHubReFactorSpaces.Types.EnvironmentVpc where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information for the @EnvironmentVpc@ resource as a
@@ -30,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 data EnvironmentVpc = EnvironmentVpc'
   { -- | A timestamp that indicates when the VPC is first added to the
     -- environment.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the VPC at the time it is added to the environment.
     vpcName :: Prelude.Maybe Prelude.Text,
     -- | A timestamp that indicates when the VPC was last updated by the
     -- environment.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID of the virtual private cloud (VPC)
     -- owner.
     accountId :: Prelude.Maybe Prelude.Text,
@@ -88,7 +89,7 @@ newEnvironmentVpc =
 -- | A timestamp that indicates when the VPC is first added to the
 -- environment.
 environmentVpc_createdTime :: Lens.Lens' EnvironmentVpc (Prelude.Maybe Prelude.UTCTime)
-environmentVpc_createdTime = Lens.lens (\EnvironmentVpc' {createdTime} -> createdTime) (\s@EnvironmentVpc' {} a -> s {createdTime = a} :: EnvironmentVpc) Prelude.. Lens.mapping Core._Time
+environmentVpc_createdTime = Lens.lens (\EnvironmentVpc' {createdTime} -> createdTime) (\s@EnvironmentVpc' {} a -> s {createdTime = a} :: EnvironmentVpc) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the VPC at the time it is added to the environment.
 environmentVpc_vpcName :: Lens.Lens' EnvironmentVpc (Prelude.Maybe Prelude.Text)
@@ -97,7 +98,7 @@ environmentVpc_vpcName = Lens.lens (\EnvironmentVpc' {vpcName} -> vpcName) (\s@E
 -- | A timestamp that indicates when the VPC was last updated by the
 -- environment.
 environmentVpc_lastUpdatedTime :: Lens.Lens' EnvironmentVpc (Prelude.Maybe Prelude.UTCTime)
-environmentVpc_lastUpdatedTime = Lens.lens (\EnvironmentVpc' {lastUpdatedTime} -> lastUpdatedTime) (\s@EnvironmentVpc' {} a -> s {lastUpdatedTime = a} :: EnvironmentVpc) Prelude.. Lens.mapping Core._Time
+environmentVpc_lastUpdatedTime = Lens.lens (\EnvironmentVpc' {lastUpdatedTime} -> lastUpdatedTime) (\s@EnvironmentVpc' {} a -> s {lastUpdatedTime = a} :: EnvironmentVpc) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account ID of the virtual private cloud (VPC)
 -- owner.
@@ -116,19 +117,19 @@ environmentVpc_environmentId = Lens.lens (\EnvironmentVpc' {environmentId} -> en
 environmentVpc_cidrBlocks :: Lens.Lens' EnvironmentVpc (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 environmentVpc_cidrBlocks = Lens.lens (\EnvironmentVpc' {cidrBlocks} -> cidrBlocks) (\s@EnvironmentVpc' {} a -> s {cidrBlocks = a} :: EnvironmentVpc) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EnvironmentVpc where
+instance Data.FromJSON EnvironmentVpc where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentVpc"
       ( \x ->
           EnvironmentVpc'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "VpcName")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "EnvironmentId")
-            Prelude.<*> (x Core..:? "CidrBlocks")
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "VpcName")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "EnvironmentId")
+            Prelude.<*> (x Data..:? "CidrBlocks")
       )
 
 instance Prelude.Hashable EnvironmentVpc where

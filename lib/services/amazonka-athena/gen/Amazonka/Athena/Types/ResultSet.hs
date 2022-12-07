@@ -23,6 +23,7 @@ import Amazonka.Athena.Types.ResultSetMetadata
 import Amazonka.Athena.Types.Row
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata and rows that make up a query result set. The metadata
@@ -68,14 +69,14 @@ resultSet_rows = Lens.lens (\ResultSet' {rows} -> rows) (\s@ResultSet' {} a -> s
 resultSet_resultSetMetadata :: Lens.Lens' ResultSet (Prelude.Maybe ResultSetMetadata)
 resultSet_resultSetMetadata = Lens.lens (\ResultSet' {resultSetMetadata} -> resultSetMetadata) (\s@ResultSet' {} a -> s {resultSetMetadata = a} :: ResultSet)
 
-instance Core.FromJSON ResultSet where
+instance Data.FromJSON ResultSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResultSet"
       ( \x ->
           ResultSet'
-            Prelude.<$> (x Core..:? "Rows" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResultSetMetadata")
+            Prelude.<$> (x Data..:? "Rows" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResultSetMetadata")
       )
 
 instance Prelude.Hashable ResultSet where

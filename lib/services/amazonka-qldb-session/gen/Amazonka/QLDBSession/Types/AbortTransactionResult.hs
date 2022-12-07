@@ -21,6 +21,7 @@ module Amazonka.QLDBSession.Types.AbortTransactionResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDBSession.Types.TimingInformation
 
@@ -54,13 +55,13 @@ newAbortTransactionResult =
 abortTransactionResult_timingInformation :: Lens.Lens' AbortTransactionResult (Prelude.Maybe TimingInformation)
 abortTransactionResult_timingInformation = Lens.lens (\AbortTransactionResult' {timingInformation} -> timingInformation) (\s@AbortTransactionResult' {} a -> s {timingInformation = a} :: AbortTransactionResult)
 
-instance Core.FromJSON AbortTransactionResult where
+instance Data.FromJSON AbortTransactionResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AbortTransactionResult"
       ( \x ->
           AbortTransactionResult'
-            Prelude.<$> (x Core..:? "TimingInformation")
+            Prelude.<$> (x Data..:? "TimingInformation")
       )
 
 instance Prelude.Hashable AbortTransactionResult where

@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,7 +124,7 @@ instance Core.AWSRequest UpdateContainerAgent where
     Response.receiveJSON
       ( \s h x ->
           UpdateContainerAgentResponse'
-            Prelude.<$> (x Core..?> "containerInstance")
+            Prelude.<$> (x Data..?> "containerInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,35 +138,35 @@ instance Prelude.NFData UpdateContainerAgent where
     Prelude.rnf cluster
       `Prelude.seq` Prelude.rnf containerInstance
 
-instance Core.ToHeaders UpdateContainerAgent where
+instance Data.ToHeaders UpdateContainerAgent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.UpdateContainerAgent" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.UpdateContainerAgent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateContainerAgent where
+instance Data.ToJSON UpdateContainerAgent where
   toJSON UpdateContainerAgent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cluster" Core..=) Prelude.<$> cluster,
+          [ ("cluster" Data..=) Prelude.<$> cluster,
             Prelude.Just
-              ("containerInstance" Core..= containerInstance)
+              ("containerInstance" Data..= containerInstance)
           ]
       )
 
-instance Core.ToPath UpdateContainerAgent where
+instance Data.ToPath UpdateContainerAgent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateContainerAgent where
+instance Data.ToQuery UpdateContainerAgent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateContainerAgentResponse' smart constructor.

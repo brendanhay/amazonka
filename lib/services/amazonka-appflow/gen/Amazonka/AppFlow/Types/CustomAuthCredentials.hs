@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.CustomAuthCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The custom credentials required for custom authentication.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newCustomAuthCredentials' smart constructor.
 data CustomAuthCredentials = CustomAuthCredentials'
   { -- | A map that holds custom authentication credentials.
-    credentialsMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)),
+    credentialsMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)),
     -- | The custom authentication type that the connector uses.
     customAuthenticationType :: Prelude.Text
   }
@@ -75,15 +76,15 @@ instance Prelude.NFData CustomAuthCredentials where
     Prelude.rnf credentialsMap
       `Prelude.seq` Prelude.rnf customAuthenticationType
 
-instance Core.ToJSON CustomAuthCredentials where
+instance Data.ToJSON CustomAuthCredentials where
   toJSON CustomAuthCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("credentialsMap" Core..=)
+          [ ("credentialsMap" Data..=)
               Prelude.<$> credentialsMap,
             Prelude.Just
               ( "customAuthenticationType"
-                  Core..= customAuthenticationType
+                  Data..= customAuthenticationType
               )
           ]
       )

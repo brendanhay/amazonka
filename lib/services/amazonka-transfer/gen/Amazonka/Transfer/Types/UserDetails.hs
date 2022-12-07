@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.UserDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the user name, server ID, and session ID for a workflow.
@@ -77,15 +78,15 @@ userDetails_userName = Lens.lens (\UserDetails' {userName} -> userName) (\s@User
 userDetails_serverId :: Lens.Lens' UserDetails Prelude.Text
 userDetails_serverId = Lens.lens (\UserDetails' {serverId} -> serverId) (\s@UserDetails' {} a -> s {serverId = a} :: UserDetails)
 
-instance Core.FromJSON UserDetails where
+instance Data.FromJSON UserDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserDetails"
       ( \x ->
           UserDetails'
-            Prelude.<$> (x Core..:? "SessionId")
-            Prelude.<*> (x Core..: "UserName")
-            Prelude.<*> (x Core..: "ServerId")
+            Prelude.<$> (x Data..:? "SessionId")
+            Prelude.<*> (x Data..: "UserName")
+            Prelude.<*> (x Data..: "ServerId")
       )
 
 instance Prelude.Hashable UserDetails where

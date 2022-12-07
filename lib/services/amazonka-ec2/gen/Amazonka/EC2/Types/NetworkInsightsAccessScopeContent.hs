@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkInsightsAccessScopeContent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AccessScopePath
 import qualified Amazonka.Prelude as Prelude
@@ -74,17 +75,17 @@ networkInsightsAccessScopeContent_matchPaths :: Lens.Lens' NetworkInsightsAccess
 networkInsightsAccessScopeContent_matchPaths = Lens.lens (\NetworkInsightsAccessScopeContent' {matchPaths} -> matchPaths) (\s@NetworkInsightsAccessScopeContent' {} a -> s {matchPaths = a} :: NetworkInsightsAccessScopeContent) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromXML
+  Data.FromXML
     NetworkInsightsAccessScopeContent
   where
   parseXML x =
     NetworkInsightsAccessScopeContent'
-      Prelude.<$> (x Core..@? "networkInsightsAccessScopeId")
-      Prelude.<*> ( x Core..@? "excludePathSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "networkInsightsAccessScopeId")
+      Prelude.<*> ( x Data..@? "excludePathSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "matchPathSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "matchPathSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.Permission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.Operation
 import Amazonka.Inspector2.Types.Service
 import qualified Amazonka.Prelude as Prelude
@@ -71,14 +72,14 @@ permission_operation = Lens.lens (\Permission' {operation} -> operation) (\s@Per
 permission_service :: Lens.Lens' Permission Service
 permission_service = Lens.lens (\Permission' {service} -> service) (\s@Permission' {} a -> s {service = a} :: Permission)
 
-instance Core.FromJSON Permission where
+instance Data.FromJSON Permission where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Permission"
       ( \x ->
           Permission'
-            Prelude.<$> (x Core..: "operation")
-            Prelude.<*> (x Core..: "service")
+            Prelude.<$> (x Data..: "operation")
+            Prelude.<*> (x Data..: "service")
       )
 
 instance Prelude.Hashable Permission where

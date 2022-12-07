@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.RecoveryInstanceDataReplicationError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.FailbackReplicationError
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,16 +65,16 @@ recoveryInstanceDataReplicationError_error :: Lens.Lens' RecoveryInstanceDataRep
 recoveryInstanceDataReplicationError_error = Lens.lens (\RecoveryInstanceDataReplicationError' {error} -> error) (\s@RecoveryInstanceDataReplicationError' {} a -> s {error = a} :: RecoveryInstanceDataReplicationError)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RecoveryInstanceDataReplicationError
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecoveryInstanceDataReplicationError"
       ( \x ->
           RecoveryInstanceDataReplicationError'
-            Prelude.<$> (x Core..:? "rawError")
-            Prelude.<*> (x Core..:? "error")
+            Prelude.<$> (x Data..:? "rawError")
+            Prelude.<*> (x Data..:? "error")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.QueryPlanningContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing information about the query plan.
@@ -30,7 +31,7 @@ data QueryPlanningContext = QueryPlanningContext'
   { -- | The time as of when to read the table contents. If not set, the most
     -- recent transaction commit time will be used. Cannot be specified along
     -- with @TransactionId@.
-    queryAsOfTime :: Prelude.Maybe Core.POSIX,
+    queryAsOfTime :: Prelude.Maybe Data.POSIX,
     -- | A map consisting of key-value pairs.
     queryParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the Data Catalog where the partition in question resides. If
@@ -89,7 +90,7 @@ newQueryPlanningContext pDatabaseName_ =
 -- recent transaction commit time will be used. Cannot be specified along
 -- with @TransactionId@.
 queryPlanningContext_queryAsOfTime :: Lens.Lens' QueryPlanningContext (Prelude.Maybe Prelude.UTCTime)
-queryPlanningContext_queryAsOfTime = Lens.lens (\QueryPlanningContext' {queryAsOfTime} -> queryAsOfTime) (\s@QueryPlanningContext' {} a -> s {queryAsOfTime = a} :: QueryPlanningContext) Prelude.. Lens.mapping Core._Time
+queryPlanningContext_queryAsOfTime = Lens.lens (\QueryPlanningContext' {queryAsOfTime} -> queryAsOfTime) (\s@QueryPlanningContext' {} a -> s {queryAsOfTime = a} :: QueryPlanningContext) Prelude.. Lens.mapping Data._Time
 
 -- | A map consisting of key-value pairs.
 queryPlanningContext_queryParameters :: Lens.Lens' QueryPlanningContext (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -128,15 +129,15 @@ instance Prelude.NFData QueryPlanningContext where
       `Prelude.seq` Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf databaseName
 
-instance Core.ToJSON QueryPlanningContext where
+instance Data.ToJSON QueryPlanningContext where
   toJSON QueryPlanningContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("QueryAsOfTime" Core..=) Prelude.<$> queryAsOfTime,
-            ("QueryParameters" Core..=)
+          [ ("QueryAsOfTime" Data..=) Prelude.<$> queryAsOfTime,
+            ("QueryParameters" Data..=)
               Prelude.<$> queryParameters,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("TransactionId" Core..=) Prelude.<$> transactionId,
-            Prelude.Just ("DatabaseName" Core..= databaseName)
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("TransactionId" Data..=) Prelude.<$> transactionId,
+            Prelude.Just ("DatabaseName" Data..= databaseName)
           ]
       )

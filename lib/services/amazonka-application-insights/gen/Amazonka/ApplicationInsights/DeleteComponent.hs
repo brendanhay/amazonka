@@ -44,6 +44,7 @@ where
 import Amazonka.ApplicationInsights.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,36 +115,36 @@ instance Prelude.NFData DeleteComponent where
     Prelude.rnf resourceGroupName
       `Prelude.seq` Prelude.rnf componentName
 
-instance Core.ToHeaders DeleteComponent where
+instance Data.ToHeaders DeleteComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "EC2WindowsBarleyService.DeleteComponent" ::
+              Data.=# ( "EC2WindowsBarleyService.DeleteComponent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteComponent where
+instance Data.ToJSON DeleteComponent where
   toJSON DeleteComponent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ResourceGroupName" Core..= resourceGroupName),
+              ("ResourceGroupName" Data..= resourceGroupName),
             Prelude.Just
-              ("ComponentName" Core..= componentName)
+              ("ComponentName" Data..= componentName)
           ]
       )
 
-instance Core.ToPath DeleteComponent where
+instance Data.ToPath DeleteComponent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteComponent where
+instance Data.ToQuery DeleteComponent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteComponentResponse' smart constructor.

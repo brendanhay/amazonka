@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.RulesSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.RulesSourceList
 import Amazonka.NetworkFirewall.Types.StatefulRule
 import Amazonka.NetworkFirewall.Types.StatelessRulesAndCustomActions
@@ -117,16 +118,16 @@ rulesSource_rulesSourceList = Lens.lens (\RulesSource' {rulesSourceList} -> rule
 rulesSource_statelessRulesAndCustomActions :: Lens.Lens' RulesSource (Prelude.Maybe StatelessRulesAndCustomActions)
 rulesSource_statelessRulesAndCustomActions = Lens.lens (\RulesSource' {statelessRulesAndCustomActions} -> statelessRulesAndCustomActions) (\s@RulesSource' {} a -> s {statelessRulesAndCustomActions = a} :: RulesSource)
 
-instance Core.FromJSON RulesSource where
+instance Data.FromJSON RulesSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RulesSource"
       ( \x ->
           RulesSource'
-            Prelude.<$> (x Core..:? "RulesString")
-            Prelude.<*> (x Core..:? "StatefulRules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RulesSourceList")
-            Prelude.<*> (x Core..:? "StatelessRulesAndCustomActions")
+            Prelude.<$> (x Data..:? "RulesString")
+            Prelude.<*> (x Data..:? "StatefulRules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RulesSourceList")
+            Prelude.<*> (x Data..:? "StatelessRulesAndCustomActions")
       )
 
 instance Prelude.Hashable RulesSource where
@@ -143,15 +144,15 @@ instance Prelude.NFData RulesSource where
       `Prelude.seq` Prelude.rnf rulesSourceList
       `Prelude.seq` Prelude.rnf statelessRulesAndCustomActions
 
-instance Core.ToJSON RulesSource where
+instance Data.ToJSON RulesSource where
   toJSON RulesSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RulesString" Core..=) Prelude.<$> rulesString,
-            ("StatefulRules" Core..=) Prelude.<$> statefulRules,
-            ("RulesSourceList" Core..=)
+          [ ("RulesString" Data..=) Prelude.<$> rulesString,
+            ("StatefulRules" Data..=) Prelude.<$> statefulRules,
+            ("RulesSourceList" Data..=)
               Prelude.<$> rulesSourceList,
-            ("StatelessRulesAndCustomActions" Core..=)
+            ("StatelessRulesAndCustomActions" Data..=)
               Prelude.<$> statelessRulesAndCustomActions
           ]
       )

@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,7 +136,7 @@ instance Core.AWSRequest DescribeVault where
       Prelude.. Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable DescribeVault where
   hashWithSalt _salt DescribeVault' {..} =
@@ -147,17 +148,17 @@ instance Prelude.NFData DescribeVault where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf vaultName
 
-instance Core.ToHeaders DescribeVault where
+instance Data.ToHeaders DescribeVault where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeVault where
+instance Data.ToPath DescribeVault where
   toPath DescribeVault' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName
+        Data.toBS vaultName
       ]
 
-instance Core.ToQuery DescribeVault where
+instance Data.ToQuery DescribeVault where
   toQuery = Prelude.const Prelude.mempty

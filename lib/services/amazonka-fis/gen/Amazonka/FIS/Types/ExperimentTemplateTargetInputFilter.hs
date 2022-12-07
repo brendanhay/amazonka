@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentTemplateTargetInputFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a filter used for the target resource input in an experiment
@@ -86,13 +87,13 @@ instance
     Prelude.rnf path `Prelude.seq` Prelude.rnf values
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ExperimentTemplateTargetInputFilter
   where
   toJSON ExperimentTemplateTargetInputFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("path" Core..= path),
-            Prelude.Just ("values" Core..= values)
+          [ Prelude.Just ("path" Data..= path),
+            Prelude.Just ("values" Data..= values)
           ]
       )

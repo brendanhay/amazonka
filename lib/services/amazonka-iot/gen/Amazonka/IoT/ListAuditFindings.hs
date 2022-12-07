@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -74,7 +75,7 @@ data ListAuditFindings = ListAuditFindings'
     -- | A filter to limit results to those found before the specified time. You
     -- must specify either the startTime and endTime or the taskId, but not
     -- both.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Information identifying the noncompliant resource.
     resourceIdentifier :: Prelude.Maybe ResourceIdentifier,
     -- | The maximum number of results to return at one time. The default is 25.
@@ -87,7 +88,7 @@ data ListAuditFindings = ListAuditFindings'
     -- | A filter to limit results to those found after the specified time. You
     -- must specify either the startTime and endTime or the taskId, but not
     -- both.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -153,7 +154,7 @@ listAuditFindings_checkName = Lens.lens (\ListAuditFindings' {checkName} -> chec
 -- must specify either the startTime and endTime or the taskId, but not
 -- both.
 listAuditFindings_endTime :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.UTCTime)
-listAuditFindings_endTime = Lens.lens (\ListAuditFindings' {endTime} -> endTime) (\s@ListAuditFindings' {} a -> s {endTime = a} :: ListAuditFindings) Prelude.. Lens.mapping Core._Time
+listAuditFindings_endTime = Lens.lens (\ListAuditFindings' {endTime} -> endTime) (\s@ListAuditFindings' {} a -> s {endTime = a} :: ListAuditFindings) Prelude.. Lens.mapping Data._Time
 
 -- | Information identifying the noncompliant resource.
 listAuditFindings_resourceIdentifier :: Lens.Lens' ListAuditFindings (Prelude.Maybe ResourceIdentifier)
@@ -174,7 +175,7 @@ listAuditFindings_listSuppressedFindings = Lens.lens (\ListAuditFindings' {listS
 -- must specify either the startTime and endTime or the taskId, but not
 -- both.
 listAuditFindings_startTime :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.UTCTime)
-listAuditFindings_startTime = Lens.lens (\ListAuditFindings' {startTime} -> startTime) (\s@ListAuditFindings' {} a -> s {startTime = a} :: ListAuditFindings) Prelude.. Lens.mapping Core._Time
+listAuditFindings_startTime = Lens.lens (\ListAuditFindings' {startTime} -> startTime) (\s@ListAuditFindings' {} a -> s {startTime = a} :: ListAuditFindings) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListAuditFindings where
   page rq rs
@@ -208,8 +209,8 @@ instance Core.AWSRequest ListAuditFindings where
     Response.receiveJSON
       ( \s h x ->
           ListAuditFindingsResponse'
-            Prelude.<$> (x Core..?> "findings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "findings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -235,30 +236,30 @@ instance Prelude.NFData ListAuditFindings where
       `Prelude.seq` Prelude.rnf listSuppressedFindings
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders ListAuditFindings where
+instance Data.ToHeaders ListAuditFindings where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ListAuditFindings where
+instance Data.ToJSON ListAuditFindings where
   toJSON ListAuditFindings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("taskId" Core..=) Prelude.<$> taskId,
-            ("checkName" Core..=) Prelude.<$> checkName,
-            ("endTime" Core..=) Prelude.<$> endTime,
-            ("resourceIdentifier" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("taskId" Data..=) Prelude.<$> taskId,
+            ("checkName" Data..=) Prelude.<$> checkName,
+            ("endTime" Data..=) Prelude.<$> endTime,
+            ("resourceIdentifier" Data..=)
               Prelude.<$> resourceIdentifier,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("listSuppressedFindings" Core..=)
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("listSuppressedFindings" Data..=)
               Prelude.<$> listSuppressedFindings,
-            ("startTime" Core..=) Prelude.<$> startTime
+            ("startTime" Data..=) Prelude.<$> startTime
           ]
       )
 
-instance Core.ToPath ListAuditFindings where
+instance Data.ToPath ListAuditFindings where
   toPath = Prelude.const "/audit/findings"
 
-instance Core.ToQuery ListAuditFindings where
+instance Data.ToQuery ListAuditFindings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAuditFindingsResponse' smart constructor.

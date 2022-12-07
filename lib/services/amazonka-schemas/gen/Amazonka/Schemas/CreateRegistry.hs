@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,10 +109,10 @@ instance Core.AWSRequest CreateRegistry where
     Response.receiveJSON
       ( \s h x ->
           CreateRegistryResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "RegistryName")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "RegistryArn")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "RegistryName")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "RegistryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,32 +128,32 @@ instance Prelude.NFData CreateRegistry where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf registryName
 
-instance Core.ToHeaders CreateRegistry where
+instance Data.ToHeaders CreateRegistry where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRegistry where
+instance Data.ToJSON CreateRegistry where
   toJSON CreateRegistry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath CreateRegistry where
+instance Data.ToPath CreateRegistry where
   toPath CreateRegistry' {..} =
     Prelude.mconcat
-      ["/v1/registries/name/", Core.toBS registryName]
+      ["/v1/registries/name/", Data.toBS registryName]
 
-instance Core.ToQuery CreateRegistry where
+instance Data.ToQuery CreateRegistry where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRegistryResponse' smart constructor.

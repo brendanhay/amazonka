@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.Volume where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.HostPath
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = 
 volume_hostPath :: Lens.Lens' Volume (Prelude.Maybe HostPath)
 volume_hostPath = Lens.lens (\Volume' {hostPath} -> hostPath) (\s@Volume' {} a -> s {hostPath = a} :: Volume)
 
-instance Core.FromJSON Volume where
+instance Data.FromJSON Volume where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Volume"
       ( \x ->
           Volume'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "hostPath")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "hostPath")
       )
 
 instance Prelude.Hashable Volume where

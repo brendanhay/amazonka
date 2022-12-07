@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest DeleteContext where
     Response.receiveJSON
       ( \s h x ->
           DeleteContextResponse'
-            Prelude.<$> (x Core..?> "ContextArn")
+            Prelude.<$> (x Data..?> "ContextArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,30 +95,30 @@ instance Prelude.Hashable DeleteContext where
 instance Prelude.NFData DeleteContext where
   rnf DeleteContext' {..} = Prelude.rnf contextName
 
-instance Core.ToHeaders DeleteContext where
+instance Data.ToHeaders DeleteContext where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteContext" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DeleteContext" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteContext where
+instance Data.ToJSON DeleteContext where
   toJSON DeleteContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ContextName" Core..= contextName)]
+          [Prelude.Just ("ContextName" Data..= contextName)]
       )
 
-instance Core.ToPath DeleteContext where
+instance Data.ToPath DeleteContext where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteContext where
+instance Data.ToQuery DeleteContext where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteContextResponse' smart constructor.

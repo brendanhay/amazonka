@@ -21,6 +21,7 @@ module Amazonka.MwAA.Types.NetworkConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the VPC networking components used to secure and enable
@@ -71,14 +72,14 @@ networkConfiguration_securityGroupIds = Lens.lens (\NetworkConfiguration' {secur
 networkConfiguration_subnetIds :: Lens.Lens' NetworkConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 networkConfiguration_subnetIds = Lens.lens (\NetworkConfiguration' {subnetIds} -> subnetIds) (\s@NetworkConfiguration' {} a -> s {subnetIds = a} :: NetworkConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON NetworkConfiguration where
+instance Data.FromJSON NetworkConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkConfiguration"
       ( \x ->
           NetworkConfiguration'
-            Prelude.<$> (x Core..:? "SecurityGroupIds")
-            Prelude.<*> (x Core..:? "SubnetIds")
+            Prelude.<$> (x Data..:? "SecurityGroupIds")
+            Prelude.<*> (x Data..:? "SubnetIds")
       )
 
 instance Prelude.Hashable NetworkConfiguration where
@@ -91,12 +92,12 @@ instance Prelude.NFData NetworkConfiguration where
     Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToJSON NetworkConfiguration where
+instance Data.ToJSON NetworkConfiguration where
   toJSON NetworkConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityGroupIds" Core..=)
+          [ ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("SubnetIds" Core..=) Prelude.<$> subnetIds
+            ("SubnetIds" Data..=) Prelude.<$> subnetIds
           ]
       )

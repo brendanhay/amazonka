@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -251,8 +252,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyInstanceMetadataOptionsResponse'
-            Prelude.<$> (x Core..@? "instanceId")
-            Prelude.<*> (x Core..@? "instanceMetadataOptions")
+            Prelude.<$> (x Data..@? "instanceId")
+            Prelude.<*> (x Data..@? "instanceMetadataOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -280,29 +281,29 @@ instance Prelude.NFData ModifyInstanceMetadataOptions where
       `Prelude.seq` Prelude.rnf httpProtocolIpv6
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ModifyInstanceMetadataOptions where
+instance Data.ToHeaders ModifyInstanceMetadataOptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyInstanceMetadataOptions where
+instance Data.ToPath ModifyInstanceMetadataOptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyInstanceMetadataOptions where
+instance Data.ToQuery ModifyInstanceMetadataOptions where
   toQuery ModifyInstanceMetadataOptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyInstanceMetadataOptions" ::
+          Data.=: ( "ModifyInstanceMetadataOptions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "HttpPutResponseHopLimit"
-          Core.=: httpPutResponseHopLimit,
-        "HttpTokens" Core.=: httpTokens,
-        "HttpEndpoint" Core.=: httpEndpoint,
-        "DryRun" Core.=: dryRun,
-        "InstanceMetadataTags" Core.=: instanceMetadataTags,
-        "HttpProtocolIpv6" Core.=: httpProtocolIpv6,
-        "InstanceId" Core.=: instanceId
+          Data.=: httpPutResponseHopLimit,
+        "HttpTokens" Data.=: httpTokens,
+        "HttpEndpoint" Data.=: httpEndpoint,
+        "DryRun" Data.=: dryRun,
+        "InstanceMetadataTags" Data.=: instanceMetadataTags,
+        "HttpProtocolIpv6" Data.=: httpProtocolIpv6,
+        "InstanceId" Data.=: instanceId
       ]
 
 -- | /See:/ 'newModifyInstanceMetadataOptionsResponse' smart constructor.

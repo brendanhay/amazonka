@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,13 +125,13 @@ instance Core.AWSRequest DescribeSnapshotAttribute where
     Response.receiveXML
       ( \s h x ->
           DescribeSnapshotAttributeResponse'
-            Prelude.<$> (x Core..@? "snapshotId")
-            Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "snapshotId")
+            Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Core..@? "createVolumePermission"
+            Prelude.<*> ( x Data..@? "createVolumePermission"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -147,22 +148,22 @@ instance Prelude.NFData DescribeSnapshotAttribute where
       `Prelude.seq` Prelude.rnf attribute
       `Prelude.seq` Prelude.rnf snapshotId
 
-instance Core.ToHeaders DescribeSnapshotAttribute where
+instance Data.ToHeaders DescribeSnapshotAttribute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeSnapshotAttribute where
+instance Data.ToPath DescribeSnapshotAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSnapshotAttribute where
+instance Data.ToQuery DescribeSnapshotAttribute where
   toQuery DescribeSnapshotAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSnapshotAttribute" :: Prelude.ByteString),
+          Data.=: ("DescribeSnapshotAttribute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Attribute" Core.=: attribute,
-        "SnapshotId" Core.=: snapshotId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Attribute" Data.=: attribute,
+        "SnapshotId" Data.=: snapshotId
       ]
 
 -- | /See:/ 'newDescribeSnapshotAttributeResponse' smart constructor.

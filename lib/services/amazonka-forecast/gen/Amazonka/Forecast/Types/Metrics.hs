@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.Metrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.ErrorMetric
 import Amazonka.Forecast.Types.WeightedQuantileLoss
 import qualified Amazonka.Prelude as Prelude
@@ -98,18 +99,18 @@ metrics_errorMetrics = Lens.lens (\Metrics' {errorMetrics} -> errorMetrics) (\s@
 metrics_rmse :: Lens.Lens' Metrics (Prelude.Maybe Prelude.Double)
 metrics_rmse = Lens.lens (\Metrics' {rmse} -> rmse) (\s@Metrics' {} a -> s {rmse = a} :: Metrics)
 
-instance Core.FromJSON Metrics where
+instance Data.FromJSON Metrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Metrics"
       ( \x ->
           Metrics'
-            Prelude.<$> (x Core..:? "AverageWeightedQuantileLoss")
-            Prelude.<*> ( x Core..:? "WeightedQuantileLosses"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "AverageWeightedQuantileLoss")
+            Prelude.<*> ( x Data..:? "WeightedQuantileLosses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ErrorMetrics" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RMSE")
+            Prelude.<*> (x Data..:? "ErrorMetrics" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RMSE")
       )
 
 instance Prelude.Hashable Metrics where

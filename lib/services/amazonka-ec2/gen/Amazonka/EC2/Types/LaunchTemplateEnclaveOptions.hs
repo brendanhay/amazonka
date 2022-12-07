@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateEnclaveOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,10 +62,10 @@ newLaunchTemplateEnclaveOptions =
 launchTemplateEnclaveOptions_enabled :: Lens.Lens' LaunchTemplateEnclaveOptions (Prelude.Maybe Prelude.Bool)
 launchTemplateEnclaveOptions_enabled = Lens.lens (\LaunchTemplateEnclaveOptions' {enabled} -> enabled) (\s@LaunchTemplateEnclaveOptions' {} a -> s {enabled = a} :: LaunchTemplateEnclaveOptions)
 
-instance Core.FromXML LaunchTemplateEnclaveOptions where
+instance Data.FromXML LaunchTemplateEnclaveOptions where
   parseXML x =
     LaunchTemplateEnclaveOptions'
-      Prelude.<$> (x Core..@? "enabled")
+      Prelude.<$> (x Data..@? "enabled")
 
 instance
   Prelude.Hashable

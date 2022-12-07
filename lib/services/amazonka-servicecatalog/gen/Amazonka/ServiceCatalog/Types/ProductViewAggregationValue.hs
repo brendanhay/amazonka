@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ProductViewAggregationValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single product view aggregation value\/count pair, containing metadata
@@ -63,14 +64,14 @@ productViewAggregationValue_approximateCount = Lens.lens (\ProductViewAggregatio
 productViewAggregationValue_value :: Lens.Lens' ProductViewAggregationValue (Prelude.Maybe Prelude.Text)
 productViewAggregationValue_value = Lens.lens (\ProductViewAggregationValue' {value} -> value) (\s@ProductViewAggregationValue' {} a -> s {value = a} :: ProductViewAggregationValue)
 
-instance Core.FromJSON ProductViewAggregationValue where
+instance Data.FromJSON ProductViewAggregationValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProductViewAggregationValue"
       ( \x ->
           ProductViewAggregationValue'
-            Prelude.<$> (x Core..:? "ApproximateCount")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "ApproximateCount")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable ProductViewAggregationValue where

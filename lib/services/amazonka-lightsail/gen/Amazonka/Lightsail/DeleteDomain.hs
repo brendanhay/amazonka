@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest DeleteDomain where
     Response.receiveJSON
       ( \s h x ->
           DeleteDomainResponse'
-            Prelude.<$> (x Core..?> "operation")
+            Prelude.<$> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,32 +98,32 @@ instance Prelude.Hashable DeleteDomain where
 instance Prelude.NFData DeleteDomain where
   rnf DeleteDomain' {..} = Prelude.rnf domainName
 
-instance Core.ToHeaders DeleteDomain where
+instance Data.ToHeaders DeleteDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.DeleteDomain" ::
+              Data.=# ( "Lightsail_20161128.DeleteDomain" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDomain where
+instance Data.ToJSON DeleteDomain where
   toJSON DeleteDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("domainName" Core..= domainName)]
+          [Prelude.Just ("domainName" Data..= domainName)]
       )
 
-instance Core.ToPath DeleteDomain where
+instance Data.ToPath DeleteDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDomain where
+instance Data.ToQuery DeleteDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDomainResponse' smart constructor.

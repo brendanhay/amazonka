@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,10 +101,10 @@ instance Core.AWSRequest UpdateRegistry where
     Response.receiveJSON
       ( \s h x ->
           UpdateRegistryResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "RegistryName")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "RegistryArn")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "RegistryName")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "RegistryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,30 +118,30 @@ instance Prelude.NFData UpdateRegistry where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf registryName
 
-instance Core.ToHeaders UpdateRegistry where
+instance Data.ToHeaders UpdateRegistry where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRegistry where
+instance Data.ToJSON UpdateRegistry where
   toJSON UpdateRegistry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Description" Core..=) Prelude.<$> description]
+          [("Description" Data..=) Prelude.<$> description]
       )
 
-instance Core.ToPath UpdateRegistry where
+instance Data.ToPath UpdateRegistry where
   toPath UpdateRegistry' {..} =
     Prelude.mconcat
-      ["/v1/registries/name/", Core.toBS registryName]
+      ["/v1/registries/name/", Data.toBS registryName]
 
-instance Core.ToQuery UpdateRegistry where
+instance Data.ToQuery UpdateRegistry where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRegistryResponse' smart constructor.

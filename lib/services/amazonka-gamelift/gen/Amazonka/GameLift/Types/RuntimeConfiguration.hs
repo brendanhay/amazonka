@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.RuntimeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.ServerProcess
 import qualified Amazonka.Prelude as Prelude
 
@@ -109,15 +110,15 @@ runtimeConfiguration_gameSessionActivationTimeoutSeconds = Lens.lens (\RuntimeCo
 runtimeConfiguration_serverProcesses :: Lens.Lens' RuntimeConfiguration (Prelude.Maybe (Prelude.NonEmpty ServerProcess))
 runtimeConfiguration_serverProcesses = Lens.lens (\RuntimeConfiguration' {serverProcesses} -> serverProcesses) (\s@RuntimeConfiguration' {} a -> s {serverProcesses = a} :: RuntimeConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RuntimeConfiguration where
+instance Data.FromJSON RuntimeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuntimeConfiguration"
       ( \x ->
           RuntimeConfiguration'
-            Prelude.<$> (x Core..:? "MaxConcurrentGameSessionActivations")
-            Prelude.<*> (x Core..:? "GameSessionActivationTimeoutSeconds")
-            Prelude.<*> (x Core..:? "ServerProcesses")
+            Prelude.<$> (x Data..:? "MaxConcurrentGameSessionActivations")
+            Prelude.<*> (x Data..:? "GameSessionActivationTimeoutSeconds")
+            Prelude.<*> (x Data..:? "ServerProcesses")
       )
 
 instance Prelude.Hashable RuntimeConfiguration where
@@ -133,15 +134,15 @@ instance Prelude.NFData RuntimeConfiguration where
       `Prelude.seq` Prelude.rnf gameSessionActivationTimeoutSeconds
       `Prelude.seq` Prelude.rnf serverProcesses
 
-instance Core.ToJSON RuntimeConfiguration where
+instance Data.ToJSON RuntimeConfiguration where
   toJSON RuntimeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxConcurrentGameSessionActivations" Core..=)
+          [ ("MaxConcurrentGameSessionActivations" Data..=)
               Prelude.<$> maxConcurrentGameSessionActivations,
-            ("GameSessionActivationTimeoutSeconds" Core..=)
+            ("GameSessionActivationTimeoutSeconds" Data..=)
               Prelude.<$> gameSessionActivationTimeoutSeconds,
-            ("ServerProcesses" Core..=)
+            ("ServerProcesses" Data..=)
               Prelude.<$> serverProcesses
           ]
       )

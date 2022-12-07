@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.SystemInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.NetworkInfo
 import Amazonka.MigrationHubStrategy.Types.OSInfo
 import qualified Amazonka.Prelude as Prelude
@@ -81,18 +82,18 @@ systemInfo_fileSystemType = Lens.lens (\SystemInfo' {fileSystemType} -> fileSyst
 systemInfo_cpuArchitecture :: Lens.Lens' SystemInfo (Prelude.Maybe Prelude.Text)
 systemInfo_cpuArchitecture = Lens.lens (\SystemInfo' {cpuArchitecture} -> cpuArchitecture) (\s@SystemInfo' {} a -> s {cpuArchitecture = a} :: SystemInfo)
 
-instance Core.FromJSON SystemInfo where
+instance Data.FromJSON SystemInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SystemInfo"
       ( \x ->
           SystemInfo'
-            Prelude.<$> (x Core..:? "osInfo")
-            Prelude.<*> ( x Core..:? "networkInfoList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "osInfo")
+            Prelude.<*> ( x Data..:? "networkInfoList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "fileSystemType")
-            Prelude.<*> (x Core..:? "cpuArchitecture")
+            Prelude.<*> (x Data..:? "fileSystemType")
+            Prelude.<*> (x Data..:? "cpuArchitecture")
       )
 
 instance Prelude.Hashable SystemInfo where

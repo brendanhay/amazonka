@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -210,11 +211,11 @@ instance Core.AWSRequest DescribeScheduledInstances where
     Response.receiveXML
       ( \s h x ->
           DescribeScheduledInstancesResponse'
-            Prelude.<$> ( x Core..@? "scheduledInstanceSet"
+            Prelude.<$> ( x Data..@? "scheduledInstanceSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -236,27 +237,27 @@ instance Prelude.NFData DescribeScheduledInstances where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf scheduledInstanceIds
 
-instance Core.ToHeaders DescribeScheduledInstances where
+instance Data.ToHeaders DescribeScheduledInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeScheduledInstances where
+instance Data.ToPath DescribeScheduledInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeScheduledInstances where
+instance Data.ToQuery DescribeScheduledInstances where
   toQuery DescribeScheduledInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeScheduledInstances" :: Prelude.ByteString),
+          Data.=: ("DescribeScheduledInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "SlotStartTimeRange" Core.=: slotStartTimeRange,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          ( Core.toQueryList "ScheduledInstanceId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "SlotStartTimeRange" Data.=: slotStartTimeRange,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          ( Data.toQueryList "ScheduledInstanceId"
               Prelude.<$> scheduledInstanceIds
           )
       ]

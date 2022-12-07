@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.ScriptParameterKeyValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A parameter for a studio component script, in the form of a key:value
@@ -62,13 +63,13 @@ scriptParameterKeyValue_key = Lens.lens (\ScriptParameterKeyValue' {key} -> key)
 scriptParameterKeyValue_value :: Lens.Lens' ScriptParameterKeyValue (Prelude.Maybe Prelude.Text)
 scriptParameterKeyValue_value = Lens.lens (\ScriptParameterKeyValue' {value} -> value) (\s@ScriptParameterKeyValue' {} a -> s {value = a} :: ScriptParameterKeyValue)
 
-instance Core.FromJSON ScriptParameterKeyValue where
+instance Data.FromJSON ScriptParameterKeyValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScriptParameterKeyValue"
       ( \x ->
           ScriptParameterKeyValue'
-            Prelude.<$> (x Core..:? "key") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "key") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ScriptParameterKeyValue where
@@ -80,11 +81,11 @@ instance Prelude.NFData ScriptParameterKeyValue where
   rnf ScriptParameterKeyValue' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ScriptParameterKeyValue where
+instance Data.ToJSON ScriptParameterKeyValue where
   toJSON ScriptParameterKeyValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("value" Core..=) Prelude.<$> value
+          [ ("key" Data..=) Prelude.<$> key,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

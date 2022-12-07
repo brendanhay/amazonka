@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -185,7 +186,7 @@ instance Core.AWSRequest CreateVpnConnection where
     Response.receiveXML
       ( \s h x ->
           CreateVpnConnectionResponse'
-            Prelude.<$> (x Core..@? "vpnConnection")
+            Prelude.<$> (x Data..@? "vpnConnection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -209,29 +210,29 @@ instance Prelude.NFData CreateVpnConnection where
       `Prelude.seq` Prelude.rnf customerGatewayId
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateVpnConnection where
+instance Data.ToHeaders CreateVpnConnection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateVpnConnection where
+instance Data.ToPath CreateVpnConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVpnConnection where
+instance Data.ToQuery CreateVpnConnection where
   toQuery CreateVpnConnection' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateVpnConnection" :: Prelude.ByteString),
+          Data.=: ("CreateVpnConnection" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "TransitGatewayId" Core.=: transitGatewayId,
-        "DryRun" Core.=: dryRun,
-        "Options" Core.=: options,
-        "VpnGatewayId" Core.=: vpnGatewayId,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "TransitGatewayId" Data.=: transitGatewayId,
+        "DryRun" Data.=: dryRun,
+        "Options" Data.=: options,
+        "VpnGatewayId" Data.=: vpnGatewayId,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "CustomerGatewayId" Core.=: customerGatewayId,
-        "Type" Core.=: type'
+        "CustomerGatewayId" Data.=: customerGatewayId,
+        "Type" Data.=: type'
       ]
 
 -- | Contains the output of CreateVpnConnection.

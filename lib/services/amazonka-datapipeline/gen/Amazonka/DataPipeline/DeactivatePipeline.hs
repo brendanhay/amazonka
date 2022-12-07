@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataPipeline.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,34 +121,34 @@ instance Prelude.NFData DeactivatePipeline where
     Prelude.rnf cancelActive
       `Prelude.seq` Prelude.rnf pipelineId
 
-instance Core.ToHeaders DeactivatePipeline where
+instance Data.ToHeaders DeactivatePipeline where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DataPipeline.DeactivatePipeline" ::
+              Data.=# ( "DataPipeline.DeactivatePipeline" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeactivatePipeline where
+instance Data.ToJSON DeactivatePipeline where
   toJSON DeactivatePipeline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cancelActive" Core..=) Prelude.<$> cancelActive,
-            Prelude.Just ("pipelineId" Core..= pipelineId)
+          [ ("cancelActive" Data..=) Prelude.<$> cancelActive,
+            Prelude.Just ("pipelineId" Data..= pipelineId)
           ]
       )
 
-instance Core.ToPath DeactivatePipeline where
+instance Data.ToPath DeactivatePipeline where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeactivatePipeline where
+instance Data.ToQuery DeactivatePipeline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of DeactivatePipeline.

@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.EnvironmentTemplateSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.Provisioning
 
@@ -35,15 +36,15 @@ data EnvironmentTemplateSummary = EnvironmentTemplateSummary'
     provisioning :: Prelude.Maybe Provisioning,
     -- | The name of the environment template as displayed in the developer
     -- interface.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A description of the environment template.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the environment template.
     arn :: Prelude.Text,
     -- | The time when the environment template was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The time when the environment template was last modified.
-    lastModifiedAt :: Core.POSIX,
+    lastModifiedAt :: Data.POSIX,
     -- | The name of the environment template.
     name :: Prelude.Text
   }
@@ -96,9 +97,9 @@ newEnvironmentTemplateSummary
         displayName = Prelude.Nothing,
         description = Prelude.Nothing,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         lastModifiedAt =
-          Core._Time Lens.# pLastModifiedAt_,
+          Data._Time Lens.# pLastModifiedAt_,
         name = pName_
       }
 
@@ -114,11 +115,11 @@ environmentTemplateSummary_provisioning = Lens.lens (\EnvironmentTemplateSummary
 -- | The name of the environment template as displayed in the developer
 -- interface.
 environmentTemplateSummary_displayName :: Lens.Lens' EnvironmentTemplateSummary (Prelude.Maybe Prelude.Text)
-environmentTemplateSummary_displayName = Lens.lens (\EnvironmentTemplateSummary' {displayName} -> displayName) (\s@EnvironmentTemplateSummary' {} a -> s {displayName = a} :: EnvironmentTemplateSummary) Prelude.. Lens.mapping Core._Sensitive
+environmentTemplateSummary_displayName = Lens.lens (\EnvironmentTemplateSummary' {displayName} -> displayName) (\s@EnvironmentTemplateSummary' {} a -> s {displayName = a} :: EnvironmentTemplateSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A description of the environment template.
 environmentTemplateSummary_description :: Lens.Lens' EnvironmentTemplateSummary (Prelude.Maybe Prelude.Text)
-environmentTemplateSummary_description = Lens.lens (\EnvironmentTemplateSummary' {description} -> description) (\s@EnvironmentTemplateSummary' {} a -> s {description = a} :: EnvironmentTemplateSummary) Prelude.. Lens.mapping Core._Sensitive
+environmentTemplateSummary_description = Lens.lens (\EnvironmentTemplateSummary' {description} -> description) (\s@EnvironmentTemplateSummary' {} a -> s {description = a} :: EnvironmentTemplateSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the environment template.
 environmentTemplateSummary_arn :: Lens.Lens' EnvironmentTemplateSummary Prelude.Text
@@ -126,30 +127,30 @@ environmentTemplateSummary_arn = Lens.lens (\EnvironmentTemplateSummary' {arn} -
 
 -- | The time when the environment template was created.
 environmentTemplateSummary_createdAt :: Lens.Lens' EnvironmentTemplateSummary Prelude.UTCTime
-environmentTemplateSummary_createdAt = Lens.lens (\EnvironmentTemplateSummary' {createdAt} -> createdAt) (\s@EnvironmentTemplateSummary' {} a -> s {createdAt = a} :: EnvironmentTemplateSummary) Prelude.. Core._Time
+environmentTemplateSummary_createdAt = Lens.lens (\EnvironmentTemplateSummary' {createdAt} -> createdAt) (\s@EnvironmentTemplateSummary' {} a -> s {createdAt = a} :: EnvironmentTemplateSummary) Prelude.. Data._Time
 
 -- | The time when the environment template was last modified.
 environmentTemplateSummary_lastModifiedAt :: Lens.Lens' EnvironmentTemplateSummary Prelude.UTCTime
-environmentTemplateSummary_lastModifiedAt = Lens.lens (\EnvironmentTemplateSummary' {lastModifiedAt} -> lastModifiedAt) (\s@EnvironmentTemplateSummary' {} a -> s {lastModifiedAt = a} :: EnvironmentTemplateSummary) Prelude.. Core._Time
+environmentTemplateSummary_lastModifiedAt = Lens.lens (\EnvironmentTemplateSummary' {lastModifiedAt} -> lastModifiedAt) (\s@EnvironmentTemplateSummary' {} a -> s {lastModifiedAt = a} :: EnvironmentTemplateSummary) Prelude.. Data._Time
 
 -- | The name of the environment template.
 environmentTemplateSummary_name :: Lens.Lens' EnvironmentTemplateSummary Prelude.Text
 environmentTemplateSummary_name = Lens.lens (\EnvironmentTemplateSummary' {name} -> name) (\s@EnvironmentTemplateSummary' {} a -> s {name = a} :: EnvironmentTemplateSummary)
 
-instance Core.FromJSON EnvironmentTemplateSummary where
+instance Data.FromJSON EnvironmentTemplateSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentTemplateSummary"
       ( \x ->
           EnvironmentTemplateSummary'
-            Prelude.<$> (x Core..:? "recommendedVersion")
-            Prelude.<*> (x Core..:? "provisioning")
-            Prelude.<*> (x Core..:? "displayName")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "lastModifiedAt")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "recommendedVersion")
+            Prelude.<*> (x Data..:? "provisioning")
+            Prelude.<*> (x Data..:? "displayName")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "lastModifiedAt")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable EnvironmentTemplateSummary where

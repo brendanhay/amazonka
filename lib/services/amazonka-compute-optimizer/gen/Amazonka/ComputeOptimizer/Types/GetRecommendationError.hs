@@ -21,6 +21,7 @@ module Amazonka.ComputeOptimizer.Types.GetRecommendationError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an error experienced when getting recommendations.
@@ -74,15 +75,15 @@ getRecommendationError_code = Lens.lens (\GetRecommendationError' {code} -> code
 getRecommendationError_identifier :: Lens.Lens' GetRecommendationError (Prelude.Maybe Prelude.Text)
 getRecommendationError_identifier = Lens.lens (\GetRecommendationError' {identifier} -> identifier) (\s@GetRecommendationError' {} a -> s {identifier = a} :: GetRecommendationError)
 
-instance Core.FromJSON GetRecommendationError where
+instance Data.FromJSON GetRecommendationError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GetRecommendationError"
       ( \x ->
           GetRecommendationError'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "identifier")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "identifier")
       )
 
 instance Prelude.Hashable GetRecommendationError where

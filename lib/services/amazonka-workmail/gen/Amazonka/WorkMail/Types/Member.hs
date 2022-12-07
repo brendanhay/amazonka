@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.Member where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.EntityState
 import Amazonka.WorkMail.Types.MemberType
@@ -38,9 +39,9 @@ data Member = Member'
     -- | The identifier of the member.
     id :: Prelude.Maybe Prelude.Text,
     -- | The date indicating when the member was enabled for WorkMail use.
-    enabledDate :: Prelude.Maybe Core.POSIX,
+    enabledDate :: Prelude.Maybe Data.POSIX,
     -- | The date indicating when the member was disabled from WorkMail use.
-    disabledDate :: Prelude.Maybe Core.POSIX
+    disabledDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,24 +94,24 @@ member_id = Lens.lens (\Member' {id} -> id) (\s@Member' {} a -> s {id = a} :: Me
 
 -- | The date indicating when the member was enabled for WorkMail use.
 member_enabledDate :: Lens.Lens' Member (Prelude.Maybe Prelude.UTCTime)
-member_enabledDate = Lens.lens (\Member' {enabledDate} -> enabledDate) (\s@Member' {} a -> s {enabledDate = a} :: Member) Prelude.. Lens.mapping Core._Time
+member_enabledDate = Lens.lens (\Member' {enabledDate} -> enabledDate) (\s@Member' {} a -> s {enabledDate = a} :: Member) Prelude.. Lens.mapping Data._Time
 
 -- | The date indicating when the member was disabled from WorkMail use.
 member_disabledDate :: Lens.Lens' Member (Prelude.Maybe Prelude.UTCTime)
-member_disabledDate = Lens.lens (\Member' {disabledDate} -> disabledDate) (\s@Member' {} a -> s {disabledDate = a} :: Member) Prelude.. Lens.mapping Core._Time
+member_disabledDate = Lens.lens (\Member' {disabledDate} -> disabledDate) (\s@Member' {} a -> s {disabledDate = a} :: Member) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Member where
+instance Data.FromJSON Member where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Member"
       ( \x ->
           Member'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "EnabledDate")
-            Prelude.<*> (x Core..:? "DisabledDate")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "EnabledDate")
+            Prelude.<*> (x Data..:? "DisabledDate")
       )
 
 instance Prelude.Hashable Member where

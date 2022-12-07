@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.IdentityDocument where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.Block
 import Amazonka.Textract.Types.IdentityDocumentField
@@ -82,17 +83,17 @@ identityDocument_identityDocumentFields = Lens.lens (\IdentityDocument' {identit
 identityDocument_blocks :: Lens.Lens' IdentityDocument (Prelude.Maybe [Block])
 identityDocument_blocks = Lens.lens (\IdentityDocument' {blocks} -> blocks) (\s@IdentityDocument' {} a -> s {blocks = a} :: IdentityDocument) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON IdentityDocument where
+instance Data.FromJSON IdentityDocument where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityDocument"
       ( \x ->
           IdentityDocument'
-            Prelude.<$> (x Core..:? "DocumentIndex")
-            Prelude.<*> ( x Core..:? "IdentityDocumentFields"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DocumentIndex")
+            Prelude.<*> ( x Data..:? "IdentityDocumentFields"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Blocks" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Blocks" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable IdentityDocument where

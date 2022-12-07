@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,8 +157,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListVirtualInterfaceTestHistoryResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "virtualInterfaceTestHistory"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "virtualInterfaceTestHistory"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -190,41 +191,41 @@ instance
       `Prelude.seq` Prelude.rnf testId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListVirtualInterfaceTestHistory
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.ListVirtualInterfaceTestHistory" ::
+              Data.=# ( "OvertureService.ListVirtualInterfaceTestHistory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListVirtualInterfaceTestHistory where
+instance Data.ToJSON ListVirtualInterfaceTestHistory where
   toJSON ListVirtualInterfaceTestHistory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("status" Core..=) Prelude.<$> status,
-            ("virtualInterfaceId" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("status" Data..=) Prelude.<$> status,
+            ("virtualInterfaceId" Data..=)
               Prelude.<$> virtualInterfaceId,
-            ("bgpPeers" Core..=) Prelude.<$> bgpPeers,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("testId" Core..=) Prelude.<$> testId
+            ("bgpPeers" Data..=) Prelude.<$> bgpPeers,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("testId" Data..=) Prelude.<$> testId
           ]
       )
 
-instance Core.ToPath ListVirtualInterfaceTestHistory where
+instance Data.ToPath ListVirtualInterfaceTestHistory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListVirtualInterfaceTestHistory where
+instance Data.ToQuery ListVirtualInterfaceTestHistory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListVirtualInterfaceTestHistoryResponse' smart constructor.

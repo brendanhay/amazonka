@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.FieldPatterns where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex data type that includes the field patterns to match for
@@ -64,13 +65,13 @@ fieldPatterns_items = Lens.lens (\FieldPatterns' {items} -> items) (\s@FieldPatt
 fieldPatterns_quantity :: Lens.Lens' FieldPatterns Prelude.Int
 fieldPatterns_quantity = Lens.lens (\FieldPatterns' {quantity} -> quantity) (\s@FieldPatterns' {} a -> s {quantity = a} :: FieldPatterns)
 
-instance Core.FromXML FieldPatterns where
+instance Data.FromXML FieldPatterns where
   parseXML x =
     FieldPatterns'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "FieldPattern")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "FieldPattern")
                   )
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable FieldPatterns where
   hashWithSalt _salt FieldPatterns' {..} =
@@ -82,11 +83,11 @@ instance Prelude.NFData FieldPatterns where
     Prelude.rnf items
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML FieldPatterns where
+instance Data.ToXML FieldPatterns where
   toXML FieldPatterns' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML
-            (Core.toXMLList "FieldPattern" Prelude.<$> items),
-        "Quantity" Core.@= quantity
+          Data.@= Data.toXML
+            (Data.toXMLList "FieldPattern" Prelude.<$> items),
+        "Quantity" Data.@= quantity
       ]

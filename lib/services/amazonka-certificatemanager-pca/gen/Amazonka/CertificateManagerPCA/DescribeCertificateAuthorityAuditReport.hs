@@ -54,6 +54,7 @@ where
 import Amazonka.CertificateManagerPCA.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,10 +131,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeCertificateAuthorityAuditReportResponse'
-            Prelude.<$> (x Core..?> "S3BucketName")
-              Prelude.<*> (x Core..?> "S3Key")
-              Prelude.<*> (x Core..?> "CreatedAt")
-              Prelude.<*> (x Core..?> "AuditReportStatus")
+            Prelude.<$> (x Data..?> "S3BucketName")
+              Prelude.<*> (x Data..?> "S3Key")
+              Prelude.<*> (x Data..?> "CreatedAt")
+              Prelude.<*> (x Data..?> "AuditReportStatus")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,47 +158,47 @@ instance
       `Prelude.seq` Prelude.rnf auditReportId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeCertificateAuthorityAuditReport
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ACMPrivateCA.DescribeCertificateAuthorityAuditReport" ::
+              Data.=# ( "ACMPrivateCA.DescribeCertificateAuthorityAuditReport" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeCertificateAuthorityAuditReport
   where
   toJSON DescribeCertificateAuthorityAuditReport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "CertificateAuthorityArn"
-                  Core..= certificateAuthorityArn
+                  Data..= certificateAuthorityArn
               ),
             Prelude.Just
-              ("AuditReportId" Core..= auditReportId)
+              ("AuditReportId" Data..= auditReportId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeCertificateAuthorityAuditReport
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeCertificateAuthorityAuditReport
   where
   toQuery = Prelude.const Prelude.mempty
@@ -209,7 +210,7 @@ data DescribeCertificateAuthorityAuditReportResponse = DescribeCertificateAuthor
     -- | S3 __key__ that uniquely identifies the report file in your S3 bucket.
     s3Key :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the report was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether report creation is in progress, has succeeded, or has
     -- failed.
     auditReportStatus :: Prelude.Maybe AuditReportStatus,
@@ -263,7 +264,7 @@ describeCertificateAuthorityAuditReportResponse_s3Key = Lens.lens (\DescribeCert
 
 -- | The date and time at which the report was created.
 describeCertificateAuthorityAuditReportResponse_createdAt :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse (Prelude.Maybe Prelude.UTCTime)
-describeCertificateAuthorityAuditReportResponse_createdAt = Lens.lens (\DescribeCertificateAuthorityAuditReportResponse' {createdAt} -> createdAt) (\s@DescribeCertificateAuthorityAuditReportResponse' {} a -> s {createdAt = a} :: DescribeCertificateAuthorityAuditReportResponse) Prelude.. Lens.mapping Core._Time
+describeCertificateAuthorityAuditReportResponse_createdAt = Lens.lens (\DescribeCertificateAuthorityAuditReportResponse' {createdAt} -> createdAt) (\s@DescribeCertificateAuthorityAuditReportResponse' {} a -> s {createdAt = a} :: DescribeCertificateAuthorityAuditReportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether report creation is in progress, has succeeded, or has
 -- failed.

@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.FSxWindowsFileServerAuthorizationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The authorization configuration details for Amazon FSx for Windows File
@@ -91,16 +92,16 @@ fSxWindowsFileServerAuthorizationConfig_domain :: Lens.Lens' FSxWindowsFileServe
 fSxWindowsFileServerAuthorizationConfig_domain = Lens.lens (\FSxWindowsFileServerAuthorizationConfig' {domain} -> domain) (\s@FSxWindowsFileServerAuthorizationConfig' {} a -> s {domain = a} :: FSxWindowsFileServerAuthorizationConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FSxWindowsFileServerAuthorizationConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FSxWindowsFileServerAuthorizationConfig"
       ( \x ->
           FSxWindowsFileServerAuthorizationConfig'
-            Prelude.<$> (x Core..: "credentialsParameter")
-            Prelude.<*> (x Core..: "domain")
+            Prelude.<$> (x Data..: "credentialsParameter")
+            Prelude.<*> (x Data..: "domain")
       )
 
 instance
@@ -122,16 +123,16 @@ instance
       `Prelude.seq` Prelude.rnf domain
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     FSxWindowsFileServerAuthorizationConfig
   where
   toJSON FSxWindowsFileServerAuthorizationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "credentialsParameter"
-                  Core..= credentialsParameter
+                  Data..= credentialsParameter
               ),
-            Prelude.Just ("domain" Core..= domain)
+            Prelude.Just ("domain" Data..= domain)
           ]
       )

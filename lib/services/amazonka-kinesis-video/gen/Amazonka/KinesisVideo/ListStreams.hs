@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,8 +145,8 @@ instance Core.AWSRequest ListStreams where
     Response.receiveJSON
       ( \s h x ->
           ListStreamsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "StreamInfoList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "StreamInfoList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,24 +162,24 @@ instance Prelude.NFData ListStreams where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf streamNameCondition
 
-instance Core.ToHeaders ListStreams where
+instance Data.ToHeaders ListStreams where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ListStreams where
+instance Data.ToJSON ListStreams where
   toJSON ListStreams' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StreamNameCondition" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StreamNameCondition" Data..=)
               Prelude.<$> streamNameCondition
           ]
       )
 
-instance Core.ToPath ListStreams where
+instance Data.ToPath ListStreams where
   toPath = Prelude.const "/listStreams"
 
-instance Core.ToQuery ListStreams where
+instance Data.ToQuery ListStreams where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListStreamsResponse' smart constructor.

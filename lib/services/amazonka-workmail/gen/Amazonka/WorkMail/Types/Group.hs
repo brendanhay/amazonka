@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.Group where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.EntityState
 
@@ -37,9 +38,9 @@ data Group = Group'
     -- | The identifier of the group.
     id :: Prelude.Maybe Prelude.Text,
     -- | The date indicating when the group was enabled for WorkMail use.
-    enabledDate :: Prelude.Maybe Core.POSIX,
+    enabledDate :: Prelude.Maybe Data.POSIX,
     -- | The date indicating when the group was disabled from WorkMail use.
-    disabledDate :: Prelude.Maybe Core.POSIX
+    disabledDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,24 +93,24 @@ group_id = Lens.lens (\Group' {id} -> id) (\s@Group' {} a -> s {id = a} :: Group
 
 -- | The date indicating when the group was enabled for WorkMail use.
 group_enabledDate :: Lens.Lens' Group (Prelude.Maybe Prelude.UTCTime)
-group_enabledDate = Lens.lens (\Group' {enabledDate} -> enabledDate) (\s@Group' {} a -> s {enabledDate = a} :: Group) Prelude.. Lens.mapping Core._Time
+group_enabledDate = Lens.lens (\Group' {enabledDate} -> enabledDate) (\s@Group' {} a -> s {enabledDate = a} :: Group) Prelude.. Lens.mapping Data._Time
 
 -- | The date indicating when the group was disabled from WorkMail use.
 group_disabledDate :: Lens.Lens' Group (Prelude.Maybe Prelude.UTCTime)
-group_disabledDate = Lens.lens (\Group' {disabledDate} -> disabledDate) (\s@Group' {} a -> s {disabledDate = a} :: Group) Prelude.. Lens.mapping Core._Time
+group_disabledDate = Lens.lens (\Group' {disabledDate} -> disabledDate) (\s@Group' {} a -> s {disabledDate = a} :: Group) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Group where
+instance Data.FromJSON Group where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Group"
       ( \x ->
           Group'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Email")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "EnabledDate")
-            Prelude.<*> (x Core..:? "DisabledDate")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Email")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "EnabledDate")
+            Prelude.<*> (x Data..:? "DisabledDate")
       )
 
 instance Prelude.Hashable Group where

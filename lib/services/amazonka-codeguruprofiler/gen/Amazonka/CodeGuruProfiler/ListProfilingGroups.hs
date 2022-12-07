@@ -48,6 +48,7 @@ where
 import Amazonka.CodeGuruProfiler.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,12 +158,12 @@ instance Core.AWSRequest ListProfilingGroups where
     Response.receiveJSON
       ( \s h x ->
           ListProfilingGroupsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "profilingGroups"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "profilingGroups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "profilingGroupNames"
+            Prelude.<*> ( x Data..?> "profilingGroupNames"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -179,26 +180,26 @@ instance Prelude.NFData ListProfilingGroups where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf includeDescription
 
-instance Core.ToHeaders ListProfilingGroups where
+instance Data.ToHeaders ListProfilingGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListProfilingGroups where
+instance Data.ToPath ListProfilingGroups where
   toPath = Prelude.const "/profilingGroups"
 
-instance Core.ToQuery ListProfilingGroups where
+instance Data.ToQuery ListProfilingGroups where
   toQuery ListProfilingGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "includeDescription" Core.=: includeDescription
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "includeDescription" Data.=: includeDescription
       ]
 
 -- | The structure representing the listProfilingGroupsResponse.

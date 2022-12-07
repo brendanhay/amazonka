@@ -49,6 +49,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,9 +100,9 @@ instance Core.AWSRequest GetFunction where
     Response.receiveBytes
       ( \s h x ->
           GetFunctionResponse'
-            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<$> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
-            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,17 +115,17 @@ instance Prelude.NFData GetFunction where
   rnf GetFunction' {..} =
     Prelude.rnf stage `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders GetFunction where
+instance Data.ToHeaders GetFunction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetFunction where
+instance Data.ToPath GetFunction where
   toPath GetFunction' {..} =
     Prelude.mconcat
-      ["/2020-05-31/function/", Core.toBS name]
+      ["/2020-05-31/function/", Data.toBS name]
 
-instance Core.ToQuery GetFunction where
+instance Data.ToQuery GetFunction where
   toQuery GetFunction' {..} =
-    Prelude.mconcat ["Stage" Core.=: stage]
+    Prelude.mconcat ["Stage" Data.=: stage]
 
 -- | /See:/ 'newGetFunctionResponse' smart constructor.
 data GetFunctionResponse = GetFunctionResponse'
@@ -132,7 +133,7 @@ data GetFunctionResponse = GetFunctionResponse'
     -- function.
     eTag :: Prelude.Maybe Prelude.Text,
     -- | The function code of a CloudFront function.
-    functionCode :: Prelude.Maybe (Core.Sensitive Prelude.ByteString),
+    functionCode :: Prelude.Maybe (Data.Sensitive Prelude.ByteString),
     -- | The content type (media type) of the response.
     contentType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -175,7 +176,7 @@ getFunctionResponse_eTag = Lens.lens (\GetFunctionResponse' {eTag} -> eTag) (\s@
 
 -- | The function code of a CloudFront function.
 getFunctionResponse_functionCode :: Lens.Lens' GetFunctionResponse (Prelude.Maybe Prelude.ByteString)
-getFunctionResponse_functionCode = Lens.lens (\GetFunctionResponse' {functionCode} -> functionCode) (\s@GetFunctionResponse' {} a -> s {functionCode = a} :: GetFunctionResponse) Prelude.. Lens.mapping Core._Sensitive
+getFunctionResponse_functionCode = Lens.lens (\GetFunctionResponse' {functionCode} -> functionCode) (\s@GetFunctionResponse' {} a -> s {functionCode = a} :: GetFunctionResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The content type (media type) of the response.
 getFunctionResponse_contentType :: Lens.Lens' GetFunctionResponse (Prelude.Maybe Prelude.Text)

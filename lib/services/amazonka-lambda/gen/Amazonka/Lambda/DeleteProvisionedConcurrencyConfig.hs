@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -154,28 +155,28 @@ instance
       `Prelude.seq` Prelude.rnf qualifier
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteProvisionedConcurrencyConfig
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteProvisionedConcurrencyConfig
   where
   toPath DeleteProvisionedConcurrencyConfig' {..} =
     Prelude.mconcat
       [ "/2019-09-30/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/provisioned-concurrency"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteProvisionedConcurrencyConfig
   where
   toQuery DeleteProvisionedConcurrencyConfig' {..} =
-    Prelude.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Data.=: qualifier]
 
 -- | /See:/ 'newDeleteProvisionedConcurrencyConfigResponse' smart constructor.
 data DeleteProvisionedConcurrencyConfigResponse = DeleteProvisionedConcurrencyConfigResponse'

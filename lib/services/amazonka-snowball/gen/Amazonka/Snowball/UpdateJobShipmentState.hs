@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,35 +128,35 @@ instance Prelude.NFData UpdateJobShipmentState where
     Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf shipmentState
 
-instance Core.ToHeaders UpdateJobShipmentState where
+instance Data.ToHeaders UpdateJobShipmentState where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.UpdateJobShipmentState" ::
+              Data.=# ( "AWSIESnowballJobManagementService.UpdateJobShipmentState" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateJobShipmentState where
+instance Data.ToJSON UpdateJobShipmentState where
   toJSON UpdateJobShipmentState' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("JobId" Core..= jobId),
+          [ Prelude.Just ("JobId" Data..= jobId),
             Prelude.Just
-              ("ShipmentState" Core..= shipmentState)
+              ("ShipmentState" Data..= shipmentState)
           ]
       )
 
-instance Core.ToPath UpdateJobShipmentState where
+instance Data.ToPath UpdateJobShipmentState where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateJobShipmentState where
+instance Data.ToQuery UpdateJobShipmentState where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateJobShipmentStateResponse' smart constructor.

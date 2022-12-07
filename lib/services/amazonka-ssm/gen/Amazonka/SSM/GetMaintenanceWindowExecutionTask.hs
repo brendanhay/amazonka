@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,21 +122,21 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetMaintenanceWindowExecutionTaskResponse'
-            Prelude.<$> (x Core..?> "Type")
-              Prelude.<*> (x Core..?> "WindowExecutionId")
-              Prelude.<*> (x Core..?> "TaskParameters" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "TaskArn")
-              Prelude.<*> (x Core..?> "StatusDetails")
-              Prelude.<*> (x Core..?> "Status")
-              Prelude.<*> (x Core..?> "EndTime")
-              Prelude.<*> (x Core..?> "ServiceRole")
-              Prelude.<*> (x Core..?> "AlarmConfiguration")
-              Prelude.<*> (x Core..?> "Priority")
-              Prelude.<*> (x Core..?> "MaxConcurrency")
-              Prelude.<*> (x Core..?> "MaxErrors")
-              Prelude.<*> (x Core..?> "TriggeredAlarms")
-              Prelude.<*> (x Core..?> "StartTime")
-              Prelude.<*> (x Core..?> "TaskExecutionId")
+            Prelude.<$> (x Data..?> "Type")
+              Prelude.<*> (x Data..?> "WindowExecutionId")
+              Prelude.<*> (x Data..?> "TaskParameters" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "TaskArn")
+              Prelude.<*> (x Data..?> "StatusDetails")
+              Prelude.<*> (x Data..?> "Status")
+              Prelude.<*> (x Data..?> "EndTime")
+              Prelude.<*> (x Data..?> "ServiceRole")
+              Prelude.<*> (x Data..?> "AlarmConfiguration")
+              Prelude.<*> (x Data..?> "Priority")
+              Prelude.<*> (x Data..?> "MaxConcurrency")
+              Prelude.<*> (x Data..?> "MaxErrors")
+              Prelude.<*> (x Data..?> "TriggeredAlarms")
+              Prelude.<*> (x Data..?> "StartTime")
+              Prelude.<*> (x Data..?> "TaskExecutionId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,44 +159,44 @@ instance
       `Prelude.seq` Prelude.rnf taskId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetMaintenanceWindowExecutionTask
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.GetMaintenanceWindowExecutionTask" ::
+              Data.=# ( "AmazonSSM.GetMaintenanceWindowExecutionTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetMaintenanceWindowExecutionTask
   where
   toJSON GetMaintenanceWindowExecutionTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("WindowExecutionId" Core..= windowExecutionId),
-            Prelude.Just ("TaskId" Core..= taskId)
+              ("WindowExecutionId" Data..= windowExecutionId),
+            Prelude.Just ("TaskId" Data..= taskId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetMaintenanceWindowExecutionTask
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetMaintenanceWindowExecutionTask
   where
   toQuery = Prelude.const Prelude.mempty
@@ -219,7 +220,7 @@ data GetMaintenanceWindowExecutionTaskResponse = GetMaintenanceWindowExecutionTa
     -- -   @Key@: string, between 1 and 255 characters
     --
     -- -   @Value@: an array of strings, each between 1 and 255 characters
-    taskParameters :: Prelude.Maybe (Core.Sensitive [Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive MaintenanceWindowTaskParameterValueExpression))]),
+    taskParameters :: Prelude.Maybe (Data.Sensitive [Data.Sensitive (Prelude.HashMap Prelude.Text (Data.Sensitive MaintenanceWindowTaskParameterValueExpression))]),
     -- | The Amazon Resource Name (ARN) of the task that ran.
     taskArn :: Prelude.Maybe Prelude.Text,
     -- | The details explaining the status. Not available for all status values.
@@ -227,7 +228,7 @@ data GetMaintenanceWindowExecutionTaskResponse = GetMaintenanceWindowExecutionTa
     -- | The status of the task.
     status :: Prelude.Maybe MaintenanceWindowExecutionStatus,
     -- | The time the task execution completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The role that was assumed when running the task.
     serviceRole :: Prelude.Maybe Prelude.Text,
     -- | The details for the CloudWatch alarm you applied to your maintenance
@@ -244,7 +245,7 @@ data GetMaintenanceWindowExecutionTaskResponse = GetMaintenanceWindowExecutionTa
     -- | The CloudWatch alarms that were invoked by the maintenance window task.
     triggeredAlarms :: Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation),
     -- | The time the task execution started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the specific task execution in the maintenance window task
     -- that was retrieved.
     taskExecutionId :: Prelude.Maybe Prelude.Text,
@@ -360,7 +361,7 @@ getMaintenanceWindowExecutionTaskResponse_windowExecutionId = Lens.lens (\GetMai
 --
 -- -   @Value@: an array of strings, each between 1 and 255 characters
 getMaintenanceWindowExecutionTaskResponse_taskParameters :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe [Prelude.HashMap Prelude.Text MaintenanceWindowTaskParameterValueExpression])
-getMaintenanceWindowExecutionTaskResponse_taskParameters = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {taskParameters} -> taskParameters) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {taskParameters = a} :: GetMaintenanceWindowExecutionTaskResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+getMaintenanceWindowExecutionTaskResponse_taskParameters = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {taskParameters} -> taskParameters) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {taskParameters = a} :: GetMaintenanceWindowExecutionTaskResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The Amazon Resource Name (ARN) of the task that ran.
 getMaintenanceWindowExecutionTaskResponse_taskArn :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.Text)
@@ -376,7 +377,7 @@ getMaintenanceWindowExecutionTaskResponse_status = Lens.lens (\GetMaintenanceWin
 
 -- | The time the task execution completed.
 getMaintenanceWindowExecutionTaskResponse_endTime :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.UTCTime)
-getMaintenanceWindowExecutionTaskResponse_endTime = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {endTime} -> endTime) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {endTime = a} :: GetMaintenanceWindowExecutionTaskResponse) Prelude.. Lens.mapping Core._Time
+getMaintenanceWindowExecutionTaskResponse_endTime = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {endTime} -> endTime) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {endTime = a} :: GetMaintenanceWindowExecutionTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The role that was assumed when running the task.
 getMaintenanceWindowExecutionTaskResponse_serviceRole :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.Text)
@@ -407,7 +408,7 @@ getMaintenanceWindowExecutionTaskResponse_triggeredAlarms = Lens.lens (\GetMaint
 
 -- | The time the task execution started.
 getMaintenanceWindowExecutionTaskResponse_startTime :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.UTCTime)
-getMaintenanceWindowExecutionTaskResponse_startTime = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {startTime} -> startTime) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {startTime = a} :: GetMaintenanceWindowExecutionTaskResponse) Prelude.. Lens.mapping Core._Time
+getMaintenanceWindowExecutionTaskResponse_startTime = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {startTime} -> startTime) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {startTime = a} :: GetMaintenanceWindowExecutionTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the specific task execution in the maintenance window task
 -- that was retrieved.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,7 +151,7 @@ instance Core.AWSRequest CreateGroup where
       ( \s h x ->
           CreateGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "Group")
+            Prelude.<*> (x Data..@ "Group")
       )
 
 instance Prelude.Hashable CreateGroup where
@@ -163,21 +164,21 @@ instance Prelude.NFData CreateGroup where
     Prelude.rnf path
       `Prelude.seq` Prelude.rnf groupName
 
-instance Core.ToHeaders CreateGroup where
+instance Data.ToHeaders CreateGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateGroup where
+instance Data.ToPath CreateGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateGroup where
+instance Data.ToQuery CreateGroup where
   toQuery CreateGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateGroup" :: Prelude.ByteString),
+          Data.=: ("CreateGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Path" Core.=: path,
-        "GroupName" Core.=: groupName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Path" Data.=: path,
+        "GroupName" Data.=: groupName
       ]
 
 -- | Contains the response to a successful CreateGroup request.

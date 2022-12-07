@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,36 +152,36 @@ instance Prelude.NFData DeleteDeliveryStream where
     Prelude.rnf allowForceDelete
       `Prelude.seq` Prelude.rnf deliveryStreamName
 
-instance Core.ToHeaders DeleteDeliveryStream where
+instance Data.ToHeaders DeleteDeliveryStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Firehose_20150804.DeleteDeliveryStream" ::
+              Data.=# ( "Firehose_20150804.DeleteDeliveryStream" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDeliveryStream where
+instance Data.ToJSON DeleteDeliveryStream where
   toJSON DeleteDeliveryStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AllowForceDelete" Core..=)
+          [ ("AllowForceDelete" Data..=)
               Prelude.<$> allowForceDelete,
             Prelude.Just
-              ("DeliveryStreamName" Core..= deliveryStreamName)
+              ("DeliveryStreamName" Data..= deliveryStreamName)
           ]
       )
 
-instance Core.ToPath DeleteDeliveryStream where
+instance Data.ToPath DeleteDeliveryStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDeliveryStream where
+instance Data.ToQuery DeleteDeliveryStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDeliveryStreamResponse' smart constructor.

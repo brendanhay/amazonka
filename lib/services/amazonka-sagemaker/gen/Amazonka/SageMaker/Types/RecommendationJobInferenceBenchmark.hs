@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RecommendationJobInferenceBenchmark where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.EndpointOutputConfiguration
 import Amazonka.SageMaker.Types.ModelConfiguration
@@ -86,18 +87,18 @@ recommendationJobInferenceBenchmark_modelConfiguration :: Lens.Lens' Recommendat
 recommendationJobInferenceBenchmark_modelConfiguration = Lens.lens (\RecommendationJobInferenceBenchmark' {modelConfiguration} -> modelConfiguration) (\s@RecommendationJobInferenceBenchmark' {} a -> s {modelConfiguration = a} :: RecommendationJobInferenceBenchmark)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RecommendationJobInferenceBenchmark
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationJobInferenceBenchmark"
       ( \x ->
           RecommendationJobInferenceBenchmark'
-            Prelude.<$> (x Core..:? "Metrics")
-            Prelude.<*> (x Core..:? "EndpointConfiguration")
-            Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..: "ModelConfiguration")
+            Prelude.<$> (x Data..:? "Metrics")
+            Prelude.<*> (x Data..:? "EndpointConfiguration")
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..: "ModelConfiguration")
       )
 
 instance

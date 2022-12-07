@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.Recipe where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.RecipeStep
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,15 +34,15 @@ data Recipe = Recipe'
     -- | The Amazon Resource Name (ARN) of the user who published the recipe.
     publishedBy :: Prelude.Maybe Prelude.Text,
     -- | The last modification date and time of the recipe.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | A list of steps that are defined by the recipe.
     steps :: Prelude.Maybe [RecipeStep],
     -- | The description of the recipe.
     description :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the recipe was created.
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the recipe was published.
-    publishedDate :: Prelude.Maybe Core.POSIX,
+    publishedDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the user who last modified the recipe.
     lastModifiedBy :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the recipe.
@@ -143,7 +144,7 @@ recipe_publishedBy = Lens.lens (\Recipe' {publishedBy} -> publishedBy) (\s@Recip
 
 -- | The last modification date and time of the recipe.
 recipe_lastModifiedDate :: Lens.Lens' Recipe (Prelude.Maybe Prelude.UTCTime)
-recipe_lastModifiedDate = Lens.lens (\Recipe' {lastModifiedDate} -> lastModifiedDate) (\s@Recipe' {} a -> s {lastModifiedDate = a} :: Recipe) Prelude.. Lens.mapping Core._Time
+recipe_lastModifiedDate = Lens.lens (\Recipe' {lastModifiedDate} -> lastModifiedDate) (\s@Recipe' {} a -> s {lastModifiedDate = a} :: Recipe) Prelude.. Lens.mapping Data._Time
 
 -- | A list of steps that are defined by the recipe.
 recipe_steps :: Lens.Lens' Recipe (Prelude.Maybe [RecipeStep])
@@ -155,11 +156,11 @@ recipe_description = Lens.lens (\Recipe' {description} -> description) (\s@Recip
 
 -- | The date and time that the recipe was created.
 recipe_createDate :: Lens.Lens' Recipe (Prelude.Maybe Prelude.UTCTime)
-recipe_createDate = Lens.lens (\Recipe' {createDate} -> createDate) (\s@Recipe' {} a -> s {createDate = a} :: Recipe) Prelude.. Lens.mapping Core._Time
+recipe_createDate = Lens.lens (\Recipe' {createDate} -> createDate) (\s@Recipe' {} a -> s {createDate = a} :: Recipe) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the recipe was published.
 recipe_publishedDate :: Lens.Lens' Recipe (Prelude.Maybe Prelude.UTCTime)
-recipe_publishedDate = Lens.lens (\Recipe' {publishedDate} -> publishedDate) (\s@Recipe' {} a -> s {publishedDate = a} :: Recipe) Prelude.. Lens.mapping Core._Time
+recipe_publishedDate = Lens.lens (\Recipe' {publishedDate} -> publishedDate) (\s@Recipe' {} a -> s {publishedDate = a} :: Recipe) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the user who last modified the recipe.
 recipe_lastModifiedBy :: Lens.Lens' Recipe (Prelude.Maybe Prelude.Text)
@@ -196,25 +197,25 @@ recipe_recipeVersion = Lens.lens (\Recipe' {recipeVersion} -> recipeVersion) (\s
 recipe_name :: Lens.Lens' Recipe Prelude.Text
 recipe_name = Lens.lens (\Recipe' {name} -> name) (\s@Recipe' {} a -> s {name = a} :: Recipe)
 
-instance Core.FromJSON Recipe where
+instance Data.FromJSON Recipe where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Recipe"
       ( \x ->
           Recipe'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PublishedBy")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "Steps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "PublishedDate")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "ProjectName")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "RecipeVersion")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PublishedBy")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "Steps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "PublishedDate")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "ProjectName")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "RecipeVersion")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable Recipe where

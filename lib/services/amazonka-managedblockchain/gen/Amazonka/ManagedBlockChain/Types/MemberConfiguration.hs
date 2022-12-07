@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.MemberConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.MemberFrameworkConfiguration
 import Amazonka.ManagedBlockChain.Types.MemberLogPublishingConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -215,19 +216,19 @@ instance Prelude.NFData MemberConfiguration where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf frameworkConfiguration
 
-instance Core.ToJSON MemberConfiguration where
+instance Data.ToJSON MemberConfiguration where
   toJSON MemberConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("KmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("LogPublishingConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("LogPublishingConfiguration" Data..=)
               Prelude.<$> logPublishingConfiguration,
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ( "FrameworkConfiguration"
-                  Core..= frameworkConfiguration
+                  Data..= frameworkConfiguration
               )
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.InsufficientSensorData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.MissingCompleteSensorData
 import Amazonka.LookoutEquipment.Types.SensorsWithShortDateRange
 import qualified Amazonka.Prelude as Prelude
@@ -78,14 +79,14 @@ insufficientSensorData_missingCompleteSensorData = Lens.lens (\InsufficientSenso
 insufficientSensorData_sensorsWithShortDateRange :: Lens.Lens' InsufficientSensorData SensorsWithShortDateRange
 insufficientSensorData_sensorsWithShortDateRange = Lens.lens (\InsufficientSensorData' {sensorsWithShortDateRange} -> sensorsWithShortDateRange) (\s@InsufficientSensorData' {} a -> s {sensorsWithShortDateRange = a} :: InsufficientSensorData)
 
-instance Core.FromJSON InsufficientSensorData where
+instance Data.FromJSON InsufficientSensorData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InsufficientSensorData"
       ( \x ->
           InsufficientSensorData'
-            Prelude.<$> (x Core..: "MissingCompleteSensorData")
-            Prelude.<*> (x Core..: "SensorsWithShortDateRange")
+            Prelude.<$> (x Data..: "MissingCompleteSensorData")
+            Prelude.<*> (x Data..: "SensorsWithShortDateRange")
       )
 
 instance Prelude.Hashable InsufficientSensorData where

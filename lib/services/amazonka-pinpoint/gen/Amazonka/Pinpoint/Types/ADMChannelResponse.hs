@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ADMChannelResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the status and settings of the ADM (Amazon
@@ -146,22 +147,22 @@ aDMChannelResponse_version = Lens.lens (\ADMChannelResponse' {version} -> versio
 aDMChannelResponse_platform :: Lens.Lens' ADMChannelResponse Prelude.Text
 aDMChannelResponse_platform = Lens.lens (\ADMChannelResponse' {platform} -> platform) (\s@ADMChannelResponse' {} a -> s {platform = a} :: ADMChannelResponse)
 
-instance Core.FromJSON ADMChannelResponse where
+instance Data.FromJSON ADMChannelResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ADMChannelResponse"
       ( \x ->
           ADMChannelResponse'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "HasCredential")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "IsArchived")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "Platform")
+            Prelude.<$> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "HasCredential")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "IsArchived")
+            Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "Platform")
       )
 
 instance Prelude.Hashable ADMChannelResponse where

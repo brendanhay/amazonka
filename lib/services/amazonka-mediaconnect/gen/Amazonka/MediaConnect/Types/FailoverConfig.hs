@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.FailoverConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.FailoverMode
 import Amazonka.MediaConnect.Types.SourcePriority
 import Amazonka.MediaConnect.Types.State
@@ -90,16 +91,16 @@ failoverConfig_sourcePriority = Lens.lens (\FailoverConfig' {sourcePriority} -> 
 failoverConfig_failoverMode :: Lens.Lens' FailoverConfig (Prelude.Maybe FailoverMode)
 failoverConfig_failoverMode = Lens.lens (\FailoverConfig' {failoverMode} -> failoverMode) (\s@FailoverConfig' {} a -> s {failoverMode = a} :: FailoverConfig)
 
-instance Core.FromJSON FailoverConfig where
+instance Data.FromJSON FailoverConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailoverConfig"
       ( \x ->
           FailoverConfig'
-            Prelude.<$> (x Core..:? "recoveryWindow")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "sourcePriority")
-            Prelude.<*> (x Core..:? "failoverMode")
+            Prelude.<$> (x Data..:? "recoveryWindow")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "sourcePriority")
+            Prelude.<*> (x Data..:? "failoverMode")
       )
 
 instance Prelude.Hashable FailoverConfig where
@@ -116,15 +117,15 @@ instance Prelude.NFData FailoverConfig where
       `Prelude.seq` Prelude.rnf sourcePriority
       `Prelude.seq` Prelude.rnf failoverMode
 
-instance Core.ToJSON FailoverConfig where
+instance Data.ToJSON FailoverConfig where
   toJSON FailoverConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("recoveryWindow" Core..=)
+          [ ("recoveryWindow" Data..=)
               Prelude.<$> recoveryWindow,
-            ("state" Core..=) Prelude.<$> state,
-            ("sourcePriority" Core..=)
+            ("state" Data..=) Prelude.<$> state,
+            ("sourcePriority" Data..=)
               Prelude.<$> sourcePriority,
-            ("failoverMode" Core..=) Prelude.<$> failoverMode
+            ("failoverMode" Data..=) Prelude.<$> failoverMode
           ]
       )

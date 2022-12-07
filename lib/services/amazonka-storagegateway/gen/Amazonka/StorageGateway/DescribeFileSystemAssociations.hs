@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,7 +96,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeFileSystemAssociationsResponse'
-            Prelude.<$> ( x Core..?> "FileSystemAssociationInfoList"
+            Prelude.<$> ( x Data..?> "FileSystemAssociationInfoList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -119,38 +120,38 @@ instance
     Prelude.rnf fileSystemAssociationARNList
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeFileSystemAssociations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DescribeFileSystemAssociations" ::
+              Data.=# ( "StorageGateway_20130630.DescribeFileSystemAssociations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFileSystemAssociations where
+instance Data.ToJSON DescribeFileSystemAssociations where
   toJSON DescribeFileSystemAssociations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "FileSystemAssociationARNList"
-                  Core..= fileSystemAssociationARNList
+                  Data..= fileSystemAssociationARNList
               )
           ]
       )
 
-instance Core.ToPath DescribeFileSystemAssociations where
+instance Data.ToPath DescribeFileSystemAssociations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFileSystemAssociations where
+instance Data.ToQuery DescribeFileSystemAssociations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFileSystemAssociationsResponse' smart constructor.

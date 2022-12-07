@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DataColorPalette where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The theme colors that are used for data colors in charts. The colors
@@ -78,15 +79,15 @@ dataColorPalette_emptyFillColor = Lens.lens (\DataColorPalette' {emptyFillColor}
 dataColorPalette_colors :: Lens.Lens' DataColorPalette (Prelude.Maybe [Prelude.Text])
 dataColorPalette_colors = Lens.lens (\DataColorPalette' {colors} -> colors) (\s@DataColorPalette' {} a -> s {colors = a} :: DataColorPalette) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DataColorPalette where
+instance Data.FromJSON DataColorPalette where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataColorPalette"
       ( \x ->
           DataColorPalette'
-            Prelude.<$> (x Core..:? "MinMaxGradient" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EmptyFillColor")
-            Prelude.<*> (x Core..:? "Colors" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "MinMaxGradient" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EmptyFillColor")
+            Prelude.<*> (x Data..:? "Colors" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DataColorPalette where
@@ -101,14 +102,14 @@ instance Prelude.NFData DataColorPalette where
       `Prelude.seq` Prelude.rnf emptyFillColor
       `Prelude.seq` Prelude.rnf colors
 
-instance Core.ToJSON DataColorPalette where
+instance Data.ToJSON DataColorPalette where
   toJSON DataColorPalette' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MinMaxGradient" Core..=)
+          [ ("MinMaxGradient" Data..=)
               Prelude.<$> minMaxGradient,
-            ("EmptyFillColor" Core..=)
+            ("EmptyFillColor" Data..=)
               Prelude.<$> emptyFillColor,
-            ("Colors" Core..=) Prelude.<$> colors
+            ("Colors" Data..=) Prelude.<$> colors
           ]
       )

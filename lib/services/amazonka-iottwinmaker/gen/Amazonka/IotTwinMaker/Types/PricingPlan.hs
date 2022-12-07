@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.PricingPlan where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.BundleInformation
 import Amazonka.IotTwinMaker.Types.PricingMode
 import Amazonka.IotTwinMaker.Types.UpdateReason
@@ -35,11 +36,11 @@ data PricingPlan = PricingPlan'
     -- | The billable entity count.
     billableEntityCount :: Prelude.Maybe Prelude.Integer,
     -- | The effective date and time of the pricing plan.
-    effectiveDateTime :: Core.POSIX,
+    effectiveDateTime :: Data.POSIX,
     -- | The pricing mode.
     pricingMode :: PricingMode,
     -- | The set date and time for updating a pricing plan.
-    updateDateTime :: Core.POSIX,
+    updateDateTime :: Data.POSIX,
     -- | The update reason, for changing a pricing plan.
     updateReason :: UpdateReason
   }
@@ -83,9 +84,9 @@ newPricingPlan
       { bundleInformation = Prelude.Nothing,
         billableEntityCount = Prelude.Nothing,
         effectiveDateTime =
-          Core._Time Lens.# pEffectiveDateTime_,
+          Data._Time Lens.# pEffectiveDateTime_,
         pricingMode = pPricingMode_,
-        updateDateTime = Core._Time Lens.# pUpdateDateTime_,
+        updateDateTime = Data._Time Lens.# pUpdateDateTime_,
         updateReason = pUpdateReason_
       }
 
@@ -99,7 +100,7 @@ pricingPlan_billableEntityCount = Lens.lens (\PricingPlan' {billableEntityCount}
 
 -- | The effective date and time of the pricing plan.
 pricingPlan_effectiveDateTime :: Lens.Lens' PricingPlan Prelude.UTCTime
-pricingPlan_effectiveDateTime = Lens.lens (\PricingPlan' {effectiveDateTime} -> effectiveDateTime) (\s@PricingPlan' {} a -> s {effectiveDateTime = a} :: PricingPlan) Prelude.. Core._Time
+pricingPlan_effectiveDateTime = Lens.lens (\PricingPlan' {effectiveDateTime} -> effectiveDateTime) (\s@PricingPlan' {} a -> s {effectiveDateTime = a} :: PricingPlan) Prelude.. Data._Time
 
 -- | The pricing mode.
 pricingPlan_pricingMode :: Lens.Lens' PricingPlan PricingMode
@@ -107,24 +108,24 @@ pricingPlan_pricingMode = Lens.lens (\PricingPlan' {pricingMode} -> pricingMode)
 
 -- | The set date and time for updating a pricing plan.
 pricingPlan_updateDateTime :: Lens.Lens' PricingPlan Prelude.UTCTime
-pricingPlan_updateDateTime = Lens.lens (\PricingPlan' {updateDateTime} -> updateDateTime) (\s@PricingPlan' {} a -> s {updateDateTime = a} :: PricingPlan) Prelude.. Core._Time
+pricingPlan_updateDateTime = Lens.lens (\PricingPlan' {updateDateTime} -> updateDateTime) (\s@PricingPlan' {} a -> s {updateDateTime = a} :: PricingPlan) Prelude.. Data._Time
 
 -- | The update reason, for changing a pricing plan.
 pricingPlan_updateReason :: Lens.Lens' PricingPlan UpdateReason
 pricingPlan_updateReason = Lens.lens (\PricingPlan' {updateReason} -> updateReason) (\s@PricingPlan' {} a -> s {updateReason = a} :: PricingPlan)
 
-instance Core.FromJSON PricingPlan where
+instance Data.FromJSON PricingPlan where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PricingPlan"
       ( \x ->
           PricingPlan'
-            Prelude.<$> (x Core..:? "bundleInformation")
-            Prelude.<*> (x Core..:? "billableEntityCount")
-            Prelude.<*> (x Core..: "effectiveDateTime")
-            Prelude.<*> (x Core..: "pricingMode")
-            Prelude.<*> (x Core..: "updateDateTime")
-            Prelude.<*> (x Core..: "updateReason")
+            Prelude.<$> (x Data..:? "bundleInformation")
+            Prelude.<*> (x Data..:? "billableEntityCount")
+            Prelude.<*> (x Data..: "effectiveDateTime")
+            Prelude.<*> (x Data..: "pricingMode")
+            Prelude.<*> (x Data..: "updateDateTime")
+            Prelude.<*> (x Data..: "updateReason")
       )
 
 instance Prelude.Hashable PricingPlan where

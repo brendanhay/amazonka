@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.Stack where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.ChefConfiguration
 import Amazonka.OpsWorks.Types.RootDeviceType
 import Amazonka.OpsWorks.Types.Source
@@ -324,34 +325,34 @@ stack_customCookbooksSource = Lens.lens (\Stack' {customCookbooksSource} -> cust
 stack_agentVersion :: Lens.Lens' Stack (Prelude.Maybe Prelude.Text)
 stack_agentVersion = Lens.lens (\Stack' {agentVersion} -> agentVersion) (\s@Stack' {} a -> s {agentVersion = a} :: Stack)
 
-instance Core.FromJSON Stack where
+instance Data.FromJSON Stack where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Stack"
       ( \x ->
           Stack'
-            Prelude.<$> (x Core..:? "HostnameTheme")
-            Prelude.<*> (x Core..:? "StackId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "DefaultSshKeyName")
-            Prelude.<*> (x Core..:? "CustomJson")
-            Prelude.<*> (x Core..:? "DefaultAvailabilityZone")
-            Prelude.<*> (x Core..:? "ServiceRoleArn")
-            Prelude.<*> (x Core..:? "DefaultRootDeviceType")
-            Prelude.<*> (x Core..:? "DefaultInstanceProfileArn")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "ConfigurationManager")
-            Prelude.<*> (x Core..:? "DefaultSubnetId")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "UseCustomCookbooks")
-            Prelude.<*> (x Core..:? "DefaultOs")
-            Prelude.<*> (x Core..:? "UseOpsworksSecurityGroups")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "ChefConfiguration")
-            Prelude.<*> (x Core..:? "CustomCookbooksSource")
-            Prelude.<*> (x Core..:? "AgentVersion")
+            Prelude.<$> (x Data..:? "HostnameTheme")
+            Prelude.<*> (x Data..:? "StackId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "DefaultSshKeyName")
+            Prelude.<*> (x Data..:? "CustomJson")
+            Prelude.<*> (x Data..:? "DefaultAvailabilityZone")
+            Prelude.<*> (x Data..:? "ServiceRoleArn")
+            Prelude.<*> (x Data..:? "DefaultRootDeviceType")
+            Prelude.<*> (x Data..:? "DefaultInstanceProfileArn")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "ConfigurationManager")
+            Prelude.<*> (x Data..:? "DefaultSubnetId")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "UseCustomCookbooks")
+            Prelude.<*> (x Data..:? "DefaultOs")
+            Prelude.<*> (x Data..:? "UseOpsworksSecurityGroups")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "ChefConfiguration")
+            Prelude.<*> (x Data..:? "CustomCookbooksSource")
+            Prelude.<*> (x Data..:? "AgentVersion")
       )
 
 instance Prelude.Hashable Stack where

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElasticsearchDomainVPCOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information that OpenSearch derives based on @VPCOptions@ for the
@@ -85,22 +86,22 @@ awsElasticsearchDomainVPCOptions_subnetIds :: Lens.Lens' AwsElasticsearchDomainV
 awsElasticsearchDomainVPCOptions_subnetIds = Lens.lens (\AwsElasticsearchDomainVPCOptions' {subnetIds} -> subnetIds) (\s@AwsElasticsearchDomainVPCOptions' {} a -> s {subnetIds = a} :: AwsElasticsearchDomainVPCOptions) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElasticsearchDomainVPCOptions
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElasticsearchDomainVPCOptions"
       ( \x ->
           AwsElasticsearchDomainVPCOptions'
-            Prelude.<$> ( x Core..:? "SecurityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "AvailabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "AvailabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "VPCId")
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VPCId")
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
       )
 
 instance
@@ -125,15 +126,15 @@ instance
       `Prelude.seq` Prelude.rnf vPCId
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToJSON AwsElasticsearchDomainVPCOptions where
+instance Data.ToJSON AwsElasticsearchDomainVPCOptions where
   toJSON AwsElasticsearchDomainVPCOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityGroupIds" Core..=)
+          [ ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("AvailabilityZones" Core..=)
+            ("AvailabilityZones" Data..=)
               Prelude.<$> availabilityZones,
-            ("VPCId" Core..=) Prelude.<$> vPCId,
-            ("SubnetIds" Core..=) Prelude.<$> subnetIds
+            ("VPCId" Data..=) Prelude.<$> vPCId,
+            ("SubnetIds" Data..=) Prelude.<$> subnetIds
           ]
       )

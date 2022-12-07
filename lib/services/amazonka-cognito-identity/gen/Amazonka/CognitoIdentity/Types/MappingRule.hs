@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentity.Types.MappingRule where
 import Amazonka.CognitoIdentity.Types.MappingRuleMatchType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A rule that maps a claim name, a claim value, and a match type to a role
@@ -98,16 +99,16 @@ mappingRule_value = Lens.lens (\MappingRule' {value} -> value) (\s@MappingRule' 
 mappingRule_roleARN :: Lens.Lens' MappingRule Prelude.Text
 mappingRule_roleARN = Lens.lens (\MappingRule' {roleARN} -> roleARN) (\s@MappingRule' {} a -> s {roleARN = a} :: MappingRule)
 
-instance Core.FromJSON MappingRule where
+instance Data.FromJSON MappingRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MappingRule"
       ( \x ->
           MappingRule'
-            Prelude.<$> (x Core..: "Claim")
-            Prelude.<*> (x Core..: "MatchType")
-            Prelude.<*> (x Core..: "Value")
-            Prelude.<*> (x Core..: "RoleARN")
+            Prelude.<$> (x Data..: "Claim")
+            Prelude.<*> (x Data..: "MatchType")
+            Prelude.<*> (x Data..: "Value")
+            Prelude.<*> (x Data..: "RoleARN")
       )
 
 instance Prelude.Hashable MappingRule where
@@ -124,13 +125,13 @@ instance Prelude.NFData MappingRule where
       `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf roleARN
 
-instance Core.ToJSON MappingRule where
+instance Data.ToJSON MappingRule where
   toJSON MappingRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Claim" Core..= claim),
-            Prelude.Just ("MatchType" Core..= matchType),
-            Prelude.Just ("Value" Core..= value),
-            Prelude.Just ("RoleARN" Core..= roleARN)
+          [ Prelude.Just ("Claim" Data..= claim),
+            Prelude.Just ("MatchType" Data..= matchType),
+            Prelude.Just ("Value" Data..= value),
+            Prelude.Just ("RoleARN" Data..= roleARN)
           ]
       )

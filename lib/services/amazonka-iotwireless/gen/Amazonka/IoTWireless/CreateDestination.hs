@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -168,8 +169,8 @@ instance Core.AWSRequest CreateDestination where
     Response.receiveJSON
       ( \s h x ->
           CreateDestinationResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,29 +194,29 @@ instance Prelude.NFData CreateDestination where
       `Prelude.seq` Prelude.rnf expression
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateDestination where
+instance Data.ToHeaders CreateDestination where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateDestination where
+instance Data.ToJSON CreateDestination where
   toJSON CreateDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("ExpressionType" Core..= expressionType),
-            Prelude.Just ("Expression" Core..= expression),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+              ("ExpressionType" Data..= expressionType),
+            Prelude.Just ("Expression" Data..= expression),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateDestination where
+instance Data.ToPath CreateDestination where
   toPath = Prelude.const "/destinations"
 
-instance Core.ToQuery CreateDestination where
+instance Data.ToQuery CreateDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDestinationResponse' smart constructor.

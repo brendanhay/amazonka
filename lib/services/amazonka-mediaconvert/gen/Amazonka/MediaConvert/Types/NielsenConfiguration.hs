@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.NielsenConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for your Nielsen configuration. If you don\'t do Nielsen
@@ -75,14 +76,14 @@ nielsenConfiguration_breakoutCode = Lens.lens (\NielsenConfiguration' {breakoutC
 nielsenConfiguration_distributorId :: Lens.Lens' NielsenConfiguration (Prelude.Maybe Prelude.Text)
 nielsenConfiguration_distributorId = Lens.lens (\NielsenConfiguration' {distributorId} -> distributorId) (\s@NielsenConfiguration' {} a -> s {distributorId = a} :: NielsenConfiguration)
 
-instance Core.FromJSON NielsenConfiguration where
+instance Data.FromJSON NielsenConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NielsenConfiguration"
       ( \x ->
           NielsenConfiguration'
-            Prelude.<$> (x Core..:? "breakoutCode")
-            Prelude.<*> (x Core..:? "distributorId")
+            Prelude.<$> (x Data..:? "breakoutCode")
+            Prelude.<*> (x Data..:? "distributorId")
       )
 
 instance Prelude.Hashable NielsenConfiguration where
@@ -95,11 +96,11 @@ instance Prelude.NFData NielsenConfiguration where
     Prelude.rnf breakoutCode
       `Prelude.seq` Prelude.rnf distributorId
 
-instance Core.ToJSON NielsenConfiguration where
+instance Data.ToJSON NielsenConfiguration where
   toJSON NielsenConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("breakoutCode" Core..=) Prelude.<$> breakoutCode,
-            ("distributorId" Core..=) Prelude.<$> distributorId
+          [ ("breakoutCode" Data..=) Prelude.<$> breakoutCode,
+            ("distributorId" Data..=) Prelude.<$> distributorId
           ]
       )

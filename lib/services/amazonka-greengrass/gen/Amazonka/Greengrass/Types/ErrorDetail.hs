@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.ErrorDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the error.
@@ -61,14 +62,14 @@ errorDetail_detailedErrorCode = Lens.lens (\ErrorDetail' {detailedErrorCode} -> 
 errorDetail_detailedErrorMessage :: Lens.Lens' ErrorDetail (Prelude.Maybe Prelude.Text)
 errorDetail_detailedErrorMessage = Lens.lens (\ErrorDetail' {detailedErrorMessage} -> detailedErrorMessage) (\s@ErrorDetail' {} a -> s {detailedErrorMessage = a} :: ErrorDetail)
 
-instance Core.FromJSON ErrorDetail where
+instance Data.FromJSON ErrorDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorDetail"
       ( \x ->
           ErrorDetail'
-            Prelude.<$> (x Core..:? "DetailedErrorCode")
-            Prelude.<*> (x Core..:? "DetailedErrorMessage")
+            Prelude.<$> (x Data..:? "DetailedErrorCode")
+            Prelude.<*> (x Data..:? "DetailedErrorMessage")
       )
 
 instance Prelude.Hashable ErrorDetail where

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,34 +123,34 @@ instance Prelude.NFData DeleteScalingPolicy where
   rnf DeleteScalingPolicy' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf fleetId
 
-instance Core.ToHeaders DeleteScalingPolicy where
+instance Data.ToHeaders DeleteScalingPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DeleteScalingPolicy" ::
+              Data.=# ( "GameLift.DeleteScalingPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteScalingPolicy where
+instance Data.ToJSON DeleteScalingPolicy where
   toJSON DeleteScalingPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("FleetId" Core..= fleetId)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("FleetId" Data..= fleetId)
           ]
       )
 
-instance Core.ToPath DeleteScalingPolicy where
+instance Data.ToPath DeleteScalingPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteScalingPolicy where
+instance Data.ToQuery DeleteScalingPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteScalingPolicyResponse' smart constructor.

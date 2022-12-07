@@ -99,6 +99,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -286,7 +287,7 @@ instance Core.AWSRequest CreateSolution where
     Response.receiveJSON
       ( \s h x ->
           CreateSolutionResponse'
-            Prelude.<$> (x Core..?> "solutionArn")
+            Prelude.<$> (x Data..?> "solutionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -312,42 +313,42 @@ instance Prelude.NFData CreateSolution where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf datasetGroupArn
 
-instance Core.ToHeaders CreateSolution where
+instance Data.ToHeaders CreateSolution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.CreateSolution" ::
+              Data.=# ( "AmazonPersonalize.CreateSolution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSolution where
+instance Data.ToJSON CreateSolution where
   toJSON CreateSolution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("eventType" Core..=) Prelude.<$> eventType,
-            ("performAutoML" Core..=) Prelude.<$> performAutoML,
-            ("performHPO" Core..=) Prelude.<$> performHPO,
-            ("solutionConfig" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("eventType" Data..=) Prelude.<$> eventType,
+            ("performAutoML" Data..=) Prelude.<$> performAutoML,
+            ("performHPO" Data..=) Prelude.<$> performHPO,
+            ("solutionConfig" Data..=)
               Prelude.<$> solutionConfig,
-            ("recipeArn" Core..=) Prelude.<$> recipeArn,
-            Prelude.Just ("name" Core..= name),
+            ("recipeArn" Data..=) Prelude.<$> recipeArn,
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("datasetGroupArn" Core..= datasetGroupArn)
+              ("datasetGroupArn" Data..= datasetGroupArn)
           ]
       )
 
-instance Core.ToPath CreateSolution where
+instance Data.ToPath CreateSolution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSolution where
+instance Data.ToQuery CreateSolution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSolutionResponse' smart constructor.

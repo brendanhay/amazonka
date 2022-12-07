@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types.ErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -82,15 +83,15 @@ batchAlarmActionErrorEntry_requestId = Lens.lens (\BatchAlarmActionErrorEntry' {
 batchAlarmActionErrorEntry_errorCode :: Lens.Lens' BatchAlarmActionErrorEntry (Prelude.Maybe ErrorCode)
 batchAlarmActionErrorEntry_errorCode = Lens.lens (\BatchAlarmActionErrorEntry' {errorCode} -> errorCode) (\s@BatchAlarmActionErrorEntry' {} a -> s {errorCode = a} :: BatchAlarmActionErrorEntry)
 
-instance Core.FromJSON BatchAlarmActionErrorEntry where
+instance Data.FromJSON BatchAlarmActionErrorEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchAlarmActionErrorEntry"
       ( \x ->
           BatchAlarmActionErrorEntry'
-            Prelude.<$> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "requestId")
-            Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "requestId")
+            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance Prelude.Hashable BatchAlarmActionErrorEntry where

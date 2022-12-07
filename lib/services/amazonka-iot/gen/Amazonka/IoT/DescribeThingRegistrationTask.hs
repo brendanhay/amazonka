@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,18 +102,18 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeThingRegistrationTaskResponse'
-            Prelude.<$> (x Core..?> "message")
-            Prelude.<*> (x Core..?> "roleArn")
-            Prelude.<*> (x Core..?> "lastModifiedDate")
-            Prelude.<*> (x Core..?> "failureCount")
-            Prelude.<*> (x Core..?> "taskId")
-            Prelude.<*> (x Core..?> "templateBody")
-            Prelude.<*> (x Core..?> "creationDate")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "percentageProgress")
-            Prelude.<*> (x Core..?> "inputFileKey")
-            Prelude.<*> (x Core..?> "inputFileBucket")
-            Prelude.<*> (x Core..?> "successCount")
+            Prelude.<$> (x Data..?> "message")
+            Prelude.<*> (x Data..?> "roleArn")
+            Prelude.<*> (x Data..?> "lastModifiedDate")
+            Prelude.<*> (x Data..?> "failureCount")
+            Prelude.<*> (x Data..?> "taskId")
+            Prelude.<*> (x Data..?> "templateBody")
+            Prelude.<*> (x Data..?> "creationDate")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "percentageProgress")
+            Prelude.<*> (x Data..?> "inputFileKey")
+            Prelude.<*> (x Data..?> "inputFileBucket")
+            Prelude.<*> (x Data..?> "successCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,15 +128,15 @@ instance Prelude.NFData DescribeThingRegistrationTask where
   rnf DescribeThingRegistrationTask' {..} =
     Prelude.rnf taskId
 
-instance Core.ToHeaders DescribeThingRegistrationTask where
+instance Data.ToHeaders DescribeThingRegistrationTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeThingRegistrationTask where
+instance Data.ToPath DescribeThingRegistrationTask where
   toPath DescribeThingRegistrationTask' {..} =
     Prelude.mconcat
-      ["/thing-registration-tasks/", Core.toBS taskId]
+      ["/thing-registration-tasks/", Data.toBS taskId]
 
-instance Core.ToQuery DescribeThingRegistrationTask where
+instance Data.ToQuery DescribeThingRegistrationTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeThingRegistrationTaskResponse' smart constructor.
@@ -145,7 +146,7 @@ data DescribeThingRegistrationTaskResponse = DescribeThingRegistrationTaskRespon
     -- | The role ARN that grants access to the input file bucket.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The date when the task was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The number of things that failed to be provisioned.
     failureCount :: Prelude.Maybe Prelude.Int,
     -- | The task ID.
@@ -153,7 +154,7 @@ data DescribeThingRegistrationTaskResponse = DescribeThingRegistrationTaskRespon
     -- | The task\'s template.
     templateBody :: Prelude.Maybe Prelude.Text,
     -- | The task creation date.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the bulk thing provisioning task.
     status :: Prelude.Maybe TaskStatus,
     -- | The progress of the bulk provisioning task expressed as a percentage.
@@ -234,7 +235,7 @@ describeThingRegistrationTaskResponse_roleArn = Lens.lens (\DescribeThingRegistr
 
 -- | The date when the task was last modified.
 describeThingRegistrationTaskResponse_lastModifiedDate :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.UTCTime)
-describeThingRegistrationTaskResponse_lastModifiedDate = Lens.lens (\DescribeThingRegistrationTaskResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {lastModifiedDate = a} :: DescribeThingRegistrationTaskResponse) Prelude.. Lens.mapping Core._Time
+describeThingRegistrationTaskResponse_lastModifiedDate = Lens.lens (\DescribeThingRegistrationTaskResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {lastModifiedDate = a} :: DescribeThingRegistrationTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The number of things that failed to be provisioned.
 describeThingRegistrationTaskResponse_failureCount :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Int)
@@ -250,7 +251,7 @@ describeThingRegistrationTaskResponse_templateBody = Lens.lens (\DescribeThingRe
 
 -- | The task creation date.
 describeThingRegistrationTaskResponse_creationDate :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.UTCTime)
-describeThingRegistrationTaskResponse_creationDate = Lens.lens (\DescribeThingRegistrationTaskResponse' {creationDate} -> creationDate) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {creationDate = a} :: DescribeThingRegistrationTaskResponse) Prelude.. Lens.mapping Core._Time
+describeThingRegistrationTaskResponse_creationDate = Lens.lens (\DescribeThingRegistrationTaskResponse' {creationDate} -> creationDate) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {creationDate = a} :: DescribeThingRegistrationTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the bulk thing provisioning task.
 describeThingRegistrationTaskResponse_status :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe TaskStatus)

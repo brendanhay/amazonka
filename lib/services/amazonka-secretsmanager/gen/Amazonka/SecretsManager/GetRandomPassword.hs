@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -197,7 +198,7 @@ instance Core.AWSRequest GetRandomPassword where
     Response.receiveJSON
       ( \s h x ->
           GetRandomPasswordResponse'
-            Prelude.<$> (x Core..?> "RandomPassword")
+            Prelude.<$> (x Data..?> "RandomPassword")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -223,53 +224,53 @@ instance Prelude.NFData GetRandomPassword where
       `Prelude.seq` Prelude.rnf requireEachIncludedType
       `Prelude.seq` Prelude.rnf excludeNumbers
 
-instance Core.ToHeaders GetRandomPassword where
+instance Data.ToHeaders GetRandomPassword where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "secretsmanager.GetRandomPassword" ::
+              Data.=# ( "secretsmanager.GetRandomPassword" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRandomPassword where
+instance Data.ToJSON GetRandomPassword where
   toJSON GetRandomPassword' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExcludeUppercase" Core..=)
+          [ ("ExcludeUppercase" Data..=)
               Prelude.<$> excludeUppercase,
-            ("ExcludeCharacters" Core..=)
+            ("ExcludeCharacters" Data..=)
               Prelude.<$> excludeCharacters,
-            ("ExcludeLowercase" Core..=)
+            ("ExcludeLowercase" Data..=)
               Prelude.<$> excludeLowercase,
-            ("IncludeSpace" Core..=) Prelude.<$> includeSpace,
-            ("ExcludePunctuation" Core..=)
+            ("IncludeSpace" Data..=) Prelude.<$> includeSpace,
+            ("ExcludePunctuation" Data..=)
               Prelude.<$> excludePunctuation,
-            ("PasswordLength" Core..=)
+            ("PasswordLength" Data..=)
               Prelude.<$> passwordLength,
-            ("RequireEachIncludedType" Core..=)
+            ("RequireEachIncludedType" Data..=)
               Prelude.<$> requireEachIncludedType,
-            ("ExcludeNumbers" Core..=)
+            ("ExcludeNumbers" Data..=)
               Prelude.<$> excludeNumbers
           ]
       )
 
-instance Core.ToPath GetRandomPassword where
+instance Data.ToPath GetRandomPassword where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRandomPassword where
+instance Data.ToQuery GetRandomPassword where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRandomPasswordResponse' smart constructor.
 data GetRandomPasswordResponse = GetRandomPasswordResponse'
   { -- | A string with the password.
-    randomPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    randomPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -299,7 +300,7 @@ newGetRandomPasswordResponse pHttpStatus_ =
 
 -- | A string with the password.
 getRandomPasswordResponse_randomPassword :: Lens.Lens' GetRandomPasswordResponse (Prelude.Maybe Prelude.Text)
-getRandomPasswordResponse_randomPassword = Lens.lens (\GetRandomPasswordResponse' {randomPassword} -> randomPassword) (\s@GetRandomPasswordResponse' {} a -> s {randomPassword = a} :: GetRandomPasswordResponse) Prelude.. Lens.mapping Core._Sensitive
+getRandomPasswordResponse_randomPassword = Lens.lens (\GetRandomPasswordResponse' {randomPassword} -> randomPassword) (\s@GetRandomPasswordResponse' {} a -> s {randomPassword = a} :: GetRandomPasswordResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The response's http status code.
 getRandomPasswordResponse_httpStatus :: Lens.Lens' GetRandomPasswordResponse Prelude.Int

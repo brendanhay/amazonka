@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AnalysisPacketHeader where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PortRange
 import qualified Amazonka.Prelude as Prelude
@@ -93,25 +94,25 @@ analysisPacketHeader_protocol = Lens.lens (\AnalysisPacketHeader' {protocol} -> 
 analysisPacketHeader_destinationPortRanges :: Lens.Lens' AnalysisPacketHeader (Prelude.Maybe [PortRange])
 analysisPacketHeader_destinationPortRanges = Lens.lens (\AnalysisPacketHeader' {destinationPortRanges} -> destinationPortRanges) (\s@AnalysisPacketHeader' {} a -> s {destinationPortRanges = a} :: AnalysisPacketHeader) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML AnalysisPacketHeader where
+instance Data.FromXML AnalysisPacketHeader where
   parseXML x =
     AnalysisPacketHeader'
-      Prelude.<$> ( x Core..@? "sourcePortRangeSet"
+      Prelude.<$> ( x Data..@? "sourcePortRangeSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "destinationAddressSet"
+      Prelude.<*> ( x Data..@? "destinationAddressSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "sourceAddressSet"
+      Prelude.<*> ( x Data..@? "sourceAddressSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "protocol")
-      Prelude.<*> ( x Core..@? "destinationPortRangeSet"
+      Prelude.<*> (x Data..@? "protocol")
+      Prelude.<*> ( x Data..@? "destinationPortRangeSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable AnalysisPacketHeader where

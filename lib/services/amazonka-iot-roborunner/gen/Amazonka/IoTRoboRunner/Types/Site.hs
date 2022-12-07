@@ -21,6 +21,7 @@ module Amazonka.IoTRoboRunner.Types.Site where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Facility containing destinations, workers, activities, and tasks.
@@ -32,7 +33,7 @@ data Site = Site'
     -- account.
     name :: Prelude.Text,
     countryCode :: Prelude.Text,
-    createdAt :: Core.POSIX
+    createdAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,7 +68,7 @@ newSite pArn_ pName_ pCountryCode_ pCreatedAt_ =
     { arn = pArn_,
       name = pName_,
       countryCode = pCountryCode_,
-      createdAt = Core._Time Lens.# pCreatedAt_
+      createdAt = Data._Time Lens.# pCreatedAt_
     }
 
 -- | Undocumented member.
@@ -85,18 +86,18 @@ site_countryCode = Lens.lens (\Site' {countryCode} -> countryCode) (\s@Site' {} 
 
 -- | Undocumented member.
 site_createdAt :: Lens.Lens' Site Prelude.UTCTime
-site_createdAt = Lens.lens (\Site' {createdAt} -> createdAt) (\s@Site' {} a -> s {createdAt = a} :: Site) Prelude.. Core._Time
+site_createdAt = Lens.lens (\Site' {createdAt} -> createdAt) (\s@Site' {} a -> s {createdAt = a} :: Site) Prelude.. Data._Time
 
-instance Core.FromJSON Site where
+instance Data.FromJSON Site where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Site"
       ( \x ->
           Site'
-            Prelude.<$> (x Core..: "arn")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "countryCode")
-            Prelude.<*> (x Core..: "createdAt")
+            Prelude.<$> (x Data..: "arn")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "countryCode")
+            Prelude.<*> (x Data..: "createdAt")
       )
 
 instance Prelude.Hashable Site where

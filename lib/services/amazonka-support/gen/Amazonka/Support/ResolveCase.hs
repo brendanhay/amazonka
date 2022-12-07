@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,8 +97,8 @@ instance Core.AWSRequest ResolveCase where
     Response.receiveJSON
       ( \s h x ->
           ResolveCaseResponse'
-            Prelude.<$> (x Core..?> "finalCaseStatus")
-            Prelude.<*> (x Core..?> "initialCaseStatus")
+            Prelude.<$> (x Data..?> "finalCaseStatus")
+            Prelude.<*> (x Data..?> "initialCaseStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,32 +109,32 @@ instance Prelude.Hashable ResolveCase where
 instance Prelude.NFData ResolveCase where
   rnf ResolveCase' {..} = Prelude.rnf caseId
 
-instance Core.ToHeaders ResolveCase where
+instance Data.ToHeaders ResolveCase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSupport_20130415.ResolveCase" ::
+              Data.=# ( "AWSSupport_20130415.ResolveCase" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResolveCase where
+instance Data.ToJSON ResolveCase where
   toJSON ResolveCase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("caseId" Core..=) Prelude.<$> caseId]
+          [("caseId" Data..=) Prelude.<$> caseId]
       )
 
-instance Core.ToPath ResolveCase where
+instance Data.ToPath ResolveCase where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResolveCase where
+instance Data.ToQuery ResolveCase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The status of the case returned by the ResolveCase operation.

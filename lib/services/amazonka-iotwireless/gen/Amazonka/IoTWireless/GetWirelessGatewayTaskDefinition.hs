@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,10 +90,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetWirelessGatewayTaskDefinitionResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "AutoCreateTasks")
-            Prelude.<*> (x Core..?> "Update")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "AutoCreateTasks")
+            Prelude.<*> (x Data..?> "Update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,18 +114,18 @@ instance
     Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetWirelessGatewayTaskDefinition
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetWirelessGatewayTaskDefinition where
+instance Data.ToPath GetWirelessGatewayTaskDefinition where
   toPath GetWirelessGatewayTaskDefinition' {..} =
     Prelude.mconcat
-      ["/wireless-gateway-task-definitions/", Core.toBS id]
+      ["/wireless-gateway-task-definitions/", Data.toBS id]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetWirelessGatewayTaskDefinition
   where
   toQuery = Prelude.const Prelude.mempty

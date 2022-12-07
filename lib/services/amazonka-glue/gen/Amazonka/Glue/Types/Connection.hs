@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Connection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ConnectionPropertyKey
 import Amazonka.Glue.Types.ConnectionType
 import Amazonka.Glue.Types.PhysicalConnectionRequirements
@@ -182,13 +183,13 @@ data Connection = Connection'
     -- successfully.
     physicalConnectionRequirements :: Prelude.Maybe PhysicalConnectionRequirements,
     -- | The last time that this connection definition was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the connection.
     description :: Prelude.Maybe Prelude.Text,
     -- | A list of criteria that can be used in selecting this connection.
     matchCriteria :: Prelude.Maybe [Prelude.Text],
     -- | The time that this connection definition was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The user, group, or role that last updated this connection definition.
     lastUpdatedBy :: Prelude.Maybe Prelude.Text
   }
@@ -538,7 +539,7 @@ connection_physicalConnectionRequirements = Lens.lens (\Connection' {physicalCon
 
 -- | The last time that this connection definition was updated.
 connection_lastUpdatedTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
-connection_lastUpdatedTime = Lens.lens (\Connection' {lastUpdatedTime} -> lastUpdatedTime) (\s@Connection' {} a -> s {lastUpdatedTime = a} :: Connection) Prelude.. Lens.mapping Core._Time
+connection_lastUpdatedTime = Lens.lens (\Connection' {lastUpdatedTime} -> lastUpdatedTime) (\s@Connection' {} a -> s {lastUpdatedTime = a} :: Connection) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the connection.
 connection_description :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
@@ -550,29 +551,29 @@ connection_matchCriteria = Lens.lens (\Connection' {matchCriteria} -> matchCrite
 
 -- | The time that this connection definition was created.
 connection_creationTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
-connection_creationTime = Lens.lens (\Connection' {creationTime} -> creationTime) (\s@Connection' {} a -> s {creationTime = a} :: Connection) Prelude.. Lens.mapping Core._Time
+connection_creationTime = Lens.lens (\Connection' {creationTime} -> creationTime) (\s@Connection' {} a -> s {creationTime = a} :: Connection) Prelude.. Lens.mapping Data._Time
 
 -- | The user, group, or role that last updated this connection definition.
 connection_lastUpdatedBy :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
 connection_lastUpdatedBy = Lens.lens (\Connection' {lastUpdatedBy} -> lastUpdatedBy) (\s@Connection' {} a -> s {lastUpdatedBy = a} :: Connection)
 
-instance Core.FromJSON Connection where
+instance Data.FromJSON Connection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Connection"
       ( \x ->
           Connection'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ConnectionType")
-            Prelude.<*> ( x Core..:? "ConnectionProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ConnectionType")
+            Prelude.<*> ( x Data..:? "ConnectionProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PhysicalConnectionRequirements")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "MatchCriteria" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "LastUpdatedBy")
+            Prelude.<*> (x Data..:? "PhysicalConnectionRequirements")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "MatchCriteria" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "LastUpdatedBy")
       )
 
 instance Prelude.Hashable Connection where

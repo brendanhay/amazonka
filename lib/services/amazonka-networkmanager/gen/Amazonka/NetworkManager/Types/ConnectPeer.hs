@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.ConnectPeer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.ConnectPeerConfiguration
 import Amazonka.NetworkManager.Types.ConnectPeerState
 import Amazonka.NetworkManager.Types.Tag
@@ -45,7 +46,7 @@ data ConnectPeer = ConnectPeer'
     -- | The ID of the Connect peer.
     connectPeerId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the Connect peer was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -116,22 +117,22 @@ connectPeer_connectPeerId = Lens.lens (\ConnectPeer' {connectPeerId} -> connectP
 
 -- | The timestamp when the Connect peer was created.
 connectPeer_createdAt :: Lens.Lens' ConnectPeer (Prelude.Maybe Prelude.UTCTime)
-connectPeer_createdAt = Lens.lens (\ConnectPeer' {createdAt} -> createdAt) (\s@ConnectPeer' {} a -> s {createdAt = a} :: ConnectPeer) Prelude.. Lens.mapping Core._Time
+connectPeer_createdAt = Lens.lens (\ConnectPeer' {createdAt} -> createdAt) (\s@ConnectPeer' {} a -> s {createdAt = a} :: ConnectPeer) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ConnectPeer where
+instance Data.FromJSON ConnectPeer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectPeer"
       ( \x ->
           ConnectPeer'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CoreNetworkId")
-            Prelude.<*> (x Core..:? "ConnectAttachmentId")
-            Prelude.<*> (x Core..:? "Configuration")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "EdgeLocation")
-            Prelude.<*> (x Core..:? "ConnectPeerId")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CoreNetworkId")
+            Prelude.<*> (x Data..:? "ConnectAttachmentId")
+            Prelude.<*> (x Data..:? "Configuration")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "EdgeLocation")
+            Prelude.<*> (x Data..:? "ConnectPeerId")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable ConnectPeer where

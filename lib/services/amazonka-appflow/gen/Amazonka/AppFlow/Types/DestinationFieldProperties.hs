@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.DestinationFieldProperties where
 import Amazonka.AppFlow.Types.WriteOperationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that can be applied to a field when connector is being
@@ -115,20 +116,20 @@ destinationFieldProperties_isUpsertable = Lens.lens (\DestinationFieldProperties
 destinationFieldProperties_isCreatable :: Lens.Lens' DestinationFieldProperties (Prelude.Maybe Prelude.Bool)
 destinationFieldProperties_isCreatable = Lens.lens (\DestinationFieldProperties' {isCreatable} -> isCreatable) (\s@DestinationFieldProperties' {} a -> s {isCreatable = a} :: DestinationFieldProperties)
 
-instance Core.FromJSON DestinationFieldProperties where
+instance Data.FromJSON DestinationFieldProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DestinationFieldProperties"
       ( \x ->
           DestinationFieldProperties'
-            Prelude.<$> (x Core..:? "isUpdatable")
-            Prelude.<*> ( x Core..:? "supportedWriteOperations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "isUpdatable")
+            Prelude.<*> ( x Data..:? "supportedWriteOperations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "isNullable")
-            Prelude.<*> (x Core..:? "isDefaultedOnCreate")
-            Prelude.<*> (x Core..:? "isUpsertable")
-            Prelude.<*> (x Core..:? "isCreatable")
+            Prelude.<*> (x Data..:? "isNullable")
+            Prelude.<*> (x Data..:? "isDefaultedOnCreate")
+            Prelude.<*> (x Data..:? "isUpsertable")
+            Prelude.<*> (x Data..:? "isCreatable")
       )
 
 instance Prelude.Hashable DestinationFieldProperties where

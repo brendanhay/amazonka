@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsApiGatewayV2ApiDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCorsConfiguration
 
@@ -188,22 +189,22 @@ awsApiGatewayV2ApiDetails_corsConfiguration = Lens.lens (\AwsApiGatewayV2ApiDeta
 awsApiGatewayV2ApiDetails_version :: Lens.Lens' AwsApiGatewayV2ApiDetails (Prelude.Maybe Prelude.Text)
 awsApiGatewayV2ApiDetails_version = Lens.lens (\AwsApiGatewayV2ApiDetails' {version} -> version) (\s@AwsApiGatewayV2ApiDetails' {} a -> s {version = a} :: AwsApiGatewayV2ApiDetails)
 
-instance Core.FromJSON AwsApiGatewayV2ApiDetails where
+instance Data.FromJSON AwsApiGatewayV2ApiDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsApiGatewayV2ApiDetails"
       ( \x ->
           AwsApiGatewayV2ApiDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ApiEndpoint")
-            Prelude.<*> (x Core..:? "ApiId")
-            Prelude.<*> (x Core..:? "RouteSelectionExpression")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ApiKeySelectionExpression")
-            Prelude.<*> (x Core..:? "ProtocolType")
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "CorsConfiguration")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ApiEndpoint")
+            Prelude.<*> (x Data..:? "ApiId")
+            Prelude.<*> (x Data..:? "RouteSelectionExpression")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ApiKeySelectionExpression")
+            Prelude.<*> (x Data..:? "ProtocolType")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "CorsConfiguration")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable AwsApiGatewayV2ApiDetails where
@@ -232,22 +233,22 @@ instance Prelude.NFData AwsApiGatewayV2ApiDetails where
       `Prelude.seq` Prelude.rnf corsConfiguration
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON AwsApiGatewayV2ApiDetails where
+instance Data.ToJSON AwsApiGatewayV2ApiDetails where
   toJSON AwsApiGatewayV2ApiDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("ApiEndpoint" Core..=) Prelude.<$> apiEndpoint,
-            ("ApiId" Core..=) Prelude.<$> apiId,
-            ("RouteSelectionExpression" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("ApiEndpoint" Data..=) Prelude.<$> apiEndpoint,
+            ("ApiId" Data..=) Prelude.<$> apiId,
+            ("RouteSelectionExpression" Data..=)
               Prelude.<$> routeSelectionExpression,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ApiKeySelectionExpression" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("ApiKeySelectionExpression" Data..=)
               Prelude.<$> apiKeySelectionExpression,
-            ("ProtocolType" Core..=) Prelude.<$> protocolType,
-            ("CreatedDate" Core..=) Prelude.<$> createdDate,
-            ("CorsConfiguration" Core..=)
+            ("ProtocolType" Data..=) Prelude.<$> protocolType,
+            ("CreatedDate" Data..=) Prelude.<$> createdDate,
+            ("CorsConfiguration" Data..=)
               Prelude.<$> corsConfiguration,
-            ("Version" Core..=) Prelude.<$> version
+            ("Version" Data..=) Prelude.<$> version
           ]
       )

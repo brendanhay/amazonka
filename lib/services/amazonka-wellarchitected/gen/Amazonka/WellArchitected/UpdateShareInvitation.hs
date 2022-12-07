@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest UpdateShareInvitation where
     Response.receiveJSON
       ( \s h x ->
           UpdateShareInvitationResponse'
-            Prelude.<$> (x Core..?> "ShareInvitation")
+            Prelude.<$> (x Data..?> "ShareInvitation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,34 +119,34 @@ instance Prelude.NFData UpdateShareInvitation where
     Prelude.rnf shareInvitationId
       `Prelude.seq` Prelude.rnf shareInvitationAction
 
-instance Core.ToHeaders UpdateShareInvitation where
+instance Data.ToHeaders UpdateShareInvitation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateShareInvitation where
+instance Data.ToJSON UpdateShareInvitation where
   toJSON UpdateShareInvitation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ShareInvitationAction"
-                  Core..= shareInvitationAction
+                  Data..= shareInvitationAction
               )
           ]
       )
 
-instance Core.ToPath UpdateShareInvitation where
+instance Data.ToPath UpdateShareInvitation where
   toPath UpdateShareInvitation' {..} =
     Prelude.mconcat
-      ["/shareInvitations/", Core.toBS shareInvitationId]
+      ["/shareInvitations/", Data.toBS shareInvitationId]
 
-instance Core.ToQuery UpdateShareInvitation where
+instance Data.ToQuery UpdateShareInvitation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateShareInvitationResponse' smart constructor.

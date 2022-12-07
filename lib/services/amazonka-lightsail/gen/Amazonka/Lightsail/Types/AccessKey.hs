@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.AccessKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.AccessKeyLastUsed
 import Amazonka.Lightsail.Types.StatusType
 import qualified Amazonka.Prelude as Prelude
@@ -62,9 +63,9 @@ data AccessKey = AccessKey'
     -- @serviceName@ values are @N\/A@, and the @lastUsedDate@ value is null.
     lastUsed :: Prelude.Maybe AccessKeyLastUsed,
     -- | The timestamp when the access key was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The ID of the access key.
-    accessKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    accessKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -132,23 +133,23 @@ accessKey_lastUsed = Lens.lens (\AccessKey' {lastUsed} -> lastUsed) (\s@AccessKe
 
 -- | The timestamp when the access key was created.
 accessKey_createdAt :: Lens.Lens' AccessKey (Prelude.Maybe Prelude.UTCTime)
-accessKey_createdAt = Lens.lens (\AccessKey' {createdAt} -> createdAt) (\s@AccessKey' {} a -> s {createdAt = a} :: AccessKey) Prelude.. Lens.mapping Core._Time
+accessKey_createdAt = Lens.lens (\AccessKey' {createdAt} -> createdAt) (\s@AccessKey' {} a -> s {createdAt = a} :: AccessKey) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the access key.
 accessKey_accessKeyId :: Lens.Lens' AccessKey (Prelude.Maybe Prelude.Text)
-accessKey_accessKeyId = Lens.lens (\AccessKey' {accessKeyId} -> accessKeyId) (\s@AccessKey' {} a -> s {accessKeyId = a} :: AccessKey) Prelude.. Lens.mapping Core._Sensitive
+accessKey_accessKeyId = Lens.lens (\AccessKey' {accessKeyId} -> accessKeyId) (\s@AccessKey' {} a -> s {accessKeyId = a} :: AccessKey) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON AccessKey where
+instance Data.FromJSON AccessKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessKey"
       ( \x ->
           AccessKey'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "secretAccessKey")
-            Prelude.<*> (x Core..:? "lastUsed")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "accessKeyId")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "secretAccessKey")
+            Prelude.<*> (x Data..:? "lastUsed")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "accessKeyId")
       )
 
 instance Prelude.Hashable AccessKey where

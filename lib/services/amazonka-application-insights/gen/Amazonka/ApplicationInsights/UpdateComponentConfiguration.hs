@@ -49,6 +49,7 @@ where
 import Amazonka.ApplicationInsights.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -190,42 +191,42 @@ instance Prelude.NFData UpdateComponentConfiguration where
       `Prelude.seq` Prelude.rnf resourceGroupName
       `Prelude.seq` Prelude.rnf componentName
 
-instance Core.ToHeaders UpdateComponentConfiguration where
+instance Data.ToHeaders UpdateComponentConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "EC2WindowsBarleyService.UpdateComponentConfiguration" ::
+              Data.=# ( "EC2WindowsBarleyService.UpdateComponentConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateComponentConfiguration where
+instance Data.ToJSON UpdateComponentConfiguration where
   toJSON UpdateComponentConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AutoConfigEnabled" Core..=)
+          [ ("AutoConfigEnabled" Data..=)
               Prelude.<$> autoConfigEnabled,
-            ("Tier" Core..=) Prelude.<$> tier,
-            ("Monitor" Core..=) Prelude.<$> monitor,
-            ("ComponentConfiguration" Core..=)
+            ("Tier" Data..=) Prelude.<$> tier,
+            ("Monitor" Data..=) Prelude.<$> monitor,
+            ("ComponentConfiguration" Data..=)
               Prelude.<$> componentConfiguration,
             Prelude.Just
-              ("ResourceGroupName" Core..= resourceGroupName),
+              ("ResourceGroupName" Data..= resourceGroupName),
             Prelude.Just
-              ("ComponentName" Core..= componentName)
+              ("ComponentName" Data..= componentName)
           ]
       )
 
-instance Core.ToPath UpdateComponentConfiguration where
+instance Data.ToPath UpdateComponentConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateComponentConfiguration where
+instance Data.ToQuery UpdateComponentConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateComponentConfigurationResponse' smart constructor.

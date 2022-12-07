@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,12 +100,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeNotebookInstanceLifecycleConfigResponse'
-            Prelude.<$> (x Core..?> "NotebookInstanceLifecycleConfigName")
-              Prelude.<*> (x Core..?> "OnCreate" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "LastModifiedTime")
-              Prelude.<*> (x Core..?> "CreationTime")
-              Prelude.<*> (x Core..?> "NotebookInstanceLifecycleConfigArn")
-              Prelude.<*> (x Core..?> "OnStart" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NotebookInstanceLifecycleConfigName")
+              Prelude.<*> (x Data..?> "OnCreate" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "LastModifiedTime")
+              Prelude.<*> (x Data..?> "CreationTime")
+              Prelude.<*> (x Data..?> "NotebookInstanceLifecycleConfigArn")
+              Prelude.<*> (x Data..?> "OnStart" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,45 +127,45 @@ instance
     Prelude.rnf notebookInstanceLifecycleConfigName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeNotebookInstanceLifecycleConfig
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeNotebookInstanceLifecycleConfig" ::
+              Data.=# ( "SageMaker.DescribeNotebookInstanceLifecycleConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeNotebookInstanceLifecycleConfig
   where
   toJSON DescribeNotebookInstanceLifecycleConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "NotebookInstanceLifecycleConfigName"
-                  Core..= notebookInstanceLifecycleConfigName
+                  Data..= notebookInstanceLifecycleConfigName
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeNotebookInstanceLifecycleConfig
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeNotebookInstanceLifecycleConfig
   where
   toQuery = Prelude.const Prelude.mempty
@@ -178,9 +179,9 @@ data DescribeNotebookInstanceLifecycleConfigResponse = DescribeNotebookInstanceL
     onCreate :: Prelude.Maybe [NotebookInstanceLifecycleHook],
     -- | A timestamp that tells when the lifecycle configuration was last
     -- modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | A timestamp that tells when the lifecycle configuration was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the lifecycle configuration.
     notebookInstanceLifecycleConfigArn :: Prelude.Maybe Prelude.Text,
     -- | The shell script that runs every time you start a notebook instance,
@@ -247,11 +248,11 @@ describeNotebookInstanceLifecycleConfigResponse_onCreate = Lens.lens (\DescribeN
 -- | A timestamp that tells when the lifecycle configuration was last
 -- modified.
 describeNotebookInstanceLifecycleConfigResponse_lastModifiedTime :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Prelude.Maybe Prelude.UTCTime)
-describeNotebookInstanceLifecycleConfigResponse_lastModifiedTime = Lens.lens (\DescribeNotebookInstanceLifecycleConfigResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeNotebookInstanceLifecycleConfigResponse' {} a -> s {lastModifiedTime = a} :: DescribeNotebookInstanceLifecycleConfigResponse) Prelude.. Lens.mapping Core._Time
+describeNotebookInstanceLifecycleConfigResponse_lastModifiedTime = Lens.lens (\DescribeNotebookInstanceLifecycleConfigResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeNotebookInstanceLifecycleConfigResponse' {} a -> s {lastModifiedTime = a} :: DescribeNotebookInstanceLifecycleConfigResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A timestamp that tells when the lifecycle configuration was created.
 describeNotebookInstanceLifecycleConfigResponse_creationTime :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Prelude.Maybe Prelude.UTCTime)
-describeNotebookInstanceLifecycleConfigResponse_creationTime = Lens.lens (\DescribeNotebookInstanceLifecycleConfigResponse' {creationTime} -> creationTime) (\s@DescribeNotebookInstanceLifecycleConfigResponse' {} a -> s {creationTime = a} :: DescribeNotebookInstanceLifecycleConfigResponse) Prelude.. Lens.mapping Core._Time
+describeNotebookInstanceLifecycleConfigResponse_creationTime = Lens.lens (\DescribeNotebookInstanceLifecycleConfigResponse' {creationTime} -> creationTime) (\s@DescribeNotebookInstanceLifecycleConfigResponse' {} a -> s {creationTime = a} :: DescribeNotebookInstanceLifecycleConfigResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the lifecycle configuration.
 describeNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigArn :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Prelude.Maybe Prelude.Text)

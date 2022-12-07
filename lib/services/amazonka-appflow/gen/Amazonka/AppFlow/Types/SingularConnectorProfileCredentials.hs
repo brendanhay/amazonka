@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.SingularConnectorProfileCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile credentials required when using Singular.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data SingularConnectorProfileCredentials = SingularConnectorProfileCredentials'
   { -- | A unique alphanumeric identifier used to authenticate a user, developer,
     -- or calling program to your API.
-    apiKey :: Core.Sensitive Prelude.Text
+    apiKey :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -50,13 +51,13 @@ newSingularConnectorProfileCredentials ::
 newSingularConnectorProfileCredentials pApiKey_ =
   SingularConnectorProfileCredentials'
     { apiKey =
-        Core._Sensitive Lens.# pApiKey_
+        Data._Sensitive Lens.# pApiKey_
     }
 
 -- | A unique alphanumeric identifier used to authenticate a user, developer,
 -- or calling program to your API.
 singularConnectorProfileCredentials_apiKey :: Lens.Lens' SingularConnectorProfileCredentials Prelude.Text
-singularConnectorProfileCredentials_apiKey = Lens.lens (\SingularConnectorProfileCredentials' {apiKey} -> apiKey) (\s@SingularConnectorProfileCredentials' {} a -> s {apiKey = a} :: SingularConnectorProfileCredentials) Prelude.. Core._Sensitive
+singularConnectorProfileCredentials_apiKey = Lens.lens (\SingularConnectorProfileCredentials' {apiKey} -> apiKey) (\s@SingularConnectorProfileCredentials' {} a -> s {apiKey = a} :: SingularConnectorProfileCredentials) Prelude.. Data._Sensitive
 
 instance
   Prelude.Hashable
@@ -75,11 +76,11 @@ instance
     Prelude.rnf apiKey
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SingularConnectorProfileCredentials
   where
   toJSON SingularConnectorProfileCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("apiKey" Core..= apiKey)]
+          [Prelude.Just ("apiKey" Data..= apiKey)]
       )

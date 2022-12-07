@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.DeviceSelectionResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.DeviceFilter
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,15 +77,15 @@ deviceSelectionResult_maxDevices = Lens.lens (\DeviceSelectionResult' {maxDevice
 deviceSelectionResult_matchedDevicesCount :: Lens.Lens' DeviceSelectionResult (Prelude.Maybe Prelude.Int)
 deviceSelectionResult_matchedDevicesCount = Lens.lens (\DeviceSelectionResult' {matchedDevicesCount} -> matchedDevicesCount) (\s@DeviceSelectionResult' {} a -> s {matchedDevicesCount = a} :: DeviceSelectionResult)
 
-instance Core.FromJSON DeviceSelectionResult where
+instance Data.FromJSON DeviceSelectionResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceSelectionResult"
       ( \x ->
           DeviceSelectionResult'
-            Prelude.<$> (x Core..:? "filters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "maxDevices")
-            Prelude.<*> (x Core..:? "matchedDevicesCount")
+            Prelude.<$> (x Data..:? "filters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "maxDevices")
+            Prelude.<*> (x Data..:? "matchedDevicesCount")
       )
 
 instance Prelude.Hashable DeviceSelectionResult where

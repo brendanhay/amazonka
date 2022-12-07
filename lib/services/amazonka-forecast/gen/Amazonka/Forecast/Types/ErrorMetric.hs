@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.ErrorMetric where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides detailed error metrics to evaluate the performance of a
@@ -89,17 +90,17 @@ errorMetric_rmse = Lens.lens (\ErrorMetric' {rmse} -> rmse) (\s@ErrorMetric' {} 
 errorMetric_mape :: Lens.Lens' ErrorMetric (Prelude.Maybe Prelude.Double)
 errorMetric_mape = Lens.lens (\ErrorMetric' {mape} -> mape) (\s@ErrorMetric' {} a -> s {mape = a} :: ErrorMetric)
 
-instance Core.FromJSON ErrorMetric where
+instance Data.FromJSON ErrorMetric where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorMetric"
       ( \x ->
           ErrorMetric'
-            Prelude.<$> (x Core..:? "WAPE")
-            Prelude.<*> (x Core..:? "MASE")
-            Prelude.<*> (x Core..:? "ForecastType")
-            Prelude.<*> (x Core..:? "RMSE")
-            Prelude.<*> (x Core..:? "MAPE")
+            Prelude.<$> (x Data..:? "WAPE")
+            Prelude.<*> (x Data..:? "MASE")
+            Prelude.<*> (x Data..:? "ForecastType")
+            Prelude.<*> (x Data..:? "RMSE")
+            Prelude.<*> (x Data..:? "MAPE")
       )
 
 instance Prelude.Hashable ErrorMetric where

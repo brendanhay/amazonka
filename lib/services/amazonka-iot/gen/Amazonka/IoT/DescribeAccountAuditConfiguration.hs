@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -79,11 +80,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountAuditConfigurationResponse'
-            Prelude.<$> (x Core..?> "roleArn")
-              Prelude.<*> ( x Core..?> "auditNotificationTargetConfigurations"
+            Prelude.<$> (x Data..?> "roleArn")
+              Prelude.<*> ( x Data..?> "auditNotificationTargetConfigurations"
                               Core..!@ Prelude.mempty
                           )
-              Prelude.<*> ( x Core..?> "auditCheckConfigurations"
+              Prelude.<*> ( x Data..?> "auditCheckConfigurations"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -103,19 +104,19 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeAccountAuditConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeAccountAuditConfiguration
   where
   toPath = Prelude.const "/audit/configuration"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeAccountAuditConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.Location.Types.SearchForTextResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.Place
 import qualified Amazonka.Prelude as Prelude
 
@@ -125,16 +126,16 @@ searchForTextResult_placeId = Lens.lens (\SearchForTextResult' {placeId} -> plac
 searchForTextResult_place :: Lens.Lens' SearchForTextResult Place
 searchForTextResult_place = Lens.lens (\SearchForTextResult' {place} -> place) (\s@SearchForTextResult' {} a -> s {place = a} :: SearchForTextResult)
 
-instance Core.FromJSON SearchForTextResult where
+instance Data.FromJSON SearchForTextResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SearchForTextResult"
       ( \x ->
           SearchForTextResult'
-            Prelude.<$> (x Core..:? "Distance")
-            Prelude.<*> (x Core..:? "Relevance")
-            Prelude.<*> (x Core..:? "PlaceId")
-            Prelude.<*> (x Core..: "Place")
+            Prelude.<$> (x Data..:? "Distance")
+            Prelude.<*> (x Data..:? "Relevance")
+            Prelude.<*> (x Data..:? "PlaceId")
+            Prelude.<*> (x Data..: "Place")
       )
 
 instance Prelude.Hashable SearchForTextResult where

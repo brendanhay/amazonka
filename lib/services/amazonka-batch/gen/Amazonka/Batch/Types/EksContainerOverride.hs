@@ -23,6 +23,7 @@ import Amazonka.Batch.Types.EksContainerEnvironmentVariable
 import Amazonka.Batch.Types.EksContainerResourceRequirements
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object representing any Kubernetes overrides to a job definition that\'s
@@ -161,14 +162,14 @@ instance Prelude.NFData EksContainerOverride where
       `Prelude.seq` Prelude.rnf env
       `Prelude.seq` Prelude.rnf image
 
-instance Core.ToJSON EksContainerOverride where
+instance Data.ToJSON EksContainerOverride where
   toJSON EksContainerOverride' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("command" Core..=) Prelude.<$> command,
-            ("resources" Core..=) Prelude.<$> resources,
-            ("args" Core..=) Prelude.<$> args,
-            ("env" Core..=) Prelude.<$> env,
-            ("image" Core..=) Prelude.<$> image
+          [ ("command" Data..=) Prelude.<$> command,
+            ("resources" Data..=) Prelude.<$> resources,
+            ("args" Data..=) Prelude.<$> args,
+            ("env" Data..=) Prelude.<$> env,
+            ("image" Data..=) Prelude.<$> image
           ]
       )

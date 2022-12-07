@@ -22,6 +22,7 @@ module Amazonka.DLM.Types.ArchiveRule where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.ArchiveRetainRule
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Snapshot policies only]__ Specifies a snapshot archiving rule for a
@@ -54,12 +55,12 @@ newArchiveRule pRetainRule_ =
 archiveRule_retainRule :: Lens.Lens' ArchiveRule ArchiveRetainRule
 archiveRule_retainRule = Lens.lens (\ArchiveRule' {retainRule} -> retainRule) (\s@ArchiveRule' {} a -> s {retainRule = a} :: ArchiveRule)
 
-instance Core.FromJSON ArchiveRule where
+instance Data.FromJSON ArchiveRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArchiveRule"
       ( \x ->
-          ArchiveRule' Prelude.<$> (x Core..: "RetainRule")
+          ArchiveRule' Prelude.<$> (x Data..: "RetainRule")
       )
 
 instance Prelude.Hashable ArchiveRule where
@@ -69,9 +70,9 @@ instance Prelude.Hashable ArchiveRule where
 instance Prelude.NFData ArchiveRule where
   rnf ArchiveRule' {..} = Prelude.rnf retainRule
 
-instance Core.ToJSON ArchiveRule where
+instance Data.ToJSON ArchiveRule where
   toJSON ArchiveRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("RetainRule" Core..= retainRule)]
+          [Prelude.Just ("RetainRule" Data..= retainRule)]
       )

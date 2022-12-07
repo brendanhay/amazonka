@@ -23,6 +23,7 @@ import Amazonka.CodeCommit.Types.Comment
 import Amazonka.CodeCommit.Types.Location
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about comments on a pull request.
@@ -148,20 +149,20 @@ commentsForPullRequest_location = Lens.lens (\CommentsForPullRequest' {location}
 commentsForPullRequest_afterBlobId :: Lens.Lens' CommentsForPullRequest (Prelude.Maybe Prelude.Text)
 commentsForPullRequest_afterBlobId = Lens.lens (\CommentsForPullRequest' {afterBlobId} -> afterBlobId) (\s@CommentsForPullRequest' {} a -> s {afterBlobId = a} :: CommentsForPullRequest)
 
-instance Core.FromJSON CommentsForPullRequest where
+instance Data.FromJSON CommentsForPullRequest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CommentsForPullRequest"
       ( \x ->
           CommentsForPullRequest'
-            Prelude.<$> (x Core..:? "beforeBlobId")
-            Prelude.<*> (x Core..:? "afterCommitId")
-            Prelude.<*> (x Core..:? "pullRequestId")
-            Prelude.<*> (x Core..:? "repositoryName")
-            Prelude.<*> (x Core..:? "beforeCommitId")
-            Prelude.<*> (x Core..:? "comments" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "afterBlobId")
+            Prelude.<$> (x Data..:? "beforeBlobId")
+            Prelude.<*> (x Data..:? "afterCommitId")
+            Prelude.<*> (x Data..:? "pullRequestId")
+            Prelude.<*> (x Data..:? "repositoryName")
+            Prelude.<*> (x Data..:? "beforeCommitId")
+            Prelude.<*> (x Data..:? "comments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "afterBlobId")
       )
 
 instance Prelude.Hashable CommentsForPullRequest where

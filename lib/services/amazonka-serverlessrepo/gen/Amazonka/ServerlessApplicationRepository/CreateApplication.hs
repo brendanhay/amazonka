@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -408,19 +409,19 @@ instance Core.AWSRequest CreateApplication where
     Response.receiveJSON
       ( \s h x ->
           CreateApplicationResponse'
-            Prelude.<$> (x Core..?> "author")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "isVerifiedAuthor")
-            Prelude.<*> (x Core..?> "licenseUrl")
-            Prelude.<*> (x Core..?> "verifiedAuthorUrl")
-            Prelude.<*> (x Core..?> "readmeUrl")
-            Prelude.<*> (x Core..?> "spdxLicenseId")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "homePageUrl")
-            Prelude.<*> (x Core..?> "labels" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "applicationId")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "author")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "isVerifiedAuthor")
+            Prelude.<*> (x Data..?> "licenseUrl")
+            Prelude.<*> (x Data..?> "verifiedAuthorUrl")
+            Prelude.<*> (x Data..?> "readmeUrl")
+            Prelude.<*> (x Data..?> "spdxLicenseId")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "homePageUrl")
+            Prelude.<*> (x Data..?> "labels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "applicationId")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -460,45 +461,45 @@ instance Prelude.NFData CreateApplication where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf author
 
-instance Core.ToHeaders CreateApplication where
+instance Data.ToHeaders CreateApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApplication where
+instance Data.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("semanticVersion" Core..=)
+          [ ("semanticVersion" Data..=)
               Prelude.<$> semanticVersion,
-            ("sourceCodeArchiveUrl" Core..=)
+            ("sourceCodeArchiveUrl" Data..=)
               Prelude.<$> sourceCodeArchiveUrl,
-            ("licenseUrl" Core..=) Prelude.<$> licenseUrl,
-            ("sourceCodeUrl" Core..=) Prelude.<$> sourceCodeUrl,
-            ("readmeUrl" Core..=) Prelude.<$> readmeUrl,
-            ("templateBody" Core..=) Prelude.<$> templateBody,
-            ("spdxLicenseId" Core..=) Prelude.<$> spdxLicenseId,
-            ("licenseBody" Core..=) Prelude.<$> licenseBody,
-            ("homePageUrl" Core..=) Prelude.<$> homePageUrl,
-            ("labels" Core..=) Prelude.<$> labels,
-            ("readmeBody" Core..=) Prelude.<$> readmeBody,
-            ("templateUrl" Core..=) Prelude.<$> templateUrl,
-            Prelude.Just ("description" Core..= description),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("author" Core..= author)
+            ("licenseUrl" Data..=) Prelude.<$> licenseUrl,
+            ("sourceCodeUrl" Data..=) Prelude.<$> sourceCodeUrl,
+            ("readmeUrl" Data..=) Prelude.<$> readmeUrl,
+            ("templateBody" Data..=) Prelude.<$> templateBody,
+            ("spdxLicenseId" Data..=) Prelude.<$> spdxLicenseId,
+            ("licenseBody" Data..=) Prelude.<$> licenseBody,
+            ("homePageUrl" Data..=) Prelude.<$> homePageUrl,
+            ("labels" Data..=) Prelude.<$> labels,
+            ("readmeBody" Data..=) Prelude.<$> readmeBody,
+            ("templateUrl" Data..=) Prelude.<$> templateUrl,
+            Prelude.Just ("description" Data..= description),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("author" Data..= author)
           ]
       )
 
-instance Core.ToPath CreateApplication where
+instance Data.ToPath CreateApplication where
   toPath = Prelude.const "/applications"
 
-instance Core.ToQuery CreateApplication where
+instance Data.ToQuery CreateApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateApplicationResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.NetworkInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Network interface.
@@ -70,15 +71,15 @@ networkInterface_macAddress = Lens.lens (\NetworkInterface' {macAddress} -> macA
 networkInterface_isPrimary :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Bool)
 networkInterface_isPrimary = Lens.lens (\NetworkInterface' {isPrimary} -> isPrimary) (\s@NetworkInterface' {} a -> s {isPrimary = a} :: NetworkInterface)
 
-instance Core.FromJSON NetworkInterface where
+instance Data.FromJSON NetworkInterface where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> (x Core..:? "ips" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "macAddress")
-            Prelude.<*> (x Core..:? "isPrimary")
+            Prelude.<$> (x Data..:? "ips" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "macAddress")
+            Prelude.<*> (x Data..:? "isPrimary")
       )
 
 instance Prelude.Hashable NetworkInterface where

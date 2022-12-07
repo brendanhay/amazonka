@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.As2ConnectorConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.CompressionEnum
 import Amazonka.Transfer.Types.EncryptionAlg
@@ -168,20 +169,20 @@ as2ConnectorConfig_signingAlgorithm = Lens.lens (\As2ConnectorConfig' {signingAl
 as2ConnectorConfig_partnerProfileId :: Lens.Lens' As2ConnectorConfig (Prelude.Maybe Prelude.Text)
 as2ConnectorConfig_partnerProfileId = Lens.lens (\As2ConnectorConfig' {partnerProfileId} -> partnerProfileId) (\s@As2ConnectorConfig' {} a -> s {partnerProfileId = a} :: As2ConnectorConfig)
 
-instance Core.FromJSON As2ConnectorConfig where
+instance Data.FromJSON As2ConnectorConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "As2ConnectorConfig"
       ( \x ->
           As2ConnectorConfig'
-            Prelude.<$> (x Core..:? "EncryptionAlgorithm")
-            Prelude.<*> (x Core..:? "Compression")
-            Prelude.<*> (x Core..:? "MdnSigningAlgorithm")
-            Prelude.<*> (x Core..:? "LocalProfileId")
-            Prelude.<*> (x Core..:? "MdnResponse")
-            Prelude.<*> (x Core..:? "MessageSubject")
-            Prelude.<*> (x Core..:? "SigningAlgorithm")
-            Prelude.<*> (x Core..:? "PartnerProfileId")
+            Prelude.<$> (x Data..:? "EncryptionAlgorithm")
+            Prelude.<*> (x Data..:? "Compression")
+            Prelude.<*> (x Data..:? "MdnSigningAlgorithm")
+            Prelude.<*> (x Data..:? "LocalProfileId")
+            Prelude.<*> (x Data..:? "MdnResponse")
+            Prelude.<*> (x Data..:? "MessageSubject")
+            Prelude.<*> (x Data..:? "SigningAlgorithm")
+            Prelude.<*> (x Data..:? "PartnerProfileId")
       )
 
 instance Prelude.Hashable As2ConnectorConfig where
@@ -206,23 +207,23 @@ instance Prelude.NFData As2ConnectorConfig where
       `Prelude.seq` Prelude.rnf signingAlgorithm
       `Prelude.seq` Prelude.rnf partnerProfileId
 
-instance Core.ToJSON As2ConnectorConfig where
+instance Data.ToJSON As2ConnectorConfig where
   toJSON As2ConnectorConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EncryptionAlgorithm" Core..=)
+          [ ("EncryptionAlgorithm" Data..=)
               Prelude.<$> encryptionAlgorithm,
-            ("Compression" Core..=) Prelude.<$> compression,
-            ("MdnSigningAlgorithm" Core..=)
+            ("Compression" Data..=) Prelude.<$> compression,
+            ("MdnSigningAlgorithm" Data..=)
               Prelude.<$> mdnSigningAlgorithm,
-            ("LocalProfileId" Core..=)
+            ("LocalProfileId" Data..=)
               Prelude.<$> localProfileId,
-            ("MdnResponse" Core..=) Prelude.<$> mdnResponse,
-            ("MessageSubject" Core..=)
+            ("MdnResponse" Data..=) Prelude.<$> mdnResponse,
+            ("MessageSubject" Data..=)
               Prelude.<$> messageSubject,
-            ("SigningAlgorithm" Core..=)
+            ("SigningAlgorithm" Data..=)
               Prelude.<$> signingAlgorithm,
-            ("PartnerProfileId" Core..=)
+            ("PartnerProfileId" Data..=)
               Prelude.<$> partnerProfileId
           ]
       )

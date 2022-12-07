@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,15 +98,15 @@ instance Prelude.NFData DeleteAlarmModel where
   rnf DeleteAlarmModel' {..} =
     Prelude.rnf alarmModelName
 
-instance Core.ToHeaders DeleteAlarmModel where
+instance Data.ToHeaders DeleteAlarmModel where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteAlarmModel where
+instance Data.ToPath DeleteAlarmModel where
   toPath DeleteAlarmModel' {..} =
     Prelude.mconcat
-      ["/alarm-models/", Core.toBS alarmModelName]
+      ["/alarm-models/", Data.toBS alarmModelName]
 
-instance Core.ToQuery DeleteAlarmModel where
+instance Data.ToQuery DeleteAlarmModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAlarmModelResponse' smart constructor.

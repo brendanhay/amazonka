@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -293,16 +294,16 @@ instance Core.AWSRequest ListEntitiesForPolicy where
       "ListEntitiesForPolicyResult"
       ( \s h x ->
           ListEntitiesForPolicyResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "PolicyRoles" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "PolicyRoles" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "IsTruncated")
-            Prelude.<*> ( x Core..@? "PolicyGroups" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> ( x Data..@? "PolicyGroups" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "PolicyUsers" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> ( x Data..@? "PolicyUsers" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -325,25 +326,25 @@ instance Prelude.NFData ListEntitiesForPolicy where
       `Prelude.seq` Prelude.rnf pathPrefix
       `Prelude.seq` Prelude.rnf policyArn
 
-instance Core.ToHeaders ListEntitiesForPolicy where
+instance Data.ToHeaders ListEntitiesForPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListEntitiesForPolicy where
+instance Data.ToPath ListEntitiesForPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEntitiesForPolicy where
+instance Data.ToQuery ListEntitiesForPolicy where
   toQuery ListEntitiesForPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListEntitiesForPolicy" :: Prelude.ByteString),
+          Data.=: ("ListEntitiesForPolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "EntityFilter" Core.=: entityFilter,
-        "PolicyUsageFilter" Core.=: policyUsageFilter,
-        "PathPrefix" Core.=: pathPrefix,
-        "PolicyArn" Core.=: policyArn
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "EntityFilter" Data.=: entityFilter,
+        "PolicyUsageFilter" Data.=: policyUsageFilter,
+        "PathPrefix" Data.=: pathPrefix,
+        "PolicyArn" Data.=: policyArn
       ]
 
 -- | Contains the response to a successful ListEntitiesForPolicy request.

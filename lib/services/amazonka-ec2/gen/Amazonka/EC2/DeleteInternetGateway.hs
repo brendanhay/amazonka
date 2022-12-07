@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,21 +111,21 @@ instance Prelude.NFData DeleteInternetGateway where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf internetGatewayId
 
-instance Core.ToHeaders DeleteInternetGateway where
+instance Data.ToHeaders DeleteInternetGateway where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteInternetGateway where
+instance Data.ToPath DeleteInternetGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteInternetGateway where
+instance Data.ToQuery DeleteInternetGateway where
   toQuery DeleteInternetGateway' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteInternetGateway" :: Prelude.ByteString),
+          Data.=: ("DeleteInternetGateway" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "InternetGatewayId" Core.=: internetGatewayId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "InternetGatewayId" Data.=: internetGatewayId
       ]
 
 -- | /See:/ 'newDeleteInternetGatewayResponse' smart constructor.

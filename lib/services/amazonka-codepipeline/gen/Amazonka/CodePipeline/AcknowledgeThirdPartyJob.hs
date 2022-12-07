@@ -45,6 +45,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,7 +128,7 @@ instance Core.AWSRequest AcknowledgeThirdPartyJob where
     Response.receiveJSON
       ( \s h x ->
           AcknowledgeThirdPartyJobResponse'
-            Prelude.<$> (x Core..?> "status")
+            Prelude.<$> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,35 +144,35 @@ instance Prelude.NFData AcknowledgeThirdPartyJob where
       `Prelude.seq` Prelude.rnf nonce
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders AcknowledgeThirdPartyJob where
+instance Data.ToHeaders AcknowledgeThirdPartyJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.AcknowledgeThirdPartyJob" ::
+              Data.=# ( "CodePipeline_20150709.AcknowledgeThirdPartyJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AcknowledgeThirdPartyJob where
+instance Data.ToJSON AcknowledgeThirdPartyJob where
   toJSON AcknowledgeThirdPartyJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("jobId" Core..= jobId),
-            Prelude.Just ("nonce" Core..= nonce),
-            Prelude.Just ("clientToken" Core..= clientToken)
+          [ Prelude.Just ("jobId" Data..= jobId),
+            Prelude.Just ("nonce" Data..= nonce),
+            Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath AcknowledgeThirdPartyJob where
+instance Data.ToPath AcknowledgeThirdPartyJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AcknowledgeThirdPartyJob where
+instance Data.ToQuery AcknowledgeThirdPartyJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an AcknowledgeThirdPartyJob action.

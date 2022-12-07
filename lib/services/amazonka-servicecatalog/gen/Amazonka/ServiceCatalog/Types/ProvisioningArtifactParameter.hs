@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ProvisioningArtifactParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ParameterConstraints
 
@@ -105,18 +106,18 @@ provisioningArtifactParameter_parameterType = Lens.lens (\ProvisioningArtifactPa
 provisioningArtifactParameter_parameterKey :: Lens.Lens' ProvisioningArtifactParameter (Prelude.Maybe Prelude.Text)
 provisioningArtifactParameter_parameterKey = Lens.lens (\ProvisioningArtifactParameter' {parameterKey} -> parameterKey) (\s@ProvisioningArtifactParameter' {} a -> s {parameterKey = a} :: ProvisioningArtifactParameter)
 
-instance Core.FromJSON ProvisioningArtifactParameter where
+instance Data.FromJSON ProvisioningArtifactParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisioningArtifactParameter"
       ( \x ->
           ProvisioningArtifactParameter'
-            Prelude.<$> (x Core..:? "IsNoEcho")
-            Prelude.<*> (x Core..:? "DefaultValue")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ParameterConstraints")
-            Prelude.<*> (x Core..:? "ParameterType")
-            Prelude.<*> (x Core..:? "ParameterKey")
+            Prelude.<$> (x Data..:? "IsNoEcho")
+            Prelude.<*> (x Data..:? "DefaultValue")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ParameterConstraints")
+            Prelude.<*> (x Data..:? "ParameterType")
+            Prelude.<*> (x Data..:? "ParameterKey")
       )
 
 instance

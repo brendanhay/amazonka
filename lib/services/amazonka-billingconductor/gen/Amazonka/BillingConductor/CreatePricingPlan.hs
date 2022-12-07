@@ -47,6 +47,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -60,13 +61,13 @@ data CreatePricingPlan = CreatePricingPlan'
     -- currently supported, but will be implemented in a future update.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the pricing plan.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A list of Amazon Resource Names (ARNs) that define the pricing plan
     -- parameters.
     pricingRuleArns :: Prelude.Maybe [Prelude.Text],
     -- | The name of the pricing plan. The names must be unique to each pricing
     -- plan.
-    name :: Core.Sensitive Prelude.Text
+    name :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -101,7 +102,7 @@ newCreatePricingPlan pName_ =
       clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
       pricingRuleArns = Prelude.Nothing,
-      name = Core._Sensitive Lens.# pName_
+      name = Data._Sensitive Lens.# pName_
     }
 
 -- | A map that contains tag keys and tag values that are attached to a
@@ -116,7 +117,7 @@ createPricingPlan_clientToken = Lens.lens (\CreatePricingPlan' {clientToken} -> 
 
 -- | The description of the pricing plan.
 createPricingPlan_description :: Lens.Lens' CreatePricingPlan (Prelude.Maybe Prelude.Text)
-createPricingPlan_description = Lens.lens (\CreatePricingPlan' {description} -> description) (\s@CreatePricingPlan' {} a -> s {description = a} :: CreatePricingPlan) Prelude.. Lens.mapping Core._Sensitive
+createPricingPlan_description = Lens.lens (\CreatePricingPlan' {description} -> description) (\s@CreatePricingPlan' {} a -> s {description = a} :: CreatePricingPlan) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A list of Amazon Resource Names (ARNs) that define the pricing plan
 -- parameters.
@@ -126,7 +127,7 @@ createPricingPlan_pricingRuleArns = Lens.lens (\CreatePricingPlan' {pricingRuleA
 -- | The name of the pricing plan. The names must be unique to each pricing
 -- plan.
 createPricingPlan_name :: Lens.Lens' CreatePricingPlan Prelude.Text
-createPricingPlan_name = Lens.lens (\CreatePricingPlan' {name} -> name) (\s@CreatePricingPlan' {} a -> s {name = a} :: CreatePricingPlan) Prelude.. Core._Sensitive
+createPricingPlan_name = Lens.lens (\CreatePricingPlan' {name} -> name) (\s@CreatePricingPlan' {} a -> s {name = a} :: CreatePricingPlan) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreatePricingPlan where
   type
@@ -138,7 +139,7 @@ instance Core.AWSRequest CreatePricingPlan where
     Response.receiveJSON
       ( \s h x ->
           CreatePricingPlanResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,30 +159,30 @@ instance Prelude.NFData CreatePricingPlan where
       `Prelude.seq` Prelude.rnf pricingRuleArns
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreatePricingPlan where
+instance Data.ToHeaders CreatePricingPlan where
   toHeaders CreatePricingPlan' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# clientToken,
+      [ "X-Amzn-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreatePricingPlan where
+instance Data.ToJSON CreatePricingPlan where
   toJSON CreatePricingPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("PricingRuleArns" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("PricingRuleArns" Data..=)
               Prelude.<$> pricingRuleArns,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreatePricingPlan where
+instance Data.ToPath CreatePricingPlan where
   toPath = Prelude.const "/create-pricing-plan"
 
-instance Core.ToQuery CreatePricingPlan where
+instance Data.ToQuery CreatePricingPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePricingPlanResponse' smart constructor.

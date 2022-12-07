@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.FileCacheNFSConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.NfsVersion
 import qualified Amazonka.Prelude as Prelude
 
@@ -94,11 +95,11 @@ instance Prelude.NFData FileCacheNFSConfiguration where
     Prelude.rnf dnsIps
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON FileCacheNFSConfiguration where
+instance Data.ToJSON FileCacheNFSConfiguration where
   toJSON FileCacheNFSConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DnsIps" Core..=) Prelude.<$> dnsIps,
-            Prelude.Just ("Version" Core..= version)
+          [ ("DnsIps" Data..=) Prelude.<$> dnsIps,
+            Prelude.Just ("Version" Data..= version)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.HlsAdditionalManifest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the details for each additional HLS manifest that you want the
@@ -91,16 +92,16 @@ hlsAdditionalManifest_selectedOutputs = Lens.lens (\HlsAdditionalManifest' {sele
 hlsAdditionalManifest_manifestNameModifier :: Lens.Lens' HlsAdditionalManifest (Prelude.Maybe Prelude.Text)
 hlsAdditionalManifest_manifestNameModifier = Lens.lens (\HlsAdditionalManifest' {manifestNameModifier} -> manifestNameModifier) (\s@HlsAdditionalManifest' {} a -> s {manifestNameModifier = a} :: HlsAdditionalManifest)
 
-instance Core.FromJSON HlsAdditionalManifest where
+instance Data.FromJSON HlsAdditionalManifest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsAdditionalManifest"
       ( \x ->
           HlsAdditionalManifest'
-            Prelude.<$> ( x Core..:? "selectedOutputs"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "selectedOutputs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "manifestNameModifier")
+            Prelude.<*> (x Data..:? "manifestNameModifier")
       )
 
 instance Prelude.Hashable HlsAdditionalManifest where
@@ -113,13 +114,13 @@ instance Prelude.NFData HlsAdditionalManifest where
     Prelude.rnf selectedOutputs
       `Prelude.seq` Prelude.rnf manifestNameModifier
 
-instance Core.ToJSON HlsAdditionalManifest where
+instance Data.ToJSON HlsAdditionalManifest where
   toJSON HlsAdditionalManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("selectedOutputs" Core..=)
+          [ ("selectedOutputs" Data..=)
               Prelude.<$> selectedOutputs,
-            ("manifestNameModifier" Core..=)
+            ("manifestNameModifier" Data..=)
               Prelude.<$> manifestNameModifier
           ]
       )

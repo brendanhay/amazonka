@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.TrainingResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.DataValidationMetrics
 import Amazonka.FraudDetector.Types.TrainingMetrics
 import Amazonka.FraudDetector.Types.VariableImportanceMetrics
@@ -74,15 +75,15 @@ trainingResult_dataValidationMetrics = Lens.lens (\TrainingResult' {dataValidati
 trainingResult_trainingMetrics :: Lens.Lens' TrainingResult (Prelude.Maybe TrainingMetrics)
 trainingResult_trainingMetrics = Lens.lens (\TrainingResult' {trainingMetrics} -> trainingMetrics) (\s@TrainingResult' {} a -> s {trainingMetrics = a} :: TrainingResult)
 
-instance Core.FromJSON TrainingResult where
+instance Data.FromJSON TrainingResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrainingResult"
       ( \x ->
           TrainingResult'
-            Prelude.<$> (x Core..:? "variableImportanceMetrics")
-            Prelude.<*> (x Core..:? "dataValidationMetrics")
-            Prelude.<*> (x Core..:? "trainingMetrics")
+            Prelude.<$> (x Data..:? "variableImportanceMetrics")
+            Prelude.<*> (x Data..:? "dataValidationMetrics")
+            Prelude.<*> (x Data..:? "trainingMetrics")
       )
 
 instance Prelude.Hashable TrainingResult where

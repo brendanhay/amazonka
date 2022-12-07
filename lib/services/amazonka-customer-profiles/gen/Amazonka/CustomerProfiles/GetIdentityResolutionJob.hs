@@ -58,6 +58,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,17 +114,17 @@ instance Core.AWSRequest GetIdentityResolutionJob where
     Response.receiveJSON
       ( \s h x ->
           GetIdentityResolutionJobResponse'
-            Prelude.<$> (x Core..?> "ExportingLocation")
-            Prelude.<*> (x Core..?> "JobStats")
-            Prelude.<*> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "LastUpdatedAt")
-            Prelude.<*> (x Core..?> "DomainName")
-            Prelude.<*> (x Core..?> "AutoMerging")
-            Prelude.<*> (x Core..?> "JobId")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "JobStartTime")
-            Prelude.<*> (x Core..?> "JobEndTime")
-            Prelude.<*> (x Core..?> "JobExpirationTime")
+            Prelude.<$> (x Data..?> "ExportingLocation")
+            Prelude.<*> (x Data..?> "JobStats")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "LastUpdatedAt")
+            Prelude.<*> (x Data..?> "DomainName")
+            Prelude.<*> (x Data..?> "AutoMerging")
+            Prelude.<*> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "JobStartTime")
+            Prelude.<*> (x Data..?> "JobEndTime")
+            Prelude.<*> (x Data..?> "JobExpirationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,27 +138,27 @@ instance Prelude.NFData GetIdentityResolutionJob where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders GetIdentityResolutionJob where
+instance Data.ToHeaders GetIdentityResolutionJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetIdentityResolutionJob where
+instance Data.ToPath GetIdentityResolutionJob where
   toPath GetIdentityResolutionJob' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/identity-resolution-jobs/",
-        Core.toBS jobId
+        Data.toBS jobId
       ]
 
-instance Core.ToQuery GetIdentityResolutionJob where
+instance Data.ToQuery GetIdentityResolutionJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetIdentityResolutionJobResponse' smart constructor.
@@ -171,7 +172,7 @@ data GetIdentityResolutionJobResponse = GetIdentityResolutionJobResponse'
     message :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the Identity Resolution Job was most recently
     -- edited.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The unique name of the domain.
     domainName :: Prelude.Maybe Prelude.Text,
     -- | Configuration settings for how to perform the auto-merging of profiles.
@@ -204,11 +205,11 @@ data GetIdentityResolutionJobResponse = GetIdentityResolutionJobResponse'
     status :: Prelude.Maybe IdentityResolutionJobStatus,
     -- | The timestamp of when the Identity Resolution Job was started or will be
     -- started.
-    jobStartTime :: Prelude.Maybe Core.POSIX,
+    jobStartTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp of when the Identity Resolution Job was completed.
-    jobEndTime :: Prelude.Maybe Core.POSIX,
+    jobEndTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp of when the Identity Resolution Job will expire.
-    jobExpirationTime :: Prelude.Maybe Core.POSIX,
+    jobExpirationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -307,7 +308,7 @@ getIdentityResolutionJobResponse_message = Lens.lens (\GetIdentityResolutionJobR
 -- | The timestamp of when the Identity Resolution Job was most recently
 -- edited.
 getIdentityResolutionJobResponse_lastUpdatedAt :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.UTCTime)
-getIdentityResolutionJobResponse_lastUpdatedAt = Lens.lens (\GetIdentityResolutionJobResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetIdentityResolutionJobResponse' {} a -> s {lastUpdatedAt = a} :: GetIdentityResolutionJobResponse) Prelude.. Lens.mapping Core._Time
+getIdentityResolutionJobResponse_lastUpdatedAt = Lens.lens (\GetIdentityResolutionJobResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetIdentityResolutionJobResponse' {} a -> s {lastUpdatedAt = a} :: GetIdentityResolutionJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The unique name of the domain.
 getIdentityResolutionJobResponse_domainName :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.Text)
@@ -350,15 +351,15 @@ getIdentityResolutionJobResponse_status = Lens.lens (\GetIdentityResolutionJobRe
 -- | The timestamp of when the Identity Resolution Job was started or will be
 -- started.
 getIdentityResolutionJobResponse_jobStartTime :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.UTCTime)
-getIdentityResolutionJobResponse_jobStartTime = Lens.lens (\GetIdentityResolutionJobResponse' {jobStartTime} -> jobStartTime) (\s@GetIdentityResolutionJobResponse' {} a -> s {jobStartTime = a} :: GetIdentityResolutionJobResponse) Prelude.. Lens.mapping Core._Time
+getIdentityResolutionJobResponse_jobStartTime = Lens.lens (\GetIdentityResolutionJobResponse' {jobStartTime} -> jobStartTime) (\s@GetIdentityResolutionJobResponse' {} a -> s {jobStartTime = a} :: GetIdentityResolutionJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of when the Identity Resolution Job was completed.
 getIdentityResolutionJobResponse_jobEndTime :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.UTCTime)
-getIdentityResolutionJobResponse_jobEndTime = Lens.lens (\GetIdentityResolutionJobResponse' {jobEndTime} -> jobEndTime) (\s@GetIdentityResolutionJobResponse' {} a -> s {jobEndTime = a} :: GetIdentityResolutionJobResponse) Prelude.. Lens.mapping Core._Time
+getIdentityResolutionJobResponse_jobEndTime = Lens.lens (\GetIdentityResolutionJobResponse' {jobEndTime} -> jobEndTime) (\s@GetIdentityResolutionJobResponse' {} a -> s {jobEndTime = a} :: GetIdentityResolutionJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of when the Identity Resolution Job will expire.
 getIdentityResolutionJobResponse_jobExpirationTime :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.UTCTime)
-getIdentityResolutionJobResponse_jobExpirationTime = Lens.lens (\GetIdentityResolutionJobResponse' {jobExpirationTime} -> jobExpirationTime) (\s@GetIdentityResolutionJobResponse' {} a -> s {jobExpirationTime = a} :: GetIdentityResolutionJobResponse) Prelude.. Lens.mapping Core._Time
+getIdentityResolutionJobResponse_jobExpirationTime = Lens.lens (\GetIdentityResolutionJobResponse' {jobExpirationTime} -> jobExpirationTime) (\s@GetIdentityResolutionJobResponse' {} a -> s {jobExpirationTime = a} :: GetIdentityResolutionJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getIdentityResolutionJobResponse_httpStatus :: Lens.Lens' GetIdentityResolutionJobResponse Prelude.Int

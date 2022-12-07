@@ -21,6 +21,7 @@ module Amazonka.ResourceGroupsTagging.Types.FailureInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode
 
@@ -108,15 +109,15 @@ failureInfo_errorCode = Lens.lens (\FailureInfo' {errorCode} -> errorCode) (\s@F
 failureInfo_statusCode :: Lens.Lens' FailureInfo (Prelude.Maybe Prelude.Int)
 failureInfo_statusCode = Lens.lens (\FailureInfo' {statusCode} -> statusCode) (\s@FailureInfo' {} a -> s {statusCode = a} :: FailureInfo)
 
-instance Core.FromJSON FailureInfo where
+instance Data.FromJSON FailureInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailureInfo"
       ( \x ->
           FailureInfo'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "StatusCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "StatusCode")
       )
 
 instance Prelude.Hashable FailureInfo where

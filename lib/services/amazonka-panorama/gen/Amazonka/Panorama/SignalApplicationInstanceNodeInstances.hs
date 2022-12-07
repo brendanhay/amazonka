@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,7 +107,7 @@ instance
       ( \s h x ->
           SignalApplicationInstanceNodeInstancesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "ApplicationInstanceId")
+              Prelude.<*> (x Data..:> "ApplicationInstanceId")
       )
 
 instance
@@ -128,42 +129,42 @@ instance
       `Prelude.seq` Prelude.rnf nodeSignals
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     SignalApplicationInstanceNodeInstances
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SignalApplicationInstanceNodeInstances
   where
   toJSON SignalApplicationInstanceNodeInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("NodeSignals" Core..= nodeSignals)]
+          [Prelude.Just ("NodeSignals" Data..= nodeSignals)]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     SignalApplicationInstanceNodeInstances
   where
   toPath SignalApplicationInstanceNodeInstances' {..} =
     Prelude.mconcat
       [ "/application-instances/",
-        Core.toBS applicationInstanceId,
+        Data.toBS applicationInstanceId,
         "/node-signals"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     SignalApplicationInstanceNodeInstances
   where
   toQuery = Prelude.const Prelude.mempty

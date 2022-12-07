@@ -50,6 +50,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,28 +150,28 @@ instance Prelude.NFData UpdateFacet where
       `Prelude.seq` Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateFacet where
+instance Data.ToHeaders UpdateFacet where
   toHeaders UpdateFacet' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# schemaArn]
+      ["x-amz-data-partition" Data.=# schemaArn]
 
-instance Core.ToJSON UpdateFacet where
+instance Data.ToJSON UpdateFacet where
   toJSON UpdateFacet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AttributeUpdates" Core..=)
+          [ ("AttributeUpdates" Data..=)
               Prelude.<$> attributeUpdates,
-            ("ObjectType" Core..=) Prelude.<$> objectType,
-            Prelude.Just ("Name" Core..= name)
+            ("ObjectType" Data..=) Prelude.<$> objectType,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateFacet where
+instance Data.ToPath UpdateFacet where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/facet"
 
-instance Core.ToQuery UpdateFacet where
+instance Data.ToQuery UpdateFacet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFacetResponse' smart constructor.

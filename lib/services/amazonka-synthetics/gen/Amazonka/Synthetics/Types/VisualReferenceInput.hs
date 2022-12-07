@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.VisualReferenceInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Synthetics.Types.BaseScreenshot
 
@@ -110,13 +111,13 @@ instance Prelude.NFData VisualReferenceInput where
     Prelude.rnf baseScreenshots
       `Prelude.seq` Prelude.rnf baseCanaryRunId
 
-instance Core.ToJSON VisualReferenceInput where
+instance Data.ToJSON VisualReferenceInput where
   toJSON VisualReferenceInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BaseScreenshots" Core..=)
+          [ ("BaseScreenshots" Data..=)
               Prelude.<$> baseScreenshots,
             Prelude.Just
-              ("BaseCanaryRunId" Core..= baseCanaryRunId)
+              ("BaseCanaryRunId" Data..= baseCanaryRunId)
           ]
       )

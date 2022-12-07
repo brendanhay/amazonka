@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,12 +106,12 @@ instance Core.AWSRequest UpdateSuiteDefinition where
     Response.receiveJSON
       ( \s h x ->
           UpdateSuiteDefinitionResponse'
-            Prelude.<$> (x Core..?> "lastUpdatedAt")
-            Prelude.<*> (x Core..?> "suiteDefinitionName")
-            Prelude.<*> (x Core..?> "suiteDefinitionArn")
-            Prelude.<*> (x Core..?> "suiteDefinitionVersion")
-            Prelude.<*> (x Core..?> "suiteDefinitionId")
-            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<$> (x Data..?> "lastUpdatedAt")
+            Prelude.<*> (x Data..?> "suiteDefinitionName")
+            Prelude.<*> (x Data..?> "suiteDefinitionArn")
+            Prelude.<*> (x Data..?> "suiteDefinitionVersion")
+            Prelude.<*> (x Data..?> "suiteDefinitionId")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,38 +126,38 @@ instance Prelude.NFData UpdateSuiteDefinition where
     Prelude.rnf suiteDefinitionConfiguration
       `Prelude.seq` Prelude.rnf suiteDefinitionId
 
-instance Core.ToHeaders UpdateSuiteDefinition where
+instance Data.ToHeaders UpdateSuiteDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSuiteDefinition where
+instance Data.ToJSON UpdateSuiteDefinition where
   toJSON UpdateSuiteDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("suiteDefinitionConfiguration" Core..=)
+          [ ("suiteDefinitionConfiguration" Data..=)
               Prelude.<$> suiteDefinitionConfiguration
           ]
       )
 
-instance Core.ToPath UpdateSuiteDefinition where
+instance Data.ToPath UpdateSuiteDefinition where
   toPath UpdateSuiteDefinition' {..} =
     Prelude.mconcat
-      ["/suiteDefinitions/", Core.toBS suiteDefinitionId]
+      ["/suiteDefinitions/", Data.toBS suiteDefinitionId]
 
-instance Core.ToQuery UpdateSuiteDefinition where
+instance Data.ToQuery UpdateSuiteDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSuiteDefinitionResponse' smart constructor.
 data UpdateSuiteDefinitionResponse = UpdateSuiteDefinitionResponse'
   { -- | Timestamp of when the test suite was updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | Suite definition name of the updated test suite.
     suiteDefinitionName :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Name (ARN) of the updated test suite.
@@ -166,7 +167,7 @@ data UpdateSuiteDefinitionResponse = UpdateSuiteDefinitionResponse'
     -- | Suite definition ID of the updated test suite.
     suiteDefinitionId :: Prelude.Maybe Prelude.Text,
     -- | Timestamp of when the test suite was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,7 +212,7 @@ newUpdateSuiteDefinitionResponse pHttpStatus_ =
 
 -- | Timestamp of when the test suite was updated.
 updateSuiteDefinitionResponse_lastUpdatedAt :: Lens.Lens' UpdateSuiteDefinitionResponse (Prelude.Maybe Prelude.UTCTime)
-updateSuiteDefinitionResponse_lastUpdatedAt = Lens.lens (\UpdateSuiteDefinitionResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@UpdateSuiteDefinitionResponse' {} a -> s {lastUpdatedAt = a} :: UpdateSuiteDefinitionResponse) Prelude.. Lens.mapping Core._Time
+updateSuiteDefinitionResponse_lastUpdatedAt = Lens.lens (\UpdateSuiteDefinitionResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@UpdateSuiteDefinitionResponse' {} a -> s {lastUpdatedAt = a} :: UpdateSuiteDefinitionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Suite definition name of the updated test suite.
 updateSuiteDefinitionResponse_suiteDefinitionName :: Lens.Lens' UpdateSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
@@ -231,7 +232,7 @@ updateSuiteDefinitionResponse_suiteDefinitionId = Lens.lens (\UpdateSuiteDefinit
 
 -- | Timestamp of when the test suite was created.
 updateSuiteDefinitionResponse_createdAt :: Lens.Lens' UpdateSuiteDefinitionResponse (Prelude.Maybe Prelude.UTCTime)
-updateSuiteDefinitionResponse_createdAt = Lens.lens (\UpdateSuiteDefinitionResponse' {createdAt} -> createdAt) (\s@UpdateSuiteDefinitionResponse' {} a -> s {createdAt = a} :: UpdateSuiteDefinitionResponse) Prelude.. Lens.mapping Core._Time
+updateSuiteDefinitionResponse_createdAt = Lens.lens (\UpdateSuiteDefinitionResponse' {createdAt} -> createdAt) (\s@UpdateSuiteDefinitionResponse' {} a -> s {createdAt = a} :: UpdateSuiteDefinitionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updateSuiteDefinitionResponse_httpStatus :: Lens.Lens' UpdateSuiteDefinitionResponse Prelude.Int

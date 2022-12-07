@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,7 +142,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           StartNetworkInsightsAccessScopeAnalysisResponse'
-            Prelude.<$> (x Core..@? "networkInsightsAccessScopeAnalysis")
+            Prelude.<$> (x Data..@? "networkInsightsAccessScopeAnalysis")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,37 +169,37 @@ instance
       `Prelude.seq` Prelude.rnf clientToken
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StartNetworkInsightsAccessScopeAnalysis
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     StartNetworkInsightsAccessScopeAnalysis
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     StartNetworkInsightsAccessScopeAnalysis
   where
   toQuery StartNetworkInsightsAccessScopeAnalysis' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "StartNetworkInsightsAccessScopeAnalysis" ::
+          Data.=: ( "StartNetworkInsightsAccessScopeAnalysis" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "NetworkInsightsAccessScopeId"
-          Core.=: networkInsightsAccessScopeId,
-        "ClientToken" Core.=: clientToken
+          Data.=: networkInsightsAccessScopeId,
+        "ClientToken" Data.=: clientToken
       ]
 
 -- | /See:/ 'newStartNetworkInsightsAccessScopeAnalysisResponse' smart constructor.

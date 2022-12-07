@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -185,19 +186,19 @@ instance Core.AWSRequest PublishLayerVersion where
     Response.receiveJSON
       ( \s h x ->
           PublishLayerVersionResponse'
-            Prelude.<$> ( x Core..?> "CompatibleArchitectures"
+            Prelude.<$> ( x Data..?> "CompatibleArchitectures"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "LayerArn")
-            Prelude.<*> (x Core..?> "LayerVersionArn")
-            Prelude.<*> (x Core..?> "LicenseInfo")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> ( x Core..?> "CompatibleRuntimes"
+            Prelude.<*> (x Data..?> "LayerArn")
+            Prelude.<*> (x Data..?> "LayerVersionArn")
+            Prelude.<*> (x Data..?> "LicenseInfo")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> ( x Data..?> "CompatibleRuntimes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "CreatedDate")
-            Prelude.<*> (x Core..?> "Content")
-            Prelude.<*> (x Core..?> "Version")
+            Prelude.<*> (x Data..?> "CreatedDate")
+            Prelude.<*> (x Data..?> "Content")
+            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -220,32 +221,32 @@ instance Prelude.NFData PublishLayerVersion where
       `Prelude.seq` Prelude.rnf layerName
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToHeaders PublishLayerVersion where
+instance Data.ToHeaders PublishLayerVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PublishLayerVersion where
+instance Data.ToJSON PublishLayerVersion where
   toJSON PublishLayerVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CompatibleArchitectures" Core..=)
+          [ ("CompatibleArchitectures" Data..=)
               Prelude.<$> compatibleArchitectures,
-            ("LicenseInfo" Core..=) Prelude.<$> licenseInfo,
-            ("Description" Core..=) Prelude.<$> description,
-            ("CompatibleRuntimes" Core..=)
+            ("LicenseInfo" Data..=) Prelude.<$> licenseInfo,
+            ("Description" Data..=) Prelude.<$> description,
+            ("CompatibleRuntimes" Data..=)
               Prelude.<$> compatibleRuntimes,
-            Prelude.Just ("Content" Core..= content)
+            Prelude.Just ("Content" Data..= content)
           ]
       )
 
-instance Core.ToPath PublishLayerVersion where
+instance Data.ToPath PublishLayerVersion where
   toPath PublishLayerVersion' {..} =
     Prelude.mconcat
       [ "/2018-10-31/layers/",
-        Core.toBS layerName,
+        Data.toBS layerName,
         "/versions"
       ]
 
-instance Core.ToQuery PublishLayerVersion where
+instance Data.ToQuery PublishLayerVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPublishLayerVersionResponse' smart constructor.

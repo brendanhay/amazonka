@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.RoleDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.AttachedPermissionsBoundary
 import Amazonka.IAM.Types.AttachedPolicy
 import Amazonka.IAM.Types.InstanceProfile
@@ -74,7 +75,7 @@ data RoleDetail = RoleDetail'
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- role was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Data.ISO8601,
     -- | The stable and unique string identifying the role. For more information
     -- about IDs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
@@ -215,7 +216,7 @@ roleDetail_permissionsBoundary = Lens.lens (\RoleDetail' {permissionsBoundary} -
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- role was created.
 roleDetail_createDate :: Lens.Lens' RoleDetail (Prelude.Maybe Prelude.UTCTime)
-roleDetail_createDate = Lens.lens (\RoleDetail' {createDate} -> createDate) (\s@RoleDetail' {} a -> s {createDate = a} :: RoleDetail) Prelude.. Lens.mapping Core._Time
+roleDetail_createDate = Lens.lens (\RoleDetail' {createDate} -> createDate) (\s@RoleDetail' {} a -> s {createDate = a} :: RoleDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The stable and unique string identifying the role. For more information
 -- about IDs, see
@@ -229,30 +230,30 @@ roleDetail_roleId = Lens.lens (\RoleDetail' {roleId} -> roleId) (\s@RoleDetail' 
 roleDetail_rolePolicyList :: Lens.Lens' RoleDetail (Prelude.Maybe [PolicyDetail])
 roleDetail_rolePolicyList = Lens.lens (\RoleDetail' {rolePolicyList} -> rolePolicyList) (\s@RoleDetail' {} a -> s {rolePolicyList = a} :: RoleDetail) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML RoleDetail where
+instance Data.FromXML RoleDetail where
   parseXML x =
     RoleDetail'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "RoleLastUsed")
-      Prelude.<*> (x Core..@? "RoleName")
-      Prelude.<*> (x Core..@? "Arn")
-      Prelude.<*> ( x Core..@? "InstanceProfileList"
+      Prelude.<*> (x Data..@? "RoleLastUsed")
+      Prelude.<*> (x Data..@? "RoleName")
+      Prelude.<*> (x Data..@? "Arn")
+      Prelude.<*> ( x Data..@? "InstanceProfileList"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Path")
-      Prelude.<*> (x Core..@? "AssumeRolePolicyDocument")
-      Prelude.<*> ( x Core..@? "AttachedManagedPolicies"
+      Prelude.<*> (x Data..@? "Path")
+      Prelude.<*> (x Data..@? "AssumeRolePolicyDocument")
+      Prelude.<*> ( x Data..@? "AttachedManagedPolicies"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PermissionsBoundary")
-      Prelude.<*> (x Core..@? "CreateDate")
-      Prelude.<*> (x Core..@? "RoleId")
-      Prelude.<*> ( x Core..@? "RolePolicyList" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "PermissionsBoundary")
+      Prelude.<*> (x Data..@? "CreateDate")
+      Prelude.<*> (x Data..@? "RoleId")
+      Prelude.<*> ( x Data..@? "RolePolicyList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable RoleDetail where

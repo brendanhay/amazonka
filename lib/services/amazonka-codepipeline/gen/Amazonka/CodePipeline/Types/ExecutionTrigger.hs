@@ -22,6 +22,7 @@ module Amazonka.CodePipeline.Types.ExecutionTrigger where
 import Amazonka.CodePipeline.Types.TriggerType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The interaction or event that started a pipeline execution.
@@ -74,14 +75,14 @@ executionTrigger_triggerType = Lens.lens (\ExecutionTrigger' {triggerType} -> tr
 executionTrigger_triggerDetail :: Lens.Lens' ExecutionTrigger (Prelude.Maybe Prelude.Text)
 executionTrigger_triggerDetail = Lens.lens (\ExecutionTrigger' {triggerDetail} -> triggerDetail) (\s@ExecutionTrigger' {} a -> s {triggerDetail = a} :: ExecutionTrigger)
 
-instance Core.FromJSON ExecutionTrigger where
+instance Data.FromJSON ExecutionTrigger where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecutionTrigger"
       ( \x ->
           ExecutionTrigger'
-            Prelude.<$> (x Core..:? "triggerType")
-            Prelude.<*> (x Core..:? "triggerDetail")
+            Prelude.<$> (x Data..:? "triggerType")
+            Prelude.<*> (x Data..:? "triggerDetail")
       )
 
 instance Prelude.Hashable ExecutionTrigger where

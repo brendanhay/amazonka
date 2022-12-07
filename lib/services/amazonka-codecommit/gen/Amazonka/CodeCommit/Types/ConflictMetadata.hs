@@ -26,6 +26,7 @@ import Amazonka.CodeCommit.Types.MergeOperations
 import Amazonka.CodeCommit.Types.ObjectTypes
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the metadata for a conflict in a merge operation.
@@ -162,22 +163,22 @@ conflictMetadata_objectTypeConflict = Lens.lens (\ConflictMetadata' {objectTypeC
 conflictMetadata_objectTypes :: Lens.Lens' ConflictMetadata (Prelude.Maybe ObjectTypes)
 conflictMetadata_objectTypes = Lens.lens (\ConflictMetadata' {objectTypes} -> objectTypes) (\s@ConflictMetadata' {} a -> s {objectTypes = a} :: ConflictMetadata)
 
-instance Core.FromJSON ConflictMetadata where
+instance Data.FromJSON ConflictMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConflictMetadata"
       ( \x ->
           ConflictMetadata'
-            Prelude.<$> (x Core..:? "filePath")
-            Prelude.<*> (x Core..:? "contentConflict")
-            Prelude.<*> (x Core..:? "fileSizes")
-            Prelude.<*> (x Core..:? "numberOfConflicts")
-            Prelude.<*> (x Core..:? "mergeOperations")
-            Prelude.<*> (x Core..:? "fileModes")
-            Prelude.<*> (x Core..:? "isBinaryFile")
-            Prelude.<*> (x Core..:? "fileModeConflict")
-            Prelude.<*> (x Core..:? "objectTypeConflict")
-            Prelude.<*> (x Core..:? "objectTypes")
+            Prelude.<$> (x Data..:? "filePath")
+            Prelude.<*> (x Data..:? "contentConflict")
+            Prelude.<*> (x Data..:? "fileSizes")
+            Prelude.<*> (x Data..:? "numberOfConflicts")
+            Prelude.<*> (x Data..:? "mergeOperations")
+            Prelude.<*> (x Data..:? "fileModes")
+            Prelude.<*> (x Data..:? "isBinaryFile")
+            Prelude.<*> (x Data..:? "fileModeConflict")
+            Prelude.<*> (x Data..:? "objectTypeConflict")
+            Prelude.<*> (x Data..:? "objectTypes")
       )
 
 instance Prelude.Hashable ConflictMetadata where

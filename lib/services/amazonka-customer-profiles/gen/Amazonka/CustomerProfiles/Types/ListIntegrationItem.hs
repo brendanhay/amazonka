@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.ListIntegrationItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An integration in list of integrations.
@@ -50,9 +51,9 @@ data ListIntegrationItem = ListIntegrationItem'
     -- | The URI of the S3 bucket or any other type of data source.
     uri :: Prelude.Text,
     -- | The timestamp of when the domain was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The timestamp of when the domain was most recently edited.
-    lastUpdatedAt :: Core.POSIX
+    lastUpdatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -112,8 +113,8 @@ newListIntegrationItem
         objectTypeName = Prelude.Nothing,
         domainName = pDomainName_,
         uri = pUri_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastUpdatedAt = Core._Time Lens.# pLastUpdatedAt_
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_
       }
 
 -- | The tags used to organize, track, or control access for this resource.
@@ -154,29 +155,29 @@ listIntegrationItem_uri = Lens.lens (\ListIntegrationItem' {uri} -> uri) (\s@Lis
 
 -- | The timestamp of when the domain was created.
 listIntegrationItem_createdAt :: Lens.Lens' ListIntegrationItem Prelude.UTCTime
-listIntegrationItem_createdAt = Lens.lens (\ListIntegrationItem' {createdAt} -> createdAt) (\s@ListIntegrationItem' {} a -> s {createdAt = a} :: ListIntegrationItem) Prelude.. Core._Time
+listIntegrationItem_createdAt = Lens.lens (\ListIntegrationItem' {createdAt} -> createdAt) (\s@ListIntegrationItem' {} a -> s {createdAt = a} :: ListIntegrationItem) Prelude.. Data._Time
 
 -- | The timestamp of when the domain was most recently edited.
 listIntegrationItem_lastUpdatedAt :: Lens.Lens' ListIntegrationItem Prelude.UTCTime
-listIntegrationItem_lastUpdatedAt = Lens.lens (\ListIntegrationItem' {lastUpdatedAt} -> lastUpdatedAt) (\s@ListIntegrationItem' {} a -> s {lastUpdatedAt = a} :: ListIntegrationItem) Prelude.. Core._Time
+listIntegrationItem_lastUpdatedAt = Lens.lens (\ListIntegrationItem' {lastUpdatedAt} -> lastUpdatedAt) (\s@ListIntegrationItem' {} a -> s {lastUpdatedAt = a} :: ListIntegrationItem) Prelude.. Data._Time
 
-instance Core.FromJSON ListIntegrationItem where
+instance Data.FromJSON ListIntegrationItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListIntegrationItem"
       ( \x ->
           ListIntegrationItem'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "IsUnstructured")
-            Prelude.<*> ( x Core..:? "ObjectTypeNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "IsUnstructured")
+            Prelude.<*> ( x Data..:? "ObjectTypeNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "WorkflowId")
-            Prelude.<*> (x Core..:? "ObjectTypeName")
-            Prelude.<*> (x Core..: "DomainName")
-            Prelude.<*> (x Core..: "Uri")
-            Prelude.<*> (x Core..: "CreatedAt")
-            Prelude.<*> (x Core..: "LastUpdatedAt")
+            Prelude.<*> (x Data..:? "WorkflowId")
+            Prelude.<*> (x Data..:? "ObjectTypeName")
+            Prelude.<*> (x Data..: "DomainName")
+            Prelude.<*> (x Data..: "Uri")
+            Prelude.<*> (x Data..: "CreatedAt")
+            Prelude.<*> (x Data..: "LastUpdatedAt")
       )
 
 instance Prelude.Hashable ListIntegrationItem where

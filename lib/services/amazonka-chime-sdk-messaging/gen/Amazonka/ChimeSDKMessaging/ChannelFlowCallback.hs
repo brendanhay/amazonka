@@ -55,6 +55,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,8 +140,8 @@ instance Core.AWSRequest ChannelFlowCallback where
     Response.receiveJSON
       ( \s h x ->
           ChannelFlowCallbackResponse'
-            Prelude.<$> (x Core..?> "ChannelArn")
-            Prelude.<*> (x Core..?> "CallbackId")
+            Prelude.<$> (x Data..?> "ChannelArn")
+            Prelude.<*> (x Data..?> "CallbackId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,27 +159,27 @@ instance Prelude.NFData ChannelFlowCallback where
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf channelMessage
 
-instance Core.ToHeaders ChannelFlowCallback where
+instance Data.ToHeaders ChannelFlowCallback where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ChannelFlowCallback where
+instance Data.ToJSON ChannelFlowCallback where
   toJSON ChannelFlowCallback' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeleteResource" Core..=)
+          [ ("DeleteResource" Data..=)
               Prelude.<$> deleteResource,
-            Prelude.Just ("CallbackId" Core..= callbackId),
+            Prelude.Just ("CallbackId" Data..= callbackId),
             Prelude.Just
-              ("ChannelMessage" Core..= channelMessage)
+              ("ChannelMessage" Data..= channelMessage)
           ]
       )
 
-instance Core.ToPath ChannelFlowCallback where
+instance Data.ToPath ChannelFlowCallback where
   toPath ChannelFlowCallback' {..} =
     Prelude.mconcat
-      ["/channels/", Core.toBS channelArn]
+      ["/channels/", Data.toBS channelArn]
 
-instance Core.ToQuery ChannelFlowCallback where
+instance Data.ToQuery ChannelFlowCallback where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["operation=channel-flow-callback"])

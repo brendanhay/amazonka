@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -270,7 +271,7 @@ data PutParameter = PutParameter'
     -- Parameters can\'t be referenced or nested in the values of other
     -- parameters. You can\'t include @{{}}@ or @{{ssm:parameter-name}}@ in a
     -- parameter value.
-    value :: Core.Sensitive Prelude.Text
+    value :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -511,7 +512,7 @@ newPutParameter pName_ pValue_ =
       keyId = Prelude.Nothing,
       dataType = Prelude.Nothing,
       name = pName_,
-      value = Core._Sensitive Lens.# pValue_
+      value = Data._Sensitive Lens.# pValue_
     }
 
 -- | Optional metadata that you assign to a resource. Tags enable you to
@@ -746,7 +747,7 @@ putParameter_name = Lens.lens (\PutParameter' {name} -> name) (\s@PutParameter' 
 -- parameters. You can\'t include @{{}}@ or @{{ssm:parameter-name}}@ in a
 -- parameter value.
 putParameter_value :: Lens.Lens' PutParameter Prelude.Text
-putParameter_value = Lens.lens (\PutParameter' {value} -> value) (\s@PutParameter' {} a -> s {value = a} :: PutParameter) Prelude.. Core._Sensitive
+putParameter_value = Lens.lens (\PutParameter' {value} -> value) (\s@PutParameter' {} a -> s {value = a} :: PutParameter) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest PutParameter where
   type AWSResponse PutParameter = PutParameterResponse
@@ -756,9 +757,9 @@ instance Core.AWSRequest PutParameter where
     Response.receiveJSON
       ( \s h x ->
           PutParameterResponse'
-            Prelude.<$> (x Core..?> "Tier")
+            Prelude.<$> (x Data..?> "Tier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Version")
+            Prelude.<*> (x Data..:> "Version")
       )
 
 instance Prelude.Hashable PutParameter where
@@ -789,42 +790,42 @@ instance Prelude.NFData PutParameter where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToHeaders PutParameter where
+instance Data.ToHeaders PutParameter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.PutParameter" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.PutParameter" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutParameter where
+instance Data.ToJSON PutParameter where
   toJSON PutParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Type" Core..=) Prelude.<$> type',
-            ("AllowedPattern" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Type" Data..=) Prelude.<$> type',
+            ("AllowedPattern" Data..=)
               Prelude.<$> allowedPattern,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Tier" Core..=) Prelude.<$> tier,
-            ("Policies" Core..=) Prelude.<$> policies,
-            ("Overwrite" Core..=) Prelude.<$> overwrite,
-            ("KeyId" Core..=) Prelude.<$> keyId,
-            ("DataType" Core..=) Prelude.<$> dataType,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+            ("Description" Data..=) Prelude.<$> description,
+            ("Tier" Data..=) Prelude.<$> tier,
+            ("Policies" Data..=) Prelude.<$> policies,
+            ("Overwrite" Data..=) Prelude.<$> overwrite,
+            ("KeyId" Data..=) Prelude.<$> keyId,
+            ("DataType" Data..=) Prelude.<$> dataType,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )
 
-instance Core.ToPath PutParameter where
+instance Data.ToPath PutParameter where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutParameter where
+instance Data.ToQuery PutParameter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutParameterResponse' smart constructor.

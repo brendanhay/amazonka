@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEfsAccessPointDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEfsAccessPointPosixUserDetails
 import Amazonka.SecurityHub.Types.AwsEfsAccessPointRootDirectoryDetails
@@ -112,18 +113,18 @@ awsEfsAccessPointDetails_accessPointId = Lens.lens (\AwsEfsAccessPointDetails' {
 awsEfsAccessPointDetails_rootDirectory :: Lens.Lens' AwsEfsAccessPointDetails (Prelude.Maybe AwsEfsAccessPointRootDirectoryDetails)
 awsEfsAccessPointDetails_rootDirectory = Lens.lens (\AwsEfsAccessPointDetails' {rootDirectory} -> rootDirectory) (\s@AwsEfsAccessPointDetails' {} a -> s {rootDirectory = a} :: AwsEfsAccessPointDetails)
 
-instance Core.FromJSON AwsEfsAccessPointDetails where
+instance Data.FromJSON AwsEfsAccessPointDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEfsAccessPointDetails"
       ( \x ->
           AwsEfsAccessPointDetails'
-            Prelude.<$> (x Core..:? "ClientToken")
-            Prelude.<*> (x Core..:? "PosixUser")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "FileSystemId")
-            Prelude.<*> (x Core..:? "AccessPointId")
-            Prelude.<*> (x Core..:? "RootDirectory")
+            Prelude.<$> (x Data..:? "ClientToken")
+            Prelude.<*> (x Data..:? "PosixUser")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "FileSystemId")
+            Prelude.<*> (x Data..:? "AccessPointId")
+            Prelude.<*> (x Data..:? "RootDirectory")
       )
 
 instance Prelude.Hashable AwsEfsAccessPointDetails where
@@ -144,15 +145,15 @@ instance Prelude.NFData AwsEfsAccessPointDetails where
       `Prelude.seq` Prelude.rnf accessPointId
       `Prelude.seq` Prelude.rnf rootDirectory
 
-instance Core.ToJSON AwsEfsAccessPointDetails where
+instance Data.ToJSON AwsEfsAccessPointDetails where
   toJSON AwsEfsAccessPointDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("PosixUser" Core..=) Prelude.<$> posixUser,
-            ("Arn" Core..=) Prelude.<$> arn,
-            ("FileSystemId" Core..=) Prelude.<$> fileSystemId,
-            ("AccessPointId" Core..=) Prelude.<$> accessPointId,
-            ("RootDirectory" Core..=) Prelude.<$> rootDirectory
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("PosixUser" Data..=) Prelude.<$> posixUser,
+            ("Arn" Data..=) Prelude.<$> arn,
+            ("FileSystemId" Data..=) Prelude.<$> fileSystemId,
+            ("AccessPointId" Data..=) Prelude.<$> accessPointId,
+            ("RootDirectory" Data..=) Prelude.<$> rootDirectory
           ]
       )

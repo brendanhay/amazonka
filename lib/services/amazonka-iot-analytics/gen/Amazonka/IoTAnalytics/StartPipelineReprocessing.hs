@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -55,7 +56,7 @@ data StartPipelineReprocessing = StartPipelineReprocessing'
     --
     -- If you specify a value for the @endTime@ parameter, you must not use the
     -- @channelMessages@ object.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies one or more sets of channel messages that you want to
     -- reprocess.
     --
@@ -66,7 +67,7 @@ data StartPipelineReprocessing = StartPipelineReprocessing'
     --
     -- If you specify a value for the @startTime@ parameter, you must not use
     -- the @channelMessages@ object.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the pipeline on which to start reprocessing.
     pipelineName :: Prelude.Text
   }
@@ -115,7 +116,7 @@ newStartPipelineReprocessing pPipelineName_ =
 -- If you specify a value for the @endTime@ parameter, you must not use the
 -- @channelMessages@ object.
 startPipelineReprocessing_endTime :: Lens.Lens' StartPipelineReprocessing (Prelude.Maybe Prelude.UTCTime)
-startPipelineReprocessing_endTime = Lens.lens (\StartPipelineReprocessing' {endTime} -> endTime) (\s@StartPipelineReprocessing' {} a -> s {endTime = a} :: StartPipelineReprocessing) Prelude.. Lens.mapping Core._Time
+startPipelineReprocessing_endTime = Lens.lens (\StartPipelineReprocessing' {endTime} -> endTime) (\s@StartPipelineReprocessing' {} a -> s {endTime = a} :: StartPipelineReprocessing) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies one or more sets of channel messages that you want to
 -- reprocess.
@@ -130,7 +131,7 @@ startPipelineReprocessing_channelMessages = Lens.lens (\StartPipelineReprocessin
 -- If you specify a value for the @startTime@ parameter, you must not use
 -- the @channelMessages@ object.
 startPipelineReprocessing_startTime :: Lens.Lens' StartPipelineReprocessing (Prelude.Maybe Prelude.UTCTime)
-startPipelineReprocessing_startTime = Lens.lens (\StartPipelineReprocessing' {startTime} -> startTime) (\s@StartPipelineReprocessing' {} a -> s {startTime = a} :: StartPipelineReprocessing) Prelude.. Lens.mapping Core._Time
+startPipelineReprocessing_startTime = Lens.lens (\StartPipelineReprocessing' {startTime} -> startTime) (\s@StartPipelineReprocessing' {} a -> s {startTime = a} :: StartPipelineReprocessing) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the pipeline on which to start reprocessing.
 startPipelineReprocessing_pipelineName :: Lens.Lens' StartPipelineReprocessing Prelude.Text
@@ -146,7 +147,7 @@ instance Core.AWSRequest StartPipelineReprocessing where
     Response.receiveJSON
       ( \s h x ->
           StartPipelineReprocessingResponse'
-            Prelude.<$> (x Core..?> "reprocessingId")
+            Prelude.<$> (x Data..?> "reprocessingId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,29 +165,29 @@ instance Prelude.NFData StartPipelineReprocessing where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf pipelineName
 
-instance Core.ToHeaders StartPipelineReprocessing where
+instance Data.ToHeaders StartPipelineReprocessing where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON StartPipelineReprocessing where
+instance Data.ToJSON StartPipelineReprocessing where
   toJSON StartPipelineReprocessing' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("endTime" Core..=) Prelude.<$> endTime,
-            ("channelMessages" Core..=)
+          [ ("endTime" Data..=) Prelude.<$> endTime,
+            ("channelMessages" Data..=)
               Prelude.<$> channelMessages,
-            ("startTime" Core..=) Prelude.<$> startTime
+            ("startTime" Data..=) Prelude.<$> startTime
           ]
       )
 
-instance Core.ToPath StartPipelineReprocessing where
+instance Data.ToPath StartPipelineReprocessing where
   toPath StartPipelineReprocessing' {..} =
     Prelude.mconcat
       [ "/pipelines/",
-        Core.toBS pipelineName,
+        Data.toBS pipelineName,
         "/reprocessing"
       ]
 
-instance Core.ToQuery StartPipelineReprocessing where
+instance Data.ToQuery StartPipelineReprocessing where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartPipelineReprocessingResponse' smart constructor.

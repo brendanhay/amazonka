@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.ApplicationVersionStatus
 import Amazonka.ElasticBeanstalk.Types.S3Location
 import Amazonka.ElasticBeanstalk.Types.SourceBuildInformation
@@ -66,9 +67,9 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
     -- location of the source code for the application version.
     sourceBuildInformation :: Prelude.Maybe SourceBuildInformation,
     -- | The last modified date of the application version.
-    dateUpdated :: Prelude.Maybe Core.ISO8601,
+    dateUpdated :: Prelude.Maybe Data.ISO8601,
     -- | The creation date of the application version.
-    dateCreated :: Prelude.Maybe Core.ISO8601,
+    dateCreated :: Prelude.Maybe Data.ISO8601,
     -- | A unique identifier for the application version.
     versionLabel :: Prelude.Maybe Prelude.Text,
     -- | The name of the application to which the application version belongs.
@@ -192,11 +193,11 @@ applicationVersionDescription_sourceBuildInformation = Lens.lens (\ApplicationVe
 
 -- | The last modified date of the application version.
 applicationVersionDescription_dateUpdated :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe Prelude.UTCTime)
-applicationVersionDescription_dateUpdated = Lens.lens (\ApplicationVersionDescription' {dateUpdated} -> dateUpdated) (\s@ApplicationVersionDescription' {} a -> s {dateUpdated = a} :: ApplicationVersionDescription) Prelude.. Lens.mapping Core._Time
+applicationVersionDescription_dateUpdated = Lens.lens (\ApplicationVersionDescription' {dateUpdated} -> dateUpdated) (\s@ApplicationVersionDescription' {} a -> s {dateUpdated = a} :: ApplicationVersionDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The creation date of the application version.
 applicationVersionDescription_dateCreated :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe Prelude.UTCTime)
-applicationVersionDescription_dateCreated = Lens.lens (\ApplicationVersionDescription' {dateCreated} -> dateCreated) (\s@ApplicationVersionDescription' {} a -> s {dateCreated = a} :: ApplicationVersionDescription) Prelude.. Lens.mapping Core._Time
+applicationVersionDescription_dateCreated = Lens.lens (\ApplicationVersionDescription' {dateCreated} -> dateCreated) (\s@ApplicationVersionDescription' {} a -> s {dateCreated = a} :: ApplicationVersionDescription) Prelude.. Lens.mapping Data._Time
 
 -- | A unique identifier for the application version.
 applicationVersionDescription_versionLabel :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe Prelude.Text)
@@ -206,19 +207,19 @@ applicationVersionDescription_versionLabel = Lens.lens (\ApplicationVersionDescr
 applicationVersionDescription_applicationName :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe Prelude.Text)
 applicationVersionDescription_applicationName = Lens.lens (\ApplicationVersionDescription' {applicationName} -> applicationName) (\s@ApplicationVersionDescription' {} a -> s {applicationName = a} :: ApplicationVersionDescription)
 
-instance Core.FromXML ApplicationVersionDescription where
+instance Data.FromXML ApplicationVersionDescription where
   parseXML x =
     ApplicationVersionDescription'
-      Prelude.<$> (x Core..@? "BuildArn")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "SourceBundle")
-      Prelude.<*> (x Core..@? "ApplicationVersionArn")
-      Prelude.<*> (x Core..@? "SourceBuildInformation")
-      Prelude.<*> (x Core..@? "DateUpdated")
-      Prelude.<*> (x Core..@? "DateCreated")
-      Prelude.<*> (x Core..@? "VersionLabel")
-      Prelude.<*> (x Core..@? "ApplicationName")
+      Prelude.<$> (x Data..@? "BuildArn")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "SourceBundle")
+      Prelude.<*> (x Data..@? "ApplicationVersionArn")
+      Prelude.<*> (x Data..@? "SourceBuildInformation")
+      Prelude.<*> (x Data..@? "DateUpdated")
+      Prelude.<*> (x Data..@? "DateCreated")
+      Prelude.<*> (x Data..@? "VersionLabel")
+      Prelude.<*> (x Data..@? "ApplicationName")
 
 instance
   Prelude.Hashable

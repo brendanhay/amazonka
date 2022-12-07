@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.TrustAnchorDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RolesAnywhere.Types.Source
 
@@ -39,9 +40,9 @@ data TrustAnchorDetail = TrustAnchorDetail'
     -- | The ARN of the trust anchor.
     trustAnchorArn :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 timestamp when the trust anchor was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The ISO-8601 timestamp when the trust anchor was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,25 +102,25 @@ trustAnchorDetail_trustAnchorArn = Lens.lens (\TrustAnchorDetail' {trustAnchorAr
 
 -- | The ISO-8601 timestamp when the trust anchor was created.
 trustAnchorDetail_createdAt :: Lens.Lens' TrustAnchorDetail (Prelude.Maybe Prelude.UTCTime)
-trustAnchorDetail_createdAt = Lens.lens (\TrustAnchorDetail' {createdAt} -> createdAt) (\s@TrustAnchorDetail' {} a -> s {createdAt = a} :: TrustAnchorDetail) Prelude.. Lens.mapping Core._Time
+trustAnchorDetail_createdAt = Lens.lens (\TrustAnchorDetail' {createdAt} -> createdAt) (\s@TrustAnchorDetail' {} a -> s {createdAt = a} :: TrustAnchorDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The ISO-8601 timestamp when the trust anchor was last updated.
 trustAnchorDetail_updatedAt :: Lens.Lens' TrustAnchorDetail (Prelude.Maybe Prelude.UTCTime)
-trustAnchorDetail_updatedAt = Lens.lens (\TrustAnchorDetail' {updatedAt} -> updatedAt) (\s@TrustAnchorDetail' {} a -> s {updatedAt = a} :: TrustAnchorDetail) Prelude.. Lens.mapping Core._Time
+trustAnchorDetail_updatedAt = Lens.lens (\TrustAnchorDetail' {updatedAt} -> updatedAt) (\s@TrustAnchorDetail' {} a -> s {updatedAt = a} :: TrustAnchorDetail) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON TrustAnchorDetail where
+instance Data.FromJSON TrustAnchorDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrustAnchorDetail"
       ( \x ->
           TrustAnchorDetail'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "trustAnchorId")
-            Prelude.<*> (x Core..:? "enabled")
-            Prelude.<*> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "trustAnchorArn")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "trustAnchorId")
+            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "source")
+            Prelude.<*> (x Data..:? "trustAnchorArn")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable TrustAnchorDetail where

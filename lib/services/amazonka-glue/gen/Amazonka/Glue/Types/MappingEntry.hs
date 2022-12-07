@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.MappingEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a mapping.
@@ -97,18 +98,18 @@ mappingEntry_targetType = Lens.lens (\MappingEntry' {targetType} -> targetType) 
 mappingEntry_sourcePath :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
 mappingEntry_sourcePath = Lens.lens (\MappingEntry' {sourcePath} -> sourcePath) (\s@MappingEntry' {} a -> s {sourcePath = a} :: MappingEntry)
 
-instance Core.FromJSON MappingEntry where
+instance Data.FromJSON MappingEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MappingEntry"
       ( \x ->
           MappingEntry'
-            Prelude.<$> (x Core..:? "TargetTable")
-            Prelude.<*> (x Core..:? "SourceTable")
-            Prelude.<*> (x Core..:? "TargetPath")
-            Prelude.<*> (x Core..:? "SourceType")
-            Prelude.<*> (x Core..:? "TargetType")
-            Prelude.<*> (x Core..:? "SourcePath")
+            Prelude.<$> (x Data..:? "TargetTable")
+            Prelude.<*> (x Data..:? "SourceTable")
+            Prelude.<*> (x Data..:? "TargetPath")
+            Prelude.<*> (x Data..:? "SourceType")
+            Prelude.<*> (x Data..:? "TargetType")
+            Prelude.<*> (x Data..:? "SourcePath")
       )
 
 instance Prelude.Hashable MappingEntry where
@@ -129,15 +130,15 @@ instance Prelude.NFData MappingEntry where
       `Prelude.seq` Prelude.rnf targetType
       `Prelude.seq` Prelude.rnf sourcePath
 
-instance Core.ToJSON MappingEntry where
+instance Data.ToJSON MappingEntry where
   toJSON MappingEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetTable" Core..=) Prelude.<$> targetTable,
-            ("SourceTable" Core..=) Prelude.<$> sourceTable,
-            ("TargetPath" Core..=) Prelude.<$> targetPath,
-            ("SourceType" Core..=) Prelude.<$> sourceType,
-            ("TargetType" Core..=) Prelude.<$> targetType,
-            ("SourcePath" Core..=) Prelude.<$> sourcePath
+          [ ("TargetTable" Data..=) Prelude.<$> targetTable,
+            ("SourceTable" Data..=) Prelude.<$> sourceTable,
+            ("TargetPath" Data..=) Prelude.<$> targetPath,
+            ("SourceType" Data..=) Prelude.<$> sourceType,
+            ("TargetType" Data..=) Prelude.<$> targetType,
+            ("SourcePath" Data..=) Prelude.<$> sourcePath
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.CodeGuruProfiler.Types.NotificationConfiguration where
 import Amazonka.CodeGuruProfiler.Types.Channel
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for notifications stored for each profiling group.
@@ -59,13 +60,13 @@ newNotificationConfiguration =
 notificationConfiguration_channels :: Lens.Lens' NotificationConfiguration (Prelude.Maybe (Prelude.NonEmpty Channel))
 notificationConfiguration_channels = Lens.lens (\NotificationConfiguration' {channels} -> channels) (\s@NotificationConfiguration' {} a -> s {channels = a} :: NotificationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON NotificationConfiguration where
+instance Data.FromJSON NotificationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotificationConfiguration"
       ( \x ->
           NotificationConfiguration'
-            Prelude.<$> (x Core..:? "channels")
+            Prelude.<$> (x Data..:? "channels")
       )
 
 instance Prelude.Hashable NotificationConfiguration where

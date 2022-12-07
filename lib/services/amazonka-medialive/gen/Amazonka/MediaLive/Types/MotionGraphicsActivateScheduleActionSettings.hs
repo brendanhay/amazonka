@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings to specify the rendering of motion graphics into the video
@@ -89,18 +90,18 @@ motionGraphicsActivateScheduleActionSettings_duration :: Lens.Lens' MotionGraphi
 motionGraphicsActivateScheduleActionSettings_duration = Lens.lens (\MotionGraphicsActivateScheduleActionSettings' {duration} -> duration) (\s@MotionGraphicsActivateScheduleActionSettings' {} a -> s {duration = a} :: MotionGraphicsActivateScheduleActionSettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MotionGraphicsActivateScheduleActionSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MotionGraphicsActivateScheduleActionSettings"
       ( \x ->
           MotionGraphicsActivateScheduleActionSettings'
-            Prelude.<$> (x Core..:? "username")
-              Prelude.<*> (x Core..:? "passwordParam")
-              Prelude.<*> (x Core..:? "url")
-              Prelude.<*> (x Core..:? "duration")
+            Prelude.<$> (x Data..:? "username")
+              Prelude.<*> (x Data..:? "passwordParam")
+              Prelude.<*> (x Data..:? "url")
+              Prelude.<*> (x Data..:? "duration")
       )
 
 instance
@@ -126,16 +127,16 @@ instance
       `Prelude.seq` Prelude.rnf duration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     MotionGraphicsActivateScheduleActionSettings
   where
   toJSON
     MotionGraphicsActivateScheduleActionSettings' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("username" Core..=) Prelude.<$> username,
-              ("passwordParam" Core..=) Prelude.<$> passwordParam,
-              ("url" Core..=) Prelude.<$> url,
-              ("duration" Core..=) Prelude.<$> duration
+            [ ("username" Data..=) Prelude.<$> username,
+              ("passwordParam" Data..=) Prelude.<$> passwordParam,
+              ("url" Data..=) Prelude.<$> url,
+              ("duration" Data..=) Prelude.<$> duration
             ]
         )

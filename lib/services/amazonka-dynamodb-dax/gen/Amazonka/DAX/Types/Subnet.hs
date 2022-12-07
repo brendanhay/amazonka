@@ -21,6 +21,7 @@ module Amazonka.DAX.Types.Subnet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the subnet associated with a DAX cluster. This parameter
@@ -63,14 +64,14 @@ subnet_subnetIdentifier = Lens.lens (\Subnet' {subnetIdentifier} -> subnetIdenti
 subnet_subnetAvailabilityZone :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
 subnet_subnetAvailabilityZone = Lens.lens (\Subnet' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@Subnet' {} a -> s {subnetAvailabilityZone = a} :: Subnet)
 
-instance Core.FromJSON Subnet where
+instance Data.FromJSON Subnet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Subnet"
       ( \x ->
           Subnet'
-            Prelude.<$> (x Core..:? "SubnetIdentifier")
-            Prelude.<*> (x Core..:? "SubnetAvailabilityZone")
+            Prelude.<$> (x Data..:? "SubnetIdentifier")
+            Prelude.<*> (x Data..:? "SubnetAvailabilityZone")
       )
 
 instance Prelude.Hashable Subnet where

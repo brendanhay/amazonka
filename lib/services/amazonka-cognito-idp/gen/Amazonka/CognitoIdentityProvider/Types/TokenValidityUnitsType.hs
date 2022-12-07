@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.TokenValidityUnitsType where
 import Amazonka.CognitoIdentityProvider.Types.TimeUnitsType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The data type TokenValidityUnits specifies the time units you use when
@@ -91,15 +92,15 @@ tokenValidityUnitsType_idToken = Lens.lens (\TokenValidityUnitsType' {idToken} -
 tokenValidityUnitsType_refreshToken :: Lens.Lens' TokenValidityUnitsType (Prelude.Maybe TimeUnitsType)
 tokenValidityUnitsType_refreshToken = Lens.lens (\TokenValidityUnitsType' {refreshToken} -> refreshToken) (\s@TokenValidityUnitsType' {} a -> s {refreshToken = a} :: TokenValidityUnitsType)
 
-instance Core.FromJSON TokenValidityUnitsType where
+instance Data.FromJSON TokenValidityUnitsType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TokenValidityUnitsType"
       ( \x ->
           TokenValidityUnitsType'
-            Prelude.<$> (x Core..:? "AccessToken")
-            Prelude.<*> (x Core..:? "IdToken")
-            Prelude.<*> (x Core..:? "RefreshToken")
+            Prelude.<$> (x Data..:? "AccessToken")
+            Prelude.<*> (x Data..:? "IdToken")
+            Prelude.<*> (x Data..:? "RefreshToken")
       )
 
 instance Prelude.Hashable TokenValidityUnitsType where
@@ -114,12 +115,12 @@ instance Prelude.NFData TokenValidityUnitsType where
       `Prelude.seq` Prelude.rnf idToken
       `Prelude.seq` Prelude.rnf refreshToken
 
-instance Core.ToJSON TokenValidityUnitsType where
+instance Data.ToJSON TokenValidityUnitsType where
   toJSON TokenValidityUnitsType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessToken" Core..=) Prelude.<$> accessToken,
-            ("IdToken" Core..=) Prelude.<$> idToken,
-            ("RefreshToken" Core..=) Prelude.<$> refreshToken
+          [ ("AccessToken" Data..=) Prelude.<$> accessToken,
+            ("IdToken" Data..=) Prelude.<$> idToken,
+            ("RefreshToken" Data..=) Prelude.<$> refreshToken
           ]
       )

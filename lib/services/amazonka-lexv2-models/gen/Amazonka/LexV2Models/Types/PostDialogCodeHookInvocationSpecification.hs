@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.PostDialogCodeHookInvocationSpecification wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.ConditionalSpecification
 import Amazonka.LexV2Models.Types.DialogState
 import Amazonka.LexV2Models.Types.ResponseSpecification
@@ -152,23 +153,23 @@ postDialogCodeHookInvocationSpecification_failureResponse :: Lens.Lens' PostDial
 postDialogCodeHookInvocationSpecification_failureResponse = Lens.lens (\PostDialogCodeHookInvocationSpecification' {failureResponse} -> failureResponse) (\s@PostDialogCodeHookInvocationSpecification' {} a -> s {failureResponse = a} :: PostDialogCodeHookInvocationSpecification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PostDialogCodeHookInvocationSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PostDialogCodeHookInvocationSpecification"
       ( \x ->
           PostDialogCodeHookInvocationSpecification'
-            Prelude.<$> (x Core..:? "timeoutNextStep")
-              Prelude.<*> (x Core..:? "timeoutConditional")
-              Prelude.<*> (x Core..:? "failureNextStep")
-              Prelude.<*> (x Core..:? "timeoutResponse")
-              Prelude.<*> (x Core..:? "successNextStep")
-              Prelude.<*> (x Core..:? "successConditional")
-              Prelude.<*> (x Core..:? "successResponse")
-              Prelude.<*> (x Core..:? "failureConditional")
-              Prelude.<*> (x Core..:? "failureResponse")
+            Prelude.<$> (x Data..:? "timeoutNextStep")
+              Prelude.<*> (x Data..:? "timeoutConditional")
+              Prelude.<*> (x Data..:? "failureNextStep")
+              Prelude.<*> (x Data..:? "timeoutResponse")
+              Prelude.<*> (x Data..:? "successNextStep")
+              Prelude.<*> (x Data..:? "successConditional")
+              Prelude.<*> (x Data..:? "successResponse")
+              Prelude.<*> (x Data..:? "failureConditional")
+              Prelude.<*> (x Data..:? "failureResponse")
       )
 
 instance
@@ -204,29 +205,29 @@ instance
       `Prelude.seq` Prelude.rnf failureResponse
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     PostDialogCodeHookInvocationSpecification
   where
   toJSON PostDialogCodeHookInvocationSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timeoutNextStep" Core..=)
+          [ ("timeoutNextStep" Data..=)
               Prelude.<$> timeoutNextStep,
-            ("timeoutConditional" Core..=)
+            ("timeoutConditional" Data..=)
               Prelude.<$> timeoutConditional,
-            ("failureNextStep" Core..=)
+            ("failureNextStep" Data..=)
               Prelude.<$> failureNextStep,
-            ("timeoutResponse" Core..=)
+            ("timeoutResponse" Data..=)
               Prelude.<$> timeoutResponse,
-            ("successNextStep" Core..=)
+            ("successNextStep" Data..=)
               Prelude.<$> successNextStep,
-            ("successConditional" Core..=)
+            ("successConditional" Data..=)
               Prelude.<$> successConditional,
-            ("successResponse" Core..=)
+            ("successResponse" Data..=)
               Prelude.<$> successResponse,
-            ("failureConditional" Core..=)
+            ("failureConditional" Data..=)
               Prelude.<$> failureConditional,
-            ("failureResponse" Core..=)
+            ("failureResponse" Data..=)
               Prelude.<$> failureResponse
           ]
       )

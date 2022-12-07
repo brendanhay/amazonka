@@ -22,6 +22,7 @@ module Amazonka.CodeCommit.Types.FileModes where
 import Amazonka.CodeCommit.Types.FileModeTypeEnum
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about file modes in a merge or pull request.
@@ -71,15 +72,15 @@ fileModes_base = Lens.lens (\FileModes' {base} -> base) (\s@FileModes' {} a -> s
 fileModes_source :: Lens.Lens' FileModes (Prelude.Maybe FileModeTypeEnum)
 fileModes_source = Lens.lens (\FileModes' {source} -> source) (\s@FileModes' {} a -> s {source = a} :: FileModes)
 
-instance Core.FromJSON FileModes where
+instance Data.FromJSON FileModes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileModes"
       ( \x ->
           FileModes'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "base")
-            Prelude.<*> (x Core..:? "source")
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "base")
+            Prelude.<*> (x Data..:? "source")
       )
 
 instance Prelude.Hashable FileModes where

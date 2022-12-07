@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,8 +101,8 @@ instance Core.AWSRequest DeleteStorageVirtualMachine where
     Response.receiveJSON
       ( \s h x ->
           DeleteStorageVirtualMachineResponse'
-            Prelude.<$> (x Core..?> "Lifecycle")
-            Prelude.<*> (x Core..?> "StorageVirtualMachineId")
+            Prelude.<$> (x Data..?> "Lifecycle")
+            Prelude.<*> (x Data..?> "StorageVirtualMachineId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,38 +116,38 @@ instance Prelude.NFData DeleteStorageVirtualMachine where
     Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf storageVirtualMachineId
 
-instance Core.ToHeaders DeleteStorageVirtualMachine where
+instance Data.ToHeaders DeleteStorageVirtualMachine where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.DeleteStorageVirtualMachine" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.DeleteStorageVirtualMachine" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteStorageVirtualMachine where
+instance Data.ToJSON DeleteStorageVirtualMachine where
   toJSON DeleteStorageVirtualMachine' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             Prelude.Just
               ( "StorageVirtualMachineId"
-                  Core..= storageVirtualMachineId
+                  Data..= storageVirtualMachineId
               )
           ]
       )
 
-instance Core.ToPath DeleteStorageVirtualMachine where
+instance Data.ToPath DeleteStorageVirtualMachine where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteStorageVirtualMachine where
+instance Data.ToQuery DeleteStorageVirtualMachine where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStorageVirtualMachineResponse' smart constructor.

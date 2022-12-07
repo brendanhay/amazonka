@@ -46,6 +46,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -53,7 +54,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newClassifyDocument' smart constructor.
 data ClassifyDocument = ClassifyDocument'
   { -- | The document text to be analyzed.
-    text :: Core.Sensitive Prelude.Text,
+    text :: Data.Sensitive Prelude.Text,
     -- | The Amazon Resource Number (ARN) of the endpoint. For information about
     -- endpoints, see
     -- <https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html Managing endpoints>.
@@ -83,13 +84,13 @@ newClassifyDocument ::
 newClassifyDocument pText_ pEndpointArn_ =
   ClassifyDocument'
     { text =
-        Core._Sensitive Lens.# pText_,
+        Data._Sensitive Lens.# pText_,
       endpointArn = pEndpointArn_
     }
 
 -- | The document text to be analyzed.
 classifyDocument_text :: Lens.Lens' ClassifyDocument Prelude.Text
-classifyDocument_text = Lens.lens (\ClassifyDocument' {text} -> text) (\s@ClassifyDocument' {} a -> s {text = a} :: ClassifyDocument) Prelude.. Core._Sensitive
+classifyDocument_text = Lens.lens (\ClassifyDocument' {text} -> text) (\s@ClassifyDocument' {} a -> s {text = a} :: ClassifyDocument) Prelude.. Data._Sensitive
 
 -- | The Amazon Resource Number (ARN) of the endpoint. For information about
 -- endpoints, see
@@ -107,8 +108,8 @@ instance Core.AWSRequest ClassifyDocument where
     Response.receiveJSON
       ( \s h x ->
           ClassifyDocumentResponse'
-            Prelude.<$> (x Core..?> "Classes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Labels" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Classes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Labels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,34 +123,34 @@ instance Prelude.NFData ClassifyDocument where
     Prelude.rnf text
       `Prelude.seq` Prelude.rnf endpointArn
 
-instance Core.ToHeaders ClassifyDocument where
+instance Data.ToHeaders ClassifyDocument where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.ClassifyDocument" ::
+              Data.=# ( "Comprehend_20171127.ClassifyDocument" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ClassifyDocument where
+instance Data.ToJSON ClassifyDocument where
   toJSON ClassifyDocument' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Text" Core..= text),
-            Prelude.Just ("EndpointArn" Core..= endpointArn)
+          [ Prelude.Just ("Text" Data..= text),
+            Prelude.Just ("EndpointArn" Data..= endpointArn)
           ]
       )
 
-instance Core.ToPath ClassifyDocument where
+instance Data.ToPath ClassifyDocument where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ClassifyDocument where
+instance Data.ToQuery ClassifyDocument where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newClassifyDocumentResponse' smart constructor.

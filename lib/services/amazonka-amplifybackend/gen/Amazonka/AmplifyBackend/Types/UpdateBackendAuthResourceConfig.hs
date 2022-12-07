@@ -25,6 +25,7 @@ import Amazonka.AmplifyBackend.Types.UpdateBackendAuthIdentityPoolConfig
 import Amazonka.AmplifyBackend.Types.UpdateBackendAuthUserPoolConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the resource configuration when updating an authentication
@@ -134,15 +135,15 @@ instance
       `Prelude.seq` Prelude.rnf userPoolConfigs
       `Prelude.seq` Prelude.rnf service
 
-instance Core.ToJSON UpdateBackendAuthResourceConfig where
+instance Data.ToJSON UpdateBackendAuthResourceConfig where
   toJSON UpdateBackendAuthResourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("identityPoolConfigs" Core..=)
+          [ ("identityPoolConfigs" Data..=)
               Prelude.<$> identityPoolConfigs,
-            Prelude.Just ("authResources" Core..= authResources),
+            Prelude.Just ("authResources" Data..= authResources),
             Prelude.Just
-              ("userPoolConfigs" Core..= userPoolConfigs),
-            Prelude.Just ("service" Core..= service)
+              ("userPoolConfigs" Data..= userPoolConfigs),
+            Prelude.Just ("service" Data..= service)
           ]
       )

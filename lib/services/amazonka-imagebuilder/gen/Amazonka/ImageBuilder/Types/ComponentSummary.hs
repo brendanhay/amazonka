@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.ComponentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.ComponentState
 import Amazonka.ImageBuilder.Types.ComponentType
 import Amazonka.ImageBuilder.Types.Platform
@@ -163,24 +164,24 @@ componentSummary_supportedOsVersions = Lens.lens (\ComponentSummary' {supportedO
 componentSummary_version :: Lens.Lens' ComponentSummary (Prelude.Maybe Prelude.Text)
 componentSummary_version = Lens.lens (\ComponentSummary' {version} -> version) (\s@ComponentSummary' {} a -> s {version = a} :: ComponentSummary)
 
-instance Core.FromJSON ComponentSummary where
+instance Data.FromJSON ComponentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentSummary"
       ( \x ->
           ComponentSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "changeDescription")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "owner")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "dateCreated")
-            Prelude.<*> (x Core..:? "supportedOsVersions")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "changeDescription")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "dateCreated")
+            Prelude.<*> (x Data..:? "supportedOsVersions")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable ComponentSummary where

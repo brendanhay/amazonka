@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaStore.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -159,35 +160,35 @@ instance Prelude.NFData PutMetricPolicy where
     Prelude.rnf containerName
       `Prelude.seq` Prelude.rnf metricPolicy
 
-instance Core.ToHeaders PutMetricPolicy where
+instance Data.ToHeaders PutMetricPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MediaStore_20170901.PutMetricPolicy" ::
+              Data.=# ( "MediaStore_20170901.PutMetricPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutMetricPolicy where
+instance Data.ToJSON PutMetricPolicy where
   toJSON PutMetricPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ContainerName" Core..= containerName),
-            Prelude.Just ("MetricPolicy" Core..= metricPolicy)
+              ("ContainerName" Data..= containerName),
+            Prelude.Just ("MetricPolicy" Data..= metricPolicy)
           ]
       )
 
-instance Core.ToPath PutMetricPolicy where
+instance Data.ToPath PutMetricPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutMetricPolicy where
+instance Data.ToQuery PutMetricPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutMetricPolicyResponse' smart constructor.

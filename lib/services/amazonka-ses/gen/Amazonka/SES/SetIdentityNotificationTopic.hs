@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -178,24 +179,24 @@ instance Prelude.NFData SetIdentityNotificationTopic where
       `Prelude.seq` Prelude.rnf identity
       `Prelude.seq` Prelude.rnf notificationType
 
-instance Core.ToHeaders SetIdentityNotificationTopic where
+instance Data.ToHeaders SetIdentityNotificationTopic where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SetIdentityNotificationTopic where
+instance Data.ToPath SetIdentityNotificationTopic where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetIdentityNotificationTopic where
+instance Data.ToQuery SetIdentityNotificationTopic where
   toQuery SetIdentityNotificationTopic' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "SetIdentityNotificationTopic" ::
+          Data.=: ( "SetIdentityNotificationTopic" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "SnsTopic" Core.=: snsTopic,
-        "Identity" Core.=: identity,
-        "NotificationType" Core.=: notificationType
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "SnsTopic" Data.=: snsTopic,
+        "Identity" Data.=: identity,
+        "NotificationType" Data.=: notificationType
       ]
 
 -- | An empty element returned on a successful request.

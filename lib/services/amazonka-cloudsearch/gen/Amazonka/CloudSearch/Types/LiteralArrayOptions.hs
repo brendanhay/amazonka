@@ -21,6 +21,7 @@ module Amazonka.CloudSearch.Types.LiteralArrayOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options for a field that contains an array of literal strings. Present
@@ -94,14 +95,14 @@ literalArrayOptions_defaultValue = Lens.lens (\LiteralArrayOptions' {defaultValu
 literalArrayOptions_returnEnabled :: Lens.Lens' LiteralArrayOptions (Prelude.Maybe Prelude.Bool)
 literalArrayOptions_returnEnabled = Lens.lens (\LiteralArrayOptions' {returnEnabled} -> returnEnabled) (\s@LiteralArrayOptions' {} a -> s {returnEnabled = a} :: LiteralArrayOptions)
 
-instance Core.FromXML LiteralArrayOptions where
+instance Data.FromXML LiteralArrayOptions where
   parseXML x =
     LiteralArrayOptions'
-      Prelude.<$> (x Core..@? "FacetEnabled")
-      Prelude.<*> (x Core..@? "SearchEnabled")
-      Prelude.<*> (x Core..@? "SourceFields")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "ReturnEnabled")
+      Prelude.<$> (x Data..@? "FacetEnabled")
+      Prelude.<*> (x Data..@? "SearchEnabled")
+      Prelude.<*> (x Data..@? "SourceFields")
+      Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "ReturnEnabled")
 
 instance Prelude.Hashable LiteralArrayOptions where
   hashWithSalt _salt LiteralArrayOptions' {..} =
@@ -119,12 +120,12 @@ instance Prelude.NFData LiteralArrayOptions where
       `Prelude.seq` Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf returnEnabled
 
-instance Core.ToQuery LiteralArrayOptions where
+instance Data.ToQuery LiteralArrayOptions where
   toQuery LiteralArrayOptions' {..} =
     Prelude.mconcat
-      [ "FacetEnabled" Core.=: facetEnabled,
-        "SearchEnabled" Core.=: searchEnabled,
-        "SourceFields" Core.=: sourceFields,
-        "DefaultValue" Core.=: defaultValue,
-        "ReturnEnabled" Core.=: returnEnabled
+      [ "FacetEnabled" Data.=: facetEnabled,
+        "SearchEnabled" Data.=: searchEnabled,
+        "SourceFields" Data.=: sourceFields,
+        "DefaultValue" Data.=: defaultValue,
+        "ReturnEnabled" Data.=: returnEnabled
       ]

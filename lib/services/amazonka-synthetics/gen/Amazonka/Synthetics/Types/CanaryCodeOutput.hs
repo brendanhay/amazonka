@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.CanaryCodeOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains information about the canary\'s Lambda handler
@@ -66,14 +67,14 @@ canaryCodeOutput_sourceLocationArn = Lens.lens (\CanaryCodeOutput' {sourceLocati
 canaryCodeOutput_handler :: Lens.Lens' CanaryCodeOutput (Prelude.Maybe Prelude.Text)
 canaryCodeOutput_handler = Lens.lens (\CanaryCodeOutput' {handler} -> handler) (\s@CanaryCodeOutput' {} a -> s {handler = a} :: CanaryCodeOutput)
 
-instance Core.FromJSON CanaryCodeOutput where
+instance Data.FromJSON CanaryCodeOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CanaryCodeOutput"
       ( \x ->
           CanaryCodeOutput'
-            Prelude.<$> (x Core..:? "SourceLocationArn")
-            Prelude.<*> (x Core..:? "Handler")
+            Prelude.<$> (x Data..:? "SourceLocationArn")
+            Prelude.<*> (x Data..:? "Handler")
       )
 
 instance Prelude.Hashable CanaryCodeOutput where

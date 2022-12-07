@@ -44,6 +44,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,7 +99,7 @@ instance Core.AWSRequest UpdateAnomalyMonitor where
       ( \s h x ->
           UpdateAnomalyMonitorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "MonitorArn")
+            Prelude.<*> (x Data..:> "MonitorArn")
       )
 
 instance Prelude.Hashable UpdateAnomalyMonitor where
@@ -111,34 +112,34 @@ instance Prelude.NFData UpdateAnomalyMonitor where
     Prelude.rnf monitorName
       `Prelude.seq` Prelude.rnf monitorArn
 
-instance Core.ToHeaders UpdateAnomalyMonitor where
+instance Data.ToHeaders UpdateAnomalyMonitor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.UpdateAnomalyMonitor" ::
+              Data.=# ( "AWSInsightsIndexService.UpdateAnomalyMonitor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAnomalyMonitor where
+instance Data.ToJSON UpdateAnomalyMonitor where
   toJSON UpdateAnomalyMonitor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MonitorName" Core..=) Prelude.<$> monitorName,
-            Prelude.Just ("MonitorArn" Core..= monitorArn)
+          [ ("MonitorName" Data..=) Prelude.<$> monitorName,
+            Prelude.Just ("MonitorArn" Data..= monitorArn)
           ]
       )
 
-instance Core.ToPath UpdateAnomalyMonitor where
+instance Data.ToPath UpdateAnomalyMonitor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAnomalyMonitor where
+instance Data.ToQuery UpdateAnomalyMonitor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAnomalyMonitorResponse' smart constructor.

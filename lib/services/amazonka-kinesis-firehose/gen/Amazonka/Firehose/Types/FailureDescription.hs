@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.FailureDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.DeliveryStreamFailureType
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,13 +69,13 @@ failureDescription_type = Lens.lens (\FailureDescription' {type'} -> type') (\s@
 failureDescription_details :: Lens.Lens' FailureDescription Prelude.Text
 failureDescription_details = Lens.lens (\FailureDescription' {details} -> details) (\s@FailureDescription' {} a -> s {details = a} :: FailureDescription)
 
-instance Core.FromJSON FailureDescription where
+instance Data.FromJSON FailureDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailureDescription"
       ( \x ->
           FailureDescription'
-            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Details")
+            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Details")
       )
 
 instance Prelude.Hashable FailureDescription where

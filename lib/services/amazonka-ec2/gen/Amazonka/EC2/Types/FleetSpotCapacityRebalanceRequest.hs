@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FleetSpotCapacityRebalanceRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FleetReplacementStrategy
 import qualified Amazonka.Prelude as Prelude
@@ -153,11 +154,11 @@ instance
       `Prelude.seq` Prelude.rnf replacementStrategy
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     FleetSpotCapacityRebalanceRequest
   where
   toQuery FleetSpotCapacityRebalanceRequest' {..} =
     Prelude.mconcat
-      [ "TerminationDelay" Core.=: terminationDelay,
-        "ReplacementStrategy" Core.=: replacementStrategy
+      [ "TerminationDelay" Data.=: terminationDelay,
+        "ReplacementStrategy" Data.=: replacementStrategy
       ]

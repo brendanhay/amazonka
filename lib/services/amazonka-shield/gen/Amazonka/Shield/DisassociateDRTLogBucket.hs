@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,32 +95,32 @@ instance Prelude.NFData DisassociateDRTLogBucket where
   rnf DisassociateDRTLogBucket' {..} =
     Prelude.rnf logBucket
 
-instance Core.ToHeaders DisassociateDRTLogBucket where
+instance Data.ToHeaders DisassociateDRTLogBucket where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.DisassociateDRTLogBucket" ::
+              Data.=# ( "AWSShield_20160616.DisassociateDRTLogBucket" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateDRTLogBucket where
+instance Data.ToJSON DisassociateDRTLogBucket where
   toJSON DisassociateDRTLogBucket' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LogBucket" Core..= logBucket)]
+          [Prelude.Just ("LogBucket" Data..= logBucket)]
       )
 
-instance Core.ToPath DisassociateDRTLogBucket where
+instance Data.ToPath DisassociateDRTLogBucket where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateDRTLogBucket where
+instance Data.ToQuery DisassociateDRTLogBucket where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateDRTLogBucketResponse' smart constructor.

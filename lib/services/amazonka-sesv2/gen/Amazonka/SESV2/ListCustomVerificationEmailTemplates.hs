@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,10 +133,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListCustomVerificationEmailTemplatesResponse'
-            Prelude.<$> ( x Core..?> "CustomVerificationEmailTemplates"
+            Prelude.<$> ( x Data..?> "CustomVerificationEmailTemplates"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Core..?> "NextToken")
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,21 +159,21 @@ instance
       `Prelude.seq` Prelude.rnf pageSize
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListCustomVerificationEmailTemplates
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListCustomVerificationEmailTemplates
   where
   toPath =
@@ -180,13 +181,13 @@ instance
       "/v2/email/custom-verification-email-templates"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListCustomVerificationEmailTemplates
   where
   toQuery ListCustomVerificationEmailTemplates' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "PageSize" Core.=: pageSize
+      [ "NextToken" Data.=: nextToken,
+        "PageSize" Data.=: pageSize
       ]
 
 -- | The following elements are returned by the service.

@@ -92,6 +92,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -237,7 +238,7 @@ instance Core.AWSRequest StartMatchBackfill where
     Response.receiveJSON
       ( \s h x ->
           StartMatchBackfillResponse'
-            Prelude.<$> (x Core..?> "MatchmakingTicket")
+            Prelude.<$> (x Data..?> "MatchmakingTicket")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -255,38 +256,38 @@ instance Prelude.NFData StartMatchBackfill where
       `Prelude.seq` Prelude.rnf configurationName
       `Prelude.seq` Prelude.rnf players
 
-instance Core.ToHeaders StartMatchBackfill where
+instance Data.ToHeaders StartMatchBackfill where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.StartMatchBackfill" ::
+              Data.=# ( "GameLift.StartMatchBackfill" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartMatchBackfill where
+instance Data.ToJSON StartMatchBackfill where
   toJSON StartMatchBackfill' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TicketId" Core..=) Prelude.<$> ticketId,
-            ("GameSessionArn" Core..=)
+          [ ("TicketId" Data..=) Prelude.<$> ticketId,
+            ("GameSessionArn" Data..=)
               Prelude.<$> gameSessionArn,
             Prelude.Just
-              ("ConfigurationName" Core..= configurationName),
-            Prelude.Just ("Players" Core..= players)
+              ("ConfigurationName" Data..= configurationName),
+            Prelude.Just ("Players" Data..= players)
           ]
       )
 
-instance Core.ToPath StartMatchBackfill where
+instance Data.ToPath StartMatchBackfill where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartMatchBackfill where
+instance Data.ToQuery StartMatchBackfill where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

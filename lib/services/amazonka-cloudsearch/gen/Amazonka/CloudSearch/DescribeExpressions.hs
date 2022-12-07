@@ -50,6 +50,7 @@ where
 import Amazonka.CloudSearch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,8 +127,8 @@ instance Core.AWSRequest DescribeExpressions where
       ( \s h x ->
           DescribeExpressionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "Expressions" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "Expressions" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -143,26 +144,26 @@ instance Prelude.NFData DescribeExpressions where
       `Prelude.seq` Prelude.rnf deployed
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders DescribeExpressions where
+instance Data.ToHeaders DescribeExpressions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeExpressions where
+instance Data.ToPath DescribeExpressions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeExpressions where
+instance Data.ToQuery DescribeExpressions where
   toQuery DescribeExpressions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeExpressions" :: Prelude.ByteString),
+          Data.=: ("DescribeExpressions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2013-01-01" :: Prelude.ByteString),
+          Data.=: ("2013-01-01" :: Prelude.ByteString),
         "ExpressionNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> expressionNames
             ),
-        "Deployed" Core.=: deployed,
-        "DomainName" Core.=: domainName
+        "Deployed" Data.=: deployed,
+        "DomainName" Data.=: domainName
       ]
 
 -- | The result of a @DescribeExpressions@ request. Contains the expressions

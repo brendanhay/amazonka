@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -267,7 +268,7 @@ instance Core.AWSRequest CreateApp where
     Response.receiveJSON
       ( \s h x ->
           CreateAppResponse'
-            Prelude.<$> (x Core..?> "AppId")
+            Prelude.<$> (x Data..?> "AppId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -301,45 +302,45 @@ instance Prelude.NFData CreateApp where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateApp where
+instance Data.ToHeaders CreateApp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.CreateApp" ::
+              Data.=# ( "OpsWorks_20130218.CreateApp" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApp where
+instance Data.ToJSON CreateApp where
   toJSON CreateApp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Domains" Core..=) Prelude.<$> domains,
-            ("AppSource" Core..=) Prelude.<$> appSource,
-            ("Environment" Core..=) Prelude.<$> environment,
-            ("DataSources" Core..=) Prelude.<$> dataSources,
-            ("SslConfiguration" Core..=)
+          [ ("Domains" Data..=) Prelude.<$> domains,
+            ("AppSource" Data..=) Prelude.<$> appSource,
+            ("Environment" Data..=) Prelude.<$> environment,
+            ("DataSources" Data..=) Prelude.<$> dataSources,
+            ("SslConfiguration" Data..=)
               Prelude.<$> sslConfiguration,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("EnableSsl" Core..=) Prelude.<$> enableSsl,
-            ("Shortname" Core..=) Prelude.<$> shortname,
-            Prelude.Just ("StackId" Core..= stackId),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Type" Core..= type')
+            ("Description" Data..=) Prelude.<$> description,
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("EnableSsl" Data..=) Prelude.<$> enableSsl,
+            ("Shortname" Data..=) Prelude.<$> shortname,
+            Prelude.Just ("StackId" Data..= stackId),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateApp where
+instance Data.ToPath CreateApp where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateApp where
+instance Data.ToQuery CreateApp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @CreateApp@ request.

@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,7 +103,7 @@ instance Core.AWSRequest DeleteVolume where
     Response.receiveJSON
       ( \s h x ->
           DeleteVolumeResponse'
-            Prelude.<$> (x Core..?> "VolumeARN")
+            Prelude.<$> (x Data..?> "VolumeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,32 +114,32 @@ instance Prelude.Hashable DeleteVolume where
 instance Prelude.NFData DeleteVolume where
   rnf DeleteVolume' {..} = Prelude.rnf volumeARN
 
-instance Core.ToHeaders DeleteVolume where
+instance Data.ToHeaders DeleteVolume where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DeleteVolume" ::
+              Data.=# ( "StorageGateway_20130630.DeleteVolume" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteVolume where
+instance Data.ToJSON DeleteVolume where
   toJSON DeleteVolume' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("VolumeARN" Core..= volumeARN)]
+          [Prelude.Just ("VolumeARN" Data..= volumeARN)]
       )
 
-instance Core.ToPath DeleteVolume where
+instance Data.ToPath DeleteVolume where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVolume where
+instance Data.ToQuery DeleteVolume where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the storage

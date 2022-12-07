@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,14 +99,14 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeApplicationInstanceDetailsResponse'
-            Prelude.<$> (x Core..?> "Name")
-              Prelude.<*> (x Core..?> "CreatedTime")
-              Prelude.<*> (x Core..?> "DefaultRuntimeContextDevice")
-              Prelude.<*> (x Core..?> "ApplicationInstanceIdToReplace")
-              Prelude.<*> (x Core..?> "ManifestOverridesPayload")
-              Prelude.<*> (x Core..?> "ManifestPayload")
-              Prelude.<*> (x Core..?> "Description")
-              Prelude.<*> (x Core..?> "ApplicationInstanceId")
+            Prelude.<$> (x Data..?> "Name")
+              Prelude.<*> (x Data..?> "CreatedTime")
+              Prelude.<*> (x Data..?> "DefaultRuntimeContextDevice")
+              Prelude.<*> (x Data..?> "ApplicationInstanceIdToReplace")
+              Prelude.<*> (x Data..?> "ManifestOverridesPayload")
+              Prelude.<*> (x Data..?> "ManifestPayload")
+              Prelude.<*> (x Data..?> "Description")
+              Prelude.<*> (x Data..?> "ApplicationInstanceId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,32 +127,32 @@ instance
     Prelude.rnf applicationInstanceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeApplicationInstanceDetails
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeApplicationInstanceDetails
   where
   toPath DescribeApplicationInstanceDetails' {..} =
     Prelude.mconcat
       [ "/application-instances/",
-        Core.toBS applicationInstanceId,
+        Data.toBS applicationInstanceId,
         "/details"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeApplicationInstanceDetails
   where
   toQuery = Prelude.const Prelude.mempty
@@ -161,7 +162,7 @@ data DescribeApplicationInstanceDetailsResponse = DescribeApplicationInstanceDet
   { -- | The application instance\'s name.
     name :: Prelude.Maybe Prelude.Text,
     -- | When the application instance was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The application instance\'s default runtime context device.
     defaultRuntimeContextDevice :: Prelude.Maybe Prelude.Text,
     -- | The ID of the application instance that this instance replaced.
@@ -234,7 +235,7 @@ describeApplicationInstanceDetailsResponse_name = Lens.lens (\DescribeApplicatio
 
 -- | When the application instance was created.
 describeApplicationInstanceDetailsResponse_createdTime :: Lens.Lens' DescribeApplicationInstanceDetailsResponse (Prelude.Maybe Prelude.UTCTime)
-describeApplicationInstanceDetailsResponse_createdTime = Lens.lens (\DescribeApplicationInstanceDetailsResponse' {createdTime} -> createdTime) (\s@DescribeApplicationInstanceDetailsResponse' {} a -> s {createdTime = a} :: DescribeApplicationInstanceDetailsResponse) Prelude.. Lens.mapping Core._Time
+describeApplicationInstanceDetailsResponse_createdTime = Lens.lens (\DescribeApplicationInstanceDetailsResponse' {createdTime} -> createdTime) (\s@DescribeApplicationInstanceDetailsResponse' {} a -> s {createdTime = a} :: DescribeApplicationInstanceDetailsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The application instance\'s default runtime context device.
 describeApplicationInstanceDetailsResponse_defaultRuntimeContextDevice :: Lens.Lens' DescribeApplicationInstanceDetailsResponse (Prelude.Maybe Prelude.Text)

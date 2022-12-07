@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.ChangeProgressStage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A progress stage details of a specific domain configuration change.
@@ -34,7 +35,7 @@ data ChangeProgressStage = ChangeProgressStage'
     -- | The description of the progress stage.
     description :: Prelude.Maybe Prelude.Text,
     -- | The last updated timestamp of the progress stage.
-    lastUpdated :: Prelude.Maybe Core.POSIX
+    lastUpdated :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,18 +78,18 @@ changeProgressStage_description = Lens.lens (\ChangeProgressStage' {description}
 
 -- | The last updated timestamp of the progress stage.
 changeProgressStage_lastUpdated :: Lens.Lens' ChangeProgressStage (Prelude.Maybe Prelude.UTCTime)
-changeProgressStage_lastUpdated = Lens.lens (\ChangeProgressStage' {lastUpdated} -> lastUpdated) (\s@ChangeProgressStage' {} a -> s {lastUpdated = a} :: ChangeProgressStage) Prelude.. Lens.mapping Core._Time
+changeProgressStage_lastUpdated = Lens.lens (\ChangeProgressStage' {lastUpdated} -> lastUpdated) (\s@ChangeProgressStage' {} a -> s {lastUpdated = a} :: ChangeProgressStage) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ChangeProgressStage where
+instance Data.FromJSON ChangeProgressStage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChangeProgressStage"
       ( \x ->
           ChangeProgressStage'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastUpdated")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastUpdated")
       )
 
 instance Prelude.Hashable ChangeProgressStage where

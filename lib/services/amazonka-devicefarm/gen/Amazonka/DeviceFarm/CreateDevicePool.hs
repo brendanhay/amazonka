@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,7 +151,7 @@ instance Core.AWSRequest CreateDevicePool where
     Response.receiveJSON
       ( \s h x ->
           CreateDevicePoolResponse'
-            Prelude.<$> (x Core..?> "devicePool")
+            Prelude.<$> (x Data..?> "devicePool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,37 +171,37 @@ instance Prelude.NFData CreateDevicePool where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf rules
 
-instance Core.ToHeaders CreateDevicePool where
+instance Data.ToHeaders CreateDevicePool where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.CreateDevicePool" ::
+              Data.=# ( "DeviceFarm_20150623.CreateDevicePool" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDevicePool where
+instance Data.ToJSON CreateDevicePool where
   toJSON CreateDevicePool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("maxDevices" Core..=) Prelude.<$> maxDevices,
-            Prelude.Just ("projectArn" Core..= projectArn),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("rules" Core..= rules)
+          [ ("description" Data..=) Prelude.<$> description,
+            ("maxDevices" Data..=) Prelude.<$> maxDevices,
+            Prelude.Just ("projectArn" Data..= projectArn),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("rules" Data..= rules)
           ]
       )
 
-instance Core.ToPath CreateDevicePool where
+instance Data.ToPath CreateDevicePool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDevicePool where
+instance Data.ToQuery CreateDevicePool where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a create device pool request.

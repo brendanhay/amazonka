@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,32 +103,32 @@ instance Prelude.Hashable ImportAppCatalog where
 instance Prelude.NFData ImportAppCatalog where
   rnf ImportAppCatalog' {..} = Prelude.rnf roleName
 
-instance Core.ToHeaders ImportAppCatalog where
+instance Data.ToHeaders ImportAppCatalog where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.ImportAppCatalog" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.ImportAppCatalog" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportAppCatalog where
+instance Data.ToJSON ImportAppCatalog where
   toJSON ImportAppCatalog' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("roleName" Core..=) Prelude.<$> roleName]
+          [("roleName" Data..=) Prelude.<$> roleName]
       )
 
-instance Core.ToPath ImportAppCatalog where
+instance Data.ToPath ImportAppCatalog where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportAppCatalog where
+instance Data.ToQuery ImportAppCatalog where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportAppCatalogResponse' smart constructor.

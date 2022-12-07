@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,10 +87,10 @@ instance Core.AWSRequest GetDeviceProfile where
     Response.receiveJSON
       ( \s h x ->
           GetDeviceProfileResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LoRaWAN")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "LoRaWAN")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,14 +101,14 @@ instance Prelude.Hashable GetDeviceProfile where
 instance Prelude.NFData GetDeviceProfile where
   rnf GetDeviceProfile' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetDeviceProfile where
+instance Data.ToHeaders GetDeviceProfile where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetDeviceProfile where
+instance Data.ToPath GetDeviceProfile where
   toPath GetDeviceProfile' {..} =
-    Prelude.mconcat ["/device-profiles/", Core.toBS id]
+    Prelude.mconcat ["/device-profiles/", Data.toBS id]
 
-instance Core.ToQuery GetDeviceProfile where
+instance Data.ToQuery GetDeviceProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDeviceProfileResponse' smart constructor.

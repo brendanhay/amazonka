@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,8 +113,8 @@ instance Core.AWSRequest UpdateWorkloadShare where
     Response.receiveJSON
       ( \s h x ->
           UpdateWorkloadShareResponse'
-            Prelude.<$> (x Core..?> "WorkloadShare")
-            Prelude.<*> (x Core..?> "WorkloadId")
+            Prelude.<$> (x Data..?> "WorkloadShare")
+            Prelude.<*> (x Data..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,36 +130,36 @@ instance Prelude.NFData UpdateWorkloadShare where
       `Prelude.seq` Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf permissionType
 
-instance Core.ToHeaders UpdateWorkloadShare where
+instance Data.ToHeaders UpdateWorkloadShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkloadShare where
+instance Data.ToJSON UpdateWorkloadShare where
   toJSON UpdateWorkloadShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PermissionType" Core..= permissionType)
+              ("PermissionType" Data..= permissionType)
           ]
       )
 
-instance Core.ToPath UpdateWorkloadShare where
+instance Data.ToPath UpdateWorkloadShare where
   toPath UpdateWorkloadShare' {..} =
     Prelude.mconcat
       [ "/workloads/",
-        Core.toBS workloadId,
+        Data.toBS workloadId,
         "/shares/",
-        Core.toBS shareId
+        Data.toBS shareId
       ]
 
-instance Core.ToQuery UpdateWorkloadShare where
+instance Data.ToQuery UpdateWorkloadShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Input for Update Workload Share

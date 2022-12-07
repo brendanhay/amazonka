@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.ChannelSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types.ChannelLatencyMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -128,18 +129,18 @@ channelSummary_authorized = Lens.lens (\ChannelSummary' {authorized} -> authoriz
 channelSummary_recordingConfigurationArn :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
 channelSummary_recordingConfigurationArn = Lens.lens (\ChannelSummary' {recordingConfigurationArn} -> recordingConfigurationArn) (\s@ChannelSummary' {} a -> s {recordingConfigurationArn = a} :: ChannelSummary)
 
-instance Core.FromJSON ChannelSummary where
+instance Data.FromJSON ChannelSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelSummary"
       ( \x ->
           ChannelSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "latencyMode")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "authorized")
-            Prelude.<*> (x Core..:? "recordingConfigurationArn")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "latencyMode")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "authorized")
+            Prelude.<*> (x Data..:? "recordingConfigurationArn")
       )
 
 instance Prelude.Hashable ChannelSummary where

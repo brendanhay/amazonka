@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -226,9 +227,9 @@ instance Core.AWSRequest DescribeSnapshots where
       "DescribeSnapshotsResult"
       ( \s h x ->
           DescribeSnapshotsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "Snapshots" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "Snapshot")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "Snapshots" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "Snapshot")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -253,26 +254,26 @@ instance Prelude.NFData DescribeSnapshots where
       `Prelude.seq` Prelude.rnf cacheClusterId
       `Prelude.seq` Prelude.rnf replicationGroupId
 
-instance Core.ToHeaders DescribeSnapshots where
+instance Data.ToHeaders DescribeSnapshots where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeSnapshots where
+instance Data.ToPath DescribeSnapshots where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSnapshots where
+instance Data.ToQuery DescribeSnapshots where
   toQuery DescribeSnapshots' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSnapshots" :: Prelude.ByteString),
+          Data.=: ("DescribeSnapshots" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "SnapshotName" Core.=: snapshotName,
-        "SnapshotSource" Core.=: snapshotSource,
-        "ShowNodeGroupConfig" Core.=: showNodeGroupConfig,
-        "MaxRecords" Core.=: maxRecords,
-        "CacheClusterId" Core.=: cacheClusterId,
-        "ReplicationGroupId" Core.=: replicationGroupId
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "SnapshotName" Data.=: snapshotName,
+        "SnapshotSource" Data.=: snapshotSource,
+        "ShowNodeGroupConfig" Data.=: showNodeGroupConfig,
+        "MaxRecords" Data.=: maxRecords,
+        "CacheClusterId" Data.=: cacheClusterId,
+        "ReplicationGroupId" Data.=: replicationGroupId
       ]
 
 -- | Represents the output of a @DescribeSnapshots@ operation.

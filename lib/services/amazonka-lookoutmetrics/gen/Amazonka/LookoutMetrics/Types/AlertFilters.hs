@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.AlertFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.DimensionFilter
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,14 +67,14 @@ alertFilters_dimensionFilterList = Lens.lens (\AlertFilters' {dimensionFilterLis
 alertFilters_metricList :: Lens.Lens' AlertFilters (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 alertFilters_metricList = Lens.lens (\AlertFilters' {metricList} -> metricList) (\s@AlertFilters' {} a -> s {metricList = a} :: AlertFilters) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AlertFilters where
+instance Data.FromJSON AlertFilters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlertFilters"
       ( \x ->
           AlertFilters'
-            Prelude.<$> (x Core..:? "DimensionFilterList")
-            Prelude.<*> (x Core..:? "MetricList")
+            Prelude.<$> (x Data..:? "DimensionFilterList")
+            Prelude.<*> (x Data..:? "MetricList")
       )
 
 instance Prelude.Hashable AlertFilters where
@@ -86,12 +87,12 @@ instance Prelude.NFData AlertFilters where
     Prelude.rnf dimensionFilterList
       `Prelude.seq` Prelude.rnf metricList
 
-instance Core.ToJSON AlertFilters where
+instance Data.ToJSON AlertFilters where
   toJSON AlertFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DimensionFilterList" Core..=)
+          [ ("DimensionFilterList" Data..=)
               Prelude.<$> dimensionFilterList,
-            ("MetricList" Core..=) Prelude.<$> metricList
+            ("MetricList" Data..=) Prelude.<$> metricList
           ]
       )

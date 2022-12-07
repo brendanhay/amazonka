@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.Clip where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.TimeSpan
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,11 +52,11 @@ newClip = Clip' {timeSpan = Prelude.Nothing}
 clip_timeSpan :: Lens.Lens' Clip (Prelude.Maybe TimeSpan)
 clip_timeSpan = Lens.lens (\Clip' {timeSpan} -> timeSpan) (\s@Clip' {} a -> s {timeSpan = a} :: Clip)
 
-instance Core.FromJSON Clip where
+instance Data.FromJSON Clip where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Clip"
-      (\x -> Clip' Prelude.<$> (x Core..:? "TimeSpan"))
+      (\x -> Clip' Prelude.<$> (x Data..:? "TimeSpan"))
 
 instance Prelude.Hashable Clip where
   hashWithSalt _salt Clip' {..} =
@@ -64,9 +65,9 @@ instance Prelude.Hashable Clip where
 instance Prelude.NFData Clip where
   rnf Clip' {..} = Prelude.rnf timeSpan
 
-instance Core.ToJSON Clip where
+instance Data.ToJSON Clip where
   toJSON Clip' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("TimeSpan" Core..=) Prelude.<$> timeSpan]
+          [("TimeSpan" Data..=) Prelude.<$> timeSpan]
       )

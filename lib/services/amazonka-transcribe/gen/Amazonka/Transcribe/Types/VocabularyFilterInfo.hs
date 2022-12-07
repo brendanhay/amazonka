@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.VocabularyFilterInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.LanguageCode
 
@@ -34,7 +35,7 @@ data VocabularyFilterInfo = VocabularyFilterInfo'
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
     -- May 4, 2022.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The language code that represents the language of the entries in your
     -- vocabulary filter. Each vocabulary filter must contain terms in only one
     -- language.
@@ -103,7 +104,7 @@ newVocabularyFilterInfo =
 -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
 -- May 4, 2022.
 vocabularyFilterInfo_lastModifiedTime :: Lens.Lens' VocabularyFilterInfo (Prelude.Maybe Prelude.UTCTime)
-vocabularyFilterInfo_lastModifiedTime = Lens.lens (\VocabularyFilterInfo' {lastModifiedTime} -> lastModifiedTime) (\s@VocabularyFilterInfo' {} a -> s {lastModifiedTime = a} :: VocabularyFilterInfo) Prelude.. Lens.mapping Core._Time
+vocabularyFilterInfo_lastModifiedTime = Lens.lens (\VocabularyFilterInfo' {lastModifiedTime} -> lastModifiedTime) (\s@VocabularyFilterInfo' {} a -> s {lastModifiedTime = a} :: VocabularyFilterInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The language code that represents the language of the entries in your
 -- vocabulary filter. Each vocabulary filter must contain terms in only one
@@ -127,15 +128,15 @@ vocabularyFilterInfo_languageCode = Lens.lens (\VocabularyFilterInfo' {languageC
 vocabularyFilterInfo_vocabularyFilterName :: Lens.Lens' VocabularyFilterInfo (Prelude.Maybe Prelude.Text)
 vocabularyFilterInfo_vocabularyFilterName = Lens.lens (\VocabularyFilterInfo' {vocabularyFilterName} -> vocabularyFilterName) (\s@VocabularyFilterInfo' {} a -> s {vocabularyFilterName = a} :: VocabularyFilterInfo)
 
-instance Core.FromJSON VocabularyFilterInfo where
+instance Data.FromJSON VocabularyFilterInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VocabularyFilterInfo"
       ( \x ->
           VocabularyFilterInfo'
-            Prelude.<$> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "VocabularyFilterName")
+            Prelude.<$> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "VocabularyFilterName")
       )
 
 instance Prelude.Hashable VocabularyFilterInfo where

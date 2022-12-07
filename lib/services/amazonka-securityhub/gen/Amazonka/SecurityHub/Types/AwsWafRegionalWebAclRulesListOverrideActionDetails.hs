@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsWafRegionalWebAclRulesListOverrideActionDet
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details about the action to use in the place of the action that
@@ -55,15 +56,15 @@ awsWafRegionalWebAclRulesListOverrideActionDetails_type :: Lens.Lens' AwsWafRegi
 awsWafRegionalWebAclRulesListOverrideActionDetails_type = Lens.lens (\AwsWafRegionalWebAclRulesListOverrideActionDetails' {type'} -> type') (\s@AwsWafRegionalWebAclRulesListOverrideActionDetails' {} a -> s {type' = a} :: AwsWafRegionalWebAclRulesListOverrideActionDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsWafRegionalWebAclRulesListOverrideActionDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsWafRegionalWebAclRulesListOverrideActionDetails"
       ( \x ->
           AwsWafRegionalWebAclRulesListOverrideActionDetails'
-            Prelude.<$> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "Type")
       )
 
 instance
@@ -84,12 +85,12 @@ instance
       Prelude.rnf type'
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsWafRegionalWebAclRulesListOverrideActionDetails
   where
   toJSON
     AwsWafRegionalWebAclRulesListOverrideActionDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("Type" Core..=) Prelude.<$> type']
+            [("Type" Data..=) Prelude.<$> type']
         )

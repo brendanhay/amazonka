@@ -26,6 +26,7 @@ import Amazonka.CognitoIdentityProvider.Types.PreventUserExistenceErrorTypes
 import Amazonka.CognitoIdentityProvider.Types.TokenValidityUnitsType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a user pool client.
@@ -56,7 +57,7 @@ data UserPoolClientType = UserPoolClientType'
     -- App callback URLs such as myapp:\/\/example are also supported.
     defaultRedirectURI :: Prelude.Maybe Prelude.Text,
     -- | The client secret from the user pool request of the client type.
-    clientSecret :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    clientSecret :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The access token time limit. After this limit expires, your user can\'t
     -- use their access token. To specify the time unit for
     -- @AccessTokenValidity@ as @seconds@, @minutes@, @hours@, or @days@, set a
@@ -73,9 +74,9 @@ data UserPoolClientType = UserPoolClientType'
     -- your access tokens are valid for one hour.
     accessTokenValidity :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the client associated with the user pool.
-    clientId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    clientId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The date the user pool client was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The authentication flows that you want your user pool client to support.
     -- For each app client in your user pool, you can sign in your users with
     -- any combination of one or more flows, including with a user name and
@@ -136,7 +137,7 @@ data UserPoolClientType = UserPoolClientType'
     -- scopes that you create in Resource Servers.
     allowedOAuthScopes :: Prelude.Maybe [Prelude.Text],
     -- | The date the user pool client was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The ID token time limit. After this limit expires, your user can\'t use
     -- their ID token. To specify the time unit for @IdTokenValidity@ as
     -- @seconds@, @minutes@, @hours@, or @days@, set a @TokenValidityUnits@
@@ -548,7 +549,7 @@ userPoolClientType_defaultRedirectURI = Lens.lens (\UserPoolClientType' {default
 
 -- | The client secret from the user pool request of the client type.
 userPoolClientType_clientSecret :: Lens.Lens' UserPoolClientType (Prelude.Maybe Prelude.Text)
-userPoolClientType_clientSecret = Lens.lens (\UserPoolClientType' {clientSecret} -> clientSecret) (\s@UserPoolClientType' {} a -> s {clientSecret = a} :: UserPoolClientType) Prelude.. Lens.mapping Core._Sensitive
+userPoolClientType_clientSecret = Lens.lens (\UserPoolClientType' {clientSecret} -> clientSecret) (\s@UserPoolClientType' {} a -> s {clientSecret = a} :: UserPoolClientType) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The access token time limit. After this limit expires, your user can\'t
 -- use their access token. To specify the time unit for
@@ -569,11 +570,11 @@ userPoolClientType_accessTokenValidity = Lens.lens (\UserPoolClientType' {access
 
 -- | The ID of the client associated with the user pool.
 userPoolClientType_clientId :: Lens.Lens' UserPoolClientType (Prelude.Maybe Prelude.Text)
-userPoolClientType_clientId = Lens.lens (\UserPoolClientType' {clientId} -> clientId) (\s@UserPoolClientType' {} a -> s {clientId = a} :: UserPoolClientType) Prelude.. Lens.mapping Core._Sensitive
+userPoolClientType_clientId = Lens.lens (\UserPoolClientType' {clientId} -> clientId) (\s@UserPoolClientType' {} a -> s {clientId = a} :: UserPoolClientType) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The date the user pool client was last modified.
 userPoolClientType_lastModifiedDate :: Lens.Lens' UserPoolClientType (Prelude.Maybe Prelude.UTCTime)
-userPoolClientType_lastModifiedDate = Lens.lens (\UserPoolClientType' {lastModifiedDate} -> lastModifiedDate) (\s@UserPoolClientType' {} a -> s {lastModifiedDate = a} :: UserPoolClientType) Prelude.. Lens.mapping Core._Time
+userPoolClientType_lastModifiedDate = Lens.lens (\UserPoolClientType' {lastModifiedDate} -> lastModifiedDate) (\s@UserPoolClientType' {} a -> s {lastModifiedDate = a} :: UserPoolClientType) Prelude.. Lens.mapping Data._Time
 
 -- | The authentication flows that you want your user pool client to support.
 -- For each app client in your user pool, you can sign in your users with
@@ -642,7 +643,7 @@ userPoolClientType_allowedOAuthScopes = Lens.lens (\UserPoolClientType' {allowed
 
 -- | The date the user pool client was created.
 userPoolClientType_creationDate :: Lens.Lens' UserPoolClientType (Prelude.Maybe Prelude.UTCTime)
-userPoolClientType_creationDate = Lens.lens (\UserPoolClientType' {creationDate} -> creationDate) (\s@UserPoolClientType' {} a -> s {creationDate = a} :: UserPoolClientType) Prelude.. Lens.mapping Core._Time
+userPoolClientType_creationDate = Lens.lens (\UserPoolClientType' {creationDate} -> creationDate) (\s@UserPoolClientType' {} a -> s {creationDate = a} :: UserPoolClientType) Prelude.. Lens.mapping Data._Time
 
 -- | The ID token time limit. After this limit expires, your user can\'t use
 -- their ID token. To specify the time unit for @IdTokenValidity@ as
@@ -791,50 +792,50 @@ userPoolClientType_supportedIdentityProviders = Lens.lens (\UserPoolClientType' 
 userPoolClientType_readAttributes :: Lens.Lens' UserPoolClientType (Prelude.Maybe [Prelude.Text])
 userPoolClientType_readAttributes = Lens.lens (\UserPoolClientType' {readAttributes} -> readAttributes) (\s@UserPoolClientType' {} a -> s {readAttributes = a} :: UserPoolClientType) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON UserPoolClientType where
+instance Data.FromJSON UserPoolClientType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserPoolClientType"
       ( \x ->
           UserPoolClientType'
-            Prelude.<$> (x Core..:? "AuthSessionValidity")
-            Prelude.<*> (x Core..:? "DefaultRedirectURI")
-            Prelude.<*> (x Core..:? "ClientSecret")
-            Prelude.<*> (x Core..:? "AccessTokenValidity")
-            Prelude.<*> (x Core..:? "ClientId")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> ( x Core..:? "ExplicitAuthFlows"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "AuthSessionValidity")
+            Prelude.<*> (x Data..:? "DefaultRedirectURI")
+            Prelude.<*> (x Data..:? "ClientSecret")
+            Prelude.<*> (x Data..:? "AccessTokenValidity")
+            Prelude.<*> (x Data..:? "ClientId")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> ( x Data..:? "ExplicitAuthFlows"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CallbackURLs" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "AllowedOAuthScopes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "CallbackURLs" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "AllowedOAuthScopes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "IdTokenValidity")
-            Prelude.<*> (x Core..:? "AllowedOAuthFlowsUserPoolClient")
-            Prelude.<*> (x Core..:? "RefreshTokenValidity")
-            Prelude.<*> (x Core..:? "AnalyticsConfiguration")
-            Prelude.<*> (x Core..:? "PreventUserExistenceErrors")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "IdTokenValidity")
+            Prelude.<*> (x Data..:? "AllowedOAuthFlowsUserPoolClient")
+            Prelude.<*> (x Data..:? "RefreshTokenValidity")
+            Prelude.<*> (x Data..:? "AnalyticsConfiguration")
+            Prelude.<*> (x Data..:? "PreventUserExistenceErrors")
             Prelude.<*> ( x
-                            Core..:? "EnablePropagateAdditionalUserContextData"
+                            Data..:? "EnablePropagateAdditionalUserContextData"
                         )
-            Prelude.<*> (x Core..:? "TokenValidityUnits")
-            Prelude.<*> (x Core..:? "ClientName")
-            Prelude.<*> (x Core..:? "EnableTokenRevocation")
-            Prelude.<*> ( x Core..:? "AllowedOAuthFlows"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "TokenValidityUnits")
+            Prelude.<*> (x Data..:? "ClientName")
+            Prelude.<*> (x Data..:? "EnableTokenRevocation")
+            Prelude.<*> ( x Data..:? "AllowedOAuthFlows"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "UserPoolId")
-            Prelude.<*> ( x Core..:? "WriteAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "UserPoolId")
+            Prelude.<*> ( x Data..:? "WriteAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LogoutURLs" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "SupportedIdentityProviders"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "LogoutURLs" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "SupportedIdentityProviders"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ReadAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ReadAttributes"
+                            Data..!= Prelude.mempty
                         )
       )
 

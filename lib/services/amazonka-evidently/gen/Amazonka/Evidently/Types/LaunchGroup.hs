@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.LaunchGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that defines one launch group in a launch. A launch group is
@@ -73,17 +74,17 @@ launchGroup_featureVariations = Lens.lens (\LaunchGroup' {featureVariations} -> 
 launchGroup_name :: Lens.Lens' LaunchGroup Prelude.Text
 launchGroup_name = Lens.lens (\LaunchGroup' {name} -> name) (\s@LaunchGroup' {} a -> s {name = a} :: LaunchGroup)
 
-instance Core.FromJSON LaunchGroup where
+instance Data.FromJSON LaunchGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchGroup"
       ( \x ->
           LaunchGroup'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> ( x Core..:? "featureVariations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> ( x Data..:? "featureVariations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable LaunchGroup where

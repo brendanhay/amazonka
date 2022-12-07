@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,11 +89,11 @@ instance Core.AWSRequest GetSensitiveDataOccurrences where
     Response.receiveJSON
       ( \s h x ->
           GetSensitiveDataOccurrencesResponse'
-            Prelude.<$> ( x Core..?> "sensitiveDataOccurrences"
+            Prelude.<$> ( x Data..?> "sensitiveDataOccurrences"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "error")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "error")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,23 +105,23 @@ instance Prelude.NFData GetSensitiveDataOccurrences where
   rnf GetSensitiveDataOccurrences' {..} =
     Prelude.rnf findingId
 
-instance Core.ToHeaders GetSensitiveDataOccurrences where
+instance Data.ToHeaders GetSensitiveDataOccurrences where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSensitiveDataOccurrences where
+instance Data.ToPath GetSensitiveDataOccurrences where
   toPath GetSensitiveDataOccurrences' {..} =
     Prelude.mconcat
-      ["/findings/", Core.toBS findingId, "/reveal"]
+      ["/findings/", Data.toBS findingId, "/reveal"]
 
-instance Core.ToQuery GetSensitiveDataOccurrences where
+instance Data.ToQuery GetSensitiveDataOccurrences where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSensitiveDataOccurrencesResponse' smart constructor.

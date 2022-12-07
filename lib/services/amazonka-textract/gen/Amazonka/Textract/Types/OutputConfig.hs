@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.OutputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Sets whether or not your output will go to a user created bucket. Used
@@ -98,11 +99,11 @@ instance Prelude.NFData OutputConfig where
     Prelude.rnf s3Prefix
       `Prelude.seq` Prelude.rnf s3Bucket
 
-instance Core.ToJSON OutputConfig where
+instance Data.ToJSON OutputConfig where
   toJSON OutputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Prefix" Core..=) Prelude.<$> s3Prefix,
-            Prelude.Just ("S3Bucket" Core..= s3Bucket)
+          [ ("S3Prefix" Data..=) Prelude.<$> s3Prefix,
+            Prelude.Just ("S3Bucket" Data..= s3Bucket)
           ]
       )

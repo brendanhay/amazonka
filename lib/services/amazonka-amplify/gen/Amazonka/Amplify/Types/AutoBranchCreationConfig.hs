@@ -22,6 +22,7 @@ module Amazonka.Amplify.Types.AutoBranchCreationConfig where
 import Amazonka.Amplify.Types.Stage
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the automated branch creation configuration.
@@ -38,7 +39,7 @@ data AutoBranchCreationConfig = AutoBranchCreationConfig'
     -- | The basic authorization credentials for the autocreated branch. You must
     -- base64-encode the authorization credentials and provide them in the
     -- format @user:password@.
-    basicAuthCredentials :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    basicAuthCredentials :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The environment variables for the autocreated branch.
     environmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amplify environment name for the pull request.
@@ -52,7 +53,7 @@ data AutoBranchCreationConfig = AutoBranchCreationConfig'
     -- | The framework for the autocreated branch.
     framework :: Prelude.Maybe Prelude.Text,
     -- | The build specification (build spec) for the autocreated branch.
-    buildSpec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    buildSpec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Enables pull request previews for the autocreated branch.
     enablePullRequestPreview :: Prelude.Maybe Prelude.Bool
   }
@@ -122,7 +123,7 @@ autoBranchCreationConfig_enablePerformanceMode = Lens.lens (\AutoBranchCreationC
 -- base64-encode the authorization credentials and provide them in the
 -- format @user:password@.
 autoBranchCreationConfig_basicAuthCredentials :: Lens.Lens' AutoBranchCreationConfig (Prelude.Maybe Prelude.Text)
-autoBranchCreationConfig_basicAuthCredentials = Lens.lens (\AutoBranchCreationConfig' {basicAuthCredentials} -> basicAuthCredentials) (\s@AutoBranchCreationConfig' {} a -> s {basicAuthCredentials = a} :: AutoBranchCreationConfig) Prelude.. Lens.mapping Core._Sensitive
+autoBranchCreationConfig_basicAuthCredentials = Lens.lens (\AutoBranchCreationConfig' {basicAuthCredentials} -> basicAuthCredentials) (\s@AutoBranchCreationConfig' {} a -> s {basicAuthCredentials = a} :: AutoBranchCreationConfig) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The environment variables for the autocreated branch.
 autoBranchCreationConfig_environmentVariables :: Lens.Lens' AutoBranchCreationConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -150,30 +151,30 @@ autoBranchCreationConfig_framework = Lens.lens (\AutoBranchCreationConfig' {fram
 
 -- | The build specification (build spec) for the autocreated branch.
 autoBranchCreationConfig_buildSpec :: Lens.Lens' AutoBranchCreationConfig (Prelude.Maybe Prelude.Text)
-autoBranchCreationConfig_buildSpec = Lens.lens (\AutoBranchCreationConfig' {buildSpec} -> buildSpec) (\s@AutoBranchCreationConfig' {} a -> s {buildSpec = a} :: AutoBranchCreationConfig) Prelude.. Lens.mapping Core._Sensitive
+autoBranchCreationConfig_buildSpec = Lens.lens (\AutoBranchCreationConfig' {buildSpec} -> buildSpec) (\s@AutoBranchCreationConfig' {} a -> s {buildSpec = a} :: AutoBranchCreationConfig) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Enables pull request previews for the autocreated branch.
 autoBranchCreationConfig_enablePullRequestPreview :: Lens.Lens' AutoBranchCreationConfig (Prelude.Maybe Prelude.Bool)
 autoBranchCreationConfig_enablePullRequestPreview = Lens.lens (\AutoBranchCreationConfig' {enablePullRequestPreview} -> enablePullRequestPreview) (\s@AutoBranchCreationConfig' {} a -> s {enablePullRequestPreview = a} :: AutoBranchCreationConfig)
 
-instance Core.FromJSON AutoBranchCreationConfig where
+instance Data.FromJSON AutoBranchCreationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoBranchCreationConfig"
       ( \x ->
           AutoBranchCreationConfig'
-            Prelude.<$> (x Core..:? "enablePerformanceMode")
-            Prelude.<*> (x Core..:? "basicAuthCredentials")
-            Prelude.<*> ( x Core..:? "environmentVariables"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "enablePerformanceMode")
+            Prelude.<*> (x Data..:? "basicAuthCredentials")
+            Prelude.<*> ( x Data..:? "environmentVariables"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "pullRequestEnvironmentName")
-            Prelude.<*> (x Core..:? "stage")
-            Prelude.<*> (x Core..:? "enableAutoBuild")
-            Prelude.<*> (x Core..:? "enableBasicAuth")
-            Prelude.<*> (x Core..:? "framework")
-            Prelude.<*> (x Core..:? "buildSpec")
-            Prelude.<*> (x Core..:? "enablePullRequestPreview")
+            Prelude.<*> (x Data..:? "pullRequestEnvironmentName")
+            Prelude.<*> (x Data..:? "stage")
+            Prelude.<*> (x Data..:? "enableAutoBuild")
+            Prelude.<*> (x Data..:? "enableBasicAuth")
+            Prelude.<*> (x Data..:? "framework")
+            Prelude.<*> (x Data..:? "buildSpec")
+            Prelude.<*> (x Data..:? "enablePullRequestPreview")
       )
 
 instance Prelude.Hashable AutoBranchCreationConfig where
@@ -202,26 +203,26 @@ instance Prelude.NFData AutoBranchCreationConfig where
       `Prelude.seq` Prelude.rnf buildSpec
       `Prelude.seq` Prelude.rnf enablePullRequestPreview
 
-instance Core.ToJSON AutoBranchCreationConfig where
+instance Data.ToJSON AutoBranchCreationConfig where
   toJSON AutoBranchCreationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("enablePerformanceMode" Core..=)
+          [ ("enablePerformanceMode" Data..=)
               Prelude.<$> enablePerformanceMode,
-            ("basicAuthCredentials" Core..=)
+            ("basicAuthCredentials" Data..=)
               Prelude.<$> basicAuthCredentials,
-            ("environmentVariables" Core..=)
+            ("environmentVariables" Data..=)
               Prelude.<$> environmentVariables,
-            ("pullRequestEnvironmentName" Core..=)
+            ("pullRequestEnvironmentName" Data..=)
               Prelude.<$> pullRequestEnvironmentName,
-            ("stage" Core..=) Prelude.<$> stage,
-            ("enableAutoBuild" Core..=)
+            ("stage" Data..=) Prelude.<$> stage,
+            ("enableAutoBuild" Data..=)
               Prelude.<$> enableAutoBuild,
-            ("enableBasicAuth" Core..=)
+            ("enableBasicAuth" Data..=)
               Prelude.<$> enableBasicAuth,
-            ("framework" Core..=) Prelude.<$> framework,
-            ("buildSpec" Core..=) Prelude.<$> buildSpec,
-            ("enablePullRequestPreview" Core..=)
+            ("framework" Data..=) Prelude.<$> framework,
+            ("buildSpec" Data..=) Prelude.<$> buildSpec,
+            ("enablePullRequestPreview" Data..=)
               Prelude.<$> enablePullRequestPreview
           ]
       )

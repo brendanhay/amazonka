@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.RegionDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.DirectoryStage
 import Amazonka.DirectoryService.Types.DirectoryVpcSettings
 import Amazonka.DirectoryService.Types.RegionType
@@ -31,11 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newRegionDescription' smart constructor.
 data RegionDescription = RegionDescription'
   { -- | The date and time that the Region status was last updated.
-    statusLastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    statusLastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the directory.
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the Region replication began.
-    launchTime :: Prelude.Maybe Core.POSIX,
+    launchTime :: Prelude.Maybe Data.POSIX,
     vpcSettings :: Prelude.Maybe DirectoryVpcSettings,
     -- | The status of the replication process for the specified Region.
     status :: Prelude.Maybe DirectoryStage,
@@ -48,7 +49,7 @@ data RegionDescription = RegionDescription'
     -- specified directory.
     desiredNumberOfDomainControllers :: Prelude.Maybe Prelude.Natural,
     -- | The date and time that the Region description was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,7 +98,7 @@ newRegionDescription =
 
 -- | The date and time that the Region status was last updated.
 regionDescription_statusLastUpdatedDateTime :: Lens.Lens' RegionDescription (Prelude.Maybe Prelude.UTCTime)
-regionDescription_statusLastUpdatedDateTime = Lens.lens (\RegionDescription' {statusLastUpdatedDateTime} -> statusLastUpdatedDateTime) (\s@RegionDescription' {} a -> s {statusLastUpdatedDateTime = a} :: RegionDescription) Prelude.. Lens.mapping Core._Time
+regionDescription_statusLastUpdatedDateTime = Lens.lens (\RegionDescription' {statusLastUpdatedDateTime} -> statusLastUpdatedDateTime) (\s@RegionDescription' {} a -> s {statusLastUpdatedDateTime = a} :: RegionDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the directory.
 regionDescription_directoryId :: Lens.Lens' RegionDescription (Prelude.Maybe Prelude.Text)
@@ -105,7 +106,7 @@ regionDescription_directoryId = Lens.lens (\RegionDescription' {directoryId} -> 
 
 -- | Specifies when the Region replication began.
 regionDescription_launchTime :: Lens.Lens' RegionDescription (Prelude.Maybe Prelude.UTCTime)
-regionDescription_launchTime = Lens.lens (\RegionDescription' {launchTime} -> launchTime) (\s@RegionDescription' {} a -> s {launchTime = a} :: RegionDescription) Prelude.. Lens.mapping Core._Time
+regionDescription_launchTime = Lens.lens (\RegionDescription' {launchTime} -> launchTime) (\s@RegionDescription' {} a -> s {launchTime = a} :: RegionDescription) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 regionDescription_vpcSettings :: Lens.Lens' RegionDescription (Prelude.Maybe DirectoryVpcSettings)
@@ -131,23 +132,23 @@ regionDescription_desiredNumberOfDomainControllers = Lens.lens (\RegionDescripti
 
 -- | The date and time that the Region description was last updated.
 regionDescription_lastUpdatedDateTime :: Lens.Lens' RegionDescription (Prelude.Maybe Prelude.UTCTime)
-regionDescription_lastUpdatedDateTime = Lens.lens (\RegionDescription' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@RegionDescription' {} a -> s {lastUpdatedDateTime = a} :: RegionDescription) Prelude.. Lens.mapping Core._Time
+regionDescription_lastUpdatedDateTime = Lens.lens (\RegionDescription' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@RegionDescription' {} a -> s {lastUpdatedDateTime = a} :: RegionDescription) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON RegionDescription where
+instance Data.FromJSON RegionDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegionDescription"
       ( \x ->
           RegionDescription'
-            Prelude.<$> (x Core..:? "StatusLastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "DirectoryId")
-            Prelude.<*> (x Core..:? "LaunchTime")
-            Prelude.<*> (x Core..:? "VpcSettings")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "RegionName")
-            Prelude.<*> (x Core..:? "RegionType")
-            Prelude.<*> (x Core..:? "DesiredNumberOfDomainControllers")
-            Prelude.<*> (x Core..:? "LastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "StatusLastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "DirectoryId")
+            Prelude.<*> (x Data..:? "LaunchTime")
+            Prelude.<*> (x Data..:? "VpcSettings")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "RegionName")
+            Prelude.<*> (x Data..:? "RegionType")
+            Prelude.<*> (x Data..:? "DesiredNumberOfDomainControllers")
+            Prelude.<*> (x Data..:? "LastUpdatedDateTime")
       )
 
 instance Prelude.Hashable RegionDescription where

@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.ContextDataType where
 import Amazonka.CognitoIdentityProvider.Types.HttpHeader
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contextual user data type used for evaluating the risk of an unexpected
@@ -124,14 +125,14 @@ instance Prelude.NFData ContextDataType where
       `Prelude.seq` Prelude.rnf serverPath
       `Prelude.seq` Prelude.rnf httpHeaders
 
-instance Core.ToJSON ContextDataType where
+instance Data.ToJSON ContextDataType where
   toJSON ContextDataType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EncodedData" Core..=) Prelude.<$> encodedData,
-            Prelude.Just ("IpAddress" Core..= ipAddress),
-            Prelude.Just ("ServerName" Core..= serverName),
-            Prelude.Just ("ServerPath" Core..= serverPath),
-            Prelude.Just ("HttpHeaders" Core..= httpHeaders)
+          [ ("EncodedData" Data..=) Prelude.<$> encodedData,
+            Prelude.Just ("IpAddress" Data..= ipAddress),
+            Prelude.Just ("ServerName" Data..= serverName),
+            Prelude.Just ("ServerPath" Data..= serverPath),
+            Prelude.Just ("HttpHeaders" Data..= httpHeaders)
           ]
       )

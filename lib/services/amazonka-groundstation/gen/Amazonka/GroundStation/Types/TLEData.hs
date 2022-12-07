@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.TLEData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.TimeRange
 import qualified Amazonka.Prelude as Prelude
 
@@ -89,13 +90,13 @@ instance Prelude.NFData TLEData where
       `Prelude.seq` Prelude.rnf tleLine2
       `Prelude.seq` Prelude.rnf validTimeRange
 
-instance Core.ToJSON TLEData where
+instance Data.ToJSON TLEData where
   toJSON TLEData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("tleLine1" Core..= tleLine1),
-            Prelude.Just ("tleLine2" Core..= tleLine2),
+          [ Prelude.Just ("tleLine1" Data..= tleLine1),
+            Prelude.Just ("tleLine2" Data..= tleLine2),
             Prelude.Just
-              ("validTimeRange" Core..= validTimeRange)
+              ("validTimeRange" Data..= validTimeRange)
           ]
       )

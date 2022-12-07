@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,8 +100,8 @@ instance Core.AWSRequest BatchDisassociateScramSecret where
     Response.receiveJSON
       ( \s h x ->
           BatchDisassociateScramSecretResponse'
-            Prelude.<$> (x Core..?> "clusterArn")
-            Prelude.<*> ( x Core..?> "unprocessedScramSecrets"
+            Prelude.<$> (x Data..?> "clusterArn")
+            Prelude.<*> ( x Data..?> "unprocessedScramSecrets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -119,35 +120,35 @@ instance Prelude.NFData BatchDisassociateScramSecret where
     Prelude.rnf clusterArn
       `Prelude.seq` Prelude.rnf secretArnList
 
-instance Core.ToHeaders BatchDisassociateScramSecret where
+instance Data.ToHeaders BatchDisassociateScramSecret where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDisassociateScramSecret where
+instance Data.ToJSON BatchDisassociateScramSecret where
   toJSON BatchDisassociateScramSecret' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("secretArnList" Core..= secretArnList)
+              ("secretArnList" Data..= secretArnList)
           ]
       )
 
-instance Core.ToPath BatchDisassociateScramSecret where
+instance Data.ToPath BatchDisassociateScramSecret where
   toPath BatchDisassociateScramSecret' {..} =
     Prelude.mconcat
       [ "/v1/clusters/",
-        Core.toBS clusterArn,
+        Data.toBS clusterArn,
         "/scram-secrets"
       ]
 
-instance Core.ToQuery BatchDisassociateScramSecret where
+instance Data.ToQuery BatchDisassociateScramSecret where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDisassociateScramSecretResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.AlfrescoConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.AlfrescoEntity
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import Amazonka.Kendra.Types.DataSourceVpcConfiguration
@@ -315,29 +316,29 @@ alfrescoConfiguration_secretArn = Lens.lens (\AlfrescoConfiguration' {secretArn}
 alfrescoConfiguration_sslCertificateS3Path :: Lens.Lens' AlfrescoConfiguration S3Path
 alfrescoConfiguration_sslCertificateS3Path = Lens.lens (\AlfrescoConfiguration' {sslCertificateS3Path} -> sslCertificateS3Path) (\s@AlfrescoConfiguration' {} a -> s {sslCertificateS3Path = a} :: AlfrescoConfiguration)
 
-instance Core.FromJSON AlfrescoConfiguration where
+instance Data.FromJSON AlfrescoConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlfrescoConfiguration"
       ( \x ->
           AlfrescoConfiguration'
-            Prelude.<$> (x Core..:? "VpcConfiguration")
-            Prelude.<*> (x Core..:? "WikiFieldMappings")
-            Prelude.<*> (x Core..:? "DocumentLibraryFieldMappings")
-            Prelude.<*> (x Core..:? "CrawlSystemFolders")
-            Prelude.<*> ( x Core..:? "InclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "VpcConfiguration")
+            Prelude.<*> (x Data..:? "WikiFieldMappings")
+            Prelude.<*> (x Data..:? "DocumentLibraryFieldMappings")
+            Prelude.<*> (x Data..:? "CrawlSystemFolders")
+            Prelude.<*> ( x Data..:? "InclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EntityFilter")
-            Prelude.<*> (x Core..:? "CrawlComments")
-            Prelude.<*> (x Core..:? "BlogFieldMappings")
-            Prelude.<*> ( x Core..:? "ExclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "EntityFilter")
+            Prelude.<*> (x Data..:? "CrawlComments")
+            Prelude.<*> (x Data..:? "BlogFieldMappings")
+            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "SiteUrl")
-            Prelude.<*> (x Core..: "SiteId")
-            Prelude.<*> (x Core..: "SecretArn")
-            Prelude.<*> (x Core..: "SslCertificateS3Path")
+            Prelude.<*> (x Data..: "SiteUrl")
+            Prelude.<*> (x Data..: "SiteId")
+            Prelude.<*> (x Data..: "SecretArn")
+            Prelude.<*> (x Data..: "SslCertificateS3Path")
       )
 
 instance Prelude.Hashable AlfrescoConfiguration where
@@ -372,32 +373,32 @@ instance Prelude.NFData AlfrescoConfiguration where
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf sslCertificateS3Path
 
-instance Core.ToJSON AlfrescoConfiguration where
+instance Data.ToJSON AlfrescoConfiguration where
   toJSON AlfrescoConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpcConfiguration" Core..=)
+          [ ("VpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("WikiFieldMappings" Core..=)
+            ("WikiFieldMappings" Data..=)
               Prelude.<$> wikiFieldMappings,
-            ("DocumentLibraryFieldMappings" Core..=)
+            ("DocumentLibraryFieldMappings" Data..=)
               Prelude.<$> documentLibraryFieldMappings,
-            ("CrawlSystemFolders" Core..=)
+            ("CrawlSystemFolders" Data..=)
               Prelude.<$> crawlSystemFolders,
-            ("InclusionPatterns" Core..=)
+            ("InclusionPatterns" Data..=)
               Prelude.<$> inclusionPatterns,
-            ("EntityFilter" Core..=) Prelude.<$> entityFilter,
-            ("CrawlComments" Core..=) Prelude.<$> crawlComments,
-            ("BlogFieldMappings" Core..=)
+            ("EntityFilter" Data..=) Prelude.<$> entityFilter,
+            ("CrawlComments" Data..=) Prelude.<$> crawlComments,
+            ("BlogFieldMappings" Data..=)
               Prelude.<$> blogFieldMappings,
-            ("ExclusionPatterns" Core..=)
+            ("ExclusionPatterns" Data..=)
               Prelude.<$> exclusionPatterns,
-            Prelude.Just ("SiteUrl" Core..= siteUrl),
-            Prelude.Just ("SiteId" Core..= siteId),
-            Prelude.Just ("SecretArn" Core..= secretArn),
+            Prelude.Just ("SiteUrl" Data..= siteUrl),
+            Prelude.Just ("SiteId" Data..= siteId),
+            Prelude.Just ("SecretArn" Data..= secretArn),
             Prelude.Just
               ( "SslCertificateS3Path"
-                  Core..= sslCertificateS3Path
+                  Data..= sslCertificateS3Path
               )
           ]
       )

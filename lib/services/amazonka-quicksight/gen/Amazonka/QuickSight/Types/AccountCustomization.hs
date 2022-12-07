@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.AccountCustomization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon QuickSight customizations associated with your Amazon Web
@@ -64,14 +65,14 @@ accountCustomization_defaultEmailCustomizationTemplate = Lens.lens (\AccountCust
 accountCustomization_defaultTheme :: Lens.Lens' AccountCustomization (Prelude.Maybe Prelude.Text)
 accountCustomization_defaultTheme = Lens.lens (\AccountCustomization' {defaultTheme} -> defaultTheme) (\s@AccountCustomization' {} a -> s {defaultTheme = a} :: AccountCustomization)
 
-instance Core.FromJSON AccountCustomization where
+instance Data.FromJSON AccountCustomization where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountCustomization"
       ( \x ->
           AccountCustomization'
-            Prelude.<$> (x Core..:? "DefaultEmailCustomizationTemplate")
-            Prelude.<*> (x Core..:? "DefaultTheme")
+            Prelude.<$> (x Data..:? "DefaultEmailCustomizationTemplate")
+            Prelude.<*> (x Data..:? "DefaultTheme")
       )
 
 instance Prelude.Hashable AccountCustomization where
@@ -85,12 +86,12 @@ instance Prelude.NFData AccountCustomization where
     Prelude.rnf defaultEmailCustomizationTemplate
       `Prelude.seq` Prelude.rnf defaultTheme
 
-instance Core.ToJSON AccountCustomization where
+instance Data.ToJSON AccountCustomization where
   toJSON AccountCustomization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DefaultEmailCustomizationTemplate" Core..=)
+          [ ("DefaultEmailCustomizationTemplate" Data..=)
               Prelude.<$> defaultEmailCustomizationTemplate,
-            ("DefaultTheme" Core..=) Prelude.<$> defaultTheme
+            ("DefaultTheme" Data..=) Prelude.<$> defaultTheme
           ]
       )

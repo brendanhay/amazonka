@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ClarifyExplainerConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ClarifyInferenceConfig
 import Amazonka.SageMaker.Types.ClarifyShapConfig
@@ -84,15 +85,15 @@ clarifyExplainerConfig_inferenceConfig = Lens.lens (\ClarifyExplainerConfig' {in
 clarifyExplainerConfig_shapConfig :: Lens.Lens' ClarifyExplainerConfig ClarifyShapConfig
 clarifyExplainerConfig_shapConfig = Lens.lens (\ClarifyExplainerConfig' {shapConfig} -> shapConfig) (\s@ClarifyExplainerConfig' {} a -> s {shapConfig = a} :: ClarifyExplainerConfig)
 
-instance Core.FromJSON ClarifyExplainerConfig where
+instance Data.FromJSON ClarifyExplainerConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClarifyExplainerConfig"
       ( \x ->
           ClarifyExplainerConfig'
-            Prelude.<$> (x Core..:? "EnableExplanations")
-            Prelude.<*> (x Core..:? "InferenceConfig")
-            Prelude.<*> (x Core..: "ShapConfig")
+            Prelude.<$> (x Data..:? "EnableExplanations")
+            Prelude.<*> (x Data..:? "InferenceConfig")
+            Prelude.<*> (x Data..: "ShapConfig")
       )
 
 instance Prelude.Hashable ClarifyExplainerConfig where
@@ -107,14 +108,14 @@ instance Prelude.NFData ClarifyExplainerConfig where
       `Prelude.seq` Prelude.rnf inferenceConfig
       `Prelude.seq` Prelude.rnf shapConfig
 
-instance Core.ToJSON ClarifyExplainerConfig where
+instance Data.ToJSON ClarifyExplainerConfig where
   toJSON ClarifyExplainerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EnableExplanations" Core..=)
+          [ ("EnableExplanations" Data..=)
               Prelude.<$> enableExplanations,
-            ("InferenceConfig" Core..=)
+            ("InferenceConfig" Data..=)
               Prelude.<$> inferenceConfig,
-            Prelude.Just ("ShapConfig" Core..= shapConfig)
+            Prelude.Just ("ShapConfig" Data..= shapConfig)
           ]
       )

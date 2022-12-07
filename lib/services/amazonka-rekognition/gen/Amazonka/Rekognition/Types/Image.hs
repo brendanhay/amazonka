@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.Image where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.S3Object
 
@@ -55,7 +56,7 @@ import Amazonka.Rekognition.Types.S3Object
 -- /See:/ 'newImage' smart constructor.
 data Image = Image'
   { -- | Blob of image bytes up to 5 MBs.
-    bytes :: Prelude.Maybe Core.Base64,
+    bytes :: Prelude.Maybe Data.Base64,
     -- | Identifies an S3 object as the image source.
     s3Object :: Prelude.Maybe S3Object
   }
@@ -90,7 +91,7 @@ newImage =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 image_bytes :: Lens.Lens' Image (Prelude.Maybe Prelude.ByteString)
-image_bytes = Lens.lens (\Image' {bytes} -> bytes) (\s@Image' {} a -> s {bytes = a} :: Image) Prelude.. Lens.mapping Core._Base64
+image_bytes = Lens.lens (\Image' {bytes} -> bytes) (\s@Image' {} a -> s {bytes = a} :: Image) Prelude.. Lens.mapping Data._Base64
 
 -- | Identifies an S3 object as the image source.
 image_s3Object :: Lens.Lens' Image (Prelude.Maybe S3Object)
@@ -106,11 +107,11 @@ instance Prelude.NFData Image where
     Prelude.rnf bytes
       `Prelude.seq` Prelude.rnf s3Object
 
-instance Core.ToJSON Image where
+instance Data.ToJSON Image where
   toJSON Image' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Bytes" Core..=) Prelude.<$> bytes,
-            ("S3Object" Core..=) Prelude.<$> s3Object
+          [ ("Bytes" Data..=) Prelude.<$> bytes,
+            ("S3Object" Data..=) Prelude.<$> s3Object
           ]
       )

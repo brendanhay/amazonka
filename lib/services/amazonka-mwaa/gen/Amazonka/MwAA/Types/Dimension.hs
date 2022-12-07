@@ -21,6 +21,7 @@ module Amazonka.MwAA.Types.Dimension where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __Internal only__. Represents the dimensions of a metric. To learn more
@@ -73,11 +74,11 @@ instance Prelude.NFData Dimension where
   rnf Dimension' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Dimension where
+instance Data.ToJSON Dimension where
   toJSON Dimension' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

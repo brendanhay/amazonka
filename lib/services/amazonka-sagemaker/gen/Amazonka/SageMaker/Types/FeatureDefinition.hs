@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.FeatureDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.FeatureType
 
@@ -72,14 +73,14 @@ featureDefinition_featureType = Lens.lens (\FeatureDefinition' {featureType} -> 
 featureDefinition_featureName :: Lens.Lens' FeatureDefinition (Prelude.Maybe Prelude.Text)
 featureDefinition_featureName = Lens.lens (\FeatureDefinition' {featureName} -> featureName) (\s@FeatureDefinition' {} a -> s {featureName = a} :: FeatureDefinition)
 
-instance Core.FromJSON FeatureDefinition where
+instance Data.FromJSON FeatureDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FeatureDefinition"
       ( \x ->
           FeatureDefinition'
-            Prelude.<$> (x Core..:? "FeatureType")
-            Prelude.<*> (x Core..:? "FeatureName")
+            Prelude.<$> (x Data..:? "FeatureType")
+            Prelude.<*> (x Data..:? "FeatureName")
       )
 
 instance Prelude.Hashable FeatureDefinition where
@@ -92,11 +93,11 @@ instance Prelude.NFData FeatureDefinition where
     Prelude.rnf featureType
       `Prelude.seq` Prelude.rnf featureName
 
-instance Core.ToJSON FeatureDefinition where
+instance Data.ToJSON FeatureDefinition where
   toJSON FeatureDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FeatureType" Core..=) Prelude.<$> featureType,
-            ("FeatureName" Core..=) Prelude.<$> featureName
+          [ ("FeatureType" Data..=) Prelude.<$> featureType,
+            ("FeatureName" Data..=) Prelude.<$> featureName
           ]
       )

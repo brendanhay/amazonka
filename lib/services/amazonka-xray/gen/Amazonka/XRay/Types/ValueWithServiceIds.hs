@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.ValueWithServiceIds where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.AnnotationValue
 import Amazonka.XRay.Types.ServiceId
@@ -63,14 +64,14 @@ valueWithServiceIds_serviceIds = Lens.lens (\ValueWithServiceIds' {serviceIds} -
 valueWithServiceIds_annotationValue :: Lens.Lens' ValueWithServiceIds (Prelude.Maybe AnnotationValue)
 valueWithServiceIds_annotationValue = Lens.lens (\ValueWithServiceIds' {annotationValue} -> annotationValue) (\s@ValueWithServiceIds' {} a -> s {annotationValue = a} :: ValueWithServiceIds)
 
-instance Core.FromJSON ValueWithServiceIds where
+instance Data.FromJSON ValueWithServiceIds where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ValueWithServiceIds"
       ( \x ->
           ValueWithServiceIds'
-            Prelude.<$> (x Core..:? "ServiceIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AnnotationValue")
+            Prelude.<$> (x Data..:? "ServiceIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AnnotationValue")
       )
 
 instance Prelude.Hashable ValueWithServiceIds where

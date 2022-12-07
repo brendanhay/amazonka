@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,7 +170,7 @@ instance Core.AWSRequest DisableEnhancedMonitoring where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable DisableEnhancedMonitoring where
   hashWithSalt _salt DisableEnhancedMonitoring' {..} =
@@ -181,33 +182,33 @@ instance Prelude.NFData DisableEnhancedMonitoring where
     Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf shardLevelMetrics
 
-instance Core.ToHeaders DisableEnhancedMonitoring where
+instance Data.ToHeaders DisableEnhancedMonitoring where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.DisableEnhancedMonitoring" ::
+              Data.=# ( "Kinesis_20131202.DisableEnhancedMonitoring" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisableEnhancedMonitoring where
+instance Data.ToJSON DisableEnhancedMonitoring where
   toJSON DisableEnhancedMonitoring' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Core..= streamName),
+          [ Prelude.Just ("StreamName" Data..= streamName),
             Prelude.Just
-              ("ShardLevelMetrics" Core..= shardLevelMetrics)
+              ("ShardLevelMetrics" Data..= shardLevelMetrics)
           ]
       )
 
-instance Core.ToPath DisableEnhancedMonitoring where
+instance Data.ToPath DisableEnhancedMonitoring where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableEnhancedMonitoring where
+instance Data.ToQuery DisableEnhancedMonitoring where
   toQuery = Prelude.const Prelude.mempty

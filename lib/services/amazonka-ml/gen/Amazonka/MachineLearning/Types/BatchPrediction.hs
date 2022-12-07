@@ -21,6 +21,7 @@ module Amazonka.MachineLearning.Types.BatchPrediction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types.EntityStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -40,11 +41,11 @@ data BatchPrediction = BatchPrediction'
     totalRecordCount :: Prelude.Maybe Prelude.Integer,
     -- | The time of the most recent edit to the @BatchPrediction@. The time is
     -- expressed in epoch time.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The ID of the @DataSource@ that points to the group of observations to
     -- predict.
     batchPredictionDataSourceId :: Prelude.Maybe Prelude.Text,
-    finishedAt :: Prelude.Maybe Core.POSIX,
+    finishedAt :: Prelude.Maybe Data.POSIX,
     -- | The ID of the @MLModel@ that generated predictions for the
     -- @BatchPrediction@ request.
     mLModelId :: Prelude.Maybe Prelude.Text,
@@ -69,14 +70,14 @@ data BatchPrediction = BatchPrediction'
     -- @s3 key@ portion of the @outputURI@ field: \':\', \'\/\/\', \'\/.\/\',
     -- \'\/..\/\'.
     outputUri :: Prelude.Maybe Prelude.Text,
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     computeTime :: Prelude.Maybe Prelude.Integer,
     -- | The ID assigned to the @BatchPrediction@ at creation. This value should
     -- be identical to the value of the @BatchPredictionID@ in the request.
     batchPredictionId :: Prelude.Maybe Prelude.Text,
     -- | The time that the @BatchPrediction@ was created. The time is expressed
     -- in epoch time.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The location of the data file or directory in Amazon Simple Storage
     -- Service (Amazon S3).
     inputDataLocationS3 :: Prelude.Maybe Prelude.Text,
@@ -195,7 +196,7 @@ batchPrediction_totalRecordCount = Lens.lens (\BatchPrediction' {totalRecordCoun
 -- | The time of the most recent edit to the @BatchPrediction@. The time is
 -- expressed in epoch time.
 batchPrediction_lastUpdatedAt :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.UTCTime)
-batchPrediction_lastUpdatedAt = Lens.lens (\BatchPrediction' {lastUpdatedAt} -> lastUpdatedAt) (\s@BatchPrediction' {} a -> s {lastUpdatedAt = a} :: BatchPrediction) Prelude.. Lens.mapping Core._Time
+batchPrediction_lastUpdatedAt = Lens.lens (\BatchPrediction' {lastUpdatedAt} -> lastUpdatedAt) (\s@BatchPrediction' {} a -> s {lastUpdatedAt = a} :: BatchPrediction) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the @DataSource@ that points to the group of observations to
 -- predict.
@@ -204,7 +205,7 @@ batchPrediction_batchPredictionDataSourceId = Lens.lens (\BatchPrediction' {batc
 
 -- | Undocumented member.
 batchPrediction_finishedAt :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.UTCTime)
-batchPrediction_finishedAt = Lens.lens (\BatchPrediction' {finishedAt} -> finishedAt) (\s@BatchPrediction' {} a -> s {finishedAt = a} :: BatchPrediction) Prelude.. Lens.mapping Core._Time
+batchPrediction_finishedAt = Lens.lens (\BatchPrediction' {finishedAt} -> finishedAt) (\s@BatchPrediction' {} a -> s {finishedAt = a} :: BatchPrediction) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the @MLModel@ that generated predictions for the
 -- @BatchPrediction@ request.
@@ -238,7 +239,7 @@ batchPrediction_outputUri = Lens.lens (\BatchPrediction' {outputUri} -> outputUr
 
 -- | Undocumented member.
 batchPrediction_startedAt :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.UTCTime)
-batchPrediction_startedAt = Lens.lens (\BatchPrediction' {startedAt} -> startedAt) (\s@BatchPrediction' {} a -> s {startedAt = a} :: BatchPrediction) Prelude.. Lens.mapping Core._Time
+batchPrediction_startedAt = Lens.lens (\BatchPrediction' {startedAt} -> startedAt) (\s@BatchPrediction' {} a -> s {startedAt = a} :: BatchPrediction) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 batchPrediction_computeTime :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Integer)
@@ -252,7 +253,7 @@ batchPrediction_batchPredictionId = Lens.lens (\BatchPrediction' {batchPredictio
 -- | The time that the @BatchPrediction@ was created. The time is expressed
 -- in epoch time.
 batchPrediction_createdAt :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.UTCTime)
-batchPrediction_createdAt = Lens.lens (\BatchPrediction' {createdAt} -> createdAt) (\s@BatchPrediction' {} a -> s {createdAt = a} :: BatchPrediction) Prelude.. Lens.mapping Core._Time
+batchPrediction_createdAt = Lens.lens (\BatchPrediction' {createdAt} -> createdAt) (\s@BatchPrediction' {} a -> s {createdAt = a} :: BatchPrediction) Prelude.. Lens.mapping Data._Time
 
 -- | The location of the data file or directory in Amazon Simple Storage
 -- Service (Amazon S3).
@@ -265,28 +266,28 @@ batchPrediction_inputDataLocationS3 = Lens.lens (\BatchPrediction' {inputDataLoc
 batchPrediction_createdByIamUser :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
 batchPrediction_createdByIamUser = Lens.lens (\BatchPrediction' {createdByIamUser} -> createdByIamUser) (\s@BatchPrediction' {} a -> s {createdByIamUser = a} :: BatchPrediction)
 
-instance Core.FromJSON BatchPrediction where
+instance Data.FromJSON BatchPrediction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchPrediction"
       ( \x ->
           BatchPrediction'
-            Prelude.<$> (x Core..:? "InvalidRecordCount")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "TotalRecordCount")
-            Prelude.<*> (x Core..:? "LastUpdatedAt")
-            Prelude.<*> (x Core..:? "BatchPredictionDataSourceId")
-            Prelude.<*> (x Core..:? "FinishedAt")
-            Prelude.<*> (x Core..:? "MLModelId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "OutputUri")
-            Prelude.<*> (x Core..:? "StartedAt")
-            Prelude.<*> (x Core..:? "ComputeTime")
-            Prelude.<*> (x Core..:? "BatchPredictionId")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "InputDataLocationS3")
-            Prelude.<*> (x Core..:? "CreatedByIamUser")
+            Prelude.<$> (x Data..:? "InvalidRecordCount")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "TotalRecordCount")
+            Prelude.<*> (x Data..:? "LastUpdatedAt")
+            Prelude.<*> (x Data..:? "BatchPredictionDataSourceId")
+            Prelude.<*> (x Data..:? "FinishedAt")
+            Prelude.<*> (x Data..:? "MLModelId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "OutputUri")
+            Prelude.<*> (x Data..:? "StartedAt")
+            Prelude.<*> (x Data..:? "ComputeTime")
+            Prelude.<*> (x Data..:? "BatchPredictionId")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "InputDataLocationS3")
+            Prelude.<*> (x Data..:? "CreatedByIamUser")
       )
 
 instance Prelude.Hashable BatchPrediction where

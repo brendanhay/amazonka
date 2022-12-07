@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.DnsConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.DnsRecord
 import Amazonka.Route53AutoNaming.Types.RoutingPolicy
@@ -235,15 +236,15 @@ dnsConfig_namespaceId = Lens.lens (\DnsConfig' {namespaceId} -> namespaceId) (\s
 dnsConfig_dnsRecords :: Lens.Lens' DnsConfig [DnsRecord]
 dnsConfig_dnsRecords = Lens.lens (\DnsConfig' {dnsRecords} -> dnsRecords) (\s@DnsConfig' {} a -> s {dnsRecords = a} :: DnsConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON DnsConfig where
+instance Data.FromJSON DnsConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DnsConfig"
       ( \x ->
           DnsConfig'
-            Prelude.<$> (x Core..:? "RoutingPolicy")
-            Prelude.<*> (x Core..:? "NamespaceId")
-            Prelude.<*> (x Core..:? "DnsRecords" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "RoutingPolicy")
+            Prelude.<*> (x Data..:? "NamespaceId")
+            Prelude.<*> (x Data..:? "DnsRecords" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DnsConfig where
@@ -258,12 +259,12 @@ instance Prelude.NFData DnsConfig where
       `Prelude.seq` Prelude.rnf namespaceId
       `Prelude.seq` Prelude.rnf dnsRecords
 
-instance Core.ToJSON DnsConfig where
+instance Data.ToJSON DnsConfig where
   toJSON DnsConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoutingPolicy" Core..=) Prelude.<$> routingPolicy,
-            ("NamespaceId" Core..=) Prelude.<$> namespaceId,
-            Prelude.Just ("DnsRecords" Core..= dnsRecords)
+          [ ("RoutingPolicy" Data..=) Prelude.<$> routingPolicy,
+            ("NamespaceId" Data..=) Prelude.<$> namespaceId,
+            Prelude.Just ("DnsRecords" Data..= dnsRecords)
           ]
       )

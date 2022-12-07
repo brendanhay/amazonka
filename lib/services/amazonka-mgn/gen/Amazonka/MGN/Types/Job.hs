@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.Job where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.InitiatedBy
 import Amazonka.MGN.Types.JobStatus
 import Amazonka.MGN.Types.JobType
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newJob' smart constructor.
 data Job = Job'
   { -- | Tags associated with specific Job.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Job initiated by field.
     initiatedBy :: Prelude.Maybe InitiatedBy,
     -- | Job type.
@@ -96,7 +97,7 @@ newJob pJobID_ =
 
 -- | Tags associated with specific Job.
 job_tags :: Lens.Lens' Job (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-job_tags = Lens.lens (\Job' {tags} -> tags) (\s@Job' {} a -> s {tags = a} :: Job) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+job_tags = Lens.lens (\Job' {tags} -> tags) (\s@Job' {} a -> s {tags = a} :: Job) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Job initiated by field.
 job_initiatedBy :: Lens.Lens' Job (Prelude.Maybe InitiatedBy)
@@ -130,23 +131,23 @@ job_endDateTime = Lens.lens (\Job' {endDateTime} -> endDateTime) (\s@Job' {} a -
 job_jobID :: Lens.Lens' Job Prelude.Text
 job_jobID = Lens.lens (\Job' {jobID} -> jobID) (\s@Job' {} a -> s {jobID = a} :: Job)
 
-instance Core.FromJSON Job where
+instance Data.FromJSON Job where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Job"
       ( \x ->
           Job'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "initiatedBy")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> ( x Core..:? "participatingServers"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "initiatedBy")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> ( x Data..:? "participatingServers"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "endDateTime")
-            Prelude.<*> (x Core..: "jobID")
+            Prelude.<*> (x Data..:? "endDateTime")
+            Prelude.<*> (x Data..: "jobID")
       )
 
 instance Prelude.Hashable Job where

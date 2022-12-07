@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FederatedAuthenticationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,10 +86,10 @@ instance
     Prelude.rnf selfServiceSAMLProviderArn
       `Prelude.seq` Prelude.rnf sAMLProviderArn
 
-instance Core.ToQuery FederatedAuthenticationRequest where
+instance Data.ToQuery FederatedAuthenticationRequest where
   toQuery FederatedAuthenticationRequest' {..} =
     Prelude.mconcat
       [ "SelfServiceSAMLProviderArn"
-          Core.=: selfServiceSAMLProviderArn,
-        "SAMLProviderArn" Core.=: sAMLProviderArn
+          Data.=: selfServiceSAMLProviderArn,
+        "SAMLProviderArn" Data.=: sAMLProviderArn
       ]

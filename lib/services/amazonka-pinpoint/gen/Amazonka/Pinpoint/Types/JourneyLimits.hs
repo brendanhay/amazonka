@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.JourneyLimits where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies limits on the messages that a journey can send and the number
@@ -93,16 +94,16 @@ journeyLimits_dailyCap = Lens.lens (\JourneyLimits' {dailyCap} -> dailyCap) (\s@
 journeyLimits_endpointReentryCap :: Lens.Lens' JourneyLimits (Prelude.Maybe Prelude.Int)
 journeyLimits_endpointReentryCap = Lens.lens (\JourneyLimits' {endpointReentryCap} -> endpointReentryCap) (\s@JourneyLimits' {} a -> s {endpointReentryCap = a} :: JourneyLimits)
 
-instance Core.FromJSON JourneyLimits where
+instance Data.FromJSON JourneyLimits where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JourneyLimits"
       ( \x ->
           JourneyLimits'
-            Prelude.<$> (x Core..:? "EndpointReentryInterval")
-            Prelude.<*> (x Core..:? "MessagesPerSecond")
-            Prelude.<*> (x Core..:? "DailyCap")
-            Prelude.<*> (x Core..:? "EndpointReentryCap")
+            Prelude.<$> (x Data..:? "EndpointReentryInterval")
+            Prelude.<*> (x Data..:? "MessagesPerSecond")
+            Prelude.<*> (x Data..:? "DailyCap")
+            Prelude.<*> (x Data..:? "EndpointReentryCap")
       )
 
 instance Prelude.Hashable JourneyLimits where
@@ -120,16 +121,16 @@ instance Prelude.NFData JourneyLimits where
       `Prelude.seq` Prelude.rnf dailyCap
       `Prelude.seq` Prelude.rnf endpointReentryCap
 
-instance Core.ToJSON JourneyLimits where
+instance Data.ToJSON JourneyLimits where
   toJSON JourneyLimits' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EndpointReentryInterval" Core..=)
+          [ ("EndpointReentryInterval" Data..=)
               Prelude.<$> endpointReentryInterval,
-            ("MessagesPerSecond" Core..=)
+            ("MessagesPerSecond" Data..=)
               Prelude.<$> messagesPerSecond,
-            ("DailyCap" Core..=) Prelude.<$> dailyCap,
-            ("EndpointReentryCap" Core..=)
+            ("DailyCap" Data..=) Prelude.<$> dailyCap,
+            ("EndpointReentryCap" Data..=)
               Prelude.<$> endpointReentryCap
           ]
       )

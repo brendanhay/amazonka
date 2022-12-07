@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.ResourceGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types.ResourceGroupTag
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ data ResourceGroup = ResourceGroup'
     -- property is used in the CreateResourceGroup action.
     tags :: Prelude.NonEmpty ResourceGroupTag,
     -- | The time at which resource group is created.
-    createdAt :: Core.POSIX
+    createdAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,7 +68,7 @@ newResourceGroup pArn_ pTags_ pCreatedAt_ =
   ResourceGroup'
     { arn = pArn_,
       tags = Lens.coerced Lens.# pTags_,
-      createdAt = Core._Time Lens.# pCreatedAt_
+      createdAt = Data._Time Lens.# pCreatedAt_
     }
 
 -- | The ARN of the resource group.
@@ -81,17 +82,17 @@ resourceGroup_tags = Lens.lens (\ResourceGroup' {tags} -> tags) (\s@ResourceGrou
 
 -- | The time at which resource group is created.
 resourceGroup_createdAt :: Lens.Lens' ResourceGroup Prelude.UTCTime
-resourceGroup_createdAt = Lens.lens (\ResourceGroup' {createdAt} -> createdAt) (\s@ResourceGroup' {} a -> s {createdAt = a} :: ResourceGroup) Prelude.. Core._Time
+resourceGroup_createdAt = Lens.lens (\ResourceGroup' {createdAt} -> createdAt) (\s@ResourceGroup' {} a -> s {createdAt = a} :: ResourceGroup) Prelude.. Data._Time
 
-instance Core.FromJSON ResourceGroup where
+instance Data.FromJSON ResourceGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceGroup"
       ( \x ->
           ResourceGroup'
-            Prelude.<$> (x Core..: "arn")
-            Prelude.<*> (x Core..: "tags")
-            Prelude.<*> (x Core..: "createdAt")
+            Prelude.<$> (x Data..: "arn")
+            Prelude.<*> (x Data..: "tags")
+            Prelude.<*> (x Data..: "createdAt")
       )
 
 instance Prelude.Hashable ResourceGroup where

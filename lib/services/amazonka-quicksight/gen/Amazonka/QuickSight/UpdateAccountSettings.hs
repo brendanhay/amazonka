@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -151,7 +152,7 @@ instance Core.AWSRequest UpdateAccountSettings where
     Response.receiveJSON
       ( \s h x ->
           UpdateAccountSettingsResponse'
-            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<$> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,36 +170,36 @@ instance Prelude.NFData UpdateAccountSettings where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf defaultNamespace
 
-instance Core.ToHeaders UpdateAccountSettings where
+instance Data.ToHeaders UpdateAccountSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAccountSettings where
+instance Data.ToJSON UpdateAccountSettings where
   toJSON UpdateAccountSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NotificationEmail" Core..=)
+          [ ("NotificationEmail" Data..=)
               Prelude.<$> notificationEmail,
-            ("TerminationProtectionEnabled" Core..=)
+            ("TerminationProtectionEnabled" Data..=)
               Prelude.<$> terminationProtectionEnabled,
             Prelude.Just
-              ("DefaultNamespace" Core..= defaultNamespace)
+              ("DefaultNamespace" Data..= defaultNamespace)
           ]
       )
 
-instance Core.ToPath UpdateAccountSettings where
+instance Data.ToPath UpdateAccountSettings where
   toPath UpdateAccountSettings' {..} =
     Prelude.mconcat
-      ["/accounts/", Core.toBS awsAccountId, "/settings"]
+      ["/accounts/", Data.toBS awsAccountId, "/settings"]
 
-instance Core.ToQuery UpdateAccountSettings where
+instance Data.ToQuery UpdateAccountSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAccountSettingsResponse' smart constructor.

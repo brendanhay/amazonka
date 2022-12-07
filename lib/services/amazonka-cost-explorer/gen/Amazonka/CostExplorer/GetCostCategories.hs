@@ -55,6 +55,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -263,16 +264,16 @@ instance Core.AWSRequest GetCostCategories where
     Response.receiveJSON
       ( \s h x ->
           GetCostCategoriesResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> ( x Core..?> "CostCategoryValues"
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> ( x Data..?> "CostCategoryValues"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "CostCategoryNames"
+            Prelude.<*> ( x Data..?> "CostCategoryNames"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ReturnSize")
-            Prelude.<*> (x Core..:> "TotalSize")
+            Prelude.<*> (x Data..:> "ReturnSize")
+            Prelude.<*> (x Data..:> "TotalSize")
       )
 
 instance Prelude.Hashable GetCostCategories where
@@ -295,40 +296,40 @@ instance Prelude.NFData GetCostCategories where
       `Prelude.seq` Prelude.rnf costCategoryName
       `Prelude.seq` Prelude.rnf timePeriod
 
-instance Core.ToHeaders GetCostCategories where
+instance Data.ToHeaders GetCostCategories where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.GetCostCategories" ::
+              Data.=# ( "AWSInsightsIndexService.GetCostCategories" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCostCategories where
+instance Data.ToJSON GetCostCategories where
   toJSON GetCostCategories' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("SearchString" Core..=) Prelude.<$> searchString,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CostCategoryName" Core..=)
+          [ ("NextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SearchString" Data..=) Prelude.<$> searchString,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CostCategoryName" Data..=)
               Prelude.<$> costCategoryName,
-            Prelude.Just ("TimePeriod" Core..= timePeriod)
+            Prelude.Just ("TimePeriod" Data..= timePeriod)
           ]
       )
 
-instance Core.ToPath GetCostCategories where
+instance Data.ToPath GetCostCategories where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCostCategories where
+instance Data.ToQuery GetCostCategories where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCostCategoriesResponse' smart constructor.

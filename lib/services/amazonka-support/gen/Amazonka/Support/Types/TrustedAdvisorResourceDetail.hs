@@ -21,6 +21,7 @@ module Amazonka.Support.Types.TrustedAdvisorResourceDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a resource identified by a Trusted Advisor
@@ -118,17 +119,17 @@ trustedAdvisorResourceDetail_resourceId = Lens.lens (\TrustedAdvisorResourceDeta
 trustedAdvisorResourceDetail_metadata :: Lens.Lens' TrustedAdvisorResourceDetail [Prelude.Text]
 trustedAdvisorResourceDetail_metadata = Lens.lens (\TrustedAdvisorResourceDetail' {metadata} -> metadata) (\s@TrustedAdvisorResourceDetail' {} a -> s {metadata = a} :: TrustedAdvisorResourceDetail) Prelude.. Lens.coerced
 
-instance Core.FromJSON TrustedAdvisorResourceDetail where
+instance Data.FromJSON TrustedAdvisorResourceDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrustedAdvisorResourceDetail"
       ( \x ->
           TrustedAdvisorResourceDetail'
-            Prelude.<$> (x Core..:? "isSuppressed")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "resourceId")
-            Prelude.<*> (x Core..:? "metadata" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "isSuppressed")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "resourceId")
+            Prelude.<*> (x Data..:? "metadata" Data..!= Prelude.mempty)
       )
 
 instance

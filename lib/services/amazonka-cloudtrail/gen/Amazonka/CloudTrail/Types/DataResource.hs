@@ -21,6 +21,7 @@ module Amazonka.CloudTrail.Types.DataResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon S3 buckets, Lambda functions, or Amazon DynamoDB tables that
@@ -313,14 +314,14 @@ dataResource_type = Lens.lens (\DataResource' {type'} -> type') (\s@DataResource
 dataResource_values :: Lens.Lens' DataResource (Prelude.Maybe [Prelude.Text])
 dataResource_values = Lens.lens (\DataResource' {values} -> values) (\s@DataResource' {} a -> s {values = a} :: DataResource) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DataResource where
+instance Data.FromJSON DataResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataResource"
       ( \x ->
           DataResource'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DataResource where
@@ -332,11 +333,11 @@ instance Prelude.NFData DataResource where
   rnf DataResource' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON DataResource where
+instance Data.ToJSON DataResource where
   toJSON DataResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Values" Data..=) Prelude.<$> values
           ]
       )

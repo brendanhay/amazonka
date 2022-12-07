@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,8 +146,8 @@ instance Core.AWSRequest CreateScene where
       ( \s h x ->
           CreateSceneResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "creationDateTime")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "creationDateTime")
       )
 
 instance Prelude.Hashable CreateScene where
@@ -167,36 +168,36 @@ instance Prelude.NFData CreateScene where
       `Prelude.seq` Prelude.rnf sceneId
       `Prelude.seq` Prelude.rnf contentLocation
 
-instance Core.ToHeaders CreateScene where
+instance Data.ToHeaders CreateScene where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateScene where
+instance Data.ToJSON CreateScene where
   toJSON CreateScene' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            ("capabilities" Core..=) Prelude.<$> capabilities,
-            Prelude.Just ("sceneId" Core..= sceneId),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            ("capabilities" Data..=) Prelude.<$> capabilities,
+            Prelude.Just ("sceneId" Data..= sceneId),
             Prelude.Just
-              ("contentLocation" Core..= contentLocation)
+              ("contentLocation" Data..= contentLocation)
           ]
       )
 
-instance Core.ToPath CreateScene where
+instance Data.ToPath CreateScene where
   toPath CreateScene' {..} =
     Prelude.mconcat
-      ["/workspaces/", Core.toBS workspaceId, "/scenes"]
+      ["/workspaces/", Data.toBS workspaceId, "/scenes"]
 
-instance Core.ToQuery CreateScene where
+instance Data.ToQuery CreateScene where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSceneResponse' smart constructor.
@@ -206,7 +207,7 @@ data CreateSceneResponse = CreateSceneResponse'
     -- | The ARN of the scene.
     arn :: Prelude.Text,
     -- | The date and time when the scene was created.
-    creationDateTime :: Core.POSIX
+    creationDateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -239,7 +240,7 @@ newCreateSceneResponse
       { httpStatus = pHttpStatus_,
         arn = pArn_,
         creationDateTime =
-          Core._Time Lens.# pCreationDateTime_
+          Data._Time Lens.# pCreationDateTime_
       }
 
 -- | The response's http status code.
@@ -252,7 +253,7 @@ createSceneResponse_arn = Lens.lens (\CreateSceneResponse' {arn} -> arn) (\s@Cre
 
 -- | The date and time when the scene was created.
 createSceneResponse_creationDateTime :: Lens.Lens' CreateSceneResponse Prelude.UTCTime
-createSceneResponse_creationDateTime = Lens.lens (\CreateSceneResponse' {creationDateTime} -> creationDateTime) (\s@CreateSceneResponse' {} a -> s {creationDateTime = a} :: CreateSceneResponse) Prelude.. Core._Time
+createSceneResponse_creationDateTime = Lens.lens (\CreateSceneResponse' {creationDateTime} -> creationDateTime) (\s@CreateSceneResponse' {} a -> s {creationDateTime = a} :: CreateSceneResponse) Prelude.. Data._Time
 
 instance Prelude.NFData CreateSceneResponse where
   rnf CreateSceneResponse' {..} =

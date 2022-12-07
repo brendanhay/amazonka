@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EndpointPerformance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.EndpointInfo
 import Amazonka.SageMaker.Types.InferenceMetrics
@@ -67,14 +68,14 @@ endpointPerformance_metrics = Lens.lens (\EndpointPerformance' {metrics} -> metr
 endpointPerformance_endpointInfo :: Lens.Lens' EndpointPerformance EndpointInfo
 endpointPerformance_endpointInfo = Lens.lens (\EndpointPerformance' {endpointInfo} -> endpointInfo) (\s@EndpointPerformance' {} a -> s {endpointInfo = a} :: EndpointPerformance)
 
-instance Core.FromJSON EndpointPerformance where
+instance Data.FromJSON EndpointPerformance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointPerformance"
       ( \x ->
           EndpointPerformance'
-            Prelude.<$> (x Core..: "Metrics")
-            Prelude.<*> (x Core..: "EndpointInfo")
+            Prelude.<$> (x Data..: "Metrics")
+            Prelude.<*> (x Data..: "EndpointInfo")
       )
 
 instance Prelude.Hashable EndpointPerformance where

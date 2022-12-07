@@ -21,6 +21,7 @@ module Amazonka.SageMakerEdge.Types.DeploymentModel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerEdge.Types.DeploymentStatus
 import Amazonka.SageMakerEdge.Types.ModelState
@@ -140,18 +141,18 @@ instance Prelude.NFData DeploymentModel where
       `Prelude.seq` Prelude.rnf modelName
       `Prelude.seq` Prelude.rnf modelHandle
 
-instance Core.ToJSON DeploymentModel where
+instance Data.ToJSON DeploymentModel where
   toJSON DeploymentModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RollbackFailureReason" Core..=)
+          [ ("RollbackFailureReason" Data..=)
               Prelude.<$> rollbackFailureReason,
-            ("StatusReason" Core..=) Prelude.<$> statusReason,
-            ("State" Core..=) Prelude.<$> state,
-            ("ModelVersion" Core..=) Prelude.<$> modelVersion,
-            ("Status" Core..=) Prelude.<$> status,
-            ("DesiredState" Core..=) Prelude.<$> desiredState,
-            ("ModelName" Core..=) Prelude.<$> modelName,
-            ("ModelHandle" Core..=) Prelude.<$> modelHandle
+            ("StatusReason" Data..=) Prelude.<$> statusReason,
+            ("State" Data..=) Prelude.<$> state,
+            ("ModelVersion" Data..=) Prelude.<$> modelVersion,
+            ("Status" Data..=) Prelude.<$> status,
+            ("DesiredState" Data..=) Prelude.<$> desiredState,
+            ("ModelName" Data..=) Prelude.<$> modelName,
+            ("ModelHandle" Data..=) Prelude.<$> modelHandle
           ]
       )

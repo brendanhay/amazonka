@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.StageDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types.StageState
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,7 +36,7 @@ data StageDetails = StageDetails'
     -- | The Amazon CloudWatch log group for game runtimes deployed to the stage.
     logGroup :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the stage was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The game key associated with the stage.
     --
     -- The game key is a unique identifier that the game client uses to connect
@@ -48,7 +49,7 @@ data StageDetails = StageDetails'
     -- | The description of the stage.
     description :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the stage was last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the role used to run the game runtimes
     -- deployed to the stage.
     role' :: Prelude.Maybe Prelude.Text
@@ -116,7 +117,7 @@ stageDetails_logGroup = Lens.lens (\StageDetails' {logGroup} -> logGroup) (\s@St
 
 -- | The timestamp of when the stage was created.
 stageDetails_created :: Lens.Lens' StageDetails (Prelude.Maybe Prelude.UTCTime)
-stageDetails_created = Lens.lens (\StageDetails' {created} -> created) (\s@StageDetails' {} a -> s {created = a} :: StageDetails) Prelude.. Lens.mapping Core._Time
+stageDetails_created = Lens.lens (\StageDetails' {created} -> created) (\s@StageDetails' {} a -> s {created = a} :: StageDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The game key associated with the stage.
 --
@@ -139,29 +140,29 @@ stageDetails_description = Lens.lens (\StageDetails' {description} -> descriptio
 
 -- | The timestamp of when the stage was last updated.
 stageDetails_lastUpdated :: Lens.Lens' StageDetails (Prelude.Maybe Prelude.UTCTime)
-stageDetails_lastUpdated = Lens.lens (\StageDetails' {lastUpdated} -> lastUpdated) (\s@StageDetails' {} a -> s {lastUpdated = a} :: StageDetails) Prelude.. Lens.mapping Core._Time
+stageDetails_lastUpdated = Lens.lens (\StageDetails' {lastUpdated} -> lastUpdated) (\s@StageDetails' {} a -> s {lastUpdated = a} :: StageDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the role used to run the game runtimes
 -- deployed to the stage.
 stageDetails_role :: Lens.Lens' StageDetails (Prelude.Maybe Prelude.Text)
 stageDetails_role = Lens.lens (\StageDetails' {role'} -> role') (\s@StageDetails' {} a -> s {role' = a} :: StageDetails)
 
-instance Core.FromJSON StageDetails where
+instance Data.FromJSON StageDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StageDetails"
       ( \x ->
           StageDetails'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LogGroup")
-            Prelude.<*> (x Core..:? "Created")
-            Prelude.<*> (x Core..:? "GameKey")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastUpdated")
-            Prelude.<*> (x Core..:? "Role")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LogGroup")
+            Prelude.<*> (x Data..:? "Created")
+            Prelude.<*> (x Data..:? "GameKey")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastUpdated")
+            Prelude.<*> (x Data..:? "Role")
       )
 
 instance Prelude.Hashable StageDetails where

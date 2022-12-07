@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -72,9 +73,9 @@ instance Core.AWSRequest DownloadDefaultKeyPair where
     Response.receiveJSON
       ( \s h x ->
           DownloadDefaultKeyPairResponse'
-            Prelude.<$> (x Core..?> "publicKeyBase64")
-            Prelude.<*> (x Core..?> "privateKeyBase64")
-            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<$> (x Data..?> "publicKeyBase64")
+            Prelude.<*> (x Data..?> "privateKeyBase64")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -85,28 +86,28 @@ instance Prelude.Hashable DownloadDefaultKeyPair where
 instance Prelude.NFData DownloadDefaultKeyPair where
   rnf _ = ()
 
-instance Core.ToHeaders DownloadDefaultKeyPair where
+instance Data.ToHeaders DownloadDefaultKeyPair where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.DownloadDefaultKeyPair" ::
+              Data.=# ( "Lightsail_20161128.DownloadDefaultKeyPair" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DownloadDefaultKeyPair where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DownloadDefaultKeyPair where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DownloadDefaultKeyPair where
+instance Data.ToPath DownloadDefaultKeyPair where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DownloadDefaultKeyPair where
+instance Data.ToQuery DownloadDefaultKeyPair where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDownloadDefaultKeyPairResponse' smart constructor.
@@ -116,7 +117,7 @@ data DownloadDefaultKeyPairResponse = DownloadDefaultKeyPairResponse'
     -- | A base64-encoded RSA private key.
     privateKeyBase64 :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the default key pair was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -160,7 +161,7 @@ downloadDefaultKeyPairResponse_privateKeyBase64 = Lens.lens (\DownloadDefaultKey
 
 -- | The timestamp when the default key pair was created.
 downloadDefaultKeyPairResponse_createdAt :: Lens.Lens' DownloadDefaultKeyPairResponse (Prelude.Maybe Prelude.UTCTime)
-downloadDefaultKeyPairResponse_createdAt = Lens.lens (\DownloadDefaultKeyPairResponse' {createdAt} -> createdAt) (\s@DownloadDefaultKeyPairResponse' {} a -> s {createdAt = a} :: DownloadDefaultKeyPairResponse) Prelude.. Lens.mapping Core._Time
+downloadDefaultKeyPairResponse_createdAt = Lens.lens (\DownloadDefaultKeyPairResponse' {createdAt} -> createdAt) (\s@DownloadDefaultKeyPairResponse' {} a -> s {createdAt = a} :: DownloadDefaultKeyPairResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 downloadDefaultKeyPairResponse_httpStatus :: Lens.Lens' DownloadDefaultKeyPairResponse Prelude.Int

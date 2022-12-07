@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.Message where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types.TimestampValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -38,7 +39,7 @@ data Message = Message'
     -- | The payload of the message. This can be a JSON string or a
     -- Base-64-encoded string representing binary data (in which case you must
     -- decode it).
-    payload :: Core.Base64
+    payload :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,7 +78,7 @@ newMessage pMessageId_ pInputName_ pPayload_ =
     { timestamp = Prelude.Nothing,
       messageId = pMessageId_,
       inputName = pInputName_,
-      payload = Core._Base64 Lens.# pPayload_
+      payload = Data._Base64 Lens.# pPayload_
     }
 
 -- | The timestamp associated with the message.
@@ -101,7 +102,7 @@ message_inputName = Lens.lens (\Message' {inputName} -> inputName) (\s@Message' 
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 message_payload :: Lens.Lens' Message Prelude.ByteString
-message_payload = Lens.lens (\Message' {payload} -> payload) (\s@Message' {} a -> s {payload = a} :: Message) Prelude.. Core._Base64
+message_payload = Lens.lens (\Message' {payload} -> payload) (\s@Message' {} a -> s {payload = a} :: Message) Prelude.. Data._Base64
 
 instance Prelude.Hashable Message where
   hashWithSalt _salt Message' {..} =
@@ -117,13 +118,13 @@ instance Prelude.NFData Message where
       `Prelude.seq` Prelude.rnf inputName
       `Prelude.seq` Prelude.rnf payload
 
-instance Core.ToJSON Message where
+instance Data.ToJSON Message where
   toJSON Message' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timestamp" Core..=) Prelude.<$> timestamp,
-            Prelude.Just ("messageId" Core..= messageId),
-            Prelude.Just ("inputName" Core..= inputName),
-            Prelude.Just ("payload" Core..= payload)
+          [ ("timestamp" Data..=) Prelude.<$> timestamp,
+            Prelude.Just ("messageId" Data..= messageId),
+            Prelude.Just ("inputName" Data..= inputName),
+            Prelude.Just ("payload" Data..= payload)
           ]
       )

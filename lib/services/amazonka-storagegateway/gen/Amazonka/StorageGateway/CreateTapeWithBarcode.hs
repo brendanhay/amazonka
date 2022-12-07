@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -247,7 +248,7 @@ instance Core.AWSRequest CreateTapeWithBarcode where
     Response.receiveJSON
       ( \s h x ->
           CreateTapeWithBarcodeResponse'
-            Prelude.<$> (x Core..?> "TapeARN")
+            Prelude.<$> (x Data..?> "TapeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -273,41 +274,41 @@ instance Prelude.NFData CreateTapeWithBarcode where
       `Prelude.seq` Prelude.rnf tapeSizeInBytes
       `Prelude.seq` Prelude.rnf tapeBarcode
 
-instance Core.ToHeaders CreateTapeWithBarcode where
+instance Data.ToHeaders CreateTapeWithBarcode where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.CreateTapeWithBarcode" ::
+              Data.=# ( "StorageGateway_20130630.CreateTapeWithBarcode" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTapeWithBarcode where
+instance Data.ToJSON CreateTapeWithBarcode where
   toJSON CreateTapeWithBarcode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Worm" Core..=) Prelude.<$> worm,
-            ("KMSKey" Core..=) Prelude.<$> kmsKey,
-            ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
-            ("PoolId" Core..=) Prelude.<$> poolId,
-            Prelude.Just ("GatewayARN" Core..= gatewayARN),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Worm" Data..=) Prelude.<$> worm,
+            ("KMSKey" Data..=) Prelude.<$> kmsKey,
+            ("KMSEncrypted" Data..=) Prelude.<$> kmsEncrypted,
+            ("PoolId" Data..=) Prelude.<$> poolId,
+            Prelude.Just ("GatewayARN" Data..= gatewayARN),
             Prelude.Just
-              ("TapeSizeInBytes" Core..= tapeSizeInBytes),
-            Prelude.Just ("TapeBarcode" Core..= tapeBarcode)
+              ("TapeSizeInBytes" Data..= tapeSizeInBytes),
+            Prelude.Just ("TapeBarcode" Data..= tapeBarcode)
           ]
       )
 
-instance Core.ToPath CreateTapeWithBarcode where
+instance Data.ToPath CreateTapeWithBarcode where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTapeWithBarcode where
+instance Data.ToQuery CreateTapeWithBarcode where
   toQuery = Prelude.const Prelude.mempty
 
 -- | CreateTapeOutput

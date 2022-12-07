@@ -103,6 +103,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -250,27 +251,27 @@ instance Prelude.NFData PutBucketLogging where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf bucketLoggingStatus
 
-instance Core.ToElement PutBucketLogging where
+instance Data.ToElement PutBucketLogging where
   toElement PutBucketLogging' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}BucketLoggingStatus"
       bucketLoggingStatus
 
-instance Core.ToHeaders PutBucketLogging where
+instance Data.ToHeaders PutBucketLogging where
   toHeaders PutBucketLogging' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
-        "Content-MD5" Core.=# contentMD5,
+          Data.=# checksumAlgorithm,
+        "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath PutBucketLogging where
+instance Data.ToPath PutBucketLogging where
   toPath PutBucketLogging' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery PutBucketLogging where
+instance Data.ToQuery PutBucketLogging where
   toQuery = Prelude.const (Prelude.mconcat ["logging"])
 
 -- | /See:/ 'newPutBucketLoggingResponse' smart constructor.

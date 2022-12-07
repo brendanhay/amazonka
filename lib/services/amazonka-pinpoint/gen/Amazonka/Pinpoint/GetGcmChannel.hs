@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest GetGcmChannel where
       ( \s h x ->
           GetGcmChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetGcmChannel where
@@ -98,26 +99,26 @@ instance Prelude.Hashable GetGcmChannel where
 instance Prelude.NFData GetGcmChannel where
   rnf GetGcmChannel' {..} = Prelude.rnf applicationId
 
-instance Core.ToHeaders GetGcmChannel where
+instance Data.ToHeaders GetGcmChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetGcmChannel where
+instance Data.ToPath GetGcmChannel where
   toPath GetGcmChannel' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/channels/gcm"
       ]
 
-instance Core.ToQuery GetGcmChannel where
+instance Data.ToQuery GetGcmChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGcmChannelResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.UserSettings where
 import Amazonka.Chime.Types.TelephonySettings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings associated with an Amazon Chime user, including inbound and
@@ -54,12 +55,12 @@ newUserSettings pTelephony_ =
 userSettings_telephony :: Lens.Lens' UserSettings TelephonySettings
 userSettings_telephony = Lens.lens (\UserSettings' {telephony} -> telephony) (\s@UserSettings' {} a -> s {telephony = a} :: UserSettings)
 
-instance Core.FromJSON UserSettings where
+instance Data.FromJSON UserSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserSettings"
       ( \x ->
-          UserSettings' Prelude.<$> (x Core..: "Telephony")
+          UserSettings' Prelude.<$> (x Data..: "Telephony")
       )
 
 instance Prelude.Hashable UserSettings where
@@ -69,9 +70,9 @@ instance Prelude.Hashable UserSettings where
 instance Prelude.NFData UserSettings where
   rnf UserSettings' {..} = Prelude.rnf telephony
 
-instance Core.ToJSON UserSettings where
+instance Data.ToJSON UserSettings where
   toJSON UserSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Telephony" Core..= telephony)]
+          [Prelude.Just ("Telephony" Data..= telephony)]
       )

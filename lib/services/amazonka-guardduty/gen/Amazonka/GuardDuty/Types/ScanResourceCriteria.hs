@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ScanResourceCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.ScanCondition
 import Amazonka.GuardDuty.Types.ScanCriterionKey
 import qualified Amazonka.Prelude as Prelude
@@ -70,14 +71,14 @@ scanResourceCriteria_exclude = Lens.lens (\ScanResourceCriteria' {exclude} -> ex
 scanResourceCriteria_include :: Lens.Lens' ScanResourceCriteria (Prelude.Maybe (Prelude.HashMap ScanCriterionKey ScanCondition))
 scanResourceCriteria_include = Lens.lens (\ScanResourceCriteria' {include} -> include) (\s@ScanResourceCriteria' {} a -> s {include = a} :: ScanResourceCriteria) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ScanResourceCriteria where
+instance Data.FromJSON ScanResourceCriteria where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScanResourceCriteria"
       ( \x ->
           ScanResourceCriteria'
-            Prelude.<$> (x Core..:? "exclude" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "include" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "exclude" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "include" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ScanResourceCriteria where
@@ -90,11 +91,11 @@ instance Prelude.NFData ScanResourceCriteria where
     Prelude.rnf exclude
       `Prelude.seq` Prelude.rnf include
 
-instance Core.ToJSON ScanResourceCriteria where
+instance Data.ToJSON ScanResourceCriteria where
   toJSON ScanResourceCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("exclude" Core..=) Prelude.<$> exclude,
-            ("include" Core..=) Prelude.<$> include
+          [ ("exclude" Data..=) Prelude.<$> exclude,
+            ("include" Data..=) Prelude.<$> include
           ]
       )

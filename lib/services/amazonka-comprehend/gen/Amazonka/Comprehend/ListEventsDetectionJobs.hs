@@ -45,6 +45,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,8 +112,8 @@ instance Core.AWSRequest ListEventsDetectionJobs where
     Response.receiveJSON
       ( \s h x ->
           ListEventsDetectionJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "EventsDetectionJobPropertiesList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "EventsDetectionJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -130,35 +131,35 @@ instance Prelude.NFData ListEventsDetectionJobs where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListEventsDetectionJobs where
+instance Data.ToHeaders ListEventsDetectionJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.ListEventsDetectionJobs" ::
+              Data.=# ( "Comprehend_20171127.ListEventsDetectionJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEventsDetectionJobs where
+instance Data.ToJSON ListEventsDetectionJobs where
   toJSON ListEventsDetectionJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListEventsDetectionJobs where
+instance Data.ToPath ListEventsDetectionJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEventsDetectionJobs where
+instance Data.ToQuery ListEventsDetectionJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEventsDetectionJobsResponse' smart constructor.

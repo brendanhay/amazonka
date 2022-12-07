@@ -50,6 +50,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,10 +159,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListPricingRulesAssociatedToPricingPlanResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "BillingPeriod")
-              Prelude.<*> (x Core..?> "PricingPlanArn")
-              Prelude.<*> (x Core..?> "PricingRuleArns")
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "BillingPeriod")
+              Prelude.<*> (x Data..?> "PricingPlanArn")
+              Prelude.<*> (x Data..?> "PricingRuleArns")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,36 +189,36 @@ instance
       `Prelude.seq` Prelude.rnf pricingPlanArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListPricingRulesAssociatedToPricingPlan
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListPricingRulesAssociatedToPricingPlan
   where
   toJSON ListPricingRulesAssociatedToPricingPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("BillingPeriod" Core..=) Prelude.<$> billingPeriod,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("PricingPlanArn" Core..= pricingPlanArn)
+              ("PricingPlanArn" Data..= pricingPlanArn)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListPricingRulesAssociatedToPricingPlan
   where
   toPath =
@@ -225,7 +226,7 @@ instance
       "/list-pricing-rules-associated-to-pricing-plan"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListPricingRulesAssociatedToPricingPlan
   where
   toQuery = Prelude.const Prelude.mempty

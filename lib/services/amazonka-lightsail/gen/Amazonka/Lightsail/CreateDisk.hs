@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -159,7 +160,7 @@ instance Core.AWSRequest CreateDisk where
     Response.receiveJSON
       ( \s h x ->
           CreateDiskResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,38 +180,38 @@ instance Prelude.NFData CreateDisk where
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf sizeInGb
 
-instance Core.ToHeaders CreateDisk where
+instance Data.ToHeaders CreateDisk where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.CreateDisk" ::
+              Data.=# ( "Lightsail_20161128.CreateDisk" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDisk where
+instance Data.ToJSON CreateDisk where
   toJSON CreateDisk' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("addOns" Core..=) Prelude.<$> addOns,
-            Prelude.Just ("diskName" Core..= diskName),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("addOns" Data..=) Prelude.<$> addOns,
+            Prelude.Just ("diskName" Data..= diskName),
             Prelude.Just
-              ("availabilityZone" Core..= availabilityZone),
-            Prelude.Just ("sizeInGb" Core..= sizeInGb)
+              ("availabilityZone" Data..= availabilityZone),
+            Prelude.Just ("sizeInGb" Data..= sizeInGb)
           ]
       )
 
-instance Core.ToPath CreateDisk where
+instance Data.ToPath CreateDisk where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDisk where
+instance Data.ToQuery CreateDisk where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDiskResponse' smart constructor.

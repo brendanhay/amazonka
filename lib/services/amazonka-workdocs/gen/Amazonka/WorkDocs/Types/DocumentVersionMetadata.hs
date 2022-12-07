@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.DocumentVersionMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.DocumentSourceType
 import Amazonka.WorkDocs.Types.DocumentStatusType
@@ -35,27 +36,27 @@ data DocumentVersionMetadata = DocumentVersionMetadata'
     -- | The name of the version.
     name :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the document was first uploaded.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The thumbnail of the document.
-    thumbnail :: Prelude.Maybe (Prelude.HashMap DocumentThumbnailType (Core.Sensitive Prelude.Text)),
+    thumbnail :: Prelude.Maybe (Prelude.HashMap DocumentThumbnailType (Data.Sensitive Prelude.Text)),
     -- | The size of the document, in bytes.
     size :: Prelude.Maybe Prelude.Integer,
     -- | The timestamp when the content of the document was originally created.
-    contentCreatedTimestamp :: Prelude.Maybe Core.POSIX,
+    contentCreatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The status of the document.
     status :: Prelude.Maybe DocumentStatusType,
     -- | The ID of the version.
     id :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the content of the document was modified.
-    contentModifiedTimestamp :: Prelude.Maybe Core.POSIX,
+    contentModifiedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The source of the document.
-    source :: Prelude.Maybe (Prelude.HashMap DocumentSourceType (Core.Sensitive Prelude.Text)),
+    source :: Prelude.Maybe (Prelude.HashMap DocumentSourceType (Data.Sensitive Prelude.Text)),
     -- | The signature of the document.
     signature :: Prelude.Maybe Prelude.Text,
     -- | The content type of the document.
     contentType :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the document was last uploaded.
-    modifiedTimestamp :: Prelude.Maybe Core.POSIX
+    modifiedTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -122,7 +123,7 @@ documentVersionMetadata_name = Lens.lens (\DocumentVersionMetadata' {name} -> na
 
 -- | The timestamp when the document was first uploaded.
 documentVersionMetadata_createdTimestamp :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe Prelude.UTCTime)
-documentVersionMetadata_createdTimestamp = Lens.lens (\DocumentVersionMetadata' {createdTimestamp} -> createdTimestamp) (\s@DocumentVersionMetadata' {} a -> s {createdTimestamp = a} :: DocumentVersionMetadata) Prelude.. Lens.mapping Core._Time
+documentVersionMetadata_createdTimestamp = Lens.lens (\DocumentVersionMetadata' {createdTimestamp} -> createdTimestamp) (\s@DocumentVersionMetadata' {} a -> s {createdTimestamp = a} :: DocumentVersionMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The thumbnail of the document.
 documentVersionMetadata_thumbnail :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe (Prelude.HashMap DocumentThumbnailType Prelude.Text))
@@ -134,7 +135,7 @@ documentVersionMetadata_size = Lens.lens (\DocumentVersionMetadata' {size} -> si
 
 -- | The timestamp when the content of the document was originally created.
 documentVersionMetadata_contentCreatedTimestamp :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe Prelude.UTCTime)
-documentVersionMetadata_contentCreatedTimestamp = Lens.lens (\DocumentVersionMetadata' {contentCreatedTimestamp} -> contentCreatedTimestamp) (\s@DocumentVersionMetadata' {} a -> s {contentCreatedTimestamp = a} :: DocumentVersionMetadata) Prelude.. Lens.mapping Core._Time
+documentVersionMetadata_contentCreatedTimestamp = Lens.lens (\DocumentVersionMetadata' {contentCreatedTimestamp} -> contentCreatedTimestamp) (\s@DocumentVersionMetadata' {} a -> s {contentCreatedTimestamp = a} :: DocumentVersionMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the document.
 documentVersionMetadata_status :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe DocumentStatusType)
@@ -146,7 +147,7 @@ documentVersionMetadata_id = Lens.lens (\DocumentVersionMetadata' {id} -> id) (\
 
 -- | The timestamp when the content of the document was modified.
 documentVersionMetadata_contentModifiedTimestamp :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe Prelude.UTCTime)
-documentVersionMetadata_contentModifiedTimestamp = Lens.lens (\DocumentVersionMetadata' {contentModifiedTimestamp} -> contentModifiedTimestamp) (\s@DocumentVersionMetadata' {} a -> s {contentModifiedTimestamp = a} :: DocumentVersionMetadata) Prelude.. Lens.mapping Core._Time
+documentVersionMetadata_contentModifiedTimestamp = Lens.lens (\DocumentVersionMetadata' {contentModifiedTimestamp} -> contentModifiedTimestamp) (\s@DocumentVersionMetadata' {} a -> s {contentModifiedTimestamp = a} :: DocumentVersionMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The source of the document.
 documentVersionMetadata_source :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe (Prelude.HashMap DocumentSourceType Prelude.Text))
@@ -162,27 +163,27 @@ documentVersionMetadata_contentType = Lens.lens (\DocumentVersionMetadata' {cont
 
 -- | The timestamp when the document was last uploaded.
 documentVersionMetadata_modifiedTimestamp :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe Prelude.UTCTime)
-documentVersionMetadata_modifiedTimestamp = Lens.lens (\DocumentVersionMetadata' {modifiedTimestamp} -> modifiedTimestamp) (\s@DocumentVersionMetadata' {} a -> s {modifiedTimestamp = a} :: DocumentVersionMetadata) Prelude.. Lens.mapping Core._Time
+documentVersionMetadata_modifiedTimestamp = Lens.lens (\DocumentVersionMetadata' {modifiedTimestamp} -> modifiedTimestamp) (\s@DocumentVersionMetadata' {} a -> s {modifiedTimestamp = a} :: DocumentVersionMetadata) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DocumentVersionMetadata where
+instance Data.FromJSON DocumentVersionMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentVersionMetadata"
       ( \x ->
           DocumentVersionMetadata'
-            Prelude.<$> (x Core..:? "CreatorId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "Thumbnail" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Size")
-            Prelude.<*> (x Core..:? "ContentCreatedTimestamp")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ContentModifiedTimestamp")
-            Prelude.<*> (x Core..:? "Source" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Signature")
-            Prelude.<*> (x Core..:? "ContentType")
-            Prelude.<*> (x Core..:? "ModifiedTimestamp")
+            Prelude.<$> (x Data..:? "CreatorId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "Thumbnail" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Size")
+            Prelude.<*> (x Data..:? "ContentCreatedTimestamp")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ContentModifiedTimestamp")
+            Prelude.<*> (x Data..:? "Source" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Signature")
+            Prelude.<*> (x Data..:? "ContentType")
+            Prelude.<*> (x Data..:? "ModifiedTimestamp")
       )
 
 instance Prelude.Hashable DocumentVersionMetadata where

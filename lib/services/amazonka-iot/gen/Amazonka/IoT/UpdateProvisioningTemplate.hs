@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -185,32 +186,32 @@ instance Prelude.NFData UpdateProvisioningTemplate where
       `Prelude.seq` Prelude.rnf provisioningRoleArn
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToHeaders UpdateProvisioningTemplate where
+instance Data.ToHeaders UpdateProvisioningTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateProvisioningTemplate where
+instance Data.ToJSON UpdateProvisioningTemplate where
   toJSON UpdateProvisioningTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("removePreProvisioningHook" Core..=)
+          [ ("removePreProvisioningHook" Data..=)
               Prelude.<$> removePreProvisioningHook,
-            ("defaultVersionId" Core..=)
+            ("defaultVersionId" Data..=)
               Prelude.<$> defaultVersionId,
-            ("preProvisioningHook" Core..=)
+            ("preProvisioningHook" Data..=)
               Prelude.<$> preProvisioningHook,
-            ("description" Core..=) Prelude.<$> description,
-            ("enabled" Core..=) Prelude.<$> enabled,
-            ("provisioningRoleArn" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("enabled" Data..=) Prelude.<$> enabled,
+            ("provisioningRoleArn" Data..=)
               Prelude.<$> provisioningRoleArn
           ]
       )
 
-instance Core.ToPath UpdateProvisioningTemplate where
+instance Data.ToPath UpdateProvisioningTemplate where
   toPath UpdateProvisioningTemplate' {..} =
     Prelude.mconcat
-      ["/provisioning-templates/", Core.toBS templateName]
+      ["/provisioning-templates/", Data.toBS templateName]
 
-instance Core.ToQuery UpdateProvisioningTemplate where
+instance Data.ToQuery UpdateProvisioningTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProvisioningTemplateResponse' smart constructor.

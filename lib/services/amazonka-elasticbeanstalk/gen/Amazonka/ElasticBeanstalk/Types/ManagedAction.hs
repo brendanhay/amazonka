@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.ManagedAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.ActionStatus
 import Amazonka.ElasticBeanstalk.Types.ActionType
 import qualified Amazonka.Prelude as Prelude
@@ -33,7 +34,7 @@ data ManagedAction = ManagedAction'
     actionType :: Prelude.Maybe ActionType,
     -- | The start time of the maintenance window in which the managed action
     -- will execute.
-    windowStartTime :: Prelude.Maybe Core.ISO8601,
+    windowStartTime :: Prelude.Maybe Data.ISO8601,
     -- | The status of the managed action. If the action is @Scheduled@, you can
     -- apply it immediately with ApplyEnvironmentManagedAction.
     status :: Prelude.Maybe ActionStatus,
@@ -81,7 +82,7 @@ managedAction_actionType = Lens.lens (\ManagedAction' {actionType} -> actionType
 -- | The start time of the maintenance window in which the managed action
 -- will execute.
 managedAction_windowStartTime :: Lens.Lens' ManagedAction (Prelude.Maybe Prelude.UTCTime)
-managedAction_windowStartTime = Lens.lens (\ManagedAction' {windowStartTime} -> windowStartTime) (\s@ManagedAction' {} a -> s {windowStartTime = a} :: ManagedAction) Prelude.. Lens.mapping Core._Time
+managedAction_windowStartTime = Lens.lens (\ManagedAction' {windowStartTime} -> windowStartTime) (\s@ManagedAction' {} a -> s {windowStartTime = a} :: ManagedAction) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the managed action. If the action is @Scheduled@, you can
 -- apply it immediately with ApplyEnvironmentManagedAction.
@@ -96,14 +97,14 @@ managedAction_actionId = Lens.lens (\ManagedAction' {actionId} -> actionId) (\s@
 managedAction_actionDescription :: Lens.Lens' ManagedAction (Prelude.Maybe Prelude.Text)
 managedAction_actionDescription = Lens.lens (\ManagedAction' {actionDescription} -> actionDescription) (\s@ManagedAction' {} a -> s {actionDescription = a} :: ManagedAction)
 
-instance Core.FromXML ManagedAction where
+instance Data.FromXML ManagedAction where
   parseXML x =
     ManagedAction'
-      Prelude.<$> (x Core..@? "ActionType")
-      Prelude.<*> (x Core..@? "WindowStartTime")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "ActionId")
-      Prelude.<*> (x Core..@? "ActionDescription")
+      Prelude.<$> (x Data..@? "ActionType")
+      Prelude.<*> (x Data..@? "WindowStartTime")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "ActionId")
+      Prelude.<*> (x Data..@? "ActionDescription")
 
 instance Prelude.Hashable ManagedAction where
   hashWithSalt _salt ManagedAction' {..} =

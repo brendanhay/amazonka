@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.RetryOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The retry behavior in case Kinesis Data Firehose is unable to deliver
@@ -54,13 +55,13 @@ newRetryOptions =
 retryOptions_durationInSeconds :: Lens.Lens' RetryOptions (Prelude.Maybe Prelude.Natural)
 retryOptions_durationInSeconds = Lens.lens (\RetryOptions' {durationInSeconds} -> durationInSeconds) (\s@RetryOptions' {} a -> s {durationInSeconds = a} :: RetryOptions)
 
-instance Core.FromJSON RetryOptions where
+instance Data.FromJSON RetryOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RetryOptions"
       ( \x ->
           RetryOptions'
-            Prelude.<$> (x Core..:? "DurationInSeconds")
+            Prelude.<$> (x Data..:? "DurationInSeconds")
       )
 
 instance Prelude.Hashable RetryOptions where
@@ -70,11 +71,11 @@ instance Prelude.Hashable RetryOptions where
 instance Prelude.NFData RetryOptions where
   rnf RetryOptions' {..} = Prelude.rnf durationInSeconds
 
-instance Core.ToJSON RetryOptions where
+instance Data.ToJSON RetryOptions where
   toJSON RetryOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DurationInSeconds" Core..=)
+          [ ("DurationInSeconds" Data..=)
               Prelude.<$> durationInSeconds
           ]
       )

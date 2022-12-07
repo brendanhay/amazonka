@@ -24,6 +24,7 @@ import Amazonka.Connect.Types.InstanceStatus
 import Amazonka.Connect.Types.InstanceStatusReason
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Connect instance.
@@ -33,7 +34,7 @@ data Instance = Instance'
   { -- | The identity management type.
     identityManagementType :: Prelude.Maybe DirectoryType,
     -- | When the instance was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The state of the instance.
     instanceStatus :: Prelude.Maybe InstanceStatus,
     -- | The Amazon Resource Name (ARN) of the instance.
@@ -48,7 +49,7 @@ data Instance = Instance'
     -- | Whether inbound calls are enabled.
     inboundCallsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The alias of instance.
-    instanceAlias :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    instanceAlias :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Whether outbound calls are enabled.
     outboundCallsEnabled :: Prelude.Maybe Prelude.Bool
   }
@@ -104,7 +105,7 @@ instance_identityManagementType = Lens.lens (\Instance' {identityManagementType}
 
 -- | When the instance was created.
 instance_createdTime :: Lens.Lens' Instance (Prelude.Maybe Prelude.UTCTime)
-instance_createdTime = Lens.lens (\Instance' {createdTime} -> createdTime) (\s@Instance' {} a -> s {createdTime = a} :: Instance) Prelude.. Lens.mapping Core._Time
+instance_createdTime = Lens.lens (\Instance' {createdTime} -> createdTime) (\s@Instance' {} a -> s {createdTime = a} :: Instance) Prelude.. Lens.mapping Data._Time
 
 -- | The state of the instance.
 instance_instanceStatus :: Lens.Lens' Instance (Prelude.Maybe InstanceStatus)
@@ -133,28 +134,28 @@ instance_inboundCallsEnabled = Lens.lens (\Instance' {inboundCallsEnabled} -> in
 
 -- | The alias of instance.
 instance_instanceAlias :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_instanceAlias = Lens.lens (\Instance' {instanceAlias} -> instanceAlias) (\s@Instance' {} a -> s {instanceAlias = a} :: Instance) Prelude.. Lens.mapping Core._Sensitive
+instance_instanceAlias = Lens.lens (\Instance' {instanceAlias} -> instanceAlias) (\s@Instance' {} a -> s {instanceAlias = a} :: Instance) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Whether outbound calls are enabled.
 instance_outboundCallsEnabled :: Lens.Lens' Instance (Prelude.Maybe Prelude.Bool)
 instance_outboundCallsEnabled = Lens.lens (\Instance' {outboundCallsEnabled} -> outboundCallsEnabled) (\s@Instance' {} a -> s {outboundCallsEnabled = a} :: Instance)
 
-instance Core.FromJSON Instance where
+instance Data.FromJSON Instance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Instance"
       ( \x ->
           Instance'
-            Prelude.<$> (x Core..:? "IdentityManagementType")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "InstanceStatus")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "StatusReason")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ServiceRole")
-            Prelude.<*> (x Core..:? "InboundCallsEnabled")
-            Prelude.<*> (x Core..:? "InstanceAlias")
-            Prelude.<*> (x Core..:? "OutboundCallsEnabled")
+            Prelude.<$> (x Data..:? "IdentityManagementType")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "InstanceStatus")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "StatusReason")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ServiceRole")
+            Prelude.<*> (x Data..:? "InboundCallsEnabled")
+            Prelude.<*> (x Data..:? "InstanceAlias")
+            Prelude.<*> (x Data..:? "OutboundCallsEnabled")
       )
 
 instance Prelude.Hashable Instance where

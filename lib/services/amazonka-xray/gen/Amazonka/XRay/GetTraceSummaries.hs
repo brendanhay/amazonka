@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,9 +94,9 @@ data GetTraceSummaries = GetTraceSummaries'
     -- | Set to @true@ to get summaries for only a subset of available traces.
     sampling :: Prelude.Maybe Prelude.Bool,
     -- | The start of the time frame for which to retrieve traces.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The end of the time frame for which to retrieve traces.
-    endTime :: Core.POSIX
+    endTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -137,8 +138,8 @@ newGetTraceSummaries pStartTime_ pEndTime_ =
       filterExpression = Prelude.Nothing,
       samplingStrategy = Prelude.Nothing,
       sampling = Prelude.Nothing,
-      startTime = Core._Time Lens.# pStartTime_,
-      endTime = Core._Time Lens.# pEndTime_
+      startTime = Data._Time Lens.# pStartTime_,
+      endTime = Data._Time Lens.# pEndTime_
     }
 
 -- | Specify the pagination token returned by a previous request to retrieve
@@ -167,11 +168,11 @@ getTraceSummaries_sampling = Lens.lens (\GetTraceSummaries' {sampling} -> sampli
 
 -- | The start of the time frame for which to retrieve traces.
 getTraceSummaries_startTime :: Lens.Lens' GetTraceSummaries Prelude.UTCTime
-getTraceSummaries_startTime = Lens.lens (\GetTraceSummaries' {startTime} -> startTime) (\s@GetTraceSummaries' {} a -> s {startTime = a} :: GetTraceSummaries) Prelude.. Core._Time
+getTraceSummaries_startTime = Lens.lens (\GetTraceSummaries' {startTime} -> startTime) (\s@GetTraceSummaries' {} a -> s {startTime = a} :: GetTraceSummaries) Prelude.. Data._Time
 
 -- | The end of the time frame for which to retrieve traces.
 getTraceSummaries_endTime :: Lens.Lens' GetTraceSummaries Prelude.UTCTime
-getTraceSummaries_endTime = Lens.lens (\GetTraceSummaries' {endTime} -> endTime) (\s@GetTraceSummaries' {} a -> s {endTime = a} :: GetTraceSummaries) Prelude.. Core._Time
+getTraceSummaries_endTime = Lens.lens (\GetTraceSummaries' {endTime} -> endTime) (\s@GetTraceSummaries' {} a -> s {endTime = a} :: GetTraceSummaries) Prelude.. Data._Time
 
 instance Core.AWSPager GetTraceSummaries where
   page rq rs
@@ -205,10 +206,10 @@ instance Core.AWSRequest GetTraceSummaries where
     Response.receiveJSON
       ( \s h x ->
           GetTraceSummariesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "TracesProcessedCount")
-            Prelude.<*> (x Core..?> "TraceSummaries" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ApproximateTime")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "TracesProcessedCount")
+            Prelude.<*> (x Data..?> "TraceSummaries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ApproximateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,29 +233,29 @@ instance Prelude.NFData GetTraceSummaries where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
-instance Core.ToHeaders GetTraceSummaries where
+instance Data.ToHeaders GetTraceSummaries where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetTraceSummaries where
+instance Data.ToJSON GetTraceSummaries where
   toJSON GetTraceSummaries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("TimeRangeType" Core..=) Prelude.<$> timeRangeType,
-            ("FilterExpression" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("TimeRangeType" Data..=) Prelude.<$> timeRangeType,
+            ("FilterExpression" Data..=)
               Prelude.<$> filterExpression,
-            ("SamplingStrategy" Core..=)
+            ("SamplingStrategy" Data..=)
               Prelude.<$> samplingStrategy,
-            ("Sampling" Core..=) Prelude.<$> sampling,
-            Prelude.Just ("StartTime" Core..= startTime),
-            Prelude.Just ("EndTime" Core..= endTime)
+            ("Sampling" Data..=) Prelude.<$> sampling,
+            Prelude.Just ("StartTime" Data..= startTime),
+            Prelude.Just ("EndTime" Data..= endTime)
           ]
       )
 
-instance Core.ToPath GetTraceSummaries where
+instance Data.ToPath GetTraceSummaries where
   toPath = Prelude.const "/TraceSummaries"
 
-instance Core.ToQuery GetTraceSummaries where
+instance Data.ToQuery GetTraceSummaries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTraceSummariesResponse' smart constructor.
@@ -270,7 +271,7 @@ data GetTraceSummariesResponse = GetTraceSummariesResponse'
     -- time frame.
     traceSummaries :: Prelude.Maybe [TraceSummary],
     -- | The start time of this page of results.
-    approximateTime :: Prelude.Maybe Core.POSIX,
+    approximateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -329,7 +330,7 @@ getTraceSummariesResponse_traceSummaries = Lens.lens (\GetTraceSummariesResponse
 
 -- | The start time of this page of results.
 getTraceSummariesResponse_approximateTime :: Lens.Lens' GetTraceSummariesResponse (Prelude.Maybe Prelude.UTCTime)
-getTraceSummariesResponse_approximateTime = Lens.lens (\GetTraceSummariesResponse' {approximateTime} -> approximateTime) (\s@GetTraceSummariesResponse' {} a -> s {approximateTime = a} :: GetTraceSummariesResponse) Prelude.. Lens.mapping Core._Time
+getTraceSummariesResponse_approximateTime = Lens.lens (\GetTraceSummariesResponse' {approximateTime} -> approximateTime) (\s@GetTraceSummariesResponse' {} a -> s {approximateTime = a} :: GetTraceSummariesResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getTraceSummariesResponse_httpStatus :: Lens.Lens' GetTraceSummariesResponse Prelude.Int

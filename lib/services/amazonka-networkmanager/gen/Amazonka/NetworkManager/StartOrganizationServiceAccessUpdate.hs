@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,7 +95,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           StartOrganizationServiceAccessUpdateResponse'
-            Prelude.<$> (x Core..?> "OrganizationStatus")
+            Prelude.<$> (x Data..?> "OrganizationStatus")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,38 +116,38 @@ instance
     Prelude.rnf action
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StartOrganizationServiceAccessUpdate
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StartOrganizationServiceAccessUpdate
   where
   toJSON StartOrganizationServiceAccessUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Action" Core..= action)]
+          [Prelude.Just ("Action" Data..= action)]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     StartOrganizationServiceAccessUpdate
   where
   toPath =
     Prelude.const "/organizations/service-access"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     StartOrganizationServiceAccessUpdate
   where
   toQuery = Prelude.const Prelude.mempty

@@ -44,6 +44,7 @@ where
 import Amazonka.BackupGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,7 +98,7 @@ instance Core.AWSRequest UpdateGatewayInformation where
     Response.receiveJSON
       ( \s h x ->
           UpdateGatewayInformationResponse'
-            Prelude.<$> (x Core..?> "GatewayArn")
+            Prelude.<$> (x Data..?> "GatewayArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,35 +112,35 @@ instance Prelude.NFData UpdateGatewayInformation where
     Prelude.rnf gatewayDisplayName
       `Prelude.seq` Prelude.rnf gatewayArn
 
-instance Core.ToHeaders UpdateGatewayInformation where
+instance Data.ToHeaders UpdateGatewayInformation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BackupOnPremises_v20210101.UpdateGatewayInformation" ::
+              Data.=# ( "BackupOnPremises_v20210101.UpdateGatewayInformation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGatewayInformation where
+instance Data.ToJSON UpdateGatewayInformation where
   toJSON UpdateGatewayInformation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GatewayDisplayName" Core..=)
+          [ ("GatewayDisplayName" Data..=)
               Prelude.<$> gatewayDisplayName,
-            Prelude.Just ("GatewayArn" Core..= gatewayArn)
+            Prelude.Just ("GatewayArn" Data..= gatewayArn)
           ]
       )
 
-instance Core.ToPath UpdateGatewayInformation where
+instance Data.ToPath UpdateGatewayInformation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateGatewayInformation where
+instance Data.ToQuery UpdateGatewayInformation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGatewayInformationResponse' smart constructor.

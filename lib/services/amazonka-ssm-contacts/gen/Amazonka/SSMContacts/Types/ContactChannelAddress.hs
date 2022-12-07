@@ -21,6 +21,7 @@ module Amazonka.SSMContacts.Types.ContactChannelAddress where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details that Incident Manager uses when trying to engage the contact
@@ -75,13 +76,13 @@ newContactChannelAddress =
 contactChannelAddress_simpleAddress :: Lens.Lens' ContactChannelAddress (Prelude.Maybe Prelude.Text)
 contactChannelAddress_simpleAddress = Lens.lens (\ContactChannelAddress' {simpleAddress} -> simpleAddress) (\s@ContactChannelAddress' {} a -> s {simpleAddress = a} :: ContactChannelAddress)
 
-instance Core.FromJSON ContactChannelAddress where
+instance Data.FromJSON ContactChannelAddress where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContactChannelAddress"
       ( \x ->
           ContactChannelAddress'
-            Prelude.<$> (x Core..:? "SimpleAddress")
+            Prelude.<$> (x Data..:? "SimpleAddress")
       )
 
 instance Prelude.Hashable ContactChannelAddress where
@@ -92,11 +93,11 @@ instance Prelude.NFData ContactChannelAddress where
   rnf ContactChannelAddress' {..} =
     Prelude.rnf simpleAddress
 
-instance Core.ToJSON ContactChannelAddress where
+instance Data.ToJSON ContactChannelAddress where
   toJSON ContactChannelAddress' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SimpleAddress" Core..=)
+          [ ("SimpleAddress" Data..=)
               Prelude.<$> simpleAddress
           ]
       )

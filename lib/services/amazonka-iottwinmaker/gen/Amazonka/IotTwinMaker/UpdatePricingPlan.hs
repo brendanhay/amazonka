@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,9 +97,9 @@ instance Core.AWSRequest UpdatePricingPlan where
     Response.receiveJSON
       ( \s h x ->
           UpdatePricingPlanResponse'
-            Prelude.<$> (x Core..?> "pendingPricingPlan")
+            Prelude.<$> (x Data..?> "pendingPricingPlan")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "currentPricingPlan")
+            Prelude.<*> (x Data..:> "currentPricingPlan")
       )
 
 instance Prelude.Hashable UpdatePricingPlan where
@@ -111,30 +112,30 @@ instance Prelude.NFData UpdatePricingPlan where
     Prelude.rnf bundleNames
       `Prelude.seq` Prelude.rnf pricingMode
 
-instance Core.ToHeaders UpdatePricingPlan where
+instance Data.ToHeaders UpdatePricingPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePricingPlan where
+instance Data.ToJSON UpdatePricingPlan where
   toJSON UpdatePricingPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bundleNames" Core..=) Prelude.<$> bundleNames,
-            Prelude.Just ("pricingMode" Core..= pricingMode)
+          [ ("bundleNames" Data..=) Prelude.<$> bundleNames,
+            Prelude.Just ("pricingMode" Data..= pricingMode)
           ]
       )
 
-instance Core.ToPath UpdatePricingPlan where
+instance Data.ToPath UpdatePricingPlan where
   toPath = Prelude.const "/pricingplan"
 
-instance Core.ToQuery UpdatePricingPlan where
+instance Data.ToQuery UpdatePricingPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePricingPlanResponse' smart constructor.

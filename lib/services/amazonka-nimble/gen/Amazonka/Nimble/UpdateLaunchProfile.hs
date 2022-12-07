@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -59,14 +60,14 @@ data UpdateLaunchProfile = UpdateLaunchProfile'
     -- used with this launch profile.
     studioComponentIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name for the launch profile.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. If you don’t specify a client token, the AWS
     -- SDK automatically generates a client token and uses it for the request
     -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A configuration for a streaming session.
     streamConfiguration :: Prelude.Maybe StreamConfigurationCreate,
     -- | The version number of the protocol that is used by the launch profile.
@@ -133,7 +134,7 @@ updateLaunchProfile_studioComponentIds = Lens.lens (\UpdateLaunchProfile' {studi
 
 -- | The name for the launch profile.
 updateLaunchProfile_name :: Lens.Lens' UpdateLaunchProfile (Prelude.Maybe Prelude.Text)
-updateLaunchProfile_name = Lens.lens (\UpdateLaunchProfile' {name} -> name) (\s@UpdateLaunchProfile' {} a -> s {name = a} :: UpdateLaunchProfile) Prelude.. Lens.mapping Core._Sensitive
+updateLaunchProfile_name = Lens.lens (\UpdateLaunchProfile' {name} -> name) (\s@UpdateLaunchProfile' {} a -> s {name = a} :: UpdateLaunchProfile) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don’t specify a client token, the AWS
@@ -144,7 +145,7 @@ updateLaunchProfile_clientToken = Lens.lens (\UpdateLaunchProfile' {clientToken}
 
 -- | The description.
 updateLaunchProfile_description :: Lens.Lens' UpdateLaunchProfile (Prelude.Maybe Prelude.Text)
-updateLaunchProfile_description = Lens.lens (\UpdateLaunchProfile' {description} -> description) (\s@UpdateLaunchProfile' {} a -> s {description = a} :: UpdateLaunchProfile) Prelude.. Lens.mapping Core._Sensitive
+updateLaunchProfile_description = Lens.lens (\UpdateLaunchProfile' {description} -> description) (\s@UpdateLaunchProfile' {} a -> s {description = a} :: UpdateLaunchProfile) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A configuration for a streaming session.
 updateLaunchProfile_streamConfiguration :: Lens.Lens' UpdateLaunchProfile (Prelude.Maybe StreamConfigurationCreate)
@@ -173,7 +174,7 @@ instance Core.AWSRequest UpdateLaunchProfile where
     Response.receiveJSON
       ( \s h x ->
           UpdateLaunchProfileResponse'
-            Prelude.<$> (x Core..?> "launchProfile")
+            Prelude.<$> (x Data..?> "launchProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,39 +200,39 @@ instance Prelude.NFData UpdateLaunchProfile where
       `Prelude.seq` Prelude.rnf launchProfileId
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders UpdateLaunchProfile where
+instance Data.ToHeaders UpdateLaunchProfile where
   toHeaders UpdateLaunchProfile' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON UpdateLaunchProfile where
+instance Data.ToJSON UpdateLaunchProfile where
   toJSON UpdateLaunchProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("studioComponentIds" Core..=)
+          [ ("studioComponentIds" Data..=)
               Prelude.<$> studioComponentIds,
-            ("name" Core..=) Prelude.<$> name,
-            ("description" Core..=) Prelude.<$> description,
-            ("streamConfiguration" Core..=)
+            ("name" Data..=) Prelude.<$> name,
+            ("description" Data..=) Prelude.<$> description,
+            ("streamConfiguration" Data..=)
               Prelude.<$> streamConfiguration,
-            ("launchProfileProtocolVersions" Core..=)
+            ("launchProfileProtocolVersions" Data..=)
               Prelude.<$> launchProfileProtocolVersions
           ]
       )
 
-instance Core.ToPath UpdateLaunchProfile where
+instance Data.ToPath UpdateLaunchProfile where
   toPath UpdateLaunchProfile' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/launch-profiles/",
-        Core.toBS launchProfileId
+        Data.toBS launchProfileId
       ]
 
-instance Core.ToQuery UpdateLaunchProfile where
+instance Data.ToQuery UpdateLaunchProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLaunchProfileResponse' smart constructor.

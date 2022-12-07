@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.AutoTuneOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.AutoTuneDesiredState
 import Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule
 import Amazonka.OpenSearch.Types.RollbackOnDisable
@@ -90,17 +91,17 @@ autoTuneOptions_desiredState = Lens.lens (\AutoTuneOptions' {desiredState} -> de
 autoTuneOptions_rollbackOnDisable :: Lens.Lens' AutoTuneOptions (Prelude.Maybe RollbackOnDisable)
 autoTuneOptions_rollbackOnDisable = Lens.lens (\AutoTuneOptions' {rollbackOnDisable} -> rollbackOnDisable) (\s@AutoTuneOptions' {} a -> s {rollbackOnDisable = a} :: AutoTuneOptions)
 
-instance Core.FromJSON AutoTuneOptions where
+instance Data.FromJSON AutoTuneOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoTuneOptions"
       ( \x ->
           AutoTuneOptions'
-            Prelude.<$> ( x Core..:? "MaintenanceSchedules"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "MaintenanceSchedules"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DesiredState")
-            Prelude.<*> (x Core..:? "RollbackOnDisable")
+            Prelude.<*> (x Data..:? "DesiredState")
+            Prelude.<*> (x Data..:? "RollbackOnDisable")
       )
 
 instance Prelude.Hashable AutoTuneOptions where
@@ -115,14 +116,14 @@ instance Prelude.NFData AutoTuneOptions where
       `Prelude.seq` Prelude.rnf desiredState
       `Prelude.seq` Prelude.rnf rollbackOnDisable
 
-instance Core.ToJSON AutoTuneOptions where
+instance Data.ToJSON AutoTuneOptions where
   toJSON AutoTuneOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaintenanceSchedules" Core..=)
+          [ ("MaintenanceSchedules" Data..=)
               Prelude.<$> maintenanceSchedules,
-            ("DesiredState" Core..=) Prelude.<$> desiredState,
-            ("RollbackOnDisable" Core..=)
+            ("DesiredState" Data..=) Prelude.<$> desiredState,
+            ("RollbackOnDisable" Data..=)
               Prelude.<$> rollbackOnDisable
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Occurrences where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.Cell
 import Amazonka.SecurityHub.Types.Page
@@ -107,17 +108,17 @@ occurrences_cells = Lens.lens (\Occurrences' {cells} -> cells) (\s@Occurrences' 
 occurrences_pages :: Lens.Lens' Occurrences (Prelude.Maybe [Page])
 occurrences_pages = Lens.lens (\Occurrences' {pages} -> pages) (\s@Occurrences' {} a -> s {pages = a} :: Occurrences) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Occurrences where
+instance Data.FromJSON Occurrences where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Occurrences"
       ( \x ->
           Occurrences'
-            Prelude.<$> (x Core..:? "Records" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LineRanges" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "OffsetRanges" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Cells" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Pages" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Records" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LineRanges" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "OffsetRanges" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Cells" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Pages" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Occurrences where
@@ -136,14 +137,14 @@ instance Prelude.NFData Occurrences where
       `Prelude.seq` Prelude.rnf cells
       `Prelude.seq` Prelude.rnf pages
 
-instance Core.ToJSON Occurrences where
+instance Data.ToJSON Occurrences where
   toJSON Occurrences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Records" Core..=) Prelude.<$> records,
-            ("LineRanges" Core..=) Prelude.<$> lineRanges,
-            ("OffsetRanges" Core..=) Prelude.<$> offsetRanges,
-            ("Cells" Core..=) Prelude.<$> cells,
-            ("Pages" Core..=) Prelude.<$> pages
+          [ ("Records" Data..=) Prelude.<$> records,
+            ("LineRanges" Data..=) Prelude.<$> lineRanges,
+            ("OffsetRanges" Data..=) Prelude.<$> offsetRanges,
+            ("Cells" Data..=) Prelude.<$> cells,
+            ("Pages" Data..=) Prelude.<$> pages
           ]
       )

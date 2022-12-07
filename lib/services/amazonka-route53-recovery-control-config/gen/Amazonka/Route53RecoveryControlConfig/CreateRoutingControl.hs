@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,7 +143,7 @@ instance Core.AWSRequest CreateRoutingControl where
     Response.receiveJSON
       ( \s h x ->
           CreateRoutingControlResponse'
-            Prelude.<$> (x Core..?> "RoutingControl")
+            Prelude.<$> (x Data..?> "RoutingControl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,34 +161,34 @@ instance Prelude.NFData CreateRoutingControl where
       `Prelude.seq` Prelude.rnf clusterArn
       `Prelude.seq` Prelude.rnf routingControlName
 
-instance Core.ToHeaders CreateRoutingControl where
+instance Data.ToHeaders CreateRoutingControl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRoutingControl where
+instance Data.ToJSON CreateRoutingControl where
   toJSON CreateRoutingControl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("ControlPanelArn" Core..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("ControlPanelArn" Data..=)
               Prelude.<$> controlPanelArn,
-            Prelude.Just ("ClusterArn" Core..= clusterArn),
+            Prelude.Just ("ClusterArn" Data..= clusterArn),
             Prelude.Just
-              ("RoutingControlName" Core..= routingControlName)
+              ("RoutingControlName" Data..= routingControlName)
           ]
       )
 
-instance Core.ToPath CreateRoutingControl where
+instance Data.ToPath CreateRoutingControl where
   toPath = Prelude.const "/routingcontrol"
 
-instance Core.ToQuery CreateRoutingControl where
+instance Data.ToQuery CreateRoutingControl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRoutingControlResponse' smart constructor.

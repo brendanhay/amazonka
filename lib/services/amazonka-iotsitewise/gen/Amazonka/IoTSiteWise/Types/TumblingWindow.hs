@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.TumblingWindow where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a tumbling window, which is a repeating fixed-sized,
@@ -246,14 +247,14 @@ tumblingWindow_offset = Lens.lens (\TumblingWindow' {offset} -> offset) (\s@Tumb
 tumblingWindow_interval :: Lens.Lens' TumblingWindow Prelude.Text
 tumblingWindow_interval = Lens.lens (\TumblingWindow' {interval} -> interval) (\s@TumblingWindow' {} a -> s {interval = a} :: TumblingWindow)
 
-instance Core.FromJSON TumblingWindow where
+instance Data.FromJSON TumblingWindow where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TumblingWindow"
       ( \x ->
           TumblingWindow'
-            Prelude.<$> (x Core..:? "offset")
-            Prelude.<*> (x Core..: "interval")
+            Prelude.<$> (x Data..:? "offset")
+            Prelude.<*> (x Data..: "interval")
       )
 
 instance Prelude.Hashable TumblingWindow where
@@ -266,11 +267,11 @@ instance Prelude.NFData TumblingWindow where
     Prelude.rnf offset
       `Prelude.seq` Prelude.rnf interval
 
-instance Core.ToJSON TumblingWindow where
+instance Data.ToJSON TumblingWindow where
   toJSON TumblingWindow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("offset" Core..=) Prelude.<$> offset,
-            Prelude.Just ("interval" Core..= interval)
+          [ ("offset" Data..=) Prelude.<$> offset,
+            Prelude.Just ("interval" Data..= interval)
           ]
       )

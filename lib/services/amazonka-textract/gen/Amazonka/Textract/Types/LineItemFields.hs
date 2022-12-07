@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.LineItemFields where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.ExpenseField
 
@@ -55,14 +56,14 @@ newLineItemFields =
 lineItemFields_lineItemExpenseFields :: Lens.Lens' LineItemFields (Prelude.Maybe [ExpenseField])
 lineItemFields_lineItemExpenseFields = Lens.lens (\LineItemFields' {lineItemExpenseFields} -> lineItemExpenseFields) (\s@LineItemFields' {} a -> s {lineItemExpenseFields = a} :: LineItemFields) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON LineItemFields where
+instance Data.FromJSON LineItemFields where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LineItemFields"
       ( \x ->
           LineItemFields'
-            Prelude.<$> ( x Core..:? "LineItemExpenseFields"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "LineItemExpenseFields"
+                            Data..!= Prelude.mempty
                         )
       )
 

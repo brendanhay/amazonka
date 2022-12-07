@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,23 +93,23 @@ instance Prelude.Hashable DeleteTrustStore where
 instance Prelude.NFData DeleteTrustStore where
   rnf DeleteTrustStore' {..} = Prelude.rnf trustStoreArn
 
-instance Core.ToHeaders DeleteTrustStore where
+instance Data.ToHeaders DeleteTrustStore where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteTrustStore where
+instance Data.ToPath DeleteTrustStore where
   toPath DeleteTrustStore' {..} =
     Prelude.mconcat
-      ["/trustStores/", Core.toBS trustStoreArn]
+      ["/trustStores/", Data.toBS trustStoreArn]
 
-instance Core.ToQuery DeleteTrustStore where
+instance Data.ToQuery DeleteTrustStore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTrustStoreResponse' smart constructor.

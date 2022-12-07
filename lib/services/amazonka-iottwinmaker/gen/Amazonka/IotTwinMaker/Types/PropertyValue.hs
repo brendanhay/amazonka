@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.PropertyValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.DataValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,7 +58,7 @@ data PropertyValue = PropertyValue'
     -- /Required sub-fields/: YYYY-MM-DDThh:mm:ss and [Z\/±HH:mm]
     time :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of a value for a time series property.
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | An object that specifies a value for a time series property.
     value :: DataValue
   }
@@ -143,21 +144,21 @@ propertyValue_time = Lens.lens (\PropertyValue' {time} -> time) (\s@PropertyValu
 
 -- | The timestamp of a value for a time series property.
 propertyValue_timestamp :: Lens.Lens' PropertyValue (Prelude.Maybe Prelude.UTCTime)
-propertyValue_timestamp = Lens.lens (\PropertyValue' {timestamp} -> timestamp) (\s@PropertyValue' {} a -> s {timestamp = a} :: PropertyValue) Prelude.. Lens.mapping Core._Time
+propertyValue_timestamp = Lens.lens (\PropertyValue' {timestamp} -> timestamp) (\s@PropertyValue' {} a -> s {timestamp = a} :: PropertyValue) Prelude.. Lens.mapping Data._Time
 
 -- | An object that specifies a value for a time series property.
 propertyValue_value :: Lens.Lens' PropertyValue DataValue
 propertyValue_value = Lens.lens (\PropertyValue' {value} -> value) (\s@PropertyValue' {} a -> s {value = a} :: PropertyValue)
 
-instance Core.FromJSON PropertyValue where
+instance Data.FromJSON PropertyValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PropertyValue"
       ( \x ->
           PropertyValue'
-            Prelude.<$> (x Core..:? "time")
-            Prelude.<*> (x Core..:? "timestamp")
-            Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..:? "time")
+            Prelude.<*> (x Data..:? "timestamp")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable PropertyValue where
@@ -172,12 +173,12 @@ instance Prelude.NFData PropertyValue where
       `Prelude.seq` Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON PropertyValue where
+instance Data.ToJSON PropertyValue where
   toJSON PropertyValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("time" Core..=) Prelude.<$> time,
-            ("timestamp" Core..=) Prelude.<$> timestamp,
-            Prelude.Just ("value" Core..= value)
+          [ ("time" Data..=) Prelude.<$> time,
+            ("timestamp" Data..=) Prelude.<$> timestamp,
+            Prelude.Just ("value" Data..= value)
           ]
       )

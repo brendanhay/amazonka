@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.Dimension where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value to use in an Amazon CloudWatch custom metric dimension. This
@@ -62,11 +63,11 @@ newDimension pValue_ = Dimension' {value = pValue_}
 dimension_value :: Lens.Lens' Dimension Prelude.Text
 dimension_value = Lens.lens (\Dimension' {value} -> value) (\s@Dimension' {} a -> s {value = a} :: Dimension)
 
-instance Core.FromJSON Dimension where
+instance Data.FromJSON Dimension where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Dimension"
-      (\x -> Dimension' Prelude.<$> (x Core..: "Value"))
+      (\x -> Dimension' Prelude.<$> (x Data..: "Value"))
 
 instance Prelude.Hashable Dimension where
   hashWithSalt _salt Dimension' {..} =
@@ -75,9 +76,9 @@ instance Prelude.Hashable Dimension where
 instance Prelude.NFData Dimension where
   rnf Dimension' {..} = Prelude.rnf value
 
-instance Core.ToJSON Dimension where
+instance Data.ToJSON Dimension where
   toJSON Dimension' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Value" Core..= value)]
+          [Prelude.Just ("Value" Data..= value)]
       )

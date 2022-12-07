@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DescribeDBLogFilesDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This data type is used as a response element to @DescribeDBLogFiles@.
@@ -71,12 +72,12 @@ describeDBLogFilesDetails_logFileName = Lens.lens (\DescribeDBLogFilesDetails' {
 describeDBLogFilesDetails_size :: Lens.Lens' DescribeDBLogFilesDetails (Prelude.Maybe Prelude.Integer)
 describeDBLogFilesDetails_size = Lens.lens (\DescribeDBLogFilesDetails' {size} -> size) (\s@DescribeDBLogFilesDetails' {} a -> s {size = a} :: DescribeDBLogFilesDetails)
 
-instance Core.FromXML DescribeDBLogFilesDetails where
+instance Data.FromXML DescribeDBLogFilesDetails where
   parseXML x =
     DescribeDBLogFilesDetails'
-      Prelude.<$> (x Core..@? "LastWritten")
-      Prelude.<*> (x Core..@? "LogFileName")
-      Prelude.<*> (x Core..@? "Size")
+      Prelude.<$> (x Data..@? "LastWritten")
+      Prelude.<*> (x Data..@? "LogFileName")
+      Prelude.<*> (x Data..@? "Size")
 
 instance Prelude.Hashable DescribeDBLogFilesDetails where
   hashWithSalt _salt DescribeDBLogFilesDetails' {..} =

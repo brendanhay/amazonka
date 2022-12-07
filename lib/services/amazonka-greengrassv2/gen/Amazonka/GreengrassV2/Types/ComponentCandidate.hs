@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.ComponentCandidate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a component that is a candidate to deploy to
@@ -96,14 +97,14 @@ instance Prelude.NFData ComponentCandidate where
       `Prelude.seq` Prelude.rnf componentName
       `Prelude.seq` Prelude.rnf versionRequirements
 
-instance Core.ToJSON ComponentCandidate where
+instance Data.ToJSON ComponentCandidate where
   toJSON ComponentCandidate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("componentVersion" Core..=)
+          [ ("componentVersion" Data..=)
               Prelude.<$> componentVersion,
-            ("componentName" Core..=) Prelude.<$> componentName,
-            ("versionRequirements" Core..=)
+            ("componentName" Data..=) Prelude.<$> componentName,
+            ("versionRequirements" Data..=)
               Prelude.<$> versionRequirements
           ]
       )

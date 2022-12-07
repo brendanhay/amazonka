@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.PortalSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.PortalStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -36,9 +37,9 @@ data PortalSummary = PortalSummary'
     -- in the /IoT SiteWise User Guide/.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The date the portal was created, in Unix epoch time.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The date the portal was last updated, in Unix epoch time.
-    lastUpdateDate :: Prelude.Maybe Core.POSIX,
+    lastUpdateDate :: Prelude.Maybe Data.POSIX,
     -- | The portal\'s description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the portal.
@@ -118,11 +119,11 @@ portalSummary_roleArn = Lens.lens (\PortalSummary' {roleArn} -> roleArn) (\s@Por
 
 -- | The date the portal was created, in Unix epoch time.
 portalSummary_creationDate :: Lens.Lens' PortalSummary (Prelude.Maybe Prelude.UTCTime)
-portalSummary_creationDate = Lens.lens (\PortalSummary' {creationDate} -> creationDate) (\s@PortalSummary' {} a -> s {creationDate = a} :: PortalSummary) Prelude.. Lens.mapping Core._Time
+portalSummary_creationDate = Lens.lens (\PortalSummary' {creationDate} -> creationDate) (\s@PortalSummary' {} a -> s {creationDate = a} :: PortalSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The date the portal was last updated, in Unix epoch time.
 portalSummary_lastUpdateDate :: Lens.Lens' PortalSummary (Prelude.Maybe Prelude.UTCTime)
-portalSummary_lastUpdateDate = Lens.lens (\PortalSummary' {lastUpdateDate} -> lastUpdateDate) (\s@PortalSummary' {} a -> s {lastUpdateDate = a} :: PortalSummary) Prelude.. Lens.mapping Core._Time
+portalSummary_lastUpdateDate = Lens.lens (\PortalSummary' {lastUpdateDate} -> lastUpdateDate) (\s@PortalSummary' {} a -> s {lastUpdateDate = a} :: PortalSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The portal\'s description.
 portalSummary_description :: Lens.Lens' PortalSummary (Prelude.Maybe Prelude.Text)
@@ -147,20 +148,20 @@ portalSummary_startUrl = Lens.lens (\PortalSummary' {startUrl} -> startUrl) (\s@
 portalSummary_status :: Lens.Lens' PortalSummary PortalStatus
 portalSummary_status = Lens.lens (\PortalSummary' {status} -> status) (\s@PortalSummary' {} a -> s {status = a} :: PortalSummary)
 
-instance Core.FromJSON PortalSummary where
+instance Data.FromJSON PortalSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortalSummary"
       ( \x ->
           PortalSummary'
-            Prelude.<$> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "lastUpdateDate")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "startUrl")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "lastUpdateDate")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "startUrl")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable PortalSummary where

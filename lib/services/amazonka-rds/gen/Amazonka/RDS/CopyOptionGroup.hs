@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -175,7 +176,7 @@ instance Core.AWSRequest CopyOptionGroup where
       "CopyOptionGroupResult"
       ( \s h x ->
           CopyOptionGroupResponse'
-            Prelude.<$> (x Core..@? "OptionGroup")
+            Prelude.<$> (x Data..@? "OptionGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,28 +194,28 @@ instance Prelude.NFData CopyOptionGroup where
       `Prelude.seq` Prelude.rnf targetOptionGroupIdentifier
       `Prelude.seq` Prelude.rnf targetOptionGroupDescription
 
-instance Core.ToHeaders CopyOptionGroup where
+instance Data.ToHeaders CopyOptionGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CopyOptionGroup where
+instance Data.ToPath CopyOptionGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CopyOptionGroup where
+instance Data.ToQuery CopyOptionGroup where
   toQuery CopyOptionGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CopyOptionGroup" :: Prelude.ByteString),
+          Data.=: ("CopyOptionGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
         "SourceOptionGroupIdentifier"
-          Core.=: sourceOptionGroupIdentifier,
+          Data.=: sourceOptionGroupIdentifier,
         "TargetOptionGroupIdentifier"
-          Core.=: targetOptionGroupIdentifier,
+          Data.=: targetOptionGroupIdentifier,
         "TargetOptionGroupDescription"
-          Core.=: targetOptionGroupDescription
+          Data.=: targetOptionGroupDescription
       ]
 
 -- | /See:/ 'newCopyOptionGroupResponse' smart constructor.

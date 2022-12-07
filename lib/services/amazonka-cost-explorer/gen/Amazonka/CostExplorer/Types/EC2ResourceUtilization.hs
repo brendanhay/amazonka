@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.DiskResourceUtilization
 import Amazonka.CostExplorer.Types.EBSResourceUtilization
 import Amazonka.CostExplorer.Types.NetworkResourceUtilization
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Utilization metrics for the instance.
@@ -113,18 +114,18 @@ eC2ResourceUtilization_networkResourceUtilization = Lens.lens (\EC2ResourceUtili
 eC2ResourceUtilization_maxStorageUtilizationPercentage :: Lens.Lens' EC2ResourceUtilization (Prelude.Maybe Prelude.Text)
 eC2ResourceUtilization_maxStorageUtilizationPercentage = Lens.lens (\EC2ResourceUtilization' {maxStorageUtilizationPercentage} -> maxStorageUtilizationPercentage) (\s@EC2ResourceUtilization' {} a -> s {maxStorageUtilizationPercentage = a} :: EC2ResourceUtilization)
 
-instance Core.FromJSON EC2ResourceUtilization where
+instance Data.FromJSON EC2ResourceUtilization where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EC2ResourceUtilization"
       ( \x ->
           EC2ResourceUtilization'
-            Prelude.<$> (x Core..:? "MaxCpuUtilizationPercentage")
-            Prelude.<*> (x Core..:? "EBSResourceUtilization")
-            Prelude.<*> (x Core..:? "DiskResourceUtilization")
-            Prelude.<*> (x Core..:? "MaxMemoryUtilizationPercentage")
-            Prelude.<*> (x Core..:? "NetworkResourceUtilization")
-            Prelude.<*> (x Core..:? "MaxStorageUtilizationPercentage")
+            Prelude.<$> (x Data..:? "MaxCpuUtilizationPercentage")
+            Prelude.<*> (x Data..:? "EBSResourceUtilization")
+            Prelude.<*> (x Data..:? "DiskResourceUtilization")
+            Prelude.<*> (x Data..:? "MaxMemoryUtilizationPercentage")
+            Prelude.<*> (x Data..:? "NetworkResourceUtilization")
+            Prelude.<*> (x Data..:? "MaxStorageUtilizationPercentage")
       )
 
 instance Prelude.Hashable EC2ResourceUtilization where

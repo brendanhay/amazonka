@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -229,7 +230,7 @@ instance
       "ModifyReplicationGroupShardConfigurationResult"
       ( \s h x ->
           ModifyReplicationGroupShardConfigurationResponse'
-            Prelude.<$> (x Core..@? "ReplicationGroup")
+            Prelude.<$> (x Data..@? "ReplicationGroup")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -260,47 +261,47 @@ instance
       `Prelude.seq` Prelude.rnf applyImmediately
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ModifyReplicationGroupShardConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ModifyReplicationGroupShardConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ModifyReplicationGroupShardConfiguration
   where
   toQuery ModifyReplicationGroupShardConfiguration' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyReplicationGroupShardConfiguration" ::
+          Data.=: ( "ModifyReplicationGroupShardConfiguration" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "NodeGroupsToRemove"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "NodeGroupToRemove"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "NodeGroupToRemove"
                 Prelude.<$> nodeGroupsToRemove
             ),
         "ReshardingConfiguration"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "ReshardingConfiguration"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "ReshardingConfiguration"
                 Prelude.<$> reshardingConfiguration
             ),
         "NodeGroupsToRetain"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "NodeGroupToRetain"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "NodeGroupToRetain"
                 Prelude.<$> nodeGroupsToRetain
             ),
-        "ReplicationGroupId" Core.=: replicationGroupId,
-        "NodeGroupCount" Core.=: nodeGroupCount,
-        "ApplyImmediately" Core.=: applyImmediately
+        "ReplicationGroupId" Data.=: replicationGroupId,
+        "NodeGroupCount" Data.=: nodeGroupCount,
+        "ApplyImmediately" Data.=: applyImmediately
       ]
 
 -- | /See:/ 'newModifyReplicationGroupShardConfigurationResponse' smart constructor.

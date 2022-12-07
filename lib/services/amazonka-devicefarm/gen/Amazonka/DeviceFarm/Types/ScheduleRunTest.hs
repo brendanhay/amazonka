@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.ScheduleRunTest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.TestType
 import qualified Amazonka.Prelude as Prelude
 
@@ -472,15 +473,15 @@ instance Prelude.NFData ScheduleRunTest where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON ScheduleRunTest where
+instance Data.ToJSON ScheduleRunTest where
   toJSON ScheduleRunTest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("filter" Core..=) Prelude.<$> filter',
-            ("testSpecArn" Core..=) Prelude.<$> testSpecArn,
-            ("testPackageArn" Core..=)
+          [ ("filter" Data..=) Prelude.<$> filter',
+            ("testSpecArn" Data..=) Prelude.<$> testSpecArn,
+            ("testPackageArn" Data..=)
               Prelude.<$> testPackageArn,
-            ("parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("type" Core..= type')
+            ("parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("type" Data..= type')
           ]
       )

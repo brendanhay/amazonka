@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,28 +101,28 @@ instance Prelude.NFData CreateSampleFindings where
   rnf CreateSampleFindings' {..} =
     Prelude.rnf findingTypes
 
-instance Core.ToHeaders CreateSampleFindings where
+instance Data.ToHeaders CreateSampleFindings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSampleFindings where
+instance Data.ToJSON CreateSampleFindings where
   toJSON CreateSampleFindings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("findingTypes" Core..=) Prelude.<$> findingTypes]
+          [("findingTypes" Data..=) Prelude.<$> findingTypes]
       )
 
-instance Core.ToPath CreateSampleFindings where
+instance Data.ToPath CreateSampleFindings where
   toPath = Prelude.const "/findings/sample"
 
-instance Core.ToQuery CreateSampleFindings where
+instance Data.ToQuery CreateSampleFindings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSampleFindingsResponse' smart constructor.

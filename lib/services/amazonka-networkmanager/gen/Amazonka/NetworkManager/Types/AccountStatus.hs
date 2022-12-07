@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.AccountStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the current status of an account within an Amazon Web Services
@@ -63,14 +64,14 @@ accountStatus_sLRDeploymentStatus = Lens.lens (\AccountStatus' {sLRDeploymentSta
 accountStatus_accountId :: Lens.Lens' AccountStatus (Prelude.Maybe Prelude.Text)
 accountStatus_accountId = Lens.lens (\AccountStatus' {accountId} -> accountId) (\s@AccountStatus' {} a -> s {accountId = a} :: AccountStatus)
 
-instance Core.FromJSON AccountStatus where
+instance Data.FromJSON AccountStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountStatus"
       ( \x ->
           AccountStatus'
-            Prelude.<$> (x Core..:? "SLRDeploymentStatus")
-            Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<$> (x Data..:? "SLRDeploymentStatus")
+            Prelude.<*> (x Data..:? "AccountId")
       )
 
 instance Prelude.Hashable AccountStatus where

@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.ParameterNameValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a name-value pair that is used to update the value of a
@@ -73,9 +74,9 @@ instance Prelude.NFData ParameterNameValue where
     Prelude.rnf parameterValue
       `Prelude.seq` Prelude.rnf parameterName
 
-instance Core.ToQuery ParameterNameValue where
+instance Data.ToQuery ParameterNameValue where
   toQuery ParameterNameValue' {..} =
     Prelude.mconcat
-      [ "ParameterValue" Core.=: parameterValue,
-        "ParameterName" Core.=: parameterName
+      [ "ParameterValue" Data.=: parameterValue,
+        "ParameterName" Data.=: parameterName
       ]

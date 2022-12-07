@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,27 +111,27 @@ instance
     Prelude.rnf userAccessLoggingSettingsArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteUserAccessLoggingSettings
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteUserAccessLoggingSettings where
+instance Data.ToPath DeleteUserAccessLoggingSettings where
   toPath DeleteUserAccessLoggingSettings' {..} =
     Prelude.mconcat
       [ "/userAccessLoggingSettings/",
-        Core.toBS userAccessLoggingSettingsArn
+        Data.toBS userAccessLoggingSettingsArn
       ]
 
-instance Core.ToQuery DeleteUserAccessLoggingSettings where
+instance Data.ToQuery DeleteUserAccessLoggingSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserAccessLoggingSettingsResponse' smart constructor.

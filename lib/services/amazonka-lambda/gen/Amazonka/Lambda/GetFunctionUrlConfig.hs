@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,13 +137,13 @@ instance Core.AWSRequest GetFunctionUrlConfig where
     Response.receiveJSON
       ( \s h x ->
           GetFunctionUrlConfigResponse'
-            Prelude.<$> (x Core..?> "Cors")
+            Prelude.<$> (x Data..?> "Cors")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "FunctionUrl")
-            Prelude.<*> (x Core..:> "FunctionArn")
-            Prelude.<*> (x Core..:> "AuthType")
-            Prelude.<*> (x Core..:> "CreationTime")
-            Prelude.<*> (x Core..:> "LastModifiedTime")
+            Prelude.<*> (x Data..:> "FunctionUrl")
+            Prelude.<*> (x Data..:> "FunctionArn")
+            Prelude.<*> (x Data..:> "AuthType")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "LastModifiedTime")
       )
 
 instance Prelude.Hashable GetFunctionUrlConfig where
@@ -155,20 +156,20 @@ instance Prelude.NFData GetFunctionUrlConfig where
     Prelude.rnf qualifier
       `Prelude.seq` Prelude.rnf functionName
 
-instance Core.ToHeaders GetFunctionUrlConfig where
+instance Data.ToHeaders GetFunctionUrlConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetFunctionUrlConfig where
+instance Data.ToPath GetFunctionUrlConfig where
   toPath GetFunctionUrlConfig' {..} =
     Prelude.mconcat
       [ "/2021-10-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/url"
       ]
 
-instance Core.ToQuery GetFunctionUrlConfig where
+instance Data.ToQuery GetFunctionUrlConfig where
   toQuery GetFunctionUrlConfig' {..} =
-    Prelude.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Data.=: qualifier]
 
 -- | /See:/ 'newGetFunctionUrlConfigResponse' smart constructor.
 data GetFunctionUrlConfigResponse = GetFunctionUrlConfigResponse'

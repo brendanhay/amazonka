@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AbortConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.AbortCriteria
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,12 +57,12 @@ newAbortConfig pCriteriaList_ =
 abortConfig_criteriaList :: Lens.Lens' AbortConfig (Prelude.NonEmpty AbortCriteria)
 abortConfig_criteriaList = Lens.lens (\AbortConfig' {criteriaList} -> criteriaList) (\s@AbortConfig' {} a -> s {criteriaList = a} :: AbortConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON AbortConfig where
+instance Data.FromJSON AbortConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AbortConfig"
       ( \x ->
-          AbortConfig' Prelude.<$> (x Core..: "criteriaList")
+          AbortConfig' Prelude.<$> (x Data..: "criteriaList")
       )
 
 instance Prelude.Hashable AbortConfig where
@@ -71,9 +72,9 @@ instance Prelude.Hashable AbortConfig where
 instance Prelude.NFData AbortConfig where
   rnf AbortConfig' {..} = Prelude.rnf criteriaList
 
-instance Core.ToJSON AbortConfig where
+instance Data.ToJSON AbortConfig where
   toJSON AbortConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("criteriaList" Core..= criteriaList)]
+          [Prelude.Just ("criteriaList" Data..= criteriaList)]
       )

@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.HoneycodeDestinationProperties where
 import Amazonka.AppFlow.Types.ErrorHandlingConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Amazon Honeycode is used as a
@@ -65,14 +66,14 @@ honeycodeDestinationProperties_errorHandlingConfig = Lens.lens (\HoneycodeDestin
 honeycodeDestinationProperties_object :: Lens.Lens' HoneycodeDestinationProperties Prelude.Text
 honeycodeDestinationProperties_object = Lens.lens (\HoneycodeDestinationProperties' {object'} -> object') (\s@HoneycodeDestinationProperties' {} a -> s {object' = a} :: HoneycodeDestinationProperties)
 
-instance Core.FromJSON HoneycodeDestinationProperties where
+instance Data.FromJSON HoneycodeDestinationProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HoneycodeDestinationProperties"
       ( \x ->
           HoneycodeDestinationProperties'
-            Prelude.<$> (x Core..:? "errorHandlingConfig")
-            Prelude.<*> (x Core..: "object")
+            Prelude.<$> (x Data..:? "errorHandlingConfig")
+            Prelude.<*> (x Data..: "object")
       )
 
 instance
@@ -93,12 +94,12 @@ instance
     Prelude.rnf errorHandlingConfig
       `Prelude.seq` Prelude.rnf object'
 
-instance Core.ToJSON HoneycodeDestinationProperties where
+instance Data.ToJSON HoneycodeDestinationProperties where
   toJSON HoneycodeDestinationProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("errorHandlingConfig" Core..=)
+          [ ("errorHandlingConfig" Data..=)
               Prelude.<$> errorHandlingConfig,
-            Prelude.Just ("object" Core..= object')
+            Prelude.Just ("object" Data..= object')
           ]
       )

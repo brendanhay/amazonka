@@ -82,6 +82,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -493,66 +494,66 @@ instance Prelude.NFData UpdateUserPool where
       `Prelude.seq` Prelude.rnf userPoolAddOns
       `Prelude.seq` Prelude.rnf userPoolId
 
-instance Core.ToHeaders UpdateUserPool where
+instance Data.ToHeaders UpdateUserPool where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.UpdateUserPool" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.UpdateUserPool" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateUserPool where
+instance Data.ToJSON UpdateUserPool where
   toJSON UpdateUserPool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EmailConfiguration" Core..=)
+          [ ("EmailConfiguration" Data..=)
               Prelude.<$> emailConfiguration,
-            ("AdminCreateUserConfig" Core..=)
+            ("AdminCreateUserConfig" Data..=)
               Prelude.<$> adminCreateUserConfig,
-            ("VerificationMessageTemplate" Core..=)
+            ("VerificationMessageTemplate" Data..=)
               Prelude.<$> verificationMessageTemplate,
-            ("DeviceConfiguration" Core..=)
+            ("DeviceConfiguration" Data..=)
               Prelude.<$> deviceConfiguration,
-            ("MfaConfiguration" Core..=)
+            ("MfaConfiguration" Data..=)
               Prelude.<$> mfaConfiguration,
-            ("AutoVerifiedAttributes" Core..=)
+            ("AutoVerifiedAttributes" Data..=)
               Prelude.<$> autoVerifiedAttributes,
-            ("SmsConfiguration" Core..=)
+            ("SmsConfiguration" Data..=)
               Prelude.<$> smsConfiguration,
-            ("Policies" Core..=) Prelude.<$> policies,
-            ("SmsVerificationMessage" Core..=)
+            ("Policies" Data..=) Prelude.<$> policies,
+            ("SmsVerificationMessage" Data..=)
               Prelude.<$> smsVerificationMessage,
-            ("EmailVerificationSubject" Core..=)
+            ("EmailVerificationSubject" Data..=)
               Prelude.<$> emailVerificationSubject,
-            ("AccountRecoverySetting" Core..=)
+            ("AccountRecoverySetting" Data..=)
               Prelude.<$> accountRecoverySetting,
-            ("UserAttributeUpdateSettings" Core..=)
+            ("UserAttributeUpdateSettings" Data..=)
               Prelude.<$> userAttributeUpdateSettings,
-            ("UserPoolTags" Core..=) Prelude.<$> userPoolTags,
-            ("DeletionProtection" Core..=)
+            ("UserPoolTags" Data..=) Prelude.<$> userPoolTags,
+            ("DeletionProtection" Data..=)
               Prelude.<$> deletionProtection,
-            ("EmailVerificationMessage" Core..=)
+            ("EmailVerificationMessage" Data..=)
               Prelude.<$> emailVerificationMessage,
-            ("SmsAuthenticationMessage" Core..=)
+            ("SmsAuthenticationMessage" Data..=)
               Prelude.<$> smsAuthenticationMessage,
-            ("LambdaConfig" Core..=) Prelude.<$> lambdaConfig,
-            ("UserPoolAddOns" Core..=)
+            ("LambdaConfig" Data..=) Prelude.<$> lambdaConfig,
+            ("UserPoolAddOns" Data..=)
               Prelude.<$> userPoolAddOns,
-            Prelude.Just ("UserPoolId" Core..= userPoolId)
+            Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )
 
-instance Core.ToPath UpdateUserPool where
+instance Data.ToPath UpdateUserPool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateUserPool where
+instance Data.ToQuery UpdateUserPool where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server when you make a request to

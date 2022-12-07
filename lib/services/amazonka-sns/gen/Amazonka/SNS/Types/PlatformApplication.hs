@@ -21,6 +21,7 @@ module Amazonka.SNS.Types.PlatformApplication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Platform application object.
@@ -62,12 +63,12 @@ platformApplication_platformApplicationArn = Lens.lens (\PlatformApplication' {p
 platformApplication_attributes :: Lens.Lens' PlatformApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 platformApplication_attributes = Lens.lens (\PlatformApplication' {attributes} -> attributes) (\s@PlatformApplication' {} a -> s {attributes = a} :: PlatformApplication) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML PlatformApplication where
+instance Data.FromXML PlatformApplication where
   parseXML x =
     PlatformApplication'
-      Prelude.<$> (x Core..@? "PlatformApplicationArn")
-      Prelude.<*> ( x Core..@? "Attributes" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+      Prelude.<$> (x Data..@? "PlatformApplicationArn")
+      Prelude.<*> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                   )
 
 instance Prelude.Hashable PlatformApplication where

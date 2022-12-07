@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotPlacement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tenancy
 import qualified Amazonka.Prelude as Prelude
@@ -87,12 +88,12 @@ spotPlacement_groupName = Lens.lens (\SpotPlacement' {groupName} -> groupName) (
 spotPlacement_tenancy :: Lens.Lens' SpotPlacement (Prelude.Maybe Tenancy)
 spotPlacement_tenancy = Lens.lens (\SpotPlacement' {tenancy} -> tenancy) (\s@SpotPlacement' {} a -> s {tenancy = a} :: SpotPlacement)
 
-instance Core.FromXML SpotPlacement where
+instance Data.FromXML SpotPlacement where
   parseXML x =
     SpotPlacement'
-      Prelude.<$> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "groupName")
-      Prelude.<*> (x Core..@? "tenancy")
+      Prelude.<$> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "groupName")
+      Prelude.<*> (x Data..@? "tenancy")
 
 instance Prelude.Hashable SpotPlacement where
   hashWithSalt _salt SpotPlacement' {..} =
@@ -106,10 +107,10 @@ instance Prelude.NFData SpotPlacement where
       `Prelude.seq` Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf tenancy
 
-instance Core.ToQuery SpotPlacement where
+instance Data.ToQuery SpotPlacement where
   toQuery SpotPlacement' {..} =
     Prelude.mconcat
-      [ "AvailabilityZone" Core.=: availabilityZone,
-        "GroupName" Core.=: groupName,
-        "Tenancy" Core.=: tenancy
+      [ "AvailabilityZone" Data.=: availabilityZone,
+        "GroupName" Data.=: groupName,
+        "Tenancy" Data.=: tenancy
       ]

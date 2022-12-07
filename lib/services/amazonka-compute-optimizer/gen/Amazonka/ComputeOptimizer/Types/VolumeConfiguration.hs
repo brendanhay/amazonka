@@ -21,6 +21,7 @@ module Amazonka.ComputeOptimizer.Types.VolumeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of an Amazon Elastic Block Store (Amazon
@@ -111,18 +112,18 @@ volumeConfiguration_volumeBaselineThroughput = Lens.lens (\VolumeConfiguration' 
 volumeConfiguration_volumeBurstIOPS :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Int)
 volumeConfiguration_volumeBurstIOPS = Lens.lens (\VolumeConfiguration' {volumeBurstIOPS} -> volumeBurstIOPS) (\s@VolumeConfiguration' {} a -> s {volumeBurstIOPS = a} :: VolumeConfiguration)
 
-instance Core.FromJSON VolumeConfiguration where
+instance Data.FromJSON VolumeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VolumeConfiguration"
       ( \x ->
           VolumeConfiguration'
-            Prelude.<$> (x Core..:? "volumeBurstThroughput")
-            Prelude.<*> (x Core..:? "volumeType")
-            Prelude.<*> (x Core..:? "volumeSize")
-            Prelude.<*> (x Core..:? "volumeBaselineIOPS")
-            Prelude.<*> (x Core..:? "volumeBaselineThroughput")
-            Prelude.<*> (x Core..:? "volumeBurstIOPS")
+            Prelude.<$> (x Data..:? "volumeBurstThroughput")
+            Prelude.<*> (x Data..:? "volumeType")
+            Prelude.<*> (x Data..:? "volumeSize")
+            Prelude.<*> (x Data..:? "volumeBaselineIOPS")
+            Prelude.<*> (x Data..:? "volumeBaselineThroughput")
+            Prelude.<*> (x Data..:? "volumeBurstIOPS")
       )
 
 instance Prelude.Hashable VolumeConfiguration where

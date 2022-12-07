@@ -36,6 +36,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -71,28 +72,28 @@ instance Prelude.Hashable DeleteOrganization where
 instance Prelude.NFData DeleteOrganization where
   rnf _ = ()
 
-instance Core.ToHeaders DeleteOrganization where
+instance Data.ToHeaders DeleteOrganization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.DeleteOrganization" ::
+              Data.=# ( "AWSOrganizationsV20161128.DeleteOrganization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteOrganization where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DeleteOrganization where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DeleteOrganization where
+instance Data.ToPath DeleteOrganization where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteOrganization where
+instance Data.ToQuery DeleteOrganization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteOrganizationResponse' smart constructor.

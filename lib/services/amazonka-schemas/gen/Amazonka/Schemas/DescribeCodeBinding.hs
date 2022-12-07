@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,10 +127,10 @@ instance Core.AWSRequest DescribeCodeBinding where
     Response.receiveJSON
       ( \s h x ->
           DescribeCodeBindingResponse'
-            Prelude.<$> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "LastModified")
-            Prelude.<*> (x Core..?> "SchemaVersion")
+            Prelude.<$> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "LastModified")
+            Prelude.<*> (x Data..?> "SchemaVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,41 +148,41 @@ instance Prelude.NFData DescribeCodeBinding where
       `Prelude.seq` Prelude.rnf schemaName
       `Prelude.seq` Prelude.rnf language
 
-instance Core.ToHeaders DescribeCodeBinding where
+instance Data.ToHeaders DescribeCodeBinding where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeCodeBinding where
+instance Data.ToPath DescribeCodeBinding where
   toPath DescribeCodeBinding' {..} =
     Prelude.mconcat
       [ "/v1/registries/name/",
-        Core.toBS registryName,
+        Data.toBS registryName,
         "/schemas/name/",
-        Core.toBS schemaName,
+        Data.toBS schemaName,
         "/language/",
-        Core.toBS language
+        Data.toBS language
       ]
 
-instance Core.ToQuery DescribeCodeBinding where
+instance Data.ToQuery DescribeCodeBinding where
   toQuery DescribeCodeBinding' {..} =
     Prelude.mconcat
-      ["schemaVersion" Core.=: schemaVersion]
+      ["schemaVersion" Data.=: schemaVersion]
 
 -- | /See:/ 'newDescribeCodeBindingResponse' smart constructor.
 data DescribeCodeBindingResponse = DescribeCodeBindingResponse'
   { -- | The time and date that the code binding was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The current status of code binding generation.
     status :: Prelude.Maybe CodeGenerationStatus,
     -- | The date and time that code bindings were modified.
-    lastModified :: Prelude.Maybe Core.POSIX,
+    lastModified :: Prelude.Maybe Data.POSIX,
     -- | The version number of the schema.
     schemaVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -222,7 +223,7 @@ newDescribeCodeBindingResponse pHttpStatus_ =
 
 -- | The time and date that the code binding was created.
 describeCodeBindingResponse_creationDate :: Lens.Lens' DescribeCodeBindingResponse (Prelude.Maybe Prelude.UTCTime)
-describeCodeBindingResponse_creationDate = Lens.lens (\DescribeCodeBindingResponse' {creationDate} -> creationDate) (\s@DescribeCodeBindingResponse' {} a -> s {creationDate = a} :: DescribeCodeBindingResponse) Prelude.. Lens.mapping Core._Time
+describeCodeBindingResponse_creationDate = Lens.lens (\DescribeCodeBindingResponse' {creationDate} -> creationDate) (\s@DescribeCodeBindingResponse' {} a -> s {creationDate = a} :: DescribeCodeBindingResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of code binding generation.
 describeCodeBindingResponse_status :: Lens.Lens' DescribeCodeBindingResponse (Prelude.Maybe CodeGenerationStatus)
@@ -230,7 +231,7 @@ describeCodeBindingResponse_status = Lens.lens (\DescribeCodeBindingResponse' {s
 
 -- | The date and time that code bindings were modified.
 describeCodeBindingResponse_lastModified :: Lens.Lens' DescribeCodeBindingResponse (Prelude.Maybe Prelude.UTCTime)
-describeCodeBindingResponse_lastModified = Lens.lens (\DescribeCodeBindingResponse' {lastModified} -> lastModified) (\s@DescribeCodeBindingResponse' {} a -> s {lastModified = a} :: DescribeCodeBindingResponse) Prelude.. Lens.mapping Core._Time
+describeCodeBindingResponse_lastModified = Lens.lens (\DescribeCodeBindingResponse' {lastModified} -> lastModified) (\s@DescribeCodeBindingResponse' {} a -> s {lastModified = a} :: DescribeCodeBindingResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The version number of the schema.
 describeCodeBindingResponse_schemaVersion :: Lens.Lens' DescribeCodeBindingResponse (Prelude.Maybe Prelude.Text)

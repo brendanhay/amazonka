@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DomainDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.DomainStatus
 
@@ -37,9 +38,9 @@ data DomainDetails = DomainDetails'
     -- | The status.
     status :: Prelude.Maybe DomainStatus,
     -- | The last modified time.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The creation time.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The domain ID.
     domainId :: Prelude.Maybe Prelude.Text
   }
@@ -97,29 +98,29 @@ domainDetails_status = Lens.lens (\DomainDetails' {status} -> status) (\s@Domain
 
 -- | The last modified time.
 domainDetails_lastModifiedTime :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.UTCTime)
-domainDetails_lastModifiedTime = Lens.lens (\DomainDetails' {lastModifiedTime} -> lastModifiedTime) (\s@DomainDetails' {} a -> s {lastModifiedTime = a} :: DomainDetails) Prelude.. Lens.mapping Core._Time
+domainDetails_lastModifiedTime = Lens.lens (\DomainDetails' {lastModifiedTime} -> lastModifiedTime) (\s@DomainDetails' {} a -> s {lastModifiedTime = a} :: DomainDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The creation time.
 domainDetails_creationTime :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.UTCTime)
-domainDetails_creationTime = Lens.lens (\DomainDetails' {creationTime} -> creationTime) (\s@DomainDetails' {} a -> s {creationTime = a} :: DomainDetails) Prelude.. Lens.mapping Core._Time
+domainDetails_creationTime = Lens.lens (\DomainDetails' {creationTime} -> creationTime) (\s@DomainDetails' {} a -> s {creationTime = a} :: DomainDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The domain ID.
 domainDetails_domainId :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
 domainDetails_domainId = Lens.lens (\DomainDetails' {domainId} -> domainId) (\s@DomainDetails' {} a -> s {domainId = a} :: DomainDetails)
 
-instance Core.FromJSON DomainDetails where
+instance Data.FromJSON DomainDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainDetails"
       ( \x ->
           DomainDetails'
-            Prelude.<$> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "DomainArn")
-            Prelude.<*> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "DomainId")
+            Prelude.<$> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "DomainArn")
+            Prelude.<*> (x Data..:? "Url")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DomainId")
       )
 
 instance Prelude.Hashable DomainDetails where

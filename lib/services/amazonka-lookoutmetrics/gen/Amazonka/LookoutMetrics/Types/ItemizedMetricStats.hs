@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.ItemizedMetricStats where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Aggregated statistics about a measure affected by an anomaly.
@@ -62,14 +63,14 @@ itemizedMetricStats_occurrenceCount = Lens.lens (\ItemizedMetricStats' {occurren
 itemizedMetricStats_metricName :: Lens.Lens' ItemizedMetricStats (Prelude.Maybe Prelude.Text)
 itemizedMetricStats_metricName = Lens.lens (\ItemizedMetricStats' {metricName} -> metricName) (\s@ItemizedMetricStats' {} a -> s {metricName = a} :: ItemizedMetricStats)
 
-instance Core.FromJSON ItemizedMetricStats where
+instance Data.FromJSON ItemizedMetricStats where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ItemizedMetricStats"
       ( \x ->
           ItemizedMetricStats'
-            Prelude.<$> (x Core..:? "OccurrenceCount")
-            Prelude.<*> (x Core..:? "MetricName")
+            Prelude.<$> (x Data..:? "OccurrenceCount")
+            Prelude.<*> (x Data..:? "MetricName")
       )
 
 instance Prelude.Hashable ItemizedMetricStats where

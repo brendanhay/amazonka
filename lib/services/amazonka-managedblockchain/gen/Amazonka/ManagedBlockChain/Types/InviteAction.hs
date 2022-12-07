@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.InviteAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An action to invite a specific Amazon Web Services account to create a
@@ -56,12 +57,12 @@ newInviteAction pPrincipal_ =
 inviteAction_principal :: Lens.Lens' InviteAction Prelude.Text
 inviteAction_principal = Lens.lens (\InviteAction' {principal} -> principal) (\s@InviteAction' {} a -> s {principal = a} :: InviteAction)
 
-instance Core.FromJSON InviteAction where
+instance Data.FromJSON InviteAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InviteAction"
       ( \x ->
-          InviteAction' Prelude.<$> (x Core..: "Principal")
+          InviteAction' Prelude.<$> (x Data..: "Principal")
       )
 
 instance Prelude.Hashable InviteAction where
@@ -71,9 +72,9 @@ instance Prelude.Hashable InviteAction where
 instance Prelude.NFData InviteAction where
   rnf InviteAction' {..} = Prelude.rnf principal
 
-instance Core.ToJSON InviteAction where
+instance Data.ToJSON InviteAction where
   toJSON InviteAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Principal" Core..= principal)]
+          [Prelude.Just ("Principal" Data..= principal)]
       )

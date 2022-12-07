@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,8 +126,8 @@ instance Core.AWSRequest DescribeServices where
     Response.receiveJSON
       ( \s h x ->
           DescribeServicesResponse'
-            Prelude.<$> (x Core..?> "services" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "services" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,35 +143,35 @@ instance Prelude.NFData DescribeServices where
       `Prelude.seq` Prelude.rnf include
       `Prelude.seq` Prelude.rnf services
 
-instance Core.ToHeaders DescribeServices where
+instance Data.ToHeaders DescribeServices where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.DescribeServices" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.DescribeServices" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeServices where
+instance Data.ToJSON DescribeServices where
   toJSON DescribeServices' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cluster" Core..=) Prelude.<$> cluster,
-            ("include" Core..=) Prelude.<$> include,
-            Prelude.Just ("services" Core..= services)
+          [ ("cluster" Data..=) Prelude.<$> cluster,
+            ("include" Data..=) Prelude.<$> include,
+            Prelude.Just ("services" Data..= services)
           ]
       )
 
-instance Core.ToPath DescribeServices where
+instance Data.ToPath DescribeServices where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeServices where
+instance Data.ToQuery DescribeServices where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeServicesResponse' smart constructor.

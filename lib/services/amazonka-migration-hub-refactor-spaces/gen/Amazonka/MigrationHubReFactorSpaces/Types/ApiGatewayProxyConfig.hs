@@ -21,6 +21,7 @@ module Amazonka.MigrationHubReFactorSpaces.Types.ApiGatewayProxyConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types.ApiGatewayEndpointType
 import qualified Amazonka.Prelude as Prelude
 
@@ -113,19 +114,19 @@ apiGatewayProxyConfig_vpcLinkId = Lens.lens (\ApiGatewayProxyConfig' {vpcLinkId}
 apiGatewayProxyConfig_nlbArn :: Lens.Lens' ApiGatewayProxyConfig (Prelude.Maybe Prelude.Text)
 apiGatewayProxyConfig_nlbArn = Lens.lens (\ApiGatewayProxyConfig' {nlbArn} -> nlbArn) (\s@ApiGatewayProxyConfig' {} a -> s {nlbArn = a} :: ApiGatewayProxyConfig)
 
-instance Core.FromJSON ApiGatewayProxyConfig where
+instance Data.FromJSON ApiGatewayProxyConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApiGatewayProxyConfig"
       ( \x ->
           ApiGatewayProxyConfig'
-            Prelude.<$> (x Core..:? "StageName")
-            Prelude.<*> (x Core..:? "ProxyUrl")
-            Prelude.<*> (x Core..:? "EndpointType")
-            Prelude.<*> (x Core..:? "ApiGatewayId")
-            Prelude.<*> (x Core..:? "NlbName")
-            Prelude.<*> (x Core..:? "VpcLinkId")
-            Prelude.<*> (x Core..:? "NlbArn")
+            Prelude.<$> (x Data..:? "StageName")
+            Prelude.<*> (x Data..:? "ProxyUrl")
+            Prelude.<*> (x Data..:? "EndpointType")
+            Prelude.<*> (x Data..:? "ApiGatewayId")
+            Prelude.<*> (x Data..:? "NlbName")
+            Prelude.<*> (x Data..:? "VpcLinkId")
+            Prelude.<*> (x Data..:? "NlbArn")
       )
 
 instance Prelude.Hashable ApiGatewayProxyConfig where

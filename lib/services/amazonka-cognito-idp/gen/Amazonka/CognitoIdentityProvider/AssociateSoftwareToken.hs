@@ -63,6 +63,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -71,7 +72,7 @@ import qualified Amazonka.Response as Response
 data AssociateSoftwareToken = AssociateSoftwareToken'
   { -- | A valid access token that Amazon Cognito issued to the user whose
     -- software token you want to generate.
-    accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    accessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The session that should be passed both ways in challenge-response calls
     -- to the service. This allows authentication of the user as part of the
     -- MFA setup process.
@@ -105,7 +106,7 @@ newAssociateSoftwareToken =
 -- | A valid access token that Amazon Cognito issued to the user whose
 -- software token you want to generate.
 associateSoftwareToken_accessToken :: Lens.Lens' AssociateSoftwareToken (Prelude.Maybe Prelude.Text)
-associateSoftwareToken_accessToken = Lens.lens (\AssociateSoftwareToken' {accessToken} -> accessToken) (\s@AssociateSoftwareToken' {} a -> s {accessToken = a} :: AssociateSoftwareToken) Prelude.. Lens.mapping Core._Sensitive
+associateSoftwareToken_accessToken = Lens.lens (\AssociateSoftwareToken' {accessToken} -> accessToken) (\s@AssociateSoftwareToken' {} a -> s {accessToken = a} :: AssociateSoftwareToken) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The session that should be passed both ways in challenge-response calls
 -- to the service. This allows authentication of the user as part of the
@@ -123,8 +124,8 @@ instance Core.AWSRequest AssociateSoftwareToken where
     Response.receiveJSON
       ( \s h x ->
           AssociateSoftwareTokenResponse'
-            Prelude.<$> (x Core..?> "SecretCode")
-            Prelude.<*> (x Core..?> "Session")
+            Prelude.<$> (x Data..?> "SecretCode")
+            Prelude.<*> (x Data..?> "Session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,41 +139,41 @@ instance Prelude.NFData AssociateSoftwareToken where
     Prelude.rnf accessToken
       `Prelude.seq` Prelude.rnf session
 
-instance Core.ToHeaders AssociateSoftwareToken where
+instance Data.ToHeaders AssociateSoftwareToken where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AssociateSoftwareToken" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AssociateSoftwareToken" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateSoftwareToken where
+instance Data.ToJSON AssociateSoftwareToken where
   toJSON AssociateSoftwareToken' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessToken" Core..=) Prelude.<$> accessToken,
-            ("Session" Core..=) Prelude.<$> session
+          [ ("AccessToken" Data..=) Prelude.<$> accessToken,
+            ("Session" Data..=) Prelude.<$> session
           ]
       )
 
-instance Core.ToPath AssociateSoftwareToken where
+instance Data.ToPath AssociateSoftwareToken where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateSoftwareToken where
+instance Data.ToQuery AssociateSoftwareToken where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateSoftwareTokenResponse' smart constructor.
 data AssociateSoftwareTokenResponse = AssociateSoftwareTokenResponse'
   { -- | A unique generated shared secret code that is used in the TOTP algorithm
     -- to generate a one-time code.
-    secretCode :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    secretCode :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The session that should be passed both ways in challenge-response calls
     -- to the service. This allows authentication of the user as part of the
     -- MFA setup process.
@@ -213,7 +214,7 @@ newAssociateSoftwareTokenResponse pHttpStatus_ =
 -- | A unique generated shared secret code that is used in the TOTP algorithm
 -- to generate a one-time code.
 associateSoftwareTokenResponse_secretCode :: Lens.Lens' AssociateSoftwareTokenResponse (Prelude.Maybe Prelude.Text)
-associateSoftwareTokenResponse_secretCode = Lens.lens (\AssociateSoftwareTokenResponse' {secretCode} -> secretCode) (\s@AssociateSoftwareTokenResponse' {} a -> s {secretCode = a} :: AssociateSoftwareTokenResponse) Prelude.. Lens.mapping Core._Sensitive
+associateSoftwareTokenResponse_secretCode = Lens.lens (\AssociateSoftwareTokenResponse' {secretCode} -> secretCode) (\s@AssociateSoftwareTokenResponse' {} a -> s {secretCode = a} :: AssociateSoftwareTokenResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The session that should be passed both ways in challenge-response calls
 -- to the service. This allows authentication of the user as part of the

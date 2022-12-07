@@ -18,6 +18,7 @@ module Amazonka.ECS.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.DescribeServices
 import Amazonka.ECS.DescribeTasks
 import Amazonka.ECS.Lens
@@ -43,7 +44,7 @@ newServicesInactive =
                 )
                 Prelude.. failure_reason
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "INACTIVE"
@@ -56,7 +57,7 @@ newServicesInactive =
                 )
                 Prelude.. containerService_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -78,7 +79,7 @@ newTasksRunning =
                 )
                 Prelude.. task_lastStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "MISSING"
@@ -91,7 +92,7 @@ newTasksRunning =
                 )
                 Prelude.. failure_reason
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "RUNNING"
@@ -102,7 +103,7 @@ newTasksRunning =
                 )
                 Prelude.. task_lastStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -124,7 +125,7 @@ newTasksStopped =
                 )
                 Prelude.. task_lastStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

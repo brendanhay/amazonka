@@ -78,6 +78,7 @@ where
 import Amazonka.CloudHSM.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,27 +135,27 @@ instance Core.AWSRequest DescribeHsm where
     Response.receiveJSON
       ( \s h x ->
           DescribeHsmResponse'
-            Prelude.<$> (x Core..?> "ServerCertUri")
-            Prelude.<*> (x Core..?> "StatusDetails")
-            Prelude.<*> (x Core..?> "SubnetId")
-            Prelude.<*> (x Core..?> "HsmType")
-            Prelude.<*> (x Core..?> "SubscriptionType")
-            Prelude.<*> (x Core..?> "SshPublicKey")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "SshKeyLastUpdated")
-            Prelude.<*> (x Core..?> "AvailabilityZone")
-            Prelude.<*> (x Core..?> "SoftwareVersion")
-            Prelude.<*> (x Core..?> "HsmArn")
-            Prelude.<*> (x Core..?> "IamRoleArn")
-            Prelude.<*> (x Core..?> "Partitions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "SubscriptionStartDate")
-            Prelude.<*> (x Core..?> "ServerCertLastUpdated")
-            Prelude.<*> (x Core..?> "SerialNumber")
-            Prelude.<*> (x Core..?> "EniIp")
-            Prelude.<*> (x Core..?> "VpcId")
-            Prelude.<*> (x Core..?> "EniId")
-            Prelude.<*> (x Core..?> "VendorName")
-            Prelude.<*> (x Core..?> "SubscriptionEndDate")
+            Prelude.<$> (x Data..?> "ServerCertUri")
+            Prelude.<*> (x Data..?> "StatusDetails")
+            Prelude.<*> (x Data..?> "SubnetId")
+            Prelude.<*> (x Data..?> "HsmType")
+            Prelude.<*> (x Data..?> "SubscriptionType")
+            Prelude.<*> (x Data..?> "SshPublicKey")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "SshKeyLastUpdated")
+            Prelude.<*> (x Data..?> "AvailabilityZone")
+            Prelude.<*> (x Data..?> "SoftwareVersion")
+            Prelude.<*> (x Data..?> "HsmArn")
+            Prelude.<*> (x Data..?> "IamRoleArn")
+            Prelude.<*> (x Data..?> "Partitions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "SubscriptionStartDate")
+            Prelude.<*> (x Data..?> "ServerCertLastUpdated")
+            Prelude.<*> (x Data..?> "SerialNumber")
+            Prelude.<*> (x Data..?> "EniIp")
+            Prelude.<*> (x Data..?> "VpcId")
+            Prelude.<*> (x Data..?> "EniId")
+            Prelude.<*> (x Data..?> "VendorName")
+            Prelude.<*> (x Data..?> "SubscriptionEndDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,35 +169,35 @@ instance Prelude.NFData DescribeHsm where
     Prelude.rnf hsmSerialNumber
       `Prelude.seq` Prelude.rnf hsmArn
 
-instance Core.ToHeaders DescribeHsm where
+instance Data.ToHeaders DescribeHsm where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudHsmFrontendService.DescribeHsm" ::
+              Data.=# ( "CloudHsmFrontendService.DescribeHsm" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeHsm where
+instance Data.ToJSON DescribeHsm where
   toJSON DescribeHsm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HsmSerialNumber" Core..=)
+          [ ("HsmSerialNumber" Data..=)
               Prelude.<$> hsmSerialNumber,
-            ("HsmArn" Core..=) Prelude.<$> hsmArn
+            ("HsmArn" Data..=) Prelude.<$> hsmArn
           ]
       )
 
-instance Core.ToPath DescribeHsm where
+instance Data.ToPath DescribeHsm where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeHsm where
+instance Data.ToQuery DescribeHsm where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of the DescribeHsm operation.

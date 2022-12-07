@@ -21,6 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.ComponentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a summary of a component. This is a read-only data type that is
@@ -104,17 +105,17 @@ componentSummary_id = Lens.lens (\ComponentSummary' {id} -> id) (\s@ComponentSum
 componentSummary_name :: Lens.Lens' ComponentSummary Prelude.Text
 componentSummary_name = Lens.lens (\ComponentSummary' {name} -> name) (\s@ComponentSummary' {} a -> s {name = a} :: ComponentSummary)
 
-instance Core.FromJSON ComponentSummary where
+instance Data.FromJSON ComponentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentSummary"
       ( \x ->
           ComponentSummary'
-            Prelude.<$> (x Core..: "appId")
-            Prelude.<*> (x Core..: "componentType")
-            Prelude.<*> (x Core..: "environmentName")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..: "appId")
+            Prelude.<*> (x Data..: "componentType")
+            Prelude.<*> (x Data..: "environmentName")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable ComponentSummary where

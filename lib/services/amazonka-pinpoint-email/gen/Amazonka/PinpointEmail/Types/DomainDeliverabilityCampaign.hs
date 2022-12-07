@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the deliverability data for a specific campaign.
@@ -48,7 +49,7 @@ data DomainDeliverabilityCampaign = DomainDeliverabilityCampaign'
     -- | The last time, in Unix time format, when the email message was delivered
     -- to any recipient\'s inbox. This value can help you determine how long it
     -- took for a campaign to deliver an email message.
-    lastSeenDateTime :: Prelude.Maybe Core.POSIX,
+    lastSeenDateTime :: Prelude.Maybe Data.POSIX,
     -- | The IP addresses that were used to send the email message.
     sendingIps :: Prelude.Maybe [Prelude.Text],
     -- | The URL of an image that contains a snapshot of the email message that
@@ -71,7 +72,7 @@ data DomainDeliverabilityCampaign = DomainDeliverabilityCampaign'
     -- | The first time, in Unix time format, when the email message was
     -- delivered to any recipient\'s inbox. This value can help you determine
     -- how long it took for a campaign to deliver an email message.
-    firstSeenDateTime :: Prelude.Maybe Core.POSIX,
+    firstSeenDateTime :: Prelude.Maybe Data.POSIX,
     -- | The percentage of email messages that were opened by recipients. Due to
     -- technical limitations, this value only includes recipients who opened
     -- the message by using an email client that supports images.
@@ -180,7 +181,7 @@ domainDeliverabilityCampaign_deleteRate = Lens.lens (\DomainDeliverabilityCampai
 -- to any recipient\'s inbox. This value can help you determine how long it
 -- took for a campaign to deliver an email message.
 domainDeliverabilityCampaign_lastSeenDateTime :: Lens.Lens' DomainDeliverabilityCampaign (Prelude.Maybe Prelude.UTCTime)
-domainDeliverabilityCampaign_lastSeenDateTime = Lens.lens (\DomainDeliverabilityCampaign' {lastSeenDateTime} -> lastSeenDateTime) (\s@DomainDeliverabilityCampaign' {} a -> s {lastSeenDateTime = a} :: DomainDeliverabilityCampaign) Prelude.. Lens.mapping Core._Time
+domainDeliverabilityCampaign_lastSeenDateTime = Lens.lens (\DomainDeliverabilityCampaign' {lastSeenDateTime} -> lastSeenDateTime) (\s@DomainDeliverabilityCampaign' {} a -> s {lastSeenDateTime = a} :: DomainDeliverabilityCampaign) Prelude.. Lens.mapping Data._Time
 
 -- | The IP addresses that were used to send the email message.
 domainDeliverabilityCampaign_sendingIps :: Lens.Lens' DomainDeliverabilityCampaign (Prelude.Maybe [Prelude.Text])
@@ -219,7 +220,7 @@ domainDeliverabilityCampaign_subject = Lens.lens (\DomainDeliverabilityCampaign'
 -- delivered to any recipient\'s inbox. This value can help you determine
 -- how long it took for a campaign to deliver an email message.
 domainDeliverabilityCampaign_firstSeenDateTime :: Lens.Lens' DomainDeliverabilityCampaign (Prelude.Maybe Prelude.UTCTime)
-domainDeliverabilityCampaign_firstSeenDateTime = Lens.lens (\DomainDeliverabilityCampaign' {firstSeenDateTime} -> firstSeenDateTime) (\s@DomainDeliverabilityCampaign' {} a -> s {firstSeenDateTime = a} :: DomainDeliverabilityCampaign) Prelude.. Lens.mapping Core._Time
+domainDeliverabilityCampaign_firstSeenDateTime = Lens.lens (\DomainDeliverabilityCampaign' {firstSeenDateTime} -> firstSeenDateTime) (\s@DomainDeliverabilityCampaign' {} a -> s {firstSeenDateTime = a} :: DomainDeliverabilityCampaign) Prelude.. Lens.mapping Data._Time
 
 -- | The percentage of email messages that were opened by recipients. Due to
 -- technical limitations, this value only includes recipients who opened
@@ -227,26 +228,26 @@ domainDeliverabilityCampaign_firstSeenDateTime = Lens.lens (\DomainDeliverabilit
 domainDeliverabilityCampaign_readRate :: Lens.Lens' DomainDeliverabilityCampaign (Prelude.Maybe Prelude.Double)
 domainDeliverabilityCampaign_readRate = Lens.lens (\DomainDeliverabilityCampaign' {readRate} -> readRate) (\s@DomainDeliverabilityCampaign' {} a -> s {readRate = a} :: DomainDeliverabilityCampaign)
 
-instance Core.FromJSON DomainDeliverabilityCampaign where
+instance Data.FromJSON DomainDeliverabilityCampaign where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainDeliverabilityCampaign"
       ( \x ->
           DomainDeliverabilityCampaign'
-            Prelude.<$> (x Core..:? "InboxCount")
-            Prelude.<*> (x Core..:? "CampaignId")
-            Prelude.<*> (x Core..:? "FromAddress")
-            Prelude.<*> (x Core..:? "DeleteRate")
-            Prelude.<*> (x Core..:? "LastSeenDateTime")
-            Prelude.<*> (x Core..:? "SendingIps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ImageUrl")
-            Prelude.<*> (x Core..:? "Esps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ProjectedVolume")
-            Prelude.<*> (x Core..:? "ReadDeleteRate")
-            Prelude.<*> (x Core..:? "SpamCount")
-            Prelude.<*> (x Core..:? "Subject")
-            Prelude.<*> (x Core..:? "FirstSeenDateTime")
-            Prelude.<*> (x Core..:? "ReadRate")
+            Prelude.<$> (x Data..:? "InboxCount")
+            Prelude.<*> (x Data..:? "CampaignId")
+            Prelude.<*> (x Data..:? "FromAddress")
+            Prelude.<*> (x Data..:? "DeleteRate")
+            Prelude.<*> (x Data..:? "LastSeenDateTime")
+            Prelude.<*> (x Data..:? "SendingIps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ImageUrl")
+            Prelude.<*> (x Data..:? "Esps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ProjectedVolume")
+            Prelude.<*> (x Data..:? "ReadDeleteRate")
+            Prelude.<*> (x Data..:? "SpamCount")
+            Prelude.<*> (x Data..:? "Subject")
+            Prelude.<*> (x Data..:? "FirstSeenDateTime")
+            Prelude.<*> (x Data..:? "ReadRate")
       )
 
 instance

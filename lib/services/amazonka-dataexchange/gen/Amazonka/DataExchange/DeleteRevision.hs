@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,27 +103,27 @@ instance Prelude.NFData DeleteRevision where
     Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf revisionId
 
-instance Core.ToHeaders DeleteRevision where
+instance Data.ToHeaders DeleteRevision where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteRevision where
+instance Data.ToPath DeleteRevision where
   toPath DeleteRevision' {..} =
     Prelude.mconcat
       [ "/v1/data-sets/",
-        Core.toBS dataSetId,
+        Data.toBS dataSetId,
         "/revisions/",
-        Core.toBS revisionId
+        Data.toBS revisionId
       ]
 
-instance Core.ToQuery DeleteRevision where
+instance Data.ToQuery DeleteRevision where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRevisionResponse' smart constructor.

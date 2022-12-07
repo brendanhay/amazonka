@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,18 +111,18 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeSimulationApplicationResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "sources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "environment")
-            Prelude.<*> (x Core..?> "renderingEngine")
-            Prelude.<*> (x Core..?> "lastUpdatedAt")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "robotSoftwareSuite")
-            Prelude.<*> (x Core..?> "simulationSoftwareSuite")
-            Prelude.<*> (x Core..?> "revisionId")
-            Prelude.<*> (x Core..?> "imageDigest")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "environment")
+            Prelude.<*> (x Data..?> "renderingEngine")
+            Prelude.<*> (x Data..?> "lastUpdatedAt")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "robotSoftwareSuite")
+            Prelude.<*> (x Data..?> "simulationSoftwareSuite")
+            Prelude.<*> (x Data..?> "revisionId")
+            Prelude.<*> (x Data..?> "imageDigest")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,32 +139,32 @@ instance Prelude.NFData DescribeSimulationApplication where
     Prelude.rnf applicationVersion
       `Prelude.seq` Prelude.rnf application
 
-instance Core.ToHeaders DescribeSimulationApplication where
+instance Data.ToHeaders DescribeSimulationApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSimulationApplication where
+instance Data.ToJSON DescribeSimulationApplication where
   toJSON DescribeSimulationApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("applicationVersion" Core..=)
+          [ ("applicationVersion" Data..=)
               Prelude.<$> applicationVersion,
-            Prelude.Just ("application" Core..= application)
+            Prelude.Just ("application" Data..= application)
           ]
       )
 
-instance Core.ToPath DescribeSimulationApplication where
+instance Data.ToPath DescribeSimulationApplication where
   toPath =
     Prelude.const "/describeSimulationApplication"
 
-instance Core.ToQuery DescribeSimulationApplication where
+instance Data.ToQuery DescribeSimulationApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSimulationApplicationResponse' smart constructor.
@@ -181,7 +182,7 @@ data DescribeSimulationApplicationResponse = DescribeSimulationApplicationRespon
     renderingEngine :: Prelude.Maybe RenderingEngine,
     -- | The time, in milliseconds since the epoch, when the simulation
     -- application was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the robot simulation application.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Information about the robot software suite (ROS distribution).
@@ -283,7 +284,7 @@ describeSimulationApplicationResponse_renderingEngine = Lens.lens (\DescribeSimu
 -- | The time, in milliseconds since the epoch, when the simulation
 -- application was last updated.
 describeSimulationApplicationResponse_lastUpdatedAt :: Lens.Lens' DescribeSimulationApplicationResponse (Prelude.Maybe Prelude.UTCTime)
-describeSimulationApplicationResponse_lastUpdatedAt = Lens.lens (\DescribeSimulationApplicationResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeSimulationApplicationResponse' {} a -> s {lastUpdatedAt = a} :: DescribeSimulationApplicationResponse) Prelude.. Lens.mapping Core._Time
+describeSimulationApplicationResponse_lastUpdatedAt = Lens.lens (\DescribeSimulationApplicationResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeSimulationApplicationResponse' {} a -> s {lastUpdatedAt = a} :: DescribeSimulationApplicationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the robot simulation application.
 describeSimulationApplicationResponse_arn :: Lens.Lens' DescribeSimulationApplicationResponse (Prelude.Maybe Prelude.Text)

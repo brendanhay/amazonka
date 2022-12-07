@@ -21,6 +21,7 @@ module Amazonka.SES.Types.ReceiptAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.AddHeaderAction
 import Amazonka.SES.Types.BounceAction
@@ -136,16 +137,16 @@ receiptAction_bounceAction = Lens.lens (\ReceiptAction' {bounceAction} -> bounce
 receiptAction_workmailAction :: Lens.Lens' ReceiptAction (Prelude.Maybe WorkmailAction)
 receiptAction_workmailAction = Lens.lens (\ReceiptAction' {workmailAction} -> workmailAction) (\s@ReceiptAction' {} a -> s {workmailAction = a} :: ReceiptAction)
 
-instance Core.FromXML ReceiptAction where
+instance Data.FromXML ReceiptAction where
   parseXML x =
     ReceiptAction'
-      Prelude.<$> (x Core..@? "AddHeaderAction")
-      Prelude.<*> (x Core..@? "LambdaAction")
-      Prelude.<*> (x Core..@? "S3Action")
-      Prelude.<*> (x Core..@? "StopAction")
-      Prelude.<*> (x Core..@? "SNSAction")
-      Prelude.<*> (x Core..@? "BounceAction")
-      Prelude.<*> (x Core..@? "WorkmailAction")
+      Prelude.<$> (x Data..@? "AddHeaderAction")
+      Prelude.<*> (x Data..@? "LambdaAction")
+      Prelude.<*> (x Data..@? "S3Action")
+      Prelude.<*> (x Data..@? "StopAction")
+      Prelude.<*> (x Data..@? "SNSAction")
+      Prelude.<*> (x Data..@? "BounceAction")
+      Prelude.<*> (x Data..@? "WorkmailAction")
 
 instance Prelude.Hashable ReceiptAction where
   hashWithSalt _salt ReceiptAction' {..} =
@@ -167,14 +168,14 @@ instance Prelude.NFData ReceiptAction where
       `Prelude.seq` Prelude.rnf bounceAction
       `Prelude.seq` Prelude.rnf workmailAction
 
-instance Core.ToQuery ReceiptAction where
+instance Data.ToQuery ReceiptAction where
   toQuery ReceiptAction' {..} =
     Prelude.mconcat
-      [ "AddHeaderAction" Core.=: addHeaderAction,
-        "LambdaAction" Core.=: lambdaAction,
-        "S3Action" Core.=: s3Action,
-        "StopAction" Core.=: stopAction,
-        "SNSAction" Core.=: sNSAction,
-        "BounceAction" Core.=: bounceAction,
-        "WorkmailAction" Core.=: workmailAction
+      [ "AddHeaderAction" Data.=: addHeaderAction,
+        "LambdaAction" Data.=: lambdaAction,
+        "S3Action" Data.=: s3Action,
+        "StopAction" Data.=: stopAction,
+        "SNSAction" Data.=: sNSAction,
+        "BounceAction" Data.=: bounceAction,
+        "WorkmailAction" Data.=: workmailAction
       ]

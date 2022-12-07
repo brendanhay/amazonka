@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.VirtualRouterSpec where
 import Amazonka.AppMesh.Types.VirtualRouterListener
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the specification of a virtual router.
@@ -54,13 +55,13 @@ newVirtualRouterSpec =
 virtualRouterSpec_listeners :: Lens.Lens' VirtualRouterSpec (Prelude.Maybe [VirtualRouterListener])
 virtualRouterSpec_listeners = Lens.lens (\VirtualRouterSpec' {listeners} -> listeners) (\s@VirtualRouterSpec' {} a -> s {listeners = a} :: VirtualRouterSpec) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON VirtualRouterSpec where
+instance Data.FromJSON VirtualRouterSpec where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualRouterSpec"
       ( \x ->
           VirtualRouterSpec'
-            Prelude.<$> (x Core..:? "listeners" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "listeners" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable VirtualRouterSpec where
@@ -70,9 +71,9 @@ instance Prelude.Hashable VirtualRouterSpec where
 instance Prelude.NFData VirtualRouterSpec where
   rnf VirtualRouterSpec' {..} = Prelude.rnf listeners
 
-instance Core.ToJSON VirtualRouterSpec where
+instance Data.ToJSON VirtualRouterSpec where
   toJSON VirtualRouterSpec' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("listeners" Core..=) Prelude.<$> listeners]
+          [("listeners" Data..=) Prelude.<$> listeners]
       )

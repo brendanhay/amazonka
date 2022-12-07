@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,7 +103,7 @@ instance Core.AWSRequest BatchPutPropertyValues where
       ( \s h x ->
           BatchPutPropertyValuesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "errorEntries")
+            Prelude.<*> (x Data..:> "errorEntries")
       )
 
 instance Prelude.Hashable BatchPutPropertyValues where
@@ -115,33 +116,33 @@ instance Prelude.NFData BatchPutPropertyValues where
     Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf entries
 
-instance Core.ToHeaders BatchPutPropertyValues where
+instance Data.ToHeaders BatchPutPropertyValues where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchPutPropertyValues where
+instance Data.ToJSON BatchPutPropertyValues where
   toJSON BatchPutPropertyValues' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("entries" Core..= entries)]
+          [Prelude.Just ("entries" Data..= entries)]
       )
 
-instance Core.ToPath BatchPutPropertyValues where
+instance Data.ToPath BatchPutPropertyValues where
   toPath BatchPutPropertyValues' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/entity-properties"
       ]
 
-instance Core.ToQuery BatchPutPropertyValues where
+instance Data.ToQuery BatchPutPropertyValues where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchPutPropertyValuesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.WorldFailure where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.WorldGenerationJobErrorCode
 
@@ -125,15 +126,15 @@ worldFailure_failureCount = Lens.lens (\WorldFailure' {failureCount} -> failureC
 worldFailure_sampleFailureReason :: Lens.Lens' WorldFailure (Prelude.Maybe Prelude.Text)
 worldFailure_sampleFailureReason = Lens.lens (\WorldFailure' {sampleFailureReason} -> sampleFailureReason) (\s@WorldFailure' {} a -> s {sampleFailureReason = a} :: WorldFailure)
 
-instance Core.FromJSON WorldFailure where
+instance Data.FromJSON WorldFailure where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorldFailure"
       ( \x ->
           WorldFailure'
-            Prelude.<$> (x Core..:? "failureCode")
-            Prelude.<*> (x Core..:? "failureCount")
-            Prelude.<*> (x Core..:? "sampleFailureReason")
+            Prelude.<$> (x Data..:? "failureCode")
+            Prelude.<*> (x Data..:? "failureCount")
+            Prelude.<*> (x Data..:? "sampleFailureReason")
       )
 
 instance Prelude.Hashable WorldFailure where

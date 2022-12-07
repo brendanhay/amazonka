@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -191,8 +192,8 @@ instance Core.AWSRequest ListThings where
     Response.receiveJSON
       ( \s h x ->
           ListThingsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "things" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "things" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -214,22 +215,22 @@ instance Prelude.NFData ListThings where
       `Prelude.seq` Prelude.rnf usePrefixAttributeValue
       `Prelude.seq` Prelude.rnf attributeName
 
-instance Core.ToHeaders ListThings where
+instance Data.ToHeaders ListThings where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListThings where
+instance Data.ToPath ListThings where
   toPath = Prelude.const "/things"
 
-instance Core.ToQuery ListThings where
+instance Data.ToQuery ListThings where
   toQuery ListThings' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "attributeValue" Core.=: attributeValue,
-        "thingTypeName" Core.=: thingTypeName,
-        "maxResults" Core.=: maxResults,
+      [ "nextToken" Data.=: nextToken,
+        "attributeValue" Data.=: attributeValue,
+        "thingTypeName" Data.=: thingTypeName,
+        "maxResults" Data.=: maxResults,
         "usePrefixAttributeValue"
-          Core.=: usePrefixAttributeValue,
-        "attributeName" Core.=: attributeName
+          Data.=: usePrefixAttributeValue,
+        "attributeName" Data.=: attributeName
       ]
 
 -- | The output from the ListThings operation.

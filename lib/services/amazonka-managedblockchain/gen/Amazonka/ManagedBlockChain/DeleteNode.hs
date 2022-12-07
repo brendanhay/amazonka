@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,29 +162,29 @@ instance Prelude.NFData DeleteNode where
       `Prelude.seq` Prelude.rnf networkId
       `Prelude.seq` Prelude.rnf nodeId
 
-instance Core.ToHeaders DeleteNode where
+instance Data.ToHeaders DeleteNode where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteNode where
+instance Data.ToPath DeleteNode where
   toPath DeleteNode' {..} =
     Prelude.mconcat
       [ "/networks/",
-        Core.toBS networkId,
+        Data.toBS networkId,
         "/nodes/",
-        Core.toBS nodeId
+        Data.toBS nodeId
       ]
 
-instance Core.ToQuery DeleteNode where
+instance Data.ToQuery DeleteNode where
   toQuery DeleteNode' {..} =
-    Prelude.mconcat ["memberId" Core.=: memberId]
+    Prelude.mconcat ["memberId" Data.=: memberId]
 
 -- | /See:/ 'newDeleteNodeResponse' smart constructor.
 data DeleteNodeResponse = DeleteNodeResponse'

@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.AdminAccount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.AdminStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ adminAccount_adminAccountId = Lens.lens (\AdminAccount' {adminAccountId} -> admi
 adminAccount_adminStatus :: Lens.Lens' AdminAccount (Prelude.Maybe AdminStatus)
 adminAccount_adminStatus = Lens.lens (\AdminAccount' {adminStatus} -> adminStatus) (\s@AdminAccount' {} a -> s {adminStatus = a} :: AdminAccount)
 
-instance Core.FromJSON AdminAccount where
+instance Data.FromJSON AdminAccount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdminAccount"
       ( \x ->
           AdminAccount'
-            Prelude.<$> (x Core..:? "adminAccountId")
-            Prelude.<*> (x Core..:? "adminStatus")
+            Prelude.<$> (x Data..:? "adminAccountId")
+            Prelude.<*> (x Data..:? "adminStatus")
       )
 
 instance Prelude.Hashable AdminAccount where

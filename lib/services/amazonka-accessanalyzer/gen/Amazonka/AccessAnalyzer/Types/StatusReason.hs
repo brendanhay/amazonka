@@ -22,6 +22,7 @@ module Amazonka.AccessAnalyzer.Types.StatusReason where
 import Amazonka.AccessAnalyzer.Types.ReasonCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides more details about the current status of the analyzer. For
@@ -56,11 +57,11 @@ newStatusReason pCode_ = StatusReason' {code = pCode_}
 statusReason_code :: Lens.Lens' StatusReason ReasonCode
 statusReason_code = Lens.lens (\StatusReason' {code} -> code) (\s@StatusReason' {} a -> s {code = a} :: StatusReason)
 
-instance Core.FromJSON StatusReason where
+instance Data.FromJSON StatusReason where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatusReason"
-      (\x -> StatusReason' Prelude.<$> (x Core..: "code"))
+      (\x -> StatusReason' Prelude.<$> (x Data..: "code"))
 
 instance Prelude.Hashable StatusReason where
   hashWithSalt _salt StatusReason' {..} =

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,8 +124,8 @@ instance Core.AWSRequest ListDatastores where
     Response.receiveJSON
       ( \s h x ->
           ListDatastoresResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "datastoreSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "datastoreSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -140,17 +141,17 @@ instance Prelude.NFData ListDatastores where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListDatastores where
+instance Data.ToHeaders ListDatastores where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListDatastores where
+instance Data.ToPath ListDatastores where
   toPath = Prelude.const "/datastores"
 
-instance Core.ToQuery ListDatastores where
+instance Data.ToQuery ListDatastores where
   toQuery ListDatastores' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListDatastoresResponse' smart constructor.

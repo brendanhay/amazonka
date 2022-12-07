@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,8 +136,8 @@ instance Core.AWSRequest RenderUiTemplate where
       ( \s h x ->
           RenderUiTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "RenderedContent")
-            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "RenderedContent")
+            Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable RenderUiTemplate where
@@ -153,35 +154,35 @@ instance Prelude.NFData RenderUiTemplate where
       `Prelude.seq` Prelude.rnf task
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders RenderUiTemplate where
+instance Data.ToHeaders RenderUiTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.RenderUiTemplate" :: Prelude.ByteString),
+              Data.=# ("SageMaker.RenderUiTemplate" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RenderUiTemplate where
+instance Data.ToJSON RenderUiTemplate where
   toJSON RenderUiTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UiTemplate" Core..=) Prelude.<$> uiTemplate,
-            ("HumanTaskUiArn" Core..=)
+          [ ("UiTemplate" Data..=) Prelude.<$> uiTemplate,
+            ("HumanTaskUiArn" Data..=)
               Prelude.<$> humanTaskUiArn,
-            Prelude.Just ("Task" Core..= task),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+            Prelude.Just ("Task" Data..= task),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath RenderUiTemplate where
+instance Data.ToPath RenderUiTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RenderUiTemplate where
+instance Data.ToQuery RenderUiTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRenderUiTemplateResponse' smart constructor.

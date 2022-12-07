@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.ValidationMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.ValidationSeverity
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,13 +99,13 @@ validationMessage_optionName = Lens.lens (\ValidationMessage' {optionName} -> op
 validationMessage_namespace :: Lens.Lens' ValidationMessage (Prelude.Maybe Prelude.Text)
 validationMessage_namespace = Lens.lens (\ValidationMessage' {namespace} -> namespace) (\s@ValidationMessage' {} a -> s {namespace = a} :: ValidationMessage)
 
-instance Core.FromXML ValidationMessage where
+instance Data.FromXML ValidationMessage where
   parseXML x =
     ValidationMessage'
-      Prelude.<$> (x Core..@? "Message")
-      Prelude.<*> (x Core..@? "Severity")
-      Prelude.<*> (x Core..@? "OptionName")
-      Prelude.<*> (x Core..@? "Namespace")
+      Prelude.<$> (x Data..@? "Message")
+      Prelude.<*> (x Data..@? "Severity")
+      Prelude.<*> (x Data..@? "OptionName")
+      Prelude.<*> (x Data..@? "Namespace")
 
 instance Prelude.Hashable ValidationMessage where
   hashWithSalt _salt ValidationMessage' {..} =

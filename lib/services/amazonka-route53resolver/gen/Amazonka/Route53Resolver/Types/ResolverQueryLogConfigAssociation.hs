@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.ResolverQueryLogConfigAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.ResolverQueryLogConfigAssociationError
 import Amazonka.Route53Resolver.Types.ResolverQueryLogConfigAssociationStatus
@@ -196,21 +197,21 @@ resolverQueryLogConfigAssociation_error :: Lens.Lens' ResolverQueryLogConfigAsso
 resolverQueryLogConfigAssociation_error = Lens.lens (\ResolverQueryLogConfigAssociation' {error} -> error) (\s@ResolverQueryLogConfigAssociation' {} a -> s {error = a} :: ResolverQueryLogConfigAssociation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ResolverQueryLogConfigAssociation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResolverQueryLogConfigAssociation"
       ( \x ->
           ResolverQueryLogConfigAssociation'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ResolverQueryLogConfigId")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "Error")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ResolverQueryLogConfigId")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "Error")
       )
 
 instance

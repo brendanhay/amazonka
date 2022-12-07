@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalogAppRegistry.Types.Application where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a Amazon Web Services Service Catalog AppRegistry application
@@ -43,10 +44,10 @@ data Application = Application'
     id :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 formatted timestamp of the moment when the application was
     -- created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ISO-8601 formatted timestamp of the moment when the application was
     -- last updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX
+    lastUpdateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -113,26 +114,26 @@ application_id = Lens.lens (\Application' {id} -> id) (\s@Application' {} a -> s
 -- | The ISO-8601 formatted timestamp of the moment when the application was
 -- created.
 application_creationTime :: Lens.Lens' Application (Prelude.Maybe Prelude.UTCTime)
-application_creationTime = Lens.lens (\Application' {creationTime} -> creationTime) (\s@Application' {} a -> s {creationTime = a} :: Application) Prelude.. Lens.mapping Core._Time
+application_creationTime = Lens.lens (\Application' {creationTime} -> creationTime) (\s@Application' {} a -> s {creationTime = a} :: Application) Prelude.. Lens.mapping Data._Time
 
 -- | The ISO-8601 formatted timestamp of the moment when the application was
 -- last updated.
 application_lastUpdateTime :: Lens.Lens' Application (Prelude.Maybe Prelude.UTCTime)
-application_lastUpdateTime = Lens.lens (\Application' {lastUpdateTime} -> lastUpdateTime) (\s@Application' {} a -> s {lastUpdateTime = a} :: Application) Prelude.. Lens.mapping Core._Time
+application_lastUpdateTime = Lens.lens (\Application' {lastUpdateTime} -> lastUpdateTime) (\s@Application' {} a -> s {lastUpdateTime = a} :: Application) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Application where
+instance Data.FromJSON Application where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Application"
       ( \x ->
           Application'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
       )
 
 instance Prelude.Hashable Application where

@@ -40,6 +40,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -47,9 +48,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
   { -- | The resource ARN.
-    resourceARN :: Core.Sensitive Prelude.Text,
+    resourceARN :: Data.Sensitive Prelude.Text,
     -- | The tag keys.
-    tagKeys :: Prelude.NonEmpty (Core.Sensitive Prelude.Text)
+    tagKeys :: Prelude.NonEmpty (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -73,13 +74,13 @@ newUntagResource ::
 newUntagResource pResourceARN_ pTagKeys_ =
   UntagResource'
     { resourceARN =
-        Core._Sensitive Lens.# pResourceARN_,
+        Data._Sensitive Lens.# pResourceARN_,
       tagKeys = Lens.coerced Lens.# pTagKeys_
     }
 
 -- | The resource ARN.
 untagResource_resourceARN :: Lens.Lens' UntagResource Prelude.Text
-untagResource_resourceARN = Lens.lens (\UntagResource' {resourceARN} -> resourceARN) (\s@UntagResource' {} a -> s {resourceARN = a} :: UntagResource) Prelude.. Core._Sensitive
+untagResource_resourceARN = Lens.lens (\UntagResource' {resourceARN} -> resourceARN) (\s@UntagResource' {} a -> s {resourceARN = a} :: UntagResource) Prelude.. Data._Sensitive
 
 -- | The tag keys.
 untagResource_tagKeys :: Lens.Lens' UntagResource (Prelude.NonEmpty Prelude.Text)
@@ -104,22 +105,22 @@ instance Prelude.NFData UntagResource where
     Prelude.rnf resourceARN
       `Prelude.seq` Prelude.rnf tagKeys
 
-instance Core.ToHeaders UntagResource where
+instance Data.ToHeaders UntagResource where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UntagResource where
+instance Data.ToJSON UntagResource where
   toJSON UntagResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceARN" Core..= resourceARN),
-            Prelude.Just ("TagKeys" Core..= tagKeys)
+          [ Prelude.Just ("ResourceARN" Data..= resourceARN),
+            Prelude.Just ("TagKeys" Data..= tagKeys)
           ]
       )
 
-instance Core.ToPath UntagResource where
+instance Data.ToPath UntagResource where
   toPath = Prelude.const "/tags"
 
-instance Core.ToQuery UntagResource where
+instance Data.ToQuery UntagResource where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["operation=untag-resource"])

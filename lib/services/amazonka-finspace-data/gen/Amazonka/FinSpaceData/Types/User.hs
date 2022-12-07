@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.User where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types.ApiAccess
 import Amazonka.FinSpaceData.Types.UserStatus
 import Amazonka.FinSpaceData.Types.UserType
@@ -39,7 +40,7 @@ data User = User'
     --     are assigned permissions by adding them to a permission group.
     type' :: Prelude.Maybe UserType,
     -- | The first name of the user.
-    firstName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    firstName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The current status of the user account.
     --
     -- -   @CREATING@ – The user account creation is in progress.
@@ -55,7 +56,7 @@ data User = User'
     -- value is determined as epoch time in milliseconds.
     lastLoginTime :: Prelude.Maybe Prelude.Integer,
     -- | The last name of the user.
-    lastName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    lastName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Describes the last time the user account was updated. The value is
     -- determined as epoch time in milliseconds.
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
@@ -74,7 +75,7 @@ data User = User'
     lastEnabledTime :: Prelude.Maybe Prelude.Integer,
     -- | The email address of the user. The email address serves as a uniquer
     -- identifier for each user and cannot be changed after it\'s created.
-    emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    emailAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The timestamp at which the user account was created in FinSpace. The
     -- value is determined as epoch time in milliseconds.
     createTime :: Prelude.Maybe Prelude.Integer,
@@ -177,7 +178,7 @@ user_type = Lens.lens (\User' {type'} -> type') (\s@User' {} a -> s {type' = a} 
 
 -- | The first name of the user.
 user_firstName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_firstName = Lens.lens (\User' {firstName} -> firstName) (\s@User' {} a -> s {firstName = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+user_firstName = Lens.lens (\User' {firstName} -> firstName) (\s@User' {} a -> s {firstName = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The current status of the user account.
 --
@@ -201,7 +202,7 @@ user_lastLoginTime = Lens.lens (\User' {lastLoginTime} -> lastLoginTime) (\s@Use
 
 -- | The last name of the user.
 user_lastName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_lastName = Lens.lens (\User' {lastName} -> lastName) (\s@User' {} a -> s {lastName = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+user_lastName = Lens.lens (\User' {lastName} -> lastName) (\s@User' {} a -> s {lastName = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Describes the last time the user account was updated. The value is
 -- determined as epoch time in milliseconds.
@@ -230,7 +231,7 @@ user_lastEnabledTime = Lens.lens (\User' {lastEnabledTime} -> lastEnabledTime) (
 -- | The email address of the user. The email address serves as a uniquer
 -- identifier for each user and cannot be changed after it\'s created.
 user_emailAddress :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_emailAddress = Lens.lens (\User' {emailAddress} -> emailAddress) (\s@User' {} a -> s {emailAddress = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+user_emailAddress = Lens.lens (\User' {emailAddress} -> emailAddress) (\s@User' {} a -> s {emailAddress = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The timestamp at which the user account was created in FinSpace. The
 -- value is determined as epoch time in milliseconds.
@@ -244,25 +245,25 @@ user_createTime = Lens.lens (\User' {createTime} -> createTime) (\s@User' {} a -
 user_apiAccessPrincipalArn :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_apiAccessPrincipalArn = Lens.lens (\User' {apiAccessPrincipalArn} -> apiAccessPrincipalArn) (\s@User' {} a -> s {apiAccessPrincipalArn = a} :: User)
 
-instance Core.FromJSON User where
+instance Data.FromJSON User where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "User"
       ( \x ->
           User'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "firstName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastDisabledTime")
-            Prelude.<*> (x Core..:? "lastLoginTime")
-            Prelude.<*> (x Core..:? "lastName")
-            Prelude.<*> (x Core..:? "lastModifiedTime")
-            Prelude.<*> (x Core..:? "apiAccess")
-            Prelude.<*> (x Core..:? "userId")
-            Prelude.<*> (x Core..:? "lastEnabledTime")
-            Prelude.<*> (x Core..:? "emailAddress")
-            Prelude.<*> (x Core..:? "createTime")
-            Prelude.<*> (x Core..:? "apiAccessPrincipalArn")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "firstName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "lastDisabledTime")
+            Prelude.<*> (x Data..:? "lastLoginTime")
+            Prelude.<*> (x Data..:? "lastName")
+            Prelude.<*> (x Data..:? "lastModifiedTime")
+            Prelude.<*> (x Data..:? "apiAccess")
+            Prelude.<*> (x Data..:? "userId")
+            Prelude.<*> (x Data..:? "lastEnabledTime")
+            Prelude.<*> (x Data..:? "emailAddress")
+            Prelude.<*> (x Data..:? "createTime")
+            Prelude.<*> (x Data..:? "apiAccessPrincipalArn")
       )
 
 instance Prelude.Hashable User where

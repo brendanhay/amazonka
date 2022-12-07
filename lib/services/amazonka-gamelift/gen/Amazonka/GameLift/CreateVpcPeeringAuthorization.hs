@@ -80,6 +80,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,7 +165,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateVpcPeeringAuthorizationResponse'
-            Prelude.<$> (x Core..?> "VpcPeeringAuthorization")
+            Prelude.<$> (x Data..?> "VpcPeeringAuthorization")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,37 +182,37 @@ instance Prelude.NFData CreateVpcPeeringAuthorization where
     Prelude.rnf gameLiftAwsAccountId
       `Prelude.seq` Prelude.rnf peerVpcId
 
-instance Core.ToHeaders CreateVpcPeeringAuthorization where
+instance Data.ToHeaders CreateVpcPeeringAuthorization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.CreateVpcPeeringAuthorization" ::
+              Data.=# ( "GameLift.CreateVpcPeeringAuthorization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateVpcPeeringAuthorization where
+instance Data.ToJSON CreateVpcPeeringAuthorization where
   toJSON CreateVpcPeeringAuthorization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "GameLiftAwsAccountId"
-                  Core..= gameLiftAwsAccountId
+                  Data..= gameLiftAwsAccountId
               ),
-            Prelude.Just ("PeerVpcId" Core..= peerVpcId)
+            Prelude.Just ("PeerVpcId" Data..= peerVpcId)
           ]
       )
 
-instance Core.ToPath CreateVpcPeeringAuthorization where
+instance Data.ToPath CreateVpcPeeringAuthorization where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVpcPeeringAuthorization where
+instance Data.ToQuery CreateVpcPeeringAuthorization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

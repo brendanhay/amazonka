@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.SecurityProfileTargetMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.SecurityProfileIdentifier
 import Amazonka.IoT.Types.SecurityProfileTarget
 import qualified Amazonka.Prelude as Prelude
@@ -67,14 +68,14 @@ securityProfileTargetMapping_securityProfileIdentifier = Lens.lens (\SecurityPro
 securityProfileTargetMapping_target :: Lens.Lens' SecurityProfileTargetMapping (Prelude.Maybe SecurityProfileTarget)
 securityProfileTargetMapping_target = Lens.lens (\SecurityProfileTargetMapping' {target} -> target) (\s@SecurityProfileTargetMapping' {} a -> s {target = a} :: SecurityProfileTargetMapping)
 
-instance Core.FromJSON SecurityProfileTargetMapping where
+instance Data.FromJSON SecurityProfileTargetMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecurityProfileTargetMapping"
       ( \x ->
           SecurityProfileTargetMapping'
-            Prelude.<$> (x Core..:? "securityProfileIdentifier")
-            Prelude.<*> (x Core..:? "target")
+            Prelude.<$> (x Data..:? "securityProfileIdentifier")
+            Prelude.<*> (x Data..:? "target")
       )
 
 instance

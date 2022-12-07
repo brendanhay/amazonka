@@ -23,6 +23,7 @@ import Amazonka.CodeDeploy.Types.TargetGroupInfo
 import Amazonka.CodeDeploy.Types.TargetLabel
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a set of Amazon ECS tasks in an CodeDeploy deployment.
@@ -182,20 +183,20 @@ eCSTaskSet_taskSetLabel = Lens.lens (\ECSTaskSet' {taskSetLabel} -> taskSetLabel
 eCSTaskSet_trafficWeight :: Lens.Lens' ECSTaskSet (Prelude.Maybe Prelude.Double)
 eCSTaskSet_trafficWeight = Lens.lens (\ECSTaskSet' {trafficWeight} -> trafficWeight) (\s@ECSTaskSet' {} a -> s {trafficWeight = a} :: ECSTaskSet)
 
-instance Core.FromJSON ECSTaskSet where
+instance Data.FromJSON ECSTaskSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ECSTaskSet"
       ( \x ->
           ECSTaskSet'
-            Prelude.<$> (x Core..:? "identifer")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "targetGroup")
-            Prelude.<*> (x Core..:? "desiredCount")
-            Prelude.<*> (x Core..:? "pendingCount")
-            Prelude.<*> (x Core..:? "runningCount")
-            Prelude.<*> (x Core..:? "taskSetLabel")
-            Prelude.<*> (x Core..:? "trafficWeight")
+            Prelude.<$> (x Data..:? "identifer")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "targetGroup")
+            Prelude.<*> (x Data..:? "desiredCount")
+            Prelude.<*> (x Data..:? "pendingCount")
+            Prelude.<*> (x Data..:? "runningCount")
+            Prelude.<*> (x Data..:? "taskSetLabel")
+            Prelude.<*> (x Data..:? "trafficWeight")
       )
 
 instance Prelude.Hashable ECSTaskSet where

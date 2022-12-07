@@ -21,6 +21,7 @@ module Amazonka.CloudWatchLogs.Types.ExportTaskExecutionInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the status of an export task.
@@ -68,14 +69,14 @@ exportTaskExecutionInfo_completionTime = Lens.lens (\ExportTaskExecutionInfo' {c
 exportTaskExecutionInfo_creationTime :: Lens.Lens' ExportTaskExecutionInfo (Prelude.Maybe Prelude.Natural)
 exportTaskExecutionInfo_creationTime = Lens.lens (\ExportTaskExecutionInfo' {creationTime} -> creationTime) (\s@ExportTaskExecutionInfo' {} a -> s {creationTime = a} :: ExportTaskExecutionInfo)
 
-instance Core.FromJSON ExportTaskExecutionInfo where
+instance Data.FromJSON ExportTaskExecutionInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExportTaskExecutionInfo"
       ( \x ->
           ExportTaskExecutionInfo'
-            Prelude.<$> (x Core..:? "completionTime")
-            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<$> (x Data..:? "completionTime")
+            Prelude.<*> (x Data..:? "creationTime")
       )
 
 instance Prelude.Hashable ExportTaskExecutionInfo where

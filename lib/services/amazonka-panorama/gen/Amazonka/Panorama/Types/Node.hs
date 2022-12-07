@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.Node where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.NodeCategory
 import qualified Amazonka.Prelude as Prelude
 
@@ -38,7 +39,7 @@ data Node = Node'
     -- | The node\'s category.
     category :: NodeCategory,
     -- | When the node was created.
-    createdTime :: Core.POSIX,
+    createdTime :: Data.POSIX,
     -- | The node\'s name.
     name :: Prelude.Text,
     -- | The node\'s ID.
@@ -115,7 +116,7 @@ newNode
         description = Prelude.Nothing,
         ownerAccount = Prelude.Nothing,
         category = pCategory_,
-        createdTime = Core._Time Lens.# pCreatedTime_,
+        createdTime = Data._Time Lens.# pCreatedTime_,
         name = pName_,
         nodeId = pNodeId_,
         packageId = pPackageId_,
@@ -142,7 +143,7 @@ node_category = Lens.lens (\Node' {category} -> category) (\s@Node' {} a -> s {c
 
 -- | When the node was created.
 node_createdTime :: Lens.Lens' Node Prelude.UTCTime
-node_createdTime = Lens.lens (\Node' {createdTime} -> createdTime) (\s@Node' {} a -> s {createdTime = a} :: Node) Prelude.. Core._Time
+node_createdTime = Lens.lens (\Node' {createdTime} -> createdTime) (\s@Node' {} a -> s {createdTime = a} :: Node) Prelude.. Data._Time
 
 -- | The node\'s name.
 node_name :: Lens.Lens' Node Prelude.Text
@@ -168,23 +169,23 @@ node_packageVersion = Lens.lens (\Node' {packageVersion} -> packageVersion) (\s@
 node_patchVersion :: Lens.Lens' Node Prelude.Text
 node_patchVersion = Lens.lens (\Node' {patchVersion} -> patchVersion) (\s@Node' {} a -> s {patchVersion = a} :: Node)
 
-instance Core.FromJSON Node where
+instance Data.FromJSON Node where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Node"
       ( \x ->
           Node'
-            Prelude.<$> (x Core..:? "PackageArn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "OwnerAccount")
-            Prelude.<*> (x Core..: "Category")
-            Prelude.<*> (x Core..: "CreatedTime")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "NodeId")
-            Prelude.<*> (x Core..: "PackageId")
-            Prelude.<*> (x Core..: "PackageName")
-            Prelude.<*> (x Core..: "PackageVersion")
-            Prelude.<*> (x Core..: "PatchVersion")
+            Prelude.<$> (x Data..:? "PackageArn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "OwnerAccount")
+            Prelude.<*> (x Data..: "Category")
+            Prelude.<*> (x Data..: "CreatedTime")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "NodeId")
+            Prelude.<*> (x Data..: "PackageId")
+            Prelude.<*> (x Data..: "PackageName")
+            Prelude.<*> (x Data..: "PackageVersion")
+            Prelude.<*> (x Data..: "PatchVersion")
       )
 
 instance Prelude.Hashable Node where

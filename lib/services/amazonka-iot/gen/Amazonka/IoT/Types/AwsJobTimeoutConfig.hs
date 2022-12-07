@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AwsJobTimeoutConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the amount of time each device has to finish its execution of
@@ -84,11 +85,11 @@ instance Prelude.NFData AwsJobTimeoutConfig where
   rnf AwsJobTimeoutConfig' {..} =
     Prelude.rnf inProgressTimeoutInMinutes
 
-instance Core.ToJSON AwsJobTimeoutConfig where
+instance Data.ToJSON AwsJobTimeoutConfig where
   toJSON AwsJobTimeoutConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inProgressTimeoutInMinutes" Core..=)
+          [ ("inProgressTimeoutInMinutes" Data..=)
               Prelude.<$> inProgressTimeoutInMinutes
           ]
       )

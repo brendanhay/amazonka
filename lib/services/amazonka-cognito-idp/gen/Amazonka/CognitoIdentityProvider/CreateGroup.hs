@@ -48,6 +48,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -175,7 +176,7 @@ instance Core.AWSRequest CreateGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateGroupResponse'
-            Prelude.<$> (x Core..?> "Group")
+            Prelude.<$> (x Data..?> "Group")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,37 +196,37 @@ instance Prelude.NFData CreateGroup where
       `Prelude.seq` Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf userPoolId
 
-instance Core.ToHeaders CreateGroup where
+instance Data.ToHeaders CreateGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.CreateGroup" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.CreateGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateGroup where
+instance Data.ToJSON CreateGroup where
   toJSON CreateGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Precedence" Core..=) Prelude.<$> precedence,
-            Prelude.Just ("GroupName" Core..= groupName),
-            Prelude.Just ("UserPoolId" Core..= userPoolId)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Precedence" Data..=) Prelude.<$> precedence,
+            Prelude.Just ("GroupName" Data..= groupName),
+            Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )
 
-instance Core.ToPath CreateGroup where
+instance Data.ToPath CreateGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateGroup where
+instance Data.ToQuery CreateGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGroupResponse' smart constructor.

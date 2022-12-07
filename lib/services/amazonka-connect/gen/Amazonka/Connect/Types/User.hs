@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.UserIdentityInfo
 import Amazonka.Connect.Types.UserPhoneConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a user account for an Amazon Connect
@@ -139,22 +140,22 @@ user_directoryUserId = Lens.lens (\User' {directoryUserId} -> directoryUserId) (
 user_routingProfileId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_routingProfileId = Lens.lens (\User' {routingProfileId} -> routingProfileId) (\s@User' {} a -> s {routingProfileId = a} :: User)
 
-instance Core.FromJSON User where
+instance Data.FromJSON User where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "User"
       ( \x ->
           User'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "HierarchyGroupId")
-            Prelude.<*> (x Core..:? "IdentityInfo")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "SecurityProfileIds")
-            Prelude.<*> (x Core..:? "PhoneConfig")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "DirectoryUserId")
-            Prelude.<*> (x Core..:? "RoutingProfileId")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "HierarchyGroupId")
+            Prelude.<*> (x Data..:? "IdentityInfo")
+            Prelude.<*> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "SecurityProfileIds")
+            Prelude.<*> (x Data..:? "PhoneConfig")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "DirectoryUserId")
+            Prelude.<*> (x Data..:? "RoutingProfileId")
       )
 
 instance Prelude.Hashable User where

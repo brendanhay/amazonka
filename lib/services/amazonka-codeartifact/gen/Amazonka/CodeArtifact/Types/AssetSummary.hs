@@ -22,6 +22,7 @@ module Amazonka.CodeArtifact.Types.AssetSummary where
 import Amazonka.CodeArtifact.Types.HashAlgorithm
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about a package version asset.
@@ -73,15 +74,15 @@ assetSummary_hashes = Lens.lens (\AssetSummary' {hashes} -> hashes) (\s@AssetSum
 assetSummary_name :: Lens.Lens' AssetSummary Prelude.Text
 assetSummary_name = Lens.lens (\AssetSummary' {name} -> name) (\s@AssetSummary' {} a -> s {name = a} :: AssetSummary)
 
-instance Core.FromJSON AssetSummary where
+instance Data.FromJSON AssetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetSummary"
       ( \x ->
           AssetSummary'
-            Prelude.<$> (x Core..:? "size")
-            Prelude.<*> (x Core..:? "hashes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "size")
+            Prelude.<*> (x Data..:? "hashes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable AssetSummary where

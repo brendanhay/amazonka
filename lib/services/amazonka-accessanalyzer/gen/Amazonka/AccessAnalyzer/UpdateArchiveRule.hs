@@ -41,6 +41,7 @@ where
 import Amazonka.AccessAnalyzer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,36 +132,36 @@ instance Prelude.NFData UpdateArchiveRule where
       `Prelude.seq` Prelude.rnf ruleName
       `Prelude.seq` Prelude.rnf filter'
 
-instance Core.ToHeaders UpdateArchiveRule where
+instance Data.ToHeaders UpdateArchiveRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateArchiveRule where
+instance Data.ToJSON UpdateArchiveRule where
   toJSON UpdateArchiveRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("filter" Core..= filter')
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("filter" Data..= filter')
           ]
       )
 
-instance Core.ToPath UpdateArchiveRule where
+instance Data.ToPath UpdateArchiveRule where
   toPath UpdateArchiveRule' {..} =
     Prelude.mconcat
       [ "/analyzer/",
-        Core.toBS analyzerName,
+        Data.toBS analyzerName,
         "/archive-rule/",
-        Core.toBS ruleName
+        Data.toBS ruleName
       ]
 
-instance Core.ToQuery UpdateArchiveRule where
+instance Data.ToQuery UpdateArchiveRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateArchiveRuleResponse' smart constructor.

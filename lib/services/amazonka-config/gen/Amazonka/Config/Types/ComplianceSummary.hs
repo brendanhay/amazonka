@@ -22,6 +22,7 @@ module Amazonka.Config.Types.ComplianceSummary where
 import Amazonka.Config.Types.ComplianceContributorCount
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The number of Config rules or Amazon Web Services resources that are
@@ -33,7 +34,7 @@ data ComplianceSummary = ComplianceSummary'
     -- compliant, up to a maximum of 25 for rules and 100 for resources.
     compliantResourceCount :: Prelude.Maybe ComplianceContributorCount,
     -- | The time that Config created the compliance summary.
-    complianceSummaryTimestamp :: Prelude.Maybe Core.POSIX,
+    complianceSummaryTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The number of Config rules or Amazon Web Services resources that are
     -- noncompliant, up to a maximum of 25 for rules and 100 for resources.
     nonCompliantResourceCount :: Prelude.Maybe ComplianceContributorCount
@@ -72,22 +73,22 @@ complianceSummary_compliantResourceCount = Lens.lens (\ComplianceSummary' {compl
 
 -- | The time that Config created the compliance summary.
 complianceSummary_complianceSummaryTimestamp :: Lens.Lens' ComplianceSummary (Prelude.Maybe Prelude.UTCTime)
-complianceSummary_complianceSummaryTimestamp = Lens.lens (\ComplianceSummary' {complianceSummaryTimestamp} -> complianceSummaryTimestamp) (\s@ComplianceSummary' {} a -> s {complianceSummaryTimestamp = a} :: ComplianceSummary) Prelude.. Lens.mapping Core._Time
+complianceSummary_complianceSummaryTimestamp = Lens.lens (\ComplianceSummary' {complianceSummaryTimestamp} -> complianceSummaryTimestamp) (\s@ComplianceSummary' {} a -> s {complianceSummaryTimestamp = a} :: ComplianceSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The number of Config rules or Amazon Web Services resources that are
 -- noncompliant, up to a maximum of 25 for rules and 100 for resources.
 complianceSummary_nonCompliantResourceCount :: Lens.Lens' ComplianceSummary (Prelude.Maybe ComplianceContributorCount)
 complianceSummary_nonCompliantResourceCount = Lens.lens (\ComplianceSummary' {nonCompliantResourceCount} -> nonCompliantResourceCount) (\s@ComplianceSummary' {} a -> s {nonCompliantResourceCount = a} :: ComplianceSummary)
 
-instance Core.FromJSON ComplianceSummary where
+instance Data.FromJSON ComplianceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComplianceSummary"
       ( \x ->
           ComplianceSummary'
-            Prelude.<$> (x Core..:? "CompliantResourceCount")
-            Prelude.<*> (x Core..:? "ComplianceSummaryTimestamp")
-            Prelude.<*> (x Core..:? "NonCompliantResourceCount")
+            Prelude.<$> (x Data..:? "CompliantResourceCount")
+            Prelude.<*> (x Data..:? "ComplianceSummaryTimestamp")
+            Prelude.<*> (x Data..:? "NonCompliantResourceCount")
       )
 
 instance Prelude.Hashable ComplianceSummary where

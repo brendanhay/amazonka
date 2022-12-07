@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,13 +148,13 @@ instance Core.AWSRequest ListTrafficPolicies where
       ( \s h x ->
           ListTrafficPoliciesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "TrafficPolicySummaries"
+            Prelude.<*> ( x Data..@? "TrafficPolicySummaries"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "TrafficPolicySummary"
+                            Prelude.>>= Data.parseXMLList "TrafficPolicySummary"
                         )
-            Prelude.<*> (x Core..@ "IsTruncated")
-            Prelude.<*> (x Core..@ "TrafficPolicyIdMarker")
-            Prelude.<*> (x Core..@ "MaxItems")
+            Prelude.<*> (x Data..@ "IsTruncated")
+            Prelude.<*> (x Data..@ "TrafficPolicyIdMarker")
+            Prelude.<*> (x Data..@ "MaxItems")
       )
 
 instance Prelude.Hashable ListTrafficPolicies where
@@ -166,17 +167,17 @@ instance Prelude.NFData ListTrafficPolicies where
     Prelude.rnf trafficPolicyIdMarker
       `Prelude.seq` Prelude.rnf maxItems
 
-instance Core.ToHeaders ListTrafficPolicies where
+instance Data.ToHeaders ListTrafficPolicies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListTrafficPolicies where
+instance Data.ToPath ListTrafficPolicies where
   toPath = Prelude.const "/2013-04-01/trafficpolicies"
 
-instance Core.ToQuery ListTrafficPolicies where
+instance Data.ToQuery ListTrafficPolicies where
   toQuery ListTrafficPolicies' {..} =
     Prelude.mconcat
-      [ "trafficpolicyid" Core.=: trafficPolicyIdMarker,
-        "maxitems" Core.=: maxItems
+      [ "trafficpolicyid" Data.=: trafficPolicyIdMarker,
+        "maxitems" Data.=: maxItems
       ]
 
 -- | A complex type that contains the response information for the request.

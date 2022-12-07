@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.GettablePolicyStateValues
 import Amazonka.DLM.Types.PolicyDetails
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[All policy types]__ Detailed information about a snapshot, AMI, or
@@ -43,14 +44,14 @@ data LifecyclePolicy = LifecyclePolicy'
     -- | The Amazon Resource Name (ARN) of the policy.
     policyArn :: Prelude.Maybe Prelude.Text,
     -- | The local date and time when the lifecycle policy was created.
-    dateCreated :: Prelude.Maybe Core.POSIX,
+    dateCreated :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the IAM role used to run the
     -- operations specified by the lifecycle policy.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The description of the status.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The local date and time when the lifecycle policy was last modified.
-    dateModified :: Prelude.Maybe Core.POSIX
+    dateModified :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -124,7 +125,7 @@ lifecyclePolicy_policyArn = Lens.lens (\LifecyclePolicy' {policyArn} -> policyAr
 
 -- | The local date and time when the lifecycle policy was created.
 lifecyclePolicy_dateCreated :: Lens.Lens' LifecyclePolicy (Prelude.Maybe Prelude.UTCTime)
-lifecyclePolicy_dateCreated = Lens.lens (\LifecyclePolicy' {dateCreated} -> dateCreated) (\s@LifecyclePolicy' {} a -> s {dateCreated = a} :: LifecyclePolicy) Prelude.. Lens.mapping Core._Time
+lifecyclePolicy_dateCreated = Lens.lens (\LifecyclePolicy' {dateCreated} -> dateCreated) (\s@LifecyclePolicy' {} a -> s {dateCreated = a} :: LifecyclePolicy) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the IAM role used to run the
 -- operations specified by the lifecycle policy.
@@ -137,24 +138,24 @@ lifecyclePolicy_statusMessage = Lens.lens (\LifecyclePolicy' {statusMessage} -> 
 
 -- | The local date and time when the lifecycle policy was last modified.
 lifecyclePolicy_dateModified :: Lens.Lens' LifecyclePolicy (Prelude.Maybe Prelude.UTCTime)
-lifecyclePolicy_dateModified = Lens.lens (\LifecyclePolicy' {dateModified} -> dateModified) (\s@LifecyclePolicy' {} a -> s {dateModified = a} :: LifecyclePolicy) Prelude.. Lens.mapping Core._Time
+lifecyclePolicy_dateModified = Lens.lens (\LifecyclePolicy' {dateModified} -> dateModified) (\s@LifecyclePolicy' {} a -> s {dateModified = a} :: LifecyclePolicy) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON LifecyclePolicy where
+instance Data.FromJSON LifecyclePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifecyclePolicy"
       ( \x ->
           LifecyclePolicy'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PolicyId")
-            Prelude.<*> (x Core..:? "PolicyDetails")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "PolicyArn")
-            Prelude.<*> (x Core..:? "DateCreated")
-            Prelude.<*> (x Core..:? "ExecutionRoleArn")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "DateModified")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PolicyId")
+            Prelude.<*> (x Data..:? "PolicyDetails")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "PolicyArn")
+            Prelude.<*> (x Data..:? "DateCreated")
+            Prelude.<*> (x Data..:? "ExecutionRoleArn")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "DateModified")
       )
 
 instance Prelude.Hashable LifecyclePolicy where

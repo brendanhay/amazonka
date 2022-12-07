@@ -87,6 +87,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideoMedia.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,7 +157,7 @@ instance Core.AWSRequest GetMedia where
     Response.receiveBody
       ( \s h x ->
           GetMediaResponse'
-            Prelude.<$> (h Core..#? "Content-Type")
+            Prelude.<$> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
@@ -173,24 +174,24 @@ instance Prelude.NFData GetMedia where
       `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf startSelector
 
-instance Core.ToHeaders GetMedia where
+instance Data.ToHeaders GetMedia where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetMedia where
+instance Data.ToJSON GetMedia where
   toJSON GetMedia' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StreamARN" Core..=) Prelude.<$> streamARN,
-            ("StreamName" Core..=) Prelude.<$> streamName,
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
             Prelude.Just
-              ("StartSelector" Core..= startSelector)
+              ("StartSelector" Data..= startSelector)
           ]
       )
 
-instance Core.ToPath GetMedia where
+instance Data.ToPath GetMedia where
   toPath = Prelude.const "/getMedia"
 
-instance Core.ToQuery GetMedia where
+instance Data.ToQuery GetMedia where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMediaResponse' smart constructor.
@@ -251,7 +252,7 @@ data GetMediaResponse = GetMediaResponse'
     -- -   4506 - Unable to find the KMS key specified in the stream
     --
     -- -   5000 - Internal error
-    payload :: Core.ResponseBody
+    payload :: Data.ResponseBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -323,7 +324,7 @@ newGetMediaResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   -- | 'payload'
-  Core.ResponseBody ->
+  Data.ResponseBody ->
   GetMediaResponse
 newGetMediaResponse pHttpStatus_ pPayload_ =
   GetMediaResponse'
@@ -392,5 +393,5 @@ getMediaResponse_httpStatus = Lens.lens (\GetMediaResponse' {httpStatus} -> http
 -- -   4506 - Unable to find the KMS key specified in the stream
 --
 -- -   5000 - Internal error
-getMediaResponse_payload :: Lens.Lens' GetMediaResponse Core.ResponseBody
+getMediaResponse_payload :: Lens.Lens' GetMediaResponse Data.ResponseBody
 getMediaResponse_payload = Lens.lens (\GetMediaResponse' {payload} -> payload) (\s@GetMediaResponse' {} a -> s {payload = a} :: GetMediaResponse)

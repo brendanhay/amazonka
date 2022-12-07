@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance Core.AWSRequest UpdateTestGridProject where
     Response.receiveJSON
       ( \s h x ->
           UpdateTestGridProjectResponse'
-            Prelude.<$> (x Core..?> "testGridProject")
+            Prelude.<$> (x Data..?> "testGridProject")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,36 +134,36 @@ instance Prelude.NFData UpdateTestGridProject where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf projectArn
 
-instance Core.ToHeaders UpdateTestGridProject where
+instance Data.ToHeaders UpdateTestGridProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.UpdateTestGridProject" ::
+              Data.=# ( "DeviceFarm_20150623.UpdateTestGridProject" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTestGridProject where
+instance Data.ToJSON UpdateTestGridProject where
   toJSON UpdateTestGridProject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("vpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("projectArn" Core..= projectArn)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("vpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("projectArn" Data..= projectArn)
           ]
       )
 
-instance Core.ToPath UpdateTestGridProject where
+instance Data.ToPath UpdateTestGridProject where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTestGridProject where
+instance Data.ToQuery UpdateTestGridProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTestGridProjectResponse' smart constructor.

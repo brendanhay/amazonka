@@ -21,6 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.RefreshTokenRequestBody where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a refresh token.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data RefreshTokenRequestBody = RefreshTokenRequestBody'
   { -- | The token to use to refresh a previously issued access token that might
     -- have expired.
-    token :: Core.Sensitive Prelude.Text
+    token :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -50,13 +51,13 @@ newRefreshTokenRequestBody ::
 newRefreshTokenRequestBody pToken_ =
   RefreshTokenRequestBody'
     { token =
-        Core._Sensitive Lens.# pToken_
+        Data._Sensitive Lens.# pToken_
     }
 
 -- | The token to use to refresh a previously issued access token that might
 -- have expired.
 refreshTokenRequestBody_token :: Lens.Lens' RefreshTokenRequestBody Prelude.Text
-refreshTokenRequestBody_token = Lens.lens (\RefreshTokenRequestBody' {token} -> token) (\s@RefreshTokenRequestBody' {} a -> s {token = a} :: RefreshTokenRequestBody) Prelude.. Core._Sensitive
+refreshTokenRequestBody_token = Lens.lens (\RefreshTokenRequestBody' {token} -> token) (\s@RefreshTokenRequestBody' {} a -> s {token = a} :: RefreshTokenRequestBody) Prelude.. Data._Sensitive
 
 instance Prelude.Hashable RefreshTokenRequestBody where
   hashWithSalt _salt RefreshTokenRequestBody' {..} =
@@ -65,9 +66,9 @@ instance Prelude.Hashable RefreshTokenRequestBody where
 instance Prelude.NFData RefreshTokenRequestBody where
   rnf RefreshTokenRequestBody' {..} = Prelude.rnf token
 
-instance Core.ToJSON RefreshTokenRequestBody where
+instance Data.ToJSON RefreshTokenRequestBody where
   toJSON RefreshTokenRequestBody' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("token" Core..= token)]
+          [Prelude.Just ("token" Data..= token)]
       )

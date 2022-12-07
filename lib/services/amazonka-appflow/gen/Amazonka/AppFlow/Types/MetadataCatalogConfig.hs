@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.MetadataCatalogConfig where
 import Amazonka.AppFlow.Types.GlueDataCatalogConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration that Amazon AppFlow uses when it catalogs
@@ -59,13 +60,13 @@ newMetadataCatalogConfig =
 metadataCatalogConfig_glueDataCatalog :: Lens.Lens' MetadataCatalogConfig (Prelude.Maybe GlueDataCatalogConfig)
 metadataCatalogConfig_glueDataCatalog = Lens.lens (\MetadataCatalogConfig' {glueDataCatalog} -> glueDataCatalog) (\s@MetadataCatalogConfig' {} a -> s {glueDataCatalog = a} :: MetadataCatalogConfig)
 
-instance Core.FromJSON MetadataCatalogConfig where
+instance Data.FromJSON MetadataCatalogConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetadataCatalogConfig"
       ( \x ->
           MetadataCatalogConfig'
-            Prelude.<$> (x Core..:? "glueDataCatalog")
+            Prelude.<$> (x Data..:? "glueDataCatalog")
       )
 
 instance Prelude.Hashable MetadataCatalogConfig where
@@ -76,11 +77,11 @@ instance Prelude.NFData MetadataCatalogConfig where
   rnf MetadataCatalogConfig' {..} =
     Prelude.rnf glueDataCatalog
 
-instance Core.ToJSON MetadataCatalogConfig where
+instance Data.ToJSON MetadataCatalogConfig where
   toJSON MetadataCatalogConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("glueDataCatalog" Core..=)
+          [ ("glueDataCatalog" Data..=)
               Prelude.<$> glueDataCatalog
           ]
       )

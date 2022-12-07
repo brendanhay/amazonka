@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.Concurrency where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newConcurrency' smart constructor.
@@ -57,13 +58,13 @@ newConcurrency =
 concurrency_reservedConcurrentExecutions :: Lens.Lens' Concurrency (Prelude.Maybe Prelude.Natural)
 concurrency_reservedConcurrentExecutions = Lens.lens (\Concurrency' {reservedConcurrentExecutions} -> reservedConcurrentExecutions) (\s@Concurrency' {} a -> s {reservedConcurrentExecutions = a} :: Concurrency)
 
-instance Core.FromJSON Concurrency where
+instance Data.FromJSON Concurrency where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Concurrency"
       ( \x ->
           Concurrency'
-            Prelude.<$> (x Core..:? "ReservedConcurrentExecutions")
+            Prelude.<$> (x Data..:? "ReservedConcurrentExecutions")
       )
 
 instance Prelude.Hashable Concurrency where

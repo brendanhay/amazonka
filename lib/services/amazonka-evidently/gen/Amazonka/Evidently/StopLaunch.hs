@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,7 +127,7 @@ instance Core.AWSRequest StopLaunch where
     Response.receiveJSON
       ( \s h x ->
           StopLaunchResponse'
-            Prelude.<$> (x Core..?> "endedTime")
+            Prelude.<$> (x Data..?> "endedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,43 +145,43 @@ instance Prelude.NFData StopLaunch where
       `Prelude.seq` Prelude.rnf launch
       `Prelude.seq` Prelude.rnf project
 
-instance Core.ToHeaders StopLaunch where
+instance Data.ToHeaders StopLaunch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopLaunch where
+instance Data.ToJSON StopLaunch where
   toJSON StopLaunch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("desiredState" Core..=) Prelude.<$> desiredState,
-            ("reason" Core..=) Prelude.<$> reason
+          [ ("desiredState" Data..=) Prelude.<$> desiredState,
+            ("reason" Data..=) Prelude.<$> reason
           ]
       )
 
-instance Core.ToPath StopLaunch where
+instance Data.ToPath StopLaunch where
   toPath StopLaunch' {..} =
     Prelude.mconcat
       [ "/projects/",
-        Core.toBS project,
+        Data.toBS project,
         "/launches/",
-        Core.toBS launch,
+        Data.toBS launch,
         "/cancel"
       ]
 
-instance Core.ToQuery StopLaunch where
+instance Data.ToQuery StopLaunch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopLaunchResponse' smart constructor.
 data StopLaunchResponse = StopLaunchResponse'
   { -- | The date and time that the launch stopped.
-    endedTime :: Prelude.Maybe Core.POSIX,
+    endedTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,7 +210,7 @@ newStopLaunchResponse pHttpStatus_ =
 
 -- | The date and time that the launch stopped.
 stopLaunchResponse_endedTime :: Lens.Lens' StopLaunchResponse (Prelude.Maybe Prelude.UTCTime)
-stopLaunchResponse_endedTime = Lens.lens (\StopLaunchResponse' {endedTime} -> endedTime) (\s@StopLaunchResponse' {} a -> s {endedTime = a} :: StopLaunchResponse) Prelude.. Lens.mapping Core._Time
+stopLaunchResponse_endedTime = Lens.lens (\StopLaunchResponse' {endedTime} -> endedTime) (\s@StopLaunchResponse' {} a -> s {endedTime = a} :: StopLaunchResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 stopLaunchResponse_httpStatus :: Lens.Lens' StopLaunchResponse Prelude.Int

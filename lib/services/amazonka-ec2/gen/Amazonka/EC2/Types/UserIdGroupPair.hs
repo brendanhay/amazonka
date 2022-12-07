@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.UserIdGroupPair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -161,16 +162,16 @@ userIdGroupPair_vpcId = Lens.lens (\UserIdGroupPair' {vpcId} -> vpcId) (\s@UserI
 userIdGroupPair_groupId :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
 userIdGroupPair_groupId = Lens.lens (\UserIdGroupPair' {groupId} -> groupId) (\s@UserIdGroupPair' {} a -> s {groupId = a} :: UserIdGroupPair)
 
-instance Core.FromXML UserIdGroupPair where
+instance Data.FromXML UserIdGroupPair where
   parseXML x =
     UserIdGroupPair'
-      Prelude.<$> (x Core..@? "vpcPeeringConnectionId")
-      Prelude.<*> (x Core..@? "groupName")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "peeringStatus")
-      Prelude.<*> (x Core..@? "userId")
-      Prelude.<*> (x Core..@? "vpcId")
-      Prelude.<*> (x Core..@? "groupId")
+      Prelude.<$> (x Data..@? "vpcPeeringConnectionId")
+      Prelude.<*> (x Data..@? "groupName")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "peeringStatus")
+      Prelude.<*> (x Data..@? "userId")
+      Prelude.<*> (x Data..@? "vpcId")
+      Prelude.<*> (x Data..@? "groupId")
 
 instance Prelude.Hashable UserIdGroupPair where
   hashWithSalt _salt UserIdGroupPair' {..} =
@@ -192,15 +193,15 @@ instance Prelude.NFData UserIdGroupPair where
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToQuery UserIdGroupPair where
+instance Data.ToQuery UserIdGroupPair where
   toQuery UserIdGroupPair' {..} =
     Prelude.mconcat
       [ "VpcPeeringConnectionId"
-          Core.=: vpcPeeringConnectionId,
-        "GroupName" Core.=: groupName,
-        "Description" Core.=: description,
-        "PeeringStatus" Core.=: peeringStatus,
-        "UserId" Core.=: userId,
-        "VpcId" Core.=: vpcId,
-        "GroupId" Core.=: groupId
+          Data.=: vpcPeeringConnectionId,
+        "GroupName" Data.=: groupName,
+        "Description" Data.=: description,
+        "PeeringStatus" Data.=: peeringStatus,
+        "UserId" Data.=: userId,
+        "VpcId" Data.=: vpcId,
+        "GroupId" Data.=: groupId
       ]

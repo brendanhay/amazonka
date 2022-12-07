@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.HlsIntervalCadence
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The cadence MediaConvert follows for generating thumbnails. If set to
@@ -36,7 +37,7 @@ import qualified Amazonka.Prelude as Prelude
 -- in thumbnailInterval.
 newtype HlsIntervalCadence = HlsIntervalCadence'
   { fromHlsIntervalCadence ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -48,18 +49,18 @@ newtype HlsIntervalCadence = HlsIntervalCadence'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern HlsIntervalCadence_FOLLOW_CUSTOM :: HlsIntervalCadence

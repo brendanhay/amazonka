@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.S3JobDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.S3BucketCriteriaForJob
 import Amazonka.MacieV2.Types.S3BucketDefinitionForJob
 import Amazonka.MacieV2.Types.Scoping
@@ -109,17 +110,17 @@ s3JobDefinition_bucketDefinitions = Lens.lens (\S3JobDefinition' {bucketDefiniti
 s3JobDefinition_scoping :: Lens.Lens' S3JobDefinition (Prelude.Maybe Scoping)
 s3JobDefinition_scoping = Lens.lens (\S3JobDefinition' {scoping} -> scoping) (\s@S3JobDefinition' {} a -> s {scoping = a} :: S3JobDefinition)
 
-instance Core.FromJSON S3JobDefinition where
+instance Data.FromJSON S3JobDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3JobDefinition"
       ( \x ->
           S3JobDefinition'
-            Prelude.<$> (x Core..:? "bucketCriteria")
-            Prelude.<*> ( x Core..:? "bucketDefinitions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "bucketCriteria")
+            Prelude.<*> ( x Data..:? "bucketDefinitions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "scoping")
+            Prelude.<*> (x Data..:? "scoping")
       )
 
 instance Prelude.Hashable S3JobDefinition where
@@ -134,14 +135,14 @@ instance Prelude.NFData S3JobDefinition where
       `Prelude.seq` Prelude.rnf bucketDefinitions
       `Prelude.seq` Prelude.rnf scoping
 
-instance Core.ToJSON S3JobDefinition where
+instance Data.ToJSON S3JobDefinition where
   toJSON S3JobDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bucketCriteria" Core..=)
+          [ ("bucketCriteria" Data..=)
               Prelude.<$> bucketCriteria,
-            ("bucketDefinitions" Core..=)
+            ("bucketDefinitions" Data..=)
               Prelude.<$> bucketDefinitions,
-            ("scoping" Core..=) Prelude.<$> scoping
+            ("scoping" Data..=) Prelude.<$> scoping
           ]
       )

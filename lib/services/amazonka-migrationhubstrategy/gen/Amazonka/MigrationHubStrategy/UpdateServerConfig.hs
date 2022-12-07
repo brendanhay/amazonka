@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,31 +112,31 @@ instance Prelude.NFData UpdateServerConfig where
     Prelude.rnf strategyOption
       `Prelude.seq` Prelude.rnf serverId
 
-instance Core.ToHeaders UpdateServerConfig where
+instance Data.ToHeaders UpdateServerConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateServerConfig where
+instance Data.ToJSON UpdateServerConfig where
   toJSON UpdateServerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("strategyOption" Core..=)
+          [ ("strategyOption" Data..=)
               Prelude.<$> strategyOption,
-            Prelude.Just ("serverId" Core..= serverId)
+            Prelude.Just ("serverId" Data..= serverId)
           ]
       )
 
-instance Core.ToPath UpdateServerConfig where
+instance Data.ToPath UpdateServerConfig where
   toPath = Prelude.const "/update-server-config/"
 
-instance Core.ToQuery UpdateServerConfig where
+instance Data.ToQuery UpdateServerConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServerConfigResponse' smart constructor.

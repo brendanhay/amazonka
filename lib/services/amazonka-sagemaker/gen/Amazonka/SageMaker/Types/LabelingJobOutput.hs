@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.LabelingJobOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the location of the output produced by the labeling job.
@@ -67,14 +68,14 @@ labelingJobOutput_finalActiveLearningModelArn = Lens.lens (\LabelingJobOutput' {
 labelingJobOutput_outputDatasetS3Uri :: Lens.Lens' LabelingJobOutput Prelude.Text
 labelingJobOutput_outputDatasetS3Uri = Lens.lens (\LabelingJobOutput' {outputDatasetS3Uri} -> outputDatasetS3Uri) (\s@LabelingJobOutput' {} a -> s {outputDatasetS3Uri = a} :: LabelingJobOutput)
 
-instance Core.FromJSON LabelingJobOutput where
+instance Data.FromJSON LabelingJobOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelingJobOutput"
       ( \x ->
           LabelingJobOutput'
-            Prelude.<$> (x Core..:? "FinalActiveLearningModelArn")
-            Prelude.<*> (x Core..: "OutputDatasetS3Uri")
+            Prelude.<$> (x Data..:? "FinalActiveLearningModelArn")
+            Prelude.<*> (x Data..: "OutputDatasetS3Uri")
       )
 
 instance Prelude.Hashable LabelingJobOutput where

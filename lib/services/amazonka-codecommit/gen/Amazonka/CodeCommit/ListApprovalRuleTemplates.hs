@@ -46,6 +46,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,8 +104,8 @@ instance Core.AWSRequest ListApprovalRuleTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListApprovalRuleTemplatesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "approvalRuleTemplateNames"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "approvalRuleTemplateNames"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -120,34 +121,34 @@ instance Prelude.NFData ListApprovalRuleTemplates where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListApprovalRuleTemplates where
+instance Data.ToHeaders ListApprovalRuleTemplates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.ListApprovalRuleTemplates" ::
+              Data.=# ( "CodeCommit_20150413.ListApprovalRuleTemplates" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListApprovalRuleTemplates where
+instance Data.ToJSON ListApprovalRuleTemplates where
   toJSON ListApprovalRuleTemplates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListApprovalRuleTemplates where
+instance Data.ToPath ListApprovalRuleTemplates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListApprovalRuleTemplates where
+instance Data.ToQuery ListApprovalRuleTemplates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListApprovalRuleTemplatesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.MessageTemplateType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The message template structure.
@@ -83,15 +84,15 @@ messageTemplateType_sMSMessage = Lens.lens (\MessageTemplateType' {sMSMessage} -
 messageTemplateType_emailMessage :: Lens.Lens' MessageTemplateType (Prelude.Maybe Prelude.Text)
 messageTemplateType_emailMessage = Lens.lens (\MessageTemplateType' {emailMessage} -> emailMessage) (\s@MessageTemplateType' {} a -> s {emailMessage = a} :: MessageTemplateType)
 
-instance Core.FromJSON MessageTemplateType where
+instance Data.FromJSON MessageTemplateType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MessageTemplateType"
       ( \x ->
           MessageTemplateType'
-            Prelude.<$> (x Core..:? "EmailSubject")
-            Prelude.<*> (x Core..:? "SMSMessage")
-            Prelude.<*> (x Core..:? "EmailMessage")
+            Prelude.<$> (x Data..:? "EmailSubject")
+            Prelude.<*> (x Data..:? "SMSMessage")
+            Prelude.<*> (x Data..:? "EmailMessage")
       )
 
 instance Prelude.Hashable MessageTemplateType where
@@ -106,12 +107,12 @@ instance Prelude.NFData MessageTemplateType where
       `Prelude.seq` Prelude.rnf sMSMessage
       `Prelude.seq` Prelude.rnf emailMessage
 
-instance Core.ToJSON MessageTemplateType where
+instance Data.ToJSON MessageTemplateType where
   toJSON MessageTemplateType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EmailSubject" Core..=) Prelude.<$> emailSubject,
-            ("SMSMessage" Core..=) Prelude.<$> sMSMessage,
-            ("EmailMessage" Core..=) Prelude.<$> emailMessage
+          [ ("EmailSubject" Data..=) Prelude.<$> emailSubject,
+            ("SMSMessage" Data..=) Prelude.<$> sMSMessage,
+            ("EmailMessage" Data..=) Prelude.<$> emailMessage
           ]
       )

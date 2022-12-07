@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,8 +150,8 @@ instance Core.AWSRequest ListMembers where
     Response.receiveJSON
       ( \s h x ->
           ListMembersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Members" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Members" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,30 +173,30 @@ instance Prelude.NFData ListMembers where
       `Prelude.seq` Prelude.rnf isOwned
       `Prelude.seq` Prelude.rnf networkId
 
-instance Core.ToHeaders ListMembers where
+instance Data.ToHeaders ListMembers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListMembers where
+instance Data.ToPath ListMembers where
   toPath ListMembers' {..} =
     Prelude.mconcat
-      ["/networks/", Core.toBS networkId, "/members"]
+      ["/networks/", Data.toBS networkId, "/members"]
 
-instance Core.ToQuery ListMembers where
+instance Data.ToQuery ListMembers where
   toQuery ListMembers' {..} =
     Prelude.mconcat
-      [ "name" Core.=: name,
-        "nextToken" Core.=: nextToken,
-        "status" Core.=: status,
-        "maxResults" Core.=: maxResults,
-        "isOwned" Core.=: isOwned
+      [ "name" Data.=: name,
+        "nextToken" Data.=: nextToken,
+        "status" Data.=: status,
+        "maxResults" Data.=: maxResults,
+        "isOwned" Data.=: isOwned
       ]
 
 -- | /See:/ 'newListMembersResponse' smart constructor.

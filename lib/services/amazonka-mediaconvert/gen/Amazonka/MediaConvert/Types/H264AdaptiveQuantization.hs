@@ -32,6 +32,7 @@ module Amazonka.MediaConvert.Types.H264AdaptiveQuantization
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Keep the default value, Auto (AUTO), for this setting to have
@@ -47,7 +48,7 @@ import qualified Amazonka.Prelude as Prelude
 -- H264TemporalAdaptiveQuantization.
 newtype H264AdaptiveQuantization = H264AdaptiveQuantization'
   { fromH264AdaptiveQuantization ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -59,18 +60,18 @@ newtype H264AdaptiveQuantization = H264AdaptiveQuantization'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern H264AdaptiveQuantization_AUTO :: H264AdaptiveQuantization

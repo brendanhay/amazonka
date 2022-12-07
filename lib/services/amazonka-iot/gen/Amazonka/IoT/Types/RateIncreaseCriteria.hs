@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.RateIncreaseCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Allows you to define a criteria to initiate the increase in rate of
@@ -69,14 +70,14 @@ rateIncreaseCriteria_numberOfSucceededThings = Lens.lens (\RateIncreaseCriteria'
 rateIncreaseCriteria_numberOfNotifiedThings :: Lens.Lens' RateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
 rateIncreaseCriteria_numberOfNotifiedThings = Lens.lens (\RateIncreaseCriteria' {numberOfNotifiedThings} -> numberOfNotifiedThings) (\s@RateIncreaseCriteria' {} a -> s {numberOfNotifiedThings = a} :: RateIncreaseCriteria)
 
-instance Core.FromJSON RateIncreaseCriteria where
+instance Data.FromJSON RateIncreaseCriteria where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RateIncreaseCriteria"
       ( \x ->
           RateIncreaseCriteria'
-            Prelude.<$> (x Core..:? "numberOfSucceededThings")
-            Prelude.<*> (x Core..:? "numberOfNotifiedThings")
+            Prelude.<$> (x Data..:? "numberOfSucceededThings")
+            Prelude.<*> (x Data..:? "numberOfNotifiedThings")
       )
 
 instance Prelude.Hashable RateIncreaseCriteria where
@@ -90,13 +91,13 @@ instance Prelude.NFData RateIncreaseCriteria where
     Prelude.rnf numberOfSucceededThings
       `Prelude.seq` Prelude.rnf numberOfNotifiedThings
 
-instance Core.ToJSON RateIncreaseCriteria where
+instance Data.ToJSON RateIncreaseCriteria where
   toJSON RateIncreaseCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("numberOfSucceededThings" Core..=)
+          [ ("numberOfSucceededThings" Data..=)
               Prelude.<$> numberOfSucceededThings,
-            ("numberOfNotifiedThings" Core..=)
+            ("numberOfNotifiedThings" Data..=)
               Prelude.<$> numberOfNotifiedThings
           ]
       )

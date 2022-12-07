@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.ResolverQueryLogConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus
 import Amazonka.Route53Resolver.Types.ShareStatus
@@ -223,22 +224,22 @@ resolverQueryLogConfig_creationTime = Lens.lens (\ResolverQueryLogConfig' {creat
 resolverQueryLogConfig_destinationArn :: Lens.Lens' ResolverQueryLogConfig (Prelude.Maybe Prelude.Text)
 resolverQueryLogConfig_destinationArn = Lens.lens (\ResolverQueryLogConfig' {destinationArn} -> destinationArn) (\s@ResolverQueryLogConfig' {} a -> s {destinationArn = a} :: ResolverQueryLogConfig)
 
-instance Core.FromJSON ResolverQueryLogConfig where
+instance Data.FromJSON ResolverQueryLogConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResolverQueryLogConfig"
       ( \x ->
           ResolverQueryLogConfig'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "ShareStatus")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "AssociationCount")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreatorRequestId")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "DestinationArn")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "ShareStatus")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "AssociationCount")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "CreatorRequestId")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DestinationArn")
       )
 
 instance Prelude.Hashable ResolverQueryLogConfig where

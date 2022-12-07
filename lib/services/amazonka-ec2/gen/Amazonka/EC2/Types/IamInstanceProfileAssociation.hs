@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IamInstanceProfileAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IamInstanceProfile
 import Amazonka.EC2.Types.IamInstanceProfileAssociationState
@@ -36,7 +37,7 @@ data IamInstanceProfileAssociation = IamInstanceProfileAssociation'
     -- | The state of the association.
     state :: Prelude.Maybe IamInstanceProfileAssociationState,
     -- | The time the IAM instance profile was associated with the instance.
-    timestamp :: Prelude.Maybe Core.ISO8601,
+    timestamp :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the association.
@@ -83,7 +84,7 @@ iamInstanceProfileAssociation_state = Lens.lens (\IamInstanceProfileAssociation'
 
 -- | The time the IAM instance profile was associated with the instance.
 iamInstanceProfileAssociation_timestamp :: Lens.Lens' IamInstanceProfileAssociation (Prelude.Maybe Prelude.UTCTime)
-iamInstanceProfileAssociation_timestamp = Lens.lens (\IamInstanceProfileAssociation' {timestamp} -> timestamp) (\s@IamInstanceProfileAssociation' {} a -> s {timestamp = a} :: IamInstanceProfileAssociation) Prelude.. Lens.mapping Core._Time
+iamInstanceProfileAssociation_timestamp = Lens.lens (\IamInstanceProfileAssociation' {timestamp} -> timestamp) (\s@IamInstanceProfileAssociation' {} a -> s {timestamp = a} :: IamInstanceProfileAssociation) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the instance.
 iamInstanceProfileAssociation_instanceId :: Lens.Lens' IamInstanceProfileAssociation (Prelude.Maybe Prelude.Text)
@@ -93,14 +94,14 @@ iamInstanceProfileAssociation_instanceId = Lens.lens (\IamInstanceProfileAssocia
 iamInstanceProfileAssociation_associationId :: Lens.Lens' IamInstanceProfileAssociation (Prelude.Maybe Prelude.Text)
 iamInstanceProfileAssociation_associationId = Lens.lens (\IamInstanceProfileAssociation' {associationId} -> associationId) (\s@IamInstanceProfileAssociation' {} a -> s {associationId = a} :: IamInstanceProfileAssociation)
 
-instance Core.FromXML IamInstanceProfileAssociation where
+instance Data.FromXML IamInstanceProfileAssociation where
   parseXML x =
     IamInstanceProfileAssociation'
-      Prelude.<$> (x Core..@? "iamInstanceProfile")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "timestamp")
-      Prelude.<*> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "associationId")
+      Prelude.<$> (x Data..@? "iamInstanceProfile")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "timestamp")
+      Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "associationId")
 
 instance
   Prelude.Hashable

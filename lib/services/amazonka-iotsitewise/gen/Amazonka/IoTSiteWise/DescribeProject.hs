@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,14 +90,14 @@ instance Core.AWSRequest DescribeProject where
     Response.receiveJSON
       ( \s h x ->
           DescribeProjectResponse'
-            Prelude.<$> (x Core..?> "projectDescription")
+            Prelude.<$> (x Data..?> "projectDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "projectId")
-            Prelude.<*> (x Core..:> "projectArn")
-            Prelude.<*> (x Core..:> "projectName")
-            Prelude.<*> (x Core..:> "portalId")
-            Prelude.<*> (x Core..:> "projectCreationDate")
-            Prelude.<*> (x Core..:> "projectLastUpdateDate")
+            Prelude.<*> (x Data..:> "projectId")
+            Prelude.<*> (x Data..:> "projectArn")
+            Prelude.<*> (x Data..:> "projectName")
+            Prelude.<*> (x Data..:> "portalId")
+            Prelude.<*> (x Data..:> "projectCreationDate")
+            Prelude.<*> (x Data..:> "projectLastUpdateDate")
       )
 
 instance Prelude.Hashable DescribeProject where
@@ -106,22 +107,22 @@ instance Prelude.Hashable DescribeProject where
 instance Prelude.NFData DescribeProject where
   rnf DescribeProject' {..} = Prelude.rnf projectId
 
-instance Core.ToHeaders DescribeProject where
+instance Data.ToHeaders DescribeProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeProject where
+instance Data.ToPath DescribeProject where
   toPath DescribeProject' {..} =
-    Prelude.mconcat ["/projects/", Core.toBS projectId]
+    Prelude.mconcat ["/projects/", Data.toBS projectId]
 
-instance Core.ToQuery DescribeProject where
+instance Data.ToQuery DescribeProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProjectResponse' smart constructor.
@@ -143,9 +144,9 @@ data DescribeProjectResponse = DescribeProjectResponse'
     -- | The ID of the portal that the project is in.
     portalId :: Prelude.Text,
     -- | The date the project was created, in Unix epoch time.
-    projectCreationDate :: Core.POSIX,
+    projectCreationDate :: Data.POSIX,
     -- | The date the project was last updated, in Unix epoch time.
-    projectLastUpdateDate :: Core.POSIX
+    projectLastUpdateDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -209,9 +210,9 @@ newDescribeProjectResponse
         projectName = pProjectName_,
         portalId = pPortalId_,
         projectCreationDate =
-          Core._Time Lens.# pProjectCreationDate_,
+          Data._Time Lens.# pProjectCreationDate_,
         projectLastUpdateDate =
-          Core._Time Lens.# pProjectLastUpdateDate_
+          Data._Time Lens.# pProjectLastUpdateDate_
       }
 
 -- | The project\'s description.
@@ -244,11 +245,11 @@ describeProjectResponse_portalId = Lens.lens (\DescribeProjectResponse' {portalI
 
 -- | The date the project was created, in Unix epoch time.
 describeProjectResponse_projectCreationDate :: Lens.Lens' DescribeProjectResponse Prelude.UTCTime
-describeProjectResponse_projectCreationDate = Lens.lens (\DescribeProjectResponse' {projectCreationDate} -> projectCreationDate) (\s@DescribeProjectResponse' {} a -> s {projectCreationDate = a} :: DescribeProjectResponse) Prelude.. Core._Time
+describeProjectResponse_projectCreationDate = Lens.lens (\DescribeProjectResponse' {projectCreationDate} -> projectCreationDate) (\s@DescribeProjectResponse' {} a -> s {projectCreationDate = a} :: DescribeProjectResponse) Prelude.. Data._Time
 
 -- | The date the project was last updated, in Unix epoch time.
 describeProjectResponse_projectLastUpdateDate :: Lens.Lens' DescribeProjectResponse Prelude.UTCTime
-describeProjectResponse_projectLastUpdateDate = Lens.lens (\DescribeProjectResponse' {projectLastUpdateDate} -> projectLastUpdateDate) (\s@DescribeProjectResponse' {} a -> s {projectLastUpdateDate = a} :: DescribeProjectResponse) Prelude.. Core._Time
+describeProjectResponse_projectLastUpdateDate = Lens.lens (\DescribeProjectResponse' {projectLastUpdateDate} -> projectLastUpdateDate) (\s@DescribeProjectResponse' {} a -> s {projectLastUpdateDate = a} :: DescribeProjectResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeProjectResponse where
   rnf DescribeProjectResponse' {..} =

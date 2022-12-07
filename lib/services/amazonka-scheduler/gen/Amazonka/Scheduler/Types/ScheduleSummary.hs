@@ -21,6 +21,7 @@ module Amazonka.Scheduler.Types.ScheduleSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Scheduler.Types.ScheduleState
 import Amazonka.Scheduler.Types.TargetSummary
@@ -36,13 +37,13 @@ data ScheduleSummary = ScheduleSummary'
     -- | Specifies whether the schedule is enabled or disabled.
     state :: Prelude.Maybe ScheduleState,
     -- | The time at which the schedule was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The schedule\'s target details.
     target :: Prelude.Maybe TargetSummary,
     -- | The name of the schedule group associated with this schedule.
     groupName :: Prelude.Maybe Prelude.Text,
     -- | The time at which the schedule was last modified.
-    lastModificationDate :: Prelude.Maybe Core.POSIX
+    lastModificationDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,7 +95,7 @@ scheduleSummary_state = Lens.lens (\ScheduleSummary' {state} -> state) (\s@Sched
 
 -- | The time at which the schedule was created.
 scheduleSummary_creationDate :: Lens.Lens' ScheduleSummary (Prelude.Maybe Prelude.UTCTime)
-scheduleSummary_creationDate = Lens.lens (\ScheduleSummary' {creationDate} -> creationDate) (\s@ScheduleSummary' {} a -> s {creationDate = a} :: ScheduleSummary) Prelude.. Lens.mapping Core._Time
+scheduleSummary_creationDate = Lens.lens (\ScheduleSummary' {creationDate} -> creationDate) (\s@ScheduleSummary' {} a -> s {creationDate = a} :: ScheduleSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The schedule\'s target details.
 scheduleSummary_target :: Lens.Lens' ScheduleSummary (Prelude.Maybe TargetSummary)
@@ -106,21 +107,21 @@ scheduleSummary_groupName = Lens.lens (\ScheduleSummary' {groupName} -> groupNam
 
 -- | The time at which the schedule was last modified.
 scheduleSummary_lastModificationDate :: Lens.Lens' ScheduleSummary (Prelude.Maybe Prelude.UTCTime)
-scheduleSummary_lastModificationDate = Lens.lens (\ScheduleSummary' {lastModificationDate} -> lastModificationDate) (\s@ScheduleSummary' {} a -> s {lastModificationDate = a} :: ScheduleSummary) Prelude.. Lens.mapping Core._Time
+scheduleSummary_lastModificationDate = Lens.lens (\ScheduleSummary' {lastModificationDate} -> lastModificationDate) (\s@ScheduleSummary' {} a -> s {lastModificationDate = a} :: ScheduleSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ScheduleSummary where
+instance Data.FromJSON ScheduleSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScheduleSummary"
       ( \x ->
           ScheduleSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Target")
-            Prelude.<*> (x Core..:? "GroupName")
-            Prelude.<*> (x Core..:? "LastModificationDate")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Target")
+            Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<*> (x Data..:? "LastModificationDate")
       )
 
 instance Prelude.Hashable ScheduleSummary where

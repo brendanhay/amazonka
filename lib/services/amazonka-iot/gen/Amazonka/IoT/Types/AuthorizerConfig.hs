@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AuthorizerConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that specifies the authorization service for a domain.
@@ -65,14 +66,14 @@ authorizerConfig_defaultAuthorizerName = Lens.lens (\AuthorizerConfig' {defaultA
 authorizerConfig_allowAuthorizerOverride :: Lens.Lens' AuthorizerConfig (Prelude.Maybe Prelude.Bool)
 authorizerConfig_allowAuthorizerOverride = Lens.lens (\AuthorizerConfig' {allowAuthorizerOverride} -> allowAuthorizerOverride) (\s@AuthorizerConfig' {} a -> s {allowAuthorizerOverride = a} :: AuthorizerConfig)
 
-instance Core.FromJSON AuthorizerConfig where
+instance Data.FromJSON AuthorizerConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuthorizerConfig"
       ( \x ->
           AuthorizerConfig'
-            Prelude.<$> (x Core..:? "defaultAuthorizerName")
-            Prelude.<*> (x Core..:? "allowAuthorizerOverride")
+            Prelude.<$> (x Data..:? "defaultAuthorizerName")
+            Prelude.<*> (x Data..:? "allowAuthorizerOverride")
       )
 
 instance Prelude.Hashable AuthorizerConfig where
@@ -85,13 +86,13 @@ instance Prelude.NFData AuthorizerConfig where
     Prelude.rnf defaultAuthorizerName
       `Prelude.seq` Prelude.rnf allowAuthorizerOverride
 
-instance Core.ToJSON AuthorizerConfig where
+instance Data.ToJSON AuthorizerConfig where
   toJSON AuthorizerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("defaultAuthorizerName" Core..=)
+          [ ("defaultAuthorizerName" Data..=)
               Prelude.<$> defaultAuthorizerName,
-            ("allowAuthorizerOverride" Core..=)
+            ("allowAuthorizerOverride" Data..=)
               Prelude.<$> allowAuthorizerOverride
           ]
       )

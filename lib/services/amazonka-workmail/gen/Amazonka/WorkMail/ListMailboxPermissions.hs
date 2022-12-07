@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -153,8 +154,8 @@ instance Core.AWSRequest ListMailboxPermissions where
     Response.receiveJSON
       ( \s h x ->
           ListMailboxPermissionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Permissions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Permissions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,37 +173,37 @@ instance Prelude.NFData ListMailboxPermissions where
       `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf entityId
 
-instance Core.ToHeaders ListMailboxPermissions where
+instance Data.ToHeaders ListMailboxPermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.ListMailboxPermissions" ::
+              Data.=# ( "WorkMailService.ListMailboxPermissions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListMailboxPermissions where
+instance Data.ToJSON ListMailboxPermissions where
   toJSON ListMailboxPermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("EntityId" Core..= entityId)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("EntityId" Data..= entityId)
           ]
       )
 
-instance Core.ToPath ListMailboxPermissions where
+instance Data.ToPath ListMailboxPermissions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListMailboxPermissions where
+instance Data.ToQuery ListMailboxPermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListMailboxPermissionsResponse' smart constructor.

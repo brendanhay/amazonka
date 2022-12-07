@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -369,8 +370,8 @@ instance Core.AWSRequest DescribeBatchPredictions where
     Response.receiveJSON
       ( \s h x ->
           DescribeBatchPredictionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -402,44 +403,44 @@ instance Prelude.NFData DescribeBatchPredictions where
       `Prelude.seq` Prelude.rnf ne
       `Prelude.seq` Prelude.rnf ge
 
-instance Core.ToHeaders DescribeBatchPredictions where
+instance Data.ToHeaders DescribeBatchPredictions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.DescribeBatchPredictions" ::
+              Data.=# ( "AmazonML_20141212.DescribeBatchPredictions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeBatchPredictions where
+instance Data.ToJSON DescribeBatchPredictions where
   toJSON DescribeBatchPredictions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("FilterVariable" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("FilterVariable" Data..=)
               Prelude.<$> filterVariable,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("LE" Core..=) Prelude.<$> le,
-            ("LT" Core..=) Prelude.<$> lt,
-            ("EQ" Core..=) Prelude.<$> eq,
-            ("Prefix" Core..=) Prelude.<$> prefix,
-            ("GT" Core..=) Prelude.<$> gt,
-            ("NE" Core..=) Prelude.<$> ne,
-            ("GE" Core..=) Prelude.<$> ge
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("LE" Data..=) Prelude.<$> le,
+            ("LT" Data..=) Prelude.<$> lt,
+            ("EQ" Data..=) Prelude.<$> eq,
+            ("Prefix" Data..=) Prelude.<$> prefix,
+            ("GT" Data..=) Prelude.<$> gt,
+            ("NE" Data..=) Prelude.<$> ne,
+            ("GE" Data..=) Prelude.<$> ge
           ]
       )
 
-instance Core.ToPath DescribeBatchPredictions where
+instance Data.ToPath DescribeBatchPredictions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeBatchPredictions where
+instance Data.ToQuery DescribeBatchPredictions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @DescribeBatchPredictions@ operation. The

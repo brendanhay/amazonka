@@ -188,6 +188,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -252,8 +253,8 @@ instance Core.AWSRequest PutTargets where
     Response.receiveJSON
       ( \s h x ->
           PutTargetsResponse'
-            Prelude.<$> (x Core..?> "FailedEntries" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "FailedEntryCount")
+            Prelude.<$> (x Data..?> "FailedEntries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "FailedEntryCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -269,33 +270,33 @@ instance Prelude.NFData PutTargets where
       `Prelude.seq` Prelude.rnf rule
       `Prelude.seq` Prelude.rnf targets
 
-instance Core.ToHeaders PutTargets where
+instance Data.ToHeaders PutTargets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.PutTargets" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.PutTargets" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutTargets where
+instance Data.ToJSON PutTargets where
   toJSON PutTargets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventBusName" Core..=) Prelude.<$> eventBusName,
-            Prelude.Just ("Rule" Core..= rule),
-            Prelude.Just ("Targets" Core..= targets)
+          [ ("EventBusName" Data..=) Prelude.<$> eventBusName,
+            Prelude.Just ("Rule" Data..= rule),
+            Prelude.Just ("Targets" Data..= targets)
           ]
       )
 
-instance Core.ToPath PutTargets where
+instance Data.ToPath PutTargets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutTargets where
+instance Data.ToQuery PutTargets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutTargetsResponse' smart constructor.

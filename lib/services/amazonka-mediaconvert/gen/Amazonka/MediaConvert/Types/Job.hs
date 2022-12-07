@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Job where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AccelerationSettings
 import Amazonka.MediaConvert.Types.AccelerationStatus
 import Amazonka.MediaConvert.Types.BillingTagsSource
@@ -116,7 +117,7 @@ data Job = Job'
     -- AccelerationStatus is NOT_ACCELERATED.
     accelerationStatus :: Prelude.Maybe AccelerationStatus,
     -- | The time, in Unix epoch format in seconds, when the job got created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | When you create a job, you can specify a queue to send it to. If you
     -- don\'t specify, the job will go to the default queue. For more about
     -- queues, see the User Guide topic at
@@ -384,7 +385,7 @@ job_accelerationStatus = Lens.lens (\Job' {accelerationStatus} -> accelerationSt
 
 -- | The time, in Unix epoch format in seconds, when the job got created.
 job_createdAt :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
-job_createdAt = Lens.lens (\Job' {createdAt} -> createdAt) (\s@Job' {} a -> s {createdAt = a} :: Job) Prelude.. Lens.mapping Core._Time
+job_createdAt = Lens.lens (\Job' {createdAt} -> createdAt) (\s@Job' {} a -> s {createdAt = a} :: Job) Prelude.. Lens.mapping Data._Time
 
 -- | When you create a job, you can specify a queue to send it to. If you
 -- don\'t specify, the job will go to the default queue. For more about
@@ -413,43 +414,43 @@ job_role = Lens.lens (\Job' {role'} -> role') (\s@Job' {} a -> s {role' = a} :: 
 job_settings :: Lens.Lens' Job JobSettings
 job_settings = Lens.lens (\Job' {settings} -> settings) (\s@Job' {} a -> s {settings = a} :: Job)
 
-instance Core.FromJSON Job where
+instance Data.FromJSON Job where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Job"
       ( \x ->
           Job'
-            Prelude.<$> ( x Core..:? "queueTransitions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "queueTransitions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "hopDestinations"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "hopDestinations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "timing")
-            Prelude.<*> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "statusUpdateInterval")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "currentPhase")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "jobPercentComplete")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "simulateReservedQueue")
-            Prelude.<*> (x Core..:? "messages")
-            Prelude.<*> (x Core..:? "jobTemplate")
-            Prelude.<*> (x Core..:? "retryCount")
-            Prelude.<*> (x Core..:? "priority")
-            Prelude.<*> (x Core..:? "errorCode")
-            Prelude.<*> ( x Core..:? "outputGroupDetails"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "timing")
+            Prelude.<*> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "statusUpdateInterval")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "currentPhase")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "jobPercentComplete")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "simulateReservedQueue")
+            Prelude.<*> (x Data..:? "messages")
+            Prelude.<*> (x Data..:? "jobTemplate")
+            Prelude.<*> (x Data..:? "retryCount")
+            Prelude.<*> (x Data..:? "priority")
+            Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<*> ( x Data..:? "outputGroupDetails"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "accelerationSettings")
-            Prelude.<*> (x Core..:? "accelerationStatus")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "queue")
-            Prelude.<*> (x Core..:? "userMetadata" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "billingTagsSource")
-            Prelude.<*> (x Core..: "role")
-            Prelude.<*> (x Core..: "settings")
+            Prelude.<*> (x Data..:? "accelerationSettings")
+            Prelude.<*> (x Data..:? "accelerationStatus")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "queue")
+            Prelude.<*> (x Data..:? "userMetadata" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "billingTagsSource")
+            Prelude.<*> (x Data..: "role")
+            Prelude.<*> (x Data..: "settings")
       )
 
 instance Prelude.Hashable Job where

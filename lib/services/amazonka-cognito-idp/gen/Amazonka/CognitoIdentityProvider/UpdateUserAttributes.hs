@@ -63,6 +63,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ data UpdateUserAttributes = UpdateUserAttributes'
     userAttributes :: [AttributeType],
     -- | A valid access token that Amazon Cognito issued to the user whose user
     -- attributes you want to update.
-    accessToken :: Core.Sensitive Prelude.Text
+    accessToken :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -180,7 +181,7 @@ newUpdateUserAttributes pAccessToken_ =
     { clientMetadata =
         Prelude.Nothing,
       userAttributes = Prelude.mempty,
-      accessToken = Core._Sensitive Lens.# pAccessToken_
+      accessToken = Data._Sensitive Lens.# pAccessToken_
     }
 
 -- | A map of custom key-value pairs that you can provide as input for any
@@ -232,7 +233,7 @@ updateUserAttributes_userAttributes = Lens.lens (\UpdateUserAttributes' {userAtt
 -- | A valid access token that Amazon Cognito issued to the user whose user
 -- attributes you want to update.
 updateUserAttributes_accessToken :: Lens.Lens' UpdateUserAttributes Prelude.Text
-updateUserAttributes_accessToken = Lens.lens (\UpdateUserAttributes' {accessToken} -> accessToken) (\s@UpdateUserAttributes' {} a -> s {accessToken = a} :: UpdateUserAttributes) Prelude.. Core._Sensitive
+updateUserAttributes_accessToken = Lens.lens (\UpdateUserAttributes' {accessToken} -> accessToken) (\s@UpdateUserAttributes' {} a -> s {accessToken = a} :: UpdateUserAttributes) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest UpdateUserAttributes where
   type
@@ -244,7 +245,7 @@ instance Core.AWSRequest UpdateUserAttributes where
     Response.receiveJSON
       ( \s h x ->
           UpdateUserAttributesResponse'
-            Prelude.<$> ( x Core..?> "CodeDeliveryDetailsList"
+            Prelude.<$> ( x Data..?> "CodeDeliveryDetailsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -262,37 +263,37 @@ instance Prelude.NFData UpdateUserAttributes where
       `Prelude.seq` Prelude.rnf userAttributes
       `Prelude.seq` Prelude.rnf accessToken
 
-instance Core.ToHeaders UpdateUserAttributes where
+instance Data.ToHeaders UpdateUserAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.UpdateUserAttributes" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.UpdateUserAttributes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateUserAttributes where
+instance Data.ToJSON UpdateUserAttributes where
   toJSON UpdateUserAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientMetadata" Core..=)
+          [ ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
             Prelude.Just
-              ("UserAttributes" Core..= userAttributes),
-            Prelude.Just ("AccessToken" Core..= accessToken)
+              ("UserAttributes" Data..= userAttributes),
+            Prelude.Just ("AccessToken" Data..= accessToken)
           ]
       )
 
-instance Core.ToPath UpdateUserAttributes where
+instance Data.ToPath UpdateUserAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateUserAttributes where
+instance Data.ToQuery UpdateUserAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server for the request to update user

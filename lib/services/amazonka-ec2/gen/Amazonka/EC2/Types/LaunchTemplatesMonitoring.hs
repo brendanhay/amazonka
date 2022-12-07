@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplatesMonitoring where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,10 +58,10 @@ newLaunchTemplatesMonitoring =
 launchTemplatesMonitoring_enabled :: Lens.Lens' LaunchTemplatesMonitoring (Prelude.Maybe Prelude.Bool)
 launchTemplatesMonitoring_enabled = Lens.lens (\LaunchTemplatesMonitoring' {enabled} -> enabled) (\s@LaunchTemplatesMonitoring' {} a -> s {enabled = a} :: LaunchTemplatesMonitoring)
 
-instance Core.FromXML LaunchTemplatesMonitoring where
+instance Data.FromXML LaunchTemplatesMonitoring where
   parseXML x =
     LaunchTemplatesMonitoring'
-      Prelude.<$> (x Core..@? "enabled")
+      Prelude.<$> (x Data..@? "enabled")
 
 instance Prelude.Hashable LaunchTemplatesMonitoring where
   hashWithSalt _salt LaunchTemplatesMonitoring' {..} =

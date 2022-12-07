@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.CloseStatusFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.CloseStatus
 
@@ -64,9 +65,9 @@ instance Prelude.Hashable CloseStatusFilter where
 instance Prelude.NFData CloseStatusFilter where
   rnf CloseStatusFilter' {..} = Prelude.rnf status
 
-instance Core.ToJSON CloseStatusFilter where
+instance Data.ToJSON CloseStatusFilter where
   toJSON CloseStatusFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("status" Core..= status)]
+          [Prelude.Just ("status" Data..= status)]
       )

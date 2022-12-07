@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.ApplicationDescriptionMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.ApplicationDescription
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,10 +55,10 @@ newApplicationDescriptionMessage =
 applicationDescriptionMessage_application :: Lens.Lens' ApplicationDescriptionMessage (Prelude.Maybe ApplicationDescription)
 applicationDescriptionMessage_application = Lens.lens (\ApplicationDescriptionMessage' {application} -> application) (\s@ApplicationDescriptionMessage' {} a -> s {application = a} :: ApplicationDescriptionMessage)
 
-instance Core.FromXML ApplicationDescriptionMessage where
+instance Data.FromXML ApplicationDescriptionMessage where
   parseXML x =
     ApplicationDescriptionMessage'
-      Prelude.<$> (x Core..@? "Application")
+      Prelude.<$> (x Data..@? "Application")
 
 instance
   Prelude.Hashable

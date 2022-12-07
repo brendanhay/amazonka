@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BuiltInIntentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information about a built-in intent for the
@@ -67,14 +68,14 @@ builtInIntentSummary_intentSignature = Lens.lens (\BuiltInIntentSummary' {intent
 builtInIntentSummary_description :: Lens.Lens' BuiltInIntentSummary (Prelude.Maybe Prelude.Text)
 builtInIntentSummary_description = Lens.lens (\BuiltInIntentSummary' {description} -> description) (\s@BuiltInIntentSummary' {} a -> s {description = a} :: BuiltInIntentSummary)
 
-instance Core.FromJSON BuiltInIntentSummary where
+instance Data.FromJSON BuiltInIntentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BuiltInIntentSummary"
       ( \x ->
           BuiltInIntentSummary'
-            Prelude.<$> (x Core..:? "intentSignature")
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<$> (x Data..:? "intentSignature")
+            Prelude.<*> (x Data..:? "description")
       )
 
 instance Prelude.Hashable BuiltInIntentSummary where

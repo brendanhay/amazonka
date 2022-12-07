@@ -48,6 +48,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -183,10 +184,10 @@ instance Core.AWSRequest ListTypeRegistrations where
       "ListTypeRegistrationsResult"
       ( \s h x ->
           ListTypeRegistrationsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "RegistrationTokenList"
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "RegistrationTokenList"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -209,26 +210,26 @@ instance Prelude.NFData ListTypeRegistrations where
       `Prelude.seq` Prelude.rnf registrationStatusFilter
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListTypeRegistrations where
+instance Data.ToHeaders ListTypeRegistrations where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListTypeRegistrations where
+instance Data.ToPath ListTypeRegistrations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTypeRegistrations where
+instance Data.ToQuery ListTypeRegistrations where
   toQuery ListTypeRegistrations' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListTypeRegistrations" :: Prelude.ByteString),
+          Data.=: ("ListTypeRegistrations" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "Type" Core.=: type',
-        "TypeArn" Core.=: typeArn,
-        "TypeName" Core.=: typeName,
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "Type" Data.=: type',
+        "TypeArn" Data.=: typeArn,
+        "TypeName" Data.=: typeName,
         "RegistrationStatusFilter"
-          Core.=: registrationStatusFilter,
-        "MaxResults" Core.=: maxResults
+          Data.=: registrationStatusFilter,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListTypeRegistrationsResponse' smart constructor.

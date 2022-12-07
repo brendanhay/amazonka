@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.TopicPreference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.SubscriptionStatus
 
@@ -69,14 +70,14 @@ topicPreference_topicName = Lens.lens (\TopicPreference' {topicName} -> topicNam
 topicPreference_subscriptionStatus :: Lens.Lens' TopicPreference SubscriptionStatus
 topicPreference_subscriptionStatus = Lens.lens (\TopicPreference' {subscriptionStatus} -> subscriptionStatus) (\s@TopicPreference' {} a -> s {subscriptionStatus = a} :: TopicPreference)
 
-instance Core.FromJSON TopicPreference where
+instance Data.FromJSON TopicPreference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TopicPreference"
       ( \x ->
           TopicPreference'
-            Prelude.<$> (x Core..: "TopicName")
-            Prelude.<*> (x Core..: "SubscriptionStatus")
+            Prelude.<$> (x Data..: "TopicName")
+            Prelude.<*> (x Data..: "SubscriptionStatus")
       )
 
 instance Prelude.Hashable TopicPreference where
@@ -89,12 +90,12 @@ instance Prelude.NFData TopicPreference where
     Prelude.rnf topicName
       `Prelude.seq` Prelude.rnf subscriptionStatus
 
-instance Core.ToJSON TopicPreference where
+instance Data.ToJSON TopicPreference where
   toJSON TopicPreference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TopicName" Core..= topicName),
+          [ Prelude.Just ("TopicName" Data..= topicName),
             Prelude.Just
-              ("SubscriptionStatus" Core..= subscriptionStatus)
+              ("SubscriptionStatus" Data..= subscriptionStatus)
           ]
       )

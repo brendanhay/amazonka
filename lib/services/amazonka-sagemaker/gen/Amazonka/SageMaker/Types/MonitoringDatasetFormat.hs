@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringDatasetFormat where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MonitoringCsvDatasetFormat
 import Amazonka.SageMaker.Types.MonitoringJsonDatasetFormat
@@ -73,15 +74,15 @@ monitoringDatasetFormat_json = Lens.lens (\MonitoringDatasetFormat' {json} -> js
 monitoringDatasetFormat_csv :: Lens.Lens' MonitoringDatasetFormat (Prelude.Maybe MonitoringCsvDatasetFormat)
 monitoringDatasetFormat_csv = Lens.lens (\MonitoringDatasetFormat' {csv} -> csv) (\s@MonitoringDatasetFormat' {} a -> s {csv = a} :: MonitoringDatasetFormat)
 
-instance Core.FromJSON MonitoringDatasetFormat where
+instance Data.FromJSON MonitoringDatasetFormat where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringDatasetFormat"
       ( \x ->
           MonitoringDatasetFormat'
-            Prelude.<$> (x Core..:? "Parquet")
-            Prelude.<*> (x Core..:? "Json")
-            Prelude.<*> (x Core..:? "Csv")
+            Prelude.<$> (x Data..:? "Parquet")
+            Prelude.<*> (x Data..:? "Json")
+            Prelude.<*> (x Data..:? "Csv")
       )
 
 instance Prelude.Hashable MonitoringDatasetFormat where
@@ -96,12 +97,12 @@ instance Prelude.NFData MonitoringDatasetFormat where
       `Prelude.seq` Prelude.rnf json
       `Prelude.seq` Prelude.rnf csv
 
-instance Core.ToJSON MonitoringDatasetFormat where
+instance Data.ToJSON MonitoringDatasetFormat where
   toJSON MonitoringDatasetFormat' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Parquet" Core..=) Prelude.<$> parquet,
-            ("Json" Core..=) Prelude.<$> json,
-            ("Csv" Core..=) Prelude.<$> csv
+          [ ("Parquet" Data..=) Prelude.<$> parquet,
+            ("Json" Data..=) Prelude.<$> json,
+            ("Csv" Data..=) Prelude.<$> csv
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.RoutingProfileQueueReference where
 import Amazonka.Connect.Types.Channel
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the channel and queue identifier for a routing profile.
@@ -82,11 +83,11 @@ instance Prelude.NFData RoutingProfileQueueReference where
     Prelude.rnf queueId
       `Prelude.seq` Prelude.rnf channel
 
-instance Core.ToJSON RoutingProfileQueueReference where
+instance Data.ToJSON RoutingProfileQueueReference where
   toJSON RoutingProfileQueueReference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("QueueId" Core..= queueId),
-            Prelude.Just ("Channel" Core..= channel)
+          [ Prelude.Just ("QueueId" Data..= queueId),
+            Prelude.Just ("Channel" Data..= channel)
           ]
       )

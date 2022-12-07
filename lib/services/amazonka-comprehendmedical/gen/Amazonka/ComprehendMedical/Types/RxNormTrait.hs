@@ -22,6 +22,7 @@ module Amazonka.ComprehendMedical.Types.RxNormTrait where
 import Amazonka.ComprehendMedical.Types.RxNormTraitName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The contextual information for the entity. InferRxNorm recognizes the
@@ -67,13 +68,13 @@ rxNormTrait_name = Lens.lens (\RxNormTrait' {name} -> name) (\s@RxNormTrait' {} 
 rxNormTrait_score :: Lens.Lens' RxNormTrait (Prelude.Maybe Prelude.Double)
 rxNormTrait_score = Lens.lens (\RxNormTrait' {score} -> score) (\s@RxNormTrait' {} a -> s {score = a} :: RxNormTrait)
 
-instance Core.FromJSON RxNormTrait where
+instance Data.FromJSON RxNormTrait where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RxNormTrait"
       ( \x ->
           RxNormTrait'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Score")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Score")
       )
 
 instance Prelude.Hashable RxNormTrait where

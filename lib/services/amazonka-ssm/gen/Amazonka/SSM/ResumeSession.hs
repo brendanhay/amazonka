@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,9 +92,9 @@ instance Core.AWSRequest ResumeSession where
     Response.receiveJSON
       ( \s h x ->
           ResumeSessionResponse'
-            Prelude.<$> (x Core..?> "TokenValue")
-            Prelude.<*> (x Core..?> "StreamUrl")
-            Prelude.<*> (x Core..?> "SessionId")
+            Prelude.<$> (x Data..?> "TokenValue")
+            Prelude.<*> (x Data..?> "StreamUrl")
+            Prelude.<*> (x Data..?> "SessionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,30 +105,30 @@ instance Prelude.Hashable ResumeSession where
 instance Prelude.NFData ResumeSession where
   rnf ResumeSession' {..} = Prelude.rnf sessionId
 
-instance Core.ToHeaders ResumeSession where
+instance Data.ToHeaders ResumeSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.ResumeSession" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.ResumeSession" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResumeSession where
+instance Data.ToJSON ResumeSession where
   toJSON ResumeSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SessionId" Core..= sessionId)]
+          [Prelude.Just ("SessionId" Data..= sessionId)]
       )
 
-instance Core.ToPath ResumeSession where
+instance Data.ToPath ResumeSession where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResumeSession where
+instance Data.ToQuery ResumeSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResumeSessionResponse' smart constructor.

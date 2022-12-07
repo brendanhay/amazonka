@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.EgressOnlyInternetGateway where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InternetGatewayAttachment
 import Amazonka.EC2.Types.Tag
@@ -73,15 +74,15 @@ egressOnlyInternetGateway_egressOnlyInternetGatewayId = Lens.lens (\EgressOnlyIn
 egressOnlyInternetGateway_attachments :: Lens.Lens' EgressOnlyInternetGateway (Prelude.Maybe [InternetGatewayAttachment])
 egressOnlyInternetGateway_attachments = Lens.lens (\EgressOnlyInternetGateway' {attachments} -> attachments) (\s@EgressOnlyInternetGateway' {} a -> s {attachments = a} :: EgressOnlyInternetGateway) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML EgressOnlyInternetGateway where
+instance Data.FromXML EgressOnlyInternetGateway where
   parseXML x =
     EgressOnlyInternetGateway'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "egressOnlyInternetGatewayId")
-      Prelude.<*> ( x Core..@? "attachmentSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "egressOnlyInternetGatewayId")
+      Prelude.<*> ( x Data..@? "attachmentSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable EgressOnlyInternetGateway where

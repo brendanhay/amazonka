@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANGateway where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.Beaconing
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,19 +99,19 @@ loRaWANGateway_netIdFilters = Lens.lens (\LoRaWANGateway' {netIdFilters} -> netI
 loRaWANGateway_joinEuiFilters :: Lens.Lens' LoRaWANGateway (Prelude.Maybe [Prelude.NonEmpty Prelude.Text])
 loRaWANGateway_joinEuiFilters = Lens.lens (\LoRaWANGateway' {joinEuiFilters} -> joinEuiFilters) (\s@LoRaWANGateway' {} a -> s {joinEuiFilters = a} :: LoRaWANGateway) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON LoRaWANGateway where
+instance Data.FromJSON LoRaWANGateway where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoRaWANGateway"
       ( \x ->
           LoRaWANGateway'
-            Prelude.<$> (x Core..:? "RfRegion")
-            Prelude.<*> (x Core..:? "SubBands" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Beaconing")
-            Prelude.<*> (x Core..:? "GatewayEui")
-            Prelude.<*> (x Core..:? "NetIdFilters" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "JoinEuiFilters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "RfRegion")
+            Prelude.<*> (x Data..:? "SubBands" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Beaconing")
+            Prelude.<*> (x Data..:? "GatewayEui")
+            Prelude.<*> (x Data..:? "NetIdFilters" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "JoinEuiFilters"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -132,16 +133,16 @@ instance Prelude.NFData LoRaWANGateway where
       `Prelude.seq` Prelude.rnf netIdFilters
       `Prelude.seq` Prelude.rnf joinEuiFilters
 
-instance Core.ToJSON LoRaWANGateway where
+instance Data.ToJSON LoRaWANGateway where
   toJSON LoRaWANGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RfRegion" Core..=) Prelude.<$> rfRegion,
-            ("SubBands" Core..=) Prelude.<$> subBands,
-            ("Beaconing" Core..=) Prelude.<$> beaconing,
-            ("GatewayEui" Core..=) Prelude.<$> gatewayEui,
-            ("NetIdFilters" Core..=) Prelude.<$> netIdFilters,
-            ("JoinEuiFilters" Core..=)
+          [ ("RfRegion" Data..=) Prelude.<$> rfRegion,
+            ("SubBands" Data..=) Prelude.<$> subBands,
+            ("Beaconing" Data..=) Prelude.<$> beaconing,
+            ("GatewayEui" Data..=) Prelude.<$> gatewayEui,
+            ("NetIdFilters" Data..=) Prelude.<$> netIdFilters,
+            ("JoinEuiFilters" Data..=)
               Prelude.<$> joinEuiFilters
           ]
       )

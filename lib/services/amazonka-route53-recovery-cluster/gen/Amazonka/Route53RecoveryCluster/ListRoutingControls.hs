@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -164,9 +165,9 @@ instance Core.AWSRequest ListRoutingControls where
     Response.receiveJSON
       ( \s h x ->
           ListRoutingControlsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "RoutingControls"
+            Prelude.<*> ( x Data..?> "RoutingControls"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -183,36 +184,36 @@ instance Prelude.NFData ListRoutingControls where
       `Prelude.seq` Prelude.rnf controlPanelArn
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListRoutingControls where
+instance Data.ToHeaders ListRoutingControls where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ToggleCustomerAPI.ListRoutingControls" ::
+              Data.=# ( "ToggleCustomerAPI.ListRoutingControls" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRoutingControls where
+instance Data.ToJSON ListRoutingControls where
   toJSON ListRoutingControls' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ControlPanelArn" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ControlPanelArn" Data..=)
               Prelude.<$> controlPanelArn,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListRoutingControls where
+instance Data.ToPath ListRoutingControls where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRoutingControls where
+instance Data.ToQuery ListRoutingControls where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRoutingControlsResponse' smart constructor.

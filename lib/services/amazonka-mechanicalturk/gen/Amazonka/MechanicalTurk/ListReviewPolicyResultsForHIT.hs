@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,12 +162,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListReviewPolicyResultsForHITResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "HITReviewPolicy")
-            Prelude.<*> (x Core..?> "HITId")
-            Prelude.<*> (x Core..?> "HITReviewReport")
-            Prelude.<*> (x Core..?> "AssignmentReviewReport")
-            Prelude.<*> (x Core..?> "AssignmentReviewPolicy")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "HITReviewPolicy")
+            Prelude.<*> (x Data..?> "HITId")
+            Prelude.<*> (x Data..?> "HITReviewReport")
+            Prelude.<*> (x Data..?> "AssignmentReviewReport")
+            Prelude.<*> (x Data..?> "AssignmentReviewPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,40 +192,40 @@ instance Prelude.NFData ListReviewPolicyResultsForHIT where
       `Prelude.seq` Prelude.rnf retrieveResults
       `Prelude.seq` Prelude.rnf hITId
 
-instance Core.ToHeaders ListReviewPolicyResultsForHIT where
+instance Data.ToHeaders ListReviewPolicyResultsForHIT where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListReviewPolicyResultsForHIT where
+instance Data.ToJSON ListReviewPolicyResultsForHIT where
   toJSON ListReviewPolicyResultsForHIT' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("PolicyLevels" Core..=) Prelude.<$> policyLevels,
-            ("RetrieveActions" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("PolicyLevels" Data..=) Prelude.<$> policyLevels,
+            ("RetrieveActions" Data..=)
               Prelude.<$> retrieveActions,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("RetrieveResults" Core..=)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("RetrieveResults" Data..=)
               Prelude.<$> retrieveResults,
-            Prelude.Just ("HITId" Core..= hITId)
+            Prelude.Just ("HITId" Data..= hITId)
           ]
       )
 
-instance Core.ToPath ListReviewPolicyResultsForHIT where
+instance Data.ToPath ListReviewPolicyResultsForHIT where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListReviewPolicyResultsForHIT where
+instance Data.ToQuery ListReviewPolicyResultsForHIT where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListReviewPolicyResultsForHITResponse' smart constructor.

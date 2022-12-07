@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.ChannelSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.ChannelStatus
 import Amazonka.IoTAnalytics.Types.ChannelStorageSummary
 import qualified Amazonka.Prelude as Prelude
@@ -36,9 +37,9 @@ data ChannelSummary = ChannelSummary'
     -- | The status of the channel.
     status :: Prelude.Maybe ChannelStatus,
     -- | When the channel was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The last time the channel was updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The last time when a new message arrived in the channel.
     --
     -- IoT Analytics updates this value at most once per minute for one
@@ -46,7 +47,7 @@ data ChannelSummary = ChannelSummary'
     --
     -- This feature only applies to messages that arrived in the data store
     -- after October 23, 2020.
-    lastMessageArrivalTime :: Prelude.Maybe Core.POSIX
+    lastMessageArrivalTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,11 +102,11 @@ channelSummary_status = Lens.lens (\ChannelSummary' {status} -> status) (\s@Chan
 
 -- | When the channel was created.
 channelSummary_creationTime :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
-channelSummary_creationTime = Lens.lens (\ChannelSummary' {creationTime} -> creationTime) (\s@ChannelSummary' {} a -> s {creationTime = a} :: ChannelSummary) Prelude.. Lens.mapping Core._Time
+channelSummary_creationTime = Lens.lens (\ChannelSummary' {creationTime} -> creationTime) (\s@ChannelSummary' {} a -> s {creationTime = a} :: ChannelSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The last time the channel was updated.
 channelSummary_lastUpdateTime :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
-channelSummary_lastUpdateTime = Lens.lens (\ChannelSummary' {lastUpdateTime} -> lastUpdateTime) (\s@ChannelSummary' {} a -> s {lastUpdateTime = a} :: ChannelSummary) Prelude.. Lens.mapping Core._Time
+channelSummary_lastUpdateTime = Lens.lens (\ChannelSummary' {lastUpdateTime} -> lastUpdateTime) (\s@ChannelSummary' {} a -> s {lastUpdateTime = a} :: ChannelSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The last time when a new message arrived in the channel.
 --
@@ -115,20 +116,20 @@ channelSummary_lastUpdateTime = Lens.lens (\ChannelSummary' {lastUpdateTime} -> 
 -- This feature only applies to messages that arrived in the data store
 -- after October 23, 2020.
 channelSummary_lastMessageArrivalTime :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
-channelSummary_lastMessageArrivalTime = Lens.lens (\ChannelSummary' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@ChannelSummary' {} a -> s {lastMessageArrivalTime = a} :: ChannelSummary) Prelude.. Lens.mapping Core._Time
+channelSummary_lastMessageArrivalTime = Lens.lens (\ChannelSummary' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@ChannelSummary' {} a -> s {lastMessageArrivalTime = a} :: ChannelSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ChannelSummary where
+instance Data.FromJSON ChannelSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelSummary"
       ( \x ->
           ChannelSummary'
-            Prelude.<$> (x Core..:? "channelName")
-            Prelude.<*> (x Core..:? "channelStorage")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
-            Prelude.<*> (x Core..:? "lastMessageArrivalTime")
+            Prelude.<$> (x Data..:? "channelName")
+            Prelude.<*> (x Data..:? "channelStorage")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "lastMessageArrivalTime")
       )
 
 instance Prelude.Hashable ChannelSummary where

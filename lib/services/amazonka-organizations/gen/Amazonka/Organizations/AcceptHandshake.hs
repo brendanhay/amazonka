@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,7 +125,7 @@ instance Core.AWSRequest AcceptHandshake where
     Response.receiveJSON
       ( \s h x ->
           AcceptHandshakeResponse'
-            Prelude.<$> (x Core..?> "Handshake")
+            Prelude.<$> (x Data..?> "Handshake")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,32 +136,32 @@ instance Prelude.Hashable AcceptHandshake where
 instance Prelude.NFData AcceptHandshake where
   rnf AcceptHandshake' {..} = Prelude.rnf handshakeId
 
-instance Core.ToHeaders AcceptHandshake where
+instance Data.ToHeaders AcceptHandshake where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.AcceptHandshake" ::
+              Data.=# ( "AWSOrganizationsV20161128.AcceptHandshake" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AcceptHandshake where
+instance Data.ToJSON AcceptHandshake where
   toJSON AcceptHandshake' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("HandshakeId" Core..= handshakeId)]
+          [Prelude.Just ("HandshakeId" Data..= handshakeId)]
       )
 
-instance Core.ToPath AcceptHandshake where
+instance Data.ToPath AcceptHandshake where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AcceptHandshake where
+instance Data.ToQuery AcceptHandshake where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAcceptHandshakeResponse' smart constructor.

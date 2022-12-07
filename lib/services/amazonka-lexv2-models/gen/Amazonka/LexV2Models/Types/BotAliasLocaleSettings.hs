@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotAliasLocaleSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.CodeHookSpecification
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ botAliasLocaleSettings_codeHookSpecification = Lens.lens (\BotAliasLocaleSetting
 botAliasLocaleSettings_enabled :: Lens.Lens' BotAliasLocaleSettings Prelude.Bool
 botAliasLocaleSettings_enabled = Lens.lens (\BotAliasLocaleSettings' {enabled} -> enabled) (\s@BotAliasLocaleSettings' {} a -> s {enabled = a} :: BotAliasLocaleSettings)
 
-instance Core.FromJSON BotAliasLocaleSettings where
+instance Data.FromJSON BotAliasLocaleSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotAliasLocaleSettings"
       ( \x ->
           BotAliasLocaleSettings'
-            Prelude.<$> (x Core..:? "codeHookSpecification")
-            Prelude.<*> (x Core..: "enabled")
+            Prelude.<$> (x Data..:? "codeHookSpecification")
+            Prelude.<*> (x Data..: "enabled")
       )
 
 instance Prelude.Hashable BotAliasLocaleSettings where
@@ -89,12 +90,12 @@ instance Prelude.NFData BotAliasLocaleSettings where
     Prelude.rnf codeHookSpecification
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON BotAliasLocaleSettings where
+instance Data.ToJSON BotAliasLocaleSettings where
   toJSON BotAliasLocaleSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("codeHookSpecification" Core..=)
+          [ ("codeHookSpecification" Data..=)
               Prelude.<$> codeHookSpecification,
-            Prelude.Just ("enabled" Core..= enabled)
+            Prelude.Just ("enabled" Data..= enabled)
           ]
       )

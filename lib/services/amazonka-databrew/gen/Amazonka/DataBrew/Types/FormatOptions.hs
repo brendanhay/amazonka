@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.FormatOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.CsvOptions
 import Amazonka.DataBrew.Types.ExcelOptions
 import Amazonka.DataBrew.Types.JsonOptions
@@ -74,15 +75,15 @@ formatOptions_json = Lens.lens (\FormatOptions' {json} -> json) (\s@FormatOption
 formatOptions_csv :: Lens.Lens' FormatOptions (Prelude.Maybe CsvOptions)
 formatOptions_csv = Lens.lens (\FormatOptions' {csv} -> csv) (\s@FormatOptions' {} a -> s {csv = a} :: FormatOptions)
 
-instance Core.FromJSON FormatOptions where
+instance Data.FromJSON FormatOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FormatOptions"
       ( \x ->
           FormatOptions'
-            Prelude.<$> (x Core..:? "Excel")
-            Prelude.<*> (x Core..:? "Json")
-            Prelude.<*> (x Core..:? "Csv")
+            Prelude.<$> (x Data..:? "Excel")
+            Prelude.<*> (x Data..:? "Json")
+            Prelude.<*> (x Data..:? "Csv")
       )
 
 instance Prelude.Hashable FormatOptions where
@@ -97,12 +98,12 @@ instance Prelude.NFData FormatOptions where
       `Prelude.seq` Prelude.rnf json
       `Prelude.seq` Prelude.rnf csv
 
-instance Core.ToJSON FormatOptions where
+instance Data.ToJSON FormatOptions where
   toJSON FormatOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Excel" Core..=) Prelude.<$> excel,
-            ("Json" Core..=) Prelude.<$> json,
-            ("Csv" Core..=) Prelude.<$> csv
+          [ ("Excel" Data..=) Prelude.<$> excel,
+            ("Json" Data..=) Prelude.<$> json,
+            ("Csv" Data..=) Prelude.<$> csv
           ]
       )

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,14 +97,14 @@ instance Prelude.Hashable DeleteDimension where
 instance Prelude.NFData DeleteDimension where
   rnf DeleteDimension' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteDimension where
+instance Data.ToHeaders DeleteDimension where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteDimension where
+instance Data.ToPath DeleteDimension where
   toPath DeleteDimension' {..} =
-    Prelude.mconcat ["/dimensions/", Core.toBS name]
+    Prelude.mconcat ["/dimensions/", Data.toBS name]
 
-instance Core.ToQuery DeleteDimension where
+instance Data.ToQuery DeleteDimension where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDimensionResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.RecencyDimension where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Duration
 import Amazonka.Pinpoint.Types.RecencyType
 import qualified Amazonka.Prelude as Prelude
@@ -80,14 +81,14 @@ recencyDimension_duration = Lens.lens (\RecencyDimension' {duration} -> duration
 recencyDimension_recencyType :: Lens.Lens' RecencyDimension RecencyType
 recencyDimension_recencyType = Lens.lens (\RecencyDimension' {recencyType} -> recencyType) (\s@RecencyDimension' {} a -> s {recencyType = a} :: RecencyDimension)
 
-instance Core.FromJSON RecencyDimension where
+instance Data.FromJSON RecencyDimension where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecencyDimension"
       ( \x ->
           RecencyDimension'
-            Prelude.<$> (x Core..: "Duration")
-            Prelude.<*> (x Core..: "RecencyType")
+            Prelude.<$> (x Data..: "Duration")
+            Prelude.<*> (x Data..: "RecencyType")
       )
 
 instance Prelude.Hashable RecencyDimension where
@@ -100,11 +101,11 @@ instance Prelude.NFData RecencyDimension where
     Prelude.rnf duration
       `Prelude.seq` Prelude.rnf recencyType
 
-instance Core.ToJSON RecencyDimension where
+instance Data.ToJSON RecencyDimension where
   toJSON RecencyDimension' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Duration" Core..= duration),
-            Prelude.Just ("RecencyType" Core..= recencyType)
+          [ Prelude.Just ("Duration" Data..= duration),
+            Prelude.Just ("RecencyType" Data..= recencyType)
           ]
       )

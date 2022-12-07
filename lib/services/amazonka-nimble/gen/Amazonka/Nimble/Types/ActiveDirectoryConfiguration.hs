@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.ActiveDirectoryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.ActiveDirectoryComputerAttribute
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data ActiveDirectoryConfiguration = ActiveDirectoryConfiguration'
     -- to access using this studio component.
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | A collection of custom attributes for an Active Directory computer.
-    computerAttributes :: Prelude.Maybe (Core.Sensitive [ActiveDirectoryComputerAttribute]),
+    computerAttributes :: Prelude.Maybe (Data.Sensitive [ActiveDirectoryComputerAttribute]),
     -- | The distinguished name (DN) and organizational unit (OU) of an Active
     -- Directory computer.
     organizationalUnitDistinguishedName :: Prelude.Maybe Prelude.Text
@@ -73,24 +74,24 @@ activeDirectoryConfiguration_directoryId = Lens.lens (\ActiveDirectoryConfigurat
 
 -- | A collection of custom attributes for an Active Directory computer.
 activeDirectoryConfiguration_computerAttributes :: Lens.Lens' ActiveDirectoryConfiguration (Prelude.Maybe [ActiveDirectoryComputerAttribute])
-activeDirectoryConfiguration_computerAttributes = Lens.lens (\ActiveDirectoryConfiguration' {computerAttributes} -> computerAttributes) (\s@ActiveDirectoryConfiguration' {} a -> s {computerAttributes = a} :: ActiveDirectoryConfiguration) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+activeDirectoryConfiguration_computerAttributes = Lens.lens (\ActiveDirectoryConfiguration' {computerAttributes} -> computerAttributes) (\s@ActiveDirectoryConfiguration' {} a -> s {computerAttributes = a} :: ActiveDirectoryConfiguration) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The distinguished name (DN) and organizational unit (OU) of an Active
 -- Directory computer.
 activeDirectoryConfiguration_organizationalUnitDistinguishedName :: Lens.Lens' ActiveDirectoryConfiguration (Prelude.Maybe Prelude.Text)
 activeDirectoryConfiguration_organizationalUnitDistinguishedName = Lens.lens (\ActiveDirectoryConfiguration' {organizationalUnitDistinguishedName} -> organizationalUnitDistinguishedName) (\s@ActiveDirectoryConfiguration' {} a -> s {organizationalUnitDistinguishedName = a} :: ActiveDirectoryConfiguration)
 
-instance Core.FromJSON ActiveDirectoryConfiguration where
+instance Data.FromJSON ActiveDirectoryConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActiveDirectoryConfiguration"
       ( \x ->
           ActiveDirectoryConfiguration'
-            Prelude.<$> (x Core..:? "directoryId")
-            Prelude.<*> ( x Core..:? "computerAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "directoryId")
+            Prelude.<*> ( x Data..:? "computerAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "organizationalUnitDistinguishedName")
+            Prelude.<*> (x Data..:? "organizationalUnitDistinguishedName")
       )
 
 instance
@@ -108,14 +109,14 @@ instance Prelude.NFData ActiveDirectoryConfiguration where
       `Prelude.seq` Prelude.rnf computerAttributes
       `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedName
 
-instance Core.ToJSON ActiveDirectoryConfiguration where
+instance Data.ToJSON ActiveDirectoryConfiguration where
   toJSON ActiveDirectoryConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("directoryId" Core..=) Prelude.<$> directoryId,
-            ("computerAttributes" Core..=)
+          [ ("directoryId" Data..=) Prelude.<$> directoryId,
+            ("computerAttributes" Data..=)
               Prelude.<$> computerAttributes,
-            ("organizationalUnitDistinguishedName" Core..=)
+            ("organizationalUnitDistinguishedName" Data..=)
               Prelude.<$> organizationalUnitDistinguishedName
           ]
       )

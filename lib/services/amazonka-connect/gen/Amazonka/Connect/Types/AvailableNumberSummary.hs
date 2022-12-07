@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.PhoneNumberCountryCode
 import Amazonka.Connect.Types.PhoneNumberType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about available phone numbers.
@@ -76,15 +77,15 @@ availableNumberSummary_phoneNumberType = Lens.lens (\AvailableNumberSummary' {ph
 availableNumberSummary_phoneNumber :: Lens.Lens' AvailableNumberSummary (Prelude.Maybe Prelude.Text)
 availableNumberSummary_phoneNumber = Lens.lens (\AvailableNumberSummary' {phoneNumber} -> phoneNumber) (\s@AvailableNumberSummary' {} a -> s {phoneNumber = a} :: AvailableNumberSummary)
 
-instance Core.FromJSON AvailableNumberSummary where
+instance Data.FromJSON AvailableNumberSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AvailableNumberSummary"
       ( \x ->
           AvailableNumberSummary'
-            Prelude.<$> (x Core..:? "PhoneNumberCountryCode")
-            Prelude.<*> (x Core..:? "PhoneNumberType")
-            Prelude.<*> (x Core..:? "PhoneNumber")
+            Prelude.<$> (x Data..:? "PhoneNumberCountryCode")
+            Prelude.<*> (x Data..:? "PhoneNumberType")
+            Prelude.<*> (x Data..:? "PhoneNumber")
       )
 
 instance Prelude.Hashable AvailableNumberSummary where

@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.ResourceRecordSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Types.AliasTarget
@@ -1476,25 +1477,25 @@ resourceRecordSet_name = Lens.lens (\ResourceRecordSet' {name} -> name) (\s@Reso
 resourceRecordSet_type :: Lens.Lens' ResourceRecordSet RRType
 resourceRecordSet_type = Lens.lens (\ResourceRecordSet' {type'} -> type') (\s@ResourceRecordSet' {} a -> s {type' = a} :: ResourceRecordSet)
 
-instance Core.FromXML ResourceRecordSet where
+instance Data.FromXML ResourceRecordSet where
   parseXML x =
     ResourceRecordSet'
-      Prelude.<$> (x Core..@? "CidrRoutingConfig")
-      Prelude.<*> (x Core..@? "TTL")
-      Prelude.<*> (x Core..@? "MultiValueAnswer")
-      Prelude.<*> (x Core..@? "TrafficPolicyInstanceId")
-      Prelude.<*> (x Core..@? "Region")
-      Prelude.<*> (x Core..@? "AliasTarget")
-      Prelude.<*> ( x Core..@? "ResourceRecords" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList1 "ResourceRecord")
+      Prelude.<$> (x Data..@? "CidrRoutingConfig")
+      Prelude.<*> (x Data..@? "TTL")
+      Prelude.<*> (x Data..@? "MultiValueAnswer")
+      Prelude.<*> (x Data..@? "TrafficPolicyInstanceId")
+      Prelude.<*> (x Data..@? "Region")
+      Prelude.<*> (x Data..@? "AliasTarget")
+      Prelude.<*> ( x Data..@? "ResourceRecords" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList1 "ResourceRecord")
                   )
-      Prelude.<*> (x Core..@? "SetIdentifier")
-      Prelude.<*> (x Core..@? "Weight")
-      Prelude.<*> (x Core..@? "HealthCheckId")
-      Prelude.<*> (x Core..@? "Failover")
-      Prelude.<*> (x Core..@? "GeoLocation")
-      Prelude.<*> (x Core..@ "Name")
-      Prelude.<*> (x Core..@ "Type")
+      Prelude.<*> (x Data..@? "SetIdentifier")
+      Prelude.<*> (x Data..@? "Weight")
+      Prelude.<*> (x Data..@? "HealthCheckId")
+      Prelude.<*> (x Data..@? "Failover")
+      Prelude.<*> (x Data..@? "GeoLocation")
+      Prelude.<*> (x Data..@ "Name")
+      Prelude.<*> (x Data..@ "Type")
 
 instance Prelude.Hashable ResourceRecordSet where
   hashWithSalt _salt ResourceRecordSet' {..} =
@@ -1530,26 +1531,26 @@ instance Prelude.NFData ResourceRecordSet where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToXML ResourceRecordSet where
+instance Data.ToXML ResourceRecordSet where
   toXML ResourceRecordSet' {..} =
     Prelude.mconcat
-      [ "CidrRoutingConfig" Core.@= cidrRoutingConfig,
-        "TTL" Core.@= ttl,
-        "MultiValueAnswer" Core.@= multiValueAnswer,
+      [ "CidrRoutingConfig" Data.@= cidrRoutingConfig,
+        "TTL" Data.@= ttl,
+        "MultiValueAnswer" Data.@= multiValueAnswer,
         "TrafficPolicyInstanceId"
-          Core.@= trafficPolicyInstanceId,
-        "Region" Core.@= region,
-        "AliasTarget" Core.@= aliasTarget,
+          Data.@= trafficPolicyInstanceId,
+        "Region" Data.@= region,
+        "AliasTarget" Data.@= aliasTarget,
         "ResourceRecords"
-          Core.@= Core.toXML
-            ( Core.toXMLList "ResourceRecord"
+          Data.@= Data.toXML
+            ( Data.toXMLList "ResourceRecord"
                 Prelude.<$> resourceRecords
             ),
-        "SetIdentifier" Core.@= setIdentifier,
-        "Weight" Core.@= weight,
-        "HealthCheckId" Core.@= healthCheckId,
-        "Failover" Core.@= failover,
-        "GeoLocation" Core.@= geoLocation,
-        "Name" Core.@= name,
-        "Type" Core.@= type'
+        "SetIdentifier" Data.@= setIdentifier,
+        "Weight" Data.@= weight,
+        "HealthCheckId" Data.@= healthCheckId,
+        "Failover" Data.@= failover,
+        "GeoLocation" Data.@= geoLocation,
+        "Name" Data.@= name,
+        "Type" Data.@= type'
       ]

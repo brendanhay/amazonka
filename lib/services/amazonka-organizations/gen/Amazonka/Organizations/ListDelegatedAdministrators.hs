@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -185,8 +186,8 @@ instance Core.AWSRequest ListDelegatedAdministrators where
     Response.receiveJSON
       ( \s h x ->
           ListDelegatedAdministratorsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DelegatedAdministrators"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "DelegatedAdministrators"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -204,36 +205,36 @@ instance Prelude.NFData ListDelegatedAdministrators where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf servicePrincipal
 
-instance Core.ToHeaders ListDelegatedAdministrators where
+instance Data.ToHeaders ListDelegatedAdministrators where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.ListDelegatedAdministrators" ::
+              Data.=# ( "AWSOrganizationsV20161128.ListDelegatedAdministrators" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDelegatedAdministrators where
+instance Data.ToJSON ListDelegatedAdministrators where
   toJSON ListDelegatedAdministrators' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ServicePrincipal" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ServicePrincipal" Data..=)
               Prelude.<$> servicePrincipal
           ]
       )
 
-instance Core.ToPath ListDelegatedAdministrators where
+instance Data.ToPath ListDelegatedAdministrators where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDelegatedAdministrators where
+instance Data.ToQuery ListDelegatedAdministrators where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDelegatedAdministratorsResponse' smart constructor.

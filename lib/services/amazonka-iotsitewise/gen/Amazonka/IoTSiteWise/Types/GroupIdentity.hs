@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.GroupIdentity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information for a group identity in an access policy.
@@ -51,11 +52,11 @@ newGroupIdentity pId_ = GroupIdentity' {id = pId_}
 groupIdentity_id :: Lens.Lens' GroupIdentity Prelude.Text
 groupIdentity_id = Lens.lens (\GroupIdentity' {id} -> id) (\s@GroupIdentity' {} a -> s {id = a} :: GroupIdentity)
 
-instance Core.FromJSON GroupIdentity where
+instance Data.FromJSON GroupIdentity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupIdentity"
-      (\x -> GroupIdentity' Prelude.<$> (x Core..: "id"))
+      (\x -> GroupIdentity' Prelude.<$> (x Data..: "id"))
 
 instance Prelude.Hashable GroupIdentity where
   hashWithSalt _salt GroupIdentity' {..} =
@@ -64,7 +65,7 @@ instance Prelude.Hashable GroupIdentity where
 instance Prelude.NFData GroupIdentity where
   rnf GroupIdentity' {..} = Prelude.rnf id
 
-instance Core.ToJSON GroupIdentity where
+instance Data.ToJSON GroupIdentity where
   toJSON GroupIdentity' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("id" Data..= id)])

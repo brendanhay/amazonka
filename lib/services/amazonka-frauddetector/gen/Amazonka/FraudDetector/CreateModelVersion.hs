@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -165,10 +166,10 @@ instance Core.AWSRequest CreateModelVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateModelVersionResponse'
-            Prelude.<$> (x Core..?> "modelVersionNumber")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "modelType")
-            Prelude.<*> (x Core..?> "modelId")
+            Prelude.<$> (x Data..?> "modelVersionNumber")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "modelType")
+            Prelude.<*> (x Data..?> "modelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,43 +193,43 @@ instance Prelude.NFData CreateModelVersion where
       `Prelude.seq` Prelude.rnf trainingDataSource
       `Prelude.seq` Prelude.rnf trainingDataSchema
 
-instance Core.ToHeaders CreateModelVersion where
+instance Data.ToHeaders CreateModelVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.CreateModelVersion" ::
+              Data.=# ( "AWSHawksNestServiceFacade.CreateModelVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateModelVersion where
+instance Data.ToJSON CreateModelVersion where
   toJSON CreateModelVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("ingestedEventsDetail" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("ingestedEventsDetail" Data..=)
               Prelude.<$> ingestedEventsDetail,
-            ("externalEventsDetail" Core..=)
+            ("externalEventsDetail" Data..=)
               Prelude.<$> externalEventsDetail,
-            Prelude.Just ("modelId" Core..= modelId),
-            Prelude.Just ("modelType" Core..= modelType),
+            Prelude.Just ("modelId" Data..= modelId),
+            Prelude.Just ("modelType" Data..= modelType),
             Prelude.Just
-              ("trainingDataSource" Core..= trainingDataSource),
+              ("trainingDataSource" Data..= trainingDataSource),
             Prelude.Just
-              ("trainingDataSchema" Core..= trainingDataSchema)
+              ("trainingDataSchema" Data..= trainingDataSchema)
           ]
       )
 
-instance Core.ToPath CreateModelVersion where
+instance Data.ToPath CreateModelVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateModelVersion where
+instance Data.ToQuery CreateModelVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateModelVersionResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,7 +141,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateLicenseConversionTaskForResourceResponse'
-            Prelude.<$> (x Core..?> "LicenseConversionTaskId")
+            Prelude.<$> (x Data..?> "LicenseConversionTaskId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,50 +166,50 @@ instance
       `Prelude.seq` Prelude.rnf destinationLicenseContext
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateLicenseConversionTaskForResource
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.CreateLicenseConversionTaskForResource" ::
+              Data.=# ( "AWSLicenseManager.CreateLicenseConversionTaskForResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateLicenseConversionTaskForResource
   where
   toJSON CreateLicenseConversionTaskForResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceArn" Core..= resourceArn),
+          [ Prelude.Just ("ResourceArn" Data..= resourceArn),
             Prelude.Just
               ( "SourceLicenseContext"
-                  Core..= sourceLicenseContext
+                  Data..= sourceLicenseContext
               ),
             Prelude.Just
               ( "DestinationLicenseContext"
-                  Core..= destinationLicenseContext
+                  Data..= destinationLicenseContext
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateLicenseConversionTaskForResource
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateLicenseConversionTaskForResource
   where
   toQuery = Prelude.const Prelude.mempty

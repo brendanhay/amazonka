@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,35 +112,35 @@ instance Prelude.NFData RemoveCustomRoutingEndpoints where
     Prelude.rnf endpointIds
       `Prelude.seq` Prelude.rnf endpointGroupArn
 
-instance Core.ToHeaders RemoveCustomRoutingEndpoints where
+instance Data.ToHeaders RemoveCustomRoutingEndpoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.RemoveCustomRoutingEndpoints" ::
+              Data.=# ( "GlobalAccelerator_V20180706.RemoveCustomRoutingEndpoints" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RemoveCustomRoutingEndpoints where
+instance Data.ToJSON RemoveCustomRoutingEndpoints where
   toJSON RemoveCustomRoutingEndpoints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("EndpointIds" Core..= endpointIds),
+          [ Prelude.Just ("EndpointIds" Data..= endpointIds),
             Prelude.Just
-              ("EndpointGroupArn" Core..= endpointGroupArn)
+              ("EndpointGroupArn" Data..= endpointGroupArn)
           ]
       )
 
-instance Core.ToPath RemoveCustomRoutingEndpoints where
+instance Data.ToPath RemoveCustomRoutingEndpoints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveCustomRoutingEndpoints where
+instance Data.ToQuery RemoveCustomRoutingEndpoints where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveCustomRoutingEndpointsResponse' smart constructor.

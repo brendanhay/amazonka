@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -218,7 +219,7 @@ instance Core.AWSRequest UpdatePushTemplate where
       ( \s h x ->
           UpdatePushTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable UpdatePushTemplate where
@@ -235,31 +236,31 @@ instance Prelude.NFData UpdatePushTemplate where
       `Prelude.seq` Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf pushNotificationTemplateRequest
 
-instance Core.ToHeaders UpdatePushTemplate where
+instance Data.ToHeaders UpdatePushTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePushTemplate where
+instance Data.ToJSON UpdatePushTemplate where
   toJSON UpdatePushTemplate' {..} =
-    Core.toJSON pushNotificationTemplateRequest
+    Data.toJSON pushNotificationTemplateRequest
 
-instance Core.ToPath UpdatePushTemplate where
+instance Data.ToPath UpdatePushTemplate where
   toPath UpdatePushTemplate' {..} =
     Prelude.mconcat
-      ["/v1/templates/", Core.toBS templateName, "/push"]
+      ["/v1/templates/", Data.toBS templateName, "/push"]
 
-instance Core.ToQuery UpdatePushTemplate where
+instance Data.ToQuery UpdatePushTemplate where
   toQuery UpdatePushTemplate' {..} =
     Prelude.mconcat
-      [ "create-new-version" Core.=: createNewVersion,
-        "version" Core.=: version
+      [ "create-new-version" Data.=: createNewVersion,
+        "version" Data.=: version
       ]
 
 -- | /See:/ 'newUpdatePushTemplateResponse' smart constructor.

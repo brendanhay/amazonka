@@ -21,6 +21,7 @@ module Amazonka.SnowDeviceManagement.Types.Capacity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The physical capacity of the Amazon Web Services Snow Family device.
@@ -88,17 +89,17 @@ capacity_used = Lens.lens (\Capacity' {used} -> used) (\s@Capacity' {} a -> s {u
 capacity_unit :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Text)
 capacity_unit = Lens.lens (\Capacity' {unit} -> unit) (\s@Capacity' {} a -> s {unit = a} :: Capacity)
 
-instance Core.FromJSON Capacity where
+instance Data.FromJSON Capacity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Capacity"
       ( \x ->
           Capacity'
-            Prelude.<$> (x Core..:? "available")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "total")
-            Prelude.<*> (x Core..:? "used")
-            Prelude.<*> (x Core..:? "unit")
+            Prelude.<$> (x Data..:? "available")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "total")
+            Prelude.<*> (x Data..:? "used")
+            Prelude.<*> (x Data..:? "unit")
       )
 
 instance Prelude.Hashable Capacity where

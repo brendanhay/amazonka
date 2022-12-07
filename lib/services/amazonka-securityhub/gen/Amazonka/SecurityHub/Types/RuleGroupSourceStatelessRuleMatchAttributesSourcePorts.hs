@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleMatchAttributesSou
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A port range to specify the source ports to inspect for.
@@ -64,16 +65,16 @@ ruleGroupSourceStatelessRuleMatchAttributesSourcePorts_fromPort :: Lens.Lens' Ru
 ruleGroupSourceStatelessRuleMatchAttributesSourcePorts_fromPort = Lens.lens (\RuleGroupSourceStatelessRuleMatchAttributesSourcePorts' {fromPort} -> fromPort) (\s@RuleGroupSourceStatelessRuleMatchAttributesSourcePorts' {} a -> s {fromPort = a} :: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RuleGroupSourceStatelessRuleMatchAttributesSourcePorts
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupSourceStatelessRuleMatchAttributesSourcePorts"
       ( \x ->
           RuleGroupSourceStatelessRuleMatchAttributesSourcePorts'
-            Prelude.<$> (x Core..:? "ToPort")
-              Prelude.<*> (x Core..:? "FromPort")
+            Prelude.<$> (x Data..:? "ToPort")
+              Prelude.<*> (x Data..:? "FromPort")
       )
 
 instance
@@ -96,14 +97,14 @@ instance
         `Prelude.seq` Prelude.rnf fromPort
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RuleGroupSourceStatelessRuleMatchAttributesSourcePorts
   where
   toJSON
     RuleGroupSourceStatelessRuleMatchAttributesSourcePorts' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ToPort" Core..=) Prelude.<$> toPort,
-              ("FromPort" Core..=) Prelude.<$> fromPort
+            [ ("ToPort" Data..=) Prelude.<$> toPort,
+              ("FromPort" Data..=) Prelude.<$> fromPort
             ]
         )

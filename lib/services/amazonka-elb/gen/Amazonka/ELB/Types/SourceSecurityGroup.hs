@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.SourceSecurityGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,11 +63,11 @@ sourceSecurityGroup_ownerAlias = Lens.lens (\SourceSecurityGroup' {ownerAlias} -
 sourceSecurityGroup_groupName :: Lens.Lens' SourceSecurityGroup (Prelude.Maybe Prelude.Text)
 sourceSecurityGroup_groupName = Lens.lens (\SourceSecurityGroup' {groupName} -> groupName) (\s@SourceSecurityGroup' {} a -> s {groupName = a} :: SourceSecurityGroup)
 
-instance Core.FromXML SourceSecurityGroup where
+instance Data.FromXML SourceSecurityGroup where
   parseXML x =
     SourceSecurityGroup'
-      Prelude.<$> (x Core..@? "OwnerAlias")
-      Prelude.<*> (x Core..@? "GroupName")
+      Prelude.<$> (x Data..@? "OwnerAlias")
+      Prelude.<*> (x Data..@? "GroupName")
 
 instance Prelude.Hashable SourceSecurityGroup where
   hashWithSalt _salt SourceSecurityGroup' {..} =

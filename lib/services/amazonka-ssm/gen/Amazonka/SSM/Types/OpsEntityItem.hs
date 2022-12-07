@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.OpsEntityItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The OpsData summary.
@@ -61,14 +62,14 @@ opsEntityItem_captureTime = Lens.lens (\OpsEntityItem' {captureTime} -> captureT
 opsEntityItem_content :: Lens.Lens' OpsEntityItem (Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text])
 opsEntityItem_content = Lens.lens (\OpsEntityItem' {content} -> content) (\s@OpsEntityItem' {} a -> s {content = a} :: OpsEntityItem) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON OpsEntityItem where
+instance Data.FromJSON OpsEntityItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpsEntityItem"
       ( \x ->
           OpsEntityItem'
-            Prelude.<$> (x Core..:? "CaptureTime")
-            Prelude.<*> (x Core..:? "Content" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "CaptureTime")
+            Prelude.<*> (x Data..:? "Content" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable OpsEntityItem where

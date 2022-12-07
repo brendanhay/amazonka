@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.S3EncryptionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.S3ServerSideEncryptionType
 import qualified Amazonka.Prelude as Prelude
 
@@ -148,15 +149,15 @@ s3EncryptionSettings_kmsKeyArn = Lens.lens (\S3EncryptionSettings' {kmsKeyArn} -
 s3EncryptionSettings_encryptionType :: Lens.Lens' S3EncryptionSettings (Prelude.Maybe S3ServerSideEncryptionType)
 s3EncryptionSettings_encryptionType = Lens.lens (\S3EncryptionSettings' {encryptionType} -> encryptionType) (\s@S3EncryptionSettings' {} a -> s {encryptionType = a} :: S3EncryptionSettings)
 
-instance Core.FromJSON S3EncryptionSettings where
+instance Data.FromJSON S3EncryptionSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3EncryptionSettings"
       ( \x ->
           S3EncryptionSettings'
-            Prelude.<$> (x Core..:? "kmsEncryptionContext")
-            Prelude.<*> (x Core..:? "kmsKeyArn")
-            Prelude.<*> (x Core..:? "encryptionType")
+            Prelude.<$> (x Data..:? "kmsEncryptionContext")
+            Prelude.<*> (x Data..:? "kmsKeyArn")
+            Prelude.<*> (x Data..:? "encryptionType")
       )
 
 instance Prelude.Hashable S3EncryptionSettings where
@@ -171,14 +172,14 @@ instance Prelude.NFData S3EncryptionSettings where
       `Prelude.seq` Prelude.rnf kmsKeyArn
       `Prelude.seq` Prelude.rnf encryptionType
 
-instance Core.ToJSON S3EncryptionSettings where
+instance Data.ToJSON S3EncryptionSettings where
   toJSON S3EncryptionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsEncryptionContext" Core..=)
+          [ ("kmsEncryptionContext" Data..=)
               Prelude.<$> kmsEncryptionContext,
-            ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("encryptionType" Core..=)
+            ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("encryptionType" Data..=)
               Prelude.<$> encryptionType
           ]
       )

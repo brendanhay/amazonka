@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.HopDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Optional. Configuration for a destination queue to which the job can hop
@@ -98,15 +99,15 @@ hopDestination_queue = Lens.lens (\HopDestination' {queue} -> queue) (\s@HopDest
 hopDestination_waitMinutes :: Lens.Lens' HopDestination (Prelude.Maybe Prelude.Int)
 hopDestination_waitMinutes = Lens.lens (\HopDestination' {waitMinutes} -> waitMinutes) (\s@HopDestination' {} a -> s {waitMinutes = a} :: HopDestination)
 
-instance Core.FromJSON HopDestination where
+instance Data.FromJSON HopDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HopDestination"
       ( \x ->
           HopDestination'
-            Prelude.<$> (x Core..:? "priority")
-            Prelude.<*> (x Core..:? "queue")
-            Prelude.<*> (x Core..:? "waitMinutes")
+            Prelude.<$> (x Data..:? "priority")
+            Prelude.<*> (x Data..:? "queue")
+            Prelude.<*> (x Data..:? "waitMinutes")
       )
 
 instance Prelude.Hashable HopDestination where
@@ -121,12 +122,12 @@ instance Prelude.NFData HopDestination where
       `Prelude.seq` Prelude.rnf queue
       `Prelude.seq` Prelude.rnf waitMinutes
 
-instance Core.ToJSON HopDestination where
+instance Data.ToJSON HopDestination where
   toJSON HopDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("priority" Core..=) Prelude.<$> priority,
-            ("queue" Core..=) Prelude.<$> queue,
-            ("waitMinutes" Core..=) Prelude.<$> waitMinutes
+          [ ("priority" Data..=) Prelude.<$> priority,
+            ("queue" Data..=) Prelude.<$> queue,
+            ("waitMinutes" Data..=) Prelude.<$> waitMinutes
           ]
       )

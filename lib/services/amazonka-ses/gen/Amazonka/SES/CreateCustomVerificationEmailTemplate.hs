@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -208,37 +209,37 @@ instance
       `Prelude.seq` Prelude.rnf failureRedirectionURL
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateCustomVerificationEmailTemplate
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateCustomVerificationEmailTemplate
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateCustomVerificationEmailTemplate
   where
   toQuery CreateCustomVerificationEmailTemplate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateCustomVerificationEmailTemplate" ::
+          Data.=: ( "CreateCustomVerificationEmailTemplate" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "TemplateName" Core.=: templateName,
-        "FromEmailAddress" Core.=: fromEmailAddress,
-        "TemplateSubject" Core.=: templateSubject,
-        "TemplateContent" Core.=: templateContent,
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "TemplateName" Data.=: templateName,
+        "FromEmailAddress" Data.=: fromEmailAddress,
+        "TemplateSubject" Data.=: templateSubject,
+        "TemplateContent" Data.=: templateContent,
         "SuccessRedirectionURL"
-          Core.=: successRedirectionURL,
+          Data.=: successRedirectionURL,
         "FailureRedirectionURL"
-          Core.=: failureRedirectionURL
+          Data.=: failureRedirectionURL
       ]
 
 -- | /See:/ 'newCreateCustomVerificationEmailTemplateResponse' smart constructor.

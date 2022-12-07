@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           GetResourcePolicyResponse'
-            Prelude.<$> (x Core..?> "resourcePolicy")
+            Prelude.<$> (x Data..?> "resourcePolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable GetResourcePolicy where
 instance Prelude.NFData GetResourcePolicy where
   rnf GetResourcePolicy' {..} = Prelude.rnf resourceArn
 
-instance Core.ToHeaders GetResourcePolicy where
+instance Data.ToHeaders GetResourcePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.GetResourcePolicy" ::
+              Data.=# ( "RedshiftServerless.GetResourcePolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResourcePolicy where
+instance Data.ToJSON GetResourcePolicy where
   toJSON GetResourcePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("resourceArn" Core..= resourceArn)]
+          [Prelude.Just ("resourceArn" Data..= resourceArn)]
       )
 
-instance Core.ToPath GetResourcePolicy where
+instance Data.ToPath GetResourcePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetResourcePolicy where
+instance Data.ToQuery GetResourcePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourcePolicyResponse' smart constructor.

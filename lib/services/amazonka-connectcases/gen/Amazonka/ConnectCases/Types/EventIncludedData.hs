@@ -23,6 +23,7 @@ import Amazonka.ConnectCases.Types.CaseEventIncludedData
 import Amazonka.ConnectCases.Types.RelatedItemEventIncludedData
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of what case and related item data is published through the case
@@ -67,14 +68,14 @@ eventIncludedData_caseData = Lens.lens (\EventIncludedData' {caseData} -> caseDa
 eventIncludedData_relatedItemData :: Lens.Lens' EventIncludedData (Prelude.Maybe RelatedItemEventIncludedData)
 eventIncludedData_relatedItemData = Lens.lens (\EventIncludedData' {relatedItemData} -> relatedItemData) (\s@EventIncludedData' {} a -> s {relatedItemData = a} :: EventIncludedData)
 
-instance Core.FromJSON EventIncludedData where
+instance Data.FromJSON EventIncludedData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventIncludedData"
       ( \x ->
           EventIncludedData'
-            Prelude.<$> (x Core..:? "caseData")
-            Prelude.<*> (x Core..:? "relatedItemData")
+            Prelude.<$> (x Data..:? "caseData")
+            Prelude.<*> (x Data..:? "relatedItemData")
       )
 
 instance Prelude.Hashable EventIncludedData where
@@ -87,12 +88,12 @@ instance Prelude.NFData EventIncludedData where
     Prelude.rnf caseData
       `Prelude.seq` Prelude.rnf relatedItemData
 
-instance Core.ToJSON EventIncludedData where
+instance Data.ToJSON EventIncludedData where
   toJSON EventIncludedData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("caseData" Core..=) Prelude.<$> caseData,
-            ("relatedItemData" Core..=)
+          [ ("caseData" Data..=) Prelude.<$> caseData,
+            ("relatedItemData" Data..=)
               Prelude.<$> relatedItemData
           ]
       )

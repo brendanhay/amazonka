@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -57,7 +58,7 @@ import Amazonka.WorkSpacesWeb.Types
 data CreateBrowserSettings = CreateBrowserSettings'
   { -- | The tags to add to the browser settings resource. A tag is a key-value
     -- pair.
-    tags :: Prelude.Maybe [Core.Sensitive Tag],
+    tags :: Prelude.Maybe [Data.Sensitive Tag],
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Idempotency ensures that an API request
     -- completes only once. With an idempotent request, if the original request
@@ -73,7 +74,7 @@ data CreateBrowserSettings = CreateBrowserSettings'
     additionalEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A JSON string containing Chrome Enterprise policies that will be applied
     -- to all streaming sessions.
-    browserPolicy :: Core.Sensitive Prelude.Text
+    browserPolicy :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -114,7 +115,7 @@ newCreateBrowserSettings pBrowserPolicy_ =
       customerManagedKey = Prelude.Nothing,
       additionalEncryptionContext = Prelude.Nothing,
       browserPolicy =
-        Core._Sensitive Lens.# pBrowserPolicy_
+        Data._Sensitive Lens.# pBrowserPolicy_
     }
 
 -- | The tags to add to the browser settings resource. A tag is a key-value
@@ -144,7 +145,7 @@ createBrowserSettings_additionalEncryptionContext = Lens.lens (\CreateBrowserSet
 -- | A JSON string containing Chrome Enterprise policies that will be applied
 -- to all streaming sessions.
 createBrowserSettings_browserPolicy :: Lens.Lens' CreateBrowserSettings Prelude.Text
-createBrowserSettings_browserPolicy = Lens.lens (\CreateBrowserSettings' {browserPolicy} -> browserPolicy) (\s@CreateBrowserSettings' {} a -> s {browserPolicy = a} :: CreateBrowserSettings) Prelude.. Core._Sensitive
+createBrowserSettings_browserPolicy = Lens.lens (\CreateBrowserSettings' {browserPolicy} -> browserPolicy) (\s@CreateBrowserSettings' {} a -> s {browserPolicy = a} :: CreateBrowserSettings) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateBrowserSettings where
   type
@@ -157,7 +158,7 @@ instance Core.AWSRequest CreateBrowserSettings where
       ( \s h x ->
           CreateBrowserSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "browserSettingsArn")
+            Prelude.<*> (x Data..:> "browserSettingsArn")
       )
 
 instance Prelude.Hashable CreateBrowserSettings where
@@ -176,36 +177,36 @@ instance Prelude.NFData CreateBrowserSettings where
       `Prelude.seq` Prelude.rnf additionalEncryptionContext
       `Prelude.seq` Prelude.rnf browserPolicy
 
-instance Core.ToHeaders CreateBrowserSettings where
+instance Data.ToHeaders CreateBrowserSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBrowserSettings where
+instance Data.ToJSON CreateBrowserSettings where
   toJSON CreateBrowserSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("customerManagedKey" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("customerManagedKey" Data..=)
               Prelude.<$> customerManagedKey,
-            ("additionalEncryptionContext" Core..=)
+            ("additionalEncryptionContext" Data..=)
               Prelude.<$> additionalEncryptionContext,
             Prelude.Just
-              ("browserPolicy" Core..= browserPolicy)
+              ("browserPolicy" Data..= browserPolicy)
           ]
       )
 
-instance Core.ToPath CreateBrowserSettings where
+instance Data.ToPath CreateBrowserSettings where
   toPath = Prelude.const "/browserSettings"
 
-instance Core.ToQuery CreateBrowserSettings where
+instance Data.ToQuery CreateBrowserSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBrowserSettingsResponse' smart constructor.

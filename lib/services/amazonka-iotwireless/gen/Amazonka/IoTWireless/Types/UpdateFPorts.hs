@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.UpdateFPorts where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.Positioning
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,9 +59,9 @@ instance Prelude.Hashable UpdateFPorts where
 instance Prelude.NFData UpdateFPorts where
   rnf UpdateFPorts' {..} = Prelude.rnf positioning
 
-instance Core.ToJSON UpdateFPorts where
+instance Data.ToJSON UpdateFPorts where
   toJSON UpdateFPorts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Positioning" Core..=) Prelude.<$> positioning]
+          [("Positioning" Data..=) Prelude.<$> positioning]
       )

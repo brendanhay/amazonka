@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,27 +125,27 @@ instance Core.AWSRequest DescribeSecret where
     Response.receiveJSON
       ( \s h x ->
           DescribeSecretResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LastAccessedDate")
-            Prelude.<*> (x Core..?> "RotationLambdaARN")
-            Prelude.<*> (x Core..?> "RotationRules")
-            Prelude.<*> ( x Core..?> "VersionIdsToStages"
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "LastAccessedDate")
+            Prelude.<*> (x Data..?> "RotationLambdaARN")
+            Prelude.<*> (x Data..?> "RotationRules")
+            Prelude.<*> ( x Data..?> "VersionIdsToStages"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "ReplicationStatus"
+            Prelude.<*> ( x Data..?> "ReplicationStatus"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "PrimaryRegion")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "RotationEnabled")
-            Prelude.<*> (x Core..?> "LastChangedDate")
-            Prelude.<*> (x Core..?> "KmsKeyId")
-            Prelude.<*> (x Core..?> "DeletedDate")
-            Prelude.<*> (x Core..?> "CreatedDate")
-            Prelude.<*> (x Core..?> "LastRotatedDate")
-            Prelude.<*> (x Core..?> "OwningService")
+            Prelude.<*> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "PrimaryRegion")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "RotationEnabled")
+            Prelude.<*> (x Data..?> "LastChangedDate")
+            Prelude.<*> (x Data..?> "KmsKeyId")
+            Prelude.<*> (x Data..?> "DeletedDate")
+            Prelude.<*> (x Data..?> "CreatedDate")
+            Prelude.<*> (x Data..?> "LastRotatedDate")
+            Prelude.<*> (x Data..?> "OwningService")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,32 +156,32 @@ instance Prelude.Hashable DescribeSecret where
 instance Prelude.NFData DescribeSecret where
   rnf DescribeSecret' {..} = Prelude.rnf secretId
 
-instance Core.ToHeaders DescribeSecret where
+instance Data.ToHeaders DescribeSecret where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "secretsmanager.DescribeSecret" ::
+              Data.=# ( "secretsmanager.DescribeSecret" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSecret where
+instance Data.ToJSON DescribeSecret where
   toJSON DescribeSecret' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SecretId" Core..= secretId)]
+          [Prelude.Just ("SecretId" Data..= secretId)]
       )
 
-instance Core.ToPath DescribeSecret where
+instance Data.ToPath DescribeSecret where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSecret where
+instance Data.ToQuery DescribeSecret where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSecretResponse' smart constructor.
@@ -192,7 +193,7 @@ data DescribeSecretResponse = DescribeSecretResponse'
     name :: Prelude.Maybe Prelude.Text,
     -- | The date that the secret was last accessed in the Region. This field is
     -- omitted if the secret has never been retrieved in the Region.
-    lastAccessedDate :: Prelude.Maybe Core.POSIX,
+    lastAccessedDate :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the Lambda function that Secrets Manager invokes to rotate
     -- the secret.
     rotationLambdaARN :: Prelude.Maybe Prelude.Text,
@@ -246,7 +247,7 @@ data DescribeSecretResponse = DescribeSecretResponse'
     -- CancelRotateSecret.
     rotationEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The last date and time that this secret was modified in any way.
-    lastChangedDate :: Prelude.Maybe Core.POSIX,
+    lastChangedDate :: Prelude.Maybe Data.POSIX,
     -- | The key ID or alias ARN of the KMS key that Secrets Manager uses to
     -- encrypt the secret value. If the secret is encrypted with the Amazon Web
     -- Services managed key @aws\/secretsmanager@, this field is omitted.
@@ -261,12 +262,12 @@ data DescribeSecretResponse = DescribeSecretResponse'
     -- If a secret is scheduled for deletion, then its details, including the
     -- encrypted secret value, is not accessible. To cancel a scheduled
     -- deletion and restore access to the secret, use RestoreSecret.
-    deletedDate :: Prelude.Maybe Core.POSIX,
+    deletedDate :: Prelude.Maybe Data.POSIX,
     -- | The date the secret was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The last date and time that Secrets Manager rotated the secret. If the
     -- secret isn\'t configured for rotation, Secrets Manager returns null.
-    lastRotatedDate :: Prelude.Maybe Core.POSIX,
+    lastRotatedDate :: Prelude.Maybe Data.POSIX,
     -- | The ID of the service that created this secret. For more information,
     -- see
     -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html Secrets managed by other Amazon Web Services services>.
@@ -409,7 +410,7 @@ describeSecretResponse_name = Lens.lens (\DescribeSecretResponse' {name} -> name
 -- | The date that the secret was last accessed in the Region. This field is
 -- omitted if the secret has never been retrieved in the Region.
 describeSecretResponse_lastAccessedDate :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecretResponse_lastAccessedDate = Lens.lens (\DescribeSecretResponse' {lastAccessedDate} -> lastAccessedDate) (\s@DescribeSecretResponse' {} a -> s {lastAccessedDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Core._Time
+describeSecretResponse_lastAccessedDate = Lens.lens (\DescribeSecretResponse' {lastAccessedDate} -> lastAccessedDate) (\s@DescribeSecretResponse' {} a -> s {lastAccessedDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the Lambda function that Secrets Manager invokes to rotate
 -- the secret.
@@ -481,7 +482,7 @@ describeSecretResponse_rotationEnabled = Lens.lens (\DescribeSecretResponse' {ro
 
 -- | The last date and time that this secret was modified in any way.
 describeSecretResponse_lastChangedDate :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecretResponse_lastChangedDate = Lens.lens (\DescribeSecretResponse' {lastChangedDate} -> lastChangedDate) (\s@DescribeSecretResponse' {} a -> s {lastChangedDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Core._Time
+describeSecretResponse_lastChangedDate = Lens.lens (\DescribeSecretResponse' {lastChangedDate} -> lastChangedDate) (\s@DescribeSecretResponse' {} a -> s {lastChangedDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The key ID or alias ARN of the KMS key that Secrets Manager uses to
 -- encrypt the secret value. If the secret is encrypted with the Amazon Web
@@ -500,16 +501,16 @@ describeSecretResponse_kmsKeyId = Lens.lens (\DescribeSecretResponse' {kmsKeyId}
 -- encrypted secret value, is not accessible. To cancel a scheduled
 -- deletion and restore access to the secret, use RestoreSecret.
 describeSecretResponse_deletedDate :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecretResponse_deletedDate = Lens.lens (\DescribeSecretResponse' {deletedDate} -> deletedDate) (\s@DescribeSecretResponse' {} a -> s {deletedDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Core._Time
+describeSecretResponse_deletedDate = Lens.lens (\DescribeSecretResponse' {deletedDate} -> deletedDate) (\s@DescribeSecretResponse' {} a -> s {deletedDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date the secret was created.
 describeSecretResponse_createdDate :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecretResponse_createdDate = Lens.lens (\DescribeSecretResponse' {createdDate} -> createdDate) (\s@DescribeSecretResponse' {} a -> s {createdDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Core._Time
+describeSecretResponse_createdDate = Lens.lens (\DescribeSecretResponse' {createdDate} -> createdDate) (\s@DescribeSecretResponse' {} a -> s {createdDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The last date and time that Secrets Manager rotated the secret. If the
 -- secret isn\'t configured for rotation, Secrets Manager returns null.
 describeSecretResponse_lastRotatedDate :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecretResponse_lastRotatedDate = Lens.lens (\DescribeSecretResponse' {lastRotatedDate} -> lastRotatedDate) (\s@DescribeSecretResponse' {} a -> s {lastRotatedDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Core._Time
+describeSecretResponse_lastRotatedDate = Lens.lens (\DescribeSecretResponse' {lastRotatedDate} -> lastRotatedDate) (\s@DescribeSecretResponse' {} a -> s {lastRotatedDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the service that created this secret. For more information,
 -- see

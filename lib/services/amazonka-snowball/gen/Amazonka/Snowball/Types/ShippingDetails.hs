@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.ShippingDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.Shipment
 import Amazonka.Snowball.Types.ShippingOption
@@ -128,15 +129,15 @@ shippingDetails_shippingOption = Lens.lens (\ShippingDetails' {shippingOption} -
 shippingDetails_inboundShipment :: Lens.Lens' ShippingDetails (Prelude.Maybe Shipment)
 shippingDetails_inboundShipment = Lens.lens (\ShippingDetails' {inboundShipment} -> inboundShipment) (\s@ShippingDetails' {} a -> s {inboundShipment = a} :: ShippingDetails)
 
-instance Core.FromJSON ShippingDetails where
+instance Data.FromJSON ShippingDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ShippingDetails"
       ( \x ->
           ShippingDetails'
-            Prelude.<$> (x Core..:? "OutboundShipment")
-            Prelude.<*> (x Core..:? "ShippingOption")
-            Prelude.<*> (x Core..:? "InboundShipment")
+            Prelude.<$> (x Data..:? "OutboundShipment")
+            Prelude.<*> (x Data..:? "ShippingOption")
+            Prelude.<*> (x Data..:? "InboundShipment")
       )
 
 instance Prelude.Hashable ShippingDetails where

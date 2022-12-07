@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.MemberIdArnPair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that consists of a member Amazon Resource Name (ARN) and a
@@ -62,14 +63,14 @@ memberIdArnPair_memberId = Lens.lens (\MemberIdArnPair' {memberId} -> memberId) 
 memberIdArnPair_memberArn :: Lens.Lens' MemberIdArnPair (Prelude.Maybe Prelude.Text)
 memberIdArnPair_memberArn = Lens.lens (\MemberIdArnPair' {memberArn} -> memberArn) (\s@MemberIdArnPair' {} a -> s {memberArn = a} :: MemberIdArnPair)
 
-instance Core.FromJSON MemberIdArnPair where
+instance Data.FromJSON MemberIdArnPair where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MemberIdArnPair"
       ( \x ->
           MemberIdArnPair'
-            Prelude.<$> (x Core..:? "MemberId")
-            Prelude.<*> (x Core..:? "MemberArn")
+            Prelude.<$> (x Data..:? "MemberId")
+            Prelude.<*> (x Data..:? "MemberArn")
       )
 
 instance Prelude.Hashable MemberIdArnPair where

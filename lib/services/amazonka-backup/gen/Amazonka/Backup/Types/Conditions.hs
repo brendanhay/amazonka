@@ -22,6 +22,7 @@ module Amazonka.Backup.Types.Conditions where
 import Amazonka.Backup.Types.ConditionParameter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about which resources to include or exclude from a
@@ -99,18 +100,18 @@ conditions_stringEquals = Lens.lens (\Conditions' {stringEquals} -> stringEquals
 conditions_stringLike :: Lens.Lens' Conditions (Prelude.Maybe [ConditionParameter])
 conditions_stringLike = Lens.lens (\Conditions' {stringLike} -> stringLike) (\s@Conditions' {} a -> s {stringLike = a} :: Conditions) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Conditions where
+instance Data.FromJSON Conditions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Conditions"
       ( \x ->
           Conditions'
-            Prelude.<$> ( x Core..:? "StringNotEquals"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "StringNotEquals"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StringNotLike" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StringEquals" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StringLike" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StringNotLike" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StringEquals" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StringLike" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Conditions where
@@ -127,14 +128,14 @@ instance Prelude.NFData Conditions where
       `Prelude.seq` Prelude.rnf stringEquals
       `Prelude.seq` Prelude.rnf stringLike
 
-instance Core.ToJSON Conditions where
+instance Data.ToJSON Conditions where
   toJSON Conditions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StringNotEquals" Core..=)
+          [ ("StringNotEquals" Data..=)
               Prelude.<$> stringNotEquals,
-            ("StringNotLike" Core..=) Prelude.<$> stringNotLike,
-            ("StringEquals" Core..=) Prelude.<$> stringEquals,
-            ("StringLike" Core..=) Prelude.<$> stringLike
+            ("StringNotLike" Data..=) Prelude.<$> stringNotLike,
+            ("StringEquals" Data..=) Prelude.<$> stringEquals,
+            ("StringLike" Data..=) Prelude.<$> stringLike
           ]
       )

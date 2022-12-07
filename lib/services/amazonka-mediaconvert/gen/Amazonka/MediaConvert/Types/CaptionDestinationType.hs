@@ -37,6 +37,7 @@ module Amazonka.MediaConvert.Types.CaptionDestinationType
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the format for this set of captions on this output. The default
@@ -51,7 +52,7 @@ import qualified Amazonka.Prelude as Prelude
 -- (EMBEDDED_PLUS_SCTE20).
 newtype CaptionDestinationType = CaptionDestinationType'
   { fromCaptionDestinationType ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -63,18 +64,18 @@ newtype CaptionDestinationType = CaptionDestinationType'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern CaptionDestinationType_BURN_IN :: CaptionDestinationType

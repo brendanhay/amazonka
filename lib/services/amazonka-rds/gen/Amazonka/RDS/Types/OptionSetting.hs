@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.OptionSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Option settings are the actual settings being applied or configured for
@@ -131,18 +132,18 @@ optionSetting_dataType = Lens.lens (\OptionSetting' {dataType} -> dataType) (\s@
 optionSetting_value :: Lens.Lens' OptionSetting (Prelude.Maybe Prelude.Text)
 optionSetting_value = Lens.lens (\OptionSetting' {value} -> value) (\s@OptionSetting' {} a -> s {value = a} :: OptionSetting)
 
-instance Core.FromXML OptionSetting where
+instance Data.FromXML OptionSetting where
   parseXML x =
     OptionSetting'
-      Prelude.<$> (x Core..@? "Name")
-      Prelude.<*> (x Core..@? "ApplyType")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "IsModifiable")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "IsCollection")
-      Prelude.<*> (x Core..@? "AllowedValues")
-      Prelude.<*> (x Core..@? "DataType")
-      Prelude.<*> (x Core..@? "Value")
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "ApplyType")
+      Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "IsModifiable")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "IsCollection")
+      Prelude.<*> (x Data..@? "AllowedValues")
+      Prelude.<*> (x Data..@? "DataType")
+      Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable OptionSetting where
   hashWithSalt _salt OptionSetting' {..} =
@@ -168,16 +169,16 @@ instance Prelude.NFData OptionSetting where
       `Prelude.seq` Prelude.rnf dataType
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToQuery OptionSetting where
+instance Data.ToQuery OptionSetting where
   toQuery OptionSetting' {..} =
     Prelude.mconcat
-      [ "Name" Core.=: name,
-        "ApplyType" Core.=: applyType,
-        "DefaultValue" Core.=: defaultValue,
-        "IsModifiable" Core.=: isModifiable,
-        "Description" Core.=: description,
-        "IsCollection" Core.=: isCollection,
-        "AllowedValues" Core.=: allowedValues,
-        "DataType" Core.=: dataType,
-        "Value" Core.=: value
+      [ "Name" Data.=: name,
+        "ApplyType" Data.=: applyType,
+        "DefaultValue" Data.=: defaultValue,
+        "IsModifiable" Data.=: isModifiable,
+        "Description" Data.=: description,
+        "IsCollection" Data.=: isCollection,
+        "AllowedValues" Data.=: allowedValues,
+        "DataType" Data.=: dataType,
+        "Value" Data.=: value
       ]

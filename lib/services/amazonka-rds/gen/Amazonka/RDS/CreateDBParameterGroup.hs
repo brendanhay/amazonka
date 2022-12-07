@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -317,7 +318,7 @@ instance Core.AWSRequest CreateDBParameterGroup where
       "CreateDBParameterGroupResult"
       ( \s h x ->
           CreateDBParameterGroupResponse'
-            Prelude.<$> (x Core..@? "DBParameterGroup")
+            Prelude.<$> (x Data..@? "DBParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -335,26 +336,26 @@ instance Prelude.NFData CreateDBParameterGroup where
       `Prelude.seq` Prelude.rnf dbParameterGroupFamily
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToHeaders CreateDBParameterGroup where
+instance Data.ToHeaders CreateDBParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDBParameterGroup where
+instance Data.ToPath CreateDBParameterGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDBParameterGroup where
+instance Data.ToQuery CreateDBParameterGroup where
   toQuery CreateDBParameterGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDBParameterGroup" :: Prelude.ByteString),
+          Data.=: ("CreateDBParameterGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "DBParameterGroupName" Core.=: dbParameterGroupName,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "DBParameterGroupName" Data.=: dbParameterGroupName,
         "DBParameterGroupFamily"
-          Core.=: dbParameterGroupFamily,
-        "Description" Core.=: description
+          Data.=: dbParameterGroupFamily,
+        "Description" Data.=: description
       ]
 
 -- | /See:/ 'newCreateDBParameterGroupResponse' smart constructor.

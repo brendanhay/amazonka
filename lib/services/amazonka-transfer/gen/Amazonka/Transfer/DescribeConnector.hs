@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest DescribeConnector where
       ( \s h x ->
           DescribeConnectorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Connector")
+            Prelude.<*> (x Data..:> "Connector")
       )
 
 instance Prelude.Hashable DescribeConnector where
@@ -94,32 +95,32 @@ instance Prelude.Hashable DescribeConnector where
 instance Prelude.NFData DescribeConnector where
   rnf DescribeConnector' {..} = Prelude.rnf connectorId
 
-instance Core.ToHeaders DescribeConnector where
+instance Data.ToHeaders DescribeConnector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.DescribeConnector" ::
+              Data.=# ( "TransferService.DescribeConnector" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeConnector where
+instance Data.ToJSON DescribeConnector where
   toJSON DescribeConnector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ConnectorId" Core..= connectorId)]
+          [Prelude.Just ("ConnectorId" Data..= connectorId)]
       )
 
-instance Core.ToPath DescribeConnector where
+instance Data.ToPath DescribeConnector where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeConnector where
+instance Data.ToQuery DescribeConnector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeConnectorResponse' smart constructor.

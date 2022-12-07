@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,8 +85,8 @@ instance Core.AWSRequest GetKeyspace where
       ( \s h x ->
           GetKeyspaceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "keyspaceName")
-            Prelude.<*> (x Core..:> "resourceArn")
+            Prelude.<*> (x Data..:> "keyspaceName")
+            Prelude.<*> (x Data..:> "resourceArn")
       )
 
 instance Prelude.Hashable GetKeyspace where
@@ -95,32 +96,32 @@ instance Prelude.Hashable GetKeyspace where
 instance Prelude.NFData GetKeyspace where
   rnf GetKeyspace' {..} = Prelude.rnf keyspaceName
 
-instance Core.ToHeaders GetKeyspace where
+instance Data.ToHeaders GetKeyspace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KeyspacesService.GetKeyspace" ::
+              Data.=# ( "KeyspacesService.GetKeyspace" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetKeyspace where
+instance Data.ToJSON GetKeyspace where
   toJSON GetKeyspace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("keyspaceName" Core..= keyspaceName)]
+          [Prelude.Just ("keyspaceName" Data..= keyspaceName)]
       )
 
-instance Core.ToPath GetKeyspace where
+instance Data.ToPath GetKeyspace where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetKeyspace where
+instance Data.ToQuery GetKeyspace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetKeyspaceResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsClusterDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEcsClusterClusterSettingsDetails
 import Amazonka.SecurityHub.Types.AwsEcsClusterConfigurationDetails
@@ -160,28 +161,28 @@ awsEcsClusterDetails_defaultCapacityProviderStrategy = Lens.lens (\AwsEcsCluster
 awsEcsClusterDetails_clusterName :: Lens.Lens' AwsEcsClusterDetails (Prelude.Maybe Prelude.Text)
 awsEcsClusterDetails_clusterName = Lens.lens (\AwsEcsClusterDetails' {clusterName} -> clusterName) (\s@AwsEcsClusterDetails' {} a -> s {clusterName = a} :: AwsEcsClusterDetails)
 
-instance Core.FromJSON AwsEcsClusterDetails where
+instance Data.FromJSON AwsEcsClusterDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsClusterDetails"
       ( \x ->
           AwsEcsClusterDetails'
-            Prelude.<$> (x Core..:? "ClusterArn")
-            Prelude.<*> ( x Core..:? "ClusterSettings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ClusterArn")
+            Prelude.<*> ( x Data..:? "ClusterSettings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Configuration")
-            Prelude.<*> (x Core..:? "RegisteredContainerInstancesCount")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "RunningTasksCount")
-            Prelude.<*> ( x Core..:? "CapacityProviders"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Configuration")
+            Prelude.<*> (x Data..:? "RegisteredContainerInstancesCount")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "RunningTasksCount")
+            Prelude.<*> ( x Data..:? "CapacityProviders"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ActiveServicesCount")
-            Prelude.<*> ( x Core..:? "DefaultCapacityProviderStrategy"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ActiveServicesCount")
+            Prelude.<*> ( x Data..:? "DefaultCapacityProviderStrategy"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ClusterName")
+            Prelude.<*> (x Data..:? "ClusterName")
       )
 
 instance Prelude.Hashable AwsEcsClusterDetails where
@@ -210,25 +211,25 @@ instance Prelude.NFData AwsEcsClusterDetails where
       `Prelude.seq` Prelude.rnf defaultCapacityProviderStrategy
       `Prelude.seq` Prelude.rnf clusterName
 
-instance Core.ToJSON AwsEcsClusterDetails where
+instance Data.ToJSON AwsEcsClusterDetails where
   toJSON AwsEcsClusterDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClusterArn" Core..=) Prelude.<$> clusterArn,
-            ("ClusterSettings" Core..=)
+          [ ("ClusterArn" Data..=) Prelude.<$> clusterArn,
+            ("ClusterSettings" Data..=)
               Prelude.<$> clusterSettings,
-            ("Configuration" Core..=) Prelude.<$> configuration,
-            ("RegisteredContainerInstancesCount" Core..=)
+            ("Configuration" Data..=) Prelude.<$> configuration,
+            ("RegisteredContainerInstancesCount" Data..=)
               Prelude.<$> registeredContainerInstancesCount,
-            ("Status" Core..=) Prelude.<$> status,
-            ("RunningTasksCount" Core..=)
+            ("Status" Data..=) Prelude.<$> status,
+            ("RunningTasksCount" Data..=)
               Prelude.<$> runningTasksCount,
-            ("CapacityProviders" Core..=)
+            ("CapacityProviders" Data..=)
               Prelude.<$> capacityProviders,
-            ("ActiveServicesCount" Core..=)
+            ("ActiveServicesCount" Data..=)
               Prelude.<$> activeServicesCount,
-            ("DefaultCapacityProviderStrategy" Core..=)
+            ("DefaultCapacityProviderStrategy" Data..=)
               Prelude.<$> defaultCapacityProviderStrategy,
-            ("ClusterName" Core..=) Prelude.<$> clusterName
+            ("ClusterName" Data..=) Prelude.<$> clusterName
           ]
       )

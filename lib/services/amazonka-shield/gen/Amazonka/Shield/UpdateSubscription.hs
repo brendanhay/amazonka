@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,32 +111,32 @@ instance Prelude.Hashable UpdateSubscription where
 instance Prelude.NFData UpdateSubscription where
   rnf UpdateSubscription' {..} = Prelude.rnf autoRenew
 
-instance Core.ToHeaders UpdateSubscription where
+instance Data.ToHeaders UpdateSubscription where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.UpdateSubscription" ::
+              Data.=# ( "AWSShield_20160616.UpdateSubscription" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSubscription where
+instance Data.ToJSON UpdateSubscription where
   toJSON UpdateSubscription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("AutoRenew" Core..=) Prelude.<$> autoRenew]
+          [("AutoRenew" Data..=) Prelude.<$> autoRenew]
       )
 
-instance Core.ToPath UpdateSubscription where
+instance Data.ToPath UpdateSubscription where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateSubscription where
+instance Data.ToQuery UpdateSubscription where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSubscriptionResponse' smart constructor.

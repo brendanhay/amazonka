@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.MapIterationEventDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about an iteration of a Map state.
@@ -61,13 +62,13 @@ mapIterationEventDetails_name = Lens.lens (\MapIterationEventDetails' {name} -> 
 mapIterationEventDetails_index :: Lens.Lens' MapIterationEventDetails (Prelude.Maybe Prelude.Natural)
 mapIterationEventDetails_index = Lens.lens (\MapIterationEventDetails' {index} -> index) (\s@MapIterationEventDetails' {} a -> s {index = a} :: MapIterationEventDetails)
 
-instance Core.FromJSON MapIterationEventDetails where
+instance Data.FromJSON MapIterationEventDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MapIterationEventDetails"
       ( \x ->
           MapIterationEventDetails'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "index")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "index")
       )
 
 instance Prelude.Hashable MapIterationEventDetails where

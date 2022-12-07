@@ -45,6 +45,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,7 +119,7 @@ instance Core.AWSRequest CreateSkillGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateSkillGroupResponse'
-            Prelude.<$> (x Core..?> "SkillGroupArn")
+            Prelude.<$> (x Data..?> "SkillGroupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,38 +137,38 @@ instance Prelude.NFData CreateSkillGroup where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf skillGroupName
 
-instance Core.ToHeaders CreateSkillGroup where
+instance Data.ToHeaders CreateSkillGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.CreateSkillGroup" ::
+              Data.=# ( "AlexaForBusiness.CreateSkillGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSkillGroup where
+instance Data.ToJSON CreateSkillGroup where
   toJSON CreateSkillGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("Description" Core..=) Prelude.<$> description,
+            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just
-              ("SkillGroupName" Core..= skillGroupName)
+              ("SkillGroupName" Data..= skillGroupName)
           ]
       )
 
-instance Core.ToPath CreateSkillGroup where
+instance Data.ToPath CreateSkillGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSkillGroup where
+instance Data.ToQuery CreateSkillGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSkillGroupResponse' smart constructor.

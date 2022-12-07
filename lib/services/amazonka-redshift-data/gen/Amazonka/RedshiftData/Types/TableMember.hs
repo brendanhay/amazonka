@@ -21,6 +21,7 @@ module Amazonka.RedshiftData.Types.TableMember where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties of a table.
@@ -73,15 +74,15 @@ tableMember_type = Lens.lens (\TableMember' {type'} -> type') (\s@TableMember' {
 tableMember_schema :: Lens.Lens' TableMember (Prelude.Maybe Prelude.Text)
 tableMember_schema = Lens.lens (\TableMember' {schema} -> schema) (\s@TableMember' {} a -> s {schema = a} :: TableMember)
 
-instance Core.FromJSON TableMember where
+instance Data.FromJSON TableMember where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TableMember"
       ( \x ->
           TableMember'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "schema")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "schema")
       )
 
 instance Prelude.Hashable TableMember where

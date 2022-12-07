@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,19 +95,19 @@ instance Core.AWSRequest DescribeDataset where
     Response.receiveJSON
       ( \s h x ->
           DescribeDatasetResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PathOptions")
-            Prelude.<*> (x Core..?> "LastModifiedDate")
-            Prelude.<*> (x Core..?> "Format")
-            Prelude.<*> (x Core..?> "Source")
-            Prelude.<*> (x Core..?> "CreateDate")
-            Prelude.<*> (x Core..?> "FormatOptions")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
-            Prelude.<*> (x Core..?> "ResourceArn")
-            Prelude.<*> (x Core..?> "CreatedBy")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PathOptions")
+            Prelude.<*> (x Data..?> "LastModifiedDate")
+            Prelude.<*> (x Data..?> "Format")
+            Prelude.<*> (x Data..?> "Source")
+            Prelude.<*> (x Data..?> "CreateDate")
+            Prelude.<*> (x Data..?> "FormatOptions")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "ResourceArn")
+            Prelude.<*> (x Data..?> "CreatedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
-            Prelude.<*> (x Core..:> "Input")
+            Prelude.<*> (x Data..:> "Name")
+            Prelude.<*> (x Data..:> "Input")
       )
 
 instance Prelude.Hashable DescribeDataset where
@@ -116,22 +117,22 @@ instance Prelude.Hashable DescribeDataset where
 instance Prelude.NFData DescribeDataset where
   rnf DescribeDataset' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DescribeDataset where
+instance Data.ToHeaders DescribeDataset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeDataset where
+instance Data.ToPath DescribeDataset where
   toPath DescribeDataset' {..} =
-    Prelude.mconcat ["/datasets/", Core.toBS name]
+    Prelude.mconcat ["/datasets/", Data.toBS name]
 
-instance Core.ToQuery DescribeDataset where
+instance Data.ToQuery DescribeDataset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDatasetResponse' smart constructor.
@@ -142,7 +143,7 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
     -- of the dataset.
     pathOptions :: Prelude.Maybe PathOptions,
     -- | The date and time that the dataset was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The file format of a dataset that is created from an Amazon S3 file or
     -- folder.
     format :: Prelude.Maybe InputFormat,
@@ -150,7 +151,7 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
     -- Catalog.
     source :: Prelude.Maybe Source,
     -- | The date and time that the dataset was created.
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     formatOptions :: Prelude.Maybe FormatOptions,
     -- | The identifier (user name) of the user who last modified the dataset.
     lastModifiedBy :: Prelude.Maybe Prelude.Text,
@@ -241,7 +242,7 @@ describeDatasetResponse_pathOptions = Lens.lens (\DescribeDatasetResponse' {path
 
 -- | The date and time that the dataset was last modified.
 describeDatasetResponse_lastModifiedDate :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetResponse_lastModifiedDate = Lens.lens (\DescribeDatasetResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeDatasetResponse' {} a -> s {lastModifiedDate = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
+describeDatasetResponse_lastModifiedDate = Lens.lens (\DescribeDatasetResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeDatasetResponse' {} a -> s {lastModifiedDate = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The file format of a dataset that is created from an Amazon S3 file or
 -- folder.
@@ -255,7 +256,7 @@ describeDatasetResponse_source = Lens.lens (\DescribeDatasetResponse' {source} -
 
 -- | The date and time that the dataset was created.
 describeDatasetResponse_createDate :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetResponse_createDate = Lens.lens (\DescribeDatasetResponse' {createDate} -> createDate) (\s@DescribeDatasetResponse' {} a -> s {createDate = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
+describeDatasetResponse_createDate = Lens.lens (\DescribeDatasetResponse' {createDate} -> createDate) (\s@DescribeDatasetResponse' {} a -> s {createDate = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 describeDatasetResponse_formatOptions :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe FormatOptions)

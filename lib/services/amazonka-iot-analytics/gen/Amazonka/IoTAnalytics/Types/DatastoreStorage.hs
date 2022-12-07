@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.DatastoreStorage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.CustomerManagedDatastoreS3Storage
 import Amazonka.IoTAnalytics.Types.DatastoreIotSiteWiseMultiLayerStorage
 import Amazonka.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage
@@ -95,15 +96,15 @@ datastoreStorage_iotSiteWiseMultiLayerStorage = Lens.lens (\DatastoreStorage' {i
 datastoreStorage_serviceManagedS3 :: Lens.Lens' DatastoreStorage (Prelude.Maybe ServiceManagedDatastoreS3Storage)
 datastoreStorage_serviceManagedS3 = Lens.lens (\DatastoreStorage' {serviceManagedS3} -> serviceManagedS3) (\s@DatastoreStorage' {} a -> s {serviceManagedS3 = a} :: DatastoreStorage)
 
-instance Core.FromJSON DatastoreStorage where
+instance Data.FromJSON DatastoreStorage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatastoreStorage"
       ( \x ->
           DatastoreStorage'
-            Prelude.<$> (x Core..:? "customerManagedS3")
-            Prelude.<*> (x Core..:? "iotSiteWiseMultiLayerStorage")
-            Prelude.<*> (x Core..:? "serviceManagedS3")
+            Prelude.<$> (x Data..:? "customerManagedS3")
+            Prelude.<*> (x Data..:? "iotSiteWiseMultiLayerStorage")
+            Prelude.<*> (x Data..:? "serviceManagedS3")
       )
 
 instance Prelude.Hashable DatastoreStorage where
@@ -118,15 +119,15 @@ instance Prelude.NFData DatastoreStorage where
       `Prelude.seq` Prelude.rnf iotSiteWiseMultiLayerStorage
       `Prelude.seq` Prelude.rnf serviceManagedS3
 
-instance Core.ToJSON DatastoreStorage where
+instance Data.ToJSON DatastoreStorage where
   toJSON DatastoreStorage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("customerManagedS3" Core..=)
+          [ ("customerManagedS3" Data..=)
               Prelude.<$> customerManagedS3,
-            ("iotSiteWiseMultiLayerStorage" Core..=)
+            ("iotSiteWiseMultiLayerStorage" Data..=)
               Prelude.<$> iotSiteWiseMultiLayerStorage,
-            ("serviceManagedS3" Core..=)
+            ("serviceManagedS3" Data..=)
               Prelude.<$> serviceManagedS3
           ]
       )

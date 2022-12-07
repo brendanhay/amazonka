@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.OrganizationS3LogsConfigurationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The current configuration of S3 data event logs as a data source for the
@@ -60,15 +61,15 @@ organizationS3LogsConfigurationResult_autoEnable :: Lens.Lens' OrganizationS3Log
 organizationS3LogsConfigurationResult_autoEnable = Lens.lens (\OrganizationS3LogsConfigurationResult' {autoEnable} -> autoEnable) (\s@OrganizationS3LogsConfigurationResult' {} a -> s {autoEnable = a} :: OrganizationS3LogsConfigurationResult)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     OrganizationS3LogsConfigurationResult
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationS3LogsConfigurationResult"
       ( \x ->
           OrganizationS3LogsConfigurationResult'
-            Prelude.<$> (x Core..: "autoEnable")
+            Prelude.<$> (x Data..: "autoEnable")
       )
 
 instance

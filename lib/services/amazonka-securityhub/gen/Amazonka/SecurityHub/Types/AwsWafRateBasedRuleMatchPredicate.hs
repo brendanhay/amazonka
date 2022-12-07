@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsWafRateBasedRuleMatchPredicate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A match predicate. A predicate might look for characteristics such as
@@ -127,17 +128,17 @@ awsWafRateBasedRuleMatchPredicate_negated :: Lens.Lens' AwsWafRateBasedRuleMatch
 awsWafRateBasedRuleMatchPredicate_negated = Lens.lens (\AwsWafRateBasedRuleMatchPredicate' {negated} -> negated) (\s@AwsWafRateBasedRuleMatchPredicate' {} a -> s {negated = a} :: AwsWafRateBasedRuleMatchPredicate)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsWafRateBasedRuleMatchPredicate
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsWafRateBasedRuleMatchPredicate"
       ( \x ->
           AwsWafRateBasedRuleMatchPredicate'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DataId")
-            Prelude.<*> (x Core..:? "Negated")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DataId")
+            Prelude.<*> (x Data..:? "Negated")
       )
 
 instance
@@ -161,14 +162,14 @@ instance
       `Prelude.seq` Prelude.rnf negated
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsWafRateBasedRuleMatchPredicate
   where
   toJSON AwsWafRateBasedRuleMatchPredicate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("DataId" Core..=) Prelude.<$> dataId,
-            ("Negated" Core..=) Prelude.<$> negated
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("DataId" Data..=) Prelude.<$> dataId,
+            ("Negated" Data..=) Prelude.<$> negated
           ]
       )

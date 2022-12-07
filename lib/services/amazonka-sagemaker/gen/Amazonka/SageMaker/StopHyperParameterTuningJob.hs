@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,36 +100,36 @@ instance Prelude.NFData StopHyperParameterTuningJob where
   rnf StopHyperParameterTuningJob' {..} =
     Prelude.rnf hyperParameterTuningJobName
 
-instance Core.ToHeaders StopHyperParameterTuningJob where
+instance Data.ToHeaders StopHyperParameterTuningJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.StopHyperParameterTuningJob" ::
+              Data.=# ( "SageMaker.StopHyperParameterTuningJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopHyperParameterTuningJob where
+instance Data.ToJSON StopHyperParameterTuningJob where
   toJSON StopHyperParameterTuningJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "HyperParameterTuningJobName"
-                  Core..= hyperParameterTuningJobName
+                  Data..= hyperParameterTuningJobName
               )
           ]
       )
 
-instance Core.ToPath StopHyperParameterTuningJob where
+instance Data.ToPath StopHyperParameterTuningJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopHyperParameterTuningJob where
+instance Data.ToQuery StopHyperParameterTuningJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopHyperParameterTuningJobResponse' smart constructor.

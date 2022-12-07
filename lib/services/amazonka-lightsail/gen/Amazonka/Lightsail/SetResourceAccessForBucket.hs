@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,7 +145,7 @@ instance Core.AWSRequest SetResourceAccessForBucket where
     Response.receiveJSON
       ( \s h x ->
           SetResourceAccessForBucketResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,35 +161,35 @@ instance Prelude.NFData SetResourceAccessForBucket where
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf access
 
-instance Core.ToHeaders SetResourceAccessForBucket where
+instance Data.ToHeaders SetResourceAccessForBucket where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.SetResourceAccessForBucket" ::
+              Data.=# ( "Lightsail_20161128.SetResourceAccessForBucket" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetResourceAccessForBucket where
+instance Data.ToJSON SetResourceAccessForBucket where
   toJSON SetResourceAccessForBucket' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("resourceName" Core..= resourceName),
-            Prelude.Just ("bucketName" Core..= bucketName),
-            Prelude.Just ("access" Core..= access)
+          [ Prelude.Just ("resourceName" Data..= resourceName),
+            Prelude.Just ("bucketName" Data..= bucketName),
+            Prelude.Just ("access" Data..= access)
           ]
       )
 
-instance Core.ToPath SetResourceAccessForBucket where
+instance Data.ToPath SetResourceAccessForBucket where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetResourceAccessForBucket where
+instance Data.ToQuery SetResourceAccessForBucket where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetResourceAccessForBucketResponse' smart constructor.

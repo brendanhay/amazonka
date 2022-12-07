@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftData.Types
 import qualified Amazonka.Request as Request
@@ -217,13 +218,13 @@ instance Core.AWSRequest ExecuteStatement where
     Response.receiveJSON
       ( \s h x ->
           ExecuteStatementResponse'
-            Prelude.<$> (x Core..?> "ClusterIdentifier")
-            Prelude.<*> (x Core..?> "WorkgroupName")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Database")
-            Prelude.<*> (x Core..?> "SecretArn")
-            Prelude.<*> (x Core..?> "DbUser")
-            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<$> (x Data..?> "ClusterIdentifier")
+            Prelude.<*> (x Data..?> "WorkgroupName")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Database")
+            Prelude.<*> (x Data..?> "SecretArn")
+            Prelude.<*> (x Data..?> "DbUser")
+            Prelude.<*> (x Data..?> "CreatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -251,42 +252,42 @@ instance Prelude.NFData ExecuteStatement where
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf sql
 
-instance Core.ToHeaders ExecuteStatement where
+instance Data.ToHeaders ExecuteStatement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftData.ExecuteStatement" ::
+              Data.=# ( "RedshiftData.ExecuteStatement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExecuteStatement where
+instance Data.ToJSON ExecuteStatement where
   toJSON ExecuteStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClusterIdentifier" Core..=)
+          [ ("ClusterIdentifier" Data..=)
               Prelude.<$> clusterIdentifier,
-            ("WorkgroupName" Core..=) Prelude.<$> workgroupName,
-            ("SecretArn" Core..=) Prelude.<$> secretArn,
-            ("StatementName" Core..=) Prelude.<$> statementName,
-            ("WithEvent" Core..=) Prelude.<$> withEvent,
-            ("DbUser" Core..=) Prelude.<$> dbUser,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("Sql" Core..= sql)
+            ("WorkgroupName" Data..=) Prelude.<$> workgroupName,
+            ("SecretArn" Data..=) Prelude.<$> secretArn,
+            ("StatementName" Data..=) Prelude.<$> statementName,
+            ("WithEvent" Data..=) Prelude.<$> withEvent,
+            ("DbUser" Data..=) Prelude.<$> dbUser,
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("Sql" Data..= sql)
           ]
       )
 
-instance Core.ToPath ExecuteStatement where
+instance Data.ToPath ExecuteStatement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ExecuteStatement where
+instance Data.ToQuery ExecuteStatement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExecuteStatementResponse' smart constructor.
@@ -308,7 +309,7 @@ data ExecuteStatementResponse = ExecuteStatementResponse'
     -- | The database user name.
     dbUser :: Prelude.Maybe Prelude.Text,
     -- | The date and time (UTC) the statement was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -388,7 +389,7 @@ executeStatementResponse_dbUser = Lens.lens (\ExecuteStatementResponse' {dbUser}
 
 -- | The date and time (UTC) the statement was created.
 executeStatementResponse_createdAt :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.UTCTime)
-executeStatementResponse_createdAt = Lens.lens (\ExecuteStatementResponse' {createdAt} -> createdAt) (\s@ExecuteStatementResponse' {} a -> s {createdAt = a} :: ExecuteStatementResponse) Prelude.. Lens.mapping Core._Time
+executeStatementResponse_createdAt = Lens.lens (\ExecuteStatementResponse' {createdAt} -> createdAt) (\s@ExecuteStatementResponse' {} a -> s {createdAt = a} :: ExecuteStatementResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 executeStatementResponse_httpStatus :: Lens.Lens' ExecuteStatementResponse Prelude.Int

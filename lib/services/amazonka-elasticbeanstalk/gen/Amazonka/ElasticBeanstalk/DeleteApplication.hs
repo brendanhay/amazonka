@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,21 +111,21 @@ instance Prelude.NFData DeleteApplication where
     Prelude.rnf terminateEnvByForce
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders DeleteApplication where
+instance Data.ToHeaders DeleteApplication where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteApplication where
+instance Data.ToPath DeleteApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteApplication where
+instance Data.ToQuery DeleteApplication where
   toQuery DeleteApplication' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteApplication" :: Prelude.ByteString),
+          Data.=: ("DeleteApplication" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "TerminateEnvByForce" Core.=: terminateEnvByForce,
-        "ApplicationName" Core.=: applicationName
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "TerminateEnvByForce" Data.=: terminateEnvByForce,
+        "ApplicationName" Data.=: applicationName
       ]
 
 -- | /See:/ 'newDeleteApplicationResponse' smart constructor.

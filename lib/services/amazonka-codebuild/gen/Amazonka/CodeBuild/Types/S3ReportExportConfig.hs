@@ -22,6 +22,7 @@ module Amazonka.CodeBuild.Types.S3ReportExportConfig where
 import Amazonka.CodeBuild.Types.ReportPackagingType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the S3 bucket where the raw data of a report are
@@ -124,18 +125,18 @@ s3ReportExportConfig_packaging = Lens.lens (\S3ReportExportConfig' {packaging} -
 s3ReportExportConfig_encryptionKey :: Lens.Lens' S3ReportExportConfig (Prelude.Maybe Prelude.Text)
 s3ReportExportConfig_encryptionKey = Lens.lens (\S3ReportExportConfig' {encryptionKey} -> encryptionKey) (\s@S3ReportExportConfig' {} a -> s {encryptionKey = a} :: S3ReportExportConfig)
 
-instance Core.FromJSON S3ReportExportConfig where
+instance Data.FromJSON S3ReportExportConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3ReportExportConfig"
       ( \x ->
           S3ReportExportConfig'
-            Prelude.<$> (x Core..:? "encryptionDisabled")
-            Prelude.<*> (x Core..:? "bucket")
-            Prelude.<*> (x Core..:? "bucketOwner")
-            Prelude.<*> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "packaging")
-            Prelude.<*> (x Core..:? "encryptionKey")
+            Prelude.<$> (x Data..:? "encryptionDisabled")
+            Prelude.<*> (x Data..:? "bucket")
+            Prelude.<*> (x Data..:? "bucketOwner")
+            Prelude.<*> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "packaging")
+            Prelude.<*> (x Data..:? "encryptionKey")
       )
 
 instance Prelude.Hashable S3ReportExportConfig where
@@ -156,16 +157,16 @@ instance Prelude.NFData S3ReportExportConfig where
       `Prelude.seq` Prelude.rnf packaging
       `Prelude.seq` Prelude.rnf encryptionKey
 
-instance Core.ToJSON S3ReportExportConfig where
+instance Data.ToJSON S3ReportExportConfig where
   toJSON S3ReportExportConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("encryptionDisabled" Core..=)
+          [ ("encryptionDisabled" Data..=)
               Prelude.<$> encryptionDisabled,
-            ("bucket" Core..=) Prelude.<$> bucket,
-            ("bucketOwner" Core..=) Prelude.<$> bucketOwner,
-            ("path" Core..=) Prelude.<$> path,
-            ("packaging" Core..=) Prelude.<$> packaging,
-            ("encryptionKey" Core..=) Prelude.<$> encryptionKey
+            ("bucket" Data..=) Prelude.<$> bucket,
+            ("bucketOwner" Data..=) Prelude.<$> bucketOwner,
+            ("path" Data..=) Prelude.<$> path,
+            ("packaging" Data..=) Prelude.<$> packaging,
+            ("encryptionKey" Data..=) Prelude.<$> encryptionKey
           ]
       )

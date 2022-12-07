@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.VersionDifferences where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.PillarDifference
 
@@ -54,14 +55,14 @@ newVersionDifferences =
 versionDifferences_pillarDifferences :: Lens.Lens' VersionDifferences (Prelude.Maybe [PillarDifference])
 versionDifferences_pillarDifferences = Lens.lens (\VersionDifferences' {pillarDifferences} -> pillarDifferences) (\s@VersionDifferences' {} a -> s {pillarDifferences = a} :: VersionDifferences) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON VersionDifferences where
+instance Data.FromJSON VersionDifferences where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VersionDifferences"
       ( \x ->
           VersionDifferences'
-            Prelude.<$> ( x Core..:? "PillarDifferences"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "PillarDifferences"
+                            Data..!= Prelude.mempty
                         )
       )
 

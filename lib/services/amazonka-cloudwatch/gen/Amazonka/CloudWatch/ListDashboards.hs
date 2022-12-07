@@ -54,6 +54,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,10 +136,10 @@ instance Core.AWSRequest ListDashboards where
       "ListDashboardsResult"
       ( \s h x ->
           ListDashboardsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "DashboardEntries"
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "DashboardEntries"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -153,21 +154,21 @@ instance Prelude.NFData ListDashboards where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf dashboardNamePrefix
 
-instance Core.ToHeaders ListDashboards where
+instance Data.ToHeaders ListDashboards where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListDashboards where
+instance Data.ToPath ListDashboards where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDashboards where
+instance Data.ToQuery ListDashboards where
   toQuery ListDashboards' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListDashboards" :: Prelude.ByteString),
+          Data.=: ("ListDashboards" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "DashboardNamePrefix" Core.=: dashboardNamePrefix
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "DashboardNamePrefix" Data.=: dashboardNamePrefix
       ]
 
 -- | /See:/ 'newListDashboardsResponse' smart constructor.

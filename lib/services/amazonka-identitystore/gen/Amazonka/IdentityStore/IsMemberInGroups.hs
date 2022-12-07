@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IdentityStore.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance Core.AWSRequest IsMemberInGroups where
       ( \s h x ->
           IsMemberInGroupsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Results" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable IsMemberInGroups where
@@ -130,36 +131,36 @@ instance Prelude.NFData IsMemberInGroups where
       `Prelude.seq` Prelude.rnf memberId
       `Prelude.seq` Prelude.rnf groupIds
 
-instance Core.ToHeaders IsMemberInGroups where
+instance Data.ToHeaders IsMemberInGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIdentityStore.IsMemberInGroups" ::
+              Data.=# ( "AWSIdentityStore.IsMemberInGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON IsMemberInGroups where
+instance Data.ToJSON IsMemberInGroups where
   toJSON IsMemberInGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("IdentityStoreId" Core..= identityStoreId),
-            Prelude.Just ("MemberId" Core..= memberId),
-            Prelude.Just ("GroupIds" Core..= groupIds)
+              ("IdentityStoreId" Data..= identityStoreId),
+            Prelude.Just ("MemberId" Data..= memberId),
+            Prelude.Just ("GroupIds" Data..= groupIds)
           ]
       )
 
-instance Core.ToPath IsMemberInGroups where
+instance Data.ToPath IsMemberInGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery IsMemberInGroups where
+instance Data.ToQuery IsMemberInGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newIsMemberInGroupsResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,8 +115,8 @@ instance Core.AWSRequest BatchDelete' where
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteResponse'
-            Prelude.<$> (x Core..?> "failed" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "successful" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "failed" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "successful" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,33 +134,33 @@ instance Prelude.NFData BatchDelete' where
       `Prelude.seq` Prelude.rnf channelIds
       `Prelude.seq` Prelude.rnf inputIds
 
-instance Core.ToHeaders BatchDelete' where
+instance Data.ToHeaders BatchDelete' where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDelete' where
+instance Data.ToJSON BatchDelete' where
   toJSON BatchDelete'' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("multiplexIds" Core..=) Prelude.<$> multiplexIds,
-            ("inputSecurityGroupIds" Core..=)
+          [ ("multiplexIds" Data..=) Prelude.<$> multiplexIds,
+            ("inputSecurityGroupIds" Data..=)
               Prelude.<$> inputSecurityGroupIds,
-            ("channelIds" Core..=) Prelude.<$> channelIds,
-            ("inputIds" Core..=) Prelude.<$> inputIds
+            ("channelIds" Data..=) Prelude.<$> channelIds,
+            ("inputIds" Data..=) Prelude.<$> inputIds
           ]
       )
 
-instance Core.ToPath BatchDelete' where
+instance Data.ToPath BatchDelete' where
   toPath = Prelude.const "/prod/batch/delete"
 
-instance Core.ToQuery BatchDelete' where
+instance Data.ToQuery BatchDelete' where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for BatchDeleteResponse

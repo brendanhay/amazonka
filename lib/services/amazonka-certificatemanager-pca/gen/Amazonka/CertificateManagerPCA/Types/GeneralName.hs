@@ -24,6 +24,7 @@ import Amazonka.CertificateManagerPCA.Types.EdiPartyName
 import Amazonka.CertificateManagerPCA.Types.OtherName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an ASN.1 X.400 @GeneralName@ as defined in
@@ -123,20 +124,20 @@ generalName_uniformResourceIdentifier = Lens.lens (\GeneralName' {uniformResourc
 generalName_ipAddress :: Lens.Lens' GeneralName (Prelude.Maybe Prelude.Text)
 generalName_ipAddress = Lens.lens (\GeneralName' {ipAddress} -> ipAddress) (\s@GeneralName' {} a -> s {ipAddress = a} :: GeneralName)
 
-instance Core.FromJSON GeneralName where
+instance Data.FromJSON GeneralName where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GeneralName"
       ( \x ->
           GeneralName'
-            Prelude.<$> (x Core..:? "DirectoryName")
-            Prelude.<*> (x Core..:? "RegisteredId")
-            Prelude.<*> (x Core..:? "Rfc822Name")
-            Prelude.<*> (x Core..:? "EdiPartyName")
-            Prelude.<*> (x Core..:? "OtherName")
-            Prelude.<*> (x Core..:? "DnsName")
-            Prelude.<*> (x Core..:? "UniformResourceIdentifier")
-            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<$> (x Data..:? "DirectoryName")
+            Prelude.<*> (x Data..:? "RegisteredId")
+            Prelude.<*> (x Data..:? "Rfc822Name")
+            Prelude.<*> (x Data..:? "EdiPartyName")
+            Prelude.<*> (x Data..:? "OtherName")
+            Prelude.<*> (x Data..:? "DnsName")
+            Prelude.<*> (x Data..:? "UniformResourceIdentifier")
+            Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance Prelude.Hashable GeneralName where
@@ -161,18 +162,18 @@ instance Prelude.NFData GeneralName where
       `Prelude.seq` Prelude.rnf uniformResourceIdentifier
       `Prelude.seq` Prelude.rnf ipAddress
 
-instance Core.ToJSON GeneralName where
+instance Data.ToJSON GeneralName where
   toJSON GeneralName' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DirectoryName" Core..=) Prelude.<$> directoryName,
-            ("RegisteredId" Core..=) Prelude.<$> registeredId,
-            ("Rfc822Name" Core..=) Prelude.<$> rfc822Name,
-            ("EdiPartyName" Core..=) Prelude.<$> ediPartyName,
-            ("OtherName" Core..=) Prelude.<$> otherName,
-            ("DnsName" Core..=) Prelude.<$> dnsName,
-            ("UniformResourceIdentifier" Core..=)
+          [ ("DirectoryName" Data..=) Prelude.<$> directoryName,
+            ("RegisteredId" Data..=) Prelude.<$> registeredId,
+            ("Rfc822Name" Data..=) Prelude.<$> rfc822Name,
+            ("EdiPartyName" Data..=) Prelude.<$> ediPartyName,
+            ("OtherName" Data..=) Prelude.<$> otherName,
+            ("DnsName" Data..=) Prelude.<$> dnsName,
+            ("UniformResourceIdentifier" Data..=)
               Prelude.<$> uniformResourceIdentifier,
-            ("IpAddress" Core..=) Prelude.<$> ipAddress
+            ("IpAddress" Data..=) Prelude.<$> ipAddress
           ]
       )

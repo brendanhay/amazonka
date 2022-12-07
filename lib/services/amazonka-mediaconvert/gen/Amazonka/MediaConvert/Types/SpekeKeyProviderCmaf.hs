@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.SpekeKeyProviderCmaf where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If your output group type is CMAF, use these settings when doing DRM
@@ -127,21 +128,21 @@ spekeKeyProviderCmaf_hlsSignaledSystemIds = Lens.lens (\SpekeKeyProviderCmaf' {h
 spekeKeyProviderCmaf_certificateArn :: Lens.Lens' SpekeKeyProviderCmaf (Prelude.Maybe Prelude.Text)
 spekeKeyProviderCmaf_certificateArn = Lens.lens (\SpekeKeyProviderCmaf' {certificateArn} -> certificateArn) (\s@SpekeKeyProviderCmaf' {} a -> s {certificateArn = a} :: SpekeKeyProviderCmaf)
 
-instance Core.FromJSON SpekeKeyProviderCmaf where
+instance Data.FromJSON SpekeKeyProviderCmaf where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SpekeKeyProviderCmaf"
       ( \x ->
           SpekeKeyProviderCmaf'
-            Prelude.<$> (x Core..:? "resourceId")
-            Prelude.<*> ( x Core..:? "dashSignaledSystemIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "resourceId")
+            Prelude.<*> ( x Data..:? "dashSignaledSystemIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "url")
-            Prelude.<*> ( x Core..:? "hlsSignaledSystemIds"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "url")
+            Prelude.<*> ( x Data..:? "hlsSignaledSystemIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "certificateArn")
+            Prelude.<*> (x Data..:? "certificateArn")
       )
 
 instance Prelude.Hashable SpekeKeyProviderCmaf where
@@ -160,17 +161,17 @@ instance Prelude.NFData SpekeKeyProviderCmaf where
       `Prelude.seq` Prelude.rnf hlsSignaledSystemIds
       `Prelude.seq` Prelude.rnf certificateArn
 
-instance Core.ToJSON SpekeKeyProviderCmaf where
+instance Data.ToJSON SpekeKeyProviderCmaf where
   toJSON SpekeKeyProviderCmaf' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resourceId" Core..=) Prelude.<$> resourceId,
-            ("dashSignaledSystemIds" Core..=)
+          [ ("resourceId" Data..=) Prelude.<$> resourceId,
+            ("dashSignaledSystemIds" Data..=)
               Prelude.<$> dashSignaledSystemIds,
-            ("url" Core..=) Prelude.<$> url,
-            ("hlsSignaledSystemIds" Core..=)
+            ("url" Data..=) Prelude.<$> url,
+            ("hlsSignaledSystemIds" Data..=)
               Prelude.<$> hlsSignaledSystemIds,
-            ("certificateArn" Core..=)
+            ("certificateArn" Data..=)
               Prelude.<$> certificateArn
           ]
       )

@@ -46,6 +46,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,8 +118,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchAssociateAssessmentReportEvidenceResponse'
-            Prelude.<$> (x Core..?> "errors" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "evidenceIds" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "evidenceIds" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,45 +144,45 @@ instance
       `Prelude.seq` Prelude.rnf evidenceIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchAssociateAssessmentReportEvidence
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     BatchAssociateAssessmentReportEvidence
   where
   toJSON BatchAssociateAssessmentReportEvidence' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("evidenceFolderId" Core..= evidenceFolderId),
-            Prelude.Just ("evidenceIds" Core..= evidenceIds)
+              ("evidenceFolderId" Data..= evidenceFolderId),
+            Prelude.Just ("evidenceIds" Data..= evidenceIds)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     BatchAssociateAssessmentReportEvidence
   where
   toPath BatchAssociateAssessmentReportEvidence' {..} =
     Prelude.mconcat
       [ "/assessments/",
-        Core.toBS assessmentId,
+        Data.toBS assessmentId,
         "/batchAssociateToAssessmentReport"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     BatchAssociateAssessmentReportEvidence
   where
   toQuery = Prelude.const Prelude.mempty

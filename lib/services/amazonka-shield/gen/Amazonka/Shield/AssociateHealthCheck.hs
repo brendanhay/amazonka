@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,35 +127,35 @@ instance Prelude.NFData AssociateHealthCheck where
     Prelude.rnf protectionId
       `Prelude.seq` Prelude.rnf healthCheckArn
 
-instance Core.ToHeaders AssociateHealthCheck where
+instance Data.ToHeaders AssociateHealthCheck where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.AssociateHealthCheck" ::
+              Data.=# ( "AWSShield_20160616.AssociateHealthCheck" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateHealthCheck where
+instance Data.ToJSON AssociateHealthCheck where
   toJSON AssociateHealthCheck' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ProtectionId" Core..= protectionId),
+          [ Prelude.Just ("ProtectionId" Data..= protectionId),
             Prelude.Just
-              ("HealthCheckArn" Core..= healthCheckArn)
+              ("HealthCheckArn" Data..= healthCheckArn)
           ]
       )
 
-instance Core.ToPath AssociateHealthCheck where
+instance Data.ToPath AssociateHealthCheck where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateHealthCheck where
+instance Data.ToQuery AssociateHealthCheck where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateHealthCheckResponse' smart constructor.

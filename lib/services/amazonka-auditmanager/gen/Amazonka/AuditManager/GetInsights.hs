@@ -39,6 +39,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -65,7 +66,7 @@ instance Core.AWSRequest GetInsights where
     Response.receiveJSON
       ( \s h x ->
           GetInsightsResponse'
-            Prelude.<$> (x Core..?> "insights")
+            Prelude.<$> (x Data..?> "insights")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -76,21 +77,21 @@ instance Prelude.Hashable GetInsights where
 instance Prelude.NFData GetInsights where
   rnf _ = ()
 
-instance Core.ToHeaders GetInsights where
+instance Data.ToHeaders GetInsights where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetInsights where
+instance Data.ToPath GetInsights where
   toPath = Prelude.const "/insights"
 
-instance Core.ToQuery GetInsights where
+instance Data.ToQuery GetInsights where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInsightsResponse' smart constructor.

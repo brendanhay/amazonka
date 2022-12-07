@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails
 import Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails
@@ -269,37 +270,37 @@ awsAutoScalingLaunchConfigurationDetails_metadataOptions :: Lens.Lens' AwsAutoSc
 awsAutoScalingLaunchConfigurationDetails_metadataOptions = Lens.lens (\AwsAutoScalingLaunchConfigurationDetails' {metadataOptions} -> metadataOptions) (\s@AwsAutoScalingLaunchConfigurationDetails' {} a -> s {metadataOptions = a} :: AwsAutoScalingLaunchConfigurationDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsAutoScalingLaunchConfigurationDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsAutoScalingLaunchConfigurationDetails"
       ( \x ->
           AwsAutoScalingLaunchConfigurationDetails'
-            Prelude.<$> (x Core..:? "EbsOptimized")
-            Prelude.<*> (x Core..:? "IamInstanceProfile")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "ClassicLinkVpcId")
-            Prelude.<*> (x Core..:? "UserData")
-            Prelude.<*> (x Core..:? "AssociatePublicIpAddress")
-            Prelude.<*> ( x Core..:? "BlockDeviceMappings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "EbsOptimized")
+            Prelude.<*> (x Data..:? "IamInstanceProfile")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "ClassicLinkVpcId")
+            Prelude.<*> (x Data..:? "UserData")
+            Prelude.<*> (x Data..:? "AssociatePublicIpAddress")
+            Prelude.<*> ( x Data..:? "BlockDeviceMappings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LaunchConfigurationName")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "PlacementTenancy")
-            Prelude.<*> (x Core..:? "SecurityGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RamdiskId")
-            Prelude.<*> (x Core..:? "InstanceMonitoring")
-            Prelude.<*> (x Core..:? "KeyName")
-            Prelude.<*> (x Core..:? "KernelId")
-            Prelude.<*> (x Core..:? "SpotPrice")
-            Prelude.<*> (x Core..:? "ImageId")
-            Prelude.<*> ( x Core..:? "ClassicLinkVpcSecurityGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "LaunchConfigurationName")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "PlacementTenancy")
+            Prelude.<*> (x Data..:? "SecurityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RamdiskId")
+            Prelude.<*> (x Data..:? "InstanceMonitoring")
+            Prelude.<*> (x Data..:? "KeyName")
+            Prelude.<*> (x Data..:? "KernelId")
+            Prelude.<*> (x Data..:? "SpotPrice")
+            Prelude.<*> (x Data..:? "ImageId")
+            Prelude.<*> ( x Data..:? "ClassicLinkVpcSecurityGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MetadataOptions")
+            Prelude.<*> (x Data..:? "MetadataOptions")
       )
 
 instance
@@ -356,40 +357,40 @@ instance
       `Prelude.seq` Prelude.rnf metadataOptions
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsAutoScalingLaunchConfigurationDetails
   where
   toJSON AwsAutoScalingLaunchConfigurationDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EbsOptimized" Core..=) Prelude.<$> ebsOptimized,
-            ("IamInstanceProfile" Core..=)
+          [ ("EbsOptimized" Data..=) Prelude.<$> ebsOptimized,
+            ("IamInstanceProfile" Data..=)
               Prelude.<$> iamInstanceProfile,
-            ("CreatedTime" Core..=) Prelude.<$> createdTime,
-            ("ClassicLinkVpcId" Core..=)
+            ("CreatedTime" Data..=) Prelude.<$> createdTime,
+            ("ClassicLinkVpcId" Data..=)
               Prelude.<$> classicLinkVpcId,
-            ("UserData" Core..=) Prelude.<$> userData,
-            ("AssociatePublicIpAddress" Core..=)
+            ("UserData" Data..=) Prelude.<$> userData,
+            ("AssociatePublicIpAddress" Data..=)
               Prelude.<$> associatePublicIpAddress,
-            ("BlockDeviceMappings" Core..=)
+            ("BlockDeviceMappings" Data..=)
               Prelude.<$> blockDeviceMappings,
-            ("LaunchConfigurationName" Core..=)
+            ("LaunchConfigurationName" Data..=)
               Prelude.<$> launchConfigurationName,
-            ("InstanceType" Core..=) Prelude.<$> instanceType,
-            ("PlacementTenancy" Core..=)
+            ("InstanceType" Data..=) Prelude.<$> instanceType,
+            ("PlacementTenancy" Data..=)
               Prelude.<$> placementTenancy,
-            ("SecurityGroups" Core..=)
+            ("SecurityGroups" Data..=)
               Prelude.<$> securityGroups,
-            ("RamdiskId" Core..=) Prelude.<$> ramdiskId,
-            ("InstanceMonitoring" Core..=)
+            ("RamdiskId" Data..=) Prelude.<$> ramdiskId,
+            ("InstanceMonitoring" Data..=)
               Prelude.<$> instanceMonitoring,
-            ("KeyName" Core..=) Prelude.<$> keyName,
-            ("KernelId" Core..=) Prelude.<$> kernelId,
-            ("SpotPrice" Core..=) Prelude.<$> spotPrice,
-            ("ImageId" Core..=) Prelude.<$> imageId,
-            ("ClassicLinkVpcSecurityGroups" Core..=)
+            ("KeyName" Data..=) Prelude.<$> keyName,
+            ("KernelId" Data..=) Prelude.<$> kernelId,
+            ("SpotPrice" Data..=) Prelude.<$> spotPrice,
+            ("ImageId" Data..=) Prelude.<$> imageId,
+            ("ClassicLinkVpcSecurityGroups" Data..=)
               Prelude.<$> classicLinkVpcSecurityGroups,
-            ("MetadataOptions" Core..=)
+            ("MetadataOptions" Data..=)
               Prelude.<$> metadataOptions
           ]
       )

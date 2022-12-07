@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.SystemsManagerAgent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains settings for the Systems Manager agent on your build instance.
@@ -65,13 +66,13 @@ newSystemsManagerAgent =
 systemsManagerAgent_uninstallAfterBuild :: Lens.Lens' SystemsManagerAgent (Prelude.Maybe Prelude.Bool)
 systemsManagerAgent_uninstallAfterBuild = Lens.lens (\SystemsManagerAgent' {uninstallAfterBuild} -> uninstallAfterBuild) (\s@SystemsManagerAgent' {} a -> s {uninstallAfterBuild = a} :: SystemsManagerAgent)
 
-instance Core.FromJSON SystemsManagerAgent where
+instance Data.FromJSON SystemsManagerAgent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SystemsManagerAgent"
       ( \x ->
           SystemsManagerAgent'
-            Prelude.<$> (x Core..:? "uninstallAfterBuild")
+            Prelude.<$> (x Data..:? "uninstallAfterBuild")
       )
 
 instance Prelude.Hashable SystemsManagerAgent where
@@ -82,11 +83,11 @@ instance Prelude.NFData SystemsManagerAgent where
   rnf SystemsManagerAgent' {..} =
     Prelude.rnf uninstallAfterBuild
 
-instance Core.ToJSON SystemsManagerAgent where
+instance Data.ToJSON SystemsManagerAgent where
   toJSON SystemsManagerAgent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("uninstallAfterBuild" Core..=)
+          [ ("uninstallAfterBuild" Data..=)
               Prelude.<$> uninstallAfterBuild
           ]
       )

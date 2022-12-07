@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ instance Core.AWSRequest DeleteDataset where
     Response.receiveJSON
       ( \s h x ->
           DeleteDatasetResponse'
-            Prelude.<$> (x Core..?> "datasetId")
+            Prelude.<$> (x Data..?> "datasetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,25 +112,25 @@ instance Prelude.NFData DeleteDataset where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf datasetId
 
-instance Core.ToHeaders DeleteDataset where
+instance Data.ToHeaders DeleteDataset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteDataset where
+instance Data.ToPath DeleteDataset where
   toPath DeleteDataset' {..} =
     Prelude.mconcat
-      ["/datasetsv2/", Core.toBS datasetId]
+      ["/datasetsv2/", Data.toBS datasetId]
 
-instance Core.ToQuery DeleteDataset where
+instance Data.ToQuery DeleteDataset where
   toQuery DeleteDataset' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | The response from an DeleteDataset operation
 --

@@ -43,6 +43,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,7 +92,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetOrganizationCustomRulePolicyResponse'
-            Prelude.<$> (x Core..?> "PolicyText")
+            Prelude.<$> (x Data..?> "PolicyText")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,38 +114,38 @@ instance
     Prelude.rnf organizationConfigRuleName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetOrganizationCustomRulePolicy
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.GetOrganizationCustomRulePolicy" ::
+              Data.=# ( "StarlingDoveService.GetOrganizationCustomRulePolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetOrganizationCustomRulePolicy where
+instance Data.ToJSON GetOrganizationCustomRulePolicy where
   toJSON GetOrganizationCustomRulePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "OrganizationConfigRuleName"
-                  Core..= organizationConfigRuleName
+                  Data..= organizationConfigRuleName
               )
           ]
       )
 
-instance Core.ToPath GetOrganizationCustomRulePolicy where
+instance Data.ToPath GetOrganizationCustomRulePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetOrganizationCustomRulePolicy where
+instance Data.ToQuery GetOrganizationCustomRulePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetOrganizationCustomRulePolicyResponse' smart constructor.

@@ -18,6 +18,7 @@ module Amazonka.SageMaker.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.DescribeEndpoint
 import Amazonka.SageMaker.DescribeImage
@@ -41,13 +42,13 @@ newEndpointInService =
             "InService"
             Core.AcceptSuccess
             ( describeEndpointResponse_endpointStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeEndpointResponse_endpointStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ValidationException"
@@ -68,14 +69,14 @@ newNotebookInstanceStopped =
             Core.AcceptSuccess
             ( describeNotebookInstanceResponse_notebookInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeNotebookInstanceResponse_notebookInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -95,7 +96,7 @@ newEndpointDeleted =
             "Failed"
             Core.AcceptFailure
             ( describeEndpointResponse_endpointStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -113,14 +114,14 @@ newImageCreated =
             Core.AcceptSuccess
             ( describeImageResponse_imageStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATE_FAILED"
             Core.AcceptFailure
             ( describeImageResponse_imageStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ValidationException"
@@ -144,7 +145,7 @@ newImageVersionDeleted =
             Core.AcceptFailure
             ( describeImageVersionResponse_imageVersionStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ValidationException"
@@ -168,7 +169,7 @@ newNotebookInstanceDeleted =
             Core.AcceptFailure
             ( describeNotebookInstanceResponse_notebookInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -186,19 +187,19 @@ newTrainingJobCompletedOrStopped =
             "Completed"
             Core.AcceptSuccess
             ( describeTrainingJobResponse_trainingJobStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Stopped"
             Core.AcceptSuccess
             ( describeTrainingJobResponse_trainingJobStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeTrainingJobResponse_trainingJobStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ValidationException"
@@ -219,14 +220,14 @@ newNotebookInstanceInService =
             Core.AcceptSuccess
             ( describeNotebookInstanceResponse_notebookInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeNotebookInstanceResponse_notebookInstanceStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -244,14 +245,14 @@ newImageUpdated =
             Core.AcceptSuccess
             ( describeImageResponse_imageStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATE_FAILED"
             Core.AcceptFailure
             ( describeImageResponse_imageStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ValidationException"
@@ -275,7 +276,7 @@ newImageDeleted =
             Core.AcceptFailure
             ( describeImageResponse_imageStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ValidationException"
@@ -296,14 +297,14 @@ newImageVersionCreated =
             Core.AcceptSuccess
             ( describeImageVersionResponse_imageVersionStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATE_FAILED"
             Core.AcceptFailure
             ( describeImageVersionResponse_imageVersionStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ValidationException"
@@ -324,19 +325,19 @@ newTransformJobCompletedOrStopped =
             "Completed"
             Core.AcceptSuccess
             ( describeTransformJobResponse_transformJobStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Stopped"
             Core.AcceptSuccess
             ( describeTransformJobResponse_transformJobStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeTransformJobResponse_transformJobStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ValidationException"
@@ -357,19 +358,19 @@ newProcessingJobCompletedOrStopped =
             "Completed"
             Core.AcceptSuccess
             ( describeProcessingJobResponse_processingJobStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Stopped"
             Core.AcceptSuccess
             ( describeProcessingJobResponse_processingJobStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( describeProcessingJobResponse_processingJobStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ValidationException"

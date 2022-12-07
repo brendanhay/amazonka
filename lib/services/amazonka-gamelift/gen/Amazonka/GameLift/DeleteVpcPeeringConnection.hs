@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,37 +143,37 @@ instance Prelude.NFData DeleteVpcPeeringConnection where
     Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
 
-instance Core.ToHeaders DeleteVpcPeeringConnection where
+instance Data.ToHeaders DeleteVpcPeeringConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DeleteVpcPeeringConnection" ::
+              Data.=# ( "GameLift.DeleteVpcPeeringConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteVpcPeeringConnection where
+instance Data.ToJSON DeleteVpcPeeringConnection where
   toJSON DeleteVpcPeeringConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FleetId" Core..= fleetId),
+          [ Prelude.Just ("FleetId" Data..= fleetId),
             Prelude.Just
               ( "VpcPeeringConnectionId"
-                  Core..= vpcPeeringConnectionId
+                  Data..= vpcPeeringConnectionId
               )
           ]
       )
 
-instance Core.ToPath DeleteVpcPeeringConnection where
+instance Data.ToPath DeleteVpcPeeringConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVpcPeeringConnection where
+instance Data.ToQuery DeleteVpcPeeringConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVpcPeeringConnectionResponse' smart constructor.

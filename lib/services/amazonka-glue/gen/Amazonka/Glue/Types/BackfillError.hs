@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.BackfillError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.BackfillErrorCode
 import Amazonka.Glue.Types.PartitionValueList
 import qualified Amazonka.Prelude as Prelude
@@ -84,14 +85,14 @@ backfillError_code = Lens.lens (\BackfillError' {code} -> code) (\s@BackfillErro
 backfillError_partitions :: Lens.Lens' BackfillError (Prelude.Maybe [PartitionValueList])
 backfillError_partitions = Lens.lens (\BackfillError' {partitions} -> partitions) (\s@BackfillError' {} a -> s {partitions = a} :: BackfillError) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON BackfillError where
+instance Data.FromJSON BackfillError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackfillError"
       ( \x ->
           BackfillError'
-            Prelude.<$> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "Partitions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Partitions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable BackfillError where

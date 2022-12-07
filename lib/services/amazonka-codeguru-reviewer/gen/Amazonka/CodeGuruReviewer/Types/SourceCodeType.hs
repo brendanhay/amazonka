@@ -26,6 +26,7 @@ import Amazonka.CodeGuruReviewer.Types.RequestMetadata
 import Amazonka.CodeGuruReviewer.Types.S3BucketRepository
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the source code that is analyzed in a code review.
@@ -141,17 +142,17 @@ sourceCodeType_commitDiff = Lens.lens (\SourceCodeType' {commitDiff} -> commitDi
 sourceCodeType_branchDiff :: Lens.Lens' SourceCodeType (Prelude.Maybe BranchDiffSourceCodeType)
 sourceCodeType_branchDiff = Lens.lens (\SourceCodeType' {branchDiff} -> branchDiff) (\s@SourceCodeType' {} a -> s {branchDiff = a} :: SourceCodeType)
 
-instance Core.FromJSON SourceCodeType where
+instance Data.FromJSON SourceCodeType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceCodeType"
       ( \x ->
           SourceCodeType'
-            Prelude.<$> (x Core..:? "S3BucketRepository")
-            Prelude.<*> (x Core..:? "RepositoryHead")
-            Prelude.<*> (x Core..:? "RequestMetadata")
-            Prelude.<*> (x Core..:? "CommitDiff")
-            Prelude.<*> (x Core..:? "BranchDiff")
+            Prelude.<$> (x Data..:? "S3BucketRepository")
+            Prelude.<*> (x Data..:? "RepositoryHead")
+            Prelude.<*> (x Data..:? "RequestMetadata")
+            Prelude.<*> (x Data..:? "CommitDiff")
+            Prelude.<*> (x Data..:? "BranchDiff")
       )
 
 instance Prelude.Hashable SourceCodeType where
@@ -170,17 +171,17 @@ instance Prelude.NFData SourceCodeType where
       `Prelude.seq` Prelude.rnf commitDiff
       `Prelude.seq` Prelude.rnf branchDiff
 
-instance Core.ToJSON SourceCodeType where
+instance Data.ToJSON SourceCodeType where
   toJSON SourceCodeType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3BucketRepository" Core..=)
+          [ ("S3BucketRepository" Data..=)
               Prelude.<$> s3BucketRepository,
-            ("RepositoryHead" Core..=)
+            ("RepositoryHead" Data..=)
               Prelude.<$> repositoryHead,
-            ("RequestMetadata" Core..=)
+            ("RequestMetadata" Data..=)
               Prelude.<$> requestMetadata,
-            ("CommitDiff" Core..=) Prelude.<$> commitDiff,
-            ("BranchDiff" Core..=) Prelude.<$> branchDiff
+            ("CommitDiff" Data..=) Prelude.<$> commitDiff,
+            ("BranchDiff" Data..=) Prelude.<$> branchDiff
           ]
       )

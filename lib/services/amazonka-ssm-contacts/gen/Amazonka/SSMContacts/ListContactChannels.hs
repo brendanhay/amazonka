@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,9 +130,9 @@ instance Core.AWSRequest ListContactChannels where
     Response.receiveJSON
       ( \s h x ->
           ListContactChannelsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "ContactChannels"
+            Prelude.<*> ( x Data..?> "ContactChannels"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -148,35 +149,35 @@ instance Prelude.NFData ListContactChannels where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf contactId
 
-instance Core.ToHeaders ListContactChannels where
+instance Data.ToHeaders ListContactChannels where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SSMContacts.ListContactChannels" ::
+              Data.=# ( "SSMContacts.ListContactChannels" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListContactChannels where
+instance Data.ToJSON ListContactChannels where
   toJSON ListContactChannels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ContactId" Core..= contactId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ContactId" Data..= contactId)
           ]
       )
 
-instance Core.ToPath ListContactChannels where
+instance Data.ToPath ListContactChannels where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListContactChannels where
+instance Data.ToQuery ListContactChannels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListContactChannelsResponse' smart constructor.

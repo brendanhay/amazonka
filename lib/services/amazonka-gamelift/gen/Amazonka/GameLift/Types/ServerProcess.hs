@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.ServerProcess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of instructions for launching server processes on each instance in
@@ -110,15 +111,15 @@ serverProcess_launchPath = Lens.lens (\ServerProcess' {launchPath} -> launchPath
 serverProcess_concurrentExecutions :: Lens.Lens' ServerProcess Prelude.Natural
 serverProcess_concurrentExecutions = Lens.lens (\ServerProcess' {concurrentExecutions} -> concurrentExecutions) (\s@ServerProcess' {} a -> s {concurrentExecutions = a} :: ServerProcess)
 
-instance Core.FromJSON ServerProcess where
+instance Data.FromJSON ServerProcess where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerProcess"
       ( \x ->
           ServerProcess'
-            Prelude.<$> (x Core..:? "Parameters")
-            Prelude.<*> (x Core..: "LaunchPath")
-            Prelude.<*> (x Core..: "ConcurrentExecutions")
+            Prelude.<$> (x Data..:? "Parameters")
+            Prelude.<*> (x Data..: "LaunchPath")
+            Prelude.<*> (x Data..: "ConcurrentExecutions")
       )
 
 instance Prelude.Hashable ServerProcess where
@@ -133,15 +134,15 @@ instance Prelude.NFData ServerProcess where
       `Prelude.seq` Prelude.rnf launchPath
       `Prelude.seq` Prelude.rnf concurrentExecutions
 
-instance Core.ToJSON ServerProcess where
+instance Data.ToJSON ServerProcess where
   toJSON ServerProcess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("LaunchPath" Core..= launchPath),
+          [ ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("LaunchPath" Data..= launchPath),
             Prelude.Just
               ( "ConcurrentExecutions"
-                  Core..= concurrentExecutions
+                  Data..= concurrentExecutions
               )
           ]
       )

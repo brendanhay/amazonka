@@ -53,6 +53,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,7 +98,7 @@ instance Core.AWSRequest DescribePhoneNumber where
     Response.receiveJSON
       ( \s h x ->
           DescribePhoneNumberResponse'
-            Prelude.<$> (x Core..?> "ClaimedPhoneNumberSummary")
+            Prelude.<$> (x Data..?> "ClaimedPhoneNumberSummary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,23 +110,23 @@ instance Prelude.NFData DescribePhoneNumber where
   rnf DescribePhoneNumber' {..} =
     Prelude.rnf phoneNumberId
 
-instance Core.ToHeaders DescribePhoneNumber where
+instance Data.ToHeaders DescribePhoneNumber where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribePhoneNumber where
+instance Data.ToPath DescribePhoneNumber where
   toPath DescribePhoneNumber' {..} =
     Prelude.mconcat
-      ["/phone-number/", Core.toBS phoneNumberId]
+      ["/phone-number/", Data.toBS phoneNumberId]
 
-instance Core.ToQuery DescribePhoneNumber where
+instance Data.ToQuery DescribePhoneNumber where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePhoneNumberResponse' smart constructor.

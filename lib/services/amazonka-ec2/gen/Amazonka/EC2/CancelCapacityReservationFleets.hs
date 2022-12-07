@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,13 +118,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           CancelCapacityReservationFleetsResponse'
-            Prelude.<$> ( x Core..@? "failedFleetCancellationSet"
+            Prelude.<$> ( x Data..@? "failedFleetCancellationSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Core..@? "successfulFleetCancellationSet"
+            Prelude.<*> ( x Data..@? "successfulFleetCancellationSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -147,25 +148,25 @@ instance
       `Prelude.seq` Prelude.rnf capacityReservationFleetIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CancelCapacityReservationFleets
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CancelCapacityReservationFleets where
+instance Data.ToPath CancelCapacityReservationFleets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelCapacityReservationFleets where
+instance Data.ToQuery CancelCapacityReservationFleets where
   toQuery CancelCapacityReservationFleets' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CancelCapacityReservationFleets" ::
+          Data.=: ( "CancelCapacityReservationFleets" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQueryList
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQueryList
           "CapacityReservationFleetId"
           capacityReservationFleetIds
       ]

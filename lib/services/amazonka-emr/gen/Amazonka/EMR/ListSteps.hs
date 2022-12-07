@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,8 +158,8 @@ instance Core.AWSRequest ListSteps where
     Response.receiveJSON
       ( \s h x ->
           ListStepsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "Steps" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "Steps" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,34 +177,34 @@ instance Prelude.NFData ListSteps where
       `Prelude.seq` Prelude.rnf stepIds
       `Prelude.seq` Prelude.rnf clusterId
 
-instance Core.ToHeaders ListSteps where
+instance Data.ToHeaders ListSteps where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("ElasticMapReduce.ListSteps" :: Prelude.ByteString),
+              Data.=# ("ElasticMapReduce.ListSteps" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSteps where
+instance Data.ToJSON ListSteps where
   toJSON ListSteps' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("StepStates" Core..=) Prelude.<$> stepStates,
-            ("StepIds" Core..=) Prelude.<$> stepIds,
-            Prelude.Just ("ClusterId" Core..= clusterId)
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("StepStates" Data..=) Prelude.<$> stepStates,
+            ("StepIds" Data..=) Prelude.<$> stepIds,
+            Prelude.Just ("ClusterId" Data..= clusterId)
           ]
       )
 
-instance Core.ToPath ListSteps where
+instance Data.ToPath ListSteps where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSteps where
+instance Data.ToQuery ListSteps where
   toQuery = Prelude.const Prelude.mempty
 
 -- | This output contains the list of steps returned in reverse order. This

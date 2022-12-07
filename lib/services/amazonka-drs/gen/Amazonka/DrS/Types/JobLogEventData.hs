@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.JobLogEventData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.ConversionProperties
 import qualified Amazonka.Prelude as Prelude
 
@@ -90,17 +91,17 @@ jobLogEventData_conversionProperties = Lens.lens (\JobLogEventData' {conversionP
 jobLogEventData_sourceServerID :: Lens.Lens' JobLogEventData (Prelude.Maybe Prelude.Text)
 jobLogEventData_sourceServerID = Lens.lens (\JobLogEventData' {sourceServerID} -> sourceServerID) (\s@JobLogEventData' {} a -> s {sourceServerID = a} :: JobLogEventData)
 
-instance Core.FromJSON JobLogEventData where
+instance Data.FromJSON JobLogEventData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobLogEventData"
       ( \x ->
           JobLogEventData'
-            Prelude.<$> (x Core..:? "targetInstanceID")
-            Prelude.<*> (x Core..:? "rawError")
-            Prelude.<*> (x Core..:? "conversionServerID")
-            Prelude.<*> (x Core..:? "conversionProperties")
-            Prelude.<*> (x Core..:? "sourceServerID")
+            Prelude.<$> (x Data..:? "targetInstanceID")
+            Prelude.<*> (x Data..:? "rawError")
+            Prelude.<*> (x Data..:? "conversionServerID")
+            Prelude.<*> (x Data..:? "conversionProperties")
+            Prelude.<*> (x Data..:? "sourceServerID")
       )
 
 instance Prelude.Hashable JobLogEventData where

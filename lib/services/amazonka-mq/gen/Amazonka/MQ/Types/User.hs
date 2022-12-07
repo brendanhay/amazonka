@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.User where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A user associated with the broker. For RabbitMQ brokers, one and only
@@ -163,13 +164,13 @@ instance Prelude.NFData User where
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf password
 
-instance Core.ToJSON User where
+instance Data.ToJSON User where
   toJSON User' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("consoleAccess" Core..=) Prelude.<$> consoleAccess,
-            ("groups" Core..=) Prelude.<$> groups,
-            Prelude.Just ("username" Core..= username),
-            Prelude.Just ("password" Core..= password)
+          [ ("consoleAccess" Data..=) Prelude.<$> consoleAccess,
+            ("groups" Data..=) Prelude.<$> groups,
+            Prelude.Just ("username" Data..= username),
+            Prelude.Just ("password" Data..= password)
           ]
       )

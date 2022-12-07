@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,7 +130,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateTableReplicaAutoScalingResponse'
-            Prelude.<$> (x Core..?> "TableAutoScalingDescription")
+            Prelude.<$> (x Data..?> "TableAutoScalingDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,39 +152,39 @@ instance Prelude.NFData UpdateTableReplicaAutoScaling where
       `Prelude.seq` Prelude.rnf provisionedWriteCapacityAutoScalingUpdate
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToHeaders UpdateTableReplicaAutoScaling where
+instance Data.ToHeaders UpdateTableReplicaAutoScaling where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.UpdateTableReplicaAutoScaling" ::
+              Data.=# ( "DynamoDB_20120810.UpdateTableReplicaAutoScaling" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTableReplicaAutoScaling where
+instance Data.ToJSON UpdateTableReplicaAutoScaling where
   toJSON UpdateTableReplicaAutoScaling' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GlobalSecondaryIndexUpdates" Core..=)
+          [ ("GlobalSecondaryIndexUpdates" Data..=)
               Prelude.<$> globalSecondaryIndexUpdates,
-            ("ReplicaUpdates" Core..=)
+            ("ReplicaUpdates" Data..=)
               Prelude.<$> replicaUpdates,
-            ("ProvisionedWriteCapacityAutoScalingUpdate" Core..=)
+            ("ProvisionedWriteCapacityAutoScalingUpdate" Data..=)
               Prelude.<$> provisionedWriteCapacityAutoScalingUpdate,
-            Prelude.Just ("TableName" Core..= tableName)
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )
 
-instance Core.ToPath UpdateTableReplicaAutoScaling where
+instance Data.ToPath UpdateTableReplicaAutoScaling where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTableReplicaAutoScaling where
+instance Data.ToQuery UpdateTableReplicaAutoScaling where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTableReplicaAutoScalingResponse' smart constructor.

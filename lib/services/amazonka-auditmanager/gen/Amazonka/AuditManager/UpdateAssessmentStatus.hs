@@ -43,6 +43,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,7 +99,7 @@ instance Core.AWSRequest UpdateAssessmentStatus where
     Response.receiveJSON
       ( \s h x ->
           UpdateAssessmentStatusResponse'
-            Prelude.<$> (x Core..?> "assessment")
+            Prelude.<$> (x Data..?> "assessment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,30 +113,30 @@ instance Prelude.NFData UpdateAssessmentStatus where
     Prelude.rnf assessmentId
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToHeaders UpdateAssessmentStatus where
+instance Data.ToHeaders UpdateAssessmentStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAssessmentStatus where
+instance Data.ToJSON UpdateAssessmentStatus where
   toJSON UpdateAssessmentStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("status" Core..= status)]
+          [Prelude.Just ("status" Data..= status)]
       )
 
-instance Core.ToPath UpdateAssessmentStatus where
+instance Data.ToPath UpdateAssessmentStatus where
   toPath UpdateAssessmentStatus' {..} =
     Prelude.mconcat
-      ["/assessments/", Core.toBS assessmentId, "/status"]
+      ["/assessments/", Data.toBS assessmentId, "/status"]
 
-instance Core.ToQuery UpdateAssessmentStatus where
+instance Data.ToQuery UpdateAssessmentStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAssessmentStatusResponse' smart constructor.

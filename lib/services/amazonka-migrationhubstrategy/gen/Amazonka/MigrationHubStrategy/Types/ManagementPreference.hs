@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.ManagementPreference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.AwsManagedResources
 import Amazonka.MigrationHubStrategy.Types.NoManagementPreference
 import Amazonka.MigrationHubStrategy.Types.SelfManageResources
@@ -74,15 +75,15 @@ managementPreference_selfManageResources = Lens.lens (\ManagementPreference' {se
 managementPreference_noPreference :: Lens.Lens' ManagementPreference (Prelude.Maybe NoManagementPreference)
 managementPreference_noPreference = Lens.lens (\ManagementPreference' {noPreference} -> noPreference) (\s@ManagementPreference' {} a -> s {noPreference = a} :: ManagementPreference)
 
-instance Core.FromJSON ManagementPreference where
+instance Data.FromJSON ManagementPreference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManagementPreference"
       ( \x ->
           ManagementPreference'
-            Prelude.<$> (x Core..:? "awsManagedResources")
-            Prelude.<*> (x Core..:? "selfManageResources")
-            Prelude.<*> (x Core..:? "noPreference")
+            Prelude.<$> (x Data..:? "awsManagedResources")
+            Prelude.<*> (x Data..:? "selfManageResources")
+            Prelude.<*> (x Data..:? "noPreference")
       )
 
 instance Prelude.Hashable ManagementPreference where
@@ -97,14 +98,14 @@ instance Prelude.NFData ManagementPreference where
       `Prelude.seq` Prelude.rnf selfManageResources
       `Prelude.seq` Prelude.rnf noPreference
 
-instance Core.ToJSON ManagementPreference where
+instance Data.ToJSON ManagementPreference where
   toJSON ManagementPreference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("awsManagedResources" Core..=)
+          [ ("awsManagedResources" Data..=)
               Prelude.<$> awsManagedResources,
-            ("selfManageResources" Core..=)
+            ("selfManageResources" Data..=)
               Prelude.<$> selfManageResources,
-            ("noPreference" Core..=) Prelude.<$> noPreference
+            ("noPreference" Data..=) Prelude.<$> noPreference
           ]
       )

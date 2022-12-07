@@ -22,6 +22,7 @@ module Amazonka.CloudWatchEvents.Types.RoutingConfig where
 import Amazonka.CloudWatchEvents.Types.FailoverConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The routing configuration of the endpoint.
@@ -56,13 +57,13 @@ newRoutingConfig pFailoverConfig_ =
 routingConfig_failoverConfig :: Lens.Lens' RoutingConfig FailoverConfig
 routingConfig_failoverConfig = Lens.lens (\RoutingConfig' {failoverConfig} -> failoverConfig) (\s@RoutingConfig' {} a -> s {failoverConfig = a} :: RoutingConfig)
 
-instance Core.FromJSON RoutingConfig where
+instance Data.FromJSON RoutingConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RoutingConfig"
       ( \x ->
           RoutingConfig'
-            Prelude.<$> (x Core..: "FailoverConfig")
+            Prelude.<$> (x Data..: "FailoverConfig")
       )
 
 instance Prelude.Hashable RoutingConfig where
@@ -72,11 +73,11 @@ instance Prelude.Hashable RoutingConfig where
 instance Prelude.NFData RoutingConfig where
   rnf RoutingConfig' {..} = Prelude.rnf failoverConfig
 
-instance Core.ToJSON RoutingConfig where
+instance Data.ToJSON RoutingConfig where
   toJSON RoutingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("FailoverConfig" Core..= failoverConfig)
+              ("FailoverConfig" Data..= failoverConfig)
           ]
       )

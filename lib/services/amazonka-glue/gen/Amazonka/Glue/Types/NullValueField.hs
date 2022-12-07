@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.NullValueField where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.Datatype
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,14 +68,14 @@ nullValueField_value = Lens.lens (\NullValueField' {value} -> value) (\s@NullVal
 nullValueField_datatype :: Lens.Lens' NullValueField Datatype
 nullValueField_datatype = Lens.lens (\NullValueField' {datatype} -> datatype) (\s@NullValueField' {} a -> s {datatype = a} :: NullValueField)
 
-instance Core.FromJSON NullValueField where
+instance Data.FromJSON NullValueField where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NullValueField"
       ( \x ->
           NullValueField'
-            Prelude.<$> (x Core..: "Value")
-            Prelude.<*> (x Core..: "Datatype")
+            Prelude.<$> (x Data..: "Value")
+            Prelude.<*> (x Data..: "Datatype")
       )
 
 instance Prelude.Hashable NullValueField where
@@ -87,11 +88,11 @@ instance Prelude.NFData NullValueField where
     Prelude.rnf value
       `Prelude.seq` Prelude.rnf datatype
 
-instance Core.ToJSON NullValueField where
+instance Data.ToJSON NullValueField where
   toJSON NullValueField' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Value" Core..= value),
-            Prelude.Just ("Datatype" Core..= datatype)
+          [ Prelude.Just ("Value" Data..= value),
+            Prelude.Just ("Datatype" Data..= datatype)
           ]
       )

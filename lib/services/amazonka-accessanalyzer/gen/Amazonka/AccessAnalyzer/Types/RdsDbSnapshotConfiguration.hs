@@ -22,6 +22,7 @@ module Amazonka.AccessAnalyzer.Types.RdsDbSnapshotConfiguration where
 import Amazonka.AccessAnalyzer.Types.RdsDbSnapshotAttributeValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The proposed access control configuration for an Amazon RDS DB snapshot.
@@ -110,14 +111,14 @@ rdsDbSnapshotConfiguration_kmsKeyId = Lens.lens (\RdsDbSnapshotConfiguration' {k
 rdsDbSnapshotConfiguration_attributes :: Lens.Lens' RdsDbSnapshotConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text RdsDbSnapshotAttributeValue))
 rdsDbSnapshotConfiguration_attributes = Lens.lens (\RdsDbSnapshotConfiguration' {attributes} -> attributes) (\s@RdsDbSnapshotConfiguration' {} a -> s {attributes = a} :: RdsDbSnapshotConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RdsDbSnapshotConfiguration where
+instance Data.FromJSON RdsDbSnapshotConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RdsDbSnapshotConfiguration"
       ( \x ->
           RdsDbSnapshotConfiguration'
-            Prelude.<$> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RdsDbSnapshotConfiguration where
@@ -130,11 +131,11 @@ instance Prelude.NFData RdsDbSnapshotConfiguration where
     Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToJSON RdsDbSnapshotConfiguration where
+instance Data.ToJSON RdsDbSnapshotConfiguration where
   toJSON RdsDbSnapshotConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("attributes" Core..=) Prelude.<$> attributes
+          [ ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("attributes" Data..=) Prelude.<$> attributes
           ]
       )

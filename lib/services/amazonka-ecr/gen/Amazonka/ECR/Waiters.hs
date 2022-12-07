@@ -18,6 +18,7 @@ module Amazonka.ECR.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.DescribeImageScanFindings
 import Amazonka.ECR.GetLifecyclePolicyPreview
 import Amazonka.ECR.Lens
@@ -39,7 +40,7 @@ newImageScanComplete =
                 Prelude.. Lens._Just
                 Prelude.. imageScanStatus_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
@@ -48,7 +49,7 @@ newImageScanComplete =
                 Prelude.. Lens._Just
                 Prelude.. imageScanStatus_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -67,14 +68,14 @@ newLifecyclePolicyPreviewComplete =
             Core.AcceptSuccess
             ( getLifecyclePolicyPreviewResponse_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( getLifecyclePolicyPreviewResponse_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

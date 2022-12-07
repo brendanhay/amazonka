@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LocalGatewayRouteTableVpcAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -128,21 +129,21 @@ localGatewayRouteTableVpcAssociation_localGatewayRouteTableArn :: Lens.Lens' Loc
 localGatewayRouteTableVpcAssociation_localGatewayRouteTableArn = Lens.lens (\LocalGatewayRouteTableVpcAssociation' {localGatewayRouteTableArn} -> localGatewayRouteTableArn) (\s@LocalGatewayRouteTableVpcAssociation' {} a -> s {localGatewayRouteTableArn = a} :: LocalGatewayRouteTableVpcAssociation)
 
 instance
-  Core.FromXML
+  Data.FromXML
     LocalGatewayRouteTableVpcAssociation
   where
   parseXML x =
     LocalGatewayRouteTableVpcAssociation'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "localGatewayId")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "localGatewayRouteTableId")
-      Prelude.<*> (x Core..@? "localGatewayRouteTableVpcAssociationId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "vpcId")
-      Prelude.<*> (x Core..@? "localGatewayRouteTableArn")
+      Prelude.<*> (x Data..@? "localGatewayId")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "localGatewayRouteTableId")
+      Prelude.<*> (x Data..@? "localGatewayRouteTableVpcAssociationId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "vpcId")
+      Prelude.<*> (x Data..@? "localGatewayRouteTableArn")
 
 instance
   Prelude.Hashable

@@ -48,6 +48,7 @@ where
 import Amazonka.ConnectParticipant.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,8 +103,8 @@ instance Core.AWSRequest GetAttachment where
     Response.receiveJSON
       ( \s h x ->
           GetAttachmentResponse'
-            Prelude.<$> (x Core..?> "Url")
-            Prelude.<*> (x Core..?> "UrlExpiry")
+            Prelude.<$> (x Data..?> "Url")
+            Prelude.<*> (x Data..?> "UrlExpiry")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,25 +118,25 @@ instance Prelude.NFData GetAttachment where
     Prelude.rnf attachmentId
       `Prelude.seq` Prelude.rnf connectionToken
 
-instance Core.ToHeaders GetAttachment where
+instance Data.ToHeaders GetAttachment where
   toHeaders GetAttachment' {..} =
     Prelude.mconcat
-      [ "X-Amz-Bearer" Core.=# connectionToken,
+      [ "X-Amz-Bearer" Data.=# connectionToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON GetAttachment where
+instance Data.ToJSON GetAttachment where
   toJSON GetAttachment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AttachmentId" Core..= attachmentId)]
+          [Prelude.Just ("AttachmentId" Data..= attachmentId)]
       )
 
-instance Core.ToPath GetAttachment where
+instance Data.ToPath GetAttachment where
   toPath = Prelude.const "/participant/attachment"
 
-instance Core.ToQuery GetAttachment where
+instance Data.ToQuery GetAttachment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAttachmentResponse' smart constructor.

@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -172,8 +173,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListCustomRoutingPortMappingsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "PortMappings" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "PortMappings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,38 +195,38 @@ instance Prelude.NFData ListCustomRoutingPortMappings where
       `Prelude.seq` Prelude.rnf endpointGroupArn
       `Prelude.seq` Prelude.rnf acceleratorArn
 
-instance Core.ToHeaders ListCustomRoutingPortMappings where
+instance Data.ToHeaders ListCustomRoutingPortMappings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.ListCustomRoutingPortMappings" ::
+              Data.=# ( "GlobalAccelerator_V20180706.ListCustomRoutingPortMappings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCustomRoutingPortMappings where
+instance Data.ToJSON ListCustomRoutingPortMappings where
   toJSON ListCustomRoutingPortMappings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("EndpointGroupArn" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("EndpointGroupArn" Data..=)
               Prelude.<$> endpointGroupArn,
             Prelude.Just
-              ("AcceleratorArn" Core..= acceleratorArn)
+              ("AcceleratorArn" Data..= acceleratorArn)
           ]
       )
 
-instance Core.ToPath ListCustomRoutingPortMappings where
+instance Data.ToPath ListCustomRoutingPortMappings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListCustomRoutingPortMappings where
+instance Data.ToQuery ListCustomRoutingPortMappings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCustomRoutingPortMappingsResponse' smart constructor.

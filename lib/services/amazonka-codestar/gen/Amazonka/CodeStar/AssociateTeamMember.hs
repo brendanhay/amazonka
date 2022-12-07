@@ -46,6 +46,7 @@ where
 import Amazonka.CodeStar.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,7 +152,7 @@ instance Core.AWSRequest AssociateTeamMember where
     Response.receiveJSON
       ( \s h x ->
           AssociateTeamMemberResponse'
-            Prelude.<$> (x Core..?> "clientRequestToken")
+            Prelude.<$> (x Data..?> "clientRequestToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,39 +172,39 @@ instance Prelude.NFData AssociateTeamMember where
       `Prelude.seq` Prelude.rnf userArn
       `Prelude.seq` Prelude.rnf projectRole
 
-instance Core.ToHeaders AssociateTeamMember where
+instance Data.ToHeaders AssociateTeamMember where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeStar_20170419.AssociateTeamMember" ::
+              Data.=# ( "CodeStar_20170419.AssociateTeamMember" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateTeamMember where
+instance Data.ToJSON AssociateTeamMember where
   toJSON AssociateTeamMember' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("remoteAccessAllowed" Core..=)
+          [ ("remoteAccessAllowed" Data..=)
               Prelude.<$> remoteAccessAllowed,
-            ("clientRequestToken" Core..=)
+            ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("projectId" Core..= projectId),
-            Prelude.Just ("userArn" Core..= userArn),
-            Prelude.Just ("projectRole" Core..= projectRole)
+            Prelude.Just ("projectId" Data..= projectId),
+            Prelude.Just ("userArn" Data..= userArn),
+            Prelude.Just ("projectRole" Data..= projectRole)
           ]
       )
 
-instance Core.ToPath AssociateTeamMember where
+instance Data.ToPath AssociateTeamMember where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateTeamMember where
+instance Data.ToQuery AssociateTeamMember where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateTeamMemberResponse' smart constructor.

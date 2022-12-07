@@ -45,6 +45,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,34 +111,34 @@ instance Prelude.NFData UpdateRepositoryName where
     Prelude.rnf oldName
       `Prelude.seq` Prelude.rnf newName'
 
-instance Core.ToHeaders UpdateRepositoryName where
+instance Data.ToHeaders UpdateRepositoryName where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.UpdateRepositoryName" ::
+              Data.=# ( "CodeCommit_20150413.UpdateRepositoryName" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRepositoryName where
+instance Data.ToJSON UpdateRepositoryName where
   toJSON UpdateRepositoryName' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("oldName" Core..= oldName),
-            Prelude.Just ("newName" Core..= newName')
+          [ Prelude.Just ("oldName" Data..= oldName),
+            Prelude.Just ("newName" Data..= newName')
           ]
       )
 
-instance Core.ToPath UpdateRepositoryName where
+instance Data.ToPath UpdateRepositoryName where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateRepositoryName where
+instance Data.ToQuery UpdateRepositoryName where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRepositoryNameResponse' smart constructor.

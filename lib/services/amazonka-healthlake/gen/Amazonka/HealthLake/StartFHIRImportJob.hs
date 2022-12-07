@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HealthLake.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -155,10 +156,10 @@ instance Core.AWSRequest StartFHIRImportJob where
     Response.receiveJSON
       ( \s h x ->
           StartFHIRImportJobResponse'
-            Prelude.<$> (x Core..?> "DatastoreId")
+            Prelude.<$> (x Data..?> "DatastoreId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "JobId")
-            Prelude.<*> (x Core..:> "JobStatus")
+            Prelude.<*> (x Data..:> "JobId")
+            Prelude.<*> (x Data..:> "JobStatus")
       )
 
 instance Prelude.Hashable StartFHIRImportJob where
@@ -179,41 +180,41 @@ instance Prelude.NFData StartFHIRImportJob where
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders StartFHIRImportJob where
+instance Data.ToHeaders StartFHIRImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "HealthLake.StartFHIRImportJob" ::
+              Data.=# ( "HealthLake.StartFHIRImportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartFHIRImportJob where
+instance Data.ToJSON StartFHIRImportJob where
   toJSON StartFHIRImportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("JobName" Core..=) Prelude.<$> jobName,
+          [ ("JobName" Data..=) Prelude.<$> jobName,
             Prelude.Just
-              ("InputDataConfig" Core..= inputDataConfig),
+              ("InputDataConfig" Data..= inputDataConfig),
             Prelude.Just
-              ("JobOutputDataConfig" Core..= jobOutputDataConfig),
-            Prelude.Just ("DatastoreId" Core..= datastoreId),
+              ("JobOutputDataConfig" Data..= jobOutputDataConfig),
+            Prelude.Just ("DatastoreId" Data..= datastoreId),
             Prelude.Just
-              ("DataAccessRoleArn" Core..= dataAccessRoleArn),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+              ("DataAccessRoleArn" Data..= dataAccessRoleArn),
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath StartFHIRImportJob where
+instance Data.ToPath StartFHIRImportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartFHIRImportJob where
+instance Data.ToQuery StartFHIRImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartFHIRImportJobResponse' smart constructor.

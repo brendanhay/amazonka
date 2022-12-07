@@ -27,6 +27,7 @@ import Amazonka.Chime.Types.TranscribeRegion
 import Amazonka.Chime.Types.TranscribeVocabularyFilterMethod
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings specific to the Amazon Transcribe engine.
@@ -231,29 +232,29 @@ instance Prelude.NFData EngineTranscribeSettings where
       `Prelude.seq` Prelude.rnf partialResultsStability
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToJSON EngineTranscribeSettings where
+instance Data.ToJSON EngineTranscribeSettings where
   toJSON EngineTranscribeSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VocabularyFilterMethod" Core..=)
+          [ ("VocabularyFilterMethod" Data..=)
               Prelude.<$> vocabularyFilterMethod,
-            ("VocabularyName" Core..=)
+            ("VocabularyName" Data..=)
               Prelude.<$> vocabularyName,
-            ("ContentIdentificationType" Core..=)
+            ("ContentIdentificationType" Data..=)
               Prelude.<$> contentIdentificationType,
-            ("EnablePartialResultsStabilization" Core..=)
+            ("EnablePartialResultsStabilization" Data..=)
               Prelude.<$> enablePartialResultsStabilization,
-            ("LanguageModelName" Core..=)
+            ("LanguageModelName" Data..=)
               Prelude.<$> languageModelName,
-            ("PiiEntityTypes" Core..=)
+            ("PiiEntityTypes" Data..=)
               Prelude.<$> piiEntityTypes,
-            ("Region" Core..=) Prelude.<$> region,
-            ("VocabularyFilterName" Core..=)
+            ("Region" Data..=) Prelude.<$> region,
+            ("VocabularyFilterName" Data..=)
               Prelude.<$> vocabularyFilterName,
-            ("ContentRedactionType" Core..=)
+            ("ContentRedactionType" Data..=)
               Prelude.<$> contentRedactionType,
-            ("PartialResultsStability" Core..=)
+            ("PartialResultsStability" Data..=)
               Prelude.<$> partialResultsStability,
-            Prelude.Just ("LanguageCode" Core..= languageCode)
+            Prelude.Just ("LanguageCode" Data..= languageCode)
           ]
       )

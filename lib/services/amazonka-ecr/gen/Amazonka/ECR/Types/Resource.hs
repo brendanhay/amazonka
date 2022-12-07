@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.ResourceDetails
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,16 +84,16 @@ resource_details = Lens.lens (\Resource' {details} -> details) (\s@Resource' {} 
 resource_id :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a} :: Resource)
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "details")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "details")
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable Resource where

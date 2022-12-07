@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,16 +98,16 @@ instance Core.AWSRequest GetMissionProfile where
     Response.receiveJSON
       ( \s h x ->
           GetMissionProfileResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "missionProfileArn")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "minimumViableContactDurationSeconds")
-            Prelude.<*> (x Core..?> "contactPrePassDurationSeconds")
-            Prelude.<*> (x Core..?> "dataflowEdges" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "contactPostPassDurationSeconds")
-            Prelude.<*> (x Core..?> "missionProfileId")
-            Prelude.<*> (x Core..?> "region")
-            Prelude.<*> (x Core..?> "trackingConfigArn")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "missionProfileArn")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "minimumViableContactDurationSeconds")
+            Prelude.<*> (x Data..?> "contactPrePassDurationSeconds")
+            Prelude.<*> (x Data..?> "dataflowEdges" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "contactPostPassDurationSeconds")
+            Prelude.<*> (x Data..?> "missionProfileId")
+            Prelude.<*> (x Data..?> "region")
+            Prelude.<*> (x Data..?> "trackingConfigArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,23 +119,23 @@ instance Prelude.NFData GetMissionProfile where
   rnf GetMissionProfile' {..} =
     Prelude.rnf missionProfileId
 
-instance Core.ToHeaders GetMissionProfile where
+instance Data.ToHeaders GetMissionProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetMissionProfile where
+instance Data.ToPath GetMissionProfile where
   toPath GetMissionProfile' {..} =
     Prelude.mconcat
-      ["/missionprofile/", Core.toBS missionProfileId]
+      ["/missionprofile/", Data.toBS missionProfileId]
 
-instance Core.ToQuery GetMissionProfile where
+instance Data.ToQuery GetMissionProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

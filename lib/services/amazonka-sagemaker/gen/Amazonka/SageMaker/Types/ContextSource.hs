@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ContextSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure describing the source of a context.
@@ -72,15 +73,15 @@ contextSource_sourceType = Lens.lens (\ContextSource' {sourceType} -> sourceType
 contextSource_sourceUri :: Lens.Lens' ContextSource Prelude.Text
 contextSource_sourceUri = Lens.lens (\ContextSource' {sourceUri} -> sourceUri) (\s@ContextSource' {} a -> s {sourceUri = a} :: ContextSource)
 
-instance Core.FromJSON ContextSource where
+instance Data.FromJSON ContextSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContextSource"
       ( \x ->
           ContextSource'
-            Prelude.<$> (x Core..:? "SourceId")
-            Prelude.<*> (x Core..:? "SourceType")
-            Prelude.<*> (x Core..: "SourceUri")
+            Prelude.<$> (x Data..:? "SourceId")
+            Prelude.<*> (x Data..:? "SourceType")
+            Prelude.<*> (x Data..: "SourceUri")
       )
 
 instance Prelude.Hashable ContextSource where
@@ -95,12 +96,12 @@ instance Prelude.NFData ContextSource where
       `Prelude.seq` Prelude.rnf sourceType
       `Prelude.seq` Prelude.rnf sourceUri
 
-instance Core.ToJSON ContextSource where
+instance Data.ToJSON ContextSource where
   toJSON ContextSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceId" Core..=) Prelude.<$> sourceId,
-            ("SourceType" Core..=) Prelude.<$> sourceType,
-            Prelude.Just ("SourceUri" Core..= sourceUri)
+          [ ("SourceId" Data..=) Prelude.<$> sourceId,
+            ("SourceType" Data..=) Prelude.<$> sourceType,
+            Prelude.Just ("SourceUri" Data..= sourceUri)
           ]
       )

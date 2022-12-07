@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -165,9 +166,9 @@ instance Core.AWSRequest GetIpamPoolCidrs where
     Response.receiveXML
       ( \s h x ->
           GetIpamPoolCidrsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "ipamPoolCidrSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "ipamPoolCidrSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -188,25 +189,25 @@ instance Prelude.NFData GetIpamPoolCidrs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf ipamPoolId
 
-instance Core.ToHeaders GetIpamPoolCidrs where
+instance Data.ToHeaders GetIpamPoolCidrs where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetIpamPoolCidrs where
+instance Data.ToPath GetIpamPoolCidrs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetIpamPoolCidrs where
+instance Data.ToQuery GetIpamPoolCidrs where
   toQuery GetIpamPoolCidrs' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetIpamPoolCidrs" :: Prelude.ByteString),
+          Data.=: ("GetIpamPoolCidrs" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        "IpamPoolId" Core.=: ipamPoolId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        "IpamPoolId" Data.=: ipamPoolId
       ]
 
 -- | /See:/ 'newGetIpamPoolCidrsResponse' smart constructor.

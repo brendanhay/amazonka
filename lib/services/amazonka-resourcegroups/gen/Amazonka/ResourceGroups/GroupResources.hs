@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroups.Types
@@ -105,9 +106,9 @@ instance Core.AWSRequest GroupResources where
     Response.receiveJSON
       ( \s h x ->
           GroupResourcesResponse'
-            Prelude.<$> (x Core..?> "Failed" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Succeeded")
-            Prelude.<*> (x Core..?> "Pending" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Failed" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Succeeded")
+            Prelude.<*> (x Data..?> "Pending" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,22 +122,22 @@ instance Prelude.NFData GroupResources where
     Prelude.rnf group'
       `Prelude.seq` Prelude.rnf resourceArns
 
-instance Core.ToHeaders GroupResources where
+instance Data.ToHeaders GroupResources where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GroupResources where
+instance Data.ToJSON GroupResources where
   toJSON GroupResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Group" Core..= group'),
-            Prelude.Just ("ResourceArns" Core..= resourceArns)
+          [ Prelude.Just ("Group" Data..= group'),
+            Prelude.Just ("ResourceArns" Data..= resourceArns)
           ]
       )
 
-instance Core.ToPath GroupResources where
+instance Data.ToPath GroupResources where
   toPath = Prelude.const "/group-resources"
 
-instance Core.ToQuery GroupResources where
+instance Data.ToQuery GroupResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGroupResourcesResponse' smart constructor.

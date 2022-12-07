@@ -51,6 +51,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -71,7 +72,7 @@ data ReplicateInstance = ReplicateInstance'
     replicaRegion :: Prelude.Text,
     -- | The alias for the replicated instance. The @ReplicaAlias@ must be
     -- unique.
-    replicaAlias :: Core.Sensitive Prelude.Text
+    replicaAlias :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -113,7 +114,7 @@ newReplicateInstance
       { clientToken = Prelude.Nothing,
         instanceId = pInstanceId_,
         replicaRegion = pReplicaRegion_,
-        replicaAlias = Core._Sensitive Lens.# pReplicaAlias_
+        replicaAlias = Data._Sensitive Lens.# pReplicaAlias_
       }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
@@ -137,7 +138,7 @@ replicateInstance_replicaRegion = Lens.lens (\ReplicateInstance' {replicaRegion}
 -- | The alias for the replicated instance. The @ReplicaAlias@ must be
 -- unique.
 replicateInstance_replicaAlias :: Lens.Lens' ReplicateInstance Prelude.Text
-replicateInstance_replicaAlias = Lens.lens (\ReplicateInstance' {replicaAlias} -> replicaAlias) (\s@ReplicateInstance' {} a -> s {replicaAlias = a} :: ReplicateInstance) Prelude.. Core._Sensitive
+replicateInstance_replicaAlias = Lens.lens (\ReplicateInstance' {replicaAlias} -> replicaAlias) (\s@ReplicateInstance' {} a -> s {replicaAlias = a} :: ReplicateInstance) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest ReplicateInstance where
   type
@@ -149,8 +150,8 @@ instance Core.AWSRequest ReplicateInstance where
     Response.receiveJSON
       ( \s h x ->
           ReplicateInstanceResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,33 +169,33 @@ instance Prelude.NFData ReplicateInstance where
       `Prelude.seq` Prelude.rnf replicaRegion
       `Prelude.seq` Prelude.rnf replicaAlias
 
-instance Core.ToHeaders ReplicateInstance where
+instance Data.ToHeaders ReplicateInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ReplicateInstance where
+instance Data.ToJSON ReplicateInstance where
   toJSON ReplicateInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("ReplicaRegion" Core..= replicaRegion),
-            Prelude.Just ("ReplicaAlias" Core..= replicaAlias)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("ReplicaRegion" Data..= replicaRegion),
+            Prelude.Just ("ReplicaAlias" Data..= replicaAlias)
           ]
       )
 
-instance Core.ToPath ReplicateInstance where
+instance Data.ToPath ReplicateInstance where
   toPath ReplicateInstance' {..} =
     Prelude.mconcat
-      ["/instance/", Core.toBS instanceId, "/replicate"]
+      ["/instance/", Data.toBS instanceId, "/replicate"]
 
-instance Core.ToQuery ReplicateInstance where
+instance Data.ToQuery ReplicateInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newReplicateInstanceResponse' smart constructor.

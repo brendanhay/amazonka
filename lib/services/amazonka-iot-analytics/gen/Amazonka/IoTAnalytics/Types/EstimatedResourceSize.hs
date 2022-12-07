@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.EstimatedResourceSize where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The estimated size of the resource.
@@ -30,7 +31,7 @@ data EstimatedResourceSize = EstimatedResourceSize'
   { -- | The estimated size of the resource, in bytes.
     estimatedSizeInBytes :: Prelude.Maybe Prelude.Double,
     -- | The time when the estimate of the size of the resource was made.
-    estimatedOn :: Prelude.Maybe Core.POSIX
+    estimatedOn :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,16 +61,16 @@ estimatedResourceSize_estimatedSizeInBytes = Lens.lens (\EstimatedResourceSize' 
 
 -- | The time when the estimate of the size of the resource was made.
 estimatedResourceSize_estimatedOn :: Lens.Lens' EstimatedResourceSize (Prelude.Maybe Prelude.UTCTime)
-estimatedResourceSize_estimatedOn = Lens.lens (\EstimatedResourceSize' {estimatedOn} -> estimatedOn) (\s@EstimatedResourceSize' {} a -> s {estimatedOn = a} :: EstimatedResourceSize) Prelude.. Lens.mapping Core._Time
+estimatedResourceSize_estimatedOn = Lens.lens (\EstimatedResourceSize' {estimatedOn} -> estimatedOn) (\s@EstimatedResourceSize' {} a -> s {estimatedOn = a} :: EstimatedResourceSize) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON EstimatedResourceSize where
+instance Data.FromJSON EstimatedResourceSize where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EstimatedResourceSize"
       ( \x ->
           EstimatedResourceSize'
-            Prelude.<$> (x Core..:? "estimatedSizeInBytes")
-            Prelude.<*> (x Core..:? "estimatedOn")
+            Prelude.<$> (x Data..:? "estimatedSizeInBytes")
+            Prelude.<*> (x Data..:? "estimatedOn")
       )
 
 instance Prelude.Hashable EstimatedResourceSize where

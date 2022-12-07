@@ -43,6 +43,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,7 +96,7 @@ instance Core.AWSRequest UpdateDomainName where
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainNameResponse'
-            Prelude.<$> (x Core..?> "domainNameConfig")
+            Prelude.<$> (x Data..?> "domainNameConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,30 +110,30 @@ instance Prelude.NFData UpdateDomainName where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders UpdateDomainName where
+instance Data.ToHeaders UpdateDomainName where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDomainName where
+instance Data.ToJSON UpdateDomainName where
   toJSON UpdateDomainName' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("description" Core..=) Prelude.<$> description]
+          [("description" Data..=) Prelude.<$> description]
       )
 
-instance Core.ToPath UpdateDomainName where
+instance Data.ToPath UpdateDomainName where
   toPath UpdateDomainName' {..} =
     Prelude.mconcat
-      ["/v1/domainnames/", Core.toBS domainName]
+      ["/v1/domainnames/", Data.toBS domainName]
 
-instance Core.ToQuery UpdateDomainName where
+instance Data.ToQuery UpdateDomainName where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDomainNameResponse' smart constructor.

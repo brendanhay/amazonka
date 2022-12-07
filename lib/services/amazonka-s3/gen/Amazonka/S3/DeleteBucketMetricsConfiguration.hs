@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,25 +160,25 @@ instance
       `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteBucketMetricsConfiguration
   where
   toHeaders DeleteBucketMetricsConfiguration' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath DeleteBucketMetricsConfiguration where
+instance Data.ToPath DeleteBucketMetricsConfiguration where
   toPath DeleteBucketMetricsConfiguration' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteBucketMetricsConfiguration
   where
   toQuery DeleteBucketMetricsConfiguration' {..} =
-    Prelude.mconcat ["id" Core.=: id, "metrics"]
+    Prelude.mconcat ["id" Data.=: id, "metrics"]
 
 -- | /See:/ 'newDeleteBucketMetricsConfigurationResponse' smart constructor.
 data DeleteBucketMetricsConfigurationResponse = DeleteBucketMetricsConfigurationResponse'

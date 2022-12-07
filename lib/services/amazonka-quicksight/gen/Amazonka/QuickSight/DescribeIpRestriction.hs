@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -89,12 +90,12 @@ instance Core.AWSRequest DescribeIpRestriction where
     Response.receiveJSON
       ( \s h x ->
           DescribeIpRestrictionResponse'
-            Prelude.<$> (x Core..?> "AwsAccountId")
-            Prelude.<*> ( x Core..?> "IpRestrictionRuleMap"
+            Prelude.<$> (x Data..?> "AwsAccountId")
+            Prelude.<*> ( x Data..?> "IpRestrictionRuleMap"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Enabled")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Enabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,26 +107,26 @@ instance Prelude.NFData DescribeIpRestriction where
   rnf DescribeIpRestriction' {..} =
     Prelude.rnf awsAccountId
 
-instance Core.ToHeaders DescribeIpRestriction where
+instance Data.ToHeaders DescribeIpRestriction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeIpRestriction where
+instance Data.ToPath DescribeIpRestriction where
   toPath DescribeIpRestriction' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/ip-restriction"
       ]
 
-instance Core.ToQuery DescribeIpRestriction where
+instance Data.ToQuery DescribeIpRestriction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeIpRestrictionResponse' smart constructor.

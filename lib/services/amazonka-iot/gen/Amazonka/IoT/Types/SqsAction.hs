@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.SqsAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an action to publish data to an Amazon SQS queue.
@@ -74,15 +75,15 @@ sqsAction_roleArn = Lens.lens (\SqsAction' {roleArn} -> roleArn) (\s@SqsAction' 
 sqsAction_queueUrl :: Lens.Lens' SqsAction Prelude.Text
 sqsAction_queueUrl = Lens.lens (\SqsAction' {queueUrl} -> queueUrl) (\s@SqsAction' {} a -> s {queueUrl = a} :: SqsAction)
 
-instance Core.FromJSON SqsAction where
+instance Data.FromJSON SqsAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SqsAction"
       ( \x ->
           SqsAction'
-            Prelude.<$> (x Core..:? "useBase64")
-            Prelude.<*> (x Core..: "roleArn")
-            Prelude.<*> (x Core..: "queueUrl")
+            Prelude.<$> (x Data..:? "useBase64")
+            Prelude.<*> (x Data..: "roleArn")
+            Prelude.<*> (x Data..: "queueUrl")
       )
 
 instance Prelude.Hashable SqsAction where
@@ -97,12 +98,12 @@ instance Prelude.NFData SqsAction where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf queueUrl
 
-instance Core.ToJSON SqsAction where
+instance Data.ToJSON SqsAction where
   toJSON SqsAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("useBase64" Core..=) Prelude.<$> useBase64,
-            Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("queueUrl" Core..= queueUrl)
+          [ ("useBase64" Data..=) Prelude.<$> useBase64,
+            Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("queueUrl" Data..= queueUrl)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.DashIsoIntervalCadence
 import qualified Amazonka.Prelude as Prelude
 
@@ -146,20 +147,20 @@ dashIsoImageBasedTrickPlaySettings_intervalCadence :: Lens.Lens' DashIsoImageBas
 dashIsoImageBasedTrickPlaySettings_intervalCadence = Lens.lens (\DashIsoImageBasedTrickPlaySettings' {intervalCadence} -> intervalCadence) (\s@DashIsoImageBasedTrickPlaySettings' {} a -> s {intervalCadence = a} :: DashIsoImageBasedTrickPlaySettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DashIsoImageBasedTrickPlaySettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DashIsoImageBasedTrickPlaySettings"
       ( \x ->
           DashIsoImageBasedTrickPlaySettings'
-            Prelude.<$> (x Core..:? "tileWidth")
-            Prelude.<*> (x Core..:? "thumbnailWidth")
-            Prelude.<*> (x Core..:? "tileHeight")
-            Prelude.<*> (x Core..:? "thumbnailHeight")
-            Prelude.<*> (x Core..:? "thumbnailInterval")
-            Prelude.<*> (x Core..:? "intervalCadence")
+            Prelude.<$> (x Data..:? "tileWidth")
+            Prelude.<*> (x Data..:? "thumbnailWidth")
+            Prelude.<*> (x Data..:? "tileHeight")
+            Prelude.<*> (x Data..:? "thumbnailHeight")
+            Prelude.<*> (x Data..:? "thumbnailInterval")
+            Prelude.<*> (x Data..:? "intervalCadence")
       )
 
 instance
@@ -189,21 +190,21 @@ instance
       `Prelude.seq` Prelude.rnf intervalCadence
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DashIsoImageBasedTrickPlaySettings
   where
   toJSON DashIsoImageBasedTrickPlaySettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tileWidth" Core..=) Prelude.<$> tileWidth,
-            ("thumbnailWidth" Core..=)
+          [ ("tileWidth" Data..=) Prelude.<$> tileWidth,
+            ("thumbnailWidth" Data..=)
               Prelude.<$> thumbnailWidth,
-            ("tileHeight" Core..=) Prelude.<$> tileHeight,
-            ("thumbnailHeight" Core..=)
+            ("tileHeight" Data..=) Prelude.<$> tileHeight,
+            ("thumbnailHeight" Data..=)
               Prelude.<$> thumbnailHeight,
-            ("thumbnailInterval" Core..=)
+            ("thumbnailInterval" Data..=)
               Prelude.<$> thumbnailInterval,
-            ("intervalCadence" Core..=)
+            ("intervalCadence" Data..=)
               Prelude.<$> intervalCadence
           ]
       )

@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,7 +117,7 @@ data CalculateRoute = CalculateRoute'
     -- -   In <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     --     format: @YYYY-MM-DDThh:mm:ss.sssZ@. For example,
     --     @2020–07-2T12:15:20.000Z+01:00@
-    departureTime :: Prelude.Maybe Core.POSIX,
+    departureTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies route preferences when traveling by @Truck@, such as avoiding
     -- routes that use ferries or tolls, and truck specifications to consider
     -- when choosing an optimal road.
@@ -142,7 +143,7 @@ data CalculateRoute = CalculateRoute'
     -- error.
     --
     -- Valid Values: @[-180 to 180,-90 to 90]@
-    waypointPositions :: Prelude.Maybe [Core.Sensitive (Prelude.NonEmpty Prelude.Double)],
+    waypointPositions :: Prelude.Maybe [Data.Sensitive (Prelude.NonEmpty Prelude.Double)],
     -- | Set to include the geometry details in the result for each path between
     -- a pair of positions.
     --
@@ -175,7 +176,7 @@ data CalculateRoute = CalculateRoute'
     -- error.
     --
     -- Valid Values: @[-180 to 180,-90 to 90]@
-    departurePosition :: Core.Sensitive (Prelude.NonEmpty Prelude.Double),
+    departurePosition :: Data.Sensitive (Prelude.NonEmpty Prelude.Double),
     -- | The finish position for the route. Defined in
     -- <https://earth-info.nga.mil/index.php?dir=wgs84&action=wgs84 World Geodetic System (WGS 84)>
     -- format: @[longitude, latitude]@.
@@ -187,7 +188,7 @@ data CalculateRoute = CalculateRoute'
     -- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html moves the position to the nearest road>.
     --
     -- Valid Values: @[-180 to 180,-90 to 90]@
-    destinationPosition :: Core.Sensitive (Prelude.NonEmpty Prelude.Double)
+    destinationPosition :: Data.Sensitive (Prelude.NonEmpty Prelude.Double)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -325,10 +326,10 @@ newCalculateRoute
         departNow = Prelude.Nothing,
         calculatorName = pCalculatorName_,
         departurePosition =
-          Core._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive Prelude.. Lens.coerced
             Lens.# pDeparturePosition_,
         destinationPosition =
-          Core._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive Prelude.. Lens.coerced
             Lens.# pDestinationPosition_
       }
 
@@ -371,7 +372,7 @@ calculateRoute_travelMode = Lens.lens (\CalculateRoute' {travelMode} -> travelMo
 --     format: @YYYY-MM-DDThh:mm:ss.sssZ@. For example,
 --     @2020–07-2T12:15:20.000Z+01:00@
 calculateRoute_departureTime :: Lens.Lens' CalculateRoute (Prelude.Maybe Prelude.UTCTime)
-calculateRoute_departureTime = Lens.lens (\CalculateRoute' {departureTime} -> departureTime) (\s@CalculateRoute' {} a -> s {departureTime = a} :: CalculateRoute) Prelude.. Lens.mapping Core._Time
+calculateRoute_departureTime = Lens.lens (\CalculateRoute' {departureTime} -> departureTime) (\s@CalculateRoute' {} a -> s {departureTime = a} :: CalculateRoute) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies route preferences when traveling by @Truck@, such as avoiding
 -- routes that use ferries or tolls, and truck specifications to consider
@@ -442,7 +443,7 @@ calculateRoute_calculatorName = Lens.lens (\CalculateRoute' {calculatorName} -> 
 --
 -- Valid Values: @[-180 to 180,-90 to 90]@
 calculateRoute_departurePosition :: Lens.Lens' CalculateRoute (Prelude.NonEmpty Prelude.Double)
-calculateRoute_departurePosition = Lens.lens (\CalculateRoute' {departurePosition} -> departurePosition) (\s@CalculateRoute' {} a -> s {departurePosition = a} :: CalculateRoute) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+calculateRoute_departurePosition = Lens.lens (\CalculateRoute' {departurePosition} -> departurePosition) (\s@CalculateRoute' {} a -> s {departurePosition = a} :: CalculateRoute) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 -- | The finish position for the route. Defined in
 -- <https://earth-info.nga.mil/index.php?dir=wgs84&action=wgs84 World Geodetic System (WGS 84)>
@@ -456,7 +457,7 @@ calculateRoute_departurePosition = Lens.lens (\CalculateRoute' {departurePositio
 --
 -- Valid Values: @[-180 to 180,-90 to 90]@
 calculateRoute_destinationPosition :: Lens.Lens' CalculateRoute (Prelude.NonEmpty Prelude.Double)
-calculateRoute_destinationPosition = Lens.lens (\CalculateRoute' {destinationPosition} -> destinationPosition) (\s@CalculateRoute' {} a -> s {destinationPosition = a} :: CalculateRoute) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+calculateRoute_destinationPosition = Lens.lens (\CalculateRoute' {destinationPosition} -> destinationPosition) (\s@CalculateRoute' {} a -> s {destinationPosition = a} :: CalculateRoute) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 instance Core.AWSRequest CalculateRoute where
   type
@@ -469,8 +470,8 @@ instance Core.AWSRequest CalculateRoute where
       ( \s h x ->
           CalculateRouteResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Legs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "Summary")
+            Prelude.<*> (x Data..?> "Legs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "Summary")
       )
 
 instance Prelude.Hashable CalculateRoute where
@@ -501,49 +502,49 @@ instance Prelude.NFData CalculateRoute where
       `Prelude.seq` Prelude.rnf departurePosition
       `Prelude.seq` Prelude.rnf destinationPosition
 
-instance Core.ToHeaders CalculateRoute where
+instance Data.ToHeaders CalculateRoute where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CalculateRoute where
+instance Data.ToJSON CalculateRoute where
   toJSON CalculateRoute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DistanceUnit" Core..=) Prelude.<$> distanceUnit,
-            ("CarModeOptions" Core..=)
+          [ ("DistanceUnit" Data..=) Prelude.<$> distanceUnit,
+            ("CarModeOptions" Data..=)
               Prelude.<$> carModeOptions,
-            ("TravelMode" Core..=) Prelude.<$> travelMode,
-            ("DepartureTime" Core..=) Prelude.<$> departureTime,
-            ("TruckModeOptions" Core..=)
+            ("TravelMode" Data..=) Prelude.<$> travelMode,
+            ("DepartureTime" Data..=) Prelude.<$> departureTime,
+            ("TruckModeOptions" Data..=)
               Prelude.<$> truckModeOptions,
-            ("WaypointPositions" Core..=)
+            ("WaypointPositions" Data..=)
               Prelude.<$> waypointPositions,
-            ("IncludeLegGeometry" Core..=)
+            ("IncludeLegGeometry" Data..=)
               Prelude.<$> includeLegGeometry,
-            ("DepartNow" Core..=) Prelude.<$> departNow,
+            ("DepartNow" Data..=) Prelude.<$> departNow,
             Prelude.Just
-              ("DeparturePosition" Core..= departurePosition),
+              ("DeparturePosition" Data..= departurePosition),
             Prelude.Just
-              ("DestinationPosition" Core..= destinationPosition)
+              ("DestinationPosition" Data..= destinationPosition)
           ]
       )
 
-instance Core.ToPath CalculateRoute where
+instance Data.ToPath CalculateRoute where
   toPath CalculateRoute' {..} =
     Prelude.mconcat
       [ "/routes/v0/calculators/",
-        Core.toBS calculatorName,
+        Data.toBS calculatorName,
         "/calculate/route"
       ]
 
-instance Core.ToQuery CalculateRoute where
+instance Data.ToQuery CalculateRoute where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returns the result of the route calculation. Metadata includes legs and

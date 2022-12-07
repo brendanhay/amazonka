@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.SSMValidationParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.ScriptType
 import Amazonka.SMS.Types.Source
@@ -102,18 +103,18 @@ sSMValidationParameters_scriptType = Lens.lens (\SSMValidationParameters' {scrip
 sSMValidationParameters_outputS3BucketName :: Lens.Lens' SSMValidationParameters (Prelude.Maybe Prelude.Text)
 sSMValidationParameters_outputS3BucketName = Lens.lens (\SSMValidationParameters' {outputS3BucketName} -> outputS3BucketName) (\s@SSMValidationParameters' {} a -> s {outputS3BucketName = a} :: SSMValidationParameters)
 
-instance Core.FromJSON SSMValidationParameters where
+instance Data.FromJSON SSMValidationParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SSMValidationParameters"
       ( \x ->
           SSMValidationParameters'
-            Prelude.<$> (x Core..:? "command")
-            Prelude.<*> (x Core..:? "instanceId")
-            Prelude.<*> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "executionTimeoutSeconds")
-            Prelude.<*> (x Core..:? "scriptType")
-            Prelude.<*> (x Core..:? "outputS3BucketName")
+            Prelude.<$> (x Data..:? "command")
+            Prelude.<*> (x Data..:? "instanceId")
+            Prelude.<*> (x Data..:? "source")
+            Prelude.<*> (x Data..:? "executionTimeoutSeconds")
+            Prelude.<*> (x Data..:? "scriptType")
+            Prelude.<*> (x Data..:? "outputS3BucketName")
       )
 
 instance Prelude.Hashable SSMValidationParameters where
@@ -134,17 +135,17 @@ instance Prelude.NFData SSMValidationParameters where
       `Prelude.seq` Prelude.rnf scriptType
       `Prelude.seq` Prelude.rnf outputS3BucketName
 
-instance Core.ToJSON SSMValidationParameters where
+instance Data.ToJSON SSMValidationParameters where
   toJSON SSMValidationParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("command" Core..=) Prelude.<$> command,
-            ("instanceId" Core..=) Prelude.<$> instanceId,
-            ("source" Core..=) Prelude.<$> source,
-            ("executionTimeoutSeconds" Core..=)
+          [ ("command" Data..=) Prelude.<$> command,
+            ("instanceId" Data..=) Prelude.<$> instanceId,
+            ("source" Data..=) Prelude.<$> source,
+            ("executionTimeoutSeconds" Data..=)
               Prelude.<$> executionTimeoutSeconds,
-            ("scriptType" Core..=) Prelude.<$> scriptType,
-            ("outputS3BucketName" Core..=)
+            ("scriptType" Data..=) Prelude.<$> scriptType,
+            ("outputS3BucketName" Data..=)
               Prelude.<$> outputS3BucketName
           ]
       )

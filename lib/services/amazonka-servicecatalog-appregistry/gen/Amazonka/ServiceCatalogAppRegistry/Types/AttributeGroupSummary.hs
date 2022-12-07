@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of a Amazon Web Services Service Catalog AppRegistry attribute
@@ -39,11 +40,11 @@ data AttributeGroupSummary = AttributeGroupSummary'
     id :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 formatted timestamp of the moment the attribute group was
     -- created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ISO-8601 formatted timestamp of the moment the attribute group was
     -- last updated. This time is the same as the creationTime for a newly
     -- created attribute group.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX
+    lastUpdateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,26 +103,26 @@ attributeGroupSummary_id = Lens.lens (\AttributeGroupSummary' {id} -> id) (\s@At
 -- | The ISO-8601 formatted timestamp of the moment the attribute group was
 -- created.
 attributeGroupSummary_creationTime :: Lens.Lens' AttributeGroupSummary (Prelude.Maybe Prelude.UTCTime)
-attributeGroupSummary_creationTime = Lens.lens (\AttributeGroupSummary' {creationTime} -> creationTime) (\s@AttributeGroupSummary' {} a -> s {creationTime = a} :: AttributeGroupSummary) Prelude.. Lens.mapping Core._Time
+attributeGroupSummary_creationTime = Lens.lens (\AttributeGroupSummary' {creationTime} -> creationTime) (\s@AttributeGroupSummary' {} a -> s {creationTime = a} :: AttributeGroupSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ISO-8601 formatted timestamp of the moment the attribute group was
 -- last updated. This time is the same as the creationTime for a newly
 -- created attribute group.
 attributeGroupSummary_lastUpdateTime :: Lens.Lens' AttributeGroupSummary (Prelude.Maybe Prelude.UTCTime)
-attributeGroupSummary_lastUpdateTime = Lens.lens (\AttributeGroupSummary' {lastUpdateTime} -> lastUpdateTime) (\s@AttributeGroupSummary' {} a -> s {lastUpdateTime = a} :: AttributeGroupSummary) Prelude.. Lens.mapping Core._Time
+attributeGroupSummary_lastUpdateTime = Lens.lens (\AttributeGroupSummary' {lastUpdateTime} -> lastUpdateTime) (\s@AttributeGroupSummary' {} a -> s {lastUpdateTime = a} :: AttributeGroupSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AttributeGroupSummary where
+instance Data.FromJSON AttributeGroupSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttributeGroupSummary"
       ( \x ->
           AttributeGroupSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
       )
 
 instance Prelude.Hashable AttributeGroupSummary where

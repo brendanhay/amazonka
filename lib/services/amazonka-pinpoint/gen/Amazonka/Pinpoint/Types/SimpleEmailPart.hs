@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SimpleEmailPart where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the subject or body of an email message, represented as
@@ -71,11 +72,11 @@ instance Prelude.NFData SimpleEmailPart where
   rnf SimpleEmailPart' {..} =
     Prelude.rnf data' `Prelude.seq` Prelude.rnf charset
 
-instance Core.ToJSON SimpleEmailPart where
+instance Data.ToJSON SimpleEmailPart where
   toJSON SimpleEmailPart' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Data" Core..=) Prelude.<$> data',
-            ("Charset" Core..=) Prelude.<$> charset
+          [ ("Data" Data..=) Prelude.<$> data',
+            ("Charset" Data..=) Prelude.<$> charset
           ]
       )

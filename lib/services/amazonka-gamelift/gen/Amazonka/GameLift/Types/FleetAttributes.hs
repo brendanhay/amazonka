@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.FleetAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.CertificateConfiguration
 import Amazonka.GameLift.Types.EC2InstanceType
 import Amazonka.GameLift.Types.FleetAction
@@ -130,7 +131,7 @@ data FleetAttributes = FleetAttributes'
     -- | A time stamp indicating when this data object was terminated. Format is
     -- a number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    terminationTime :: Prelude.Maybe Core.POSIX,
+    terminationTime :: Prelude.Maybe Data.POSIX,
     -- | __This parameter is no longer used.__ Game session log paths are now
     -- defined using the GameLift server API @ProcessReady()@ @logParameters@.
     -- See more information in the
@@ -139,7 +140,7 @@ data FleetAttributes = FleetAttributes'
     -- | A time stamp indicating when this data object was created. Format is a
     -- number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Name of a metric group that metrics for this fleet are added to. In
     -- Amazon CloudWatch, you can view aggregated metrics for fleets that are
     -- in a metric group. A fleet can be included in only one metric group at a
@@ -434,7 +435,7 @@ fleetAttributes_fleetArn = Lens.lens (\FleetAttributes' {fleetArn} -> fleetArn) 
 -- a number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 fleetAttributes_terminationTime :: Lens.Lens' FleetAttributes (Prelude.Maybe Prelude.UTCTime)
-fleetAttributes_terminationTime = Lens.lens (\FleetAttributes' {terminationTime} -> terminationTime) (\s@FleetAttributes' {} a -> s {terminationTime = a} :: FleetAttributes) Prelude.. Lens.mapping Core._Time
+fleetAttributes_terminationTime = Lens.lens (\FleetAttributes' {terminationTime} -> terminationTime) (\s@FleetAttributes' {} a -> s {terminationTime = a} :: FleetAttributes) Prelude.. Lens.mapping Data._Time
 
 -- | __This parameter is no longer used.__ Game session log paths are now
 -- defined using the GameLift server API @ProcessReady()@ @logParameters@.
@@ -447,7 +448,7 @@ fleetAttributes_logPaths = Lens.lens (\FleetAttributes' {logPaths} -> logPaths) 
 -- number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 fleetAttributes_creationTime :: Lens.Lens' FleetAttributes (Prelude.Maybe Prelude.UTCTime)
-fleetAttributes_creationTime = Lens.lens (\FleetAttributes' {creationTime} -> creationTime) (\s@FleetAttributes' {} a -> s {creationTime = a} :: FleetAttributes) Prelude.. Lens.mapping Core._Time
+fleetAttributes_creationTime = Lens.lens (\FleetAttributes' {creationTime} -> creationTime) (\s@FleetAttributes' {} a -> s {creationTime = a} :: FleetAttributes) Prelude.. Lens.mapping Data._Time
 
 -- | Name of a metric group that metrics for this fleet are added to. In
 -- Amazon CloudWatch, you can view aggregated metrics for fleets that are
@@ -472,35 +473,35 @@ fleetAttributes_scriptId = Lens.lens (\FleetAttributes' {scriptId} -> scriptId) 
 fleetAttributes_resourceCreationLimitPolicy :: Lens.Lens' FleetAttributes (Prelude.Maybe ResourceCreationLimitPolicy)
 fleetAttributes_resourceCreationLimitPolicy = Lens.lens (\FleetAttributes' {resourceCreationLimitPolicy} -> resourceCreationLimitPolicy) (\s@FleetAttributes' {} a -> s {resourceCreationLimitPolicy = a} :: FleetAttributes)
 
-instance Core.FromJSON FleetAttributes where
+instance Data.FromJSON FleetAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FleetAttributes"
       ( \x ->
           FleetAttributes'
-            Prelude.<$> (x Core..:? "ScriptArn")
-            Prelude.<*> (x Core..:? "OperatingSystem")
-            Prelude.<*> (x Core..:? "ServerLaunchPath")
-            Prelude.<*> (x Core..:? "FleetId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "FleetType")
-            Prelude.<*> (x Core..:? "CertificateConfiguration")
-            Prelude.<*> (x Core..:? "InstanceRoleArn")
-            Prelude.<*> (x Core..:? "BuildId")
-            Prelude.<*> (x Core..:? "BuildArn")
-            Prelude.<*> (x Core..:? "NewGameSessionProtectionPolicy")
-            Prelude.<*> (x Core..:? "StoppedActions")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "FleetArn")
-            Prelude.<*> (x Core..:? "TerminationTime")
-            Prelude.<*> (x Core..:? "LogPaths" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "MetricGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ServerLaunchParameters")
-            Prelude.<*> (x Core..:? "ScriptId")
-            Prelude.<*> (x Core..:? "ResourceCreationLimitPolicy")
+            Prelude.<$> (x Data..:? "ScriptArn")
+            Prelude.<*> (x Data..:? "OperatingSystem")
+            Prelude.<*> (x Data..:? "ServerLaunchPath")
+            Prelude.<*> (x Data..:? "FleetId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "FleetType")
+            Prelude.<*> (x Data..:? "CertificateConfiguration")
+            Prelude.<*> (x Data..:? "InstanceRoleArn")
+            Prelude.<*> (x Data..:? "BuildId")
+            Prelude.<*> (x Data..:? "BuildArn")
+            Prelude.<*> (x Data..:? "NewGameSessionProtectionPolicy")
+            Prelude.<*> (x Data..:? "StoppedActions")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "FleetArn")
+            Prelude.<*> (x Data..:? "TerminationTime")
+            Prelude.<*> (x Data..:? "LogPaths" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "MetricGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ServerLaunchParameters")
+            Prelude.<*> (x Data..:? "ScriptId")
+            Prelude.<*> (x Data..:? "ResourceCreationLimitPolicy")
       )
 
 instance Prelude.Hashable FleetAttributes where

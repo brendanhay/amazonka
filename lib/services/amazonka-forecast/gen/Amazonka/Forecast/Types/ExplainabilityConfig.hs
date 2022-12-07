@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.ExplainabilityConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.TimePointGranularity
 import Amazonka.Forecast.Types.TimeSeriesGranularity
 import qualified Amazonka.Prelude as Prelude
@@ -110,14 +111,14 @@ explainabilityConfig_timeSeriesGranularity = Lens.lens (\ExplainabilityConfig' {
 explainabilityConfig_timePointGranularity :: Lens.Lens' ExplainabilityConfig TimePointGranularity
 explainabilityConfig_timePointGranularity = Lens.lens (\ExplainabilityConfig' {timePointGranularity} -> timePointGranularity) (\s@ExplainabilityConfig' {} a -> s {timePointGranularity = a} :: ExplainabilityConfig)
 
-instance Core.FromJSON ExplainabilityConfig where
+instance Data.FromJSON ExplainabilityConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExplainabilityConfig"
       ( \x ->
           ExplainabilityConfig'
-            Prelude.<$> (x Core..: "TimeSeriesGranularity")
-            Prelude.<*> (x Core..: "TimePointGranularity")
+            Prelude.<$> (x Data..: "TimeSeriesGranularity")
+            Prelude.<*> (x Data..: "TimePointGranularity")
       )
 
 instance Prelude.Hashable ExplainabilityConfig where
@@ -130,17 +131,17 @@ instance Prelude.NFData ExplainabilityConfig where
     Prelude.rnf timeSeriesGranularity
       `Prelude.seq` Prelude.rnf timePointGranularity
 
-instance Core.ToJSON ExplainabilityConfig where
+instance Data.ToJSON ExplainabilityConfig where
   toJSON ExplainabilityConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "TimeSeriesGranularity"
-                  Core..= timeSeriesGranularity
+                  Data..= timeSeriesGranularity
               ),
             Prelude.Just
               ( "TimePointGranularity"
-                  Core..= timePointGranularity
+                  Data..= timePointGranularity
               )
           ]
       )

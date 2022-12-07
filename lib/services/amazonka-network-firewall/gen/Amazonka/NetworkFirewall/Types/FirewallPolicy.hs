@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.FirewallPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.CustomAction
 import Amazonka.NetworkFirewall.Types.StatefulEngineOptions
 import Amazonka.NetworkFirewall.Types.StatefulRuleGroupReference
@@ -252,30 +253,30 @@ firewallPolicy_statelessDefaultActions = Lens.lens (\FirewallPolicy' {statelessD
 firewallPolicy_statelessFragmentDefaultActions :: Lens.Lens' FirewallPolicy [Prelude.Text]
 firewallPolicy_statelessFragmentDefaultActions = Lens.lens (\FirewallPolicy' {statelessFragmentDefaultActions} -> statelessFragmentDefaultActions) (\s@FirewallPolicy' {} a -> s {statelessFragmentDefaultActions = a} :: FirewallPolicy) Prelude.. Lens.coerced
 
-instance Core.FromJSON FirewallPolicy where
+instance Data.FromJSON FirewallPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallPolicy"
       ( \x ->
           FirewallPolicy'
-            Prelude.<$> (x Core..:? "StatefulEngineOptions")
-            Prelude.<*> ( x Core..:? "StatelessCustomActions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "StatefulEngineOptions")
+            Prelude.<*> ( x Data..:? "StatelessCustomActions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StatefulRuleGroupReferences"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "StatefulRuleGroupReferences"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StatelessRuleGroupReferences"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "StatelessRuleGroupReferences"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StatefulDefaultActions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "StatefulDefaultActions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StatelessDefaultActions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "StatelessDefaultActions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StatelessFragmentDefaultActions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "StatelessFragmentDefaultActions"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -299,27 +300,27 @@ instance Prelude.NFData FirewallPolicy where
       `Prelude.seq` Prelude.rnf statelessDefaultActions
       `Prelude.seq` Prelude.rnf statelessFragmentDefaultActions
 
-instance Core.ToJSON FirewallPolicy where
+instance Data.ToJSON FirewallPolicy where
   toJSON FirewallPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StatefulEngineOptions" Core..=)
+          [ ("StatefulEngineOptions" Data..=)
               Prelude.<$> statefulEngineOptions,
-            ("StatelessCustomActions" Core..=)
+            ("StatelessCustomActions" Data..=)
               Prelude.<$> statelessCustomActions,
-            ("StatefulRuleGroupReferences" Core..=)
+            ("StatefulRuleGroupReferences" Data..=)
               Prelude.<$> statefulRuleGroupReferences,
-            ("StatelessRuleGroupReferences" Core..=)
+            ("StatelessRuleGroupReferences" Data..=)
               Prelude.<$> statelessRuleGroupReferences,
-            ("StatefulDefaultActions" Core..=)
+            ("StatefulDefaultActions" Data..=)
               Prelude.<$> statefulDefaultActions,
             Prelude.Just
               ( "StatelessDefaultActions"
-                  Core..= statelessDefaultActions
+                  Data..= statelessDefaultActions
               ),
             Prelude.Just
               ( "StatelessFragmentDefaultActions"
-                  Core..= statelessFragmentDefaultActions
+                  Data..= statelessFragmentDefaultActions
               )
           ]
       )

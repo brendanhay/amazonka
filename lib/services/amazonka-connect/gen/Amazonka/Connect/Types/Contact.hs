@@ -25,6 +25,7 @@ import Amazonka.Connect.Types.ContactInitiationMethod
 import Amazonka.Connect.Types.QueueInfo
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a contact.
@@ -34,7 +35,7 @@ data Contact = Contact'
   { -- | The name of the contact.
     name :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when contact was last updated.
-    lastUpdateTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdateTimestamp :: Prelude.Maybe Data.POSIX,
     -- | How the contact reached your contact center.
     channel :: Prelude.Maybe Channel,
     -- | The Amazon Resource Name (ARN) for the contact.
@@ -47,7 +48,7 @@ data Contact = Contact'
     queueInfo :: Prelude.Maybe QueueInfo,
     -- | The timestamp, in Unix epoch time format, at which to start running the
     -- inbound flow.
-    scheduledTimestamp :: Prelude.Maybe Core.POSIX,
+    scheduledTimestamp :: Prelude.Maybe Data.POSIX,
     -- | If this contact is related to other contacts, this is the ID of the
     -- initial contact.
     initialContactId :: Prelude.Maybe Prelude.Text,
@@ -56,7 +57,7 @@ data Contact = Contact'
     -- when the agent began dialing. For @CALLBACK@, this is when the callback
     -- contact was created. For @TRANSFER@ and @QUEUE_TRANSFER@, this is when
     -- the transfer was initiated. For @API@, this is when the request arrived.
-    initiationTimestamp :: Prelude.Maybe Core.POSIX,
+    initiationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | If this contact is not the first contact, this is the ID of the previous
     -- contact.
     previousContactId :: Prelude.Maybe Prelude.Text,
@@ -64,7 +65,7 @@ data Contact = Contact'
     initiationMethod :: Prelude.Maybe ContactInitiationMethod,
     -- | The timestamp when the customer endpoint disconnected from Amazon
     -- Connect.
-    disconnectTimestamp :: Prelude.Maybe Core.POSIX,
+    disconnectTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Information about the agent who accepted the contact.
     agentInfo :: Prelude.Maybe AgentInfo
   }
@@ -139,7 +140,7 @@ contact_name = Lens.lens (\Contact' {name} -> name) (\s@Contact' {} a -> s {name
 
 -- | The timestamp when contact was last updated.
 contact_lastUpdateTimestamp :: Lens.Lens' Contact (Prelude.Maybe Prelude.UTCTime)
-contact_lastUpdateTimestamp = Lens.lens (\Contact' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@Contact' {} a -> s {lastUpdateTimestamp = a} :: Contact) Prelude.. Lens.mapping Core._Time
+contact_lastUpdateTimestamp = Lens.lens (\Contact' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@Contact' {} a -> s {lastUpdateTimestamp = a} :: Contact) Prelude.. Lens.mapping Data._Time
 
 -- | How the contact reached your contact center.
 contact_channel :: Lens.Lens' Contact (Prelude.Maybe Channel)
@@ -164,7 +165,7 @@ contact_queueInfo = Lens.lens (\Contact' {queueInfo} -> queueInfo) (\s@Contact' 
 -- | The timestamp, in Unix epoch time format, at which to start running the
 -- inbound flow.
 contact_scheduledTimestamp :: Lens.Lens' Contact (Prelude.Maybe Prelude.UTCTime)
-contact_scheduledTimestamp = Lens.lens (\Contact' {scheduledTimestamp} -> scheduledTimestamp) (\s@Contact' {} a -> s {scheduledTimestamp = a} :: Contact) Prelude.. Lens.mapping Core._Time
+contact_scheduledTimestamp = Lens.lens (\Contact' {scheduledTimestamp} -> scheduledTimestamp) (\s@Contact' {} a -> s {scheduledTimestamp = a} :: Contact) Prelude.. Lens.mapping Data._Time
 
 -- | If this contact is related to other contacts, this is the ID of the
 -- initial contact.
@@ -177,7 +178,7 @@ contact_initialContactId = Lens.lens (\Contact' {initialContactId} -> initialCon
 -- contact was created. For @TRANSFER@ and @QUEUE_TRANSFER@, this is when
 -- the transfer was initiated. For @API@, this is when the request arrived.
 contact_initiationTimestamp :: Lens.Lens' Contact (Prelude.Maybe Prelude.UTCTime)
-contact_initiationTimestamp = Lens.lens (\Contact' {initiationTimestamp} -> initiationTimestamp) (\s@Contact' {} a -> s {initiationTimestamp = a} :: Contact) Prelude.. Lens.mapping Core._Time
+contact_initiationTimestamp = Lens.lens (\Contact' {initiationTimestamp} -> initiationTimestamp) (\s@Contact' {} a -> s {initiationTimestamp = a} :: Contact) Prelude.. Lens.mapping Data._Time
 
 -- | If this contact is not the first contact, this is the ID of the previous
 -- contact.
@@ -191,32 +192,32 @@ contact_initiationMethod = Lens.lens (\Contact' {initiationMethod} -> initiation
 -- | The timestamp when the customer endpoint disconnected from Amazon
 -- Connect.
 contact_disconnectTimestamp :: Lens.Lens' Contact (Prelude.Maybe Prelude.UTCTime)
-contact_disconnectTimestamp = Lens.lens (\Contact' {disconnectTimestamp} -> disconnectTimestamp) (\s@Contact' {} a -> s {disconnectTimestamp = a} :: Contact) Prelude.. Lens.mapping Core._Time
+contact_disconnectTimestamp = Lens.lens (\Contact' {disconnectTimestamp} -> disconnectTimestamp) (\s@Contact' {} a -> s {disconnectTimestamp = a} :: Contact) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the agent who accepted the contact.
 contact_agentInfo :: Lens.Lens' Contact (Prelude.Maybe AgentInfo)
 contact_agentInfo = Lens.lens (\Contact' {agentInfo} -> agentInfo) (\s@Contact' {} a -> s {agentInfo = a} :: Contact)
 
-instance Core.FromJSON Contact where
+instance Data.FromJSON Contact where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Contact"
       ( \x ->
           Contact'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LastUpdateTimestamp")
-            Prelude.<*> (x Core..:? "Channel")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "QueueInfo")
-            Prelude.<*> (x Core..:? "ScheduledTimestamp")
-            Prelude.<*> (x Core..:? "InitialContactId")
-            Prelude.<*> (x Core..:? "InitiationTimestamp")
-            Prelude.<*> (x Core..:? "PreviousContactId")
-            Prelude.<*> (x Core..:? "InitiationMethod")
-            Prelude.<*> (x Core..:? "DisconnectTimestamp")
-            Prelude.<*> (x Core..:? "AgentInfo")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LastUpdateTimestamp")
+            Prelude.<*> (x Data..:? "Channel")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "QueueInfo")
+            Prelude.<*> (x Data..:? "ScheduledTimestamp")
+            Prelude.<*> (x Data..:? "InitialContactId")
+            Prelude.<*> (x Data..:? "InitiationTimestamp")
+            Prelude.<*> (x Data..:? "PreviousContactId")
+            Prelude.<*> (x Data..:? "InitiationMethod")
+            Prelude.<*> (x Data..:? "DisconnectTimestamp")
+            Prelude.<*> (x Data..:? "AgentInfo")
       )
 
 instance Prelude.Hashable Contact where

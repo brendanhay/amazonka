@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.NewCustomVocabularyItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The new custom vocabulary item from the custom vocabulary list.
@@ -94,12 +95,12 @@ instance Prelude.NFData NewCustomVocabularyItem where
       `Prelude.seq` Prelude.rnf weight
       `Prelude.seq` Prelude.rnf phrase
 
-instance Core.ToJSON NewCustomVocabularyItem where
+instance Data.ToJSON NewCustomVocabularyItem where
   toJSON NewCustomVocabularyItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("displayAs" Core..=) Prelude.<$> displayAs,
-            ("weight" Core..=) Prelude.<$> weight,
-            Prelude.Just ("phrase" Core..= phrase)
+          [ ("displayAs" Data..=) Prelude.<$> displayAs,
+            ("weight" Data..=) Prelude.<$> weight,
+            Prelude.Just ("phrase" Data..= phrase)
           ]
       )

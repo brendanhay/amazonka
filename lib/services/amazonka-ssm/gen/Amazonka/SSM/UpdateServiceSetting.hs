@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -233,34 +234,34 @@ instance Prelude.NFData UpdateServiceSetting where
     Prelude.rnf settingId
       `Prelude.seq` Prelude.rnf settingValue
 
-instance Core.ToHeaders UpdateServiceSetting where
+instance Data.ToHeaders UpdateServiceSetting where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.UpdateServiceSetting" ::
+              Data.=# ( "AmazonSSM.UpdateServiceSetting" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateServiceSetting where
+instance Data.ToJSON UpdateServiceSetting where
   toJSON UpdateServiceSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SettingId" Core..= settingId),
-            Prelude.Just ("SettingValue" Core..= settingValue)
+          [ Prelude.Just ("SettingId" Data..= settingId),
+            Prelude.Just ("SettingValue" Data..= settingValue)
           ]
       )
 
-instance Core.ToPath UpdateServiceSetting where
+instance Data.ToPath UpdateServiceSetting where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateServiceSetting where
+instance Data.ToQuery UpdateServiceSetting where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result body of the UpdateServiceSetting API operation.

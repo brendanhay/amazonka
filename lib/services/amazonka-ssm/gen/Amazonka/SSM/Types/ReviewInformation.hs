@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ReviewInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.ReviewStatus
 
@@ -31,7 +32,7 @@ data ReviewInformation = ReviewInformation'
   { -- | The reviewer assigned to take action on the document review request.
     reviewer :: Prelude.Maybe Prelude.Text,
     -- | The time that the reviewer took action on the document review request.
-    reviewedTime :: Prelude.Maybe Core.POSIX,
+    reviewedTime :: Prelude.Maybe Data.POSIX,
     -- | The current status of the document review request.
     status :: Prelude.Maybe ReviewStatus
   }
@@ -65,21 +66,21 @@ reviewInformation_reviewer = Lens.lens (\ReviewInformation' {reviewer} -> review
 
 -- | The time that the reviewer took action on the document review request.
 reviewInformation_reviewedTime :: Lens.Lens' ReviewInformation (Prelude.Maybe Prelude.UTCTime)
-reviewInformation_reviewedTime = Lens.lens (\ReviewInformation' {reviewedTime} -> reviewedTime) (\s@ReviewInformation' {} a -> s {reviewedTime = a} :: ReviewInformation) Prelude.. Lens.mapping Core._Time
+reviewInformation_reviewedTime = Lens.lens (\ReviewInformation' {reviewedTime} -> reviewedTime) (\s@ReviewInformation' {} a -> s {reviewedTime = a} :: ReviewInformation) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the document review request.
 reviewInformation_status :: Lens.Lens' ReviewInformation (Prelude.Maybe ReviewStatus)
 reviewInformation_status = Lens.lens (\ReviewInformation' {status} -> status) (\s@ReviewInformation' {} a -> s {status = a} :: ReviewInformation)
 
-instance Core.FromJSON ReviewInformation where
+instance Data.FromJSON ReviewInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReviewInformation"
       ( \x ->
           ReviewInformation'
-            Prelude.<$> (x Core..:? "Reviewer")
-            Prelude.<*> (x Core..:? "ReviewedTime")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "Reviewer")
+            Prelude.<*> (x Data..:? "ReviewedTime")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable ReviewInformation where

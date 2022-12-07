@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.DirectoryLimits where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains directory limit information for a Region.
@@ -128,21 +129,21 @@ directoryLimits_cloudOnlyDirectoriesLimit = Lens.lens (\DirectoryLimits' {cloudO
 directoryLimits_cloudOnlyDirectoriesCurrentCount :: Lens.Lens' DirectoryLimits (Prelude.Maybe Prelude.Natural)
 directoryLimits_cloudOnlyDirectoriesCurrentCount = Lens.lens (\DirectoryLimits' {cloudOnlyDirectoriesCurrentCount} -> cloudOnlyDirectoriesCurrentCount) (\s@DirectoryLimits' {} a -> s {cloudOnlyDirectoriesCurrentCount = a} :: DirectoryLimits)
 
-instance Core.FromJSON DirectoryLimits where
+instance Data.FromJSON DirectoryLimits where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DirectoryLimits"
       ( \x ->
           DirectoryLimits'
-            Prelude.<$> (x Core..:? "CloudOnlyDirectoriesLimitReached")
-            Prelude.<*> (x Core..:? "CloudOnlyMicrosoftADLimitReached")
-            Prelude.<*> (x Core..:? "CloudOnlyMicrosoftADCurrentCount")
-            Prelude.<*> (x Core..:? "CloudOnlyMicrosoftADLimit")
-            Prelude.<*> (x Core..:? "ConnectedDirectoriesLimitReached")
-            Prelude.<*> (x Core..:? "ConnectedDirectoriesLimit")
-            Prelude.<*> (x Core..:? "ConnectedDirectoriesCurrentCount")
-            Prelude.<*> (x Core..:? "CloudOnlyDirectoriesLimit")
-            Prelude.<*> (x Core..:? "CloudOnlyDirectoriesCurrentCount")
+            Prelude.<$> (x Data..:? "CloudOnlyDirectoriesLimitReached")
+            Prelude.<*> (x Data..:? "CloudOnlyMicrosoftADLimitReached")
+            Prelude.<*> (x Data..:? "CloudOnlyMicrosoftADCurrentCount")
+            Prelude.<*> (x Data..:? "CloudOnlyMicrosoftADLimit")
+            Prelude.<*> (x Data..:? "ConnectedDirectoriesLimitReached")
+            Prelude.<*> (x Data..:? "ConnectedDirectoriesLimit")
+            Prelude.<*> (x Data..:? "ConnectedDirectoriesCurrentCount")
+            Prelude.<*> (x Data..:? "CloudOnlyDirectoriesLimit")
+            Prelude.<*> (x Data..:? "CloudOnlyDirectoriesCurrentCount")
       )
 
 instance Prelude.Hashable DirectoryLimits where

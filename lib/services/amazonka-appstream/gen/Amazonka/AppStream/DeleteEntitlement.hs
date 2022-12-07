@@ -42,6 +42,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,34 +110,34 @@ instance Prelude.NFData DeleteEntitlement where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders DeleteEntitlement where
+instance Data.ToHeaders DeleteEntitlement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DeleteEntitlement" ::
+              Data.=# ( "PhotonAdminProxyService.DeleteEntitlement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteEntitlement where
+instance Data.ToJSON DeleteEntitlement where
   toJSON DeleteEntitlement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("StackName" Core..= stackName)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("StackName" Data..= stackName)
           ]
       )
 
-instance Core.ToPath DeleteEntitlement where
+instance Data.ToPath DeleteEntitlement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteEntitlement where
+instance Data.ToQuery DeleteEntitlement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEntitlementResponse' smart constructor.

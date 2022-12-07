@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsSecretsManagerSecretDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsSecretsManagerSecretRotationRules
 
@@ -121,20 +122,20 @@ awsSecretsManagerSecretDetails_rotationEnabled = Lens.lens (\AwsSecretsManagerSe
 awsSecretsManagerSecretDetails_kmsKeyId :: Lens.Lens' AwsSecretsManagerSecretDetails (Prelude.Maybe Prelude.Text)
 awsSecretsManagerSecretDetails_kmsKeyId = Lens.lens (\AwsSecretsManagerSecretDetails' {kmsKeyId} -> kmsKeyId) (\s@AwsSecretsManagerSecretDetails' {} a -> s {kmsKeyId = a} :: AwsSecretsManagerSecretDetails)
 
-instance Core.FromJSON AwsSecretsManagerSecretDetails where
+instance Data.FromJSON AwsSecretsManagerSecretDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsSecretsManagerSecretDetails"
       ( \x ->
           AwsSecretsManagerSecretDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RotationLambdaArn")
-            Prelude.<*> (x Core..:? "RotationRules")
-            Prelude.<*> (x Core..:? "Deleted")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "RotationOccurredWithinFrequency")
-            Prelude.<*> (x Core..:? "RotationEnabled")
-            Prelude.<*> (x Core..:? "KmsKeyId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RotationLambdaArn")
+            Prelude.<*> (x Data..:? "RotationRules")
+            Prelude.<*> (x Data..:? "Deleted")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "RotationOccurredWithinFrequency")
+            Prelude.<*> (x Data..:? "RotationEnabled")
+            Prelude.<*> (x Data..:? "KmsKeyId")
       )
 
 instance
@@ -167,20 +168,20 @@ instance
       `Prelude.seq` Prelude.rnf rotationEnabled
       `Prelude.seq` Prelude.rnf kmsKeyId
 
-instance Core.ToJSON AwsSecretsManagerSecretDetails where
+instance Data.ToJSON AwsSecretsManagerSecretDetails where
   toJSON AwsSecretsManagerSecretDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("RotationLambdaArn" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("RotationLambdaArn" Data..=)
               Prelude.<$> rotationLambdaArn,
-            ("RotationRules" Core..=) Prelude.<$> rotationRules,
-            ("Deleted" Core..=) Prelude.<$> deleted,
-            ("Description" Core..=) Prelude.<$> description,
-            ("RotationOccurredWithinFrequency" Core..=)
+            ("RotationRules" Data..=) Prelude.<$> rotationRules,
+            ("Deleted" Data..=) Prelude.<$> deleted,
+            ("Description" Data..=) Prelude.<$> description,
+            ("RotationOccurredWithinFrequency" Data..=)
               Prelude.<$> rotationOccurredWithinFrequency,
-            ("RotationEnabled" Core..=)
+            ("RotationEnabled" Data..=)
               Prelude.<$> rotationEnabled,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId
           ]
       )

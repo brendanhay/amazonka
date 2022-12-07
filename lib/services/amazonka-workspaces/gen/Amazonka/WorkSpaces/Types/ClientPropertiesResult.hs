@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.ClientPropertiesResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.ClientProperties
 
@@ -63,14 +64,14 @@ clientPropertiesResult_resourceId = Lens.lens (\ClientPropertiesResult' {resourc
 clientPropertiesResult_clientProperties :: Lens.Lens' ClientPropertiesResult (Prelude.Maybe ClientProperties)
 clientPropertiesResult_clientProperties = Lens.lens (\ClientPropertiesResult' {clientProperties} -> clientProperties) (\s@ClientPropertiesResult' {} a -> s {clientProperties = a} :: ClientPropertiesResult)
 
-instance Core.FromJSON ClientPropertiesResult where
+instance Data.FromJSON ClientPropertiesResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClientPropertiesResult"
       ( \x ->
           ClientPropertiesResult'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "ClientProperties")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "ClientProperties")
       )
 
 instance Prelude.Hashable ClientPropertiesResult where

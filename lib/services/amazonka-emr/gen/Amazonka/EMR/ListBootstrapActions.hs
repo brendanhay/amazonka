@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,8 +124,8 @@ instance Core.AWSRequest ListBootstrapActions where
     Response.receiveJSON
       ( \s h x ->
           ListBootstrapActionsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> ( x Core..?> "BootstrapActions"
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> ( x Data..?> "BootstrapActions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -140,34 +141,34 @@ instance Prelude.NFData ListBootstrapActions where
     Prelude.rnf marker
       `Prelude.seq` Prelude.rnf clusterId
 
-instance Core.ToHeaders ListBootstrapActions where
+instance Data.ToHeaders ListBootstrapActions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.ListBootstrapActions" ::
+              Data.=# ( "ElasticMapReduce.ListBootstrapActions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListBootstrapActions where
+instance Data.ToJSON ListBootstrapActions where
   toJSON ListBootstrapActions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            Prelude.Just ("ClusterId" Core..= clusterId)
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            Prelude.Just ("ClusterId" Data..= clusterId)
           ]
       )
 
-instance Core.ToPath ListBootstrapActions where
+instance Data.ToPath ListBootstrapActions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListBootstrapActions where
+instance Data.ToQuery ListBootstrapActions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | This output contains the bootstrap actions detail.

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,8 +114,8 @@ instance Core.AWSRequest ListThesauri where
     Response.receiveJSON
       ( \s h x ->
           ListThesauriResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ThesaurusSummaryItems"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ThesaurusSummaryItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -132,35 +133,35 @@ instance Prelude.NFData ListThesauri where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders ListThesauri where
+instance Data.ToHeaders ListThesauri where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.ListThesauri" ::
+              Data.=# ( "AWSKendraFrontendService.ListThesauri" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListThesauri where
+instance Data.ToJSON ListThesauri where
   toJSON ListThesauri' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath ListThesauri where
+instance Data.ToPath ListThesauri where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListThesauri where
+instance Data.ToQuery ListThesauri where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListThesauriResponse' smart constructor.

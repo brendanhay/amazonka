@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -155,9 +156,9 @@ instance Core.AWSRequest ListStateMachines where
     Response.receiveJSON
       ( \s h x ->
           ListStateMachinesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "stateMachines" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "stateMachines" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListStateMachines where
@@ -170,34 +171,34 @@ instance Prelude.NFData ListStateMachines where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListStateMachines where
+instance Data.ToHeaders ListStateMachines where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSStepFunctions.ListStateMachines" ::
+              Data.=# ( "AWSStepFunctions.ListStateMachines" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListStateMachines where
+instance Data.ToJSON ListStateMachines where
   toJSON ListStateMachines' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListStateMachines where
+instance Data.ToPath ListStateMachines where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListStateMachines where
+instance Data.ToQuery ListStateMachines where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListStateMachinesResponse' smart constructor.

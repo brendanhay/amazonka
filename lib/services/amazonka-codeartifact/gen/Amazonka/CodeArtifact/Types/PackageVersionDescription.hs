@@ -25,6 +25,7 @@ import Amazonka.CodeArtifact.Types.PackageVersionOrigin
 import Amazonka.CodeArtifact.Types.PackageVersionStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a package version.
@@ -33,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 data PackageVersionDescription = PackageVersionDescription'
   { -- | A timestamp that contains the date and time the package version was
     -- published.
-    publishedTime :: Prelude.Maybe Core.POSIX,
+    publishedTime :: Prelude.Maybe Data.POSIX,
     -- | The homepage associated with the package.
     homePage :: Prelude.Maybe Prelude.Text,
     -- | The name of the requested package.
@@ -154,7 +155,7 @@ newPackageVersionDescription =
 -- | A timestamp that contains the date and time the package version was
 -- published.
 packageVersionDescription_publishedTime :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.UTCTime)
-packageVersionDescription_publishedTime = Lens.lens (\PackageVersionDescription' {publishedTime} -> publishedTime) (\s@PackageVersionDescription' {} a -> s {publishedTime = a} :: PackageVersionDescription) Prelude.. Lens.mapping Core._Time
+packageVersionDescription_publishedTime = Lens.lens (\PackageVersionDescription' {publishedTime} -> publishedTime) (\s@PackageVersionDescription' {} a -> s {publishedTime = a} :: PackageVersionDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The homepage associated with the package.
 packageVersionDescription_homePage :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
@@ -222,25 +223,25 @@ packageVersionDescription_version = Lens.lens (\PackageVersionDescription' {vers
 packageVersionDescription_licenses :: Lens.Lens' PackageVersionDescription (Prelude.Maybe [LicenseInfo])
 packageVersionDescription_licenses = Lens.lens (\PackageVersionDescription' {licenses} -> licenses) (\s@PackageVersionDescription' {} a -> s {licenses = a} :: PackageVersionDescription) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PackageVersionDescription where
+instance Data.FromJSON PackageVersionDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageVersionDescription"
       ( \x ->
           PackageVersionDescription'
-            Prelude.<$> (x Core..:? "publishedTime")
-            Prelude.<*> (x Core..:? "homePage")
-            Prelude.<*> (x Core..:? "packageName")
-            Prelude.<*> (x Core..:? "format")
-            Prelude.<*> (x Core..:? "revision")
-            Prelude.<*> (x Core..:? "displayName")
-            Prelude.<*> (x Core..:? "summary")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "sourceCodeRepository")
-            Prelude.<*> (x Core..:? "namespace")
-            Prelude.<*> (x Core..:? "origin")
-            Prelude.<*> (x Core..:? "version")
-            Prelude.<*> (x Core..:? "licenses" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "publishedTime")
+            Prelude.<*> (x Data..:? "homePage")
+            Prelude.<*> (x Data..:? "packageName")
+            Prelude.<*> (x Data..:? "format")
+            Prelude.<*> (x Data..:? "revision")
+            Prelude.<*> (x Data..:? "displayName")
+            Prelude.<*> (x Data..:? "summary")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "sourceCodeRepository")
+            Prelude.<*> (x Data..:? "namespace")
+            Prelude.<*> (x Data..:? "origin")
+            Prelude.<*> (x Data..:? "version")
+            Prelude.<*> (x Data..:? "licenses" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PackageVersionDescription where

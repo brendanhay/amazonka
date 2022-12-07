@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -100,9 +101,9 @@ instance Core.AWSRequest GetCelebrityInfo where
     Response.receiveJSON
       ( \s h x ->
           GetCelebrityInfoResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "KnownGender")
-            Prelude.<*> (x Core..?> "Urls" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "KnownGender")
+            Prelude.<*> (x Data..?> "Urls" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,30 +114,30 @@ instance Prelude.Hashable GetCelebrityInfo where
 instance Prelude.NFData GetCelebrityInfo where
   rnf GetCelebrityInfo' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetCelebrityInfo where
+instance Data.ToHeaders GetCelebrityInfo where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.GetCelebrityInfo" ::
+              Data.=# ( "RekognitionService.GetCelebrityInfo" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCelebrityInfo where
+instance Data.ToJSON GetCelebrityInfo where
   toJSON GetCelebrityInfo' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("Id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("Id" Data..= id)])
 
-instance Core.ToPath GetCelebrityInfo where
+instance Data.ToPath GetCelebrityInfo where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCelebrityInfo where
+instance Data.ToQuery GetCelebrityInfo where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCelebrityInfoResponse' smart constructor.

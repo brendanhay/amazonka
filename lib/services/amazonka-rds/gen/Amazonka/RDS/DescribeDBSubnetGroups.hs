@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -176,9 +177,9 @@ instance Core.AWSRequest DescribeDBSubnetGroups where
       "DescribeDBSubnetGroupsResult"
       ( \s h x ->
           DescribeDBSubnetGroupsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "DBSubnetGroups" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "DBSubnetGroup")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "DBSubnetGroups" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "DBSubnetGroup")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -197,25 +198,25 @@ instance Prelude.NFData DescribeDBSubnetGroups where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeDBSubnetGroups where
+instance Data.ToHeaders DescribeDBSubnetGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBSubnetGroups where
+instance Data.ToPath DescribeDBSubnetGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDBSubnetGroups where
+instance Data.ToQuery DescribeDBSubnetGroups where
   toQuery DescribeDBSubnetGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBSubnetGroups" :: Prelude.ByteString),
+          Data.=: ("DescribeDBSubnetGroups" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | Contains the result of a successful invocation of the

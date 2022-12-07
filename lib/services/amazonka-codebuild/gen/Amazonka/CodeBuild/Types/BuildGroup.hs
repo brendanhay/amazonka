@@ -22,6 +22,7 @@ module Amazonka.CodeBuild.Types.BuildGroup where
 import Amazonka.CodeBuild.Types.BuildSummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a batch build build group. Build groups are
@@ -100,19 +101,19 @@ buildGroup_identifier = Lens.lens (\BuildGroup' {identifier} -> identifier) (\s@
 buildGroup_currentBuildSummary :: Lens.Lens' BuildGroup (Prelude.Maybe BuildSummary)
 buildGroup_currentBuildSummary = Lens.lens (\BuildGroup' {currentBuildSummary} -> currentBuildSummary) (\s@BuildGroup' {} a -> s {currentBuildSummary = a} :: BuildGroup)
 
-instance Core.FromJSON BuildGroup where
+instance Data.FromJSON BuildGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BuildGroup"
       ( \x ->
           BuildGroup'
-            Prelude.<$> (x Core..:? "dependsOn" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "priorBuildSummaryList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "dependsOn" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "priorBuildSummaryList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ignoreFailure")
-            Prelude.<*> (x Core..:? "identifier")
-            Prelude.<*> (x Core..:? "currentBuildSummary")
+            Prelude.<*> (x Data..:? "ignoreFailure")
+            Prelude.<*> (x Data..:? "identifier")
+            Prelude.<*> (x Data..:? "currentBuildSummary")
       )
 
 instance Prelude.Hashable BuildGroup where

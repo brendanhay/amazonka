@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.DeleteClusterSnapshotMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -103,10 +104,10 @@ instance Prelude.NFData DeleteClusterSnapshotMessage where
     Prelude.rnf snapshotClusterIdentifier
       `Prelude.seq` Prelude.rnf snapshotIdentifier
 
-instance Core.ToQuery DeleteClusterSnapshotMessage where
+instance Data.ToQuery DeleteClusterSnapshotMessage where
   toQuery DeleteClusterSnapshotMessage' {..} =
     Prelude.mconcat
       [ "SnapshotClusterIdentifier"
-          Core.=: snapshotClusterIdentifier,
-        "SnapshotIdentifier" Core.=: snapshotIdentifier
+          Data.=: snapshotClusterIdentifier,
+        "SnapshotIdentifier" Data.=: snapshotIdentifier
       ]

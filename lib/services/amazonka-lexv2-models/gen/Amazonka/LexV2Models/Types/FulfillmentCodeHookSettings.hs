@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.FulfillmentCodeHookSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.FulfillmentUpdatesSpecification
 import Amazonka.LexV2Models.Types.PostFulfillmentStatusSpecification
 import qualified Amazonka.Prelude as Prelude
@@ -104,16 +105,16 @@ fulfillmentCodeHookSettings_fulfillmentUpdatesSpecification = Lens.lens (\Fulfil
 fulfillmentCodeHookSettings_enabled :: Lens.Lens' FulfillmentCodeHookSettings Prelude.Bool
 fulfillmentCodeHookSettings_enabled = Lens.lens (\FulfillmentCodeHookSettings' {enabled} -> enabled) (\s@FulfillmentCodeHookSettings' {} a -> s {enabled = a} :: FulfillmentCodeHookSettings)
 
-instance Core.FromJSON FulfillmentCodeHookSettings where
+instance Data.FromJSON FulfillmentCodeHookSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FulfillmentCodeHookSettings"
       ( \x ->
           FulfillmentCodeHookSettings'
-            Prelude.<$> (x Core..:? "active")
-            Prelude.<*> (x Core..:? "postFulfillmentStatusSpecification")
-            Prelude.<*> (x Core..:? "fulfillmentUpdatesSpecification")
-            Prelude.<*> (x Core..: "enabled")
+            Prelude.<$> (x Data..:? "active")
+            Prelude.<*> (x Data..:? "postFulfillmentStatusSpecification")
+            Prelude.<*> (x Data..:? "fulfillmentUpdatesSpecification")
+            Prelude.<*> (x Data..: "enabled")
       )
 
 instance Prelude.Hashable FulfillmentCodeHookSettings where
@@ -130,15 +131,15 @@ instance Prelude.NFData FulfillmentCodeHookSettings where
       `Prelude.seq` Prelude.rnf fulfillmentUpdatesSpecification
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON FulfillmentCodeHookSettings where
+instance Data.ToJSON FulfillmentCodeHookSettings where
   toJSON FulfillmentCodeHookSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("active" Core..=) Prelude.<$> active,
-            ("postFulfillmentStatusSpecification" Core..=)
+          [ ("active" Data..=) Prelude.<$> active,
+            ("postFulfillmentStatusSpecification" Data..=)
               Prelude.<$> postFulfillmentStatusSpecification,
-            ("fulfillmentUpdatesSpecification" Core..=)
+            ("fulfillmentUpdatesSpecification" Data..=)
               Prelude.<$> fulfillmentUpdatesSpecification,
-            Prelude.Just ("enabled" Core..= enabled)
+            Prelude.Just ("enabled" Data..= enabled)
           ]
       )

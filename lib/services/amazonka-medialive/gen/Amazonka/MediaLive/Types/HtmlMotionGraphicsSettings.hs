@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.HtmlMotionGraphicsSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Html Motion Graphics Settings
@@ -40,9 +41,9 @@ newHtmlMotionGraphicsSettings ::
 newHtmlMotionGraphicsSettings =
   HtmlMotionGraphicsSettings'
 
-instance Core.FromJSON HtmlMotionGraphicsSettings where
+instance Data.FromJSON HtmlMotionGraphicsSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HtmlMotionGraphicsSettings"
       (\x -> Prelude.pure HtmlMotionGraphicsSettings')
 
@@ -53,5 +54,5 @@ instance Prelude.Hashable HtmlMotionGraphicsSettings where
 instance Prelude.NFData HtmlMotionGraphicsSettings where
   rnf _ = ()
 
-instance Core.ToJSON HtmlMotionGraphicsSettings where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON HtmlMotionGraphicsSettings where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

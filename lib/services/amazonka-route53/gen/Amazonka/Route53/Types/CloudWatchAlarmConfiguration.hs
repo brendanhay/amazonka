@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.CloudWatchAlarmConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Types.ComparisonOperator
@@ -178,19 +179,19 @@ cloudWatchAlarmConfiguration_namespace = Lens.lens (\CloudWatchAlarmConfiguratio
 cloudWatchAlarmConfiguration_statistic :: Lens.Lens' CloudWatchAlarmConfiguration Statistic
 cloudWatchAlarmConfiguration_statistic = Lens.lens (\CloudWatchAlarmConfiguration' {statistic} -> statistic) (\s@CloudWatchAlarmConfiguration' {} a -> s {statistic = a} :: CloudWatchAlarmConfiguration)
 
-instance Core.FromXML CloudWatchAlarmConfiguration where
+instance Data.FromXML CloudWatchAlarmConfiguration where
   parseXML x =
     CloudWatchAlarmConfiguration'
-      Prelude.<$> ( x Core..@? "Dimensions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Dimension")
+      Prelude.<$> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Dimension")
                   )
-      Prelude.<*> (x Core..@ "EvaluationPeriods")
-      Prelude.<*> (x Core..@ "Threshold")
-      Prelude.<*> (x Core..@ "ComparisonOperator")
-      Prelude.<*> (x Core..@ "Period")
-      Prelude.<*> (x Core..@ "MetricName")
-      Prelude.<*> (x Core..@ "Namespace")
-      Prelude.<*> (x Core..@ "Statistic")
+      Prelude.<*> (x Data..@ "EvaluationPeriods")
+      Prelude.<*> (x Data..@ "Threshold")
+      Prelude.<*> (x Data..@ "ComparisonOperator")
+      Prelude.<*> (x Data..@ "Period")
+      Prelude.<*> (x Data..@ "MetricName")
+      Prelude.<*> (x Data..@ "Namespace")
+      Prelude.<*> (x Data..@ "Statistic")
 
 instance
   Prelude.Hashable

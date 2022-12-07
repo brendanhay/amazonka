@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NatGatewayAddress where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -87,13 +88,13 @@ natGatewayAddress_networkInterfaceId = Lens.lens (\NatGatewayAddress' {networkIn
 natGatewayAddress_privateIp :: Lens.Lens' NatGatewayAddress (Prelude.Maybe Prelude.Text)
 natGatewayAddress_privateIp = Lens.lens (\NatGatewayAddress' {privateIp} -> privateIp) (\s@NatGatewayAddress' {} a -> s {privateIp = a} :: NatGatewayAddress)
 
-instance Core.FromXML NatGatewayAddress where
+instance Data.FromXML NatGatewayAddress where
   parseXML x =
     NatGatewayAddress'
-      Prelude.<$> (x Core..@? "allocationId")
-      Prelude.<*> (x Core..@? "publicIp")
-      Prelude.<*> (x Core..@? "networkInterfaceId")
-      Prelude.<*> (x Core..@? "privateIp")
+      Prelude.<$> (x Data..@? "allocationId")
+      Prelude.<*> (x Data..@? "publicIp")
+      Prelude.<*> (x Data..@? "networkInterfaceId")
+      Prelude.<*> (x Data..@? "privateIp")
 
 instance Prelude.Hashable NatGatewayAddress where
   hashWithSalt _salt NatGatewayAddress' {..} =

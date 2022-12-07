@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.WebvttDestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.WebvttAccessibilitySubs
 import Amazonka.MediaConvert.Types.WebvttStylePassthrough
 import qualified Amazonka.Prelude as Prelude
@@ -121,14 +122,14 @@ webvttDestinationSettings_stylePassthrough = Lens.lens (\WebvttDestinationSettin
 webvttDestinationSettings_accessibility :: Lens.Lens' WebvttDestinationSettings (Prelude.Maybe WebvttAccessibilitySubs)
 webvttDestinationSettings_accessibility = Lens.lens (\WebvttDestinationSettings' {accessibility} -> accessibility) (\s@WebvttDestinationSettings' {} a -> s {accessibility = a} :: WebvttDestinationSettings)
 
-instance Core.FromJSON WebvttDestinationSettings where
+instance Data.FromJSON WebvttDestinationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WebvttDestinationSettings"
       ( \x ->
           WebvttDestinationSettings'
-            Prelude.<$> (x Core..:? "stylePassthrough")
-            Prelude.<*> (x Core..:? "accessibility")
+            Prelude.<$> (x Data..:? "stylePassthrough")
+            Prelude.<*> (x Data..:? "accessibility")
       )
 
 instance Prelude.Hashable WebvttDestinationSettings where
@@ -141,12 +142,12 @@ instance Prelude.NFData WebvttDestinationSettings where
     Prelude.rnf stylePassthrough
       `Prelude.seq` Prelude.rnf accessibility
 
-instance Core.ToJSON WebvttDestinationSettings where
+instance Data.ToJSON WebvttDestinationSettings where
   toJSON WebvttDestinationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("stylePassthrough" Core..=)
+          [ ("stylePassthrough" Data..=)
               Prelude.<$> stylePassthrough,
-            ("accessibility" Core..=) Prelude.<$> accessibility
+            ("accessibility" Data..=) Prelude.<$> accessibility
           ]
       )

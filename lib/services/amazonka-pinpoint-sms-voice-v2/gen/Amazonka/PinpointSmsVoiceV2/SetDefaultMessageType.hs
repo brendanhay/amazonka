@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,9 +119,9 @@ instance Core.AWSRequest SetDefaultMessageType where
     Response.receiveJSON
       ( \s h x ->
           SetDefaultMessageTypeResponse'
-            Prelude.<$> (x Core..?> "MessageType")
-            Prelude.<*> (x Core..?> "ConfigurationSetName")
-            Prelude.<*> (x Core..?> "ConfigurationSetArn")
+            Prelude.<$> (x Data..?> "MessageType")
+            Prelude.<*> (x Data..?> "ConfigurationSetName")
+            Prelude.<*> (x Data..?> "ConfigurationSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,37 +135,37 @@ instance Prelude.NFData SetDefaultMessageType where
     Prelude.rnf configurationSetName
       `Prelude.seq` Prelude.rnf messageType
 
-instance Core.ToHeaders SetDefaultMessageType where
+instance Data.ToHeaders SetDefaultMessageType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.SetDefaultMessageType" ::
+              Data.=# ( "PinpointSMSVoiceV2.SetDefaultMessageType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetDefaultMessageType where
+instance Data.ToJSON SetDefaultMessageType where
   toJSON SetDefaultMessageType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ConfigurationSetName"
-                  Core..= configurationSetName
+                  Data..= configurationSetName
               ),
-            Prelude.Just ("MessageType" Core..= messageType)
+            Prelude.Just ("MessageType" Data..= messageType)
           ]
       )
 
-instance Core.ToPath SetDefaultMessageType where
+instance Data.ToPath SetDefaultMessageType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetDefaultMessageType where
+instance Data.ToQuery SetDefaultMessageType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetDefaultMessageTypeResponse' smart constructor.

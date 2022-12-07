@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.PortProbeAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.PortProbeDetail
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,15 +67,15 @@ portProbeAction_blocked = Lens.lens (\PortProbeAction' {blocked} -> blocked) (\s
 portProbeAction_portProbeDetails :: Lens.Lens' PortProbeAction (Prelude.Maybe [PortProbeDetail])
 portProbeAction_portProbeDetails = Lens.lens (\PortProbeAction' {portProbeDetails} -> portProbeDetails) (\s@PortProbeAction' {} a -> s {portProbeDetails = a} :: PortProbeAction) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PortProbeAction where
+instance Data.FromJSON PortProbeAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortProbeAction"
       ( \x ->
           PortProbeAction'
-            Prelude.<$> (x Core..:? "blocked")
-            Prelude.<*> ( x Core..:? "portProbeDetails"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "blocked")
+            Prelude.<*> ( x Data..:? "portProbeDetails"
+                            Data..!= Prelude.mempty
                         )
       )
 

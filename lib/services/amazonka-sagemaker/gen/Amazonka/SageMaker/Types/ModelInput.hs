@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Input object for the model.
@@ -52,13 +53,13 @@ newModelInput pDataInputConfig_ =
 modelInput_dataInputConfig :: Lens.Lens' ModelInput Prelude.Text
 modelInput_dataInputConfig = Lens.lens (\ModelInput' {dataInputConfig} -> dataInputConfig) (\s@ModelInput' {} a -> s {dataInputConfig = a} :: ModelInput)
 
-instance Core.FromJSON ModelInput where
+instance Data.FromJSON ModelInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelInput"
       ( \x ->
           ModelInput'
-            Prelude.<$> (x Core..: "DataInputConfig")
+            Prelude.<$> (x Data..: "DataInputConfig")
       )
 
 instance Prelude.Hashable ModelInput where
@@ -68,11 +69,11 @@ instance Prelude.Hashable ModelInput where
 instance Prelude.NFData ModelInput where
   rnf ModelInput' {..} = Prelude.rnf dataInputConfig
 
-instance Core.ToJSON ModelInput where
+instance Data.ToJSON ModelInput where
   toJSON ModelInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DataInputConfig" Core..= dataInputConfig)
+              ("DataInputConfig" Data..= dataInputConfig)
           ]
       )

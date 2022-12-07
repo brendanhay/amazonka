@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest DeleteFirewallDomainList where
     Response.receiveJSON
       ( \s h x ->
           DeleteFirewallDomainListResponse'
-            Prelude.<$> (x Core..?> "FirewallDomainList")
+            Prelude.<$> (x Data..?> "FirewallDomainList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,36 +99,36 @@ instance Prelude.NFData DeleteFirewallDomainList where
   rnf DeleteFirewallDomainList' {..} =
     Prelude.rnf firewallDomainListId
 
-instance Core.ToHeaders DeleteFirewallDomainList where
+instance Data.ToHeaders DeleteFirewallDomainList where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.DeleteFirewallDomainList" ::
+              Data.=# ( "Route53Resolver.DeleteFirewallDomainList" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteFirewallDomainList where
+instance Data.ToJSON DeleteFirewallDomainList where
   toJSON DeleteFirewallDomainList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "FirewallDomainListId"
-                  Core..= firewallDomainListId
+                  Data..= firewallDomainListId
               )
           ]
       )
 
-instance Core.ToPath DeleteFirewallDomainList where
+instance Data.ToPath DeleteFirewallDomainList where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteFirewallDomainList where
+instance Data.ToQuery DeleteFirewallDomainList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFirewallDomainListResponse' smart constructor.

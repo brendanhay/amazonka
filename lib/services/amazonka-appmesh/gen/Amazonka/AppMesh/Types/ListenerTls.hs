@@ -24,6 +24,7 @@ import Amazonka.AppMesh.Types.ListenerTlsMode
 import Amazonka.AppMesh.Types.ListenerTlsValidationContext
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the Transport Layer Security (TLS) properties
@@ -105,15 +106,15 @@ listenerTls_certificate = Lens.lens (\ListenerTls' {certificate} -> certificate)
 listenerTls_mode :: Lens.Lens' ListenerTls ListenerTlsMode
 listenerTls_mode = Lens.lens (\ListenerTls' {mode} -> mode) (\s@ListenerTls' {} a -> s {mode = a} :: ListenerTls)
 
-instance Core.FromJSON ListenerTls where
+instance Data.FromJSON ListenerTls where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListenerTls"
       ( \x ->
           ListenerTls'
-            Prelude.<$> (x Core..:? "validation")
-            Prelude.<*> (x Core..: "certificate")
-            Prelude.<*> (x Core..: "mode")
+            Prelude.<$> (x Data..:? "validation")
+            Prelude.<*> (x Data..: "certificate")
+            Prelude.<*> (x Data..: "mode")
       )
 
 instance Prelude.Hashable ListenerTls where
@@ -128,12 +129,12 @@ instance Prelude.NFData ListenerTls where
       `Prelude.seq` Prelude.rnf certificate
       `Prelude.seq` Prelude.rnf mode
 
-instance Core.ToJSON ListenerTls where
+instance Data.ToJSON ListenerTls where
   toJSON ListenerTls' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("validation" Core..=) Prelude.<$> validation,
-            Prelude.Just ("certificate" Core..= certificate),
-            Prelude.Just ("mode" Core..= mode)
+          [ ("validation" Data..=) Prelude.<$> validation,
+            Prelude.Just ("certificate" Data..= certificate),
+            Prelude.Just ("mode" Data..= mode)
           ]
       )

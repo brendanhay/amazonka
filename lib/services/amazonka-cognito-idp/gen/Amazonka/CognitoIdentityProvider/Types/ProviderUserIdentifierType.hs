@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.ProviderUserIdentifierType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A container for information about an IdP for a user pool.
@@ -86,14 +87,14 @@ instance Prelude.NFData ProviderUserIdentifierType where
       `Prelude.seq` Prelude.rnf providerAttributeName
       `Prelude.seq` Prelude.rnf providerAttributeValue
 
-instance Core.ToJSON ProviderUserIdentifierType where
+instance Data.ToJSON ProviderUserIdentifierType where
   toJSON ProviderUserIdentifierType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProviderName" Core..=) Prelude.<$> providerName,
-            ("ProviderAttributeName" Core..=)
+          [ ("ProviderName" Data..=) Prelude.<$> providerName,
+            ("ProviderAttributeName" Data..=)
               Prelude.<$> providerAttributeName,
-            ("ProviderAttributeValue" Core..=)
+            ("ProviderAttributeValue" Data..=)
               Prelude.<$> providerAttributeValue
           ]
       )

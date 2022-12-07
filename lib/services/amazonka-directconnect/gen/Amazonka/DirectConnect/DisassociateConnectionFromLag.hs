@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,7 +134,7 @@ instance
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance
   Prelude.Hashable
@@ -148,32 +149,32 @@ instance Prelude.NFData DisassociateConnectionFromLag where
     Prelude.rnf connectionId
       `Prelude.seq` Prelude.rnf lagId
 
-instance Core.ToHeaders DisassociateConnectionFromLag where
+instance Data.ToHeaders DisassociateConnectionFromLag where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DisassociateConnectionFromLag" ::
+              Data.=# ( "OvertureService.DisassociateConnectionFromLag" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateConnectionFromLag where
+instance Data.ToJSON DisassociateConnectionFromLag where
   toJSON DisassociateConnectionFromLag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("connectionId" Core..= connectionId),
-            Prelude.Just ("lagId" Core..= lagId)
+          [ Prelude.Just ("connectionId" Data..= connectionId),
+            Prelude.Just ("lagId" Data..= lagId)
           ]
       )
 
-instance Core.ToPath DisassociateConnectionFromLag where
+instance Data.ToPath DisassociateConnectionFromLag where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateConnectionFromLag where
+instance Data.ToQuery DisassociateConnectionFromLag where
   toQuery = Prelude.const Prelude.mempty

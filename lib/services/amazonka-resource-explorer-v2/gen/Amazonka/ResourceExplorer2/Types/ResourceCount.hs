@@ -21,6 +21,7 @@ module Amazonka.ResourceExplorer2.Types.ResourceCount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the number of results that match the query. At this
@@ -99,14 +100,14 @@ resourceCount_complete = Lens.lens (\ResourceCount' {complete} -> complete) (\s@
 resourceCount_totalResources :: Lens.Lens' ResourceCount (Prelude.Maybe Prelude.Integer)
 resourceCount_totalResources = Lens.lens (\ResourceCount' {totalResources} -> totalResources) (\s@ResourceCount' {} a -> s {totalResources = a} :: ResourceCount)
 
-instance Core.FromJSON ResourceCount where
+instance Data.FromJSON ResourceCount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceCount"
       ( \x ->
           ResourceCount'
-            Prelude.<$> (x Core..:? "Complete")
-            Prelude.<*> (x Core..:? "TotalResources")
+            Prelude.<$> (x Data..:? "Complete")
+            Prelude.<*> (x Data..:? "TotalResources")
       )
 
 instance Prelude.Hashable ResourceCount where

@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.CurrentRevision where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about a current revision.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data CurrentRevision = CurrentRevision'
   { -- | The date and time when the most recent revision of the artifact was
     -- created, in timestamp format.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The summary of the most recent revision of the artifact.
     revisionSummary :: Prelude.Maybe Prelude.Text,
     -- | The revision ID of the current version of an artifact.
@@ -72,7 +73,7 @@ newCurrentRevision pRevision_ pChangeIdentifier_ =
 -- | The date and time when the most recent revision of the artifact was
 -- created, in timestamp format.
 currentRevision_created :: Lens.Lens' CurrentRevision (Prelude.Maybe Prelude.UTCTime)
-currentRevision_created = Lens.lens (\CurrentRevision' {created} -> created) (\s@CurrentRevision' {} a -> s {created = a} :: CurrentRevision) Prelude.. Lens.mapping Core._Time
+currentRevision_created = Lens.lens (\CurrentRevision' {created} -> created) (\s@CurrentRevision' {} a -> s {created = a} :: CurrentRevision) Prelude.. Lens.mapping Data._Time
 
 -- | The summary of the most recent revision of the artifact.
 currentRevision_revisionSummary :: Lens.Lens' CurrentRevision (Prelude.Maybe Prelude.Text)
@@ -100,15 +101,15 @@ instance Prelude.NFData CurrentRevision where
       `Prelude.seq` Prelude.rnf revision
       `Prelude.seq` Prelude.rnf changeIdentifier
 
-instance Core.ToJSON CurrentRevision where
+instance Data.ToJSON CurrentRevision where
   toJSON CurrentRevision' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("created" Core..=) Prelude.<$> created,
-            ("revisionSummary" Core..=)
+          [ ("created" Data..=) Prelude.<$> created,
+            ("revisionSummary" Data..=)
               Prelude.<$> revisionSummary,
-            Prelude.Just ("revision" Core..= revision),
+            Prelude.Just ("revision" Data..= revision),
             Prelude.Just
-              ("changeIdentifier" Core..= changeIdentifier)
+              ("changeIdentifier" Data..= changeIdentifier)
           ]
       )

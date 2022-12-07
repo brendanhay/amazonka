@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -171,7 +172,7 @@ instance Core.AWSRequest CreateDBClusterEndpoint where
   response =
     Response.receiveXMLWrapper
       "CreateDBClusterEndpointResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable CreateDBClusterEndpoint where
   hashWithSalt _salt CreateDBClusterEndpoint' {..} =
@@ -191,34 +192,34 @@ instance Prelude.NFData CreateDBClusterEndpoint where
       `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
       `Prelude.seq` Prelude.rnf endpointType
 
-instance Core.ToHeaders CreateDBClusterEndpoint where
+instance Data.ToHeaders CreateDBClusterEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDBClusterEndpoint where
+instance Data.ToPath CreateDBClusterEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDBClusterEndpoint where
+instance Data.ToQuery CreateDBClusterEndpoint where
   toQuery CreateDBClusterEndpoint' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDBClusterEndpoint" :: Prelude.ByteString),
+          Data.=: ("CreateDBClusterEndpoint" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
         "StaticMembers"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> staticMembers
             ),
         "ExcludedMembers"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> excludedMembers
             ),
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier,
         "DBClusterEndpointIdentifier"
-          Core.=: dbClusterEndpointIdentifier,
-        "EndpointType" Core.=: endpointType
+          Data.=: dbClusterEndpointIdentifier,
+        "EndpointType" Data.=: endpointType
       ]

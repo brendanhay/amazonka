@@ -22,6 +22,7 @@ module Amazonka.ComprehendMedical.Types.SNOMEDCTTrait where
 import Amazonka.ComprehendMedical.Types.SNOMEDCTTraitName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contextual information for an entity.
@@ -65,13 +66,13 @@ sNOMEDCTTrait_name = Lens.lens (\SNOMEDCTTrait' {name} -> name) (\s@SNOMEDCTTrai
 sNOMEDCTTrait_score :: Lens.Lens' SNOMEDCTTrait (Prelude.Maybe Prelude.Double)
 sNOMEDCTTrait_score = Lens.lens (\SNOMEDCTTrait' {score} -> score) (\s@SNOMEDCTTrait' {} a -> s {score = a} :: SNOMEDCTTrait)
 
-instance Core.FromJSON SNOMEDCTTrait where
+instance Data.FromJSON SNOMEDCTTrait where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SNOMEDCTTrait"
       ( \x ->
           SNOMEDCTTrait'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Score")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Score")
       )
 
 instance Prelude.Hashable SNOMEDCTTrait where

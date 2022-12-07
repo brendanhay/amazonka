@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.DetectorModel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.DetectorModelConfiguration
 import Amazonka.IoTEvents.Types.DetectorModelDefinition
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ detectorModel_detectorModelDefinition = Lens.lens (\DetectorModel' {detectorMode
 detectorModel_detectorModelConfiguration :: Lens.Lens' DetectorModel (Prelude.Maybe DetectorModelConfiguration)
 detectorModel_detectorModelConfiguration = Lens.lens (\DetectorModel' {detectorModelConfiguration} -> detectorModelConfiguration) (\s@DetectorModel' {} a -> s {detectorModelConfiguration = a} :: DetectorModel)
 
-instance Core.FromJSON DetectorModel where
+instance Data.FromJSON DetectorModel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectorModel"
       ( \x ->
           DetectorModel'
-            Prelude.<$> (x Core..:? "detectorModelDefinition")
-            Prelude.<*> (x Core..:? "detectorModelConfiguration")
+            Prelude.<$> (x Data..:? "detectorModelDefinition")
+            Prelude.<*> (x Data..:? "detectorModelConfiguration")
       )
 
 instance Prelude.Hashable DetectorModel where

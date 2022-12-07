@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SlotValueRegexFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a regular expression used to validate the value of a slot.
@@ -106,13 +107,13 @@ newSlotValueRegexFilter pPattern_ =
 slotValueRegexFilter_pattern :: Lens.Lens' SlotValueRegexFilter Prelude.Text
 slotValueRegexFilter_pattern = Lens.lens (\SlotValueRegexFilter' {pattern'} -> pattern') (\s@SlotValueRegexFilter' {} a -> s {pattern' = a} :: SlotValueRegexFilter)
 
-instance Core.FromJSON SlotValueRegexFilter where
+instance Data.FromJSON SlotValueRegexFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlotValueRegexFilter"
       ( \x ->
           SlotValueRegexFilter'
-            Prelude.<$> (x Core..: "pattern")
+            Prelude.<$> (x Data..: "pattern")
       )
 
 instance Prelude.Hashable SlotValueRegexFilter where
@@ -122,9 +123,9 @@ instance Prelude.Hashable SlotValueRegexFilter where
 instance Prelude.NFData SlotValueRegexFilter where
   rnf SlotValueRegexFilter' {..} = Prelude.rnf pattern'
 
-instance Core.ToJSON SlotValueRegexFilter where
+instance Data.ToJSON SlotValueRegexFilter where
   toJSON SlotValueRegexFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("pattern" Core..= pattern')]
+          [Prelude.Just ("pattern" Data..= pattern')]
       )

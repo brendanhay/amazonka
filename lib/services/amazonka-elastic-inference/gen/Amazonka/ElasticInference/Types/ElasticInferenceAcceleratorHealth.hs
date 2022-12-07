@@ -21,6 +21,7 @@ module Amazonka.ElasticInference.Types.ElasticInferenceAcceleratorHealth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The health details of an Elastic Inference Accelerator.
@@ -54,15 +55,15 @@ elasticInferenceAcceleratorHealth_status :: Lens.Lens' ElasticInferenceAccelerat
 elasticInferenceAcceleratorHealth_status = Lens.lens (\ElasticInferenceAcceleratorHealth' {status} -> status) (\s@ElasticInferenceAcceleratorHealth' {} a -> s {status = a} :: ElasticInferenceAcceleratorHealth)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ElasticInferenceAcceleratorHealth
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ElasticInferenceAcceleratorHealth"
       ( \x ->
           ElasticInferenceAcceleratorHealth'
-            Prelude.<$> (x Core..:? "status")
+            Prelude.<$> (x Data..:? "status")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.AppConfig.Types.HostedConfigurationVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newHostedConfigurationVersion' smart constructor.
@@ -32,7 +33,7 @@ data HostedConfigurationVersion = HostedConfigurationVersion'
     -- | The application ID.
     applicationId :: Prelude.Maybe Prelude.Text,
     -- | The content of the configuration or the configuration data.
-    content :: Prelude.Maybe (Core.Sensitive Prelude.ByteString),
+    content :: Prelude.Maybe (Data.Sensitive Prelude.ByteString),
     -- | The configuration profile ID.
     configurationProfileId :: Prelude.Maybe Prelude.Text,
     -- | A standard MIME type describing the format of the configuration content.
@@ -90,7 +91,7 @@ hostedConfigurationVersion_applicationId = Lens.lens (\HostedConfigurationVersio
 
 -- | The content of the configuration or the configuration data.
 hostedConfigurationVersion_content :: Lens.Lens' HostedConfigurationVersion (Prelude.Maybe Prelude.ByteString)
-hostedConfigurationVersion_content = Lens.lens (\HostedConfigurationVersion' {content} -> content) (\s@HostedConfigurationVersion' {} a -> s {content = a} :: HostedConfigurationVersion) Prelude.. Lens.mapping Core._Sensitive
+hostedConfigurationVersion_content = Lens.lens (\HostedConfigurationVersion' {content} -> content) (\s@HostedConfigurationVersion' {} a -> s {content = a} :: HostedConfigurationVersion) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The configuration profile ID.
 hostedConfigurationVersion_configurationProfileId :: Lens.Lens' HostedConfigurationVersion (Prelude.Maybe Prelude.Text)

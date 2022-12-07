@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -78,7 +79,7 @@ data CreateWorkflow = CreateWorkflow'
     -- Discovery Service.
     applicationConfigurationId :: Prelude.Text,
     -- | The input parameters required to create a migration workflow.
-    inputParameters :: Core.Sensitive (Prelude.HashMap Prelude.Text StepInput)
+    inputParameters :: Data.Sensitive (Prelude.HashMap Prelude.Text StepInput)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -154,7 +155,7 @@ createWorkflow_applicationConfigurationId = Lens.lens (\CreateWorkflow' {applica
 
 -- | The input parameters required to create a migration workflow.
 createWorkflow_inputParameters :: Lens.Lens' CreateWorkflow (Prelude.HashMap Prelude.Text StepInput)
-createWorkflow_inputParameters = Lens.lens (\CreateWorkflow' {inputParameters} -> inputParameters) (\s@CreateWorkflow' {} a -> s {inputParameters = a} :: CreateWorkflow) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+createWorkflow_inputParameters = Lens.lens (\CreateWorkflow' {inputParameters} -> inputParameters) (\s@CreateWorkflow' {} a -> s {inputParameters = a} :: CreateWorkflow) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateWorkflow where
   type
@@ -166,17 +167,17 @@ instance Core.AWSRequest CreateWorkflow where
     Response.receiveJSON
       ( \s h x ->
           CreateWorkflowResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "stepTargets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "adsApplicationConfigurationId")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "templateId")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "workflowInputs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "stepTargets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "adsApplicationConfigurationId")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "templateId")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "workflowInputs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,39 +201,39 @@ instance Prelude.NFData CreateWorkflow where
       `Prelude.seq` Prelude.rnf applicationConfigurationId
       `Prelude.seq` Prelude.rnf inputParameters
 
-instance Core.ToHeaders CreateWorkflow where
+instance Data.ToHeaders CreateWorkflow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkflow where
+instance Data.ToJSON CreateWorkflow where
   toJSON CreateWorkflow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("stepTargets" Core..=) Prelude.<$> stepTargets,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("templateId" Core..= templateId),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("stepTargets" Data..=) Prelude.<$> stepTargets,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("templateId" Data..= templateId),
             Prelude.Just
               ( "applicationConfigurationId"
-                  Core..= applicationConfigurationId
+                  Data..= applicationConfigurationId
               ),
             Prelude.Just
-              ("inputParameters" Core..= inputParameters)
+              ("inputParameters" Data..= inputParameters)
           ]
       )
 
-instance Core.ToPath CreateWorkflow where
+instance Data.ToPath CreateWorkflow where
   toPath = Prelude.const "/migrationworkflow/"
 
-instance Core.ToQuery CreateWorkflow where
+instance Data.ToQuery CreateWorkflow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorkflowResponse' smart constructor.
@@ -257,9 +258,9 @@ data CreateWorkflowResponse = CreateWorkflowResponse'
     -- | The ID of the migration workflow.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time at which the migration workflow was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The inputs for creating a migration workflow.
-    workflowInputs :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text StepInput)),
+    workflowInputs :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text StepInput)),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -356,11 +357,11 @@ createWorkflowResponse_id = Lens.lens (\CreateWorkflowResponse' {id} -> id) (\s@
 
 -- | The time at which the migration workflow was created.
 createWorkflowResponse_creationTime :: Lens.Lens' CreateWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
-createWorkflowResponse_creationTime = Lens.lens (\CreateWorkflowResponse' {creationTime} -> creationTime) (\s@CreateWorkflowResponse' {} a -> s {creationTime = a} :: CreateWorkflowResponse) Prelude.. Lens.mapping Core._Time
+createWorkflowResponse_creationTime = Lens.lens (\CreateWorkflowResponse' {creationTime} -> creationTime) (\s@CreateWorkflowResponse' {} a -> s {creationTime = a} :: CreateWorkflowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The inputs for creating a migration workflow.
 createWorkflowResponse_workflowInputs :: Lens.Lens' CreateWorkflowResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text StepInput))
-createWorkflowResponse_workflowInputs = Lens.lens (\CreateWorkflowResponse' {workflowInputs} -> workflowInputs) (\s@CreateWorkflowResponse' {} a -> s {workflowInputs = a} :: CreateWorkflowResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createWorkflowResponse_workflowInputs = Lens.lens (\CreateWorkflowResponse' {workflowInputs} -> workflowInputs) (\s@CreateWorkflowResponse' {} a -> s {workflowInputs = a} :: CreateWorkflowResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The response's http status code.
 createWorkflowResponse_httpStatus :: Lens.Lens' CreateWorkflowResponse Prelude.Int

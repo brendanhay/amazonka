@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.DashAdditionalManifest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the details for each additional DASH manifest that you want the
@@ -82,16 +83,16 @@ dashAdditionalManifest_selectedOutputs = Lens.lens (\DashAdditionalManifest' {se
 dashAdditionalManifest_manifestNameModifier :: Lens.Lens' DashAdditionalManifest (Prelude.Maybe Prelude.Text)
 dashAdditionalManifest_manifestNameModifier = Lens.lens (\DashAdditionalManifest' {manifestNameModifier} -> manifestNameModifier) (\s@DashAdditionalManifest' {} a -> s {manifestNameModifier = a} :: DashAdditionalManifest)
 
-instance Core.FromJSON DashAdditionalManifest where
+instance Data.FromJSON DashAdditionalManifest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DashAdditionalManifest"
       ( \x ->
           DashAdditionalManifest'
-            Prelude.<$> ( x Core..:? "selectedOutputs"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "selectedOutputs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "manifestNameModifier")
+            Prelude.<*> (x Data..:? "manifestNameModifier")
       )
 
 instance Prelude.Hashable DashAdditionalManifest where
@@ -104,13 +105,13 @@ instance Prelude.NFData DashAdditionalManifest where
     Prelude.rnf selectedOutputs
       `Prelude.seq` Prelude.rnf manifestNameModifier
 
-instance Core.ToJSON DashAdditionalManifest where
+instance Data.ToJSON DashAdditionalManifest where
   toJSON DashAdditionalManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("selectedOutputs" Core..=)
+          [ ("selectedOutputs" Data..=)
               Prelude.<$> selectedOutputs,
-            ("manifestNameModifier" Core..=)
+            ("manifestNameModifier" Data..=)
               Prelude.<$> manifestNameModifier
           ]
       )

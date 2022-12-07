@@ -22,6 +22,7 @@ module Amazonka.Config.Types.AggregateResourceIdentifier where
 import Amazonka.Config.Types.ResourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details that identify a resource that is collected by Config
@@ -104,17 +105,17 @@ aggregateResourceIdentifier_resourceId = Lens.lens (\AggregateResourceIdentifier
 aggregateResourceIdentifier_resourceType :: Lens.Lens' AggregateResourceIdentifier ResourceType
 aggregateResourceIdentifier_resourceType = Lens.lens (\AggregateResourceIdentifier' {resourceType} -> resourceType) (\s@AggregateResourceIdentifier' {} a -> s {resourceType = a} :: AggregateResourceIdentifier)
 
-instance Core.FromJSON AggregateResourceIdentifier where
+instance Data.FromJSON AggregateResourceIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregateResourceIdentifier"
       ( \x ->
           AggregateResourceIdentifier'
-            Prelude.<$> (x Core..:? "ResourceName")
-            Prelude.<*> (x Core..: "SourceAccountId")
-            Prelude.<*> (x Core..: "SourceRegion")
-            Prelude.<*> (x Core..: "ResourceId")
-            Prelude.<*> (x Core..: "ResourceType")
+            Prelude.<$> (x Data..:? "ResourceName")
+            Prelude.<*> (x Data..: "SourceAccountId")
+            Prelude.<*> (x Data..: "SourceRegion")
+            Prelude.<*> (x Data..: "ResourceId")
+            Prelude.<*> (x Data..: "ResourceType")
       )
 
 instance Prelude.Hashable AggregateResourceIdentifier where
@@ -133,15 +134,15 @@ instance Prelude.NFData AggregateResourceIdentifier where
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToJSON AggregateResourceIdentifier where
+instance Data.ToJSON AggregateResourceIdentifier where
   toJSON AggregateResourceIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceName" Core..=) Prelude.<$> resourceName,
+          [ ("ResourceName" Data..=) Prelude.<$> resourceName,
             Prelude.Just
-              ("SourceAccountId" Core..= sourceAccountId),
-            Prelude.Just ("SourceRegion" Core..= sourceRegion),
-            Prelude.Just ("ResourceId" Core..= resourceId),
-            Prelude.Just ("ResourceType" Core..= resourceType)
+              ("SourceAccountId" Data..= sourceAccountId),
+            Prelude.Just ("SourceRegion" Data..= sourceRegion),
+            Prelude.Just ("ResourceId" Data..= resourceId),
+            Prelude.Just ("ResourceType" Data..= resourceType)
           ]
       )

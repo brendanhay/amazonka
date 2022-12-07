@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DocumentDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     --     @copy-on-write@.
     --
     -- Example: @2015-03-07T23:45:00Z@
-    restoreToTime :: Prelude.Maybe Core.ISO8601,
+    restoreToTime :: Prelude.Maybe Data.ISO8601,
     -- | A value that is set to @true@ to restore the cluster to the latest
     -- restorable backup time, and @false@ otherwise.
     --
@@ -377,7 +378,7 @@ restoreDBClusterToPointInTime_enableCloudwatchLogsExports = Lens.lens (\RestoreD
 --
 -- Example: @2015-03-07T23:45:00Z@
 restoreDBClusterToPointInTime_restoreToTime :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.UTCTime)
-restoreDBClusterToPointInTime_restoreToTime = Lens.lens (\RestoreDBClusterToPointInTime' {restoreToTime} -> restoreToTime) (\s@RestoreDBClusterToPointInTime' {} a -> s {restoreToTime = a} :: RestoreDBClusterToPointInTime) Prelude.. Lens.mapping Core._Time
+restoreDBClusterToPointInTime_restoreToTime = Lens.lens (\RestoreDBClusterToPointInTime' {restoreToTime} -> restoreToTime) (\s@RestoreDBClusterToPointInTime' {} a -> s {restoreToTime = a} :: RestoreDBClusterToPointInTime) Prelude.. Lens.mapping Data._Time
 
 -- | A value that is set to @true@ to restore the cluster to the latest
 -- restorable backup time, and @false@ otherwise.
@@ -458,7 +459,7 @@ instance
       "RestoreDBClusterToPointInTimeResult"
       ( \s h x ->
           RestoreDBClusterToPointInTimeResponse'
-            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<$> (x Data..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -495,45 +496,45 @@ instance Prelude.NFData RestoreDBClusterToPointInTime where
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
       `Prelude.seq` Prelude.rnf sourceDBClusterIdentifier
 
-instance Core.ToHeaders RestoreDBClusterToPointInTime where
+instance Data.ToHeaders RestoreDBClusterToPointInTime where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RestoreDBClusterToPointInTime where
+instance Data.ToPath RestoreDBClusterToPointInTime where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreDBClusterToPointInTime where
+instance Data.ToQuery RestoreDBClusterToPointInTime where
   toQuery RestoreDBClusterToPointInTime' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "RestoreDBClusterToPointInTime" ::
+          Data.=: ( "RestoreDBClusterToPointInTime" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "Port" Core.=: port,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "Port" Data.=: port,
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
-        "RestoreType" Core.=: restoreType,
+        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
+        "RestoreType" Data.=: restoreType,
         "EnableCloudwatchLogsExports"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> enableCloudwatchLogsExports
             ),
-        "RestoreToTime" Core.=: restoreToTime,
+        "RestoreToTime" Data.=: restoreToTime,
         "UseLatestRestorableTime"
-          Core.=: useLatestRestorableTime,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "DeletionProtection" Core.=: deletionProtection,
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier,
+          Data.=: useLatestRestorableTime,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "DeletionProtection" Data.=: deletionProtection,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier,
         "SourceDBClusterIdentifier"
-          Core.=: sourceDBClusterIdentifier
+          Data.=: sourceDBClusterIdentifier
       ]
 
 -- | /See:/ 'newRestoreDBClusterToPointInTimeResponse' smart constructor.

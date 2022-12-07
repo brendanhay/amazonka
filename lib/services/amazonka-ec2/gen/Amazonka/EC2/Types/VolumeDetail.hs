@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VolumeDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -59,6 +60,6 @@ instance Prelude.Hashable VolumeDetail where
 instance Prelude.NFData VolumeDetail where
   rnf VolumeDetail' {..} = Prelude.rnf size
 
-instance Core.ToQuery VolumeDetail where
+instance Data.ToQuery VolumeDetail where
   toQuery VolumeDetail' {..} =
-    Prelude.mconcat ["Size" Core.=: size]
+    Prelude.mconcat ["Size" Data.=: size]

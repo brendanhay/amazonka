@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.CloudWatchLoggingOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a description of Amazon CloudWatch logging options, including
@@ -64,9 +65,9 @@ instance Prelude.NFData CloudWatchLoggingOption where
   rnf CloudWatchLoggingOption' {..} =
     Prelude.rnf logStreamARN
 
-instance Core.ToJSON CloudWatchLoggingOption where
+instance Data.ToJSON CloudWatchLoggingOption where
   toJSON CloudWatchLoggingOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LogStreamARN" Core..= logStreamARN)]
+          [Prelude.Just ("LogStreamARN" Data..= logStreamARN)]
       )

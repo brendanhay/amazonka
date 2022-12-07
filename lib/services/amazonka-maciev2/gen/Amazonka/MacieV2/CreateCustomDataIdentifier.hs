@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -306,7 +307,7 @@ instance Core.AWSRequest CreateCustomDataIdentifier where
     Response.receiveJSON
       ( \s h x ->
           CreateCustomDataIdentifierResponse'
-            Prelude.<$> (x Core..?> "customDataIdentifierId")
+            Prelude.<$> (x Data..?> "customDataIdentifierId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -334,39 +335,39 @@ instance Prelude.NFData CreateCustomDataIdentifier where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf regex
 
-instance Core.ToHeaders CreateCustomDataIdentifier where
+instance Data.ToHeaders CreateCustomDataIdentifier where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCustomDataIdentifier where
+instance Data.ToJSON CreateCustomDataIdentifier where
   toJSON CreateCustomDataIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("ignoreWords" Core..=) Prelude.<$> ignoreWords,
-            ("keywords" Core..=) Prelude.<$> keywords,
-            ("description" Core..=) Prelude.<$> description,
-            ("severityLevels" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("ignoreWords" Data..=) Prelude.<$> ignoreWords,
+            ("keywords" Data..=) Prelude.<$> keywords,
+            ("description" Data..=) Prelude.<$> description,
+            ("severityLevels" Data..=)
               Prelude.<$> severityLevels,
-            ("maximumMatchDistance" Core..=)
+            ("maximumMatchDistance" Data..=)
               Prelude.<$> maximumMatchDistance,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("regex" Core..= regex)
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("regex" Data..= regex)
           ]
       )
 
-instance Core.ToPath CreateCustomDataIdentifier where
+instance Data.ToPath CreateCustomDataIdentifier where
   toPath = Prelude.const "/custom-data-identifiers"
 
-instance Core.ToQuery CreateCustomDataIdentifier where
+instance Data.ToQuery CreateCustomDataIdentifier where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCustomDataIdentifierResponse' smart constructor.

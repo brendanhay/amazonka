@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.ComputeType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.Compute
 
@@ -50,11 +51,11 @@ newComputeType = ComputeType' {name = Prelude.Nothing}
 computeType_name :: Lens.Lens' ComputeType (Prelude.Maybe Compute)
 computeType_name = Lens.lens (\ComputeType' {name} -> name) (\s@ComputeType' {} a -> s {name = a} :: ComputeType)
 
-instance Core.FromJSON ComputeType where
+instance Data.FromJSON ComputeType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComputeType"
-      (\x -> ComputeType' Prelude.<$> (x Core..:? "Name"))
+      (\x -> ComputeType' Prelude.<$> (x Data..:? "Name"))
 
 instance Prelude.Hashable ComputeType where
   hashWithSalt _salt ComputeType' {..} =
@@ -63,9 +64,9 @@ instance Prelude.Hashable ComputeType where
 instance Prelude.NFData ComputeType where
   rnf ComputeType' {..} = Prelude.rnf name
 
-instance Core.ToJSON ComputeType where
+instance Data.ToJSON ComputeType where
   toJSON ComputeType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Name" Core..=) Prelude.<$> name]
+          [("Name" Data..=) Prelude.<$> name]
       )

@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.RateBasedStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.ForwardedIPConfig
 import Amazonka.WAFV2.Types.RateBasedStatementAggregateKeyType
@@ -196,16 +197,16 @@ rateBasedStatement_limit = Lens.lens (\RateBasedStatement' {limit} -> limit) (\s
 rateBasedStatement_aggregateKeyType :: Lens.Lens' RateBasedStatement RateBasedStatementAggregateKeyType
 rateBasedStatement_aggregateKeyType = Lens.lens (\RateBasedStatement' {aggregateKeyType} -> aggregateKeyType) (\s@RateBasedStatement' {} a -> s {aggregateKeyType = a} :: RateBasedStatement)
 
-instance Core.FromJSON RateBasedStatement where
+instance Data.FromJSON RateBasedStatement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RateBasedStatement"
       ( \x ->
           RateBasedStatement'
-            Prelude.<$> (x Core..:? "ScopeDownStatement")
-            Prelude.<*> (x Core..:? "ForwardedIPConfig")
-            Prelude.<*> (x Core..: "Limit")
-            Prelude.<*> (x Core..: "AggregateKeyType")
+            Prelude.<$> (x Data..:? "ScopeDownStatement")
+            Prelude.<*> (x Data..:? "ForwardedIPConfig")
+            Prelude.<*> (x Data..: "Limit")
+            Prelude.<*> (x Data..: "AggregateKeyType")
       )
 
 instance Prelude.Hashable RateBasedStatement where
@@ -222,16 +223,16 @@ instance Prelude.NFData RateBasedStatement where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf aggregateKeyType
 
-instance Core.ToJSON RateBasedStatement where
+instance Data.ToJSON RateBasedStatement where
   toJSON RateBasedStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ScopeDownStatement" Core..=)
+          [ ("ScopeDownStatement" Data..=)
               Prelude.<$> scopeDownStatement,
-            ("ForwardedIPConfig" Core..=)
+            ("ForwardedIPConfig" Data..=)
               Prelude.<$> forwardedIPConfig,
-            Prelude.Just ("Limit" Core..= limit),
+            Prelude.Just ("Limit" Data..= limit),
             Prelude.Just
-              ("AggregateKeyType" Core..= aggregateKeyType)
+              ("AggregateKeyType" Data..= aggregateKeyType)
           ]
       )

@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -79,25 +80,25 @@ instance Prelude.Hashable DeleteAccountAlias where
 instance Prelude.NFData DeleteAccountAlias where
   rnf _ = ()
 
-instance Core.ToHeaders DeleteAccountAlias where
+instance Data.ToHeaders DeleteAccountAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAccountAlias where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DeleteAccountAlias where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DeleteAccountAlias where
+instance Data.ToPath DeleteAccountAlias where
   toPath =
     Prelude.const "/control/delete-account-alias"
 
-instance Core.ToQuery DeleteAccountAlias where
+instance Data.ToQuery DeleteAccountAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAccountAliasResponse' smart constructor.

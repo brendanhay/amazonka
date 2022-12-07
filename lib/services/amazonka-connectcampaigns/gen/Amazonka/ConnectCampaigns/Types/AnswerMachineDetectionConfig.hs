@@ -21,6 +21,7 @@ module Amazonka.ConnectCampaigns.Types.AnswerMachineDetectionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Answering Machine Detection config
@@ -56,13 +57,13 @@ newAnswerMachineDetectionConfig
 answerMachineDetectionConfig_enableAnswerMachineDetection :: Lens.Lens' AnswerMachineDetectionConfig Prelude.Bool
 answerMachineDetectionConfig_enableAnswerMachineDetection = Lens.lens (\AnswerMachineDetectionConfig' {enableAnswerMachineDetection} -> enableAnswerMachineDetection) (\s@AnswerMachineDetectionConfig' {} a -> s {enableAnswerMachineDetection = a} :: AnswerMachineDetectionConfig)
 
-instance Core.FromJSON AnswerMachineDetectionConfig where
+instance Data.FromJSON AnswerMachineDetectionConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnswerMachineDetectionConfig"
       ( \x ->
           AnswerMachineDetectionConfig'
-            Prelude.<$> (x Core..: "enableAnswerMachineDetection")
+            Prelude.<$> (x Data..: "enableAnswerMachineDetection")
       )
 
 instance
@@ -77,13 +78,13 @@ instance Prelude.NFData AnswerMachineDetectionConfig where
   rnf AnswerMachineDetectionConfig' {..} =
     Prelude.rnf enableAnswerMachineDetection
 
-instance Core.ToJSON AnswerMachineDetectionConfig where
+instance Data.ToJSON AnswerMachineDetectionConfig where
   toJSON AnswerMachineDetectionConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "enableAnswerMachineDetection"
-                  Core..= enableAnswerMachineDetection
+                  Data..= enableAnswerMachineDetection
               )
           ]
       )

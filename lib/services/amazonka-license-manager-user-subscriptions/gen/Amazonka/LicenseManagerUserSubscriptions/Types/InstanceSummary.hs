@@ -21,6 +21,7 @@ module Amazonka.LicenseManagerUserSubscriptions.Types.InstanceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an EC2 instance providing user-based subscriptions.
@@ -93,17 +94,17 @@ instanceSummary_products = Lens.lens (\InstanceSummary' {products} -> products) 
 instanceSummary_status :: Lens.Lens' InstanceSummary Prelude.Text
 instanceSummary_status = Lens.lens (\InstanceSummary' {status} -> status) (\s@InstanceSummary' {} a -> s {status = a} :: InstanceSummary)
 
-instance Core.FromJSON InstanceSummary where
+instance Data.FromJSON InstanceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceSummary"
       ( \x ->
           InstanceSummary'
-            Prelude.<$> (x Core..:? "LastStatusCheckDate")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..: "InstanceId")
-            Prelude.<*> (x Core..:? "Products" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..:? "LastStatusCheckDate")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..: "InstanceId")
+            Prelude.<*> (x Data..:? "Products" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable InstanceSummary where

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Country where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a country.
@@ -61,14 +62,14 @@ country_countryName = Lens.lens (\Country' {countryName} -> countryName) (\s@Cou
 country_countryCode :: Lens.Lens' Country (Prelude.Maybe Prelude.Text)
 country_countryCode = Lens.lens (\Country' {countryCode} -> countryCode) (\s@Country' {} a -> s {countryCode = a} :: Country)
 
-instance Core.FromJSON Country where
+instance Data.FromJSON Country where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Country"
       ( \x ->
           Country'
-            Prelude.<$> (x Core..:? "CountryName")
-            Prelude.<*> (x Core..:? "CountryCode")
+            Prelude.<$> (x Data..:? "CountryName")
+            Prelude.<*> (x Data..:? "CountryCode")
       )
 
 instance Prelude.Hashable Country where
@@ -81,11 +82,11 @@ instance Prelude.NFData Country where
     Prelude.rnf countryName
       `Prelude.seq` Prelude.rnf countryCode
 
-instance Core.ToJSON Country where
+instance Data.ToJSON Country where
   toJSON Country' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CountryName" Core..=) Prelude.<$> countryName,
-            ("CountryCode" Core..=) Prelude.<$> countryCode
+          [ ("CountryName" Data..=) Prelude.<$> countryName,
+            ("CountryCode" Data..=) Prelude.<$> countryCode
           ]
       )

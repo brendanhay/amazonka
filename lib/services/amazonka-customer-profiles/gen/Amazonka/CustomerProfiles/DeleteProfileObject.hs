@@ -46,6 +46,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,7 +127,7 @@ instance Core.AWSRequest DeleteProfileObject where
     Response.receiveJSON
       ( \s h x ->
           DeleteProfileObjectResponse'
-            Prelude.<$> (x Core..?> "Message")
+            Prelude.<$> (x Data..?> "Message")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,40 +145,40 @@ instance Prelude.NFData DeleteProfileObject where
       `Prelude.seq` Prelude.rnf objectTypeName
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders DeleteProfileObject where
+instance Data.ToHeaders DeleteProfileObject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteProfileObject where
+instance Data.ToJSON DeleteProfileObject where
   toJSON DeleteProfileObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ProfileId" Core..= profileId),
+          [ Prelude.Just ("ProfileId" Data..= profileId),
             Prelude.Just
               ( "ProfileObjectUniqueKey"
-                  Core..= profileObjectUniqueKey
+                  Data..= profileObjectUniqueKey
               ),
             Prelude.Just
-              ("ObjectTypeName" Core..= objectTypeName)
+              ("ObjectTypeName" Data..= objectTypeName)
           ]
       )
 
-instance Core.ToPath DeleteProfileObject where
+instance Data.ToPath DeleteProfileObject where
   toPath DeleteProfileObject' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/profiles/objects/delete"
       ]
 
-instance Core.ToQuery DeleteProfileObject where
+instance Data.ToQuery DeleteProfileObject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProfileObjectResponse' smart constructor.

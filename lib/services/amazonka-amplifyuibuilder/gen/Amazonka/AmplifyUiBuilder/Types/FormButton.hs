@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.FormButton where
 import Amazonka.AmplifyUiBuilder.Types.FieldPosition
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration for a button UI element that is a part of a
@@ -72,15 +73,15 @@ formButton_position = Lens.lens (\FormButton' {position} -> position) (\s@FormBu
 formButton_excluded :: Lens.Lens' FormButton (Prelude.Maybe Prelude.Bool)
 formButton_excluded = Lens.lens (\FormButton' {excluded} -> excluded) (\s@FormButton' {} a -> s {excluded = a} :: FormButton)
 
-instance Core.FromJSON FormButton where
+instance Data.FromJSON FormButton where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FormButton"
       ( \x ->
           FormButton'
-            Prelude.<$> (x Core..:? "children")
-            Prelude.<*> (x Core..:? "position")
-            Prelude.<*> (x Core..:? "excluded")
+            Prelude.<$> (x Data..:? "children")
+            Prelude.<*> (x Data..:? "position")
+            Prelude.<*> (x Data..:? "excluded")
       )
 
 instance Prelude.Hashable FormButton where
@@ -95,12 +96,12 @@ instance Prelude.NFData FormButton where
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf excluded
 
-instance Core.ToJSON FormButton where
+instance Data.ToJSON FormButton where
   toJSON FormButton' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("children" Core..=) Prelude.<$> children,
-            ("position" Core..=) Prelude.<$> position,
-            ("excluded" Core..=) Prelude.<$> excluded
+          [ ("children" Data..=) Prelude.<$> children,
+            ("position" Data..=) Prelude.<$> position,
+            ("excluded" Data..=) Prelude.<$> excluded
           ]
       )

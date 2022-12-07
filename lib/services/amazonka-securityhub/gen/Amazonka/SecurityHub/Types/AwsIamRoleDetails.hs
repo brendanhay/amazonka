@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsIamRoleDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsIamAttachedManagedPolicy
 import Amazonka.SecurityHub.Types.AwsIamInstanceProfile
@@ -155,26 +156,26 @@ awsIamRoleDetails_rolePolicyList = Lens.lens (\AwsIamRoleDetails' {rolePolicyLis
 awsIamRoleDetails_maxSessionDuration :: Lens.Lens' AwsIamRoleDetails (Prelude.Maybe Prelude.Int)
 awsIamRoleDetails_maxSessionDuration = Lens.lens (\AwsIamRoleDetails' {maxSessionDuration} -> maxSessionDuration) (\s@AwsIamRoleDetails' {} a -> s {maxSessionDuration = a} :: AwsIamRoleDetails)
 
-instance Core.FromJSON AwsIamRoleDetails where
+instance Data.FromJSON AwsIamRoleDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamRoleDetails"
       ( \x ->
           AwsIamRoleDetails'
-            Prelude.<$> (x Core..:? "RoleName")
-            Prelude.<*> ( x Core..:? "InstanceProfileList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "RoleName")
+            Prelude.<*> ( x Data..:? "InstanceProfileList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "AssumeRolePolicyDocument")
-            Prelude.<*> ( x Core..:? "AttachedManagedPolicies"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "AssumeRolePolicyDocument")
+            Prelude.<*> ( x Data..:? "AttachedManagedPolicies"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PermissionsBoundary")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "RoleId")
-            Prelude.<*> (x Core..:? "RolePolicyList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MaxSessionDuration")
+            Prelude.<*> (x Data..:? "PermissionsBoundary")
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "RoleId")
+            Prelude.<*> (x Data..:? "RolePolicyList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MaxSessionDuration")
       )
 
 instance Prelude.Hashable AwsIamRoleDetails where
@@ -203,25 +204,25 @@ instance Prelude.NFData AwsIamRoleDetails where
       `Prelude.seq` Prelude.rnf rolePolicyList
       `Prelude.seq` Prelude.rnf maxSessionDuration
 
-instance Core.ToJSON AwsIamRoleDetails where
+instance Data.ToJSON AwsIamRoleDetails where
   toJSON AwsIamRoleDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleName" Core..=) Prelude.<$> roleName,
-            ("InstanceProfileList" Core..=)
+          [ ("RoleName" Data..=) Prelude.<$> roleName,
+            ("InstanceProfileList" Data..=)
               Prelude.<$> instanceProfileList,
-            ("Path" Core..=) Prelude.<$> path,
-            ("AssumeRolePolicyDocument" Core..=)
+            ("Path" Data..=) Prelude.<$> path,
+            ("AssumeRolePolicyDocument" Data..=)
               Prelude.<$> assumeRolePolicyDocument,
-            ("AttachedManagedPolicies" Core..=)
+            ("AttachedManagedPolicies" Data..=)
               Prelude.<$> attachedManagedPolicies,
-            ("PermissionsBoundary" Core..=)
+            ("PermissionsBoundary" Data..=)
               Prelude.<$> permissionsBoundary,
-            ("CreateDate" Core..=) Prelude.<$> createDate,
-            ("RoleId" Core..=) Prelude.<$> roleId,
-            ("RolePolicyList" Core..=)
+            ("CreateDate" Data..=) Prelude.<$> createDate,
+            ("RoleId" Data..=) Prelude.<$> roleId,
+            ("RolePolicyList" Data..=)
               Prelude.<$> rolePolicyList,
-            ("MaxSessionDuration" Core..=)
+            ("MaxSessionDuration" Data..=)
               Prelude.<$> maxSessionDuration
           ]
       )

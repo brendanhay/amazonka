@@ -22,6 +22,7 @@ module Amazonka.ComputeOptimizer.Types.EstimatedMonthlySavings where
 import Amazonka.ComputeOptimizer.Types.Currency
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the estimated monthly savings amount possible, based on
@@ -69,14 +70,14 @@ estimatedMonthlySavings_currency = Lens.lens (\EstimatedMonthlySavings' {currenc
 estimatedMonthlySavings_value :: Lens.Lens' EstimatedMonthlySavings (Prelude.Maybe Prelude.Double)
 estimatedMonthlySavings_value = Lens.lens (\EstimatedMonthlySavings' {value} -> value) (\s@EstimatedMonthlySavings' {} a -> s {value = a} :: EstimatedMonthlySavings)
 
-instance Core.FromJSON EstimatedMonthlySavings where
+instance Data.FromJSON EstimatedMonthlySavings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EstimatedMonthlySavings"
       ( \x ->
           EstimatedMonthlySavings'
-            Prelude.<$> (x Core..:? "currency")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "currency")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable EstimatedMonthlySavings where

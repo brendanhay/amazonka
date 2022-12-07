@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelPackageStatusItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.DetailedModelPackageStatus
 
@@ -79,15 +80,15 @@ modelPackageStatusItem_name = Lens.lens (\ModelPackageStatusItem' {name} -> name
 modelPackageStatusItem_status :: Lens.Lens' ModelPackageStatusItem DetailedModelPackageStatus
 modelPackageStatusItem_status = Lens.lens (\ModelPackageStatusItem' {status} -> status) (\s@ModelPackageStatusItem' {} a -> s {status = a} :: ModelPackageStatusItem)
 
-instance Core.FromJSON ModelPackageStatusItem where
+instance Data.FromJSON ModelPackageStatusItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelPackageStatusItem"
       ( \x ->
           ModelPackageStatusItem'
-            Prelude.<$> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable ModelPackageStatusItem where

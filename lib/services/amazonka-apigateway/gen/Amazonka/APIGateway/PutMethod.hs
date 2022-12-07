@@ -61,6 +61,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -274,7 +275,7 @@ instance Core.AWSRequest PutMethod where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable PutMethod where
   hashWithSalt _salt PutMethod' {..} =
@@ -304,45 +305,45 @@ instance Prelude.NFData PutMethod where
       `Prelude.seq` Prelude.rnf httpMethod
       `Prelude.seq` Prelude.rnf authorizationType
 
-instance Core.ToHeaders PutMethod where
+instance Data.ToHeaders PutMethod where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON PutMethod where
+instance Data.ToJSON PutMethod where
   toJSON PutMethod' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("requestModels" Core..=) Prelude.<$> requestModels,
-            ("requestParameters" Core..=)
+          [ ("requestModels" Data..=) Prelude.<$> requestModels,
+            ("requestParameters" Data..=)
               Prelude.<$> requestParameters,
-            ("apiKeyRequired" Core..=)
+            ("apiKeyRequired" Data..=)
               Prelude.<$> apiKeyRequired,
-            ("requestValidatorId" Core..=)
+            ("requestValidatorId" Data..=)
               Prelude.<$> requestValidatorId,
-            ("authorizationScopes" Core..=)
+            ("authorizationScopes" Data..=)
               Prelude.<$> authorizationScopes,
-            ("operationName" Core..=) Prelude.<$> operationName,
-            ("authorizerId" Core..=) Prelude.<$> authorizerId,
+            ("operationName" Data..=) Prelude.<$> operationName,
+            ("authorizerId" Data..=) Prelude.<$> authorizerId,
             Prelude.Just
-              ("authorizationType" Core..= authorizationType)
+              ("authorizationType" Data..= authorizationType)
           ]
       )
 
-instance Core.ToPath PutMethod where
+instance Data.ToPath PutMethod where
   toPath PutMethod' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/resources/",
-        Core.toBS resourceId,
+        Data.toBS resourceId,
         "/methods/",
-        Core.toBS httpMethod
+        Data.toBS httpMethod
       ]
 
-instance Core.ToQuery PutMethod where
+instance Data.ToQuery PutMethod where
   toQuery = Prelude.const Prelude.mempty

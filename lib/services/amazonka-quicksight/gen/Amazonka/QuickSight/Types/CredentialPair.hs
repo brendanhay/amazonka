@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.CredentialPair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DataSourceParameters
 
@@ -116,13 +117,13 @@ instance Prelude.NFData CredentialPair where
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf password
 
-instance Core.ToJSON CredentialPair where
+instance Data.ToJSON CredentialPair where
   toJSON CredentialPair' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AlternateDataSourceParameters" Core..=)
+          [ ("AlternateDataSourceParameters" Data..=)
               Prelude.<$> alternateDataSourceParameters,
-            Prelude.Just ("Username" Core..= username),
-            Prelude.Just ("Password" Core..= password)
+            Prelude.Just ("Username" Data..= username),
+            Prelude.Just ("Password" Data..= password)
           ]
       )

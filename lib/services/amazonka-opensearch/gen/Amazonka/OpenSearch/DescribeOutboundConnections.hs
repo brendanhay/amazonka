@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,8 +123,8 @@ instance Core.AWSRequest DescribeOutboundConnections where
     Response.receiveJSON
       ( \s h x ->
           DescribeOutboundConnectionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Connections" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Connections" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,25 +140,25 @@ instance Prelude.NFData DescribeOutboundConnections where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeOutboundConnections where
+instance Data.ToHeaders DescribeOutboundConnections where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON DescribeOutboundConnections where
+instance Data.ToJSON DescribeOutboundConnections where
   toJSON DescribeOutboundConnections' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeOutboundConnections where
+instance Data.ToPath DescribeOutboundConnections where
   toPath =
     Prelude.const
       "/2021-01-01/opensearch/cc/outboundConnection/search"
 
-instance Core.ToQuery DescribeOutboundConnections where
+instance Data.ToQuery DescribeOutboundConnections where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains a list of connections matching the filter criteria.

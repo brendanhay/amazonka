@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SegmentBehaviors where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.RecencyDimension
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,12 +56,12 @@ newSegmentBehaviors =
 segmentBehaviors_recency :: Lens.Lens' SegmentBehaviors (Prelude.Maybe RecencyDimension)
 segmentBehaviors_recency = Lens.lens (\SegmentBehaviors' {recency} -> recency) (\s@SegmentBehaviors' {} a -> s {recency = a} :: SegmentBehaviors)
 
-instance Core.FromJSON SegmentBehaviors where
+instance Data.FromJSON SegmentBehaviors where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SegmentBehaviors"
       ( \x ->
-          SegmentBehaviors' Prelude.<$> (x Core..:? "Recency")
+          SegmentBehaviors' Prelude.<$> (x Data..:? "Recency")
       )
 
 instance Prelude.Hashable SegmentBehaviors where
@@ -70,9 +71,9 @@ instance Prelude.Hashable SegmentBehaviors where
 instance Prelude.NFData SegmentBehaviors where
   rnf SegmentBehaviors' {..} = Prelude.rnf recency
 
-instance Core.ToJSON SegmentBehaviors where
+instance Data.ToJSON SegmentBehaviors where
   toJSON SegmentBehaviors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Recency" Core..=) Prelude.<$> recency]
+          [("Recency" Data..=) Prelude.<$> recency]
       )

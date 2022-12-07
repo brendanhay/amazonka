@@ -46,6 +46,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,10 +91,10 @@ instance Core.AWSRequest DescribeResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           DescribeResourcePolicyResponse'
-            Prelude.<$> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "PolicyRevisionId")
-            Prelude.<*> (x Core..?> "ResourcePolicy")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "PolicyRevisionId")
+            Prelude.<*> (x Data..?> "ResourcePolicy")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,38 +106,38 @@ instance Prelude.NFData DescribeResourcePolicy where
   rnf DescribeResourcePolicy' {..} =
     Prelude.rnf resourceArn
 
-instance Core.ToHeaders DescribeResourcePolicy where
+instance Data.ToHeaders DescribeResourcePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.DescribeResourcePolicy" ::
+              Data.=# ( "Comprehend_20171127.DescribeResourcePolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeResourcePolicy where
+instance Data.ToJSON DescribeResourcePolicy where
   toJSON DescribeResourcePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
+          [Prelude.Just ("ResourceArn" Data..= resourceArn)]
       )
 
-instance Core.ToPath DescribeResourcePolicy where
+instance Data.ToPath DescribeResourcePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeResourcePolicy where
+instance Data.ToQuery DescribeResourcePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeResourcePolicyResponse' smart constructor.
 data DescribeResourcePolicyResponse = DescribeResourcePolicyResponse'
   { -- | The time at which the policy was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The revision ID of the policy. Each time you modify a policy, Amazon
     -- Comprehend assigns a new revision ID, and it deletes the prior version
     -- of the policy.
@@ -144,7 +145,7 @@ data DescribeResourcePolicyResponse = DescribeResourcePolicyResponse'
     -- | The JSON body of the resource-based policy.
     resourcePolicy :: Prelude.Maybe Prelude.Text,
     -- | The time at which the policy was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,7 +186,7 @@ newDescribeResourcePolicyResponse pHttpStatus_ =
 
 -- | The time at which the policy was last modified.
 describeResourcePolicyResponse_lastModifiedTime :: Lens.Lens' DescribeResourcePolicyResponse (Prelude.Maybe Prelude.UTCTime)
-describeResourcePolicyResponse_lastModifiedTime = Lens.lens (\DescribeResourcePolicyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeResourcePolicyResponse' {} a -> s {lastModifiedTime = a} :: DescribeResourcePolicyResponse) Prelude.. Lens.mapping Core._Time
+describeResourcePolicyResponse_lastModifiedTime = Lens.lens (\DescribeResourcePolicyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeResourcePolicyResponse' {} a -> s {lastModifiedTime = a} :: DescribeResourcePolicyResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The revision ID of the policy. Each time you modify a policy, Amazon
 -- Comprehend assigns a new revision ID, and it deletes the prior version
@@ -199,7 +200,7 @@ describeResourcePolicyResponse_resourcePolicy = Lens.lens (\DescribeResourcePoli
 
 -- | The time at which the policy was created.
 describeResourcePolicyResponse_creationTime :: Lens.Lens' DescribeResourcePolicyResponse (Prelude.Maybe Prelude.UTCTime)
-describeResourcePolicyResponse_creationTime = Lens.lens (\DescribeResourcePolicyResponse' {creationTime} -> creationTime) (\s@DescribeResourcePolicyResponse' {} a -> s {creationTime = a} :: DescribeResourcePolicyResponse) Prelude.. Lens.mapping Core._Time
+describeResourcePolicyResponse_creationTime = Lens.lens (\DescribeResourcePolicyResponse' {creationTime} -> creationTime) (\s@DescribeResourcePolicyResponse' {} a -> s {creationTime = a} :: DescribeResourcePolicyResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeResourcePolicyResponse_httpStatus :: Lens.Lens' DescribeResourcePolicyResponse Prelude.Int

@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.Topic where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.SubscriptionStatus
 
@@ -94,16 +95,16 @@ topic_displayName = Lens.lens (\Topic' {displayName} -> displayName) (\s@Topic' 
 topic_defaultSubscriptionStatus :: Lens.Lens' Topic SubscriptionStatus
 topic_defaultSubscriptionStatus = Lens.lens (\Topic' {defaultSubscriptionStatus} -> defaultSubscriptionStatus) (\s@Topic' {} a -> s {defaultSubscriptionStatus = a} :: Topic)
 
-instance Core.FromJSON Topic where
+instance Data.FromJSON Topic where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Topic"
       ( \x ->
           Topic'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..: "TopicName")
-            Prelude.<*> (x Core..: "DisplayName")
-            Prelude.<*> (x Core..: "DefaultSubscriptionStatus")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..: "TopicName")
+            Prelude.<*> (x Data..: "DisplayName")
+            Prelude.<*> (x Data..: "DefaultSubscriptionStatus")
       )
 
 instance Prelude.Hashable Topic where
@@ -120,16 +121,16 @@ instance Prelude.NFData Topic where
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf defaultSubscriptionStatus
 
-instance Core.ToJSON Topic where
+instance Data.ToJSON Topic where
   toJSON Topic' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("TopicName" Core..= topicName),
-            Prelude.Just ("DisplayName" Core..= displayName),
+          [ ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("TopicName" Data..= topicName),
+            Prelude.Just ("DisplayName" Data..= displayName),
             Prelude.Just
               ( "DefaultSubscriptionStatus"
-                  Core..= defaultSubscriptionStatus
+                  Data..= defaultSubscriptionStatus
               )
           ]
       )

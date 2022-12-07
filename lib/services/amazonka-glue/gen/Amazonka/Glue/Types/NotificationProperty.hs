@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.NotificationProperty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies configuration properties of a notification.
@@ -56,13 +57,13 @@ newNotificationProperty =
 notificationProperty_notifyDelayAfter :: Lens.Lens' NotificationProperty (Prelude.Maybe Prelude.Natural)
 notificationProperty_notifyDelayAfter = Lens.lens (\NotificationProperty' {notifyDelayAfter} -> notifyDelayAfter) (\s@NotificationProperty' {} a -> s {notifyDelayAfter = a} :: NotificationProperty)
 
-instance Core.FromJSON NotificationProperty where
+instance Data.FromJSON NotificationProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotificationProperty"
       ( \x ->
           NotificationProperty'
-            Prelude.<$> (x Core..:? "NotifyDelayAfter")
+            Prelude.<$> (x Data..:? "NotifyDelayAfter")
       )
 
 instance Prelude.Hashable NotificationProperty where
@@ -73,11 +74,11 @@ instance Prelude.NFData NotificationProperty where
   rnf NotificationProperty' {..} =
     Prelude.rnf notifyDelayAfter
 
-instance Core.ToJSON NotificationProperty where
+instance Data.ToJSON NotificationProperty where
   toJSON NotificationProperty' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NotifyDelayAfter" Core..=)
+          [ ("NotifyDelayAfter" Data..=)
               Prelude.<$> notifyDelayAfter
           ]
       )

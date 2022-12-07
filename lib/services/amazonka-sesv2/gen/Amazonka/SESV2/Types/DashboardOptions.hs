@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.DashboardOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.FeatureStatus
 
@@ -76,13 +77,13 @@ newDashboardOptions =
 dashboardOptions_engagementMetrics :: Lens.Lens' DashboardOptions (Prelude.Maybe FeatureStatus)
 dashboardOptions_engagementMetrics = Lens.lens (\DashboardOptions' {engagementMetrics} -> engagementMetrics) (\s@DashboardOptions' {} a -> s {engagementMetrics = a} :: DashboardOptions)
 
-instance Core.FromJSON DashboardOptions where
+instance Data.FromJSON DashboardOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DashboardOptions"
       ( \x ->
           DashboardOptions'
-            Prelude.<$> (x Core..:? "EngagementMetrics")
+            Prelude.<$> (x Data..:? "EngagementMetrics")
       )
 
 instance Prelude.Hashable DashboardOptions where
@@ -93,11 +94,11 @@ instance Prelude.NFData DashboardOptions where
   rnf DashboardOptions' {..} =
     Prelude.rnf engagementMetrics
 
-instance Core.ToJSON DashboardOptions where
+instance Data.ToJSON DashboardOptions where
   toJSON DashboardOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EngagementMetrics" Core..=)
+          [ ("EngagementMetrics" Data..=)
               Prelude.<$> engagementMetrics
           ]
       )

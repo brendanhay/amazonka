@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.ExpenseField where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.ExpenseCurrency
 import Amazonka.Textract.Types.ExpenseDetection
@@ -117,20 +118,20 @@ expenseField_currency = Lens.lens (\ExpenseField' {currency} -> currency) (\s@Ex
 expenseField_valueDetection :: Lens.Lens' ExpenseField (Prelude.Maybe ExpenseDetection)
 expenseField_valueDetection = Lens.lens (\ExpenseField' {valueDetection} -> valueDetection) (\s@ExpenseField' {} a -> s {valueDetection = a} :: ExpenseField)
 
-instance Core.FromJSON ExpenseField where
+instance Data.FromJSON ExpenseField where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExpenseField"
       ( \x ->
           ExpenseField'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> ( x Core..:? "GroupProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> ( x Data..:? "GroupProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PageNumber")
-            Prelude.<*> (x Core..:? "LabelDetection")
-            Prelude.<*> (x Core..:? "Currency")
-            Prelude.<*> (x Core..:? "ValueDetection")
+            Prelude.<*> (x Data..:? "PageNumber")
+            Prelude.<*> (x Data..:? "LabelDetection")
+            Prelude.<*> (x Data..:? "Currency")
+            Prelude.<*> (x Data..:? "ValueDetection")
       )
 
 instance Prelude.Hashable ExpenseField where

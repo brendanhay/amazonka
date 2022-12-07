@@ -21,6 +21,7 @@ module Amazonka.Mobile.Types.ProjectSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about an AWS Mobile Hub project.
@@ -61,14 +62,14 @@ projectSummary_name = Lens.lens (\ProjectSummary' {name} -> name) (\s@ProjectSum
 projectSummary_projectId :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
 projectSummary_projectId = Lens.lens (\ProjectSummary' {projectId} -> projectId) (\s@ProjectSummary' {} a -> s {projectId = a} :: ProjectSummary)
 
-instance Core.FromJSON ProjectSummary where
+instance Data.FromJSON ProjectSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectSummary"
       ( \x ->
           ProjectSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "projectId")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "projectId")
       )
 
 instance Prelude.Hashable ProjectSummary where

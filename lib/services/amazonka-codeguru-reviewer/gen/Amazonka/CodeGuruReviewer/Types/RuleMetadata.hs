@@ -21,6 +21,7 @@ module Amazonka.CodeGuruReviewer.Types.RuleMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata about a rule. Rule metadata includes an ID, a name, a list of
@@ -91,17 +92,17 @@ ruleMetadata_longDescription = Lens.lens (\RuleMetadata' {longDescription} -> lo
 ruleMetadata_ruleTags :: Lens.Lens' RuleMetadata (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 ruleMetadata_ruleTags = Lens.lens (\RuleMetadata' {ruleTags} -> ruleTags) (\s@RuleMetadata' {} a -> s {ruleTags = a} :: RuleMetadata) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RuleMetadata where
+instance Data.FromJSON RuleMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleMetadata"
       ( \x ->
           RuleMetadata'
-            Prelude.<$> (x Core..:? "ShortDescription")
-            Prelude.<*> (x Core..:? "RuleId")
-            Prelude.<*> (x Core..:? "RuleName")
-            Prelude.<*> (x Core..:? "LongDescription")
-            Prelude.<*> (x Core..:? "RuleTags")
+            Prelude.<$> (x Data..:? "ShortDescription")
+            Prelude.<*> (x Data..:? "RuleId")
+            Prelude.<*> (x Data..:? "RuleName")
+            Prelude.<*> (x Data..:? "LongDescription")
+            Prelude.<*> (x Data..:? "RuleTags")
       )
 
 instance Prelude.Hashable RuleMetadata where

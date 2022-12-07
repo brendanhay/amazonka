@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.ReservationResourceSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.ChannelClass
 import Amazonka.MediaLive.Types.ReservationCodec
 import Amazonka.MediaLive.Types.ReservationMaximumBitrate
@@ -125,22 +126,22 @@ reservationResourceSpecification_resolution :: Lens.Lens' ReservationResourceSpe
 reservationResourceSpecification_resolution = Lens.lens (\ReservationResourceSpecification' {resolution} -> resolution) (\s@ReservationResourceSpecification' {} a -> s {resolution = a} :: ReservationResourceSpecification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ReservationResourceSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReservationResourceSpecification"
       ( \x ->
           ReservationResourceSpecification'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "channelClass")
-            Prelude.<*> (x Core..:? "codec")
-            Prelude.<*> (x Core..:? "maximumFramerate")
-            Prelude.<*> (x Core..:? "videoQuality")
-            Prelude.<*> (x Core..:? "maximumBitrate")
-            Prelude.<*> (x Core..:? "specialFeature")
-            Prelude.<*> (x Core..:? "resolution")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "channelClass")
+            Prelude.<*> (x Data..:? "codec")
+            Prelude.<*> (x Data..:? "maximumFramerate")
+            Prelude.<*> (x Data..:? "videoQuality")
+            Prelude.<*> (x Data..:? "maximumBitrate")
+            Prelude.<*> (x Data..:? "specialFeature")
+            Prelude.<*> (x Data..:? "resolution")
       )
 
 instance

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -53,7 +54,7 @@ import qualified Amazonka.Response as Response
 data CreateLaunchConfigurationTemplate = CreateLaunchConfigurationTemplate'
   { -- | Request to associate the default Application Migration Service Security
     -- group with the Replication Settings template.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Request to associate the default Application Migration Service Security
     -- group with the Replication Settings template.
     postLaunchActions :: Prelude.Maybe PostLaunchActions
@@ -85,7 +86,7 @@ newCreateLaunchConfigurationTemplate =
 -- | Request to associate the default Application Migration Service Security
 -- group with the Replication Settings template.
 createLaunchConfigurationTemplate_tags :: Lens.Lens' CreateLaunchConfigurationTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createLaunchConfigurationTemplate_tags = Lens.lens (\CreateLaunchConfigurationTemplate' {tags} -> tags) (\s@CreateLaunchConfigurationTemplate' {} a -> s {tags = a} :: CreateLaunchConfigurationTemplate) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createLaunchConfigurationTemplate_tags = Lens.lens (\CreateLaunchConfigurationTemplate' {tags} -> tags) (\s@CreateLaunchConfigurationTemplate' {} a -> s {tags = a} :: CreateLaunchConfigurationTemplate) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Request to associate the default Application Migration Service Security
 -- group with the Replication Settings template.
@@ -103,7 +104,7 @@ instance
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance
   Prelude.Hashable
@@ -124,41 +125,41 @@ instance
       `Prelude.seq` Prelude.rnf postLaunchActions
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateLaunchConfigurationTemplate
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateLaunchConfigurationTemplate
   where
   toJSON CreateLaunchConfigurationTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("postLaunchActions" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("postLaunchActions" Data..=)
               Prelude.<$> postLaunchActions
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateLaunchConfigurationTemplate
   where
   toPath =
     Prelude.const "/CreateLaunchConfigurationTemplate"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateLaunchConfigurationTemplate
   where
   toQuery = Prelude.const Prelude.mempty

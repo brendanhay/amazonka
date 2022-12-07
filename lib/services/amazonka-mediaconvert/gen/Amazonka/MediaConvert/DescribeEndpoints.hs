@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,8 +147,8 @@ instance Core.AWSRequest DescribeEndpoints where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "endpoints" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "endpoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,31 +164,31 @@ instance Prelude.NFData DescribeEndpoints where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf mode
 
-instance Core.ToHeaders DescribeEndpoints where
+instance Data.ToHeaders DescribeEndpoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEndpoints where
+instance Data.ToJSON DescribeEndpoints where
   toJSON DescribeEndpoints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("mode" Core..=) Prelude.<$> mode
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("mode" Data..=) Prelude.<$> mode
           ]
       )
 
-instance Core.ToPath DescribeEndpoints where
+instance Data.ToPath DescribeEndpoints where
   toPath = Prelude.const "/2017-08-29/endpoints"
 
-instance Core.ToQuery DescribeEndpoints where
+instance Data.ToQuery DescribeEndpoints where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEndpointsResponse' smart constructor.

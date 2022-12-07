@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.FreeTrialAccountInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.FreeTrialInfo
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,14 +68,14 @@ freeTrialAccountInfo_accountId = Lens.lens (\FreeTrialAccountInfo' {accountId} -
 freeTrialAccountInfo_freeTrialInfo :: Lens.Lens' FreeTrialAccountInfo [FreeTrialInfo]
 freeTrialAccountInfo_freeTrialInfo = Lens.lens (\FreeTrialAccountInfo' {freeTrialInfo} -> freeTrialInfo) (\s@FreeTrialAccountInfo' {} a -> s {freeTrialInfo = a} :: FreeTrialAccountInfo) Prelude.. Lens.coerced
 
-instance Core.FromJSON FreeTrialAccountInfo where
+instance Data.FromJSON FreeTrialAccountInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FreeTrialAccountInfo"
       ( \x ->
           FreeTrialAccountInfo'
-            Prelude.<$> (x Core..: "accountId")
-            Prelude.<*> (x Core..:? "freeTrialInfo" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "accountId")
+            Prelude.<*> (x Data..:? "freeTrialInfo" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FreeTrialAccountInfo where

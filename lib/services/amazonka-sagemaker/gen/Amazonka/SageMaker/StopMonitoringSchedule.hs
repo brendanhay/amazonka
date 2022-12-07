@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,36 +91,36 @@ instance Prelude.NFData StopMonitoringSchedule where
   rnf StopMonitoringSchedule' {..} =
     Prelude.rnf monitoringScheduleName
 
-instance Core.ToHeaders StopMonitoringSchedule where
+instance Data.ToHeaders StopMonitoringSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.StopMonitoringSchedule" ::
+              Data.=# ( "SageMaker.StopMonitoringSchedule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopMonitoringSchedule where
+instance Data.ToJSON StopMonitoringSchedule where
   toJSON StopMonitoringSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "MonitoringScheduleName"
-                  Core..= monitoringScheduleName
+                  Data..= monitoringScheduleName
               )
           ]
       )
 
-instance Core.ToPath StopMonitoringSchedule where
+instance Data.ToPath StopMonitoringSchedule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopMonitoringSchedule where
+instance Data.ToQuery StopMonitoringSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopMonitoringScheduleResponse' smart constructor.

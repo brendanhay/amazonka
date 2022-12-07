@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -195,7 +196,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayConnectPeerResponse'
-            Prelude.<$> (x Core..@? "transitGatewayConnectPeer")
+            Prelude.<$> (x Data..@? "transitGatewayConnectPeer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -228,35 +229,35 @@ instance
       `Prelude.seq` Prelude.rnf insideCidrBlocks
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateTransitGatewayConnectPeer
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateTransitGatewayConnectPeer where
+instance Data.ToPath CreateTransitGatewayConnectPeer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTransitGatewayConnectPeer where
+instance Data.ToQuery CreateTransitGatewayConnectPeer where
   toQuery CreateTransitGatewayConnectPeer' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateTransitGatewayConnectPeer" ::
+          Data.=: ( "CreateTransitGatewayConnectPeer" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "TransitGatewayAddress"
-          Core.=: transitGatewayAddress,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: transitGatewayAddress,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "BgpOptions" Core.=: bgpOptions,
+        "BgpOptions" Data.=: bgpOptions,
         "TransitGatewayAttachmentId"
-          Core.=: transitGatewayAttachmentId,
-        "PeerAddress" Core.=: peerAddress,
-        Core.toQueryList "InsideCidrBlocks" insideCidrBlocks
+          Data.=: transitGatewayAttachmentId,
+        "PeerAddress" Data.=: peerAddress,
+        Data.toQueryList "InsideCidrBlocks" insideCidrBlocks
       ]
 
 -- | /See:/ 'newCreateTransitGatewayConnectPeerResponse' smart constructor.

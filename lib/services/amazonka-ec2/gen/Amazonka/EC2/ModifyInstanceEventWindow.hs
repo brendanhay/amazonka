@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -210,7 +211,7 @@ instance Core.AWSRequest ModifyInstanceEventWindow where
     Response.receiveXML
       ( \s h x ->
           ModifyInstanceEventWindowResponse'
-            Prelude.<$> (x Core..@? "instanceEventWindow")
+            Prelude.<$> (x Data..@? "instanceEventWindow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -230,28 +231,28 @@ instance Prelude.NFData ModifyInstanceEventWindow where
       `Prelude.seq` Prelude.rnf cronExpression
       `Prelude.seq` Prelude.rnf instanceEventWindowId
 
-instance Core.ToHeaders ModifyInstanceEventWindow where
+instance Data.ToHeaders ModifyInstanceEventWindow where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyInstanceEventWindow where
+instance Data.ToPath ModifyInstanceEventWindow where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyInstanceEventWindow where
+instance Data.ToQuery ModifyInstanceEventWindow where
   toQuery ModifyInstanceEventWindow' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyInstanceEventWindow" :: Prelude.ByteString),
+          Data.=: ("ModifyInstanceEventWindow" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Name" Core.=: name,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TimeRange"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Name" Data.=: name,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TimeRange"
               Prelude.<$> timeRanges
           ),
-        "CronExpression" Core.=: cronExpression,
+        "CronExpression" Data.=: cronExpression,
         "InstanceEventWindowId"
-          Core.=: instanceEventWindowId
+          Data.=: instanceEventWindowId
       ]
 
 -- | /See:/ 'newModifyInstanceEventWindowResponse' smart constructor.

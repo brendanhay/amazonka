@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,8 +141,8 @@ instance Core.AWSRequest GetAccessControlEffect where
     Response.receiveJSON
       ( \s h x ->
           GetAccessControlEffectResponse'
-            Prelude.<$> (x Core..?> "Effect")
-            Prelude.<*> (x Core..?> "MatchedRules" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Effect")
+            Prelude.<*> (x Data..?> "MatchedRules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,39 +162,39 @@ instance Prelude.NFData GetAccessControlEffect where
       `Prelude.seq` Prelude.rnf ipAddress
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToHeaders GetAccessControlEffect where
+instance Data.ToHeaders GetAccessControlEffect where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.GetAccessControlEffect" ::
+              Data.=# ( "WorkMailService.GetAccessControlEffect" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAccessControlEffect where
+instance Data.ToJSON GetAccessControlEffect where
   toJSON GetAccessControlEffect' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UserId" Core..=) Prelude.<$> userId,
-            ("ImpersonationRoleId" Core..=)
+          [ ("UserId" Data..=) Prelude.<$> userId,
+            ("ImpersonationRoleId" Data..=)
               Prelude.<$> impersonationRoleId,
             Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("IpAddress" Core..= ipAddress),
-            Prelude.Just ("Action" Core..= action)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("IpAddress" Data..= ipAddress),
+            Prelude.Just ("Action" Data..= action)
           ]
       )
 
-instance Core.ToPath GetAccessControlEffect where
+instance Data.ToPath GetAccessControlEffect where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAccessControlEffect where
+instance Data.ToQuery GetAccessControlEffect where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAccessControlEffectResponse' smart constructor.

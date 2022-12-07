@@ -42,6 +42,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetStoredQuery where
     Response.receiveJSON
       ( \s h x ->
           GetStoredQueryResponse'
-            Prelude.<$> (x Core..?> "StoredQuery")
+            Prelude.<$> (x Data..?> "StoredQuery")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable GetStoredQuery where
 instance Prelude.NFData GetStoredQuery where
   rnf GetStoredQuery' {..} = Prelude.rnf queryName
 
-instance Core.ToHeaders GetStoredQuery where
+instance Data.ToHeaders GetStoredQuery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.GetStoredQuery" ::
+              Data.=# ( "StarlingDoveService.GetStoredQuery" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetStoredQuery where
+instance Data.ToJSON GetStoredQuery where
   toJSON GetStoredQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("QueryName" Core..= queryName)]
+          [Prelude.Just ("QueryName" Data..= queryName)]
       )
 
-instance Core.ToPath GetStoredQuery where
+instance Data.ToPath GetStoredQuery where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetStoredQuery where
+instance Data.ToQuery GetStoredQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetStoredQueryResponse' smart constructor.

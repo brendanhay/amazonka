@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.MedicalTranscriptionSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Allows additional optional settings in your request, including channel
@@ -280,18 +281,18 @@ medicalTranscriptionSetting_channelIdentification = Lens.lens (\MedicalTranscrip
 medicalTranscriptionSetting_showAlternatives :: Lens.Lens' MedicalTranscriptionSetting (Prelude.Maybe Prelude.Bool)
 medicalTranscriptionSetting_showAlternatives = Lens.lens (\MedicalTranscriptionSetting' {showAlternatives} -> showAlternatives) (\s@MedicalTranscriptionSetting' {} a -> s {showAlternatives = a} :: MedicalTranscriptionSetting)
 
-instance Core.FromJSON MedicalTranscriptionSetting where
+instance Data.FromJSON MedicalTranscriptionSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MedicalTranscriptionSetting"
       ( \x ->
           MedicalTranscriptionSetting'
-            Prelude.<$> (x Core..:? "VocabularyName")
-            Prelude.<*> (x Core..:? "MaxSpeakerLabels")
-            Prelude.<*> (x Core..:? "MaxAlternatives")
-            Prelude.<*> (x Core..:? "ShowSpeakerLabels")
-            Prelude.<*> (x Core..:? "ChannelIdentification")
-            Prelude.<*> (x Core..:? "ShowAlternatives")
+            Prelude.<$> (x Data..:? "VocabularyName")
+            Prelude.<*> (x Data..:? "MaxSpeakerLabels")
+            Prelude.<*> (x Data..:? "MaxAlternatives")
+            Prelude.<*> (x Data..:? "ShowSpeakerLabels")
+            Prelude.<*> (x Data..:? "ChannelIdentification")
+            Prelude.<*> (x Data..:? "ShowAlternatives")
       )
 
 instance Prelude.Hashable MedicalTranscriptionSetting where
@@ -312,21 +313,21 @@ instance Prelude.NFData MedicalTranscriptionSetting where
       `Prelude.seq` Prelude.rnf channelIdentification
       `Prelude.seq` Prelude.rnf showAlternatives
 
-instance Core.ToJSON MedicalTranscriptionSetting where
+instance Data.ToJSON MedicalTranscriptionSetting where
   toJSON MedicalTranscriptionSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VocabularyName" Core..=)
+          [ ("VocabularyName" Data..=)
               Prelude.<$> vocabularyName,
-            ("MaxSpeakerLabels" Core..=)
+            ("MaxSpeakerLabels" Data..=)
               Prelude.<$> maxSpeakerLabels,
-            ("MaxAlternatives" Core..=)
+            ("MaxAlternatives" Data..=)
               Prelude.<$> maxAlternatives,
-            ("ShowSpeakerLabels" Core..=)
+            ("ShowSpeakerLabels" Data..=)
               Prelude.<$> showSpeakerLabels,
-            ("ChannelIdentification" Core..=)
+            ("ChannelIdentification" Data..=)
               Prelude.<$> channelIdentification,
-            ("ShowAlternatives" Core..=)
+            ("ShowAlternatives" Data..=)
               Prelude.<$> showAlternatives
           ]
       )

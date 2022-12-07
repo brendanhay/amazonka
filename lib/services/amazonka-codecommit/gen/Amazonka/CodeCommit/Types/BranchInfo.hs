@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.BranchInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a branch.
@@ -61,14 +62,14 @@ branchInfo_commitId = Lens.lens (\BranchInfo' {commitId} -> commitId) (\s@Branch
 branchInfo_branchName :: Lens.Lens' BranchInfo (Prelude.Maybe Prelude.Text)
 branchInfo_branchName = Lens.lens (\BranchInfo' {branchName} -> branchName) (\s@BranchInfo' {} a -> s {branchName = a} :: BranchInfo)
 
-instance Core.FromJSON BranchInfo where
+instance Data.FromJSON BranchInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BranchInfo"
       ( \x ->
           BranchInfo'
-            Prelude.<$> (x Core..:? "commitId")
-            Prelude.<*> (x Core..:? "branchName")
+            Prelude.<$> (x Data..:? "commitId")
+            Prelude.<*> (x Data..:? "branchName")
       )
 
 instance Prelude.Hashable BranchInfo where

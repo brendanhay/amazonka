@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.UpgradeTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The version of the database engine that a DB instance can be upgraded
@@ -110,15 +111,15 @@ upgradeTarget_engineVersion = Lens.lens (\UpgradeTarget' {engineVersion} -> engi
 upgradeTarget_isMajorVersionUpgrade :: Lens.Lens' UpgradeTarget (Prelude.Maybe Prelude.Bool)
 upgradeTarget_isMajorVersionUpgrade = Lens.lens (\UpgradeTarget' {isMajorVersionUpgrade} -> isMajorVersionUpgrade) (\s@UpgradeTarget' {} a -> s {isMajorVersionUpgrade = a} :: UpgradeTarget)
 
-instance Core.FromXML UpgradeTarget where
+instance Data.FromXML UpgradeTarget where
   parseXML x =
     UpgradeTarget'
-      Prelude.<$> (x Core..@? "AutoUpgrade")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "SupportsGlobalDatabases")
-      Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "IsMajorVersionUpgrade")
+      Prelude.<$> (x Data..@? "AutoUpgrade")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "SupportsGlobalDatabases")
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "IsMajorVersionUpgrade")
 
 instance Prelude.Hashable UpgradeTarget where
   hashWithSalt _salt UpgradeTarget' {..} =

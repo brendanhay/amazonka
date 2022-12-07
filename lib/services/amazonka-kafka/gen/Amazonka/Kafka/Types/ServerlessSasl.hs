@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.ServerlessSasl where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.Iam
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,12 +52,12 @@ newServerlessSasl =
 serverlessSasl_iam :: Lens.Lens' ServerlessSasl (Prelude.Maybe Iam)
 serverlessSasl_iam = Lens.lens (\ServerlessSasl' {iam} -> iam) (\s@ServerlessSasl' {} a -> s {iam = a} :: ServerlessSasl)
 
-instance Core.FromJSON ServerlessSasl where
+instance Data.FromJSON ServerlessSasl where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerlessSasl"
       ( \x ->
-          ServerlessSasl' Prelude.<$> (x Core..:? "iam")
+          ServerlessSasl' Prelude.<$> (x Data..:? "iam")
       )
 
 instance Prelude.Hashable ServerlessSasl where
@@ -66,7 +67,7 @@ instance Prelude.Hashable ServerlessSasl where
 instance Prelude.NFData ServerlessSasl where
   rnf ServerlessSasl' {..} = Prelude.rnf iam
 
-instance Core.ToJSON ServerlessSasl where
+instance Data.ToJSON ServerlessSasl where
   toJSON ServerlessSasl' {..} =
-    Core.object
-      (Prelude.catMaybes [("iam" Core..=) Prelude.<$> iam])
+    Data.object
+      (Prelude.catMaybes [("iam" Data..=) Prelude.<$> iam])

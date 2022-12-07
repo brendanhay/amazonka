@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The time at which to purchase the Reserved Instance, in UTC format (for
     -- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    purchaseTime :: Prelude.Maybe Core.ISO8601,
+    purchaseTime :: Prelude.Maybe Data.ISO8601,
     -- | The number of Reserved Instances to purchase.
     instanceCount :: Prelude.Int,
     -- | The ID of the Reserved Instance offering to purchase.
@@ -152,7 +153,7 @@ purchaseReservedInstancesOffering_dryRun = Lens.lens (\PurchaseReservedInstances
 -- | The time at which to purchase the Reserved Instance, in UTC format (for
 -- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 purchaseReservedInstancesOffering_purchaseTime :: Lens.Lens' PurchaseReservedInstancesOffering (Prelude.Maybe Prelude.UTCTime)
-purchaseReservedInstancesOffering_purchaseTime = Lens.lens (\PurchaseReservedInstancesOffering' {purchaseTime} -> purchaseTime) (\s@PurchaseReservedInstancesOffering' {} a -> s {purchaseTime = a} :: PurchaseReservedInstancesOffering) Prelude.. Lens.mapping Core._Time
+purchaseReservedInstancesOffering_purchaseTime = Lens.lens (\PurchaseReservedInstancesOffering' {purchaseTime} -> purchaseTime) (\s@PurchaseReservedInstancesOffering' {} a -> s {purchaseTime = a} :: PurchaseReservedInstancesOffering) Prelude.. Lens.mapping Data._Time
 
 -- | The number of Reserved Instances to purchase.
 purchaseReservedInstancesOffering_instanceCount :: Lens.Lens' PurchaseReservedInstancesOffering Prelude.Int
@@ -175,7 +176,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           PurchaseReservedInstancesOfferingResponse'
-            Prelude.<$> (x Core..@? "reservedInstancesId")
+            Prelude.<$> (x Data..@? "reservedInstancesId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,35 +205,35 @@ instance
       `Prelude.seq` Prelude.rnf reservedInstancesOfferingId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PurchaseReservedInstancesOffering
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     PurchaseReservedInstancesOffering
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PurchaseReservedInstancesOffering
   where
   toQuery PurchaseReservedInstancesOffering' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "PurchaseReservedInstancesOffering" ::
+          Data.=: ( "PurchaseReservedInstancesOffering" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "LimitPrice" Core.=: limitPrice,
-        "DryRun" Core.=: dryRun,
-        "PurchaseTime" Core.=: purchaseTime,
-        "InstanceCount" Core.=: instanceCount,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "LimitPrice" Data.=: limitPrice,
+        "DryRun" Data.=: dryRun,
+        "PurchaseTime" Data.=: purchaseTime,
+        "InstanceCount" Data.=: instanceCount,
         "ReservedInstancesOfferingId"
-          Core.=: reservedInstancesOfferingId
+          Data.=: reservedInstancesOfferingId
       ]
 
 -- | Contains the output of PurchaseReservedInstancesOffering.

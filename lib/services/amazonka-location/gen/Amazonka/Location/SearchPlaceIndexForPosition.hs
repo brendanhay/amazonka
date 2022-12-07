@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ data SearchPlaceIndexForPosition = SearchPlaceIndexForPosition'
     --
     -- For example, @[-123.1174, 49.2847]@ represents a position with longitude
     -- @-123.1174@ and latitude @49.2847@.
-    position :: Core.Sensitive (Prelude.NonEmpty Prelude.Double)
+    position :: Data.Sensitive (Prelude.NonEmpty Prelude.Double)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -147,7 +148,7 @@ newSearchPlaceIndexForPosition pIndexName_ pPosition_ =
       language = Prelude.Nothing,
       indexName = pIndexName_,
       position =
-        Core._Sensitive Prelude.. Lens.coerced
+        Data._Sensitive Prelude.. Lens.coerced
           Lens.# pPosition_
     }
 
@@ -192,7 +193,7 @@ searchPlaceIndexForPosition_indexName = Lens.lens (\SearchPlaceIndexForPosition'
 -- For example, @[-123.1174, 49.2847]@ represents a position with longitude
 -- @-123.1174@ and latitude @49.2847@.
 searchPlaceIndexForPosition_position :: Lens.Lens' SearchPlaceIndexForPosition (Prelude.NonEmpty Prelude.Double)
-searchPlaceIndexForPosition_position = Lens.lens (\SearchPlaceIndexForPosition' {position} -> position) (\s@SearchPlaceIndexForPosition' {} a -> s {position = a} :: SearchPlaceIndexForPosition) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+searchPlaceIndexForPosition_position = Lens.lens (\SearchPlaceIndexForPosition' {position} -> position) (\s@SearchPlaceIndexForPosition' {} a -> s {position = a} :: SearchPlaceIndexForPosition) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 instance Core.AWSRequest SearchPlaceIndexForPosition where
   type
@@ -205,8 +206,8 @@ instance Core.AWSRequest SearchPlaceIndexForPosition where
       ( \s h x ->
           SearchPlaceIndexForPositionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "Summary")
+            Prelude.<*> (x Data..?> "Results" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "Summary")
       )
 
 instance Prelude.Hashable SearchPlaceIndexForPosition where
@@ -223,36 +224,36 @@ instance Prelude.NFData SearchPlaceIndexForPosition where
       `Prelude.seq` Prelude.rnf indexName
       `Prelude.seq` Prelude.rnf position
 
-instance Core.ToHeaders SearchPlaceIndexForPosition where
+instance Data.ToHeaders SearchPlaceIndexForPosition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchPlaceIndexForPosition where
+instance Data.ToJSON SearchPlaceIndexForPosition where
   toJSON SearchPlaceIndexForPosition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Language" Core..=) Prelude.<$> language,
-            Prelude.Just ("Position" Core..= position)
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("Language" Data..=) Prelude.<$> language,
+            Prelude.Just ("Position" Data..= position)
           ]
       )
 
-instance Core.ToPath SearchPlaceIndexForPosition where
+instance Data.ToPath SearchPlaceIndexForPosition where
   toPath SearchPlaceIndexForPosition' {..} =
     Prelude.mconcat
       [ "/places/v0/indexes/",
-        Core.toBS indexName,
+        Data.toBS indexName,
         "/search/position"
       ]
 
-instance Core.ToQuery SearchPlaceIndexForPosition where
+instance Data.ToQuery SearchPlaceIndexForPosition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchPlaceIndexForPositionResponse' smart constructor.

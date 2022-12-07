@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotInstanceStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -36,7 +37,7 @@ data SpotInstanceStatus = SpotInstanceStatus'
     code :: Prelude.Maybe Prelude.Text,
     -- | The date and time of the most recent status update, in UTC format (for
     -- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    updateTime :: Prelude.Maybe Core.ISO8601
+    updateTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,14 +79,14 @@ spotInstanceStatus_code = Lens.lens (\SpotInstanceStatus' {code} -> code) (\s@Sp
 -- | The date and time of the most recent status update, in UTC format (for
 -- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 spotInstanceStatus_updateTime :: Lens.Lens' SpotInstanceStatus (Prelude.Maybe Prelude.UTCTime)
-spotInstanceStatus_updateTime = Lens.lens (\SpotInstanceStatus' {updateTime} -> updateTime) (\s@SpotInstanceStatus' {} a -> s {updateTime = a} :: SpotInstanceStatus) Prelude.. Lens.mapping Core._Time
+spotInstanceStatus_updateTime = Lens.lens (\SpotInstanceStatus' {updateTime} -> updateTime) (\s@SpotInstanceStatus' {} a -> s {updateTime = a} :: SpotInstanceStatus) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML SpotInstanceStatus where
+instance Data.FromXML SpotInstanceStatus where
   parseXML x =
     SpotInstanceStatus'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
-      Prelude.<*> (x Core..@? "updateTime")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
+      Prelude.<*> (x Data..@? "updateTime")
 
 instance Prelude.Hashable SpotInstanceStatus where
   hashWithSalt _salt SpotInstanceStatus' {..} =

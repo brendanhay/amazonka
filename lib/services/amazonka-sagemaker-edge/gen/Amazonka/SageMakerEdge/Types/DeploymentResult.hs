@@ -21,6 +21,7 @@ module Amazonka.SageMakerEdge.Types.DeploymentResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerEdge.Types.DeploymentModel
 
@@ -37,11 +38,11 @@ data DeploymentResult = DeploymentResult'
     deploymentModels :: Prelude.Maybe [DeploymentModel],
     -- | The timestamp of when the deployment was ended, and the agent got the
     -- deployment results.
-    deploymentEndTime :: Prelude.Maybe Core.POSIX,
+    deploymentEndTime :: Prelude.Maybe Data.POSIX,
     -- | Returns the detailed error message.
     deploymentStatusMessage :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the deployment was started on the agent.
-    deploymentStartTime :: Prelude.Maybe Core.POSIX
+    deploymentStartTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,7 +94,7 @@ deploymentResult_deploymentModels = Lens.lens (\DeploymentResult' {deploymentMod
 -- | The timestamp of when the deployment was ended, and the agent got the
 -- deployment results.
 deploymentResult_deploymentEndTime :: Lens.Lens' DeploymentResult (Prelude.Maybe Prelude.UTCTime)
-deploymentResult_deploymentEndTime = Lens.lens (\DeploymentResult' {deploymentEndTime} -> deploymentEndTime) (\s@DeploymentResult' {} a -> s {deploymentEndTime = a} :: DeploymentResult) Prelude.. Lens.mapping Core._Time
+deploymentResult_deploymentEndTime = Lens.lens (\DeploymentResult' {deploymentEndTime} -> deploymentEndTime) (\s@DeploymentResult' {} a -> s {deploymentEndTime = a} :: DeploymentResult) Prelude.. Lens.mapping Data._Time
 
 -- | Returns the detailed error message.
 deploymentResult_deploymentStatusMessage :: Lens.Lens' DeploymentResult (Prelude.Maybe Prelude.Text)
@@ -101,7 +102,7 @@ deploymentResult_deploymentStatusMessage = Lens.lens (\DeploymentResult' {deploy
 
 -- | The timestamp of when the deployment was started on the agent.
 deploymentResult_deploymentStartTime :: Lens.Lens' DeploymentResult (Prelude.Maybe Prelude.UTCTime)
-deploymentResult_deploymentStartTime = Lens.lens (\DeploymentResult' {deploymentStartTime} -> deploymentStartTime) (\s@DeploymentResult' {} a -> s {deploymentStartTime = a} :: DeploymentResult) Prelude.. Lens.mapping Core._Time
+deploymentResult_deploymentStartTime = Lens.lens (\DeploymentResult' {deploymentStartTime} -> deploymentStartTime) (\s@DeploymentResult' {} a -> s {deploymentStartTime = a} :: DeploymentResult) Prelude.. Lens.mapping Data._Time
 
 instance Prelude.Hashable DeploymentResult where
   hashWithSalt _salt DeploymentResult' {..} =
@@ -121,21 +122,21 @@ instance Prelude.NFData DeploymentResult where
       `Prelude.seq` Prelude.rnf deploymentStatusMessage
       `Prelude.seq` Prelude.rnf deploymentStartTime
 
-instance Core.ToJSON DeploymentResult where
+instance Data.ToJSON DeploymentResult where
   toJSON DeploymentResult' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeploymentStatus" Core..=)
+          [ ("DeploymentStatus" Data..=)
               Prelude.<$> deploymentStatus,
-            ("DeploymentName" Core..=)
+            ("DeploymentName" Data..=)
               Prelude.<$> deploymentName,
-            ("DeploymentModels" Core..=)
+            ("DeploymentModels" Data..=)
               Prelude.<$> deploymentModels,
-            ("DeploymentEndTime" Core..=)
+            ("DeploymentEndTime" Data..=)
               Prelude.<$> deploymentEndTime,
-            ("DeploymentStatusMessage" Core..=)
+            ("DeploymentStatusMessage" Data..=)
               Prelude.<$> deploymentStatusMessage,
-            ("DeploymentStartTime" Core..=)
+            ("DeploymentStartTime" Data..=)
               Prelude.<$> deploymentStartTime
           ]
       )

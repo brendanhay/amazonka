@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.AmazonCodeGuruProfilerIntegration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.EventSourceOptInStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,15 +64,15 @@ amazonCodeGuruProfilerIntegration_status :: Lens.Lens' AmazonCodeGuruProfilerInt
 amazonCodeGuruProfilerIntegration_status = Lens.lens (\AmazonCodeGuruProfilerIntegration' {status} -> status) (\s@AmazonCodeGuruProfilerIntegration' {} a -> s {status = a} :: AmazonCodeGuruProfilerIntegration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AmazonCodeGuruProfilerIntegration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AmazonCodeGuruProfilerIntegration"
       ( \x ->
           AmazonCodeGuruProfilerIntegration'
-            Prelude.<$> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "Status")
       )
 
 instance
@@ -91,11 +92,11 @@ instance
     Prelude.rnf status
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AmazonCodeGuruProfilerIntegration
   where
   toJSON AmazonCodeGuruProfilerIntegration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Status" Core..=) Prelude.<$> status]
+          [("Status" Data..=) Prelude.<$> status]
       )

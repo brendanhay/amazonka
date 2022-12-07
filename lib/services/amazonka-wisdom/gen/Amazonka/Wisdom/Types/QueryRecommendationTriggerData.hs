@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.QueryRecommendationTriggerData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Data associated with the QUERY RecommendationTriggerType.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newQueryRecommendationTriggerData' smart constructor.
 data QueryRecommendationTriggerData = QueryRecommendationTriggerData'
   { -- | The text associated with the recommendation trigger.
-    text :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    text :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -51,15 +52,15 @@ newQueryRecommendationTriggerData =
 
 -- | The text associated with the recommendation trigger.
 queryRecommendationTriggerData_text :: Lens.Lens' QueryRecommendationTriggerData (Prelude.Maybe Prelude.Text)
-queryRecommendationTriggerData_text = Lens.lens (\QueryRecommendationTriggerData' {text} -> text) (\s@QueryRecommendationTriggerData' {} a -> s {text = a} :: QueryRecommendationTriggerData) Prelude.. Lens.mapping Core._Sensitive
+queryRecommendationTriggerData_text = Lens.lens (\QueryRecommendationTriggerData' {text} -> text) (\s@QueryRecommendationTriggerData' {} a -> s {text = a} :: QueryRecommendationTriggerData) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON QueryRecommendationTriggerData where
+instance Data.FromJSON QueryRecommendationTriggerData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryRecommendationTriggerData"
       ( \x ->
           QueryRecommendationTriggerData'
-            Prelude.<$> (x Core..:? "text")
+            Prelude.<$> (x Data..:? "text")
       )
 
 instance

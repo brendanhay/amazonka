@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -94,7 +95,7 @@ instance Core.AWSRequest DescribeApp where
       ( \s h x ->
           DescribeAppResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "app")
+            Prelude.<*> (x Data..:> "app")
       )
 
 instance Prelude.Hashable DescribeApp where
@@ -104,28 +105,28 @@ instance Prelude.Hashable DescribeApp where
 instance Prelude.NFData DescribeApp where
   rnf DescribeApp' {..} = Prelude.rnf appArn
 
-instance Core.ToHeaders DescribeApp where
+instance Data.ToHeaders DescribeApp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeApp where
+instance Data.ToJSON DescribeApp where
   toJSON DescribeApp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("appArn" Core..= appArn)]
+          [Prelude.Just ("appArn" Data..= appArn)]
       )
 
-instance Core.ToPath DescribeApp where
+instance Data.ToPath DescribeApp where
   toPath = Prelude.const "/describe-app"
 
-instance Core.ToQuery DescribeApp where
+instance Data.ToQuery DescribeApp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAppResponse' smart constructor.

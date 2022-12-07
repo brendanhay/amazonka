@@ -45,6 +45,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,7 +122,7 @@ instance Core.AWSRequest CreateBackendEnvironment where
       ( \s h x ->
           CreateBackendEnvironmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "backendEnvironment")
+            Prelude.<*> (x Data..:> "backendEnvironment")
       )
 
 instance Prelude.Hashable CreateBackendEnvironment where
@@ -138,35 +139,35 @@ instance Prelude.NFData CreateBackendEnvironment where
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf environmentName
 
-instance Core.ToHeaders CreateBackendEnvironment where
+instance Data.ToHeaders CreateBackendEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBackendEnvironment where
+instance Data.ToJSON CreateBackendEnvironment where
   toJSON CreateBackendEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deploymentArtifacts" Core..=)
+          [ ("deploymentArtifacts" Data..=)
               Prelude.<$> deploymentArtifacts,
-            ("stackName" Core..=) Prelude.<$> stackName,
+            ("stackName" Data..=) Prelude.<$> stackName,
             Prelude.Just
-              ("environmentName" Core..= environmentName)
+              ("environmentName" Data..= environmentName)
           ]
       )
 
-instance Core.ToPath CreateBackendEnvironment where
+instance Data.ToPath CreateBackendEnvironment where
   toPath CreateBackendEnvironment' {..} =
     Prelude.mconcat
-      ["/apps/", Core.toBS appId, "/backendenvironments"]
+      ["/apps/", Data.toBS appId, "/backendenvironments"]
 
-instance Core.ToQuery CreateBackendEnvironment where
+instance Data.ToQuery CreateBackendEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result structure for the create backend environment request.

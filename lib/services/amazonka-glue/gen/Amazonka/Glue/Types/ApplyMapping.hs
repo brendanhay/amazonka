@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.ApplyMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.Mapping
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,15 +81,15 @@ applyMapping_inputs = Lens.lens (\ApplyMapping' {inputs} -> inputs) (\s@ApplyMap
 applyMapping_mapping :: Lens.Lens' ApplyMapping [Mapping]
 applyMapping_mapping = Lens.lens (\ApplyMapping' {mapping} -> mapping) (\s@ApplyMapping' {} a -> s {mapping = a} :: ApplyMapping) Prelude.. Lens.coerced
 
-instance Core.FromJSON ApplyMapping where
+instance Data.FromJSON ApplyMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplyMapping"
       ( \x ->
           ApplyMapping'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..:? "Mapping" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..:? "Mapping" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ApplyMapping where
@@ -103,12 +104,12 @@ instance Prelude.NFData ApplyMapping where
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf mapping
 
-instance Core.ToJSON ApplyMapping where
+instance Data.ToJSON ApplyMapping where
   toJSON ApplyMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Mapping" Core..= mapping)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Mapping" Data..= mapping)
           ]
       )

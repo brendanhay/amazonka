@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,13 +90,13 @@ instance Core.AWSRequest DescribeDiscoverer where
     Response.receiveJSON
       ( \s h x ->
           DescribeDiscovererResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "DiscovererId")
-            Prelude.<*> (x Core..?> "SourceArn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "CrossAccount")
-            Prelude.<*> (x Core..?> "DiscovererArn")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "DiscovererId")
+            Prelude.<*> (x Data..?> "SourceArn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "CrossAccount")
+            Prelude.<*> (x Data..?> "DiscovererArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,23 +108,23 @@ instance Prelude.NFData DescribeDiscoverer where
   rnf DescribeDiscoverer' {..} =
     Prelude.rnf discovererId
 
-instance Core.ToHeaders DescribeDiscoverer where
+instance Data.ToHeaders DescribeDiscoverer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeDiscoverer where
+instance Data.ToPath DescribeDiscoverer where
   toPath DescribeDiscoverer' {..} =
     Prelude.mconcat
-      ["/v1/discoverers/id/", Core.toBS discovererId]
+      ["/v1/discoverers/id/", Data.toBS discovererId]
 
-instance Core.ToQuery DescribeDiscoverer where
+instance Data.ToQuery DescribeDiscoverer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDiscovererResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTRoboRunner.Types.Destination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTRoboRunner.Types.DestinationState
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,8 +34,8 @@ data Destination = Destination'
     id :: Prelude.Text,
     name :: Prelude.Text,
     site :: Prelude.Text,
-    createdAt :: Core.POSIX,
-    updatedAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
+    updatedAt :: Data.POSIX,
     state :: DestinationState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -93,8 +94,8 @@ newDestination
         id = pId_,
         name = pName_,
         site = pSite_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_,
         state = pState_
       }
 
@@ -120,30 +121,30 @@ destination_site = Lens.lens (\Destination' {site} -> site) (\s@Destination' {} 
 
 -- | Undocumented member.
 destination_createdAt :: Lens.Lens' Destination Prelude.UTCTime
-destination_createdAt = Lens.lens (\Destination' {createdAt} -> createdAt) (\s@Destination' {} a -> s {createdAt = a} :: Destination) Prelude.. Core._Time
+destination_createdAt = Lens.lens (\Destination' {createdAt} -> createdAt) (\s@Destination' {} a -> s {createdAt = a} :: Destination) Prelude.. Data._Time
 
 -- | Undocumented member.
 destination_updatedAt :: Lens.Lens' Destination Prelude.UTCTime
-destination_updatedAt = Lens.lens (\Destination' {updatedAt} -> updatedAt) (\s@Destination' {} a -> s {updatedAt = a} :: Destination) Prelude.. Core._Time
+destination_updatedAt = Lens.lens (\Destination' {updatedAt} -> updatedAt) (\s@Destination' {} a -> s {updatedAt = a} :: Destination) Prelude.. Data._Time
 
 -- | Undocumented member.
 destination_state :: Lens.Lens' Destination DestinationState
 destination_state = Lens.lens (\Destination' {state} -> state) (\s@Destination' {} a -> s {state = a} :: Destination)
 
-instance Core.FromJSON Destination where
+instance Data.FromJSON Destination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Destination"
       ( \x ->
           Destination'
-            Prelude.<$> (x Core..:? "additionalFixedProperties")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "site")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "updatedAt")
-            Prelude.<*> (x Core..: "state")
+            Prelude.<$> (x Data..:? "additionalFixedProperties")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "site")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "updatedAt")
+            Prelude.<*> (x Data..: "state")
       )
 
 instance Prelude.Hashable Destination where

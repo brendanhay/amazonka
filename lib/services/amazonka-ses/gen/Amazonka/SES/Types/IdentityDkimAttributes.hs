@@ -21,6 +21,7 @@ module Amazonka.SES.Types.IdentityDkimAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.VerificationStatus
 
@@ -117,14 +118,14 @@ identityDkimAttributes_dkimEnabled = Lens.lens (\IdentityDkimAttributes' {dkimEn
 identityDkimAttributes_dkimVerificationStatus :: Lens.Lens' IdentityDkimAttributes VerificationStatus
 identityDkimAttributes_dkimVerificationStatus = Lens.lens (\IdentityDkimAttributes' {dkimVerificationStatus} -> dkimVerificationStatus) (\s@IdentityDkimAttributes' {} a -> s {dkimVerificationStatus = a} :: IdentityDkimAttributes)
 
-instance Core.FromXML IdentityDkimAttributes where
+instance Data.FromXML IdentityDkimAttributes where
   parseXML x =
     IdentityDkimAttributes'
-      Prelude.<$> ( x Core..@? "DkimTokens" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "DkimTokens" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@ "DkimEnabled")
-      Prelude.<*> (x Core..@ "DkimVerificationStatus")
+      Prelude.<*> (x Data..@ "DkimEnabled")
+      Prelude.<*> (x Data..@ "DkimVerificationStatus")
 
 instance Prelude.Hashable IdentityDkimAttributes where
   hashWithSalt _salt IdentityDkimAttributes' {..} =

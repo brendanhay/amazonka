@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DeviceDeploymentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.DeviceDeploymentStatus
 
@@ -39,7 +40,7 @@ data DeviceDeploymentSummary = DeviceDeploymentSummary'
     -- | The description of the device.
     description :: Prelude.Maybe Prelude.Text,
     -- | The time when the deployment on the device started.
-    deploymentStartTime :: Prelude.Maybe Core.POSIX,
+    deploymentStartTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the edge deployment plan.
     edgeDeploymentPlanArn :: Prelude.Text,
     -- | The name of the edge deployment plan.
@@ -137,7 +138,7 @@ deviceDeploymentSummary_description = Lens.lens (\DeviceDeploymentSummary' {desc
 
 -- | The time when the deployment on the device started.
 deviceDeploymentSummary_deploymentStartTime :: Lens.Lens' DeviceDeploymentSummary (Prelude.Maybe Prelude.UTCTime)
-deviceDeploymentSummary_deploymentStartTime = Lens.lens (\DeviceDeploymentSummary' {deploymentStartTime} -> deploymentStartTime) (\s@DeviceDeploymentSummary' {} a -> s {deploymentStartTime = a} :: DeviceDeploymentSummary) Prelude.. Lens.mapping Core._Time
+deviceDeploymentSummary_deploymentStartTime = Lens.lens (\DeviceDeploymentSummary' {deploymentStartTime} -> deploymentStartTime) (\s@DeviceDeploymentSummary' {} a -> s {deploymentStartTime = a} :: DeviceDeploymentSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the edge deployment plan.
 deviceDeploymentSummary_edgeDeploymentPlanArn :: Lens.Lens' DeviceDeploymentSummary Prelude.Text
@@ -159,23 +160,23 @@ deviceDeploymentSummary_deviceName = Lens.lens (\DeviceDeploymentSummary' {devic
 deviceDeploymentSummary_deviceArn :: Lens.Lens' DeviceDeploymentSummary Prelude.Text
 deviceDeploymentSummary_deviceArn = Lens.lens (\DeviceDeploymentSummary' {deviceArn} -> deviceArn) (\s@DeviceDeploymentSummary' {} a -> s {deviceArn = a} :: DeviceDeploymentSummary)
 
-instance Core.FromJSON DeviceDeploymentSummary where
+instance Data.FromJSON DeviceDeploymentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceDeploymentSummary"
       ( \x ->
           DeviceDeploymentSummary'
-            Prelude.<$> (x Core..:? "DeviceDeploymentStatus")
-            Prelude.<*> (x Core..:? "DeviceDeploymentStatusMessage")
-            Prelude.<*> (x Core..:? "DeployedStageName")
-            Prelude.<*> (x Core..:? "DeviceFleetName")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "DeploymentStartTime")
-            Prelude.<*> (x Core..: "EdgeDeploymentPlanArn")
-            Prelude.<*> (x Core..: "EdgeDeploymentPlanName")
-            Prelude.<*> (x Core..: "StageName")
-            Prelude.<*> (x Core..: "DeviceName")
-            Prelude.<*> (x Core..: "DeviceArn")
+            Prelude.<$> (x Data..:? "DeviceDeploymentStatus")
+            Prelude.<*> (x Data..:? "DeviceDeploymentStatusMessage")
+            Prelude.<*> (x Data..:? "DeployedStageName")
+            Prelude.<*> (x Data..:? "DeviceFleetName")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "DeploymentStartTime")
+            Prelude.<*> (x Data..: "EdgeDeploymentPlanArn")
+            Prelude.<*> (x Data..: "EdgeDeploymentPlanName")
+            Prelude.<*> (x Data..: "StageName")
+            Prelude.<*> (x Data..: "DeviceName")
+            Prelude.<*> (x Data..: "DeviceArn")
       )
 
 instance Prelude.Hashable DeviceDeploymentSummary where

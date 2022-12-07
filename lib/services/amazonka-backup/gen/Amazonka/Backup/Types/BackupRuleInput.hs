@@ -23,6 +23,7 @@ import Amazonka.Backup.Types.CopyAction
 import Amazonka.Backup.Types.Lifecycle
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a scheduled task used to back up a selection of resources.
@@ -62,7 +63,7 @@ data BackupRuleInput = BackupRuleInput'
     completionWindowMinutes :: Prelude.Maybe Prelude.Integer,
     -- | To help organize your resources, you can assign your own metadata to the
     -- resources that you create. Each tag is a key-value pair.
-    recoveryPointTags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    recoveryPointTags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | A display name for a backup rule. Must contain 1 to 50 alphanumeric or
     -- \'-_.\' characters.
     ruleName :: Prelude.Text,
@@ -189,7 +190,7 @@ backupRuleInput_completionWindowMinutes = Lens.lens (\BackupRuleInput' {completi
 -- | To help organize your resources, you can assign your own metadata to the
 -- resources that you create. Each tag is a key-value pair.
 backupRuleInput_recoveryPointTags :: Lens.Lens' BackupRuleInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-backupRuleInput_recoveryPointTags = Lens.lens (\BackupRuleInput' {recoveryPointTags} -> recoveryPointTags) (\s@BackupRuleInput' {} a -> s {recoveryPointTags = a} :: BackupRuleInput) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+backupRuleInput_recoveryPointTags = Lens.lens (\BackupRuleInput' {recoveryPointTags} -> recoveryPointTags) (\s@BackupRuleInput' {} a -> s {recoveryPointTags = a} :: BackupRuleInput) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | A display name for a backup rule. Must contain 1 to 50 alphanumeric or
 -- \'-_.\' characters.
@@ -227,26 +228,26 @@ instance Prelude.NFData BackupRuleInput where
       `Prelude.seq` Prelude.rnf ruleName
       `Prelude.seq` Prelude.rnf targetBackupVaultName
 
-instance Core.ToJSON BackupRuleInput where
+instance Data.ToJSON BackupRuleInput where
   toJSON BackupRuleInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StartWindowMinutes" Core..=)
+          [ ("StartWindowMinutes" Data..=)
               Prelude.<$> startWindowMinutes,
-            ("Lifecycle" Core..=) Prelude.<$> lifecycle,
-            ("CopyActions" Core..=) Prelude.<$> copyActions,
-            ("ScheduleExpression" Core..=)
+            ("Lifecycle" Data..=) Prelude.<$> lifecycle,
+            ("CopyActions" Data..=) Prelude.<$> copyActions,
+            ("ScheduleExpression" Data..=)
               Prelude.<$> scheduleExpression,
-            ("EnableContinuousBackup" Core..=)
+            ("EnableContinuousBackup" Data..=)
               Prelude.<$> enableContinuousBackup,
-            ("CompletionWindowMinutes" Core..=)
+            ("CompletionWindowMinutes" Data..=)
               Prelude.<$> completionWindowMinutes,
-            ("RecoveryPointTags" Core..=)
+            ("RecoveryPointTags" Data..=)
               Prelude.<$> recoveryPointTags,
-            Prelude.Just ("RuleName" Core..= ruleName),
+            Prelude.Just ("RuleName" Data..= ruleName),
             Prelude.Just
               ( "TargetBackupVaultName"
-                  Core..= targetBackupVaultName
+                  Data..= targetBackupVaultName
               )
           ]
       )

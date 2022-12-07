@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,20 +110,20 @@ instance Core.AWSRequest ReleasePhoneNumber where
     Response.receiveJSON
       ( \s h x ->
           ReleasePhoneNumberResponse'
-            Prelude.<$> (x Core..?> "IsoCountryCode")
-            Prelude.<*> (x Core..?> "PhoneNumberArn")
-            Prelude.<*> (x Core..?> "MessageType")
-            Prelude.<*> (x Core..?> "SelfManagedOptOutsEnabled")
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "NumberCapabilities")
-            Prelude.<*> (x Core..?> "TwoWayEnabled")
-            Prelude.<*> (x Core..?> "OptOutListName")
-            Prelude.<*> (x Core..?> "NumberType")
-            Prelude.<*> (x Core..?> "PhoneNumberId")
-            Prelude.<*> (x Core..?> "TwoWayChannelArn")
-            Prelude.<*> (x Core..?> "PhoneNumber")
-            Prelude.<*> (x Core..?> "MonthlyLeasingPrice")
+            Prelude.<$> (x Data..?> "IsoCountryCode")
+            Prelude.<*> (x Data..?> "PhoneNumberArn")
+            Prelude.<*> (x Data..?> "MessageType")
+            Prelude.<*> (x Data..?> "SelfManagedOptOutsEnabled")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "NumberCapabilities")
+            Prelude.<*> (x Data..?> "TwoWayEnabled")
+            Prelude.<*> (x Data..?> "OptOutListName")
+            Prelude.<*> (x Data..?> "NumberType")
+            Prelude.<*> (x Data..?> "PhoneNumberId")
+            Prelude.<*> (x Data..?> "TwoWayChannelArn")
+            Prelude.<*> (x Data..?> "PhoneNumber")
+            Prelude.<*> (x Data..?> "MonthlyLeasingPrice")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,34 +135,34 @@ instance Prelude.NFData ReleasePhoneNumber where
   rnf ReleasePhoneNumber' {..} =
     Prelude.rnf phoneNumberId
 
-instance Core.ToHeaders ReleasePhoneNumber where
+instance Data.ToHeaders ReleasePhoneNumber where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.ReleasePhoneNumber" ::
+              Data.=# ( "PinpointSMSVoiceV2.ReleasePhoneNumber" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ReleasePhoneNumber where
+instance Data.ToJSON ReleasePhoneNumber where
   toJSON ReleasePhoneNumber' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PhoneNumberId" Core..= phoneNumberId)
+              ("PhoneNumberId" Data..= phoneNumberId)
           ]
       )
 
-instance Core.ToPath ReleasePhoneNumber where
+instance Data.ToPath ReleasePhoneNumber where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ReleasePhoneNumber where
+instance Data.ToQuery ReleasePhoneNumber where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newReleasePhoneNumberResponse' smart constructor.
@@ -182,7 +183,7 @@ data ReleasePhoneNumberResponse = ReleasePhoneNumberResponse'
     selfManagedOptOutsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The time when the phone number was created, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The current status of the request.
     status :: Prelude.Maybe NumberStatus,
     -- | Specifies if the number could be used for text messages, voice, or both.
@@ -301,7 +302,7 @@ releasePhoneNumberResponse_selfManagedOptOutsEnabled = Lens.lens (\ReleasePhoneN
 -- | The time when the phone number was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 releasePhoneNumberResponse_createdTimestamp :: Lens.Lens' ReleasePhoneNumberResponse (Prelude.Maybe Prelude.UTCTime)
-releasePhoneNumberResponse_createdTimestamp = Lens.lens (\ReleasePhoneNumberResponse' {createdTimestamp} -> createdTimestamp) (\s@ReleasePhoneNumberResponse' {} a -> s {createdTimestamp = a} :: ReleasePhoneNumberResponse) Prelude.. Lens.mapping Core._Time
+releasePhoneNumberResponse_createdTimestamp = Lens.lens (\ReleasePhoneNumberResponse' {createdTimestamp} -> createdTimestamp) (\s@ReleasePhoneNumberResponse' {} a -> s {createdTimestamp = a} :: ReleasePhoneNumberResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the request.
 releasePhoneNumberResponse_status :: Lens.Lens' ReleasePhoneNumberResponse (Prelude.Maybe NumberStatus)

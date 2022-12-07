@@ -42,6 +42,7 @@ where
 import Amazonka.BackupGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest DeleteHypervisor where
     Response.receiveJSON
       ( \s h x ->
           DeleteHypervisorResponse'
-            Prelude.<$> (x Core..?> "HypervisorArn")
+            Prelude.<$> (x Data..?> "HypervisorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,34 +95,34 @@ instance Prelude.Hashable DeleteHypervisor where
 instance Prelude.NFData DeleteHypervisor where
   rnf DeleteHypervisor' {..} = Prelude.rnf hypervisorArn
 
-instance Core.ToHeaders DeleteHypervisor where
+instance Data.ToHeaders DeleteHypervisor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BackupOnPremises_v20210101.DeleteHypervisor" ::
+              Data.=# ( "BackupOnPremises_v20210101.DeleteHypervisor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteHypervisor where
+instance Data.ToJSON DeleteHypervisor where
   toJSON DeleteHypervisor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("HypervisorArn" Core..= hypervisorArn)
+              ("HypervisorArn" Data..= hypervisorArn)
           ]
       )
 
-instance Core.ToPath DeleteHypervisor where
+instance Data.ToPath DeleteHypervisor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteHypervisor where
+instance Data.ToQuery DeleteHypervisor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteHypervisorResponse' smart constructor.

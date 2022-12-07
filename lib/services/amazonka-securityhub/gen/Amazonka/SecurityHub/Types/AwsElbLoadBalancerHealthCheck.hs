@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElbLoadBalancerHealthCheck where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the health checks that are conducted on the
@@ -138,17 +139,17 @@ awsElbLoadBalancerHealthCheck_target = Lens.lens (\AwsElbLoadBalancerHealthCheck
 awsElbLoadBalancerHealthCheck_unhealthyThreshold :: Lens.Lens' AwsElbLoadBalancerHealthCheck (Prelude.Maybe Prelude.Int)
 awsElbLoadBalancerHealthCheck_unhealthyThreshold = Lens.lens (\AwsElbLoadBalancerHealthCheck' {unhealthyThreshold} -> unhealthyThreshold) (\s@AwsElbLoadBalancerHealthCheck' {} a -> s {unhealthyThreshold = a} :: AwsElbLoadBalancerHealthCheck)
 
-instance Core.FromJSON AwsElbLoadBalancerHealthCheck where
+instance Data.FromJSON AwsElbLoadBalancerHealthCheck where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElbLoadBalancerHealthCheck"
       ( \x ->
           AwsElbLoadBalancerHealthCheck'
-            Prelude.<$> (x Core..:? "Timeout")
-            Prelude.<*> (x Core..:? "Interval")
-            Prelude.<*> (x Core..:? "HealthyThreshold")
-            Prelude.<*> (x Core..:? "Target")
-            Prelude.<*> (x Core..:? "UnhealthyThreshold")
+            Prelude.<$> (x Data..:? "Timeout")
+            Prelude.<*> (x Data..:? "Interval")
+            Prelude.<*> (x Data..:? "HealthyThreshold")
+            Prelude.<*> (x Data..:? "Target")
+            Prelude.<*> (x Data..:? "UnhealthyThreshold")
       )
 
 instance
@@ -170,16 +171,16 @@ instance Prelude.NFData AwsElbLoadBalancerHealthCheck where
       `Prelude.seq` Prelude.rnf target
       `Prelude.seq` Prelude.rnf unhealthyThreshold
 
-instance Core.ToJSON AwsElbLoadBalancerHealthCheck where
+instance Data.ToJSON AwsElbLoadBalancerHealthCheck where
   toJSON AwsElbLoadBalancerHealthCheck' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Timeout" Core..=) Prelude.<$> timeout,
-            ("Interval" Core..=) Prelude.<$> interval,
-            ("HealthyThreshold" Core..=)
+          [ ("Timeout" Data..=) Prelude.<$> timeout,
+            ("Interval" Data..=) Prelude.<$> interval,
+            ("HealthyThreshold" Data..=)
               Prelude.<$> healthyThreshold,
-            ("Target" Core..=) Prelude.<$> target,
-            ("UnhealthyThreshold" Core..=)
+            ("Target" Data..=) Prelude.<$> target,
+            ("UnhealthyThreshold" Data..=)
               Prelude.<$> unhealthyThreshold
           ]
       )

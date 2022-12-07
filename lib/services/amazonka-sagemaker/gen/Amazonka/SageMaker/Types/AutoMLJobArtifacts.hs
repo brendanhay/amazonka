@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AutoMLJobArtifacts where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The artifacts that are generated during an AutoML job.
@@ -63,14 +64,14 @@ autoMLJobArtifacts_dataExplorationNotebookLocation = Lens.lens (\AutoMLJobArtifa
 autoMLJobArtifacts_candidateDefinitionNotebookLocation :: Lens.Lens' AutoMLJobArtifacts (Prelude.Maybe Prelude.Text)
 autoMLJobArtifacts_candidateDefinitionNotebookLocation = Lens.lens (\AutoMLJobArtifacts' {candidateDefinitionNotebookLocation} -> candidateDefinitionNotebookLocation) (\s@AutoMLJobArtifacts' {} a -> s {candidateDefinitionNotebookLocation = a} :: AutoMLJobArtifacts)
 
-instance Core.FromJSON AutoMLJobArtifacts where
+instance Data.FromJSON AutoMLJobArtifacts where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoMLJobArtifacts"
       ( \x ->
           AutoMLJobArtifacts'
-            Prelude.<$> (x Core..:? "DataExplorationNotebookLocation")
-            Prelude.<*> (x Core..:? "CandidateDefinitionNotebookLocation")
+            Prelude.<$> (x Data..:? "DataExplorationNotebookLocation")
+            Prelude.<*> (x Data..:? "CandidateDefinitionNotebookLocation")
       )
 
 instance Prelude.Hashable AutoMLJobArtifacts where

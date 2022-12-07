@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.DocumentParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.DocumentParameterType
 
@@ -90,16 +91,16 @@ documentParameter_defaultValue = Lens.lens (\DocumentParameter' {defaultValue} -
 documentParameter_description :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Text)
 documentParameter_description = Lens.lens (\DocumentParameter' {description} -> description) (\s@DocumentParameter' {} a -> s {description = a} :: DocumentParameter)
 
-instance Core.FromJSON DocumentParameter where
+instance Data.FromJSON DocumentParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentParameter"
       ( \x ->
           DocumentParameter'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DefaultValue")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DefaultValue")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable DocumentParameter where

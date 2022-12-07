@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.TemplateVersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ResourceStatus
 
@@ -29,7 +30,7 @@ import Amazonka.QuickSight.Types.ResourceStatus
 -- /See:/ 'newTemplateVersionSummary' smart constructor.
 data TemplateVersionSummary = TemplateVersionSummary'
   { -- | The time that this template version was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the template version.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The status of the template version.
@@ -72,7 +73,7 @@ newTemplateVersionSummary =
 
 -- | The time that this template version was created.
 templateVersionSummary_createdTime :: Lens.Lens' TemplateVersionSummary (Prelude.Maybe Prelude.UTCTime)
-templateVersionSummary_createdTime = Lens.lens (\TemplateVersionSummary' {createdTime} -> createdTime) (\s@TemplateVersionSummary' {} a -> s {createdTime = a} :: TemplateVersionSummary) Prelude.. Lens.mapping Core._Time
+templateVersionSummary_createdTime = Lens.lens (\TemplateVersionSummary' {createdTime} -> createdTime) (\s@TemplateVersionSummary' {} a -> s {createdTime = a} :: TemplateVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the template version.
 templateVersionSummary_arn :: Lens.Lens' TemplateVersionSummary (Prelude.Maybe Prelude.Text)
@@ -90,17 +91,17 @@ templateVersionSummary_description = Lens.lens (\TemplateVersionSummary' {descri
 templateVersionSummary_versionNumber :: Lens.Lens' TemplateVersionSummary (Prelude.Maybe Prelude.Natural)
 templateVersionSummary_versionNumber = Lens.lens (\TemplateVersionSummary' {versionNumber} -> versionNumber) (\s@TemplateVersionSummary' {} a -> s {versionNumber = a} :: TemplateVersionSummary)
 
-instance Core.FromJSON TemplateVersionSummary where
+instance Data.FromJSON TemplateVersionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateVersionSummary"
       ( \x ->
           TemplateVersionSummary'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "VersionNumber")
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "VersionNumber")
       )
 
 instance Prelude.Hashable TemplateVersionSummary where

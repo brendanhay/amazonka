@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ResourceIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.IssuerCertificateIdentifier
 import Amazonka.IoT.Types.PolicyVersionIdentifier
 import qualified Amazonka.Prelude as Prelude
@@ -135,22 +136,22 @@ resourceIdentifier_cognitoIdentityPoolId = Lens.lens (\ResourceIdentifier' {cogn
 resourceIdentifier_issuerCertificateIdentifier :: Lens.Lens' ResourceIdentifier (Prelude.Maybe IssuerCertificateIdentifier)
 resourceIdentifier_issuerCertificateIdentifier = Lens.lens (\ResourceIdentifier' {issuerCertificateIdentifier} -> issuerCertificateIdentifier) (\s@ResourceIdentifier' {} a -> s {issuerCertificateIdentifier = a} :: ResourceIdentifier)
 
-instance Core.FromJSON ResourceIdentifier where
+instance Data.FromJSON ResourceIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceIdentifier"
       ( \x ->
           ResourceIdentifier'
-            Prelude.<$> (x Core..:? "clientId")
-            Prelude.<*> (x Core..:? "account")
-            Prelude.<*> (x Core..:? "policyVersionIdentifier")
-            Prelude.<*> (x Core..:? "deviceCertificateArn")
-            Prelude.<*> (x Core..:? "deviceCertificateId")
-            Prelude.<*> (x Core..:? "caCertificateId")
-            Prelude.<*> (x Core..:? "iamRoleArn")
-            Prelude.<*> (x Core..:? "roleAliasArn")
-            Prelude.<*> (x Core..:? "cognitoIdentityPoolId")
-            Prelude.<*> (x Core..:? "issuerCertificateIdentifier")
+            Prelude.<$> (x Data..:? "clientId")
+            Prelude.<*> (x Data..:? "account")
+            Prelude.<*> (x Data..:? "policyVersionIdentifier")
+            Prelude.<*> (x Data..:? "deviceCertificateArn")
+            Prelude.<*> (x Data..:? "deviceCertificateId")
+            Prelude.<*> (x Data..:? "caCertificateId")
+            Prelude.<*> (x Data..:? "iamRoleArn")
+            Prelude.<*> (x Data..:? "roleAliasArn")
+            Prelude.<*> (x Data..:? "cognitoIdentityPoolId")
+            Prelude.<*> (x Data..:? "issuerCertificateIdentifier")
       )
 
 instance Prelude.Hashable ResourceIdentifier where
@@ -179,25 +180,25 @@ instance Prelude.NFData ResourceIdentifier where
       `Prelude.seq` Prelude.rnf cognitoIdentityPoolId
       `Prelude.seq` Prelude.rnf issuerCertificateIdentifier
 
-instance Core.ToJSON ResourceIdentifier where
+instance Data.ToJSON ResourceIdentifier where
   toJSON ResourceIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientId" Core..=) Prelude.<$> clientId,
-            ("account" Core..=) Prelude.<$> account,
-            ("policyVersionIdentifier" Core..=)
+          [ ("clientId" Data..=) Prelude.<$> clientId,
+            ("account" Data..=) Prelude.<$> account,
+            ("policyVersionIdentifier" Data..=)
               Prelude.<$> policyVersionIdentifier,
-            ("deviceCertificateArn" Core..=)
+            ("deviceCertificateArn" Data..=)
               Prelude.<$> deviceCertificateArn,
-            ("deviceCertificateId" Core..=)
+            ("deviceCertificateId" Data..=)
               Prelude.<$> deviceCertificateId,
-            ("caCertificateId" Core..=)
+            ("caCertificateId" Data..=)
               Prelude.<$> caCertificateId,
-            ("iamRoleArn" Core..=) Prelude.<$> iamRoleArn,
-            ("roleAliasArn" Core..=) Prelude.<$> roleAliasArn,
-            ("cognitoIdentityPoolId" Core..=)
+            ("iamRoleArn" Data..=) Prelude.<$> iamRoleArn,
+            ("roleAliasArn" Data..=) Prelude.<$> roleAliasArn,
+            ("cognitoIdentityPoolId" Data..=)
               Prelude.<$> cognitoIdentityPoolId,
-            ("issuerCertificateIdentifier" Core..=)
+            ("issuerCertificateIdentifier" Data..=)
               Prelude.<$> issuerCertificateIdentifier
           ]
       )

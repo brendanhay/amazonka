@@ -22,6 +22,7 @@ module Amazonka.AppStream.Types.FleetError where
 import Amazonka.AppStream.Types.FleetErrorCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a fleet error.
@@ -62,14 +63,14 @@ fleetError_errorMessage = Lens.lens (\FleetError' {errorMessage} -> errorMessage
 fleetError_errorCode :: Lens.Lens' FleetError (Prelude.Maybe FleetErrorCode)
 fleetError_errorCode = Lens.lens (\FleetError' {errorCode} -> errorCode) (\s@FleetError' {} a -> s {errorCode = a} :: FleetError)
 
-instance Core.FromJSON FleetError where
+instance Data.FromJSON FleetError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FleetError"
       ( \x ->
           FleetError'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable FleetError where

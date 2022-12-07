@@ -38,6 +38,7 @@ where
 import Amazonka.ChimeSDKIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,15 +90,15 @@ instance Prelude.NFData DeleteAppInstance where
   rnf DeleteAppInstance' {..} =
     Prelude.rnf appInstanceArn
 
-instance Core.ToHeaders DeleteAppInstance where
+instance Data.ToHeaders DeleteAppInstance where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteAppInstance where
+instance Data.ToPath DeleteAppInstance where
   toPath DeleteAppInstance' {..} =
     Prelude.mconcat
-      ["/app-instances/", Core.toBS appInstanceArn]
+      ["/app-instances/", Data.toBS appInstanceArn]
 
-instance Core.ToQuery DeleteAppInstance where
+instance Data.ToQuery DeleteAppInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAppInstanceResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Ipv4PrefixSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -60,10 +61,10 @@ newIpv4PrefixSpecification =
 ipv4PrefixSpecification_ipv4Prefix :: Lens.Lens' Ipv4PrefixSpecification (Prelude.Maybe Prelude.Text)
 ipv4PrefixSpecification_ipv4Prefix = Lens.lens (\Ipv4PrefixSpecification' {ipv4Prefix} -> ipv4Prefix) (\s@Ipv4PrefixSpecification' {} a -> s {ipv4Prefix = a} :: Ipv4PrefixSpecification)
 
-instance Core.FromXML Ipv4PrefixSpecification where
+instance Data.FromXML Ipv4PrefixSpecification where
   parseXML x =
     Ipv4PrefixSpecification'
-      Prelude.<$> (x Core..@? "ipv4Prefix")
+      Prelude.<$> (x Data..@? "ipv4Prefix")
 
 instance Prelude.Hashable Ipv4PrefixSpecification where
   hashWithSalt _salt Ipv4PrefixSpecification' {..} =

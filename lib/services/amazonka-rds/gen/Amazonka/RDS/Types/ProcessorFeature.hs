@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.ProcessorFeature where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the processor features of a DB instance class.
@@ -109,10 +110,10 @@ processorFeature_name = Lens.lens (\ProcessorFeature' {name} -> name) (\s@Proces
 processorFeature_value :: Lens.Lens' ProcessorFeature (Prelude.Maybe Prelude.Text)
 processorFeature_value = Lens.lens (\ProcessorFeature' {value} -> value) (\s@ProcessorFeature' {} a -> s {value = a} :: ProcessorFeature)
 
-instance Core.FromXML ProcessorFeature where
+instance Data.FromXML ProcessorFeature where
   parseXML x =
     ProcessorFeature'
-      Prelude.<$> (x Core..@? "Name") Prelude.<*> (x Core..@? "Value")
+      Prelude.<$> (x Data..@? "Name") Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable ProcessorFeature where
   hashWithSalt _salt ProcessorFeature' {..} =
@@ -123,7 +124,7 @@ instance Prelude.NFData ProcessorFeature where
   rnf ProcessorFeature' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToQuery ProcessorFeature where
+instance Data.ToQuery ProcessorFeature where
   toQuery ProcessorFeature' {..} =
     Prelude.mconcat
-      ["Name" Core.=: name, "Value" Core.=: value]
+      ["Name" Data.=: name, "Value" Data.=: value]

@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -186,10 +187,10 @@ instance Core.AWSRequest ListPolicyVersions where
       "ListPolicyVersionsResult"
       ( \s h x ->
           ListPolicyVersionsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
-            Prelude.<*> ( x Core..@? "Versions" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> ( x Data..@? "Versions" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -206,22 +207,22 @@ instance Prelude.NFData ListPolicyVersions where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf policyArn
 
-instance Core.ToHeaders ListPolicyVersions where
+instance Data.ToHeaders ListPolicyVersions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListPolicyVersions where
+instance Data.ToPath ListPolicyVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPolicyVersions where
+instance Data.ToQuery ListPolicyVersions where
   toQuery ListPolicyVersions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListPolicyVersions" :: Prelude.ByteString),
+          Data.=: ("ListPolicyVersions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "PolicyArn" Core.=: policyArn
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "PolicyArn" Data.=: policyArn
       ]
 
 -- | Contains the response to a successful ListPolicyVersions request.

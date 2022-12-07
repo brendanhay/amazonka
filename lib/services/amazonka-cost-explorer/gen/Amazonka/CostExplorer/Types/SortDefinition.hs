@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.SortDefinition where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.SortOrder
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details for how to sort the data.
@@ -73,11 +74,11 @@ instance Prelude.NFData SortDefinition where
   rnf SortDefinition' {..} =
     Prelude.rnf sortOrder `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON SortDefinition where
+instance Data.ToJSON SortDefinition where
   toJSON SortDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            Prelude.Just ("Key" Core..= key)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            Prelude.Just ("Key" Data..= key)
           ]
       )

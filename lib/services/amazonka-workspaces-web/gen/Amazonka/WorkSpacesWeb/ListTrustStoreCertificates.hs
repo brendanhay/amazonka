@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,9 +112,9 @@ instance Core.AWSRequest ListTrustStoreCertificates where
     Response.receiveJSON
       ( \s h x ->
           ListTrustStoreCertificatesResponse'
-            Prelude.<$> (x Core..?> "trustStoreArn")
-            Prelude.<*> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "certificateList"
+            Prelude.<$> (x Data..?> "trustStoreArn")
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "certificateList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -131,30 +132,30 @@ instance Prelude.NFData ListTrustStoreCertificates where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf trustStoreArn
 
-instance Core.ToHeaders ListTrustStoreCertificates where
+instance Data.ToHeaders ListTrustStoreCertificates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListTrustStoreCertificates where
+instance Data.ToPath ListTrustStoreCertificates where
   toPath ListTrustStoreCertificates' {..} =
     Prelude.mconcat
       [ "/trustStores/",
-        Core.toBS trustStoreArn,
+        Data.toBS trustStoreArn,
         "/certificates"
       ]
 
-instance Core.ToQuery ListTrustStoreCertificates where
+instance Data.ToQuery ListTrustStoreCertificates where
   toQuery ListTrustStoreCertificates' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListTrustStoreCertificatesResponse' smart constructor.

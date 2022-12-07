@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.AutomatedAbrRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AllowedRenditionSize
 import Amazonka.MediaConvert.Types.ForceIncludeRenditionSize
 import Amazonka.MediaConvert.Types.MinBottomRenditionSize
@@ -244,20 +245,20 @@ automatedAbrRule_forceIncludeRenditions = Lens.lens (\AutomatedAbrRule' {forceIn
 automatedAbrRule_allowedRenditions :: Lens.Lens' AutomatedAbrRule (Prelude.Maybe [AllowedRenditionSize])
 automatedAbrRule_allowedRenditions = Lens.lens (\AutomatedAbrRule' {allowedRenditions} -> allowedRenditions) (\s@AutomatedAbrRule' {} a -> s {allowedRenditions = a} :: AutomatedAbrRule) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AutomatedAbrRule where
+instance Data.FromJSON AutomatedAbrRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutomatedAbrRule"
       ( \x ->
           AutomatedAbrRule'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "minTopRenditionSize")
-            Prelude.<*> (x Core..:? "minBottomRenditionSize")
-            Prelude.<*> ( x Core..:? "forceIncludeRenditions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "minTopRenditionSize")
+            Prelude.<*> (x Data..:? "minBottomRenditionSize")
+            Prelude.<*> ( x Data..:? "forceIncludeRenditions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "allowedRenditions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "allowedRenditions"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -277,18 +278,18 @@ instance Prelude.NFData AutomatedAbrRule where
       `Prelude.seq` Prelude.rnf forceIncludeRenditions
       `Prelude.seq` Prelude.rnf allowedRenditions
 
-instance Core.ToJSON AutomatedAbrRule where
+instance Data.ToJSON AutomatedAbrRule where
   toJSON AutomatedAbrRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("minTopRenditionSize" Core..=)
+          [ ("type" Data..=) Prelude.<$> type',
+            ("minTopRenditionSize" Data..=)
               Prelude.<$> minTopRenditionSize,
-            ("minBottomRenditionSize" Core..=)
+            ("minBottomRenditionSize" Data..=)
               Prelude.<$> minBottomRenditionSize,
-            ("forceIncludeRenditions" Core..=)
+            ("forceIncludeRenditions" Data..=)
               Prelude.<$> forceIncludeRenditions,
-            ("allowedRenditions" Core..=)
+            ("allowedRenditions" Data..=)
               Prelude.<$> allowedRenditions
           ]
       )

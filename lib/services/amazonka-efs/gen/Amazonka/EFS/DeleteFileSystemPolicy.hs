@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,18 +100,18 @@ instance Prelude.NFData DeleteFileSystemPolicy where
   rnf DeleteFileSystemPolicy' {..} =
     Prelude.rnf fileSystemId
 
-instance Core.ToHeaders DeleteFileSystemPolicy where
+instance Data.ToHeaders DeleteFileSystemPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteFileSystemPolicy where
+instance Data.ToPath DeleteFileSystemPolicy where
   toPath DeleteFileSystemPolicy' {..} =
     Prelude.mconcat
       [ "/2015-02-01/file-systems/",
-        Core.toBS fileSystemId,
+        Data.toBS fileSystemId,
         "/policy"
       ]
 
-instance Core.ToQuery DeleteFileSystemPolicy where
+instance Data.ToQuery DeleteFileSystemPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFileSystemPolicyResponse' smart constructor.

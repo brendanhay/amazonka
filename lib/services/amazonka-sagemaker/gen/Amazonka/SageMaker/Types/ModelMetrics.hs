@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.Bias
 import Amazonka.SageMaker.Types.Explainability
@@ -83,16 +84,16 @@ modelMetrics_bias = Lens.lens (\ModelMetrics' {bias} -> bias) (\s@ModelMetrics' 
 modelMetrics_explainability :: Lens.Lens' ModelMetrics (Prelude.Maybe Explainability)
 modelMetrics_explainability = Lens.lens (\ModelMetrics' {explainability} -> explainability) (\s@ModelMetrics' {} a -> s {explainability = a} :: ModelMetrics)
 
-instance Core.FromJSON ModelMetrics where
+instance Data.FromJSON ModelMetrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelMetrics"
       ( \x ->
           ModelMetrics'
-            Prelude.<$> (x Core..:? "ModelDataQuality")
-            Prelude.<*> (x Core..:? "ModelQuality")
-            Prelude.<*> (x Core..:? "Bias")
-            Prelude.<*> (x Core..:? "Explainability")
+            Prelude.<$> (x Data..:? "ModelDataQuality")
+            Prelude.<*> (x Data..:? "ModelQuality")
+            Prelude.<*> (x Data..:? "Bias")
+            Prelude.<*> (x Data..:? "Explainability")
       )
 
 instance Prelude.Hashable ModelMetrics where
@@ -109,15 +110,15 @@ instance Prelude.NFData ModelMetrics where
       `Prelude.seq` Prelude.rnf bias
       `Prelude.seq` Prelude.rnf explainability
 
-instance Core.ToJSON ModelMetrics where
+instance Data.ToJSON ModelMetrics where
   toJSON ModelMetrics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ModelDataQuality" Core..=)
+          [ ("ModelDataQuality" Data..=)
               Prelude.<$> modelDataQuality,
-            ("ModelQuality" Core..=) Prelude.<$> modelQuality,
-            ("Bias" Core..=) Prelude.<$> bias,
-            ("Explainability" Core..=)
+            ("ModelQuality" Data..=) Prelude.<$> modelQuality,
+            ("Bias" Data..=) Prelude.<$> bias,
+            ("Explainability" Data..=)
               Prelude.<$> explainability
           ]
       )

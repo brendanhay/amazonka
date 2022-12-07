@@ -38,6 +38,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,17 +91,17 @@ instance Prelude.NFData DeleteSipMediaApplication where
   rnf DeleteSipMediaApplication' {..} =
     Prelude.rnf sipMediaApplicationId
 
-instance Core.ToHeaders DeleteSipMediaApplication where
+instance Data.ToHeaders DeleteSipMediaApplication where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteSipMediaApplication where
+instance Data.ToPath DeleteSipMediaApplication where
   toPath DeleteSipMediaApplication' {..} =
     Prelude.mconcat
       [ "/sip-media-applications/",
-        Core.toBS sipMediaApplicationId
+        Data.toBS sipMediaApplicationId
       ]
 
-instance Core.ToQuery DeleteSipMediaApplication where
+instance Data.ToQuery DeleteSipMediaApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSipMediaApplicationResponse' smart constructor.

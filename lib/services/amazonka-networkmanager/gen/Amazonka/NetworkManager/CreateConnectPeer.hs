@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,7 +153,7 @@ instance Core.AWSRequest CreateConnectPeer where
     Response.receiveJSON
       ( \s h x ->
           CreateConnectPeerResponse'
-            Prelude.<$> (x Core..?> "ConnectPeer")
+            Prelude.<$> (x Data..?> "ConnectPeer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,38 +177,38 @@ instance Prelude.NFData CreateConnectPeer where
       `Prelude.seq` Prelude.rnf peerAddress
       `Prelude.seq` Prelude.rnf insideCidrBlocks
 
-instance Core.ToHeaders CreateConnectPeer where
+instance Data.ToHeaders CreateConnectPeer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConnectPeer where
+instance Data.ToJSON CreateConnectPeer where
   toJSON CreateConnectPeer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("CoreNetworkAddress" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("CoreNetworkAddress" Data..=)
               Prelude.<$> coreNetworkAddress,
-            ("BgpOptions" Core..=) Prelude.<$> bgpOptions,
+            ("BgpOptions" Data..=) Prelude.<$> bgpOptions,
             Prelude.Just
-              ("ConnectAttachmentId" Core..= connectAttachmentId),
-            Prelude.Just ("PeerAddress" Core..= peerAddress),
+              ("ConnectAttachmentId" Data..= connectAttachmentId),
+            Prelude.Just ("PeerAddress" Data..= peerAddress),
             Prelude.Just
-              ("InsideCidrBlocks" Core..= insideCidrBlocks)
+              ("InsideCidrBlocks" Data..= insideCidrBlocks)
           ]
       )
 
-instance Core.ToPath CreateConnectPeer where
+instance Data.ToPath CreateConnectPeer where
   toPath = Prelude.const "/connect-peers"
 
-instance Core.ToQuery CreateConnectPeer where
+instance Data.ToQuery CreateConnectPeer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConnectPeerResponse' smart constructor.

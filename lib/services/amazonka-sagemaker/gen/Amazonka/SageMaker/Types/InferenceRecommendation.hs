@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.InferenceRecommendation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.EndpointOutputConfiguration
 import Amazonka.SageMaker.Types.ModelConfiguration
@@ -83,15 +84,15 @@ inferenceRecommendation_endpointConfiguration = Lens.lens (\InferenceRecommendat
 inferenceRecommendation_modelConfiguration :: Lens.Lens' InferenceRecommendation ModelConfiguration
 inferenceRecommendation_modelConfiguration = Lens.lens (\InferenceRecommendation' {modelConfiguration} -> modelConfiguration) (\s@InferenceRecommendation' {} a -> s {modelConfiguration = a} :: InferenceRecommendation)
 
-instance Core.FromJSON InferenceRecommendation where
+instance Data.FromJSON InferenceRecommendation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InferenceRecommendation"
       ( \x ->
           InferenceRecommendation'
-            Prelude.<$> (x Core..: "Metrics")
-            Prelude.<*> (x Core..: "EndpointConfiguration")
-            Prelude.<*> (x Core..: "ModelConfiguration")
+            Prelude.<$> (x Data..: "Metrics")
+            Prelude.<*> (x Data..: "EndpointConfiguration")
+            Prelude.<*> (x Data..: "ModelConfiguration")
       )
 
 instance Prelude.Hashable InferenceRecommendation where

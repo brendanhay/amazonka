@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -175,38 +176,38 @@ instance Prelude.NFData SendAutomationSignal where
       `Prelude.seq` Prelude.rnf automationExecutionId
       `Prelude.seq` Prelude.rnf signalType
 
-instance Core.ToHeaders SendAutomationSignal where
+instance Data.ToHeaders SendAutomationSignal where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.SendAutomationSignal" ::
+              Data.=# ( "AmazonSSM.SendAutomationSignal" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendAutomationSignal where
+instance Data.ToJSON SendAutomationSignal where
   toJSON SendAutomationSignal' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Payload" Core..=) Prelude.<$> payload,
+          [ ("Payload" Data..=) Prelude.<$> payload,
             Prelude.Just
               ( "AutomationExecutionId"
-                  Core..= automationExecutionId
+                  Data..= automationExecutionId
               ),
-            Prelude.Just ("SignalType" Core..= signalType)
+            Prelude.Just ("SignalType" Data..= signalType)
           ]
       )
 
-instance Core.ToPath SendAutomationSignal where
+instance Data.ToPath SendAutomationSignal where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendAutomationSignal where
+instance Data.ToQuery SendAutomationSignal where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendAutomationSignalResponse' smart constructor.

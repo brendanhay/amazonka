@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.StreamEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object specifying a stream’s events. For a list of events, see
@@ -34,7 +35,7 @@ data StreamEvent = StreamEvent'
     type' :: Prelude.Maybe Prelude.Text,
     -- | Time when the event occurred. This is an ISO 8601 timestamp; /note that
     -- this is returned as a string/.
-    eventTime :: Prelude.Maybe Core.POSIX
+    eventTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,17 +73,17 @@ streamEvent_type = Lens.lens (\StreamEvent' {type'} -> type') (\s@StreamEvent' {
 -- | Time when the event occurred. This is an ISO 8601 timestamp; /note that
 -- this is returned as a string/.
 streamEvent_eventTime :: Lens.Lens' StreamEvent (Prelude.Maybe Prelude.UTCTime)
-streamEvent_eventTime = Lens.lens (\StreamEvent' {eventTime} -> eventTime) (\s@StreamEvent' {} a -> s {eventTime = a} :: StreamEvent) Prelude.. Lens.mapping Core._Time
+streamEvent_eventTime = Lens.lens (\StreamEvent' {eventTime} -> eventTime) (\s@StreamEvent' {} a -> s {eventTime = a} :: StreamEvent) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON StreamEvent where
+instance Data.FromJSON StreamEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamEvent"
       ( \x ->
           StreamEvent'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "eventTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "eventTime")
       )
 
 instance Prelude.Hashable StreamEvent where

@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,21 +144,21 @@ instance Prelude.NFData DeleteIdentityPolicy where
     Prelude.rnf identity
       `Prelude.seq` Prelude.rnf policyName
 
-instance Core.ToHeaders DeleteIdentityPolicy where
+instance Data.ToHeaders DeleteIdentityPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteIdentityPolicy where
+instance Data.ToPath DeleteIdentityPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteIdentityPolicy where
+instance Data.ToQuery DeleteIdentityPolicy where
   toQuery DeleteIdentityPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteIdentityPolicy" :: Prelude.ByteString),
+          Data.=: ("DeleteIdentityPolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "Identity" Core.=: identity,
-        "PolicyName" Core.=: policyName
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "Identity" Data.=: identity,
+        "PolicyName" Data.=: policyName
       ]
 
 -- | An empty element returned on a successful request.

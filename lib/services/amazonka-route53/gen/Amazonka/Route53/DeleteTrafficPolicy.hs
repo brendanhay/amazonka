@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,19 +124,19 @@ instance Prelude.NFData DeleteTrafficPolicy where
   rnf DeleteTrafficPolicy' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf version
 
-instance Core.ToHeaders DeleteTrafficPolicy where
+instance Data.ToHeaders DeleteTrafficPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteTrafficPolicy where
+instance Data.ToPath DeleteTrafficPolicy where
   toPath DeleteTrafficPolicy' {..} =
     Prelude.mconcat
       [ "/2013-04-01/trafficpolicy/",
-        Core.toBS id,
+        Data.toBS id,
         "/",
-        Core.toBS version
+        Data.toBS version
       ]
 
-instance Core.ToQuery DeleteTrafficPolicy where
+instance Data.ToQuery DeleteTrafficPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An empty element.

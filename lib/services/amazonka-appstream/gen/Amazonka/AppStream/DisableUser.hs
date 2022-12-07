@@ -44,6 +44,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -53,7 +54,7 @@ data DisableUser = DisableUser'
   { -- | The email address of the user.
     --
     -- Users\' email addresses are case-sensitive.
-    userName :: Core.Sensitive Prelude.Text,
+    userName :: Data.Sensitive Prelude.Text,
     -- | The authentication type for the user. You must specify USERPOOL.
     authenticationType :: AuthenticationType
   }
@@ -81,7 +82,7 @@ newDisableUser ::
 newDisableUser pUserName_ pAuthenticationType_ =
   DisableUser'
     { userName =
-        Core._Sensitive Lens.# pUserName_,
+        Data._Sensitive Lens.# pUserName_,
       authenticationType = pAuthenticationType_
     }
 
@@ -89,7 +90,7 @@ newDisableUser pUserName_ pAuthenticationType_ =
 --
 -- Users\' email addresses are case-sensitive.
 disableUser_userName :: Lens.Lens' DisableUser Prelude.Text
-disableUser_userName = Lens.lens (\DisableUser' {userName} -> userName) (\s@DisableUser' {} a -> s {userName = a} :: DisableUser) Prelude.. Core._Sensitive
+disableUser_userName = Lens.lens (\DisableUser' {userName} -> userName) (\s@DisableUser' {} a -> s {userName = a} :: DisableUser) Prelude.. Data._Sensitive
 
 -- | The authentication type for the user. You must specify USERPOOL.
 disableUser_authenticationType :: Lens.Lens' DisableUser AuthenticationType
@@ -116,35 +117,35 @@ instance Prelude.NFData DisableUser where
     Prelude.rnf userName
       `Prelude.seq` Prelude.rnf authenticationType
 
-instance Core.ToHeaders DisableUser where
+instance Data.ToHeaders DisableUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DisableUser" ::
+              Data.=# ( "PhotonAdminProxyService.DisableUser" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisableUser where
+instance Data.ToJSON DisableUser where
   toJSON DisableUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserName" Core..= userName),
+          [ Prelude.Just ("UserName" Data..= userName),
             Prelude.Just
-              ("AuthenticationType" Core..= authenticationType)
+              ("AuthenticationType" Data..= authenticationType)
           ]
       )
 
-instance Core.ToPath DisableUser where
+instance Data.ToPath DisableUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableUser where
+instance Data.ToQuery DisableUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableUserResponse' smart constructor.

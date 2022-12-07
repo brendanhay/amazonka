@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,7 +146,7 @@ instance Core.AWSRequest UpdateLaunchProfileMember where
     Response.receiveJSON
       ( \s h x ->
           UpdateLaunchProfileMemberResponse'
-            Prelude.<$> (x Core..?> "member")
+            Prelude.<$> (x Data..?> "member")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,33 +166,33 @@ instance Prelude.NFData UpdateLaunchProfileMember where
       `Prelude.seq` Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders UpdateLaunchProfileMember where
+instance Data.ToHeaders UpdateLaunchProfileMember where
   toHeaders UpdateLaunchProfileMember' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON UpdateLaunchProfileMember where
+instance Data.ToJSON UpdateLaunchProfileMember where
   toJSON UpdateLaunchProfileMember' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("persona" Core..= persona)]
+          [Prelude.Just ("persona" Data..= persona)]
       )
 
-instance Core.ToPath UpdateLaunchProfileMember where
+instance Data.ToPath UpdateLaunchProfileMember where
   toPath UpdateLaunchProfileMember' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/launch-profiles/",
-        Core.toBS launchProfileId,
+        Data.toBS launchProfileId,
         "/membership/",
-        Core.toBS principalId
+        Data.toBS principalId
       ]
 
-instance Core.ToQuery UpdateLaunchProfileMember where
+instance Data.ToQuery UpdateLaunchProfileMember where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLaunchProfileMemberResponse' smart constructor.

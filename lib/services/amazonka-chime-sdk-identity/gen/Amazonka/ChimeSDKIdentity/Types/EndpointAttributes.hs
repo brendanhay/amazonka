@@ -21,6 +21,7 @@ module Amazonka.ChimeSDKIdentity.Types.EndpointAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The attributes of an @Endpoint@.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEndpointAttributes' smart constructor.
 data EndpointAttributes = EndpointAttributes'
   { -- | The VOIP device token for the APNS and APNS_SANDBOX endpoint types.
-    voipDeviceToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    voipDeviceToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The device token for the GCM, APNS, and APNS_SANDBOX endpoint types.
-    deviceToken :: Core.Sensitive Prelude.Text
+    deviceToken :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -53,25 +54,25 @@ newEndpointAttributes pDeviceToken_ =
   EndpointAttributes'
     { voipDeviceToken =
         Prelude.Nothing,
-      deviceToken = Core._Sensitive Lens.# pDeviceToken_
+      deviceToken = Data._Sensitive Lens.# pDeviceToken_
     }
 
 -- | The VOIP device token for the APNS and APNS_SANDBOX endpoint types.
 endpointAttributes_voipDeviceToken :: Lens.Lens' EndpointAttributes (Prelude.Maybe Prelude.Text)
-endpointAttributes_voipDeviceToken = Lens.lens (\EndpointAttributes' {voipDeviceToken} -> voipDeviceToken) (\s@EndpointAttributes' {} a -> s {voipDeviceToken = a} :: EndpointAttributes) Prelude.. Lens.mapping Core._Sensitive
+endpointAttributes_voipDeviceToken = Lens.lens (\EndpointAttributes' {voipDeviceToken} -> voipDeviceToken) (\s@EndpointAttributes' {} a -> s {voipDeviceToken = a} :: EndpointAttributes) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The device token for the GCM, APNS, and APNS_SANDBOX endpoint types.
 endpointAttributes_deviceToken :: Lens.Lens' EndpointAttributes Prelude.Text
-endpointAttributes_deviceToken = Lens.lens (\EndpointAttributes' {deviceToken} -> deviceToken) (\s@EndpointAttributes' {} a -> s {deviceToken = a} :: EndpointAttributes) Prelude.. Core._Sensitive
+endpointAttributes_deviceToken = Lens.lens (\EndpointAttributes' {deviceToken} -> deviceToken) (\s@EndpointAttributes' {} a -> s {deviceToken = a} :: EndpointAttributes) Prelude.. Data._Sensitive
 
-instance Core.FromJSON EndpointAttributes where
+instance Data.FromJSON EndpointAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointAttributes"
       ( \x ->
           EndpointAttributes'
-            Prelude.<$> (x Core..:? "VoipDeviceToken")
-            Prelude.<*> (x Core..: "DeviceToken")
+            Prelude.<$> (x Data..:? "VoipDeviceToken")
+            Prelude.<*> (x Data..: "DeviceToken")
       )
 
 instance Prelude.Hashable EndpointAttributes where
@@ -84,12 +85,12 @@ instance Prelude.NFData EndpointAttributes where
     Prelude.rnf voipDeviceToken
       `Prelude.seq` Prelude.rnf deviceToken
 
-instance Core.ToJSON EndpointAttributes where
+instance Data.ToJSON EndpointAttributes where
   toJSON EndpointAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VoipDeviceToken" Core..=)
+          [ ("VoipDeviceToken" Data..=)
               Prelude.<$> voipDeviceToken,
-            Prelude.Just ("DeviceToken" Core..= deviceToken)
+            Prelude.Just ("DeviceToken" Data..= deviceToken)
           ]
       )

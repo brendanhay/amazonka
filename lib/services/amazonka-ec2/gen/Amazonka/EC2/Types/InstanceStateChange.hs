@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceStateChange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceState
 import qualified Amazonka.Prelude as Prelude
@@ -73,12 +74,12 @@ instanceStateChange_instanceId = Lens.lens (\InstanceStateChange' {instanceId} -
 instanceStateChange_currentState :: Lens.Lens' InstanceStateChange (Prelude.Maybe InstanceState)
 instanceStateChange_currentState = Lens.lens (\InstanceStateChange' {currentState} -> currentState) (\s@InstanceStateChange' {} a -> s {currentState = a} :: InstanceStateChange)
 
-instance Core.FromXML InstanceStateChange where
+instance Data.FromXML InstanceStateChange where
   parseXML x =
     InstanceStateChange'
-      Prelude.<$> (x Core..@? "previousState")
-      Prelude.<*> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "currentState")
+      Prelude.<$> (x Data..@? "previousState")
+      Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "currentState")
 
 instance Prelude.Hashable InstanceStateChange where
   hashWithSalt _salt InstanceStateChange' {..} =

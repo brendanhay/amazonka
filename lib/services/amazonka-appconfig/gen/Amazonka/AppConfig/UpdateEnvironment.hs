@@ -50,6 +50,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,7 +128,7 @@ instance Core.AWSRequest UpdateEnvironment where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateEnvironment where
   hashWithSalt _salt UpdateEnvironment' {..} =
@@ -145,35 +146,35 @@ instance Prelude.NFData UpdateEnvironment where
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf environmentId
 
-instance Core.ToHeaders UpdateEnvironment where
+instance Data.ToHeaders UpdateEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEnvironment where
+instance Data.ToJSON UpdateEnvironment where
   toJSON UpdateEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Monitors" Core..=) Prelude.<$> monitors,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Monitors" Data..=) Prelude.<$> monitors,
+            ("Description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateEnvironment where
+instance Data.ToPath UpdateEnvironment where
   toPath UpdateEnvironment' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/environments/",
-        Core.toBS environmentId
+        Data.toBS environmentId
       ]
 
-instance Core.ToQuery UpdateEnvironment where
+instance Data.ToQuery UpdateEnvironment where
   toQuery = Prelude.const Prelude.mempty

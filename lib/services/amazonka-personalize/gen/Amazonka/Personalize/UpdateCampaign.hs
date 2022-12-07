@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,7 +133,7 @@ instance Core.AWSRequest UpdateCampaign where
     Response.receiveJSON
       ( \s h x ->
           UpdateCampaignResponse'
-            Prelude.<$> (x Core..?> "campaignArn")
+            Prelude.<$> (x Data..?> "campaignArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,39 +151,39 @@ instance Prelude.NFData UpdateCampaign where
       `Prelude.seq` Prelude.rnf solutionVersionArn
       `Prelude.seq` Prelude.rnf campaignArn
 
-instance Core.ToHeaders UpdateCampaign where
+instance Data.ToHeaders UpdateCampaign where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.UpdateCampaign" ::
+              Data.=# ( "AmazonPersonalize.UpdateCampaign" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCampaign where
+instance Data.ToJSON UpdateCampaign where
   toJSON UpdateCampaign' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("campaignConfig" Core..=)
+          [ ("campaignConfig" Data..=)
               Prelude.<$> campaignConfig,
-            ("minProvisionedTPS" Core..=)
+            ("minProvisionedTPS" Data..=)
               Prelude.<$> minProvisionedTPS,
-            ("solutionVersionArn" Core..=)
+            ("solutionVersionArn" Data..=)
               Prelude.<$> solutionVersionArn,
-            Prelude.Just ("campaignArn" Core..= campaignArn)
+            Prelude.Just ("campaignArn" Data..= campaignArn)
           ]
       )
 
-instance Core.ToPath UpdateCampaign where
+instance Data.ToPath UpdateCampaign where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateCampaign where
+instance Data.ToQuery UpdateCampaign where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCampaignResponse' smart constructor.

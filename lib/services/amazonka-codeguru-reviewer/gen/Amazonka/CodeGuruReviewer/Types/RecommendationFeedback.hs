@@ -22,6 +22,7 @@ module Amazonka.CodeGuruReviewer.Types.RecommendationFeedback where
 import Amazonka.CodeGuruReviewer.Types.Reaction
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the recommendation feedback.
@@ -29,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newRecommendationFeedback' smart constructor.
 data RecommendationFeedback = RecommendationFeedback'
   { -- | The time at which the feedback was last updated.
-    lastUpdatedTimeStamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimeStamp :: Prelude.Maybe Data.POSIX,
     -- | List for storing reactions. Reactions are utf-8 text code for emojis.
     -- You can send an empty list to clear off all your feedback.
     reactions :: Prelude.Maybe [Reaction],
     -- | The time at which the feedback was created.
-    createdTimeStamp :: Prelude.Maybe Core.POSIX,
+    createdTimeStamp :: Prelude.Maybe Data.POSIX,
     -- | The recommendation ID that can be used to track the provided
     -- recommendations. Later on it can be used to collect the feedback.
     recommendationId :: Prelude.Maybe Prelude.Text,
@@ -97,7 +98,7 @@ newRecommendationFeedback =
 
 -- | The time at which the feedback was last updated.
 recommendationFeedback_lastUpdatedTimeStamp :: Lens.Lens' RecommendationFeedback (Prelude.Maybe Prelude.UTCTime)
-recommendationFeedback_lastUpdatedTimeStamp = Lens.lens (\RecommendationFeedback' {lastUpdatedTimeStamp} -> lastUpdatedTimeStamp) (\s@RecommendationFeedback' {} a -> s {lastUpdatedTimeStamp = a} :: RecommendationFeedback) Prelude.. Lens.mapping Core._Time
+recommendationFeedback_lastUpdatedTimeStamp = Lens.lens (\RecommendationFeedback' {lastUpdatedTimeStamp} -> lastUpdatedTimeStamp) (\s@RecommendationFeedback' {} a -> s {lastUpdatedTimeStamp = a} :: RecommendationFeedback) Prelude.. Lens.mapping Data._Time
 
 -- | List for storing reactions. Reactions are utf-8 text code for emojis.
 -- You can send an empty list to clear off all your feedback.
@@ -106,7 +107,7 @@ recommendationFeedback_reactions = Lens.lens (\RecommendationFeedback' {reaction
 
 -- | The time at which the feedback was created.
 recommendationFeedback_createdTimeStamp :: Lens.Lens' RecommendationFeedback (Prelude.Maybe Prelude.UTCTime)
-recommendationFeedback_createdTimeStamp = Lens.lens (\RecommendationFeedback' {createdTimeStamp} -> createdTimeStamp) (\s@RecommendationFeedback' {} a -> s {createdTimeStamp = a} :: RecommendationFeedback) Prelude.. Lens.mapping Core._Time
+recommendationFeedback_createdTimeStamp = Lens.lens (\RecommendationFeedback' {createdTimeStamp} -> createdTimeStamp) (\s@RecommendationFeedback' {} a -> s {createdTimeStamp = a} :: RecommendationFeedback) Prelude.. Lens.mapping Data._Time
 
 -- | The recommendation ID that can be used to track the provided
 -- recommendations. Later on it can be used to collect the feedback.
@@ -129,18 +130,18 @@ recommendationFeedback_codeReviewArn = Lens.lens (\RecommendationFeedback' {code
 recommendationFeedback_userId :: Lens.Lens' RecommendationFeedback (Prelude.Maybe Prelude.Text)
 recommendationFeedback_userId = Lens.lens (\RecommendationFeedback' {userId} -> userId) (\s@RecommendationFeedback' {} a -> s {userId = a} :: RecommendationFeedback)
 
-instance Core.FromJSON RecommendationFeedback where
+instance Data.FromJSON RecommendationFeedback where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationFeedback"
       ( \x ->
           RecommendationFeedback'
-            Prelude.<$> (x Core..:? "LastUpdatedTimeStamp")
-            Prelude.<*> (x Core..:? "Reactions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CreatedTimeStamp")
-            Prelude.<*> (x Core..:? "RecommendationId")
-            Prelude.<*> (x Core..:? "CodeReviewArn")
-            Prelude.<*> (x Core..:? "UserId")
+            Prelude.<$> (x Data..:? "LastUpdatedTimeStamp")
+            Prelude.<*> (x Data..:? "Reactions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CreatedTimeStamp")
+            Prelude.<*> (x Data..:? "RecommendationId")
+            Prelude.<*> (x Data..:? "CodeReviewArn")
+            Prelude.<*> (x Data..:? "UserId")
       )
 
 instance Prelude.Hashable RecommendationFeedback where

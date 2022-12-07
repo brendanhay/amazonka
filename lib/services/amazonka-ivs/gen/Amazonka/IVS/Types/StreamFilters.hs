@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.StreamFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types.StreamHealth
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,9 +59,9 @@ instance Prelude.Hashable StreamFilters where
 instance Prelude.NFData StreamFilters where
   rnf StreamFilters' {..} = Prelude.rnf health
 
-instance Core.ToJSON StreamFilters where
+instance Data.ToJSON StreamFilters where
   toJSON StreamFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("health" Core..=) Prelude.<$> health]
+          [("health" Data..=) Prelude.<$> health]
       )

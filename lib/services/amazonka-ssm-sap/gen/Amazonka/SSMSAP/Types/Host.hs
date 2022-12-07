@@ -21,6 +21,7 @@ module Amazonka.SSMSAP.Types.Host where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMSAP.Types.HostRole
 
@@ -76,16 +77,16 @@ host_hostName = Lens.lens (\Host' {hostName} -> hostName) (\s@Host' {} a -> s {h
 host_instanceId :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_instanceId = Lens.lens (\Host' {instanceId} -> instanceId) (\s@Host' {} a -> s {instanceId = a} :: Host)
 
-instance Core.FromJSON Host where
+instance Data.FromJSON Host where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Host"
       ( \x ->
           Host'
-            Prelude.<$> (x Core..:? "HostRole")
-            Prelude.<*> (x Core..:? "HostIp")
-            Prelude.<*> (x Core..:? "HostName")
-            Prelude.<*> (x Core..:? "InstanceId")
+            Prelude.<$> (x Data..:? "HostRole")
+            Prelude.<*> (x Data..:? "HostIp")
+            Prelude.<*> (x Data..:? "HostName")
+            Prelude.<*> (x Data..:? "InstanceId")
       )
 
 instance Prelude.Hashable Host where

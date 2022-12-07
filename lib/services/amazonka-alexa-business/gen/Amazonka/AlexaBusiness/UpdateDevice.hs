@@ -42,6 +42,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,34 +104,34 @@ instance Prelude.NFData UpdateDevice where
     Prelude.rnf deviceName
       `Prelude.seq` Prelude.rnf deviceArn
 
-instance Core.ToHeaders UpdateDevice where
+instance Data.ToHeaders UpdateDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.UpdateDevice" ::
+              Data.=# ( "AlexaForBusiness.UpdateDevice" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDevice where
+instance Data.ToJSON UpdateDevice where
   toJSON UpdateDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeviceName" Core..=) Prelude.<$> deviceName,
-            ("DeviceArn" Core..=) Prelude.<$> deviceArn
+          [ ("DeviceName" Data..=) Prelude.<$> deviceName,
+            ("DeviceArn" Data..=) Prelude.<$> deviceArn
           ]
       )
 
-instance Core.ToPath UpdateDevice where
+instance Data.ToPath UpdateDevice where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDevice where
+instance Data.ToQuery UpdateDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDeviceResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Compliance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.ComplianceStatus
 import Amazonka.SecurityHub.Types.StatusReason
@@ -136,17 +137,17 @@ compliance_status = Lens.lens (\Compliance' {status} -> status) (\s@Compliance' 
 compliance_statusReasons :: Lens.Lens' Compliance (Prelude.Maybe [StatusReason])
 compliance_statusReasons = Lens.lens (\Compliance' {statusReasons} -> statusReasons) (\s@Compliance' {} a -> s {statusReasons = a} :: Compliance) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Compliance where
+instance Data.FromJSON Compliance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Compliance"
       ( \x ->
           Compliance'
-            Prelude.<$> ( x Core..:? "RelatedRequirements"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "RelatedRequirements"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "StatusReasons" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "StatusReasons" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Compliance where
@@ -161,13 +162,13 @@ instance Prelude.NFData Compliance where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusReasons
 
-instance Core.ToJSON Compliance where
+instance Data.ToJSON Compliance where
   toJSON Compliance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RelatedRequirements" Core..=)
+          [ ("RelatedRequirements" Data..=)
               Prelude.<$> relatedRequirements,
-            ("Status" Core..=) Prelude.<$> status,
-            ("StatusReasons" Core..=) Prelude.<$> statusReasons
+            ("Status" Data..=) Prelude.<$> status,
+            ("StatusReasons" Data..=) Prelude.<$> statusReasons
           ]
       )

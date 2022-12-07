@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.AssetPropertySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.PropertyNotification
 import qualified Amazonka.Prelude as Prelude
 
@@ -103,17 +104,17 @@ assetPropertySummary_assetCompositeModelId = Lens.lens (\AssetPropertySummary' {
 assetPropertySummary_unit :: Lens.Lens' AssetPropertySummary (Prelude.Maybe Prelude.Text)
 assetPropertySummary_unit = Lens.lens (\AssetPropertySummary' {unit} -> unit) (\s@AssetPropertySummary' {} a -> s {unit = a} :: AssetPropertySummary)
 
-instance Core.FromJSON AssetPropertySummary where
+instance Data.FromJSON AssetPropertySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetPropertySummary"
       ( \x ->
           AssetPropertySummary'
-            Prelude.<$> (x Core..:? "alias")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "notification")
-            Prelude.<*> (x Core..:? "assetCompositeModelId")
-            Prelude.<*> (x Core..:? "unit")
+            Prelude.<$> (x Data..:? "alias")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "notification")
+            Prelude.<*> (x Data..:? "assetCompositeModelId")
+            Prelude.<*> (x Data..:? "unit")
       )
 
 instance Prelude.Hashable AssetPropertySummary where

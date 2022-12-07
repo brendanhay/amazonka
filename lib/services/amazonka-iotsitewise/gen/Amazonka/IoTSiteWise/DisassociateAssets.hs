@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -153,33 +154,33 @@ instance Prelude.NFData DisassociateAssets where
       `Prelude.seq` Prelude.rnf hierarchyId
       `Prelude.seq` Prelude.rnf childAssetId
 
-instance Core.ToHeaders DisassociateAssets where
+instance Data.ToHeaders DisassociateAssets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateAssets where
+instance Data.ToJSON DisassociateAssets where
   toJSON DisassociateAssets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("hierarchyId" Core..= hierarchyId),
-            Prelude.Just ("childAssetId" Core..= childAssetId)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("hierarchyId" Data..= hierarchyId),
+            Prelude.Just ("childAssetId" Data..= childAssetId)
           ]
       )
 
-instance Core.ToPath DisassociateAssets where
+instance Data.ToPath DisassociateAssets where
   toPath DisassociateAssets' {..} =
     Prelude.mconcat
-      ["/assets/", Core.toBS assetId, "/disassociate"]
+      ["/assets/", Data.toBS assetId, "/disassociate"]
 
-instance Core.ToQuery DisassociateAssets where
+instance Data.ToQuery DisassociateAssets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateAssetsResponse' smart constructor.

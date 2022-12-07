@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.TaskTemplateFieldIdentifier
 import Amazonka.Connect.Types.TaskTemplateFieldType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a single task template field.
@@ -84,18 +85,18 @@ taskTemplateField_description = Lens.lens (\TaskTemplateField' {description} -> 
 taskTemplateField_id :: Lens.Lens' TaskTemplateField TaskTemplateFieldIdentifier
 taskTemplateField_id = Lens.lens (\TaskTemplateField' {id} -> id) (\s@TaskTemplateField' {} a -> s {id = a} :: TaskTemplateField)
 
-instance Core.FromJSON TaskTemplateField where
+instance Data.FromJSON TaskTemplateField where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskTemplateField"
       ( \x ->
           TaskTemplateField'
-            Prelude.<$> ( x Core..:? "SingleSelectOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SingleSelectOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..: "Id")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..: "Id")
       )
 
 instance Prelude.Hashable TaskTemplateField where
@@ -112,14 +113,14 @@ instance Prelude.NFData TaskTemplateField where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON TaskTemplateField where
+instance Data.ToJSON TaskTemplateField where
   toJSON TaskTemplateField' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SingleSelectOptions" Core..=)
+          [ ("SingleSelectOptions" Data..=)
               Prelude.<$> singleSelectOptions,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Id" Core..= id)
+            ("Type" Data..=) Prelude.<$> type',
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Id" Data..= id)
           ]
       )

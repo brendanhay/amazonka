@@ -22,6 +22,7 @@ module Amazonka.CloudFormation.Types.StackDriftInformationSummary where
 import Amazonka.CloudFormation.Types.StackDriftStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about whether the stack\'s actual configuration
@@ -34,7 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 data StackDriftInformationSummary = StackDriftInformationSummary'
   { -- | Most recent time when a drift detection operation was initiated on the
     -- stack, or any of its individual resources that support drift detection.
-    lastCheckTimestamp :: Prelude.Maybe Core.ISO8601,
+    lastCheckTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | Status of the stack\'s actual configuration compared to its expected
     -- template configuration.
     --
@@ -92,7 +93,7 @@ newStackDriftInformationSummary pStackDriftStatus_ =
 -- | Most recent time when a drift detection operation was initiated on the
 -- stack, or any of its individual resources that support drift detection.
 stackDriftInformationSummary_lastCheckTimestamp :: Lens.Lens' StackDriftInformationSummary (Prelude.Maybe Prelude.UTCTime)
-stackDriftInformationSummary_lastCheckTimestamp = Lens.lens (\StackDriftInformationSummary' {lastCheckTimestamp} -> lastCheckTimestamp) (\s@StackDriftInformationSummary' {} a -> s {lastCheckTimestamp = a} :: StackDriftInformationSummary) Prelude.. Lens.mapping Core._Time
+stackDriftInformationSummary_lastCheckTimestamp = Lens.lens (\StackDriftInformationSummary' {lastCheckTimestamp} -> lastCheckTimestamp) (\s@StackDriftInformationSummary' {} a -> s {lastCheckTimestamp = a} :: StackDriftInformationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Status of the stack\'s actual configuration compared to its expected
 -- template configuration.
@@ -111,11 +112,11 @@ stackDriftInformationSummary_lastCheckTimestamp = Lens.lens (\StackDriftInformat
 stackDriftInformationSummary_stackDriftStatus :: Lens.Lens' StackDriftInformationSummary StackDriftStatus
 stackDriftInformationSummary_stackDriftStatus = Lens.lens (\StackDriftInformationSummary' {stackDriftStatus} -> stackDriftStatus) (\s@StackDriftInformationSummary' {} a -> s {stackDriftStatus = a} :: StackDriftInformationSummary)
 
-instance Core.FromXML StackDriftInformationSummary where
+instance Data.FromXML StackDriftInformationSummary where
   parseXML x =
     StackDriftInformationSummary'
-      Prelude.<$> (x Core..@? "LastCheckTimestamp")
-      Prelude.<*> (x Core..@ "StackDriftStatus")
+      Prelude.<$> (x Data..@? "LastCheckTimestamp")
+      Prelude.<*> (x Data..@ "StackDriftStatus")
 
 instance
   Prelude.Hashable

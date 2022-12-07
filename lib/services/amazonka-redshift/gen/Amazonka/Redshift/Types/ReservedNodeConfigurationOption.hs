@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ReservedNodeConfigurationOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.ReservedNode
@@ -75,12 +76,12 @@ reservedNodeConfigurationOption_sourceReservedNode = Lens.lens (\ReservedNodeCon
 reservedNodeConfigurationOption_targetReservedNodeOffering :: Lens.Lens' ReservedNodeConfigurationOption (Prelude.Maybe ReservedNodeOffering)
 reservedNodeConfigurationOption_targetReservedNodeOffering = Lens.lens (\ReservedNodeConfigurationOption' {targetReservedNodeOffering} -> targetReservedNodeOffering) (\s@ReservedNodeConfigurationOption' {} a -> s {targetReservedNodeOffering = a} :: ReservedNodeConfigurationOption)
 
-instance Core.FromXML ReservedNodeConfigurationOption where
+instance Data.FromXML ReservedNodeConfigurationOption where
   parseXML x =
     ReservedNodeConfigurationOption'
-      Prelude.<$> (x Core..@? "TargetReservedNodeCount")
-      Prelude.<*> (x Core..@? "SourceReservedNode")
-      Prelude.<*> (x Core..@? "TargetReservedNodeOffering")
+      Prelude.<$> (x Data..@? "TargetReservedNodeCount")
+      Prelude.<*> (x Data..@? "SourceReservedNode")
+      Prelude.<*> (x Data..@? "TargetReservedNodeOffering")
 
 instance
   Prelude.Hashable

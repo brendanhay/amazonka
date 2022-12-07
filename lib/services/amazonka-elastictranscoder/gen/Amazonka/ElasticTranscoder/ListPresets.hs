@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,8 +132,8 @@ instance Core.AWSRequest ListPresets where
     Response.receiveJSON
       ( \s h x ->
           ListPresetsResponse'
-            Prelude.<$> (x Core..?> "Presets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextPageToken")
+            Prelude.<$> (x Data..?> "Presets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,17 +147,17 @@ instance Prelude.NFData ListPresets where
     Prelude.rnf ascending
       `Prelude.seq` Prelude.rnf pageToken
 
-instance Core.ToHeaders ListPresets where
+instance Data.ToHeaders ListPresets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListPresets where
+instance Data.ToPath ListPresets where
   toPath = Prelude.const "/2012-09-25/presets"
 
-instance Core.ToQuery ListPresets where
+instance Data.ToQuery ListPresets where
   toQuery ListPresets' {..} =
     Prelude.mconcat
-      [ "Ascending" Core.=: ascending,
-        "PageToken" Core.=: pageToken
+      [ "Ascending" Data.=: ascending,
+        "PageToken" Data.=: pageToken
       ]
 
 -- | The @ListPresetsResponse@ structure.

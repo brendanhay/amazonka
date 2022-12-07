@@ -87,6 +87,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -198,8 +199,8 @@ instance Core.AWSRequest CreateWebACL where
     Response.receiveJSON
       ( \s h x ->
           CreateWebACLResponse'
-            Prelude.<$> (x Core..?> "WebACL")
-            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "WebACL")
+            Prelude.<*> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,37 +220,37 @@ instance Prelude.NFData CreateWebACL where
       `Prelude.seq` Prelude.rnf defaultAction
       `Prelude.seq` Prelude.rnf changeToken
 
-instance Core.ToHeaders CreateWebACL where
+instance Data.ToHeaders CreateWebACL where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.CreateWebACL" ::
+              Data.=# ( "AWSWAF_Regional_20161128.CreateWebACL" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWebACL where
+instance Data.ToJSON CreateWebACL where
   toJSON CreateWebACL' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("MetricName" Core..= metricName),
-            Prelude.Just ("DefaultAction" Core..= defaultAction),
-            Prelude.Just ("ChangeToken" Core..= changeToken)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("MetricName" Data..= metricName),
+            Prelude.Just ("DefaultAction" Data..= defaultAction),
+            Prelude.Just ("ChangeToken" Data..= changeToken)
           ]
       )
 
-instance Core.ToPath CreateWebACL where
+instance Data.ToPath CreateWebACL where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateWebACL where
+instance Data.ToQuery CreateWebACL where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWebACLResponse' smart constructor.

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,8 +107,8 @@ instance Core.AWSRequest ListStatements where
     Response.receiveJSON
       ( \s h x ->
           ListStatementsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Statements" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Statements" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,33 +124,33 @@ instance Prelude.NFData ListStatements where
       `Prelude.seq` Prelude.rnf requestOrigin
       `Prelude.seq` Prelude.rnf sessionId
 
-instance Core.ToHeaders ListStatements where
+instance Data.ToHeaders ListStatements where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.ListStatements" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.ListStatements" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListStatements where
+instance Data.ToJSON ListStatements where
   toJSON ListStatements' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("RequestOrigin" Core..=) Prelude.<$> requestOrigin,
-            Prelude.Just ("SessionId" Core..= sessionId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("RequestOrigin" Data..=) Prelude.<$> requestOrigin,
+            Prelude.Just ("SessionId" Data..= sessionId)
           ]
       )
 
-instance Core.ToPath ListStatements where
+instance Data.ToPath ListStatements where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListStatements where
+instance Data.ToQuery ListStatements where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListStatementsResponse' smart constructor.

@@ -23,6 +23,7 @@ import Amazonka.AppFlow.Types.CustomAuthConfig
 import Amazonka.AppFlow.Types.OAuth2Defaults
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the authentication config that the connector
@@ -104,20 +105,20 @@ authenticationConfig_isOAuth2Supported = Lens.lens (\AuthenticationConfig' {isOA
 authenticationConfig_oAuth2Defaults :: Lens.Lens' AuthenticationConfig (Prelude.Maybe OAuth2Defaults)
 authenticationConfig_oAuth2Defaults = Lens.lens (\AuthenticationConfig' {oAuth2Defaults} -> oAuth2Defaults) (\s@AuthenticationConfig' {} a -> s {oAuth2Defaults = a} :: AuthenticationConfig)
 
-instance Core.FromJSON AuthenticationConfig where
+instance Data.FromJSON AuthenticationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuthenticationConfig"
       ( \x ->
           AuthenticationConfig'
-            Prelude.<$> ( x Core..:? "customAuthConfigs"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "customAuthConfigs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "isCustomAuthSupported")
-            Prelude.<*> (x Core..:? "isApiKeyAuthSupported")
-            Prelude.<*> (x Core..:? "isBasicAuthSupported")
-            Prelude.<*> (x Core..:? "isOAuth2Supported")
-            Prelude.<*> (x Core..:? "oAuth2Defaults")
+            Prelude.<*> (x Data..:? "isCustomAuthSupported")
+            Prelude.<*> (x Data..:? "isApiKeyAuthSupported")
+            Prelude.<*> (x Data..:? "isBasicAuthSupported")
+            Prelude.<*> (x Data..:? "isOAuth2Supported")
+            Prelude.<*> (x Data..:? "oAuth2Defaults")
       )
 
 instance Prelude.Hashable AuthenticationConfig where

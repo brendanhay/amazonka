@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.LogicalResourceId where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a logical resource identifier.
@@ -82,16 +83,16 @@ logicalResourceId_resourceGroupName = Lens.lens (\LogicalResourceId' {resourceGr
 logicalResourceId_identifier :: Lens.Lens' LogicalResourceId Prelude.Text
 logicalResourceId_identifier = Lens.lens (\LogicalResourceId' {identifier} -> identifier) (\s@LogicalResourceId' {} a -> s {identifier = a} :: LogicalResourceId)
 
-instance Core.FromJSON LogicalResourceId where
+instance Data.FromJSON LogicalResourceId where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogicalResourceId"
       ( \x ->
           LogicalResourceId'
-            Prelude.<$> (x Core..:? "terraformSourceName")
-            Prelude.<*> (x Core..:? "logicalStackName")
-            Prelude.<*> (x Core..:? "resourceGroupName")
-            Prelude.<*> (x Core..: "identifier")
+            Prelude.<$> (x Data..:? "terraformSourceName")
+            Prelude.<*> (x Data..:? "logicalStackName")
+            Prelude.<*> (x Data..:? "resourceGroupName")
+            Prelude.<*> (x Data..: "identifier")
       )
 
 instance Prelude.Hashable LogicalResourceId where

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -130,9 +131,9 @@ instance Core.AWSRequest ListApps where
     Response.receiveJSON
       ( \s h x ->
           ListAppsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "appSummaries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "appSummaries" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListApps where
@@ -149,27 +150,27 @@ instance Prelude.NFData ListApps where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf appArn
 
-instance Core.ToHeaders ListApps where
+instance Data.ToHeaders ListApps where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListApps where
+instance Data.ToPath ListApps where
   toPath = Prelude.const "/list-apps"
 
-instance Core.ToQuery ListApps where
+instance Data.ToQuery ListApps where
   toQuery ListApps' {..} =
     Prelude.mconcat
-      [ "name" Core.=: name,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "appArn" Core.=: appArn
+      [ "name" Data.=: name,
+        "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "appArn" Data.=: appArn
       ]
 
 -- | /See:/ 'newListAppsResponse' smart constructor.

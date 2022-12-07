@@ -22,6 +22,7 @@ module Amazonka.Athena.Types.ColumnInfo where
 import Amazonka.Athena.Types.ColumnNullable
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the columns in a query execution result.
@@ -144,22 +145,22 @@ columnInfo_name = Lens.lens (\ColumnInfo' {name} -> name) (\s@ColumnInfo' {} a -
 columnInfo_type :: Lens.Lens' ColumnInfo Prelude.Text
 columnInfo_type = Lens.lens (\ColumnInfo' {type'} -> type') (\s@ColumnInfo' {} a -> s {type' = a} :: ColumnInfo)
 
-instance Core.FromJSON ColumnInfo where
+instance Data.FromJSON ColumnInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnInfo"
       ( \x ->
           ColumnInfo'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "CatalogName")
-            Prelude.<*> (x Core..:? "Label")
-            Prelude.<*> (x Core..:? "CaseSensitive")
-            Prelude.<*> (x Core..:? "SchemaName")
-            Prelude.<*> (x Core..:? "Nullable")
-            Prelude.<*> (x Core..:? "Precision")
-            Prelude.<*> (x Core..:? "Scale")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "CatalogName")
+            Prelude.<*> (x Data..:? "Label")
+            Prelude.<*> (x Data..:? "CaseSensitive")
+            Prelude.<*> (x Data..:? "SchemaName")
+            Prelude.<*> (x Data..:? "Nullable")
+            Prelude.<*> (x Data..:? "Precision")
+            Prelude.<*> (x Data..:? "Scale")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable ColumnInfo where

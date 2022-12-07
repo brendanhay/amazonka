@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.LFTag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that allows an admin to grant user permissions on certain
@@ -67,14 +68,14 @@ lFTag_tagKey = Lens.lens (\LFTag' {tagKey} -> tagKey) (\s@LFTag' {} a -> s {tagK
 lFTag_tagValues :: Lens.Lens' LFTag (Prelude.NonEmpty Prelude.Text)
 lFTag_tagValues = Lens.lens (\LFTag' {tagValues} -> tagValues) (\s@LFTag' {} a -> s {tagValues = a} :: LFTag) Prelude.. Lens.coerced
 
-instance Core.FromJSON LFTag where
+instance Data.FromJSON LFTag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LFTag"
       ( \x ->
           LFTag'
-            Prelude.<$> (x Core..: "TagKey")
-            Prelude.<*> (x Core..: "TagValues")
+            Prelude.<$> (x Data..: "TagKey")
+            Prelude.<*> (x Data..: "TagValues")
       )
 
 instance Prelude.Hashable LFTag where
@@ -87,11 +88,11 @@ instance Prelude.NFData LFTag where
     Prelude.rnf tagKey
       `Prelude.seq` Prelude.rnf tagValues
 
-instance Core.ToJSON LFTag where
+instance Data.ToJSON LFTag where
   toJSON LFTag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TagKey" Core..= tagKey),
-            Prelude.Just ("TagValues" Core..= tagValues)
+          [ Prelude.Just ("TagKey" Data..= tagKey),
+            Prelude.Just ("TagValues" Data..= tagValues)
           ]
       )

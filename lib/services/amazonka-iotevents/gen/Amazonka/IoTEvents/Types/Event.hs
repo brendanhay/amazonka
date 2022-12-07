@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.Event where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.Action
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,15 +84,15 @@ event_actions = Lens.lens (\Event' {actions} -> actions) (\s@Event' {} a -> s {a
 event_eventName :: Lens.Lens' Event Prelude.Text
 event_eventName = Lens.lens (\Event' {eventName} -> eventName) (\s@Event' {} a -> s {eventName = a} :: Event)
 
-instance Core.FromJSON Event where
+instance Data.FromJSON Event where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Event"
       ( \x ->
           Event'
-            Prelude.<$> (x Core..:? "condition")
-            Prelude.<*> (x Core..:? "actions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "eventName")
+            Prelude.<$> (x Data..:? "condition")
+            Prelude.<*> (x Data..:? "actions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "eventName")
       )
 
 instance Prelude.Hashable Event where
@@ -106,12 +107,12 @@ instance Prelude.NFData Event where
       `Prelude.seq` Prelude.rnf actions
       `Prelude.seq` Prelude.rnf eventName
 
-instance Core.ToJSON Event where
+instance Data.ToJSON Event where
   toJSON Event' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("condition" Core..=) Prelude.<$> condition,
-            ("actions" Core..=) Prelude.<$> actions,
-            Prelude.Just ("eventName" Core..= eventName)
+          [ ("condition" Data..=) Prelude.<$> condition,
+            ("actions" Data..=) Prelude.<$> actions,
+            Prelude.Just ("eventName" Data..= eventName)
           ]
       )

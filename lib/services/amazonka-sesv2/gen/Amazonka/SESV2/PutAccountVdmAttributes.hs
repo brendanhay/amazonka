@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,30 +101,30 @@ instance Prelude.NFData PutAccountVdmAttributes where
   rnf PutAccountVdmAttributes' {..} =
     Prelude.rnf vdmAttributes
 
-instance Core.ToHeaders PutAccountVdmAttributes where
+instance Data.ToHeaders PutAccountVdmAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutAccountVdmAttributes where
+instance Data.ToJSON PutAccountVdmAttributes where
   toJSON PutAccountVdmAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("VdmAttributes" Core..= vdmAttributes)
+              ("VdmAttributes" Data..= vdmAttributes)
           ]
       )
 
-instance Core.ToPath PutAccountVdmAttributes where
+instance Data.ToPath PutAccountVdmAttributes where
   toPath = Prelude.const "/v2/email/account/vdm"
 
-instance Core.ToQuery PutAccountVdmAttributes where
+instance Data.ToQuery PutAccountVdmAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAccountVdmAttributesResponse' smart constructor.

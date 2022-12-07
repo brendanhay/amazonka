@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.GlacierJobDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types.ActionCode
 import Amazonka.Glacier.Types.InventoryRetrievalJobDescription
 import Amazonka.Glacier.Types.OutputLocation
@@ -355,33 +356,33 @@ glacierJobDescription_statusMessage = Lens.lens (\GlacierJobDescription' {status
 glacierJobDescription_jobDescription :: Lens.Lens' GlacierJobDescription (Prelude.Maybe Prelude.Text)
 glacierJobDescription_jobDescription = Lens.lens (\GlacierJobDescription' {jobDescription} -> jobDescription) (\s@GlacierJobDescription' {} a -> s {jobDescription = a} :: GlacierJobDescription)
 
-instance Core.FromJSON GlacierJobDescription where
+instance Data.FromJSON GlacierJobDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GlacierJobDescription"
       ( \x ->
           GlacierJobDescription'
-            Prelude.<$> (x Core..:? "ArchiveSHA256TreeHash")
-            Prelude.<*> (x Core..:? "ArchiveSizeInBytes")
-            Prelude.<*> (x Core..:? "SNSTopic")
-            Prelude.<*> (x Core..:? "CompletionDate")
-            Prelude.<*> (x Core..:? "OutputLocation")
-            Prelude.<*> (x Core..:? "RetrievalByteRange")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "InventoryRetrievalParameters")
-            Prelude.<*> (x Core..:? "SelectParameters")
-            Prelude.<*> (x Core..:? "ArchiveId")
-            Prelude.<*> (x Core..:? "InventorySizeInBytes")
-            Prelude.<*> (x Core..:? "JobOutputPath")
-            Prelude.<*> (x Core..:? "Tier")
-            Prelude.<*> (x Core..:? "SHA256TreeHash")
-            Prelude.<*> (x Core..:? "Completed")
-            Prelude.<*> (x Core..:? "VaultARN")
-            Prelude.<*> (x Core..:? "Action")
-            Prelude.<*> (x Core..:? "StatusCode")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "JobDescription")
+            Prelude.<$> (x Data..:? "ArchiveSHA256TreeHash")
+            Prelude.<*> (x Data..:? "ArchiveSizeInBytes")
+            Prelude.<*> (x Data..:? "SNSTopic")
+            Prelude.<*> (x Data..:? "CompletionDate")
+            Prelude.<*> (x Data..:? "OutputLocation")
+            Prelude.<*> (x Data..:? "RetrievalByteRange")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "InventoryRetrievalParameters")
+            Prelude.<*> (x Data..:? "SelectParameters")
+            Prelude.<*> (x Data..:? "ArchiveId")
+            Prelude.<*> (x Data..:? "InventorySizeInBytes")
+            Prelude.<*> (x Data..:? "JobOutputPath")
+            Prelude.<*> (x Data..:? "Tier")
+            Prelude.<*> (x Data..:? "SHA256TreeHash")
+            Prelude.<*> (x Data..:? "Completed")
+            Prelude.<*> (x Data..:? "VaultARN")
+            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "StatusCode")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "JobDescription")
       )
 
 instance Prelude.Hashable GlacierJobDescription where

@@ -18,6 +18,7 @@ module Amazonka.ELBV2.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.DescribeLoadBalancers
 import Amazonka.ELBV2.DescribeTargetHealth
 import Amazonka.ELBV2.Lens
@@ -45,7 +46,7 @@ newTargetInService =
                 Prelude.. Lens._Just
                 Prelude.. targetHealth_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError "InvalidInstance" Core.AcceptRetry
         ]
@@ -87,7 +88,7 @@ newLoadBalancerAvailable =
                 Prelude.. Lens._Just
                 Prelude.. loadBalancerState_code
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "provisioning"
@@ -102,7 +103,7 @@ newLoadBalancerAvailable =
                 Prelude.. Lens._Just
                 Prelude.. loadBalancerState_code
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "LoadBalancerNotFound"
@@ -132,7 +133,7 @@ newTargetDeregistered =
                 Prelude.. Lens._Just
                 Prelude.. targetHealth_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -158,7 +159,7 @@ newLoadBalancersDeleted =
                 Prelude.. Lens._Just
                 Prelude.. loadBalancerState_code
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "LoadBalancerNotFound"

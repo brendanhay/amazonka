@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,30 +86,30 @@ instance Prelude.Hashable PutConfiguration where
 instance Prelude.NFData PutConfiguration where
   rnf PutConfiguration' {..} = Prelude.rnf configuration
 
-instance Core.ToHeaders PutConfiguration where
+instance Data.ToHeaders PutConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutConfiguration where
+instance Data.ToJSON PutConfiguration where
   toJSON PutConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("configuration" Core..= configuration)
+              ("configuration" Data..= configuration)
           ]
       )
 
-instance Core.ToPath PutConfiguration where
+instance Data.ToPath PutConfiguration where
   toPath = Prelude.const "/configuration"
 
-instance Core.ToQuery PutConfiguration where
+instance Data.ToQuery PutConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutConfigurationResponse' smart constructor.

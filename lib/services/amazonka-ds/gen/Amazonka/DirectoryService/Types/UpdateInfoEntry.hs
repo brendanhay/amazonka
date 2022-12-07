@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.UpdateInfoEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.UpdateStatus
 import Amazonka.DirectoryService.Types.UpdateValue
 import qualified Amazonka.Prelude as Prelude
@@ -43,9 +44,9 @@ data UpdateInfoEntry = UpdateInfoEntry'
     -- | The new value of the target setting.
     newValue' :: Prelude.Maybe UpdateValue,
     -- | The start time of the @UpdateDirectorySetup@ for the particular type.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The last updated date and time of a particular directory setting.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,26 +115,26 @@ updateInfoEntry_newValue = Lens.lens (\UpdateInfoEntry' {newValue'} -> newValue'
 
 -- | The start time of the @UpdateDirectorySetup@ for the particular type.
 updateInfoEntry_startTime :: Lens.Lens' UpdateInfoEntry (Prelude.Maybe Prelude.UTCTime)
-updateInfoEntry_startTime = Lens.lens (\UpdateInfoEntry' {startTime} -> startTime) (\s@UpdateInfoEntry' {} a -> s {startTime = a} :: UpdateInfoEntry) Prelude.. Lens.mapping Core._Time
+updateInfoEntry_startTime = Lens.lens (\UpdateInfoEntry' {startTime} -> startTime) (\s@UpdateInfoEntry' {} a -> s {startTime = a} :: UpdateInfoEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The last updated date and time of a particular directory setting.
 updateInfoEntry_lastUpdatedDateTime :: Lens.Lens' UpdateInfoEntry (Prelude.Maybe Prelude.UTCTime)
-updateInfoEntry_lastUpdatedDateTime = Lens.lens (\UpdateInfoEntry' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateInfoEntry' {} a -> s {lastUpdatedDateTime = a} :: UpdateInfoEntry) Prelude.. Lens.mapping Core._Time
+updateInfoEntry_lastUpdatedDateTime = Lens.lens (\UpdateInfoEntry' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateInfoEntry' {} a -> s {lastUpdatedDateTime = a} :: UpdateInfoEntry) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON UpdateInfoEntry where
+instance Data.FromJSON UpdateInfoEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpdateInfoEntry"
       ( \x ->
           UpdateInfoEntry'
-            Prelude.<$> (x Core..:? "InitiatedBy")
-            Prelude.<*> (x Core..:? "PreviousValue")
-            Prelude.<*> (x Core..:? "StatusReason")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "NewValue")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "LastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "InitiatedBy")
+            Prelude.<*> (x Data..:? "PreviousValue")
+            Prelude.<*> (x Data..:? "StatusReason")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "NewValue")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "LastUpdatedDateTime")
       )
 
 instance Prelude.Hashable UpdateInfoEntry where

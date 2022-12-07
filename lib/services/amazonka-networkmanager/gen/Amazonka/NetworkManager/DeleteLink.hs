@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,7 +97,7 @@ instance Core.AWSRequest DeleteLink where
     Response.receiveJSON
       ( \s h x ->
           DeleteLinkResponse'
-            Prelude.<$> (x Core..?> "Link")
+            Prelude.<$> (x Data..?> "Link")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,27 +111,27 @@ instance Prelude.NFData DeleteLink where
     Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf linkId
 
-instance Core.ToHeaders DeleteLink where
+instance Data.ToHeaders DeleteLink where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteLink where
+instance Data.ToPath DeleteLink where
   toPath DeleteLink' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/links/",
-        Core.toBS linkId
+        Data.toBS linkId
       ]
 
-instance Core.ToQuery DeleteLink where
+instance Data.ToQuery DeleteLink where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLinkResponse' smart constructor.

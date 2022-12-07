@@ -21,6 +21,7 @@ module Amazonka.AppConfig.Types.ExtensionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an extension. Call @GetExtension@ to get more
@@ -89,17 +90,17 @@ extensionSummary_description = Lens.lens (\ExtensionSummary' {description} -> de
 extensionSummary_versionNumber :: Lens.Lens' ExtensionSummary (Prelude.Maybe Prelude.Int)
 extensionSummary_versionNumber = Lens.lens (\ExtensionSummary' {versionNumber} -> versionNumber) (\s@ExtensionSummary' {} a -> s {versionNumber = a} :: ExtensionSummary)
 
-instance Core.FromJSON ExtensionSummary where
+instance Data.FromJSON ExtensionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExtensionSummary"
       ( \x ->
           ExtensionSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "VersionNumber")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "VersionNumber")
       )
 
 instance Prelude.Hashable ExtensionSummary where

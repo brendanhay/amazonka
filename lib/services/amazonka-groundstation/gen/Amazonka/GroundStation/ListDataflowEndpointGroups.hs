@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,8 +125,8 @@ instance Core.AWSRequest ListDataflowEndpointGroups where
     Response.receiveJSON
       ( \s h x ->
           ListDataflowEndpointGroupsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "dataflowEndpointGroupList"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "dataflowEndpointGroupList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -141,25 +142,25 @@ instance Prelude.NFData ListDataflowEndpointGroups where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListDataflowEndpointGroups where
+instance Data.ToHeaders ListDataflowEndpointGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListDataflowEndpointGroups where
+instance Data.ToPath ListDataflowEndpointGroups where
   toPath = Prelude.const "/dataflowEndpointGroup"
 
-instance Core.ToQuery ListDataflowEndpointGroups where
+instance Data.ToQuery ListDataflowEndpointGroups where
   toQuery ListDataflowEndpointGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- |

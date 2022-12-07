@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.InventoryDeletionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.InventoryDeletionSummaryItem
 
@@ -75,15 +76,15 @@ inventoryDeletionSummary_summaryItems = Lens.lens (\InventoryDeletionSummary' {s
 inventoryDeletionSummary_totalCount :: Lens.Lens' InventoryDeletionSummary (Prelude.Maybe Prelude.Int)
 inventoryDeletionSummary_totalCount = Lens.lens (\InventoryDeletionSummary' {totalCount} -> totalCount) (\s@InventoryDeletionSummary' {} a -> s {totalCount = a} :: InventoryDeletionSummary)
 
-instance Core.FromJSON InventoryDeletionSummary where
+instance Data.FromJSON InventoryDeletionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InventoryDeletionSummary"
       ( \x ->
           InventoryDeletionSummary'
-            Prelude.<$> (x Core..:? "RemainingCount")
-            Prelude.<*> (x Core..:? "SummaryItems" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TotalCount")
+            Prelude.<$> (x Data..:? "RemainingCount")
+            Prelude.<*> (x Data..:? "SummaryItems" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TotalCount")
       )
 
 instance Prelude.Hashable InventoryDeletionSummary where

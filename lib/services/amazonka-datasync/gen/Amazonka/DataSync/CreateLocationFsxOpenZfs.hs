@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,7 +157,7 @@ instance Core.AWSRequest CreateLocationFsxOpenZfs where
     Response.receiveJSON
       ( \s h x ->
           CreateLocationFsxOpenZfsResponse'
-            Prelude.<$> (x Core..?> "LocationArn")
+            Prelude.<$> (x Data..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,39 +177,39 @@ instance Prelude.NFData CreateLocationFsxOpenZfs where
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf securityGroupArns
 
-instance Core.ToHeaders CreateLocationFsxOpenZfs where
+instance Data.ToHeaders CreateLocationFsxOpenZfs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.CreateLocationFsxOpenZfs" ::
+              Data.=# ( "FmrsService.CreateLocationFsxOpenZfs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLocationFsxOpenZfs where
+instance Data.ToJSON CreateLocationFsxOpenZfs where
   toJSON CreateLocationFsxOpenZfs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Subdirectory" Core..=) Prelude.<$> subdirectory,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Subdirectory" Data..=) Prelude.<$> subdirectory,
             Prelude.Just
-              ("FsxFilesystemArn" Core..= fsxFilesystemArn),
-            Prelude.Just ("Protocol" Core..= protocol),
+              ("FsxFilesystemArn" Data..= fsxFilesystemArn),
+            Prelude.Just ("Protocol" Data..= protocol),
             Prelude.Just
-              ("SecurityGroupArns" Core..= securityGroupArns)
+              ("SecurityGroupArns" Data..= securityGroupArns)
           ]
       )
 
-instance Core.ToPath CreateLocationFsxOpenZfs where
+instance Data.ToPath CreateLocationFsxOpenZfs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLocationFsxOpenZfs where
+instance Data.ToQuery CreateLocationFsxOpenZfs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLocationFsxOpenZfsResponse' smart constructor.

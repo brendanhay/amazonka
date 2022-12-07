@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.ChangeProgressStatusDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.ChangeProgressStage
 import Amazonka.ElasticSearch.Types.OverallChangeStatus
 import qualified Amazonka.Prelude as Prelude
@@ -48,7 +49,7 @@ data ChangeProgressStatusDetails = ChangeProgressStatusDetails'
     -- are completed.
     completedProperties :: Prelude.Maybe [Prelude.Text],
     -- | The time at which the configuration change is made on the domain.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -125,27 +126,27 @@ changeProgressStatusDetails_completedProperties = Lens.lens (\ChangeProgressStat
 
 -- | The time at which the configuration change is made on the domain.
 changeProgressStatusDetails_startTime :: Lens.Lens' ChangeProgressStatusDetails (Prelude.Maybe Prelude.UTCTime)
-changeProgressStatusDetails_startTime = Lens.lens (\ChangeProgressStatusDetails' {startTime} -> startTime) (\s@ChangeProgressStatusDetails' {} a -> s {startTime = a} :: ChangeProgressStatusDetails) Prelude.. Lens.mapping Core._Time
+changeProgressStatusDetails_startTime = Lens.lens (\ChangeProgressStatusDetails' {startTime} -> startTime) (\s@ChangeProgressStatusDetails' {} a -> s {startTime = a} :: ChangeProgressStatusDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ChangeProgressStatusDetails where
+instance Data.FromJSON ChangeProgressStatusDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChangeProgressStatusDetails"
       ( \x ->
           ChangeProgressStatusDetails'
-            Prelude.<$> (x Core..:? "TotalNumberOfStages")
-            Prelude.<*> (x Core..:? "ChangeId")
-            Prelude.<*> ( x Core..:? "PendingProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "TotalNumberOfStages")
+            Prelude.<*> (x Data..:? "ChangeId")
+            Prelude.<*> ( x Data..:? "PendingProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> ( x Core..:? "ChangeProgressStages"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> ( x Data..:? "ChangeProgressStages"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "CompletedProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "CompletedProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable ChangeProgressStatusDetails where

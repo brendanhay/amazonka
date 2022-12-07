@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,32 +89,32 @@ instance Prelude.Hashable DeleteResourceSet where
 instance Prelude.NFData DeleteResourceSet where
   rnf DeleteResourceSet' {..} = Prelude.rnf identifier
 
-instance Core.ToHeaders DeleteResourceSet where
+instance Data.ToHeaders DeleteResourceSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.DeleteResourceSet" ::
+              Data.=# ( "AWSFMS_20180101.DeleteResourceSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteResourceSet where
+instance Data.ToJSON DeleteResourceSet where
   toJSON DeleteResourceSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Identifier" Core..= identifier)]
+          [Prelude.Just ("Identifier" Data..= identifier)]
       )
 
-instance Core.ToPath DeleteResourceSet where
+instance Data.ToPath DeleteResourceSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteResourceSet where
+instance Data.ToQuery DeleteResourceSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResourceSetResponse' smart constructor.

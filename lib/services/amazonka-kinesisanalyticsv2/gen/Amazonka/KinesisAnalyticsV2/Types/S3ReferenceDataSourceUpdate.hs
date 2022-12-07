@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.S3ReferenceDataSourceUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a SQL-based Kinesis Data Analytics application, describes the Amazon
@@ -74,12 +75,12 @@ instance Prelude.NFData S3ReferenceDataSourceUpdate where
     Prelude.rnf bucketARNUpdate
       `Prelude.seq` Prelude.rnf fileKeyUpdate
 
-instance Core.ToJSON S3ReferenceDataSourceUpdate where
+instance Data.ToJSON S3ReferenceDataSourceUpdate where
   toJSON S3ReferenceDataSourceUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BucketARNUpdate" Core..=)
+          [ ("BucketARNUpdate" Data..=)
               Prelude.<$> bucketARNUpdate,
-            ("FileKeyUpdate" Core..=) Prelude.<$> fileKeyUpdate
+            ("FileKeyUpdate" Data..=) Prelude.<$> fileKeyUpdate
           ]
       )

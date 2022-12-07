@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -261,7 +262,7 @@ instance Core.AWSRequest CreateForecastExportJob where
     Response.receiveJSON
       ( \s h x ->
           CreateForecastExportJobResponse'
-            Prelude.<$> (x Core..?> "ForecastExportJobArn")
+            Prelude.<$> (x Data..?> "ForecastExportJobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -281,40 +282,40 @@ instance Prelude.NFData CreateForecastExportJob where
       `Prelude.seq` Prelude.rnf forecastArn
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToHeaders CreateForecastExportJob where
+instance Data.ToHeaders CreateForecastExportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.CreateForecastExportJob" ::
+              Data.=# ( "AmazonForecast.CreateForecastExportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateForecastExportJob where
+instance Data.ToJSON CreateForecastExportJob where
   toJSON CreateForecastExportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Format" Core..=) Prelude.<$> format,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Format" Data..=) Prelude.<$> format,
             Prelude.Just
               ( "ForecastExportJobName"
-                  Core..= forecastExportJobName
+                  Data..= forecastExportJobName
               ),
-            Prelude.Just ("ForecastArn" Core..= forecastArn),
-            Prelude.Just ("Destination" Core..= destination)
+            Prelude.Just ("ForecastArn" Data..= forecastArn),
+            Prelude.Just ("Destination" Data..= destination)
           ]
       )
 
-instance Core.ToPath CreateForecastExportJob where
+instance Data.ToPath CreateForecastExportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateForecastExportJob where
+instance Data.ToQuery CreateForecastExportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateForecastExportJobResponse' smart constructor.

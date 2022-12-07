@@ -26,6 +26,7 @@ import Amazonka.Comprehend.Types.OutputDataConfig
 import Amazonka.Comprehend.Types.VpcConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a key phrases detection job.
@@ -49,7 +50,7 @@ data KeyPhrasesDetectionJobProperties = KeyPhrasesDetectionJobProperties'
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The time that the key phrases detection job was submitted for
     -- processing.
-    submitTime :: Prelude.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier assigned to the key phrases detection job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
@@ -66,7 +67,7 @@ data KeyPhrasesDetectionJobProperties = KeyPhrasesDetectionJobProperties'
     -- to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the key phrases detection job completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The language code of the input documents.
     languageCode :: Prelude.Maybe LanguageCode,
     -- | The Amazon Resource Name (ARN) of the key phrases detection job. It is a
@@ -190,7 +191,7 @@ keyPhrasesDetectionJobProperties_jobName = Lens.lens (\KeyPhrasesDetectionJobPro
 -- | The time that the key phrases detection job was submitted for
 -- processing.
 keyPhrasesDetectionJobProperties_submitTime :: Lens.Lens' KeyPhrasesDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
-keyPhrasesDetectionJobProperties_submitTime = Lens.lens (\KeyPhrasesDetectionJobProperties' {submitTime} -> submitTime) (\s@KeyPhrasesDetectionJobProperties' {} a -> s {submitTime = a} :: KeyPhrasesDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+keyPhrasesDetectionJobProperties_submitTime = Lens.lens (\KeyPhrasesDetectionJobProperties' {submitTime} -> submitTime) (\s@KeyPhrasesDetectionJobProperties' {} a -> s {submitTime = a} :: KeyPhrasesDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier assigned to the key phrases detection job.
 keyPhrasesDetectionJobProperties_jobId :: Lens.Lens' KeyPhrasesDetectionJobProperties (Prelude.Maybe Prelude.Text)
@@ -215,7 +216,7 @@ keyPhrasesDetectionJobProperties_dataAccessRoleArn = Lens.lens (\KeyPhrasesDetec
 
 -- | The time that the key phrases detection job completed.
 keyPhrasesDetectionJobProperties_endTime :: Lens.Lens' KeyPhrasesDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
-keyPhrasesDetectionJobProperties_endTime = Lens.lens (\KeyPhrasesDetectionJobProperties' {endTime} -> endTime) (\s@KeyPhrasesDetectionJobProperties' {} a -> s {endTime = a} :: KeyPhrasesDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+keyPhrasesDetectionJobProperties_endTime = Lens.lens (\KeyPhrasesDetectionJobProperties' {endTime} -> endTime) (\s@KeyPhrasesDetectionJobProperties' {} a -> s {endTime = a} :: KeyPhrasesDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The language code of the input documents.
 keyPhrasesDetectionJobProperties_languageCode :: Lens.Lens' KeyPhrasesDetectionJobProperties (Prelude.Maybe LanguageCode)
@@ -239,27 +240,27 @@ keyPhrasesDetectionJobProperties_inputDataConfig :: Lens.Lens' KeyPhrasesDetecti
 keyPhrasesDetectionJobProperties_inputDataConfig = Lens.lens (\KeyPhrasesDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@KeyPhrasesDetectionJobProperties' {} a -> s {inputDataConfig = a} :: KeyPhrasesDetectionJobProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     KeyPhrasesDetectionJobProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeyPhrasesDetectionJobProperties"
       ( \x ->
           KeyPhrasesDetectionJobProperties'
-            Prelude.<$> (x Core..:? "OutputDataConfig")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "JobStatus")
-            Prelude.<*> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "SubmitTime")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "JobArn")
-            Prelude.<*> (x Core..:? "InputDataConfig")
+            Prelude.<$> (x Data..:? "OutputDataConfig")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "JobStatus")
+            Prelude.<*> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "SubmitTime")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Data..:? "DataAccessRoleArn")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "JobArn")
+            Prelude.<*> (x Data..:? "InputDataConfig")
       )
 
 instance

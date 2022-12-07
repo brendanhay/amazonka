@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.PublicKeyList where
 import Amazonka.CloudFront.Types.PublicKeySummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of public keys that you can use with
@@ -93,15 +94,15 @@ publicKeyList_maxItems = Lens.lens (\PublicKeyList' {maxItems} -> maxItems) (\s@
 publicKeyList_quantity :: Lens.Lens' PublicKeyList Prelude.Int
 publicKeyList_quantity = Lens.lens (\PublicKeyList' {quantity} -> quantity) (\s@PublicKeyList' {} a -> s {quantity = a} :: PublicKeyList)
 
-instance Core.FromXML PublicKeyList where
+instance Data.FromXML PublicKeyList where
   parseXML x =
     PublicKeyList'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "PublicKeySummary")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "PublicKeySummary")
                   )
-      Prelude.<*> (x Core..@? "NextMarker")
-      Prelude.<*> (x Core..@ "MaxItems")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@? "NextMarker")
+      Prelude.<*> (x Data..@ "MaxItems")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable PublicKeyList where
   hashWithSalt _salt PublicKeyList' {..} =

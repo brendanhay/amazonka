@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -109,7 +110,7 @@ instance Core.AWSRequest UpdateNetworkSite where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateNetworkSite where
   hashWithSalt _salt UpdateNetworkSite' {..} =
@@ -123,30 +124,30 @@ instance Prelude.NFData UpdateNetworkSite where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf networkSiteArn
 
-instance Core.ToHeaders UpdateNetworkSite where
+instance Data.ToHeaders UpdateNetworkSite where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNetworkSite where
+instance Data.ToJSON UpdateNetworkSite where
   toJSON UpdateNetworkSite' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("description" Core..=) Prelude.<$> description,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
             Prelude.Just
-              ("networkSiteArn" Core..= networkSiteArn)
+              ("networkSiteArn" Data..= networkSiteArn)
           ]
       )
 
-instance Core.ToPath UpdateNetworkSite where
+instance Data.ToPath UpdateNetworkSite where
   toPath = Prelude.const "/v1/network-sites/site"
 
-instance Core.ToQuery UpdateNetworkSite where
+instance Data.ToQuery UpdateNetworkSite where
   toQuery = Prelude.const Prelude.mempty

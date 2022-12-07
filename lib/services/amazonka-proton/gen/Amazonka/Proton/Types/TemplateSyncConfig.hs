@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.TemplateSyncConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.RepositoryProvider
 import Amazonka.Proton.Types.TemplateType
@@ -114,18 +115,18 @@ templateSyncConfig_templateName = Lens.lens (\TemplateSyncConfig' {templateName}
 templateSyncConfig_templateType :: Lens.Lens' TemplateSyncConfig TemplateType
 templateSyncConfig_templateType = Lens.lens (\TemplateSyncConfig' {templateType} -> templateType) (\s@TemplateSyncConfig' {} a -> s {templateType = a} :: TemplateSyncConfig)
 
-instance Core.FromJSON TemplateSyncConfig where
+instance Data.FromJSON TemplateSyncConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateSyncConfig"
       ( \x ->
           TemplateSyncConfig'
-            Prelude.<$> (x Core..:? "subdirectory")
-            Prelude.<*> (x Core..: "branch")
-            Prelude.<*> (x Core..: "repositoryName")
-            Prelude.<*> (x Core..: "repositoryProvider")
-            Prelude.<*> (x Core..: "templateName")
-            Prelude.<*> (x Core..: "templateType")
+            Prelude.<$> (x Data..:? "subdirectory")
+            Prelude.<*> (x Data..: "branch")
+            Prelude.<*> (x Data..: "repositoryName")
+            Prelude.<*> (x Data..: "repositoryProvider")
+            Prelude.<*> (x Data..: "templateName")
+            Prelude.<*> (x Data..: "templateType")
       )
 
 instance Prelude.Hashable TemplateSyncConfig where

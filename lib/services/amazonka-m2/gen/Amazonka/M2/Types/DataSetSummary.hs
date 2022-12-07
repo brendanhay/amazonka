@@ -21,6 +21,7 @@ module Amazonka.M2.Types.DataSetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A subset of the possible data set attributes.
@@ -30,14 +31,14 @@ data DataSetSummary = DataSetSummary'
   { -- | The format of the data set.
     format :: Prelude.Maybe Prelude.Text,
     -- | The last time the data set was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The type of data set. Possible values include VSAM, IS, PS, GDG, PO, PS,
     -- or unknown.
     dataSetOrg :: Prelude.Maybe Prelude.Text,
     -- | The last time the data set was referenced.
-    lastReferencedTime :: Prelude.Maybe Core.POSIX,
+    lastReferencedTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp when the data set was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the data set.
     dataSetName :: Prelude.Text
   }
@@ -83,7 +84,7 @@ dataSetSummary_format = Lens.lens (\DataSetSummary' {format} -> format) (\s@Data
 
 -- | The last time the data set was updated.
 dataSetSummary_lastUpdatedTime :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.UTCTime)
-dataSetSummary_lastUpdatedTime = Lens.lens (\DataSetSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@DataSetSummary' {} a -> s {lastUpdatedTime = a} :: DataSetSummary) Prelude.. Lens.mapping Core._Time
+dataSetSummary_lastUpdatedTime = Lens.lens (\DataSetSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@DataSetSummary' {} a -> s {lastUpdatedTime = a} :: DataSetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The type of data set. Possible values include VSAM, IS, PS, GDG, PO, PS,
 -- or unknown.
@@ -92,28 +93,28 @@ dataSetSummary_dataSetOrg = Lens.lens (\DataSetSummary' {dataSetOrg} -> dataSetO
 
 -- | The last time the data set was referenced.
 dataSetSummary_lastReferencedTime :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.UTCTime)
-dataSetSummary_lastReferencedTime = Lens.lens (\DataSetSummary' {lastReferencedTime} -> lastReferencedTime) (\s@DataSetSummary' {} a -> s {lastReferencedTime = a} :: DataSetSummary) Prelude.. Lens.mapping Core._Time
+dataSetSummary_lastReferencedTime = Lens.lens (\DataSetSummary' {lastReferencedTime} -> lastReferencedTime) (\s@DataSetSummary' {} a -> s {lastReferencedTime = a} :: DataSetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp when the data set was created.
 dataSetSummary_creationTime :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.UTCTime)
-dataSetSummary_creationTime = Lens.lens (\DataSetSummary' {creationTime} -> creationTime) (\s@DataSetSummary' {} a -> s {creationTime = a} :: DataSetSummary) Prelude.. Lens.mapping Core._Time
+dataSetSummary_creationTime = Lens.lens (\DataSetSummary' {creationTime} -> creationTime) (\s@DataSetSummary' {} a -> s {creationTime = a} :: DataSetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the data set.
 dataSetSummary_dataSetName :: Lens.Lens' DataSetSummary Prelude.Text
 dataSetSummary_dataSetName = Lens.lens (\DataSetSummary' {dataSetName} -> dataSetName) (\s@DataSetSummary' {} a -> s {dataSetName = a} :: DataSetSummary)
 
-instance Core.FromJSON DataSetSummary where
+instance Data.FromJSON DataSetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSetSummary"
       ( \x ->
           DataSetSummary'
-            Prelude.<$> (x Core..:? "format")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "dataSetOrg")
-            Prelude.<*> (x Core..:? "lastReferencedTime")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..: "dataSetName")
+            Prelude.<$> (x Data..:? "format")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "dataSetOrg")
+            Prelude.<*> (x Data..:? "lastReferencedTime")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..: "dataSetName")
       )
 
 instance Prelude.Hashable DataSetSummary where

@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.RedshiftRetryOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures retry behavior in case Kinesis Data Firehose is unable to
@@ -69,13 +70,13 @@ newRedshiftRetryOptions =
 redshiftRetryOptions_durationInSeconds :: Lens.Lens' RedshiftRetryOptions (Prelude.Maybe Prelude.Natural)
 redshiftRetryOptions_durationInSeconds = Lens.lens (\RedshiftRetryOptions' {durationInSeconds} -> durationInSeconds) (\s@RedshiftRetryOptions' {} a -> s {durationInSeconds = a} :: RedshiftRetryOptions)
 
-instance Core.FromJSON RedshiftRetryOptions where
+instance Data.FromJSON RedshiftRetryOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedshiftRetryOptions"
       ( \x ->
           RedshiftRetryOptions'
-            Prelude.<$> (x Core..:? "DurationInSeconds")
+            Prelude.<$> (x Data..:? "DurationInSeconds")
       )
 
 instance Prelude.Hashable RedshiftRetryOptions where
@@ -86,11 +87,11 @@ instance Prelude.NFData RedshiftRetryOptions where
   rnf RedshiftRetryOptions' {..} =
     Prelude.rnf durationInSeconds
 
-instance Core.ToJSON RedshiftRetryOptions where
+instance Data.ToJSON RedshiftRetryOptions where
   toJSON RedshiftRetryOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DurationInSeconds" Core..=)
+          [ ("DurationInSeconds" Data..=)
               Prelude.<$> durationInSeconds
           ]
       )

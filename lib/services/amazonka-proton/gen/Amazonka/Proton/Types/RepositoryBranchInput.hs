@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.RepositoryBranchInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.RepositoryProvider
 
@@ -89,12 +90,12 @@ instance Prelude.NFData RepositoryBranchInput where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf provider
 
-instance Core.ToJSON RepositoryBranchInput where
+instance Data.ToJSON RepositoryBranchInput where
   toJSON RepositoryBranchInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("branch" Core..= branch),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("provider" Core..= provider)
+          [ Prelude.Just ("branch" Data..= branch),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("provider" Data..= provider)
           ]
       )

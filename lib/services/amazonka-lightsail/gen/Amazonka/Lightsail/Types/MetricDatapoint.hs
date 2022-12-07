@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.MetricDatapoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.MetricUnit
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data MetricDatapoint = MetricDatapoint'
     -- | The average.
     average :: Prelude.Maybe Prelude.Double,
     -- | The timestamp (e.g., @1479816991.349@).
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The sample count.
     sampleCount :: Prelude.Maybe Prelude.Double,
     -- | The sum.
@@ -89,7 +90,7 @@ metricDatapoint_average = Lens.lens (\MetricDatapoint' {average} -> average) (\s
 
 -- | The timestamp (e.g., @1479816991.349@).
 metricDatapoint_timestamp :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.UTCTime)
-metricDatapoint_timestamp = Lens.lens (\MetricDatapoint' {timestamp} -> timestamp) (\s@MetricDatapoint' {} a -> s {timestamp = a} :: MetricDatapoint) Prelude.. Lens.mapping Core._Time
+metricDatapoint_timestamp = Lens.lens (\MetricDatapoint' {timestamp} -> timestamp) (\s@MetricDatapoint' {} a -> s {timestamp = a} :: MetricDatapoint) Prelude.. Lens.mapping Data._Time
 
 -- | The sample count.
 metricDatapoint_sampleCount :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.Double)
@@ -107,19 +108,19 @@ metricDatapoint_maximum = Lens.lens (\MetricDatapoint' {maximum} -> maximum) (\s
 metricDatapoint_unit :: Lens.Lens' MetricDatapoint (Prelude.Maybe MetricUnit)
 metricDatapoint_unit = Lens.lens (\MetricDatapoint' {unit} -> unit) (\s@MetricDatapoint' {} a -> s {unit = a} :: MetricDatapoint)
 
-instance Core.FromJSON MetricDatapoint where
+instance Data.FromJSON MetricDatapoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricDatapoint"
       ( \x ->
           MetricDatapoint'
-            Prelude.<$> (x Core..:? "minimum")
-            Prelude.<*> (x Core..:? "average")
-            Prelude.<*> (x Core..:? "timestamp")
-            Prelude.<*> (x Core..:? "sampleCount")
-            Prelude.<*> (x Core..:? "sum")
-            Prelude.<*> (x Core..:? "maximum")
-            Prelude.<*> (x Core..:? "unit")
+            Prelude.<$> (x Data..:? "minimum")
+            Prelude.<*> (x Data..:? "average")
+            Prelude.<*> (x Data..:? "timestamp")
+            Prelude.<*> (x Data..:? "sampleCount")
+            Prelude.<*> (x Data..:? "sum")
+            Prelude.<*> (x Data..:? "maximum")
+            Prelude.<*> (x Data..:? "unit")
       )
 
 instance Prelude.Hashable MetricDatapoint where

@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.AmplifyUiBuilder.Types.ComponentProperty where
 
-import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 data ComponentProperty
@@ -24,9 +24,9 @@ instance Prelude.Show ComponentProperty
 
 instance Prelude.Generic ComponentProperty
 
-instance Core.ToJSON ComponentProperty
+instance Data.ToJSON ComponentProperty
 
-instance Core.FromJSON ComponentProperty
+instance Data.FromJSON ComponentProperty
 
 instance Prelude.NFData ComponentProperty
 

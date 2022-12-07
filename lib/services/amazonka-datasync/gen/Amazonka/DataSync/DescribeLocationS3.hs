@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,12 +95,12 @@ instance Core.AWSRequest DescribeLocationS3 where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationS3Response'
-            Prelude.<$> (x Core..?> "LocationArn")
-            Prelude.<*> (x Core..?> "S3Config")
-            Prelude.<*> (x Core..?> "S3StorageClass")
-            Prelude.<*> (x Core..?> "LocationUri")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "AgentArns")
+            Prelude.<$> (x Data..?> "LocationArn")
+            Prelude.<*> (x Data..?> "S3Config")
+            Prelude.<*> (x Data..?> "S3StorageClass")
+            Prelude.<*> (x Data..?> "LocationUri")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "AgentArns")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,32 +111,32 @@ instance Prelude.Hashable DescribeLocationS3 where
 instance Prelude.NFData DescribeLocationS3 where
   rnf DescribeLocationS3' {..} = Prelude.rnf locationArn
 
-instance Core.ToHeaders DescribeLocationS3 where
+instance Data.ToHeaders DescribeLocationS3 where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.DescribeLocationS3" ::
+              Data.=# ( "FmrsService.DescribeLocationS3" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLocationS3 where
+instance Data.ToJSON DescribeLocationS3 where
   toJSON DescribeLocationS3' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LocationArn" Core..= locationArn)]
+          [Prelude.Just ("LocationArn" Data..= locationArn)]
       )
 
-instance Core.ToPath DescribeLocationS3 where
+instance Data.ToPath DescribeLocationS3 where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLocationS3 where
+instance Data.ToQuery DescribeLocationS3 where
   toQuery = Prelude.const Prelude.mempty
 
 -- | DescribeLocationS3Response
@@ -156,7 +157,7 @@ data DescribeLocationS3Response = DescribeLocationS3Response'
     -- | The URL of the Amazon S3 location that was described.
     locationUri :: Prelude.Maybe Prelude.Text,
     -- | The time that the Amazon S3 bucket location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | If you are using DataSync on an Amazon Web Services Outpost, the Amazon
     -- Resource Name (ARNs) of the EC2 agents deployed on your Outpost. For
     -- more information about launching a DataSync agent on an Amazon Web
@@ -239,7 +240,7 @@ describeLocationS3Response_locationUri = Lens.lens (\DescribeLocationS3Response'
 
 -- | The time that the Amazon S3 bucket location was created.
 describeLocationS3Response_creationTime :: Lens.Lens' DescribeLocationS3Response (Prelude.Maybe Prelude.UTCTime)
-describeLocationS3Response_creationTime = Lens.lens (\DescribeLocationS3Response' {creationTime} -> creationTime) (\s@DescribeLocationS3Response' {} a -> s {creationTime = a} :: DescribeLocationS3Response) Prelude.. Lens.mapping Core._Time
+describeLocationS3Response_creationTime = Lens.lens (\DescribeLocationS3Response' {creationTime} -> creationTime) (\s@DescribeLocationS3Response' {} a -> s {creationTime = a} :: DescribeLocationS3Response) Prelude.. Lens.mapping Data._Time
 
 -- | If you are using DataSync on an Amazon Web Services Outpost, the Amazon
 -- Resource Name (ARNs) of the EC2 agents deployed on your Outpost. For

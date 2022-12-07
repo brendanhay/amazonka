@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.VirtualMFADevice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.Tag
 import Amazonka.IAM.Types.User
 import qualified Amazonka.Prelude as Prelude
@@ -39,16 +40,16 @@ data VirtualMFADevice = VirtualMFADevice'
     -- | The base32 seed defined as specified in
     -- <https://tools.ietf.org/html/rfc3548.txt RFC3548>. The
     -- @Base32StringSeed@ is base64-encoded.
-    base32StringSeed :: Prelude.Maybe (Core.Sensitive Core.Base64),
+    base32StringSeed :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | The date and time on which the virtual MFA device was enabled.
-    enableDate :: Prelude.Maybe Core.ISO8601,
+    enableDate :: Prelude.Maybe Data.ISO8601,
     -- | A QR code PNG image that encodes
     -- @otpauth:\/\/totp\/$virtualMFADeviceName\@$AccountName?secret=$Base32String@
     -- where @$virtualMFADeviceName@ is one of the create call arguments.
     -- @AccountName@ is the user name if set (otherwise, the account ID
     -- otherwise), and @Base32String@ is the seed in base32 format. The
     -- @Base32String@ value is base64-encoded.
-    qRCodePNG :: Prelude.Maybe (Core.Sensitive Core.Base64),
+    qRCodePNG :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | The serial number associated with @VirtualMFADevice@.
     serialNumber :: Prelude.Text
   }
@@ -124,11 +125,11 @@ virtualMFADevice_user = Lens.lens (\VirtualMFADevice' {user} -> user) (\s@Virtua
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 virtualMFADevice_base32StringSeed :: Lens.Lens' VirtualMFADevice (Prelude.Maybe Prelude.ByteString)
-virtualMFADevice_base32StringSeed = Lens.lens (\VirtualMFADevice' {base32StringSeed} -> base32StringSeed) (\s@VirtualMFADevice' {} a -> s {base32StringSeed = a} :: VirtualMFADevice) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
+virtualMFADevice_base32StringSeed = Lens.lens (\VirtualMFADevice' {base32StringSeed} -> base32StringSeed) (\s@VirtualMFADevice' {} a -> s {base32StringSeed = a} :: VirtualMFADevice) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
 
 -- | The date and time on which the virtual MFA device was enabled.
 virtualMFADevice_enableDate :: Lens.Lens' VirtualMFADevice (Prelude.Maybe Prelude.UTCTime)
-virtualMFADevice_enableDate = Lens.lens (\VirtualMFADevice' {enableDate} -> enableDate) (\s@VirtualMFADevice' {} a -> s {enableDate = a} :: VirtualMFADevice) Prelude.. Lens.mapping Core._Time
+virtualMFADevice_enableDate = Lens.lens (\VirtualMFADevice' {enableDate} -> enableDate) (\s@VirtualMFADevice' {} a -> s {enableDate = a} :: VirtualMFADevice) Prelude.. Lens.mapping Data._Time
 
 -- | A QR code PNG image that encodes
 -- @otpauth:\/\/totp\/$virtualMFADeviceName\@$AccountName?secret=$Base32String@
@@ -141,23 +142,23 @@ virtualMFADevice_enableDate = Lens.lens (\VirtualMFADevice' {enableDate} -> enab
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 virtualMFADevice_qRCodePNG :: Lens.Lens' VirtualMFADevice (Prelude.Maybe Prelude.ByteString)
-virtualMFADevice_qRCodePNG = Lens.lens (\VirtualMFADevice' {qRCodePNG} -> qRCodePNG) (\s@VirtualMFADevice' {} a -> s {qRCodePNG = a} :: VirtualMFADevice) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
+virtualMFADevice_qRCodePNG = Lens.lens (\VirtualMFADevice' {qRCodePNG} -> qRCodePNG) (\s@VirtualMFADevice' {} a -> s {qRCodePNG = a} :: VirtualMFADevice) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
 
 -- | The serial number associated with @VirtualMFADevice@.
 virtualMFADevice_serialNumber :: Lens.Lens' VirtualMFADevice Prelude.Text
 virtualMFADevice_serialNumber = Lens.lens (\VirtualMFADevice' {serialNumber} -> serialNumber) (\s@VirtualMFADevice' {} a -> s {serialNumber = a} :: VirtualMFADevice)
 
-instance Core.FromXML VirtualMFADevice where
+instance Data.FromXML VirtualMFADevice where
   parseXML x =
     VirtualMFADevice'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "User")
-      Prelude.<*> (x Core..@? "Base32StringSeed")
-      Prelude.<*> (x Core..@? "EnableDate")
-      Prelude.<*> (x Core..@? "QRCodePNG")
-      Prelude.<*> (x Core..@ "SerialNumber")
+      Prelude.<*> (x Data..@? "User")
+      Prelude.<*> (x Data..@? "Base32StringSeed")
+      Prelude.<*> (x Data..@? "EnableDate")
+      Prelude.<*> (x Data..@? "QRCodePNG")
+      Prelude.<*> (x Data..@ "SerialNumber")
 
 instance Prelude.Hashable VirtualMFADevice where
   hashWithSalt _salt VirtualMFADevice' {..} =

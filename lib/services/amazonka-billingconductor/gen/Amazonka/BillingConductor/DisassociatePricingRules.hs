@@ -43,6 +43,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest DisassociatePricingRules where
     Response.receiveJSON
       ( \s h x ->
           DisassociatePricingRulesResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,31 +119,31 @@ instance Prelude.NFData DisassociatePricingRules where
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf pricingRuleArns
 
-instance Core.ToHeaders DisassociatePricingRules where
+instance Data.ToHeaders DisassociatePricingRules where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociatePricingRules where
+instance Data.ToJSON DisassociatePricingRules where
   toJSON DisassociatePricingRules' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Arn" Core..= arn),
+          [ Prelude.Just ("Arn" Data..= arn),
             Prelude.Just
-              ("PricingRuleArns" Core..= pricingRuleArns)
+              ("PricingRuleArns" Data..= pricingRuleArns)
           ]
       )
 
-instance Core.ToPath DisassociatePricingRules where
+instance Data.ToPath DisassociatePricingRules where
   toPath = Prelude.const "/disassociate-pricing-rules"
 
-instance Core.ToQuery DisassociatePricingRules where
+instance Data.ToQuery DisassociatePricingRules where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociatePricingRulesResponse' smart constructor.

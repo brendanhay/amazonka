@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,7 +130,7 @@ instance Core.AWSRequest GetTableVersion where
     Response.receiveJSON
       ( \s h x ->
           GetTableVersionResponse'
-            Prelude.<$> (x Core..?> "TableVersion")
+            Prelude.<$> (x Data..?> "TableVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,34 +148,34 @@ instance Prelude.NFData GetTableVersion where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToHeaders GetTableVersion where
+instance Data.ToHeaders GetTableVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetTableVersion" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetTableVersion" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTableVersion where
+instance Data.ToJSON GetTableVersion where
   toJSON GetTableVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("VersionId" Core..=) Prelude.<$> versionId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("VersionId" Data..=) Prelude.<$> versionId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )
 
-instance Core.ToPath GetTableVersion where
+instance Data.ToPath GetTableVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTableVersion where
+instance Data.ToQuery GetTableVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTableVersionResponse' smart constructor.

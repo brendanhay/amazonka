@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AuditSuppression where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.ResourceIdentifier
 import qualified Amazonka.Prelude as Prelude
 
@@ -32,7 +33,7 @@ data AuditSuppression = AuditSuppression'
     description :: Prelude.Maybe Prelude.Text,
     -- | The expiration date (epoch timestamp in seconds) that you want the
     -- suppression to adhere to.
-    expirationDate :: Prelude.Maybe Core.POSIX,
+    expirationDate :: Prelude.Maybe Data.POSIX,
     -- | Indicates whether a suppression should exist indefinitely or not.
     suppressIndefinitely :: Prelude.Maybe Prelude.Bool,
     checkName :: Prelude.Text,
@@ -80,7 +81,7 @@ auditSuppression_description = Lens.lens (\AuditSuppression' {description} -> de
 -- | The expiration date (epoch timestamp in seconds) that you want the
 -- suppression to adhere to.
 auditSuppression_expirationDate :: Lens.Lens' AuditSuppression (Prelude.Maybe Prelude.UTCTime)
-auditSuppression_expirationDate = Lens.lens (\AuditSuppression' {expirationDate} -> expirationDate) (\s@AuditSuppression' {} a -> s {expirationDate = a} :: AuditSuppression) Prelude.. Lens.mapping Core._Time
+auditSuppression_expirationDate = Lens.lens (\AuditSuppression' {expirationDate} -> expirationDate) (\s@AuditSuppression' {} a -> s {expirationDate = a} :: AuditSuppression) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether a suppression should exist indefinitely or not.
 auditSuppression_suppressIndefinitely :: Lens.Lens' AuditSuppression (Prelude.Maybe Prelude.Bool)
@@ -94,17 +95,17 @@ auditSuppression_checkName = Lens.lens (\AuditSuppression' {checkName} -> checkN
 auditSuppression_resourceIdentifier :: Lens.Lens' AuditSuppression ResourceIdentifier
 auditSuppression_resourceIdentifier = Lens.lens (\AuditSuppression' {resourceIdentifier} -> resourceIdentifier) (\s@AuditSuppression' {} a -> s {resourceIdentifier = a} :: AuditSuppression)
 
-instance Core.FromJSON AuditSuppression where
+instance Data.FromJSON AuditSuppression where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuditSuppression"
       ( \x ->
           AuditSuppression'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "expirationDate")
-            Prelude.<*> (x Core..:? "suppressIndefinitely")
-            Prelude.<*> (x Core..: "checkName")
-            Prelude.<*> (x Core..: "resourceIdentifier")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "expirationDate")
+            Prelude.<*> (x Data..:? "suppressIndefinitely")
+            Prelude.<*> (x Data..: "checkName")
+            Prelude.<*> (x Data..: "resourceIdentifier")
       )
 
 instance Prelude.Hashable AuditSuppression where

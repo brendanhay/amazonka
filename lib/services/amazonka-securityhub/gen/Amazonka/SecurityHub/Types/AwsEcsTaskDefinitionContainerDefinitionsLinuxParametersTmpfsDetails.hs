@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxP
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The container path, mount options, and size (in MiB) of a tmpfs mount.
@@ -104,17 +105,17 @@ awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_mountOptions
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_mountOptions = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {mountOptions} -> mountOptions) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {} a -> s {mountOptions = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails'
-            Prelude.<$> (x Core..:? "ContainerPath")
-              Prelude.<*> (x Core..:? "Size")
-              Prelude.<*> (x Core..:? "MountOptions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ContainerPath")
+              Prelude.<*> (x Data..:? "Size")
+              Prelude.<*> (x Data..:? "MountOptions" Data..!= Prelude.mempty)
       )
 
 instance
@@ -139,15 +140,15 @@ instance
         `Prelude.seq` Prelude.rnf mountOptions
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ContainerPath" Core..=) Prelude.<$> containerPath,
-              ("Size" Core..=) Prelude.<$> size,
-              ("MountOptions" Core..=) Prelude.<$> mountOptions
+            [ ("ContainerPath" Data..=) Prelude.<$> containerPath,
+              ("Size" Data..=) Prelude.<$> size,
+              ("MountOptions" Data..=) Prelude.<$> mountOptions
             ]
         )

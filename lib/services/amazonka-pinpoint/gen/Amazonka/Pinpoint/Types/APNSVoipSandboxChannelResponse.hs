@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.APNSVoipSandboxChannelResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the status and settings of the APNs (Apple
@@ -180,24 +181,24 @@ aPNSVoipSandboxChannelResponse_version = Lens.lens (\APNSVoipSandboxChannelRespo
 aPNSVoipSandboxChannelResponse_platform :: Lens.Lens' APNSVoipSandboxChannelResponse Prelude.Text
 aPNSVoipSandboxChannelResponse_platform = Lens.lens (\APNSVoipSandboxChannelResponse' {platform} -> platform) (\s@APNSVoipSandboxChannelResponse' {} a -> s {platform = a} :: APNSVoipSandboxChannelResponse)
 
-instance Core.FromJSON APNSVoipSandboxChannelResponse where
+instance Data.FromJSON APNSVoipSandboxChannelResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "APNSVoipSandboxChannelResponse"
       ( \x ->
           APNSVoipSandboxChannelResponse'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "HasTokenKey")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "HasCredential")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "DefaultAuthenticationMethod")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "IsArchived")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "Platform")
+            Prelude.<$> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "HasTokenKey")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "HasCredential")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "DefaultAuthenticationMethod")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "IsArchived")
+            Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "Platform")
       )
 
 instance

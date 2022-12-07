@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -159,9 +160,9 @@ instance Core.AWSRequest AssociateTargetsWithJob where
     Response.receiveJSON
       ( \s h x ->
           AssociateTargetsWithJobResponse'
-            Prelude.<$> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "jobArn")
+            Prelude.<$> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "jobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,26 +180,26 @@ instance Prelude.NFData AssociateTargetsWithJob where
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders AssociateTargetsWithJob where
+instance Data.ToHeaders AssociateTargetsWithJob where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON AssociateTargetsWithJob where
+instance Data.ToJSON AssociateTargetsWithJob where
   toJSON AssociateTargetsWithJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("comment" Core..=) Prelude.<$> comment,
-            Prelude.Just ("targets" Core..= targets)
+          [ ("comment" Data..=) Prelude.<$> comment,
+            Prelude.Just ("targets" Data..= targets)
           ]
       )
 
-instance Core.ToPath AssociateTargetsWithJob where
+instance Data.ToPath AssociateTargetsWithJob where
   toPath AssociateTargetsWithJob' {..} =
     Prelude.mconcat
-      ["/jobs/", Core.toBS jobId, "/targets"]
+      ["/jobs/", Data.toBS jobId, "/targets"]
 
-instance Core.ToQuery AssociateTargetsWithJob where
+instance Data.ToQuery AssociateTargetsWithJob where
   toQuery AssociateTargetsWithJob' {..} =
-    Prelude.mconcat ["namespaceId" Core.=: namespaceId]
+    Prelude.mconcat ["namespaceId" Data.=: namespaceId]
 
 -- | /See:/ 'newAssociateTargetsWithJobResponse' smart constructor.
 data AssociateTargetsWithJobResponse = AssociateTargetsWithJobResponse'

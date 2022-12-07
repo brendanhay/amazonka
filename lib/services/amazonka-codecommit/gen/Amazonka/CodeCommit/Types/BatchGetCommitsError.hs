@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.BatchGetCommitsError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about errors in a BatchGetCommits operation.
@@ -76,15 +77,15 @@ batchGetCommitsError_errorMessage = Lens.lens (\BatchGetCommitsError' {errorMess
 batchGetCommitsError_errorCode :: Lens.Lens' BatchGetCommitsError (Prelude.Maybe Prelude.Text)
 batchGetCommitsError_errorCode = Lens.lens (\BatchGetCommitsError' {errorCode} -> errorCode) (\s@BatchGetCommitsError' {} a -> s {errorCode = a} :: BatchGetCommitsError)
 
-instance Core.FromJSON BatchGetCommitsError where
+instance Data.FromJSON BatchGetCommitsError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetCommitsError"
       ( \x ->
           BatchGetCommitsError'
-            Prelude.<$> (x Core..:? "commitId")
-            Prelude.<*> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Data..:? "commitId")
+            Prelude.<*> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance Prelude.Hashable BatchGetCommitsError where

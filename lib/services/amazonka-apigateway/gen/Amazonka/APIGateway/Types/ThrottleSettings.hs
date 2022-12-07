@@ -21,6 +21,7 @@ module Amazonka.APIGateway.Types.ThrottleSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The API request rate limits.
@@ -64,14 +65,14 @@ throttleSettings_rateLimit = Lens.lens (\ThrottleSettings' {rateLimit} -> rateLi
 throttleSettings_burstLimit :: Lens.Lens' ThrottleSettings (Prelude.Maybe Prelude.Int)
 throttleSettings_burstLimit = Lens.lens (\ThrottleSettings' {burstLimit} -> burstLimit) (\s@ThrottleSettings' {} a -> s {burstLimit = a} :: ThrottleSettings)
 
-instance Core.FromJSON ThrottleSettings where
+instance Data.FromJSON ThrottleSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThrottleSettings"
       ( \x ->
           ThrottleSettings'
-            Prelude.<$> (x Core..:? "rateLimit")
-            Prelude.<*> (x Core..:? "burstLimit")
+            Prelude.<$> (x Data..:? "rateLimit")
+            Prelude.<*> (x Data..:? "burstLimit")
       )
 
 instance Prelude.Hashable ThrottleSettings where
@@ -84,11 +85,11 @@ instance Prelude.NFData ThrottleSettings where
     Prelude.rnf rateLimit
       `Prelude.seq` Prelude.rnf burstLimit
 
-instance Core.ToJSON ThrottleSettings where
+instance Data.ToJSON ThrottleSettings where
   toJSON ThrottleSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("rateLimit" Core..=) Prelude.<$> rateLimit,
-            ("burstLimit" Core..=) Prelude.<$> burstLimit
+          [ ("rateLimit" Data..=) Prelude.<$> rateLimit,
+            ("burstLimit" Data..=) Prelude.<$> burstLimit
           ]
       )

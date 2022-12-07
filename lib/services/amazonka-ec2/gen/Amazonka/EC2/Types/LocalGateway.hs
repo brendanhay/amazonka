@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LocalGateway where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -90,16 +91,16 @@ localGateway_ownerId = Lens.lens (\LocalGateway' {ownerId} -> ownerId) (\s@Local
 localGateway_state :: Lens.Lens' LocalGateway (Prelude.Maybe Prelude.Text)
 localGateway_state = Lens.lens (\LocalGateway' {state} -> state) (\s@LocalGateway' {} a -> s {state = a} :: LocalGateway)
 
-instance Core.FromXML LocalGateway where
+instance Data.FromXML LocalGateway where
   parseXML x =
     LocalGateway'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "localGatewayId")
-      Prelude.<*> (x Core..@? "outpostArn")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "state")
+      Prelude.<*> (x Data..@? "localGatewayId")
+      Prelude.<*> (x Data..@? "outpostArn")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "state")
 
 instance Prelude.Hashable LocalGateway where
   hashWithSalt _salt LocalGateway' {..} =

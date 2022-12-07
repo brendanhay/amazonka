@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,18 +120,18 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeQuerySuggestionsBlockListResponse'
-            Prelude.<$> (x Core..?> "IndexId")
-              Prelude.<*> (x Core..?> "Name")
-              Prelude.<*> (x Core..?> "RoleArn")
-              Prelude.<*> (x Core..?> "ErrorMessage")
-              Prelude.<*> (x Core..?> "ItemCount")
-              Prelude.<*> (x Core..?> "Status")
-              Prelude.<*> (x Core..?> "Id")
-              Prelude.<*> (x Core..?> "Description")
-              Prelude.<*> (x Core..?> "SourceS3Path")
-              Prelude.<*> (x Core..?> "FileSizeBytes")
-              Prelude.<*> (x Core..?> "CreatedAt")
-              Prelude.<*> (x Core..?> "UpdatedAt")
+            Prelude.<$> (x Data..?> "IndexId")
+              Prelude.<*> (x Data..?> "Name")
+              Prelude.<*> (x Data..?> "RoleArn")
+              Prelude.<*> (x Data..?> "ErrorMessage")
+              Prelude.<*> (x Data..?> "ItemCount")
+              Prelude.<*> (x Data..?> "Status")
+              Prelude.<*> (x Data..?> "Id")
+              Prelude.<*> (x Data..?> "Description")
+              Prelude.<*> (x Data..?> "SourceS3Path")
+              Prelude.<*> (x Data..?> "FileSizeBytes")
+              Prelude.<*> (x Data..?> "CreatedAt")
+              Prelude.<*> (x Data..?> "UpdatedAt")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,43 +153,43 @@ instance
     Prelude.rnf indexId `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeQuerySuggestionsBlockList
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DescribeQuerySuggestionsBlockList" ::
+              Data.=# ( "AWSKendraFrontendService.DescribeQuerySuggestionsBlockList" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeQuerySuggestionsBlockList
   where
   toJSON DescribeQuerySuggestionsBlockList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("Id" Core..= id)
+          [ Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeQuerySuggestionsBlockList
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeQuerySuggestionsBlockList
   where
   toQuery = Prelude.const Prelude.mempty
@@ -229,9 +230,9 @@ data DescribeQuerySuggestionsBlockListResponse = DescribeQuerySuggestionsBlockLi
     -- | The current size of the block list text file in S3.
     fileSizeBytes :: Prelude.Maybe Prelude.Integer,
     -- | The date-time a block list for query suggestions was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The date-time a block list for query suggestions was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -361,11 +362,11 @@ describeQuerySuggestionsBlockListResponse_fileSizeBytes = Lens.lens (\DescribeQu
 
 -- | The date-time a block list for query suggestions was created.
 describeQuerySuggestionsBlockListResponse_createdAt :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.UTCTime)
-describeQuerySuggestionsBlockListResponse_createdAt = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {createdAt} -> createdAt) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {createdAt = a} :: DescribeQuerySuggestionsBlockListResponse) Prelude.. Lens.mapping Core._Time
+describeQuerySuggestionsBlockListResponse_createdAt = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {createdAt} -> createdAt) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {createdAt = a} :: DescribeQuerySuggestionsBlockListResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date-time a block list for query suggestions was last updated.
 describeQuerySuggestionsBlockListResponse_updatedAt :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.UTCTime)
-describeQuerySuggestionsBlockListResponse_updatedAt = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {updatedAt} -> updatedAt) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {updatedAt = a} :: DescribeQuerySuggestionsBlockListResponse) Prelude.. Lens.mapping Core._Time
+describeQuerySuggestionsBlockListResponse_updatedAt = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {updatedAt} -> updatedAt) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {updatedAt = a} :: DescribeQuerySuggestionsBlockListResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeQuerySuggestionsBlockListResponse_httpStatus :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse Prelude.Int

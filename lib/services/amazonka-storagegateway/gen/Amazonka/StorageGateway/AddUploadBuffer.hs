@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ instance Core.AWSRequest AddUploadBuffer where
     Response.receiveJSON
       ( \s h x ->
           AddUploadBufferResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,34 +121,34 @@ instance Prelude.NFData AddUploadBuffer where
     Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf diskIds
 
-instance Core.ToHeaders AddUploadBuffer where
+instance Data.ToHeaders AddUploadBuffer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.AddUploadBuffer" ::
+              Data.=# ( "StorageGateway_20130630.AddUploadBuffer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddUploadBuffer where
+instance Data.ToJSON AddUploadBuffer where
   toJSON AddUploadBuffer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GatewayARN" Core..= gatewayARN),
-            Prelude.Just ("DiskIds" Core..= diskIds)
+          [ Prelude.Just ("GatewayARN" Data..= gatewayARN),
+            Prelude.Just ("DiskIds" Data..= diskIds)
           ]
       )
 
-instance Core.ToPath AddUploadBuffer where
+instance Data.ToPath AddUploadBuffer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddUploadBuffer where
+instance Data.ToQuery AddUploadBuffer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddUploadBufferResponse' smart constructor.

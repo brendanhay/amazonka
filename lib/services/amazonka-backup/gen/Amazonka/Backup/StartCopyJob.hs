@@ -50,6 +50,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -179,8 +180,8 @@ instance Core.AWSRequest StartCopyJob where
     Response.receiveJSON
       ( \s h x ->
           StartCopyJobResponse'
-            Prelude.<$> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "CopyJobId")
+            Prelude.<$> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "CopyJobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,42 +203,42 @@ instance Prelude.NFData StartCopyJob where
       `Prelude.seq` Prelude.rnf destinationBackupVaultArn
       `Prelude.seq` Prelude.rnf iamRoleArn
 
-instance Core.ToHeaders StartCopyJob where
+instance Data.ToHeaders StartCopyJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartCopyJob where
+instance Data.ToJSON StartCopyJob where
   toJSON StartCopyJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Lifecycle" Core..=) Prelude.<$> lifecycle,
-            ("IdempotencyToken" Core..=)
+          [ ("Lifecycle" Data..=) Prelude.<$> lifecycle,
+            ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
             Prelude.Just
-              ("RecoveryPointArn" Core..= recoveryPointArn),
+              ("RecoveryPointArn" Data..= recoveryPointArn),
             Prelude.Just
               ( "SourceBackupVaultName"
-                  Core..= sourceBackupVaultName
+                  Data..= sourceBackupVaultName
               ),
             Prelude.Just
               ( "DestinationBackupVaultArn"
-                  Core..= destinationBackupVaultArn
+                  Data..= destinationBackupVaultArn
               ),
-            Prelude.Just ("IamRoleArn" Core..= iamRoleArn)
+            Prelude.Just ("IamRoleArn" Data..= iamRoleArn)
           ]
       )
 
-instance Core.ToPath StartCopyJob where
+instance Data.ToPath StartCopyJob where
   toPath = Prelude.const "/copy-jobs"
 
-instance Core.ToQuery StartCopyJob where
+instance Data.ToQuery StartCopyJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartCopyJobResponse' smart constructor.
@@ -246,7 +247,7 @@ data StartCopyJobResponse = StartCopyJobResponse'
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | Uniquely identifies a copy job.
     copyJobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -287,7 +288,7 @@ newStartCopyJobResponse pHttpStatus_ =
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 startCopyJobResponse_creationDate :: Lens.Lens' StartCopyJobResponse (Prelude.Maybe Prelude.UTCTime)
-startCopyJobResponse_creationDate = Lens.lens (\StartCopyJobResponse' {creationDate} -> creationDate) (\s@StartCopyJobResponse' {} a -> s {creationDate = a} :: StartCopyJobResponse) Prelude.. Lens.mapping Core._Time
+startCopyJobResponse_creationDate = Lens.lens (\StartCopyJobResponse' {creationDate} -> creationDate) (\s@StartCopyJobResponse' {} a -> s {creationDate = a} :: StartCopyJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Uniquely identifies a copy job.
 startCopyJobResponse_copyJobId :: Lens.Lens' StartCopyJobResponse (Prelude.Maybe Prelude.Text)

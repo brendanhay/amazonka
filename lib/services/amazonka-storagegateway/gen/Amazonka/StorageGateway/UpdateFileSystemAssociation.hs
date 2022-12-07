@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,7 +55,7 @@ import Amazonka.StorageGateway.Types
 -- | /See:/ 'newUpdateFileSystemAssociation' smart constructor.
 data UpdateFileSystemAssociation = UpdateFileSystemAssociation'
   { -- | The password of the user credential.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The user name of the user credential that has permission to access the
     -- root share D$ of the Amazon FSx file system. The user account must
     -- belong to the Amazon FSx delegated admin user group.
@@ -106,7 +107,7 @@ newUpdateFileSystemAssociation
 
 -- | The password of the user credential.
 updateFileSystemAssociation_password :: Lens.Lens' UpdateFileSystemAssociation (Prelude.Maybe Prelude.Text)
-updateFileSystemAssociation_password = Lens.lens (\UpdateFileSystemAssociation' {password} -> password) (\s@UpdateFileSystemAssociation' {} a -> s {password = a} :: UpdateFileSystemAssociation) Prelude.. Lens.mapping Core._Sensitive
+updateFileSystemAssociation_password = Lens.lens (\UpdateFileSystemAssociation' {password} -> password) (\s@UpdateFileSystemAssociation' {} a -> s {password = a} :: UpdateFileSystemAssociation) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The user name of the user credential that has permission to access the
 -- root share D$ of the Amazon FSx file system. The user account must
@@ -137,7 +138,7 @@ instance Core.AWSRequest UpdateFileSystemAssociation where
     Response.receiveJSON
       ( \s h x ->
           UpdateFileSystemAssociationResponse'
-            Prelude.<$> (x Core..?> "FileSystemAssociationARN")
+            Prelude.<$> (x Data..?> "FileSystemAssociationARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,42 +158,42 @@ instance Prelude.NFData UpdateFileSystemAssociation where
       `Prelude.seq` Prelude.rnf auditDestinationARN
       `Prelude.seq` Prelude.rnf fileSystemAssociationARN
 
-instance Core.ToHeaders UpdateFileSystemAssociation where
+instance Data.ToHeaders UpdateFileSystemAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.UpdateFileSystemAssociation" ::
+              Data.=# ( "StorageGateway_20130630.UpdateFileSystemAssociation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFileSystemAssociation where
+instance Data.ToJSON UpdateFileSystemAssociation where
   toJSON UpdateFileSystemAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Password" Core..=) Prelude.<$> password,
-            ("UserName" Core..=) Prelude.<$> userName,
-            ("CacheAttributes" Core..=)
+          [ ("Password" Data..=) Prelude.<$> password,
+            ("UserName" Data..=) Prelude.<$> userName,
+            ("CacheAttributes" Data..=)
               Prelude.<$> cacheAttributes,
-            ("AuditDestinationARN" Core..=)
+            ("AuditDestinationARN" Data..=)
               Prelude.<$> auditDestinationARN,
             Prelude.Just
               ( "FileSystemAssociationARN"
-                  Core..= fileSystemAssociationARN
+                  Data..= fileSystemAssociationARN
               )
           ]
       )
 
-instance Core.ToPath UpdateFileSystemAssociation where
+instance Data.ToPath UpdateFileSystemAssociation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateFileSystemAssociation where
+instance Data.ToQuery UpdateFileSystemAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFileSystemAssociationResponse' smart constructor.

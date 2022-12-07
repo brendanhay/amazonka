@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MwAA.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,8 +89,8 @@ instance Core.AWSRequest CreateCliToken where
     Response.receiveJSON
       ( \s h x ->
           CreateCliTokenResponse'
-            Prelude.<$> (x Core..?> "WebServerHostname")
-            Prelude.<*> (x Core..?> "CliToken")
+            Prelude.<$> (x Data..?> "WebServerHostname")
+            Prelude.<*> (x Data..?> "CliToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,25 +101,25 @@ instance Prelude.Hashable CreateCliToken where
 instance Prelude.NFData CreateCliToken where
   rnf CreateCliToken' {..} = Prelude.rnf name
 
-instance Core.ToHeaders CreateCliToken where
+instance Data.ToHeaders CreateCliToken where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCliToken where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CreateCliToken where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CreateCliToken where
+instance Data.ToPath CreateCliToken where
   toPath CreateCliToken' {..} =
-    Prelude.mconcat ["/clitoken/", Core.toBS name]
+    Prelude.mconcat ["/clitoken/", Data.toBS name]
 
-instance Core.ToQuery CreateCliToken where
+instance Data.ToQuery CreateCliToken where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCliTokenResponse' smart constructor.
@@ -126,7 +127,7 @@ data CreateCliTokenResponse = CreateCliTokenResponse'
   { -- | The Airflow web server hostname for the environment.
     webServerHostname :: Prelude.Maybe Prelude.Text,
     -- | An Airflow CLI login token.
-    cliToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    cliToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,7 +164,7 @@ createCliTokenResponse_webServerHostname = Lens.lens (\CreateCliTokenResponse' {
 
 -- | An Airflow CLI login token.
 createCliTokenResponse_cliToken :: Lens.Lens' CreateCliTokenResponse (Prelude.Maybe Prelude.Text)
-createCliTokenResponse_cliToken = Lens.lens (\CreateCliTokenResponse' {cliToken} -> cliToken) (\s@CreateCliTokenResponse' {} a -> s {cliToken = a} :: CreateCliTokenResponse) Prelude.. Lens.mapping Core._Sensitive
+createCliTokenResponse_cliToken = Lens.lens (\CreateCliTokenResponse' {cliToken} -> cliToken) (\s@CreateCliTokenResponse' {} a -> s {cliToken = a} :: CreateCliTokenResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The response's http status code.
 createCliTokenResponse_httpStatus :: Lens.Lens' CreateCliTokenResponse Prelude.Int

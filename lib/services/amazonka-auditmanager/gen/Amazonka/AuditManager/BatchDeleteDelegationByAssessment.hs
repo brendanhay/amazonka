@@ -43,6 +43,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,7 +104,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteDelegationByAssessmentResponse'
-            Prelude.<$> (x Core..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,44 +127,44 @@ instance
       `Prelude.seq` Prelude.rnf assessmentId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchDeleteDelegationByAssessment
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     BatchDeleteDelegationByAssessment
   where
   toJSON BatchDeleteDelegationByAssessment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("delegationIds" Core..= delegationIds)
+              ("delegationIds" Data..= delegationIds)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     BatchDeleteDelegationByAssessment
   where
   toPath BatchDeleteDelegationByAssessment' {..} =
     Prelude.mconcat
       [ "/assessments/",
-        Core.toBS assessmentId,
+        Data.toBS assessmentId,
         "/delegations"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     BatchDeleteDelegationByAssessment
   where
   toQuery = Prelude.const Prelude.mempty

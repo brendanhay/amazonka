@@ -82,6 +82,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,7 +122,7 @@ data CreateCapacityReservation = CreateCapacityReservation'
     -- within an hour from the specified time. For example, if you specify
     -- 5\/31\/2019, 13:30:55, the Capacity Reservation is guaranteed to end
     -- between 13:30:55 and 14:30:55 on 5\/31\/2019.
-    endDate :: Prelude.Maybe Core.ISO8601,
+    endDate :: Prelude.Maybe Data.ISO8601,
     -- | The Availability Zone in which to create the Capacity Reservation.
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
@@ -358,7 +359,7 @@ createCapacityReservation_outpostArn = Lens.lens (\CreateCapacityReservation' {o
 -- 5\/31\/2019, 13:30:55, the Capacity Reservation is guaranteed to end
 -- between 13:30:55 and 14:30:55 on 5\/31\/2019.
 createCapacityReservation_endDate :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.UTCTime)
-createCapacityReservation_endDate = Lens.lens (\CreateCapacityReservation' {endDate} -> endDate) (\s@CreateCapacityReservation' {} a -> s {endDate = a} :: CreateCapacityReservation) Prelude.. Lens.mapping Core._Time
+createCapacityReservation_endDate = Lens.lens (\CreateCapacityReservation' {endDate} -> endDate) (\s@CreateCapacityReservation' {} a -> s {endDate = a} :: CreateCapacityReservation) Prelude.. Lens.mapping Data._Time
 
 -- | The Availability Zone in which to create the Capacity Reservation.
 createCapacityReservation_availabilityZone :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Text)
@@ -449,7 +450,7 @@ instance Core.AWSRequest CreateCapacityReservation where
     Response.receiveXML
       ( \s h x ->
           CreateCapacityReservationResponse'
-            Prelude.<$> (x Core..@? "capacityReservation")
+            Prelude.<$> (x Data..@? "capacityReservation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -491,39 +492,39 @@ instance Prelude.NFData CreateCapacityReservation where
       `Prelude.seq` Prelude.rnf instancePlatform
       `Prelude.seq` Prelude.rnf instanceCount
 
-instance Core.ToHeaders CreateCapacityReservation where
+instance Data.ToHeaders CreateCapacityReservation where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateCapacityReservation where
+instance Data.ToPath CreateCapacityReservation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCapacityReservation where
+instance Data.ToQuery CreateCapacityReservation where
   toQuery CreateCapacityReservation' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateCapacityReservation" :: Prelude.ByteString),
+          Data.=: ("CreateCapacityReservation" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "EbsOptimized" Core.=: ebsOptimized,
-        "EphemeralStorage" Core.=: ephemeralStorage,
-        "ClientToken" Core.=: clientToken,
-        "PlacementGroupArn" Core.=: placementGroupArn,
-        "OutpostArn" Core.=: outpostArn,
-        "EndDate" Core.=: endDate,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecifications"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "EbsOptimized" Data.=: ebsOptimized,
+        "EphemeralStorage" Data.=: ephemeralStorage,
+        "ClientToken" Data.=: clientToken,
+        "PlacementGroupArn" Data.=: placementGroupArn,
+        "OutpostArn" Data.=: outpostArn,
+        "EndDate" Data.=: endDate,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecifications"
               Prelude.<$> tagSpecifications
           ),
         "InstanceMatchCriteria"
-          Core.=: instanceMatchCriteria,
-        "EndDateType" Core.=: endDateType,
-        "Tenancy" Core.=: tenancy,
-        "AvailabilityZoneId" Core.=: availabilityZoneId,
-        "InstanceType" Core.=: instanceType,
-        "InstancePlatform" Core.=: instancePlatform,
-        "InstanceCount" Core.=: instanceCount
+          Data.=: instanceMatchCriteria,
+        "EndDateType" Data.=: endDateType,
+        "Tenancy" Data.=: tenancy,
+        "AvailabilityZoneId" Data.=: availabilityZoneId,
+        "InstanceType" Data.=: instanceType,
+        "InstancePlatform" Data.=: instancePlatform,
+        "InstanceCount" Data.=: instanceCount
       ]
 
 -- | /See:/ 'newCreateCapacityReservationResponse' smart constructor.

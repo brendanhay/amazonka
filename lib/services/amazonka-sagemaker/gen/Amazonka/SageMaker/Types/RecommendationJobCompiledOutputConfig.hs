@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RecommendationJobCompiledOutputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the output configuration for the compiled
@@ -74,11 +75,11 @@ instance
     Prelude.rnf s3OutputUri
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RecommendationJobCompiledOutputConfig
   where
   toJSON RecommendationJobCompiledOutputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("S3OutputUri" Core..=) Prelude.<$> s3OutputUri]
+          [("S3OutputUri" Data..=) Prelude.<$> s3OutputUri]
       )

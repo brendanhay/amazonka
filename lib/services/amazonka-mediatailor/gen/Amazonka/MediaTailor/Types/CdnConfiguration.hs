@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.CdnConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for using a content delivery network (CDN), like
@@ -96,14 +97,14 @@ cdnConfiguration_adSegmentUrlPrefix = Lens.lens (\CdnConfiguration' {adSegmentUr
 cdnConfiguration_contentSegmentUrlPrefix :: Lens.Lens' CdnConfiguration (Prelude.Maybe Prelude.Text)
 cdnConfiguration_contentSegmentUrlPrefix = Lens.lens (\CdnConfiguration' {contentSegmentUrlPrefix} -> contentSegmentUrlPrefix) (\s@CdnConfiguration' {} a -> s {contentSegmentUrlPrefix = a} :: CdnConfiguration)
 
-instance Core.FromJSON CdnConfiguration where
+instance Data.FromJSON CdnConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CdnConfiguration"
       ( \x ->
           CdnConfiguration'
-            Prelude.<$> (x Core..:? "AdSegmentUrlPrefix")
-            Prelude.<*> (x Core..:? "ContentSegmentUrlPrefix")
+            Prelude.<$> (x Data..:? "AdSegmentUrlPrefix")
+            Prelude.<*> (x Data..:? "ContentSegmentUrlPrefix")
       )
 
 instance Prelude.Hashable CdnConfiguration where
@@ -116,13 +117,13 @@ instance Prelude.NFData CdnConfiguration where
     Prelude.rnf adSegmentUrlPrefix
       `Prelude.seq` Prelude.rnf contentSegmentUrlPrefix
 
-instance Core.ToJSON CdnConfiguration where
+instance Data.ToJSON CdnConfiguration where
   toJSON CdnConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AdSegmentUrlPrefix" Core..=)
+          [ ("AdSegmentUrlPrefix" Data..=)
               Prelude.<$> adSegmentUrlPrefix,
-            ("ContentSegmentUrlPrefix" Core..=)
+            ("ContentSegmentUrlPrefix" Data..=)
               Prelude.<$> contentSegmentUrlPrefix
           ]
       )

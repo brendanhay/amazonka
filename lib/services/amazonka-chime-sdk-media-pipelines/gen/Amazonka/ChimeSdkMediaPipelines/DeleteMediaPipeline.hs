@@ -38,6 +38,7 @@ where
 import Amazonka.ChimeSdkMediaPipelines.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,15 +90,15 @@ instance Prelude.NFData DeleteMediaPipeline where
   rnf DeleteMediaPipeline' {..} =
     Prelude.rnf mediaPipelineId
 
-instance Core.ToHeaders DeleteMediaPipeline where
+instance Data.ToHeaders DeleteMediaPipeline where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteMediaPipeline where
+instance Data.ToPath DeleteMediaPipeline where
   toPath DeleteMediaPipeline' {..} =
     Prelude.mconcat
-      ["/sdk-media-pipelines/", Core.toBS mediaPipelineId]
+      ["/sdk-media-pipelines/", Data.toBS mediaPipelineId]
 
-instance Core.ToQuery DeleteMediaPipeline where
+instance Data.ToQuery DeleteMediaPipeline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMediaPipelineResponse' smart constructor.

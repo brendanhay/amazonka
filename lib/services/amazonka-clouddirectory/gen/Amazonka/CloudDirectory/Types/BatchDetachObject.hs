@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchDetachObject where
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a DetachObject operation.
@@ -97,14 +98,14 @@ instance Prelude.NFData BatchDetachObject where
       `Prelude.seq` Prelude.rnf parentReference
       `Prelude.seq` Prelude.rnf linkName
 
-instance Core.ToJSON BatchDetachObject where
+instance Data.ToJSON BatchDetachObject where
   toJSON BatchDetachObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BatchReferenceName" Core..=)
+          [ ("BatchReferenceName" Data..=)
               Prelude.<$> batchReferenceName,
             Prelude.Just
-              ("ParentReference" Core..= parentReference),
-            Prelude.Just ("LinkName" Core..= linkName)
+              ("ParentReference" Data..= parentReference),
+            Prelude.Just ("LinkName" Data..= linkName)
           ]
       )

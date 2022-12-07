@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,7 +95,7 @@ instance Core.AWSRequest DeleteElasticsearchDomain where
     Response.receiveJSON
       ( \s h x ->
           DeleteElasticsearchDomainResponse'
-            Prelude.<$> (x Core..?> "DomainStatus")
+            Prelude.<$> (x Data..?> "DomainStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,15 +107,15 @@ instance Prelude.NFData DeleteElasticsearchDomain where
   rnf DeleteElasticsearchDomain' {..} =
     Prelude.rnf domainName
 
-instance Core.ToHeaders DeleteElasticsearchDomain where
+instance Data.ToHeaders DeleteElasticsearchDomain where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteElasticsearchDomain where
+instance Data.ToPath DeleteElasticsearchDomain where
   toPath DeleteElasticsearchDomain' {..} =
     Prelude.mconcat
-      ["/2015-01-01/es/domain/", Core.toBS domainName]
+      ["/2015-01-01/es/domain/", Data.toBS domainName]
 
-instance Core.ToQuery DeleteElasticsearchDomain where
+instance Data.ToQuery DeleteElasticsearchDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a @DeleteElasticsearchDomain@ request. Contains the status

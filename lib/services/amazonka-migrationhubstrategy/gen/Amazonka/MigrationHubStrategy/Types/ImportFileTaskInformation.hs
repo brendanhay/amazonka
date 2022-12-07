@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.ImportFileTaskInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.ImportFileTaskStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data ImportFileTaskInformation = ImportFileTaskInformation'
     -- | Status of import file task.
     status :: Prelude.Maybe ImportFileTaskStatus,
     -- | The time that the import task completes.
-    completionTime :: Prelude.Maybe Core.POSIX,
+    completionTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the import file task.
     id :: Prelude.Maybe Prelude.Text,
     -- | The number of records that failed to be imported.
@@ -47,7 +48,7 @@ data ImportFileTaskInformation = ImportFileTaskInformation'
     -- | The number of records successfully imported.
     numberOfRecordsSuccess :: Prelude.Maybe Prelude.Int,
     -- | Start time of the import task.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon S3 key name for status report of import task. The report
     -- contains details about whether each record imported successfully or why
     -- it did not.
@@ -114,7 +115,7 @@ importFileTaskInformation_status = Lens.lens (\ImportFileTaskInformation' {statu
 
 -- | The time that the import task completes.
 importFileTaskInformation_completionTime :: Lens.Lens' ImportFileTaskInformation (Prelude.Maybe Prelude.UTCTime)
-importFileTaskInformation_completionTime = Lens.lens (\ImportFileTaskInformation' {completionTime} -> completionTime) (\s@ImportFileTaskInformation' {} a -> s {completionTime = a} :: ImportFileTaskInformation) Prelude.. Lens.mapping Core._Time
+importFileTaskInformation_completionTime = Lens.lens (\ImportFileTaskInformation' {completionTime} -> completionTime) (\s@ImportFileTaskInformation' {} a -> s {completionTime = a} :: ImportFileTaskInformation) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the import file task.
 importFileTaskInformation_id :: Lens.Lens' ImportFileTaskInformation (Prelude.Maybe Prelude.Text)
@@ -142,7 +143,7 @@ importFileTaskInformation_numberOfRecordsSuccess = Lens.lens (\ImportFileTaskInf
 
 -- | Start time of the import task.
 importFileTaskInformation_startTime :: Lens.Lens' ImportFileTaskInformation (Prelude.Maybe Prelude.UTCTime)
-importFileTaskInformation_startTime = Lens.lens (\ImportFileTaskInformation' {startTime} -> startTime) (\s@ImportFileTaskInformation' {} a -> s {startTime = a} :: ImportFileTaskInformation) Prelude.. Lens.mapping Core._Time
+importFileTaskInformation_startTime = Lens.lens (\ImportFileTaskInformation' {startTime} -> startTime) (\s@ImportFileTaskInformation' {} a -> s {startTime = a} :: ImportFileTaskInformation) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon S3 key name for status report of import task. The report
 -- contains details about whether each record imported successfully or why
@@ -150,23 +151,23 @@ importFileTaskInformation_startTime = Lens.lens (\ImportFileTaskInformation' {st
 importFileTaskInformation_statusReportS3Key :: Lens.Lens' ImportFileTaskInformation (Prelude.Maybe Prelude.Text)
 importFileTaskInformation_statusReportS3Key = Lens.lens (\ImportFileTaskInformation' {statusReportS3Key} -> statusReportS3Key) (\s@ImportFileTaskInformation' {} a -> s {statusReportS3Key = a} :: ImportFileTaskInformation)
 
-instance Core.FromJSON ImportFileTaskInformation where
+instance Data.FromJSON ImportFileTaskInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportFileTaskInformation"
       ( \x ->
           ImportFileTaskInformation'
-            Prelude.<$> (x Core..:? "statusReportS3Bucket")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "completionTime")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "numberOfRecordsFailed")
-            Prelude.<*> (x Core..:? "importName")
-            Prelude.<*> (x Core..:? "inputS3Bucket")
-            Prelude.<*> (x Core..:? "inputS3Key")
-            Prelude.<*> (x Core..:? "numberOfRecordsSuccess")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "statusReportS3Key")
+            Prelude.<$> (x Data..:? "statusReportS3Bucket")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "completionTime")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "numberOfRecordsFailed")
+            Prelude.<*> (x Data..:? "importName")
+            Prelude.<*> (x Data..:? "inputS3Bucket")
+            Prelude.<*> (x Data..:? "inputS3Key")
+            Prelude.<*> (x Data..:? "numberOfRecordsSuccess")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "statusReportS3Key")
       )
 
 instance Prelude.Hashable ImportFileTaskInformation where

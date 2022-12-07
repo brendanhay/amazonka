@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.Ec2InstanceAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the EC2 instances in a cluster grouped by
@@ -223,31 +224,31 @@ ec2InstanceAttributes_requestedEc2SubnetIds = Lens.lens (\Ec2InstanceAttributes'
 ec2InstanceAttributes_emrManagedSlaveSecurityGroup :: Lens.Lens' Ec2InstanceAttributes (Prelude.Maybe Prelude.Text)
 ec2InstanceAttributes_emrManagedSlaveSecurityGroup = Lens.lens (\Ec2InstanceAttributes' {emrManagedSlaveSecurityGroup} -> emrManagedSlaveSecurityGroup) (\s@Ec2InstanceAttributes' {} a -> s {emrManagedSlaveSecurityGroup = a} :: Ec2InstanceAttributes)
 
-instance Core.FromJSON Ec2InstanceAttributes where
+instance Data.FromJSON Ec2InstanceAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Ec2InstanceAttributes"
       ( \x ->
           Ec2InstanceAttributes'
-            Prelude.<$> (x Core..:? "IamInstanceProfile")
-            Prelude.<*> (x Core..:? "Ec2KeyName")
-            Prelude.<*> (x Core..:? "Ec2AvailabilityZone")
-            Prelude.<*> (x Core..:? "Ec2SubnetId")
-            Prelude.<*> ( x Core..:? "RequestedEc2AvailabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "IamInstanceProfile")
+            Prelude.<*> (x Data..:? "Ec2KeyName")
+            Prelude.<*> (x Data..:? "Ec2AvailabilityZone")
+            Prelude.<*> (x Data..:? "Ec2SubnetId")
+            Prelude.<*> ( x Data..:? "RequestedEc2AvailabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EmrManagedMasterSecurityGroup")
-            Prelude.<*> ( x Core..:? "AdditionalMasterSecurityGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "EmrManagedMasterSecurityGroup")
+            Prelude.<*> ( x Data..:? "AdditionalMasterSecurityGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ServiceAccessSecurityGroup")
-            Prelude.<*> ( x Core..:? "AdditionalSlaveSecurityGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ServiceAccessSecurityGroup")
+            Prelude.<*> ( x Data..:? "AdditionalSlaveSecurityGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "RequestedEc2SubnetIds"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "RequestedEc2SubnetIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EmrManagedSlaveSecurityGroup")
+            Prelude.<*> (x Data..:? "EmrManagedSlaveSecurityGroup")
       )
 
 instance Prelude.Hashable Ec2InstanceAttributes where

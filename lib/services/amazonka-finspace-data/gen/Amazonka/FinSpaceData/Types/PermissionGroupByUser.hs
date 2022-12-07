@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.PermissionGroupByUser where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types.PermissionGroupMembershipStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPermissionGroupByUser' smart constructor.
 data PermissionGroupByUser = PermissionGroupByUser'
   { -- | The name of the permission group.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The unique identifier for the permission group.
     permissionGroupId :: Prelude.Maybe Prelude.Text,
     -- | Indicates the status of the user account within a permission group.
@@ -79,7 +80,7 @@ newPermissionGroupByUser =
 
 -- | The name of the permission group.
 permissionGroupByUser_name :: Lens.Lens' PermissionGroupByUser (Prelude.Maybe Prelude.Text)
-permissionGroupByUser_name = Lens.lens (\PermissionGroupByUser' {name} -> name) (\s@PermissionGroupByUser' {} a -> s {name = a} :: PermissionGroupByUser) Prelude.. Lens.mapping Core._Sensitive
+permissionGroupByUser_name = Lens.lens (\PermissionGroupByUser' {name} -> name) (\s@PermissionGroupByUser' {} a -> s {name = a} :: PermissionGroupByUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The unique identifier for the permission group.
 permissionGroupByUser_permissionGroupId :: Lens.Lens' PermissionGroupByUser (Prelude.Maybe Prelude.Text)
@@ -98,15 +99,15 @@ permissionGroupByUser_permissionGroupId = Lens.lens (\PermissionGroupByUser' {pe
 permissionGroupByUser_membershipStatus :: Lens.Lens' PermissionGroupByUser (Prelude.Maybe PermissionGroupMembershipStatus)
 permissionGroupByUser_membershipStatus = Lens.lens (\PermissionGroupByUser' {membershipStatus} -> membershipStatus) (\s@PermissionGroupByUser' {} a -> s {membershipStatus = a} :: PermissionGroupByUser)
 
-instance Core.FromJSON PermissionGroupByUser where
+instance Data.FromJSON PermissionGroupByUser where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PermissionGroupByUser"
       ( \x ->
           PermissionGroupByUser'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "permissionGroupId")
-            Prelude.<*> (x Core..:? "membershipStatus")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "permissionGroupId")
+            Prelude.<*> (x Data..:? "membershipStatus")
       )
 
 instance Prelude.Hashable PermissionGroupByUser where

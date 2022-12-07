@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.RedshiftDestinationUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.CopyCommand
 import Amazonka.Firehose.Types.ProcessingConfiguration
@@ -47,9 +48,9 @@ data RedshiftDestinationUpdate = RedshiftDestinationUpdate'
     -- compression formats.
     s3Update :: Prelude.Maybe S3DestinationUpdate,
     -- | The user password.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the user.
-    username :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    username :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The @COPY@ command.
     copyCommand :: Prelude.Maybe CopyCommand,
     -- | The Amazon S3 destination for backup.
@@ -146,11 +147,11 @@ redshiftDestinationUpdate_s3Update = Lens.lens (\RedshiftDestinationUpdate' {s3U
 
 -- | The user password.
 redshiftDestinationUpdate_password :: Lens.Lens' RedshiftDestinationUpdate (Prelude.Maybe Prelude.Text)
-redshiftDestinationUpdate_password = Lens.lens (\RedshiftDestinationUpdate' {password} -> password) (\s@RedshiftDestinationUpdate' {} a -> s {password = a} :: RedshiftDestinationUpdate) Prelude.. Lens.mapping Core._Sensitive
+redshiftDestinationUpdate_password = Lens.lens (\RedshiftDestinationUpdate' {password} -> password) (\s@RedshiftDestinationUpdate' {} a -> s {password = a} :: RedshiftDestinationUpdate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the user.
 redshiftDestinationUpdate_username :: Lens.Lens' RedshiftDestinationUpdate (Prelude.Maybe Prelude.Text)
-redshiftDestinationUpdate_username = Lens.lens (\RedshiftDestinationUpdate' {username} -> username) (\s@RedshiftDestinationUpdate' {} a -> s {username = a} :: RedshiftDestinationUpdate) Prelude.. Lens.mapping Core._Sensitive
+redshiftDestinationUpdate_username = Lens.lens (\RedshiftDestinationUpdate' {username} -> username) (\s@RedshiftDestinationUpdate' {} a -> s {username = a} :: RedshiftDestinationUpdate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The @COPY@ command.
 redshiftDestinationUpdate_copyCommand :: Lens.Lens' RedshiftDestinationUpdate (Prelude.Maybe CopyCommand)
@@ -208,24 +209,24 @@ instance Prelude.NFData RedshiftDestinationUpdate where
       `Prelude.seq` Prelude.rnf clusterJDBCURL
       `Prelude.seq` Prelude.rnf retryOptions
 
-instance Core.ToJSON RedshiftDestinationUpdate where
+instance Data.ToJSON RedshiftDestinationUpdate where
   toJSON RedshiftDestinationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProcessingConfiguration" Core..=)
+          [ ("ProcessingConfiguration" Data..=)
               Prelude.<$> processingConfiguration,
-            ("RoleARN" Core..=) Prelude.<$> roleARN,
-            ("S3Update" Core..=) Prelude.<$> s3Update,
-            ("Password" Core..=) Prelude.<$> password,
-            ("Username" Core..=) Prelude.<$> username,
-            ("CopyCommand" Core..=) Prelude.<$> copyCommand,
-            ("S3BackupUpdate" Core..=)
+            ("RoleARN" Data..=) Prelude.<$> roleARN,
+            ("S3Update" Data..=) Prelude.<$> s3Update,
+            ("Password" Data..=) Prelude.<$> password,
+            ("Username" Data..=) Prelude.<$> username,
+            ("CopyCommand" Data..=) Prelude.<$> copyCommand,
+            ("S3BackupUpdate" Data..=)
               Prelude.<$> s3BackupUpdate,
-            ("CloudWatchLoggingOptions" Core..=)
+            ("CloudWatchLoggingOptions" Data..=)
               Prelude.<$> cloudWatchLoggingOptions,
-            ("S3BackupMode" Core..=) Prelude.<$> s3BackupMode,
-            ("ClusterJDBCURL" Core..=)
+            ("S3BackupMode" Data..=) Prelude.<$> s3BackupMode,
+            ("ClusterJDBCURL" Data..=)
               Prelude.<$> clusterJDBCURL,
-            ("RetryOptions" Core..=) Prelude.<$> retryOptions
+            ("RetryOptions" Data..=) Prelude.<$> retryOptions
           ]
       )

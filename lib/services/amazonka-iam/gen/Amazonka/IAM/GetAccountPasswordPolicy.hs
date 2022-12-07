@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -74,7 +75,7 @@ instance Core.AWSRequest GetAccountPasswordPolicy where
       ( \s h x ->
           GetAccountPasswordPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "PasswordPolicy")
+            Prelude.<*> (x Data..@ "PasswordPolicy")
       )
 
 instance Prelude.Hashable GetAccountPasswordPolicy where
@@ -84,20 +85,20 @@ instance Prelude.Hashable GetAccountPasswordPolicy where
 instance Prelude.NFData GetAccountPasswordPolicy where
   rnf _ = ()
 
-instance Core.ToHeaders GetAccountPasswordPolicy where
+instance Data.ToHeaders GetAccountPasswordPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetAccountPasswordPolicy where
+instance Data.ToPath GetAccountPasswordPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAccountPasswordPolicy where
+instance Data.ToQuery GetAccountPasswordPolicy where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ("GetAccountPasswordPolicy" :: Prelude.ByteString),
+              Data.=: ("GetAccountPasswordPolicy" :: Prelude.ByteString),
             "Version"
-              Core.=: ("2010-05-08" :: Prelude.ByteString)
+              Data.=: ("2010-05-08" :: Prelude.ByteString)
           ]
       )
 

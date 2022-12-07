@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.StreamKeySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a stream key.
@@ -82,15 +83,15 @@ streamKeySummary_arn = Lens.lens (\StreamKeySummary' {arn} -> arn) (\s@StreamKey
 streamKeySummary_channelArn :: Lens.Lens' StreamKeySummary (Prelude.Maybe Prelude.Text)
 streamKeySummary_channelArn = Lens.lens (\StreamKeySummary' {channelArn} -> channelArn) (\s@StreamKeySummary' {} a -> s {channelArn = a} :: StreamKeySummary)
 
-instance Core.FromJSON StreamKeySummary where
+instance Data.FromJSON StreamKeySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamKeySummary"
       ( \x ->
           StreamKeySummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "channelArn")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "channelArn")
       )
 
 instance Prelude.Hashable StreamKeySummary where

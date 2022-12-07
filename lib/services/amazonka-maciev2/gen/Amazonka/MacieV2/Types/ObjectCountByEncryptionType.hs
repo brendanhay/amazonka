@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.ObjectCountByEncryptionType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the number of objects that are in an S3
@@ -112,17 +113,17 @@ objectCountByEncryptionType_kmsManaged = Lens.lens (\ObjectCountByEncryptionType
 objectCountByEncryptionType_unknown :: Lens.Lens' ObjectCountByEncryptionType (Prelude.Maybe Prelude.Integer)
 objectCountByEncryptionType_unknown = Lens.lens (\ObjectCountByEncryptionType' {unknown} -> unknown) (\s@ObjectCountByEncryptionType' {} a -> s {unknown = a} :: ObjectCountByEncryptionType)
 
-instance Core.FromJSON ObjectCountByEncryptionType where
+instance Data.FromJSON ObjectCountByEncryptionType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ObjectCountByEncryptionType"
       ( \x ->
           ObjectCountByEncryptionType'
-            Prelude.<$> (x Core..:? "s3Managed")
-            Prelude.<*> (x Core..:? "customerManaged")
-            Prelude.<*> (x Core..:? "unencrypted")
-            Prelude.<*> (x Core..:? "kmsManaged")
-            Prelude.<*> (x Core..:? "unknown")
+            Prelude.<$> (x Data..:? "s3Managed")
+            Prelude.<*> (x Data..:? "customerManaged")
+            Prelude.<*> (x Data..:? "unencrypted")
+            Prelude.<*> (x Data..:? "kmsManaged")
+            Prelude.<*> (x Data..:? "unknown")
       )
 
 instance Prelude.Hashable ObjectCountByEncryptionType where

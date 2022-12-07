@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.MetricSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.AppFlowConfig
 import Amazonka.LookoutMetrics.Types.AthenaSourceConfig
 import Amazonka.LookoutMetrics.Types.CloudWatchConfig
@@ -102,18 +103,18 @@ metricSource_rDSSourceConfig = Lens.lens (\MetricSource' {rDSSourceConfig} -> rD
 metricSource_redshiftSourceConfig :: Lens.Lens' MetricSource (Prelude.Maybe RedshiftSourceConfig)
 metricSource_redshiftSourceConfig = Lens.lens (\MetricSource' {redshiftSourceConfig} -> redshiftSourceConfig) (\s@MetricSource' {} a -> s {redshiftSourceConfig = a} :: MetricSource)
 
-instance Core.FromJSON MetricSource where
+instance Data.FromJSON MetricSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricSource"
       ( \x ->
           MetricSource'
-            Prelude.<$> (x Core..:? "S3SourceConfig")
-            Prelude.<*> (x Core..:? "CloudWatchConfig")
-            Prelude.<*> (x Core..:? "AppFlowConfig")
-            Prelude.<*> (x Core..:? "AthenaSourceConfig")
-            Prelude.<*> (x Core..:? "RDSSourceConfig")
-            Prelude.<*> (x Core..:? "RedshiftSourceConfig")
+            Prelude.<$> (x Data..:? "S3SourceConfig")
+            Prelude.<*> (x Data..:? "CloudWatchConfig")
+            Prelude.<*> (x Data..:? "AppFlowConfig")
+            Prelude.<*> (x Data..:? "AthenaSourceConfig")
+            Prelude.<*> (x Data..:? "RDSSourceConfig")
+            Prelude.<*> (x Data..:? "RedshiftSourceConfig")
       )
 
 instance Prelude.Hashable MetricSource where
@@ -134,20 +135,20 @@ instance Prelude.NFData MetricSource where
       `Prelude.seq` Prelude.rnf rDSSourceConfig
       `Prelude.seq` Prelude.rnf redshiftSourceConfig
 
-instance Core.ToJSON MetricSource where
+instance Data.ToJSON MetricSource where
   toJSON MetricSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3SourceConfig" Core..=)
+          [ ("S3SourceConfig" Data..=)
               Prelude.<$> s3SourceConfig,
-            ("CloudWatchConfig" Core..=)
+            ("CloudWatchConfig" Data..=)
               Prelude.<$> cloudWatchConfig,
-            ("AppFlowConfig" Core..=) Prelude.<$> appFlowConfig,
-            ("AthenaSourceConfig" Core..=)
+            ("AppFlowConfig" Data..=) Prelude.<$> appFlowConfig,
+            ("AthenaSourceConfig" Data..=)
               Prelude.<$> athenaSourceConfig,
-            ("RDSSourceConfig" Core..=)
+            ("RDSSourceConfig" Data..=)
               Prelude.<$> rDSSourceConfig,
-            ("RedshiftSourceConfig" Core..=)
+            ("RedshiftSourceConfig" Data..=)
               Prelude.<$> redshiftSourceConfig
           ]
       )

@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -218,7 +219,7 @@ instance Core.AWSRequest CreateExplainabilityExport where
     Response.receiveJSON
       ( \s h x ->
           CreateExplainabilityExportResponse'
-            Prelude.<$> (x Core..?> "ExplainabilityExportArn")
+            Prelude.<$> (x Data..?> "ExplainabilityExportArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -238,41 +239,41 @@ instance Prelude.NFData CreateExplainabilityExport where
       `Prelude.seq` Prelude.rnf explainabilityArn
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToHeaders CreateExplainabilityExport where
+instance Data.ToHeaders CreateExplainabilityExport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.CreateExplainabilityExport" ::
+              Data.=# ( "AmazonForecast.CreateExplainabilityExport" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateExplainabilityExport where
+instance Data.ToJSON CreateExplainabilityExport where
   toJSON CreateExplainabilityExport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Format" Core..=) Prelude.<$> format,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Format" Data..=) Prelude.<$> format,
             Prelude.Just
               ( "ExplainabilityExportName"
-                  Core..= explainabilityExportName
+                  Data..= explainabilityExportName
               ),
             Prelude.Just
-              ("ExplainabilityArn" Core..= explainabilityArn),
-            Prelude.Just ("Destination" Core..= destination)
+              ("ExplainabilityArn" Data..= explainabilityArn),
+            Prelude.Just ("Destination" Data..= destination)
           ]
       )
 
-instance Core.ToPath CreateExplainabilityExport where
+instance Data.ToPath CreateExplainabilityExport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateExplainabilityExport where
+instance Data.ToQuery CreateExplainabilityExport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateExplainabilityExportResponse' smart constructor.

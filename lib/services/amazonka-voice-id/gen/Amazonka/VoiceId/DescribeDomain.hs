@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest DescribeDomain where
     Response.receiveJSON
       ( \s h x ->
           DescribeDomainResponse'
-            Prelude.<$> (x Core..?> "Domain")
+            Prelude.<$> (x Data..?> "Domain")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,30 +95,30 @@ instance Prelude.Hashable DescribeDomain where
 instance Prelude.NFData DescribeDomain where
   rnf DescribeDomain' {..} = Prelude.rnf domainId
 
-instance Core.ToHeaders DescribeDomain where
+instance Data.ToHeaders DescribeDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("VoiceID.DescribeDomain" :: Prelude.ByteString),
+              Data.=# ("VoiceID.DescribeDomain" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDomain where
+instance Data.ToJSON DescribeDomain where
   toJSON DescribeDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DomainId" Core..= domainId)]
+          [Prelude.Just ("DomainId" Data..= domainId)]
       )
 
-instance Core.ToPath DescribeDomain where
+instance Data.ToPath DescribeDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDomain where
+instance Data.ToQuery DescribeDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDomainResponse' smart constructor.

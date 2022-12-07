@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,7 +119,7 @@ instance Core.AWSRequest GetStreamingSessionStream where
     Response.receiveJSON
       ( \s h x ->
           GetStreamingSessionStreamResponse'
-            Prelude.<$> (x Core..?> "stream")
+            Prelude.<$> (x Data..?> "stream")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,29 +135,29 @@ instance Prelude.NFData GetStreamingSessionStream where
       `Prelude.seq` Prelude.rnf streamId
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders GetStreamingSessionStream where
+instance Data.ToHeaders GetStreamingSessionStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetStreamingSessionStream where
+instance Data.ToPath GetStreamingSessionStream where
   toPath GetStreamingSessionStream' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/streaming-sessions/",
-        Core.toBS sessionId,
+        Data.toBS sessionId,
         "/streams/",
-        Core.toBS streamId
+        Data.toBS streamId
       ]
 
-instance Core.ToQuery GetStreamingSessionStream where
+instance Data.ToQuery GetStreamingSessionStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetStreamingSessionStreamResponse' smart constructor.

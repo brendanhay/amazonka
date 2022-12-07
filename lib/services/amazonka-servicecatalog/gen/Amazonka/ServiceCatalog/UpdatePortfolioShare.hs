@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -200,8 +201,8 @@ instance Core.AWSRequest UpdatePortfolioShare where
     Response.receiveJSON
       ( \s h x ->
           UpdatePortfolioShareResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "PortfolioShareToken")
+            Prelude.<$> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "PortfolioShareToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -223,42 +224,42 @@ instance Prelude.NFData UpdatePortfolioShare where
       `Prelude.seq` Prelude.rnf shareTagOptions
       `Prelude.seq` Prelude.rnf portfolioId
 
-instance Core.ToHeaders UpdatePortfolioShare where
+instance Data.ToHeaders UpdatePortfolioShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.UpdatePortfolioShare" ::
+              Data.=# ( "AWS242ServiceCatalogService.UpdatePortfolioShare" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePortfolioShare where
+instance Data.ToJSON UpdatePortfolioShare where
   toJSON UpdatePortfolioShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccountId" Core..=) Prelude.<$> accountId,
-            ("OrganizationNode" Core..=)
+          [ ("AccountId" Data..=) Prelude.<$> accountId,
+            ("OrganizationNode" Data..=)
               Prelude.<$> organizationNode,
-            ("SharePrincipals" Core..=)
+            ("SharePrincipals" Data..=)
               Prelude.<$> sharePrincipals,
-            ("AcceptLanguage" Core..=)
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            ("ShareTagOptions" Core..=)
+            ("ShareTagOptions" Data..=)
               Prelude.<$> shareTagOptions,
-            Prelude.Just ("PortfolioId" Core..= portfolioId)
+            Prelude.Just ("PortfolioId" Data..= portfolioId)
           ]
       )
 
-instance Core.ToPath UpdatePortfolioShare where
+instance Data.ToPath UpdatePortfolioShare where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdatePortfolioShare where
+instance Data.ToQuery UpdatePortfolioShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePortfolioShareResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EFS.Types.FileSystemSize where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The latest known metered size (in bytes) of data stored in the file
@@ -37,7 +38,7 @@ data FileSystemSize = FileSystemSize'
   { -- | The time at which the size of data, returned in the @Value@ field, was
     -- determined. The value is the integer number of seconds since
     -- 1970-01-01T00:00:00Z.
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The latest known metered size (in bytes) of data stored in the Standard
     -- storage class.
     valueInStandard :: Prelude.Maybe Prelude.Natural,
@@ -86,7 +87,7 @@ newFileSystemSize pValue_ =
 -- determined. The value is the integer number of seconds since
 -- 1970-01-01T00:00:00Z.
 fileSystemSize_timestamp :: Lens.Lens' FileSystemSize (Prelude.Maybe Prelude.UTCTime)
-fileSystemSize_timestamp = Lens.lens (\FileSystemSize' {timestamp} -> timestamp) (\s@FileSystemSize' {} a -> s {timestamp = a} :: FileSystemSize) Prelude.. Lens.mapping Core._Time
+fileSystemSize_timestamp = Lens.lens (\FileSystemSize' {timestamp} -> timestamp) (\s@FileSystemSize' {} a -> s {timestamp = a} :: FileSystemSize) Prelude.. Lens.mapping Data._Time
 
 -- | The latest known metered size (in bytes) of data stored in the Standard
 -- storage class.
@@ -103,16 +104,16 @@ fileSystemSize_valueInIA = Lens.lens (\FileSystemSize' {valueInIA} -> valueInIA)
 fileSystemSize_value :: Lens.Lens' FileSystemSize Prelude.Natural
 fileSystemSize_value = Lens.lens (\FileSystemSize' {value} -> value) (\s@FileSystemSize' {} a -> s {value = a} :: FileSystemSize)
 
-instance Core.FromJSON FileSystemSize where
+instance Data.FromJSON FileSystemSize where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileSystemSize"
       ( \x ->
           FileSystemSize'
-            Prelude.<$> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "ValueInStandard")
-            Prelude.<*> (x Core..:? "ValueInIA")
-            Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "ValueInStandard")
+            Prelude.<*> (x Data..:? "ValueInIA")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable FileSystemSize where

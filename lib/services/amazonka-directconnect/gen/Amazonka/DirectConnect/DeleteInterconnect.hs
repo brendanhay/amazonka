@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest DeleteInterconnect where
     Response.receiveJSON
       ( \s h x ->
           DeleteInterconnectResponse'
-            Prelude.<$> (x Core..?> "interconnectState")
+            Prelude.<$> (x Data..?> "interconnectState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,34 +101,34 @@ instance Prelude.NFData DeleteInterconnect where
   rnf DeleteInterconnect' {..} =
     Prelude.rnf interconnectId
 
-instance Core.ToHeaders DeleteInterconnect where
+instance Data.ToHeaders DeleteInterconnect where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DeleteInterconnect" ::
+              Data.=# ( "OvertureService.DeleteInterconnect" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteInterconnect where
+instance Data.ToJSON DeleteInterconnect where
   toJSON DeleteInterconnect' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("interconnectId" Core..= interconnectId)
+              ("interconnectId" Data..= interconnectId)
           ]
       )
 
-instance Core.ToPath DeleteInterconnect where
+instance Data.ToPath DeleteInterconnect where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteInterconnect where
+instance Data.ToQuery DeleteInterconnect where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInterconnectResponse' smart constructor.

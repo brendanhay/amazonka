@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.PropertyLatestValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.DataValue
 import Amazonka.IotTwinMaker.Types.EntityPropertyReference
 import qualified Amazonka.Prelude as Prelude
@@ -66,14 +67,14 @@ propertyLatestValue_propertyValue = Lens.lens (\PropertyLatestValue' {propertyVa
 propertyLatestValue_propertyReference :: Lens.Lens' PropertyLatestValue EntityPropertyReference
 propertyLatestValue_propertyReference = Lens.lens (\PropertyLatestValue' {propertyReference} -> propertyReference) (\s@PropertyLatestValue' {} a -> s {propertyReference = a} :: PropertyLatestValue)
 
-instance Core.FromJSON PropertyLatestValue where
+instance Data.FromJSON PropertyLatestValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PropertyLatestValue"
       ( \x ->
           PropertyLatestValue'
-            Prelude.<$> (x Core..:? "propertyValue")
-            Prelude.<*> (x Core..: "propertyReference")
+            Prelude.<$> (x Data..:? "propertyValue")
+            Prelude.<*> (x Data..: "propertyReference")
       )
 
 instance Prelude.Hashable PropertyLatestValue where

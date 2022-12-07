@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.ContactIdResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- |
@@ -50,13 +51,13 @@ newContactIdResponse =
 contactIdResponse_contactId :: Lens.Lens' ContactIdResponse (Prelude.Maybe Prelude.Text)
 contactIdResponse_contactId = Lens.lens (\ContactIdResponse' {contactId} -> contactId) (\s@ContactIdResponse' {} a -> s {contactId = a} :: ContactIdResponse)
 
-instance Core.FromJSON ContactIdResponse where
+instance Data.FromJSON ContactIdResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContactIdResponse"
       ( \x ->
           ContactIdResponse'
-            Prelude.<$> (x Core..:? "contactId")
+            Prelude.<$> (x Data..:? "contactId")
       )
 
 instance Prelude.Hashable ContactIdResponse where

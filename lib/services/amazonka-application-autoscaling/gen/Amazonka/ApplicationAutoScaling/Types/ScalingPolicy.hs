@@ -27,6 +27,7 @@ import Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration
 import Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a scaling policy to use with Application Auto Scaling.
@@ -188,7 +189,7 @@ data ScalingPolicy = ScalingPolicy'
     -- | The scaling policy type.
     policyType :: PolicyType,
     -- | The Unix timestamp for when the scaling policy was created.
-    creationTime :: Core.POSIX
+    creationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -385,7 +386,7 @@ newScalingPolicy
         resourceId = pResourceId_,
         scalableDimension = pScalableDimension_,
         policyType = pPolicyType_,
-        creationTime = Core._Time Lens.# pCreationTime_
+        creationTime = Data._Time Lens.# pCreationTime_
       }
 
 -- | The CloudWatch alarms associated with the scaling policy.
@@ -557,26 +558,26 @@ scalingPolicy_policyType = Lens.lens (\ScalingPolicy' {policyType} -> policyType
 
 -- | The Unix timestamp for when the scaling policy was created.
 scalingPolicy_creationTime :: Lens.Lens' ScalingPolicy Prelude.UTCTime
-scalingPolicy_creationTime = Lens.lens (\ScalingPolicy' {creationTime} -> creationTime) (\s@ScalingPolicy' {} a -> s {creationTime = a} :: ScalingPolicy) Prelude.. Core._Time
+scalingPolicy_creationTime = Lens.lens (\ScalingPolicy' {creationTime} -> creationTime) (\s@ScalingPolicy' {} a -> s {creationTime = a} :: ScalingPolicy) Prelude.. Data._Time
 
-instance Core.FromJSON ScalingPolicy where
+instance Data.FromJSON ScalingPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScalingPolicy"
       ( \x ->
           ScalingPolicy'
-            Prelude.<$> (x Core..:? "Alarms" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StepScalingPolicyConfiguration")
+            Prelude.<$> (x Data..:? "Alarms" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StepScalingPolicyConfiguration")
             Prelude.<*> ( x
-                            Core..:? "TargetTrackingScalingPolicyConfiguration"
+                            Data..:? "TargetTrackingScalingPolicyConfiguration"
                         )
-            Prelude.<*> (x Core..: "PolicyARN")
-            Prelude.<*> (x Core..: "PolicyName")
-            Prelude.<*> (x Core..: "ServiceNamespace")
-            Prelude.<*> (x Core..: "ResourceId")
-            Prelude.<*> (x Core..: "ScalableDimension")
-            Prelude.<*> (x Core..: "PolicyType")
-            Prelude.<*> (x Core..: "CreationTime")
+            Prelude.<*> (x Data..: "PolicyARN")
+            Prelude.<*> (x Data..: "PolicyName")
+            Prelude.<*> (x Data..: "ServiceNamespace")
+            Prelude.<*> (x Data..: "ResourceId")
+            Prelude.<*> (x Data..: "ScalableDimension")
+            Prelude.<*> (x Data..: "PolicyType")
+            Prelude.<*> (x Data..: "CreationTime")
       )
 
 instance Prelude.Hashable ScalingPolicy where

@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,21 +96,21 @@ instance Prelude.NFData DeletePlatformApplication where
   rnf DeletePlatformApplication' {..} =
     Prelude.rnf platformApplicationArn
 
-instance Core.ToHeaders DeletePlatformApplication where
+instance Data.ToHeaders DeletePlatformApplication where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeletePlatformApplication where
+instance Data.ToPath DeletePlatformApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeletePlatformApplication where
+instance Data.ToQuery DeletePlatformApplication where
   toQuery DeletePlatformApplication' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeletePlatformApplication" :: Prelude.ByteString),
+          Data.=: ("DeletePlatformApplication" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
         "PlatformApplicationArn"
-          Core.=: platformApplicationArn
+          Data.=: platformApplicationArn
       ]
 
 -- | /See:/ 'newDeletePlatformApplicationResponse' smart constructor.

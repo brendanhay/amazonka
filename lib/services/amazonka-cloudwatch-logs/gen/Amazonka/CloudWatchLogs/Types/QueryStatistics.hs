@@ -21,6 +21,7 @@ module Amazonka.CloudWatchLogs.Types.QueryStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the number of log events scanned by the query, the number of
@@ -72,15 +73,15 @@ queryStatistics_bytesScanned = Lens.lens (\QueryStatistics' {bytesScanned} -> by
 queryStatistics_recordsScanned :: Lens.Lens' QueryStatistics (Prelude.Maybe Prelude.Double)
 queryStatistics_recordsScanned = Lens.lens (\QueryStatistics' {recordsScanned} -> recordsScanned) (\s@QueryStatistics' {} a -> s {recordsScanned = a} :: QueryStatistics)
 
-instance Core.FromJSON QueryStatistics where
+instance Data.FromJSON QueryStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryStatistics"
       ( \x ->
           QueryStatistics'
-            Prelude.<$> (x Core..:? "recordsMatched")
-            Prelude.<*> (x Core..:? "bytesScanned")
-            Prelude.<*> (x Core..:? "recordsScanned")
+            Prelude.<$> (x Data..:? "recordsMatched")
+            Prelude.<*> (x Data..:? "bytesScanned")
+            Prelude.<*> (x Data..:? "recordsScanned")
       )
 
 instance Prelude.Hashable QueryStatistics where

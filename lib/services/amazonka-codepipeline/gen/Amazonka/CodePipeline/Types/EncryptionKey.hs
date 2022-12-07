@@ -22,6 +22,7 @@ module Amazonka.CodePipeline.Types.EncryptionKey where
 import Amazonka.CodePipeline.Types.EncryptionKeyType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the key used to encrypt data in the
@@ -85,13 +86,13 @@ encryptionKey_id = Lens.lens (\EncryptionKey' {id} -> id) (\s@EncryptionKey' {} 
 encryptionKey_type :: Lens.Lens' EncryptionKey EncryptionKeyType
 encryptionKey_type = Lens.lens (\EncryptionKey' {type'} -> type') (\s@EncryptionKey' {} a -> s {type' = a} :: EncryptionKey)
 
-instance Core.FromJSON EncryptionKey where
+instance Data.FromJSON EncryptionKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionKey"
       ( \x ->
           EncryptionKey'
-            Prelude.<$> (x Core..: "id") Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..: "id") Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable EncryptionKey where
@@ -103,11 +104,11 @@ instance Prelude.NFData EncryptionKey where
   rnf EncryptionKey' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON EncryptionKey where
+instance Data.ToJSON EncryptionKey where
   toJSON EncryptionKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("id" Core..= id),
-            Prelude.Just ("type" Core..= type')
+          [ Prelude.Just ("id" Data..= id),
+            Prelude.Just ("type" Data..= type')
           ]
       )

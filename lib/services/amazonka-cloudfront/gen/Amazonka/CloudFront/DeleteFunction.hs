@@ -47,6 +47,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,16 +110,16 @@ instance Prelude.NFData DeleteFunction where
   rnf DeleteFunction' {..} =
     Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders DeleteFunction where
+instance Data.ToHeaders DeleteFunction where
   toHeaders DeleteFunction' {..} =
-    Prelude.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Data.=# ifMatch]
 
-instance Core.ToPath DeleteFunction where
+instance Data.ToPath DeleteFunction where
   toPath DeleteFunction' {..} =
     Prelude.mconcat
-      ["/2020-05-31/function/", Core.toBS name]
+      ["/2020-05-31/function/", Data.toBS name]
 
-instance Core.ToQuery DeleteFunction where
+instance Data.ToQuery DeleteFunction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFunctionResponse' smart constructor.

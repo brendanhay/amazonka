@@ -22,6 +22,7 @@ module Amazonka.AutoScaling.Types.BlockDeviceMapping where
 import Amazonka.AutoScaling.Types.Ebs
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a block device mapping.
@@ -124,13 +125,13 @@ blockDeviceMapping_virtualName = Lens.lens (\BlockDeviceMapping' {virtualName} -
 blockDeviceMapping_deviceName :: Lens.Lens' BlockDeviceMapping Prelude.Text
 blockDeviceMapping_deviceName = Lens.lens (\BlockDeviceMapping' {deviceName} -> deviceName) (\s@BlockDeviceMapping' {} a -> s {deviceName = a} :: BlockDeviceMapping)
 
-instance Core.FromXML BlockDeviceMapping where
+instance Data.FromXML BlockDeviceMapping where
   parseXML x =
     BlockDeviceMapping'
-      Prelude.<$> (x Core..@? "Ebs")
-      Prelude.<*> (x Core..@? "NoDevice")
-      Prelude.<*> (x Core..@? "VirtualName")
-      Prelude.<*> (x Core..@ "DeviceName")
+      Prelude.<$> (x Data..@? "Ebs")
+      Prelude.<*> (x Data..@? "NoDevice")
+      Prelude.<*> (x Data..@? "VirtualName")
+      Prelude.<*> (x Data..@ "DeviceName")
 
 instance Prelude.Hashable BlockDeviceMapping where
   hashWithSalt _salt BlockDeviceMapping' {..} =
@@ -146,11 +147,11 @@ instance Prelude.NFData BlockDeviceMapping where
       `Prelude.seq` Prelude.rnf virtualName
       `Prelude.seq` Prelude.rnf deviceName
 
-instance Core.ToQuery BlockDeviceMapping where
+instance Data.ToQuery BlockDeviceMapping where
   toQuery BlockDeviceMapping' {..} =
     Prelude.mconcat
-      [ "Ebs" Core.=: ebs,
-        "NoDevice" Core.=: noDevice,
-        "VirtualName" Core.=: virtualName,
-        "DeviceName" Core.=: deviceName
+      [ "Ebs" Data.=: ebs,
+        "NoDevice" Data.=: noDevice,
+        "VirtualName" Data.=: virtualName,
+        "DeviceName" Data.=: deviceName
       ]

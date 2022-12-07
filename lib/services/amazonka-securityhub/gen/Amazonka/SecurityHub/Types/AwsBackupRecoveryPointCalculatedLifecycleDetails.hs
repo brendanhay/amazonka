@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsBackupRecoveryPointCalculatedLifecycleDetai
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies how long in days before a recovery point transitions to cold
@@ -71,16 +72,16 @@ awsBackupRecoveryPointCalculatedLifecycleDetails_deleteAt :: Lens.Lens' AwsBacku
 awsBackupRecoveryPointCalculatedLifecycleDetails_deleteAt = Lens.lens (\AwsBackupRecoveryPointCalculatedLifecycleDetails' {deleteAt} -> deleteAt) (\s@AwsBackupRecoveryPointCalculatedLifecycleDetails' {} a -> s {deleteAt = a} :: AwsBackupRecoveryPointCalculatedLifecycleDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsBackupRecoveryPointCalculatedLifecycleDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsBackupRecoveryPointCalculatedLifecycleDetails"
       ( \x ->
           AwsBackupRecoveryPointCalculatedLifecycleDetails'
-            Prelude.<$> (x Core..:? "MoveToColdStorageAt")
-              Prelude.<*> (x Core..:? "DeleteAt")
+            Prelude.<$> (x Data..:? "MoveToColdStorageAt")
+              Prelude.<*> (x Data..:? "DeleteAt")
       )
 
 instance
@@ -103,15 +104,15 @@ instance
         `Prelude.seq` Prelude.rnf deleteAt
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsBackupRecoveryPointCalculatedLifecycleDetails
   where
   toJSON
     AwsBackupRecoveryPointCalculatedLifecycleDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("MoveToColdStorageAt" Core..=)
+            [ ("MoveToColdStorageAt" Data..=)
                 Prelude.<$> moveToColdStorageAt,
-              ("DeleteAt" Core..=) Prelude.<$> deleteAt
+              ("DeleteAt" Data..=) Prelude.<$> deleteAt
             ]
         )

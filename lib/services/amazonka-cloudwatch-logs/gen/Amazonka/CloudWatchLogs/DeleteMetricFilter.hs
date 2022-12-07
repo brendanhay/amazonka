@@ -39,6 +39,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,34 +103,34 @@ instance Prelude.NFData DeleteMetricFilter where
     Prelude.rnf logGroupName
       `Prelude.seq` Prelude.rnf filterName
 
-instance Core.ToHeaders DeleteMetricFilter where
+instance Data.ToHeaders DeleteMetricFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DeleteMetricFilter" ::
+              Data.=# ( "Logs_20140328.DeleteMetricFilter" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteMetricFilter where
+instance Data.ToJSON DeleteMetricFilter where
   toJSON DeleteMetricFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("logGroupName" Core..= logGroupName),
-            Prelude.Just ("filterName" Core..= filterName)
+          [ Prelude.Just ("logGroupName" Data..= logGroupName),
+            Prelude.Just ("filterName" Data..= filterName)
           ]
       )
 
-instance Core.ToPath DeleteMetricFilter where
+instance Data.ToPath DeleteMetricFilter where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteMetricFilter where
+instance Data.ToQuery DeleteMetricFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMetricFilterResponse' smart constructor.

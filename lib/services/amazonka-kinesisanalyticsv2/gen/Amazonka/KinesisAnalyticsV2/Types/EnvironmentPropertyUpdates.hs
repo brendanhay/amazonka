@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.EnvironmentPropertyUpdates where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.PropertyGroup
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,11 +64,11 @@ instance Prelude.NFData EnvironmentPropertyUpdates where
   rnf EnvironmentPropertyUpdates' {..} =
     Prelude.rnf propertyGroups
 
-instance Core.ToJSON EnvironmentPropertyUpdates where
+instance Data.ToJSON EnvironmentPropertyUpdates where
   toJSON EnvironmentPropertyUpdates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PropertyGroups" Core..= propertyGroups)
+              ("PropertyGroups" Data..= propertyGroups)
           ]
       )

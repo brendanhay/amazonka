@@ -44,6 +44,7 @@ where
 import Amazonka.AutoScalingPlans.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,7 +142,7 @@ instance Core.AWSRequest CreateScalingPlan where
       ( \s h x ->
           CreateScalingPlanResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ScalingPlanVersion")
+            Prelude.<*> (x Data..:> "ScalingPlanVersion")
       )
 
 instance Prelude.Hashable CreateScalingPlan where
@@ -156,38 +157,38 @@ instance Prelude.NFData CreateScalingPlan where
       `Prelude.seq` Prelude.rnf applicationSource
       `Prelude.seq` Prelude.rnf scalingInstructions
 
-instance Core.ToHeaders CreateScalingPlan where
+instance Data.ToHeaders CreateScalingPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AnyScaleScalingPlannerFrontendService.CreateScalingPlan" ::
+              Data.=# ( "AnyScaleScalingPlannerFrontendService.CreateScalingPlan" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateScalingPlan where
+instance Data.ToJSON CreateScalingPlan where
   toJSON CreateScalingPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ScalingPlanName" Core..= scalingPlanName),
+              ("ScalingPlanName" Data..= scalingPlanName),
             Prelude.Just
-              ("ApplicationSource" Core..= applicationSource),
+              ("ApplicationSource" Data..= applicationSource),
             Prelude.Just
-              ("ScalingInstructions" Core..= scalingInstructions)
+              ("ScalingInstructions" Data..= scalingInstructions)
           ]
       )
 
-instance Core.ToPath CreateScalingPlan where
+instance Data.ToPath CreateScalingPlan where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateScalingPlan where
+instance Data.ToQuery CreateScalingPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateScalingPlanResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,10 +108,10 @@ instance Core.AWSRequest GetOutpostInstanceTypes where
     Response.receiveJSON
       ( \s h x ->
           GetOutpostInstanceTypesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "OutpostId")
-            Prelude.<*> (x Core..?> "OutpostArn")
-            Prelude.<*> (x Core..?> "InstanceTypes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "OutpostId")
+            Prelude.<*> (x Data..?> "OutpostArn")
+            Prelude.<*> (x Data..?> "InstanceTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,27 +127,27 @@ instance Prelude.NFData GetOutpostInstanceTypes where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf outpostId
 
-instance Core.ToHeaders GetOutpostInstanceTypes where
+instance Data.ToHeaders GetOutpostInstanceTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetOutpostInstanceTypes where
+instance Data.ToPath GetOutpostInstanceTypes where
   toPath GetOutpostInstanceTypes' {..} =
     Prelude.mconcat
-      ["/outposts/", Core.toBS outpostId, "/instanceTypes"]
+      ["/outposts/", Data.toBS outpostId, "/instanceTypes"]
 
-instance Core.ToQuery GetOutpostInstanceTypes where
+instance Data.ToQuery GetOutpostInstanceTypes where
   toQuery GetOutpostInstanceTypes' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetOutpostInstanceTypesResponse' smart constructor.

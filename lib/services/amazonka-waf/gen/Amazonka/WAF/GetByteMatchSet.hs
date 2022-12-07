@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,7 +99,7 @@ instance Core.AWSRequest GetByteMatchSet where
     Response.receiveJSON
       ( \s h x ->
           GetByteMatchSetResponse'
-            Prelude.<$> (x Core..?> "ByteMatchSet")
+            Prelude.<$> (x Data..?> "ByteMatchSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,34 +110,34 @@ instance Prelude.Hashable GetByteMatchSet where
 instance Prelude.NFData GetByteMatchSet where
   rnf GetByteMatchSet' {..} = Prelude.rnf byteMatchSetId
 
-instance Core.ToHeaders GetByteMatchSet where
+instance Data.ToHeaders GetByteMatchSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20150824.GetByteMatchSet" ::
+              Data.=# ( "AWSWAF_20150824.GetByteMatchSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetByteMatchSet where
+instance Data.ToJSON GetByteMatchSet where
   toJSON GetByteMatchSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ByteMatchSetId" Core..= byteMatchSetId)
+              ("ByteMatchSetId" Data..= byteMatchSetId)
           ]
       )
 
-instance Core.ToPath GetByteMatchSet where
+instance Data.ToPath GetByteMatchSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetByteMatchSet where
+instance Data.ToQuery GetByteMatchSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetByteMatchSetResponse' smart constructor.

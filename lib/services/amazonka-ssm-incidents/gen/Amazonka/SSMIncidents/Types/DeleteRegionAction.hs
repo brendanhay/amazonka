@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.DeleteRegionAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the information about the Amazon Web Services Region you\'re
@@ -63,9 +64,9 @@ instance Prelude.Hashable DeleteRegionAction where
 instance Prelude.NFData DeleteRegionAction where
   rnf DeleteRegionAction' {..} = Prelude.rnf regionName
 
-instance Core.ToJSON DeleteRegionAction where
+instance Data.ToJSON DeleteRegionAction where
   toJSON DeleteRegionAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("regionName" Core..= regionName)]
+          [Prelude.Just ("regionName" Data..= regionName)]
       )

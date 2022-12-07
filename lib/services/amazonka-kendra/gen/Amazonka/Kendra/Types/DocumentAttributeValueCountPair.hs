@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DocumentAttributeValueCountPair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DocumentAttributeValue
 import {-# SOURCE #-} Amazonka.Kendra.Types.FacetResult
 import qualified Amazonka.Prelude as Prelude
@@ -108,17 +109,17 @@ documentAttributeValueCountPair_documentAttributeValue :: Lens.Lens' DocumentAtt
 documentAttributeValueCountPair_documentAttributeValue = Lens.lens (\DocumentAttributeValueCountPair' {documentAttributeValue} -> documentAttributeValue) (\s@DocumentAttributeValueCountPair' {} a -> s {documentAttributeValue = a} :: DocumentAttributeValueCountPair)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DocumentAttributeValueCountPair
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentAttributeValueCountPair"
       ( \x ->
           DocumentAttributeValueCountPair'
-            Prelude.<$> (x Core..:? "FacetResults" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Count")
-            Prelude.<*> (x Core..:? "DocumentAttributeValue")
+            Prelude.<$> (x Data..:? "FacetResults" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "DocumentAttributeValue")
       )
 
 instance

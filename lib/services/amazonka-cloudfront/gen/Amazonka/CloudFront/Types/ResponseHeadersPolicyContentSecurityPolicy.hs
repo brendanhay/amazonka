@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicyContentSecurityPolicy wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The policy directives and their values that CloudFront includes as
@@ -85,13 +86,13 @@ responseHeadersPolicyContentSecurityPolicy_contentSecurityPolicy :: Lens.Lens' R
 responseHeadersPolicyContentSecurityPolicy_contentSecurityPolicy = Lens.lens (\ResponseHeadersPolicyContentSecurityPolicy' {contentSecurityPolicy} -> contentSecurityPolicy) (\s@ResponseHeadersPolicyContentSecurityPolicy' {} a -> s {contentSecurityPolicy = a} :: ResponseHeadersPolicyContentSecurityPolicy)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ResponseHeadersPolicyContentSecurityPolicy
   where
   parseXML x =
     ResponseHeadersPolicyContentSecurityPolicy'
-      Prelude.<$> (x Core..@ "Override")
-        Prelude.<*> (x Core..@ "ContentSecurityPolicy")
+      Prelude.<$> (x Data..@ "Override")
+        Prelude.<*> (x Data..@ "ContentSecurityPolicy")
 
 instance
   Prelude.Hashable
@@ -112,12 +113,12 @@ instance
       `Prelude.seq` Prelude.rnf contentSecurityPolicy
 
 instance
-  Core.ToXML
+  Data.ToXML
     ResponseHeadersPolicyContentSecurityPolicy
   where
   toXML ResponseHeadersPolicyContentSecurityPolicy' {..} =
     Prelude.mconcat
-      [ "Override" Core.@= override,
+      [ "Override" Data.@= override,
         "ContentSecurityPolicy"
-          Core.@= contentSecurityPolicy
+          Data.@= contentSecurityPolicy
       ]

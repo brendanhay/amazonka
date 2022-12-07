@@ -21,6 +21,7 @@ module Amazonka.ConnectParticipant.Types.ConnectionCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Connection credentials.
@@ -70,14 +71,14 @@ connectionCredentials_expiry = Lens.lens (\ConnectionCredentials' {expiry} -> ex
 connectionCredentials_connectionToken :: Lens.Lens' ConnectionCredentials (Prelude.Maybe Prelude.Text)
 connectionCredentials_connectionToken = Lens.lens (\ConnectionCredentials' {connectionToken} -> connectionToken) (\s@ConnectionCredentials' {} a -> s {connectionToken = a} :: ConnectionCredentials)
 
-instance Core.FromJSON ConnectionCredentials where
+instance Data.FromJSON ConnectionCredentials where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionCredentials"
       ( \x ->
           ConnectionCredentials'
-            Prelude.<$> (x Core..:? "Expiry")
-            Prelude.<*> (x Core..:? "ConnectionToken")
+            Prelude.<$> (x Data..:? "Expiry")
+            Prelude.<*> (x Data..:? "ConnectionToken")
       )
 
 instance Prelude.Hashable ConnectionCredentials where

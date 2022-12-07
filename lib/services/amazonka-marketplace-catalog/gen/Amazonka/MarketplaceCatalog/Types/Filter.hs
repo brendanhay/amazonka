@@ -21,6 +21,7 @@ module Amazonka.MarketplaceCatalog.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter object, used to optionally filter results from calls to the
@@ -153,11 +154,11 @@ instance Prelude.NFData Filter where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf valueList
 
-instance Core.ToJSON Filter where
+instance Data.ToJSON Filter where
   toJSON Filter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("ValueList" Core..=) Prelude.<$> valueList
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("ValueList" Data..=) Prelude.<$> valueList
           ]
       )

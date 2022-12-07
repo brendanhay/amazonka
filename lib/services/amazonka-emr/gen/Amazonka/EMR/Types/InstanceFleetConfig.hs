@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceFleetConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.InstanceFleetProvisioningSpecifications
 import Amazonka.EMR.Types.InstanceFleetType
 import Amazonka.EMR.Types.InstanceTypeConfig
@@ -225,20 +226,20 @@ instance Prelude.NFData InstanceFleetConfig where
       `Prelude.seq` Prelude.rnf targetSpotCapacity
       `Prelude.seq` Prelude.rnf instanceFleetType
 
-instance Core.ToJSON InstanceFleetConfig where
+instance Data.ToJSON InstanceFleetConfig where
   toJSON InstanceFleetConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("TargetOnDemandCapacity" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("TargetOnDemandCapacity" Data..=)
               Prelude.<$> targetOnDemandCapacity,
-            ("InstanceTypeConfigs" Core..=)
+            ("InstanceTypeConfigs" Data..=)
               Prelude.<$> instanceTypeConfigs,
-            ("LaunchSpecifications" Core..=)
+            ("LaunchSpecifications" Data..=)
               Prelude.<$> launchSpecifications,
-            ("TargetSpotCapacity" Core..=)
+            ("TargetSpotCapacity" Data..=)
               Prelude.<$> targetSpotCapacity,
             Prelude.Just
-              ("InstanceFleetType" Core..= instanceFleetType)
+              ("InstanceFleetType" Data..= instanceFleetType)
           ]
       )

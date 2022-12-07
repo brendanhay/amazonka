@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.ExecutionResults where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.ExecutionStepResult
 
@@ -66,14 +67,14 @@ executionResults_steps = Lens.lens (\ExecutionResults' {steps} -> steps) (\s@Exe
 executionResults_onExceptionSteps :: Lens.Lens' ExecutionResults (Prelude.Maybe (Prelude.NonEmpty ExecutionStepResult))
 executionResults_onExceptionSteps = Lens.lens (\ExecutionResults' {onExceptionSteps} -> onExceptionSteps) (\s@ExecutionResults' {} a -> s {onExceptionSteps = a} :: ExecutionResults) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ExecutionResults where
+instance Data.FromJSON ExecutionResults where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecutionResults"
       ( \x ->
           ExecutionResults'
-            Prelude.<$> (x Core..:? "Steps")
-            Prelude.<*> (x Core..:? "OnExceptionSteps")
+            Prelude.<$> (x Data..:? "Steps")
+            Prelude.<*> (x Data..:? "OnExceptionSteps")
       )
 
 instance Prelude.Hashable ExecutionResults where

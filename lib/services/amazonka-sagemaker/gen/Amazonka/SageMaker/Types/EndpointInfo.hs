@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EndpointInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a customer endpoint that was compared in an Inference
@@ -53,12 +54,12 @@ newEndpointInfo pEndpointName_ =
 endpointInfo_endpointName :: Lens.Lens' EndpointInfo Prelude.Text
 endpointInfo_endpointName = Lens.lens (\EndpointInfo' {endpointName} -> endpointName) (\s@EndpointInfo' {} a -> s {endpointName = a} :: EndpointInfo)
 
-instance Core.FromJSON EndpointInfo where
+instance Data.FromJSON EndpointInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointInfo"
       ( \x ->
-          EndpointInfo' Prelude.<$> (x Core..: "EndpointName")
+          EndpointInfo' Prelude.<$> (x Data..: "EndpointName")
       )
 
 instance Prelude.Hashable EndpointInfo where
@@ -68,9 +69,9 @@ instance Prelude.Hashable EndpointInfo where
 instance Prelude.NFData EndpointInfo where
   rnf EndpointInfo' {..} = Prelude.rnf endpointName
 
-instance Core.ToJSON EndpointInfo where
+instance Data.ToJSON EndpointInfo where
   toJSON EndpointInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("EndpointName" Core..= endpointName)]
+          [Prelude.Just ("EndpointName" Data..= endpointName)]
       )

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,8 +155,8 @@ instance Core.AWSRequest ListXssMatchSets where
     Response.receiveJSON
       ( \s h x ->
           ListXssMatchSetsResponse'
-            Prelude.<$> (x Core..?> "XssMatchSets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "XssMatchSets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,34 +170,34 @@ instance Prelude.NFData ListXssMatchSets where
     Prelude.rnf limit
       `Prelude.seq` Prelude.rnf nextMarker
 
-instance Core.ToHeaders ListXssMatchSets where
+instance Data.ToHeaders ListXssMatchSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20150824.ListXssMatchSets" ::
+              Data.=# ( "AWSWAF_20150824.ListXssMatchSets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListXssMatchSets where
+instance Data.ToJSON ListXssMatchSets where
   toJSON ListXssMatchSets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("NextMarker" Core..=) Prelude.<$> nextMarker
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextMarker" Data..=) Prelude.<$> nextMarker
           ]
       )
 
-instance Core.ToPath ListXssMatchSets where
+instance Data.ToPath ListXssMatchSets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListXssMatchSets where
+instance Data.ToQuery ListXssMatchSets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response to a ListXssMatchSets request.

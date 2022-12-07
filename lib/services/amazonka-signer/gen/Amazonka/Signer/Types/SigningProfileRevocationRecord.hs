@@ -21,6 +21,7 @@ module Amazonka.Signer.Types.SigningProfileRevocationRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Revocation information for a signing profile.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSigningProfileRevocationRecord' smart constructor.
 data SigningProfileRevocationRecord = SigningProfileRevocationRecord'
   { -- | The time when revocation becomes effective.
-    revocationEffectiveFrom :: Prelude.Maybe Core.POSIX,
+    revocationEffectiveFrom :: Prelude.Maybe Data.POSIX,
     -- | The time when the signing profile was revoked.
-    revokedAt :: Prelude.Maybe Core.POSIX,
+    revokedAt :: Prelude.Maybe Data.POSIX,
     -- | The identity of the revoker.
     revokedBy :: Prelude.Maybe Prelude.Text
   }
@@ -61,25 +62,25 @@ newSigningProfileRevocationRecord =
 
 -- | The time when revocation becomes effective.
 signingProfileRevocationRecord_revocationEffectiveFrom :: Lens.Lens' SigningProfileRevocationRecord (Prelude.Maybe Prelude.UTCTime)
-signingProfileRevocationRecord_revocationEffectiveFrom = Lens.lens (\SigningProfileRevocationRecord' {revocationEffectiveFrom} -> revocationEffectiveFrom) (\s@SigningProfileRevocationRecord' {} a -> s {revocationEffectiveFrom = a} :: SigningProfileRevocationRecord) Prelude.. Lens.mapping Core._Time
+signingProfileRevocationRecord_revocationEffectiveFrom = Lens.lens (\SigningProfileRevocationRecord' {revocationEffectiveFrom} -> revocationEffectiveFrom) (\s@SigningProfileRevocationRecord' {} a -> s {revocationEffectiveFrom = a} :: SigningProfileRevocationRecord) Prelude.. Lens.mapping Data._Time
 
 -- | The time when the signing profile was revoked.
 signingProfileRevocationRecord_revokedAt :: Lens.Lens' SigningProfileRevocationRecord (Prelude.Maybe Prelude.UTCTime)
-signingProfileRevocationRecord_revokedAt = Lens.lens (\SigningProfileRevocationRecord' {revokedAt} -> revokedAt) (\s@SigningProfileRevocationRecord' {} a -> s {revokedAt = a} :: SigningProfileRevocationRecord) Prelude.. Lens.mapping Core._Time
+signingProfileRevocationRecord_revokedAt = Lens.lens (\SigningProfileRevocationRecord' {revokedAt} -> revokedAt) (\s@SigningProfileRevocationRecord' {} a -> s {revokedAt = a} :: SigningProfileRevocationRecord) Prelude.. Lens.mapping Data._Time
 
 -- | The identity of the revoker.
 signingProfileRevocationRecord_revokedBy :: Lens.Lens' SigningProfileRevocationRecord (Prelude.Maybe Prelude.Text)
 signingProfileRevocationRecord_revokedBy = Lens.lens (\SigningProfileRevocationRecord' {revokedBy} -> revokedBy) (\s@SigningProfileRevocationRecord' {} a -> s {revokedBy = a} :: SigningProfileRevocationRecord)
 
-instance Core.FromJSON SigningProfileRevocationRecord where
+instance Data.FromJSON SigningProfileRevocationRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SigningProfileRevocationRecord"
       ( \x ->
           SigningProfileRevocationRecord'
-            Prelude.<$> (x Core..:? "revocationEffectiveFrom")
-            Prelude.<*> (x Core..:? "revokedAt")
-            Prelude.<*> (x Core..:? "revokedBy")
+            Prelude.<$> (x Data..:? "revocationEffectiveFrom")
+            Prelude.<*> (x Data..:? "revokedAt")
+            Prelude.<*> (x Data..:? "revokedBy")
       )
 
 instance

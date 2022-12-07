@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.ImageScanFinding where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.Attribute
 import Amazonka.ECR.Types.FindingSeverity
 import qualified Amazonka.Prelude as Prelude
@@ -93,17 +94,17 @@ imageScanFinding_uri = Lens.lens (\ImageScanFinding' {uri} -> uri) (\s@ImageScan
 imageScanFinding_attributes :: Lens.Lens' ImageScanFinding (Prelude.Maybe [Attribute])
 imageScanFinding_attributes = Lens.lens (\ImageScanFinding' {attributes} -> attributes) (\s@ImageScanFinding' {} a -> s {attributes = a} :: ImageScanFinding) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ImageScanFinding where
+instance Data.FromJSON ImageScanFinding where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageScanFinding"
       ( \x ->
           ImageScanFinding'
-            Prelude.<$> (x Core..:? "severity")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "uri")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "severity")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "uri")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ImageScanFinding where

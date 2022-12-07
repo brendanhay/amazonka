@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.EnvironmentError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Error messages for environment variables that couldn\'t be applied.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEnvironmentError' smart constructor.
 data EnvironmentError = EnvironmentError'
   { -- | The error message.
-    message :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    message :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The error code.
     errorCode :: Prelude.Maybe Prelude.Text
   }
@@ -55,20 +56,20 @@ newEnvironmentError =
 
 -- | The error message.
 environmentError_message :: Lens.Lens' EnvironmentError (Prelude.Maybe Prelude.Text)
-environmentError_message = Lens.lens (\EnvironmentError' {message} -> message) (\s@EnvironmentError' {} a -> s {message = a} :: EnvironmentError) Prelude.. Lens.mapping Core._Sensitive
+environmentError_message = Lens.lens (\EnvironmentError' {message} -> message) (\s@EnvironmentError' {} a -> s {message = a} :: EnvironmentError) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The error code.
 environmentError_errorCode :: Lens.Lens' EnvironmentError (Prelude.Maybe Prelude.Text)
 environmentError_errorCode = Lens.lens (\EnvironmentError' {errorCode} -> errorCode) (\s@EnvironmentError' {} a -> s {errorCode = a} :: EnvironmentError)
 
-instance Core.FromJSON EnvironmentError where
+instance Data.FromJSON EnvironmentError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentError"
       ( \x ->
           EnvironmentError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable EnvironmentError where

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,37 +138,37 @@ instance
       `Prelude.seq` Prelude.rnf servicePrincipal
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RegisterDelegatedAdministrator
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.RegisterDelegatedAdministrator" ::
+              Data.=# ( "AWSOrganizationsV20161128.RegisterDelegatedAdministrator" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterDelegatedAdministrator where
+instance Data.ToJSON RegisterDelegatedAdministrator where
   toJSON RegisterDelegatedAdministrator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Core..= accountId),
+          [ Prelude.Just ("AccountId" Data..= accountId),
             Prelude.Just
-              ("ServicePrincipal" Core..= servicePrincipal)
+              ("ServicePrincipal" Data..= servicePrincipal)
           ]
       )
 
-instance Core.ToPath RegisterDelegatedAdministrator where
+instance Data.ToPath RegisterDelegatedAdministrator where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterDelegatedAdministrator where
+instance Data.ToQuery RegisterDelegatedAdministrator where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterDelegatedAdministratorResponse' smart constructor.

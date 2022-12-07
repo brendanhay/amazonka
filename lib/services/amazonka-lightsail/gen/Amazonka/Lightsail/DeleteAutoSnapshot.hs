@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,7 +109,7 @@ instance Core.AWSRequest DeleteAutoSnapshot where
     Response.receiveJSON
       ( \s h x ->
           DeleteAutoSnapshotResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,34 +123,34 @@ instance Prelude.NFData DeleteAutoSnapshot where
     Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf date
 
-instance Core.ToHeaders DeleteAutoSnapshot where
+instance Data.ToHeaders DeleteAutoSnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.DeleteAutoSnapshot" ::
+              Data.=# ( "Lightsail_20161128.DeleteAutoSnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAutoSnapshot where
+instance Data.ToJSON DeleteAutoSnapshot where
   toJSON DeleteAutoSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("resourceName" Core..= resourceName),
-            Prelude.Just ("date" Core..= date)
+          [ Prelude.Just ("resourceName" Data..= resourceName),
+            Prelude.Just ("date" Data..= date)
           ]
       )
 
-instance Core.ToPath DeleteAutoSnapshot where
+instance Data.ToPath DeleteAutoSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAutoSnapshot where
+instance Data.ToQuery DeleteAutoSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAutoSnapshotResponse' smart constructor.

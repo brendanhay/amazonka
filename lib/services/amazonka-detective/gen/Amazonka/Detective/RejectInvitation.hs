@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,28 +101,28 @@ instance Prelude.Hashable RejectInvitation where
 instance Prelude.NFData RejectInvitation where
   rnf RejectInvitation' {..} = Prelude.rnf graphArn
 
-instance Core.ToHeaders RejectInvitation where
+instance Data.ToHeaders RejectInvitation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RejectInvitation where
+instance Data.ToJSON RejectInvitation where
   toJSON RejectInvitation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GraphArn" Core..= graphArn)]
+          [Prelude.Just ("GraphArn" Data..= graphArn)]
       )
 
-instance Core.ToPath RejectInvitation where
+instance Data.ToPath RejectInvitation where
   toPath = Prelude.const "/invitation/removal"
 
-instance Core.ToQuery RejectInvitation where
+instance Data.ToQuery RejectInvitation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRejectInvitationResponse' smart constructor.

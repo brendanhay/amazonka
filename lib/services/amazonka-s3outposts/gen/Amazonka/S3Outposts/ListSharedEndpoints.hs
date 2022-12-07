@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,8 +141,8 @@ instance Core.AWSRequest ListSharedEndpoints where
     Response.receiveJSON
       ( \s h x ->
           ListSharedEndpointsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Endpoints" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Endpoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,27 +158,27 @@ instance Prelude.NFData ListSharedEndpoints where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf outpostId
 
-instance Core.ToHeaders ListSharedEndpoints where
+instance Data.ToHeaders ListSharedEndpoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListSharedEndpoints where
+instance Data.ToPath ListSharedEndpoints where
   toPath =
     Prelude.const "/S3Outposts/ListSharedEndpoints"
 
-instance Core.ToQuery ListSharedEndpoints where
+instance Data.ToQuery ListSharedEndpoints where
   toQuery ListSharedEndpoints' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "outpostId" Core.=: outpostId
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "outpostId" Data.=: outpostId
       ]
 
 -- | /See:/ 'newListSharedEndpointsResponse' smart constructor.

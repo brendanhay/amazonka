@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.NotificationAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.EmailConfiguration
 import Amazonka.IoTEvents.Types.NotificationTargetActions
 import Amazonka.IoTEvents.Types.SMSConfiguration
@@ -83,15 +84,15 @@ notificationAction_smsConfigurations = Lens.lens (\NotificationAction' {smsConfi
 notificationAction_action :: Lens.Lens' NotificationAction NotificationTargetActions
 notificationAction_action = Lens.lens (\NotificationAction' {action} -> action) (\s@NotificationAction' {} a -> s {action = a} :: NotificationAction)
 
-instance Core.FromJSON NotificationAction where
+instance Data.FromJSON NotificationAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotificationAction"
       ( \x ->
           NotificationAction'
-            Prelude.<$> (x Core..:? "emailConfigurations")
-            Prelude.<*> (x Core..:? "smsConfigurations")
-            Prelude.<*> (x Core..: "action")
+            Prelude.<$> (x Data..:? "emailConfigurations")
+            Prelude.<*> (x Data..:? "smsConfigurations")
+            Prelude.<*> (x Data..: "action")
       )
 
 instance Prelude.Hashable NotificationAction where
@@ -106,14 +107,14 @@ instance Prelude.NFData NotificationAction where
       `Prelude.seq` Prelude.rnf smsConfigurations
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToJSON NotificationAction where
+instance Data.ToJSON NotificationAction where
   toJSON NotificationAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("emailConfigurations" Core..=)
+          [ ("emailConfigurations" Data..=)
               Prelude.<$> emailConfigurations,
-            ("smsConfigurations" Core..=)
+            ("smsConfigurations" Data..=)
               Prelude.<$> smsConfigurations,
-            Prelude.Just ("action" Core..= action)
+            Prelude.Just ("action" Data..= action)
           ]
       )

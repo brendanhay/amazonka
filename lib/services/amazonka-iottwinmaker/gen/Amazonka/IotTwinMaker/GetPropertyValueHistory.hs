@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -76,7 +77,7 @@ data GetPropertyValueHistory = GetPropertyValueHistory'
     -- | A list of objects that filter the property value history request.
     propertyFilters :: Prelude.Maybe (Prelude.NonEmpty PropertyFilter),
     -- | The date and time of the earliest property value to return.
-    startDateTime :: Prelude.Maybe Core.POSIX,
+    startDateTime :: Prelude.Maybe Data.POSIX,
     -- | The ISO8601 DateTime of the latest property value to return.
     --
     -- For more information about the ISO8601 DateTime format, see the data
@@ -99,7 +100,7 @@ data GetPropertyValueHistory = GetPropertyValueHistory'
     -- <https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html PropertyValue>.
     startTime :: Prelude.Maybe Prelude.Text,
     -- | The date and time of the latest property value to return.
-    endDateTime :: Prelude.Maybe Core.POSIX,
+    endDateTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the component type.
     componentTypeId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the workspace.
@@ -201,7 +202,7 @@ getPropertyValueHistory_propertyFilters = Lens.lens (\GetPropertyValueHistory' {
 
 -- | The date and time of the earliest property value to return.
 getPropertyValueHistory_startDateTime :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.UTCTime)
-getPropertyValueHistory_startDateTime = Lens.lens (\GetPropertyValueHistory' {startDateTime} -> startDateTime) (\s@GetPropertyValueHistory' {} a -> s {startDateTime = a} :: GetPropertyValueHistory) Prelude.. Lens.mapping Core._Time
+getPropertyValueHistory_startDateTime = Lens.lens (\GetPropertyValueHistory' {startDateTime} -> startDateTime) (\s@GetPropertyValueHistory' {} a -> s {startDateTime = a} :: GetPropertyValueHistory) Prelude.. Lens.mapping Data._Time
 
 -- | The ISO8601 DateTime of the latest property value to return.
 --
@@ -236,7 +237,7 @@ getPropertyValueHistory_startTime = Lens.lens (\GetPropertyValueHistory' {startT
 
 -- | The date and time of the latest property value to return.
 getPropertyValueHistory_endDateTime :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.UTCTime)
-getPropertyValueHistory_endDateTime = Lens.lens (\GetPropertyValueHistory' {endDateTime} -> endDateTime) (\s@GetPropertyValueHistory' {} a -> s {endDateTime = a} :: GetPropertyValueHistory) Prelude.. Lens.mapping Core._Time
+getPropertyValueHistory_endDateTime = Lens.lens (\GetPropertyValueHistory' {endDateTime} -> endDateTime) (\s@GetPropertyValueHistory' {} a -> s {endDateTime = a} :: GetPropertyValueHistory) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the component type.
 getPropertyValueHistory_componentTypeId :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.Text)
@@ -260,9 +261,9 @@ instance Core.AWSRequest GetPropertyValueHistory where
     Response.receiveJSON
       ( \s h x ->
           GetPropertyValueHistoryResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "propertyValues"
+            Prelude.<*> ( x Data..?> "propertyValues"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -301,49 +302,49 @@ instance Prelude.NFData GetPropertyValueHistory where
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf selectedProperties
 
-instance Core.ToHeaders GetPropertyValueHistory where
+instance Data.ToHeaders GetPropertyValueHistory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetPropertyValueHistory where
+instance Data.ToJSON GetPropertyValueHistory where
   toJSON GetPropertyValueHistory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("entityId" Core..=) Prelude.<$> entityId,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("componentName" Core..=) Prelude.<$> componentName,
-            ("propertyFilters" Core..=)
+          [ ("entityId" Data..=) Prelude.<$> entityId,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("componentName" Data..=) Prelude.<$> componentName,
+            ("propertyFilters" Data..=)
               Prelude.<$> propertyFilters,
-            ("startDateTime" Core..=) Prelude.<$> startDateTime,
-            ("endTime" Core..=) Prelude.<$> endTime,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("interpolation" Core..=) Prelude.<$> interpolation,
-            ("orderByTime" Core..=) Prelude.<$> orderByTime,
-            ("startTime" Core..=) Prelude.<$> startTime,
-            ("endDateTime" Core..=) Prelude.<$> endDateTime,
-            ("componentTypeId" Core..=)
+            ("startDateTime" Data..=) Prelude.<$> startDateTime,
+            ("endTime" Data..=) Prelude.<$> endTime,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("interpolation" Data..=) Prelude.<$> interpolation,
+            ("orderByTime" Data..=) Prelude.<$> orderByTime,
+            ("startTime" Data..=) Prelude.<$> startTime,
+            ("endDateTime" Data..=) Prelude.<$> endDateTime,
+            ("componentTypeId" Data..=)
               Prelude.<$> componentTypeId,
             Prelude.Just
-              ("selectedProperties" Core..= selectedProperties)
+              ("selectedProperties" Data..= selectedProperties)
           ]
       )
 
-instance Core.ToPath GetPropertyValueHistory where
+instance Data.ToPath GetPropertyValueHistory where
   toPath GetPropertyValueHistory' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/entity-properties/history"
       ]
 
-instance Core.ToQuery GetPropertyValueHistory where
+instance Data.ToQuery GetPropertyValueHistory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPropertyValueHistoryResponse' smart constructor.

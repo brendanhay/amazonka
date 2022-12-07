@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,8 +145,8 @@ instance Core.AWSRequest DescribeTapeArchives where
     Response.receiveJSON
       ( \s h x ->
           DescribeTapeArchivesResponse'
-            Prelude.<$> (x Core..?> "TapeArchives" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Data..?> "TapeArchives" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,35 +162,35 @@ instance Prelude.NFData DescribeTapeArchives where
       `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders DescribeTapeArchives where
+instance Data.ToHeaders DescribeTapeArchives where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DescribeTapeArchives" ::
+              Data.=# ( "StorageGateway_20130630.DescribeTapeArchives" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTapeArchives where
+instance Data.ToJSON DescribeTapeArchives where
   toJSON DescribeTapeArchives' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TapeARNs" Core..=) Prelude.<$> tapeARNs,
-            ("Marker" Core..=) Prelude.<$> marker,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("TapeARNs" Data..=) Prelude.<$> tapeARNs,
+            ("Marker" Data..=) Prelude.<$> marker,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath DescribeTapeArchives where
+instance Data.ToPath DescribeTapeArchives where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTapeArchives where
+instance Data.ToQuery DescribeTapeArchives where
   toQuery = Prelude.const Prelude.mempty
 
 -- | DescribeTapeArchivesOutput

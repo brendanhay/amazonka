@@ -21,6 +21,7 @@ module Amazonka.IoTJobsData.Types.JobExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTJobsData.Types.JobExecutionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -173,23 +174,23 @@ jobExecution_queuedAt = Lens.lens (\JobExecution' {queuedAt} -> queuedAt) (\s@Jo
 jobExecution_approximateSecondsBeforeTimedOut :: Lens.Lens' JobExecution (Prelude.Maybe Prelude.Integer)
 jobExecution_approximateSecondsBeforeTimedOut = Lens.lens (\JobExecution' {approximateSecondsBeforeTimedOut} -> approximateSecondsBeforeTimedOut) (\s@JobExecution' {} a -> s {approximateSecondsBeforeTimedOut = a} :: JobExecution)
 
-instance Core.FromJSON JobExecution where
+instance Data.FromJSON JobExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobExecution"
       ( \x ->
           JobExecution'
-            Prelude.<$> (x Core..:? "thingName")
-            Prelude.<*> (x Core..:? "executionNumber")
-            Prelude.<*> (x Core..:? "jobDocument")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "statusDetails" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "jobId")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "startedAt")
-            Prelude.<*> (x Core..:? "versionNumber")
-            Prelude.<*> (x Core..:? "queuedAt")
-            Prelude.<*> (x Core..:? "approximateSecondsBeforeTimedOut")
+            Prelude.<$> (x Data..:? "thingName")
+            Prelude.<*> (x Data..:? "executionNumber")
+            Prelude.<*> (x Data..:? "jobDocument")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "statusDetails" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "startedAt")
+            Prelude.<*> (x Data..:? "versionNumber")
+            Prelude.<*> (x Data..:? "queuedAt")
+            Prelude.<*> (x Data..:? "approximateSecondsBeforeTimedOut")
       )
 
 instance Prelude.Hashable JobExecution where

@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.TrustAnchorDetailResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RolesAnywhere.Types.TrustAnchorDetail
 
@@ -54,13 +55,13 @@ newTrustAnchorDetailResponse pTrustAnchor_ =
 trustAnchorDetailResponse_trustAnchor :: Lens.Lens' TrustAnchorDetailResponse TrustAnchorDetail
 trustAnchorDetailResponse_trustAnchor = Lens.lens (\TrustAnchorDetailResponse' {trustAnchor} -> trustAnchor) (\s@TrustAnchorDetailResponse' {} a -> s {trustAnchor = a} :: TrustAnchorDetailResponse)
 
-instance Core.FromJSON TrustAnchorDetailResponse where
+instance Data.FromJSON TrustAnchorDetailResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrustAnchorDetailResponse"
       ( \x ->
           TrustAnchorDetailResponse'
-            Prelude.<$> (x Core..: "trustAnchor")
+            Prelude.<$> (x Data..: "trustAnchor")
       )
 
 instance Prelude.Hashable TrustAnchorDetailResponse where

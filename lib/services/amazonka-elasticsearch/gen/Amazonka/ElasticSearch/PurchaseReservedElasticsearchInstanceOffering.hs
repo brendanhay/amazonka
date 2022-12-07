@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,8 +121,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PurchaseReservedElasticsearchInstanceOfferingResponse'
-            Prelude.<$> (x Core..?> "ReservedElasticsearchInstanceId")
-              Prelude.<*> (x Core..?> "ReservationName")
+            Prelude.<$> (x Data..?> "ReservedElasticsearchInstanceId")
+              Prelude.<*> (x Data..?> "ReservationName")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,31 +148,31 @@ instance
         `Prelude.seq` Prelude.rnf reservationName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PurchaseReservedElasticsearchInstanceOffering
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     PurchaseReservedElasticsearchInstanceOffering
   where
   toJSON
     PurchaseReservedElasticsearchInstanceOffering' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("InstanceCount" Core..=) Prelude.<$> instanceCount,
+            [ ("InstanceCount" Data..=) Prelude.<$> instanceCount,
               Prelude.Just
                 ( "ReservedElasticsearchInstanceOfferingId"
-                    Core..= reservedElasticsearchInstanceOfferingId
+                    Data..= reservedElasticsearchInstanceOfferingId
                 ),
               Prelude.Just
-                ("ReservationName" Core..= reservationName)
+                ("ReservationName" Data..= reservationName)
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     PurchaseReservedElasticsearchInstanceOffering
   where
   toPath =
@@ -179,7 +180,7 @@ instance
       "/2015-01-01/es/purchaseReservedInstanceOffering"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PurchaseReservedElasticsearchInstanceOffering
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRedshiftClusterClusterSecurityGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A security group that is associated with the cluster.
@@ -63,16 +64,16 @@ awsRedshiftClusterClusterSecurityGroup_status :: Lens.Lens' AwsRedshiftClusterCl
 awsRedshiftClusterClusterSecurityGroup_status = Lens.lens (\AwsRedshiftClusterClusterSecurityGroup' {status} -> status) (\s@AwsRedshiftClusterClusterSecurityGroup' {} a -> s {status = a} :: AwsRedshiftClusterClusterSecurityGroup)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsRedshiftClusterClusterSecurityGroup
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRedshiftClusterClusterSecurityGroup"
       ( \x ->
           AwsRedshiftClusterClusterSecurityGroup'
-            Prelude.<$> (x Core..:? "ClusterSecurityGroupName")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "ClusterSecurityGroupName")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance
@@ -95,14 +96,14 @@ instance
       `Prelude.seq` Prelude.rnf status
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsRedshiftClusterClusterSecurityGroup
   where
   toJSON AwsRedshiftClusterClusterSecurityGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClusterSecurityGroupName" Core..=)
+          [ ("ClusterSecurityGroupName" Data..=)
               Prelude.<$> clusterSecurityGroupName,
-            ("Status" Core..=) Prelude.<$> status
+            ("Status" Data..=) Prelude.<$> status
           ]
       )

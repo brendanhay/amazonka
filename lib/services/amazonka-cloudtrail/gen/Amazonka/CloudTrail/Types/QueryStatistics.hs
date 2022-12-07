@@ -21,6 +21,7 @@ module Amazonka.CloudTrail.Types.QueryStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata about a query, such as the number of results.
@@ -77,15 +78,15 @@ queryStatistics_bytesScanned = Lens.lens (\QueryStatistics' {bytesScanned} -> by
 queryStatistics_resultsCount :: Lens.Lens' QueryStatistics (Prelude.Maybe Prelude.Int)
 queryStatistics_resultsCount = Lens.lens (\QueryStatistics' {resultsCount} -> resultsCount) (\s@QueryStatistics' {} a -> s {resultsCount = a} :: QueryStatistics)
 
-instance Core.FromJSON QueryStatistics where
+instance Data.FromJSON QueryStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryStatistics"
       ( \x ->
           QueryStatistics'
-            Prelude.<$> (x Core..:? "TotalResultsCount")
-            Prelude.<*> (x Core..:? "BytesScanned")
-            Prelude.<*> (x Core..:? "ResultsCount")
+            Prelude.<$> (x Data..:? "TotalResultsCount")
+            Prelude.<*> (x Data..:? "BytesScanned")
+            Prelude.<*> (x Data..:? "ResultsCount")
       )
 
 instance Prelude.Hashable QueryStatistics where

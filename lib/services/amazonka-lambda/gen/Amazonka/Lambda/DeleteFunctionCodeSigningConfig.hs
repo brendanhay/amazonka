@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,20 +139,20 @@ instance
     Prelude.rnf functionName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteFunctionCodeSigningConfig
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteFunctionCodeSigningConfig where
+instance Data.ToPath DeleteFunctionCodeSigningConfig where
   toPath DeleteFunctionCodeSigningConfig' {..} =
     Prelude.mconcat
       [ "/2020-06-30/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/code-signing-config"
       ]
 
-instance Core.ToQuery DeleteFunctionCodeSigningConfig where
+instance Data.ToQuery DeleteFunctionCodeSigningConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFunctionCodeSigningConfigResponse' smart constructor.

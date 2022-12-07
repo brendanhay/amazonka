@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,9 +132,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateApplicationMaintenanceConfigurationResponse'
-            Prelude.<$> (x Core..?> "ApplicationARN")
+            Prelude.<$> (x Data..?> "ApplicationARN")
               Prelude.<*> ( x
-                              Core..?> "ApplicationMaintenanceConfigurationDescription"
+                              Data..?> "ApplicationMaintenanceConfigurationDescription"
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -157,47 +158,47 @@ instance
       `Prelude.seq` Prelude.rnf applicationMaintenanceConfigurationUpdate
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateApplicationMaintenanceConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20180523.UpdateApplicationMaintenanceConfiguration" ::
+              Data.=# ( "KinesisAnalytics_20180523.UpdateApplicationMaintenanceConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateApplicationMaintenanceConfiguration
   where
   toJSON UpdateApplicationMaintenanceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ApplicationName" Core..= applicationName),
+              ("ApplicationName" Data..= applicationName),
             Prelude.Just
               ( "ApplicationMaintenanceConfigurationUpdate"
-                  Core..= applicationMaintenanceConfigurationUpdate
+                  Data..= applicationMaintenanceConfigurationUpdate
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateApplicationMaintenanceConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateApplicationMaintenanceConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.Athena.Types.ResultReuseInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about whether the result of a previous query was
@@ -59,13 +60,13 @@ newResultReuseInformation pReusedPreviousResult_ =
 resultReuseInformation_reusedPreviousResult :: Lens.Lens' ResultReuseInformation Prelude.Bool
 resultReuseInformation_reusedPreviousResult = Lens.lens (\ResultReuseInformation' {reusedPreviousResult} -> reusedPreviousResult) (\s@ResultReuseInformation' {} a -> s {reusedPreviousResult = a} :: ResultReuseInformation)
 
-instance Core.FromJSON ResultReuseInformation where
+instance Data.FromJSON ResultReuseInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResultReuseInformation"
       ( \x ->
           ResultReuseInformation'
-            Prelude.<$> (x Core..: "ReusedPreviousResult")
+            Prelude.<$> (x Data..: "ReusedPreviousResult")
       )
 
 instance Prelude.Hashable ResultReuseInformation where

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,32 +127,32 @@ instance Prelude.NFData UpdateDeletionProtection where
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf deletionProtected
 
-instance Core.ToHeaders UpdateDeletionProtection where
+instance Data.ToHeaders UpdateDeletionProtection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDeletionProtection where
+instance Data.ToJSON UpdateDeletionProtection where
   toJSON UpdateDeletionProtection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("arn" Core..= arn),
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("arn" Data..= arn),
             Prelude.Just
-              ("deletionProtected" Core..= deletionProtected)
+              ("deletionProtected" Data..= deletionProtected)
           ]
       )
 
-instance Core.ToPath UpdateDeletionProtection where
+instance Data.ToPath UpdateDeletionProtection where
   toPath = Prelude.const "/updateDeletionProtection"
 
-instance Core.ToQuery UpdateDeletionProtection where
+instance Data.ToQuery UpdateDeletionProtection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDeletionProtectionResponse' smart constructor.

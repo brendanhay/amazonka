@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceExplorer2.Types
@@ -69,7 +70,7 @@ instance Core.AWSRequest GetDefaultView where
     Response.receiveJSON
       ( \s h x ->
           GetDefaultViewResponse'
-            Prelude.<$> (x Core..?> "ViewArn")
+            Prelude.<$> (x Data..?> "ViewArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -80,24 +81,24 @@ instance Prelude.Hashable GetDefaultView where
 instance Prelude.NFData GetDefaultView where
   rnf _ = ()
 
-instance Core.ToHeaders GetDefaultView where
+instance Data.ToHeaders GetDefaultView where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDefaultView where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetDefaultView where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetDefaultView where
+instance Data.ToPath GetDefaultView where
   toPath = Prelude.const "/GetDefaultView"
 
-instance Core.ToQuery GetDefaultView where
+instance Data.ToQuery GetDefaultView where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDefaultViewResponse' smart constructor.

@@ -44,6 +44,7 @@ where
 import Amazonka.CodeGuruReviewer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,8 +98,8 @@ instance Core.AWSRequest DisassociateRepository where
     Response.receiveJSON
       ( \s h x ->
           DisassociateRepositoryResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "RepositoryAssociation")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "RepositoryAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,23 +111,23 @@ instance Prelude.NFData DisassociateRepository where
   rnf DisassociateRepository' {..} =
     Prelude.rnf associationArn
 
-instance Core.ToHeaders DisassociateRepository where
+instance Data.ToHeaders DisassociateRepository where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DisassociateRepository where
+instance Data.ToPath DisassociateRepository where
   toPath DisassociateRepository' {..} =
     Prelude.mconcat
-      ["/associations/", Core.toBS associationArn]
+      ["/associations/", Data.toBS associationArn]
 
-instance Core.ToQuery DisassociateRepository where
+instance Data.ToQuery DisassociateRepository where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateRepositoryResponse' smart constructor.

@@ -72,6 +72,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,7 +160,7 @@ instance Core.AWSRequest GetChannelMessageStatus where
     Response.receiveJSON
       ( \s h x ->
           GetChannelMessageStatusResponse'
-            Prelude.<$> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,24 +178,24 @@ instance Prelude.NFData GetChannelMessageStatus where
       `Prelude.seq` Prelude.rnf messageId
       `Prelude.seq` Prelude.rnf chimeBearer
 
-instance Core.ToHeaders GetChannelMessageStatus where
+instance Data.ToHeaders GetChannelMessageStatus where
   toHeaders GetChannelMessageStatus' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToPath GetChannelMessageStatus where
+instance Data.ToPath GetChannelMessageStatus where
   toPath GetChannelMessageStatus' {..} =
     Prelude.mconcat
       [ "/channels/",
-        Core.toBS channelArn,
+        Data.toBS channelArn,
         "/messages/",
-        Core.toBS messageId
+        Data.toBS messageId
       ]
 
-instance Core.ToQuery GetChannelMessageStatus where
+instance Data.ToQuery GetChannelMessageStatus where
   toQuery GetChannelMessageStatus' {..} =
     Prelude.mconcat
-      [ "sub-channel-id" Core.=: subChannelId,
+      [ "sub-channel-id" Data.=: subChannelId,
         "scope=message-status"
       ]
 

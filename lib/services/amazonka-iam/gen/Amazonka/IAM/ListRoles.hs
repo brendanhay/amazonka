@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -202,11 +203,11 @@ instance Core.AWSRequest ListRoles where
       "ListRolesResult"
       ( \s h x ->
           ListRolesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "Roles" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "Roles" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -222,22 +223,22 @@ instance Prelude.NFData ListRoles where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf pathPrefix
 
-instance Core.ToHeaders ListRoles where
+instance Data.ToHeaders ListRoles where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListRoles where
+instance Data.ToPath ListRoles where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRoles where
+instance Data.ToQuery ListRoles where
   toQuery ListRoles' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListRoles" :: Prelude.ByteString),
+          Data.=: ("ListRoles" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "PathPrefix" Core.=: pathPrefix
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "PathPrefix" Data.=: pathPrefix
       ]
 
 -- | Contains the response to a successful ListRoles request.

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -80,7 +81,7 @@ instance Core.AWSRequest GetService where
     Response.receiveJSON
       ( \s h x ->
           GetServiceResponse'
-            Prelude.<$> (x Core..?> "service")
+            Prelude.<$> (x Data..?> "service")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -91,32 +92,32 @@ instance Prelude.Hashable GetService where
 instance Prelude.NFData GetService where
   rnf GetService' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetService where
+instance Data.ToHeaders GetService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.GetService" ::
+              Data.=# ( "AwsProton20200720.GetService" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetService where
+instance Data.ToJSON GetService where
   toJSON GetService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath GetService where
+instance Data.ToPath GetService where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetService where
+instance Data.ToQuery GetService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetServiceResponse' smart constructor.

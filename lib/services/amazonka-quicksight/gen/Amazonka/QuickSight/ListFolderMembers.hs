@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -122,9 +123,9 @@ instance Core.AWSRequest ListFolderMembers where
     Response.receiveJSON
       ( \s h x ->
           ListFolderMembersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> ( x Core..?> "FolderMemberList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> ( x Data..?> "FolderMemberList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -144,32 +145,32 @@ instance Prelude.NFData ListFolderMembers where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf folderId
 
-instance Core.ToHeaders ListFolderMembers where
+instance Data.ToHeaders ListFolderMembers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListFolderMembers where
+instance Data.ToPath ListFolderMembers where
   toPath ListFolderMembers' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/folders/",
-        Core.toBS folderId,
+        Data.toBS folderId,
         "/members"
       ]
 
-instance Core.ToQuery ListFolderMembers where
+instance Data.ToQuery ListFolderMembers where
   toQuery ListFolderMembers' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListFolderMembersResponse' smart constructor.

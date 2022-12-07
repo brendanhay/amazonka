@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.HumanTaskUiSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Container for human task user interface information.
@@ -32,7 +33,7 @@ data HumanTaskUiSummary = HumanTaskUiSummary'
     -- | The Amazon Resource Name (ARN) of the human task user interface.
     humanTaskUiArn :: Prelude.Text,
     -- | A timestamp when SageMaker created the human task user interface.
-    creationTime :: Core.POSIX
+    creationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,7 +66,7 @@ newHumanTaskUiSummary
       { humanTaskUiName =
           pHumanTaskUiName_,
         humanTaskUiArn = pHumanTaskUiArn_,
-        creationTime = Core._Time Lens.# pCreationTime_
+        creationTime = Data._Time Lens.# pCreationTime_
       }
 
 -- | The name of the human task user interface.
@@ -78,17 +79,17 @@ humanTaskUiSummary_humanTaskUiArn = Lens.lens (\HumanTaskUiSummary' {humanTaskUi
 
 -- | A timestamp when SageMaker created the human task user interface.
 humanTaskUiSummary_creationTime :: Lens.Lens' HumanTaskUiSummary Prelude.UTCTime
-humanTaskUiSummary_creationTime = Lens.lens (\HumanTaskUiSummary' {creationTime} -> creationTime) (\s@HumanTaskUiSummary' {} a -> s {creationTime = a} :: HumanTaskUiSummary) Prelude.. Core._Time
+humanTaskUiSummary_creationTime = Lens.lens (\HumanTaskUiSummary' {creationTime} -> creationTime) (\s@HumanTaskUiSummary' {} a -> s {creationTime = a} :: HumanTaskUiSummary) Prelude.. Data._Time
 
-instance Core.FromJSON HumanTaskUiSummary where
+instance Data.FromJSON HumanTaskUiSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HumanTaskUiSummary"
       ( \x ->
           HumanTaskUiSummary'
-            Prelude.<$> (x Core..: "HumanTaskUiName")
-            Prelude.<*> (x Core..: "HumanTaskUiArn")
-            Prelude.<*> (x Core..: "CreationTime")
+            Prelude.<$> (x Data..: "HumanTaskUiName")
+            Prelude.<*> (x Data..: "HumanTaskUiArn")
+            Prelude.<*> (x Data..: "CreationTime")
       )
 
 instance Prelude.Hashable HumanTaskUiSummary where

@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.RedshiftDataParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | These are custom parameters to be used when the target is a Amazon
@@ -119,18 +120,18 @@ redshiftDataParameters_database = Lens.lens (\RedshiftDataParameters' {database}
 redshiftDataParameters_sql :: Lens.Lens' RedshiftDataParameters Prelude.Text
 redshiftDataParameters_sql = Lens.lens (\RedshiftDataParameters' {sql} -> sql) (\s@RedshiftDataParameters' {} a -> s {sql = a} :: RedshiftDataParameters)
 
-instance Core.FromJSON RedshiftDataParameters where
+instance Data.FromJSON RedshiftDataParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedshiftDataParameters"
       ( \x ->
           RedshiftDataParameters'
-            Prelude.<$> (x Core..:? "SecretManagerArn")
-            Prelude.<*> (x Core..:? "StatementName")
-            Prelude.<*> (x Core..:? "WithEvent")
-            Prelude.<*> (x Core..:? "DbUser")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "Sql")
+            Prelude.<$> (x Data..:? "SecretManagerArn")
+            Prelude.<*> (x Data..:? "StatementName")
+            Prelude.<*> (x Data..:? "WithEvent")
+            Prelude.<*> (x Data..:? "DbUser")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "Sql")
       )
 
 instance Prelude.Hashable RedshiftDataParameters where
@@ -151,16 +152,16 @@ instance Prelude.NFData RedshiftDataParameters where
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf sql
 
-instance Core.ToJSON RedshiftDataParameters where
+instance Data.ToJSON RedshiftDataParameters where
   toJSON RedshiftDataParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecretManagerArn" Core..=)
+          [ ("SecretManagerArn" Data..=)
               Prelude.<$> secretManagerArn,
-            ("StatementName" Core..=) Prelude.<$> statementName,
-            ("WithEvent" Core..=) Prelude.<$> withEvent,
-            ("DbUser" Core..=) Prelude.<$> dbUser,
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("Sql" Core..= sql)
+            ("StatementName" Data..=) Prelude.<$> statementName,
+            ("WithEvent" Data..=) Prelude.<$> withEvent,
+            ("DbUser" Data..=) Prelude.<$> dbUser,
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("Sql" Data..= sql)
           ]
       )

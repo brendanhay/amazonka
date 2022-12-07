@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.FirewallPolicyStatelessRuleGroupReferencesDeta
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A stateless rule group that is used by the firewall policy.
@@ -64,16 +65,16 @@ firewallPolicyStatelessRuleGroupReferencesDetails_resourceArn :: Lens.Lens' Fire
 firewallPolicyStatelessRuleGroupReferencesDetails_resourceArn = Lens.lens (\FirewallPolicyStatelessRuleGroupReferencesDetails' {resourceArn} -> resourceArn) (\s@FirewallPolicyStatelessRuleGroupReferencesDetails' {} a -> s {resourceArn = a} :: FirewallPolicyStatelessRuleGroupReferencesDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FirewallPolicyStatelessRuleGroupReferencesDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallPolicyStatelessRuleGroupReferencesDetails"
       ( \x ->
           FirewallPolicyStatelessRuleGroupReferencesDetails'
-            Prelude.<$> (x Core..:? "Priority")
-              Prelude.<*> (x Core..:? "ResourceArn")
+            Prelude.<$> (x Data..:? "Priority")
+              Prelude.<*> (x Data..:? "ResourceArn")
       )
 
 instance
@@ -96,14 +97,14 @@ instance
         `Prelude.seq` Prelude.rnf resourceArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     FirewallPolicyStatelessRuleGroupReferencesDetails
   where
   toJSON
     FirewallPolicyStatelessRuleGroupReferencesDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Priority" Core..=) Prelude.<$> priority,
-              ("ResourceArn" Core..=) Prelude.<$> resourceArn
+            [ ("Priority" Data..=) Prelude.<$> priority,
+              ("ResourceArn" Data..=) Prelude.<$> resourceArn
             ]
         )

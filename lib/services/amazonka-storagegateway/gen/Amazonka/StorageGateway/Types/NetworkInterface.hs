@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.NetworkInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a gateway\'s network interface.
@@ -79,15 +80,15 @@ networkInterface_macAddress = Lens.lens (\NetworkInterface' {macAddress} -> macA
 networkInterface_ipv4Address :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_ipv4Address = Lens.lens (\NetworkInterface' {ipv4Address} -> ipv4Address) (\s@NetworkInterface' {} a -> s {ipv4Address = a} :: NetworkInterface)
 
-instance Core.FromJSON NetworkInterface where
+instance Data.FromJSON NetworkInterface where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> (x Core..:? "Ipv6Address")
-            Prelude.<*> (x Core..:? "MacAddress")
-            Prelude.<*> (x Core..:? "Ipv4Address")
+            Prelude.<$> (x Data..:? "Ipv6Address")
+            Prelude.<*> (x Data..:? "MacAddress")
+            Prelude.<*> (x Data..:? "Ipv4Address")
       )
 
 instance Prelude.Hashable NetworkInterface where

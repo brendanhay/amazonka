@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetIdentityProvider where
     Response.receiveJSON
       ( \s h x ->
           GetIdentityProviderResponse'
-            Prelude.<$> (x Core..?> "identityProvider")
+            Prelude.<$> (x Data..?> "identityProvider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,25 +99,25 @@ instance Prelude.NFData GetIdentityProvider where
   rnf GetIdentityProvider' {..} =
     Prelude.rnf identityProviderArn
 
-instance Core.ToHeaders GetIdentityProvider where
+instance Data.ToHeaders GetIdentityProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetIdentityProvider where
+instance Data.ToPath GetIdentityProvider where
   toPath GetIdentityProvider' {..} =
     Prelude.mconcat
       [ "/identityProviders/",
-        Core.toBS identityProviderArn
+        Data.toBS identityProviderArn
       ]
 
-instance Core.ToQuery GetIdentityProvider where
+instance Data.ToQuery GetIdentityProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetIdentityProviderResponse' smart constructor.

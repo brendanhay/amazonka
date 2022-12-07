@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayPeeringAttachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PeeringAttachmentStatus
 import Amazonka.EC2.Types.PeeringTgwInfo
@@ -47,7 +48,7 @@ data TransitGatewayPeeringAttachment = TransitGatewayPeeringAttachment'
     -- | Details about the transit gateway peering attachment.
     options :: Prelude.Maybe TransitGatewayPeeringAttachmentOptions,
     -- | The time the transit gateway peering attachment was created.
-    creationTime :: Prelude.Maybe Core.ISO8601,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the accepter transit gateway attachment.
     accepterTransitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
     -- | Information about the requester transit gateway.
@@ -126,7 +127,7 @@ transitGatewayPeeringAttachment_options = Lens.lens (\TransitGatewayPeeringAttac
 
 -- | The time the transit gateway peering attachment was created.
 transitGatewayPeeringAttachment_creationTime :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe Prelude.UTCTime)
-transitGatewayPeeringAttachment_creationTime = Lens.lens (\TransitGatewayPeeringAttachment' {creationTime} -> creationTime) (\s@TransitGatewayPeeringAttachment' {} a -> s {creationTime = a} :: TransitGatewayPeeringAttachment) Prelude.. Lens.mapping Core._Time
+transitGatewayPeeringAttachment_creationTime = Lens.lens (\TransitGatewayPeeringAttachment' {creationTime} -> creationTime) (\s@TransitGatewayPeeringAttachment' {} a -> s {creationTime = a} :: TransitGatewayPeeringAttachment) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the accepter transit gateway attachment.
 transitGatewayPeeringAttachment_accepterTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe Prelude.Text)
@@ -136,20 +137,20 @@ transitGatewayPeeringAttachment_accepterTransitGatewayAttachmentId = Lens.lens (
 transitGatewayPeeringAttachment_requesterTgwInfo :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe PeeringTgwInfo)
 transitGatewayPeeringAttachment_requesterTgwInfo = Lens.lens (\TransitGatewayPeeringAttachment' {requesterTgwInfo} -> requesterTgwInfo) (\s@TransitGatewayPeeringAttachment' {} a -> s {requesterTgwInfo = a} :: TransitGatewayPeeringAttachment)
 
-instance Core.FromXML TransitGatewayPeeringAttachment where
+instance Data.FromXML TransitGatewayPeeringAttachment where
   parseXML x =
     TransitGatewayPeeringAttachment'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "accepterTgwInfo")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "options")
-      Prelude.<*> (x Core..@? "creationTime")
-      Prelude.<*> (x Core..@? "accepterTransitGatewayAttachmentId")
-      Prelude.<*> (x Core..@? "requesterTgwInfo")
+      Prelude.<*> (x Data..@? "accepterTgwInfo")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "options")
+      Prelude.<*> (x Data..@? "creationTime")
+      Prelude.<*> (x Data..@? "accepterTransitGatewayAttachmentId")
+      Prelude.<*> (x Data..@? "requesterTgwInfo")
 
 instance
   Prelude.Hashable

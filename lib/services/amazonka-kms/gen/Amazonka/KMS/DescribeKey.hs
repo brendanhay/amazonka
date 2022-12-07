@@ -103,6 +103,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -250,7 +251,7 @@ instance Core.AWSRequest DescribeKey where
     Response.receiveJSON
       ( \s h x ->
           DescribeKeyResponse'
-            Prelude.<$> (x Core..?> "KeyMetadata")
+            Prelude.<$> (x Data..?> "KeyMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -264,32 +265,32 @@ instance Prelude.NFData DescribeKey where
     Prelude.rnf grantTokens
       `Prelude.seq` Prelude.rnf keyId
 
-instance Core.ToHeaders DescribeKey where
+instance Data.ToHeaders DescribeKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.DescribeKey" :: Prelude.ByteString),
+              Data.=# ("TrentService.DescribeKey" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeKey where
+instance Data.ToJSON DescribeKey where
   toJSON DescribeKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            Prelude.Just ("KeyId" Core..= keyId)
+          [ ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+            Prelude.Just ("KeyId" Data..= keyId)
           ]
       )
 
-instance Core.ToPath DescribeKey where
+instance Data.ToPath DescribeKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeKey where
+instance Data.ToQuery DescribeKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeKeyResponse' smart constructor.

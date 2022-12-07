@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.PartnerIntegrationInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.PartnerIntegrationStatus
@@ -38,10 +39,10 @@ data PartnerIntegrationInfo = PartnerIntegrationInfo'
     -- | The status message provided by the partner.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The date (UTC) that the partner integration was created.
-    createdAt :: Prelude.Maybe Core.ISO8601,
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The date (UTC) that the partner integration status was last updated by
     -- the partner.
-    updatedAt :: Prelude.Maybe Core.ISO8601
+    updatedAt :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,22 +97,22 @@ partnerIntegrationInfo_statusMessage = Lens.lens (\PartnerIntegrationInfo' {stat
 
 -- | The date (UTC) that the partner integration was created.
 partnerIntegrationInfo_createdAt :: Lens.Lens' PartnerIntegrationInfo (Prelude.Maybe Prelude.UTCTime)
-partnerIntegrationInfo_createdAt = Lens.lens (\PartnerIntegrationInfo' {createdAt} -> createdAt) (\s@PartnerIntegrationInfo' {} a -> s {createdAt = a} :: PartnerIntegrationInfo) Prelude.. Lens.mapping Core._Time
+partnerIntegrationInfo_createdAt = Lens.lens (\PartnerIntegrationInfo' {createdAt} -> createdAt) (\s@PartnerIntegrationInfo' {} a -> s {createdAt = a} :: PartnerIntegrationInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The date (UTC) that the partner integration status was last updated by
 -- the partner.
 partnerIntegrationInfo_updatedAt :: Lens.Lens' PartnerIntegrationInfo (Prelude.Maybe Prelude.UTCTime)
-partnerIntegrationInfo_updatedAt = Lens.lens (\PartnerIntegrationInfo' {updatedAt} -> updatedAt) (\s@PartnerIntegrationInfo' {} a -> s {updatedAt = a} :: PartnerIntegrationInfo) Prelude.. Lens.mapping Core._Time
+partnerIntegrationInfo_updatedAt = Lens.lens (\PartnerIntegrationInfo' {updatedAt} -> updatedAt) (\s@PartnerIntegrationInfo' {} a -> s {updatedAt = a} :: PartnerIntegrationInfo) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML PartnerIntegrationInfo where
+instance Data.FromXML PartnerIntegrationInfo where
   parseXML x =
     PartnerIntegrationInfo'
-      Prelude.<$> (x Core..@? "DatabaseName")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "PartnerName")
-      Prelude.<*> (x Core..@? "StatusMessage")
-      Prelude.<*> (x Core..@? "CreatedAt")
-      Prelude.<*> (x Core..@? "UpdatedAt")
+      Prelude.<$> (x Data..@? "DatabaseName")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "PartnerName")
+      Prelude.<*> (x Data..@? "StatusMessage")
+      Prelude.<*> (x Data..@? "CreatedAt")
+      Prelude.<*> (x Data..@? "UpdatedAt")
 
 instance Prelude.Hashable PartnerIntegrationInfo where
   hashWithSalt _salt PartnerIntegrationInfo' {..} =

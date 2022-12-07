@@ -45,6 +45,7 @@ where
 import Amazonka.ChimeSdkMediaPipelines.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,7 +57,7 @@ data CreateMediaConcatenationPipeline = CreateMediaConcatenationPipeline'
     -- | The unique identifier for the client request. The token makes the API
     -- request idempotent. Use a unique token for each media concatenation
     -- pipeline request.
-    clientRequestToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    clientRequestToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | An object that specifies the sources for the media concatenation
     -- pipeline.
     sources :: Prelude.NonEmpty ConcatenationSource,
@@ -108,7 +109,7 @@ createMediaConcatenationPipeline_tags = Lens.lens (\CreateMediaConcatenationPipe
 -- request idempotent. Use a unique token for each media concatenation
 -- pipeline request.
 createMediaConcatenationPipeline_clientRequestToken :: Lens.Lens' CreateMediaConcatenationPipeline (Prelude.Maybe Prelude.Text)
-createMediaConcatenationPipeline_clientRequestToken = Lens.lens (\CreateMediaConcatenationPipeline' {clientRequestToken} -> clientRequestToken) (\s@CreateMediaConcatenationPipeline' {} a -> s {clientRequestToken = a} :: CreateMediaConcatenationPipeline) Prelude.. Lens.mapping Core._Sensitive
+createMediaConcatenationPipeline_clientRequestToken = Lens.lens (\CreateMediaConcatenationPipeline' {clientRequestToken} -> clientRequestToken) (\s@CreateMediaConcatenationPipeline' {} a -> s {clientRequestToken = a} :: CreateMediaConcatenationPipeline) Prelude.. Lens.mapping Data._Sensitive
 
 -- | An object that specifies the sources for the media concatenation
 -- pipeline.
@@ -133,7 +134,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateMediaConcatenationPipelineResponse'
-            Prelude.<$> (x Core..?> "MediaConcatenationPipeline")
+            Prelude.<$> (x Data..?> "MediaConcatenationPipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,29 +161,29 @@ instance
       `Prelude.seq` Prelude.rnf sinks
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateMediaConcatenationPipeline
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateMediaConcatenationPipeline where
+instance Data.ToJSON CreateMediaConcatenationPipeline where
   toJSON CreateMediaConcatenationPipeline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("Sources" Core..= sources),
-            Prelude.Just ("Sinks" Core..= sinks)
+            Prelude.Just ("Sources" Data..= sources),
+            Prelude.Just ("Sinks" Data..= sinks)
           ]
       )
 
-instance Core.ToPath CreateMediaConcatenationPipeline where
+instance Data.ToPath CreateMediaConcatenationPipeline where
   toPath =
     Prelude.const "/sdk-media-concatenation-pipelines"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateMediaConcatenationPipeline
   where
   toQuery = Prelude.const Prelude.mempty

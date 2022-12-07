@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.LFTagError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.ErrorDetail
 import Amazonka.LakeFormation.Types.LFTagPair
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ lFTagError_lFTag = Lens.lens (\LFTagError' {lFTag} -> lFTag) (\s@LFTagError' {} 
 lFTagError_error :: Lens.Lens' LFTagError (Prelude.Maybe ErrorDetail)
 lFTagError_error = Lens.lens (\LFTagError' {error} -> error) (\s@LFTagError' {} a -> s {error = a} :: LFTagError)
 
-instance Core.FromJSON LFTagError where
+instance Data.FromJSON LFTagError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LFTagError"
       ( \x ->
           LFTagError'
-            Prelude.<$> (x Core..:? "LFTag")
-            Prelude.<*> (x Core..:? "Error")
+            Prelude.<$> (x Data..:? "LFTag")
+            Prelude.<*> (x Data..:? "Error")
       )
 
 instance Prelude.Hashable LFTagError where

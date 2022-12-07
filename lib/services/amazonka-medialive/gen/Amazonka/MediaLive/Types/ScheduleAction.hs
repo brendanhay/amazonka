@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.ScheduleAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.ScheduleActionSettings
 import Amazonka.MediaLive.Types.ScheduleActionStartSettings
 import qualified Amazonka.Prelude as Prelude
@@ -97,15 +98,15 @@ scheduleAction_scheduleActionStartSettings = Lens.lens (\ScheduleAction' {schedu
 scheduleAction_scheduleActionSettings :: Lens.Lens' ScheduleAction ScheduleActionSettings
 scheduleAction_scheduleActionSettings = Lens.lens (\ScheduleAction' {scheduleActionSettings} -> scheduleActionSettings) (\s@ScheduleAction' {} a -> s {scheduleActionSettings = a} :: ScheduleAction)
 
-instance Core.FromJSON ScheduleAction where
+instance Data.FromJSON ScheduleAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScheduleAction"
       ( \x ->
           ScheduleAction'
-            Prelude.<$> (x Core..: "actionName")
-            Prelude.<*> (x Core..: "scheduleActionStartSettings")
-            Prelude.<*> (x Core..: "scheduleActionSettings")
+            Prelude.<$> (x Data..: "actionName")
+            Prelude.<*> (x Data..: "scheduleActionStartSettings")
+            Prelude.<*> (x Data..: "scheduleActionSettings")
       )
 
 instance Prelude.Hashable ScheduleAction where
@@ -120,18 +121,18 @@ instance Prelude.NFData ScheduleAction where
       `Prelude.seq` Prelude.rnf scheduleActionStartSettings
       `Prelude.seq` Prelude.rnf scheduleActionSettings
 
-instance Core.ToJSON ScheduleAction where
+instance Data.ToJSON ScheduleAction where
   toJSON ScheduleAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("actionName" Core..= actionName),
+          [ Prelude.Just ("actionName" Data..= actionName),
             Prelude.Just
               ( "scheduleActionStartSettings"
-                  Core..= scheduleActionStartSettings
+                  Data..= scheduleActionStartSettings
               ),
             Prelude.Just
               ( "scheduleActionSettings"
-                  Core..= scheduleActionSettings
+                  Data..= scheduleActionSettings
               )
           ]
       )

@@ -48,6 +48,7 @@ where
 import Amazonka.CodeGuruProfiler.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -164,9 +165,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetFindingsReportAccountSummaryResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "reportSummaries"
+            Prelude.<*> ( x Data..?> "reportSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -192,28 +193,28 @@ instance
       `Prelude.seq` Prelude.rnf dailyReportsOnly
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetFindingsReportAccountSummary
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetFindingsReportAccountSummary where
+instance Data.ToPath GetFindingsReportAccountSummary where
   toPath = Prelude.const "/internal/findingsReports"
 
-instance Core.ToQuery GetFindingsReportAccountSummary where
+instance Data.ToQuery GetFindingsReportAccountSummary where
   toQuery GetFindingsReportAccountSummary' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "dailyReportsOnly" Core.=: dailyReportsOnly
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "dailyReportsOnly" Data.=: dailyReportsOnly
       ]
 
 -- | The structure representing the GetFindingsReportAccountSummaryResponse.

@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.WAFV2.Types.RateBasedStatement where
 
-import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 data RateBasedStatement
@@ -24,9 +24,9 @@ instance Prelude.Show RateBasedStatement
 
 instance Prelude.Generic RateBasedStatement
 
-instance Core.ToJSON RateBasedStatement
+instance Data.ToJSON RateBasedStatement
 
-instance Core.FromJSON RateBasedStatement
+instance Data.FromJSON RateBasedStatement
 
 instance Prelude.NFData RateBasedStatement
 

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,11 +111,11 @@ instance Core.AWSRequest DeleteOptedOutNumber where
     Response.receiveJSON
       ( \s h x ->
           DeleteOptedOutNumberResponse'
-            Prelude.<$> (x Core..?> "OptOutListArn")
-            Prelude.<*> (x Core..?> "OptedOutTimestamp")
-            Prelude.<*> (x Core..?> "OptOutListName")
-            Prelude.<*> (x Core..?> "OptedOutNumber")
-            Prelude.<*> (x Core..?> "EndUserOptedOut")
+            Prelude.<$> (x Data..?> "OptOutListArn")
+            Prelude.<*> (x Data..?> "OptedOutTimestamp")
+            Prelude.<*> (x Data..?> "OptOutListName")
+            Prelude.<*> (x Data..?> "OptedOutNumber")
+            Prelude.<*> (x Data..?> "EndUserOptedOut")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,36 +129,36 @@ instance Prelude.NFData DeleteOptedOutNumber where
     Prelude.rnf optOutListName
       `Prelude.seq` Prelude.rnf optedOutNumber
 
-instance Core.ToHeaders DeleteOptedOutNumber where
+instance Data.ToHeaders DeleteOptedOutNumber where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.DeleteOptedOutNumber" ::
+              Data.=# ( "PinpointSMSVoiceV2.DeleteOptedOutNumber" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteOptedOutNumber where
+instance Data.ToJSON DeleteOptedOutNumber where
   toJSON DeleteOptedOutNumber' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OptOutListName" Core..= optOutListName),
+              ("OptOutListName" Data..= optOutListName),
             Prelude.Just
-              ("OptedOutNumber" Core..= optedOutNumber)
+              ("OptedOutNumber" Data..= optedOutNumber)
           ]
       )
 
-instance Core.ToPath DeleteOptedOutNumber where
+instance Data.ToPath DeleteOptedOutNumber where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteOptedOutNumber where
+instance Data.ToQuery DeleteOptedOutNumber where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteOptedOutNumberResponse' smart constructor.
@@ -166,7 +167,7 @@ data DeleteOptedOutNumberResponse = DeleteOptedOutNumberResponse'
     optOutListArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the number was removed at, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    optedOutTimestamp :: Prelude.Maybe Core.POSIX,
+    optedOutTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The OptOutListName that the phone number was removed from.
     optOutListName :: Prelude.Maybe Prelude.Text,
     -- | The phone number that was removed from the OptOutList.
@@ -222,7 +223,7 @@ deleteOptedOutNumberResponse_optOutListArn = Lens.lens (\DeleteOptedOutNumberRes
 -- | The time that the number was removed at, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 deleteOptedOutNumberResponse_optedOutTimestamp :: Lens.Lens' DeleteOptedOutNumberResponse (Prelude.Maybe Prelude.UTCTime)
-deleteOptedOutNumberResponse_optedOutTimestamp = Lens.lens (\DeleteOptedOutNumberResponse' {optedOutTimestamp} -> optedOutTimestamp) (\s@DeleteOptedOutNumberResponse' {} a -> s {optedOutTimestamp = a} :: DeleteOptedOutNumberResponse) Prelude.. Lens.mapping Core._Time
+deleteOptedOutNumberResponse_optedOutTimestamp = Lens.lens (\DeleteOptedOutNumberResponse' {optedOutTimestamp} -> optedOutTimestamp) (\s@DeleteOptedOutNumberResponse' {} a -> s {optedOutTimestamp = a} :: DeleteOptedOutNumberResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The OptOutListName that the phone number was removed from.
 deleteOptedOutNumberResponse_optOutListName :: Lens.Lens' DeleteOptedOutNumberResponse (Prelude.Maybe Prelude.Text)

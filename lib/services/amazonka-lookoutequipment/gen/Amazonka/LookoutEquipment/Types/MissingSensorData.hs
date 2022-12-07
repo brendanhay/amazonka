@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.MissingSensorData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Entity that comprises aggregated information on sensors having missing
@@ -70,14 +71,14 @@ missingSensorData_affectedSensorCount = Lens.lens (\MissingSensorData' {affected
 missingSensorData_totalNumberOfMissingValues :: Lens.Lens' MissingSensorData Prelude.Int
 missingSensorData_totalNumberOfMissingValues = Lens.lens (\MissingSensorData' {totalNumberOfMissingValues} -> totalNumberOfMissingValues) (\s@MissingSensorData' {} a -> s {totalNumberOfMissingValues = a} :: MissingSensorData)
 
-instance Core.FromJSON MissingSensorData where
+instance Data.FromJSON MissingSensorData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MissingSensorData"
       ( \x ->
           MissingSensorData'
-            Prelude.<$> (x Core..: "AffectedSensorCount")
-            Prelude.<*> (x Core..: "TotalNumberOfMissingValues")
+            Prelude.<$> (x Data..: "AffectedSensorCount")
+            Prelude.<*> (x Data..: "TotalNumberOfMissingValues")
       )
 
 instance Prelude.Hashable MissingSensorData where

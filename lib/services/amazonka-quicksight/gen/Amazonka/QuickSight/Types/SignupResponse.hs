@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.SignupResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @SignupResponse@ object that contains a summary of a newly created
@@ -89,16 +90,16 @@ signupResponse_iAMUser = Lens.lens (\SignupResponse' {iAMUser} -> iAMUser) (\s@S
 signupResponse_accountName :: Lens.Lens' SignupResponse (Prelude.Maybe Prelude.Text)
 signupResponse_accountName = Lens.lens (\SignupResponse' {accountName} -> accountName) (\s@SignupResponse' {} a -> s {accountName = a} :: SignupResponse)
 
-instance Core.FromJSON SignupResponse where
+instance Data.FromJSON SignupResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SignupResponse"
       ( \x ->
           SignupResponse'
-            Prelude.<$> (x Core..:? "directoryType")
-            Prelude.<*> (x Core..:? "userLoginName")
-            Prelude.<*> (x Core..:? "IAMUser")
-            Prelude.<*> (x Core..:? "accountName")
+            Prelude.<$> (x Data..:? "directoryType")
+            Prelude.<*> (x Data..:? "userLoginName")
+            Prelude.<*> (x Data..:? "IAMUser")
+            Prelude.<*> (x Data..:? "accountName")
       )
 
 instance Prelude.Hashable SignupResponse where

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance Core.AWSRequest GetDataLakeSettings where
     Response.receiveJSON
       ( \s h x ->
           GetDataLakeSettingsResponse'
-            Prelude.<$> (x Core..?> "DataLakeSettings")
+            Prelude.<$> (x Data..?> "DataLakeSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,28 +103,28 @@ instance Prelude.Hashable GetDataLakeSettings where
 instance Prelude.NFData GetDataLakeSettings where
   rnf GetDataLakeSettings' {..} = Prelude.rnf catalogId
 
-instance Core.ToHeaders GetDataLakeSettings where
+instance Data.ToHeaders GetDataLakeSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDataLakeSettings where
+instance Data.ToJSON GetDataLakeSettings where
   toJSON GetDataLakeSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("CatalogId" Core..=) Prelude.<$> catalogId]
+          [("CatalogId" Data..=) Prelude.<$> catalogId]
       )
 
-instance Core.ToPath GetDataLakeSettings where
+instance Data.ToPath GetDataLakeSettings where
   toPath = Prelude.const "/GetDataLakeSettings"
 
-instance Core.ToQuery GetDataLakeSettings where
+instance Data.ToQuery GetDataLakeSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDataLakeSettingsResponse' smart constructor.

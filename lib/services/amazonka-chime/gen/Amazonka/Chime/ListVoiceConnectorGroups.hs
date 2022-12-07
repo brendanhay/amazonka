@@ -45,6 +45,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,8 +97,8 @@ instance Core.AWSRequest ListVoiceConnectorGroups where
     Response.receiveJSON
       ( \s h x ->
           ListVoiceConnectorGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "VoiceConnectorGroups"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "VoiceConnectorGroups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -113,17 +114,17 @@ instance Prelude.NFData ListVoiceConnectorGroups where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListVoiceConnectorGroups where
+instance Data.ToHeaders ListVoiceConnectorGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListVoiceConnectorGroups where
+instance Data.ToPath ListVoiceConnectorGroups where
   toPath = Prelude.const "/voice-connector-groups"
 
-instance Core.ToQuery ListVoiceConnectorGroups where
+instance Data.ToQuery ListVoiceConnectorGroups where
   toQuery ListVoiceConnectorGroups' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListVoiceConnectorGroupsResponse' smart constructor.

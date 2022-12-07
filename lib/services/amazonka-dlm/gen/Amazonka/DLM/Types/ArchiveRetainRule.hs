@@ -22,6 +22,7 @@ module Amazonka.DLM.Types.ArchiveRetainRule where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.RetentionArchiveTier
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Snapshot policies only]__ Specifies information about the archive
@@ -63,13 +64,13 @@ newArchiveRetainRule pRetentionArchiveTier_ =
 archiveRetainRule_retentionArchiveTier :: Lens.Lens' ArchiveRetainRule RetentionArchiveTier
 archiveRetainRule_retentionArchiveTier = Lens.lens (\ArchiveRetainRule' {retentionArchiveTier} -> retentionArchiveTier) (\s@ArchiveRetainRule' {} a -> s {retentionArchiveTier = a} :: ArchiveRetainRule)
 
-instance Core.FromJSON ArchiveRetainRule where
+instance Data.FromJSON ArchiveRetainRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArchiveRetainRule"
       ( \x ->
           ArchiveRetainRule'
-            Prelude.<$> (x Core..: "RetentionArchiveTier")
+            Prelude.<$> (x Data..: "RetentionArchiveTier")
       )
 
 instance Prelude.Hashable ArchiveRetainRule where
@@ -80,13 +81,13 @@ instance Prelude.NFData ArchiveRetainRule where
   rnf ArchiveRetainRule' {..} =
     Prelude.rnf retentionArchiveTier
 
-instance Core.ToJSON ArchiveRetainRule where
+instance Data.ToJSON ArchiveRetainRule where
   toJSON ArchiveRetainRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "RetentionArchiveTier"
-                  Core..= retentionArchiveTier
+                  Data..= retentionArchiveTier
               )
           ]
       )

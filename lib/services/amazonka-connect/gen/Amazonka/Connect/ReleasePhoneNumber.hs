@@ -49,6 +49,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,25 +120,25 @@ instance Prelude.NFData ReleasePhoneNumber where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf phoneNumberId
 
-instance Core.ToHeaders ReleasePhoneNumber where
+instance Data.ToHeaders ReleasePhoneNumber where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ReleasePhoneNumber where
+instance Data.ToPath ReleasePhoneNumber where
   toPath ReleasePhoneNumber' {..} =
     Prelude.mconcat
-      ["/phone-number/", Core.toBS phoneNumberId]
+      ["/phone-number/", Data.toBS phoneNumberId]
 
-instance Core.ToQuery ReleasePhoneNumber where
+instance Data.ToQuery ReleasePhoneNumber where
   toQuery ReleasePhoneNumber' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | /See:/ 'newReleasePhoneNumberResponse' smart constructor.
 data ReleasePhoneNumberResponse = ReleasePhoneNumberResponse'

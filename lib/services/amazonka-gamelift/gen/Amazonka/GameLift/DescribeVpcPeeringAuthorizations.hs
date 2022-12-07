@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -81,7 +82,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeVpcPeeringAuthorizationsResponse'
-            Prelude.<$> ( x Core..?> "VpcPeeringAuthorizations"
+            Prelude.<$> ( x Data..?> "VpcPeeringAuthorizations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -101,31 +102,31 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeVpcPeeringAuthorizations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeVpcPeeringAuthorizations" ::
+              Data.=# ( "GameLift.DescribeVpcPeeringAuthorizations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeVpcPeeringAuthorizations where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DescribeVpcPeeringAuthorizations where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DescribeVpcPeeringAuthorizations where
+instance Data.ToPath DescribeVpcPeeringAuthorizations where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeVpcPeeringAuthorizations
   where
   toQuery = Prelude.const Prelude.mempty

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -251,9 +252,9 @@ instance Core.AWSRequest CreateKeySigningKey where
       ( \s h x ->
           CreateKeySigningKeyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "ChangeInfo")
-            Prelude.<*> (x Core..@ "KeySigningKey")
-            Prelude.<*> (h Core..# "Location")
+            Prelude.<*> (x Data..@ "ChangeInfo")
+            Prelude.<*> (x Data..@ "KeySigningKey")
+            Prelude.<*> (h Data..# "Location")
       )
 
 instance Prelude.Hashable CreateKeySigningKey where
@@ -272,29 +273,29 @@ instance Prelude.NFData CreateKeySigningKey where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToElement CreateKeySigningKey where
+instance Data.ToElement CreateKeySigningKey where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateKeySigningKeyRequest"
 
-instance Core.ToHeaders CreateKeySigningKey where
+instance Data.ToHeaders CreateKeySigningKey where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateKeySigningKey where
+instance Data.ToPath CreateKeySigningKey where
   toPath = Prelude.const "/2013-04-01/keysigningkey"
 
-instance Core.ToQuery CreateKeySigningKey where
+instance Data.ToQuery CreateKeySigningKey where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML CreateKeySigningKey where
+instance Data.ToXML CreateKeySigningKey where
   toXML CreateKeySigningKey' {..} =
     Prelude.mconcat
-      [ "CallerReference" Core.@= callerReference,
-        "HostedZoneId" Core.@= hostedZoneId,
+      [ "CallerReference" Data.@= callerReference,
+        "HostedZoneId" Data.@= hostedZoneId,
         "KeyManagementServiceArn"
-          Core.@= keyManagementServiceArn,
-        "Name" Core.@= name,
-        "Status" Core.@= status
+          Data.@= keyManagementServiceArn,
+        "Name" Data.@= name,
+        "Status" Data.@= status
       ]
 
 -- | /See:/ 'newCreateKeySigningKeyResponse' smart constructor.

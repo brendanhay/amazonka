@@ -21,6 +21,7 @@ module Amazonka.SmsVoice.Types.CloudWatchLogsDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about an event destination that
@@ -72,14 +73,14 @@ cloudWatchLogsDestination_logGroupArn = Lens.lens (\CloudWatchLogsDestination' {
 cloudWatchLogsDestination_iamRoleArn :: Lens.Lens' CloudWatchLogsDestination (Prelude.Maybe Prelude.Text)
 cloudWatchLogsDestination_iamRoleArn = Lens.lens (\CloudWatchLogsDestination' {iamRoleArn} -> iamRoleArn) (\s@CloudWatchLogsDestination' {} a -> s {iamRoleArn = a} :: CloudWatchLogsDestination)
 
-instance Core.FromJSON CloudWatchLogsDestination where
+instance Data.FromJSON CloudWatchLogsDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchLogsDestination"
       ( \x ->
           CloudWatchLogsDestination'
-            Prelude.<$> (x Core..:? "LogGroupArn")
-            Prelude.<*> (x Core..:? "IamRoleArn")
+            Prelude.<$> (x Data..:? "LogGroupArn")
+            Prelude.<*> (x Data..:? "IamRoleArn")
       )
 
 instance Prelude.Hashable CloudWatchLogsDestination where
@@ -92,11 +93,11 @@ instance Prelude.NFData CloudWatchLogsDestination where
     Prelude.rnf logGroupArn
       `Prelude.seq` Prelude.rnf iamRoleArn
 
-instance Core.ToJSON CloudWatchLogsDestination where
+instance Data.ToJSON CloudWatchLogsDestination where
   toJSON CloudWatchLogsDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LogGroupArn" Core..=) Prelude.<$> logGroupArn,
-            ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn
+          [ ("LogGroupArn" Data..=) Prelude.<$> logGroupArn,
+            ("IamRoleArn" Data..=) Prelude.<$> iamRoleArn
           ]
       )

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,32 +103,32 @@ instance Prelude.NFData DeregisterManagedInstance where
   rnf DeregisterManagedInstance' {..} =
     Prelude.rnf instanceId
 
-instance Core.ToHeaders DeregisterManagedInstance where
+instance Data.ToHeaders DeregisterManagedInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DeregisterManagedInstance" ::
+              Data.=# ( "AmazonSSM.DeregisterManagedInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeregisterManagedInstance where
+instance Data.ToJSON DeregisterManagedInstance where
   toJSON DeregisterManagedInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("InstanceId" Core..= instanceId)]
+          [Prelude.Just ("InstanceId" Data..= instanceId)]
       )
 
-instance Core.ToPath DeregisterManagedInstance where
+instance Data.ToPath DeregisterManagedInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeregisterManagedInstance where
+instance Data.ToQuery DeregisterManagedInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterManagedInstanceResponse' smart constructor.

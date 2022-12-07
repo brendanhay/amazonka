@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -244,13 +245,13 @@ instance Core.AWSRequest DescribeVpcEndpointServices where
     Response.receiveXML
       ( \s h x ->
           DescribeVpcEndpointServicesResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "serviceDetailSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "serviceDetailSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Core..@? "serviceNameSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<*> ( x Data..@? "serviceNameSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -271,30 +272,30 @@ instance Prelude.NFData DescribeVpcEndpointServices where
       `Prelude.seq` Prelude.rnf serviceNames
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeVpcEndpointServices where
+instance Data.ToHeaders DescribeVpcEndpointServices where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeVpcEndpointServices where
+instance Data.ToPath DescribeVpcEndpointServices where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVpcEndpointServices where
+instance Data.ToQuery DescribeVpcEndpointServices where
   toQuery DescribeVpcEndpointServices' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeVpcEndpointServices" ::
+          Data.=: ( "DescribeVpcEndpointServices" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "ServiceName"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "ServiceName"
               Prelude.<$> serviceNames
           ),
-        "MaxResults" Core.=: maxResults
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | Contains the output of DescribeVpcEndpointServices.

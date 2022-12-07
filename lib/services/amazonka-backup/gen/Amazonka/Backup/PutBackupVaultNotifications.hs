@@ -41,6 +41,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -188,36 +189,36 @@ instance Prelude.NFData PutBackupVaultNotifications where
       `Prelude.seq` Prelude.rnf sNSTopicArn
       `Prelude.seq` Prelude.rnf backupVaultEvents
 
-instance Core.ToHeaders PutBackupVaultNotifications where
+instance Data.ToHeaders PutBackupVaultNotifications where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutBackupVaultNotifications where
+instance Data.ToJSON PutBackupVaultNotifications where
   toJSON PutBackupVaultNotifications' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SNSTopicArn" Core..= sNSTopicArn),
+          [ Prelude.Just ("SNSTopicArn" Data..= sNSTopicArn),
             Prelude.Just
-              ("BackupVaultEvents" Core..= backupVaultEvents)
+              ("BackupVaultEvents" Data..= backupVaultEvents)
           ]
       )
 
-instance Core.ToPath PutBackupVaultNotifications where
+instance Data.ToPath PutBackupVaultNotifications where
   toPath PutBackupVaultNotifications' {..} =
     Prelude.mconcat
       [ "/backup-vaults/",
-        Core.toBS backupVaultName,
+        Data.toBS backupVaultName,
         "/notification-configuration"
       ]
 
-instance Core.ToQuery PutBackupVaultNotifications where
+instance Data.ToQuery PutBackupVaultNotifications where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutBackupVaultNotificationsResponse' smart constructor.

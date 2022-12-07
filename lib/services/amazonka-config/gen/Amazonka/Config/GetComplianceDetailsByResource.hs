@@ -51,6 +51,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,10 +172,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetComplianceDetailsByResourceResponse'
-            Prelude.<$> ( x Core..?> "EvaluationResults"
+            Prelude.<$> ( x Data..?> "EvaluationResults"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,39 +202,39 @@ instance
       `Prelude.seq` Prelude.rnf resourceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetComplianceDetailsByResource
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.GetComplianceDetailsByResource" ::
+              Data.=# ( "StarlingDoveService.GetComplianceDetailsByResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetComplianceDetailsByResource where
+instance Data.ToJSON GetComplianceDetailsByResource where
   toJSON GetComplianceDetailsByResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ComplianceTypes" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ComplianceTypes" Data..=)
               Prelude.<$> complianceTypes,
-            Prelude.Just ("ResourceType" Core..= resourceType),
-            Prelude.Just ("ResourceId" Core..= resourceId)
+            Prelude.Just ("ResourceType" Data..= resourceType),
+            Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )
 
-instance Core.ToPath GetComplianceDetailsByResource where
+instance Data.ToPath GetComplianceDetailsByResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetComplianceDetailsByResource where
+instance Data.ToQuery GetComplianceDetailsByResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

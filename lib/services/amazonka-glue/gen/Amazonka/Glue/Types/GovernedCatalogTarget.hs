@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.GovernedCatalogTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CatalogSchemaChangePolicy
 import qualified Amazonka.Prelude as Prelude
 
@@ -112,18 +113,18 @@ governedCatalogTarget_table = Lens.lens (\GovernedCatalogTarget' {table} -> tabl
 governedCatalogTarget_database :: Lens.Lens' GovernedCatalogTarget Prelude.Text
 governedCatalogTarget_database = Lens.lens (\GovernedCatalogTarget' {database} -> database) (\s@GovernedCatalogTarget' {} a -> s {database = a} :: GovernedCatalogTarget)
 
-instance Core.FromJSON GovernedCatalogTarget where
+instance Data.FromJSON GovernedCatalogTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GovernedCatalogTarget"
       ( \x ->
           GovernedCatalogTarget'
-            Prelude.<$> (x Core..:? "SchemaChangePolicy")
-            Prelude.<*> (x Core..:? "PartitionKeys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "Table")
-            Prelude.<*> (x Core..: "Database")
+            Prelude.<$> (x Data..:? "SchemaChangePolicy")
+            Prelude.<*> (x Data..:? "PartitionKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "Table")
+            Prelude.<*> (x Data..: "Database")
       )
 
 instance Prelude.Hashable GovernedCatalogTarget where
@@ -144,16 +145,16 @@ instance Prelude.NFData GovernedCatalogTarget where
       `Prelude.seq` Prelude.rnf table
       `Prelude.seq` Prelude.rnf database
 
-instance Core.ToJSON GovernedCatalogTarget where
+instance Data.ToJSON GovernedCatalogTarget where
   toJSON GovernedCatalogTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SchemaChangePolicy" Core..=)
+          [ ("SchemaChangePolicy" Data..=)
               Prelude.<$> schemaChangePolicy,
-            ("PartitionKeys" Core..=) Prelude.<$> partitionKeys,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Table" Core..= table),
-            Prelude.Just ("Database" Core..= database)
+            ("PartitionKeys" Data..=) Prelude.<$> partitionKeys,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Table" Data..= table),
+            Prelude.Just ("Database" Data..= database)
           ]
       )

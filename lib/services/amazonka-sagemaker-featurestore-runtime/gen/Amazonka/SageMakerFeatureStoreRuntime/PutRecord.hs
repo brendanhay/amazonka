@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,30 +125,30 @@ instance Prelude.NFData PutRecord where
     Prelude.rnf featureGroupName
       `Prelude.seq` Prelude.rnf record
 
-instance Core.ToHeaders PutRecord where
+instance Data.ToHeaders PutRecord where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRecord where
+instance Data.ToJSON PutRecord where
   toJSON PutRecord' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Record" Core..= record)]
+          [Prelude.Just ("Record" Data..= record)]
       )
 
-instance Core.ToPath PutRecord where
+instance Data.ToPath PutRecord where
   toPath PutRecord' {..} =
     Prelude.mconcat
-      ["/FeatureGroup/", Core.toBS featureGroupName]
+      ["/FeatureGroup/", Data.toBS featureGroupName]
 
-instance Core.ToQuery PutRecord where
+instance Data.ToQuery PutRecord where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRecordResponse' smart constructor.

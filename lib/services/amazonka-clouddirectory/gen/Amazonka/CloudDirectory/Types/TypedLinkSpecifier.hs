@@ -24,6 +24,7 @@ import Amazonka.CloudDirectory.Types.ObjectReference
 import Amazonka.CloudDirectory.Types.TypedLinkSchemaAndFacetName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains all the information that is used to uniquely identify a typed
@@ -98,17 +99,17 @@ typedLinkSpecifier_targetObjectReference = Lens.lens (\TypedLinkSpecifier' {targ
 typedLinkSpecifier_identityAttributeValues :: Lens.Lens' TypedLinkSpecifier [AttributeNameAndValue]
 typedLinkSpecifier_identityAttributeValues = Lens.lens (\TypedLinkSpecifier' {identityAttributeValues} -> identityAttributeValues) (\s@TypedLinkSpecifier' {} a -> s {identityAttributeValues = a} :: TypedLinkSpecifier) Prelude.. Lens.coerced
 
-instance Core.FromJSON TypedLinkSpecifier where
+instance Data.FromJSON TypedLinkSpecifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TypedLinkSpecifier"
       ( \x ->
           TypedLinkSpecifier'
-            Prelude.<$> (x Core..: "TypedLinkFacet")
-            Prelude.<*> (x Core..: "SourceObjectReference")
-            Prelude.<*> (x Core..: "TargetObjectReference")
-            Prelude.<*> ( x Core..:? "IdentityAttributeValues"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..: "TypedLinkFacet")
+            Prelude.<*> (x Data..: "SourceObjectReference")
+            Prelude.<*> (x Data..: "TargetObjectReference")
+            Prelude.<*> ( x Data..:? "IdentityAttributeValues"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -126,23 +127,23 @@ instance Prelude.NFData TypedLinkSpecifier where
       `Prelude.seq` Prelude.rnf targetObjectReference
       `Prelude.seq` Prelude.rnf identityAttributeValues
 
-instance Core.ToJSON TypedLinkSpecifier where
+instance Data.ToJSON TypedLinkSpecifier where
   toJSON TypedLinkSpecifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TypedLinkFacet" Core..= typedLinkFacet),
+              ("TypedLinkFacet" Data..= typedLinkFacet),
             Prelude.Just
               ( "SourceObjectReference"
-                  Core..= sourceObjectReference
+                  Data..= sourceObjectReference
               ),
             Prelude.Just
               ( "TargetObjectReference"
-                  Core..= targetObjectReference
+                  Data..= targetObjectReference
               ),
             Prelude.Just
               ( "IdentityAttributeValues"
-                  Core..= identityAttributeValues
+                  Data..= identityAttributeValues
               )
           ]
       )

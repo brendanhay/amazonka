@@ -46,6 +46,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,34 +102,34 @@ instance Prelude.NFData StopQueryExecution where
   rnf StopQueryExecution' {..} =
     Prelude.rnf queryExecutionId
 
-instance Core.ToHeaders StopQueryExecution where
+instance Data.ToHeaders StopQueryExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.StopQueryExecution" ::
+              Data.=# ( "AmazonAthena.StopQueryExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopQueryExecution where
+instance Data.ToJSON StopQueryExecution where
   toJSON StopQueryExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("QueryExecutionId" Core..= queryExecutionId)
+              ("QueryExecutionId" Data..= queryExecutionId)
           ]
       )
 
-instance Core.ToPath StopQueryExecution where
+instance Data.ToPath StopQueryExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopQueryExecution where
+instance Data.ToQuery StopQueryExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopQueryExecutionResponse' smart constructor.

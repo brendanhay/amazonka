@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.NetworkBinding where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.TransportProtocol
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,16 +84,16 @@ networkBinding_hostPort = Lens.lens (\NetworkBinding' {hostPort} -> hostPort) (\
 networkBinding_protocol :: Lens.Lens' NetworkBinding (Prelude.Maybe TransportProtocol)
 networkBinding_protocol = Lens.lens (\NetworkBinding' {protocol} -> protocol) (\s@NetworkBinding' {} a -> s {protocol = a} :: NetworkBinding)
 
-instance Core.FromJSON NetworkBinding where
+instance Data.FromJSON NetworkBinding where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkBinding"
       ( \x ->
           NetworkBinding'
-            Prelude.<$> (x Core..:? "containerPort")
-            Prelude.<*> (x Core..:? "bindIP")
-            Prelude.<*> (x Core..:? "hostPort")
-            Prelude.<*> (x Core..:? "protocol")
+            Prelude.<$> (x Data..:? "containerPort")
+            Prelude.<*> (x Data..:? "bindIP")
+            Prelude.<*> (x Data..:? "hostPort")
+            Prelude.<*> (x Data..:? "protocol")
       )
 
 instance Prelude.Hashable NetworkBinding where
@@ -109,13 +110,13 @@ instance Prelude.NFData NetworkBinding where
       `Prelude.seq` Prelude.rnf hostPort
       `Prelude.seq` Prelude.rnf protocol
 
-instance Core.ToJSON NetworkBinding where
+instance Data.ToJSON NetworkBinding where
   toJSON NetworkBinding' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("containerPort" Core..=) Prelude.<$> containerPort,
-            ("bindIP" Core..=) Prelude.<$> bindIP,
-            ("hostPort" Core..=) Prelude.<$> hostPort,
-            ("protocol" Core..=) Prelude.<$> protocol
+          [ ("containerPort" Data..=) Prelude.<$> containerPort,
+            ("bindIP" Data..=) Prelude.<$> bindIP,
+            ("hostPort" Data..=) Prelude.<$> hostPort,
+            ("protocol" Data..=) Prelude.<$> protocol
           ]
       )

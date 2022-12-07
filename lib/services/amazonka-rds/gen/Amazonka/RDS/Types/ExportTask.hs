@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.ExportTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.ExportSourceType
 
@@ -36,7 +37,7 @@ data ExportTask = ExportTask'
     -- | The progress of the snapshot export task as a percentage.
     percentProgress :: Prelude.Maybe Prelude.Int,
     -- | The time that the snapshot export task started.
-    taskStartTime :: Prelude.Maybe Core.ISO8601,
+    taskStartTime :: Prelude.Maybe Data.ISO8601,
     -- | The data exported from the snapshot. Valid values are the following:
     --
     -- -   @database@ - Export all the data from a specified database.
@@ -64,7 +65,7 @@ data ExportTask = ExportTask'
     -- | A warning about the snapshot export task.
     warningMessage :: Prelude.Maybe Prelude.Text,
     -- | The time that the snapshot was created.
-    snapshotTime :: Prelude.Maybe Core.ISO8601,
+    snapshotTime :: Prelude.Maybe Data.ISO8601,
     -- | A unique identifier for the snapshot export task. This ID isn\'t an
     -- identifier for the Amazon S3 bucket where the snapshot is exported to.
     exportTaskIdentifier :: Prelude.Maybe Prelude.Text,
@@ -80,7 +81,7 @@ data ExportTask = ExportTask'
     -- | The reason the export failed, if it failed.
     failureCause :: Prelude.Maybe Prelude.Text,
     -- | The time that the snapshot export task completed.
-    taskEndTime :: Prelude.Maybe Core.ISO8601,
+    taskEndTime :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon S3 bucket prefix that is the file name and path of the
     -- exported snapshot.
     s3Prefix :: Prelude.Maybe Prelude.Text
@@ -179,7 +180,7 @@ exportTask_percentProgress = Lens.lens (\ExportTask' {percentProgress} -> percen
 
 -- | The time that the snapshot export task started.
 exportTask_taskStartTime :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.UTCTime)
-exportTask_taskStartTime = Lens.lens (\ExportTask' {taskStartTime} -> taskStartTime) (\s@ExportTask' {} a -> s {taskStartTime = a} :: ExportTask) Prelude.. Lens.mapping Core._Time
+exportTask_taskStartTime = Lens.lens (\ExportTask' {taskStartTime} -> taskStartTime) (\s@ExportTask' {} a -> s {taskStartTime = a} :: ExportTask) Prelude.. Lens.mapping Data._Time
 
 -- | The data exported from the snapshot. Valid values are the following:
 --
@@ -221,7 +222,7 @@ exportTask_warningMessage = Lens.lens (\ExportTask' {warningMessage} -> warningM
 
 -- | The time that the snapshot was created.
 exportTask_snapshotTime :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.UTCTime)
-exportTask_snapshotTime = Lens.lens (\ExportTask' {snapshotTime} -> snapshotTime) (\s@ExportTask' {} a -> s {snapshotTime = a} :: ExportTask) Prelude.. Lens.mapping Core._Time
+exportTask_snapshotTime = Lens.lens (\ExportTask' {snapshotTime} -> snapshotTime) (\s@ExportTask' {} a -> s {snapshotTime = a} :: ExportTask) Prelude.. Lens.mapping Data._Time
 
 -- | A unique identifier for the snapshot export task. This ID isn\'t an
 -- identifier for the Amazon S3 bucket where the snapshot is exported to.
@@ -247,34 +248,34 @@ exportTask_failureCause = Lens.lens (\ExportTask' {failureCause} -> failureCause
 
 -- | The time that the snapshot export task completed.
 exportTask_taskEndTime :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.UTCTime)
-exportTask_taskEndTime = Lens.lens (\ExportTask' {taskEndTime} -> taskEndTime) (\s@ExportTask' {} a -> s {taskEndTime = a} :: ExportTask) Prelude.. Lens.mapping Core._Time
+exportTask_taskEndTime = Lens.lens (\ExportTask' {taskEndTime} -> taskEndTime) (\s@ExportTask' {} a -> s {taskEndTime = a} :: ExportTask) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon S3 bucket prefix that is the file name and path of the
 -- exported snapshot.
 exportTask_s3Prefix :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_s3Prefix = Lens.lens (\ExportTask' {s3Prefix} -> s3Prefix) (\s@ExportTask' {} a -> s {s3Prefix = a} :: ExportTask)
 
-instance Core.FromXML ExportTask where
+instance Data.FromXML ExportTask where
   parseXML x =
     ExportTask'
-      Prelude.<$> (x Core..@? "S3Bucket")
-      Prelude.<*> (x Core..@? "PercentProgress")
-      Prelude.<*> (x Core..@? "TaskStartTime")
-      Prelude.<*> ( x Core..@? "ExportOnly" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "S3Bucket")
+      Prelude.<*> (x Data..@? "PercentProgress")
+      Prelude.<*> (x Data..@? "TaskStartTime")
+      Prelude.<*> ( x Data..@? "ExportOnly" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "SourceArn")
-      Prelude.<*> (x Core..@? "TotalExtractedDataInGB")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "SourceType")
-      Prelude.<*> (x Core..@? "WarningMessage")
-      Prelude.<*> (x Core..@? "SnapshotTime")
-      Prelude.<*> (x Core..@? "ExportTaskIdentifier")
-      Prelude.<*> (x Core..@? "IamRoleArn")
-      Prelude.<*> (x Core..@? "KmsKeyId")
-      Prelude.<*> (x Core..@? "FailureCause")
-      Prelude.<*> (x Core..@? "TaskEndTime")
-      Prelude.<*> (x Core..@? "S3Prefix")
+      Prelude.<*> (x Data..@? "SourceArn")
+      Prelude.<*> (x Data..@? "TotalExtractedDataInGB")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "SourceType")
+      Prelude.<*> (x Data..@? "WarningMessage")
+      Prelude.<*> (x Data..@? "SnapshotTime")
+      Prelude.<*> (x Data..@? "ExportTaskIdentifier")
+      Prelude.<*> (x Data..@? "IamRoleArn")
+      Prelude.<*> (x Data..@? "KmsKeyId")
+      Prelude.<*> (x Data..@? "FailureCause")
+      Prelude.<*> (x Data..@? "TaskEndTime")
+      Prelude.<*> (x Data..@? "S3Prefix")
 
 instance Prelude.Hashable ExportTask where
   hashWithSalt _salt ExportTask' {..} =

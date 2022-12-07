@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,9 +162,9 @@ instance Core.AWSRequest DescribeUsers where
       "DescribeUsersResult"
       ( \s h x ->
           DescribeUsersResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "Users" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "Users" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -184,26 +185,26 @@ instance Prelude.NFData DescribeUsers where
       `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf engine
 
-instance Core.ToHeaders DescribeUsers where
+instance Data.ToHeaders DescribeUsers where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeUsers where
+instance Data.ToPath DescribeUsers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeUsers where
+instance Data.ToQuery DescribeUsers where
   toQuery DescribeUsers' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeUsers" :: Prelude.ByteString),
+          Data.=: ("DescribeUsers" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
-        "UserId" Core.=: userId,
-        "Engine" Core.=: engine
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords,
+        "UserId" Data.=: userId,
+        "Engine" Data.=: engine
       ]
 
 -- | /See:/ 'newDescribeUsersResponse' smart constructor.

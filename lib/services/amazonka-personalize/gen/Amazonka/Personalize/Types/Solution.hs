@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.Solution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.AutoMLResult
 import Amazonka.Personalize.Types.SolutionConfig
 import Amazonka.Personalize.Types.SolutionVersionSummary
@@ -51,7 +52,7 @@ data Solution = Solution'
     -- recipe. The default is @false@.
     performHPO :: Prelude.Maybe Prelude.Bool,
     -- | The creation date and time (in Unix time) of the solution.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | Describes the configuration properties for the solution.
     solutionConfig :: Prelude.Maybe SolutionConfig,
     -- | When @performAutoML@ is true, specifies the best recipe found.
@@ -70,7 +71,7 @@ data Solution = Solution'
     -- | The ARN of the recipe used to create the solution.
     recipeArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the solution was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -173,7 +174,7 @@ solution_performHPO = Lens.lens (\Solution' {performHPO} -> performHPO) (\s@Solu
 
 -- | The creation date and time (in Unix time) of the solution.
 solution_creationDateTime :: Lens.Lens' Solution (Prelude.Maybe Prelude.UTCTime)
-solution_creationDateTime = Lens.lens (\Solution' {creationDateTime} -> creationDateTime) (\s@Solution' {} a -> s {creationDateTime = a} :: Solution) Prelude.. Lens.mapping Core._Time
+solution_creationDateTime = Lens.lens (\Solution' {creationDateTime} -> creationDateTime) (\s@Solution' {} a -> s {creationDateTime = a} :: Solution) Prelude.. Lens.mapping Data._Time
 
 -- | Describes the configuration properties for the solution.
 solution_solutionConfig :: Lens.Lens' Solution (Prelude.Maybe SolutionConfig)
@@ -204,27 +205,27 @@ solution_recipeArn = Lens.lens (\Solution' {recipeArn} -> recipeArn) (\s@Solutio
 
 -- | The date and time (in Unix time) that the solution was last updated.
 solution_lastUpdatedDateTime :: Lens.Lens' Solution (Prelude.Maybe Prelude.UTCTime)
-solution_lastUpdatedDateTime = Lens.lens (\Solution' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Solution' {} a -> s {lastUpdatedDateTime = a} :: Solution) Prelude.. Lens.mapping Core._Time
+solution_lastUpdatedDateTime = Lens.lens (\Solution' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Solution' {} a -> s {lastUpdatedDateTime = a} :: Solution) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Solution where
+instance Data.FromJSON Solution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Solution"
       ( \x ->
           Solution'
-            Prelude.<$> (x Core..:? "solutionArn")
-            Prelude.<*> (x Core..:? "eventType")
-            Prelude.<*> (x Core..:? "latestSolutionVersion")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "performAutoML")
-            Prelude.<*> (x Core..:? "performHPO")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "solutionConfig")
-            Prelude.<*> (x Core..:? "autoMLResult")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "datasetGroupArn")
-            Prelude.<*> (x Core..:? "recipeArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "solutionArn")
+            Prelude.<*> (x Data..:? "eventType")
+            Prelude.<*> (x Data..:? "latestSolutionVersion")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "performAutoML")
+            Prelude.<*> (x Data..:? "performHPO")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "solutionConfig")
+            Prelude.<*> (x Data..:? "autoMLResult")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "datasetGroupArn")
+            Prelude.<*> (x Data..:? "recipeArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable Solution where

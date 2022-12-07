@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,24 +112,24 @@ instance Prelude.NFData UpdateIndexingConfiguration where
     Prelude.rnf thingGroupIndexingConfiguration
       `Prelude.seq` Prelude.rnf thingIndexingConfiguration
 
-instance Core.ToHeaders UpdateIndexingConfiguration where
+instance Data.ToHeaders UpdateIndexingConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateIndexingConfiguration where
+instance Data.ToJSON UpdateIndexingConfiguration where
   toJSON UpdateIndexingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("thingGroupIndexingConfiguration" Core..=)
+          [ ("thingGroupIndexingConfiguration" Data..=)
               Prelude.<$> thingGroupIndexingConfiguration,
-            ("thingIndexingConfiguration" Core..=)
+            ("thingIndexingConfiguration" Data..=)
               Prelude.<$> thingIndexingConfiguration
           ]
       )
 
-instance Core.ToPath UpdateIndexingConfiguration where
+instance Data.ToPath UpdateIndexingConfiguration where
   toPath = Prelude.const "/indexing/config"
 
-instance Core.ToQuery UpdateIndexingConfiguration where
+instance Data.ToQuery UpdateIndexingConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateIndexingConfigurationResponse' smart constructor.

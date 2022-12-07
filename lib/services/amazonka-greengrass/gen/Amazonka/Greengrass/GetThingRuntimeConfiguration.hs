@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetThingRuntimeConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetThingRuntimeConfigurationResponse'
-            Prelude.<$> (x Core..?> "RuntimeConfiguration")
+            Prelude.<$> (x Data..?> "RuntimeConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,26 +102,26 @@ instance Prelude.NFData GetThingRuntimeConfiguration where
   rnf GetThingRuntimeConfiguration' {..} =
     Prelude.rnf thingName
 
-instance Core.ToHeaders GetThingRuntimeConfiguration where
+instance Data.ToHeaders GetThingRuntimeConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetThingRuntimeConfiguration where
+instance Data.ToPath GetThingRuntimeConfiguration where
   toPath GetThingRuntimeConfiguration' {..} =
     Prelude.mconcat
       [ "/greengrass/things/",
-        Core.toBS thingName,
+        Data.toBS thingName,
         "/runtimeconfig"
       ]
 
-instance Core.ToQuery GetThingRuntimeConfiguration where
+instance Data.ToQuery GetThingRuntimeConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetThingRuntimeConfigurationResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.RoutingProfileSearchCriteria where
 import Amazonka.Connect.Types.StringCondition
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The search criteria to be used to return routing profiles.
@@ -96,13 +97,13 @@ instance Prelude.NFData RoutingProfileSearchCriteria where
       `Prelude.seq` Prelude.rnf orConditions
       `Prelude.seq` Prelude.rnf andConditions
 
-instance Core.ToJSON RoutingProfileSearchCriteria where
+instance Data.ToJSON RoutingProfileSearchCriteria where
   toJSON RoutingProfileSearchCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StringCondition" Core..=)
+          [ ("StringCondition" Data..=)
               Prelude.<$> stringCondition,
-            ("OrConditions" Core..=) Prelude.<$> orConditions,
-            ("AndConditions" Core..=) Prelude.<$> andConditions
+            ("OrConditions" Data..=) Prelude.<$> orConditions,
+            ("AndConditions" Data..=) Prelude.<$> andConditions
           ]
       )

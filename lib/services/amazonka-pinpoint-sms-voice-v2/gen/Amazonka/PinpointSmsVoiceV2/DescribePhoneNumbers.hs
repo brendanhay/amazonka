@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,8 +158,8 @@ instance Core.AWSRequest DescribePhoneNumbers where
     Response.receiveJSON
       ( \s h x ->
           DescribePhoneNumbersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "PhoneNumbers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "PhoneNumbers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,37 +177,37 @@ instance Prelude.NFData DescribePhoneNumbers where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribePhoneNumbers where
+instance Data.ToHeaders DescribePhoneNumbers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.DescribePhoneNumbers" ::
+              Data.=# ( "PinpointSMSVoiceV2.DescribePhoneNumbers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribePhoneNumbers where
+instance Data.ToJSON DescribePhoneNumbers where
   toJSON DescribePhoneNumbers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("PhoneNumberIds" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("PhoneNumberIds" Data..=)
               Prelude.<$> phoneNumberIds,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribePhoneNumbers where
+instance Data.ToPath DescribePhoneNumbers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePhoneNumbers where
+instance Data.ToQuery DescribePhoneNumbers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePhoneNumbersResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.QuestionDifference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.DifferenceStatus
 
@@ -69,15 +70,15 @@ questionDifference_differenceStatus = Lens.lens (\QuestionDifference' {differenc
 questionDifference_questionTitle :: Lens.Lens' QuestionDifference (Prelude.Maybe Prelude.Text)
 questionDifference_questionTitle = Lens.lens (\QuestionDifference' {questionTitle} -> questionTitle) (\s@QuestionDifference' {} a -> s {questionTitle = a} :: QuestionDifference)
 
-instance Core.FromJSON QuestionDifference where
+instance Data.FromJSON QuestionDifference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QuestionDifference"
       ( \x ->
           QuestionDifference'
-            Prelude.<$> (x Core..:? "QuestionId")
-            Prelude.<*> (x Core..:? "DifferenceStatus")
-            Prelude.<*> (x Core..:? "QuestionTitle")
+            Prelude.<$> (x Data..:? "QuestionId")
+            Prelude.<*> (x Data..:? "DifferenceStatus")
+            Prelude.<*> (x Data..:? "QuestionTitle")
       )
 
 instance Prelude.Hashable QuestionDifference where

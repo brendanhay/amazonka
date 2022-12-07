@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.ElasticsearchSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines an OpenSearch endpoint.
@@ -134,17 +135,17 @@ elasticsearchSettings_serviceAccessRoleArn = Lens.lens (\ElasticsearchSettings' 
 elasticsearchSettings_endpointUri :: Lens.Lens' ElasticsearchSettings Prelude.Text
 elasticsearchSettings_endpointUri = Lens.lens (\ElasticsearchSettings' {endpointUri} -> endpointUri) (\s@ElasticsearchSettings' {} a -> s {endpointUri = a} :: ElasticsearchSettings)
 
-instance Core.FromJSON ElasticsearchSettings where
+instance Data.FromJSON ElasticsearchSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ElasticsearchSettings"
       ( \x ->
           ElasticsearchSettings'
-            Prelude.<$> (x Core..:? "ErrorRetryDuration")
-            Prelude.<*> (x Core..:? "FullLoadErrorPercentage")
-            Prelude.<*> (x Core..:? "UseNewMappingType")
-            Prelude.<*> (x Core..: "ServiceAccessRoleArn")
-            Prelude.<*> (x Core..: "EndpointUri")
+            Prelude.<$> (x Data..:? "ErrorRetryDuration")
+            Prelude.<*> (x Data..:? "FullLoadErrorPercentage")
+            Prelude.<*> (x Data..:? "UseNewMappingType")
+            Prelude.<*> (x Data..: "ServiceAccessRoleArn")
+            Prelude.<*> (x Data..: "EndpointUri")
       )
 
 instance Prelude.Hashable ElasticsearchSettings where
@@ -163,20 +164,20 @@ instance Prelude.NFData ElasticsearchSettings where
       `Prelude.seq` Prelude.rnf serviceAccessRoleArn
       `Prelude.seq` Prelude.rnf endpointUri
 
-instance Core.ToJSON ElasticsearchSettings where
+instance Data.ToJSON ElasticsearchSettings where
   toJSON ElasticsearchSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ErrorRetryDuration" Core..=)
+          [ ("ErrorRetryDuration" Data..=)
               Prelude.<$> errorRetryDuration,
-            ("FullLoadErrorPercentage" Core..=)
+            ("FullLoadErrorPercentage" Data..=)
               Prelude.<$> fullLoadErrorPercentage,
-            ("UseNewMappingType" Core..=)
+            ("UseNewMappingType" Data..=)
               Prelude.<$> useNewMappingType,
             Prelude.Just
               ( "ServiceAccessRoleArn"
-                  Core..= serviceAccessRoleArn
+                  Data..= serviceAccessRoleArn
               ),
-            Prelude.Just ("EndpointUri" Core..= endpointUri)
+            Prelude.Just ("EndpointUri" Data..= endpointUri)
           ]
       )

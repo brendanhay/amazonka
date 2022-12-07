@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,7 +137,7 @@ instance Core.AWSRequest ProvisionIpamPoolCidr where
     Response.receiveXML
       ( \s h x ->
           ProvisionIpamPoolCidrResponse'
-            Prelude.<$> (x Core..@? "ipamPoolCidr")
+            Prelude.<$> (x Data..@? "ipamPoolCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,24 +155,24 @@ instance Prelude.NFData ProvisionIpamPoolCidr where
       `Prelude.seq` Prelude.rnf cidrAuthorizationContext
       `Prelude.seq` Prelude.rnf ipamPoolId
 
-instance Core.ToHeaders ProvisionIpamPoolCidr where
+instance Data.ToHeaders ProvisionIpamPoolCidr where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ProvisionIpamPoolCidr where
+instance Data.ToPath ProvisionIpamPoolCidr where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ProvisionIpamPoolCidr where
+instance Data.ToQuery ProvisionIpamPoolCidr where
   toQuery ProvisionIpamPoolCidr' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ProvisionIpamPoolCidr" :: Prelude.ByteString),
+          Data.=: ("ProvisionIpamPoolCidr" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Cidr" Core.=: cidr,
-        "DryRun" Core.=: dryRun,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Cidr" Data.=: cidr,
+        "DryRun" Data.=: dryRun,
         "CidrAuthorizationContext"
-          Core.=: cidrAuthorizationContext,
-        "IpamPoolId" Core.=: ipamPoolId
+          Data.=: cidrAuthorizationContext,
+        "IpamPoolId" Data.=: ipamPoolId
       ]
 
 -- | /See:/ 'newProvisionIpamPoolCidrResponse' smart constructor.

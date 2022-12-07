@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -160,8 +161,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAccountAssignmentCreationStatusResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "AccountAssignmentsCreationStatus"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "AccountAssignmentsCreationStatus"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -190,45 +191,45 @@ instance
       `Prelude.seq` Prelude.rnf instanceArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListAccountAssignmentCreationStatus
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SWBExternalService.ListAccountAssignmentCreationStatus" ::
+              Data.=# ( "SWBExternalService.ListAccountAssignmentCreationStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListAccountAssignmentCreationStatus
   where
   toJSON ListAccountAssignmentCreationStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("InstanceArn" Core..= instanceArn)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("InstanceArn" Data..= instanceArn)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListAccountAssignmentCreationStatus
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListAccountAssignmentCreationStatus
   where
   toQuery = Prelude.const Prelude.mempty

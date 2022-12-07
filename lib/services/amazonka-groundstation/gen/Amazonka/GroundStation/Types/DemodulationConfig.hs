@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.DemodulationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the demodulation @Config@.
@@ -55,13 +56,13 @@ newDemodulationConfig pUnvalidatedJSON_ =
 demodulationConfig_unvalidatedJSON :: Lens.Lens' DemodulationConfig Prelude.Text
 demodulationConfig_unvalidatedJSON = Lens.lens (\DemodulationConfig' {unvalidatedJSON} -> unvalidatedJSON) (\s@DemodulationConfig' {} a -> s {unvalidatedJSON = a} :: DemodulationConfig)
 
-instance Core.FromJSON DemodulationConfig where
+instance Data.FromJSON DemodulationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DemodulationConfig"
       ( \x ->
           DemodulationConfig'
-            Prelude.<$> (x Core..: "unvalidatedJSON")
+            Prelude.<$> (x Data..: "unvalidatedJSON")
       )
 
 instance Prelude.Hashable DemodulationConfig where
@@ -72,11 +73,11 @@ instance Prelude.NFData DemodulationConfig where
   rnf DemodulationConfig' {..} =
     Prelude.rnf unvalidatedJSON
 
-instance Core.ToJSON DemodulationConfig where
+instance Data.ToJSON DemodulationConfig where
   toJSON DemodulationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("unvalidatedJSON" Core..= unvalidatedJSON)
+              ("unvalidatedJSON" Data..= unvalidatedJSON)
           ]
       )

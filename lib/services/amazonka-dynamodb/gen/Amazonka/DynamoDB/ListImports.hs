@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,8 +112,8 @@ instance Core.AWSRequest ListImports where
     Response.receiveJSON
       ( \s h x ->
           ListImportsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ImportSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ImportSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -130,35 +131,35 @@ instance Prelude.NFData ListImports where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pageSize
 
-instance Core.ToHeaders ListImports where
+instance Data.ToHeaders ListImports where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.ListImports" ::
+              Data.=# ( "DynamoDB_20120810.ListImports" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListImports where
+instance Data.ToJSON ListImports where
   toJSON ListImports' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TableArn" Core..=) Prelude.<$> tableArn,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize
+          [ ("TableArn" Data..=) Prelude.<$> tableArn,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize
           ]
       )
 
-instance Core.ToPath ListImports where
+instance Data.ToPath ListImports where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListImports where
+instance Data.ToQuery ListImports where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListImportsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.SmsConfigurationType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The SMS configuration type is the settings that your Amazon Cognito user
@@ -143,15 +144,15 @@ smsConfigurationType_snsRegion = Lens.lens (\SmsConfigurationType' {snsRegion} -
 smsConfigurationType_snsCallerArn :: Lens.Lens' SmsConfigurationType Prelude.Text
 smsConfigurationType_snsCallerArn = Lens.lens (\SmsConfigurationType' {snsCallerArn} -> snsCallerArn) (\s@SmsConfigurationType' {} a -> s {snsCallerArn = a} :: SmsConfigurationType)
 
-instance Core.FromJSON SmsConfigurationType where
+instance Data.FromJSON SmsConfigurationType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SmsConfigurationType"
       ( \x ->
           SmsConfigurationType'
-            Prelude.<$> (x Core..:? "ExternalId")
-            Prelude.<*> (x Core..:? "SnsRegion")
-            Prelude.<*> (x Core..: "SnsCallerArn")
+            Prelude.<$> (x Data..:? "ExternalId")
+            Prelude.<*> (x Data..:? "SnsRegion")
+            Prelude.<*> (x Data..: "SnsCallerArn")
       )
 
 instance Prelude.Hashable SmsConfigurationType where
@@ -166,12 +167,12 @@ instance Prelude.NFData SmsConfigurationType where
       `Prelude.seq` Prelude.rnf snsRegion
       `Prelude.seq` Prelude.rnf snsCallerArn
 
-instance Core.ToJSON SmsConfigurationType where
+instance Data.ToJSON SmsConfigurationType where
   toJSON SmsConfigurationType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExternalId" Core..=) Prelude.<$> externalId,
-            ("SnsRegion" Core..=) Prelude.<$> snsRegion,
-            Prelude.Just ("SnsCallerArn" Core..= snsCallerArn)
+          [ ("ExternalId" Data..=) Prelude.<$> externalId,
+            ("SnsRegion" Data..=) Prelude.<$> snsRegion,
+            Prelude.Just ("SnsCallerArn" Data..= snsCallerArn)
           ]
       )

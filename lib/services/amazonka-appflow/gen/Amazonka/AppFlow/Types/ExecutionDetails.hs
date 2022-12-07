@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.ExecutionDetails where
 import Amazonka.AppFlow.Types.ExecutionStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the details of the flow run, including the timestamp, status,
@@ -34,7 +35,7 @@ data ExecutionDetails = ExecutionDetails'
     -- | Specifies the status of the most recent flow run.
     mostRecentExecutionStatus :: Prelude.Maybe ExecutionStatus,
     -- | Specifies the time of the most recent flow run.
-    mostRecentExecutionTime :: Prelude.Maybe Core.POSIX
+    mostRecentExecutionTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,17 +72,17 @@ executionDetails_mostRecentExecutionStatus = Lens.lens (\ExecutionDetails' {most
 
 -- | Specifies the time of the most recent flow run.
 executionDetails_mostRecentExecutionTime :: Lens.Lens' ExecutionDetails (Prelude.Maybe Prelude.UTCTime)
-executionDetails_mostRecentExecutionTime = Lens.lens (\ExecutionDetails' {mostRecentExecutionTime} -> mostRecentExecutionTime) (\s@ExecutionDetails' {} a -> s {mostRecentExecutionTime = a} :: ExecutionDetails) Prelude.. Lens.mapping Core._Time
+executionDetails_mostRecentExecutionTime = Lens.lens (\ExecutionDetails' {mostRecentExecutionTime} -> mostRecentExecutionTime) (\s@ExecutionDetails' {} a -> s {mostRecentExecutionTime = a} :: ExecutionDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ExecutionDetails where
+instance Data.FromJSON ExecutionDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecutionDetails"
       ( \x ->
           ExecutionDetails'
-            Prelude.<$> (x Core..:? "mostRecentExecutionMessage")
-            Prelude.<*> (x Core..:? "mostRecentExecutionStatus")
-            Prelude.<*> (x Core..:? "mostRecentExecutionTime")
+            Prelude.<$> (x Data..:? "mostRecentExecutionMessage")
+            Prelude.<*> (x Data..:? "mostRecentExecutionStatus")
+            Prelude.<*> (x Data..:? "mostRecentExecutionTime")
       )
 
 instance Prelude.Hashable ExecutionDetails where

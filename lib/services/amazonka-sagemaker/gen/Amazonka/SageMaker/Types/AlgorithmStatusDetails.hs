@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AlgorithmStatusDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AlgorithmStatusItem
 
@@ -63,17 +64,17 @@ algorithmStatusDetails_validationStatuses = Lens.lens (\AlgorithmStatusDetails' 
 algorithmStatusDetails_imageScanStatuses :: Lens.Lens' AlgorithmStatusDetails (Prelude.Maybe [AlgorithmStatusItem])
 algorithmStatusDetails_imageScanStatuses = Lens.lens (\AlgorithmStatusDetails' {imageScanStatuses} -> imageScanStatuses) (\s@AlgorithmStatusDetails' {} a -> s {imageScanStatuses = a} :: AlgorithmStatusDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AlgorithmStatusDetails where
+instance Data.FromJSON AlgorithmStatusDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlgorithmStatusDetails"
       ( \x ->
           AlgorithmStatusDetails'
-            Prelude.<$> ( x Core..:? "ValidationStatuses"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ValidationStatuses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ImageScanStatuses"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ImageScanStatuses"
+                            Data..!= Prelude.mempty
                         )
       )
 

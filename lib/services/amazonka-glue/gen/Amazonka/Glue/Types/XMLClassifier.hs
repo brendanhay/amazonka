@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.XMLClassifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A classifier for @XML@ content.
@@ -35,9 +36,9 @@ data XMLClassifier = XMLClassifier'
     -- @\<row item_a=\"A\" item_b=\"B\" \/>@ is not).
     rowTag :: Prelude.Maybe Prelude.Text,
     -- | The time that this classifier was last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | The time that this classifier was registered.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The version of this classifier.
     version :: Prelude.Maybe Prelude.Integer,
     -- | The name of the classifier.
@@ -98,11 +99,11 @@ xMLClassifier_rowTag = Lens.lens (\XMLClassifier' {rowTag} -> rowTag) (\s@XMLCla
 
 -- | The time that this classifier was last updated.
 xMLClassifier_lastUpdated :: Lens.Lens' XMLClassifier (Prelude.Maybe Prelude.UTCTime)
-xMLClassifier_lastUpdated = Lens.lens (\XMLClassifier' {lastUpdated} -> lastUpdated) (\s@XMLClassifier' {} a -> s {lastUpdated = a} :: XMLClassifier) Prelude.. Lens.mapping Core._Time
+xMLClassifier_lastUpdated = Lens.lens (\XMLClassifier' {lastUpdated} -> lastUpdated) (\s@XMLClassifier' {} a -> s {lastUpdated = a} :: XMLClassifier) Prelude.. Lens.mapping Data._Time
 
 -- | The time that this classifier was registered.
 xMLClassifier_creationTime :: Lens.Lens' XMLClassifier (Prelude.Maybe Prelude.UTCTime)
-xMLClassifier_creationTime = Lens.lens (\XMLClassifier' {creationTime} -> creationTime) (\s@XMLClassifier' {} a -> s {creationTime = a} :: XMLClassifier) Prelude.. Lens.mapping Core._Time
+xMLClassifier_creationTime = Lens.lens (\XMLClassifier' {creationTime} -> creationTime) (\s@XMLClassifier' {} a -> s {creationTime = a} :: XMLClassifier) Prelude.. Lens.mapping Data._Time
 
 -- | The version of this classifier.
 xMLClassifier_version :: Lens.Lens' XMLClassifier (Prelude.Maybe Prelude.Integer)
@@ -116,18 +117,18 @@ xMLClassifier_name = Lens.lens (\XMLClassifier' {name} -> name) (\s@XMLClassifie
 xMLClassifier_classification :: Lens.Lens' XMLClassifier Prelude.Text
 xMLClassifier_classification = Lens.lens (\XMLClassifier' {classification} -> classification) (\s@XMLClassifier' {} a -> s {classification = a} :: XMLClassifier)
 
-instance Core.FromJSON XMLClassifier where
+instance Data.FromJSON XMLClassifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "XMLClassifier"
       ( \x ->
           XMLClassifier'
-            Prelude.<$> (x Core..:? "RowTag")
-            Prelude.<*> (x Core..:? "LastUpdated")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Classification")
+            Prelude.<$> (x Data..:? "RowTag")
+            Prelude.<*> (x Data..:? "LastUpdated")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Classification")
       )
 
 instance Prelude.Hashable XMLClassifier where

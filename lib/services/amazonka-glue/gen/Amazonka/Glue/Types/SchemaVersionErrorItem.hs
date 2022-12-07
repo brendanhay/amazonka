@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SchemaVersionErrorItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ErrorDetails
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ schemaVersionErrorItem_errorDetails = Lens.lens (\SchemaVersionErrorItem' {error
 schemaVersionErrorItem_versionNumber :: Lens.Lens' SchemaVersionErrorItem (Prelude.Maybe Prelude.Natural)
 schemaVersionErrorItem_versionNumber = Lens.lens (\SchemaVersionErrorItem' {versionNumber} -> versionNumber) (\s@SchemaVersionErrorItem' {} a -> s {versionNumber = a} :: SchemaVersionErrorItem)
 
-instance Core.FromJSON SchemaVersionErrorItem where
+instance Data.FromJSON SchemaVersionErrorItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaVersionErrorItem"
       ( \x ->
           SchemaVersionErrorItem'
-            Prelude.<$> (x Core..:? "ErrorDetails")
-            Prelude.<*> (x Core..:? "VersionNumber")
+            Prelude.<$> (x Data..:? "ErrorDetails")
+            Prelude.<*> (x Data..:? "VersionNumber")
       )
 
 instance Prelude.Hashable SchemaVersionErrorItem where

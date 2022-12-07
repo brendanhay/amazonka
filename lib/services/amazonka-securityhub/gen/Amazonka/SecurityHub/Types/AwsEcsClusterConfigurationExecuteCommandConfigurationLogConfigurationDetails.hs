@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsClusterConfigurationExecuteCommandConfig
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The log configuration for the results of the run command actions.
@@ -94,19 +95,19 @@ awsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails_clo
 awsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails_cloudWatchLogGroupName = Lens.lens (\AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails' {cloudWatchLogGroupName} -> cloudWatchLogGroupName) (\s@AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails' {} a -> s {cloudWatchLogGroupName = a} :: AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails"
       ( \x ->
           AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails'
-            Prelude.<$> (x Core..:? "S3KeyPrefix")
-              Prelude.<*> (x Core..:? "S3BucketName")
-              Prelude.<*> (x Core..:? "S3EncryptionEnabled")
-              Prelude.<*> (x Core..:? "CloudWatchEncryptionEnabled")
-              Prelude.<*> (x Core..:? "CloudWatchLogGroupName")
+            Prelude.<$> (x Data..:? "S3KeyPrefix")
+              Prelude.<*> (x Data..:? "S3BucketName")
+              Prelude.<*> (x Data..:? "S3EncryptionEnabled")
+              Prelude.<*> (x Data..:? "CloudWatchEncryptionEnabled")
+              Prelude.<*> (x Data..:? "CloudWatchLogGroupName")
       )
 
 instance
@@ -135,20 +136,20 @@ instance
         `Prelude.seq` Prelude.rnf cloudWatchLogGroupName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails
   where
   toJSON
     AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("S3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
-              ("S3BucketName" Core..=) Prelude.<$> s3BucketName,
-              ("S3EncryptionEnabled" Core..=)
+            [ ("S3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix,
+              ("S3BucketName" Data..=) Prelude.<$> s3BucketName,
+              ("S3EncryptionEnabled" Data..=)
                 Prelude.<$> s3EncryptionEnabled,
-              ("CloudWatchEncryptionEnabled" Core..=)
+              ("CloudWatchEncryptionEnabled" Data..=)
                 Prelude.<$> cloudWatchEncryptionEnabled,
-              ("CloudWatchLogGroupName" Core..=)
+              ("CloudWatchLogGroupName" Data..=)
                 Prelude.<$> cloudWatchLogGroupName
             ]
         )

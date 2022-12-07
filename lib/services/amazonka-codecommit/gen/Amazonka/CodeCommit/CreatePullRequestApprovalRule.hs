@@ -44,6 +44,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -219,7 +220,7 @@ instance
       ( \s h x ->
           CreatePullRequestApprovalRuleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "approvalRule")
+            Prelude.<*> (x Data..:> "approvalRule")
       )
 
 instance
@@ -237,38 +238,38 @@ instance Prelude.NFData CreatePullRequestApprovalRule where
       `Prelude.seq` Prelude.rnf approvalRuleName
       `Prelude.seq` Prelude.rnf approvalRuleContent
 
-instance Core.ToHeaders CreatePullRequestApprovalRule where
+instance Data.ToHeaders CreatePullRequestApprovalRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.CreatePullRequestApprovalRule" ::
+              Data.=# ( "CodeCommit_20150413.CreatePullRequestApprovalRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePullRequestApprovalRule where
+instance Data.ToJSON CreatePullRequestApprovalRule where
   toJSON CreatePullRequestApprovalRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("pullRequestId" Core..= pullRequestId),
+              ("pullRequestId" Data..= pullRequestId),
             Prelude.Just
-              ("approvalRuleName" Core..= approvalRuleName),
+              ("approvalRuleName" Data..= approvalRuleName),
             Prelude.Just
-              ("approvalRuleContent" Core..= approvalRuleContent)
+              ("approvalRuleContent" Data..= approvalRuleContent)
           ]
       )
 
-instance Core.ToPath CreatePullRequestApprovalRule where
+instance Data.ToPath CreatePullRequestApprovalRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePullRequestApprovalRule where
+instance Data.ToQuery CreatePullRequestApprovalRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePullRequestApprovalRuleResponse' smart constructor.

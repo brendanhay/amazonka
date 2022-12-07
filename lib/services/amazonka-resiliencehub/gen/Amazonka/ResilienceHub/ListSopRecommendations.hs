@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -129,9 +130,9 @@ instance Core.AWSRequest ListSopRecommendations where
     Response.receiveJSON
       ( \s h x ->
           ListSopRecommendationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "sopRecommendations"
+            Prelude.<*> ( x Data..?> "sopRecommendations"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -148,32 +149,32 @@ instance Prelude.NFData ListSopRecommendations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf assessmentArn
 
-instance Core.ToHeaders ListSopRecommendations where
+instance Data.ToHeaders ListSopRecommendations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSopRecommendations where
+instance Data.ToJSON ListSopRecommendations where
   toJSON ListSopRecommendations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("assessmentArn" Core..= assessmentArn)
+              ("assessmentArn" Data..= assessmentArn)
           ]
       )
 
-instance Core.ToPath ListSopRecommendations where
+instance Data.ToPath ListSopRecommendations where
   toPath = Prelude.const "/list-sop-recommendations"
 
-instance Core.ToQuery ListSopRecommendations where
+instance Data.ToQuery ListSopRecommendations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSopRecommendationsResponse' smart constructor.

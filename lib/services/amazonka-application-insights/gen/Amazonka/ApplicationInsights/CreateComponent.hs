@@ -44,6 +44,7 @@ where
 import Amazonka.ApplicationInsights.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,36 +126,36 @@ instance Prelude.NFData CreateComponent where
       `Prelude.seq` Prelude.rnf componentName
       `Prelude.seq` Prelude.rnf resourceList
 
-instance Core.ToHeaders CreateComponent where
+instance Data.ToHeaders CreateComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "EC2WindowsBarleyService.CreateComponent" ::
+              Data.=# ( "EC2WindowsBarleyService.CreateComponent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateComponent where
+instance Data.ToJSON CreateComponent where
   toJSON CreateComponent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ResourceGroupName" Core..= resourceGroupName),
-            Prelude.Just ("ComponentName" Core..= componentName),
-            Prelude.Just ("ResourceList" Core..= resourceList)
+              ("ResourceGroupName" Data..= resourceGroupName),
+            Prelude.Just ("ComponentName" Data..= componentName),
+            Prelude.Just ("ResourceList" Data..= resourceList)
           ]
       )
 
-instance Core.ToPath CreateComponent where
+instance Data.ToPath CreateComponent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateComponent where
+instance Data.ToQuery CreateComponent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateComponentResponse' smart constructor.

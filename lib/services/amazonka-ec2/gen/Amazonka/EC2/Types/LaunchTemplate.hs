@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -38,7 +39,7 @@ data LaunchTemplate = LaunchTemplate'
     -- | The version number of the default version of the launch template.
     defaultVersionNumber :: Prelude.Maybe Prelude.Integer,
     -- | The time launch template was created.
-    createTime :: Prelude.Maybe Core.ISO8601,
+    createTime :: Prelude.Maybe Data.ISO8601,
     -- | The principal that created the launch template.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The name of the launch template.
@@ -98,7 +99,7 @@ launchTemplate_defaultVersionNumber = Lens.lens (\LaunchTemplate' {defaultVersio
 
 -- | The time launch template was created.
 launchTemplate_createTime :: Lens.Lens' LaunchTemplate (Prelude.Maybe Prelude.UTCTime)
-launchTemplate_createTime = Lens.lens (\LaunchTemplate' {createTime} -> createTime) (\s@LaunchTemplate' {} a -> s {createTime = a} :: LaunchTemplate) Prelude.. Lens.mapping Core._Time
+launchTemplate_createTime = Lens.lens (\LaunchTemplate' {createTime} -> createTime) (\s@LaunchTemplate' {} a -> s {createTime = a} :: LaunchTemplate) Prelude.. Lens.mapping Data._Time
 
 -- | The principal that created the launch template.
 launchTemplate_createdBy :: Lens.Lens' LaunchTemplate (Prelude.Maybe Prelude.Text)
@@ -108,18 +109,18 @@ launchTemplate_createdBy = Lens.lens (\LaunchTemplate' {createdBy} -> createdBy)
 launchTemplate_launchTemplateName :: Lens.Lens' LaunchTemplate (Prelude.Maybe Prelude.Text)
 launchTemplate_launchTemplateName = Lens.lens (\LaunchTemplate' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplate' {} a -> s {launchTemplateName = a} :: LaunchTemplate)
 
-instance Core.FromXML LaunchTemplate where
+instance Data.FromXML LaunchTemplate where
   parseXML x =
     LaunchTemplate'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "latestVersionNumber")
-      Prelude.<*> (x Core..@? "launchTemplateId")
-      Prelude.<*> (x Core..@? "defaultVersionNumber")
-      Prelude.<*> (x Core..@? "createTime")
-      Prelude.<*> (x Core..@? "createdBy")
-      Prelude.<*> (x Core..@? "launchTemplateName")
+      Prelude.<*> (x Data..@? "latestVersionNumber")
+      Prelude.<*> (x Data..@? "launchTemplateId")
+      Prelude.<*> (x Data..@? "defaultVersionNumber")
+      Prelude.<*> (x Data..@? "createTime")
+      Prelude.<*> (x Data..@? "createdBy")
+      Prelude.<*> (x Data..@? "launchTemplateName")
 
 instance Prelude.Hashable LaunchTemplate where
   hashWithSalt _salt LaunchTemplate' {..} =

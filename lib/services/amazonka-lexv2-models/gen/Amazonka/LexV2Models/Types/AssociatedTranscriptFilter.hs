@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.AssociatedTranscriptFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.AssociatedTranscriptFilterName
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,11 +79,11 @@ instance Prelude.NFData AssociatedTranscriptFilter where
   rnf AssociatedTranscriptFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON AssociatedTranscriptFilter where
+instance Data.ToJSON AssociatedTranscriptFilter where
   toJSON AssociatedTranscriptFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("values" Core..= values)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("values" Data..= values)
           ]
       )

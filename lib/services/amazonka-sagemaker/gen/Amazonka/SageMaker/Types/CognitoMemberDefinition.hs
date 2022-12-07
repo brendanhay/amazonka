@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.CognitoMemberDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies a Amazon Cognito user group. A user group can be used in on
@@ -86,15 +87,15 @@ cognitoMemberDefinition_userGroup = Lens.lens (\CognitoMemberDefinition' {userGr
 cognitoMemberDefinition_clientId :: Lens.Lens' CognitoMemberDefinition Prelude.Text
 cognitoMemberDefinition_clientId = Lens.lens (\CognitoMemberDefinition' {clientId} -> clientId) (\s@CognitoMemberDefinition' {} a -> s {clientId = a} :: CognitoMemberDefinition)
 
-instance Core.FromJSON CognitoMemberDefinition where
+instance Data.FromJSON CognitoMemberDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CognitoMemberDefinition"
       ( \x ->
           CognitoMemberDefinition'
-            Prelude.<$> (x Core..: "UserPool")
-            Prelude.<*> (x Core..: "UserGroup")
-            Prelude.<*> (x Core..: "ClientId")
+            Prelude.<$> (x Data..: "UserPool")
+            Prelude.<*> (x Data..: "UserGroup")
+            Prelude.<*> (x Data..: "ClientId")
       )
 
 instance Prelude.Hashable CognitoMemberDefinition where
@@ -109,12 +110,12 @@ instance Prelude.NFData CognitoMemberDefinition where
       `Prelude.seq` Prelude.rnf userGroup
       `Prelude.seq` Prelude.rnf clientId
 
-instance Core.ToJSON CognitoMemberDefinition where
+instance Data.ToJSON CognitoMemberDefinition where
   toJSON CognitoMemberDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserPool" Core..= userPool),
-            Prelude.Just ("UserGroup" Core..= userGroup),
-            Prelude.Just ("ClientId" Core..= clientId)
+          [ Prelude.Just ("UserPool" Data..= userPool),
+            Prelude.Just ("UserGroup" Data..= userGroup),
+            Prelude.Just ("ClientId" Data..= clientId)
           ]
       )

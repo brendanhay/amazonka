@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.JobLog where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.JobLogEvent
 import Amazonka.DrS.Types.JobLogEventData
 import qualified Amazonka.Prelude as Prelude
@@ -72,15 +73,15 @@ jobLog_eventData = Lens.lens (\JobLog' {eventData} -> eventData) (\s@JobLog' {} 
 jobLog_logDateTime :: Lens.Lens' JobLog (Prelude.Maybe Prelude.Text)
 jobLog_logDateTime = Lens.lens (\JobLog' {logDateTime} -> logDateTime) (\s@JobLog' {} a -> s {logDateTime = a} :: JobLog)
 
-instance Core.FromJSON JobLog where
+instance Data.FromJSON JobLog where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobLog"
       ( \x ->
           JobLog'
-            Prelude.<$> (x Core..:? "event")
-            Prelude.<*> (x Core..:? "eventData")
-            Prelude.<*> (x Core..:? "logDateTime")
+            Prelude.<$> (x Data..:? "event")
+            Prelude.<*> (x Data..:? "eventData")
+            Prelude.<*> (x Data..:? "logDateTime")
       )
 
 instance Prelude.Hashable JobLog where

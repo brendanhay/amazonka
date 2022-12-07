@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -215,7 +216,7 @@ instance Core.AWSRequest UpdateLoadBalancerAttribute where
     Response.receiveJSON
       ( \s h x ->
           UpdateLoadBalancerAttributeResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -231,37 +232,37 @@ instance Prelude.NFData UpdateLoadBalancerAttribute where
       `Prelude.seq` Prelude.rnf attributeName
       `Prelude.seq` Prelude.rnf attributeValue
 
-instance Core.ToHeaders UpdateLoadBalancerAttribute where
+instance Data.ToHeaders UpdateLoadBalancerAttribute where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.UpdateLoadBalancerAttribute" ::
+              Data.=# ( "Lightsail_20161128.UpdateLoadBalancerAttribute" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLoadBalancerAttribute where
+instance Data.ToJSON UpdateLoadBalancerAttribute where
   toJSON UpdateLoadBalancerAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("loadBalancerName" Core..= loadBalancerName),
-            Prelude.Just ("attributeName" Core..= attributeName),
+              ("loadBalancerName" Data..= loadBalancerName),
+            Prelude.Just ("attributeName" Data..= attributeName),
             Prelude.Just
-              ("attributeValue" Core..= attributeValue)
+              ("attributeValue" Data..= attributeValue)
           ]
       )
 
-instance Core.ToPath UpdateLoadBalancerAttribute where
+instance Data.ToPath UpdateLoadBalancerAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateLoadBalancerAttribute where
+instance Data.ToQuery UpdateLoadBalancerAttribute where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLoadBalancerAttributeResponse' smart constructor.

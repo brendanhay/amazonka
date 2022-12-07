@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,15 +107,15 @@ instance Core.AWSRequest DescribeImageVersion where
     Response.receiveJSON
       ( \s h x ->
           DescribeImageVersionResponse'
-            Prelude.<$> (x Core..?> "BaseImage")
-            Prelude.<*> (x Core..?> "ImageVersionArn")
-            Prelude.<*> (x Core..?> "ImageArn")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "ContainerImage")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "ImageVersionStatus")
-            Prelude.<*> (x Core..?> "FailureReason")
-            Prelude.<*> (x Core..?> "Version")
+            Prelude.<$> (x Data..?> "BaseImage")
+            Prelude.<*> (x Data..?> "ImageVersionArn")
+            Prelude.<*> (x Data..?> "ImageArn")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "ContainerImage")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "ImageVersionStatus")
+            Prelude.<*> (x Data..?> "FailureReason")
+            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,34 +129,34 @@ instance Prelude.NFData DescribeImageVersion where
     Prelude.rnf version
       `Prelude.seq` Prelude.rnf imageName
 
-instance Core.ToHeaders DescribeImageVersion where
+instance Data.ToHeaders DescribeImageVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeImageVersion" ::
+              Data.=# ( "SageMaker.DescribeImageVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeImageVersion where
+instance Data.ToJSON DescribeImageVersion where
   toJSON DescribeImageVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Version" Core..=) Prelude.<$> version,
-            Prelude.Just ("ImageName" Core..= imageName)
+          [ ("Version" Data..=) Prelude.<$> version,
+            Prelude.Just ("ImageName" Data..= imageName)
           ]
       )
 
-instance Core.ToPath DescribeImageVersion where
+instance Data.ToPath DescribeImageVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeImageVersion where
+instance Data.ToQuery DescribeImageVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeImageVersionResponse' smart constructor.
@@ -168,12 +169,12 @@ data DescribeImageVersionResponse = DescribeImageVersionResponse'
     -- | The Amazon Resource Name (ARN) of the image the version is based on.
     imageArn :: Prelude.Maybe Prelude.Text,
     -- | When the version was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The registry path of the container image that contains this image
     -- version.
     containerImage :: Prelude.Maybe Prelude.Text,
     -- | When the version was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The status of the version.
     imageVersionStatus :: Prelude.Maybe ImageVersionStatus,
     -- | When a create or delete operation fails, the reason for the failure.
@@ -248,7 +249,7 @@ describeImageVersionResponse_imageArn = Lens.lens (\DescribeImageVersionResponse
 
 -- | When the version was last modified.
 describeImageVersionResponse_lastModifiedTime :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe Prelude.UTCTime)
-describeImageVersionResponse_lastModifiedTime = Lens.lens (\DescribeImageVersionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeImageVersionResponse' {} a -> s {lastModifiedTime = a} :: DescribeImageVersionResponse) Prelude.. Lens.mapping Core._Time
+describeImageVersionResponse_lastModifiedTime = Lens.lens (\DescribeImageVersionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeImageVersionResponse' {} a -> s {lastModifiedTime = a} :: DescribeImageVersionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The registry path of the container image that contains this image
 -- version.
@@ -257,7 +258,7 @@ describeImageVersionResponse_containerImage = Lens.lens (\DescribeImageVersionRe
 
 -- | When the version was created.
 describeImageVersionResponse_creationTime :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe Prelude.UTCTime)
-describeImageVersionResponse_creationTime = Lens.lens (\DescribeImageVersionResponse' {creationTime} -> creationTime) (\s@DescribeImageVersionResponse' {} a -> s {creationTime = a} :: DescribeImageVersionResponse) Prelude.. Lens.mapping Core._Time
+describeImageVersionResponse_creationTime = Lens.lens (\DescribeImageVersionResponse' {creationTime} -> creationTime) (\s@DescribeImageVersionResponse' {} a -> s {creationTime = a} :: DescribeImageVersionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the version.
 describeImageVersionResponse_imageVersionStatus :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe ImageVersionStatus)

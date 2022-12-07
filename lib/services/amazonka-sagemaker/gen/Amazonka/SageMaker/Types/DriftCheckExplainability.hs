@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DriftCheckExplainability where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.FileSource
 import Amazonka.SageMaker.Types.MetricsSource
@@ -65,14 +66,14 @@ driftCheckExplainability_constraints = Lens.lens (\DriftCheckExplainability' {co
 driftCheckExplainability_configFile :: Lens.Lens' DriftCheckExplainability (Prelude.Maybe FileSource)
 driftCheckExplainability_configFile = Lens.lens (\DriftCheckExplainability' {configFile} -> configFile) (\s@DriftCheckExplainability' {} a -> s {configFile = a} :: DriftCheckExplainability)
 
-instance Core.FromJSON DriftCheckExplainability where
+instance Data.FromJSON DriftCheckExplainability where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DriftCheckExplainability"
       ( \x ->
           DriftCheckExplainability'
-            Prelude.<$> (x Core..:? "Constraints")
-            Prelude.<*> (x Core..:? "ConfigFile")
+            Prelude.<$> (x Data..:? "Constraints")
+            Prelude.<*> (x Data..:? "ConfigFile")
       )
 
 instance Prelude.Hashable DriftCheckExplainability where
@@ -85,11 +86,11 @@ instance Prelude.NFData DriftCheckExplainability where
     Prelude.rnf constraints
       `Prelude.seq` Prelude.rnf configFile
 
-instance Core.ToJSON DriftCheckExplainability where
+instance Data.ToJSON DriftCheckExplainability where
   toJSON DriftCheckExplainability' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Constraints" Core..=) Prelude.<$> constraints,
-            ("ConfigFile" Core..=) Prelude.<$> configFile
+          [ ("Constraints" Data..=) Prelude.<$> constraints,
+            ("ConfigFile" Data..=) Prelude.<$> configFile
           ]
       )

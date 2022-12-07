@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest GetTranscriptionJob where
     Response.receiveJSON
       ( \s h x ->
           GetTranscriptionJobResponse'
-            Prelude.<$> (x Core..?> "TranscriptionJob")
+            Prelude.<$> (x Data..?> "TranscriptionJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,36 +113,36 @@ instance Prelude.NFData GetTranscriptionJob where
   rnf GetTranscriptionJob' {..} =
     Prelude.rnf transcriptionJobName
 
-instance Core.ToHeaders GetTranscriptionJob where
+instance Data.ToHeaders GetTranscriptionJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.GetTranscriptionJob" ::
+              Data.=# ( "Transcribe.GetTranscriptionJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTranscriptionJob where
+instance Data.ToJSON GetTranscriptionJob where
   toJSON GetTranscriptionJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "TranscriptionJobName"
-                  Core..= transcriptionJobName
+                  Data..= transcriptionJobName
               )
           ]
       )
 
-instance Core.ToPath GetTranscriptionJob where
+instance Data.ToPath GetTranscriptionJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTranscriptionJob where
+instance Data.ToQuery GetTranscriptionJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTranscriptionJobResponse' smart constructor.

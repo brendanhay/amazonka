@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.DataQualityMetric where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.DataQualityMetricType
 import qualified Amazonka.Prelude as Prelude
 
@@ -82,16 +83,16 @@ dataQualityMetric_metricType = Lens.lens (\DataQualityMetric' {metricType} -> me
 dataQualityMetric_metricDescription :: Lens.Lens' DataQualityMetric (Prelude.Maybe Prelude.Text)
 dataQualityMetric_metricDescription = Lens.lens (\DataQualityMetric' {metricDescription} -> metricDescription) (\s@DataQualityMetric' {} a -> s {metricDescription = a} :: DataQualityMetric)
 
-instance Core.FromJSON DataQualityMetric where
+instance Data.FromJSON DataQualityMetric where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataQualityMetric"
       ( \x ->
           DataQualityMetric'
-            Prelude.<$> (x Core..:? "MetricValue")
-            Prelude.<*> (x Core..:? "RelatedColumnName")
-            Prelude.<*> (x Core..:? "MetricType")
-            Prelude.<*> (x Core..:? "MetricDescription")
+            Prelude.<$> (x Data..:? "MetricValue")
+            Prelude.<*> (x Data..:? "RelatedColumnName")
+            Prelude.<*> (x Data..:? "MetricType")
+            Prelude.<*> (x Data..:? "MetricDescription")
       )
 
 instance Prelude.Hashable DataQualityMetric where

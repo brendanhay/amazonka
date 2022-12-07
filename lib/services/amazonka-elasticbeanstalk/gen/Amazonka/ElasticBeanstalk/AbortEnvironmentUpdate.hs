@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,21 +110,21 @@ instance Prelude.NFData AbortEnvironmentUpdate where
     Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf environmentId
 
-instance Core.ToHeaders AbortEnvironmentUpdate where
+instance Data.ToHeaders AbortEnvironmentUpdate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AbortEnvironmentUpdate where
+instance Data.ToPath AbortEnvironmentUpdate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AbortEnvironmentUpdate where
+instance Data.ToQuery AbortEnvironmentUpdate where
   toQuery AbortEnvironmentUpdate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AbortEnvironmentUpdate" :: Prelude.ByteString),
+          Data.=: ("AbortEnvironmentUpdate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentName" Core.=: environmentName,
-        "EnvironmentId" Core.=: environmentId
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "EnvironmentName" Data.=: environmentName,
+        "EnvironmentId" Data.=: environmentId
       ]
 
 -- | /See:/ 'newAbortEnvironmentUpdateResponse' smart constructor.

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,16 +107,16 @@ instance Core.AWSRequest GetTemplateStepGroup where
     Response.receiveJSON
       ( \s h x ->
           GetTemplateStepGroupResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "tools" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "next" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "templateId")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "lastModifiedTime")
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "previous" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "tools" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "next" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "templateId")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "lastModifiedTime")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "previous" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,27 +129,27 @@ instance Prelude.NFData GetTemplateStepGroup where
   rnf GetTemplateStepGroup' {..} =
     Prelude.rnf templateId `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders GetTemplateStepGroup where
+instance Data.ToHeaders GetTemplateStepGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetTemplateStepGroup where
+instance Data.ToPath GetTemplateStepGroup where
   toPath GetTemplateStepGroup' {..} =
     Prelude.mconcat
       [ "/templates/",
-        Core.toBS templateId,
+        Data.toBS templateId,
         "/stepgroups/",
-        Core.toBS id
+        Data.toBS id
       ]
 
-instance Core.ToQuery GetTemplateStepGroup where
+instance Data.ToQuery GetTemplateStepGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTemplateStepGroupResponse' smart constructor.
@@ -168,9 +169,9 @@ data GetTemplateStepGroupResponse = GetTemplateStepGroupResponse'
     -- | The ID of the step group.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time at which the step group was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The time at which the step group was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The previous step group.
     previous :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
@@ -257,11 +258,11 @@ getTemplateStepGroupResponse_id = Lens.lens (\GetTemplateStepGroupResponse' {id}
 
 -- | The time at which the step group was last modified.
 getTemplateStepGroupResponse_lastModifiedTime :: Lens.Lens' GetTemplateStepGroupResponse (Prelude.Maybe Prelude.UTCTime)
-getTemplateStepGroupResponse_lastModifiedTime = Lens.lens (\GetTemplateStepGroupResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetTemplateStepGroupResponse' {} a -> s {lastModifiedTime = a} :: GetTemplateStepGroupResponse) Prelude.. Lens.mapping Core._Time
+getTemplateStepGroupResponse_lastModifiedTime = Lens.lens (\GetTemplateStepGroupResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetTemplateStepGroupResponse' {} a -> s {lastModifiedTime = a} :: GetTemplateStepGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the step group was created.
 getTemplateStepGroupResponse_creationTime :: Lens.Lens' GetTemplateStepGroupResponse (Prelude.Maybe Prelude.UTCTime)
-getTemplateStepGroupResponse_creationTime = Lens.lens (\GetTemplateStepGroupResponse' {creationTime} -> creationTime) (\s@GetTemplateStepGroupResponse' {} a -> s {creationTime = a} :: GetTemplateStepGroupResponse) Prelude.. Lens.mapping Core._Time
+getTemplateStepGroupResponse_creationTime = Lens.lens (\GetTemplateStepGroupResponse' {creationTime} -> creationTime) (\s@GetTemplateStepGroupResponse' {} a -> s {creationTime = a} :: GetTemplateStepGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The previous step group.
 getTemplateStepGroupResponse_previous :: Lens.Lens' GetTemplateStepGroupResponse (Prelude.Maybe [Prelude.Text])

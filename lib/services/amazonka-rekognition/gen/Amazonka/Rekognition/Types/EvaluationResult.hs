@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.EvaluationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.Summary
 
@@ -74,14 +75,14 @@ evaluationResult_f1Score = Lens.lens (\EvaluationResult' {f1Score} -> f1Score) (
 evaluationResult_summary :: Lens.Lens' EvaluationResult (Prelude.Maybe Summary)
 evaluationResult_summary = Lens.lens (\EvaluationResult' {summary} -> summary) (\s@EvaluationResult' {} a -> s {summary = a} :: EvaluationResult)
 
-instance Core.FromJSON EvaluationResult where
+instance Data.FromJSON EvaluationResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EvaluationResult"
       ( \x ->
           EvaluationResult'
-            Prelude.<$> (x Core..:? "F1Score")
-            Prelude.<*> (x Core..:? "Summary")
+            Prelude.<$> (x Data..:? "F1Score")
+            Prelude.<*> (x Data..:? "Summary")
       )
 
 instance Prelude.Hashable EvaluationResult where

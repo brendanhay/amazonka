@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.DolbyVisionLevel6Metadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to
@@ -72,14 +73,14 @@ dolbyVisionLevel6Metadata_maxCll = Lens.lens (\DolbyVisionLevel6Metadata' {maxCl
 dolbyVisionLevel6Metadata_maxFall :: Lens.Lens' DolbyVisionLevel6Metadata (Prelude.Maybe Prelude.Natural)
 dolbyVisionLevel6Metadata_maxFall = Lens.lens (\DolbyVisionLevel6Metadata' {maxFall} -> maxFall) (\s@DolbyVisionLevel6Metadata' {} a -> s {maxFall = a} :: DolbyVisionLevel6Metadata)
 
-instance Core.FromJSON DolbyVisionLevel6Metadata where
+instance Data.FromJSON DolbyVisionLevel6Metadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DolbyVisionLevel6Metadata"
       ( \x ->
           DolbyVisionLevel6Metadata'
-            Prelude.<$> (x Core..:? "maxCll")
-            Prelude.<*> (x Core..:? "maxFall")
+            Prelude.<$> (x Data..:? "maxCll")
+            Prelude.<*> (x Data..:? "maxFall")
       )
 
 instance Prelude.Hashable DolbyVisionLevel6Metadata where
@@ -92,11 +93,11 @@ instance Prelude.NFData DolbyVisionLevel6Metadata where
     Prelude.rnf maxCll
       `Prelude.seq` Prelude.rnf maxFall
 
-instance Core.ToJSON DolbyVisionLevel6Metadata where
+instance Data.ToJSON DolbyVisionLevel6Metadata where
   toJSON DolbyVisionLevel6Metadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maxCll" Core..=) Prelude.<$> maxCll,
-            ("maxFall" Core..=) Prelude.<$> maxFall
+          [ ("maxCll" Data..=) Prelude.<$> maxCll,
+            ("maxFall" Data..=) Prelude.<$> maxFall
           ]
       )

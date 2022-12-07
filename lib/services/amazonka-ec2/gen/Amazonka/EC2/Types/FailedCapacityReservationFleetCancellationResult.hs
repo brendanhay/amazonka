@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FailedCapacityReservationFleetCancellationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CancelCapacityReservationFleetError
 import qualified Amazonka.Prelude as Prelude
@@ -66,13 +67,13 @@ failedCapacityReservationFleetCancellationResult_capacityReservationFleetId :: L
 failedCapacityReservationFleetCancellationResult_capacityReservationFleetId = Lens.lens (\FailedCapacityReservationFleetCancellationResult' {capacityReservationFleetId} -> capacityReservationFleetId) (\s@FailedCapacityReservationFleetCancellationResult' {} a -> s {capacityReservationFleetId = a} :: FailedCapacityReservationFleetCancellationResult)
 
 instance
-  Core.FromXML
+  Data.FromXML
     FailedCapacityReservationFleetCancellationResult
   where
   parseXML x =
     FailedCapacityReservationFleetCancellationResult'
-      Prelude.<$> (x Core..@? "cancelCapacityReservationFleetError")
-        Prelude.<*> (x Core..@? "capacityReservationFleetId")
+      Prelude.<$> (x Data..@? "cancelCapacityReservationFleetError")
+        Prelude.<*> (x Data..@? "capacityReservationFleetId")
 
 instance
   Prelude.Hashable

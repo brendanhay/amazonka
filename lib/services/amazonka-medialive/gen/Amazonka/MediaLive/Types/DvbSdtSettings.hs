@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.DvbSdtSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.DvbSdtOutputSdt
 import qualified Amazonka.Prelude as Prelude
 
@@ -107,16 +108,16 @@ dvbSdtSettings_serviceProviderName = Lens.lens (\DvbSdtSettings' {serviceProvide
 dvbSdtSettings_serviceName :: Lens.Lens' DvbSdtSettings (Prelude.Maybe Prelude.Text)
 dvbSdtSettings_serviceName = Lens.lens (\DvbSdtSettings' {serviceName} -> serviceName) (\s@DvbSdtSettings' {} a -> s {serviceName = a} :: DvbSdtSettings)
 
-instance Core.FromJSON DvbSdtSettings where
+instance Data.FromJSON DvbSdtSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DvbSdtSettings"
       ( \x ->
           DvbSdtSettings'
-            Prelude.<$> (x Core..:? "outputSdt")
-            Prelude.<*> (x Core..:? "repInterval")
-            Prelude.<*> (x Core..:? "serviceProviderName")
-            Prelude.<*> (x Core..:? "serviceName")
+            Prelude.<$> (x Data..:? "outputSdt")
+            Prelude.<*> (x Data..:? "repInterval")
+            Prelude.<*> (x Data..:? "serviceProviderName")
+            Prelude.<*> (x Data..:? "serviceName")
       )
 
 instance Prelude.Hashable DvbSdtSettings where
@@ -133,14 +134,14 @@ instance Prelude.NFData DvbSdtSettings where
       `Prelude.seq` Prelude.rnf serviceProviderName
       `Prelude.seq` Prelude.rnf serviceName
 
-instance Core.ToJSON DvbSdtSettings where
+instance Data.ToJSON DvbSdtSettings where
   toJSON DvbSdtSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("outputSdt" Core..=) Prelude.<$> outputSdt,
-            ("repInterval" Core..=) Prelude.<$> repInterval,
-            ("serviceProviderName" Core..=)
+          [ ("outputSdt" Data..=) Prelude.<$> outputSdt,
+            ("repInterval" Data..=) Prelude.<$> repInterval,
+            ("serviceProviderName" Data..=)
               Prelude.<$> serviceProviderName,
-            ("serviceName" Core..=) Prelude.<$> serviceName
+            ("serviceName" Data..=) Prelude.<$> serviceName
           ]
       )

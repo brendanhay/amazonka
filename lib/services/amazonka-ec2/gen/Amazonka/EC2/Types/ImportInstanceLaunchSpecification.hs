@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ImportInstanceLaunchSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ArchitectureValues
 import Amazonka.EC2.Types.InstanceType
@@ -36,7 +37,7 @@ data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'
   { -- | The placement information for the instance.
     placement :: Prelude.Maybe Placement,
     -- | The Base64-encoded user data to make available to the instance.
-    userData :: Prelude.Maybe (Core.Sensitive UserData),
+    userData :: Prelude.Maybe (Data.Sensitive UserData),
     -- | Reserved.
     additionalInfo :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether an instance stops or terminates when you initiate
@@ -124,7 +125,7 @@ importInstanceLaunchSpecification_placement = Lens.lens (\ImportInstanceLaunchSp
 
 -- | The Base64-encoded user data to make available to the instance.
 importInstanceLaunchSpecification_userData :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe UserData)
-importInstanceLaunchSpecification_userData = Lens.lens (\ImportInstanceLaunchSpecification' {userData} -> userData) (\s@ImportInstanceLaunchSpecification' {} a -> s {userData = a} :: ImportInstanceLaunchSpecification) Prelude.. Lens.mapping Core._Sensitive
+importInstanceLaunchSpecification_userData = Lens.lens (\ImportInstanceLaunchSpecification' {userData} -> userData) (\s@ImportInstanceLaunchSpecification' {} a -> s {userData = a} :: ImportInstanceLaunchSpecification) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Reserved.
 importInstanceLaunchSpecification_additionalInfo :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe Prelude.Text)
@@ -205,25 +206,25 @@ instance
       `Prelude.seq` Prelude.rnf architecture
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ImportInstanceLaunchSpecification
   where
   toQuery ImportInstanceLaunchSpecification' {..} =
     Prelude.mconcat
-      [ "Placement" Core.=: placement,
-        "UserData" Core.=: userData,
-        "AdditionalInfo" Core.=: additionalInfo,
+      [ "Placement" Data.=: placement,
+        "UserData" Data.=: userData,
+        "AdditionalInfo" Data.=: additionalInfo,
         "InstanceInitiatedShutdownBehavior"
-          Core.=: instanceInitiatedShutdownBehavior,
-        "Monitoring" Core.=: monitoring,
-        "SubnetId" Core.=: subnetId,
-        "InstanceType" Core.=: instanceType,
-        Core.toQuery
-          (Core.toQueryList "GroupId" Prelude.<$> groupIds),
-        Core.toQuery
-          ( Core.toQueryList "GroupName"
+          Data.=: instanceInitiatedShutdownBehavior,
+        "Monitoring" Data.=: monitoring,
+        "SubnetId" Data.=: subnetId,
+        "InstanceType" Data.=: instanceType,
+        Data.toQuery
+          (Data.toQueryList "GroupId" Prelude.<$> groupIds),
+        Data.toQuery
+          ( Data.toQueryList "GroupName"
               Prelude.<$> groupNames
           ),
-        "PrivateIpAddress" Core.=: privateIpAddress,
-        "Architecture" Core.=: architecture
+        "PrivateIpAddress" Data.=: privateIpAddress,
+        "Architecture" Data.=: architecture
       ]

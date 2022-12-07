@@ -69,6 +69,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -166,8 +167,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationConformancePacksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "OrganizationConformancePacks"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "OrganizationConformancePacks"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -195,45 +196,45 @@ instance
       `Prelude.seq` Prelude.rnf limit
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeOrganizationConformancePacks
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DescribeOrganizationConformancePacks" ::
+              Data.=# ( "StarlingDoveService.DescribeOrganizationConformancePacks" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeOrganizationConformancePacks
   where
   toJSON DescribeOrganizationConformancePacks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OrganizationConformancePackNames" Core..=)
+          [ ("OrganizationConformancePackNames" Data..=)
               Prelude.<$> organizationConformancePackNames,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeOrganizationConformancePacks
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeOrganizationConformancePacks
   where
   toQuery = Prelude.const Prelude.mempty

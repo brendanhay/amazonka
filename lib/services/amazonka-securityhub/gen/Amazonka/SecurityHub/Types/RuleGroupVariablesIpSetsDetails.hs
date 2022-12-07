@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.RuleGroupVariablesIpSetsDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of IP addresses and address ranges, in CIDR notation.
@@ -54,15 +55,15 @@ ruleGroupVariablesIpSetsDetails_definition :: Lens.Lens' RuleGroupVariablesIpSet
 ruleGroupVariablesIpSetsDetails_definition = Lens.lens (\RuleGroupVariablesIpSetsDetails' {definition} -> definition) (\s@RuleGroupVariablesIpSetsDetails' {} a -> s {definition = a} :: RuleGroupVariablesIpSetsDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RuleGroupVariablesIpSetsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupVariablesIpSetsDetails"
       ( \x ->
           RuleGroupVariablesIpSetsDetails'
-            Prelude.<$> (x Core..:? "Definition" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Definition" Data..!= Prelude.mempty)
       )
 
 instance
@@ -81,9 +82,9 @@ instance
   rnf RuleGroupVariablesIpSetsDetails' {..} =
     Prelude.rnf definition
 
-instance Core.ToJSON RuleGroupVariablesIpSetsDetails where
+instance Data.ToJSON RuleGroupVariablesIpSetsDetails where
   toJSON RuleGroupVariablesIpSetsDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Definition" Core..=) Prelude.<$> definition]
+          [("Definition" Data..=) Prelude.<$> definition]
       )

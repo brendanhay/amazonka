@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.RecommendationSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.Strategy
 import Amazonka.MigrationHubStrategy.Types.TargetDestination
 import Amazonka.MigrationHubStrategy.Types.TransformationTool
@@ -74,15 +75,15 @@ recommendationSet_targetDestination = Lens.lens (\RecommendationSet' {targetDest
 recommendationSet_strategy :: Lens.Lens' RecommendationSet (Prelude.Maybe Strategy)
 recommendationSet_strategy = Lens.lens (\RecommendationSet' {strategy} -> strategy) (\s@RecommendationSet' {} a -> s {strategy = a} :: RecommendationSet)
 
-instance Core.FromJSON RecommendationSet where
+instance Data.FromJSON RecommendationSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationSet"
       ( \x ->
           RecommendationSet'
-            Prelude.<$> (x Core..:? "transformationTool")
-            Prelude.<*> (x Core..:? "targetDestination")
-            Prelude.<*> (x Core..:? "strategy")
+            Prelude.<$> (x Data..:? "transformationTool")
+            Prelude.<*> (x Data..:? "targetDestination")
+            Prelude.<*> (x Data..:? "strategy")
       )
 
 instance Prelude.Hashable RecommendationSet where

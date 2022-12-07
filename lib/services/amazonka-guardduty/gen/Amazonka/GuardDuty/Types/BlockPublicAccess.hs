@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.BlockPublicAccess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on how the bucker owner\'s S3 Block Public Access
@@ -83,16 +84,16 @@ blockPublicAccess_blockPublicPolicy = Lens.lens (\BlockPublicAccess' {blockPubli
 blockPublicAccess_blockPublicAcls :: Lens.Lens' BlockPublicAccess (Prelude.Maybe Prelude.Bool)
 blockPublicAccess_blockPublicAcls = Lens.lens (\BlockPublicAccess' {blockPublicAcls} -> blockPublicAcls) (\s@BlockPublicAccess' {} a -> s {blockPublicAcls = a} :: BlockPublicAccess)
 
-instance Core.FromJSON BlockPublicAccess where
+instance Data.FromJSON BlockPublicAccess where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BlockPublicAccess"
       ( \x ->
           BlockPublicAccess'
-            Prelude.<$> (x Core..:? "restrictPublicBuckets")
-            Prelude.<*> (x Core..:? "ignorePublicAcls")
-            Prelude.<*> (x Core..:? "blockPublicPolicy")
-            Prelude.<*> (x Core..:? "blockPublicAcls")
+            Prelude.<$> (x Data..:? "restrictPublicBuckets")
+            Prelude.<*> (x Data..:? "ignorePublicAcls")
+            Prelude.<*> (x Data..:? "blockPublicPolicy")
+            Prelude.<*> (x Data..:? "blockPublicAcls")
       )
 
 instance Prelude.Hashable BlockPublicAccess where

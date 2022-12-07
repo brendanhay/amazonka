@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.RecoverySnapshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A snapshot of a Source Server used during recovery.
@@ -97,17 +98,17 @@ recoverySnapshot_snapshotID = Lens.lens (\RecoverySnapshot' {snapshotID} -> snap
 recoverySnapshot_sourceServerID :: Lens.Lens' RecoverySnapshot Prelude.Text
 recoverySnapshot_sourceServerID = Lens.lens (\RecoverySnapshot' {sourceServerID} -> sourceServerID) (\s@RecoverySnapshot' {} a -> s {sourceServerID = a} :: RecoverySnapshot)
 
-instance Core.FromJSON RecoverySnapshot where
+instance Data.FromJSON RecoverySnapshot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecoverySnapshot"
       ( \x ->
           RecoverySnapshot'
-            Prelude.<$> (x Core..:? "timestamp")
-            Prelude.<*> (x Core..:? "ebsSnapshots" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "expectedTimestamp")
-            Prelude.<*> (x Core..: "snapshotID")
-            Prelude.<*> (x Core..: "sourceServerID")
+            Prelude.<$> (x Data..:? "timestamp")
+            Prelude.<*> (x Data..:? "ebsSnapshots" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "expectedTimestamp")
+            Prelude.<*> (x Data..: "snapshotID")
+            Prelude.<*> (x Data..: "sourceServerID")
       )
 
 instance Prelude.Hashable RecoverySnapshot where

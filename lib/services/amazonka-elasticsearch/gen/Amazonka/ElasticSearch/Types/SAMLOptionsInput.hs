@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.SAMLOptionsInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.SAMLIdp
 import qualified Amazonka.Prelude as Prelude
 
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data SAMLOptionsInput = SAMLOptionsInput'
   { -- | The SAML master username, which is stored in the Amazon Elasticsearch
     -- Service domain\'s internal database.
-    masterUserName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    masterUserName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | True if SAML is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The duration, in minutes, after which a user session becomes inactive.
@@ -86,7 +87,7 @@ newSAMLOptionsInput =
 -- | The SAML master username, which is stored in the Amazon Elasticsearch
 -- Service domain\'s internal database.
 sAMLOptionsInput_masterUserName :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe Prelude.Text)
-sAMLOptionsInput_masterUserName = Lens.lens (\SAMLOptionsInput' {masterUserName} -> masterUserName) (\s@SAMLOptionsInput' {} a -> s {masterUserName = a} :: SAMLOptionsInput) Prelude.. Lens.mapping Core._Sensitive
+sAMLOptionsInput_masterUserName = Lens.lens (\SAMLOptionsInput' {masterUserName} -> masterUserName) (\s@SAMLOptionsInput' {} a -> s {masterUserName = a} :: SAMLOptionsInput) Prelude.. Lens.mapping Data._Sensitive
 
 -- | True if SAML is enabled.
 sAMLOptionsInput_enabled :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe Prelude.Bool)
@@ -133,19 +134,19 @@ instance Prelude.NFData SAMLOptionsInput where
       `Prelude.seq` Prelude.rnf idp
       `Prelude.seq` Prelude.rnf subjectKey
 
-instance Core.ToJSON SAMLOptionsInput where
+instance Data.ToJSON SAMLOptionsInput where
   toJSON SAMLOptionsInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MasterUserName" Core..=)
+          [ ("MasterUserName" Data..=)
               Prelude.<$> masterUserName,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("SessionTimeoutMinutes" Core..=)
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("SessionTimeoutMinutes" Data..=)
               Prelude.<$> sessionTimeoutMinutes,
-            ("RolesKey" Core..=) Prelude.<$> rolesKey,
-            ("MasterBackendRole" Core..=)
+            ("RolesKey" Data..=) Prelude.<$> rolesKey,
+            ("MasterBackendRole" Data..=)
               Prelude.<$> masterBackendRole,
-            ("Idp" Core..=) Prelude.<$> idp,
-            ("SubjectKey" Core..=) Prelude.<$> subjectKey
+            ("Idp" Data..=) Prelude.<$> idp,
+            ("SubjectKey" Data..=) Prelude.<$> subjectKey
           ]
       )

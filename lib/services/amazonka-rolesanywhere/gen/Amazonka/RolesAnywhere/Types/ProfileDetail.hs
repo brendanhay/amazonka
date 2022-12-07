@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.ProfileDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The state of the profile after a read or write operation.
@@ -54,9 +55,9 @@ data ProfileDetail = ProfileDetail'
     -- requests with this profile.
     requireInstanceProperties :: Prelude.Maybe Prelude.Bool,
     -- | The ISO-8601 timestamp when the profile was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The ISO-8601 timestamp when the profile was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -163,32 +164,32 @@ profileDetail_requireInstanceProperties = Lens.lens (\ProfileDetail' {requireIns
 
 -- | The ISO-8601 timestamp when the profile was created.
 profileDetail_createdAt :: Lens.Lens' ProfileDetail (Prelude.Maybe Prelude.UTCTime)
-profileDetail_createdAt = Lens.lens (\ProfileDetail' {createdAt} -> createdAt) (\s@ProfileDetail' {} a -> s {createdAt = a} :: ProfileDetail) Prelude.. Lens.mapping Core._Time
+profileDetail_createdAt = Lens.lens (\ProfileDetail' {createdAt} -> createdAt) (\s@ProfileDetail' {} a -> s {createdAt = a} :: ProfileDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The ISO-8601 timestamp when the profile was last updated.
 profileDetail_updatedAt :: Lens.Lens' ProfileDetail (Prelude.Maybe Prelude.UTCTime)
-profileDetail_updatedAt = Lens.lens (\ProfileDetail' {updatedAt} -> updatedAt) (\s@ProfileDetail' {} a -> s {updatedAt = a} :: ProfileDetail) Prelude.. Lens.mapping Core._Time
+profileDetail_updatedAt = Lens.lens (\ProfileDetail' {updatedAt} -> updatedAt) (\s@ProfileDetail' {} a -> s {updatedAt = a} :: ProfileDetail) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ProfileDetail where
+instance Data.FromJSON ProfileDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProfileDetail"
       ( \x ->
           ProfileDetail'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "profileId")
-            Prelude.<*> ( x Core..:? "managedPolicyArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "profileId")
+            Prelude.<*> ( x Data..:? "managedPolicyArns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "profileArn")
-            Prelude.<*> (x Core..:? "roleArns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "enabled")
-            Prelude.<*> (x Core..:? "durationSeconds")
-            Prelude.<*> (x Core..:? "sessionPolicy")
-            Prelude.<*> (x Core..:? "createdBy")
-            Prelude.<*> (x Core..:? "requireInstanceProperties")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<*> (x Data..:? "profileArn")
+            Prelude.<*> (x Data..:? "roleArns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "durationSeconds")
+            Prelude.<*> (x Data..:? "sessionPolicy")
+            Prelude.<*> (x Data..:? "createdBy")
+            Prelude.<*> (x Data..:? "requireInstanceProperties")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable ProfileDetail where

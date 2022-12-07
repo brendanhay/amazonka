@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.ManagedActionHistoryItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.ActionHistoryStatus
 import Amazonka.ElasticBeanstalk.Types.ActionType
 import Amazonka.ElasticBeanstalk.Types.FailureType
@@ -41,11 +42,11 @@ data ManagedActionHistoryItem = ManagedActionHistoryItem'
     -- | A unique identifier for the managed action.
     actionId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the action started executing.
-    executedTime :: Prelude.Maybe Core.ISO8601,
+    executedTime :: Prelude.Maybe Data.ISO8601,
     -- | A description of the managed action.
     actionDescription :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the action finished executing.
-    finishedTime :: Prelude.Maybe Core.ISO8601
+    finishedTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,7 +110,7 @@ managedActionHistoryItem_actionId = Lens.lens (\ManagedActionHistoryItem' {actio
 
 -- | The date and time that the action started executing.
 managedActionHistoryItem_executedTime :: Lens.Lens' ManagedActionHistoryItem (Prelude.Maybe Prelude.UTCTime)
-managedActionHistoryItem_executedTime = Lens.lens (\ManagedActionHistoryItem' {executedTime} -> executedTime) (\s@ManagedActionHistoryItem' {} a -> s {executedTime = a} :: ManagedActionHistoryItem) Prelude.. Lens.mapping Core._Time
+managedActionHistoryItem_executedTime = Lens.lens (\ManagedActionHistoryItem' {executedTime} -> executedTime) (\s@ManagedActionHistoryItem' {} a -> s {executedTime = a} :: ManagedActionHistoryItem) Prelude.. Lens.mapping Data._Time
 
 -- | A description of the managed action.
 managedActionHistoryItem_actionDescription :: Lens.Lens' ManagedActionHistoryItem (Prelude.Maybe Prelude.Text)
@@ -117,19 +118,19 @@ managedActionHistoryItem_actionDescription = Lens.lens (\ManagedActionHistoryIte
 
 -- | The date and time that the action finished executing.
 managedActionHistoryItem_finishedTime :: Lens.Lens' ManagedActionHistoryItem (Prelude.Maybe Prelude.UTCTime)
-managedActionHistoryItem_finishedTime = Lens.lens (\ManagedActionHistoryItem' {finishedTime} -> finishedTime) (\s@ManagedActionHistoryItem' {} a -> s {finishedTime = a} :: ManagedActionHistoryItem) Prelude.. Lens.mapping Core._Time
+managedActionHistoryItem_finishedTime = Lens.lens (\ManagedActionHistoryItem' {finishedTime} -> finishedTime) (\s@ManagedActionHistoryItem' {} a -> s {finishedTime = a} :: ManagedActionHistoryItem) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML ManagedActionHistoryItem where
+instance Data.FromXML ManagedActionHistoryItem where
   parseXML x =
     ManagedActionHistoryItem'
-      Prelude.<$> (x Core..@? "FailureDescription")
-      Prelude.<*> (x Core..@? "ActionType")
-      Prelude.<*> (x Core..@? "FailureType")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "ActionId")
-      Prelude.<*> (x Core..@? "ExecutedTime")
-      Prelude.<*> (x Core..@? "ActionDescription")
-      Prelude.<*> (x Core..@? "FinishedTime")
+      Prelude.<$> (x Data..@? "FailureDescription")
+      Prelude.<*> (x Data..@? "ActionType")
+      Prelude.<*> (x Data..@? "FailureType")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "ActionId")
+      Prelude.<*> (x Data..@? "ExecutedTime")
+      Prelude.<*> (x Data..@? "ActionDescription")
+      Prelude.<*> (x Data..@? "FinishedTime")
 
 instance Prelude.Hashable ManagedActionHistoryItem where
   hashWithSalt _salt ManagedActionHistoryItem' {..} =

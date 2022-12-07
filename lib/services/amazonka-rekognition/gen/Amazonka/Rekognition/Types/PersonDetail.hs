@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.PersonDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.BoundingBox
 import Amazonka.Rekognition.Types.FaceDetail
@@ -78,15 +79,15 @@ personDetail_face = Lens.lens (\PersonDetail' {face} -> face) (\s@PersonDetail' 
 personDetail_boundingBox :: Lens.Lens' PersonDetail (Prelude.Maybe BoundingBox)
 personDetail_boundingBox = Lens.lens (\PersonDetail' {boundingBox} -> boundingBox) (\s@PersonDetail' {} a -> s {boundingBox = a} :: PersonDetail)
 
-instance Core.FromJSON PersonDetail where
+instance Data.FromJSON PersonDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PersonDetail"
       ( \x ->
           PersonDetail'
-            Prelude.<$> (x Core..:? "Index")
-            Prelude.<*> (x Core..:? "Face")
-            Prelude.<*> (x Core..:? "BoundingBox")
+            Prelude.<$> (x Data..:? "Index")
+            Prelude.<*> (x Data..:? "Face")
+            Prelude.<*> (x Data..:? "BoundingBox")
       )
 
 instance Prelude.Hashable PersonDetail where

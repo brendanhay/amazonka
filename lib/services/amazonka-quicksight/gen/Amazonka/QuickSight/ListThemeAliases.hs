@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -125,9 +126,9 @@ instance Core.AWSRequest ListThemeAliases where
     Response.receiveJSON
       ( \s h x ->
           ListThemeAliasesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "ThemeAliasList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "ThemeAliasList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,32 +146,32 @@ instance Prelude.NFData ListThemeAliases where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf themeId
 
-instance Core.ToHeaders ListThemeAliases where
+instance Data.ToHeaders ListThemeAliases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListThemeAliases where
+instance Data.ToPath ListThemeAliases where
   toPath ListThemeAliases' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/themes/",
-        Core.toBS themeId,
+        Data.toBS themeId,
         "/aliases"
       ]
 
-instance Core.ToQuery ListThemeAliases where
+instance Data.ToQuery ListThemeAliases where
   toQuery ListThemeAliases' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-result" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-result" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListThemeAliasesResponse' smart constructor.

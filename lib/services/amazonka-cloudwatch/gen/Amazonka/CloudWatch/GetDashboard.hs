@@ -48,6 +48,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,9 +89,9 @@ instance Core.AWSRequest GetDashboard where
       "GetDashboardResult"
       ( \s h x ->
           GetDashboardResponse'
-            Prelude.<$> (x Core..@? "DashboardBody")
-            Prelude.<*> (x Core..@? "DashboardName")
-            Prelude.<*> (x Core..@? "DashboardArn")
+            Prelude.<$> (x Data..@? "DashboardBody")
+            Prelude.<*> (x Data..@? "DashboardName")
+            Prelude.<*> (x Data..@? "DashboardArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,20 +102,20 @@ instance Prelude.Hashable GetDashboard where
 instance Prelude.NFData GetDashboard where
   rnf GetDashboard' {..} = Prelude.rnf dashboardName
 
-instance Core.ToHeaders GetDashboard where
+instance Data.ToHeaders GetDashboard where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetDashboard where
+instance Data.ToPath GetDashboard where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDashboard where
+instance Data.ToQuery GetDashboard where
   toQuery GetDashboard' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetDashboard" :: Prelude.ByteString),
+          Data.=: ("GetDashboard" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "DashboardName" Core.=: dashboardName
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
+        "DashboardName" Data.=: dashboardName
       ]
 
 -- | /See:/ 'newGetDashboardResponse' smart constructor.

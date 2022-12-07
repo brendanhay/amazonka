@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.MaintenanceWindowExecutionTaskIdentity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AlarmConfiguration
 import Amazonka.SSM.Types.AlarmStateInformation
@@ -42,7 +43,7 @@ data MaintenanceWindowExecutionTaskIdentity = MaintenanceWindowExecutionTaskIden
     -- | The status of the task execution.
     status :: Prelude.Maybe MaintenanceWindowExecutionStatus,
     -- | The time the task execution finished.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The type of task that ran.
     taskType :: Prelude.Maybe MaintenanceWindowTaskType,
     -- | The details for the CloudWatch alarm applied to your maintenance window
@@ -51,7 +52,7 @@ data MaintenanceWindowExecutionTaskIdentity = MaintenanceWindowExecutionTaskIden
     -- | The CloudWatch alarm that was invoked by the maintenance window task.
     triggeredAlarms :: Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation),
     -- | The time the task execution started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the specific task execution in the maintenance window
     -- execution.
     taskExecutionId :: Prelude.Maybe Prelude.Text
@@ -125,7 +126,7 @@ maintenanceWindowExecutionTaskIdentity_status = Lens.lens (\MaintenanceWindowExe
 
 -- | The time the task execution finished.
 maintenanceWindowExecutionTaskIdentity_endTime :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe Prelude.UTCTime)
-maintenanceWindowExecutionTaskIdentity_endTime = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {endTime} -> endTime) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {endTime = a} :: MaintenanceWindowExecutionTaskIdentity) Prelude.. Lens.mapping Core._Time
+maintenanceWindowExecutionTaskIdentity_endTime = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {endTime} -> endTime) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {endTime = a} :: MaintenanceWindowExecutionTaskIdentity) Prelude.. Lens.mapping Data._Time
 
 -- | The type of task that ran.
 maintenanceWindowExecutionTaskIdentity_taskType :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe MaintenanceWindowTaskType)
@@ -142,7 +143,7 @@ maintenanceWindowExecutionTaskIdentity_triggeredAlarms = Lens.lens (\Maintenance
 
 -- | The time the task execution started.
 maintenanceWindowExecutionTaskIdentity_startTime :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe Prelude.UTCTime)
-maintenanceWindowExecutionTaskIdentity_startTime = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {startTime} -> startTime) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {startTime = a} :: MaintenanceWindowExecutionTaskIdentity) Prelude.. Lens.mapping Core._Time
+maintenanceWindowExecutionTaskIdentity_startTime = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {startTime} -> startTime) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {startTime = a} :: MaintenanceWindowExecutionTaskIdentity) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the specific task execution in the maintenance window
 -- execution.
@@ -150,24 +151,24 @@ maintenanceWindowExecutionTaskIdentity_taskExecutionId :: Lens.Lens' Maintenance
 maintenanceWindowExecutionTaskIdentity_taskExecutionId = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {taskExecutionId} -> taskExecutionId) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {taskExecutionId = a} :: MaintenanceWindowExecutionTaskIdentity)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MaintenanceWindowExecutionTaskIdentity
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MaintenanceWindowExecutionTaskIdentity"
       ( \x ->
           MaintenanceWindowExecutionTaskIdentity'
-            Prelude.<$> (x Core..:? "WindowExecutionId")
-            Prelude.<*> (x Core..:? "TaskArn")
-            Prelude.<*> (x Core..:? "StatusDetails")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "TaskType")
-            Prelude.<*> (x Core..:? "AlarmConfiguration")
-            Prelude.<*> (x Core..:? "TriggeredAlarms")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "TaskExecutionId")
+            Prelude.<$> (x Data..:? "WindowExecutionId")
+            Prelude.<*> (x Data..:? "TaskArn")
+            Prelude.<*> (x Data..:? "StatusDetails")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "TaskType")
+            Prelude.<*> (x Data..:? "AlarmConfiguration")
+            Prelude.<*> (x Data..:? "TriggeredAlarms")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "TaskExecutionId")
       )
 
 instance

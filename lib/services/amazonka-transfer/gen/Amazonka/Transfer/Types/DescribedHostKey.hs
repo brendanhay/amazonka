@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.DescribedHostKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.Tag
 
@@ -51,7 +52,7 @@ data DescribedHostKey = DescribedHostKey'
     -- identify the longer public key.
     hostKeyFingerprint :: Prelude.Maybe Prelude.Text,
     -- | The date on which the host key was added to the server.
-    dateImported :: Prelude.Maybe Core.POSIX,
+    dateImported :: Prelude.Maybe Data.POSIX,
     -- | The unique Amazon Resource Name (ARN) for the host key.
     arn :: Prelude.Text
   }
@@ -139,25 +140,25 @@ describedHostKey_hostKeyFingerprint = Lens.lens (\DescribedHostKey' {hostKeyFing
 
 -- | The date on which the host key was added to the server.
 describedHostKey_dateImported :: Lens.Lens' DescribedHostKey (Prelude.Maybe Prelude.UTCTime)
-describedHostKey_dateImported = Lens.lens (\DescribedHostKey' {dateImported} -> dateImported) (\s@DescribedHostKey' {} a -> s {dateImported = a} :: DescribedHostKey) Prelude.. Lens.mapping Core._Time
+describedHostKey_dateImported = Lens.lens (\DescribedHostKey' {dateImported} -> dateImported) (\s@DescribedHostKey' {} a -> s {dateImported = a} :: DescribedHostKey) Prelude.. Lens.mapping Data._Time
 
 -- | The unique Amazon Resource Name (ARN) for the host key.
 describedHostKey_arn :: Lens.Lens' DescribedHostKey Prelude.Text
 describedHostKey_arn = Lens.lens (\DescribedHostKey' {arn} -> arn) (\s@DescribedHostKey' {} a -> s {arn = a} :: DescribedHostKey)
 
-instance Core.FromJSON DescribedHostKey where
+instance Data.FromJSON DescribedHostKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DescribedHostKey"
       ( \x ->
           DescribedHostKey'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "HostKeyId")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "HostKeyFingerprint")
-            Prelude.<*> (x Core..:? "DateImported")
-            Prelude.<*> (x Core..: "Arn")
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "HostKeyId")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "HostKeyFingerprint")
+            Prelude.<*> (x Data..:? "DateImported")
+            Prelude.<*> (x Data..: "Arn")
       )
 
 instance Prelude.Hashable DescribedHostKey where

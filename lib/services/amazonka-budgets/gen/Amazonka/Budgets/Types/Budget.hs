@@ -28,6 +28,7 @@ import Amazonka.Budgets.Types.TimePeriod
 import Amazonka.Budgets.Types.TimeUnit
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of the @CreateBudget@ operation. The content
@@ -105,7 +106,7 @@ data Budget = Budget'
     -- -   Amazon OpenSearch Service
     costFilters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The last time that you updated this budget.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The actual and forecasted cost or usage that the budget tracks.
     calculatedSpend :: Prelude.Maybe CalculatedSpend,
     -- | The period of time that\'s covered by a budget. You setthe start date
@@ -349,7 +350,7 @@ budget_costFilters = Lens.lens (\Budget' {costFilters} -> costFilters) (\s@Budge
 
 -- | The last time that you updated this budget.
 budget_lastUpdatedTime :: Lens.Lens' Budget (Prelude.Maybe Prelude.UTCTime)
-budget_lastUpdatedTime = Lens.lens (\Budget' {lastUpdatedTime} -> lastUpdatedTime) (\s@Budget' {} a -> s {lastUpdatedTime = a} :: Budget) Prelude.. Lens.mapping Core._Time
+budget_lastUpdatedTime = Lens.lens (\Budget' {lastUpdatedTime} -> lastUpdatedTime) (\s@Budget' {} a -> s {lastUpdatedTime = a} :: Budget) Prelude.. Lens.mapping Data._Time
 
 -- | The actual and forecasted cost or usage that the budget tracks.
 budget_calculatedSpend :: Lens.Lens' Budget (Prelude.Maybe CalculatedSpend)
@@ -398,25 +399,25 @@ budget_timeUnit = Lens.lens (\Budget' {timeUnit} -> timeUnit) (\s@Budget' {} a -
 budget_budgetType :: Lens.Lens' Budget BudgetType
 budget_budgetType = Lens.lens (\Budget' {budgetType} -> budgetType) (\s@Budget' {} a -> s {budgetType = a} :: Budget)
 
-instance Core.FromJSON Budget where
+instance Data.FromJSON Budget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Budget"
       ( \x ->
           Budget'
-            Prelude.<$> (x Core..:? "AutoAdjustData")
-            Prelude.<*> (x Core..:? "BudgetLimit")
-            Prelude.<*> ( x Core..:? "PlannedBudgetLimits"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "AutoAdjustData")
+            Prelude.<*> (x Data..:? "BudgetLimit")
+            Prelude.<*> ( x Data..:? "PlannedBudgetLimits"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CostFilters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "CalculatedSpend")
-            Prelude.<*> (x Core..:? "TimePeriod")
-            Prelude.<*> (x Core..:? "CostTypes")
-            Prelude.<*> (x Core..: "BudgetName")
-            Prelude.<*> (x Core..: "TimeUnit")
-            Prelude.<*> (x Core..: "BudgetType")
+            Prelude.<*> (x Data..:? "CostFilters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "CalculatedSpend")
+            Prelude.<*> (x Data..:? "TimePeriod")
+            Prelude.<*> (x Data..:? "CostTypes")
+            Prelude.<*> (x Data..: "BudgetName")
+            Prelude.<*> (x Data..: "TimeUnit")
+            Prelude.<*> (x Data..: "BudgetType")
       )
 
 instance Prelude.Hashable Budget where
@@ -447,24 +448,24 @@ instance Prelude.NFData Budget where
       `Prelude.seq` Prelude.rnf timeUnit
       `Prelude.seq` Prelude.rnf budgetType
 
-instance Core.ToJSON Budget where
+instance Data.ToJSON Budget where
   toJSON Budget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AutoAdjustData" Core..=)
+          [ ("AutoAdjustData" Data..=)
               Prelude.<$> autoAdjustData,
-            ("BudgetLimit" Core..=) Prelude.<$> budgetLimit,
-            ("PlannedBudgetLimits" Core..=)
+            ("BudgetLimit" Data..=) Prelude.<$> budgetLimit,
+            ("PlannedBudgetLimits" Data..=)
               Prelude.<$> plannedBudgetLimits,
-            ("CostFilters" Core..=) Prelude.<$> costFilters,
-            ("LastUpdatedTime" Core..=)
+            ("CostFilters" Data..=) Prelude.<$> costFilters,
+            ("LastUpdatedTime" Data..=)
               Prelude.<$> lastUpdatedTime,
-            ("CalculatedSpend" Core..=)
+            ("CalculatedSpend" Data..=)
               Prelude.<$> calculatedSpend,
-            ("TimePeriod" Core..=) Prelude.<$> timePeriod,
-            ("CostTypes" Core..=) Prelude.<$> costTypes,
-            Prelude.Just ("BudgetName" Core..= budgetName),
-            Prelude.Just ("TimeUnit" Core..= timeUnit),
-            Prelude.Just ("BudgetType" Core..= budgetType)
+            ("TimePeriod" Data..=) Prelude.<$> timePeriod,
+            ("CostTypes" Data..=) Prelude.<$> costTypes,
+            Prelude.Just ("BudgetName" Data..= budgetName),
+            Prelude.Just ("TimeUnit" Data..= timeUnit),
+            Prelude.Just ("BudgetType" Data..= budgetType)
           ]
       )

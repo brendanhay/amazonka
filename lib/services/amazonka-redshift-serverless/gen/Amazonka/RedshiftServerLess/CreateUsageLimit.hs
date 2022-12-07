@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -155,7 +156,7 @@ instance Core.AWSRequest CreateUsageLimit where
     Response.receiveJSON
       ( \s h x ->
           CreateUsageLimitResponse'
-            Prelude.<$> (x Core..?> "usageLimit")
+            Prelude.<$> (x Data..?> "usageLimit")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,37 +176,37 @@ instance Prelude.NFData CreateUsageLimit where
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf usageType
 
-instance Core.ToHeaders CreateUsageLimit where
+instance Data.ToHeaders CreateUsageLimit where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.CreateUsageLimit" ::
+              Data.=# ( "RedshiftServerless.CreateUsageLimit" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUsageLimit where
+instance Data.ToJSON CreateUsageLimit where
   toJSON CreateUsageLimit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("period" Core..=) Prelude.<$> period,
-            ("breachAction" Core..=) Prelude.<$> breachAction,
-            Prelude.Just ("amount" Core..= amount),
-            Prelude.Just ("resourceArn" Core..= resourceArn),
-            Prelude.Just ("usageType" Core..= usageType)
+          [ ("period" Data..=) Prelude.<$> period,
+            ("breachAction" Data..=) Prelude.<$> breachAction,
+            Prelude.Just ("amount" Data..= amount),
+            Prelude.Just ("resourceArn" Data..= resourceArn),
+            Prelude.Just ("usageType" Data..= usageType)
           ]
       )
 
-instance Core.ToPath CreateUsageLimit where
+instance Data.ToPath CreateUsageLimit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUsageLimit where
+instance Data.ToQuery CreateUsageLimit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUsageLimitResponse' smart constructor.

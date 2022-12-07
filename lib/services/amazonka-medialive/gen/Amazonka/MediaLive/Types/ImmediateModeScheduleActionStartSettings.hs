@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.ImmediateModeScheduleActionStartSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings to configure an action so that it occurs as soon as possible.
@@ -41,11 +42,11 @@ newImmediateModeScheduleActionStartSettings =
   ImmediateModeScheduleActionStartSettings'
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ImmediateModeScheduleActionStartSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImmediateModeScheduleActionStartSettings"
       ( \x ->
           Prelude.pure
@@ -66,7 +67,7 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ImmediateModeScheduleActionStartSettings
   where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

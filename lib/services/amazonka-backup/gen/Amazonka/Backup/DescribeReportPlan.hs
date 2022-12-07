@@ -43,6 +43,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ instance Core.AWSRequest DescribeReportPlan where
     Response.receiveJSON
       ( \s h x ->
           DescribeReportPlanResponse'
-            Prelude.<$> (x Core..?> "ReportPlan")
+            Prelude.<$> (x Data..?> "ReportPlan")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,23 +100,23 @@ instance Prelude.NFData DescribeReportPlan where
   rnf DescribeReportPlan' {..} =
     Prelude.rnf reportPlanName
 
-instance Core.ToHeaders DescribeReportPlan where
+instance Data.ToHeaders DescribeReportPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeReportPlan where
+instance Data.ToPath DescribeReportPlan where
   toPath DescribeReportPlan' {..} =
     Prelude.mconcat
-      ["/audit/report-plans/", Core.toBS reportPlanName]
+      ["/audit/report-plans/", Data.toBS reportPlanName]
 
-instance Core.ToQuery DescribeReportPlan where
+instance Data.ToQuery DescribeReportPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeReportPlanResponse' smart constructor.

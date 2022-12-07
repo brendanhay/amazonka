@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -224,10 +225,10 @@ instance Core.AWSRequest DescribeCarrierGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeCarrierGatewaysResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "carrierGatewaySet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "carrierGatewaySet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -248,26 +249,26 @@ instance Prelude.NFData DescribeCarrierGateways where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf carrierGatewayIds
 
-instance Core.ToHeaders DescribeCarrierGateways where
+instance Data.ToHeaders DescribeCarrierGateways where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeCarrierGateways where
+instance Data.ToPath DescribeCarrierGateways where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCarrierGateways where
+instance Data.ToQuery DescribeCarrierGateways where
   toQuery DescribeCarrierGateways' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeCarrierGateways" :: Prelude.ByteString),
+          Data.=: ("DescribeCarrierGateways" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          ( Core.toQueryList "CarrierGatewayId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          ( Data.toQueryList "CarrierGatewayId"
               Prelude.<$> carrierGatewayIds
           )
       ]

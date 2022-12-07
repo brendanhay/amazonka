@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.FailWorkflowExecutionDecisionAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @FailWorkflowExecution@ decision.
@@ -101,13 +102,13 @@ instance
       `Prelude.seq` Prelude.rnf reason
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     FailWorkflowExecutionDecisionAttributes
   where
   toJSON FailWorkflowExecutionDecisionAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("details" Core..=) Prelude.<$> details,
-            ("reason" Core..=) Prelude.<$> reason
+          [ ("details" Data..=) Prelude.<$> details,
+            ("reason" Data..=) Prelude.<$> reason
           ]
       )

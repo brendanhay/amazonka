@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElasticsearchDomainEncryptionAtRestOptions 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the configuration for encryption at rest.
@@ -63,16 +64,16 @@ awsElasticsearchDomainEncryptionAtRestOptions_kmsKeyId :: Lens.Lens' AwsElastics
 awsElasticsearchDomainEncryptionAtRestOptions_kmsKeyId = Lens.lens (\AwsElasticsearchDomainEncryptionAtRestOptions' {kmsKeyId} -> kmsKeyId) (\s@AwsElasticsearchDomainEncryptionAtRestOptions' {} a -> s {kmsKeyId = a} :: AwsElasticsearchDomainEncryptionAtRestOptions)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElasticsearchDomainEncryptionAtRestOptions
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElasticsearchDomainEncryptionAtRestOptions"
       ( \x ->
           AwsElasticsearchDomainEncryptionAtRestOptions'
-            Prelude.<$> (x Core..:? "Enabled")
-              Prelude.<*> (x Core..:? "KmsKeyId")
+            Prelude.<$> (x Data..:? "Enabled")
+              Prelude.<*> (x Data..:? "KmsKeyId")
       )
 
 instance
@@ -95,14 +96,14 @@ instance
         `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsElasticsearchDomainEncryptionAtRestOptions
   where
   toJSON
     AwsElasticsearchDomainEncryptionAtRestOptions' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Enabled" Core..=) Prelude.<$> enabled,
-              ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId
+            [ ("Enabled" Data..=) Prelude.<$> enabled,
+              ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId
             ]
         )

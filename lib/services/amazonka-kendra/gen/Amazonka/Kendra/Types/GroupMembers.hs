@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.GroupMembers where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.MemberGroup
 import Amazonka.Kendra.Types.MemberUser
 import Amazonka.Kendra.Types.S3Path
@@ -126,13 +127,13 @@ instance Prelude.NFData GroupMembers where
       `Prelude.seq` Prelude.rnf memberGroups
       `Prelude.seq` Prelude.rnf s3PathforGroupMembers
 
-instance Core.ToJSON GroupMembers where
+instance Data.ToJSON GroupMembers where
   toJSON GroupMembers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MemberUsers" Core..=) Prelude.<$> memberUsers,
-            ("MemberGroups" Core..=) Prelude.<$> memberGroups,
-            ("S3PathforGroupMembers" Core..=)
+          [ ("MemberUsers" Data..=) Prelude.<$> memberUsers,
+            ("MemberGroups" Data..=) Prelude.<$> memberGroups,
+            ("S3PathforGroupMembers" Data..=)
               Prelude.<$> s3PathforGroupMembers
           ]
       )

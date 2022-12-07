@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -175,14 +176,14 @@ instance Core.AWSRequest CreateKeyPair where
     Response.receiveXML
       ( \s h x ->
           CreateKeyPairResponse'
-            Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "keyPairId")
+            Prelude.<*> (x Data..@? "keyPairId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "keyName")
-            Prelude.<*> (x Core..@ "keyFingerprint")
-            Prelude.<*> (x Core..@ "keyMaterial")
+            Prelude.<*> (x Data..@ "keyName")
+            Prelude.<*> (x Data..@ "keyFingerprint")
+            Prelude.<*> (x Data..@ "keyMaterial")
       )
 
 instance Prelude.Hashable CreateKeyPair where
@@ -201,27 +202,27 @@ instance Prelude.NFData CreateKeyPair where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf keyName
 
-instance Core.ToHeaders CreateKeyPair where
+instance Data.ToHeaders CreateKeyPair where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateKeyPair where
+instance Data.ToPath CreateKeyPair where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateKeyPair where
+instance Data.ToQuery CreateKeyPair where
   toQuery CreateKeyPair' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateKeyPair" :: Prelude.ByteString),
+          Data.=: ("CreateKeyPair" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "KeyType" Core.=: keyType,
-        "DryRun" Core.=: dryRun,
-        "KeyFormat" Core.=: keyFormat,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "KeyType" Data.=: keyType,
+        "DryRun" Data.=: dryRun,
+        "KeyFormat" Data.=: keyFormat,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "KeyName" Core.=: keyName
+        "KeyName" Data.=: keyName
       ]
 
 -- | Describes a key pair.
@@ -244,7 +245,7 @@ data CreateKeyPairResponse = CreateKeyPairResponse'
     --     OpenSSH 6.8.
     keyFingerprint :: Prelude.Text,
     -- | An unencrypted PEM encoded RSA or ED25519 private key.
-    keyMaterial :: Core.Sensitive Prelude.Text
+    keyMaterial :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -293,7 +294,7 @@ newCreateKeyPairResponse
         httpStatus = pHttpStatus_,
         keyName = pKeyName_,
         keyFingerprint = pKeyFingerprint_,
-        keyMaterial = Core._Sensitive Lens.# pKeyMaterial_
+        keyMaterial = Data._Sensitive Lens.# pKeyMaterial_
       }
 
 -- | Any tags applied to the key pair.
@@ -323,7 +324,7 @@ createKeyPairResponse_keyFingerprint = Lens.lens (\CreateKeyPairResponse' {keyFi
 
 -- | An unencrypted PEM encoded RSA or ED25519 private key.
 createKeyPairResponse_keyMaterial :: Lens.Lens' CreateKeyPairResponse Prelude.Text
-createKeyPairResponse_keyMaterial = Lens.lens (\CreateKeyPairResponse' {keyMaterial} -> keyMaterial) (\s@CreateKeyPairResponse' {} a -> s {keyMaterial = a} :: CreateKeyPairResponse) Prelude.. Core._Sensitive
+createKeyPairResponse_keyMaterial = Lens.lens (\CreateKeyPairResponse' {keyMaterial} -> keyMaterial) (\s@CreateKeyPairResponse' {} a -> s {keyMaterial = a} :: CreateKeyPairResponse) Prelude.. Data._Sensitive
 
 instance Prelude.NFData CreateKeyPairResponse where
   rnf CreateKeyPairResponse' {..} =

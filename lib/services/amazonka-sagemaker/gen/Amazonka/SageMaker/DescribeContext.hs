@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,17 +94,17 @@ instance Core.AWSRequest DescribeContext where
     Response.receiveJSON
       ( \s h x ->
           DescribeContextResponse'
-            Prelude.<$> (x Core..?> "Properties" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ContextName")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "Source")
-            Prelude.<*> (x Core..?> "LineageGroupArn")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
-            Prelude.<*> (x Core..?> "ContextType")
-            Prelude.<*> (x Core..?> "CreatedBy")
-            Prelude.<*> (x Core..?> "ContextArn")
+            Prelude.<$> (x Data..?> "Properties" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ContextName")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "Source")
+            Prelude.<*> (x Data..?> "LineageGroupArn")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "ContextType")
+            Prelude.<*> (x Data..?> "CreatedBy")
+            Prelude.<*> (x Data..?> "ContextArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,30 +115,30 @@ instance Prelude.Hashable DescribeContext where
 instance Prelude.NFData DescribeContext where
   rnf DescribeContext' {..} = Prelude.rnf contextName
 
-instance Core.ToHeaders DescribeContext where
+instance Data.ToHeaders DescribeContext where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeContext" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DescribeContext" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeContext where
+instance Data.ToJSON DescribeContext where
   toJSON DescribeContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ContextName" Core..= contextName)]
+          [Prelude.Just ("ContextName" Data..= contextName)]
       )
 
-instance Core.ToPath DescribeContext where
+instance Data.ToPath DescribeContext where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeContext where
+instance Data.ToQuery DescribeContext where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeContextResponse' smart constructor.
@@ -149,13 +150,13 @@ data DescribeContextResponse = DescribeContextResponse'
     -- | The description of the context.
     description :: Prelude.Maybe Prelude.Text,
     -- | When the context was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The source of the context.
     source :: Prelude.Maybe ContextSource,
     -- | The Amazon Resource Name (ARN) of the lineage group.
     lineageGroupArn :: Prelude.Maybe Prelude.Text,
     -- | When the context was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     lastModifiedBy :: Prelude.Maybe UserContext,
     -- | The type of the context.
     contextType :: Prelude.Maybe Prelude.Text,
@@ -233,7 +234,7 @@ describeContextResponse_description = Lens.lens (\DescribeContextResponse' {desc
 
 -- | When the context was last modified.
 describeContextResponse_lastModifiedTime :: Lens.Lens' DescribeContextResponse (Prelude.Maybe Prelude.UTCTime)
-describeContextResponse_lastModifiedTime = Lens.lens (\DescribeContextResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeContextResponse' {} a -> s {lastModifiedTime = a} :: DescribeContextResponse) Prelude.. Lens.mapping Core._Time
+describeContextResponse_lastModifiedTime = Lens.lens (\DescribeContextResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeContextResponse' {} a -> s {lastModifiedTime = a} :: DescribeContextResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The source of the context.
 describeContextResponse_source :: Lens.Lens' DescribeContextResponse (Prelude.Maybe ContextSource)
@@ -245,7 +246,7 @@ describeContextResponse_lineageGroupArn = Lens.lens (\DescribeContextResponse' {
 
 -- | When the context was created.
 describeContextResponse_creationTime :: Lens.Lens' DescribeContextResponse (Prelude.Maybe Prelude.UTCTime)
-describeContextResponse_creationTime = Lens.lens (\DescribeContextResponse' {creationTime} -> creationTime) (\s@DescribeContextResponse' {} a -> s {creationTime = a} :: DescribeContextResponse) Prelude.. Lens.mapping Core._Time
+describeContextResponse_creationTime = Lens.lens (\DescribeContextResponse' {creationTime} -> creationTime) (\s@DescribeContextResponse' {} a -> s {creationTime = a} :: DescribeContextResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 describeContextResponse_lastModifiedBy :: Lens.Lens' DescribeContextResponse (Prelude.Maybe UserContext)

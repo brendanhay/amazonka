@@ -21,6 +21,7 @@ module Amazonka.ECRPublic.Types.LayerFailure where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types.LayerFailureCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ layerFailure_layerDigest = Lens.lens (\LayerFailure' {layerDigest} -> layerDiges
 layerFailure_failureReason :: Lens.Lens' LayerFailure (Prelude.Maybe Prelude.Text)
 layerFailure_failureReason = Lens.lens (\LayerFailure' {failureReason} -> failureReason) (\s@LayerFailure' {} a -> s {failureReason = a} :: LayerFailure)
 
-instance Core.FromJSON LayerFailure where
+instance Data.FromJSON LayerFailure where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LayerFailure"
       ( \x ->
           LayerFailure'
-            Prelude.<$> (x Core..:? "failureCode")
-            Prelude.<*> (x Core..:? "layerDigest")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "failureCode")
+            Prelude.<*> (x Data..:? "layerDigest")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable LayerFailure where

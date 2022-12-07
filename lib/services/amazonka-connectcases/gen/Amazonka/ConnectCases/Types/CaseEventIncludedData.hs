@@ -22,6 +22,7 @@ module Amazonka.ConnectCases.Types.CaseEventIncludedData where
 import Amazonka.ConnectCases.Types.FieldIdentifier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of what case data is published through the case event stream.
@@ -51,13 +52,13 @@ newCaseEventIncludedData =
 caseEventIncludedData_fields :: Lens.Lens' CaseEventIncludedData [FieldIdentifier]
 caseEventIncludedData_fields = Lens.lens (\CaseEventIncludedData' {fields} -> fields) (\s@CaseEventIncludedData' {} a -> s {fields = a} :: CaseEventIncludedData) Prelude.. Lens.coerced
 
-instance Core.FromJSON CaseEventIncludedData where
+instance Data.FromJSON CaseEventIncludedData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaseEventIncludedData"
       ( \x ->
           CaseEventIncludedData'
-            Prelude.<$> (x Core..:? "fields" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "fields" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CaseEventIncludedData where
@@ -67,9 +68,9 @@ instance Prelude.Hashable CaseEventIncludedData where
 instance Prelude.NFData CaseEventIncludedData where
   rnf CaseEventIncludedData' {..} = Prelude.rnf fields
 
-instance Core.ToJSON CaseEventIncludedData where
+instance Data.ToJSON CaseEventIncludedData where
   toJSON CaseEventIncludedData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("fields" Core..= fields)]
+          [Prelude.Just ("fields" Data..= fields)]
       )

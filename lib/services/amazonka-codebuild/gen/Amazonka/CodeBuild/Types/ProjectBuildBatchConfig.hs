@@ -23,6 +23,7 @@ import Amazonka.CodeBuild.Types.BatchReportModeType
 import Amazonka.CodeBuild.Types.BatchRestrictions
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration information about a batch build project.
@@ -130,17 +131,17 @@ projectBuildBatchConfig_combineArtifacts = Lens.lens (\ProjectBuildBatchConfig' 
 projectBuildBatchConfig_serviceRole :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe Prelude.Text)
 projectBuildBatchConfig_serviceRole = Lens.lens (\ProjectBuildBatchConfig' {serviceRole} -> serviceRole) (\s@ProjectBuildBatchConfig' {} a -> s {serviceRole = a} :: ProjectBuildBatchConfig)
 
-instance Core.FromJSON ProjectBuildBatchConfig where
+instance Data.FromJSON ProjectBuildBatchConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectBuildBatchConfig"
       ( \x ->
           ProjectBuildBatchConfig'
-            Prelude.<$> (x Core..:? "timeoutInMins")
-            Prelude.<*> (x Core..:? "restrictions")
-            Prelude.<*> (x Core..:? "batchReportMode")
-            Prelude.<*> (x Core..:? "combineArtifacts")
-            Prelude.<*> (x Core..:? "serviceRole")
+            Prelude.<$> (x Data..:? "timeoutInMins")
+            Prelude.<*> (x Data..:? "restrictions")
+            Prelude.<*> (x Data..:? "batchReportMode")
+            Prelude.<*> (x Data..:? "combineArtifacts")
+            Prelude.<*> (x Data..:? "serviceRole")
       )
 
 instance Prelude.Hashable ProjectBuildBatchConfig where
@@ -159,16 +160,16 @@ instance Prelude.NFData ProjectBuildBatchConfig where
       `Prelude.seq` Prelude.rnf combineArtifacts
       `Prelude.seq` Prelude.rnf serviceRole
 
-instance Core.ToJSON ProjectBuildBatchConfig where
+instance Data.ToJSON ProjectBuildBatchConfig where
   toJSON ProjectBuildBatchConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timeoutInMins" Core..=) Prelude.<$> timeoutInMins,
-            ("restrictions" Core..=) Prelude.<$> restrictions,
-            ("batchReportMode" Core..=)
+          [ ("timeoutInMins" Data..=) Prelude.<$> timeoutInMins,
+            ("restrictions" Data..=) Prelude.<$> restrictions,
+            ("batchReportMode" Data..=)
               Prelude.<$> batchReportMode,
-            ("combineArtifacts" Core..=)
+            ("combineArtifacts" Data..=)
               Prelude.<$> combineArtifacts,
-            ("serviceRole" Core..=) Prelude.<$> serviceRole
+            ("serviceRole" Data..=) Prelude.<$> serviceRole
           ]
       )

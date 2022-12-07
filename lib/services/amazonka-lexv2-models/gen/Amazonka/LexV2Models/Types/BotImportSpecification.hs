@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotImportSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.DataPrivacy
 import qualified Amazonka.Prelude as Prelude
 
@@ -146,20 +147,20 @@ botImportSpecification_roleArn = Lens.lens (\BotImportSpecification' {roleArn} -
 botImportSpecification_dataPrivacy :: Lens.Lens' BotImportSpecification DataPrivacy
 botImportSpecification_dataPrivacy = Lens.lens (\BotImportSpecification' {dataPrivacy} -> dataPrivacy) (\s@BotImportSpecification' {} a -> s {dataPrivacy = a} :: BotImportSpecification)
 
-instance Core.FromJSON BotImportSpecification where
+instance Data.FromJSON BotImportSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotImportSpecification"
       ( \x ->
           BotImportSpecification'
-            Prelude.<$> (x Core..:? "idleSessionTTLInSeconds")
-            Prelude.<*> (x Core..:? "botTags" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "testBotAliasTags"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "idleSessionTTLInSeconds")
+            Prelude.<*> (x Data..:? "botTags" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "testBotAliasTags"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "botName")
-            Prelude.<*> (x Core..: "roleArn")
-            Prelude.<*> (x Core..: "dataPrivacy")
+            Prelude.<*> (x Data..: "botName")
+            Prelude.<*> (x Data..: "roleArn")
+            Prelude.<*> (x Data..: "dataPrivacy")
       )
 
 instance Prelude.Hashable BotImportSpecification where
@@ -181,17 +182,17 @@ instance Prelude.NFData BotImportSpecification where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf dataPrivacy
 
-instance Core.ToJSON BotImportSpecification where
+instance Data.ToJSON BotImportSpecification where
   toJSON BotImportSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("idleSessionTTLInSeconds" Core..=)
+          [ ("idleSessionTTLInSeconds" Data..=)
               Prelude.<$> idleSessionTTLInSeconds,
-            ("botTags" Core..=) Prelude.<$> botTags,
-            ("testBotAliasTags" Core..=)
+            ("botTags" Data..=) Prelude.<$> botTags,
+            ("testBotAliasTags" Data..=)
               Prelude.<$> testBotAliasTags,
-            Prelude.Just ("botName" Core..= botName),
-            Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("dataPrivacy" Core..= dataPrivacy)
+            Prelude.Just ("botName" Data..= botName),
+            Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("dataPrivacy" Data..= dataPrivacy)
           ]
       )

@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,7 +170,7 @@ instance Core.AWSRequest CreateRecordingConfiguration where
     Response.receiveJSON
       ( \s h x ->
           CreateRecordingConfigurationResponse'
-            Prelude.<$> (x Core..?> "recordingConfiguration")
+            Prelude.<$> (x Data..?> "recordingConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,39 +193,39 @@ instance Prelude.NFData CreateRecordingConfiguration where
       `Prelude.seq` Prelude.rnf recordingReconnectWindowSeconds
       `Prelude.seq` Prelude.rnf destinationConfiguration
 
-instance Core.ToHeaders CreateRecordingConfiguration where
+instance Data.ToHeaders CreateRecordingConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRecordingConfiguration where
+instance Data.ToJSON CreateRecordingConfiguration where
   toJSON CreateRecordingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("name" Core..=) Prelude.<$> name,
-            ("thumbnailConfiguration" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("name" Data..=) Prelude.<$> name,
+            ("thumbnailConfiguration" Data..=)
               Prelude.<$> thumbnailConfiguration,
-            ("recordingReconnectWindowSeconds" Core..=)
+            ("recordingReconnectWindowSeconds" Data..=)
               Prelude.<$> recordingReconnectWindowSeconds,
             Prelude.Just
               ( "destinationConfiguration"
-                  Core..= destinationConfiguration
+                  Data..= destinationConfiguration
               )
           ]
       )
 
-instance Core.ToPath CreateRecordingConfiguration where
+instance Data.ToPath CreateRecordingConfiguration where
   toPath =
     Prelude.const "/CreateRecordingConfiguration"
 
-instance Core.ToQuery CreateRecordingConfiguration where
+instance Data.ToQuery CreateRecordingConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRecordingConfigurationResponse' smart constructor.

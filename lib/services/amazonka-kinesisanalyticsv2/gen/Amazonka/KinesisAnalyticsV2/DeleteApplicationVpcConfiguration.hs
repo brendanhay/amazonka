@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -153,8 +154,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteApplicationVpcConfigurationResponse'
-            Prelude.<$> (x Core..?> "ApplicationARN")
-              Prelude.<*> (x Core..?> "ApplicationVersionId")
+            Prelude.<$> (x Data..?> "ApplicationARN")
+              Prelude.<*> (x Data..?> "ApplicationVersionId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,49 +182,49 @@ instance
       `Prelude.seq` Prelude.rnf vpcConfigurationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteApplicationVpcConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20180523.DeleteApplicationVpcConfiguration" ::
+              Data.=# ( "KinesisAnalytics_20180523.DeleteApplicationVpcConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeleteApplicationVpcConfiguration
   where
   toJSON DeleteApplicationVpcConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConditionalToken" Core..=)
+          [ ("ConditionalToken" Data..=)
               Prelude.<$> conditionalToken,
-            ("CurrentApplicationVersionId" Core..=)
+            ("CurrentApplicationVersionId" Data..=)
               Prelude.<$> currentApplicationVersionId,
             Prelude.Just
-              ("ApplicationName" Core..= applicationName),
+              ("ApplicationName" Data..= applicationName),
             Prelude.Just
-              ("VpcConfigurationId" Core..= vpcConfigurationId)
+              ("VpcConfigurationId" Data..= vpcConfigurationId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteApplicationVpcConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteApplicationVpcConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

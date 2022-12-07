@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.Record where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the location of an occurrence of sensitive data in an Apache
@@ -108,14 +109,14 @@ record_jsonPath = Lens.lens (\Record' {jsonPath} -> jsonPath) (\s@Record' {} a -
 record_recordIndex :: Lens.Lens' Record (Prelude.Maybe Prelude.Integer)
 record_recordIndex = Lens.lens (\Record' {recordIndex} -> recordIndex) (\s@Record' {} a -> s {recordIndex = a} :: Record)
 
-instance Core.FromJSON Record where
+instance Data.FromJSON Record where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Record"
       ( \x ->
           Record'
-            Prelude.<$> (x Core..:? "jsonPath")
-            Prelude.<*> (x Core..:? "recordIndex")
+            Prelude.<$> (x Data..:? "jsonPath")
+            Prelude.<*> (x Data..:? "recordIndex")
       )
 
 instance Prelude.Hashable Record where

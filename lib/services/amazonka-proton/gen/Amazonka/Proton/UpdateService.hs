@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -66,14 +67,14 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateService' smart constructor.
 data UpdateService = UpdateService'
   { -- | The edited service description.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Lists the service instances to add and the existing service instances to
     -- remain. Omit the existing service instances to delete from the list.
     -- /Don\'t/ include edits to the existing service instances or pipeline.
     -- For more information, see
     -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-update.html Edit a service>
     -- in the /Proton User Guide/.
-    spec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    spec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the service to edit.
     name :: Prelude.Text
   }
@@ -110,7 +111,7 @@ newUpdateService pName_ =
 
 -- | The edited service description.
 updateService_description :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Text)
-updateService_description = Lens.lens (\UpdateService' {description} -> description) (\s@UpdateService' {} a -> s {description = a} :: UpdateService) Prelude.. Lens.mapping Core._Sensitive
+updateService_description = Lens.lens (\UpdateService' {description} -> description) (\s@UpdateService' {} a -> s {description = a} :: UpdateService) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Lists the service instances to add and the existing service instances to
 -- remain. Omit the existing service instances to delete from the list.
@@ -119,7 +120,7 @@ updateService_description = Lens.lens (\UpdateService' {description} -> descript
 -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-update.html Edit a service>
 -- in the /Proton User Guide/.
 updateService_spec :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Text)
-updateService_spec = Lens.lens (\UpdateService' {spec} -> spec) (\s@UpdateService' {} a -> s {spec = a} :: UpdateService) Prelude.. Lens.mapping Core._Sensitive
+updateService_spec = Lens.lens (\UpdateService' {spec} -> spec) (\s@UpdateService' {} a -> s {spec = a} :: UpdateService) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the service to edit.
 updateService_name :: Lens.Lens' UpdateService Prelude.Text
@@ -136,7 +137,7 @@ instance Core.AWSRequest UpdateService where
       ( \s h x ->
           UpdateServiceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "service")
+            Prelude.<*> (x Data..:> "service")
       )
 
 instance Prelude.Hashable UpdateService where
@@ -151,35 +152,35 @@ instance Prelude.NFData UpdateService where
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateService where
+instance Data.ToHeaders UpdateService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.UpdateService" ::
+              Data.=# ( "AwsProton20200720.UpdateService" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateService where
+instance Data.ToJSON UpdateService where
   toJSON UpdateService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("spec" Core..=) Prelude.<$> spec,
-            Prelude.Just ("name" Core..= name)
+          [ ("description" Data..=) Prelude.<$> description,
+            ("spec" Data..=) Prelude.<$> spec,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateService where
+instance Data.ToPath UpdateService where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateService where
+instance Data.ToQuery UpdateService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServiceResponse' smart constructor.

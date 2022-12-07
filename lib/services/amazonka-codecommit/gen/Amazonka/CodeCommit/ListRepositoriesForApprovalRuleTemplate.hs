@@ -46,6 +46,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,8 +124,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListRepositoriesForApprovalRuleTemplateResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-              Prelude.<*> ( x Core..?> "repositoryNames"
+            Prelude.<$> (x Data..?> "nextToken")
+              Prelude.<*> ( x Data..?> "repositoryNames"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -151,47 +152,47 @@ instance
       `Prelude.seq` Prelude.rnf approvalRuleTemplateName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListRepositoriesForApprovalRuleTemplate
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.ListRepositoriesForApprovalRuleTemplate" ::
+              Data.=# ( "CodeCommit_20150413.ListRepositoriesForApprovalRuleTemplate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListRepositoriesForApprovalRuleTemplate
   where
   toJSON ListRepositoriesForApprovalRuleTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
               ( "approvalRuleTemplateName"
-                  Core..= approvalRuleTemplateName
+                  Data..= approvalRuleTemplateName
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListRepositoriesForApprovalRuleTemplate
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListRepositoriesForApprovalRuleTemplate
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.IoTRoboRunner.Types.VendorProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Properties of the worker that are provided by the vendor FMS.
@@ -79,16 +80,16 @@ vendorProperties_vendorAdditionalTransientProperties = Lens.lens (\VendorPropert
 vendorProperties_vendorWorkerId :: Lens.Lens' VendorProperties Prelude.Text
 vendorProperties_vendorWorkerId = Lens.lens (\VendorProperties' {vendorWorkerId} -> vendorWorkerId) (\s@VendorProperties' {} a -> s {vendorWorkerId = a} :: VendorProperties)
 
-instance Core.FromJSON VendorProperties where
+instance Data.FromJSON VendorProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VendorProperties"
       ( \x ->
           VendorProperties'
-            Prelude.<$> (x Core..:? "vendorWorkerIpAddress")
-            Prelude.<*> (x Core..:? "vendorAdditionalFixedProperties")
-            Prelude.<*> (x Core..:? "vendorAdditionalTransientProperties")
-            Prelude.<*> (x Core..: "vendorWorkerId")
+            Prelude.<$> (x Data..:? "vendorWorkerIpAddress")
+            Prelude.<*> (x Data..:? "vendorAdditionalFixedProperties")
+            Prelude.<*> (x Data..:? "vendorAdditionalTransientProperties")
+            Prelude.<*> (x Data..: "vendorWorkerId")
       )
 
 instance Prelude.Hashable VendorProperties where
@@ -105,17 +106,17 @@ instance Prelude.NFData VendorProperties where
       `Prelude.seq` Prelude.rnf vendorAdditionalTransientProperties
       `Prelude.seq` Prelude.rnf vendorWorkerId
 
-instance Core.ToJSON VendorProperties where
+instance Data.ToJSON VendorProperties where
   toJSON VendorProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("vendorWorkerIpAddress" Core..=)
+          [ ("vendorWorkerIpAddress" Data..=)
               Prelude.<$> vendorWorkerIpAddress,
-            ("vendorAdditionalFixedProperties" Core..=)
+            ("vendorAdditionalFixedProperties" Data..=)
               Prelude.<$> vendorAdditionalFixedProperties,
-            ("vendorAdditionalTransientProperties" Core..=)
+            ("vendorAdditionalTransientProperties" Data..=)
               Prelude.<$> vendorAdditionalTransientProperties,
             Prelude.Just
-              ("vendorWorkerId" Core..= vendorWorkerId)
+              ("vendorWorkerId" Data..= vendorWorkerId)
           ]
       )

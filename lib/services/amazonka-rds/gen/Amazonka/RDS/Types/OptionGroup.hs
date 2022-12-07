@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.OptionGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.Option
 
@@ -141,19 +142,19 @@ optionGroup_vpcId = Lens.lens (\OptionGroup' {vpcId} -> vpcId) (\s@OptionGroup' 
 optionGroup_optionGroupArn :: Lens.Lens' OptionGroup (Prelude.Maybe Prelude.Text)
 optionGroup_optionGroupArn = Lens.lens (\OptionGroup' {optionGroupArn} -> optionGroupArn) (\s@OptionGroup' {} a -> s {optionGroupArn = a} :: OptionGroup)
 
-instance Core.FromXML OptionGroup where
+instance Data.FromXML OptionGroup where
   parseXML x =
     OptionGroup'
-      Prelude.<$> (x Core..@? "AllowsVpcAndNonVpcInstanceMemberships")
-      Prelude.<*> (x Core..@? "EngineName")
-      Prelude.<*> (x Core..@? "OptionGroupName")
-      Prelude.<*> (x Core..@? "OptionGroupDescription")
-      Prelude.<*> (x Core..@? "MajorEngineVersion")
-      Prelude.<*> ( x Core..@? "Options" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Option")
+      Prelude.<$> (x Data..@? "AllowsVpcAndNonVpcInstanceMemberships")
+      Prelude.<*> (x Data..@? "EngineName")
+      Prelude.<*> (x Data..@? "OptionGroupName")
+      Prelude.<*> (x Data..@? "OptionGroupDescription")
+      Prelude.<*> (x Data..@? "MajorEngineVersion")
+      Prelude.<*> ( x Data..@? "Options" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Option")
                   )
-      Prelude.<*> (x Core..@? "VpcId")
-      Prelude.<*> (x Core..@? "OptionGroupArn")
+      Prelude.<*> (x Data..@? "VpcId")
+      Prelude.<*> (x Data..@? "OptionGroupArn")
 
 instance Prelude.Hashable OptionGroup where
   hashWithSalt _salt OptionGroup' {..} =

@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftData.Types
 import qualified Amazonka.Request as Request
@@ -122,26 +123,26 @@ instance Core.AWSRequest DescribeStatement where
     Response.receiveJSON
       ( \s h x ->
           DescribeStatementResponse'
-            Prelude.<$> (x Core..?> "ClusterIdentifier")
-            Prelude.<*> (x Core..?> "RedshiftQueryId")
-            Prelude.<*> (x Core..?> "ResultRows")
-            Prelude.<*> (x Core..?> "WorkgroupName")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "QueryParameters")
-            Prelude.<*> (x Core..?> "HasResultSet")
-            Prelude.<*> (x Core..?> "Database")
-            Prelude.<*> (x Core..?> "Duration")
-            Prelude.<*> (x Core..?> "ResultSize")
-            Prelude.<*> (x Core..?> "SecretArn")
-            Prelude.<*> (x Core..?> "SubStatements" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "RedshiftPid")
-            Prelude.<*> (x Core..?> "QueryString")
-            Prelude.<*> (x Core..?> "Error")
-            Prelude.<*> (x Core..?> "DbUser")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "UpdatedAt")
+            Prelude.<$> (x Data..?> "ClusterIdentifier")
+            Prelude.<*> (x Data..?> "RedshiftQueryId")
+            Prelude.<*> (x Data..?> "ResultRows")
+            Prelude.<*> (x Data..?> "WorkgroupName")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "QueryParameters")
+            Prelude.<*> (x Data..?> "HasResultSet")
+            Prelude.<*> (x Data..?> "Database")
+            Prelude.<*> (x Data..?> "Duration")
+            Prelude.<*> (x Data..?> "ResultSize")
+            Prelude.<*> (x Data..?> "SecretArn")
+            Prelude.<*> (x Data..?> "SubStatements" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "RedshiftPid")
+            Prelude.<*> (x Data..?> "QueryString")
+            Prelude.<*> (x Data..?> "Error")
+            Prelude.<*> (x Data..?> "DbUser")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Id")
+            Prelude.<*> (x Data..:> "Id")
       )
 
 instance Prelude.Hashable DescribeStatement where
@@ -151,30 +152,30 @@ instance Prelude.Hashable DescribeStatement where
 instance Prelude.NFData DescribeStatement where
   rnf DescribeStatement' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DescribeStatement where
+instance Data.ToHeaders DescribeStatement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftData.DescribeStatement" ::
+              Data.=# ( "RedshiftData.DescribeStatement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeStatement where
+instance Data.ToJSON DescribeStatement where
   toJSON DescribeStatement' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("Id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("Id" Data..= id)])
 
-instance Core.ToPath DescribeStatement where
+instance Data.ToPath DescribeStatement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStatement where
+instance Data.ToQuery DescribeStatement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeStatementResponse' smart constructor.
@@ -238,10 +239,10 @@ data DescribeStatementResponse = DescribeStatementResponse'
     -- | The database user name.
     dbUser :: Prelude.Maybe Prelude.Text,
     -- | The date and time (UTC) when the SQL statement was submitted to run.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time (UTC) that the metadata for the SQL statement was last
     -- updated. An example is the time the status last changed.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The identifier of the SQL statement described. This value is a
@@ -450,12 +451,12 @@ describeStatementResponse_dbUser = Lens.lens (\DescribeStatementResponse' {dbUse
 
 -- | The date and time (UTC) when the SQL statement was submitted to run.
 describeStatementResponse_createdAt :: Lens.Lens' DescribeStatementResponse (Prelude.Maybe Prelude.UTCTime)
-describeStatementResponse_createdAt = Lens.lens (\DescribeStatementResponse' {createdAt} -> createdAt) (\s@DescribeStatementResponse' {} a -> s {createdAt = a} :: DescribeStatementResponse) Prelude.. Lens.mapping Core._Time
+describeStatementResponse_createdAt = Lens.lens (\DescribeStatementResponse' {createdAt} -> createdAt) (\s@DescribeStatementResponse' {} a -> s {createdAt = a} :: DescribeStatementResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time (UTC) that the metadata for the SQL statement was last
 -- updated. An example is the time the status last changed.
 describeStatementResponse_updatedAt :: Lens.Lens' DescribeStatementResponse (Prelude.Maybe Prelude.UTCTime)
-describeStatementResponse_updatedAt = Lens.lens (\DescribeStatementResponse' {updatedAt} -> updatedAt) (\s@DescribeStatementResponse' {} a -> s {updatedAt = a} :: DescribeStatementResponse) Prelude.. Lens.mapping Core._Time
+describeStatementResponse_updatedAt = Lens.lens (\DescribeStatementResponse' {updatedAt} -> updatedAt) (\s@DescribeStatementResponse' {} a -> s {updatedAt = a} :: DescribeStatementResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeStatementResponse_httpStatus :: Lens.Lens' DescribeStatementResponse Prelude.Int

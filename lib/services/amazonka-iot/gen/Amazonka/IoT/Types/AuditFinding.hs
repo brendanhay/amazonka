@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AuditFinding where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.AuditFindingSeverity
 import Amazonka.IoT.Types.NonCompliantResource
 import Amazonka.IoT.Types.RelatedResource
@@ -37,7 +38,7 @@ data AuditFinding = AuditFinding'
     -- | The severity of the result (finding).
     severity :: Prelude.Maybe AuditFindingSeverity,
     -- | The time the audit started.
-    taskStartTime :: Prelude.Maybe Core.POSIX,
+    taskStartTime :: Prelude.Maybe Data.POSIX,
     -- | The reason the resource was noncompliant.
     reasonForNonCompliance :: Prelude.Maybe Prelude.Text,
     -- | The ID of the audit that generated this result (finding).
@@ -48,7 +49,7 @@ data AuditFinding = AuditFinding'
     -- reporting.
     isSuppressed :: Prelude.Maybe Prelude.Bool,
     -- | The time the result (finding) was discovered.
-    findingTime :: Prelude.Maybe Core.POSIX,
+    findingTime :: Prelude.Maybe Data.POSIX,
     -- | A code that indicates the reason that the resource was noncompliant.
     reasonForNonComplianceCode :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for this set of audit findings. This identifier is
@@ -120,7 +121,7 @@ auditFinding_severity = Lens.lens (\AuditFinding' {severity} -> severity) (\s@Au
 
 -- | The time the audit started.
 auditFinding_taskStartTime :: Lens.Lens' AuditFinding (Prelude.Maybe Prelude.UTCTime)
-auditFinding_taskStartTime = Lens.lens (\AuditFinding' {taskStartTime} -> taskStartTime) (\s@AuditFinding' {} a -> s {taskStartTime = a} :: AuditFinding) Prelude.. Lens.mapping Core._Time
+auditFinding_taskStartTime = Lens.lens (\AuditFinding' {taskStartTime} -> taskStartTime) (\s@AuditFinding' {} a -> s {taskStartTime = a} :: AuditFinding) Prelude.. Lens.mapping Data._Time
 
 -- | The reason the resource was noncompliant.
 auditFinding_reasonForNonCompliance :: Lens.Lens' AuditFinding (Prelude.Maybe Prelude.Text)
@@ -141,7 +142,7 @@ auditFinding_isSuppressed = Lens.lens (\AuditFinding' {isSuppressed} -> isSuppre
 
 -- | The time the result (finding) was discovered.
 auditFinding_findingTime :: Lens.Lens' AuditFinding (Prelude.Maybe Prelude.UTCTime)
-auditFinding_findingTime = Lens.lens (\AuditFinding' {findingTime} -> findingTime) (\s@AuditFinding' {} a -> s {findingTime = a} :: AuditFinding) Prelude.. Lens.mapping Core._Time
+auditFinding_findingTime = Lens.lens (\AuditFinding' {findingTime} -> findingTime) (\s@AuditFinding' {} a -> s {findingTime = a} :: AuditFinding) Prelude.. Lens.mapping Data._Time
 
 -- | A code that indicates the reason that the resource was noncompliant.
 auditFinding_reasonForNonComplianceCode :: Lens.Lens' AuditFinding (Prelude.Maybe Prelude.Text)
@@ -152,25 +153,25 @@ auditFinding_reasonForNonComplianceCode = Lens.lens (\AuditFinding' {reasonForNo
 auditFinding_findingId :: Lens.Lens' AuditFinding (Prelude.Maybe Prelude.Text)
 auditFinding_findingId = Lens.lens (\AuditFinding' {findingId} -> findingId) (\s@AuditFinding' {} a -> s {findingId = a} :: AuditFinding)
 
-instance Core.FromJSON AuditFinding where
+instance Data.FromJSON AuditFinding where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuditFinding"
       ( \x ->
           AuditFinding'
-            Prelude.<$> (x Core..:? "nonCompliantResource")
-            Prelude.<*> ( x Core..:? "relatedResources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "nonCompliantResource")
+            Prelude.<*> ( x Data..:? "relatedResources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "severity")
-            Prelude.<*> (x Core..:? "taskStartTime")
-            Prelude.<*> (x Core..:? "reasonForNonCompliance")
-            Prelude.<*> (x Core..:? "taskId")
-            Prelude.<*> (x Core..:? "checkName")
-            Prelude.<*> (x Core..:? "isSuppressed")
-            Prelude.<*> (x Core..:? "findingTime")
-            Prelude.<*> (x Core..:? "reasonForNonComplianceCode")
-            Prelude.<*> (x Core..:? "findingId")
+            Prelude.<*> (x Data..:? "severity")
+            Prelude.<*> (x Data..:? "taskStartTime")
+            Prelude.<*> (x Data..:? "reasonForNonCompliance")
+            Prelude.<*> (x Data..:? "taskId")
+            Prelude.<*> (x Data..:? "checkName")
+            Prelude.<*> (x Data..:? "isSuppressed")
+            Prelude.<*> (x Data..:? "findingTime")
+            Prelude.<*> (x Data..:? "reasonForNonComplianceCode")
+            Prelude.<*> (x Data..:? "findingId")
       )
 
 instance Prelude.Hashable AuditFinding where

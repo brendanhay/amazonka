@@ -24,6 +24,7 @@ import Amazonka.CodeGuruReviewer.Types.RuleMetadata
 import Amazonka.CodeGuruReviewer.Types.Severity
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about recommendations.
@@ -145,20 +146,20 @@ recommendationSummary_startLine = Lens.lens (\RecommendationSummary' {startLine}
 recommendationSummary_recommendationCategory :: Lens.Lens' RecommendationSummary (Prelude.Maybe RecommendationCategory)
 recommendationSummary_recommendationCategory = Lens.lens (\RecommendationSummary' {recommendationCategory} -> recommendationCategory) (\s@RecommendationSummary' {} a -> s {recommendationCategory = a} :: RecommendationSummary)
 
-instance Core.FromJSON RecommendationSummary where
+instance Data.FromJSON RecommendationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationSummary"
       ( \x ->
           RecommendationSummary'
-            Prelude.<$> (x Core..:? "Severity")
-            Prelude.<*> (x Core..:? "FilePath")
-            Prelude.<*> (x Core..:? "EndLine")
-            Prelude.<*> (x Core..:? "RecommendationId")
-            Prelude.<*> (x Core..:? "RuleMetadata")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "StartLine")
-            Prelude.<*> (x Core..:? "RecommendationCategory")
+            Prelude.<$> (x Data..:? "Severity")
+            Prelude.<*> (x Data..:? "FilePath")
+            Prelude.<*> (x Data..:? "EndLine")
+            Prelude.<*> (x Data..:? "RecommendationId")
+            Prelude.<*> (x Data..:? "RuleMetadata")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "StartLine")
+            Prelude.<*> (x Data..:? "RecommendationCategory")
       )
 
 instance Prelude.Hashable RecommendationSummary where

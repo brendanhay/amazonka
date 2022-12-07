@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,35 +164,35 @@ instance Prelude.NFData PutLaunchProfileMembers where
       `Prelude.seq` Prelude.rnf members
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders PutLaunchProfileMembers where
+instance Data.ToHeaders PutLaunchProfileMembers where
   toHeaders PutLaunchProfileMembers' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON PutLaunchProfileMembers where
+instance Data.ToJSON PutLaunchProfileMembers where
   toJSON PutLaunchProfileMembers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("identityStoreId" Core..= identityStoreId),
-            Prelude.Just ("members" Core..= members)
+              ("identityStoreId" Data..= identityStoreId),
+            Prelude.Just ("members" Data..= members)
           ]
       )
 
-instance Core.ToPath PutLaunchProfileMembers where
+instance Data.ToPath PutLaunchProfileMembers where
   toPath PutLaunchProfileMembers' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/launch-profiles/",
-        Core.toBS launchProfileId,
+        Data.toBS launchProfileId,
         "/membership"
       ]
 
-instance Core.ToQuery PutLaunchProfileMembers where
+instance Data.ToQuery PutLaunchProfileMembers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutLaunchProfileMembersResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.KubernetesAuditLogsConfigurationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.DataSourceStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -60,15 +61,15 @@ kubernetesAuditLogsConfigurationResult_status :: Lens.Lens' KubernetesAuditLogsC
 kubernetesAuditLogsConfigurationResult_status = Lens.lens (\KubernetesAuditLogsConfigurationResult' {status} -> status) (\s@KubernetesAuditLogsConfigurationResult' {} a -> s {status = a} :: KubernetesAuditLogsConfigurationResult)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     KubernetesAuditLogsConfigurationResult
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KubernetesAuditLogsConfigurationResult"
       ( \x ->
           KubernetesAuditLogsConfigurationResult'
-            Prelude.<$> (x Core..: "status")
+            Prelude.<$> (x Data..: "status")
       )
 
 instance

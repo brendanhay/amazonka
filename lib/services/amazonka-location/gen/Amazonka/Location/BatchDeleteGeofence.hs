@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,7 +102,7 @@ instance Core.AWSRequest BatchDeleteGeofence where
       ( \s h x ->
           BatchDeleteGeofenceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable BatchDeleteGeofence where
@@ -114,33 +115,33 @@ instance Prelude.NFData BatchDeleteGeofence where
     Prelude.rnf collectionName
       `Prelude.seq` Prelude.rnf geofenceIds
 
-instance Core.ToHeaders BatchDeleteGeofence where
+instance Data.ToHeaders BatchDeleteGeofence where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDeleteGeofence where
+instance Data.ToJSON BatchDeleteGeofence where
   toJSON BatchDeleteGeofence' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GeofenceIds" Core..= geofenceIds)]
+          [Prelude.Just ("GeofenceIds" Data..= geofenceIds)]
       )
 
-instance Core.ToPath BatchDeleteGeofence where
+instance Data.ToPath BatchDeleteGeofence where
   toPath BatchDeleteGeofence' {..} =
     Prelude.mconcat
       [ "/geofencing/v0/collections/",
-        Core.toBS collectionName,
+        Data.toBS collectionName,
         "/delete-geofences"
       ]
 
-instance Core.ToQuery BatchDeleteGeofence where
+instance Data.ToQuery BatchDeleteGeofence where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDeleteGeofenceResponse' smart constructor.

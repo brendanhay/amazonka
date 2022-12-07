@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,35 +111,35 @@ instance Prelude.NFData SetTimeBasedAutoScaling where
     Prelude.rnf autoScalingSchedule
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders SetTimeBasedAutoScaling where
+instance Data.ToHeaders SetTimeBasedAutoScaling where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.SetTimeBasedAutoScaling" ::
+              Data.=# ( "OpsWorks_20130218.SetTimeBasedAutoScaling" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetTimeBasedAutoScaling where
+instance Data.ToJSON SetTimeBasedAutoScaling where
   toJSON SetTimeBasedAutoScaling' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AutoScalingSchedule" Core..=)
+          [ ("AutoScalingSchedule" Data..=)
               Prelude.<$> autoScalingSchedule,
-            Prelude.Just ("InstanceId" Core..= instanceId)
+            Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
 
-instance Core.ToPath SetTimeBasedAutoScaling where
+instance Data.ToPath SetTimeBasedAutoScaling where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetTimeBasedAutoScaling where
+instance Data.ToQuery SetTimeBasedAutoScaling where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetTimeBasedAutoScalingResponse' smart constructor.

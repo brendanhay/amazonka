@@ -57,6 +57,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -183,7 +184,7 @@ instance Core.AWSRequest CreateVirtualGateway where
       ( \s h x ->
           CreateVirtualGatewayResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable CreateVirtualGateway where
@@ -204,40 +205,40 @@ instance Prelude.NFData CreateVirtualGateway where
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf virtualGatewayName
 
-instance Core.ToHeaders CreateVirtualGateway where
+instance Data.ToHeaders CreateVirtualGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateVirtualGateway where
+instance Data.ToJSON CreateVirtualGateway where
   toJSON CreateVirtualGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("spec" Core..= spec),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("spec" Data..= spec),
             Prelude.Just
-              ("virtualGatewayName" Core..= virtualGatewayName)
+              ("virtualGatewayName" Data..= virtualGatewayName)
           ]
       )
 
-instance Core.ToPath CreateVirtualGateway where
+instance Data.ToPath CreateVirtualGateway where
   toPath CreateVirtualGateway' {..} =
     Prelude.mconcat
       [ "/v20190125/meshes/",
-        Core.toBS meshName,
+        Data.toBS meshName,
         "/virtualGateways"
       ]
 
-instance Core.ToQuery CreateVirtualGateway where
+instance Data.ToQuery CreateVirtualGateway where
   toQuery CreateVirtualGateway' {..} =
-    Prelude.mconcat ["meshOwner" Core.=: meshOwner]
+    Prelude.mconcat ["meshOwner" Data.=: meshOwner]
 
 -- | /See:/ 'newCreateVirtualGatewayResponse' smart constructor.
 data CreateVirtualGatewayResponse = CreateVirtualGatewayResponse'

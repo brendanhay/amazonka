@@ -22,6 +22,7 @@ module Amazonka.CodeCommit.Types.PullRequestMergedStateChangedEventMetadata wher
 import Amazonka.CodeCommit.Types.MergeMetadata
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about the change in the merge state for a pull
@@ -76,17 +77,17 @@ pullRequestMergedStateChangedEventMetadata_destinationReference :: Lens.Lens' Pu
 pullRequestMergedStateChangedEventMetadata_destinationReference = Lens.lens (\PullRequestMergedStateChangedEventMetadata' {destinationReference} -> destinationReference) (\s@PullRequestMergedStateChangedEventMetadata' {} a -> s {destinationReference = a} :: PullRequestMergedStateChangedEventMetadata)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PullRequestMergedStateChangedEventMetadata
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PullRequestMergedStateChangedEventMetadata"
       ( \x ->
           PullRequestMergedStateChangedEventMetadata'
-            Prelude.<$> (x Core..:? "mergeMetadata")
-              Prelude.<*> (x Core..:? "repositoryName")
-              Prelude.<*> (x Core..:? "destinationReference")
+            Prelude.<$> (x Data..:? "mergeMetadata")
+              Prelude.<*> (x Data..:? "repositoryName")
+              Prelude.<*> (x Data..:? "destinationReference")
       )
 
 instance

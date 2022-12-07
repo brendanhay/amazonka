@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,26 +132,26 @@ instance Prelude.NFData DeleteSchedule where
       `Prelude.seq` Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders DeleteSchedule where
+instance Data.ToHeaders DeleteSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteSchedule where
+instance Data.ToPath DeleteSchedule where
   toPath DeleteSchedule' {..} =
-    Prelude.mconcat ["/schedules/", Core.toBS name]
+    Prelude.mconcat ["/schedules/", Data.toBS name]
 
-instance Core.ToQuery DeleteSchedule where
+instance Data.ToQuery DeleteSchedule where
   toQuery DeleteSchedule' {..} =
     Prelude.mconcat
-      [ "clientToken" Core.=: clientToken,
-        "groupName" Core.=: groupName
+      [ "clientToken" Data.=: clientToken,
+        "groupName" Data.=: groupName
       ]
 
 -- | /See:/ 'newDeleteScheduleResponse' smart constructor.

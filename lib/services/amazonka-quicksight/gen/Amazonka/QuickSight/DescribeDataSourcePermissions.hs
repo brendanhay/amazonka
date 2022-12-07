@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -109,10 +110,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDataSourcePermissionsResponse'
-            Prelude.<$> (x Core..?> "DataSourceArn")
-            Prelude.<*> (x Core..?> "DataSourceId")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Permissions")
+            Prelude.<$> (x Data..?> "DataSourceArn")
+            Prelude.<*> (x Data..?> "DataSourceId")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Permissions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,28 +130,28 @@ instance Prelude.NFData DescribeDataSourcePermissions where
     Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dataSourceId
 
-instance Core.ToHeaders DescribeDataSourcePermissions where
+instance Data.ToHeaders DescribeDataSourcePermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeDataSourcePermissions where
+instance Data.ToPath DescribeDataSourcePermissions where
   toPath DescribeDataSourcePermissions' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/data-sources/",
-        Core.toBS dataSourceId,
+        Data.toBS dataSourceId,
         "/permissions"
       ]
 
-instance Core.ToQuery DescribeDataSourcePermissions where
+instance Data.ToQuery DescribeDataSourcePermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDataSourcePermissionsResponse' smart constructor.

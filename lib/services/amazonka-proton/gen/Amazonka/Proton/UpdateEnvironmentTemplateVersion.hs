@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -55,7 +56,7 @@ data UpdateEnvironmentTemplateVersion = UpdateEnvironmentTemplateVersion'
   { -- | The status of the environment template minor version to update.
     status :: Prelude.Maybe TemplateVersionStatus,
     -- | A description of environment template version to update.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | To update a major version of an environment template, include
     -- @major Version@.
     majorVersion :: Prelude.Text,
@@ -113,7 +114,7 @@ updateEnvironmentTemplateVersion_status = Lens.lens (\UpdateEnvironmentTemplateV
 
 -- | A description of environment template version to update.
 updateEnvironmentTemplateVersion_description :: Lens.Lens' UpdateEnvironmentTemplateVersion (Prelude.Maybe Prelude.Text)
-updateEnvironmentTemplateVersion_description = Lens.lens (\UpdateEnvironmentTemplateVersion' {description} -> description) (\s@UpdateEnvironmentTemplateVersion' {} a -> s {description = a} :: UpdateEnvironmentTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
+updateEnvironmentTemplateVersion_description = Lens.lens (\UpdateEnvironmentTemplateVersion' {description} -> description) (\s@UpdateEnvironmentTemplateVersion' {} a -> s {description = a} :: UpdateEnvironmentTemplateVersion) Prelude.. Lens.mapping Data._Sensitive
 
 -- | To update a major version of an environment template, include
 -- @major Version@.
@@ -143,7 +144,7 @@ instance
       ( \s h x ->
           UpdateEnvironmentTemplateVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "environmentTemplateVersion")
+            Prelude.<*> (x Data..:> "environmentTemplateVersion")
       )
 
 instance
@@ -171,40 +172,40 @@ instance
       `Prelude.seq` Prelude.rnf templateName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateEnvironmentTemplateVersion
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.UpdateEnvironmentTemplateVersion" ::
+              Data.=# ( "AwsProton20200720.UpdateEnvironmentTemplateVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEnvironmentTemplateVersion where
+instance Data.ToJSON UpdateEnvironmentTemplateVersion where
   toJSON UpdateEnvironmentTemplateVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("status" Core..=) Prelude.<$> status,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("majorVersion" Core..= majorVersion),
-            Prelude.Just ("minorVersion" Core..= minorVersion),
-            Prelude.Just ("templateName" Core..= templateName)
+          [ ("status" Data..=) Prelude.<$> status,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("majorVersion" Data..= majorVersion),
+            Prelude.Just ("minorVersion" Data..= minorVersion),
+            Prelude.Just ("templateName" Data..= templateName)
           ]
       )
 
-instance Core.ToPath UpdateEnvironmentTemplateVersion where
+instance Data.ToPath UpdateEnvironmentTemplateVersion where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateEnvironmentTemplateVersion
   where
   toQuery = Prelude.const Prelude.mempty

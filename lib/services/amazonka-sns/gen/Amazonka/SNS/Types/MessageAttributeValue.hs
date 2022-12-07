@@ -21,6 +21,7 @@ module Amazonka.SNS.Types.MessageAttributeValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The user-specified message attribute value. For string data types, the
@@ -42,7 +43,7 @@ import qualified Amazonka.Prelude as Prelude
 data MessageAttributeValue = MessageAttributeValue'
   { -- | Binary type attributes can store any binary data, for example,
     -- compressed data, encrypted data, or images.
-    binaryValue :: Prelude.Maybe Core.Base64,
+    binaryValue :: Prelude.Maybe Data.Base64,
     -- | Strings are Unicode with UTF8 binary encoding. For a list of code
     -- values, see
     -- <https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters>.
@@ -95,7 +96,7 @@ newMessageAttributeValue pDataType_ =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 messageAttributeValue_binaryValue :: Lens.Lens' MessageAttributeValue (Prelude.Maybe Prelude.ByteString)
-messageAttributeValue_binaryValue = Lens.lens (\MessageAttributeValue' {binaryValue} -> binaryValue) (\s@MessageAttributeValue' {} a -> s {binaryValue = a} :: MessageAttributeValue) Prelude.. Lens.mapping Core._Base64
+messageAttributeValue_binaryValue = Lens.lens (\MessageAttributeValue' {binaryValue} -> binaryValue) (\s@MessageAttributeValue' {} a -> s {binaryValue = a} :: MessageAttributeValue) Prelude.. Lens.mapping Data._Base64
 
 -- | Strings are Unicode with UTF8 binary encoding. For a list of code
 -- values, see
@@ -121,10 +122,10 @@ instance Prelude.NFData MessageAttributeValue where
       `Prelude.seq` Prelude.rnf stringValue
       `Prelude.seq` Prelude.rnf dataType
 
-instance Core.ToQuery MessageAttributeValue where
+instance Data.ToQuery MessageAttributeValue where
   toQuery MessageAttributeValue' {..} =
     Prelude.mconcat
-      [ "BinaryValue" Core.=: binaryValue,
-        "StringValue" Core.=: stringValue,
-        "DataType" Core.=: dataType
+      [ "BinaryValue" Data.=: binaryValue,
+        "StringValue" Data.=: stringValue,
+        "DataType" Data.=: dataType
       ]

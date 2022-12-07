@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,7 +134,7 @@ instance Core.AWSRequest AddTagsToResource where
   response =
     Response.receiveXMLWrapper
       "AddTagsToResourceResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable AddTagsToResource where
   hashWithSalt _salt AddTagsToResource' {..} =
@@ -145,19 +146,19 @@ instance Prelude.NFData AddTagsToResource where
     Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders AddTagsToResource where
+instance Data.ToHeaders AddTagsToResource where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AddTagsToResource where
+instance Data.ToPath AddTagsToResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddTagsToResource where
+instance Data.ToQuery AddTagsToResource where
   toQuery AddTagsToResource' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AddTagsToResource" :: Prelude.ByteString),
+          Data.=: ("AddTagsToResource" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "ResourceName" Core.=: resourceName,
-        "Tags" Core.=: Core.toQueryList "Tag" tags
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "ResourceName" Data.=: resourceName,
+        "Tags" Data.=: Data.toQueryList "Tag" tags
       ]

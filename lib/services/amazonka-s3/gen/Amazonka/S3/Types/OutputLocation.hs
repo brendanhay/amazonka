@@ -21,6 +21,7 @@ module Amazonka.S3.Types.OutputLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.S3Location
@@ -62,6 +63,6 @@ instance Prelude.Hashable OutputLocation where
 instance Prelude.NFData OutputLocation where
   rnf OutputLocation' {..} = Prelude.rnf s3
 
-instance Core.ToXML OutputLocation where
+instance Data.ToXML OutputLocation where
   toXML OutputLocation' {..} =
-    Prelude.mconcat ["S3" Core.@= s3]
+    Prelude.mconcat ["S3" Data.@= s3]

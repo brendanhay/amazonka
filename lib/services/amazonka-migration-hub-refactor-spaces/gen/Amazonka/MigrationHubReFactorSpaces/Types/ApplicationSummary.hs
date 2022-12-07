@@ -21,6 +21,7 @@ module Amazonka.MigrationHubReFactorSpaces.Types.ApplicationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types.ApiGatewayProxySummary
 import Amazonka.MigrationHubReFactorSpaces.Types.ApplicationState
 import Amazonka.MigrationHubReFactorSpaces.Types.ErrorResponse
@@ -32,13 +33,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newApplicationSummary' smart constructor.
 data ApplicationSummary = ApplicationSummary'
   { -- | The tags assigned to the application.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The name of the application.
     name :: Prelude.Maybe Prelude.Text,
     -- | The proxy type of the proxy created within the application.
     proxyType :: Prelude.Maybe ProxyType,
     -- | A timestamp that indicates when the application is created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID of the application creator.
     createdByAccountId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the application.
@@ -46,7 +47,7 @@ data ApplicationSummary = ApplicationSummary'
     -- | The current state of the application.
     state :: Prelude.Maybe ApplicationState,
     -- | A timestamp that indicates when the application was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID of the application owner (which is
     -- always the same as the environment owner account ID).
     ownerAccountId :: Prelude.Maybe Prelude.Text,
@@ -121,7 +122,7 @@ newApplicationSummary =
 
 -- | The tags assigned to the application.
 applicationSummary_tags :: Lens.Lens' ApplicationSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-applicationSummary_tags = Lens.lens (\ApplicationSummary' {tags} -> tags) (\s@ApplicationSummary' {} a -> s {tags = a} :: ApplicationSummary) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+applicationSummary_tags = Lens.lens (\ApplicationSummary' {tags} -> tags) (\s@ApplicationSummary' {} a -> s {tags = a} :: ApplicationSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the application.
 applicationSummary_name :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
@@ -133,7 +134,7 @@ applicationSummary_proxyType = Lens.lens (\ApplicationSummary' {proxyType} -> pr
 
 -- | A timestamp that indicates when the application is created.
 applicationSummary_createdTime :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.UTCTime)
-applicationSummary_createdTime = Lens.lens (\ApplicationSummary' {createdTime} -> createdTime) (\s@ApplicationSummary' {} a -> s {createdTime = a} :: ApplicationSummary) Prelude.. Lens.mapping Core._Time
+applicationSummary_createdTime = Lens.lens (\ApplicationSummary' {createdTime} -> createdTime) (\s@ApplicationSummary' {} a -> s {createdTime = a} :: ApplicationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account ID of the application creator.
 applicationSummary_createdByAccountId :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
@@ -149,7 +150,7 @@ applicationSummary_state = Lens.lens (\ApplicationSummary' {state} -> state) (\s
 
 -- | A timestamp that indicates when the application was last updated.
 applicationSummary_lastUpdatedTime :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.UTCTime)
-applicationSummary_lastUpdatedTime = Lens.lens (\ApplicationSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@ApplicationSummary' {} a -> s {lastUpdatedTime = a} :: ApplicationSummary) Prelude.. Lens.mapping Core._Time
+applicationSummary_lastUpdatedTime = Lens.lens (\ApplicationSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@ApplicationSummary' {} a -> s {lastUpdatedTime = a} :: ApplicationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account ID of the application owner (which is
 -- always the same as the environment owner account ID).
@@ -176,26 +177,26 @@ applicationSummary_applicationId = Lens.lens (\ApplicationSummary' {applicationI
 applicationSummary_apiGatewayProxy :: Lens.Lens' ApplicationSummary (Prelude.Maybe ApiGatewayProxySummary)
 applicationSummary_apiGatewayProxy = Lens.lens (\ApplicationSummary' {apiGatewayProxy} -> apiGatewayProxy) (\s@ApplicationSummary' {} a -> s {apiGatewayProxy = a} :: ApplicationSummary)
 
-instance Core.FromJSON ApplicationSummary where
+instance Data.FromJSON ApplicationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationSummary"
       ( \x ->
           ApplicationSummary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ProxyType")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "CreatedByAccountId")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "OwnerAccountId")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "EnvironmentId")
-            Prelude.<*> (x Core..:? "Error")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "ApiGatewayProxy")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ProxyType")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "CreatedByAccountId")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "OwnerAccountId")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "EnvironmentId")
+            Prelude.<*> (x Data..:? "Error")
+            Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "ApiGatewayProxy")
       )
 
 instance Prelude.Hashable ApplicationSummary where

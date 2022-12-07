@@ -47,6 +47,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -285,37 +286,37 @@ instance Prelude.NFData CreateDataCatalog where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateDataCatalog where
+instance Data.ToHeaders CreateDataCatalog where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.CreateDataCatalog" ::
+              Data.=# ( "AmazonAthena.CreateDataCatalog" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataCatalog where
+instance Data.ToJSON CreateDataCatalog where
   toJSON CreateDataCatalog' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Type" Core..= type')
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateDataCatalog where
+instance Data.ToPath CreateDataCatalog where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDataCatalog where
+instance Data.ToQuery CreateDataCatalog where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDataCatalogResponse' smart constructor.

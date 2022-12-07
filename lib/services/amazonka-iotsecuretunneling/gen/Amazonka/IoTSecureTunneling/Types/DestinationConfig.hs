@@ -21,6 +21,7 @@ module Amazonka.IoTSecureTunneling.Types.DestinationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The destination configuration.
@@ -75,14 +76,14 @@ destinationConfig_thingName = Lens.lens (\DestinationConfig' {thingName} -> thin
 destinationConfig_services :: Lens.Lens' DestinationConfig (Prelude.NonEmpty Prelude.Text)
 destinationConfig_services = Lens.lens (\DestinationConfig' {services} -> services) (\s@DestinationConfig' {} a -> s {services = a} :: DestinationConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON DestinationConfig where
+instance Data.FromJSON DestinationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DestinationConfig"
       ( \x ->
           DestinationConfig'
-            Prelude.<$> (x Core..:? "thingName")
-            Prelude.<*> (x Core..: "services")
+            Prelude.<$> (x Data..:? "thingName")
+            Prelude.<*> (x Data..: "services")
       )
 
 instance Prelude.Hashable DestinationConfig where
@@ -95,11 +96,11 @@ instance Prelude.NFData DestinationConfig where
     Prelude.rnf thingName
       `Prelude.seq` Prelude.rnf services
 
-instance Core.ToJSON DestinationConfig where
+instance Data.ToJSON DestinationConfig where
   toJSON DestinationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("thingName" Core..=) Prelude.<$> thingName,
-            Prelude.Just ("services" Core..= services)
+          [ ("thingName" Data..=) Prelude.<$> thingName,
+            Prelude.Just ("services" Data..= services)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.InAppCampaignSchedule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.CampaignEventFilter
 import Amazonka.Pinpoint.Types.QuietTime
 import qualified Amazonka.Prelude as Prelude
@@ -79,15 +80,15 @@ inAppCampaignSchedule_endDate = Lens.lens (\InAppCampaignSchedule' {endDate} -> 
 inAppCampaignSchedule_quietTime :: Lens.Lens' InAppCampaignSchedule (Prelude.Maybe QuietTime)
 inAppCampaignSchedule_quietTime = Lens.lens (\InAppCampaignSchedule' {quietTime} -> quietTime) (\s@InAppCampaignSchedule' {} a -> s {quietTime = a} :: InAppCampaignSchedule)
 
-instance Core.FromJSON InAppCampaignSchedule where
+instance Data.FromJSON InAppCampaignSchedule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InAppCampaignSchedule"
       ( \x ->
           InAppCampaignSchedule'
-            Prelude.<$> (x Core..:? "EventFilter")
-            Prelude.<*> (x Core..:? "EndDate")
-            Prelude.<*> (x Core..:? "QuietTime")
+            Prelude.<$> (x Data..:? "EventFilter")
+            Prelude.<*> (x Data..:? "EndDate")
+            Prelude.<*> (x Data..:? "QuietTime")
       )
 
 instance Prelude.Hashable InAppCampaignSchedule where

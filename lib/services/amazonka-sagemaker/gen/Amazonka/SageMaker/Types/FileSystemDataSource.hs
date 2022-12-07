@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.FileSystemDataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.FileSystemAccessMode
 import Amazonka.SageMaker.Types.FileSystemType
@@ -100,16 +101,16 @@ fileSystemDataSource_fileSystemType = Lens.lens (\FileSystemDataSource' {fileSys
 fileSystemDataSource_directoryPath :: Lens.Lens' FileSystemDataSource Prelude.Text
 fileSystemDataSource_directoryPath = Lens.lens (\FileSystemDataSource' {directoryPath} -> directoryPath) (\s@FileSystemDataSource' {} a -> s {directoryPath = a} :: FileSystemDataSource)
 
-instance Core.FromJSON FileSystemDataSource where
+instance Data.FromJSON FileSystemDataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileSystemDataSource"
       ( \x ->
           FileSystemDataSource'
-            Prelude.<$> (x Core..: "FileSystemId")
-            Prelude.<*> (x Core..: "FileSystemAccessMode")
-            Prelude.<*> (x Core..: "FileSystemType")
-            Prelude.<*> (x Core..: "DirectoryPath")
+            Prelude.<$> (x Data..: "FileSystemId")
+            Prelude.<*> (x Data..: "FileSystemAccessMode")
+            Prelude.<*> (x Data..: "FileSystemType")
+            Prelude.<*> (x Data..: "DirectoryPath")
       )
 
 instance Prelude.Hashable FileSystemDataSource where
@@ -126,18 +127,18 @@ instance Prelude.NFData FileSystemDataSource where
       `Prelude.seq` Prelude.rnf fileSystemType
       `Prelude.seq` Prelude.rnf directoryPath
 
-instance Core.ToJSON FileSystemDataSource where
+instance Data.ToJSON FileSystemDataSource where
   toJSON FileSystemDataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FileSystemId" Core..= fileSystemId),
+          [ Prelude.Just ("FileSystemId" Data..= fileSystemId),
             Prelude.Just
               ( "FileSystemAccessMode"
-                  Core..= fileSystemAccessMode
+                  Data..= fileSystemAccessMode
               ),
             Prelude.Just
-              ("FileSystemType" Core..= fileSystemType),
+              ("FileSystemType" Data..= fileSystemType),
             Prelude.Just
-              ("DirectoryPath" Core..= directoryPath)
+              ("DirectoryPath" Data..= directoryPath)
           ]
       )

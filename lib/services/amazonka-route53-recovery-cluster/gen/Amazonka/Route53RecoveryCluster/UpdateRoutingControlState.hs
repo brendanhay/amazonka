@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -179,38 +180,38 @@ instance Prelude.NFData UpdateRoutingControlState where
       `Prelude.seq` Prelude.rnf routingControlArn
       `Prelude.seq` Prelude.rnf routingControlState
 
-instance Core.ToHeaders UpdateRoutingControlState where
+instance Data.ToHeaders UpdateRoutingControlState where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ToggleCustomerAPI.UpdateRoutingControlState" ::
+              Data.=# ( "ToggleCustomerAPI.UpdateRoutingControlState" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRoutingControlState where
+instance Data.ToJSON UpdateRoutingControlState where
   toJSON UpdateRoutingControlState' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SafetyRulesToOverride" Core..=)
+          [ ("SafetyRulesToOverride" Data..=)
               Prelude.<$> safetyRulesToOverride,
             Prelude.Just
-              ("RoutingControlArn" Core..= routingControlArn),
+              ("RoutingControlArn" Data..= routingControlArn),
             Prelude.Just
-              ("RoutingControlState" Core..= routingControlState)
+              ("RoutingControlState" Data..= routingControlState)
           ]
       )
 
-instance Core.ToPath UpdateRoutingControlState where
+instance Data.ToPath UpdateRoutingControlState where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateRoutingControlState where
+instance Data.ToQuery UpdateRoutingControlState where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRoutingControlStateResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,15 +99,15 @@ instance Prelude.Hashable DeleteQueryLoggingConfig where
 instance Prelude.NFData DeleteQueryLoggingConfig where
   rnf DeleteQueryLoggingConfig' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteQueryLoggingConfig where
+instance Data.ToHeaders DeleteQueryLoggingConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteQueryLoggingConfig where
+instance Data.ToPath DeleteQueryLoggingConfig where
   toPath DeleteQueryLoggingConfig' {..} =
     Prelude.mconcat
-      ["/2013-04-01/queryloggingconfig/", Core.toBS id]
+      ["/2013-04-01/queryloggingconfig/", Data.toBS id]
 
-instance Core.ToQuery DeleteQueryLoggingConfig where
+instance Data.ToQuery DeleteQueryLoggingConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteQueryLoggingConfigResponse' smart constructor.

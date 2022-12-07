@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,7 +107,7 @@ instance Core.AWSRequest DisableAddressTransfer where
     Response.receiveXML
       ( \s h x ->
           DisableAddressTransferResponse'
-            Prelude.<$> (x Core..@? "addressTransfer")
+            Prelude.<$> (x Data..@? "addressTransfer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,21 +121,21 @@ instance Prelude.NFData DisableAddressTransfer where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf allocationId
 
-instance Core.ToHeaders DisableAddressTransfer where
+instance Data.ToHeaders DisableAddressTransfer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DisableAddressTransfer where
+instance Data.ToPath DisableAddressTransfer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableAddressTransfer where
+instance Data.ToQuery DisableAddressTransfer where
   toQuery DisableAddressTransfer' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DisableAddressTransfer" :: Prelude.ByteString),
+          Data.=: ("DisableAddressTransfer" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "AllocationId" Core.=: allocationId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "AllocationId" Data.=: allocationId
       ]
 
 -- | /See:/ 'newDisableAddressTransferResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.DatabaseShortInfoResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a database in a Fleet Advisor collector inventory.
@@ -83,16 +84,16 @@ databaseShortInfoResponse_databaseId = Lens.lens (\DatabaseShortInfoResponse' {d
 databaseShortInfoResponse_databaseIpAddress :: Lens.Lens' DatabaseShortInfoResponse (Prelude.Maybe Prelude.Text)
 databaseShortInfoResponse_databaseIpAddress = Lens.lens (\DatabaseShortInfoResponse' {databaseIpAddress} -> databaseIpAddress) (\s@DatabaseShortInfoResponse' {} a -> s {databaseIpAddress = a} :: DatabaseShortInfoResponse)
 
-instance Core.FromJSON DatabaseShortInfoResponse where
+instance Data.FromJSON DatabaseShortInfoResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatabaseShortInfoResponse"
       ( \x ->
           DatabaseShortInfoResponse'
-            Prelude.<$> (x Core..:? "DatabaseEngine")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "DatabaseId")
-            Prelude.<*> (x Core..:? "DatabaseIpAddress")
+            Prelude.<$> (x Data..:? "DatabaseEngine")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "DatabaseId")
+            Prelude.<*> (x Data..:? "DatabaseIpAddress")
       )
 
 instance Prelude.Hashable DatabaseShortInfoResponse where

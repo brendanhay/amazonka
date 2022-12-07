@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DocumentDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -178,10 +179,10 @@ instance Core.AWSRequest DescribeEventSubscriptions where
       "DescribeEventSubscriptionsResult"
       ( \s h x ->
           DescribeEventSubscriptionsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "EventSubscriptionsList"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "EventSubscriptionsList"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "EventSubscription")
+                            Prelude.>>= Core.may (Data.parseXMLList "EventSubscription")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -200,25 +201,25 @@ instance Prelude.NFData DescribeEventSubscriptions where
       `Prelude.seq` Prelude.rnf subscriptionName
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeEventSubscriptions where
+instance Data.ToHeaders DescribeEventSubscriptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeEventSubscriptions where
+instance Data.ToPath DescribeEventSubscriptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEventSubscriptions where
+instance Data.ToQuery DescribeEventSubscriptions where
   toQuery DescribeEventSubscriptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeEventSubscriptions" :: Prelude.ByteString),
+          Data.=: ("DescribeEventSubscriptions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "SubscriptionName" Core.=: subscriptionName,
-        "MaxRecords" Core.=: maxRecords
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "SubscriptionName" Data.=: subscriptionName,
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | Represents the output of DescribeEventSubscriptions.

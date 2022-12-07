@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,34 +110,34 @@ instance Prelude.NFData DeleteQualificationType where
   rnf DeleteQualificationType' {..} =
     Prelude.rnf qualificationTypeId
 
-instance Core.ToHeaders DeleteQualificationType where
+instance Data.ToHeaders DeleteQualificationType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.DeleteQualificationType" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.DeleteQualificationType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteQualificationType where
+instance Data.ToJSON DeleteQualificationType where
   toJSON DeleteQualificationType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("QualificationTypeId" Core..= qualificationTypeId)
+              ("QualificationTypeId" Data..= qualificationTypeId)
           ]
       )
 
-instance Core.ToPath DeleteQualificationType where
+instance Data.ToPath DeleteQualificationType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteQualificationType where
+instance Data.ToQuery DeleteQualificationType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteQualificationTypeResponse' smart constructor.

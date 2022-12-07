@@ -21,6 +21,7 @@ module Amazonka.EMRServerless.Types.ConfigurationOverrides where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRServerless.Types.Configuration
 import Amazonka.EMRServerless.Types.MonitoringConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -65,16 +66,16 @@ configurationOverrides_applicationConfiguration = Lens.lens (\ConfigurationOverr
 configurationOverrides_monitoringConfiguration :: Lens.Lens' ConfigurationOverrides (Prelude.Maybe MonitoringConfiguration)
 configurationOverrides_monitoringConfiguration = Lens.lens (\ConfigurationOverrides' {monitoringConfiguration} -> monitoringConfiguration) (\s@ConfigurationOverrides' {} a -> s {monitoringConfiguration = a} :: ConfigurationOverrides)
 
-instance Core.FromJSON ConfigurationOverrides where
+instance Data.FromJSON ConfigurationOverrides where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigurationOverrides"
       ( \x ->
           ConfigurationOverrides'
-            Prelude.<$> ( x Core..:? "applicationConfiguration"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "applicationConfiguration"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "monitoringConfiguration")
+            Prelude.<*> (x Data..:? "monitoringConfiguration")
       )
 
 instance Prelude.Hashable ConfigurationOverrides where
@@ -88,13 +89,13 @@ instance Prelude.NFData ConfigurationOverrides where
     Prelude.rnf applicationConfiguration
       `Prelude.seq` Prelude.rnf monitoringConfiguration
 
-instance Core.ToJSON ConfigurationOverrides where
+instance Data.ToJSON ConfigurationOverrides where
   toJSON ConfigurationOverrides' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("applicationConfiguration" Core..=)
+          [ ("applicationConfiguration" Data..=)
               Prelude.<$> applicationConfiguration,
-            ("monitoringConfiguration" Core..=)
+            ("monitoringConfiguration" Data..=)
               Prelude.<$> monitoringConfiguration
           ]
       )

@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Polly.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -182,8 +183,8 @@ instance Core.AWSRequest DescribeVoices where
     Response.receiveJSON
       ( \s h x ->
           DescribeVoicesResponse'
-            Prelude.<$> (x Core..?> "Voices" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Voices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,20 +202,20 @@ instance Prelude.NFData DescribeVoices where
       `Prelude.seq` Prelude.rnf includeAdditionalLanguageCodes
       `Prelude.seq` Prelude.rnf engine
 
-instance Core.ToHeaders DescribeVoices where
+instance Data.ToHeaders DescribeVoices where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeVoices where
+instance Data.ToPath DescribeVoices where
   toPath = Prelude.const "/v1/voices"
 
-instance Core.ToQuery DescribeVoices where
+instance Data.ToQuery DescribeVoices where
   toQuery DescribeVoices' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "LanguageCode" Core.=: languageCode,
+      [ "NextToken" Data.=: nextToken,
+        "LanguageCode" Data.=: languageCode,
         "IncludeAdditionalLanguageCodes"
-          Core.=: includeAdditionalLanguageCodes,
-        "Engine" Core.=: engine
+          Data.=: includeAdditionalLanguageCodes,
+        "Engine" Data.=: engine
       ]
 
 -- | /See:/ 'newDescribeVoicesResponse' smart constructor.

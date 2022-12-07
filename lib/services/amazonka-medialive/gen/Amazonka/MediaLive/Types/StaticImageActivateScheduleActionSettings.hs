@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.StaticImageActivateScheduleActionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.InputLocation
 import qualified Amazonka.Prelude as Prelude
 
@@ -201,24 +202,24 @@ staticImageActivateScheduleActionSettings_image :: Lens.Lens' StaticImageActivat
 staticImageActivateScheduleActionSettings_image = Lens.lens (\StaticImageActivateScheduleActionSettings' {image} -> image) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {image = a} :: StaticImageActivateScheduleActionSettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     StaticImageActivateScheduleActionSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StaticImageActivateScheduleActionSettings"
       ( \x ->
           StaticImageActivateScheduleActionSettings'
-            Prelude.<$> (x Core..:? "fadeOut")
-              Prelude.<*> (x Core..:? "imageX")
-              Prelude.<*> (x Core..:? "width")
-              Prelude.<*> (x Core..:? "duration")
-              Prelude.<*> (x Core..:? "layer")
-              Prelude.<*> (x Core..:? "opacity")
-              Prelude.<*> (x Core..:? "height")
-              Prelude.<*> (x Core..:? "fadeIn")
-              Prelude.<*> (x Core..:? "imageY")
-              Prelude.<*> (x Core..: "image")
+            Prelude.<$> (x Data..:? "fadeOut")
+              Prelude.<*> (x Data..:? "imageX")
+              Prelude.<*> (x Data..:? "width")
+              Prelude.<*> (x Data..:? "duration")
+              Prelude.<*> (x Data..:? "layer")
+              Prelude.<*> (x Data..:? "opacity")
+              Prelude.<*> (x Data..:? "height")
+              Prelude.<*> (x Data..:? "fadeIn")
+              Prelude.<*> (x Data..:? "imageY")
+              Prelude.<*> (x Data..: "image")
       )
 
 instance
@@ -256,21 +257,21 @@ instance
       `Prelude.seq` Prelude.rnf image
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StaticImageActivateScheduleActionSettings
   where
   toJSON StaticImageActivateScheduleActionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fadeOut" Core..=) Prelude.<$> fadeOut,
-            ("imageX" Core..=) Prelude.<$> imageX,
-            ("width" Core..=) Prelude.<$> width,
-            ("duration" Core..=) Prelude.<$> duration,
-            ("layer" Core..=) Prelude.<$> layer,
-            ("opacity" Core..=) Prelude.<$> opacity,
-            ("height" Core..=) Prelude.<$> height,
-            ("fadeIn" Core..=) Prelude.<$> fadeIn,
-            ("imageY" Core..=) Prelude.<$> imageY,
-            Prelude.Just ("image" Core..= image)
+          [ ("fadeOut" Data..=) Prelude.<$> fadeOut,
+            ("imageX" Data..=) Prelude.<$> imageX,
+            ("width" Data..=) Prelude.<$> width,
+            ("duration" Data..=) Prelude.<$> duration,
+            ("layer" Data..=) Prelude.<$> layer,
+            ("opacity" Data..=) Prelude.<$> opacity,
+            ("height" Data..=) Prelude.<$> height,
+            ("fadeIn" Data..=) Prelude.<$> fadeIn,
+            ("imageY" Data..=) Prelude.<$> imageY,
+            Prelude.Just ("image" Data..= image)
           ]
       )

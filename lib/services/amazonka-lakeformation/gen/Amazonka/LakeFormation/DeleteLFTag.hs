@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,30 +120,30 @@ instance Prelude.NFData DeleteLFTag where
     Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf tagKey
 
-instance Core.ToHeaders DeleteLFTag where
+instance Data.ToHeaders DeleteLFTag where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteLFTag where
+instance Data.ToJSON DeleteLFTag where
   toJSON DeleteLFTag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("TagKey" Core..= tagKey)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("TagKey" Data..= tagKey)
           ]
       )
 
-instance Core.ToPath DeleteLFTag where
+instance Data.ToPath DeleteLFTag where
   toPath = Prelude.const "/DeleteLFTag"
 
-instance Core.ToQuery DeleteLFTag where
+instance Data.ToQuery DeleteLFTag where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLFTagResponse' smart constructor.

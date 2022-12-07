@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.UpdatePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the infrastructure update policy for the compute environment.
@@ -71,14 +72,14 @@ updatePolicy_terminateJobsOnUpdate = Lens.lens (\UpdatePolicy' {terminateJobsOnU
 updatePolicy_jobExecutionTimeoutMinutes :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Natural)
 updatePolicy_jobExecutionTimeoutMinutes = Lens.lens (\UpdatePolicy' {jobExecutionTimeoutMinutes} -> jobExecutionTimeoutMinutes) (\s@UpdatePolicy' {} a -> s {jobExecutionTimeoutMinutes = a} :: UpdatePolicy)
 
-instance Core.FromJSON UpdatePolicy where
+instance Data.FromJSON UpdatePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpdatePolicy"
       ( \x ->
           UpdatePolicy'
-            Prelude.<$> (x Core..:? "terminateJobsOnUpdate")
-            Prelude.<*> (x Core..:? "jobExecutionTimeoutMinutes")
+            Prelude.<$> (x Data..:? "terminateJobsOnUpdate")
+            Prelude.<*> (x Data..:? "jobExecutionTimeoutMinutes")
       )
 
 instance Prelude.Hashable UpdatePolicy where
@@ -91,13 +92,13 @@ instance Prelude.NFData UpdatePolicy where
     Prelude.rnf terminateJobsOnUpdate
       `Prelude.seq` Prelude.rnf jobExecutionTimeoutMinutes
 
-instance Core.ToJSON UpdatePolicy where
+instance Data.ToJSON UpdatePolicy where
   toJSON UpdatePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("terminateJobsOnUpdate" Core..=)
+          [ ("terminateJobsOnUpdate" Data..=)
               Prelude.<$> terminateJobsOnUpdate,
-            ("jobExecutionTimeoutMinutes" Core..=)
+            ("jobExecutionTimeoutMinutes" Data..=)
               Prelude.<$> jobExecutionTimeoutMinutes
           ]
       )

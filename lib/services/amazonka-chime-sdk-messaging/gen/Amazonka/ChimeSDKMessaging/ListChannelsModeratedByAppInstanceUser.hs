@@ -50,6 +50,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -58,7 +59,7 @@ import qualified Amazonka.Response as Response
 data ListChannelsModeratedByAppInstanceUser = ListChannelsModeratedByAppInstanceUser'
   { -- | The token returned from previous API requests until the number of
     -- channels moderated by the user is reached.
-    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the user in the moderated channel.
     appInstanceUserArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of channels in the request.
@@ -102,7 +103,7 @@ newListChannelsModeratedByAppInstanceUser
 -- | The token returned from previous API requests until the number of
 -- channels moderated by the user is reached.
 listChannelsModeratedByAppInstanceUser_nextToken :: Lens.Lens' ListChannelsModeratedByAppInstanceUser (Prelude.Maybe Prelude.Text)
-listChannelsModeratedByAppInstanceUser_nextToken = Lens.lens (\ListChannelsModeratedByAppInstanceUser' {nextToken} -> nextToken) (\s@ListChannelsModeratedByAppInstanceUser' {} a -> s {nextToken = a} :: ListChannelsModeratedByAppInstanceUser) Prelude.. Lens.mapping Core._Sensitive
+listChannelsModeratedByAppInstanceUser_nextToken = Lens.lens (\ListChannelsModeratedByAppInstanceUser' {nextToken} -> nextToken) (\s@ListChannelsModeratedByAppInstanceUser' {} a -> s {nextToken = a} :: ListChannelsModeratedByAppInstanceUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the user in the moderated channel.
 listChannelsModeratedByAppInstanceUser_appInstanceUserArn :: Lens.Lens' ListChannelsModeratedByAppInstanceUser (Prelude.Maybe Prelude.Text)
@@ -130,8 +131,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListChannelsModeratedByAppInstanceUserResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "Channels" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "Channels" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,28 +159,28 @@ instance
       `Prelude.seq` Prelude.rnf chimeBearer
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListChannelsModeratedByAppInstanceUser
   where
   toHeaders ListChannelsModeratedByAppInstanceUser' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListChannelsModeratedByAppInstanceUser
   where
   toPath = Prelude.const "/channels"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListChannelsModeratedByAppInstanceUser
   where
   toQuery ListChannelsModeratedByAppInstanceUser' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "app-instance-user-arn" Core.=: appInstanceUserArn,
-        "max-results" Core.=: maxResults,
+      [ "next-token" Data.=: nextToken,
+        "app-instance-user-arn" Data.=: appInstanceUserArn,
+        "max-results" Data.=: maxResults,
         "scope=app-instance-user-moderated-channels"
       ]
 
@@ -187,7 +188,7 @@ instance
 data ListChannelsModeratedByAppInstanceUserResponse = ListChannelsModeratedByAppInstanceUserResponse'
   { -- | The token returned from previous API requests until the number of
     -- channels moderated by the user is reached.
-    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The moderated channels in the request.
     channels :: Prelude.Maybe [ChannelModeratedByAppInstanceUserSummary],
     -- | The response's http status code.
@@ -225,7 +226,7 @@ newListChannelsModeratedByAppInstanceUserResponse
 -- | The token returned from previous API requests until the number of
 -- channels moderated by the user is reached.
 listChannelsModeratedByAppInstanceUserResponse_nextToken :: Lens.Lens' ListChannelsModeratedByAppInstanceUserResponse (Prelude.Maybe Prelude.Text)
-listChannelsModeratedByAppInstanceUserResponse_nextToken = Lens.lens (\ListChannelsModeratedByAppInstanceUserResponse' {nextToken} -> nextToken) (\s@ListChannelsModeratedByAppInstanceUserResponse' {} a -> s {nextToken = a} :: ListChannelsModeratedByAppInstanceUserResponse) Prelude.. Lens.mapping Core._Sensitive
+listChannelsModeratedByAppInstanceUserResponse_nextToken = Lens.lens (\ListChannelsModeratedByAppInstanceUserResponse' {nextToken} -> nextToken) (\s@ListChannelsModeratedByAppInstanceUserResponse' {} a -> s {nextToken = a} :: ListChannelsModeratedByAppInstanceUserResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The moderated channels in the request.
 listChannelsModeratedByAppInstanceUserResponse_channels :: Lens.Lens' ListChannelsModeratedByAppInstanceUserResponse (Prelude.Maybe [ChannelModeratedByAppInstanceUserSummary])

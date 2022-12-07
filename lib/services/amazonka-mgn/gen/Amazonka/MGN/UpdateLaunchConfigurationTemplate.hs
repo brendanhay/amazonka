@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,7 +102,7 @@ instance
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance
   Prelude.Hashable
@@ -122,44 +123,44 @@ instance
       `Prelude.seq` Prelude.rnf launchConfigurationTemplateID
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateLaunchConfigurationTemplate
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateLaunchConfigurationTemplate
   where
   toJSON UpdateLaunchConfigurationTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("postLaunchActions" Core..=)
+          [ ("postLaunchActions" Data..=)
               Prelude.<$> postLaunchActions,
             Prelude.Just
               ( "launchConfigurationTemplateID"
-                  Core..= launchConfigurationTemplateID
+                  Data..= launchConfigurationTemplateID
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateLaunchConfigurationTemplate
   where
   toPath =
     Prelude.const "/UpdateLaunchConfigurationTemplate"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateLaunchConfigurationTemplate
   where
   toQuery = Prelude.const Prelude.mempty

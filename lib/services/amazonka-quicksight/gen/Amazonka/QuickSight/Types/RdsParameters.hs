@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.RdsParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for Amazon RDS.
@@ -65,14 +66,14 @@ rdsParameters_instanceId = Lens.lens (\RdsParameters' {instanceId} -> instanceId
 rdsParameters_database :: Lens.Lens' RdsParameters Prelude.Text
 rdsParameters_database = Lens.lens (\RdsParameters' {database} -> database) (\s@RdsParameters' {} a -> s {database = a} :: RdsParameters)
 
-instance Core.FromJSON RdsParameters where
+instance Data.FromJSON RdsParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RdsParameters"
       ( \x ->
           RdsParameters'
-            Prelude.<$> (x Core..: "InstanceId")
-            Prelude.<*> (x Core..: "Database")
+            Prelude.<$> (x Data..: "InstanceId")
+            Prelude.<*> (x Data..: "Database")
       )
 
 instance Prelude.Hashable RdsParameters where
@@ -85,11 +86,11 @@ instance Prelude.NFData RdsParameters where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf database
 
-instance Core.ToJSON RdsParameters where
+instance Data.ToJSON RdsParameters where
   toJSON RdsParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("Database" Core..= database)
+          [ Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("Database" Data..= database)
           ]
       )

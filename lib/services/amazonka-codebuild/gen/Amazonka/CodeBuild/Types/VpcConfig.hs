@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.VpcConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the VPC configuration that CodeBuild accesses.
@@ -70,17 +71,17 @@ vpcConfig_subnets = Lens.lens (\VpcConfig' {subnets} -> subnets) (\s@VpcConfig' 
 vpcConfig_vpcId :: Lens.Lens' VpcConfig (Prelude.Maybe Prelude.Text)
 vpcConfig_vpcId = Lens.lens (\VpcConfig' {vpcId} -> vpcId) (\s@VpcConfig' {} a -> s {vpcId = a} :: VpcConfig)
 
-instance Core.FromJSON VpcConfig where
+instance Data.FromJSON VpcConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcConfig"
       ( \x ->
           VpcConfig'
-            Prelude.<$> ( x Core..:? "securityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "securityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "subnets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "vpcId")
+            Prelude.<*> (x Data..:? "subnets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "vpcId")
       )
 
 instance Prelude.Hashable VpcConfig where
@@ -95,13 +96,13 @@ instance Prelude.NFData VpcConfig where
       `Prelude.seq` Prelude.rnf subnets
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToJSON VpcConfig where
+instance Data.ToJSON VpcConfig where
   toJSON VpcConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("securityGroupIds" Core..=)
+          [ ("securityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("subnets" Core..=) Prelude.<$> subnets,
-            ("vpcId" Core..=) Prelude.<$> vpcId
+            ("subnets" Data..=) Prelude.<$> subnets,
+            ("vpcId" Data..=) Prelude.<$> vpcId
           ]
       )

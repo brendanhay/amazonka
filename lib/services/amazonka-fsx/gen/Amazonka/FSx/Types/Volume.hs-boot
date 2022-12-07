@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.FSx.Types.Volume where
 
-import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 data Volume
@@ -24,7 +24,7 @@ instance Prelude.Show Volume
 
 instance Prelude.Generic Volume
 
-instance Core.FromJSON Volume
+instance Data.FromJSON Volume
 
 instance Prelude.NFData Volume
 

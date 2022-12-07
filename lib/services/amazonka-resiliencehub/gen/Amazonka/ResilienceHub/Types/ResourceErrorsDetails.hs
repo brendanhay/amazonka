@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.ResourceErrorsDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.ResourceError
 
@@ -66,15 +67,15 @@ resourceErrorsDetails_hasMoreErrors = Lens.lens (\ResourceErrorsDetails' {hasMor
 resourceErrorsDetails_resourceErrors :: Lens.Lens' ResourceErrorsDetails (Prelude.Maybe [ResourceError])
 resourceErrorsDetails_resourceErrors = Lens.lens (\ResourceErrorsDetails' {resourceErrors} -> resourceErrors) (\s@ResourceErrorsDetails' {} a -> s {resourceErrors = a} :: ResourceErrorsDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ResourceErrorsDetails where
+instance Data.FromJSON ResourceErrorsDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceErrorsDetails"
       ( \x ->
           ResourceErrorsDetails'
-            Prelude.<$> (x Core..:? "hasMoreErrors")
-            Prelude.<*> ( x Core..:? "resourceErrors"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "hasMoreErrors")
+            Prelude.<*> ( x Data..:? "resourceErrors"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.EffectiveDeployment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.EffectiveDeploymentExecutionStatus
 import Amazonka.GreengrassV2.Types.EffectiveDeploymentStatusDetails
 import qualified Amazonka.Prelude as Prelude
@@ -55,10 +56,10 @@ data EffectiveDeployment = EffectiveDeployment'
     coreDeviceExecutionStatus :: EffectiveDeploymentExecutionStatus,
     -- | The time at which the deployment was created, expressed in ISO 8601
     -- format.
-    creationTimestamp :: Core.POSIX,
+    creationTimestamp :: Data.POSIX,
     -- | The time at which the deployment job was last modified, expressed in ISO
     -- 8601 format.
-    modifiedTimestamp :: Core.POSIX
+    modifiedTimestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -131,9 +132,9 @@ newEffectiveDeployment
         coreDeviceExecutionStatus =
           pCoreDeviceExecutionStatus_,
         creationTimestamp =
-          Core._Time Lens.# pCreationTimestamp_,
+          Data._Time Lens.# pCreationTimestamp_,
         modifiedTimestamp =
-          Core._Time Lens.# pModifiedTimestamp_
+          Data._Time Lens.# pModifiedTimestamp_
       }
 
 -- | The
@@ -180,30 +181,30 @@ effectiveDeployment_coreDeviceExecutionStatus = Lens.lens (\EffectiveDeployment'
 -- | The time at which the deployment was created, expressed in ISO 8601
 -- format.
 effectiveDeployment_creationTimestamp :: Lens.Lens' EffectiveDeployment Prelude.UTCTime
-effectiveDeployment_creationTimestamp = Lens.lens (\EffectiveDeployment' {creationTimestamp} -> creationTimestamp) (\s@EffectiveDeployment' {} a -> s {creationTimestamp = a} :: EffectiveDeployment) Prelude.. Core._Time
+effectiveDeployment_creationTimestamp = Lens.lens (\EffectiveDeployment' {creationTimestamp} -> creationTimestamp) (\s@EffectiveDeployment' {} a -> s {creationTimestamp = a} :: EffectiveDeployment) Prelude.. Data._Time
 
 -- | The time at which the deployment job was last modified, expressed in ISO
 -- 8601 format.
 effectiveDeployment_modifiedTimestamp :: Lens.Lens' EffectiveDeployment Prelude.UTCTime
-effectiveDeployment_modifiedTimestamp = Lens.lens (\EffectiveDeployment' {modifiedTimestamp} -> modifiedTimestamp) (\s@EffectiveDeployment' {} a -> s {modifiedTimestamp = a} :: EffectiveDeployment) Prelude.. Core._Time
+effectiveDeployment_modifiedTimestamp = Lens.lens (\EffectiveDeployment' {modifiedTimestamp} -> modifiedTimestamp) (\s@EffectiveDeployment' {} a -> s {modifiedTimestamp = a} :: EffectiveDeployment) Prelude.. Data._Time
 
-instance Core.FromJSON EffectiveDeployment where
+instance Data.FromJSON EffectiveDeployment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EffectiveDeployment"
       ( \x ->
           EffectiveDeployment'
-            Prelude.<$> (x Core..:? "iotJobArn")
-            Prelude.<*> (x Core..:? "iotJobId")
-            Prelude.<*> (x Core..:? "statusDetails")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "reason")
-            Prelude.<*> (x Core..: "deploymentId")
-            Prelude.<*> (x Core..: "deploymentName")
-            Prelude.<*> (x Core..: "targetArn")
-            Prelude.<*> (x Core..: "coreDeviceExecutionStatus")
-            Prelude.<*> (x Core..: "creationTimestamp")
-            Prelude.<*> (x Core..: "modifiedTimestamp")
+            Prelude.<$> (x Data..:? "iotJobArn")
+            Prelude.<*> (x Data..:? "iotJobId")
+            Prelude.<*> (x Data..:? "statusDetails")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "reason")
+            Prelude.<*> (x Data..: "deploymentId")
+            Prelude.<*> (x Data..: "deploymentName")
+            Prelude.<*> (x Data..: "targetArn")
+            Prelude.<*> (x Data..: "coreDeviceExecutionStatus")
+            Prelude.<*> (x Data..: "creationTimestamp")
+            Prelude.<*> (x Data..: "modifiedTimestamp")
       )
 
 instance Prelude.Hashable EffectiveDeployment where

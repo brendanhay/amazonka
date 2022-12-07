@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.LabelCountersForWorkteam where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides counts for human-labeled tasks in the labeling job.
@@ -74,15 +75,15 @@ labelCountersForWorkteam_total = Lens.lens (\LabelCountersForWorkteam' {total} -
 labelCountersForWorkteam_humanLabeled :: Lens.Lens' LabelCountersForWorkteam (Prelude.Maybe Prelude.Natural)
 labelCountersForWorkteam_humanLabeled = Lens.lens (\LabelCountersForWorkteam' {humanLabeled} -> humanLabeled) (\s@LabelCountersForWorkteam' {} a -> s {humanLabeled = a} :: LabelCountersForWorkteam)
 
-instance Core.FromJSON LabelCountersForWorkteam where
+instance Data.FromJSON LabelCountersForWorkteam where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelCountersForWorkteam"
       ( \x ->
           LabelCountersForWorkteam'
-            Prelude.<$> (x Core..:? "PendingHuman")
-            Prelude.<*> (x Core..:? "Total")
-            Prelude.<*> (x Core..:? "HumanLabeled")
+            Prelude.<$> (x Data..:? "PendingHuman")
+            Prelude.<*> (x Data..:? "Total")
+            Prelude.<*> (x Data..:? "HumanLabeled")
       )
 
 instance Prelude.Hashable LabelCountersForWorkteam where

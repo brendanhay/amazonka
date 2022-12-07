@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,7 +162,7 @@ instance Core.AWSRequest CreateIpamScope where
     Response.receiveXML
       ( \s h x ->
           CreateIpamScopeResponse'
-            Prelude.<$> (x Core..@? "ipamScope")
+            Prelude.<$> (x Data..@? "ipamScope")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,27 +182,27 @@ instance Prelude.NFData CreateIpamScope where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf ipamId
 
-instance Core.ToHeaders CreateIpamScope where
+instance Data.ToHeaders CreateIpamScope where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateIpamScope where
+instance Data.ToPath CreateIpamScope where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateIpamScope where
+instance Data.ToQuery CreateIpamScope where
   toQuery CreateIpamScope' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateIpamScope" :: Prelude.ByteString),
+          Data.=: ("CreateIpamScope" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "IpamId" Core.=: ipamId
+        "IpamId" Data.=: ipamId
       ]
 
 -- | /See:/ 'newCreateIpamScopeResponse' smart constructor.

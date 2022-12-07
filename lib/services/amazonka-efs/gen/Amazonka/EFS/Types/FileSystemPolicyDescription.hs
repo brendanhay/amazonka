@@ -21,6 +21,7 @@ module Amazonka.EFS.Types.FileSystemPolicyDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newFileSystemPolicyDescription' smart constructor.
@@ -60,14 +61,14 @@ fileSystemPolicyDescription_policy = Lens.lens (\FileSystemPolicyDescription' {p
 fileSystemPolicyDescription_fileSystemId :: Lens.Lens' FileSystemPolicyDescription (Prelude.Maybe Prelude.Text)
 fileSystemPolicyDescription_fileSystemId = Lens.lens (\FileSystemPolicyDescription' {fileSystemId} -> fileSystemId) (\s@FileSystemPolicyDescription' {} a -> s {fileSystemId = a} :: FileSystemPolicyDescription)
 
-instance Core.FromJSON FileSystemPolicyDescription where
+instance Data.FromJSON FileSystemPolicyDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileSystemPolicyDescription"
       ( \x ->
           FileSystemPolicyDescription'
-            Prelude.<$> (x Core..:? "Policy")
-            Prelude.<*> (x Core..:? "FileSystemId")
+            Prelude.<$> (x Data..:? "Policy")
+            Prelude.<*> (x Data..:? "FileSystemId")
       )
 
 instance Prelude.Hashable FileSystemPolicyDescription where

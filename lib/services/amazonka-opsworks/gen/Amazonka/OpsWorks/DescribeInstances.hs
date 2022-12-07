@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,7 +124,7 @@ instance Core.AWSRequest DescribeInstances where
     Response.receiveJSON
       ( \s h x ->
           DescribeInstancesResponse'
-            Prelude.<$> (x Core..?> "Instances" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Instances" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,35 +140,35 @@ instance Prelude.NFData DescribeInstances where
       `Prelude.seq` Prelude.rnf instanceIds
       `Prelude.seq` Prelude.rnf layerId
 
-instance Core.ToHeaders DescribeInstances where
+instance Data.ToHeaders DescribeInstances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DescribeInstances" ::
+              Data.=# ( "OpsWorks_20130218.DescribeInstances" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeInstances where
+instance Data.ToJSON DescribeInstances where
   toJSON DescribeInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StackId" Core..=) Prelude.<$> stackId,
-            ("InstanceIds" Core..=) Prelude.<$> instanceIds,
-            ("LayerId" Core..=) Prelude.<$> layerId
+          [ ("StackId" Data..=) Prelude.<$> stackId,
+            ("InstanceIds" Data..=) Prelude.<$> instanceIds,
+            ("LayerId" Data..=) Prelude.<$> layerId
           ]
       )
 
-instance Core.ToPath DescribeInstances where
+instance Data.ToPath DescribeInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeInstances where
+instance Data.ToQuery DescribeInstances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeInstances@ request.

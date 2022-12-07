@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.RelationalDatabase where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.PendingMaintenanceAction
 import Amazonka.Lightsail.Types.PendingModifiedRelationalDatabaseValues
 import Amazonka.Lightsail.Types.RelationalDatabaseEndpoint
@@ -65,7 +66,7 @@ data RelationalDatabase = RelationalDatabase'
     relationalDatabaseBlueprintId :: Prelude.Maybe Prelude.Text,
     -- | The latest point in time to which the database can be restored.
     -- Formatted in Unix time.
-    latestRestorableTime :: Prelude.Maybe Core.POSIX,
+    latestRestorableTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the master database created when the Lightsail database
     -- resource is created.
     masterDatabaseName :: Prelude.Maybe Prelude.Text,
@@ -103,7 +104,7 @@ data RelationalDatabase = RelationalDatabase'
     -- easily.
     supportCode :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the database was created. Formatted in Unix time.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The database engine version (for example, @5.7.23@).
     engineVersion :: Prelude.Maybe Prelude.Text
   }
@@ -271,7 +272,7 @@ relationalDatabase_relationalDatabaseBlueprintId = Lens.lens (\RelationalDatabas
 -- | The latest point in time to which the database can be restored.
 -- Formatted in Unix time.
 relationalDatabase_latestRestorableTime :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.UTCTime)
-relationalDatabase_latestRestorableTime = Lens.lens (\RelationalDatabase' {latestRestorableTime} -> latestRestorableTime) (\s@RelationalDatabase' {} a -> s {latestRestorableTime = a} :: RelationalDatabase) Prelude.. Lens.mapping Core._Time
+relationalDatabase_latestRestorableTime = Lens.lens (\RelationalDatabase' {latestRestorableTime} -> latestRestorableTime) (\s@RelationalDatabase' {} a -> s {latestRestorableTime = a} :: RelationalDatabase) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the master database created when the Lightsail database
 -- resource is created.
@@ -339,46 +340,46 @@ relationalDatabase_supportCode = Lens.lens (\RelationalDatabase' {supportCode} -
 
 -- | The timestamp when the database was created. Formatted in Unix time.
 relationalDatabase_createdAt :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.UTCTime)
-relationalDatabase_createdAt = Lens.lens (\RelationalDatabase' {createdAt} -> createdAt) (\s@RelationalDatabase' {} a -> s {createdAt = a} :: RelationalDatabase) Prelude.. Lens.mapping Core._Time
+relationalDatabase_createdAt = Lens.lens (\RelationalDatabase' {createdAt} -> createdAt) (\s@RelationalDatabase' {} a -> s {createdAt = a} :: RelationalDatabase) Prelude.. Lens.mapping Data._Time
 
 -- | The database engine version (for example, @5.7.23@).
 relationalDatabase_engineVersion :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Text)
 relationalDatabase_engineVersion = Lens.lens (\RelationalDatabase' {engineVersion} -> engineVersion) (\s@RelationalDatabase' {} a -> s {engineVersion = a} :: RelationalDatabase)
 
-instance Core.FromJSON RelationalDatabase where
+instance Data.FromJSON RelationalDatabase where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelationalDatabase"
       ( \x ->
           RelationalDatabase'
-            Prelude.<$> (x Core..:? "relationalDatabaseBundleId")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "masterUsername")
-            Prelude.<*> (x Core..:? "preferredBackupWindow")
-            Prelude.<*> (x Core..:? "backupRetentionEnabled")
-            Prelude.<*> (x Core..:? "secondaryAvailabilityZone")
-            Prelude.<*> (x Core..:? "relationalDatabaseBlueprintId")
-            Prelude.<*> (x Core..:? "latestRestorableTime")
-            Prelude.<*> (x Core..:? "masterDatabaseName")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "publiclyAccessible")
-            Prelude.<*> (x Core..:? "parameterApplyStatus")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "hardware")
-            Prelude.<*> (x Core..:? "masterEndpoint")
-            Prelude.<*> (x Core..:? "caCertificateIdentifier")
-            Prelude.<*> ( x Core..:? "pendingMaintenanceActions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "relationalDatabaseBundleId")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "masterUsername")
+            Prelude.<*> (x Data..:? "preferredBackupWindow")
+            Prelude.<*> (x Data..:? "backupRetentionEnabled")
+            Prelude.<*> (x Data..:? "secondaryAvailabilityZone")
+            Prelude.<*> (x Data..:? "relationalDatabaseBlueprintId")
+            Prelude.<*> (x Data..:? "latestRestorableTime")
+            Prelude.<*> (x Data..:? "masterDatabaseName")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "publiclyAccessible")
+            Prelude.<*> (x Data..:? "parameterApplyStatus")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "hardware")
+            Prelude.<*> (x Data..:? "masterEndpoint")
+            Prelude.<*> (x Data..:? "caCertificateIdentifier")
+            Prelude.<*> ( x Data..:? "pendingMaintenanceActions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "engine")
-            Prelude.<*> (x Core..:? "pendingModifiedValues")
-            Prelude.<*> (x Core..:? "preferredMaintenanceWindow")
-            Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "engineVersion")
+            Prelude.<*> (x Data..:? "engine")
+            Prelude.<*> (x Data..:? "pendingModifiedValues")
+            Prelude.<*> (x Data..:? "preferredMaintenanceWindow")
+            Prelude.<*> (x Data..:? "supportCode")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "engineVersion")
       )
 
 instance Prelude.Hashable RelationalDatabase where

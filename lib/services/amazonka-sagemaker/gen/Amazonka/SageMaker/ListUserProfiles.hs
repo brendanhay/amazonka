@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,8 +162,8 @@ instance Core.AWSRequest ListUserProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListUserProfilesResponse'
-            Prelude.<$> (x Core..?> "UserProfiles" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "UserProfiles" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,38 +185,38 @@ instance Prelude.NFData ListUserProfiles where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf domainIdEquals
 
-instance Core.ToHeaders ListUserProfiles where
+instance Data.ToHeaders ListUserProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListUserProfiles" :: Prelude.ByteString),
+              Data.=# ("SageMaker.ListUserProfiles" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListUserProfiles where
+instance Data.ToJSON ListUserProfiles where
   toJSON ListUserProfiles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("UserProfileNameContains" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("UserProfileNameContains" Data..=)
               Prelude.<$> userProfileNameContains,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("DomainIdEquals" Core..=)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("DomainIdEquals" Data..=)
               Prelude.<$> domainIdEquals
           ]
       )
 
-instance Core.ToPath ListUserProfiles where
+instance Data.ToPath ListUserProfiles where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListUserProfiles where
+instance Data.ToQuery ListUserProfiles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListUserProfilesResponse' smart constructor.

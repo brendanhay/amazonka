@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -238,8 +239,8 @@ instance Core.AWSRequest DisassociateResourceShare where
     Response.receiveJSON
       ( \s h x ->
           DisassociateResourceShareResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-            Prelude.<*> ( x Core..?> "resourceShareAssociations"
+            Prelude.<$> (x Data..?> "clientToken")
+            Prelude.<*> ( x Data..?> "resourceShareAssociations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -259,33 +260,33 @@ instance Prelude.NFData DisassociateResourceShare where
       `Prelude.seq` Prelude.rnf resourceArns
       `Prelude.seq` Prelude.rnf resourceShareArn
 
-instance Core.ToHeaders DisassociateResourceShare where
+instance Data.ToHeaders DisassociateResourceShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateResourceShare where
+instance Data.ToJSON DisassociateResourceShare where
   toJSON DisassociateResourceShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("principals" Core..=) Prelude.<$> principals,
-            ("resourceArns" Core..=) Prelude.<$> resourceArns,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("principals" Data..=) Prelude.<$> principals,
+            ("resourceArns" Data..=) Prelude.<$> resourceArns,
             Prelude.Just
-              ("resourceShareArn" Core..= resourceShareArn)
+              ("resourceShareArn" Data..= resourceShareArn)
           ]
       )
 
-instance Core.ToPath DisassociateResourceShare where
+instance Data.ToPath DisassociateResourceShare where
   toPath = Prelude.const "/disassociateresourceshare"
 
-instance Core.ToQuery DisassociateResourceShare where
+instance Data.ToQuery DisassociateResourceShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateResourceShareResponse' smart constructor.

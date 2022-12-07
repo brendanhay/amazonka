@@ -68,6 +68,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -221,7 +222,7 @@ instance Core.AWSRequest CreateStage where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateStage where
   hashWithSalt _salt CreateStage' {..} =
@@ -251,41 +252,41 @@ instance Prelude.NFData CreateStage where
       `Prelude.seq` Prelude.rnf stageName
       `Prelude.seq` Prelude.rnf deploymentId
 
-instance Core.ToHeaders CreateStage where
+instance Data.ToHeaders CreateStage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON CreateStage where
+instance Data.ToJSON CreateStage where
   toJSON CreateStage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("cacheClusterEnabled" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("cacheClusterEnabled" Data..=)
               Prelude.<$> cacheClusterEnabled,
-            ("description" Core..=) Prelude.<$> description,
-            ("tracingEnabled" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("tracingEnabled" Data..=)
               Prelude.<$> tracingEnabled,
-            ("cacheClusterSize" Core..=)
+            ("cacheClusterSize" Data..=)
               Prelude.<$> cacheClusterSize,
-            ("canarySettings" Core..=)
+            ("canarySettings" Data..=)
               Prelude.<$> canarySettings,
-            ("documentationVersion" Core..=)
+            ("documentationVersion" Data..=)
               Prelude.<$> documentationVersion,
-            ("variables" Core..=) Prelude.<$> variables,
-            Prelude.Just ("stageName" Core..= stageName),
-            Prelude.Just ("deploymentId" Core..= deploymentId)
+            ("variables" Data..=) Prelude.<$> variables,
+            Prelude.Just ("stageName" Data..= stageName),
+            Prelude.Just ("deploymentId" Data..= deploymentId)
           ]
       )
 
-instance Core.ToPath CreateStage where
+instance Data.ToPath CreateStage where
   toPath CreateStage' {..} =
     Prelude.mconcat
-      ["/restapis/", Core.toBS restApiId, "/stages"]
+      ["/restapis/", Data.toBS restApiId, "/stages"]
 
-instance Core.ToQuery CreateStage where
+instance Data.ToQuery CreateStage where
   toQuery = Prelude.const Prelude.mempty

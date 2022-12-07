@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.ConfigurationOptionDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType
 import Amazonka.ElasticBeanstalk.Types.OptionRestrictionRegex
 import qualified Amazonka.Prelude as Prelude
@@ -271,22 +272,22 @@ configurationOptionDescription_namespace = Lens.lens (\ConfigurationOptionDescri
 configurationOptionDescription_maxValue :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Int)
 configurationOptionDescription_maxValue = Lens.lens (\ConfigurationOptionDescription' {maxValue} -> maxValue) (\s@ConfigurationOptionDescription' {} a -> s {maxValue = a} :: ConfigurationOptionDescription)
 
-instance Core.FromXML ConfigurationOptionDescription where
+instance Data.FromXML ConfigurationOptionDescription where
   parseXML x =
     ConfigurationOptionDescription'
-      Prelude.<$> (x Core..@? "Name")
-      Prelude.<*> (x Core..@? "UserDefined")
-      Prelude.<*> (x Core..@? "MaxLength")
-      Prelude.<*> (x Core..@? "Regex")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "MinValue")
-      Prelude.<*> ( x Core..@? "ValueOptions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "UserDefined")
+      Prelude.<*> (x Data..@? "MaxLength")
+      Prelude.<*> (x Data..@? "Regex")
+      Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "MinValue")
+      Prelude.<*> ( x Data..@? "ValueOptions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "ValueType")
-      Prelude.<*> (x Core..@? "ChangeSeverity")
-      Prelude.<*> (x Core..@? "Namespace")
-      Prelude.<*> (x Core..@? "MaxValue")
+      Prelude.<*> (x Data..@? "ValueType")
+      Prelude.<*> (x Data..@? "ChangeSeverity")
+      Prelude.<*> (x Data..@? "Namespace")
+      Prelude.<*> (x Data..@? "MaxValue")
 
 instance
   Prelude.Hashable

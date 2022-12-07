@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,7 +126,7 @@ instance Core.AWSRequest CreatePackage where
     Response.receiveJSON
       ( \s h x ->
           CreatePackageResponse'
-            Prelude.<$> (x Core..?> "PackageDetails")
+            Prelude.<$> (x Data..?> "PackageDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,26 +144,26 @@ instance Prelude.NFData CreatePackage where
       `Prelude.seq` Prelude.rnf packageType
       `Prelude.seq` Prelude.rnf packageSource
 
-instance Core.ToHeaders CreatePackage where
+instance Data.ToHeaders CreatePackage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreatePackage where
+instance Data.ToJSON CreatePackage where
   toJSON CreatePackage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PackageDescription" Core..=)
+          [ ("PackageDescription" Data..=)
               Prelude.<$> packageDescription,
-            Prelude.Just ("PackageName" Core..= packageName),
-            Prelude.Just ("PackageType" Core..= packageType),
+            Prelude.Just ("PackageName" Data..= packageName),
+            Prelude.Just ("PackageType" Data..= packageType),
             Prelude.Just
-              ("PackageSource" Core..= packageSource)
+              ("PackageSource" Data..= packageSource)
           ]
       )
 
-instance Core.ToPath CreatePackage where
+instance Data.ToPath CreatePackage where
   toPath = Prelude.const "/2015-01-01/packages"
 
-instance Core.ToQuery CreatePackage where
+instance Data.ToQuery CreatePackage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Container for response returned by @ CreatePackage @ operation.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,7 +93,7 @@ instance Core.AWSRequest GetQueryLoggingConfig where
       ( \s h x ->
           GetQueryLoggingConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "QueryLoggingConfig")
+            Prelude.<*> (x Data..@ "QueryLoggingConfig")
       )
 
 instance Prelude.Hashable GetQueryLoggingConfig where
@@ -102,15 +103,15 @@ instance Prelude.Hashable GetQueryLoggingConfig where
 instance Prelude.NFData GetQueryLoggingConfig where
   rnf GetQueryLoggingConfig' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetQueryLoggingConfig where
+instance Data.ToHeaders GetQueryLoggingConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetQueryLoggingConfig where
+instance Data.ToPath GetQueryLoggingConfig where
   toPath GetQueryLoggingConfig' {..} =
     Prelude.mconcat
-      ["/2013-04-01/queryloggingconfig/", Core.toBS id]
+      ["/2013-04-01/queryloggingconfig/", Data.toBS id]
 
-instance Core.ToQuery GetQueryLoggingConfig where
+instance Data.ToQuery GetQueryLoggingConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetQueryLoggingConfigResponse' smart constructor.

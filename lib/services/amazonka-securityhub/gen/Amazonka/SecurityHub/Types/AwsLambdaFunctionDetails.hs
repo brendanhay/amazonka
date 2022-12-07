@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsLambdaFunctionDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsLambdaFunctionCode
 import Amazonka.SecurityHub.Types.AwsLambdaFunctionDeadLetterConfig
@@ -263,32 +264,32 @@ awsLambdaFunctionDetails_version = Lens.lens (\AwsLambdaFunctionDetails' {versio
 awsLambdaFunctionDetails_deadLetterConfig :: Lens.Lens' AwsLambdaFunctionDetails (Prelude.Maybe AwsLambdaFunctionDeadLetterConfig)
 awsLambdaFunctionDetails_deadLetterConfig = Lens.lens (\AwsLambdaFunctionDetails' {deadLetterConfig} -> deadLetterConfig) (\s@AwsLambdaFunctionDetails' {} a -> s {deadLetterConfig = a} :: AwsLambdaFunctionDetails)
 
-instance Core.FromJSON AwsLambdaFunctionDetails where
+instance Data.FromJSON AwsLambdaFunctionDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsLambdaFunctionDetails"
       ( \x ->
           AwsLambdaFunctionDetails'
-            Prelude.<$> (x Core..:? "TracingConfig")
-            Prelude.<*> (x Core..:? "MasterArn")
-            Prelude.<*> (x Core..:? "Timeout")
-            Prelude.<*> (x Core..:? "MemorySize")
-            Prelude.<*> (x Core..:? "CodeSha256")
-            Prelude.<*> (x Core..:? "Environment")
-            Prelude.<*> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "FunctionName")
-            Prelude.<*> (x Core..:? "Runtime")
-            Prelude.<*> (x Core..:? "KmsKeyArn")
-            Prelude.<*> (x Core..:? "Handler")
-            Prelude.<*> (x Core..:? "Layers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PackageType")
-            Prelude.<*> (x Core..:? "RevisionId")
-            Prelude.<*> (x Core..:? "LastModified")
-            Prelude.<*> (x Core..:? "Role")
-            Prelude.<*> (x Core..:? "Architectures" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "DeadLetterConfig")
+            Prelude.<$> (x Data..:? "TracingConfig")
+            Prelude.<*> (x Data..:? "MasterArn")
+            Prelude.<*> (x Data..:? "Timeout")
+            Prelude.<*> (x Data..:? "MemorySize")
+            Prelude.<*> (x Data..:? "CodeSha256")
+            Prelude.<*> (x Data..:? "Environment")
+            Prelude.<*> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "FunctionName")
+            Prelude.<*> (x Data..:? "Runtime")
+            Prelude.<*> (x Data..:? "KmsKeyArn")
+            Prelude.<*> (x Data..:? "Handler")
+            Prelude.<*> (x Data..:? "Layers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PackageType")
+            Prelude.<*> (x Data..:? "RevisionId")
+            Prelude.<*> (x Data..:? "LastModified")
+            Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "Architectures" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..:? "DeadLetterConfig")
       )
 
 instance Prelude.Hashable AwsLambdaFunctionDetails where
@@ -337,30 +338,30 @@ instance Prelude.NFData AwsLambdaFunctionDetails where
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf deadLetterConfig
 
-instance Core.ToJSON AwsLambdaFunctionDetails where
+instance Data.ToJSON AwsLambdaFunctionDetails where
   toJSON AwsLambdaFunctionDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TracingConfig" Core..=) Prelude.<$> tracingConfig,
-            ("MasterArn" Core..=) Prelude.<$> masterArn,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("MemorySize" Core..=) Prelude.<$> memorySize,
-            ("CodeSha256" Core..=) Prelude.<$> codeSha256,
-            ("Environment" Core..=) Prelude.<$> environment,
-            ("Code" Core..=) Prelude.<$> code,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("FunctionName" Core..=) Prelude.<$> functionName,
-            ("Runtime" Core..=) Prelude.<$> runtime,
-            ("KmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("Handler" Core..=) Prelude.<$> handler,
-            ("Layers" Core..=) Prelude.<$> layers,
-            ("PackageType" Core..=) Prelude.<$> packageType,
-            ("RevisionId" Core..=) Prelude.<$> revisionId,
-            ("LastModified" Core..=) Prelude.<$> lastModified,
-            ("Role" Core..=) Prelude.<$> role',
-            ("Architectures" Core..=) Prelude.<$> architectures,
-            ("Version" Core..=) Prelude.<$> version,
-            ("DeadLetterConfig" Core..=)
+          [ ("TracingConfig" Data..=) Prelude.<$> tracingConfig,
+            ("MasterArn" Data..=) Prelude.<$> masterArn,
+            ("Timeout" Data..=) Prelude.<$> timeout,
+            ("MemorySize" Data..=) Prelude.<$> memorySize,
+            ("CodeSha256" Data..=) Prelude.<$> codeSha256,
+            ("Environment" Data..=) Prelude.<$> environment,
+            ("Code" Data..=) Prelude.<$> code,
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("FunctionName" Data..=) Prelude.<$> functionName,
+            ("Runtime" Data..=) Prelude.<$> runtime,
+            ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("Handler" Data..=) Prelude.<$> handler,
+            ("Layers" Data..=) Prelude.<$> layers,
+            ("PackageType" Data..=) Prelude.<$> packageType,
+            ("RevisionId" Data..=) Prelude.<$> revisionId,
+            ("LastModified" Data..=) Prelude.<$> lastModified,
+            ("Role" Data..=) Prelude.<$> role',
+            ("Architectures" Data..=) Prelude.<$> architectures,
+            ("Version" Data..=) Prelude.<$> version,
+            ("DeadLetterConfig" Data..=)
               Prelude.<$> deadLetterConfig
           ]
       )

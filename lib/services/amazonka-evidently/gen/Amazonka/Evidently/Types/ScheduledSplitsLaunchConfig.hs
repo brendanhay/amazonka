@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.ScheduledSplitsLaunchConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.ScheduledSplitConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,9 +73,9 @@ instance Prelude.NFData ScheduledSplitsLaunchConfig where
   rnf ScheduledSplitsLaunchConfig' {..} =
     Prelude.rnf steps
 
-instance Core.ToJSON ScheduledSplitsLaunchConfig where
+instance Data.ToJSON ScheduledSplitsLaunchConfig where
   toJSON ScheduledSplitsLaunchConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("steps" Core..= steps)]
+          [Prelude.Just ("steps" Data..= steps)]
       )

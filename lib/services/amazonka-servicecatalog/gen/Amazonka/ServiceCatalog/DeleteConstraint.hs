@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,35 +128,35 @@ instance Prelude.NFData DeleteConstraint where
     Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DeleteConstraint where
+instance Data.ToHeaders DeleteConstraint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DeleteConstraint" ::
+              Data.=# ( "AWS242ServiceCatalogService.DeleteConstraint" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteConstraint where
+instance Data.ToJSON DeleteConstraint where
   toJSON DeleteConstraint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("Id" Core..= id)
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath DeleteConstraint where
+instance Data.ToPath DeleteConstraint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteConstraint where
+instance Data.ToQuery DeleteConstraint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConstraintResponse' smart constructor.

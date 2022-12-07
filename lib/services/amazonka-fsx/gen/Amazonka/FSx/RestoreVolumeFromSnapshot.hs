@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,8 +153,8 @@ instance Core.AWSRequest RestoreVolumeFromSnapshot where
     Response.receiveJSON
       ( \s h x ->
           RestoreVolumeFromSnapshotResponse'
-            Prelude.<$> (x Core..?> "Lifecycle")
-            Prelude.<*> (x Core..?> "VolumeId")
+            Prelude.<$> (x Data..?> "Lifecycle")
+            Prelude.<*> (x Data..?> "VolumeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,37 +172,37 @@ instance Prelude.NFData RestoreVolumeFromSnapshot where
       `Prelude.seq` Prelude.rnf volumeId
       `Prelude.seq` Prelude.rnf snapshotId
 
-instance Core.ToHeaders RestoreVolumeFromSnapshot where
+instance Data.ToHeaders RestoreVolumeFromSnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.RestoreVolumeFromSnapshot" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.RestoreVolumeFromSnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RestoreVolumeFromSnapshot where
+instance Data.ToJSON RestoreVolumeFromSnapshot where
   toJSON RestoreVolumeFromSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("Options" Core..=) Prelude.<$> options,
-            Prelude.Just ("VolumeId" Core..= volumeId),
-            Prelude.Just ("SnapshotId" Core..= snapshotId)
+            ("Options" Data..=) Prelude.<$> options,
+            Prelude.Just ("VolumeId" Data..= volumeId),
+            Prelude.Just ("SnapshotId" Data..= snapshotId)
           ]
       )
 
-instance Core.ToPath RestoreVolumeFromSnapshot where
+instance Data.ToPath RestoreVolumeFromSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreVolumeFromSnapshot where
+instance Data.ToQuery RestoreVolumeFromSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRestoreVolumeFromSnapshotResponse' smart constructor.

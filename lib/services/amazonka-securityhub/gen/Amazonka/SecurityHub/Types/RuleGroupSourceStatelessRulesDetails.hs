@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRulesDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleDefinition
 
@@ -67,16 +68,16 @@ ruleGroupSourceStatelessRulesDetails_priority :: Lens.Lens' RuleGroupSourceState
 ruleGroupSourceStatelessRulesDetails_priority = Lens.lens (\RuleGroupSourceStatelessRulesDetails' {priority} -> priority) (\s@RuleGroupSourceStatelessRulesDetails' {} a -> s {priority = a} :: RuleGroupSourceStatelessRulesDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RuleGroupSourceStatelessRulesDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupSourceStatelessRulesDetails"
       ( \x ->
           RuleGroupSourceStatelessRulesDetails'
-            Prelude.<$> (x Core..:? "RuleDefinition")
-            Prelude.<*> (x Core..:? "Priority")
+            Prelude.<$> (x Data..:? "RuleDefinition")
+            Prelude.<*> (x Data..:? "Priority")
       )
 
 instance
@@ -98,14 +99,14 @@ instance
       `Prelude.seq` Prelude.rnf priority
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RuleGroupSourceStatelessRulesDetails
   where
   toJSON RuleGroupSourceStatelessRulesDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RuleDefinition" Core..=)
+          [ ("RuleDefinition" Data..=)
               Prelude.<$> ruleDefinition,
-            ("Priority" Core..=) Prelude.<$> priority
+            ("Priority" Data..=) Prelude.<$> priority
           ]
       )

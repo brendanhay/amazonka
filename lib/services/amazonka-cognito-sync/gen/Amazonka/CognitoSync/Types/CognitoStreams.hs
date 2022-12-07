@@ -22,6 +22,7 @@ module Amazonka.CognitoSync.Types.CognitoStreams where
 import Amazonka.CognitoSync.Types.StreamingStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration options for configure Cognito streams.
@@ -95,15 +96,15 @@ cognitoStreams_streamingStatus = Lens.lens (\CognitoStreams' {streamingStatus} -
 cognitoStreams_streamName :: Lens.Lens' CognitoStreams (Prelude.Maybe Prelude.Text)
 cognitoStreams_streamName = Lens.lens (\CognitoStreams' {streamName} -> streamName) (\s@CognitoStreams' {} a -> s {streamName = a} :: CognitoStreams)
 
-instance Core.FromJSON CognitoStreams where
+instance Data.FromJSON CognitoStreams where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CognitoStreams"
       ( \x ->
           CognitoStreams'
-            Prelude.<$> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "StreamingStatus")
-            Prelude.<*> (x Core..:? "StreamName")
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "StreamingStatus")
+            Prelude.<*> (x Data..:? "StreamName")
       )
 
 instance Prelude.Hashable CognitoStreams where
@@ -118,13 +119,13 @@ instance Prelude.NFData CognitoStreams where
       `Prelude.seq` Prelude.rnf streamingStatus
       `Prelude.seq` Prelude.rnf streamName
 
-instance Core.ToJSON CognitoStreams where
+instance Data.ToJSON CognitoStreams where
   toJSON CognitoStreams' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("StreamingStatus" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("StreamingStatus" Data..=)
               Prelude.<$> streamingStatus,
-            ("StreamName" Core..=) Prelude.<$> streamName
+            ("StreamName" Data..=) Prelude.<$> streamName
           ]
       )

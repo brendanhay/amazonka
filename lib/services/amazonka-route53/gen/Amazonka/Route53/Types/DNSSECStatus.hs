@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.DNSSECStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 
@@ -140,11 +141,11 @@ dNSSECStatus_serveSignature = Lens.lens (\DNSSECStatus' {serveSignature} -> serv
 dNSSECStatus_statusMessage :: Lens.Lens' DNSSECStatus (Prelude.Maybe Prelude.Text)
 dNSSECStatus_statusMessage = Lens.lens (\DNSSECStatus' {statusMessage} -> statusMessage) (\s@DNSSECStatus' {} a -> s {statusMessage = a} :: DNSSECStatus)
 
-instance Core.FromXML DNSSECStatus where
+instance Data.FromXML DNSSECStatus where
   parseXML x =
     DNSSECStatus'
-      Prelude.<$> (x Core..@? "ServeSignature")
-      Prelude.<*> (x Core..@? "StatusMessage")
+      Prelude.<$> (x Data..@? "ServeSignature")
+      Prelude.<*> (x Data..@? "StatusMessage")
 
 instance Prelude.Hashable DNSSECStatus where
   hashWithSalt _salt DNSSECStatus' {..} =

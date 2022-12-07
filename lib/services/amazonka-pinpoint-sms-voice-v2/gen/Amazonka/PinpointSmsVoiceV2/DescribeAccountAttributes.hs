@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,8 +131,8 @@ instance Core.AWSRequest DescribeAccountAttributes where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "AccountAttributes"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "AccountAttributes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -147,34 +148,34 @@ instance Prelude.NFData DescribeAccountAttributes where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeAccountAttributes where
+instance Data.ToHeaders DescribeAccountAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.DescribeAccountAttributes" ::
+              Data.=# ( "PinpointSMSVoiceV2.DescribeAccountAttributes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAccountAttributes where
+instance Data.ToJSON DescribeAccountAttributes where
   toJSON DescribeAccountAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeAccountAttributes where
+instance Data.ToPath DescribeAccountAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAccountAttributes where
+instance Data.ToQuery DescribeAccountAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAccountAttributesResponse' smart constructor.

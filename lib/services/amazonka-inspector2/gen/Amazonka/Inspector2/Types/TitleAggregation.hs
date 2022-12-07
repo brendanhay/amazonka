@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.TitleAggregation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.AggregationResourceType
 import Amazonka.Inspector2.Types.SortOrder
 import Amazonka.Inspector2.Types.StringFilter
@@ -108,15 +109,15 @@ instance Prelude.NFData TitleAggregation where
       `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf titles
 
-instance Core.ToJSON TitleAggregation where
+instance Data.ToJSON TitleAggregation where
   toJSON TitleAggregation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resourceType" Core..=) Prelude.<$> resourceType,
-            ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("vulnerabilityIds" Core..=)
+          [ ("resourceType" Data..=) Prelude.<$> resourceType,
+            ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            ("vulnerabilityIds" Data..=)
               Prelude.<$> vulnerabilityIds,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("titles" Core..=) Prelude.<$> titles
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("titles" Data..=) Prelude.<$> titles
           ]
       )

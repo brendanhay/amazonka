@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ResizeProgressMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -278,34 +279,34 @@ resizeProgressMessage_targetNodeType = Lens.lens (\ResizeProgressMessage' {targe
 resizeProgressMessage_resizeType :: Lens.Lens' ResizeProgressMessage (Prelude.Maybe Prelude.Text)
 resizeProgressMessage_resizeType = Lens.lens (\ResizeProgressMessage' {resizeType} -> resizeType) (\s@ResizeProgressMessage' {} a -> s {resizeType = a} :: ResizeProgressMessage)
 
-instance Core.FromXML ResizeProgressMessage where
+instance Data.FromXML ResizeProgressMessage where
   parseXML x =
     ResizeProgressMessage'
-      Prelude.<$> (x Core..@? "Message")
-      Prelude.<*> (x Core..@? "TargetEncryptionType")
-      Prelude.<*> (x Core..@? "AvgResizeRateInMegaBytesPerSecond")
-      Prelude.<*> (x Core..@? "TargetClusterType")
-      Prelude.<*> (x Core..@? "DataTransferProgressPercent")
-      Prelude.<*> (x Core..@? "TargetNumberOfNodes")
-      Prelude.<*> (x Core..@? "TotalResizeDataInMegaBytes")
-      Prelude.<*> ( x Core..@? "ImportTablesNotStarted"
+      Prelude.<$> (x Data..@? "Message")
+      Prelude.<*> (x Data..@? "TargetEncryptionType")
+      Prelude.<*> (x Data..@? "AvgResizeRateInMegaBytesPerSecond")
+      Prelude.<*> (x Data..@? "TargetClusterType")
+      Prelude.<*> (x Data..@? "DataTransferProgressPercent")
+      Prelude.<*> (x Data..@? "TargetNumberOfNodes")
+      Prelude.<*> (x Data..@? "TotalResizeDataInMegaBytes")
+      Prelude.<*> ( x Data..@? "ImportTablesNotStarted"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "ElapsedTimeInSeconds")
-      Prelude.<*> ( x Core..@? "ImportTablesCompleted"
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "ElapsedTimeInSeconds")
+      Prelude.<*> ( x Data..@? "ImportTablesCompleted"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "ProgressInMegaBytes")
-      Prelude.<*> ( x Core..@? "ImportTablesInProgress"
+      Prelude.<*> (x Data..@? "ProgressInMegaBytes")
+      Prelude.<*> ( x Data..@? "ImportTablesInProgress"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "EstimatedTimeToCompletionInSeconds")
-      Prelude.<*> (x Core..@? "TargetNodeType")
-      Prelude.<*> (x Core..@? "ResizeType")
+      Prelude.<*> (x Data..@? "EstimatedTimeToCompletionInSeconds")
+      Prelude.<*> (x Data..@? "TargetNodeType")
+      Prelude.<*> (x Data..@? "ResizeType")
 
 instance Prelude.Hashable ResizeProgressMessage where
   hashWithSalt _salt ResizeProgressMessage' {..} =

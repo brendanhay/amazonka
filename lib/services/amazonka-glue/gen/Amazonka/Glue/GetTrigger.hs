@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -80,7 +81,7 @@ instance Core.AWSRequest GetTrigger where
     Response.receiveJSON
       ( \s h x ->
           GetTriggerResponse'
-            Prelude.<$> (x Core..?> "Trigger")
+            Prelude.<$> (x Data..?> "Trigger")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -91,30 +92,30 @@ instance Prelude.Hashable GetTrigger where
 instance Prelude.NFData GetTrigger where
   rnf GetTrigger' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetTrigger where
+instance Data.ToHeaders GetTrigger where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetTrigger" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetTrigger" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTrigger where
+instance Data.ToJSON GetTrigger where
   toJSON GetTrigger' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath GetTrigger where
+instance Data.ToPath GetTrigger where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTrigger where
+instance Data.ToQuery GetTrigger where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTriggerResponse' smart constructor.

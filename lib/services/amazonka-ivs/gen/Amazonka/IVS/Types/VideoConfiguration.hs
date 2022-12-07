@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.VideoConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object specifying a stream’s video configuration, as set up by the
@@ -130,20 +131,20 @@ videoConfiguration_codec = Lens.lens (\VideoConfiguration' {codec} -> codec) (\s
 videoConfiguration_videoWidth :: Lens.Lens' VideoConfiguration (Prelude.Maybe Prelude.Integer)
 videoConfiguration_videoWidth = Lens.lens (\VideoConfiguration' {videoWidth} -> videoWidth) (\s@VideoConfiguration' {} a -> s {videoWidth = a} :: VideoConfiguration)
 
-instance Core.FromJSON VideoConfiguration where
+instance Data.FromJSON VideoConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VideoConfiguration"
       ( \x ->
           VideoConfiguration'
-            Prelude.<$> (x Core..:? "targetFramerate")
-            Prelude.<*> (x Core..:? "encoder")
-            Prelude.<*> (x Core..:? "targetBitrate")
-            Prelude.<*> (x Core..:? "avcProfile")
-            Prelude.<*> (x Core..:? "avcLevel")
-            Prelude.<*> (x Core..:? "videoHeight")
-            Prelude.<*> (x Core..:? "codec")
-            Prelude.<*> (x Core..:? "videoWidth")
+            Prelude.<$> (x Data..:? "targetFramerate")
+            Prelude.<*> (x Data..:? "encoder")
+            Prelude.<*> (x Data..:? "targetBitrate")
+            Prelude.<*> (x Data..:? "avcProfile")
+            Prelude.<*> (x Data..:? "avcLevel")
+            Prelude.<*> (x Data..:? "videoHeight")
+            Prelude.<*> (x Data..:? "codec")
+            Prelude.<*> (x Data..:? "videoWidth")
       )
 
 instance Prelude.Hashable VideoConfiguration where

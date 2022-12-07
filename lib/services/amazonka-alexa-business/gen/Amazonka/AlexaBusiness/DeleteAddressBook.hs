@@ -41,6 +41,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,34 +97,34 @@ instance Prelude.NFData DeleteAddressBook where
   rnf DeleteAddressBook' {..} =
     Prelude.rnf addressBookArn
 
-instance Core.ToHeaders DeleteAddressBook where
+instance Data.ToHeaders DeleteAddressBook where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.DeleteAddressBook" ::
+              Data.=# ( "AlexaForBusiness.DeleteAddressBook" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAddressBook where
+instance Data.ToJSON DeleteAddressBook where
   toJSON DeleteAddressBook' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AddressBookArn" Core..= addressBookArn)
+              ("AddressBookArn" Data..= addressBookArn)
           ]
       )
 
-instance Core.ToPath DeleteAddressBook where
+instance Data.ToPath DeleteAddressBook where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAddressBook where
+instance Data.ToQuery DeleteAddressBook where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAddressBookResponse' smart constructor.

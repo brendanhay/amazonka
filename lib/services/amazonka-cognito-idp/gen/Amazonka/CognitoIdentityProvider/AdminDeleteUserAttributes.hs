@@ -46,6 +46,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,7 +60,7 @@ data AdminDeleteUserAttributes = AdminDeleteUserAttributes'
     userPoolId :: Prelude.Text,
     -- | The user name of the user from which you would like to delete
     -- attributes.
-    username :: Core.Sensitive Prelude.Text,
+    username :: Data.Sensitive Prelude.Text,
     -- | An array of strings representing the user attribute names you want to
     -- delete.
     --
@@ -98,7 +99,7 @@ newAdminDeleteUserAttributes pUserPoolId_ pUsername_ =
   AdminDeleteUserAttributes'
     { userPoolId =
         pUserPoolId_,
-      username = Core._Sensitive Lens.# pUsername_,
+      username = Data._Sensitive Lens.# pUsername_,
       userAttributeNames = Prelude.mempty
     }
 
@@ -110,7 +111,7 @@ adminDeleteUserAttributes_userPoolId = Lens.lens (\AdminDeleteUserAttributes' {u
 -- | The user name of the user from which you would like to delete
 -- attributes.
 adminDeleteUserAttributes_username :: Lens.Lens' AdminDeleteUserAttributes Prelude.Text
-adminDeleteUserAttributes_username = Lens.lens (\AdminDeleteUserAttributes' {username} -> username) (\s@AdminDeleteUserAttributes' {} a -> s {username = a} :: AdminDeleteUserAttributes) Prelude.. Core._Sensitive
+adminDeleteUserAttributes_username = Lens.lens (\AdminDeleteUserAttributes' {username} -> username) (\s@AdminDeleteUserAttributes' {} a -> s {username = a} :: AdminDeleteUserAttributes) Prelude.. Data._Sensitive
 
 -- | An array of strings representing the user attribute names you want to
 -- delete.
@@ -145,36 +146,36 @@ instance Prelude.NFData AdminDeleteUserAttributes where
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf userAttributeNames
 
-instance Core.ToHeaders AdminDeleteUserAttributes where
+instance Data.ToHeaders AdminDeleteUserAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminDeleteUserAttributes" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminDeleteUserAttributes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminDeleteUserAttributes where
+instance Data.ToJSON AdminDeleteUserAttributes where
   toJSON AdminDeleteUserAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("Username" Core..= username),
+          [ Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("Username" Data..= username),
             Prelude.Just
-              ("UserAttributeNames" Core..= userAttributeNames)
+              ("UserAttributeNames" Data..= userAttributeNames)
           ]
       )
 
-instance Core.ToPath AdminDeleteUserAttributes where
+instance Data.ToPath AdminDeleteUserAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminDeleteUserAttributes where
+instance Data.ToQuery AdminDeleteUserAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response received from the server for a request to delete

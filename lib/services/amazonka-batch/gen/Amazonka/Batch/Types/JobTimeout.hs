@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.JobTimeout where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a job timeout configuration.
@@ -62,13 +63,13 @@ newJobTimeout =
 jobTimeout_attemptDurationSeconds :: Lens.Lens' JobTimeout (Prelude.Maybe Prelude.Int)
 jobTimeout_attemptDurationSeconds = Lens.lens (\JobTimeout' {attemptDurationSeconds} -> attemptDurationSeconds) (\s@JobTimeout' {} a -> s {attemptDurationSeconds = a} :: JobTimeout)
 
-instance Core.FromJSON JobTimeout where
+instance Data.FromJSON JobTimeout where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobTimeout"
       ( \x ->
           JobTimeout'
-            Prelude.<$> (x Core..:? "attemptDurationSeconds")
+            Prelude.<$> (x Data..:? "attemptDurationSeconds")
       )
 
 instance Prelude.Hashable JobTimeout where
@@ -79,11 +80,11 @@ instance Prelude.NFData JobTimeout where
   rnf JobTimeout' {..} =
     Prelude.rnf attemptDurationSeconds
 
-instance Core.ToJSON JobTimeout where
+instance Data.ToJSON JobTimeout where
   toJSON JobTimeout' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("attemptDurationSeconds" Core..=)
+          [ ("attemptDurationSeconds" Data..=)
               Prelude.<$> attemptDurationSeconds
           ]
       )

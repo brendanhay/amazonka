@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.PatchOrchestratorFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a filter used in Patch Manager APIs. Supported filter keys
@@ -80,11 +81,11 @@ instance Prelude.NFData PatchOrchestratorFilter where
   rnf PatchOrchestratorFilter' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON PatchOrchestratorFilter where
+instance Data.ToJSON PatchOrchestratorFilter where
   toJSON PatchOrchestratorFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Values" Data..=) Prelude.<$> values
           ]
       )

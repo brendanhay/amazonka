@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBSnapshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.ProcessorFeature
 import Amazonka.RDS.Types.Tag
@@ -37,7 +38,7 @@ data DBSnapshot = DBSnapshot'
     port :: Prelude.Maybe Prelude.Int,
     -- | Specifies the time of the CreateDBSnapshot operation in Coordinated
     -- Universal Time (UTC). Doesn\'t change when the snapshot is copied.
-    originalSnapshotCreateTime :: Prelude.Maybe Core.ISO8601,
+    originalSnapshotCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | The percentage of the estimated data that has been transferred.
     percentProgress :: Prelude.Maybe Prelude.Int,
     -- | Specifies the storage throughput for the DB snapshot.
@@ -66,7 +67,7 @@ data DBSnapshot = DBSnapshot'
     timezone :: Prelude.Maybe Prelude.Text,
     -- | Specifies the time in Coordinated Universal Time (UTC) when the DB
     -- instance, from which the snapshot was taken, was created.
-    instanceCreateTime :: Prelude.Maybe Core.ISO8601,
+    instanceCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | Specifies the status of this DB snapshot.
     status :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the Availability Zone the DB instance was located
@@ -74,7 +75,7 @@ data DBSnapshot = DBSnapshot'
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the snapshot was taken in Coordinated Universal Time
     -- (UTC). Changes for the copy when the snapshot is copied.
-    snapshotCreateTime :: Prelude.Maybe Core.ISO8601,
+    snapshotCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | The timestamp of the most recent transaction applied to the database
     -- that you\'re backing up. Thus, if you restore a snapshot,
     -- SnapshotDatabaseTime is the most recent transaction in the restored DB
@@ -85,7 +86,7 @@ data DBSnapshot = DBSnapshot'
     -- comparing SnapshotDatabaseTime with originalSnapshotCreateTime. For
     -- example, if originalSnapshotCreateTime is two hours later than
     -- SnapshotDatabaseTime, then the replica lag is two hours.
-    snapshotDatabaseTime :: Prelude.Maybe Core.ISO8601,
+    snapshotDatabaseTime :: Prelude.Maybe Data.ISO8601,
     -- | Specifies the storage type associated with DB snapshot.
     storageType :: Prelude.Maybe Prelude.Text,
     -- | The number of CPU cores and the number of threads per core for the DB
@@ -282,7 +283,7 @@ dbSnapshot_port = Lens.lens (\DBSnapshot' {port} -> port) (\s@DBSnapshot' {} a -
 -- | Specifies the time of the CreateDBSnapshot operation in Coordinated
 -- Universal Time (UTC). Doesn\'t change when the snapshot is copied.
 dbSnapshot_originalSnapshotCreateTime :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.UTCTime)
-dbSnapshot_originalSnapshotCreateTime = Lens.lens (\DBSnapshot' {originalSnapshotCreateTime} -> originalSnapshotCreateTime) (\s@DBSnapshot' {} a -> s {originalSnapshotCreateTime = a} :: DBSnapshot) Prelude.. Lens.mapping Core._Time
+dbSnapshot_originalSnapshotCreateTime = Lens.lens (\DBSnapshot' {originalSnapshotCreateTime} -> originalSnapshotCreateTime) (\s@DBSnapshot' {} a -> s {originalSnapshotCreateTime = a} :: DBSnapshot) Prelude.. Lens.mapping Data._Time
 
 -- | The percentage of the estimated data that has been transferred.
 dbSnapshot_percentProgress :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Int)
@@ -334,7 +335,7 @@ dbSnapshot_timezone = Lens.lens (\DBSnapshot' {timezone} -> timezone) (\s@DBSnap
 -- | Specifies the time in Coordinated Universal Time (UTC) when the DB
 -- instance, from which the snapshot was taken, was created.
 dbSnapshot_instanceCreateTime :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.UTCTime)
-dbSnapshot_instanceCreateTime = Lens.lens (\DBSnapshot' {instanceCreateTime} -> instanceCreateTime) (\s@DBSnapshot' {} a -> s {instanceCreateTime = a} :: DBSnapshot) Prelude.. Lens.mapping Core._Time
+dbSnapshot_instanceCreateTime = Lens.lens (\DBSnapshot' {instanceCreateTime} -> instanceCreateTime) (\s@DBSnapshot' {} a -> s {instanceCreateTime = a} :: DBSnapshot) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the status of this DB snapshot.
 dbSnapshot_status :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
@@ -348,7 +349,7 @@ dbSnapshot_availabilityZone = Lens.lens (\DBSnapshot' {availabilityZone} -> avai
 -- | Specifies when the snapshot was taken in Coordinated Universal Time
 -- (UTC). Changes for the copy when the snapshot is copied.
 dbSnapshot_snapshotCreateTime :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.UTCTime)
-dbSnapshot_snapshotCreateTime = Lens.lens (\DBSnapshot' {snapshotCreateTime} -> snapshotCreateTime) (\s@DBSnapshot' {} a -> s {snapshotCreateTime = a} :: DBSnapshot) Prelude.. Lens.mapping Core._Time
+dbSnapshot_snapshotCreateTime = Lens.lens (\DBSnapshot' {snapshotCreateTime} -> snapshotCreateTime) (\s@DBSnapshot' {} a -> s {snapshotCreateTime = a} :: DBSnapshot) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of the most recent transaction applied to the database
 -- that you\'re backing up. Thus, if you restore a snapshot,
@@ -361,7 +362,7 @@ dbSnapshot_snapshotCreateTime = Lens.lens (\DBSnapshot' {snapshotCreateTime} -> 
 -- example, if originalSnapshotCreateTime is two hours later than
 -- SnapshotDatabaseTime, then the replica lag is two hours.
 dbSnapshot_snapshotDatabaseTime :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.UTCTime)
-dbSnapshot_snapshotDatabaseTime = Lens.lens (\DBSnapshot' {snapshotDatabaseTime} -> snapshotDatabaseTime) (\s@DBSnapshot' {} a -> s {snapshotDatabaseTime = a} :: DBSnapshot) Prelude.. Lens.mapping Core._Time
+dbSnapshot_snapshotDatabaseTime = Lens.lens (\DBSnapshot' {snapshotDatabaseTime} -> snapshotDatabaseTime) (\s@DBSnapshot' {} a -> s {snapshotDatabaseTime = a} :: DBSnapshot) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the storage type associated with DB snapshot.
 dbSnapshot_storageType :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
@@ -437,47 +438,47 @@ dbSnapshot_licenseModel = Lens.lens (\DBSnapshot' {licenseModel} -> licenseModel
 dbSnapshot_snapshotType :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
 dbSnapshot_snapshotType = Lens.lens (\DBSnapshot' {snapshotType} -> snapshotType) (\s@DBSnapshot' {} a -> s {snapshotType = a} :: DBSnapshot)
 
-instance Core.FromXML DBSnapshot where
+instance Data.FromXML DBSnapshot where
   parseXML x =
     DBSnapshot'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "OriginalSnapshotCreateTime")
-      Prelude.<*> (x Core..@? "PercentProgress")
-      Prelude.<*> (x Core..@? "StorageThroughput")
-      Prelude.<*> (x Core..@? "MasterUsername")
-      Prelude.<*> (x Core..@? "SourceRegion")
-      Prelude.<*> (x Core..@? "DBInstanceIdentifier")
-      Prelude.<*> ( x Core..@? "TagList" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "OriginalSnapshotCreateTime")
+      Prelude.<*> (x Data..@? "PercentProgress")
+      Prelude.<*> (x Data..@? "StorageThroughput")
+      Prelude.<*> (x Data..@? "MasterUsername")
+      Prelude.<*> (x Data..@? "SourceRegion")
+      Prelude.<*> (x Data..@? "DBInstanceIdentifier")
+      Prelude.<*> ( x Data..@? "TagList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "DBSnapshotIdentifier")
-      Prelude.<*> (x Core..@? "OptionGroupName")
-      Prelude.<*> (x Core..@? "SourceDBSnapshotIdentifier")
-      Prelude.<*> (x Core..@? "Timezone")
-      Prelude.<*> (x Core..@? "InstanceCreateTime")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "AvailabilityZone")
-      Prelude.<*> (x Core..@? "SnapshotCreateTime")
-      Prelude.<*> (x Core..@? "SnapshotDatabaseTime")
-      Prelude.<*> (x Core..@? "StorageType")
-      Prelude.<*> ( x Core..@? "ProcessorFeatures"
+      Prelude.<*> (x Data..@? "DBSnapshotIdentifier")
+      Prelude.<*> (x Data..@? "OptionGroupName")
+      Prelude.<*> (x Data..@? "SourceDBSnapshotIdentifier")
+      Prelude.<*> (x Data..@? "Timezone")
+      Prelude.<*> (x Data..@? "InstanceCreateTime")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "AvailabilityZone")
+      Prelude.<*> (x Data..@? "SnapshotCreateTime")
+      Prelude.<*> (x Data..@? "SnapshotDatabaseTime")
+      Prelude.<*> (x Data..@? "StorageType")
+      Prelude.<*> ( x Data..@? "ProcessorFeatures"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "ProcessorFeature")
+                      Prelude.>>= Core.may (Data.parseXMLList "ProcessorFeature")
                   )
-      Prelude.<*> (x Core..@? "TdeCredentialArn")
-      Prelude.<*> (x Core..@? "DBSnapshotArn")
-      Prelude.<*> (x Core..@? "Encrypted")
-      Prelude.<*> (x Core..@? "KmsKeyId")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "AllocatedStorage")
-      Prelude.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
-      Prelude.<*> (x Core..@? "VpcId")
-      Prelude.<*> (x Core..@? "SnapshotTarget")
-      Prelude.<*> (x Core..@? "DbiResourceId")
-      Prelude.<*> (x Core..@? "Iops")
-      Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "LicenseModel")
-      Prelude.<*> (x Core..@? "SnapshotType")
+      Prelude.<*> (x Data..@? "TdeCredentialArn")
+      Prelude.<*> (x Data..@? "DBSnapshotArn")
+      Prelude.<*> (x Data..@? "Encrypted")
+      Prelude.<*> (x Data..@? "KmsKeyId")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "AllocatedStorage")
+      Prelude.<*> (x Data..@? "IAMDatabaseAuthenticationEnabled")
+      Prelude.<*> (x Data..@? "VpcId")
+      Prelude.<*> (x Data..@? "SnapshotTarget")
+      Prelude.<*> (x Data..@? "DbiResourceId")
+      Prelude.<*> (x Data..@? "Iops")
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "LicenseModel")
+      Prelude.<*> (x Data..@? "SnapshotType")
 
 instance Prelude.Hashable DBSnapshot where
   hashWithSalt _salt DBSnapshot' {..} =

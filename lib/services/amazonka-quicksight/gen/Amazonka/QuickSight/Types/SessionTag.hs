@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.SessionTag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The key-value pair used for the row-level security tags feature.
@@ -30,7 +31,7 @@ data SessionTag = SessionTag'
   { -- | The key for the tag.
     key :: Prelude.Text,
     -- | The value that you want to assign the tag.
-    value :: Core.Sensitive Prelude.Text
+    value :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -54,7 +55,7 @@ newSessionTag ::
 newSessionTag pKey_ pValue_ =
   SessionTag'
     { key = pKey_,
-      value = Core._Sensitive Lens.# pValue_
+      value = Data._Sensitive Lens.# pValue_
     }
 
 -- | The key for the tag.
@@ -63,7 +64,7 @@ sessionTag_key = Lens.lens (\SessionTag' {key} -> key) (\s@SessionTag' {} a -> s
 
 -- | The value that you want to assign the tag.
 sessionTag_value :: Lens.Lens' SessionTag Prelude.Text
-sessionTag_value = Lens.lens (\SessionTag' {value} -> value) (\s@SessionTag' {} a -> s {value = a} :: SessionTag) Prelude.. Core._Sensitive
+sessionTag_value = Lens.lens (\SessionTag' {value} -> value) (\s@SessionTag' {} a -> s {value = a} :: SessionTag) Prelude.. Data._Sensitive
 
 instance Prelude.Hashable SessionTag where
   hashWithSalt _salt SessionTag' {..} =
@@ -74,11 +75,11 @@ instance Prelude.NFData SessionTag where
   rnf SessionTag' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON SessionTag where
+instance Data.ToJSON SessionTag where
   toJSON SessionTag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -80,7 +81,7 @@ instance Core.AWSRequest GetAction where
     Response.receiveJSON
       ( \s h x ->
           GetActionResponse'
-            Prelude.<$> (x Core..?> "action")
+            Prelude.<$> (x Data..?> "action")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -91,22 +92,22 @@ instance Prelude.Hashable GetAction where
 instance Prelude.NFData GetAction where
   rnf GetAction' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetAction where
+instance Data.ToHeaders GetAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetAction where
+instance Data.ToPath GetAction where
   toPath GetAction' {..} =
-    Prelude.mconcat ["/actions/", Core.toBS id]
+    Prelude.mconcat ["/actions/", Data.toBS id]
 
-instance Core.ToQuery GetAction where
+instance Data.ToQuery GetAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetActionResponse' smart constructor.

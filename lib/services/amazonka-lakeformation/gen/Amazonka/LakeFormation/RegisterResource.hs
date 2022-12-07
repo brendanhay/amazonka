@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,32 +157,32 @@ instance Prelude.NFData RegisterResource where
       `Prelude.seq` Prelude.rnf useServiceLinkedRole
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders RegisterResource where
+instance Data.ToHeaders RegisterResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterResource where
+instance Data.ToJSON RegisterResource where
   toJSON RegisterResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("UseServiceLinkedRole" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("UseServiceLinkedRole" Data..=)
               Prelude.<$> useServiceLinkedRole,
-            Prelude.Just ("ResourceArn" Core..= resourceArn)
+            Prelude.Just ("ResourceArn" Data..= resourceArn)
           ]
       )
 
-instance Core.ToPath RegisterResource where
+instance Data.ToPath RegisterResource where
   toPath = Prelude.const "/RegisterResource"
 
-instance Core.ToQuery RegisterResource where
+instance Data.ToQuery RegisterResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterResourceResponse' smart constructor.

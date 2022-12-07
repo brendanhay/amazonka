@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -149,9 +150,9 @@ instance Core.AWSRequest ListTemplateAliases where
     Response.receiveJSON
       ( \s h x ->
           ListTemplateAliasesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> ( x Core..?> "TemplateAliasList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> ( x Data..?> "TemplateAliasList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -171,32 +172,32 @@ instance Prelude.NFData ListTemplateAliases where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf templateId
 
-instance Core.ToHeaders ListTemplateAliases where
+instance Data.ToHeaders ListTemplateAliases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListTemplateAliases where
+instance Data.ToPath ListTemplateAliases where
   toPath ListTemplateAliases' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/templates/",
-        Core.toBS templateId,
+        Data.toBS templateId,
         "/aliases"
       ]
 
-instance Core.ToQuery ListTemplateAliases where
+instance Data.ToQuery ListTemplateAliases where
   toQuery ListTemplateAliases' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-result" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-result" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListTemplateAliasesResponse' smart constructor.

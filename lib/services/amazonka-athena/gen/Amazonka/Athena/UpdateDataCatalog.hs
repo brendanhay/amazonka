@@ -44,6 +44,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -217,36 +218,36 @@ instance Prelude.NFData UpdateDataCatalog where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders UpdateDataCatalog where
+instance Data.ToHeaders UpdateDataCatalog where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.UpdateDataCatalog" ::
+              Data.=# ( "AmazonAthena.UpdateDataCatalog" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDataCatalog where
+instance Data.ToJSON UpdateDataCatalog where
   toJSON UpdateDataCatalog' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Type" Core..= type')
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 
-instance Core.ToPath UpdateDataCatalog where
+instance Data.ToPath UpdateDataCatalog where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDataCatalog where
+instance Data.ToQuery UpdateDataCatalog where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDataCatalogResponse' smart constructor.

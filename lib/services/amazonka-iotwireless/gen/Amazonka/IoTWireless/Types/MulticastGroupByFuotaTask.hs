@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.MulticastGroupByFuotaTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A multicast group that is associated with a FUOTA task.
@@ -49,13 +50,13 @@ newMulticastGroupByFuotaTask =
 multicastGroupByFuotaTask_id :: Lens.Lens' MulticastGroupByFuotaTask (Prelude.Maybe Prelude.Text)
 multicastGroupByFuotaTask_id = Lens.lens (\MulticastGroupByFuotaTask' {id} -> id) (\s@MulticastGroupByFuotaTask' {} a -> s {id = a} :: MulticastGroupByFuotaTask)
 
-instance Core.FromJSON MulticastGroupByFuotaTask where
+instance Data.FromJSON MulticastGroupByFuotaTask where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MulticastGroupByFuotaTask"
       ( \x ->
           MulticastGroupByFuotaTask'
-            Prelude.<$> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable MulticastGroupByFuotaTask where

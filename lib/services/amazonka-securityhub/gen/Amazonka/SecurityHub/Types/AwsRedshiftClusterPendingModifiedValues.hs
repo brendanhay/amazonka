@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRedshiftClusterPendingModifiedValues where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Changes to the Amazon Redshift cluster that are currently pending.
@@ -164,25 +165,25 @@ awsRedshiftClusterPendingModifiedValues_automatedSnapshotRetentionPeriod :: Lens
 awsRedshiftClusterPendingModifiedValues_automatedSnapshotRetentionPeriod = Lens.lens (\AwsRedshiftClusterPendingModifiedValues' {automatedSnapshotRetentionPeriod} -> automatedSnapshotRetentionPeriod) (\s@AwsRedshiftClusterPendingModifiedValues' {} a -> s {automatedSnapshotRetentionPeriod = a} :: AwsRedshiftClusterPendingModifiedValues)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsRedshiftClusterPendingModifiedValues
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRedshiftClusterPendingModifiedValues"
       ( \x ->
           AwsRedshiftClusterPendingModifiedValues'
-            Prelude.<$> (x Core..:? "ClusterIdentifier")
-            Prelude.<*> (x Core..:? "ClusterVersion")
-            Prelude.<*> (x Core..:? "MaintenanceTrackName")
-            Prelude.<*> (x Core..:? "MasterUserPassword")
-            Prelude.<*> (x Core..:? "NodeType")
-            Prelude.<*> (x Core..:? "PubliclyAccessible")
-            Prelude.<*> (x Core..:? "EncryptionType")
-            Prelude.<*> (x Core..:? "NumberOfNodes")
-            Prelude.<*> (x Core..:? "EnhancedVpcRouting")
-            Prelude.<*> (x Core..:? "ClusterType")
-            Prelude.<*> (x Core..:? "AutomatedSnapshotRetentionPeriod")
+            Prelude.<$> (x Data..:? "ClusterIdentifier")
+            Prelude.<*> (x Data..:? "ClusterVersion")
+            Prelude.<*> (x Data..:? "MaintenanceTrackName")
+            Prelude.<*> (x Data..:? "MasterUserPassword")
+            Prelude.<*> (x Data..:? "NodeType")
+            Prelude.<*> (x Data..:? "PubliclyAccessible")
+            Prelude.<*> (x Data..:? "EncryptionType")
+            Prelude.<*> (x Data..:? "NumberOfNodes")
+            Prelude.<*> (x Data..:? "EnhancedVpcRouting")
+            Prelude.<*> (x Data..:? "ClusterType")
+            Prelude.<*> (x Data..:? "AutomatedSnapshotRetentionPeriod")
       )
 
 instance
@@ -222,30 +223,30 @@ instance
       `Prelude.seq` Prelude.rnf automatedSnapshotRetentionPeriod
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsRedshiftClusterPendingModifiedValues
   where
   toJSON AwsRedshiftClusterPendingModifiedValues' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClusterIdentifier" Core..=)
+          [ ("ClusterIdentifier" Data..=)
               Prelude.<$> clusterIdentifier,
-            ("ClusterVersion" Core..=)
+            ("ClusterVersion" Data..=)
               Prelude.<$> clusterVersion,
-            ("MaintenanceTrackName" Core..=)
+            ("MaintenanceTrackName" Data..=)
               Prelude.<$> maintenanceTrackName,
-            ("MasterUserPassword" Core..=)
+            ("MasterUserPassword" Data..=)
               Prelude.<$> masterUserPassword,
-            ("NodeType" Core..=) Prelude.<$> nodeType,
-            ("PubliclyAccessible" Core..=)
+            ("NodeType" Data..=) Prelude.<$> nodeType,
+            ("PubliclyAccessible" Data..=)
               Prelude.<$> publiclyAccessible,
-            ("EncryptionType" Core..=)
+            ("EncryptionType" Data..=)
               Prelude.<$> encryptionType,
-            ("NumberOfNodes" Core..=) Prelude.<$> numberOfNodes,
-            ("EnhancedVpcRouting" Core..=)
+            ("NumberOfNodes" Data..=) Prelude.<$> numberOfNodes,
+            ("EnhancedVpcRouting" Data..=)
               Prelude.<$> enhancedVpcRouting,
-            ("ClusterType" Core..=) Prelude.<$> clusterType,
-            ("AutomatedSnapshotRetentionPeriod" Core..=)
+            ("ClusterType" Data..=) Prelude.<$> clusterType,
+            ("AutomatedSnapshotRetentionPeriod" Data..=)
               Prelude.<$> automatedSnapshotRetentionPeriod
           ]
       )

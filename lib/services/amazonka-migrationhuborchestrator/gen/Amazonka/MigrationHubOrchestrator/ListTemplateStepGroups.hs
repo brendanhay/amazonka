@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,9 +131,9 @@ instance Core.AWSRequest ListTemplateStepGroups where
     Response.receiveJSON
       ( \s h x ->
           ListTemplateStepGroupsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "templateStepGroupSummary"
+            Prelude.<*> ( x Data..?> "templateStepGroupSummary"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -149,27 +150,27 @@ instance Prelude.NFData ListTemplateStepGroups where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf templateId
 
-instance Core.ToHeaders ListTemplateStepGroups where
+instance Data.ToHeaders ListTemplateStepGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListTemplateStepGroups where
+instance Data.ToPath ListTemplateStepGroups where
   toPath ListTemplateStepGroups' {..} =
     Prelude.mconcat
-      ["/templatestepgroups/", Core.toBS templateId]
+      ["/templatestepgroups/", Data.toBS templateId]
 
-instance Core.ToQuery ListTemplateStepGroups where
+instance Data.ToQuery ListTemplateStepGroups where
   toQuery ListTemplateStepGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListTemplateStepGroupsResponse' smart constructor.

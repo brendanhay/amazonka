@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.WorkflowStepOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types.DataType
 import Amazonka.MigrationHubOrchestrator.Types.WorkflowStepOutputUnion
 import qualified Amazonka.Prelude as Prelude
@@ -81,16 +82,16 @@ workflowStepOutput_value = Lens.lens (\WorkflowStepOutput' {value} -> value) (\s
 workflowStepOutput_dataType :: Lens.Lens' WorkflowStepOutput (Prelude.Maybe DataType)
 workflowStepOutput_dataType = Lens.lens (\WorkflowStepOutput' {dataType} -> dataType) (\s@WorkflowStepOutput' {} a -> s {dataType = a} :: WorkflowStepOutput)
 
-instance Core.FromJSON WorkflowStepOutput where
+instance Data.FromJSON WorkflowStepOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowStepOutput"
       ( \x ->
           WorkflowStepOutput'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "required")
-            Prelude.<*> (x Core..:? "value")
-            Prelude.<*> (x Core..:? "dataType")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "required")
+            Prelude.<*> (x Data..:? "value")
+            Prelude.<*> (x Data..:? "dataType")
       )
 
 instance Prelude.Hashable WorkflowStepOutput where
@@ -107,13 +108,13 @@ instance Prelude.NFData WorkflowStepOutput where
       `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf dataType
 
-instance Core.ToJSON WorkflowStepOutput where
+instance Data.ToJSON WorkflowStepOutput where
   toJSON WorkflowStepOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("required" Core..=) Prelude.<$> required,
-            ("value" Core..=) Prelude.<$> value,
-            ("dataType" Core..=) Prelude.<$> dataType
+          [ ("name" Data..=) Prelude.<$> name,
+            ("required" Data..=) Prelude.<$> required,
+            ("value" Data..=) Prelude.<$> value,
+            ("dataType" Data..=) Prelude.<$> dataType
           ]
       )

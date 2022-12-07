@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,34 +97,34 @@ instance Prelude.NFData DeleteFlowDefinition where
   rnf DeleteFlowDefinition' {..} =
     Prelude.rnf flowDefinitionName
 
-instance Core.ToHeaders DeleteFlowDefinition where
+instance Data.ToHeaders DeleteFlowDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DeleteFlowDefinition" ::
+              Data.=# ( "SageMaker.DeleteFlowDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteFlowDefinition where
+instance Data.ToJSON DeleteFlowDefinition where
   toJSON DeleteFlowDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("FlowDefinitionName" Core..= flowDefinitionName)
+              ("FlowDefinitionName" Data..= flowDefinitionName)
           ]
       )
 
-instance Core.ToPath DeleteFlowDefinition where
+instance Data.ToPath DeleteFlowDefinition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteFlowDefinition where
+instance Data.ToQuery DeleteFlowDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFlowDefinitionResponse' smart constructor.

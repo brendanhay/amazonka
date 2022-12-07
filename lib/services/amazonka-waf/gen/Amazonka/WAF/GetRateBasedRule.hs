@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,7 +97,7 @@ instance Core.AWSRequest GetRateBasedRule where
     Response.receiveJSON
       ( \s h x ->
           GetRateBasedRuleResponse'
-            Prelude.<$> (x Core..?> "Rule")
+            Prelude.<$> (x Data..?> "Rule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,32 +108,32 @@ instance Prelude.Hashable GetRateBasedRule where
 instance Prelude.NFData GetRateBasedRule where
   rnf GetRateBasedRule' {..} = Prelude.rnf ruleId
 
-instance Core.ToHeaders GetRateBasedRule where
+instance Data.ToHeaders GetRateBasedRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20150824.GetRateBasedRule" ::
+              Data.=# ( "AWSWAF_20150824.GetRateBasedRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRateBasedRule where
+instance Data.ToJSON GetRateBasedRule where
   toJSON GetRateBasedRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("RuleId" Core..= ruleId)]
+          [Prelude.Just ("RuleId" Data..= ruleId)]
       )
 
-instance Core.ToPath GetRateBasedRule where
+instance Data.ToPath GetRateBasedRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRateBasedRule where
+instance Data.ToQuery GetRateBasedRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRateBasedRuleResponse' smart constructor.

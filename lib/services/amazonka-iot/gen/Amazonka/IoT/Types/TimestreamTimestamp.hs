@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.TimestreamTimestamp where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes how to interpret an application-defined timestamp value from
@@ -78,13 +79,13 @@ timestreamTimestamp_value = Lens.lens (\TimestreamTimestamp' {value} -> value) (
 timestreamTimestamp_unit :: Lens.Lens' TimestreamTimestamp Prelude.Text
 timestreamTimestamp_unit = Lens.lens (\TimestreamTimestamp' {unit} -> unit) (\s@TimestreamTimestamp' {} a -> s {unit = a} :: TimestreamTimestamp)
 
-instance Core.FromJSON TimestreamTimestamp where
+instance Data.FromJSON TimestreamTimestamp where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimestreamTimestamp"
       ( \x ->
           TimestreamTimestamp'
-            Prelude.<$> (x Core..: "value") Prelude.<*> (x Core..: "unit")
+            Prelude.<$> (x Data..: "value") Prelude.<*> (x Data..: "unit")
       )
 
 instance Prelude.Hashable TimestreamTimestamp where
@@ -96,11 +97,11 @@ instance Prelude.NFData TimestreamTimestamp where
   rnf TimestreamTimestamp' {..} =
     Prelude.rnf value `Prelude.seq` Prelude.rnf unit
 
-instance Core.ToJSON TimestreamTimestamp where
+instance Data.ToJSON TimestreamTimestamp where
   toJSON TimestreamTimestamp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("value" Core..= value),
-            Prelude.Just ("unit" Core..= unit)
+          [ Prelude.Just ("value" Data..= value),
+            Prelude.Just ("unit" Data..= unit)
           ]
       )

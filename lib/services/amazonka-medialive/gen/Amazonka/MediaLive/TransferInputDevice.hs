@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,38 +136,38 @@ instance Prelude.NFData TransferInputDevice' where
       `Prelude.seq` Prelude.rnf targetRegion
       `Prelude.seq` Prelude.rnf inputDeviceId
 
-instance Core.ToHeaders TransferInputDevice' where
+instance Data.ToHeaders TransferInputDevice' where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TransferInputDevice' where
+instance Data.ToJSON TransferInputDevice' where
   toJSON TransferInputDevice'' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetCustomerId" Core..=)
+          [ ("targetCustomerId" Data..=)
               Prelude.<$> targetCustomerId,
-            ("transferMessage" Core..=)
+            ("transferMessage" Data..=)
               Prelude.<$> transferMessage,
-            ("targetRegion" Core..=) Prelude.<$> targetRegion
+            ("targetRegion" Data..=) Prelude.<$> targetRegion
           ]
       )
 
-instance Core.ToPath TransferInputDevice' where
+instance Data.ToPath TransferInputDevice' where
   toPath TransferInputDevice'' {..} =
     Prelude.mconcat
       [ "/prod/inputDevices/",
-        Core.toBS inputDeviceId,
+        Data.toBS inputDeviceId,
         "/transfer"
       ]
 
-instance Core.ToQuery TransferInputDevice' where
+instance Data.ToQuery TransferInputDevice' where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for TransferInputDeviceResponse

@@ -25,6 +25,7 @@ import Amazonka.Backup.Types.RecoveryPointCreator
 import Amazonka.Backup.Types.RecoveryPointStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains detailed information about the recovery points stored in a
@@ -65,7 +66,7 @@ data RecoveryPointByBackupVault = RecoveryPointByBackupVault'
     -- Unix format and Coordinated Universal Time (UTC). The value of
     -- @CompletionDate@ is accurate to milliseconds. For example, the value
     -- 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
-    completionDate :: Prelude.Maybe Core.POSIX,
+    completionDate :: Prelude.Maybe Data.POSIX,
     -- | The name of a logical container where backups are stored. Backup vaults
     -- are identified by names that are unique to the account used to create
     -- them and the Amazon Web Services Region where they are created. They
@@ -75,7 +76,7 @@ data RecoveryPointByBackupVault = RecoveryPointByBackupVault'
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The size, in bytes, of a backup.
     backupSizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | A status code specifying the state of the recovery point.
@@ -106,7 +107,7 @@ data RecoveryPointByBackupVault = RecoveryPointByBackupVault'
     -- Coordinated Universal Time (UTC). The value of @LastRestoreTime@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    lastRestoreTime :: Prelude.Maybe Core.POSIX,
+    lastRestoreTime :: Prelude.Maybe Data.POSIX,
     -- | A @CalculatedLifecycle@ object containing @DeleteAt@ and
     -- @MoveToColdStorageAt@ timestamps.
     calculatedLifecycle :: Prelude.Maybe CalculatedLifecycle
@@ -265,7 +266,7 @@ recoveryPointByBackupVault_recoveryPointArn = Lens.lens (\RecoveryPointByBackupV
 -- @CompletionDate@ is accurate to milliseconds. For example, the value
 -- 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
 recoveryPointByBackupVault_completionDate :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.UTCTime)
-recoveryPointByBackupVault_completionDate = Lens.lens (\RecoveryPointByBackupVault' {completionDate} -> completionDate) (\s@RecoveryPointByBackupVault' {} a -> s {completionDate = a} :: RecoveryPointByBackupVault) Prelude.. Lens.mapping Core._Time
+recoveryPointByBackupVault_completionDate = Lens.lens (\RecoveryPointByBackupVault' {completionDate} -> completionDate) (\s@RecoveryPointByBackupVault' {} a -> s {completionDate = a} :: RecoveryPointByBackupVault) Prelude.. Lens.mapping Data._Time
 
 -- | The name of a logical container where backups are stored. Backup vaults
 -- are identified by names that are unique to the account used to create
@@ -279,7 +280,7 @@ recoveryPointByBackupVault_backupVaultName = Lens.lens (\RecoveryPointByBackupVa
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 recoveryPointByBackupVault_creationDate :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.UTCTime)
-recoveryPointByBackupVault_creationDate = Lens.lens (\RecoveryPointByBackupVault' {creationDate} -> creationDate) (\s@RecoveryPointByBackupVault' {} a -> s {creationDate = a} :: RecoveryPointByBackupVault) Prelude.. Lens.mapping Core._Time
+recoveryPointByBackupVault_creationDate = Lens.lens (\RecoveryPointByBackupVault' {creationDate} -> creationDate) (\s@RecoveryPointByBackupVault' {} a -> s {creationDate = a} :: RecoveryPointByBackupVault) Prelude.. Lens.mapping Data._Time
 
 -- | The size, in bytes, of a backup.
 recoveryPointByBackupVault_backupSizeInBytes :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Integer)
@@ -330,37 +331,37 @@ recoveryPointByBackupVault_createdBy = Lens.lens (\RecoveryPointByBackupVault' {
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 recoveryPointByBackupVault_lastRestoreTime :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.UTCTime)
-recoveryPointByBackupVault_lastRestoreTime = Lens.lens (\RecoveryPointByBackupVault' {lastRestoreTime} -> lastRestoreTime) (\s@RecoveryPointByBackupVault' {} a -> s {lastRestoreTime = a} :: RecoveryPointByBackupVault) Prelude.. Lens.mapping Core._Time
+recoveryPointByBackupVault_lastRestoreTime = Lens.lens (\RecoveryPointByBackupVault' {lastRestoreTime} -> lastRestoreTime) (\s@RecoveryPointByBackupVault' {} a -> s {lastRestoreTime = a} :: RecoveryPointByBackupVault) Prelude.. Lens.mapping Data._Time
 
 -- | A @CalculatedLifecycle@ object containing @DeleteAt@ and
 -- @MoveToColdStorageAt@ timestamps.
 recoveryPointByBackupVault_calculatedLifecycle :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe CalculatedLifecycle)
 recoveryPointByBackupVault_calculatedLifecycle = Lens.lens (\RecoveryPointByBackupVault' {calculatedLifecycle} -> calculatedLifecycle) (\s@RecoveryPointByBackupVault' {} a -> s {calculatedLifecycle = a} :: RecoveryPointByBackupVault)
 
-instance Core.FromJSON RecoveryPointByBackupVault where
+instance Data.FromJSON RecoveryPointByBackupVault where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecoveryPointByBackupVault"
       ( \x ->
           RecoveryPointByBackupVault'
-            Prelude.<$> (x Core..:? "EncryptionKeyArn")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "Lifecycle")
-            Prelude.<*> (x Core..:? "RecoveryPointArn")
-            Prelude.<*> (x Core..:? "CompletionDate")
-            Prelude.<*> (x Core..:? "BackupVaultName")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "BackupSizeInBytes")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "BackupVaultArn")
-            Prelude.<*> (x Core..:? "IsEncrypted")
-            Prelude.<*> (x Core..:? "IamRoleArn")
-            Prelude.<*> (x Core..:? "SourceBackupVaultArn")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "LastRestoreTime")
-            Prelude.<*> (x Core..:? "CalculatedLifecycle")
+            Prelude.<$> (x Data..:? "EncryptionKeyArn")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "Lifecycle")
+            Prelude.<*> (x Data..:? "RecoveryPointArn")
+            Prelude.<*> (x Data..:? "CompletionDate")
+            Prelude.<*> (x Data..:? "BackupVaultName")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "BackupSizeInBytes")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "BackupVaultArn")
+            Prelude.<*> (x Data..:? "IsEncrypted")
+            Prelude.<*> (x Data..:? "IamRoleArn")
+            Prelude.<*> (x Data..:? "SourceBackupVaultArn")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "LastRestoreTime")
+            Prelude.<*> (x Data..:? "CalculatedLifecycle")
       )
 
 instance Prelude.Hashable RecoveryPointByBackupVault where

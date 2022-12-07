@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.EksContainerSecurityContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The security context for a job. For more information, see
@@ -163,17 +164,17 @@ eksContainerSecurityContext_runAsNonRoot = Lens.lens (\EksContainerSecurityConte
 eksContainerSecurityContext_privileged :: Lens.Lens' EksContainerSecurityContext (Prelude.Maybe Prelude.Bool)
 eksContainerSecurityContext_privileged = Lens.lens (\EksContainerSecurityContext' {privileged} -> privileged) (\s@EksContainerSecurityContext' {} a -> s {privileged = a} :: EksContainerSecurityContext)
 
-instance Core.FromJSON EksContainerSecurityContext where
+instance Data.FromJSON EksContainerSecurityContext where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksContainerSecurityContext"
       ( \x ->
           EksContainerSecurityContext'
-            Prelude.<$> (x Core..:? "readOnlyRootFilesystem")
-            Prelude.<*> (x Core..:? "runAsUser")
-            Prelude.<*> (x Core..:? "runAsGroup")
-            Prelude.<*> (x Core..:? "runAsNonRoot")
-            Prelude.<*> (x Core..:? "privileged")
+            Prelude.<$> (x Data..:? "readOnlyRootFilesystem")
+            Prelude.<*> (x Data..:? "runAsUser")
+            Prelude.<*> (x Data..:? "runAsGroup")
+            Prelude.<*> (x Data..:? "runAsNonRoot")
+            Prelude.<*> (x Data..:? "privileged")
       )
 
 instance Prelude.Hashable EksContainerSecurityContext where
@@ -192,15 +193,15 @@ instance Prelude.NFData EksContainerSecurityContext where
       `Prelude.seq` Prelude.rnf runAsNonRoot
       `Prelude.seq` Prelude.rnf privileged
 
-instance Core.ToJSON EksContainerSecurityContext where
+instance Data.ToJSON EksContainerSecurityContext where
   toJSON EksContainerSecurityContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("readOnlyRootFilesystem" Core..=)
+          [ ("readOnlyRootFilesystem" Data..=)
               Prelude.<$> readOnlyRootFilesystem,
-            ("runAsUser" Core..=) Prelude.<$> runAsUser,
-            ("runAsGroup" Core..=) Prelude.<$> runAsGroup,
-            ("runAsNonRoot" Core..=) Prelude.<$> runAsNonRoot,
-            ("privileged" Core..=) Prelude.<$> privileged
+            ("runAsUser" Data..=) Prelude.<$> runAsUser,
+            ("runAsGroup" Data..=) Prelude.<$> runAsGroup,
+            ("runAsNonRoot" Data..=) Prelude.<$> runAsNonRoot,
+            ("privileged" Data..=) Prelude.<$> privileged
           ]
       )

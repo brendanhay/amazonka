@@ -153,6 +153,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -210,7 +211,7 @@ data SelectObjectContent = SelectObjectContent'
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
     -- in the /Amazon S3 User Guide/.
-    sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The S3 bucket.
     bucket :: BucketName,
     -- | The object key.
@@ -378,7 +379,7 @@ selectObjectContent_sSECustomerKeyMD5 = Lens.lens (\SelectObjectContent' {sSECus
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
 -- in the /Amazon S3 User Guide/.
 selectObjectContent_sSECustomerKey :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
-selectObjectContent_sSECustomerKey = Lens.lens (\SelectObjectContent' {sSECustomerKey} -> sSECustomerKey) (\s@SelectObjectContent' {} a -> s {sSECustomerKey = a} :: SelectObjectContent) Prelude.. Lens.mapping Core._Sensitive
+selectObjectContent_sSECustomerKey = Lens.lens (\SelectObjectContent' {sSECustomerKey} -> sSECustomerKey) (\s@SelectObjectContent' {} a -> s {sSECustomerKey = a} :: SelectObjectContent) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The S3 bucket.
 selectObjectContent_bucket :: Lens.Lens' SelectObjectContent BucketName
@@ -416,7 +417,7 @@ instance Core.AWSRequest SelectObjectContent where
     Response.receiveXML
       ( \s h x ->
           SelectObjectContentResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -450,43 +451,43 @@ instance Prelude.NFData SelectObjectContent where
       `Prelude.seq` Prelude.rnf inputSerialization
       `Prelude.seq` Prelude.rnf outputSerialization
 
-instance Core.ToElement SelectObjectContent where
+instance Data.ToElement SelectObjectContent where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}SelectObjectContentRequest"
 
-instance Core.ToHeaders SelectObjectContent where
+instance Data.ToHeaders SelectObjectContent where
   toHeaders SelectObjectContent' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
+          Data.=# expectedBucketOwner,
         "x-amz-server-side-encryption-customer-algorithm"
-          Core.=# sSECustomerAlgorithm,
+          Data.=# sSECustomerAlgorithm,
         "x-amz-server-side-encryption-customer-key-MD5"
-          Core.=# sSECustomerKeyMD5,
+          Data.=# sSECustomerKeyMD5,
         "x-amz-server-side-encryption-customer-key"
-          Core.=# sSECustomerKey
+          Data.=# sSECustomerKey
       ]
 
-instance Core.ToPath SelectObjectContent where
+instance Data.ToPath SelectObjectContent where
   toPath SelectObjectContent' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery SelectObjectContent where
+instance Data.ToQuery SelectObjectContent where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["select&select-type=2"])
 
-instance Core.ToXML SelectObjectContent where
+instance Data.ToXML SelectObjectContent where
   toXML SelectObjectContent' {..} =
     Prelude.mconcat
-      [ "RequestProgress" Core.@= requestProgress,
-        "ScanRange" Core.@= scanRange,
-        "Expression" Core.@= expression,
-        "ExpressionType" Core.@= expressionType,
-        "InputSerialization" Core.@= inputSerialization,
-        "OutputSerialization" Core.@= outputSerialization
+      [ "RequestProgress" Data.@= requestProgress,
+        "ScanRange" Data.@= scanRange,
+        "Expression" Data.@= expression,
+        "ExpressionType" Data.@= expressionType,
+        "InputSerialization" Data.@= inputSerialization,
+        "OutputSerialization" Data.@= outputSerialization
       ]
 
 -- | /See:/ 'newSelectObjectContentResponse' smart constructor.

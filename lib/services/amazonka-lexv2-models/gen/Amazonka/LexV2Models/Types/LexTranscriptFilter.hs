@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.LexTranscriptFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.DateRangeFilter
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,13 +62,13 @@ newLexTranscriptFilter =
 lexTranscriptFilter_dateRangeFilter :: Lens.Lens' LexTranscriptFilter (Prelude.Maybe DateRangeFilter)
 lexTranscriptFilter_dateRangeFilter = Lens.lens (\LexTranscriptFilter' {dateRangeFilter} -> dateRangeFilter) (\s@LexTranscriptFilter' {} a -> s {dateRangeFilter = a} :: LexTranscriptFilter)
 
-instance Core.FromJSON LexTranscriptFilter where
+instance Data.FromJSON LexTranscriptFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LexTranscriptFilter"
       ( \x ->
           LexTranscriptFilter'
-            Prelude.<$> (x Core..:? "dateRangeFilter")
+            Prelude.<$> (x Data..:? "dateRangeFilter")
       )
 
 instance Prelude.Hashable LexTranscriptFilter where
@@ -78,11 +79,11 @@ instance Prelude.NFData LexTranscriptFilter where
   rnf LexTranscriptFilter' {..} =
     Prelude.rnf dateRangeFilter
 
-instance Core.ToJSON LexTranscriptFilter where
+instance Data.ToJSON LexTranscriptFilter where
   toJSON LexTranscriptFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("dateRangeFilter" Core..=)
+          [ ("dateRangeFilter" Data..=)
               Prelude.<$> dateRangeFilter
           ]
       )

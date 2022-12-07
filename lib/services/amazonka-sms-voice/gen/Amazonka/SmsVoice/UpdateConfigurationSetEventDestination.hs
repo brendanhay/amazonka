@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,45 +144,45 @@ instance
       `Prelude.seq` Prelude.rnf configurationSetName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateConfigurationSetEventDestination
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateConfigurationSetEventDestination
   where
   toJSON UpdateConfigurationSetEventDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventDestination" Core..=)
+          [ ("EventDestination" Data..=)
               Prelude.<$> eventDestination
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateConfigurationSetEventDestination
   where
   toPath UpdateConfigurationSetEventDestination' {..} =
     Prelude.mconcat
       [ "/v1/sms-voice/configuration-sets/",
-        Core.toBS configurationSetName,
+        Data.toBS configurationSetName,
         "/event-destinations/",
-        Core.toBS eventDestinationName
+        Data.toBS eventDestinationName
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateConfigurationSetEventDestination
   where
   toQuery = Prelude.const Prelude.mempty

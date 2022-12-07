@@ -21,6 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchDetachFromIndexResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a DetachFromIndex response operation.
@@ -53,13 +54,13 @@ newBatchDetachFromIndexResponse =
 batchDetachFromIndexResponse_detachedObjectIdentifier :: Lens.Lens' BatchDetachFromIndexResponse (Prelude.Maybe Prelude.Text)
 batchDetachFromIndexResponse_detachedObjectIdentifier = Lens.lens (\BatchDetachFromIndexResponse' {detachedObjectIdentifier} -> detachedObjectIdentifier) (\s@BatchDetachFromIndexResponse' {} a -> s {detachedObjectIdentifier = a} :: BatchDetachFromIndexResponse)
 
-instance Core.FromJSON BatchDetachFromIndexResponse where
+instance Data.FromJSON BatchDetachFromIndexResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDetachFromIndexResponse"
       ( \x ->
           BatchDetachFromIndexResponse'
-            Prelude.<$> (x Core..:? "DetachedObjectIdentifier")
+            Prelude.<$> (x Data..:? "DetachedObjectIdentifier")
       )
 
 instance

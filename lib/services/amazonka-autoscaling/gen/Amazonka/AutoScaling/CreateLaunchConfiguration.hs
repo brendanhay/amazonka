@@ -74,6 +74,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -655,52 +656,52 @@ instance Prelude.NFData CreateLaunchConfiguration where
       `Prelude.seq` Prelude.rnf
         launchConfigurationName
 
-instance Core.ToHeaders CreateLaunchConfiguration where
+instance Data.ToHeaders CreateLaunchConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateLaunchConfiguration where
+instance Data.ToPath CreateLaunchConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLaunchConfiguration where
+instance Data.ToQuery CreateLaunchConfiguration where
   toQuery CreateLaunchConfiguration' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateLaunchConfiguration" :: Prelude.ByteString),
+          Data.=: ("CreateLaunchConfiguration" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "EbsOptimized" Core.=: ebsOptimized,
-        "IamInstanceProfile" Core.=: iamInstanceProfile,
-        "ClassicLinkVPCId" Core.=: classicLinkVPCId,
-        "UserData" Core.=: userData,
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "EbsOptimized" Data.=: ebsOptimized,
+        "IamInstanceProfile" Data.=: iamInstanceProfile,
+        "ClassicLinkVPCId" Data.=: classicLinkVPCId,
+        "UserData" Data.=: userData,
         "AssociatePublicIpAddress"
-          Core.=: associatePublicIpAddress,
+          Data.=: associatePublicIpAddress,
         "BlockDeviceMappings"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> blockDeviceMappings
             ),
-        "InstanceType" Core.=: instanceType,
-        "InstanceId" Core.=: instanceId,
-        "PlacementTenancy" Core.=: placementTenancy,
+        "InstanceType" Data.=: instanceType,
+        "InstanceId" Data.=: instanceId,
+        "PlacementTenancy" Data.=: placementTenancy,
         "SecurityGroups"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> securityGroups
             ),
-        "RamdiskId" Core.=: ramdiskId,
-        "InstanceMonitoring" Core.=: instanceMonitoring,
-        "KeyName" Core.=: keyName,
-        "KernelId" Core.=: kernelId,
-        "SpotPrice" Core.=: spotPrice,
+        "RamdiskId" Data.=: ramdiskId,
+        "InstanceMonitoring" Data.=: instanceMonitoring,
+        "KeyName" Data.=: keyName,
+        "KernelId" Data.=: kernelId,
+        "SpotPrice" Data.=: spotPrice,
         "ClassicLinkVPCSecurityGroups"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> classicLinkVPCSecurityGroups
             ),
-        "ImageId" Core.=: imageId,
-        "MetadataOptions" Core.=: metadataOptions,
+        "ImageId" Data.=: imageId,
+        "MetadataOptions" Data.=: metadataOptions,
         "LaunchConfigurationName"
-          Core.=: launchConfigurationName
+          Data.=: launchConfigurationName
       ]
 
 -- | /See:/ 'newCreateLaunchConfigurationResponse' smart constructor.

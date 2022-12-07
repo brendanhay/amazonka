@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,7 +138,7 @@ instance Core.AWSRequest DescribeEffectivePolicy where
     Response.receiveJSON
       ( \s h x ->
           DescribeEffectivePolicyResponse'
-            Prelude.<$> (x Core..?> "EffectivePolicy")
+            Prelude.<$> (x Data..?> "EffectivePolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,34 +152,34 @@ instance Prelude.NFData DescribeEffectivePolicy where
     Prelude.rnf targetId
       `Prelude.seq` Prelude.rnf policyType
 
-instance Core.ToHeaders DescribeEffectivePolicy where
+instance Data.ToHeaders DescribeEffectivePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.DescribeEffectivePolicy" ::
+              Data.=# ( "AWSOrganizationsV20161128.DescribeEffectivePolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEffectivePolicy where
+instance Data.ToJSON DescribeEffectivePolicy where
   toJSON DescribeEffectivePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetId" Core..=) Prelude.<$> targetId,
-            Prelude.Just ("PolicyType" Core..= policyType)
+          [ ("TargetId" Data..=) Prelude.<$> targetId,
+            Prelude.Just ("PolicyType" Data..= policyType)
           ]
       )
 
-instance Core.ToPath DescribeEffectivePolicy where
+instance Data.ToPath DescribeEffectivePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEffectivePolicy where
+instance Data.ToQuery DescribeEffectivePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEffectivePolicyResponse' smart constructor.

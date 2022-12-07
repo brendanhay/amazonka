@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,15 +99,15 @@ instance Prelude.Hashable DeletePreset where
 instance Prelude.NFData DeletePreset where
   rnf DeletePreset' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeletePreset where
+instance Data.ToHeaders DeletePreset where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeletePreset where
+instance Data.ToPath DeletePreset where
   toPath DeletePreset' {..} =
     Prelude.mconcat
-      ["/2012-09-25/presets/", Core.toBS id]
+      ["/2012-09-25/presets/", Data.toBS id]
 
-instance Core.ToQuery DeletePreset where
+instance Data.ToQuery DeletePreset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The @DeletePresetResponse@ structure.

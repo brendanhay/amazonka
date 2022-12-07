@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.Trace where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.Segment
 
@@ -98,16 +99,16 @@ trace_limitExceeded = Lens.lens (\Trace' {limitExceeded} -> limitExceeded) (\s@T
 trace_segments :: Lens.Lens' Trace (Prelude.Maybe [Segment])
 trace_segments = Lens.lens (\Trace' {segments} -> segments) (\s@Trace' {} a -> s {segments = a} :: Trace) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Trace where
+instance Data.FromJSON Trace where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Trace"
       ( \x ->
           Trace'
-            Prelude.<$> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Duration")
-            Prelude.<*> (x Core..:? "LimitExceeded")
-            Prelude.<*> (x Core..:? "Segments" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Duration")
+            Prelude.<*> (x Data..:? "LimitExceeded")
+            Prelude.<*> (x Data..:? "Segments" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Trace where

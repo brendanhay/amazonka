@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,8 +165,8 @@ instance Core.AWSRequest ListThingGroups where
     Response.receiveJSON
       ( \s h x ->
           ListThingGroupsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "thingGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "thingGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,20 +186,20 @@ instance Prelude.NFData ListThingGroups where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf parentGroup
 
-instance Core.ToHeaders ListThingGroups where
+instance Data.ToHeaders ListThingGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListThingGroups where
+instance Data.ToPath ListThingGroups where
   toPath = Prelude.const "/thing-groups"
 
-instance Core.ToQuery ListThingGroups where
+instance Data.ToQuery ListThingGroups where
   toQuery ListThingGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "namePrefixFilter" Core.=: namePrefixFilter,
-        "recursive" Core.=: recursive,
-        "maxResults" Core.=: maxResults,
-        "parentGroup" Core.=: parentGroup
+      [ "nextToken" Data.=: nextToken,
+        "namePrefixFilter" Data.=: namePrefixFilter,
+        "recursive" Data.=: recursive,
+        "maxResults" Data.=: maxResults,
+        "parentGroup" Data.=: parentGroup
       ]
 
 -- | /See:/ 'newListThingGroupsResponse' smart constructor.

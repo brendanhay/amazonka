@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.ModelPackagingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types.GreengrassConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -60,13 +61,13 @@ newModelPackagingConfiguration pGreengrass_ =
 modelPackagingConfiguration_greengrass :: Lens.Lens' ModelPackagingConfiguration GreengrassConfiguration
 modelPackagingConfiguration_greengrass = Lens.lens (\ModelPackagingConfiguration' {greengrass} -> greengrass) (\s@ModelPackagingConfiguration' {} a -> s {greengrass = a} :: ModelPackagingConfiguration)
 
-instance Core.FromJSON ModelPackagingConfiguration where
+instance Data.FromJSON ModelPackagingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelPackagingConfiguration"
       ( \x ->
           ModelPackagingConfiguration'
-            Prelude.<$> (x Core..: "Greengrass")
+            Prelude.<$> (x Data..: "Greengrass")
       )
 
 instance Prelude.Hashable ModelPackagingConfiguration where
@@ -77,9 +78,9 @@ instance Prelude.NFData ModelPackagingConfiguration where
   rnf ModelPackagingConfiguration' {..} =
     Prelude.rnf greengrass
 
-instance Core.ToJSON ModelPackagingConfiguration where
+instance Data.ToJSON ModelPackagingConfiguration where
   toJSON ModelPackagingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Greengrass" Core..= greengrass)]
+          [Prelude.Just ("Greengrass" Data..= greengrass)]
       )

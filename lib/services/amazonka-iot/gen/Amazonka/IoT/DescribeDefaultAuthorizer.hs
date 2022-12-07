@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -72,7 +73,7 @@ instance Core.AWSRequest DescribeDefaultAuthorizer where
     Response.receiveJSON
       ( \s h x ->
           DescribeDefaultAuthorizerResponse'
-            Prelude.<$> (x Core..?> "authorizerDescription")
+            Prelude.<$> (x Data..?> "authorizerDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -83,13 +84,13 @@ instance Prelude.Hashable DescribeDefaultAuthorizer where
 instance Prelude.NFData DescribeDefaultAuthorizer where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeDefaultAuthorizer where
+instance Data.ToHeaders DescribeDefaultAuthorizer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDefaultAuthorizer where
+instance Data.ToPath DescribeDefaultAuthorizer where
   toPath = Prelude.const "/default-authorizer"
 
-instance Core.ToQuery DescribeDefaultAuthorizer where
+instance Data.ToQuery DescribeDefaultAuthorizer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDefaultAuthorizerResponse' smart constructor.

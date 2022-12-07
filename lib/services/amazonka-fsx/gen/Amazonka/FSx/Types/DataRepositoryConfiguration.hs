@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.DataRepositoryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.AutoImportPolicyType
 import Amazonka.FSx.Types.DataRepositoryFailureDetails
 import Amazonka.FSx.Types.DataRepositoryLifecycle
@@ -266,18 +267,18 @@ dataRepositoryConfiguration_exportPath = Lens.lens (\DataRepositoryConfiguration
 dataRepositoryConfiguration_failureDetails :: Lens.Lens' DataRepositoryConfiguration (Prelude.Maybe DataRepositoryFailureDetails)
 dataRepositoryConfiguration_failureDetails = Lens.lens (\DataRepositoryConfiguration' {failureDetails} -> failureDetails) (\s@DataRepositoryConfiguration' {} a -> s {failureDetails = a} :: DataRepositoryConfiguration)
 
-instance Core.FromJSON DataRepositoryConfiguration where
+instance Data.FromJSON DataRepositoryConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataRepositoryConfiguration"
       ( \x ->
           DataRepositoryConfiguration'
-            Prelude.<$> (x Core..:? "Lifecycle")
-            Prelude.<*> (x Core..:? "ImportedFileChunkSize")
-            Prelude.<*> (x Core..:? "ImportPath")
-            Prelude.<*> (x Core..:? "AutoImportPolicy")
-            Prelude.<*> (x Core..:? "ExportPath")
-            Prelude.<*> (x Core..:? "FailureDetails")
+            Prelude.<$> (x Data..:? "Lifecycle")
+            Prelude.<*> (x Data..:? "ImportedFileChunkSize")
+            Prelude.<*> (x Data..:? "ImportPath")
+            Prelude.<*> (x Data..:? "AutoImportPolicy")
+            Prelude.<*> (x Data..:? "ExportPath")
+            Prelude.<*> (x Data..:? "FailureDetails")
       )
 
 instance Prelude.Hashable DataRepositoryConfiguration where

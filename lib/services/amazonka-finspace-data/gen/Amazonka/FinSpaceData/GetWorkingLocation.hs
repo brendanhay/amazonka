@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,9 +109,9 @@ instance Core.AWSRequest GetWorkingLocation where
     Response.receiveJSON
       ( \s h x ->
           GetWorkingLocationResponse'
-            Prelude.<$> (x Core..?> "s3Bucket")
-            Prelude.<*> (x Core..?> "s3Path")
-            Prelude.<*> (x Core..?> "s3Uri")
+            Prelude.<$> (x Data..?> "s3Bucket")
+            Prelude.<*> (x Data..?> "s3Path")
+            Prelude.<*> (x Data..?> "s3Uri")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,28 +123,28 @@ instance Prelude.NFData GetWorkingLocation where
   rnf GetWorkingLocation' {..} =
     Prelude.rnf locationType
 
-instance Core.ToHeaders GetWorkingLocation where
+instance Data.ToHeaders GetWorkingLocation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetWorkingLocation where
+instance Data.ToJSON GetWorkingLocation where
   toJSON GetWorkingLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("locationType" Core..=) Prelude.<$> locationType]
+          [("locationType" Data..=) Prelude.<$> locationType]
       )
 
-instance Core.ToPath GetWorkingLocation where
+instance Data.ToPath GetWorkingLocation where
   toPath = Prelude.const "/workingLocationV1"
 
-instance Core.ToQuery GetWorkingLocation where
+instance Data.ToQuery GetWorkingLocation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetWorkingLocationResponse' smart constructor.

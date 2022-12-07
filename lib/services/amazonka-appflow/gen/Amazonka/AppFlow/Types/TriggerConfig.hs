@@ -23,6 +23,7 @@ import Amazonka.AppFlow.Types.TriggerProperties
 import Amazonka.AppFlow.Types.TriggerType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The trigger settings that determine how and when Amazon AppFlow runs the
@@ -75,14 +76,14 @@ triggerConfig_triggerProperties = Lens.lens (\TriggerConfig' {triggerProperties}
 triggerConfig_triggerType :: Lens.Lens' TriggerConfig TriggerType
 triggerConfig_triggerType = Lens.lens (\TriggerConfig' {triggerType} -> triggerType) (\s@TriggerConfig' {} a -> s {triggerType = a} :: TriggerConfig)
 
-instance Core.FromJSON TriggerConfig where
+instance Data.FromJSON TriggerConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TriggerConfig"
       ( \x ->
           TriggerConfig'
-            Prelude.<$> (x Core..:? "triggerProperties")
-            Prelude.<*> (x Core..: "triggerType")
+            Prelude.<$> (x Data..:? "triggerProperties")
+            Prelude.<*> (x Data..: "triggerType")
       )
 
 instance Prelude.Hashable TriggerConfig where
@@ -95,12 +96,12 @@ instance Prelude.NFData TriggerConfig where
     Prelude.rnf triggerProperties
       `Prelude.seq` Prelude.rnf triggerType
 
-instance Core.ToJSON TriggerConfig where
+instance Data.ToJSON TriggerConfig where
   toJSON TriggerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("triggerProperties" Core..=)
+          [ ("triggerProperties" Data..=)
               Prelude.<$> triggerProperties,
-            Prelude.Just ("triggerType" Core..= triggerType)
+            Prelude.Just ("triggerType" Data..= triggerType)
           ]
       )

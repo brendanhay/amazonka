@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -173,7 +174,7 @@ instance Core.AWSRequest DeregisterContainerInstance where
     Response.receiveJSON
       ( \s h x ->
           DeregisterContainerInstanceResponse'
-            Prelude.<$> (x Core..?> "containerInstance")
+            Prelude.<$> (x Data..?> "containerInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,36 +190,36 @@ instance Prelude.NFData DeregisterContainerInstance where
       `Prelude.seq` Prelude.rnf force
       `Prelude.seq` Prelude.rnf containerInstance
 
-instance Core.ToHeaders DeregisterContainerInstance where
+instance Data.ToHeaders DeregisterContainerInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.DeregisterContainerInstance" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.DeregisterContainerInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeregisterContainerInstance where
+instance Data.ToJSON DeregisterContainerInstance where
   toJSON DeregisterContainerInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cluster" Core..=) Prelude.<$> cluster,
-            ("force" Core..=) Prelude.<$> force,
+          [ ("cluster" Data..=) Prelude.<$> cluster,
+            ("force" Data..=) Prelude.<$> force,
             Prelude.Just
-              ("containerInstance" Core..= containerInstance)
+              ("containerInstance" Data..= containerInstance)
           ]
       )
 
-instance Core.ToPath DeregisterContainerInstance where
+instance Data.ToPath DeregisterContainerInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeregisterContainerInstance where
+instance Data.ToQuery DeregisterContainerInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterContainerInstanceResponse' smart constructor.

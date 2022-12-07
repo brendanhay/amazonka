@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.AuthenticationResultType where
 import Amazonka.CognitoIdentityProvider.Types.NewDeviceMetadataType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The authentication result.
@@ -30,17 +31,17 @@ import qualified Amazonka.Prelude as Prelude
 data AuthenticationResultType = AuthenticationResultType'
   { -- | A valid access token that Amazon Cognito issued to the user who you want
     -- to authenticate.
-    accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    accessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The expiration period of the authentication result in seconds.
     expiresIn :: Prelude.Maybe Prelude.Int,
     -- | The ID token.
-    idToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    idToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The new device metadata from an authentication result.
     newDeviceMetadata' :: Prelude.Maybe NewDeviceMetadataType,
     -- | The token type.
     tokenType :: Prelude.Maybe Prelude.Text,
     -- | The refresh token.
-    refreshToken :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    refreshToken :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -80,7 +81,7 @@ newAuthenticationResultType =
 -- | A valid access token that Amazon Cognito issued to the user who you want
 -- to authenticate.
 authenticationResultType_accessToken :: Lens.Lens' AuthenticationResultType (Prelude.Maybe Prelude.Text)
-authenticationResultType_accessToken = Lens.lens (\AuthenticationResultType' {accessToken} -> accessToken) (\s@AuthenticationResultType' {} a -> s {accessToken = a} :: AuthenticationResultType) Prelude.. Lens.mapping Core._Sensitive
+authenticationResultType_accessToken = Lens.lens (\AuthenticationResultType' {accessToken} -> accessToken) (\s@AuthenticationResultType' {} a -> s {accessToken = a} :: AuthenticationResultType) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The expiration period of the authentication result in seconds.
 authenticationResultType_expiresIn :: Lens.Lens' AuthenticationResultType (Prelude.Maybe Prelude.Int)
@@ -88,7 +89,7 @@ authenticationResultType_expiresIn = Lens.lens (\AuthenticationResultType' {expi
 
 -- | The ID token.
 authenticationResultType_idToken :: Lens.Lens' AuthenticationResultType (Prelude.Maybe Prelude.Text)
-authenticationResultType_idToken = Lens.lens (\AuthenticationResultType' {idToken} -> idToken) (\s@AuthenticationResultType' {} a -> s {idToken = a} :: AuthenticationResultType) Prelude.. Lens.mapping Core._Sensitive
+authenticationResultType_idToken = Lens.lens (\AuthenticationResultType' {idToken} -> idToken) (\s@AuthenticationResultType' {} a -> s {idToken = a} :: AuthenticationResultType) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The new device metadata from an authentication result.
 authenticationResultType_newDeviceMetadata :: Lens.Lens' AuthenticationResultType (Prelude.Maybe NewDeviceMetadataType)
@@ -100,20 +101,20 @@ authenticationResultType_tokenType = Lens.lens (\AuthenticationResultType' {toke
 
 -- | The refresh token.
 authenticationResultType_refreshToken :: Lens.Lens' AuthenticationResultType (Prelude.Maybe Prelude.Text)
-authenticationResultType_refreshToken = Lens.lens (\AuthenticationResultType' {refreshToken} -> refreshToken) (\s@AuthenticationResultType' {} a -> s {refreshToken = a} :: AuthenticationResultType) Prelude.. Lens.mapping Core._Sensitive
+authenticationResultType_refreshToken = Lens.lens (\AuthenticationResultType' {refreshToken} -> refreshToken) (\s@AuthenticationResultType' {} a -> s {refreshToken = a} :: AuthenticationResultType) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON AuthenticationResultType where
+instance Data.FromJSON AuthenticationResultType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuthenticationResultType"
       ( \x ->
           AuthenticationResultType'
-            Prelude.<$> (x Core..:? "AccessToken")
-            Prelude.<*> (x Core..:? "ExpiresIn")
-            Prelude.<*> (x Core..:? "IdToken")
-            Prelude.<*> (x Core..:? "NewDeviceMetadata")
-            Prelude.<*> (x Core..:? "TokenType")
-            Prelude.<*> (x Core..:? "RefreshToken")
+            Prelude.<$> (x Data..:? "AccessToken")
+            Prelude.<*> (x Data..:? "ExpiresIn")
+            Prelude.<*> (x Data..:? "IdToken")
+            Prelude.<*> (x Data..:? "NewDeviceMetadata")
+            Prelude.<*> (x Data..:? "TokenType")
+            Prelude.<*> (x Data..:? "RefreshToken")
       )
 
 instance Prelude.Hashable AuthenticationResultType where

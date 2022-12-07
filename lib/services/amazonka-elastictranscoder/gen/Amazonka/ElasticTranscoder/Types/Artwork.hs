@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.Artwork where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.Encryption
 import qualified Amazonka.Prelude as Prelude
 
@@ -254,19 +255,19 @@ artwork_maxHeight = Lens.lens (\Artwork' {maxHeight} -> maxHeight) (\s@Artwork' 
 artwork_maxWidth :: Lens.Lens' Artwork (Prelude.Maybe Prelude.Text)
 artwork_maxWidth = Lens.lens (\Artwork' {maxWidth} -> maxWidth) (\s@Artwork' {} a -> s {maxWidth = a} :: Artwork)
 
-instance Core.FromJSON Artwork where
+instance Data.FromJSON Artwork where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Artwork"
       ( \x ->
           Artwork'
-            Prelude.<$> (x Core..:? "AlbumArtFormat")
-            Prelude.<*> (x Core..:? "SizingPolicy")
-            Prelude.<*> (x Core..:? "PaddingPolicy")
-            Prelude.<*> (x Core..:? "InputKey")
-            Prelude.<*> (x Core..:? "Encryption")
-            Prelude.<*> (x Core..:? "MaxHeight")
-            Prelude.<*> (x Core..:? "MaxWidth")
+            Prelude.<$> (x Data..:? "AlbumArtFormat")
+            Prelude.<*> (x Data..:? "SizingPolicy")
+            Prelude.<*> (x Data..:? "PaddingPolicy")
+            Prelude.<*> (x Data..:? "InputKey")
+            Prelude.<*> (x Data..:? "Encryption")
+            Prelude.<*> (x Data..:? "MaxHeight")
+            Prelude.<*> (x Data..:? "MaxWidth")
       )
 
 instance Prelude.Hashable Artwork where
@@ -289,17 +290,17 @@ instance Prelude.NFData Artwork where
       `Prelude.seq` Prelude.rnf maxHeight
       `Prelude.seq` Prelude.rnf maxWidth
 
-instance Core.ToJSON Artwork where
+instance Data.ToJSON Artwork where
   toJSON Artwork' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AlbumArtFormat" Core..=)
+          [ ("AlbumArtFormat" Data..=)
               Prelude.<$> albumArtFormat,
-            ("SizingPolicy" Core..=) Prelude.<$> sizingPolicy,
-            ("PaddingPolicy" Core..=) Prelude.<$> paddingPolicy,
-            ("InputKey" Core..=) Prelude.<$> inputKey,
-            ("Encryption" Core..=) Prelude.<$> encryption,
-            ("MaxHeight" Core..=) Prelude.<$> maxHeight,
-            ("MaxWidth" Core..=) Prelude.<$> maxWidth
+            ("SizingPolicy" Data..=) Prelude.<$> sizingPolicy,
+            ("PaddingPolicy" Data..=) Prelude.<$> paddingPolicy,
+            ("InputKey" Data..=) Prelude.<$> inputKey,
+            ("Encryption" Data..=) Prelude.<$> encryption,
+            ("MaxHeight" Data..=) Prelude.<$> maxHeight,
+            ("MaxWidth" Data..=) Prelude.<$> maxWidth
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsLambdaFunctionTracingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The function\'s X-Ray tracing configuration.
@@ -53,13 +54,13 @@ newAwsLambdaFunctionTracingConfig =
 awsLambdaFunctionTracingConfig_mode :: Lens.Lens' AwsLambdaFunctionTracingConfig (Prelude.Maybe Prelude.Text)
 awsLambdaFunctionTracingConfig_mode = Lens.lens (\AwsLambdaFunctionTracingConfig' {mode} -> mode) (\s@AwsLambdaFunctionTracingConfig' {} a -> s {mode = a} :: AwsLambdaFunctionTracingConfig)
 
-instance Core.FromJSON AwsLambdaFunctionTracingConfig where
+instance Data.FromJSON AwsLambdaFunctionTracingConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsLambdaFunctionTracingConfig"
       ( \x ->
           AwsLambdaFunctionTracingConfig'
-            Prelude.<$> (x Core..:? "Mode")
+            Prelude.<$> (x Data..:? "Mode")
       )
 
 instance
@@ -78,9 +79,9 @@ instance
   rnf AwsLambdaFunctionTracingConfig' {..} =
     Prelude.rnf mode
 
-instance Core.ToJSON AwsLambdaFunctionTracingConfig where
+instance Data.ToJSON AwsLambdaFunctionTracingConfig where
   toJSON AwsLambdaFunctionTracingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Mode" Core..=) Prelude.<$> mode]
+          [("Mode" Data..=) Prelude.<$> mode]
       )

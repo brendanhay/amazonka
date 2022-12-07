@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.LexBot
 import Amazonka.Connect.Types.LexV2Bot
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information of an Amazon Lex or Amazon Lex V2 bot.
@@ -62,14 +63,14 @@ lexBotConfig_lexV2Bot = Lens.lens (\LexBotConfig' {lexV2Bot} -> lexV2Bot) (\s@Le
 lexBotConfig_lexBot :: Lens.Lens' LexBotConfig (Prelude.Maybe LexBot)
 lexBotConfig_lexBot = Lens.lens (\LexBotConfig' {lexBot} -> lexBot) (\s@LexBotConfig' {} a -> s {lexBot = a} :: LexBotConfig)
 
-instance Core.FromJSON LexBotConfig where
+instance Data.FromJSON LexBotConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LexBotConfig"
       ( \x ->
           LexBotConfig'
-            Prelude.<$> (x Core..:? "LexV2Bot")
-            Prelude.<*> (x Core..:? "LexBot")
+            Prelude.<$> (x Data..:? "LexV2Bot")
+            Prelude.<*> (x Data..:? "LexBot")
       )
 
 instance Prelude.Hashable LexBotConfig where

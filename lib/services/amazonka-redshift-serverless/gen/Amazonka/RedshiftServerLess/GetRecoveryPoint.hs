@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetRecoveryPoint where
     Response.receiveJSON
       ( \s h x ->
           GetRecoveryPointResponse'
-            Prelude.<$> (x Core..?> "recoveryPoint")
+            Prelude.<$> (x Data..?> "recoveryPoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,34 +99,34 @@ instance Prelude.NFData GetRecoveryPoint where
   rnf GetRecoveryPoint' {..} =
     Prelude.rnf recoveryPointId
 
-instance Core.ToHeaders GetRecoveryPoint where
+instance Data.ToHeaders GetRecoveryPoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.GetRecoveryPoint" ::
+              Data.=# ( "RedshiftServerless.GetRecoveryPoint" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRecoveryPoint where
+instance Data.ToJSON GetRecoveryPoint where
   toJSON GetRecoveryPoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("recoveryPointId" Core..= recoveryPointId)
+              ("recoveryPointId" Data..= recoveryPointId)
           ]
       )
 
-instance Core.ToPath GetRecoveryPoint where
+instance Data.ToPath GetRecoveryPoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRecoveryPoint where
+instance Data.ToQuery GetRecoveryPoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRecoveryPointResponse' smart constructor.

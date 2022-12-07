@@ -23,6 +23,7 @@ import Amazonka.ConnectCases.Types.RelatedItemContent
 import Amazonka.ConnectCases.Types.RelatedItemType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of items that represent RelatedItems.
@@ -33,7 +34,7 @@ data SearchRelatedItemsResponseItem = SearchRelatedItemsResponseItem'
     -- used to organize, track, or control access for this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Time at which a related item was associated with a case.
-    associationTime :: Core.POSIX,
+    associationTime :: Data.POSIX,
     -- | Represents the content of a particular type of related item.
     content :: RelatedItemContent,
     -- | Unique identifier of a related item.
@@ -80,7 +81,7 @@ newSearchRelatedItemsResponseItem
       { tags =
           Prelude.Nothing,
         associationTime =
-          Core._Time Lens.# pAssociationTime_,
+          Data._Time Lens.# pAssociationTime_,
         content = pContent_,
         relatedItemId = pRelatedItemId_,
         type' = pType_
@@ -93,7 +94,7 @@ searchRelatedItemsResponseItem_tags = Lens.lens (\SearchRelatedItemsResponseItem
 
 -- | Time at which a related item was associated with a case.
 searchRelatedItemsResponseItem_associationTime :: Lens.Lens' SearchRelatedItemsResponseItem Prelude.UTCTime
-searchRelatedItemsResponseItem_associationTime = Lens.lens (\SearchRelatedItemsResponseItem' {associationTime} -> associationTime) (\s@SearchRelatedItemsResponseItem' {} a -> s {associationTime = a} :: SearchRelatedItemsResponseItem) Prelude.. Core._Time
+searchRelatedItemsResponseItem_associationTime = Lens.lens (\SearchRelatedItemsResponseItem' {associationTime} -> associationTime) (\s@SearchRelatedItemsResponseItem' {} a -> s {associationTime = a} :: SearchRelatedItemsResponseItem) Prelude.. Data._Time
 
 -- | Represents the content of a particular type of related item.
 searchRelatedItemsResponseItem_content :: Lens.Lens' SearchRelatedItemsResponseItem RelatedItemContent
@@ -107,17 +108,17 @@ searchRelatedItemsResponseItem_relatedItemId = Lens.lens (\SearchRelatedItemsRes
 searchRelatedItemsResponseItem_type :: Lens.Lens' SearchRelatedItemsResponseItem RelatedItemType
 searchRelatedItemsResponseItem_type = Lens.lens (\SearchRelatedItemsResponseItem' {type'} -> type') (\s@SearchRelatedItemsResponseItem' {} a -> s {type' = a} :: SearchRelatedItemsResponseItem)
 
-instance Core.FromJSON SearchRelatedItemsResponseItem where
+instance Data.FromJSON SearchRelatedItemsResponseItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SearchRelatedItemsResponseItem"
       ( \x ->
           SearchRelatedItemsResponseItem'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "associationTime")
-            Prelude.<*> (x Core..: "content")
-            Prelude.<*> (x Core..: "relatedItemId")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "associationTime")
+            Prelude.<*> (x Data..: "content")
+            Prelude.<*> (x Data..: "relatedItemId")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,8 +95,8 @@ instance Core.AWSRequest DescribeExportTasks where
     Response.receiveXML
       ( \s h x ->
           DescribeExportTasksResponse'
-            Prelude.<$> ( x Core..@? "exportTaskSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "exportTaskSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -110,23 +111,23 @@ instance Prelude.NFData DescribeExportTasks where
     Prelude.rnf filters
       `Prelude.seq` Prelude.rnf exportTaskIds
 
-instance Core.ToHeaders DescribeExportTasks where
+instance Data.ToHeaders DescribeExportTasks where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeExportTasks where
+instance Data.ToPath DescribeExportTasks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeExportTasks where
+instance Data.ToQuery DescribeExportTasks where
   toQuery DescribeExportTasks' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeExportTasks" :: Prelude.ByteString),
+          Data.=: ("DescribeExportTasks" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        Core.toQuery
-          ( Core.toQueryList "ExportTaskId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        Data.toQuery
+          ( Data.toQueryList "ExportTaskId"
               Prelude.<$> exportTaskIds
           )
       ]

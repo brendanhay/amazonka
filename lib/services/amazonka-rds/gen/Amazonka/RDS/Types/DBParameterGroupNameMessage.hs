@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBParameterGroupNameMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the result of a successful invocation of the
@@ -54,10 +55,10 @@ newDBParameterGroupNameMessage =
 dbParameterGroupNameMessage_dbParameterGroupName :: Lens.Lens' DBParameterGroupNameMessage (Prelude.Maybe Prelude.Text)
 dbParameterGroupNameMessage_dbParameterGroupName = Lens.lens (\DBParameterGroupNameMessage' {dbParameterGroupName} -> dbParameterGroupName) (\s@DBParameterGroupNameMessage' {} a -> s {dbParameterGroupName = a} :: DBParameterGroupNameMessage)
 
-instance Core.FromXML DBParameterGroupNameMessage where
+instance Data.FromXML DBParameterGroupNameMessage where
   parseXML x =
     DBParameterGroupNameMessage'
-      Prelude.<$> (x Core..@? "DBParameterGroupName")
+      Prelude.<$> (x Data..@? "DBParameterGroupName")
 
 instance Prelude.Hashable DBParameterGroupNameMessage where
   hashWithSalt _salt DBParameterGroupNameMessage' {..} =

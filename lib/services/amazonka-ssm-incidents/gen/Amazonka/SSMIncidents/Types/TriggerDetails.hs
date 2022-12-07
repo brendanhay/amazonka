@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.TriggerDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about what caused the incident to be created in Incident
@@ -40,7 +41,7 @@ data TriggerDetails = TriggerDetails'
     -- domain-name strings.
     source :: Prelude.Text,
     -- | The time that the incident was detected.
-    timestamp :: Core.POSIX
+    timestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,7 +76,7 @@ newTriggerDetails pSource_ pTimestamp_ =
     { triggerArn = Prelude.Nothing,
       rawData = Prelude.Nothing,
       source = pSource_,
-      timestamp = Core._Time Lens.# pTimestamp_
+      timestamp = Data._Time Lens.# pTimestamp_
     }
 
 -- | The Amazon Resource Name (ARN) of the source that detected the incident.
@@ -97,7 +98,7 @@ triggerDetails_source = Lens.lens (\TriggerDetails' {source} -> source) (\s@Trig
 
 -- | The time that the incident was detected.
 triggerDetails_timestamp :: Lens.Lens' TriggerDetails Prelude.UTCTime
-triggerDetails_timestamp = Lens.lens (\TriggerDetails' {timestamp} -> timestamp) (\s@TriggerDetails' {} a -> s {timestamp = a} :: TriggerDetails) Prelude.. Core._Time
+triggerDetails_timestamp = Lens.lens (\TriggerDetails' {timestamp} -> timestamp) (\s@TriggerDetails' {} a -> s {timestamp = a} :: TriggerDetails) Prelude.. Data._Time
 
 instance Prelude.Hashable TriggerDetails where
   hashWithSalt _salt TriggerDetails' {..} =
@@ -113,13 +114,13 @@ instance Prelude.NFData TriggerDetails where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf timestamp
 
-instance Core.ToJSON TriggerDetails where
+instance Data.ToJSON TriggerDetails where
   toJSON TriggerDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("triggerArn" Core..=) Prelude.<$> triggerArn,
-            ("rawData" Core..=) Prelude.<$> rawData,
-            Prelude.Just ("source" Core..= source),
-            Prelude.Just ("timestamp" Core..= timestamp)
+          [ ("triggerArn" Data..=) Prelude.<$> triggerArn,
+            ("rawData" Data..=) Prelude.<$> rawData,
+            Prelude.Just ("source" Data..= source),
+            Prelude.Just ("timestamp" Data..= timestamp)
           ]
       )

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,20 +113,20 @@ instance Prelude.NFData DeleteVirtualMFADevice where
   rnf DeleteVirtualMFADevice' {..} =
     Prelude.rnf serialNumber
 
-instance Core.ToHeaders DeleteVirtualMFADevice where
+instance Data.ToHeaders DeleteVirtualMFADevice where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteVirtualMFADevice where
+instance Data.ToPath DeleteVirtualMFADevice where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVirtualMFADevice where
+instance Data.ToQuery DeleteVirtualMFADevice where
   toQuery DeleteVirtualMFADevice' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteVirtualMFADevice" :: Prelude.ByteString),
+          Data.=: ("DeleteVirtualMFADevice" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "SerialNumber" Core.=: serialNumber
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "SerialNumber" Data.=: serialNumber
       ]
 
 -- | /See:/ 'newDeleteVirtualMFADeviceResponse' smart constructor.

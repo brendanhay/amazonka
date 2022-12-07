@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayConnectRequestBgpOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,8 +72,8 @@ instance
     Prelude.rnf peerAsn
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     TransitGatewayConnectRequestBgpOptions
   where
   toQuery TransitGatewayConnectRequestBgpOptions' {..} =
-    Prelude.mconcat ["PeerAsn" Core.=: peerAsn]
+    Prelude.mconcat ["PeerAsn" Data.=: peerAsn]

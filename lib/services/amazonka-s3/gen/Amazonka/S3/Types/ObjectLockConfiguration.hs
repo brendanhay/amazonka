@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ObjectLockConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ObjectLockEnabled
@@ -83,11 +84,11 @@ objectLockConfiguration_objectLockEnabled = Lens.lens (\ObjectLockConfiguration'
 objectLockConfiguration_rule :: Lens.Lens' ObjectLockConfiguration (Prelude.Maybe ObjectLockRule)
 objectLockConfiguration_rule = Lens.lens (\ObjectLockConfiguration' {rule} -> rule) (\s@ObjectLockConfiguration' {} a -> s {rule = a} :: ObjectLockConfiguration)
 
-instance Core.FromXML ObjectLockConfiguration where
+instance Data.FromXML ObjectLockConfiguration where
   parseXML x =
     ObjectLockConfiguration'
-      Prelude.<$> (x Core..@? "ObjectLockEnabled")
-      Prelude.<*> (x Core..@? "Rule")
+      Prelude.<$> (x Data..@? "ObjectLockEnabled")
+      Prelude.<*> (x Data..@? "Rule")
 
 instance Prelude.Hashable ObjectLockConfiguration where
   hashWithSalt _salt ObjectLockConfiguration' {..} =
@@ -99,9 +100,9 @@ instance Prelude.NFData ObjectLockConfiguration where
     Prelude.rnf objectLockEnabled
       `Prelude.seq` Prelude.rnf rule
 
-instance Core.ToXML ObjectLockConfiguration where
+instance Data.ToXML ObjectLockConfiguration where
   toXML ObjectLockConfiguration' {..} =
     Prelude.mconcat
-      [ "ObjectLockEnabled" Core.@= objectLockEnabled,
-        "Rule" Core.@= rule
+      [ "ObjectLockEnabled" Data.@= objectLockEnabled,
+        "Rule" Data.@= rule
       ]

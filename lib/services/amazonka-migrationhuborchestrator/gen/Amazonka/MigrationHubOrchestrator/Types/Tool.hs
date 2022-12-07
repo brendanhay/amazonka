@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.Tool where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | List of AWS services utilized in a migration workflow.
@@ -61,13 +62,13 @@ tool_name = Lens.lens (\Tool' {name} -> name) (\s@Tool' {} a -> s {name = a} :: 
 tool_url :: Lens.Lens' Tool (Prelude.Maybe Prelude.Text)
 tool_url = Lens.lens (\Tool' {url} -> url) (\s@Tool' {} a -> s {url = a} :: Tool)
 
-instance Core.FromJSON Tool where
+instance Data.FromJSON Tool where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Tool"
       ( \x ->
           Tool'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "url")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "url")
       )
 
 instance Prelude.Hashable Tool where

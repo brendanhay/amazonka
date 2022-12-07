@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -58,11 +59,11 @@ data GetDomainStatisticsReport = GetDomainStatisticsReport'
     domain :: Prelude.Text,
     -- | The first day (in Unix time) that you want to obtain domain
     -- deliverability metrics for.
-    startDate :: Core.POSIX,
+    startDate :: Data.POSIX,
     -- | The last day (in Unix time) that you want to obtain domain
     -- deliverability metrics for. The @EndDate@ that you specify has to be
     -- less than or equal to 30 days after the @StartDate@.
-    endDate :: Core.POSIX
+    endDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,8 +97,8 @@ newGetDomainStatisticsReport
   pEndDate_ =
     GetDomainStatisticsReport'
       { domain = pDomain_,
-        startDate = Core._Time Lens.# pStartDate_,
-        endDate = Core._Time Lens.# pEndDate_
+        startDate = Data._Time Lens.# pStartDate_,
+        endDate = Data._Time Lens.# pEndDate_
       }
 
 -- | The domain that you want to obtain deliverability metrics for.
@@ -107,13 +108,13 @@ getDomainStatisticsReport_domain = Lens.lens (\GetDomainStatisticsReport' {domai
 -- | The first day (in Unix time) that you want to obtain domain
 -- deliverability metrics for.
 getDomainStatisticsReport_startDate :: Lens.Lens' GetDomainStatisticsReport Prelude.UTCTime
-getDomainStatisticsReport_startDate = Lens.lens (\GetDomainStatisticsReport' {startDate} -> startDate) (\s@GetDomainStatisticsReport' {} a -> s {startDate = a} :: GetDomainStatisticsReport) Prelude.. Core._Time
+getDomainStatisticsReport_startDate = Lens.lens (\GetDomainStatisticsReport' {startDate} -> startDate) (\s@GetDomainStatisticsReport' {} a -> s {startDate = a} :: GetDomainStatisticsReport) Prelude.. Data._Time
 
 -- | The last day (in Unix time) that you want to obtain domain
 -- deliverability metrics for. The @EndDate@ that you specify has to be
 -- less than or equal to 30 days after the @StartDate@.
 getDomainStatisticsReport_endDate :: Lens.Lens' GetDomainStatisticsReport Prelude.UTCTime
-getDomainStatisticsReport_endDate = Lens.lens (\GetDomainStatisticsReport' {endDate} -> endDate) (\s@GetDomainStatisticsReport' {} a -> s {endDate = a} :: GetDomainStatisticsReport) Prelude.. Core._Time
+getDomainStatisticsReport_endDate = Lens.lens (\GetDomainStatisticsReport' {endDate} -> endDate) (\s@GetDomainStatisticsReport' {} a -> s {endDate = a} :: GetDomainStatisticsReport) Prelude.. Data._Time
 
 instance Core.AWSRequest GetDomainStatisticsReport where
   type
@@ -126,8 +127,8 @@ instance Core.AWSRequest GetDomainStatisticsReport where
       ( \s h x ->
           GetDomainStatisticsReportResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "OverallVolume")
-            Prelude.<*> (x Core..?> "DailyVolumes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "OverallVolume")
+            Prelude.<*> (x Data..?> "DailyVolumes" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable GetDomainStatisticsReport where
@@ -142,29 +143,29 @@ instance Prelude.NFData GetDomainStatisticsReport where
       `Prelude.seq` Prelude.rnf startDate
       `Prelude.seq` Prelude.rnf endDate
 
-instance Core.ToHeaders GetDomainStatisticsReport where
+instance Data.ToHeaders GetDomainStatisticsReport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDomainStatisticsReport where
+instance Data.ToPath GetDomainStatisticsReport where
   toPath GetDomainStatisticsReport' {..} =
     Prelude.mconcat
       [ "/v2/email/deliverability-dashboard/statistics-report/",
-        Core.toBS domain
+        Data.toBS domain
       ]
 
-instance Core.ToQuery GetDomainStatisticsReport where
+instance Data.ToQuery GetDomainStatisticsReport where
   toQuery GetDomainStatisticsReport' {..} =
     Prelude.mconcat
-      [ "StartDate" Core.=: startDate,
-        "EndDate" Core.=: endDate
+      [ "StartDate" Data.=: startDate,
+        "EndDate" Data.=: endDate
       ]
 
 -- | An object that includes statistics that are related to the domain that

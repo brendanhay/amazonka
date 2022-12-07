@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -245,7 +246,7 @@ instance Core.AWSRequest UpdateProfileJob where
       ( \s h x ->
           UpdateProfileJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable UpdateProfileJob where
@@ -278,45 +279,45 @@ instance Prelude.NFData UpdateProfileJob where
       `Prelude.seq` Prelude.rnf outputLocation
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders UpdateProfileJob where
+instance Data.ToHeaders UpdateProfileJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateProfileJob where
+instance Data.ToJSON UpdateProfileJob where
   toJSON UpdateProfileJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EncryptionKeyArn" Core..=)
+          [ ("EncryptionKeyArn" Data..=)
               Prelude.<$> encryptionKeyArn,
-            ("JobSample" Core..=) Prelude.<$> jobSample,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("Configuration" Core..=) Prelude.<$> configuration,
-            ("LogSubscription" Core..=)
+            ("JobSample" Data..=) Prelude.<$> jobSample,
+            ("Timeout" Data..=) Prelude.<$> timeout,
+            ("Configuration" Data..=) Prelude.<$> configuration,
+            ("LogSubscription" Data..=)
               Prelude.<$> logSubscription,
-            ("MaxRetries" Core..=) Prelude.<$> maxRetries,
-            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
-            ("EncryptionMode" Core..=)
+            ("MaxRetries" Data..=) Prelude.<$> maxRetries,
+            ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
+            ("EncryptionMode" Data..=)
               Prelude.<$> encryptionMode,
-            ("ValidationConfigurations" Core..=)
+            ("ValidationConfigurations" Data..=)
               Prelude.<$> validationConfigurations,
             Prelude.Just
-              ("OutputLocation" Core..= outputLocation),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+              ("OutputLocation" Data..= outputLocation),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath UpdateProfileJob where
+instance Data.ToPath UpdateProfileJob where
   toPath UpdateProfileJob' {..} =
-    Prelude.mconcat ["/profileJobs/", Core.toBS name]
+    Prelude.mconcat ["/profileJobs/", Data.toBS name]
 
-instance Core.ToQuery UpdateProfileJob where
+instance Data.ToQuery UpdateProfileJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProfileJobResponse' smart constructor.

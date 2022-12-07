@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.TransitionState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the state of transitions between one stage
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTransitionState' smart constructor.
 data TransitionState = TransitionState'
   { -- | The timestamp when the transition state was last changed.
-    lastChangedAt :: Prelude.Maybe Core.POSIX,
+    lastChangedAt :: Prelude.Maybe Data.POSIX,
     -- | The user-specified reason why the transition between two stages of a
     -- pipeline was disabled.
     disabledReason :: Prelude.Maybe Prelude.Text,
@@ -70,7 +71,7 @@ newTransitionState =
 
 -- | The timestamp when the transition state was last changed.
 transitionState_lastChangedAt :: Lens.Lens' TransitionState (Prelude.Maybe Prelude.UTCTime)
-transitionState_lastChangedAt = Lens.lens (\TransitionState' {lastChangedAt} -> lastChangedAt) (\s@TransitionState' {} a -> s {lastChangedAt = a} :: TransitionState) Prelude.. Lens.mapping Core._Time
+transitionState_lastChangedAt = Lens.lens (\TransitionState' {lastChangedAt} -> lastChangedAt) (\s@TransitionState' {} a -> s {lastChangedAt = a} :: TransitionState) Prelude.. Lens.mapping Data._Time
 
 -- | The user-specified reason why the transition between two stages of a
 -- pipeline was disabled.
@@ -86,16 +87,16 @@ transitionState_enabled = Lens.lens (\TransitionState' {enabled} -> enabled) (\s
 transitionState_lastChangedBy :: Lens.Lens' TransitionState (Prelude.Maybe Prelude.Text)
 transitionState_lastChangedBy = Lens.lens (\TransitionState' {lastChangedBy} -> lastChangedBy) (\s@TransitionState' {} a -> s {lastChangedBy = a} :: TransitionState)
 
-instance Core.FromJSON TransitionState where
+instance Data.FromJSON TransitionState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransitionState"
       ( \x ->
           TransitionState'
-            Prelude.<$> (x Core..:? "lastChangedAt")
-            Prelude.<*> (x Core..:? "disabledReason")
-            Prelude.<*> (x Core..:? "enabled")
-            Prelude.<*> (x Core..:? "lastChangedBy")
+            Prelude.<$> (x Data..:? "lastChangedAt")
+            Prelude.<*> (x Data..:? "disabledReason")
+            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "lastChangedBy")
       )
 
 instance Prelude.Hashable TransitionState where

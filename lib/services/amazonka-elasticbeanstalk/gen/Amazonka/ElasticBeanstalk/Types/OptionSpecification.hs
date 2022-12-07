@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.OptionSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A specification identifying an individual configuration option.
@@ -83,10 +84,10 @@ instance Prelude.NFData OptionSpecification where
       `Prelude.seq` Prelude.rnf optionName
       `Prelude.seq` Prelude.rnf namespace
 
-instance Core.ToQuery OptionSpecification where
+instance Data.ToQuery OptionSpecification where
   toQuery OptionSpecification' {..} =
     Prelude.mconcat
-      [ "ResourceName" Core.=: resourceName,
-        "OptionName" Core.=: optionName,
-        "Namespace" Core.=: namespace
+      [ "ResourceName" Data.=: resourceName,
+        "OptionName" Data.=: optionName,
+        "Namespace" Data.=: namespace
       ]

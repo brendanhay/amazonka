@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ConfluenceSpaceToIndexFieldMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ConfluenceSpaceFieldName
 import qualified Amazonka.Prelude as Prelude
 
@@ -87,17 +88,17 @@ confluenceSpaceToIndexFieldMapping_dateFieldFormat :: Lens.Lens' ConfluenceSpace
 confluenceSpaceToIndexFieldMapping_dateFieldFormat = Lens.lens (\ConfluenceSpaceToIndexFieldMapping' {dateFieldFormat} -> dateFieldFormat) (\s@ConfluenceSpaceToIndexFieldMapping' {} a -> s {dateFieldFormat = a} :: ConfluenceSpaceToIndexFieldMapping)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ConfluenceSpaceToIndexFieldMapping
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfluenceSpaceToIndexFieldMapping"
       ( \x ->
           ConfluenceSpaceToIndexFieldMapping'
-            Prelude.<$> (x Core..:? "DataSourceFieldName")
-            Prelude.<*> (x Core..:? "IndexFieldName")
-            Prelude.<*> (x Core..:? "DateFieldFormat")
+            Prelude.<$> (x Data..:? "DataSourceFieldName")
+            Prelude.<*> (x Data..:? "IndexFieldName")
+            Prelude.<*> (x Data..:? "DateFieldFormat")
       )
 
 instance
@@ -121,17 +122,17 @@ instance
       `Prelude.seq` Prelude.rnf dateFieldFormat
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ConfluenceSpaceToIndexFieldMapping
   where
   toJSON ConfluenceSpaceToIndexFieldMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSourceFieldName" Core..=)
+          [ ("DataSourceFieldName" Data..=)
               Prelude.<$> dataSourceFieldName,
-            ("IndexFieldName" Core..=)
+            ("IndexFieldName" Data..=)
               Prelude.<$> indexFieldName,
-            ("DateFieldFormat" Core..=)
+            ("DateFieldFormat" Data..=)
               Prelude.<$> dateFieldFormat
           ]
       )

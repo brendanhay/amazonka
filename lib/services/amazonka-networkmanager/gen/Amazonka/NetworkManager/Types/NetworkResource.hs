@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.NetworkResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,7 +78,7 @@ data NetworkResource = NetworkResource'
     -- | The Amazon Web Services Region.
     awsRegion :: Prelude.Maybe Prelude.Text,
     -- | The time that the resource definition was retrieved.
-    definitionTimestamp :: Prelude.Maybe Core.POSIX,
+    definitionTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the resource.
     resourceArn :: Prelude.Maybe Prelude.Text,
     -- | Information about the resource, in JSON format. Network Manager gets
@@ -231,7 +232,7 @@ networkResource_awsRegion = Lens.lens (\NetworkResource' {awsRegion} -> awsRegio
 
 -- | The time that the resource definition was retrieved.
 networkResource_definitionTimestamp :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.UTCTime)
-networkResource_definitionTimestamp = Lens.lens (\NetworkResource' {definitionTimestamp} -> definitionTimestamp) (\s@NetworkResource' {} a -> s {definitionTimestamp = a} :: NetworkResource) Prelude.. Lens.mapping Core._Time
+networkResource_definitionTimestamp = Lens.lens (\NetworkResource' {definitionTimestamp} -> definitionTimestamp) (\s@NetworkResource' {} a -> s {definitionTimestamp = a} :: NetworkResource) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the resource.
 networkResource_resourceArn :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
@@ -242,23 +243,23 @@ networkResource_resourceArn = Lens.lens (\NetworkResource' {resourceArn} -> reso
 networkResource_definition :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
 networkResource_definition = Lens.lens (\NetworkResource' {definition} -> definition) (\s@NetworkResource' {} a -> s {definition = a} :: NetworkResource)
 
-instance Core.FromJSON NetworkResource where
+instance Data.FromJSON NetworkResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkResource"
       ( \x ->
           NetworkResource'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "CoreNetworkId")
-            Prelude.<*> (x Core..:? "Metadata" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "RegisteredGatewayArn")
-            Prelude.<*> (x Core..:? "AwsRegion")
-            Prelude.<*> (x Core..:? "DefinitionTimestamp")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "Definition")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "CoreNetworkId")
+            Prelude.<*> (x Data..:? "Metadata" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "RegisteredGatewayArn")
+            Prelude.<*> (x Data..:? "AwsRegion")
+            Prelude.<*> (x Data..:? "DefinitionTimestamp")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "Definition")
       )
 
 instance Prelude.Hashable NetworkResource where

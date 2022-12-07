@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.TagValuePair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a tag key or tag key and value pair to use in a tag-based
@@ -71,13 +72,13 @@ tagValuePair_key = Lens.lens (\TagValuePair' {key} -> key) (\s@TagValuePair' {} 
 tagValuePair_value :: Lens.Lens' TagValuePair (Prelude.Maybe Prelude.Text)
 tagValuePair_value = Lens.lens (\TagValuePair' {value} -> value) (\s@TagValuePair' {} a -> s {value = a} :: TagValuePair)
 
-instance Core.FromJSON TagValuePair where
+instance Data.FromJSON TagValuePair where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TagValuePair"
       ( \x ->
           TagValuePair'
-            Prelude.<$> (x Core..:? "key") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "key") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable TagValuePair where
@@ -89,11 +90,11 @@ instance Prelude.NFData TagValuePair where
   rnf TagValuePair' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON TagValuePair where
+instance Data.ToJSON TagValuePair where
   toJSON TagValuePair' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("value" Core..=) Prelude.<$> value
+          [ ("key" Data..=) Prelude.<$> key,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

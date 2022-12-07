@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,7 +128,7 @@ instance Core.AWSRequest UpdateBucketBundle where
     Response.receiveJSON
       ( \s h x ->
           UpdateBucketBundleResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,34 +142,34 @@ instance Prelude.NFData UpdateBucketBundle where
     Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf bundleId
 
-instance Core.ToHeaders UpdateBucketBundle where
+instance Data.ToHeaders UpdateBucketBundle where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.UpdateBucketBundle" ::
+              Data.=# ( "Lightsail_20161128.UpdateBucketBundle" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBucketBundle where
+instance Data.ToJSON UpdateBucketBundle where
   toJSON UpdateBucketBundle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("bucketName" Core..= bucketName),
-            Prelude.Just ("bundleId" Core..= bundleId)
+          [ Prelude.Just ("bucketName" Data..= bucketName),
+            Prelude.Just ("bundleId" Data..= bundleId)
           ]
       )
 
-instance Core.ToPath UpdateBucketBundle where
+instance Data.ToPath UpdateBucketBundle where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateBucketBundle where
+instance Data.ToQuery UpdateBucketBundle where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBucketBundleResponse' smart constructor.

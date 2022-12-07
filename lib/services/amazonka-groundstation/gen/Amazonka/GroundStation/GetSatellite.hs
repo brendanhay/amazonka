@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,11 +88,11 @@ instance Core.AWSRequest GetSatellite where
     Response.receiveJSON
       ( \s h x ->
           GetSatelliteResponse'
-            Prelude.<$> (x Core..?> "satelliteArn")
-            Prelude.<*> (x Core..?> "currentEphemeris")
-            Prelude.<*> (x Core..?> "satelliteId")
-            Prelude.<*> (x Core..?> "noradSatelliteID")
-            Prelude.<*> (x Core..?> "groundStations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "satelliteArn")
+            Prelude.<*> (x Data..?> "currentEphemeris")
+            Prelude.<*> (x Data..?> "satelliteId")
+            Prelude.<*> (x Data..?> "noradSatelliteID")
+            Prelude.<*> (x Data..?> "groundStations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,23 +103,23 @@ instance Prelude.Hashable GetSatellite where
 instance Prelude.NFData GetSatellite where
   rnf GetSatellite' {..} = Prelude.rnf satelliteId
 
-instance Core.ToHeaders GetSatellite where
+instance Data.ToHeaders GetSatellite where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSatellite where
+instance Data.ToPath GetSatellite where
   toPath GetSatellite' {..} =
     Prelude.mconcat
-      ["/satellite/", Core.toBS satelliteId]
+      ["/satellite/", Data.toBS satelliteId]
 
-instance Core.ToQuery GetSatellite where
+instance Data.ToQuery GetSatellite where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

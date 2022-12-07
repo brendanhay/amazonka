@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.DisassociateClientDeviceFromCoreDeviceEntry w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a request to disassociate a client device from a core device.
@@ -79,12 +80,12 @@ instance
     Prelude.rnf thingName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DisassociateClientDeviceFromCoreDeviceEntry
   where
   toJSON
     DisassociateClientDeviceFromCoreDeviceEntry' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [Prelude.Just ("thingName" Core..= thingName)]
+            [Prelude.Just ("thingName" Data..= thingName)]
         )

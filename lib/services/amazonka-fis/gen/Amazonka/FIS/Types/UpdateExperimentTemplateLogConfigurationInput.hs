@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.UpdateExperimentTemplateLogConfigurationInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types.ExperimentTemplateCloudWatchLogsLogConfigurationInput
 import Amazonka.FIS.Types.ExperimentTemplateS3LogConfigurationInput
 import qualified Amazonka.Prelude as Prelude
@@ -97,18 +98,18 @@ instance
         `Prelude.seq` Prelude.rnf cloudWatchLogsConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateExperimentTemplateLogConfigurationInput
   where
   toJSON
     UpdateExperimentTemplateLogConfigurationInput' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("s3Configuration" Core..=)
+            [ ("s3Configuration" Data..=)
                 Prelude.<$> s3Configuration,
-              ("logSchemaVersion" Core..=)
+              ("logSchemaVersion" Data..=)
                 Prelude.<$> logSchemaVersion,
-              ("cloudWatchLogsConfiguration" Core..=)
+              ("cloudWatchLogsConfiguration" Data..=)
                 Prelude.<$> cloudWatchLogsConfiguration
             ]
         )

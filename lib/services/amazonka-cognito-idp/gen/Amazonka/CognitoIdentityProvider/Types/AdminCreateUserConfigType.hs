@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.AdminCreateUserConfigType where
 import Amazonka.CognitoIdentityProvider.Types.MessageTemplateType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for creating a new user profile.
@@ -111,15 +112,15 @@ adminCreateUserConfigType_allowAdminCreateUserOnly = Lens.lens (\AdminCreateUser
 adminCreateUserConfigType_unusedAccountValidityDays :: Lens.Lens' AdminCreateUserConfigType (Prelude.Maybe Prelude.Natural)
 adminCreateUserConfigType_unusedAccountValidityDays = Lens.lens (\AdminCreateUserConfigType' {unusedAccountValidityDays} -> unusedAccountValidityDays) (\s@AdminCreateUserConfigType' {} a -> s {unusedAccountValidityDays = a} :: AdminCreateUserConfigType)
 
-instance Core.FromJSON AdminCreateUserConfigType where
+instance Data.FromJSON AdminCreateUserConfigType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdminCreateUserConfigType"
       ( \x ->
           AdminCreateUserConfigType'
-            Prelude.<$> (x Core..:? "InviteMessageTemplate")
-            Prelude.<*> (x Core..:? "AllowAdminCreateUserOnly")
-            Prelude.<*> (x Core..:? "UnusedAccountValidityDays")
+            Prelude.<$> (x Data..:? "InviteMessageTemplate")
+            Prelude.<*> (x Data..:? "AllowAdminCreateUserOnly")
+            Prelude.<*> (x Data..:? "UnusedAccountValidityDays")
       )
 
 instance Prelude.Hashable AdminCreateUserConfigType where
@@ -134,15 +135,15 @@ instance Prelude.NFData AdminCreateUserConfigType where
       `Prelude.seq` Prelude.rnf allowAdminCreateUserOnly
       `Prelude.seq` Prelude.rnf unusedAccountValidityDays
 
-instance Core.ToJSON AdminCreateUserConfigType where
+instance Data.ToJSON AdminCreateUserConfigType where
   toJSON AdminCreateUserConfigType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InviteMessageTemplate" Core..=)
+          [ ("InviteMessageTemplate" Data..=)
               Prelude.<$> inviteMessageTemplate,
-            ("AllowAdminCreateUserOnly" Core..=)
+            ("AllowAdminCreateUserOnly" Data..=)
               Prelude.<$> allowAdminCreateUserOnly,
-            ("UnusedAccountValidityDays" Core..=)
+            ("UnusedAccountValidityDays" Data..=)
               Prelude.<$> unusedAccountValidityDays
           ]
       )

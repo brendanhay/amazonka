@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.CancelStepsInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.CancelStepsRequestStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,15 +76,15 @@ cancelStepsInfo_reason = Lens.lens (\CancelStepsInfo' {reason} -> reason) (\s@Ca
 cancelStepsInfo_stepId :: Lens.Lens' CancelStepsInfo (Prelude.Maybe Prelude.Text)
 cancelStepsInfo_stepId = Lens.lens (\CancelStepsInfo' {stepId} -> stepId) (\s@CancelStepsInfo' {} a -> s {stepId = a} :: CancelStepsInfo)
 
-instance Core.FromJSON CancelStepsInfo where
+instance Data.FromJSON CancelStepsInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CancelStepsInfo"
       ( \x ->
           CancelStepsInfo'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Reason")
-            Prelude.<*> (x Core..:? "StepId")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Reason")
+            Prelude.<*> (x Data..:? "StepId")
       )
 
 instance Prelude.Hashable CancelStepsInfo where

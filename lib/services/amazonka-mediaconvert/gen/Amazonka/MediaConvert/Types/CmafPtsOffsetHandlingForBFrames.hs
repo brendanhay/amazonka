@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use this setting only when your output video stream has B-frames, which
@@ -41,7 +42,7 @@ import qualified Amazonka.Prelude as Prelude
 -- manifests start at zero regardless of your choice here.
 newtype CmafPtsOffsetHandlingForBFrames = CmafPtsOffsetHandlingForBFrames'
   { fromCmafPtsOffsetHandlingForBFrames ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -53,18 +54,18 @@ newtype CmafPtsOffsetHandlingForBFrames = CmafPtsOffsetHandlingForBFrames'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern CmafPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS :: CmafPtsOffsetHandlingForBFrames

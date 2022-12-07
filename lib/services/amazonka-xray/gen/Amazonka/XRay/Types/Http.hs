@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.Http where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an HTTP request.
@@ -88,17 +89,17 @@ http_userAgent = Lens.lens (\Http' {userAgent} -> userAgent) (\s@Http' {} a -> s
 http_clientIp :: Lens.Lens' Http (Prelude.Maybe Prelude.Text)
 http_clientIp = Lens.lens (\Http' {clientIp} -> clientIp) (\s@Http' {} a -> s {clientIp = a} :: Http)
 
-instance Core.FromJSON Http where
+instance Data.FromJSON Http where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Http"
       ( \x ->
           Http'
-            Prelude.<$> (x Core..:? "HttpURL")
-            Prelude.<*> (x Core..:? "HttpStatus")
-            Prelude.<*> (x Core..:? "HttpMethod")
-            Prelude.<*> (x Core..:? "UserAgent")
-            Prelude.<*> (x Core..:? "ClientIp")
+            Prelude.<$> (x Data..:? "HttpURL")
+            Prelude.<*> (x Data..:? "HttpStatus")
+            Prelude.<*> (x Data..:? "HttpMethod")
+            Prelude.<*> (x Data..:? "UserAgent")
+            Prelude.<*> (x Data..:? "ClientIp")
       )
 
 instance Prelude.Hashable Http where

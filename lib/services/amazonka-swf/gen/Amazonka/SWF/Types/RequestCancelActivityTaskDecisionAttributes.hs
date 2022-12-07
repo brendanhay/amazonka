@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.RequestCancelActivityTaskDecisionAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @RequestCancelActivityTask@ decision.
@@ -93,12 +94,12 @@ instance
     Prelude.rnf activityId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RequestCancelActivityTaskDecisionAttributes
   where
   toJSON
     RequestCancelActivityTaskDecisionAttributes' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [Prelude.Just ("activityId" Core..= activityId)]
+            [Prelude.Just ("activityId" Data..= activityId)]
         )

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,7 +73,7 @@ data UpdateUser = UpdateUser'
     givenName :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The surname of the user.
     surname :: Prelude.Maybe Prelude.Text,
     -- | The ID of the user.
@@ -153,7 +154,7 @@ updateUser_givenName = Lens.lens (\UpdateUser' {givenName} -> givenName) (\s@Upd
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 updateUser_authenticationToken :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
-updateUser_authenticationToken = Lens.lens (\UpdateUser' {authenticationToken} -> authenticationToken) (\s@UpdateUser' {} a -> s {authenticationToken = a} :: UpdateUser) Prelude.. Lens.mapping Core._Sensitive
+updateUser_authenticationToken = Lens.lens (\UpdateUser' {authenticationToken} -> authenticationToken) (\s@UpdateUser' {} a -> s {authenticationToken = a} :: UpdateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The surname of the user.
 updateUser_surname :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
@@ -171,7 +172,7 @@ instance Core.AWSRequest UpdateUser where
     Response.receiveJSON
       ( \s h x ->
           UpdateUserResponse'
-            Prelude.<$> (x Core..?> "User")
+            Prelude.<$> (x Data..?> "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,35 +201,35 @@ instance Prelude.NFData UpdateUser where
       `Prelude.seq` Prelude.rnf surname
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders UpdateUser where
+instance Data.ToHeaders UpdateUser where
   toHeaders UpdateUser' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON UpdateUser where
+instance Data.ToJSON UpdateUser where
   toJSON UpdateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GrantPoweruserPrivileges" Core..=)
+          [ ("GrantPoweruserPrivileges" Data..=)
               Prelude.<$> grantPoweruserPrivileges,
-            ("Type" Core..=) Prelude.<$> type',
-            ("TimeZoneId" Core..=) Prelude.<$> timeZoneId,
-            ("StorageRule" Core..=) Prelude.<$> storageRule,
-            ("Locale" Core..=) Prelude.<$> locale,
-            ("GivenName" Core..=) Prelude.<$> givenName,
-            ("Surname" Core..=) Prelude.<$> surname
+            ("Type" Data..=) Prelude.<$> type',
+            ("TimeZoneId" Data..=) Prelude.<$> timeZoneId,
+            ("StorageRule" Data..=) Prelude.<$> storageRule,
+            ("Locale" Data..=) Prelude.<$> locale,
+            ("GivenName" Data..=) Prelude.<$> givenName,
+            ("Surname" Data..=) Prelude.<$> surname
           ]
       )
 
-instance Core.ToPath UpdateUser where
+instance Data.ToPath UpdateUser where
   toPath UpdateUser' {..} =
     Prelude.mconcat
-      ["/api/v1/users/", Core.toBS userId]
+      ["/api/v1/users/", Data.toBS userId]
 
-instance Core.ToQuery UpdateUser where
+instance Data.ToQuery UpdateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserResponse' smart constructor.

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ instance Core.AWSRequest RejectInboundConnection where
     Response.receiveJSON
       ( \s h x ->
           RejectInboundConnectionResponse'
-            Prelude.<$> (x Core..?> "Connection")
+            Prelude.<$> (x Data..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,21 +103,21 @@ instance Prelude.NFData RejectInboundConnection where
   rnf RejectInboundConnection' {..} =
     Prelude.rnf connectionId
 
-instance Core.ToHeaders RejectInboundConnection where
+instance Data.ToHeaders RejectInboundConnection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON RejectInboundConnection where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON RejectInboundConnection where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath RejectInboundConnection where
+instance Data.ToPath RejectInboundConnection where
   toPath RejectInboundConnection' {..} =
     Prelude.mconcat
       [ "/2021-01-01/opensearch/cc/inboundConnection/",
-        Core.toBS connectionId,
+        Data.toBS connectionId,
         "/reject"
       ]
 
-instance Core.ToQuery RejectInboundConnection where
+instance Data.ToQuery RejectInboundConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @RejectInboundConnection@ operation.

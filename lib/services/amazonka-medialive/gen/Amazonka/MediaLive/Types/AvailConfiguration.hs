@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.AvailConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AvailSettings
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newAvailConfiguration =
 availConfiguration_availSettings :: Lens.Lens' AvailConfiguration (Prelude.Maybe AvailSettings)
 availConfiguration_availSettings = Lens.lens (\AvailConfiguration' {availSettings} -> availSettings) (\s@AvailConfiguration' {} a -> s {availSettings = a} :: AvailConfiguration)
 
-instance Core.FromJSON AvailConfiguration where
+instance Data.FromJSON AvailConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AvailConfiguration"
       ( \x ->
           AvailConfiguration'
-            Prelude.<$> (x Core..:? "availSettings")
+            Prelude.<$> (x Data..:? "availSettings")
       )
 
 instance Prelude.Hashable AvailConfiguration where
@@ -71,11 +72,11 @@ instance Prelude.NFData AvailConfiguration where
   rnf AvailConfiguration' {..} =
     Prelude.rnf availSettings
 
-instance Core.ToJSON AvailConfiguration where
+instance Data.ToJSON AvailConfiguration where
   toJSON AvailConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("availSettings" Core..=)
+          [ ("availSettings" Data..=)
               Prelude.<$> availSettings
           ]
       )

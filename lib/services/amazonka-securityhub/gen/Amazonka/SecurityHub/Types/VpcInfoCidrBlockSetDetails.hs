@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.VpcInfoCidrBlockSetDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details about the IPv4 CIDR blocks for the VPC.
@@ -53,13 +54,13 @@ newVpcInfoCidrBlockSetDetails =
 vpcInfoCidrBlockSetDetails_cidrBlock :: Lens.Lens' VpcInfoCidrBlockSetDetails (Prelude.Maybe Prelude.Text)
 vpcInfoCidrBlockSetDetails_cidrBlock = Lens.lens (\VpcInfoCidrBlockSetDetails' {cidrBlock} -> cidrBlock) (\s@VpcInfoCidrBlockSetDetails' {} a -> s {cidrBlock = a} :: VpcInfoCidrBlockSetDetails)
 
-instance Core.FromJSON VpcInfoCidrBlockSetDetails where
+instance Data.FromJSON VpcInfoCidrBlockSetDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcInfoCidrBlockSetDetails"
       ( \x ->
           VpcInfoCidrBlockSetDetails'
-            Prelude.<$> (x Core..:? "CidrBlock")
+            Prelude.<$> (x Data..:? "CidrBlock")
       )
 
 instance Prelude.Hashable VpcInfoCidrBlockSetDetails where
@@ -70,9 +71,9 @@ instance Prelude.NFData VpcInfoCidrBlockSetDetails where
   rnf VpcInfoCidrBlockSetDetails' {..} =
     Prelude.rnf cidrBlock
 
-instance Core.ToJSON VpcInfoCidrBlockSetDetails where
+instance Data.ToJSON VpcInfoCidrBlockSetDetails where
   toJSON VpcInfoCidrBlockSetDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("CidrBlock" Core..=) Prelude.<$> cidrBlock]
+          [("CidrBlock" Data..=) Prelude.<$> cidrBlock]
       )

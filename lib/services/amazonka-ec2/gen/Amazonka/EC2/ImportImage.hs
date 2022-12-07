@@ -81,6 +81,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -451,30 +452,30 @@ instance Core.AWSRequest ImportImage where
     Response.receiveXML
       ( \s h x ->
           ImportImageResponse'
-            Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "hypervisor")
-            Prelude.<*> (x Core..@? "progress")
-            Prelude.<*> (x Core..@? "licenseType")
-            Prelude.<*> (x Core..@? "importTaskId")
-            Prelude.<*> (x Core..@? "status")
-            Prelude.<*> (x Core..@? "platform")
-            Prelude.<*> (x Core..@? "description")
-            Prelude.<*> (x Core..@? "usageOperation")
-            Prelude.<*> (x Core..@? "encrypted")
-            Prelude.<*> (x Core..@? "kmsKeyId")
-            Prelude.<*> ( x Core..@? "licenseSpecifications"
+            Prelude.<*> (x Data..@? "hypervisor")
+            Prelude.<*> (x Data..@? "progress")
+            Prelude.<*> (x Data..@? "licenseType")
+            Prelude.<*> (x Data..@? "importTaskId")
+            Prelude.<*> (x Data..@? "status")
+            Prelude.<*> (x Data..@? "platform")
+            Prelude.<*> (x Data..@? "description")
+            Prelude.<*> (x Data..@? "usageOperation")
+            Prelude.<*> (x Data..@? "encrypted")
+            Prelude.<*> (x Data..@? "kmsKeyId")
+            Prelude.<*> ( x Data..@? "licenseSpecifications"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Core..@? "snapshotDetailSet"
+            Prelude.<*> ( x Data..@? "snapshotDetailSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "statusMessage")
-            Prelude.<*> (x Core..@? "architecture")
-            Prelude.<*> (x Core..@? "imageId")
+            Prelude.<*> (x Data..@? "statusMessage")
+            Prelude.<*> (x Data..@? "architecture")
+            Prelude.<*> (x Data..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -516,44 +517,44 @@ instance Prelude.NFData ImportImage where
       `Prelude.seq` Prelude.rnf clientData
       `Prelude.seq` Prelude.rnf architecture
 
-instance Core.ToHeaders ImportImage where
+instance Data.ToHeaders ImportImage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ImportImage where
+instance Data.ToPath ImportImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportImage where
+instance Data.ToQuery ImportImage where
   toQuery ImportImage' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ImportImage" :: Prelude.ByteString),
+          Data.=: ("ImportImage" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Hypervisor" Core.=: hypervisor,
-        "RoleName" Core.=: roleName,
-        "ClientToken" Core.=: clientToken,
-        "LicenseType" Core.=: licenseType,
-        Core.toQuery
-          ( Core.toQueryList "DiskContainer"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Hypervisor" Data.=: hypervisor,
+        "RoleName" Data.=: roleName,
+        "ClientToken" Data.=: clientToken,
+        "LicenseType" Data.=: licenseType,
+        Data.toQuery
+          ( Data.toQueryList "DiskContainer"
               Prelude.<$> diskContainers
           ),
-        "Platform" Core.=: platform,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "UsageOperation" Core.=: usageOperation,
-        "Encrypted" Core.=: encrypted,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "BootMode" Core.=: bootMode,
-        Core.toQuery
-          ( Core.toQueryList "LicenseSpecifications"
+        "Platform" Data.=: platform,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "UsageOperation" Data.=: usageOperation,
+        "Encrypted" Data.=: encrypted,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "BootMode" Data.=: bootMode,
+        Data.toQuery
+          ( Data.toQueryList "LicenseSpecifications"
               Prelude.<$> licenseSpecifications
           ),
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "ClientData" Core.=: clientData,
-        "Architecture" Core.=: architecture
+        "ClientData" Data.=: clientData,
+        "Architecture" Data.=: architecture
       ]
 
 -- | /See:/ 'newImportImageResponse' smart constructor.

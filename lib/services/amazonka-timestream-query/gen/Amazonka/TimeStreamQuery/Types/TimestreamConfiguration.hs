@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.TimestreamConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamQuery.Types.DimensionMapping
 import Amazonka.TimeStreamQuery.Types.MixedMeasureMapping
@@ -133,20 +134,20 @@ timestreamConfiguration_timeColumn = Lens.lens (\TimestreamConfiguration' {timeC
 timestreamConfiguration_dimensionMappings :: Lens.Lens' TimestreamConfiguration [DimensionMapping]
 timestreamConfiguration_dimensionMappings = Lens.lens (\TimestreamConfiguration' {dimensionMappings} -> dimensionMappings) (\s@TimestreamConfiguration' {} a -> s {dimensionMappings = a} :: TimestreamConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON TimestreamConfiguration where
+instance Data.FromJSON TimestreamConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimestreamConfiguration"
       ( \x ->
           TimestreamConfiguration'
-            Prelude.<$> (x Core..:? "MeasureNameColumn")
-            Prelude.<*> (x Core..:? "MixedMeasureMappings")
-            Prelude.<*> (x Core..:? "MultiMeasureMappings")
-            Prelude.<*> (x Core..: "DatabaseName")
-            Prelude.<*> (x Core..: "TableName")
-            Prelude.<*> (x Core..: "TimeColumn")
-            Prelude.<*> ( x Core..:? "DimensionMappings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "MeasureNameColumn")
+            Prelude.<*> (x Data..:? "MixedMeasureMappings")
+            Prelude.<*> (x Data..:? "MultiMeasureMappings")
+            Prelude.<*> (x Data..: "DatabaseName")
+            Prelude.<*> (x Data..: "TableName")
+            Prelude.<*> (x Data..: "TimeColumn")
+            Prelude.<*> ( x Data..:? "DimensionMappings"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -170,20 +171,20 @@ instance Prelude.NFData TimestreamConfiguration where
       `Prelude.seq` Prelude.rnf timeColumn
       `Prelude.seq` Prelude.rnf dimensionMappings
 
-instance Core.ToJSON TimestreamConfiguration where
+instance Data.ToJSON TimestreamConfiguration where
   toJSON TimestreamConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MeasureNameColumn" Core..=)
+          [ ("MeasureNameColumn" Data..=)
               Prelude.<$> measureNameColumn,
-            ("MixedMeasureMappings" Core..=)
+            ("MixedMeasureMappings" Data..=)
               Prelude.<$> mixedMeasureMappings,
-            ("MultiMeasureMappings" Core..=)
+            ("MultiMeasureMappings" Data..=)
               Prelude.<$> multiMeasureMappings,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("TimeColumn" Core..= timeColumn),
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("TimeColumn" Data..= timeColumn),
             Prelude.Just
-              ("DimensionMappings" Core..= dimensionMappings)
+              ("DimensionMappings" Data..= dimensionMappings)
           ]
       )

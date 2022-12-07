@@ -22,6 +22,7 @@ module Amazonka.Config.Types.ConfigStreamDeliveryInfo where
 import Amazonka.Config.Types.DeliveryStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list that contains the status of the delivery of the configuration
@@ -39,7 +40,7 @@ data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo'
     -- status will be __Not_Applicable__.
     lastStatus :: Prelude.Maybe DeliveryStatus,
     -- | The time from the last status change.
-    lastStatusChangeTime :: Prelude.Maybe Core.POSIX,
+    lastStatusChangeTime :: Prelude.Maybe Data.POSIX,
     -- | The error message from the last attempted delivery.
     lastErrorMessage :: Prelude.Maybe Prelude.Text
   }
@@ -91,22 +92,22 @@ configStreamDeliveryInfo_lastStatus = Lens.lens (\ConfigStreamDeliveryInfo' {las
 
 -- | The time from the last status change.
 configStreamDeliveryInfo_lastStatusChangeTime :: Lens.Lens' ConfigStreamDeliveryInfo (Prelude.Maybe Prelude.UTCTime)
-configStreamDeliveryInfo_lastStatusChangeTime = Lens.lens (\ConfigStreamDeliveryInfo' {lastStatusChangeTime} -> lastStatusChangeTime) (\s@ConfigStreamDeliveryInfo' {} a -> s {lastStatusChangeTime = a} :: ConfigStreamDeliveryInfo) Prelude.. Lens.mapping Core._Time
+configStreamDeliveryInfo_lastStatusChangeTime = Lens.lens (\ConfigStreamDeliveryInfo' {lastStatusChangeTime} -> lastStatusChangeTime) (\s@ConfigStreamDeliveryInfo' {} a -> s {lastStatusChangeTime = a} :: ConfigStreamDeliveryInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The error message from the last attempted delivery.
 configStreamDeliveryInfo_lastErrorMessage :: Lens.Lens' ConfigStreamDeliveryInfo (Prelude.Maybe Prelude.Text)
 configStreamDeliveryInfo_lastErrorMessage = Lens.lens (\ConfigStreamDeliveryInfo' {lastErrorMessage} -> lastErrorMessage) (\s@ConfigStreamDeliveryInfo' {} a -> s {lastErrorMessage = a} :: ConfigStreamDeliveryInfo)
 
-instance Core.FromJSON ConfigStreamDeliveryInfo where
+instance Data.FromJSON ConfigStreamDeliveryInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigStreamDeliveryInfo"
       ( \x ->
           ConfigStreamDeliveryInfo'
-            Prelude.<$> (x Core..:? "lastErrorCode")
-            Prelude.<*> (x Core..:? "lastStatus")
-            Prelude.<*> (x Core..:? "lastStatusChangeTime")
-            Prelude.<*> (x Core..:? "lastErrorMessage")
+            Prelude.<$> (x Data..:? "lastErrorCode")
+            Prelude.<*> (x Data..:? "lastStatus")
+            Prelude.<*> (x Data..:? "lastStatusChangeTime")
+            Prelude.<*> (x Data..:? "lastErrorMessage")
       )
 
 instance Prelude.Hashable ConfigStreamDeliveryInfo where

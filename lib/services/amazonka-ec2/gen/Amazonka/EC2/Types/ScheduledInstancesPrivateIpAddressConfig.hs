@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ScheduledInstancesPrivateIpAddressConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -86,11 +87,11 @@ instance
       `Prelude.seq` Prelude.rnf privateIpAddress
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ScheduledInstancesPrivateIpAddressConfig
   where
   toQuery ScheduledInstancesPrivateIpAddressConfig' {..} =
     Prelude.mconcat
-      [ "Primary" Core.=: primary,
-        "PrivateIpAddress" Core.=: privateIpAddress
+      [ "Primary" Data.=: primary,
+        "PrivateIpAddress" Data.=: privateIpAddress
       ]

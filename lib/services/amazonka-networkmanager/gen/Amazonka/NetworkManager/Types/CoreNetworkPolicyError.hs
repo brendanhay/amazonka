@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.CoreNetworkPolicyError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details about an error in a core network policy.
@@ -74,15 +75,15 @@ coreNetworkPolicyError_errorCode = Lens.lens (\CoreNetworkPolicyError' {errorCod
 coreNetworkPolicyError_message :: Lens.Lens' CoreNetworkPolicyError Prelude.Text
 coreNetworkPolicyError_message = Lens.lens (\CoreNetworkPolicyError' {message} -> message) (\s@CoreNetworkPolicyError' {} a -> s {message = a} :: CoreNetworkPolicyError)
 
-instance Core.FromJSON CoreNetworkPolicyError where
+instance Data.FromJSON CoreNetworkPolicyError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoreNetworkPolicyError"
       ( \x ->
           CoreNetworkPolicyError'
-            Prelude.<$> (x Core..:? "Path")
-            Prelude.<*> (x Core..: "ErrorCode")
-            Prelude.<*> (x Core..: "Message")
+            Prelude.<$> (x Data..:? "Path")
+            Prelude.<*> (x Data..: "ErrorCode")
+            Prelude.<*> (x Data..: "Message")
       )
 
 instance Prelude.Hashable CoreNetworkPolicyError where

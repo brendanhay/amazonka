@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.CustomRoutingListener where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types.PortRange
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,14 +76,14 @@ customRoutingListener_listenerArn = Lens.lens (\CustomRoutingListener' {listener
 customRoutingListener_portRanges :: Lens.Lens' CustomRoutingListener (Prelude.Maybe (Prelude.NonEmpty PortRange))
 customRoutingListener_portRanges = Lens.lens (\CustomRoutingListener' {portRanges} -> portRanges) (\s@CustomRoutingListener' {} a -> s {portRanges = a} :: CustomRoutingListener) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CustomRoutingListener where
+instance Data.FromJSON CustomRoutingListener where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomRoutingListener"
       ( \x ->
           CustomRoutingListener'
-            Prelude.<$> (x Core..:? "ListenerArn")
-            Prelude.<*> (x Core..:? "PortRanges")
+            Prelude.<$> (x Data..:? "ListenerArn")
+            Prelude.<*> (x Data..:? "PortRanges")
       )
 
 instance Prelude.Hashable CustomRoutingListener where

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -57,7 +58,7 @@ import Amazonka.WorkSpacesWeb.Types
 -- | /See:/ 'newCreateTrustStore' smart constructor.
 data CreateTrustStore = CreateTrustStore'
   { -- | The tags to add to the trust store. A tag is a key-value pair.
-    tags :: Prelude.Maybe [Core.Sensitive Tag],
+    tags :: Prelude.Maybe [Data.Sensitive Tag],
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Idempotency ensures that an API request
     -- completes only once. With an idempotent request, if the original request
@@ -68,7 +69,7 @@ data CreateTrustStore = CreateTrustStore'
     -- the AWS SDK.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A list of CA certificates to be added to the trust store.
-    certificateList :: [Core.Base64]
+    certificateList :: [Data.Base64]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -131,7 +132,7 @@ instance Core.AWSRequest CreateTrustStore where
       ( \s h x ->
           CreateTrustStoreResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "trustStoreArn")
+            Prelude.<*> (x Data..:> "trustStoreArn")
       )
 
 instance Prelude.Hashable CreateTrustStore where
@@ -146,32 +147,32 @@ instance Prelude.NFData CreateTrustStore where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf certificateList
 
-instance Core.ToHeaders CreateTrustStore where
+instance Data.ToHeaders CreateTrustStore where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTrustStore where
+instance Data.ToJSON CreateTrustStore where
   toJSON CreateTrustStore' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("certificateList" Core..= certificateList)
+              ("certificateList" Data..= certificateList)
           ]
       )
 
-instance Core.ToPath CreateTrustStore where
+instance Data.ToPath CreateTrustStore where
   toPath = Prelude.const "/trustStores"
 
-instance Core.ToQuery CreateTrustStore where
+instance Data.ToQuery CreateTrustStore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTrustStoreResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.OutputDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.VideoDetail
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ outputDetail_durationInMs = Lens.lens (\OutputDetail' {durationInMs} -> duration
 outputDetail_videoDetails :: Lens.Lens' OutputDetail (Prelude.Maybe VideoDetail)
 outputDetail_videoDetails = Lens.lens (\OutputDetail' {videoDetails} -> videoDetails) (\s@OutputDetail' {} a -> s {videoDetails = a} :: OutputDetail)
 
-instance Core.FromJSON OutputDetail where
+instance Data.FromJSON OutputDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputDetail"
       ( \x ->
           OutputDetail'
-            Prelude.<$> (x Core..:? "durationInMs")
-            Prelude.<*> (x Core..:? "videoDetails")
+            Prelude.<$> (x Data..:? "durationInMs")
+            Prelude.<*> (x Data..:? "videoDetails")
       )
 
 instance Prelude.Hashable OutputDetail where

@@ -115,6 +115,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -485,7 +486,7 @@ instance Core.AWSRequest RegisterImage where
     Response.receiveXML
       ( \s h x ->
           RegisterImageResponse'
-            Prelude.<$> (x Core..@? "imageId")
+            Prelude.<$> (x Data..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -529,42 +530,42 @@ instance Prelude.NFData RegisterImage where
       `Prelude.seq` Prelude.rnf uefiData
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders RegisterImage where
+instance Data.ToHeaders RegisterImage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RegisterImage where
+instance Data.ToPath RegisterImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterImage where
+instance Data.ToQuery RegisterImage where
   toQuery RegisterImage' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RegisterImage" :: Prelude.ByteString),
+          Data.=: ("RegisterImage" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "SriovNetSupport" Core.=: sriovNetSupport,
-        Core.toQuery
-          ( Core.toQueryList "BlockDeviceMapping"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "SriovNetSupport" Data.=: sriovNetSupport,
+        Data.toQuery
+          ( Data.toQueryList "BlockDeviceMapping"
               Prelude.<$> blockDeviceMappings
           ),
-        "VirtualizationType" Core.=: virtualizationType,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "BillingProduct"
+        "VirtualizationType" Data.=: virtualizationType,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "BillingProduct"
               Prelude.<$> billingProducts
           ),
-        "TpmSupport" Core.=: tpmSupport,
-        "RamdiskId" Core.=: ramdiskId,
-        "ImageLocation" Core.=: imageLocation,
-        "ImdsSupport" Core.=: imdsSupport,
-        "BootMode" Core.=: bootMode,
-        "KernelId" Core.=: kernelId,
-        "Architecture" Core.=: architecture,
-        "EnaSupport" Core.=: enaSupport,
-        "RootDeviceName" Core.=: rootDeviceName,
-        "UefiData" Core.=: uefiData,
-        "Name" Core.=: name
+        "TpmSupport" Data.=: tpmSupport,
+        "RamdiskId" Data.=: ramdiskId,
+        "ImageLocation" Data.=: imageLocation,
+        "ImdsSupport" Data.=: imdsSupport,
+        "BootMode" Data.=: bootMode,
+        "KernelId" Data.=: kernelId,
+        "Architecture" Data.=: architecture,
+        "EnaSupport" Data.=: enaSupport,
+        "RootDeviceName" Data.=: rootDeviceName,
+        "UefiData" Data.=: uefiData,
+        "Name" Data.=: name
       ]
 
 -- | Contains the output of RegisterImage.

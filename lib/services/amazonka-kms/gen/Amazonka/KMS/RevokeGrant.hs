@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,32 +175,32 @@ instance Prelude.NFData RevokeGrant where
   rnf RevokeGrant' {..} =
     Prelude.rnf keyId `Prelude.seq` Prelude.rnf grantId
 
-instance Core.ToHeaders RevokeGrant where
+instance Data.ToHeaders RevokeGrant where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.RevokeGrant" :: Prelude.ByteString),
+              Data.=# ("TrentService.RevokeGrant" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RevokeGrant where
+instance Data.ToJSON RevokeGrant where
   toJSON RevokeGrant' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("KeyId" Core..= keyId),
-            Prelude.Just ("GrantId" Core..= grantId)
+          [ Prelude.Just ("KeyId" Data..= keyId),
+            Prelude.Just ("GrantId" Data..= grantId)
           ]
       )
 
-instance Core.ToPath RevokeGrant where
+instance Data.ToPath RevokeGrant where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RevokeGrant where
+instance Data.ToQuery RevokeGrant where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRevokeGrantResponse' smart constructor.

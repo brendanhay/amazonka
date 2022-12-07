@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.BaselineOverride where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.OperatingSystem
 import Amazonka.SSM.Types.PatchAction
@@ -210,24 +211,24 @@ instance Prelude.NFData BaselineOverride where
       `Prelude.seq` Prelude.rnf rejectedPatches
       `Prelude.seq` Prelude.rnf approvedPatchesEnableNonSecurity
 
-instance Core.ToJSON BaselineOverride where
+instance Data.ToJSON BaselineOverride where
   toJSON BaselineOverride' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OperatingSystem" Core..=)
+          [ ("OperatingSystem" Data..=)
               Prelude.<$> operatingSystem,
-            ("ApprovedPatches" Core..=)
+            ("ApprovedPatches" Data..=)
               Prelude.<$> approvedPatches,
-            ("ApprovedPatchesComplianceLevel" Core..=)
+            ("ApprovedPatchesComplianceLevel" Data..=)
               Prelude.<$> approvedPatchesComplianceLevel,
-            ("Sources" Core..=) Prelude.<$> sources,
-            ("ApprovalRules" Core..=) Prelude.<$> approvalRules,
-            ("RejectedPatchesAction" Core..=)
+            ("Sources" Data..=) Prelude.<$> sources,
+            ("ApprovalRules" Data..=) Prelude.<$> approvalRules,
+            ("RejectedPatchesAction" Data..=)
               Prelude.<$> rejectedPatchesAction,
-            ("GlobalFilters" Core..=) Prelude.<$> globalFilters,
-            ("RejectedPatches" Core..=)
+            ("GlobalFilters" Data..=) Prelude.<$> globalFilters,
+            ("RejectedPatches" Data..=)
               Prelude.<$> rejectedPatches,
-            ("ApprovedPatchesEnableNonSecurity" Core..=)
+            ("ApprovedPatchesEnableNonSecurity" Data..=)
               Prelude.<$> approvedPatchesEnableNonSecurity
           ]
       )

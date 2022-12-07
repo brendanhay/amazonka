@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Mp3Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.Mp3RateControlMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -105,17 +106,17 @@ mp3Settings_vbrQuality = Lens.lens (\Mp3Settings' {vbrQuality} -> vbrQuality) (\
 mp3Settings_rateControlMode :: Lens.Lens' Mp3Settings (Prelude.Maybe Mp3RateControlMode)
 mp3Settings_rateControlMode = Lens.lens (\Mp3Settings' {rateControlMode} -> rateControlMode) (\s@Mp3Settings' {} a -> s {rateControlMode = a} :: Mp3Settings)
 
-instance Core.FromJSON Mp3Settings where
+instance Data.FromJSON Mp3Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Mp3Settings"
       ( \x ->
           Mp3Settings'
-            Prelude.<$> (x Core..:? "channels")
-            Prelude.<*> (x Core..:? "bitrate")
-            Prelude.<*> (x Core..:? "sampleRate")
-            Prelude.<*> (x Core..:? "vbrQuality")
-            Prelude.<*> (x Core..:? "rateControlMode")
+            Prelude.<$> (x Data..:? "channels")
+            Prelude.<*> (x Data..:? "bitrate")
+            Prelude.<*> (x Data..:? "sampleRate")
+            Prelude.<*> (x Data..:? "vbrQuality")
+            Prelude.<*> (x Data..:? "rateControlMode")
       )
 
 instance Prelude.Hashable Mp3Settings where
@@ -134,15 +135,15 @@ instance Prelude.NFData Mp3Settings where
       `Prelude.seq` Prelude.rnf vbrQuality
       `Prelude.seq` Prelude.rnf rateControlMode
 
-instance Core.ToJSON Mp3Settings where
+instance Data.ToJSON Mp3Settings where
   toJSON Mp3Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("channels" Core..=) Prelude.<$> channels,
-            ("bitrate" Core..=) Prelude.<$> bitrate,
-            ("sampleRate" Core..=) Prelude.<$> sampleRate,
-            ("vbrQuality" Core..=) Prelude.<$> vbrQuality,
-            ("rateControlMode" Core..=)
+          [ ("channels" Data..=) Prelude.<$> channels,
+            ("bitrate" Data..=) Prelude.<$> bitrate,
+            ("sampleRate" Data..=) Prelude.<$> sampleRate,
+            ("vbrQuality" Data..=) Prelude.<$> vbrQuality,
+            ("rateControlMode" Data..=)
               Prelude.<$> rateControlMode
           ]
       )

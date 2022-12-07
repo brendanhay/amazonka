@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -70,14 +71,14 @@ data ListFeatureGroups = ListFeatureGroups'
     offlineStoreStatusEquals :: Prelude.Maybe OfflineStoreStatusValue,
     -- | Use this parameter to search for @FeatureGroups@s created before a
     -- specific date and time.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The value on which the feature group list is sorted.
     sortBy :: Prelude.Maybe FeatureGroupSortBy,
     -- | The maximum number of results returned by @ListFeatureGroups@.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter to search for @FeatureGroups@s created after a
     -- specific date and time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX,
+    creationTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | A @FeatureGroup@ status. Filters by @FeatureGroup@ status.
     featureGroupStatusEquals :: Prelude.Maybe FeatureGroupStatus
   }
@@ -146,7 +147,7 @@ listFeatureGroups_offlineStoreStatusEquals = Lens.lens (\ListFeatureGroups' {off
 -- | Use this parameter to search for @FeatureGroups@s created before a
 -- specific date and time.
 listFeatureGroups_creationTimeBefore :: Lens.Lens' ListFeatureGroups (Prelude.Maybe Prelude.UTCTime)
-listFeatureGroups_creationTimeBefore = Lens.lens (\ListFeatureGroups' {creationTimeBefore} -> creationTimeBefore) (\s@ListFeatureGroups' {} a -> s {creationTimeBefore = a} :: ListFeatureGroups) Prelude.. Lens.mapping Core._Time
+listFeatureGroups_creationTimeBefore = Lens.lens (\ListFeatureGroups' {creationTimeBefore} -> creationTimeBefore) (\s@ListFeatureGroups' {} a -> s {creationTimeBefore = a} :: ListFeatureGroups) Prelude.. Lens.mapping Data._Time
 
 -- | The value on which the feature group list is sorted.
 listFeatureGroups_sortBy :: Lens.Lens' ListFeatureGroups (Prelude.Maybe FeatureGroupSortBy)
@@ -159,7 +160,7 @@ listFeatureGroups_maxResults = Lens.lens (\ListFeatureGroups' {maxResults} -> ma
 -- | Use this parameter to search for @FeatureGroups@s created after a
 -- specific date and time.
 listFeatureGroups_creationTimeAfter :: Lens.Lens' ListFeatureGroups (Prelude.Maybe Prelude.UTCTime)
-listFeatureGroups_creationTimeAfter = Lens.lens (\ListFeatureGroups' {creationTimeAfter} -> creationTimeAfter) (\s@ListFeatureGroups' {} a -> s {creationTimeAfter = a} :: ListFeatureGroups) Prelude.. Lens.mapping Core._Time
+listFeatureGroups_creationTimeAfter = Lens.lens (\ListFeatureGroups' {creationTimeAfter} -> creationTimeAfter) (\s@ListFeatureGroups' {} a -> s {creationTimeAfter = a} :: ListFeatureGroups) Prelude.. Lens.mapping Data._Time
 
 -- | A @FeatureGroup@ status. Filters by @FeatureGroup@ status.
 listFeatureGroups_featureGroupStatusEquals :: Lens.Lens' ListFeatureGroups (Prelude.Maybe FeatureGroupStatus)
@@ -196,9 +197,9 @@ instance Core.AWSRequest ListFeatureGroups where
     Response.receiveJSON
       ( \s h x ->
           ListFeatureGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "FeatureGroupSummaries"
+            Prelude.<*> ( x Data..?> "FeatureGroupSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -227,45 +228,45 @@ instance Prelude.NFData ListFeatureGroups where
       `Prelude.seq` Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf featureGroupStatusEquals
 
-instance Core.ToHeaders ListFeatureGroups where
+instance Data.ToHeaders ListFeatureGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListFeatureGroups" ::
+              Data.=# ( "SageMaker.ListFeatureGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListFeatureGroups where
+instance Data.ToJSON ListFeatureGroups where
   toJSON ListFeatureGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("OfflineStoreStatusEquals" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("OfflineStoreStatusEquals" Data..=)
               Prelude.<$> offlineStoreStatusEquals,
-            ("CreationTimeBefore" Core..=)
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CreationTimeAfter" Core..=)
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter,
-            ("FeatureGroupStatusEquals" Core..=)
+            ("FeatureGroupStatusEquals" Data..=)
               Prelude.<$> featureGroupStatusEquals
           ]
       )
 
-instance Core.ToPath ListFeatureGroups where
+instance Data.ToPath ListFeatureGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListFeatureGroups where
+instance Data.ToQuery ListFeatureGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListFeatureGroupsResponse' smart constructor.

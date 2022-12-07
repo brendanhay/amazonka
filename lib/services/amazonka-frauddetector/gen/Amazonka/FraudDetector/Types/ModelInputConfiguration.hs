@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.ModelInputConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.ModelInputDataFormat
 import qualified Amazonka.Prelude as Prelude
 
@@ -116,17 +117,17 @@ modelInputConfiguration_eventTypeName = Lens.lens (\ModelInputConfiguration' {ev
 modelInputConfiguration_useEventVariables :: Lens.Lens' ModelInputConfiguration Prelude.Bool
 modelInputConfiguration_useEventVariables = Lens.lens (\ModelInputConfiguration' {useEventVariables} -> useEventVariables) (\s@ModelInputConfiguration' {} a -> s {useEventVariables = a} :: ModelInputConfiguration)
 
-instance Core.FromJSON ModelInputConfiguration where
+instance Data.FromJSON ModelInputConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelInputConfiguration"
       ( \x ->
           ModelInputConfiguration'
-            Prelude.<$> (x Core..:? "jsonInputTemplate")
-            Prelude.<*> (x Core..:? "format")
-            Prelude.<*> (x Core..:? "csvInputTemplate")
-            Prelude.<*> (x Core..:? "eventTypeName")
-            Prelude.<*> (x Core..: "useEventVariables")
+            Prelude.<$> (x Data..:? "jsonInputTemplate")
+            Prelude.<*> (x Data..:? "format")
+            Prelude.<*> (x Data..:? "csvInputTemplate")
+            Prelude.<*> (x Data..:? "eventTypeName")
+            Prelude.<*> (x Data..: "useEventVariables")
       )
 
 instance Prelude.Hashable ModelInputConfiguration where
@@ -145,17 +146,17 @@ instance Prelude.NFData ModelInputConfiguration where
       `Prelude.seq` Prelude.rnf eventTypeName
       `Prelude.seq` Prelude.rnf useEventVariables
 
-instance Core.ToJSON ModelInputConfiguration where
+instance Data.ToJSON ModelInputConfiguration where
   toJSON ModelInputConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("jsonInputTemplate" Core..=)
+          [ ("jsonInputTemplate" Data..=)
               Prelude.<$> jsonInputTemplate,
-            ("format" Core..=) Prelude.<$> format,
-            ("csvInputTemplate" Core..=)
+            ("format" Data..=) Prelude.<$> format,
+            ("csvInputTemplate" Data..=)
               Prelude.<$> csvInputTemplate,
-            ("eventTypeName" Core..=) Prelude.<$> eventTypeName,
+            ("eventTypeName" Data..=) Prelude.<$> eventTypeName,
             Prelude.Just
-              ("useEventVariables" Core..= useEventVariables)
+              ("useEventVariables" Data..= useEventVariables)
           ]
       )

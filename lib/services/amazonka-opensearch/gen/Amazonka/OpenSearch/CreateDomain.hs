@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -358,7 +359,7 @@ instance Core.AWSRequest CreateDomain where
     Response.receiveJSON
       ( \s h x ->
           CreateDomainResponse'
-            Prelude.<$> (x Core..?> "DomainStatus")
+            Prelude.<$> (x Data..?> "DomainStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -401,47 +402,47 @@ instance Prelude.NFData CreateDomain where
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders CreateDomain where
+instance Data.ToHeaders CreateDomain where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateDomain where
+instance Data.ToJSON CreateDomain where
   toJSON CreateDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NodeToNodeEncryptionOptions" Core..=)
+          [ ("NodeToNodeEncryptionOptions" Data..=)
               Prelude.<$> nodeToNodeEncryptionOptions,
-            ("ClusterConfig" Core..=) Prelude.<$> clusterConfig,
-            ("AdvancedOptions" Core..=)
+            ("ClusterConfig" Data..=) Prelude.<$> clusterConfig,
+            ("AdvancedOptions" Data..=)
               Prelude.<$> advancedOptions,
-            ("TagList" Core..=) Prelude.<$> tagList,
-            ("AdvancedSecurityOptions" Core..=)
+            ("TagList" Data..=) Prelude.<$> tagList,
+            ("AdvancedSecurityOptions" Data..=)
               Prelude.<$> advancedSecurityOptions,
-            ("CognitoOptions" Core..=)
+            ("CognitoOptions" Data..=)
               Prelude.<$> cognitoOptions,
-            ("EncryptionAtRestOptions" Core..=)
+            ("EncryptionAtRestOptions" Data..=)
               Prelude.<$> encryptionAtRestOptions,
-            ("EBSOptions" Core..=) Prelude.<$> eBSOptions,
-            ("AccessPolicies" Core..=)
+            ("EBSOptions" Data..=) Prelude.<$> eBSOptions,
+            ("AccessPolicies" Data..=)
               Prelude.<$> accessPolicies,
-            ("VPCOptions" Core..=) Prelude.<$> vPCOptions,
-            ("AutoTuneOptions" Core..=)
+            ("VPCOptions" Data..=) Prelude.<$> vPCOptions,
+            ("AutoTuneOptions" Data..=)
               Prelude.<$> autoTuneOptions,
-            ("DomainEndpointOptions" Core..=)
+            ("DomainEndpointOptions" Data..=)
               Prelude.<$> domainEndpointOptions,
-            ("SnapshotOptions" Core..=)
+            ("SnapshotOptions" Data..=)
               Prelude.<$> snapshotOptions,
-            ("LogPublishingOptions" Core..=)
+            ("LogPublishingOptions" Data..=)
               Prelude.<$> logPublishingOptions,
-            ("EngineVersion" Core..=) Prelude.<$> engineVersion,
-            Prelude.Just ("DomainName" Core..= domainName)
+            ("EngineVersion" Data..=) Prelude.<$> engineVersion,
+            Prelude.Just ("DomainName" Data..= domainName)
           ]
       )
 
-instance Core.ToPath CreateDomain where
+instance Data.ToPath CreateDomain where
   toPath =
     Prelude.const "/2021-01-01/opensearch/domain"
 
-instance Core.ToQuery CreateDomain where
+instance Data.ToQuery CreateDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a @CreateDomain@ operation. Contains the status of the

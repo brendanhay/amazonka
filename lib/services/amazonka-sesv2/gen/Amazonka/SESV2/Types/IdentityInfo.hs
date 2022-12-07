@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.IdentityInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.IdentityType
 import Amazonka.SESV2.Types.VerificationStatus
@@ -141,16 +142,16 @@ identityInfo_identityType = Lens.lens (\IdentityInfo' {identityType} -> identity
 identityInfo_verificationStatus :: Lens.Lens' IdentityInfo (Prelude.Maybe VerificationStatus)
 identityInfo_verificationStatus = Lens.lens (\IdentityInfo' {verificationStatus} -> verificationStatus) (\s@IdentityInfo' {} a -> s {verificationStatus = a} :: IdentityInfo)
 
-instance Core.FromJSON IdentityInfo where
+instance Data.FromJSON IdentityInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityInfo"
       ( \x ->
           IdentityInfo'
-            Prelude.<$> (x Core..:? "SendingEnabled")
-            Prelude.<*> (x Core..:? "IdentityName")
-            Prelude.<*> (x Core..:? "IdentityType")
-            Prelude.<*> (x Core..:? "VerificationStatus")
+            Prelude.<$> (x Data..:? "SendingEnabled")
+            Prelude.<*> (x Data..:? "IdentityName")
+            Prelude.<*> (x Data..:? "IdentityType")
+            Prelude.<*> (x Data..:? "VerificationStatus")
       )
 
 instance Prelude.Hashable IdentityInfo where

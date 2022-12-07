@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.AttributeFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DocumentAttribute
 import qualified Amazonka.Prelude as Prelude
 
@@ -209,21 +210,21 @@ instance Prelude.NFData AttributeFilter where
       `Prelude.seq` Prelude.rnf greaterThan
       `Prelude.seq` Prelude.rnf lessThanOrEquals
 
-instance Core.ToJSON AttributeFilter where
+instance Data.ToJSON AttributeFilter where
   toJSON AttributeFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContainsAll" Core..=) Prelude.<$> containsAll,
-            ("ContainsAny" Core..=) Prelude.<$> containsAny,
-            ("LessThan" Core..=) Prelude.<$> lessThan,
-            ("AndAllFilters" Core..=) Prelude.<$> andAllFilters,
-            ("OrAllFilters" Core..=) Prelude.<$> orAllFilters,
-            ("NotFilter" Core..=) Prelude.<$> notFilter,
-            ("GreaterThanOrEquals" Core..=)
+          [ ("ContainsAll" Data..=) Prelude.<$> containsAll,
+            ("ContainsAny" Data..=) Prelude.<$> containsAny,
+            ("LessThan" Data..=) Prelude.<$> lessThan,
+            ("AndAllFilters" Data..=) Prelude.<$> andAllFilters,
+            ("OrAllFilters" Data..=) Prelude.<$> orAllFilters,
+            ("NotFilter" Data..=) Prelude.<$> notFilter,
+            ("GreaterThanOrEquals" Data..=)
               Prelude.<$> greaterThanOrEquals,
-            ("EqualsTo" Core..=) Prelude.<$> equalsTo,
-            ("GreaterThan" Core..=) Prelude.<$> greaterThan,
-            ("LessThanOrEquals" Core..=)
+            ("EqualsTo" Data..=) Prelude.<$> equalsTo,
+            ("GreaterThan" Data..=) Prelude.<$> greaterThan,
+            ("LessThanOrEquals" Data..=)
               Prelude.<$> lessThanOrEquals
           ]
       )

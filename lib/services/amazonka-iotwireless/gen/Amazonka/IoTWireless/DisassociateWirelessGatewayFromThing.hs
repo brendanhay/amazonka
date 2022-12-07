@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,21 +106,21 @@ instance
     Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateWirelessGatewayFromThing
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateWirelessGatewayFromThing
   where
   toPath DisassociateWirelessGatewayFromThing' {..} =
     Prelude.mconcat
-      ["/wireless-gateways/", Core.toBS id, "/thing"]
+      ["/wireless-gateways/", Data.toBS id, "/thing"]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateWirelessGatewayFromThing
   where
   toQuery = Prelude.const Prelude.mempty

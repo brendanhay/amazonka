@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.ResourceRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 
@@ -85,9 +86,9 @@ newResourceRecord pValue_ =
 resourceRecord_value :: Lens.Lens' ResourceRecord Prelude.Text
 resourceRecord_value = Lens.lens (\ResourceRecord' {value} -> value) (\s@ResourceRecord' {} a -> s {value = a} :: ResourceRecord)
 
-instance Core.FromXML ResourceRecord where
+instance Data.FromXML ResourceRecord where
   parseXML x =
-    ResourceRecord' Prelude.<$> (x Core..@ "Value")
+    ResourceRecord' Prelude.<$> (x Data..@ "Value")
 
 instance Prelude.Hashable ResourceRecord where
   hashWithSalt _salt ResourceRecord' {..} =
@@ -96,6 +97,6 @@ instance Prelude.Hashable ResourceRecord where
 instance Prelude.NFData ResourceRecord where
   rnf ResourceRecord' {..} = Prelude.rnf value
 
-instance Core.ToXML ResourceRecord where
+instance Data.ToXML ResourceRecord where
   toXML ResourceRecord' {..} =
-    Prelude.mconcat ["Value" Core.@= value]
+    Prelude.mconcat ["Value" Data.@= value]

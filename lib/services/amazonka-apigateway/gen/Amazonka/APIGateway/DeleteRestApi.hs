@@ -38,6 +38,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,20 +88,20 @@ instance Prelude.Hashable DeleteRestApi where
 instance Prelude.NFData DeleteRestApi where
   rnf DeleteRestApi' {..} = Prelude.rnf restApiId
 
-instance Core.ToHeaders DeleteRestApi where
+instance Data.ToHeaders DeleteRestApi where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath DeleteRestApi where
+instance Data.ToPath DeleteRestApi where
   toPath DeleteRestApi' {..} =
-    Prelude.mconcat ["/restapis/", Core.toBS restApiId]
+    Prelude.mconcat ["/restapis/", Data.toBS restApiId]
 
-instance Core.ToQuery DeleteRestApi where
+instance Data.ToQuery DeleteRestApi where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRestApiResponse' smart constructor.

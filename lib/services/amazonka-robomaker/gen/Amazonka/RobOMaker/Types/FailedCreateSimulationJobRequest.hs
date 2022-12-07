@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.FailedCreateSimulationJobRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.SimulationJobErrorCode
 import Amazonka.RobOMaker.Types.SimulationJobRequest
@@ -35,7 +36,7 @@ data FailedCreateSimulationJobRequest = FailedCreateSimulationJobRequest'
     request :: Prelude.Maybe SimulationJobRequest,
     -- | The time, in milliseconds since the epoch, when the simulation job batch
     -- failed.
-    failedAt :: Prelude.Maybe Core.POSIX,
+    failedAt :: Prelude.Maybe Data.POSIX,
     -- | The failure reason of the simulation job request.
     failureReason :: Prelude.Maybe Prelude.Text
   }
@@ -79,25 +80,25 @@ failedCreateSimulationJobRequest_request = Lens.lens (\FailedCreateSimulationJob
 -- | The time, in milliseconds since the epoch, when the simulation job batch
 -- failed.
 failedCreateSimulationJobRequest_failedAt :: Lens.Lens' FailedCreateSimulationJobRequest (Prelude.Maybe Prelude.UTCTime)
-failedCreateSimulationJobRequest_failedAt = Lens.lens (\FailedCreateSimulationJobRequest' {failedAt} -> failedAt) (\s@FailedCreateSimulationJobRequest' {} a -> s {failedAt = a} :: FailedCreateSimulationJobRequest) Prelude.. Lens.mapping Core._Time
+failedCreateSimulationJobRequest_failedAt = Lens.lens (\FailedCreateSimulationJobRequest' {failedAt} -> failedAt) (\s@FailedCreateSimulationJobRequest' {} a -> s {failedAt = a} :: FailedCreateSimulationJobRequest) Prelude.. Lens.mapping Data._Time
 
 -- | The failure reason of the simulation job request.
 failedCreateSimulationJobRequest_failureReason :: Lens.Lens' FailedCreateSimulationJobRequest (Prelude.Maybe Prelude.Text)
 failedCreateSimulationJobRequest_failureReason = Lens.lens (\FailedCreateSimulationJobRequest' {failureReason} -> failureReason) (\s@FailedCreateSimulationJobRequest' {} a -> s {failureReason = a} :: FailedCreateSimulationJobRequest)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FailedCreateSimulationJobRequest
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedCreateSimulationJobRequest"
       ( \x ->
           FailedCreateSimulationJobRequest'
-            Prelude.<$> (x Core..:? "failureCode")
-            Prelude.<*> (x Core..:? "request")
-            Prelude.<*> (x Core..:? "failedAt")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "failureCode")
+            Prelude.<*> (x Data..:? "request")
+            Prelude.<*> (x Data..:? "failedAt")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance

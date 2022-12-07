@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -270,7 +271,7 @@ instance Core.AWSRequest ModifyGlobalCluster where
       "ModifyGlobalClusterResult"
       ( \s h x ->
           ModifyGlobalClusterResponse'
-            Prelude.<$> (x Core..@? "GlobalCluster")
+            Prelude.<$> (x Data..@? "GlobalCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -291,27 +292,27 @@ instance Prelude.NFData ModifyGlobalCluster where
       `Prelude.seq` Prelude.rnf newGlobalClusterIdentifier'
       `Prelude.seq` Prelude.rnf engineVersion
 
-instance Core.ToHeaders ModifyGlobalCluster where
+instance Data.ToHeaders ModifyGlobalCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyGlobalCluster where
+instance Data.ToPath ModifyGlobalCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyGlobalCluster where
+instance Data.ToQuery ModifyGlobalCluster where
   toQuery ModifyGlobalCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyGlobalCluster" :: Prelude.ByteString),
+          Data.=: ("ModifyGlobalCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "AllowMajorVersionUpgrade"
-          Core.=: allowMajorVersionUpgrade,
+          Data.=: allowMajorVersionUpgrade,
         "GlobalClusterIdentifier"
-          Core.=: globalClusterIdentifier,
-        "DeletionProtection" Core.=: deletionProtection,
+          Data.=: globalClusterIdentifier,
+        "DeletionProtection" Data.=: deletionProtection,
         "NewGlobalClusterIdentifier"
-          Core.=: newGlobalClusterIdentifier',
-        "EngineVersion" Core.=: engineVersion
+          Data.=: newGlobalClusterIdentifier',
+        "EngineVersion" Data.=: engineVersion
       ]
 
 -- | /See:/ 'newModifyGlobalClusterResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.FileSourceSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.CaptionSourceFramerate
 import Amazonka.MediaConvert.Types.FileSourceConvert608To708
 import Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits
@@ -187,17 +188,17 @@ fileSourceSettings_sourceFile = Lens.lens (\FileSourceSettings' {sourceFile} -> 
 fileSourceSettings_framerate :: Lens.Lens' FileSourceSettings (Prelude.Maybe CaptionSourceFramerate)
 fileSourceSettings_framerate = Lens.lens (\FileSourceSettings' {framerate} -> framerate) (\s@FileSourceSettings' {} a -> s {framerate = a} :: FileSourceSettings)
 
-instance Core.FromJSON FileSourceSettings where
+instance Data.FromJSON FileSourceSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileSourceSettings"
       ( \x ->
           FileSourceSettings'
-            Prelude.<$> (x Core..:? "timeDelta")
-            Prelude.<*> (x Core..:? "convert608To708")
-            Prelude.<*> (x Core..:? "timeDeltaUnits")
-            Prelude.<*> (x Core..:? "sourceFile")
-            Prelude.<*> (x Core..:? "framerate")
+            Prelude.<$> (x Data..:? "timeDelta")
+            Prelude.<*> (x Data..:? "convert608To708")
+            Prelude.<*> (x Data..:? "timeDeltaUnits")
+            Prelude.<*> (x Data..:? "sourceFile")
+            Prelude.<*> (x Data..:? "framerate")
       )
 
 instance Prelude.Hashable FileSourceSettings where
@@ -216,16 +217,16 @@ instance Prelude.NFData FileSourceSettings where
       `Prelude.seq` Prelude.rnf sourceFile
       `Prelude.seq` Prelude.rnf framerate
 
-instance Core.ToJSON FileSourceSettings where
+instance Data.ToJSON FileSourceSettings where
   toJSON FileSourceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timeDelta" Core..=) Prelude.<$> timeDelta,
-            ("convert608To708" Core..=)
+          [ ("timeDelta" Data..=) Prelude.<$> timeDelta,
+            ("convert608To708" Data..=)
               Prelude.<$> convert608To708,
-            ("timeDeltaUnits" Core..=)
+            ("timeDeltaUnits" Data..=)
               Prelude.<$> timeDeltaUnits,
-            ("sourceFile" Core..=) Prelude.<$> sourceFile,
-            ("framerate" Core..=) Prelude.<$> framerate
+            ("sourceFile" Data..=) Prelude.<$> sourceFile,
+            ("framerate" Data..=) Prelude.<$> framerate
           ]
       )

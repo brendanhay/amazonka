@@ -21,6 +21,7 @@ module Amazonka.ConnectContactLens.Types.CharacterOffsets where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For characters that were detected as issues, where they occur in the
@@ -67,14 +68,14 @@ characterOffsets_beginOffsetChar = Lens.lens (\CharacterOffsets' {beginOffsetCha
 characterOffsets_endOffsetChar :: Lens.Lens' CharacterOffsets Prelude.Natural
 characterOffsets_endOffsetChar = Lens.lens (\CharacterOffsets' {endOffsetChar} -> endOffsetChar) (\s@CharacterOffsets' {} a -> s {endOffsetChar = a} :: CharacterOffsets)
 
-instance Core.FromJSON CharacterOffsets where
+instance Data.FromJSON CharacterOffsets where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CharacterOffsets"
       ( \x ->
           CharacterOffsets'
-            Prelude.<$> (x Core..: "BeginOffsetChar")
-            Prelude.<*> (x Core..: "EndOffsetChar")
+            Prelude.<$> (x Data..: "BeginOffsetChar")
+            Prelude.<*> (x Data..: "EndOffsetChar")
       )
 
 instance Prelude.Hashable CharacterOffsets where

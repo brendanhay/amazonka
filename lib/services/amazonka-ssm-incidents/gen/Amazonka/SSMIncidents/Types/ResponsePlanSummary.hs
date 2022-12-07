@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.ResponsePlanSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of the response plan that are used when creating an incident.
@@ -74,15 +75,15 @@ responsePlanSummary_arn = Lens.lens (\ResponsePlanSummary' {arn} -> arn) (\s@Res
 responsePlanSummary_name :: Lens.Lens' ResponsePlanSummary Prelude.Text
 responsePlanSummary_name = Lens.lens (\ResponsePlanSummary' {name} -> name) (\s@ResponsePlanSummary' {} a -> s {name = a} :: ResponsePlanSummary)
 
-instance Core.FromJSON ResponsePlanSummary where
+instance Data.FromJSON ResponsePlanSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResponsePlanSummary"
       ( \x ->
           ResponsePlanSummary'
-            Prelude.<$> (x Core..:? "displayName")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "displayName")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable ResponsePlanSummary where

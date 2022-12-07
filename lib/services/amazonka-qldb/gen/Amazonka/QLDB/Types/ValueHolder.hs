@@ -21,6 +21,7 @@ module Amazonka.QLDB.Types.ValueHolder where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that can contain a value in multiple encoding formats.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newValueHolder' smart constructor.
 data ValueHolder = ValueHolder'
   { -- | An Amazon Ion plaintext value contained in a @ValueHolder@ structure.
-    ionText :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    ionText :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -48,14 +49,14 @@ newValueHolder =
 
 -- | An Amazon Ion plaintext value contained in a @ValueHolder@ structure.
 valueHolder_ionText :: Lens.Lens' ValueHolder (Prelude.Maybe Prelude.Text)
-valueHolder_ionText = Lens.lens (\ValueHolder' {ionText} -> ionText) (\s@ValueHolder' {} a -> s {ionText = a} :: ValueHolder) Prelude.. Lens.mapping Core._Sensitive
+valueHolder_ionText = Lens.lens (\ValueHolder' {ionText} -> ionText) (\s@ValueHolder' {} a -> s {ionText = a} :: ValueHolder) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON ValueHolder where
+instance Data.FromJSON ValueHolder where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ValueHolder"
       ( \x ->
-          ValueHolder' Prelude.<$> (x Core..:? "IonText")
+          ValueHolder' Prelude.<$> (x Data..:? "IonText")
       )
 
 instance Prelude.Hashable ValueHolder where
@@ -65,9 +66,9 @@ instance Prelude.Hashable ValueHolder where
 instance Prelude.NFData ValueHolder where
   rnf ValueHolder' {..} = Prelude.rnf ionText
 
-instance Core.ToJSON ValueHolder where
+instance Data.ToJSON ValueHolder where
   toJSON ValueHolder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("IonText" Core..=) Prelude.<$> ionText]
+          [("IonText" Data..=) Prelude.<$> ionText]
       )

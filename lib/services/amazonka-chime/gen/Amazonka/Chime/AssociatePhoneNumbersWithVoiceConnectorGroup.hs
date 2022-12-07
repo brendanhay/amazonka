@@ -45,6 +45,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,7 +60,7 @@ data AssociatePhoneNumbersWithVoiceConnectorGroup = AssociatePhoneNumbersWithVoi
     -- | The Amazon Chime Voice Connector group ID.
     voiceConnectorGroupId :: Prelude.Text,
     -- | List of phone numbers, in E.164 format.
-    e164PhoneNumbers :: [Core.Sensitive Prelude.Text]
+    e164PhoneNumbers :: [Data.Sensitive Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -123,7 +124,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AssociatePhoneNumbersWithVoiceConnectorGroupResponse'
-            Prelude.<$> ( x Core..?> "PhoneNumberErrors"
+            Prelude.<$> ( x Data..?> "PhoneNumberErrors"
                             Core..!@ Prelude.mempty
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -150,39 +151,39 @@ instance
       `Prelude.seq` Prelude.rnf e164PhoneNumbers
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AssociatePhoneNumbersWithVoiceConnectorGroup
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AssociatePhoneNumbersWithVoiceConnectorGroup
   where
   toJSON
     AssociatePhoneNumbersWithVoiceConnectorGroup' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ForceAssociate" Core..=)
+            [ ("ForceAssociate" Data..=)
                 Prelude.<$> forceAssociate,
               Prelude.Just
-                ("E164PhoneNumbers" Core..= e164PhoneNumbers)
+                ("E164PhoneNumbers" Data..= e164PhoneNumbers)
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     AssociatePhoneNumbersWithVoiceConnectorGroup
   where
   toPath
     AssociatePhoneNumbersWithVoiceConnectorGroup' {..} =
       Prelude.mconcat
         [ "/voice-connector-groups/",
-          Core.toBS voiceConnectorGroupId
+          Data.toBS voiceConnectorGroupId
         ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AssociatePhoneNumbersWithVoiceConnectorGroup
   where
   toQuery =

@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideoSignaling.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,7 +142,7 @@ instance Core.AWSRequest GetIceServerConfig where
     Response.receiveJSON
       ( \s h x ->
           GetIceServerConfigResponse'
-            Prelude.<$> (x Core..?> "IceServerList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "IceServerList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,24 +160,24 @@ instance Prelude.NFData GetIceServerConfig where
       `Prelude.seq` Prelude.rnf service
       `Prelude.seq` Prelude.rnf channelARN
 
-instance Core.ToHeaders GetIceServerConfig where
+instance Data.ToHeaders GetIceServerConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetIceServerConfig where
+instance Data.ToJSON GetIceServerConfig where
   toJSON GetIceServerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientId" Core..=) Prelude.<$> clientId,
-            ("Username" Core..=) Prelude.<$> username,
-            ("Service" Core..=) Prelude.<$> service,
-            Prelude.Just ("ChannelARN" Core..= channelARN)
+          [ ("ClientId" Data..=) Prelude.<$> clientId,
+            ("Username" Data..=) Prelude.<$> username,
+            ("Service" Data..=) Prelude.<$> service,
+            Prelude.Just ("ChannelARN" Data..= channelARN)
           ]
       )
 
-instance Core.ToPath GetIceServerConfig where
+instance Data.ToPath GetIceServerConfig where
   toPath = Prelude.const "/v1/get-ice-server-config"
 
-instance Core.ToQuery GetIceServerConfig where
+instance Data.ToQuery GetIceServerConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetIceServerConfigResponse' smart constructor.

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,7 +126,7 @@ instance Core.AWSRequest SendDataToWirelessDevice where
     Response.receiveJSON
       ( \s h x ->
           SendDataToWirelessDeviceResponse'
-            Prelude.<$> (x Core..?> "MessageId")
+            Prelude.<$> (x Data..?> "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,26 +144,26 @@ instance Prelude.NFData SendDataToWirelessDevice where
       `Prelude.seq` Prelude.rnf transmitMode
       `Prelude.seq` Prelude.rnf payloadData
 
-instance Core.ToHeaders SendDataToWirelessDevice where
+instance Data.ToHeaders SendDataToWirelessDevice where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON SendDataToWirelessDevice where
+instance Data.ToJSON SendDataToWirelessDevice where
   toJSON SendDataToWirelessDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WirelessMetadata" Core..=)
+          [ ("WirelessMetadata" Data..=)
               Prelude.<$> wirelessMetadata,
-            Prelude.Just ("TransmitMode" Core..= transmitMode),
-            Prelude.Just ("PayloadData" Core..= payloadData)
+            Prelude.Just ("TransmitMode" Data..= transmitMode),
+            Prelude.Just ("PayloadData" Data..= payloadData)
           ]
       )
 
-instance Core.ToPath SendDataToWirelessDevice where
+instance Data.ToPath SendDataToWirelessDevice where
   toPath SendDataToWirelessDevice' {..} =
     Prelude.mconcat
-      ["/wireless-devices/", Core.toBS id, "/data"]
+      ["/wireless-devices/", Data.toBS id, "/data"]
 
-instance Core.ToQuery SendDataToWirelessDevice where
+instance Data.ToQuery SendDataToWirelessDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendDataToWirelessDeviceResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Athena.Types.Column where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata for a column in a table.
@@ -72,15 +73,15 @@ column_comment = Lens.lens (\Column' {comment} -> comment) (\s@Column' {} a -> s
 column_name :: Lens.Lens' Column Prelude.Text
 column_name = Lens.lens (\Column' {name} -> name) (\s@Column' {} a -> s {name = a} :: Column)
 
-instance Core.FromJSON Column where
+instance Data.FromJSON Column where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Column"
       ( \x ->
           Column'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Comment")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Comment")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable Column where

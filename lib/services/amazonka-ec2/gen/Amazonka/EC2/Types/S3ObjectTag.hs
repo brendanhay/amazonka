@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.S3ObjectTag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -92,7 +93,7 @@ instance Prelude.NFData S3ObjectTag where
   rnf S3ObjectTag' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToQuery S3ObjectTag where
+instance Data.ToQuery S3ObjectTag where
   toQuery S3ObjectTag' {..} =
     Prelude.mconcat
-      ["Key" Core.=: key, "Value" Core.=: value]
+      ["Key" Data.=: key, "Value" Data.=: value]

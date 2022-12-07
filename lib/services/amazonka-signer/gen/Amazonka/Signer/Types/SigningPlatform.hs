@@ -21,6 +21,7 @@ module Amazonka.Signer.Types.SigningPlatform where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Signer.Types.Category
 import Amazonka.Signer.Types.SigningConfiguration
@@ -137,21 +138,21 @@ signingPlatform_platformId = Lens.lens (\SigningPlatform' {platformId} -> platfo
 signingPlatform_maxSizeInMB :: Lens.Lens' SigningPlatform (Prelude.Maybe Prelude.Int)
 signingPlatform_maxSizeInMB = Lens.lens (\SigningPlatform' {maxSizeInMB} -> maxSizeInMB) (\s@SigningPlatform' {} a -> s {maxSizeInMB = a} :: SigningPlatform)
 
-instance Core.FromJSON SigningPlatform where
+instance Data.FromJSON SigningPlatform where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SigningPlatform"
       ( \x ->
           SigningPlatform'
-            Prelude.<$> (x Core..:? "signingImageFormat")
-            Prelude.<*> (x Core..:? "partner")
-            Prelude.<*> (x Core..:? "signingConfiguration")
-            Prelude.<*> (x Core..:? "displayName")
-            Prelude.<*> (x Core..:? "target")
-            Prelude.<*> (x Core..:? "category")
-            Prelude.<*> (x Core..:? "revocationSupported")
-            Prelude.<*> (x Core..:? "platformId")
-            Prelude.<*> (x Core..:? "maxSizeInMB")
+            Prelude.<$> (x Data..:? "signingImageFormat")
+            Prelude.<*> (x Data..:? "partner")
+            Prelude.<*> (x Data..:? "signingConfiguration")
+            Prelude.<*> (x Data..:? "displayName")
+            Prelude.<*> (x Data..:? "target")
+            Prelude.<*> (x Data..:? "category")
+            Prelude.<*> (x Data..:? "revocationSupported")
+            Prelude.<*> (x Data..:? "platformId")
+            Prelude.<*> (x Data..:? "maxSizeInMB")
       )
 
 instance Prelude.Hashable SigningPlatform where

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,10 +114,10 @@ instance Core.AWSRequest DisconnectPlayer where
     Response.receiveJSON
       ( \s h x ->
           DisconnectPlayerResponse'
-            Prelude.<$> ( x Core..?> "DisconnectFailures"
+            Prelude.<$> ( x Data..?> "DisconnectFailures"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "DisconnectSuccesses"
+            Prelude.<*> ( x Data..?> "DisconnectSuccesses"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -134,33 +135,33 @@ instance Prelude.NFData DisconnectPlayer where
       `Prelude.seq` Prelude.rnf playerId
       `Prelude.seq` Prelude.rnf stageName
 
-instance Core.ToHeaders DisconnectPlayer where
+instance Data.ToHeaders DisconnectPlayer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisconnectPlayer where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DisconnectPlayer where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DisconnectPlayer where
+instance Data.ToPath DisconnectPlayer where
   toPath DisconnectPlayer' {..} =
     Prelude.mconcat
       [ "/runtime/game/",
-        Core.toBS gameName,
+        Data.toBS gameName,
         "/stage/",
-        Core.toBS stageName,
+        Data.toBS stageName,
         "/player/",
-        Core.toBS playerId,
+        Data.toBS playerId,
         "/disconnect"
       ]
 
-instance Core.ToQuery DisconnectPlayer where
+instance Data.ToQuery DisconnectPlayer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisconnectPlayerResponse' smart constructor.

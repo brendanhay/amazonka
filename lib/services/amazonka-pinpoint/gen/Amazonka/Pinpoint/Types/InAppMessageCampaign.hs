@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.InAppMessageCampaign where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.InAppCampaignSchedule
 import Amazonka.Pinpoint.Types.InAppMessage
 import qualified Amazonka.Prelude as Prelude
@@ -129,20 +130,20 @@ inAppMessageCampaign_priority = Lens.lens (\InAppMessageCampaign' {priority} -> 
 inAppMessageCampaign_dailyCap :: Lens.Lens' InAppMessageCampaign (Prelude.Maybe Prelude.Int)
 inAppMessageCampaign_dailyCap = Lens.lens (\InAppMessageCampaign' {dailyCap} -> dailyCap) (\s@InAppMessageCampaign' {} a -> s {dailyCap = a} :: InAppMessageCampaign)
 
-instance Core.FromJSON InAppMessageCampaign where
+instance Data.FromJSON InAppMessageCampaign where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InAppMessageCampaign"
       ( \x ->
           InAppMessageCampaign'
-            Prelude.<$> (x Core..:? "Schedule")
-            Prelude.<*> (x Core..:? "SessionCap")
-            Prelude.<*> (x Core..:? "CampaignId")
-            Prelude.<*> (x Core..:? "TreatmentId")
-            Prelude.<*> (x Core..:? "InAppMessage")
-            Prelude.<*> (x Core..:? "TotalCap")
-            Prelude.<*> (x Core..:? "Priority")
-            Prelude.<*> (x Core..:? "DailyCap")
+            Prelude.<$> (x Data..:? "Schedule")
+            Prelude.<*> (x Data..:? "SessionCap")
+            Prelude.<*> (x Data..:? "CampaignId")
+            Prelude.<*> (x Data..:? "TreatmentId")
+            Prelude.<*> (x Data..:? "InAppMessage")
+            Prelude.<*> (x Data..:? "TotalCap")
+            Prelude.<*> (x Data..:? "Priority")
+            Prelude.<*> (x Data..:? "DailyCap")
       )
 
 instance Prelude.Hashable InAppMessageCampaign where

@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,20 +120,20 @@ instance Prelude.NFData DeleteDBSubnetGroup where
   rnf DeleteDBSubnetGroup' {..} =
     Prelude.rnf dbSubnetGroupName
 
-instance Core.ToHeaders DeleteDBSubnetGroup where
+instance Data.ToHeaders DeleteDBSubnetGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteDBSubnetGroup where
+instance Data.ToPath DeleteDBSubnetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDBSubnetGroup where
+instance Data.ToQuery DeleteDBSubnetGroup where
   toQuery DeleteDBSubnetGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDBSubnetGroup" :: Prelude.ByteString),
+          Data.=: ("DeleteDBSubnetGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBSubnetGroupName" Core.=: dbSubnetGroupName
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBSubnetGroupName" Data.=: dbSubnetGroupName
       ]
 
 -- | /See:/ 'newDeleteDBSubnetGroupResponse' smart constructor.

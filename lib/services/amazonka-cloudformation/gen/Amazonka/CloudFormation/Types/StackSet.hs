@@ -29,6 +29,7 @@ import Amazonka.CloudFormation.Types.StackSetStatus
 import Amazonka.CloudFormation.Types.Tag
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains information about a stack set. A stack set
@@ -313,33 +314,33 @@ stackSet_stackSetDriftDetectionDetails = Lens.lens (\StackSet' {stackSetDriftDet
 stackSet_parameters :: Lens.Lens' StackSet (Prelude.Maybe [Parameter])
 stackSet_parameters = Lens.lens (\StackSet' {parameters} -> parameters) (\s@StackSet' {} a -> s {parameters = a} :: StackSet) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML StackSet where
+instance Data.FromXML StackSet where
   parseXML x =
     StackSet'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "StackSetName")
-      Prelude.<*> (x Core..@? "StackSetARN")
-      Prelude.<*> (x Core..@? "StackSetId")
-      Prelude.<*> (x Core..@? "TemplateBody")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "AutoDeployment")
-      Prelude.<*> ( x Core..@? "OrganizationalUnitIds"
+      Prelude.<*> (x Data..@? "StackSetName")
+      Prelude.<*> (x Data..@? "StackSetARN")
+      Prelude.<*> (x Data..@? "StackSetId")
+      Prelude.<*> (x Data..@? "TemplateBody")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "AutoDeployment")
+      Prelude.<*> ( x Data..@? "OrganizationalUnitIds"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "Capabilities" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> ( x Data..@? "Capabilities" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "ManagedExecution")
-      Prelude.<*> (x Core..@? "ExecutionRoleName")
-      Prelude.<*> (x Core..@? "AdministrationRoleARN")
-      Prelude.<*> (x Core..@? "PermissionModel")
-      Prelude.<*> (x Core..@? "StackSetDriftDetectionDetails")
-      Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "ManagedExecution")
+      Prelude.<*> (x Data..@? "ExecutionRoleName")
+      Prelude.<*> (x Data..@? "AdministrationRoleARN")
+      Prelude.<*> (x Data..@? "PermissionModel")
+      Prelude.<*> (x Data..@? "StackSetDriftDetectionDetails")
+      Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable StackSet where

@@ -22,6 +22,7 @@ module Amazonka.ComputeOptimizer.Types.Scope where
 import Amazonka.ComputeOptimizer.Types.ScopeName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the scope of a recommendation preference.
@@ -154,13 +155,13 @@ scope_name = Lens.lens (\Scope' {name} -> name) (\s@Scope' {} a -> s {name = a} 
 scope_value :: Lens.Lens' Scope (Prelude.Maybe Prelude.Text)
 scope_value = Lens.lens (\Scope' {value} -> value) (\s@Scope' {} a -> s {value = a} :: Scope)
 
-instance Core.FromJSON Scope where
+instance Data.FromJSON Scope where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scope"
       ( \x ->
           Scope'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable Scope where
@@ -172,11 +173,11 @@ instance Prelude.NFData Scope where
   rnf Scope' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Scope where
+instance Data.ToJSON Scope where
   toJSON Scope' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("value" Core..=) Prelude.<$> value
+          [ ("name" Data..=) Prelude.<$> name,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

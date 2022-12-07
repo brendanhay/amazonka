@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,12 +163,12 @@ instance Core.AWSRequest DescribeSpotFleetInstances where
     Response.receiveXML
       ( \s h x ->
           DescribeSpotFleetInstancesResponse'
-            Prelude.<$> ( x Core..@? "activeInstanceSet"
+            Prelude.<$> ( x Data..@? "activeInstanceSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
-            Prelude.<*> (x Core..@? "spotFleetRequestId")
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> (x Data..@? "spotFleetRequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,23 +186,23 @@ instance Prelude.NFData DescribeSpotFleetInstances where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf spotFleetRequestId
 
-instance Core.ToHeaders DescribeSpotFleetInstances where
+instance Data.ToHeaders DescribeSpotFleetInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeSpotFleetInstances where
+instance Data.ToPath DescribeSpotFleetInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSpotFleetInstances where
+instance Data.ToQuery DescribeSpotFleetInstances where
   toQuery DescribeSpotFleetInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSpotFleetInstances" :: Prelude.ByteString),
+          Data.=: ("DescribeSpotFleetInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        "SpotFleetRequestId" Core.=: spotFleetRequestId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        "SpotFleetRequestId" Data.=: spotFleetRequestId
       ]
 
 -- | Contains the output of DescribeSpotFleetInstances.

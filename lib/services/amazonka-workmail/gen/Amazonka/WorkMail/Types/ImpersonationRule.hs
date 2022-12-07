@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.ImpersonationRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.AccessEffect
 
@@ -105,18 +106,18 @@ impersonationRule_impersonationRuleId = Lens.lens (\ImpersonationRule' {imperson
 impersonationRule_effect :: Lens.Lens' ImpersonationRule AccessEffect
 impersonationRule_effect = Lens.lens (\ImpersonationRule' {effect} -> effect) (\s@ImpersonationRule' {} a -> s {effect = a} :: ImpersonationRule)
 
-instance Core.FromJSON ImpersonationRule where
+instance Data.FromJSON ImpersonationRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImpersonationRule"
       ( \x ->
           ImpersonationRule'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "TargetUsers")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "NotTargetUsers")
-            Prelude.<*> (x Core..: "ImpersonationRuleId")
-            Prelude.<*> (x Core..: "Effect")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "TargetUsers")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "NotTargetUsers")
+            Prelude.<*> (x Data..: "ImpersonationRuleId")
+            Prelude.<*> (x Data..: "Effect")
       )
 
 instance Prelude.Hashable ImpersonationRule where
@@ -137,17 +138,17 @@ instance Prelude.NFData ImpersonationRule where
       `Prelude.seq` Prelude.rnf impersonationRuleId
       `Prelude.seq` Prelude.rnf effect
 
-instance Core.ToJSON ImpersonationRule where
+instance Data.ToJSON ImpersonationRule where
   toJSON ImpersonationRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("TargetUsers" Core..=) Prelude.<$> targetUsers,
-            ("Description" Core..=) Prelude.<$> description,
-            ("NotTargetUsers" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("TargetUsers" Data..=) Prelude.<$> targetUsers,
+            ("Description" Data..=) Prelude.<$> description,
+            ("NotTargetUsers" Data..=)
               Prelude.<$> notTargetUsers,
             Prelude.Just
-              ("ImpersonationRuleId" Core..= impersonationRuleId),
-            Prelude.Just ("Effect" Core..= effect)
+              ("ImpersonationRuleId" Data..= impersonationRuleId),
+            Prelude.Just ("Effect" Data..= effect)
           ]
       )

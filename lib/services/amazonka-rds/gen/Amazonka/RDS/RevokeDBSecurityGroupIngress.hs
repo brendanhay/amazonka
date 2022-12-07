@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -182,7 +183,7 @@ instance Core.AWSRequest RevokeDBSecurityGroupIngress where
       "RevokeDBSecurityGroupIngressResult"
       ( \s h x ->
           RevokeDBSecurityGroupIngressResponse'
-            Prelude.<$> (x Core..@? "DBSecurityGroup")
+            Prelude.<$> (x Data..@? "DBSecurityGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -205,27 +206,27 @@ instance Prelude.NFData RevokeDBSecurityGroupIngress where
       `Prelude.seq` Prelude.rnf cidrip
       `Prelude.seq` Prelude.rnf dbSecurityGroupName
 
-instance Core.ToHeaders RevokeDBSecurityGroupIngress where
+instance Data.ToHeaders RevokeDBSecurityGroupIngress where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RevokeDBSecurityGroupIngress where
+instance Data.ToPath RevokeDBSecurityGroupIngress where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RevokeDBSecurityGroupIngress where
+instance Data.ToQuery RevokeDBSecurityGroupIngress where
   toQuery RevokeDBSecurityGroupIngress' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "RevokeDBSecurityGroupIngress" ::
+          Data.=: ( "RevokeDBSecurityGroupIngress" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "EC2SecurityGroupId" Core.=: eC2SecurityGroupId,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "EC2SecurityGroupId" Data.=: eC2SecurityGroupId,
         "EC2SecurityGroupOwnerId"
-          Core.=: eC2SecurityGroupOwnerId,
-        "EC2SecurityGroupName" Core.=: eC2SecurityGroupName,
-        "CIDRIP" Core.=: cidrip,
-        "DBSecurityGroupName" Core.=: dbSecurityGroupName
+          Data.=: eC2SecurityGroupOwnerId,
+        "EC2SecurityGroupName" Data.=: eC2SecurityGroupName,
+        "CIDRIP" Data.=: cidrip,
+        "DBSecurityGroupName" Data.=: dbSecurityGroupName
       ]
 
 -- | /See:/ 'newRevokeDBSecurityGroupIngressResponse' smart constructor.

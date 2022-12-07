@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -77,7 +78,7 @@ data CreateDataSource = CreateDataSource'
     -- | The credentials Amazon QuickSight that uses to connect to your
     -- underlying source. Currently, only credentials based on user name and
     -- password are supported.
-    credentials :: Prelude.Maybe (Core.Sensitive DataSourceCredentials),
+    credentials :: Prelude.Maybe (Data.Sensitive DataSourceCredentials),
     -- | The Amazon Web Services account ID.
     awsAccountId :: Prelude.Text,
     -- | An ID for the data source. This ID is unique per Amazon Web Services
@@ -186,7 +187,7 @@ createDataSource_sslProperties = Lens.lens (\CreateDataSource' {sslProperties} -
 -- underlying source. Currently, only credentials based on user name and
 -- password are supported.
 createDataSource_credentials :: Lens.Lens' CreateDataSource (Prelude.Maybe DataSourceCredentials)
-createDataSource_credentials = Lens.lens (\CreateDataSource' {credentials} -> credentials) (\s@CreateDataSource' {} a -> s {credentials = a} :: CreateDataSource) Prelude.. Lens.mapping Core._Sensitive
+createDataSource_credentials = Lens.lens (\CreateDataSource' {credentials} -> credentials) (\s@CreateDataSource' {} a -> s {credentials = a} :: CreateDataSource) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Web Services account ID.
 createDataSource_awsAccountId :: Lens.Lens' CreateDataSource Prelude.Text
@@ -218,10 +219,10 @@ instance Core.AWSRequest CreateDataSource where
     Response.receiveJSON
       ( \s h x ->
           CreateDataSourceResponse'
-            Prelude.<$> (x Core..?> "CreationStatus")
-            Prelude.<*> (x Core..?> "DataSourceId")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "CreationStatus")
+            Prelude.<*> (x Data..?> "DataSourceId")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -251,44 +252,44 @@ instance Prelude.NFData CreateDataSource where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateDataSource where
+instance Data.ToHeaders CreateDataSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataSource where
+instance Data.ToJSON CreateDataSource where
   toJSON CreateDataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("DataSourceParameters" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("DataSourceParameters" Data..=)
               Prelude.<$> dataSourceParameters,
-            ("Permissions" Core..=) Prelude.<$> permissions,
-            ("VpcConnectionProperties" Core..=)
+            ("Permissions" Data..=) Prelude.<$> permissions,
+            ("VpcConnectionProperties" Data..=)
               Prelude.<$> vpcConnectionProperties,
-            ("SslProperties" Core..=) Prelude.<$> sslProperties,
-            ("Credentials" Core..=) Prelude.<$> credentials,
-            Prelude.Just ("DataSourceId" Core..= dataSourceId),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Type" Core..= type')
+            ("SslProperties" Data..=) Prelude.<$> sslProperties,
+            ("Credentials" Data..=) Prelude.<$> credentials,
+            Prelude.Just ("DataSourceId" Data..= dataSourceId),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateDataSource where
+instance Data.ToPath CreateDataSource where
   toPath CreateDataSource' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/data-sources"
       ]
 
-instance Core.ToQuery CreateDataSource where
+instance Data.ToQuery CreateDataSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDataSourceResponse' smart constructor.

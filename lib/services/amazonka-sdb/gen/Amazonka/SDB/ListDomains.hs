@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,8 +127,8 @@ instance Core.AWSRequest ListDomains where
       "ListDomainsResult"
       ( \s h x ->
           ListDomainsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> (Core.may (Core.parseXMLList "DomainName") x)
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> (Core.may (Data.parseXMLList "DomainName") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,21 +142,21 @@ instance Prelude.NFData ListDomains where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxNumberOfDomains
 
-instance Core.ToHeaders ListDomains where
+instance Data.ToHeaders ListDomains where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListDomains where
+instance Data.ToPath ListDomains where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDomains where
+instance Data.ToQuery ListDomains where
   toQuery ListDomains' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListDomains" :: Prelude.ByteString),
+          Data.=: ("ListDomains" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2009-04-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxNumberOfDomains" Core.=: maxNumberOfDomains
+          Data.=: ("2009-04-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "MaxNumberOfDomains" Data.=: maxNumberOfDomains
       ]
 
 -- | /See:/ 'newListDomainsResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,8 +123,8 @@ instance Core.AWSRequest CreateResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           CreateResourcePolicyResponse'
-            Prelude.<$> (x Core..?> "revisionId")
-            Prelude.<*> (x Core..?> "resourceArn")
+            Prelude.<$> (x Data..?> "revisionId")
+            Prelude.<*> (x Data..?> "resourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,30 +138,30 @@ instance Prelude.NFData CreateResourcePolicy where
     Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf policy
 
-instance Core.ToHeaders CreateResourcePolicy where
+instance Data.ToHeaders CreateResourcePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateResourcePolicy where
+instance Data.ToJSON CreateResourcePolicy where
   toJSON CreateResourcePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("policy" Core..= policy)]
+          [Prelude.Just ("policy" Data..= policy)]
       )
 
-instance Core.ToPath CreateResourcePolicy where
+instance Data.ToPath CreateResourcePolicy where
   toPath CreateResourcePolicy' {..} =
     Prelude.mconcat
-      ["/policy/", Core.toBS resourceArn, "/"]
+      ["/policy/", Data.toBS resourceArn, "/"]
 
-instance Core.ToQuery CreateResourcePolicy where
+instance Data.ToQuery CreateResourcePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateResourcePolicyResponse' smart constructor.

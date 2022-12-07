@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.PhoneNumberAssociation where
 import Amazonka.Chime.Types.PhoneNumberAssociationName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The phone number associations, such as Amazon Chime account ID, Amazon
@@ -34,7 +35,7 @@ data PhoneNumberAssociation = PhoneNumberAssociation'
     -- Chime Voice Connector ID, or Amazon Chime Voice Connector group ID.
     name :: Prelude.Maybe PhoneNumberAssociationName,
     -- | The timestamp of the phone number association, in ISO 8601 format.
-    associatedTimestamp :: Prelude.Maybe Core.POSIX,
+    associatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Contains the ID for the entity specified in Name.
     value :: Prelude.Maybe Prelude.Text
   }
@@ -70,21 +71,21 @@ phoneNumberAssociation_name = Lens.lens (\PhoneNumberAssociation' {name} -> name
 
 -- | The timestamp of the phone number association, in ISO 8601 format.
 phoneNumberAssociation_associatedTimestamp :: Lens.Lens' PhoneNumberAssociation (Prelude.Maybe Prelude.UTCTime)
-phoneNumberAssociation_associatedTimestamp = Lens.lens (\PhoneNumberAssociation' {associatedTimestamp} -> associatedTimestamp) (\s@PhoneNumberAssociation' {} a -> s {associatedTimestamp = a} :: PhoneNumberAssociation) Prelude.. Lens.mapping Core._Time
+phoneNumberAssociation_associatedTimestamp = Lens.lens (\PhoneNumberAssociation' {associatedTimestamp} -> associatedTimestamp) (\s@PhoneNumberAssociation' {} a -> s {associatedTimestamp = a} :: PhoneNumberAssociation) Prelude.. Lens.mapping Data._Time
 
 -- | Contains the ID for the entity specified in Name.
 phoneNumberAssociation_value :: Lens.Lens' PhoneNumberAssociation (Prelude.Maybe Prelude.Text)
 phoneNumberAssociation_value = Lens.lens (\PhoneNumberAssociation' {value} -> value) (\s@PhoneNumberAssociation' {} a -> s {value = a} :: PhoneNumberAssociation)
 
-instance Core.FromJSON PhoneNumberAssociation where
+instance Data.FromJSON PhoneNumberAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PhoneNumberAssociation"
       ( \x ->
           PhoneNumberAssociation'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AssociatedTimestamp")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AssociatedTimestamp")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable PhoneNumberAssociation where

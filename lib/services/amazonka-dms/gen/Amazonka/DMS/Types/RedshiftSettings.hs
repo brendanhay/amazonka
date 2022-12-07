@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.RedshiftSettings where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.EncryptionModeValue
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines an Amazon Redshift endpoint.
@@ -95,7 +96,7 @@ data RedshiftSettings = RedshiftSettings'
     -- timing out, beginning from when you initially establish a connection.
     connectionTimeout :: Prelude.Maybe Prelude.Int,
     -- | The password for the user named in the @username@ property.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the Amazon Redshift cluster you are using.
     serverName :: Prelude.Maybe Prelude.Text,
     -- | If Amazon Redshift is configured to support case sensitive schema names,
@@ -488,7 +489,7 @@ redshiftSettings_connectionTimeout = Lens.lens (\RedshiftSettings' {connectionTi
 
 -- | The password for the user named in the @username@ property.
 redshiftSettings_password :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
-redshiftSettings_password = Lens.lens (\RedshiftSettings' {password} -> password) (\s@RedshiftSettings' {} a -> s {password = a} :: RedshiftSettings) Prelude.. Lens.mapping Core._Sensitive
+redshiftSettings_password = Lens.lens (\RedshiftSettings' {password} -> password) (\s@RedshiftSettings' {} a -> s {password = a} :: RedshiftSettings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the Amazon Redshift cluster you are using.
 redshiftSettings_serverName :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Text)
@@ -623,42 +624,42 @@ redshiftSettings_acceptAnyDate = Lens.lens (\RedshiftSettings' {acceptAnyDate} -
 redshiftSettings_encryptionMode :: Lens.Lens' RedshiftSettings (Prelude.Maybe EncryptionModeValue)
 redshiftSettings_encryptionMode = Lens.lens (\RedshiftSettings' {encryptionMode} -> encryptionMode) (\s@RedshiftSettings' {} a -> s {encryptionMode = a} :: RedshiftSettings)
 
-instance Core.FromJSON RedshiftSettings where
+instance Data.FromJSON RedshiftSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedshiftSettings"
       ( \x ->
           RedshiftSettings'
-            Prelude.<$> (x Core..:? "EmptyAsNull")
-            Prelude.<*> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "TruncateColumns")
-            Prelude.<*> (x Core..:? "MaxFileSize")
-            Prelude.<*> (x Core..:? "ReplaceChars")
-            Prelude.<*> (x Core..:? "TimeFormat")
-            Prelude.<*> (x Core..:? "LoadTimeout")
-            Prelude.<*> (x Core..:? "BucketFolder")
-            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
-            Prelude.<*> (x Core..:? "ConnectionTimeout")
-            Prelude.<*> (x Core..:? "Password")
-            Prelude.<*> (x Core..:? "ServerName")
-            Prelude.<*> (x Core..:? "CaseSensitiveNames")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "RemoveQuotes")
-            Prelude.<*> (x Core..:? "ServiceAccessRoleArn")
-            Prelude.<*> (x Core..:? "CompUpdate")
-            Prelude.<*> (x Core..:? "ReplaceInvalidChars")
-            Prelude.<*> (x Core..:? "AfterConnectScript")
-            Prelude.<*> (x Core..:? "FileTransferUploadStreams")
-            Prelude.<*> (x Core..:? "BucketName")
-            Prelude.<*> (x Core..:? "SecretsManagerSecretId")
-            Prelude.<*> (x Core..:? "ExplicitIds")
-            Prelude.<*> (x Core..:? "ServerSideEncryptionKmsKeyId")
-            Prelude.<*> (x Core..:? "DateFormat")
-            Prelude.<*> (x Core..:? "WriteBufferSize")
-            Prelude.<*> (x Core..:? "TrimBlanks")
-            Prelude.<*> (x Core..:? "AcceptAnyDate")
-            Prelude.<*> (x Core..:? "EncryptionMode")
+            Prelude.<$> (x Data..:? "EmptyAsNull")
+            Prelude.<*> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "TruncateColumns")
+            Prelude.<*> (x Data..:? "MaxFileSize")
+            Prelude.<*> (x Data..:? "ReplaceChars")
+            Prelude.<*> (x Data..:? "TimeFormat")
+            Prelude.<*> (x Data..:? "LoadTimeout")
+            Prelude.<*> (x Data..:? "BucketFolder")
+            Prelude.<*> (x Data..:? "SecretsManagerAccessRoleArn")
+            Prelude.<*> (x Data..:? "ConnectionTimeout")
+            Prelude.<*> (x Data..:? "Password")
+            Prelude.<*> (x Data..:? "ServerName")
+            Prelude.<*> (x Data..:? "CaseSensitiveNames")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "RemoveQuotes")
+            Prelude.<*> (x Data..:? "ServiceAccessRoleArn")
+            Prelude.<*> (x Data..:? "CompUpdate")
+            Prelude.<*> (x Data..:? "ReplaceInvalidChars")
+            Prelude.<*> (x Data..:? "AfterConnectScript")
+            Prelude.<*> (x Data..:? "FileTransferUploadStreams")
+            Prelude.<*> (x Data..:? "BucketName")
+            Prelude.<*> (x Data..:? "SecretsManagerSecretId")
+            Prelude.<*> (x Data..:? "ExplicitIds")
+            Prelude.<*> (x Data..:? "ServerSideEncryptionKmsKeyId")
+            Prelude.<*> (x Data..:? "DateFormat")
+            Prelude.<*> (x Data..:? "WriteBufferSize")
+            Prelude.<*> (x Data..:? "TrimBlanks")
+            Prelude.<*> (x Data..:? "AcceptAnyDate")
+            Prelude.<*> (x Data..:? "EncryptionMode")
       )
 
 instance Prelude.Hashable RedshiftSettings where
@@ -736,51 +737,51 @@ instance Prelude.NFData RedshiftSettings where
       `Prelude.seq` Prelude.rnf
         encryptionMode
 
-instance Core.ToJSON RedshiftSettings where
+instance Data.ToJSON RedshiftSettings where
   toJSON RedshiftSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EmptyAsNull" Core..=) Prelude.<$> emptyAsNull,
-            ("Port" Core..=) Prelude.<$> port,
-            ("TruncateColumns" Core..=)
+          [ ("EmptyAsNull" Data..=) Prelude.<$> emptyAsNull,
+            ("Port" Data..=) Prelude.<$> port,
+            ("TruncateColumns" Data..=)
               Prelude.<$> truncateColumns,
-            ("MaxFileSize" Core..=) Prelude.<$> maxFileSize,
-            ("ReplaceChars" Core..=) Prelude.<$> replaceChars,
-            ("TimeFormat" Core..=) Prelude.<$> timeFormat,
-            ("LoadTimeout" Core..=) Prelude.<$> loadTimeout,
-            ("BucketFolder" Core..=) Prelude.<$> bucketFolder,
-            ("SecretsManagerAccessRoleArn" Core..=)
+            ("MaxFileSize" Data..=) Prelude.<$> maxFileSize,
+            ("ReplaceChars" Data..=) Prelude.<$> replaceChars,
+            ("TimeFormat" Data..=) Prelude.<$> timeFormat,
+            ("LoadTimeout" Data..=) Prelude.<$> loadTimeout,
+            ("BucketFolder" Data..=) Prelude.<$> bucketFolder,
+            ("SecretsManagerAccessRoleArn" Data..=)
               Prelude.<$> secretsManagerAccessRoleArn,
-            ("ConnectionTimeout" Core..=)
+            ("ConnectionTimeout" Data..=)
               Prelude.<$> connectionTimeout,
-            ("Password" Core..=) Prelude.<$> password,
-            ("ServerName" Core..=) Prelude.<$> serverName,
-            ("CaseSensitiveNames" Core..=)
+            ("Password" Data..=) Prelude.<$> password,
+            ("ServerName" Data..=) Prelude.<$> serverName,
+            ("CaseSensitiveNames" Data..=)
               Prelude.<$> caseSensitiveNames,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("Username" Core..=) Prelude.<$> username,
-            ("RemoveQuotes" Core..=) Prelude.<$> removeQuotes,
-            ("ServiceAccessRoleArn" Core..=)
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("Username" Data..=) Prelude.<$> username,
+            ("RemoveQuotes" Data..=) Prelude.<$> removeQuotes,
+            ("ServiceAccessRoleArn" Data..=)
               Prelude.<$> serviceAccessRoleArn,
-            ("CompUpdate" Core..=) Prelude.<$> compUpdate,
-            ("ReplaceInvalidChars" Core..=)
+            ("CompUpdate" Data..=) Prelude.<$> compUpdate,
+            ("ReplaceInvalidChars" Data..=)
               Prelude.<$> replaceInvalidChars,
-            ("AfterConnectScript" Core..=)
+            ("AfterConnectScript" Data..=)
               Prelude.<$> afterConnectScript,
-            ("FileTransferUploadStreams" Core..=)
+            ("FileTransferUploadStreams" Data..=)
               Prelude.<$> fileTransferUploadStreams,
-            ("BucketName" Core..=) Prelude.<$> bucketName,
-            ("SecretsManagerSecretId" Core..=)
+            ("BucketName" Data..=) Prelude.<$> bucketName,
+            ("SecretsManagerSecretId" Data..=)
               Prelude.<$> secretsManagerSecretId,
-            ("ExplicitIds" Core..=) Prelude.<$> explicitIds,
-            ("ServerSideEncryptionKmsKeyId" Core..=)
+            ("ExplicitIds" Data..=) Prelude.<$> explicitIds,
+            ("ServerSideEncryptionKmsKeyId" Data..=)
               Prelude.<$> serverSideEncryptionKmsKeyId,
-            ("DateFormat" Core..=) Prelude.<$> dateFormat,
-            ("WriteBufferSize" Core..=)
+            ("DateFormat" Data..=) Prelude.<$> dateFormat,
+            ("WriteBufferSize" Data..=)
               Prelude.<$> writeBufferSize,
-            ("TrimBlanks" Core..=) Prelude.<$> trimBlanks,
-            ("AcceptAnyDate" Core..=) Prelude.<$> acceptAnyDate,
-            ("EncryptionMode" Core..=)
+            ("TrimBlanks" Data..=) Prelude.<$> trimBlanks,
+            ("AcceptAnyDate" Data..=) Prelude.<$> acceptAnyDate,
+            ("EncryptionMode" Data..=)
               Prelude.<$> encryptionMode
           ]
       )

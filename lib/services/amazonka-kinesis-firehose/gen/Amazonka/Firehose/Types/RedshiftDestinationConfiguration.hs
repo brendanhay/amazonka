@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.RedshiftDestinationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.CopyCommand
 import Amazonka.Firehose.Types.ProcessingConfiguration
@@ -55,9 +56,9 @@ data RedshiftDestinationConfiguration = RedshiftDestinationConfiguration'
     -- | The @COPY@ command.
     copyCommand :: CopyCommand,
     -- | The name of the user.
-    username :: Core.Sensitive Prelude.Text,
+    username :: Data.Sensitive Prelude.Text,
     -- | The user password.
-    password :: Core.Sensitive Prelude.Text,
+    password :: Data.Sensitive Prelude.Text,
     -- | The configuration for the intermediate Amazon S3 location from which
     -- Amazon Redshift obtains data. Restrictions are described in the topic
     -- for CreateDeliveryStream.
@@ -144,9 +145,9 @@ newRedshiftDestinationConfiguration
         clusterJDBCURL = pClusterJDBCURL_,
         copyCommand = pCopyCommand_,
         username =
-          Core._Sensitive Lens.# pUsername_,
+          Data._Sensitive Lens.# pUsername_,
         password =
-          Core._Sensitive Lens.# pPassword_,
+          Data._Sensitive Lens.# pPassword_,
         s3Configuration = pS3Configuration_
       }
 
@@ -189,11 +190,11 @@ redshiftDestinationConfiguration_copyCommand = Lens.lens (\RedshiftDestinationCo
 
 -- | The name of the user.
 redshiftDestinationConfiguration_username :: Lens.Lens' RedshiftDestinationConfiguration Prelude.Text
-redshiftDestinationConfiguration_username = Lens.lens (\RedshiftDestinationConfiguration' {username} -> username) (\s@RedshiftDestinationConfiguration' {} a -> s {username = a} :: RedshiftDestinationConfiguration) Prelude.. Core._Sensitive
+redshiftDestinationConfiguration_username = Lens.lens (\RedshiftDestinationConfiguration' {username} -> username) (\s@RedshiftDestinationConfiguration' {} a -> s {username = a} :: RedshiftDestinationConfiguration) Prelude.. Data._Sensitive
 
 -- | The user password.
 redshiftDestinationConfiguration_password :: Lens.Lens' RedshiftDestinationConfiguration Prelude.Text
-redshiftDestinationConfiguration_password = Lens.lens (\RedshiftDestinationConfiguration' {password} -> password) (\s@RedshiftDestinationConfiguration' {} a -> s {password = a} :: RedshiftDestinationConfiguration) Prelude.. Core._Sensitive
+redshiftDestinationConfiguration_password = Lens.lens (\RedshiftDestinationConfiguration' {password} -> password) (\s@RedshiftDestinationConfiguration' {} a -> s {password = a} :: RedshiftDestinationConfiguration) Prelude.. Data._Sensitive
 
 -- | The configuration for the intermediate Amazon S3 location from which
 -- Amazon Redshift obtains data. Restrictions are described in the topic
@@ -242,25 +243,25 @@ instance
       `Prelude.seq` Prelude.rnf password
       `Prelude.seq` Prelude.rnf s3Configuration
 
-instance Core.ToJSON RedshiftDestinationConfiguration where
+instance Data.ToJSON RedshiftDestinationConfiguration where
   toJSON RedshiftDestinationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3BackupConfiguration" Core..=)
+          [ ("S3BackupConfiguration" Data..=)
               Prelude.<$> s3BackupConfiguration,
-            ("ProcessingConfiguration" Core..=)
+            ("ProcessingConfiguration" Data..=)
               Prelude.<$> processingConfiguration,
-            ("CloudWatchLoggingOptions" Core..=)
+            ("CloudWatchLoggingOptions" Data..=)
               Prelude.<$> cloudWatchLoggingOptions,
-            ("S3BackupMode" Core..=) Prelude.<$> s3BackupMode,
-            ("RetryOptions" Core..=) Prelude.<$> retryOptions,
-            Prelude.Just ("RoleARN" Core..= roleARN),
+            ("S3BackupMode" Data..=) Prelude.<$> s3BackupMode,
+            ("RetryOptions" Data..=) Prelude.<$> retryOptions,
+            Prelude.Just ("RoleARN" Data..= roleARN),
             Prelude.Just
-              ("ClusterJDBCURL" Core..= clusterJDBCURL),
-            Prelude.Just ("CopyCommand" Core..= copyCommand),
-            Prelude.Just ("Username" Core..= username),
-            Prelude.Just ("Password" Core..= password),
+              ("ClusterJDBCURL" Data..= clusterJDBCURL),
+            Prelude.Just ("CopyCommand" Data..= copyCommand),
+            Prelude.Just ("Username" Data..= username),
+            Prelude.Just ("Password" Data..= password),
             Prelude.Just
-              ("S3Configuration" Core..= s3Configuration)
+              ("S3Configuration" Data..= s3Configuration)
           ]
       )

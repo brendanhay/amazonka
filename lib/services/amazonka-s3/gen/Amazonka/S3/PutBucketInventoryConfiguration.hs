@@ -102,6 +102,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -215,31 +216,31 @@ instance
       `Prelude.seq` Prelude.rnf inventoryConfiguration
 
 instance
-  Core.ToElement
+  Data.ToElement
     PutBucketInventoryConfiguration
   where
   toElement PutBucketInventoryConfiguration' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}InventoryConfiguration"
       inventoryConfiguration
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutBucketInventoryConfiguration
   where
   toHeaders PutBucketInventoryConfiguration' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath PutBucketInventoryConfiguration where
+instance Data.ToPath PutBucketInventoryConfiguration where
   toPath PutBucketInventoryConfiguration' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery PutBucketInventoryConfiguration where
+instance Data.ToQuery PutBucketInventoryConfiguration where
   toQuery PutBucketInventoryConfiguration' {..} =
-    Prelude.mconcat ["id" Core.=: id, "inventory"]
+    Prelude.mconcat ["id" Data.=: id, "inventory"]
 
 -- | /See:/ 'newPutBucketInventoryConfigurationResponse' smart constructor.
 data PutBucketInventoryConfigurationResponse = PutBucketInventoryConfigurationResponse'

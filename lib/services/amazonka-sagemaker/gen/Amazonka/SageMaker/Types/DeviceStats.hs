@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DeviceStats where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Status of devices.
@@ -68,14 +69,14 @@ deviceStats_connectedDeviceCount = Lens.lens (\DeviceStats' {connectedDeviceCoun
 deviceStats_registeredDeviceCount :: Lens.Lens' DeviceStats Prelude.Integer
 deviceStats_registeredDeviceCount = Lens.lens (\DeviceStats' {registeredDeviceCount} -> registeredDeviceCount) (\s@DeviceStats' {} a -> s {registeredDeviceCount = a} :: DeviceStats)
 
-instance Core.FromJSON DeviceStats where
+instance Data.FromJSON DeviceStats where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceStats"
       ( \x ->
           DeviceStats'
-            Prelude.<$> (x Core..: "ConnectedDeviceCount")
-            Prelude.<*> (x Core..: "RegisteredDeviceCount")
+            Prelude.<$> (x Data..: "ConnectedDeviceCount")
+            Prelude.<*> (x Data..: "RegisteredDeviceCount")
       )
 
 instance Prelude.Hashable DeviceStats where

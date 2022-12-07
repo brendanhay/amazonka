@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,14 +105,14 @@ instance Prelude.Hashable CancelJob where
 instance Prelude.NFData CancelJob where
   rnf CancelJob' {..} = Prelude.rnf id
 
-instance Core.ToHeaders CancelJob where
+instance Data.ToHeaders CancelJob where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CancelJob where
+instance Data.ToPath CancelJob where
   toPath CancelJob' {..} =
-    Prelude.mconcat ["/2012-09-25/jobs/", Core.toBS id]
+    Prelude.mconcat ["/2012-09-25/jobs/", Data.toBS id]
 
-instance Core.ToQuery CancelJob where
+instance Data.ToQuery CancelJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response body contains a JSON object. If the job is successfully

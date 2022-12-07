@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.MsSmoothAdditionalManifest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the details for each additional Microsoft Smooth Streaming
@@ -82,16 +83,16 @@ msSmoothAdditionalManifest_selectedOutputs = Lens.lens (\MsSmoothAdditionalManif
 msSmoothAdditionalManifest_manifestNameModifier :: Lens.Lens' MsSmoothAdditionalManifest (Prelude.Maybe Prelude.Text)
 msSmoothAdditionalManifest_manifestNameModifier = Lens.lens (\MsSmoothAdditionalManifest' {manifestNameModifier} -> manifestNameModifier) (\s@MsSmoothAdditionalManifest' {} a -> s {manifestNameModifier = a} :: MsSmoothAdditionalManifest)
 
-instance Core.FromJSON MsSmoothAdditionalManifest where
+instance Data.FromJSON MsSmoothAdditionalManifest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MsSmoothAdditionalManifest"
       ( \x ->
           MsSmoothAdditionalManifest'
-            Prelude.<$> ( x Core..:? "selectedOutputs"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "selectedOutputs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "manifestNameModifier")
+            Prelude.<*> (x Data..:? "manifestNameModifier")
       )
 
 instance Prelude.Hashable MsSmoothAdditionalManifest where
@@ -104,13 +105,13 @@ instance Prelude.NFData MsSmoothAdditionalManifest where
     Prelude.rnf selectedOutputs
       `Prelude.seq` Prelude.rnf manifestNameModifier
 
-instance Core.ToJSON MsSmoothAdditionalManifest where
+instance Data.ToJSON MsSmoothAdditionalManifest where
   toJSON MsSmoothAdditionalManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("selectedOutputs" Core..=)
+          [ ("selectedOutputs" Data..=)
               Prelude.<$> selectedOutputs,
-            ("manifestNameModifier" Core..=)
+            ("manifestNameModifier" Data..=)
               Prelude.<$> manifestNameModifier
           ]
       )

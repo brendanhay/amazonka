@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeVpcPeeringConnectionsResponse'
-            Prelude.<$> ( x Core..?> "VpcPeeringConnections"
+            Prelude.<$> ( x Data..?> "VpcPeeringConnections"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -124,32 +125,32 @@ instance Prelude.NFData DescribeVpcPeeringConnections where
   rnf DescribeVpcPeeringConnections' {..} =
     Prelude.rnf fleetId
 
-instance Core.ToHeaders DescribeVpcPeeringConnections where
+instance Data.ToHeaders DescribeVpcPeeringConnections where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeVpcPeeringConnections" ::
+              Data.=# ( "GameLift.DescribeVpcPeeringConnections" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeVpcPeeringConnections where
+instance Data.ToJSON DescribeVpcPeeringConnections where
   toJSON DescribeVpcPeeringConnections' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("FleetId" Core..=) Prelude.<$> fleetId]
+          [("FleetId" Data..=) Prelude.<$> fleetId]
       )
 
-instance Core.ToPath DescribeVpcPeeringConnections where
+instance Data.ToPath DescribeVpcPeeringConnections where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVpcPeeringConnections where
+instance Data.ToQuery DescribeVpcPeeringConnections where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

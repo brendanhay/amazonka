@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ProactiveOrganizationInsightSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.InsightSeverity
 import Amazonka.DevOpsGuru.Types.InsightStatus
 import Amazonka.DevOpsGuru.Types.InsightTimeRange
@@ -147,24 +148,24 @@ proactiveOrganizationInsightSummary_organizationalUnitId :: Lens.Lens' Proactive
 proactiveOrganizationInsightSummary_organizationalUnitId = Lens.lens (\ProactiveOrganizationInsightSummary' {organizationalUnitId} -> organizationalUnitId) (\s@ProactiveOrganizationInsightSummary' {} a -> s {organizationalUnitId = a} :: ProactiveOrganizationInsightSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ProactiveOrganizationInsightSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProactiveOrganizationInsightSummary"
       ( \x ->
           ProactiveOrganizationInsightSummary'
-            Prelude.<$> (x Core..:? "Severity")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ResourceCollection")
-            Prelude.<*> (x Core..:? "ServiceCollection")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "PredictionTimeRange")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "InsightTimeRange")
-            Prelude.<*> (x Core..:? "OrganizationalUnitId")
+            Prelude.<$> (x Data..:? "Severity")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ResourceCollection")
+            Prelude.<*> (x Data..:? "ServiceCollection")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "PredictionTimeRange")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "InsightTimeRange")
+            Prelude.<*> (x Data..:? "OrganizationalUnitId")
       )
 
 instance

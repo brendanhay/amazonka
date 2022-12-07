@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ReservedInstancesListing where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceCount
 import Amazonka.EC2.Types.ListingStatus
@@ -45,11 +46,11 @@ data ReservedInstancesListing = ReservedInstancesListing'
     -- | The status of the Reserved Instance listing.
     status :: Prelude.Maybe ListingStatus,
     -- | The last modified timestamp of the listing.
-    updateDate :: Prelude.Maybe Core.ISO8601,
+    updateDate :: Prelude.Maybe Data.ISO8601,
     -- | The price of the Reserved Instance listing.
     priceSchedules :: Prelude.Maybe [PriceSchedule],
     -- | The time the listing was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the Reserved Instance listing.
     reservedInstancesListingId :: Prelude.Maybe Prelude.Text,
     -- | The reason for the current status of the Reserved Instance listing. The
@@ -128,7 +129,7 @@ reservedInstancesListing_status = Lens.lens (\ReservedInstancesListing' {status}
 
 -- | The last modified timestamp of the listing.
 reservedInstancesListing_updateDate :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe Prelude.UTCTime)
-reservedInstancesListing_updateDate = Lens.lens (\ReservedInstancesListing' {updateDate} -> updateDate) (\s@ReservedInstancesListing' {} a -> s {updateDate = a} :: ReservedInstancesListing) Prelude.. Lens.mapping Core._Time
+reservedInstancesListing_updateDate = Lens.lens (\ReservedInstancesListing' {updateDate} -> updateDate) (\s@ReservedInstancesListing' {} a -> s {updateDate = a} :: ReservedInstancesListing) Prelude.. Lens.mapping Data._Time
 
 -- | The price of the Reserved Instance listing.
 reservedInstancesListing_priceSchedules :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe [PriceSchedule])
@@ -136,7 +137,7 @@ reservedInstancesListing_priceSchedules = Lens.lens (\ReservedInstancesListing' 
 
 -- | The time the listing was created.
 reservedInstancesListing_createDate :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe Prelude.UTCTime)
-reservedInstancesListing_createDate = Lens.lens (\ReservedInstancesListing' {createDate} -> createDate) (\s@ReservedInstancesListing' {} a -> s {createDate = a} :: ReservedInstancesListing) Prelude.. Lens.mapping Core._Time
+reservedInstancesListing_createDate = Lens.lens (\ReservedInstancesListing' {createDate} -> createDate) (\s@ReservedInstancesListing' {} a -> s {createDate = a} :: ReservedInstancesListing) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the Reserved Instance listing.
 reservedInstancesListing_reservedInstancesListingId :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe Prelude.Text)
@@ -147,25 +148,25 @@ reservedInstancesListing_reservedInstancesListingId = Lens.lens (\ReservedInstan
 reservedInstancesListing_statusMessage :: Lens.Lens' ReservedInstancesListing (Prelude.Maybe Prelude.Text)
 reservedInstancesListing_statusMessage = Lens.lens (\ReservedInstancesListing' {statusMessage} -> statusMessage) (\s@ReservedInstancesListing' {} a -> s {statusMessage = a} :: ReservedInstancesListing)
 
-instance Core.FromXML ReservedInstancesListing where
+instance Data.FromXML ReservedInstancesListing where
   parseXML x =
     ReservedInstancesListing'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "clientToken")
-      Prelude.<*> (x Core..@? "reservedInstancesId")
-      Prelude.<*> ( x Core..@? "instanceCounts" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "clientToken")
+      Prelude.<*> (x Data..@? "reservedInstancesId")
+      Prelude.<*> ( x Data..@? "instanceCounts" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "updateDate")
-      Prelude.<*> ( x Core..@? "priceSchedules" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "updateDate")
+      Prelude.<*> ( x Data..@? "priceSchedules" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "createDate")
-      Prelude.<*> (x Core..@? "reservedInstancesListingId")
-      Prelude.<*> (x Core..@? "statusMessage")
+      Prelude.<*> (x Data..@? "createDate")
+      Prelude.<*> (x Data..@? "reservedInstancesListingId")
+      Prelude.<*> (x Data..@? "statusMessage")
 
 instance Prelude.Hashable ReservedInstancesListing where
   hashWithSalt _salt ReservedInstancesListing' {..} =

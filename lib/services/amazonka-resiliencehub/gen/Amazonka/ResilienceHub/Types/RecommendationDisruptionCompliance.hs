@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.RecommendationDisruptionCompliance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.ComplianceStatus
 
@@ -105,19 +106,19 @@ recommendationDisruptionCompliance_expectedComplianceStatus :: Lens.Lens' Recomm
 recommendationDisruptionCompliance_expectedComplianceStatus = Lens.lens (\RecommendationDisruptionCompliance' {expectedComplianceStatus} -> expectedComplianceStatus) (\s@RecommendationDisruptionCompliance' {} a -> s {expectedComplianceStatus = a} :: RecommendationDisruptionCompliance)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RecommendationDisruptionCompliance
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationDisruptionCompliance"
       ( \x ->
           RecommendationDisruptionCompliance'
-            Prelude.<$> (x Core..:? "expectedRpoDescription")
-            Prelude.<*> (x Core..:? "expectedRpoInSecs")
-            Prelude.<*> (x Core..:? "expectedRtoInSecs")
-            Prelude.<*> (x Core..:? "expectedRtoDescription")
-            Prelude.<*> (x Core..: "expectedComplianceStatus")
+            Prelude.<$> (x Data..:? "expectedRpoDescription")
+            Prelude.<*> (x Data..:? "expectedRpoInSecs")
+            Prelude.<*> (x Data..:? "expectedRtoInSecs")
+            Prelude.<*> (x Data..:? "expectedRtoDescription")
+            Prelude.<*> (x Data..: "expectedComplianceStatus")
       )
 
 instance

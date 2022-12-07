@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.OnSuccess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A destination for events that were processed successfully.
@@ -50,12 +51,12 @@ newOnSuccess =
 onSuccess_destination :: Lens.Lens' OnSuccess (Prelude.Maybe Prelude.Text)
 onSuccess_destination = Lens.lens (\OnSuccess' {destination} -> destination) (\s@OnSuccess' {} a -> s {destination = a} :: OnSuccess)
 
-instance Core.FromJSON OnSuccess where
+instance Data.FromJSON OnSuccess where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OnSuccess"
       ( \x ->
-          OnSuccess' Prelude.<$> (x Core..:? "Destination")
+          OnSuccess' Prelude.<$> (x Data..:? "Destination")
       )
 
 instance Prelude.Hashable OnSuccess where
@@ -65,9 +66,9 @@ instance Prelude.Hashable OnSuccess where
 instance Prelude.NFData OnSuccess where
   rnf OnSuccess' {..} = Prelude.rnf destination
 
-instance Core.ToJSON OnSuccess where
+instance Data.ToJSON OnSuccess where
   toJSON OnSuccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Destination" Core..=) Prelude.<$> destination]
+          [("Destination" Data..=) Prelude.<$> destination]
       )

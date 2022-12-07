@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.UpdateVehicleResponseItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the updated vehicle.
@@ -61,14 +62,14 @@ updateVehicleResponseItem_arn = Lens.lens (\UpdateVehicleResponseItem' {arn} -> 
 updateVehicleResponseItem_vehicleName :: Lens.Lens' UpdateVehicleResponseItem (Prelude.Maybe Prelude.Text)
 updateVehicleResponseItem_vehicleName = Lens.lens (\UpdateVehicleResponseItem' {vehicleName} -> vehicleName) (\s@UpdateVehicleResponseItem' {} a -> s {vehicleName = a} :: UpdateVehicleResponseItem)
 
-instance Core.FromJSON UpdateVehicleResponseItem where
+instance Data.FromJSON UpdateVehicleResponseItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpdateVehicleResponseItem"
       ( \x ->
           UpdateVehicleResponseItem'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "vehicleName")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "vehicleName")
       )
 
 instance Prelude.Hashable UpdateVehicleResponseItem where

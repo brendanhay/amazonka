@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Predecessor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A job run that was used in the predicate of a conditional trigger that
@@ -62,14 +63,14 @@ predecessor_jobName = Lens.lens (\Predecessor' {jobName} -> jobName) (\s@Predece
 predecessor_runId :: Lens.Lens' Predecessor (Prelude.Maybe Prelude.Text)
 predecessor_runId = Lens.lens (\Predecessor' {runId} -> runId) (\s@Predecessor' {} a -> s {runId = a} :: Predecessor)
 
-instance Core.FromJSON Predecessor where
+instance Data.FromJSON Predecessor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Predecessor"
       ( \x ->
           Predecessor'
-            Prelude.<$> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "RunId")
+            Prelude.<$> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "RunId")
       )
 
 instance Prelude.Hashable Predecessor where

@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.EmbeddedSourceSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.EmbeddedConvert608To708
 import Amazonka.MediaLive.Types.EmbeddedScte20Detection
 import qualified Amazonka.Prelude as Prelude
@@ -94,16 +95,16 @@ embeddedSourceSettings_convert608To708 = Lens.lens (\EmbeddedSourceSettings' {co
 embeddedSourceSettings_scte20Detection :: Lens.Lens' EmbeddedSourceSettings (Prelude.Maybe EmbeddedScte20Detection)
 embeddedSourceSettings_scte20Detection = Lens.lens (\EmbeddedSourceSettings' {scte20Detection} -> scte20Detection) (\s@EmbeddedSourceSettings' {} a -> s {scte20Detection = a} :: EmbeddedSourceSettings)
 
-instance Core.FromJSON EmbeddedSourceSettings where
+instance Data.FromJSON EmbeddedSourceSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EmbeddedSourceSettings"
       ( \x ->
           EmbeddedSourceSettings'
-            Prelude.<$> (x Core..:? "source608ChannelNumber")
-            Prelude.<*> (x Core..:? "source608TrackNumber")
-            Prelude.<*> (x Core..:? "convert608To708")
-            Prelude.<*> (x Core..:? "scte20Detection")
+            Prelude.<$> (x Data..:? "source608ChannelNumber")
+            Prelude.<*> (x Data..:? "source608TrackNumber")
+            Prelude.<*> (x Data..:? "convert608To708")
+            Prelude.<*> (x Data..:? "scte20Detection")
       )
 
 instance Prelude.Hashable EmbeddedSourceSettings where
@@ -120,17 +121,17 @@ instance Prelude.NFData EmbeddedSourceSettings where
       `Prelude.seq` Prelude.rnf convert608To708
       `Prelude.seq` Prelude.rnf scte20Detection
 
-instance Core.ToJSON EmbeddedSourceSettings where
+instance Data.ToJSON EmbeddedSourceSettings where
   toJSON EmbeddedSourceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("source608ChannelNumber" Core..=)
+          [ ("source608ChannelNumber" Data..=)
               Prelude.<$> source608ChannelNumber,
-            ("source608TrackNumber" Core..=)
+            ("source608TrackNumber" Data..=)
               Prelude.<$> source608TrackNumber,
-            ("convert608To708" Core..=)
+            ("convert608To708" Data..=)
               Prelude.<$> convert608To708,
-            ("scte20Detection" Core..=)
+            ("scte20Detection" Data..=)
               Prelude.<$> scte20Detection
           ]
       )

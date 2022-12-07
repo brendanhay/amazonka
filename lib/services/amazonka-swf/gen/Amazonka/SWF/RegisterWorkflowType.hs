@@ -82,6 +82,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -430,48 +431,48 @@ instance Prelude.NFData RegisterWorkflowType where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToHeaders RegisterWorkflowType where
+instance Data.ToHeaders RegisterWorkflowType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.RegisterWorkflowType" ::
+              Data.=# ( "SimpleWorkflowService.RegisterWorkflowType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterWorkflowType where
+instance Data.ToJSON RegisterWorkflowType where
   toJSON RegisterWorkflowType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("defaultExecutionStartToCloseTimeout" Core..=)
+          [ ("defaultExecutionStartToCloseTimeout" Data..=)
               Prelude.<$> defaultExecutionStartToCloseTimeout,
-            ("defaultTaskStartToCloseTimeout" Core..=)
+            ("defaultTaskStartToCloseTimeout" Data..=)
               Prelude.<$> defaultTaskStartToCloseTimeout,
-            ("defaultChildPolicy" Core..=)
+            ("defaultChildPolicy" Data..=)
               Prelude.<$> defaultChildPolicy,
-            ("description" Core..=) Prelude.<$> description,
-            ("defaultTaskPriority" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("defaultTaskPriority" Data..=)
               Prelude.<$> defaultTaskPriority,
-            ("defaultTaskList" Core..=)
+            ("defaultTaskList" Data..=)
               Prelude.<$> defaultTaskList,
-            ("defaultLambdaRole" Core..=)
+            ("defaultLambdaRole" Data..=)
               Prelude.<$> defaultLambdaRole,
-            Prelude.Just ("domain" Core..= domain),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("version" Core..= version)
+            Prelude.Just ("domain" Data..= domain),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("version" Data..= version)
           ]
       )
 
-instance Core.ToPath RegisterWorkflowType where
+instance Data.ToPath RegisterWorkflowType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterWorkflowType where
+instance Data.ToQuery RegisterWorkflowType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterWorkflowTypeResponse' smart constructor.

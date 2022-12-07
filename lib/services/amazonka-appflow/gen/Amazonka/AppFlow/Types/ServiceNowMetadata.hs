@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.ServiceNowMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to ServiceNow.
@@ -39,9 +40,9 @@ newServiceNowMetadata ::
   ServiceNowMetadata
 newServiceNowMetadata = ServiceNowMetadata'
 
-instance Core.FromJSON ServiceNowMetadata where
+instance Data.FromJSON ServiceNowMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceNowMetadata"
       (\x -> Prelude.pure ServiceNowMetadata')
 

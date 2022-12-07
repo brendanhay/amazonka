@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -209,10 +210,10 @@ instance Core.AWSRequest UpdateWorkflowStep where
     Response.receiveJSON
       ( \s h x ->
           UpdateWorkflowStepResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "workflowId")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "stepGroupId")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "workflowId")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "stepGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -246,42 +247,42 @@ instance Prelude.NFData UpdateWorkflowStep where
       `Prelude.seq` Prelude.rnf stepGroupId
       `Prelude.seq` Prelude.rnf workflowId
 
-instance Core.ToHeaders UpdateWorkflowStep where
+instance Data.ToHeaders UpdateWorkflowStep where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkflowStep where
+instance Data.ToJSON UpdateWorkflowStep where
   toJSON UpdateWorkflowStep' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("next" Core..=) Prelude.<$> next,
-            ("status" Core..=) Prelude.<$> status,
-            ("stepActionType" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("next" Data..=) Prelude.<$> next,
+            ("status" Data..=) Prelude.<$> status,
+            ("stepActionType" Data..=)
               Prelude.<$> stepActionType,
-            ("description" Core..=) Prelude.<$> description,
-            ("workflowStepAutomationConfiguration" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("workflowStepAutomationConfiguration" Data..=)
               Prelude.<$> workflowStepAutomationConfiguration,
-            ("stepTarget" Core..=) Prelude.<$> stepTarget,
-            ("outputs" Core..=) Prelude.<$> outputs,
-            ("previous" Core..=) Prelude.<$> previous,
-            Prelude.Just ("stepGroupId" Core..= stepGroupId),
-            Prelude.Just ("workflowId" Core..= workflowId)
+            ("stepTarget" Data..=) Prelude.<$> stepTarget,
+            ("outputs" Data..=) Prelude.<$> outputs,
+            ("previous" Data..=) Prelude.<$> previous,
+            Prelude.Just ("stepGroupId" Data..= stepGroupId),
+            Prelude.Just ("workflowId" Data..= workflowId)
           ]
       )
 
-instance Core.ToPath UpdateWorkflowStep where
+instance Data.ToPath UpdateWorkflowStep where
   toPath UpdateWorkflowStep' {..} =
-    Prelude.mconcat ["/workflowstep/", Core.toBS id]
+    Prelude.mconcat ["/workflowstep/", Data.toBS id]
 
-instance Core.ToQuery UpdateWorkflowStep where
+instance Data.ToQuery UpdateWorkflowStep where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWorkflowStepResponse' smart constructor.

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,23 +135,23 @@ instance Prelude.NFData TagStream where
       `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders TagStream where
+instance Data.ToHeaders TagStream where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON TagStream where
+instance Data.ToJSON TagStream where
   toJSON TagStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StreamARN" Core..=) Prelude.<$> streamARN,
-            ("StreamName" Core..=) Prelude.<$> streamName,
-            Prelude.Just ("Tags" Core..= tags)
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
+            Prelude.Just ("Tags" Data..= tags)
           ]
       )
 
-instance Core.ToPath TagStream where
+instance Data.ToPath TagStream where
   toPath = Prelude.const "/tagStream"
 
-instance Core.ToQuery TagStream where
+instance Data.ToQuery TagStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTagStreamResponse' smart constructor.

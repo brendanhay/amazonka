@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -236,7 +237,7 @@ instance Core.AWSRequest CreateResolverRule where
     Response.receiveJSON
       ( \s h x ->
           CreateResolverRuleResponse'
-            Prelude.<$> (x Core..?> "ResolverRule")
+            Prelude.<$> (x Data..?> "ResolverRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -260,41 +261,41 @@ instance Prelude.NFData CreateResolverRule where
       `Prelude.seq` Prelude.rnf ruleType
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders CreateResolverRule where
+instance Data.ToHeaders CreateResolverRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.CreateResolverRule" ::
+              Data.=# ( "Route53Resolver.CreateResolverRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateResolverRule where
+instance Data.ToJSON CreateResolverRule where
   toJSON CreateResolverRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name,
-            ("TargetIps" Core..=) Prelude.<$> targetIps,
-            ("ResolverEndpointId" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Name" Data..=) Prelude.<$> name,
+            ("TargetIps" Data..=) Prelude.<$> targetIps,
+            ("ResolverEndpointId" Data..=)
               Prelude.<$> resolverEndpointId,
             Prelude.Just
-              ("CreatorRequestId" Core..= creatorRequestId),
-            Prelude.Just ("RuleType" Core..= ruleType),
-            Prelude.Just ("DomainName" Core..= domainName)
+              ("CreatorRequestId" Data..= creatorRequestId),
+            Prelude.Just ("RuleType" Data..= ruleType),
+            Prelude.Just ("DomainName" Data..= domainName)
           ]
       )
 
-instance Core.ToPath CreateResolverRule where
+instance Data.ToPath CreateResolverRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateResolverRule where
+instance Data.ToQuery CreateResolverRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateResolverRuleResponse' smart constructor.

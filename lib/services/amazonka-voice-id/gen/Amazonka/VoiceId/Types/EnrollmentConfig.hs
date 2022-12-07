@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.EnrollmentConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.EnrollmentJobFraudDetectionConfig
 import Amazonka.VoiceId.Types.ExistingEnrollmentAction
@@ -76,14 +77,14 @@ enrollmentConfig_fraudDetectionConfig = Lens.lens (\EnrollmentConfig' {fraudDete
 enrollmentConfig_existingEnrollmentAction :: Lens.Lens' EnrollmentConfig (Prelude.Maybe ExistingEnrollmentAction)
 enrollmentConfig_existingEnrollmentAction = Lens.lens (\EnrollmentConfig' {existingEnrollmentAction} -> existingEnrollmentAction) (\s@EnrollmentConfig' {} a -> s {existingEnrollmentAction = a} :: EnrollmentConfig)
 
-instance Core.FromJSON EnrollmentConfig where
+instance Data.FromJSON EnrollmentConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnrollmentConfig"
       ( \x ->
           EnrollmentConfig'
-            Prelude.<$> (x Core..:? "FraudDetectionConfig")
-            Prelude.<*> (x Core..:? "ExistingEnrollmentAction")
+            Prelude.<$> (x Data..:? "FraudDetectionConfig")
+            Prelude.<*> (x Data..:? "ExistingEnrollmentAction")
       )
 
 instance Prelude.Hashable EnrollmentConfig where
@@ -96,13 +97,13 @@ instance Prelude.NFData EnrollmentConfig where
     Prelude.rnf fraudDetectionConfig
       `Prelude.seq` Prelude.rnf existingEnrollmentAction
 
-instance Core.ToJSON EnrollmentConfig where
+instance Data.ToJSON EnrollmentConfig where
   toJSON EnrollmentConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FraudDetectionConfig" Core..=)
+          [ ("FraudDetectionConfig" Data..=)
               Prelude.<$> fraudDetectionConfig,
-            ("ExistingEnrollmentAction" Core..=)
+            ("ExistingEnrollmentAction" Data..=)
               Prelude.<$> existingEnrollmentAction
           ]
       )

@@ -23,6 +23,7 @@ import Amazonka.CloudWatch.Types.MessageData
 import Amazonka.CloudWatch.Types.StatusCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A @GetMetricData@ call returns an array of @MetricDataResult@
@@ -35,7 +36,7 @@ data MetricDataResult = MetricDataResult'
   { -- | The timestamps for the data points, formatted in Unix timestamp format.
     -- The number of timestamps always matches the number of values and the
     -- value for Timestamps[x] is Values[x].
-    timestamps :: Prelude.Maybe [Core.ISO8601],
+    timestamps :: Prelude.Maybe [Data.ISO8601],
     -- | The human-readable label associated with the data.
     label :: Prelude.Maybe Prelude.Text,
     -- | The short name you specified to represent this metric.
@@ -132,21 +133,21 @@ metricDataResult_values = Lens.lens (\MetricDataResult' {values} -> values) (\s@
 metricDataResult_statusCode :: Lens.Lens' MetricDataResult (Prelude.Maybe StatusCode)
 metricDataResult_statusCode = Lens.lens (\MetricDataResult' {statusCode} -> statusCode) (\s@MetricDataResult' {} a -> s {statusCode = a} :: MetricDataResult)
 
-instance Core.FromXML MetricDataResult where
+instance Data.FromXML MetricDataResult where
   parseXML x =
     MetricDataResult'
-      Prelude.<$> ( x Core..@? "Timestamps" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Timestamps" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Label")
-      Prelude.<*> (x Core..@? "Id")
-      Prelude.<*> ( x Core..@? "Messages" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "Label")
+      Prelude.<*> (x Data..@? "Id")
+      Prelude.<*> ( x Data..@? "Messages" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "Values" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> ( x Data..@? "Values" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "StatusCode")
+      Prelude.<*> (x Data..@? "StatusCode")
 
 instance Prelude.Hashable MetricDataResult where
   hashWithSalt _salt MetricDataResult' {..} =

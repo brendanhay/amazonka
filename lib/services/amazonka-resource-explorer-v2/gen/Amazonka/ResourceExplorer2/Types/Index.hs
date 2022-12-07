@@ -21,6 +21,7 @@ module Amazonka.ResourceExplorer2.Types.Index where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceExplorer2.Types.IndexType
 
@@ -116,15 +117,15 @@ index_arn = Lens.lens (\Index' {arn} -> arn) (\s@Index' {} a -> s {arn = a} :: I
 index_region :: Lens.Lens' Index (Prelude.Maybe Prelude.Text)
 index_region = Lens.lens (\Index' {region} -> region) (\s@Index' {} a -> s {region = a} :: Index)
 
-instance Core.FromJSON Index where
+instance Data.FromJSON Index where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Index"
       ( \x ->
           Index'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Region")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Region")
       )
 
 instance Prelude.Hashable Index where

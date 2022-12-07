@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,38 +122,38 @@ instance Prelude.NFData DeleteMobileDeviceAccessRule where
     Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf mobileDeviceAccessRuleId
 
-instance Core.ToHeaders DeleteMobileDeviceAccessRule where
+instance Data.ToHeaders DeleteMobileDeviceAccessRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.DeleteMobileDeviceAccessRule" ::
+              Data.=# ( "WorkMailService.DeleteMobileDeviceAccessRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteMobileDeviceAccessRule where
+instance Data.ToJSON DeleteMobileDeviceAccessRule where
   toJSON DeleteMobileDeviceAccessRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
+              ("OrganizationId" Data..= organizationId),
             Prelude.Just
               ( "MobileDeviceAccessRuleId"
-                  Core..= mobileDeviceAccessRuleId
+                  Data..= mobileDeviceAccessRuleId
               )
           ]
       )
 
-instance Core.ToPath DeleteMobileDeviceAccessRule where
+instance Data.ToPath DeleteMobileDeviceAccessRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteMobileDeviceAccessRule where
+instance Data.ToQuery DeleteMobileDeviceAccessRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMobileDeviceAccessRuleResponse' smart constructor.

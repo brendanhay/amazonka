@@ -46,6 +46,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,7 +153,7 @@ instance Core.AWSRequest UpdateVirtualGateway where
       ( \s h x ->
           UpdateVirtualGatewayResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable UpdateVirtualGateway where
@@ -171,38 +172,38 @@ instance Prelude.NFData UpdateVirtualGateway where
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf virtualGatewayName
 
-instance Core.ToHeaders UpdateVirtualGateway where
+instance Data.ToHeaders UpdateVirtualGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateVirtualGateway where
+instance Data.ToJSON UpdateVirtualGateway where
   toJSON UpdateVirtualGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("spec" Core..= spec)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("spec" Data..= spec)
           ]
       )
 
-instance Core.ToPath UpdateVirtualGateway where
+instance Data.ToPath UpdateVirtualGateway where
   toPath UpdateVirtualGateway' {..} =
     Prelude.mconcat
       [ "/v20190125/meshes/",
-        Core.toBS meshName,
+        Data.toBS meshName,
         "/virtualGateways/",
-        Core.toBS virtualGatewayName
+        Data.toBS virtualGatewayName
       ]
 
-instance Core.ToQuery UpdateVirtualGateway where
+instance Data.ToQuery UpdateVirtualGateway where
   toQuery UpdateVirtualGateway' {..} =
-    Prelude.mconcat ["meshOwner" Core.=: meshOwner]
+    Prelude.mconcat ["meshOwner" Data.=: meshOwner]
 
 -- | /See:/ 'newUpdateVirtualGatewayResponse' smart constructor.
 data UpdateVirtualGatewayResponse = UpdateVirtualGatewayResponse'

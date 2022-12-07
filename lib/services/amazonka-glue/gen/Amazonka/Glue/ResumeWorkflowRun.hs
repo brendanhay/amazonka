@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,8 +114,8 @@ instance Core.AWSRequest ResumeWorkflowRun where
     Response.receiveJSON
       ( \s h x ->
           ResumeWorkflowRunResponse'
-            Prelude.<$> (x Core..?> "NodeIds" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "RunId")
+            Prelude.<$> (x Data..?> "NodeIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "RunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,33 +131,33 @@ instance Prelude.NFData ResumeWorkflowRun where
       `Prelude.seq` Prelude.rnf runId
       `Prelude.seq` Prelude.rnf nodeIds
 
-instance Core.ToHeaders ResumeWorkflowRun where
+instance Data.ToHeaders ResumeWorkflowRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.ResumeWorkflowRun" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.ResumeWorkflowRun" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResumeWorkflowRun where
+instance Data.ToJSON ResumeWorkflowRun where
   toJSON ResumeWorkflowRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("RunId" Core..= runId),
-            Prelude.Just ("NodeIds" Core..= nodeIds)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("RunId" Data..= runId),
+            Prelude.Just ("NodeIds" Data..= nodeIds)
           ]
       )
 
-instance Core.ToPath ResumeWorkflowRun where
+instance Data.ToPath ResumeWorkflowRun where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResumeWorkflowRun where
+instance Data.ToQuery ResumeWorkflowRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResumeWorkflowRunResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -225,7 +226,7 @@ instance Core.AWSRequest UpdateAddon where
     Response.receiveJSON
       ( \s h x ->
           UpdateAddonResponse'
-            Prelude.<$> (x Core..?> "update")
+            Prelude.<$> (x Data..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -247,42 +248,42 @@ instance Prelude.NFData UpdateAddon where
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf addonName
 
-instance Core.ToHeaders UpdateAddon where
+instance Data.ToHeaders UpdateAddon where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAddon where
+instance Data.ToJSON UpdateAddon where
   toJSON UpdateAddon' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientRequestToken" Core..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("addonVersion" Core..=) Prelude.<$> addonVersion,
-            ("serviceAccountRoleArn" Core..=)
+            ("addonVersion" Data..=) Prelude.<$> addonVersion,
+            ("serviceAccountRoleArn" Data..=)
               Prelude.<$> serviceAccountRoleArn,
-            ("resolveConflicts" Core..=)
+            ("resolveConflicts" Data..=)
               Prelude.<$> resolveConflicts
           ]
       )
 
-instance Core.ToPath UpdateAddon where
+instance Data.ToPath UpdateAddon where
   toPath UpdateAddon' {..} =
     Prelude.mconcat
       [ "/clusters/",
-        Core.toBS clusterName,
+        Data.toBS clusterName,
         "/addons/",
-        Core.toBS addonName,
+        Data.toBS addonName,
         "/update"
       ]
 
-instance Core.ToQuery UpdateAddon where
+instance Data.ToQuery UpdateAddon where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAddonResponse' smart constructor.

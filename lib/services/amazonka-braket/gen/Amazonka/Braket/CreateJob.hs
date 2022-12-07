@@ -53,6 +53,7 @@ where
 import Amazonka.Braket.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -252,7 +253,7 @@ instance Core.AWSRequest CreateJob where
       ( \s h x ->
           CreateJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "jobArn")
+            Prelude.<*> (x Data..:> "jobArn")
       )
 
 instance Prelude.Hashable CreateJob where
@@ -285,49 +286,49 @@ instance Prelude.NFData CreateJob where
       `Prelude.seq` Prelude.rnf outputDataConfig
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateJob where
+instance Data.ToHeaders CreateJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateJob where
+instance Data.ToJSON CreateJob where
   toJSON CreateJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("checkpointConfig" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("checkpointConfig" Data..=)
               Prelude.<$> checkpointConfig,
-            ("stoppingCondition" Core..=)
+            ("stoppingCondition" Data..=)
               Prelude.<$> stoppingCondition,
-            ("inputDataConfig" Core..=)
+            ("inputDataConfig" Data..=)
               Prelude.<$> inputDataConfig,
-            ("hyperParameters" Core..=)
+            ("hyperParameters" Data..=)
               Prelude.<$> hyperParameters,
             Prelude.Just
               ( "algorithmSpecification"
-                  Core..= algorithmSpecification
+                  Data..= algorithmSpecification
               ),
-            Prelude.Just ("clientToken" Core..= clientToken),
-            Prelude.Just ("deviceConfig" Core..= deviceConfig),
+            Prelude.Just ("clientToken" Data..= clientToken),
+            Prelude.Just ("deviceConfig" Data..= deviceConfig),
             Prelude.Just
-              ("instanceConfig" Core..= instanceConfig),
-            Prelude.Just ("jobName" Core..= jobName),
+              ("instanceConfig" Data..= instanceConfig),
+            Prelude.Just ("jobName" Data..= jobName),
             Prelude.Just
-              ("outputDataConfig" Core..= outputDataConfig),
-            Prelude.Just ("roleArn" Core..= roleArn)
+              ("outputDataConfig" Data..= outputDataConfig),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateJob where
+instance Data.ToPath CreateJob where
   toPath = Prelude.const "/job"
 
-instance Core.ToQuery CreateJob where
+instance Data.ToQuery CreateJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateJobResponse' smart constructor.

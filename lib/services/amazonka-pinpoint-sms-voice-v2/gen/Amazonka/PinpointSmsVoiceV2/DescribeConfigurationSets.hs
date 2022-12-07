@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -154,8 +155,8 @@ instance Core.AWSRequest DescribeConfigurationSets where
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationSetsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ConfigurationSets"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ConfigurationSets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -175,37 +176,37 @@ instance Prelude.NFData DescribeConfigurationSets where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeConfigurationSets where
+instance Data.ToHeaders DescribeConfigurationSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.DescribeConfigurationSets" ::
+              Data.=# ( "PinpointSMSVoiceV2.DescribeConfigurationSets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeConfigurationSets where
+instance Data.ToJSON DescribeConfigurationSets where
   toJSON DescribeConfigurationSets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ConfigurationSetNames" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ConfigurationSetNames" Data..=)
               Prelude.<$> configurationSetNames,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeConfigurationSets where
+instance Data.ToPath DescribeConfigurationSets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeConfigurationSets where
+instance Data.ToQuery DescribeConfigurationSets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeConfigurationSetsResponse' smart constructor.

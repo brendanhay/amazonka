@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.RulesPackage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an Amazon Inspector rules package. This data
@@ -98,17 +99,17 @@ rulesPackage_version = Lens.lens (\RulesPackage' {version} -> version) (\s@Rules
 rulesPackage_provider :: Lens.Lens' RulesPackage Prelude.Text
 rulesPackage_provider = Lens.lens (\RulesPackage' {provider} -> provider) (\s@RulesPackage' {} a -> s {provider = a} :: RulesPackage)
 
-instance Core.FromJSON RulesPackage where
+instance Data.FromJSON RulesPackage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RulesPackage"
       ( \x ->
           RulesPackage'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "version")
-            Prelude.<*> (x Core..: "provider")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "version")
+            Prelude.<*> (x Data..: "provider")
       )
 
 instance Prelude.Hashable RulesPackage where

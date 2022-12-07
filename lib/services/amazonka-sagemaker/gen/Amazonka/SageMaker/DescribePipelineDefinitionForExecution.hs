@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,8 +93,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribePipelineDefinitionForExecutionResponse'
-            Prelude.<$> (x Core..?> "PipelineDefinition")
-              Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Data..?> "PipelineDefinition")
+              Prelude.<*> (x Data..?> "CreationTime")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,45 +115,45 @@ instance
     Prelude.rnf pipelineExecutionArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribePipelineDefinitionForExecution
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribePipelineDefinitionForExecution" ::
+              Data.=# ( "SageMaker.DescribePipelineDefinitionForExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribePipelineDefinitionForExecution
   where
   toJSON DescribePipelineDefinitionForExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "PipelineExecutionArn"
-                  Core..= pipelineExecutionArn
+                  Data..= pipelineExecutionArn
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribePipelineDefinitionForExecution
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribePipelineDefinitionForExecution
   where
   toQuery = Prelude.const Prelude.mempty
@@ -162,7 +163,7 @@ data DescribePipelineDefinitionForExecutionResponse = DescribePipelineDefinition
   { -- | The JSON pipeline definition.
     pipelineDefinition :: Prelude.Maybe Prelude.Text,
     -- | The time when the pipeline was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -201,7 +202,7 @@ describePipelineDefinitionForExecutionResponse_pipelineDefinition = Lens.lens (\
 
 -- | The time when the pipeline was created.
 describePipelineDefinitionForExecutionResponse_creationTime :: Lens.Lens' DescribePipelineDefinitionForExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-describePipelineDefinitionForExecutionResponse_creationTime = Lens.lens (\DescribePipelineDefinitionForExecutionResponse' {creationTime} -> creationTime) (\s@DescribePipelineDefinitionForExecutionResponse' {} a -> s {creationTime = a} :: DescribePipelineDefinitionForExecutionResponse) Prelude.. Lens.mapping Core._Time
+describePipelineDefinitionForExecutionResponse_creationTime = Lens.lens (\DescribePipelineDefinitionForExecutionResponse' {creationTime} -> creationTime) (\s@DescribePipelineDefinitionForExecutionResponse' {} a -> s {creationTime = a} :: DescribePipelineDefinitionForExecutionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describePipelineDefinitionForExecutionResponse_httpStatus :: Lens.Lens' DescribePipelineDefinitionForExecutionResponse Prelude.Int

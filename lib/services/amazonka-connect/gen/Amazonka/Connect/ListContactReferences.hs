@@ -52,6 +52,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -164,8 +165,8 @@ instance Core.AWSRequest ListContactReferences where
     Response.receiveJSON
       ( \s h x ->
           ListContactReferencesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ReferenceSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ReferenceSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -185,32 +186,32 @@ instance Prelude.NFData ListContactReferences where
       `Prelude.seq` Prelude.rnf contactId
       `Prelude.seq` Prelude.rnf referenceTypes
 
-instance Core.ToHeaders ListContactReferences where
+instance Data.ToHeaders ListContactReferences where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListContactReferences where
+instance Data.ToPath ListContactReferences where
   toPath ListContactReferences' {..} =
     Prelude.mconcat
       [ "/contact/references/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS contactId
+        Data.toBS contactId
       ]
 
-instance Core.ToQuery ListContactReferences where
+instance Data.ToQuery ListContactReferences where
   toQuery ListContactReferences' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
+      [ "nextToken" Data.=: nextToken,
         "referenceTypes"
-          Core.=: Core.toQueryList "member" referenceTypes
+          Data.=: Data.toQueryList "member" referenceTypes
       ]
 
 -- | /See:/ 'newListContactReferencesResponse' smart constructor.

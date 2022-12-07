@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,8 +145,8 @@ instance Core.AWSRequest DescribeMaintenanceWindows where
     Response.receiveJSON
       ( \s h x ->
           DescribeMaintenanceWindowsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "WindowIdentities"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "WindowIdentities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -163,35 +164,35 @@ instance Prelude.NFData DescribeMaintenanceWindows where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeMaintenanceWindows where
+instance Data.ToHeaders DescribeMaintenanceWindows where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DescribeMaintenanceWindows" ::
+              Data.=# ( "AmazonSSM.DescribeMaintenanceWindows" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeMaintenanceWindows where
+instance Data.ToJSON DescribeMaintenanceWindows where
   toJSON DescribeMaintenanceWindows' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeMaintenanceWindows where
+instance Data.ToPath DescribeMaintenanceWindows where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeMaintenanceWindows where
+instance Data.ToQuery DescribeMaintenanceWindows where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeMaintenanceWindowsResponse' smart constructor.

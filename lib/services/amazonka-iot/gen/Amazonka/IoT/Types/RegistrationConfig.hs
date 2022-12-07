@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.RegistrationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The registration configuration.
@@ -70,15 +71,15 @@ registrationConfig_roleArn = Lens.lens (\RegistrationConfig' {roleArn} -> roleAr
 registrationConfig_templateBody :: Lens.Lens' RegistrationConfig (Prelude.Maybe Prelude.Text)
 registrationConfig_templateBody = Lens.lens (\RegistrationConfig' {templateBody} -> templateBody) (\s@RegistrationConfig' {} a -> s {templateBody = a} :: RegistrationConfig)
 
-instance Core.FromJSON RegistrationConfig where
+instance Data.FromJSON RegistrationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegistrationConfig"
       ( \x ->
           RegistrationConfig'
-            Prelude.<$> (x Core..:? "templateName")
-            Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "templateBody")
+            Prelude.<$> (x Data..:? "templateName")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "templateBody")
       )
 
 instance Prelude.Hashable RegistrationConfig where
@@ -93,12 +94,12 @@ instance Prelude.NFData RegistrationConfig where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf templateBody
 
-instance Core.ToJSON RegistrationConfig where
+instance Data.ToJSON RegistrationConfig where
   toJSON RegistrationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("templateName" Core..=) Prelude.<$> templateName,
-            ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("templateBody" Core..=) Prelude.<$> templateBody
+          [ ("templateName" Data..=) Prelude.<$> templateName,
+            ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("templateBody" Data..=) Prelude.<$> templateBody
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.RepositoryTriggerExecutionFailure where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A trigger failed to run.
@@ -63,16 +64,16 @@ repositoryTriggerExecutionFailure_failureMessage :: Lens.Lens' RepositoryTrigger
 repositoryTriggerExecutionFailure_failureMessage = Lens.lens (\RepositoryTriggerExecutionFailure' {failureMessage} -> failureMessage) (\s@RepositoryTriggerExecutionFailure' {} a -> s {failureMessage = a} :: RepositoryTriggerExecutionFailure)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RepositoryTriggerExecutionFailure
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositoryTriggerExecutionFailure"
       ( \x ->
           RepositoryTriggerExecutionFailure'
-            Prelude.<$> (x Core..:? "trigger")
-            Prelude.<*> (x Core..:? "failureMessage")
+            Prelude.<$> (x Data..:? "trigger")
+            Prelude.<*> (x Data..:? "failureMessage")
       )
 
 instance

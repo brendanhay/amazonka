@@ -24,6 +24,7 @@ import Amazonka.AuditManager.Types.Delegation
 import Amazonka.AuditManager.Types.Role
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A metadata object that\'s associated with an assessment in Audit
@@ -38,9 +39,9 @@ data AssessmentMetadataItem = AssessmentMetadataItem'
     -- | The unique identifier for the assessment.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time of the most recent update.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | Specifies when the assessment was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The delegations that are associated with the assessment.
     delegations :: Prelude.Maybe [Delegation],
     -- | The name of the compliance standard that\'s related to the assessment,
@@ -103,11 +104,11 @@ assessmentMetadataItem_id = Lens.lens (\AssessmentMetadataItem' {id} -> id) (\s@
 
 -- | The time of the most recent update.
 assessmentMetadataItem_lastUpdated :: Lens.Lens' AssessmentMetadataItem (Prelude.Maybe Prelude.UTCTime)
-assessmentMetadataItem_lastUpdated = Lens.lens (\AssessmentMetadataItem' {lastUpdated} -> lastUpdated) (\s@AssessmentMetadataItem' {} a -> s {lastUpdated = a} :: AssessmentMetadataItem) Prelude.. Lens.mapping Core._Time
+assessmentMetadataItem_lastUpdated = Lens.lens (\AssessmentMetadataItem' {lastUpdated} -> lastUpdated) (\s@AssessmentMetadataItem' {} a -> s {lastUpdated = a} :: AssessmentMetadataItem) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies when the assessment was created.
 assessmentMetadataItem_creationTime :: Lens.Lens' AssessmentMetadataItem (Prelude.Maybe Prelude.UTCTime)
-assessmentMetadataItem_creationTime = Lens.lens (\AssessmentMetadataItem' {creationTime} -> creationTime) (\s@AssessmentMetadataItem' {} a -> s {creationTime = a} :: AssessmentMetadataItem) Prelude.. Lens.mapping Core._Time
+assessmentMetadataItem_creationTime = Lens.lens (\AssessmentMetadataItem' {creationTime} -> creationTime) (\s@AssessmentMetadataItem' {} a -> s {creationTime = a} :: AssessmentMetadataItem) Prelude.. Lens.mapping Data._Time
 
 -- | The delegations that are associated with the assessment.
 assessmentMetadataItem_delegations :: Lens.Lens' AssessmentMetadataItem (Prelude.Maybe [Delegation])
@@ -122,20 +123,20 @@ assessmentMetadataItem_complianceType = Lens.lens (\AssessmentMetadataItem' {com
 assessmentMetadataItem_roles :: Lens.Lens' AssessmentMetadataItem (Prelude.Maybe [Role])
 assessmentMetadataItem_roles = Lens.lens (\AssessmentMetadataItem' {roles} -> roles) (\s@AssessmentMetadataItem' {} a -> s {roles = a} :: AssessmentMetadataItem) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AssessmentMetadataItem where
+instance Data.FromJSON AssessmentMetadataItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssessmentMetadataItem"
       ( \x ->
           AssessmentMetadataItem'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "lastUpdated")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "delegations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "complianceType")
-            Prelude.<*> (x Core..:? "roles" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "lastUpdated")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "delegations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "complianceType")
+            Prelude.<*> (x Data..:? "roles" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AssessmentMetadataItem where

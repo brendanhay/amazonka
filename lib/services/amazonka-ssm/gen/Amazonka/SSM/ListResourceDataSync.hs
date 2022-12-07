@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,8 +157,8 @@ instance Core.AWSRequest ListResourceDataSync where
     Response.receiveJSON
       ( \s h x ->
           ListResourceDataSyncResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ResourceDataSyncItems"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ResourceDataSyncItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -175,35 +176,35 @@ instance Prelude.NFData ListResourceDataSync where
       `Prelude.seq` Prelude.rnf syncType
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListResourceDataSync where
+instance Data.ToHeaders ListResourceDataSync where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.ListResourceDataSync" ::
+              Data.=# ( "AmazonSSM.ListResourceDataSync" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListResourceDataSync where
+instance Data.ToJSON ListResourceDataSync where
   toJSON ListResourceDataSync' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SyncType" Core..=) Prelude.<$> syncType,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SyncType" Data..=) Prelude.<$> syncType,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListResourceDataSync where
+instance Data.ToPath ListResourceDataSync where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListResourceDataSync where
+instance Data.ToQuery ListResourceDataSync where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResourceDataSyncResponse' smart constructor.

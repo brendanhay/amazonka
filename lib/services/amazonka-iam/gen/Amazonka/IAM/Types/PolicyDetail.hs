@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.PolicyDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an IAM policy, including the policy document.
@@ -64,11 +65,11 @@ policyDetail_policyName = Lens.lens (\PolicyDetail' {policyName} -> policyName) 
 policyDetail_policyDocument :: Lens.Lens' PolicyDetail (Prelude.Maybe Prelude.Text)
 policyDetail_policyDocument = Lens.lens (\PolicyDetail' {policyDocument} -> policyDocument) (\s@PolicyDetail' {} a -> s {policyDocument = a} :: PolicyDetail)
 
-instance Core.FromXML PolicyDetail where
+instance Data.FromXML PolicyDetail where
   parseXML x =
     PolicyDetail'
-      Prelude.<$> (x Core..@? "PolicyName")
-      Prelude.<*> (x Core..@? "PolicyDocument")
+      Prelude.<$> (x Data..@? "PolicyName")
+      Prelude.<*> (x Data..@? "PolicyDocument")
 
 instance Prelude.Hashable PolicyDetail where
   hashWithSalt _salt PolicyDetail' {..} =

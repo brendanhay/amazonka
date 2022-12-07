@@ -44,6 +44,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,7 +121,7 @@ instance Core.AWSRequest DescribeVirtualGateway where
       ( \s h x ->
           DescribeVirtualGatewayResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable DescribeVirtualGateway where
@@ -135,29 +136,29 @@ instance Prelude.NFData DescribeVirtualGateway where
       `Prelude.seq` Prelude.rnf meshName
       `Prelude.seq` Prelude.rnf virtualGatewayName
 
-instance Core.ToHeaders DescribeVirtualGateway where
+instance Data.ToHeaders DescribeVirtualGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeVirtualGateway where
+instance Data.ToPath DescribeVirtualGateway where
   toPath DescribeVirtualGateway' {..} =
     Prelude.mconcat
       [ "/v20190125/meshes/",
-        Core.toBS meshName,
+        Data.toBS meshName,
         "/virtualGateways/",
-        Core.toBS virtualGatewayName
+        Data.toBS virtualGatewayName
       ]
 
-instance Core.ToQuery DescribeVirtualGateway where
+instance Data.ToQuery DescribeVirtualGateway where
   toQuery DescribeVirtualGateway' {..} =
-    Prelude.mconcat ["meshOwner" Core.=: meshOwner]
+    Prelude.mconcat ["meshOwner" Data.=: meshOwner]
 
 -- | /See:/ 'newDescribeVirtualGatewayResponse' smart constructor.
 data DescribeVirtualGatewayResponse = DescribeVirtualGatewayResponse'

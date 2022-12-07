@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -173,7 +174,7 @@ instance Core.AWSRequest AssociateFileSystemAliases where
     Response.receiveJSON
       ( \s h x ->
           AssociateFileSystemAliasesResponse'
-            Prelude.<$> (x Core..?> "Aliases" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Aliases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,36 +190,36 @@ instance Prelude.NFData AssociateFileSystemAliases where
       `Prelude.seq` Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf aliases
 
-instance Core.ToHeaders AssociateFileSystemAliases where
+instance Data.ToHeaders AssociateFileSystemAliases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.AssociateFileSystemAliases" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.AssociateFileSystemAliases" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateFileSystemAliases where
+instance Data.ToJSON AssociateFileSystemAliases where
   toJSON AssociateFileSystemAliases' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("FileSystemId" Core..= fileSystemId),
-            Prelude.Just ("Aliases" Core..= aliases)
+            Prelude.Just ("FileSystemId" Data..= fileSystemId),
+            Prelude.Just ("Aliases" Data..= aliases)
           ]
       )
 
-instance Core.ToPath AssociateFileSystemAliases where
+instance Data.ToPath AssociateFileSystemAliases where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateFileSystemAliases where
+instance Data.ToQuery AssociateFileSystemAliases where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The system generated response showing the DNS aliases that Amazon FSx is

@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.BotChannelAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.ChannelStatus
 import Amazonka.LexModels.Types.ChannelType
 import qualified Amazonka.Prelude as Prelude
@@ -38,7 +39,7 @@ data BotChannelAssociation = BotChannelAssociation'
     type' :: Prelude.Maybe ChannelType,
     -- | Provides information necessary to communicate with the messaging
     -- platform.
-    botConfiguration :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    botConfiguration :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The status of the bot channel.
     --
     -- -   @CREATED@ - The channel has been created and is ready for use.
@@ -57,7 +58,7 @@ data BotChannelAssociation = BotChannelAssociation'
     botName :: Prelude.Maybe Prelude.Text,
     -- | The date that the association between the Amazon Lex bot and the channel
     -- was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | An alias pointing to the specific version of the Amazon Lex bot to which
     -- this association is being made.
     botAlias :: Prelude.Maybe Prelude.Text,
@@ -136,7 +137,7 @@ botChannelAssociation_type = Lens.lens (\BotChannelAssociation' {type'} -> type'
 -- | Provides information necessary to communicate with the messaging
 -- platform.
 botChannelAssociation_botConfiguration :: Lens.Lens' BotChannelAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-botChannelAssociation_botConfiguration = Lens.lens (\BotChannelAssociation' {botConfiguration} -> botConfiguration) (\s@BotChannelAssociation' {} a -> s {botConfiguration = a} :: BotChannelAssociation) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+botChannelAssociation_botConfiguration = Lens.lens (\BotChannelAssociation' {botConfiguration} -> botConfiguration) (\s@BotChannelAssociation' {} a -> s {botConfiguration = a} :: BotChannelAssociation) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The status of the bot channel.
 --
@@ -163,7 +164,7 @@ botChannelAssociation_botName = Lens.lens (\BotChannelAssociation' {botName} -> 
 -- | The date that the association between the Amazon Lex bot and the channel
 -- was created.
 botChannelAssociation_createdDate :: Lens.Lens' BotChannelAssociation (Prelude.Maybe Prelude.UTCTime)
-botChannelAssociation_createdDate = Lens.lens (\BotChannelAssociation' {createdDate} -> createdDate) (\s@BotChannelAssociation' {} a -> s {createdDate = a} :: BotChannelAssociation) Prelude.. Lens.mapping Core._Time
+botChannelAssociation_createdDate = Lens.lens (\BotChannelAssociation' {createdDate} -> createdDate) (\s@BotChannelAssociation' {} a -> s {createdDate = a} :: BotChannelAssociation) Prelude.. Lens.mapping Data._Time
 
 -- | An alias pointing to the specific version of the Amazon Lex bot to which
 -- this association is being made.
@@ -175,23 +176,23 @@ botChannelAssociation_botAlias = Lens.lens (\BotChannelAssociation' {botAlias} -
 botChannelAssociation_failureReason :: Lens.Lens' BotChannelAssociation (Prelude.Maybe Prelude.Text)
 botChannelAssociation_failureReason = Lens.lens (\BotChannelAssociation' {failureReason} -> failureReason) (\s@BotChannelAssociation' {} a -> s {failureReason = a} :: BotChannelAssociation)
 
-instance Core.FromJSON BotChannelAssociation where
+instance Data.FromJSON BotChannelAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotChannelAssociation"
       ( \x ->
           BotChannelAssociation'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> ( x Core..:? "botConfiguration"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> ( x Data..:? "botConfiguration"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "botName")
-            Prelude.<*> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..:? "botAlias")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "botName")
+            Prelude.<*> (x Data..:? "createdDate")
+            Prelude.<*> (x Data..:? "botAlias")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable BotChannelAssociation where

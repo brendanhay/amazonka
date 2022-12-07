@@ -41,6 +41,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,36 +97,36 @@ instance Prelude.NFData DeleteConferenceProvider where
   rnf DeleteConferenceProvider' {..} =
     Prelude.rnf conferenceProviderArn
 
-instance Core.ToHeaders DeleteConferenceProvider where
+instance Data.ToHeaders DeleteConferenceProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.DeleteConferenceProvider" ::
+              Data.=# ( "AlexaForBusiness.DeleteConferenceProvider" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteConferenceProvider where
+instance Data.ToJSON DeleteConferenceProvider where
   toJSON DeleteConferenceProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ConferenceProviderArn"
-                  Core..= conferenceProviderArn
+                  Data..= conferenceProviderArn
               )
           ]
       )
 
-instance Core.ToPath DeleteConferenceProvider where
+instance Data.ToPath DeleteConferenceProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteConferenceProvider where
+instance Data.ToQuery DeleteConferenceProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConferenceProviderResponse' smart constructor.

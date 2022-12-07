@@ -21,6 +21,7 @@ module Amazonka.CloudDirectory.Types.PathToObjectIdentifiers where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns the path to the @ObjectIdentifiers@ that is associated with the
@@ -68,15 +69,15 @@ pathToObjectIdentifiers_path = Lens.lens (\PathToObjectIdentifiers' {path} -> pa
 pathToObjectIdentifiers_objectIdentifiers :: Lens.Lens' PathToObjectIdentifiers (Prelude.Maybe [Prelude.Text])
 pathToObjectIdentifiers_objectIdentifiers = Lens.lens (\PathToObjectIdentifiers' {objectIdentifiers} -> objectIdentifiers) (\s@PathToObjectIdentifiers' {} a -> s {objectIdentifiers = a} :: PathToObjectIdentifiers) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PathToObjectIdentifiers where
+instance Data.FromJSON PathToObjectIdentifiers where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PathToObjectIdentifiers"
       ( \x ->
           PathToObjectIdentifiers'
-            Prelude.<$> (x Core..:? "Path")
-            Prelude.<*> ( x Core..:? "ObjectIdentifiers"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Path")
+            Prelude.<*> ( x Data..:? "ObjectIdentifiers"
+                            Data..!= Prelude.mempty
                         )
       )
 

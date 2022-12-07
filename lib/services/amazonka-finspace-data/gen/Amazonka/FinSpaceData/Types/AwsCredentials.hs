@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.AwsCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The credentials required to access the external Dataview from the S3
@@ -31,9 +32,9 @@ data AwsCredentials = AwsCredentials'
   { -- | The Epoch time when the current credentials expire.
     expiration :: Prelude.Maybe Prelude.Integer,
     -- | The token that users must pass to use the credentials.
-    sessionToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sessionToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The secret access key that can be used to sign requests.
-    secretAccessKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    secretAccessKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The unique identifier for the security credentials.
     accessKeyId :: Prelude.Maybe Prelude.Text
   }
@@ -70,26 +71,26 @@ awsCredentials_expiration = Lens.lens (\AwsCredentials' {expiration} -> expirati
 
 -- | The token that users must pass to use the credentials.
 awsCredentials_sessionToken :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
-awsCredentials_sessionToken = Lens.lens (\AwsCredentials' {sessionToken} -> sessionToken) (\s@AwsCredentials' {} a -> s {sessionToken = a} :: AwsCredentials) Prelude.. Lens.mapping Core._Sensitive
+awsCredentials_sessionToken = Lens.lens (\AwsCredentials' {sessionToken} -> sessionToken) (\s@AwsCredentials' {} a -> s {sessionToken = a} :: AwsCredentials) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The secret access key that can be used to sign requests.
 awsCredentials_secretAccessKey :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
-awsCredentials_secretAccessKey = Lens.lens (\AwsCredentials' {secretAccessKey} -> secretAccessKey) (\s@AwsCredentials' {} a -> s {secretAccessKey = a} :: AwsCredentials) Prelude.. Lens.mapping Core._Sensitive
+awsCredentials_secretAccessKey = Lens.lens (\AwsCredentials' {secretAccessKey} -> secretAccessKey) (\s@AwsCredentials' {} a -> s {secretAccessKey = a} :: AwsCredentials) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The unique identifier for the security credentials.
 awsCredentials_accessKeyId :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
 awsCredentials_accessKeyId = Lens.lens (\AwsCredentials' {accessKeyId} -> accessKeyId) (\s@AwsCredentials' {} a -> s {accessKeyId = a} :: AwsCredentials)
 
-instance Core.FromJSON AwsCredentials where
+instance Data.FromJSON AwsCredentials where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCredentials"
       ( \x ->
           AwsCredentials'
-            Prelude.<$> (x Core..:? "expiration")
-            Prelude.<*> (x Core..:? "sessionToken")
-            Prelude.<*> (x Core..:? "secretAccessKey")
-            Prelude.<*> (x Core..:? "accessKeyId")
+            Prelude.<$> (x Data..:? "expiration")
+            Prelude.<*> (x Data..:? "sessionToken")
+            Prelude.<*> (x Data..:? "secretAccessKey")
+            Prelude.<*> (x Data..:? "accessKeyId")
       )
 
 instance Prelude.Hashable AwsCredentials where

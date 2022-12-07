@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,12 +134,12 @@ instance Core.AWSRequest StartDeviceAuthorization where
     Response.receiveJSON
       ( \s h x ->
           StartDeviceAuthorizationResponse'
-            Prelude.<$> (x Core..?> "deviceCode")
-            Prelude.<*> (x Core..?> "interval")
-            Prelude.<*> (x Core..?> "expiresIn")
-            Prelude.<*> (x Core..?> "userCode")
-            Prelude.<*> (x Core..?> "verificationUriComplete")
-            Prelude.<*> (x Core..?> "verificationUri")
+            Prelude.<$> (x Data..?> "deviceCode")
+            Prelude.<*> (x Data..?> "interval")
+            Prelude.<*> (x Data..?> "expiresIn")
+            Prelude.<*> (x Data..?> "userCode")
+            Prelude.<*> (x Data..?> "verificationUriComplete")
+            Prelude.<*> (x Data..?> "verificationUri")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,31 +155,31 @@ instance Prelude.NFData StartDeviceAuthorization where
       `Prelude.seq` Prelude.rnf clientSecret
       `Prelude.seq` Prelude.rnf startUrl
 
-instance Core.ToHeaders StartDeviceAuthorization where
+instance Data.ToHeaders StartDeviceAuthorization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartDeviceAuthorization where
+instance Data.ToJSON StartDeviceAuthorization where
   toJSON StartDeviceAuthorization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("clientId" Core..= clientId),
-            Prelude.Just ("clientSecret" Core..= clientSecret),
-            Prelude.Just ("startUrl" Core..= startUrl)
+          [ Prelude.Just ("clientId" Data..= clientId),
+            Prelude.Just ("clientSecret" Data..= clientSecret),
+            Prelude.Just ("startUrl" Data..= startUrl)
           ]
       )
 
-instance Core.ToPath StartDeviceAuthorization where
+instance Data.ToPath StartDeviceAuthorization where
   toPath = Prelude.const "/device_authorization"
 
-instance Core.ToQuery StartDeviceAuthorization where
+instance Data.ToQuery StartDeviceAuthorization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartDeviceAuthorizationResponse' smart constructor.

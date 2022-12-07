@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.CategoryProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.Rule
 
@@ -39,13 +40,13 @@ data CategoryProperties = CategoryProperties'
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-05T12:45:32.691000-07:00@ represents 12:45 PM UTC-7 on
     -- May 5, 2022.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time the specified Call Analytics category was created.
     --
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
     -- May 4, 2022.
-    createTime :: Prelude.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the Call Analytics category. Category names are case
     -- sensitive and must be unique within an Amazon Web Services account.
     categoryName :: Prelude.Maybe Prelude.Text
@@ -100,7 +101,7 @@ categoryProperties_rules = Lens.lens (\CategoryProperties' {rules} -> rules) (\s
 -- example, @2022-05-05T12:45:32.691000-07:00@ represents 12:45 PM UTC-7 on
 -- May 5, 2022.
 categoryProperties_lastUpdateTime :: Lens.Lens' CategoryProperties (Prelude.Maybe Prelude.UTCTime)
-categoryProperties_lastUpdateTime = Lens.lens (\CategoryProperties' {lastUpdateTime} -> lastUpdateTime) (\s@CategoryProperties' {} a -> s {lastUpdateTime = a} :: CategoryProperties) Prelude.. Lens.mapping Core._Time
+categoryProperties_lastUpdateTime = Lens.lens (\CategoryProperties' {lastUpdateTime} -> lastUpdateTime) (\s@CategoryProperties' {} a -> s {lastUpdateTime = a} :: CategoryProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time the specified Call Analytics category was created.
 --
@@ -108,23 +109,23 @@ categoryProperties_lastUpdateTime = Lens.lens (\CategoryProperties' {lastUpdateT
 -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
 -- May 4, 2022.
 categoryProperties_createTime :: Lens.Lens' CategoryProperties (Prelude.Maybe Prelude.UTCTime)
-categoryProperties_createTime = Lens.lens (\CategoryProperties' {createTime} -> createTime) (\s@CategoryProperties' {} a -> s {createTime = a} :: CategoryProperties) Prelude.. Lens.mapping Core._Time
+categoryProperties_createTime = Lens.lens (\CategoryProperties' {createTime} -> createTime) (\s@CategoryProperties' {} a -> s {createTime = a} :: CategoryProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the Call Analytics category. Category names are case
 -- sensitive and must be unique within an Amazon Web Services account.
 categoryProperties_categoryName :: Lens.Lens' CategoryProperties (Prelude.Maybe Prelude.Text)
 categoryProperties_categoryName = Lens.lens (\CategoryProperties' {categoryName} -> categoryName) (\s@CategoryProperties' {} a -> s {categoryName = a} :: CategoryProperties)
 
-instance Core.FromJSON CategoryProperties where
+instance Data.FromJSON CategoryProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CategoryProperties"
       ( \x ->
           CategoryProperties'
-            Prelude.<$> (x Core..:? "Rules")
-            Prelude.<*> (x Core..:? "LastUpdateTime")
-            Prelude.<*> (x Core..:? "CreateTime")
-            Prelude.<*> (x Core..:? "CategoryName")
+            Prelude.<$> (x Data..:? "Rules")
+            Prelude.<*> (x Data..:? "LastUpdateTime")
+            Prelude.<*> (x Data..:? "CreateTime")
+            Prelude.<*> (x Data..:? "CategoryName")
       )
 
 instance Prelude.Hashable CategoryProperties where

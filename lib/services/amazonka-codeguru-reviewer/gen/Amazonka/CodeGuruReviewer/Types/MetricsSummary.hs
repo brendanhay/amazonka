@@ -21,6 +21,7 @@ module Amazonka.CodeGuruReviewer.Types.MetricsSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about metrics summaries.
@@ -145,15 +146,15 @@ metricsSummary_suppressedLinesOfCodeCount = Lens.lens (\MetricsSummary' {suppres
 metricsSummary_meteredLinesOfCodeCount :: Lens.Lens' MetricsSummary (Prelude.Maybe Prelude.Integer)
 metricsSummary_meteredLinesOfCodeCount = Lens.lens (\MetricsSummary' {meteredLinesOfCodeCount} -> meteredLinesOfCodeCount) (\s@MetricsSummary' {} a -> s {meteredLinesOfCodeCount = a} :: MetricsSummary)
 
-instance Core.FromJSON MetricsSummary where
+instance Data.FromJSON MetricsSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricsSummary"
       ( \x ->
           MetricsSummary'
-            Prelude.<$> (x Core..:? "FindingsCount")
-            Prelude.<*> (x Core..:? "SuppressedLinesOfCodeCount")
-            Prelude.<*> (x Core..:? "MeteredLinesOfCodeCount")
+            Prelude.<$> (x Data..:? "FindingsCount")
+            Prelude.<*> (x Data..:? "SuppressedLinesOfCodeCount")
+            Prelude.<*> (x Data..:? "MeteredLinesOfCodeCount")
       )
 
 instance Prelude.Hashable MetricsSummary where

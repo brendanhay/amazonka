@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,10 +153,10 @@ instance Core.AWSRequest DescribeSSLPolicies where
       "DescribeSSLPoliciesResult"
       ( \s h x ->
           DescribeSSLPoliciesResponse'
-            Prelude.<$> ( x Core..@? "SslPolicies" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "SslPolicies" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "NextMarker")
+            Prelude.<*> (x Data..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,25 +174,25 @@ instance Prelude.NFData DescribeSSLPolicies where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf loadBalancerType
 
-instance Core.ToHeaders DescribeSSLPolicies where
+instance Data.ToHeaders DescribeSSLPolicies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeSSLPolicies where
+instance Data.ToPath DescribeSSLPolicies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSSLPolicies where
+instance Data.ToQuery DescribeSSLPolicies where
   toQuery DescribeSSLPolicies' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSSLPolicies" :: Prelude.ByteString),
+          Data.=: ("DescribeSSLPolicies" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Names"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> names),
-        "PageSize" Core.=: pageSize,
-        "LoadBalancerType" Core.=: loadBalancerType
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> names),
+        "PageSize" Data.=: pageSize,
+        "LoadBalancerType" Data.=: loadBalancerType
       ]
 
 -- | /See:/ 'newDescribeSSLPoliciesResponse' smart constructor.

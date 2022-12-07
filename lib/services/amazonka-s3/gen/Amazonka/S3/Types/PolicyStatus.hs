@@ -21,6 +21,7 @@ module Amazonka.S3.Types.PolicyStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -54,9 +55,9 @@ newPolicyStatus =
 policyStatus_isPublic :: Lens.Lens' PolicyStatus (Prelude.Maybe Prelude.Bool)
 policyStatus_isPublic = Lens.lens (\PolicyStatus' {isPublic} -> isPublic) (\s@PolicyStatus' {} a -> s {isPublic = a} :: PolicyStatus)
 
-instance Core.FromXML PolicyStatus where
+instance Data.FromXML PolicyStatus where
   parseXML x =
-    PolicyStatus' Prelude.<$> (x Core..@? "IsPublic")
+    PolicyStatus' Prelude.<$> (x Data..@? "IsPublic")
 
 instance Prelude.Hashable PolicyStatus where
   hashWithSalt _salt PolicyStatus' {..} =

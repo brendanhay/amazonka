@@ -24,6 +24,7 @@ import Amazonka.Batch.Types.JQState
 import Amazonka.Batch.Types.JQStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the details for an Batch job queue.
@@ -193,22 +194,22 @@ jobQueueDetail_priority = Lens.lens (\JobQueueDetail' {priority} -> priority) (\
 jobQueueDetail_computeEnvironmentOrder :: Lens.Lens' JobQueueDetail [ComputeEnvironmentOrder]
 jobQueueDetail_computeEnvironmentOrder = Lens.lens (\JobQueueDetail' {computeEnvironmentOrder} -> computeEnvironmentOrder) (\s@JobQueueDetail' {} a -> s {computeEnvironmentOrder = a} :: JobQueueDetail) Prelude.. Lens.coerced
 
-instance Core.FromJSON JobQueueDetail where
+instance Data.FromJSON JobQueueDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobQueueDetail"
       ( \x ->
           JobQueueDetail'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "schedulingPolicyArn")
-            Prelude.<*> (x Core..: "jobQueueName")
-            Prelude.<*> (x Core..: "jobQueueArn")
-            Prelude.<*> (x Core..: "state")
-            Prelude.<*> (x Core..: "priority")
-            Prelude.<*> ( x Core..:? "computeEnvironmentOrder"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "schedulingPolicyArn")
+            Prelude.<*> (x Data..: "jobQueueName")
+            Prelude.<*> (x Data..: "jobQueueArn")
+            Prelude.<*> (x Data..: "state")
+            Prelude.<*> (x Data..: "priority")
+            Prelude.<*> ( x Data..:? "computeEnvironmentOrder"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Transition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.TransitionStorageClass
@@ -35,7 +36,7 @@ data Transition = Transition'
   { -- | Indicates when objects are transitioned to the specified storage class.
     -- The date value must be in ISO 8601 format. The time is always midnight
     -- UTC.
-    date :: Prelude.Maybe Core.ISO8601,
+    date :: Prelude.Maybe Data.ISO8601,
     -- | Indicates the number of days after creation when objects are
     -- transitioned to the specified storage class. The value must be a
     -- positive integer.
@@ -75,7 +76,7 @@ newTransition =
 -- The date value must be in ISO 8601 format. The time is always midnight
 -- UTC.
 transition_date :: Lens.Lens' Transition (Prelude.Maybe Prelude.UTCTime)
-transition_date = Lens.lens (\Transition' {date} -> date) (\s@Transition' {} a -> s {date = a} :: Transition) Prelude.. Lens.mapping Core._Time
+transition_date = Lens.lens (\Transition' {date} -> date) (\s@Transition' {} a -> s {date = a} :: Transition) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the number of days after creation when objects are
 -- transitioned to the specified storage class. The value must be a
@@ -87,12 +88,12 @@ transition_days = Lens.lens (\Transition' {days} -> days) (\s@Transition' {} a -
 transition_storageClass :: Lens.Lens' Transition (Prelude.Maybe TransitionStorageClass)
 transition_storageClass = Lens.lens (\Transition' {storageClass} -> storageClass) (\s@Transition' {} a -> s {storageClass = a} :: Transition)
 
-instance Core.FromXML Transition where
+instance Data.FromXML Transition where
   parseXML x =
     Transition'
-      Prelude.<$> (x Core..@? "Date")
-      Prelude.<*> (x Core..@? "Days")
-      Prelude.<*> (x Core..@? "StorageClass")
+      Prelude.<$> (x Data..@? "Date")
+      Prelude.<*> (x Data..@? "Days")
+      Prelude.<*> (x Data..@? "StorageClass")
 
 instance Prelude.Hashable Transition where
   hashWithSalt _salt Transition' {..} =
@@ -106,10 +107,10 @@ instance Prelude.NFData Transition where
       `Prelude.seq` Prelude.rnf days
       `Prelude.seq` Prelude.rnf storageClass
 
-instance Core.ToXML Transition where
+instance Data.ToXML Transition where
   toXML Transition' {..} =
     Prelude.mconcat
-      [ "Date" Core.@= date,
-        "Days" Core.@= days,
-        "StorageClass" Core.@= storageClass
+      [ "Date" Data.@= date,
+        "Days" Data.@= days,
+        "StorageClass" Data.@= storageClass
       ]

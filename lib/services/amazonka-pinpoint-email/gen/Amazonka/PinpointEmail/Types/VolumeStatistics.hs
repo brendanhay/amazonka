@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.VolumeStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about the amount of email that was
@@ -89,16 +90,16 @@ volumeStatistics_spamRawCount = Lens.lens (\VolumeStatistics' {spamRawCount} -> 
 volumeStatistics_projectedInbox :: Lens.Lens' VolumeStatistics (Prelude.Maybe Prelude.Integer)
 volumeStatistics_projectedInbox = Lens.lens (\VolumeStatistics' {projectedInbox} -> projectedInbox) (\s@VolumeStatistics' {} a -> s {projectedInbox = a} :: VolumeStatistics)
 
-instance Core.FromJSON VolumeStatistics where
+instance Data.FromJSON VolumeStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VolumeStatistics"
       ( \x ->
           VolumeStatistics'
-            Prelude.<$> (x Core..:? "InboxRawCount")
-            Prelude.<*> (x Core..:? "ProjectedSpam")
-            Prelude.<*> (x Core..:? "SpamRawCount")
-            Prelude.<*> (x Core..:? "ProjectedInbox")
+            Prelude.<$> (x Data..:? "InboxRawCount")
+            Prelude.<*> (x Data..:? "ProjectedSpam")
+            Prelude.<*> (x Data..:? "SpamRawCount")
+            Prelude.<*> (x Data..:? "ProjectedInbox")
       )
 
 instance Prelude.Hashable VolumeStatistics where

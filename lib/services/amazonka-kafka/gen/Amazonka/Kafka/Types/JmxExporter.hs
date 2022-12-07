@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.JmxExporter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether you want to turn on or turn off the JMX Exporter.
@@ -52,13 +53,13 @@ newJmxExporter pEnabledInBroker_ =
 jmxExporter_enabledInBroker :: Lens.Lens' JmxExporter Prelude.Bool
 jmxExporter_enabledInBroker = Lens.lens (\JmxExporter' {enabledInBroker} -> enabledInBroker) (\s@JmxExporter' {} a -> s {enabledInBroker = a} :: JmxExporter)
 
-instance Core.FromJSON JmxExporter where
+instance Data.FromJSON JmxExporter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JmxExporter"
       ( \x ->
           JmxExporter'
-            Prelude.<$> (x Core..: "enabledInBroker")
+            Prelude.<$> (x Data..: "enabledInBroker")
       )
 
 instance Prelude.Hashable JmxExporter where

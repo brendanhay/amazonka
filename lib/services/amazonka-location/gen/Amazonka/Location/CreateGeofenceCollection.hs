@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -231,9 +232,9 @@ instance Core.AWSRequest CreateGeofenceCollection where
       ( \s h x ->
           CreateGeofenceCollectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CollectionArn")
-            Prelude.<*> (x Core..:> "CollectionName")
-            Prelude.<*> (x Core..:> "CreateTime")
+            Prelude.<*> (x Data..:> "CollectionArn")
+            Prelude.<*> (x Data..:> "CollectionName")
+            Prelude.<*> (x Data..:> "CreateTime")
       )
 
 instance Prelude.Hashable CreateGeofenceCollection where
@@ -254,36 +255,36 @@ instance Prelude.NFData CreateGeofenceCollection where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf collectionName
 
-instance Core.ToHeaders CreateGeofenceCollection where
+instance Data.ToHeaders CreateGeofenceCollection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateGeofenceCollection where
+instance Data.ToJSON CreateGeofenceCollection where
   toJSON CreateGeofenceCollection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("PricingPlanDataSource" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("PricingPlanDataSource" Data..=)
               Prelude.<$> pricingPlanDataSource,
-            ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("PricingPlan" Data..=) Prelude.<$> pricingPlan,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             Prelude.Just
-              ("CollectionName" Core..= collectionName)
+              ("CollectionName" Data..= collectionName)
           ]
       )
 
-instance Core.ToPath CreateGeofenceCollection where
+instance Data.ToPath CreateGeofenceCollection where
   toPath = Prelude.const "/geofencing/v0/collections"
 
-instance Core.ToQuery CreateGeofenceCollection where
+instance Data.ToQuery CreateGeofenceCollection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGeofenceCollectionResponse' smart constructor.
@@ -301,7 +302,7 @@ data CreateGeofenceCollectionResponse = CreateGeofenceCollectionResponse'
     -- | The timestamp for when the geofence collection was created in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
-    createTime :: Core.POSIX
+    createTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -347,7 +348,7 @@ newCreateGeofenceCollectionResponse
         collectionArn = pCollectionArn_,
         collectionName = pCollectionName_,
         createTime =
-          Core._Time Lens.# pCreateTime_
+          Data._Time Lens.# pCreateTime_
       }
 
 -- | The response's http status code.
@@ -370,7 +371,7 @@ createGeofenceCollectionResponse_collectionName = Lens.lens (\CreateGeofenceColl
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
 createGeofenceCollectionResponse_createTime :: Lens.Lens' CreateGeofenceCollectionResponse Prelude.UTCTime
-createGeofenceCollectionResponse_createTime = Lens.lens (\CreateGeofenceCollectionResponse' {createTime} -> createTime) (\s@CreateGeofenceCollectionResponse' {} a -> s {createTime = a} :: CreateGeofenceCollectionResponse) Prelude.. Core._Time
+createGeofenceCollectionResponse_createTime = Lens.lens (\CreateGeofenceCollectionResponse' {createTime} -> createTime) (\s@CreateGeofenceCollectionResponse' {} a -> s {createTime = a} :: CreateGeofenceCollectionResponse) Prelude.. Data._Time
 
 instance
   Prelude.NFData

@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.FieldInputConfig where
 import Amazonka.AmplifyUiBuilder.Types.ValueMappings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration for the default input values to display for
@@ -188,27 +189,27 @@ fieldInputConfig_value = Lens.lens (\FieldInputConfig' {value} -> value) (\s@Fie
 fieldInputConfig_type :: Lens.Lens' FieldInputConfig Prelude.Text
 fieldInputConfig_type = Lens.lens (\FieldInputConfig' {type'} -> type') (\s@FieldInputConfig' {} a -> s {type' = a} :: FieldInputConfig)
 
-instance Core.FromJSON FieldInputConfig where
+instance Data.FromJSON FieldInputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldInputConfig"
       ( \x ->
           FieldInputConfig'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "descriptiveText")
-            Prelude.<*> (x Core..:? "required")
-            Prelude.<*> (x Core..:? "defaultValue")
-            Prelude.<*> (x Core..:? "minValue")
-            Prelude.<*> (x Core..:? "readOnly")
-            Prelude.<*> (x Core..:? "isArray")
-            Prelude.<*> (x Core..:? "step")
-            Prelude.<*> (x Core..:? "defaultCountryCode")
-            Prelude.<*> (x Core..:? "defaultChecked")
-            Prelude.<*> (x Core..:? "placeholder")
-            Prelude.<*> (x Core..:? "maxValue")
-            Prelude.<*> (x Core..:? "valueMappings")
-            Prelude.<*> (x Core..:? "value")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "descriptiveText")
+            Prelude.<*> (x Data..:? "required")
+            Prelude.<*> (x Data..:? "defaultValue")
+            Prelude.<*> (x Data..:? "minValue")
+            Prelude.<*> (x Data..:? "readOnly")
+            Prelude.<*> (x Data..:? "isArray")
+            Prelude.<*> (x Data..:? "step")
+            Prelude.<*> (x Data..:? "defaultCountryCode")
+            Prelude.<*> (x Data..:? "defaultChecked")
+            Prelude.<*> (x Data..:? "placeholder")
+            Prelude.<*> (x Data..:? "maxValue")
+            Prelude.<*> (x Data..:? "valueMappings")
+            Prelude.<*> (x Data..:? "value")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable FieldInputConfig where
@@ -247,27 +248,27 @@ instance Prelude.NFData FieldInputConfig where
       `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON FieldInputConfig where
+instance Data.ToJSON FieldInputConfig where
   toJSON FieldInputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("descriptiveText" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("descriptiveText" Data..=)
               Prelude.<$> descriptiveText,
-            ("required" Core..=) Prelude.<$> required,
-            ("defaultValue" Core..=) Prelude.<$> defaultValue,
-            ("minValue" Core..=) Prelude.<$> minValue,
-            ("readOnly" Core..=) Prelude.<$> readOnly,
-            ("isArray" Core..=) Prelude.<$> isArray,
-            ("step" Core..=) Prelude.<$> step,
-            ("defaultCountryCode" Core..=)
+            ("required" Data..=) Prelude.<$> required,
+            ("defaultValue" Data..=) Prelude.<$> defaultValue,
+            ("minValue" Data..=) Prelude.<$> minValue,
+            ("readOnly" Data..=) Prelude.<$> readOnly,
+            ("isArray" Data..=) Prelude.<$> isArray,
+            ("step" Data..=) Prelude.<$> step,
+            ("defaultCountryCode" Data..=)
               Prelude.<$> defaultCountryCode,
-            ("defaultChecked" Core..=)
+            ("defaultChecked" Data..=)
               Prelude.<$> defaultChecked,
-            ("placeholder" Core..=) Prelude.<$> placeholder,
-            ("maxValue" Core..=) Prelude.<$> maxValue,
-            ("valueMappings" Core..=) Prelude.<$> valueMappings,
-            ("value" Core..=) Prelude.<$> value,
-            Prelude.Just ("type" Core..= type')
+            ("placeholder" Data..=) Prelude.<$> placeholder,
+            ("maxValue" Data..=) Prelude.<$> maxValue,
+            ("valueMappings" Data..=) Prelude.<$> valueMappings,
+            ("value" Data..=) Prelude.<$> value,
+            Prelude.Just ("type" Data..= type')
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MachineLearning.Types.Evaluation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types.EntityStatus
 import Amazonka.MachineLearning.Types.PerformanceMetrics
 import qualified Amazonka.Prelude as Prelude
@@ -38,7 +39,7 @@ data Evaluation = Evaluation'
     name :: Prelude.Maybe Prelude.Text,
     -- | The time of the most recent edit to the @Evaluation@. The time is
     -- expressed in epoch time.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | Measurements of how well the @MLModel@ performed, using observations
     -- referenced by the @DataSource@. One of the following metrics is
     -- returned, based on the type of the @MLModel@:
@@ -57,7 +58,7 @@ data Evaluation = Evaluation'
     -- For more information about performance metrics, please see the
     -- <https://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
     performanceMetrics :: Prelude.Maybe PerformanceMetrics,
-    finishedAt :: Prelude.Maybe Core.POSIX,
+    finishedAt :: Prelude.Maybe Data.POSIX,
     -- | The ID of the @MLModel@ that is the focus of the evaluation.
     mLModelId :: Prelude.Maybe Prelude.Text,
     -- | The status of the evaluation. This element can have one of the following
@@ -77,13 +78,13 @@ data Evaluation = Evaluation'
     status :: Prelude.Maybe EntityStatus,
     -- | The ID of the @DataSource@ that is used to evaluate the @MLModel@.
     evaluationDataSourceId :: Prelude.Maybe Prelude.Text,
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     computeTime :: Prelude.Maybe Prelude.Integer,
     -- | The ID that is assigned to the @Evaluation@ at creation.
     evaluationId :: Prelude.Maybe Prelude.Text,
     -- | The time that the @Evaluation@ was created. The time is expressed in
     -- epoch time.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The location and name of the data in Amazon Simple Storage Server
     -- (Amazon S3) that is used in the evaluation.
     inputDataLocationS3 :: Prelude.Maybe Prelude.Text,
@@ -194,7 +195,7 @@ evaluation_name = Lens.lens (\Evaluation' {name} -> name) (\s@Evaluation' {} a -
 -- | The time of the most recent edit to the @Evaluation@. The time is
 -- expressed in epoch time.
 evaluation_lastUpdatedAt :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.UTCTime)
-evaluation_lastUpdatedAt = Lens.lens (\Evaluation' {lastUpdatedAt} -> lastUpdatedAt) (\s@Evaluation' {} a -> s {lastUpdatedAt = a} :: Evaluation) Prelude.. Lens.mapping Core._Time
+evaluation_lastUpdatedAt = Lens.lens (\Evaluation' {lastUpdatedAt} -> lastUpdatedAt) (\s@Evaluation' {} a -> s {lastUpdatedAt = a} :: Evaluation) Prelude.. Lens.mapping Data._Time
 
 -- | Measurements of how well the @MLModel@ performed, using observations
 -- referenced by the @DataSource@. One of the following metrics is
@@ -218,7 +219,7 @@ evaluation_performanceMetrics = Lens.lens (\Evaluation' {performanceMetrics} -> 
 
 -- | Undocumented member.
 evaluation_finishedAt :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.UTCTime)
-evaluation_finishedAt = Lens.lens (\Evaluation' {finishedAt} -> finishedAt) (\s@Evaluation' {} a -> s {finishedAt = a} :: Evaluation) Prelude.. Lens.mapping Core._Time
+evaluation_finishedAt = Lens.lens (\Evaluation' {finishedAt} -> finishedAt) (\s@Evaluation' {} a -> s {finishedAt = a} :: Evaluation) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the @MLModel@ that is the focus of the evaluation.
 evaluation_mLModelId :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.Text)
@@ -247,7 +248,7 @@ evaluation_evaluationDataSourceId = Lens.lens (\Evaluation' {evaluationDataSourc
 
 -- | Undocumented member.
 evaluation_startedAt :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.UTCTime)
-evaluation_startedAt = Lens.lens (\Evaluation' {startedAt} -> startedAt) (\s@Evaluation' {} a -> s {startedAt = a} :: Evaluation) Prelude.. Lens.mapping Core._Time
+evaluation_startedAt = Lens.lens (\Evaluation' {startedAt} -> startedAt) (\s@Evaluation' {} a -> s {startedAt = a} :: Evaluation) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 evaluation_computeTime :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.Integer)
@@ -260,7 +261,7 @@ evaluation_evaluationId = Lens.lens (\Evaluation' {evaluationId} -> evaluationId
 -- | The time that the @Evaluation@ was created. The time is expressed in
 -- epoch time.
 evaluation_createdAt :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.UTCTime)
-evaluation_createdAt = Lens.lens (\Evaluation' {createdAt} -> createdAt) (\s@Evaluation' {} a -> s {createdAt = a} :: Evaluation) Prelude.. Lens.mapping Core._Time
+evaluation_createdAt = Lens.lens (\Evaluation' {createdAt} -> createdAt) (\s@Evaluation' {} a -> s {createdAt = a} :: Evaluation) Prelude.. Lens.mapping Data._Time
 
 -- | The location and name of the data in Amazon Simple Storage Server
 -- (Amazon S3) that is used in the evaluation.
@@ -273,26 +274,26 @@ evaluation_inputDataLocationS3 = Lens.lens (\Evaluation' {inputDataLocationS3} -
 evaluation_createdByIamUser :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.Text)
 evaluation_createdByIamUser = Lens.lens (\Evaluation' {createdByIamUser} -> createdByIamUser) (\s@Evaluation' {} a -> s {createdByIamUser = a} :: Evaluation)
 
-instance Core.FromJSON Evaluation where
+instance Data.FromJSON Evaluation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Evaluation"
       ( \x ->
           Evaluation'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LastUpdatedAt")
-            Prelude.<*> (x Core..:? "PerformanceMetrics")
-            Prelude.<*> (x Core..:? "FinishedAt")
-            Prelude.<*> (x Core..:? "MLModelId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EvaluationDataSourceId")
-            Prelude.<*> (x Core..:? "StartedAt")
-            Prelude.<*> (x Core..:? "ComputeTime")
-            Prelude.<*> (x Core..:? "EvaluationId")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "InputDataLocationS3")
-            Prelude.<*> (x Core..:? "CreatedByIamUser")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LastUpdatedAt")
+            Prelude.<*> (x Data..:? "PerformanceMetrics")
+            Prelude.<*> (x Data..:? "FinishedAt")
+            Prelude.<*> (x Data..:? "MLModelId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "EvaluationDataSourceId")
+            Prelude.<*> (x Data..:? "StartedAt")
+            Prelude.<*> (x Data..:? "ComputeTime")
+            Prelude.<*> (x Data..:? "EvaluationId")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "InputDataLocationS3")
+            Prelude.<*> (x Data..:? "CreatedByIamUser")
       )
 
 instance Prelude.Hashable Evaluation where

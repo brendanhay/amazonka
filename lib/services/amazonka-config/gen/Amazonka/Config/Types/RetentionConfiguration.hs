@@ -21,6 +21,7 @@ module Amazonka.Config.Types.RetentionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object with the name of the retention configuration and the retention
@@ -75,14 +76,14 @@ retentionConfiguration_name = Lens.lens (\RetentionConfiguration' {name} -> name
 retentionConfiguration_retentionPeriodInDays :: Lens.Lens' RetentionConfiguration Prelude.Natural
 retentionConfiguration_retentionPeriodInDays = Lens.lens (\RetentionConfiguration' {retentionPeriodInDays} -> retentionPeriodInDays) (\s@RetentionConfiguration' {} a -> s {retentionPeriodInDays = a} :: RetentionConfiguration)
 
-instance Core.FromJSON RetentionConfiguration where
+instance Data.FromJSON RetentionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RetentionConfiguration"
       ( \x ->
           RetentionConfiguration'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "RetentionPeriodInDays")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "RetentionPeriodInDays")
       )
 
 instance Prelude.Hashable RetentionConfiguration where

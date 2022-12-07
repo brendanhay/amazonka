@@ -23,6 +23,7 @@ import Amazonka.AmplifyUiBuilder.Types.Predicate
 import Amazonka.AmplifyUiBuilder.Types.SortProperty
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration for binding a component\'s properties to
@@ -94,16 +95,16 @@ componentDataConfiguration_identifiers = Lens.lens (\ComponentDataConfiguration'
 componentDataConfiguration_model :: Lens.Lens' ComponentDataConfiguration Prelude.Text
 componentDataConfiguration_model = Lens.lens (\ComponentDataConfiguration' {model} -> model) (\s@ComponentDataConfiguration' {} a -> s {model = a} :: ComponentDataConfiguration)
 
-instance Core.FromJSON ComponentDataConfiguration where
+instance Data.FromJSON ComponentDataConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentDataConfiguration"
       ( \x ->
           ComponentDataConfiguration'
-            Prelude.<$> (x Core..:? "predicate")
-            Prelude.<*> (x Core..:? "sort" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "identifiers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "model")
+            Prelude.<$> (x Data..:? "predicate")
+            Prelude.<*> (x Data..:? "sort" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "identifiers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "model")
       )
 
 instance Prelude.Hashable ComponentDataConfiguration where
@@ -120,13 +121,13 @@ instance Prelude.NFData ComponentDataConfiguration where
       `Prelude.seq` Prelude.rnf identifiers
       `Prelude.seq` Prelude.rnf model
 
-instance Core.ToJSON ComponentDataConfiguration where
+instance Data.ToJSON ComponentDataConfiguration where
   toJSON ComponentDataConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("predicate" Core..=) Prelude.<$> predicate,
-            ("sort" Core..=) Prelude.<$> sort,
-            ("identifiers" Core..=) Prelude.<$> identifiers,
-            Prelude.Just ("model" Core..= model)
+          [ ("predicate" Data..=) Prelude.<$> predicate,
+            ("sort" Data..=) Prelude.<$> sort,
+            ("identifiers" Data..=) Prelude.<$> identifiers,
+            Prelude.Just ("model" Data..= model)
           ]
       )

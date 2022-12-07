@@ -48,6 +48,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,7 +117,7 @@ instance Core.AWSRequest UpdateGatewayResponse where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateGatewayResponse where
   hashWithSalt _salt UpdateGatewayResponse' {..} =
@@ -130,32 +131,32 @@ instance Prelude.NFData UpdateGatewayResponse where
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf responseType
 
-instance Core.ToHeaders UpdateGatewayResponse where
+instance Data.ToHeaders UpdateGatewayResponse where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON UpdateGatewayResponse where
+instance Data.ToJSON UpdateGatewayResponse where
   toJSON UpdateGatewayResponse' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("patchOperations" Core..=)
+          [ ("patchOperations" Data..=)
               Prelude.<$> patchOperations
           ]
       )
 
-instance Core.ToPath UpdateGatewayResponse where
+instance Data.ToPath UpdateGatewayResponse where
   toPath UpdateGatewayResponse' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/gatewayresponses/",
-        Core.toBS responseType
+        Data.toBS responseType
       ]
 
-instance Core.ToQuery UpdateGatewayResponse where
+instance Data.ToQuery UpdateGatewayResponse where
   toQuery = Prelude.const Prelude.mempty

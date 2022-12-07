@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.Label where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single label container. This is used as an element of a label array in
@@ -53,11 +54,11 @@ newLabel pName_ = Label' {name = pName_}
 label_name :: Lens.Lens' Label Prelude.Text
 label_name = Lens.lens (\Label' {name} -> name) (\s@Label' {} a -> s {name = a} :: Label)
 
-instance Core.FromJSON Label where
+instance Data.FromJSON Label where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Label"
-      (\x -> Label' Prelude.<$> (x Core..: "Name"))
+      (\x -> Label' Prelude.<$> (x Data..: "Name"))
 
 instance Prelude.Hashable Label where
   hashWithSalt _salt Label' {..} =
@@ -66,9 +67,9 @@ instance Prelude.Hashable Label where
 instance Prelude.NFData Label where
   rnf Label' {..} = Prelude.rnf name
 
-instance Core.ToJSON Label where
+instance Data.ToJSON Label where
   toJSON Label' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )

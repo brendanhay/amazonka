@@ -25,6 +25,7 @@ import Amazonka.AppSync.Types.LambdaAuthorizerConfig
 import Amazonka.AppSync.Types.OpenIDConnectConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an additional authentication provider.
@@ -88,18 +89,18 @@ additionalAuthenticationProvider_lambdaAuthorizerConfig :: Lens.Lens' Additional
 additionalAuthenticationProvider_lambdaAuthorizerConfig = Lens.lens (\AdditionalAuthenticationProvider' {lambdaAuthorizerConfig} -> lambdaAuthorizerConfig) (\s@AdditionalAuthenticationProvider' {} a -> s {lambdaAuthorizerConfig = a} :: AdditionalAuthenticationProvider)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AdditionalAuthenticationProvider
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdditionalAuthenticationProvider"
       ( \x ->
           AdditionalAuthenticationProvider'
-            Prelude.<$> (x Core..:? "authenticationType")
-            Prelude.<*> (x Core..:? "openIDConnectConfig")
-            Prelude.<*> (x Core..:? "userPoolConfig")
-            Prelude.<*> (x Core..:? "lambdaAuthorizerConfig")
+            Prelude.<$> (x Data..:? "authenticationType")
+            Prelude.<*> (x Data..:? "openIDConnectConfig")
+            Prelude.<*> (x Data..:? "userPoolConfig")
+            Prelude.<*> (x Data..:? "lambdaAuthorizerConfig")
       )
 
 instance
@@ -124,17 +125,17 @@ instance
       `Prelude.seq` Prelude.rnf userPoolConfig
       `Prelude.seq` Prelude.rnf lambdaAuthorizerConfig
 
-instance Core.ToJSON AdditionalAuthenticationProvider where
+instance Data.ToJSON AdditionalAuthenticationProvider where
   toJSON AdditionalAuthenticationProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("authenticationType" Core..=)
+          [ ("authenticationType" Data..=)
               Prelude.<$> authenticationType,
-            ("openIDConnectConfig" Core..=)
+            ("openIDConnectConfig" Data..=)
               Prelude.<$> openIDConnectConfig,
-            ("userPoolConfig" Core..=)
+            ("userPoolConfig" Data..=)
               Prelude.<$> userPoolConfig,
-            ("lambdaAuthorizerConfig" Core..=)
+            ("lambdaAuthorizerConfig" Data..=)
               Prelude.<$> lambdaAuthorizerConfig
           ]
       )

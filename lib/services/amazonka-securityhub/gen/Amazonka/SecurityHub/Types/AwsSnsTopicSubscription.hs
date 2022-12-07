@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsSnsTopicSubscription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A wrapper type for the attributes of an Amazon SNS subscription.
@@ -62,14 +63,14 @@ awsSnsTopicSubscription_protocol = Lens.lens (\AwsSnsTopicSubscription' {protoco
 awsSnsTopicSubscription_endpoint :: Lens.Lens' AwsSnsTopicSubscription (Prelude.Maybe Prelude.Text)
 awsSnsTopicSubscription_endpoint = Lens.lens (\AwsSnsTopicSubscription' {endpoint} -> endpoint) (\s@AwsSnsTopicSubscription' {} a -> s {endpoint = a} :: AwsSnsTopicSubscription)
 
-instance Core.FromJSON AwsSnsTopicSubscription where
+instance Data.FromJSON AwsSnsTopicSubscription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsSnsTopicSubscription"
       ( \x ->
           AwsSnsTopicSubscription'
-            Prelude.<$> (x Core..:? "Protocol")
-            Prelude.<*> (x Core..:? "Endpoint")
+            Prelude.<$> (x Data..:? "Protocol")
+            Prelude.<*> (x Data..:? "Endpoint")
       )
 
 instance Prelude.Hashable AwsSnsTopicSubscription where
@@ -82,11 +83,11 @@ instance Prelude.NFData AwsSnsTopicSubscription where
     Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf endpoint
 
-instance Core.ToJSON AwsSnsTopicSubscription where
+instance Data.ToJSON AwsSnsTopicSubscription where
   toJSON AwsSnsTopicSubscription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Protocol" Core..=) Prelude.<$> protocol,
-            ("Endpoint" Core..=) Prelude.<$> endpoint
+          [ ("Protocol" Data..=) Prelude.<$> protocol,
+            ("Endpoint" Data..=) Prelude.<$> endpoint
           ]
       )

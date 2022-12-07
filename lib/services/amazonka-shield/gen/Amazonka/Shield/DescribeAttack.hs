@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest DescribeAttack where
     Response.receiveJSON
       ( \s h x ->
           DescribeAttackResponse'
-            Prelude.<$> (x Core..?> "Attack")
+            Prelude.<$> (x Data..?> "Attack")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable DescribeAttack where
 instance Prelude.NFData DescribeAttack where
   rnf DescribeAttack' {..} = Prelude.rnf attackId
 
-instance Core.ToHeaders DescribeAttack where
+instance Data.ToHeaders DescribeAttack where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.DescribeAttack" ::
+              Data.=# ( "AWSShield_20160616.DescribeAttack" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAttack where
+instance Data.ToJSON DescribeAttack where
   toJSON DescribeAttack' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AttackId" Core..= attackId)]
+          [Prelude.Just ("AttackId" Data..= attackId)]
       )
 
-instance Core.ToPath DescribeAttack where
+instance Data.ToPath DescribeAttack where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAttack where
+instance Data.ToQuery DescribeAttack where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAttackResponse' smart constructor.

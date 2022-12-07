@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.FieldLevelEncryptionProfileSummary where
 import Amazonka.CloudFront.Types.EncryptionEntities
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The field-level encryption profile summary.
@@ -35,7 +36,7 @@ data FieldLevelEncryptionProfileSummary = FieldLevelEncryptionProfileSummary'
     id :: Prelude.Text,
     -- | The time when the the field-level encryption profile summary was last
     -- updated.
-    lastModifiedTime :: Core.ISO8601,
+    lastModifiedTime :: Data.ISO8601,
     -- | Name for the field-level encryption profile summary.
     name :: Prelude.Text,
     -- | A complex data type of encryption entities for the field-level
@@ -86,7 +87,7 @@ newFieldLevelEncryptionProfileSummary
           Prelude.Nothing,
         id = pId_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         name = pName_,
         encryptionEntities =
           pEncryptionEntities_
@@ -104,7 +105,7 @@ fieldLevelEncryptionProfileSummary_id = Lens.lens (\FieldLevelEncryptionProfileS
 -- | The time when the the field-level encryption profile summary was last
 -- updated.
 fieldLevelEncryptionProfileSummary_lastModifiedTime :: Lens.Lens' FieldLevelEncryptionProfileSummary Prelude.UTCTime
-fieldLevelEncryptionProfileSummary_lastModifiedTime = Lens.lens (\FieldLevelEncryptionProfileSummary' {lastModifiedTime} -> lastModifiedTime) (\s@FieldLevelEncryptionProfileSummary' {} a -> s {lastModifiedTime = a} :: FieldLevelEncryptionProfileSummary) Prelude.. Core._Time
+fieldLevelEncryptionProfileSummary_lastModifiedTime = Lens.lens (\FieldLevelEncryptionProfileSummary' {lastModifiedTime} -> lastModifiedTime) (\s@FieldLevelEncryptionProfileSummary' {} a -> s {lastModifiedTime = a} :: FieldLevelEncryptionProfileSummary) Prelude.. Data._Time
 
 -- | Name for the field-level encryption profile summary.
 fieldLevelEncryptionProfileSummary_name :: Lens.Lens' FieldLevelEncryptionProfileSummary Prelude.Text
@@ -117,16 +118,16 @@ fieldLevelEncryptionProfileSummary_encryptionEntities :: Lens.Lens' FieldLevelEn
 fieldLevelEncryptionProfileSummary_encryptionEntities = Lens.lens (\FieldLevelEncryptionProfileSummary' {encryptionEntities} -> encryptionEntities) (\s@FieldLevelEncryptionProfileSummary' {} a -> s {encryptionEntities = a} :: FieldLevelEncryptionProfileSummary)
 
 instance
-  Core.FromXML
+  Data.FromXML
     FieldLevelEncryptionProfileSummary
   where
   parseXML x =
     FieldLevelEncryptionProfileSummary'
-      Prelude.<$> (x Core..@? "Comment")
-      Prelude.<*> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "LastModifiedTime")
-      Prelude.<*> (x Core..@ "Name")
-      Prelude.<*> (x Core..@ "EncryptionEntities")
+      Prelude.<$> (x Data..@? "Comment")
+      Prelude.<*> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "LastModifiedTime")
+      Prelude.<*> (x Data..@ "Name")
+      Prelude.<*> (x Data..@ "EncryptionEntities")
 
 instance
   Prelude.Hashable

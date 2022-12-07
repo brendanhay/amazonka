@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MultiplexProgramChannelDestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Multiplex Program Input Destination Settings for outputting a Channel to
@@ -79,16 +80,16 @@ multiplexProgramChannelDestinationSettings_programName :: Lens.Lens' MultiplexPr
 multiplexProgramChannelDestinationSettings_programName = Lens.lens (\MultiplexProgramChannelDestinationSettings' {programName} -> programName) (\s@MultiplexProgramChannelDestinationSettings' {} a -> s {programName = a} :: MultiplexProgramChannelDestinationSettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MultiplexProgramChannelDestinationSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiplexProgramChannelDestinationSettings"
       ( \x ->
           MultiplexProgramChannelDestinationSettings'
-            Prelude.<$> (x Core..:? "multiplexId")
-              Prelude.<*> (x Core..:? "programName")
+            Prelude.<$> (x Data..:? "multiplexId")
+              Prelude.<*> (x Data..:? "programName")
       )
 
 instance
@@ -110,14 +111,14 @@ instance
       `Prelude.seq` Prelude.rnf programName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     MultiplexProgramChannelDestinationSettings
   where
   toJSON
     MultiplexProgramChannelDestinationSettings' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("multiplexId" Core..=) Prelude.<$> multiplexId,
-              ("programName" Core..=) Prelude.<$> programName
+            [ ("multiplexId" Data..=) Prelude.<$> multiplexId,
+              ("programName" Data..=) Prelude.<$> programName
             ]
         )

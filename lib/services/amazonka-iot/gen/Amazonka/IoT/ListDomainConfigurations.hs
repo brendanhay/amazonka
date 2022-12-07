@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,10 +134,10 @@ instance Core.AWSRequest ListDomainConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListDomainConfigurationsResponse'
-            Prelude.<$> ( x Core..?> "domainConfigurations"
+            Prelude.<$> ( x Data..?> "domainConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextMarker")
+            Prelude.<*> (x Data..?> "nextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,18 +153,18 @@ instance Prelude.NFData ListDomainConfigurations where
       `Prelude.seq` Prelude.rnf serviceType
       `Prelude.seq` Prelude.rnf pageSize
 
-instance Core.ToHeaders ListDomainConfigurations where
+instance Data.ToHeaders ListDomainConfigurations where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListDomainConfigurations where
+instance Data.ToPath ListDomainConfigurations where
   toPath = Prelude.const "/domainConfigurations"
 
-instance Core.ToQuery ListDomainConfigurations where
+instance Data.ToQuery ListDomainConfigurations where
   toQuery ListDomainConfigurations' {..} =
     Prelude.mconcat
-      [ "marker" Core.=: marker,
-        "serviceType" Core.=: serviceType,
-        "pageSize" Core.=: pageSize
+      [ "marker" Data.=: marker,
+        "serviceType" Data.=: serviceType,
+        "pageSize" Data.=: pageSize
       ]
 
 -- | /See:/ 'newListDomainConfigurationsResponse' smart constructor.

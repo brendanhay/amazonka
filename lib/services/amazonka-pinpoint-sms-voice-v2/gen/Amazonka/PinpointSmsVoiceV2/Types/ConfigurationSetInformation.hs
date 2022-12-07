@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.ConfigurationSetInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types.EventDestination
 import Amazonka.PinpointSmsVoiceV2.Types.MessageType
 import qualified Amazonka.Prelude as Prelude
@@ -45,7 +46,7 @@ data ConfigurationSetInformation = ConfigurationSetInformation'
     eventDestinations :: [EventDestination],
     -- | The time when the ConfigurationSet was created, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    createdTimestamp :: Core.POSIX
+    createdTimestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,7 +93,7 @@ newConfigurationSetInformation
         configurationSetName = pConfigurationSetName_,
         eventDestinations = Prelude.mempty,
         createdTimestamp =
-          Core._Time Lens.# pCreatedTimestamp_
+          Data._Time Lens.# pCreatedTimestamp_
       }
 
 -- | The default sender ID used by the ConfigurationSet.
@@ -121,22 +122,22 @@ configurationSetInformation_eventDestinations = Lens.lens (\ConfigurationSetInfo
 -- | The time when the ConfigurationSet was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 configurationSetInformation_createdTimestamp :: Lens.Lens' ConfigurationSetInformation Prelude.UTCTime
-configurationSetInformation_createdTimestamp = Lens.lens (\ConfigurationSetInformation' {createdTimestamp} -> createdTimestamp) (\s@ConfigurationSetInformation' {} a -> s {createdTimestamp = a} :: ConfigurationSetInformation) Prelude.. Core._Time
+configurationSetInformation_createdTimestamp = Lens.lens (\ConfigurationSetInformation' {createdTimestamp} -> createdTimestamp) (\s@ConfigurationSetInformation' {} a -> s {createdTimestamp = a} :: ConfigurationSetInformation) Prelude.. Data._Time
 
-instance Core.FromJSON ConfigurationSetInformation where
+instance Data.FromJSON ConfigurationSetInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigurationSetInformation"
       ( \x ->
           ConfigurationSetInformation'
-            Prelude.<$> (x Core..:? "DefaultSenderId")
-            Prelude.<*> (x Core..:? "DefaultMessageType")
-            Prelude.<*> (x Core..: "ConfigurationSetArn")
-            Prelude.<*> (x Core..: "ConfigurationSetName")
-            Prelude.<*> ( x Core..:? "EventDestinations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DefaultSenderId")
+            Prelude.<*> (x Data..:? "DefaultMessageType")
+            Prelude.<*> (x Data..: "ConfigurationSetArn")
+            Prelude.<*> (x Data..: "ConfigurationSetName")
+            Prelude.<*> ( x Data..:? "EventDestinations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "CreatedTimestamp")
+            Prelude.<*> (x Data..: "CreatedTimestamp")
       )
 
 instance Prelude.Hashable ConfigurationSetInformation where

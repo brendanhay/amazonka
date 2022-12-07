@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,7 +86,7 @@ data ExportTableToPointInTime = ExportTableToPointInTime'
     -- | Time in the past from which to export table data, counted in seconds
     -- from the start of the Unix epoch. The table export will be a snapshot of
     -- the table\'s state at this point in time.
-    exportTime :: Prelude.Maybe Core.POSIX,
+    exportTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the Amazon Web Services account that owns the bucket the
     -- export will be stored in.
     s3BucketOwner :: Prelude.Maybe Prelude.Text,
@@ -204,7 +205,7 @@ exportTableToPointInTime_exportFormat = Lens.lens (\ExportTableToPointInTime' {e
 -- from the start of the Unix epoch. The table export will be a snapshot of
 -- the table\'s state at this point in time.
 exportTableToPointInTime_exportTime :: Lens.Lens' ExportTableToPointInTime (Prelude.Maybe Prelude.UTCTime)
-exportTableToPointInTime_exportTime = Lens.lens (\ExportTableToPointInTime' {exportTime} -> exportTime) (\s@ExportTableToPointInTime' {} a -> s {exportTime = a} :: ExportTableToPointInTime) Prelude.. Lens.mapping Core._Time
+exportTableToPointInTime_exportTime = Lens.lens (\ExportTableToPointInTime' {exportTime} -> exportTime) (\s@ExportTableToPointInTime' {} a -> s {exportTime = a} :: ExportTableToPointInTime) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the Amazon Web Services account that owns the bucket the
 -- export will be stored in.
@@ -239,7 +240,7 @@ instance Core.AWSRequest ExportTableToPointInTime where
     Response.receiveJSON
       ( \s h x ->
           ExportTableToPointInTimeResponse'
-            Prelude.<$> (x Core..?> "ExportDescription")
+            Prelude.<$> (x Data..?> "ExportDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -267,42 +268,42 @@ instance Prelude.NFData ExportTableToPointInTime where
       `Prelude.seq` Prelude.rnf tableArn
       `Prelude.seq` Prelude.rnf s3Bucket
 
-instance Core.ToHeaders ExportTableToPointInTime where
+instance Data.ToHeaders ExportTableToPointInTime where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.ExportTableToPointInTime" ::
+              Data.=# ( "DynamoDB_20120810.ExportTableToPointInTime" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExportTableToPointInTime where
+instance Data.ToJSON ExportTableToPointInTime where
   toJSON ExportTableToPointInTime' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("S3SseAlgorithm" Core..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("S3SseAlgorithm" Data..=)
               Prelude.<$> s3SseAlgorithm,
-            ("ExportFormat" Core..=) Prelude.<$> exportFormat,
-            ("ExportTime" Core..=) Prelude.<$> exportTime,
-            ("S3BucketOwner" Core..=) Prelude.<$> s3BucketOwner,
-            ("S3SseKmsKeyId" Core..=) Prelude.<$> s3SseKmsKeyId,
-            ("S3Prefix" Core..=) Prelude.<$> s3Prefix,
-            Prelude.Just ("TableArn" Core..= tableArn),
-            Prelude.Just ("S3Bucket" Core..= s3Bucket)
+            ("ExportFormat" Data..=) Prelude.<$> exportFormat,
+            ("ExportTime" Data..=) Prelude.<$> exportTime,
+            ("S3BucketOwner" Data..=) Prelude.<$> s3BucketOwner,
+            ("S3SseKmsKeyId" Data..=) Prelude.<$> s3SseKmsKeyId,
+            ("S3Prefix" Data..=) Prelude.<$> s3Prefix,
+            Prelude.Just ("TableArn" Data..= tableArn),
+            Prelude.Just ("S3Bucket" Data..= s3Bucket)
           ]
       )
 
-instance Core.ToPath ExportTableToPointInTime where
+instance Data.ToPath ExportTableToPointInTime where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ExportTableToPointInTime where
+instance Data.ToQuery ExportTableToPointInTime where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExportTableToPointInTimeResponse' smart constructor.

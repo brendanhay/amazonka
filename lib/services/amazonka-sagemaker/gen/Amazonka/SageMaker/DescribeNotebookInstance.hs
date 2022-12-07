@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,32 +108,32 @@ instance Core.AWSRequest DescribeNotebookInstance where
     Response.receiveJSON
       ( \s h x ->
           DescribeNotebookInstanceResponse'
-            Prelude.<$> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "NotebookInstanceLifecycleConfigName")
-            Prelude.<*> (x Core..?> "NotebookInstanceStatus")
-            Prelude.<*> (x Core..?> "InstanceMetadataServiceConfiguration")
-            Prelude.<*> (x Core..?> "SubnetId")
-            Prelude.<*> ( x Core..?> "AcceleratorTypes"
+            Prelude.<$> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "NotebookInstanceLifecycleConfigName")
+            Prelude.<*> (x Data..?> "NotebookInstanceStatus")
+            Prelude.<*> (x Data..?> "InstanceMetadataServiceConfiguration")
+            Prelude.<*> (x Data..?> "SubnetId")
+            Prelude.<*> ( x Data..?> "AcceleratorTypes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Url")
-            Prelude.<*> (x Core..?> "InstanceType")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "DirectInternetAccess")
-            Prelude.<*> (x Core..?> "NetworkInterfaceId")
-            Prelude.<*> (x Core..?> "SecurityGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NotebookInstanceArn")
-            Prelude.<*> ( x Core..?> "AdditionalCodeRepositories"
+            Prelude.<*> (x Data..?> "Url")
+            Prelude.<*> (x Data..?> "InstanceType")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "DirectInternetAccess")
+            Prelude.<*> (x Data..?> "NetworkInterfaceId")
+            Prelude.<*> (x Data..?> "SecurityGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NotebookInstanceArn")
+            Prelude.<*> ( x Data..?> "AdditionalCodeRepositories"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "KmsKeyId")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "PlatformIdentifier")
-            Prelude.<*> (x Core..?> "NotebookInstanceName")
-            Prelude.<*> (x Core..?> "VolumeSizeInGB")
-            Prelude.<*> (x Core..?> "FailureReason")
-            Prelude.<*> (x Core..?> "DefaultCodeRepository")
-            Prelude.<*> (x Core..?> "RootAccess")
+            Prelude.<*> (x Data..?> "KmsKeyId")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "PlatformIdentifier")
+            Prelude.<*> (x Data..?> "NotebookInstanceName")
+            Prelude.<*> (x Data..?> "VolumeSizeInGB")
+            Prelude.<*> (x Data..?> "FailureReason")
+            Prelude.<*> (x Data..?> "DefaultCodeRepository")
+            Prelude.<*> (x Data..?> "RootAccess")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,36 +145,36 @@ instance Prelude.NFData DescribeNotebookInstance where
   rnf DescribeNotebookInstance' {..} =
     Prelude.rnf notebookInstanceName
 
-instance Core.ToHeaders DescribeNotebookInstance where
+instance Data.ToHeaders DescribeNotebookInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeNotebookInstance" ::
+              Data.=# ( "SageMaker.DescribeNotebookInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeNotebookInstance where
+instance Data.ToJSON DescribeNotebookInstance where
   toJSON DescribeNotebookInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "NotebookInstanceName"
-                  Core..= notebookInstanceName
+                  Data..= notebookInstanceName
               )
           ]
       )
 
-instance Core.ToPath DescribeNotebookInstance where
+instance Data.ToPath DescribeNotebookInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeNotebookInstance where
+instance Data.ToQuery DescribeNotebookInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeNotebookInstanceResponse' smart constructor.
@@ -204,7 +205,7 @@ data DescribeNotebookInstanceResponse = DescribeNotebookInstanceResponse'
     instanceType :: Prelude.Maybe InstanceType,
     -- | A timestamp. Use this parameter to retrieve the time when the notebook
     -- instance was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | Describes whether SageMaker provides internet access to the notebook
     -- instance. If this value is set to /Disabled/, the notebook instance does
     -- not have internet access, and cannot connect to SageMaker training and
@@ -234,7 +235,7 @@ data DescribeNotebookInstanceResponse = DescribeNotebookInstanceResponse'
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | A timestamp. Use this parameter to return the time when the notebook
     -- instance was created
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The platform identifier of the notebook instance runtime environment.
     platformIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The name of the SageMaker notebook instance.
@@ -436,7 +437,7 @@ describeNotebookInstanceResponse_instanceType = Lens.lens (\DescribeNotebookInst
 -- | A timestamp. Use this parameter to retrieve the time when the notebook
 -- instance was last modified.
 describeNotebookInstanceResponse_lastModifiedTime :: Lens.Lens' DescribeNotebookInstanceResponse (Prelude.Maybe Prelude.UTCTime)
-describeNotebookInstanceResponse_lastModifiedTime = Lens.lens (\DescribeNotebookInstanceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeNotebookInstanceResponse' {} a -> s {lastModifiedTime = a} :: DescribeNotebookInstanceResponse) Prelude.. Lens.mapping Core._Time
+describeNotebookInstanceResponse_lastModifiedTime = Lens.lens (\DescribeNotebookInstanceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeNotebookInstanceResponse' {} a -> s {lastModifiedTime = a} :: DescribeNotebookInstanceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Describes whether SageMaker provides internet access to the notebook
 -- instance. If this value is set to /Disabled/, the notebook instance does
@@ -480,7 +481,7 @@ describeNotebookInstanceResponse_kmsKeyId = Lens.lens (\DescribeNotebookInstance
 -- | A timestamp. Use this parameter to return the time when the notebook
 -- instance was created
 describeNotebookInstanceResponse_creationTime :: Lens.Lens' DescribeNotebookInstanceResponse (Prelude.Maybe Prelude.UTCTime)
-describeNotebookInstanceResponse_creationTime = Lens.lens (\DescribeNotebookInstanceResponse' {creationTime} -> creationTime) (\s@DescribeNotebookInstanceResponse' {} a -> s {creationTime = a} :: DescribeNotebookInstanceResponse) Prelude.. Lens.mapping Core._Time
+describeNotebookInstanceResponse_creationTime = Lens.lens (\DescribeNotebookInstanceResponse' {creationTime} -> creationTime) (\s@DescribeNotebookInstanceResponse' {} a -> s {creationTime = a} :: DescribeNotebookInstanceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The platform identifier of the notebook instance runtime environment.
 describeNotebookInstanceResponse_platformIdentifier :: Lens.Lens' DescribeNotebookInstanceResponse (Prelude.Maybe Prelude.Text)

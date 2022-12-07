@@ -44,6 +44,7 @@ where
 import Amazonka.CloudSearch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,8 +89,8 @@ instance Core.AWSRequest BuildSuggesters where
       "BuildSuggestersResult"
       ( \s h x ->
           BuildSuggestersResponse'
-            Prelude.<$> ( x Core..@? "FieldNames" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "FieldNames" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -101,20 +102,20 @@ instance Prelude.Hashable BuildSuggesters where
 instance Prelude.NFData BuildSuggesters where
   rnf BuildSuggesters' {..} = Prelude.rnf domainName
 
-instance Core.ToHeaders BuildSuggesters where
+instance Data.ToHeaders BuildSuggesters where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath BuildSuggesters where
+instance Data.ToPath BuildSuggesters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BuildSuggesters where
+instance Data.ToQuery BuildSuggesters where
   toQuery BuildSuggesters' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("BuildSuggesters" :: Prelude.ByteString),
+          Data.=: ("BuildSuggesters" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2013-01-01" :: Prelude.ByteString),
-        "DomainName" Core.=: domainName
+          Data.=: ("2013-01-01" :: Prelude.ByteString),
+        "DomainName" Data.=: domainName
       ]
 
 -- | The result of a @BuildSuggester@ request. Contains a list of the fields

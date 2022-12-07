@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -311,8 +312,8 @@ instance Core.AWSRequest GetDashboardEmbedUrl where
     Response.receiveJSON
       ( \s h x ->
           GetDashboardEmbedUrlResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "EmbedUrl")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "EmbedUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -342,43 +343,43 @@ instance Prelude.NFData GetDashboardEmbedUrl where
       `Prelude.seq` Prelude.rnf dashboardId
       `Prelude.seq` Prelude.rnf identityType
 
-instance Core.ToHeaders GetDashboardEmbedUrl where
+instance Data.ToHeaders GetDashboardEmbedUrl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDashboardEmbedUrl where
+instance Data.ToPath GetDashboardEmbedUrl where
   toPath GetDashboardEmbedUrl' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/dashboards/",
-        Core.toBS dashboardId,
+        Data.toBS dashboardId,
         "/embed-url"
       ]
 
-instance Core.ToQuery GetDashboardEmbedUrl where
+instance Data.ToQuery GetDashboardEmbedUrl where
   toQuery GetDashboardEmbedUrl' {..} =
     Prelude.mconcat
-      [ "undo-redo-disabled" Core.=: undoRedoDisabled,
+      [ "undo-redo-disabled" Data.=: undoRedoDisabled,
         "additional-dashboard-ids"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> additionalDashboardIds
             ),
-        "reset-disabled" Core.=: resetDisabled,
-        "session-lifetime" Core.=: sessionLifetimeInMinutes,
-        "user-arn" Core.=: userArn,
-        "namespace" Core.=: namespace,
+        "reset-disabled" Data.=: resetDisabled,
+        "session-lifetime" Data.=: sessionLifetimeInMinutes,
+        "user-arn" Data.=: userArn,
+        "namespace" Data.=: namespace,
         "state-persistence-enabled"
-          Core.=: statePersistenceEnabled,
-        "creds-type" Core.=: identityType
+          Data.=: statePersistenceEnabled,
+        "creds-type" Data.=: identityType
       ]
 
 -- | Output returned from the @GetDashboardEmbedUrl@ operation.
@@ -391,7 +392,7 @@ data GetDashboardEmbedUrlResponse = GetDashboardEmbedUrlResponse'
     -- your dashboard. This URL is valid for 5 minutes. The API operation
     -- provides the URL with an @auth_code@ value that enables one (and only
     -- one) sign-on to a user session that is valid for 10 hours.
-    embedUrl :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    embedUrl :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -434,7 +435,7 @@ getDashboardEmbedUrlResponse_requestId = Lens.lens (\GetDashboardEmbedUrlRespons
 -- provides the URL with an @auth_code@ value that enables one (and only
 -- one) sign-on to a user session that is valid for 10 hours.
 getDashboardEmbedUrlResponse_embedUrl :: Lens.Lens' GetDashboardEmbedUrlResponse (Prelude.Maybe Prelude.Text)
-getDashboardEmbedUrlResponse_embedUrl = Lens.lens (\GetDashboardEmbedUrlResponse' {embedUrl} -> embedUrl) (\s@GetDashboardEmbedUrlResponse' {} a -> s {embedUrl = a} :: GetDashboardEmbedUrlResponse) Prelude.. Lens.mapping Core._Sensitive
+getDashboardEmbedUrlResponse_embedUrl = Lens.lens (\GetDashboardEmbedUrlResponse' {embedUrl} -> embedUrl) (\s@GetDashboardEmbedUrlResponse' {} a -> s {embedUrl = a} :: GetDashboardEmbedUrlResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The HTTP status of the request.
 getDashboardEmbedUrlResponse_status :: Lens.Lens' GetDashboardEmbedUrlResponse Prelude.Int

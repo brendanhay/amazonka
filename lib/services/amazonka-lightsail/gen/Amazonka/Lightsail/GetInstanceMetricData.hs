@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -178,9 +179,9 @@ data GetInstanceMetricData = GetInstanceMetricData'
     -- 5-minute (300 seconds) granularity.
     period :: Prelude.Natural,
     -- | The start time of the time period.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The end time of the time period.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | The unit for the metric data request. Valid units depend on the metric
     -- data being requested. For the valid units to specify with each available
     -- metric, see the @metricName@ parameter.
@@ -398,8 +399,8 @@ newGetInstanceMetricData
           pInstanceName_,
         metricName = pMetricName_,
         period = pPeriod_,
-        startTime = Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_,
+        startTime = Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         unit = pUnit_,
         statistics = Prelude.mempty
       }
@@ -529,11 +530,11 @@ getInstanceMetricData_period = Lens.lens (\GetInstanceMetricData' {period} -> pe
 
 -- | The start time of the time period.
 getInstanceMetricData_startTime :: Lens.Lens' GetInstanceMetricData Prelude.UTCTime
-getInstanceMetricData_startTime = Lens.lens (\GetInstanceMetricData' {startTime} -> startTime) (\s@GetInstanceMetricData' {} a -> s {startTime = a} :: GetInstanceMetricData) Prelude.. Core._Time
+getInstanceMetricData_startTime = Lens.lens (\GetInstanceMetricData' {startTime} -> startTime) (\s@GetInstanceMetricData' {} a -> s {startTime = a} :: GetInstanceMetricData) Prelude.. Data._Time
 
 -- | The end time of the time period.
 getInstanceMetricData_endTime :: Lens.Lens' GetInstanceMetricData Prelude.UTCTime
-getInstanceMetricData_endTime = Lens.lens (\GetInstanceMetricData' {endTime} -> endTime) (\s@GetInstanceMetricData' {} a -> s {endTime = a} :: GetInstanceMetricData) Prelude.. Core._Time
+getInstanceMetricData_endTime = Lens.lens (\GetInstanceMetricData' {endTime} -> endTime) (\s@GetInstanceMetricData' {} a -> s {endTime = a} :: GetInstanceMetricData) Prelude.. Data._Time
 
 -- | The unit for the metric data request. Valid units depend on the metric
 -- data being requested. For the valid units to specify with each available
@@ -579,8 +580,8 @@ instance Core.AWSRequest GetInstanceMetricData where
     Response.receiveJSON
       ( \s h x ->
           GetInstanceMetricDataResponse'
-            Prelude.<$> (x Core..?> "metricName")
-            Prelude.<*> (x Core..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "metricName")
+            Prelude.<*> (x Data..?> "metricData" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -604,39 +605,39 @@ instance Prelude.NFData GetInstanceMetricData where
       `Prelude.seq` Prelude.rnf unit
       `Prelude.seq` Prelude.rnf statistics
 
-instance Core.ToHeaders GetInstanceMetricData where
+instance Data.ToHeaders GetInstanceMetricData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetInstanceMetricData" ::
+              Data.=# ( "Lightsail_20161128.GetInstanceMetricData" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetInstanceMetricData where
+instance Data.ToJSON GetInstanceMetricData where
   toJSON GetInstanceMetricData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("instanceName" Core..= instanceName),
-            Prelude.Just ("metricName" Core..= metricName),
-            Prelude.Just ("period" Core..= period),
-            Prelude.Just ("startTime" Core..= startTime),
-            Prelude.Just ("endTime" Core..= endTime),
-            Prelude.Just ("unit" Core..= unit),
-            Prelude.Just ("statistics" Core..= statistics)
+          [ Prelude.Just ("instanceName" Data..= instanceName),
+            Prelude.Just ("metricName" Data..= metricName),
+            Prelude.Just ("period" Data..= period),
+            Prelude.Just ("startTime" Data..= startTime),
+            Prelude.Just ("endTime" Data..= endTime),
+            Prelude.Just ("unit" Data..= unit),
+            Prelude.Just ("statistics" Data..= statistics)
           ]
       )
 
-instance Core.ToPath GetInstanceMetricData where
+instance Data.ToPath GetInstanceMetricData where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetInstanceMetricData where
+instance Data.ToQuery GetInstanceMetricData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInstanceMetricDataResponse' smart constructor.

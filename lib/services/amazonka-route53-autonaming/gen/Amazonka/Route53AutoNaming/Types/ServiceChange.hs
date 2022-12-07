@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.ServiceChange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.DnsConfigChange
 import Amazonka.Route53AutoNaming.Types.HealthCheckConfig
@@ -93,13 +94,13 @@ instance Prelude.NFData ServiceChange where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf healthCheckConfig
 
-instance Core.ToJSON ServiceChange where
+instance Data.ToJSON ServiceChange where
   toJSON ServiceChange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DnsConfig" Core..=) Prelude.<$> dnsConfig,
-            ("Description" Core..=) Prelude.<$> description,
-            ("HealthCheckConfig" Core..=)
+          [ ("DnsConfig" Data..=) Prelude.<$> dnsConfig,
+            ("Description" Data..=) Prelude.<$> description,
+            ("HealthCheckConfig" Data..=)
               Prelude.<$> healthCheckConfig
           ]
       )

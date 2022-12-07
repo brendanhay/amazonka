@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.AlarmAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.DynamoDBAction
 import Amazonka.IoTEvents.Types.DynamoDBv2Action
 import Amazonka.IoTEvents.Types.FirehoseAction
@@ -125,21 +126,21 @@ alarmAction_sns = Lens.lens (\AlarmAction' {sns} -> sns) (\s@AlarmAction' {} a -
 alarmAction_iotTopicPublish :: Lens.Lens' AlarmAction (Prelude.Maybe IotTopicPublishAction)
 alarmAction_iotTopicPublish = Lens.lens (\AlarmAction' {iotTopicPublish} -> iotTopicPublish) (\s@AlarmAction' {} a -> s {iotTopicPublish = a} :: AlarmAction)
 
-instance Core.FromJSON AlarmAction where
+instance Data.FromJSON AlarmAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlarmAction"
       ( \x ->
           AlarmAction'
-            Prelude.<$> (x Core..:? "firehose")
-            Prelude.<*> (x Core..:? "dynamoDBv2")
-            Prelude.<*> (x Core..:? "dynamoDB")
-            Prelude.<*> (x Core..:? "lambda")
-            Prelude.<*> (x Core..:? "iotEvents")
-            Prelude.<*> (x Core..:? "sqs")
-            Prelude.<*> (x Core..:? "iotSiteWise")
-            Prelude.<*> (x Core..:? "sns")
-            Prelude.<*> (x Core..:? "iotTopicPublish")
+            Prelude.<$> (x Data..:? "firehose")
+            Prelude.<*> (x Data..:? "dynamoDBv2")
+            Prelude.<*> (x Data..:? "dynamoDB")
+            Prelude.<*> (x Data..:? "lambda")
+            Prelude.<*> (x Data..:? "iotEvents")
+            Prelude.<*> (x Data..:? "sqs")
+            Prelude.<*> (x Data..:? "iotSiteWise")
+            Prelude.<*> (x Data..:? "sns")
+            Prelude.<*> (x Data..:? "iotTopicPublish")
       )
 
 instance Prelude.Hashable AlarmAction where
@@ -166,19 +167,19 @@ instance Prelude.NFData AlarmAction where
       `Prelude.seq` Prelude.rnf sns
       `Prelude.seq` Prelude.rnf iotTopicPublish
 
-instance Core.ToJSON AlarmAction where
+instance Data.ToJSON AlarmAction where
   toJSON AlarmAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("firehose" Core..=) Prelude.<$> firehose,
-            ("dynamoDBv2" Core..=) Prelude.<$> dynamoDBv2,
-            ("dynamoDB" Core..=) Prelude.<$> dynamoDB,
-            ("lambda" Core..=) Prelude.<$> lambda,
-            ("iotEvents" Core..=) Prelude.<$> iotEvents,
-            ("sqs" Core..=) Prelude.<$> sqs,
-            ("iotSiteWise" Core..=) Prelude.<$> iotSiteWise,
-            ("sns" Core..=) Prelude.<$> sns,
-            ("iotTopicPublish" Core..=)
+          [ ("firehose" Data..=) Prelude.<$> firehose,
+            ("dynamoDBv2" Data..=) Prelude.<$> dynamoDBv2,
+            ("dynamoDB" Data..=) Prelude.<$> dynamoDB,
+            ("lambda" Data..=) Prelude.<$> lambda,
+            ("iotEvents" Data..=) Prelude.<$> iotEvents,
+            ("sqs" Data..=) Prelude.<$> sqs,
+            ("iotSiteWise" Data..=) Prelude.<$> iotSiteWise,
+            ("sns" Data..=) Prelude.<$> sns,
+            ("iotTopicPublish" Data..=)
               Prelude.<$> iotTopicPublish
           ]
       )

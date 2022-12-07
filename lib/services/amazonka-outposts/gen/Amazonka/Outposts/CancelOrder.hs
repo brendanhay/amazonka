@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,26 +91,26 @@ instance Prelude.Hashable CancelOrder where
 instance Prelude.NFData CancelOrder where
   rnf CancelOrder' {..} = Prelude.rnf orderId
 
-instance Core.ToHeaders CancelOrder where
+instance Data.ToHeaders CancelOrder where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelOrder where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CancelOrder where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CancelOrder where
+instance Data.ToPath CancelOrder where
   toPath CancelOrder' {..} =
     Prelude.mconcat
-      ["/orders/", Core.toBS orderId, "/cancel"]
+      ["/orders/", Data.toBS orderId, "/cancel"]
 
-instance Core.ToQuery CancelOrder where
+instance Data.ToQuery CancelOrder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelOrderResponse' smart constructor.

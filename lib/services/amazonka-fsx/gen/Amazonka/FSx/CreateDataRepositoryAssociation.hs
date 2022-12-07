@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -276,7 +277,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateDataRepositoryAssociationResponse'
-            Prelude.<$> (x Core..?> "Association")
+            Prelude.<$> (x Data..?> "Association")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -311,47 +312,47 @@ instance
       `Prelude.seq` Prelude.rnf dataRepositoryPath
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateDataRepositoryAssociation
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.CreateDataRepositoryAssociation" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.CreateDataRepositoryAssociation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataRepositoryAssociation where
+instance Data.ToJSON CreateDataRepositoryAssociation where
   toJSON CreateDataRepositoryAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("S3" Core..=) Prelude.<$> s3,
-            ("ImportedFileChunkSize" Core..=)
+            ("S3" Data..=) Prelude.<$> s3,
+            ("ImportedFileChunkSize" Data..=)
               Prelude.<$> importedFileChunkSize,
-            ("FileSystemPath" Core..=)
+            ("FileSystemPath" Data..=)
               Prelude.<$> fileSystemPath,
-            ("BatchImportMetaDataOnCreate" Core..=)
+            ("BatchImportMetaDataOnCreate" Data..=)
               Prelude.<$> batchImportMetaDataOnCreate,
-            Prelude.Just ("FileSystemId" Core..= fileSystemId),
+            Prelude.Just ("FileSystemId" Data..= fileSystemId),
             Prelude.Just
-              ("DataRepositoryPath" Core..= dataRepositoryPath)
+              ("DataRepositoryPath" Data..= dataRepositoryPath)
           ]
       )
 
-instance Core.ToPath CreateDataRepositoryAssociation where
+instance Data.ToPath CreateDataRepositoryAssociation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDataRepositoryAssociation where
+instance Data.ToQuery CreateDataRepositoryAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDataRepositoryAssociationResponse' smart constructor.

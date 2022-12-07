@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.HttpEndpointBufferingHints where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the buffering options that can be applied before data is
@@ -91,14 +92,14 @@ httpEndpointBufferingHints_sizeInMBs = Lens.lens (\HttpEndpointBufferingHints' {
 httpEndpointBufferingHints_intervalInSeconds :: Lens.Lens' HttpEndpointBufferingHints (Prelude.Maybe Prelude.Natural)
 httpEndpointBufferingHints_intervalInSeconds = Lens.lens (\HttpEndpointBufferingHints' {intervalInSeconds} -> intervalInSeconds) (\s@HttpEndpointBufferingHints' {} a -> s {intervalInSeconds = a} :: HttpEndpointBufferingHints)
 
-instance Core.FromJSON HttpEndpointBufferingHints where
+instance Data.FromJSON HttpEndpointBufferingHints where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpEndpointBufferingHints"
       ( \x ->
           HttpEndpointBufferingHints'
-            Prelude.<$> (x Core..:? "SizeInMBs")
-            Prelude.<*> (x Core..:? "IntervalInSeconds")
+            Prelude.<$> (x Data..:? "SizeInMBs")
+            Prelude.<*> (x Data..:? "IntervalInSeconds")
       )
 
 instance Prelude.Hashable HttpEndpointBufferingHints where
@@ -111,12 +112,12 @@ instance Prelude.NFData HttpEndpointBufferingHints where
     Prelude.rnf sizeInMBs
       `Prelude.seq` Prelude.rnf intervalInSeconds
 
-instance Core.ToJSON HttpEndpointBufferingHints where
+instance Data.ToJSON HttpEndpointBufferingHints where
   toJSON HttpEndpointBufferingHints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SizeInMBs" Core..=) Prelude.<$> sizeInMBs,
-            ("IntervalInSeconds" Core..=)
+          [ ("SizeInMBs" Data..=) Prelude.<$> sizeInMBs,
+            ("IntervalInSeconds" Data..=)
               Prelude.<$> intervalInSeconds
           ]
       )

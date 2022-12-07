@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,8 +105,8 @@ instance Core.AWSRequest GetPositionConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetPositionConfigurationResponse'
-            Prelude.<$> (x Core..?> "Destination")
-            Prelude.<*> (x Core..?> "Solvers")
+            Prelude.<$> (x Data..?> "Destination")
+            Prelude.<*> (x Data..?> "Solvers")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,20 +120,20 @@ instance Prelude.NFData GetPositionConfiguration where
     Prelude.rnf resourceIdentifier
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToHeaders GetPositionConfiguration where
+instance Data.ToHeaders GetPositionConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetPositionConfiguration where
+instance Data.ToPath GetPositionConfiguration where
   toPath GetPositionConfiguration' {..} =
     Prelude.mconcat
       [ "/position-configurations/",
-        Core.toBS resourceIdentifier
+        Data.toBS resourceIdentifier
       ]
 
-instance Core.ToQuery GetPositionConfiguration where
+instance Data.ToQuery GetPositionConfiguration where
   toQuery GetPositionConfiguration' {..} =
     Prelude.mconcat
-      ["resourceType" Core.=: resourceType]
+      ["resourceType" Data.=: resourceType]
 
 -- | /See:/ 'newGetPositionConfigurationResponse' smart constructor.
 data GetPositionConfigurationResponse = GetPositionConfigurationResponse'

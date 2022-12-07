@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.DetectionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of parameters that allow you to filter out certain results from
@@ -102,14 +103,14 @@ instance Prelude.NFData DetectionFilter where
       `Prelude.seq` Prelude.rnf minBoundingBoxWidth
       `Prelude.seq` Prelude.rnf minConfidence
 
-instance Core.ToJSON DetectionFilter where
+instance Data.ToJSON DetectionFilter where
   toJSON DetectionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MinBoundingBoxHeight" Core..=)
+          [ ("MinBoundingBoxHeight" Data..=)
               Prelude.<$> minBoundingBoxHeight,
-            ("MinBoundingBoxWidth" Core..=)
+            ("MinBoundingBoxWidth" Data..=)
               Prelude.<$> minBoundingBoxWidth,
-            ("MinConfidence" Core..=) Prelude.<$> minConfidence
+            ("MinConfidence" Data..=) Prelude.<$> minConfidence
           ]
       )

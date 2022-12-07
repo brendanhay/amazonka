@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,21 +137,21 @@ instance Prelude.NFData DeleteSigningCertificate where
     Prelude.rnf userName
       `Prelude.seq` Prelude.rnf certificateId
 
-instance Core.ToHeaders DeleteSigningCertificate where
+instance Data.ToHeaders DeleteSigningCertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteSigningCertificate where
+instance Data.ToPath DeleteSigningCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSigningCertificate where
+instance Data.ToQuery DeleteSigningCertificate where
   toQuery DeleteSigningCertificate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteSigningCertificate" :: Prelude.ByteString),
+          Data.=: ("DeleteSigningCertificate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
-        "CertificateId" Core.=: certificateId
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
+        "CertificateId" Data.=: certificateId
       ]
 
 -- | /See:/ 'newDeleteSigningCertificateResponse' smart constructor.

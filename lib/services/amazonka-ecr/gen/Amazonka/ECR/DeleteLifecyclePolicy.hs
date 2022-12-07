@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,10 +106,10 @@ instance Core.AWSRequest DeleteLifecyclePolicy where
     Response.receiveJSON
       ( \s h x ->
           DeleteLifecyclePolicyResponse'
-            Prelude.<$> (x Core..?> "lastEvaluatedAt")
-            Prelude.<*> (x Core..?> "repositoryName")
-            Prelude.<*> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "lifecyclePolicyText")
+            Prelude.<$> (x Data..?> "lastEvaluatedAt")
+            Prelude.<*> (x Data..?> "repositoryName")
+            Prelude.<*> (x Data..?> "registryId")
+            Prelude.<*> (x Data..?> "lifecyclePolicyText")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,41 +123,41 @@ instance Prelude.NFData DeleteLifecyclePolicy where
     Prelude.rnf registryId
       `Prelude.seq` Prelude.rnf repositoryName
 
-instance Core.ToHeaders DeleteLifecyclePolicy where
+instance Data.ToHeaders DeleteLifecyclePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.DeleteLifecyclePolicy" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.DeleteLifecyclePolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteLifecyclePolicy where
+instance Data.ToJSON DeleteLifecyclePolicy where
   toJSON DeleteLifecyclePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName)
+              ("repositoryName" Data..= repositoryName)
           ]
       )
 
-instance Core.ToPath DeleteLifecyclePolicy where
+instance Data.ToPath DeleteLifecyclePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLifecyclePolicy where
+instance Data.ToQuery DeleteLifecyclePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLifecyclePolicyResponse' smart constructor.
 data DeleteLifecyclePolicyResponse = DeleteLifecyclePolicyResponse'
   { -- | The time stamp of the last time that the lifecycle policy was run.
-    lastEvaluatedAt :: Prelude.Maybe Core.POSIX,
+    lastEvaluatedAt :: Prelude.Maybe Data.POSIX,
     -- | The repository name associated with the request.
     repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The registry ID associated with the request.
@@ -201,7 +202,7 @@ newDeleteLifecyclePolicyResponse pHttpStatus_ =
 
 -- | The time stamp of the last time that the lifecycle policy was run.
 deleteLifecyclePolicyResponse_lastEvaluatedAt :: Lens.Lens' DeleteLifecyclePolicyResponse (Prelude.Maybe Prelude.UTCTime)
-deleteLifecyclePolicyResponse_lastEvaluatedAt = Lens.lens (\DeleteLifecyclePolicyResponse' {lastEvaluatedAt} -> lastEvaluatedAt) (\s@DeleteLifecyclePolicyResponse' {} a -> s {lastEvaluatedAt = a} :: DeleteLifecyclePolicyResponse) Prelude.. Lens.mapping Core._Time
+deleteLifecyclePolicyResponse_lastEvaluatedAt = Lens.lens (\DeleteLifecyclePolicyResponse' {lastEvaluatedAt} -> lastEvaluatedAt) (\s@DeleteLifecyclePolicyResponse' {} a -> s {lastEvaluatedAt = a} :: DeleteLifecyclePolicyResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The repository name associated with the request.
 deleteLifecyclePolicyResponse_repositoryName :: Lens.Lens' DeleteLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)

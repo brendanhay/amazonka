@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceTypeInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.BootModeType
 import Amazonka.EC2.Types.EbsInfo
@@ -291,44 +292,44 @@ instanceTypeInfo_networkInfo = Lens.lens (\InstanceTypeInfo' {networkInfo} -> ne
 instanceTypeInfo_supportedBootModes :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe [BootModeType])
 instanceTypeInfo_supportedBootModes = Lens.lens (\InstanceTypeInfo' {supportedBootModes} -> supportedBootModes) (\s@InstanceTypeInfo' {} a -> s {supportedBootModes = a} :: InstanceTypeInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML InstanceTypeInfo where
+instance Data.FromXML InstanceTypeInfo where
   parseXML x =
     InstanceTypeInfo'
-      Prelude.<$> (x Core..@? "memoryInfo")
-      Prelude.<*> (x Core..@? "hibernationSupported")
-      Prelude.<*> (x Core..@? "hypervisor")
-      Prelude.<*> (x Core..@? "vCpuInfo")
-      Prelude.<*> ( x Core..@? "supportedRootDeviceTypes"
+      Prelude.<$> (x Data..@? "memoryInfo")
+      Prelude.<*> (x Data..@? "hibernationSupported")
+      Prelude.<*> (x Data..@? "hypervisor")
+      Prelude.<*> (x Data..@? "vCpuInfo")
+      Prelude.<*> ( x Data..@? "supportedRootDeviceTypes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "bareMetal")
-      Prelude.<*> (x Core..@? "burstablePerformanceSupported")
-      Prelude.<*> (x Core..@? "instanceStorageSupported")
-      Prelude.<*> (x Core..@? "processorInfo")
-      Prelude.<*> (x Core..@? "dedicatedHostsSupported")
-      Prelude.<*> (x Core..@? "inferenceAcceleratorInfo")
-      Prelude.<*> (x Core..@? "placementGroupInfo")
-      Prelude.<*> (x Core..@? "ebsInfo")
-      Prelude.<*> ( x Core..@? "supportedUsageClasses"
+      Prelude.<*> (x Data..@? "bareMetal")
+      Prelude.<*> (x Data..@? "burstablePerformanceSupported")
+      Prelude.<*> (x Data..@? "instanceStorageSupported")
+      Prelude.<*> (x Data..@? "processorInfo")
+      Prelude.<*> (x Data..@? "dedicatedHostsSupported")
+      Prelude.<*> (x Data..@? "inferenceAcceleratorInfo")
+      Prelude.<*> (x Data..@? "placementGroupInfo")
+      Prelude.<*> (x Data..@? "ebsInfo")
+      Prelude.<*> ( x Data..@? "supportedUsageClasses"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "freeTierEligible")
-      Prelude.<*> (x Core..@? "autoRecoverySupported")
-      Prelude.<*> (x Core..@? "gpuInfo")
-      Prelude.<*> (x Core..@? "instanceStorageInfo")
-      Prelude.<*> (x Core..@? "currentGeneration")
-      Prelude.<*> (x Core..@? "fpgaInfo")
-      Prelude.<*> ( x Core..@? "supportedVirtualizationTypes"
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "freeTierEligible")
+      Prelude.<*> (x Data..@? "autoRecoverySupported")
+      Prelude.<*> (x Data..@? "gpuInfo")
+      Prelude.<*> (x Data..@? "instanceStorageInfo")
+      Prelude.<*> (x Data..@? "currentGeneration")
+      Prelude.<*> (x Data..@? "fpgaInfo")
+      Prelude.<*> ( x Data..@? "supportedVirtualizationTypes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "networkInfo")
-      Prelude.<*> ( x Core..@? "supportedBootModes"
+      Prelude.<*> (x Data..@? "networkInfo")
+      Prelude.<*> ( x Data..@? "supportedBootModes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable InstanceTypeInfo where

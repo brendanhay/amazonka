@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.TestCaseFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter used to return specific types of test cases. In order to pass
@@ -111,11 +112,11 @@ instance Prelude.NFData TestCaseFilter where
     Prelude.rnf status
       `Prelude.seq` Prelude.rnf keyword
 
-instance Core.ToJSON TestCaseFilter where
+instance Data.ToJSON TestCaseFilter where
   toJSON TestCaseFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("status" Core..=) Prelude.<$> status,
-            ("keyword" Core..=) Prelude.<$> keyword
+          [ ("status" Data..=) Prelude.<$> status,
+            ("keyword" Data..=) Prelude.<$> keyword
           ]
       )

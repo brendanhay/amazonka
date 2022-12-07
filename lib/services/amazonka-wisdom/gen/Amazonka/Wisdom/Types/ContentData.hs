@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.ContentData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Wisdom.Types.ContentStatus
 
@@ -56,9 +57,9 @@ data ContentData = ContentData'
     -- | The title of the content.
     title :: Prelude.Text,
     -- | The URL of the content.
-    url :: Core.Sensitive Prelude.Text,
+    url :: Data.Sensitive Prelude.Text,
     -- | The expiration time of the URL as an epoch timestamp.
-    urlExpiry :: Core.POSIX
+    urlExpiry :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -149,8 +150,8 @@ newContentData
         revisionId = pRevisionId_,
         status = pStatus_,
         title = pTitle_,
-        url = Core._Sensitive Lens.# pUrl_,
-        urlExpiry = Core._Time Lens.# pUrlExpiry_
+        url = Data._Sensitive Lens.# pUrl_,
+        urlExpiry = Data._Time Lens.# pUrlExpiry_
       }
 
 -- | The tags used to organize, track, or control access for this resource.
@@ -206,32 +207,32 @@ contentData_title = Lens.lens (\ContentData' {title} -> title) (\s@ContentData' 
 
 -- | The URL of the content.
 contentData_url :: Lens.Lens' ContentData Prelude.Text
-contentData_url = Lens.lens (\ContentData' {url} -> url) (\s@ContentData' {} a -> s {url = a} :: ContentData) Prelude.. Core._Sensitive
+contentData_url = Lens.lens (\ContentData' {url} -> url) (\s@ContentData' {} a -> s {url = a} :: ContentData) Prelude.. Data._Sensitive
 
 -- | The expiration time of the URL as an epoch timestamp.
 contentData_urlExpiry :: Lens.Lens' ContentData Prelude.UTCTime
-contentData_urlExpiry = Lens.lens (\ContentData' {urlExpiry} -> urlExpiry) (\s@ContentData' {} a -> s {urlExpiry = a} :: ContentData) Prelude.. Core._Time
+contentData_urlExpiry = Lens.lens (\ContentData' {urlExpiry} -> urlExpiry) (\s@ContentData' {} a -> s {urlExpiry = a} :: ContentData) Prelude.. Data._Time
 
-instance Core.FromJSON ContentData where
+instance Data.FromJSON ContentData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContentData"
       ( \x ->
           ContentData'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "linkOutUri")
-            Prelude.<*> (x Core..: "contentArn")
-            Prelude.<*> (x Core..: "contentId")
-            Prelude.<*> (x Core..: "contentType")
-            Prelude.<*> (x Core..: "knowledgeBaseArn")
-            Prelude.<*> (x Core..: "knowledgeBaseId")
-            Prelude.<*> (x Core..:? "metadata" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "revisionId")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "title")
-            Prelude.<*> (x Core..: "url")
-            Prelude.<*> (x Core..: "urlExpiry")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "linkOutUri")
+            Prelude.<*> (x Data..: "contentArn")
+            Prelude.<*> (x Data..: "contentId")
+            Prelude.<*> (x Data..: "contentType")
+            Prelude.<*> (x Data..: "knowledgeBaseArn")
+            Prelude.<*> (x Data..: "knowledgeBaseId")
+            Prelude.<*> (x Data..:? "metadata" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "revisionId")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "title")
+            Prelude.<*> (x Data..: "url")
+            Prelude.<*> (x Data..: "urlExpiry")
       )
 
 instance Prelude.Hashable ContentData where

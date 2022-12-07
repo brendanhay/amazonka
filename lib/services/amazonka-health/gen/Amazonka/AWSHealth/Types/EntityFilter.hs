@@ -23,6 +23,7 @@ import Amazonka.AWSHealth.Types.DateTimeRange
 import Amazonka.AWSHealth.Types.EntityStatusCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The values to use to filter results from the
@@ -130,16 +131,16 @@ instance Prelude.NFData EntityFilter where
       `Prelude.seq` Prelude.rnf statusCodes
       `Prelude.seq` Prelude.rnf eventArns
 
-instance Core.ToJSON EntityFilter where
+instance Data.ToJSON EntityFilter where
   toJSON EntityFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("entityArns" Core..=) Prelude.<$> entityArns,
-            ("lastUpdatedTimes" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("entityArns" Data..=) Prelude.<$> entityArns,
+            ("lastUpdatedTimes" Data..=)
               Prelude.<$> lastUpdatedTimes,
-            ("entityValues" Core..=) Prelude.<$> entityValues,
-            ("statusCodes" Core..=) Prelude.<$> statusCodes,
-            Prelude.Just ("eventArns" Core..= eventArns)
+            ("entityValues" Data..=) Prelude.<$> entityValues,
+            ("statusCodes" Data..=) Prelude.<$> statusCodes,
+            Prelude.Just ("eventArns" Data..= eventArns)
           ]
       )

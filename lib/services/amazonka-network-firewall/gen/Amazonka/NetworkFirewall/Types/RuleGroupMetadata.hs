@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.RuleGroupMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | High-level information about a rule group, returned by ListRuleGroups.
@@ -66,13 +67,13 @@ ruleGroupMetadata_name = Lens.lens (\RuleGroupMetadata' {name} -> name) (\s@Rule
 ruleGroupMetadata_arn :: Lens.Lens' RuleGroupMetadata (Prelude.Maybe Prelude.Text)
 ruleGroupMetadata_arn = Lens.lens (\RuleGroupMetadata' {arn} -> arn) (\s@RuleGroupMetadata' {} a -> s {arn = a} :: RuleGroupMetadata)
 
-instance Core.FromJSON RuleGroupMetadata where
+instance Data.FromJSON RuleGroupMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupMetadata"
       ( \x ->
           RuleGroupMetadata'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable RuleGroupMetadata where

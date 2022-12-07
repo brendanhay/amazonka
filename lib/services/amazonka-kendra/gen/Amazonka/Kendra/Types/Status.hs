@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.Status where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DocumentStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -96,16 +97,16 @@ status_documentStatus = Lens.lens (\Status' {documentStatus} -> documentStatus) 
 status_failureReason :: Lens.Lens' Status (Prelude.Maybe Prelude.Text)
 status_failureReason = Lens.lens (\Status' {failureReason} -> failureReason) (\s@Status' {} a -> s {failureReason = a} :: Status)
 
-instance Core.FromJSON Status where
+instance Data.FromJSON Status where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Status"
       ( \x ->
           Status'
-            Prelude.<$> (x Core..:? "FailureCode")
-            Prelude.<*> (x Core..:? "DocumentId")
-            Prelude.<*> (x Core..:? "DocumentStatus")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<$> (x Data..:? "FailureCode")
+            Prelude.<*> (x Data..:? "DocumentId")
+            Prelude.<*> (x Data..:? "DocumentStatus")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance Prelude.Hashable Status where

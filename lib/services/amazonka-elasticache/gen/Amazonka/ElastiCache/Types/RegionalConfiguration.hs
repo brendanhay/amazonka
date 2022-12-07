@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.RegionalConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.ReshardingConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -93,14 +94,14 @@ instance Prelude.NFData RegionalConfiguration where
       `Prelude.seq` Prelude.rnf replicationGroupRegion
       `Prelude.seq` Prelude.rnf reshardingConfiguration
 
-instance Core.ToQuery RegionalConfiguration where
+instance Data.ToQuery RegionalConfiguration where
   toQuery RegionalConfiguration' {..} =
     Prelude.mconcat
-      [ "ReplicationGroupId" Core.=: replicationGroupId,
+      [ "ReplicationGroupId" Data.=: replicationGroupId,
         "ReplicationGroupRegion"
-          Core.=: replicationGroupRegion,
+          Data.=: replicationGroupRegion,
         "ReshardingConfiguration"
-          Core.=: Core.toQueryList
+          Data.=: Data.toQueryList
             "ReshardingConfiguration"
             reshardingConfiguration
       ]

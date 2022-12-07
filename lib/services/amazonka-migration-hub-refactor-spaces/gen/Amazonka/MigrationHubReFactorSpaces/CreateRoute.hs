@@ -117,6 +117,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,7 +127,7 @@ import qualified Amazonka.Response as Response
 data CreateRoute = CreateRoute'
   { -- | The tags to assign to the route. A tag is a label that you assign to an
     -- Amazon Web Services resource. Each tag consists of a key-value pair..
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The configuration for the URI path route type.
     uriPathRoute :: Prelude.Maybe UriPathRouteInput,
     -- | A unique, case-sensitive identifier that you provide to ensure the
@@ -207,7 +208,7 @@ newCreateRoute
 -- | The tags to assign to the route. A tag is a label that you assign to an
 -- Amazon Web Services resource. Each tag consists of a key-value pair..
 createRoute_tags :: Lens.Lens' CreateRoute (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRoute_tags = Lens.lens (\CreateRoute' {tags} -> tags) (\s@CreateRoute' {} a -> s {tags = a} :: CreateRoute) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createRoute_tags = Lens.lens (\CreateRoute' {tags} -> tags) (\s@CreateRoute' {} a -> s {tags = a} :: CreateRoute) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The configuration for the URI path route type.
 createRoute_uriPathRoute :: Lens.Lens' CreateRoute (Prelude.Maybe UriPathRouteInput)
@@ -250,18 +251,18 @@ instance Core.AWSRequest CreateRoute where
     Response.receiveJSON
       ( \s h x ->
           CreateRouteResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "RouteType")
-            Prelude.<*> (x Core..?> "UriPathRoute")
-            Prelude.<*> (x Core..?> "CreatedTime")
-            Prelude.<*> (x Core..?> "CreatedByAccountId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "LastUpdatedTime")
-            Prelude.<*> (x Core..?> "OwnerAccountId")
-            Prelude.<*> (x Core..?> "RouteId")
-            Prelude.<*> (x Core..?> "ApplicationId")
-            Prelude.<*> (x Core..?> "ServiceId")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "RouteType")
+            Prelude.<*> (x Data..?> "UriPathRoute")
+            Prelude.<*> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "CreatedByAccountId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "LastUpdatedTime")
+            Prelude.<*> (x Data..?> "OwnerAccountId")
+            Prelude.<*> (x Data..?> "RouteId")
+            Prelude.<*> (x Data..?> "ApplicationId")
+            Prelude.<*> (x Data..?> "ServiceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -287,42 +288,42 @@ instance Prelude.NFData CreateRoute where
       `Prelude.seq` Prelude.rnf routeType
       `Prelude.seq` Prelude.rnf serviceIdentifier
 
-instance Core.ToHeaders CreateRoute where
+instance Data.ToHeaders CreateRoute where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRoute where
+instance Data.ToJSON CreateRoute where
   toJSON CreateRoute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("UriPathRoute" Core..=) Prelude.<$> uriPathRoute,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("DefaultRoute" Core..=) Prelude.<$> defaultRoute,
-            Prelude.Just ("RouteType" Core..= routeType),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("UriPathRoute" Data..=) Prelude.<$> uriPathRoute,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("DefaultRoute" Data..=) Prelude.<$> defaultRoute,
+            Prelude.Just ("RouteType" Data..= routeType),
             Prelude.Just
-              ("ServiceIdentifier" Core..= serviceIdentifier)
+              ("ServiceIdentifier" Data..= serviceIdentifier)
           ]
       )
 
-instance Core.ToPath CreateRoute where
+instance Data.ToPath CreateRoute where
   toPath CreateRoute' {..} =
     Prelude.mconcat
       [ "/environments/",
-        Core.toBS environmentIdentifier,
+        Data.toBS environmentIdentifier,
         "/applications/",
-        Core.toBS applicationIdentifier,
+        Data.toBS applicationIdentifier,
         "/routes"
       ]
 
-instance Core.ToQuery CreateRoute where
+instance Data.ToQuery CreateRoute where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRouteResponse' smart constructor.
@@ -330,13 +331,13 @@ data CreateRouteResponse = CreateRouteResponse'
   { -- | The tags assigned to the created route. A tag is a label that you assign
     -- to an Amazon Web Services resource. Each tag consists of a key-value
     -- pair.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The route type of the route.
     routeType :: Prelude.Maybe RouteType,
     -- | Configuration for the URI path route type.
     uriPathRoute :: Prelude.Maybe UriPathRouteInput,
     -- | A timestamp that indicates when the route is created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID of the route creator.
     createdByAccountId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the route. The format for this ARN is
@@ -350,7 +351,7 @@ data CreateRouteResponse = CreateRouteResponse'
     -- generated.
     state :: Prelude.Maybe RouteState,
     -- | A timestamp that indicates when the route was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID of the route owner.
     ownerAccountId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the route.
@@ -432,7 +433,7 @@ newCreateRouteResponse pHttpStatus_ =
 -- to an Amazon Web Services resource. Each tag consists of a key-value
 -- pair.
 createRouteResponse_tags :: Lens.Lens' CreateRouteResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRouteResponse_tags = Lens.lens (\CreateRouteResponse' {tags} -> tags) (\s@CreateRouteResponse' {} a -> s {tags = a} :: CreateRouteResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createRouteResponse_tags = Lens.lens (\CreateRouteResponse' {tags} -> tags) (\s@CreateRouteResponse' {} a -> s {tags = a} :: CreateRouteResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The route type of the route.
 createRouteResponse_routeType :: Lens.Lens' CreateRouteResponse (Prelude.Maybe RouteType)
@@ -444,7 +445,7 @@ createRouteResponse_uriPathRoute = Lens.lens (\CreateRouteResponse' {uriPathRout
 
 -- | A timestamp that indicates when the route is created.
 createRouteResponse_createdTime :: Lens.Lens' CreateRouteResponse (Prelude.Maybe Prelude.UTCTime)
-createRouteResponse_createdTime = Lens.lens (\CreateRouteResponse' {createdTime} -> createdTime) (\s@CreateRouteResponse' {} a -> s {createdTime = a} :: CreateRouteResponse) Prelude.. Lens.mapping Core._Time
+createRouteResponse_createdTime = Lens.lens (\CreateRouteResponse' {createdTime} -> createdTime) (\s@CreateRouteResponse' {} a -> s {createdTime = a} :: CreateRouteResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account ID of the route creator.
 createRouteResponse_createdByAccountId :: Lens.Lens' CreateRouteResponse (Prelude.Maybe Prelude.Text)
@@ -466,7 +467,7 @@ createRouteResponse_state = Lens.lens (\CreateRouteResponse' {state} -> state) (
 
 -- | A timestamp that indicates when the route was last updated.
 createRouteResponse_lastUpdatedTime :: Lens.Lens' CreateRouteResponse (Prelude.Maybe Prelude.UTCTime)
-createRouteResponse_lastUpdatedTime = Lens.lens (\CreateRouteResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@CreateRouteResponse' {} a -> s {lastUpdatedTime = a} :: CreateRouteResponse) Prelude.. Lens.mapping Core._Time
+createRouteResponse_lastUpdatedTime = Lens.lens (\CreateRouteResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@CreateRouteResponse' {} a -> s {lastUpdatedTime = a} :: CreateRouteResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account ID of the route owner.
 createRouteResponse_ownerAccountId :: Lens.Lens' CreateRouteResponse (Prelude.Maybe Prelude.Text)

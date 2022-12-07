@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest DeleteComponent where
     Response.receiveJSON
       ( \s h x ->
           DeleteComponentResponse'
-            Prelude.<$> (x Core..?> "component")
+            Prelude.<$> (x Data..?> "component")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,32 +99,32 @@ instance Prelude.Hashable DeleteComponent where
 instance Prelude.NFData DeleteComponent where
   rnf DeleteComponent' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteComponent where
+instance Data.ToHeaders DeleteComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.DeleteComponent" ::
+              Data.=# ( "AwsProton20200720.DeleteComponent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteComponent where
+instance Data.ToJSON DeleteComponent where
   toJSON DeleteComponent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath DeleteComponent where
+instance Data.ToPath DeleteComponent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteComponent where
+instance Data.ToQuery DeleteComponent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteComponentResponse' smart constructor.

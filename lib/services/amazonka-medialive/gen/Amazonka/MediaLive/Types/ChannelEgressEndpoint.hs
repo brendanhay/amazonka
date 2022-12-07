@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.ChannelEgressEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Placeholder documentation for ChannelEgressEndpoint
@@ -50,13 +51,13 @@ newChannelEgressEndpoint =
 channelEgressEndpoint_sourceIp :: Lens.Lens' ChannelEgressEndpoint (Prelude.Maybe Prelude.Text)
 channelEgressEndpoint_sourceIp = Lens.lens (\ChannelEgressEndpoint' {sourceIp} -> sourceIp) (\s@ChannelEgressEndpoint' {} a -> s {sourceIp = a} :: ChannelEgressEndpoint)
 
-instance Core.FromJSON ChannelEgressEndpoint where
+instance Data.FromJSON ChannelEgressEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelEgressEndpoint"
       ( \x ->
           ChannelEgressEndpoint'
-            Prelude.<$> (x Core..:? "sourceIp")
+            Prelude.<$> (x Data..:? "sourceIp")
       )
 
 instance Prelude.Hashable ChannelEgressEndpoint where

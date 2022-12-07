@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.RemoveAttributesActivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An activity that removes attributes from a message.
@@ -74,15 +75,15 @@ removeAttributesActivity_name = Lens.lens (\RemoveAttributesActivity' {name} -> 
 removeAttributesActivity_attributes :: Lens.Lens' RemoveAttributesActivity (Prelude.NonEmpty Prelude.Text)
 removeAttributesActivity_attributes = Lens.lens (\RemoveAttributesActivity' {attributes} -> attributes) (\s@RemoveAttributesActivity' {} a -> s {attributes = a} :: RemoveAttributesActivity) Prelude.. Lens.coerced
 
-instance Core.FromJSON RemoveAttributesActivity where
+instance Data.FromJSON RemoveAttributesActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RemoveAttributesActivity"
       ( \x ->
           RemoveAttributesActivity'
-            Prelude.<$> (x Core..:? "next")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "attributes")
+            Prelude.<$> (x Data..:? "next")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "attributes")
       )
 
 instance Prelude.Hashable RemoveAttributesActivity where
@@ -97,12 +98,12 @@ instance Prelude.NFData RemoveAttributesActivity where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToJSON RemoveAttributesActivity where
+instance Data.ToJSON RemoveAttributesActivity where
   toJSON RemoveAttributesActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("next" Core..=) Prelude.<$> next,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("attributes" Core..= attributes)
+          [ ("next" Data..=) Prelude.<$> next,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("attributes" Data..= attributes)
           ]
       )

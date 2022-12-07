@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.HostEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Hostnames and IP address entries that are added to the @\/etc\/hosts@
@@ -67,14 +68,14 @@ hostEntry_hostname = Lens.lens (\HostEntry' {hostname} -> hostname) (\s@HostEntr
 hostEntry_ipAddress :: Lens.Lens' HostEntry Prelude.Text
 hostEntry_ipAddress = Lens.lens (\HostEntry' {ipAddress} -> ipAddress) (\s@HostEntry' {} a -> s {ipAddress = a} :: HostEntry)
 
-instance Core.FromJSON HostEntry where
+instance Data.FromJSON HostEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HostEntry"
       ( \x ->
           HostEntry'
-            Prelude.<$> (x Core..: "hostname")
-            Prelude.<*> (x Core..: "ipAddress")
+            Prelude.<$> (x Data..: "hostname")
+            Prelude.<*> (x Data..: "ipAddress")
       )
 
 instance Prelude.Hashable HostEntry where
@@ -87,11 +88,11 @@ instance Prelude.NFData HostEntry where
     Prelude.rnf hostname
       `Prelude.seq` Prelude.rnf ipAddress
 
-instance Core.ToJSON HostEntry where
+instance Data.ToJSON HostEntry where
   toJSON HostEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("hostname" Core..= hostname),
-            Prelude.Just ("ipAddress" Core..= ipAddress)
+          [ Prelude.Just ("hostname" Data..= hostname),
+            Prelude.Just ("ipAddress" Data..= ipAddress)
           ]
       )

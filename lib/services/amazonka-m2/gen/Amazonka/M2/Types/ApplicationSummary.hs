@@ -21,6 +21,7 @@ module Amazonka.M2.Types.ApplicationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.ApplicationDeploymentLifecycle
 import Amazonka.M2.Types.ApplicationLifecycle
 import Amazonka.M2.Types.ApplicationVersionLifecycle
@@ -39,7 +40,7 @@ data ApplicationSummary = ApplicationSummary'
     versionStatus :: Prelude.Maybe ApplicationVersionLifecycle,
     -- | The timestamp when the application was last started. Null until the
     -- application has started running for the first time.
-    lastStartTime :: Prelude.Maybe Core.POSIX,
+    lastStartTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the application.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the runtime environment that hosts this
@@ -52,7 +53,7 @@ data ApplicationSummary = ApplicationSummary'
     -- | The version of the application.
     applicationVersion :: Prelude.Natural,
     -- | The timestamp when the application was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The type of the target platform for this application.
     engineType :: EngineType,
     -- | The name of the application.
@@ -130,7 +131,7 @@ newApplicationSummary
         applicationArn = pApplicationArn_,
         applicationId = pApplicationId_,
         applicationVersion = pApplicationVersion_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         engineType = pEngineType_,
         name = pName_,
         status = pStatus_
@@ -148,7 +149,7 @@ applicationSummary_versionStatus = Lens.lens (\ApplicationSummary' {versionStatu
 -- | The timestamp when the application was last started. Null until the
 -- application has started running for the first time.
 applicationSummary_lastStartTime :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.UTCTime)
-applicationSummary_lastStartTime = Lens.lens (\ApplicationSummary' {lastStartTime} -> lastStartTime) (\s@ApplicationSummary' {} a -> s {lastStartTime = a} :: ApplicationSummary) Prelude.. Lens.mapping Core._Time
+applicationSummary_lastStartTime = Lens.lens (\ApplicationSummary' {lastStartTime} -> lastStartTime) (\s@ApplicationSummary' {} a -> s {lastStartTime = a} :: ApplicationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the application.
 applicationSummary_description :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
@@ -173,7 +174,7 @@ applicationSummary_applicationVersion = Lens.lens (\ApplicationSummary' {applica
 
 -- | The timestamp when the application was created.
 applicationSummary_creationTime :: Lens.Lens' ApplicationSummary Prelude.UTCTime
-applicationSummary_creationTime = Lens.lens (\ApplicationSummary' {creationTime} -> creationTime) (\s@ApplicationSummary' {} a -> s {creationTime = a} :: ApplicationSummary) Prelude.. Core._Time
+applicationSummary_creationTime = Lens.lens (\ApplicationSummary' {creationTime} -> creationTime) (\s@ApplicationSummary' {} a -> s {creationTime = a} :: ApplicationSummary) Prelude.. Data._Time
 
 -- | The type of the target platform for this application.
 applicationSummary_engineType :: Lens.Lens' ApplicationSummary EngineType
@@ -187,24 +188,24 @@ applicationSummary_name = Lens.lens (\ApplicationSummary' {name} -> name) (\s@Ap
 applicationSummary_status :: Lens.Lens' ApplicationSummary ApplicationLifecycle
 applicationSummary_status = Lens.lens (\ApplicationSummary' {status} -> status) (\s@ApplicationSummary' {} a -> s {status = a} :: ApplicationSummary)
 
-instance Core.FromJSON ApplicationSummary where
+instance Data.FromJSON ApplicationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationSummary"
       ( \x ->
           ApplicationSummary'
-            Prelude.<$> (x Core..:? "deploymentStatus")
-            Prelude.<*> (x Core..:? "versionStatus")
-            Prelude.<*> (x Core..:? "lastStartTime")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "environmentId")
-            Prelude.<*> (x Core..: "applicationArn")
-            Prelude.<*> (x Core..: "applicationId")
-            Prelude.<*> (x Core..: "applicationVersion")
-            Prelude.<*> (x Core..: "creationTime")
-            Prelude.<*> (x Core..: "engineType")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "deploymentStatus")
+            Prelude.<*> (x Data..:? "versionStatus")
+            Prelude.<*> (x Data..:? "lastStartTime")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "environmentId")
+            Prelude.<*> (x Data..: "applicationArn")
+            Prelude.<*> (x Data..: "applicationId")
+            Prelude.<*> (x Data..: "applicationVersion")
+            Prelude.<*> (x Data..: "creationTime")
+            Prelude.<*> (x Data..: "engineType")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable ApplicationSummary where

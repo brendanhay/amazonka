@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -170,8 +171,8 @@ instance Core.AWSRequest ListSigningProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListSigningProfilesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "profiles" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "profiles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,30 +192,30 @@ instance Prelude.NFData ListSigningProfiles where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf platformId
 
-instance Core.ToHeaders ListSigningProfiles where
+instance Data.ToHeaders ListSigningProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListSigningProfiles where
+instance Data.ToPath ListSigningProfiles where
   toPath = Prelude.const "/signing-profiles"
 
-instance Core.ToQuery ListSigningProfiles where
+instance Data.ToQuery ListSigningProfiles where
   toQuery ListSigningProfiles' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "includeCanceled" Core.=: includeCanceled,
+      [ "nextToken" Data.=: nextToken,
+        "includeCanceled" Data.=: includeCanceled,
         "statuses"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> statuses),
-        "maxResults" Core.=: maxResults,
-        "platformId" Core.=: platformId
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> statuses),
+        "maxResults" Data.=: maxResults,
+        "platformId" Data.=: platformId
       ]
 
 -- | /See:/ 'newListSigningProfilesResponse' smart constructor.

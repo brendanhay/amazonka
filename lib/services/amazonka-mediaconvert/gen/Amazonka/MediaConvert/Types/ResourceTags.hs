@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.ResourceTags where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Resource Name (ARN) and tags for an AWS Elemental
@@ -62,14 +63,14 @@ resourceTags_tags = Lens.lens (\ResourceTags' {tags} -> tags) (\s@ResourceTags' 
 resourceTags_arn :: Lens.Lens' ResourceTags (Prelude.Maybe Prelude.Text)
 resourceTags_arn = Lens.lens (\ResourceTags' {arn} -> arn) (\s@ResourceTags' {} a -> s {arn = a} :: ResourceTags)
 
-instance Core.FromJSON ResourceTags where
+instance Data.FromJSON ResourceTags where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceTags"
       ( \x ->
           ResourceTags'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arn")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "arn")
       )
 
 instance Prelude.Hashable ResourceTags where

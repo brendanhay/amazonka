@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ComplianceExecutionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the call execution that includes an execution ID, the type
@@ -38,7 +39,7 @@ data ComplianceExecutionSummary = ComplianceExecutionSummary'
     executionId :: Prelude.Maybe Prelude.Text,
     -- | The time the execution ran as a datetime object that is saved in the
     -- following format: yyyy-MM-dd\'T\'HH:mm:ss\'Z\'.
-    executionTime :: Core.POSIX
+    executionTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,7 +69,7 @@ newComplianceExecutionSummary pExecutionTime_ =
         Prelude.Nothing,
       executionId = Prelude.Nothing,
       executionTime =
-        Core._Time Lens.# pExecutionTime_
+        Data._Time Lens.# pExecutionTime_
     }
 
 -- | The type of execution. For example, @Command@ is a valid execution type.
@@ -84,17 +85,17 @@ complianceExecutionSummary_executionId = Lens.lens (\ComplianceExecutionSummary'
 -- | The time the execution ran as a datetime object that is saved in the
 -- following format: yyyy-MM-dd\'T\'HH:mm:ss\'Z\'.
 complianceExecutionSummary_executionTime :: Lens.Lens' ComplianceExecutionSummary Prelude.UTCTime
-complianceExecutionSummary_executionTime = Lens.lens (\ComplianceExecutionSummary' {executionTime} -> executionTime) (\s@ComplianceExecutionSummary' {} a -> s {executionTime = a} :: ComplianceExecutionSummary) Prelude.. Core._Time
+complianceExecutionSummary_executionTime = Lens.lens (\ComplianceExecutionSummary' {executionTime} -> executionTime) (\s@ComplianceExecutionSummary' {} a -> s {executionTime = a} :: ComplianceExecutionSummary) Prelude.. Data._Time
 
-instance Core.FromJSON ComplianceExecutionSummary where
+instance Data.FromJSON ComplianceExecutionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComplianceExecutionSummary"
       ( \x ->
           ComplianceExecutionSummary'
-            Prelude.<$> (x Core..:? "ExecutionType")
-            Prelude.<*> (x Core..:? "ExecutionId")
-            Prelude.<*> (x Core..: "ExecutionTime")
+            Prelude.<$> (x Data..:? "ExecutionType")
+            Prelude.<*> (x Data..:? "ExecutionId")
+            Prelude.<*> (x Data..: "ExecutionTime")
       )
 
 instance Prelude.Hashable ComplianceExecutionSummary where
@@ -109,13 +110,13 @@ instance Prelude.NFData ComplianceExecutionSummary where
       `Prelude.seq` Prelude.rnf executionId
       `Prelude.seq` Prelude.rnf executionTime
 
-instance Core.ToJSON ComplianceExecutionSummary where
+instance Data.ToJSON ComplianceExecutionSummary where
   toJSON ComplianceExecutionSummary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExecutionType" Core..=) Prelude.<$> executionType,
-            ("ExecutionId" Core..=) Prelude.<$> executionId,
+          [ ("ExecutionType" Data..=) Prelude.<$> executionType,
+            ("ExecutionId" Data..=) Prelude.<$> executionId,
             Prelude.Just
-              ("ExecutionTime" Core..= executionTime)
+              ("ExecutionTime" Data..= executionTime)
           ]
       )

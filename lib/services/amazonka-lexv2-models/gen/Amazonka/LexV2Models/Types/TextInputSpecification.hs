@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.TextInputSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the text input specifications.
@@ -58,13 +59,13 @@ newTextInputSpecification pStartTimeoutMs_ =
 textInputSpecification_startTimeoutMs :: Lens.Lens' TextInputSpecification Prelude.Natural
 textInputSpecification_startTimeoutMs = Lens.lens (\TextInputSpecification' {startTimeoutMs} -> startTimeoutMs) (\s@TextInputSpecification' {} a -> s {startTimeoutMs = a} :: TextInputSpecification)
 
-instance Core.FromJSON TextInputSpecification where
+instance Data.FromJSON TextInputSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TextInputSpecification"
       ( \x ->
           TextInputSpecification'
-            Prelude.<$> (x Core..: "startTimeoutMs")
+            Prelude.<$> (x Data..: "startTimeoutMs")
       )
 
 instance Prelude.Hashable TextInputSpecification where
@@ -75,11 +76,11 @@ instance Prelude.NFData TextInputSpecification where
   rnf TextInputSpecification' {..} =
     Prelude.rnf startTimeoutMs
 
-instance Core.ToJSON TextInputSpecification where
+instance Data.ToJSON TextInputSpecification where
   toJSON TextInputSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("startTimeoutMs" Core..= startTimeoutMs)
+              ("startTimeoutMs" Data..= startTimeoutMs)
           ]
       )

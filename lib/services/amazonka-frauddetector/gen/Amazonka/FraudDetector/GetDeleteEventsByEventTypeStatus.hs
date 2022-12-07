@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,8 +91,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetDeleteEventsByEventTypeStatusResponse'
-            Prelude.<$> (x Core..?> "eventsDeletionStatus")
-            Prelude.<*> (x Core..?> "eventTypeName")
+            Prelude.<$> (x Data..?> "eventsDeletionStatus")
+            Prelude.<*> (x Data..?> "eventTypeName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,37 +113,37 @@ instance
     Prelude.rnf eventTypeName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetDeleteEventsByEventTypeStatus
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.GetDeleteEventsByEventTypeStatus" ::
+              Data.=# ( "AWSHawksNestServiceFacade.GetDeleteEventsByEventTypeStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDeleteEventsByEventTypeStatus where
+instance Data.ToJSON GetDeleteEventsByEventTypeStatus where
   toJSON GetDeleteEventsByEventTypeStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("eventTypeName" Core..= eventTypeName)
+              ("eventTypeName" Data..= eventTypeName)
           ]
       )
 
-instance Core.ToPath GetDeleteEventsByEventTypeStatus where
+instance Data.ToPath GetDeleteEventsByEventTypeStatus where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetDeleteEventsByEventTypeStatus
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.PartitionError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ErrorDetail
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,16 +63,16 @@ partitionError_partitionValues = Lens.lens (\PartitionError' {partitionValues} -
 partitionError_errorDetail :: Lens.Lens' PartitionError (Prelude.Maybe ErrorDetail)
 partitionError_errorDetail = Lens.lens (\PartitionError' {errorDetail} -> errorDetail) (\s@PartitionError' {} a -> s {errorDetail = a} :: PartitionError)
 
-instance Core.FromJSON PartitionError where
+instance Data.FromJSON PartitionError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PartitionError"
       ( \x ->
           PartitionError'
-            Prelude.<$> ( x Core..:? "PartitionValues"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "PartitionValues"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ErrorDetail")
+            Prelude.<*> (x Data..:? "ErrorDetail")
       )
 
 instance Prelude.Hashable PartitionError where

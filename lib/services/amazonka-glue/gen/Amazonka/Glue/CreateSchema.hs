@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -324,20 +325,20 @@ instance Core.AWSRequest CreateSchema where
     Response.receiveJSON
       ( \s h x ->
           CreateSchemaResponse'
-            Prelude.<$> (x Core..?> "Compatibility")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "RegistryName")
-            Prelude.<*> (x Core..?> "SchemaStatus")
-            Prelude.<*> (x Core..?> "DataFormat")
-            Prelude.<*> (x Core..?> "SchemaVersionStatus")
-            Prelude.<*> (x Core..?> "SchemaName")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "SchemaArn")
-            Prelude.<*> (x Core..?> "RegistryArn")
-            Prelude.<*> (x Core..?> "NextSchemaVersion")
-            Prelude.<*> (x Core..?> "SchemaCheckpoint")
-            Prelude.<*> (x Core..?> "SchemaVersionId")
-            Prelude.<*> (x Core..?> "LatestSchemaVersion")
+            Prelude.<$> (x Data..?> "Compatibility")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "RegistryName")
+            Prelude.<*> (x Data..?> "SchemaStatus")
+            Prelude.<*> (x Data..?> "DataFormat")
+            Prelude.<*> (x Data..?> "SchemaVersionStatus")
+            Prelude.<*> (x Data..?> "SchemaName")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "SchemaArn")
+            Prelude.<*> (x Data..?> "RegistryArn")
+            Prelude.<*> (x Data..?> "NextSchemaVersion")
+            Prelude.<*> (x Data..?> "SchemaCheckpoint")
+            Prelude.<*> (x Data..?> "SchemaVersionId")
+            Prelude.<*> (x Data..?> "LatestSchemaVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -361,38 +362,38 @@ instance Prelude.NFData CreateSchema where
       `Prelude.seq` Prelude.rnf schemaName
       `Prelude.seq` Prelude.rnf dataFormat
 
-instance Core.ToHeaders CreateSchema where
+instance Data.ToHeaders CreateSchema where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CreateSchema" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.CreateSchema" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSchema where
+instance Data.ToJSON CreateSchema where
   toJSON CreateSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Compatibility" Core..=) Prelude.<$> compatibility,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("RegistryId" Core..=) Prelude.<$> registryId,
-            ("SchemaDefinition" Core..=)
+          [ ("Compatibility" Data..=) Prelude.<$> compatibility,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("RegistryId" Data..=) Prelude.<$> registryId,
+            ("SchemaDefinition" Data..=)
               Prelude.<$> schemaDefinition,
-            Prelude.Just ("SchemaName" Core..= schemaName),
-            Prelude.Just ("DataFormat" Core..= dataFormat)
+            Prelude.Just ("SchemaName" Data..= schemaName),
+            Prelude.Just ("DataFormat" Data..= dataFormat)
           ]
       )
 
-instance Core.ToPath CreateSchema where
+instance Data.ToPath CreateSchema where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSchema where
+instance Data.ToQuery CreateSchema where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSchemaResponse' smart constructor.

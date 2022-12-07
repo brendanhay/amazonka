@@ -53,6 +53,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -241,11 +242,11 @@ instance Core.AWSRequest GetSavingsPlansUtilization where
     Response.receiveJSON
       ( \s h x ->
           GetSavingsPlansUtilizationResponse'
-            Prelude.<$> ( x Core..?> "SavingsPlansUtilizationsByTime"
+            Prelude.<$> ( x Data..?> "SavingsPlansUtilizationsByTime"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Total")
+            Prelude.<*> (x Data..:> "Total")
       )
 
 instance Prelude.Hashable GetSavingsPlansUtilization where
@@ -262,36 +263,36 @@ instance Prelude.NFData GetSavingsPlansUtilization where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf timePeriod
 
-instance Core.ToHeaders GetSavingsPlansUtilization where
+instance Data.ToHeaders GetSavingsPlansUtilization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.GetSavingsPlansUtilization" ::
+              Data.=# ( "AWSInsightsIndexService.GetSavingsPlansUtilization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSavingsPlansUtilization where
+instance Data.ToJSON GetSavingsPlansUtilization where
   toJSON GetSavingsPlansUtilization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Granularity" Core..=) Prelude.<$> granularity,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("Filter" Core..=) Prelude.<$> filter',
-            Prelude.Just ("TimePeriod" Core..= timePeriod)
+          [ ("Granularity" Data..=) Prelude.<$> granularity,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("Filter" Data..=) Prelude.<$> filter',
+            Prelude.Just ("TimePeriod" Data..= timePeriod)
           ]
       )
 
-instance Core.ToPath GetSavingsPlansUtilization where
+instance Data.ToPath GetSavingsPlansUtilization where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSavingsPlansUtilization where
+instance Data.ToQuery GetSavingsPlansUtilization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSavingsPlansUtilizationResponse' smart constructor.

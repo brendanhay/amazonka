@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.TimeAlignmentBoundary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.DayOfWeek
 import Amazonka.Forecast.Types.Month
 import qualified Amazonka.Prelude as Prelude
@@ -96,16 +97,16 @@ timeAlignmentBoundary_hour = Lens.lens (\TimeAlignmentBoundary' {hour} -> hour) 
 timeAlignmentBoundary_dayOfMonth :: Lens.Lens' TimeAlignmentBoundary (Prelude.Maybe Prelude.Natural)
 timeAlignmentBoundary_dayOfMonth = Lens.lens (\TimeAlignmentBoundary' {dayOfMonth} -> dayOfMonth) (\s@TimeAlignmentBoundary' {} a -> s {dayOfMonth = a} :: TimeAlignmentBoundary)
 
-instance Core.FromJSON TimeAlignmentBoundary where
+instance Data.FromJSON TimeAlignmentBoundary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeAlignmentBoundary"
       ( \x ->
           TimeAlignmentBoundary'
-            Prelude.<$> (x Core..:? "DayOfWeek")
-            Prelude.<*> (x Core..:? "Month")
-            Prelude.<*> (x Core..:? "Hour")
-            Prelude.<*> (x Core..:? "DayOfMonth")
+            Prelude.<$> (x Data..:? "DayOfWeek")
+            Prelude.<*> (x Data..:? "Month")
+            Prelude.<*> (x Data..:? "Hour")
+            Prelude.<*> (x Data..:? "DayOfMonth")
       )
 
 instance Prelude.Hashable TimeAlignmentBoundary where
@@ -122,13 +123,13 @@ instance Prelude.NFData TimeAlignmentBoundary where
       `Prelude.seq` Prelude.rnf hour
       `Prelude.seq` Prelude.rnf dayOfMonth
 
-instance Core.ToJSON TimeAlignmentBoundary where
+instance Data.ToJSON TimeAlignmentBoundary where
   toJSON TimeAlignmentBoundary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DayOfWeek" Core..=) Prelude.<$> dayOfWeek,
-            ("Month" Core..=) Prelude.<$> month,
-            ("Hour" Core..=) Prelude.<$> hour,
-            ("DayOfMonth" Core..=) Prelude.<$> dayOfMonth
+          [ ("DayOfWeek" Data..=) Prelude.<$> dayOfWeek,
+            ("Month" Data..=) Prelude.<$> month,
+            ("Hour" Data..=) Prelude.<$> hour,
+            ("DayOfMonth" Data..=) Prelude.<$> dayOfMonth
           ]
       )

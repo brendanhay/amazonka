@@ -22,6 +22,7 @@ module Amazonka.Config.Types.ComplianceByResource where
 import Amazonka.Config.Types.Compliance
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether an Amazon Web Services resource that is evaluated
@@ -78,15 +79,15 @@ complianceByResource_resourceType = Lens.lens (\ComplianceByResource' {resourceT
 complianceByResource_compliance :: Lens.Lens' ComplianceByResource (Prelude.Maybe Compliance)
 complianceByResource_compliance = Lens.lens (\ComplianceByResource' {compliance} -> compliance) (\s@ComplianceByResource' {} a -> s {compliance = a} :: ComplianceByResource)
 
-instance Core.FromJSON ComplianceByResource where
+instance Data.FromJSON ComplianceByResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComplianceByResource"
       ( \x ->
           ComplianceByResource'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "Compliance")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "Compliance")
       )
 
 instance Prelude.Hashable ComplianceByResource where

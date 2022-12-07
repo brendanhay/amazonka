@@ -23,6 +23,7 @@ import Amazonka.AlexaBusiness.Types.DeviceStatus
 import Amazonka.AlexaBusiness.Types.DeviceStatusInfo
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Device attributes.
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDeviceData' smart constructor.
 data DeviceData = DeviceData'
   { -- | The time (in epoch) when the device data was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The serial number of a device.
     deviceSerialNumber :: Prelude.Maybe Prelude.Text,
     -- | The name of a device.
@@ -112,7 +113,7 @@ newDeviceData =
 
 -- | The time (in epoch) when the device data was created.
 deviceData_createdTime :: Lens.Lens' DeviceData (Prelude.Maybe Prelude.UTCTime)
-deviceData_createdTime = Lens.lens (\DeviceData' {createdTime} -> createdTime) (\s@DeviceData' {} a -> s {createdTime = a} :: DeviceData) Prelude.. Lens.mapping Core._Time
+deviceData_createdTime = Lens.lens (\DeviceData' {createdTime} -> createdTime) (\s@DeviceData' {} a -> s {createdTime = a} :: DeviceData) Prelude.. Lens.mapping Data._Time
 
 -- | The serial number of a device.
 deviceData_deviceSerialNumber :: Lens.Lens' DeviceData (Prelude.Maybe Prelude.Text)
@@ -162,25 +163,25 @@ deviceData_roomName = Lens.lens (\DeviceData' {roomName} -> roomName) (\s@Device
 deviceData_networkProfileName :: Lens.Lens' DeviceData (Prelude.Maybe Prelude.Text)
 deviceData_networkProfileName = Lens.lens (\DeviceData' {networkProfileName} -> networkProfileName) (\s@DeviceData' {} a -> s {networkProfileName = a} :: DeviceData)
 
-instance Core.FromJSON DeviceData where
+instance Data.FromJSON DeviceData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceData"
       ( \x ->
           DeviceData'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "DeviceSerialNumber")
-            Prelude.<*> (x Core..:? "DeviceName")
-            Prelude.<*> (x Core..:? "DeviceStatusInfo")
-            Prelude.<*> (x Core..:? "RoomArn")
-            Prelude.<*> (x Core..:? "SoftwareVersion")
-            Prelude.<*> (x Core..:? "MacAddress")
-            Prelude.<*> (x Core..:? "DeviceStatus")
-            Prelude.<*> (x Core..:? "DeviceArn")
-            Prelude.<*> (x Core..:? "DeviceType")
-            Prelude.<*> (x Core..:? "NetworkProfileArn")
-            Prelude.<*> (x Core..:? "RoomName")
-            Prelude.<*> (x Core..:? "NetworkProfileName")
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "DeviceSerialNumber")
+            Prelude.<*> (x Data..:? "DeviceName")
+            Prelude.<*> (x Data..:? "DeviceStatusInfo")
+            Prelude.<*> (x Data..:? "RoomArn")
+            Prelude.<*> (x Data..:? "SoftwareVersion")
+            Prelude.<*> (x Data..:? "MacAddress")
+            Prelude.<*> (x Data..:? "DeviceStatus")
+            Prelude.<*> (x Data..:? "DeviceArn")
+            Prelude.<*> (x Data..:? "DeviceType")
+            Prelude.<*> (x Data..:? "NetworkProfileArn")
+            Prelude.<*> (x Data..:? "RoomName")
+            Prelude.<*> (x Data..:? "NetworkProfileName")
       )
 
 instance Prelude.Hashable DeviceData where

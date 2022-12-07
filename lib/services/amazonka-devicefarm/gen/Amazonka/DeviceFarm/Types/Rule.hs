@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.Rule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.DeviceAttribute
 import Amazonka.DeviceFarm.Types.RuleOperator
 import qualified Amazonka.Prelude as Prelude
@@ -315,15 +316,15 @@ rule_operator = Lens.lens (\Rule' {operator} -> operator) (\s@Rule' {} a -> s {o
 rule_value :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
 rule_value = Lens.lens (\Rule' {value} -> value) (\s@Rule' {} a -> s {value = a} :: Rule)
 
-instance Core.FromJSON Rule where
+instance Data.FromJSON Rule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Core..:? "attribute")
-            Prelude.<*> (x Core..:? "operator")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "attribute")
+            Prelude.<*> (x Data..:? "operator")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable Rule where
@@ -338,12 +339,12 @@ instance Prelude.NFData Rule where
       `Prelude.seq` Prelude.rnf operator
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Rule where
+instance Data.ToJSON Rule where
   toJSON Rule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("attribute" Core..=) Prelude.<$> attribute,
-            ("operator" Core..=) Prelude.<$> operator,
-            ("value" Core..=) Prelude.<$> value
+          [ ("attribute" Data..=) Prelude.<$> attribute,
+            ("operator" Data..=) Prelude.<$> operator,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

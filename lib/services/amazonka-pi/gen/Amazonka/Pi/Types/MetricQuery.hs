@@ -21,6 +21,7 @@ module Amazonka.Pi.Types.MetricQuery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pi.Types.DimensionGroup
 import qualified Amazonka.Prelude as Prelude
 
@@ -179,12 +180,12 @@ instance Prelude.NFData MetricQuery where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf metric
 
-instance Core.ToJSON MetricQuery where
+instance Data.ToJSON MetricQuery where
   toJSON MetricQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GroupBy" Core..=) Prelude.<$> groupBy,
-            ("Filter" Core..=) Prelude.<$> filter',
-            Prelude.Just ("Metric" Core..= metric)
+          [ ("GroupBy" Data..=) Prelude.<$> groupBy,
+            ("Filter" Data..=) Prelude.<$> filter',
+            Prelude.Just ("Metric" Data..= metric)
           ]
       )

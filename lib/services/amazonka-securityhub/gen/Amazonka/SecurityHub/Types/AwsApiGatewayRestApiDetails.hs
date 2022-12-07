@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsApiGatewayRestApiDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsApiGatewayEndpointConfiguration
 
@@ -175,23 +176,23 @@ awsApiGatewayRestApiDetails_minimumCompressionSize = Lens.lens (\AwsApiGatewayRe
 awsApiGatewayRestApiDetails_version :: Lens.Lens' AwsApiGatewayRestApiDetails (Prelude.Maybe Prelude.Text)
 awsApiGatewayRestApiDetails_version = Lens.lens (\AwsApiGatewayRestApiDetails' {version} -> version) (\s@AwsApiGatewayRestApiDetails' {} a -> s {version = a} :: AwsApiGatewayRestApiDetails)
 
-instance Core.FromJSON AwsApiGatewayRestApiDetails where
+instance Data.FromJSON AwsApiGatewayRestApiDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsApiGatewayRestApiDetails"
       ( \x ->
           AwsApiGatewayRestApiDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> ( x Core..:? "BinaryMediaTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> ( x Data..:? "BinaryMediaTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EndpointConfiguration")
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "ApiKeySource")
-            Prelude.<*> (x Core..:? "MinimumCompressionSize")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Data..:? "EndpointConfiguration")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "ApiKeySource")
+            Prelude.<*> (x Data..:? "MinimumCompressionSize")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable AwsApiGatewayRestApiDetails where
@@ -218,21 +219,21 @@ instance Prelude.NFData AwsApiGatewayRestApiDetails where
       `Prelude.seq` Prelude.rnf minimumCompressionSize
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON AwsApiGatewayRestApiDetails where
+instance Data.ToJSON AwsApiGatewayRestApiDetails where
   toJSON AwsApiGatewayRestApiDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Id" Core..=) Prelude.<$> id,
-            ("Description" Core..=) Prelude.<$> description,
-            ("BinaryMediaTypes" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Id" Data..=) Prelude.<$> id,
+            ("Description" Data..=) Prelude.<$> description,
+            ("BinaryMediaTypes" Data..=)
               Prelude.<$> binaryMediaTypes,
-            ("EndpointConfiguration" Core..=)
+            ("EndpointConfiguration" Data..=)
               Prelude.<$> endpointConfiguration,
-            ("CreatedDate" Core..=) Prelude.<$> createdDate,
-            ("ApiKeySource" Core..=) Prelude.<$> apiKeySource,
-            ("MinimumCompressionSize" Core..=)
+            ("CreatedDate" Data..=) Prelude.<$> createdDate,
+            ("ApiKeySource" Data..=) Prelude.<$> apiKeySource,
+            ("MinimumCompressionSize" Data..=)
               Prelude.<$> minimumCompressionSize,
-            ("Version" Core..=) Prelude.<$> version
+            ("Version" Data..=) Prelude.<$> version
           ]
       )

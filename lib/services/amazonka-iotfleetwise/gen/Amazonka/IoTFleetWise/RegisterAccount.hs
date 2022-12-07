@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,11 +118,11 @@ instance Core.AWSRequest RegisterAccount where
       ( \s h x ->
           RegisterAccountResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "registerAccountStatus")
-            Prelude.<*> (x Core..:> "timestreamResources")
-            Prelude.<*> (x Core..:> "iamResources")
-            Prelude.<*> (x Core..:> "creationTime")
-            Prelude.<*> (x Core..:> "lastModificationTime")
+            Prelude.<*> (x Data..:> "registerAccountStatus")
+            Prelude.<*> (x Data..:> "timestreamResources")
+            Prelude.<*> (x Data..:> "iamResources")
+            Prelude.<*> (x Data..:> "creationTime")
+            Prelude.<*> (x Data..:> "lastModificationTime")
       )
 
 instance Prelude.Hashable RegisterAccount where
@@ -134,35 +135,35 @@ instance Prelude.NFData RegisterAccount where
     Prelude.rnf iamResources
       `Prelude.seq` Prelude.rnf timestreamResources
 
-instance Core.ToHeaders RegisterAccount where
+instance Data.ToHeaders RegisterAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.RegisterAccount" ::
+              Data.=# ( "IoTAutobahnControlPlane.RegisterAccount" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterAccount where
+instance Data.ToJSON RegisterAccount where
   toJSON RegisterAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("iamResources" Core..=) Prelude.<$> iamResources,
+          [ ("iamResources" Data..=) Prelude.<$> iamResources,
             Prelude.Just
-              ("timestreamResources" Core..= timestreamResources)
+              ("timestreamResources" Data..= timestreamResources)
           ]
       )
 
-instance Core.ToPath RegisterAccount where
+instance Data.ToPath RegisterAccount where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterAccount where
+instance Data.ToQuery RegisterAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterAccountResponse' smart constructor.
@@ -178,10 +179,10 @@ data RegisterAccountResponse = RegisterAccountResponse'
     iamResources :: IamResources,
     -- | The time the account was registered, in seconds since epoch (January 1,
     -- 1970 at midnight UTC time).
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The time this registration was last updated, in seconds since epoch
     -- (January 1, 1970 at midnight UTC time).
-    lastModificationTime :: Core.POSIX
+    lastModificationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -234,9 +235,9 @@ newRegisterAccountResponse
         registerAccountStatus = pRegisterAccountStatus_,
         timestreamResources = pTimestreamResources_,
         iamResources = pIamResources_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lastModificationTime =
-          Core._Time Lens.# pLastModificationTime_
+          Data._Time Lens.# pLastModificationTime_
       }
 
 -- | The response's http status code.
@@ -260,12 +261,12 @@ registerAccountResponse_iamResources = Lens.lens (\RegisterAccountResponse' {iam
 -- | The time the account was registered, in seconds since epoch (January 1,
 -- 1970 at midnight UTC time).
 registerAccountResponse_creationTime :: Lens.Lens' RegisterAccountResponse Prelude.UTCTime
-registerAccountResponse_creationTime = Lens.lens (\RegisterAccountResponse' {creationTime} -> creationTime) (\s@RegisterAccountResponse' {} a -> s {creationTime = a} :: RegisterAccountResponse) Prelude.. Core._Time
+registerAccountResponse_creationTime = Lens.lens (\RegisterAccountResponse' {creationTime} -> creationTime) (\s@RegisterAccountResponse' {} a -> s {creationTime = a} :: RegisterAccountResponse) Prelude.. Data._Time
 
 -- | The time this registration was last updated, in seconds since epoch
 -- (January 1, 1970 at midnight UTC time).
 registerAccountResponse_lastModificationTime :: Lens.Lens' RegisterAccountResponse Prelude.UTCTime
-registerAccountResponse_lastModificationTime = Lens.lens (\RegisterAccountResponse' {lastModificationTime} -> lastModificationTime) (\s@RegisterAccountResponse' {} a -> s {lastModificationTime = a} :: RegisterAccountResponse) Prelude.. Core._Time
+registerAccountResponse_lastModificationTime = Lens.lens (\RegisterAccountResponse' {lastModificationTime} -> lastModificationTime) (\s@RegisterAccountResponse' {} a -> s {lastModificationTime = a} :: RegisterAccountResponse) Prelude.. Data._Time
 
 instance Prelude.NFData RegisterAccountResponse where
   rnf RegisterAccountResponse' {..} =

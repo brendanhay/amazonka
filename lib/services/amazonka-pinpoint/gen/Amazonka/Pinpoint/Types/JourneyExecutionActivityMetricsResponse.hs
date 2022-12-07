@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.JourneyExecutionActivityMetricsResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the results of a query that retrieved the data for a standard
@@ -196,20 +197,20 @@ journeyExecutionActivityMetricsResponse_applicationId :: Lens.Lens' JourneyExecu
 journeyExecutionActivityMetricsResponse_applicationId = Lens.lens (\JourneyExecutionActivityMetricsResponse' {applicationId} -> applicationId) (\s@JourneyExecutionActivityMetricsResponse' {} a -> s {applicationId = a} :: JourneyExecutionActivityMetricsResponse)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     JourneyExecutionActivityMetricsResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JourneyExecutionActivityMetricsResponse"
       ( \x ->
           JourneyExecutionActivityMetricsResponse'
-            Prelude.<$> (x Core..:? "Metrics" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "JourneyId")
-            Prelude.<*> (x Core..: "LastEvaluatedTime")
-            Prelude.<*> (x Core..: "JourneyActivityId")
-            Prelude.<*> (x Core..: "ActivityType")
-            Prelude.<*> (x Core..: "ApplicationId")
+            Prelude.<$> (x Data..:? "Metrics" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "JourneyId")
+            Prelude.<*> (x Data..: "LastEvaluatedTime")
+            Prelude.<*> (x Data..: "JourneyActivityId")
+            Prelude.<*> (x Data..: "ActivityType")
+            Prelude.<*> (x Data..: "ApplicationId")
       )
 
 instance

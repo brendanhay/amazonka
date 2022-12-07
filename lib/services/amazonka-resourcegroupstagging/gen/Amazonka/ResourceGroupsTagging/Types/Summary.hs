@@ -21,6 +21,7 @@ module Amazonka.ResourceGroupsTagging.Types.Summary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceGroupsTagging.Types.TargetIdType
 
@@ -107,18 +108,18 @@ summary_region = Lens.lens (\Summary' {region} -> region) (\s@Summary' {} a -> s
 summary_nonCompliantResources :: Lens.Lens' Summary (Prelude.Maybe Prelude.Integer)
 summary_nonCompliantResources = Lens.lens (\Summary' {nonCompliantResources} -> nonCompliantResources) (\s@Summary' {} a -> s {nonCompliantResources = a} :: Summary)
 
-instance Core.FromJSON Summary where
+instance Data.FromJSON Summary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Summary"
       ( \x ->
           Summary'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "TargetId")
-            Prelude.<*> (x Core..:? "TargetIdType")
-            Prelude.<*> (x Core..:? "LastUpdated")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "NonCompliantResources")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "TargetId")
+            Prelude.<*> (x Data..:? "TargetIdType")
+            Prelude.<*> (x Data..:? "LastUpdated")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "NonCompliantResources")
       )
 
 instance Prelude.Hashable Summary where

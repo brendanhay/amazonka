@@ -24,6 +24,7 @@ import Amazonka.AuditManager.Types.AssessmentFramework
 import Amazonka.AuditManager.Types.AssessmentMetadata
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An entity that defines the scope of audit evidence collected by Audit
@@ -93,17 +94,17 @@ assessment_arn = Lens.lens (\Assessment' {arn} -> arn) (\s@Assessment' {} a -> s
 assessment_framework :: Lens.Lens' Assessment (Prelude.Maybe AssessmentFramework)
 assessment_framework = Lens.lens (\Assessment' {framework} -> framework) (\s@Assessment' {} a -> s {framework = a} :: Assessment)
 
-instance Core.FromJSON Assessment where
+instance Data.FromJSON Assessment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Assessment"
       ( \x ->
           Assessment'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "metadata")
-            Prelude.<*> (x Core..:? "awsAccount")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "framework")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "metadata")
+            Prelude.<*> (x Data..:? "awsAccount")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "framework")
       )
 
 instance Prelude.Hashable Assessment where

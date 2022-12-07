@@ -24,6 +24,7 @@ import Amazonka.AWSHealth.Types.EventStatusCode
 import Amazonka.AWSHealth.Types.EventTypeCategory
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about an event, returned by the
@@ -41,9 +42,9 @@ data OrganizationEvent = OrganizationEvent'
     -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
     arn :: Prelude.Maybe Prelude.Text,
     -- | The most recent date and time that the event was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the event ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services service that is affected by the event, such as
     -- EC2 and RDS.
     service :: Prelude.Maybe Prelude.Text,
@@ -77,7 +78,7 @@ data OrganizationEvent = OrganizationEvent'
     -- @closed@, and @upcoming@.
     statusCode :: Prelude.Maybe EventStatusCode,
     -- | The date and time that the event began.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -162,11 +163,11 @@ organizationEvent_arn = Lens.lens (\OrganizationEvent' {arn} -> arn) (\s@Organiz
 
 -- | The most recent date and time that the event was updated.
 organizationEvent_lastUpdatedTime :: Lens.Lens' OrganizationEvent (Prelude.Maybe Prelude.UTCTime)
-organizationEvent_lastUpdatedTime = Lens.lens (\OrganizationEvent' {lastUpdatedTime} -> lastUpdatedTime) (\s@OrganizationEvent' {} a -> s {lastUpdatedTime = a} :: OrganizationEvent) Prelude.. Lens.mapping Core._Time
+organizationEvent_lastUpdatedTime = Lens.lens (\OrganizationEvent' {lastUpdatedTime} -> lastUpdatedTime) (\s@OrganizationEvent' {} a -> s {lastUpdatedTime = a} :: OrganizationEvent) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the event ended.
 organizationEvent_endTime :: Lens.Lens' OrganizationEvent (Prelude.Maybe Prelude.UTCTime)
-organizationEvent_endTime = Lens.lens (\OrganizationEvent' {endTime} -> endTime) (\s@OrganizationEvent' {} a -> s {endTime = a} :: OrganizationEvent) Prelude.. Lens.mapping Core._Time
+organizationEvent_endTime = Lens.lens (\OrganizationEvent' {endTime} -> endTime) (\s@OrganizationEvent' {} a -> s {endTime = a} :: OrganizationEvent) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services service that is affected by the event, such as
 -- EC2 and RDS.
@@ -214,24 +215,24 @@ organizationEvent_statusCode = Lens.lens (\OrganizationEvent' {statusCode} -> st
 
 -- | The date and time that the event began.
 organizationEvent_startTime :: Lens.Lens' OrganizationEvent (Prelude.Maybe Prelude.UTCTime)
-organizationEvent_startTime = Lens.lens (\OrganizationEvent' {startTime} -> startTime) (\s@OrganizationEvent' {} a -> s {startTime = a} :: OrganizationEvent) Prelude.. Lens.mapping Core._Time
+organizationEvent_startTime = Lens.lens (\OrganizationEvent' {startTime} -> startTime) (\s@OrganizationEvent' {} a -> s {startTime = a} :: OrganizationEvent) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON OrganizationEvent where
+instance Data.FromJSON OrganizationEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationEvent"
       ( \x ->
           OrganizationEvent'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "service")
-            Prelude.<*> (x Core..:? "eventScopeCode")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "eventTypeCode")
-            Prelude.<*> (x Core..:? "eventTypeCategory")
-            Prelude.<*> (x Core..:? "statusCode")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "service")
+            Prelude.<*> (x Data..:? "eventScopeCode")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "eventTypeCode")
+            Prelude.<*> (x Data..:? "eventTypeCategory")
+            Prelude.<*> (x Data..:? "statusCode")
+            Prelude.<*> (x Data..:? "startTime")
       )
 
 instance Prelude.Hashable OrganizationEvent where

@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.ReportedRuntimeContextState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.DesiredState
 import Amazonka.Panorama.Types.DeviceReportedStatus
 import qualified Amazonka.Prelude as Prelude
@@ -34,7 +35,7 @@ data ReportedRuntimeContextState = ReportedRuntimeContextState'
     -- | The application\'s reported status.
     deviceReportedStatus :: DeviceReportedStatus,
     -- | When the device reported the application\'s state.
-    deviceReportedTime :: Core.POSIX,
+    deviceReportedTime :: Data.POSIX,
     -- | The device\'s name.
     runtimeContextName :: Prelude.Text
   }
@@ -75,7 +76,7 @@ newReportedRuntimeContextState
           pDesiredState_,
         deviceReportedStatus = pDeviceReportedStatus_,
         deviceReportedTime =
-          Core._Time Lens.# pDeviceReportedTime_,
+          Data._Time Lens.# pDeviceReportedTime_,
         runtimeContextName = pRuntimeContextName_
       }
 
@@ -89,22 +90,22 @@ reportedRuntimeContextState_deviceReportedStatus = Lens.lens (\ReportedRuntimeCo
 
 -- | When the device reported the application\'s state.
 reportedRuntimeContextState_deviceReportedTime :: Lens.Lens' ReportedRuntimeContextState Prelude.UTCTime
-reportedRuntimeContextState_deviceReportedTime = Lens.lens (\ReportedRuntimeContextState' {deviceReportedTime} -> deviceReportedTime) (\s@ReportedRuntimeContextState' {} a -> s {deviceReportedTime = a} :: ReportedRuntimeContextState) Prelude.. Core._Time
+reportedRuntimeContextState_deviceReportedTime = Lens.lens (\ReportedRuntimeContextState' {deviceReportedTime} -> deviceReportedTime) (\s@ReportedRuntimeContextState' {} a -> s {deviceReportedTime = a} :: ReportedRuntimeContextState) Prelude.. Data._Time
 
 -- | The device\'s name.
 reportedRuntimeContextState_runtimeContextName :: Lens.Lens' ReportedRuntimeContextState Prelude.Text
 reportedRuntimeContextState_runtimeContextName = Lens.lens (\ReportedRuntimeContextState' {runtimeContextName} -> runtimeContextName) (\s@ReportedRuntimeContextState' {} a -> s {runtimeContextName = a} :: ReportedRuntimeContextState)
 
-instance Core.FromJSON ReportedRuntimeContextState where
+instance Data.FromJSON ReportedRuntimeContextState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReportedRuntimeContextState"
       ( \x ->
           ReportedRuntimeContextState'
-            Prelude.<$> (x Core..: "DesiredState")
-            Prelude.<*> (x Core..: "DeviceReportedStatus")
-            Prelude.<*> (x Core..: "DeviceReportedTime")
-            Prelude.<*> (x Core..: "RuntimeContextName")
+            Prelude.<$> (x Data..: "DesiredState")
+            Prelude.<*> (x Data..: "DeviceReportedStatus")
+            Prelude.<*> (x Data..: "DeviceReportedTime")
+            Prelude.<*> (x Data..: "RuntimeContextName")
       )
 
 instance Prelude.Hashable ReportedRuntimeContextState where

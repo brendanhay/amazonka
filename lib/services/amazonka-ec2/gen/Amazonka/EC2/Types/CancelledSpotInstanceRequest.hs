@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CancelledSpotInstanceRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CancelSpotInstanceRequestState
 import qualified Amazonka.Prelude as Prelude
@@ -64,11 +65,11 @@ cancelledSpotInstanceRequest_spotInstanceRequestId = Lens.lens (\CancelledSpotIn
 cancelledSpotInstanceRequest_state :: Lens.Lens' CancelledSpotInstanceRequest (Prelude.Maybe CancelSpotInstanceRequestState)
 cancelledSpotInstanceRequest_state = Lens.lens (\CancelledSpotInstanceRequest' {state} -> state) (\s@CancelledSpotInstanceRequest' {} a -> s {state = a} :: CancelledSpotInstanceRequest)
 
-instance Core.FromXML CancelledSpotInstanceRequest where
+instance Data.FromXML CancelledSpotInstanceRequest where
   parseXML x =
     CancelledSpotInstanceRequest'
-      Prelude.<$> (x Core..@? "spotInstanceRequestId")
-      Prelude.<*> (x Core..@? "state")
+      Prelude.<$> (x Data..@? "spotInstanceRequestId")
+      Prelude.<*> (x Data..@? "state")
 
 instance
   Prelude.Hashable

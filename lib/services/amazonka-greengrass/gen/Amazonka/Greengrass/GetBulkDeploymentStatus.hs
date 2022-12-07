@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,12 +92,12 @@ instance Core.AWSRequest GetBulkDeploymentStatus where
     Response.receiveJSON
       ( \s h x ->
           GetBulkDeploymentStatusResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ErrorMessage")
-            Prelude.<*> (x Core..?> "ErrorDetails" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "BulkDeploymentStatus")
-            Prelude.<*> (x Core..?> "BulkDeploymentMetrics")
-            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "ErrorDetails" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "BulkDeploymentStatus")
+            Prelude.<*> (x Data..?> "BulkDeploymentMetrics")
+            Prelude.<*> (x Data..?> "CreatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,26 +109,26 @@ instance Prelude.NFData GetBulkDeploymentStatus where
   rnf GetBulkDeploymentStatus' {..} =
     Prelude.rnf bulkDeploymentId
 
-instance Core.ToHeaders GetBulkDeploymentStatus where
+instance Data.ToHeaders GetBulkDeploymentStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetBulkDeploymentStatus where
+instance Data.ToPath GetBulkDeploymentStatus where
   toPath GetBulkDeploymentStatus' {..} =
     Prelude.mconcat
       [ "/greengrass/bulk/deployments/",
-        Core.toBS bulkDeploymentId,
+        Data.toBS bulkDeploymentId,
         "/status"
       ]
 
-instance Core.ToQuery GetBulkDeploymentStatus where
+instance Data.ToQuery GetBulkDeploymentStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBulkDeploymentStatusResponse' smart constructor.

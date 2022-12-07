@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.DescribeRecoverySnapshotsRequestFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of filters by which to return Recovery Snapshots.
@@ -81,13 +82,13 @@ instance
       `Prelude.seq` Prelude.rnf toDateTime
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeRecoverySnapshotsRequestFilters
   where
   toJSON DescribeRecoverySnapshotsRequestFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fromDateTime" Core..=) Prelude.<$> fromDateTime,
-            ("toDateTime" Core..=) Prelude.<$> toDateTime
+          [ ("fromDateTime" Data..=) Prelude.<$> fromDateTime,
+            ("toDateTime" Data..=) Prelude.<$> toDateTime
           ]
       )

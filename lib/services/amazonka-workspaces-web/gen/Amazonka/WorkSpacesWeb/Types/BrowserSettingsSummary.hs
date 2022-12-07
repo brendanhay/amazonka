@@ -21,6 +21,7 @@ module Amazonka.WorkSpacesWeb.Types.BrowserSettingsSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary for browser settings.
@@ -53,13 +54,13 @@ newBrowserSettingsSummary =
 browserSettingsSummary_browserSettingsArn :: Lens.Lens' BrowserSettingsSummary (Prelude.Maybe Prelude.Text)
 browserSettingsSummary_browserSettingsArn = Lens.lens (\BrowserSettingsSummary' {browserSettingsArn} -> browserSettingsArn) (\s@BrowserSettingsSummary' {} a -> s {browserSettingsArn = a} :: BrowserSettingsSummary)
 
-instance Core.FromJSON BrowserSettingsSummary where
+instance Data.FromJSON BrowserSettingsSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BrowserSettingsSummary"
       ( \x ->
           BrowserSettingsSummary'
-            Prelude.<$> (x Core..:? "browserSettingsArn")
+            Prelude.<$> (x Data..:? "browserSettingsArn")
       )
 
 instance Prelude.Hashable BrowserSettingsSummary where

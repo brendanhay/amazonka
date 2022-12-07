@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ReferenceDataSourceDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.S3ReferenceDataSourceDescription
 import Amazonka.KinesisAnalyticsV2.Types.SourceSchema
 import qualified Amazonka.Prelude as Prelude
@@ -111,16 +112,16 @@ referenceDataSourceDescription_tableName = Lens.lens (\ReferenceDataSourceDescri
 referenceDataSourceDescription_s3ReferenceDataSourceDescription :: Lens.Lens' ReferenceDataSourceDescription S3ReferenceDataSourceDescription
 referenceDataSourceDescription_s3ReferenceDataSourceDescription = Lens.lens (\ReferenceDataSourceDescription' {s3ReferenceDataSourceDescription} -> s3ReferenceDataSourceDescription) (\s@ReferenceDataSourceDescription' {} a -> s {s3ReferenceDataSourceDescription = a} :: ReferenceDataSourceDescription)
 
-instance Core.FromJSON ReferenceDataSourceDescription where
+instance Data.FromJSON ReferenceDataSourceDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReferenceDataSourceDescription"
       ( \x ->
           ReferenceDataSourceDescription'
-            Prelude.<$> (x Core..:? "ReferenceSchema")
-            Prelude.<*> (x Core..: "ReferenceId")
-            Prelude.<*> (x Core..: "TableName")
-            Prelude.<*> (x Core..: "S3ReferenceDataSourceDescription")
+            Prelude.<$> (x Data..:? "ReferenceSchema")
+            Prelude.<*> (x Data..: "ReferenceId")
+            Prelude.<*> (x Data..: "TableName")
+            Prelude.<*> (x Data..: "S3ReferenceDataSourceDescription")
       )
 
 instance

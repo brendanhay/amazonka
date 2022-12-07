@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ServiceCatalogProvisioningUpdateDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProvisioningParameter
 
@@ -85,15 +86,15 @@ instance
       `Prelude.seq` Prelude.rnf provisioningArtifactId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ServiceCatalogProvisioningUpdateDetails
   where
   toJSON ServiceCatalogProvisioningUpdateDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProvisioningParameters" Core..=)
+          [ ("ProvisioningParameters" Data..=)
               Prelude.<$> provisioningParameters,
-            ("ProvisioningArtifactId" Core..=)
+            ("ProvisioningArtifactId" Data..=)
               Prelude.<$> provisioningArtifactId
           ]
       )

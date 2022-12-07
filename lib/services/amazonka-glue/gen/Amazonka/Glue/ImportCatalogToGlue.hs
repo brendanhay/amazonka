@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,32 +94,32 @@ instance Prelude.Hashable ImportCatalogToGlue where
 instance Prelude.NFData ImportCatalogToGlue where
   rnf ImportCatalogToGlue' {..} = Prelude.rnf catalogId
 
-instance Core.ToHeaders ImportCatalogToGlue where
+instance Data.ToHeaders ImportCatalogToGlue where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.ImportCatalogToGlue" ::
+              Data.=# ( "AWSGlue.ImportCatalogToGlue" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportCatalogToGlue where
+instance Data.ToJSON ImportCatalogToGlue where
   toJSON ImportCatalogToGlue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("CatalogId" Core..=) Prelude.<$> catalogId]
+          [("CatalogId" Data..=) Prelude.<$> catalogId]
       )
 
-instance Core.ToPath ImportCatalogToGlue where
+instance Data.ToPath ImportCatalogToGlue where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportCatalogToGlue where
+instance Data.ToQuery ImportCatalogToGlue where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportCatalogToGlueResponse' smart constructor.

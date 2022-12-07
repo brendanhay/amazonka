@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.UpdateProvisioningParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameter key-value pair used to update a provisioned product.
@@ -73,15 +74,15 @@ updateProvisioningParameter_usePreviousValue = Lens.lens (\UpdateProvisioningPar
 updateProvisioningParameter_value :: Lens.Lens' UpdateProvisioningParameter (Prelude.Maybe Prelude.Text)
 updateProvisioningParameter_value = Lens.lens (\UpdateProvisioningParameter' {value} -> value) (\s@UpdateProvisioningParameter' {} a -> s {value = a} :: UpdateProvisioningParameter)
 
-instance Core.FromJSON UpdateProvisioningParameter where
+instance Data.FromJSON UpdateProvisioningParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpdateProvisioningParameter"
       ( \x ->
           UpdateProvisioningParameter'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "UsePreviousValue")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "UsePreviousValue")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable UpdateProvisioningParameter where
@@ -96,13 +97,13 @@ instance Prelude.NFData UpdateProvisioningParameter where
       `Prelude.seq` Prelude.rnf usePreviousValue
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON UpdateProvisioningParameter where
+instance Data.ToJSON UpdateProvisioningParameter where
   toJSON UpdateProvisioningParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("UsePreviousValue" Core..=)
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("UsePreviousValue" Data..=)
               Prelude.<$> usePreviousValue,
-            ("Value" Core..=) Prelude.<$> value
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

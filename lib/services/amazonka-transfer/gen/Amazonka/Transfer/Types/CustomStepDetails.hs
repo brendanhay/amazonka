@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.CustomStepDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Each step type has its own @StepDetails@ structure.
@@ -106,16 +107,16 @@ customStepDetails_target = Lens.lens (\CustomStepDetails' {target} -> target) (\
 customStepDetails_sourceFileLocation :: Lens.Lens' CustomStepDetails (Prelude.Maybe Prelude.Text)
 customStepDetails_sourceFileLocation = Lens.lens (\CustomStepDetails' {sourceFileLocation} -> sourceFileLocation) (\s@CustomStepDetails' {} a -> s {sourceFileLocation = a} :: CustomStepDetails)
 
-instance Core.FromJSON CustomStepDetails where
+instance Data.FromJSON CustomStepDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomStepDetails"
       ( \x ->
           CustomStepDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "TimeoutSeconds")
-            Prelude.<*> (x Core..:? "Target")
-            Prelude.<*> (x Core..:? "SourceFileLocation")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "TimeoutSeconds")
+            Prelude.<*> (x Data..:? "Target")
+            Prelude.<*> (x Data..:? "SourceFileLocation")
       )
 
 instance Prelude.Hashable CustomStepDetails where
@@ -132,15 +133,15 @@ instance Prelude.NFData CustomStepDetails where
       `Prelude.seq` Prelude.rnf target
       `Prelude.seq` Prelude.rnf sourceFileLocation
 
-instance Core.ToJSON CustomStepDetails where
+instance Data.ToJSON CustomStepDetails where
   toJSON CustomStepDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("TimeoutSeconds" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("TimeoutSeconds" Data..=)
               Prelude.<$> timeoutSeconds,
-            ("Target" Core..=) Prelude.<$> target,
-            ("SourceFileLocation" Core..=)
+            ("Target" Data..=) Prelude.<$> target,
+            ("SourceFileLocation" Data..=)
               Prelude.<$> sourceFileLocation
           ]
       )

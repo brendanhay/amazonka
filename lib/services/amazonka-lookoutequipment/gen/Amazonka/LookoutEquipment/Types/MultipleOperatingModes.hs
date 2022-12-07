@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.MultipleOperatingModes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.StatisticalIssueStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,13 +57,13 @@ newMultipleOperatingModes pStatus_ =
 multipleOperatingModes_status :: Lens.Lens' MultipleOperatingModes StatisticalIssueStatus
 multipleOperatingModes_status = Lens.lens (\MultipleOperatingModes' {status} -> status) (\s@MultipleOperatingModes' {} a -> s {status = a} :: MultipleOperatingModes)
 
-instance Core.FromJSON MultipleOperatingModes where
+instance Data.FromJSON MultipleOperatingModes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultipleOperatingModes"
       ( \x ->
           MultipleOperatingModes'
-            Prelude.<$> (x Core..: "Status")
+            Prelude.<$> (x Data..: "Status")
       )
 
 instance Prelude.Hashable MultipleOperatingModes where

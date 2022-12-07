@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,33 +131,33 @@ instance Prelude.NFData UpdateRelatedItems where
       `Prelude.seq` Prelude.rnf incidentRecordArn
       `Prelude.seq` Prelude.rnf relatedItemsUpdate
 
-instance Core.ToHeaders UpdateRelatedItems where
+instance Data.ToHeaders UpdateRelatedItems where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRelatedItems where
+instance Data.ToJSON UpdateRelatedItems where
   toJSON UpdateRelatedItems' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("incidentRecordArn" Core..= incidentRecordArn),
+              ("incidentRecordArn" Data..= incidentRecordArn),
             Prelude.Just
-              ("relatedItemsUpdate" Core..= relatedItemsUpdate)
+              ("relatedItemsUpdate" Data..= relatedItemsUpdate)
           ]
       )
 
-instance Core.ToPath UpdateRelatedItems where
+instance Data.ToPath UpdateRelatedItems where
   toPath = Prelude.const "/updateRelatedItems"
 
-instance Core.ToQuery UpdateRelatedItems where
+instance Data.ToQuery UpdateRelatedItems where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRelatedItemsResponse' smart constructor.

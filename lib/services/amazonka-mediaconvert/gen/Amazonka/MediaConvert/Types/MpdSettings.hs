@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.MpdSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.MpdAccessibilityCaptionHints
 import Amazonka.MediaConvert.Types.MpdAudioDuration
 import Amazonka.MediaConvert.Types.MpdCaptionContainerType
@@ -231,19 +232,19 @@ mpdSettings_captionContainerType = Lens.lens (\MpdSettings' {captionContainerTyp
 mpdSettings_scte35Source :: Lens.Lens' MpdSettings (Prelude.Maybe MpdScte35Source)
 mpdSettings_scte35Source = Lens.lens (\MpdSettings' {scte35Source} -> scte35Source) (\s@MpdSettings' {} a -> s {scte35Source = a} :: MpdSettings)
 
-instance Core.FromJSON MpdSettings where
+instance Data.FromJSON MpdSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MpdSettings"
       ( \x ->
           MpdSettings'
-            Prelude.<$> (x Core..:? "audioDuration")
-            Prelude.<*> (x Core..:? "timedMetadata")
-            Prelude.<*> (x Core..:? "klvMetadata")
-            Prelude.<*> (x Core..:? "scte35Esam")
-            Prelude.<*> (x Core..:? "accessibilityCaptionHints")
-            Prelude.<*> (x Core..:? "captionContainerType")
-            Prelude.<*> (x Core..:? "scte35Source")
+            Prelude.<$> (x Data..:? "audioDuration")
+            Prelude.<*> (x Data..:? "timedMetadata")
+            Prelude.<*> (x Data..:? "klvMetadata")
+            Prelude.<*> (x Data..:? "scte35Esam")
+            Prelude.<*> (x Data..:? "accessibilityCaptionHints")
+            Prelude.<*> (x Data..:? "captionContainerType")
+            Prelude.<*> (x Data..:? "scte35Source")
       )
 
 instance Prelude.Hashable MpdSettings where
@@ -266,18 +267,18 @@ instance Prelude.NFData MpdSettings where
       `Prelude.seq` Prelude.rnf captionContainerType
       `Prelude.seq` Prelude.rnf scte35Source
 
-instance Core.ToJSON MpdSettings where
+instance Data.ToJSON MpdSettings where
   toJSON MpdSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("audioDuration" Core..=) Prelude.<$> audioDuration,
-            ("timedMetadata" Core..=) Prelude.<$> timedMetadata,
-            ("klvMetadata" Core..=) Prelude.<$> klvMetadata,
-            ("scte35Esam" Core..=) Prelude.<$> scte35Esam,
-            ("accessibilityCaptionHints" Core..=)
+          [ ("audioDuration" Data..=) Prelude.<$> audioDuration,
+            ("timedMetadata" Data..=) Prelude.<$> timedMetadata,
+            ("klvMetadata" Data..=) Prelude.<$> klvMetadata,
+            ("scte35Esam" Data..=) Prelude.<$> scte35Esam,
+            ("accessibilityCaptionHints" Data..=)
               Prelude.<$> accessibilityCaptionHints,
-            ("captionContainerType" Core..=)
+            ("captionContainerType" Data..=)
               Prelude.<$> captionContainerType,
-            ("scte35Source" Core..=) Prelude.<$> scte35Source
+            ("scte35Source" Data..=) Prelude.<$> scte35Source
           ]
       )

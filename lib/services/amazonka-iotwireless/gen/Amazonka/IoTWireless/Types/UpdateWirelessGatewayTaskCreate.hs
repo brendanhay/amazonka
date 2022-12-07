@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.UpdateWirelessGatewayTaskCreate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.LoRaWANUpdateGatewayTaskCreate
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,17 +74,17 @@ updateWirelessGatewayTaskCreate_updateDataSource :: Lens.Lens' UpdateWirelessGat
 updateWirelessGatewayTaskCreate_updateDataSource = Lens.lens (\UpdateWirelessGatewayTaskCreate' {updateDataSource} -> updateDataSource) (\s@UpdateWirelessGatewayTaskCreate' {} a -> s {updateDataSource = a} :: UpdateWirelessGatewayTaskCreate)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     UpdateWirelessGatewayTaskCreate
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpdateWirelessGatewayTaskCreate"
       ( \x ->
           UpdateWirelessGatewayTaskCreate'
-            Prelude.<$> (x Core..:? "UpdateDataRole")
-            Prelude.<*> (x Core..:? "LoRaWAN")
-            Prelude.<*> (x Core..:? "UpdateDataSource")
+            Prelude.<$> (x Data..:? "UpdateDataRole")
+            Prelude.<*> (x Data..:? "LoRaWAN")
+            Prelude.<*> (x Data..:? "UpdateDataSource")
       )
 
 instance
@@ -106,14 +107,14 @@ instance
       `Prelude.seq` Prelude.rnf loRaWAN
       `Prelude.seq` Prelude.rnf updateDataSource
 
-instance Core.ToJSON UpdateWirelessGatewayTaskCreate where
+instance Data.ToJSON UpdateWirelessGatewayTaskCreate where
   toJSON UpdateWirelessGatewayTaskCreate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UpdateDataRole" Core..=)
+          [ ("UpdateDataRole" Data..=)
               Prelude.<$> updateDataRole,
-            ("LoRaWAN" Core..=) Prelude.<$> loRaWAN,
-            ("UpdateDataSource" Core..=)
+            ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
+            ("UpdateDataSource" Data..=)
               Prelude.<$> updateDataSource
           ]
       )

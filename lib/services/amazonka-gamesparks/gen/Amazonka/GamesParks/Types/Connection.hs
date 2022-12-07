@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.Connection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a WebSocket connection.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newConnection' smart constructor.
 data Connection = Connection'
   { -- | The date and time when the connection was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The identifier used to indicate a specific WebSocket connection.
     id :: Prelude.Maybe Prelude.Text
   }
@@ -55,19 +56,19 @@ newConnection =
 
 -- | The date and time when the connection was created.
 connection_created :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
-connection_created = Lens.lens (\Connection' {created} -> created) (\s@Connection' {} a -> s {created = a} :: Connection) Prelude.. Lens.mapping Core._Time
+connection_created = Lens.lens (\Connection' {created} -> created) (\s@Connection' {} a -> s {created = a} :: Connection) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier used to indicate a specific WebSocket connection.
 connection_id :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
 connection_id = Lens.lens (\Connection' {id} -> id) (\s@Connection' {} a -> s {id = a} :: Connection)
 
-instance Core.FromJSON Connection where
+instance Data.FromJSON Connection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Connection"
       ( \x ->
           Connection'
-            Prelude.<$> (x Core..:? "Created") Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Created") Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable Connection where

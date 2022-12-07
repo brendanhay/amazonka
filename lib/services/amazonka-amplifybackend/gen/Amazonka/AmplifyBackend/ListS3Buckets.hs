@@ -43,6 +43,7 @@ where
 import Amazonka.AmplifyBackend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,8 +85,8 @@ instance Core.AWSRequest ListS3Buckets where
     Response.receiveJSON
       ( \s h x ->
           ListS3BucketsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "buckets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "buckets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,28 +97,28 @@ instance Prelude.Hashable ListS3Buckets where
 instance Prelude.NFData ListS3Buckets where
   rnf ListS3Buckets' {..} = Prelude.rnf nextToken
 
-instance Core.ToHeaders ListS3Buckets where
+instance Data.ToHeaders ListS3Buckets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListS3Buckets where
+instance Data.ToJSON ListS3Buckets where
   toJSON ListS3Buckets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("nextToken" Core..=) Prelude.<$> nextToken]
+          [("nextToken" Data..=) Prelude.<$> nextToken]
       )
 
-instance Core.ToPath ListS3Buckets where
+instance Data.ToPath ListS3Buckets where
   toPath = Prelude.const "/s3Buckets"
 
-instance Core.ToQuery ListS3Buckets where
+instance Data.ToQuery ListS3Buckets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListS3BucketsResponse' smart constructor.

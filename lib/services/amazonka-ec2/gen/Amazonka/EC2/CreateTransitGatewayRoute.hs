@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,7 +144,7 @@ instance Core.AWSRequest CreateTransitGatewayRoute where
     Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayRouteResponse'
-            Prelude.<$> (x Core..@? "route")
+            Prelude.<$> (x Data..@? "route")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,26 +165,26 @@ instance Prelude.NFData CreateTransitGatewayRoute where
       `Prelude.seq` Prelude.rnf destinationCidrBlock
       `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
 
-instance Core.ToHeaders CreateTransitGatewayRoute where
+instance Data.ToHeaders CreateTransitGatewayRoute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateTransitGatewayRoute where
+instance Data.ToPath CreateTransitGatewayRoute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTransitGatewayRoute where
+instance Data.ToQuery CreateTransitGatewayRoute where
   toQuery CreateTransitGatewayRoute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateTransitGatewayRoute" :: Prelude.ByteString),
+          Data.=: ("CreateTransitGatewayRoute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "TransitGatewayAttachmentId"
-          Core.=: transitGatewayAttachmentId,
-        "DryRun" Core.=: dryRun,
-        "Blackhole" Core.=: blackhole,
-        "DestinationCidrBlock" Core.=: destinationCidrBlock,
+          Data.=: transitGatewayAttachmentId,
+        "DryRun" Data.=: dryRun,
+        "Blackhole" Data.=: blackhole,
+        "DestinationCidrBlock" Data.=: destinationCidrBlock,
         "TransitGatewayRouteTableId"
-          Core.=: transitGatewayRouteTableId
+          Data.=: transitGatewayRouteTableId
       ]
 
 -- | /See:/ 'newCreateTransitGatewayRouteResponse' smart constructor.

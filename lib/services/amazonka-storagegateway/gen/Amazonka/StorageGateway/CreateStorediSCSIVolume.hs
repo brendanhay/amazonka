@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -305,9 +306,9 @@ instance Core.AWSRequest CreateStorediSCSIVolume where
     Response.receiveJSON
       ( \s h x ->
           CreateStorediSCSIVolumeResponse'
-            Prelude.<$> (x Core..?> "VolumeSizeInBytes")
-            Prelude.<*> (x Core..?> "TargetARN")
-            Prelude.<*> (x Core..?> "VolumeARN")
+            Prelude.<$> (x Data..?> "VolumeSizeInBytes")
+            Prelude.<*> (x Data..?> "TargetARN")
+            Prelude.<*> (x Data..?> "VolumeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -335,45 +336,45 @@ instance Prelude.NFData CreateStorediSCSIVolume where
       `Prelude.seq` Prelude.rnf targetName
       `Prelude.seq` Prelude.rnf networkInterfaceId
 
-instance Core.ToHeaders CreateStorediSCSIVolume where
+instance Data.ToHeaders CreateStorediSCSIVolume where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.CreateStorediSCSIVolume" ::
+              Data.=# ( "StorageGateway_20130630.CreateStorediSCSIVolume" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateStorediSCSIVolume where
+instance Data.ToJSON CreateStorediSCSIVolume where
   toJSON CreateStorediSCSIVolume' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("SnapshotId" Core..=) Prelude.<$> snapshotId,
-            ("KMSKey" Core..=) Prelude.<$> kmsKey,
-            ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
-            Prelude.Just ("GatewayARN" Core..= gatewayARN),
-            Prelude.Just ("DiskId" Core..= diskId),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("SnapshotId" Data..=) Prelude.<$> snapshotId,
+            ("KMSKey" Data..=) Prelude.<$> kmsKey,
+            ("KMSEncrypted" Data..=) Prelude.<$> kmsEncrypted,
+            Prelude.Just ("GatewayARN" Data..= gatewayARN),
+            Prelude.Just ("DiskId" Data..= diskId),
             Prelude.Just
               ( "PreserveExistingData"
-                  Core..= preserveExistingData
+                  Data..= preserveExistingData
               ),
-            Prelude.Just ("TargetName" Core..= targetName),
+            Prelude.Just ("TargetName" Data..= targetName),
             Prelude.Just
-              ("NetworkInterfaceId" Core..= networkInterfaceId)
+              ("NetworkInterfaceId" Data..= networkInterfaceId)
           ]
       )
 
-instance Core.ToPath CreateStorediSCSIVolume where
+instance Data.ToPath CreateStorediSCSIVolume where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateStorediSCSIVolume where
+instance Data.ToQuery CreateStorediSCSIVolume where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the following fields:

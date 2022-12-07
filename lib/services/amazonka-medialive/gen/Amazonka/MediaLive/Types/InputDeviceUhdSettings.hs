@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputDeviceUhdSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.InputDeviceActiveInput
 import Amazonka.MediaLive.Types.InputDeviceConfiguredInput
 import Amazonka.MediaLive.Types.InputDeviceScanType
@@ -130,20 +131,20 @@ inputDeviceUhdSettings_height = Lens.lens (\InputDeviceUhdSettings' {height} -> 
 inputDeviceUhdSettings_framerate :: Lens.Lens' InputDeviceUhdSettings (Prelude.Maybe Prelude.Double)
 inputDeviceUhdSettings_framerate = Lens.lens (\InputDeviceUhdSettings' {framerate} -> framerate) (\s@InputDeviceUhdSettings' {} a -> s {framerate = a} :: InputDeviceUhdSettings)
 
-instance Core.FromJSON InputDeviceUhdSettings where
+instance Data.FromJSON InputDeviceUhdSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputDeviceUhdSettings"
       ( \x ->
           InputDeviceUhdSettings'
-            Prelude.<$> (x Core..:? "deviceState")
-            Prelude.<*> (x Core..:? "activeInput")
-            Prelude.<*> (x Core..:? "maxBitrate")
-            Prelude.<*> (x Core..:? "scanType")
-            Prelude.<*> (x Core..:? "width")
-            Prelude.<*> (x Core..:? "configuredInput")
-            Prelude.<*> (x Core..:? "height")
-            Prelude.<*> (x Core..:? "framerate")
+            Prelude.<$> (x Data..:? "deviceState")
+            Prelude.<*> (x Data..:? "activeInput")
+            Prelude.<*> (x Data..:? "maxBitrate")
+            Prelude.<*> (x Data..:? "scanType")
+            Prelude.<*> (x Data..:? "width")
+            Prelude.<*> (x Data..:? "configuredInput")
+            Prelude.<*> (x Data..:? "height")
+            Prelude.<*> (x Data..:? "framerate")
       )
 
 instance Prelude.Hashable InputDeviceUhdSettings where

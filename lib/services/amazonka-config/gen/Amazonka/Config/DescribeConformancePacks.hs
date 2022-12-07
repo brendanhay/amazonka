@@ -47,6 +47,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,8 +139,8 @@ instance Core.AWSRequest DescribeConformancePacks where
     Response.receiveJSON
       ( \s h x ->
           DescribeConformancePacksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ConformancePackDetails"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ConformancePackDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -157,36 +158,36 @@ instance Prelude.NFData DescribeConformancePacks where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf conformancePackNames
 
-instance Core.ToHeaders DescribeConformancePacks where
+instance Data.ToHeaders DescribeConformancePacks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DescribeConformancePacks" ::
+              Data.=# ( "StarlingDoveService.DescribeConformancePacks" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeConformancePacks where
+instance Data.ToJSON DescribeConformancePacks where
   toJSON DescribeConformancePacks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("ConformancePackNames" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("ConformancePackNames" Data..=)
               Prelude.<$> conformancePackNames
           ]
       )
 
-instance Core.ToPath DescribeConformancePacks where
+instance Data.ToPath DescribeConformancePacks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeConformancePacks where
+instance Data.ToQuery DescribeConformancePacks where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeConformancePacksResponse' smart constructor.

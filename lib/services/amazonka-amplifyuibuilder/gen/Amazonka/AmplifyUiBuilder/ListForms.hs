@@ -49,6 +49,7 @@ where
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,9 +136,9 @@ instance Core.AWSRequest ListForms where
     Response.receiveJSON
       ( \s h x ->
           ListFormsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "entities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "entities" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListForms where
@@ -154,32 +155,32 @@ instance Prelude.NFData ListForms where
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf environmentName
 
-instance Core.ToHeaders ListForms where
+instance Data.ToHeaders ListForms where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListForms where
+instance Data.ToPath ListForms where
   toPath ListForms' {..} =
     Prelude.mconcat
       [ "/app/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/environment/",
-        Core.toBS environmentName,
+        Data.toBS environmentName,
         "/forms"
       ]
 
-instance Core.ToQuery ListForms where
+instance Data.ToQuery ListForms where
   toQuery ListForms' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListFormsResponse' smart constructor.

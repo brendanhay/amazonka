@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.EncryptionEntities where
 import Amazonka.CloudFront.Types.EncryptionEntity
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Complex data type for field-level encryption profiles that includes all
@@ -71,13 +72,13 @@ encryptionEntities_items = Lens.lens (\EncryptionEntities' {items} -> items) (\s
 encryptionEntities_quantity :: Lens.Lens' EncryptionEntities Prelude.Int
 encryptionEntities_quantity = Lens.lens (\EncryptionEntities' {quantity} -> quantity) (\s@EncryptionEntities' {} a -> s {quantity = a} :: EncryptionEntities)
 
-instance Core.FromXML EncryptionEntities where
+instance Data.FromXML EncryptionEntities where
   parseXML x =
     EncryptionEntities'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "EncryptionEntity")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "EncryptionEntity")
                   )
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable EncryptionEntities where
   hashWithSalt _salt EncryptionEntities' {..} =
@@ -89,13 +90,13 @@ instance Prelude.NFData EncryptionEntities where
     Prelude.rnf items
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML EncryptionEntities where
+instance Data.ToXML EncryptionEntities where
   toXML EncryptionEntities' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML
-            ( Core.toXMLList "EncryptionEntity"
+          Data.@= Data.toXML
+            ( Data.toXMLList "EncryptionEntity"
                 Prelude.<$> items
             ),
-        "Quantity" Core.@= quantity
+        "Quantity" Data.@= quantity
       ]

@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchListIncomingTypedLinksResponse where
 import Amazonka.CloudDirectory.Types.TypedLinkSpecifier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a ListIncomingTypedLinks response operation.
@@ -64,17 +65,17 @@ batchListIncomingTypedLinksResponse_linkSpecifiers :: Lens.Lens' BatchListIncomi
 batchListIncomingTypedLinksResponse_linkSpecifiers = Lens.lens (\BatchListIncomingTypedLinksResponse' {linkSpecifiers} -> linkSpecifiers) (\s@BatchListIncomingTypedLinksResponse' {} a -> s {linkSpecifiers = a} :: BatchListIncomingTypedLinksResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchListIncomingTypedLinksResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchListIncomingTypedLinksResponse"
       ( \x ->
           BatchListIncomingTypedLinksResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> ( x Core..:? "LinkSpecifiers"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> ( x Data..:? "LinkSpecifiers"
+                            Data..!= Prelude.mempty
                         )
       )
 

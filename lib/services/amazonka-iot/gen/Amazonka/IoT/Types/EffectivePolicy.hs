@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.EffectivePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The policy that has the effect on the authorization results.
@@ -70,15 +71,15 @@ effectivePolicy_policyDocument = Lens.lens (\EffectivePolicy' {policyDocument} -
 effectivePolicy_policyArn :: Lens.Lens' EffectivePolicy (Prelude.Maybe Prelude.Text)
 effectivePolicy_policyArn = Lens.lens (\EffectivePolicy' {policyArn} -> policyArn) (\s@EffectivePolicy' {} a -> s {policyArn = a} :: EffectivePolicy)
 
-instance Core.FromJSON EffectivePolicy where
+instance Data.FromJSON EffectivePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EffectivePolicy"
       ( \x ->
           EffectivePolicy'
-            Prelude.<$> (x Core..:? "policyName")
-            Prelude.<*> (x Core..:? "policyDocument")
-            Prelude.<*> (x Core..:? "policyArn")
+            Prelude.<$> (x Data..:? "policyName")
+            Prelude.<*> (x Data..:? "policyDocument")
+            Prelude.<*> (x Data..:? "policyArn")
       )
 
 instance Prelude.Hashable EffectivePolicy where

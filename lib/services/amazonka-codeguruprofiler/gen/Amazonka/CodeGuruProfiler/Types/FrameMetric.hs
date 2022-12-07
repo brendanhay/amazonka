@@ -22,6 +22,7 @@ module Amazonka.CodeGuruProfiler.Types.FrameMetric where
 import Amazonka.CodeGuruProfiler.Types.MetricType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The frame name, metric type, and thread states. These are used to derive
@@ -91,15 +92,15 @@ frameMetric_threadStates = Lens.lens (\FrameMetric' {threadStates} -> threadStat
 frameMetric_type :: Lens.Lens' FrameMetric MetricType
 frameMetric_type = Lens.lens (\FrameMetric' {type'} -> type') (\s@FrameMetric' {} a -> s {type' = a} :: FrameMetric)
 
-instance Core.FromJSON FrameMetric where
+instance Data.FromJSON FrameMetric where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FrameMetric"
       ( \x ->
           FrameMetric'
-            Prelude.<$> (x Core..: "frameName")
-            Prelude.<*> (x Core..:? "threadStates" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..: "frameName")
+            Prelude.<*> (x Data..:? "threadStates" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable FrameMetric where
@@ -114,12 +115,12 @@ instance Prelude.NFData FrameMetric where
       `Prelude.seq` Prelude.rnf threadStates
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON FrameMetric where
+instance Data.ToJSON FrameMetric where
   toJSON FrameMetric' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("frameName" Core..= frameName),
-            Prelude.Just ("threadStates" Core..= threadStates),
-            Prelude.Just ("type" Core..= type')
+          [ Prelude.Just ("frameName" Data..= frameName),
+            Prelude.Just ("threadStates" Data..= threadStates),
+            Prelude.Just ("type" Data..= type')
           ]
       )

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,8 +110,8 @@ instance Core.AWSRequest ListMailDomains where
     Response.receiveJSON
       ( \s h x ->
           ListMailDomainsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "MailDomains" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "MailDomains" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,36 +127,36 @@ instance Prelude.NFData ListMailDomains where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf organizationId
 
-instance Core.ToHeaders ListMailDomains where
+instance Data.ToHeaders ListMailDomains where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.ListMailDomains" ::
+              Data.=# ( "WorkMailService.ListMailDomains" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListMailDomains where
+instance Data.ToJSON ListMailDomains where
   toJSON ListMailDomains' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("OrganizationId" Core..= organizationId)
+              ("OrganizationId" Data..= organizationId)
           ]
       )
 
-instance Core.ToPath ListMailDomains where
+instance Data.ToPath ListMailDomains where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListMailDomains where
+instance Data.ToQuery ListMailDomains where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListMailDomainsResponse' smart constructor.

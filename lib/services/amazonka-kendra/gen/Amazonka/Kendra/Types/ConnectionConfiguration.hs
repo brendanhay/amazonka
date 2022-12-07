@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ConnectionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information that\'s required to connect to a
@@ -126,17 +127,17 @@ connectionConfiguration_tableName = Lens.lens (\ConnectionConfiguration' {tableN
 connectionConfiguration_secretArn :: Lens.Lens' ConnectionConfiguration Prelude.Text
 connectionConfiguration_secretArn = Lens.lens (\ConnectionConfiguration' {secretArn} -> secretArn) (\s@ConnectionConfiguration' {} a -> s {secretArn = a} :: ConnectionConfiguration)
 
-instance Core.FromJSON ConnectionConfiguration where
+instance Data.FromJSON ConnectionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionConfiguration"
       ( \x ->
           ConnectionConfiguration'
-            Prelude.<$> (x Core..: "DatabaseHost")
-            Prelude.<*> (x Core..: "DatabasePort")
-            Prelude.<*> (x Core..: "DatabaseName")
-            Prelude.<*> (x Core..: "TableName")
-            Prelude.<*> (x Core..: "SecretArn")
+            Prelude.<$> (x Data..: "DatabaseHost")
+            Prelude.<*> (x Data..: "DatabasePort")
+            Prelude.<*> (x Data..: "DatabaseName")
+            Prelude.<*> (x Data..: "TableName")
+            Prelude.<*> (x Data..: "SecretArn")
       )
 
 instance Prelude.Hashable ConnectionConfiguration where
@@ -155,14 +156,14 @@ instance Prelude.NFData ConnectionConfiguration where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf secretArn
 
-instance Core.ToJSON ConnectionConfiguration where
+instance Data.ToJSON ConnectionConfiguration where
   toJSON ConnectionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DatabaseHost" Core..= databaseHost),
-            Prelude.Just ("DatabasePort" Core..= databasePort),
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("SecretArn" Core..= secretArn)
+          [ Prelude.Just ("DatabaseHost" Data..= databaseHost),
+            Prelude.Just ("DatabasePort" Data..= databasePort),
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("SecretArn" Data..= secretArn)
           ]
       )

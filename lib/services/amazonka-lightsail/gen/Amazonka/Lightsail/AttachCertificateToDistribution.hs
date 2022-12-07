@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,7 +162,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AttachCertificateToDistributionResponse'
-            Prelude.<$> (x Core..?> "operation")
+            Prelude.<$> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,38 +185,38 @@ instance
       `Prelude.seq` Prelude.rnf certificateName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AttachCertificateToDistribution
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.AttachCertificateToDistribution" ::
+              Data.=# ( "Lightsail_20161128.AttachCertificateToDistribution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AttachCertificateToDistribution where
+instance Data.ToJSON AttachCertificateToDistribution where
   toJSON AttachCertificateToDistribution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("distributionName" Core..= distributionName),
+              ("distributionName" Data..= distributionName),
             Prelude.Just
-              ("certificateName" Core..= certificateName)
+              ("certificateName" Data..= certificateName)
           ]
       )
 
-instance Core.ToPath AttachCertificateToDistribution where
+instance Data.ToPath AttachCertificateToDistribution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AttachCertificateToDistribution where
+instance Data.ToQuery AttachCertificateToDistribution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAttachCertificateToDistributionResponse' smart constructor.

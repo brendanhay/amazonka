@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SentimentAnalysisSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Determines whether Amazon Lex will use Amazon Comprehend to detect the
@@ -59,13 +60,13 @@ newSentimentAnalysisSettings pDetectSentiment_ =
 sentimentAnalysisSettings_detectSentiment :: Lens.Lens' SentimentAnalysisSettings Prelude.Bool
 sentimentAnalysisSettings_detectSentiment = Lens.lens (\SentimentAnalysisSettings' {detectSentiment} -> detectSentiment) (\s@SentimentAnalysisSettings' {} a -> s {detectSentiment = a} :: SentimentAnalysisSettings)
 
-instance Core.FromJSON SentimentAnalysisSettings where
+instance Data.FromJSON SentimentAnalysisSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SentimentAnalysisSettings"
       ( \x ->
           SentimentAnalysisSettings'
-            Prelude.<$> (x Core..: "detectSentiment")
+            Prelude.<$> (x Data..: "detectSentiment")
       )
 
 instance Prelude.Hashable SentimentAnalysisSettings where
@@ -76,11 +77,11 @@ instance Prelude.NFData SentimentAnalysisSettings where
   rnf SentimentAnalysisSettings' {..} =
     Prelude.rnf detectSentiment
 
-instance Core.ToJSON SentimentAnalysisSettings where
+instance Data.ToJSON SentimentAnalysisSettings where
   toJSON SentimentAnalysisSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("detectSentiment" Core..= detectSentiment)
+              ("detectSentiment" Data..= detectSentiment)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.TagListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a single entry in a list of Amazon Web Services resource
@@ -64,13 +65,13 @@ tagListEntry_value = Lens.lens (\TagListEntry' {value} -> value) (\s@TagListEntr
 tagListEntry_key :: Lens.Lens' TagListEntry Prelude.Text
 tagListEntry_key = Lens.lens (\TagListEntry' {key} -> key) (\s@TagListEntry' {} a -> s {key = a} :: TagListEntry)
 
-instance Core.FromJSON TagListEntry where
+instance Data.FromJSON TagListEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TagListEntry"
       ( \x ->
           TagListEntry'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..: "Key")
+            Prelude.<$> (x Data..:? "Value") Prelude.<*> (x Data..: "Key")
       )
 
 instance Prelude.Hashable TagListEntry where
@@ -82,11 +83,11 @@ instance Prelude.NFData TagListEntry where
   rnf TagListEntry' {..} =
     Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON TagListEntry where
+instance Data.ToJSON TagListEntry where
   toJSON TagListEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            Prelude.Just ("Key" Core..= key)
+          [ ("Value" Data..=) Prelude.<$> value,
+            Prelude.Just ("Key" Data..= key)
           ]
       )

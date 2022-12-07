@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Pricing.Types
 import qualified Amazonka.Request as Request
@@ -156,8 +157,8 @@ instance Core.AWSRequest GetAttributeValues where
     Response.receiveJSON
       ( \s h x ->
           GetAttributeValuesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "AttributeValues"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "AttributeValues"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -177,37 +178,37 @@ instance Prelude.NFData GetAttributeValues where
       `Prelude.seq` Prelude.rnf serviceCode
       `Prelude.seq` Prelude.rnf attributeName
 
-instance Core.ToHeaders GetAttributeValues where
+instance Data.ToHeaders GetAttributeValues where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSPriceListService.GetAttributeValues" ::
+              Data.=# ( "AWSPriceListService.GetAttributeValues" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAttributeValues where
+instance Data.ToJSON GetAttributeValues where
   toJSON GetAttributeValues' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ServiceCode" Core..= serviceCode),
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ServiceCode" Data..= serviceCode),
             Prelude.Just
-              ("AttributeName" Core..= attributeName)
+              ("AttributeName" Data..= attributeName)
           ]
       )
 
-instance Core.ToPath GetAttributeValues where
+instance Data.ToPath GetAttributeValues where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAttributeValues where
+instance Data.ToQuery GetAttributeValues where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAttributeValuesResponse' smart constructor.

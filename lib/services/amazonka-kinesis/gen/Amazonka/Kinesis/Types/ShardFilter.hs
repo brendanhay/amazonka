@@ -21,6 +21,7 @@ module Amazonka.Kinesis.Types.ShardFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types.ShardFilterType
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data ShardFilter = ShardFilter'
     -- a Unix epoch date with precision in milliseconds. For example,
     -- 2016-04-04T19:58:46.480-00:00 or 1459799926.480. This property can only
     -- be used if @FROM_TIMESTAMP@ or @AT_TIMESTAMP@ shard types are specified.
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The exclusive start @shardID@ speified in the @ShardFilter@ parameter.
     -- This property can only be used if the @AFTER_SHARD_ID@ shard type is
     -- specified.
@@ -129,7 +130,7 @@ newShardFilter pType_ =
 -- 2016-04-04T19:58:46.480-00:00 or 1459799926.480. This property can only
 -- be used if @FROM_TIMESTAMP@ or @AT_TIMESTAMP@ shard types are specified.
 shardFilter_timestamp :: Lens.Lens' ShardFilter (Prelude.Maybe Prelude.UTCTime)
-shardFilter_timestamp = Lens.lens (\ShardFilter' {timestamp} -> timestamp) (\s@ShardFilter' {} a -> s {timestamp = a} :: ShardFilter) Prelude.. Lens.mapping Core._Time
+shardFilter_timestamp = Lens.lens (\ShardFilter' {timestamp} -> timestamp) (\s@ShardFilter' {} a -> s {timestamp = a} :: ShardFilter) Prelude.. Lens.mapping Data._Time
 
 -- | The exclusive start @shardID@ speified in the @ShardFilter@ parameter.
 -- This property can only be used if the @AFTER_SHARD_ID@ shard type is
@@ -179,12 +180,12 @@ instance Prelude.NFData ShardFilter where
       `Prelude.seq` Prelude.rnf shardId
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON ShardFilter where
+instance Data.ToJSON ShardFilter where
   toJSON ShardFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Timestamp" Core..=) Prelude.<$> timestamp,
-            ("ShardId" Core..=) Prelude.<$> shardId,
-            Prelude.Just ("Type" Core..= type')
+          [ ("Timestamp" Data..=) Prelude.<$> timestamp,
+            ("ShardId" Data..=) Prelude.<$> shardId,
+            Prelude.Just ("Type" Data..= type')
           ]
       )

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTJobsData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,8 +85,8 @@ instance Core.AWSRequest GetPendingJobExecutions where
     Response.receiveJSON
       ( \s h x ->
           GetPendingJobExecutionsResponse'
-            Prelude.<$> (x Core..?> "inProgressJobs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "queuedJobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "inProgressJobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "queuedJobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,15 +98,15 @@ instance Prelude.NFData GetPendingJobExecutions where
   rnf GetPendingJobExecutions' {..} =
     Prelude.rnf thingName
 
-instance Core.ToHeaders GetPendingJobExecutions where
+instance Data.ToHeaders GetPendingJobExecutions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetPendingJobExecutions where
+instance Data.ToPath GetPendingJobExecutions where
   toPath GetPendingJobExecutions' {..} =
     Prelude.mconcat
-      ["/things/", Core.toBS thingName, "/jobs"]
+      ["/things/", Data.toBS thingName, "/jobs"]
 
-instance Core.ToQuery GetPendingJobExecutions where
+instance Data.ToQuery GetPendingJobExecutions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPendingJobExecutionsResponse' smart constructor.

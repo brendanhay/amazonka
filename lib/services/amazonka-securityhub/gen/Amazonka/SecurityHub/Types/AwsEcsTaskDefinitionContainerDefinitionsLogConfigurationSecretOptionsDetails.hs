@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLogCon
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A secret to pass to the log configuration.
@@ -73,16 +74,16 @@ awsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails_val
 awsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails_valueFrom = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails' {valueFrom} -> valueFrom) (\s@AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails' {} a -> s {valueFrom = a} :: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails'
-            Prelude.<$> (x Core..:? "Name")
-              Prelude.<*> (x Core..:? "ValueFrom")
+            Prelude.<$> (x Data..:? "Name")
+              Prelude.<*> (x Data..:? "ValueFrom")
       )
 
 instance
@@ -105,14 +106,14 @@ instance
         `Prelude.seq` Prelude.rnf valueFrom
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Name" Core..=) Prelude.<$> name,
-              ("ValueFrom" Core..=) Prelude.<$> valueFrom
+            [ ("Name" Data..=) Prelude.<$> name,
+              ("ValueFrom" Data..=) Prelude.<$> valueFrom
             ]
         )

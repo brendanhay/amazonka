@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest RestoreImageFromRecycleBin where
     Response.receiveXML
       ( \s h x ->
           RestoreImageFromRecycleBinResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,21 +122,21 @@ instance Prelude.NFData RestoreImageFromRecycleBin where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf imageId
 
-instance Core.ToHeaders RestoreImageFromRecycleBin where
+instance Data.ToHeaders RestoreImageFromRecycleBin where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RestoreImageFromRecycleBin where
+instance Data.ToPath RestoreImageFromRecycleBin where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreImageFromRecycleBin where
+instance Data.ToQuery RestoreImageFromRecycleBin where
   toQuery RestoreImageFromRecycleBin' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RestoreImageFromRecycleBin" :: Prelude.ByteString),
+          Data.=: ("RestoreImageFromRecycleBin" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "ImageId" Core.=: imageId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "ImageId" Data.=: imageId
       ]
 
 -- | /See:/ 'newRestoreImageFromRecycleBinResponse' smart constructor.

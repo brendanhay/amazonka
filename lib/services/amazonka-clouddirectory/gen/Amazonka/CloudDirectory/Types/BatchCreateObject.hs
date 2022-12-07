@@ -24,6 +24,7 @@ import Amazonka.CloudDirectory.Types.ObjectReference
 import Amazonka.CloudDirectory.Types.SchemaFacet
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a CreateObject operation.
@@ -123,17 +124,17 @@ instance Prelude.NFData BatchCreateObject where
       `Prelude.seq` Prelude.rnf schemaFacet
       `Prelude.seq` Prelude.rnf objectAttributeList
 
-instance Core.ToJSON BatchCreateObject where
+instance Data.ToJSON BatchCreateObject where
   toJSON BatchCreateObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BatchReferenceName" Core..=)
+          [ ("BatchReferenceName" Data..=)
               Prelude.<$> batchReferenceName,
-            ("ParentReference" Core..=)
+            ("ParentReference" Data..=)
               Prelude.<$> parentReference,
-            ("LinkName" Core..=) Prelude.<$> linkName,
-            Prelude.Just ("SchemaFacet" Core..= schemaFacet),
+            ("LinkName" Data..=) Prelude.<$> linkName,
+            Prelude.Just ("SchemaFacet" Data..= schemaFacet),
             Prelude.Just
-              ("ObjectAttributeList" Core..= objectAttributeList)
+              ("ObjectAttributeList" Data..= objectAttributeList)
           ]
       )

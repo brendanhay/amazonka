@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.CompatibleKafkaVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains source Apache Kafka versions and compatible target Apache Kafka
@@ -63,14 +64,14 @@ compatibleKafkaVersion_targetVersions = Lens.lens (\CompatibleKafkaVersion' {tar
 compatibleKafkaVersion_sourceVersion :: Lens.Lens' CompatibleKafkaVersion (Prelude.Maybe Prelude.Text)
 compatibleKafkaVersion_sourceVersion = Lens.lens (\CompatibleKafkaVersion' {sourceVersion} -> sourceVersion) (\s@CompatibleKafkaVersion' {} a -> s {sourceVersion = a} :: CompatibleKafkaVersion)
 
-instance Core.FromJSON CompatibleKafkaVersion where
+instance Data.FromJSON CompatibleKafkaVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CompatibleKafkaVersion"
       ( \x ->
           CompatibleKafkaVersion'
-            Prelude.<$> (x Core..:? "targetVersions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "sourceVersion")
+            Prelude.<$> (x Data..:? "targetVersions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "sourceVersion")
       )
 
 instance Prelude.Hashable CompatibleKafkaVersion where

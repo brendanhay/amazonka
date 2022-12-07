@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.TreatmentConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that defines one treatment in an experiment. A treatment is
@@ -100,13 +101,13 @@ instance Prelude.NFData TreatmentConfig where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf variation
 
-instance Core.ToJSON TreatmentConfig where
+instance Data.ToJSON TreatmentConfig where
   toJSON TreatmentConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("feature" Core..= feature),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("variation" Core..= variation)
+          [ ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("feature" Data..= feature),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("variation" Data..= variation)
           ]
       )

@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.EventParameters
 import Amazonka.DLM.Types.EventSourceValues
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Event-based policies only]__ Specifies an event that activates an
@@ -69,14 +70,14 @@ eventSource_parameters = Lens.lens (\EventSource' {parameters} -> parameters) (\
 eventSource_type :: Lens.Lens' EventSource EventSourceValues
 eventSource_type = Lens.lens (\EventSource' {type'} -> type') (\s@EventSource' {} a -> s {type' = a} :: EventSource)
 
-instance Core.FromJSON EventSource where
+instance Data.FromJSON EventSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventSource"
       ( \x ->
           EventSource'
-            Prelude.<$> (x Core..:? "Parameters")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "Parameters")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable EventSource where
@@ -89,11 +90,11 @@ instance Prelude.NFData EventSource where
     Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON EventSource where
+instance Data.ToJSON EventSource where
   toJSON EventSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Type" Core..= type')
+          [ ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Type" Data..= type')
           ]
       )

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -60,13 +61,13 @@ data DescribeOrganizationOverview = DescribeOrganizationOverview'
     -- the day level. The floor of the start time is used. Returned information
     -- occurred before this day. If this is not specified, then the current day
     -- is used.
-    toTime :: Prelude.Maybe Core.POSIX,
+    toTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the organizational unit.
     organizationalUnitIds :: Prelude.Maybe [Prelude.Text],
     -- | The start of the time range passed in. The start time granularity is at
     -- the day level. The floor of the start time is used. Returned information
     -- occurred after this day.
-    fromTime :: Core.POSIX
+    fromTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,7 +101,7 @@ newDescribeOrganizationOverview pFromTime_ =
         Prelude.Nothing,
       toTime = Prelude.Nothing,
       organizationalUnitIds = Prelude.Nothing,
-      fromTime = Core._Time Lens.# pFromTime_
+      fromTime = Data._Time Lens.# pFromTime_
     }
 
 -- | The ID of the Amazon Web Services account.
@@ -112,7 +113,7 @@ describeOrganizationOverview_accountIds = Lens.lens (\DescribeOrganizationOvervi
 -- occurred before this day. If this is not specified, then the current day
 -- is used.
 describeOrganizationOverview_toTime :: Lens.Lens' DescribeOrganizationOverview (Prelude.Maybe Prelude.UTCTime)
-describeOrganizationOverview_toTime = Lens.lens (\DescribeOrganizationOverview' {toTime} -> toTime) (\s@DescribeOrganizationOverview' {} a -> s {toTime = a} :: DescribeOrganizationOverview) Prelude.. Lens.mapping Core._Time
+describeOrganizationOverview_toTime = Lens.lens (\DescribeOrganizationOverview' {toTime} -> toTime) (\s@DescribeOrganizationOverview' {} a -> s {toTime = a} :: DescribeOrganizationOverview) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the organizational unit.
 describeOrganizationOverview_organizationalUnitIds :: Lens.Lens' DescribeOrganizationOverview (Prelude.Maybe [Prelude.Text])
@@ -122,7 +123,7 @@ describeOrganizationOverview_organizationalUnitIds = Lens.lens (\DescribeOrganiz
 -- the day level. The floor of the start time is used. Returned information
 -- occurred after this day.
 describeOrganizationOverview_fromTime :: Lens.Lens' DescribeOrganizationOverview Prelude.UTCTime
-describeOrganizationOverview_fromTime = Lens.lens (\DescribeOrganizationOverview' {fromTime} -> fromTime) (\s@DescribeOrganizationOverview' {} a -> s {fromTime = a} :: DescribeOrganizationOverview) Prelude.. Core._Time
+describeOrganizationOverview_fromTime = Lens.lens (\DescribeOrganizationOverview' {fromTime} -> fromTime) (\s@DescribeOrganizationOverview' {} a -> s {fromTime = a} :: DescribeOrganizationOverview) Prelude.. Data._Time
 
 instance Core.AWSRequest DescribeOrganizationOverview where
   type
@@ -135,8 +136,8 @@ instance Core.AWSRequest DescribeOrganizationOverview where
       ( \s h x ->
           DescribeOrganizationOverviewResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ReactiveInsights")
-            Prelude.<*> (x Core..:> "ProactiveInsights")
+            Prelude.<*> (x Data..:> "ReactiveInsights")
+            Prelude.<*> (x Data..:> "ProactiveInsights")
       )
 
 instance
@@ -156,33 +157,33 @@ instance Prelude.NFData DescribeOrganizationOverview where
       `Prelude.seq` Prelude.rnf organizationalUnitIds
       `Prelude.seq` Prelude.rnf fromTime
 
-instance Core.ToHeaders DescribeOrganizationOverview where
+instance Data.ToHeaders DescribeOrganizationOverview where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeOrganizationOverview where
+instance Data.ToJSON DescribeOrganizationOverview where
   toJSON DescribeOrganizationOverview' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccountIds" Core..=) Prelude.<$> accountIds,
-            ("ToTime" Core..=) Prelude.<$> toTime,
-            ("OrganizationalUnitIds" Core..=)
+          [ ("AccountIds" Data..=) Prelude.<$> accountIds,
+            ("ToTime" Data..=) Prelude.<$> toTime,
+            ("OrganizationalUnitIds" Data..=)
               Prelude.<$> organizationalUnitIds,
-            Prelude.Just ("FromTime" Core..= fromTime)
+            Prelude.Just ("FromTime" Data..= fromTime)
           ]
       )
 
-instance Core.ToPath DescribeOrganizationOverview where
+instance Data.ToPath DescribeOrganizationOverview where
   toPath = Prelude.const "/organization/overview"
 
-instance Core.ToQuery DescribeOrganizationOverview where
+instance Data.ToQuery DescribeOrganizationOverview where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeOrganizationOverviewResponse' smart constructor.

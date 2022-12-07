@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.DatastoreStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.EstimatedResourceSize
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,12 +52,12 @@ newDatastoreStatistics =
 datastoreStatistics_size :: Lens.Lens' DatastoreStatistics (Prelude.Maybe EstimatedResourceSize)
 datastoreStatistics_size = Lens.lens (\DatastoreStatistics' {size} -> size) (\s@DatastoreStatistics' {} a -> s {size = a} :: DatastoreStatistics)
 
-instance Core.FromJSON DatastoreStatistics where
+instance Data.FromJSON DatastoreStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatastoreStatistics"
       ( \x ->
-          DatastoreStatistics' Prelude.<$> (x Core..:? "size")
+          DatastoreStatistics' Prelude.<$> (x Data..:? "size")
       )
 
 instance Prelude.Hashable DatastoreStatistics where

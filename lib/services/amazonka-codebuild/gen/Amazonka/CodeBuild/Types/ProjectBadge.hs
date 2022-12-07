@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.ProjectBadge where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the build badge for the build project.
@@ -67,14 +68,14 @@ projectBadge_badgeEnabled = Lens.lens (\ProjectBadge' {badgeEnabled} -> badgeEna
 projectBadge_badgeRequestUrl :: Lens.Lens' ProjectBadge (Prelude.Maybe Prelude.Text)
 projectBadge_badgeRequestUrl = Lens.lens (\ProjectBadge' {badgeRequestUrl} -> badgeRequestUrl) (\s@ProjectBadge' {} a -> s {badgeRequestUrl = a} :: ProjectBadge)
 
-instance Core.FromJSON ProjectBadge where
+instance Data.FromJSON ProjectBadge where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectBadge"
       ( \x ->
           ProjectBadge'
-            Prelude.<$> (x Core..:? "badgeEnabled")
-            Prelude.<*> (x Core..:? "badgeRequestUrl")
+            Prelude.<$> (x Data..:? "badgeEnabled")
+            Prelude.<*> (x Data..:? "badgeRequestUrl")
       )
 
 instance Prelude.Hashable ProjectBadge where

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Placement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tenancy
 import qualified Amazonka.Prelude as Prelude
@@ -246,18 +247,18 @@ placement_tenancy = Lens.lens (\Placement' {tenancy} -> tenancy) (\s@Placement' 
 placement_groupId :: Lens.Lens' Placement (Prelude.Maybe Prelude.Text)
 placement_groupId = Lens.lens (\Placement' {groupId} -> groupId) (\s@Placement' {} a -> s {groupId = a} :: Placement)
 
-instance Core.FromXML Placement where
+instance Data.FromXML Placement where
   parseXML x =
     Placement'
-      Prelude.<$> (x Core..@? "spreadDomain")
-      Prelude.<*> (x Core..@? "partitionNumber")
-      Prelude.<*> (x Core..@? "hostResourceGroupArn")
-      Prelude.<*> (x Core..@? "hostId")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "groupName")
-      Prelude.<*> (x Core..@? "affinity")
-      Prelude.<*> (x Core..@? "tenancy")
-      Prelude.<*> (x Core..@? "groupId")
+      Prelude.<$> (x Data..@? "spreadDomain")
+      Prelude.<*> (x Data..@? "partitionNumber")
+      Prelude.<*> (x Data..@? "hostResourceGroupArn")
+      Prelude.<*> (x Data..@? "hostId")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "groupName")
+      Prelude.<*> (x Data..@? "affinity")
+      Prelude.<*> (x Data..@? "tenancy")
+      Prelude.<*> (x Data..@? "groupId")
 
 instance Prelude.Hashable Placement where
   hashWithSalt _salt Placement' {..} =
@@ -283,16 +284,16 @@ instance Prelude.NFData Placement where
       `Prelude.seq` Prelude.rnf tenancy
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToQuery Placement where
+instance Data.ToQuery Placement where
   toQuery Placement' {..} =
     Prelude.mconcat
-      [ "SpreadDomain" Core.=: spreadDomain,
-        "PartitionNumber" Core.=: partitionNumber,
-        "HostResourceGroupArn" Core.=: hostResourceGroupArn,
-        "HostId" Core.=: hostId,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "GroupName" Core.=: groupName,
-        "Affinity" Core.=: affinity,
-        "Tenancy" Core.=: tenancy,
-        "GroupId" Core.=: groupId
+      [ "SpreadDomain" Data.=: spreadDomain,
+        "PartitionNumber" Data.=: partitionNumber,
+        "HostResourceGroupArn" Data.=: hostResourceGroupArn,
+        "HostId" Data.=: hostId,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "GroupName" Data.=: groupName,
+        "Affinity" Data.=: affinity,
+        "Tenancy" Data.=: tenancy,
+        "GroupId" Data.=: groupId
       ]

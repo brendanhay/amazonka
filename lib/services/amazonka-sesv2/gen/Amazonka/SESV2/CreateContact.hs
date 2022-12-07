@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,40 +150,40 @@ instance Prelude.NFData CreateContact where
       `Prelude.seq` Prelude.rnf contactListName
       `Prelude.seq` Prelude.rnf emailAddress
 
-instance Core.ToHeaders CreateContact where
+instance Data.ToHeaders CreateContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateContact where
+instance Data.ToJSON CreateContact where
   toJSON CreateContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UnsubscribeAll" Core..=)
+          [ ("UnsubscribeAll" Data..=)
               Prelude.<$> unsubscribeAll,
-            ("TopicPreferences" Core..=)
+            ("TopicPreferences" Data..=)
               Prelude.<$> topicPreferences,
-            ("AttributesData" Core..=)
+            ("AttributesData" Data..=)
               Prelude.<$> attributesData,
-            Prelude.Just ("EmailAddress" Core..= emailAddress)
+            Prelude.Just ("EmailAddress" Data..= emailAddress)
           ]
       )
 
-instance Core.ToPath CreateContact where
+instance Data.ToPath CreateContact where
   toPath CreateContact' {..} =
     Prelude.mconcat
       [ "/v2/email/contact-lists/",
-        Core.toBS contactListName,
+        Data.toBS contactListName,
         "/contacts"
       ]
 
-instance Core.ToQuery CreateContact where
+instance Data.ToQuery CreateContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateContactResponse' smart constructor.

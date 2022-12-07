@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.WorkforceVpcConfigRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The VPC object you use to create or update a workforce.
@@ -86,13 +87,13 @@ instance Prelude.NFData WorkforceVpcConfigRequest where
       `Prelude.seq` Prelude.rnf subnets
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToJSON WorkforceVpcConfigRequest where
+instance Data.ToJSON WorkforceVpcConfigRequest where
   toJSON WorkforceVpcConfigRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityGroupIds" Core..=)
+          [ ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("Subnets" Core..=) Prelude.<$> subnets,
-            ("VpcId" Core..=) Prelude.<$> vpcId
+            ("Subnets" Data..=) Prelude.<$> subnets,
+            ("VpcId" Data..=) Prelude.<$> vpcId
           ]
       )

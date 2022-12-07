@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.OracleSQLCatalogSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an Oracle data source in the Glue Data Catalog.
@@ -76,15 +77,15 @@ oracleSQLCatalogSource_database = Lens.lens (\OracleSQLCatalogSource' {database}
 oracleSQLCatalogSource_table :: Lens.Lens' OracleSQLCatalogSource Prelude.Text
 oracleSQLCatalogSource_table = Lens.lens (\OracleSQLCatalogSource' {table} -> table) (\s@OracleSQLCatalogSource' {} a -> s {table = a} :: OracleSQLCatalogSource)
 
-instance Core.FromJSON OracleSQLCatalogSource where
+instance Data.FromJSON OracleSQLCatalogSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OracleSQLCatalogSource"
       ( \x ->
           OracleSQLCatalogSource'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "Table")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "Table")
       )
 
 instance Prelude.Hashable OracleSQLCatalogSource where
@@ -99,12 +100,12 @@ instance Prelude.NFData OracleSQLCatalogSource where
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf table
 
-instance Core.ToJSON OracleSQLCatalogSource where
+instance Data.ToJSON OracleSQLCatalogSource where
   toJSON OracleSQLCatalogSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("Table" Core..= table)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("Table" Data..= table)
           ]
       )

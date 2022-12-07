@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.SavingsPlansAmortizedCommitment
 import Amazonka.CostExplorer.Types.SavingsPlansSavings
 import Amazonka.CostExplorer.Types.SavingsPlansUtilization
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single daily or monthly Savings Plans utilization rate and details for
@@ -107,17 +108,17 @@ savingsPlansUtilizationDetail_savingsPlanArn = Lens.lens (\SavingsPlansUtilizati
 savingsPlansUtilizationDetail_attributes :: Lens.Lens' SavingsPlansUtilizationDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 savingsPlansUtilizationDetail_attributes = Lens.lens (\SavingsPlansUtilizationDetail' {attributes} -> attributes) (\s@SavingsPlansUtilizationDetail' {} a -> s {attributes = a} :: SavingsPlansUtilizationDetail) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SavingsPlansUtilizationDetail where
+instance Data.FromJSON SavingsPlansUtilizationDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlansUtilizationDetail"
       ( \x ->
           SavingsPlansUtilizationDetail'
-            Prelude.<$> (x Core..:? "AmortizedCommitment")
-            Prelude.<*> (x Core..:? "Utilization")
-            Prelude.<*> (x Core..:? "Savings")
-            Prelude.<*> (x Core..:? "SavingsPlanArn")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "AmortizedCommitment")
+            Prelude.<*> (x Data..:? "Utilization")
+            Prelude.<*> (x Data..:? "Savings")
+            Prelude.<*> (x Data..:? "SavingsPlanArn")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
       )
 
 instance

@@ -71,6 +71,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,8 +140,8 @@ instance Core.AWSRequest UpdateDistribution where
     Response.receiveXML
       ( \s h x ->
           UpdateDistributionResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,25 +157,25 @@ instance Prelude.NFData UpdateDistribution where
       `Prelude.seq` Prelude.rnf distributionConfig
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToElement UpdateDistribution where
+instance Data.ToElement UpdateDistribution where
   toElement UpdateDistribution' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}DistributionConfig"
       distributionConfig
 
-instance Core.ToHeaders UpdateDistribution where
+instance Data.ToHeaders UpdateDistribution where
   toHeaders UpdateDistribution' {..} =
-    Prelude.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Data.=# ifMatch]
 
-instance Core.ToPath UpdateDistribution where
+instance Data.ToPath UpdateDistribution where
   toPath UpdateDistribution' {..} =
     Prelude.mconcat
       [ "/2020-05-31/distribution/",
-        Core.toBS id,
+        Data.toBS id,
         "/config"
       ]
 
-instance Core.ToQuery UpdateDistribution where
+instance Data.ToQuery UpdateDistribution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The returned result of the corresponding request.

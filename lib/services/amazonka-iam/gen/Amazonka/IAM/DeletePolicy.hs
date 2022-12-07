@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,20 +118,20 @@ instance Prelude.Hashable DeletePolicy where
 instance Prelude.NFData DeletePolicy where
   rnf DeletePolicy' {..} = Prelude.rnf policyArn
 
-instance Core.ToHeaders DeletePolicy where
+instance Data.ToHeaders DeletePolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeletePolicy where
+instance Data.ToPath DeletePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeletePolicy where
+instance Data.ToQuery DeletePolicy where
   toQuery DeletePolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeletePolicy" :: Prelude.ByteString),
+          Data.=: ("DeletePolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "PolicyArn" Core.=: policyArn
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "PolicyArn" Data.=: policyArn
       ]
 
 -- | /See:/ 'newDeletePolicyResponse' smart constructor.

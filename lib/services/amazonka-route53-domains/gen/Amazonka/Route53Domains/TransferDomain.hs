@@ -91,6 +91,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,7 +108,7 @@ data TransferDomain = TransferDomain'
     autoRenew :: Prelude.Maybe Prelude.Bool,
     -- | The authorization code for the domain. You get this value from the
     -- current registrar.
-    authCode :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authCode :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Reserved for future use.
     idnLangCode :: Prelude.Maybe Prelude.Text,
     -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -173,11 +174,11 @@ data TransferDomain = TransferDomain'
     -- Default: 1
     durationInYears :: Prelude.Natural,
     -- | Provides detailed contact information.
-    adminContact :: Core.Sensitive ContactDetail,
+    adminContact :: Data.Sensitive ContactDetail,
     -- | Provides detailed contact information.
-    registrantContact :: Core.Sensitive ContactDetail,
+    registrantContact :: Data.Sensitive ContactDetail,
     -- | Provides detailed contact information.
-    techContact :: Core.Sensitive ContactDetail
+    techContact :: Data.Sensitive ContactDetail
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -294,10 +295,10 @@ newTransferDomain
         nameservers = Prelude.Nothing,
         domainName = pDomainName_,
         durationInYears = pDurationInYears_,
-        adminContact = Core._Sensitive Lens.# pAdminContact_,
+        adminContact = Data._Sensitive Lens.# pAdminContact_,
         registrantContact =
-          Core._Sensitive Lens.# pRegistrantContact_,
-        techContact = Core._Sensitive Lens.# pTechContact_
+          Data._Sensitive Lens.# pRegistrantContact_,
+        techContact = Data._Sensitive Lens.# pTechContact_
       }
 
 -- | Indicates whether the domain will be automatically renewed (true) or not
@@ -310,7 +311,7 @@ transferDomain_autoRenew = Lens.lens (\TransferDomain' {autoRenew} -> autoRenew)
 -- | The authorization code for the domain. You get this value from the
 -- current registrar.
 transferDomain_authCode :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Text)
-transferDomain_authCode = Lens.lens (\TransferDomain' {authCode} -> authCode) (\s@TransferDomain' {} a -> s {authCode = a} :: TransferDomain) Prelude.. Lens.mapping Core._Sensitive
+transferDomain_authCode = Lens.lens (\TransferDomain' {authCode} -> authCode) (\s@TransferDomain' {} a -> s {authCode = a} :: TransferDomain) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Reserved for future use.
 transferDomain_idnLangCode :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Text)
@@ -392,15 +393,15 @@ transferDomain_durationInYears = Lens.lens (\TransferDomain' {durationInYears} -
 
 -- | Provides detailed contact information.
 transferDomain_adminContact :: Lens.Lens' TransferDomain ContactDetail
-transferDomain_adminContact = Lens.lens (\TransferDomain' {adminContact} -> adminContact) (\s@TransferDomain' {} a -> s {adminContact = a} :: TransferDomain) Prelude.. Core._Sensitive
+transferDomain_adminContact = Lens.lens (\TransferDomain' {adminContact} -> adminContact) (\s@TransferDomain' {} a -> s {adminContact = a} :: TransferDomain) Prelude.. Data._Sensitive
 
 -- | Provides detailed contact information.
 transferDomain_registrantContact :: Lens.Lens' TransferDomain ContactDetail
-transferDomain_registrantContact = Lens.lens (\TransferDomain' {registrantContact} -> registrantContact) (\s@TransferDomain' {} a -> s {registrantContact = a} :: TransferDomain) Prelude.. Core._Sensitive
+transferDomain_registrantContact = Lens.lens (\TransferDomain' {registrantContact} -> registrantContact) (\s@TransferDomain' {} a -> s {registrantContact = a} :: TransferDomain) Prelude.. Data._Sensitive
 
 -- | Provides detailed contact information.
 transferDomain_techContact :: Lens.Lens' TransferDomain ContactDetail
-transferDomain_techContact = Lens.lens (\TransferDomain' {techContact} -> techContact) (\s@TransferDomain' {} a -> s {techContact = a} :: TransferDomain) Prelude.. Core._Sensitive
+transferDomain_techContact = Lens.lens (\TransferDomain' {techContact} -> techContact) (\s@TransferDomain' {} a -> s {techContact = a} :: TransferDomain) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest TransferDomain where
   type
@@ -413,7 +414,7 @@ instance Core.AWSRequest TransferDomain where
       ( \s h x ->
           TransferDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "OperationId")
+            Prelude.<*> (x Data..:> "OperationId")
       )
 
 instance Prelude.Hashable TransferDomain where
@@ -446,49 +447,49 @@ instance Prelude.NFData TransferDomain where
       `Prelude.seq` Prelude.rnf registrantContact
       `Prelude.seq` Prelude.rnf techContact
 
-instance Core.ToHeaders TransferDomain where
+instance Data.ToHeaders TransferDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.TransferDomain" ::
+              Data.=# ( "Route53Domains_v20140515.TransferDomain" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TransferDomain where
+instance Data.ToJSON TransferDomain where
   toJSON TransferDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AutoRenew" Core..=) Prelude.<$> autoRenew,
-            ("AuthCode" Core..=) Prelude.<$> authCode,
-            ("IdnLangCode" Core..=) Prelude.<$> idnLangCode,
-            ("PrivacyProtectRegistrantContact" Core..=)
+          [ ("AutoRenew" Data..=) Prelude.<$> autoRenew,
+            ("AuthCode" Data..=) Prelude.<$> authCode,
+            ("IdnLangCode" Data..=) Prelude.<$> idnLangCode,
+            ("PrivacyProtectRegistrantContact" Data..=)
               Prelude.<$> privacyProtectRegistrantContact,
-            ("PrivacyProtectAdminContact" Core..=)
+            ("PrivacyProtectAdminContact" Data..=)
               Prelude.<$> privacyProtectAdminContact,
-            ("PrivacyProtectTechContact" Core..=)
+            ("PrivacyProtectTechContact" Data..=)
               Prelude.<$> privacyProtectTechContact,
-            ("Nameservers" Core..=) Prelude.<$> nameservers,
-            Prelude.Just ("DomainName" Core..= domainName),
+            ("Nameservers" Data..=) Prelude.<$> nameservers,
+            Prelude.Just ("DomainName" Data..= domainName),
             Prelude.Just
-              ("DurationInYears" Core..= durationInYears),
-            Prelude.Just ("AdminContact" Core..= adminContact),
+              ("DurationInYears" Data..= durationInYears),
+            Prelude.Just ("AdminContact" Data..= adminContact),
             Prelude.Just
-              ("RegistrantContact" Core..= registrantContact),
-            Prelude.Just ("TechContact" Core..= techContact)
+              ("RegistrantContact" Data..= registrantContact),
+            Prelude.Just ("TechContact" Data..= techContact)
           ]
       )
 
-instance Core.ToPath TransferDomain where
+instance Data.ToPath TransferDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TransferDomain where
+instance Data.ToQuery TransferDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The TransferDomain response includes the following element.

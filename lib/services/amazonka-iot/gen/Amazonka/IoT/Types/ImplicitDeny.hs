@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ImplicitDeny where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.Policy
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,13 +57,13 @@ newImplicitDeny =
 implicitDeny_policies :: Lens.Lens' ImplicitDeny (Prelude.Maybe [Policy])
 implicitDeny_policies = Lens.lens (\ImplicitDeny' {policies} -> policies) (\s@ImplicitDeny' {} a -> s {policies = a} :: ImplicitDeny) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ImplicitDeny where
+instance Data.FromJSON ImplicitDeny where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImplicitDeny"
       ( \x ->
           ImplicitDeny'
-            Prelude.<$> (x Core..:? "policies" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "policies" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ImplicitDeny where

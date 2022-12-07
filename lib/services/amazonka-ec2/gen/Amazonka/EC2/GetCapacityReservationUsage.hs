@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,16 +153,16 @@ instance Core.AWSRequest GetCapacityReservationUsage where
     Response.receiveXML
       ( \s h x ->
           GetCapacityReservationUsageResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> (x Core..@? "totalInstanceCount")
-            Prelude.<*> (x Core..@? "state")
-            Prelude.<*> (x Core..@? "capacityReservationId")
-            Prelude.<*> (x Core..@? "instanceType")
-            Prelude.<*> ( x Core..@? "instanceUsageSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> (x Data..@? "totalInstanceCount")
+            Prelude.<*> (x Data..@? "state")
+            Prelude.<*> (x Data..@? "capacityReservationId")
+            Prelude.<*> (x Data..@? "instanceType")
+            Prelude.<*> ( x Data..@? "instanceUsageSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "availableInstanceCount")
+            Prelude.<*> (x Data..@? "availableInstanceCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,26 +180,26 @@ instance Prelude.NFData GetCapacityReservationUsage where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf capacityReservationId
 
-instance Core.ToHeaders GetCapacityReservationUsage where
+instance Data.ToHeaders GetCapacityReservationUsage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetCapacityReservationUsage where
+instance Data.ToPath GetCapacityReservationUsage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCapacityReservationUsage where
+instance Data.ToQuery GetCapacityReservationUsage where
   toQuery GetCapacityReservationUsage' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetCapacityReservationUsage" ::
+          Data.=: ( "GetCapacityReservationUsage" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
         "CapacityReservationId"
-          Core.=: capacityReservationId
+          Data.=: capacityReservationId
       ]
 
 -- | /See:/ 'newGetCapacityReservationUsageResponse' smart constructor.

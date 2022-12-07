@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,11 +116,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkspaceImagePermissionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "ImagePermissions"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "ImagePermissions"
                               Core..!@ Prelude.mempty
                           )
-              Prelude.<*> (x Core..?> "ImageId")
+              Prelude.<*> (x Data..?> "ImageId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,44 +145,44 @@ instance
       `Prelude.seq` Prelude.rnf imageId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeWorkspaceImagePermissions
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.DescribeWorkspaceImagePermissions" ::
+              Data.=# ( "WorkspacesService.DescribeWorkspaceImagePermissions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeWorkspaceImagePermissions
   where
   toJSON DescribeWorkspaceImagePermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ImageId" Core..= imageId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ImageId" Data..= imageId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeWorkspaceImagePermissions
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeWorkspaceImagePermissions
   where
   toQuery = Prelude.const Prelude.mempty

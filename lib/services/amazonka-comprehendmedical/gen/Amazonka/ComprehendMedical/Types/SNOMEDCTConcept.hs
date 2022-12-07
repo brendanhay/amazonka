@@ -21,6 +21,7 @@ module Amazonka.ComprehendMedical.Types.SNOMEDCTConcept where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The SNOMED-CT concepts that the entity could refer to, along with a
@@ -74,15 +75,15 @@ sNOMEDCTConcept_score = Lens.lens (\SNOMEDCTConcept' {score} -> score) (\s@SNOME
 sNOMEDCTConcept_description :: Lens.Lens' SNOMEDCTConcept (Prelude.Maybe Prelude.Text)
 sNOMEDCTConcept_description = Lens.lens (\SNOMEDCTConcept' {description} -> description) (\s@SNOMEDCTConcept' {} a -> s {description = a} :: SNOMEDCTConcept)
 
-instance Core.FromJSON SNOMEDCTConcept where
+instance Data.FromJSON SNOMEDCTConcept where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SNOMEDCTConcept"
       ( \x ->
           SNOMEDCTConcept'
-            Prelude.<$> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable SNOMEDCTConcept where

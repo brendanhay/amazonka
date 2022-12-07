@@ -24,6 +24,7 @@ import Amazonka.BillingConductor.Types.ListCustomLineItemFlatChargeDetails
 import Amazonka.BillingConductor.Types.ListCustomLineItemPercentageChargeDetails
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of the charge details of a custom line item.
@@ -86,17 +87,17 @@ listCustomLineItemChargeDetails_type :: Lens.Lens' ListCustomLineItemChargeDetai
 listCustomLineItemChargeDetails_type = Lens.lens (\ListCustomLineItemChargeDetails' {type'} -> type') (\s@ListCustomLineItemChargeDetails' {} a -> s {type' = a} :: ListCustomLineItemChargeDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ListCustomLineItemChargeDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListCustomLineItemChargeDetails"
       ( \x ->
           ListCustomLineItemChargeDetails'
-            Prelude.<$> (x Core..:? "Flat")
-            Prelude.<*> (x Core..:? "Percentage")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "Flat")
+            Prelude.<*> (x Data..:? "Percentage")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance

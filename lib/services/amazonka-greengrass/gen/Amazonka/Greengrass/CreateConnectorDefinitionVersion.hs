@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,10 +119,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateConnectorDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Version")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,33 +147,33 @@ instance
       `Prelude.seq` Prelude.rnf connectorDefinitionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateConnectorDefinitionVersion
   where
   toHeaders CreateConnectorDefinitionVersion' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
+      [ "X-Amzn-Client-Token" Data.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateConnectorDefinitionVersion where
+instance Data.ToJSON CreateConnectorDefinitionVersion where
   toJSON CreateConnectorDefinitionVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Connectors" Core..=) Prelude.<$> connectors]
+          [("Connectors" Data..=) Prelude.<$> connectors]
       )
 
-instance Core.ToPath CreateConnectorDefinitionVersion where
+instance Data.ToPath CreateConnectorDefinitionVersion where
   toPath CreateConnectorDefinitionVersion' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/connectors/",
-        Core.toBS connectorDefinitionId,
+        Data.toBS connectorDefinitionId,
         "/versions"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateConnectorDefinitionVersion
   where
   toQuery = Prelude.const Prelude.mempty

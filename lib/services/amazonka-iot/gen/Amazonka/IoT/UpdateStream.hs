@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,10 +125,10 @@ instance Core.AWSRequest UpdateStream where
     Response.receiveJSON
       ( \s h x ->
           UpdateStreamResponse'
-            Prelude.<$> (x Core..?> "streamId")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "streamVersion")
-            Prelude.<*> (x Core..?> "streamArn")
+            Prelude.<$> (x Data..?> "streamId")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "streamVersion")
+            Prelude.<*> (x Data..?> "streamArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,24 +146,24 @@ instance Prelude.NFData UpdateStream where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf streamId
 
-instance Core.ToHeaders UpdateStream where
+instance Data.ToHeaders UpdateStream where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateStream where
+instance Data.ToJSON UpdateStream where
   toJSON UpdateStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("files" Core..=) Prelude.<$> files,
-            ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("description" Core..=) Prelude.<$> description
+          [ ("files" Data..=) Prelude.<$> files,
+            ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateStream where
+instance Data.ToPath UpdateStream where
   toPath UpdateStream' {..} =
-    Prelude.mconcat ["/streams/", Core.toBS streamId]
+    Prelude.mconcat ["/streams/", Data.toBS streamId]
 
-instance Core.ToQuery UpdateStream where
+instance Data.ToQuery UpdateStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateStreamResponse' smart constructor.

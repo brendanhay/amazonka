@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,20 +114,20 @@ instance Prelude.NFData DeleteInstanceProfile where
   rnf DeleteInstanceProfile' {..} =
     Prelude.rnf instanceProfileName
 
-instance Core.ToHeaders DeleteInstanceProfile where
+instance Data.ToHeaders DeleteInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteInstanceProfile where
+instance Data.ToPath DeleteInstanceProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteInstanceProfile where
+instance Data.ToQuery DeleteInstanceProfile where
   toQuery DeleteInstanceProfile' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteInstanceProfile" :: Prelude.ByteString),
+          Data.=: ("DeleteInstanceProfile" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "InstanceProfileName" Core.=: instanceProfileName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "InstanceProfileName" Data.=: instanceProfileName
       ]
 
 -- | /See:/ 'newDeleteInstanceProfileResponse' smart constructor.

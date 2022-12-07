@@ -21,6 +21,7 @@ module Amazonka.SDB.Types.DeletableItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SDB.Types.Attribute
 
@@ -70,12 +71,12 @@ instance Prelude.NFData DeletableItem where
     Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToQuery DeletableItem where
+instance Data.ToQuery DeletableItem where
   toQuery DeletableItem' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          ( Core.toQueryList "Attribute"
+      [ Data.toQuery
+          ( Data.toQueryList "Attribute"
               Prelude.<$> attributes
           ),
-        "ItemName" Core.=: name
+        "ItemName" Data.=: name
       ]

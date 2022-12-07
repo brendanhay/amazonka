@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelPackageSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ModelApprovalStatus
 import Amazonka.SageMaker.Types.ModelPackageStatus
@@ -51,7 +52,7 @@ data ModelPackageSummary = ModelPackageSummary'
     -- | The Amazon Resource Name (ARN) of the model package.
     modelPackageArn :: Prelude.Text,
     -- | A timestamp that shows when the model package was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The overall status of the model package.
     modelPackageStatus :: ModelPackageStatus
   }
@@ -112,7 +113,7 @@ newModelPackageSummary
         modelPackageDescription = Prelude.Nothing,
         modelPackageName = pModelPackageName_,
         modelPackageArn = pModelPackageArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         modelPackageStatus = pModelPackageStatus_
       }
 
@@ -151,26 +152,26 @@ modelPackageSummary_modelPackageArn = Lens.lens (\ModelPackageSummary' {modelPac
 
 -- | A timestamp that shows when the model package was created.
 modelPackageSummary_creationTime :: Lens.Lens' ModelPackageSummary Prelude.UTCTime
-modelPackageSummary_creationTime = Lens.lens (\ModelPackageSummary' {creationTime} -> creationTime) (\s@ModelPackageSummary' {} a -> s {creationTime = a} :: ModelPackageSummary) Prelude.. Core._Time
+modelPackageSummary_creationTime = Lens.lens (\ModelPackageSummary' {creationTime} -> creationTime) (\s@ModelPackageSummary' {} a -> s {creationTime = a} :: ModelPackageSummary) Prelude.. Data._Time
 
 -- | The overall status of the model package.
 modelPackageSummary_modelPackageStatus :: Lens.Lens' ModelPackageSummary ModelPackageStatus
 modelPackageSummary_modelPackageStatus = Lens.lens (\ModelPackageSummary' {modelPackageStatus} -> modelPackageStatus) (\s@ModelPackageSummary' {} a -> s {modelPackageStatus = a} :: ModelPackageSummary)
 
-instance Core.FromJSON ModelPackageSummary where
+instance Data.FromJSON ModelPackageSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelPackageSummary"
       ( \x ->
           ModelPackageSummary'
-            Prelude.<$> (x Core..:? "ModelPackageVersion")
-            Prelude.<*> (x Core..:? "ModelPackageGroupName")
-            Prelude.<*> (x Core..:? "ModelApprovalStatus")
-            Prelude.<*> (x Core..:? "ModelPackageDescription")
-            Prelude.<*> (x Core..: "ModelPackageName")
-            Prelude.<*> (x Core..: "ModelPackageArn")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "ModelPackageStatus")
+            Prelude.<$> (x Data..:? "ModelPackageVersion")
+            Prelude.<*> (x Data..:? "ModelPackageGroupName")
+            Prelude.<*> (x Data..:? "ModelApprovalStatus")
+            Prelude.<*> (x Data..:? "ModelPackageDescription")
+            Prelude.<*> (x Data..: "ModelPackageName")
+            Prelude.<*> (x Data..: "ModelPackageArn")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "ModelPackageStatus")
       )
 
 instance Prelude.Hashable ModelPackageSummary where

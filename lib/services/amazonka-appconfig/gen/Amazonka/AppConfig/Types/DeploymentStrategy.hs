@@ -23,6 +23,7 @@ import Amazonka.AppConfig.Types.GrowthType
 import Amazonka.AppConfig.Types.ReplicateTo
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newDeploymentStrategy' smart constructor.
@@ -124,20 +125,20 @@ deploymentStrategy_replicateTo = Lens.lens (\DeploymentStrategy' {replicateTo} -
 deploymentStrategy_growthFactor :: Lens.Lens' DeploymentStrategy (Prelude.Maybe Prelude.Double)
 deploymentStrategy_growthFactor = Lens.lens (\DeploymentStrategy' {growthFactor} -> growthFactor) (\s@DeploymentStrategy' {} a -> s {growthFactor = a} :: DeploymentStrategy)
 
-instance Core.FromJSON DeploymentStrategy where
+instance Data.FromJSON DeploymentStrategy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentStrategy"
       ( \x ->
           DeploymentStrategy'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "GrowthType")
-            Prelude.<*> (x Core..:? "DeploymentDurationInMinutes")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "FinalBakeTimeInMinutes")
-            Prelude.<*> (x Core..:? "ReplicateTo")
-            Prelude.<*> (x Core..:? "GrowthFactor")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "GrowthType")
+            Prelude.<*> (x Data..:? "DeploymentDurationInMinutes")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "FinalBakeTimeInMinutes")
+            Prelude.<*> (x Data..:? "ReplicateTo")
+            Prelude.<*> (x Data..:? "GrowthFactor")
       )
 
 instance Prelude.Hashable DeploymentStrategy where

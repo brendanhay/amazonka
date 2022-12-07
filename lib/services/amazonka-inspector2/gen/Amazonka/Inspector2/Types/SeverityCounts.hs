@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.SeverityCounts where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the counts of aggregated finding per severity.
@@ -79,16 +80,16 @@ severityCounts_all = Lens.lens (\SeverityCounts' {all} -> all) (\s@SeverityCount
 severityCounts_medium :: Lens.Lens' SeverityCounts (Prelude.Maybe Prelude.Integer)
 severityCounts_medium = Lens.lens (\SeverityCounts' {medium} -> medium) (\s@SeverityCounts' {} a -> s {medium = a} :: SeverityCounts)
 
-instance Core.FromJSON SeverityCounts where
+instance Data.FromJSON SeverityCounts where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SeverityCounts"
       ( \x ->
           SeverityCounts'
-            Prelude.<$> (x Core..:? "critical")
-            Prelude.<*> (x Core..:? "high")
-            Prelude.<*> (x Core..:? "all")
-            Prelude.<*> (x Core..:? "medium")
+            Prelude.<$> (x Data..:? "critical")
+            Prelude.<*> (x Data..:? "high")
+            Prelude.<*> (x Data..:? "all")
+            Prelude.<*> (x Data..:? "medium")
       )
 
 instance Prelude.Hashable SeverityCounts where

@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.Timing where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the timing of a job.
@@ -73,15 +74,15 @@ timing_startTimeMillis = Lens.lens (\Timing' {startTimeMillis} -> startTimeMilli
 timing_finishTimeMillis :: Lens.Lens' Timing (Prelude.Maybe Prelude.Integer)
 timing_finishTimeMillis = Lens.lens (\Timing' {finishTimeMillis} -> finishTimeMillis) (\s@Timing' {} a -> s {finishTimeMillis = a} :: Timing)
 
-instance Core.FromJSON Timing where
+instance Data.FromJSON Timing where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Timing"
       ( \x ->
           Timing'
-            Prelude.<$> (x Core..:? "SubmitTimeMillis")
-            Prelude.<*> (x Core..:? "StartTimeMillis")
-            Prelude.<*> (x Core..:? "FinishTimeMillis")
+            Prelude.<$> (x Data..:? "SubmitTimeMillis")
+            Prelude.<*> (x Data..:? "StartTimeMillis")
+            Prelude.<*> (x Data..:? "FinishTimeMillis")
       )
 
 instance Prelude.Hashable Timing where

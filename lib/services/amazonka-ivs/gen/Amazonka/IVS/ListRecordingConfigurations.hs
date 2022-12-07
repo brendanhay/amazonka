@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,9 +127,9 @@ instance Core.AWSRequest ListRecordingConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListRecordingConfigurationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "recordingConfigurations"
+            Prelude.<*> ( x Data..?> "recordingConfigurations"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -143,30 +144,30 @@ instance Prelude.NFData ListRecordingConfigurations where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListRecordingConfigurations where
+instance Data.ToHeaders ListRecordingConfigurations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRecordingConfigurations where
+instance Data.ToJSON ListRecordingConfigurations where
   toJSON ListRecordingConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListRecordingConfigurations where
+instance Data.ToPath ListRecordingConfigurations where
   toPath = Prelude.const "/ListRecordingConfigurations"
 
-instance Core.ToQuery ListRecordingConfigurations where
+instance Data.ToQuery ListRecordingConfigurations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRecordingConfigurationsResponse' smart constructor.

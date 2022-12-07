@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IpamAddressHistoryRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IpamAddressHistoryResourceType
 import Amazonka.EC2.Types.IpamComplianceStatus
@@ -53,7 +54,7 @@ data IpamAddressHistoryRecord = IpamAddressHistoryRecord'
     -- | Sampled end time of the resource-to-CIDR association within the IPAM
     -- scope. Changes are picked up in periodic snapshots, so the end time may
     -- have occurred before this specific time.
-    sampledEndTime :: Prelude.Maybe Core.ISO8601,
+    sampledEndTime :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Web Services Region of the resource.
     resourceRegion :: Prelude.Maybe Prelude.Text,
     -- | The compliance status of a resource. For more information on compliance
@@ -66,7 +67,7 @@ data IpamAddressHistoryRecord = IpamAddressHistoryRecord'
     -- | Sampled start time of the resource-to-CIDR association within the IPAM
     -- scope. Changes are picked up in periodic snapshots, so the start time
     -- may have occurred before this specific time.
-    sampledStartTime :: Prelude.Maybe Core.ISO8601
+    sampledStartTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -160,7 +161,7 @@ ipamAddressHistoryRecord_resourceCidr = Lens.lens (\IpamAddressHistoryRecord' {r
 -- scope. Changes are picked up in periodic snapshots, so the end time may
 -- have occurred before this specific time.
 ipamAddressHistoryRecord_sampledEndTime :: Lens.Lens' IpamAddressHistoryRecord (Prelude.Maybe Prelude.UTCTime)
-ipamAddressHistoryRecord_sampledEndTime = Lens.lens (\IpamAddressHistoryRecord' {sampledEndTime} -> sampledEndTime) (\s@IpamAddressHistoryRecord' {} a -> s {sampledEndTime = a} :: IpamAddressHistoryRecord) Prelude.. Lens.mapping Core._Time
+ipamAddressHistoryRecord_sampledEndTime = Lens.lens (\IpamAddressHistoryRecord' {sampledEndTime} -> sampledEndTime) (\s@IpamAddressHistoryRecord' {} a -> s {sampledEndTime = a} :: IpamAddressHistoryRecord) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services Region of the resource.
 ipamAddressHistoryRecord_resourceRegion :: Lens.Lens' IpamAddressHistoryRecord (Prelude.Maybe Prelude.Text)
@@ -181,22 +182,22 @@ ipamAddressHistoryRecord_vpcId = Lens.lens (\IpamAddressHistoryRecord' {vpcId} -
 -- scope. Changes are picked up in periodic snapshots, so the start time
 -- may have occurred before this specific time.
 ipamAddressHistoryRecord_sampledStartTime :: Lens.Lens' IpamAddressHistoryRecord (Prelude.Maybe Prelude.UTCTime)
-ipamAddressHistoryRecord_sampledStartTime = Lens.lens (\IpamAddressHistoryRecord' {sampledStartTime} -> sampledStartTime) (\s@IpamAddressHistoryRecord' {} a -> s {sampledStartTime = a} :: IpamAddressHistoryRecord) Prelude.. Lens.mapping Core._Time
+ipamAddressHistoryRecord_sampledStartTime = Lens.lens (\IpamAddressHistoryRecord' {sampledStartTime} -> sampledStartTime) (\s@IpamAddressHistoryRecord' {} a -> s {sampledStartTime = a} :: IpamAddressHistoryRecord) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML IpamAddressHistoryRecord where
+instance Data.FromXML IpamAddressHistoryRecord where
   parseXML x =
     IpamAddressHistoryRecord'
-      Prelude.<$> (x Core..@? "resourceId")
-      Prelude.<*> (x Core..@? "resourceType")
-      Prelude.<*> (x Core..@? "resourceOverlapStatus")
-      Prelude.<*> (x Core..@? "resourceOwnerId")
-      Prelude.<*> (x Core..@? "resourceName")
-      Prelude.<*> (x Core..@? "resourceCidr")
-      Prelude.<*> (x Core..@? "sampledEndTime")
-      Prelude.<*> (x Core..@? "resourceRegion")
-      Prelude.<*> (x Core..@? "resourceComplianceStatus")
-      Prelude.<*> (x Core..@? "vpcId")
-      Prelude.<*> (x Core..@? "sampledStartTime")
+      Prelude.<$> (x Data..@? "resourceId")
+      Prelude.<*> (x Data..@? "resourceType")
+      Prelude.<*> (x Data..@? "resourceOverlapStatus")
+      Prelude.<*> (x Data..@? "resourceOwnerId")
+      Prelude.<*> (x Data..@? "resourceName")
+      Prelude.<*> (x Data..@? "resourceCidr")
+      Prelude.<*> (x Data..@? "sampledEndTime")
+      Prelude.<*> (x Data..@? "resourceRegion")
+      Prelude.<*> (x Data..@? "resourceComplianceStatus")
+      Prelude.<*> (x Data..@? "vpcId")
+      Prelude.<*> (x Data..@? "sampledStartTime")
 
 instance Prelude.Hashable IpamAddressHistoryRecord where
   hashWithSalt _salt IpamAddressHistoryRecord' {..} =

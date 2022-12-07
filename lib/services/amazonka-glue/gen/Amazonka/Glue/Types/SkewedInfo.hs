@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SkewedInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies skewed values in a table. Skewed values are those that occur
@@ -71,20 +72,20 @@ skewedInfo_skewedColumnValueLocationMaps = Lens.lens (\SkewedInfo' {skewedColumn
 skewedInfo_skewedColumnValues :: Lens.Lens' SkewedInfo (Prelude.Maybe [Prelude.Text])
 skewedInfo_skewedColumnValues = Lens.lens (\SkewedInfo' {skewedColumnValues} -> skewedColumnValues) (\s@SkewedInfo' {} a -> s {skewedColumnValues = a} :: SkewedInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SkewedInfo where
+instance Data.FromJSON SkewedInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SkewedInfo"
       ( \x ->
           SkewedInfo'
-            Prelude.<$> ( x Core..:? "SkewedColumnNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SkewedColumnNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "SkewedColumnValueLocationMaps"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "SkewedColumnValueLocationMaps"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "SkewedColumnValues"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "SkewedColumnValues"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -100,15 +101,15 @@ instance Prelude.NFData SkewedInfo where
       `Prelude.seq` Prelude.rnf skewedColumnValueLocationMaps
       `Prelude.seq` Prelude.rnf skewedColumnValues
 
-instance Core.ToJSON SkewedInfo where
+instance Data.ToJSON SkewedInfo where
   toJSON SkewedInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SkewedColumnNames" Core..=)
+          [ ("SkewedColumnNames" Data..=)
               Prelude.<$> skewedColumnNames,
-            ("SkewedColumnValueLocationMaps" Core..=)
+            ("SkewedColumnValueLocationMaps" Data..=)
               Prelude.<$> skewedColumnValueLocationMaps,
-            ("SkewedColumnValues" Core..=)
+            ("SkewedColumnValues" Data..=)
               Prelude.<$> skewedColumnValues
           ]
       )

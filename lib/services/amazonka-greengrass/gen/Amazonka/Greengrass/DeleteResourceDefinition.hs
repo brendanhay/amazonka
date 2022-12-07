@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,25 +97,25 @@ instance Prelude.NFData DeleteResourceDefinition where
   rnf DeleteResourceDefinition' {..} =
     Prelude.rnf resourceDefinitionId
 
-instance Core.ToHeaders DeleteResourceDefinition where
+instance Data.ToHeaders DeleteResourceDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteResourceDefinition where
+instance Data.ToPath DeleteResourceDefinition where
   toPath DeleteResourceDefinition' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/resources/",
-        Core.toBS resourceDefinitionId
+        Data.toBS resourceDefinitionId
       ]
 
-instance Core.ToQuery DeleteResourceDefinition where
+instance Data.ToQuery DeleteResourceDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResourceDefinitionResponse' smart constructor.

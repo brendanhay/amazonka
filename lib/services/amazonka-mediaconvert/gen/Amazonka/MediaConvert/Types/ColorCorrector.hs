@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.ColorCorrector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.ColorSpaceConversion
 import Amazonka.MediaConvert.Types.Hdr10Metadata
 import Amazonka.MediaConvert.Types.SampleRangeConversion
@@ -233,20 +234,20 @@ colorCorrector_contrast = Lens.lens (\ColorCorrector' {contrast} -> contrast) (\
 colorCorrector_sampleRangeConversion :: Lens.Lens' ColorCorrector (Prelude.Maybe SampleRangeConversion)
 colorCorrector_sampleRangeConversion = Lens.lens (\ColorCorrector' {sampleRangeConversion} -> sampleRangeConversion) (\s@ColorCorrector' {} a -> s {sampleRangeConversion = a} :: ColorCorrector)
 
-instance Core.FromJSON ColorCorrector where
+instance Data.FromJSON ColorCorrector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColorCorrector"
       ( \x ->
           ColorCorrector'
-            Prelude.<$> (x Core..:? "colorSpaceConversion")
-            Prelude.<*> (x Core..:? "saturation")
-            Prelude.<*> (x Core..:? "sdrReferenceWhiteLevel")
-            Prelude.<*> (x Core..:? "brightness")
-            Prelude.<*> (x Core..:? "hue")
-            Prelude.<*> (x Core..:? "hdr10Metadata")
-            Prelude.<*> (x Core..:? "contrast")
-            Prelude.<*> (x Core..:? "sampleRangeConversion")
+            Prelude.<$> (x Data..:? "colorSpaceConversion")
+            Prelude.<*> (x Data..:? "saturation")
+            Prelude.<*> (x Data..:? "sdrReferenceWhiteLevel")
+            Prelude.<*> (x Data..:? "brightness")
+            Prelude.<*> (x Data..:? "hue")
+            Prelude.<*> (x Data..:? "hdr10Metadata")
+            Prelude.<*> (x Data..:? "contrast")
+            Prelude.<*> (x Data..:? "sampleRangeConversion")
       )
 
 instance Prelude.Hashable ColorCorrector where
@@ -271,20 +272,20 @@ instance Prelude.NFData ColorCorrector where
       `Prelude.seq` Prelude.rnf contrast
       `Prelude.seq` Prelude.rnf sampleRangeConversion
 
-instance Core.ToJSON ColorCorrector where
+instance Data.ToJSON ColorCorrector where
   toJSON ColorCorrector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("colorSpaceConversion" Core..=)
+          [ ("colorSpaceConversion" Data..=)
               Prelude.<$> colorSpaceConversion,
-            ("saturation" Core..=) Prelude.<$> saturation,
-            ("sdrReferenceWhiteLevel" Core..=)
+            ("saturation" Data..=) Prelude.<$> saturation,
+            ("sdrReferenceWhiteLevel" Data..=)
               Prelude.<$> sdrReferenceWhiteLevel,
-            ("brightness" Core..=) Prelude.<$> brightness,
-            ("hue" Core..=) Prelude.<$> hue,
-            ("hdr10Metadata" Core..=) Prelude.<$> hdr10Metadata,
-            ("contrast" Core..=) Prelude.<$> contrast,
-            ("sampleRangeConversion" Core..=)
+            ("brightness" Data..=) Prelude.<$> brightness,
+            ("hue" Data..=) Prelude.<$> hue,
+            ("hdr10Metadata" Data..=) Prelude.<$> hdr10Metadata,
+            ("contrast" Data..=) Prelude.<$> contrast,
+            ("sampleRangeConversion" Data..=)
               Prelude.<$> sampleRangeConversion
           ]
       )

@@ -81,6 +81,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,7 +142,7 @@ instance
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance
   Prelude.Hashable
@@ -156,35 +157,35 @@ instance Prelude.NFData CreatePrivateVirtualInterface where
     Prelude.rnf connectionId
       `Prelude.seq` Prelude.rnf newPrivateVirtualInterface'
 
-instance Core.ToHeaders CreatePrivateVirtualInterface where
+instance Data.ToHeaders CreatePrivateVirtualInterface where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.CreatePrivateVirtualInterface" ::
+              Data.=# ( "OvertureService.CreatePrivateVirtualInterface" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePrivateVirtualInterface where
+instance Data.ToJSON CreatePrivateVirtualInterface where
   toJSON CreatePrivateVirtualInterface' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("connectionId" Core..= connectionId),
+          [ Prelude.Just ("connectionId" Data..= connectionId),
             Prelude.Just
               ( "newPrivateVirtualInterface"
-                  Core..= newPrivateVirtualInterface'
+                  Data..= newPrivateVirtualInterface'
               )
           ]
       )
 
-instance Core.ToPath CreatePrivateVirtualInterface where
+instance Data.ToPath CreatePrivateVirtualInterface where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePrivateVirtualInterface where
+instance Data.ToQuery CreatePrivateVirtualInterface where
   toQuery = Prelude.const Prelude.mempty

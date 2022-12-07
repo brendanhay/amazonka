@@ -21,6 +21,7 @@ module Amazonka.EFS.Types.ResourceIdPreference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types.Resource
 import Amazonka.EFS.Types.ResourceIdType
 import qualified Amazonka.Prelude as Prelude
@@ -70,14 +71,14 @@ resourceIdPreference_resources = Lens.lens (\ResourceIdPreference' {resources} -
 resourceIdPreference_resourceIdType :: Lens.Lens' ResourceIdPreference (Prelude.Maybe ResourceIdType)
 resourceIdPreference_resourceIdType = Lens.lens (\ResourceIdPreference' {resourceIdType} -> resourceIdType) (\s@ResourceIdPreference' {} a -> s {resourceIdType = a} :: ResourceIdPreference)
 
-instance Core.FromJSON ResourceIdPreference where
+instance Data.FromJSON ResourceIdPreference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceIdPreference"
       ( \x ->
           ResourceIdPreference'
-            Prelude.<$> (x Core..:? "Resources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResourceIdType")
+            Prelude.<$> (x Data..:? "Resources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResourceIdType")
       )
 
 instance Prelude.Hashable ResourceIdPreference where

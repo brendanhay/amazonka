@@ -48,6 +48,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -57,7 +58,7 @@ data BatchDetectSyntax = BatchDetectSyntax'
   { -- | A list containing the UTF-8 encoded text of the input documents. The
     -- list can contain a maximum of 25 documents. The maximum size for each
     -- document is 5 KB.
-    textList :: Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text)),
+    textList :: Data.Sensitive (Prelude.NonEmpty (Data.Sensitive Prelude.Text)),
     -- | The language of the input documents. You can specify any of the
     -- following languages supported by Amazon Comprehend: German (\"de\"),
     -- English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"),
@@ -91,7 +92,7 @@ newBatchDetectSyntax ::
 newBatchDetectSyntax pTextList_ pLanguageCode_ =
   BatchDetectSyntax'
     { textList =
-        Core._Sensitive Prelude.. Lens.coerced
+        Data._Sensitive Prelude.. Lens.coerced
           Lens.# pTextList_,
       languageCode = pLanguageCode_
     }
@@ -100,7 +101,7 @@ newBatchDetectSyntax pTextList_ pLanguageCode_ =
 -- list can contain a maximum of 25 documents. The maximum size for each
 -- document is 5 KB.
 batchDetectSyntax_textList :: Lens.Lens' BatchDetectSyntax (Prelude.NonEmpty Prelude.Text)
-batchDetectSyntax_textList = Lens.lens (\BatchDetectSyntax' {textList} -> textList) (\s@BatchDetectSyntax' {} a -> s {textList = a} :: BatchDetectSyntax) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+batchDetectSyntax_textList = Lens.lens (\BatchDetectSyntax' {textList} -> textList) (\s@BatchDetectSyntax' {} a -> s {textList = a} :: BatchDetectSyntax) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 -- | The language of the input documents. You can specify any of the
 -- following languages supported by Amazon Comprehend: German (\"de\"),
@@ -120,8 +121,8 @@ instance Core.AWSRequest BatchDetectSyntax where
       ( \s h x ->
           BatchDetectSyntaxResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "ResultList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ResultList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ErrorList" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable BatchDetectSyntax where
@@ -134,34 +135,34 @@ instance Prelude.NFData BatchDetectSyntax where
     Prelude.rnf textList
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToHeaders BatchDetectSyntax where
+instance Data.ToHeaders BatchDetectSyntax where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.BatchDetectSyntax" ::
+              Data.=# ( "Comprehend_20171127.BatchDetectSyntax" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDetectSyntax where
+instance Data.ToJSON BatchDetectSyntax where
   toJSON BatchDetectSyntax' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TextList" Core..= textList),
-            Prelude.Just ("LanguageCode" Core..= languageCode)
+          [ Prelude.Just ("TextList" Data..= textList),
+            Prelude.Just ("LanguageCode" Data..= languageCode)
           ]
       )
 
-instance Core.ToPath BatchDetectSyntax where
+instance Data.ToPath BatchDetectSyntax where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchDetectSyntax where
+instance Data.ToQuery BatchDetectSyntax where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDetectSyntaxResponse' smart constructor.

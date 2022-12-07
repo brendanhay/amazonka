@@ -21,6 +21,7 @@ module Amazonka.WAF.Types.SizeConstraintSetUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAF.Types.ChangeAction
 import Amazonka.WAF.Types.SizeConstraint
@@ -106,12 +107,12 @@ instance Prelude.NFData SizeConstraintSetUpdate where
     Prelude.rnf action
       `Prelude.seq` Prelude.rnf sizeConstraint
 
-instance Core.ToJSON SizeConstraintSetUpdate where
+instance Data.ToJSON SizeConstraintSetUpdate where
   toJSON SizeConstraintSetUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Core..= action),
+          [ Prelude.Just ("Action" Data..= action),
             Prelude.Just
-              ("SizeConstraint" Core..= sizeConstraint)
+              ("SizeConstraint" Data..= sizeConstraint)
           ]
       )

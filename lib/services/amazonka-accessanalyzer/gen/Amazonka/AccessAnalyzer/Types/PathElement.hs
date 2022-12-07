@@ -22,6 +22,7 @@ module Amazonka.AccessAnalyzer.Types.PathElement where
 import Amazonka.AccessAnalyzer.Types.Substring
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single element in a path through the JSON representation of a policy.
@@ -80,16 +81,16 @@ pathElement_substring = Lens.lens (\PathElement' {substring} -> substring) (\s@P
 pathElement_value :: Lens.Lens' PathElement (Prelude.Maybe Prelude.Text)
 pathElement_value = Lens.lens (\PathElement' {value} -> value) (\s@PathElement' {} a -> s {value = a} :: PathElement)
 
-instance Core.FromJSON PathElement where
+instance Data.FromJSON PathElement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PathElement"
       ( \x ->
           PathElement'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "index")
-            Prelude.<*> (x Core..:? "substring")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "index")
+            Prelude.<*> (x Data..:? "substring")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable PathElement where

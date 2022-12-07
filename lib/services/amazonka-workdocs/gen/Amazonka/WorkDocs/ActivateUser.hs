@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -52,7 +53,7 @@ import Amazonka.WorkDocs.Types
 data ActivateUser = ActivateUser'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the user.
     userId :: Prelude.Text
   }
@@ -84,7 +85,7 @@ newActivateUser pUserId_ =
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 activateUser_authenticationToken :: Lens.Lens' ActivateUser (Prelude.Maybe Prelude.Text)
-activateUser_authenticationToken = Lens.lens (\ActivateUser' {authenticationToken} -> authenticationToken) (\s@ActivateUser' {} a -> s {authenticationToken = a} :: ActivateUser) Prelude.. Lens.mapping Core._Sensitive
+activateUser_authenticationToken = Lens.lens (\ActivateUser' {authenticationToken} -> authenticationToken) (\s@ActivateUser' {} a -> s {authenticationToken = a} :: ActivateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the user.
 activateUser_userId :: Lens.Lens' ActivateUser Prelude.Text
@@ -98,7 +99,7 @@ instance Core.AWSRequest ActivateUser where
     Response.receiveJSON
       ( \s h x ->
           ActivateUserResponse'
-            Prelude.<$> (x Core..?> "User")
+            Prelude.<$> (x Data..?> "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,23 +113,23 @@ instance Prelude.NFData ActivateUser where
     Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders ActivateUser where
+instance Data.ToHeaders ActivateUser where
   toHeaders ActivateUser' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON ActivateUser where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ActivateUser where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath ActivateUser where
+instance Data.ToPath ActivateUser where
   toPath ActivateUser' {..} =
     Prelude.mconcat
-      ["/api/v1/users/", Core.toBS userId, "/activation"]
+      ["/api/v1/users/", Data.toBS userId, "/activation"]
 
-instance Core.ToQuery ActivateUser where
+instance Data.ToQuery ActivateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newActivateUserResponse' smart constructor.

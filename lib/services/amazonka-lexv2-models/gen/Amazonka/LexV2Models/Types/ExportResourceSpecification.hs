@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.ExportResourceSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.BotExportSpecification
 import Amazonka.LexV2Models.Types.BotLocaleExportSpecification
 import Amazonka.LexV2Models.Types.CustomVocabularyExportSpecification
@@ -77,15 +78,15 @@ exportResourceSpecification_botExportSpecification = Lens.lens (\ExportResourceS
 exportResourceSpecification_customVocabularyExportSpecification :: Lens.Lens' ExportResourceSpecification (Prelude.Maybe CustomVocabularyExportSpecification)
 exportResourceSpecification_customVocabularyExportSpecification = Lens.lens (\ExportResourceSpecification' {customVocabularyExportSpecification} -> customVocabularyExportSpecification) (\s@ExportResourceSpecification' {} a -> s {customVocabularyExportSpecification = a} :: ExportResourceSpecification)
 
-instance Core.FromJSON ExportResourceSpecification where
+instance Data.FromJSON ExportResourceSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExportResourceSpecification"
       ( \x ->
           ExportResourceSpecification'
-            Prelude.<$> (x Core..:? "botLocaleExportSpecification")
-            Prelude.<*> (x Core..:? "botExportSpecification")
-            Prelude.<*> (x Core..:? "customVocabularyExportSpecification")
+            Prelude.<$> (x Data..:? "botLocaleExportSpecification")
+            Prelude.<*> (x Data..:? "botExportSpecification")
+            Prelude.<*> (x Data..:? "customVocabularyExportSpecification")
       )
 
 instance Prelude.Hashable ExportResourceSpecification where
@@ -101,15 +102,15 @@ instance Prelude.NFData ExportResourceSpecification where
       `Prelude.seq` Prelude.rnf botExportSpecification
       `Prelude.seq` Prelude.rnf customVocabularyExportSpecification
 
-instance Core.ToJSON ExportResourceSpecification where
+instance Data.ToJSON ExportResourceSpecification where
   toJSON ExportResourceSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("botLocaleExportSpecification" Core..=)
+          [ ("botLocaleExportSpecification" Data..=)
               Prelude.<$> botLocaleExportSpecification,
-            ("botExportSpecification" Core..=)
+            ("botExportSpecification" Data..=)
               Prelude.<$> botExportSpecification,
-            ("customVocabularyExportSpecification" Core..=)
+            ("customVocabularyExportSpecification" Data..=)
               Prelude.<$> customVocabularyExportSpecification
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.EC2Specification where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.OfferingClass
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon EC2 hardware specifications that you want Amazon Web Services
@@ -55,13 +56,13 @@ newEC2Specification =
 eC2Specification_offeringClass :: Lens.Lens' EC2Specification (Prelude.Maybe OfferingClass)
 eC2Specification_offeringClass = Lens.lens (\EC2Specification' {offeringClass} -> offeringClass) (\s@EC2Specification' {} a -> s {offeringClass = a} :: EC2Specification)
 
-instance Core.FromJSON EC2Specification where
+instance Data.FromJSON EC2Specification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EC2Specification"
       ( \x ->
           EC2Specification'
-            Prelude.<$> (x Core..:? "OfferingClass")
+            Prelude.<$> (x Data..:? "OfferingClass")
       )
 
 instance Prelude.Hashable EC2Specification where
@@ -71,11 +72,11 @@ instance Prelude.Hashable EC2Specification where
 instance Prelude.NFData EC2Specification where
   rnf EC2Specification' {..} = Prelude.rnf offeringClass
 
-instance Core.ToJSON EC2Specification where
+instance Data.ToJSON EC2Specification where
   toJSON EC2Specification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OfferingClass" Core..=)
+          [ ("OfferingClass" Data..=)
               Prelude.<$> offeringClass
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.FunctionConfigurationEnvironment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.FunctionExecutionConfig
 import Amazonka.Greengrass.Types.ResourceAccessPolicy
 import qualified Amazonka.Prelude as Prelude
@@ -101,20 +102,20 @@ functionConfigurationEnvironment_variables :: Lens.Lens' FunctionConfigurationEn
 functionConfigurationEnvironment_variables = Lens.lens (\FunctionConfigurationEnvironment' {variables} -> variables) (\s@FunctionConfigurationEnvironment' {} a -> s {variables = a} :: FunctionConfigurationEnvironment) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FunctionConfigurationEnvironment
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FunctionConfigurationEnvironment"
       ( \x ->
           FunctionConfigurationEnvironment'
-            Prelude.<$> ( x Core..:? "ResourceAccessPolicies"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ResourceAccessPolicies"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Execution")
-            Prelude.<*> (x Core..:? "AccessSysfs")
-            Prelude.<*> (x Core..:? "Variables" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Execution")
+            Prelude.<*> (x Data..:? "AccessSysfs")
+            Prelude.<*> (x Data..:? "Variables" Data..!= Prelude.mempty)
       )
 
 instance
@@ -139,14 +140,14 @@ instance
       `Prelude.seq` Prelude.rnf accessSysfs
       `Prelude.seq` Prelude.rnf variables
 
-instance Core.ToJSON FunctionConfigurationEnvironment where
+instance Data.ToJSON FunctionConfigurationEnvironment where
   toJSON FunctionConfigurationEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceAccessPolicies" Core..=)
+          [ ("ResourceAccessPolicies" Data..=)
               Prelude.<$> resourceAccessPolicies,
-            ("Execution" Core..=) Prelude.<$> execution,
-            ("AccessSysfs" Core..=) Prelude.<$> accessSysfs,
-            ("Variables" Core..=) Prelude.<$> variables
+            ("Execution" Data..=) Prelude.<$> execution,
+            ("AccessSysfs" Data..=) Prelude.<$> accessSysfs,
+            ("Variables" Data..=) Prelude.<$> variables
           ]
       )

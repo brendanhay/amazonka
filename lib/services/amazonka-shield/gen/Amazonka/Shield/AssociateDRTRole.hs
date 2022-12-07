@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,32 +144,32 @@ instance Prelude.Hashable AssociateDRTRole where
 instance Prelude.NFData AssociateDRTRole where
   rnf AssociateDRTRole' {..} = Prelude.rnf roleArn
 
-instance Core.ToHeaders AssociateDRTRole where
+instance Data.ToHeaders AssociateDRTRole where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.AssociateDRTRole" ::
+              Data.=# ( "AWSShield_20160616.AssociateDRTRole" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateDRTRole where
+instance Data.ToJSON AssociateDRTRole where
   toJSON AssociateDRTRole' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("RoleArn" Core..= roleArn)]
+          [Prelude.Just ("RoleArn" Data..= roleArn)]
       )
 
-instance Core.ToPath AssociateDRTRole where
+instance Data.ToPath AssociateDRTRole where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateDRTRole where
+instance Data.ToQuery AssociateDRTRole where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateDRTRoleResponse' smart constructor.

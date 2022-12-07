@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.ScheduledUpdateGroupActionRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes information used for one or more scheduled scaling action
@@ -37,7 +38,7 @@ data ScheduledUpdateGroupActionRequest = ScheduledUpdateGroupActionRequest'
     -- <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
     timeZone :: Prelude.Maybe Prelude.Text,
     -- | The date and time for the recurring schedule to end, in UTC.
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The minimum size of the Auto Scaling group.
     minSize :: Prelude.Maybe Prelude.Int,
     -- | The recurring schedule for the action, in Unix cron syntax format. This
@@ -67,7 +68,7 @@ data ScheduledUpdateGroupActionRequest = ScheduledUpdateGroupActionRequest'
     --
     -- If you try to schedule the action in the past, Amazon EC2 Auto Scaling
     -- returns an error message.
-    startTime :: Prelude.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the scaling action.
     scheduledActionName :: Prelude.Text
   }
@@ -153,7 +154,7 @@ scheduledUpdateGroupActionRequest_timeZone = Lens.lens (\ScheduledUpdateGroupAct
 
 -- | The date and time for the recurring schedule to end, in UTC.
 scheduledUpdateGroupActionRequest_endTime :: Lens.Lens' ScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.UTCTime)
-scheduledUpdateGroupActionRequest_endTime = Lens.lens (\ScheduledUpdateGroupActionRequest' {endTime} -> endTime) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {endTime = a} :: ScheduledUpdateGroupActionRequest) Prelude.. Lens.mapping Core._Time
+scheduledUpdateGroupActionRequest_endTime = Lens.lens (\ScheduledUpdateGroupActionRequest' {endTime} -> endTime) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {endTime = a} :: ScheduledUpdateGroupActionRequest) Prelude.. Lens.mapping Data._Time
 
 -- | The minimum size of the Auto Scaling group.
 scheduledUpdateGroupActionRequest_minSize :: Lens.Lens' ScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.Int)
@@ -193,7 +194,7 @@ scheduledUpdateGroupActionRequest_desiredCapacity = Lens.lens (\ScheduledUpdateG
 -- If you try to schedule the action in the past, Amazon EC2 Auto Scaling
 -- returns an error message.
 scheduledUpdateGroupActionRequest_startTime :: Lens.Lens' ScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.UTCTime)
-scheduledUpdateGroupActionRequest_startTime = Lens.lens (\ScheduledUpdateGroupActionRequest' {startTime} -> startTime) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {startTime = a} :: ScheduledUpdateGroupActionRequest) Prelude.. Lens.mapping Core._Time
+scheduledUpdateGroupActionRequest_startTime = Lens.lens (\ScheduledUpdateGroupActionRequest' {startTime} -> startTime) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {startTime = a} :: ScheduledUpdateGroupActionRequest) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the scaling action.
 scheduledUpdateGroupActionRequest_scheduledActionName :: Lens.Lens' ScheduledUpdateGroupActionRequest Prelude.Text
@@ -230,17 +231,17 @@ instance
       `Prelude.seq` Prelude.rnf scheduledActionName
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ScheduledUpdateGroupActionRequest
   where
   toQuery ScheduledUpdateGroupActionRequest' {..} =
     Prelude.mconcat
-      [ "TimeZone" Core.=: timeZone,
-        "EndTime" Core.=: endTime,
-        "MinSize" Core.=: minSize,
-        "Recurrence" Core.=: recurrence,
-        "MaxSize" Core.=: maxSize,
-        "DesiredCapacity" Core.=: desiredCapacity,
-        "StartTime" Core.=: startTime,
-        "ScheduledActionName" Core.=: scheduledActionName
+      [ "TimeZone" Data.=: timeZone,
+        "EndTime" Data.=: endTime,
+        "MinSize" Data.=: minSize,
+        "Recurrence" Data.=: recurrence,
+        "MaxSize" Data.=: maxSize,
+        "DesiredCapacity" Data.=: desiredCapacity,
+        "StartTime" Data.=: startTime,
+        "ScheduledActionName" Data.=: scheduledActionName
       ]

@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.HoursOfOperationDays
 import Amazonka.Connect.Types.HoursOfOperationTimeSlice
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the hours of operation.
@@ -78,15 +79,15 @@ hoursOfOperationConfig_startTime = Lens.lens (\HoursOfOperationConfig' {startTim
 hoursOfOperationConfig_endTime :: Lens.Lens' HoursOfOperationConfig HoursOfOperationTimeSlice
 hoursOfOperationConfig_endTime = Lens.lens (\HoursOfOperationConfig' {endTime} -> endTime) (\s@HoursOfOperationConfig' {} a -> s {endTime = a} :: HoursOfOperationConfig)
 
-instance Core.FromJSON HoursOfOperationConfig where
+instance Data.FromJSON HoursOfOperationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HoursOfOperationConfig"
       ( \x ->
           HoursOfOperationConfig'
-            Prelude.<$> (x Core..: "Day")
-            Prelude.<*> (x Core..: "StartTime")
-            Prelude.<*> (x Core..: "EndTime")
+            Prelude.<$> (x Data..: "Day")
+            Prelude.<*> (x Data..: "StartTime")
+            Prelude.<*> (x Data..: "EndTime")
       )
 
 instance Prelude.Hashable HoursOfOperationConfig where
@@ -101,12 +102,12 @@ instance Prelude.NFData HoursOfOperationConfig where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
-instance Core.ToJSON HoursOfOperationConfig where
+instance Data.ToJSON HoursOfOperationConfig where
   toJSON HoursOfOperationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Day" Core..= day),
-            Prelude.Just ("StartTime" Core..= startTime),
-            Prelude.Just ("EndTime" Core..= endTime)
+          [ Prelude.Just ("Day" Data..= day),
+            Prelude.Just ("StartTime" Data..= startTime),
+            Prelude.Just ("EndTime" Data..= endTime)
           ]
       )

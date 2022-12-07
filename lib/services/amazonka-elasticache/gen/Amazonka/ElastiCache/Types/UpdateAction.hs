@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.UpdateAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.CacheNodeUpdateStatus
 import Amazonka.ElastiCache.Types.NodeGroupUpdateStatus
 import Amazonka.ElastiCache.Types.ServiceUpdateSeverity
@@ -39,19 +40,19 @@ data UpdateAction = UpdateAction'
     -- | The status of the service update on the node group
     nodeGroupUpdateStatus :: Prelude.Maybe [NodeGroupUpdateStatus],
     -- | The date the update is first available
-    serviceUpdateReleaseDate :: Prelude.Maybe Core.ISO8601,
+    serviceUpdateReleaseDate :: Prelude.Maybe Data.ISO8601,
     -- | The estimated length of time for the update to complete
     estimatedUpdateTime :: Prelude.Maybe Prelude.Text,
     -- | The status of the update action
     updateActionStatus :: Prelude.Maybe UpdateActionStatus,
     -- | The date that the service update is available to a replication group
-    updateActionAvailableDate :: Prelude.Maybe Core.ISO8601,
+    updateActionAvailableDate :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the cache cluster
     cacheClusterId :: Prelude.Maybe Prelude.Text,
     -- | The recommended date to apply the service update to ensure compliance.
     -- For information on compliance, see
     -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance>.
-    serviceUpdateRecommendedApplyByDate :: Prelude.Maybe Core.ISO8601,
+    serviceUpdateRecommendedApplyByDate :: Prelude.Maybe Data.ISO8601,
     -- | The severity of the service update
     serviceUpdateSeverity :: Prelude.Maybe ServiceUpdateSeverity,
     -- | The unique ID of the service update
@@ -73,7 +74,7 @@ data UpdateAction = UpdateAction'
     -- | The progress of the service update on the replication group
     nodesUpdated :: Prelude.Maybe Prelude.Text,
     -- | The date when the UpdateActionStatus was last modified
-    updateActionStatusModifiedDate :: Prelude.Maybe Core.ISO8601
+    updateActionStatusModifiedDate :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -158,7 +159,7 @@ updateAction_nodeGroupUpdateStatus = Lens.lens (\UpdateAction' {nodeGroupUpdateS
 
 -- | The date the update is first available
 updateAction_serviceUpdateReleaseDate :: Lens.Lens' UpdateAction (Prelude.Maybe Prelude.UTCTime)
-updateAction_serviceUpdateReleaseDate = Lens.lens (\UpdateAction' {serviceUpdateReleaseDate} -> serviceUpdateReleaseDate) (\s@UpdateAction' {} a -> s {serviceUpdateReleaseDate = a} :: UpdateAction) Prelude.. Lens.mapping Core._Time
+updateAction_serviceUpdateReleaseDate = Lens.lens (\UpdateAction' {serviceUpdateReleaseDate} -> serviceUpdateReleaseDate) (\s@UpdateAction' {} a -> s {serviceUpdateReleaseDate = a} :: UpdateAction) Prelude.. Lens.mapping Data._Time
 
 -- | The estimated length of time for the update to complete
 updateAction_estimatedUpdateTime :: Lens.Lens' UpdateAction (Prelude.Maybe Prelude.Text)
@@ -170,7 +171,7 @@ updateAction_updateActionStatus = Lens.lens (\UpdateAction' {updateActionStatus}
 
 -- | The date that the service update is available to a replication group
 updateAction_updateActionAvailableDate :: Lens.Lens' UpdateAction (Prelude.Maybe Prelude.UTCTime)
-updateAction_updateActionAvailableDate = Lens.lens (\UpdateAction' {updateActionAvailableDate} -> updateActionAvailableDate) (\s@UpdateAction' {} a -> s {updateActionAvailableDate = a} :: UpdateAction) Prelude.. Lens.mapping Core._Time
+updateAction_updateActionAvailableDate = Lens.lens (\UpdateAction' {updateActionAvailableDate} -> updateActionAvailableDate) (\s@UpdateAction' {} a -> s {updateActionAvailableDate = a} :: UpdateAction) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the cache cluster
 updateAction_cacheClusterId :: Lens.Lens' UpdateAction (Prelude.Maybe Prelude.Text)
@@ -180,7 +181,7 @@ updateAction_cacheClusterId = Lens.lens (\UpdateAction' {cacheClusterId} -> cach
 -- For information on compliance, see
 -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance>.
 updateAction_serviceUpdateRecommendedApplyByDate :: Lens.Lens' UpdateAction (Prelude.Maybe Prelude.UTCTime)
-updateAction_serviceUpdateRecommendedApplyByDate = Lens.lens (\UpdateAction' {serviceUpdateRecommendedApplyByDate} -> serviceUpdateRecommendedApplyByDate) (\s@UpdateAction' {} a -> s {serviceUpdateRecommendedApplyByDate = a} :: UpdateAction) Prelude.. Lens.mapping Core._Time
+updateAction_serviceUpdateRecommendedApplyByDate = Lens.lens (\UpdateAction' {serviceUpdateRecommendedApplyByDate} -> serviceUpdateRecommendedApplyByDate) (\s@UpdateAction' {} a -> s {serviceUpdateRecommendedApplyByDate = a} :: UpdateAction) Prelude.. Lens.mapping Data._Time
 
 -- | The severity of the service update
 updateAction_serviceUpdateSeverity :: Lens.Lens' UpdateAction (Prelude.Maybe ServiceUpdateSeverity)
@@ -220,34 +221,34 @@ updateAction_nodesUpdated = Lens.lens (\UpdateAction' {nodesUpdated} -> nodesUpd
 
 -- | The date when the UpdateActionStatus was last modified
 updateAction_updateActionStatusModifiedDate :: Lens.Lens' UpdateAction (Prelude.Maybe Prelude.UTCTime)
-updateAction_updateActionStatusModifiedDate = Lens.lens (\UpdateAction' {updateActionStatusModifiedDate} -> updateActionStatusModifiedDate) (\s@UpdateAction' {} a -> s {updateActionStatusModifiedDate = a} :: UpdateAction) Prelude.. Lens.mapping Core._Time
+updateAction_updateActionStatusModifiedDate = Lens.lens (\UpdateAction' {updateActionStatusModifiedDate} -> updateActionStatusModifiedDate) (\s@UpdateAction' {} a -> s {updateActionStatusModifiedDate = a} :: UpdateAction) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML UpdateAction where
+instance Data.FromXML UpdateAction where
   parseXML x =
     UpdateAction'
-      Prelude.<$> (x Core..@? "ServiceUpdateType")
-      Prelude.<*> ( x Core..@? "NodeGroupUpdateStatus"
+      Prelude.<$> (x Data..@? "ServiceUpdateType")
+      Prelude.<*> ( x Data..@? "NodeGroupUpdateStatus"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "NodeGroupUpdateStatus")
+                      Prelude.>>= Core.may (Data.parseXMLList "NodeGroupUpdateStatus")
                   )
-      Prelude.<*> (x Core..@? "ServiceUpdateReleaseDate")
-      Prelude.<*> (x Core..@? "EstimatedUpdateTime")
-      Prelude.<*> (x Core..@? "UpdateActionStatus")
-      Prelude.<*> (x Core..@? "UpdateActionAvailableDate")
-      Prelude.<*> (x Core..@? "CacheClusterId")
-      Prelude.<*> (x Core..@? "ServiceUpdateRecommendedApplyByDate")
-      Prelude.<*> (x Core..@? "ServiceUpdateSeverity")
-      Prelude.<*> (x Core..@? "ServiceUpdateName")
-      Prelude.<*> (x Core..@? "ServiceUpdateStatus")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "SlaMet")
-      Prelude.<*> (x Core..@? "ReplicationGroupId")
-      Prelude.<*> ( x Core..@? "CacheNodeUpdateStatus"
+      Prelude.<*> (x Data..@? "ServiceUpdateReleaseDate")
+      Prelude.<*> (x Data..@? "EstimatedUpdateTime")
+      Prelude.<*> (x Data..@? "UpdateActionStatus")
+      Prelude.<*> (x Data..@? "UpdateActionAvailableDate")
+      Prelude.<*> (x Data..@? "CacheClusterId")
+      Prelude.<*> (x Data..@? "ServiceUpdateRecommendedApplyByDate")
+      Prelude.<*> (x Data..@? "ServiceUpdateSeverity")
+      Prelude.<*> (x Data..@? "ServiceUpdateName")
+      Prelude.<*> (x Data..@? "ServiceUpdateStatus")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "SlaMet")
+      Prelude.<*> (x Data..@? "ReplicationGroupId")
+      Prelude.<*> ( x Data..@? "CacheNodeUpdateStatus"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "CacheNodeUpdateStatus")
+                      Prelude.>>= Core.may (Data.parseXMLList "CacheNodeUpdateStatus")
                   )
-      Prelude.<*> (x Core..@? "NodesUpdated")
-      Prelude.<*> (x Core..@? "UpdateActionStatusModifiedDate")
+      Prelude.<*> (x Data..@? "NodesUpdated")
+      Prelude.<*> (x Data..@? "UpdateActionStatusModifiedDate")
 
 instance Prelude.Hashable UpdateAction where
   hashWithSalt _salt UpdateAction' {..} =

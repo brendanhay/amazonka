@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.BusinessReportS3Location where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The S3 location of the output reports.
@@ -61,14 +62,14 @@ businessReportS3Location_path = Lens.lens (\BusinessReportS3Location' {path} -> 
 businessReportS3Location_bucketName :: Lens.Lens' BusinessReportS3Location (Prelude.Maybe Prelude.Text)
 businessReportS3Location_bucketName = Lens.lens (\BusinessReportS3Location' {bucketName} -> bucketName) (\s@BusinessReportS3Location' {} a -> s {bucketName = a} :: BusinessReportS3Location)
 
-instance Core.FromJSON BusinessReportS3Location where
+instance Data.FromJSON BusinessReportS3Location where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BusinessReportS3Location"
       ( \x ->
           BusinessReportS3Location'
-            Prelude.<$> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "BucketName")
+            Prelude.<$> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "BucketName")
       )
 
 instance Prelude.Hashable BusinessReportS3Location where

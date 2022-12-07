@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,7 +111,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateBandwidthRateLimitScheduleResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,40 +134,40 @@ instance
       `Prelude.seq` Prelude.rnf bandwidthRateLimitIntervals
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateBandwidthRateLimitSchedule
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.UpdateBandwidthRateLimitSchedule" ::
+              Data.=# ( "StorageGateway_20130630.UpdateBandwidthRateLimitSchedule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBandwidthRateLimitSchedule where
+instance Data.ToJSON UpdateBandwidthRateLimitSchedule where
   toJSON UpdateBandwidthRateLimitSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GatewayARN" Core..= gatewayARN),
+          [ Prelude.Just ("GatewayARN" Data..= gatewayARN),
             Prelude.Just
               ( "BandwidthRateLimitIntervals"
-                  Core..= bandwidthRateLimitIntervals
+                  Data..= bandwidthRateLimitIntervals
               )
           ]
       )
 
-instance Core.ToPath UpdateBandwidthRateLimitSchedule where
+instance Data.ToPath UpdateBandwidthRateLimitSchedule where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateBandwidthRateLimitSchedule
   where
   toQuery = Prelude.const Prelude.mempty

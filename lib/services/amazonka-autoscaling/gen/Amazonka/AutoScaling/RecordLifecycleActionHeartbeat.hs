@@ -75,6 +75,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -190,27 +191,27 @@ instance
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RecordLifecycleActionHeartbeat
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RecordLifecycleActionHeartbeat where
+instance Data.ToPath RecordLifecycleActionHeartbeat where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RecordLifecycleActionHeartbeat where
+instance Data.ToQuery RecordLifecycleActionHeartbeat where
   toQuery RecordLifecycleActionHeartbeat' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "RecordLifecycleActionHeartbeat" ::
+          Data.=: ( "RecordLifecycleActionHeartbeat" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "LifecycleActionToken" Core.=: lifecycleActionToken,
-        "InstanceId" Core.=: instanceId,
-        "LifecycleHookName" Core.=: lifecycleHookName,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "LifecycleActionToken" Data.=: lifecycleActionToken,
+        "InstanceId" Data.=: instanceId,
+        "LifecycleHookName" Data.=: lifecycleHookName,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newRecordLifecycleActionHeartbeatResponse' smart constructor.

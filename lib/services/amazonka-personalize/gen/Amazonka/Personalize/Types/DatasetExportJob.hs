@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.DatasetExportJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.DatasetExportJobOutput
 import Amazonka.Personalize.Types.IngestionMode
 import qualified Amazonka.Prelude as Prelude
@@ -44,7 +45,7 @@ data DatasetExportJob = DatasetExportJob'
     -- @s3:\/\/bucket-name\/folder-name\/@
     jobOutput :: Prelude.Maybe DatasetExportJobOutput,
     -- | The creation date and time (in Unix time) of the dataset export job.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the export job.
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The status of the dataset export job.
@@ -65,7 +66,7 @@ data DatasetExportJob = DatasetExportJob'
     datasetExportJobArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) the status of the dataset export job
     -- was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | If a dataset export job fails, provides the reason why.
     failureReason :: Prelude.Maybe Prelude.Text
   }
@@ -141,7 +142,7 @@ datasetExportJob_jobOutput = Lens.lens (\DatasetExportJob' {jobOutput} -> jobOut
 
 -- | The creation date and time (in Unix time) of the dataset export job.
 datasetExportJob_creationDateTime :: Lens.Lens' DatasetExportJob (Prelude.Maybe Prelude.UTCTime)
-datasetExportJob_creationDateTime = Lens.lens (\DatasetExportJob' {creationDateTime} -> creationDateTime) (\s@DatasetExportJob' {} a -> s {creationDateTime = a} :: DatasetExportJob) Prelude.. Lens.mapping Core._Time
+datasetExportJob_creationDateTime = Lens.lens (\DatasetExportJob' {creationDateTime} -> creationDateTime) (\s@DatasetExportJob' {} a -> s {creationDateTime = a} :: DatasetExportJob) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the export job.
 datasetExportJob_jobName :: Lens.Lens' DatasetExportJob (Prelude.Maybe Prelude.Text)
@@ -174,28 +175,28 @@ datasetExportJob_datasetExportJobArn = Lens.lens (\DatasetExportJob' {datasetExp
 -- | The date and time (in Unix time) the status of the dataset export job
 -- was last updated.
 datasetExportJob_lastUpdatedDateTime :: Lens.Lens' DatasetExportJob (Prelude.Maybe Prelude.UTCTime)
-datasetExportJob_lastUpdatedDateTime = Lens.lens (\DatasetExportJob' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetExportJob' {} a -> s {lastUpdatedDateTime = a} :: DatasetExportJob) Prelude.. Lens.mapping Core._Time
+datasetExportJob_lastUpdatedDateTime = Lens.lens (\DatasetExportJob' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetExportJob' {} a -> s {lastUpdatedDateTime = a} :: DatasetExportJob) Prelude.. Lens.mapping Data._Time
 
 -- | If a dataset export job fails, provides the reason why.
 datasetExportJob_failureReason :: Lens.Lens' DatasetExportJob (Prelude.Maybe Prelude.Text)
 datasetExportJob_failureReason = Lens.lens (\DatasetExportJob' {failureReason} -> failureReason) (\s@DatasetExportJob' {} a -> s {failureReason = a} :: DatasetExportJob)
 
-instance Core.FromJSON DatasetExportJob where
+instance Data.FromJSON DatasetExportJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetExportJob"
       ( \x ->
           DatasetExportJob'
-            Prelude.<$> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "jobOutput")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "jobName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "datasetArn")
-            Prelude.<*> (x Core..:? "ingestionMode")
-            Prelude.<*> (x Core..:? "datasetExportJobArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "jobOutput")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "jobName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "datasetArn")
+            Prelude.<*> (x Data..:? "ingestionMode")
+            Prelude.<*> (x Data..:? "datasetExportJobArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable DatasetExportJob where

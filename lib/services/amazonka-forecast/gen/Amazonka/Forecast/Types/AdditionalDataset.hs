@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.AdditionalDataset where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an additional dataset. This object is part of the DataConfig
@@ -509,14 +510,14 @@ additionalDataset_configuration = Lens.lens (\AdditionalDataset' {configuration}
 additionalDataset_name :: Lens.Lens' AdditionalDataset Prelude.Text
 additionalDataset_name = Lens.lens (\AdditionalDataset' {name} -> name) (\s@AdditionalDataset' {} a -> s {name = a} :: AdditionalDataset)
 
-instance Core.FromJSON AdditionalDataset where
+instance Data.FromJSON AdditionalDataset where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdditionalDataset"
       ( \x ->
           AdditionalDataset'
-            Prelude.<$> (x Core..:? "Configuration" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "Configuration" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable AdditionalDataset where
@@ -529,11 +530,11 @@ instance Prelude.NFData AdditionalDataset where
     Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON AdditionalDataset where
+instance Data.ToJSON AdditionalDataset where
   toJSON AdditionalDataset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Configuration" Core..=) Prelude.<$> configuration,
-            Prelude.Just ("Name" Core..= name)
+          [ ("Configuration" Data..=) Prelude.<$> configuration,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.AvailMatchingCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.Operator
 import qualified Amazonka.Prelude as Prelude
 
@@ -108,14 +109,14 @@ availMatchingCriteria_dynamicVariable = Lens.lens (\AvailMatchingCriteria' {dyna
 availMatchingCriteria_operator :: Lens.Lens' AvailMatchingCriteria Operator
 availMatchingCriteria_operator = Lens.lens (\AvailMatchingCriteria' {operator} -> operator) (\s@AvailMatchingCriteria' {} a -> s {operator = a} :: AvailMatchingCriteria)
 
-instance Core.FromJSON AvailMatchingCriteria where
+instance Data.FromJSON AvailMatchingCriteria where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AvailMatchingCriteria"
       ( \x ->
           AvailMatchingCriteria'
-            Prelude.<$> (x Core..: "DynamicVariable")
-            Prelude.<*> (x Core..: "Operator")
+            Prelude.<$> (x Data..: "DynamicVariable")
+            Prelude.<*> (x Data..: "Operator")
       )
 
 instance Prelude.Hashable AvailMatchingCriteria where
@@ -128,12 +129,12 @@ instance Prelude.NFData AvailMatchingCriteria where
     Prelude.rnf dynamicVariable
       `Prelude.seq` Prelude.rnf operator
 
-instance Core.ToJSON AvailMatchingCriteria where
+instance Data.ToJSON AvailMatchingCriteria where
   toJSON AvailMatchingCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DynamicVariable" Core..= dynamicVariable),
-            Prelude.Just ("Operator" Core..= operator)
+              ("DynamicVariable" Data..= dynamicVariable),
+            Prelude.Just ("Operator" Data..= operator)
           ]
       )

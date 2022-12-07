@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.SegmentTypeInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.SegmentType
 
@@ -64,14 +65,14 @@ segmentTypeInfo_type = Lens.lens (\SegmentTypeInfo' {type'} -> type') (\s@Segmen
 segmentTypeInfo_modelVersion :: Lens.Lens' SegmentTypeInfo (Prelude.Maybe Prelude.Text)
 segmentTypeInfo_modelVersion = Lens.lens (\SegmentTypeInfo' {modelVersion} -> modelVersion) (\s@SegmentTypeInfo' {} a -> s {modelVersion = a} :: SegmentTypeInfo)
 
-instance Core.FromJSON SegmentTypeInfo where
+instance Data.FromJSON SegmentTypeInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SegmentTypeInfo"
       ( \x ->
           SegmentTypeInfo'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "ModelVersion")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "ModelVersion")
       )
 
 instance Prelude.Hashable SegmentTypeInfo where

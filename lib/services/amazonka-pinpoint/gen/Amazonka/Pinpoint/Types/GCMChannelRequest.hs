@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.GCMChannelRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the status and settings of the GCM channel for an application.
@@ -79,11 +80,11 @@ instance Prelude.NFData GCMChannelRequest where
     Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf apiKey
 
-instance Core.ToJSON GCMChannelRequest where
+instance Data.ToJSON GCMChannelRequest where
   toJSON GCMChannelRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Enabled" Core..=) Prelude.<$> enabled,
-            Prelude.Just ("ApiKey" Core..= apiKey)
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
+            Prelude.Just ("ApiKey" Data..= apiKey)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.AuditManager.Types.Notification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The notification that informs a user of an update in Audit Manager. For
@@ -44,7 +45,7 @@ data Notification = Notification'
     -- | The identifier for the control set.
     controlSetId :: Prelude.Maybe Prelude.Text,
     -- | The time when the notification was sent.
-    eventTime :: Prelude.Maybe Core.POSIX
+    eventTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -115,22 +116,22 @@ notification_controlSetId = Lens.lens (\Notification' {controlSetId} -> controlS
 
 -- | The time when the notification was sent.
 notification_eventTime :: Lens.Lens' Notification (Prelude.Maybe Prelude.UTCTime)
-notification_eventTime = Lens.lens (\Notification' {eventTime} -> eventTime) (\s@Notification' {} a -> s {eventTime = a} :: Notification) Prelude.. Lens.mapping Core._Time
+notification_eventTime = Lens.lens (\Notification' {eventTime} -> eventTime) (\s@Notification' {} a -> s {eventTime = a} :: Notification) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Notification where
+instance Data.FromJSON Notification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Notification"
       ( \x ->
           Notification'
-            Prelude.<$> (x Core..:? "assessmentId")
-            Prelude.<*> (x Core..:? "assessmentName")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "controlSetName")
-            Prelude.<*> (x Core..:? "controlSetId")
-            Prelude.<*> (x Core..:? "eventTime")
+            Prelude.<$> (x Data..:? "assessmentId")
+            Prelude.<*> (x Data..:? "assessmentName")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "source")
+            Prelude.<*> (x Data..:? "controlSetName")
+            Prelude.<*> (x Data..:? "controlSetId")
+            Prelude.<*> (x Data..:? "eventTime")
       )
 
 instance Prelude.Hashable Notification where

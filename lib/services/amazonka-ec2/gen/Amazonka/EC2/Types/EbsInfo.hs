@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.EbsInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.EbsEncryptionSupport
 import Amazonka.EC2.Types.EbsNvmeSupport
@@ -93,13 +94,13 @@ ebsInfo_ebsOptimizedSupport = Lens.lens (\EbsInfo' {ebsOptimizedSupport} -> ebsO
 ebsInfo_encryptionSupport :: Lens.Lens' EbsInfo (Prelude.Maybe EbsEncryptionSupport)
 ebsInfo_encryptionSupport = Lens.lens (\EbsInfo' {encryptionSupport} -> encryptionSupport) (\s@EbsInfo' {} a -> s {encryptionSupport = a} :: EbsInfo)
 
-instance Core.FromXML EbsInfo where
+instance Data.FromXML EbsInfo where
   parseXML x =
     EbsInfo'
-      Prelude.<$> (x Core..@? "ebsOptimizedInfo")
-      Prelude.<*> (x Core..@? "nvmeSupport")
-      Prelude.<*> (x Core..@? "ebsOptimizedSupport")
-      Prelude.<*> (x Core..@? "encryptionSupport")
+      Prelude.<$> (x Data..@? "ebsOptimizedInfo")
+      Prelude.<*> (x Data..@? "nvmeSupport")
+      Prelude.<*> (x Data..@? "ebsOptimizedSupport")
+      Prelude.<*> (x Data..@? "encryptionSupport")
 
 instance Prelude.Hashable EbsInfo where
   hashWithSalt _salt EbsInfo' {..} =

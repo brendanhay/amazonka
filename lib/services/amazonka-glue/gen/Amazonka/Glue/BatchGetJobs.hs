@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,8 +88,8 @@ instance Core.AWSRequest BatchGetJobs where
     Response.receiveJSON
       ( \s h x ->
           BatchGetJobsResponse'
-            Prelude.<$> (x Core..?> "Jobs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "JobsNotFound" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Jobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "JobsNotFound" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,30 +100,30 @@ instance Prelude.Hashable BatchGetJobs where
 instance Prelude.NFData BatchGetJobs where
   rnf BatchGetJobs' {..} = Prelude.rnf jobNames
 
-instance Core.ToHeaders BatchGetJobs where
+instance Data.ToHeaders BatchGetJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.BatchGetJobs" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.BatchGetJobs" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetJobs where
+instance Data.ToJSON BatchGetJobs where
   toJSON BatchGetJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobNames" Core..= jobNames)]
+          [Prelude.Just ("JobNames" Data..= jobNames)]
       )
 
-instance Core.ToPath BatchGetJobs where
+instance Data.ToPath BatchGetJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetJobs where
+instance Data.ToQuery BatchGetJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetJobsResponse' smart constructor.

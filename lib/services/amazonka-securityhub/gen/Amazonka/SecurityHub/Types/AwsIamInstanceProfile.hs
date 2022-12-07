@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsIamInstanceProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsIamInstanceProfileRole
 
@@ -114,18 +115,18 @@ awsIamInstanceProfile_roles = Lens.lens (\AwsIamInstanceProfile' {roles} -> role
 awsIamInstanceProfile_instanceProfileId :: Lens.Lens' AwsIamInstanceProfile (Prelude.Maybe Prelude.Text)
 awsIamInstanceProfile_instanceProfileId = Lens.lens (\AwsIamInstanceProfile' {instanceProfileId} -> instanceProfileId) (\s@AwsIamInstanceProfile' {} a -> s {instanceProfileId = a} :: AwsIamInstanceProfile)
 
-instance Core.FromJSON AwsIamInstanceProfile where
+instance Data.FromJSON AwsIamInstanceProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamInstanceProfile"
       ( \x ->
           AwsIamInstanceProfile'
-            Prelude.<$> (x Core..:? "InstanceProfileName")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "Roles" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "InstanceProfileId")
+            Prelude.<$> (x Data..:? "InstanceProfileName")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "Roles" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "InstanceProfileId")
       )
 
 instance Prelude.Hashable AwsIamInstanceProfile where
@@ -146,17 +147,17 @@ instance Prelude.NFData AwsIamInstanceProfile where
       `Prelude.seq` Prelude.rnf roles
       `Prelude.seq` Prelude.rnf instanceProfileId
 
-instance Core.ToJSON AwsIamInstanceProfile where
+instance Data.ToJSON AwsIamInstanceProfile where
   toJSON AwsIamInstanceProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InstanceProfileName" Core..=)
+          [ ("InstanceProfileName" Data..=)
               Prelude.<$> instanceProfileName,
-            ("Arn" Core..=) Prelude.<$> arn,
-            ("Path" Core..=) Prelude.<$> path,
-            ("CreateDate" Core..=) Prelude.<$> createDate,
-            ("Roles" Core..=) Prelude.<$> roles,
-            ("InstanceProfileId" Core..=)
+            ("Arn" Data..=) Prelude.<$> arn,
+            ("Path" Data..=) Prelude.<$> path,
+            ("CreateDate" Data..=) Prelude.<$> createDate,
+            ("Roles" Data..=) Prelude.<$> roles,
+            ("InstanceProfileId" Data..=)
               Prelude.<$> instanceProfileId
           ]
       )

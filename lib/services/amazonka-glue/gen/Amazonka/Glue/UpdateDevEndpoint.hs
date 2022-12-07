@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -216,42 +217,42 @@ instance Prelude.NFData UpdateDevEndpoint where
       `Prelude.seq` Prelude.rnf updateEtlLibraries
       `Prelude.seq` Prelude.rnf endpointName
 
-instance Core.ToHeaders UpdateDevEndpoint where
+instance Data.ToHeaders UpdateDevEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdateDevEndpoint" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.UpdateDevEndpoint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDevEndpoint where
+instance Data.ToJSON UpdateDevEndpoint where
   toJSON UpdateDevEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeletePublicKeys" Core..=)
+          [ ("DeletePublicKeys" Data..=)
               Prelude.<$> deletePublicKeys,
-            ("PublicKey" Core..=) Prelude.<$> publicKey,
-            ("AddArguments" Core..=) Prelude.<$> addArguments,
-            ("CustomLibraries" Core..=)
+            ("PublicKey" Data..=) Prelude.<$> publicKey,
+            ("AddArguments" Data..=) Prelude.<$> addArguments,
+            ("CustomLibraries" Data..=)
               Prelude.<$> customLibraries,
-            ("AddPublicKeys" Core..=) Prelude.<$> addPublicKeys,
-            ("DeleteArguments" Core..=)
+            ("AddPublicKeys" Data..=) Prelude.<$> addPublicKeys,
+            ("DeleteArguments" Data..=)
               Prelude.<$> deleteArguments,
-            ("UpdateEtlLibraries" Core..=)
+            ("UpdateEtlLibraries" Data..=)
               Prelude.<$> updateEtlLibraries,
-            Prelude.Just ("EndpointName" Core..= endpointName)
+            Prelude.Just ("EndpointName" Data..= endpointName)
           ]
       )
 
-instance Core.ToPath UpdateDevEndpoint where
+instance Data.ToPath UpdateDevEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDevEndpoint where
+instance Data.ToQuery UpdateDevEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDevEndpointResponse' smart constructor.

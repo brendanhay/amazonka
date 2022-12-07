@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.Node where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.Actuator
 import Amazonka.IoTFleetWise.Types.Attribute
 import Amazonka.IoTFleetWise.Types.Branch
@@ -101,16 +102,16 @@ node_actuator = Lens.lens (\Node' {actuator} -> actuator) (\s@Node' {} a -> s {a
 node_sensor :: Lens.Lens' Node (Prelude.Maybe Sensor)
 node_sensor = Lens.lens (\Node' {sensor} -> sensor) (\s@Node' {} a -> s {sensor = a} :: Node)
 
-instance Core.FromJSON Node where
+instance Data.FromJSON Node where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Node"
       ( \x ->
           Node'
-            Prelude.<$> (x Core..:? "branch")
-            Prelude.<*> (x Core..:? "attribute")
-            Prelude.<*> (x Core..:? "actuator")
-            Prelude.<*> (x Core..:? "sensor")
+            Prelude.<$> (x Data..:? "branch")
+            Prelude.<*> (x Data..:? "attribute")
+            Prelude.<*> (x Data..:? "actuator")
+            Prelude.<*> (x Data..:? "sensor")
       )
 
 instance Prelude.Hashable Node where
@@ -127,13 +128,13 @@ instance Prelude.NFData Node where
       `Prelude.seq` Prelude.rnf actuator
       `Prelude.seq` Prelude.rnf sensor
 
-instance Core.ToJSON Node where
+instance Data.ToJSON Node where
   toJSON Node' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("branch" Core..=) Prelude.<$> branch,
-            ("attribute" Core..=) Prelude.<$> attribute,
-            ("actuator" Core..=) Prelude.<$> actuator,
-            ("sensor" Core..=) Prelude.<$> sensor
+          [ ("branch" Data..=) Prelude.<$> branch,
+            ("attribute" Data..=) Prelude.<$> attribute,
+            ("actuator" Data..=) Prelude.<$> actuator,
+            ("sensor" Data..=) Prelude.<$> sensor
           ]
       )

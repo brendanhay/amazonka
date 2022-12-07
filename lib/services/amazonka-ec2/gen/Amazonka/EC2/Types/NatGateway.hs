@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NatGateway where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ConnectivityType
 import Amazonka.EC2.Types.NatGatewayAddress
@@ -47,7 +48,7 @@ data NatGateway = NatGateway'
     -- @InvalidSubnetID.NotFound@)
     failureCode :: Prelude.Maybe Prelude.Text,
     -- | The date and time the NAT gateway was deleted, if applicable.
-    deleteTime :: Prelude.Maybe Core.ISO8601,
+    deleteTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the subnet in which the NAT gateway is located.
     subnetId :: Prelude.Maybe Prelude.Text,
     -- | The state of the NAT gateway.
@@ -99,7 +100,7 @@ data NatGateway = NatGateway'
     -- connectivity.
     connectivityType :: Prelude.Maybe ConnectivityType,
     -- | The date and time the NAT gateway was created.
-    createTime :: Prelude.Maybe Core.ISO8601,
+    createTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the VPC in which the NAT gateway is located.
     vpcId :: Prelude.Maybe Prelude.Text
   }
@@ -220,7 +221,7 @@ natGateway_failureCode = Lens.lens (\NatGateway' {failureCode} -> failureCode) (
 
 -- | The date and time the NAT gateway was deleted, if applicable.
 natGateway_deleteTime :: Lens.Lens' NatGateway (Prelude.Maybe Prelude.UTCTime)
-natGateway_deleteTime = Lens.lens (\NatGateway' {deleteTime} -> deleteTime) (\s@NatGateway' {} a -> s {deleteTime = a} :: NatGateway) Prelude.. Lens.mapping Core._Time
+natGateway_deleteTime = Lens.lens (\NatGateway' {deleteTime} -> deleteTime) (\s@NatGateway' {} a -> s {deleteTime = a} :: NatGateway) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the subnet in which the NAT gateway is located.
 natGateway_subnetId :: Lens.Lens' NatGateway (Prelude.Maybe Prelude.Text)
@@ -286,32 +287,32 @@ natGateway_connectivityType = Lens.lens (\NatGateway' {connectivityType} -> conn
 
 -- | The date and time the NAT gateway was created.
 natGateway_createTime :: Lens.Lens' NatGateway (Prelude.Maybe Prelude.UTCTime)
-natGateway_createTime = Lens.lens (\NatGateway' {createTime} -> createTime) (\s@NatGateway' {} a -> s {createTime = a} :: NatGateway) Prelude.. Lens.mapping Core._Time
+natGateway_createTime = Lens.lens (\NatGateway' {createTime} -> createTime) (\s@NatGateway' {} a -> s {createTime = a} :: NatGateway) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the VPC in which the NAT gateway is located.
 natGateway_vpcId :: Lens.Lens' NatGateway (Prelude.Maybe Prelude.Text)
 natGateway_vpcId = Lens.lens (\NatGateway' {vpcId} -> vpcId) (\s@NatGateway' {} a -> s {vpcId = a} :: NatGateway)
 
-instance Core.FromXML NatGateway where
+instance Data.FromXML NatGateway where
   parseXML x =
     NatGateway'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "provisionedBandwidth")
-      Prelude.<*> (x Core..@? "failureCode")
-      Prelude.<*> (x Core..@? "deleteTime")
-      Prelude.<*> (x Core..@? "subnetId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "natGatewayId")
-      Prelude.<*> (x Core..@? "failureMessage")
-      Prelude.<*> ( x Core..@? "natGatewayAddressSet"
+      Prelude.<*> (x Data..@? "provisionedBandwidth")
+      Prelude.<*> (x Data..@? "failureCode")
+      Prelude.<*> (x Data..@? "deleteTime")
+      Prelude.<*> (x Data..@? "subnetId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "natGatewayId")
+      Prelude.<*> (x Data..@? "failureMessage")
+      Prelude.<*> ( x Data..@? "natGatewayAddressSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "connectivityType")
-      Prelude.<*> (x Core..@? "createTime")
-      Prelude.<*> (x Core..@? "vpcId")
+      Prelude.<*> (x Data..@? "connectivityType")
+      Prelude.<*> (x Data..@? "createTime")
+      Prelude.<*> (x Data..@? "vpcId")
 
 instance Prelude.Hashable NatGateway where
   hashWithSalt _salt NatGateway' {..} =

@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.BasicAuthCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The basic auth credentials required for basic authentication.
@@ -30,7 +31,7 @@ data BasicAuthCredentials = BasicAuthCredentials'
   { -- | The username to use to connect to a resource.
     username :: Prelude.Text,
     -- | The password to use to connect to a resource.
-    password :: Core.Sensitive Prelude.Text
+    password :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -54,7 +55,7 @@ newBasicAuthCredentials ::
 newBasicAuthCredentials pUsername_ pPassword_ =
   BasicAuthCredentials'
     { username = pUsername_,
-      password = Core._Sensitive Lens.# pPassword_
+      password = Data._Sensitive Lens.# pPassword_
     }
 
 -- | The username to use to connect to a resource.
@@ -63,7 +64,7 @@ basicAuthCredentials_username = Lens.lens (\BasicAuthCredentials' {username} -> 
 
 -- | The password to use to connect to a resource.
 basicAuthCredentials_password :: Lens.Lens' BasicAuthCredentials Prelude.Text
-basicAuthCredentials_password = Lens.lens (\BasicAuthCredentials' {password} -> password) (\s@BasicAuthCredentials' {} a -> s {password = a} :: BasicAuthCredentials) Prelude.. Core._Sensitive
+basicAuthCredentials_password = Lens.lens (\BasicAuthCredentials' {password} -> password) (\s@BasicAuthCredentials' {} a -> s {password = a} :: BasicAuthCredentials) Prelude.. Data._Sensitive
 
 instance Prelude.Hashable BasicAuthCredentials where
   hashWithSalt _salt BasicAuthCredentials' {..} =
@@ -75,11 +76,11 @@ instance Prelude.NFData BasicAuthCredentials where
     Prelude.rnf username
       `Prelude.seq` Prelude.rnf password
 
-instance Core.ToJSON BasicAuthCredentials where
+instance Data.ToJSON BasicAuthCredentials where
   toJSON BasicAuthCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("username" Core..= username),
-            Prelude.Just ("password" Core..= password)
+          [ Prelude.Just ("username" Data..= username),
+            Prelude.Just ("password" Data..= password)
           ]
       )

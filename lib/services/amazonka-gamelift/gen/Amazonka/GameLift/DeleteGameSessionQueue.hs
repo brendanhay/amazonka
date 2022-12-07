@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,32 +121,32 @@ instance Prelude.Hashable DeleteGameSessionQueue where
 instance Prelude.NFData DeleteGameSessionQueue where
   rnf DeleteGameSessionQueue' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteGameSessionQueue where
+instance Data.ToHeaders DeleteGameSessionQueue where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DeleteGameSessionQueue" ::
+              Data.=# ( "GameLift.DeleteGameSessionQueue" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteGameSessionQueue where
+instance Data.ToJSON DeleteGameSessionQueue where
   toJSON DeleteGameSessionQueue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DeleteGameSessionQueue where
+instance Data.ToPath DeleteGameSessionQueue where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteGameSessionQueue where
+instance Data.ToQuery DeleteGameSessionQueue where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGameSessionQueueResponse' smart constructor.

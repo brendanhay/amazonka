@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -170,7 +171,7 @@ instance Core.AWSRequest CreateWebACLMigrationStack where
       ( \s h x ->
           CreateWebACLMigrationStackResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "S3ObjectUrl")
+            Prelude.<*> (x Data..:> "S3ObjectUrl")
       )
 
 instance Prelude.Hashable CreateWebACLMigrationStack where
@@ -185,38 +186,38 @@ instance Prelude.NFData CreateWebACLMigrationStack where
       `Prelude.seq` Prelude.rnf s3BucketName
       `Prelude.seq` Prelude.rnf ignoreUnsupportedType
 
-instance Core.ToHeaders CreateWebACLMigrationStack where
+instance Data.ToHeaders CreateWebACLMigrationStack where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.CreateWebACLMigrationStack" ::
+              Data.=# ( "AWSWAF_Regional_20161128.CreateWebACLMigrationStack" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWebACLMigrationStack where
+instance Data.ToJSON CreateWebACLMigrationStack where
   toJSON CreateWebACLMigrationStack' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("WebACLId" Core..= webACLId),
-            Prelude.Just ("S3BucketName" Core..= s3BucketName),
+          [ Prelude.Just ("WebACLId" Data..= webACLId),
+            Prelude.Just ("S3BucketName" Data..= s3BucketName),
             Prelude.Just
               ( "IgnoreUnsupportedType"
-                  Core..= ignoreUnsupportedType
+                  Data..= ignoreUnsupportedType
               )
           ]
       )
 
-instance Core.ToPath CreateWebACLMigrationStack where
+instance Data.ToPath CreateWebACLMigrationStack where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateWebACLMigrationStack where
+instance Data.ToQuery CreateWebACLMigrationStack where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWebACLMigrationStackResponse' smart constructor.

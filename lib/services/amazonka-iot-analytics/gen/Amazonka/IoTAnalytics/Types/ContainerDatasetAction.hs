@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.ContainerDatasetAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.ResourceConfiguration
 import Amazonka.IoTAnalytics.Types.Variable
 import qualified Amazonka.Prelude as Prelude
@@ -116,16 +117,16 @@ containerDatasetAction_executionRoleArn = Lens.lens (\ContainerDatasetAction' {e
 containerDatasetAction_resourceConfiguration :: Lens.Lens' ContainerDatasetAction ResourceConfiguration
 containerDatasetAction_resourceConfiguration = Lens.lens (\ContainerDatasetAction' {resourceConfiguration} -> resourceConfiguration) (\s@ContainerDatasetAction' {} a -> s {resourceConfiguration = a} :: ContainerDatasetAction)
 
-instance Core.FromJSON ContainerDatasetAction where
+instance Data.FromJSON ContainerDatasetAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerDatasetAction"
       ( \x ->
           ContainerDatasetAction'
-            Prelude.<$> (x Core..:? "variables" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "image")
-            Prelude.<*> (x Core..: "executionRoleArn")
-            Prelude.<*> (x Core..: "resourceConfiguration")
+            Prelude.<$> (x Data..:? "variables" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "image")
+            Prelude.<*> (x Data..: "executionRoleArn")
+            Prelude.<*> (x Data..: "resourceConfiguration")
       )
 
 instance Prelude.Hashable ContainerDatasetAction where
@@ -142,17 +143,17 @@ instance Prelude.NFData ContainerDatasetAction where
       `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf resourceConfiguration
 
-instance Core.ToJSON ContainerDatasetAction where
+instance Data.ToJSON ContainerDatasetAction where
   toJSON ContainerDatasetAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("variables" Core..=) Prelude.<$> variables,
-            Prelude.Just ("image" Core..= image),
+          [ ("variables" Data..=) Prelude.<$> variables,
+            Prelude.Just ("image" Data..= image),
             Prelude.Just
-              ("executionRoleArn" Core..= executionRoleArn),
+              ("executionRoleArn" Data..= executionRoleArn),
             Prelude.Just
               ( "resourceConfiguration"
-                  Core..= resourceConfiguration
+                  Data..= resourceConfiguration
               )
           ]
       )

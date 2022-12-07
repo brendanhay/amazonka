@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CoipAddressUsage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,13 +81,13 @@ coipAddressUsage_coIp = Lens.lens (\CoipAddressUsage' {coIp} -> coIp) (\s@CoipAd
 coipAddressUsage_awsService :: Lens.Lens' CoipAddressUsage (Prelude.Maybe Prelude.Text)
 coipAddressUsage_awsService = Lens.lens (\CoipAddressUsage' {awsService} -> awsService) (\s@CoipAddressUsage' {} a -> s {awsService = a} :: CoipAddressUsage)
 
-instance Core.FromXML CoipAddressUsage where
+instance Data.FromXML CoipAddressUsage where
   parseXML x =
     CoipAddressUsage'
-      Prelude.<$> (x Core..@? "awsAccountId")
-      Prelude.<*> (x Core..@? "allocationId")
-      Prelude.<*> (x Core..@? "coIp")
-      Prelude.<*> (x Core..@? "awsService")
+      Prelude.<$> (x Data..@? "awsAccountId")
+      Prelude.<*> (x Data..@? "allocationId")
+      Prelude.<*> (x Data..@? "coIp")
+      Prelude.<*> (x Data..@? "awsService")
 
 instance Prelude.Hashable CoipAddressUsage where
   hashWithSalt _salt CoipAddressUsage' {..} =

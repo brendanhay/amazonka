@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pi.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -219,7 +220,7 @@ instance Core.AWSRequest GetDimensionKeyDetails where
     Response.receiveJSON
       ( \s h x ->
           GetDimensionKeyDetailsResponse'
-            Prelude.<$> (x Core..?> "Dimensions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Dimensions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -239,39 +240,39 @@ instance Prelude.NFData GetDimensionKeyDetails where
       `Prelude.seq` Prelude.rnf group'
       `Prelude.seq` Prelude.rnf groupIdentifier
 
-instance Core.ToHeaders GetDimensionKeyDetails where
+instance Data.ToHeaders GetDimensionKeyDetails where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PerformanceInsightsv20180227.GetDimensionKeyDetails" ::
+              Data.=# ( "PerformanceInsightsv20180227.GetDimensionKeyDetails" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDimensionKeyDetails where
+instance Data.ToJSON GetDimensionKeyDetails where
   toJSON GetDimensionKeyDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RequestedDimensions" Core..=)
+          [ ("RequestedDimensions" Data..=)
               Prelude.<$> requestedDimensions,
-            Prelude.Just ("ServiceType" Core..= serviceType),
-            Prelude.Just ("Identifier" Core..= identifier),
-            Prelude.Just ("Group" Core..= group'),
+            Prelude.Just ("ServiceType" Data..= serviceType),
+            Prelude.Just ("Identifier" Data..= identifier),
+            Prelude.Just ("Group" Data..= group'),
             Prelude.Just
-              ("GroupIdentifier" Core..= groupIdentifier)
+              ("GroupIdentifier" Data..= groupIdentifier)
           ]
       )
 
-instance Core.ToPath GetDimensionKeyDetails where
+instance Data.ToPath GetDimensionKeyDetails where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDimensionKeyDetails where
+instance Data.ToQuery GetDimensionKeyDetails where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDimensionKeyDetailsResponse' smart constructor.

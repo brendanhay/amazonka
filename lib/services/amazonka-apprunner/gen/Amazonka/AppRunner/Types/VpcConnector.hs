@@ -22,6 +22,7 @@ module Amazonka.AppRunner.Types.VpcConnector where
 import Amazonka.AppRunner.Types.VpcConnectorStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an App Runner VPC connector resource. A VPC connector
@@ -53,7 +54,7 @@ data VpcConnector = VpcConnector'
     status :: Prelude.Maybe VpcConnectorStatus,
     -- | The time when the VPC connector was deleted. It\'s in Unix time stamp
     -- format.
-    deletedAt :: Prelude.Maybe Core.POSIX,
+    deletedAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of this VPC connector.
     vpcConnectorArn :: Prelude.Maybe Prelude.Text,
     -- | A list of IDs of security groups that App Runner uses for access to
@@ -63,7 +64,7 @@ data VpcConnector = VpcConnector'
     securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The time when the VPC connector was created. It\'s in Unix time stamp
     -- format.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,7 +143,7 @@ vpcConnector_status = Lens.lens (\VpcConnector' {status} -> status) (\s@VpcConne
 -- | The time when the VPC connector was deleted. It\'s in Unix time stamp
 -- format.
 vpcConnector_deletedAt :: Lens.Lens' VpcConnector (Prelude.Maybe Prelude.UTCTime)
-vpcConnector_deletedAt = Lens.lens (\VpcConnector' {deletedAt} -> deletedAt) (\s@VpcConnector' {} a -> s {deletedAt = a} :: VpcConnector) Prelude.. Lens.mapping Core._Time
+vpcConnector_deletedAt = Lens.lens (\VpcConnector' {deletedAt} -> deletedAt) (\s@VpcConnector' {} a -> s {deletedAt = a} :: VpcConnector) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of this VPC connector.
 vpcConnector_vpcConnectorArn :: Lens.Lens' VpcConnector (Prelude.Maybe Prelude.Text)
@@ -158,22 +159,22 @@ vpcConnector_securityGroups = Lens.lens (\VpcConnector' {securityGroups} -> secu
 -- | The time when the VPC connector was created. It\'s in Unix time stamp
 -- format.
 vpcConnector_createdAt :: Lens.Lens' VpcConnector (Prelude.Maybe Prelude.UTCTime)
-vpcConnector_createdAt = Lens.lens (\VpcConnector' {createdAt} -> createdAt) (\s@VpcConnector' {} a -> s {createdAt = a} :: VpcConnector) Prelude.. Lens.mapping Core._Time
+vpcConnector_createdAt = Lens.lens (\VpcConnector' {createdAt} -> createdAt) (\s@VpcConnector' {} a -> s {createdAt = a} :: VpcConnector) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON VpcConnector where
+instance Data.FromJSON VpcConnector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcConnector"
       ( \x ->
           VpcConnector'
-            Prelude.<$> (x Core..:? "VpcConnectorName")
-            Prelude.<*> (x Core..:? "VpcConnectorRevision")
-            Prelude.<*> (x Core..:? "Subnets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "DeletedAt")
-            Prelude.<*> (x Core..:? "VpcConnectorArn")
-            Prelude.<*> (x Core..:? "SecurityGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "VpcConnectorName")
+            Prelude.<*> (x Data..:? "VpcConnectorRevision")
+            Prelude.<*> (x Data..:? "Subnets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "DeletedAt")
+            Prelude.<*> (x Data..:? "VpcConnectorArn")
+            Prelude.<*> (x Data..:? "SecurityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable VpcConnector where

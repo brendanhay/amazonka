@@ -21,6 +21,7 @@ module Amazonka.MigrationHubConfig.Types.HomeRegionControl where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubConfig.Types.Target
 import qualified Amazonka.Prelude as Prelude
 
@@ -36,7 +37,7 @@ data HomeRegionControl = HomeRegionControl'
     controlId :: Prelude.Maybe Prelude.Text,
     -- | A timestamp representing the time when the customer called
     -- @CreateHomeregionControl@ and set the home region for the account.
-    requestedTime :: Prelude.Maybe Core.POSIX,
+    requestedTime :: Prelude.Maybe Data.POSIX,
     -- | The target parameter specifies the identifier to which the home region
     -- is applied, which is always an @ACCOUNT@. It applies the home region to
     -- the current @ACCOUNT@.
@@ -87,7 +88,7 @@ homeRegionControl_controlId = Lens.lens (\HomeRegionControl' {controlId} -> cont
 -- | A timestamp representing the time when the customer called
 -- @CreateHomeregionControl@ and set the home region for the account.
 homeRegionControl_requestedTime :: Lens.Lens' HomeRegionControl (Prelude.Maybe Prelude.UTCTime)
-homeRegionControl_requestedTime = Lens.lens (\HomeRegionControl' {requestedTime} -> requestedTime) (\s@HomeRegionControl' {} a -> s {requestedTime = a} :: HomeRegionControl) Prelude.. Lens.mapping Core._Time
+homeRegionControl_requestedTime = Lens.lens (\HomeRegionControl' {requestedTime} -> requestedTime) (\s@HomeRegionControl' {} a -> s {requestedTime = a} :: HomeRegionControl) Prelude.. Lens.mapping Data._Time
 
 -- | The target parameter specifies the identifier to which the home region
 -- is applied, which is always an @ACCOUNT@. It applies the home region to
@@ -100,16 +101,16 @@ homeRegionControl_target = Lens.lens (\HomeRegionControl' {target} -> target) (\
 homeRegionControl_homeRegion :: Lens.Lens' HomeRegionControl (Prelude.Maybe Prelude.Text)
 homeRegionControl_homeRegion = Lens.lens (\HomeRegionControl' {homeRegion} -> homeRegion) (\s@HomeRegionControl' {} a -> s {homeRegion = a} :: HomeRegionControl)
 
-instance Core.FromJSON HomeRegionControl where
+instance Data.FromJSON HomeRegionControl where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HomeRegionControl"
       ( \x ->
           HomeRegionControl'
-            Prelude.<$> (x Core..:? "ControlId")
-            Prelude.<*> (x Core..:? "RequestedTime")
-            Prelude.<*> (x Core..:? "Target")
-            Prelude.<*> (x Core..:? "HomeRegion")
+            Prelude.<$> (x Data..:? "ControlId")
+            Prelude.<*> (x Data..:? "RequestedTime")
+            Prelude.<*> (x Data..:? "Target")
+            Prelude.<*> (x Data..:? "HomeRegion")
       )
 
 instance Prelude.Hashable HomeRegionControl where

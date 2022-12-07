@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -329,8 +330,8 @@ instance Core.AWSRequest ListDevices where
     Response.receiveJSON
       ( \s h x ->
           ListDevicesResponse'
-            Prelude.<$> (x Core..?> "devices" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "devices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -346,35 +347,35 @@ instance Prelude.NFData ListDevices where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders ListDevices where
+instance Data.ToHeaders ListDevices where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.ListDevices" ::
+              Data.=# ( "DeviceFarm_20150623.ListDevices" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDevices where
+instance Data.ToJSON ListDevices where
   toJSON ListDevices' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("arn" Core..=) Prelude.<$> arn
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("arn" Data..=) Prelude.<$> arn
           ]
       )
 
-instance Core.ToPath ListDevices where
+instance Data.ToPath ListDevices where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDevices where
+instance Data.ToQuery ListDevices where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a list devices operation.

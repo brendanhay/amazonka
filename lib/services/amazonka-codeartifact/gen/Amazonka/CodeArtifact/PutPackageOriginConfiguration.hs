@@ -65,6 +65,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -236,7 +237,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PutPackageOriginConfigurationResponse'
-            Prelude.<$> (x Core..?> "originConfiguration")
+            Prelude.<$> (x Data..?> "originConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -263,36 +264,36 @@ instance Prelude.NFData PutPackageOriginConfiguration where
       `Prelude.seq` Prelude.rnf package
       `Prelude.seq` Prelude.rnf restrictions
 
-instance Core.ToHeaders PutPackageOriginConfiguration where
+instance Data.ToHeaders PutPackageOriginConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutPackageOriginConfiguration where
+instance Data.ToJSON PutPackageOriginConfiguration where
   toJSON PutPackageOriginConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("restrictions" Core..= restrictions)]
+          [Prelude.Just ("restrictions" Data..= restrictions)]
       )
 
-instance Core.ToPath PutPackageOriginConfiguration where
+instance Data.ToPath PutPackageOriginConfiguration where
   toPath = Prelude.const "/v1/package"
 
-instance Core.ToQuery PutPackageOriginConfiguration where
+instance Data.ToQuery PutPackageOriginConfiguration where
   toQuery PutPackageOriginConfiguration' {..} =
     Prelude.mconcat
-      [ "domain-owner" Core.=: domainOwner,
-        "namespace" Core.=: namespace,
-        "domain" Core.=: domain,
-        "repository" Core.=: repository,
-        "format" Core.=: format,
-        "package" Core.=: package
+      [ "domain-owner" Data.=: domainOwner,
+        "namespace" Data.=: namespace,
+        "domain" Data.=: domain,
+        "repository" Data.=: repository,
+        "format" Data.=: format,
+        "package" Data.=: package
       ]
 
 -- | /See:/ 'newPutPackageOriginConfigurationResponse' smart constructor.

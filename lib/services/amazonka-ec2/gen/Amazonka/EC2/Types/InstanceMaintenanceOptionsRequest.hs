@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceMaintenanceOptionsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceAutoRecoveryState
 import qualified Amazonka.Prelude as Prelude
@@ -78,9 +79,9 @@ instance
     Prelude.rnf autoRecovery
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     InstanceMaintenanceOptionsRequest
   where
   toQuery InstanceMaintenanceOptionsRequest' {..} =
     Prelude.mconcat
-      ["AutoRecovery" Core.=: autoRecovery]
+      ["AutoRecovery" Data.=: autoRecovery]

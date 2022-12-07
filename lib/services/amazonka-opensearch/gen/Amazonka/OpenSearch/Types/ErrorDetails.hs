@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.ErrorDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Additional information if the package is in an error state. Null
@@ -62,14 +63,14 @@ errorDetails_errorMessage = Lens.lens (\ErrorDetails' {errorMessage} -> errorMes
 errorDetails_errorType :: Lens.Lens' ErrorDetails (Prelude.Maybe Prelude.Text)
 errorDetails_errorType = Lens.lens (\ErrorDetails' {errorType} -> errorType) (\s@ErrorDetails' {} a -> s {errorType = a} :: ErrorDetails)
 
-instance Core.FromJSON ErrorDetails where
+instance Data.FromJSON ErrorDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorDetails"
       ( \x ->
           ErrorDetails'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorType")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorType")
       )
 
 instance Prelude.Hashable ErrorDetails where

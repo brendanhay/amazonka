@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.EnabledMetric where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an enabled Auto Scaling group metric.
@@ -193,11 +194,11 @@ enabledMetric_granularity = Lens.lens (\EnabledMetric' {granularity} -> granular
 enabledMetric_metric :: Lens.Lens' EnabledMetric (Prelude.Maybe Prelude.Text)
 enabledMetric_metric = Lens.lens (\EnabledMetric' {metric} -> metric) (\s@EnabledMetric' {} a -> s {metric = a} :: EnabledMetric)
 
-instance Core.FromXML EnabledMetric where
+instance Data.FromXML EnabledMetric where
   parseXML x =
     EnabledMetric'
-      Prelude.<$> (x Core..@? "Granularity")
-      Prelude.<*> (x Core..@? "Metric")
+      Prelude.<$> (x Data..@? "Granularity")
+      Prelude.<*> (x Data..@? "Metric")
 
 instance Prelude.Hashable EnabledMetric where
   hashWithSalt _salt EnabledMetric' {..} =

@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.Scope where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types.ScopeType
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,13 +64,13 @@ scope_key = Lens.lens (\Scope' {key} -> key) (\s@Scope' {} a -> s {key = a} :: S
 scope_value :: Lens.Lens' Scope (Prelude.Maybe Prelude.Text)
 scope_value = Lens.lens (\Scope' {value} -> value) (\s@Scope' {} a -> s {value = a} :: Scope)
 
-instance Core.FromJSON Scope where
+instance Data.FromJSON Scope where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scope"
       ( \x ->
           Scope'
-            Prelude.<$> (x Core..:? "key") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "key") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable Scope where

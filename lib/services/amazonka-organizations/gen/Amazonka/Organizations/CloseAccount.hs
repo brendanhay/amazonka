@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,32 +126,32 @@ instance Prelude.Hashable CloseAccount where
 instance Prelude.NFData CloseAccount where
   rnf CloseAccount' {..} = Prelude.rnf accountId
 
-instance Core.ToHeaders CloseAccount where
+instance Data.ToHeaders CloseAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.CloseAccount" ::
+              Data.=# ( "AWSOrganizationsV20161128.CloseAccount" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CloseAccount where
+instance Data.ToJSON CloseAccount where
   toJSON CloseAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AccountId" Core..= accountId)]
+          [Prelude.Just ("AccountId" Data..= accountId)]
       )
 
-instance Core.ToPath CloseAccount where
+instance Data.ToPath CloseAccount where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CloseAccount where
+instance Data.ToQuery CloseAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCloseAccountResponse' smart constructor.

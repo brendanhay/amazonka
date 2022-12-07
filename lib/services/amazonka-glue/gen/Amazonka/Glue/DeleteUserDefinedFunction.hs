@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,35 +131,35 @@ instance Prelude.NFData DeleteUserDefinedFunction where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf functionName
 
-instance Core.ToHeaders DeleteUserDefinedFunction where
+instance Data.ToHeaders DeleteUserDefinedFunction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.DeleteUserDefinedFunction" ::
+              Data.=# ( "AWSGlue.DeleteUserDefinedFunction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteUserDefinedFunction where
+instance Data.ToJSON DeleteUserDefinedFunction where
   toJSON DeleteUserDefinedFunction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("FunctionName" Core..= functionName)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("FunctionName" Data..= functionName)
           ]
       )
 
-instance Core.ToPath DeleteUserDefinedFunction where
+instance Data.ToPath DeleteUserDefinedFunction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteUserDefinedFunction where
+instance Data.ToQuery DeleteUserDefinedFunction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserDefinedFunctionResponse' smart constructor.

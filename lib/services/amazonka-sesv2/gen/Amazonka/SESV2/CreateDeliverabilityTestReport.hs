@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -155,8 +156,8 @@ instance
       ( \s h x ->
           CreateDeliverabilityTestReportResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ReportId")
-            Prelude.<*> (x Core..:> "DeliverabilityTestStatus")
+            Prelude.<*> (x Data..:> "ReportId")
+            Prelude.<*> (x Data..:> "DeliverabilityTestStatus")
       )
 
 instance
@@ -182,37 +183,37 @@ instance
       `Prelude.seq` Prelude.rnf content
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateDeliverabilityTestReport
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDeliverabilityTestReport where
+instance Data.ToJSON CreateDeliverabilityTestReport where
   toJSON CreateDeliverabilityTestReport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ReportName" Core..=) Prelude.<$> reportName,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ReportName" Data..=) Prelude.<$> reportName,
             Prelude.Just
-              ("FromEmailAddress" Core..= fromEmailAddress),
-            Prelude.Just ("Content" Core..= content)
+              ("FromEmailAddress" Data..= fromEmailAddress),
+            Prelude.Just ("Content" Data..= content)
           ]
       )
 
-instance Core.ToPath CreateDeliverabilityTestReport where
+instance Data.ToPath CreateDeliverabilityTestReport where
   toPath =
     Prelude.const
       "/v2/email/deliverability-dashboard/test"
 
-instance Core.ToQuery CreateDeliverabilityTestReport where
+instance Data.ToQuery CreateDeliverabilityTestReport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Information about the predictive inbox placement test that you created.

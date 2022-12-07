@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.DatastoreStorageSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary
 import Amazonka.IoTAnalytics.Types.DatastoreIotSiteWiseMultiLayerStorageSummary
 import Amazonka.IoTAnalytics.Types.ServiceManagedDatastoreS3StorageSummary
@@ -77,15 +78,15 @@ datastoreStorageSummary_iotSiteWiseMultiLayerStorage = Lens.lens (\DatastoreStor
 datastoreStorageSummary_serviceManagedS3 :: Lens.Lens' DatastoreStorageSummary (Prelude.Maybe ServiceManagedDatastoreS3StorageSummary)
 datastoreStorageSummary_serviceManagedS3 = Lens.lens (\DatastoreStorageSummary' {serviceManagedS3} -> serviceManagedS3) (\s@DatastoreStorageSummary' {} a -> s {serviceManagedS3 = a} :: DatastoreStorageSummary)
 
-instance Core.FromJSON DatastoreStorageSummary where
+instance Data.FromJSON DatastoreStorageSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatastoreStorageSummary"
       ( \x ->
           DatastoreStorageSummary'
-            Prelude.<$> (x Core..:? "customerManagedS3")
-            Prelude.<*> (x Core..:? "iotSiteWiseMultiLayerStorage")
-            Prelude.<*> (x Core..:? "serviceManagedS3")
+            Prelude.<$> (x Data..:? "customerManagedS3")
+            Prelude.<*> (x Data..:? "iotSiteWiseMultiLayerStorage")
+            Prelude.<*> (x Data..:? "serviceManagedS3")
       )
 
 instance Prelude.Hashable DatastoreStorageSummary where

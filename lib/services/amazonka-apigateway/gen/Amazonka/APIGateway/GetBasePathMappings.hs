@@ -47,6 +47,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,8 +137,8 @@ instance Core.AWSRequest GetBasePathMappings where
     Response.receiveJSON
       ( \s h x ->
           GetBasePathMappingsResponse'
-            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "position")
+            Prelude.<$> (x Data..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,27 +154,27 @@ instance Prelude.NFData GetBasePathMappings where
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders GetBasePathMappings where
+instance Data.ToHeaders GetBasePathMappings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetBasePathMappings where
+instance Data.ToPath GetBasePathMappings where
   toPath GetBasePathMappings' {..} =
     Prelude.mconcat
       [ "/domainnames/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/basepathmappings"
       ]
 
-instance Core.ToQuery GetBasePathMappings where
+instance Data.ToQuery GetBasePathMappings where
   toQuery GetBasePathMappings' {..} =
     Prelude.mconcat
-      ["limit" Core.=: limit, "position" Core.=: position]
+      ["limit" Data.=: limit, "position" Data.=: position]
 
 -- | Represents a collection of BasePathMapping resources.
 --

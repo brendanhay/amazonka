@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,36 +94,36 @@ instance Prelude.NFData DeleteForecastExportJob where
   rnf DeleteForecastExportJob' {..} =
     Prelude.rnf forecastExportJobArn
 
-instance Core.ToHeaders DeleteForecastExportJob where
+instance Data.ToHeaders DeleteForecastExportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DeleteForecastExportJob" ::
+              Data.=# ( "AmazonForecast.DeleteForecastExportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteForecastExportJob where
+instance Data.ToJSON DeleteForecastExportJob where
   toJSON DeleteForecastExportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ForecastExportJobArn"
-                  Core..= forecastExportJobArn
+                  Data..= forecastExportJobArn
               )
           ]
       )
 
-instance Core.ToPath DeleteForecastExportJob where
+instance Data.ToPath DeleteForecastExportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteForecastExportJob where
+instance Data.ToQuery DeleteForecastExportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteForecastExportJobResponse' smart constructor.

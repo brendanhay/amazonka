@@ -42,6 +42,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,7 +89,7 @@ instance Core.AWSRequest StopReplicationTask where
     Response.receiveJSON
       ( \s h x ->
           StopReplicationTaskResponse'
-            Prelude.<$> (x Core..?> "ReplicationTask")
+            Prelude.<$> (x Data..?> "ReplicationTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,34 +101,34 @@ instance Prelude.NFData StopReplicationTask where
   rnf StopReplicationTask' {..} =
     Prelude.rnf replicationTaskArn
 
-instance Core.ToHeaders StopReplicationTask where
+instance Data.ToHeaders StopReplicationTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.StopReplicationTask" ::
+              Data.=# ( "AmazonDMSv20160101.StopReplicationTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopReplicationTask where
+instance Data.ToJSON StopReplicationTask where
   toJSON StopReplicationTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ReplicationTaskArn" Core..= replicationTaskArn)
+              ("ReplicationTaskArn" Data..= replicationTaskArn)
           ]
       )
 
-instance Core.ToPath StopReplicationTask where
+instance Data.ToPath StopReplicationTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopReplicationTask where
+instance Data.ToQuery StopReplicationTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

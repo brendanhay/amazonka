@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.AppIntegrationsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for Amazon AppIntegrations to automatically
@@ -115,14 +116,14 @@ appIntegrationsConfiguration_appIntegrationArn = Lens.lens (\AppIntegrationsConf
 appIntegrationsConfiguration_objectFields :: Lens.Lens' AppIntegrationsConfiguration (Prelude.NonEmpty Prelude.Text)
 appIntegrationsConfiguration_objectFields = Lens.lens (\AppIntegrationsConfiguration' {objectFields} -> objectFields) (\s@AppIntegrationsConfiguration' {} a -> s {objectFields = a} :: AppIntegrationsConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON AppIntegrationsConfiguration where
+instance Data.FromJSON AppIntegrationsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppIntegrationsConfiguration"
       ( \x ->
           AppIntegrationsConfiguration'
-            Prelude.<$> (x Core..: "appIntegrationArn")
-            Prelude.<*> (x Core..: "objectFields")
+            Prelude.<$> (x Data..: "appIntegrationArn")
+            Prelude.<*> (x Data..: "objectFields")
       )
 
 instance
@@ -138,12 +139,12 @@ instance Prelude.NFData AppIntegrationsConfiguration where
     Prelude.rnf appIntegrationArn
       `Prelude.seq` Prelude.rnf objectFields
 
-instance Core.ToJSON AppIntegrationsConfiguration where
+instance Data.ToJSON AppIntegrationsConfiguration where
   toJSON AppIntegrationsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("appIntegrationArn" Core..= appIntegrationArn),
-            Prelude.Just ("objectFields" Core..= objectFields)
+              ("appIntegrationArn" Data..= appIntegrationArn),
+            Prelude.Just ("objectFields" Data..= objectFields)
           ]
       )

@@ -170,6 +170,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -246,7 +247,7 @@ data UploadPart = UploadPart'
     -- @x-amz-server-side-encryption-customer-algorithm header@. This must be
     -- the same encryption key specified in the initiate multipart upload
     -- request.
-    sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the bucket to which the multipart upload was initiated.
     --
     -- When using this action with an access point, you must direct requests to
@@ -276,7 +277,7 @@ data UploadPart = UploadPart'
     -- | Upload ID identifying the multipart upload whose part is being uploaded.
     uploadId :: Prelude.Text,
     -- | Object data.
-    body :: Core.RequestBody
+    body :: Data.RequestBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -398,7 +399,7 @@ newUploadPart ::
   -- | 'uploadId'
   Prelude.Text ->
   -- | 'body'
-  Core.RequestBody ->
+  Data.RequestBody ->
   UploadPart
 newUploadPart
   pBucket_
@@ -519,7 +520,7 @@ uploadPart_sSECustomerKeyMD5 = Lens.lens (\UploadPart' {sSECustomerKeyMD5} -> sS
 -- the same encryption key specified in the initiate multipart upload
 -- request.
 uploadPart_sSECustomerKey :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Text)
-uploadPart_sSECustomerKey = Lens.lens (\UploadPart' {sSECustomerKey} -> sSECustomerKey) (\s@UploadPart' {} a -> s {sSECustomerKey = a} :: UploadPart) Prelude.. Lens.mapping Core._Sensitive
+uploadPart_sSECustomerKey = Lens.lens (\UploadPart' {sSECustomerKey} -> sSECustomerKey) (\s@UploadPart' {} a -> s {sSECustomerKey = a} :: UploadPart) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the bucket to which the multipart upload was initiated.
 --
@@ -558,7 +559,7 @@ uploadPart_uploadId :: Lens.Lens' UploadPart Prelude.Text
 uploadPart_uploadId = Lens.lens (\UploadPart' {uploadId} -> uploadId) (\s@UploadPart' {} a -> s {uploadId = a} :: UploadPart)
 
 -- | Object data.
-uploadPart_body :: Lens.Lens' UploadPart Core.RequestBody
+uploadPart_body :: Lens.Lens' UploadPart Data.RequestBody
 uploadPart_body = Lens.lens (\UploadPart' {body} -> body) (\s@UploadPart' {} a -> s {body = a} :: UploadPart)
 
 instance Core.AWSRequest UploadPart where
@@ -570,63 +571,63 @@ instance Core.AWSRequest UploadPart where
     Response.receiveEmpty
       ( \s h x ->
           UploadPartResponse'
-            Prelude.<$> (h Core..#? "x-amz-server-side-encryption")
-            Prelude.<*> (h Core..#? "x-amz-checksum-crc32c")
+            Prelude.<$> (h Data..#? "x-amz-server-side-encryption")
+            Prelude.<*> (h Data..#? "x-amz-checksum-crc32c")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
+                            Data..#? "x-amz-server-side-encryption-bucket-key-enabled"
                         )
-            Prelude.<*> (h Core..#? "x-amz-request-charged")
-            Prelude.<*> (h Core..#? "x-amz-checksum-sha1")
-            Prelude.<*> (h Core..#? "x-amz-checksum-crc32")
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
+            Prelude.<*> (h Data..#? "x-amz-checksum-sha1")
+            Prelude.<*> (h Data..#? "x-amz-checksum-crc32")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-aws-kms-key-id"
+                            Data..#? "x-amz-server-side-encryption-aws-kms-key-id"
                         )
-            Prelude.<*> (h Core..#? "x-amz-checksum-sha256")
+            Prelude.<*> (h Data..#? "x-amz-checksum-sha256")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-customer-algorithm"
+                            Data..#? "x-amz-server-side-encryption-customer-algorithm"
                         )
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-customer-key-MD5"
+                            Data..#? "x-amz-server-side-encryption-customer-key-MD5"
                         )
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.ToBody UploadPart where
-  toBody UploadPart' {..} = Core.toBody body
+instance Data.ToBody UploadPart where
+  toBody UploadPart' {..} = Data.toBody body
 
-instance Core.ToHeaders UploadPart where
+instance Data.ToHeaders UploadPart where
   toHeaders UploadPart' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
-        "x-amz-checksum-crc32c" Core.=# checksumCRC32C,
-        "x-amz-checksum-sha1" Core.=# checksumSHA1,
-        "Content-MD5" Core.=# contentMD5,
+          Data.=# checksumAlgorithm,
+        "x-amz-checksum-crc32c" Data.=# checksumCRC32C,
+        "x-amz-checksum-sha1" Data.=# checksumSHA1,
+        "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-checksum-crc32" Core.=# checksumCRC32,
-        "x-amz-request-payer" Core.=# requestPayer,
-        "x-amz-checksum-sha256" Core.=# checksumSHA256,
-        "Content-Length" Core.=# contentLength,
+          Data.=# expectedBucketOwner,
+        "x-amz-checksum-crc32" Data.=# checksumCRC32,
+        "x-amz-request-payer" Data.=# requestPayer,
+        "x-amz-checksum-sha256" Data.=# checksumSHA256,
+        "Content-Length" Data.=# contentLength,
         "x-amz-server-side-encryption-customer-algorithm"
-          Core.=# sSECustomerAlgorithm,
+          Data.=# sSECustomerAlgorithm,
         "x-amz-server-side-encryption-customer-key-MD5"
-          Core.=# sSECustomerKeyMD5,
+          Data.=# sSECustomerKeyMD5,
         "x-amz-server-side-encryption-customer-key"
-          Core.=# sSECustomerKey
+          Data.=# sSECustomerKey
       ]
 
-instance Core.ToPath UploadPart where
+instance Data.ToPath UploadPart where
   toPath UploadPart' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery UploadPart where
+instance Data.ToQuery UploadPart where
   toQuery UploadPart' {..} =
     Prelude.mconcat
-      [ "partNumber" Core.=: partNumber,
-        "uploadId" Core.=: uploadId
+      [ "partNumber" Data.=: partNumber,
+        "uploadId" Data.=: uploadId
       ]
 
 -- | /See:/ 'newUploadPartResponse' smart constructor.
@@ -662,7 +663,7 @@ data UploadPartResponse = UploadPartResponse'
     -- | If present, specifies the ID of the Amazon Web Services Key Management
     -- Service (Amazon Web Services KMS) symmetric customer managed key was
     -- used for the object.
-    sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The base64-encoded, 256-bit SHA-256 digest of the object. This will only
     -- be present if it was uploaded with the object. With multipart uploads,
     -- this may not be a checksum value of the object. For more information
@@ -810,7 +811,7 @@ uploadPartResponse_checksumCRC32 = Lens.lens (\UploadPartResponse' {checksumCRC3
 -- Service (Amazon Web Services KMS) symmetric customer managed key was
 -- used for the object.
 uploadPartResponse_sSEKMSKeyId :: Lens.Lens' UploadPartResponse (Prelude.Maybe Prelude.Text)
-uploadPartResponse_sSEKMSKeyId = Lens.lens (\UploadPartResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@UploadPartResponse' {} a -> s {sSEKMSKeyId = a} :: UploadPartResponse) Prelude.. Lens.mapping Core._Sensitive
+uploadPartResponse_sSEKMSKeyId = Lens.lens (\UploadPartResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@UploadPartResponse' {} a -> s {sSEKMSKeyId = a} :: UploadPartResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The base64-encoded, 256-bit SHA-256 digest of the object. This will only
 -- be present if it was uploaded with the object. With multipart uploads,

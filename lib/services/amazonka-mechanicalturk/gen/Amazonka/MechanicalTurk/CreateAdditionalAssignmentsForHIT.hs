@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -170,48 +171,48 @@ instance
       `Prelude.seq` Prelude.rnf numberOfAdditionalAssignments
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateAdditionalAssignmentsForHIT
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateAdditionalAssignmentsForHIT
   where
   toJSON CreateAdditionalAssignmentsForHIT' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UniqueRequestToken" Core..=)
+          [ ("UniqueRequestToken" Data..=)
               Prelude.<$> uniqueRequestToken,
-            Prelude.Just ("HITId" Core..= hITId),
+            Prelude.Just ("HITId" Data..= hITId),
             Prelude.Just
               ( "NumberOfAdditionalAssignments"
-                  Core..= numberOfAdditionalAssignments
+                  Data..= numberOfAdditionalAssignments
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateAdditionalAssignmentsForHIT
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateAdditionalAssignmentsForHIT
   where
   toQuery = Prelude.const Prelude.mempty

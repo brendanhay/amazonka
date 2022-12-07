@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.Site where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types.RackPhysicalProperties
 import qualified Amazonka.Prelude as Prelude
 
@@ -144,23 +145,23 @@ site_operatingAddressStateOrRegion = Lens.lens (\Site' {operatingAddressStateOrR
 site_operatingAddressCountryCode :: Lens.Lens' Site (Prelude.Maybe Prelude.Text)
 site_operatingAddressCountryCode = Lens.lens (\Site' {operatingAddressCountryCode} -> operatingAddressCountryCode) (\s@Site' {} a -> s {operatingAddressCountryCode = a} :: Site)
 
-instance Core.FromJSON Site where
+instance Data.FromJSON Site where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Site"
       ( \x ->
           Site'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "SiteArn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SiteId")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "OperatingAddressCity")
-            Prelude.<*> (x Core..:? "Notes")
-            Prelude.<*> (x Core..:? "RackPhysicalProperties")
-            Prelude.<*> (x Core..:? "OperatingAddressStateOrRegion")
-            Prelude.<*> (x Core..:? "OperatingAddressCountryCode")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "SiteArn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SiteId")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "OperatingAddressCity")
+            Prelude.<*> (x Data..:? "Notes")
+            Prelude.<*> (x Data..:? "RackPhysicalProperties")
+            Prelude.<*> (x Data..:? "OperatingAddressStateOrRegion")
+            Prelude.<*> (x Data..:? "OperatingAddressCountryCode")
       )
 
 instance Prelude.Hashable Site where

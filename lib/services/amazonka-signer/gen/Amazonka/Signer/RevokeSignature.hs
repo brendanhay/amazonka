@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,32 +116,32 @@ instance Prelude.NFData RevokeSignature where
       `Prelude.seq` Prelude.rnf reason
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders RevokeSignature where
+instance Data.ToHeaders RevokeSignature where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RevokeSignature where
+instance Data.ToJSON RevokeSignature where
   toJSON RevokeSignature' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("jobOwner" Core..=) Prelude.<$> jobOwner,
-            Prelude.Just ("reason" Core..= reason)
+          [ ("jobOwner" Data..=) Prelude.<$> jobOwner,
+            Prelude.Just ("reason" Data..= reason)
           ]
       )
 
-instance Core.ToPath RevokeSignature where
+instance Data.ToPath RevokeSignature where
   toPath RevokeSignature' {..} =
     Prelude.mconcat
-      ["/signing-jobs/", Core.toBS jobId, "/revoke"]
+      ["/signing-jobs/", Data.toBS jobId, "/revoke"]
 
-instance Core.ToQuery RevokeSignature where
+instance Data.ToQuery RevokeSignature where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRevokeSignatureResponse' smart constructor.

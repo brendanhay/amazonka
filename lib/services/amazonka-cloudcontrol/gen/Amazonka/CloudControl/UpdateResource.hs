@@ -68,6 +68,7 @@ where
 import Amazonka.CloudControl.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,7 +132,7 @@ data UpdateResource = UpdateResource'
     -- properties. For details, see
     -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-update.html#resource-operations-update-patch Composing the patch document>
     -- in the /Amazon Web Services Cloud Control API User Guide/.
-    patchDocument :: Core.Sensitive Prelude.Text
+    patchDocument :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -219,7 +220,7 @@ newUpdateResource
         typeName = pTypeName_,
         identifier = pIdentifier_,
         patchDocument =
-          Core._Sensitive Lens.# pPatchDocument_
+          Data._Sensitive Lens.# pPatchDocument_
       }
 
 -- | A unique identifier to ensure the idempotency of the resource request.
@@ -290,7 +291,7 @@ updateResource_identifier = Lens.lens (\UpdateResource' {identifier} -> identifi
 -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-update.html#resource-operations-update-patch Composing the patch document>
 -- in the /Amazon Web Services Cloud Control API User Guide/.
 updateResource_patchDocument :: Lens.Lens' UpdateResource Prelude.Text
-updateResource_patchDocument = Lens.lens (\UpdateResource' {patchDocument} -> patchDocument) (\s@UpdateResource' {} a -> s {patchDocument = a} :: UpdateResource) Prelude.. Core._Sensitive
+updateResource_patchDocument = Lens.lens (\UpdateResource' {patchDocument} -> patchDocument) (\s@UpdateResource' {} a -> s {patchDocument = a} :: UpdateResource) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest UpdateResource where
   type
@@ -302,7 +303,7 @@ instance Core.AWSRequest UpdateResource where
     Response.receiveJSON
       ( \s h x ->
           UpdateResourceResponse'
-            Prelude.<$> (x Core..?> "ProgressEvent")
+            Prelude.<$> (x Data..?> "ProgressEvent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -324,39 +325,39 @@ instance Prelude.NFData UpdateResource where
       `Prelude.seq` Prelude.rnf identifier
       `Prelude.seq` Prelude.rnf patchDocument
 
-instance Core.ToHeaders UpdateResource where
+instance Data.ToHeaders UpdateResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudApiService.UpdateResource" ::
+              Data.=# ( "CloudApiService.UpdateResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateResource where
+instance Data.ToJSON UpdateResource where
   toJSON UpdateResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("TypeVersionId" Core..=) Prelude.<$> typeVersionId,
-            Prelude.Just ("TypeName" Core..= typeName),
-            Prelude.Just ("Identifier" Core..= identifier),
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("TypeVersionId" Data..=) Prelude.<$> typeVersionId,
+            Prelude.Just ("TypeName" Data..= typeName),
+            Prelude.Just ("Identifier" Data..= identifier),
             Prelude.Just
-              ("PatchDocument" Core..= patchDocument)
+              ("PatchDocument" Data..= patchDocument)
           ]
       )
 
-instance Core.ToPath UpdateResource where
+instance Data.ToPath UpdateResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateResource where
+instance Data.ToQuery UpdateResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateResourceResponse' smart constructor.

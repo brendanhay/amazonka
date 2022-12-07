@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCodeBuildProjectSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the build input source code for this build project.
@@ -218,16 +219,16 @@ awsCodeBuildProjectSource_location = Lens.lens (\AwsCodeBuildProjectSource' {loc
 awsCodeBuildProjectSource_gitCloneDepth :: Lens.Lens' AwsCodeBuildProjectSource (Prelude.Maybe Prelude.Int)
 awsCodeBuildProjectSource_gitCloneDepth = Lens.lens (\AwsCodeBuildProjectSource' {gitCloneDepth} -> gitCloneDepth) (\s@AwsCodeBuildProjectSource' {} a -> s {gitCloneDepth = a} :: AwsCodeBuildProjectSource)
 
-instance Core.FromJSON AwsCodeBuildProjectSource where
+instance Data.FromJSON AwsCodeBuildProjectSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCodeBuildProjectSource"
       ( \x ->
           AwsCodeBuildProjectSource'
-            Prelude.<$> (x Core..:? "InsecureSsl")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "GitCloneDepth")
+            Prelude.<$> (x Data..:? "InsecureSsl")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "GitCloneDepth")
       )
 
 instance Prelude.Hashable AwsCodeBuildProjectSource where
@@ -244,13 +245,13 @@ instance Prelude.NFData AwsCodeBuildProjectSource where
       `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf gitCloneDepth
 
-instance Core.ToJSON AwsCodeBuildProjectSource where
+instance Data.ToJSON AwsCodeBuildProjectSource where
   toJSON AwsCodeBuildProjectSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InsecureSsl" Core..=) Prelude.<$> insecureSsl,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Location" Core..=) Prelude.<$> location,
-            ("GitCloneDepth" Core..=) Prelude.<$> gitCloneDepth
+          [ ("InsecureSsl" Data..=) Prelude.<$> insecureSsl,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Location" Data..=) Prelude.<$> location,
+            ("GitCloneDepth" Data..=) Prelude.<$> gitCloneDepth
           ]
       )

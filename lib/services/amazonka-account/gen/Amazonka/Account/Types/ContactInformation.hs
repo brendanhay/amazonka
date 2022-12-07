@@ -21,6 +21,7 @@ module Amazonka.Account.Types.ContactInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the details of the primary contact information associated with
@@ -30,32 +31,32 @@ import qualified Amazonka.Prelude as Prelude
 data ContactInformation = ContactInformation'
   { -- | The name of the company associated with the primary contact information,
     -- if any.
-    companyName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    companyName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The second line of the primary contact address, if any.
-    addressLine2 :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    addressLine2 :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The district or county of the primary contact address, if any.
-    districtOrCounty :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    districtOrCounty :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The state or region of the primary contact address. This field is
     -- required in selected countries.
-    stateOrRegion :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    stateOrRegion :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The third line of the primary contact address, if any.
-    addressLine3 :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    addressLine3 :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The URL of the website associated with the primary contact information,
     -- if any.
-    websiteUrl :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    websiteUrl :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The first line of the primary contact address.
-    addressLine1 :: Core.Sensitive Prelude.Text,
+    addressLine1 :: Data.Sensitive Prelude.Text,
     -- | The city of the primary contact address.
-    city :: Core.Sensitive Prelude.Text,
+    city :: Data.Sensitive Prelude.Text,
     -- | The ISO-3166 two-letter country code for the primary contact address.
-    countryCode :: Core.Sensitive Prelude.Text,
+    countryCode :: Data.Sensitive Prelude.Text,
     -- | The full name of the primary contact address.
-    fullName :: Core.Sensitive Prelude.Text,
+    fullName :: Data.Sensitive Prelude.Text,
     -- | The phone number of the primary contact information. The number will be
     -- validated and, in some countries, checked for activation.
-    phoneNumber :: Core.Sensitive Prelude.Text,
+    phoneNumber :: Data.Sensitive Prelude.Text,
     -- | The postal code of the primary contact address.
-    postalCode :: Core.Sensitive Prelude.Text
+    postalCode :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -122,84 +123,84 @@ newContactInformation
         stateOrRegion = Prelude.Nothing,
         addressLine3 = Prelude.Nothing,
         websiteUrl = Prelude.Nothing,
-        addressLine1 = Core._Sensitive Lens.# pAddressLine1_,
-        city = Core._Sensitive Lens.# pCity_,
-        countryCode = Core._Sensitive Lens.# pCountryCode_,
-        fullName = Core._Sensitive Lens.# pFullName_,
-        phoneNumber = Core._Sensitive Lens.# pPhoneNumber_,
-        postalCode = Core._Sensitive Lens.# pPostalCode_
+        addressLine1 = Data._Sensitive Lens.# pAddressLine1_,
+        city = Data._Sensitive Lens.# pCity_,
+        countryCode = Data._Sensitive Lens.# pCountryCode_,
+        fullName = Data._Sensitive Lens.# pFullName_,
+        phoneNumber = Data._Sensitive Lens.# pPhoneNumber_,
+        postalCode = Data._Sensitive Lens.# pPostalCode_
       }
 
 -- | The name of the company associated with the primary contact information,
 -- if any.
 contactInformation_companyName :: Lens.Lens' ContactInformation (Prelude.Maybe Prelude.Text)
-contactInformation_companyName = Lens.lens (\ContactInformation' {companyName} -> companyName) (\s@ContactInformation' {} a -> s {companyName = a} :: ContactInformation) Prelude.. Lens.mapping Core._Sensitive
+contactInformation_companyName = Lens.lens (\ContactInformation' {companyName} -> companyName) (\s@ContactInformation' {} a -> s {companyName = a} :: ContactInformation) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The second line of the primary contact address, if any.
 contactInformation_addressLine2 :: Lens.Lens' ContactInformation (Prelude.Maybe Prelude.Text)
-contactInformation_addressLine2 = Lens.lens (\ContactInformation' {addressLine2} -> addressLine2) (\s@ContactInformation' {} a -> s {addressLine2 = a} :: ContactInformation) Prelude.. Lens.mapping Core._Sensitive
+contactInformation_addressLine2 = Lens.lens (\ContactInformation' {addressLine2} -> addressLine2) (\s@ContactInformation' {} a -> s {addressLine2 = a} :: ContactInformation) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The district or county of the primary contact address, if any.
 contactInformation_districtOrCounty :: Lens.Lens' ContactInformation (Prelude.Maybe Prelude.Text)
-contactInformation_districtOrCounty = Lens.lens (\ContactInformation' {districtOrCounty} -> districtOrCounty) (\s@ContactInformation' {} a -> s {districtOrCounty = a} :: ContactInformation) Prelude.. Lens.mapping Core._Sensitive
+contactInformation_districtOrCounty = Lens.lens (\ContactInformation' {districtOrCounty} -> districtOrCounty) (\s@ContactInformation' {} a -> s {districtOrCounty = a} :: ContactInformation) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The state or region of the primary contact address. This field is
 -- required in selected countries.
 contactInformation_stateOrRegion :: Lens.Lens' ContactInformation (Prelude.Maybe Prelude.Text)
-contactInformation_stateOrRegion = Lens.lens (\ContactInformation' {stateOrRegion} -> stateOrRegion) (\s@ContactInformation' {} a -> s {stateOrRegion = a} :: ContactInformation) Prelude.. Lens.mapping Core._Sensitive
+contactInformation_stateOrRegion = Lens.lens (\ContactInformation' {stateOrRegion} -> stateOrRegion) (\s@ContactInformation' {} a -> s {stateOrRegion = a} :: ContactInformation) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The third line of the primary contact address, if any.
 contactInformation_addressLine3 :: Lens.Lens' ContactInformation (Prelude.Maybe Prelude.Text)
-contactInformation_addressLine3 = Lens.lens (\ContactInformation' {addressLine3} -> addressLine3) (\s@ContactInformation' {} a -> s {addressLine3 = a} :: ContactInformation) Prelude.. Lens.mapping Core._Sensitive
+contactInformation_addressLine3 = Lens.lens (\ContactInformation' {addressLine3} -> addressLine3) (\s@ContactInformation' {} a -> s {addressLine3 = a} :: ContactInformation) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The URL of the website associated with the primary contact information,
 -- if any.
 contactInformation_websiteUrl :: Lens.Lens' ContactInformation (Prelude.Maybe Prelude.Text)
-contactInformation_websiteUrl = Lens.lens (\ContactInformation' {websiteUrl} -> websiteUrl) (\s@ContactInformation' {} a -> s {websiteUrl = a} :: ContactInformation) Prelude.. Lens.mapping Core._Sensitive
+contactInformation_websiteUrl = Lens.lens (\ContactInformation' {websiteUrl} -> websiteUrl) (\s@ContactInformation' {} a -> s {websiteUrl = a} :: ContactInformation) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The first line of the primary contact address.
 contactInformation_addressLine1 :: Lens.Lens' ContactInformation Prelude.Text
-contactInformation_addressLine1 = Lens.lens (\ContactInformation' {addressLine1} -> addressLine1) (\s@ContactInformation' {} a -> s {addressLine1 = a} :: ContactInformation) Prelude.. Core._Sensitive
+contactInformation_addressLine1 = Lens.lens (\ContactInformation' {addressLine1} -> addressLine1) (\s@ContactInformation' {} a -> s {addressLine1 = a} :: ContactInformation) Prelude.. Data._Sensitive
 
 -- | The city of the primary contact address.
 contactInformation_city :: Lens.Lens' ContactInformation Prelude.Text
-contactInformation_city = Lens.lens (\ContactInformation' {city} -> city) (\s@ContactInformation' {} a -> s {city = a} :: ContactInformation) Prelude.. Core._Sensitive
+contactInformation_city = Lens.lens (\ContactInformation' {city} -> city) (\s@ContactInformation' {} a -> s {city = a} :: ContactInformation) Prelude.. Data._Sensitive
 
 -- | The ISO-3166 two-letter country code for the primary contact address.
 contactInformation_countryCode :: Lens.Lens' ContactInformation Prelude.Text
-contactInformation_countryCode = Lens.lens (\ContactInformation' {countryCode} -> countryCode) (\s@ContactInformation' {} a -> s {countryCode = a} :: ContactInformation) Prelude.. Core._Sensitive
+contactInformation_countryCode = Lens.lens (\ContactInformation' {countryCode} -> countryCode) (\s@ContactInformation' {} a -> s {countryCode = a} :: ContactInformation) Prelude.. Data._Sensitive
 
 -- | The full name of the primary contact address.
 contactInformation_fullName :: Lens.Lens' ContactInformation Prelude.Text
-contactInformation_fullName = Lens.lens (\ContactInformation' {fullName} -> fullName) (\s@ContactInformation' {} a -> s {fullName = a} :: ContactInformation) Prelude.. Core._Sensitive
+contactInformation_fullName = Lens.lens (\ContactInformation' {fullName} -> fullName) (\s@ContactInformation' {} a -> s {fullName = a} :: ContactInformation) Prelude.. Data._Sensitive
 
 -- | The phone number of the primary contact information. The number will be
 -- validated and, in some countries, checked for activation.
 contactInformation_phoneNumber :: Lens.Lens' ContactInformation Prelude.Text
-contactInformation_phoneNumber = Lens.lens (\ContactInformation' {phoneNumber} -> phoneNumber) (\s@ContactInformation' {} a -> s {phoneNumber = a} :: ContactInformation) Prelude.. Core._Sensitive
+contactInformation_phoneNumber = Lens.lens (\ContactInformation' {phoneNumber} -> phoneNumber) (\s@ContactInformation' {} a -> s {phoneNumber = a} :: ContactInformation) Prelude.. Data._Sensitive
 
 -- | The postal code of the primary contact address.
 contactInformation_postalCode :: Lens.Lens' ContactInformation Prelude.Text
-contactInformation_postalCode = Lens.lens (\ContactInformation' {postalCode} -> postalCode) (\s@ContactInformation' {} a -> s {postalCode = a} :: ContactInformation) Prelude.. Core._Sensitive
+contactInformation_postalCode = Lens.lens (\ContactInformation' {postalCode} -> postalCode) (\s@ContactInformation' {} a -> s {postalCode = a} :: ContactInformation) Prelude.. Data._Sensitive
 
-instance Core.FromJSON ContactInformation where
+instance Data.FromJSON ContactInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContactInformation"
       ( \x ->
           ContactInformation'
-            Prelude.<$> (x Core..:? "CompanyName")
-            Prelude.<*> (x Core..:? "AddressLine2")
-            Prelude.<*> (x Core..:? "DistrictOrCounty")
-            Prelude.<*> (x Core..:? "StateOrRegion")
-            Prelude.<*> (x Core..:? "AddressLine3")
-            Prelude.<*> (x Core..:? "WebsiteUrl")
-            Prelude.<*> (x Core..: "AddressLine1")
-            Prelude.<*> (x Core..: "City")
-            Prelude.<*> (x Core..: "CountryCode")
-            Prelude.<*> (x Core..: "FullName")
-            Prelude.<*> (x Core..: "PhoneNumber")
-            Prelude.<*> (x Core..: "PostalCode")
+            Prelude.<$> (x Data..:? "CompanyName")
+            Prelude.<*> (x Data..:? "AddressLine2")
+            Prelude.<*> (x Data..:? "DistrictOrCounty")
+            Prelude.<*> (x Data..:? "StateOrRegion")
+            Prelude.<*> (x Data..:? "AddressLine3")
+            Prelude.<*> (x Data..:? "WebsiteUrl")
+            Prelude.<*> (x Data..: "AddressLine1")
+            Prelude.<*> (x Data..: "City")
+            Prelude.<*> (x Data..: "CountryCode")
+            Prelude.<*> (x Data..: "FullName")
+            Prelude.<*> (x Data..: "PhoneNumber")
+            Prelude.<*> (x Data..: "PostalCode")
       )
 
 instance Prelude.Hashable ContactInformation where
@@ -232,22 +233,22 @@ instance Prelude.NFData ContactInformation where
       `Prelude.seq` Prelude.rnf phoneNumber
       `Prelude.seq` Prelude.rnf postalCode
 
-instance Core.ToJSON ContactInformation where
+instance Data.ToJSON ContactInformation where
   toJSON ContactInformation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CompanyName" Core..=) Prelude.<$> companyName,
-            ("AddressLine2" Core..=) Prelude.<$> addressLine2,
-            ("DistrictOrCounty" Core..=)
+          [ ("CompanyName" Data..=) Prelude.<$> companyName,
+            ("AddressLine2" Data..=) Prelude.<$> addressLine2,
+            ("DistrictOrCounty" Data..=)
               Prelude.<$> districtOrCounty,
-            ("StateOrRegion" Core..=) Prelude.<$> stateOrRegion,
-            ("AddressLine3" Core..=) Prelude.<$> addressLine3,
-            ("WebsiteUrl" Core..=) Prelude.<$> websiteUrl,
-            Prelude.Just ("AddressLine1" Core..= addressLine1),
-            Prelude.Just ("City" Core..= city),
-            Prelude.Just ("CountryCode" Core..= countryCode),
-            Prelude.Just ("FullName" Core..= fullName),
-            Prelude.Just ("PhoneNumber" Core..= phoneNumber),
-            Prelude.Just ("PostalCode" Core..= postalCode)
+            ("StateOrRegion" Data..=) Prelude.<$> stateOrRegion,
+            ("AddressLine3" Data..=) Prelude.<$> addressLine3,
+            ("WebsiteUrl" Data..=) Prelude.<$> websiteUrl,
+            Prelude.Just ("AddressLine1" Data..= addressLine1),
+            Prelude.Just ("City" Data..= city),
+            Prelude.Just ("CountryCode" Data..= countryCode),
+            Prelude.Just ("FullName" Data..= fullName),
+            Prelude.Just ("PhoneNumber" Data..= phoneNumber),
+            Prelude.Just ("PostalCode" Data..= postalCode)
           ]
       )

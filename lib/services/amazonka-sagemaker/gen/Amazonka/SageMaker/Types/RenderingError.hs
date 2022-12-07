@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RenderingError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A description of an error that occurred while rendering the template.
@@ -62,13 +63,13 @@ renderingError_code = Lens.lens (\RenderingError' {code} -> code) (\s@RenderingE
 renderingError_message :: Lens.Lens' RenderingError Prelude.Text
 renderingError_message = Lens.lens (\RenderingError' {message} -> message) (\s@RenderingError' {} a -> s {message = a} :: RenderingError)
 
-instance Core.FromJSON RenderingError where
+instance Data.FromJSON RenderingError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RenderingError"
       ( \x ->
           RenderingError'
-            Prelude.<$> (x Core..: "Code") Prelude.<*> (x Core..: "Message")
+            Prelude.<$> (x Data..: "Code") Prelude.<*> (x Data..: "Message")
       )
 
 instance Prelude.Hashable RenderingError where

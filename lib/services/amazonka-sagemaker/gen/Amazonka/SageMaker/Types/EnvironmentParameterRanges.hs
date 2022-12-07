@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EnvironmentParameterRanges where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CategoricalParameter
 
@@ -54,13 +55,13 @@ newEnvironmentParameterRanges =
 environmentParameterRanges_categoricalParameterRanges :: Lens.Lens' EnvironmentParameterRanges (Prelude.Maybe (Prelude.NonEmpty CategoricalParameter))
 environmentParameterRanges_categoricalParameterRanges = Lens.lens (\EnvironmentParameterRanges' {categoricalParameterRanges} -> categoricalParameterRanges) (\s@EnvironmentParameterRanges' {} a -> s {categoricalParameterRanges = a} :: EnvironmentParameterRanges) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EnvironmentParameterRanges where
+instance Data.FromJSON EnvironmentParameterRanges where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentParameterRanges"
       ( \x ->
           EnvironmentParameterRanges'
-            Prelude.<$> (x Core..:? "CategoricalParameterRanges")
+            Prelude.<$> (x Data..:? "CategoricalParameterRanges")
       )
 
 instance Prelude.Hashable EnvironmentParameterRanges where
@@ -72,11 +73,11 @@ instance Prelude.NFData EnvironmentParameterRanges where
   rnf EnvironmentParameterRanges' {..} =
     Prelude.rnf categoricalParameterRanges
 
-instance Core.ToJSON EnvironmentParameterRanges where
+instance Data.ToJSON EnvironmentParameterRanges where
   toJSON EnvironmentParameterRanges' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CategoricalParameterRanges" Core..=)
+          [ ("CategoricalParameterRanges" Data..=)
               Prelude.<$> categoricalParameterRanges
           ]
       )

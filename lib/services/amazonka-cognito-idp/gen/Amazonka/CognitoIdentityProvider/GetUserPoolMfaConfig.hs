@@ -44,6 +44,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,9 +86,9 @@ instance Core.AWSRequest GetUserPoolMfaConfig where
     Response.receiveJSON
       ( \s h x ->
           GetUserPoolMfaConfigResponse'
-            Prelude.<$> (x Core..?> "MfaConfiguration")
-            Prelude.<*> (x Core..?> "SoftwareTokenMfaConfiguration")
-            Prelude.<*> (x Core..?> "SmsMfaConfiguration")
+            Prelude.<$> (x Data..?> "MfaConfiguration")
+            Prelude.<*> (x Data..?> "SoftwareTokenMfaConfiguration")
+            Prelude.<*> (x Data..?> "SmsMfaConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,32 +100,32 @@ instance Prelude.NFData GetUserPoolMfaConfig where
   rnf GetUserPoolMfaConfig' {..} =
     Prelude.rnf userPoolId
 
-instance Core.ToHeaders GetUserPoolMfaConfig where
+instance Data.ToHeaders GetUserPoolMfaConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetUserPoolMfaConfig where
+instance Data.ToJSON GetUserPoolMfaConfig where
   toJSON GetUserPoolMfaConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("UserPoolId" Core..= userPoolId)]
+          [Prelude.Just ("UserPoolId" Data..= userPoolId)]
       )
 
-instance Core.ToPath GetUserPoolMfaConfig where
+instance Data.ToPath GetUserPoolMfaConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetUserPoolMfaConfig where
+instance Data.ToQuery GetUserPoolMfaConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetUserPoolMfaConfigResponse' smart constructor.

@@ -67,6 +67,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -254,36 +255,36 @@ instance Prelude.NFData PutPermission where
       `Prelude.seq` Prelude.rnf condition
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToHeaders PutPermission where
+instance Data.ToHeaders PutPermission where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.PutPermission" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.PutPermission" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutPermission where
+instance Data.ToJSON PutPermission where
   toJSON PutPermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Principal" Core..=) Prelude.<$> principal,
-            ("Policy" Core..=) Prelude.<$> policy,
-            ("EventBusName" Core..=) Prelude.<$> eventBusName,
-            ("StatementId" Core..=) Prelude.<$> statementId,
-            ("Condition" Core..=) Prelude.<$> condition,
-            ("Action" Core..=) Prelude.<$> action
+          [ ("Principal" Data..=) Prelude.<$> principal,
+            ("Policy" Data..=) Prelude.<$> policy,
+            ("EventBusName" Data..=) Prelude.<$> eventBusName,
+            ("StatementId" Data..=) Prelude.<$> statementId,
+            ("Condition" Data..=) Prelude.<$> condition,
+            ("Action" Data..=) Prelude.<$> action
           ]
       )
 
-instance Core.ToPath PutPermission where
+instance Data.ToPath PutPermission where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutPermission where
+instance Data.ToQuery PutPermission where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutPermissionResponse' smart constructor.

@@ -23,6 +23,7 @@ import Amazonka.ChimeSDKIdentity.Types.EndpointStatus
 import Amazonka.ChimeSDKIdentity.Types.EndpointStatusReason
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A read-only field that represents the state of an
@@ -81,14 +82,14 @@ endpointState_statusReason = Lens.lens (\EndpointState' {statusReason} -> status
 endpointState_status :: Lens.Lens' EndpointState EndpointStatus
 endpointState_status = Lens.lens (\EndpointState' {status} -> status) (\s@EndpointState' {} a -> s {status = a} :: EndpointState)
 
-instance Core.FromJSON EndpointState where
+instance Data.FromJSON EndpointState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointState"
       ( \x ->
           EndpointState'
-            Prelude.<$> (x Core..:? "StatusReason")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..:? "StatusReason")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable EndpointState where

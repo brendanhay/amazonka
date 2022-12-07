@@ -49,6 +49,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,11 +137,11 @@ instance Core.AWSRequest CreateFleetAdvisorCollector where
     Response.receiveJSON
       ( \s h x ->
           CreateFleetAdvisorCollectorResponse'
-            Prelude.<$> (x Core..?> "CollectorName")
-            Prelude.<*> (x Core..?> "S3BucketName")
-            Prelude.<*> (x Core..?> "ServiceAccessRoleArn")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "CollectorReferencedId")
+            Prelude.<$> (x Data..?> "CollectorName")
+            Prelude.<*> (x Data..?> "S3BucketName")
+            Prelude.<*> (x Data..?> "ServiceAccessRoleArn")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "CollectorReferencedId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,39 +159,39 @@ instance Prelude.NFData CreateFleetAdvisorCollector where
       `Prelude.seq` Prelude.rnf serviceAccessRoleArn
       `Prelude.seq` Prelude.rnf s3BucketName
 
-instance Core.ToHeaders CreateFleetAdvisorCollector where
+instance Data.ToHeaders CreateFleetAdvisorCollector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.CreateFleetAdvisorCollector" ::
+              Data.=# ( "AmazonDMSv20160101.CreateFleetAdvisorCollector" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFleetAdvisorCollector where
+instance Data.ToJSON CreateFleetAdvisorCollector where
   toJSON CreateFleetAdvisorCollector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("CollectorName" Core..= collectorName),
+          [ ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("CollectorName" Data..= collectorName),
             Prelude.Just
               ( "ServiceAccessRoleArn"
-                  Core..= serviceAccessRoleArn
+                  Data..= serviceAccessRoleArn
               ),
-            Prelude.Just ("S3BucketName" Core..= s3BucketName)
+            Prelude.Just ("S3BucketName" Data..= s3BucketName)
           ]
       )
 
-instance Core.ToPath CreateFleetAdvisorCollector where
+instance Data.ToPath CreateFleetAdvisorCollector where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFleetAdvisorCollector where
+instance Data.ToQuery CreateFleetAdvisorCollector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFleetAdvisorCollectorResponse' smart constructor.

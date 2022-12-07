@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.PropertyRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.DataValue
 import Amazonka.IotTwinMaker.Types.PropertyDefinitionRequest
 import Amazonka.IotTwinMaker.Types.PropertyUpdateType
@@ -85,12 +86,12 @@ instance Prelude.NFData PropertyRequest where
       `Prelude.seq` Prelude.rnf definition
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON PropertyRequest where
+instance Data.ToJSON PropertyRequest where
   toJSON PropertyRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("updateType" Core..=) Prelude.<$> updateType,
-            ("definition" Core..=) Prelude.<$> definition,
-            ("value" Core..=) Prelude.<$> value
+          [ ("updateType" Data..=) Prelude.<$> updateType,
+            ("definition" Data..=) Prelude.<$> definition,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

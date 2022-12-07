@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.PendingModifiedValues where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.AutomationMode
 import Amazonka.RDS.Types.PendingCloudwatchLogsExports
@@ -53,7 +54,7 @@ data PendingModifiedValues = PendingModifiedValues'
     -- | The number of minutes to pause the automation. When the time period
     -- ends, RDS Custom resumes full automation. The minimum value is 60
     -- (default). The maximum value is 1,440.
-    resumeFullAutomationModeTime :: Prelude.Maybe Core.ISO8601,
+    resumeFullAutomationModeTime :: Prelude.Maybe Data.ISO8601,
     -- | The master credentials for the DB instance.
     masterUserPassword :: Prelude.Maybe Prelude.Text,
     -- | The storage type of the DB instance.
@@ -205,7 +206,7 @@ pendingModifiedValues_pendingCloudwatchLogsExports = Lens.lens (\PendingModified
 -- ends, RDS Custom resumes full automation. The minimum value is 60
 -- (default). The maximum value is 1,440.
 pendingModifiedValues_resumeFullAutomationModeTime :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.UTCTime)
-pendingModifiedValues_resumeFullAutomationModeTime = Lens.lens (\PendingModifiedValues' {resumeFullAutomationModeTime} -> resumeFullAutomationModeTime) (\s@PendingModifiedValues' {} a -> s {resumeFullAutomationModeTime = a} :: PendingModifiedValues) Prelude.. Lens.mapping Core._Time
+pendingModifiedValues_resumeFullAutomationModeTime = Lens.lens (\PendingModifiedValues' {resumeFullAutomationModeTime} -> resumeFullAutomationModeTime) (\s@PendingModifiedValues' {} a -> s {resumeFullAutomationModeTime = a} :: PendingModifiedValues) Prelude.. Lens.mapping Data._Time
 
 -- | The master credentials for the DB instance.
 pendingModifiedValues_masterUserPassword :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
@@ -254,31 +255,31 @@ pendingModifiedValues_multiAZ = Lens.lens (\PendingModifiedValues' {multiAZ} -> 
 pendingModifiedValues_licenseModel :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
 pendingModifiedValues_licenseModel = Lens.lens (\PendingModifiedValues' {licenseModel} -> licenseModel) (\s@PendingModifiedValues' {} a -> s {licenseModel = a} :: PendingModifiedValues)
 
-instance Core.FromXML PendingModifiedValues where
+instance Data.FromXML PendingModifiedValues where
   parseXML x =
     PendingModifiedValues'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "StorageThroughput")
-      Prelude.<*> (x Core..@? "BackupRetentionPeriod")
-      Prelude.<*> (x Core..@? "DBInstanceClass")
-      Prelude.<*> (x Core..@? "AutomationMode")
-      Prelude.<*> (x Core..@? "DBSubnetGroupName")
-      Prelude.<*> (x Core..@? "DBInstanceIdentifier")
-      Prelude.<*> (x Core..@? "PendingCloudwatchLogsExports")
-      Prelude.<*> (x Core..@? "ResumeFullAutomationModeTime")
-      Prelude.<*> (x Core..@? "MasterUserPassword")
-      Prelude.<*> (x Core..@? "StorageType")
-      Prelude.<*> ( x Core..@? "ProcessorFeatures"
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "StorageThroughput")
+      Prelude.<*> (x Data..@? "BackupRetentionPeriod")
+      Prelude.<*> (x Data..@? "DBInstanceClass")
+      Prelude.<*> (x Data..@? "AutomationMode")
+      Prelude.<*> (x Data..@? "DBSubnetGroupName")
+      Prelude.<*> (x Data..@? "DBInstanceIdentifier")
+      Prelude.<*> (x Data..@? "PendingCloudwatchLogsExports")
+      Prelude.<*> (x Data..@? "ResumeFullAutomationModeTime")
+      Prelude.<*> (x Data..@? "MasterUserPassword")
+      Prelude.<*> (x Data..@? "StorageType")
+      Prelude.<*> ( x Data..@? "ProcessorFeatures"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "ProcessorFeature")
+                      Prelude.>>= Core.may (Data.parseXMLList "ProcessorFeature")
                   )
-      Prelude.<*> (x Core..@? "CACertificateIdentifier")
-      Prelude.<*> (x Core..@? "AllocatedStorage")
-      Prelude.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
-      Prelude.<*> (x Core..@? "Iops")
-      Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "MultiAZ")
-      Prelude.<*> (x Core..@? "LicenseModel")
+      Prelude.<*> (x Data..@? "CACertificateIdentifier")
+      Prelude.<*> (x Data..@? "AllocatedStorage")
+      Prelude.<*> (x Data..@? "IAMDatabaseAuthenticationEnabled")
+      Prelude.<*> (x Data..@? "Iops")
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "MultiAZ")
+      Prelude.<*> (x Data..@? "LicenseModel")
 
 instance Prelude.Hashable PendingModifiedValues where
   hashWithSalt _salt PendingModifiedValues' {..} =

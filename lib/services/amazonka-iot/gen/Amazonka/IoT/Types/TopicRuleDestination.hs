@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.TopicRuleDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.HttpUrlDestinationProperties
 import Amazonka.IoT.Types.TopicRuleDestinationStatus
 import Amazonka.IoT.Types.VpcDestinationProperties
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTopicRuleDestination' smart constructor.
 data TopicRuleDestination = TopicRuleDestination'
   { -- | The date and time when the topic rule destination was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The topic rule destination URL.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Additional details or reason why the topic rule destination is in the
@@ -67,7 +68,7 @@ data TopicRuleDestination = TopicRuleDestination'
     -- | Properties of the HTTP URL.
     httpUrlProperties :: Prelude.Maybe HttpUrlDestinationProperties,
     -- | The date and time when the topic rule destination was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Properties of the virtual private cloud (VPC) connection.
     vpcProperties :: Prelude.Maybe VpcDestinationProperties
   }
@@ -136,7 +137,7 @@ newTopicRuleDestination =
 
 -- | The date and time when the topic rule destination was last updated.
 topicRuleDestination_lastUpdatedAt :: Lens.Lens' TopicRuleDestination (Prelude.Maybe Prelude.UTCTime)
-topicRuleDestination_lastUpdatedAt = Lens.lens (\TopicRuleDestination' {lastUpdatedAt} -> lastUpdatedAt) (\s@TopicRuleDestination' {} a -> s {lastUpdatedAt = a} :: TopicRuleDestination) Prelude.. Lens.mapping Core._Time
+topicRuleDestination_lastUpdatedAt = Lens.lens (\TopicRuleDestination' {lastUpdatedAt} -> lastUpdatedAt) (\s@TopicRuleDestination' {} a -> s {lastUpdatedAt = a} :: TopicRuleDestination) Prelude.. Lens.mapping Data._Time
 
 -- | The topic rule destination URL.
 topicRuleDestination_arn :: Lens.Lens' TopicRuleDestination (Prelude.Maybe Prelude.Text)
@@ -182,25 +183,25 @@ topicRuleDestination_httpUrlProperties = Lens.lens (\TopicRuleDestination' {http
 
 -- | The date and time when the topic rule destination was created.
 topicRuleDestination_createdAt :: Lens.Lens' TopicRuleDestination (Prelude.Maybe Prelude.UTCTime)
-topicRuleDestination_createdAt = Lens.lens (\TopicRuleDestination' {createdAt} -> createdAt) (\s@TopicRuleDestination' {} a -> s {createdAt = a} :: TopicRuleDestination) Prelude.. Lens.mapping Core._Time
+topicRuleDestination_createdAt = Lens.lens (\TopicRuleDestination' {createdAt} -> createdAt) (\s@TopicRuleDestination' {} a -> s {createdAt = a} :: TopicRuleDestination) Prelude.. Lens.mapping Data._Time
 
 -- | Properties of the virtual private cloud (VPC) connection.
 topicRuleDestination_vpcProperties :: Lens.Lens' TopicRuleDestination (Prelude.Maybe VpcDestinationProperties)
 topicRuleDestination_vpcProperties = Lens.lens (\TopicRuleDestination' {vpcProperties} -> vpcProperties) (\s@TopicRuleDestination' {} a -> s {vpcProperties = a} :: TopicRuleDestination)
 
-instance Core.FromJSON TopicRuleDestination where
+instance Data.FromJSON TopicRuleDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TopicRuleDestination"
       ( \x ->
           TopicRuleDestination'
-            Prelude.<$> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "httpUrlProperties")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "vpcProperties")
+            Prelude.<$> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "httpUrlProperties")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "vpcProperties")
       )
 
 instance Prelude.Hashable TopicRuleDestination where

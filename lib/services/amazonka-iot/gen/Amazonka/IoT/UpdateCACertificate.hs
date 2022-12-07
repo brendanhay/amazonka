@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -155,31 +156,31 @@ instance Prelude.NFData UpdateCACertificate where
       `Prelude.seq` Prelude.rnf newAutoRegistrationStatus'
       `Prelude.seq` Prelude.rnf certificateId
 
-instance Core.ToHeaders UpdateCACertificate where
+instance Data.ToHeaders UpdateCACertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateCACertificate where
+instance Data.ToJSON UpdateCACertificate where
   toJSON UpdateCACertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registrationConfig" Core..=)
+          [ ("registrationConfig" Data..=)
               Prelude.<$> registrationConfig,
-            ("removeAutoRegistration" Core..=)
+            ("removeAutoRegistration" Data..=)
               Prelude.<$> removeAutoRegistration
           ]
       )
 
-instance Core.ToPath UpdateCACertificate where
+instance Data.ToPath UpdateCACertificate where
   toPath UpdateCACertificate' {..} =
     Prelude.mconcat
-      ["/cacertificate/", Core.toBS certificateId]
+      ["/cacertificate/", Data.toBS certificateId]
 
-instance Core.ToQuery UpdateCACertificate where
+instance Data.ToQuery UpdateCACertificate where
   toQuery UpdateCACertificate' {..} =
     Prelude.mconcat
-      [ "newStatus" Core.=: newStatus',
+      [ "newStatus" Data.=: newStatus',
         "newAutoRegistrationStatus"
-          Core.=: newAutoRegistrationStatus'
+          Data.=: newAutoRegistrationStatus'
       ]
 
 -- | /See:/ 'newUpdateCACertificateResponse' smart constructor.

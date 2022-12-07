@@ -60,6 +60,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -168,23 +169,23 @@ instance Prelude.NFData SetAlarmState where
       `Prelude.seq` Prelude.rnf stateValue
       `Prelude.seq` Prelude.rnf stateReason
 
-instance Core.ToHeaders SetAlarmState where
+instance Data.ToHeaders SetAlarmState where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SetAlarmState where
+instance Data.ToPath SetAlarmState where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetAlarmState where
+instance Data.ToQuery SetAlarmState where
   toQuery SetAlarmState' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SetAlarmState" :: Prelude.ByteString),
+          Data.=: ("SetAlarmState" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "StateReasonData" Core.=: stateReasonData,
-        "AlarmName" Core.=: alarmName,
-        "StateValue" Core.=: stateValue,
-        "StateReason" Core.=: stateReason
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
+        "StateReasonData" Data.=: stateReasonData,
+        "AlarmName" Data.=: alarmName,
+        "StateValue" Data.=: stateValue,
+        "StateReason" Data.=: stateReason
       ]
 
 -- | /See:/ 'newSetAlarmStateResponse' smart constructor.

@@ -58,6 +58,7 @@ where
 import Amazonka.CloudHSM.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,7 +121,7 @@ instance Core.AWSRequest ModifyHapg where
     Response.receiveJSON
       ( \s h x ->
           ModifyHapgResponse'
-            Prelude.<$> (x Core..?> "HapgArn")
+            Prelude.<$> (x Data..?> "HapgArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,36 +137,36 @@ instance Prelude.NFData ModifyHapg where
       `Prelude.seq` Prelude.rnf label
       `Prelude.seq` Prelude.rnf hapgArn
 
-instance Core.ToHeaders ModifyHapg where
+instance Data.ToHeaders ModifyHapg where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudHsmFrontendService.ModifyHapg" ::
+              Data.=# ( "CloudHsmFrontendService.ModifyHapg" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ModifyHapg where
+instance Data.ToJSON ModifyHapg where
   toJSON ModifyHapg' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PartitionSerialList" Core..=)
+          [ ("PartitionSerialList" Data..=)
               Prelude.<$> partitionSerialList,
-            ("Label" Core..=) Prelude.<$> label,
-            Prelude.Just ("HapgArn" Core..= hapgArn)
+            ("Label" Data..=) Prelude.<$> label,
+            Prelude.Just ("HapgArn" Data..= hapgArn)
           ]
       )
 
-instance Core.ToPath ModifyHapg where
+instance Data.ToPath ModifyHapg where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyHapg where
+instance Data.ToQuery ModifyHapg where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifyHapgResponse' smart constructor.

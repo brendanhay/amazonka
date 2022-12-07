@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.JobScopingBlock where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.JobScopeTerm
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,13 +63,13 @@ newJobScopingBlock =
 jobScopingBlock_and :: Lens.Lens' JobScopingBlock (Prelude.Maybe [JobScopeTerm])
 jobScopingBlock_and = Lens.lens (\JobScopingBlock' {and} -> and) (\s@JobScopingBlock' {} a -> s {and = a} :: JobScopingBlock) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON JobScopingBlock where
+instance Data.FromJSON JobScopingBlock where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobScopingBlock"
       ( \x ->
           JobScopingBlock'
-            Prelude.<$> (x Core..:? "and" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "and" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable JobScopingBlock where
@@ -78,7 +79,7 @@ instance Prelude.Hashable JobScopingBlock where
 instance Prelude.NFData JobScopingBlock where
   rnf JobScopingBlock' {..} = Prelude.rnf and
 
-instance Core.ToJSON JobScopingBlock where
+instance Data.ToJSON JobScopingBlock where
   toJSON JobScopingBlock' {..} =
-    Core.object
-      (Prelude.catMaybes [("and" Core..=) Prelude.<$> and])
+    Data.object
+      (Prelude.catMaybes [("and" Data..=) Prelude.<$> and])

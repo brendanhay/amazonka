@@ -21,6 +21,7 @@ module Amazonka.RedshiftServerLess.Types.UsageLimit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types.UsageLimitBreachAction
 import Amazonka.RedshiftServerLess.Types.UsageLimitPeriod
@@ -127,19 +128,19 @@ usageLimit_resourceArn = Lens.lens (\UsageLimit' {resourceArn} -> resourceArn) (
 usageLimit_amount :: Lens.Lens' UsageLimit (Prelude.Maybe Prelude.Integer)
 usageLimit_amount = Lens.lens (\UsageLimit' {amount} -> amount) (\s@UsageLimit' {} a -> s {amount = a} :: UsageLimit)
 
-instance Core.FromJSON UsageLimit where
+instance Data.FromJSON UsageLimit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsageLimit"
       ( \x ->
           UsageLimit'
-            Prelude.<$> (x Core..:? "usageLimitId")
-            Prelude.<*> (x Core..:? "usageLimitArn")
-            Prelude.<*> (x Core..:? "period")
-            Prelude.<*> (x Core..:? "usageType")
-            Prelude.<*> (x Core..:? "breachAction")
-            Prelude.<*> (x Core..:? "resourceArn")
-            Prelude.<*> (x Core..:? "amount")
+            Prelude.<$> (x Data..:? "usageLimitId")
+            Prelude.<*> (x Data..:? "usageLimitArn")
+            Prelude.<*> (x Data..:? "period")
+            Prelude.<*> (x Data..:? "usageType")
+            Prelude.<*> (x Data..:? "breachAction")
+            Prelude.<*> (x Data..:? "resourceArn")
+            Prelude.<*> (x Data..:? "amount")
       )
 
 instance Prelude.Hashable UsageLimit where

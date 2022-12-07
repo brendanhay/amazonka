@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.ModelPackagingDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types.ModelPackagingConfiguration
 import Amazonka.LookoutVision.Types.ModelPackagingJobStatus
 import Amazonka.LookoutVision.Types.ModelPackagingOutputDetails
@@ -33,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 data ModelPackagingDescription = ModelPackagingDescription'
   { -- | The Unix timestamp for the time and date that the model packaging job
     -- was last updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the model packaging job.
     jobName :: Prelude.Maybe Prelude.Text,
     -- | Information about the output of the model packaging job. For more
@@ -45,7 +46,7 @@ data ModelPackagingDescription = ModelPackagingDescription'
     status :: Prelude.Maybe ModelPackagingJobStatus,
     -- | The Unix timestamp for the time and date that the model packaging job
     -- was created.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The description for the model packaging job.
     modelPackagingJobDescription :: Prelude.Maybe Prelude.Text,
     -- | The AWS service used to package the job. Currently Lookout for Vision
@@ -116,7 +117,7 @@ newModelPackagingDescription =
 -- | The Unix timestamp for the time and date that the model packaging job
 -- was last updated.
 modelPackagingDescription_lastUpdatedTimestamp :: Lens.Lens' ModelPackagingDescription (Prelude.Maybe Prelude.UTCTime)
-modelPackagingDescription_lastUpdatedTimestamp = Lens.lens (\ModelPackagingDescription' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ModelPackagingDescription' {} a -> s {lastUpdatedTimestamp = a} :: ModelPackagingDescription) Prelude.. Lens.mapping Core._Time
+modelPackagingDescription_lastUpdatedTimestamp = Lens.lens (\ModelPackagingDescription' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ModelPackagingDescription' {} a -> s {lastUpdatedTimestamp = a} :: ModelPackagingDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the model packaging job.
 modelPackagingDescription_jobName :: Lens.Lens' ModelPackagingDescription (Prelude.Maybe Prelude.Text)
@@ -138,7 +139,7 @@ modelPackagingDescription_status = Lens.lens (\ModelPackagingDescription' {statu
 -- | The Unix timestamp for the time and date that the model packaging job
 -- was created.
 modelPackagingDescription_creationTimestamp :: Lens.Lens' ModelPackagingDescription (Prelude.Maybe Prelude.UTCTime)
-modelPackagingDescription_creationTimestamp = Lens.lens (\ModelPackagingDescription' {creationTimestamp} -> creationTimestamp) (\s@ModelPackagingDescription' {} a -> s {creationTimestamp = a} :: ModelPackagingDescription) Prelude.. Lens.mapping Core._Time
+modelPackagingDescription_creationTimestamp = Lens.lens (\ModelPackagingDescription' {creationTimestamp} -> creationTimestamp) (\s@ModelPackagingDescription' {} a -> s {creationTimestamp = a} :: ModelPackagingDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The description for the model packaging job.
 modelPackagingDescription_modelPackagingJobDescription :: Lens.Lens' ModelPackagingDescription (Prelude.Maybe Prelude.Text)
@@ -162,23 +163,23 @@ modelPackagingDescription_statusMessage = Lens.lens (\ModelPackagingDescription'
 modelPackagingDescription_modelPackagingConfiguration :: Lens.Lens' ModelPackagingDescription (Prelude.Maybe ModelPackagingConfiguration)
 modelPackagingDescription_modelPackagingConfiguration = Lens.lens (\ModelPackagingDescription' {modelPackagingConfiguration} -> modelPackagingConfiguration) (\s@ModelPackagingDescription' {} a -> s {modelPackagingConfiguration = a} :: ModelPackagingDescription)
 
-instance Core.FromJSON ModelPackagingDescription where
+instance Data.FromJSON ModelPackagingDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelPackagingDescription"
       ( \x ->
           ModelPackagingDescription'
-            Prelude.<$> (x Core..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "ModelPackagingOutputDetails")
-            Prelude.<*> (x Core..:? "ModelVersion")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTimestamp")
-            Prelude.<*> (x Core..:? "ModelPackagingJobDescription")
-            Prelude.<*> (x Core..:? "ModelPackagingMethod")
-            Prelude.<*> (x Core..:? "ProjectName")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "ModelPackagingConfiguration")
+            Prelude.<$> (x Data..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "ModelPackagingOutputDetails")
+            Prelude.<*> (x Data..:? "ModelVersion")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CreationTimestamp")
+            Prelude.<*> (x Data..:? "ModelPackagingJobDescription")
+            Prelude.<*> (x Data..:? "ModelPackagingMethod")
+            Prelude.<*> (x Data..:? "ProjectName")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "ModelPackagingConfiguration")
       )
 
 instance Prelude.Hashable ModelPackagingDescription where

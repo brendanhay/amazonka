@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -182,27 +183,27 @@ instance
       `Prelude.seq` Prelude.rnf auditCheckConfigurations
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateAccountAuditConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateAccountAuditConfiguration where
+instance Data.ToJSON UpdateAccountAuditConfiguration where
   toJSON UpdateAccountAuditConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("auditNotificationTargetConfigurations" Core..=)
+          [ ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("auditNotificationTargetConfigurations" Data..=)
               Prelude.<$> auditNotificationTargetConfigurations,
-            ("auditCheckConfigurations" Core..=)
+            ("auditCheckConfigurations" Data..=)
               Prelude.<$> auditCheckConfigurations
           ]
       )
 
-instance Core.ToPath UpdateAccountAuditConfiguration where
+instance Data.ToPath UpdateAccountAuditConfiguration where
   toPath = Prelude.const "/audit/configuration"
 
-instance Core.ToQuery UpdateAccountAuditConfiguration where
+instance Data.ToQuery UpdateAccountAuditConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAccountAuditConfigurationResponse' smart constructor.

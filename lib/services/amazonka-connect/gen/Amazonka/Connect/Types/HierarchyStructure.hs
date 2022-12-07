@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.HierarchyStructure where
 import Amazonka.Connect.Types.HierarchyLevel
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a hierarchy structure.
@@ -89,17 +90,17 @@ hierarchyStructure_levelFive = Lens.lens (\HierarchyStructure' {levelFive} -> le
 hierarchyStructure_levelTwo :: Lens.Lens' HierarchyStructure (Prelude.Maybe HierarchyLevel)
 hierarchyStructure_levelTwo = Lens.lens (\HierarchyStructure' {levelTwo} -> levelTwo) (\s@HierarchyStructure' {} a -> s {levelTwo = a} :: HierarchyStructure)
 
-instance Core.FromJSON HierarchyStructure where
+instance Data.FromJSON HierarchyStructure where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HierarchyStructure"
       ( \x ->
           HierarchyStructure'
-            Prelude.<$> (x Core..:? "LevelThree")
-            Prelude.<*> (x Core..:? "LevelFour")
-            Prelude.<*> (x Core..:? "LevelOne")
-            Prelude.<*> (x Core..:? "LevelFive")
-            Prelude.<*> (x Core..:? "LevelTwo")
+            Prelude.<$> (x Data..:? "LevelThree")
+            Prelude.<*> (x Data..:? "LevelFour")
+            Prelude.<*> (x Data..:? "LevelOne")
+            Prelude.<*> (x Data..:? "LevelFive")
+            Prelude.<*> (x Data..:? "LevelTwo")
       )
 
 instance Prelude.Hashable HierarchyStructure where

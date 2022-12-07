@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,7 +148,7 @@ instance Core.AWSRequest ImportInstance where
     Response.receiveXML
       ( \s h x ->
           ImportInstanceResponse'
-            Prelude.<$> (x Core..@? "conversionTask")
+            Prelude.<$> (x Data..@? "conversionTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,27 +168,27 @@ instance Prelude.NFData ImportInstance where
       `Prelude.seq` Prelude.rnf launchSpecification
       `Prelude.seq` Prelude.rnf platform
 
-instance Core.ToHeaders ImportInstance where
+instance Data.ToHeaders ImportInstance where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ImportInstance where
+instance Data.ToPath ImportInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportInstance where
+instance Data.ToQuery ImportInstance where
   toQuery ImportInstance' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ImportInstance" :: Prelude.ByteString),
+          Data.=: ("ImportInstance" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "DiskImage"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "DiskImage"
               Prelude.<$> diskImages
           ),
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "LaunchSpecification" Core.=: launchSpecification,
-        "Platform" Core.=: platform
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "LaunchSpecification" Data.=: launchSpecification,
+        "Platform" Data.=: platform
       ]
 
 -- | /See:/ 'newImportInstanceResponse' smart constructor.

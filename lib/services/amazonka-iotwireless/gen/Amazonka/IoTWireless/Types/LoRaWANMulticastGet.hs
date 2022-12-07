@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANMulticastGet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.DlClass
 import Amazonka.IoTWireless.Types.SupportedRfRegion
 import qualified Amazonka.Prelude as Prelude
@@ -78,16 +79,16 @@ loRaWANMulticastGet_dlClass = Lens.lens (\LoRaWANMulticastGet' {dlClass} -> dlCl
 loRaWANMulticastGet_numberOfDevicesRequested :: Lens.Lens' LoRaWANMulticastGet (Prelude.Maybe Prelude.Int)
 loRaWANMulticastGet_numberOfDevicesRequested = Lens.lens (\LoRaWANMulticastGet' {numberOfDevicesRequested} -> numberOfDevicesRequested) (\s@LoRaWANMulticastGet' {} a -> s {numberOfDevicesRequested = a} :: LoRaWANMulticastGet)
 
-instance Core.FromJSON LoRaWANMulticastGet where
+instance Data.FromJSON LoRaWANMulticastGet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoRaWANMulticastGet"
       ( \x ->
           LoRaWANMulticastGet'
-            Prelude.<$> (x Core..:? "RfRegion")
-            Prelude.<*> (x Core..:? "NumberOfDevicesInGroup")
-            Prelude.<*> (x Core..:? "DlClass")
-            Prelude.<*> (x Core..:? "NumberOfDevicesRequested")
+            Prelude.<$> (x Data..:? "RfRegion")
+            Prelude.<*> (x Data..:? "NumberOfDevicesInGroup")
+            Prelude.<*> (x Data..:? "DlClass")
+            Prelude.<*> (x Data..:? "NumberOfDevicesRequested")
       )
 
 instance Prelude.Hashable LoRaWANMulticastGet where

@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.OrderedPhoneNumber where
 import Amazonka.Chime.Types.OrderedPhoneNumberStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A phone number for which an order has been placed.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newOrderedPhoneNumber' smart constructor.
 data OrderedPhoneNumber = OrderedPhoneNumber'
   { -- | The phone number, in E.164 format.
-    e164PhoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    e164PhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The phone number status.
     status :: Prelude.Maybe OrderedPhoneNumberStatus
   }
@@ -57,20 +58,20 @@ newOrderedPhoneNumber =
 
 -- | The phone number, in E.164 format.
 orderedPhoneNumber_e164PhoneNumber :: Lens.Lens' OrderedPhoneNumber (Prelude.Maybe Prelude.Text)
-orderedPhoneNumber_e164PhoneNumber = Lens.lens (\OrderedPhoneNumber' {e164PhoneNumber} -> e164PhoneNumber) (\s@OrderedPhoneNumber' {} a -> s {e164PhoneNumber = a} :: OrderedPhoneNumber) Prelude.. Lens.mapping Core._Sensitive
+orderedPhoneNumber_e164PhoneNumber = Lens.lens (\OrderedPhoneNumber' {e164PhoneNumber} -> e164PhoneNumber) (\s@OrderedPhoneNumber' {} a -> s {e164PhoneNumber = a} :: OrderedPhoneNumber) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The phone number status.
 orderedPhoneNumber_status :: Lens.Lens' OrderedPhoneNumber (Prelude.Maybe OrderedPhoneNumberStatus)
 orderedPhoneNumber_status = Lens.lens (\OrderedPhoneNumber' {status} -> status) (\s@OrderedPhoneNumber' {} a -> s {status = a} :: OrderedPhoneNumber)
 
-instance Core.FromJSON OrderedPhoneNumber where
+instance Data.FromJSON OrderedPhoneNumber where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrderedPhoneNumber"
       ( \x ->
           OrderedPhoneNumber'
-            Prelude.<$> (x Core..:? "E164PhoneNumber")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "E164PhoneNumber")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable OrderedPhoneNumber where

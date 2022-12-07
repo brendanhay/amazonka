@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -193,15 +194,15 @@ instance Core.AWSRequest UpdateBot where
     Response.receiveJSON
       ( \s h x ->
           UpdateBotResponse'
-            Prelude.<$> (x Core..?> "roleArn")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "idleSessionTTLInSeconds")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botName")
-            Prelude.<*> (x Core..?> "dataPrivacy")
-            Prelude.<*> (x Core..?> "botStatus")
-            Prelude.<*> (x Core..?> "lastUpdatedDateTime")
+            Prelude.<$> (x Data..?> "roleArn")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "idleSessionTTLInSeconds")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botName")
+            Prelude.<*> (x Data..?> "dataPrivacy")
+            Prelude.<*> (x Data..?> "botStatus")
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -223,37 +224,37 @@ instance Prelude.NFData UpdateBot where
       `Prelude.seq` Prelude.rnf dataPrivacy
       `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
 
-instance Core.ToHeaders UpdateBot where
+instance Data.ToHeaders UpdateBot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBot where
+instance Data.ToJSON UpdateBot where
   toJSON UpdateBot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("botName" Core..= botName),
-            Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("dataPrivacy" Core..= dataPrivacy),
+          [ ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("botName" Data..= botName),
+            Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("dataPrivacy" Data..= dataPrivacy),
             Prelude.Just
               ( "idleSessionTTLInSeconds"
-                  Core..= idleSessionTTLInSeconds
+                  Data..= idleSessionTTLInSeconds
               )
           ]
       )
 
-instance Core.ToPath UpdateBot where
+instance Data.ToPath UpdateBot where
   toPath UpdateBot' {..} =
-    Prelude.mconcat ["/bots/", Core.toBS botId, "/"]
+    Prelude.mconcat ["/bots/", Data.toBS botId, "/"]
 
-instance Core.ToQuery UpdateBot where
+instance Data.ToQuery UpdateBot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBotResponse' smart constructor.
@@ -262,7 +263,7 @@ data UpdateBotResponse = UpdateBotResponse'
     -- update.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the bot was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the bot after the update.
     description :: Prelude.Maybe Prelude.Text,
     -- | The session timeout, in seconds, for the bot after the update.
@@ -279,7 +280,7 @@ data UpdateBotResponse = UpdateBotResponse'
     -- bot.
     botStatus :: Prelude.Maybe BotStatus,
     -- | A timestamp of the date and time that the bot was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -341,7 +342,7 @@ updateBotResponse_roleArn = Lens.lens (\UpdateBotResponse' {roleArn} -> roleArn)
 
 -- | A timestamp of the date and time that the bot was created.
 updateBotResponse_creationDateTime :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.UTCTime)
-updateBotResponse_creationDateTime = Lens.lens (\UpdateBotResponse' {creationDateTime} -> creationDateTime) (\s@UpdateBotResponse' {} a -> s {creationDateTime = a} :: UpdateBotResponse) Prelude.. Lens.mapping Core._Time
+updateBotResponse_creationDateTime = Lens.lens (\UpdateBotResponse' {creationDateTime} -> creationDateTime) (\s@UpdateBotResponse' {} a -> s {creationDateTime = a} :: UpdateBotResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the bot after the update.
 updateBotResponse_description :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.Text)
@@ -372,7 +373,7 @@ updateBotResponse_botStatus = Lens.lens (\UpdateBotResponse' {botStatus} -> botS
 
 -- | A timestamp of the date and time that the bot was last updated.
 updateBotResponse_lastUpdatedDateTime :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.UTCTime)
-updateBotResponse_lastUpdatedDateTime = Lens.lens (\UpdateBotResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateBotResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateBotResponse) Prelude.. Lens.mapping Core._Time
+updateBotResponse_lastUpdatedDateTime = Lens.lens (\UpdateBotResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateBotResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateBotResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updateBotResponse_httpStatus :: Lens.Lens' UpdateBotResponse Prelude.Int

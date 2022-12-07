@@ -18,6 +18,7 @@ module Amazonka.EMR.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.DescribeCluster
 import Amazonka.EMR.DescribeStep
 import Amazonka.EMR.Lens
@@ -40,7 +41,7 @@ newStepComplete =
                 Prelude.. Lens._Just
                 Prelude.. stepStatus_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
@@ -50,7 +51,7 @@ newStepComplete =
                 Prelude.. Lens._Just
                 Prelude.. stepStatus_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CANCELLED"
@@ -60,7 +61,7 @@ newStepComplete =
                 Prelude.. Lens._Just
                 Prelude.. stepStatus_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -80,7 +81,7 @@ newClusterRunning =
                 Prelude.. cluster_status
                 Prelude.. clusterStatus_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "WAITING"
@@ -89,7 +90,7 @@ newClusterRunning =
                 Prelude.. cluster_status
                 Prelude.. clusterStatus_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "TERMINATING"
@@ -98,7 +99,7 @@ newClusterRunning =
                 Prelude.. cluster_status
                 Prelude.. clusterStatus_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "TERMINATED"
@@ -107,7 +108,7 @@ newClusterRunning =
                 Prelude.. cluster_status
                 Prelude.. clusterStatus_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "TERMINATED_WITH_ERRORS"
@@ -116,7 +117,7 @@ newClusterRunning =
                 Prelude.. cluster_status
                 Prelude.. clusterStatus_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -136,7 +137,7 @@ newClusterTerminated =
                 Prelude.. cluster_status
                 Prelude.. clusterStatus_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "TERMINATED_WITH_ERRORS"
@@ -145,7 +146,7 @@ newClusterTerminated =
                 Prelude.. cluster_status
                 Prelude.. clusterStatus_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

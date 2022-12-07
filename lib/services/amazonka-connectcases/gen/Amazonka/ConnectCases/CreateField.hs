@@ -48,6 +48,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,8 +125,8 @@ instance Core.AWSRequest CreateField where
       ( \s h x ->
           CreateFieldResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "fieldArn")
-            Prelude.<*> (x Core..:> "fieldId")
+            Prelude.<*> (x Data..:> "fieldArn")
+            Prelude.<*> (x Data..:> "fieldId")
       )
 
 instance Prelude.Hashable CreateField where
@@ -142,33 +143,33 @@ instance Prelude.NFData CreateField where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateField where
+instance Data.ToHeaders CreateField where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateField where
+instance Data.ToJSON CreateField where
   toJSON CreateField' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("type" Core..= type')
+          [ ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateField where
+instance Data.ToPath CreateField where
   toPath CreateField' {..} =
     Prelude.mconcat
-      ["/domains/", Core.toBS domainId, "/fields"]
+      ["/domains/", Data.toBS domainId, "/fields"]
 
-instance Core.ToQuery CreateField where
+instance Data.ToQuery CreateField where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFieldResponse' smart constructor.

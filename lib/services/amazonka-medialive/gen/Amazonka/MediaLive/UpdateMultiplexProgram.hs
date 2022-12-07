@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,7 +113,7 @@ instance Core.AWSRequest UpdateMultiplexProgram' where
     Response.receiveJSON
       ( \s h x ->
           UpdateMultiplexProgramResponse'
-            Prelude.<$> (x Core..?> "multiplexProgram")
+            Prelude.<$> (x Data..?> "multiplexProgram")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,36 +130,36 @@ instance Prelude.NFData UpdateMultiplexProgram' where
       `Prelude.seq` Prelude.rnf multiplexId
       `Prelude.seq` Prelude.rnf programName
 
-instance Core.ToHeaders UpdateMultiplexProgram' where
+instance Data.ToHeaders UpdateMultiplexProgram' where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMultiplexProgram' where
+instance Data.ToJSON UpdateMultiplexProgram' where
   toJSON UpdateMultiplexProgram'' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("multiplexProgramSettings" Core..=)
+          [ ("multiplexProgramSettings" Data..=)
               Prelude.<$> multiplexProgramSettings
           ]
       )
 
-instance Core.ToPath UpdateMultiplexProgram' where
+instance Data.ToPath UpdateMultiplexProgram' where
   toPath UpdateMultiplexProgram'' {..} =
     Prelude.mconcat
       [ "/prod/multiplexes/",
-        Core.toBS multiplexId,
+        Data.toBS multiplexId,
         "/programs/",
-        Core.toBS programName
+        Data.toBS programName
       ]
 
-instance Core.ToQuery UpdateMultiplexProgram' where
+instance Data.ToQuery UpdateMultiplexProgram' where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for UpdateMultiplexProgramResponse

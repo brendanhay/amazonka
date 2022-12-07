@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -180,12 +181,12 @@ instance Core.AWSRequest ListVirtualMFADevices where
       "ListVirtualMFADevicesResult"
       ( \s h x ->
           ListVirtualMFADevicesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "VirtualMFADevices"
+            Prelude.<*> ( x Data..@? "VirtualMFADevices"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -201,22 +202,22 @@ instance Prelude.NFData ListVirtualMFADevices where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf assignmentStatus
 
-instance Core.ToHeaders ListVirtualMFADevices where
+instance Data.ToHeaders ListVirtualMFADevices where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListVirtualMFADevices where
+instance Data.ToPath ListVirtualMFADevices where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListVirtualMFADevices where
+instance Data.ToQuery ListVirtualMFADevices where
   toQuery ListVirtualMFADevices' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListVirtualMFADevices" :: Prelude.ByteString),
+          Data.=: ("ListVirtualMFADevices" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "AssignmentStatus" Core.=: assignmentStatus
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "AssignmentStatus" Data.=: assignmentStatus
       ]
 
 -- | Contains the response to a successful ListVirtualMFADevices request.

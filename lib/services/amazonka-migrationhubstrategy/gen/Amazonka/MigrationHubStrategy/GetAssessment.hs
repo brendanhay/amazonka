@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,8 +84,8 @@ instance Core.AWSRequest GetAssessment where
     Response.receiveJSON
       ( \s h x ->
           GetAssessmentResponse'
-            Prelude.<$> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "dataCollectionDetails")
+            Prelude.<$> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "dataCollectionDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,22 +96,22 @@ instance Prelude.Hashable GetAssessment where
 instance Prelude.NFData GetAssessment where
   rnf GetAssessment' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetAssessment where
+instance Data.ToHeaders GetAssessment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetAssessment where
+instance Data.ToPath GetAssessment where
   toPath GetAssessment' {..} =
-    Prelude.mconcat ["/get-assessment/", Core.toBS id]
+    Prelude.mconcat ["/get-assessment/", Data.toBS id]
 
-instance Core.ToQuery GetAssessment where
+instance Data.ToQuery GetAssessment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAssessmentResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ConnectCases.Types.FieldOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object for field Options information.
@@ -79,15 +80,15 @@ fieldOption_name = Lens.lens (\FieldOption' {name} -> name) (\s@FieldOption' {} 
 fieldOption_value :: Lens.Lens' FieldOption Prelude.Text
 fieldOption_value = Lens.lens (\FieldOption' {value} -> value) (\s@FieldOption' {} a -> s {value = a} :: FieldOption)
 
-instance Core.FromJSON FieldOption where
+instance Data.FromJSON FieldOption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldOption"
       ( \x ->
           FieldOption'
-            Prelude.<$> (x Core..: "active")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..: "active")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable FieldOption where
@@ -102,12 +103,12 @@ instance Prelude.NFData FieldOption where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON FieldOption where
+instance Data.ToJSON FieldOption where
   toJSON FieldOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("active" Core..= active),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("active" Data..= active),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("value" Data..= value)
           ]
       )

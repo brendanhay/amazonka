@@ -21,6 +21,7 @@ module Amazonka.AmplifyUiBuilder.Types.ComponentVariant where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the style configuration of a unique variation of a main
@@ -71,14 +72,14 @@ componentVariant_variantValues = Lens.lens (\ComponentVariant' {variantValues} -
 componentVariant_overrides :: Lens.Lens' ComponentVariant (Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text Prelude.Text)))
 componentVariant_overrides = Lens.lens (\ComponentVariant' {overrides} -> overrides) (\s@ComponentVariant' {} a -> s {overrides = a} :: ComponentVariant) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ComponentVariant where
+instance Data.FromJSON ComponentVariant where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentVariant"
       ( \x ->
           ComponentVariant'
-            Prelude.<$> (x Core..:? "variantValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "overrides" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "variantValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "overrides" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ComponentVariant where
@@ -91,11 +92,11 @@ instance Prelude.NFData ComponentVariant where
     Prelude.rnf variantValues
       `Prelude.seq` Prelude.rnf overrides
 
-instance Core.ToJSON ComponentVariant where
+instance Data.ToJSON ComponentVariant where
   toJSON ComponentVariant' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("variantValues" Core..=) Prelude.<$> variantValues,
-            ("overrides" Core..=) Prelude.<$> overrides
+          [ ("variantValues" Data..=) Prelude.<$> variantValues,
+            ("overrides" Data..=) Prelude.<$> overrides
           ]
       )

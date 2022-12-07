@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.AssistantData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Wisdom.Types.AssistantStatus
 import Amazonka.Wisdom.Types.AssistantType
@@ -133,20 +134,20 @@ assistantData_status = Lens.lens (\AssistantData' {status} -> status) (\s@Assist
 assistantData_type :: Lens.Lens' AssistantData AssistantType
 assistantData_type = Lens.lens (\AssistantData' {type'} -> type') (\s@AssistantData' {} a -> s {type' = a} :: AssistantData)
 
-instance Core.FromJSON AssistantData where
+instance Data.FromJSON AssistantData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssistantData"
       ( \x ->
           AssistantData'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "serverSideEncryptionConfiguration")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "assistantArn")
-            Prelude.<*> (x Core..: "assistantId")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "serverSideEncryptionConfiguration")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "assistantArn")
+            Prelude.<*> (x Data..: "assistantId")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable AssistantData where

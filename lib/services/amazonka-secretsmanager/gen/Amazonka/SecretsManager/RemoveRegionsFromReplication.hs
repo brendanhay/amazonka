@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,10 +115,10 @@ instance Core.AWSRequest RemoveRegionsFromReplication where
     Response.receiveJSON
       ( \s h x ->
           RemoveRegionsFromReplicationResponse'
-            Prelude.<$> ( x Core..?> "ReplicationStatus"
+            Prelude.<$> ( x Data..?> "ReplicationStatus"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ARN")
+            Prelude.<*> (x Data..?> "ARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,37 +135,37 @@ instance Prelude.NFData RemoveRegionsFromReplication where
     Prelude.rnf secretId
       `Prelude.seq` Prelude.rnf removeReplicaRegions
 
-instance Core.ToHeaders RemoveRegionsFromReplication where
+instance Data.ToHeaders RemoveRegionsFromReplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "secretsmanager.RemoveRegionsFromReplication" ::
+              Data.=# ( "secretsmanager.RemoveRegionsFromReplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RemoveRegionsFromReplication where
+instance Data.ToJSON RemoveRegionsFromReplication where
   toJSON RemoveRegionsFromReplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SecretId" Core..= secretId),
+          [ Prelude.Just ("SecretId" Data..= secretId),
             Prelude.Just
               ( "RemoveReplicaRegions"
-                  Core..= removeReplicaRegions
+                  Data..= removeReplicaRegions
               )
           ]
       )
 
-instance Core.ToPath RemoveRegionsFromReplication where
+instance Data.ToPath RemoveRegionsFromReplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveRegionsFromReplication where
+instance Data.ToQuery RemoveRegionsFromReplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveRegionsFromReplicationResponse' smart constructor.

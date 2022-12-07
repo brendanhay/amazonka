@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryReadiness.Types.DNSTargetResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryReadiness.Types.TargetResource
 
@@ -100,17 +101,17 @@ dNSTargetResource_recordSetId = Lens.lens (\DNSTargetResource' {recordSetId} -> 
 dNSTargetResource_recordType :: Lens.Lens' DNSTargetResource (Prelude.Maybe Prelude.Text)
 dNSTargetResource_recordType = Lens.lens (\DNSTargetResource' {recordType} -> recordType) (\s@DNSTargetResource' {} a -> s {recordType = a} :: DNSTargetResource)
 
-instance Core.FromJSON DNSTargetResource where
+instance Data.FromJSON DNSTargetResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DNSTargetResource"
       ( \x ->
           DNSTargetResource'
-            Prelude.<$> (x Core..:? "targetResource")
-            Prelude.<*> (x Core..:? "hostedZoneArn")
-            Prelude.<*> (x Core..:? "domainName")
-            Prelude.<*> (x Core..:? "recordSetId")
-            Prelude.<*> (x Core..:? "recordType")
+            Prelude.<$> (x Data..:? "targetResource")
+            Prelude.<*> (x Data..:? "hostedZoneArn")
+            Prelude.<*> (x Data..:? "domainName")
+            Prelude.<*> (x Data..:? "recordSetId")
+            Prelude.<*> (x Data..:? "recordType")
       )
 
 instance Prelude.Hashable DNSTargetResource where
@@ -129,15 +130,15 @@ instance Prelude.NFData DNSTargetResource where
       `Prelude.seq` Prelude.rnf recordSetId
       `Prelude.seq` Prelude.rnf recordType
 
-instance Core.ToJSON DNSTargetResource where
+instance Data.ToJSON DNSTargetResource where
   toJSON DNSTargetResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetResource" Core..=)
+          [ ("targetResource" Data..=)
               Prelude.<$> targetResource,
-            ("hostedZoneArn" Core..=) Prelude.<$> hostedZoneArn,
-            ("domainName" Core..=) Prelude.<$> domainName,
-            ("recordSetId" Core..=) Prelude.<$> recordSetId,
-            ("recordType" Core..=) Prelude.<$> recordType
+            ("hostedZoneArn" Data..=) Prelude.<$> hostedZoneArn,
+            ("domainName" Data..=) Prelude.<$> domainName,
+            ("recordSetId" Data..=) Prelude.<$> recordSetId,
+            ("recordType" Data..=) Prelude.<$> recordType
           ]
       )

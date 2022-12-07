@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.M2tsForceTsVideoEbpOrder
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Keep the default value (DEFAULT) unless you know that your audio EBP
@@ -34,7 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 -- correct this problem, set this value to Force (FORCE).
 newtype M2tsForceTsVideoEbpOrder = M2tsForceTsVideoEbpOrder'
   { fromM2tsForceTsVideoEbpOrder ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -46,18 +47,18 @@ newtype M2tsForceTsVideoEbpOrder = M2tsForceTsVideoEbpOrder'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern M2tsForceTsVideoEbpOrder_DEFAULT :: M2tsForceTsVideoEbpOrder

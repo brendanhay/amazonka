@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.ImageInserter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.InsertableImage
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,16 +82,16 @@ imageInserter_insertableImages = Lens.lens (\ImageInserter' {insertableImages} -
 imageInserter_sdrReferenceWhiteLevel :: Lens.Lens' ImageInserter (Prelude.Maybe Prelude.Natural)
 imageInserter_sdrReferenceWhiteLevel = Lens.lens (\ImageInserter' {sdrReferenceWhiteLevel} -> sdrReferenceWhiteLevel) (\s@ImageInserter' {} a -> s {sdrReferenceWhiteLevel = a} :: ImageInserter)
 
-instance Core.FromJSON ImageInserter where
+instance Data.FromJSON ImageInserter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageInserter"
       ( \x ->
           ImageInserter'
-            Prelude.<$> ( x Core..:? "insertableImages"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "insertableImages"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "sdrReferenceWhiteLevel")
+            Prelude.<*> (x Data..:? "sdrReferenceWhiteLevel")
       )
 
 instance Prelude.Hashable ImageInserter where
@@ -103,13 +104,13 @@ instance Prelude.NFData ImageInserter where
     Prelude.rnf insertableImages
       `Prelude.seq` Prelude.rnf sdrReferenceWhiteLevel
 
-instance Core.ToJSON ImageInserter where
+instance Data.ToJSON ImageInserter where
   toJSON ImageInserter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("insertableImages" Core..=)
+          [ ("insertableImages" Data..=)
               Prelude.<$> insertableImages,
-            ("sdrReferenceWhiteLevel" Core..=)
+            ("sdrReferenceWhiteLevel" Data..=)
               Prelude.<$> sdrReferenceWhiteLevel
           ]
       )

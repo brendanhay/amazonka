@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AvailableCapacity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceCapacity
 import qualified Amazonka.Prelude as Prelude
@@ -77,13 +78,13 @@ availableCapacity_availableVCpus = Lens.lens (\AvailableCapacity' {availableVCpu
 availableCapacity_availableInstanceCapacity :: Lens.Lens' AvailableCapacity (Prelude.Maybe [InstanceCapacity])
 availableCapacity_availableInstanceCapacity = Lens.lens (\AvailableCapacity' {availableInstanceCapacity} -> availableInstanceCapacity) (\s@AvailableCapacity' {} a -> s {availableInstanceCapacity = a} :: AvailableCapacity) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML AvailableCapacity where
+instance Data.FromXML AvailableCapacity where
   parseXML x =
     AvailableCapacity'
-      Prelude.<$> (x Core..@? "availableVCpus")
-      Prelude.<*> ( x Core..@? "availableInstanceCapacity"
+      Prelude.<$> (x Data..@? "availableVCpus")
+      Prelude.<*> ( x Data..@? "availableInstanceCapacity"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable AvailableCapacity where

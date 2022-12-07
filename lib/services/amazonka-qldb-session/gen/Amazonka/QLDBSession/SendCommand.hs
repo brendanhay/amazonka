@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDBSession.Types
 import qualified Amazonka.Request as Request
@@ -190,13 +191,13 @@ instance Core.AWSRequest SendCommand where
     Response.receiveJSON
       ( \s h x ->
           SendCommandResponse'
-            Prelude.<$> (x Core..?> "AbortTransaction")
-            Prelude.<*> (x Core..?> "ExecuteStatement")
-            Prelude.<*> (x Core..?> "EndSession")
-            Prelude.<*> (x Core..?> "StartTransaction")
-            Prelude.<*> (x Core..?> "StartSession")
-            Prelude.<*> (x Core..?> "CommitTransaction")
-            Prelude.<*> (x Core..?> "FetchPage")
+            Prelude.<$> (x Data..?> "AbortTransaction")
+            Prelude.<*> (x Data..?> "ExecuteStatement")
+            Prelude.<*> (x Data..?> "EndSession")
+            Prelude.<*> (x Data..?> "StartTransaction")
+            Prelude.<*> (x Data..?> "StartSession")
+            Prelude.<*> (x Data..?> "CommitTransaction")
+            Prelude.<*> (x Data..?> "FetchPage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -222,42 +223,42 @@ instance Prelude.NFData SendCommand where
       `Prelude.seq` Prelude.rnf commitTransaction
       `Prelude.seq` Prelude.rnf fetchPage
 
-instance Core.ToHeaders SendCommand where
+instance Data.ToHeaders SendCommand where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("QLDBSession.SendCommand" :: Prelude.ByteString),
+              Data.=# ("QLDBSession.SendCommand" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendCommand where
+instance Data.ToJSON SendCommand where
   toJSON SendCommand' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AbortTransaction" Core..=)
+          [ ("AbortTransaction" Data..=)
               Prelude.<$> abortTransaction,
-            ("SessionToken" Core..=) Prelude.<$> sessionToken,
-            ("ExecuteStatement" Core..=)
+            ("SessionToken" Data..=) Prelude.<$> sessionToken,
+            ("ExecuteStatement" Data..=)
               Prelude.<$> executeStatement,
-            ("EndSession" Core..=) Prelude.<$> endSession,
-            ("StartTransaction" Core..=)
+            ("EndSession" Data..=) Prelude.<$> endSession,
+            ("StartTransaction" Data..=)
               Prelude.<$> startTransaction,
-            ("StartSession" Core..=) Prelude.<$> startSession,
-            ("CommitTransaction" Core..=)
+            ("StartSession" Data..=) Prelude.<$> startSession,
+            ("CommitTransaction" Data..=)
               Prelude.<$> commitTransaction,
-            ("FetchPage" Core..=) Prelude.<$> fetchPage
+            ("FetchPage" Data..=) Prelude.<$> fetchPage
           ]
       )
 
-instance Core.ToPath SendCommand where
+instance Data.ToPath SendCommand where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendCommand where
+instance Data.ToQuery SendCommand where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendCommandResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ThemeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DataColorPalette
 import Amazonka.QuickSight.Types.SheetStyle
@@ -78,15 +79,15 @@ themeConfiguration_sheet = Lens.lens (\ThemeConfiguration' {sheet} -> sheet) (\s
 themeConfiguration_uIColorPalette :: Lens.Lens' ThemeConfiguration (Prelude.Maybe UIColorPalette)
 themeConfiguration_uIColorPalette = Lens.lens (\ThemeConfiguration' {uIColorPalette} -> uIColorPalette) (\s@ThemeConfiguration' {} a -> s {uIColorPalette = a} :: ThemeConfiguration)
 
-instance Core.FromJSON ThemeConfiguration where
+instance Data.FromJSON ThemeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThemeConfiguration"
       ( \x ->
           ThemeConfiguration'
-            Prelude.<$> (x Core..:? "DataColorPalette")
-            Prelude.<*> (x Core..:? "Sheet")
-            Prelude.<*> (x Core..:? "UIColorPalette")
+            Prelude.<$> (x Data..:? "DataColorPalette")
+            Prelude.<*> (x Data..:? "Sheet")
+            Prelude.<*> (x Data..:? "UIColorPalette")
       )
 
 instance Prelude.Hashable ThemeConfiguration where
@@ -101,14 +102,14 @@ instance Prelude.NFData ThemeConfiguration where
       `Prelude.seq` Prelude.rnf sheet
       `Prelude.seq` Prelude.rnf uIColorPalette
 
-instance Core.ToJSON ThemeConfiguration where
+instance Data.ToJSON ThemeConfiguration where
   toJSON ThemeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataColorPalette" Core..=)
+          [ ("DataColorPalette" Data..=)
               Prelude.<$> dataColorPalette,
-            ("Sheet" Core..=) Prelude.<$> sheet,
-            ("UIColorPalette" Core..=)
+            ("Sheet" Data..=) Prelude.<$> sheet,
+            ("UIColorPalette" Data..=)
               Prelude.<$> uIColorPalette
           ]
       )

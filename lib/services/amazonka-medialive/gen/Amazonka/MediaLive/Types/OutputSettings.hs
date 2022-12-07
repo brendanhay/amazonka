@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.OutputSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.ArchiveOutputSettings
 import Amazonka.MediaLive.Types.FrameCaptureOutputSettings
 import Amazonka.MediaLive.Types.HlsOutputSettings
@@ -116,20 +117,20 @@ outputSettings_msSmoothOutputSettings = Lens.lens (\OutputSettings' {msSmoothOut
 outputSettings_hlsOutputSettings :: Lens.Lens' OutputSettings (Prelude.Maybe HlsOutputSettings)
 outputSettings_hlsOutputSettings = Lens.lens (\OutputSettings' {hlsOutputSettings} -> hlsOutputSettings) (\s@OutputSettings' {} a -> s {hlsOutputSettings = a} :: OutputSettings)
 
-instance Core.FromJSON OutputSettings where
+instance Data.FromJSON OutputSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputSettings"
       ( \x ->
           OutputSettings'
-            Prelude.<$> (x Core..:? "multiplexOutputSettings")
-            Prelude.<*> (x Core..:? "mediaPackageOutputSettings")
-            Prelude.<*> (x Core..:? "archiveOutputSettings")
-            Prelude.<*> (x Core..:? "rtmpOutputSettings")
-            Prelude.<*> (x Core..:? "udpOutputSettings")
-            Prelude.<*> (x Core..:? "frameCaptureOutputSettings")
-            Prelude.<*> (x Core..:? "msSmoothOutputSettings")
-            Prelude.<*> (x Core..:? "hlsOutputSettings")
+            Prelude.<$> (x Data..:? "multiplexOutputSettings")
+            Prelude.<*> (x Data..:? "mediaPackageOutputSettings")
+            Prelude.<*> (x Data..:? "archiveOutputSettings")
+            Prelude.<*> (x Data..:? "rtmpOutputSettings")
+            Prelude.<*> (x Data..:? "udpOutputSettings")
+            Prelude.<*> (x Data..:? "frameCaptureOutputSettings")
+            Prelude.<*> (x Data..:? "msSmoothOutputSettings")
+            Prelude.<*> (x Data..:? "hlsOutputSettings")
       )
 
 instance Prelude.Hashable OutputSettings where
@@ -155,25 +156,25 @@ instance Prelude.NFData OutputSettings where
       `Prelude.seq` Prelude.rnf msSmoothOutputSettings
       `Prelude.seq` Prelude.rnf hlsOutputSettings
 
-instance Core.ToJSON OutputSettings where
+instance Data.ToJSON OutputSettings where
   toJSON OutputSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("multiplexOutputSettings" Core..=)
+          [ ("multiplexOutputSettings" Data..=)
               Prelude.<$> multiplexOutputSettings,
-            ("mediaPackageOutputSettings" Core..=)
+            ("mediaPackageOutputSettings" Data..=)
               Prelude.<$> mediaPackageOutputSettings,
-            ("archiveOutputSettings" Core..=)
+            ("archiveOutputSettings" Data..=)
               Prelude.<$> archiveOutputSettings,
-            ("rtmpOutputSettings" Core..=)
+            ("rtmpOutputSettings" Data..=)
               Prelude.<$> rtmpOutputSettings,
-            ("udpOutputSettings" Core..=)
+            ("udpOutputSettings" Data..=)
               Prelude.<$> udpOutputSettings,
-            ("frameCaptureOutputSettings" Core..=)
+            ("frameCaptureOutputSettings" Data..=)
               Prelude.<$> frameCaptureOutputSettings,
-            ("msSmoothOutputSettings" Core..=)
+            ("msSmoothOutputSettings" Data..=)
               Prelude.<$> msSmoothOutputSettings,
-            ("hlsOutputSettings" Core..=)
+            ("hlsOutputSettings" Data..=)
               Prelude.<$> hlsOutputSettings
           ]
       )

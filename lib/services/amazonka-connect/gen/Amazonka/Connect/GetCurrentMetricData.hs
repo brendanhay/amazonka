@@ -54,6 +54,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -489,9 +490,9 @@ instance Core.AWSRequest GetCurrentMetricData where
     Response.receiveJSON
       ( \s h x ->
           GetCurrentMetricDataResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "DataSnapshotTime")
-            Prelude.<*> (x Core..?> "MetricResults" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "DataSnapshotTime")
+            Prelude.<*> (x Data..?> "MetricResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -513,36 +514,36 @@ instance Prelude.NFData GetCurrentMetricData where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf currentMetrics
 
-instance Core.ToHeaders GetCurrentMetricData where
+instance Data.ToHeaders GetCurrentMetricData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCurrentMetricData where
+instance Data.ToJSON GetCurrentMetricData where
   toJSON GetCurrentMetricData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Groupings" Core..=) Prelude.<$> groupings,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Filters" Core..= filters),
+          [ ("Groupings" Data..=) Prelude.<$> groupings,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Filters" Data..= filters),
             Prelude.Just
-              ("CurrentMetrics" Core..= currentMetrics)
+              ("CurrentMetrics" Data..= currentMetrics)
           ]
       )
 
-instance Core.ToPath GetCurrentMetricData where
+instance Data.ToPath GetCurrentMetricData where
   toPath GetCurrentMetricData' {..} =
     Prelude.mconcat
-      ["/metrics/current/", Core.toBS instanceId]
+      ["/metrics/current/", Data.toBS instanceId]
 
-instance Core.ToQuery GetCurrentMetricData where
+instance Data.ToQuery GetCurrentMetricData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCurrentMetricDataResponse' smart constructor.
@@ -555,7 +556,7 @@ data GetCurrentMetricDataResponse = GetCurrentMetricDataResponse'
     -- parameters as the request that generated the token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The time at which the metrics were retrieved and cached for pagination.
-    dataSnapshotTime :: Prelude.Maybe Core.POSIX,
+    dataSnapshotTime :: Prelude.Maybe Data.POSIX,
     -- | Information about the real-time metrics.
     metricResults :: Prelude.Maybe [CurrentMetricResult],
     -- | The response's http status code.
@@ -607,7 +608,7 @@ getCurrentMetricDataResponse_nextToken = Lens.lens (\GetCurrentMetricDataRespons
 
 -- | The time at which the metrics were retrieved and cached for pagination.
 getCurrentMetricDataResponse_dataSnapshotTime :: Lens.Lens' GetCurrentMetricDataResponse (Prelude.Maybe Prelude.UTCTime)
-getCurrentMetricDataResponse_dataSnapshotTime = Lens.lens (\GetCurrentMetricDataResponse' {dataSnapshotTime} -> dataSnapshotTime) (\s@GetCurrentMetricDataResponse' {} a -> s {dataSnapshotTime = a} :: GetCurrentMetricDataResponse) Prelude.. Lens.mapping Core._Time
+getCurrentMetricDataResponse_dataSnapshotTime = Lens.lens (\GetCurrentMetricDataResponse' {dataSnapshotTime} -> dataSnapshotTime) (\s@GetCurrentMetricDataResponse' {} a -> s {dataSnapshotTime = a} :: GetCurrentMetricDataResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the real-time metrics.
 getCurrentMetricDataResponse_metricResults :: Lens.Lens' GetCurrentMetricDataResponse (Prelude.Maybe [CurrentMetricResult])

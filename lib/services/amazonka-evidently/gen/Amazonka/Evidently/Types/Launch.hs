@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.Launch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.LaunchExecution
 import Amazonka.Evidently.Types.LaunchGroup
 import Amazonka.Evidently.Types.LaunchStatus
@@ -63,9 +64,9 @@ data Launch = Launch'
     -- | The ARN of the launch.
     arn :: Prelude.Text,
     -- | The date and time that the launch is created.
-    createdTime :: Core.POSIX,
+    createdTime :: Data.POSIX,
     -- | The date and time that the launch was most recently updated.
-    lastUpdatedTime :: Core.POSIX,
+    lastUpdatedTime :: Data.POSIX,
     -- | The name of the launch.
     name :: Prelude.Text,
     -- | The current state of the launch.
@@ -152,9 +153,9 @@ newLaunch
         groups = Prelude.Nothing,
         randomizationSalt = Prelude.Nothing,
         arn = pArn_,
-        createdTime = Core._Time Lens.# pCreatedTime_,
+        createdTime = Data._Time Lens.# pCreatedTime_,
         lastUpdatedTime =
-          Core._Time Lens.# pLastUpdatedTime_,
+          Data._Time Lens.# pLastUpdatedTime_,
         name = pName_,
         status = pStatus_,
         type' = pType_
@@ -210,11 +211,11 @@ launch_arn = Lens.lens (\Launch' {arn} -> arn) (\s@Launch' {} a -> s {arn = a} :
 
 -- | The date and time that the launch is created.
 launch_createdTime :: Lens.Lens' Launch Prelude.UTCTime
-launch_createdTime = Lens.lens (\Launch' {createdTime} -> createdTime) (\s@Launch' {} a -> s {createdTime = a} :: Launch) Prelude.. Core._Time
+launch_createdTime = Lens.lens (\Launch' {createdTime} -> createdTime) (\s@Launch' {} a -> s {createdTime = a} :: Launch) Prelude.. Data._Time
 
 -- | The date and time that the launch was most recently updated.
 launch_lastUpdatedTime :: Lens.Lens' Launch Prelude.UTCTime
-launch_lastUpdatedTime = Lens.lens (\Launch' {lastUpdatedTime} -> lastUpdatedTime) (\s@Launch' {} a -> s {lastUpdatedTime = a} :: Launch) Prelude.. Core._Time
+launch_lastUpdatedTime = Lens.lens (\Launch' {lastUpdatedTime} -> lastUpdatedTime) (\s@Launch' {} a -> s {lastUpdatedTime = a} :: Launch) Prelude.. Data._Time
 
 -- | The name of the launch.
 launch_name :: Lens.Lens' Launch Prelude.Text
@@ -228,27 +229,27 @@ launch_status = Lens.lens (\Launch' {status} -> status) (\s@Launch' {} a -> s {s
 launch_type :: Lens.Lens' Launch LaunchType
 launch_type = Lens.lens (\Launch' {type'} -> type') (\s@Launch' {} a -> s {type' = a} :: Launch)
 
-instance Core.FromJSON Launch where
+instance Data.FromJSON Launch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Launch"
       ( \x ->
           Launch'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "scheduledSplitsDefinition")
-            Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "project")
-            Prelude.<*> (x Core..:? "execution")
-            Prelude.<*> (x Core..:? "metricMonitors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "groups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "randomizationSalt")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdTime")
-            Prelude.<*> (x Core..: "lastUpdatedTime")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "scheduledSplitsDefinition")
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "project")
+            Prelude.<*> (x Data..:? "execution")
+            Prelude.<*> (x Data..:? "metricMonitors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "groups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "randomizationSalt")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdTime")
+            Prelude.<*> (x Data..: "lastUpdatedTime")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable Launch where

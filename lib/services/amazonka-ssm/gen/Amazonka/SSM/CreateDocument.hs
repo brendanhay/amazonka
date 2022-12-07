@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -347,7 +348,7 @@ instance Core.AWSRequest CreateDocument where
     Response.receiveJSON
       ( \s h x ->
           CreateDocumentResponse'
-            Prelude.<$> (x Core..?> "DocumentDescription")
+            Prelude.<$> (x Data..?> "DocumentDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -377,41 +378,41 @@ instance Prelude.NFData CreateDocument where
       `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateDocument where
+instance Data.ToHeaders CreateDocument where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.CreateDocument" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.CreateDocument" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDocument where
+instance Data.ToJSON CreateDocument where
   toJSON CreateDocument' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Requires" Core..=) Prelude.<$> requires,
-            ("DocumentType" Core..=) Prelude.<$> documentType,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("TargetType" Core..=) Prelude.<$> targetType,
-            ("Attachments" Core..=) Prelude.<$> attachments,
-            ("VersionName" Core..=) Prelude.<$> versionName,
-            ("DocumentFormat" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Requires" Data..=) Prelude.<$> requires,
+            ("DocumentType" Data..=) Prelude.<$> documentType,
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("TargetType" Data..=) Prelude.<$> targetType,
+            ("Attachments" Data..=) Prelude.<$> attachments,
+            ("VersionName" Data..=) Prelude.<$> versionName,
+            ("DocumentFormat" Data..=)
               Prelude.<$> documentFormat,
-            Prelude.Just ("Content" Core..= content),
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Content" Data..= content),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateDocument where
+instance Data.ToPath CreateDocument where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDocument where
+instance Data.ToQuery CreateDocument where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDocumentResponse' smart constructor.

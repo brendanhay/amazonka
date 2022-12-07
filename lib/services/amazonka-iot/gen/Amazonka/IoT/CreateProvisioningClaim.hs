@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,10 +94,10 @@ instance Core.AWSRequest CreateProvisioningClaim where
     Response.receiveJSON
       ( \s h x ->
           CreateProvisioningClaimResponse'
-            Prelude.<$> (x Core..?> "expiration")
-            Prelude.<*> (x Core..?> "keyPair")
-            Prelude.<*> (x Core..?> "certificateId")
-            Prelude.<*> (x Core..?> "certificatePem")
+            Prelude.<$> (x Data..?> "expiration")
+            Prelude.<*> (x Data..?> "keyPair")
+            Prelude.<*> (x Data..?> "certificateId")
+            Prelude.<*> (x Data..?> "certificatePem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,27 +109,27 @@ instance Prelude.NFData CreateProvisioningClaim where
   rnf CreateProvisioningClaim' {..} =
     Prelude.rnf templateName
 
-instance Core.ToHeaders CreateProvisioningClaim where
+instance Data.ToHeaders CreateProvisioningClaim where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateProvisioningClaim where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CreateProvisioningClaim where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CreateProvisioningClaim where
+instance Data.ToPath CreateProvisioningClaim where
   toPath CreateProvisioningClaim' {..} =
     Prelude.mconcat
       [ "/provisioning-templates/",
-        Core.toBS templateName,
+        Data.toBS templateName,
         "/provisioning-claim"
       ]
 
-instance Core.ToQuery CreateProvisioningClaim where
+instance Data.ToQuery CreateProvisioningClaim where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProvisioningClaimResponse' smart constructor.
 data CreateProvisioningClaimResponse = CreateProvisioningClaimResponse'
   { -- | The provisioning claim expiration time.
-    expiration :: Prelude.Maybe Core.POSIX,
+    expiration :: Prelude.Maybe Data.POSIX,
     -- | The provisioning claim key pair.
     keyPair :: Prelude.Maybe KeyPair,
     -- | The ID of the certificate.
@@ -173,7 +174,7 @@ newCreateProvisioningClaimResponse pHttpStatus_ =
 
 -- | The provisioning claim expiration time.
 createProvisioningClaimResponse_expiration :: Lens.Lens' CreateProvisioningClaimResponse (Prelude.Maybe Prelude.UTCTime)
-createProvisioningClaimResponse_expiration = Lens.lens (\CreateProvisioningClaimResponse' {expiration} -> expiration) (\s@CreateProvisioningClaimResponse' {} a -> s {expiration = a} :: CreateProvisioningClaimResponse) Prelude.. Lens.mapping Core._Time
+createProvisioningClaimResponse_expiration = Lens.lens (\CreateProvisioningClaimResponse' {expiration} -> expiration) (\s@CreateProvisioningClaimResponse' {} a -> s {expiration = a} :: CreateProvisioningClaimResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The provisioning claim key pair.
 createProvisioningClaimResponse_keyPair :: Lens.Lens' CreateProvisioningClaimResponse (Prelude.Maybe KeyPair)

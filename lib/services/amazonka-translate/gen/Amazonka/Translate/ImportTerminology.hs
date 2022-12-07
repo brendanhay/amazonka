@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -170,8 +171,8 @@ instance Core.AWSRequest ImportTerminology where
     Response.receiveJSON
       ( \s h x ->
           ImportTerminologyResponse'
-            Prelude.<$> (x Core..?> "AuxiliaryDataLocation")
-            Prelude.<*> (x Core..?> "TerminologyProperties")
+            Prelude.<$> (x Data..?> "AuxiliaryDataLocation")
+            Prelude.<*> (x Data..?> "TerminologyProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,39 +194,39 @@ instance Prelude.NFData ImportTerminology where
       `Prelude.seq` Prelude.rnf mergeStrategy
       `Prelude.seq` Prelude.rnf terminologyData
 
-instance Core.ToHeaders ImportTerminology where
+instance Data.ToHeaders ImportTerminology where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShineFrontendService_20170701.ImportTerminology" ::
+              Data.=# ( "AWSShineFrontendService_20170701.ImportTerminology" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportTerminology where
+instance Data.ToJSON ImportTerminology where
   toJSON ImportTerminology' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("EncryptionKey" Core..=) Prelude.<$> encryptionKey,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("MergeStrategy" Core..= mergeStrategy),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("EncryptionKey" Data..=) Prelude.<$> encryptionKey,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("MergeStrategy" Data..= mergeStrategy),
             Prelude.Just
-              ("TerminologyData" Core..= terminologyData)
+              ("TerminologyData" Data..= terminologyData)
           ]
       )
 
-instance Core.ToPath ImportTerminology where
+instance Data.ToPath ImportTerminology where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportTerminology where
+instance Data.ToQuery ImportTerminology where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportTerminologyResponse' smart constructor.

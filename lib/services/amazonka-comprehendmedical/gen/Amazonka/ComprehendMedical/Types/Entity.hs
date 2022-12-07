@@ -25,6 +25,7 @@ import Amazonka.ComprehendMedical.Types.EntityType
 import Amazonka.ComprehendMedical.Types.Trait
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an extracted medical entity.
@@ -143,21 +144,21 @@ entity_attributes = Lens.lens (\Entity' {attributes} -> attributes) (\s@Entity' 
 entity_text :: Lens.Lens' Entity (Prelude.Maybe Prelude.Text)
 entity_text = Lens.lens (\Entity' {text} -> text) (\s@Entity' {} a -> s {text = a} :: Entity)
 
-instance Core.FromJSON Entity where
+instance Data.FromJSON Entity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Entity"
       ( \x ->
           Entity'
-            Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Traits" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "EndOffset")
-            Prelude.<*> (x Core..:? "Category")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Text")
+            Prelude.<$> (x Data..:? "BeginOffset")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Traits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "Category")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Text")
       )
 
 instance Prelude.Hashable Entity where

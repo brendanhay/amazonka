@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ServiceAdditionalInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Additional information about the generated finding.
@@ -61,13 +62,13 @@ serviceAdditionalInfo_type = Lens.lens (\ServiceAdditionalInfo' {type'} -> type'
 serviceAdditionalInfo_value :: Lens.Lens' ServiceAdditionalInfo (Prelude.Maybe Prelude.Text)
 serviceAdditionalInfo_value = Lens.lens (\ServiceAdditionalInfo' {value} -> value) (\s@ServiceAdditionalInfo' {} a -> s {value = a} :: ServiceAdditionalInfo)
 
-instance Core.FromJSON ServiceAdditionalInfo where
+instance Data.FromJSON ServiceAdditionalInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceAdditionalInfo"
       ( \x ->
           ServiceAdditionalInfo'
-            Prelude.<$> (x Core..:? "type") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "type") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ServiceAdditionalInfo where

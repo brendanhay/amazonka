@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,32 +108,32 @@ instance Prelude.NFData DeletePermissionPolicy where
   rnf DeletePermissionPolicy' {..} =
     Prelude.rnf resourceArn
 
-instance Core.ToHeaders DeletePermissionPolicy where
+instance Data.ToHeaders DeletePermissionPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20190729.DeletePermissionPolicy" ::
+              Data.=# ( "AWSWAF_20190729.DeletePermissionPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeletePermissionPolicy where
+instance Data.ToJSON DeletePermissionPolicy where
   toJSON DeletePermissionPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
+          [Prelude.Just ("ResourceArn" Data..= resourceArn)]
       )
 
-instance Core.ToPath DeletePermissionPolicy where
+instance Data.ToPath DeletePermissionPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeletePermissionPolicy where
+instance Data.ToQuery DeletePermissionPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePermissionPolicyResponse' smart constructor.

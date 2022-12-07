@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,9 +158,9 @@ instance Core.AWSRequest StartSession where
     Response.receiveJSON
       ( \s h x ->
           StartSessionResponse'
-            Prelude.<$> (x Core..?> "TokenValue")
-            Prelude.<*> (x Core..?> "StreamUrl")
-            Prelude.<*> (x Core..?> "SessionId")
+            Prelude.<$> (x Data..?> "TokenValue")
+            Prelude.<*> (x Data..?> "StreamUrl")
+            Prelude.<*> (x Data..?> "SessionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,34 +178,34 @@ instance Prelude.NFData StartSession where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf target
 
-instance Core.ToHeaders StartSession where
+instance Data.ToHeaders StartSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.StartSession" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.StartSession" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartSession where
+instance Data.ToJSON StartSession where
   toJSON StartSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DocumentName" Core..=) Prelude.<$> documentName,
-            ("Reason" Core..=) Prelude.<$> reason,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Target" Core..= target)
+          [ ("DocumentName" Data..=) Prelude.<$> documentName,
+            ("Reason" Data..=) Prelude.<$> reason,
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Target" Data..= target)
           ]
       )
 
-instance Core.ToPath StartSession where
+instance Data.ToPath StartSession where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartSession where
+instance Data.ToQuery StartSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartSessionResponse' smart constructor.

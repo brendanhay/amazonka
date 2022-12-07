@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,34 +102,34 @@ instance Prelude.NFData DeleteStateMachine where
   rnf DeleteStateMachine' {..} =
     Prelude.rnf stateMachineArn
 
-instance Core.ToHeaders DeleteStateMachine where
+instance Data.ToHeaders DeleteStateMachine where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSStepFunctions.DeleteStateMachine" ::
+              Data.=# ( "AWSStepFunctions.DeleteStateMachine" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteStateMachine where
+instance Data.ToJSON DeleteStateMachine where
   toJSON DeleteStateMachine' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("stateMachineArn" Core..= stateMachineArn)
+              ("stateMachineArn" Data..= stateMachineArn)
           ]
       )
 
-instance Core.ToPath DeleteStateMachine where
+instance Data.ToPath DeleteStateMachine where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteStateMachine where
+instance Data.ToQuery DeleteStateMachine where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStateMachineResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.ScheduledSplitsLaunchDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.ScheduledSplit
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,15 +64,15 @@ scheduledSplitsLaunchDefinition_steps :: Lens.Lens' ScheduledSplitsLaunchDefinit
 scheduledSplitsLaunchDefinition_steps = Lens.lens (\ScheduledSplitsLaunchDefinition' {steps} -> steps) (\s@ScheduledSplitsLaunchDefinition' {} a -> s {steps = a} :: ScheduledSplitsLaunchDefinition) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ScheduledSplitsLaunchDefinition
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScheduledSplitsLaunchDefinition"
       ( \x ->
           ScheduledSplitsLaunchDefinition'
-            Prelude.<$> (x Core..:? "steps")
+            Prelude.<$> (x Data..:? "steps")
       )
 
 instance

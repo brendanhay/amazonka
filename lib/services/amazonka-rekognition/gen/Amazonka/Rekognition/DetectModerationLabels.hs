@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -158,11 +159,11 @@ instance Core.AWSRequest DetectModerationLabels where
     Response.receiveJSON
       ( \s h x ->
           DetectModerationLabelsResponse'
-            Prelude.<$> ( x Core..?> "ModerationLabels"
+            Prelude.<$> ( x Data..?> "ModerationLabels"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "HumanLoopActivationOutput")
-            Prelude.<*> (x Core..?> "ModerationModelVersion")
+            Prelude.<*> (x Data..?> "HumanLoopActivationOutput")
+            Prelude.<*> (x Data..?> "ModerationModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,36 +179,36 @@ instance Prelude.NFData DetectModerationLabels where
       `Prelude.seq` Prelude.rnf minConfidence
       `Prelude.seq` Prelude.rnf image
 
-instance Core.ToHeaders DetectModerationLabels where
+instance Data.ToHeaders DetectModerationLabels where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.DetectModerationLabels" ::
+              Data.=# ( "RekognitionService.DetectModerationLabels" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DetectModerationLabels where
+instance Data.ToJSON DetectModerationLabels where
   toJSON DetectModerationLabels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HumanLoopConfig" Core..=)
+          [ ("HumanLoopConfig" Data..=)
               Prelude.<$> humanLoopConfig,
-            ("MinConfidence" Core..=) Prelude.<$> minConfidence,
-            Prelude.Just ("Image" Core..= image)
+            ("MinConfidence" Data..=) Prelude.<$> minConfidence,
+            Prelude.Just ("Image" Data..= image)
           ]
       )
 
-instance Core.ToPath DetectModerationLabels where
+instance Data.ToPath DetectModerationLabels where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetectModerationLabels where
+instance Data.ToQuery DetectModerationLabels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectModerationLabelsResponse' smart constructor.

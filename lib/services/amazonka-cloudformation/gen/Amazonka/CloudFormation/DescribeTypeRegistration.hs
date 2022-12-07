@@ -53,6 +53,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,10 +108,10 @@ instance Core.AWSRequest DescribeTypeRegistration where
       "DescribeTypeRegistrationResult"
       ( \s h x ->
           DescribeTypeRegistrationResponse'
-            Prelude.<$> (x Core..@? "TypeArn")
-            Prelude.<*> (x Core..@? "ProgressStatus")
-            Prelude.<*> (x Core..@? "Description")
-            Prelude.<*> (x Core..@? "TypeVersionArn")
+            Prelude.<$> (x Data..@? "TypeArn")
+            Prelude.<*> (x Data..@? "ProgressStatus")
+            Prelude.<*> (x Data..@? "Description")
+            Prelude.<*> (x Data..@? "TypeVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,20 +123,20 @@ instance Prelude.NFData DescribeTypeRegistration where
   rnf DescribeTypeRegistration' {..} =
     Prelude.rnf registrationToken
 
-instance Core.ToHeaders DescribeTypeRegistration where
+instance Data.ToHeaders DescribeTypeRegistration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeTypeRegistration where
+instance Data.ToPath DescribeTypeRegistration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTypeRegistration where
+instance Data.ToQuery DescribeTypeRegistration where
   toQuery DescribeTypeRegistration' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeTypeRegistration" :: Prelude.ByteString),
+          Data.=: ("DescribeTypeRegistration" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "RegistrationToken" Core.=: registrationToken
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "RegistrationToken" Data.=: registrationToken
       ]
 
 -- | /See:/ 'newDescribeTypeRegistrationResponse' smart constructor.

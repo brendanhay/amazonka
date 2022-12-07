@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -275,7 +276,7 @@ instance Core.AWSRequest CreateExperiment where
       ( \s h x ->
           CreateExperimentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "experiment")
+            Prelude.<*> (x Data..:> "experiment")
       )
 
 instance Prelude.Hashable CreateExperiment where
@@ -304,41 +305,41 @@ instance Prelude.NFData CreateExperiment where
       `Prelude.seq` Prelude.rnf project
       `Prelude.seq` Prelude.rnf treatments
 
-instance Core.ToHeaders CreateExperiment where
+instance Data.ToHeaders CreateExperiment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateExperiment where
+instance Data.ToJSON CreateExperiment where
   toJSON CreateExperiment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("onlineAbConfig" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("onlineAbConfig" Data..=)
               Prelude.<$> onlineAbConfig,
-            ("description" Core..=) Prelude.<$> description,
-            ("samplingRate" Core..=) Prelude.<$> samplingRate,
-            ("segment" Core..=) Prelude.<$> segment,
-            ("randomizationSalt" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("samplingRate" Data..=) Prelude.<$> samplingRate,
+            ("segment" Data..=) Prelude.<$> segment,
+            ("randomizationSalt" Data..=)
               Prelude.<$> randomizationSalt,
-            Prelude.Just ("metricGoals" Core..= metricGoals),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("treatments" Core..= treatments)
+            Prelude.Just ("metricGoals" Data..= metricGoals),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("treatments" Data..= treatments)
           ]
       )
 
-instance Core.ToPath CreateExperiment where
+instance Data.ToPath CreateExperiment where
   toPath CreateExperiment' {..} =
     Prelude.mconcat
-      ["/projects/", Core.toBS project, "/experiments"]
+      ["/projects/", Data.toBS project, "/experiments"]
 
-instance Core.ToQuery CreateExperiment where
+instance Data.ToQuery CreateExperiment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateExperimentResponse' smart constructor.

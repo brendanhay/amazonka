@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,7 +104,7 @@ instance Core.AWSRequest GetContentSummary where
     Response.receiveJSON
       ( \s h x ->
           GetContentSummaryResponse'
-            Prelude.<$> (x Core..?> "contentSummary")
+            Prelude.<$> (x Data..?> "contentSummary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,28 +118,28 @@ instance Prelude.NFData GetContentSummary where
     Prelude.rnf contentId
       `Prelude.seq` Prelude.rnf knowledgeBaseId
 
-instance Core.ToHeaders GetContentSummary where
+instance Data.ToHeaders GetContentSummary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetContentSummary where
+instance Data.ToPath GetContentSummary where
   toPath GetContentSummary' {..} =
     Prelude.mconcat
       [ "/knowledgeBases/",
-        Core.toBS knowledgeBaseId,
+        Data.toBS knowledgeBaseId,
         "/contents/",
-        Core.toBS contentId,
+        Data.toBS contentId,
         "/summary"
       ]
 
-instance Core.ToQuery GetContentSummary where
+instance Data.ToQuery GetContentSummary where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContentSummaryResponse' smart constructor.

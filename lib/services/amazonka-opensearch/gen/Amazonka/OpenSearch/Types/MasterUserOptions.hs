@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.MasterUserOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Credentials for the master user for a domain.
@@ -32,10 +33,10 @@ data MasterUserOptions = MasterUserOptions'
     masterUserARN :: Prelude.Maybe Prelude.Text,
     -- | User name for the master user. Only specify if
     -- @InternalUserDatabaseEnabled@ is @true@.
-    masterUserName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    masterUserName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Password for the master user. Only specify if
     -- @InternalUserDatabaseEnabled@ is @true@.
-    masterUserPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    masterUserPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -72,12 +73,12 @@ masterUserOptions_masterUserARN = Lens.lens (\MasterUserOptions' {masterUserARN}
 -- | User name for the master user. Only specify if
 -- @InternalUserDatabaseEnabled@ is @true@.
 masterUserOptions_masterUserName :: Lens.Lens' MasterUserOptions (Prelude.Maybe Prelude.Text)
-masterUserOptions_masterUserName = Lens.lens (\MasterUserOptions' {masterUserName} -> masterUserName) (\s@MasterUserOptions' {} a -> s {masterUserName = a} :: MasterUserOptions) Prelude.. Lens.mapping Core._Sensitive
+masterUserOptions_masterUserName = Lens.lens (\MasterUserOptions' {masterUserName} -> masterUserName) (\s@MasterUserOptions' {} a -> s {masterUserName = a} :: MasterUserOptions) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Password for the master user. Only specify if
 -- @InternalUserDatabaseEnabled@ is @true@.
 masterUserOptions_masterUserPassword :: Lens.Lens' MasterUserOptions (Prelude.Maybe Prelude.Text)
-masterUserOptions_masterUserPassword = Lens.lens (\MasterUserOptions' {masterUserPassword} -> masterUserPassword) (\s@MasterUserOptions' {} a -> s {masterUserPassword = a} :: MasterUserOptions) Prelude.. Lens.mapping Core._Sensitive
+masterUserOptions_masterUserPassword = Lens.lens (\MasterUserOptions' {masterUserPassword} -> masterUserPassword) (\s@MasterUserOptions' {} a -> s {masterUserPassword = a} :: MasterUserOptions) Prelude.. Lens.mapping Data._Sensitive
 
 instance Prelude.Hashable MasterUserOptions where
   hashWithSalt _salt MasterUserOptions' {..} =
@@ -91,14 +92,14 @@ instance Prelude.NFData MasterUserOptions where
       `Prelude.seq` Prelude.rnf masterUserName
       `Prelude.seq` Prelude.rnf masterUserPassword
 
-instance Core.ToJSON MasterUserOptions where
+instance Data.ToJSON MasterUserOptions where
   toJSON MasterUserOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MasterUserARN" Core..=) Prelude.<$> masterUserARN,
-            ("MasterUserName" Core..=)
+          [ ("MasterUserARN" Data..=) Prelude.<$> masterUserARN,
+            ("MasterUserName" Data..=)
               Prelude.<$> masterUserName,
-            ("MasterUserPassword" Core..=)
+            ("MasterUserPassword" Data..=)
               Prelude.<$> masterUserPassword
           ]
       )

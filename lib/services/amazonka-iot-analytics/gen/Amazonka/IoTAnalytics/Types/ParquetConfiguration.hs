@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.ParquetConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.SchemaDefinition
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newParquetConfiguration =
 parquetConfiguration_schemaDefinition :: Lens.Lens' ParquetConfiguration (Prelude.Maybe SchemaDefinition)
 parquetConfiguration_schemaDefinition = Lens.lens (\ParquetConfiguration' {schemaDefinition} -> schemaDefinition) (\s@ParquetConfiguration' {} a -> s {schemaDefinition = a} :: ParquetConfiguration)
 
-instance Core.FromJSON ParquetConfiguration where
+instance Data.FromJSON ParquetConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParquetConfiguration"
       ( \x ->
           ParquetConfiguration'
-            Prelude.<$> (x Core..:? "schemaDefinition")
+            Prelude.<$> (x Data..:? "schemaDefinition")
       )
 
 instance Prelude.Hashable ParquetConfiguration where
@@ -71,11 +72,11 @@ instance Prelude.NFData ParquetConfiguration where
   rnf ParquetConfiguration' {..} =
     Prelude.rnf schemaDefinition
 
-instance Core.ToJSON ParquetConfiguration where
+instance Data.ToJSON ParquetConfiguration where
   toJSON ParquetConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("schemaDefinition" Core..=)
+          [ ("schemaDefinition" Data..=)
               Prelude.<$> schemaDefinition
           ]
       )

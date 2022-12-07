@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.S3Path where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information required to find a specific file in an Amazon S3 bucket.
@@ -62,13 +63,13 @@ s3Path_bucket = Lens.lens (\S3Path' {bucket} -> bucket) (\s@S3Path' {} a -> s {b
 s3Path_key :: Lens.Lens' S3Path Prelude.Text
 s3Path_key = Lens.lens (\S3Path' {key} -> key) (\s@S3Path' {} a -> s {key = a} :: S3Path)
 
-instance Core.FromJSON S3Path where
+instance Data.FromJSON S3Path where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Path"
       ( \x ->
           S3Path'
-            Prelude.<$> (x Core..: "Bucket") Prelude.<*> (x Core..: "Key")
+            Prelude.<$> (x Data..: "Bucket") Prelude.<*> (x Data..: "Key")
       )
 
 instance Prelude.Hashable S3Path where
@@ -80,11 +81,11 @@ instance Prelude.NFData S3Path where
   rnf S3Path' {..} =
     Prelude.rnf bucket `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON S3Path where
+instance Data.ToJSON S3Path where
   toJSON S3Path' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Bucket" Core..= bucket),
-            Prelude.Just ("Key" Core..= key)
+          [ Prelude.Just ("Bucket" Data..= bucket),
+            Prelude.Just ("Key" Data..= key)
           ]
       )

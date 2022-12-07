@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.MonitoredResourceIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.ResourceCollection
 import Amazonka.DevOpsGuru.Types.ResourcePermission
 import qualified Amazonka.Prelude as Prelude
@@ -35,7 +36,7 @@ data MonitoredResourceIdentifier = MonitoredResourceIdentifier'
     type' :: Prelude.Maybe Prelude.Text,
     resourceCollection :: Prelude.Maybe ResourceCollection,
     -- | The time at which DevOps Guru last updated this resource.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | The permission status of a resource.
     resourcePermission :: Prelude.Maybe ResourcePermission,
     -- | The name of the resource being monitored.
@@ -82,7 +83,7 @@ monitoredResourceIdentifier_resourceCollection = Lens.lens (\MonitoredResourceId
 
 -- | The time at which DevOps Guru last updated this resource.
 monitoredResourceIdentifier_lastUpdated :: Lens.Lens' MonitoredResourceIdentifier (Prelude.Maybe Prelude.UTCTime)
-monitoredResourceIdentifier_lastUpdated = Lens.lens (\MonitoredResourceIdentifier' {lastUpdated} -> lastUpdated) (\s@MonitoredResourceIdentifier' {} a -> s {lastUpdated = a} :: MonitoredResourceIdentifier) Prelude.. Lens.mapping Core._Time
+monitoredResourceIdentifier_lastUpdated = Lens.lens (\MonitoredResourceIdentifier' {lastUpdated} -> lastUpdated) (\s@MonitoredResourceIdentifier' {} a -> s {lastUpdated = a} :: MonitoredResourceIdentifier) Prelude.. Lens.mapping Data._Time
 
 -- | The permission status of a resource.
 monitoredResourceIdentifier_resourcePermission :: Lens.Lens' MonitoredResourceIdentifier (Prelude.Maybe ResourcePermission)
@@ -92,17 +93,17 @@ monitoredResourceIdentifier_resourcePermission = Lens.lens (\MonitoredResourceId
 monitoredResourceIdentifier_monitoredResourceName :: Lens.Lens' MonitoredResourceIdentifier (Prelude.Maybe Prelude.Text)
 monitoredResourceIdentifier_monitoredResourceName = Lens.lens (\MonitoredResourceIdentifier' {monitoredResourceName} -> monitoredResourceName) (\s@MonitoredResourceIdentifier' {} a -> s {monitoredResourceName = a} :: MonitoredResourceIdentifier)
 
-instance Core.FromJSON MonitoredResourceIdentifier where
+instance Data.FromJSON MonitoredResourceIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoredResourceIdentifier"
       ( \x ->
           MonitoredResourceIdentifier'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "ResourceCollection")
-            Prelude.<*> (x Core..:? "LastUpdated")
-            Prelude.<*> (x Core..:? "ResourcePermission")
-            Prelude.<*> (x Core..:? "MonitoredResourceName")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "ResourceCollection")
+            Prelude.<*> (x Data..:? "LastUpdated")
+            Prelude.<*> (x Data..:? "ResourcePermission")
+            Prelude.<*> (x Data..:? "MonitoredResourceName")
       )
 
 instance Prelude.Hashable MonitoredResourceIdentifier where

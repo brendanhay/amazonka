@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -153,8 +154,8 @@ instance Core.AWSRequest ListPeerings where
     Response.receiveJSON
       ( \s h x ->
           ListPeeringsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Peerings" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Peerings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,29 +177,29 @@ instance Prelude.NFData ListPeerings where
       `Prelude.seq` Prelude.rnf edgeLocation
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListPeerings where
+instance Data.ToHeaders ListPeerings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListPeerings where
+instance Data.ToPath ListPeerings where
   toPath = Prelude.const "/peerings"
 
-instance Core.ToQuery ListPeerings where
+instance Data.ToQuery ListPeerings where
   toQuery ListPeerings' {..} =
     Prelude.mconcat
-      [ "coreNetworkId" Core.=: coreNetworkId,
-        "nextToken" Core.=: nextToken,
-        "peeringType" Core.=: peeringType,
-        "state" Core.=: state,
-        "edgeLocation" Core.=: edgeLocation,
-        "maxResults" Core.=: maxResults
+      [ "coreNetworkId" Data.=: coreNetworkId,
+        "nextToken" Data.=: nextToken,
+        "peeringType" Data.=: peeringType,
+        "state" Data.=: state,
+        "edgeLocation" Data.=: edgeLocation,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListPeeringsResponse' smart constructor.

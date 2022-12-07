@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,7 +115,7 @@ instance Core.AWSRequest DescribeTrustedAdvisorChecks where
       ( \s h x ->
           DescribeTrustedAdvisorChecksResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "checks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "checks" Core..!@ Prelude.mempty)
       )
 
 instance
@@ -128,32 +129,32 @@ instance Prelude.NFData DescribeTrustedAdvisorChecks where
   rnf DescribeTrustedAdvisorChecks' {..} =
     Prelude.rnf language
 
-instance Core.ToHeaders DescribeTrustedAdvisorChecks where
+instance Data.ToHeaders DescribeTrustedAdvisorChecks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSupport_20130415.DescribeTrustedAdvisorChecks" ::
+              Data.=# ( "AWSSupport_20130415.DescribeTrustedAdvisorChecks" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTrustedAdvisorChecks where
+instance Data.ToJSON DescribeTrustedAdvisorChecks where
   toJSON DescribeTrustedAdvisorChecks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("language" Core..= language)]
+          [Prelude.Just ("language" Data..= language)]
       )
 
-instance Core.ToPath DescribeTrustedAdvisorChecks where
+instance Data.ToPath DescribeTrustedAdvisorChecks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTrustedAdvisorChecks where
+instance Data.ToQuery DescribeTrustedAdvisorChecks where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Information about the Trusted Advisor checks returned by the

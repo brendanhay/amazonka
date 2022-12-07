@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.StaleSecurityGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.StaleIpPermission
 import qualified Amazonka.Prelude as Prelude
@@ -101,21 +102,21 @@ staleSecurityGroup_vpcId = Lens.lens (\StaleSecurityGroup' {vpcId} -> vpcId) (\s
 staleSecurityGroup_groupId :: Lens.Lens' StaleSecurityGroup (Prelude.Maybe Prelude.Text)
 staleSecurityGroup_groupId = Lens.lens (\StaleSecurityGroup' {groupId} -> groupId) (\s@StaleSecurityGroup' {} a -> s {groupId = a} :: StaleSecurityGroup)
 
-instance Core.FromXML StaleSecurityGroup where
+instance Data.FromXML StaleSecurityGroup where
   parseXML x =
     StaleSecurityGroup'
-      Prelude.<$> ( x Core..@? "staleIpPermissions"
+      Prelude.<$> ( x Data..@? "staleIpPermissions"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "groupName")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> ( x Core..@? "staleIpPermissionsEgress"
+      Prelude.<*> (x Data..@? "groupName")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> ( x Data..@? "staleIpPermissionsEgress"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "vpcId")
-      Prelude.<*> (x Core..@? "groupId")
+      Prelude.<*> (x Data..@? "vpcId")
+      Prelude.<*> (x Data..@? "groupId")
 
 instance Prelude.Hashable StaleSecurityGroup where
   hashWithSalt _salt StaleSecurityGroup' {..} =

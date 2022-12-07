@@ -66,6 +66,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -248,19 +249,19 @@ instance Core.AWSRequest PutProfileObjectType where
     Response.receiveJSON
       ( \s h x ->
           PutProfileObjectTypeResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "LastUpdatedAt")
-            Prelude.<*> (x Core..?> "Fields" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "TemplateId")
-            Prelude.<*> (x Core..?> "ExpirationDays")
-            Prelude.<*> (x Core..?> "SourceLastUpdatedTimestampFormat")
-            Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "EncryptionKey")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "AllowProfileCreation")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "LastUpdatedAt")
+            Prelude.<*> (x Data..?> "Fields" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TemplateId")
+            Prelude.<*> (x Data..?> "ExpirationDays")
+            Prelude.<*> (x Data..?> "SourceLastUpdatedTimestampFormat")
+            Prelude.<*> (x Data..?> "Keys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "EncryptionKey")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "AllowProfileCreation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ObjectTypeName")
-            Prelude.<*> (x Core..:> "Description")
+            Prelude.<*> (x Data..:> "ObjectTypeName")
+            Prelude.<*> (x Data..:> "Description")
       )
 
 instance Prelude.Hashable PutProfileObjectType where
@@ -291,46 +292,46 @@ instance Prelude.NFData PutProfileObjectType where
       `Prelude.seq` Prelude.rnf objectTypeName
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToHeaders PutProfileObjectType where
+instance Data.ToHeaders PutProfileObjectType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutProfileObjectType where
+instance Data.ToJSON PutProfileObjectType where
   toJSON PutProfileObjectType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Fields" Core..=) Prelude.<$> fields,
-            ("TemplateId" Core..=) Prelude.<$> templateId,
-            ("ExpirationDays" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Fields" Data..=) Prelude.<$> fields,
+            ("TemplateId" Data..=) Prelude.<$> templateId,
+            ("ExpirationDays" Data..=)
               Prelude.<$> expirationDays,
-            ("SourceLastUpdatedTimestampFormat" Core..=)
+            ("SourceLastUpdatedTimestampFormat" Data..=)
               Prelude.<$> sourceLastUpdatedTimestampFormat,
-            ("Keys" Core..=) Prelude.<$> keys,
-            ("EncryptionKey" Core..=) Prelude.<$> encryptionKey,
-            ("AllowProfileCreation" Core..=)
+            ("Keys" Data..=) Prelude.<$> keys,
+            ("EncryptionKey" Data..=) Prelude.<$> encryptionKey,
+            ("AllowProfileCreation" Data..=)
               Prelude.<$> allowProfileCreation,
-            Prelude.Just ("Description" Core..= description)
+            Prelude.Just ("Description" Data..= description)
           ]
       )
 
-instance Core.ToPath PutProfileObjectType where
+instance Data.ToPath PutProfileObjectType where
   toPath PutProfileObjectType' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/object-types/",
-        Core.toBS objectTypeName
+        Data.toBS objectTypeName
       ]
 
-instance Core.ToQuery PutProfileObjectType where
+instance Data.ToQuery PutProfileObjectType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutProfileObjectTypeResponse' smart constructor.
@@ -338,7 +339,7 @@ data PutProfileObjectTypeResponse = PutProfileObjectTypeResponse'
   { -- | The tags used to organize, track, or control access for this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The timestamp of when the domain was most recently edited.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | A map of the name and ObjectType field.
     fields :: Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField),
     -- | A unique identifier for the object template.
@@ -357,7 +358,7 @@ data PutProfileObjectTypeResponse = PutProfileObjectTypeResponse'
     -- created in this profile object type.
     encryptionKey :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the domain was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Indicates whether a profile should be created when data is received if
     -- one doesn’t exist for an object of this type. The default is @FALSE@. If
     -- the AllowProfileCreation flag is set to @FALSE@, then the service tries
@@ -453,7 +454,7 @@ putProfileObjectTypeResponse_tags = Lens.lens (\PutProfileObjectTypeResponse' {t
 
 -- | The timestamp of when the domain was most recently edited.
 putProfileObjectTypeResponse_lastUpdatedAt :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe Prelude.UTCTime)
-putProfileObjectTypeResponse_lastUpdatedAt = Lens.lens (\PutProfileObjectTypeResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@PutProfileObjectTypeResponse' {} a -> s {lastUpdatedAt = a} :: PutProfileObjectTypeResponse) Prelude.. Lens.mapping Core._Time
+putProfileObjectTypeResponse_lastUpdatedAt = Lens.lens (\PutProfileObjectTypeResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@PutProfileObjectTypeResponse' {} a -> s {lastUpdatedAt = a} :: PutProfileObjectTypeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A map of the name and ObjectType field.
 putProfileObjectTypeResponse_fields :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField))
@@ -486,7 +487,7 @@ putProfileObjectTypeResponse_encryptionKey = Lens.lens (\PutProfileObjectTypeRes
 
 -- | The timestamp of when the domain was created.
 putProfileObjectTypeResponse_createdAt :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe Prelude.UTCTime)
-putProfileObjectTypeResponse_createdAt = Lens.lens (\PutProfileObjectTypeResponse' {createdAt} -> createdAt) (\s@PutProfileObjectTypeResponse' {} a -> s {createdAt = a} :: PutProfileObjectTypeResponse) Prelude.. Lens.mapping Core._Time
+putProfileObjectTypeResponse_createdAt = Lens.lens (\PutProfileObjectTypeResponse' {createdAt} -> createdAt) (\s@PutProfileObjectTypeResponse' {} a -> s {createdAt = a} :: PutProfileObjectTypeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether a profile should be created when data is received if
 -- one doesn’t exist for an object of this type. The default is @FALSE@. If

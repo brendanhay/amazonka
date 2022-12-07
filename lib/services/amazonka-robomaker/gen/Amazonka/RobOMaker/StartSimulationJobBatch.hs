@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,19 +136,19 @@ instance Core.AWSRequest StartSimulationJobBatch where
     Response.receiveJSON
       ( \s h x ->
           StartSimulationJobBatchResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failureCode")
-            Prelude.<*> (x Core..?> "clientRequestToken")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "failedRequests" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "pendingRequests")
-            Prelude.<*> ( x Core..?> "createdRequests"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failureCode")
+            Prelude.<*> (x Data..?> "clientRequestToken")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "failedRequests" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "pendingRequests")
+            Prelude.<*> ( x Data..?> "createdRequests"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "batchPolicy")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "failureReason")
+            Prelude.<*> (x Data..?> "batchPolicy")
+            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "failureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,36 +166,36 @@ instance Prelude.NFData StartSimulationJobBatch where
       `Prelude.seq` Prelude.rnf batchPolicy
       `Prelude.seq` Prelude.rnf createSimulationJobRequests
 
-instance Core.ToHeaders StartSimulationJobBatch where
+instance Data.ToHeaders StartSimulationJobBatch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartSimulationJobBatch where
+instance Data.ToJSON StartSimulationJobBatch where
   toJSON StartSimulationJobBatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientRequestToken" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("batchPolicy" Core..=) Prelude.<$> batchPolicy,
+            ("batchPolicy" Data..=) Prelude.<$> batchPolicy,
             Prelude.Just
               ( "createSimulationJobRequests"
-                  Core..= createSimulationJobRequests
+                  Data..= createSimulationJobRequests
               )
           ]
       )
 
-instance Core.ToPath StartSimulationJobBatch where
+instance Data.ToPath StartSimulationJobBatch where
   toPath = Prelude.const "/startSimulationJobBatch"
 
-instance Core.ToQuery StartSimulationJobBatch where
+instance Data.ToQuery StartSimulationJobBatch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartSimulationJobBatchResponse' smart constructor.
@@ -263,7 +264,7 @@ data StartSimulationJobBatchResponse = StartSimulationJobBatchResponse'
     batchPolicy :: Prelude.Maybe BatchPolicy,
     -- | The time, in milliseconds since the epoch, when the simulation job batch
     -- was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The reason the simulation job batch failed.
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -451,7 +452,7 @@ startSimulationJobBatchResponse_batchPolicy = Lens.lens (\StartSimulationJobBatc
 -- | The time, in milliseconds since the epoch, when the simulation job batch
 -- was created.
 startSimulationJobBatchResponse_createdAt :: Lens.Lens' StartSimulationJobBatchResponse (Prelude.Maybe Prelude.UTCTime)
-startSimulationJobBatchResponse_createdAt = Lens.lens (\StartSimulationJobBatchResponse' {createdAt} -> createdAt) (\s@StartSimulationJobBatchResponse' {} a -> s {createdAt = a} :: StartSimulationJobBatchResponse) Prelude.. Lens.mapping Core._Time
+startSimulationJobBatchResponse_createdAt = Lens.lens (\StartSimulationJobBatchResponse' {createdAt} -> createdAt) (\s@StartSimulationJobBatchResponse' {} a -> s {createdAt = a} :: StartSimulationJobBatchResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The reason the simulation job batch failed.
 startSimulationJobBatchResponse_failureReason :: Lens.Lens' StartSimulationJobBatchResponse (Prelude.Maybe Prelude.Text)

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,9 +137,9 @@ instance Core.AWSRequest ListDataSetImportHistory where
     Response.receiveJSON
       ( \s h x ->
           ListDataSetImportHistoryResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "dataSetImportTasks"
+            Prelude.<*> ( x Data..?> "dataSetImportTasks"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -155,30 +156,30 @@ instance Prelude.NFData ListDataSetImportHistory where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders ListDataSetImportHistory where
+instance Data.ToHeaders ListDataSetImportHistory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListDataSetImportHistory where
+instance Data.ToPath ListDataSetImportHistory where
   toPath ListDataSetImportHistory' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/dataset-import-tasks"
       ]
 
-instance Core.ToQuery ListDataSetImportHistory where
+instance Data.ToQuery ListDataSetImportHistory where
   toQuery ListDataSetImportHistory' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListDataSetImportHistoryResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.ActionRequired where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The action required to resolve a broker issue when the broker is in a
@@ -84,14 +85,14 @@ actionRequired_actionRequiredInfo = Lens.lens (\ActionRequired' {actionRequiredI
 actionRequired_actionRequiredCode :: Lens.Lens' ActionRequired (Prelude.Maybe Prelude.Text)
 actionRequired_actionRequiredCode = Lens.lens (\ActionRequired' {actionRequiredCode} -> actionRequiredCode) (\s@ActionRequired' {} a -> s {actionRequiredCode = a} :: ActionRequired)
 
-instance Core.FromJSON ActionRequired where
+instance Data.FromJSON ActionRequired where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionRequired"
       ( \x ->
           ActionRequired'
-            Prelude.<$> (x Core..:? "actionRequiredInfo")
-            Prelude.<*> (x Core..:? "actionRequiredCode")
+            Prelude.<$> (x Data..:? "actionRequiredInfo")
+            Prelude.<*> (x Data..:? "actionRequiredCode")
       )
 
 instance Prelude.Hashable ActionRequired where

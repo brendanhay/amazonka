@@ -40,6 +40,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,37 +125,37 @@ instance Prelude.NFData UpdateUserRoutingProfile where
       `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders UpdateUserRoutingProfile where
+instance Data.ToHeaders UpdateUserRoutingProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateUserRoutingProfile where
+instance Data.ToJSON UpdateUserRoutingProfile where
   toJSON UpdateUserRoutingProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("RoutingProfileId" Core..= routingProfileId)
+              ("RoutingProfileId" Data..= routingProfileId)
           ]
       )
 
-instance Core.ToPath UpdateUserRoutingProfile where
+instance Data.ToPath UpdateUserRoutingProfile where
   toPath UpdateUserRoutingProfile' {..} =
     Prelude.mconcat
       [ "/users/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS userId,
+        Data.toBS userId,
         "/routing-profile"
       ]
 
-instance Core.ToQuery UpdateUserRoutingProfile where
+instance Data.ToQuery UpdateUserRoutingProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserRoutingProfileResponse' smart constructor.

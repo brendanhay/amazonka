@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ClarifyCheckStepMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The container for the metadata for the ClarifyCheck step. For more
@@ -147,20 +148,20 @@ clarifyCheckStepMetadata_calculatedBaselineConstraints = Lens.lens (\ClarifyChec
 clarifyCheckStepMetadata_violationReport :: Lens.Lens' ClarifyCheckStepMetadata (Prelude.Maybe Prelude.Text)
 clarifyCheckStepMetadata_violationReport = Lens.lens (\ClarifyCheckStepMetadata' {violationReport} -> violationReport) (\s@ClarifyCheckStepMetadata' {} a -> s {violationReport = a} :: ClarifyCheckStepMetadata)
 
-instance Core.FromJSON ClarifyCheckStepMetadata where
+instance Data.FromJSON ClarifyCheckStepMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClarifyCheckStepMetadata"
       ( \x ->
           ClarifyCheckStepMetadata'
-            Prelude.<$> (x Core..:? "ModelPackageGroupName")
-            Prelude.<*> (x Core..:? "CheckJobArn")
-            Prelude.<*> (x Core..:? "CheckType")
-            Prelude.<*> (x Core..:? "RegisterNewBaseline")
-            Prelude.<*> (x Core..:? "SkipCheck")
-            Prelude.<*> (x Core..:? "BaselineUsedForDriftCheckConstraints")
-            Prelude.<*> (x Core..:? "CalculatedBaselineConstraints")
-            Prelude.<*> (x Core..:? "ViolationReport")
+            Prelude.<$> (x Data..:? "ModelPackageGroupName")
+            Prelude.<*> (x Data..:? "CheckJobArn")
+            Prelude.<*> (x Data..:? "CheckType")
+            Prelude.<*> (x Data..:? "RegisterNewBaseline")
+            Prelude.<*> (x Data..:? "SkipCheck")
+            Prelude.<*> (x Data..:? "BaselineUsedForDriftCheckConstraints")
+            Prelude.<*> (x Data..:? "CalculatedBaselineConstraints")
+            Prelude.<*> (x Data..:? "ViolationReport")
       )
 
 instance Prelude.Hashable ClarifyCheckStepMetadata where

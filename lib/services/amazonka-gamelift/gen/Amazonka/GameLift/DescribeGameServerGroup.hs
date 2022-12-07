@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,7 +111,7 @@ instance Core.AWSRequest DescribeGameServerGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeGameServerGroupResponse'
-            Prelude.<$> (x Core..?> "GameServerGroup")
+            Prelude.<$> (x Data..?> "GameServerGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,34 +123,34 @@ instance Prelude.NFData DescribeGameServerGroup where
   rnf DescribeGameServerGroup' {..} =
     Prelude.rnf gameServerGroupName
 
-instance Core.ToHeaders DescribeGameServerGroup where
+instance Data.ToHeaders DescribeGameServerGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeGameServerGroup" ::
+              Data.=# ( "GameLift.DescribeGameServerGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeGameServerGroup where
+instance Data.ToJSON DescribeGameServerGroup where
   toJSON DescribeGameServerGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("GameServerGroupName" Core..= gameServerGroupName)
+              ("GameServerGroupName" Data..= gameServerGroupName)
           ]
       )
 
-instance Core.ToPath DescribeGameServerGroup where
+instance Data.ToPath DescribeGameServerGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeGameServerGroup where
+instance Data.ToQuery DescribeGameServerGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeGameServerGroupResponse' smart constructor.

@@ -72,6 +72,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -428,10 +429,10 @@ instance Core.AWSRequest SubmitJob where
     Response.receiveJSON
       ( \s h x ->
           SubmitJobResponse'
-            Prelude.<$> (x Core..?> "jobArn")
+            Prelude.<$> (x Data..?> "jobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "jobName")
-            Prelude.<*> (x Core..:> "jobId")
+            Prelude.<*> (x Data..:> "jobName")
+            Prelude.<*> (x Data..:> "jobId")
       )
 
 instance Prelude.Hashable SubmitJob where
@@ -470,49 +471,49 @@ instance Prelude.NFData SubmitJob where
       `Prelude.seq` Prelude.rnf jobQueue
       `Prelude.seq` Prelude.rnf jobDefinition
 
-instance Core.ToHeaders SubmitJob where
+instance Data.ToHeaders SubmitJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SubmitJob where
+instance Data.ToJSON SubmitJob where
   toJSON SubmitJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("timeout" Core..=) Prelude.<$> timeout,
-            ("eksPropertiesOverride" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("timeout" Data..=) Prelude.<$> timeout,
+            ("eksPropertiesOverride" Data..=)
               Prelude.<$> eksPropertiesOverride,
-            ("dependsOn" Core..=) Prelude.<$> dependsOn,
-            ("shareIdentifier" Core..=)
+            ("dependsOn" Data..=) Prelude.<$> dependsOn,
+            ("shareIdentifier" Data..=)
               Prelude.<$> shareIdentifier,
-            ("schedulingPriorityOverride" Core..=)
+            ("schedulingPriorityOverride" Data..=)
               Prelude.<$> schedulingPriorityOverride,
-            ("nodeOverrides" Core..=) Prelude.<$> nodeOverrides,
-            ("retryStrategy" Core..=) Prelude.<$> retryStrategy,
-            ("arrayProperties" Core..=)
+            ("nodeOverrides" Data..=) Prelude.<$> nodeOverrides,
+            ("retryStrategy" Data..=) Prelude.<$> retryStrategy,
+            ("arrayProperties" Data..=)
               Prelude.<$> arrayProperties,
-            ("propagateTags" Core..=) Prelude.<$> propagateTags,
-            ("containerOverrides" Core..=)
+            ("propagateTags" Data..=) Prelude.<$> propagateTags,
+            ("containerOverrides" Data..=)
               Prelude.<$> containerOverrides,
-            ("parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("jobName" Core..= jobName),
-            Prelude.Just ("jobQueue" Core..= jobQueue),
+            ("parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("jobName" Data..= jobName),
+            Prelude.Just ("jobQueue" Data..= jobQueue),
             Prelude.Just
-              ("jobDefinition" Core..= jobDefinition)
+              ("jobDefinition" Data..= jobDefinition)
           ]
       )
 
-instance Core.ToPath SubmitJob where
+instance Data.ToPath SubmitJob where
   toPath = Prelude.const "/v1/submitjob"
 
-instance Core.ToQuery SubmitJob where
+instance Data.ToQuery SubmitJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSubmitJobResponse' smart constructor.

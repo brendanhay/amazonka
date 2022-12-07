@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.OriginationIdentityMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types.NumberCapability
 import qualified Amazonka.Prelude as Prelude
 
@@ -100,16 +101,16 @@ originationIdentityMetadata_isoCountryCode = Lens.lens (\OriginationIdentityMeta
 originationIdentityMetadata_numberCapabilities :: Lens.Lens' OriginationIdentityMetadata (Prelude.NonEmpty NumberCapability)
 originationIdentityMetadata_numberCapabilities = Lens.lens (\OriginationIdentityMetadata' {numberCapabilities} -> numberCapabilities) (\s@OriginationIdentityMetadata' {} a -> s {numberCapabilities = a} :: OriginationIdentityMetadata) Prelude.. Lens.coerced
 
-instance Core.FromJSON OriginationIdentityMetadata where
+instance Data.FromJSON OriginationIdentityMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OriginationIdentityMetadata"
       ( \x ->
           OriginationIdentityMetadata'
-            Prelude.<$> (x Core..: "OriginationIdentityArn")
-            Prelude.<*> (x Core..: "OriginationIdentity")
-            Prelude.<*> (x Core..: "IsoCountryCode")
-            Prelude.<*> (x Core..: "NumberCapabilities")
+            Prelude.<$> (x Data..: "OriginationIdentityArn")
+            Prelude.<*> (x Data..: "OriginationIdentity")
+            Prelude.<*> (x Data..: "IsoCountryCode")
+            Prelude.<*> (x Data..: "NumberCapabilities")
       )
 
 instance Prelude.Hashable OriginationIdentityMetadata where

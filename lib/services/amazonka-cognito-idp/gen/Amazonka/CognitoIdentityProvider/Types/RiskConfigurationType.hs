@@ -24,6 +24,7 @@ import Amazonka.CognitoIdentityProvider.Types.CompromisedCredentialsRiskConfigur
 import Amazonka.CognitoIdentityProvider.Types.RiskExceptionConfigurationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The risk configuration type.
@@ -31,9 +32,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newRiskConfigurationType' smart constructor.
 data RiskConfigurationType = RiskConfigurationType'
   { -- | The app client ID.
-    clientId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    clientId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The last modified date.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The account takeover risk configuration object, including the
     -- @NotifyConfiguration@ object and @Actions@ to take if there is an
     -- account takeover.
@@ -85,11 +86,11 @@ newRiskConfigurationType =
 
 -- | The app client ID.
 riskConfigurationType_clientId :: Lens.Lens' RiskConfigurationType (Prelude.Maybe Prelude.Text)
-riskConfigurationType_clientId = Lens.lens (\RiskConfigurationType' {clientId} -> clientId) (\s@RiskConfigurationType' {} a -> s {clientId = a} :: RiskConfigurationType) Prelude.. Lens.mapping Core._Sensitive
+riskConfigurationType_clientId = Lens.lens (\RiskConfigurationType' {clientId} -> clientId) (\s@RiskConfigurationType' {} a -> s {clientId = a} :: RiskConfigurationType) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The last modified date.
 riskConfigurationType_lastModifiedDate :: Lens.Lens' RiskConfigurationType (Prelude.Maybe Prelude.UTCTime)
-riskConfigurationType_lastModifiedDate = Lens.lens (\RiskConfigurationType' {lastModifiedDate} -> lastModifiedDate) (\s@RiskConfigurationType' {} a -> s {lastModifiedDate = a} :: RiskConfigurationType) Prelude.. Lens.mapping Core._Time
+riskConfigurationType_lastModifiedDate = Lens.lens (\RiskConfigurationType' {lastModifiedDate} -> lastModifiedDate) (\s@RiskConfigurationType' {} a -> s {lastModifiedDate = a} :: RiskConfigurationType) Prelude.. Lens.mapping Data._Time
 
 -- | The account takeover risk configuration object, including the
 -- @NotifyConfiguration@ object and @Actions@ to take if there is an
@@ -110,19 +111,19 @@ riskConfigurationType_userPoolId = Lens.lens (\RiskConfigurationType' {userPoolI
 riskConfigurationType_compromisedCredentialsRiskConfiguration :: Lens.Lens' RiskConfigurationType (Prelude.Maybe CompromisedCredentialsRiskConfigurationType)
 riskConfigurationType_compromisedCredentialsRiskConfiguration = Lens.lens (\RiskConfigurationType' {compromisedCredentialsRiskConfiguration} -> compromisedCredentialsRiskConfiguration) (\s@RiskConfigurationType' {} a -> s {compromisedCredentialsRiskConfiguration = a} :: RiskConfigurationType)
 
-instance Core.FromJSON RiskConfigurationType where
+instance Data.FromJSON RiskConfigurationType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RiskConfigurationType"
       ( \x ->
           RiskConfigurationType'
-            Prelude.<$> (x Core..:? "ClientId")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "AccountTakeoverRiskConfiguration")
-            Prelude.<*> (x Core..:? "RiskExceptionConfiguration")
-            Prelude.<*> (x Core..:? "UserPoolId")
+            Prelude.<$> (x Data..:? "ClientId")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "AccountTakeoverRiskConfiguration")
+            Prelude.<*> (x Data..:? "RiskExceptionConfiguration")
+            Prelude.<*> (x Data..:? "UserPoolId")
             Prelude.<*> ( x
-                            Core..:? "CompromisedCredentialsRiskConfiguration"
+                            Data..:? "CompromisedCredentialsRiskConfiguration"
                         )
       )
 

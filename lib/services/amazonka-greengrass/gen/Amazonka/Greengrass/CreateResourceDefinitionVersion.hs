@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,10 +116,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateResourceDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Version")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,32 +144,32 @@ instance
       `Prelude.seq` Prelude.rnf resourceDefinitionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateResourceDefinitionVersion
   where
   toHeaders CreateResourceDefinitionVersion' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
+      [ "X-Amzn-Client-Token" Data.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateResourceDefinitionVersion where
+instance Data.ToJSON CreateResourceDefinitionVersion where
   toJSON CreateResourceDefinitionVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Resources" Core..=) Prelude.<$> resources]
+          [("Resources" Data..=) Prelude.<$> resources]
       )
 
-instance Core.ToPath CreateResourceDefinitionVersion where
+instance Data.ToPath CreateResourceDefinitionVersion where
   toPath CreateResourceDefinitionVersion' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/resources/",
-        Core.toBS resourceDefinitionId,
+        Data.toBS resourceDefinitionId,
         "/versions"
       ]
 
-instance Core.ToQuery CreateResourceDefinitionVersion where
+instance Data.ToQuery CreateResourceDefinitionVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateResourceDefinitionVersionResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,12 +105,12 @@ instance Core.AWSRequest GetPosition where
     Response.receiveJSON
       ( \s h x ->
           GetPositionResponse'
-            Prelude.<$> (x Core..?> "SolverVersion")
-            Prelude.<*> (x Core..?> "Accuracy")
-            Prelude.<*> (x Core..?> "SolverType")
-            Prelude.<*> (x Core..?> "Timestamp")
-            Prelude.<*> (x Core..?> "SolverProvider")
-            Prelude.<*> (x Core..?> "Position" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "SolverVersion")
+            Prelude.<*> (x Data..?> "Accuracy")
+            Prelude.<*> (x Data..?> "SolverType")
+            Prelude.<*> (x Data..?> "Timestamp")
+            Prelude.<*> (x Data..?> "SolverProvider")
+            Prelude.<*> (x Data..?> "Position" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,18 +124,18 @@ instance Prelude.NFData GetPosition where
     Prelude.rnf resourceIdentifier
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToHeaders GetPosition where
+instance Data.ToHeaders GetPosition where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetPosition where
+instance Data.ToPath GetPosition where
   toPath GetPosition' {..} =
     Prelude.mconcat
-      ["/positions/", Core.toBS resourceIdentifier]
+      ["/positions/", Data.toBS resourceIdentifier]
 
-instance Core.ToQuery GetPosition where
+instance Data.ToQuery GetPosition where
   toQuery GetPosition' {..} =
     Prelude.mconcat
-      ["resourceType" Core.=: resourceType]
+      ["resourceType" Data.=: resourceType]
 
 -- | /See:/ 'newGetPositionResponse' smart constructor.
 data GetPositionResponse = GetPositionResponse'

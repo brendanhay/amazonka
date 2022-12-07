@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,35 +128,35 @@ instance Prelude.NFData AddRegion where
       `Prelude.seq` Prelude.rnf regionName
       `Prelude.seq` Prelude.rnf vPCSettings
 
-instance Core.ToHeaders AddRegion where
+instance Data.ToHeaders AddRegion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.AddRegion" ::
+              Data.=# ( "DirectoryService_20150416.AddRegion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddRegion where
+instance Data.ToJSON AddRegion where
   toJSON AddRegion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Core..= directoryId),
-            Prelude.Just ("RegionName" Core..= regionName),
-            Prelude.Just ("VPCSettings" Core..= vPCSettings)
+          [ Prelude.Just ("DirectoryId" Data..= directoryId),
+            Prelude.Just ("RegionName" Data..= regionName),
+            Prelude.Just ("VPCSettings" Data..= vPCSettings)
           ]
       )
 
-instance Core.ToPath AddRegion where
+instance Data.ToPath AddRegion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddRegion where
+instance Data.ToQuery AddRegion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddRegionResponse' smart constructor.

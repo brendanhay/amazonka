@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -131,7 +132,7 @@ data UpdateServicePipeline = UpdateServicePipeline'
     -- | The name of the service to that the pipeline is associated with.
     serviceName :: Prelude.Text,
     -- | The spec for the service pipeline to update.
-    spec :: Core.Sensitive Prelude.Text
+    spec :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -206,7 +207,7 @@ newUpdateServicePipeline
         templateMinorVersion = Prelude.Nothing,
         deploymentType = pDeploymentType_,
         serviceName = pServiceName_,
-        spec = Core._Sensitive Lens.# pSpec_
+        spec = Data._Sensitive Lens.# pSpec_
       }
 
 -- | The major version of the service template that was used to create the
@@ -263,7 +264,7 @@ updateServicePipeline_serviceName = Lens.lens (\UpdateServicePipeline' {serviceN
 
 -- | The spec for the service pipeline to update.
 updateServicePipeline_spec :: Lens.Lens' UpdateServicePipeline Prelude.Text
-updateServicePipeline_spec = Lens.lens (\UpdateServicePipeline' {spec} -> spec) (\s@UpdateServicePipeline' {} a -> s {spec = a} :: UpdateServicePipeline) Prelude.. Core._Sensitive
+updateServicePipeline_spec = Lens.lens (\UpdateServicePipeline' {spec} -> spec) (\s@UpdateServicePipeline' {} a -> s {spec = a} :: UpdateServicePipeline) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest UpdateServicePipeline where
   type
@@ -276,7 +277,7 @@ instance Core.AWSRequest UpdateServicePipeline where
       ( \s h x ->
           UpdateServicePipelineResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "pipeline")
+            Prelude.<*> (x Data..:> "pipeline")
       )
 
 instance Prelude.Hashable UpdateServicePipeline where
@@ -295,40 +296,40 @@ instance Prelude.NFData UpdateServicePipeline where
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf spec
 
-instance Core.ToHeaders UpdateServicePipeline where
+instance Data.ToHeaders UpdateServicePipeline where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.UpdateServicePipeline" ::
+              Data.=# ( "AwsProton20200720.UpdateServicePipeline" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateServicePipeline where
+instance Data.ToJSON UpdateServicePipeline where
   toJSON UpdateServicePipeline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("templateMajorVersion" Core..=)
+          [ ("templateMajorVersion" Data..=)
               Prelude.<$> templateMajorVersion,
-            ("templateMinorVersion" Core..=)
+            ("templateMinorVersion" Data..=)
               Prelude.<$> templateMinorVersion,
             Prelude.Just
-              ("deploymentType" Core..= deploymentType),
-            Prelude.Just ("serviceName" Core..= serviceName),
-            Prelude.Just ("spec" Core..= spec)
+              ("deploymentType" Data..= deploymentType),
+            Prelude.Just ("serviceName" Data..= serviceName),
+            Prelude.Just ("spec" Data..= spec)
           ]
       )
 
-instance Core.ToPath UpdateServicePipeline where
+instance Data.ToPath UpdateServicePipeline where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateServicePipeline where
+instance Data.ToQuery UpdateServicePipeline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServicePipelineResponse' smart constructor.

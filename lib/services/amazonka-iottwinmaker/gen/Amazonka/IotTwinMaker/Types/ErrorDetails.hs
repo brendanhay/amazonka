@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.ErrorDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.ErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ errorDetails_message = Lens.lens (\ErrorDetails' {message} -> message) (\s@Error
 errorDetails_code :: Lens.Lens' ErrorDetails (Prelude.Maybe ErrorCode)
 errorDetails_code = Lens.lens (\ErrorDetails' {code} -> code) (\s@ErrorDetails' {} a -> s {code = a} :: ErrorDetails)
 
-instance Core.FromJSON ErrorDetails where
+instance Data.FromJSON ErrorDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorDetails"
       ( \x ->
           ErrorDetails'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable ErrorDetails where

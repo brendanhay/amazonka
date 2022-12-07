@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.RecurringCharge where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.MonetaryAmount
 import Amazonka.DeviceFarm.Types.RecurringChargeFrequency
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ recurringCharge_frequency = Lens.lens (\RecurringCharge' {frequency} -> frequenc
 recurringCharge_cost :: Lens.Lens' RecurringCharge (Prelude.Maybe MonetaryAmount)
 recurringCharge_cost = Lens.lens (\RecurringCharge' {cost} -> cost) (\s@RecurringCharge' {} a -> s {cost = a} :: RecurringCharge)
 
-instance Core.FromJSON RecurringCharge where
+instance Data.FromJSON RecurringCharge where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecurringCharge"
       ( \x ->
           RecurringCharge'
-            Prelude.<$> (x Core..:? "frequency")
-            Prelude.<*> (x Core..:? "cost")
+            Prelude.<$> (x Data..:? "frequency")
+            Prelude.<*> (x Data..:? "cost")
       )
 
 instance Prelude.Hashable RecurringCharge where

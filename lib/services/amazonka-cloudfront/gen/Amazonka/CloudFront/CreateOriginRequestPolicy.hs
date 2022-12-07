@@ -69,6 +69,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,9 +115,9 @@ instance Core.AWSRequest CreateOriginRequestPolicy where
     Response.receiveXML
       ( \s h x ->
           CreateOriginRequestPolicyResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "Location")
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "Location")
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,20 +130,20 @@ instance Prelude.NFData CreateOriginRequestPolicy where
   rnf CreateOriginRequestPolicy' {..} =
     Prelude.rnf originRequestPolicyConfig
 
-instance Core.ToElement CreateOriginRequestPolicy where
+instance Data.ToElement CreateOriginRequestPolicy where
   toElement CreateOriginRequestPolicy' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}OriginRequestPolicyConfig"
       originRequestPolicyConfig
 
-instance Core.ToHeaders CreateOriginRequestPolicy where
+instance Data.ToHeaders CreateOriginRequestPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateOriginRequestPolicy where
+instance Data.ToPath CreateOriginRequestPolicy where
   toPath =
     Prelude.const "/2020-05-31/origin-request-policy"
 
-instance Core.ToQuery CreateOriginRequestPolicy where
+instance Data.ToQuery CreateOriginRequestPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateOriginRequestPolicyResponse' smart constructor.

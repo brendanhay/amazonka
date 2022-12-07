@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,8 +140,8 @@ instance Core.AWSRequest ListThingTypes where
     Response.receiveJSON
       ( \s h x ->
           ListThingTypesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "thingTypes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "thingTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,18 +157,18 @@ instance Prelude.NFData ListThingTypes where
       `Prelude.seq` Prelude.rnf thingTypeName
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListThingTypes where
+instance Data.ToHeaders ListThingTypes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListThingTypes where
+instance Data.ToPath ListThingTypes where
   toPath = Prelude.const "/thing-types"
 
-instance Core.ToQuery ListThingTypes where
+instance Data.ToQuery ListThingTypes where
   toQuery ListThingTypes' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "thingTypeName" Core.=: thingTypeName,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "thingTypeName" Data.=: thingTypeName,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | The output for the ListThingTypes operation.

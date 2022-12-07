@@ -22,6 +22,7 @@ module Amazonka.ConnectCampaigns.Types.EncryptionConfig where
 import Amazonka.ConnectCampaigns.Types.EncryptionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Encryption config for Connect Instance. Note that sensitive data will
@@ -73,15 +74,15 @@ encryptionConfig_keyArn = Lens.lens (\EncryptionConfig' {keyArn} -> keyArn) (\s@
 encryptionConfig_enabled :: Lens.Lens' EncryptionConfig Prelude.Bool
 encryptionConfig_enabled = Lens.lens (\EncryptionConfig' {enabled} -> enabled) (\s@EncryptionConfig' {} a -> s {enabled = a} :: EncryptionConfig)
 
-instance Core.FromJSON EncryptionConfig where
+instance Data.FromJSON EncryptionConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionConfig"
       ( \x ->
           EncryptionConfig'
-            Prelude.<$> (x Core..:? "encryptionType")
-            Prelude.<*> (x Core..:? "keyArn")
-            Prelude.<*> (x Core..: "enabled")
+            Prelude.<$> (x Data..:? "encryptionType")
+            Prelude.<*> (x Data..:? "keyArn")
+            Prelude.<*> (x Data..: "enabled")
       )
 
 instance Prelude.Hashable EncryptionConfig where
@@ -96,13 +97,13 @@ instance Prelude.NFData EncryptionConfig where
       `Prelude.seq` Prelude.rnf keyArn
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON EncryptionConfig where
+instance Data.ToJSON EncryptionConfig where
   toJSON EncryptionConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("encryptionType" Core..=)
+          [ ("encryptionType" Data..=)
               Prelude.<$> encryptionType,
-            ("keyArn" Core..=) Prelude.<$> keyArn,
-            Prelude.Just ("enabled" Core..= enabled)
+            ("keyArn" Data..=) Prelude.<$> keyArn,
+            Prelude.Just ("enabled" Data..= enabled)
           ]
       )

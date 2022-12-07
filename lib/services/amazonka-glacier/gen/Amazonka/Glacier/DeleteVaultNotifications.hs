@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,20 +136,20 @@ instance Prelude.NFData DeleteVaultNotifications where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf vaultName
 
-instance Core.ToHeaders DeleteVaultNotifications where
+instance Data.ToHeaders DeleteVaultNotifications where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteVaultNotifications where
+instance Data.ToPath DeleteVaultNotifications where
   toPath DeleteVaultNotifications' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/notification-configuration"
       ]
 
-instance Core.ToQuery DeleteVaultNotifications where
+instance Data.ToQuery DeleteVaultNotifications where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVaultNotificationsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.KeySchemaElement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.KeyType
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -122,14 +123,14 @@ keySchemaElement_attributeName = Lens.lens (\KeySchemaElement' {attributeName} -
 keySchemaElement_keyType :: Lens.Lens' KeySchemaElement KeyType
 keySchemaElement_keyType = Lens.lens (\KeySchemaElement' {keyType} -> keyType) (\s@KeySchemaElement' {} a -> s {keyType = a} :: KeySchemaElement)
 
-instance Core.FromJSON KeySchemaElement where
+instance Data.FromJSON KeySchemaElement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeySchemaElement"
       ( \x ->
           KeySchemaElement'
-            Prelude.<$> (x Core..: "AttributeName")
-            Prelude.<*> (x Core..: "KeyType")
+            Prelude.<$> (x Data..: "AttributeName")
+            Prelude.<*> (x Data..: "KeyType")
       )
 
 instance Prelude.Hashable KeySchemaElement where
@@ -142,12 +143,12 @@ instance Prelude.NFData KeySchemaElement where
     Prelude.rnf attributeName
       `Prelude.seq` Prelude.rnf keyType
 
-instance Core.ToJSON KeySchemaElement where
+instance Data.ToJSON KeySchemaElement where
   toJSON KeySchemaElement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AttributeName" Core..= attributeName),
-            Prelude.Just ("KeyType" Core..= keyType)
+              ("AttributeName" Data..= attributeName),
+            Prelude.Just ("KeyType" Data..= keyType)
           ]
       )

@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,20 +159,20 @@ instance Core.AWSRequest DescribeSlot where
     Response.receiveJSON
       ( \s h x ->
           DescribeSlotResponse'
-            Prelude.<$> (x Core..?> "multipleValuesSetting")
-            Prelude.<*> (x Core..?> "slotName")
-            Prelude.<*> (x Core..?> "valueElicitationSetting")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "intentId")
-            Prelude.<*> (x Core..?> "slotId")
-            Prelude.<*> (x Core..?> "obfuscationSetting")
-            Prelude.<*> (x Core..?> "subSlotSetting")
-            Prelude.<*> (x Core..?> "slotTypeId")
-            Prelude.<*> (x Core..?> "lastUpdatedDateTime")
+            Prelude.<$> (x Data..?> "multipleValuesSetting")
+            Prelude.<*> (x Data..?> "slotName")
+            Prelude.<*> (x Data..?> "valueElicitationSetting")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "intentId")
+            Prelude.<*> (x Data..?> "slotId")
+            Prelude.<*> (x Data..?> "obfuscationSetting")
+            Prelude.<*> (x Data..?> "subSlotSetting")
+            Prelude.<*> (x Data..?> "slotTypeId")
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,34 +192,34 @@ instance Prelude.NFData DescribeSlot where
       `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf intentId
 
-instance Core.ToHeaders DescribeSlot where
+instance Data.ToHeaders DescribeSlot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeSlot where
+instance Data.ToPath DescribeSlot where
   toPath DescribeSlot' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/intents/",
-        Core.toBS intentId,
+        Data.toBS intentId,
         "/slots/",
-        Core.toBS slotId,
+        Data.toBS slotId,
         "/"
       ]
 
-instance Core.ToQuery DescribeSlot where
+instance Data.ToQuery DescribeSlot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSlotResponse' smart constructor.
@@ -235,7 +236,7 @@ data DescribeSlotResponse = DescribeSlotResponse'
     -- | The version of the bot associated with the slot.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the slot was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The language and locale specified for the slot.
     localeId :: Prelude.Maybe Prelude.Text,
     -- | The description specified for the slot.
@@ -256,7 +257,7 @@ data DescribeSlotResponse = DescribeSlotResponse'
     -- the slot.
     slotTypeId :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the slot was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -350,7 +351,7 @@ describeSlotResponse_botVersion = Lens.lens (\DescribeSlotResponse' {botVersion}
 
 -- | A timestamp of the date and time that the slot was created.
 describeSlotResponse_creationDateTime :: Lens.Lens' DescribeSlotResponse (Prelude.Maybe Prelude.UTCTime)
-describeSlotResponse_creationDateTime = Lens.lens (\DescribeSlotResponse' {creationDateTime} -> creationDateTime) (\s@DescribeSlotResponse' {} a -> s {creationDateTime = a} :: DescribeSlotResponse) Prelude.. Lens.mapping Core._Time
+describeSlotResponse_creationDateTime = Lens.lens (\DescribeSlotResponse' {creationDateTime} -> creationDateTime) (\s@DescribeSlotResponse' {} a -> s {creationDateTime = a} :: DescribeSlotResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The language and locale specified for the slot.
 describeSlotResponse_localeId :: Lens.Lens' DescribeSlotResponse (Prelude.Maybe Prelude.Text)
@@ -389,7 +390,7 @@ describeSlotResponse_slotTypeId = Lens.lens (\DescribeSlotResponse' {slotTypeId}
 
 -- | A timestamp of the date and time that the slot was last updated.
 describeSlotResponse_lastUpdatedDateTime :: Lens.Lens' DescribeSlotResponse (Prelude.Maybe Prelude.UTCTime)
-describeSlotResponse_lastUpdatedDateTime = Lens.lens (\DescribeSlotResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeSlotResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeSlotResponse) Prelude.. Lens.mapping Core._Time
+describeSlotResponse_lastUpdatedDateTime = Lens.lens (\DescribeSlotResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeSlotResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeSlotResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeSlotResponse_httpStatus :: Lens.Lens' DescribeSlotResponse Prelude.Int

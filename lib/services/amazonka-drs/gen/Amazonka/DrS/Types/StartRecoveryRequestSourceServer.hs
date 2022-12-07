@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.StartRecoveryRequestSourceServer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the Source Server to recover.
@@ -85,13 +86,13 @@ instance
     Prelude.rnf recoverySnapshotID
       `Prelude.seq` Prelude.rnf sourceServerID
 
-instance Core.ToJSON StartRecoveryRequestSourceServer where
+instance Data.ToJSON StartRecoveryRequestSourceServer where
   toJSON StartRecoveryRequestSourceServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("recoverySnapshotID" Core..=)
+          [ ("recoverySnapshotID" Data..=)
               Prelude.<$> recoverySnapshotID,
             Prelude.Just
-              ("sourceServerID" Core..= sourceServerID)
+              ("sourceServerID" Data..= sourceServerID)
           ]
       )

@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -249,7 +250,7 @@ instance Core.AWSRequest CreateAppMonitor where
     Response.receiveJSON
       ( \s h x ->
           CreateAppMonitorResponse'
-            Prelude.<$> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -271,35 +272,35 @@ instance Prelude.NFData CreateAppMonitor where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateAppMonitor where
+instance Data.ToHeaders CreateAppMonitor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAppMonitor where
+instance Data.ToJSON CreateAppMonitor where
   toJSON CreateAppMonitor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("AppMonitorConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("AppMonitorConfiguration" Data..=)
               Prelude.<$> appMonitorConfiguration,
-            ("CwLogEnabled" Core..=) Prelude.<$> cwLogEnabled,
-            ("CustomEvents" Core..=) Prelude.<$> customEvents,
-            Prelude.Just ("Domain" Core..= domain),
-            Prelude.Just ("Name" Core..= name)
+            ("CwLogEnabled" Data..=) Prelude.<$> cwLogEnabled,
+            ("CustomEvents" Data..=) Prelude.<$> customEvents,
+            Prelude.Just ("Domain" Data..= domain),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateAppMonitor where
+instance Data.ToPath CreateAppMonitor where
   toPath = Prelude.const "/appmonitor"
 
-instance Core.ToQuery CreateAppMonitor where
+instance Data.ToQuery CreateAppMonitor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAppMonitorResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.Bundle where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.InstancePlatform
 import qualified Amazonka.Prelude as Prelude
 
@@ -168,25 +169,25 @@ bundle_supportedPlatforms = Lens.lens (\Bundle' {supportedPlatforms} -> supporte
 bundle_ramSizeInGb :: Lens.Lens' Bundle (Prelude.Maybe Prelude.Double)
 bundle_ramSizeInGb = Lens.lens (\Bundle' {ramSizeInGb} -> ramSizeInGb) (\s@Bundle' {} a -> s {ramSizeInGb = a} :: Bundle)
 
-instance Core.FromJSON Bundle where
+instance Data.FromJSON Bundle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Bundle"
       ( \x ->
           Bundle'
-            Prelude.<$> (x Core..:? "cpuCount")
-            Prelude.<*> (x Core..:? "isActive")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "power")
-            Prelude.<*> (x Core..:? "transferPerMonthInGb")
-            Prelude.<*> (x Core..:? "diskSizeInGb")
-            Prelude.<*> (x Core..:? "instanceType")
-            Prelude.<*> (x Core..:? "price")
-            Prelude.<*> (x Core..:? "bundleId")
-            Prelude.<*> ( x Core..:? "supportedPlatforms"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "cpuCount")
+            Prelude.<*> (x Data..:? "isActive")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "power")
+            Prelude.<*> (x Data..:? "transferPerMonthInGb")
+            Prelude.<*> (x Data..:? "diskSizeInGb")
+            Prelude.<*> (x Data..:? "instanceType")
+            Prelude.<*> (x Data..:? "price")
+            Prelude.<*> (x Data..:? "bundleId")
+            Prelude.<*> ( x Data..:? "supportedPlatforms"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ramSizeInGb")
+            Prelude.<*> (x Data..:? "ramSizeInGb")
       )
 
 instance Prelude.Hashable Bundle where

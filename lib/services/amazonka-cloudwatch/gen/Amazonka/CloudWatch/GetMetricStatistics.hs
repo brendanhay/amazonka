@@ -108,6 +108,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -177,13 +178,13 @@ data GetMetricStatistics = GetMetricStatistics'
     -- 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes of
     -- data, using a period of 5 seconds, you receive data timestamped between
     -- 15:02:15 and 15:07:15.
-    startTime :: Core.ISO8601,
+    startTime :: Data.ISO8601,
     -- | The time stamp that determines the last data point to return.
     --
     -- The value specified is exclusive; results include data points up to the
     -- specified time stamp. In a raw HTTP query, the time stamp must be in ISO
     -- 8601 UTC format (for example, 2016-10-10T23:00:00Z).
-    endTime :: Core.ISO8601,
+    endTime :: Data.ISO8601,
     -- | The granularity, in seconds, of the returned data points. For metrics
     -- with regular resolution, a period can be as short as one minute (60
     -- seconds) and must be a multiple of 60. For high-resolution metrics that
@@ -331,8 +332,8 @@ newGetMetricStatistics
         unit = Prelude.Nothing,
         namespace = pNamespace_,
         metricName = pMetricName_,
-        startTime = Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_,
+        startTime = Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         period = pPeriod_
       }
 
@@ -412,7 +413,7 @@ getMetricStatistics_metricName = Lens.lens (\GetMetricStatistics' {metricName} -
 -- data, using a period of 5 seconds, you receive data timestamped between
 -- 15:02:15 and 15:07:15.
 getMetricStatistics_startTime :: Lens.Lens' GetMetricStatistics Prelude.UTCTime
-getMetricStatistics_startTime = Lens.lens (\GetMetricStatistics' {startTime} -> startTime) (\s@GetMetricStatistics' {} a -> s {startTime = a} :: GetMetricStatistics) Prelude.. Core._Time
+getMetricStatistics_startTime = Lens.lens (\GetMetricStatistics' {startTime} -> startTime) (\s@GetMetricStatistics' {} a -> s {startTime = a} :: GetMetricStatistics) Prelude.. Data._Time
 
 -- | The time stamp that determines the last data point to return.
 --
@@ -420,7 +421,7 @@ getMetricStatistics_startTime = Lens.lens (\GetMetricStatistics' {startTime} -> 
 -- specified time stamp. In a raw HTTP query, the time stamp must be in ISO
 -- 8601 UTC format (for example, 2016-10-10T23:00:00Z).
 getMetricStatistics_endTime :: Lens.Lens' GetMetricStatistics Prelude.UTCTime
-getMetricStatistics_endTime = Lens.lens (\GetMetricStatistics' {endTime} -> endTime) (\s@GetMetricStatistics' {} a -> s {endTime = a} :: GetMetricStatistics) Prelude.. Core._Time
+getMetricStatistics_endTime = Lens.lens (\GetMetricStatistics' {endTime} -> endTime) (\s@GetMetricStatistics' {} a -> s {endTime = a} :: GetMetricStatistics) Prelude.. Data._Time
 
 -- | The granularity, in seconds, of the returned data points. For metrics
 -- with regular resolution, a period can be as short as one minute (60
@@ -456,10 +457,10 @@ instance Core.AWSRequest GetMetricStatistics where
       "GetMetricStatisticsResult"
       ( \s h x ->
           GetMetricStatisticsResponse'
-            Prelude.<$> ( x Core..@? "Datapoints" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Datapoints" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "Label")
+            Prelude.<*> (x Data..@? "Label")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -487,36 +488,36 @@ instance Prelude.NFData GetMetricStatistics where
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf period
 
-instance Core.ToHeaders GetMetricStatistics where
+instance Data.ToHeaders GetMetricStatistics where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetMetricStatistics where
+instance Data.ToPath GetMetricStatistics where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMetricStatistics where
+instance Data.ToQuery GetMetricStatistics where
   toQuery GetMetricStatistics' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetMetricStatistics" :: Prelude.ByteString),
+          Data.=: ("GetMetricStatistics" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
         "Statistics"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> statistics),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> statistics),
         "Dimensions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> dimensions),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> dimensions),
         "ExtendedStatistics"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> extendedStatistics
             ),
-        "Unit" Core.=: unit,
-        "Namespace" Core.=: namespace,
-        "MetricName" Core.=: metricName,
-        "StartTime" Core.=: startTime,
-        "EndTime" Core.=: endTime,
-        "Period" Core.=: period
+        "Unit" Data.=: unit,
+        "Namespace" Data.=: namespace,
+        "MetricName" Data.=: metricName,
+        "StartTime" Data.=: startTime,
+        "EndTime" Data.=: endTime,
+        "Period" Data.=: period
       ]
 
 -- | /See:/ 'newGetMetricStatisticsResponse' smart constructor.

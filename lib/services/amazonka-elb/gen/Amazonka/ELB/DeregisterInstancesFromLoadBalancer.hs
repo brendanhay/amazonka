@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,8 +113,8 @@ instance
       "DeregisterInstancesFromLoadBalancerResult"
       ( \s h x ->
           DeregisterInstancesFromLoadBalancerResponse'
-            Prelude.<$> ( x Core..@? "Instances" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Instances" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -137,32 +138,32 @@ instance
       `Prelude.seq` Prelude.rnf instances
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeregisterInstancesFromLoadBalancer
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeregisterInstancesFromLoadBalancer
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeregisterInstancesFromLoadBalancer
   where
   toQuery DeregisterInstancesFromLoadBalancer' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DeregisterInstancesFromLoadBalancer" ::
+          Data.=: ( "DeregisterInstancesFromLoadBalancer" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Core.=: loadBalancerName,
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
+        "LoadBalancerName" Data.=: loadBalancerName,
         "Instances"
-          Core.=: Core.toQueryList "member" instances
+          Data.=: Data.toQueryList "member" instances
       ]
 
 -- | Contains the output of DeregisterInstancesFromLoadBalancer.

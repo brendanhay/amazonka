@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.RemoteIpDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.City
 import Amazonka.GuardDuty.Types.Country
 import Amazonka.GuardDuty.Types.GeoLocation
@@ -92,17 +93,17 @@ remoteIpDetails_organization = Lens.lens (\RemoteIpDetails' {organization} -> or
 remoteIpDetails_geoLocation :: Lens.Lens' RemoteIpDetails (Prelude.Maybe GeoLocation)
 remoteIpDetails_geoLocation = Lens.lens (\RemoteIpDetails' {geoLocation} -> geoLocation) (\s@RemoteIpDetails' {} a -> s {geoLocation = a} :: RemoteIpDetails)
 
-instance Core.FromJSON RemoteIpDetails where
+instance Data.FromJSON RemoteIpDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RemoteIpDetails"
       ( \x ->
           RemoteIpDetails'
-            Prelude.<$> (x Core..:? "country")
-            Prelude.<*> (x Core..:? "ipAddressV4")
-            Prelude.<*> (x Core..:? "city")
-            Prelude.<*> (x Core..:? "organization")
-            Prelude.<*> (x Core..:? "geoLocation")
+            Prelude.<$> (x Data..:? "country")
+            Prelude.<*> (x Data..:? "ipAddressV4")
+            Prelude.<*> (x Data..:? "city")
+            Prelude.<*> (x Data..:? "organization")
+            Prelude.<*> (x Data..:? "geoLocation")
       )
 
 instance Prelude.Hashable RemoteIpDetails where

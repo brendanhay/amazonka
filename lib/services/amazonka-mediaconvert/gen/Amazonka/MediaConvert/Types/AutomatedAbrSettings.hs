@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.AutomatedAbrSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AutomatedAbrRule
 import qualified Amazonka.Prelude as Prelude
 
@@ -132,16 +133,16 @@ automatedAbrSettings_maxAbrBitrate = Lens.lens (\AutomatedAbrSettings' {maxAbrBi
 automatedAbrSettings_maxRenditions :: Lens.Lens' AutomatedAbrSettings (Prelude.Maybe Prelude.Natural)
 automatedAbrSettings_maxRenditions = Lens.lens (\AutomatedAbrSettings' {maxRenditions} -> maxRenditions) (\s@AutomatedAbrSettings' {} a -> s {maxRenditions = a} :: AutomatedAbrSettings)
 
-instance Core.FromJSON AutomatedAbrSettings where
+instance Data.FromJSON AutomatedAbrSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutomatedAbrSettings"
       ( \x ->
           AutomatedAbrSettings'
-            Prelude.<$> (x Core..:? "minAbrBitrate")
-            Prelude.<*> (x Core..:? "rules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "maxAbrBitrate")
-            Prelude.<*> (x Core..:? "maxRenditions")
+            Prelude.<$> (x Data..:? "minAbrBitrate")
+            Prelude.<*> (x Data..:? "rules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "maxAbrBitrate")
+            Prelude.<*> (x Data..:? "maxRenditions")
       )
 
 instance Prelude.Hashable AutomatedAbrSettings where
@@ -158,13 +159,13 @@ instance Prelude.NFData AutomatedAbrSettings where
       `Prelude.seq` Prelude.rnf maxAbrBitrate
       `Prelude.seq` Prelude.rnf maxRenditions
 
-instance Core.ToJSON AutomatedAbrSettings where
+instance Data.ToJSON AutomatedAbrSettings where
   toJSON AutomatedAbrSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("minAbrBitrate" Core..=) Prelude.<$> minAbrBitrate,
-            ("rules" Core..=) Prelude.<$> rules,
-            ("maxAbrBitrate" Core..=) Prelude.<$> maxAbrBitrate,
-            ("maxRenditions" Core..=) Prelude.<$> maxRenditions
+          [ ("minAbrBitrate" Data..=) Prelude.<$> minAbrBitrate,
+            ("rules" Data..=) Prelude.<$> rules,
+            ("maxAbrBitrate" Data..=) Prelude.<$> maxAbrBitrate,
+            ("maxRenditions" Data..=) Prelude.<$> maxRenditions
           ]
       )

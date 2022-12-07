@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.SimulationJobBatchSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.SimulationJobBatchStatus
 
@@ -32,7 +33,7 @@ data SimulationJobBatchSummary = SimulationJobBatchSummary'
     failedRequestCount :: Prelude.Maybe Prelude.Int,
     -- | The time, in milliseconds since the epoch, when the simulation job batch
     -- was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The number of created simulation job requests.
     createdRequestCount :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the batch.
@@ -82,7 +83,7 @@ data SimulationJobBatchSummary = SimulationJobBatchSummary'
     pendingRequestCount :: Prelude.Maybe Prelude.Int,
     -- | The time, in milliseconds since the epoch, when the simulation job batch
     -- was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -169,7 +170,7 @@ simulationJobBatchSummary_failedRequestCount = Lens.lens (\SimulationJobBatchSum
 -- | The time, in milliseconds since the epoch, when the simulation job batch
 -- was last updated.
 simulationJobBatchSummary_lastUpdatedAt :: Lens.Lens' SimulationJobBatchSummary (Prelude.Maybe Prelude.UTCTime)
-simulationJobBatchSummary_lastUpdatedAt = Lens.lens (\SimulationJobBatchSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@SimulationJobBatchSummary' {} a -> s {lastUpdatedAt = a} :: SimulationJobBatchSummary) Prelude.. Lens.mapping Core._Time
+simulationJobBatchSummary_lastUpdatedAt = Lens.lens (\SimulationJobBatchSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@SimulationJobBatchSummary' {} a -> s {lastUpdatedAt = a} :: SimulationJobBatchSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The number of created simulation job requests.
 simulationJobBatchSummary_createdRequestCount :: Lens.Lens' SimulationJobBatchSummary (Prelude.Maybe Prelude.Int)
@@ -229,21 +230,21 @@ simulationJobBatchSummary_pendingRequestCount = Lens.lens (\SimulationJobBatchSu
 -- | The time, in milliseconds since the epoch, when the simulation job batch
 -- was created.
 simulationJobBatchSummary_createdAt :: Lens.Lens' SimulationJobBatchSummary (Prelude.Maybe Prelude.UTCTime)
-simulationJobBatchSummary_createdAt = Lens.lens (\SimulationJobBatchSummary' {createdAt} -> createdAt) (\s@SimulationJobBatchSummary' {} a -> s {createdAt = a} :: SimulationJobBatchSummary) Prelude.. Lens.mapping Core._Time
+simulationJobBatchSummary_createdAt = Lens.lens (\SimulationJobBatchSummary' {createdAt} -> createdAt) (\s@SimulationJobBatchSummary' {} a -> s {createdAt = a} :: SimulationJobBatchSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SimulationJobBatchSummary where
+instance Data.FromJSON SimulationJobBatchSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SimulationJobBatchSummary"
       ( \x ->
           SimulationJobBatchSummary'
-            Prelude.<$> (x Core..:? "failedRequestCount")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "createdRequestCount")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "pendingRequestCount")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "failedRequestCount")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "createdRequestCount")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "pendingRequestCount")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable SimulationJobBatchSummary where

@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.CapacityUnitsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies additional capacity units configured for your Enterprise
@@ -118,14 +119,14 @@ capacityUnitsConfiguration_storageCapacityUnits = Lens.lens (\CapacityUnitsConfi
 capacityUnitsConfiguration_queryCapacityUnits :: Lens.Lens' CapacityUnitsConfiguration Prelude.Natural
 capacityUnitsConfiguration_queryCapacityUnits = Lens.lens (\CapacityUnitsConfiguration' {queryCapacityUnits} -> queryCapacityUnits) (\s@CapacityUnitsConfiguration' {} a -> s {queryCapacityUnits = a} :: CapacityUnitsConfiguration)
 
-instance Core.FromJSON CapacityUnitsConfiguration where
+instance Data.FromJSON CapacityUnitsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CapacityUnitsConfiguration"
       ( \x ->
           CapacityUnitsConfiguration'
-            Prelude.<$> (x Core..: "StorageCapacityUnits")
-            Prelude.<*> (x Core..: "QueryCapacityUnits")
+            Prelude.<$> (x Data..: "StorageCapacityUnits")
+            Prelude.<*> (x Data..: "QueryCapacityUnits")
       )
 
 instance Prelude.Hashable CapacityUnitsConfiguration where
@@ -138,15 +139,15 @@ instance Prelude.NFData CapacityUnitsConfiguration where
     Prelude.rnf storageCapacityUnits
       `Prelude.seq` Prelude.rnf queryCapacityUnits
 
-instance Core.ToJSON CapacityUnitsConfiguration where
+instance Data.ToJSON CapacityUnitsConfiguration where
   toJSON CapacityUnitsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "StorageCapacityUnits"
-                  Core..= storageCapacityUnits
+                  Data..= storageCapacityUnits
               ),
             Prelude.Just
-              ("QueryCapacityUnits" Core..= queryCapacityUnits)
+              ("QueryCapacityUnits" Data..= queryCapacityUnits)
           ]
       )

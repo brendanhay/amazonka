@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.ReservationPurchaseRecommendationDetail where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.InstanceDetails
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about your recommended reservation purchase.
@@ -297,35 +298,35 @@ reservationPurchaseRecommendationDetail_estimatedMonthlySavingsPercentage :: Len
 reservationPurchaseRecommendationDetail_estimatedMonthlySavingsPercentage = Lens.lens (\ReservationPurchaseRecommendationDetail' {estimatedMonthlySavingsPercentage} -> estimatedMonthlySavingsPercentage) (\s@ReservationPurchaseRecommendationDetail' {} a -> s {estimatedMonthlySavingsPercentage = a} :: ReservationPurchaseRecommendationDetail)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ReservationPurchaseRecommendationDetail
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReservationPurchaseRecommendationDetail"
       ( \x ->
           ReservationPurchaseRecommendationDetail'
-            Prelude.<$> (x Core..:? "RecommendedNumberOfInstancesToPurchase")
-            Prelude.<*> (x Core..:? "MaximumNumberOfInstancesUsedPerHour")
-            Prelude.<*> (x Core..:? "AverageNumberOfInstancesUsedPerHour")
-            Prelude.<*> (x Core..:? "EstimatedMonthlySavingsAmount")
-            Prelude.<*> (x Core..:? "MinimumNumberOfInstancesUsedPerHour")
-            Prelude.<*> (x Core..:? "RecurringStandardMonthlyCost")
-            Prelude.<*> (x Core..:? "InstanceDetails")
-            Prelude.<*> (x Core..:? "UpfrontCost")
-            Prelude.<*> (x Core..:? "EstimatedMonthlyOnDemandCost")
-            Prelude.<*> (x Core..:? "AverageUtilization")
-            Prelude.<*> (x Core..:? "EstimatedBreakEvenInMonths")
-            Prelude.<*> (x Core..:? "CurrencyCode")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "MaximumNormalizedUnitsUsedPerHour")
+            Prelude.<$> (x Data..:? "RecommendedNumberOfInstancesToPurchase")
+            Prelude.<*> (x Data..:? "MaximumNumberOfInstancesUsedPerHour")
+            Prelude.<*> (x Data..:? "AverageNumberOfInstancesUsedPerHour")
+            Prelude.<*> (x Data..:? "EstimatedMonthlySavingsAmount")
+            Prelude.<*> (x Data..:? "MinimumNumberOfInstancesUsedPerHour")
+            Prelude.<*> (x Data..:? "RecurringStandardMonthlyCost")
+            Prelude.<*> (x Data..:? "InstanceDetails")
+            Prelude.<*> (x Data..:? "UpfrontCost")
+            Prelude.<*> (x Data..:? "EstimatedMonthlyOnDemandCost")
+            Prelude.<*> (x Data..:? "AverageUtilization")
+            Prelude.<*> (x Data..:? "EstimatedBreakEvenInMonths")
+            Prelude.<*> (x Data..:? "CurrencyCode")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "MaximumNormalizedUnitsUsedPerHour")
             Prelude.<*> ( x
-                            Core..:? "EstimatedReservationCostForLookbackPeriod"
+                            Data..:? "EstimatedReservationCostForLookbackPeriod"
                         )
-            Prelude.<*> (x Core..:? "AverageNormalizedUnitsUsedPerHour")
-            Prelude.<*> (x Core..:? "RecommendedNormalizedUnitsToPurchase")
-            Prelude.<*> (x Core..:? "MinimumNormalizedUnitsUsedPerHour")
-            Prelude.<*> (x Core..:? "EstimatedMonthlySavingsPercentage")
+            Prelude.<*> (x Data..:? "AverageNormalizedUnitsUsedPerHour")
+            Prelude.<*> (x Data..:? "RecommendedNormalizedUnitsToPurchase")
+            Prelude.<*> (x Data..:? "MinimumNormalizedUnitsUsedPerHour")
+            Prelude.<*> (x Data..:? "EstimatedMonthlySavingsPercentage")
       )
 
 instance

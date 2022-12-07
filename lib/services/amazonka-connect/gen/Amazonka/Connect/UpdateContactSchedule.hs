@@ -43,6 +43,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -57,7 +58,7 @@ data UpdateContactSchedule = UpdateContactSchedule'
     -- | The timestamp, in Unix Epoch seconds format, at which to start running
     -- the inbound flow. The scheduled time cannot be in the past. It must be
     -- within up to 6 days in future.
-    scheduledTime :: Core.POSIX
+    scheduledTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,7 +93,7 @@ newUpdateContactSchedule
     UpdateContactSchedule'
       { instanceId = pInstanceId_,
         contactId = pContactId_,
-        scheduledTime = Core._Time Lens.# pScheduledTime_
+        scheduledTime = Data._Time Lens.# pScheduledTime_
       }
 
 -- | The identifier of the Amazon Connect instance. You can find the
@@ -108,7 +109,7 @@ updateContactSchedule_contactId = Lens.lens (\UpdateContactSchedule' {contactId}
 -- the inbound flow. The scheduled time cannot be in the past. It must be
 -- within up to 6 days in future.
 updateContactSchedule_scheduledTime :: Lens.Lens' UpdateContactSchedule Prelude.UTCTime
-updateContactSchedule_scheduledTime = Lens.lens (\UpdateContactSchedule' {scheduledTime} -> scheduledTime) (\s@UpdateContactSchedule' {} a -> s {scheduledTime = a} :: UpdateContactSchedule) Prelude.. Core._Time
+updateContactSchedule_scheduledTime = Lens.lens (\UpdateContactSchedule' {scheduledTime} -> scheduledTime) (\s@UpdateContactSchedule' {} a -> s {scheduledTime = a} :: UpdateContactSchedule) Prelude.. Data._Time
 
 instance Core.AWSRequest UpdateContactSchedule where
   type
@@ -135,32 +136,32 @@ instance Prelude.NFData UpdateContactSchedule where
       `Prelude.seq` Prelude.rnf contactId
       `Prelude.seq` Prelude.rnf scheduledTime
 
-instance Core.ToHeaders UpdateContactSchedule where
+instance Data.ToHeaders UpdateContactSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateContactSchedule where
+instance Data.ToJSON UpdateContactSchedule where
   toJSON UpdateContactSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("ContactId" Core..= contactId),
+          [ Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("ContactId" Data..= contactId),
             Prelude.Just
-              ("ScheduledTime" Core..= scheduledTime)
+              ("ScheduledTime" Data..= scheduledTime)
           ]
       )
 
-instance Core.ToPath UpdateContactSchedule where
+instance Data.ToPath UpdateContactSchedule where
   toPath = Prelude.const "/contact/schedule"
 
-instance Core.ToQuery UpdateContactSchedule where
+instance Data.ToQuery UpdateContactSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateContactScheduleResponse' smart constructor.

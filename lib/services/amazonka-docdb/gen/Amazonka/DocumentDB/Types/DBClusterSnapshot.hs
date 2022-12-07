@@ -21,6 +21,7 @@ module Amazonka.DocumentDB.Types.DBClusterSnapshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about a cluster snapshot.
@@ -49,7 +50,7 @@ data DBClusterSnapshot = DBClusterSnapshot'
     -- | Specifies the status of this cluster snapshot.
     status :: Prelude.Maybe Prelude.Text,
     -- | Provides the time when the snapshot was taken, in UTC.
-    snapshotCreateTime :: Prelude.Maybe Core.ISO8601,
+    snapshotCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | Specifies whether the cluster snapshot is encrypted.
     storageEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | If @StorageEncrypted@ is @true@, the KMS key identifier for the
@@ -62,7 +63,7 @@ data DBClusterSnapshot = DBClusterSnapshot'
     vpcId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the time when the cluster was created, in Universal
     -- Coordinated Time (UTC).
-    clusterCreateTime :: Prelude.Maybe Core.ISO8601,
+    clusterCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Resource Name (ARN) for the cluster snapshot.
     dbClusterSnapshotArn :: Prelude.Maybe Prelude.Text,
     -- | Provides the version of the database engine for this cluster snapshot.
@@ -183,7 +184,7 @@ dbClusterSnapshot_status = Lens.lens (\DBClusterSnapshot' {status} -> status) (\
 
 -- | Provides the time when the snapshot was taken, in UTC.
 dbClusterSnapshot_snapshotCreateTime :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.UTCTime)
-dbClusterSnapshot_snapshotCreateTime = Lens.lens (\DBClusterSnapshot' {snapshotCreateTime} -> snapshotCreateTime) (\s@DBClusterSnapshot' {} a -> s {snapshotCreateTime = a} :: DBClusterSnapshot) Prelude.. Lens.mapping Core._Time
+dbClusterSnapshot_snapshotCreateTime = Lens.lens (\DBClusterSnapshot' {snapshotCreateTime} -> snapshotCreateTime) (\s@DBClusterSnapshot' {} a -> s {snapshotCreateTime = a} :: DBClusterSnapshot) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether the cluster snapshot is encrypted.
 dbClusterSnapshot_storageEncrypted :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Bool)
@@ -206,7 +207,7 @@ dbClusterSnapshot_vpcId = Lens.lens (\DBClusterSnapshot' {vpcId} -> vpcId) (\s@D
 -- | Specifies the time when the cluster was created, in Universal
 -- Coordinated Time (UTC).
 dbClusterSnapshot_clusterCreateTime :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.UTCTime)
-dbClusterSnapshot_clusterCreateTime = Lens.lens (\DBClusterSnapshot' {clusterCreateTime} -> clusterCreateTime) (\s@DBClusterSnapshot' {} a -> s {clusterCreateTime = a} :: DBClusterSnapshot) Prelude.. Lens.mapping Core._Time
+dbClusterSnapshot_clusterCreateTime = Lens.lens (\DBClusterSnapshot' {clusterCreateTime} -> clusterCreateTime) (\s@DBClusterSnapshot' {} a -> s {clusterCreateTime = a} :: DBClusterSnapshot) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) for the cluster snapshot.
 dbClusterSnapshot_dbClusterSnapshotArn :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Text)
@@ -220,29 +221,29 @@ dbClusterSnapshot_engineVersion = Lens.lens (\DBClusterSnapshot' {engineVersion}
 dbClusterSnapshot_snapshotType :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Text)
 dbClusterSnapshot_snapshotType = Lens.lens (\DBClusterSnapshot' {snapshotType} -> snapshotType) (\s@DBClusterSnapshot' {} a -> s {snapshotType = a} :: DBClusterSnapshot)
 
-instance Core.FromXML DBClusterSnapshot where
+instance Data.FromXML DBClusterSnapshot where
   parseXML x =
     DBClusterSnapshot'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "PercentProgress")
-      Prelude.<*> (x Core..@? "MasterUsername")
-      Prelude.<*> (x Core..@? "DBClusterSnapshotIdentifier")
-      Prelude.<*> (x Core..@? "DBClusterIdentifier")
-      Prelude.<*> ( x Core..@? "AvailabilityZones"
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "PercentProgress")
+      Prelude.<*> (x Data..@? "MasterUsername")
+      Prelude.<*> (x Data..@? "DBClusterSnapshotIdentifier")
+      Prelude.<*> (x Data..@? "DBClusterIdentifier")
+      Prelude.<*> ( x Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "AvailabilityZone")
+                      Prelude.>>= Core.may (Data.parseXMLList "AvailabilityZone")
                   )
-      Prelude.<*> (x Core..@? "SourceDBClusterSnapshotArn")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "SnapshotCreateTime")
-      Prelude.<*> (x Core..@? "StorageEncrypted")
-      Prelude.<*> (x Core..@? "KmsKeyId")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "VpcId")
-      Prelude.<*> (x Core..@? "ClusterCreateTime")
-      Prelude.<*> (x Core..@? "DBClusterSnapshotArn")
-      Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "SnapshotType")
+      Prelude.<*> (x Data..@? "SourceDBClusterSnapshotArn")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "SnapshotCreateTime")
+      Prelude.<*> (x Data..@? "StorageEncrypted")
+      Prelude.<*> (x Data..@? "KmsKeyId")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "VpcId")
+      Prelude.<*> (x Data..@? "ClusterCreateTime")
+      Prelude.<*> (x Data..@? "DBClusterSnapshotArn")
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "SnapshotType")
 
 instance Prelude.Hashable DBClusterSnapshot where
   hashWithSalt _salt DBClusterSnapshot' {..} =

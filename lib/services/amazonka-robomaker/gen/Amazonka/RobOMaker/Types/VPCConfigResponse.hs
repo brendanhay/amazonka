@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.VPCConfigResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | VPC configuration associated with your simulation job.
@@ -79,16 +80,16 @@ vPCConfigResponse_vpcId = Lens.lens (\VPCConfigResponse' {vpcId} -> vpcId) (\s@V
 vPCConfigResponse_assignPublicIp :: Lens.Lens' VPCConfigResponse (Prelude.Maybe Prelude.Bool)
 vPCConfigResponse_assignPublicIp = Lens.lens (\VPCConfigResponse' {assignPublicIp} -> assignPublicIp) (\s@VPCConfigResponse' {} a -> s {assignPublicIp = a} :: VPCConfigResponse)
 
-instance Core.FromJSON VPCConfigResponse where
+instance Data.FromJSON VPCConfigResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VPCConfigResponse"
       ( \x ->
           VPCConfigResponse'
-            Prelude.<$> (x Core..:? "subnets")
-            Prelude.<*> (x Core..:? "securityGroups")
-            Prelude.<*> (x Core..:? "vpcId")
-            Prelude.<*> (x Core..:? "assignPublicIp")
+            Prelude.<$> (x Data..:? "subnets")
+            Prelude.<*> (x Data..:? "securityGroups")
+            Prelude.<*> (x Data..:? "vpcId")
+            Prelude.<*> (x Data..:? "assignPublicIp")
       )
 
 instance Prelude.Hashable VPCConfigResponse where

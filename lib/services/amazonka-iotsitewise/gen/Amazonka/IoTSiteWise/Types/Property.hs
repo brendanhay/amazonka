@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.Property where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.PropertyDataType
 import Amazonka.IoTSiteWise.Types.PropertyNotification
 import Amazonka.IoTSiteWise.Types.PropertyType
@@ -136,19 +137,19 @@ property_name = Lens.lens (\Property' {name} -> name) (\s@Property' {} a -> s {n
 property_dataType :: Lens.Lens' Property PropertyDataType
 property_dataType = Lens.lens (\Property' {dataType} -> dataType) (\s@Property' {} a -> s {dataType = a} :: Property)
 
-instance Core.FromJSON Property where
+instance Data.FromJSON Property where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Property"
       ( \x ->
           Property'
-            Prelude.<$> (x Core..:? "alias")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "notification")
-            Prelude.<*> (x Core..:? "unit")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "dataType")
+            Prelude.<$> (x Data..:? "alias")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "notification")
+            Prelude.<*> (x Data..:? "unit")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "dataType")
       )
 
 instance Prelude.Hashable Property where

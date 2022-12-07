@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.Bandwidth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes bandwidth information.
@@ -61,14 +62,14 @@ bandwidth_downloadSpeed = Lens.lens (\Bandwidth' {downloadSpeed} -> downloadSpee
 bandwidth_uploadSpeed :: Lens.Lens' Bandwidth (Prelude.Maybe Prelude.Int)
 bandwidth_uploadSpeed = Lens.lens (\Bandwidth' {uploadSpeed} -> uploadSpeed) (\s@Bandwidth' {} a -> s {uploadSpeed = a} :: Bandwidth)
 
-instance Core.FromJSON Bandwidth where
+instance Data.FromJSON Bandwidth where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Bandwidth"
       ( \x ->
           Bandwidth'
-            Prelude.<$> (x Core..:? "DownloadSpeed")
-            Prelude.<*> (x Core..:? "UploadSpeed")
+            Prelude.<$> (x Data..:? "DownloadSpeed")
+            Prelude.<*> (x Data..:? "UploadSpeed")
       )
 
 instance Prelude.Hashable Bandwidth where
@@ -81,11 +82,11 @@ instance Prelude.NFData Bandwidth where
     Prelude.rnf downloadSpeed
       `Prelude.seq` Prelude.rnf uploadSpeed
 
-instance Core.ToJSON Bandwidth where
+instance Data.ToJSON Bandwidth where
   toJSON Bandwidth' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DownloadSpeed" Core..=) Prelude.<$> downloadSpeed,
-            ("UploadSpeed" Core..=) Prelude.<$> uploadSpeed
+          [ ("DownloadSpeed" Data..=) Prelude.<$> downloadSpeed,
+            ("UploadSpeed" Data..=) Prelude.<$> uploadSpeed
           ]
       )

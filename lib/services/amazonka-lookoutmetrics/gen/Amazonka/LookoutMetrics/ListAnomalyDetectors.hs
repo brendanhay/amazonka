@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,8 +106,8 @@ instance Core.AWSRequest ListAnomalyDetectors where
     Response.receiveJSON
       ( \s h x ->
           ListAnomalyDetectorsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "AnomalyDetectorSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "AnomalyDetectorSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -122,30 +123,30 @@ instance Prelude.NFData ListAnomalyDetectors where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListAnomalyDetectors where
+instance Data.ToHeaders ListAnomalyDetectors where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAnomalyDetectors where
+instance Data.ToJSON ListAnomalyDetectors where
   toJSON ListAnomalyDetectors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListAnomalyDetectors where
+instance Data.ToPath ListAnomalyDetectors where
   toPath = Prelude.const "/ListAnomalyDetectors"
 
-instance Core.ToQuery ListAnomalyDetectors where
+instance Data.ToQuery ListAnomalyDetectors where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAnomalyDetectorsResponse' smart constructor.

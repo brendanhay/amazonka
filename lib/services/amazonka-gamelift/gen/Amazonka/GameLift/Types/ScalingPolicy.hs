@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.ScalingPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.ComparisonOperatorType
 import Amazonka.GameLift.Types.LocationUpdateStatus
 import Amazonka.GameLift.Types.MetricName
@@ -442,26 +443,26 @@ scalingPolicy_comparisonOperator = Lens.lens (\ScalingPolicy' {comparisonOperato
 scalingPolicy_scalingAdjustmentType :: Lens.Lens' ScalingPolicy (Prelude.Maybe ScalingAdjustmentType)
 scalingPolicy_scalingAdjustmentType = Lens.lens (\ScalingPolicy' {scalingAdjustmentType} -> scalingAdjustmentType) (\s@ScalingPolicy' {} a -> s {scalingAdjustmentType = a} :: ScalingPolicy)
 
-instance Core.FromJSON ScalingPolicy where
+instance Data.FromJSON ScalingPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScalingPolicy"
       ( \x ->
           ScalingPolicy'
-            Prelude.<$> (x Core..:? "FleetId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "PolicyType")
-            Prelude.<*> (x Core..:? "UpdateStatus")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EvaluationPeriods")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "FleetArn")
-            Prelude.<*> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..:? "TargetConfiguration")
-            Prelude.<*> (x Core..:? "Threshold")
-            Prelude.<*> (x Core..:? "ScalingAdjustment")
-            Prelude.<*> (x Core..:? "ComparisonOperator")
-            Prelude.<*> (x Core..:? "ScalingAdjustmentType")
+            Prelude.<$> (x Data..:? "FleetId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "PolicyType")
+            Prelude.<*> (x Data..:? "UpdateStatus")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "EvaluationPeriods")
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "FleetArn")
+            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "TargetConfiguration")
+            Prelude.<*> (x Data..:? "Threshold")
+            Prelude.<*> (x Data..:? "ScalingAdjustment")
+            Prelude.<*> (x Data..:? "ComparisonOperator")
+            Prelude.<*> (x Data..:? "ScalingAdjustmentType")
       )
 
 instance Prelude.Hashable ScalingPolicy where

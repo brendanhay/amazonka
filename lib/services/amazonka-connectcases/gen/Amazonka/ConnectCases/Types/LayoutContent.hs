@@ -22,6 +22,7 @@ module Amazonka.ConnectCases.Types.LayoutContent where
 import Amazonka.ConnectCases.Types.BasicLayout
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object to store union of different versions of layout content.
@@ -54,12 +55,12 @@ newLayoutContent =
 layoutContent_basic :: Lens.Lens' LayoutContent (Prelude.Maybe BasicLayout)
 layoutContent_basic = Lens.lens (\LayoutContent' {basic} -> basic) (\s@LayoutContent' {} a -> s {basic = a} :: LayoutContent)
 
-instance Core.FromJSON LayoutContent where
+instance Data.FromJSON LayoutContent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LayoutContent"
       ( \x ->
-          LayoutContent' Prelude.<$> (x Core..:? "basic")
+          LayoutContent' Prelude.<$> (x Data..:? "basic")
       )
 
 instance Prelude.Hashable LayoutContent where
@@ -69,9 +70,9 @@ instance Prelude.Hashable LayoutContent where
 instance Prelude.NFData LayoutContent where
   rnf LayoutContent' {..} = Prelude.rnf basic
 
-instance Core.ToJSON LayoutContent where
+instance Data.ToJSON LayoutContent where
   toJSON LayoutContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("basic" Core..=) Prelude.<$> basic]
+          [("basic" Data..=) Prelude.<$> basic]
       )

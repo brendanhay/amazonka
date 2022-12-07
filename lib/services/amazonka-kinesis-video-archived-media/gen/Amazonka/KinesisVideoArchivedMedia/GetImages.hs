@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideoArchivedMedia.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,9 +109,9 @@ data GetImages = GetImages'
     -- | The starting point from which the images should be generated. This
     -- @StartTimestamp@ must be within an inclusive range of timestamps for an
     -- image to be returned.
-    startTimestamp :: Core.POSIX,
+    startTimestamp :: Data.POSIX,
     -- | The end timestamp for the range of images to be generated.
-    endTimestamp :: Core.POSIX,
+    endTimestamp :: Data.POSIX,
     -- | The time interval in milliseconds (ms) at which the images need to be
     -- generated from the stream. The minimum value that can be provided is
     -- 3000 ms. If the timestamp range is less than the sampling interval, the
@@ -216,8 +217,8 @@ newGetImages
         widthPixels = Prelude.Nothing,
         streamName = Prelude.Nothing,
         imageSelectorType = pImageSelectorType_,
-        startTimestamp = Core._Time Lens.# pStartTimestamp_,
-        endTimestamp = Core._Time Lens.# pEndTimestamp_,
+        startTimestamp = Data._Time Lens.# pStartTimestamp_,
+        endTimestamp = Data._Time Lens.# pEndTimestamp_,
         samplingInterval = pSamplingInterval_,
         format = pFormat_
       }
@@ -284,11 +285,11 @@ getImages_imageSelectorType = Lens.lens (\GetImages' {imageSelectorType} -> imag
 -- @StartTimestamp@ must be within an inclusive range of timestamps for an
 -- image to be returned.
 getImages_startTimestamp :: Lens.Lens' GetImages Prelude.UTCTime
-getImages_startTimestamp = Lens.lens (\GetImages' {startTimestamp} -> startTimestamp) (\s@GetImages' {} a -> s {startTimestamp = a} :: GetImages) Prelude.. Core._Time
+getImages_startTimestamp = Lens.lens (\GetImages' {startTimestamp} -> startTimestamp) (\s@GetImages' {} a -> s {startTimestamp = a} :: GetImages) Prelude.. Data._Time
 
 -- | The end timestamp for the range of images to be generated.
 getImages_endTimestamp :: Lens.Lens' GetImages Prelude.UTCTime
-getImages_endTimestamp = Lens.lens (\GetImages' {endTimestamp} -> endTimestamp) (\s@GetImages' {} a -> s {endTimestamp = a} :: GetImages) Prelude.. Core._Time
+getImages_endTimestamp = Lens.lens (\GetImages' {endTimestamp} -> endTimestamp) (\s@GetImages' {} a -> s {endTimestamp = a} :: GetImages) Prelude.. Data._Time
 
 -- | The time interval in milliseconds (ms) at which the images need to be
 -- generated from the stream. The minimum value that can be provided is
@@ -331,8 +332,8 @@ instance Core.AWSRequest GetImages where
     Response.receiveJSON
       ( \s h x ->
           GetImagesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Images" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Images" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -366,35 +367,35 @@ instance Prelude.NFData GetImages where
       `Prelude.seq` Prelude.rnf samplingInterval
       `Prelude.seq` Prelude.rnf format
 
-instance Core.ToHeaders GetImages where
+instance Data.ToHeaders GetImages where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetImages where
+instance Data.ToJSON GetImages where
   toJSON GetImages' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("FormatConfig" Core..=) Prelude.<$> formatConfig,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("HeightPixels" Core..=) Prelude.<$> heightPixels,
-            ("StreamARN" Core..=) Prelude.<$> streamARN,
-            ("WidthPixels" Core..=) Prelude.<$> widthPixels,
-            ("StreamName" Core..=) Prelude.<$> streamName,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("FormatConfig" Data..=) Prelude.<$> formatConfig,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("HeightPixels" Data..=) Prelude.<$> heightPixels,
+            ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("WidthPixels" Data..=) Prelude.<$> widthPixels,
+            ("StreamName" Data..=) Prelude.<$> streamName,
             Prelude.Just
-              ("ImageSelectorType" Core..= imageSelectorType),
+              ("ImageSelectorType" Data..= imageSelectorType),
             Prelude.Just
-              ("StartTimestamp" Core..= startTimestamp),
-            Prelude.Just ("EndTimestamp" Core..= endTimestamp),
+              ("StartTimestamp" Data..= startTimestamp),
+            Prelude.Just ("EndTimestamp" Data..= endTimestamp),
             Prelude.Just
-              ("SamplingInterval" Core..= samplingInterval),
-            Prelude.Just ("Format" Core..= format)
+              ("SamplingInterval" Data..= samplingInterval),
+            Prelude.Just ("Format" Data..= format)
           ]
       )
 
-instance Core.ToPath GetImages where
+instance Data.ToPath GetImages where
   toPath = Prelude.const "/getImages"
 
-instance Core.ToQuery GetImages where
+instance Data.ToQuery GetImages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetImagesResponse' smart constructor.

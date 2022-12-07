@@ -82,6 +82,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -181,9 +182,9 @@ instance Core.AWSRequest GetDiscoveredResourceCounts where
     Response.receiveJSON
       ( \s h x ->
           GetDiscoveredResourceCountsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "resourceCounts" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "totalDiscoveredResources")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "resourceCounts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "totalDiscoveredResources")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,35 +200,35 @@ instance Prelude.NFData GetDiscoveredResourceCounts where
       `Prelude.seq` Prelude.rnf resourceTypes
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders GetDiscoveredResourceCounts where
+instance Data.ToHeaders GetDiscoveredResourceCounts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.GetDiscoveredResourceCounts" ::
+              Data.=# ( "StarlingDoveService.GetDiscoveredResourceCounts" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDiscoveredResourceCounts where
+instance Data.ToJSON GetDiscoveredResourceCounts where
   toJSON GetDiscoveredResourceCounts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("resourceTypes" Core..=) Prelude.<$> resourceTypes,
-            ("limit" Core..=) Prelude.<$> limit
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("resourceTypes" Data..=) Prelude.<$> resourceTypes,
+            ("limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath GetDiscoveredResourceCounts where
+instance Data.ToPath GetDiscoveredResourceCounts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDiscoveredResourceCounts where
+instance Data.ToQuery GetDiscoveredResourceCounts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDiscoveredResourceCountsResponse' smart constructor.

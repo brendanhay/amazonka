@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.IBMDb2Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines an IBM Db2 LUW endpoint.
@@ -45,7 +46,7 @@ data IBMDb2Settings = IBMDb2Settings'
     -- in the /Database Migration Service User Guide/.
     secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Endpoint connection password.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Fully qualified domain name of the endpoint.
     serverName :: Prelude.Maybe Prelude.Text,
     -- | Database name for the endpoint.
@@ -152,7 +153,7 @@ iBMDb2Settings_secretsManagerAccessRoleArn = Lens.lens (\IBMDb2Settings' {secret
 
 -- | Endpoint connection password.
 iBMDb2Settings_password :: Lens.Lens' IBMDb2Settings (Prelude.Maybe Prelude.Text)
-iBMDb2Settings_password = Lens.lens (\IBMDb2Settings' {password} -> password) (\s@IBMDb2Settings' {} a -> s {password = a} :: IBMDb2Settings) Prelude.. Lens.mapping Core._Sensitive
+iBMDb2Settings_password = Lens.lens (\IBMDb2Settings' {password} -> password) (\s@IBMDb2Settings' {} a -> s {password = a} :: IBMDb2Settings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Fully qualified domain name of the endpoint.
 iBMDb2Settings_serverName :: Lens.Lens' IBMDb2Settings (Prelude.Maybe Prelude.Text)
@@ -187,22 +188,22 @@ iBMDb2Settings_secretsManagerSecretId = Lens.lens (\IBMDb2Settings' {secretsMana
 iBMDb2Settings_currentLsn :: Lens.Lens' IBMDb2Settings (Prelude.Maybe Prelude.Text)
 iBMDb2Settings_currentLsn = Lens.lens (\IBMDb2Settings' {currentLsn} -> currentLsn) (\s@IBMDb2Settings' {} a -> s {currentLsn = a} :: IBMDb2Settings)
 
-instance Core.FromJSON IBMDb2Settings where
+instance Data.FromJSON IBMDb2Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IBMDb2Settings"
       ( \x ->
           IBMDb2Settings'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
-            Prelude.<*> (x Core..:? "Password")
-            Prelude.<*> (x Core..:? "ServerName")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "SetDataCaptureChanges")
-            Prelude.<*> (x Core..:? "MaxKBytesPerRead")
-            Prelude.<*> (x Core..:? "SecretsManagerSecretId")
-            Prelude.<*> (x Core..:? "CurrentLsn")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "SecretsManagerAccessRoleArn")
+            Prelude.<*> (x Data..:? "Password")
+            Prelude.<*> (x Data..:? "ServerName")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "SetDataCaptureChanges")
+            Prelude.<*> (x Data..:? "MaxKBytesPerRead")
+            Prelude.<*> (x Data..:? "SecretsManagerSecretId")
+            Prelude.<*> (x Data..:? "CurrentLsn")
       )
 
 instance Prelude.Hashable IBMDb2Settings where
@@ -231,23 +232,23 @@ instance Prelude.NFData IBMDb2Settings where
       `Prelude.seq` Prelude.rnf secretsManagerSecretId
       `Prelude.seq` Prelude.rnf currentLsn
 
-instance Core.ToJSON IBMDb2Settings where
+instance Data.ToJSON IBMDb2Settings where
   toJSON IBMDb2Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("SecretsManagerAccessRoleArn" Core..=)
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("SecretsManagerAccessRoleArn" Data..=)
               Prelude.<$> secretsManagerAccessRoleArn,
-            ("Password" Core..=) Prelude.<$> password,
-            ("ServerName" Core..=) Prelude.<$> serverName,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("Username" Core..=) Prelude.<$> username,
-            ("SetDataCaptureChanges" Core..=)
+            ("Password" Data..=) Prelude.<$> password,
+            ("ServerName" Data..=) Prelude.<$> serverName,
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("Username" Data..=) Prelude.<$> username,
+            ("SetDataCaptureChanges" Data..=)
               Prelude.<$> setDataCaptureChanges,
-            ("MaxKBytesPerRead" Core..=)
+            ("MaxKBytesPerRead" Data..=)
               Prelude.<$> maxKBytesPerRead,
-            ("SecretsManagerSecretId" Core..=)
+            ("SecretsManagerSecretId" Data..=)
               Prelude.<$> secretsManagerSecretId,
-            ("CurrentLsn" Core..=) Prelude.<$> currentLsn
+            ("CurrentLsn" Data..=) Prelude.<$> currentLsn
           ]
       )

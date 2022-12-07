@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.RedshiftDestinationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.CopyCommand
 import Amazonka.Firehose.Types.ProcessingConfiguration
@@ -53,7 +54,7 @@ data RedshiftDestinationDescription = RedshiftDestinationDescription'
     -- | The @COPY@ command.
     copyCommand :: CopyCommand,
     -- | The name of the user.
-    username :: Core.Sensitive Prelude.Text,
+    username :: Data.Sensitive Prelude.Text,
     -- | The Amazon S3 destination.
     s3DestinationDescription :: S3DestinationDescription
   }
@@ -118,7 +119,7 @@ newRedshiftDestinationDescription
         clusterJDBCURL = pClusterJDBCURL_,
         copyCommand = pCopyCommand_,
         username =
-          Core._Sensitive Lens.# pUsername_,
+          Data._Sensitive Lens.# pUsername_,
         s3DestinationDescription =
           pS3DestinationDescription_
       }
@@ -160,28 +161,28 @@ redshiftDestinationDescription_copyCommand = Lens.lens (\RedshiftDestinationDesc
 
 -- | The name of the user.
 redshiftDestinationDescription_username :: Lens.Lens' RedshiftDestinationDescription Prelude.Text
-redshiftDestinationDescription_username = Lens.lens (\RedshiftDestinationDescription' {username} -> username) (\s@RedshiftDestinationDescription' {} a -> s {username = a} :: RedshiftDestinationDescription) Prelude.. Core._Sensitive
+redshiftDestinationDescription_username = Lens.lens (\RedshiftDestinationDescription' {username} -> username) (\s@RedshiftDestinationDescription' {} a -> s {username = a} :: RedshiftDestinationDescription) Prelude.. Data._Sensitive
 
 -- | The Amazon S3 destination.
 redshiftDestinationDescription_s3DestinationDescription :: Lens.Lens' RedshiftDestinationDescription S3DestinationDescription
 redshiftDestinationDescription_s3DestinationDescription = Lens.lens (\RedshiftDestinationDescription' {s3DestinationDescription} -> s3DestinationDescription) (\s@RedshiftDestinationDescription' {} a -> s {s3DestinationDescription = a} :: RedshiftDestinationDescription)
 
-instance Core.FromJSON RedshiftDestinationDescription where
+instance Data.FromJSON RedshiftDestinationDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedshiftDestinationDescription"
       ( \x ->
           RedshiftDestinationDescription'
-            Prelude.<$> (x Core..:? "ProcessingConfiguration")
-            Prelude.<*> (x Core..:? "S3BackupDescription")
-            Prelude.<*> (x Core..:? "CloudWatchLoggingOptions")
-            Prelude.<*> (x Core..:? "S3BackupMode")
-            Prelude.<*> (x Core..:? "RetryOptions")
-            Prelude.<*> (x Core..: "RoleARN")
-            Prelude.<*> (x Core..: "ClusterJDBCURL")
-            Prelude.<*> (x Core..: "CopyCommand")
-            Prelude.<*> (x Core..: "Username")
-            Prelude.<*> (x Core..: "S3DestinationDescription")
+            Prelude.<$> (x Data..:? "ProcessingConfiguration")
+            Prelude.<*> (x Data..:? "S3BackupDescription")
+            Prelude.<*> (x Data..:? "CloudWatchLoggingOptions")
+            Prelude.<*> (x Data..:? "S3BackupMode")
+            Prelude.<*> (x Data..:? "RetryOptions")
+            Prelude.<*> (x Data..: "RoleARN")
+            Prelude.<*> (x Data..: "ClusterJDBCURL")
+            Prelude.<*> (x Data..: "CopyCommand")
+            Prelude.<*> (x Data..: "Username")
+            Prelude.<*> (x Data..: "S3DestinationDescription")
       )
 
 instance

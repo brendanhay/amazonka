@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -51,7 +52,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateExtendedSourceServer' smart constructor.
 data CreateExtendedSourceServer = CreateExtendedSourceServer'
   { -- | A list of tags associated with the extended source server.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | This defines the ARN of the source server in staging Account based on
     -- which you want to create an extended source server.
     sourceServerArn :: Prelude.Text
@@ -82,7 +83,7 @@ newCreateExtendedSourceServer pSourceServerArn_ =
 
 -- | A list of tags associated with the extended source server.
 createExtendedSourceServer_tags :: Lens.Lens' CreateExtendedSourceServer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createExtendedSourceServer_tags = Lens.lens (\CreateExtendedSourceServer' {tags} -> tags) (\s@CreateExtendedSourceServer' {} a -> s {tags = a} :: CreateExtendedSourceServer) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createExtendedSourceServer_tags = Lens.lens (\CreateExtendedSourceServer' {tags} -> tags) (\s@CreateExtendedSourceServer' {} a -> s {tags = a} :: CreateExtendedSourceServer) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | This defines the ARN of the source server in staging Account based on
 -- which you want to create an extended source server.
@@ -99,7 +100,7 @@ instance Core.AWSRequest CreateExtendedSourceServer where
     Response.receiveJSON
       ( \s h x ->
           CreateExtendedSourceServerResponse'
-            Prelude.<$> (x Core..?> "sourceServer")
+            Prelude.<$> (x Data..?> "sourceServer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,31 +114,31 @@ instance Prelude.NFData CreateExtendedSourceServer where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf sourceServerArn
 
-instance Core.ToHeaders CreateExtendedSourceServer where
+instance Data.ToHeaders CreateExtendedSourceServer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateExtendedSourceServer where
+instance Data.ToJSON CreateExtendedSourceServer where
   toJSON CreateExtendedSourceServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("sourceServerArn" Core..= sourceServerArn)
+              ("sourceServerArn" Data..= sourceServerArn)
           ]
       )
 
-instance Core.ToPath CreateExtendedSourceServer where
+instance Data.ToPath CreateExtendedSourceServer where
   toPath = Prelude.const "/CreateExtendedSourceServer"
 
-instance Core.ToQuery CreateExtendedSourceServer where
+instance Data.ToQuery CreateExtendedSourceServer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateExtendedSourceServerResponse' smart constructor.

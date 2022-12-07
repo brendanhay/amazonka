@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.RelationalDatabaseBundle where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a database bundle. A bundle describes the performance
@@ -126,21 +127,21 @@ relationalDatabaseBundle_bundleId = Lens.lens (\RelationalDatabaseBundle' {bundl
 relationalDatabaseBundle_ramSizeInGb :: Lens.Lens' RelationalDatabaseBundle (Prelude.Maybe Prelude.Double)
 relationalDatabaseBundle_ramSizeInGb = Lens.lens (\RelationalDatabaseBundle' {ramSizeInGb} -> ramSizeInGb) (\s@RelationalDatabaseBundle' {} a -> s {ramSizeInGb = a} :: RelationalDatabaseBundle)
 
-instance Core.FromJSON RelationalDatabaseBundle where
+instance Data.FromJSON RelationalDatabaseBundle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelationalDatabaseBundle"
       ( \x ->
           RelationalDatabaseBundle'
-            Prelude.<$> (x Core..:? "cpuCount")
-            Prelude.<*> (x Core..:? "isActive")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "transferPerMonthInGb")
-            Prelude.<*> (x Core..:? "diskSizeInGb")
-            Prelude.<*> (x Core..:? "isEncrypted")
-            Prelude.<*> (x Core..:? "price")
-            Prelude.<*> (x Core..:? "bundleId")
-            Prelude.<*> (x Core..:? "ramSizeInGb")
+            Prelude.<$> (x Data..:? "cpuCount")
+            Prelude.<*> (x Data..:? "isActive")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "transferPerMonthInGb")
+            Prelude.<*> (x Data..:? "diskSizeInGb")
+            Prelude.<*> (x Data..:? "isEncrypted")
+            Prelude.<*> (x Data..:? "price")
+            Prelude.<*> (x Data..:? "bundleId")
+            Prelude.<*> (x Data..:? "ramSizeInGb")
       )
 
 instance Prelude.Hashable RelationalDatabaseBundle where

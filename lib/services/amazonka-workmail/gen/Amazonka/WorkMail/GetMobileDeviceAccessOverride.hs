@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,12 +150,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetMobileDeviceAccessOverrideResponse'
-            Prelude.<$> (x Core..?> "DeviceId")
-            Prelude.<*> (x Core..?> "Effect")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "UserId")
-            Prelude.<*> (x Core..?> "DateCreated")
-            Prelude.<*> (x Core..?> "DateModified")
+            Prelude.<$> (x Data..?> "DeviceId")
+            Prelude.<*> (x Data..?> "Effect")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "UserId")
+            Prelude.<*> (x Data..?> "DateCreated")
+            Prelude.<*> (x Data..?> "DateModified")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,36 +174,36 @@ instance Prelude.NFData GetMobileDeviceAccessOverride where
       `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf deviceId
 
-instance Core.ToHeaders GetMobileDeviceAccessOverride where
+instance Data.ToHeaders GetMobileDeviceAccessOverride where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.GetMobileDeviceAccessOverride" ::
+              Data.=# ( "WorkMailService.GetMobileDeviceAccessOverride" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMobileDeviceAccessOverride where
+instance Data.ToJSON GetMobileDeviceAccessOverride where
   toJSON GetMobileDeviceAccessOverride' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("UserId" Core..= userId),
-            Prelude.Just ("DeviceId" Core..= deviceId)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("UserId" Data..= userId),
+            Prelude.Just ("DeviceId" Data..= deviceId)
           ]
       )
 
-instance Core.ToPath GetMobileDeviceAccessOverride where
+instance Data.ToPath GetMobileDeviceAccessOverride where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMobileDeviceAccessOverride where
+instance Data.ToQuery GetMobileDeviceAccessOverride where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMobileDeviceAccessOverrideResponse' smart constructor.
@@ -216,9 +217,9 @@ data GetMobileDeviceAccessOverrideResponse = GetMobileDeviceAccessOverrideRespon
     -- | The WorkMail user to which the access override applies.
     userId :: Prelude.Maybe Prelude.Text,
     -- | The date the override was first created.
-    dateCreated :: Prelude.Maybe Core.POSIX,
+    dateCreated :: Prelude.Maybe Data.POSIX,
     -- | The date the description was last modified.
-    dateModified :: Prelude.Maybe Core.POSIX,
+    dateModified :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -279,11 +280,11 @@ getMobileDeviceAccessOverrideResponse_userId = Lens.lens (\GetMobileDeviceAccess
 
 -- | The date the override was first created.
 getMobileDeviceAccessOverrideResponse_dateCreated :: Lens.Lens' GetMobileDeviceAccessOverrideResponse (Prelude.Maybe Prelude.UTCTime)
-getMobileDeviceAccessOverrideResponse_dateCreated = Lens.lens (\GetMobileDeviceAccessOverrideResponse' {dateCreated} -> dateCreated) (\s@GetMobileDeviceAccessOverrideResponse' {} a -> s {dateCreated = a} :: GetMobileDeviceAccessOverrideResponse) Prelude.. Lens.mapping Core._Time
+getMobileDeviceAccessOverrideResponse_dateCreated = Lens.lens (\GetMobileDeviceAccessOverrideResponse' {dateCreated} -> dateCreated) (\s@GetMobileDeviceAccessOverrideResponse' {} a -> s {dateCreated = a} :: GetMobileDeviceAccessOverrideResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date the description was last modified.
 getMobileDeviceAccessOverrideResponse_dateModified :: Lens.Lens' GetMobileDeviceAccessOverrideResponse (Prelude.Maybe Prelude.UTCTime)
-getMobileDeviceAccessOverrideResponse_dateModified = Lens.lens (\GetMobileDeviceAccessOverrideResponse' {dateModified} -> dateModified) (\s@GetMobileDeviceAccessOverrideResponse' {} a -> s {dateModified = a} :: GetMobileDeviceAccessOverrideResponse) Prelude.. Lens.mapping Core._Time
+getMobileDeviceAccessOverrideResponse_dateModified = Lens.lens (\GetMobileDeviceAccessOverrideResponse' {dateModified} -> dateModified) (\s@GetMobileDeviceAccessOverrideResponse' {} a -> s {dateModified = a} :: GetMobileDeviceAccessOverrideResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getMobileDeviceAccessOverrideResponse_httpStatus :: Lens.Lens' GetMobileDeviceAccessOverrideResponse Prelude.Int

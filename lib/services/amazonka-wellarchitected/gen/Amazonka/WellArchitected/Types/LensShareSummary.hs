@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.LensShareSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.ShareStatus
 
@@ -77,16 +78,16 @@ lensShareSummary_shareId = Lens.lens (\LensShareSummary' {shareId} -> shareId) (
 lensShareSummary_statusMessage :: Lens.Lens' LensShareSummary (Prelude.Maybe Prelude.Text)
 lensShareSummary_statusMessage = Lens.lens (\LensShareSummary' {statusMessage} -> statusMessage) (\s@LensShareSummary' {} a -> s {statusMessage = a} :: LensShareSummary)
 
-instance Core.FromJSON LensShareSummary where
+instance Data.FromJSON LensShareSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LensShareSummary"
       ( \x ->
           LensShareSummary'
-            Prelude.<$> (x Core..:? "SharedWith")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ShareId")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "SharedWith")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ShareId")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable LensShareSummary where

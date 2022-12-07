@@ -23,6 +23,7 @@ import Amazonka.AppStream.Types.CertificateBasedAuthProperties
 import Amazonka.AppStream.Types.ServiceAccountCredentials
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration information required to join fleets and
@@ -37,7 +38,7 @@ data DirectoryConfig = DirectoryConfig'
     -- accounts.
     organizationalUnitDistinguishedNames :: Prelude.Maybe [Prelude.Text],
     -- | The time the directory configuration was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The certificate-based authentication properties used to authenticate
     -- SAML 2.0 Identity Provider (IdP) user identities to Active Directory
     -- domain-joined streaming instances. Fallback is turned on by default when
@@ -111,7 +112,7 @@ directoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\DirectoryConf
 
 -- | The time the directory configuration was created.
 directoryConfig_createdTime :: Lens.Lens' DirectoryConfig (Prelude.Maybe Prelude.UTCTime)
-directoryConfig_createdTime = Lens.lens (\DirectoryConfig' {createdTime} -> createdTime) (\s@DirectoryConfig' {} a -> s {createdTime = a} :: DirectoryConfig) Prelude.. Lens.mapping Core._Time
+directoryConfig_createdTime = Lens.lens (\DirectoryConfig' {createdTime} -> createdTime) (\s@DirectoryConfig' {} a -> s {createdTime = a} :: DirectoryConfig) Prelude.. Lens.mapping Data._Time
 
 -- | The certificate-based authentication properties used to authenticate
 -- SAML 2.0 Identity Provider (IdP) user identities to Active Directory
@@ -131,19 +132,19 @@ directoryConfig_certificateBasedAuthProperties = Lens.lens (\DirectoryConfig' {c
 directoryConfig_directoryName :: Lens.Lens' DirectoryConfig Prelude.Text
 directoryConfig_directoryName = Lens.lens (\DirectoryConfig' {directoryName} -> directoryName) (\s@DirectoryConfig' {} a -> s {directoryName = a} :: DirectoryConfig)
 
-instance Core.FromJSON DirectoryConfig where
+instance Data.FromJSON DirectoryConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DirectoryConfig"
       ( \x ->
           DirectoryConfig'
-            Prelude.<$> (x Core..:? "ServiceAccountCredentials")
-            Prelude.<*> ( x Core..:? "OrganizationalUnitDistinguishedNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ServiceAccountCredentials")
+            Prelude.<*> ( x Data..:? "OrganizationalUnitDistinguishedNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "CertificateBasedAuthProperties")
-            Prelude.<*> (x Core..: "DirectoryName")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "CertificateBasedAuthProperties")
+            Prelude.<*> (x Data..: "DirectoryName")
       )
 
 instance Prelude.Hashable DirectoryConfig where

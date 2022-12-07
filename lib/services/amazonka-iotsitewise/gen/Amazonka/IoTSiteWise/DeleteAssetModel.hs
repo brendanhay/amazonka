@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,7 +109,7 @@ instance Core.AWSRequest DeleteAssetModel where
       ( \s h x ->
           DeleteAssetModelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "assetModelStatus")
+            Prelude.<*> (x Data..:> "assetModelStatus")
       )
 
 instance Prelude.Hashable DeleteAssetModel where
@@ -121,25 +122,25 @@ instance Prelude.NFData DeleteAssetModel where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf assetModelId
 
-instance Core.ToHeaders DeleteAssetModel where
+instance Data.ToHeaders DeleteAssetModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteAssetModel where
+instance Data.ToPath DeleteAssetModel where
   toPath DeleteAssetModel' {..} =
     Prelude.mconcat
-      ["/asset-models/", Core.toBS assetModelId]
+      ["/asset-models/", Data.toBS assetModelId]
 
-instance Core.ToQuery DeleteAssetModel where
+instance Data.ToQuery DeleteAssetModel where
   toQuery DeleteAssetModel' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | /See:/ 'newDeleteAssetModelResponse' smart constructor.
 data DeleteAssetModelResponse = DeleteAssetModelResponse'

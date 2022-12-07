@@ -62,6 +62,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,18 +104,18 @@ instance Core.AWSRequest DescribeReplay where
     Response.receiveJSON
       ( \s h x ->
           DescribeReplayResponse'
-            Prelude.<$> (x Core..?> "Destination")
-            Prelude.<*> (x Core..?> "ReplayArn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "EventLastReplayedTime")
-            Prelude.<*> (x Core..?> "EventEndTime")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "EventSourceArn")
-            Prelude.<*> (x Core..?> "ReplayEndTime")
-            Prelude.<*> (x Core..?> "ReplayName")
-            Prelude.<*> (x Core..?> "ReplayStartTime")
-            Prelude.<*> (x Core..?> "StateReason")
-            Prelude.<*> (x Core..?> "EventStartTime")
+            Prelude.<$> (x Data..?> "Destination")
+            Prelude.<*> (x Data..?> "ReplayArn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "EventLastReplayedTime")
+            Prelude.<*> (x Data..?> "EventEndTime")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "EventSourceArn")
+            Prelude.<*> (x Data..?> "ReplayEndTime")
+            Prelude.<*> (x Data..?> "ReplayName")
+            Prelude.<*> (x Data..?> "ReplayStartTime")
+            Prelude.<*> (x Data..?> "StateReason")
+            Prelude.<*> (x Data..?> "EventStartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,30 +126,30 @@ instance Prelude.Hashable DescribeReplay where
 instance Prelude.NFData DescribeReplay where
   rnf DescribeReplay' {..} = Prelude.rnf replayName
 
-instance Core.ToHeaders DescribeReplay where
+instance Data.ToHeaders DescribeReplay where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.DescribeReplay" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.DescribeReplay" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeReplay where
+instance Data.ToJSON DescribeReplay where
   toJSON DescribeReplay' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ReplayName" Core..= replayName)]
+          [Prelude.Just ("ReplayName" Data..= replayName)]
       )
 
-instance Core.ToPath DescribeReplay where
+instance Data.ToPath DescribeReplay where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeReplay where
+instance Data.ToQuery DescribeReplay where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeReplayResponse' smart constructor.
@@ -160,24 +161,24 @@ data DescribeReplayResponse = DescribeReplayResponse'
     -- | The current state of the replay.
     state :: Prelude.Maybe ReplayState,
     -- | The time that the event was last replayed.
-    eventLastReplayedTime :: Prelude.Maybe Core.POSIX,
+    eventLastReplayedTime :: Prelude.Maybe Data.POSIX,
     -- | The time stamp for the last event that was replayed from the archive.
-    eventEndTime :: Prelude.Maybe Core.POSIX,
+    eventEndTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the replay.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the archive events were replayed from.
     eventSourceArn :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time that the replay stopped.
-    replayEndTime :: Prelude.Maybe Core.POSIX,
+    replayEndTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the replay.
     replayName :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time that the replay started.
-    replayStartTime :: Prelude.Maybe Core.POSIX,
+    replayStartTime :: Prelude.Maybe Data.POSIX,
     -- | The reason that the replay is in the current state.
     stateReason :: Prelude.Maybe Prelude.Text,
     -- | The time stamp of the first event that was last replayed from the
     -- archive.
-    eventStartTime :: Prelude.Maybe Core.POSIX,
+    eventStartTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -253,11 +254,11 @@ describeReplayResponse_state = Lens.lens (\DescribeReplayResponse' {state} -> st
 
 -- | The time that the event was last replayed.
 describeReplayResponse_eventLastReplayedTime :: Lens.Lens' DescribeReplayResponse (Prelude.Maybe Prelude.UTCTime)
-describeReplayResponse_eventLastReplayedTime = Lens.lens (\DescribeReplayResponse' {eventLastReplayedTime} -> eventLastReplayedTime) (\s@DescribeReplayResponse' {} a -> s {eventLastReplayedTime = a} :: DescribeReplayResponse) Prelude.. Lens.mapping Core._Time
+describeReplayResponse_eventLastReplayedTime = Lens.lens (\DescribeReplayResponse' {eventLastReplayedTime} -> eventLastReplayedTime) (\s@DescribeReplayResponse' {} a -> s {eventLastReplayedTime = a} :: DescribeReplayResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time stamp for the last event that was replayed from the archive.
 describeReplayResponse_eventEndTime :: Lens.Lens' DescribeReplayResponse (Prelude.Maybe Prelude.UTCTime)
-describeReplayResponse_eventEndTime = Lens.lens (\DescribeReplayResponse' {eventEndTime} -> eventEndTime) (\s@DescribeReplayResponse' {} a -> s {eventEndTime = a} :: DescribeReplayResponse) Prelude.. Lens.mapping Core._Time
+describeReplayResponse_eventEndTime = Lens.lens (\DescribeReplayResponse' {eventEndTime} -> eventEndTime) (\s@DescribeReplayResponse' {} a -> s {eventEndTime = a} :: DescribeReplayResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the replay.
 describeReplayResponse_description :: Lens.Lens' DescribeReplayResponse (Prelude.Maybe Prelude.Text)
@@ -269,7 +270,7 @@ describeReplayResponse_eventSourceArn = Lens.lens (\DescribeReplayResponse' {eve
 
 -- | A time stamp for the time that the replay stopped.
 describeReplayResponse_replayEndTime :: Lens.Lens' DescribeReplayResponse (Prelude.Maybe Prelude.UTCTime)
-describeReplayResponse_replayEndTime = Lens.lens (\DescribeReplayResponse' {replayEndTime} -> replayEndTime) (\s@DescribeReplayResponse' {} a -> s {replayEndTime = a} :: DescribeReplayResponse) Prelude.. Lens.mapping Core._Time
+describeReplayResponse_replayEndTime = Lens.lens (\DescribeReplayResponse' {replayEndTime} -> replayEndTime) (\s@DescribeReplayResponse' {} a -> s {replayEndTime = a} :: DescribeReplayResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the replay.
 describeReplayResponse_replayName :: Lens.Lens' DescribeReplayResponse (Prelude.Maybe Prelude.Text)
@@ -277,7 +278,7 @@ describeReplayResponse_replayName = Lens.lens (\DescribeReplayResponse' {replayN
 
 -- | A time stamp for the time that the replay started.
 describeReplayResponse_replayStartTime :: Lens.Lens' DescribeReplayResponse (Prelude.Maybe Prelude.UTCTime)
-describeReplayResponse_replayStartTime = Lens.lens (\DescribeReplayResponse' {replayStartTime} -> replayStartTime) (\s@DescribeReplayResponse' {} a -> s {replayStartTime = a} :: DescribeReplayResponse) Prelude.. Lens.mapping Core._Time
+describeReplayResponse_replayStartTime = Lens.lens (\DescribeReplayResponse' {replayStartTime} -> replayStartTime) (\s@DescribeReplayResponse' {} a -> s {replayStartTime = a} :: DescribeReplayResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The reason that the replay is in the current state.
 describeReplayResponse_stateReason :: Lens.Lens' DescribeReplayResponse (Prelude.Maybe Prelude.Text)
@@ -286,7 +287,7 @@ describeReplayResponse_stateReason = Lens.lens (\DescribeReplayResponse' {stateR
 -- | The time stamp of the first event that was last replayed from the
 -- archive.
 describeReplayResponse_eventStartTime :: Lens.Lens' DescribeReplayResponse (Prelude.Maybe Prelude.UTCTime)
-describeReplayResponse_eventStartTime = Lens.lens (\DescribeReplayResponse' {eventStartTime} -> eventStartTime) (\s@DescribeReplayResponse' {} a -> s {eventStartTime = a} :: DescribeReplayResponse) Prelude.. Lens.mapping Core._Time
+describeReplayResponse_eventStartTime = Lens.lens (\DescribeReplayResponse' {eventStartTime} -> eventStartTime) (\s@DescribeReplayResponse' {} a -> s {eventStartTime = a} :: DescribeReplayResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeReplayResponse_httpStatus :: Lens.Lens' DescribeReplayResponse Prelude.Int

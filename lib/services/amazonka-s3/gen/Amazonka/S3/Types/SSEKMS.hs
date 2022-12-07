@@ -21,6 +21,7 @@ module Amazonka.S3.Types.SSEKMS where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -31,7 +32,7 @@ data SSEKMS = SSEKMS'
   { -- | Specifies the ID of the Amazon Web Services Key Management Service
     -- (Amazon Web Services KMS) symmetric customer managed key to use for
     -- encrypting inventory reports.
-    keyId :: Core.Sensitive Prelude.Text
+    keyId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -51,16 +52,16 @@ newSSEKMS ::
   Prelude.Text ->
   SSEKMS
 newSSEKMS pKeyId_ =
-  SSEKMS' {keyId = Core._Sensitive Lens.# pKeyId_}
+  SSEKMS' {keyId = Data._Sensitive Lens.# pKeyId_}
 
 -- | Specifies the ID of the Amazon Web Services Key Management Service
 -- (Amazon Web Services KMS) symmetric customer managed key to use for
 -- encrypting inventory reports.
 ssekms_keyId :: Lens.Lens' SSEKMS Prelude.Text
-ssekms_keyId = Lens.lens (\SSEKMS' {keyId} -> keyId) (\s@SSEKMS' {} a -> s {keyId = a} :: SSEKMS) Prelude.. Core._Sensitive
+ssekms_keyId = Lens.lens (\SSEKMS' {keyId} -> keyId) (\s@SSEKMS' {} a -> s {keyId = a} :: SSEKMS) Prelude.. Data._Sensitive
 
-instance Core.FromXML SSEKMS where
-  parseXML x = SSEKMS' Prelude.<$> (x Core..@ "KeyId")
+instance Data.FromXML SSEKMS where
+  parseXML x = SSEKMS' Prelude.<$> (x Data..@ "KeyId")
 
 instance Prelude.Hashable SSEKMS where
   hashWithSalt _salt SSEKMS' {..} =
@@ -69,6 +70,6 @@ instance Prelude.Hashable SSEKMS where
 instance Prelude.NFData SSEKMS where
   rnf SSEKMS' {..} = Prelude.rnf keyId
 
-instance Core.ToXML SSEKMS where
+instance Data.ToXML SSEKMS where
   toXML SSEKMS' {..} =
-    Prelude.mconcat ["KeyId" Core.@= keyId]
+    Prelude.mconcat ["KeyId" Data.@= keyId]

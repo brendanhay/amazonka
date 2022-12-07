@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.NotificationChannelConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.NotificationFilterConfig
 import Amazonka.DevOpsGuru.Types.SnsChannelConfig
 import qualified Amazonka.Prelude as Prelude
@@ -134,13 +135,13 @@ notificationChannelConfig_filters = Lens.lens (\NotificationChannelConfig' {filt
 notificationChannelConfig_sns :: Lens.Lens' NotificationChannelConfig SnsChannelConfig
 notificationChannelConfig_sns = Lens.lens (\NotificationChannelConfig' {sns} -> sns) (\s@NotificationChannelConfig' {} a -> s {sns = a} :: NotificationChannelConfig)
 
-instance Core.FromJSON NotificationChannelConfig where
+instance Data.FromJSON NotificationChannelConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotificationChannelConfig"
       ( \x ->
           NotificationChannelConfig'
-            Prelude.<$> (x Core..:? "Filters") Prelude.<*> (x Core..: "Sns")
+            Prelude.<$> (x Data..:? "Filters") Prelude.<*> (x Data..: "Sns")
       )
 
 instance Prelude.Hashable NotificationChannelConfig where
@@ -152,11 +153,11 @@ instance Prelude.NFData NotificationChannelConfig where
   rnf NotificationChannelConfig' {..} =
     Prelude.rnf filters `Prelude.seq` Prelude.rnf sns
 
-instance Core.ToJSON NotificationChannelConfig where
+instance Data.ToJSON NotificationChannelConfig where
   toJSON NotificationChannelConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            Prelude.Just ("Sns" Core..= sns)
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            Prelude.Just ("Sns" Data..= sns)
           ]
       )

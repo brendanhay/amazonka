@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.FileShareInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StorageGateway.Types.FileShareType
 
@@ -84,17 +85,17 @@ fileShareInfo_gatewayARN = Lens.lens (\FileShareInfo' {gatewayARN} -> gatewayARN
 fileShareInfo_fileShareType :: Lens.Lens' FileShareInfo (Prelude.Maybe FileShareType)
 fileShareInfo_fileShareType = Lens.lens (\FileShareInfo' {fileShareType} -> fileShareType) (\s@FileShareInfo' {} a -> s {fileShareType = a} :: FileShareInfo)
 
-instance Core.FromJSON FileShareInfo where
+instance Data.FromJSON FileShareInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileShareInfo"
       ( \x ->
           FileShareInfo'
-            Prelude.<$> (x Core..:? "FileShareStatus")
-            Prelude.<*> (x Core..:? "FileShareId")
-            Prelude.<*> (x Core..:? "FileShareARN")
-            Prelude.<*> (x Core..:? "GatewayARN")
-            Prelude.<*> (x Core..:? "FileShareType")
+            Prelude.<$> (x Data..:? "FileShareStatus")
+            Prelude.<*> (x Data..:? "FileShareId")
+            Prelude.<*> (x Data..:? "FileShareARN")
+            Prelude.<*> (x Data..:? "GatewayARN")
+            Prelude.<*> (x Data..:? "FileShareType")
       )
 
 instance Prelude.Hashable FileShareInfo where

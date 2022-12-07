@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.AWSManagedRulesBotControlRuleSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.InspectionLevel
 
@@ -70,15 +71,15 @@ aWSManagedRulesBotControlRuleSet_inspectionLevel :: Lens.Lens' AWSManagedRulesBo
 aWSManagedRulesBotControlRuleSet_inspectionLevel = Lens.lens (\AWSManagedRulesBotControlRuleSet' {inspectionLevel} -> inspectionLevel) (\s@AWSManagedRulesBotControlRuleSet' {} a -> s {inspectionLevel = a} :: AWSManagedRulesBotControlRuleSet)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AWSManagedRulesBotControlRuleSet
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AWSManagedRulesBotControlRuleSet"
       ( \x ->
           AWSManagedRulesBotControlRuleSet'
-            Prelude.<$> (x Core..: "InspectionLevel")
+            Prelude.<$> (x Data..: "InspectionLevel")
       )
 
 instance
@@ -97,11 +98,11 @@ instance
   rnf AWSManagedRulesBotControlRuleSet' {..} =
     Prelude.rnf inspectionLevel
 
-instance Core.ToJSON AWSManagedRulesBotControlRuleSet where
+instance Data.ToJSON AWSManagedRulesBotControlRuleSet where
   toJSON AWSManagedRulesBotControlRuleSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("InspectionLevel" Core..= inspectionLevel)
+              ("InspectionLevel" Data..= inspectionLevel)
           ]
       )

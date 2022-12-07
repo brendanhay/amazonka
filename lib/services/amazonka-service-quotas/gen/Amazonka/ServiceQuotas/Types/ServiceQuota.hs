@@ -21,6 +21,7 @@ module Amazonka.ServiceQuotas.Types.ServiceQuota where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceQuotas.Types.ErrorReason
 import Amazonka.ServiceQuotas.Types.MetricInfo
@@ -154,24 +155,24 @@ serviceQuota_unit = Lens.lens (\ServiceQuota' {unit} -> unit) (\s@ServiceQuota' 
 serviceQuota_value :: Lens.Lens' ServiceQuota (Prelude.Maybe Prelude.Double)
 serviceQuota_value = Lens.lens (\ServiceQuota' {value} -> value) (\s@ServiceQuota' {} a -> s {value = a} :: ServiceQuota)
 
-instance Core.FromJSON ServiceQuota where
+instance Data.FromJSON ServiceQuota where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceQuota"
       ( \x ->
           ServiceQuota'
-            Prelude.<$> (x Core..:? "QuotaArn")
-            Prelude.<*> (x Core..:? "GlobalQuota")
-            Prelude.<*> (x Core..:? "QuotaCode")
-            Prelude.<*> (x Core..:? "UsageMetric")
-            Prelude.<*> (x Core..:? "Adjustable")
-            Prelude.<*> (x Core..:? "ErrorReason")
-            Prelude.<*> (x Core..:? "Period")
-            Prelude.<*> (x Core..:? "ServiceCode")
-            Prelude.<*> (x Core..:? "QuotaName")
-            Prelude.<*> (x Core..:? "ServiceName")
-            Prelude.<*> (x Core..:? "Unit")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "QuotaArn")
+            Prelude.<*> (x Data..:? "GlobalQuota")
+            Prelude.<*> (x Data..:? "QuotaCode")
+            Prelude.<*> (x Data..:? "UsageMetric")
+            Prelude.<*> (x Data..:? "Adjustable")
+            Prelude.<*> (x Data..:? "ErrorReason")
+            Prelude.<*> (x Data..:? "Period")
+            Prelude.<*> (x Data..:? "ServiceCode")
+            Prelude.<*> (x Data..:? "QuotaName")
+            Prelude.<*> (x Data..:? "ServiceName")
+            Prelude.<*> (x Data..:? "Unit")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable ServiceQuota where

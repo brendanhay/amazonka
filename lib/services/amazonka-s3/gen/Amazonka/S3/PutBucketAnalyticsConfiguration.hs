@@ -97,6 +97,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -210,31 +211,31 @@ instance
       `Prelude.seq` Prelude.rnf analyticsConfiguration
 
 instance
-  Core.ToElement
+  Data.ToElement
     PutBucketAnalyticsConfiguration
   where
   toElement PutBucketAnalyticsConfiguration' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}AnalyticsConfiguration"
       analyticsConfiguration
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutBucketAnalyticsConfiguration
   where
   toHeaders PutBucketAnalyticsConfiguration' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath PutBucketAnalyticsConfiguration where
+instance Data.ToPath PutBucketAnalyticsConfiguration where
   toPath PutBucketAnalyticsConfiguration' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery PutBucketAnalyticsConfiguration where
+instance Data.ToQuery PutBucketAnalyticsConfiguration where
   toQuery PutBucketAnalyticsConfiguration' {..} =
-    Prelude.mconcat ["id" Core.=: id, "analytics"]
+    Prelude.mconcat ["id" Data.=: id, "analytics"]
 
 -- | /See:/ 'newPutBucketAnalyticsConfigurationResponse' smart constructor.
 data PutBucketAnalyticsConfigurationResponse = PutBucketAnalyticsConfigurationResponse'

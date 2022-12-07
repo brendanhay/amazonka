@@ -49,6 +49,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,10 +168,10 @@ instance Core.AWSRequest GetMergeCommit where
     Response.receiveJSON
       ( \s h x ->
           GetMergeCommitResponse'
-            Prelude.<$> (x Core..?> "baseCommitId")
-            Prelude.<*> (x Core..?> "mergedCommitId")
-            Prelude.<*> (x Core..?> "sourceCommitId")
-            Prelude.<*> (x Core..?> "destinationCommitId")
+            Prelude.<$> (x Data..?> "baseCommitId")
+            Prelude.<*> (x Data..?> "mergedCommitId")
+            Prelude.<*> (x Data..?> "sourceCommitId")
+            Prelude.<*> (x Data..?> "destinationCommitId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,46 +192,46 @@ instance Prelude.NFData GetMergeCommit where
       `Prelude.seq` Prelude.rnf sourceCommitSpecifier
       `Prelude.seq` Prelude.rnf destinationCommitSpecifier
 
-instance Core.ToHeaders GetMergeCommit where
+instance Data.ToHeaders GetMergeCommit where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.GetMergeCommit" ::
+              Data.=# ( "CodeCommit_20150413.GetMergeCommit" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMergeCommit where
+instance Data.ToJSON GetMergeCommit where
   toJSON GetMergeCommit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("conflictResolutionStrategy" Core..=)
+          [ ("conflictResolutionStrategy" Data..=)
               Prelude.<$> conflictResolutionStrategy,
-            ("conflictDetailLevel" Core..=)
+            ("conflictDetailLevel" Data..=)
               Prelude.<$> conflictDetailLevel,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
+              ("repositoryName" Data..= repositoryName),
             Prelude.Just
               ( "sourceCommitSpecifier"
-                  Core..= sourceCommitSpecifier
+                  Data..= sourceCommitSpecifier
               ),
             Prelude.Just
               ( "destinationCommitSpecifier"
-                  Core..= destinationCommitSpecifier
+                  Data..= destinationCommitSpecifier
               )
           ]
       )
 
-instance Core.ToPath GetMergeCommit where
+instance Data.ToPath GetMergeCommit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMergeCommit where
+instance Data.ToQuery GetMergeCommit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMergeCommitResponse' smart constructor.

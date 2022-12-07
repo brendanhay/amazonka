@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -410,7 +411,7 @@ instance Core.AWSRequest CreateCluster where
     Response.receiveJSON
       ( \s h x ->
           CreateClusterResponse'
-            Prelude.<$> (x Core..?> "ClusterId")
+            Prelude.<$> (x Data..?> "ClusterId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -446,49 +447,49 @@ instance Prelude.NFData CreateCluster where
       `Prelude.seq` Prelude.rnf snowballType
       `Prelude.seq` Prelude.rnf shippingOption
 
-instance Core.ToHeaders CreateCluster where
+instance Data.ToHeaders CreateCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.CreateCluster" ::
+              Data.=# ( "AWSIESnowballJobManagementService.CreateCluster" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCluster where
+instance Data.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ForwardingAddressId" Core..=)
+          [ ("ForwardingAddressId" Data..=)
               Prelude.<$> forwardingAddressId,
-            ("Description" Core..=) Prelude.<$> description,
-            ("KmsKeyARN" Core..=) Prelude.<$> kmsKeyARN,
-            ("Notification" Core..=) Prelude.<$> notification,
-            ("RemoteManagement" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("KmsKeyARN" Data..=) Prelude.<$> kmsKeyARN,
+            ("Notification" Data..=) Prelude.<$> notification,
+            ("RemoteManagement" Data..=)
               Prelude.<$> remoteManagement,
-            ("TaxDocuments" Core..=) Prelude.<$> taxDocuments,
-            ("OnDeviceServiceConfiguration" Core..=)
+            ("TaxDocuments" Data..=) Prelude.<$> taxDocuments,
+            ("OnDeviceServiceConfiguration" Data..=)
               Prelude.<$> onDeviceServiceConfiguration,
-            Prelude.Just ("JobType" Core..= jobType),
-            Prelude.Just ("Resources" Core..= resources),
-            Prelude.Just ("AddressId" Core..= addressId),
-            Prelude.Just ("RoleARN" Core..= roleARN),
-            Prelude.Just ("SnowballType" Core..= snowballType),
+            Prelude.Just ("JobType" Data..= jobType),
+            Prelude.Just ("Resources" Data..= resources),
+            Prelude.Just ("AddressId" Data..= addressId),
+            Prelude.Just ("RoleARN" Data..= roleARN),
+            Prelude.Just ("SnowballType" Data..= snowballType),
             Prelude.Just
-              ("ShippingOption" Core..= shippingOption)
+              ("ShippingOption" Data..= shippingOption)
           ]
       )
 
-instance Core.ToPath CreateCluster where
+instance Data.ToPath CreateCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCluster where
+instance Data.ToQuery CreateCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateClusterResponse' smart constructor.

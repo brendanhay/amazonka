@@ -48,6 +48,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,10 +127,10 @@ instance Core.AWSRequest GetWorkflowSteps where
     Response.receiveJSON
       ( \s h x ->
           GetWorkflowStepsResponse'
-            Prelude.<$> (x Core..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "WorkflowId")
-            Prelude.<*> (x Core..?> "WorkflowType")
+            Prelude.<$> (x Data..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "WorkflowId")
+            Prelude.<*> (x Data..?> "WorkflowType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,32 +148,32 @@ instance Prelude.NFData GetWorkflowSteps where
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf workflowId
 
-instance Core.ToHeaders GetWorkflowSteps where
+instance Data.ToHeaders GetWorkflowSteps where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetWorkflowSteps where
+instance Data.ToPath GetWorkflowSteps where
   toPath GetWorkflowSteps' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/workflows/",
-        Core.toBS workflowId,
+        Data.toBS workflowId,
         "/steps"
       ]
 
-instance Core.ToQuery GetWorkflowSteps where
+instance Data.ToQuery GetWorkflowSteps where
   toQuery GetWorkflowSteps' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetWorkflowStepsResponse' smart constructor.

@@ -52,6 +52,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,7 +98,7 @@ instance Core.AWSRequest BatchUpdatePhoneNumber where
     Response.receiveJSON
       ( \s h x ->
           BatchUpdatePhoneNumberResponse'
-            Prelude.<$> ( x Core..?> "PhoneNumberErrors"
+            Prelude.<$> ( x Data..?> "PhoneNumberErrors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -112,24 +113,24 @@ instance Prelude.NFData BatchUpdatePhoneNumber where
   rnf BatchUpdatePhoneNumber' {..} =
     Prelude.rnf updatePhoneNumberRequestItems
 
-instance Core.ToHeaders BatchUpdatePhoneNumber where
+instance Data.ToHeaders BatchUpdatePhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON BatchUpdatePhoneNumber where
+instance Data.ToJSON BatchUpdatePhoneNumber where
   toJSON BatchUpdatePhoneNumber' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "UpdatePhoneNumberRequestItems"
-                  Core..= updatePhoneNumberRequestItems
+                  Data..= updatePhoneNumberRequestItems
               )
           ]
       )
 
-instance Core.ToPath BatchUpdatePhoneNumber where
+instance Data.ToPath BatchUpdatePhoneNumber where
   toPath = Prelude.const "/phone-numbers"
 
-instance Core.ToQuery BatchUpdatePhoneNumber where
+instance Data.ToQuery BatchUpdatePhoneNumber where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["operation=batch-update"])

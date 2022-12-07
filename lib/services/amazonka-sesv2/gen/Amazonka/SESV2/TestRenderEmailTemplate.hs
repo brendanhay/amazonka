@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,7 +114,7 @@ instance Core.AWSRequest TestRenderEmailTemplate where
       ( \s h x ->
           TestRenderEmailTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "RenderedTemplate")
+            Prelude.<*> (x Data..:> "RenderedTemplate")
       )
 
 instance Prelude.Hashable TestRenderEmailTemplate where
@@ -126,33 +127,33 @@ instance Prelude.NFData TestRenderEmailTemplate where
     Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf templateData
 
-instance Core.ToHeaders TestRenderEmailTemplate where
+instance Data.ToHeaders TestRenderEmailTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TestRenderEmailTemplate where
+instance Data.ToJSON TestRenderEmailTemplate where
   toJSON TestRenderEmailTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TemplateData" Core..= templateData)]
+          [Prelude.Just ("TemplateData" Data..= templateData)]
       )
 
-instance Core.ToPath TestRenderEmailTemplate where
+instance Data.ToPath TestRenderEmailTemplate where
   toPath TestRenderEmailTemplate' {..} =
     Prelude.mconcat
       [ "/v2/email/templates/",
-        Core.toBS templateName,
+        Data.toBS templateName,
         "/render"
       ]
 
-instance Core.ToQuery TestRenderEmailTemplate where
+instance Data.ToQuery TestRenderEmailTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The following element is returned by the service.

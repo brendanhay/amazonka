@@ -48,6 +48,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest GetRealtimeLogConfig where
     Response.receiveXML
       ( \s h x ->
           GetRealtimeLogConfigResponse'
-            Prelude.<$> (x Core..@? "RealtimeLogConfig")
+            Prelude.<$> (x Data..@? "RealtimeLogConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,26 +115,26 @@ instance Prelude.NFData GetRealtimeLogConfig where
   rnf GetRealtimeLogConfig' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToElement GetRealtimeLogConfig where
+instance Data.ToElement GetRealtimeLogConfig where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}GetRealtimeLogConfigRequest"
 
-instance Core.ToHeaders GetRealtimeLogConfig where
+instance Data.ToHeaders GetRealtimeLogConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetRealtimeLogConfig where
+instance Data.ToPath GetRealtimeLogConfig where
   toPath =
     Prelude.const
       "/2020-05-31/get-realtime-log-config/"
 
-instance Core.ToQuery GetRealtimeLogConfig where
+instance Data.ToQuery GetRealtimeLogConfig where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML GetRealtimeLogConfig where
+instance Data.ToXML GetRealtimeLogConfig where
   toXML GetRealtimeLogConfig' {..} =
     Prelude.mconcat
-      ["Name" Core.@= name, "ARN" Core.@= arn]
+      ["Name" Data.@= name, "ARN" Data.@= arn]
 
 -- | /See:/ 'newGetRealtimeLogConfigResponse' smart constructor.
 data GetRealtimeLogConfigResponse = GetRealtimeLogConfigResponse'

@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.DynatraceConnectorProfileProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile properties required by Dynatrace.
@@ -56,15 +57,15 @@ dynatraceConnectorProfileProperties_instanceUrl :: Lens.Lens' DynatraceConnector
 dynatraceConnectorProfileProperties_instanceUrl = Lens.lens (\DynatraceConnectorProfileProperties' {instanceUrl} -> instanceUrl) (\s@DynatraceConnectorProfileProperties' {} a -> s {instanceUrl = a} :: DynatraceConnectorProfileProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DynatraceConnectorProfileProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DynatraceConnectorProfileProperties"
       ( \x ->
           DynatraceConnectorProfileProperties'
-            Prelude.<$> (x Core..: "instanceUrl")
+            Prelude.<$> (x Data..: "instanceUrl")
       )
 
 instance
@@ -84,11 +85,11 @@ instance
     Prelude.rnf instanceUrl
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DynatraceConnectorProfileProperties
   where
   toJSON DynatraceConnectorProfileProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("instanceUrl" Core..= instanceUrl)]
+          [Prelude.Just ("instanceUrl" Data..= instanceUrl)]
       )

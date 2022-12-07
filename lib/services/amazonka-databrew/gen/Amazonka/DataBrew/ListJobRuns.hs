@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,9 +126,9 @@ instance Core.AWSRequest ListJobRuns where
     Response.receiveJSON
       ( \s h x ->
           ListJobRunsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "JobRuns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "JobRuns" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListJobRuns where
@@ -142,27 +143,27 @@ instance Prelude.NFData ListJobRuns where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders ListJobRuns where
+instance Data.ToHeaders ListJobRuns where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListJobRuns where
+instance Data.ToPath ListJobRuns where
   toPath ListJobRuns' {..} =
     Prelude.mconcat
-      ["/jobs/", Core.toBS name, "/jobRuns"]
+      ["/jobs/", Data.toBS name, "/jobRuns"]
 
-instance Core.ToQuery ListJobRuns where
+instance Data.ToQuery ListJobRuns where
   toQuery ListJobRuns' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListJobRunsResponse' smart constructor.

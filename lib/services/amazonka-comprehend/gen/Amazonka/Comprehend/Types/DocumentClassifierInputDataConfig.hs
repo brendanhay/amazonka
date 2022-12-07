@@ -23,6 +23,7 @@ import Amazonka.Comprehend.Types.AugmentedManifestsListItem
 import Amazonka.Comprehend.Types.DocumentClassifierDataFormat
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The input properties for training a document classifier.
@@ -213,21 +214,21 @@ documentClassifierInputDataConfig_labelDelimiter :: Lens.Lens' DocumentClassifie
 documentClassifierInputDataConfig_labelDelimiter = Lens.lens (\DocumentClassifierInputDataConfig' {labelDelimiter} -> labelDelimiter) (\s@DocumentClassifierInputDataConfig' {} a -> s {labelDelimiter = a} :: DocumentClassifierInputDataConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DocumentClassifierInputDataConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentClassifierInputDataConfig"
       ( \x ->
           DocumentClassifierInputDataConfig'
-            Prelude.<$> (x Core..:? "DataFormat")
-            Prelude.<*> (x Core..:? "TestS3Uri")
-            Prelude.<*> (x Core..:? "S3Uri")
-            Prelude.<*> ( x Core..:? "AugmentedManifests"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DataFormat")
+            Prelude.<*> (x Data..:? "TestS3Uri")
+            Prelude.<*> (x Data..:? "S3Uri")
+            Prelude.<*> ( x Data..:? "AugmentedManifests"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LabelDelimiter")
+            Prelude.<*> (x Data..:? "LabelDelimiter")
       )
 
 instance
@@ -255,18 +256,18 @@ instance
       `Prelude.seq` Prelude.rnf labelDelimiter
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DocumentClassifierInputDataConfig
   where
   toJSON DocumentClassifierInputDataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataFormat" Core..=) Prelude.<$> dataFormat,
-            ("TestS3Uri" Core..=) Prelude.<$> testS3Uri,
-            ("S3Uri" Core..=) Prelude.<$> s3Uri,
-            ("AugmentedManifests" Core..=)
+          [ ("DataFormat" Data..=) Prelude.<$> dataFormat,
+            ("TestS3Uri" Data..=) Prelude.<$> testS3Uri,
+            ("S3Uri" Data..=) Prelude.<$> s3Uri,
+            ("AugmentedManifests" Data..=)
               Prelude.<$> augmentedManifests,
-            ("LabelDelimiter" Core..=)
+            ("LabelDelimiter" Data..=)
               Prelude.<$> labelDelimiter
           ]
       )

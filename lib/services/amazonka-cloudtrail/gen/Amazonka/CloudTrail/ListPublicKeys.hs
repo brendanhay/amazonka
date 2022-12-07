@@ -55,6 +55,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,11 +69,11 @@ data ListPublicKeys = ListPublicKeys'
     -- | Optionally specifies, in UTC, the end of the time range to look up
     -- public keys for CloudTrail digest files. If not specified, the current
     -- time is used.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Optionally specifies, in UTC, the start of the time range to look up
     -- public keys for CloudTrail digest files. If not specified, the current
     -- time is used, and the current public key is returned.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -110,13 +111,13 @@ listPublicKeys_nextToken = Lens.lens (\ListPublicKeys' {nextToken} -> nextToken)
 -- public keys for CloudTrail digest files. If not specified, the current
 -- time is used.
 listPublicKeys_endTime :: Lens.Lens' ListPublicKeys (Prelude.Maybe Prelude.UTCTime)
-listPublicKeys_endTime = Lens.lens (\ListPublicKeys' {endTime} -> endTime) (\s@ListPublicKeys' {} a -> s {endTime = a} :: ListPublicKeys) Prelude.. Lens.mapping Core._Time
+listPublicKeys_endTime = Lens.lens (\ListPublicKeys' {endTime} -> endTime) (\s@ListPublicKeys' {} a -> s {endTime = a} :: ListPublicKeys) Prelude.. Lens.mapping Data._Time
 
 -- | Optionally specifies, in UTC, the start of the time range to look up
 -- public keys for CloudTrail digest files. If not specified, the current
 -- time is used, and the current public key is returned.
 listPublicKeys_startTime :: Lens.Lens' ListPublicKeys (Prelude.Maybe Prelude.UTCTime)
-listPublicKeys_startTime = Lens.lens (\ListPublicKeys' {startTime} -> startTime) (\s@ListPublicKeys' {} a -> s {startTime = a} :: ListPublicKeys) Prelude.. Lens.mapping Core._Time
+listPublicKeys_startTime = Lens.lens (\ListPublicKeys' {startTime} -> startTime) (\s@ListPublicKeys' {} a -> s {startTime = a} :: ListPublicKeys) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListPublicKeys where
   page rq rs
@@ -149,8 +150,8 @@ instance Core.AWSRequest ListPublicKeys where
     Response.receiveJSON
       ( \s h x ->
           ListPublicKeysResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "PublicKeyList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "PublicKeyList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,35 +167,35 @@ instance Prelude.NFData ListPublicKeys where
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders ListPublicKeys where
+instance Data.ToHeaders ListPublicKeys where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListPublicKeys" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListPublicKeys" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPublicKeys where
+instance Data.ToJSON ListPublicKeys where
   toJSON ListPublicKeys' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("EndTime" Core..=) Prelude.<$> endTime,
-            ("StartTime" Core..=) Prelude.<$> startTime
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("EndTime" Data..=) Prelude.<$> endTime,
+            ("StartTime" Data..=) Prelude.<$> startTime
           ]
       )
 
-instance Core.ToPath ListPublicKeys where
+instance Data.ToPath ListPublicKeys where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPublicKeys where
+instance Data.ToQuery ListPublicKeys where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returns the objects or data listed below if successful. Otherwise,

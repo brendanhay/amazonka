@@ -43,6 +43,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -170,41 +171,41 @@ instance Prelude.NFData PutJobSuccessResult where
       `Prelude.seq` Prelude.rnf outputVariables
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders PutJobSuccessResult where
+instance Data.ToHeaders PutJobSuccessResult where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.PutJobSuccessResult" ::
+              Data.=# ( "CodePipeline_20150709.PutJobSuccessResult" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutJobSuccessResult where
+instance Data.ToJSON PutJobSuccessResult where
   toJSON PutJobSuccessResult' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("executionDetails" Core..=)
+          [ ("executionDetails" Data..=)
               Prelude.<$> executionDetails,
-            ("continuationToken" Core..=)
+            ("continuationToken" Data..=)
               Prelude.<$> continuationToken,
-            ("currentRevision" Core..=)
+            ("currentRevision" Data..=)
               Prelude.<$> currentRevision,
-            ("outputVariables" Core..=)
+            ("outputVariables" Data..=)
               Prelude.<$> outputVariables,
-            Prelude.Just ("jobId" Core..= jobId)
+            Prelude.Just ("jobId" Data..= jobId)
           ]
       )
 
-instance Core.ToPath PutJobSuccessResult where
+instance Data.ToPath PutJobSuccessResult where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutJobSuccessResult where
+instance Data.ToQuery PutJobSuccessResult where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutJobSuccessResultResponse' smart constructor.

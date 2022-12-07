@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.MetricSetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a dataset.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newMetricSetSummary' smart constructor.
 data MetricSetSummary = MetricSetSummary'
   { -- | The time at which the dataset was last modified.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The dataset\'s
     -- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -41,7 +42,7 @@ data MetricSetSummary = MetricSetSummary'
     -- | The ARN of the dataset.
     metricSetArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the dataset was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,7 +84,7 @@ newMetricSetSummary =
 
 -- | The time at which the dataset was last modified.
 metricSetSummary_lastModificationTime :: Lens.Lens' MetricSetSummary (Prelude.Maybe Prelude.UTCTime)
-metricSetSummary_lastModificationTime = Lens.lens (\MetricSetSummary' {lastModificationTime} -> lastModificationTime) (\s@MetricSetSummary' {} a -> s {lastModificationTime = a} :: MetricSetSummary) Prelude.. Lens.mapping Core._Time
+metricSetSummary_lastModificationTime = Lens.lens (\MetricSetSummary' {lastModificationTime} -> lastModificationTime) (\s@MetricSetSummary' {} a -> s {lastModificationTime = a} :: MetricSetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The dataset\'s
 -- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags>.
@@ -108,21 +109,21 @@ metricSetSummary_metricSetArn = Lens.lens (\MetricSetSummary' {metricSetArn} -> 
 
 -- | The time at which the dataset was created.
 metricSetSummary_creationTime :: Lens.Lens' MetricSetSummary (Prelude.Maybe Prelude.UTCTime)
-metricSetSummary_creationTime = Lens.lens (\MetricSetSummary' {creationTime} -> creationTime) (\s@MetricSetSummary' {} a -> s {creationTime = a} :: MetricSetSummary) Prelude.. Lens.mapping Core._Time
+metricSetSummary_creationTime = Lens.lens (\MetricSetSummary' {creationTime} -> creationTime) (\s@MetricSetSummary' {} a -> s {creationTime = a} :: MetricSetSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON MetricSetSummary where
+instance Data.FromJSON MetricSetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricSetSummary"
       ( \x ->
           MetricSetSummary'
-            Prelude.<$> (x Core..:? "LastModificationTime")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MetricSetDescription")
-            Prelude.<*> (x Core..:? "AnomalyDetectorArn")
-            Prelude.<*> (x Core..:? "MetricSetName")
-            Prelude.<*> (x Core..:? "MetricSetArn")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "LastModificationTime")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MetricSetDescription")
+            Prelude.<*> (x Data..:? "AnomalyDetectorArn")
+            Prelude.<*> (x Data..:? "MetricSetName")
+            Prelude.<*> (x Data..:? "MetricSetArn")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable MetricSetSummary where

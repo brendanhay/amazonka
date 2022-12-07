@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.CodeSigningConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.AllowedPublishers
 import Amazonka.Lambda.Types.CodeSigningPolicies
 import qualified Amazonka.Prelude as Prelude
@@ -121,18 +122,18 @@ codeSigningConfig_codeSigningPolicies = Lens.lens (\CodeSigningConfig' {codeSign
 codeSigningConfig_lastModified :: Lens.Lens' CodeSigningConfig Prelude.Text
 codeSigningConfig_lastModified = Lens.lens (\CodeSigningConfig' {lastModified} -> lastModified) (\s@CodeSigningConfig' {} a -> s {lastModified = a} :: CodeSigningConfig)
 
-instance Core.FromJSON CodeSigningConfig where
+instance Data.FromJSON CodeSigningConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeSigningConfig"
       ( \x ->
           CodeSigningConfig'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..: "CodeSigningConfigId")
-            Prelude.<*> (x Core..: "CodeSigningConfigArn")
-            Prelude.<*> (x Core..: "AllowedPublishers")
-            Prelude.<*> (x Core..: "CodeSigningPolicies")
-            Prelude.<*> (x Core..: "LastModified")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..: "CodeSigningConfigId")
+            Prelude.<*> (x Data..: "CodeSigningConfigArn")
+            Prelude.<*> (x Data..: "AllowedPublishers")
+            Prelude.<*> (x Data..: "CodeSigningPolicies")
+            Prelude.<*> (x Data..: "LastModified")
       )
 
 instance Prelude.Hashable CodeSigningConfig where

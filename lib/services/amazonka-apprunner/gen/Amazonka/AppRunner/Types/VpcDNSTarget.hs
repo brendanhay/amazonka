@@ -21,6 +21,7 @@ module Amazonka.AppRunner.Types.VpcDNSTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | DNS Target record for a custom domain of this Amazon VPC.
@@ -79,15 +80,15 @@ vpcDNSTarget_vpcId = Lens.lens (\VpcDNSTarget' {vpcId} -> vpcId) (\s@VpcDNSTarge
 vpcDNSTarget_vpcIngressConnectionArn :: Lens.Lens' VpcDNSTarget (Prelude.Maybe Prelude.Text)
 vpcDNSTarget_vpcIngressConnectionArn = Lens.lens (\VpcDNSTarget' {vpcIngressConnectionArn} -> vpcIngressConnectionArn) (\s@VpcDNSTarget' {} a -> s {vpcIngressConnectionArn = a} :: VpcDNSTarget)
 
-instance Core.FromJSON VpcDNSTarget where
+instance Data.FromJSON VpcDNSTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcDNSTarget"
       ( \x ->
           VpcDNSTarget'
-            Prelude.<$> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "VpcIngressConnectionArn")
+            Prelude.<$> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "VpcIngressConnectionArn")
       )
 
 instance Prelude.Hashable VpcDNSTarget where

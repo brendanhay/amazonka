@@ -64,6 +64,7 @@ where
 import Amazonka.CloudHSM.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,9 +126,9 @@ instance Core.AWSRequest ListLunaClients where
     Response.receiveJSON
       ( \s h x ->
           ListLunaClientsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "ClientList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ClientList" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListLunaClients where
@@ -137,32 +138,32 @@ instance Prelude.Hashable ListLunaClients where
 instance Prelude.NFData ListLunaClients where
   rnf ListLunaClients' {..} = Prelude.rnf nextToken
 
-instance Core.ToHeaders ListLunaClients where
+instance Data.ToHeaders ListLunaClients where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudHsmFrontendService.ListLunaClients" ::
+              Data.=# ( "CloudHsmFrontendService.ListLunaClients" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListLunaClients where
+instance Data.ToJSON ListLunaClients where
   toJSON ListLunaClients' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("NextToken" Core..=) Prelude.<$> nextToken]
+          [("NextToken" Data..=) Prelude.<$> nextToken]
       )
 
-instance Core.ToPath ListLunaClients where
+instance Data.ToPath ListLunaClients where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListLunaClients where
+instance Data.ToQuery ListLunaClients where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListLunaClientsResponse' smart constructor.

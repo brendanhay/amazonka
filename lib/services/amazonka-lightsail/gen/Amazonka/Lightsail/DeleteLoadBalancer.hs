@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,7 +95,7 @@ instance Core.AWSRequest DeleteLoadBalancer where
     Response.receiveJSON
       ( \s h x ->
           DeleteLoadBalancerResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,34 +107,34 @@ instance Prelude.NFData DeleteLoadBalancer where
   rnf DeleteLoadBalancer' {..} =
     Prelude.rnf loadBalancerName
 
-instance Core.ToHeaders DeleteLoadBalancer where
+instance Data.ToHeaders DeleteLoadBalancer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.DeleteLoadBalancer" ::
+              Data.=# ( "Lightsail_20161128.DeleteLoadBalancer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteLoadBalancer where
+instance Data.ToJSON DeleteLoadBalancer where
   toJSON DeleteLoadBalancer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("loadBalancerName" Core..= loadBalancerName)
+              ("loadBalancerName" Data..= loadBalancerName)
           ]
       )
 
-instance Core.ToPath DeleteLoadBalancer where
+instance Data.ToPath DeleteLoadBalancer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLoadBalancer where
+instance Data.ToQuery DeleteLoadBalancer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLoadBalancerResponse' smart constructor.

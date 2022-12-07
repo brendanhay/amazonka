@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -173,7 +174,7 @@ instance Core.AWSRequest CreateTapePool where
     Response.receiveJSON
       ( \s h x ->
           CreateTapePoolResponse'
-            Prelude.<$> (x Core..?> "PoolARN")
+            Prelude.<$> (x Data..?> "PoolARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,39 +194,39 @@ instance Prelude.NFData CreateTapePool where
       `Prelude.seq` Prelude.rnf poolName
       `Prelude.seq` Prelude.rnf storageClass
 
-instance Core.ToHeaders CreateTapePool where
+instance Data.ToHeaders CreateTapePool where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.CreateTapePool" ::
+              Data.=# ( "StorageGateway_20130630.CreateTapePool" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTapePool where
+instance Data.ToJSON CreateTapePool where
   toJSON CreateTapePool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("RetentionLockTimeInDays" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("RetentionLockTimeInDays" Data..=)
               Prelude.<$> retentionLockTimeInDays,
-            ("RetentionLockType" Core..=)
+            ("RetentionLockType" Data..=)
               Prelude.<$> retentionLockType,
-            Prelude.Just ("PoolName" Core..= poolName),
-            Prelude.Just ("StorageClass" Core..= storageClass)
+            Prelude.Just ("PoolName" Data..= poolName),
+            Prelude.Just ("StorageClass" Data..= storageClass)
           ]
       )
 
-instance Core.ToPath CreateTapePool where
+instance Data.ToPath CreateTapePool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTapePool where
+instance Data.ToQuery CreateTapePool where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTapePoolResponse' smart constructor.

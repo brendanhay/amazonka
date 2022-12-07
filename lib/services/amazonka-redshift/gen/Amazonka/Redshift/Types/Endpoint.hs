@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.Endpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.VpcEndpoint
@@ -72,13 +73,13 @@ endpoint_address = Lens.lens (\Endpoint' {address} -> address) (\s@Endpoint' {} 
 endpoint_vpcEndpoints :: Lens.Lens' Endpoint (Prelude.Maybe [VpcEndpoint])
 endpoint_vpcEndpoints = Lens.lens (\Endpoint' {vpcEndpoints} -> vpcEndpoints) (\s@Endpoint' {} a -> s {vpcEndpoints = a} :: Endpoint) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML Endpoint where
+instance Data.FromXML Endpoint where
   parseXML x =
     Endpoint'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "Address")
-      Prelude.<*> ( x Core..@? "VpcEndpoints" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "VpcEndpoint")
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "Address")
+      Prelude.<*> ( x Data..@? "VpcEndpoints" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "VpcEndpoint")
                   )
 
 instance Prelude.Hashable Endpoint where

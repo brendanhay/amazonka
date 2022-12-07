@@ -85,6 +85,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -274,19 +275,19 @@ instance Core.AWSRequest ListObjectVersions where
     Response.receiveXML
       ( \s h x ->
           ListObjectVersionsResponse'
-            Prelude.<$> (x Core..@? "MaxKeys")
-            Prelude.<*> (Core.may (Core.parseXMLList "CommonPrefixes") x)
-            Prelude.<*> (x Core..@? "Name")
-            Prelude.<*> (x Core..@? "IsTruncated")
-            Prelude.<*> (x Core..@? "KeyMarker")
-            Prelude.<*> (Core.may (Core.parseXMLList "DeleteMarker") x)
-            Prelude.<*> (x Core..@? "Delimiter")
-            Prelude.<*> (Core.may (Core.parseXMLList "Version") x)
-            Prelude.<*> (x Core..@? "Prefix")
-            Prelude.<*> (x Core..@? "NextVersionIdMarker")
-            Prelude.<*> (x Core..@? "NextKeyMarker")
-            Prelude.<*> (x Core..@? "EncodingType")
-            Prelude.<*> (x Core..@? "VersionIdMarker")
+            Prelude.<$> (x Data..@? "MaxKeys")
+            Prelude.<*> (Core.may (Data.parseXMLList "CommonPrefixes") x)
+            Prelude.<*> (x Data..@? "Name")
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "KeyMarker")
+            Prelude.<*> (Core.may (Data.parseXMLList "DeleteMarker") x)
+            Prelude.<*> (x Data..@? "Delimiter")
+            Prelude.<*> (Core.may (Data.parseXMLList "Version") x)
+            Prelude.<*> (x Data..@? "Prefix")
+            Prelude.<*> (x Data..@? "NextVersionIdMarker")
+            Prelude.<*> (x Data..@? "NextKeyMarker")
+            Prelude.<*> (x Data..@? "EncodingType")
+            Prelude.<*> (x Data..@? "VersionIdMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -312,26 +313,26 @@ instance Prelude.NFData ListObjectVersions where
       `Prelude.seq` Prelude.rnf versionIdMarker
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders ListObjectVersions where
+instance Data.ToHeaders ListObjectVersions where
   toHeaders ListObjectVersions' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath ListObjectVersions where
+instance Data.ToPath ListObjectVersions where
   toPath ListObjectVersions' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery ListObjectVersions where
+instance Data.ToQuery ListObjectVersions where
   toQuery ListObjectVersions' {..} =
     Prelude.mconcat
-      [ "max-keys" Core.=: maxKeys,
-        "key-marker" Core.=: keyMarker,
-        "delimiter" Core.=: delimiter,
-        "prefix" Core.=: prefix,
-        "encoding-type" Core.=: encodingType,
-        "version-id-marker" Core.=: versionIdMarker,
+      [ "max-keys" Data.=: maxKeys,
+        "key-marker" Data.=: keyMarker,
+        "delimiter" Data.=: delimiter,
+        "prefix" Data.=: prefix,
+        "encoding-type" Data.=: encodingType,
+        "version-id-marker" Data.=: versionIdMarker,
         "versions"
       ]
 

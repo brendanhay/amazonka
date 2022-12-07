@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.ImportJobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.ImportDestination
 import Amazonka.SESV2.Types.JobStatus
@@ -31,7 +32,7 @@ import Amazonka.SESV2.Types.JobStatus
 data ImportJobSummary = ImportJobSummary'
   { jobStatus :: Prelude.Maybe JobStatus,
     -- | The date and time when the import job was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     jobId :: Prelude.Maybe Prelude.Text,
     importDestination :: Prelude.Maybe ImportDestination,
     -- | The number of records that failed processing because of invalid input or
@@ -80,7 +81,7 @@ importJobSummary_jobStatus = Lens.lens (\ImportJobSummary' {jobStatus} -> jobSta
 
 -- | The date and time when the import job was created.
 importJobSummary_createdTimestamp :: Lens.Lens' ImportJobSummary (Prelude.Maybe Prelude.UTCTime)
-importJobSummary_createdTimestamp = Lens.lens (\ImportJobSummary' {createdTimestamp} -> createdTimestamp) (\s@ImportJobSummary' {} a -> s {createdTimestamp = a} :: ImportJobSummary) Prelude.. Lens.mapping Core._Time
+importJobSummary_createdTimestamp = Lens.lens (\ImportJobSummary' {createdTimestamp} -> createdTimestamp) (\s@ImportJobSummary' {} a -> s {createdTimestamp = a} :: ImportJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 importJobSummary_jobId :: Lens.Lens' ImportJobSummary (Prelude.Maybe Prelude.Text)
@@ -99,18 +100,18 @@ importJobSummary_failedRecordsCount = Lens.lens (\ImportJobSummary' {failedRecor
 importJobSummary_processedRecordsCount :: Lens.Lens' ImportJobSummary (Prelude.Maybe Prelude.Int)
 importJobSummary_processedRecordsCount = Lens.lens (\ImportJobSummary' {processedRecordsCount} -> processedRecordsCount) (\s@ImportJobSummary' {} a -> s {processedRecordsCount = a} :: ImportJobSummary)
 
-instance Core.FromJSON ImportJobSummary where
+instance Data.FromJSON ImportJobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportJobSummary"
       ( \x ->
           ImportJobSummary'
-            Prelude.<$> (x Core..:? "JobStatus")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "ImportDestination")
-            Prelude.<*> (x Core..:? "FailedRecordsCount")
-            Prelude.<*> (x Core..:? "ProcessedRecordsCount")
+            Prelude.<$> (x Data..:? "JobStatus")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "ImportDestination")
+            Prelude.<*> (x Data..:? "FailedRecordsCount")
+            Prelude.<*> (x Data..:? "ProcessedRecordsCount")
       )
 
 instance Prelude.Hashable ImportJobSummary where

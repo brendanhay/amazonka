@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.PrefetchSchedule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.PrefetchConsumption
 import Amazonka.MediaTailor.Types.PrefetchRetrieval
 import qualified Amazonka.Prelude as Prelude
@@ -146,18 +147,18 @@ prefetchSchedule_playbackConfigurationName = Lens.lens (\PrefetchSchedule' {play
 prefetchSchedule_retrieval :: Lens.Lens' PrefetchSchedule PrefetchRetrieval
 prefetchSchedule_retrieval = Lens.lens (\PrefetchSchedule' {retrieval} -> retrieval) (\s@PrefetchSchedule' {} a -> s {retrieval = a} :: PrefetchSchedule)
 
-instance Core.FromJSON PrefetchSchedule where
+instance Data.FromJSON PrefetchSchedule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PrefetchSchedule"
       ( \x ->
           PrefetchSchedule'
-            Prelude.<$> (x Core..:? "StreamId")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "Consumption")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "PlaybackConfigurationName")
-            Prelude.<*> (x Core..: "Retrieval")
+            Prelude.<$> (x Data..:? "StreamId")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "Consumption")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "PlaybackConfigurationName")
+            Prelude.<*> (x Data..: "Retrieval")
       )
 
 instance Prelude.Hashable PrefetchSchedule where

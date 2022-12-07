@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ServiceActionDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ServiceActionDefinitionKey
 import Amazonka.ServiceCatalog.Types.ServiceActionSummary
@@ -64,14 +65,14 @@ serviceActionDetail_serviceActionSummary = Lens.lens (\ServiceActionDetail' {ser
 serviceActionDetail_definition :: Lens.Lens' ServiceActionDetail (Prelude.Maybe (Prelude.HashMap ServiceActionDefinitionKey Prelude.Text))
 serviceActionDetail_definition = Lens.lens (\ServiceActionDetail' {definition} -> definition) (\s@ServiceActionDetail' {} a -> s {definition = a} :: ServiceActionDetail) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ServiceActionDetail where
+instance Data.FromJSON ServiceActionDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceActionDetail"
       ( \x ->
           ServiceActionDetail'
-            Prelude.<$> (x Core..:? "ServiceActionSummary")
-            Prelude.<*> (x Core..:? "Definition" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ServiceActionSummary")
+            Prelude.<*> (x Data..:? "Definition" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ServiceActionDetail where

@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.EndpointSetting where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.EndpointSettingTypeValue
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Endpoint settings.
@@ -131,21 +132,21 @@ endpointSetting_intValueMin = Lens.lens (\EndpointSetting' {intValueMin} -> intV
 endpointSetting_enumValues :: Lens.Lens' EndpointSetting (Prelude.Maybe [Prelude.Text])
 endpointSetting_enumValues = Lens.lens (\EndpointSetting' {enumValues} -> enumValues) (\s@EndpointSetting' {} a -> s {enumValues = a} :: EndpointSetting) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EndpointSetting where
+instance Data.FromJSON EndpointSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointSetting"
       ( \x ->
           EndpointSetting'
-            Prelude.<$> (x Core..:? "IntValueMax")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DefaultValue")
-            Prelude.<*> (x Core..:? "Units")
-            Prelude.<*> (x Core..:? "Applicability")
-            Prelude.<*> (x Core..:? "Sensitive")
-            Prelude.<*> (x Core..:? "IntValueMin")
-            Prelude.<*> (x Core..:? "EnumValues" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "IntValueMax")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DefaultValue")
+            Prelude.<*> (x Data..:? "Units")
+            Prelude.<*> (x Data..:? "Applicability")
+            Prelude.<*> (x Data..:? "Sensitive")
+            Prelude.<*> (x Data..:? "IntValueMin")
+            Prelude.<*> (x Data..:? "EnumValues" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EndpointSetting where

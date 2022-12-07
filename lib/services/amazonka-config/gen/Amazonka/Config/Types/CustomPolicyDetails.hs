@@ -21,6 +21,7 @@ module Amazonka.Config.Types.CustomPolicyDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the runtime system, policy definition, and whether debug
@@ -95,15 +96,15 @@ customPolicyDetails_policyRuntime = Lens.lens (\CustomPolicyDetails' {policyRunt
 customPolicyDetails_policyText :: Lens.Lens' CustomPolicyDetails Prelude.Text
 customPolicyDetails_policyText = Lens.lens (\CustomPolicyDetails' {policyText} -> policyText) (\s@CustomPolicyDetails' {} a -> s {policyText = a} :: CustomPolicyDetails)
 
-instance Core.FromJSON CustomPolicyDetails where
+instance Data.FromJSON CustomPolicyDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomPolicyDetails"
       ( \x ->
           CustomPolicyDetails'
-            Prelude.<$> (x Core..:? "EnableDebugLogDelivery")
-            Prelude.<*> (x Core..: "PolicyRuntime")
-            Prelude.<*> (x Core..: "PolicyText")
+            Prelude.<$> (x Data..:? "EnableDebugLogDelivery")
+            Prelude.<*> (x Data..: "PolicyRuntime")
+            Prelude.<*> (x Data..: "PolicyText")
       )
 
 instance Prelude.Hashable CustomPolicyDetails where
@@ -118,13 +119,13 @@ instance Prelude.NFData CustomPolicyDetails where
       `Prelude.seq` Prelude.rnf policyRuntime
       `Prelude.seq` Prelude.rnf policyText
 
-instance Core.ToJSON CustomPolicyDetails where
+instance Data.ToJSON CustomPolicyDetails where
   toJSON CustomPolicyDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EnableDebugLogDelivery" Core..=)
+          [ ("EnableDebugLogDelivery" Data..=)
               Prelude.<$> enableDebugLogDelivery,
-            Prelude.Just ("PolicyRuntime" Core..= policyRuntime),
-            Prelude.Just ("PolicyText" Core..= policyText)
+            Prelude.Just ("PolicyRuntime" Data..= policyRuntime),
+            Prelude.Just ("PolicyText" Data..= policyText)
           ]
       )

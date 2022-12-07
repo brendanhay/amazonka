@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.DatasetTrigger where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.Schedule
 import Amazonka.IoTAnalytics.Types.TriggeringDataset
 import qualified Amazonka.Prelude as Prelude
@@ -67,14 +68,14 @@ datasetTrigger_schedule = Lens.lens (\DatasetTrigger' {schedule} -> schedule) (\
 datasetTrigger_dataset :: Lens.Lens' DatasetTrigger (Prelude.Maybe TriggeringDataset)
 datasetTrigger_dataset = Lens.lens (\DatasetTrigger' {dataset} -> dataset) (\s@DatasetTrigger' {} a -> s {dataset = a} :: DatasetTrigger)
 
-instance Core.FromJSON DatasetTrigger where
+instance Data.FromJSON DatasetTrigger where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetTrigger"
       ( \x ->
           DatasetTrigger'
-            Prelude.<$> (x Core..:? "schedule")
-            Prelude.<*> (x Core..:? "dataset")
+            Prelude.<$> (x Data..:? "schedule")
+            Prelude.<*> (x Data..:? "dataset")
       )
 
 instance Prelude.Hashable DatasetTrigger where
@@ -87,11 +88,11 @@ instance Prelude.NFData DatasetTrigger where
     Prelude.rnf schedule
       `Prelude.seq` Prelude.rnf dataset
 
-instance Core.ToJSON DatasetTrigger where
+instance Data.ToJSON DatasetTrigger where
   toJSON DatasetTrigger' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("schedule" Core..=) Prelude.<$> schedule,
-            ("dataset" Core..=) Prelude.<$> dataset
+          [ ("schedule" Data..=) Prelude.<$> schedule,
+            ("dataset" Data..=) Prelude.<$> dataset
           ]
       )

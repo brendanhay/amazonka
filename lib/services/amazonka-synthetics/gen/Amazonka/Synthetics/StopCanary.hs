@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,26 +102,26 @@ instance Prelude.Hashable StopCanary where
 instance Prelude.NFData StopCanary where
   rnf StopCanary' {..} = Prelude.rnf name
 
-instance Core.ToHeaders StopCanary where
+instance Data.ToHeaders StopCanary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopCanary where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StopCanary where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StopCanary where
+instance Data.ToPath StopCanary where
   toPath StopCanary' {..} =
     Prelude.mconcat
-      ["/canary/", Core.toBS name, "/stop"]
+      ["/canary/", Data.toBS name, "/stop"]
 
-instance Core.ToQuery StopCanary where
+instance Data.ToQuery StopCanary where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopCanaryResponse' smart constructor.

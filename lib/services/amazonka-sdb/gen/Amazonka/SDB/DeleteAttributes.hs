@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -150,26 +151,26 @@ instance Prelude.NFData DeleteAttributes where
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf itemName
 
-instance Core.ToHeaders DeleteAttributes where
+instance Data.ToHeaders DeleteAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteAttributes where
+instance Data.ToPath DeleteAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAttributes where
+instance Data.ToQuery DeleteAttributes where
   toQuery DeleteAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteAttributes" :: Prelude.ByteString),
+          Data.=: ("DeleteAttributes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2009-04-15" :: Prelude.ByteString),
-        "Expected" Core.=: expected,
-        Core.toQuery
-          ( Core.toQueryList "Attribute"
+          Data.=: ("2009-04-15" :: Prelude.ByteString),
+        "Expected" Data.=: expected,
+        Data.toQuery
+          ( Data.toQueryList "Attribute"
               Prelude.<$> attributes
           ),
-        "DomainName" Core.=: domainName,
-        "ItemName" Core.=: itemName
+        "DomainName" Data.=: domainName,
+        "ItemName" Data.=: itemName
       ]
 
 -- | /See:/ 'newDeleteAttributesResponse' smart constructor.

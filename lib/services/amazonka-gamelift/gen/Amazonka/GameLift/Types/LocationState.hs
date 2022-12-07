@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.LocationState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.FleetStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,14 +74,14 @@ locationState_status = Lens.lens (\LocationState' {status} -> status) (\s@Locati
 locationState_location :: Lens.Lens' LocationState (Prelude.Maybe Prelude.Text)
 locationState_location = Lens.lens (\LocationState' {location} -> location) (\s@LocationState' {} a -> s {location = a} :: LocationState)
 
-instance Core.FromJSON LocationState where
+instance Data.FromJSON LocationState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LocationState"
       ( \x ->
           LocationState'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Location")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Location")
       )
 
 instance Prelude.Hashable LocationState where

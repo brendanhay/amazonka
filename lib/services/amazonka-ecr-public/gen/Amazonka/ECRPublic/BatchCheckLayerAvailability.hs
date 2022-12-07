@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECRPublic.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,8 +129,8 @@ instance Core.AWSRequest BatchCheckLayerAvailability where
     Response.receiveJSON
       ( \s h x ->
           BatchCheckLayerAvailabilityResponse'
-            Prelude.<$> (x Core..?> "layers" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "layers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,36 +146,36 @@ instance Prelude.NFData BatchCheckLayerAvailability where
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf layerDigests
 
-instance Core.ToHeaders BatchCheckLayerAvailability where
+instance Data.ToHeaders BatchCheckLayerAvailability where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SpencerFrontendService.BatchCheckLayerAvailability" ::
+              Data.=# ( "SpencerFrontendService.BatchCheckLayerAvailability" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchCheckLayerAvailability where
+instance Data.ToJSON BatchCheckLayerAvailability where
   toJSON BatchCheckLayerAvailability' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("layerDigests" Core..= layerDigests)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("layerDigests" Data..= layerDigests)
           ]
       )
 
-instance Core.ToPath BatchCheckLayerAvailability where
+instance Data.ToPath BatchCheckLayerAvailability where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchCheckLayerAvailability where
+instance Data.ToQuery BatchCheckLayerAvailability where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchCheckLayerAvailabilityResponse' smart constructor.

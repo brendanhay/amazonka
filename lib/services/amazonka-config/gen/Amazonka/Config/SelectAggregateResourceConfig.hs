@@ -69,6 +69,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -185,9 +186,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           SelectAggregateResourceConfigResponse'
-            Prelude.<$> (x Core..?> "QueryInfo")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "QueryInfo")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,40 +211,40 @@ instance Prelude.NFData SelectAggregateResourceConfig where
       `Prelude.seq` Prelude.rnf expression
       `Prelude.seq` Prelude.rnf configurationAggregatorName
 
-instance Core.ToHeaders SelectAggregateResourceConfig where
+instance Data.ToHeaders SelectAggregateResourceConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.SelectAggregateResourceConfig" ::
+              Data.=# ( "StarlingDoveService.SelectAggregateResourceConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SelectAggregateResourceConfig where
+instance Data.ToJSON SelectAggregateResourceConfig where
   toJSON SelectAggregateResourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Expression" Core..= expression),
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Expression" Data..= expression),
             Prelude.Just
               ( "ConfigurationAggregatorName"
-                  Core..= configurationAggregatorName
+                  Data..= configurationAggregatorName
               )
           ]
       )
 
-instance Core.ToPath SelectAggregateResourceConfig where
+instance Data.ToPath SelectAggregateResourceConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SelectAggregateResourceConfig where
+instance Data.ToQuery SelectAggregateResourceConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSelectAggregateResourceConfigResponse' smart constructor.

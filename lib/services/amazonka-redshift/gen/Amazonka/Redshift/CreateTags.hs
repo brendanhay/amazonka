@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -124,21 +125,21 @@ instance Prelude.NFData CreateTags where
     Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders CreateTags where
+instance Data.ToHeaders CreateTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateTags where
+instance Data.ToPath CreateTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTags where
+instance Data.ToQuery CreateTags where
   toQuery CreateTags' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateTags" :: Prelude.ByteString),
+          Data.=: ("CreateTags" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ResourceName" Core.=: resourceName,
-        "Tags" Core.=: Core.toQueryList "Tag" tags
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ResourceName" Data.=: resourceName,
+        "Tags" Data.=: Data.toQueryList "Tag" tags
       ]
 
 -- | /See:/ 'newCreateTagsResponse' smart constructor.

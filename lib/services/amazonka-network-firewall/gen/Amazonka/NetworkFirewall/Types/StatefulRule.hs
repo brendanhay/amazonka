@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.StatefulRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.Header
 import Amazonka.NetworkFirewall.Types.RuleOption
 import Amazonka.NetworkFirewall.Types.StatefulAction
@@ -147,15 +148,15 @@ statefulRule_header = Lens.lens (\StatefulRule' {header} -> header) (\s@Stateful
 statefulRule_ruleOptions :: Lens.Lens' StatefulRule [RuleOption]
 statefulRule_ruleOptions = Lens.lens (\StatefulRule' {ruleOptions} -> ruleOptions) (\s@StatefulRule' {} a -> s {ruleOptions = a} :: StatefulRule) Prelude.. Lens.coerced
 
-instance Core.FromJSON StatefulRule where
+instance Data.FromJSON StatefulRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatefulRule"
       ( \x ->
           StatefulRule'
-            Prelude.<$> (x Core..: "Action")
-            Prelude.<*> (x Core..: "Header")
-            Prelude.<*> (x Core..:? "RuleOptions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "Action")
+            Prelude.<*> (x Data..: "Header")
+            Prelude.<*> (x Data..:? "RuleOptions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable StatefulRule where
@@ -170,12 +171,12 @@ instance Prelude.NFData StatefulRule where
       `Prelude.seq` Prelude.rnf header
       `Prelude.seq` Prelude.rnf ruleOptions
 
-instance Core.ToJSON StatefulRule where
+instance Data.ToJSON StatefulRule where
   toJSON StatefulRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Core..= action),
-            Prelude.Just ("Header" Core..= header),
-            Prelude.Just ("RuleOptions" Core..= ruleOptions)
+          [ Prelude.Just ("Action" Data..= action),
+            Prelude.Just ("Header" Data..= header),
+            Prelude.Just ("RuleOptions" Data..= ruleOptions)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.CandidateArtifactLocations where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The location of artifacts for an AutoML candidate job.
@@ -70,14 +71,14 @@ candidateArtifactLocations_modelInsights = Lens.lens (\CandidateArtifactLocation
 candidateArtifactLocations_explainability :: Lens.Lens' CandidateArtifactLocations Prelude.Text
 candidateArtifactLocations_explainability = Lens.lens (\CandidateArtifactLocations' {explainability} -> explainability) (\s@CandidateArtifactLocations' {} a -> s {explainability = a} :: CandidateArtifactLocations)
 
-instance Core.FromJSON CandidateArtifactLocations where
+instance Data.FromJSON CandidateArtifactLocations where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CandidateArtifactLocations"
       ( \x ->
           CandidateArtifactLocations'
-            Prelude.<$> (x Core..:? "ModelInsights")
-            Prelude.<*> (x Core..: "Explainability")
+            Prelude.<$> (x Data..:? "ModelInsights")
+            Prelude.<*> (x Data..: "Explainability")
       )
 
 instance Prelude.Hashable CandidateArtifactLocations where

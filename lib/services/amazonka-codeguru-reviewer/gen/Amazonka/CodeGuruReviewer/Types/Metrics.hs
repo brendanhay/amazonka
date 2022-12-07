@@ -21,6 +21,7 @@ module Amazonka.CodeGuruReviewer.Types.Metrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the statistics from the code review.
@@ -88,15 +89,15 @@ metrics_suppressedLinesOfCodeCount = Lens.lens (\Metrics' {suppressedLinesOfCode
 metrics_meteredLinesOfCodeCount :: Lens.Lens' Metrics (Prelude.Maybe Prelude.Integer)
 metrics_meteredLinesOfCodeCount = Lens.lens (\Metrics' {meteredLinesOfCodeCount} -> meteredLinesOfCodeCount) (\s@Metrics' {} a -> s {meteredLinesOfCodeCount = a} :: Metrics)
 
-instance Core.FromJSON Metrics where
+instance Data.FromJSON Metrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Metrics"
       ( \x ->
           Metrics'
-            Prelude.<$> (x Core..:? "FindingsCount")
-            Prelude.<*> (x Core..:? "SuppressedLinesOfCodeCount")
-            Prelude.<*> (x Core..:? "MeteredLinesOfCodeCount")
+            Prelude.<$> (x Data..:? "FindingsCount")
+            Prelude.<*> (x Data..:? "SuppressedLinesOfCodeCount")
+            Prelude.<*> (x Data..:? "MeteredLinesOfCodeCount")
       )
 
 instance Prelude.Hashable Metrics where

@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -175,7 +176,7 @@ instance Core.AWSRequest GetFunctionConfiguration where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetFunctionConfiguration where
   hashWithSalt _salt GetFunctionConfiguration' {..} =
@@ -187,17 +188,17 @@ instance Prelude.NFData GetFunctionConfiguration where
     Prelude.rnf qualifier
       `Prelude.seq` Prelude.rnf functionName
 
-instance Core.ToHeaders GetFunctionConfiguration where
+instance Data.ToHeaders GetFunctionConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetFunctionConfiguration where
+instance Data.ToPath GetFunctionConfiguration where
   toPath GetFunctionConfiguration' {..} =
     Prelude.mconcat
       [ "/2015-03-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/configuration"
       ]
 
-instance Core.ToQuery GetFunctionConfiguration where
+instance Data.ToQuery GetFunctionConfiguration where
   toQuery GetFunctionConfiguration' {..} =
-    Prelude.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Data.=: qualifier]

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,10 +159,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListPoolOriginationIdentitiesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "PoolArn")
-            Prelude.<*> (x Core..?> "PoolId")
-            Prelude.<*> ( x Core..?> "OriginationIdentities"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "PoolArn")
+            Prelude.<*> (x Data..?> "PoolId")
+            Prelude.<*> ( x Data..?> "OriginationIdentities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -184,36 +185,36 @@ instance Prelude.NFData ListPoolOriginationIdentities where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf poolId
 
-instance Core.ToHeaders ListPoolOriginationIdentities where
+instance Data.ToHeaders ListPoolOriginationIdentities where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.ListPoolOriginationIdentities" ::
+              Data.=# ( "PinpointSMSVoiceV2.ListPoolOriginationIdentities" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPoolOriginationIdentities where
+instance Data.ToJSON ListPoolOriginationIdentities where
   toJSON ListPoolOriginationIdentities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("PoolId" Core..= poolId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("PoolId" Data..= poolId)
           ]
       )
 
-instance Core.ToPath ListPoolOriginationIdentities where
+instance Data.ToPath ListPoolOriginationIdentities where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPoolOriginationIdentities where
+instance Data.ToQuery ListPoolOriginationIdentities where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPoolOriginationIdentitiesResponse' smart constructor.

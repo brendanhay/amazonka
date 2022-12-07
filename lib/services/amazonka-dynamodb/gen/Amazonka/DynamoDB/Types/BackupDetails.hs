@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.BackupDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.BackupStatus
 import Amazonka.DynamoDB.Types.BackupType
@@ -37,7 +38,7 @@ data BackupDetails = BackupDetails'
     -- | Time at which the automatic on-demand backup created by DynamoDB will
     -- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
     -- after its creation.
-    backupExpiryDateTime :: Prelude.Maybe Core.POSIX,
+    backupExpiryDateTime :: Prelude.Maybe Data.POSIX,
     -- | ARN associated with the backup.
     backupArn :: Prelude.Text,
     -- | Name of the requested backup.
@@ -59,7 +60,7 @@ data BackupDetails = BackupDetails'
     backupType :: BackupType,
     -- | Time at which the backup was created. This is the request time of the
     -- backup.
-    backupCreationDateTime :: Core.POSIX
+    backupCreationDateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -125,7 +126,7 @@ newBackupDetails
         backupStatus = pBackupStatus_,
         backupType = pBackupType_,
         backupCreationDateTime =
-          Core._Time Lens.# pBackupCreationDateTime_
+          Data._Time Lens.# pBackupCreationDateTime_
       }
 
 -- | Size of the backup in bytes. DynamoDB updates this value approximately
@@ -137,7 +138,7 @@ backupDetails_backupSizeBytes = Lens.lens (\BackupDetails' {backupSizeBytes} -> 
 -- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
 -- after its creation.
 backupDetails_backupExpiryDateTime :: Lens.Lens' BackupDetails (Prelude.Maybe Prelude.UTCTime)
-backupDetails_backupExpiryDateTime = Lens.lens (\BackupDetails' {backupExpiryDateTime} -> backupExpiryDateTime) (\s@BackupDetails' {} a -> s {backupExpiryDateTime = a} :: BackupDetails) Prelude.. Lens.mapping Core._Time
+backupDetails_backupExpiryDateTime = Lens.lens (\BackupDetails' {backupExpiryDateTime} -> backupExpiryDateTime) (\s@BackupDetails' {} a -> s {backupExpiryDateTime = a} :: BackupDetails) Prelude.. Lens.mapping Data._Time
 
 -- | ARN associated with the backup.
 backupDetails_backupArn :: Lens.Lens' BackupDetails Prelude.Text
@@ -169,21 +170,21 @@ backupDetails_backupType = Lens.lens (\BackupDetails' {backupType} -> backupType
 -- | Time at which the backup was created. This is the request time of the
 -- backup.
 backupDetails_backupCreationDateTime :: Lens.Lens' BackupDetails Prelude.UTCTime
-backupDetails_backupCreationDateTime = Lens.lens (\BackupDetails' {backupCreationDateTime} -> backupCreationDateTime) (\s@BackupDetails' {} a -> s {backupCreationDateTime = a} :: BackupDetails) Prelude.. Core._Time
+backupDetails_backupCreationDateTime = Lens.lens (\BackupDetails' {backupCreationDateTime} -> backupCreationDateTime) (\s@BackupDetails' {} a -> s {backupCreationDateTime = a} :: BackupDetails) Prelude.. Data._Time
 
-instance Core.FromJSON BackupDetails where
+instance Data.FromJSON BackupDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackupDetails"
       ( \x ->
           BackupDetails'
-            Prelude.<$> (x Core..:? "BackupSizeBytes")
-            Prelude.<*> (x Core..:? "BackupExpiryDateTime")
-            Prelude.<*> (x Core..: "BackupArn")
-            Prelude.<*> (x Core..: "BackupName")
-            Prelude.<*> (x Core..: "BackupStatus")
-            Prelude.<*> (x Core..: "BackupType")
-            Prelude.<*> (x Core..: "BackupCreationDateTime")
+            Prelude.<$> (x Data..:? "BackupSizeBytes")
+            Prelude.<*> (x Data..:? "BackupExpiryDateTime")
+            Prelude.<*> (x Data..: "BackupArn")
+            Prelude.<*> (x Data..: "BackupName")
+            Prelude.<*> (x Data..: "BackupStatus")
+            Prelude.<*> (x Data..: "BackupType")
+            Prelude.<*> (x Data..: "BackupCreationDateTime")
       )
 
 instance Prelude.Hashable BackupDetails where

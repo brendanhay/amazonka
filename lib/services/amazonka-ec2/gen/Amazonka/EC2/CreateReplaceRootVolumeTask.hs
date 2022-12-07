@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -220,7 +221,7 @@ instance Core.AWSRequest CreateReplaceRootVolumeTask where
     Response.receiveXML
       ( \s h x ->
           CreateReplaceRootVolumeTaskResponse'
-            Prelude.<$> (x Core..@? "replaceRootVolumeTask")
+            Prelude.<$> (x Data..@? "replaceRootVolumeTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -244,32 +245,32 @@ instance Prelude.NFData CreateReplaceRootVolumeTask where
       `Prelude.seq` Prelude.rnf imageId
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders CreateReplaceRootVolumeTask where
+instance Data.ToHeaders CreateReplaceRootVolumeTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateReplaceRootVolumeTask where
+instance Data.ToPath CreateReplaceRootVolumeTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateReplaceRootVolumeTask where
+instance Data.ToQuery CreateReplaceRootVolumeTask where
   toQuery CreateReplaceRootVolumeTask' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateReplaceRootVolumeTask" ::
+          Data.=: ( "CreateReplaceRootVolumeTask" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "SnapshotId" Core.=: snapshotId,
-        "DryRun" Core.=: dryRun,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "SnapshotId" Data.=: snapshotId,
+        "DryRun" Data.=: dryRun,
         "DeleteReplacedRootVolume"
-          Core.=: deleteReplacedRootVolume,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: deleteReplacedRootVolume,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "ImageId" Core.=: imageId,
-        "InstanceId" Core.=: instanceId
+        "ImageId" Data.=: imageId,
+        "InstanceId" Data.=: instanceId
       ]
 
 -- | /See:/ 'newCreateReplaceRootVolumeTaskResponse' smart constructor.

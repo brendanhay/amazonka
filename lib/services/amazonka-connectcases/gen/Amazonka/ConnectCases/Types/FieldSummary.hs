@@ -23,6 +23,7 @@ import Amazonka.ConnectCases.Types.FieldNamespace
 import Amazonka.ConnectCases.Types.FieldType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object for the summarized details of the field.
@@ -105,17 +106,17 @@ fieldSummary_namespace = Lens.lens (\FieldSummary' {namespace} -> namespace) (\s
 fieldSummary_type :: Lens.Lens' FieldSummary FieldType
 fieldSummary_type = Lens.lens (\FieldSummary' {type'} -> type') (\s@FieldSummary' {} a -> s {type' = a} :: FieldSummary)
 
-instance Core.FromJSON FieldSummary where
+instance Data.FromJSON FieldSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldSummary"
       ( \x ->
           FieldSummary'
-            Prelude.<$> (x Core..: "fieldArn")
-            Prelude.<*> (x Core..: "fieldId")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "namespace")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..: "fieldArn")
+            Prelude.<*> (x Data..: "fieldId")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "namespace")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable FieldSummary where

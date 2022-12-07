@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -568,7 +569,7 @@ instance Core.AWSRequest ModifyDBCluster where
       "ModifyDBClusterResult"
       ( \s h x ->
           ModifyDBClusterResponse'
-            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<$> (x Data..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -619,52 +620,52 @@ instance Prelude.NFData ModifyDBCluster where
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
 
-instance Core.ToHeaders ModifyDBCluster where
+instance Data.ToHeaders ModifyDBCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyDBCluster where
+instance Data.ToPath ModifyDBCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyDBCluster where
+instance Data.ToQuery ModifyDBCluster where
   toQuery ModifyDBCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyDBCluster" :: Prelude.ByteString),
+          Data.=: ("ModifyDBCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "NewDBClusterIdentifier"
-          Core.=: newDBClusterIdentifier',
-        "Port" Core.=: port,
+          Data.=: newDBClusterIdentifier',
+        "Port" Data.=: port,
         "ServerlessV2ScalingConfiguration"
-          Core.=: serverlessV2ScalingConfiguration,
+          Data.=: serverlessV2ScalingConfiguration,
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
         "PreferredBackupWindow"
-          Core.=: preferredBackupWindow,
+          Data.=: preferredBackupWindow,
         "BackupRetentionPeriod"
-          Core.=: backupRetentionPeriod,
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
+          Data.=: backupRetentionPeriod,
+        "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
         "DBInstanceParameterGroupName"
-          Core.=: dbInstanceParameterGroupName,
-        "ApplyImmediately" Core.=: applyImmediately,
+          Data.=: dbInstanceParameterGroupName,
+        "ApplyImmediately" Data.=: applyImmediately,
         "AllowMajorVersionUpgrade"
-          Core.=: allowMajorVersionUpgrade,
-        "OptionGroupName" Core.=: optionGroupName,
+          Data.=: allowMajorVersionUpgrade,
+        "OptionGroupName" Data.=: optionGroupName,
         "EnableIAMDatabaseAuthentication"
-          Core.=: enableIAMDatabaseAuthentication,
-        "MasterUserPassword" Core.=: masterUserPassword,
+          Data.=: enableIAMDatabaseAuthentication,
+        "MasterUserPassword" Data.=: masterUserPassword,
         "CloudwatchLogsExportConfiguration"
-          Core.=: cloudwatchLogsExportConfiguration,
-        "DeletionProtection" Core.=: deletionProtection,
+          Data.=: cloudwatchLogsExportConfiguration,
+        "DeletionProtection" Data.=: deletionProtection,
         "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
+          Data.=: preferredMaintenanceWindow,
         "DBClusterParameterGroupName"
-          Core.=: dbClusterParameterGroupName,
-        "EngineVersion" Core.=: engineVersion,
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier
+          Data.=: dbClusterParameterGroupName,
+        "EngineVersion" Data.=: engineVersion,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier
       ]
 
 -- | /See:/ 'newModifyDBClusterResponse' smart constructor.

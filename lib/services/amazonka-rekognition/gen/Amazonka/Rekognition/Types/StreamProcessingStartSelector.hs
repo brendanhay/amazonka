@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.StreamProcessingStartSelector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.KinesisVideoStreamStartSelector
 
@@ -72,11 +73,11 @@ instance Prelude.NFData StreamProcessingStartSelector where
   rnf StreamProcessingStartSelector' {..} =
     Prelude.rnf kVSStreamStartSelector
 
-instance Core.ToJSON StreamProcessingStartSelector where
+instance Data.ToJSON StreamProcessingStartSelector where
   toJSON StreamProcessingStartSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KVSStreamStartSelector" Core..=)
+          [ ("KVSStreamStartSelector" Data..=)
               Prelude.<$> kVSStreamStartSelector
           ]
       )

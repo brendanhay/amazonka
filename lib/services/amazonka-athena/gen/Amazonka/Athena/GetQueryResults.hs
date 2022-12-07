@@ -63,6 +63,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,9 +158,9 @@ instance Core.AWSRequest GetQueryResults where
     Response.receiveJSON
       ( \s h x ->
           GetQueryResultsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ResultSet")
-            Prelude.<*> (x Core..?> "UpdateCount")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ResultSet")
+            Prelude.<*> (x Data..?> "UpdateCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,36 +176,36 @@ instance Prelude.NFData GetQueryResults where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf queryExecutionId
 
-instance Core.ToHeaders GetQueryResults where
+instance Data.ToHeaders GetQueryResults where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.GetQueryResults" ::
+              Data.=# ( "AmazonAthena.GetQueryResults" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetQueryResults where
+instance Data.ToJSON GetQueryResults where
   toJSON GetQueryResults' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("QueryExecutionId" Core..= queryExecutionId)
+              ("QueryExecutionId" Data..= queryExecutionId)
           ]
       )
 
-instance Core.ToPath GetQueryResults where
+instance Data.ToPath GetQueryResults where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetQueryResults where
+instance Data.ToQuery GetQueryResults where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetQueryResultsResponse' smart constructor.

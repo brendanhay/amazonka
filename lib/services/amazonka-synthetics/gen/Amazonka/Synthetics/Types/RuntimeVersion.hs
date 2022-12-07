@@ -21,6 +21,7 @@ module Amazonka.Synthetics.Types.RuntimeVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains information about one canary runtime version.
@@ -30,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newRuntimeVersion' smart constructor.
 data RuntimeVersion = RuntimeVersion'
   { -- | The date that the runtime version was released.
-    releaseDate :: Prelude.Maybe Core.POSIX,
+    releaseDate :: Prelude.Maybe Data.POSIX,
     -- | If this runtime version is deprecated, this value is the date of
     -- deprecation.
-    deprecationDate :: Prelude.Maybe Core.POSIX,
+    deprecationDate :: Prelude.Maybe Data.POSIX,
     -- | A description of the runtime version, created by Amazon.
     description :: Prelude.Maybe Prelude.Text,
     -- | The name of the runtime version. For a list of valid runtime versions,
@@ -73,12 +74,12 @@ newRuntimeVersion =
 
 -- | The date that the runtime version was released.
 runtimeVersion_releaseDate :: Lens.Lens' RuntimeVersion (Prelude.Maybe Prelude.UTCTime)
-runtimeVersion_releaseDate = Lens.lens (\RuntimeVersion' {releaseDate} -> releaseDate) (\s@RuntimeVersion' {} a -> s {releaseDate = a} :: RuntimeVersion) Prelude.. Lens.mapping Core._Time
+runtimeVersion_releaseDate = Lens.lens (\RuntimeVersion' {releaseDate} -> releaseDate) (\s@RuntimeVersion' {} a -> s {releaseDate = a} :: RuntimeVersion) Prelude.. Lens.mapping Data._Time
 
 -- | If this runtime version is deprecated, this value is the date of
 -- deprecation.
 runtimeVersion_deprecationDate :: Lens.Lens' RuntimeVersion (Prelude.Maybe Prelude.UTCTime)
-runtimeVersion_deprecationDate = Lens.lens (\RuntimeVersion' {deprecationDate} -> deprecationDate) (\s@RuntimeVersion' {} a -> s {deprecationDate = a} :: RuntimeVersion) Prelude.. Lens.mapping Core._Time
+runtimeVersion_deprecationDate = Lens.lens (\RuntimeVersion' {deprecationDate} -> deprecationDate) (\s@RuntimeVersion' {} a -> s {deprecationDate = a} :: RuntimeVersion) Prelude.. Lens.mapping Data._Time
 
 -- | A description of the runtime version, created by Amazon.
 runtimeVersion_description :: Lens.Lens' RuntimeVersion (Prelude.Maybe Prelude.Text)
@@ -90,16 +91,16 @@ runtimeVersion_description = Lens.lens (\RuntimeVersion' {description} -> descri
 runtimeVersion_versionName :: Lens.Lens' RuntimeVersion (Prelude.Maybe Prelude.Text)
 runtimeVersion_versionName = Lens.lens (\RuntimeVersion' {versionName} -> versionName) (\s@RuntimeVersion' {} a -> s {versionName = a} :: RuntimeVersion)
 
-instance Core.FromJSON RuntimeVersion where
+instance Data.FromJSON RuntimeVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuntimeVersion"
       ( \x ->
           RuntimeVersion'
-            Prelude.<$> (x Core..:? "ReleaseDate")
-            Prelude.<*> (x Core..:? "DeprecationDate")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "VersionName")
+            Prelude.<$> (x Data..:? "ReleaseDate")
+            Prelude.<*> (x Data..:? "DeprecationDate")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "VersionName")
       )
 
 instance Prelude.Hashable RuntimeVersion where

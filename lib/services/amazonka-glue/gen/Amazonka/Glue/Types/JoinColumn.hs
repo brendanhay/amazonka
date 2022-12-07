@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.JoinColumn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a column to be joined.
@@ -60,14 +61,14 @@ joinColumn_from = Lens.lens (\JoinColumn' {from} -> from) (\s@JoinColumn' {} a -
 joinColumn_keys :: Lens.Lens' JoinColumn [[Prelude.Text]]
 joinColumn_keys = Lens.lens (\JoinColumn' {keys} -> keys) (\s@JoinColumn' {} a -> s {keys = a} :: JoinColumn) Prelude.. Lens.coerced
 
-instance Core.FromJSON JoinColumn where
+instance Data.FromJSON JoinColumn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JoinColumn"
       ( \x ->
           JoinColumn'
-            Prelude.<$> (x Core..: "From")
-            Prelude.<*> (x Core..:? "Keys" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "From")
+            Prelude.<*> (x Data..:? "Keys" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable JoinColumn where
@@ -79,11 +80,11 @@ instance Prelude.NFData JoinColumn where
   rnf JoinColumn' {..} =
     Prelude.rnf from `Prelude.seq` Prelude.rnf keys
 
-instance Core.ToJSON JoinColumn where
+instance Data.ToJSON JoinColumn where
   toJSON JoinColumn' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("From" Core..= from),
-            Prelude.Just ("Keys" Core..= keys)
+          [ Prelude.Just ("From" Data..= from),
+            Prelude.Just ("Keys" Data..= keys)
           ]
       )

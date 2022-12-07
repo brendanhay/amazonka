@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,7 +158,7 @@ instance
       "DescribeEngineDefaultClusterParametersResult"
       ( \s h x ->
           DescribeEngineDefaultClusterParametersResponse'
-            Prelude.<$> (x Core..@? "EngineDefaults")
+            Prelude.<$> (x Data..@? "EngineDefaults")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,36 +185,36 @@ instance
       `Prelude.seq` Prelude.rnf dbParameterGroupFamily
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeEngineDefaultClusterParameters
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeEngineDefaultClusterParameters
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeEngineDefaultClusterParameters
   where
   toQuery DescribeEngineDefaultClusterParameters' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeEngineDefaultClusterParameters" ::
+          Data.=: ( "DescribeEngineDefaultClusterParameters" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords,
         "DBParameterGroupFamily"
-          Core.=: dbParameterGroupFamily
+          Data.=: dbParameterGroupFamily
       ]
 
 -- | /See:/ 'newDescribeEngineDefaultClusterParametersResponse' smart constructor.

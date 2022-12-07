@@ -21,6 +21,7 @@ module Amazonka.Support.Types.TrustedAdvisorCheckDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The description and metadata for a Trusted Advisor check.
@@ -115,17 +116,17 @@ trustedAdvisorCheckDescription_category = Lens.lens (\TrustedAdvisorCheckDescrip
 trustedAdvisorCheckDescription_metadata :: Lens.Lens' TrustedAdvisorCheckDescription [Prelude.Text]
 trustedAdvisorCheckDescription_metadata = Lens.lens (\TrustedAdvisorCheckDescription' {metadata} -> metadata) (\s@TrustedAdvisorCheckDescription' {} a -> s {metadata = a} :: TrustedAdvisorCheckDescription) Prelude.. Lens.coerced
 
-instance Core.FromJSON TrustedAdvisorCheckDescription where
+instance Data.FromJSON TrustedAdvisorCheckDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrustedAdvisorCheckDescription"
       ( \x ->
           TrustedAdvisorCheckDescription'
-            Prelude.<$> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "description")
-            Prelude.<*> (x Core..: "category")
-            Prelude.<*> (x Core..:? "metadata" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "description")
+            Prelude.<*> (x Data..: "category")
+            Prelude.<*> (x Data..:? "metadata" Data..!= Prelude.mempty)
       )
 
 instance

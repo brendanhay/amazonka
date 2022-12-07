@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSMSVoice.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,31 +98,31 @@ instance Prelude.NFData CreateConfigurationSet where
   rnf CreateConfigurationSet' {..} =
     Prelude.rnf configurationSetName
 
-instance Core.ToHeaders CreateConfigurationSet where
+instance Data.ToHeaders CreateConfigurationSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConfigurationSet where
+instance Data.ToJSON CreateConfigurationSet where
   toJSON CreateConfigurationSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConfigurationSetName" Core..=)
+          [ ("ConfigurationSetName" Data..=)
               Prelude.<$> configurationSetName
           ]
       )
 
-instance Core.ToPath CreateConfigurationSet where
+instance Data.ToPath CreateConfigurationSet where
   toPath =
     Prelude.const "/v1/sms-voice/configuration-sets"
 
-instance Core.ToQuery CreateConfigurationSet where
+instance Data.ToQuery CreateConfigurationSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An empty object that indicates that the configuration set was

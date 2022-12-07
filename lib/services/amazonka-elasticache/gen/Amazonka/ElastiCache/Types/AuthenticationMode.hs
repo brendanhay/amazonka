@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.AuthenticationMode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.InputAuthenticationType
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,11 +79,11 @@ instance Prelude.NFData AuthenticationMode where
     Prelude.rnf passwords
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToQuery AuthenticationMode where
+instance Data.ToQuery AuthenticationMode where
   toQuery AuthenticationMode' {..} =
     Prelude.mconcat
       [ "Passwords"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> passwords),
-        "Type" Core.=: type'
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> passwords),
+        "Type" Data.=: type'
       ]

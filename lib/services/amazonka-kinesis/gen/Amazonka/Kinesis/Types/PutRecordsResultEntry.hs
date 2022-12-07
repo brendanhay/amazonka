@@ -21,6 +21,7 @@ module Amazonka.Kinesis.Types.PutRecordsResultEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the result of an individual record from a @PutRecords@
@@ -99,16 +100,16 @@ putRecordsResultEntry_sequenceNumber = Lens.lens (\PutRecordsResultEntry' {seque
 putRecordsResultEntry_errorCode :: Lens.Lens' PutRecordsResultEntry (Prelude.Maybe Prelude.Text)
 putRecordsResultEntry_errorCode = Lens.lens (\PutRecordsResultEntry' {errorCode} -> errorCode) (\s@PutRecordsResultEntry' {} a -> s {errorCode = a} :: PutRecordsResultEntry)
 
-instance Core.FromJSON PutRecordsResultEntry where
+instance Data.FromJSON PutRecordsResultEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PutRecordsResultEntry"
       ( \x ->
           PutRecordsResultEntry'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ShardId")
-            Prelude.<*> (x Core..:? "SequenceNumber")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ShardId")
+            Prelude.<*> (x Data..:? "SequenceNumber")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable PutRecordsResultEntry where

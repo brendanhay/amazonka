@@ -46,6 +46,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,13 +97,13 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ValidateAssessmentReportIntegrityResponse'
-            Prelude.<$> ( x Core..?> "validationErrors"
+            Prelude.<$> ( x Data..?> "validationErrors"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Core..?> "signatureValid")
-              Prelude.<*> (x Core..?> "signatureAlgorithm")
-              Prelude.<*> (x Core..?> "signatureKeyId")
-              Prelude.<*> (x Core..?> "signatureDateTime")
+              Prelude.<*> (x Data..?> "signatureValid")
+              Prelude.<*> (x Data..?> "signatureAlgorithm")
+              Prelude.<*> (x Data..?> "signatureKeyId")
+              Prelude.<*> (x Data..?> "signatureDateTime")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,39 +124,39 @@ instance
     Prelude.rnf s3RelativePath
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ValidateAssessmentReportIntegrity
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ValidateAssessmentReportIntegrity
   where
   toJSON ValidateAssessmentReportIntegrity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("s3RelativePath" Core..= s3RelativePath)
+              ("s3RelativePath" Data..= s3RelativePath)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ValidateAssessmentReportIntegrity
   where
   toPath = Prelude.const "/assessmentReports/integrity"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ValidateAssessmentReportIntegrity
   where
   toQuery = Prelude.const Prelude.mempty

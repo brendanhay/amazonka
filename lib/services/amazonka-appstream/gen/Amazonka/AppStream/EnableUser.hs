@@ -44,6 +44,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,7 +57,7 @@ data EnableUser = EnableUser'
     -- specify an email address that doesn\'t use the same capitalization as
     -- the email address specified when their user pool account was created, a
     -- \"user does not exist\" error message displays.
-    userName :: Core.Sensitive Prelude.Text,
+    userName :: Data.Sensitive Prelude.Text,
     -- | The authentication type for the user. You must specify USERPOOL.
     authenticationType :: AuthenticationType
   }
@@ -87,7 +88,7 @@ newEnableUser ::
 newEnableUser pUserName_ pAuthenticationType_ =
   EnableUser'
     { userName =
-        Core._Sensitive Lens.# pUserName_,
+        Data._Sensitive Lens.# pUserName_,
       authenticationType = pAuthenticationType_
     }
 
@@ -98,7 +99,7 @@ newEnableUser pUserName_ pAuthenticationType_ =
 -- the email address specified when their user pool account was created, a
 -- \"user does not exist\" error message displays.
 enableUser_userName :: Lens.Lens' EnableUser Prelude.Text
-enableUser_userName = Lens.lens (\EnableUser' {userName} -> userName) (\s@EnableUser' {} a -> s {userName = a} :: EnableUser) Prelude.. Core._Sensitive
+enableUser_userName = Lens.lens (\EnableUser' {userName} -> userName) (\s@EnableUser' {} a -> s {userName = a} :: EnableUser) Prelude.. Data._Sensitive
 
 -- | The authentication type for the user. You must specify USERPOOL.
 enableUser_authenticationType :: Lens.Lens' EnableUser AuthenticationType
@@ -125,35 +126,35 @@ instance Prelude.NFData EnableUser where
     Prelude.rnf userName
       `Prelude.seq` Prelude.rnf authenticationType
 
-instance Core.ToHeaders EnableUser where
+instance Data.ToHeaders EnableUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.EnableUser" ::
+              Data.=# ( "PhotonAdminProxyService.EnableUser" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EnableUser where
+instance Data.ToJSON EnableUser where
   toJSON EnableUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserName" Core..= userName),
+          [ Prelude.Just ("UserName" Data..= userName),
             Prelude.Just
-              ("AuthenticationType" Core..= authenticationType)
+              ("AuthenticationType" Data..= authenticationType)
           ]
       )
 
-instance Core.ToPath EnableUser where
+instance Data.ToPath EnableUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnableUser where
+instance Data.ToQuery EnableUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableUserResponse' smart constructor.

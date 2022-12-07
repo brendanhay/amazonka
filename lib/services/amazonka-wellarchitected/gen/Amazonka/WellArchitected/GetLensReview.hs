@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,9 +109,9 @@ instance Core.AWSRequest GetLensReview where
     Response.receiveJSON
       ( \s h x ->
           GetLensReviewResponse'
-            Prelude.<$> (x Core..?> "LensReview")
-            Prelude.<*> (x Core..?> "MilestoneNumber")
-            Prelude.<*> (x Core..?> "WorkloadId")
+            Prelude.<$> (x Data..?> "LensReview")
+            Prelude.<*> (x Data..?> "MilestoneNumber")
+            Prelude.<*> (x Data..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,30 +127,30 @@ instance Prelude.NFData GetLensReview where
       `Prelude.seq` Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf lensAlias
 
-instance Core.ToHeaders GetLensReview where
+instance Data.ToHeaders GetLensReview where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetLensReview where
+instance Data.ToPath GetLensReview where
   toPath GetLensReview' {..} =
     Prelude.mconcat
       [ "/workloads/",
-        Core.toBS workloadId,
+        Data.toBS workloadId,
         "/lensReviews/",
-        Core.toBS lensAlias
+        Data.toBS lensAlias
       ]
 
-instance Core.ToQuery GetLensReview where
+instance Data.ToQuery GetLensReview where
   toQuery GetLensReview' {..} =
     Prelude.mconcat
-      ["MilestoneNumber" Core.=: milestoneNumber]
+      ["MilestoneNumber" Data.=: milestoneNumber]
 
 -- | Output of a get lens review call.
 --

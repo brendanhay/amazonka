@@ -109,6 +109,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -939,56 +940,56 @@ instance Prelude.NFData PutMetricAlarm where
       `Prelude.seq` Prelude.rnf
         comparisonOperator
 
-instance Core.ToHeaders PutMetricAlarm where
+instance Data.ToHeaders PutMetricAlarm where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutMetricAlarm where
+instance Data.ToPath PutMetricAlarm where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutMetricAlarm where
+instance Data.ToQuery PutMetricAlarm where
   toQuery PutMetricAlarm' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PutMetricAlarm" :: Prelude.ByteString),
+          Data.=: ("PutMetricAlarm" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
         "AlarmActions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> alarmActions),
-        "AlarmDescription" Core.=: alarmDescription,
-        "ExtendedStatistic" Core.=: extendedStatistic,
-        "ActionsEnabled" Core.=: actionsEnabled,
-        "Period" Core.=: period,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> alarmActions),
+        "AlarmDescription" Data.=: alarmDescription,
+        "ExtendedStatistic" Data.=: extendedStatistic,
+        "ActionsEnabled" Data.=: actionsEnabled,
+        "Period" Data.=: period,
         "EvaluateLowSampleCountPercentile"
-          Core.=: evaluateLowSampleCountPercentile,
+          Data.=: evaluateLowSampleCountPercentile,
         "Dimensions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> dimensions),
-        "ThresholdMetricId" Core.=: thresholdMetricId,
-        "TreatMissingData" Core.=: treatMissingData,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> dimensions),
+        "ThresholdMetricId" Data.=: thresholdMetricId,
+        "TreatMissingData" Data.=: treatMissingData,
         "Metrics"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> metrics),
-        "DatapointsToAlarm" Core.=: datapointsToAlarm,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> metrics),
+        "DatapointsToAlarm" Data.=: datapointsToAlarm,
         "InsufficientDataActions"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> insufficientDataActions
             ),
-        "MetricName" Core.=: metricName,
-        "Threshold" Core.=: threshold,
+        "MetricName" Data.=: metricName,
+        "Threshold" Data.=: threshold,
         "OKActions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> oKActions),
-        "Namespace" Core.=: namespace,
-        "Statistic" Core.=: statistic,
-        "Unit" Core.=: unit,
-        "AlarmName" Core.=: alarmName,
-        "EvaluationPeriods" Core.=: evaluationPeriods,
-        "ComparisonOperator" Core.=: comparisonOperator
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> oKActions),
+        "Namespace" Data.=: namespace,
+        "Statistic" Data.=: statistic,
+        "Unit" Data.=: unit,
+        "AlarmName" Data.=: alarmName,
+        "EvaluationPeriods" Data.=: evaluationPeriods,
+        "ComparisonOperator" Data.=: comparisonOperator
       ]
 
 -- | /See:/ 'newPutMetricAlarmResponse' smart constructor.

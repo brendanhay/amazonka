@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.AdMarkerPassthrough where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For HLS, when set to @true@, MediaTailor passes through @EXT-X-CUE-IN@,
@@ -56,13 +57,13 @@ newAdMarkerPassthrough =
 adMarkerPassthrough_enabled :: Lens.Lens' AdMarkerPassthrough (Prelude.Maybe Prelude.Bool)
 adMarkerPassthrough_enabled = Lens.lens (\AdMarkerPassthrough' {enabled} -> enabled) (\s@AdMarkerPassthrough' {} a -> s {enabled = a} :: AdMarkerPassthrough)
 
-instance Core.FromJSON AdMarkerPassthrough where
+instance Data.FromJSON AdMarkerPassthrough where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdMarkerPassthrough"
       ( \x ->
           AdMarkerPassthrough'
-            Prelude.<$> (x Core..:? "Enabled")
+            Prelude.<$> (x Data..:? "Enabled")
       )
 
 instance Prelude.Hashable AdMarkerPassthrough where
@@ -72,9 +73,9 @@ instance Prelude.Hashable AdMarkerPassthrough where
 instance Prelude.NFData AdMarkerPassthrough where
   rnf AdMarkerPassthrough' {..} = Prelude.rnf enabled
 
-instance Core.ToJSON AdMarkerPassthrough where
+instance Data.ToJSON AdMarkerPassthrough where
   toJSON AdMarkerPassthrough' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Enabled" Core..=) Prelude.<$> enabled]
+          [("Enabled" Data..=) Prelude.<$> enabled]
       )

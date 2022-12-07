@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Classifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CsvClassifier
 import Amazonka.Glue.Types.GrokClassifier
 import Amazonka.Glue.Types.JsonClassifier
@@ -93,16 +94,16 @@ classifier_grokClassifier = Lens.lens (\Classifier' {grokClassifier} -> grokClas
 classifier_jsonClassifier :: Lens.Lens' Classifier (Prelude.Maybe JsonClassifier)
 classifier_jsonClassifier = Lens.lens (\Classifier' {jsonClassifier} -> jsonClassifier) (\s@Classifier' {} a -> s {jsonClassifier = a} :: Classifier)
 
-instance Core.FromJSON Classifier where
+instance Data.FromJSON Classifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Classifier"
       ( \x ->
           Classifier'
-            Prelude.<$> (x Core..:? "CsvClassifier")
-            Prelude.<*> (x Core..:? "XMLClassifier")
-            Prelude.<*> (x Core..:? "GrokClassifier")
-            Prelude.<*> (x Core..:? "JsonClassifier")
+            Prelude.<$> (x Data..:? "CsvClassifier")
+            Prelude.<*> (x Data..:? "XMLClassifier")
+            Prelude.<*> (x Data..:? "GrokClassifier")
+            Prelude.<*> (x Data..:? "JsonClassifier")
       )
 
 instance Prelude.Hashable Classifier where

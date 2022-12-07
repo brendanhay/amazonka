@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.OutputLocationRef where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Reference to an OutputDestination ID defined in the channel
@@ -52,13 +53,13 @@ newOutputLocationRef =
 outputLocationRef_destinationRefId :: Lens.Lens' OutputLocationRef (Prelude.Maybe Prelude.Text)
 outputLocationRef_destinationRefId = Lens.lens (\OutputLocationRef' {destinationRefId} -> destinationRefId) (\s@OutputLocationRef' {} a -> s {destinationRefId = a} :: OutputLocationRef)
 
-instance Core.FromJSON OutputLocationRef where
+instance Data.FromJSON OutputLocationRef where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputLocationRef"
       ( \x ->
           OutputLocationRef'
-            Prelude.<$> (x Core..:? "destinationRefId")
+            Prelude.<$> (x Data..:? "destinationRefId")
       )
 
 instance Prelude.Hashable OutputLocationRef where
@@ -69,11 +70,11 @@ instance Prelude.NFData OutputLocationRef where
   rnf OutputLocationRef' {..} =
     Prelude.rnf destinationRefId
 
-instance Core.ToJSON OutputLocationRef where
+instance Data.ToJSON OutputLocationRef where
   toJSON OutputLocationRef' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("destinationRefId" Core..=)
+          [ ("destinationRefId" Data..=)
               Prelude.<$> destinationRefId
           ]
       )

@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -190,7 +191,7 @@ instance Core.AWSRequest StartFaceSearch where
     Response.receiveJSON
       ( \s h x ->
           StartFaceSearchResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -212,41 +213,41 @@ instance Prelude.NFData StartFaceSearch where
       `Prelude.seq` Prelude.rnf video
       `Prelude.seq` Prelude.rnf collectionId
 
-instance Core.ToHeaders StartFaceSearch where
+instance Data.ToHeaders StartFaceSearch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.StartFaceSearch" ::
+              Data.=# ( "RekognitionService.StartFaceSearch" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartFaceSearch where
+instance Data.ToJSON StartFaceSearch where
   toJSON StartFaceSearch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("FaceMatchThreshold" Core..=)
+            ("FaceMatchThreshold" Data..=)
               Prelude.<$> faceMatchThreshold,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
-            ("NotificationChannel" Core..=)
+            ("JobTag" Data..=) Prelude.<$> jobTag,
+            ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
-            Prelude.Just ("Video" Core..= video),
-            Prelude.Just ("CollectionId" Core..= collectionId)
+            Prelude.Just ("Video" Data..= video),
+            Prelude.Just ("CollectionId" Data..= collectionId)
           ]
       )
 
-instance Core.ToPath StartFaceSearch where
+instance Data.ToPath StartFaceSearch where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartFaceSearch where
+instance Data.ToQuery StartFaceSearch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartFaceSearchResponse' smart constructor.

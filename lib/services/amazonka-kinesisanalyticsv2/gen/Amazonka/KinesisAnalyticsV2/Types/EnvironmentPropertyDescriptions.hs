@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.EnvironmentPropertyDescriptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.PropertyGroup
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,16 +56,16 @@ environmentPropertyDescriptions_propertyGroupDescriptions :: Lens.Lens' Environm
 environmentPropertyDescriptions_propertyGroupDescriptions = Lens.lens (\EnvironmentPropertyDescriptions' {propertyGroupDescriptions} -> propertyGroupDescriptions) (\s@EnvironmentPropertyDescriptions' {} a -> s {propertyGroupDescriptions = a} :: EnvironmentPropertyDescriptions) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     EnvironmentPropertyDescriptions
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentPropertyDescriptions"
       ( \x ->
           EnvironmentPropertyDescriptions'
-            Prelude.<$> ( x Core..:? "PropertyGroupDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "PropertyGroupDescriptions"
+                            Data..!= Prelude.mempty
                         )
       )
 

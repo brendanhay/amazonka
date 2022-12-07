@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.JobWorkerExecutorConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the polling configuration for the @JobWorker@ action
@@ -69,14 +70,14 @@ jobWorkerExecutorConfiguration_pollingAccounts = Lens.lens (\JobWorkerExecutorCo
 jobWorkerExecutorConfiguration_pollingServicePrincipals :: Lens.Lens' JobWorkerExecutorConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 jobWorkerExecutorConfiguration_pollingServicePrincipals = Lens.lens (\JobWorkerExecutorConfiguration' {pollingServicePrincipals} -> pollingServicePrincipals) (\s@JobWorkerExecutorConfiguration' {} a -> s {pollingServicePrincipals = a} :: JobWorkerExecutorConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON JobWorkerExecutorConfiguration where
+instance Data.FromJSON JobWorkerExecutorConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobWorkerExecutorConfiguration"
       ( \x ->
           JobWorkerExecutorConfiguration'
-            Prelude.<$> (x Core..:? "pollingAccounts")
-            Prelude.<*> (x Core..:? "pollingServicePrincipals")
+            Prelude.<$> (x Data..:? "pollingAccounts")
+            Prelude.<*> (x Data..:? "pollingServicePrincipals")
       )
 
 instance
@@ -97,13 +98,13 @@ instance
     Prelude.rnf pollingAccounts
       `Prelude.seq` Prelude.rnf pollingServicePrincipals
 
-instance Core.ToJSON JobWorkerExecutorConfiguration where
+instance Data.ToJSON JobWorkerExecutorConfiguration where
   toJSON JobWorkerExecutorConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("pollingAccounts" Core..=)
+          [ ("pollingAccounts" Data..=)
               Prelude.<$> pollingAccounts,
-            ("pollingServicePrincipals" Core..=)
+            ("pollingServicePrincipals" Data..=)
               Prelude.<$> pollingServicePrincipals
           ]
       )

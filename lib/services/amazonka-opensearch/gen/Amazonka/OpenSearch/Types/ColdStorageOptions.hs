@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.ColdStorageOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Container for the parameters required to enable cold storage for an
@@ -54,13 +55,13 @@ newColdStorageOptions pEnabled_ =
 coldStorageOptions_enabled :: Lens.Lens' ColdStorageOptions Prelude.Bool
 coldStorageOptions_enabled = Lens.lens (\ColdStorageOptions' {enabled} -> enabled) (\s@ColdStorageOptions' {} a -> s {enabled = a} :: ColdStorageOptions)
 
-instance Core.FromJSON ColdStorageOptions where
+instance Data.FromJSON ColdStorageOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColdStorageOptions"
       ( \x ->
           ColdStorageOptions'
-            Prelude.<$> (x Core..: "Enabled")
+            Prelude.<$> (x Data..: "Enabled")
       )
 
 instance Prelude.Hashable ColdStorageOptions where
@@ -70,9 +71,9 @@ instance Prelude.Hashable ColdStorageOptions where
 instance Prelude.NFData ColdStorageOptions where
   rnf ColdStorageOptions' {..} = Prelude.rnf enabled
 
-instance Core.ToJSON ColdStorageOptions where
+instance Data.ToJSON ColdStorageOptions where
   toJSON ColdStorageOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Enabled" Core..= enabled)]
+          [Prelude.Just ("Enabled" Data..= enabled)]
       )

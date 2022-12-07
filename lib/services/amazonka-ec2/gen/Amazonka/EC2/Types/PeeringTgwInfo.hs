@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PeeringTgwInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,13 +81,13 @@ peeringTgwInfo_transitGatewayId = Lens.lens (\PeeringTgwInfo' {transitGatewayId}
 peeringTgwInfo_region :: Lens.Lens' PeeringTgwInfo (Prelude.Maybe Prelude.Text)
 peeringTgwInfo_region = Lens.lens (\PeeringTgwInfo' {region} -> region) (\s@PeeringTgwInfo' {} a -> s {region = a} :: PeeringTgwInfo)
 
-instance Core.FromXML PeeringTgwInfo where
+instance Data.FromXML PeeringTgwInfo where
   parseXML x =
     PeeringTgwInfo'
-      Prelude.<$> (x Core..@? "coreNetworkId")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "transitGatewayId")
-      Prelude.<*> (x Core..@? "region")
+      Prelude.<$> (x Data..@? "coreNetworkId")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "transitGatewayId")
+      Prelude.<*> (x Data..@? "region")
 
 instance Prelude.Hashable PeeringTgwInfo where
   hashWithSalt _salt PeeringTgwInfo' {..} =

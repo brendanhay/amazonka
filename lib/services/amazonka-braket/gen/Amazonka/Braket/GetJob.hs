@@ -60,6 +60,7 @@ where
 import Amazonka.Braket.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,30 +99,30 @@ instance Core.AWSRequest GetJob where
     Response.receiveJSON
       ( \s h x ->
           GetJobResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "endedAt")
-            Prelude.<*> (x Core..?> "checkpointConfig")
-            Prelude.<*> (x Core..?> "deviceConfig")
-            Prelude.<*> (x Core..?> "startedAt")
-            Prelude.<*> (x Core..?> "stoppingCondition")
-            Prelude.<*> (x Core..?> "events" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "inputDataConfig"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "endedAt")
+            Prelude.<*> (x Data..?> "checkpointConfig")
+            Prelude.<*> (x Data..?> "deviceConfig")
+            Prelude.<*> (x Data..?> "startedAt")
+            Prelude.<*> (x Data..?> "stoppingCondition")
+            Prelude.<*> (x Data..?> "events" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "inputDataConfig"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "hyperParameters"
+            Prelude.<*> ( x Data..?> "hyperParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "billableDuration")
-            Prelude.<*> (x Core..?> "failureReason")
+            Prelude.<*> (x Data..?> "billableDuration")
+            Prelude.<*> (x Data..?> "failureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "algorithmSpecification")
-            Prelude.<*> (x Core..:> "createdAt")
-            Prelude.<*> (x Core..:> "instanceConfig")
-            Prelude.<*> (x Core..:> "jobArn")
-            Prelude.<*> (x Core..:> "jobName")
-            Prelude.<*> (x Core..:> "outputDataConfig")
-            Prelude.<*> (x Core..:> "roleArn")
-            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Data..:> "algorithmSpecification")
+            Prelude.<*> (x Data..:> "createdAt")
+            Prelude.<*> (x Data..:> "instanceConfig")
+            Prelude.<*> (x Data..:> "jobArn")
+            Prelude.<*> (x Data..:> "jobName")
+            Prelude.<*> (x Data..:> "outputDataConfig")
+            Prelude.<*> (x Data..:> "roleArn")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance Prelude.Hashable GetJob where
@@ -131,22 +132,22 @@ instance Prelude.Hashable GetJob where
 instance Prelude.NFData GetJob where
   rnf GetJob' {..} = Prelude.rnf jobArn
 
-instance Core.ToHeaders GetJob where
+instance Data.ToHeaders GetJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetJob where
+instance Data.ToPath GetJob where
   toPath GetJob' {..} =
-    Prelude.mconcat ["/job/", Core.toBS jobArn]
+    Prelude.mconcat ["/job/", Data.toBS jobArn]
 
-instance Core.ToQuery GetJob where
+instance Data.ToQuery GetJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetJobResponse' smart constructor.
@@ -155,14 +156,14 @@ data GetJobResponse = GetJobResponse'
     -- manage metadata for Amazon Braket resources.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The date and time that the Amazon Braket job ended.
-    endedAt :: Prelude.Maybe Core.POSIX,
+    endedAt :: Prelude.Maybe Data.POSIX,
     -- | Information about the output locations for job checkpoint data.
     checkpointConfig :: Prelude.Maybe JobCheckpointConfig,
     -- | The quantum processing unit (QPU) or simulator used to run the Amazon
     -- Braket job.
     deviceConfig :: Prelude.Maybe DeviceConfig,
     -- | The date and time that the Amazon Braket job was started.
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     -- | The user-defined criteria that specifies when to stop a job running.
     stoppingCondition :: Prelude.Maybe JobStoppingCondition,
     -- | Details about the type and time events occurred related to the Amazon
@@ -188,7 +189,7 @@ data GetJobResponse = GetJobResponse'
     -- and training, and the user-defined metrics used to evaluation the job.
     algorithmSpecification :: AlgorithmSpecification,
     -- | The date and time that the Amazon Braket job was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The resource instances to use while running the hybrid job on Amazon
     -- Braket.
     instanceConfig :: InstanceConfig,
@@ -315,7 +316,7 @@ newGetJobResponse
         failureReason = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         algorithmSpecification = pAlgorithmSpecification_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         instanceConfig = pInstanceConfig_,
         jobArn = pJobArn_,
         jobName = pJobName_,
@@ -331,7 +332,7 @@ getJobResponse_tags = Lens.lens (\GetJobResponse' {tags} -> tags) (\s@GetJobResp
 
 -- | The date and time that the Amazon Braket job ended.
 getJobResponse_endedAt :: Lens.Lens' GetJobResponse (Prelude.Maybe Prelude.UTCTime)
-getJobResponse_endedAt = Lens.lens (\GetJobResponse' {endedAt} -> endedAt) (\s@GetJobResponse' {} a -> s {endedAt = a} :: GetJobResponse) Prelude.. Lens.mapping Core._Time
+getJobResponse_endedAt = Lens.lens (\GetJobResponse' {endedAt} -> endedAt) (\s@GetJobResponse' {} a -> s {endedAt = a} :: GetJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the output locations for job checkpoint data.
 getJobResponse_checkpointConfig :: Lens.Lens' GetJobResponse (Prelude.Maybe JobCheckpointConfig)
@@ -344,7 +345,7 @@ getJobResponse_deviceConfig = Lens.lens (\GetJobResponse' {deviceConfig} -> devi
 
 -- | The date and time that the Amazon Braket job was started.
 getJobResponse_startedAt :: Lens.Lens' GetJobResponse (Prelude.Maybe Prelude.UTCTime)
-getJobResponse_startedAt = Lens.lens (\GetJobResponse' {startedAt} -> startedAt) (\s@GetJobResponse' {} a -> s {startedAt = a} :: GetJobResponse) Prelude.. Lens.mapping Core._Time
+getJobResponse_startedAt = Lens.lens (\GetJobResponse' {startedAt} -> startedAt) (\s@GetJobResponse' {} a -> s {startedAt = a} :: GetJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The user-defined criteria that specifies when to stop a job running.
 getJobResponse_stoppingCondition :: Lens.Lens' GetJobResponse (Prelude.Maybe JobStoppingCondition)
@@ -388,7 +389,7 @@ getJobResponse_algorithmSpecification = Lens.lens (\GetJobResponse' {algorithmSp
 
 -- | The date and time that the Amazon Braket job was created.
 getJobResponse_createdAt :: Lens.Lens' GetJobResponse Prelude.UTCTime
-getJobResponse_createdAt = Lens.lens (\GetJobResponse' {createdAt} -> createdAt) (\s@GetJobResponse' {} a -> s {createdAt = a} :: GetJobResponse) Prelude.. Core._Time
+getJobResponse_createdAt = Lens.lens (\GetJobResponse' {createdAt} -> createdAt) (\s@GetJobResponse' {} a -> s {createdAt = a} :: GetJobResponse) Prelude.. Data._Time
 
 -- | The resource instances to use while running the hybrid job on Amazon
 -- Braket.

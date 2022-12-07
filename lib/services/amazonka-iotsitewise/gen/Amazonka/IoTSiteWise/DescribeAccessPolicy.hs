@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,13 +95,13 @@ instance Core.AWSRequest DescribeAccessPolicy where
       ( \s h x ->
           DescribeAccessPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "accessPolicyId")
-            Prelude.<*> (x Core..:> "accessPolicyArn")
-            Prelude.<*> (x Core..:> "accessPolicyIdentity")
-            Prelude.<*> (x Core..:> "accessPolicyResource")
-            Prelude.<*> (x Core..:> "accessPolicyPermission")
-            Prelude.<*> (x Core..:> "accessPolicyCreationDate")
-            Prelude.<*> (x Core..:> "accessPolicyLastUpdateDate")
+            Prelude.<*> (x Data..:> "accessPolicyId")
+            Prelude.<*> (x Data..:> "accessPolicyArn")
+            Prelude.<*> (x Data..:> "accessPolicyIdentity")
+            Prelude.<*> (x Data..:> "accessPolicyResource")
+            Prelude.<*> (x Data..:> "accessPolicyPermission")
+            Prelude.<*> (x Data..:> "accessPolicyCreationDate")
+            Prelude.<*> (x Data..:> "accessPolicyLastUpdateDate")
       )
 
 instance Prelude.Hashable DescribeAccessPolicy where
@@ -111,23 +112,23 @@ instance Prelude.NFData DescribeAccessPolicy where
   rnf DescribeAccessPolicy' {..} =
     Prelude.rnf accessPolicyId
 
-instance Core.ToHeaders DescribeAccessPolicy where
+instance Data.ToHeaders DescribeAccessPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeAccessPolicy where
+instance Data.ToPath DescribeAccessPolicy where
   toPath DescribeAccessPolicy' {..} =
     Prelude.mconcat
-      ["/access-policies/", Core.toBS accessPolicyId]
+      ["/access-policies/", Data.toBS accessPolicyId]
 
-instance Core.ToQuery DescribeAccessPolicy where
+instance Data.ToQuery DescribeAccessPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAccessPolicyResponse' smart constructor.
@@ -152,9 +153,9 @@ data DescribeAccessPolicyResponse = DescribeAccessPolicyResponse'
     -- also known as a project owner.
     accessPolicyPermission :: Permission,
     -- | The date the access policy was created, in Unix epoch time.
-    accessPolicyCreationDate :: Core.POSIX,
+    accessPolicyCreationDate :: Data.POSIX,
     -- | The date the access policy was last updated, in Unix epoch time.
-    accessPolicyLastUpdateDate :: Core.POSIX
+    accessPolicyLastUpdateDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -225,10 +226,10 @@ newDescribeAccessPolicyResponse
         accessPolicyPermission =
           pAccessPolicyPermission_,
         accessPolicyCreationDate =
-          Core._Time
+          Data._Time
             Lens.# pAccessPolicyCreationDate_,
         accessPolicyLastUpdateDate =
-          Core._Time
+          Data._Time
             Lens.# pAccessPolicyLastUpdateDate_
       }
 
@@ -265,11 +266,11 @@ describeAccessPolicyResponse_accessPolicyPermission = Lens.lens (\DescribeAccess
 
 -- | The date the access policy was created, in Unix epoch time.
 describeAccessPolicyResponse_accessPolicyCreationDate :: Lens.Lens' DescribeAccessPolicyResponse Prelude.UTCTime
-describeAccessPolicyResponse_accessPolicyCreationDate = Lens.lens (\DescribeAccessPolicyResponse' {accessPolicyCreationDate} -> accessPolicyCreationDate) (\s@DescribeAccessPolicyResponse' {} a -> s {accessPolicyCreationDate = a} :: DescribeAccessPolicyResponse) Prelude.. Core._Time
+describeAccessPolicyResponse_accessPolicyCreationDate = Lens.lens (\DescribeAccessPolicyResponse' {accessPolicyCreationDate} -> accessPolicyCreationDate) (\s@DescribeAccessPolicyResponse' {} a -> s {accessPolicyCreationDate = a} :: DescribeAccessPolicyResponse) Prelude.. Data._Time
 
 -- | The date the access policy was last updated, in Unix epoch time.
 describeAccessPolicyResponse_accessPolicyLastUpdateDate :: Lens.Lens' DescribeAccessPolicyResponse Prelude.UTCTime
-describeAccessPolicyResponse_accessPolicyLastUpdateDate = Lens.lens (\DescribeAccessPolicyResponse' {accessPolicyLastUpdateDate} -> accessPolicyLastUpdateDate) (\s@DescribeAccessPolicyResponse' {} a -> s {accessPolicyLastUpdateDate = a} :: DescribeAccessPolicyResponse) Prelude.. Core._Time
+describeAccessPolicyResponse_accessPolicyLastUpdateDate = Lens.lens (\DescribeAccessPolicyResponse' {accessPolicyLastUpdateDate} -> accessPolicyLastUpdateDate) (\s@DescribeAccessPolicyResponse' {} a -> s {accessPolicyLastUpdateDate = a} :: DescribeAccessPolicyResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeAccessPolicyResponse where
   rnf DescribeAccessPolicyResponse' {..} =

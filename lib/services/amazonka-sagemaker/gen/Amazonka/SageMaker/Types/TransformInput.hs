@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TransformInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CompressionType
 import Amazonka.SageMaker.Types.SplitType
@@ -196,16 +197,16 @@ transformInput_contentType = Lens.lens (\TransformInput' {contentType} -> conten
 transformInput_dataSource :: Lens.Lens' TransformInput TransformDataSource
 transformInput_dataSource = Lens.lens (\TransformInput' {dataSource} -> dataSource) (\s@TransformInput' {} a -> s {dataSource = a} :: TransformInput)
 
-instance Core.FromJSON TransformInput where
+instance Data.FromJSON TransformInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransformInput"
       ( \x ->
           TransformInput'
-            Prelude.<$> (x Core..:? "SplitType")
-            Prelude.<*> (x Core..:? "CompressionType")
-            Prelude.<*> (x Core..:? "ContentType")
-            Prelude.<*> (x Core..: "DataSource")
+            Prelude.<$> (x Data..:? "SplitType")
+            Prelude.<*> (x Data..:? "CompressionType")
+            Prelude.<*> (x Data..:? "ContentType")
+            Prelude.<*> (x Data..: "DataSource")
       )
 
 instance Prelude.Hashable TransformInput where
@@ -222,14 +223,14 @@ instance Prelude.NFData TransformInput where
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf dataSource
 
-instance Core.ToJSON TransformInput where
+instance Data.ToJSON TransformInput where
   toJSON TransformInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SplitType" Core..=) Prelude.<$> splitType,
-            ("CompressionType" Core..=)
+          [ ("SplitType" Data..=) Prelude.<$> splitType,
+            ("CompressionType" Data..=)
               Prelude.<$> compressionType,
-            ("ContentType" Core..=) Prelude.<$> contentType,
-            Prelude.Just ("DataSource" Core..= dataSource)
+            ("ContentType" Data..=) Prelude.<$> contentType,
+            Prelude.Just ("DataSource" Data..= dataSource)
           ]
       )

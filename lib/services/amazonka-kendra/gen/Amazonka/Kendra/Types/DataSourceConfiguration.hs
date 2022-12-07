@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DataSourceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.AlfrescoConfiguration
 import Amazonka.Kendra.Types.BoxConfiguration
 import Amazonka.Kendra.Types.ConfluenceConfiguration
@@ -274,30 +275,30 @@ dataSourceConfiguration_webCrawlerConfiguration = Lens.lens (\DataSourceConfigur
 dataSourceConfiguration_alfrescoConfiguration :: Lens.Lens' DataSourceConfiguration (Prelude.Maybe AlfrescoConfiguration)
 dataSourceConfiguration_alfrescoConfiguration = Lens.lens (\DataSourceConfiguration' {alfrescoConfiguration} -> alfrescoConfiguration) (\s@DataSourceConfiguration' {} a -> s {alfrescoConfiguration = a} :: DataSourceConfiguration)
 
-instance Core.FromJSON DataSourceConfiguration where
+instance Data.FromJSON DataSourceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSourceConfiguration"
       ( \x ->
           DataSourceConfiguration'
-            Prelude.<$> (x Core..:? "GoogleDriveConfiguration")
-            Prelude.<*> (x Core..:? "S3Configuration")
-            Prelude.<*> (x Core..:? "GitHubConfiguration")
-            Prelude.<*> (x Core..:? "WorkDocsConfiguration")
-            Prelude.<*> (x Core..:? "QuipConfiguration")
-            Prelude.<*> (x Core..:? "JiraConfiguration")
-            Prelude.<*> (x Core..:? "ConfluenceConfiguration")
-            Prelude.<*> (x Core..:? "BoxConfiguration")
-            Prelude.<*> (x Core..:? "OneDriveConfiguration")
-            Prelude.<*> (x Core..:? "SharePointConfiguration")
-            Prelude.<*> (x Core..:? "FsxConfiguration")
-            Prelude.<*> (x Core..:? "SalesforceConfiguration")
-            Prelude.<*> (x Core..:? "DatabaseConfiguration")
-            Prelude.<*> (x Core..:? "ServiceNowConfiguration")
-            Prelude.<*> (x Core..:? "TemplateConfiguration")
-            Prelude.<*> (x Core..:? "SlackConfiguration")
-            Prelude.<*> (x Core..:? "WebCrawlerConfiguration")
-            Prelude.<*> (x Core..:? "AlfrescoConfiguration")
+            Prelude.<$> (x Data..:? "GoogleDriveConfiguration")
+            Prelude.<*> (x Data..:? "S3Configuration")
+            Prelude.<*> (x Data..:? "GitHubConfiguration")
+            Prelude.<*> (x Data..:? "WorkDocsConfiguration")
+            Prelude.<*> (x Data..:? "QuipConfiguration")
+            Prelude.<*> (x Data..:? "JiraConfiguration")
+            Prelude.<*> (x Data..:? "ConfluenceConfiguration")
+            Prelude.<*> (x Data..:? "BoxConfiguration")
+            Prelude.<*> (x Data..:? "OneDriveConfiguration")
+            Prelude.<*> (x Data..:? "SharePointConfiguration")
+            Prelude.<*> (x Data..:? "FsxConfiguration")
+            Prelude.<*> (x Data..:? "SalesforceConfiguration")
+            Prelude.<*> (x Data..:? "DatabaseConfiguration")
+            Prelude.<*> (x Data..:? "ServiceNowConfiguration")
+            Prelude.<*> (x Data..:? "TemplateConfiguration")
+            Prelude.<*> (x Data..:? "SlackConfiguration")
+            Prelude.<*> (x Data..:? "WebCrawlerConfiguration")
+            Prelude.<*> (x Data..:? "AlfrescoConfiguration")
       )
 
 instance Prelude.Hashable DataSourceConfiguration where
@@ -343,45 +344,45 @@ instance Prelude.NFData DataSourceConfiguration where
       `Prelude.seq` Prelude.rnf webCrawlerConfiguration
       `Prelude.seq` Prelude.rnf alfrescoConfiguration
 
-instance Core.ToJSON DataSourceConfiguration where
+instance Data.ToJSON DataSourceConfiguration where
   toJSON DataSourceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GoogleDriveConfiguration" Core..=)
+          [ ("GoogleDriveConfiguration" Data..=)
               Prelude.<$> googleDriveConfiguration,
-            ("S3Configuration" Core..=)
+            ("S3Configuration" Data..=)
               Prelude.<$> s3Configuration,
-            ("GitHubConfiguration" Core..=)
+            ("GitHubConfiguration" Data..=)
               Prelude.<$> gitHubConfiguration,
-            ("WorkDocsConfiguration" Core..=)
+            ("WorkDocsConfiguration" Data..=)
               Prelude.<$> workDocsConfiguration,
-            ("QuipConfiguration" Core..=)
+            ("QuipConfiguration" Data..=)
               Prelude.<$> quipConfiguration,
-            ("JiraConfiguration" Core..=)
+            ("JiraConfiguration" Data..=)
               Prelude.<$> jiraConfiguration,
-            ("ConfluenceConfiguration" Core..=)
+            ("ConfluenceConfiguration" Data..=)
               Prelude.<$> confluenceConfiguration,
-            ("BoxConfiguration" Core..=)
+            ("BoxConfiguration" Data..=)
               Prelude.<$> boxConfiguration,
-            ("OneDriveConfiguration" Core..=)
+            ("OneDriveConfiguration" Data..=)
               Prelude.<$> oneDriveConfiguration,
-            ("SharePointConfiguration" Core..=)
+            ("SharePointConfiguration" Data..=)
               Prelude.<$> sharePointConfiguration,
-            ("FsxConfiguration" Core..=)
+            ("FsxConfiguration" Data..=)
               Prelude.<$> fsxConfiguration,
-            ("SalesforceConfiguration" Core..=)
+            ("SalesforceConfiguration" Data..=)
               Prelude.<$> salesforceConfiguration,
-            ("DatabaseConfiguration" Core..=)
+            ("DatabaseConfiguration" Data..=)
               Prelude.<$> databaseConfiguration,
-            ("ServiceNowConfiguration" Core..=)
+            ("ServiceNowConfiguration" Data..=)
               Prelude.<$> serviceNowConfiguration,
-            ("TemplateConfiguration" Core..=)
+            ("TemplateConfiguration" Data..=)
               Prelude.<$> templateConfiguration,
-            ("SlackConfiguration" Core..=)
+            ("SlackConfiguration" Data..=)
               Prelude.<$> slackConfiguration,
-            ("WebCrawlerConfiguration" Core..=)
+            ("WebCrawlerConfiguration" Data..=)
               Prelude.<$> webCrawlerConfiguration,
-            ("AlfrescoConfiguration" Core..=)
+            ("AlfrescoConfiguration" Data..=)
               Prelude.<$> alfrescoConfiguration
           ]
       )

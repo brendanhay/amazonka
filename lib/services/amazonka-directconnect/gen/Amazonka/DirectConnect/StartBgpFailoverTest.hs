@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,7 +132,7 @@ instance Core.AWSRequest StartBgpFailoverTest where
     Response.receiveJSON
       ( \s h x ->
           StartBgpFailoverTestResponse'
-            Prelude.<$> (x Core..?> "virtualInterfaceTest")
+            Prelude.<$> (x Data..?> "virtualInterfaceTest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,37 +148,37 @@ instance Prelude.NFData StartBgpFailoverTest where
       `Prelude.seq` Prelude.rnf bgpPeers
       `Prelude.seq` Prelude.rnf virtualInterfaceId
 
-instance Core.ToHeaders StartBgpFailoverTest where
+instance Data.ToHeaders StartBgpFailoverTest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.StartBgpFailoverTest" ::
+              Data.=# ( "OvertureService.StartBgpFailoverTest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartBgpFailoverTest where
+instance Data.ToJSON StartBgpFailoverTest where
   toJSON StartBgpFailoverTest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("testDurationInMinutes" Core..=)
+          [ ("testDurationInMinutes" Data..=)
               Prelude.<$> testDurationInMinutes,
-            ("bgpPeers" Core..=) Prelude.<$> bgpPeers,
+            ("bgpPeers" Data..=) Prelude.<$> bgpPeers,
             Prelude.Just
-              ("virtualInterfaceId" Core..= virtualInterfaceId)
+              ("virtualInterfaceId" Data..= virtualInterfaceId)
           ]
       )
 
-instance Core.ToPath StartBgpFailoverTest where
+instance Data.ToPath StartBgpFailoverTest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartBgpFailoverTest where
+instance Data.ToQuery StartBgpFailoverTest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartBgpFailoverTestResponse' smart constructor.

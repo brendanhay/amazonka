@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,28 +92,28 @@ instance Prelude.Hashable DeleteChannel where
 instance Prelude.NFData DeleteChannel where
   rnf DeleteChannel' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeleteChannel where
+instance Data.ToHeaders DeleteChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteChannel where
+instance Data.ToJSON DeleteChannel where
   toJSON DeleteChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath DeleteChannel where
+instance Data.ToPath DeleteChannel where
   toPath = Prelude.const "/DeleteChannel"
 
-instance Core.ToQuery DeleteChannel where
+instance Data.ToQuery DeleteChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteChannelResponse' smart constructor.

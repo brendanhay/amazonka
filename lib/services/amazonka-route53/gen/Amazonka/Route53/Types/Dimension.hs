@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.Dimension where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 
@@ -70,10 +71,10 @@ dimension_name = Lens.lens (\Dimension' {name} -> name) (\s@Dimension' {} a -> s
 dimension_value :: Lens.Lens' Dimension Prelude.Text
 dimension_value = Lens.lens (\Dimension' {value} -> value) (\s@Dimension' {} a -> s {value = a} :: Dimension)
 
-instance Core.FromXML Dimension where
+instance Data.FromXML Dimension where
   parseXML x =
     Dimension'
-      Prelude.<$> (x Core..@ "Name") Prelude.<*> (x Core..@ "Value")
+      Prelude.<$> (x Data..@ "Name") Prelude.<*> (x Data..@ "Value")
 
 instance Prelude.Hashable Dimension where
   hashWithSalt _salt Dimension' {..} =

@@ -45,6 +45,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,7 +130,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateAssessmentControlSetStatusResponse'
-            Prelude.<$> (x Core..?> "controlSet")
+            Prelude.<$> (x Data..?> "controlSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,40 +157,40 @@ instance
       `Prelude.seq` Prelude.rnf comment
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateAssessmentControlSetStatus
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAssessmentControlSetStatus where
+instance Data.ToJSON UpdateAssessmentControlSetStatus where
   toJSON UpdateAssessmentControlSetStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("status" Core..= status),
-            Prelude.Just ("comment" Core..= comment)
+          [ Prelude.Just ("status" Data..= status),
+            Prelude.Just ("comment" Data..= comment)
           ]
       )
 
-instance Core.ToPath UpdateAssessmentControlSetStatus where
+instance Data.ToPath UpdateAssessmentControlSetStatus where
   toPath UpdateAssessmentControlSetStatus' {..} =
     Prelude.mconcat
       [ "/assessments/",
-        Core.toBS assessmentId,
+        Data.toBS assessmentId,
         "/controlSets/",
-        Core.toBS controlSetId,
+        Data.toBS controlSetId,
         "/status"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateAssessmentControlSetStatus
   where
   toQuery = Prelude.const Prelude.mempty

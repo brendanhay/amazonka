@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IpamScope where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IpamScopeState
 import Amazonka.EC2.Types.IpamScopeType
@@ -167,22 +168,22 @@ ipamScope_isDefault = Lens.lens (\IpamScope' {isDefault} -> isDefault) (\s@IpamS
 ipamScope_ipamRegion :: Lens.Lens' IpamScope (Prelude.Maybe Prelude.Text)
 ipamScope_ipamRegion = Lens.lens (\IpamScope' {ipamRegion} -> ipamRegion) (\s@IpamScope' {} a -> s {ipamRegion = a} :: IpamScope)
 
-instance Core.FromXML IpamScope where
+instance Data.FromXML IpamScope where
   parseXML x =
     IpamScope'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ipamScopeArn")
-      Prelude.<*> (x Core..@? "ipamScopeId")
-      Prelude.<*> (x Core..@? "ipamScopeType")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "poolCount")
-      Prelude.<*> (x Core..@? "ipamArn")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "isDefault")
-      Prelude.<*> (x Core..@? "ipamRegion")
+      Prelude.<*> (x Data..@? "ipamScopeArn")
+      Prelude.<*> (x Data..@? "ipamScopeId")
+      Prelude.<*> (x Data..@? "ipamScopeType")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "poolCount")
+      Prelude.<*> (x Data..@? "ipamArn")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "isDefault")
+      Prelude.<*> (x Data..@? "ipamRegion")
 
 instance Prelude.Hashable IpamScope where
   hashWithSalt _salt IpamScope' {..} =

@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.LookoutMetricsDestinationProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Amazon Lookout for Metrics is used
@@ -42,11 +43,11 @@ newLookoutMetricsDestinationProperties =
   LookoutMetricsDestinationProperties'
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LookoutMetricsDestinationProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LookoutMetricsDestinationProperties"
       ( \x ->
           Prelude.pure LookoutMetricsDestinationProperties'
@@ -66,7 +67,7 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     LookoutMetricsDestinationProperties
   where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

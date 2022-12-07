@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.Instance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.Architecture
 import Amazonka.OpsWorks.Types.AutoScalingType
 import Amazonka.OpsWorks.Types.BlockDeviceMapping
@@ -574,57 +575,57 @@ instance_sshHostRsaKeyFingerprint = Lens.lens (\Instance' {sshHostRsaKeyFingerpr
 instance_installUpdatesOnBoot :: Lens.Lens' Instance (Prelude.Maybe Prelude.Bool)
 instance_installUpdatesOnBoot = Lens.lens (\Instance' {installUpdatesOnBoot} -> installUpdatesOnBoot) (\s@Instance' {} a -> s {installUpdatesOnBoot = a} :: Instance)
 
-instance Core.FromJSON Instance where
+instance Data.FromJSON Instance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Instance"
       ( \x ->
           Instance'
-            Prelude.<$> (x Core..:? "EbsOptimized")
-            Prelude.<*> (x Core..:? "Os")
-            Prelude.<*> (x Core..:? "PrivateDns")
-            Prelude.<*> (x Core..:? "StackId")
-            Prelude.<*> (x Core..:? "AmiId")
-            Prelude.<*> (x Core..:? "Ec2InstanceId")
-            Prelude.<*> (x Core..:? "ElasticIp")
-            Prelude.<*> (x Core..:? "EcsClusterArn")
-            Prelude.<*> ( x Core..:? "BlockDeviceMappings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "EbsOptimized")
+            Prelude.<*> (x Data..:? "Os")
+            Prelude.<*> (x Data..:? "PrivateDns")
+            Prelude.<*> (x Data..:? "StackId")
+            Prelude.<*> (x Data..:? "AmiId")
+            Prelude.<*> (x Data..:? "Ec2InstanceId")
+            Prelude.<*> (x Data..:? "ElasticIp")
+            Prelude.<*> (x Data..:? "EcsClusterArn")
+            Prelude.<*> ( x Data..:? "BlockDeviceMappings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "SecurityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "SecurityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AutoScalingType")
-            Prelude.<*> (x Core..:? "RegisteredBy")
-            Prelude.<*> (x Core..:? "RootDeviceType")
-            Prelude.<*> (x Core..:? "VirtualizationType")
-            Prelude.<*> (x Core..:? "InstanceProfileArn")
-            Prelude.<*> (x Core..:? "SubnetId")
-            Prelude.<*> (x Core..:? "EcsContainerInstanceArn")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "RootDeviceVolumeId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Platform")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "Hostname")
-            Prelude.<*> (x Core..:? "PublicIp")
-            Prelude.<*> (x Core..:? "InfrastructureClass")
-            Prelude.<*> (x Core..:? "ReportedAgentVersion")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "SshHostDsaKeyFingerprint")
-            Prelude.<*> (x Core..:? "SshKeyName")
-            Prelude.<*> (x Core..:? "LastServiceErrorId")
-            Prelude.<*> (x Core..:? "LayerIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PrivateIp")
-            Prelude.<*> (x Core..:? "ReportedOs")
-            Prelude.<*> (x Core..:? "Architecture")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "PublicDns")
-            Prelude.<*> (x Core..:? "Tenancy")
-            Prelude.<*> (x Core..:? "AgentVersion")
-            Prelude.<*> (x Core..:? "SshHostRsaKeyFingerprint")
-            Prelude.<*> (x Core..:? "InstallUpdatesOnBoot")
+            Prelude.<*> (x Data..:? "AutoScalingType")
+            Prelude.<*> (x Data..:? "RegisteredBy")
+            Prelude.<*> (x Data..:? "RootDeviceType")
+            Prelude.<*> (x Data..:? "VirtualizationType")
+            Prelude.<*> (x Data..:? "InstanceProfileArn")
+            Prelude.<*> (x Data..:? "SubnetId")
+            Prelude.<*> (x Data..:? "EcsContainerInstanceArn")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "RootDeviceVolumeId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Platform")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "Hostname")
+            Prelude.<*> (x Data..:? "PublicIp")
+            Prelude.<*> (x Data..:? "InfrastructureClass")
+            Prelude.<*> (x Data..:? "ReportedAgentVersion")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "SshHostDsaKeyFingerprint")
+            Prelude.<*> (x Data..:? "SshKeyName")
+            Prelude.<*> (x Data..:? "LastServiceErrorId")
+            Prelude.<*> (x Data..:? "LayerIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PrivateIp")
+            Prelude.<*> (x Data..:? "ReportedOs")
+            Prelude.<*> (x Data..:? "Architecture")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "PublicDns")
+            Prelude.<*> (x Data..:? "Tenancy")
+            Prelude.<*> (x Data..:? "AgentVersion")
+            Prelude.<*> (x Data..:? "SshHostRsaKeyFingerprint")
+            Prelude.<*> (x Data..:? "InstallUpdatesOnBoot")
       )
 
 instance Prelude.Hashable Instance where

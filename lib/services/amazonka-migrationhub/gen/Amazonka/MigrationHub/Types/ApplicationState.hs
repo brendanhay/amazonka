@@ -21,6 +21,7 @@ module Amazonka.MigrationHub.Types.ApplicationState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHub.Types.ApplicationStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newApplicationState' smart constructor.
 data ApplicationState = ApplicationState'
   { -- | The timestamp when the application status was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The current status of an application.
     applicationStatus :: Prelude.Maybe ApplicationStatus,
     -- | The configurationId from the Application Discovery Service that uniquely
@@ -66,7 +67,7 @@ newApplicationState =
 
 -- | The timestamp when the application status was last updated.
 applicationState_lastUpdatedTime :: Lens.Lens' ApplicationState (Prelude.Maybe Prelude.UTCTime)
-applicationState_lastUpdatedTime = Lens.lens (\ApplicationState' {lastUpdatedTime} -> lastUpdatedTime) (\s@ApplicationState' {} a -> s {lastUpdatedTime = a} :: ApplicationState) Prelude.. Lens.mapping Core._Time
+applicationState_lastUpdatedTime = Lens.lens (\ApplicationState' {lastUpdatedTime} -> lastUpdatedTime) (\s@ApplicationState' {} a -> s {lastUpdatedTime = a} :: ApplicationState) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of an application.
 applicationState_applicationStatus :: Lens.Lens' ApplicationState (Prelude.Maybe ApplicationStatus)
@@ -77,15 +78,15 @@ applicationState_applicationStatus = Lens.lens (\ApplicationState' {applicationS
 applicationState_applicationId :: Lens.Lens' ApplicationState (Prelude.Maybe Prelude.Text)
 applicationState_applicationId = Lens.lens (\ApplicationState' {applicationId} -> applicationId) (\s@ApplicationState' {} a -> s {applicationId = a} :: ApplicationState)
 
-instance Core.FromJSON ApplicationState where
+instance Data.FromJSON ApplicationState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationState"
       ( \x ->
           ApplicationState'
-            Prelude.<$> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "ApplicationStatus")
-            Prelude.<*> (x Core..:? "ApplicationId")
+            Prelude.<$> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "ApplicationStatus")
+            Prelude.<*> (x Data..:? "ApplicationId")
       )
 
 instance Prelude.Hashable ApplicationState where

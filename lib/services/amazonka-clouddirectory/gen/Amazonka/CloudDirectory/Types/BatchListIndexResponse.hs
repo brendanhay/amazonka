@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchListIndexResponse where
 import Amazonka.CloudDirectory.Types.IndexAttachment
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a ListIndex response operation.
@@ -63,15 +64,15 @@ batchListIndexResponse_nextToken = Lens.lens (\BatchListIndexResponse' {nextToke
 batchListIndexResponse_indexAttachments :: Lens.Lens' BatchListIndexResponse (Prelude.Maybe [IndexAttachment])
 batchListIndexResponse_indexAttachments = Lens.lens (\BatchListIndexResponse' {indexAttachments} -> indexAttachments) (\s@BatchListIndexResponse' {} a -> s {indexAttachments = a} :: BatchListIndexResponse) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON BatchListIndexResponse where
+instance Data.FromJSON BatchListIndexResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchListIndexResponse"
       ( \x ->
           BatchListIndexResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> ( x Core..:? "IndexAttachments"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> ( x Data..:? "IndexAttachments"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -23,6 +23,7 @@ import Amazonka.CloudWatchEvents.Types.BatchArrayProperties
 import Amazonka.CloudWatchEvents.Types.BatchRetryStrategy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The custom parameters to be used when the target is an Batch job.
@@ -109,16 +110,16 @@ batchParameters_jobDefinition = Lens.lens (\BatchParameters' {jobDefinition} -> 
 batchParameters_jobName :: Lens.Lens' BatchParameters Prelude.Text
 batchParameters_jobName = Lens.lens (\BatchParameters' {jobName} -> jobName) (\s@BatchParameters' {} a -> s {jobName = a} :: BatchParameters)
 
-instance Core.FromJSON BatchParameters where
+instance Data.FromJSON BatchParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchParameters"
       ( \x ->
           BatchParameters'
-            Prelude.<$> (x Core..:? "RetryStrategy")
-            Prelude.<*> (x Core..:? "ArrayProperties")
-            Prelude.<*> (x Core..: "JobDefinition")
-            Prelude.<*> (x Core..: "JobName")
+            Prelude.<$> (x Data..:? "RetryStrategy")
+            Prelude.<*> (x Data..:? "ArrayProperties")
+            Prelude.<*> (x Data..: "JobDefinition")
+            Prelude.<*> (x Data..: "JobName")
       )
 
 instance Prelude.Hashable BatchParameters where
@@ -135,14 +136,14 @@ instance Prelude.NFData BatchParameters where
       `Prelude.seq` Prelude.rnf jobDefinition
       `Prelude.seq` Prelude.rnf jobName
 
-instance Core.ToJSON BatchParameters where
+instance Data.ToJSON BatchParameters where
   toJSON BatchParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RetryStrategy" Core..=) Prelude.<$> retryStrategy,
-            ("ArrayProperties" Core..=)
+          [ ("RetryStrategy" Data..=) Prelude.<$> retryStrategy,
+            ("ArrayProperties" Data..=)
               Prelude.<$> arrayProperties,
-            Prelude.Just ("JobDefinition" Core..= jobDefinition),
-            Prelude.Just ("JobName" Core..= jobName)
+            Prelude.Just ("JobDefinition" Data..= jobDefinition),
+            Prelude.Just ("JobName" Data..= jobName)
           ]
       )

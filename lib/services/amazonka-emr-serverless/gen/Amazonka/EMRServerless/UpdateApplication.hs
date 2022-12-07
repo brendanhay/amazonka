@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRServerless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -177,7 +178,7 @@ instance Core.AWSRequest UpdateApplication where
       ( \s h x ->
           UpdateApplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "application")
+            Prelude.<*> (x Data..:> "application")
       )
 
 instance Prelude.Hashable UpdateApplication where
@@ -202,42 +203,42 @@ instance Prelude.NFData UpdateApplication where
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders UpdateApplication where
+instance Data.ToHeaders UpdateApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateApplication where
+instance Data.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("autoStopConfiguration" Core..=)
+          [ ("autoStopConfiguration" Data..=)
               Prelude.<$> autoStopConfiguration,
-            ("initialCapacity" Core..=)
+            ("initialCapacity" Data..=)
               Prelude.<$> initialCapacity,
-            ("networkConfiguration" Core..=)
+            ("networkConfiguration" Data..=)
               Prelude.<$> networkConfiguration,
-            ("autoStartConfiguration" Core..=)
+            ("autoStartConfiguration" Data..=)
               Prelude.<$> autoStartConfiguration,
-            ("maximumCapacity" Core..=)
+            ("maximumCapacity" Data..=)
               Prelude.<$> maximumCapacity,
-            ("architecture" Core..=) Prelude.<$> architecture,
-            Prelude.Just ("clientToken" Core..= clientToken)
+            ("architecture" Data..=) Prelude.<$> architecture,
+            Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath UpdateApplication where
+instance Data.ToPath UpdateApplication where
   toPath UpdateApplication' {..} =
     Prelude.mconcat
-      ["/applications/", Core.toBS applicationId]
+      ["/applications/", Data.toBS applicationId]
 
-instance Core.ToQuery UpdateApplication where
+instance Data.ToQuery UpdateApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateApplicationResponse' smart constructor.

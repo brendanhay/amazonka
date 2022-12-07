@@ -44,6 +44,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,28 +132,28 @@ instance Prelude.NFData AttachPolicy where
       `Prelude.seq` Prelude.rnf policyReference
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToHeaders AttachPolicy where
+instance Data.ToHeaders AttachPolicy where
   toHeaders AttachPolicy' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON AttachPolicy where
+instance Data.ToJSON AttachPolicy where
   toJSON AttachPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PolicyReference" Core..= policyReference),
+              ("PolicyReference" Data..= policyReference),
             Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )
 
-instance Core.ToPath AttachPolicy where
+instance Data.ToPath AttachPolicy where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/policy/attach"
 
-instance Core.ToQuery AttachPolicy where
+instance Data.ToQuery AttachPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAttachPolicyResponse' smart constructor.

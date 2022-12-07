@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Location where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CodeGenNodeArg
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,12 +84,12 @@ instance Prelude.NFData Location where
       `Prelude.seq` Prelude.rnf dynamoDB
       `Prelude.seq` Prelude.rnf jdbc
 
-instance Core.ToJSON Location where
+instance Data.ToJSON Location where
   toJSON Location' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3" Core..=) Prelude.<$> s3,
-            ("DynamoDB" Core..=) Prelude.<$> dynamoDB,
-            ("Jdbc" Core..=) Prelude.<$> jdbc
+          [ ("S3" Data..=) Prelude.<$> s3,
+            ("DynamoDB" Data..=) Prelude.<$> dynamoDB,
+            ("Jdbc" Data..=) Prelude.<$> jdbc
           ]
       )

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ instance Core.AWSRequest GetProposal where
     Response.receiveJSON
       ( \s h x ->
           GetProposalResponse'
-            Prelude.<$> (x Core..?> "Proposal")
+            Prelude.<$> (x Data..?> "Proposal")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,27 +112,27 @@ instance Prelude.NFData GetProposal where
     Prelude.rnf networkId
       `Prelude.seq` Prelude.rnf proposalId
 
-instance Core.ToHeaders GetProposal where
+instance Data.ToHeaders GetProposal where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetProposal where
+instance Data.ToPath GetProposal where
   toPath GetProposal' {..} =
     Prelude.mconcat
       [ "/networks/",
-        Core.toBS networkId,
+        Data.toBS networkId,
         "/proposals/",
-        Core.toBS proposalId
+        Data.toBS proposalId
       ]
 
-instance Core.ToQuery GetProposal where
+instance Data.ToQuery GetProposal where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetProposalResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.AttackVectorDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the attack.
@@ -160,13 +161,13 @@ newAttackVectorDescription pVectorType_ =
 attackVectorDescription_vectorType :: Lens.Lens' AttackVectorDescription Prelude.Text
 attackVectorDescription_vectorType = Lens.lens (\AttackVectorDescription' {vectorType} -> vectorType) (\s@AttackVectorDescription' {} a -> s {vectorType = a} :: AttackVectorDescription)
 
-instance Core.FromJSON AttackVectorDescription where
+instance Data.FromJSON AttackVectorDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttackVectorDescription"
       ( \x ->
           AttackVectorDescription'
-            Prelude.<$> (x Core..: "VectorType")
+            Prelude.<$> (x Data..: "VectorType")
       )
 
 instance Prelude.Hashable AttackVectorDescription where

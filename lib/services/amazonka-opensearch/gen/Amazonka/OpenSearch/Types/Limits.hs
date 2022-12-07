@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.Limits where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.AdditionalLimit
 import Amazonka.OpenSearch.Types.InstanceLimits
 import Amazonka.OpenSearch.Types.StorageType
@@ -76,16 +77,16 @@ limits_storageTypes = Lens.lens (\Limits' {storageTypes} -> storageTypes) (\s@Li
 limits_additionalLimits :: Lens.Lens' Limits (Prelude.Maybe [AdditionalLimit])
 limits_additionalLimits = Lens.lens (\Limits' {additionalLimits} -> additionalLimits) (\s@Limits' {} a -> s {additionalLimits = a} :: Limits) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Limits where
+instance Data.FromJSON Limits where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Limits"
       ( \x ->
           Limits'
-            Prelude.<$> (x Core..:? "InstanceLimits")
-            Prelude.<*> (x Core..:? "StorageTypes" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "AdditionalLimits"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "InstanceLimits")
+            Prelude.<*> (x Data..:? "StorageTypes" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "AdditionalLimits"
+                            Data..!= Prelude.mempty
                         )
       )
 

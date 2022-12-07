@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.ReplicationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.PITPolicyRule
 import Amazonka.DrS.Types.ReplicationConfigurationDataPlaneRouting
 import Amazonka.DrS.Types.ReplicationConfigurationDefaultLargeStagingDiskType
@@ -40,7 +41,7 @@ data ReplicationConfiguration = ReplicationConfiguration'
     -- | A set of tags to be associated with all resources created in the
     -- replication staging area: EC2 replication server, EBS volumes, EBS
     -- snapshots, etc.
-    stagingAreaTags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    stagingAreaTags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Whether to associate the default Elastic Disaster Recovery Security
     -- group with the Replication Configuration.
     associateDefaultSecurityGroup :: Prelude.Maybe Prelude.Bool,
@@ -157,7 +158,7 @@ replicationConfiguration_replicationServerInstanceType = Lens.lens (\Replication
 -- replication staging area: EC2 replication server, EBS volumes, EBS
 -- snapshots, etc.
 replicationConfiguration_stagingAreaTags :: Lens.Lens' ReplicationConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-replicationConfiguration_stagingAreaTags = Lens.lens (\ReplicationConfiguration' {stagingAreaTags} -> stagingAreaTags) (\s@ReplicationConfiguration' {} a -> s {stagingAreaTags = a} :: ReplicationConfiguration) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+replicationConfiguration_stagingAreaTags = Lens.lens (\ReplicationConfiguration' {stagingAreaTags} -> stagingAreaTags) (\s@ReplicationConfiguration' {} a -> s {stagingAreaTags = a} :: ReplicationConfiguration) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Whether to associate the default Elastic Disaster Recovery Security
 -- group with the Replication Configuration.
@@ -210,34 +211,34 @@ replicationConfiguration_replicationServersSecurityGroupsIDs = Lens.lens (\Repli
 replicationConfiguration_ebsEncryptionKeyArn :: Lens.Lens' ReplicationConfiguration (Prelude.Maybe Prelude.Text)
 replicationConfiguration_ebsEncryptionKeyArn = Lens.lens (\ReplicationConfiguration' {ebsEncryptionKeyArn} -> ebsEncryptionKeyArn) (\s@ReplicationConfiguration' {} a -> s {ebsEncryptionKeyArn = a} :: ReplicationConfiguration)
 
-instance Core.FromJSON ReplicationConfiguration where
+instance Data.FromJSON ReplicationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationConfiguration"
       ( \x ->
           ReplicationConfiguration'
-            Prelude.<$> (x Core..:? "bandwidthThrottling")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "replicationServerInstanceType")
-            Prelude.<*> ( x Core..:? "stagingAreaTags"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "bandwidthThrottling")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "replicationServerInstanceType")
+            Prelude.<*> ( x Data..:? "stagingAreaTags"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "associateDefaultSecurityGroup")
-            Prelude.<*> (x Core..:? "defaultLargeStagingDiskType")
-            Prelude.<*> (x Core..:? "stagingAreaSubnetId")
-            Prelude.<*> (x Core..:? "createPublicIP")
-            Prelude.<*> (x Core..:? "dataPlaneRouting")
-            Prelude.<*> (x Core..:? "ebsEncryption")
-            Prelude.<*> ( x Core..:? "replicatedDisks"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "associateDefaultSecurityGroup")
+            Prelude.<*> (x Data..:? "defaultLargeStagingDiskType")
+            Prelude.<*> (x Data..:? "stagingAreaSubnetId")
+            Prelude.<*> (x Data..:? "createPublicIP")
+            Prelude.<*> (x Data..:? "dataPlaneRouting")
+            Prelude.<*> (x Data..:? "ebsEncryption")
+            Prelude.<*> ( x Data..:? "replicatedDisks"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "sourceServerID")
-            Prelude.<*> (x Core..:? "pitPolicy")
-            Prelude.<*> (x Core..:? "useDedicatedReplicationServer")
-            Prelude.<*> ( x Core..:? "replicationServersSecurityGroupsIDs"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "sourceServerID")
+            Prelude.<*> (x Data..:? "pitPolicy")
+            Prelude.<*> (x Data..:? "useDedicatedReplicationServer")
+            Prelude.<*> ( x Data..:? "replicationServersSecurityGroupsIDs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ebsEncryptionKeyArn")
+            Prelude.<*> (x Data..:? "ebsEncryptionKeyArn")
       )
 
 instance Prelude.Hashable ReplicationConfiguration where

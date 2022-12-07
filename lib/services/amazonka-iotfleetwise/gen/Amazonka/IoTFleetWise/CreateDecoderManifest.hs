@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,8 +149,8 @@ instance Core.AWSRequest CreateDecoderManifest where
       ( \s h x ->
           CreateDecoderManifestResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable CreateDecoderManifest where
@@ -170,41 +171,41 @@ instance Prelude.NFData CreateDecoderManifest where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf modelManifestArn
 
-instance Core.ToHeaders CreateDecoderManifest where
+instance Data.ToHeaders CreateDecoderManifest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.CreateDecoderManifest" ::
+              Data.=# ( "IoTAutobahnControlPlane.CreateDecoderManifest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDecoderManifest where
+instance Data.ToJSON CreateDecoderManifest where
   toJSON CreateDecoderManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("signalDecoders" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("signalDecoders" Data..=)
               Prelude.<$> signalDecoders,
-            ("description" Core..=) Prelude.<$> description,
-            ("networkInterfaces" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("networkInterfaces" Data..=)
               Prelude.<$> networkInterfaces,
-            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("modelManifestArn" Core..= modelManifestArn)
+              ("modelManifestArn" Data..= modelManifestArn)
           ]
       )
 
-instance Core.ToPath CreateDecoderManifest where
+instance Data.ToPath CreateDecoderManifest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDecoderManifest where
+instance Data.ToQuery CreateDecoderManifest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDecoderManifestResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SendOTPMessageRequestParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Send OTP message request parameters.
@@ -211,24 +212,24 @@ instance
       `Prelude.seq` Prelude.rnf destinationIdentity
       `Prelude.seq` Prelude.rnf originationIdentity
 
-instance Core.ToJSON SendOTPMessageRequestParameters where
+instance Data.ToJSON SendOTPMessageRequestParameters where
   toJSON SendOTPMessageRequestParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EntityId" Core..=) Prelude.<$> entityId,
-            ("TemplateId" Core..=) Prelude.<$> templateId,
-            ("AllowedAttempts" Core..=)
+          [ ("EntityId" Data..=) Prelude.<$> entityId,
+            ("TemplateId" Data..=) Prelude.<$> templateId,
+            ("AllowedAttempts" Data..=)
               Prelude.<$> allowedAttempts,
-            ("CodeLength" Core..=) Prelude.<$> codeLength,
-            ("ValidityPeriod" Core..=)
+            ("CodeLength" Data..=) Prelude.<$> codeLength,
+            ("ValidityPeriod" Data..=)
               Prelude.<$> validityPeriod,
-            ("Language" Core..=) Prelude.<$> language,
-            Prelude.Just ("BrandName" Core..= brandName),
-            Prelude.Just ("ReferenceId" Core..= referenceId),
-            Prelude.Just ("Channel" Core..= channel),
+            ("Language" Data..=) Prelude.<$> language,
+            Prelude.Just ("BrandName" Data..= brandName),
+            Prelude.Just ("ReferenceId" Data..= referenceId),
+            Prelude.Just ("Channel" Data..= channel),
             Prelude.Just
-              ("DestinationIdentity" Core..= destinationIdentity),
+              ("DestinationIdentity" Data..= destinationIdentity),
             Prelude.Just
-              ("OriginationIdentity" Core..= originationIdentity)
+              ("OriginationIdentity" Data..= originationIdentity)
           ]
       )

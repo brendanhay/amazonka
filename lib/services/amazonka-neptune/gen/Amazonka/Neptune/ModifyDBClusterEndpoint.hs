@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,20 +141,20 @@ instance Core.AWSRequest ModifyDBClusterEndpoint where
       "ModifyDBClusterEndpointResult"
       ( \s h x ->
           ModifyDBClusterEndpointResponse'
-            Prelude.<$> (x Core..@? "DBClusterEndpointResourceIdentifier")
-            Prelude.<*> ( x Core..@? "StaticMembers" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "DBClusterEndpointResourceIdentifier")
+            Prelude.<*> ( x Data..@? "StaticMembers" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "DBClusterIdentifier")
-            Prelude.<*> ( x Core..@? "ExcludedMembers" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> (x Data..@? "DBClusterIdentifier")
+            Prelude.<*> ( x Data..@? "ExcludedMembers" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "CustomEndpointType")
-            Prelude.<*> (x Core..@? "Status")
-            Prelude.<*> (x Core..@? "EndpointType")
-            Prelude.<*> (x Core..@? "DBClusterEndpointIdentifier")
-            Prelude.<*> (x Core..@? "DBClusterEndpointArn")
-            Prelude.<*> (x Core..@? "Endpoint")
+            Prelude.<*> (x Data..@? "CustomEndpointType")
+            Prelude.<*> (x Data..@? "Status")
+            Prelude.<*> (x Data..@? "EndpointType")
+            Prelude.<*> (x Data..@? "DBClusterEndpointIdentifier")
+            Prelude.<*> (x Data..@? "DBClusterEndpointArn")
+            Prelude.<*> (x Data..@? "Endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,32 +172,32 @@ instance Prelude.NFData ModifyDBClusterEndpoint where
       `Prelude.seq` Prelude.rnf endpointType
       `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
 
-instance Core.ToHeaders ModifyDBClusterEndpoint where
+instance Data.ToHeaders ModifyDBClusterEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyDBClusterEndpoint where
+instance Data.ToPath ModifyDBClusterEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyDBClusterEndpoint where
+instance Data.ToQuery ModifyDBClusterEndpoint where
   toQuery ModifyDBClusterEndpoint' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyDBClusterEndpoint" :: Prelude.ByteString),
+          Data.=: ("ModifyDBClusterEndpoint" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "StaticMembers"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> staticMembers
             ),
         "ExcludedMembers"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> excludedMembers
             ),
-        "EndpointType" Core.=: endpointType,
+        "EndpointType" Data.=: endpointType,
         "DBClusterEndpointIdentifier"
-          Core.=: dbClusterEndpointIdentifier
+          Data.=: dbClusterEndpointIdentifier
       ]
 
 -- | This data type represents the information you need to connect to an

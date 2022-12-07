@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.CustomDataIdentifiersResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.CustomDataIdentifiersDetections
 
@@ -64,14 +65,14 @@ customDataIdentifiersResult_detections = Lens.lens (\CustomDataIdentifiersResult
 customDataIdentifiersResult_totalCount :: Lens.Lens' CustomDataIdentifiersResult (Prelude.Maybe Prelude.Integer)
 customDataIdentifiersResult_totalCount = Lens.lens (\CustomDataIdentifiersResult' {totalCount} -> totalCount) (\s@CustomDataIdentifiersResult' {} a -> s {totalCount = a} :: CustomDataIdentifiersResult)
 
-instance Core.FromJSON CustomDataIdentifiersResult where
+instance Data.FromJSON CustomDataIdentifiersResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomDataIdentifiersResult"
       ( \x ->
           CustomDataIdentifiersResult'
-            Prelude.<$> (x Core..:? "Detections" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TotalCount")
+            Prelude.<$> (x Data..:? "Detections" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TotalCount")
       )
 
 instance Prelude.Hashable CustomDataIdentifiersResult where
@@ -84,11 +85,11 @@ instance Prelude.NFData CustomDataIdentifiersResult where
     Prelude.rnf detections
       `Prelude.seq` Prelude.rnf totalCount
 
-instance Core.ToJSON CustomDataIdentifiersResult where
+instance Data.ToJSON CustomDataIdentifiersResult where
   toJSON CustomDataIdentifiersResult' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Detections" Core..=) Prelude.<$> detections,
-            ("TotalCount" Core..=) Prelude.<$> totalCount
+          [ ("Detections" Data..=) Prelude.<$> detections,
+            ("TotalCount" Data..=) Prelude.<$> totalCount
           ]
       )

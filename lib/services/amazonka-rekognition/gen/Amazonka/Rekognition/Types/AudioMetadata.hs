@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.AudioMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata information about an audio stream. An array of @AudioMetadata@
@@ -81,16 +82,16 @@ audioMetadata_codec = Lens.lens (\AudioMetadata' {codec} -> codec) (\s@AudioMeta
 audioMetadata_durationMillis :: Lens.Lens' AudioMetadata (Prelude.Maybe Prelude.Natural)
 audioMetadata_durationMillis = Lens.lens (\AudioMetadata' {durationMillis} -> durationMillis) (\s@AudioMetadata' {} a -> s {durationMillis = a} :: AudioMetadata)
 
-instance Core.FromJSON AudioMetadata where
+instance Data.FromJSON AudioMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioMetadata"
       ( \x ->
           AudioMetadata'
-            Prelude.<$> (x Core..:? "NumberOfChannels")
-            Prelude.<*> (x Core..:? "SampleRate")
-            Prelude.<*> (x Core..:? "Codec")
-            Prelude.<*> (x Core..:? "DurationMillis")
+            Prelude.<$> (x Data..:? "NumberOfChannels")
+            Prelude.<*> (x Data..:? "SampleRate")
+            Prelude.<*> (x Data..:? "Codec")
+            Prelude.<*> (x Data..:? "DurationMillis")
       )
 
 instance Prelude.Hashable AudioMetadata where

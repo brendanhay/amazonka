@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.Invitation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the invitation to become a member account.
@@ -82,16 +83,16 @@ invitation_relationshipStatus = Lens.lens (\Invitation' {relationshipStatus} -> 
 invitation_invitationId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
 invitation_invitationId = Lens.lens (\Invitation' {invitationId} -> invitationId) (\s@Invitation' {} a -> s {invitationId = a} :: Invitation)
 
-instance Core.FromJSON Invitation where
+instance Data.FromJSON Invitation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Invitation"
       ( \x ->
           Invitation'
-            Prelude.<$> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "invitedAt")
-            Prelude.<*> (x Core..:? "relationshipStatus")
-            Prelude.<*> (x Core..:? "invitationId")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "invitedAt")
+            Prelude.<*> (x Data..:? "relationshipStatus")
+            Prelude.<*> (x Data..:? "invitationId")
       )
 
 instance Prelude.Hashable Invitation where

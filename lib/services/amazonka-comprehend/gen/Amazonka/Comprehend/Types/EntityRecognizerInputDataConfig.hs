@@ -27,6 +27,7 @@ import Amazonka.Comprehend.Types.EntityRecognizerEntityList
 import Amazonka.Comprehend.Types.EntityTypesListItem
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the format and location of the input data.
@@ -222,22 +223,22 @@ entityRecognizerInputDataConfig_entityTypes :: Lens.Lens' EntityRecognizerInputD
 entityRecognizerInputDataConfig_entityTypes = Lens.lens (\EntityRecognizerInputDataConfig' {entityTypes} -> entityTypes) (\s@EntityRecognizerInputDataConfig' {} a -> s {entityTypes = a} :: EntityRecognizerInputDataConfig) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     EntityRecognizerInputDataConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntityRecognizerInputDataConfig"
       ( \x ->
           EntityRecognizerInputDataConfig'
-            Prelude.<$> (x Core..:? "DataFormat")
-            Prelude.<*> (x Core..:? "EntityList")
-            Prelude.<*> (x Core..:? "Annotations")
-            Prelude.<*> (x Core..:? "Documents")
-            Prelude.<*> ( x Core..:? "AugmentedManifests"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DataFormat")
+            Prelude.<*> (x Data..:? "EntityList")
+            Prelude.<*> (x Data..:? "Annotations")
+            Prelude.<*> (x Data..:? "Documents")
+            Prelude.<*> ( x Data..:? "AugmentedManifests"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EntityTypes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EntityTypes" Data..!= Prelude.mempty)
       )
 
 instance
@@ -266,16 +267,16 @@ instance
       `Prelude.seq` Prelude.rnf augmentedManifests
       `Prelude.seq` Prelude.rnf entityTypes
 
-instance Core.ToJSON EntityRecognizerInputDataConfig where
+instance Data.ToJSON EntityRecognizerInputDataConfig where
   toJSON EntityRecognizerInputDataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataFormat" Core..=) Prelude.<$> dataFormat,
-            ("EntityList" Core..=) Prelude.<$> entityList,
-            ("Annotations" Core..=) Prelude.<$> annotations,
-            ("Documents" Core..=) Prelude.<$> documents,
-            ("AugmentedManifests" Core..=)
+          [ ("DataFormat" Data..=) Prelude.<$> dataFormat,
+            ("EntityList" Data..=) Prelude.<$> entityList,
+            ("Annotations" Data..=) Prelude.<$> annotations,
+            ("Documents" Data..=) Prelude.<$> documents,
+            ("AugmentedManifests" Data..=)
               Prelude.<$> augmentedManifests,
-            Prelude.Just ("EntityTypes" Core..= entityTypes)
+            Prelude.Just ("EntityTypes" Data..= entityTypes)
           ]
       )

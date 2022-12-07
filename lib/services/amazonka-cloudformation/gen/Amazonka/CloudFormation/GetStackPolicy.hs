@@ -43,6 +43,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,7 +91,7 @@ instance Core.AWSRequest GetStackPolicy where
       "GetStackPolicyResult"
       ( \s h x ->
           GetStackPolicyResponse'
-            Prelude.<$> (x Core..@? "StackPolicyBody")
+            Prelude.<$> (x Data..@? "StackPolicyBody")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,20 +102,20 @@ instance Prelude.Hashable GetStackPolicy where
 instance Prelude.NFData GetStackPolicy where
   rnf GetStackPolicy' {..} = Prelude.rnf stackName
 
-instance Core.ToHeaders GetStackPolicy where
+instance Data.ToHeaders GetStackPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetStackPolicy where
+instance Data.ToPath GetStackPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetStackPolicy where
+instance Data.ToQuery GetStackPolicy where
   toQuery GetStackPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetStackPolicy" :: Prelude.ByteString),
+          Data.=: ("GetStackPolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "StackName" Core.=: stackName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "StackName" Data.=: stackName
       ]
 
 -- | The output for the GetStackPolicy action.

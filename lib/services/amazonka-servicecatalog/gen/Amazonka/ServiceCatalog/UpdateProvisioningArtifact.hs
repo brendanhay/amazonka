@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -210,9 +211,9 @@ instance Core.AWSRequest UpdateProvisioningArtifact where
     Response.receiveJSON
       ( \s h x ->
           UpdateProvisioningArtifactResponse'
-            Prelude.<$> (x Core..?> "Info" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ProvisioningArtifactDetail")
+            Prelude.<$> (x Data..?> "Info" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ProvisioningArtifactDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -236,43 +237,43 @@ instance Prelude.NFData UpdateProvisioningArtifact where
       `Prelude.seq` Prelude.rnf productId
       `Prelude.seq` Prelude.rnf provisioningArtifactId
 
-instance Core.ToHeaders UpdateProvisioningArtifact where
+instance Data.ToHeaders UpdateProvisioningArtifact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.UpdateProvisioningArtifact" ::
+              Data.=# ( "AWS242ServiceCatalogService.UpdateProvisioningArtifact" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateProvisioningArtifact where
+instance Data.ToJSON UpdateProvisioningArtifact where
   toJSON UpdateProvisioningArtifact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Active" Core..=) Prelude.<$> active,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Guidance" Core..=) Prelude.<$> guidance,
-            ("AcceptLanguage" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Active" Data..=) Prelude.<$> active,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Guidance" Data..=) Prelude.<$> guidance,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("ProductId" Core..= productId),
+            Prelude.Just ("ProductId" Data..= productId),
             Prelude.Just
               ( "ProvisioningArtifactId"
-                  Core..= provisioningArtifactId
+                  Data..= provisioningArtifactId
               )
           ]
       )
 
-instance Core.ToPath UpdateProvisioningArtifact where
+instance Data.ToPath UpdateProvisioningArtifact where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateProvisioningArtifact where
+instance Data.ToQuery UpdateProvisioningArtifact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProvisioningArtifactResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -173,9 +174,9 @@ instance Core.AWSRequest DescribePolicies where
       "DescribePoliciesResult"
       ( \s h x ->
           DescribePoliciesResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "ScalingPolicies" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "ScalingPolicies" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -196,28 +197,28 @@ instance Prelude.NFData DescribePolicies where
       `Prelude.seq` Prelude.rnf policyNames
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
-instance Core.ToHeaders DescribePolicies where
+instance Data.ToHeaders DescribePolicies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribePolicies where
+instance Data.ToPath DescribePolicies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePolicies where
+instance Data.ToQuery DescribePolicies where
   toQuery DescribePolicies' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribePolicies" :: Prelude.ByteString),
+          Data.=: ("DescribePolicies" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
         "PolicyTypes"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> policyTypes),
-        "MaxRecords" Core.=: maxRecords,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> policyTypes),
+        "MaxRecords" Data.=: maxRecords,
         "PolicyNames"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> policyNames),
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> policyNames),
+        "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newDescribePoliciesResponse' smart constructor.

@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,26 +97,26 @@ instance Prelude.NFData DisassociateNetworkSettings where
   rnf DisassociateNetworkSettings' {..} =
     Prelude.rnf portalArn
 
-instance Core.ToHeaders DisassociateNetworkSettings where
+instance Data.ToHeaders DisassociateNetworkSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DisassociateNetworkSettings where
+instance Data.ToPath DisassociateNetworkSettings where
   toPath DisassociateNetworkSettings' {..} =
     Prelude.mconcat
       [ "/portals/",
-        Core.toBS portalArn,
+        Data.toBS portalArn,
         "/networkSettings"
       ]
 
-instance Core.ToQuery DisassociateNetworkSettings where
+instance Data.ToQuery DisassociateNetworkSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateNetworkSettingsResponse' smart constructor.

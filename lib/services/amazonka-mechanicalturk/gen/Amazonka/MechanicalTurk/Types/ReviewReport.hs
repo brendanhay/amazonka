@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.ReviewReport where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types.ReviewActionDetail
 import Amazonka.MechanicalTurk.Types.ReviewResultDetail
 import qualified Amazonka.Prelude as Prelude
@@ -70,14 +71,14 @@ reviewReport_reviewResults = Lens.lens (\ReviewReport' {reviewResults} -> review
 reviewReport_reviewActions :: Lens.Lens' ReviewReport (Prelude.Maybe [ReviewActionDetail])
 reviewReport_reviewActions = Lens.lens (\ReviewReport' {reviewActions} -> reviewActions) (\s@ReviewReport' {} a -> s {reviewActions = a} :: ReviewReport) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ReviewReport where
+instance Data.FromJSON ReviewReport where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReviewReport"
       ( \x ->
           ReviewReport'
-            Prelude.<$> (x Core..:? "ReviewResults" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ReviewActions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ReviewResults" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ReviewActions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ReviewReport where

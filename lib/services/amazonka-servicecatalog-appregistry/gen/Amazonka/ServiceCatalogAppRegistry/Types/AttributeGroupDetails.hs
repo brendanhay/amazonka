@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details related to a specific AttributeGroup.
@@ -79,15 +80,15 @@ attributeGroupDetails_arn = Lens.lens (\AttributeGroupDetails' {arn} -> arn) (\s
 attributeGroupDetails_id :: Lens.Lens' AttributeGroupDetails (Prelude.Maybe Prelude.Text)
 attributeGroupDetails_id = Lens.lens (\AttributeGroupDetails' {id} -> id) (\s@AttributeGroupDetails' {} a -> s {id = a} :: AttributeGroupDetails)
 
-instance Core.FromJSON AttributeGroupDetails where
+instance Data.FromJSON AttributeGroupDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttributeGroupDetails"
       ( \x ->
           AttributeGroupDetails'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable AttributeGroupDetails where

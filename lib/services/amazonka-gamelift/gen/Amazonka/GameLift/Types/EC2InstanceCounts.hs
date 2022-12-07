@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.EC2InstanceCounts where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Resource capacity settings. Fleet capacity is measured in Amazon EC2
@@ -123,19 +124,19 @@ eC2InstanceCounts_pending = Lens.lens (\EC2InstanceCounts' {pending} -> pending)
 eC2InstanceCounts_idle :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
 eC2InstanceCounts_idle = Lens.lens (\EC2InstanceCounts' {idle} -> idle) (\s@EC2InstanceCounts' {} a -> s {idle = a} :: EC2InstanceCounts)
 
-instance Core.FromJSON EC2InstanceCounts where
+instance Data.FromJSON EC2InstanceCounts where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EC2InstanceCounts"
       ( \x ->
           EC2InstanceCounts'
-            Prelude.<$> (x Core..:? "MINIMUM")
-            Prelude.<*> (x Core..:? "ACTIVE")
-            Prelude.<*> (x Core..:? "TERMINATING")
-            Prelude.<*> (x Core..:? "DESIRED")
-            Prelude.<*> (x Core..:? "MAXIMUM")
-            Prelude.<*> (x Core..:? "PENDING")
-            Prelude.<*> (x Core..:? "IDLE")
+            Prelude.<$> (x Data..:? "MINIMUM")
+            Prelude.<*> (x Data..:? "ACTIVE")
+            Prelude.<*> (x Data..:? "TERMINATING")
+            Prelude.<*> (x Data..:? "DESIRED")
+            Prelude.<*> (x Data..:? "MAXIMUM")
+            Prelude.<*> (x Data..:? "PENDING")
+            Prelude.<*> (x Data..:? "IDLE")
       )
 
 instance Prelude.Hashable EC2InstanceCounts where

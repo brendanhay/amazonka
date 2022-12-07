@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentTemplateLogConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types.ExperimentTemplateCloudWatchLogsLogConfiguration
 import Amazonka.FIS.Types.ExperimentTemplateS3LogConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -75,17 +76,17 @@ experimentTemplateLogConfiguration_cloudWatchLogsConfiguration :: Lens.Lens' Exp
 experimentTemplateLogConfiguration_cloudWatchLogsConfiguration = Lens.lens (\ExperimentTemplateLogConfiguration' {cloudWatchLogsConfiguration} -> cloudWatchLogsConfiguration) (\s@ExperimentTemplateLogConfiguration' {} a -> s {cloudWatchLogsConfiguration = a} :: ExperimentTemplateLogConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ExperimentTemplateLogConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentTemplateLogConfiguration"
       ( \x ->
           ExperimentTemplateLogConfiguration'
-            Prelude.<$> (x Core..:? "s3Configuration")
-            Prelude.<*> (x Core..:? "logSchemaVersion")
-            Prelude.<*> (x Core..:? "cloudWatchLogsConfiguration")
+            Prelude.<$> (x Data..:? "s3Configuration")
+            Prelude.<*> (x Data..:? "logSchemaVersion")
+            Prelude.<*> (x Data..:? "cloudWatchLogsConfiguration")
       )
 
 instance

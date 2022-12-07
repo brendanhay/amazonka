@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.DetectedMetricSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.DetectedS3SourceConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newDetectedMetricSource =
 detectedMetricSource_s3SourceConfig :: Lens.Lens' DetectedMetricSource (Prelude.Maybe DetectedS3SourceConfig)
 detectedMetricSource_s3SourceConfig = Lens.lens (\DetectedMetricSource' {s3SourceConfig} -> s3SourceConfig) (\s@DetectedMetricSource' {} a -> s {s3SourceConfig = a} :: DetectedMetricSource)
 
-instance Core.FromJSON DetectedMetricSource where
+instance Data.FromJSON DetectedMetricSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectedMetricSource"
       ( \x ->
           DetectedMetricSource'
-            Prelude.<$> (x Core..:? "S3SourceConfig")
+            Prelude.<$> (x Data..:? "S3SourceConfig")
       )
 
 instance Prelude.Hashable DetectedMetricSource where

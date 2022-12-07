@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.TransformFilterCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.SchemaColumn
 import Amazonka.Glue.Types.TransformStatusType
 import Amazonka.Glue.Types.TransformType
@@ -44,7 +45,7 @@ data TransformFilterCriteria = TransformFilterCriteria'
     -- in the developer guide.
     glueVersion :: Prelude.Maybe Prelude.Text,
     -- | The time and date before which the transforms were created.
-    createdBefore :: Prelude.Maybe Core.POSIX,
+    createdBefore :: Prelude.Maybe Data.POSIX,
     -- | Filters the list of machine learning transforms by the last known status
     -- of the transforms (to indicate whether a transform can be used or not).
     -- One of \"NOT_READY\", \"READY\", or \"DELETING\".
@@ -56,11 +57,11 @@ data TransformFilterCriteria = TransformFilterCriteria'
     -- 100 columns.
     schema :: Prelude.Maybe [SchemaColumn],
     -- | The time and date after which the transforms were created.
-    createdAfter :: Prelude.Maybe Core.POSIX,
+    createdAfter :: Prelude.Maybe Data.POSIX,
     -- | Filter on transforms last modified after this date.
-    lastModifiedAfter :: Prelude.Maybe Core.POSIX,
+    lastModifiedAfter :: Prelude.Maybe Data.POSIX,
     -- | Filter on transforms last modified before this date.
-    lastModifiedBefore :: Prelude.Maybe Core.POSIX
+    lastModifiedBefore :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -138,7 +139,7 @@ transformFilterCriteria_glueVersion = Lens.lens (\TransformFilterCriteria' {glue
 
 -- | The time and date before which the transforms were created.
 transformFilterCriteria_createdBefore :: Lens.Lens' TransformFilterCriteria (Prelude.Maybe Prelude.UTCTime)
-transformFilterCriteria_createdBefore = Lens.lens (\TransformFilterCriteria' {createdBefore} -> createdBefore) (\s@TransformFilterCriteria' {} a -> s {createdBefore = a} :: TransformFilterCriteria) Prelude.. Lens.mapping Core._Time
+transformFilterCriteria_createdBefore = Lens.lens (\TransformFilterCriteria' {createdBefore} -> createdBefore) (\s@TransformFilterCriteria' {} a -> s {createdBefore = a} :: TransformFilterCriteria) Prelude.. Lens.mapping Data._Time
 
 -- | Filters the list of machine learning transforms by the last known status
 -- of the transforms (to indicate whether a transform can be used or not).
@@ -156,15 +157,15 @@ transformFilterCriteria_schema = Lens.lens (\TransformFilterCriteria' {schema} -
 
 -- | The time and date after which the transforms were created.
 transformFilterCriteria_createdAfter :: Lens.Lens' TransformFilterCriteria (Prelude.Maybe Prelude.UTCTime)
-transformFilterCriteria_createdAfter = Lens.lens (\TransformFilterCriteria' {createdAfter} -> createdAfter) (\s@TransformFilterCriteria' {} a -> s {createdAfter = a} :: TransformFilterCriteria) Prelude.. Lens.mapping Core._Time
+transformFilterCriteria_createdAfter = Lens.lens (\TransformFilterCriteria' {createdAfter} -> createdAfter) (\s@TransformFilterCriteria' {} a -> s {createdAfter = a} :: TransformFilterCriteria) Prelude.. Lens.mapping Data._Time
 
 -- | Filter on transforms last modified after this date.
 transformFilterCriteria_lastModifiedAfter :: Lens.Lens' TransformFilterCriteria (Prelude.Maybe Prelude.UTCTime)
-transformFilterCriteria_lastModifiedAfter = Lens.lens (\TransformFilterCriteria' {lastModifiedAfter} -> lastModifiedAfter) (\s@TransformFilterCriteria' {} a -> s {lastModifiedAfter = a} :: TransformFilterCriteria) Prelude.. Lens.mapping Core._Time
+transformFilterCriteria_lastModifiedAfter = Lens.lens (\TransformFilterCriteria' {lastModifiedAfter} -> lastModifiedAfter) (\s@TransformFilterCriteria' {} a -> s {lastModifiedAfter = a} :: TransformFilterCriteria) Prelude.. Lens.mapping Data._Time
 
 -- | Filter on transforms last modified before this date.
 transformFilterCriteria_lastModifiedBefore :: Lens.Lens' TransformFilterCriteria (Prelude.Maybe Prelude.UTCTime)
-transformFilterCriteria_lastModifiedBefore = Lens.lens (\TransformFilterCriteria' {lastModifiedBefore} -> lastModifiedBefore) (\s@TransformFilterCriteria' {} a -> s {lastModifiedBefore = a} :: TransformFilterCriteria) Prelude.. Lens.mapping Core._Time
+transformFilterCriteria_lastModifiedBefore = Lens.lens (\TransformFilterCriteria' {lastModifiedBefore} -> lastModifiedBefore) (\s@TransformFilterCriteria' {} a -> s {lastModifiedBefore = a} :: TransformFilterCriteria) Prelude.. Lens.mapping Data._Time
 
 instance Prelude.Hashable TransformFilterCriteria where
   hashWithSalt _salt TransformFilterCriteria' {..} =
@@ -190,20 +191,20 @@ instance Prelude.NFData TransformFilterCriteria where
       `Prelude.seq` Prelude.rnf lastModifiedAfter
       `Prelude.seq` Prelude.rnf lastModifiedBefore
 
-instance Core.ToJSON TransformFilterCriteria where
+instance Data.ToJSON TransformFilterCriteria where
   toJSON TransformFilterCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("TransformType" Core..=) Prelude.<$> transformType,
-            ("GlueVersion" Core..=) Prelude.<$> glueVersion,
-            ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
-            ("Status" Core..=) Prelude.<$> status,
-            ("Schema" Core..=) Prelude.<$> schema,
-            ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
-            ("LastModifiedAfter" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("TransformType" Data..=) Prelude.<$> transformType,
+            ("GlueVersion" Data..=) Prelude.<$> glueVersion,
+            ("CreatedBefore" Data..=) Prelude.<$> createdBefore,
+            ("Status" Data..=) Prelude.<$> status,
+            ("Schema" Data..=) Prelude.<$> schema,
+            ("CreatedAfter" Data..=) Prelude.<$> createdAfter,
+            ("LastModifiedAfter" Data..=)
               Prelude.<$> lastModifiedAfter,
-            ("LastModifiedBefore" Core..=)
+            ("LastModifiedBefore" Data..=)
               Prelude.<$> lastModifiedBefore
           ]
       )

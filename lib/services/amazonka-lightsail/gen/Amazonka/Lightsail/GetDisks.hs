@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,8 +114,8 @@ instance Core.AWSRequest GetDisks where
     Response.receiveJSON
       ( \s h x ->
           GetDisksResponse'
-            Prelude.<$> (x Core..?> "nextPageToken")
-            Prelude.<*> (x Core..?> "disks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextPageToken")
+            Prelude.<*> (x Data..?> "disks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,32 +126,32 @@ instance Prelude.Hashable GetDisks where
 instance Prelude.NFData GetDisks where
   rnf GetDisks' {..} = Prelude.rnf pageToken
 
-instance Core.ToHeaders GetDisks where
+instance Data.ToHeaders GetDisks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetDisks" ::
+              Data.=# ( "Lightsail_20161128.GetDisks" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDisks where
+instance Data.ToJSON GetDisks where
   toJSON GetDisks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("pageToken" Core..=) Prelude.<$> pageToken]
+          [("pageToken" Data..=) Prelude.<$> pageToken]
       )
 
-instance Core.ToPath GetDisks where
+instance Data.ToPath GetDisks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDisks where
+instance Data.ToQuery GetDisks where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDisksResponse' smart constructor.

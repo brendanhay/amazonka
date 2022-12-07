@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.EventTopic where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.TopicStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data EventTopic = EventTopic'
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | The date and time of when you associated your directory with the Amazon
     -- SNS topic.
-    createdDateTime :: Prelude.Maybe Core.POSIX,
+    createdDateTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon SNS topic ARN (Amazon Resource Name).
     topicArn :: Prelude.Maybe Prelude.Text,
     -- | The topic registration status.
@@ -84,7 +85,7 @@ eventTopic_directoryId = Lens.lens (\EventTopic' {directoryId} -> directoryId) (
 -- | The date and time of when you associated your directory with the Amazon
 -- SNS topic.
 eventTopic_createdDateTime :: Lens.Lens' EventTopic (Prelude.Maybe Prelude.UTCTime)
-eventTopic_createdDateTime = Lens.lens (\EventTopic' {createdDateTime} -> createdDateTime) (\s@EventTopic' {} a -> s {createdDateTime = a} :: EventTopic) Prelude.. Lens.mapping Core._Time
+eventTopic_createdDateTime = Lens.lens (\EventTopic' {createdDateTime} -> createdDateTime) (\s@EventTopic' {} a -> s {createdDateTime = a} :: EventTopic) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon SNS topic ARN (Amazon Resource Name).
 eventTopic_topicArn :: Lens.Lens' EventTopic (Prelude.Maybe Prelude.Text)
@@ -99,17 +100,17 @@ eventTopic_status = Lens.lens (\EventTopic' {status} -> status) (\s@EventTopic' 
 eventTopic_topicName :: Lens.Lens' EventTopic (Prelude.Maybe Prelude.Text)
 eventTopic_topicName = Lens.lens (\EventTopic' {topicName} -> topicName) (\s@EventTopic' {} a -> s {topicName = a} :: EventTopic)
 
-instance Core.FromJSON EventTopic where
+instance Data.FromJSON EventTopic where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventTopic"
       ( \x ->
           EventTopic'
-            Prelude.<$> (x Core..:? "DirectoryId")
-            Prelude.<*> (x Core..:? "CreatedDateTime")
-            Prelude.<*> (x Core..:? "TopicArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "TopicName")
+            Prelude.<$> (x Data..:? "DirectoryId")
+            Prelude.<*> (x Data..:? "CreatedDateTime")
+            Prelude.<*> (x Data..:? "TopicArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "TopicName")
       )
 
 instance Prelude.Hashable EventTopic where

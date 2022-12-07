@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,8 +155,8 @@ instance Core.AWSRequest ListCheckDetails where
     Response.receiveJSON
       ( \s h x ->
           ListCheckDetailsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "CheckDetails" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "CheckDetails" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,36 +180,36 @@ instance Prelude.NFData ListCheckDetails where
       `Prelude.seq` Prelude.rnf questionId
       `Prelude.seq` Prelude.rnf choiceId
 
-instance Core.ToHeaders ListCheckDetails where
+instance Data.ToHeaders ListCheckDetails where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCheckDetails where
+instance Data.ToJSON ListCheckDetails where
   toJSON ListCheckDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("LensArn" Core..= lensArn),
-            Prelude.Just ("PillarId" Core..= pillarId),
-            Prelude.Just ("QuestionId" Core..= questionId),
-            Prelude.Just ("ChoiceId" Core..= choiceId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("LensArn" Data..= lensArn),
+            Prelude.Just ("PillarId" Data..= pillarId),
+            Prelude.Just ("QuestionId" Data..= questionId),
+            Prelude.Just ("ChoiceId" Data..= choiceId)
           ]
       )
 
-instance Core.ToPath ListCheckDetails where
+instance Data.ToPath ListCheckDetails where
   toPath ListCheckDetails' {..} =
     Prelude.mconcat
-      ["/workloads/", Core.toBS workloadId, "/checks"]
+      ["/workloads/", Data.toBS workloadId, "/checks"]
 
-instance Core.ToQuery ListCheckDetails where
+instance Data.ToQuery ListCheckDetails where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCheckDetailsResponse' smart constructor.

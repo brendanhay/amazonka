@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.ExpenseCurrency where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns the kind of currency detected.
@@ -133,14 +134,14 @@ expenseCurrency_code = Lens.lens (\ExpenseCurrency' {code} -> code) (\s@ExpenseC
 expenseCurrency_confidence :: Lens.Lens' ExpenseCurrency (Prelude.Maybe Prelude.Double)
 expenseCurrency_confidence = Lens.lens (\ExpenseCurrency' {confidence} -> confidence) (\s@ExpenseCurrency' {} a -> s {confidence = a} :: ExpenseCurrency)
 
-instance Core.FromJSON ExpenseCurrency where
+instance Data.FromJSON ExpenseCurrency where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExpenseCurrency"
       ( \x ->
           ExpenseCurrency'
-            Prelude.<$> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Confidence")
       )
 
 instance Prelude.Hashable ExpenseCurrency where

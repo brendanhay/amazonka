@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.MailFromAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.BehaviorOnMxFailure
 import Amazonka.SESV2.Types.MailFromDomainStatus
@@ -148,15 +149,15 @@ mailFromAttributes_mailFromDomainStatus = Lens.lens (\MailFromAttributes' {mailF
 mailFromAttributes_behaviorOnMxFailure :: Lens.Lens' MailFromAttributes BehaviorOnMxFailure
 mailFromAttributes_behaviorOnMxFailure = Lens.lens (\MailFromAttributes' {behaviorOnMxFailure} -> behaviorOnMxFailure) (\s@MailFromAttributes' {} a -> s {behaviorOnMxFailure = a} :: MailFromAttributes)
 
-instance Core.FromJSON MailFromAttributes where
+instance Data.FromJSON MailFromAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MailFromAttributes"
       ( \x ->
           MailFromAttributes'
-            Prelude.<$> (x Core..: "MailFromDomain")
-            Prelude.<*> (x Core..: "MailFromDomainStatus")
-            Prelude.<*> (x Core..: "BehaviorOnMxFailure")
+            Prelude.<$> (x Data..: "MailFromDomain")
+            Prelude.<*> (x Data..: "MailFromDomainStatus")
+            Prelude.<*> (x Data..: "BehaviorOnMxFailure")
       )
 
 instance Prelude.Hashable MailFromAttributes where

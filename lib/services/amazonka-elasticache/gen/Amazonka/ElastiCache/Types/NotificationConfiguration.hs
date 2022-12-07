@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.NotificationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a notification topic and its status. Notification topics are
@@ -64,11 +65,11 @@ notificationConfiguration_topicStatus = Lens.lens (\NotificationConfiguration' {
 notificationConfiguration_topicArn :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
 notificationConfiguration_topicArn = Lens.lens (\NotificationConfiguration' {topicArn} -> topicArn) (\s@NotificationConfiguration' {} a -> s {topicArn = a} :: NotificationConfiguration)
 
-instance Core.FromXML NotificationConfiguration where
+instance Data.FromXML NotificationConfiguration where
   parseXML x =
     NotificationConfiguration'
-      Prelude.<$> (x Core..@? "TopicStatus")
-      Prelude.<*> (x Core..@? "TopicArn")
+      Prelude.<$> (x Data..@? "TopicStatus")
+      Prelude.<*> (x Data..@? "TopicArn")
 
 instance Prelude.Hashable NotificationConfiguration where
   hashWithSalt _salt NotificationConfiguration' {..} =

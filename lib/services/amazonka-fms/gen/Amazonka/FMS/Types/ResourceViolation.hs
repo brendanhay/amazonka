@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.ResourceViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.AwsEc2InstanceViolation
 import Amazonka.FMS.Types.AwsEc2NetworkInterfaceViolation
 import Amazonka.FMS.Types.AwsVPCSecurityGroupViolation
@@ -358,58 +359,58 @@ resourceViolation_awsVPCSecurityGroupViolation = Lens.lens (\ResourceViolation' 
 resourceViolation_networkFirewallMissingExpectedRTViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe NetworkFirewallMissingExpectedRTViolation)
 resourceViolation_networkFirewallMissingExpectedRTViolation = Lens.lens (\ResourceViolation' {networkFirewallMissingExpectedRTViolation} -> networkFirewallMissingExpectedRTViolation) (\s@ResourceViolation' {} a -> s {networkFirewallMissingExpectedRTViolation = a} :: ResourceViolation)
 
-instance Core.FromJSON ResourceViolation where
+instance Data.FromJSON ResourceViolation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceViolation"
       ( \x ->
           ResourceViolation'
             Prelude.<$> ( x
-                            Core..:? "ThirdPartyFirewallMissingSubnetViolation"
+                            Data..:? "ThirdPartyFirewallMissingSubnetViolation"
                         )
-            Prelude.<*> (x Core..:? "DnsRuleGroupPriorityConflictViolation")
+            Prelude.<*> (x Data..:? "DnsRuleGroupPriorityConflictViolation")
             Prelude.<*> ( x
-                            Core..:? "ThirdPartyFirewallMissingExpectedRouteTableViolation"
-                        )
-            Prelude.<*> ( x
-                            Core..:? "NetworkFirewallMissingExpectedRoutesViolation"
+                            Data..:? "ThirdPartyFirewallMissingExpectedRouteTableViolation"
                         )
             Prelude.<*> ( x
-                            Core..:? "NetworkFirewallUnexpectedFirewallRoutesViolation"
-                        )
-            Prelude.<*> (x Core..:? "DnsDuplicateRuleGroupViolation")
-            Prelude.<*> (x Core..:? "DnsRuleGroupLimitExceededViolation")
-            Prelude.<*> ( x
-                            Core..:? "NetworkFirewallMissingFirewallViolation"
+                            Data..:? "NetworkFirewallMissingExpectedRoutesViolation"
                         )
             Prelude.<*> ( x
-                            Core..:? "NetworkFirewallInternetTrafficNotInspectedViolation"
+                            Data..:? "NetworkFirewallUnexpectedFirewallRoutesViolation"
                         )
-            Prelude.<*> (x Core..:? "AwsEc2InstanceViolation")
+            Prelude.<*> (x Data..:? "DnsDuplicateRuleGroupViolation")
+            Prelude.<*> (x Data..:? "DnsRuleGroupLimitExceededViolation")
             Prelude.<*> ( x
-                            Core..:? "FirewallSubnetMissingVPCEndpointViolation"
-                        )
-            Prelude.<*> ( x
-                            Core..:? "ThirdPartyFirewallMissingFirewallViolation"
-                        )
-            Prelude.<*> (x Core..:? "PossibleRemediationActions")
-            Prelude.<*> (x Core..:? "NetworkFirewallMissingSubnetViolation")
-            Prelude.<*> (x Core..:? "NetworkFirewallPolicyModifiedViolation")
-            Prelude.<*> ( x
-                            Core..:? "NetworkFirewallUnexpectedGatewayRoutesViolation"
+                            Data..:? "NetworkFirewallMissingFirewallViolation"
                         )
             Prelude.<*> ( x
-                            Core..:? "NetworkFirewallBlackHoleRouteDetectedViolation"
+                            Data..:? "NetworkFirewallInternetTrafficNotInspectedViolation"
                         )
-            Prelude.<*> (x Core..:? "FirewallSubnetIsOutOfScopeViolation")
-            Prelude.<*> (x Core..:? "RouteHasOutOfScopeEndpointViolation")
+            Prelude.<*> (x Data..:? "AwsEc2InstanceViolation")
             Prelude.<*> ( x
-                            Core..:? "NetworkFirewallInvalidRouteConfigurationViolation"
+                            Data..:? "FirewallSubnetMissingVPCEndpointViolation"
                         )
-            Prelude.<*> (x Core..:? "AwsEc2NetworkInterfaceViolation")
-            Prelude.<*> (x Core..:? "AwsVPCSecurityGroupViolation")
             Prelude.<*> ( x
-                            Core..:? "NetworkFirewallMissingExpectedRTViolation"
+                            Data..:? "ThirdPartyFirewallMissingFirewallViolation"
+                        )
+            Prelude.<*> (x Data..:? "PossibleRemediationActions")
+            Prelude.<*> (x Data..:? "NetworkFirewallMissingSubnetViolation")
+            Prelude.<*> (x Data..:? "NetworkFirewallPolicyModifiedViolation")
+            Prelude.<*> ( x
+                            Data..:? "NetworkFirewallUnexpectedGatewayRoutesViolation"
+                        )
+            Prelude.<*> ( x
+                            Data..:? "NetworkFirewallBlackHoleRouteDetectedViolation"
+                        )
+            Prelude.<*> (x Data..:? "FirewallSubnetIsOutOfScopeViolation")
+            Prelude.<*> (x Data..:? "RouteHasOutOfScopeEndpointViolation")
+            Prelude.<*> ( x
+                            Data..:? "NetworkFirewallInvalidRouteConfigurationViolation"
+                        )
+            Prelude.<*> (x Data..:? "AwsEc2NetworkInterfaceViolation")
+            Prelude.<*> (x Data..:? "AwsVPCSecurityGroupViolation")
+            Prelude.<*> ( x
+                            Data..:? "NetworkFirewallMissingExpectedRTViolation"
                         )
       )
 

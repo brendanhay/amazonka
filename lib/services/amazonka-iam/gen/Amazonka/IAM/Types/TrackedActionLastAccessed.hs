@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.TrackedActionLastAccessed where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about the most recent attempt to access an action
@@ -51,7 +52,7 @@ data TrackedActionLastAccessed = TrackedActionLastAccessed'
     -- This field is null if no IAM entities attempted to access the service
     -- within the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
-    lastAccessedTime :: Prelude.Maybe Core.ISO8601
+    lastAccessedTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -123,15 +124,15 @@ trackedActionLastAccessed_actionName = Lens.lens (\TrackedActionLastAccessed' {a
 -- within the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
 trackedActionLastAccessed_lastAccessedTime :: Lens.Lens' TrackedActionLastAccessed (Prelude.Maybe Prelude.UTCTime)
-trackedActionLastAccessed_lastAccessedTime = Lens.lens (\TrackedActionLastAccessed' {lastAccessedTime} -> lastAccessedTime) (\s@TrackedActionLastAccessed' {} a -> s {lastAccessedTime = a} :: TrackedActionLastAccessed) Prelude.. Lens.mapping Core._Time
+trackedActionLastAccessed_lastAccessedTime = Lens.lens (\TrackedActionLastAccessed' {lastAccessedTime} -> lastAccessedTime) (\s@TrackedActionLastAccessed' {} a -> s {lastAccessedTime = a} :: TrackedActionLastAccessed) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML TrackedActionLastAccessed where
+instance Data.FromXML TrackedActionLastAccessed where
   parseXML x =
     TrackedActionLastAccessed'
-      Prelude.<$> (x Core..@? "LastAccessedRegion")
-      Prelude.<*> (x Core..@? "LastAccessedEntity")
-      Prelude.<*> (x Core..@? "ActionName")
-      Prelude.<*> (x Core..@? "LastAccessedTime")
+      Prelude.<$> (x Data..@? "LastAccessedRegion")
+      Prelude.<*> (x Data..@? "LastAccessedEntity")
+      Prelude.<*> (x Data..@? "ActionName")
+      Prelude.<*> (x Data..@? "LastAccessedTime")
 
 instance Prelude.Hashable TrackedActionLastAccessed where
   hashWithSalt _salt TrackedActionLastAccessed' {..} =

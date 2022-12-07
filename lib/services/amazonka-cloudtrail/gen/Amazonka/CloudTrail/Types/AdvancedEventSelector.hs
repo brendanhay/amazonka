@@ -22,6 +22,7 @@ module Amazonka.CloudTrail.Types.AdvancedEventSelector where
 import Amazonka.CloudTrail.Types.AdvancedFieldSelector
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Advanced event selectors let you create fine-grained selectors for the
@@ -88,14 +89,14 @@ advancedEventSelector_name = Lens.lens (\AdvancedEventSelector' {name} -> name) 
 advancedEventSelector_fieldSelectors :: Lens.Lens' AdvancedEventSelector (Prelude.NonEmpty AdvancedFieldSelector)
 advancedEventSelector_fieldSelectors = Lens.lens (\AdvancedEventSelector' {fieldSelectors} -> fieldSelectors) (\s@AdvancedEventSelector' {} a -> s {fieldSelectors = a} :: AdvancedEventSelector) Prelude.. Lens.coerced
 
-instance Core.FromJSON AdvancedEventSelector where
+instance Data.FromJSON AdvancedEventSelector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdvancedEventSelector"
       ( \x ->
           AdvancedEventSelector'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..: "FieldSelectors")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..: "FieldSelectors")
       )
 
 instance Prelude.Hashable AdvancedEventSelector where
@@ -108,12 +109,12 @@ instance Prelude.NFData AdvancedEventSelector where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf fieldSelectors
 
-instance Core.ToJSON AdvancedEventSelector where
+instance Data.ToJSON AdvancedEventSelector where
   toJSON AdvancedEventSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Data..=) Prelude.<$> name,
             Prelude.Just
-              ("FieldSelectors" Core..= fieldSelectors)
+              ("FieldSelectors" Data..= fieldSelectors)
           ]
       )

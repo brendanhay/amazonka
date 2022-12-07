@@ -22,6 +22,7 @@ module Amazonka.AmplifyBackend.Types.CreateBackendAuthPasswordPolicyConfig where
 import Amazonka.AmplifyBackend.Types.AdditionalConstraintsElement
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The password policy configuration for the backend to your Amplify
@@ -74,18 +75,18 @@ createBackendAuthPasswordPolicyConfig_minimumLength :: Lens.Lens' CreateBackendA
 createBackendAuthPasswordPolicyConfig_minimumLength = Lens.lens (\CreateBackendAuthPasswordPolicyConfig' {minimumLength} -> minimumLength) (\s@CreateBackendAuthPasswordPolicyConfig' {} a -> s {minimumLength = a} :: CreateBackendAuthPasswordPolicyConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CreateBackendAuthPasswordPolicyConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CreateBackendAuthPasswordPolicyConfig"
       ( \x ->
           CreateBackendAuthPasswordPolicyConfig'
-            Prelude.<$> ( x Core..:? "additionalConstraints"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "additionalConstraints"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "minimumLength")
+            Prelude.<*> (x Data..: "minimumLength")
       )
 
 instance
@@ -107,15 +108,15 @@ instance
       `Prelude.seq` Prelude.rnf minimumLength
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateBackendAuthPasswordPolicyConfig
   where
   toJSON CreateBackendAuthPasswordPolicyConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("additionalConstraints" Core..=)
+          [ ("additionalConstraints" Data..=)
               Prelude.<$> additionalConstraints,
             Prelude.Just
-              ("minimumLength" Core..= minimumLength)
+              ("minimumLength" Data..= minimumLength)
           ]
       )

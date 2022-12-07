@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.UpdateRecommenderConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies Amazon Pinpoint configuration settings for retrieving and
@@ -373,28 +374,28 @@ instance
       `Prelude.seq` Prelude.rnf recommendationProviderUri
       `Prelude.seq` Prelude.rnf recommendationProviderRoleArn
 
-instance Core.ToJSON UpdateRecommenderConfiguration where
+instance Data.ToJSON UpdateRecommenderConfiguration where
   toJSON UpdateRecommenderConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("RecommendationTransformerUri" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("RecommendationTransformerUri" Data..=)
               Prelude.<$> recommendationTransformerUri,
-            ("Description" Core..=) Prelude.<$> description,
-            ("RecommendationsDisplayName" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("RecommendationsDisplayName" Data..=)
               Prelude.<$> recommendationsDisplayName,
-            ("RecommendationProviderIdType" Core..=)
+            ("RecommendationProviderIdType" Data..=)
               Prelude.<$> recommendationProviderIdType,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("RecommendationsPerMessage" Core..=)
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("RecommendationsPerMessage" Data..=)
               Prelude.<$> recommendationsPerMessage,
             Prelude.Just
               ( "RecommendationProviderUri"
-                  Core..= recommendationProviderUri
+                  Data..= recommendationProviderUri
               ),
             Prelude.Just
               ( "RecommendationProviderRoleArn"
-                  Core..= recommendationProviderRoleArn
+                  Data..= recommendationProviderRoleArn
               )
           ]
       )

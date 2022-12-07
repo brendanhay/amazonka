@@ -24,6 +24,7 @@ import Amazonka.CloudWatchEvents.Types.ConnectionOAuthClientResponseParameters
 import Amazonka.CloudWatchEvents.Types.ConnectionOAuthHttpMethod
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the response parameters when OAuth is specified as the
@@ -91,18 +92,18 @@ connectionOAuthResponseParameters_httpMethod :: Lens.Lens' ConnectionOAuthRespon
 connectionOAuthResponseParameters_httpMethod = Lens.lens (\ConnectionOAuthResponseParameters' {httpMethod} -> httpMethod) (\s@ConnectionOAuthResponseParameters' {} a -> s {httpMethod = a} :: ConnectionOAuthResponseParameters)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ConnectionOAuthResponseParameters
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionOAuthResponseParameters"
       ( \x ->
           ConnectionOAuthResponseParameters'
-            Prelude.<$> (x Core..:? "AuthorizationEndpoint")
-            Prelude.<*> (x Core..:? "OAuthHttpParameters")
-            Prelude.<*> (x Core..:? "ClientParameters")
-            Prelude.<*> (x Core..:? "HttpMethod")
+            Prelude.<$> (x Data..:? "AuthorizationEndpoint")
+            Prelude.<*> (x Data..:? "OAuthHttpParameters")
+            Prelude.<*> (x Data..:? "ClientParameters")
+            Prelude.<*> (x Data..:? "HttpMethod")
       )
 
 instance

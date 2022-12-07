@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicy where
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A response headers policy.
@@ -44,7 +45,7 @@ data ResponseHeadersPolicy = ResponseHeadersPolicy'
   { -- | The identifier for the response headers policy.
     id :: Prelude.Text,
     -- | The date and time when the response headers policy was last modified.
-    lastModifiedTime :: Core.ISO8601,
+    lastModifiedTime :: Data.ISO8601,
     -- | A response headers policy configuration.
     --
     -- A response headers policy contains information about a set of HTTP
@@ -88,7 +89,7 @@ newResponseHeadersPolicy
     ResponseHeadersPolicy'
       { id = pId_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         responseHeadersPolicyConfig =
           pResponseHeadersPolicyConfig_
       }
@@ -99,7 +100,7 @@ responseHeadersPolicy_id = Lens.lens (\ResponseHeadersPolicy' {id} -> id) (\s@Re
 
 -- | The date and time when the response headers policy was last modified.
 responseHeadersPolicy_lastModifiedTime :: Lens.Lens' ResponseHeadersPolicy Prelude.UTCTime
-responseHeadersPolicy_lastModifiedTime = Lens.lens (\ResponseHeadersPolicy' {lastModifiedTime} -> lastModifiedTime) (\s@ResponseHeadersPolicy' {} a -> s {lastModifiedTime = a} :: ResponseHeadersPolicy) Prelude.. Core._Time
+responseHeadersPolicy_lastModifiedTime = Lens.lens (\ResponseHeadersPolicy' {lastModifiedTime} -> lastModifiedTime) (\s@ResponseHeadersPolicy' {} a -> s {lastModifiedTime = a} :: ResponseHeadersPolicy) Prelude.. Data._Time
 
 -- | A response headers policy configuration.
 --
@@ -110,12 +111,12 @@ responseHeadersPolicy_lastModifiedTime = Lens.lens (\ResponseHeadersPolicy' {las
 responseHeadersPolicy_responseHeadersPolicyConfig :: Lens.Lens' ResponseHeadersPolicy ResponseHeadersPolicyConfig
 responseHeadersPolicy_responseHeadersPolicyConfig = Lens.lens (\ResponseHeadersPolicy' {responseHeadersPolicyConfig} -> responseHeadersPolicyConfig) (\s@ResponseHeadersPolicy' {} a -> s {responseHeadersPolicyConfig = a} :: ResponseHeadersPolicy)
 
-instance Core.FromXML ResponseHeadersPolicy where
+instance Data.FromXML ResponseHeadersPolicy where
   parseXML x =
     ResponseHeadersPolicy'
-      Prelude.<$> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "LastModifiedTime")
-      Prelude.<*> (x Core..@ "ResponseHeadersPolicyConfig")
+      Prelude.<$> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "LastModifiedTime")
+      Prelude.<*> (x Data..@ "ResponseHeadersPolicyConfig")
 
 instance Prelude.Hashable ResponseHeadersPolicy where
   hashWithSalt _salt ResponseHeadersPolicy' {..} =

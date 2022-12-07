@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.TrendmicroMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to Trend Micro.
@@ -39,9 +40,9 @@ newTrendmicroMetadata ::
   TrendmicroMetadata
 newTrendmicroMetadata = TrendmicroMetadata'
 
-instance Core.FromJSON TrendmicroMetadata where
+instance Data.FromJSON TrendmicroMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrendmicroMetadata"
       (\x -> Prelude.pure TrendmicroMetadata')
 

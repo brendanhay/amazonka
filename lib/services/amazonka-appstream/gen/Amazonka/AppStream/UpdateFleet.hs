@@ -83,6 +83,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -722,7 +723,7 @@ instance Core.AWSRequest UpdateFleet where
     Response.receiveJSON
       ( \s h x ->
           UpdateFleetResponse'
-            Prelude.<$> (x Core..?> "Fleet")
+            Prelude.<$> (x Data..?> "Fleet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -776,64 +777,64 @@ instance Prelude.NFData UpdateFleet where
       `Prelude.seq` Prelude.rnf
         maxUserDurationInSeconds
 
-instance Core.ToHeaders UpdateFleet where
+instance Data.ToHeaders UpdateFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.UpdateFleet" ::
+              Data.=# ( "PhotonAdminProxyService.UpdateFleet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFleet where
+instance Data.ToJSON UpdateFleet where
   toJSON UpdateFleet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("SessionScriptS3Location" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("SessionScriptS3Location" Data..=)
               Prelude.<$> sessionScriptS3Location,
-            ("MaxConcurrentSessions" Core..=)
+            ("MaxConcurrentSessions" Data..=)
               Prelude.<$> maxConcurrentSessions,
-            ("AttributesToDelete" Core..=)
+            ("AttributesToDelete" Data..=)
               Prelude.<$> attributesToDelete,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("DeleteVpcConfig" Core..=)
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("DeleteVpcConfig" Data..=)
               Prelude.<$> deleteVpcConfig,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("ImageArn" Core..=) Prelude.<$> imageArn,
-            ("Platform" Core..=) Prelude.<$> platform,
-            ("Description" Core..=) Prelude.<$> description,
-            ("DisconnectTimeoutInSeconds" Core..=)
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("ImageArn" Data..=) Prelude.<$> imageArn,
+            ("Platform" Data..=) Prelude.<$> platform,
+            ("Description" Data..=) Prelude.<$> description,
+            ("DisconnectTimeoutInSeconds" Data..=)
               Prelude.<$> disconnectTimeoutInSeconds,
-            ("IdleDisconnectTimeoutInSeconds" Core..=)
+            ("IdleDisconnectTimeoutInSeconds" Data..=)
               Prelude.<$> idleDisconnectTimeoutInSeconds,
-            ("InstanceType" Core..=) Prelude.<$> instanceType,
-            ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
-            ("UsbDeviceFilterStrings" Core..=)
+            ("InstanceType" Data..=) Prelude.<$> instanceType,
+            ("IamRoleArn" Data..=) Prelude.<$> iamRoleArn,
+            ("UsbDeviceFilterStrings" Data..=)
               Prelude.<$> usbDeviceFilterStrings,
-            ("DomainJoinInfo" Core..=)
+            ("DomainJoinInfo" Data..=)
               Prelude.<$> domainJoinInfo,
-            ("StreamView" Core..=) Prelude.<$> streamView,
-            ("EnableDefaultInternetAccess" Core..=)
+            ("StreamView" Data..=) Prelude.<$> streamView,
+            ("EnableDefaultInternetAccess" Data..=)
               Prelude.<$> enableDefaultInternetAccess,
-            ("ComputeCapacity" Core..=)
+            ("ComputeCapacity" Data..=)
               Prelude.<$> computeCapacity,
-            ("ImageName" Core..=) Prelude.<$> imageName,
-            ("MaxUserDurationInSeconds" Core..=)
+            ("ImageName" Data..=) Prelude.<$> imageName,
+            ("MaxUserDurationInSeconds" Data..=)
               Prelude.<$> maxUserDurationInSeconds
           ]
       )
 
-instance Core.ToPath UpdateFleet where
+instance Data.ToPath UpdateFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateFleet where
+instance Data.ToQuery UpdateFleet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFleetResponse' smart constructor.

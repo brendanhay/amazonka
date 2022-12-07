@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.ClientPolicy where
 import Amazonka.AppMesh.Types.ClientPolicyTls
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a client policy.
@@ -54,11 +55,11 @@ newClientPolicy =
 clientPolicy_tls :: Lens.Lens' ClientPolicy (Prelude.Maybe ClientPolicyTls)
 clientPolicy_tls = Lens.lens (\ClientPolicy' {tls} -> tls) (\s@ClientPolicy' {} a -> s {tls = a} :: ClientPolicy)
 
-instance Core.FromJSON ClientPolicy where
+instance Data.FromJSON ClientPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClientPolicy"
-      (\x -> ClientPolicy' Prelude.<$> (x Core..:? "tls"))
+      (\x -> ClientPolicy' Prelude.<$> (x Data..:? "tls"))
 
 instance Prelude.Hashable ClientPolicy where
   hashWithSalt _salt ClientPolicy' {..} =
@@ -67,7 +68,7 @@ instance Prelude.Hashable ClientPolicy where
 instance Prelude.NFData ClientPolicy where
   rnf ClientPolicy' {..} = Prelude.rnf tls
 
-instance Core.ToJSON ClientPolicy where
+instance Data.ToJSON ClientPolicy where
   toJSON ClientPolicy' {..} =
-    Core.object
-      (Prelude.catMaybes [("tls" Core..=) Prelude.<$> tls])
+    Data.object
+      (Prelude.catMaybes [("tls" Data..=) Prelude.<$> tls])

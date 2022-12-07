@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.FirewallRuleGroupAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.FirewallRuleGroupAssociationStatus
 import Amazonka.Route53Resolver.Types.MutationProtectionStatus
@@ -197,25 +198,25 @@ firewallRuleGroupAssociation_vpcId = Lens.lens (\FirewallRuleGroupAssociation' {
 firewallRuleGroupAssociation_statusMessage :: Lens.Lens' FirewallRuleGroupAssociation (Prelude.Maybe Prelude.Text)
 firewallRuleGroupAssociation_statusMessage = Lens.lens (\FirewallRuleGroupAssociation' {statusMessage} -> statusMessage) (\s@FirewallRuleGroupAssociation' {} a -> s {statusMessage = a} :: FirewallRuleGroupAssociation)
 
-instance Core.FromJSON FirewallRuleGroupAssociation where
+instance Data.FromJSON FirewallRuleGroupAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallRuleGroupAssociation"
       ( \x ->
           FirewallRuleGroupAssociation'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ModificationTime")
-            Prelude.<*> (x Core..:? "FirewallRuleGroupId")
-            Prelude.<*> (x Core..:? "ManagedOwnerName")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "MutationProtection")
-            Prelude.<*> (x Core..:? "CreatorRequestId")
-            Prelude.<*> (x Core..:? "Priority")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ModificationTime")
+            Prelude.<*> (x Data..:? "FirewallRuleGroupId")
+            Prelude.<*> (x Data..:? "ManagedOwnerName")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "MutationProtection")
+            Prelude.<*> (x Data..:? "CreatorRequestId")
+            Prelude.<*> (x Data..:? "Priority")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationDescriptio
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.CheckpointConfigurationDescription
 import Amazonka.KinesisAnalyticsV2.Types.MonitoringConfigurationDescription
 import Amazonka.KinesisAnalyticsV2.Types.ParallelismConfigurationDescription
@@ -118,18 +119,18 @@ flinkApplicationConfigurationDescription_monitoringConfigurationDescription :: L
 flinkApplicationConfigurationDescription_monitoringConfigurationDescription = Lens.lens (\FlinkApplicationConfigurationDescription' {monitoringConfigurationDescription} -> monitoringConfigurationDescription) (\s@FlinkApplicationConfigurationDescription' {} a -> s {monitoringConfigurationDescription = a} :: FlinkApplicationConfigurationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FlinkApplicationConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FlinkApplicationConfigurationDescription"
       ( \x ->
           FlinkApplicationConfigurationDescription'
-            Prelude.<$> (x Core..:? "CheckpointConfigurationDescription")
-            Prelude.<*> (x Core..:? "JobPlanDescription")
-            Prelude.<*> (x Core..:? "ParallelismConfigurationDescription")
-            Prelude.<*> (x Core..:? "MonitoringConfigurationDescription")
+            Prelude.<$> (x Data..:? "CheckpointConfigurationDescription")
+            Prelude.<*> (x Data..:? "JobPlanDescription")
+            Prelude.<*> (x Data..:? "ParallelismConfigurationDescription")
+            Prelude.<*> (x Data..:? "MonitoringConfigurationDescription")
       )
 
 instance

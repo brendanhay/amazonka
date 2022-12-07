@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -664,8 +665,8 @@ instance Core.AWSRequest UpdatePipeline where
     Response.receiveJSON
       ( \s h x ->
           UpdatePipelineResponse'
-            Prelude.<$> (x Core..?> "Warnings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Pipeline")
+            Prelude.<$> (x Data..?> "Warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Pipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -691,30 +692,30 @@ instance Prelude.NFData UpdatePipeline where
       `Prelude.seq` Prelude.rnf contentConfig
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdatePipeline where
+instance Data.ToHeaders UpdatePipeline where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdatePipeline where
+instance Data.ToJSON UpdatePipeline where
   toJSON UpdatePipeline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Notifications" Core..=) Prelude.<$> notifications,
-            ("ThumbnailConfig" Core..=)
+          [ ("Notifications" Data..=) Prelude.<$> notifications,
+            ("ThumbnailConfig" Data..=)
               Prelude.<$> thumbnailConfig,
-            ("Name" Core..=) Prelude.<$> name,
-            ("InputBucket" Core..=) Prelude.<$> inputBucket,
-            ("AwsKmsKeyArn" Core..=) Prelude.<$> awsKmsKeyArn,
-            ("Role" Core..=) Prelude.<$> role',
-            ("ContentConfig" Core..=) Prelude.<$> contentConfig
+            ("Name" Data..=) Prelude.<$> name,
+            ("InputBucket" Data..=) Prelude.<$> inputBucket,
+            ("AwsKmsKeyArn" Data..=) Prelude.<$> awsKmsKeyArn,
+            ("Role" Data..=) Prelude.<$> role',
+            ("ContentConfig" Data..=) Prelude.<$> contentConfig
           ]
       )
 
-instance Core.ToPath UpdatePipeline where
+instance Data.ToPath UpdatePipeline where
   toPath UpdatePipeline' {..} =
     Prelude.mconcat
-      ["/2012-09-25/pipelines/", Core.toBS id]
+      ["/2012-09-25/pipelines/", Data.toBS id]
 
-instance Core.ToQuery UpdatePipeline where
+instance Data.ToQuery UpdatePipeline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | When you update a pipeline, Elastic Transcoder returns the values that

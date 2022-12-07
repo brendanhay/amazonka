@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.SavingsPlansAmortizedCommitment
 import Amazonka.CostExplorer.Types.SavingsPlansSavings
 import Amazonka.CostExplorer.Types.SavingsPlansUtilization
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The aggregated utilization metrics for your Savings Plans usage.
@@ -92,17 +93,17 @@ savingsPlansUtilizationAggregates_utilization :: Lens.Lens' SavingsPlansUtilizat
 savingsPlansUtilizationAggregates_utilization = Lens.lens (\SavingsPlansUtilizationAggregates' {utilization} -> utilization) (\s@SavingsPlansUtilizationAggregates' {} a -> s {utilization = a} :: SavingsPlansUtilizationAggregates)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SavingsPlansUtilizationAggregates
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlansUtilizationAggregates"
       ( \x ->
           SavingsPlansUtilizationAggregates'
-            Prelude.<$> (x Core..:? "AmortizedCommitment")
-            Prelude.<*> (x Core..:? "Savings")
-            Prelude.<*> (x Core..: "Utilization")
+            Prelude.<$> (x Data..:? "AmortizedCommitment")
+            Prelude.<*> (x Data..:? "Savings")
+            Prelude.<*> (x Data..: "Utilization")
       )
 
 instance

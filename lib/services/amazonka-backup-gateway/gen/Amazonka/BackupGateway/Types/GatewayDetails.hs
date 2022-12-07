@@ -23,6 +23,7 @@ import Amazonka.BackupGateway.Types.GatewayType
 import Amazonka.BackupGateway.Types.MaintenanceStartTime
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of gateway.
@@ -36,7 +37,7 @@ data GatewayDetails = GatewayDetails'
     -- Services Region.
     gatewayArn :: Prelude.Maybe Prelude.Text,
     -- | Details showing the next update availability time of the gateway.
-    nextUpdateAvailabilityTime :: Prelude.Maybe Core.POSIX,
+    nextUpdateAvailabilityTime :: Prelude.Maybe Data.POSIX,
     -- | Returns your gateway\'s weekly maintenance start time including the day
     -- and time of the week. Note that values are in terms of the gateway\'s
     -- time zone. Can be weekly or monthly.
@@ -45,7 +46,7 @@ data GatewayDetails = GatewayDetails'
     hypervisorId :: Prelude.Maybe Prelude.Text,
     -- | Details showing the last time Backup gateway communicated with the
     -- cloud, in Unix format and UTC time.
-    lastSeenTime :: Prelude.Maybe Core.POSIX,
+    lastSeenTime :: Prelude.Maybe Data.POSIX,
     -- | The display name of the gateway.
     gatewayDisplayName :: Prelude.Maybe Prelude.Text,
     -- | The DNS name for the virtual private cloud (VPC) endpoint the gateway
@@ -109,7 +110,7 @@ gatewayDetails_gatewayArn = Lens.lens (\GatewayDetails' {gatewayArn} -> gatewayA
 
 -- | Details showing the next update availability time of the gateway.
 gatewayDetails_nextUpdateAvailabilityTime :: Lens.Lens' GatewayDetails (Prelude.Maybe Prelude.UTCTime)
-gatewayDetails_nextUpdateAvailabilityTime = Lens.lens (\GatewayDetails' {nextUpdateAvailabilityTime} -> nextUpdateAvailabilityTime) (\s@GatewayDetails' {} a -> s {nextUpdateAvailabilityTime = a} :: GatewayDetails) Prelude.. Lens.mapping Core._Time
+gatewayDetails_nextUpdateAvailabilityTime = Lens.lens (\GatewayDetails' {nextUpdateAvailabilityTime} -> nextUpdateAvailabilityTime) (\s@GatewayDetails' {} a -> s {nextUpdateAvailabilityTime = a} :: GatewayDetails) Prelude.. Lens.mapping Data._Time
 
 -- | Returns your gateway\'s weekly maintenance start time including the day
 -- and time of the week. Note that values are in terms of the gateway\'s
@@ -124,7 +125,7 @@ gatewayDetails_hypervisorId = Lens.lens (\GatewayDetails' {hypervisorId} -> hype
 -- | Details showing the last time Backup gateway communicated with the
 -- cloud, in Unix format and UTC time.
 gatewayDetails_lastSeenTime :: Lens.Lens' GatewayDetails (Prelude.Maybe Prelude.UTCTime)
-gatewayDetails_lastSeenTime = Lens.lens (\GatewayDetails' {lastSeenTime} -> lastSeenTime) (\s@GatewayDetails' {} a -> s {lastSeenTime = a} :: GatewayDetails) Prelude.. Lens.mapping Core._Time
+gatewayDetails_lastSeenTime = Lens.lens (\GatewayDetails' {lastSeenTime} -> lastSeenTime) (\s@GatewayDetails' {} a -> s {lastSeenTime = a} :: GatewayDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The display name of the gateway.
 gatewayDetails_gatewayDisplayName :: Lens.Lens' GatewayDetails (Prelude.Maybe Prelude.Text)
@@ -135,20 +136,20 @@ gatewayDetails_gatewayDisplayName = Lens.lens (\GatewayDetails' {gatewayDisplayN
 gatewayDetails_vpcEndpoint :: Lens.Lens' GatewayDetails (Prelude.Maybe Prelude.Text)
 gatewayDetails_vpcEndpoint = Lens.lens (\GatewayDetails' {vpcEndpoint} -> vpcEndpoint) (\s@GatewayDetails' {} a -> s {vpcEndpoint = a} :: GatewayDetails)
 
-instance Core.FromJSON GatewayDetails where
+instance Data.FromJSON GatewayDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GatewayDetails"
       ( \x ->
           GatewayDetails'
-            Prelude.<$> (x Core..:? "GatewayType")
-            Prelude.<*> (x Core..:? "GatewayArn")
-            Prelude.<*> (x Core..:? "NextUpdateAvailabilityTime")
-            Prelude.<*> (x Core..:? "MaintenanceStartTime")
-            Prelude.<*> (x Core..:? "HypervisorId")
-            Prelude.<*> (x Core..:? "LastSeenTime")
-            Prelude.<*> (x Core..:? "GatewayDisplayName")
-            Prelude.<*> (x Core..:? "VpcEndpoint")
+            Prelude.<$> (x Data..:? "GatewayType")
+            Prelude.<*> (x Data..:? "GatewayArn")
+            Prelude.<*> (x Data..:? "NextUpdateAvailabilityTime")
+            Prelude.<*> (x Data..:? "MaintenanceStartTime")
+            Prelude.<*> (x Data..:? "HypervisorId")
+            Prelude.<*> (x Data..:? "LastSeenTime")
+            Prelude.<*> (x Data..:? "GatewayDisplayName")
+            Prelude.<*> (x Data..:? "VpcEndpoint")
       )
 
 instance Prelude.Hashable GatewayDetails where

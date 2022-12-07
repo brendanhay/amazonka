@@ -43,6 +43,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -221,27 +222,27 @@ instance Prelude.NFData DeleteStack where
       `Prelude.seq` Prelude.rnf retainResources
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders DeleteStack where
+instance Data.ToHeaders DeleteStack where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteStack where
+instance Data.ToPath DeleteStack where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteStack where
+instance Data.ToQuery DeleteStack where
   toQuery DeleteStack' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteStack" :: Prelude.ByteString),
+          Data.=: ("DeleteStack" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "RoleARN" Core.=: roleARN,
-        "ClientRequestToken" Core.=: clientRequestToken,
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "RoleARN" Data.=: roleARN,
+        "ClientRequestToken" Data.=: clientRequestToken,
         "RetainResources"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> retainResources
             ),
-        "StackName" Core.=: stackName
+        "StackName" Data.=: stackName
       ]
 
 -- | /See:/ 'newDeleteStackResponse' smart constructor.

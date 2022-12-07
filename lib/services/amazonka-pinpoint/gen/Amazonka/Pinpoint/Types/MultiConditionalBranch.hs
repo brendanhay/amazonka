@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.MultiConditionalBranch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.SimpleCondition
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,14 +67,14 @@ multiConditionalBranch_nextActivity = Lens.lens (\MultiConditionalBranch' {nextA
 multiConditionalBranch_condition :: Lens.Lens' MultiConditionalBranch (Prelude.Maybe SimpleCondition)
 multiConditionalBranch_condition = Lens.lens (\MultiConditionalBranch' {condition} -> condition) (\s@MultiConditionalBranch' {} a -> s {condition = a} :: MultiConditionalBranch)
 
-instance Core.FromJSON MultiConditionalBranch where
+instance Data.FromJSON MultiConditionalBranch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiConditionalBranch"
       ( \x ->
           MultiConditionalBranch'
-            Prelude.<$> (x Core..:? "NextActivity")
-            Prelude.<*> (x Core..:? "Condition")
+            Prelude.<$> (x Data..:? "NextActivity")
+            Prelude.<*> (x Data..:? "Condition")
       )
 
 instance Prelude.Hashable MultiConditionalBranch where
@@ -86,11 +87,11 @@ instance Prelude.NFData MultiConditionalBranch where
     Prelude.rnf nextActivity
       `Prelude.seq` Prelude.rnf condition
 
-instance Core.ToJSON MultiConditionalBranch where
+instance Data.ToJSON MultiConditionalBranch where
   toJSON MultiConditionalBranch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextActivity" Core..=) Prelude.<$> nextActivity,
-            ("Condition" Core..=) Prelude.<$> condition
+          [ ("NextActivity" Data..=) Prelude.<$> nextActivity,
+            ("Condition" Data..=) Prelude.<$> condition
           ]
       )

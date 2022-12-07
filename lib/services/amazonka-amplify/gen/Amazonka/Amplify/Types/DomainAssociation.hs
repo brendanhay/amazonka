@@ -23,6 +23,7 @@ import Amazonka.Amplify.Types.DomainStatus
 import Amazonka.Amplify.Types.SubDomain
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a domain association that associates a custom domain with an
@@ -146,23 +147,23 @@ domainAssociation_statusReason = Lens.lens (\DomainAssociation' {statusReason} -
 domainAssociation_subDomains :: Lens.Lens' DomainAssociation [SubDomain]
 domainAssociation_subDomains = Lens.lens (\DomainAssociation' {subDomains} -> subDomains) (\s@DomainAssociation' {} a -> s {subDomains = a} :: DomainAssociation) Prelude.. Lens.coerced
 
-instance Core.FromJSON DomainAssociation where
+instance Data.FromJSON DomainAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainAssociation"
       ( \x ->
           DomainAssociation'
-            Prelude.<$> (x Core..:? "autoSubDomainIAMRole")
-            Prelude.<*> ( x Core..:? "autoSubDomainCreationPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "autoSubDomainIAMRole")
+            Prelude.<*> ( x Data..:? "autoSubDomainCreationPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "certificateVerificationDNSRecord")
-            Prelude.<*> (x Core..: "domainAssociationArn")
-            Prelude.<*> (x Core..: "domainName")
-            Prelude.<*> (x Core..: "enableAutoSubDomain")
-            Prelude.<*> (x Core..: "domainStatus")
-            Prelude.<*> (x Core..: "statusReason")
-            Prelude.<*> (x Core..:? "subDomains" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "certificateVerificationDNSRecord")
+            Prelude.<*> (x Data..: "domainAssociationArn")
+            Prelude.<*> (x Data..: "domainName")
+            Prelude.<*> (x Data..: "enableAutoSubDomain")
+            Prelude.<*> (x Data..: "domainStatus")
+            Prelude.<*> (x Data..: "statusReason")
+            Prelude.<*> (x Data..:? "subDomains" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DomainAssociation where

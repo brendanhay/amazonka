@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SubnetAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState
 import qualified Amazonka.Prelude as Prelude
@@ -64,11 +65,11 @@ subnetAssociation_subnetId = Lens.lens (\SubnetAssociation' {subnetId} -> subnet
 subnetAssociation_state :: Lens.Lens' SubnetAssociation (Prelude.Maybe TransitGatewayMulitcastDomainAssociationState)
 subnetAssociation_state = Lens.lens (\SubnetAssociation' {state} -> state) (\s@SubnetAssociation' {} a -> s {state = a} :: SubnetAssociation)
 
-instance Core.FromXML SubnetAssociation where
+instance Data.FromXML SubnetAssociation where
   parseXML x =
     SubnetAssociation'
-      Prelude.<$> (x Core..@? "subnetId")
-      Prelude.<*> (x Core..@? "state")
+      Prelude.<$> (x Data..@? "subnetId")
+      Prelude.<*> (x Data..@? "state")
 
 instance Prelude.Hashable SubnetAssociation where
   hashWithSalt _salt SubnetAssociation' {..} =

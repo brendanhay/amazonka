@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,7 +129,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateContainerServiceDeploymentResponse'
-            Prelude.<$> (x Core..?> "containerService")
+            Prelude.<$> (x Data..?> "containerService")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,39 +154,39 @@ instance
       `Prelude.seq` Prelude.rnf serviceName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateContainerServiceDeployment
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.CreateContainerServiceDeployment" ::
+              Data.=# ( "Lightsail_20161128.CreateContainerServiceDeployment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateContainerServiceDeployment where
+instance Data.ToJSON CreateContainerServiceDeployment where
   toJSON CreateContainerServiceDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("containers" Core..=) Prelude.<$> containers,
-            ("publicEndpoint" Core..=)
+          [ ("containers" Data..=) Prelude.<$> containers,
+            ("publicEndpoint" Data..=)
               Prelude.<$> publicEndpoint,
-            Prelude.Just ("serviceName" Core..= serviceName)
+            Prelude.Just ("serviceName" Data..= serviceName)
           ]
       )
 
-instance Core.ToPath CreateContainerServiceDeployment where
+instance Data.ToPath CreateContainerServiceDeployment where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateContainerServiceDeployment
   where
   toQuery = Prelude.const Prelude.mempty

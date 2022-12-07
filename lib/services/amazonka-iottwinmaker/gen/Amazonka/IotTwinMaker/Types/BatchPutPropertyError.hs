@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.BatchPutPropertyError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.PropertyValueEntry
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,15 +84,15 @@ batchPutPropertyError_errorMessage = Lens.lens (\BatchPutPropertyError' {errorMe
 batchPutPropertyError_entry :: Lens.Lens' BatchPutPropertyError PropertyValueEntry
 batchPutPropertyError_entry = Lens.lens (\BatchPutPropertyError' {entry} -> entry) (\s@BatchPutPropertyError' {} a -> s {entry = a} :: BatchPutPropertyError)
 
-instance Core.FromJSON BatchPutPropertyError where
+instance Data.FromJSON BatchPutPropertyError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchPutPropertyError"
       ( \x ->
           BatchPutPropertyError'
-            Prelude.<$> (x Core..: "errorCode")
-            Prelude.<*> (x Core..: "errorMessage")
-            Prelude.<*> (x Core..: "entry")
+            Prelude.<$> (x Data..: "errorCode")
+            Prelude.<*> (x Data..: "errorMessage")
+            Prelude.<*> (x Data..: "entry")
       )
 
 instance Prelude.Hashable BatchPutPropertyError where

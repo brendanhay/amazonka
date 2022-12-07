@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.VocabularyLanguageCode
 import Amazonka.Connect.Types.VocabularyState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a custom vocabulary.
@@ -53,7 +54,7 @@ data Vocabulary = Vocabulary'
     -- | The current state of the custom vocabulary.
     state :: VocabularyState,
     -- | The timestamp when the custom vocabulary was last modified.
-    lastModifiedTime :: Core.POSIX
+    lastModifiedTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -120,7 +121,7 @@ newVocabulary
         languageCode = pLanguageCode_,
         state = pState_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_
+          Data._Time Lens.# pLastModifiedTime_
       }
 
 -- | The tags used to organize, track, or control access for this resource.
@@ -164,23 +165,23 @@ vocabulary_state = Lens.lens (\Vocabulary' {state} -> state) (\s@Vocabulary' {} 
 
 -- | The timestamp when the custom vocabulary was last modified.
 vocabulary_lastModifiedTime :: Lens.Lens' Vocabulary Prelude.UTCTime
-vocabulary_lastModifiedTime = Lens.lens (\Vocabulary' {lastModifiedTime} -> lastModifiedTime) (\s@Vocabulary' {} a -> s {lastModifiedTime = a} :: Vocabulary) Prelude.. Core._Time
+vocabulary_lastModifiedTime = Lens.lens (\Vocabulary' {lastModifiedTime} -> lastModifiedTime) (\s@Vocabulary' {} a -> s {lastModifiedTime = a} :: Vocabulary) Prelude.. Data._Time
 
-instance Core.FromJSON Vocabulary where
+instance Data.FromJSON Vocabulary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Vocabulary"
       ( \x ->
           Vocabulary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Content")
-            Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "LanguageCode")
-            Prelude.<*> (x Core..: "State")
-            Prelude.<*> (x Core..: "LastModifiedTime")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Content")
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "LanguageCode")
+            Prelude.<*> (x Data..: "State")
+            Prelude.<*> (x Data..: "LastModifiedTime")
       )
 
 instance Prelude.Hashable Vocabulary where

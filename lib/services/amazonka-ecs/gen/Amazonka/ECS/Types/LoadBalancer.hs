@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.LoadBalancer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The load balancer configuration to use with a service or task set.
@@ -192,16 +193,16 @@ loadBalancer_loadBalancerName = Lens.lens (\LoadBalancer' {loadBalancerName} -> 
 loadBalancer_targetGroupArn :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
 loadBalancer_targetGroupArn = Lens.lens (\LoadBalancer' {targetGroupArn} -> targetGroupArn) (\s@LoadBalancer' {} a -> s {targetGroupArn = a} :: LoadBalancer)
 
-instance Core.FromJSON LoadBalancer where
+instance Data.FromJSON LoadBalancer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoadBalancer"
       ( \x ->
           LoadBalancer'
-            Prelude.<$> (x Core..:? "containerPort")
-            Prelude.<*> (x Core..:? "containerName")
-            Prelude.<*> (x Core..:? "loadBalancerName")
-            Prelude.<*> (x Core..:? "targetGroupArn")
+            Prelude.<$> (x Data..:? "containerPort")
+            Prelude.<*> (x Data..:? "containerName")
+            Prelude.<*> (x Data..:? "loadBalancerName")
+            Prelude.<*> (x Data..:? "targetGroupArn")
       )
 
 instance Prelude.Hashable LoadBalancer where
@@ -218,15 +219,15 @@ instance Prelude.NFData LoadBalancer where
       `Prelude.seq` Prelude.rnf loadBalancerName
       `Prelude.seq` Prelude.rnf targetGroupArn
 
-instance Core.ToJSON LoadBalancer where
+instance Data.ToJSON LoadBalancer where
   toJSON LoadBalancer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("containerPort" Core..=) Prelude.<$> containerPort,
-            ("containerName" Core..=) Prelude.<$> containerName,
-            ("loadBalancerName" Core..=)
+          [ ("containerPort" Data..=) Prelude.<$> containerPort,
+            ("containerName" Data..=) Prelude.<$> containerName,
+            ("loadBalancerName" Data..=)
               Prelude.<$> loadBalancerName,
-            ("targetGroupArn" Core..=)
+            ("targetGroupArn" Data..=)
               Prelude.<$> targetGroupArn
           ]
       )

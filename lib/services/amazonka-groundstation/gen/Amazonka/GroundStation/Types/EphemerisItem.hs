@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.EphemerisItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.EphemerisStatus
 import Amazonka.GroundStation.Types.S3Object
 import qualified Amazonka.Prelude as Prelude
@@ -47,7 +48,7 @@ data EphemerisItem = EphemerisItem'
     -- Priority must be 1 or greater
     priority :: Prelude.Maybe Prelude.Natural,
     -- | The time the ephemeris was uploaded in UTC.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The AWS Ground Station ephemeris ID.
     ephemerisId :: Prelude.Maybe Prelude.Text
   }
@@ -123,25 +124,25 @@ ephemerisItem_priority = Lens.lens (\EphemerisItem' {priority} -> priority) (\s@
 
 -- | The time the ephemeris was uploaded in UTC.
 ephemerisItem_creationTime :: Lens.Lens' EphemerisItem (Prelude.Maybe Prelude.UTCTime)
-ephemerisItem_creationTime = Lens.lens (\EphemerisItem' {creationTime} -> creationTime) (\s@EphemerisItem' {} a -> s {creationTime = a} :: EphemerisItem) Prelude.. Lens.mapping Core._Time
+ephemerisItem_creationTime = Lens.lens (\EphemerisItem' {creationTime} -> creationTime) (\s@EphemerisItem' {} a -> s {creationTime = a} :: EphemerisItem) Prelude.. Lens.mapping Data._Time
 
 -- | The AWS Ground Station ephemeris ID.
 ephemerisItem_ephemerisId :: Lens.Lens' EphemerisItem (Prelude.Maybe Prelude.Text)
 ephemerisItem_ephemerisId = Lens.lens (\EphemerisItem' {ephemerisId} -> ephemerisId) (\s@EphemerisItem' {} a -> s {ephemerisId = a} :: EphemerisItem)
 
-instance Core.FromJSON EphemerisItem where
+instance Data.FromJSON EphemerisItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EphemerisItem"
       ( \x ->
           EphemerisItem'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "sourceS3Object")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "enabled")
-            Prelude.<*> (x Core..:? "priority")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "ephemerisId")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "sourceS3Object")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "priority")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "ephemerisId")
       )
 
 instance Prelude.Hashable EphemerisItem where

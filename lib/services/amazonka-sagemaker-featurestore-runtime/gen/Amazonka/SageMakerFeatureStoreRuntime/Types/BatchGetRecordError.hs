@@ -21,6 +21,7 @@ module Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The error that has occurred when attempting to retrieve a batch of
@@ -106,16 +107,16 @@ batchGetRecordError_errorCode = Lens.lens (\BatchGetRecordError' {errorCode} -> 
 batchGetRecordError_errorMessage :: Lens.Lens' BatchGetRecordError Prelude.Text
 batchGetRecordError_errorMessage = Lens.lens (\BatchGetRecordError' {errorMessage} -> errorMessage) (\s@BatchGetRecordError' {} a -> s {errorMessage = a} :: BatchGetRecordError)
 
-instance Core.FromJSON BatchGetRecordError where
+instance Data.FromJSON BatchGetRecordError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetRecordError"
       ( \x ->
           BatchGetRecordError'
-            Prelude.<$> (x Core..: "FeatureGroupName")
-            Prelude.<*> (x Core..: "RecordIdentifierValueAsString")
-            Prelude.<*> (x Core..: "ErrorCode")
-            Prelude.<*> (x Core..: "ErrorMessage")
+            Prelude.<$> (x Data..: "FeatureGroupName")
+            Prelude.<*> (x Data..: "RecordIdentifierValueAsString")
+            Prelude.<*> (x Data..: "ErrorCode")
+            Prelude.<*> (x Data..: "ErrorMessage")
       )
 
 instance Prelude.Hashable BatchGetRecordError where

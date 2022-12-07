@@ -63,6 +63,7 @@ where
 import Amazonka.CognitoSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -182,17 +183,17 @@ instance Core.AWSRequest ListRecords where
     Response.receiveJSON
       ( \s h x ->
           ListRecordsResponse'
-            Prelude.<$> (x Core..?> "Records" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "DatasetExists")
-            Prelude.<*> (x Core..?> "SyncSessionToken")
-            Prelude.<*> ( x Core..?> "MergedDatasetNames"
+            Prelude.<$> (x Data..?> "Records" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "DatasetExists")
+            Prelude.<*> (x Data..?> "SyncSessionToken")
+            Prelude.<*> ( x Data..?> "MergedDatasetNames"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "DatasetSyncCount")
-            Prelude.<*> (x Core..?> "Count")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
-            Prelude.<*> (x Core..?> "DatasetDeletedAfterRequestedSyncCount")
+            Prelude.<*> (x Data..?> "DatasetSyncCount")
+            Prelude.<*> (x Data..?> "Count")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "DatasetDeletedAfterRequestedSyncCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -216,36 +217,36 @@ instance Prelude.NFData ListRecords where
       `Prelude.seq` Prelude.rnf identityId
       `Prelude.seq` Prelude.rnf datasetName
 
-instance Core.ToHeaders ListRecords where
+instance Data.ToHeaders ListRecords where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRecords where
+instance Data.ToPath ListRecords where
   toPath ListRecords' {..} =
     Prelude.mconcat
       [ "/identitypools/",
-        Core.toBS identityPoolId,
+        Data.toBS identityPoolId,
         "/identities/",
-        Core.toBS identityId,
+        Data.toBS identityId,
         "/datasets/",
-        Core.toBS datasetName,
+        Data.toBS datasetName,
         "/records"
       ]
 
-instance Core.ToQuery ListRecords where
+instance Data.ToQuery ListRecords where
   toQuery ListRecords' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "syncSessionToken" Core.=: syncSessionToken,
-        "lastSyncCount" Core.=: lastSyncCount,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "syncSessionToken" Data.=: syncSessionToken,
+        "lastSyncCount" Data.=: lastSyncCount,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | Returned for a successful ListRecordsRequest.

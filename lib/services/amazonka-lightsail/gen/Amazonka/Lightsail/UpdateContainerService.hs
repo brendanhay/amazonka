@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -250,7 +251,7 @@ instance Core.AWSRequest UpdateContainerService where
     Response.receiveJSON
       ( \s h x ->
           UpdateContainerServiceResponse'
-            Prelude.<$> (x Core..?> "containerService")
+            Prelude.<$> (x Data..?> "containerService")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -272,40 +273,40 @@ instance Prelude.NFData UpdateContainerService where
       `Prelude.seq` Prelude.rnf isDisabled
       `Prelude.seq` Prelude.rnf serviceName
 
-instance Core.ToHeaders UpdateContainerService where
+instance Data.ToHeaders UpdateContainerService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.UpdateContainerService" ::
+              Data.=# ( "Lightsail_20161128.UpdateContainerService" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateContainerService where
+instance Data.ToJSON UpdateContainerService where
   toJSON UpdateContainerService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("power" Core..=) Prelude.<$> power,
-            ("scale" Core..=) Prelude.<$> scale,
-            ("publicDomainNames" Core..=)
+          [ ("power" Data..=) Prelude.<$> power,
+            ("scale" Data..=) Prelude.<$> scale,
+            ("publicDomainNames" Data..=)
               Prelude.<$> publicDomainNames,
-            ("privateRegistryAccess" Core..=)
+            ("privateRegistryAccess" Data..=)
               Prelude.<$> privateRegistryAccess,
-            ("isDisabled" Core..=) Prelude.<$> isDisabled,
-            Prelude.Just ("serviceName" Core..= serviceName)
+            ("isDisabled" Data..=) Prelude.<$> isDisabled,
+            Prelude.Just ("serviceName" Data..= serviceName)
           ]
       )
 
-instance Core.ToPath UpdateContainerService where
+instance Data.ToPath UpdateContainerService where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateContainerService where
+instance Data.ToQuery UpdateContainerService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateContainerServiceResponse' smart constructor.

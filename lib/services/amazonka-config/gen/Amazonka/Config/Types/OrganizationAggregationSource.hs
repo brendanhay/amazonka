@@ -21,6 +21,7 @@ module Amazonka.Config.Types.OrganizationAggregationSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This object contains regions to set up the aggregator and an IAM role to
@@ -77,15 +78,15 @@ organizationAggregationSource_allAwsRegions = Lens.lens (\OrganizationAggregatio
 organizationAggregationSource_roleArn :: Lens.Lens' OrganizationAggregationSource Prelude.Text
 organizationAggregationSource_roleArn = Lens.lens (\OrganizationAggregationSource' {roleArn} -> roleArn) (\s@OrganizationAggregationSource' {} a -> s {roleArn = a} :: OrganizationAggregationSource)
 
-instance Core.FromJSON OrganizationAggregationSource where
+instance Data.FromJSON OrganizationAggregationSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationAggregationSource"
       ( \x ->
           OrganizationAggregationSource'
-            Prelude.<$> (x Core..:? "AwsRegions")
-            Prelude.<*> (x Core..:? "AllAwsRegions")
-            Prelude.<*> (x Core..: "RoleArn")
+            Prelude.<$> (x Data..:? "AwsRegions")
+            Prelude.<*> (x Data..:? "AllAwsRegions")
+            Prelude.<*> (x Data..: "RoleArn")
       )
 
 instance
@@ -103,12 +104,12 @@ instance Prelude.NFData OrganizationAggregationSource where
       `Prelude.seq` Prelude.rnf allAwsRegions
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON OrganizationAggregationSource where
+instance Data.ToJSON OrganizationAggregationSource where
   toJSON OrganizationAggregationSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AwsRegions" Core..=) Prelude.<$> awsRegions,
-            ("AllAwsRegions" Core..=) Prelude.<$> allAwsRegions,
-            Prelude.Just ("RoleArn" Core..= roleArn)
+          [ ("AwsRegions" Data..=) Prelude.<$> awsRegions,
+            ("AllAwsRegions" Data..=) Prelude.<$> allAwsRegions,
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )

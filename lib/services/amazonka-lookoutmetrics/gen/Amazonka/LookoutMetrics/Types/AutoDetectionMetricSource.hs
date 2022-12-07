@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.AutoDetectionMetricSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.AutoDetectionS3SourceConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,11 +63,11 @@ instance Prelude.NFData AutoDetectionMetricSource where
   rnf AutoDetectionMetricSource' {..} =
     Prelude.rnf s3SourceConfig
 
-instance Core.ToJSON AutoDetectionMetricSource where
+instance Data.ToJSON AutoDetectionMetricSource where
   toJSON AutoDetectionMetricSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3SourceConfig" Core..=)
+          [ ("S3SourceConfig" Data..=)
               Prelude.<$> s3SourceConfig
           ]
       )

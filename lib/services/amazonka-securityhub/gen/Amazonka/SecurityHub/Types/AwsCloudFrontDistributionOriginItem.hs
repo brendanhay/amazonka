@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginCustomOriginConfig
 import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginS3OriginConfig
@@ -112,19 +113,19 @@ awsCloudFrontDistributionOriginItem_customOriginConfig :: Lens.Lens' AwsCloudFro
 awsCloudFrontDistributionOriginItem_customOriginConfig = Lens.lens (\AwsCloudFrontDistributionOriginItem' {customOriginConfig} -> customOriginConfig) (\s@AwsCloudFrontDistributionOriginItem' {} a -> s {customOriginConfig = a} :: AwsCloudFrontDistributionOriginItem)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCloudFrontDistributionOriginItem
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudFrontDistributionOriginItem"
       ( \x ->
           AwsCloudFrontDistributionOriginItem'
-            Prelude.<$> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "S3OriginConfig")
-            Prelude.<*> (x Core..:? "OriginPath")
-            Prelude.<*> (x Core..:? "CustomOriginConfig")
+            Prelude.<$> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "S3OriginConfig")
+            Prelude.<*> (x Data..:? "OriginPath")
+            Prelude.<*> (x Data..:? "CustomOriginConfig")
       )
 
 instance
@@ -152,18 +153,18 @@ instance
       `Prelude.seq` Prelude.rnf customOriginConfig
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCloudFrontDistributionOriginItem
   where
   toJSON AwsCloudFrontDistributionOriginItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DomainName" Core..=) Prelude.<$> domainName,
-            ("Id" Core..=) Prelude.<$> id,
-            ("S3OriginConfig" Core..=)
+          [ ("DomainName" Data..=) Prelude.<$> domainName,
+            ("Id" Data..=) Prelude.<$> id,
+            ("S3OriginConfig" Data..=)
               Prelude.<$> s3OriginConfig,
-            ("OriginPath" Core..=) Prelude.<$> originPath,
-            ("CustomOriginConfig" Core..=)
+            ("OriginPath" Data..=) Prelude.<$> originPath,
+            ("CustomOriginConfig" Data..=)
               Prelude.<$> customOriginConfig
           ]
       )

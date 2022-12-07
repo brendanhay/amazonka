@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.CollectorShortInfoResponse
 import Amazonka.DMS.Types.DatabaseInstanceSoftwareDetailsResponse
 import Amazonka.DMS.Types.ServerShortInfoResponse
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a database in a Fleet Advisor collector inventory.
@@ -113,19 +114,19 @@ databaseResponse_ipAddress = Lens.lens (\DatabaseResponse' {ipAddress} -> ipAddr
 databaseResponse_softwareDetails :: Lens.Lens' DatabaseResponse (Prelude.Maybe DatabaseInstanceSoftwareDetailsResponse)
 databaseResponse_softwareDetails = Lens.lens (\DatabaseResponse' {softwareDetails} -> softwareDetails) (\s@DatabaseResponse' {} a -> s {softwareDetails = a} :: DatabaseResponse)
 
-instance Core.FromJSON DatabaseResponse where
+instance Data.FromJSON DatabaseResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatabaseResponse"
       ( \x ->
           DatabaseResponse'
-            Prelude.<$> (x Core..:? "NumberOfSchemas")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "DatabaseId")
-            Prelude.<*> (x Core..:? "Server")
-            Prelude.<*> (x Core..:? "Collectors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "IpAddress")
-            Prelude.<*> (x Core..:? "SoftwareDetails")
+            Prelude.<$> (x Data..:? "NumberOfSchemas")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "DatabaseId")
+            Prelude.<*> (x Data..:? "Server")
+            Prelude.<*> (x Data..:? "Collectors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "IpAddress")
+            Prelude.<*> (x Data..:? "SoftwareDetails")
       )
 
 instance Prelude.Hashable DatabaseResponse where

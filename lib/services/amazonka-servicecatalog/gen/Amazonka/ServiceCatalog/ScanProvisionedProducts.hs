@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -162,8 +163,8 @@ instance Core.AWSRequest ScanProvisionedProducts where
     Response.receiveJSON
       ( \s h x ->
           ScanProvisionedProductsResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> ( x Core..?> "ProvisionedProducts"
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> ( x Data..?> "ProvisionedProducts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -183,38 +184,38 @@ instance Prelude.NFData ScanProvisionedProducts where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf acceptLanguage
 
-instance Core.ToHeaders ScanProvisionedProducts where
+instance Data.ToHeaders ScanProvisionedProducts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ScanProvisionedProducts" ::
+              Data.=# ( "AWS242ServiceCatalogService.ScanProvisionedProducts" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ScanProvisionedProducts where
+instance Data.ToJSON ScanProvisionedProducts where
   toJSON ScanProvisionedProducts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessLevelFilter" Core..=)
+          [ ("AccessLevelFilter" Data..=)
               Prelude.<$> accessLevelFilter,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Core..=)
+            ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage
           ]
       )
 
-instance Core.ToPath ScanProvisionedProducts where
+instance Data.ToPath ScanProvisionedProducts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ScanProvisionedProducts where
+instance Data.ToQuery ScanProvisionedProducts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newScanProvisionedProductsResponse' smart constructor.

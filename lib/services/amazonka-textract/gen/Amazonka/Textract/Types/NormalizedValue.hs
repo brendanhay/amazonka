@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.NormalizedValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.ValueType
 
@@ -63,14 +64,14 @@ normalizedValue_valueType = Lens.lens (\NormalizedValue' {valueType} -> valueTyp
 normalizedValue_value :: Lens.Lens' NormalizedValue (Prelude.Maybe Prelude.Text)
 normalizedValue_value = Lens.lens (\NormalizedValue' {value} -> value) (\s@NormalizedValue' {} a -> s {value = a} :: NormalizedValue)
 
-instance Core.FromJSON NormalizedValue where
+instance Data.FromJSON NormalizedValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NormalizedValue"
       ( \x ->
           NormalizedValue'
-            Prelude.<$> (x Core..:? "ValueType")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "ValueType")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable NormalizedValue where

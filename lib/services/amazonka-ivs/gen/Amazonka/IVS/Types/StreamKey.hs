@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.StreamKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object specifying a stream key.
@@ -38,7 +39,7 @@ data StreamKey = StreamKey'
     -- | Channel ARN for the stream.
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | Stream-key value.
-    value :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    value :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -89,18 +90,18 @@ streamKey_channelArn = Lens.lens (\StreamKey' {channelArn} -> channelArn) (\s@St
 
 -- | Stream-key value.
 streamKey_value :: Lens.Lens' StreamKey (Prelude.Maybe Prelude.Text)
-streamKey_value = Lens.lens (\StreamKey' {value} -> value) (\s@StreamKey' {} a -> s {value = a} :: StreamKey) Prelude.. Lens.mapping Core._Sensitive
+streamKey_value = Lens.lens (\StreamKey' {value} -> value) (\s@StreamKey' {} a -> s {value = a} :: StreamKey) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON StreamKey where
+instance Data.FromJSON StreamKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamKey"
       ( \x ->
           StreamKey'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "channelArn")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "channelArn")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable StreamKey where

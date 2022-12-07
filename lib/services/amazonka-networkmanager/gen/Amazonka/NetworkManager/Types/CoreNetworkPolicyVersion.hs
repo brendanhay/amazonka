@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.CoreNetworkPolicyVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.ChangeSetState
 import Amazonka.NetworkManager.Types.CoreNetworkPolicyAlias
 import qualified Amazonka.Prelude as Prelude
@@ -41,7 +42,7 @@ data CoreNetworkPolicyVersion = CoreNetworkPolicyVersion'
     -- | The description of a core network policy version.
     description :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when a core network policy version was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,20 +101,20 @@ coreNetworkPolicyVersion_description = Lens.lens (\CoreNetworkPolicyVersion' {de
 
 -- | The timestamp when a core network policy version was created.
 coreNetworkPolicyVersion_createdAt :: Lens.Lens' CoreNetworkPolicyVersion (Prelude.Maybe Prelude.UTCTime)
-coreNetworkPolicyVersion_createdAt = Lens.lens (\CoreNetworkPolicyVersion' {createdAt} -> createdAt) (\s@CoreNetworkPolicyVersion' {} a -> s {createdAt = a} :: CoreNetworkPolicyVersion) Prelude.. Lens.mapping Core._Time
+coreNetworkPolicyVersion_createdAt = Lens.lens (\CoreNetworkPolicyVersion' {createdAt} -> createdAt) (\s@CoreNetworkPolicyVersion' {} a -> s {createdAt = a} :: CoreNetworkPolicyVersion) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CoreNetworkPolicyVersion where
+instance Data.FromJSON CoreNetworkPolicyVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoreNetworkPolicyVersion"
       ( \x ->
           CoreNetworkPolicyVersion'
-            Prelude.<$> (x Core..:? "Alias")
-            Prelude.<*> (x Core..:? "CoreNetworkId")
-            Prelude.<*> (x Core..:? "ChangeSetState")
-            Prelude.<*> (x Core..:? "PolicyVersionId")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "Alias")
+            Prelude.<*> (x Data..:? "CoreNetworkId")
+            Prelude.<*> (x Data..:? "ChangeSetState")
+            Prelude.<*> (x Data..:? "PolicyVersionId")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable CoreNetworkPolicyVersion where

@@ -21,6 +21,7 @@ module Amazonka.AppSync.Types.ErrorDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the list of errors generated. When using JavaScript, this will
@@ -51,12 +52,12 @@ newErrorDetail =
 errorDetail_message :: Lens.Lens' ErrorDetail (Prelude.Maybe Prelude.Text)
 errorDetail_message = Lens.lens (\ErrorDetail' {message} -> message) (\s@ErrorDetail' {} a -> s {message = a} :: ErrorDetail)
 
-instance Core.FromJSON ErrorDetail where
+instance Data.FromJSON ErrorDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorDetail"
       ( \x ->
-          ErrorDetail' Prelude.<$> (x Core..:? "message")
+          ErrorDetail' Prelude.<$> (x Data..:? "message")
       )
 
 instance Prelude.Hashable ErrorDetail where

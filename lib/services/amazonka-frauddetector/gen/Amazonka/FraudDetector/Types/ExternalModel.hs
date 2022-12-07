@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.ExternalModel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.ModelEndpointStatus
 import Amazonka.FraudDetector.Types.ModelInputConfiguration
 import Amazonka.FraudDetector.Types.ModelOutputConfiguration
@@ -129,21 +130,21 @@ externalModel_modelSource = Lens.lens (\ExternalModel' {modelSource} -> modelSou
 externalModel_invokeModelEndpointRoleArn :: Lens.Lens' ExternalModel (Prelude.Maybe Prelude.Text)
 externalModel_invokeModelEndpointRoleArn = Lens.lens (\ExternalModel' {invokeModelEndpointRoleArn} -> invokeModelEndpointRoleArn) (\s@ExternalModel' {} a -> s {invokeModelEndpointRoleArn = a} :: ExternalModel)
 
-instance Core.FromJSON ExternalModel where
+instance Data.FromJSON ExternalModel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExternalModel"
       ( \x ->
           ExternalModel'
-            Prelude.<$> (x Core..:? "outputConfiguration")
-            Prelude.<*> (x Core..:? "createdTime")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "inputConfiguration")
-            Prelude.<*> (x Core..:? "modelEndpointStatus")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "modelEndpoint")
-            Prelude.<*> (x Core..:? "modelSource")
-            Prelude.<*> (x Core..:? "invokeModelEndpointRoleArn")
+            Prelude.<$> (x Data..:? "outputConfiguration")
+            Prelude.<*> (x Data..:? "createdTime")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "inputConfiguration")
+            Prelude.<*> (x Data..:? "modelEndpointStatus")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "modelEndpoint")
+            Prelude.<*> (x Data..:? "modelSource")
+            Prelude.<*> (x Data..:? "invokeModelEndpointRoleArn")
       )
 
 instance Prelude.Hashable ExternalModel where

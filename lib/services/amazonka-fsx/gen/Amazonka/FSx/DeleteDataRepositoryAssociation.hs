@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,9 +120,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteDataRepositoryAssociationResponse'
-            Prelude.<$> (x Core..?> "Lifecycle")
-            Prelude.<*> (x Core..?> "DeleteDataInFileSystem")
-            Prelude.<*> (x Core..?> "AssociationId")
+            Prelude.<$> (x Data..?> "Lifecycle")
+            Prelude.<*> (x Data..?> "DeleteDataInFileSystem")
+            Prelude.<*> (x Data..?> "AssociationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,40 +147,40 @@ instance
       `Prelude.seq` Prelude.rnf associationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteDataRepositoryAssociation
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.DeleteDataRepositoryAssociation" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.DeleteDataRepositoryAssociation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDataRepositoryAssociation where
+instance Data.ToJSON DeleteDataRepositoryAssociation where
   toJSON DeleteDataRepositoryAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("DeleteDataInFileSystem" Core..=)
+            ("DeleteDataInFileSystem" Data..=)
               Prelude.<$> deleteDataInFileSystem,
             Prelude.Just
-              ("AssociationId" Core..= associationId)
+              ("AssociationId" Data..= associationId)
           ]
       )
 
-instance Core.ToPath DeleteDataRepositoryAssociation where
+instance Data.ToPath DeleteDataRepositoryAssociation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDataRepositoryAssociation where
+instance Data.ToQuery DeleteDataRepositoryAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDataRepositoryAssociationResponse' smart constructor.

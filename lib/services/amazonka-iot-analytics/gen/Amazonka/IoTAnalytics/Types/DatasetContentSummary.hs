@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.DatasetContentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.DatasetContentStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,11 +32,11 @@ data DatasetContentSummary = DatasetContentSummary'
   { -- | The status of the dataset contents.
     status :: Prelude.Maybe DatasetContentStatus,
     -- | The time the dataset content status was updated to SUCCEEDED or FAILED.
-    completionTime :: Prelude.Maybe Core.POSIX,
+    completionTime :: Prelude.Maybe Data.POSIX,
     -- | The time the creation of the dataset contents was scheduled to start.
-    scheduleTime :: Prelude.Maybe Core.POSIX,
+    scheduleTime :: Prelude.Maybe Data.POSIX,
     -- | The actual time the creation of the dataset contents was started.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The version of the dataset contents.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -75,31 +76,31 @@ datasetContentSummary_status = Lens.lens (\DatasetContentSummary' {status} -> st
 
 -- | The time the dataset content status was updated to SUCCEEDED or FAILED.
 datasetContentSummary_completionTime :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.UTCTime)
-datasetContentSummary_completionTime = Lens.lens (\DatasetContentSummary' {completionTime} -> completionTime) (\s@DatasetContentSummary' {} a -> s {completionTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Core._Time
+datasetContentSummary_completionTime = Lens.lens (\DatasetContentSummary' {completionTime} -> completionTime) (\s@DatasetContentSummary' {} a -> s {completionTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The time the creation of the dataset contents was scheduled to start.
 datasetContentSummary_scheduleTime :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.UTCTime)
-datasetContentSummary_scheduleTime = Lens.lens (\DatasetContentSummary' {scheduleTime} -> scheduleTime) (\s@DatasetContentSummary' {} a -> s {scheduleTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Core._Time
+datasetContentSummary_scheduleTime = Lens.lens (\DatasetContentSummary' {scheduleTime} -> scheduleTime) (\s@DatasetContentSummary' {} a -> s {scheduleTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The actual time the creation of the dataset contents was started.
 datasetContentSummary_creationTime :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.UTCTime)
-datasetContentSummary_creationTime = Lens.lens (\DatasetContentSummary' {creationTime} -> creationTime) (\s@DatasetContentSummary' {} a -> s {creationTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Core._Time
+datasetContentSummary_creationTime = Lens.lens (\DatasetContentSummary' {creationTime} -> creationTime) (\s@DatasetContentSummary' {} a -> s {creationTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The version of the dataset contents.
 datasetContentSummary_version :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.Text)
 datasetContentSummary_version = Lens.lens (\DatasetContentSummary' {version} -> version) (\s@DatasetContentSummary' {} a -> s {version = a} :: DatasetContentSummary)
 
-instance Core.FromJSON DatasetContentSummary where
+instance Data.FromJSON DatasetContentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetContentSummary"
       ( \x ->
           DatasetContentSummary'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "completionTime")
-            Prelude.<*> (x Core..:? "scheduleTime")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "completionTime")
+            Prelude.<*> (x Data..:? "scheduleTime")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable DatasetContentSummary where

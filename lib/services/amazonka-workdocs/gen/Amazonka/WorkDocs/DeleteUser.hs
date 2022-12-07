@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -48,7 +49,7 @@ data DeleteUser = DeleteUser'
   { -- | Amazon WorkDocs authentication token. Do not set this field when using
     -- administrative API actions, as in accessing the API using AWS
     -- credentials.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the user.
     userId :: Prelude.Text
   }
@@ -81,7 +82,7 @@ newDeleteUser pUserId_ =
 -- administrative API actions, as in accessing the API using AWS
 -- credentials.
 deleteUser_authenticationToken :: Lens.Lens' DeleteUser (Prelude.Maybe Prelude.Text)
-deleteUser_authenticationToken = Lens.lens (\DeleteUser' {authenticationToken} -> authenticationToken) (\s@DeleteUser' {} a -> s {authenticationToken = a} :: DeleteUser) Prelude.. Lens.mapping Core._Sensitive
+deleteUser_authenticationToken = Lens.lens (\DeleteUser' {authenticationToken} -> authenticationToken) (\s@DeleteUser' {} a -> s {authenticationToken = a} :: DeleteUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the user.
 deleteUser_userId :: Lens.Lens' DeleteUser Prelude.Text
@@ -103,20 +104,20 @@ instance Prelude.NFData DeleteUser where
     Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders DeleteUser where
+instance Data.ToHeaders DeleteUser where
   toHeaders DeleteUser' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DeleteUser where
+instance Data.ToPath DeleteUser where
   toPath DeleteUser' {..} =
     Prelude.mconcat
-      ["/api/v1/users/", Core.toBS userId]
+      ["/api/v1/users/", Data.toBS userId]
 
-instance Core.ToQuery DeleteUser where
+instance Data.ToQuery DeleteUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserResponse' smart constructor.

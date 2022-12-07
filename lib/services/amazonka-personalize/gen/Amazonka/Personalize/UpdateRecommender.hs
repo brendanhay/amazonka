@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest UpdateRecommender where
     Response.receiveJSON
       ( \s h x ->
           UpdateRecommenderResponse'
-            Prelude.<$> (x Core..?> "recommenderArn")
+            Prelude.<$> (x Data..?> "recommenderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,36 +115,36 @@ instance Prelude.NFData UpdateRecommender where
     Prelude.rnf recommenderArn
       `Prelude.seq` Prelude.rnf recommenderConfig
 
-instance Core.ToHeaders UpdateRecommender where
+instance Data.ToHeaders UpdateRecommender where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.UpdateRecommender" ::
+              Data.=# ( "AmazonPersonalize.UpdateRecommender" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRecommender where
+instance Data.ToJSON UpdateRecommender where
   toJSON UpdateRecommender' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("recommenderArn" Core..= recommenderArn),
+              ("recommenderArn" Data..= recommenderArn),
             Prelude.Just
-              ("recommenderConfig" Core..= recommenderConfig)
+              ("recommenderConfig" Data..= recommenderConfig)
           ]
       )
 
-instance Core.ToPath UpdateRecommender where
+instance Data.ToPath UpdateRecommender where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateRecommender where
+instance Data.ToQuery UpdateRecommender where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRecommenderResponse' smart constructor.

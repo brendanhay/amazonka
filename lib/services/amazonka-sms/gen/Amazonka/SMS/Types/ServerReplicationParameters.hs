@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.ServerReplicationParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.LicenseType
 
@@ -29,7 +30,7 @@ import Amazonka.SMS.Types.LicenseType
 -- /See:/ 'newServerReplicationParameters' smart constructor.
 data ServerReplicationParameters = ServerReplicationParameters'
   { -- | The seed time for creating a replication job for the server.
-    seedTime :: Prelude.Maybe Core.POSIX,
+    seedTime :: Prelude.Maybe Data.POSIX,
     -- | The license type for creating a replication job for the server.
     licenseType :: Prelude.Maybe LicenseType,
     -- | The frequency of creating replication jobs for the server.
@@ -108,7 +109,7 @@ newServerReplicationParameters =
 
 -- | The seed time for creating a replication job for the server.
 serverReplicationParameters_seedTime :: Lens.Lens' ServerReplicationParameters (Prelude.Maybe Prelude.UTCTime)
-serverReplicationParameters_seedTime = Lens.lens (\ServerReplicationParameters' {seedTime} -> seedTime) (\s@ServerReplicationParameters' {} a -> s {seedTime = a} :: ServerReplicationParameters) Prelude.. Lens.mapping Core._Time
+serverReplicationParameters_seedTime = Lens.lens (\ServerReplicationParameters' {seedTime} -> seedTime) (\s@ServerReplicationParameters' {} a -> s {seedTime = a} :: ServerReplicationParameters) Prelude.. Lens.mapping Data._Time
 
 -- | The license type for creating a replication job for the server.
 serverReplicationParameters_licenseType :: Lens.Lens' ServerReplicationParameters (Prelude.Maybe LicenseType)
@@ -147,19 +148,19 @@ serverReplicationParameters_kmsKeyId = Lens.lens (\ServerReplicationParameters' 
 serverReplicationParameters_numberOfRecentAmisToKeep :: Lens.Lens' ServerReplicationParameters (Prelude.Maybe Prelude.Int)
 serverReplicationParameters_numberOfRecentAmisToKeep = Lens.lens (\ServerReplicationParameters' {numberOfRecentAmisToKeep} -> numberOfRecentAmisToKeep) (\s@ServerReplicationParameters' {} a -> s {numberOfRecentAmisToKeep = a} :: ServerReplicationParameters)
 
-instance Core.FromJSON ServerReplicationParameters where
+instance Data.FromJSON ServerReplicationParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerReplicationParameters"
       ( \x ->
           ServerReplicationParameters'
-            Prelude.<$> (x Core..:? "seedTime")
-            Prelude.<*> (x Core..:? "licenseType")
-            Prelude.<*> (x Core..:? "frequency")
-            Prelude.<*> (x Core..:? "runOnce")
-            Prelude.<*> (x Core..:? "encrypted")
-            Prelude.<*> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..:? "numberOfRecentAmisToKeep")
+            Prelude.<$> (x Data..:? "seedTime")
+            Prelude.<*> (x Data..:? "licenseType")
+            Prelude.<*> (x Data..:? "frequency")
+            Prelude.<*> (x Data..:? "runOnce")
+            Prelude.<*> (x Data..:? "encrypted")
+            Prelude.<*> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..:? "numberOfRecentAmisToKeep")
       )
 
 instance Prelude.Hashable ServerReplicationParameters where
@@ -182,17 +183,17 @@ instance Prelude.NFData ServerReplicationParameters where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf numberOfRecentAmisToKeep
 
-instance Core.ToJSON ServerReplicationParameters where
+instance Data.ToJSON ServerReplicationParameters where
   toJSON ServerReplicationParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("seedTime" Core..=) Prelude.<$> seedTime,
-            ("licenseType" Core..=) Prelude.<$> licenseType,
-            ("frequency" Core..=) Prelude.<$> frequency,
-            ("runOnce" Core..=) Prelude.<$> runOnce,
-            ("encrypted" Core..=) Prelude.<$> encrypted,
-            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("numberOfRecentAmisToKeep" Core..=)
+          [ ("seedTime" Data..=) Prelude.<$> seedTime,
+            ("licenseType" Data..=) Prelude.<$> licenseType,
+            ("frequency" Data..=) Prelude.<$> frequency,
+            ("runOnce" Data..=) Prelude.<$> runOnce,
+            ("encrypted" Data..=) Prelude.<$> encrypted,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("numberOfRecentAmisToKeep" Data..=)
               Prelude.<$> numberOfRecentAmisToKeep
           ]
       )

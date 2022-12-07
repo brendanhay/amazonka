@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,8 +88,8 @@ instance Core.AWSRequest BatchGetVariable where
     Response.receiveJSON
       ( \s h x ->
           BatchGetVariableResponse'
-            Prelude.<$> (x Core..?> "errors" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "variables" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "variables" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,32 +100,32 @@ instance Prelude.Hashable BatchGetVariable where
 instance Prelude.NFData BatchGetVariable where
   rnf BatchGetVariable' {..} = Prelude.rnf names
 
-instance Core.ToHeaders BatchGetVariable where
+instance Data.ToHeaders BatchGetVariable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.BatchGetVariable" ::
+              Data.=# ( "AWSHawksNestServiceFacade.BatchGetVariable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetVariable where
+instance Data.ToJSON BatchGetVariable where
   toJSON BatchGetVariable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("names" Core..= names)]
+          [Prelude.Just ("names" Data..= names)]
       )
 
-instance Core.ToPath BatchGetVariable where
+instance Data.ToPath BatchGetVariable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetVariable where
+instance Data.ToQuery BatchGetVariable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetVariableResponse' smart constructor.

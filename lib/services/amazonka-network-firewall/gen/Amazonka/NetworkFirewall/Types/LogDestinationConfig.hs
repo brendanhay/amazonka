@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.LogDestinationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.LogDestinationType
 import Amazonka.NetworkFirewall.Types.LogType
 import qualified Amazonka.Prelude as Prelude
@@ -159,16 +160,16 @@ logDestinationConfig_logDestinationType = Lens.lens (\LogDestinationConfig' {log
 logDestinationConfig_logDestination :: Lens.Lens' LogDestinationConfig (Prelude.HashMap Prelude.Text Prelude.Text)
 logDestinationConfig_logDestination = Lens.lens (\LogDestinationConfig' {logDestination} -> logDestination) (\s@LogDestinationConfig' {} a -> s {logDestination = a} :: LogDestinationConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON LogDestinationConfig where
+instance Data.FromJSON LogDestinationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogDestinationConfig"
       ( \x ->
           LogDestinationConfig'
-            Prelude.<$> (x Core..: "LogType")
-            Prelude.<*> (x Core..: "LogDestinationType")
-            Prelude.<*> ( x Core..:? "LogDestination"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..: "LogType")
+            Prelude.<*> (x Data..: "LogDestinationType")
+            Prelude.<*> ( x Data..:? "LogDestination"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -184,14 +185,14 @@ instance Prelude.NFData LogDestinationConfig where
       `Prelude.seq` Prelude.rnf logDestinationType
       `Prelude.seq` Prelude.rnf logDestination
 
-instance Core.ToJSON LogDestinationConfig where
+instance Data.ToJSON LogDestinationConfig where
   toJSON LogDestinationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("LogType" Core..= logType),
+          [ Prelude.Just ("LogType" Data..= logType),
             Prelude.Just
-              ("LogDestinationType" Core..= logDestinationType),
+              ("LogDestinationType" Data..= logDestinationType),
             Prelude.Just
-              ("LogDestination" Core..= logDestination)
+              ("LogDestination" Data..= logDestination)
           ]
       )

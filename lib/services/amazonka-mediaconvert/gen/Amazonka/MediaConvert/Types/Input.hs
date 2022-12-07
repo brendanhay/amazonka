@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Input where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AudioSelector
 import Amazonka.MediaConvert.Types.AudioSelectorGroup
 import Amazonka.MediaConvert.Types.CaptionSelector
@@ -555,40 +556,40 @@ input_fileInput = Lens.lens (\Input' {fileInput} -> fileInput) (\s@Input' {} a -
 input_videoSelector :: Lens.Lens' Input (Prelude.Maybe VideoSelector)
 input_videoSelector = Lens.lens (\Input' {videoSelector} -> videoSelector) (\s@Input' {} a -> s {videoSelector = a} :: Input)
 
-instance Core.FromJSON Input where
+instance Data.FromJSON Input where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Input"
       ( \x ->
           Input'
-            Prelude.<$> (x Core..:? "deblockFilter")
-            Prelude.<*> (x Core..:? "psiControl")
-            Prelude.<*> ( x Core..:? "captionSelectors"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "deblockFilter")
+            Prelude.<*> (x Data..:? "psiControl")
+            Prelude.<*> ( x Data..:? "captionSelectors"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "audioSelectorGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "audioSelectorGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "filterStrength")
-            Prelude.<*> (x Core..:? "timecodeStart")
-            Prelude.<*> (x Core..:? "dolbyVisionMetadataXml")
-            Prelude.<*> (x Core..:? "inputClippings" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "audioSelectors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "timecodeSource")
-            Prelude.<*> (x Core..:? "videoGenerator")
-            Prelude.<*> (x Core..:? "programNumber")
-            Prelude.<*> (x Core..:? "crop")
-            Prelude.<*> ( x Core..:? "supplementalImps"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "filterStrength")
+            Prelude.<*> (x Data..:? "timecodeStart")
+            Prelude.<*> (x Data..:? "dolbyVisionMetadataXml")
+            Prelude.<*> (x Data..:? "inputClippings" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "audioSelectors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "timecodeSource")
+            Prelude.<*> (x Data..:? "videoGenerator")
+            Prelude.<*> (x Data..:? "programNumber")
+            Prelude.<*> (x Data..:? "crop")
+            Prelude.<*> ( x Data..:? "supplementalImps"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "filterEnable")
-            Prelude.<*> (x Core..:? "imageInserter")
-            Prelude.<*> (x Core..:? "denoiseFilter")
-            Prelude.<*> (x Core..:? "position")
-            Prelude.<*> (x Core..:? "inputScanType")
-            Prelude.<*> (x Core..:? "decryptionSettings")
-            Prelude.<*> (x Core..:? "fileInput")
-            Prelude.<*> (x Core..:? "videoSelector")
+            Prelude.<*> (x Data..:? "filterEnable")
+            Prelude.<*> (x Data..:? "imageInserter")
+            Prelude.<*> (x Data..:? "denoiseFilter")
+            Prelude.<*> (x Data..:? "position")
+            Prelude.<*> (x Data..:? "inputScanType")
+            Prelude.<*> (x Data..:? "decryptionSettings")
+            Prelude.<*> (x Data..:? "fileInput")
+            Prelude.<*> (x Data..:? "videoSelector")
       )
 
 instance Prelude.Hashable Input where
@@ -641,41 +642,41 @@ instance Prelude.NFData Input where
       `Prelude.seq` Prelude.rnf fileInput
       `Prelude.seq` Prelude.rnf videoSelector
 
-instance Core.ToJSON Input where
+instance Data.ToJSON Input where
   toJSON Input' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deblockFilter" Core..=) Prelude.<$> deblockFilter,
-            ("psiControl" Core..=) Prelude.<$> psiControl,
-            ("captionSelectors" Core..=)
+          [ ("deblockFilter" Data..=) Prelude.<$> deblockFilter,
+            ("psiControl" Data..=) Prelude.<$> psiControl,
+            ("captionSelectors" Data..=)
               Prelude.<$> captionSelectors,
-            ("audioSelectorGroups" Core..=)
+            ("audioSelectorGroups" Data..=)
               Prelude.<$> audioSelectorGroups,
-            ("filterStrength" Core..=)
+            ("filterStrength" Data..=)
               Prelude.<$> filterStrength,
-            ("timecodeStart" Core..=) Prelude.<$> timecodeStart,
-            ("dolbyVisionMetadataXml" Core..=)
+            ("timecodeStart" Data..=) Prelude.<$> timecodeStart,
+            ("dolbyVisionMetadataXml" Data..=)
               Prelude.<$> dolbyVisionMetadataXml,
-            ("inputClippings" Core..=)
+            ("inputClippings" Data..=)
               Prelude.<$> inputClippings,
-            ("audioSelectors" Core..=)
+            ("audioSelectors" Data..=)
               Prelude.<$> audioSelectors,
-            ("timecodeSource" Core..=)
+            ("timecodeSource" Data..=)
               Prelude.<$> timecodeSource,
-            ("videoGenerator" Core..=)
+            ("videoGenerator" Data..=)
               Prelude.<$> videoGenerator,
-            ("programNumber" Core..=) Prelude.<$> programNumber,
-            ("crop" Core..=) Prelude.<$> crop,
-            ("supplementalImps" Core..=)
+            ("programNumber" Data..=) Prelude.<$> programNumber,
+            ("crop" Data..=) Prelude.<$> crop,
+            ("supplementalImps" Data..=)
               Prelude.<$> supplementalImps,
-            ("filterEnable" Core..=) Prelude.<$> filterEnable,
-            ("imageInserter" Core..=) Prelude.<$> imageInserter,
-            ("denoiseFilter" Core..=) Prelude.<$> denoiseFilter,
-            ("position" Core..=) Prelude.<$> position,
-            ("inputScanType" Core..=) Prelude.<$> inputScanType,
-            ("decryptionSettings" Core..=)
+            ("filterEnable" Data..=) Prelude.<$> filterEnable,
+            ("imageInserter" Data..=) Prelude.<$> imageInserter,
+            ("denoiseFilter" Data..=) Prelude.<$> denoiseFilter,
+            ("position" Data..=) Prelude.<$> position,
+            ("inputScanType" Data..=) Prelude.<$> inputScanType,
+            ("decryptionSettings" Data..=)
               Prelude.<$> decryptionSettings,
-            ("fileInput" Core..=) Prelude.<$> fileInput,
-            ("videoSelector" Core..=) Prelude.<$> videoSelector
+            ("fileInput" Data..=) Prelude.<$> fileInput,
+            ("videoSelector" Data..=) Prelude.<$> videoSelector
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.BatchTransformInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MonitoringDatasetFormat
 import Amazonka.SageMaker.Types.ProcessingS3DataDistributionType
@@ -189,23 +190,23 @@ batchTransformInput_datasetFormat = Lens.lens (\BatchTransformInput' {datasetFor
 batchTransformInput_localPath :: Lens.Lens' BatchTransformInput Prelude.Text
 batchTransformInput_localPath = Lens.lens (\BatchTransformInput' {localPath} -> localPath) (\s@BatchTransformInput' {} a -> s {localPath = a} :: BatchTransformInput)
 
-instance Core.FromJSON BatchTransformInput where
+instance Data.FromJSON BatchTransformInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchTransformInput"
       ( \x ->
           BatchTransformInput'
-            Prelude.<$> (x Core..:? "ProbabilityThresholdAttribute")
-            Prelude.<*> (x Core..:? "S3InputMode")
-            Prelude.<*> (x Core..:? "S3DataDistributionType")
-            Prelude.<*> (x Core..:? "ProbabilityAttribute")
-            Prelude.<*> (x Core..:? "StartTimeOffset")
-            Prelude.<*> (x Core..:? "FeaturesAttribute")
-            Prelude.<*> (x Core..:? "InferenceAttribute")
-            Prelude.<*> (x Core..:? "EndTimeOffset")
-            Prelude.<*> (x Core..: "DataCapturedDestinationS3Uri")
-            Prelude.<*> (x Core..: "DatasetFormat")
-            Prelude.<*> (x Core..: "LocalPath")
+            Prelude.<$> (x Data..:? "ProbabilityThresholdAttribute")
+            Prelude.<*> (x Data..:? "S3InputMode")
+            Prelude.<*> (x Data..:? "S3DataDistributionType")
+            Prelude.<*> (x Data..:? "ProbabilityAttribute")
+            Prelude.<*> (x Data..:? "StartTimeOffset")
+            Prelude.<*> (x Data..:? "FeaturesAttribute")
+            Prelude.<*> (x Data..:? "InferenceAttribute")
+            Prelude.<*> (x Data..:? "EndTimeOffset")
+            Prelude.<*> (x Data..: "DataCapturedDestinationS3Uri")
+            Prelude.<*> (x Data..: "DatasetFormat")
+            Prelude.<*> (x Data..: "LocalPath")
       )
 
 instance Prelude.Hashable BatchTransformInput where
@@ -237,29 +238,29 @@ instance Prelude.NFData BatchTransformInput where
       `Prelude.seq` Prelude.rnf datasetFormat
       `Prelude.seq` Prelude.rnf localPath
 
-instance Core.ToJSON BatchTransformInput where
+instance Data.ToJSON BatchTransformInput where
   toJSON BatchTransformInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProbabilityThresholdAttribute" Core..=)
+          [ ("ProbabilityThresholdAttribute" Data..=)
               Prelude.<$> probabilityThresholdAttribute,
-            ("S3InputMode" Core..=) Prelude.<$> s3InputMode,
-            ("S3DataDistributionType" Core..=)
+            ("S3InputMode" Data..=) Prelude.<$> s3InputMode,
+            ("S3DataDistributionType" Data..=)
               Prelude.<$> s3DataDistributionType,
-            ("ProbabilityAttribute" Core..=)
+            ("ProbabilityAttribute" Data..=)
               Prelude.<$> probabilityAttribute,
-            ("StartTimeOffset" Core..=)
+            ("StartTimeOffset" Data..=)
               Prelude.<$> startTimeOffset,
-            ("FeaturesAttribute" Core..=)
+            ("FeaturesAttribute" Data..=)
               Prelude.<$> featuresAttribute,
-            ("InferenceAttribute" Core..=)
+            ("InferenceAttribute" Data..=)
               Prelude.<$> inferenceAttribute,
-            ("EndTimeOffset" Core..=) Prelude.<$> endTimeOffset,
+            ("EndTimeOffset" Data..=) Prelude.<$> endTimeOffset,
             Prelude.Just
               ( "DataCapturedDestinationS3Uri"
-                  Core..= dataCapturedDestinationS3Uri
+                  Data..= dataCapturedDestinationS3Uri
               ),
-            Prelude.Just ("DatasetFormat" Core..= datasetFormat),
-            Prelude.Just ("LocalPath" Core..= localPath)
+            Prelude.Just ("DatasetFormat" Data..= datasetFormat),
+            Prelude.Just ("LocalPath" Data..= localPath)
           ]
       )

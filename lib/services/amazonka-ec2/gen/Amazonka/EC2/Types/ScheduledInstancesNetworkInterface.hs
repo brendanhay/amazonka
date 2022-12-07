@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ScheduledInstancesNetworkInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ScheduledInstancesIpv6Address
 import Amazonka.EC2.Types.ScheduledInstancesPrivateIpAddressConfig
@@ -218,30 +219,30 @@ instance
       `Prelude.seq` Prelude.rnf deviceIndex
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ScheduledInstancesNetworkInterface
   where
   toQuery ScheduledInstancesNetworkInterface' {..} =
     Prelude.mconcat
       [ "AssociatePublicIpAddress"
-          Core.=: associatePublicIpAddress,
-        "DeleteOnTermination" Core.=: deleteOnTermination,
-        Core.toQuery
-          ( Core.toQueryList "PrivateIpAddressConfig"
+          Data.=: associatePublicIpAddress,
+        "DeleteOnTermination" Data.=: deleteOnTermination,
+        Data.toQuery
+          ( Data.toQueryList "PrivateIpAddressConfig"
               Prelude.<$> privateIpAddressConfigs
           ),
-        "SubnetId" Core.=: subnetId,
-        "Description" Core.=: description,
-        "NetworkInterfaceId" Core.=: networkInterfaceId,
-        "Ipv6AddressCount" Core.=: ipv6AddressCount,
-        "PrivateIpAddress" Core.=: privateIpAddress,
+        "SubnetId" Data.=: subnetId,
+        "Description" Data.=: description,
+        "NetworkInterfaceId" Data.=: networkInterfaceId,
+        "Ipv6AddressCount" Data.=: ipv6AddressCount,
+        "PrivateIpAddress" Data.=: privateIpAddress,
         "SecondaryPrivateIpAddressCount"
-          Core.=: secondaryPrivateIpAddressCount,
-        Core.toQuery
-          (Core.toQueryList "Group" Prelude.<$> groups),
-        Core.toQuery
-          ( Core.toQueryList "Ipv6Address"
+          Data.=: secondaryPrivateIpAddressCount,
+        Data.toQuery
+          (Data.toQueryList "Group" Prelude.<$> groups),
+        Data.toQuery
+          ( Data.toQueryList "Ipv6Address"
               Prelude.<$> ipv6Addresses
           ),
-        "DeviceIndex" Core.=: deviceIndex
+        "DeviceIndex" Data.=: deviceIndex
       ]

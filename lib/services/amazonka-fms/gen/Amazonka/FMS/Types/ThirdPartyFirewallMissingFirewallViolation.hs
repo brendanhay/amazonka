@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.ThirdPartyFirewallMissingFirewallViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The violation details about a third-party firewall\'s subnet that
@@ -91,18 +92,18 @@ thirdPartyFirewallMissingFirewallViolation_targetViolationReason :: Lens.Lens' T
 thirdPartyFirewallMissingFirewallViolation_targetViolationReason = Lens.lens (\ThirdPartyFirewallMissingFirewallViolation' {targetViolationReason} -> targetViolationReason) (\s@ThirdPartyFirewallMissingFirewallViolation' {} a -> s {targetViolationReason = a} :: ThirdPartyFirewallMissingFirewallViolation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ThirdPartyFirewallMissingFirewallViolation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThirdPartyFirewallMissingFirewallViolation"
       ( \x ->
           ThirdPartyFirewallMissingFirewallViolation'
-            Prelude.<$> (x Core..:? "VPC")
-              Prelude.<*> (x Core..:? "ViolationTarget")
-              Prelude.<*> (x Core..:? "AvailabilityZone")
-              Prelude.<*> (x Core..:? "TargetViolationReason")
+            Prelude.<$> (x Data..:? "VPC")
+              Prelude.<*> (x Data..:? "ViolationTarget")
+              Prelude.<*> (x Data..:? "AvailabilityZone")
+              Prelude.<*> (x Data..:? "TargetViolationReason")
       )
 
 instance

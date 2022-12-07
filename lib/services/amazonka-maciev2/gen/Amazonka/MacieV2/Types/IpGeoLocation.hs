@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.IpGeoLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides geographic coordinates that indicate where a specified IP
@@ -65,13 +66,13 @@ ipGeoLocation_lat = Lens.lens (\IpGeoLocation' {lat} -> lat) (\s@IpGeoLocation' 
 ipGeoLocation_lon :: Lens.Lens' IpGeoLocation (Prelude.Maybe Prelude.Double)
 ipGeoLocation_lon = Lens.lens (\IpGeoLocation' {lon} -> lon) (\s@IpGeoLocation' {} a -> s {lon = a} :: IpGeoLocation)
 
-instance Core.FromJSON IpGeoLocation where
+instance Data.FromJSON IpGeoLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IpGeoLocation"
       ( \x ->
           IpGeoLocation'
-            Prelude.<$> (x Core..:? "lat") Prelude.<*> (x Core..:? "lon")
+            Prelude.<$> (x Data..:? "lat") Prelude.<*> (x Data..:? "lon")
       )
 
 instance Prelude.Hashable IpGeoLocation where

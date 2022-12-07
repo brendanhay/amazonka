@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.ProjectDataDeliveryConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.CloudWatchLogsDestinationConfig
 import Amazonka.Evidently.Types.S3DestinationConfig
 import qualified Amazonka.Prelude as Prelude
@@ -81,12 +82,12 @@ instance Prelude.NFData ProjectDataDeliveryConfig where
     Prelude.rnf cloudWatchLogs
       `Prelude.seq` Prelude.rnf s3Destination
 
-instance Core.ToJSON ProjectDataDeliveryConfig where
+instance Data.ToJSON ProjectDataDeliveryConfig where
   toJSON ProjectDataDeliveryConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cloudWatchLogs" Core..=)
+          [ ("cloudWatchLogs" Data..=)
               Prelude.<$> cloudWatchLogs,
-            ("s3Destination" Core..=) Prelude.<$> s3Destination
+            ("s3Destination" Data..=) Prelude.<$> s3Destination
           ]
       )

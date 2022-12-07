@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,7 +132,7 @@ instance Core.AWSRequest DeleteLaunchTemplate where
     Response.receiveXML
       ( \s h x ->
           DeleteLaunchTemplateResponse'
-            Prelude.<$> (x Core..@? "launchTemplate")
+            Prelude.<$> (x Data..@? "launchTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,22 +148,22 @@ instance Prelude.NFData DeleteLaunchTemplate where
       `Prelude.seq` Prelude.rnf launchTemplateId
       `Prelude.seq` Prelude.rnf launchTemplateName
 
-instance Core.ToHeaders DeleteLaunchTemplate where
+instance Data.ToHeaders DeleteLaunchTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteLaunchTemplate where
+instance Data.ToPath DeleteLaunchTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLaunchTemplate where
+instance Data.ToQuery DeleteLaunchTemplate where
   toQuery DeleteLaunchTemplate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteLaunchTemplate" :: Prelude.ByteString),
+          Data.=: ("DeleteLaunchTemplate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "LaunchTemplateId" Core.=: launchTemplateId,
-        "LaunchTemplateName" Core.=: launchTemplateName
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "LaunchTemplateId" Data.=: launchTemplateId,
+        "LaunchTemplateName" Data.=: launchTemplateName
       ]
 
 -- | /See:/ 'newDeleteLaunchTemplateResponse' smart constructor.

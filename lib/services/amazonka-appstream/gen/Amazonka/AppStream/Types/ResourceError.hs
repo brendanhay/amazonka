@@ -22,6 +22,7 @@ module Amazonka.AppStream.Types.ResourceError where
 import Amazonka.AppStream.Types.FleetErrorCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a resource error.
@@ -31,7 +32,7 @@ data ResourceError = ResourceError'
   { -- | The error message.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The time the error occurred.
-    errorTimestamp :: Prelude.Maybe Core.POSIX,
+    errorTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The error code.
     errorCode :: Prelude.Maybe FleetErrorCode
   }
@@ -65,21 +66,21 @@ resourceError_errorMessage = Lens.lens (\ResourceError' {errorMessage} -> errorM
 
 -- | The time the error occurred.
 resourceError_errorTimestamp :: Lens.Lens' ResourceError (Prelude.Maybe Prelude.UTCTime)
-resourceError_errorTimestamp = Lens.lens (\ResourceError' {errorTimestamp} -> errorTimestamp) (\s@ResourceError' {} a -> s {errorTimestamp = a} :: ResourceError) Prelude.. Lens.mapping Core._Time
+resourceError_errorTimestamp = Lens.lens (\ResourceError' {errorTimestamp} -> errorTimestamp) (\s@ResourceError' {} a -> s {errorTimestamp = a} :: ResourceError) Prelude.. Lens.mapping Data._Time
 
 -- | The error code.
 resourceError_errorCode :: Lens.Lens' ResourceError (Prelude.Maybe FleetErrorCode)
 resourceError_errorCode = Lens.lens (\ResourceError' {errorCode} -> errorCode) (\s@ResourceError' {} a -> s {errorCode = a} :: ResourceError)
 
-instance Core.FromJSON ResourceError where
+instance Data.FromJSON ResourceError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceError"
       ( \x ->
           ResourceError'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorTimestamp")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorTimestamp")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable ResourceError where

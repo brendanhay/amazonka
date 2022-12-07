@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.OntapFileSystemConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.DiskIopsConfiguration
 import Amazonka.FSx.Types.FileSystemEndpoints
 import Amazonka.FSx.Types.OntapDeploymentType
@@ -197,22 +198,22 @@ ontapFileSystemConfiguration_dailyAutomaticBackupStartTime = Lens.lens (\OntapFi
 ontapFileSystemConfiguration_preferredSubnetId :: Lens.Lens' OntapFileSystemConfiguration (Prelude.Maybe Prelude.Text)
 ontapFileSystemConfiguration_preferredSubnetId = Lens.lens (\OntapFileSystemConfiguration' {preferredSubnetId} -> preferredSubnetId) (\s@OntapFileSystemConfiguration' {} a -> s {preferredSubnetId = a} :: OntapFileSystemConfiguration)
 
-instance Core.FromJSON OntapFileSystemConfiguration where
+instance Data.FromJSON OntapFileSystemConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OntapFileSystemConfiguration"
       ( \x ->
           OntapFileSystemConfiguration'
-            Prelude.<$> (x Core..:? "WeeklyMaintenanceStartTime")
-            Prelude.<*> (x Core..:? "ThroughputCapacity")
-            Prelude.<*> (x Core..:? "AutomaticBackupRetentionDays")
-            Prelude.<*> (x Core..:? "RouteTableIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DeploymentType")
-            Prelude.<*> (x Core..:? "Endpoints")
-            Prelude.<*> (x Core..:? "EndpointIpAddressRange")
-            Prelude.<*> (x Core..:? "DiskIopsConfiguration")
-            Prelude.<*> (x Core..:? "DailyAutomaticBackupStartTime")
-            Prelude.<*> (x Core..:? "PreferredSubnetId")
+            Prelude.<$> (x Data..:? "WeeklyMaintenanceStartTime")
+            Prelude.<*> (x Data..:? "ThroughputCapacity")
+            Prelude.<*> (x Data..:? "AutomaticBackupRetentionDays")
+            Prelude.<*> (x Data..:? "RouteTableIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DeploymentType")
+            Prelude.<*> (x Data..:? "Endpoints")
+            Prelude.<*> (x Data..:? "EndpointIpAddressRange")
+            Prelude.<*> (x Data..:? "DiskIopsConfiguration")
+            Prelude.<*> (x Data..:? "DailyAutomaticBackupStartTime")
+            Prelude.<*> (x Data..:? "PreferredSubnetId")
       )
 
 instance

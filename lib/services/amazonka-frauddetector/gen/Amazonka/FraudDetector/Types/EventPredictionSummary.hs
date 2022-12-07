@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.EventPredictionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the summary of an event prediction.
@@ -98,18 +99,18 @@ eventPredictionSummary_eventTypeName = Lens.lens (\EventPredictionSummary' {even
 eventPredictionSummary_detectorId :: Lens.Lens' EventPredictionSummary (Prelude.Maybe Prelude.Text)
 eventPredictionSummary_detectorId = Lens.lens (\EventPredictionSummary' {detectorId} -> detectorId) (\s@EventPredictionSummary' {} a -> s {detectorId = a} :: EventPredictionSummary)
 
-instance Core.FromJSON EventPredictionSummary where
+instance Data.FromJSON EventPredictionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventPredictionSummary"
       ( \x ->
           EventPredictionSummary'
-            Prelude.<$> (x Core..:? "eventTimestamp")
-            Prelude.<*> (x Core..:? "detectorVersionId")
-            Prelude.<*> (x Core..:? "eventId")
-            Prelude.<*> (x Core..:? "predictionTimestamp")
-            Prelude.<*> (x Core..:? "eventTypeName")
-            Prelude.<*> (x Core..:? "detectorId")
+            Prelude.<$> (x Data..:? "eventTimestamp")
+            Prelude.<*> (x Data..:? "detectorVersionId")
+            Prelude.<*> (x Data..:? "eventId")
+            Prelude.<*> (x Data..:? "predictionTimestamp")
+            Prelude.<*> (x Data..:? "eventTypeName")
+            Prelude.<*> (x Data..:? "detectorId")
       )
 
 instance Prelude.Hashable EventPredictionSummary where

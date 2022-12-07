@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHub.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,8 +127,8 @@ instance Core.AWSRequest ListProgressUpdateStreams where
     Response.receiveJSON
       ( \s h x ->
           ListProgressUpdateStreamsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ProgressUpdateStreamSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ProgressUpdateStreamSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -143,34 +144,34 @@ instance Prelude.NFData ListProgressUpdateStreams where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListProgressUpdateStreams where
+instance Data.ToHeaders ListProgressUpdateStreams where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMigrationHub.ListProgressUpdateStreams" ::
+              Data.=# ( "AWSMigrationHub.ListProgressUpdateStreams" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListProgressUpdateStreams where
+instance Data.ToJSON ListProgressUpdateStreams where
   toJSON ListProgressUpdateStreams' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListProgressUpdateStreams where
+instance Data.ToPath ListProgressUpdateStreams where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListProgressUpdateStreams where
+instance Data.ToQuery ListProgressUpdateStreams where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListProgressUpdateStreamsResponse' smart constructor.

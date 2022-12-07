@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EmailMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.RawEmail
 import Amazonka.Pinpoint.Types.SimpleEmail
 import qualified Amazonka.Prelude as Prelude
@@ -143,18 +144,18 @@ instance Prelude.NFData EmailMessage where
       `Prelude.seq` Prelude.rnf substitutions
       `Prelude.seq` Prelude.rnf rawEmail
 
-instance Core.ToJSON EmailMessage where
+instance Data.ToJSON EmailMessage where
   toJSON EmailMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FeedbackForwardingAddress" Core..=)
+          [ ("FeedbackForwardingAddress" Data..=)
               Prelude.<$> feedbackForwardingAddress,
-            ("ReplyToAddresses" Core..=)
+            ("ReplyToAddresses" Data..=)
               Prelude.<$> replyToAddresses,
-            ("FromAddress" Core..=) Prelude.<$> fromAddress,
-            ("SimpleEmail" Core..=) Prelude.<$> simpleEmail,
-            ("Body" Core..=) Prelude.<$> body,
-            ("Substitutions" Core..=) Prelude.<$> substitutions,
-            ("RawEmail" Core..=) Prelude.<$> rawEmail
+            ("FromAddress" Data..=) Prelude.<$> fromAddress,
+            ("SimpleEmail" Data..=) Prelude.<$> simpleEmail,
+            ("Body" Data..=) Prelude.<$> body,
+            ("Substitutions" Data..=) Prelude.<$> substitutions,
+            ("RawEmail" Data..=) Prelude.<$> rawEmail
           ]
       )

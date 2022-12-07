@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.GuardianAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.FeatureStatus
 
@@ -76,13 +77,13 @@ newGuardianAttributes =
 guardianAttributes_optimizedSharedDelivery :: Lens.Lens' GuardianAttributes (Prelude.Maybe FeatureStatus)
 guardianAttributes_optimizedSharedDelivery = Lens.lens (\GuardianAttributes' {optimizedSharedDelivery} -> optimizedSharedDelivery) (\s@GuardianAttributes' {} a -> s {optimizedSharedDelivery = a} :: GuardianAttributes)
 
-instance Core.FromJSON GuardianAttributes where
+instance Data.FromJSON GuardianAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GuardianAttributes"
       ( \x ->
           GuardianAttributes'
-            Prelude.<$> (x Core..:? "OptimizedSharedDelivery")
+            Prelude.<$> (x Data..:? "OptimizedSharedDelivery")
       )
 
 instance Prelude.Hashable GuardianAttributes where
@@ -94,11 +95,11 @@ instance Prelude.NFData GuardianAttributes where
   rnf GuardianAttributes' {..} =
     Prelude.rnf optimizedSharedDelivery
 
-instance Core.ToJSON GuardianAttributes where
+instance Data.ToJSON GuardianAttributes where
   toJSON GuardianAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OptimizedSharedDelivery" Core..=)
+          [ ("OptimizedSharedDelivery" Data..=)
               Prelude.<$> optimizedSharedDelivery
           ]
       )

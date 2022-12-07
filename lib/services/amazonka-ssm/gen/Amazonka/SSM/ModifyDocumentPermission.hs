@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,41 +172,41 @@ instance Prelude.NFData ModifyDocumentPermission where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf permissionType
 
-instance Core.ToHeaders ModifyDocumentPermission where
+instance Data.ToHeaders ModifyDocumentPermission where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.ModifyDocumentPermission" ::
+              Data.=# ( "AmazonSSM.ModifyDocumentPermission" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ModifyDocumentPermission where
+instance Data.ToJSON ModifyDocumentPermission where
   toJSON ModifyDocumentPermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccountIdsToAdd" Core..=)
+          [ ("AccountIdsToAdd" Data..=)
               Prelude.<$> accountIdsToAdd,
-            ("SharedDocumentVersion" Core..=)
+            ("SharedDocumentVersion" Data..=)
               Prelude.<$> sharedDocumentVersion,
-            ("AccountIdsToRemove" Core..=)
+            ("AccountIdsToRemove" Data..=)
               Prelude.<$> accountIdsToRemove,
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("PermissionType" Core..= permissionType)
+              ("PermissionType" Data..= permissionType)
           ]
       )
 
-instance Core.ToPath ModifyDocumentPermission where
+instance Data.ToPath ModifyDocumentPermission where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyDocumentPermission where
+instance Data.ToQuery ModifyDocumentPermission where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifyDocumentPermissionResponse' smart constructor.

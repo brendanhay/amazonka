@@ -21,6 +21,7 @@ module Amazonka.Support.Types.Communication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Support.Types.AttachmentDetails
 
@@ -113,17 +114,17 @@ communication_submittedBy = Lens.lens (\Communication' {submittedBy} -> submitte
 communication_attachmentSet :: Lens.Lens' Communication (Prelude.Maybe [AttachmentDetails])
 communication_attachmentSet = Lens.lens (\Communication' {attachmentSet} -> attachmentSet) (\s@Communication' {} a -> s {attachmentSet = a} :: Communication) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Communication where
+instance Data.FromJSON Communication where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Communication"
       ( \x ->
           Communication'
-            Prelude.<$> (x Core..:? "caseId")
-            Prelude.<*> (x Core..:? "body")
-            Prelude.<*> (x Core..:? "timeCreated")
-            Prelude.<*> (x Core..:? "submittedBy")
-            Prelude.<*> (x Core..:? "attachmentSet" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "caseId")
+            Prelude.<*> (x Data..:? "body")
+            Prelude.<*> (x Data..:? "timeCreated")
+            Prelude.<*> (x Data..:? "submittedBy")
+            Prelude.<*> (x Data..:? "attachmentSet" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Communication where

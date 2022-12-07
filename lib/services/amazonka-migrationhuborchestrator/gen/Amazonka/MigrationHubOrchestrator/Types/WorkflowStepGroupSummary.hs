@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.WorkflowStepGroupSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types.Owner
 import Amazonka.MigrationHubOrchestrator.Types.StepGroupStatus
 import qualified Amazonka.Prelude as Prelude
@@ -99,18 +100,18 @@ workflowStepGroupSummary_id = Lens.lens (\WorkflowStepGroupSummary' {id} -> id) 
 workflowStepGroupSummary_previous :: Lens.Lens' WorkflowStepGroupSummary (Prelude.Maybe [Prelude.Text])
 workflowStepGroupSummary_previous = Lens.lens (\WorkflowStepGroupSummary' {previous} -> previous) (\s@WorkflowStepGroupSummary' {} a -> s {previous = a} :: WorkflowStepGroupSummary) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON WorkflowStepGroupSummary where
+instance Data.FromJSON WorkflowStepGroupSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowStepGroupSummary"
       ( \x ->
           WorkflowStepGroupSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "next" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "owner")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "previous" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "next" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "previous" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable WorkflowStepGroupSummary where

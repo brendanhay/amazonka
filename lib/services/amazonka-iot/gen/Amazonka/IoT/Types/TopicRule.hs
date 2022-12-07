@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.TopicRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.Action
 import qualified Amazonka.Prelude as Prelude
 
@@ -40,7 +41,7 @@ data TopicRule = TopicRule'
     -- multiple lines, be sure to escape the newline characters.
     sql :: Prelude.Maybe Prelude.Text,
     -- | The date and time the rule was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether the rule is disabled.
     ruleDisabled :: Prelude.Maybe Prelude.Bool,
     -- | The actions associated with the rule.
@@ -109,7 +110,7 @@ topicRule_sql = Lens.lens (\TopicRule' {sql} -> sql) (\s@TopicRule' {} a -> s {s
 
 -- | The date and time the rule was created.
 topicRule_createdAt :: Lens.Lens' TopicRule (Prelude.Maybe Prelude.UTCTime)
-topicRule_createdAt = Lens.lens (\TopicRule' {createdAt} -> createdAt) (\s@TopicRule' {} a -> s {createdAt = a} :: TopicRule) Prelude.. Lens.mapping Core._Time
+topicRule_createdAt = Lens.lens (\TopicRule' {createdAt} -> createdAt) (\s@TopicRule' {} a -> s {createdAt = a} :: TopicRule) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether the rule is disabled.
 topicRule_ruleDisabled :: Lens.Lens' TopicRule (Prelude.Maybe Prelude.Bool)
@@ -119,20 +120,20 @@ topicRule_ruleDisabled = Lens.lens (\TopicRule' {ruleDisabled} -> ruleDisabled) 
 topicRule_actions :: Lens.Lens' TopicRule (Prelude.Maybe [Action])
 topicRule_actions = Lens.lens (\TopicRule' {actions} -> actions) (\s@TopicRule' {} a -> s {actions = a} :: TopicRule) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TopicRule where
+instance Data.FromJSON TopicRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TopicRule"
       ( \x ->
           TopicRule'
-            Prelude.<$> (x Core..:? "errorAction")
-            Prelude.<*> (x Core..:? "awsIotSqlVersion")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "ruleName")
-            Prelude.<*> (x Core..:? "sql")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "ruleDisabled")
-            Prelude.<*> (x Core..:? "actions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "errorAction")
+            Prelude.<*> (x Data..:? "awsIotSqlVersion")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "ruleName")
+            Prelude.<*> (x Data..:? "sql")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "ruleDisabled")
+            Prelude.<*> (x Data..:? "actions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TopicRule where

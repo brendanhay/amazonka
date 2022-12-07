@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.TableWithColumnsResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.ColumnWildcard
 import qualified Amazonka.Prelude as Prelude
 
@@ -122,17 +123,17 @@ tableWithColumnsResource_databaseName = Lens.lens (\TableWithColumnsResource' {d
 tableWithColumnsResource_name :: Lens.Lens' TableWithColumnsResource Prelude.Text
 tableWithColumnsResource_name = Lens.lens (\TableWithColumnsResource' {name} -> name) (\s@TableWithColumnsResource' {} a -> s {name = a} :: TableWithColumnsResource)
 
-instance Core.FromJSON TableWithColumnsResource where
+instance Data.FromJSON TableWithColumnsResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TableWithColumnsResource"
       ( \x ->
           TableWithColumnsResource'
-            Prelude.<$> (x Core..:? "ColumnNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ColumnWildcard")
-            Prelude.<*> (x Core..:? "CatalogId")
-            Prelude.<*> (x Core..: "DatabaseName")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "ColumnNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ColumnWildcard")
+            Prelude.<*> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..: "DatabaseName")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable TableWithColumnsResource where
@@ -151,15 +152,15 @@ instance Prelude.NFData TableWithColumnsResource where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON TableWithColumnsResource where
+instance Data.ToJSON TableWithColumnsResource where
   toJSON TableWithColumnsResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ColumnNames" Core..=) Prelude.<$> columnNames,
-            ("ColumnWildcard" Core..=)
+          [ ("ColumnNames" Data..=) Prelude.<$> columnNames,
+            ("ColumnWildcard" Data..=)
               Prelude.<$> columnWildcard,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("Name" Core..= name)
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("Name" Data..= name)
           ]
       )

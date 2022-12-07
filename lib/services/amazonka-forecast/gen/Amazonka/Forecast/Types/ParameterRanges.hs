@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.ParameterRanges where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.CategoricalParameterRange
 import Amazonka.Forecast.Types.ContinuousParameterRange
 import Amazonka.Forecast.Types.IntegerParameterRange
@@ -78,15 +79,15 @@ parameterRanges_integerParameterRanges = Lens.lens (\ParameterRanges' {integerPa
 parameterRanges_continuousParameterRanges :: Lens.Lens' ParameterRanges (Prelude.Maybe (Prelude.NonEmpty ContinuousParameterRange))
 parameterRanges_continuousParameterRanges = Lens.lens (\ParameterRanges' {continuousParameterRanges} -> continuousParameterRanges) (\s@ParameterRanges' {} a -> s {continuousParameterRanges = a} :: ParameterRanges) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ParameterRanges where
+instance Data.FromJSON ParameterRanges where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParameterRanges"
       ( \x ->
           ParameterRanges'
-            Prelude.<$> (x Core..:? "CategoricalParameterRanges")
-            Prelude.<*> (x Core..:? "IntegerParameterRanges")
-            Prelude.<*> (x Core..:? "ContinuousParameterRanges")
+            Prelude.<$> (x Data..:? "CategoricalParameterRanges")
+            Prelude.<*> (x Data..:? "IntegerParameterRanges")
+            Prelude.<*> (x Data..:? "ContinuousParameterRanges")
       )
 
 instance Prelude.Hashable ParameterRanges where
@@ -102,15 +103,15 @@ instance Prelude.NFData ParameterRanges where
       `Prelude.seq` Prelude.rnf integerParameterRanges
       `Prelude.seq` Prelude.rnf continuousParameterRanges
 
-instance Core.ToJSON ParameterRanges where
+instance Data.ToJSON ParameterRanges where
   toJSON ParameterRanges' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CategoricalParameterRanges" Core..=)
+          [ ("CategoricalParameterRanges" Data..=)
               Prelude.<$> categoricalParameterRanges,
-            ("IntegerParameterRanges" Core..=)
+            ("IntegerParameterRanges" Data..=)
               Prelude.<$> integerParameterRanges,
-            ("ContinuousParameterRanges" Core..=)
+            ("ContinuousParameterRanges" Data..=)
               Prelude.<$> continuousParameterRanges
           ]
       )

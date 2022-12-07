@@ -21,6 +21,7 @@ module Amazonka.EFS.Types.LifecycleConfigurationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types.LifecyclePolicy
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,16 +57,16 @@ lifecycleConfigurationDescription_lifecyclePolicies :: Lens.Lens' LifecycleConfi
 lifecycleConfigurationDescription_lifecyclePolicies = Lens.lens (\LifecycleConfigurationDescription' {lifecyclePolicies} -> lifecyclePolicies) (\s@LifecycleConfigurationDescription' {} a -> s {lifecyclePolicies = a} :: LifecycleConfigurationDescription) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LifecycleConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifecycleConfigurationDescription"
       ( \x ->
           LifecycleConfigurationDescription'
-            Prelude.<$> ( x Core..:? "LifecyclePolicies"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "LifecyclePolicies"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,21 +101,21 @@ instance Core.AWSRequest GetMaintenanceWindow where
     Response.receiveJSON
       ( \s h x ->
           GetMaintenanceWindowResponse'
-            Prelude.<$> (x Core..?> "Schedule")
-            Prelude.<*> (x Core..?> "Cutoff")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "EndDate")
-            Prelude.<*> (x Core..?> "WindowId")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "Enabled")
-            Prelude.<*> (x Core..?> "Duration")
-            Prelude.<*> (x Core..?> "ScheduleTimezone")
-            Prelude.<*> (x Core..?> "ScheduleOffset")
-            Prelude.<*> (x Core..?> "StartDate")
-            Prelude.<*> (x Core..?> "CreatedDate")
-            Prelude.<*> (x Core..?> "ModifiedDate")
-            Prelude.<*> (x Core..?> "NextExecutionTime")
-            Prelude.<*> (x Core..?> "AllowUnassociatedTargets")
+            Prelude.<$> (x Data..?> "Schedule")
+            Prelude.<*> (x Data..?> "Cutoff")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "EndDate")
+            Prelude.<*> (x Data..?> "WindowId")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "Enabled")
+            Prelude.<*> (x Data..?> "Duration")
+            Prelude.<*> (x Data..?> "ScheduleTimezone")
+            Prelude.<*> (x Data..?> "ScheduleOffset")
+            Prelude.<*> (x Data..?> "StartDate")
+            Prelude.<*> (x Data..?> "CreatedDate")
+            Prelude.<*> (x Data..?> "ModifiedDate")
+            Prelude.<*> (x Data..?> "NextExecutionTime")
+            Prelude.<*> (x Data..?> "AllowUnassociatedTargets")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,32 +126,32 @@ instance Prelude.Hashable GetMaintenanceWindow where
 instance Prelude.NFData GetMaintenanceWindow where
   rnf GetMaintenanceWindow' {..} = Prelude.rnf windowId
 
-instance Core.ToHeaders GetMaintenanceWindow where
+instance Data.ToHeaders GetMaintenanceWindow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.GetMaintenanceWindow" ::
+              Data.=# ( "AmazonSSM.GetMaintenanceWindow" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMaintenanceWindow where
+instance Data.ToJSON GetMaintenanceWindow where
   toJSON GetMaintenanceWindow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("WindowId" Core..= windowId)]
+          [Prelude.Just ("WindowId" Data..= windowId)]
       )
 
-instance Core.ToPath GetMaintenanceWindow where
+instance Data.ToPath GetMaintenanceWindow where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMaintenanceWindow where
+instance Data.ToQuery GetMaintenanceWindow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMaintenanceWindowResponse' smart constructor.
@@ -170,7 +171,7 @@ data GetMaintenanceWindowResponse = GetMaintenanceWindowResponse'
     -- | The ID of the created maintenance window.
     windowId :: Prelude.Maybe Prelude.Text,
     -- | The description of the maintenance window.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Indicates whether the maintenance window is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The duration of the maintenance window in hours.
@@ -190,9 +191,9 @@ data GetMaintenanceWindowResponse = GetMaintenanceWindowResponse'
     -- before this specified time.
     startDate :: Prelude.Maybe Prelude.Text,
     -- | The date the maintenance window was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The date the maintenance window was last modified.
-    modifiedDate :: Prelude.Maybe Core.POSIX,
+    modifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The next time the maintenance window will actually run, taking into
     -- account any specified times for the maintenance window to become active
     -- or inactive.
@@ -310,7 +311,7 @@ getMaintenanceWindowResponse_windowId = Lens.lens (\GetMaintenanceWindowResponse
 
 -- | The description of the maintenance window.
 getMaintenanceWindowResponse_description :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
-getMaintenanceWindowResponse_description = Lens.lens (\GetMaintenanceWindowResponse' {description} -> description) (\s@GetMaintenanceWindowResponse' {} a -> s {description = a} :: GetMaintenanceWindowResponse) Prelude.. Lens.mapping Core._Sensitive
+getMaintenanceWindowResponse_description = Lens.lens (\GetMaintenanceWindowResponse' {description} -> description) (\s@GetMaintenanceWindowResponse' {} a -> s {description = a} :: GetMaintenanceWindowResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Indicates whether the maintenance window is enabled.
 getMaintenanceWindowResponse_enabled :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Bool)
@@ -342,11 +343,11 @@ getMaintenanceWindowResponse_startDate = Lens.lens (\GetMaintenanceWindowRespons
 
 -- | The date the maintenance window was created.
 getMaintenanceWindowResponse_createdDate :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.UTCTime)
-getMaintenanceWindowResponse_createdDate = Lens.lens (\GetMaintenanceWindowResponse' {createdDate} -> createdDate) (\s@GetMaintenanceWindowResponse' {} a -> s {createdDate = a} :: GetMaintenanceWindowResponse) Prelude.. Lens.mapping Core._Time
+getMaintenanceWindowResponse_createdDate = Lens.lens (\GetMaintenanceWindowResponse' {createdDate} -> createdDate) (\s@GetMaintenanceWindowResponse' {} a -> s {createdDate = a} :: GetMaintenanceWindowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date the maintenance window was last modified.
 getMaintenanceWindowResponse_modifiedDate :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.UTCTime)
-getMaintenanceWindowResponse_modifiedDate = Lens.lens (\GetMaintenanceWindowResponse' {modifiedDate} -> modifiedDate) (\s@GetMaintenanceWindowResponse' {} a -> s {modifiedDate = a} :: GetMaintenanceWindowResponse) Prelude.. Lens.mapping Core._Time
+getMaintenanceWindowResponse_modifiedDate = Lens.lens (\GetMaintenanceWindowResponse' {modifiedDate} -> modifiedDate) (\s@GetMaintenanceWindowResponse' {} a -> s {modifiedDate = a} :: GetMaintenanceWindowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The next time the maintenance window will actually run, taking into
 -- account any specified times for the maintenance window to become active

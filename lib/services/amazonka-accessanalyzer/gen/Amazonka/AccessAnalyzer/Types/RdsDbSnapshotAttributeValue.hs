@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.RdsDbSnapshotAttributeValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The name and values of a manual Amazon RDS DB snapshot attribute. Manual
@@ -103,13 +104,13 @@ newRdsDbSnapshotAttributeValue =
 rdsDbSnapshotAttributeValue_accountIds :: Lens.Lens' RdsDbSnapshotAttributeValue (Prelude.Maybe [Prelude.Text])
 rdsDbSnapshotAttributeValue_accountIds = Lens.lens (\RdsDbSnapshotAttributeValue' {accountIds} -> accountIds) (\s@RdsDbSnapshotAttributeValue' {} a -> s {accountIds = a} :: RdsDbSnapshotAttributeValue) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RdsDbSnapshotAttributeValue where
+instance Data.FromJSON RdsDbSnapshotAttributeValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RdsDbSnapshotAttributeValue"
       ( \x ->
           RdsDbSnapshotAttributeValue'
-            Prelude.<$> (x Core..:? "accountIds" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "accountIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RdsDbSnapshotAttributeValue where
@@ -120,9 +121,9 @@ instance Prelude.NFData RdsDbSnapshotAttributeValue where
   rnf RdsDbSnapshotAttributeValue' {..} =
     Prelude.rnf accountIds
 
-instance Core.ToJSON RdsDbSnapshotAttributeValue where
+instance Data.ToJSON RdsDbSnapshotAttributeValue where
   toJSON RdsDbSnapshotAttributeValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("accountIds" Core..=) Prelude.<$> accountIds]
+          [("accountIds" Data..=) Prelude.<$> accountIds]
       )

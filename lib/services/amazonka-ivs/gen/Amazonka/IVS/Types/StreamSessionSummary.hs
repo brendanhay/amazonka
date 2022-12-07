@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.StreamSessionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a stream session.
@@ -32,12 +33,12 @@ data StreamSessionSummary = StreamSessionSummary'
     streamId :: Prelude.Maybe Prelude.Text,
     -- | Time when the channel went offline. This is an ISO 8601 timestamp; /note
     -- that this is returned as a string/. For live streams, this is @NULL@.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | If @true@, this stream encountered a quota breach or failure.
     hasErrorEvent :: Prelude.Maybe Prelude.Bool,
     -- | Time when the channel went live. This is an ISO 8601 timestamp; /note
     -- that this is returned as a string/.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,7 +78,7 @@ streamSessionSummary_streamId = Lens.lens (\StreamSessionSummary' {streamId} -> 
 -- | Time when the channel went offline. This is an ISO 8601 timestamp; /note
 -- that this is returned as a string/. For live streams, this is @NULL@.
 streamSessionSummary_endTime :: Lens.Lens' StreamSessionSummary (Prelude.Maybe Prelude.UTCTime)
-streamSessionSummary_endTime = Lens.lens (\StreamSessionSummary' {endTime} -> endTime) (\s@StreamSessionSummary' {} a -> s {endTime = a} :: StreamSessionSummary) Prelude.. Lens.mapping Core._Time
+streamSessionSummary_endTime = Lens.lens (\StreamSessionSummary' {endTime} -> endTime) (\s@StreamSessionSummary' {} a -> s {endTime = a} :: StreamSessionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | If @true@, this stream encountered a quota breach or failure.
 streamSessionSummary_hasErrorEvent :: Lens.Lens' StreamSessionSummary (Prelude.Maybe Prelude.Bool)
@@ -86,18 +87,18 @@ streamSessionSummary_hasErrorEvent = Lens.lens (\StreamSessionSummary' {hasError
 -- | Time when the channel went live. This is an ISO 8601 timestamp; /note
 -- that this is returned as a string/.
 streamSessionSummary_startTime :: Lens.Lens' StreamSessionSummary (Prelude.Maybe Prelude.UTCTime)
-streamSessionSummary_startTime = Lens.lens (\StreamSessionSummary' {startTime} -> startTime) (\s@StreamSessionSummary' {} a -> s {startTime = a} :: StreamSessionSummary) Prelude.. Lens.mapping Core._Time
+streamSessionSummary_startTime = Lens.lens (\StreamSessionSummary' {startTime} -> startTime) (\s@StreamSessionSummary' {} a -> s {startTime = a} :: StreamSessionSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON StreamSessionSummary where
+instance Data.FromJSON StreamSessionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamSessionSummary"
       ( \x ->
           StreamSessionSummary'
-            Prelude.<$> (x Core..:? "streamId")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "hasErrorEvent")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<$> (x Data..:? "streamId")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "hasErrorEvent")
+            Prelude.<*> (x Data..:? "startTime")
       )
 
 instance Prelude.Hashable StreamSessionSummary where

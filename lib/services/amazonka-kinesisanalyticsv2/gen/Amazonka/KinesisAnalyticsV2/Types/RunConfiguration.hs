@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.RunConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationRestoreConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.FlinkRunConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.SqlRunConfiguration
@@ -93,15 +94,15 @@ instance Prelude.NFData RunConfiguration where
       `Prelude.seq` Prelude.rnf applicationRestoreConfiguration
       `Prelude.seq` Prelude.rnf sqlRunConfigurations
 
-instance Core.ToJSON RunConfiguration where
+instance Data.ToJSON RunConfiguration where
   toJSON RunConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FlinkRunConfiguration" Core..=)
+          [ ("FlinkRunConfiguration" Data..=)
               Prelude.<$> flinkRunConfiguration,
-            ("ApplicationRestoreConfiguration" Core..=)
+            ("ApplicationRestoreConfiguration" Data..=)
               Prelude.<$> applicationRestoreConfiguration,
-            ("SqlRunConfigurations" Core..=)
+            ("SqlRunConfigurations" Data..=)
               Prelude.<$> sqlRunConfigurations
           ]
       )

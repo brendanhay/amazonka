@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,10 +105,10 @@ instance Core.AWSRequest UpdateRecoveryGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateRecoveryGroupResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "recoveryGroupArn")
-            Prelude.<*> (x Core..?> "recoveryGroupName")
-            Prelude.<*> (x Core..?> "cells" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "recoveryGroupArn")
+            Prelude.<*> (x Data..?> "recoveryGroupName")
+            Prelude.<*> (x Data..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,30 +122,30 @@ instance Prelude.NFData UpdateRecoveryGroup where
     Prelude.rnf recoveryGroupName
       `Prelude.seq` Prelude.rnf cells
 
-instance Core.ToHeaders UpdateRecoveryGroup where
+instance Data.ToHeaders UpdateRecoveryGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRecoveryGroup where
+instance Data.ToJSON UpdateRecoveryGroup where
   toJSON UpdateRecoveryGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("cells" Core..= cells)]
+          [Prelude.Just ("cells" Data..= cells)]
       )
 
-instance Core.ToPath UpdateRecoveryGroup where
+instance Data.ToPath UpdateRecoveryGroup where
   toPath UpdateRecoveryGroup' {..} =
     Prelude.mconcat
-      ["/recoverygroups/", Core.toBS recoveryGroupName]
+      ["/recoverygroups/", Data.toBS recoveryGroupName]
 
-instance Core.ToQuery UpdateRecoveryGroup where
+instance Data.ToQuery UpdateRecoveryGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRecoveryGroupResponse' smart constructor.

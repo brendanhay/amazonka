@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,30 +106,30 @@ instance Prelude.NFData UpdateServiceIntegration where
   rnf UpdateServiceIntegration' {..} =
     Prelude.rnf serviceIntegration
 
-instance Core.ToHeaders UpdateServiceIntegration where
+instance Data.ToHeaders UpdateServiceIntegration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateServiceIntegration where
+instance Data.ToJSON UpdateServiceIntegration where
   toJSON UpdateServiceIntegration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ServiceIntegration" Core..= serviceIntegration)
+              ("ServiceIntegration" Data..= serviceIntegration)
           ]
       )
 
-instance Core.ToPath UpdateServiceIntegration where
+instance Data.ToPath UpdateServiceIntegration where
   toPath = Prelude.const "/service-integrations"
 
-instance Core.ToQuery UpdateServiceIntegration where
+instance Data.ToQuery UpdateServiceIntegration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServiceIntegrationResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,12 +96,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeStudioLifecycleConfigResponse'
-            Prelude.<$> (x Core..?> "StudioLifecycleConfigName")
-            Prelude.<*> (x Core..?> "StudioLifecycleConfigArn")
-            Prelude.<*> (x Core..?> "StudioLifecycleConfigAppType")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "StudioLifecycleConfigContent")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Data..?> "StudioLifecycleConfigName")
+            Prelude.<*> (x Data..?> "StudioLifecycleConfigArn")
+            Prelude.<*> (x Data..?> "StudioLifecycleConfigAppType")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "StudioLifecycleConfigContent")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,36 +117,36 @@ instance Prelude.NFData DescribeStudioLifecycleConfig where
   rnf DescribeStudioLifecycleConfig' {..} =
     Prelude.rnf studioLifecycleConfigName
 
-instance Core.ToHeaders DescribeStudioLifecycleConfig where
+instance Data.ToHeaders DescribeStudioLifecycleConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeStudioLifecycleConfig" ::
+              Data.=# ( "SageMaker.DescribeStudioLifecycleConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeStudioLifecycleConfig where
+instance Data.ToJSON DescribeStudioLifecycleConfig where
   toJSON DescribeStudioLifecycleConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "StudioLifecycleConfigName"
-                  Core..= studioLifecycleConfigName
+                  Data..= studioLifecycleConfigName
               )
           ]
       )
 
-instance Core.ToPath DescribeStudioLifecycleConfig where
+instance Data.ToPath DescribeStudioLifecycleConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStudioLifecycleConfig where
+instance Data.ToQuery DescribeStudioLifecycleConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeStudioLifecycleConfigResponse' smart constructor.
@@ -158,11 +159,11 @@ data DescribeStudioLifecycleConfigResponse = DescribeStudioLifecycleConfigRespon
     studioLifecycleConfigAppType :: Prelude.Maybe StudioLifecycleConfigAppType,
     -- | This value is equivalent to CreationTime because Studio Lifecycle
     -- Configurations are immutable.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The content of your Studio Lifecycle Configuration script.
     studioLifecycleConfigContent :: Prelude.Maybe Prelude.Text,
     -- | The creation time of the Studio Lifecycle Configuration.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -224,7 +225,7 @@ describeStudioLifecycleConfigResponse_studioLifecycleConfigAppType = Lens.lens (
 -- | This value is equivalent to CreationTime because Studio Lifecycle
 -- Configurations are immutable.
 describeStudioLifecycleConfigResponse_lastModifiedTime :: Lens.Lens' DescribeStudioLifecycleConfigResponse (Prelude.Maybe Prelude.UTCTime)
-describeStudioLifecycleConfigResponse_lastModifiedTime = Lens.lens (\DescribeStudioLifecycleConfigResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeStudioLifecycleConfigResponse' {} a -> s {lastModifiedTime = a} :: DescribeStudioLifecycleConfigResponse) Prelude.. Lens.mapping Core._Time
+describeStudioLifecycleConfigResponse_lastModifiedTime = Lens.lens (\DescribeStudioLifecycleConfigResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeStudioLifecycleConfigResponse' {} a -> s {lastModifiedTime = a} :: DescribeStudioLifecycleConfigResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The content of your Studio Lifecycle Configuration script.
 describeStudioLifecycleConfigResponse_studioLifecycleConfigContent :: Lens.Lens' DescribeStudioLifecycleConfigResponse (Prelude.Maybe Prelude.Text)
@@ -232,7 +233,7 @@ describeStudioLifecycleConfigResponse_studioLifecycleConfigContent = Lens.lens (
 
 -- | The creation time of the Studio Lifecycle Configuration.
 describeStudioLifecycleConfigResponse_creationTime :: Lens.Lens' DescribeStudioLifecycleConfigResponse (Prelude.Maybe Prelude.UTCTime)
-describeStudioLifecycleConfigResponse_creationTime = Lens.lens (\DescribeStudioLifecycleConfigResponse' {creationTime} -> creationTime) (\s@DescribeStudioLifecycleConfigResponse' {} a -> s {creationTime = a} :: DescribeStudioLifecycleConfigResponse) Prelude.. Lens.mapping Core._Time
+describeStudioLifecycleConfigResponse_creationTime = Lens.lens (\DescribeStudioLifecycleConfigResponse' {creationTime} -> creationTime) (\s@DescribeStudioLifecycleConfigResponse' {} a -> s {creationTime = a} :: DescribeStudioLifecycleConfigResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeStudioLifecycleConfigResponse_httpStatus :: Lens.Lens' DescribeStudioLifecycleConfigResponse Prelude.Int

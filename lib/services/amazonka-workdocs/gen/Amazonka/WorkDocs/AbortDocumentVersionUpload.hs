@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -51,7 +52,7 @@ import Amazonka.WorkDocs.Types
 data AbortDocumentVersionUpload = AbortDocumentVersionUpload'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the document.
     documentId :: Prelude.Text,
     -- | The ID of the version.
@@ -92,7 +93,7 @@ newAbortDocumentVersionUpload
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 abortDocumentVersionUpload_authenticationToken :: Lens.Lens' AbortDocumentVersionUpload (Prelude.Maybe Prelude.Text)
-abortDocumentVersionUpload_authenticationToken = Lens.lens (\AbortDocumentVersionUpload' {authenticationToken} -> authenticationToken) (\s@AbortDocumentVersionUpload' {} a -> s {authenticationToken = a} :: AbortDocumentVersionUpload) Prelude.. Lens.mapping Core._Sensitive
+abortDocumentVersionUpload_authenticationToken = Lens.lens (\AbortDocumentVersionUpload' {authenticationToken} -> authenticationToken) (\s@AbortDocumentVersionUpload' {} a -> s {authenticationToken = a} :: AbortDocumentVersionUpload) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the document.
 abortDocumentVersionUpload_documentId :: Lens.Lens' AbortDocumentVersionUpload Prelude.Text
@@ -124,24 +125,24 @@ instance Prelude.NFData AbortDocumentVersionUpload where
       `Prelude.seq` Prelude.rnf documentId
       `Prelude.seq` Prelude.rnf versionId
 
-instance Core.ToHeaders AbortDocumentVersionUpload where
+instance Data.ToHeaders AbortDocumentVersionUpload where
   toHeaders AbortDocumentVersionUpload' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath AbortDocumentVersionUpload where
+instance Data.ToPath AbortDocumentVersionUpload where
   toPath AbortDocumentVersionUpload' {..} =
     Prelude.mconcat
       [ "/api/v1/documents/",
-        Core.toBS documentId,
+        Data.toBS documentId,
         "/versions/",
-        Core.toBS versionId
+        Data.toBS versionId
       ]
 
-instance Core.ToQuery AbortDocumentVersionUpload where
+instance Data.ToQuery AbortDocumentVersionUpload where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAbortDocumentVersionUploadResponse' smart constructor.

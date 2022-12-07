@@ -22,6 +22,7 @@ module Amazonka.CustomerProfiles.Types.ObjectTypeField where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.FieldContentType
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a field in a ProfileObjectType.
@@ -83,15 +84,15 @@ objectTypeField_source = Lens.lens (\ObjectTypeField' {source} -> source) (\s@Ob
 objectTypeField_contentType :: Lens.Lens' ObjectTypeField (Prelude.Maybe FieldContentType)
 objectTypeField_contentType = Lens.lens (\ObjectTypeField' {contentType} -> contentType) (\s@ObjectTypeField' {} a -> s {contentType = a} :: ObjectTypeField)
 
-instance Core.FromJSON ObjectTypeField where
+instance Data.FromJSON ObjectTypeField where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ObjectTypeField"
       ( \x ->
           ObjectTypeField'
-            Prelude.<$> (x Core..:? "Target")
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "ContentType")
+            Prelude.<$> (x Data..:? "Target")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "ContentType")
       )
 
 instance Prelude.Hashable ObjectTypeField where
@@ -106,12 +107,12 @@ instance Prelude.NFData ObjectTypeField where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf contentType
 
-instance Core.ToJSON ObjectTypeField where
+instance Data.ToJSON ObjectTypeField where
   toJSON ObjectTypeField' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Target" Core..=) Prelude.<$> target,
-            ("Source" Core..=) Prelude.<$> source,
-            ("ContentType" Core..=) Prelude.<$> contentType
+          [ ("Target" Data..=) Prelude.<$> target,
+            ("Source" Data..=) Prelude.<$> source,
+            ("ContentType" Data..=) Prelude.<$> contentType
           ]
       )

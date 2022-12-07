@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelDigests where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information to verify the integrity of stored model artifacts.
@@ -53,13 +54,13 @@ newModelDigests =
 modelDigests_artifactDigest :: Lens.Lens' ModelDigests (Prelude.Maybe Prelude.Text)
 modelDigests_artifactDigest = Lens.lens (\ModelDigests' {artifactDigest} -> artifactDigest) (\s@ModelDigests' {} a -> s {artifactDigest = a} :: ModelDigests)
 
-instance Core.FromJSON ModelDigests where
+instance Data.FromJSON ModelDigests where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelDigests"
       ( \x ->
           ModelDigests'
-            Prelude.<$> (x Core..:? "ArtifactDigest")
+            Prelude.<$> (x Data..:? "ArtifactDigest")
       )
 
 instance Prelude.Hashable ModelDigests where

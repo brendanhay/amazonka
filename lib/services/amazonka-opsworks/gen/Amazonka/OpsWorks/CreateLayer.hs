@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -387,7 +388,7 @@ instance Core.AWSRequest CreateLayer where
     Response.receiveJSON
       ( \s h x ->
           CreateLayerResponse'
-            Prelude.<$> (x Core..?> "LayerId")
+            Prelude.<$> (x Data..?> "LayerId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -433,60 +434,60 @@ instance Prelude.NFData CreateLayer where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf shortname
 
-instance Core.ToHeaders CreateLayer where
+instance Data.ToHeaders CreateLayer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.CreateLayer" ::
+              Data.=# ( "OpsWorks_20130218.CreateLayer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLayer where
+instance Data.ToJSON CreateLayer where
   toJSON CreateLayer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomRecipes" Core..=) Prelude.<$> customRecipes,
-            ("AutoAssignPublicIps" Core..=)
+          [ ("CustomRecipes" Data..=) Prelude.<$> customRecipes,
+            ("AutoAssignPublicIps" Data..=)
               Prelude.<$> autoAssignPublicIps,
-            ("CustomJson" Core..=) Prelude.<$> customJson,
-            ("Packages" Core..=) Prelude.<$> packages,
-            ("VolumeConfigurations" Core..=)
+            ("CustomJson" Data..=) Prelude.<$> customJson,
+            ("Packages" Data..=) Prelude.<$> packages,
+            ("VolumeConfigurations" Data..=)
               Prelude.<$> volumeConfigurations,
-            ("EnableAutoHealing" Core..=)
+            ("EnableAutoHealing" Data..=)
               Prelude.<$> enableAutoHealing,
-            ("CustomSecurityGroupIds" Core..=)
+            ("CustomSecurityGroupIds" Data..=)
               Prelude.<$> customSecurityGroupIds,
-            ("AutoAssignElasticIps" Core..=)
+            ("AutoAssignElasticIps" Data..=)
               Prelude.<$> autoAssignElasticIps,
-            ("CloudWatchLogsConfiguration" Core..=)
+            ("CloudWatchLogsConfiguration" Data..=)
               Prelude.<$> cloudWatchLogsConfiguration,
-            ("LifecycleEventConfiguration" Core..=)
+            ("LifecycleEventConfiguration" Data..=)
               Prelude.<$> lifecycleEventConfiguration,
-            ("CustomInstanceProfileArn" Core..=)
+            ("CustomInstanceProfileArn" Data..=)
               Prelude.<$> customInstanceProfileArn,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("UseEbsOptimizedInstances" Core..=)
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("UseEbsOptimizedInstances" Data..=)
               Prelude.<$> useEbsOptimizedInstances,
-            ("InstallUpdatesOnBoot" Core..=)
+            ("InstallUpdatesOnBoot" Data..=)
               Prelude.<$> installUpdatesOnBoot,
-            Prelude.Just ("StackId" Core..= stackId),
-            Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Shortname" Core..= shortname)
+            Prelude.Just ("StackId" Data..= stackId),
+            Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Shortname" Data..= shortname)
           ]
       )
 
-instance Core.ToPath CreateLayer where
+instance Data.ToPath CreateLayer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLayer where
+instance Data.ToQuery CreateLayer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @CreateLayer@ request.

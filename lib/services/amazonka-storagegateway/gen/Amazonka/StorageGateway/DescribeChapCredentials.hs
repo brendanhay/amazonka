@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,7 +96,7 @@ instance Core.AWSRequest DescribeChapCredentials where
     Response.receiveJSON
       ( \s h x ->
           DescribeChapCredentialsResponse'
-            Prelude.<$> ( x Core..?> "ChapCredentials"
+            Prelude.<$> ( x Data..?> "ChapCredentials"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -109,32 +110,32 @@ instance Prelude.NFData DescribeChapCredentials where
   rnf DescribeChapCredentials' {..} =
     Prelude.rnf targetARN
 
-instance Core.ToHeaders DescribeChapCredentials where
+instance Data.ToHeaders DescribeChapCredentials where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DescribeChapCredentials" ::
+              Data.=# ( "StorageGateway_20130630.DescribeChapCredentials" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeChapCredentials where
+instance Data.ToJSON DescribeChapCredentials where
   toJSON DescribeChapCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TargetARN" Core..= targetARN)]
+          [Prelude.Just ("TargetARN" Data..= targetARN)]
       )
 
-instance Core.ToPath DescribeChapCredentials where
+instance Data.ToPath DescribeChapCredentials where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeChapCredentials where
+instance Data.ToQuery DescribeChapCredentials where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the following fields:

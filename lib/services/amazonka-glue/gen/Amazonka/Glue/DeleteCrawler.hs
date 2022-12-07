@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,30 +94,30 @@ instance Prelude.Hashable DeleteCrawler where
 instance Prelude.NFData DeleteCrawler where
   rnf DeleteCrawler' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteCrawler where
+instance Data.ToHeaders DeleteCrawler where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.DeleteCrawler" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.DeleteCrawler" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteCrawler where
+instance Data.ToJSON DeleteCrawler where
   toJSON DeleteCrawler' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DeleteCrawler where
+instance Data.ToPath DeleteCrawler where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteCrawler where
+instance Data.ToQuery DeleteCrawler where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCrawlerResponse' smart constructor.

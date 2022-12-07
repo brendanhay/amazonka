@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.InsightFeedback where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.InsightFeedbackOption
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ insightFeedback_feedback = Lens.lens (\InsightFeedback' {feedback} -> feedback) 
 insightFeedback_id :: Lens.Lens' InsightFeedback (Prelude.Maybe Prelude.Text)
 insightFeedback_id = Lens.lens (\InsightFeedback' {id} -> id) (\s@InsightFeedback' {} a -> s {id = a} :: InsightFeedback)
 
-instance Core.FromJSON InsightFeedback where
+instance Data.FromJSON InsightFeedback where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InsightFeedback"
       ( \x ->
           InsightFeedback'
-            Prelude.<$> (x Core..:? "Feedback")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Feedback")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable InsightFeedback where
@@ -81,11 +82,11 @@ instance Prelude.NFData InsightFeedback where
   rnf InsightFeedback' {..} =
     Prelude.rnf feedback `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON InsightFeedback where
+instance Data.ToJSON InsightFeedback where
   toJSON InsightFeedback' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Feedback" Core..=) Prelude.<$> feedback,
-            ("Id" Core..=) Prelude.<$> id
+          [ ("Feedback" Data..=) Prelude.<$> feedback,
+            ("Id" Data..=) Prelude.<$> id
           ]
       )

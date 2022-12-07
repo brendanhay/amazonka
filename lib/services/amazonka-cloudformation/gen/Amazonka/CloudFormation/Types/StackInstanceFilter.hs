@@ -22,6 +22,7 @@ module Amazonka.CloudFormation.Types.StackInstanceFilter where
 import Amazonka.CloudFormation.Types.StackInstanceFilterName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The filter to apply to stack instances
@@ -71,7 +72,7 @@ instance Prelude.NFData StackInstanceFilter where
   rnf StackInstanceFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToQuery StackInstanceFilter where
+instance Data.ToQuery StackInstanceFilter where
   toQuery StackInstanceFilter' {..} =
     Prelude.mconcat
-      ["Name" Core.=: name, "Values" Core.=: values]
+      ["Name" Data.=: name, "Values" Data.=: values]

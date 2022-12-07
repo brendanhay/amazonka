@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,23 +142,23 @@ instance Prelude.NFData DeleteNetworkAclEntry where
       `Prelude.seq` Prelude.rnf networkAclId
       `Prelude.seq` Prelude.rnf ruleNumber
 
-instance Core.ToHeaders DeleteNetworkAclEntry where
+instance Data.ToHeaders DeleteNetworkAclEntry where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteNetworkAclEntry where
+instance Data.ToPath DeleteNetworkAclEntry where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteNetworkAclEntry where
+instance Data.ToQuery DeleteNetworkAclEntry where
   toQuery DeleteNetworkAclEntry' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteNetworkAclEntry" :: Prelude.ByteString),
+          Data.=: ("DeleteNetworkAclEntry" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Egress" Core.=: egress,
-        "NetworkAclId" Core.=: networkAclId,
-        "RuleNumber" Core.=: ruleNumber
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Egress" Data.=: egress,
+        "NetworkAclId" Data.=: networkAclId,
+        "RuleNumber" Data.=: ruleNumber
       ]
 
 -- | /See:/ 'newDeleteNetworkAclEntryResponse' smart constructor.

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,18 +106,18 @@ instance Core.AWSRequest GetEntity where
     Response.receiveJSON
       ( \s h x ->
           GetEntityResponse'
-            Prelude.<$> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "components" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "components" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "entityId")
-            Prelude.<*> (x Core..:> "entityName")
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "status")
-            Prelude.<*> (x Core..:> "workspaceId")
-            Prelude.<*> (x Core..:> "parentEntityId")
-            Prelude.<*> (x Core..:> "hasChildEntities")
-            Prelude.<*> (x Core..:> "creationDateTime")
-            Prelude.<*> (x Core..:> "updateDateTime")
+            Prelude.<*> (x Data..:> "entityId")
+            Prelude.<*> (x Data..:> "entityName")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "workspaceId")
+            Prelude.<*> (x Data..:> "parentEntityId")
+            Prelude.<*> (x Data..:> "hasChildEntities")
+            Prelude.<*> (x Data..:> "creationDateTime")
+            Prelude.<*> (x Data..:> "updateDateTime")
       )
 
 instance Prelude.Hashable GetEntity where
@@ -129,27 +130,27 @@ instance Prelude.NFData GetEntity where
     Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf entityId
 
-instance Core.ToHeaders GetEntity where
+instance Data.ToHeaders GetEntity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetEntity where
+instance Data.ToPath GetEntity where
   toPath GetEntity' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/entities/",
-        Core.toBS entityId
+        Data.toBS entityId
       ]
 
-instance Core.ToQuery GetEntity where
+instance Data.ToQuery GetEntity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEntityResponse' smart constructor.
@@ -177,9 +178,9 @@ data GetEntityResponse = GetEntityResponse'
     -- entities.
     hasChildEntities :: Prelude.Bool,
     -- | The date and time when the entity was created.
-    creationDateTime :: Core.POSIX,
+    creationDateTime :: Data.POSIX,
     -- | The date and time when the entity was last updated.
-    updateDateTime :: Core.POSIX
+    updateDateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -261,8 +262,8 @@ newGetEntityResponse
         parentEntityId = pParentEntityId_,
         hasChildEntities = pHasChildEntities_,
         creationDateTime =
-          Core._Time Lens.# pCreationDateTime_,
-        updateDateTime = Core._Time Lens.# pUpdateDateTime_
+          Data._Time Lens.# pCreationDateTime_,
+        updateDateTime = Data._Time Lens.# pUpdateDateTime_
       }
 
 -- | The description of the entity.
@@ -309,11 +310,11 @@ getEntityResponse_hasChildEntities = Lens.lens (\GetEntityResponse' {hasChildEnt
 
 -- | The date and time when the entity was created.
 getEntityResponse_creationDateTime :: Lens.Lens' GetEntityResponse Prelude.UTCTime
-getEntityResponse_creationDateTime = Lens.lens (\GetEntityResponse' {creationDateTime} -> creationDateTime) (\s@GetEntityResponse' {} a -> s {creationDateTime = a} :: GetEntityResponse) Prelude.. Core._Time
+getEntityResponse_creationDateTime = Lens.lens (\GetEntityResponse' {creationDateTime} -> creationDateTime) (\s@GetEntityResponse' {} a -> s {creationDateTime = a} :: GetEntityResponse) Prelude.. Data._Time
 
 -- | The date and time when the entity was last updated.
 getEntityResponse_updateDateTime :: Lens.Lens' GetEntityResponse Prelude.UTCTime
-getEntityResponse_updateDateTime = Lens.lens (\GetEntityResponse' {updateDateTime} -> updateDateTime) (\s@GetEntityResponse' {} a -> s {updateDateTime = a} :: GetEntityResponse) Prelude.. Core._Time
+getEntityResponse_updateDateTime = Lens.lens (\GetEntityResponse' {updateDateTime} -> updateDateTime) (\s@GetEntityResponse' {} a -> s {updateDateTime = a} :: GetEntityResponse) Prelude.. Data._Time
 
 instance Prelude.NFData GetEntityResponse where
   rnf GetEntityResponse' {..} =

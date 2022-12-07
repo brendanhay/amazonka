@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.DescribedConnector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.As2ConnectorConfig
 import Amazonka.Transfer.Types.Tag
@@ -150,19 +151,19 @@ describedConnector_loggingRole = Lens.lens (\DescribedConnector' {loggingRole} -
 describedConnector_arn :: Lens.Lens' DescribedConnector Prelude.Text
 describedConnector_arn = Lens.lens (\DescribedConnector' {arn} -> arn) (\s@DescribedConnector' {} a -> s {arn = a} :: DescribedConnector)
 
-instance Core.FromJSON DescribedConnector where
+instance Data.FromJSON DescribedConnector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DescribedConnector"
       ( \x ->
           DescribedConnector'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "ConnectorId")
-            Prelude.<*> (x Core..:? "AccessRole")
-            Prelude.<*> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "As2Config")
-            Prelude.<*> (x Core..:? "LoggingRole")
-            Prelude.<*> (x Core..: "Arn")
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "ConnectorId")
+            Prelude.<*> (x Data..:? "AccessRole")
+            Prelude.<*> (x Data..:? "Url")
+            Prelude.<*> (x Data..:? "As2Config")
+            Prelude.<*> (x Data..:? "LoggingRole")
+            Prelude.<*> (x Data..: "Arn")
       )
 
 instance Prelude.Hashable DescribedConnector where

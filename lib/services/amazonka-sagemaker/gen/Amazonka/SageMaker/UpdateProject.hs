@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,7 +155,7 @@ instance Core.AWSRequest UpdateProject where
       ( \s h x ->
           UpdateProjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ProjectArn")
+            Prelude.<*> (x Data..:> "ProjectArn")
       )
 
 instance Prelude.Hashable UpdateProject where
@@ -171,36 +172,36 @@ instance Prelude.NFData UpdateProject where
       `Prelude.seq` Prelude.rnf serviceCatalogProvisioningUpdateDetails
       `Prelude.seq` Prelude.rnf projectName
 
-instance Core.ToHeaders UpdateProject where
+instance Data.ToHeaders UpdateProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.UpdateProject" :: Prelude.ByteString),
+              Data.=# ("SageMaker.UpdateProject" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateProject where
+instance Data.ToJSON UpdateProject where
   toJSON UpdateProject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ProjectDescription" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ProjectDescription" Data..=)
               Prelude.<$> projectDescription,
-            ("ServiceCatalogProvisioningUpdateDetails" Core..=)
+            ("ServiceCatalogProvisioningUpdateDetails" Data..=)
               Prelude.<$> serviceCatalogProvisioningUpdateDetails,
-            Prelude.Just ("ProjectName" Core..= projectName)
+            Prelude.Just ("ProjectName" Data..= projectName)
           ]
       )
 
-instance Core.ToPath UpdateProject where
+instance Data.ToPath UpdateProject where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateProject where
+instance Data.ToQuery UpdateProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProjectResponse' smart constructor.

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,34 +131,34 @@ instance Prelude.NFData UpdateDatabase where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf databaseInput
 
-instance Core.ToHeaders UpdateDatabase where
+instance Data.ToHeaders UpdateDatabase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdateDatabase" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.UpdateDatabase" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDatabase where
+instance Data.ToJSON UpdateDatabase where
   toJSON UpdateDatabase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("Name" Core..= name),
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("DatabaseInput" Core..= databaseInput)
+              ("DatabaseInput" Data..= databaseInput)
           ]
       )
 
-instance Core.ToPath UpdateDatabase where
+instance Data.ToPath UpdateDatabase where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDatabase where
+instance Data.ToQuery UpdateDatabase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDatabaseResponse' smart constructor.

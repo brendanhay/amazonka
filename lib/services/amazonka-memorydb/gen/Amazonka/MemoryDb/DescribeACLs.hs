@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,8 +121,8 @@ instance Core.AWSRequest DescribeACLs where
     Response.receiveJSON
       ( \s h x ->
           DescribeACLsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ACLs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ACLs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,35 +138,35 @@ instance Prelude.NFData DescribeACLs where
       `Prelude.seq` Prelude.rnf aCLName
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeACLs where
+instance Data.ToHeaders DescribeACLs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonMemoryDB.DescribeACLs" ::
+              Data.=# ( "AmazonMemoryDB.DescribeACLs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeACLs where
+instance Data.ToJSON DescribeACLs where
   toJSON DescribeACLs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ACLName" Core..=) Prelude.<$> aCLName,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ACLName" Data..=) Prelude.<$> aCLName,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeACLs where
+instance Data.ToPath DescribeACLs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeACLs where
+instance Data.ToQuery DescribeACLs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeACLsResponse' smart constructor.

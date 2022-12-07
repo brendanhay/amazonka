@@ -22,6 +22,7 @@ module Amazonka.APIGateway.Types.Deployment where
 import Amazonka.APIGateway.Types.MethodSnapshot
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An immutable representation of a RestApi resource that can be called by
@@ -35,7 +36,7 @@ data Deployment = Deployment'
     -- | The identifier for the deployment resource.
     id :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the deployment resource was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | A summary of the RestApi at the date and time that the deployment
     -- resource was created.
     apiSummary :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text MethodSnapshot))
@@ -78,23 +79,23 @@ deployment_id = Lens.lens (\Deployment' {id} -> id) (\s@Deployment' {} a -> s {i
 
 -- | The date and time that the deployment resource was created.
 deployment_createdDate :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
-deployment_createdDate = Lens.lens (\Deployment' {createdDate} -> createdDate) (\s@Deployment' {} a -> s {createdDate = a} :: Deployment) Prelude.. Lens.mapping Core._Time
+deployment_createdDate = Lens.lens (\Deployment' {createdDate} -> createdDate) (\s@Deployment' {} a -> s {createdDate = a} :: Deployment) Prelude.. Lens.mapping Data._Time
 
 -- | A summary of the RestApi at the date and time that the deployment
 -- resource was created.
 deployment_apiSummary :: Lens.Lens' Deployment (Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text MethodSnapshot)))
 deployment_apiSummary = Lens.lens (\Deployment' {apiSummary} -> apiSummary) (\s@Deployment' {} a -> s {apiSummary = a} :: Deployment) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Deployment where
+instance Data.FromJSON Deployment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Deployment"
       ( \x ->
           Deployment'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..:? "apiSummary" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "createdDate")
+            Prelude.<*> (x Data..:? "apiSummary" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Deployment where

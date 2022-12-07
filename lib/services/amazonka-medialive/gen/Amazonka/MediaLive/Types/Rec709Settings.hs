@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Rec709Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Rec709 Settings
@@ -39,9 +40,9 @@ newRec709Settings ::
   Rec709Settings
 newRec709Settings = Rec709Settings'
 
-instance Core.FromJSON Rec709Settings where
+instance Data.FromJSON Rec709Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Rec709Settings"
       (\x -> Prelude.pure Rec709Settings')
 
@@ -52,5 +53,5 @@ instance Prelude.Hashable Rec709Settings where
 instance Prelude.NFData Rec709Settings where
   rnf _ = ()
 
-instance Core.ToJSON Rec709Settings where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON Rec709Settings where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

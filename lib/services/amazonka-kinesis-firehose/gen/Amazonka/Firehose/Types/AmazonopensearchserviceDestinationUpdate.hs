@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.AmazonopensearchserviceDestinationUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.AmazonopensearchserviceBufferingHints
 import Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod
 import Amazonka.Firehose.Types.AmazonopensearchserviceRetryOptions
@@ -176,27 +177,27 @@ instance
       `Prelude.seq` Prelude.rnf retryOptions
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AmazonopensearchserviceDestinationUpdate
   where
   toJSON AmazonopensearchserviceDestinationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProcessingConfiguration" Core..=)
+          [ ("ProcessingConfiguration" Data..=)
               Prelude.<$> processingConfiguration,
-            ("RoleARN" Core..=) Prelude.<$> roleARN,
-            ("S3Update" Core..=) Prelude.<$> s3Update,
-            ("BufferingHints" Core..=)
+            ("RoleARN" Data..=) Prelude.<$> roleARN,
+            ("S3Update" Data..=) Prelude.<$> s3Update,
+            ("BufferingHints" Data..=)
               Prelude.<$> bufferingHints,
-            ("ClusterEndpoint" Core..=)
+            ("ClusterEndpoint" Data..=)
               Prelude.<$> clusterEndpoint,
-            ("DomainARN" Core..=) Prelude.<$> domainARN,
-            ("TypeName" Core..=) Prelude.<$> typeName,
-            ("IndexName" Core..=) Prelude.<$> indexName,
-            ("CloudWatchLoggingOptions" Core..=)
+            ("DomainARN" Data..=) Prelude.<$> domainARN,
+            ("TypeName" Data..=) Prelude.<$> typeName,
+            ("IndexName" Data..=) Prelude.<$> indexName,
+            ("CloudWatchLoggingOptions" Data..=)
               Prelude.<$> cloudWatchLoggingOptions,
-            ("IndexRotationPeriod" Core..=)
+            ("IndexRotationPeriod" Data..=)
               Prelude.<$> indexRotationPeriod,
-            ("RetryOptions" Core..=) Prelude.<$> retryOptions
+            ("RetryOptions" Data..=) Prelude.<$> retryOptions
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.DeleteVolumeOpenZFSConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.DeleteOpenZFSVolumeOption
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,9 +75,9 @@ instance
   rnf DeleteVolumeOpenZFSConfiguration' {..} =
     Prelude.rnf options
 
-instance Core.ToJSON DeleteVolumeOpenZFSConfiguration where
+instance Data.ToJSON DeleteVolumeOpenZFSConfiguration where
   toJSON DeleteVolumeOpenZFSConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Options" Core..=) Prelude.<$> options]
+          [("Options" Data..=) Prelude.<$> options]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.ExtendedDataServices where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.CopyProtectionAction
 import Amazonka.MediaConvert.Types.VchipAction
 import qualified Amazonka.Prelude as Prelude
@@ -80,14 +81,14 @@ extendedDataServices_vchipAction = Lens.lens (\ExtendedDataServices' {vchipActio
 extendedDataServices_copyProtectionAction :: Lens.Lens' ExtendedDataServices (Prelude.Maybe CopyProtectionAction)
 extendedDataServices_copyProtectionAction = Lens.lens (\ExtendedDataServices' {copyProtectionAction} -> copyProtectionAction) (\s@ExtendedDataServices' {} a -> s {copyProtectionAction = a} :: ExtendedDataServices)
 
-instance Core.FromJSON ExtendedDataServices where
+instance Data.FromJSON ExtendedDataServices where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExtendedDataServices"
       ( \x ->
           ExtendedDataServices'
-            Prelude.<$> (x Core..:? "vchipAction")
-            Prelude.<*> (x Core..:? "copyProtectionAction")
+            Prelude.<$> (x Data..:? "vchipAction")
+            Prelude.<*> (x Data..:? "copyProtectionAction")
       )
 
 instance Prelude.Hashable ExtendedDataServices where
@@ -100,12 +101,12 @@ instance Prelude.NFData ExtendedDataServices where
     Prelude.rnf vchipAction
       `Prelude.seq` Prelude.rnf copyProtectionAction
 
-instance Core.ToJSON ExtendedDataServices where
+instance Data.ToJSON ExtendedDataServices where
   toJSON ExtendedDataServices' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("vchipAction" Core..=) Prelude.<$> vchipAction,
-            ("copyProtectionAction" Core..=)
+          [ ("vchipAction" Data..=) Prelude.<$> vchipAction,
+            ("copyProtectionAction" Data..=)
               Prelude.<$> copyProtectionAction
           ]
       )

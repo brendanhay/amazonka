@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.NamespaceFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.FilterCondition
 import Amazonka.Route53AutoNaming.Types.NamespaceFilterName
@@ -162,12 +163,12 @@ instance Prelude.NFData NamespaceFilter where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON NamespaceFilter where
+instance Data.ToJSON NamespaceFilter where
   toJSON NamespaceFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Condition" Core..=) Prelude.<$> condition,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Values" Core..= values)
+          [ ("Condition" Data..=) Prelude.<$> condition,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

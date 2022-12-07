@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.MobileDeviceAccessOverride where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect
 
@@ -37,9 +38,9 @@ data MobileDeviceAccessOverride = MobileDeviceAccessOverride'
     -- | The WorkMail user to which the access override applies.
     userId :: Prelude.Maybe Prelude.Text,
     -- | The date the override was first created.
-    dateCreated :: Prelude.Maybe Core.POSIX,
+    dateCreated :: Prelude.Maybe Data.POSIX,
     -- | The date the override was last modified.
-    dateModified :: Prelude.Maybe Core.POSIX
+    dateModified :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,24 +94,24 @@ mobileDeviceAccessOverride_userId = Lens.lens (\MobileDeviceAccessOverride' {use
 
 -- | The date the override was first created.
 mobileDeviceAccessOverride_dateCreated :: Lens.Lens' MobileDeviceAccessOverride (Prelude.Maybe Prelude.UTCTime)
-mobileDeviceAccessOverride_dateCreated = Lens.lens (\MobileDeviceAccessOverride' {dateCreated} -> dateCreated) (\s@MobileDeviceAccessOverride' {} a -> s {dateCreated = a} :: MobileDeviceAccessOverride) Prelude.. Lens.mapping Core._Time
+mobileDeviceAccessOverride_dateCreated = Lens.lens (\MobileDeviceAccessOverride' {dateCreated} -> dateCreated) (\s@MobileDeviceAccessOverride' {} a -> s {dateCreated = a} :: MobileDeviceAccessOverride) Prelude.. Lens.mapping Data._Time
 
 -- | The date the override was last modified.
 mobileDeviceAccessOverride_dateModified :: Lens.Lens' MobileDeviceAccessOverride (Prelude.Maybe Prelude.UTCTime)
-mobileDeviceAccessOverride_dateModified = Lens.lens (\MobileDeviceAccessOverride' {dateModified} -> dateModified) (\s@MobileDeviceAccessOverride' {} a -> s {dateModified = a} :: MobileDeviceAccessOverride) Prelude.. Lens.mapping Core._Time
+mobileDeviceAccessOverride_dateModified = Lens.lens (\MobileDeviceAccessOverride' {dateModified} -> dateModified) (\s@MobileDeviceAccessOverride' {} a -> s {dateModified = a} :: MobileDeviceAccessOverride) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON MobileDeviceAccessOverride where
+instance Data.FromJSON MobileDeviceAccessOverride where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MobileDeviceAccessOverride"
       ( \x ->
           MobileDeviceAccessOverride'
-            Prelude.<$> (x Core..:? "DeviceId")
-            Prelude.<*> (x Core..:? "Effect")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "UserId")
-            Prelude.<*> (x Core..:? "DateCreated")
-            Prelude.<*> (x Core..:? "DateModified")
+            Prelude.<$> (x Data..:? "DeviceId")
+            Prelude.<*> (x Data..:? "Effect")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "UserId")
+            Prelude.<*> (x Data..:? "DateCreated")
+            Prelude.<*> (x Data..:? "DateModified")
       )
 
 instance Prelude.Hashable MobileDeviceAccessOverride where

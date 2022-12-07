@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,8 +135,8 @@ instance Core.AWSRequest CreateSizeConstraintSet where
     Response.receiveJSON
       ( \s h x ->
           CreateSizeConstraintSetResponse'
-            Prelude.<$> (x Core..?> "SizeConstraintSet")
-            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "SizeConstraintSet")
+            Prelude.<*> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,34 +150,34 @@ instance Prelude.NFData CreateSizeConstraintSet where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf changeToken
 
-instance Core.ToHeaders CreateSizeConstraintSet where
+instance Data.ToHeaders CreateSizeConstraintSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.CreateSizeConstraintSet" ::
+              Data.=# ( "AWSWAF_Regional_20161128.CreateSizeConstraintSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSizeConstraintSet where
+instance Data.ToJSON CreateSizeConstraintSet where
   toJSON CreateSizeConstraintSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("ChangeToken" Core..= changeToken)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("ChangeToken" Data..= changeToken)
           ]
       )
 
-instance Core.ToPath CreateSizeConstraintSet where
+instance Data.ToPath CreateSizeConstraintSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSizeConstraintSet where
+instance Data.ToQuery CreateSizeConstraintSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSizeConstraintSetResponse' smart constructor.

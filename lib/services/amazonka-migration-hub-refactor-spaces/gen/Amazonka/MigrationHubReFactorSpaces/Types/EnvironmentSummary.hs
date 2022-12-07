@@ -21,6 +21,7 @@ module Amazonka.MigrationHubReFactorSpaces.Types.EnvironmentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types.EnvironmentState
 import Amazonka.MigrationHubReFactorSpaces.Types.ErrorResponse
 import Amazonka.MigrationHubReFactorSpaces.Types.NetworkFabricType
@@ -32,11 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEnvironmentSummary' smart constructor.
 data EnvironmentSummary = EnvironmentSummary'
   { -- | The tags assigned to the environment.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The name of the environment.
     name :: Prelude.Maybe Prelude.Text,
     -- | A timestamp that indicates when the environment is created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the transit gateway set up by the environment.
     transitGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the environment.
@@ -44,7 +45,7 @@ data EnvironmentSummary = EnvironmentSummary'
     -- | The current state of the environment.
     state :: Prelude.Maybe EnvironmentState,
     -- | A timestamp that indicates when the environment was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | A description of the environment.
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account ID of the environment owner.
@@ -109,7 +110,7 @@ newEnvironmentSummary =
 
 -- | The tags assigned to the environment.
 environmentSummary_tags :: Lens.Lens' EnvironmentSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-environmentSummary_tags = Lens.lens (\EnvironmentSummary' {tags} -> tags) (\s@EnvironmentSummary' {} a -> s {tags = a} :: EnvironmentSummary) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+environmentSummary_tags = Lens.lens (\EnvironmentSummary' {tags} -> tags) (\s@EnvironmentSummary' {} a -> s {tags = a} :: EnvironmentSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the environment.
 environmentSummary_name :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.Text)
@@ -117,7 +118,7 @@ environmentSummary_name = Lens.lens (\EnvironmentSummary' {name} -> name) (\s@En
 
 -- | A timestamp that indicates when the environment is created.
 environmentSummary_createdTime :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.UTCTime)
-environmentSummary_createdTime = Lens.lens (\EnvironmentSummary' {createdTime} -> createdTime) (\s@EnvironmentSummary' {} a -> s {createdTime = a} :: EnvironmentSummary) Prelude.. Lens.mapping Core._Time
+environmentSummary_createdTime = Lens.lens (\EnvironmentSummary' {createdTime} -> createdTime) (\s@EnvironmentSummary' {} a -> s {createdTime = a} :: EnvironmentSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the transit gateway set up by the environment.
 environmentSummary_transitGatewayId :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.Text)
@@ -133,7 +134,7 @@ environmentSummary_state = Lens.lens (\EnvironmentSummary' {state} -> state) (\s
 
 -- | A timestamp that indicates when the environment was last updated.
 environmentSummary_lastUpdatedTime :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.UTCTime)
-environmentSummary_lastUpdatedTime = Lens.lens (\EnvironmentSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@EnvironmentSummary' {} a -> s {lastUpdatedTime = a} :: EnvironmentSummary) Prelude.. Lens.mapping Core._Time
+environmentSummary_lastUpdatedTime = Lens.lens (\EnvironmentSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@EnvironmentSummary' {} a -> s {lastUpdatedTime = a} :: EnvironmentSummary) Prelude.. Lens.mapping Data._Time
 
 -- | A description of the environment.
 environmentSummary_description :: Lens.Lens' EnvironmentSummary (Prelude.Maybe Prelude.Text)
@@ -155,24 +156,24 @@ environmentSummary_error = Lens.lens (\EnvironmentSummary' {error} -> error) (\s
 environmentSummary_networkFabricType :: Lens.Lens' EnvironmentSummary (Prelude.Maybe NetworkFabricType)
 environmentSummary_networkFabricType = Lens.lens (\EnvironmentSummary' {networkFabricType} -> networkFabricType) (\s@EnvironmentSummary' {} a -> s {networkFabricType = a} :: EnvironmentSummary)
 
-instance Core.FromJSON EnvironmentSummary where
+instance Data.FromJSON EnvironmentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentSummary"
       ( \x ->
           EnvironmentSummary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "TransitGatewayId")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "OwnerAccountId")
-            Prelude.<*> (x Core..:? "EnvironmentId")
-            Prelude.<*> (x Core..:? "Error")
-            Prelude.<*> (x Core..:? "NetworkFabricType")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "TransitGatewayId")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "OwnerAccountId")
+            Prelude.<*> (x Data..:? "EnvironmentId")
+            Prelude.<*> (x Data..:? "Error")
+            Prelude.<*> (x Data..:? "NetworkFabricType")
       )
 
 instance Prelude.Hashable EnvironmentSummary where

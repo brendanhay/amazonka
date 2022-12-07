@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.GameSessionConnectionInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.MatchedPlayerSession
 import qualified Amazonka.Prelude as Prelude
 
@@ -136,19 +137,19 @@ gameSessionConnectionInfo_dnsName = Lens.lens (\GameSessionConnectionInfo' {dnsN
 gameSessionConnectionInfo_ipAddress :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe Prelude.Text)
 gameSessionConnectionInfo_ipAddress = Lens.lens (\GameSessionConnectionInfo' {ipAddress} -> ipAddress) (\s@GameSessionConnectionInfo' {} a -> s {ipAddress = a} :: GameSessionConnectionInfo)
 
-instance Core.FromJSON GameSessionConnectionInfo where
+instance Data.FromJSON GameSessionConnectionInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GameSessionConnectionInfo"
       ( \x ->
           GameSessionConnectionInfo'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> ( x Core..:? "MatchedPlayerSessions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> ( x Data..:? "MatchedPlayerSessions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "GameSessionArn")
-            Prelude.<*> (x Core..:? "DnsName")
-            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<*> (x Data..:? "GameSessionArn")
+            Prelude.<*> (x Data..:? "DnsName")
+            Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance Prelude.Hashable GameSessionConnectionInfo where

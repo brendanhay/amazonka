@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,7 +125,7 @@ instance Core.AWSRequest RegisterStreamConsumer where
       ( \s h x ->
           RegisterStreamConsumerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Consumer")
+            Prelude.<*> (x Data..:> "Consumer")
       )
 
 instance Prelude.Hashable RegisterStreamConsumer where
@@ -137,34 +138,34 @@ instance Prelude.NFData RegisterStreamConsumer where
     Prelude.rnf streamARN
       `Prelude.seq` Prelude.rnf consumerName
 
-instance Core.ToHeaders RegisterStreamConsumer where
+instance Data.ToHeaders RegisterStreamConsumer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.RegisterStreamConsumer" ::
+              Data.=# ( "Kinesis_20131202.RegisterStreamConsumer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterStreamConsumer where
+instance Data.ToJSON RegisterStreamConsumer where
   toJSON RegisterStreamConsumer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamARN" Core..= streamARN),
-            Prelude.Just ("ConsumerName" Core..= consumerName)
+          [ Prelude.Just ("StreamARN" Data..= streamARN),
+            Prelude.Just ("ConsumerName" Data..= consumerName)
           ]
       )
 
-instance Core.ToPath RegisterStreamConsumer where
+instance Data.ToPath RegisterStreamConsumer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterStreamConsumer where
+instance Data.ToQuery RegisterStreamConsumer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterStreamConsumerResponse' smart constructor.

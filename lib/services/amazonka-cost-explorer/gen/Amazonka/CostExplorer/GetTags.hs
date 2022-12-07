@@ -52,6 +52,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -245,11 +246,11 @@ instance Core.AWSRequest GetTags where
     Response.receiveJSON
       ( \s h x ->
           GetTagsResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<$> (x Data..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "ReturnSize")
-            Prelude.<*> (x Core..:> "TotalSize")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "ReturnSize")
+            Prelude.<*> (x Data..:> "TotalSize")
       )
 
 instance Prelude.Hashable GetTags where
@@ -272,39 +273,39 @@ instance Prelude.NFData GetTags where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf timePeriod
 
-instance Core.ToHeaders GetTags where
+instance Data.ToHeaders GetTags where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.GetTags" ::
+              Data.=# ( "AWSInsightsIndexService.GetTags" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTags where
+instance Data.ToJSON GetTags where
   toJSON GetTags' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("SearchString" Core..=) Prelude.<$> searchString,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("TagKey" Core..=) Prelude.<$> tagKey,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("TimePeriod" Core..= timePeriod)
+          [ ("NextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SearchString" Data..=) Prelude.<$> searchString,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("TagKey" Data..=) Prelude.<$> tagKey,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("TimePeriod" Data..= timePeriod)
           ]
       )
 
-instance Core.ToPath GetTags where
+instance Data.ToPath GetTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTags where
+instance Data.ToQuery GetTags where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTagsResponse' smart constructor.

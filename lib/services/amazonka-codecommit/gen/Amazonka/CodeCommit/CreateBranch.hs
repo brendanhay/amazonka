@@ -43,6 +43,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,36 +122,36 @@ instance Prelude.NFData CreateBranch where
       `Prelude.seq` Prelude.rnf branchName
       `Prelude.seq` Prelude.rnf commitId
 
-instance Core.ToHeaders CreateBranch where
+instance Data.ToHeaders CreateBranch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.CreateBranch" ::
+              Data.=# ( "CodeCommit_20150413.CreateBranch" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBranch where
+instance Data.ToJSON CreateBranch where
   toJSON CreateBranch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("branchName" Core..= branchName),
-            Prelude.Just ("commitId" Core..= commitId)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("branchName" Data..= branchName),
+            Prelude.Just ("commitId" Data..= commitId)
           ]
       )
 
-instance Core.ToPath CreateBranch where
+instance Data.ToPath CreateBranch where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateBranch where
+instance Data.ToQuery CreateBranch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBranchResponse' smart constructor.

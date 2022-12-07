@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.DynamoDBTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an Amazon DynamoDB table to crawl.
@@ -112,15 +113,15 @@ dynamoDBTarget_path = Lens.lens (\DynamoDBTarget' {path} -> path) (\s@DynamoDBTa
 dynamoDBTarget_scanRate :: Lens.Lens' DynamoDBTarget (Prelude.Maybe Prelude.Double)
 dynamoDBTarget_scanRate = Lens.lens (\DynamoDBTarget' {scanRate} -> scanRate) (\s@DynamoDBTarget' {} a -> s {scanRate = a} :: DynamoDBTarget)
 
-instance Core.FromJSON DynamoDBTarget where
+instance Data.FromJSON DynamoDBTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DynamoDBTarget"
       ( \x ->
           DynamoDBTarget'
-            Prelude.<$> (x Core..:? "scanAll")
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "scanRate")
+            Prelude.<$> (x Data..:? "scanAll")
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "scanRate")
       )
 
 instance Prelude.Hashable DynamoDBTarget where
@@ -135,12 +136,12 @@ instance Prelude.NFData DynamoDBTarget where
       `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf scanRate
 
-instance Core.ToJSON DynamoDBTarget where
+instance Data.ToJSON DynamoDBTarget where
   toJSON DynamoDBTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("scanAll" Core..=) Prelude.<$> scanAll,
-            ("Path" Core..=) Prelude.<$> path,
-            ("scanRate" Core..=) Prelude.<$> scanRate
+          [ ("scanAll" Data..=) Prelude.<$> scanAll,
+            ("Path" Data..=) Prelude.<$> path,
+            ("scanRate" Data..=) Prelude.<$> scanRate
           ]
       )

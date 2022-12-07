@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,7 +168,7 @@ instance Core.AWSRequest UpdateConnector where
       ( \s h x ->
           UpdateConnectorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ConnectorId")
+            Prelude.<*> (x Data..:> "ConnectorId")
       )
 
 instance Prelude.Hashable UpdateConnector where
@@ -186,37 +187,37 @@ instance Prelude.NFData UpdateConnector where
       `Prelude.seq` Prelude.rnf loggingRole
       `Prelude.seq` Prelude.rnf connectorId
 
-instance Core.ToHeaders UpdateConnector where
+instance Data.ToHeaders UpdateConnector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.UpdateConnector" ::
+              Data.=# ( "TransferService.UpdateConnector" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateConnector where
+instance Data.ToJSON UpdateConnector where
   toJSON UpdateConnector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessRole" Core..=) Prelude.<$> accessRole,
-            ("Url" Core..=) Prelude.<$> url,
-            ("As2Config" Core..=) Prelude.<$> as2Config,
-            ("LoggingRole" Core..=) Prelude.<$> loggingRole,
-            Prelude.Just ("ConnectorId" Core..= connectorId)
+          [ ("AccessRole" Data..=) Prelude.<$> accessRole,
+            ("Url" Data..=) Prelude.<$> url,
+            ("As2Config" Data..=) Prelude.<$> as2Config,
+            ("LoggingRole" Data..=) Prelude.<$> loggingRole,
+            Prelude.Just ("ConnectorId" Data..= connectorId)
           ]
       )
 
-instance Core.ToPath UpdateConnector where
+instance Data.ToPath UpdateConnector where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateConnector where
+instance Data.ToQuery UpdateConnector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConnectorResponse' smart constructor.

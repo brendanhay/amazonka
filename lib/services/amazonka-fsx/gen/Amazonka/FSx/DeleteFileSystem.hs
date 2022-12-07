@@ -75,6 +75,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -168,11 +169,11 @@ instance Core.AWSRequest DeleteFileSystem where
     Response.receiveJSON
       ( \s h x ->
           DeleteFileSystemResponse'
-            Prelude.<$> (x Core..?> "OpenZFSResponse")
-            Prelude.<*> (x Core..?> "Lifecycle")
-            Prelude.<*> (x Core..?> "WindowsResponse")
-            Prelude.<*> (x Core..?> "FileSystemId")
-            Prelude.<*> (x Core..?> "LustreResponse")
+            Prelude.<$> (x Data..?> "OpenZFSResponse")
+            Prelude.<*> (x Data..?> "Lifecycle")
+            Prelude.<*> (x Data..?> "WindowsResponse")
+            Prelude.<*> (x Data..?> "FileSystemId")
+            Prelude.<*> (x Data..?> "LustreResponse")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,41 +193,41 @@ instance Prelude.NFData DeleteFileSystem where
       `Prelude.seq` Prelude.rnf lustreConfiguration
       `Prelude.seq` Prelude.rnf fileSystemId
 
-instance Core.ToHeaders DeleteFileSystem where
+instance Data.ToHeaders DeleteFileSystem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.DeleteFileSystem" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.DeleteFileSystem" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteFileSystem where
+instance Data.ToJSON DeleteFileSystem where
   toJSON DeleteFileSystem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("OpenZFSConfiguration" Core..=)
+            ("OpenZFSConfiguration" Data..=)
               Prelude.<$> openZFSConfiguration,
-            ("WindowsConfiguration" Core..=)
+            ("WindowsConfiguration" Data..=)
               Prelude.<$> windowsConfiguration,
-            ("LustreConfiguration" Core..=)
+            ("LustreConfiguration" Data..=)
               Prelude.<$> lustreConfiguration,
-            Prelude.Just ("FileSystemId" Core..= fileSystemId)
+            Prelude.Just ("FileSystemId" Data..= fileSystemId)
           ]
       )
 
-instance Core.ToPath DeleteFileSystem where
+instance Data.ToPath DeleteFileSystem where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteFileSystem where
+instance Data.ToQuery DeleteFileSystem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response object for the @DeleteFileSystem@ operation.

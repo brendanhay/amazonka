@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,8 +121,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeReplicationConfigurationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "Replications" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "Replications" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,13 +147,13 @@ instance
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeReplicationConfigurations
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeReplicationConfigurations
   where
   toPath =
@@ -160,14 +161,14 @@ instance
       "/2015-02-01/file-systems/replication-configurations"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeReplicationConfigurations
   where
   toQuery DescribeReplicationConfigurations' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "FileSystemId" Core.=: fileSystemId,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "FileSystemId" Data.=: fileSystemId,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeReplicationConfigurationsResponse' smart constructor.

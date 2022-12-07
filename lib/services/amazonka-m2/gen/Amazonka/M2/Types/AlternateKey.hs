@@ -21,6 +21,7 @@ module Amazonka.M2.Types.AlternateKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines an alternate key. This value is optional. A legacy data set
@@ -95,16 +96,16 @@ alternateKey_length = Lens.lens (\AlternateKey' {length} -> length) (\s@Alternat
 alternateKey_offset :: Lens.Lens' AlternateKey Prelude.Int
 alternateKey_offset = Lens.lens (\AlternateKey' {offset} -> offset) (\s@AlternateKey' {} a -> s {offset = a} :: AlternateKey)
 
-instance Core.FromJSON AlternateKey where
+instance Data.FromJSON AlternateKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlternateKey"
       ( \x ->
           AlternateKey'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "allowDuplicates")
-            Prelude.<*> (x Core..: "length")
-            Prelude.<*> (x Core..: "offset")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "allowDuplicates")
+            Prelude.<*> (x Data..: "length")
+            Prelude.<*> (x Data..: "offset")
       )
 
 instance Prelude.Hashable AlternateKey where
@@ -121,14 +122,14 @@ instance Prelude.NFData AlternateKey where
       `Prelude.seq` Prelude.rnf length
       `Prelude.seq` Prelude.rnf offset
 
-instance Core.ToJSON AlternateKey where
+instance Data.ToJSON AlternateKey where
   toJSON AlternateKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("allowDuplicates" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("allowDuplicates" Data..=)
               Prelude.<$> allowDuplicates,
-            Prelude.Just ("length" Core..= length),
-            Prelude.Just ("offset" Core..= offset)
+            Prelude.Just ("length" Data..= length),
+            Prelude.Just ("offset" Data..= offset)
           ]
       )

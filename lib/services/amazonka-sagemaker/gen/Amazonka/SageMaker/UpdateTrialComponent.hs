@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -70,14 +71,14 @@ data UpdateTrialComponent = UpdateTrialComponent'
     -- artifacts.
     outputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
     -- | When the component ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The hyperparameters to remove from the component.
     parametersToRemove :: Prelude.Maybe [Prelude.Text],
     -- | Replaces all of the component\'s input artifacts with the specified
     -- artifacts.
     inputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
     -- | When the component started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The input artifacts to remove from the component.
     inputArtifactsToRemove :: Prelude.Maybe [Prelude.Text],
     -- | Replaces all of the component\'s hyperparameters with the specified
@@ -163,7 +164,7 @@ updateTrialComponent_outputArtifacts = Lens.lens (\UpdateTrialComponent' {output
 
 -- | When the component ended.
 updateTrialComponent_endTime :: Lens.Lens' UpdateTrialComponent (Prelude.Maybe Prelude.UTCTime)
-updateTrialComponent_endTime = Lens.lens (\UpdateTrialComponent' {endTime} -> endTime) (\s@UpdateTrialComponent' {} a -> s {endTime = a} :: UpdateTrialComponent) Prelude.. Lens.mapping Core._Time
+updateTrialComponent_endTime = Lens.lens (\UpdateTrialComponent' {endTime} -> endTime) (\s@UpdateTrialComponent' {} a -> s {endTime = a} :: UpdateTrialComponent) Prelude.. Lens.mapping Data._Time
 
 -- | The hyperparameters to remove from the component.
 updateTrialComponent_parametersToRemove :: Lens.Lens' UpdateTrialComponent (Prelude.Maybe [Prelude.Text])
@@ -176,7 +177,7 @@ updateTrialComponent_inputArtifacts = Lens.lens (\UpdateTrialComponent' {inputAr
 
 -- | When the component started.
 updateTrialComponent_startTime :: Lens.Lens' UpdateTrialComponent (Prelude.Maybe Prelude.UTCTime)
-updateTrialComponent_startTime = Lens.lens (\UpdateTrialComponent' {startTime} -> startTime) (\s@UpdateTrialComponent' {} a -> s {startTime = a} :: UpdateTrialComponent) Prelude.. Lens.mapping Core._Time
+updateTrialComponent_startTime = Lens.lens (\UpdateTrialComponent' {startTime} -> startTime) (\s@UpdateTrialComponent' {} a -> s {startTime = a} :: UpdateTrialComponent) Prelude.. Lens.mapping Data._Time
 
 -- | The input artifacts to remove from the component.
 updateTrialComponent_inputArtifactsToRemove :: Lens.Lens' UpdateTrialComponent (Prelude.Maybe [Prelude.Text])
@@ -201,7 +202,7 @@ instance Core.AWSRequest UpdateTrialComponent where
     Response.receiveJSON
       ( \s h x ->
           UpdateTrialComponentResponse'
-            Prelude.<$> (x Core..?> "TrialComponentArn")
+            Prelude.<$> (x Data..?> "TrialComponentArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -234,49 +235,49 @@ instance Prelude.NFData UpdateTrialComponent where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf trialComponentName
 
-instance Core.ToHeaders UpdateTrialComponent where
+instance Data.ToHeaders UpdateTrialComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.UpdateTrialComponent" ::
+              Data.=# ( "SageMaker.UpdateTrialComponent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTrialComponent where
+instance Data.ToJSON UpdateTrialComponent where
   toJSON UpdateTrialComponent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutputArtifactsToRemove" Core..=)
+          [ ("OutputArtifactsToRemove" Data..=)
               Prelude.<$> outputArtifactsToRemove,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("Status" Core..=) Prelude.<$> status,
-            ("OutputArtifacts" Core..=)
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("Status" Data..=) Prelude.<$> status,
+            ("OutputArtifacts" Data..=)
               Prelude.<$> outputArtifacts,
-            ("EndTime" Core..=) Prelude.<$> endTime,
-            ("ParametersToRemove" Core..=)
+            ("EndTime" Data..=) Prelude.<$> endTime,
+            ("ParametersToRemove" Data..=)
               Prelude.<$> parametersToRemove,
-            ("InputArtifacts" Core..=)
+            ("InputArtifacts" Data..=)
               Prelude.<$> inputArtifacts,
-            ("StartTime" Core..=) Prelude.<$> startTime,
-            ("InputArtifactsToRemove" Core..=)
+            ("StartTime" Data..=) Prelude.<$> startTime,
+            ("InputArtifactsToRemove" Data..=)
               Prelude.<$> inputArtifactsToRemove,
-            ("Parameters" Core..=) Prelude.<$> parameters,
+            ("Parameters" Data..=) Prelude.<$> parameters,
             Prelude.Just
-              ("TrialComponentName" Core..= trialComponentName)
+              ("TrialComponentName" Data..= trialComponentName)
           ]
       )
 
-instance Core.ToPath UpdateTrialComponent where
+instance Data.ToPath UpdateTrialComponent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTrialComponent where
+instance Data.ToQuery UpdateTrialComponent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTrialComponentResponse' smart constructor.

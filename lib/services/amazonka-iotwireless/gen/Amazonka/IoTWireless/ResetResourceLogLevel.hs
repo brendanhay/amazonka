@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,18 +117,18 @@ instance Prelude.NFData ResetResourceLogLevel where
     Prelude.rnf resourceIdentifier
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToHeaders ResetResourceLogLevel where
+instance Data.ToHeaders ResetResourceLogLevel where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ResetResourceLogLevel where
+instance Data.ToPath ResetResourceLogLevel where
   toPath ResetResourceLogLevel' {..} =
     Prelude.mconcat
-      ["/log-levels/", Core.toBS resourceIdentifier]
+      ["/log-levels/", Data.toBS resourceIdentifier]
 
-instance Core.ToQuery ResetResourceLogLevel where
+instance Data.ToQuery ResetResourceLogLevel where
   toQuery ResetResourceLogLevel' {..} =
     Prelude.mconcat
-      ["resourceType" Core.=: resourceType]
+      ["resourceType" Data.=: resourceType]
 
 -- | /See:/ 'newResetResourceLogLevelResponse' smart constructor.
 data ResetResourceLogLevelResponse = ResetResourceLogLevelResponse'

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,11 +87,11 @@ instance Core.AWSRequest StartWorkflow where
     Response.receiveJSON
       ( \s h x ->
           StartWorkflowResponse'
-            Prelude.<$> (x Core..?> "lastStartTime")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "statusMessage")
+            Prelude.<$> (x Data..?> "lastStartTime")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "statusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,32 +102,32 @@ instance Prelude.Hashable StartWorkflow where
 instance Prelude.NFData StartWorkflow where
   rnf StartWorkflow' {..} = Prelude.rnf id
 
-instance Core.ToHeaders StartWorkflow where
+instance Data.ToHeaders StartWorkflow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartWorkflow where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StartWorkflow where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StartWorkflow where
+instance Data.ToPath StartWorkflow where
   toPath StartWorkflow' {..} =
     Prelude.mconcat
-      ["/migrationworkflow/", Core.toBS id, "/start"]
+      ["/migrationworkflow/", Data.toBS id, "/start"]
 
-instance Core.ToQuery StartWorkflow where
+instance Data.ToQuery StartWorkflow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartWorkflowResponse' smart constructor.
 data StartWorkflowResponse = StartWorkflowResponse'
   { -- | The time at which the migration workflow was last started.
-    lastStartTime :: Prelude.Maybe Core.POSIX,
+    lastStartTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the migration workflow.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The status of the migration workflow.
@@ -176,7 +177,7 @@ newStartWorkflowResponse pHttpStatus_ =
 
 -- | The time at which the migration workflow was last started.
 startWorkflowResponse_lastStartTime :: Lens.Lens' StartWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
-startWorkflowResponse_lastStartTime = Lens.lens (\StartWorkflowResponse' {lastStartTime} -> lastStartTime) (\s@StartWorkflowResponse' {} a -> s {lastStartTime = a} :: StartWorkflowResponse) Prelude.. Lens.mapping Core._Time
+startWorkflowResponse_lastStartTime = Lens.lens (\StartWorkflowResponse' {lastStartTime} -> lastStartTime) (\s@StartWorkflowResponse' {} a -> s {lastStartTime = a} :: StartWorkflowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the migration workflow.
 startWorkflowResponse_arn :: Lens.Lens' StartWorkflowResponse (Prelude.Maybe Prelude.Text)

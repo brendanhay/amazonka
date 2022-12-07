@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -168,9 +169,9 @@ instance Core.AWSRequest CreateFolder where
     Response.receiveJSON
       ( \s h x ->
           CreateFolderResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "FolderId")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "FolderId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,40 +195,40 @@ instance Prelude.NFData CreateFolder where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf folderId
 
-instance Core.ToHeaders CreateFolder where
+instance Data.ToHeaders CreateFolder where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFolder where
+instance Data.ToJSON CreateFolder where
   toJSON CreateFolder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name,
-            ("Permissions" Core..=) Prelude.<$> permissions,
-            ("FolderType" Core..=) Prelude.<$> folderType,
-            ("ParentFolderArn" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Name" Data..=) Prelude.<$> name,
+            ("Permissions" Data..=) Prelude.<$> permissions,
+            ("FolderType" Data..=) Prelude.<$> folderType,
+            ("ParentFolderArn" Data..=)
               Prelude.<$> parentFolderArn
           ]
       )
 
-instance Core.ToPath CreateFolder where
+instance Data.ToPath CreateFolder where
   toPath CreateFolder' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/folders/",
-        Core.toBS folderId
+        Data.toBS folderId
       ]
 
-instance Core.ToQuery CreateFolder where
+instance Data.ToQuery CreateFolder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFolderResponse' smart constructor.

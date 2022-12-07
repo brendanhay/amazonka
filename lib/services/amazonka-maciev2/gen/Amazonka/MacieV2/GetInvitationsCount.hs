@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -68,7 +69,7 @@ instance Core.AWSRequest GetInvitationsCount where
     Response.receiveJSON
       ( \s h x ->
           GetInvitationsCountResponse'
-            Prelude.<$> (x Core..?> "invitationsCount")
+            Prelude.<$> (x Data..?> "invitationsCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -79,21 +80,21 @@ instance Prelude.Hashable GetInvitationsCount where
 instance Prelude.NFData GetInvitationsCount where
   rnf _ = ()
 
-instance Core.ToHeaders GetInvitationsCount where
+instance Data.ToHeaders GetInvitationsCount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetInvitationsCount where
+instance Data.ToPath GetInvitationsCount where
   toPath = Prelude.const "/invitations/count"
 
-instance Core.ToQuery GetInvitationsCount where
+instance Data.ToQuery GetInvitationsCount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInvitationsCountResponse' smart constructor.

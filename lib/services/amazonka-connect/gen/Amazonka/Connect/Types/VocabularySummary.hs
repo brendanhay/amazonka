@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.VocabularyLanguageCode
 import Amazonka.Connect.Types.VocabularyState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about the custom vocabulary.
@@ -44,7 +45,7 @@ data VocabularySummary = VocabularySummary'
     -- | The current state of the custom vocabulary.
     state :: VocabularyState,
     -- | The timestamp when the custom vocabulary was last modified.
-    lastModifiedTime :: Core.POSIX
+    lastModifiedTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,7 +101,7 @@ newVocabularySummary
         languageCode = pLanguageCode_,
         state = pState_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_
+          Data._Time Lens.# pLastModifiedTime_
       }
 
 -- | The reason why the custom vocabulary was not created.
@@ -131,21 +132,21 @@ vocabularySummary_state = Lens.lens (\VocabularySummary' {state} -> state) (\s@V
 
 -- | The timestamp when the custom vocabulary was last modified.
 vocabularySummary_lastModifiedTime :: Lens.Lens' VocabularySummary Prelude.UTCTime
-vocabularySummary_lastModifiedTime = Lens.lens (\VocabularySummary' {lastModifiedTime} -> lastModifiedTime) (\s@VocabularySummary' {} a -> s {lastModifiedTime = a} :: VocabularySummary) Prelude.. Core._Time
+vocabularySummary_lastModifiedTime = Lens.lens (\VocabularySummary' {lastModifiedTime} -> lastModifiedTime) (\s@VocabularySummary' {} a -> s {lastModifiedTime = a} :: VocabularySummary) Prelude.. Data._Time
 
-instance Core.FromJSON VocabularySummary where
+instance Data.FromJSON VocabularySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VocabularySummary"
       ( \x ->
           VocabularySummary'
-            Prelude.<$> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "LanguageCode")
-            Prelude.<*> (x Core..: "State")
-            Prelude.<*> (x Core..: "LastModifiedTime")
+            Prelude.<$> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "LanguageCode")
+            Prelude.<*> (x Data..: "State")
+            Prelude.<*> (x Data..: "LastModifiedTime")
       )
 
 instance Prelude.Hashable VocabularySummary where

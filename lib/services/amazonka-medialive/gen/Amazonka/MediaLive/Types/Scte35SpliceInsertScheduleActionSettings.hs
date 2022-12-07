@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for a SCTE-35 splice_insert message.
@@ -87,16 +88,16 @@ scte35SpliceInsertScheduleActionSettings_spliceEventId :: Lens.Lens' Scte35Splic
 scte35SpliceInsertScheduleActionSettings_spliceEventId = Lens.lens (\Scte35SpliceInsertScheduleActionSettings' {spliceEventId} -> spliceEventId) (\s@Scte35SpliceInsertScheduleActionSettings' {} a -> s {spliceEventId = a} :: Scte35SpliceInsertScheduleActionSettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     Scte35SpliceInsertScheduleActionSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scte35SpliceInsertScheduleActionSettings"
       ( \x ->
           Scte35SpliceInsertScheduleActionSettings'
-            Prelude.<$> (x Core..:? "duration")
-            Prelude.<*> (x Core..: "spliceEventId")
+            Prelude.<$> (x Data..:? "duration")
+            Prelude.<*> (x Data..: "spliceEventId")
       )
 
 instance
@@ -118,14 +119,14 @@ instance
       `Prelude.seq` Prelude.rnf spliceEventId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     Scte35SpliceInsertScheduleActionSettings
   where
   toJSON Scte35SpliceInsertScheduleActionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("duration" Core..=) Prelude.<$> duration,
+          [ ("duration" Data..=) Prelude.<$> duration,
             Prelude.Just
-              ("spliceEventId" Core..= spliceEventId)
+              ("spliceEventId" Data..= spliceEventId)
           ]
       )

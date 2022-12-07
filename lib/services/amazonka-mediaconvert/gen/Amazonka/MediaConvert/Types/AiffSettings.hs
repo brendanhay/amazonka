@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.AiffSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
@@ -80,15 +81,15 @@ aiffSettings_channels = Lens.lens (\AiffSettings' {channels} -> channels) (\s@Ai
 aiffSettings_sampleRate :: Lens.Lens' AiffSettings (Prelude.Maybe Prelude.Natural)
 aiffSettings_sampleRate = Lens.lens (\AiffSettings' {sampleRate} -> sampleRate) (\s@AiffSettings' {} a -> s {sampleRate = a} :: AiffSettings)
 
-instance Core.FromJSON AiffSettings where
+instance Data.FromJSON AiffSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AiffSettings"
       ( \x ->
           AiffSettings'
-            Prelude.<$> (x Core..:? "bitDepth")
-            Prelude.<*> (x Core..:? "channels")
-            Prelude.<*> (x Core..:? "sampleRate")
+            Prelude.<$> (x Data..:? "bitDepth")
+            Prelude.<*> (x Data..:? "channels")
+            Prelude.<*> (x Data..:? "sampleRate")
       )
 
 instance Prelude.Hashable AiffSettings where
@@ -103,12 +104,12 @@ instance Prelude.NFData AiffSettings where
       `Prelude.seq` Prelude.rnf channels
       `Prelude.seq` Prelude.rnf sampleRate
 
-instance Core.ToJSON AiffSettings where
+instance Data.ToJSON AiffSettings where
   toJSON AiffSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bitDepth" Core..=) Prelude.<$> bitDepth,
-            ("channels" Core..=) Prelude.<$> channels,
-            ("sampleRate" Core..=) Prelude.<$> sampleRate
+          [ ("bitDepth" Data..=) Prelude.<$> bitDepth,
+            ("channels" Data..=) Prelude.<$> channels,
+            ("sampleRate" Data..=) Prelude.<$> sampleRate
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.FindingTypeAggregation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.AggregationFindingType
 import Amazonka.Inspector2.Types.AggregationResourceType
 import Amazonka.Inspector2.Types.FindingTypeSortBy
@@ -98,13 +99,13 @@ instance Prelude.NFData FindingTypeAggregation where
       `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf findingType
 
-instance Core.ToJSON FindingTypeAggregation where
+instance Data.ToJSON FindingTypeAggregation where
   toJSON FindingTypeAggregation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resourceType" Core..=) Prelude.<$> resourceType,
-            ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("findingType" Core..=) Prelude.<$> findingType
+          [ ("resourceType" Data..=) Prelude.<$> resourceType,
+            ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("findingType" Data..=) Prelude.<$> findingType
           ]
       )

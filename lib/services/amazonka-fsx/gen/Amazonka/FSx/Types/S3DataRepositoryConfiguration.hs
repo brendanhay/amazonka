@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.S3DataRepositoryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.AutoExportPolicy
 import Amazonka.FSx.Types.AutoImportPolicy
 import qualified Amazonka.Prelude as Prelude
@@ -81,14 +82,14 @@ s3DataRepositoryConfiguration_autoExportPolicy = Lens.lens (\S3DataRepositoryCon
 s3DataRepositoryConfiguration_autoImportPolicy :: Lens.Lens' S3DataRepositoryConfiguration (Prelude.Maybe AutoImportPolicy)
 s3DataRepositoryConfiguration_autoImportPolicy = Lens.lens (\S3DataRepositoryConfiguration' {autoImportPolicy} -> autoImportPolicy) (\s@S3DataRepositoryConfiguration' {} a -> s {autoImportPolicy = a} :: S3DataRepositoryConfiguration)
 
-instance Core.FromJSON S3DataRepositoryConfiguration where
+instance Data.FromJSON S3DataRepositoryConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3DataRepositoryConfiguration"
       ( \x ->
           S3DataRepositoryConfiguration'
-            Prelude.<$> (x Core..:? "AutoExportPolicy")
-            Prelude.<*> (x Core..:? "AutoImportPolicy")
+            Prelude.<$> (x Data..:? "AutoExportPolicy")
+            Prelude.<*> (x Data..:? "AutoImportPolicy")
       )
 
 instance
@@ -104,13 +105,13 @@ instance Prelude.NFData S3DataRepositoryConfiguration where
     Prelude.rnf autoExportPolicy
       `Prelude.seq` Prelude.rnf autoImportPolicy
 
-instance Core.ToJSON S3DataRepositoryConfiguration where
+instance Data.ToJSON S3DataRepositoryConfiguration where
   toJSON S3DataRepositoryConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AutoExportPolicy" Core..=)
+          [ ("AutoExportPolicy" Data..=)
               Prelude.<$> autoExportPolicy,
-            ("AutoImportPolicy" Core..=)
+            ("AutoImportPolicy" Data..=)
               Prelude.<$> autoImportPolicy
           ]
       )

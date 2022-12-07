@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.AdditionalResultAttributeValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.TextWithHighlights
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newAdditionalResultAttributeValue =
 additionalResultAttributeValue_textWithHighlightsValue :: Lens.Lens' AdditionalResultAttributeValue (Prelude.Maybe TextWithHighlights)
 additionalResultAttributeValue_textWithHighlightsValue = Lens.lens (\AdditionalResultAttributeValue' {textWithHighlightsValue} -> textWithHighlightsValue) (\s@AdditionalResultAttributeValue' {} a -> s {textWithHighlightsValue = a} :: AdditionalResultAttributeValue)
 
-instance Core.FromJSON AdditionalResultAttributeValue where
+instance Data.FromJSON AdditionalResultAttributeValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdditionalResultAttributeValue"
       ( \x ->
           AdditionalResultAttributeValue'
-            Prelude.<$> (x Core..:? "TextWithHighlightsValue")
+            Prelude.<$> (x Data..:? "TextWithHighlightsValue")
       )
 
 instance

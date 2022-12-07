@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -131,22 +132,22 @@ instance Prelude.NFData RemoveRoleFromDBInstance where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf featureName
 
-instance Core.ToHeaders RemoveRoleFromDBInstance where
+instance Data.ToHeaders RemoveRoleFromDBInstance where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RemoveRoleFromDBInstance where
+instance Data.ToPath RemoveRoleFromDBInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveRoleFromDBInstance where
+instance Data.ToQuery RemoveRoleFromDBInstance where
   toQuery RemoveRoleFromDBInstance' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RemoveRoleFromDBInstance" :: Prelude.ByteString),
+          Data.=: ("RemoveRoleFromDBInstance" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
-        "RoleArn" Core.=: roleArn,
-        "FeatureName" Core.=: featureName
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier,
+        "RoleArn" Data.=: roleArn,
+        "FeatureName" Data.=: featureName
       ]
 
 -- | /See:/ 'newRemoveRoleFromDBInstanceResponse' smart constructor.

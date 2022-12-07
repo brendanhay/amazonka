@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,7 +110,7 @@ instance Core.AWSRequest UpdateMemberDetectors where
       ( \s h x ->
           UpdateMemberDetectorsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "unprocessedAccounts"
+            Prelude.<*> ( x Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -126,35 +127,35 @@ instance Prelude.NFData UpdateMemberDetectors where
       `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf accountIds
 
-instance Core.ToHeaders UpdateMemberDetectors where
+instance Data.ToHeaders UpdateMemberDetectors where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMemberDetectors where
+instance Data.ToJSON UpdateMemberDetectors where
   toJSON UpdateMemberDetectors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("dataSources" Core..=) Prelude.<$> dataSources,
-            Prelude.Just ("accountIds" Core..= accountIds)
+          [ ("dataSources" Data..=) Prelude.<$> dataSources,
+            Prelude.Just ("accountIds" Data..= accountIds)
           ]
       )
 
-instance Core.ToPath UpdateMemberDetectors where
+instance Data.ToPath UpdateMemberDetectors where
   toPath UpdateMemberDetectors' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/member/detector/update"
       ]
 
-instance Core.ToQuery UpdateMemberDetectors where
+instance Data.ToQuery UpdateMemberDetectors where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMemberDetectorsResponse' smart constructor.

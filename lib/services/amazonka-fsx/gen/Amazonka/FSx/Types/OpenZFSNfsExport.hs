@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.OpenZFSNfsExport where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.OpenZFSClientConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,14 +59,14 @@ newOpenZFSNfsExport =
 openZFSNfsExport_clientConfigurations :: Lens.Lens' OpenZFSNfsExport [OpenZFSClientConfiguration]
 openZFSNfsExport_clientConfigurations = Lens.lens (\OpenZFSNfsExport' {clientConfigurations} -> clientConfigurations) (\s@OpenZFSNfsExport' {} a -> s {clientConfigurations = a} :: OpenZFSNfsExport) Prelude.. Lens.coerced
 
-instance Core.FromJSON OpenZFSNfsExport where
+instance Data.FromJSON OpenZFSNfsExport where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpenZFSNfsExport"
       ( \x ->
           OpenZFSNfsExport'
-            Prelude.<$> ( x Core..:? "ClientConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ClientConfigurations"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -77,13 +78,13 @@ instance Prelude.NFData OpenZFSNfsExport where
   rnf OpenZFSNfsExport' {..} =
     Prelude.rnf clientConfigurations
 
-instance Core.ToJSON OpenZFSNfsExport where
+instance Data.ToJSON OpenZFSNfsExport where
   toJSON OpenZFSNfsExport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ClientConfigurations"
-                  Core..= clientConfigurations
+                  Data..= clientConfigurations
               )
           ]
       )

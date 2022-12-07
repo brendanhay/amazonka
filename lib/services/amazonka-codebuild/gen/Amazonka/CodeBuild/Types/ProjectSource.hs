@@ -25,6 +25,7 @@ import Amazonka.CodeBuild.Types.SourceAuth
 import Amazonka.CodeBuild.Types.SourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the build input source code for the build project.
@@ -451,22 +452,22 @@ projectSource_buildspec = Lens.lens (\ProjectSource' {buildspec} -> buildspec) (
 projectSource_type :: Lens.Lens' ProjectSource SourceType
 projectSource_type = Lens.lens (\ProjectSource' {type'} -> type') (\s@ProjectSource' {} a -> s {type' = a} :: ProjectSource)
 
-instance Core.FromJSON ProjectSource where
+instance Data.FromJSON ProjectSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectSource"
       ( \x ->
           ProjectSource'
-            Prelude.<$> (x Core..:? "insecureSsl")
-            Prelude.<*> (x Core..:? "reportBuildStatus")
-            Prelude.<*> (x Core..:? "gitSubmodulesConfig")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "sourceIdentifier")
-            Prelude.<*> (x Core..:? "buildStatusConfig")
-            Prelude.<*> (x Core..:? "gitCloneDepth")
-            Prelude.<*> (x Core..:? "auth")
-            Prelude.<*> (x Core..:? "buildspec")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "insecureSsl")
+            Prelude.<*> (x Data..:? "reportBuildStatus")
+            Prelude.<*> (x Data..:? "gitSubmodulesConfig")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "sourceIdentifier")
+            Prelude.<*> (x Data..:? "buildStatusConfig")
+            Prelude.<*> (x Data..:? "gitCloneDepth")
+            Prelude.<*> (x Data..:? "auth")
+            Prelude.<*> (x Data..:? "buildspec")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable ProjectSource where
@@ -495,23 +496,23 @@ instance Prelude.NFData ProjectSource where
       `Prelude.seq` Prelude.rnf buildspec
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON ProjectSource where
+instance Data.ToJSON ProjectSource where
   toJSON ProjectSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("insecureSsl" Core..=) Prelude.<$> insecureSsl,
-            ("reportBuildStatus" Core..=)
+          [ ("insecureSsl" Data..=) Prelude.<$> insecureSsl,
+            ("reportBuildStatus" Data..=)
               Prelude.<$> reportBuildStatus,
-            ("gitSubmodulesConfig" Core..=)
+            ("gitSubmodulesConfig" Data..=)
               Prelude.<$> gitSubmodulesConfig,
-            ("location" Core..=) Prelude.<$> location,
-            ("sourceIdentifier" Core..=)
+            ("location" Data..=) Prelude.<$> location,
+            ("sourceIdentifier" Data..=)
               Prelude.<$> sourceIdentifier,
-            ("buildStatusConfig" Core..=)
+            ("buildStatusConfig" Data..=)
               Prelude.<$> buildStatusConfig,
-            ("gitCloneDepth" Core..=) Prelude.<$> gitCloneDepth,
-            ("auth" Core..=) Prelude.<$> auth,
-            ("buildspec" Core..=) Prelude.<$> buildspec,
-            Prelude.Just ("type" Core..= type')
+            ("gitCloneDepth" Data..=) Prelude.<$> gitCloneDepth,
+            ("auth" Data..=) Prelude.<$> auth,
+            ("buildspec" Data..=) Prelude.<$> buildspec,
+            Prelude.Just ("type" Data..= type')
           ]
       )

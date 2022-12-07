@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,13 +122,13 @@ instance Core.AWSRequest CreateConnectorDefinition where
     Response.receiveJSON
       ( \s h x ->
           CreateConnectorDefinitionResponse'
-            Prelude.<$> (x Core..?> "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "LatestVersion")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "LatestVersionArn")
+            Prelude.<$> (x Data..?> "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "LatestVersion")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "LatestVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,30 +146,30 @@ instance Prelude.NFData CreateConnectorDefinition where
       `Prelude.seq` Prelude.rnf initialVersion
       `Prelude.seq` Prelude.rnf amznClientToken
 
-instance Core.ToHeaders CreateConnectorDefinition where
+instance Data.ToHeaders CreateConnectorDefinition where
   toHeaders CreateConnectorDefinition' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
+      [ "X-Amzn-Client-Token" Data.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateConnectorDefinition where
+instance Data.ToJSON CreateConnectorDefinition where
   toJSON CreateConnectorDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name,
-            ("InitialVersion" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("Name" Data..=) Prelude.<$> name,
+            ("InitialVersion" Data..=)
               Prelude.<$> initialVersion
           ]
       )
 
-instance Core.ToPath CreateConnectorDefinition where
+instance Data.ToPath CreateConnectorDefinition where
   toPath =
     Prelude.const "/greengrass/definition/connectors"
 
-instance Core.ToQuery CreateConnectorDefinition where
+instance Data.ToQuery CreateConnectorDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConnectorDefinitionResponse' smart constructor.

@@ -56,6 +56,7 @@ where
 import Amazonka.CloudHSM.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,7 +99,7 @@ instance Core.AWSRequest DeleteLunaClient where
       ( \s h x ->
           DeleteLunaClientResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Status")
+            Prelude.<*> (x Data..:> "Status")
       )
 
 instance Prelude.Hashable DeleteLunaClient where
@@ -108,32 +109,32 @@ instance Prelude.Hashable DeleteLunaClient where
 instance Prelude.NFData DeleteLunaClient where
   rnf DeleteLunaClient' {..} = Prelude.rnf clientArn
 
-instance Core.ToHeaders DeleteLunaClient where
+instance Data.ToHeaders DeleteLunaClient where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudHsmFrontendService.DeleteLunaClient" ::
+              Data.=# ( "CloudHsmFrontendService.DeleteLunaClient" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteLunaClient where
+instance Data.ToJSON DeleteLunaClient where
   toJSON DeleteLunaClient' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ClientArn" Core..= clientArn)]
+          [Prelude.Just ("ClientArn" Data..= clientArn)]
       )
 
-instance Core.ToPath DeleteLunaClient where
+instance Data.ToPath DeleteLunaClient where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLunaClient where
+instance Data.ToQuery DeleteLunaClient where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLunaClientResponse' smart constructor.

@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -153,34 +154,34 @@ instance Prelude.NFData RespondActivityTaskCanceled where
     Prelude.rnf details
       `Prelude.seq` Prelude.rnf taskToken
 
-instance Core.ToHeaders RespondActivityTaskCanceled where
+instance Data.ToHeaders RespondActivityTaskCanceled where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.RespondActivityTaskCanceled" ::
+              Data.=# ( "SimpleWorkflowService.RespondActivityTaskCanceled" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RespondActivityTaskCanceled where
+instance Data.ToJSON RespondActivityTaskCanceled where
   toJSON RespondActivityTaskCanceled' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("details" Core..=) Prelude.<$> details,
-            Prelude.Just ("taskToken" Core..= taskToken)
+          [ ("details" Data..=) Prelude.<$> details,
+            Prelude.Just ("taskToken" Data..= taskToken)
           ]
       )
 
-instance Core.ToPath RespondActivityTaskCanceled where
+instance Data.ToPath RespondActivityTaskCanceled where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RespondActivityTaskCanceled where
+instance Data.ToQuery RespondActivityTaskCanceled where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRespondActivityTaskCanceledResponse' smart constructor.

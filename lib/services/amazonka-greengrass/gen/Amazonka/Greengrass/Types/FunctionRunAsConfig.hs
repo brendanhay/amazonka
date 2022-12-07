@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.FunctionRunAsConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the user and group whose permissions are used when running the
@@ -68,13 +69,13 @@ functionRunAsConfig_gid = Lens.lens (\FunctionRunAsConfig' {gid} -> gid) (\s@Fun
 functionRunAsConfig_uid :: Lens.Lens' FunctionRunAsConfig (Prelude.Maybe Prelude.Int)
 functionRunAsConfig_uid = Lens.lens (\FunctionRunAsConfig' {uid} -> uid) (\s@FunctionRunAsConfig' {} a -> s {uid = a} :: FunctionRunAsConfig)
 
-instance Core.FromJSON FunctionRunAsConfig where
+instance Data.FromJSON FunctionRunAsConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FunctionRunAsConfig"
       ( \x ->
           FunctionRunAsConfig'
-            Prelude.<$> (x Core..:? "Gid") Prelude.<*> (x Core..:? "Uid")
+            Prelude.<$> (x Data..:? "Gid") Prelude.<*> (x Data..:? "Uid")
       )
 
 instance Prelude.Hashable FunctionRunAsConfig where
@@ -86,11 +87,11 @@ instance Prelude.NFData FunctionRunAsConfig where
   rnf FunctionRunAsConfig' {..} =
     Prelude.rnf gid `Prelude.seq` Prelude.rnf uid
 
-instance Core.ToJSON FunctionRunAsConfig where
+instance Data.ToJSON FunctionRunAsConfig where
   toJSON FunctionRunAsConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Gid" Core..=) Prelude.<$> gid,
-            ("Uid" Core..=) Prelude.<$> uid
+          [ ("Gid" Data..=) Prelude.<$> gid,
+            ("Uid" Data..=) Prelude.<$> uid
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.ComputeOptimizer.Types.RecommendationPreferences where
 import Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the recommendation preferences to return in the response of a
@@ -115,11 +116,11 @@ instance Prelude.NFData RecommendationPreferences where
   rnf RecommendationPreferences' {..} =
     Prelude.rnf cpuVendorArchitectures
 
-instance Core.ToJSON RecommendationPreferences where
+instance Data.ToJSON RecommendationPreferences where
   toJSON RecommendationPreferences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cpuVendorArchitectures" Core..=)
+          [ ("cpuVendorArchitectures" Data..=)
               Prelude.<$> cpuVendorArchitectures
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Mp2Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
@@ -77,15 +78,15 @@ mp2Settings_bitrate = Lens.lens (\Mp2Settings' {bitrate} -> bitrate) (\s@Mp2Sett
 mp2Settings_sampleRate :: Lens.Lens' Mp2Settings (Prelude.Maybe Prelude.Natural)
 mp2Settings_sampleRate = Lens.lens (\Mp2Settings' {sampleRate} -> sampleRate) (\s@Mp2Settings' {} a -> s {sampleRate = a} :: Mp2Settings)
 
-instance Core.FromJSON Mp2Settings where
+instance Data.FromJSON Mp2Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Mp2Settings"
       ( \x ->
           Mp2Settings'
-            Prelude.<$> (x Core..:? "channels")
-            Prelude.<*> (x Core..:? "bitrate")
-            Prelude.<*> (x Core..:? "sampleRate")
+            Prelude.<$> (x Data..:? "channels")
+            Prelude.<*> (x Data..:? "bitrate")
+            Prelude.<*> (x Data..:? "sampleRate")
       )
 
 instance Prelude.Hashable Mp2Settings where
@@ -100,12 +101,12 @@ instance Prelude.NFData Mp2Settings where
       `Prelude.seq` Prelude.rnf bitrate
       `Prelude.seq` Prelude.rnf sampleRate
 
-instance Core.ToJSON Mp2Settings where
+instance Data.ToJSON Mp2Settings where
   toJSON Mp2Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("channels" Core..=) Prelude.<$> channels,
-            ("bitrate" Core..=) Prelude.<$> bitrate,
-            ("sampleRate" Core..=) Prelude.<$> sampleRate
+          [ ("channels" Data..=) Prelude.<$> channels,
+            ("bitrate" Data..=) Prelude.<$> bitrate,
+            ("sampleRate" Data..=) Prelude.<$> sampleRate
           ]
       )

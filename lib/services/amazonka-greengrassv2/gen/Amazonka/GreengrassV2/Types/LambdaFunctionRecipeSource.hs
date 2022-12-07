@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.LambdaFunctionRecipeSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.ComponentDependencyRequirement
 import Amazonka.GreengrassV2.Types.ComponentPlatform
 import Amazonka.GreengrassV2.Types.LambdaExecutionParameters
@@ -152,19 +153,19 @@ instance Prelude.NFData LambdaFunctionRecipeSource where
       `Prelude.seq` Prelude.rnf componentName
       `Prelude.seq` Prelude.rnf lambdaArn
 
-instance Core.ToJSON LambdaFunctionRecipeSource where
+instance Data.ToJSON LambdaFunctionRecipeSource where
   toJSON LambdaFunctionRecipeSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("componentPlatforms" Core..=)
+          [ ("componentPlatforms" Data..=)
               Prelude.<$> componentPlatforms,
-            ("componentDependencies" Core..=)
+            ("componentDependencies" Data..=)
               Prelude.<$> componentDependencies,
-            ("componentLambdaParameters" Core..=)
+            ("componentLambdaParameters" Data..=)
               Prelude.<$> componentLambdaParameters,
-            ("componentVersion" Core..=)
+            ("componentVersion" Data..=)
               Prelude.<$> componentVersion,
-            ("componentName" Core..=) Prelude.<$> componentName,
-            Prelude.Just ("lambdaArn" Core..= lambdaArn)
+            ("componentName" Data..=) Prelude.<$> componentName,
+            Prelude.Just ("lambdaArn" Data..= lambdaArn)
           ]
       )

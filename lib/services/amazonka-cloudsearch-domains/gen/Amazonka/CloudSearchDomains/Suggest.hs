@@ -63,6 +63,7 @@ where
 import Amazonka.CloudSearchDomains.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,8 +127,8 @@ instance Core.AWSRequest Suggest where
     Response.receiveJSON
       ( \s h x ->
           SuggestResponse'
-            Prelude.<$> (x Core..?> "suggest")
-            Prelude.<*> (x Core..?> "status")
+            Prelude.<$> (x Data..?> "suggest")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,26 +144,26 @@ instance Prelude.NFData Suggest where
       `Prelude.seq` Prelude.rnf query
       `Prelude.seq` Prelude.rnf suggester
 
-instance Core.ToHeaders Suggest where
+instance Data.ToHeaders Suggest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath Suggest where
+instance Data.ToPath Suggest where
   toPath = Prelude.const "/2013-01-01/suggest"
 
-instance Core.ToQuery Suggest where
+instance Data.ToQuery Suggest where
   toQuery Suggest' {..} =
     Prelude.mconcat
-      [ "size" Core.=: size,
-        "q" Core.=: query,
-        "suggester" Core.=: suggester,
+      [ "size" Data.=: size,
+        "q" Data.=: query,
+        "suggester" Data.=: suggester,
         "format=sdk&pretty=true"
       ]
 

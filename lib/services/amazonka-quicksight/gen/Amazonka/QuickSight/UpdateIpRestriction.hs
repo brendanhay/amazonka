@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -112,8 +113,8 @@ instance Core.AWSRequest UpdateIpRestriction where
     Response.receiveJSON
       ( \s h x ->
           UpdateIpRestrictionResponse'
-            Prelude.<$> (x Core..?> "AwsAccountId")
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<$> (x Data..?> "AwsAccountId")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,36 +130,36 @@ instance Prelude.NFData UpdateIpRestriction where
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf awsAccountId
 
-instance Core.ToHeaders UpdateIpRestriction where
+instance Data.ToHeaders UpdateIpRestriction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateIpRestriction where
+instance Data.ToJSON UpdateIpRestriction where
   toJSON UpdateIpRestriction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IpRestrictionRuleMap" Core..=)
+          [ ("IpRestrictionRuleMap" Data..=)
               Prelude.<$> ipRestrictionRuleMap,
-            ("Enabled" Core..=) Prelude.<$> enabled
+            ("Enabled" Data..=) Prelude.<$> enabled
           ]
       )
 
-instance Core.ToPath UpdateIpRestriction where
+instance Data.ToPath UpdateIpRestriction where
   toPath UpdateIpRestriction' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/ip-restriction"
       ]
 
-instance Core.ToQuery UpdateIpRestriction where
+instance Data.ToQuery UpdateIpRestriction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateIpRestrictionResponse' smart constructor.

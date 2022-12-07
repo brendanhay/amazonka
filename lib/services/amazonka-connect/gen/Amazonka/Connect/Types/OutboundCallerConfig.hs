@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.OutboundCallerConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The outbound caller ID name, number, and outbound whisper flow.
@@ -71,15 +72,15 @@ outboundCallerConfig_outboundCallerIdNumberId = Lens.lens (\OutboundCallerConfig
 outboundCallerConfig_outboundCallerIdName :: Lens.Lens' OutboundCallerConfig (Prelude.Maybe Prelude.Text)
 outboundCallerConfig_outboundCallerIdName = Lens.lens (\OutboundCallerConfig' {outboundCallerIdName} -> outboundCallerIdName) (\s@OutboundCallerConfig' {} a -> s {outboundCallerIdName = a} :: OutboundCallerConfig)
 
-instance Core.FromJSON OutboundCallerConfig where
+instance Data.FromJSON OutboundCallerConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutboundCallerConfig"
       ( \x ->
           OutboundCallerConfig'
-            Prelude.<$> (x Core..:? "OutboundFlowId")
-            Prelude.<*> (x Core..:? "OutboundCallerIdNumberId")
-            Prelude.<*> (x Core..:? "OutboundCallerIdName")
+            Prelude.<$> (x Data..:? "OutboundFlowId")
+            Prelude.<*> (x Data..:? "OutboundCallerIdNumberId")
+            Prelude.<*> (x Data..:? "OutboundCallerIdName")
       )
 
 instance Prelude.Hashable OutboundCallerConfig where
@@ -94,15 +95,15 @@ instance Prelude.NFData OutboundCallerConfig where
       `Prelude.seq` Prelude.rnf outboundCallerIdNumberId
       `Prelude.seq` Prelude.rnf outboundCallerIdName
 
-instance Core.ToJSON OutboundCallerConfig where
+instance Data.ToJSON OutboundCallerConfig where
   toJSON OutboundCallerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutboundFlowId" Core..=)
+          [ ("OutboundFlowId" Data..=)
               Prelude.<$> outboundFlowId,
-            ("OutboundCallerIdNumberId" Core..=)
+            ("OutboundCallerIdNumberId" Data..=)
               Prelude.<$> outboundCallerIdNumberId,
-            ("OutboundCallerIdName" Core..=)
+            ("OutboundCallerIdName" Data..=)
               Prelude.<$> outboundCallerIdName
           ]
       )

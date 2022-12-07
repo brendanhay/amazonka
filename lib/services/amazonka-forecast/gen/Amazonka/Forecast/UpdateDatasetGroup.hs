@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,35 +117,35 @@ instance Prelude.NFData UpdateDatasetGroup where
     Prelude.rnf datasetGroupArn
       `Prelude.seq` Prelude.rnf datasetArns
 
-instance Core.ToHeaders UpdateDatasetGroup where
+instance Data.ToHeaders UpdateDatasetGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.UpdateDatasetGroup" ::
+              Data.=# ( "AmazonForecast.UpdateDatasetGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDatasetGroup where
+instance Data.ToJSON UpdateDatasetGroup where
   toJSON UpdateDatasetGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DatasetGroupArn" Core..= datasetGroupArn),
-            Prelude.Just ("DatasetArns" Core..= datasetArns)
+              ("DatasetGroupArn" Data..= datasetGroupArn),
+            Prelude.Just ("DatasetArns" Data..= datasetArns)
           ]
       )
 
-instance Core.ToPath UpdateDatasetGroup where
+instance Data.ToPath UpdateDatasetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDatasetGroup where
+instance Data.ToQuery UpdateDatasetGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDatasetGroupResponse' smart constructor.

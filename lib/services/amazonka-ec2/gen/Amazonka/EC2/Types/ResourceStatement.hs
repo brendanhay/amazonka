@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ResourceStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ resourceStatement_resourceTypes = Lens.lens (\ResourceStatement' {resourceTypes}
 resourceStatement_resources :: Lens.Lens' ResourceStatement (Prelude.Maybe [Prelude.Text])
 resourceStatement_resources = Lens.lens (\ResourceStatement' {resources} -> resources) (\s@ResourceStatement' {} a -> s {resources = a} :: ResourceStatement) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML ResourceStatement where
+instance Data.FromXML ResourceStatement where
   parseXML x =
     ResourceStatement'
-      Prelude.<$> ( x Core..@? "resourceTypeSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "resourceTypeSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "resourceSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "resourceSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable ResourceStatement where

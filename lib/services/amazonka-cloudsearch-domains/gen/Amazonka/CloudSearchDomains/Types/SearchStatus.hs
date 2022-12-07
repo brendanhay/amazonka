@@ -21,6 +21,7 @@ module Amazonka.CloudSearchDomains.Types.SearchStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the resource id (@rid@) and the time it took to process the
@@ -62,13 +63,13 @@ searchStatus_timems = Lens.lens (\SearchStatus' {timems} -> timems) (\s@SearchSt
 searchStatus_rid :: Lens.Lens' SearchStatus (Prelude.Maybe Prelude.Text)
 searchStatus_rid = Lens.lens (\SearchStatus' {rid} -> rid) (\s@SearchStatus' {} a -> s {rid = a} :: SearchStatus)
 
-instance Core.FromJSON SearchStatus where
+instance Data.FromJSON SearchStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SearchStatus"
       ( \x ->
           SearchStatus'
-            Prelude.<$> (x Core..:? "timems") Prelude.<*> (x Core..:? "rid")
+            Prelude.<$> (x Data..:? "timems") Prelude.<*> (x Data..:? "rid")
       )
 
 instance Prelude.Hashable SearchStatus where

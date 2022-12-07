@@ -23,6 +23,7 @@ import Amazonka.Amplify.Types.JobStatus
 import Amazonka.Amplify.Types.JobType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the summary for an execution job for an Amplify app.
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newJobSummary' smart constructor.
 data JobSummary = JobSummary'
   { -- | The end date and time for the job.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) for the job.
     jobArn :: Prelude.Text,
     -- | The unique ID for the job.
@@ -40,9 +41,9 @@ data JobSummary = JobSummary'
     -- | The commit message from a third-party repository provider for the job.
     commitMessage :: Prelude.Text,
     -- | The commit date and time for the job.
-    commitTime :: Core.POSIX,
+    commitTime :: Data.POSIX,
     -- | The start date and time for the job.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The current status for the job.
     status :: JobStatus,
     -- | The type for the job. If the value is @RELEASE@, the job was manually
@@ -114,15 +115,15 @@ newJobSummary
         jobId = pJobId_,
         commitId = pCommitId_,
         commitMessage = pCommitMessage_,
-        commitTime = Core._Time Lens.# pCommitTime_,
-        startTime = Core._Time Lens.# pStartTime_,
+        commitTime = Data._Time Lens.# pCommitTime_,
+        startTime = Data._Time Lens.# pStartTime_,
         status = pStatus_,
         jobType = pJobType_
       }
 
 -- | The end date and time for the job.
 jobSummary_endTime :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.UTCTime)
-jobSummary_endTime = Lens.lens (\JobSummary' {endTime} -> endTime) (\s@JobSummary' {} a -> s {endTime = a} :: JobSummary) Prelude.. Lens.mapping Core._Time
+jobSummary_endTime = Lens.lens (\JobSummary' {endTime} -> endTime) (\s@JobSummary' {} a -> s {endTime = a} :: JobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) for the job.
 jobSummary_jobArn :: Lens.Lens' JobSummary Prelude.Text
@@ -142,11 +143,11 @@ jobSummary_commitMessage = Lens.lens (\JobSummary' {commitMessage} -> commitMess
 
 -- | The commit date and time for the job.
 jobSummary_commitTime :: Lens.Lens' JobSummary Prelude.UTCTime
-jobSummary_commitTime = Lens.lens (\JobSummary' {commitTime} -> commitTime) (\s@JobSummary' {} a -> s {commitTime = a} :: JobSummary) Prelude.. Core._Time
+jobSummary_commitTime = Lens.lens (\JobSummary' {commitTime} -> commitTime) (\s@JobSummary' {} a -> s {commitTime = a} :: JobSummary) Prelude.. Data._Time
 
 -- | The start date and time for the job.
 jobSummary_startTime :: Lens.Lens' JobSummary Prelude.UTCTime
-jobSummary_startTime = Lens.lens (\JobSummary' {startTime} -> startTime) (\s@JobSummary' {} a -> s {startTime = a} :: JobSummary) Prelude.. Core._Time
+jobSummary_startTime = Lens.lens (\JobSummary' {startTime} -> startTime) (\s@JobSummary' {} a -> s {startTime = a} :: JobSummary) Prelude.. Data._Time
 
 -- | The current status for the job.
 jobSummary_status :: Lens.Lens' JobSummary JobStatus
@@ -159,21 +160,21 @@ jobSummary_status = Lens.lens (\JobSummary' {status} -> status) (\s@JobSummary' 
 jobSummary_jobType :: Lens.Lens' JobSummary JobType
 jobSummary_jobType = Lens.lens (\JobSummary' {jobType} -> jobType) (\s@JobSummary' {} a -> s {jobType = a} :: JobSummary)
 
-instance Core.FromJSON JobSummary where
+instance Data.FromJSON JobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobSummary"
       ( \x ->
           JobSummary'
-            Prelude.<$> (x Core..:? "endTime")
-            Prelude.<*> (x Core..: "jobArn")
-            Prelude.<*> (x Core..: "jobId")
-            Prelude.<*> (x Core..: "commitId")
-            Prelude.<*> (x Core..: "commitMessage")
-            Prelude.<*> (x Core..: "commitTime")
-            Prelude.<*> (x Core..: "startTime")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "jobType")
+            Prelude.<$> (x Data..:? "endTime")
+            Prelude.<*> (x Data..: "jobArn")
+            Prelude.<*> (x Data..: "jobId")
+            Prelude.<*> (x Data..: "commitId")
+            Prelude.<*> (x Data..: "commitMessage")
+            Prelude.<*> (x Data..: "commitTime")
+            Prelude.<*> (x Data..: "startTime")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "jobType")
       )
 
 instance Prelude.Hashable JobSummary where

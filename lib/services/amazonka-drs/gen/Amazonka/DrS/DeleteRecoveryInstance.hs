@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,30 +93,30 @@ instance Prelude.NFData DeleteRecoveryInstance where
   rnf DeleteRecoveryInstance' {..} =
     Prelude.rnf recoveryInstanceID
 
-instance Core.ToHeaders DeleteRecoveryInstance where
+instance Data.ToHeaders DeleteRecoveryInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRecoveryInstance where
+instance Data.ToJSON DeleteRecoveryInstance where
   toJSON DeleteRecoveryInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("recoveryInstanceID" Core..= recoveryInstanceID)
+              ("recoveryInstanceID" Data..= recoveryInstanceID)
           ]
       )
 
-instance Core.ToPath DeleteRecoveryInstance where
+instance Data.ToPath DeleteRecoveryInstance where
   toPath = Prelude.const "/DeleteRecoveryInstance"
 
-instance Core.ToQuery DeleteRecoveryInstance where
+instance Data.ToQuery DeleteRecoveryInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRecoveryInstanceResponse' smart constructor.

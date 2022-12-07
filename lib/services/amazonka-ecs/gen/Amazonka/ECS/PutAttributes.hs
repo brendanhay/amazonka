@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,7 +111,7 @@ instance Core.AWSRequest PutAttributes where
     Response.receiveJSON
       ( \s h x ->
           PutAttributesResponse'
-            Prelude.<$> (x Core..?> "attributes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "attributes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,34 +125,34 @@ instance Prelude.NFData PutAttributes where
     Prelude.rnf cluster
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToHeaders PutAttributes where
+instance Data.ToHeaders PutAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.PutAttributes" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.PutAttributes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutAttributes where
+instance Data.ToJSON PutAttributes where
   toJSON PutAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cluster" Core..=) Prelude.<$> cluster,
-            Prelude.Just ("attributes" Core..= attributes)
+          [ ("cluster" Data..=) Prelude.<$> cluster,
+            Prelude.Just ("attributes" Data..= attributes)
           ]
       )
 
-instance Core.ToPath PutAttributes where
+instance Data.ToPath PutAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutAttributes where
+instance Data.ToQuery PutAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAttributesResponse' smart constructor.

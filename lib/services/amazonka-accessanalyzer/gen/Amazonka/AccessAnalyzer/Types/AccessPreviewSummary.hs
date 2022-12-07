@@ -23,6 +23,7 @@ import Amazonka.AccessAnalyzer.Types.AccessPreviewStatus
 import Amazonka.AccessAnalyzer.Types.AccessPreviewStatusReason
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a summary of information about an access preview.
@@ -35,7 +36,7 @@ data AccessPreviewSummary = AccessPreviewSummary'
     -- | The ARN of the analyzer used to generate the access preview.
     analyzerArn :: Prelude.Text,
     -- | The time at which the access preview was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The status of the access preview.
     --
     -- -   @Creating@ - The access preview creation is in progress.
@@ -92,7 +93,7 @@ newAccessPreviewSummary
           Prelude.Nothing,
         id = pId_,
         analyzerArn = pAnalyzerArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         status = pStatus_
       }
 
@@ -110,7 +111,7 @@ accessPreviewSummary_analyzerArn = Lens.lens (\AccessPreviewSummary' {analyzerAr
 
 -- | The time at which the access preview was created.
 accessPreviewSummary_createdAt :: Lens.Lens' AccessPreviewSummary Prelude.UTCTime
-accessPreviewSummary_createdAt = Lens.lens (\AccessPreviewSummary' {createdAt} -> createdAt) (\s@AccessPreviewSummary' {} a -> s {createdAt = a} :: AccessPreviewSummary) Prelude.. Core._Time
+accessPreviewSummary_createdAt = Lens.lens (\AccessPreviewSummary' {createdAt} -> createdAt) (\s@AccessPreviewSummary' {} a -> s {createdAt = a} :: AccessPreviewSummary) Prelude.. Data._Time
 
 -- | The status of the access preview.
 --
@@ -123,17 +124,17 @@ accessPreviewSummary_createdAt = Lens.lens (\AccessPreviewSummary' {createdAt} -
 accessPreviewSummary_status :: Lens.Lens' AccessPreviewSummary AccessPreviewStatus
 accessPreviewSummary_status = Lens.lens (\AccessPreviewSummary' {status} -> status) (\s@AccessPreviewSummary' {} a -> s {status = a} :: AccessPreviewSummary)
 
-instance Core.FromJSON AccessPreviewSummary where
+instance Data.FromJSON AccessPreviewSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessPreviewSummary"
       ( \x ->
           AccessPreviewSummary'
-            Prelude.<$> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "analyzerArn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "analyzerArn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable AccessPreviewSummary where

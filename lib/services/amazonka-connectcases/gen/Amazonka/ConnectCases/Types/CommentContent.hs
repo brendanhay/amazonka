@@ -22,6 +22,7 @@ module Amazonka.ConnectCases.Types.CommentContent where
 import Amazonka.ConnectCases.Types.CommentBodyTextType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the content of a @Comment@ to be returned to agents.
@@ -66,14 +67,14 @@ commentContent_body = Lens.lens (\CommentContent' {body} -> body) (\s@CommentCon
 commentContent_contentType :: Lens.Lens' CommentContent CommentBodyTextType
 commentContent_contentType = Lens.lens (\CommentContent' {contentType} -> contentType) (\s@CommentContent' {} a -> s {contentType = a} :: CommentContent)
 
-instance Core.FromJSON CommentContent where
+instance Data.FromJSON CommentContent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CommentContent"
       ( \x ->
           CommentContent'
-            Prelude.<$> (x Core..: "body")
-            Prelude.<*> (x Core..: "contentType")
+            Prelude.<$> (x Data..: "body")
+            Prelude.<*> (x Data..: "contentType")
       )
 
 instance Prelude.Hashable CommentContent where
@@ -86,11 +87,11 @@ instance Prelude.NFData CommentContent where
     Prelude.rnf body
       `Prelude.seq` Prelude.rnf contentType
 
-instance Core.ToJSON CommentContent where
+instance Data.ToJSON CommentContent where
   toJSON CommentContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("body" Core..= body),
-            Prelude.Just ("contentType" Core..= contentType)
+          [ Prelude.Just ("body" Data..= body),
+            Prelude.Just ("contentType" Data..= contentType)
           ]
       )

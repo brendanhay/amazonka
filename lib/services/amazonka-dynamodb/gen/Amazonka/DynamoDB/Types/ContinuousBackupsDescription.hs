@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ContinuousBackupsDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ContinuousBackupsStatus
 import Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription
@@ -77,14 +78,14 @@ continuousBackupsDescription_pointInTimeRecoveryDescription = Lens.lens (\Contin
 continuousBackupsDescription_continuousBackupsStatus :: Lens.Lens' ContinuousBackupsDescription ContinuousBackupsStatus
 continuousBackupsDescription_continuousBackupsStatus = Lens.lens (\ContinuousBackupsDescription' {continuousBackupsStatus} -> continuousBackupsStatus) (\s@ContinuousBackupsDescription' {} a -> s {continuousBackupsStatus = a} :: ContinuousBackupsDescription)
 
-instance Core.FromJSON ContinuousBackupsDescription where
+instance Data.FromJSON ContinuousBackupsDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContinuousBackupsDescription"
       ( \x ->
           ContinuousBackupsDescription'
-            Prelude.<$> (x Core..:? "PointInTimeRecoveryDescription")
-            Prelude.<*> (x Core..: "ContinuousBackupsStatus")
+            Prelude.<$> (x Data..:? "PointInTimeRecoveryDescription")
+            Prelude.<*> (x Data..: "ContinuousBackupsStatus")
       )
 
 instance

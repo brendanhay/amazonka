@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.PresetWatermark where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for the size, location, and opacity of graphics that you want
@@ -531,22 +532,22 @@ presetWatermark_verticalOffset = Lens.lens (\PresetWatermark' {verticalOffset} -
 presetWatermark_maxWidth :: Lens.Lens' PresetWatermark (Prelude.Maybe Prelude.Text)
 presetWatermark_maxWidth = Lens.lens (\PresetWatermark' {maxWidth} -> maxWidth) (\s@PresetWatermark' {} a -> s {maxWidth = a} :: PresetWatermark)
 
-instance Core.FromJSON PresetWatermark where
+instance Data.FromJSON PresetWatermark where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PresetWatermark"
       ( \x ->
           PresetWatermark'
-            Prelude.<$> (x Core..:? "VerticalAlign")
-            Prelude.<*> (x Core..:? "SizingPolicy")
-            Prelude.<*> (x Core..:? "Target")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "HorizontalAlign")
-            Prelude.<*> (x Core..:? "HorizontalOffset")
-            Prelude.<*> (x Core..:? "Opacity")
-            Prelude.<*> (x Core..:? "MaxHeight")
-            Prelude.<*> (x Core..:? "VerticalOffset")
-            Prelude.<*> (x Core..:? "MaxWidth")
+            Prelude.<$> (x Data..:? "VerticalAlign")
+            Prelude.<*> (x Data..:? "SizingPolicy")
+            Prelude.<*> (x Data..:? "Target")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "HorizontalAlign")
+            Prelude.<*> (x Data..:? "HorizontalOffset")
+            Prelude.<*> (x Data..:? "Opacity")
+            Prelude.<*> (x Data..:? "MaxHeight")
+            Prelude.<*> (x Data..:? "VerticalOffset")
+            Prelude.<*> (x Data..:? "MaxWidth")
       )
 
 instance Prelude.Hashable PresetWatermark where
@@ -575,22 +576,22 @@ instance Prelude.NFData PresetWatermark where
       `Prelude.seq` Prelude.rnf verticalOffset
       `Prelude.seq` Prelude.rnf maxWidth
 
-instance Core.ToJSON PresetWatermark where
+instance Data.ToJSON PresetWatermark where
   toJSON PresetWatermark' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VerticalAlign" Core..=) Prelude.<$> verticalAlign,
-            ("SizingPolicy" Core..=) Prelude.<$> sizingPolicy,
-            ("Target" Core..=) Prelude.<$> target,
-            ("Id" Core..=) Prelude.<$> id,
-            ("HorizontalAlign" Core..=)
+          [ ("VerticalAlign" Data..=) Prelude.<$> verticalAlign,
+            ("SizingPolicy" Data..=) Prelude.<$> sizingPolicy,
+            ("Target" Data..=) Prelude.<$> target,
+            ("Id" Data..=) Prelude.<$> id,
+            ("HorizontalAlign" Data..=)
               Prelude.<$> horizontalAlign,
-            ("HorizontalOffset" Core..=)
+            ("HorizontalOffset" Data..=)
               Prelude.<$> horizontalOffset,
-            ("Opacity" Core..=) Prelude.<$> opacity,
-            ("MaxHeight" Core..=) Prelude.<$> maxHeight,
-            ("VerticalOffset" Core..=)
+            ("Opacity" Data..=) Prelude.<$> opacity,
+            ("MaxHeight" Data..=) Prelude.<$> maxHeight,
+            ("VerticalOffset" Data..=)
               Prelude.<$> verticalOffset,
-            ("MaxWidth" Core..=) Prelude.<$> maxWidth
+            ("MaxWidth" Data..=) Prelude.<$> maxWidth
           ]
       )

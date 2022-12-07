@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.SigningProfileParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the code-signing profile.
@@ -71,15 +72,15 @@ signingProfileParameter_certificateArn = Lens.lens (\SigningProfileParameter' {c
 signingProfileParameter_certificatePathOnDevice :: Lens.Lens' SigningProfileParameter (Prelude.Maybe Prelude.Text)
 signingProfileParameter_certificatePathOnDevice = Lens.lens (\SigningProfileParameter' {certificatePathOnDevice} -> certificatePathOnDevice) (\s@SigningProfileParameter' {} a -> s {certificatePathOnDevice = a} :: SigningProfileParameter)
 
-instance Core.FromJSON SigningProfileParameter where
+instance Data.FromJSON SigningProfileParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SigningProfileParameter"
       ( \x ->
           SigningProfileParameter'
-            Prelude.<$> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "certificateArn")
-            Prelude.<*> (x Core..:? "certificatePathOnDevice")
+            Prelude.<$> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "certificateArn")
+            Prelude.<*> (x Data..:? "certificatePathOnDevice")
       )
 
 instance Prelude.Hashable SigningProfileParameter where
@@ -94,14 +95,14 @@ instance Prelude.NFData SigningProfileParameter where
       `Prelude.seq` Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf certificatePathOnDevice
 
-instance Core.ToJSON SigningProfileParameter where
+instance Data.ToJSON SigningProfileParameter where
   toJSON SigningProfileParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("platform" Core..=) Prelude.<$> platform,
-            ("certificateArn" Core..=)
+          [ ("platform" Data..=) Prelude.<$> platform,
+            ("certificateArn" Data..=)
               Prelude.<$> certificateArn,
-            ("certificatePathOnDevice" Core..=)
+            ("certificatePathOnDevice" Data..=)
               Prelude.<$> certificatePathOnDevice
           ]
       )

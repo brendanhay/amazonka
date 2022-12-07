@@ -25,6 +25,7 @@ import Amazonka.AppMesh.Types.VirtualGatewayListenerTls
 import Amazonka.AppMesh.Types.VirtualGatewayPortMapping
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a listener for a virtual gateway.
@@ -89,16 +90,16 @@ virtualGatewayListener_connectionPool = Lens.lens (\VirtualGatewayListener' {con
 virtualGatewayListener_portMapping :: Lens.Lens' VirtualGatewayListener VirtualGatewayPortMapping
 virtualGatewayListener_portMapping = Lens.lens (\VirtualGatewayListener' {portMapping} -> portMapping) (\s@VirtualGatewayListener' {} a -> s {portMapping = a} :: VirtualGatewayListener)
 
-instance Core.FromJSON VirtualGatewayListener where
+instance Data.FromJSON VirtualGatewayListener where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewayListener"
       ( \x ->
           VirtualGatewayListener'
-            Prelude.<$> (x Core..:? "healthCheck")
-            Prelude.<*> (x Core..:? "tls")
-            Prelude.<*> (x Core..:? "connectionPool")
-            Prelude.<*> (x Core..: "portMapping")
+            Prelude.<$> (x Data..:? "healthCheck")
+            Prelude.<*> (x Data..:? "tls")
+            Prelude.<*> (x Data..:? "connectionPool")
+            Prelude.<*> (x Data..: "portMapping")
       )
 
 instance Prelude.Hashable VirtualGatewayListener where
@@ -115,14 +116,14 @@ instance Prelude.NFData VirtualGatewayListener where
       `Prelude.seq` Prelude.rnf connectionPool
       `Prelude.seq` Prelude.rnf portMapping
 
-instance Core.ToJSON VirtualGatewayListener where
+instance Data.ToJSON VirtualGatewayListener where
   toJSON VirtualGatewayListener' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("healthCheck" Core..=) Prelude.<$> healthCheck,
-            ("tls" Core..=) Prelude.<$> tls,
-            ("connectionPool" Core..=)
+          [ ("healthCheck" Data..=) Prelude.<$> healthCheck,
+            ("tls" Data..=) Prelude.<$> tls,
+            ("connectionPool" Data..=)
               Prelude.<$> connectionPool,
-            Prelude.Just ("portMapping" Core..= portMapping)
+            Prelude.Just ("portMapping" Data..= portMapping)
           ]
       )

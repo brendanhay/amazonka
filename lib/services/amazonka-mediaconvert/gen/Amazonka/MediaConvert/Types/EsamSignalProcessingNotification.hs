@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.EsamSignalProcessingNotification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | ESAM SignalProcessingNotification data defined by
@@ -82,15 +83,15 @@ esamSignalProcessingNotification_sccXml :: Lens.Lens' EsamSignalProcessingNotifi
 esamSignalProcessingNotification_sccXml = Lens.lens (\EsamSignalProcessingNotification' {sccXml} -> sccXml) (\s@EsamSignalProcessingNotification' {} a -> s {sccXml = a} :: EsamSignalProcessingNotification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     EsamSignalProcessingNotification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EsamSignalProcessingNotification"
       ( \x ->
           EsamSignalProcessingNotification'
-            Prelude.<$> (x Core..:? "sccXml")
+            Prelude.<$> (x Data..:? "sccXml")
       )
 
 instance
@@ -109,9 +110,9 @@ instance
   rnf EsamSignalProcessingNotification' {..} =
     Prelude.rnf sccXml
 
-instance Core.ToJSON EsamSignalProcessingNotification where
+instance Data.ToJSON EsamSignalProcessingNotification where
   toJSON EsamSignalProcessingNotification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("sccXml" Core..=) Prelude.<$> sccXml]
+          [("sccXml" Data..=) Prelude.<$> sccXml]
       )

@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.MonthlySchedule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a monthly recurrence pattern for running a classification job.
@@ -71,13 +72,13 @@ newMonthlySchedule =
 monthlySchedule_dayOfMonth :: Lens.Lens' MonthlySchedule (Prelude.Maybe Prelude.Int)
 monthlySchedule_dayOfMonth = Lens.lens (\MonthlySchedule' {dayOfMonth} -> dayOfMonth) (\s@MonthlySchedule' {} a -> s {dayOfMonth = a} :: MonthlySchedule)
 
-instance Core.FromJSON MonthlySchedule where
+instance Data.FromJSON MonthlySchedule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonthlySchedule"
       ( \x ->
           MonthlySchedule'
-            Prelude.<$> (x Core..:? "dayOfMonth")
+            Prelude.<$> (x Data..:? "dayOfMonth")
       )
 
 instance Prelude.Hashable MonthlySchedule where
@@ -87,9 +88,9 @@ instance Prelude.Hashable MonthlySchedule where
 instance Prelude.NFData MonthlySchedule where
   rnf MonthlySchedule' {..} = Prelude.rnf dayOfMonth
 
-instance Core.ToJSON MonthlySchedule where
+instance Data.ToJSON MonthlySchedule where
   toJSON MonthlySchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("dayOfMonth" Core..=) Prelude.<$> dayOfMonth]
+          [("dayOfMonth" Data..=) Prelude.<$> dayOfMonth]
       )

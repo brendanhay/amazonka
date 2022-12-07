@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,13 +132,13 @@ instance Core.AWSRequest DeleteService where
     Response.receiveJSON
       ( \s h x ->
           DeleteServiceResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "LastUpdatedTime")
-            Prelude.<*> (x Core..?> "EnvironmentId")
-            Prelude.<*> (x Core..?> "ApplicationId")
-            Prelude.<*> (x Core..?> "ServiceId")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "LastUpdatedTime")
+            Prelude.<*> (x Data..?> "EnvironmentId")
+            Prelude.<*> (x Data..?> "ApplicationId")
+            Prelude.<*> (x Data..?> "ServiceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,29 +154,29 @@ instance Prelude.NFData DeleteService where
       `Prelude.seq` Prelude.rnf environmentIdentifier
       `Prelude.seq` Prelude.rnf serviceIdentifier
 
-instance Core.ToHeaders DeleteService where
+instance Data.ToHeaders DeleteService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteService where
+instance Data.ToPath DeleteService where
   toPath DeleteService' {..} =
     Prelude.mconcat
       [ "/environments/",
-        Core.toBS environmentIdentifier,
+        Data.toBS environmentIdentifier,
         "/applications/",
-        Core.toBS applicationIdentifier,
+        Data.toBS applicationIdentifier,
         "/services/",
-        Core.toBS serviceIdentifier
+        Data.toBS serviceIdentifier
       ]
 
-instance Core.ToQuery DeleteService where
+instance Data.ToQuery DeleteService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteServiceResponse' smart constructor.
@@ -187,7 +188,7 @@ data DeleteServiceResponse = DeleteServiceResponse'
     -- | The current state of the service.
     state :: Prelude.Maybe ServiceState,
     -- | A timestamp that indicates when the service was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the environment.
     environmentId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the application that the service is in.
@@ -252,7 +253,7 @@ deleteServiceResponse_state = Lens.lens (\DeleteServiceResponse' {state} -> stat
 
 -- | A timestamp that indicates when the service was last updated.
 deleteServiceResponse_lastUpdatedTime :: Lens.Lens' DeleteServiceResponse (Prelude.Maybe Prelude.UTCTime)
-deleteServiceResponse_lastUpdatedTime = Lens.lens (\DeleteServiceResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DeleteServiceResponse' {} a -> s {lastUpdatedTime = a} :: DeleteServiceResponse) Prelude.. Lens.mapping Core._Time
+deleteServiceResponse_lastUpdatedTime = Lens.lens (\DeleteServiceResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DeleteServiceResponse' {} a -> s {lastUpdatedTime = a} :: DeleteServiceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of the environment.
 deleteServiceResponse_environmentId :: Lens.Lens' DeleteServiceResponse (Prelude.Maybe Prelude.Text)

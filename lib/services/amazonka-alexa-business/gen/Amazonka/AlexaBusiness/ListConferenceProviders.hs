@@ -46,6 +46,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,8 +123,8 @@ instance Core.AWSRequest ListConferenceProviders where
     Response.receiveJSON
       ( \s h x ->
           ListConferenceProvidersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ConferenceProviders"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ConferenceProviders"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -139,34 +140,34 @@ instance Prelude.NFData ListConferenceProviders where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListConferenceProviders where
+instance Data.ToHeaders ListConferenceProviders where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.ListConferenceProviders" ::
+              Data.=# ( "AlexaForBusiness.ListConferenceProviders" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListConferenceProviders where
+instance Data.ToJSON ListConferenceProviders where
   toJSON ListConferenceProviders' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListConferenceProviders where
+instance Data.ToPath ListConferenceProviders where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListConferenceProviders where
+instance Data.ToQuery ListConferenceProviders where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListConferenceProvidersResponse' smart constructor.

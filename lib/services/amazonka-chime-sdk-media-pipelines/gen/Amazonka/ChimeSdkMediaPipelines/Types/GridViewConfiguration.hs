@@ -23,6 +23,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.ContentShareLayoutOption
 import Amazonka.ChimeSdkMediaPipelines.Types.PresenterOnlyConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the type of grid layout.
@@ -66,14 +67,14 @@ gridViewConfiguration_presenterOnlyConfiguration = Lens.lens (\GridViewConfigura
 gridViewConfiguration_contentShareLayout :: Lens.Lens' GridViewConfiguration ContentShareLayoutOption
 gridViewConfiguration_contentShareLayout = Lens.lens (\GridViewConfiguration' {contentShareLayout} -> contentShareLayout) (\s@GridViewConfiguration' {} a -> s {contentShareLayout = a} :: GridViewConfiguration)
 
-instance Core.FromJSON GridViewConfiguration where
+instance Data.FromJSON GridViewConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GridViewConfiguration"
       ( \x ->
           GridViewConfiguration'
-            Prelude.<$> (x Core..:? "PresenterOnlyConfiguration")
-            Prelude.<*> (x Core..: "ContentShareLayout")
+            Prelude.<$> (x Data..:? "PresenterOnlyConfiguration")
+            Prelude.<*> (x Data..: "ContentShareLayout")
       )
 
 instance Prelude.Hashable GridViewConfiguration where
@@ -87,13 +88,13 @@ instance Prelude.NFData GridViewConfiguration where
     Prelude.rnf presenterOnlyConfiguration
       `Prelude.seq` Prelude.rnf contentShareLayout
 
-instance Core.ToJSON GridViewConfiguration where
+instance Data.ToJSON GridViewConfiguration where
   toJSON GridViewConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PresenterOnlyConfiguration" Core..=)
+          [ ("PresenterOnlyConfiguration" Data..=)
               Prelude.<$> presenterOnlyConfiguration,
             Prelude.Just
-              ("ContentShareLayout" Core..= contentShareLayout)
+              ("ContentShareLayout" Data..= contentShareLayout)
           ]
       )

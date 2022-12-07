@@ -21,6 +21,7 @@ module Amazonka.SES.Types.BulkEmailDestinationStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.BulkEmailStatus
 
@@ -223,12 +224,12 @@ bulkEmailDestinationStatus_status = Lens.lens (\BulkEmailDestinationStatus' {sta
 bulkEmailDestinationStatus_error :: Lens.Lens' BulkEmailDestinationStatus (Prelude.Maybe Prelude.Text)
 bulkEmailDestinationStatus_error = Lens.lens (\BulkEmailDestinationStatus' {error} -> error) (\s@BulkEmailDestinationStatus' {} a -> s {error = a} :: BulkEmailDestinationStatus)
 
-instance Core.FromXML BulkEmailDestinationStatus where
+instance Data.FromXML BulkEmailDestinationStatus where
   parseXML x =
     BulkEmailDestinationStatus'
-      Prelude.<$> (x Core..@? "MessageId")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "Error")
+      Prelude.<$> (x Data..@? "MessageId")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "Error")
 
 instance Prelude.Hashable BulkEmailDestinationStatus where
   hashWithSalt _salt BulkEmailDestinationStatus' {..} =

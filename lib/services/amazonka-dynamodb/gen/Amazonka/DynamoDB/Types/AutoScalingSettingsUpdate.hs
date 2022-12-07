@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.AutoScalingSettingsUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.AutoScalingPolicyUpdate
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -118,17 +119,17 @@ instance Prelude.NFData AutoScalingSettingsUpdate where
       `Prelude.seq` Prelude.rnf autoScalingDisabled
       `Prelude.seq` Prelude.rnf maximumUnits
 
-instance Core.ToJSON AutoScalingSettingsUpdate where
+instance Data.ToJSON AutoScalingSettingsUpdate where
   toJSON AutoScalingSettingsUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MinimumUnits" Core..=) Prelude.<$> minimumUnits,
-            ("ScalingPolicyUpdate" Core..=)
+          [ ("MinimumUnits" Data..=) Prelude.<$> minimumUnits,
+            ("ScalingPolicyUpdate" Data..=)
               Prelude.<$> scalingPolicyUpdate,
-            ("AutoScalingRoleArn" Core..=)
+            ("AutoScalingRoleArn" Data..=)
               Prelude.<$> autoScalingRoleArn,
-            ("AutoScalingDisabled" Core..=)
+            ("AutoScalingDisabled" Data..=)
               Prelude.<$> autoScalingDisabled,
-            ("MaximumUnits" Core..=) Prelude.<$> maximumUnits
+            ("MaximumUnits" Data..=) Prelude.<$> maximumUnits
           ]
       )

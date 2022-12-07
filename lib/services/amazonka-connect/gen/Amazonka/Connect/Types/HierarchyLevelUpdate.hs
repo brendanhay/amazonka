@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.HierarchyLevelUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the hierarchy level to update.
@@ -62,9 +63,9 @@ instance Prelude.Hashable HierarchyLevelUpdate where
 instance Prelude.NFData HierarchyLevelUpdate where
   rnf HierarchyLevelUpdate' {..} = Prelude.rnf name
 
-instance Core.ToJSON HierarchyLevelUpdate where
+instance Data.ToJSON HierarchyLevelUpdate where
   toJSON HierarchyLevelUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )

@@ -21,6 +21,7 @@ module Amazonka.EMRServerless.Types.MaximumAllowedResources where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The maximum allowed cumulative resources for an application. No new
@@ -75,15 +76,15 @@ maximumAllowedResources_cpu = Lens.lens (\MaximumAllowedResources' {cpu} -> cpu)
 maximumAllowedResources_memory :: Lens.Lens' MaximumAllowedResources Prelude.Text
 maximumAllowedResources_memory = Lens.lens (\MaximumAllowedResources' {memory} -> memory) (\s@MaximumAllowedResources' {} a -> s {memory = a} :: MaximumAllowedResources)
 
-instance Core.FromJSON MaximumAllowedResources where
+instance Data.FromJSON MaximumAllowedResources where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MaximumAllowedResources"
       ( \x ->
           MaximumAllowedResources'
-            Prelude.<$> (x Core..:? "disk")
-            Prelude.<*> (x Core..: "cpu")
-            Prelude.<*> (x Core..: "memory")
+            Prelude.<$> (x Data..:? "disk")
+            Prelude.<*> (x Data..: "cpu")
+            Prelude.<*> (x Data..: "memory")
       )
 
 instance Prelude.Hashable MaximumAllowedResources where
@@ -98,12 +99,12 @@ instance Prelude.NFData MaximumAllowedResources where
       `Prelude.seq` Prelude.rnf cpu
       `Prelude.seq` Prelude.rnf memory
 
-instance Core.ToJSON MaximumAllowedResources where
+instance Data.ToJSON MaximumAllowedResources where
   toJSON MaximumAllowedResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("disk" Core..=) Prelude.<$> disk,
-            Prelude.Just ("cpu" Core..= cpu),
-            Prelude.Just ("memory" Core..= memory)
+          [ ("disk" Data..=) Prelude.<$> disk,
+            Prelude.Just ("cpu" Data..= cpu),
+            Prelude.Just ("memory" Data..= memory)
           ]
       )

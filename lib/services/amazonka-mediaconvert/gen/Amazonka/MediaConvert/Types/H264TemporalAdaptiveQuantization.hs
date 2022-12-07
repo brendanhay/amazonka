@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Only use this setting when you change the default value, AUTO, for the
@@ -55,7 +56,7 @@ import qualified Amazonka.Prelude as Prelude
 -- (H264AdaptiveQuantization) to a value other than AUTO.
 newtype H264TemporalAdaptiveQuantization = H264TemporalAdaptiveQuantization'
   { fromH264TemporalAdaptiveQuantization ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -67,18 +68,18 @@ newtype H264TemporalAdaptiveQuantization = H264TemporalAdaptiveQuantization'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern H264TemporalAdaptiveQuantization_DISABLED :: H264TemporalAdaptiveQuantization

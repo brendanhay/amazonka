@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.ActionCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.ActionValue
 
@@ -71,12 +72,12 @@ newActionCondition pAction_ =
 actionCondition_action :: Lens.Lens' ActionCondition ActionValue
 actionCondition_action = Lens.lens (\ActionCondition' {action} -> action) (\s@ActionCondition' {} a -> s {action = a} :: ActionCondition)
 
-instance Core.FromJSON ActionCondition where
+instance Data.FromJSON ActionCondition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionCondition"
       ( \x ->
-          ActionCondition' Prelude.<$> (x Core..: "Action")
+          ActionCondition' Prelude.<$> (x Data..: "Action")
       )
 
 instance Prelude.Hashable ActionCondition where
@@ -86,9 +87,9 @@ instance Prelude.Hashable ActionCondition where
 instance Prelude.NFData ActionCondition where
   rnf ActionCondition' {..} = Prelude.rnf action
 
-instance Core.ToJSON ActionCondition where
+instance Data.ToJSON ActionCondition where
   toJSON ActionCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Action" Core..= action)]
+          [Prelude.Just ("Action" Data..= action)]
       )

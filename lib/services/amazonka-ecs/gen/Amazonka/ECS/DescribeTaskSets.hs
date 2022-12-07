@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,8 +135,8 @@ instance Core.AWSRequest DescribeTaskSets where
     Response.receiveJSON
       ( \s h x ->
           DescribeTaskSetsResponse'
-            Prelude.<$> (x Core..?> "failures" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "taskSets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "taskSets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,36 +154,36 @@ instance Prelude.NFData DescribeTaskSets where
       `Prelude.seq` Prelude.rnf cluster
       `Prelude.seq` Prelude.rnf service
 
-instance Core.ToHeaders DescribeTaskSets where
+instance Data.ToHeaders DescribeTaskSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.DescribeTaskSets" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.DescribeTaskSets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTaskSets where
+instance Data.ToJSON DescribeTaskSets where
   toJSON DescribeTaskSets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("taskSets" Core..=) Prelude.<$> taskSets,
-            ("include" Core..=) Prelude.<$> include,
-            Prelude.Just ("cluster" Core..= cluster),
-            Prelude.Just ("service" Core..= service)
+          [ ("taskSets" Data..=) Prelude.<$> taskSets,
+            ("include" Data..=) Prelude.<$> include,
+            Prelude.Just ("cluster" Data..= cluster),
+            Prelude.Just ("service" Data..= service)
           ]
       )
 
-instance Core.ToPath DescribeTaskSets where
+instance Data.ToPath DescribeTaskSets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTaskSets where
+instance Data.ToQuery DescribeTaskSets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTaskSetsResponse' smart constructor.

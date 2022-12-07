@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsWafRegionalRuleGroupRulesActionDetails wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the action that WAF should take on a web request when it
@@ -64,15 +65,15 @@ awsWafRegionalRuleGroupRulesActionDetails_type :: Lens.Lens' AwsWafRegionalRuleG
 awsWafRegionalRuleGroupRulesActionDetails_type = Lens.lens (\AwsWafRegionalRuleGroupRulesActionDetails' {type'} -> type') (\s@AwsWafRegionalRuleGroupRulesActionDetails' {} a -> s {type' = a} :: AwsWafRegionalRuleGroupRulesActionDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsWafRegionalRuleGroupRulesActionDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsWafRegionalRuleGroupRulesActionDetails"
       ( \x ->
           AwsWafRegionalRuleGroupRulesActionDetails'
-            Prelude.<$> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "Type")
       )
 
 instance
@@ -92,11 +93,11 @@ instance
     Prelude.rnf type'
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsWafRegionalRuleGroupRulesActionDetails
   where
   toJSON AwsWafRegionalRuleGroupRulesActionDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Type" Core..=) Prelude.<$> type']
+          [("Type" Data..=) Prelude.<$> type']
       )

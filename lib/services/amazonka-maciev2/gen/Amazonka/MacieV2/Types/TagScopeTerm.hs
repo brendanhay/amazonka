@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.TagScopeTerm where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.JobComparator
 import Amazonka.MacieV2.Types.TagTarget
 import Amazonka.MacieV2.Types.TagValuePair
@@ -95,16 +96,16 @@ tagScopeTerm_target = Lens.lens (\TagScopeTerm' {target} -> target) (\s@TagScope
 tagScopeTerm_comparator :: Lens.Lens' TagScopeTerm (Prelude.Maybe JobComparator)
 tagScopeTerm_comparator = Lens.lens (\TagScopeTerm' {comparator} -> comparator) (\s@TagScopeTerm' {} a -> s {comparator = a} :: TagScopeTerm)
 
-instance Core.FromJSON TagScopeTerm where
+instance Data.FromJSON TagScopeTerm where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TagScopeTerm"
       ( \x ->
           TagScopeTerm'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "tagValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "target")
-            Prelude.<*> (x Core..:? "comparator")
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "tagValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "target")
+            Prelude.<*> (x Data..:? "comparator")
       )
 
 instance Prelude.Hashable TagScopeTerm where
@@ -121,13 +122,13 @@ instance Prelude.NFData TagScopeTerm where
       `Prelude.seq` Prelude.rnf target
       `Prelude.seq` Prelude.rnf comparator
 
-instance Core.ToJSON TagScopeTerm where
+instance Data.ToJSON TagScopeTerm where
   toJSON TagScopeTerm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("tagValues" Core..=) Prelude.<$> tagValues,
-            ("target" Core..=) Prelude.<$> target,
-            ("comparator" Core..=) Prelude.<$> comparator
+          [ ("key" Data..=) Prelude.<$> key,
+            ("tagValues" Data..=) Prelude.<$> tagValues,
+            ("target" Data..=) Prelude.<$> target,
+            ("comparator" Data..=) Prelude.<$> comparator
           ]
       )

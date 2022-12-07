@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ConsumedCapacity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.Capacity
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -123,23 +124,23 @@ consumedCapacity_globalSecondaryIndexes = Lens.lens (\ConsumedCapacity' {globalS
 consumedCapacity_table :: Lens.Lens' ConsumedCapacity (Prelude.Maybe Capacity)
 consumedCapacity_table = Lens.lens (\ConsumedCapacity' {table} -> table) (\s@ConsumedCapacity' {} a -> s {table = a} :: ConsumedCapacity)
 
-instance Core.FromJSON ConsumedCapacity where
+instance Data.FromJSON ConsumedCapacity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConsumedCapacity"
       ( \x ->
           ConsumedCapacity'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> ( x Core..:? "LocalSecondaryIndexes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> ( x Data..:? "LocalSecondaryIndexes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ReadCapacityUnits")
-            Prelude.<*> (x Core..:? "CapacityUnits")
-            Prelude.<*> (x Core..:? "WriteCapacityUnits")
-            Prelude.<*> ( x Core..:? "GlobalSecondaryIndexes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ReadCapacityUnits")
+            Prelude.<*> (x Data..:? "CapacityUnits")
+            Prelude.<*> (x Data..:? "WriteCapacityUnits")
+            Prelude.<*> ( x Data..:? "GlobalSecondaryIndexes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Table")
+            Prelude.<*> (x Data..:? "Table")
       )
 
 instance Prelude.Hashable ConsumedCapacity where

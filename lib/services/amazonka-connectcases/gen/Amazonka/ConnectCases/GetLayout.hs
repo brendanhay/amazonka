@@ -47,6 +47,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,12 +100,12 @@ instance Core.AWSRequest GetLayout where
     Response.receiveJSON
       ( \s h x ->
           GetLayoutResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "content")
-            Prelude.<*> (x Core..:> "layoutArn")
-            Prelude.<*> (x Core..:> "layoutId")
-            Prelude.<*> (x Core..:> "name")
+            Prelude.<*> (x Data..:> "content")
+            Prelude.<*> (x Data..:> "layoutArn")
+            Prelude.<*> (x Data..:> "layoutId")
+            Prelude.<*> (x Data..:> "name")
       )
 
 instance Prelude.Hashable GetLayout where
@@ -117,30 +118,30 @@ instance Prelude.NFData GetLayout where
     Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf layoutId
 
-instance Core.ToHeaders GetLayout where
+instance Data.ToHeaders GetLayout where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLayout where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetLayout where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetLayout where
+instance Data.ToPath GetLayout where
   toPath GetLayout' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainId,
+        Data.toBS domainId,
         "/layouts/",
-        Core.toBS layoutId
+        Data.toBS layoutId
       ]
 
-instance Core.ToQuery GetLayout where
+instance Data.ToQuery GetLayout where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLayoutResponse' smart constructor.

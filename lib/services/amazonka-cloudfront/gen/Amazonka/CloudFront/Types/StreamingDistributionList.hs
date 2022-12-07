@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.StreamingDistributionList where
 import Amazonka.CloudFront.Types.StreamingDistributionSummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A streaming distribution list.
@@ -134,18 +135,18 @@ streamingDistributionList_isTruncated = Lens.lens (\StreamingDistributionList' {
 streamingDistributionList_quantity :: Lens.Lens' StreamingDistributionList Prelude.Int
 streamingDistributionList_quantity = Lens.lens (\StreamingDistributionList' {quantity} -> quantity) (\s@StreamingDistributionList' {} a -> s {quantity = a} :: StreamingDistributionList)
 
-instance Core.FromXML StreamingDistributionList where
+instance Data.FromXML StreamingDistributionList where
   parseXML x =
     StreamingDistributionList'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "StreamingDistributionSummary")
+                        (Data.parseXMLList "StreamingDistributionSummary")
                   )
-      Prelude.<*> (x Core..@? "NextMarker")
-      Prelude.<*> (x Core..@ "Marker")
-      Prelude.<*> (x Core..@ "MaxItems")
-      Prelude.<*> (x Core..@ "IsTruncated")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@? "NextMarker")
+      Prelude.<*> (x Data..@ "Marker")
+      Prelude.<*> (x Data..@ "MaxItems")
+      Prelude.<*> (x Data..@ "IsTruncated")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable StreamingDistributionList where
   hashWithSalt _salt StreamingDistributionList' {..} =

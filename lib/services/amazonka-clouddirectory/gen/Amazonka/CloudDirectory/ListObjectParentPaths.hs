@@ -59,6 +59,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,8 +159,8 @@ instance Core.AWSRequest ListObjectParentPaths where
     Response.receiveJSON
       ( \s h x ->
           ListObjectParentPathsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "PathToObjectIdentifiersList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "PathToObjectIdentifiersList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -179,28 +180,28 @@ instance Prelude.NFData ListObjectParentPaths where
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToHeaders ListObjectParentPaths where
+instance Data.ToHeaders ListObjectParentPaths where
   toHeaders ListObjectParentPaths' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON ListObjectParentPaths where
+instance Data.ToJSON ListObjectParentPaths where
   toJSON ListObjectParentPaths' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )
 
-instance Core.ToPath ListObjectParentPaths where
+instance Data.ToPath ListObjectParentPaths where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/object/parentpaths"
 
-instance Core.ToQuery ListObjectParentPaths where
+instance Data.ToQuery ListObjectParentPaths where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListObjectParentPathsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.Field where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.FieldType
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,13 +63,13 @@ field_name = Lens.lens (\Field' {name} -> name) (\s@Field' {} a -> s {name = a} 
 field_type :: Lens.Lens' Field (Prelude.Maybe FieldType)
 field_type = Lens.lens (\Field' {type'} -> type') (\s@Field' {} a -> s {type' = a} :: Field)
 
-instance Core.FromJSON Field where
+instance Data.FromJSON Field where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Field"
       ( \x ->
           Field'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "type")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable Field where
@@ -80,11 +81,11 @@ instance Prelude.NFData Field where
   rnf Field' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON Field where
+instance Data.ToJSON Field where
   toJSON Field' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("type" Core..=) Prelude.<$> type'
+          [ ("name" Data..=) Prelude.<$> name,
+            ("type" Data..=) Prelude.<$> type'
           ]
       )

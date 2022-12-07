@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.DnsRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.RecordType
 
@@ -364,13 +365,13 @@ dnsRecord_type = Lens.lens (\DnsRecord' {type'} -> type') (\s@DnsRecord' {} a ->
 dnsRecord_ttl :: Lens.Lens' DnsRecord Prelude.Natural
 dnsRecord_ttl = Lens.lens (\DnsRecord' {ttl} -> ttl) (\s@DnsRecord' {} a -> s {ttl = a} :: DnsRecord)
 
-instance Core.FromJSON DnsRecord where
+instance Data.FromJSON DnsRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DnsRecord"
       ( \x ->
           DnsRecord'
-            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "TTL")
+            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "TTL")
       )
 
 instance Prelude.Hashable DnsRecord where
@@ -382,11 +383,11 @@ instance Prelude.NFData DnsRecord where
   rnf DnsRecord' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf ttl
 
-instance Core.ToJSON DnsRecord where
+instance Data.ToJSON DnsRecord where
   toJSON DnsRecord' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("TTL" Core..= ttl)
+          [ Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("TTL" Data..= ttl)
           ]
       )

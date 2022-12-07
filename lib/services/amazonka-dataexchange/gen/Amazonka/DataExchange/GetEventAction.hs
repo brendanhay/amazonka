@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,12 +89,12 @@ instance Core.AWSRequest GetEventAction where
     Response.receiveJSON
       ( \s h x ->
           GetEventActionResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Event")
-            Prelude.<*> (x Core..?> "Action")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "UpdatedAt")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Event")
+            Prelude.<*> (x Data..?> "Action")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,23 +105,23 @@ instance Prelude.Hashable GetEventAction where
 instance Prelude.NFData GetEventAction where
   rnf GetEventAction' {..} = Prelude.rnf eventActionId
 
-instance Core.ToHeaders GetEventAction where
+instance Data.ToHeaders GetEventAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetEventAction where
+instance Data.ToPath GetEventAction where
   toPath GetEventAction' {..} =
     Prelude.mconcat
-      ["/v1/event-actions/", Core.toBS eventActionId]
+      ["/v1/event-actions/", Data.toBS eventActionId]
 
-instance Core.ToQuery GetEventAction where
+instance Data.ToQuery GetEventAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEventActionResponse' smart constructor.
@@ -134,10 +135,10 @@ data GetEventActionResponse = GetEventActionResponse'
     -- | What occurs after a certain event.
     action :: Prelude.Maybe Action,
     -- | The date and time that the event action was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the event action was last updated, in ISO 8601
     -- format.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,12 +199,12 @@ getEventActionResponse_action = Lens.lens (\GetEventActionResponse' {action} -> 
 
 -- | The date and time that the event action was created, in ISO 8601 format.
 getEventActionResponse_createdAt :: Lens.Lens' GetEventActionResponse (Prelude.Maybe Prelude.UTCTime)
-getEventActionResponse_createdAt = Lens.lens (\GetEventActionResponse' {createdAt} -> createdAt) (\s@GetEventActionResponse' {} a -> s {createdAt = a} :: GetEventActionResponse) Prelude.. Lens.mapping Core._Time
+getEventActionResponse_createdAt = Lens.lens (\GetEventActionResponse' {createdAt} -> createdAt) (\s@GetEventActionResponse' {} a -> s {createdAt = a} :: GetEventActionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the event action was last updated, in ISO 8601
 -- format.
 getEventActionResponse_updatedAt :: Lens.Lens' GetEventActionResponse (Prelude.Maybe Prelude.UTCTime)
-getEventActionResponse_updatedAt = Lens.lens (\GetEventActionResponse' {updatedAt} -> updatedAt) (\s@GetEventActionResponse' {} a -> s {updatedAt = a} :: GetEventActionResponse) Prelude.. Lens.mapping Core._Time
+getEventActionResponse_updatedAt = Lens.lens (\GetEventActionResponse' {updatedAt} -> updatedAt) (\s@GetEventActionResponse' {} a -> s {updatedAt = a} :: GetEventActionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getEventActionResponse_httpStatus :: Lens.Lens' GetEventActionResponse Prelude.Int

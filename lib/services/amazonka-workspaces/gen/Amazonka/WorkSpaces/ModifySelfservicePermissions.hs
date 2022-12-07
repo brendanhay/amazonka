@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,37 +119,37 @@ instance Prelude.NFData ModifySelfservicePermissions where
     Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf selfservicePermissions
 
-instance Core.ToHeaders ModifySelfservicePermissions where
+instance Data.ToHeaders ModifySelfservicePermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.ModifySelfservicePermissions" ::
+              Data.=# ( "WorkspacesService.ModifySelfservicePermissions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ModifySelfservicePermissions where
+instance Data.ToJSON ModifySelfservicePermissions where
   toJSON ModifySelfservicePermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceId" Core..= resourceId),
+          [ Prelude.Just ("ResourceId" Data..= resourceId),
             Prelude.Just
               ( "SelfservicePermissions"
-                  Core..= selfservicePermissions
+                  Data..= selfservicePermissions
               )
           ]
       )
 
-instance Core.ToPath ModifySelfservicePermissions where
+instance Data.ToPath ModifySelfservicePermissions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifySelfservicePermissions where
+instance Data.ToQuery ModifySelfservicePermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifySelfservicePermissionsResponse' smart constructor.

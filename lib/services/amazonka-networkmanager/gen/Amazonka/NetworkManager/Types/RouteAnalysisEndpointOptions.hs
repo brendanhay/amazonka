@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.RouteAnalysisEndpointOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a source or a destination.
@@ -71,15 +72,15 @@ routeAnalysisEndpointOptions_transitGatewayArn = Lens.lens (\RouteAnalysisEndpoi
 routeAnalysisEndpointOptions_ipAddress :: Lens.Lens' RouteAnalysisEndpointOptions (Prelude.Maybe Prelude.Text)
 routeAnalysisEndpointOptions_ipAddress = Lens.lens (\RouteAnalysisEndpointOptions' {ipAddress} -> ipAddress) (\s@RouteAnalysisEndpointOptions' {} a -> s {ipAddress = a} :: RouteAnalysisEndpointOptions)
 
-instance Core.FromJSON RouteAnalysisEndpointOptions where
+instance Data.FromJSON RouteAnalysisEndpointOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RouteAnalysisEndpointOptions"
       ( \x ->
           RouteAnalysisEndpointOptions'
-            Prelude.<$> (x Core..:? "TransitGatewayAttachmentArn")
-            Prelude.<*> (x Core..:? "TransitGatewayArn")
-            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<$> (x Data..:? "TransitGatewayAttachmentArn")
+            Prelude.<*> (x Data..:? "TransitGatewayArn")
+            Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance

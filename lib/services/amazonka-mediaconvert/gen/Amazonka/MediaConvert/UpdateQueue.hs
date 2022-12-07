@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,7 +138,7 @@ instance Core.AWSRequest UpdateQueue where
     Response.receiveJSON
       ( \s h x ->
           UpdateQueueResponse'
-            Prelude.<$> (x Core..?> "queue")
+            Prelude.<$> (x Data..?> "queue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,34 +156,34 @@ instance Prelude.NFData UpdateQueue where
       `Prelude.seq` Prelude.rnf reservationPlanSettings
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateQueue where
+instance Data.ToHeaders UpdateQueue where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateQueue where
+instance Data.ToJSON UpdateQueue where
   toJSON UpdateQueue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("status" Core..=) Prelude.<$> status,
-            ("description" Core..=) Prelude.<$> description,
-            ("reservationPlanSettings" Core..=)
+          [ ("status" Data..=) Prelude.<$> status,
+            ("description" Data..=) Prelude.<$> description,
+            ("reservationPlanSettings" Data..=)
               Prelude.<$> reservationPlanSettings
           ]
       )
 
-instance Core.ToPath UpdateQueue where
+instance Data.ToPath UpdateQueue where
   toPath UpdateQueue' {..} =
     Prelude.mconcat
-      ["/2017-08-29/queues/", Core.toBS name]
+      ["/2017-08-29/queues/", Data.toBS name]
 
-instance Core.ToQuery UpdateQueue where
+instance Data.ToQuery UpdateQueue where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateQueueResponse' smart constructor.

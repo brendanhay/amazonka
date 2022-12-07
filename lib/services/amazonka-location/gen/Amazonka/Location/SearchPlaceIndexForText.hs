@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -82,7 +83,7 @@ data SearchPlaceIndexForText = SearchPlaceIndexForText'
     --
     -- @FilterBBox@ and @BiasPosition@ are mutually exclusive. Specifying both
     -- options results in an error.
-    filterBBox :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty Prelude.Double)),
+    filterBBox :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty Prelude.Double)),
     -- | An optional parameter that indicates a preference for places that are
     -- closer to a specified position.
     --
@@ -95,7 +96,7 @@ data SearchPlaceIndexForText = SearchPlaceIndexForText'
     --
     -- @BiasPosition@ and @FilterBBox@ are mutually exclusive. Specifying both
     -- options results in an error.
-    biasPosition :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty Prelude.Double)),
+    biasPosition :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty Prelude.Double)),
     -- | An optional parameter that limits the search results by returning only
     -- places that are in a specified list of countries.
     --
@@ -132,7 +133,7 @@ data SearchPlaceIndexForText = SearchPlaceIndexForText'
     indexName :: Prelude.Text,
     -- | The address, name, city, or region to be used in the search in free-form
     -- text format. For example, @123 Any Street@.
-    text :: Core.Sensitive Prelude.Text
+    text :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -226,7 +227,7 @@ newSearchPlaceIndexForText pIndexName_ pText_ =
       maxResults = Prelude.Nothing,
       language = Prelude.Nothing,
       indexName = pIndexName_,
-      text = Core._Sensitive Lens.# pText_
+      text = Data._Sensitive Lens.# pText_
     }
 
 -- | An optional parameter that limits the search results by returning only
@@ -247,7 +248,7 @@ newSearchPlaceIndexForText pIndexName_ pText_ =
 -- @FilterBBox@ and @BiasPosition@ are mutually exclusive. Specifying both
 -- options results in an error.
 searchPlaceIndexForText_filterBBox :: Lens.Lens' SearchPlaceIndexForText (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
-searchPlaceIndexForText_filterBBox = Lens.lens (\SearchPlaceIndexForText' {filterBBox} -> filterBBox) (\s@SearchPlaceIndexForText' {} a -> s {filterBBox = a} :: SearchPlaceIndexForText) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+searchPlaceIndexForText_filterBBox = Lens.lens (\SearchPlaceIndexForText' {filterBBox} -> filterBBox) (\s@SearchPlaceIndexForText' {} a -> s {filterBBox = a} :: SearchPlaceIndexForText) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | An optional parameter that indicates a preference for places that are
 -- closer to a specified position.
@@ -262,7 +263,7 @@ searchPlaceIndexForText_filterBBox = Lens.lens (\SearchPlaceIndexForText' {filte
 -- @BiasPosition@ and @FilterBBox@ are mutually exclusive. Specifying both
 -- options results in an error.
 searchPlaceIndexForText_biasPosition :: Lens.Lens' SearchPlaceIndexForText (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
-searchPlaceIndexForText_biasPosition = Lens.lens (\SearchPlaceIndexForText' {biasPosition} -> biasPosition) (\s@SearchPlaceIndexForText' {} a -> s {biasPosition = a} :: SearchPlaceIndexForText) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+searchPlaceIndexForText_biasPosition = Lens.lens (\SearchPlaceIndexForText' {biasPosition} -> biasPosition) (\s@SearchPlaceIndexForText' {} a -> s {biasPosition = a} :: SearchPlaceIndexForText) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | An optional parameter that limits the search results by returning only
 -- places that are in a specified list of countries.
@@ -309,7 +310,7 @@ searchPlaceIndexForText_indexName = Lens.lens (\SearchPlaceIndexForText' {indexN
 -- | The address, name, city, or region to be used in the search in free-form
 -- text format. For example, @123 Any Street@.
 searchPlaceIndexForText_text :: Lens.Lens' SearchPlaceIndexForText Prelude.Text
-searchPlaceIndexForText_text = Lens.lens (\SearchPlaceIndexForText' {text} -> text) (\s@SearchPlaceIndexForText' {} a -> s {text = a} :: SearchPlaceIndexForText) Prelude.. Core._Sensitive
+searchPlaceIndexForText_text = Lens.lens (\SearchPlaceIndexForText' {text} -> text) (\s@SearchPlaceIndexForText' {} a -> s {text = a} :: SearchPlaceIndexForText) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest SearchPlaceIndexForText where
   type
@@ -322,8 +323,8 @@ instance Core.AWSRequest SearchPlaceIndexForText where
       ( \s h x ->
           SearchPlaceIndexForTextResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "Summary")
+            Prelude.<*> (x Data..?> "Results" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "Summary")
       )
 
 instance Prelude.Hashable SearchPlaceIndexForText where
@@ -346,40 +347,40 @@ instance Prelude.NFData SearchPlaceIndexForText where
       `Prelude.seq` Prelude.rnf indexName
       `Prelude.seq` Prelude.rnf text
 
-instance Core.ToHeaders SearchPlaceIndexForText where
+instance Data.ToHeaders SearchPlaceIndexForText where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchPlaceIndexForText where
+instance Data.ToJSON SearchPlaceIndexForText where
   toJSON SearchPlaceIndexForText' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FilterBBox" Core..=) Prelude.<$> filterBBox,
-            ("BiasPosition" Core..=) Prelude.<$> biasPosition,
-            ("FilterCountries" Core..=)
+          [ ("FilterBBox" Data..=) Prelude.<$> filterBBox,
+            ("BiasPosition" Data..=) Prelude.<$> biasPosition,
+            ("FilterCountries" Data..=)
               Prelude.<$> filterCountries,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Language" Core..=) Prelude.<$> language,
-            Prelude.Just ("Text" Core..= text)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("Language" Data..=) Prelude.<$> language,
+            Prelude.Just ("Text" Data..= text)
           ]
       )
 
-instance Core.ToPath SearchPlaceIndexForText where
+instance Data.ToPath SearchPlaceIndexForText where
   toPath SearchPlaceIndexForText' {..} =
     Prelude.mconcat
       [ "/places/v0/indexes/",
-        Core.toBS indexName,
+        Data.toBS indexName,
         "/search/text"
       ]
 
-instance Core.ToQuery SearchPlaceIndexForText where
+instance Data.ToQuery SearchPlaceIndexForText where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchPlaceIndexForTextResponse' smart constructor.

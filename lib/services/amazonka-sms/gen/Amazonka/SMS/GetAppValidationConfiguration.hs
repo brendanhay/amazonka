@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,10 +89,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetAppValidationConfigurationResponse'
-            Prelude.<$> ( x Core..?> "serverGroupValidationConfigurations"
+            Prelude.<$> ( x Data..?> "serverGroupValidationConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "appValidationConfigurations"
+            Prelude.<*> ( x Data..?> "appValidationConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -108,32 +109,32 @@ instance Prelude.NFData GetAppValidationConfiguration where
   rnf GetAppValidationConfiguration' {..} =
     Prelude.rnf appId
 
-instance Core.ToHeaders GetAppValidationConfiguration where
+instance Data.ToHeaders GetAppValidationConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.GetAppValidationConfiguration" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.GetAppValidationConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAppValidationConfiguration where
+instance Data.ToJSON GetAppValidationConfiguration where
   toJSON GetAppValidationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("appId" Core..= appId)]
+          [Prelude.Just ("appId" Data..= appId)]
       )
 
-instance Core.ToPath GetAppValidationConfiguration where
+instance Data.ToPath GetAppValidationConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAppValidationConfiguration where
+instance Data.ToQuery GetAppValidationConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAppValidationConfigurationResponse' smart constructor.

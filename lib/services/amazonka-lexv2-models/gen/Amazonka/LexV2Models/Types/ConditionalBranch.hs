@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.ConditionalBranch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.Condition
 import Amazonka.LexV2Models.Types.DialogState
 import Amazonka.LexV2Models.Types.ResponseSpecification
@@ -90,16 +91,16 @@ conditionalBranch_condition = Lens.lens (\ConditionalBranch' {condition} -> cond
 conditionalBranch_nextStep :: Lens.Lens' ConditionalBranch DialogState
 conditionalBranch_nextStep = Lens.lens (\ConditionalBranch' {nextStep} -> nextStep) (\s@ConditionalBranch' {} a -> s {nextStep = a} :: ConditionalBranch)
 
-instance Core.FromJSON ConditionalBranch where
+instance Data.FromJSON ConditionalBranch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConditionalBranch"
       ( \x ->
           ConditionalBranch'
-            Prelude.<$> (x Core..:? "response")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "condition")
-            Prelude.<*> (x Core..: "nextStep")
+            Prelude.<$> (x Data..:? "response")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "condition")
+            Prelude.<*> (x Data..: "nextStep")
       )
 
 instance Prelude.Hashable ConditionalBranch where
@@ -116,13 +117,13 @@ instance Prelude.NFData ConditionalBranch where
       `Prelude.seq` Prelude.rnf condition
       `Prelude.seq` Prelude.rnf nextStep
 
-instance Core.ToJSON ConditionalBranch where
+instance Data.ToJSON ConditionalBranch where
   toJSON ConditionalBranch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("response" Core..=) Prelude.<$> response,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("condition" Core..= condition),
-            Prelude.Just ("nextStep" Core..= nextStep)
+          [ ("response" Data..=) Prelude.<$> response,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("condition" Data..= condition),
+            Prelude.Just ("nextStep" Data..= nextStep)
           ]
       )

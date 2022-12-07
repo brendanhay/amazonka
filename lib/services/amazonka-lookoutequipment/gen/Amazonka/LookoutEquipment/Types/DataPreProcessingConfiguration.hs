@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.DataPreProcessingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.TargetSamplingRate
 import qualified Amazonka.Prelude as Prelude
 
@@ -87,13 +88,13 @@ newDataPreProcessingConfiguration =
 dataPreProcessingConfiguration_targetSamplingRate :: Lens.Lens' DataPreProcessingConfiguration (Prelude.Maybe TargetSamplingRate)
 dataPreProcessingConfiguration_targetSamplingRate = Lens.lens (\DataPreProcessingConfiguration' {targetSamplingRate} -> targetSamplingRate) (\s@DataPreProcessingConfiguration' {} a -> s {targetSamplingRate = a} :: DataPreProcessingConfiguration)
 
-instance Core.FromJSON DataPreProcessingConfiguration where
+instance Data.FromJSON DataPreProcessingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataPreProcessingConfiguration"
       ( \x ->
           DataPreProcessingConfiguration'
-            Prelude.<$> (x Core..:? "TargetSamplingRate")
+            Prelude.<$> (x Data..:? "TargetSamplingRate")
       )
 
 instance
@@ -112,11 +113,11 @@ instance
   rnf DataPreProcessingConfiguration' {..} =
     Prelude.rnf targetSamplingRate
 
-instance Core.ToJSON DataPreProcessingConfiguration where
+instance Data.ToJSON DataPreProcessingConfiguration where
   toJSON DataPreProcessingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetSamplingRate" Core..=)
+          [ ("TargetSamplingRate" Data..=)
               Prelude.<$> targetSamplingRate
           ]
       )

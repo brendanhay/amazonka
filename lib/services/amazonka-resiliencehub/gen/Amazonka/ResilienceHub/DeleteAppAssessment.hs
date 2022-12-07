@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -119,8 +120,8 @@ instance Core.AWSRequest DeleteAppAssessment where
       ( \s h x ->
           DeleteAppAssessmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "assessmentArn")
-            Prelude.<*> (x Core..:> "assessmentStatus")
+            Prelude.<*> (x Data..:> "assessmentArn")
+            Prelude.<*> (x Data..:> "assessmentStatus")
       )
 
 instance Prelude.Hashable DeleteAppAssessment where
@@ -133,31 +134,31 @@ instance Prelude.NFData DeleteAppAssessment where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf assessmentArn
 
-instance Core.ToHeaders DeleteAppAssessment where
+instance Data.ToHeaders DeleteAppAssessment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAppAssessment where
+instance Data.ToJSON DeleteAppAssessment where
   toJSON DeleteAppAssessment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("assessmentArn" Core..= assessmentArn)
+              ("assessmentArn" Data..= assessmentArn)
           ]
       )
 
-instance Core.ToPath DeleteAppAssessment where
+instance Data.ToPath DeleteAppAssessment where
   toPath = Prelude.const "/delete-app-assessment"
 
-instance Core.ToQuery DeleteAppAssessment where
+instance Data.ToQuery DeleteAppAssessment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAppAssessmentResponse' smart constructor.

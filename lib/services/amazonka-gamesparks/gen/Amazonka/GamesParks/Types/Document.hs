@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.Document where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- |
@@ -39,9 +40,9 @@ newDocument ::
   Document
 newDocument = Document'
 
-instance Core.FromJSON Document where
+instance Data.FromJSON Document where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Document"
       (\x -> Prelude.pure Document')
 
@@ -52,5 +53,5 @@ instance Prelude.Hashable Document where
 instance Prelude.NFData Document where
   rnf _ = ()
 
-instance Core.ToJSON Document where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON Document where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

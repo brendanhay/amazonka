@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -189,39 +190,39 @@ instance Prelude.NFData CreateVariable where
       `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf defaultValue
 
-instance Core.ToHeaders CreateVariable where
+instance Data.ToHeaders CreateVariable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.CreateVariable" ::
+              Data.=# ( "AWSHawksNestServiceFacade.CreateVariable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateVariable where
+instance Data.ToJSON CreateVariable where
   toJSON CreateVariable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("variableType" Core..=) Prelude.<$> variableType,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("dataType" Core..= dataType),
-            Prelude.Just ("dataSource" Core..= dataSource),
-            Prelude.Just ("defaultValue" Core..= defaultValue)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("variableType" Data..=) Prelude.<$> variableType,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("dataType" Data..= dataType),
+            Prelude.Just ("dataSource" Data..= dataSource),
+            Prelude.Just ("defaultValue" Data..= defaultValue)
           ]
       )
 
-instance Core.ToPath CreateVariable where
+instance Data.ToPath CreateVariable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVariable where
+instance Data.ToQuery CreateVariable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateVariableResponse' smart constructor.

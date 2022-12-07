@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.UserSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about a user.
@@ -70,15 +71,15 @@ userSummary_arn = Lens.lens (\UserSummary' {arn} -> arn) (\s@UserSummary' {} a -
 userSummary_id :: Lens.Lens' UserSummary (Prelude.Maybe Prelude.Text)
 userSummary_id = Lens.lens (\UserSummary' {id} -> id) (\s@UserSummary' {} a -> s {id = a} :: UserSummary)
 
-instance Core.FromJSON UserSummary where
+instance Data.FromJSON UserSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserSummary"
       ( \x ->
           UserSummary'
-            Prelude.<$> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable UserSummary where

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,7 +170,7 @@ instance Core.AWSRequest DeleteVoiceTemplate where
       ( \s h x ->
           DeleteVoiceTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable DeleteVoiceTemplate where
@@ -182,25 +183,25 @@ instance Prelude.NFData DeleteVoiceTemplate where
     Prelude.rnf version
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToHeaders DeleteVoiceTemplate where
+instance Data.ToHeaders DeleteVoiceTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteVoiceTemplate where
+instance Data.ToPath DeleteVoiceTemplate where
   toPath DeleteVoiceTemplate' {..} =
     Prelude.mconcat
-      ["/v1/templates/", Core.toBS templateName, "/voice"]
+      ["/v1/templates/", Data.toBS templateName, "/voice"]
 
-instance Core.ToQuery DeleteVoiceTemplate where
+instance Data.ToQuery DeleteVoiceTemplate where
   toQuery DeleteVoiceTemplate' {..} =
-    Prelude.mconcat ["version" Core.=: version]
+    Prelude.mconcat ["version" Data.=: version]
 
 -- | /See:/ 'newDeleteVoiceTemplateResponse' smart constructor.
 data DeleteVoiceTemplateResponse = DeleteVoiceTemplateResponse'

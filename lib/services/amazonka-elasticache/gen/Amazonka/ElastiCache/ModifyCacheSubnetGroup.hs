@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,7 +128,7 @@ instance Core.AWSRequest ModifyCacheSubnetGroup where
       "ModifyCacheSubnetGroupResult"
       ( \s h x ->
           ModifyCacheSubnetGroupResponse'
-            Prelude.<$> (x Core..@? "CacheSubnetGroup")
+            Prelude.<$> (x Data..@? "CacheSubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,27 +145,27 @@ instance Prelude.NFData ModifyCacheSubnetGroup where
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf cacheSubnetGroupName
 
-instance Core.ToHeaders ModifyCacheSubnetGroup where
+instance Data.ToHeaders ModifyCacheSubnetGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyCacheSubnetGroup where
+instance Data.ToPath ModifyCacheSubnetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyCacheSubnetGroup where
+instance Data.ToQuery ModifyCacheSubnetGroup where
   toQuery ModifyCacheSubnetGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyCacheSubnetGroup" :: Prelude.ByteString),
+          Data.=: ("ModifyCacheSubnetGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "CacheSubnetGroupDescription"
-          Core.=: cacheSubnetGroupDescription,
+          Data.=: cacheSubnetGroupDescription,
         "SubnetIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "SubnetIdentifier"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "SubnetIdentifier"
                 Prelude.<$> subnetIds
             ),
-        "CacheSubnetGroupName" Core.=: cacheSubnetGroupName
+        "CacheSubnetGroupName" Data.=: cacheSubnetGroupName
       ]
 
 -- | /See:/ 'newModifyCacheSubnetGroupResponse' smart constructor.

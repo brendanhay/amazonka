@@ -21,6 +21,7 @@ module Amazonka.CloudTrail.Types.ImportStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides statistics for the specified @ImportID@. CloudTrail does not
@@ -92,17 +93,17 @@ importStatistics_prefixesCompleted = Lens.lens (\ImportStatistics' {prefixesComp
 importStatistics_filesCompleted :: Lens.Lens' ImportStatistics (Prelude.Maybe Prelude.Integer)
 importStatistics_filesCompleted = Lens.lens (\ImportStatistics' {filesCompleted} -> filesCompleted) (\s@ImportStatistics' {} a -> s {filesCompleted = a} :: ImportStatistics)
 
-instance Core.FromJSON ImportStatistics where
+instance Data.FromJSON ImportStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportStatistics"
       ( \x ->
           ImportStatistics'
-            Prelude.<$> (x Core..:? "FailedEntries")
-            Prelude.<*> (x Core..:? "EventsCompleted")
-            Prelude.<*> (x Core..:? "PrefixesFound")
-            Prelude.<*> (x Core..:? "PrefixesCompleted")
-            Prelude.<*> (x Core..:? "FilesCompleted")
+            Prelude.<$> (x Data..:? "FailedEntries")
+            Prelude.<*> (x Data..:? "EventsCompleted")
+            Prelude.<*> (x Data..:? "PrefixesFound")
+            Prelude.<*> (x Data..:? "PrefixesCompleted")
+            Prelude.<*> (x Data..:? "FilesCompleted")
       )
 
 instance Prelude.Hashable ImportStatistics where

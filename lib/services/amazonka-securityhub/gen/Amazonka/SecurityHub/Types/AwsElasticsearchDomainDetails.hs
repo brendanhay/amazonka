@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElasticsearchDomainDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsElasticsearchDomainDomainEndpointOptions
 import Amazonka.SecurityHub.Types.AwsElasticsearchDomainElasticsearchClusterConfigDetails
@@ -213,25 +214,25 @@ awsElasticsearchDomainDetails_serviceSoftwareOptions = Lens.lens (\AwsElasticsea
 awsElasticsearchDomainDetails_logPublishingOptions :: Lens.Lens' AwsElasticsearchDomainDetails (Prelude.Maybe AwsElasticsearchDomainLogPublishingOptions)
 awsElasticsearchDomainDetails_logPublishingOptions = Lens.lens (\AwsElasticsearchDomainDetails' {logPublishingOptions} -> logPublishingOptions) (\s@AwsElasticsearchDomainDetails' {} a -> s {logPublishingOptions = a} :: AwsElasticsearchDomainDetails)
 
-instance Core.FromJSON AwsElasticsearchDomainDetails where
+instance Data.FromJSON AwsElasticsearchDomainDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElasticsearchDomainDetails"
       ( \x ->
           AwsElasticsearchDomainDetails'
-            Prelude.<$> (x Core..:? "NodeToNodeEncryptionOptions")
-            Prelude.<*> (x Core..:? "ElasticsearchClusterConfig")
-            Prelude.<*> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "EncryptionAtRestOptions")
-            Prelude.<*> (x Core..:? "Endpoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ElasticsearchVersion")
-            Prelude.<*> (x Core..:? "AccessPolicies")
-            Prelude.<*> (x Core..:? "VPCOptions")
-            Prelude.<*> (x Core..:? "DomainEndpointOptions")
-            Prelude.<*> (x Core..:? "DomainId")
-            Prelude.<*> (x Core..:? "Endpoint")
-            Prelude.<*> (x Core..:? "ServiceSoftwareOptions")
-            Prelude.<*> (x Core..:? "LogPublishingOptions")
+            Prelude.<$> (x Data..:? "NodeToNodeEncryptionOptions")
+            Prelude.<*> (x Data..:? "ElasticsearchClusterConfig")
+            Prelude.<*> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "EncryptionAtRestOptions")
+            Prelude.<*> (x Data..:? "Endpoints" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ElasticsearchVersion")
+            Prelude.<*> (x Data..:? "AccessPolicies")
+            Prelude.<*> (x Data..:? "VPCOptions")
+            Prelude.<*> (x Data..:? "DomainEndpointOptions")
+            Prelude.<*> (x Data..:? "DomainId")
+            Prelude.<*> (x Data..:? "Endpoint")
+            Prelude.<*> (x Data..:? "ServiceSoftwareOptions")
+            Prelude.<*> (x Data..:? "LogPublishingOptions")
       )
 
 instance
@@ -270,30 +271,30 @@ instance Prelude.NFData AwsElasticsearchDomainDetails where
       `Prelude.seq` Prelude.rnf serviceSoftwareOptions
       `Prelude.seq` Prelude.rnf logPublishingOptions
 
-instance Core.ToJSON AwsElasticsearchDomainDetails where
+instance Data.ToJSON AwsElasticsearchDomainDetails where
   toJSON AwsElasticsearchDomainDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NodeToNodeEncryptionOptions" Core..=)
+          [ ("NodeToNodeEncryptionOptions" Data..=)
               Prelude.<$> nodeToNodeEncryptionOptions,
-            ("ElasticsearchClusterConfig" Core..=)
+            ("ElasticsearchClusterConfig" Data..=)
               Prelude.<$> elasticsearchClusterConfig,
-            ("DomainName" Core..=) Prelude.<$> domainName,
-            ("EncryptionAtRestOptions" Core..=)
+            ("DomainName" Data..=) Prelude.<$> domainName,
+            ("EncryptionAtRestOptions" Data..=)
               Prelude.<$> encryptionAtRestOptions,
-            ("Endpoints" Core..=) Prelude.<$> endpoints,
-            ("ElasticsearchVersion" Core..=)
+            ("Endpoints" Data..=) Prelude.<$> endpoints,
+            ("ElasticsearchVersion" Data..=)
               Prelude.<$> elasticsearchVersion,
-            ("AccessPolicies" Core..=)
+            ("AccessPolicies" Data..=)
               Prelude.<$> accessPolicies,
-            ("VPCOptions" Core..=) Prelude.<$> vPCOptions,
-            ("DomainEndpointOptions" Core..=)
+            ("VPCOptions" Data..=) Prelude.<$> vPCOptions,
+            ("DomainEndpointOptions" Data..=)
               Prelude.<$> domainEndpointOptions,
-            ("DomainId" Core..=) Prelude.<$> domainId,
-            ("Endpoint" Core..=) Prelude.<$> endpoint,
-            ("ServiceSoftwareOptions" Core..=)
+            ("DomainId" Data..=) Prelude.<$> domainId,
+            ("Endpoint" Data..=) Prelude.<$> endpoint,
+            ("ServiceSoftwareOptions" Data..=)
               Prelude.<$> serviceSoftwareOptions,
-            ("LogPublishingOptions" Core..=)
+            ("LogPublishingOptions" Data..=)
               Prelude.<$> logPublishingOptions
           ]
       )

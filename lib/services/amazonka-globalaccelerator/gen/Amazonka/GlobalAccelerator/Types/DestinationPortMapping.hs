@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.DestinationPortMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState
 import Amazonka.GlobalAccelerator.Types.IpAddressType
 import Amazonka.GlobalAccelerator.Types.SocketAddress
@@ -137,21 +138,21 @@ destinationPortMapping_destinationSocketAddress = Lens.lens (\DestinationPortMap
 destinationPortMapping_acceleratorSocketAddresses :: Lens.Lens' DestinationPortMapping (Prelude.Maybe [SocketAddress])
 destinationPortMapping_acceleratorSocketAddresses = Lens.lens (\DestinationPortMapping' {acceleratorSocketAddresses} -> acceleratorSocketAddresses) (\s@DestinationPortMapping' {} a -> s {acceleratorSocketAddresses = a} :: DestinationPortMapping) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DestinationPortMapping where
+instance Data.FromJSON DestinationPortMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DestinationPortMapping"
       ( \x ->
           DestinationPortMapping'
-            Prelude.<$> (x Core..:? "EndpointGroupRegion")
-            Prelude.<*> (x Core..:? "AcceleratorArn")
-            Prelude.<*> (x Core..:? "EndpointId")
-            Prelude.<*> (x Core..:? "DestinationTrafficState")
-            Prelude.<*> (x Core..:? "IpAddressType")
-            Prelude.<*> (x Core..:? "EndpointGroupArn")
-            Prelude.<*> (x Core..:? "DestinationSocketAddress")
-            Prelude.<*> ( x Core..:? "AcceleratorSocketAddresses"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "EndpointGroupRegion")
+            Prelude.<*> (x Data..:? "AcceleratorArn")
+            Prelude.<*> (x Data..:? "EndpointId")
+            Prelude.<*> (x Data..:? "DestinationTrafficState")
+            Prelude.<*> (x Data..:? "IpAddressType")
+            Prelude.<*> (x Data..:? "EndpointGroupArn")
+            Prelude.<*> (x Data..:? "DestinationSocketAddress")
+            Prelude.<*> ( x Data..:? "AcceleratorSocketAddresses"
+                            Data..!= Prelude.mempty
                         )
       )
 

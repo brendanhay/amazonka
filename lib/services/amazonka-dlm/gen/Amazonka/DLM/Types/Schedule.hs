@@ -29,6 +29,7 @@ import Amazonka.DLM.Types.FastRestoreRule
 import Amazonka.DLM.Types.RetainRule
 import Amazonka.DLM.Types.ShareRule
 import Amazonka.DLM.Types.Tag
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Snapshot and AMI policies only]__ Specifies a schedule for a snapshot
@@ -211,25 +212,25 @@ schedule_crossRegionCopyRules = Lens.lens (\Schedule' {crossRegionCopyRules} -> 
 schedule_shareRules :: Lens.Lens' Schedule (Prelude.Maybe [ShareRule])
 schedule_shareRules = Lens.lens (\Schedule' {shareRules} -> shareRules) (\s@Schedule' {} a -> s {shareRules = a} :: Schedule) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Schedule where
+instance Data.FromJSON Schedule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Schedule"
       ( \x ->
           Schedule'
-            Prelude.<$> (x Core..:? "ArchiveRule")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "FastRestoreRule")
-            Prelude.<*> (x Core..:? "VariableTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TagsToAdd" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CreateRule")
-            Prelude.<*> (x Core..:? "CopyTags")
-            Prelude.<*> (x Core..:? "RetainRule")
-            Prelude.<*> (x Core..:? "DeprecateRule")
-            Prelude.<*> ( x Core..:? "CrossRegionCopyRules"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ArchiveRule")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "FastRestoreRule")
+            Prelude.<*> (x Data..:? "VariableTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TagsToAdd" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CreateRule")
+            Prelude.<*> (x Data..:? "CopyTags")
+            Prelude.<*> (x Data..:? "RetainRule")
+            Prelude.<*> (x Data..:? "DeprecateRule")
+            Prelude.<*> ( x Data..:? "CrossRegionCopyRules"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ShareRules" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ShareRules" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Schedule where
@@ -260,22 +261,22 @@ instance Prelude.NFData Schedule where
       `Prelude.seq` Prelude.rnf crossRegionCopyRules
       `Prelude.seq` Prelude.rnf shareRules
 
-instance Core.ToJSON Schedule where
+instance Data.ToJSON Schedule where
   toJSON Schedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ArchiveRule" Core..=) Prelude.<$> archiveRule,
-            ("Name" Core..=) Prelude.<$> name,
-            ("FastRestoreRule" Core..=)
+          [ ("ArchiveRule" Data..=) Prelude.<$> archiveRule,
+            ("Name" Data..=) Prelude.<$> name,
+            ("FastRestoreRule" Data..=)
               Prelude.<$> fastRestoreRule,
-            ("VariableTags" Core..=) Prelude.<$> variableTags,
-            ("TagsToAdd" Core..=) Prelude.<$> tagsToAdd,
-            ("CreateRule" Core..=) Prelude.<$> createRule,
-            ("CopyTags" Core..=) Prelude.<$> copyTags,
-            ("RetainRule" Core..=) Prelude.<$> retainRule,
-            ("DeprecateRule" Core..=) Prelude.<$> deprecateRule,
-            ("CrossRegionCopyRules" Core..=)
+            ("VariableTags" Data..=) Prelude.<$> variableTags,
+            ("TagsToAdd" Data..=) Prelude.<$> tagsToAdd,
+            ("CreateRule" Data..=) Prelude.<$> createRule,
+            ("CopyTags" Data..=) Prelude.<$> copyTags,
+            ("RetainRule" Data..=) Prelude.<$> retainRule,
+            ("DeprecateRule" Data..=) Prelude.<$> deprecateRule,
+            ("CrossRegionCopyRules" Data..=)
               Prelude.<$> crossRegionCopyRules,
-            ("ShareRules" Core..=) Prelude.<$> shareRules
+            ("ShareRules" Data..=) Prelude.<$> shareRules
           ]
       )

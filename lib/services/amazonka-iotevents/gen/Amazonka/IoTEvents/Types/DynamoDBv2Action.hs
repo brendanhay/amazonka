@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.DynamoDBv2Action where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.Payload
 import qualified Amazonka.Prelude as Prelude
 
@@ -108,14 +109,14 @@ dynamoDBv2Action_payload = Lens.lens (\DynamoDBv2Action' {payload} -> payload) (
 dynamoDBv2Action_tableName :: Lens.Lens' DynamoDBv2Action Prelude.Text
 dynamoDBv2Action_tableName = Lens.lens (\DynamoDBv2Action' {tableName} -> tableName) (\s@DynamoDBv2Action' {} a -> s {tableName = a} :: DynamoDBv2Action)
 
-instance Core.FromJSON DynamoDBv2Action where
+instance Data.FromJSON DynamoDBv2Action where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DynamoDBv2Action"
       ( \x ->
           DynamoDBv2Action'
-            Prelude.<$> (x Core..:? "payload")
-            Prelude.<*> (x Core..: "tableName")
+            Prelude.<$> (x Data..:? "payload")
+            Prelude.<*> (x Data..: "tableName")
       )
 
 instance Prelude.Hashable DynamoDBv2Action where
@@ -128,11 +129,11 @@ instance Prelude.NFData DynamoDBv2Action where
     Prelude.rnf payload
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToJSON DynamoDBv2Action where
+instance Data.ToJSON DynamoDBv2Action where
   toJSON DynamoDBv2Action' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("payload" Core..=) Prelude.<$> payload,
-            Prelude.Just ("tableName" Core..= tableName)
+          [ ("payload" Data..=) Prelude.<$> payload,
+            Prelude.Just ("tableName" Data..= tableName)
           ]
       )

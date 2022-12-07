@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotSortBy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.BotSortAttribute
 import Amazonka.LexV2Models.Types.SortOrder
 import qualified Amazonka.Prelude as Prelude
@@ -77,11 +78,11 @@ instance Prelude.NFData BotSortBy where
     Prelude.rnf attribute
       `Prelude.seq` Prelude.rnf order
 
-instance Core.ToJSON BotSortBy where
+instance Data.ToJSON BotSortBy where
   toJSON BotSortBy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("attribute" Core..= attribute),
-            Prelude.Just ("order" Core..= order)
+          [ Prelude.Just ("attribute" Data..= attribute),
+            Prelude.Just ("order" Data..= order)
           ]
       )

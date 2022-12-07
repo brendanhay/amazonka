@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,8 +123,8 @@ instance Core.AWSRequest ListPipelines where
     Response.receiveJSON
       ( \s h x ->
           ListPipelinesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "pipelineSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "pipelineSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -139,17 +140,17 @@ instance Prelude.NFData ListPipelines where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListPipelines where
+instance Data.ToHeaders ListPipelines where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListPipelines where
+instance Data.ToPath ListPipelines where
   toPath = Prelude.const "/pipelines"
 
-instance Core.ToQuery ListPipelines where
+instance Data.ToQuery ListPipelines where
   toQuery ListPipelines' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListPipelinesResponse' smart constructor.

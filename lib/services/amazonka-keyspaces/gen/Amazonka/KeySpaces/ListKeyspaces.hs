@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,9 +126,9 @@ instance Core.AWSRequest ListKeyspaces where
     Response.receiveJSON
       ( \s h x ->
           ListKeyspacesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "keyspaces" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "keyspaces" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListKeyspaces where
@@ -140,34 +141,34 @@ instance Prelude.NFData ListKeyspaces where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListKeyspaces where
+instance Data.ToHeaders ListKeyspaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KeyspacesService.ListKeyspaces" ::
+              Data.=# ( "KeyspacesService.ListKeyspaces" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListKeyspaces where
+instance Data.ToJSON ListKeyspaces where
   toJSON ListKeyspaces' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListKeyspaces where
+instance Data.ToPath ListKeyspaces where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListKeyspaces where
+instance Data.ToQuery ListKeyspaces where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListKeyspacesResponse' smart constructor.

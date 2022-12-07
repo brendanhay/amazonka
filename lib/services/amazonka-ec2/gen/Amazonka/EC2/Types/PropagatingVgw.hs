@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PropagatingVgw where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,10 +52,10 @@ newPropagatingVgw =
 propagatingVgw_gatewayId :: Lens.Lens' PropagatingVgw (Prelude.Maybe Prelude.Text)
 propagatingVgw_gatewayId = Lens.lens (\PropagatingVgw' {gatewayId} -> gatewayId) (\s@PropagatingVgw' {} a -> s {gatewayId = a} :: PropagatingVgw)
 
-instance Core.FromXML PropagatingVgw where
+instance Data.FromXML PropagatingVgw where
   parseXML x =
     PropagatingVgw'
-      Prelude.<$> (x Core..@? "gatewayId")
+      Prelude.<$> (x Data..@? "gatewayId")
 
 instance Prelude.Hashable PropagatingVgw where
   hashWithSalt _salt PropagatingVgw' {..} =

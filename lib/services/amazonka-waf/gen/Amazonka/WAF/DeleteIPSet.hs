@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,7 +122,7 @@ instance Core.AWSRequest DeleteIPSet where
     Response.receiveJSON
       ( \s h x ->
           DeleteIPSetResponse'
-            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,34 +136,34 @@ instance Prelude.NFData DeleteIPSet where
     Prelude.rnf iPSetId
       `Prelude.seq` Prelude.rnf changeToken
 
-instance Core.ToHeaders DeleteIPSet where
+instance Data.ToHeaders DeleteIPSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20150824.DeleteIPSet" ::
+              Data.=# ( "AWSWAF_20150824.DeleteIPSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteIPSet where
+instance Data.ToJSON DeleteIPSet where
   toJSON DeleteIPSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("IPSetId" Core..= iPSetId),
-            Prelude.Just ("ChangeToken" Core..= changeToken)
+          [ Prelude.Just ("IPSetId" Data..= iPSetId),
+            Prelude.Just ("ChangeToken" Data..= changeToken)
           ]
       )
 
-instance Core.ToPath DeleteIPSet where
+instance Data.ToPath DeleteIPSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteIPSet where
+instance Data.ToQuery DeleteIPSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteIPSetResponse' smart constructor.

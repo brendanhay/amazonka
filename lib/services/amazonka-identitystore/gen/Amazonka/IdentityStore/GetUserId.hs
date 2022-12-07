@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IdentityStore.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,8 +107,8 @@ instance Core.AWSRequest GetUserId where
       ( \s h x ->
           GetUserIdResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "UserId")
-            Prelude.<*> (x Core..:> "IdentityStoreId")
+            Prelude.<*> (x Data..:> "UserId")
+            Prelude.<*> (x Data..:> "IdentityStoreId")
       )
 
 instance Prelude.Hashable GetUserId where
@@ -120,34 +121,34 @@ instance Prelude.NFData GetUserId where
     Prelude.rnf identityStoreId
       `Prelude.seq` Prelude.rnf alternateIdentifier
 
-instance Core.ToHeaders GetUserId where
+instance Data.ToHeaders GetUserId where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSIdentityStore.GetUserId" :: Prelude.ByteString),
+              Data.=# ("AWSIdentityStore.GetUserId" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetUserId where
+instance Data.ToJSON GetUserId where
   toJSON GetUserId' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("IdentityStoreId" Core..= identityStoreId),
+              ("IdentityStoreId" Data..= identityStoreId),
             Prelude.Just
-              ("AlternateIdentifier" Core..= alternateIdentifier)
+              ("AlternateIdentifier" Data..= alternateIdentifier)
           ]
       )
 
-instance Core.ToPath GetUserId where
+instance Data.ToPath GetUserId where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetUserId where
+instance Data.ToQuery GetUserId where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetUserIdResponse' smart constructor.

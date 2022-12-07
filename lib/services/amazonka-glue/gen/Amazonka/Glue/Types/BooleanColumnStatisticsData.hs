@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.BooleanColumnStatisticsData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines column statistics supported for Boolean data columns.
@@ -80,15 +81,15 @@ booleanColumnStatisticsData_numberOfFalses = Lens.lens (\BooleanColumnStatistics
 booleanColumnStatisticsData_numberOfNulls :: Lens.Lens' BooleanColumnStatisticsData Prelude.Natural
 booleanColumnStatisticsData_numberOfNulls = Lens.lens (\BooleanColumnStatisticsData' {numberOfNulls} -> numberOfNulls) (\s@BooleanColumnStatisticsData' {} a -> s {numberOfNulls = a} :: BooleanColumnStatisticsData)
 
-instance Core.FromJSON BooleanColumnStatisticsData where
+instance Data.FromJSON BooleanColumnStatisticsData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BooleanColumnStatisticsData"
       ( \x ->
           BooleanColumnStatisticsData'
-            Prelude.<$> (x Core..: "NumberOfTrues")
-            Prelude.<*> (x Core..: "NumberOfFalses")
-            Prelude.<*> (x Core..: "NumberOfNulls")
+            Prelude.<$> (x Data..: "NumberOfTrues")
+            Prelude.<*> (x Data..: "NumberOfFalses")
+            Prelude.<*> (x Data..: "NumberOfNulls")
       )
 
 instance Prelude.Hashable BooleanColumnStatisticsData where
@@ -103,15 +104,15 @@ instance Prelude.NFData BooleanColumnStatisticsData where
       `Prelude.seq` Prelude.rnf numberOfFalses
       `Prelude.seq` Prelude.rnf numberOfNulls
 
-instance Core.ToJSON BooleanColumnStatisticsData where
+instance Data.ToJSON BooleanColumnStatisticsData where
   toJSON BooleanColumnStatisticsData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("NumberOfTrues" Core..= numberOfTrues),
+              ("NumberOfTrues" Data..= numberOfTrues),
             Prelude.Just
-              ("NumberOfFalses" Core..= numberOfFalses),
+              ("NumberOfFalses" Data..= numberOfFalses),
             Prelude.Just
-              ("NumberOfNulls" Core..= numberOfNulls)
+              ("NumberOfNulls" Data..= numberOfNulls)
           ]
       )

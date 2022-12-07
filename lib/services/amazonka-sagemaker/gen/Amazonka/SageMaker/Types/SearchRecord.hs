@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.SearchRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.Endpoint
 import Amazonka.SageMaker.Types.Experiment
@@ -167,25 +168,25 @@ searchRecord_featureGroup = Lens.lens (\SearchRecord' {featureGroup} -> featureG
 searchRecord_pipelineExecution :: Lens.Lens' SearchRecord (Prelude.Maybe PipelineExecution)
 searchRecord_pipelineExecution = Lens.lens (\SearchRecord' {pipelineExecution} -> pipelineExecution) (\s@SearchRecord' {} a -> s {pipelineExecution = a} :: SearchRecord)
 
-instance Core.FromJSON SearchRecord where
+instance Data.FromJSON SearchRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SearchRecord"
       ( \x ->
           SearchRecord'
-            Prelude.<$> (x Core..:? "ModelPackageGroup")
-            Prelude.<*> (x Core..:? "TrainingJob")
-            Prelude.<*> (x Core..:? "Project")
-            Prelude.<*> (x Core..:? "TrialComponent")
-            Prelude.<*> (x Core..:? "Experiment")
-            Prelude.<*> (x Core..:? "HyperParameterTuningJob")
-            Prelude.<*> (x Core..:? "Endpoint")
-            Prelude.<*> (x Core..:? "FeatureMetadata")
-            Prelude.<*> (x Core..:? "Trial")
-            Prelude.<*> (x Core..:? "ModelPackage")
-            Prelude.<*> (x Core..:? "Pipeline")
-            Prelude.<*> (x Core..:? "FeatureGroup")
-            Prelude.<*> (x Core..:? "PipelineExecution")
+            Prelude.<$> (x Data..:? "ModelPackageGroup")
+            Prelude.<*> (x Data..:? "TrainingJob")
+            Prelude.<*> (x Data..:? "Project")
+            Prelude.<*> (x Data..:? "TrialComponent")
+            Prelude.<*> (x Data..:? "Experiment")
+            Prelude.<*> (x Data..:? "HyperParameterTuningJob")
+            Prelude.<*> (x Data..:? "Endpoint")
+            Prelude.<*> (x Data..:? "FeatureMetadata")
+            Prelude.<*> (x Data..:? "Trial")
+            Prelude.<*> (x Data..:? "ModelPackage")
+            Prelude.<*> (x Data..:? "Pipeline")
+            Prelude.<*> (x Data..:? "FeatureGroup")
+            Prelude.<*> (x Data..:? "PipelineExecution")
       )
 
 instance Prelude.Hashable SearchRecord where

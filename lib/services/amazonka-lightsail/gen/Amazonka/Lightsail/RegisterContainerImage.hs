@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -188,7 +189,7 @@ instance Core.AWSRequest RegisterContainerImage where
     Response.receiveJSON
       ( \s h x ->
           RegisterContainerImageResponse'
-            Prelude.<$> (x Core..?> "containerImage")
+            Prelude.<$> (x Data..?> "containerImage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,35 +205,35 @@ instance Prelude.NFData RegisterContainerImage where
       `Prelude.seq` Prelude.rnf label
       `Prelude.seq` Prelude.rnf digest
 
-instance Core.ToHeaders RegisterContainerImage where
+instance Data.ToHeaders RegisterContainerImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.RegisterContainerImage" ::
+              Data.=# ( "Lightsail_20161128.RegisterContainerImage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterContainerImage where
+instance Data.ToJSON RegisterContainerImage where
   toJSON RegisterContainerImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("serviceName" Core..= serviceName),
-            Prelude.Just ("label" Core..= label),
-            Prelude.Just ("digest" Core..= digest)
+          [ Prelude.Just ("serviceName" Data..= serviceName),
+            Prelude.Just ("label" Data..= label),
+            Prelude.Just ("digest" Data..= digest)
           ]
       )
 
-instance Core.ToPath RegisterContainerImage where
+instance Data.ToPath RegisterContainerImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterContainerImage where
+instance Data.ToQuery RegisterContainerImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterContainerImageResponse' smart constructor.

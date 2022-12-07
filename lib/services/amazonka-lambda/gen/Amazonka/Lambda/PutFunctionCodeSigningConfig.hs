@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,8 +141,8 @@ instance Core.AWSRequest PutFunctionCodeSigningConfig where
       ( \s h x ->
           PutFunctionCodeSigningConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CodeSigningConfigArn")
-            Prelude.<*> (x Core..:> "FunctionName")
+            Prelude.<*> (x Data..:> "CodeSigningConfigArn")
+            Prelude.<*> (x Data..:> "FunctionName")
       )
 
 instance
@@ -157,29 +158,29 @@ instance Prelude.NFData PutFunctionCodeSigningConfig where
     Prelude.rnf codeSigningConfigArn
       `Prelude.seq` Prelude.rnf functionName
 
-instance Core.ToHeaders PutFunctionCodeSigningConfig where
+instance Data.ToHeaders PutFunctionCodeSigningConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutFunctionCodeSigningConfig where
+instance Data.ToJSON PutFunctionCodeSigningConfig where
   toJSON PutFunctionCodeSigningConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "CodeSigningConfigArn"
-                  Core..= codeSigningConfigArn
+                  Data..= codeSigningConfigArn
               )
           ]
       )
 
-instance Core.ToPath PutFunctionCodeSigningConfig where
+instance Data.ToPath PutFunctionCodeSigningConfig where
   toPath PutFunctionCodeSigningConfig' {..} =
     Prelude.mconcat
       [ "/2020-06-30/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/code-signing-config"
       ]
 
-instance Core.ToQuery PutFunctionCodeSigningConfig where
+instance Data.ToQuery PutFunctionCodeSigningConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutFunctionCodeSigningConfigResponse' smart constructor.

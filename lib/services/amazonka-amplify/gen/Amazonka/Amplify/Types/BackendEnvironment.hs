@@ -21,6 +21,7 @@ module Amazonka.Amplify.Types.BackendEnvironment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the backend environment for an Amplify app.
@@ -38,10 +39,10 @@ data BackendEnvironment = BackendEnvironment'
     environmentName :: Prelude.Text,
     -- | The creation date and time for a backend environment that is part of an
     -- Amplify app.
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | The last updated date and time for a backend environment that is part of
     -- an Amplify app.
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,8 +89,8 @@ newBackendEnvironment
         stackName = Prelude.Nothing,
         backendEnvironmentArn = pBackendEnvironmentArn_,
         environmentName = pEnvironmentName_,
-        createTime = Core._Time Lens.# pCreateTime_,
-        updateTime = Core._Time Lens.# pUpdateTime_
+        createTime = Data._Time Lens.# pCreateTime_,
+        updateTime = Data._Time Lens.# pUpdateTime_
       }
 
 -- | The name of deployment artifacts.
@@ -112,25 +113,25 @@ backendEnvironment_environmentName = Lens.lens (\BackendEnvironment' {environmen
 -- | The creation date and time for a backend environment that is part of an
 -- Amplify app.
 backendEnvironment_createTime :: Lens.Lens' BackendEnvironment Prelude.UTCTime
-backendEnvironment_createTime = Lens.lens (\BackendEnvironment' {createTime} -> createTime) (\s@BackendEnvironment' {} a -> s {createTime = a} :: BackendEnvironment) Prelude.. Core._Time
+backendEnvironment_createTime = Lens.lens (\BackendEnvironment' {createTime} -> createTime) (\s@BackendEnvironment' {} a -> s {createTime = a} :: BackendEnvironment) Prelude.. Data._Time
 
 -- | The last updated date and time for a backend environment that is part of
 -- an Amplify app.
 backendEnvironment_updateTime :: Lens.Lens' BackendEnvironment Prelude.UTCTime
-backendEnvironment_updateTime = Lens.lens (\BackendEnvironment' {updateTime} -> updateTime) (\s@BackendEnvironment' {} a -> s {updateTime = a} :: BackendEnvironment) Prelude.. Core._Time
+backendEnvironment_updateTime = Lens.lens (\BackendEnvironment' {updateTime} -> updateTime) (\s@BackendEnvironment' {} a -> s {updateTime = a} :: BackendEnvironment) Prelude.. Data._Time
 
-instance Core.FromJSON BackendEnvironment where
+instance Data.FromJSON BackendEnvironment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackendEnvironment"
       ( \x ->
           BackendEnvironment'
-            Prelude.<$> (x Core..:? "deploymentArtifacts")
-            Prelude.<*> (x Core..:? "stackName")
-            Prelude.<*> (x Core..: "backendEnvironmentArn")
-            Prelude.<*> (x Core..: "environmentName")
-            Prelude.<*> (x Core..: "createTime")
-            Prelude.<*> (x Core..: "updateTime")
+            Prelude.<$> (x Data..:? "deploymentArtifacts")
+            Prelude.<*> (x Data..:? "stackName")
+            Prelude.<*> (x Data..: "backendEnvironmentArn")
+            Prelude.<*> (x Data..: "environmentName")
+            Prelude.<*> (x Data..: "createTime")
+            Prelude.<*> (x Data..: "updateTime")
       )
 
 instance Prelude.Hashable BackendEnvironment where

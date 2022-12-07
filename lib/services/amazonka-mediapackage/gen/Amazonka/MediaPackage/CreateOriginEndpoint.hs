@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -264,22 +265,22 @@ instance Core.AWSRequest CreateOriginEndpoint where
     Response.receiveJSON
       ( \s h x ->
           CreateOriginEndpointResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "timeDelaySeconds")
-            Prelude.<*> (x Core..?> "startoverWindowSeconds")
-            Prelude.<*> (x Core..?> "mssPackage")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "whitelist" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "url")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "manifestName")
-            Prelude.<*> (x Core..?> "channelId")
-            Prelude.<*> (x Core..?> "authorization")
-            Prelude.<*> (x Core..?> "dashPackage")
-            Prelude.<*> (x Core..?> "cmafPackage")
-            Prelude.<*> (x Core..?> "hlsPackage")
-            Prelude.<*> (x Core..?> "origination")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "timeDelaySeconds")
+            Prelude.<*> (x Data..?> "startoverWindowSeconds")
+            Prelude.<*> (x Data..?> "mssPackage")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "whitelist" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "url")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "manifestName")
+            Prelude.<*> (x Data..?> "channelId")
+            Prelude.<*> (x Data..?> "authorization")
+            Prelude.<*> (x Data..?> "dashPackage")
+            Prelude.<*> (x Data..?> "cmafPackage")
+            Prelude.<*> (x Data..?> "hlsPackage")
+            Prelude.<*> (x Data..?> "origination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -317,44 +318,44 @@ instance Prelude.NFData CreateOriginEndpoint where
       `Prelude.seq` Prelude.rnf channelId
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders CreateOriginEndpoint where
+instance Data.ToHeaders CreateOriginEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateOriginEndpoint where
+instance Data.ToJSON CreateOriginEndpoint where
   toJSON CreateOriginEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("timeDelaySeconds" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("timeDelaySeconds" Data..=)
               Prelude.<$> timeDelaySeconds,
-            ("startoverWindowSeconds" Core..=)
+            ("startoverWindowSeconds" Data..=)
               Prelude.<$> startoverWindowSeconds,
-            ("mssPackage" Core..=) Prelude.<$> mssPackage,
-            ("whitelist" Core..=) Prelude.<$> whitelist,
-            ("description" Core..=) Prelude.<$> description,
-            ("manifestName" Core..=) Prelude.<$> manifestName,
-            ("authorization" Core..=) Prelude.<$> authorization,
-            ("dashPackage" Core..=) Prelude.<$> dashPackage,
-            ("cmafPackage" Core..=) Prelude.<$> cmafPackage,
-            ("hlsPackage" Core..=) Prelude.<$> hlsPackage,
-            ("origination" Core..=) Prelude.<$> origination,
-            Prelude.Just ("channelId" Core..= channelId),
-            Prelude.Just ("id" Core..= id)
+            ("mssPackage" Data..=) Prelude.<$> mssPackage,
+            ("whitelist" Data..=) Prelude.<$> whitelist,
+            ("description" Data..=) Prelude.<$> description,
+            ("manifestName" Data..=) Prelude.<$> manifestName,
+            ("authorization" Data..=) Prelude.<$> authorization,
+            ("dashPackage" Data..=) Prelude.<$> dashPackage,
+            ("cmafPackage" Data..=) Prelude.<$> cmafPackage,
+            ("hlsPackage" Data..=) Prelude.<$> hlsPackage,
+            ("origination" Data..=) Prelude.<$> origination,
+            Prelude.Just ("channelId" Data..= channelId),
+            Prelude.Just ("id" Data..= id)
           ]
       )
 
-instance Core.ToPath CreateOriginEndpoint where
+instance Data.ToPath CreateOriginEndpoint where
   toPath = Prelude.const "/origin_endpoints"
 
-instance Core.ToQuery CreateOriginEndpoint where
+instance Data.ToQuery CreateOriginEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateOriginEndpointResponse' smart constructor.

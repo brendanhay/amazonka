@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.WebCrawlerConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.AuthenticationConfiguration
 import Amazonka.Kendra.Types.ProxyConfiguration
 import Amazonka.Kendra.Types.Urls
@@ -329,25 +330,25 @@ webCrawlerConfiguration_urlInclusionPatterns = Lens.lens (\WebCrawlerConfigurati
 webCrawlerConfiguration_urls :: Lens.Lens' WebCrawlerConfiguration Urls
 webCrawlerConfiguration_urls = Lens.lens (\WebCrawlerConfiguration' {urls} -> urls) (\s@WebCrawlerConfiguration' {} a -> s {urls = a} :: WebCrawlerConfiguration)
 
-instance Core.FromJSON WebCrawlerConfiguration where
+instance Data.FromJSON WebCrawlerConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WebCrawlerConfiguration"
       ( \x ->
           WebCrawlerConfiguration'
-            Prelude.<$> (x Core..:? "ProxyConfiguration")
-            Prelude.<*> (x Core..:? "MaxContentSizePerPageInMegaBytes")
-            Prelude.<*> (x Core..:? "MaxUrlsPerMinuteCrawlRate")
-            Prelude.<*> ( x Core..:? "UrlExclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ProxyConfiguration")
+            Prelude.<*> (x Data..:? "MaxContentSizePerPageInMegaBytes")
+            Prelude.<*> (x Data..:? "MaxUrlsPerMinuteCrawlRate")
+            Prelude.<*> ( x Data..:? "UrlExclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MaxLinksPerPage")
-            Prelude.<*> (x Core..:? "CrawlDepth")
-            Prelude.<*> (x Core..:? "AuthenticationConfiguration")
-            Prelude.<*> ( x Core..:? "UrlInclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "MaxLinksPerPage")
+            Prelude.<*> (x Data..:? "CrawlDepth")
+            Prelude.<*> (x Data..:? "AuthenticationConfiguration")
+            Prelude.<*> ( x Data..:? "UrlInclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "Urls")
+            Prelude.<*> (x Data..: "Urls")
       )
 
 instance Prelude.Hashable WebCrawlerConfiguration where
@@ -374,25 +375,25 @@ instance Prelude.NFData WebCrawlerConfiguration where
       `Prelude.seq` Prelude.rnf urlInclusionPatterns
       `Prelude.seq` Prelude.rnf urls
 
-instance Core.ToJSON WebCrawlerConfiguration where
+instance Data.ToJSON WebCrawlerConfiguration where
   toJSON WebCrawlerConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProxyConfiguration" Core..=)
+          [ ("ProxyConfiguration" Data..=)
               Prelude.<$> proxyConfiguration,
-            ("MaxContentSizePerPageInMegaBytes" Core..=)
+            ("MaxContentSizePerPageInMegaBytes" Data..=)
               Prelude.<$> maxContentSizePerPageInMegaBytes,
-            ("MaxUrlsPerMinuteCrawlRate" Core..=)
+            ("MaxUrlsPerMinuteCrawlRate" Data..=)
               Prelude.<$> maxUrlsPerMinuteCrawlRate,
-            ("UrlExclusionPatterns" Core..=)
+            ("UrlExclusionPatterns" Data..=)
               Prelude.<$> urlExclusionPatterns,
-            ("MaxLinksPerPage" Core..=)
+            ("MaxLinksPerPage" Data..=)
               Prelude.<$> maxLinksPerPage,
-            ("CrawlDepth" Core..=) Prelude.<$> crawlDepth,
-            ("AuthenticationConfiguration" Core..=)
+            ("CrawlDepth" Data..=) Prelude.<$> crawlDepth,
+            ("AuthenticationConfiguration" Data..=)
               Prelude.<$> authenticationConfiguration,
-            ("UrlInclusionPatterns" Core..=)
+            ("UrlInclusionPatterns" Data..=)
               Prelude.<$> urlInclusionPatterns,
-            Prelude.Just ("Urls" Core..= urls)
+            Prelude.Just ("Urls" Data..= urls)
           ]
       )

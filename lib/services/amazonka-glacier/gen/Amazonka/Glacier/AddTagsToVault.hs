@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,27 +139,27 @@ instance Prelude.NFData AddTagsToVault where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf vaultName
 
-instance Core.ToHeaders AddTagsToVault where
+instance Data.ToHeaders AddTagsToVault where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON AddTagsToVault where
+instance Data.ToJSON AddTagsToVault where
   toJSON AddTagsToVault' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Tags" Core..=) Prelude.<$> tags]
+          [("Tags" Data..=) Prelude.<$> tags]
       )
 
-instance Core.ToPath AddTagsToVault where
+instance Data.ToPath AddTagsToVault where
   toPath AddTagsToVault' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/tags"
       ]
 
-instance Core.ToQuery AddTagsToVault where
+instance Data.ToQuery AddTagsToVault where
   toQuery =
     Prelude.const (Prelude.mconcat ["operation=add"])
 

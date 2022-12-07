@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,30 +103,30 @@ instance Prelude.NFData UpdateConfiguration where
   rnf UpdateConfiguration' {..} =
     Prelude.rnf ecrConfiguration
 
-instance Core.ToHeaders UpdateConfiguration where
+instance Data.ToHeaders UpdateConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateConfiguration where
+instance Data.ToJSON UpdateConfiguration where
   toJSON UpdateConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ecrConfiguration" Core..= ecrConfiguration)
+              ("ecrConfiguration" Data..= ecrConfiguration)
           ]
       )
 
-instance Core.ToPath UpdateConfiguration where
+instance Data.ToPath UpdateConfiguration where
   toPath = Prelude.const "/configuration/update"
 
-instance Core.ToQuery UpdateConfiguration where
+instance Data.ToQuery UpdateConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConfigurationResponse' smart constructor.

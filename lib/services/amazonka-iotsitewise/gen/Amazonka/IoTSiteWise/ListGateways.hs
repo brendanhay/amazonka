@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,9 +118,9 @@ instance Core.AWSRequest ListGateways where
     Response.receiveJSON
       ( \s h x ->
           ListGatewaysResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "gatewaySummaries"
+            Prelude.<*> ( x Data..?> "gatewaySummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -134,25 +135,25 @@ instance Prelude.NFData ListGateways where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListGateways where
+instance Data.ToHeaders ListGateways where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListGateways where
+instance Data.ToPath ListGateways where
   toPath = Prelude.const "/20200301/gateways"
 
-instance Core.ToQuery ListGateways where
+instance Data.ToQuery ListGateways where
   toQuery ListGateways' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListGatewaysResponse' smart constructor.

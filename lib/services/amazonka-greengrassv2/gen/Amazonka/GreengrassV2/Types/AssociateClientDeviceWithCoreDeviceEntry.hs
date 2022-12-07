@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.AssociateClientDeviceWithCoreDeviceEntry wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a request to associate a client device with a core device. The
@@ -78,11 +79,11 @@ instance
     Prelude.rnf thingName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AssociateClientDeviceWithCoreDeviceEntry
   where
   toJSON AssociateClientDeviceWithCoreDeviceEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("thingName" Core..= thingName)]
+          [Prelude.Just ("thingName" Data..= thingName)]
       )

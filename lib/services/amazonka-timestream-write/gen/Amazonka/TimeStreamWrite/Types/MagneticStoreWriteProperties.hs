@@ -21,6 +21,7 @@ module Amazonka.TimeStreamWrite.Types.MagneticStoreWriteProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamWrite.Types.MagneticStoreRejectedDataLocation
 
@@ -70,14 +71,14 @@ magneticStoreWriteProperties_magneticStoreRejectedDataLocation = Lens.lens (\Mag
 magneticStoreWriteProperties_enableMagneticStoreWrites :: Lens.Lens' MagneticStoreWriteProperties Prelude.Bool
 magneticStoreWriteProperties_enableMagneticStoreWrites = Lens.lens (\MagneticStoreWriteProperties' {enableMagneticStoreWrites} -> enableMagneticStoreWrites) (\s@MagneticStoreWriteProperties' {} a -> s {enableMagneticStoreWrites = a} :: MagneticStoreWriteProperties)
 
-instance Core.FromJSON MagneticStoreWriteProperties where
+instance Data.FromJSON MagneticStoreWriteProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MagneticStoreWriteProperties"
       ( \x ->
           MagneticStoreWriteProperties'
-            Prelude.<$> (x Core..:? "MagneticStoreRejectedDataLocation")
-            Prelude.<*> (x Core..: "EnableMagneticStoreWrites")
+            Prelude.<$> (x Data..:? "MagneticStoreRejectedDataLocation")
+            Prelude.<*> (x Data..: "EnableMagneticStoreWrites")
       )
 
 instance
@@ -94,15 +95,15 @@ instance Prelude.NFData MagneticStoreWriteProperties where
     Prelude.rnf magneticStoreRejectedDataLocation
       `Prelude.seq` Prelude.rnf enableMagneticStoreWrites
 
-instance Core.ToJSON MagneticStoreWriteProperties where
+instance Data.ToJSON MagneticStoreWriteProperties where
   toJSON MagneticStoreWriteProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MagneticStoreRejectedDataLocation" Core..=)
+          [ ("MagneticStoreRejectedDataLocation" Data..=)
               Prelude.<$> magneticStoreRejectedDataLocation,
             Prelude.Just
               ( "EnableMagneticStoreWrites"
-                  Core..= enableMagneticStoreWrites
+                  Data..= enableMagneticStoreWrites
               )
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.DatasetImageStats where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Statistics about the images in a dataset.
@@ -79,16 +80,16 @@ datasetImageStats_anomaly = Lens.lens (\DatasetImageStats' {anomaly} -> anomaly)
 datasetImageStats_normal :: Lens.Lens' DatasetImageStats (Prelude.Maybe Prelude.Int)
 datasetImageStats_normal = Lens.lens (\DatasetImageStats' {normal} -> normal) (\s@DatasetImageStats' {} a -> s {normal = a} :: DatasetImageStats)
 
-instance Core.FromJSON DatasetImageStats where
+instance Data.FromJSON DatasetImageStats where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetImageStats"
       ( \x ->
           DatasetImageStats'
-            Prelude.<$> (x Core..:? "Total")
-            Prelude.<*> (x Core..:? "Labeled")
-            Prelude.<*> (x Core..:? "Anomaly")
-            Prelude.<*> (x Core..:? "Normal")
+            Prelude.<$> (x Data..:? "Total")
+            Prelude.<*> (x Data..:? "Labeled")
+            Prelude.<*> (x Data..:? "Anomaly")
+            Prelude.<*> (x Data..:? "Normal")
       )
 
 instance Prelude.Hashable DatasetImageStats where

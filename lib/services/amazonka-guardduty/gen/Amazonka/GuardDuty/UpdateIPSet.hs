@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,37 +150,37 @@ instance Prelude.NFData UpdateIPSet where
       `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf ipSetId
 
-instance Core.ToHeaders UpdateIPSet where
+instance Data.ToHeaders UpdateIPSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateIPSet where
+instance Data.ToJSON UpdateIPSet where
   toJSON UpdateIPSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("location" Core..=) Prelude.<$> location,
-            ("activate" Core..=) Prelude.<$> activate
+          [ ("name" Data..=) Prelude.<$> name,
+            ("location" Data..=) Prelude.<$> location,
+            ("activate" Data..=) Prelude.<$> activate
           ]
       )
 
-instance Core.ToPath UpdateIPSet where
+instance Data.ToPath UpdateIPSet where
   toPath UpdateIPSet' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/ipset/",
-        Core.toBS ipSetId
+        Data.toBS ipSetId
       ]
 
-instance Core.ToQuery UpdateIPSet where
+instance Data.ToQuery UpdateIPSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateIPSetResponse' smart constructor.

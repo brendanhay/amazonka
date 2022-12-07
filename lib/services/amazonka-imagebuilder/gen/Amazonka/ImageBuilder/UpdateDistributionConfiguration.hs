@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,9 +131,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateDistributionConfigurationResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-            Prelude.<*> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "distributionConfigurationArn")
+            Prelude.<$> (x Data..?> "clientToken")
+            Prelude.<*> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "distributionConfigurationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,38 +160,38 @@ instance
       `Prelude.seq` Prelude.rnf clientToken
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateDistributionConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDistributionConfiguration where
+instance Data.ToJSON UpdateDistributionConfiguration where
   toJSON UpdateDistributionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
             Prelude.Just
               ( "distributionConfigurationArn"
-                  Core..= distributionConfigurationArn
+                  Data..= distributionConfigurationArn
               ),
-            Prelude.Just ("distributions" Core..= distributions),
-            Prelude.Just ("clientToken" Core..= clientToken)
+            Prelude.Just ("distributions" Data..= distributions),
+            Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath UpdateDistributionConfiguration where
+instance Data.ToPath UpdateDistributionConfiguration where
   toPath =
     Prelude.const "/UpdateDistributionConfiguration"
 
-instance Core.ToQuery UpdateDistributionConfiguration where
+instance Data.ToQuery UpdateDistributionConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDistributionConfigurationResponse' smart constructor.

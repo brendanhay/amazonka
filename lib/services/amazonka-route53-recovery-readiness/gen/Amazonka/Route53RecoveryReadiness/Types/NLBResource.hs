@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryReadiness.Types.NLBResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Network Load Balancer resource that a DNS target resource points to.
@@ -49,11 +50,11 @@ newNLBResource = NLBResource' {arn = Prelude.Nothing}
 nLBResource_arn :: Lens.Lens' NLBResource (Prelude.Maybe Prelude.Text)
 nLBResource_arn = Lens.lens (\NLBResource' {arn} -> arn) (\s@NLBResource' {} a -> s {arn = a} :: NLBResource)
 
-instance Core.FromJSON NLBResource where
+instance Data.FromJSON NLBResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NLBResource"
-      (\x -> NLBResource' Prelude.<$> (x Core..:? "arn"))
+      (\x -> NLBResource' Prelude.<$> (x Data..:? "arn"))
 
 instance Prelude.Hashable NLBResource where
   hashWithSalt _salt NLBResource' {..} =
@@ -62,7 +63,7 @@ instance Prelude.Hashable NLBResource where
 instance Prelude.NFData NLBResource where
   rnf NLBResource' {..} = Prelude.rnf arn
 
-instance Core.ToJSON NLBResource where
+instance Data.ToJSON NLBResource where
   toJSON NLBResource' {..} =
-    Core.object
-      (Prelude.catMaybes [("arn" Core..=) Prelude.<$> arn])
+    Data.object
+      (Prelude.catMaybes [("arn" Data..=) Prelude.<$> arn])

@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.Action where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types.ActionTypeEnum
 import Amazonka.ELBV2.Types.AuthenticateCognitoActionConfig
 import Amazonka.ELBV2.Types.AuthenticateOidcActionConfig
@@ -169,17 +170,17 @@ action_authenticateOidcConfig = Lens.lens (\Action' {authenticateOidcConfig} -> 
 action_type :: Lens.Lens' Action ActionTypeEnum
 action_type = Lens.lens (\Action' {type'} -> type') (\s@Action' {} a -> s {type' = a} :: Action)
 
-instance Core.FromXML Action where
+instance Data.FromXML Action where
   parseXML x =
     Action'
-      Prelude.<$> (x Core..@? "ForwardConfig")
-      Prelude.<*> (x Core..@? "RedirectConfig")
-      Prelude.<*> (x Core..@? "TargetGroupArn")
-      Prelude.<*> (x Core..@? "Order")
-      Prelude.<*> (x Core..@? "FixedResponseConfig")
-      Prelude.<*> (x Core..@? "AuthenticateCognitoConfig")
-      Prelude.<*> (x Core..@? "AuthenticateOidcConfig")
-      Prelude.<*> (x Core..@ "Type")
+      Prelude.<$> (x Data..@? "ForwardConfig")
+      Prelude.<*> (x Data..@? "RedirectConfig")
+      Prelude.<*> (x Data..@? "TargetGroupArn")
+      Prelude.<*> (x Data..@? "Order")
+      Prelude.<*> (x Data..@? "FixedResponseConfig")
+      Prelude.<*> (x Data..@? "AuthenticateCognitoConfig")
+      Prelude.<*> (x Data..@? "AuthenticateOidcConfig")
+      Prelude.<*> (x Data..@ "Type")
 
 instance Prelude.Hashable Action where
   hashWithSalt _salt Action' {..} =
@@ -203,17 +204,17 @@ instance Prelude.NFData Action where
       `Prelude.seq` Prelude.rnf authenticateOidcConfig
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToQuery Action where
+instance Data.ToQuery Action where
   toQuery Action' {..} =
     Prelude.mconcat
-      [ "ForwardConfig" Core.=: forwardConfig,
-        "RedirectConfig" Core.=: redirectConfig,
-        "TargetGroupArn" Core.=: targetGroupArn,
-        "Order" Core.=: order,
-        "FixedResponseConfig" Core.=: fixedResponseConfig,
+      [ "ForwardConfig" Data.=: forwardConfig,
+        "RedirectConfig" Data.=: redirectConfig,
+        "TargetGroupArn" Data.=: targetGroupArn,
+        "Order" Data.=: order,
+        "FixedResponseConfig" Data.=: fixedResponseConfig,
         "AuthenticateCognitoConfig"
-          Core.=: authenticateCognitoConfig,
+          Data.=: authenticateCognitoConfig,
         "AuthenticateOidcConfig"
-          Core.=: authenticateOidcConfig,
-        "Type" Core.=: type'
+          Data.=: authenticateOidcConfig,
+        "Type" Data.=: type'
       ]

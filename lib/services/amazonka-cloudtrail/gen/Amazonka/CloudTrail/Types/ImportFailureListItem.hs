@@ -22,6 +22,7 @@ module Amazonka.CloudTrail.Types.ImportFailureListItem where
 import Amazonka.CloudTrail.Types.ImportFailureStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an import failure.
@@ -33,7 +34,7 @@ data ImportFailureListItem = ImportFailureListItem'
     -- | The status of the import.
     status :: Prelude.Maybe ImportFailureStatus,
     -- | When the import was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The location of the failure in the S3 bucket.
     location :: Prelude.Maybe Prelude.Text,
     -- | The type of import error.
@@ -80,7 +81,7 @@ importFailureListItem_status = Lens.lens (\ImportFailureListItem' {status} -> st
 
 -- | When the import was last updated.
 importFailureListItem_lastUpdatedTime :: Lens.Lens' ImportFailureListItem (Prelude.Maybe Prelude.UTCTime)
-importFailureListItem_lastUpdatedTime = Lens.lens (\ImportFailureListItem' {lastUpdatedTime} -> lastUpdatedTime) (\s@ImportFailureListItem' {} a -> s {lastUpdatedTime = a} :: ImportFailureListItem) Prelude.. Lens.mapping Core._Time
+importFailureListItem_lastUpdatedTime = Lens.lens (\ImportFailureListItem' {lastUpdatedTime} -> lastUpdatedTime) (\s@ImportFailureListItem' {} a -> s {lastUpdatedTime = a} :: ImportFailureListItem) Prelude.. Lens.mapping Data._Time
 
 -- | The location of the failure in the S3 bucket.
 importFailureListItem_location :: Lens.Lens' ImportFailureListItem (Prelude.Maybe Prelude.Text)
@@ -90,17 +91,17 @@ importFailureListItem_location = Lens.lens (\ImportFailureListItem' {location} -
 importFailureListItem_errorType :: Lens.Lens' ImportFailureListItem (Prelude.Maybe Prelude.Text)
 importFailureListItem_errorType = Lens.lens (\ImportFailureListItem' {errorType} -> errorType) (\s@ImportFailureListItem' {} a -> s {errorType = a} :: ImportFailureListItem)
 
-instance Core.FromJSON ImportFailureListItem where
+instance Data.FromJSON ImportFailureListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportFailureListItem"
       ( \x ->
           ImportFailureListItem'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "ErrorType")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "ErrorType")
       )
 
 instance Prelude.Hashable ImportFailureListItem where

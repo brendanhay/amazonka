@@ -49,6 +49,7 @@ where
 import Amazonka.ComputeOptimizer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetEffectiveRecommendationPreferencesResponse'
-            Prelude.<$> (x Core..?> "enhancedInfrastructureMetrics")
+            Prelude.<$> (x Data..?> "enhancedInfrastructureMetrics")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,41 +126,41 @@ instance
     Prelude.rnf resourceArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetEffectiveRecommendationPreferences
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComputeOptimizerService.GetEffectiveRecommendationPreferences" ::
+              Data.=# ( "ComputeOptimizerService.GetEffectiveRecommendationPreferences" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetEffectiveRecommendationPreferences
   where
   toJSON GetEffectiveRecommendationPreferences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("resourceArn" Core..= resourceArn)]
+          [Prelude.Just ("resourceArn" Data..= resourceArn)]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetEffectiveRecommendationPreferences
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetEffectiveRecommendationPreferences
   where
   toQuery = Prelude.const Prelude.mempty

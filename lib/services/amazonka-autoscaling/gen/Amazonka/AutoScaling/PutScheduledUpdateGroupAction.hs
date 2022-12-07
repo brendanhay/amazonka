@@ -59,6 +59,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -74,10 +75,10 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
     -- <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
     timeZone :: Prelude.Maybe Prelude.Text,
     -- | This property is no longer used.
-    time :: Prelude.Maybe Core.ISO8601,
+    time :: Prelude.Maybe Data.ISO8601,
     -- | The date and time for the recurring schedule to end, in UTC. For
     -- example, @\"2021-06-01T00:00:00Z\"@.
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The minimum size of the Auto Scaling group.
     minSize :: Prelude.Maybe Prelude.Int,
     -- | The recurring schedule for this action. This format consists of five
@@ -108,7 +109,7 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
     -- If you specify @Recurrence@ and @StartTime@, Amazon EC2 Auto Scaling
     -- performs the action at this time, and then performs the action based on
     -- the specified recurrence.
-    startTime :: Prelude.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text,
     -- | The name of this scaling action.
@@ -207,12 +208,12 @@ putScheduledUpdateGroupAction_timeZone = Lens.lens (\PutScheduledUpdateGroupActi
 
 -- | This property is no longer used.
 putScheduledUpdateGroupAction_time :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
-putScheduledUpdateGroupAction_time = Lens.lens (\PutScheduledUpdateGroupAction' {time} -> time) (\s@PutScheduledUpdateGroupAction' {} a -> s {time = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
+putScheduledUpdateGroupAction_time = Lens.lens (\PutScheduledUpdateGroupAction' {time} -> time) (\s@PutScheduledUpdateGroupAction' {} a -> s {time = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time for the recurring schedule to end, in UTC. For
 -- example, @\"2021-06-01T00:00:00Z\"@.
 putScheduledUpdateGroupAction_endTime :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
-putScheduledUpdateGroupAction_endTime = Lens.lens (\PutScheduledUpdateGroupAction' {endTime} -> endTime) (\s@PutScheduledUpdateGroupAction' {} a -> s {endTime = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
+putScheduledUpdateGroupAction_endTime = Lens.lens (\PutScheduledUpdateGroupAction' {endTime} -> endTime) (\s@PutScheduledUpdateGroupAction' {} a -> s {endTime = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Data._Time
 
 -- | The minimum size of the Auto Scaling group.
 putScheduledUpdateGroupAction_minSize :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Int)
@@ -253,7 +254,7 @@ putScheduledUpdateGroupAction_desiredCapacity = Lens.lens (\PutScheduledUpdateGr
 -- performs the action at this time, and then performs the action based on
 -- the specified recurrence.
 putScheduledUpdateGroupAction_startTime :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
-putScheduledUpdateGroupAction_startTime = Lens.lens (\PutScheduledUpdateGroupAction' {startTime} -> startTime) (\s@PutScheduledUpdateGroupAction' {} a -> s {startTime = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
+putScheduledUpdateGroupAction_startTime = Lens.lens (\PutScheduledUpdateGroupAction' {startTime} -> startTime) (\s@PutScheduledUpdateGroupAction' {} a -> s {startTime = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the Auto Scaling group.
 putScheduledUpdateGroupAction_autoScalingGroupName :: Lens.Lens' PutScheduledUpdateGroupAction Prelude.Text
@@ -305,31 +306,31 @@ instance Prelude.NFData PutScheduledUpdateGroupAction where
       `Prelude.seq` Prelude.rnf autoScalingGroupName
       `Prelude.seq` Prelude.rnf scheduledActionName
 
-instance Core.ToHeaders PutScheduledUpdateGroupAction where
+instance Data.ToHeaders PutScheduledUpdateGroupAction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutScheduledUpdateGroupAction where
+instance Data.ToPath PutScheduledUpdateGroupAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutScheduledUpdateGroupAction where
+instance Data.ToQuery PutScheduledUpdateGroupAction where
   toQuery PutScheduledUpdateGroupAction' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "PutScheduledUpdateGroupAction" ::
+          Data.=: ( "PutScheduledUpdateGroupAction" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "TimeZone" Core.=: timeZone,
-        "Time" Core.=: time,
-        "EndTime" Core.=: endTime,
-        "MinSize" Core.=: minSize,
-        "Recurrence" Core.=: recurrence,
-        "MaxSize" Core.=: maxSize,
-        "DesiredCapacity" Core.=: desiredCapacity,
-        "StartTime" Core.=: startTime,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
-        "ScheduledActionName" Core.=: scheduledActionName
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "TimeZone" Data.=: timeZone,
+        "Time" Data.=: time,
+        "EndTime" Data.=: endTime,
+        "MinSize" Data.=: minSize,
+        "Recurrence" Data.=: recurrence,
+        "MaxSize" Data.=: maxSize,
+        "DesiredCapacity" Data.=: desiredCapacity,
+        "StartTime" Data.=: startTime,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
+        "ScheduledActionName" Data.=: scheduledActionName
       ]
 
 -- | /See:/ 'newPutScheduledUpdateGroupActionResponse' smart constructor.

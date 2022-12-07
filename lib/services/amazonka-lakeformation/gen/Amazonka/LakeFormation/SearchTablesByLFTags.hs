@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -159,8 +160,8 @@ instance Core.AWSRequest SearchTablesByLFTags where
     Response.receiveJSON
       ( \s h x ->
           SearchTablesByLFTagsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "TableList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "TableList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,32 +179,32 @@ instance Prelude.NFData SearchTablesByLFTags where
       `Prelude.seq` Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf expression
 
-instance Core.ToHeaders SearchTablesByLFTags where
+instance Data.ToHeaders SearchTablesByLFTags where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchTablesByLFTags where
+instance Data.ToJSON SearchTablesByLFTags where
   toJSON SearchTablesByLFTags' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("Expression" Core..= expression)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("Expression" Data..= expression)
           ]
       )
 
-instance Core.ToPath SearchTablesByLFTags where
+instance Data.ToPath SearchTablesByLFTags where
   toPath = Prelude.const "/SearchTablesByLFTags"
 
-instance Core.ToQuery SearchTablesByLFTags where
+instance Data.ToQuery SearchTablesByLFTags where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchTablesByLFTagsResponse' smart constructor.

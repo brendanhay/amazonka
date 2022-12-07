@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.SsmAutomation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.DynamicSsmParameterValue
 import Amazonka.SSMIncidents.Types.SsmTargetAccount
@@ -116,20 +117,20 @@ ssmAutomation_documentName = Lens.lens (\SsmAutomation' {documentName} -> docume
 ssmAutomation_roleArn :: Lens.Lens' SsmAutomation Prelude.Text
 ssmAutomation_roleArn = Lens.lens (\SsmAutomation' {roleArn} -> roleArn) (\s@SsmAutomation' {} a -> s {roleArn = a} :: SsmAutomation)
 
-instance Core.FromJSON SsmAutomation where
+instance Data.FromJSON SsmAutomation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SsmAutomation"
       ( \x ->
           SsmAutomation'
-            Prelude.<$> (x Core..:? "targetAccount")
-            Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "documentVersion")
-            Prelude.<*> ( x Core..:? "dynamicParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "targetAccount")
+            Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "documentVersion")
+            Prelude.<*> ( x Data..:? "dynamicParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "documentName")
-            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<*> (x Data..: "documentName")
+            Prelude.<*> (x Data..: "roleArn")
       )
 
 instance Prelude.Hashable SsmAutomation where
@@ -150,17 +151,17 @@ instance Prelude.NFData SsmAutomation where
       `Prelude.seq` Prelude.rnf documentName
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON SsmAutomation where
+instance Data.ToJSON SsmAutomation where
   toJSON SsmAutomation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetAccount" Core..=) Prelude.<$> targetAccount,
-            ("parameters" Core..=) Prelude.<$> parameters,
-            ("documentVersion" Core..=)
+          [ ("targetAccount" Data..=) Prelude.<$> targetAccount,
+            ("parameters" Data..=) Prelude.<$> parameters,
+            ("documentVersion" Data..=)
               Prelude.<$> documentVersion,
-            ("dynamicParameters" Core..=)
+            ("dynamicParameters" Data..=)
               Prelude.<$> dynamicParameters,
-            Prelude.Just ("documentName" Core..= documentName),
-            Prelude.Just ("roleArn" Core..= roleArn)
+            Prelude.Just ("documentName" Data..= documentName),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )

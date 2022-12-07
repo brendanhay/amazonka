@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,19 +93,19 @@ instance Core.AWSRequest DescribePage where
     Response.receiveJSON
       ( \s h x ->
           DescribePageResponse'
-            Prelude.<$> (x Core..?> "DeliveryTime")
-            Prelude.<*> (x Core..?> "PublicContent")
-            Prelude.<*> (x Core..?> "SentTime")
-            Prelude.<*> (x Core..?> "PublicSubject")
-            Prelude.<*> (x Core..?> "IncidentId")
-            Prelude.<*> (x Core..?> "ReadTime")
+            Prelude.<$> (x Data..?> "DeliveryTime")
+            Prelude.<*> (x Data..?> "PublicContent")
+            Prelude.<*> (x Data..?> "SentTime")
+            Prelude.<*> (x Data..?> "PublicSubject")
+            Prelude.<*> (x Data..?> "IncidentId")
+            Prelude.<*> (x Data..?> "ReadTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "PageArn")
-            Prelude.<*> (x Core..:> "EngagementArn")
-            Prelude.<*> (x Core..:> "ContactArn")
-            Prelude.<*> (x Core..:> "Sender")
-            Prelude.<*> (x Core..:> "Subject")
-            Prelude.<*> (x Core..:> "Content")
+            Prelude.<*> (x Data..:> "PageArn")
+            Prelude.<*> (x Data..:> "EngagementArn")
+            Prelude.<*> (x Data..:> "ContactArn")
+            Prelude.<*> (x Data..:> "Sender")
+            Prelude.<*> (x Data..:> "Subject")
+            Prelude.<*> (x Data..:> "Content")
       )
 
 instance Prelude.Hashable DescribePage where
@@ -114,48 +115,48 @@ instance Prelude.Hashable DescribePage where
 instance Prelude.NFData DescribePage where
   rnf DescribePage' {..} = Prelude.rnf pageId
 
-instance Core.ToHeaders DescribePage where
+instance Data.ToHeaders DescribePage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SSMContacts.DescribePage" :: Prelude.ByteString),
+              Data.=# ("SSMContacts.DescribePage" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribePage where
+instance Data.ToJSON DescribePage where
   toJSON DescribePage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("PageId" Core..= pageId)]
+          [Prelude.Just ("PageId" Data..= pageId)]
       )
 
-instance Core.ToPath DescribePage where
+instance Data.ToPath DescribePage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePage where
+instance Data.ToQuery DescribePage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePageResponse' smart constructor.
 data DescribePageResponse = DescribePageResponse'
   { -- | The time that the contact channel received the engagement.
-    deliveryTime :: Prelude.Maybe Core.POSIX,
+    deliveryTime :: Prelude.Maybe Data.POSIX,
     -- | The insecure content of the message that was sent to the contact. Use
     -- this field for engagements to @SMS@.
     publicContent :: Prelude.Maybe Prelude.Text,
     -- | The time the engagement was sent to the contact channel.
-    sentTime :: Prelude.Maybe Core.POSIX,
+    sentTime :: Prelude.Maybe Data.POSIX,
     -- | The insecure subject of the message that was sent to the contact. Use
     -- this field for engagements to @SMS@.
     publicSubject :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the incident that engaged the contact channel.
     incidentId :: Prelude.Maybe Prelude.Text,
     -- | The time that the contact channel acknowledged the engagement.
-    readTime :: Prelude.Maybe Core.POSIX,
+    readTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the engagement to a contact channel.
@@ -255,7 +256,7 @@ newDescribePageResponse
 
 -- | The time that the contact channel received the engagement.
 describePageResponse_deliveryTime :: Lens.Lens' DescribePageResponse (Prelude.Maybe Prelude.UTCTime)
-describePageResponse_deliveryTime = Lens.lens (\DescribePageResponse' {deliveryTime} -> deliveryTime) (\s@DescribePageResponse' {} a -> s {deliveryTime = a} :: DescribePageResponse) Prelude.. Lens.mapping Core._Time
+describePageResponse_deliveryTime = Lens.lens (\DescribePageResponse' {deliveryTime} -> deliveryTime) (\s@DescribePageResponse' {} a -> s {deliveryTime = a} :: DescribePageResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The insecure content of the message that was sent to the contact. Use
 -- this field for engagements to @SMS@.
@@ -264,7 +265,7 @@ describePageResponse_publicContent = Lens.lens (\DescribePageResponse' {publicCo
 
 -- | The time the engagement was sent to the contact channel.
 describePageResponse_sentTime :: Lens.Lens' DescribePageResponse (Prelude.Maybe Prelude.UTCTime)
-describePageResponse_sentTime = Lens.lens (\DescribePageResponse' {sentTime} -> sentTime) (\s@DescribePageResponse' {} a -> s {sentTime = a} :: DescribePageResponse) Prelude.. Lens.mapping Core._Time
+describePageResponse_sentTime = Lens.lens (\DescribePageResponse' {sentTime} -> sentTime) (\s@DescribePageResponse' {} a -> s {sentTime = a} :: DescribePageResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The insecure subject of the message that was sent to the contact. Use
 -- this field for engagements to @SMS@.
@@ -277,7 +278,7 @@ describePageResponse_incidentId = Lens.lens (\DescribePageResponse' {incidentId}
 
 -- | The time that the contact channel acknowledged the engagement.
 describePageResponse_readTime :: Lens.Lens' DescribePageResponse (Prelude.Maybe Prelude.UTCTime)
-describePageResponse_readTime = Lens.lens (\DescribePageResponse' {readTime} -> readTime) (\s@DescribePageResponse' {} a -> s {readTime = a} :: DescribePageResponse) Prelude.. Lens.mapping Core._Time
+describePageResponse_readTime = Lens.lens (\DescribePageResponse' {readTime} -> readTime) (\s@DescribePageResponse' {} a -> s {readTime = a} :: DescribePageResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describePageResponse_httpStatus :: Lens.Lens' DescribePageResponse Prelude.Int

@@ -21,6 +21,7 @@ module Amazonka.APIGateway.Types.Model where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the data structure of a method\'s request or response
@@ -104,17 +105,17 @@ model_schema = Lens.lens (\Model' {schema} -> schema) (\s@Model' {} a -> s {sche
 model_contentType :: Lens.Lens' Model (Prelude.Maybe Prelude.Text)
 model_contentType = Lens.lens (\Model' {contentType} -> contentType) (\s@Model' {} a -> s {contentType = a} :: Model)
 
-instance Core.FromJSON Model where
+instance Data.FromJSON Model where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Model"
       ( \x ->
           Model'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "schema")
-            Prelude.<*> (x Core..:? "contentType")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "schema")
+            Prelude.<*> (x Data..:? "contentType")
       )
 
 instance Prelude.Hashable Model where

@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.Signer where
 import Amazonka.CloudFront.Types.KeyPairIds
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of Amazon Web Services accounts and the active CloudFront key
@@ -76,11 +77,11 @@ signer_keyPairIds = Lens.lens (\Signer' {keyPairIds} -> keyPairIds) (\s@Signer' 
 signer_awsAccountNumber :: Lens.Lens' Signer (Prelude.Maybe Prelude.Text)
 signer_awsAccountNumber = Lens.lens (\Signer' {awsAccountNumber} -> awsAccountNumber) (\s@Signer' {} a -> s {awsAccountNumber = a} :: Signer)
 
-instance Core.FromXML Signer where
+instance Data.FromXML Signer where
   parseXML x =
     Signer'
-      Prelude.<$> (x Core..@? "KeyPairIds")
-      Prelude.<*> (x Core..@? "AwsAccountNumber")
+      Prelude.<$> (x Data..@? "KeyPairIds")
+      Prelude.<*> (x Data..@? "AwsAccountNumber")
 
 instance Prelude.Hashable Signer where
   hashWithSalt _salt Signer' {..} =

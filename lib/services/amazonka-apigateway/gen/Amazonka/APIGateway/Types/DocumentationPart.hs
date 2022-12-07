@@ -22,6 +22,7 @@ module Amazonka.APIGateway.Types.DocumentationPart where
 import Amazonka.APIGateway.Types.DocumentationPartLocation
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A documentation part for a targeted API entity.
@@ -104,15 +105,15 @@ documentationPart_id = Lens.lens (\DocumentationPart' {id} -> id) (\s@Documentat
 documentationPart_location :: Lens.Lens' DocumentationPart (Prelude.Maybe DocumentationPartLocation)
 documentationPart_location = Lens.lens (\DocumentationPart' {location} -> location) (\s@DocumentationPart' {} a -> s {location = a} :: DocumentationPart)
 
-instance Core.FromJSON DocumentationPart where
+instance Data.FromJSON DocumentationPart where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentationPart"
       ( \x ->
           DocumentationPart'
-            Prelude.<$> (x Core..:? "properties")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "location")
+            Prelude.<$> (x Data..:? "properties")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "location")
       )
 
 instance Prelude.Hashable DocumentationPart where

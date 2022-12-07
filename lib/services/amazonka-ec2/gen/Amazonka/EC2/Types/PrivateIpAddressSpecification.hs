@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PrivateIpAddressSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,11 +67,11 @@ privateIpAddressSpecification_primary = Lens.lens (\PrivateIpAddressSpecificatio
 privateIpAddressSpecification_privateIpAddress :: Lens.Lens' PrivateIpAddressSpecification (Prelude.Maybe Prelude.Text)
 privateIpAddressSpecification_privateIpAddress = Lens.lens (\PrivateIpAddressSpecification' {privateIpAddress} -> privateIpAddress) (\s@PrivateIpAddressSpecification' {} a -> s {privateIpAddress = a} :: PrivateIpAddressSpecification)
 
-instance Core.FromXML PrivateIpAddressSpecification where
+instance Data.FromXML PrivateIpAddressSpecification where
   parseXML x =
     PrivateIpAddressSpecification'
-      Prelude.<$> (x Core..@? "primary")
-      Prelude.<*> (x Core..@? "privateIpAddress")
+      Prelude.<$> (x Data..@? "primary")
+      Prelude.<*> (x Data..@? "privateIpAddress")
 
 instance
   Prelude.Hashable
@@ -85,9 +86,9 @@ instance Prelude.NFData PrivateIpAddressSpecification where
     Prelude.rnf primary
       `Prelude.seq` Prelude.rnf privateIpAddress
 
-instance Core.ToQuery PrivateIpAddressSpecification where
+instance Data.ToQuery PrivateIpAddressSpecification where
   toQuery PrivateIpAddressSpecification' {..} =
     Prelude.mconcat
-      [ "Primary" Core.=: primary,
-        "PrivateIpAddress" Core.=: privateIpAddress
+      [ "Primary" Data.=: primary,
+        "PrivateIpAddress" Data.=: privateIpAddress
       ]

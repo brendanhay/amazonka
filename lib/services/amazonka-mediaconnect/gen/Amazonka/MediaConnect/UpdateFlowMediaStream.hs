@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,8 +158,8 @@ instance Core.AWSRequest UpdateFlowMediaStream where
     Response.receiveJSON
       ( \s h x ->
           UpdateFlowMediaStreamResponse'
-            Prelude.<$> (x Core..?> "mediaStream")
-            Prelude.<*> (x Core..?> "flowArn")
+            Prelude.<$> (x Data..?> "mediaStream")
+            Prelude.<*> (x Data..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,40 +183,40 @@ instance Prelude.NFData UpdateFlowMediaStream where
       `Prelude.seq` Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf mediaStreamName
 
-instance Core.ToHeaders UpdateFlowMediaStream where
+instance Data.ToHeaders UpdateFlowMediaStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFlowMediaStream where
+instance Data.ToJSON UpdateFlowMediaStream where
   toJSON UpdateFlowMediaStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("mediaStreamType" Core..=)
+          [ ("mediaStreamType" Data..=)
               Prelude.<$> mediaStreamType,
-            ("videoFormat" Core..=) Prelude.<$> videoFormat,
-            ("description" Core..=) Prelude.<$> description,
-            ("clockRate" Core..=) Prelude.<$> clockRate,
-            ("attributes" Core..=) Prelude.<$> attributes
+            ("videoFormat" Data..=) Prelude.<$> videoFormat,
+            ("description" Data..=) Prelude.<$> description,
+            ("clockRate" Data..=) Prelude.<$> clockRate,
+            ("attributes" Data..=) Prelude.<$> attributes
           ]
       )
 
-instance Core.ToPath UpdateFlowMediaStream where
+instance Data.ToPath UpdateFlowMediaStream where
   toPath UpdateFlowMediaStream' {..} =
     Prelude.mconcat
       [ "/v1/flows/",
-        Core.toBS flowArn,
+        Data.toBS flowArn,
         "/mediaStreams/",
-        Core.toBS mediaStreamName
+        Data.toBS mediaStreamName
       ]
 
-instance Core.ToQuery UpdateFlowMediaStream where
+instance Data.ToQuery UpdateFlowMediaStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFlowMediaStreamResponse' smart constructor.

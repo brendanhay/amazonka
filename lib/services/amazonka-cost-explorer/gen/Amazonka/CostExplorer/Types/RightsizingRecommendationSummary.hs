@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.RightsizingRecommendationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of rightsizing recommendations
@@ -95,18 +96,18 @@ rightsizingRecommendationSummary_totalRecommendationCount :: Lens.Lens' Rightsiz
 rightsizingRecommendationSummary_totalRecommendationCount = Lens.lens (\RightsizingRecommendationSummary' {totalRecommendationCount} -> totalRecommendationCount) (\s@RightsizingRecommendationSummary' {} a -> s {totalRecommendationCount = a} :: RightsizingRecommendationSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RightsizingRecommendationSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RightsizingRecommendationSummary"
       ( \x ->
           RightsizingRecommendationSummary'
-            Prelude.<$> (x Core..:? "SavingsPercentage")
-            Prelude.<*> (x Core..:? "SavingsCurrencyCode")
-            Prelude.<*> (x Core..:? "EstimatedTotalMonthlySavingsAmount")
-            Prelude.<*> (x Core..:? "TotalRecommendationCount")
+            Prelude.<$> (x Data..:? "SavingsPercentage")
+            Prelude.<*> (x Data..:? "SavingsCurrencyCode")
+            Prelude.<*> (x Data..:? "EstimatedTotalMonthlySavingsAmount")
+            Prelude.<*> (x Data..:? "TotalRecommendationCount")
       )
 
 instance

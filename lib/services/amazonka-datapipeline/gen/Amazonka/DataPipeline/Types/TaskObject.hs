@@ -21,6 +21,7 @@ module Amazonka.DataPipeline.Types.TaskObject where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataPipeline.Types.PipelineObject
 import qualified Amazonka.Prelude as Prelude
 
@@ -90,16 +91,16 @@ taskObject_pipelineId = Lens.lens (\TaskObject' {pipelineId} -> pipelineId) (\s@
 taskObject_objects :: Lens.Lens' TaskObject (Prelude.Maybe (Prelude.HashMap Prelude.Text PipelineObject))
 taskObject_objects = Lens.lens (\TaskObject' {objects} -> objects) (\s@TaskObject' {} a -> s {objects = a} :: TaskObject) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TaskObject where
+instance Data.FromJSON TaskObject where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskObject"
       ( \x ->
           TaskObject'
-            Prelude.<$> (x Core..:? "attemptId")
-            Prelude.<*> (x Core..:? "taskId")
-            Prelude.<*> (x Core..:? "pipelineId")
-            Prelude.<*> (x Core..:? "objects" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "attemptId")
+            Prelude.<*> (x Data..:? "taskId")
+            Prelude.<*> (x Data..:? "pipelineId")
+            Prelude.<*> (x Data..:? "objects" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TaskObject where

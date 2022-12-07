@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.AdministrativeActionFailureDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a failed administrative action.
@@ -54,15 +55,15 @@ administrativeActionFailureDetails_message :: Lens.Lens' AdministrativeActionFai
 administrativeActionFailureDetails_message = Lens.lens (\AdministrativeActionFailureDetails' {message} -> message) (\s@AdministrativeActionFailureDetails' {} a -> s {message = a} :: AdministrativeActionFailureDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AdministrativeActionFailureDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdministrativeActionFailureDetails"
       ( \x ->
           AdministrativeActionFailureDetails'
-            Prelude.<$> (x Core..:? "Message")
+            Prelude.<$> (x Data..:? "Message")
       )
 
 instance

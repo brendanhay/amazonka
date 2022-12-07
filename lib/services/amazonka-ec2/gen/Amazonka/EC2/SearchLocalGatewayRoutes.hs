@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -225,9 +226,9 @@ instance Core.AWSRequest SearchLocalGatewayRoutes where
     Response.receiveXML
       ( \s h x ->
           SearchLocalGatewayRoutesResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "routeSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "routeSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -248,26 +249,26 @@ instance Prelude.NFData SearchLocalGatewayRoutes where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf localGatewayRouteTableId
 
-instance Core.ToHeaders SearchLocalGatewayRoutes where
+instance Data.ToHeaders SearchLocalGatewayRoutes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SearchLocalGatewayRoutes where
+instance Data.ToPath SearchLocalGatewayRoutes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SearchLocalGatewayRoutes where
+instance Data.ToQuery SearchLocalGatewayRoutes where
   toQuery SearchLocalGatewayRoutes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SearchLocalGatewayRoutes" :: Prelude.ByteString),
+          Data.=: ("SearchLocalGatewayRoutes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
         "LocalGatewayRouteTableId"
-          Core.=: localGatewayRouteTableId
+          Data.=: localGatewayRouteTableId
       ]
 
 -- | /See:/ 'newSearchLocalGatewayRoutesResponse' smart constructor.

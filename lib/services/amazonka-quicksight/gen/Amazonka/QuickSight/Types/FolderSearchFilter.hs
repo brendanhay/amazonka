@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.FolderSearchFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.FilterOperator
 import Amazonka.QuickSight.Types.FolderFilterAttribute
@@ -240,12 +241,12 @@ instance Prelude.NFData FolderSearchFilter where
       `Prelude.seq` Prelude.rnf operator
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON FolderSearchFilter where
+instance Data.ToJSON FolderSearchFilter where
   toJSON FolderSearchFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Operator" Core..=) Prelude.<$> operator,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Operator" Data..=) Prelude.<$> operator,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

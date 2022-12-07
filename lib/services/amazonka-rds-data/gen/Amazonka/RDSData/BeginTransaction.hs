@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDSData.Types
 import qualified Amazonka.Request as Request
@@ -131,7 +132,7 @@ instance Core.AWSRequest BeginTransaction where
     Response.receiveJSON
       ( \s h x ->
           BeginTransactionResponse'
-            Prelude.<$> (x Core..?> "transactionId")
+            Prelude.<$> (x Data..?> "transactionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,32 +150,32 @@ instance Prelude.NFData BeginTransaction where
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf secretArn
 
-instance Core.ToHeaders BeginTransaction where
+instance Data.ToHeaders BeginTransaction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BeginTransaction where
+instance Data.ToJSON BeginTransaction where
   toJSON BeginTransaction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("database" Core..=) Prelude.<$> database,
-            ("schema" Core..=) Prelude.<$> schema,
-            Prelude.Just ("resourceArn" Core..= resourceArn),
-            Prelude.Just ("secretArn" Core..= secretArn)
+          [ ("database" Data..=) Prelude.<$> database,
+            ("schema" Data..=) Prelude.<$> schema,
+            Prelude.Just ("resourceArn" Data..= resourceArn),
+            Prelude.Just ("secretArn" Data..= secretArn)
           ]
       )
 
-instance Core.ToPath BeginTransaction where
+instance Data.ToPath BeginTransaction where
   toPath = Prelude.const "/BeginTransaction"
 
-instance Core.ToQuery BeginTransaction where
+instance Data.ToQuery BeginTransaction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response elements represent the output of a request to start a SQL

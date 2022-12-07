@@ -21,6 +21,7 @@ module Amazonka.S3.Types.RedirectAllRequestsTo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.Protocol
@@ -69,11 +70,11 @@ redirectAllRequestsTo_protocol = Lens.lens (\RedirectAllRequestsTo' {protocol} -
 redirectAllRequestsTo_hostName :: Lens.Lens' RedirectAllRequestsTo Prelude.Text
 redirectAllRequestsTo_hostName = Lens.lens (\RedirectAllRequestsTo' {hostName} -> hostName) (\s@RedirectAllRequestsTo' {} a -> s {hostName = a} :: RedirectAllRequestsTo)
 
-instance Core.FromXML RedirectAllRequestsTo where
+instance Data.FromXML RedirectAllRequestsTo where
   parseXML x =
     RedirectAllRequestsTo'
-      Prelude.<$> (x Core..@? "Protocol")
-      Prelude.<*> (x Core..@ "HostName")
+      Prelude.<$> (x Data..@? "Protocol")
+      Prelude.<*> (x Data..@ "HostName")
 
 instance Prelude.Hashable RedirectAllRequestsTo where
   hashWithSalt _salt RedirectAllRequestsTo' {..} =
@@ -85,9 +86,9 @@ instance Prelude.NFData RedirectAllRequestsTo where
     Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf hostName
 
-instance Core.ToXML RedirectAllRequestsTo where
+instance Data.ToXML RedirectAllRequestsTo where
   toXML RedirectAllRequestsTo' {..} =
     Prelude.mconcat
-      [ "Protocol" Core.@= protocol,
-        "HostName" Core.@= hostName
+      [ "Protocol" Data.@= protocol,
+        "HostName" Data.@= hostName
       ]

@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.DomainConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.AccessPoliciesStatus
 import Amazonka.OpenSearch.Types.AdvancedOptionsStatus
 import Amazonka.OpenSearch.Types.AdvancedSecurityOptionsStatus
@@ -212,27 +213,27 @@ domainConfig_logPublishingOptions = Lens.lens (\DomainConfig' {logPublishingOpti
 domainConfig_engineVersion :: Lens.Lens' DomainConfig (Prelude.Maybe VersionStatus)
 domainConfig_engineVersion = Lens.lens (\DomainConfig' {engineVersion} -> engineVersion) (\s@DomainConfig' {} a -> s {engineVersion = a} :: DomainConfig)
 
-instance Core.FromJSON DomainConfig where
+instance Data.FromJSON DomainConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainConfig"
       ( \x ->
           DomainConfig'
-            Prelude.<$> (x Core..:? "NodeToNodeEncryptionOptions")
-            Prelude.<*> (x Core..:? "ClusterConfig")
-            Prelude.<*> (x Core..:? "AdvancedOptions")
-            Prelude.<*> (x Core..:? "ChangeProgressDetails")
-            Prelude.<*> (x Core..:? "AdvancedSecurityOptions")
-            Prelude.<*> (x Core..:? "CognitoOptions")
-            Prelude.<*> (x Core..:? "EncryptionAtRestOptions")
-            Prelude.<*> (x Core..:? "EBSOptions")
-            Prelude.<*> (x Core..:? "AccessPolicies")
-            Prelude.<*> (x Core..:? "VPCOptions")
-            Prelude.<*> (x Core..:? "AutoTuneOptions")
-            Prelude.<*> (x Core..:? "DomainEndpointOptions")
-            Prelude.<*> (x Core..:? "SnapshotOptions")
-            Prelude.<*> (x Core..:? "LogPublishingOptions")
-            Prelude.<*> (x Core..:? "EngineVersion")
+            Prelude.<$> (x Data..:? "NodeToNodeEncryptionOptions")
+            Prelude.<*> (x Data..:? "ClusterConfig")
+            Prelude.<*> (x Data..:? "AdvancedOptions")
+            Prelude.<*> (x Data..:? "ChangeProgressDetails")
+            Prelude.<*> (x Data..:? "AdvancedSecurityOptions")
+            Prelude.<*> (x Data..:? "CognitoOptions")
+            Prelude.<*> (x Data..:? "EncryptionAtRestOptions")
+            Prelude.<*> (x Data..:? "EBSOptions")
+            Prelude.<*> (x Data..:? "AccessPolicies")
+            Prelude.<*> (x Data..:? "VPCOptions")
+            Prelude.<*> (x Data..:? "AutoTuneOptions")
+            Prelude.<*> (x Data..:? "DomainEndpointOptions")
+            Prelude.<*> (x Data..:? "SnapshotOptions")
+            Prelude.<*> (x Data..:? "LogPublishingOptions")
+            Prelude.<*> (x Data..:? "EngineVersion")
       )
 
 instance Prelude.Hashable DomainConfig where

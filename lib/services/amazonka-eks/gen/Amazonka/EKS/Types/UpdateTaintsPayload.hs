@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.UpdateTaintsPayload where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.Taint
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,12 +76,12 @@ instance Prelude.NFData UpdateTaintsPayload where
     Prelude.rnf addOrUpdateTaints
       `Prelude.seq` Prelude.rnf removeTaints
 
-instance Core.ToJSON UpdateTaintsPayload where
+instance Data.ToJSON UpdateTaintsPayload where
   toJSON UpdateTaintsPayload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("addOrUpdateTaints" Core..=)
+          [ ("addOrUpdateTaints" Data..=)
               Prelude.<$> addOrUpdateTaints,
-            ("removeTaints" Core..=) Prelude.<$> removeTaints
+            ("removeTaints" Data..=) Prelude.<$> removeTaints
           ]
       )

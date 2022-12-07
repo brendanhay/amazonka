@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.Document where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ContentType
 import Amazonka.Kendra.Types.DocumentAttribute
 import Amazonka.Kendra.Types.HierarchicalPrincipal
@@ -44,7 +45,7 @@ data Document = Document'
     -- an Amazon Web Services SDK to call Amazon Kendra APIs. If you are
     -- calling the Amazon Kendra endpoint directly using REST, you must base64
     -- encode the contents before sending.
-    blob :: Prelude.Maybe Core.Base64,
+    blob :: Prelude.Maybe Data.Base64,
     -- | The title of the document.
     title :: Prelude.Maybe Prelude.Text,
     s3Path :: Prelude.Maybe S3Path,
@@ -173,7 +174,7 @@ document_accessControlList = Lens.lens (\Document' {accessControlList} -> access
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 document_blob :: Lens.Lens' Document (Prelude.Maybe Prelude.ByteString)
-document_blob = Lens.lens (\Document' {blob} -> blob) (\s@Document' {} a -> s {blob = a} :: Document) Prelude.. Lens.mapping Core._Base64
+document_blob = Lens.lens (\Document' {blob} -> blob) (\s@Document' {} a -> s {blob = a} :: Document) Prelude.. Lens.mapping Data._Base64
 
 -- | The title of the document.
 document_title :: Lens.Lens' Document (Prelude.Maybe Prelude.Text)
@@ -246,21 +247,21 @@ instance Prelude.NFData Document where
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON Document where
+instance Data.ToJSON Document where
   toJSON Document' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessControlList" Core..=)
+          [ ("AccessControlList" Data..=)
               Prelude.<$> accessControlList,
-            ("Blob" Core..=) Prelude.<$> blob,
-            ("Title" Core..=) Prelude.<$> title,
-            ("S3Path" Core..=) Prelude.<$> s3Path,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("HierarchicalAccessControlList" Core..=)
+            ("Blob" Data..=) Prelude.<$> blob,
+            ("Title" Data..=) Prelude.<$> title,
+            ("S3Path" Data..=) Prelude.<$> s3Path,
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("HierarchicalAccessControlList" Data..=)
               Prelude.<$> hierarchicalAccessControlList,
-            ("AccessControlConfigurationId" Core..=)
+            ("AccessControlConfigurationId" Data..=)
               Prelude.<$> accessControlConfigurationId,
-            ("ContentType" Core..=) Prelude.<$> contentType,
-            Prelude.Just ("Id" Core..= id)
+            ("ContentType" Data..=) Prelude.<$> contentType,
+            Prelude.Just ("Id" Data..= id)
           ]
       )

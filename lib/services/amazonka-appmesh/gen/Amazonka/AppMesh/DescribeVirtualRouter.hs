@@ -44,6 +44,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,7 +122,7 @@ instance Core.AWSRequest DescribeVirtualRouter where
       ( \s h x ->
           DescribeVirtualRouterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable DescribeVirtualRouter where
@@ -136,29 +137,29 @@ instance Prelude.NFData DescribeVirtualRouter where
       `Prelude.seq` Prelude.rnf meshName
       `Prelude.seq` Prelude.rnf virtualRouterName
 
-instance Core.ToHeaders DescribeVirtualRouter where
+instance Data.ToHeaders DescribeVirtualRouter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeVirtualRouter where
+instance Data.ToPath DescribeVirtualRouter where
   toPath DescribeVirtualRouter' {..} =
     Prelude.mconcat
       [ "/v20190125/meshes/",
-        Core.toBS meshName,
+        Data.toBS meshName,
         "/virtualRouters/",
-        Core.toBS virtualRouterName
+        Data.toBS virtualRouterName
       ]
 
-instance Core.ToQuery DescribeVirtualRouter where
+instance Data.ToQuery DescribeVirtualRouter where
   toQuery DescribeVirtualRouter' {..} =
-    Prelude.mconcat ["meshOwner" Core.=: meshOwner]
+    Prelude.mconcat ["meshOwner" Data.=: meshOwner]
 
 -- |
 --

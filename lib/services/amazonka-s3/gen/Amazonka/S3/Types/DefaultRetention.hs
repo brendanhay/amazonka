@@ -21,6 +21,7 @@ module Amazonka.S3.Types.DefaultRetention where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ObjectLockRetentionMode
@@ -91,12 +92,12 @@ defaultRetention_years = Lens.lens (\DefaultRetention' {years} -> years) (\s@Def
 defaultRetention_mode :: Lens.Lens' DefaultRetention (Prelude.Maybe ObjectLockRetentionMode)
 defaultRetention_mode = Lens.lens (\DefaultRetention' {mode} -> mode) (\s@DefaultRetention' {} a -> s {mode = a} :: DefaultRetention)
 
-instance Core.FromXML DefaultRetention where
+instance Data.FromXML DefaultRetention where
   parseXML x =
     DefaultRetention'
-      Prelude.<$> (x Core..@? "Days")
-      Prelude.<*> (x Core..@? "Years")
-      Prelude.<*> (x Core..@? "Mode")
+      Prelude.<$> (x Data..@? "Days")
+      Prelude.<*> (x Data..@? "Years")
+      Prelude.<*> (x Data..@? "Mode")
 
 instance Prelude.Hashable DefaultRetention where
   hashWithSalt _salt DefaultRetention' {..} =
@@ -110,10 +111,10 @@ instance Prelude.NFData DefaultRetention where
       `Prelude.seq` Prelude.rnf years
       `Prelude.seq` Prelude.rnf mode
 
-instance Core.ToXML DefaultRetention where
+instance Data.ToXML DefaultRetention where
   toXML DefaultRetention' {..} =
     Prelude.mconcat
-      [ "Days" Core.@= days,
-        "Years" Core.@= years,
-        "Mode" Core.@= mode
+      [ "Days" Data.@= days,
+        "Years" Data.@= years,
+        "Mode" Data.@= mode
       ]

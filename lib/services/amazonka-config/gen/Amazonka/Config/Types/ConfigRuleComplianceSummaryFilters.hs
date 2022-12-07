@@ -21,6 +21,7 @@ module Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters the results based on the account IDs and regions.
@@ -81,13 +82,13 @@ instance
       `Prelude.seq` Prelude.rnf awsRegion
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ConfigRuleComplianceSummaryFilters
   where
   toJSON ConfigRuleComplianceSummaryFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccountId" Core..=) Prelude.<$> accountId,
-            ("AwsRegion" Core..=) Prelude.<$> awsRegion
+          [ ("AccountId" Data..=) Prelude.<$> accountId,
+            ("AwsRegion" Data..=) Prelude.<$> awsRegion
           ]
       )

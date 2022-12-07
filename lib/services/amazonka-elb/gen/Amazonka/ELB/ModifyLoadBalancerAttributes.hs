@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,8 +123,8 @@ instance Core.AWSRequest ModifyLoadBalancerAttributes where
       "ModifyLoadBalancerAttributesResult"
       ( \s h x ->
           ModifyLoadBalancerAttributesResponse'
-            Prelude.<$> (x Core..@? "LoadBalancerName")
-            Prelude.<*> (x Core..@? "LoadBalancerAttributes")
+            Prelude.<$> (x Data..@? "LoadBalancerName")
+            Prelude.<*> (x Data..@? "LoadBalancerAttributes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,24 +141,24 @@ instance Prelude.NFData ModifyLoadBalancerAttributes where
     Prelude.rnf loadBalancerName
       `Prelude.seq` Prelude.rnf loadBalancerAttributes
 
-instance Core.ToHeaders ModifyLoadBalancerAttributes where
+instance Data.ToHeaders ModifyLoadBalancerAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyLoadBalancerAttributes where
+instance Data.ToPath ModifyLoadBalancerAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyLoadBalancerAttributes where
+instance Data.ToQuery ModifyLoadBalancerAttributes where
   toQuery ModifyLoadBalancerAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyLoadBalancerAttributes" ::
+          Data.=: ( "ModifyLoadBalancerAttributes" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Core.=: loadBalancerName,
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
+        "LoadBalancerName" Data.=: loadBalancerName,
         "LoadBalancerAttributes"
-          Core.=: loadBalancerAttributes
+          Data.=: loadBalancerAttributes
       ]
 
 -- | Contains the output of ModifyLoadBalancerAttributes.

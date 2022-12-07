@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.Aliases where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains information about CNAMEs (alternate domain
@@ -70,13 +71,13 @@ aliases_items = Lens.lens (\Aliases' {items} -> items) (\s@Aliases' {} a -> s {i
 aliases_quantity :: Lens.Lens' Aliases Prelude.Int
 aliases_quantity = Lens.lens (\Aliases' {quantity} -> quantity) (\s@Aliases' {} a -> s {quantity = a} :: Aliases)
 
-instance Core.FromXML Aliases where
+instance Data.FromXML Aliases where
   parseXML x =
     Aliases'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "CNAME")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "CNAME")
                   )
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable Aliases where
   hashWithSalt _salt Aliases' {..} =
@@ -88,11 +89,11 @@ instance Prelude.NFData Aliases where
     Prelude.rnf items
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML Aliases where
+instance Data.ToXML Aliases where
   toXML Aliases' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML
-            (Core.toXMLList "CNAME" Prelude.<$> items),
-        "Quantity" Core.@= quantity
+          Data.@= Data.toXML
+            (Data.toXMLList "CNAME" Prelude.<$> items),
+        "Quantity" Data.@= quantity
       ]

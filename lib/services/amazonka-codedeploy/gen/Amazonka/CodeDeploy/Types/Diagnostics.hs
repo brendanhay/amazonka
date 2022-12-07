@@ -22,6 +22,7 @@ module Amazonka.CodeDeploy.Types.Diagnostics where
 import Amazonka.CodeDeploy.Types.LifecycleErrorCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Diagnostic information about executable scripts that are part of a
@@ -138,16 +139,16 @@ diagnostics_errorCode = Lens.lens (\Diagnostics' {errorCode} -> errorCode) (\s@D
 diagnostics_scriptName :: Lens.Lens' Diagnostics (Prelude.Maybe Prelude.Text)
 diagnostics_scriptName = Lens.lens (\Diagnostics' {scriptName} -> scriptName) (\s@Diagnostics' {} a -> s {scriptName = a} :: Diagnostics)
 
-instance Core.FromJSON Diagnostics where
+instance Data.FromJSON Diagnostics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Diagnostics"
       ( \x ->
           Diagnostics'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "logTail")
-            Prelude.<*> (x Core..:? "errorCode")
-            Prelude.<*> (x Core..:? "scriptName")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "logTail")
+            Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "scriptName")
       )
 
 instance Prelude.Hashable Diagnostics where

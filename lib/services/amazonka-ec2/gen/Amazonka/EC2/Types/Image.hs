@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Image where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ArchitectureValues
 import Amazonka.EC2.Types.BlockDeviceMapping
@@ -460,46 +461,46 @@ image_virtualizationType = Lens.lens (\Image' {virtualizationType} -> virtualiza
 image_hypervisor :: Lens.Lens' Image HypervisorType
 image_hypervisor = Lens.lens (\Image' {hypervisor} -> hypervisor) (\s@Image' {} a -> s {hypervisor = a} :: Image)
 
-instance Core.FromXML Image where
+instance Data.FromXML Image where
   parseXML x =
     Image'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "name")
-      Prelude.<*> (x Core..@? "sriovNetSupport")
-      Prelude.<*> ( x Core..@? "blockDeviceMapping"
+      Prelude.<*> (x Data..@? "name")
+      Prelude.<*> (x Data..@? "sriovNetSupport")
+      Prelude.<*> ( x Data..@? "blockDeviceMapping"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "creationDate")
-      Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "creationDate")
+      Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "platform")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "imageOwnerAlias")
-      Prelude.<*> (x Core..@? "usageOperation")
-      Prelude.<*> (x Core..@? "tpmSupport")
-      Prelude.<*> (x Core..@? "ramdiskId")
-      Prelude.<*> (x Core..@? "deprecationTime")
-      Prelude.<*> (x Core..@? "platformDetails")
-      Prelude.<*> (x Core..@? "imdsSupport")
-      Prelude.<*> (x Core..@? "bootMode")
-      Prelude.<*> (x Core..@? "kernelId")
-      Prelude.<*> (x Core..@? "stateReason")
-      Prelude.<*> (x Core..@? "enaSupport")
-      Prelude.<*> (x Core..@? "rootDeviceName")
-      Prelude.<*> (x Core..@ "imageId")
-      Prelude.<*> (x Core..@ "imageLocation")
-      Prelude.<*> (x Core..@ "imageState")
-      Prelude.<*> (x Core..@ "imageOwnerId")
-      Prelude.<*> (x Core..@ "isPublic")
-      Prelude.<*> (x Core..@ "architecture")
-      Prelude.<*> (x Core..@ "imageType")
-      Prelude.<*> (x Core..@ "rootDeviceType")
-      Prelude.<*> (x Core..@ "virtualizationType")
-      Prelude.<*> (x Core..@ "hypervisor")
+      Prelude.<*> (x Data..@? "platform")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "imageOwnerAlias")
+      Prelude.<*> (x Data..@? "usageOperation")
+      Prelude.<*> (x Data..@? "tpmSupport")
+      Prelude.<*> (x Data..@? "ramdiskId")
+      Prelude.<*> (x Data..@? "deprecationTime")
+      Prelude.<*> (x Data..@? "platformDetails")
+      Prelude.<*> (x Data..@? "imdsSupport")
+      Prelude.<*> (x Data..@? "bootMode")
+      Prelude.<*> (x Data..@? "kernelId")
+      Prelude.<*> (x Data..@? "stateReason")
+      Prelude.<*> (x Data..@? "enaSupport")
+      Prelude.<*> (x Data..@? "rootDeviceName")
+      Prelude.<*> (x Data..@ "imageId")
+      Prelude.<*> (x Data..@ "imageLocation")
+      Prelude.<*> (x Data..@ "imageState")
+      Prelude.<*> (x Data..@ "imageOwnerId")
+      Prelude.<*> (x Data..@ "isPublic")
+      Prelude.<*> (x Data..@ "architecture")
+      Prelude.<*> (x Data..@ "imageType")
+      Prelude.<*> (x Data..@ "rootDeviceType")
+      Prelude.<*> (x Data..@ "virtualizationType")
+      Prelude.<*> (x Data..@ "hypervisor")
 
 instance Prelude.Hashable Image where
   hashWithSalt _salt Image' {..} =

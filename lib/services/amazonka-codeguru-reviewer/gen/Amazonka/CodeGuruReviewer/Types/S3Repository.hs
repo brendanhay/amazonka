@@ -21,6 +21,7 @@ module Amazonka.CodeGuruReviewer.Types.S3Repository where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a repository in an S3 bucket.
@@ -78,11 +79,11 @@ instance Prelude.NFData S3Repository where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf bucketName
 
-instance Core.ToJSON S3Repository where
+instance Data.ToJSON S3Repository where
   toJSON S3Repository' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("BucketName" Core..= bucketName)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("BucketName" Data..= bucketName)
           ]
       )

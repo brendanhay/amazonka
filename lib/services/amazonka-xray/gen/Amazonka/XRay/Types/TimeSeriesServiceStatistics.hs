@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.TimeSeriesServiceStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.EdgeStatistics
 import Amazonka.XRay.Types.ForecastStatistics
@@ -34,7 +35,7 @@ data TimeSeriesServiceStatistics = TimeSeriesServiceStatistics'
   { serviceSummaryStatistics :: Prelude.Maybe ServiceStatistics,
     edgeSummaryStatistics :: Prelude.Maybe EdgeStatistics,
     -- | Timestamp of the window for which statistics are aggregated.
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The response time histogram for the selected entities.
     responseTimeHistogram :: Prelude.Maybe [HistogramEntry],
     -- | The forecasted high and low fault count values.
@@ -81,7 +82,7 @@ timeSeriesServiceStatistics_edgeSummaryStatistics = Lens.lens (\TimeSeriesServic
 
 -- | Timestamp of the window for which statistics are aggregated.
 timeSeriesServiceStatistics_timestamp :: Lens.Lens' TimeSeriesServiceStatistics (Prelude.Maybe Prelude.UTCTime)
-timeSeriesServiceStatistics_timestamp = Lens.lens (\TimeSeriesServiceStatistics' {timestamp} -> timestamp) (\s@TimeSeriesServiceStatistics' {} a -> s {timestamp = a} :: TimeSeriesServiceStatistics) Prelude.. Lens.mapping Core._Time
+timeSeriesServiceStatistics_timestamp = Lens.lens (\TimeSeriesServiceStatistics' {timestamp} -> timestamp) (\s@TimeSeriesServiceStatistics' {} a -> s {timestamp = a} :: TimeSeriesServiceStatistics) Prelude.. Lens.mapping Data._Time
 
 -- | The response time histogram for the selected entities.
 timeSeriesServiceStatistics_responseTimeHistogram :: Lens.Lens' TimeSeriesServiceStatistics (Prelude.Maybe [HistogramEntry])
@@ -91,19 +92,19 @@ timeSeriesServiceStatistics_responseTimeHistogram = Lens.lens (\TimeSeriesServic
 timeSeriesServiceStatistics_serviceForecastStatistics :: Lens.Lens' TimeSeriesServiceStatistics (Prelude.Maybe ForecastStatistics)
 timeSeriesServiceStatistics_serviceForecastStatistics = Lens.lens (\TimeSeriesServiceStatistics' {serviceForecastStatistics} -> serviceForecastStatistics) (\s@TimeSeriesServiceStatistics' {} a -> s {serviceForecastStatistics = a} :: TimeSeriesServiceStatistics)
 
-instance Core.FromJSON TimeSeriesServiceStatistics where
+instance Data.FromJSON TimeSeriesServiceStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeSeriesServiceStatistics"
       ( \x ->
           TimeSeriesServiceStatistics'
-            Prelude.<$> (x Core..:? "ServiceSummaryStatistics")
-            Prelude.<*> (x Core..:? "EdgeSummaryStatistics")
-            Prelude.<*> (x Core..:? "Timestamp")
-            Prelude.<*> ( x Core..:? "ResponseTimeHistogram"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ServiceSummaryStatistics")
+            Prelude.<*> (x Data..:? "EdgeSummaryStatistics")
+            Prelude.<*> (x Data..:? "Timestamp")
+            Prelude.<*> ( x Data..:? "ResponseTimeHistogram"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ServiceForecastStatistics")
+            Prelude.<*> (x Data..:? "ServiceForecastStatistics")
       )
 
 instance Prelude.Hashable TimeSeriesServiceStatistics where

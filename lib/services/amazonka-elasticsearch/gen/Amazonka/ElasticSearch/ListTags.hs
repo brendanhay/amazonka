@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest ListTags where
     Response.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            Prelude.<$> (x Core..?> "TagList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "TagList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,15 +99,15 @@ instance Prelude.Hashable ListTags where
 instance Prelude.NFData ListTags where
   rnf ListTags' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders ListTags where
+instance Data.ToHeaders ListTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListTags where
+instance Data.ToPath ListTags where
   toPath = Prelude.const "/2015-01-01/tags/"
 
-instance Core.ToQuery ListTags where
+instance Data.ToQuery ListTags where
   toQuery ListTags' {..} =
-    Prelude.mconcat ["arn" Core.=: arn]
+    Prelude.mconcat ["arn" Data.=: arn]
 
 -- | The result of a @ListTags@ operation. Contains tags for all requested
 -- Elasticsearch domains.

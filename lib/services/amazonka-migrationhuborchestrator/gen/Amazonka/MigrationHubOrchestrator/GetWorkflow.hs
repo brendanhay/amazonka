@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,26 +100,26 @@ instance Core.AWSRequest GetWorkflow where
     Response.receiveJSON
       ( \s h x ->
           GetWorkflowResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "workflowBucket")
-            Prelude.<*> (x Core..?> "adsApplicationName")
-            Prelude.<*> (x Core..?> "adsApplicationConfigurationId")
-            Prelude.<*> (x Core..?> "tools" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "lastStartTime")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "templateId")
-            Prelude.<*> (x Core..?> "endTime")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "lastModifiedTime")
-            Prelude.<*> (x Core..?> "lastStopTime")
-            Prelude.<*> (x Core..?> "completedSteps")
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "statusMessage")
-            Prelude.<*> (x Core..?> "totalSteps")
-            Prelude.<*> (x Core..?> "workflowInputs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "workflowBucket")
+            Prelude.<*> (x Data..?> "adsApplicationName")
+            Prelude.<*> (x Data..?> "adsApplicationConfigurationId")
+            Prelude.<*> (x Data..?> "tools" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "lastStartTime")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "templateId")
+            Prelude.<*> (x Data..?> "endTime")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "lastModifiedTime")
+            Prelude.<*> (x Data..?> "lastStopTime")
+            Prelude.<*> (x Data..?> "completedSteps")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "statusMessage")
+            Prelude.<*> (x Data..?> "totalSteps")
+            Prelude.<*> (x Data..?> "workflowInputs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,23 +130,23 @@ instance Prelude.Hashable GetWorkflow where
 instance Prelude.NFData GetWorkflow where
   rnf GetWorkflow' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetWorkflow where
+instance Data.ToHeaders GetWorkflow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetWorkflow where
+instance Data.ToPath GetWorkflow where
   toPath GetWorkflow' {..} =
     Prelude.mconcat
-      ["/migrationworkflow/", Core.toBS id]
+      ["/migrationworkflow/", Data.toBS id]
 
-instance Core.ToQuery GetWorkflow where
+instance Data.ToQuery GetWorkflow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetWorkflowResponse' smart constructor.
@@ -164,7 +165,7 @@ data GetWorkflowResponse = GetWorkflowResponse'
     -- | List of AWS services utilized in a migration workflow.
     tools :: Prelude.Maybe [Tool],
     -- | The time at which the migration workflow was last started.
-    lastStartTime :: Prelude.Maybe Core.POSIX,
+    lastStartTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the migration workflow.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The status of the migration workflow.
@@ -174,23 +175,23 @@ data GetWorkflowResponse = GetWorkflowResponse'
     -- | The ID of the template.
     templateId :: Prelude.Maybe Prelude.Text,
     -- | The time at which the migration workflow ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the migration workflow.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time at which the migration workflow was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The time at which the migration workflow was last stopped.
-    lastStopTime :: Prelude.Maybe Core.POSIX,
+    lastStopTime :: Prelude.Maybe Data.POSIX,
     -- | Get a list of completed steps in the migration workflow.
     completedSteps :: Prelude.Maybe Prelude.Int,
     -- | The time at which the migration workflow was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The status message of the migration workflow.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The total number of steps in the migration workflow.
     totalSteps :: Prelude.Maybe Prelude.Int,
     -- | The inputs required for creating the migration workflow.
-    workflowInputs :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text StepInput)),
+    workflowInputs :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text StepInput)),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -302,7 +303,7 @@ getWorkflowResponse_tools = Lens.lens (\GetWorkflowResponse' {tools} -> tools) (
 
 -- | The time at which the migration workflow was last started.
 getWorkflowResponse_lastStartTime :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
-getWorkflowResponse_lastStartTime = Lens.lens (\GetWorkflowResponse' {lastStartTime} -> lastStartTime) (\s@GetWorkflowResponse' {} a -> s {lastStartTime = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Core._Time
+getWorkflowResponse_lastStartTime = Lens.lens (\GetWorkflowResponse' {lastStartTime} -> lastStartTime) (\s@GetWorkflowResponse' {} a -> s {lastStartTime = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the migration workflow.
 getWorkflowResponse_arn :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
@@ -322,7 +323,7 @@ getWorkflowResponse_templateId = Lens.lens (\GetWorkflowResponse' {templateId} -
 
 -- | The time at which the migration workflow ended.
 getWorkflowResponse_endTime :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
-getWorkflowResponse_endTime = Lens.lens (\GetWorkflowResponse' {endTime} -> endTime) (\s@GetWorkflowResponse' {} a -> s {endTime = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Core._Time
+getWorkflowResponse_endTime = Lens.lens (\GetWorkflowResponse' {endTime} -> endTime) (\s@GetWorkflowResponse' {} a -> s {endTime = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the migration workflow.
 getWorkflowResponse_id :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
@@ -330,11 +331,11 @@ getWorkflowResponse_id = Lens.lens (\GetWorkflowResponse' {id} -> id) (\s@GetWor
 
 -- | The time at which the migration workflow was last modified.
 getWorkflowResponse_lastModifiedTime :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
-getWorkflowResponse_lastModifiedTime = Lens.lens (\GetWorkflowResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetWorkflowResponse' {} a -> s {lastModifiedTime = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Core._Time
+getWorkflowResponse_lastModifiedTime = Lens.lens (\GetWorkflowResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetWorkflowResponse' {} a -> s {lastModifiedTime = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the migration workflow was last stopped.
 getWorkflowResponse_lastStopTime :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
-getWorkflowResponse_lastStopTime = Lens.lens (\GetWorkflowResponse' {lastStopTime} -> lastStopTime) (\s@GetWorkflowResponse' {} a -> s {lastStopTime = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Core._Time
+getWorkflowResponse_lastStopTime = Lens.lens (\GetWorkflowResponse' {lastStopTime} -> lastStopTime) (\s@GetWorkflowResponse' {} a -> s {lastStopTime = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Get a list of completed steps in the migration workflow.
 getWorkflowResponse_completedSteps :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Int)
@@ -342,7 +343,7 @@ getWorkflowResponse_completedSteps = Lens.lens (\GetWorkflowResponse' {completed
 
 -- | The time at which the migration workflow was created.
 getWorkflowResponse_creationTime :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
-getWorkflowResponse_creationTime = Lens.lens (\GetWorkflowResponse' {creationTime} -> creationTime) (\s@GetWorkflowResponse' {} a -> s {creationTime = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Core._Time
+getWorkflowResponse_creationTime = Lens.lens (\GetWorkflowResponse' {creationTime} -> creationTime) (\s@GetWorkflowResponse' {} a -> s {creationTime = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status message of the migration workflow.
 getWorkflowResponse_statusMessage :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
@@ -354,7 +355,7 @@ getWorkflowResponse_totalSteps = Lens.lens (\GetWorkflowResponse' {totalSteps} -
 
 -- | The inputs required for creating the migration workflow.
 getWorkflowResponse_workflowInputs :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text StepInput))
-getWorkflowResponse_workflowInputs = Lens.lens (\GetWorkflowResponse' {workflowInputs} -> workflowInputs) (\s@GetWorkflowResponse' {} a -> s {workflowInputs = a} :: GetWorkflowResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+getWorkflowResponse_workflowInputs = Lens.lens (\GetWorkflowResponse' {workflowInputs} -> workflowInputs) (\s@GetWorkflowResponse' {} a -> s {workflowInputs = a} :: GetWorkflowResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The response's http status code.
 getWorkflowResponse_httpStatus :: Lens.Lens' GetWorkflowResponse Prelude.Int

@@ -53,6 +53,7 @@ where
 import Amazonka.Budgets.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -174,10 +175,10 @@ instance Core.AWSRequest UpdateBudgetAction where
       ( \s h x ->
           UpdateBudgetActionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "AccountId")
-            Prelude.<*> (x Core..:> "BudgetName")
-            Prelude.<*> (x Core..:> "OldAction")
-            Prelude.<*> (x Core..:> "NewAction")
+            Prelude.<*> (x Data..:> "AccountId")
+            Prelude.<*> (x Data..:> "BudgetName")
+            Prelude.<*> (x Data..:> "OldAction")
+            Prelude.<*> (x Data..:> "NewAction")
       )
 
 instance Prelude.Hashable UpdateBudgetAction where
@@ -204,44 +205,44 @@ instance Prelude.NFData UpdateBudgetAction where
       `Prelude.seq` Prelude.rnf budgetName
       `Prelude.seq` Prelude.rnf actionId
 
-instance Core.ToHeaders UpdateBudgetAction where
+instance Data.ToHeaders UpdateBudgetAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSBudgetServiceGateway.UpdateBudgetAction" ::
+              Data.=# ( "AWSBudgetServiceGateway.UpdateBudgetAction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBudgetAction where
+instance Data.ToJSON UpdateBudgetAction where
   toJSON UpdateBudgetAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NotificationType" Core..=)
+          [ ("NotificationType" Data..=)
               Prelude.<$> notificationType,
-            ("ActionThreshold" Core..=)
+            ("ActionThreshold" Data..=)
               Prelude.<$> actionThreshold,
-            ("Subscribers" Core..=) Prelude.<$> subscribers,
-            ("ExecutionRoleArn" Core..=)
+            ("Subscribers" Data..=) Prelude.<$> subscribers,
+            ("ExecutionRoleArn" Data..=)
               Prelude.<$> executionRoleArn,
-            ("ApprovalModel" Core..=) Prelude.<$> approvalModel,
-            ("Definition" Core..=) Prelude.<$> definition,
-            Prelude.Just ("AccountId" Core..= accountId),
-            Prelude.Just ("BudgetName" Core..= budgetName),
-            Prelude.Just ("ActionId" Core..= actionId)
+            ("ApprovalModel" Data..=) Prelude.<$> approvalModel,
+            ("Definition" Data..=) Prelude.<$> definition,
+            Prelude.Just ("AccountId" Data..= accountId),
+            Prelude.Just ("BudgetName" Data..= budgetName),
+            Prelude.Just ("ActionId" Data..= actionId)
           ]
       )
 
-instance Core.ToPath UpdateBudgetAction where
+instance Data.ToPath UpdateBudgetAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateBudgetAction where
+instance Data.ToQuery UpdateBudgetAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBudgetActionResponse' smart constructor.

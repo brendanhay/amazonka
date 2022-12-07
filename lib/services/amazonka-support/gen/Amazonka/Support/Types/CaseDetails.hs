@@ -21,6 +21,7 @@ module Amazonka.Support.Types.CaseDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Support.Types.RecentCaseCommunications
 
@@ -285,26 +286,26 @@ caseDetails_language = Lens.lens (\CaseDetails' {language} -> language) (\s@Case
 caseDetails_severityCode :: Lens.Lens' CaseDetails (Prelude.Maybe Prelude.Text)
 caseDetails_severityCode = Lens.lens (\CaseDetails' {severityCode} -> severityCode) (\s@CaseDetails' {} a -> s {severityCode = a} :: CaseDetails)
 
-instance Core.FromJSON CaseDetails where
+instance Data.FromJSON CaseDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaseDetails"
       ( \x ->
           CaseDetails'
-            Prelude.<$> ( x Core..:? "ccEmailAddresses"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ccEmailAddresses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "caseId")
-            Prelude.<*> (x Core..:? "displayId")
-            Prelude.<*> (x Core..:? "timeCreated")
-            Prelude.<*> (x Core..:? "categoryCode")
-            Prelude.<*> (x Core..:? "serviceCode")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "submittedBy")
-            Prelude.<*> (x Core..:? "recentCommunications")
-            Prelude.<*> (x Core..:? "subject")
-            Prelude.<*> (x Core..:? "language")
-            Prelude.<*> (x Core..:? "severityCode")
+            Prelude.<*> (x Data..:? "caseId")
+            Prelude.<*> (x Data..:? "displayId")
+            Prelude.<*> (x Data..:? "timeCreated")
+            Prelude.<*> (x Data..:? "categoryCode")
+            Prelude.<*> (x Data..:? "serviceCode")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "submittedBy")
+            Prelude.<*> (x Data..:? "recentCommunications")
+            Prelude.<*> (x Data..:? "subject")
+            Prelude.<*> (x Data..:? "language")
+            Prelude.<*> (x Data..:? "severityCode")
       )
 
 instance Prelude.Hashable CaseDetails where

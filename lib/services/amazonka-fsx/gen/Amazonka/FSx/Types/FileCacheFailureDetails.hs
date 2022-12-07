@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.FileCacheFailureDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure providing details of any failures that occurred.
@@ -50,13 +51,13 @@ newFileCacheFailureDetails =
 fileCacheFailureDetails_message :: Lens.Lens' FileCacheFailureDetails (Prelude.Maybe Prelude.Text)
 fileCacheFailureDetails_message = Lens.lens (\FileCacheFailureDetails' {message} -> message) (\s@FileCacheFailureDetails' {} a -> s {message = a} :: FileCacheFailureDetails)
 
-instance Core.FromJSON FileCacheFailureDetails where
+instance Data.FromJSON FileCacheFailureDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileCacheFailureDetails"
       ( \x ->
           FileCacheFailureDetails'
-            Prelude.<$> (x Core..:? "Message")
+            Prelude.<$> (x Data..:? "Message")
       )
 
 instance Prelude.Hashable FileCacheFailureDetails where

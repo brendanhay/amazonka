@@ -26,6 +26,7 @@ import Amazonka.APIGateway.Types.CanarySettings
 import Amazonka.APIGateway.Types.MethodSetting
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a unique identifier for a version of a deployed RestApi that
@@ -52,7 +53,7 @@ data Stage = Stage'
     -- | The identifier of the Deployment that the stage points to.
     deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the stage last updated.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | A map that defines the method settings for a Stage resource. Keys
     -- (designated as @\/{method_setting_key@ below) are method paths defined
     -- as @{resource_path}\/{http_method}@ for an individual method override,
@@ -69,7 +70,7 @@ data Stage = Stage'
     -- | Settings for the canary deployment in this stage.
     canarySettings :: Prelude.Maybe CanarySettings,
     -- | The timestamp when the stage was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The version of the associated API documentation.
     documentationVersion :: Prelude.Maybe Prelude.Text,
     -- | A map that defines the stage variables for a Stage resource. Variable
@@ -186,7 +187,7 @@ stage_deploymentId = Lens.lens (\Stage' {deploymentId} -> deploymentId) (\s@Stag
 
 -- | The timestamp when the stage last updated.
 stage_lastUpdatedDate :: Lens.Lens' Stage (Prelude.Maybe Prelude.UTCTime)
-stage_lastUpdatedDate = Lens.lens (\Stage' {lastUpdatedDate} -> lastUpdatedDate) (\s@Stage' {} a -> s {lastUpdatedDate = a} :: Stage) Prelude.. Lens.mapping Core._Time
+stage_lastUpdatedDate = Lens.lens (\Stage' {lastUpdatedDate} -> lastUpdatedDate) (\s@Stage' {} a -> s {lastUpdatedDate = a} :: Stage) Prelude.. Lens.mapping Data._Time
 
 -- | A map that defines the method settings for a Stage resource. Keys
 -- (designated as @\/{method_setting_key@ below) are method paths defined
@@ -217,7 +218,7 @@ stage_canarySettings = Lens.lens (\Stage' {canarySettings} -> canarySettings) (\
 
 -- | The timestamp when the stage was created.
 stage_createdDate :: Lens.Lens' Stage (Prelude.Maybe Prelude.UTCTime)
-stage_createdDate = Lens.lens (\Stage' {createdDate} -> createdDate) (\s@Stage' {} a -> s {createdDate = a} :: Stage) Prelude.. Lens.mapping Core._Time
+stage_createdDate = Lens.lens (\Stage' {createdDate} -> createdDate) (\s@Stage' {} a -> s {createdDate = a} :: Stage) Prelude.. Lens.mapping Data._Time
 
 -- | The version of the associated API documentation.
 stage_documentationVersion :: Lens.Lens' Stage (Prelude.Maybe Prelude.Text)
@@ -229,29 +230,29 @@ stage_documentationVersion = Lens.lens (\Stage' {documentationVersion} -> docume
 stage_variables :: Lens.Lens' Stage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 stage_variables = Lens.lens (\Stage' {variables} -> variables) (\s@Stage' {} a -> s {variables = a} :: Stage) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Stage where
+instance Data.FromJSON Stage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Stage"
       ( \x ->
           Stage'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "webAclArn")
-            Prelude.<*> (x Core..:? "stageName")
-            Prelude.<*> (x Core..:? "cacheClusterEnabled")
-            Prelude.<*> (x Core..:? "accessLogSettings")
-            Prelude.<*> (x Core..:? "cacheClusterStatus")
-            Prelude.<*> (x Core..:? "deploymentId")
-            Prelude.<*> (x Core..:? "lastUpdatedDate")
-            Prelude.<*> (x Core..:? "methodSettings" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "tracingEnabled")
-            Prelude.<*> (x Core..:? "clientCertificateId")
-            Prelude.<*> (x Core..:? "cacheClusterSize")
-            Prelude.<*> (x Core..:? "canarySettings")
-            Prelude.<*> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..:? "documentationVersion")
-            Prelude.<*> (x Core..:? "variables" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "webAclArn")
+            Prelude.<*> (x Data..:? "stageName")
+            Prelude.<*> (x Data..:? "cacheClusterEnabled")
+            Prelude.<*> (x Data..:? "accessLogSettings")
+            Prelude.<*> (x Data..:? "cacheClusterStatus")
+            Prelude.<*> (x Data..:? "deploymentId")
+            Prelude.<*> (x Data..:? "lastUpdatedDate")
+            Prelude.<*> (x Data..:? "methodSettings" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "tracingEnabled")
+            Prelude.<*> (x Data..:? "clientCertificateId")
+            Prelude.<*> (x Data..:? "cacheClusterSize")
+            Prelude.<*> (x Data..:? "canarySettings")
+            Prelude.<*> (x Data..:? "createdDate")
+            Prelude.<*> (x Data..:? "documentationVersion")
+            Prelude.<*> (x Data..:? "variables" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Stage where

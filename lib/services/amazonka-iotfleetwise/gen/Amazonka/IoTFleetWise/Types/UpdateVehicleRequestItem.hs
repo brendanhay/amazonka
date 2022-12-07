@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.UpdateVehicleRequestItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.UpdateMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -132,17 +133,17 @@ instance Prelude.NFData UpdateVehicleRequestItem where
       `Prelude.seq` Prelude.rnf attributeUpdateMode
       `Prelude.seq` Prelude.rnf vehicleName
 
-instance Core.ToJSON UpdateVehicleRequestItem where
+instance Data.ToJSON UpdateVehicleRequestItem where
   toJSON UpdateVehicleRequestItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("modelManifestArn" Core..=)
+          [ ("modelManifestArn" Data..=)
               Prelude.<$> modelManifestArn,
-            ("attributes" Core..=) Prelude.<$> attributes,
-            ("decoderManifestArn" Core..=)
+            ("attributes" Data..=) Prelude.<$> attributes,
+            ("decoderManifestArn" Data..=)
               Prelude.<$> decoderManifestArn,
-            ("attributeUpdateMode" Core..=)
+            ("attributeUpdateMode" Data..=)
               Prelude.<$> attributeUpdateMode,
-            Prelude.Just ("vehicleName" Core..= vehicleName)
+            Prelude.Just ("vehicleName" Data..= vehicleName)
           ]
       )

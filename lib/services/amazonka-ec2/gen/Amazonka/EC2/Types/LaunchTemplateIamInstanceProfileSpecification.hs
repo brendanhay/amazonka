@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateIamInstanceProfileSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,12 +65,12 @@ launchTemplateIamInstanceProfileSpecification_arn :: Lens.Lens' LaunchTemplateIa
 launchTemplateIamInstanceProfileSpecification_arn = Lens.lens (\LaunchTemplateIamInstanceProfileSpecification' {arn} -> arn) (\s@LaunchTemplateIamInstanceProfileSpecification' {} a -> s {arn = a} :: LaunchTemplateIamInstanceProfileSpecification)
 
 instance
-  Core.FromXML
+  Data.FromXML
     LaunchTemplateIamInstanceProfileSpecification
   where
   parseXML x =
     LaunchTemplateIamInstanceProfileSpecification'
-      Prelude.<$> (x Core..@? "name") Prelude.<*> (x Core..@? "arn")
+      Prelude.<$> (x Data..@? "name") Prelude.<*> (x Data..@? "arn")
 
 instance
   Prelude.Hashable

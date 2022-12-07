@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -204,7 +205,7 @@ instance Core.AWSRequest CreateDataset where
     Response.receiveJSON
       ( \s h x ->
           CreateDatasetResponse'
-            Prelude.<$> (x Core..?> "datasetArn")
+            Prelude.<$> (x Data..?> "datasetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -224,38 +225,38 @@ instance Prelude.NFData CreateDataset where
       `Prelude.seq` Prelude.rnf datasetGroupArn
       `Prelude.seq` Prelude.rnf datasetType
 
-instance Core.ToHeaders CreateDataset where
+instance Data.ToHeaders CreateDataset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.CreateDataset" ::
+              Data.=# ( "AmazonPersonalize.CreateDataset" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataset where
+instance Data.ToJSON CreateDataset where
   toJSON CreateDataset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("schemaArn" Core..= schemaArn),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("schemaArn" Data..= schemaArn),
             Prelude.Just
-              ("datasetGroupArn" Core..= datasetGroupArn),
-            Prelude.Just ("datasetType" Core..= datasetType)
+              ("datasetGroupArn" Data..= datasetGroupArn),
+            Prelude.Just ("datasetType" Data..= datasetType)
           ]
       )
 
-instance Core.ToPath CreateDataset where
+instance Data.ToPath CreateDataset where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDataset where
+instance Data.ToQuery CreateDataset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDatasetResponse' smart constructor.

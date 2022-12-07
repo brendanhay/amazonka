@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,34 +111,34 @@ instance Prelude.NFData DeleteImageVersion where
     Prelude.rnf imageName
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToHeaders DeleteImageVersion where
+instance Data.ToHeaders DeleteImageVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DeleteImageVersion" ::
+              Data.=# ( "SageMaker.DeleteImageVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteImageVersion where
+instance Data.ToJSON DeleteImageVersion where
   toJSON DeleteImageVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ImageName" Core..= imageName),
-            Prelude.Just ("Version" Core..= version)
+          [ Prelude.Just ("ImageName" Data..= imageName),
+            Prelude.Just ("Version" Data..= version)
           ]
       )
 
-instance Core.ToPath DeleteImageVersion where
+instance Data.ToPath DeleteImageVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteImageVersion where
+instance Data.ToQuery DeleteImageVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteImageVersionResponse' smart constructor.

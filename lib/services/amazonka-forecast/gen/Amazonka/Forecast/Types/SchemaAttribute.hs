@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.SchemaAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.AttributeType
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,14 +78,14 @@ schemaAttribute_attributeType = Lens.lens (\SchemaAttribute' {attributeType} -> 
 schemaAttribute_attributeName :: Lens.Lens' SchemaAttribute (Prelude.Maybe Prelude.Text)
 schemaAttribute_attributeName = Lens.lens (\SchemaAttribute' {attributeName} -> attributeName) (\s@SchemaAttribute' {} a -> s {attributeName = a} :: SchemaAttribute)
 
-instance Core.FromJSON SchemaAttribute where
+instance Data.FromJSON SchemaAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaAttribute"
       ( \x ->
           SchemaAttribute'
-            Prelude.<$> (x Core..:? "AttributeType")
-            Prelude.<*> (x Core..:? "AttributeName")
+            Prelude.<$> (x Data..:? "AttributeType")
+            Prelude.<*> (x Data..:? "AttributeName")
       )
 
 instance Prelude.Hashable SchemaAttribute where
@@ -97,11 +98,11 @@ instance Prelude.NFData SchemaAttribute where
     Prelude.rnf attributeType
       `Prelude.seq` Prelude.rnf attributeName
 
-instance Core.ToJSON SchemaAttribute where
+instance Data.ToJSON SchemaAttribute where
   toJSON SchemaAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AttributeType" Core..=) Prelude.<$> attributeType,
-            ("AttributeName" Core..=) Prelude.<$> attributeName
+          [ ("AttributeType" Data..=) Prelude.<$> attributeType,
+            ("AttributeName" Data..=) Prelude.<$> attributeName
           ]
       )

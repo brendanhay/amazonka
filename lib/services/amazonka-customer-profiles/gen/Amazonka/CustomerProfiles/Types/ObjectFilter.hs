@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.ObjectFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The filter applied to ListProfileObjects response to include profile
@@ -87,11 +88,11 @@ instance Prelude.NFData ObjectFilter where
     Prelude.rnf keyName
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON ObjectFilter where
+instance Data.ToJSON ObjectFilter where
   toJSON ObjectFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("KeyName" Core..= keyName),
-            Prelude.Just ("Values" Core..= values)
+          [ Prelude.Just ("KeyName" Data..= keyName),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

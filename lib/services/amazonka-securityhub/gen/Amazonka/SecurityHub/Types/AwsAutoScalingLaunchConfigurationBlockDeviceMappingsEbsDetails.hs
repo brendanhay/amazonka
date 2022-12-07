@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationBlockDeviceMa
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Parameters that are used to automatically set up EBS volumes when an
@@ -198,20 +199,20 @@ awsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails_iops :: Lens.Lens
 awsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails_iops = Lens.lens (\AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails' {iops} -> iops) (\s@AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails' {} a -> s {iops = a} :: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails"
       ( \x ->
           AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails'
-            Prelude.<$> (x Core..:? "DeleteOnTermination")
-              Prelude.<*> (x Core..:? "SnapshotId")
-              Prelude.<*> (x Core..:? "VolumeType")
-              Prelude.<*> (x Core..:? "VolumeSize")
-              Prelude.<*> (x Core..:? "Encrypted")
-              Prelude.<*> (x Core..:? "Iops")
+            Prelude.<$> (x Data..:? "DeleteOnTermination")
+              Prelude.<*> (x Data..:? "SnapshotId")
+              Prelude.<*> (x Data..:? "VolumeType")
+              Prelude.<*> (x Data..:? "VolumeSize")
+              Prelude.<*> (x Data..:? "Encrypted")
+              Prelude.<*> (x Data..:? "Iops")
       )
 
 instance
@@ -242,19 +243,19 @@ instance
         `Prelude.seq` Prelude.rnf iops
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails
   where
   toJSON
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("DeleteOnTermination" Core..=)
+            [ ("DeleteOnTermination" Data..=)
                 Prelude.<$> deleteOnTermination,
-              ("SnapshotId" Core..=) Prelude.<$> snapshotId,
-              ("VolumeType" Core..=) Prelude.<$> volumeType,
-              ("VolumeSize" Core..=) Prelude.<$> volumeSize,
-              ("Encrypted" Core..=) Prelude.<$> encrypted,
-              ("Iops" Core..=) Prelude.<$> iops
+              ("SnapshotId" Data..=) Prelude.<$> snapshotId,
+              ("VolumeType" Data..=) Prelude.<$> volumeType,
+              ("VolumeSize" Data..=) Prelude.<$> volumeSize,
+              ("Encrypted" Data..=) Prelude.<$> encrypted,
+              ("Iops" Data..=) Prelude.<$> iops
             ]
         )

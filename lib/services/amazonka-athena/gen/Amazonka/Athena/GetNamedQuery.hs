@@ -43,6 +43,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetNamedQuery where
     Response.receiveJSON
       ( \s h x ->
           GetNamedQueryResponse'
-            Prelude.<$> (x Core..?> "NamedQuery")
+            Prelude.<$> (x Data..?> "NamedQuery")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,30 +96,30 @@ instance Prelude.Hashable GetNamedQuery where
 instance Prelude.NFData GetNamedQuery where
   rnf GetNamedQuery' {..} = Prelude.rnf namedQueryId
 
-instance Core.ToHeaders GetNamedQuery where
+instance Data.ToHeaders GetNamedQuery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonAthena.GetNamedQuery" :: Prelude.ByteString),
+              Data.=# ("AmazonAthena.GetNamedQuery" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetNamedQuery where
+instance Data.ToJSON GetNamedQuery where
   toJSON GetNamedQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("NamedQueryId" Core..= namedQueryId)]
+          [Prelude.Just ("NamedQueryId" Data..= namedQueryId)]
       )
 
-instance Core.ToPath GetNamedQuery where
+instance Data.ToPath GetNamedQuery where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetNamedQuery where
+instance Data.ToQuery GetNamedQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetNamedQueryResponse' smart constructor.

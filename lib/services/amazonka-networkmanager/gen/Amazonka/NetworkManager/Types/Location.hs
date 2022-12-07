@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.Location where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a location.
@@ -70,15 +71,15 @@ location_address = Lens.lens (\Location' {address} -> address) (\s@Location' {} 
 location_latitude :: Lens.Lens' Location (Prelude.Maybe Prelude.Text)
 location_latitude = Lens.lens (\Location' {latitude} -> latitude) (\s@Location' {} a -> s {latitude = a} :: Location)
 
-instance Core.FromJSON Location where
+instance Data.FromJSON Location where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Location"
       ( \x ->
           Location'
-            Prelude.<$> (x Core..:? "Longitude")
-            Prelude.<*> (x Core..:? "Address")
-            Prelude.<*> (x Core..:? "Latitude")
+            Prelude.<$> (x Data..:? "Longitude")
+            Prelude.<*> (x Data..:? "Address")
+            Prelude.<*> (x Data..:? "Latitude")
       )
 
 instance Prelude.Hashable Location where
@@ -93,12 +94,12 @@ instance Prelude.NFData Location where
       `Prelude.seq` Prelude.rnf address
       `Prelude.seq` Prelude.rnf latitude
 
-instance Core.ToJSON Location where
+instance Data.ToJSON Location where
   toJSON Location' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Longitude" Core..=) Prelude.<$> longitude,
-            ("Address" Core..=) Prelude.<$> address,
-            ("Latitude" Core..=) Prelude.<$> latitude
+          [ ("Longitude" Data..=) Prelude.<$> longitude,
+            ("Address" Data..=) Prelude.<$> address,
+            ("Latitude" Data..=) Prelude.<$> latitude
           ]
       )

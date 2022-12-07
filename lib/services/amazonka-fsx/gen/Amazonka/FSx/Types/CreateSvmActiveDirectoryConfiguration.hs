@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.CreateSvmActiveDirectoryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.SelfManagedActiveDirectoryConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -90,14 +91,14 @@ instance
       `Prelude.seq` Prelude.rnf netBiosName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateSvmActiveDirectoryConfiguration
   where
   toJSON CreateSvmActiveDirectoryConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SelfManagedActiveDirectoryConfiguration" Core..=)
+          [ ("SelfManagedActiveDirectoryConfiguration" Data..=)
               Prelude.<$> selfManagedActiveDirectoryConfiguration,
-            Prelude.Just ("NetBiosName" Core..= netBiosName)
+            Prelude.Just ("NetBiosName" Data..= netBiosName)
           ]
       )

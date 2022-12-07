@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.SupplementaryFeature where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This object belongs to the CreatePredictor operation. If you created
@@ -506,13 +507,13 @@ supplementaryFeature_name = Lens.lens (\SupplementaryFeature' {name} -> name) (\
 supplementaryFeature_value :: Lens.Lens' SupplementaryFeature Prelude.Text
 supplementaryFeature_value = Lens.lens (\SupplementaryFeature' {value} -> value) (\s@SupplementaryFeature' {} a -> s {value = a} :: SupplementaryFeature)
 
-instance Core.FromJSON SupplementaryFeature where
+instance Data.FromJSON SupplementaryFeature where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SupplementaryFeature"
       ( \x ->
           SupplementaryFeature'
-            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable SupplementaryFeature where
@@ -524,11 +525,11 @@ instance Prelude.NFData SupplementaryFeature where
   rnf SupplementaryFeature' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON SupplementaryFeature where
+instance Data.ToJSON SupplementaryFeature where
   toJSON SupplementaryFeature' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

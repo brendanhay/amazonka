@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SharePointConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import Amazonka.Kendra.Types.DataSourceVpcConfiguration
 import Amazonka.Kendra.Types.ProxyConfiguration
@@ -378,30 +379,30 @@ sharePointConfiguration_urls = Lens.lens (\SharePointConfiguration' {urls} -> ur
 sharePointConfiguration_secretArn :: Lens.Lens' SharePointConfiguration Prelude.Text
 sharePointConfiguration_secretArn = Lens.lens (\SharePointConfiguration' {secretArn} -> secretArn) (\s@SharePointConfiguration' {} a -> s {secretArn = a} :: SharePointConfiguration)
 
-instance Core.FromJSON SharePointConfiguration where
+instance Data.FromJSON SharePointConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SharePointConfiguration"
       ( \x ->
           SharePointConfiguration'
-            Prelude.<$> (x Core..:? "UseChangeLog")
-            Prelude.<*> (x Core..:? "VpcConfiguration")
-            Prelude.<*> (x Core..:? "ProxyConfiguration")
-            Prelude.<*> (x Core..:? "AuthenticationType")
-            Prelude.<*> (x Core..:? "SslCertificateS3Path")
-            Prelude.<*> (x Core..:? "CrawlAttachments")
-            Prelude.<*> ( x Core..:? "InclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "UseChangeLog")
+            Prelude.<*> (x Data..:? "VpcConfiguration")
+            Prelude.<*> (x Data..:? "ProxyConfiguration")
+            Prelude.<*> (x Data..:? "AuthenticationType")
+            Prelude.<*> (x Data..:? "SslCertificateS3Path")
+            Prelude.<*> (x Data..:? "CrawlAttachments")
+            Prelude.<*> ( x Data..:? "InclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "FieldMappings")
-            Prelude.<*> (x Core..:? "DocumentTitleFieldName")
-            Prelude.<*> (x Core..:? "DisableLocalGroups")
-            Prelude.<*> ( x Core..:? "ExclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "FieldMappings")
+            Prelude.<*> (x Data..:? "DocumentTitleFieldName")
+            Prelude.<*> (x Data..:? "DisableLocalGroups")
+            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "SharePointVersion")
-            Prelude.<*> (x Core..: "Urls")
-            Prelude.<*> (x Core..: "SecretArn")
+            Prelude.<*> (x Data..: "SharePointVersion")
+            Prelude.<*> (x Data..: "Urls")
+            Prelude.<*> (x Data..: "SecretArn")
       )
 
 instance Prelude.Hashable SharePointConfiguration where
@@ -438,33 +439,33 @@ instance Prelude.NFData SharePointConfiguration where
       `Prelude.seq` Prelude.rnf urls
       `Prelude.seq` Prelude.rnf secretArn
 
-instance Core.ToJSON SharePointConfiguration where
+instance Data.ToJSON SharePointConfiguration where
   toJSON SharePointConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UseChangeLog" Core..=) Prelude.<$> useChangeLog,
-            ("VpcConfiguration" Core..=)
+          [ ("UseChangeLog" Data..=) Prelude.<$> useChangeLog,
+            ("VpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("ProxyConfiguration" Core..=)
+            ("ProxyConfiguration" Data..=)
               Prelude.<$> proxyConfiguration,
-            ("AuthenticationType" Core..=)
+            ("AuthenticationType" Data..=)
               Prelude.<$> authenticationType,
-            ("SslCertificateS3Path" Core..=)
+            ("SslCertificateS3Path" Data..=)
               Prelude.<$> sslCertificateS3Path,
-            ("CrawlAttachments" Core..=)
+            ("CrawlAttachments" Data..=)
               Prelude.<$> crawlAttachments,
-            ("InclusionPatterns" Core..=)
+            ("InclusionPatterns" Data..=)
               Prelude.<$> inclusionPatterns,
-            ("FieldMappings" Core..=) Prelude.<$> fieldMappings,
-            ("DocumentTitleFieldName" Core..=)
+            ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
+            ("DocumentTitleFieldName" Data..=)
               Prelude.<$> documentTitleFieldName,
-            ("DisableLocalGroups" Core..=)
+            ("DisableLocalGroups" Data..=)
               Prelude.<$> disableLocalGroups,
-            ("ExclusionPatterns" Core..=)
+            ("ExclusionPatterns" Data..=)
               Prelude.<$> exclusionPatterns,
             Prelude.Just
-              ("SharePointVersion" Core..= sharePointVersion),
-            Prelude.Just ("Urls" Core..= urls),
-            Prelude.Just ("SecretArn" Core..= secretArn)
+              ("SharePointVersion" Data..= sharePointVersion),
+            Prelude.Just ("Urls" Data..= urls),
+            Prelude.Just ("SecretArn" Data..= secretArn)
           ]
       )

@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,27 +147,27 @@ instance Core.AWSRequest DescribeImageAttribute where
     Response.receiveXML
       ( \s h x ->
           DescribeImageAttributeResponse'
-            Prelude.<$> (x Core..@? "sriovNetSupport")
-            Prelude.<*> ( x Core..@? "blockDeviceMapping"
+            Prelude.<$> (x Data..@? "sriovNetSupport")
+            Prelude.<*> ( x Data..@? "blockDeviceMapping"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "lastLaunchedTime")
-            Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<*> (x Data..@? "lastLaunchedTime")
+            Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "description")
-            Prelude.<*> (x Core..@? "tpmSupport")
-            Prelude.<*> (x Core..@? "ramdisk")
-            Prelude.<*> ( x Core..@? "launchPermission"
+            Prelude.<*> (x Data..@? "description")
+            Prelude.<*> (x Data..@? "tpmSupport")
+            Prelude.<*> (x Data..@? "ramdisk")
+            Prelude.<*> ( x Data..@? "launchPermission"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "imdsSupport")
-            Prelude.<*> (x Core..@? "bootMode")
-            Prelude.<*> (x Core..@? "kernel")
-            Prelude.<*> (x Core..@? "uefiData")
-            Prelude.<*> (x Core..@? "imageId")
+            Prelude.<*> (x Data..@? "imdsSupport")
+            Prelude.<*> (x Data..@? "bootMode")
+            Prelude.<*> (x Data..@? "kernel")
+            Prelude.<*> (x Data..@? "uefiData")
+            Prelude.<*> (x Data..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,22 +183,22 @@ instance Prelude.NFData DescribeImageAttribute where
       `Prelude.seq` Prelude.rnf attribute
       `Prelude.seq` Prelude.rnf imageId
 
-instance Core.ToHeaders DescribeImageAttribute where
+instance Data.ToHeaders DescribeImageAttribute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeImageAttribute where
+instance Data.ToPath DescribeImageAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeImageAttribute where
+instance Data.ToQuery DescribeImageAttribute where
   toQuery DescribeImageAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeImageAttribute" :: Prelude.ByteString),
+          Data.=: ("DescribeImageAttribute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Attribute" Core.=: attribute,
-        "ImageId" Core.=: imageId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Attribute" Data.=: attribute,
+        "ImageId" Data.=: imageId
       ]
 
 -- | Describes an image attribute.

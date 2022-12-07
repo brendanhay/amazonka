@@ -46,6 +46,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,8 +122,8 @@ instance Core.AWSRequest DescribeResourcePolicies where
     Response.receiveJSON
       ( \s h x ->
           DescribeResourcePoliciesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "resourcePolicies"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "resourcePolicies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -138,34 +139,34 @@ instance Prelude.NFData DescribeResourcePolicies where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders DescribeResourcePolicies where
+instance Data.ToHeaders DescribeResourcePolicies where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DescribeResourcePolicies" ::
+              Data.=# ( "Logs_20140328.DescribeResourcePolicies" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeResourcePolicies where
+instance Data.ToJSON DescribeResourcePolicies where
   toJSON DescribeResourcePolicies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("limit" Core..=) Prelude.<$> limit
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath DescribeResourcePolicies where
+instance Data.ToPath DescribeResourcePolicies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeResourcePolicies where
+instance Data.ToQuery DescribeResourcePolicies where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeResourcePoliciesResponse' smart constructor.

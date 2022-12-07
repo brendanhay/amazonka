@@ -109,6 +109,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -265,27 +266,27 @@ instance Prelude.NFData PutBucketWebsite where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf websiteConfiguration
 
-instance Core.ToElement PutBucketWebsite where
+instance Data.ToElement PutBucketWebsite where
   toElement PutBucketWebsite' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}WebsiteConfiguration"
       websiteConfiguration
 
-instance Core.ToHeaders PutBucketWebsite where
+instance Data.ToHeaders PutBucketWebsite where
   toHeaders PutBucketWebsite' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
-        "Content-MD5" Core.=# contentMD5,
+          Data.=# checksumAlgorithm,
+        "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath PutBucketWebsite where
+instance Data.ToPath PutBucketWebsite where
   toPath PutBucketWebsite' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery PutBucketWebsite where
+instance Data.ToQuery PutBucketWebsite where
   toQuery = Prelude.const (Prelude.mconcat ["website"])
 
 -- | /See:/ 'newPutBucketWebsiteResponse' smart constructor.

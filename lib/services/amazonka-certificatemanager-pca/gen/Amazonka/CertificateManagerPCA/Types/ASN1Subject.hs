@@ -22,6 +22,7 @@ module Amazonka.CertificateManagerPCA.Types.ASN1Subject where
 import Amazonka.CertificateManagerPCA.Types.CustomAttribute
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the certificate subject. The @Subject@ field
@@ -250,27 +251,27 @@ aSN1Subject_initials = Lens.lens (\ASN1Subject' {initials} -> initials) (\s@ASN1
 aSN1Subject_distinguishedNameQualifier :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
 aSN1Subject_distinguishedNameQualifier = Lens.lens (\ASN1Subject' {distinguishedNameQualifier} -> distinguishedNameQualifier) (\s@ASN1Subject' {} a -> s {distinguishedNameQualifier = a} :: ASN1Subject)
 
-instance Core.FromJSON ASN1Subject where
+instance Data.FromJSON ASN1Subject where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ASN1Subject"
       ( \x ->
           ASN1Subject'
-            Prelude.<$> (x Core..:? "Country")
-            Prelude.<*> (x Core..:? "GivenName")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "OrganizationalUnit")
-            Prelude.<*> (x Core..:? "GenerationQualifier")
-            Prelude.<*> (x Core..:? "Pseudonym")
-            Prelude.<*> (x Core..:? "Surname")
-            Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "CustomAttributes")
-            Prelude.<*> (x Core..:? "Locality")
-            Prelude.<*> (x Core..:? "Organization")
-            Prelude.<*> (x Core..:? "SerialNumber")
-            Prelude.<*> (x Core..:? "CommonName")
-            Prelude.<*> (x Core..:? "Initials")
-            Prelude.<*> (x Core..:? "DistinguishedNameQualifier")
+            Prelude.<$> (x Data..:? "Country")
+            Prelude.<*> (x Data..:? "GivenName")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "OrganizationalUnit")
+            Prelude.<*> (x Data..:? "GenerationQualifier")
+            Prelude.<*> (x Data..:? "Pseudonym")
+            Prelude.<*> (x Data..:? "Surname")
+            Prelude.<*> (x Data..:? "Title")
+            Prelude.<*> (x Data..:? "CustomAttributes")
+            Prelude.<*> (x Data..:? "Locality")
+            Prelude.<*> (x Data..:? "Organization")
+            Prelude.<*> (x Data..:? "SerialNumber")
+            Prelude.<*> (x Data..:? "CommonName")
+            Prelude.<*> (x Data..:? "Initials")
+            Prelude.<*> (x Data..:? "DistinguishedNameQualifier")
       )
 
 instance Prelude.Hashable ASN1Subject where
@@ -309,28 +310,28 @@ instance Prelude.NFData ASN1Subject where
       `Prelude.seq` Prelude.rnf initials
       `Prelude.seq` Prelude.rnf distinguishedNameQualifier
 
-instance Core.ToJSON ASN1Subject where
+instance Data.ToJSON ASN1Subject where
   toJSON ASN1Subject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Country" Core..=) Prelude.<$> country,
-            ("GivenName" Core..=) Prelude.<$> givenName,
-            ("State" Core..=) Prelude.<$> state,
-            ("OrganizationalUnit" Core..=)
+          [ ("Country" Data..=) Prelude.<$> country,
+            ("GivenName" Data..=) Prelude.<$> givenName,
+            ("State" Data..=) Prelude.<$> state,
+            ("OrganizationalUnit" Data..=)
               Prelude.<$> organizationalUnit,
-            ("GenerationQualifier" Core..=)
+            ("GenerationQualifier" Data..=)
               Prelude.<$> generationQualifier,
-            ("Pseudonym" Core..=) Prelude.<$> pseudonym,
-            ("Surname" Core..=) Prelude.<$> surname,
-            ("Title" Core..=) Prelude.<$> title,
-            ("CustomAttributes" Core..=)
+            ("Pseudonym" Data..=) Prelude.<$> pseudonym,
+            ("Surname" Data..=) Prelude.<$> surname,
+            ("Title" Data..=) Prelude.<$> title,
+            ("CustomAttributes" Data..=)
               Prelude.<$> customAttributes,
-            ("Locality" Core..=) Prelude.<$> locality,
-            ("Organization" Core..=) Prelude.<$> organization,
-            ("SerialNumber" Core..=) Prelude.<$> serialNumber,
-            ("CommonName" Core..=) Prelude.<$> commonName,
-            ("Initials" Core..=) Prelude.<$> initials,
-            ("DistinguishedNameQualifier" Core..=)
+            ("Locality" Data..=) Prelude.<$> locality,
+            ("Organization" Data..=) Prelude.<$> organization,
+            ("SerialNumber" Data..=) Prelude.<$> serialNumber,
+            ("CommonName" Data..=) Prelude.<$> commonName,
+            ("Initials" Data..=) Prelude.<$> initials,
+            ("DistinguishedNameQualifier" Data..=)
               Prelude.<$> distinguishedNameQualifier
           ]
       )

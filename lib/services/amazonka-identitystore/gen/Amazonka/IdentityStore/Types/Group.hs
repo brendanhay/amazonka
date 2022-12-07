@@ -21,6 +21,7 @@ module Amazonka.IdentityStore.Types.Group where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IdentityStore.Types.ExternalId
 import qualified Amazonka.Prelude as Prelude
 
@@ -38,9 +39,9 @@ data Group = Group'
     -- nonbreaking space in this attribute. This value is specified at the time
     -- the group is created and stored as an attribute of the group object in
     -- the identity store.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing a description of the specified group.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The identifier for a group in the identity store.
     groupId :: Prelude.Text,
     -- | The globally unique identifier for the identity store.
@@ -98,11 +99,11 @@ group_externalIds = Lens.lens (\Group' {externalIds} -> externalIds) (\s@Group' 
 -- the group is created and stored as an attribute of the group object in
 -- the identity store.
 group_displayName :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
-group_displayName = Lens.lens (\Group' {displayName} -> displayName) (\s@Group' {} a -> s {displayName = a} :: Group) Prelude.. Lens.mapping Core._Sensitive
+group_displayName = Lens.lens (\Group' {displayName} -> displayName) (\s@Group' {} a -> s {displayName = a} :: Group) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing a description of the specified group.
 group_description :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
-group_description = Lens.lens (\Group' {description} -> description) (\s@Group' {} a -> s {description = a} :: Group) Prelude.. Lens.mapping Core._Sensitive
+group_description = Lens.lens (\Group' {description} -> description) (\s@Group' {} a -> s {description = a} :: Group) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The identifier for a group in the identity store.
 group_groupId :: Lens.Lens' Group Prelude.Text
@@ -112,17 +113,17 @@ group_groupId = Lens.lens (\Group' {groupId} -> groupId) (\s@Group' {} a -> s {g
 group_identityStoreId :: Lens.Lens' Group Prelude.Text
 group_identityStoreId = Lens.lens (\Group' {identityStoreId} -> identityStoreId) (\s@Group' {} a -> s {identityStoreId = a} :: Group)
 
-instance Core.FromJSON Group where
+instance Data.FromJSON Group where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Group"
       ( \x ->
           Group'
-            Prelude.<$> (x Core..:? "ExternalIds")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..: "GroupId")
-            Prelude.<*> (x Core..: "IdentityStoreId")
+            Prelude.<$> (x Data..:? "ExternalIds")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..: "GroupId")
+            Prelude.<*> (x Data..: "IdentityStoreId")
       )
 
 instance Prelude.Hashable Group where

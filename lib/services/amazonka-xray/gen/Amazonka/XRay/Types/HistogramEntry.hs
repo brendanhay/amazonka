@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.HistogramEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An entry in a histogram for a statistic. A histogram maps the range of
@@ -63,14 +64,14 @@ histogramEntry_count = Lens.lens (\HistogramEntry' {count} -> count) (\s@Histogr
 histogramEntry_value :: Lens.Lens' HistogramEntry (Prelude.Maybe Prelude.Double)
 histogramEntry_value = Lens.lens (\HistogramEntry' {value} -> value) (\s@HistogramEntry' {} a -> s {value = a} :: HistogramEntry)
 
-instance Core.FromJSON HistogramEntry where
+instance Data.FromJSON HistogramEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HistogramEntry"
       ( \x ->
           HistogramEntry'
-            Prelude.<$> (x Core..:? "Count")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable HistogramEntry where

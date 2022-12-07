@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -232,10 +233,10 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeTrafficMirrorSessionsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "trafficMirrorSessionSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "trafficMirrorSessionSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -259,30 +260,30 @@ instance Prelude.NFData DescribeTrafficMirrorSessions where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeTrafficMirrorSessions where
+instance Data.ToHeaders DescribeTrafficMirrorSessions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeTrafficMirrorSessions where
+instance Data.ToPath DescribeTrafficMirrorSessions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTrafficMirrorSessions where
+instance Data.ToQuery DescribeTrafficMirrorSessions where
   toQuery DescribeTrafficMirrorSessions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeTrafficMirrorSessions" ::
+          Data.=: ( "DescribeTrafficMirrorSessions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          ( Core.toQueryList "TrafficMirrorSessionId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          ( Data.toQueryList "TrafficMirrorSessionId"
               Prelude.<$> trafficMirrorSessionIds
           ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeTrafficMirrorSessionsResponse' smart constructor.

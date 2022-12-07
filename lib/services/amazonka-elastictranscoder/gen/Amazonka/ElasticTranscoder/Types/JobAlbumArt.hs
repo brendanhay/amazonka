@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.JobAlbumArt where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.Artwork
 import qualified Amazonka.Prelude as Prelude
 
@@ -110,14 +111,14 @@ jobAlbumArt_mergePolicy = Lens.lens (\JobAlbumArt' {mergePolicy} -> mergePolicy)
 jobAlbumArt_artwork :: Lens.Lens' JobAlbumArt (Prelude.Maybe [Artwork])
 jobAlbumArt_artwork = Lens.lens (\JobAlbumArt' {artwork} -> artwork) (\s@JobAlbumArt' {} a -> s {artwork = a} :: JobAlbumArt) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON JobAlbumArt where
+instance Data.FromJSON JobAlbumArt where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobAlbumArt"
       ( \x ->
           JobAlbumArt'
-            Prelude.<$> (x Core..:? "MergePolicy")
-            Prelude.<*> (x Core..:? "Artwork" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "MergePolicy")
+            Prelude.<*> (x Data..:? "Artwork" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable JobAlbumArt where
@@ -130,11 +131,11 @@ instance Prelude.NFData JobAlbumArt where
     Prelude.rnf mergePolicy
       `Prelude.seq` Prelude.rnf artwork
 
-instance Core.ToJSON JobAlbumArt where
+instance Data.ToJSON JobAlbumArt where
   toJSON JobAlbumArt' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MergePolicy" Core..=) Prelude.<$> mergePolicy,
-            ("Artwork" Core..=) Prelude.<$> artwork
+          [ ("MergePolicy" Data..=) Prelude.<$> mergePolicy,
+            ("Artwork" Data..=) Prelude.<$> artwork
           ]
       )

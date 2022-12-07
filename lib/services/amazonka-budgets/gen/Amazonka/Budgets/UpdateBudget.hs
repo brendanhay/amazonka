@@ -52,6 +52,7 @@ where
 import Amazonka.Budgets.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,34 +123,34 @@ instance Prelude.NFData UpdateBudget where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf newBudget'
 
-instance Core.ToHeaders UpdateBudget where
+instance Data.ToHeaders UpdateBudget where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSBudgetServiceGateway.UpdateBudget" ::
+              Data.=# ( "AWSBudgetServiceGateway.UpdateBudget" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBudget where
+instance Data.ToJSON UpdateBudget where
   toJSON UpdateBudget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Core..= accountId),
-            Prelude.Just ("NewBudget" Core..= newBudget')
+          [ Prelude.Just ("AccountId" Data..= accountId),
+            Prelude.Just ("NewBudget" Data..= newBudget')
           ]
       )
 
-instance Core.ToPath UpdateBudget where
+instance Data.ToPath UpdateBudget where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateBudget where
+instance Data.ToQuery UpdateBudget where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Response of UpdateBudget

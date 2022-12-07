@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -184,8 +185,8 @@ instance Core.AWSRequest DescribeInstanceInformation where
     Response.receiveJSON
       ( \s h x ->
           DescribeInstanceInformationResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "InstanceInformationList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "InstanceInformationList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -205,37 +206,37 @@ instance Prelude.NFData DescribeInstanceInformation where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceInformationFilterList
 
-instance Core.ToHeaders DescribeInstanceInformation where
+instance Data.ToHeaders DescribeInstanceInformation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DescribeInstanceInformation" ::
+              Data.=# ( "AmazonSSM.DescribeInstanceInformation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeInstanceInformation where
+instance Data.ToJSON DescribeInstanceInformation where
   toJSON DescribeInstanceInformation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("InstanceInformationFilterList" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("InstanceInformationFilterList" Data..=)
               Prelude.<$> instanceInformationFilterList
           ]
       )
 
-instance Core.ToPath DescribeInstanceInformation where
+instance Data.ToPath DescribeInstanceInformation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeInstanceInformation where
+instance Data.ToQuery DescribeInstanceInformation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeInstanceInformationResponse' smart constructor.

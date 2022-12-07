@@ -21,6 +21,7 @@ module Amazonka.ServerlessApplicationRepository.Types.ApplicationPolicyStatement
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Policy statement applied to the application.
@@ -89,18 +90,18 @@ applicationPolicyStatement_principals = Lens.lens (\ApplicationPolicyStatement' 
 applicationPolicyStatement_actions :: Lens.Lens' ApplicationPolicyStatement [Prelude.Text]
 applicationPolicyStatement_actions = Lens.lens (\ApplicationPolicyStatement' {actions} -> actions) (\s@ApplicationPolicyStatement' {} a -> s {actions = a} :: ApplicationPolicyStatement) Prelude.. Lens.coerced
 
-instance Core.FromJSON ApplicationPolicyStatement where
+instance Data.FromJSON ApplicationPolicyStatement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationPolicyStatement"
       ( \x ->
           ApplicationPolicyStatement'
-            Prelude.<$> ( x Core..:? "principalOrgIDs"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "principalOrgIDs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "statementId")
-            Prelude.<*> (x Core..:? "principals" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "actions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "statementId")
+            Prelude.<*> (x Data..:? "principals" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "actions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ApplicationPolicyStatement where
@@ -117,14 +118,14 @@ instance Prelude.NFData ApplicationPolicyStatement where
       `Prelude.seq` Prelude.rnf principals
       `Prelude.seq` Prelude.rnf actions
 
-instance Core.ToJSON ApplicationPolicyStatement where
+instance Data.ToJSON ApplicationPolicyStatement where
   toJSON ApplicationPolicyStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("principalOrgIDs" Core..=)
+          [ ("principalOrgIDs" Data..=)
               Prelude.<$> principalOrgIDs,
-            ("statementId" Core..=) Prelude.<$> statementId,
-            Prelude.Just ("principals" Core..= principals),
-            Prelude.Just ("actions" Core..= actions)
+            ("statementId" Data..=) Prelude.<$> statementId,
+            Prelude.Just ("principals" Data..= principals),
+            Prelude.Just ("actions" Data..= actions)
           ]
       )

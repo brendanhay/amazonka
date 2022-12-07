@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetTargetResourceType where
     Response.receiveJSON
       ( \s h x ->
           GetTargetResourceTypeResponse'
-            Prelude.<$> (x Core..?> "targetResourceType")
+            Prelude.<$> (x Data..?> "targetResourceType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,23 +99,23 @@ instance Prelude.NFData GetTargetResourceType where
   rnf GetTargetResourceType' {..} =
     Prelude.rnf resourceType
 
-instance Core.ToHeaders GetTargetResourceType where
+instance Data.ToHeaders GetTargetResourceType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetTargetResourceType where
+instance Data.ToPath GetTargetResourceType where
   toPath GetTargetResourceType' {..} =
     Prelude.mconcat
-      ["/targetResourceTypes/", Core.toBS resourceType]
+      ["/targetResourceTypes/", Data.toBS resourceType]
 
-instance Core.ToQuery GetTargetResourceType where
+instance Data.ToQuery GetTargetResourceType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTargetResourceTypeResponse' smart constructor.

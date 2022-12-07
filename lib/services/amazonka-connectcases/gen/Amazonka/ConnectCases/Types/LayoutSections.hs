@@ -22,6 +22,7 @@ module Amazonka.ConnectCases.Types.LayoutSections where
 import Amazonka.ConnectCases.Types.Section
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Ordered list containing different kinds of sections that can be added. A
@@ -51,13 +52,13 @@ newLayoutSections =
 layoutSections_sections :: Lens.Lens' LayoutSections (Prelude.Maybe [Section])
 layoutSections_sections = Lens.lens (\LayoutSections' {sections} -> sections) (\s@LayoutSections' {} a -> s {sections = a} :: LayoutSections) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON LayoutSections where
+instance Data.FromJSON LayoutSections where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LayoutSections"
       ( \x ->
           LayoutSections'
-            Prelude.<$> (x Core..:? "sections" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "sections" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable LayoutSections where
@@ -67,9 +68,9 @@ instance Prelude.Hashable LayoutSections where
 instance Prelude.NFData LayoutSections where
   rnf LayoutSections' {..} = Prelude.rnf sections
 
-instance Core.ToJSON LayoutSections where
+instance Data.ToJSON LayoutSections where
   toJSON LayoutSections' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("sections" Core..=) Prelude.<$> sections]
+          [("sections" Data..=) Prelude.<$> sections]
       )

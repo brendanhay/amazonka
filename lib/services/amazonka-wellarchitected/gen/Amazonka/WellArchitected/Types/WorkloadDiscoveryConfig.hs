@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.WorkloadDiscoveryConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.TrustedAdvisorIntegrationStatus
 
@@ -57,13 +58,13 @@ newWorkloadDiscoveryConfig =
 workloadDiscoveryConfig_trustedAdvisorIntegrationStatus :: Lens.Lens' WorkloadDiscoveryConfig (Prelude.Maybe TrustedAdvisorIntegrationStatus)
 workloadDiscoveryConfig_trustedAdvisorIntegrationStatus = Lens.lens (\WorkloadDiscoveryConfig' {trustedAdvisorIntegrationStatus} -> trustedAdvisorIntegrationStatus) (\s@WorkloadDiscoveryConfig' {} a -> s {trustedAdvisorIntegrationStatus = a} :: WorkloadDiscoveryConfig)
 
-instance Core.FromJSON WorkloadDiscoveryConfig where
+instance Data.FromJSON WorkloadDiscoveryConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkloadDiscoveryConfig"
       ( \x ->
           WorkloadDiscoveryConfig'
-            Prelude.<$> (x Core..:? "TrustedAdvisorIntegrationStatus")
+            Prelude.<$> (x Data..:? "TrustedAdvisorIntegrationStatus")
       )
 
 instance Prelude.Hashable WorkloadDiscoveryConfig where
@@ -75,11 +76,11 @@ instance Prelude.NFData WorkloadDiscoveryConfig where
   rnf WorkloadDiscoveryConfig' {..} =
     Prelude.rnf trustedAdvisorIntegrationStatus
 
-instance Core.ToJSON WorkloadDiscoveryConfig where
+instance Data.ToJSON WorkloadDiscoveryConfig where
   toJSON WorkloadDiscoveryConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TrustedAdvisorIntegrationStatus" Core..=)
+          [ ("TrustedAdvisorIntegrationStatus" Data..=)
               Prelude.<$> trustedAdvisorIntegrationStatus
           ]
       )

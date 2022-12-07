@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest DescribeBatchInferenceJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeBatchInferenceJobResponse'
-            Prelude.<$> (x Core..?> "batchInferenceJob")
+            Prelude.<$> (x Data..?> "batchInferenceJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,36 +101,36 @@ instance Prelude.NFData DescribeBatchInferenceJob where
   rnf DescribeBatchInferenceJob' {..} =
     Prelude.rnf batchInferenceJobArn
 
-instance Core.ToHeaders DescribeBatchInferenceJob where
+instance Data.ToHeaders DescribeBatchInferenceJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DescribeBatchInferenceJob" ::
+              Data.=# ( "AmazonPersonalize.DescribeBatchInferenceJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeBatchInferenceJob where
+instance Data.ToJSON DescribeBatchInferenceJob where
   toJSON DescribeBatchInferenceJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "batchInferenceJobArn"
-                  Core..= batchInferenceJobArn
+                  Data..= batchInferenceJobArn
               )
           ]
       )
 
-instance Core.ToPath DescribeBatchInferenceJob where
+instance Data.ToPath DescribeBatchInferenceJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeBatchInferenceJob where
+instance Data.ToQuery DescribeBatchInferenceJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeBatchInferenceJobResponse' smart constructor.

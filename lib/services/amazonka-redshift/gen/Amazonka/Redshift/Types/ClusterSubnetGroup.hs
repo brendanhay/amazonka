@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ClusterSubnetGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.Subnet
@@ -103,19 +104,19 @@ clusterSubnetGroup_description = Lens.lens (\ClusterSubnetGroup' {description} -
 clusterSubnetGroup_vpcId :: Lens.Lens' ClusterSubnetGroup (Prelude.Maybe Prelude.Text)
 clusterSubnetGroup_vpcId = Lens.lens (\ClusterSubnetGroup' {vpcId} -> vpcId) (\s@ClusterSubnetGroup' {} a -> s {vpcId = a} :: ClusterSubnetGroup)
 
-instance Core.FromXML ClusterSubnetGroup where
+instance Data.FromXML ClusterSubnetGroup where
   parseXML x =
     ClusterSubnetGroup'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "ClusterSubnetGroupName")
-      Prelude.<*> (x Core..@? "SubnetGroupStatus")
-      Prelude.<*> ( x Core..@? "Subnets" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Subnet")
+      Prelude.<*> (x Data..@? "ClusterSubnetGroupName")
+      Prelude.<*> (x Data..@? "SubnetGroupStatus")
+      Prelude.<*> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Subnet")
                   )
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "VpcId")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "VpcId")
 
 instance Prelude.Hashable ClusterSubnetGroup where
   hashWithSalt _salt ClusterSubnetGroup' {..} =

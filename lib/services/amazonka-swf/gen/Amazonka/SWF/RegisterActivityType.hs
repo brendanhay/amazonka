@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -385,48 +386,48 @@ instance Prelude.NFData RegisterActivityType where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToHeaders RegisterActivityType where
+instance Data.ToHeaders RegisterActivityType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.RegisterActivityType" ::
+              Data.=# ( "SimpleWorkflowService.RegisterActivityType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterActivityType where
+instance Data.ToJSON RegisterActivityType where
   toJSON RegisterActivityType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("defaultTaskStartToCloseTimeout" Core..=)
+          [ ("defaultTaskStartToCloseTimeout" Data..=)
               Prelude.<$> defaultTaskStartToCloseTimeout,
-            ("defaultTaskHeartbeatTimeout" Core..=)
+            ("defaultTaskHeartbeatTimeout" Data..=)
               Prelude.<$> defaultTaskHeartbeatTimeout,
-            ("description" Core..=) Prelude.<$> description,
-            ("defaultTaskPriority" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("defaultTaskPriority" Data..=)
               Prelude.<$> defaultTaskPriority,
-            ("defaultTaskScheduleToStartTimeout" Core..=)
+            ("defaultTaskScheduleToStartTimeout" Data..=)
               Prelude.<$> defaultTaskScheduleToStartTimeout,
-            ("defaultTaskList" Core..=)
+            ("defaultTaskList" Data..=)
               Prelude.<$> defaultTaskList,
-            ("defaultTaskScheduleToCloseTimeout" Core..=)
+            ("defaultTaskScheduleToCloseTimeout" Data..=)
               Prelude.<$> defaultTaskScheduleToCloseTimeout,
-            Prelude.Just ("domain" Core..= domain),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("version" Core..= version)
+            Prelude.Just ("domain" Data..= domain),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("version" Data..= version)
           ]
       )
 
-instance Core.ToPath RegisterActivityType where
+instance Data.ToPath RegisterActivityType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterActivityType where
+instance Data.ToQuery RegisterActivityType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterActivityTypeResponse' smart constructor.

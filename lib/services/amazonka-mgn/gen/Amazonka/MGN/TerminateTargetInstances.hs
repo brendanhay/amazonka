@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -52,7 +53,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newTerminateTargetInstances' smart constructor.
 data TerminateTargetInstances = TerminateTargetInstances'
   { -- | Terminate Target instance by Tags.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Terminate Target instance by Source Server IDs.
     sourceServerIDs :: Prelude.NonEmpty Prelude.Text
   }
@@ -82,7 +83,7 @@ newTerminateTargetInstances pSourceServerIDs_ =
 
 -- | Terminate Target instance by Tags.
 terminateTargetInstances_tags :: Lens.Lens' TerminateTargetInstances (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-terminateTargetInstances_tags = Lens.lens (\TerminateTargetInstances' {tags} -> tags) (\s@TerminateTargetInstances' {} a -> s {tags = a} :: TerminateTargetInstances) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+terminateTargetInstances_tags = Lens.lens (\TerminateTargetInstances' {tags} -> tags) (\s@TerminateTargetInstances' {} a -> s {tags = a} :: TerminateTargetInstances) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Terminate Target instance by Source Server IDs.
 terminateTargetInstances_sourceServerIDs :: Lens.Lens' TerminateTargetInstances (Prelude.NonEmpty Prelude.Text)
@@ -98,7 +99,7 @@ instance Core.AWSRequest TerminateTargetInstances where
     Response.receiveJSON
       ( \s h x ->
           TerminateTargetInstancesResponse'
-            Prelude.<$> (x Core..?> "job")
+            Prelude.<$> (x Data..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,31 +113,31 @@ instance Prelude.NFData TerminateTargetInstances where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf sourceServerIDs
 
-instance Core.ToHeaders TerminateTargetInstances where
+instance Data.ToHeaders TerminateTargetInstances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TerminateTargetInstances where
+instance Data.ToJSON TerminateTargetInstances where
   toJSON TerminateTargetInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("sourceServerIDs" Core..= sourceServerIDs)
+              ("sourceServerIDs" Data..= sourceServerIDs)
           ]
       )
 
-instance Core.ToPath TerminateTargetInstances where
+instance Data.ToPath TerminateTargetInstances where
   toPath = Prelude.const "/TerminateTargetInstances"
 
-instance Core.ToQuery TerminateTargetInstances where
+instance Data.ToQuery TerminateTargetInstances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTerminateTargetInstancesResponse' smart constructor.

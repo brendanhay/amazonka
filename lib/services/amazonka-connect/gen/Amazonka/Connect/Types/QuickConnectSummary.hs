@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.QuickConnectSummary where
 import Amazonka.Connect.Types.QuickConnectType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about a quick connect.
@@ -86,16 +87,16 @@ quickConnectSummary_arn = Lens.lens (\QuickConnectSummary' {arn} -> arn) (\s@Qui
 quickConnectSummary_id :: Lens.Lens' QuickConnectSummary (Prelude.Maybe Prelude.Text)
 quickConnectSummary_id = Lens.lens (\QuickConnectSummary' {id} -> id) (\s@QuickConnectSummary' {} a -> s {id = a} :: QuickConnectSummary)
 
-instance Core.FromJSON QuickConnectSummary where
+instance Data.FromJSON QuickConnectSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QuickConnectSummary"
       ( \x ->
           QuickConnectSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "QuickConnectType")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "QuickConnectType")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable QuickConnectSummary where

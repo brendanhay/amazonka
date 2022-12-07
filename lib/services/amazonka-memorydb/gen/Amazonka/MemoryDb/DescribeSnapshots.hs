@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -173,8 +174,8 @@ instance Core.AWSRequest DescribeSnapshots where
     Response.receiveJSON
       ( \s h x ->
           DescribeSnapshotsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Snapshots" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Snapshots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,38 +197,38 @@ instance Prelude.NFData DescribeSnapshots where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf clusterName
 
-instance Core.ToHeaders DescribeSnapshots where
+instance Data.ToHeaders DescribeSnapshots where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonMemoryDB.DescribeSnapshots" ::
+              Data.=# ( "AmazonMemoryDB.DescribeSnapshots" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSnapshots where
+instance Data.ToJSON DescribeSnapshots where
   toJSON DescribeSnapshots' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SnapshotName" Core..=) Prelude.<$> snapshotName,
-            ("ShowDetail" Core..=) Prelude.<$> showDetail,
-            ("Source" Core..=) Prelude.<$> source,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ClusterName" Core..=) Prelude.<$> clusterName
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SnapshotName" Data..=) Prelude.<$> snapshotName,
+            ("ShowDetail" Data..=) Prelude.<$> showDetail,
+            ("Source" Data..=) Prelude.<$> source,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ClusterName" Data..=) Prelude.<$> clusterName
           ]
       )
 
-instance Core.ToPath DescribeSnapshots where
+instance Data.ToPath DescribeSnapshots where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSnapshots where
+instance Data.ToQuery DescribeSnapshots where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSnapshotsResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,8 +134,8 @@ instance Core.AWSRequest ListStreamingImages where
     Response.receiveJSON
       ( \s h x ->
           ListStreamingImagesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "streamingImages"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "streamingImages"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -152,30 +153,30 @@ instance Prelude.NFData ListStreamingImages where
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders ListStreamingImages where
+instance Data.ToHeaders ListStreamingImages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListStreamingImages where
+instance Data.ToPath ListStreamingImages where
   toPath ListStreamingImages' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/streaming-images"
       ]
 
-instance Core.ToQuery ListStreamingImages where
+instance Data.ToQuery ListStreamingImages where
   toQuery ListStreamingImages' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "owner" Core.=: owner
+      [ "nextToken" Data.=: nextToken,
+        "owner" Data.=: owner
       ]
 
 -- | /See:/ 'newListStreamingImagesResponse' smart constructor.

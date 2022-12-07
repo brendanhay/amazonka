@@ -48,6 +48,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -145,8 +146,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetConformancePackComplianceSummaryResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "ConformancePackComplianceSummaryList")
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "ConformancePackComplianceSummaryList")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,47 +172,47 @@ instance
       `Prelude.seq` Prelude.rnf conformancePackNames
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetConformancePackComplianceSummary
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.GetConformancePackComplianceSummary" ::
+              Data.=# ( "StarlingDoveService.GetConformancePackComplianceSummary" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetConformancePackComplianceSummary
   where
   toJSON GetConformancePackComplianceSummary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit,
             Prelude.Just
               ( "ConformancePackNames"
-                  Core..= conformancePackNames
+                  Data..= conformancePackNames
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetConformancePackComplianceSummary
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetConformancePackComplianceSummary
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.DynamicSsmParameterValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.VariableType
 
@@ -57,13 +58,13 @@ newDynamicSsmParameterValue =
 dynamicSsmParameterValue_variable :: Lens.Lens' DynamicSsmParameterValue (Prelude.Maybe VariableType)
 dynamicSsmParameterValue_variable = Lens.lens (\DynamicSsmParameterValue' {variable} -> variable) (\s@DynamicSsmParameterValue' {} a -> s {variable = a} :: DynamicSsmParameterValue)
 
-instance Core.FromJSON DynamicSsmParameterValue where
+instance Data.FromJSON DynamicSsmParameterValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DynamicSsmParameterValue"
       ( \x ->
           DynamicSsmParameterValue'
-            Prelude.<$> (x Core..:? "variable")
+            Prelude.<$> (x Data..:? "variable")
       )
 
 instance Prelude.Hashable DynamicSsmParameterValue where
@@ -74,9 +75,9 @@ instance Prelude.NFData DynamicSsmParameterValue where
   rnf DynamicSsmParameterValue' {..} =
     Prelude.rnf variable
 
-instance Core.ToJSON DynamicSsmParameterValue where
+instance Data.ToJSON DynamicSsmParameterValue where
   toJSON DynamicSsmParameterValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("variable" Core..=) Prelude.<$> variable]
+          [("variable" Data..=) Prelude.<$> variable]
       )

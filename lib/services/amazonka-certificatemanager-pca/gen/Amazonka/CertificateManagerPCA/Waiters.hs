@@ -23,6 +23,7 @@ import Amazonka.CertificateManagerPCA.Lens
 import Amazonka.CertificateManagerPCA.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
@@ -38,14 +39,14 @@ newAuditReportCreated =
             Core.AcceptSuccess
             ( describeCertificateAuthorityAuditReportResponse_auditReportStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( describeCertificateAuthorityAuditReportResponse_auditReportStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

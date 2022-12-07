@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,7 +93,7 @@ data CreateMaintenanceWindow = CreateMaintenanceWindow'
     endDate :: Prelude.Maybe Prelude.Text,
     -- | An optional description for the maintenance window. We recommend
     -- specifying a description to help you organize your maintenance windows.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The time zone that the scheduled maintenance window executions are based
     -- on, in Internet Assigned Numbers Authority (IANA) format. For example:
     -- \"America\/Los_Angeles\", \"UTC\", or \"Asia\/Seoul\". For more
@@ -277,7 +278,7 @@ createMaintenanceWindow_endDate = Lens.lens (\CreateMaintenanceWindow' {endDate}
 -- | An optional description for the maintenance window. We recommend
 -- specifying a description to help you organize your maintenance windows.
 createMaintenanceWindow_description :: Lens.Lens' CreateMaintenanceWindow (Prelude.Maybe Prelude.Text)
-createMaintenanceWindow_description = Lens.lens (\CreateMaintenanceWindow' {description} -> description) (\s@CreateMaintenanceWindow' {} a -> s {description = a} :: CreateMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
+createMaintenanceWindow_description = Lens.lens (\CreateMaintenanceWindow' {description} -> description) (\s@CreateMaintenanceWindow' {} a -> s {description = a} :: CreateMaintenanceWindow) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The time zone that the scheduled maintenance window executions are based
 -- on, in Internet Assigned Numbers Authority (IANA) format. For example:
@@ -346,7 +347,7 @@ instance Core.AWSRequest CreateMaintenanceWindow where
     Response.receiveJSON
       ( \s h x ->
           CreateMaintenanceWindowResponse'
-            Prelude.<$> (x Core..?> "WindowId")
+            Prelude.<$> (x Data..?> "WindowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -380,49 +381,49 @@ instance Prelude.NFData CreateMaintenanceWindow where
       `Prelude.seq` Prelude.rnf cutoff
       `Prelude.seq` Prelude.rnf allowUnassociatedTargets
 
-instance Core.ToHeaders CreateMaintenanceWindow where
+instance Data.ToHeaders CreateMaintenanceWindow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.CreateMaintenanceWindow" ::
+              Data.=# ( "AmazonSSM.CreateMaintenanceWindow" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateMaintenanceWindow where
+instance Data.ToJSON CreateMaintenanceWindow where
   toJSON CreateMaintenanceWindow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("EndDate" Core..=) Prelude.<$> endDate,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ScheduleTimezone" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("EndDate" Data..=) Prelude.<$> endDate,
+            ("Description" Data..=) Prelude.<$> description,
+            ("ScheduleTimezone" Data..=)
               Prelude.<$> scheduleTimezone,
-            ("ScheduleOffset" Core..=)
+            ("ScheduleOffset" Data..=)
               Prelude.<$> scheduleOffset,
-            ("StartDate" Core..=) Prelude.<$> startDate,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Schedule" Core..= schedule),
-            Prelude.Just ("Duration" Core..= duration),
-            Prelude.Just ("Cutoff" Core..= cutoff),
+            ("StartDate" Data..=) Prelude.<$> startDate,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Schedule" Data..= schedule),
+            Prelude.Just ("Duration" Data..= duration),
+            Prelude.Just ("Cutoff" Data..= cutoff),
             Prelude.Just
               ( "AllowUnassociatedTargets"
-                  Core..= allowUnassociatedTargets
+                  Data..= allowUnassociatedTargets
               )
           ]
       )
 
-instance Core.ToPath CreateMaintenanceWindow where
+instance Data.ToPath CreateMaintenanceWindow where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateMaintenanceWindow where
+instance Data.ToQuery CreateMaintenanceWindow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateMaintenanceWindowResponse' smart constructor.

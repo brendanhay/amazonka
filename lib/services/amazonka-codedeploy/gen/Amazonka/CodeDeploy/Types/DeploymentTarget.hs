@@ -26,6 +26,7 @@ import Amazonka.CodeDeploy.Types.InstanceTarget
 import Amazonka.CodeDeploy.Types.LambdaTarget
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the deployment target.
@@ -104,17 +105,17 @@ deploymentTarget_lambdaTarget = Lens.lens (\DeploymentTarget' {lambdaTarget} -> 
 deploymentTarget_cloudFormationTarget :: Lens.Lens' DeploymentTarget (Prelude.Maybe CloudFormationTarget)
 deploymentTarget_cloudFormationTarget = Lens.lens (\DeploymentTarget' {cloudFormationTarget} -> cloudFormationTarget) (\s@DeploymentTarget' {} a -> s {cloudFormationTarget = a} :: DeploymentTarget)
 
-instance Core.FromJSON DeploymentTarget where
+instance Data.FromJSON DeploymentTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentTarget"
       ( \x ->
           DeploymentTarget'
-            Prelude.<$> (x Core..:? "instanceTarget")
-            Prelude.<*> (x Core..:? "ecsTarget")
-            Prelude.<*> (x Core..:? "deploymentTargetType")
-            Prelude.<*> (x Core..:? "lambdaTarget")
-            Prelude.<*> (x Core..:? "cloudFormationTarget")
+            Prelude.<$> (x Data..:? "instanceTarget")
+            Prelude.<*> (x Data..:? "ecsTarget")
+            Prelude.<*> (x Data..:? "deploymentTargetType")
+            Prelude.<*> (x Data..:? "lambdaTarget")
+            Prelude.<*> (x Data..:? "cloudFormationTarget")
       )
 
 instance Prelude.Hashable DeploymentTarget where

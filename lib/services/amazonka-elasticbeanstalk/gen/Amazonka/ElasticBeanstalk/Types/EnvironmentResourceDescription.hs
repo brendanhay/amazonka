@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.EnvironmentResourceDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.AutoScalingGroup
 import Amazonka.ElasticBeanstalk.Types.Instance
 import Amazonka.ElasticBeanstalk.Types.LaunchConfiguration
@@ -124,32 +125,32 @@ environmentResourceDescription_queues = Lens.lens (\EnvironmentResourceDescripti
 environmentResourceDescription_launchConfigurations :: Lens.Lens' EnvironmentResourceDescription (Prelude.Maybe [LaunchConfiguration])
 environmentResourceDescription_launchConfigurations = Lens.lens (\EnvironmentResourceDescription' {launchConfigurations} -> launchConfigurations) (\s@EnvironmentResourceDescription' {} a -> s {launchConfigurations = a} :: EnvironmentResourceDescription) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML EnvironmentResourceDescription where
+instance Data.FromXML EnvironmentResourceDescription where
   parseXML x =
     EnvironmentResourceDescription'
-      Prelude.<$> ( x Core..@? "Instances" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Instances" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "AutoScalingGroups"
+      Prelude.<*> ( x Data..@? "AutoScalingGroups"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "EnvironmentName")
-      Prelude.<*> ( x Core..@? "LaunchTemplates" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "EnvironmentName")
+      Prelude.<*> ( x Data..@? "LaunchTemplates" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "Triggers" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> ( x Data..@? "Triggers" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "LoadBalancers" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> ( x Data..@? "LoadBalancers" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "Queues" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> ( x Data..@? "Queues" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "LaunchConfigurations"
+      Prelude.<*> ( x Data..@? "LaunchConfigurations"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance

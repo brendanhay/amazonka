@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetComponent where
     Response.receiveJSON
       ( \s h x ->
           GetComponentResponse'
-            Prelude.<$> (x Core..?> "component")
+            Prelude.<$> (x Data..?> "component")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,32 +96,32 @@ instance Prelude.Hashable GetComponent where
 instance Prelude.NFData GetComponent where
   rnf GetComponent' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetComponent where
+instance Data.ToHeaders GetComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.GetComponent" ::
+              Data.=# ( "AwsProton20200720.GetComponent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetComponent where
+instance Data.ToJSON GetComponent where
   toJSON GetComponent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath GetComponent where
+instance Data.ToPath GetComponent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetComponent where
+instance Data.ToQuery GetComponent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetComponentResponse' smart constructor.

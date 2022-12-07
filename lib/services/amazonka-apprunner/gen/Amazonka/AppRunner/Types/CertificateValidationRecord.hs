@@ -22,6 +22,7 @@ module Amazonka.AppRunner.Types.CertificateValidationRecord where
 import Amazonka.AppRunner.Types.CertificateValidationRecordStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a certificate CNAME record to add to your DNS. For more
@@ -86,16 +87,16 @@ certificateValidationRecord_status = Lens.lens (\CertificateValidationRecord' {s
 certificateValidationRecord_value :: Lens.Lens' CertificateValidationRecord (Prelude.Maybe Prelude.Text)
 certificateValidationRecord_value = Lens.lens (\CertificateValidationRecord' {value} -> value) (\s@CertificateValidationRecord' {} a -> s {value = a} :: CertificateValidationRecord)
 
-instance Core.FromJSON CertificateValidationRecord where
+instance Data.FromJSON CertificateValidationRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CertificateValidationRecord"
       ( \x ->
           CertificateValidationRecord'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable CertificateValidationRecord where

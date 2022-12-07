@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.Position where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the row and column of a location of a @Statement@ element in a
@@ -67,10 +68,10 @@ position_line = Lens.lens (\Position' {line} -> line) (\s@Position' {} a -> s {l
 position_column :: Lens.Lens' Position (Prelude.Maybe Prelude.Int)
 position_column = Lens.lens (\Position' {column} -> column) (\s@Position' {} a -> s {column = a} :: Position)
 
-instance Core.FromXML Position where
+instance Data.FromXML Position where
   parseXML x =
     Position'
-      Prelude.<$> (x Core..@? "Line") Prelude.<*> (x Core..@? "Column")
+      Prelude.<$> (x Data..@? "Line") Prelude.<*> (x Data..@? "Column")
 
 instance Prelude.Hashable Position where
   hashWithSalt _salt Position' {..} =

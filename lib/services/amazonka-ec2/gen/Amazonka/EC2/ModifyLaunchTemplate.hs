@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -165,7 +166,7 @@ instance Core.AWSRequest ModifyLaunchTemplate where
     Response.receiveXML
       ( \s h x ->
           ModifyLaunchTemplateResponse'
-            Prelude.<$> (x Core..@? "launchTemplate")
+            Prelude.<$> (x Data..@? "launchTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,24 +186,24 @@ instance Prelude.NFData ModifyLaunchTemplate where
       `Prelude.seq` Prelude.rnf launchTemplateId
       `Prelude.seq` Prelude.rnf launchTemplateName
 
-instance Core.ToHeaders ModifyLaunchTemplate where
+instance Data.ToHeaders ModifyLaunchTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyLaunchTemplate where
+instance Data.ToPath ModifyLaunchTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyLaunchTemplate where
+instance Data.ToQuery ModifyLaunchTemplate where
   toQuery ModifyLaunchTemplate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyLaunchTemplate" :: Prelude.ByteString),
+          Data.=: ("ModifyLaunchTemplate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "SetDefaultVersion" Core.=: defaultVersion,
-        "DryRun" Core.=: dryRun,
-        "LaunchTemplateId" Core.=: launchTemplateId,
-        "LaunchTemplateName" Core.=: launchTemplateName
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "SetDefaultVersion" Data.=: defaultVersion,
+        "DryRun" Data.=: dryRun,
+        "LaunchTemplateId" Data.=: launchTemplateId,
+        "LaunchTemplateName" Data.=: launchTemplateName
       ]
 
 -- | /See:/ 'newModifyLaunchTemplateResponse' smart constructor.

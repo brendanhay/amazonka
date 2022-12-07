@@ -24,6 +24,7 @@ import Amazonka.AppMesh.Types.VirtualGatewayHttp2ConnectionPool
 import Amazonka.AppMesh.Types.VirtualGatewayHttpConnectionPool
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the type of virtual gateway connection pool.
@@ -80,15 +81,15 @@ virtualGatewayConnectionPool_http2 = Lens.lens (\VirtualGatewayConnectionPool' {
 virtualGatewayConnectionPool_grpc :: Lens.Lens' VirtualGatewayConnectionPool (Prelude.Maybe VirtualGatewayGrpcConnectionPool)
 virtualGatewayConnectionPool_grpc = Lens.lens (\VirtualGatewayConnectionPool' {grpc} -> grpc) (\s@VirtualGatewayConnectionPool' {} a -> s {grpc = a} :: VirtualGatewayConnectionPool)
 
-instance Core.FromJSON VirtualGatewayConnectionPool where
+instance Data.FromJSON VirtualGatewayConnectionPool where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewayConnectionPool"
       ( \x ->
           VirtualGatewayConnectionPool'
-            Prelude.<$> (x Core..:? "http")
-            Prelude.<*> (x Core..:? "http2")
-            Prelude.<*> (x Core..:? "grpc")
+            Prelude.<$> (x Data..:? "http")
+            Prelude.<*> (x Data..:? "http2")
+            Prelude.<*> (x Data..:? "grpc")
       )
 
 instance
@@ -106,12 +107,12 @@ instance Prelude.NFData VirtualGatewayConnectionPool where
       `Prelude.seq` Prelude.rnf http2
       `Prelude.seq` Prelude.rnf grpc
 
-instance Core.ToJSON VirtualGatewayConnectionPool where
+instance Data.ToJSON VirtualGatewayConnectionPool where
   toJSON VirtualGatewayConnectionPool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("http" Core..=) Prelude.<$> http,
-            ("http2" Core..=) Prelude.<$> http2,
-            ("grpc" Core..=) Prelude.<$> grpc
+          [ ("http" Data..=) Prelude.<$> http,
+            ("http2" Data..=) Prelude.<$> http2,
+            ("grpc" Data..=) Prelude.<$> grpc
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.ListDomainItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object in a list that represents a domain.
@@ -32,9 +33,9 @@ data ListDomainItem = ListDomainItem'
     -- | The unique name of the domain.
     domainName :: Prelude.Text,
     -- | The timestamp of when the domain was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The timestamp of when the domain was most recently edited.
-    lastUpdatedAt :: Core.POSIX
+    lastUpdatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,8 +69,8 @@ newListDomainItem
     ListDomainItem'
       { tags = Prelude.Nothing,
         domainName = pDomainName_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastUpdatedAt = Core._Time Lens.# pLastUpdatedAt_
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_
       }
 
 -- | The tags used to organize, track, or control access for this resource.
@@ -82,22 +83,22 @@ listDomainItem_domainName = Lens.lens (\ListDomainItem' {domainName} -> domainNa
 
 -- | The timestamp of when the domain was created.
 listDomainItem_createdAt :: Lens.Lens' ListDomainItem Prelude.UTCTime
-listDomainItem_createdAt = Lens.lens (\ListDomainItem' {createdAt} -> createdAt) (\s@ListDomainItem' {} a -> s {createdAt = a} :: ListDomainItem) Prelude.. Core._Time
+listDomainItem_createdAt = Lens.lens (\ListDomainItem' {createdAt} -> createdAt) (\s@ListDomainItem' {} a -> s {createdAt = a} :: ListDomainItem) Prelude.. Data._Time
 
 -- | The timestamp of when the domain was most recently edited.
 listDomainItem_lastUpdatedAt :: Lens.Lens' ListDomainItem Prelude.UTCTime
-listDomainItem_lastUpdatedAt = Lens.lens (\ListDomainItem' {lastUpdatedAt} -> lastUpdatedAt) (\s@ListDomainItem' {} a -> s {lastUpdatedAt = a} :: ListDomainItem) Prelude.. Core._Time
+listDomainItem_lastUpdatedAt = Lens.lens (\ListDomainItem' {lastUpdatedAt} -> lastUpdatedAt) (\s@ListDomainItem' {} a -> s {lastUpdatedAt = a} :: ListDomainItem) Prelude.. Data._Time
 
-instance Core.FromJSON ListDomainItem where
+instance Data.FromJSON ListDomainItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListDomainItem"
       ( \x ->
           ListDomainItem'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "DomainName")
-            Prelude.<*> (x Core..: "CreatedAt")
-            Prelude.<*> (x Core..: "LastUpdatedAt")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "DomainName")
+            Prelude.<*> (x Data..: "CreatedAt")
+            Prelude.<*> (x Data..: "LastUpdatedAt")
       )
 
 instance Prelude.Hashable ListDomainItem where

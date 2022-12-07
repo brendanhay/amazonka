@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -164,35 +165,35 @@ instance Prelude.NFData PutRumEvents where
       `Prelude.seq` Prelude.rnf rumEvents
       `Prelude.seq` Prelude.rnf userDetails
 
-instance Core.ToHeaders PutRumEvents where
+instance Data.ToHeaders PutRumEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRumEvents where
+instance Data.ToJSON PutRumEvents where
   toJSON PutRumEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AppMonitorDetails" Core..= appMonitorDetails),
-            Prelude.Just ("BatchId" Core..= batchId),
-            Prelude.Just ("RumEvents" Core..= rumEvents),
-            Prelude.Just ("UserDetails" Core..= userDetails)
+              ("AppMonitorDetails" Data..= appMonitorDetails),
+            Prelude.Just ("BatchId" Data..= batchId),
+            Prelude.Just ("RumEvents" Data..= rumEvents),
+            Prelude.Just ("UserDetails" Data..= userDetails)
           ]
       )
 
-instance Core.ToPath PutRumEvents where
+instance Data.ToPath PutRumEvents where
   toPath PutRumEvents' {..} =
     Prelude.mconcat
-      ["/appmonitors/", Core.toBS id, "/"]
+      ["/appmonitors/", Data.toBS id, "/"]
 
-instance Core.ToQuery PutRumEvents where
+instance Data.ToQuery PutRumEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRumEventsResponse' smart constructor.

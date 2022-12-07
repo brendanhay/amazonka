@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.Layer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.CloudWatchLogsConfiguration
 import Amazonka.OpsWorks.Types.LayerAttributesKeys
 import Amazonka.OpsWorks.Types.LayerType
@@ -370,41 +371,41 @@ layer_useEbsOptimizedInstances = Lens.lens (\Layer' {useEbsOptimizedInstances} -
 layer_installUpdatesOnBoot :: Lens.Lens' Layer (Prelude.Maybe Prelude.Bool)
 layer_installUpdatesOnBoot = Lens.lens (\Layer' {installUpdatesOnBoot} -> installUpdatesOnBoot) (\s@Layer' {} a -> s {installUpdatesOnBoot = a} :: Layer)
 
-instance Core.FromJSON Layer where
+instance Data.FromJSON Layer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Layer"
       ( \x ->
           Layer'
-            Prelude.<$> (x Core..:? "StackId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CustomRecipes")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "AutoAssignPublicIps")
-            Prelude.<*> (x Core..:? "CustomJson")
-            Prelude.<*> (x Core..:? "Packages" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "VolumeConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "StackId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CustomRecipes")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "AutoAssignPublicIps")
+            Prelude.<*> (x Data..:? "CustomJson")
+            Prelude.<*> (x Data..:? "Packages" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "VolumeConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> ( x Core..:? "DefaultSecurityGroupNames"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> ( x Data..:? "DefaultSecurityGroupNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EnableAutoHealing")
-            Prelude.<*> ( x Core..:? "CustomSecurityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "EnableAutoHealing")
+            Prelude.<*> ( x Data..:? "CustomSecurityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AutoAssignElasticIps")
-            Prelude.<*> (x Core..:? "DefaultRecipes")
-            Prelude.<*> (x Core..:? "CloudWatchLogsConfiguration")
-            Prelude.<*> (x Core..:? "LifecycleEventConfiguration")
-            Prelude.<*> (x Core..:? "CustomInstanceProfileArn")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LayerId")
-            Prelude.<*> (x Core..:? "Shortname")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "UseEbsOptimizedInstances")
-            Prelude.<*> (x Core..:? "InstallUpdatesOnBoot")
+            Prelude.<*> (x Data..:? "AutoAssignElasticIps")
+            Prelude.<*> (x Data..:? "DefaultRecipes")
+            Prelude.<*> (x Data..:? "CloudWatchLogsConfiguration")
+            Prelude.<*> (x Data..:? "LifecycleEventConfiguration")
+            Prelude.<*> (x Data..:? "CustomInstanceProfileArn")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LayerId")
+            Prelude.<*> (x Data..:? "Shortname")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "UseEbsOptimizedInstances")
+            Prelude.<*> (x Data..:? "InstallUpdatesOnBoot")
       )
 
 instance Prelude.Hashable Layer where

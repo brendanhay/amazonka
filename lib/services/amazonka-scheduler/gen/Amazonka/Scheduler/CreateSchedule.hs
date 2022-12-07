@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -70,7 +71,7 @@ data CreateSchedule = CreateSchedule'
     -- Depending on the schedule\'s recurrence expression, invocations might
     -- stop on, or before, the @EndDate@ you specify. EventBridge Scheduler
     -- ignores @EndDate@ for one-time schedules.
-    endDate :: Prelude.Maybe Core.POSIX,
+    endDate :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether the schedule is enabled or disabled.
     state :: Prelude.Maybe ScheduleState,
     -- | The name of the schedule group to associate with this schedule. If you
@@ -85,7 +86,7 @@ data CreateSchedule = CreateSchedule'
     -- target. Depending on the schedule\'s recurrence expression, invocations
     -- might occur on, or after, the @StartDate@ you specify. EventBridge
     -- Scheduler ignores @StartDate@ for one-time schedules.
-    startDate :: Prelude.Maybe Core.POSIX,
+    startDate :: Prelude.Maybe Data.POSIX,
     -- | Allows you to configure a time window during which EventBridge Scheduler
     -- invokes the schedule.
     flexibleTimeWindow :: FlexibleTimeWindow,
@@ -242,7 +243,7 @@ createSchedule_clientToken = Lens.lens (\CreateSchedule' {clientToken} -> client
 -- stop on, or before, the @EndDate@ you specify. EventBridge Scheduler
 -- ignores @EndDate@ for one-time schedules.
 createSchedule_endDate :: Lens.Lens' CreateSchedule (Prelude.Maybe Prelude.UTCTime)
-createSchedule_endDate = Lens.lens (\CreateSchedule' {endDate} -> endDate) (\s@CreateSchedule' {} a -> s {endDate = a} :: CreateSchedule) Prelude.. Lens.mapping Core._Time
+createSchedule_endDate = Lens.lens (\CreateSchedule' {endDate} -> endDate) (\s@CreateSchedule' {} a -> s {endDate = a} :: CreateSchedule) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether the schedule is enabled or disabled.
 createSchedule_state :: Lens.Lens' CreateSchedule (Prelude.Maybe ScheduleState)
@@ -267,7 +268,7 @@ createSchedule_kmsKeyArn = Lens.lens (\CreateSchedule' {kmsKeyArn} -> kmsKeyArn)
 -- might occur on, or after, the @StartDate@ you specify. EventBridge
 -- Scheduler ignores @StartDate@ for one-time schedules.
 createSchedule_startDate :: Lens.Lens' CreateSchedule (Prelude.Maybe Prelude.UTCTime)
-createSchedule_startDate = Lens.lens (\CreateSchedule' {startDate} -> startDate) (\s@CreateSchedule' {} a -> s {startDate = a} :: CreateSchedule) Prelude.. Lens.mapping Core._Time
+createSchedule_startDate = Lens.lens (\CreateSchedule' {startDate} -> startDate) (\s@CreateSchedule' {} a -> s {startDate = a} :: CreateSchedule) Prelude.. Lens.mapping Data._Time
 
 -- | Allows you to configure a time window during which EventBridge Scheduler
 -- invokes the schedule.
@@ -324,7 +325,7 @@ instance Core.AWSRequest CreateSchedule where
       ( \s h x ->
           CreateScheduleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ScheduleArn")
+            Prelude.<*> (x Data..:> "ScheduleArn")
       )
 
 instance Prelude.Hashable CreateSchedule where
@@ -358,43 +359,43 @@ instance Prelude.NFData CreateSchedule where
       `Prelude.seq` Prelude.rnf scheduleExpression
       `Prelude.seq` Prelude.rnf target
 
-instance Core.ToHeaders CreateSchedule where
+instance Data.ToHeaders CreateSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSchedule where
+instance Data.ToJSON CreateSchedule where
   toJSON CreateSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ScheduleExpressionTimezone" Core..=)
+          [ ("ScheduleExpressionTimezone" Data..=)
               Prelude.<$> scheduleExpressionTimezone,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("EndDate" Core..=) Prelude.<$> endDate,
-            ("State" Core..=) Prelude.<$> state,
-            ("GroupName" Core..=) Prelude.<$> groupName,
-            ("Description" Core..=) Prelude.<$> description,
-            ("KmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("StartDate" Core..=) Prelude.<$> startDate,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("EndDate" Data..=) Prelude.<$> endDate,
+            ("State" Data..=) Prelude.<$> state,
+            ("GroupName" Data..=) Prelude.<$> groupName,
+            ("Description" Data..=) Prelude.<$> description,
+            ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("StartDate" Data..=) Prelude.<$> startDate,
             Prelude.Just
-              ("FlexibleTimeWindow" Core..= flexibleTimeWindow),
+              ("FlexibleTimeWindow" Data..= flexibleTimeWindow),
             Prelude.Just
-              ("ScheduleExpression" Core..= scheduleExpression),
-            Prelude.Just ("Target" Core..= target)
+              ("ScheduleExpression" Data..= scheduleExpression),
+            Prelude.Just ("Target" Data..= target)
           ]
       )
 
-instance Core.ToPath CreateSchedule where
+instance Data.ToPath CreateSchedule where
   toPath CreateSchedule' {..} =
-    Prelude.mconcat ["/schedules/", Core.toBS name]
+    Prelude.mconcat ["/schedules/", Data.toBS name]
 
-instance Core.ToQuery CreateSchedule where
+instance Data.ToQuery CreateSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateScheduleResponse' smart constructor.

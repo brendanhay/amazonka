@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,8 +107,8 @@ instance
       "UpdateApplicationResourceLifecycleResult"
       ( \s h x ->
           UpdateApplicationResourceLifecycleResponse'
-            Prelude.<$> (x Core..@? "ResourceLifecycleConfig")
-              Prelude.<*> (x Core..@? "ApplicationName")
+            Prelude.<$> (x Data..@? "ResourceLifecycleConfig")
+              Prelude.<*> (x Data..@? "ApplicationName")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,32 +131,32 @@ instance
       `Prelude.seq` Prelude.rnf resourceLifecycleConfig
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateApplicationResourceLifecycle
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateApplicationResourceLifecycle
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateApplicationResourceLifecycle
   where
   toQuery UpdateApplicationResourceLifecycle' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "UpdateApplicationResourceLifecycle" ::
+          Data.=: ( "UpdateApplicationResourceLifecycle" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "ApplicationName" Core.=: applicationName,
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "ApplicationName" Data.=: applicationName,
         "ResourceLifecycleConfig"
-          Core.=: resourceLifecycleConfig
+          Data.=: resourceLifecycleConfig
       ]
 
 -- | /See:/ 'newUpdateApplicationResourceLifecycleResponse' smart constructor.

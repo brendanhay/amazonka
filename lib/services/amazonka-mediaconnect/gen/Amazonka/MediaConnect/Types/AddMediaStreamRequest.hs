@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.AddMediaStreamRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.MediaStreamAttributesRequest
 import Amazonka.MediaConnect.Types.MediaStreamType
 import qualified Amazonka.Prelude as Prelude
@@ -147,18 +148,18 @@ instance Prelude.NFData AddMediaStreamRequest where
       `Prelude.seq` Prelude.rnf mediaStreamId
       `Prelude.seq` Prelude.rnf mediaStreamName
 
-instance Core.ToJSON AddMediaStreamRequest where
+instance Data.ToJSON AddMediaStreamRequest where
   toJSON AddMediaStreamRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("videoFormat" Core..=) Prelude.<$> videoFormat,
-            ("description" Core..=) Prelude.<$> description,
-            ("clockRate" Core..=) Prelude.<$> clockRate,
-            ("attributes" Core..=) Prelude.<$> attributes,
+          [ ("videoFormat" Data..=) Prelude.<$> videoFormat,
+            ("description" Data..=) Prelude.<$> description,
+            ("clockRate" Data..=) Prelude.<$> clockRate,
+            ("attributes" Data..=) Prelude.<$> attributes,
             Prelude.Just
-              ("mediaStreamType" Core..= mediaStreamType),
-            Prelude.Just ("mediaStreamId" Core..= mediaStreamId),
+              ("mediaStreamType" Data..= mediaStreamType),
+            Prelude.Just ("mediaStreamId" Data..= mediaStreamId),
             Prelude.Just
-              ("mediaStreamName" Core..= mediaStreamName)
+              ("mediaStreamName" Data..= mediaStreamName)
           ]
       )

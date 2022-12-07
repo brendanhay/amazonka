@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.GroupVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a group version.
@@ -107,19 +108,19 @@ groupVersion_coreDefinitionVersionArn = Lens.lens (\GroupVersion' {coreDefinitio
 groupVersion_deviceDefinitionVersionArn :: Lens.Lens' GroupVersion (Prelude.Maybe Prelude.Text)
 groupVersion_deviceDefinitionVersionArn = Lens.lens (\GroupVersion' {deviceDefinitionVersionArn} -> deviceDefinitionVersionArn) (\s@GroupVersion' {} a -> s {deviceDefinitionVersionArn = a} :: GroupVersion)
 
-instance Core.FromJSON GroupVersion where
+instance Data.FromJSON GroupVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupVersion"
       ( \x ->
           GroupVersion'
-            Prelude.<$> (x Core..:? "ResourceDefinitionVersionArn")
-            Prelude.<*> (x Core..:? "FunctionDefinitionVersionArn")
-            Prelude.<*> (x Core..:? "SubscriptionDefinitionVersionArn")
-            Prelude.<*> (x Core..:? "ConnectorDefinitionVersionArn")
-            Prelude.<*> (x Core..:? "LoggerDefinitionVersionArn")
-            Prelude.<*> (x Core..:? "CoreDefinitionVersionArn")
-            Prelude.<*> (x Core..:? "DeviceDefinitionVersionArn")
+            Prelude.<$> (x Data..:? "ResourceDefinitionVersionArn")
+            Prelude.<*> (x Data..:? "FunctionDefinitionVersionArn")
+            Prelude.<*> (x Data..:? "SubscriptionDefinitionVersionArn")
+            Prelude.<*> (x Data..:? "ConnectorDefinitionVersionArn")
+            Prelude.<*> (x Data..:? "LoggerDefinitionVersionArn")
+            Prelude.<*> (x Data..:? "CoreDefinitionVersionArn")
+            Prelude.<*> (x Data..:? "DeviceDefinitionVersionArn")
       )
 
 instance Prelude.Hashable GroupVersion where
@@ -143,23 +144,23 @@ instance Prelude.NFData GroupVersion where
       `Prelude.seq` Prelude.rnf coreDefinitionVersionArn
       `Prelude.seq` Prelude.rnf deviceDefinitionVersionArn
 
-instance Core.ToJSON GroupVersion where
+instance Data.ToJSON GroupVersion where
   toJSON GroupVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceDefinitionVersionArn" Core..=)
+          [ ("ResourceDefinitionVersionArn" Data..=)
               Prelude.<$> resourceDefinitionVersionArn,
-            ("FunctionDefinitionVersionArn" Core..=)
+            ("FunctionDefinitionVersionArn" Data..=)
               Prelude.<$> functionDefinitionVersionArn,
-            ("SubscriptionDefinitionVersionArn" Core..=)
+            ("SubscriptionDefinitionVersionArn" Data..=)
               Prelude.<$> subscriptionDefinitionVersionArn,
-            ("ConnectorDefinitionVersionArn" Core..=)
+            ("ConnectorDefinitionVersionArn" Data..=)
               Prelude.<$> connectorDefinitionVersionArn,
-            ("LoggerDefinitionVersionArn" Core..=)
+            ("LoggerDefinitionVersionArn" Data..=)
               Prelude.<$> loggerDefinitionVersionArn,
-            ("CoreDefinitionVersionArn" Core..=)
+            ("CoreDefinitionVersionArn" Data..=)
               Prelude.<$> coreDefinitionVersionArn,
-            ("DeviceDefinitionVersionArn" Core..=)
+            ("DeviceDefinitionVersionArn" Data..=)
               Prelude.<$> deviceDefinitionVersionArn
           ]
       )

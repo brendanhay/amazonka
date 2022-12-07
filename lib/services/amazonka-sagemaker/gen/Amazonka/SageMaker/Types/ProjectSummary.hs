@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProjectSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProjectStatus
 
@@ -37,7 +38,7 @@ data ProjectSummary = ProjectSummary'
     -- | The ID of the project.
     projectId :: Prelude.Text,
     -- | The time that the project was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The status of the project.
     projectStatus :: ProjectStatus
   }
@@ -86,7 +87,7 @@ newProjectSummary
         projectName = pProjectName_,
         projectArn = pProjectArn_,
         projectId = pProjectId_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         projectStatus = pProjectStatus_
       }
 
@@ -108,24 +109,24 @@ projectSummary_projectId = Lens.lens (\ProjectSummary' {projectId} -> projectId)
 
 -- | The time that the project was created.
 projectSummary_creationTime :: Lens.Lens' ProjectSummary Prelude.UTCTime
-projectSummary_creationTime = Lens.lens (\ProjectSummary' {creationTime} -> creationTime) (\s@ProjectSummary' {} a -> s {creationTime = a} :: ProjectSummary) Prelude.. Core._Time
+projectSummary_creationTime = Lens.lens (\ProjectSummary' {creationTime} -> creationTime) (\s@ProjectSummary' {} a -> s {creationTime = a} :: ProjectSummary) Prelude.. Data._Time
 
 -- | The status of the project.
 projectSummary_projectStatus :: Lens.Lens' ProjectSummary ProjectStatus
 projectSummary_projectStatus = Lens.lens (\ProjectSummary' {projectStatus} -> projectStatus) (\s@ProjectSummary' {} a -> s {projectStatus = a} :: ProjectSummary)
 
-instance Core.FromJSON ProjectSummary where
+instance Data.FromJSON ProjectSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectSummary"
       ( \x ->
           ProjectSummary'
-            Prelude.<$> (x Core..:? "ProjectDescription")
-            Prelude.<*> (x Core..: "ProjectName")
-            Prelude.<*> (x Core..: "ProjectArn")
-            Prelude.<*> (x Core..: "ProjectId")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "ProjectStatus")
+            Prelude.<$> (x Data..:? "ProjectDescription")
+            Prelude.<*> (x Data..: "ProjectName")
+            Prelude.<*> (x Data..: "ProjectArn")
+            Prelude.<*> (x Data..: "ProjectId")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "ProjectStatus")
       )
 
 instance Prelude.Hashable ProjectSummary where

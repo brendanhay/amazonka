@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,7 +144,7 @@ instance Core.AWSRequest GetObjectTorrent where
     Response.receiveBody
       ( \s h x ->
           GetObjectTorrentResponse'
-            Prelude.<$> (h Core..#? "x-amz-request-charged")
+            Prelude.<$> (h Data..#? "x-amz-request-charged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
@@ -162,20 +163,20 @@ instance Prelude.NFData GetObjectTorrent where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToHeaders GetObjectTorrent where
+instance Data.ToHeaders GetObjectTorrent where
   toHeaders GetObjectTorrent' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
-instance Core.ToPath GetObjectTorrent where
+instance Data.ToPath GetObjectTorrent where
   toPath GetObjectTorrent' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery GetObjectTorrent where
+instance Data.ToQuery GetObjectTorrent where
   toQuery = Prelude.const (Prelude.mconcat ["torrent"])
 
 -- | /See:/ 'newGetObjectTorrentResponse' smart constructor.
@@ -184,7 +185,7 @@ data GetObjectTorrentResponse = GetObjectTorrentResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A Bencoded dictionary as defined by the BitTorrent specification
-    body :: Core.ResponseBody
+    body :: Data.ResponseBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -205,7 +206,7 @@ newGetObjectTorrentResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   -- | 'body'
-  Core.ResponseBody ->
+  Data.ResponseBody ->
   GetObjectTorrentResponse
 newGetObjectTorrentResponse pHttpStatus_ pBody_ =
   GetObjectTorrentResponse'
@@ -224,5 +225,5 @@ getObjectTorrentResponse_httpStatus :: Lens.Lens' GetObjectTorrentResponse Prelu
 getObjectTorrentResponse_httpStatus = Lens.lens (\GetObjectTorrentResponse' {httpStatus} -> httpStatus) (\s@GetObjectTorrentResponse' {} a -> s {httpStatus = a} :: GetObjectTorrentResponse)
 
 -- | A Bencoded dictionary as defined by the BitTorrent specification
-getObjectTorrentResponse_body :: Lens.Lens' GetObjectTorrentResponse Core.ResponseBody
+getObjectTorrentResponse_body :: Lens.Lens' GetObjectTorrentResponse Data.ResponseBody
 getObjectTorrentResponse_body = Lens.lens (\GetObjectTorrentResponse' {body} -> body) (\s@GetObjectTorrentResponse' {} a -> s {body = a} :: GetObjectTorrentResponse)

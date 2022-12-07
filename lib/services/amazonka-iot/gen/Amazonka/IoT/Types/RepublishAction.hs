@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.RepublishAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an action to republish to another topic.
@@ -77,15 +78,15 @@ republishAction_roleArn = Lens.lens (\RepublishAction' {roleArn} -> roleArn) (\s
 republishAction_topic :: Lens.Lens' RepublishAction Prelude.Text
 republishAction_topic = Lens.lens (\RepublishAction' {topic} -> topic) (\s@RepublishAction' {} a -> s {topic = a} :: RepublishAction)
 
-instance Core.FromJSON RepublishAction where
+instance Data.FromJSON RepublishAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepublishAction"
       ( \x ->
           RepublishAction'
-            Prelude.<$> (x Core..:? "qos")
-            Prelude.<*> (x Core..: "roleArn")
-            Prelude.<*> (x Core..: "topic")
+            Prelude.<$> (x Data..:? "qos")
+            Prelude.<*> (x Data..: "roleArn")
+            Prelude.<*> (x Data..: "topic")
       )
 
 instance Prelude.Hashable RepublishAction where
@@ -100,12 +101,12 @@ instance Prelude.NFData RepublishAction where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf topic
 
-instance Core.ToJSON RepublishAction where
+instance Data.ToJSON RepublishAction where
   toJSON RepublishAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("qos" Core..=) Prelude.<$> qos,
-            Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("topic" Core..= topic)
+          [ ("qos" Data..=) Prelude.<$> qos,
+            Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("topic" Data..= topic)
           ]
       )

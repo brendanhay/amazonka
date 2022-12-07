@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,21 +98,21 @@ instance Prelude.NFData StopThingRegistrationTask where
   rnf StopThingRegistrationTask' {..} =
     Prelude.rnf taskId
 
-instance Core.ToHeaders StopThingRegistrationTask where
+instance Data.ToHeaders StopThingRegistrationTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON StopThingRegistrationTask where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StopThingRegistrationTask where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StopThingRegistrationTask where
+instance Data.ToPath StopThingRegistrationTask where
   toPath StopThingRegistrationTask' {..} =
     Prelude.mconcat
       [ "/thing-registration-tasks/",
-        Core.toBS taskId,
+        Data.toBS taskId,
         "/cancel"
       ]
 
-instance Core.ToQuery StopThingRegistrationTask where
+instance Data.ToQuery StopThingRegistrationTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopThingRegistrationTaskResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,8 +136,8 @@ instance Core.AWSRequest ListBatchSegmentJobs where
     Response.receiveJSON
       ( \s h x ->
           ListBatchSegmentJobsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "batchSegmentJobs"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "batchSegmentJobs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -154,36 +155,36 @@ instance Prelude.NFData ListBatchSegmentJobs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf solutionVersionArn
 
-instance Core.ToHeaders ListBatchSegmentJobs where
+instance Data.ToHeaders ListBatchSegmentJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.ListBatchSegmentJobs" ::
+              Data.=# ( "AmazonPersonalize.ListBatchSegmentJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListBatchSegmentJobs where
+instance Data.ToJSON ListBatchSegmentJobs where
   toJSON ListBatchSegmentJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("solutionVersionArn" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("solutionVersionArn" Data..=)
               Prelude.<$> solutionVersionArn
           ]
       )
 
-instance Core.ToPath ListBatchSegmentJobs where
+instance Data.ToPath ListBatchSegmentJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListBatchSegmentJobs where
+instance Data.ToQuery ListBatchSegmentJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBatchSegmentJobsResponse' smart constructor.

@@ -23,6 +23,7 @@ import Amazonka.AppConfig.Types.EnvironmentState
 import Amazonka.AppConfig.Types.Monitor
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newEnvironment' smart constructor.
@@ -103,18 +104,18 @@ environment_description = Lens.lens (\Environment' {description} -> description)
 environment_applicationId :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_applicationId = Lens.lens (\Environment' {applicationId} -> applicationId) (\s@Environment' {} a -> s {applicationId = a} :: Environment)
 
-instance Core.FromJSON Environment where
+instance Data.FromJSON Environment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Environment"
       ( \x ->
           Environment'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Monitors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ApplicationId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Monitors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ApplicationId")
       )
 
 instance Prelude.Hashable Environment where

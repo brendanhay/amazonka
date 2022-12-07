@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.OutputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The S3 bucket and folder location where training output is placed.
@@ -61,14 +62,14 @@ outputConfig_s3Bucket = Lens.lens (\OutputConfig' {s3Bucket} -> s3Bucket) (\s@Ou
 outputConfig_s3KeyPrefix :: Lens.Lens' OutputConfig (Prelude.Maybe Prelude.Text)
 outputConfig_s3KeyPrefix = Lens.lens (\OutputConfig' {s3KeyPrefix} -> s3KeyPrefix) (\s@OutputConfig' {} a -> s {s3KeyPrefix = a} :: OutputConfig)
 
-instance Core.FromJSON OutputConfig where
+instance Data.FromJSON OutputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputConfig"
       ( \x ->
           OutputConfig'
-            Prelude.<$> (x Core..:? "S3Bucket")
-            Prelude.<*> (x Core..:? "S3KeyPrefix")
+            Prelude.<$> (x Data..:? "S3Bucket")
+            Prelude.<*> (x Data..:? "S3KeyPrefix")
       )
 
 instance Prelude.Hashable OutputConfig where
@@ -81,11 +82,11 @@ instance Prelude.NFData OutputConfig where
     Prelude.rnf s3Bucket
       `Prelude.seq` Prelude.rnf s3KeyPrefix
 
-instance Core.ToJSON OutputConfig where
+instance Data.ToJSON OutputConfig where
   toJSON OutputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
-            ("S3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix
+          [ ("S3Bucket" Data..=) Prelude.<$> s3Bucket,
+            ("S3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix
           ]
       )

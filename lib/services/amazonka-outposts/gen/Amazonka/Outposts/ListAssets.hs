@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,8 +129,8 @@ instance Core.AWSRequest ListAssets where
     Response.receiveJSON
       ( \s h x ->
           ListAssetsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Assets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Assets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,36 +150,36 @@ instance Prelude.NFData ListAssets where
       `Prelude.seq` Prelude.rnf statusFilter
       `Prelude.seq` Prelude.rnf outpostIdentifier
 
-instance Core.ToHeaders ListAssets where
+instance Data.ToHeaders ListAssets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAssets where
+instance Data.ToPath ListAssets where
   toPath ListAssets' {..} =
     Prelude.mconcat
       [ "/outposts/",
-        Core.toBS outpostIdentifier,
+        Data.toBS outpostIdentifier,
         "/assets"
       ]
 
-instance Core.ToQuery ListAssets where
+instance Data.ToQuery ListAssets where
   toQuery ListAssets' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
+      [ "NextToken" Data.=: nextToken,
         "HostIdFilter"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> hostIdFilter),
-        "MaxResults" Core.=: maxResults,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> hostIdFilter),
+        "MaxResults" Data.=: maxResults,
         "StatusFilter"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> statusFilter)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> statusFilter)
       ]
 
 -- | /See:/ 'newListAssetsResponse' smart constructor.

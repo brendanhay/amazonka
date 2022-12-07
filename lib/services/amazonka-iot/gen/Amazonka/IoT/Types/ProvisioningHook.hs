@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ProvisioningHook where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Structure that contains @payloadVersion@ and @targetArn@.
@@ -75,14 +76,14 @@ provisioningHook_payloadVersion = Lens.lens (\ProvisioningHook' {payloadVersion}
 provisioningHook_targetArn :: Lens.Lens' ProvisioningHook Prelude.Text
 provisioningHook_targetArn = Lens.lens (\ProvisioningHook' {targetArn} -> targetArn) (\s@ProvisioningHook' {} a -> s {targetArn = a} :: ProvisioningHook)
 
-instance Core.FromJSON ProvisioningHook where
+instance Data.FromJSON ProvisioningHook where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisioningHook"
       ( \x ->
           ProvisioningHook'
-            Prelude.<$> (x Core..:? "payloadVersion")
-            Prelude.<*> (x Core..: "targetArn")
+            Prelude.<$> (x Data..:? "payloadVersion")
+            Prelude.<*> (x Data..: "targetArn")
       )
 
 instance Prelude.Hashable ProvisioningHook where
@@ -95,12 +96,12 @@ instance Prelude.NFData ProvisioningHook where
     Prelude.rnf payloadVersion
       `Prelude.seq` Prelude.rnf targetArn
 
-instance Core.ToJSON ProvisioningHook where
+instance Data.ToJSON ProvisioningHook where
   toJSON ProvisioningHook' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("payloadVersion" Core..=)
+          [ ("payloadVersion" Data..=)
               Prelude.<$> payloadVersion,
-            Prelude.Just ("targetArn" Core..= targetArn)
+            Prelude.Just ("targetArn" Data..= targetArn)
           ]
       )

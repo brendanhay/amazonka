@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.UnprocessedAccount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the accounts that weren\'t processed.
@@ -65,14 +66,14 @@ unprocessedAccount_accountId = Lens.lens (\UnprocessedAccount' {accountId} -> ac
 unprocessedAccount_result :: Lens.Lens' UnprocessedAccount Prelude.Text
 unprocessedAccount_result = Lens.lens (\UnprocessedAccount' {result} -> result) (\s@UnprocessedAccount' {} a -> s {result = a} :: UnprocessedAccount)
 
-instance Core.FromJSON UnprocessedAccount where
+instance Data.FromJSON UnprocessedAccount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnprocessedAccount"
       ( \x ->
           UnprocessedAccount'
-            Prelude.<$> (x Core..: "accountId")
-            Prelude.<*> (x Core..: "result")
+            Prelude.<$> (x Data..: "accountId")
+            Prelude.<*> (x Data..: "result")
       )
 
 instance Prelude.Hashable UnprocessedAccount where

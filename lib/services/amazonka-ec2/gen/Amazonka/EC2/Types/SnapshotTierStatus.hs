@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SnapshotTierStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.SnapshotState
 import Amazonka.EC2.Types.StorageTier
@@ -45,17 +46,17 @@ data SnapshotTierStatus = SnapshotTierStatus'
     -- | Only for archived snapshots that are temporarily restored. Indicates the
     -- date and time when a temporarily restored snapshot will be automatically
     -- re-archived.
-    restoreExpiryTime :: Prelude.Maybe Core.ISO8601,
+    restoreExpiryTime :: Prelude.Maybe Data.ISO8601,
     -- | The status of the last archive or restore process.
     lastTieringOperationStatus :: Prelude.Maybe TieringOperationStatus,
     -- | The date and time when the last archive process was completed.
-    archivalCompleteTime :: Prelude.Maybe Core.ISO8601,
+    archivalCompleteTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the volume from which the snapshot was created.
     volumeId :: Prelude.Maybe Prelude.Text,
     -- | The progress of the last archive or restore process, as a percentage.
     lastTieringProgress :: Prelude.Maybe Prelude.Int,
     -- | The date and time when the last archive or restore process was started.
-    lastTieringStartTime :: Prelude.Maybe Core.ISO8601,
+    lastTieringStartTime :: Prelude.Maybe Data.ISO8601,
     -- | The storage tier in which the snapshot is stored. @standard@ indicates
     -- that the snapshot is stored in the standard snapshot storage tier and
     -- that it is ready for use. @archive@ indicates that the snapshot is
@@ -142,7 +143,7 @@ snapshotTierStatus_status = Lens.lens (\SnapshotTierStatus' {status} -> status) 
 -- date and time when a temporarily restored snapshot will be automatically
 -- re-archived.
 snapshotTierStatus_restoreExpiryTime :: Lens.Lens' SnapshotTierStatus (Prelude.Maybe Prelude.UTCTime)
-snapshotTierStatus_restoreExpiryTime = Lens.lens (\SnapshotTierStatus' {restoreExpiryTime} -> restoreExpiryTime) (\s@SnapshotTierStatus' {} a -> s {restoreExpiryTime = a} :: SnapshotTierStatus) Prelude.. Lens.mapping Core._Time
+snapshotTierStatus_restoreExpiryTime = Lens.lens (\SnapshotTierStatus' {restoreExpiryTime} -> restoreExpiryTime) (\s@SnapshotTierStatus' {} a -> s {restoreExpiryTime = a} :: SnapshotTierStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the last archive or restore process.
 snapshotTierStatus_lastTieringOperationStatus :: Lens.Lens' SnapshotTierStatus (Prelude.Maybe TieringOperationStatus)
@@ -150,7 +151,7 @@ snapshotTierStatus_lastTieringOperationStatus = Lens.lens (\SnapshotTierStatus' 
 
 -- | The date and time when the last archive process was completed.
 snapshotTierStatus_archivalCompleteTime :: Lens.Lens' SnapshotTierStatus (Prelude.Maybe Prelude.UTCTime)
-snapshotTierStatus_archivalCompleteTime = Lens.lens (\SnapshotTierStatus' {archivalCompleteTime} -> archivalCompleteTime) (\s@SnapshotTierStatus' {} a -> s {archivalCompleteTime = a} :: SnapshotTierStatus) Prelude.. Lens.mapping Core._Time
+snapshotTierStatus_archivalCompleteTime = Lens.lens (\SnapshotTierStatus' {archivalCompleteTime} -> archivalCompleteTime) (\s@SnapshotTierStatus' {} a -> s {archivalCompleteTime = a} :: SnapshotTierStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the volume from which the snapshot was created.
 snapshotTierStatus_volumeId :: Lens.Lens' SnapshotTierStatus (Prelude.Maybe Prelude.Text)
@@ -162,7 +163,7 @@ snapshotTierStatus_lastTieringProgress = Lens.lens (\SnapshotTierStatus' {lastTi
 
 -- | The date and time when the last archive or restore process was started.
 snapshotTierStatus_lastTieringStartTime :: Lens.Lens' SnapshotTierStatus (Prelude.Maybe Prelude.UTCTime)
-snapshotTierStatus_lastTieringStartTime = Lens.lens (\SnapshotTierStatus' {lastTieringStartTime} -> lastTieringStartTime) (\s@SnapshotTierStatus' {} a -> s {lastTieringStartTime = a} :: SnapshotTierStatus) Prelude.. Lens.mapping Core._Time
+snapshotTierStatus_lastTieringStartTime = Lens.lens (\SnapshotTierStatus' {lastTieringStartTime} -> lastTieringStartTime) (\s@SnapshotTierStatus' {} a -> s {lastTieringStartTime = a} :: SnapshotTierStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The storage tier in which the snapshot is stored. @standard@ indicates
 -- that the snapshot is stored in the standard snapshot storage tier and
@@ -171,23 +172,23 @@ snapshotTierStatus_lastTieringStartTime = Lens.lens (\SnapshotTierStatus' {lastT
 snapshotTierStatus_storageTier :: Lens.Lens' SnapshotTierStatus (Prelude.Maybe StorageTier)
 snapshotTierStatus_storageTier = Lens.lens (\SnapshotTierStatus' {storageTier} -> storageTier) (\s@SnapshotTierStatus' {} a -> s {storageTier = a} :: SnapshotTierStatus)
 
-instance Core.FromXML SnapshotTierStatus where
+instance Data.FromXML SnapshotTierStatus where
   parseXML x =
     SnapshotTierStatus'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "lastTieringOperationStatusDetail")
-      Prelude.<*> (x Core..@? "snapshotId")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "restoreExpiryTime")
-      Prelude.<*> (x Core..@? "lastTieringOperationStatus")
-      Prelude.<*> (x Core..@? "archivalCompleteTime")
-      Prelude.<*> (x Core..@? "volumeId")
-      Prelude.<*> (x Core..@? "lastTieringProgress")
-      Prelude.<*> (x Core..@? "lastTieringStartTime")
-      Prelude.<*> (x Core..@? "storageTier")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "lastTieringOperationStatusDetail")
+      Prelude.<*> (x Data..@? "snapshotId")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "restoreExpiryTime")
+      Prelude.<*> (x Data..@? "lastTieringOperationStatus")
+      Prelude.<*> (x Data..@? "archivalCompleteTime")
+      Prelude.<*> (x Data..@? "volumeId")
+      Prelude.<*> (x Data..@? "lastTieringProgress")
+      Prelude.<*> (x Data..@? "lastTieringStartTime")
+      Prelude.<*> (x Data..@? "storageTier")
 
 instance Prelude.Hashable SnapshotTierStatus where
   hashWithSalt _salt SnapshotTierStatus' {..} =

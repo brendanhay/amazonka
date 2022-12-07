@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.TagCollectionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of Amazon Web Services tags used to filter insights. This
@@ -129,14 +130,14 @@ tagCollectionFilter_appBoundaryKey = Lens.lens (\TagCollectionFilter' {appBounda
 tagCollectionFilter_tagValues :: Lens.Lens' TagCollectionFilter [Prelude.Text]
 tagCollectionFilter_tagValues = Lens.lens (\TagCollectionFilter' {tagValues} -> tagValues) (\s@TagCollectionFilter' {} a -> s {tagValues = a} :: TagCollectionFilter) Prelude.. Lens.coerced
 
-instance Core.FromJSON TagCollectionFilter where
+instance Data.FromJSON TagCollectionFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TagCollectionFilter"
       ( \x ->
           TagCollectionFilter'
-            Prelude.<$> (x Core..: "AppBoundaryKey")
-            Prelude.<*> (x Core..:? "TagValues" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "AppBoundaryKey")
+            Prelude.<*> (x Data..:? "TagValues" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TagCollectionFilter where

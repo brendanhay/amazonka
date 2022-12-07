@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.UserSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CanvasAppSettings
 import Amazonka.SageMaker.Types.JupyterServerAppSettings
@@ -174,21 +175,21 @@ userSettings_rStudioServerProAppSettings = Lens.lens (\UserSettings' {rStudioSer
 userSettings_sharingSettings :: Lens.Lens' UserSettings (Prelude.Maybe SharingSettings)
 userSettings_sharingSettings = Lens.lens (\UserSettings' {sharingSettings} -> sharingSettings) (\s@UserSettings' {} a -> s {sharingSettings = a} :: UserSettings)
 
-instance Core.FromJSON UserSettings where
+instance Data.FromJSON UserSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserSettings"
       ( \x ->
           UserSettings'
-            Prelude.<$> (x Core..:? "ExecutionRole")
-            Prelude.<*> (x Core..:? "RSessionAppSettings")
-            Prelude.<*> (x Core..:? "TensorBoardAppSettings")
-            Prelude.<*> (x Core..:? "KernelGatewayAppSettings")
-            Prelude.<*> (x Core..:? "SecurityGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CanvasAppSettings")
-            Prelude.<*> (x Core..:? "JupyterServerAppSettings")
-            Prelude.<*> (x Core..:? "RStudioServerProAppSettings")
-            Prelude.<*> (x Core..:? "SharingSettings")
+            Prelude.<$> (x Data..:? "ExecutionRole")
+            Prelude.<*> (x Data..:? "RSessionAppSettings")
+            Prelude.<*> (x Data..:? "TensorBoardAppSettings")
+            Prelude.<*> (x Data..:? "KernelGatewayAppSettings")
+            Prelude.<*> (x Data..:? "SecurityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CanvasAppSettings")
+            Prelude.<*> (x Data..:? "JupyterServerAppSettings")
+            Prelude.<*> (x Data..:? "RStudioServerProAppSettings")
+            Prelude.<*> (x Data..:? "SharingSettings")
       )
 
 instance Prelude.Hashable UserSettings where
@@ -215,26 +216,26 @@ instance Prelude.NFData UserSettings where
       `Prelude.seq` Prelude.rnf rStudioServerProAppSettings
       `Prelude.seq` Prelude.rnf sharingSettings
 
-instance Core.ToJSON UserSettings where
+instance Data.ToJSON UserSettings where
   toJSON UserSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExecutionRole" Core..=) Prelude.<$> executionRole,
-            ("RSessionAppSettings" Core..=)
+          [ ("ExecutionRole" Data..=) Prelude.<$> executionRole,
+            ("RSessionAppSettings" Data..=)
               Prelude.<$> rSessionAppSettings,
-            ("TensorBoardAppSettings" Core..=)
+            ("TensorBoardAppSettings" Data..=)
               Prelude.<$> tensorBoardAppSettings,
-            ("KernelGatewayAppSettings" Core..=)
+            ("KernelGatewayAppSettings" Data..=)
               Prelude.<$> kernelGatewayAppSettings,
-            ("SecurityGroups" Core..=)
+            ("SecurityGroups" Data..=)
               Prelude.<$> securityGroups,
-            ("CanvasAppSettings" Core..=)
+            ("CanvasAppSettings" Data..=)
               Prelude.<$> canvasAppSettings,
-            ("JupyterServerAppSettings" Core..=)
+            ("JupyterServerAppSettings" Data..=)
               Prelude.<$> jupyterServerAppSettings,
-            ("RStudioServerProAppSettings" Core..=)
+            ("RStudioServerProAppSettings" Data..=)
               Prelude.<$> rStudioServerProAppSettings,
-            ("SharingSettings" Core..=)
+            ("SharingSettings" Data..=)
               Prelude.<$> sharingSettings
           ]
       )

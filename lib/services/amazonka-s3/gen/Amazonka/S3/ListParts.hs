@@ -102,6 +102,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,7 +137,7 @@ data ListParts = ListParts'
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
     -- in the /Amazon S3 User Guide/.
-    sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the bucket to which the parts are being uploaded.
     --
     -- When using this action with an access point, you must direct requests to
@@ -289,7 +290,7 @@ listParts_partNumberMarker = Lens.lens (\ListParts' {partNumberMarker} -> partNu
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
 -- in the /Amazon S3 User Guide/.
 listParts_sSECustomerKey :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Text)
-listParts_sSECustomerKey = Lens.lens (\ListParts' {sSECustomerKey} -> sSECustomerKey) (\s@ListParts' {} a -> s {sSECustomerKey = a} :: ListParts) Prelude.. Lens.mapping Core._Sensitive
+listParts_sSECustomerKey = Lens.lens (\ListParts' {sSECustomerKey} -> sSECustomerKey) (\s@ListParts' {} a -> s {sSECustomerKey = a} :: ListParts) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the bucket to which the parts are being uploaded.
 --
@@ -352,21 +353,21 @@ instance Core.AWSRequest ListParts where
     Response.receiveXML
       ( \s h x ->
           ListPartsResponse'
-            Prelude.<$> (x Core..@? "ChecksumAlgorithm")
-            Prelude.<*> (x Core..@? "UploadId")
-            Prelude.<*> (x Core..@? "Key")
-            Prelude.<*> (h Core..#? "x-amz-request-charged")
-            Prelude.<*> (Core.may (Core.parseXMLList "Part") x)
-            Prelude.<*> (x Core..@? "Bucket")
-            Prelude.<*> (h Core..#? "x-amz-abort-rule-id")
-            Prelude.<*> (x Core..@? "NextPartNumberMarker")
-            Prelude.<*> (x Core..@? "IsTruncated")
-            Prelude.<*> (x Core..@? "Owner")
-            Prelude.<*> (h Core..#? "x-amz-abort-date")
-            Prelude.<*> (x Core..@? "MaxParts")
-            Prelude.<*> (x Core..@? "PartNumberMarker")
-            Prelude.<*> (x Core..@? "StorageClass")
-            Prelude.<*> (x Core..@? "Initiator")
+            Prelude.<$> (x Data..@? "ChecksumAlgorithm")
+            Prelude.<*> (x Data..@? "UploadId")
+            Prelude.<*> (x Data..@? "Key")
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
+            Prelude.<*> (Core.may (Data.parseXMLList "Part") x)
+            Prelude.<*> (x Data..@? "Bucket")
+            Prelude.<*> (h Data..#? "x-amz-abort-rule-id")
+            Prelude.<*> (x Data..@? "NextPartNumberMarker")
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "Owner")
+            Prelude.<*> (h Data..#? "x-amz-abort-date")
+            Prelude.<*> (x Data..@? "MaxParts")
+            Prelude.<*> (x Data..@? "PartNumberMarker")
+            Prelude.<*> (x Data..@? "StorageClass")
+            Prelude.<*> (x Data..@? "Initiator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -396,31 +397,31 @@ instance Prelude.NFData ListParts where
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf uploadId
 
-instance Core.ToHeaders ListParts where
+instance Data.ToHeaders ListParts where
   toHeaders ListParts' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer,
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer,
         "x-amz-server-side-encryption-customer-algorithm"
-          Core.=# sSECustomerAlgorithm,
+          Data.=# sSECustomerAlgorithm,
         "x-amz-server-side-encryption-customer-key-MD5"
-          Core.=# sSECustomerKeyMD5,
+          Data.=# sSECustomerKeyMD5,
         "x-amz-server-side-encryption-customer-key"
-          Core.=# sSECustomerKey
+          Data.=# sSECustomerKey
       ]
 
-instance Core.ToPath ListParts where
+instance Data.ToPath ListParts where
   toPath ListParts' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery ListParts where
+instance Data.ToQuery ListParts where
   toQuery ListParts' {..} =
     Prelude.mconcat
-      [ "max-parts" Core.=: maxParts,
-        "part-number-marker" Core.=: partNumberMarker,
-        "uploadId" Core.=: uploadId
+      [ "max-parts" Data.=: maxParts,
+        "part-number-marker" Data.=: partNumberMarker,
+        "uploadId" Data.=: uploadId
       ]
 
 -- | /See:/ 'newListPartsResponse' smart constructor.
@@ -464,7 +465,7 @@ data ListPartsResponse = ListPartsResponse'
     -- The response will also include the @x-amz-abort-rule-id@ header that
     -- will provide the ID of the lifecycle configuration rule that defines
     -- this action.
-    abortDate :: Prelude.Maybe Core.ISO8601,
+    abortDate :: Prelude.Maybe Data.ISO8601,
     -- | Maximum number of parts that were allowed in the response.
     maxParts :: Prelude.Maybe Prelude.Int,
     -- | When a list is truncated, this element specifies the last part in the
@@ -634,7 +635,7 @@ listPartsResponse_owner = Lens.lens (\ListPartsResponse' {owner} -> owner) (\s@L
 -- will provide the ID of the lifecycle configuration rule that defines
 -- this action.
 listPartsResponse_abortDate :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.UTCTime)
-listPartsResponse_abortDate = Lens.lens (\ListPartsResponse' {abortDate} -> abortDate) (\s@ListPartsResponse' {} a -> s {abortDate = a} :: ListPartsResponse) Prelude.. Lens.mapping Core._Time
+listPartsResponse_abortDate = Lens.lens (\ListPartsResponse' {abortDate} -> abortDate) (\s@ListPartsResponse' {} a -> s {abortDate = a} :: ListPartsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Maximum number of parts that were allowed in the response.
 listPartsResponse_maxParts :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Int)

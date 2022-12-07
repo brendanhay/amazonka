@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.HyperParameterRanges where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.CategoricalHyperParameterRange
 import Amazonka.Personalize.Types.ContinuousHyperParameterRange
 import Amazonka.Personalize.Types.IntegerHyperParameterRange
@@ -75,20 +76,20 @@ hyperParameterRanges_categoricalHyperParameterRanges = Lens.lens (\HyperParamete
 hyperParameterRanges_continuousHyperParameterRanges :: Lens.Lens' HyperParameterRanges (Prelude.Maybe [ContinuousHyperParameterRange])
 hyperParameterRanges_continuousHyperParameterRanges = Lens.lens (\HyperParameterRanges' {continuousHyperParameterRanges} -> continuousHyperParameterRanges) (\s@HyperParameterRanges' {} a -> s {continuousHyperParameterRanges = a} :: HyperParameterRanges) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON HyperParameterRanges where
+instance Data.FromJSON HyperParameterRanges where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HyperParameterRanges"
       ( \x ->
           HyperParameterRanges'
-            Prelude.<$> ( x Core..:? "integerHyperParameterRanges"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "integerHyperParameterRanges"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "categoricalHyperParameterRanges"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "categoricalHyperParameterRanges"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "continuousHyperParameterRanges"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "continuousHyperParameterRanges"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -105,15 +106,15 @@ instance Prelude.NFData HyperParameterRanges where
       `Prelude.seq` Prelude.rnf categoricalHyperParameterRanges
       `Prelude.seq` Prelude.rnf continuousHyperParameterRanges
 
-instance Core.ToJSON HyperParameterRanges where
+instance Data.ToJSON HyperParameterRanges where
   toJSON HyperParameterRanges' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("integerHyperParameterRanges" Core..=)
+          [ ("integerHyperParameterRanges" Data..=)
               Prelude.<$> integerHyperParameterRanges,
-            ("categoricalHyperParameterRanges" Core..=)
+            ("categoricalHyperParameterRanges" Data..=)
               Prelude.<$> categoricalHyperParameterRanges,
-            ("continuousHyperParameterRanges" Core..=)
+            ("continuousHyperParameterRanges" Data..=)
               Prelude.<$> continuousHyperParameterRanges
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.NotebookExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.ExecutionEngineConfig
 import Amazonka.EMR.Types.NotebookExecutionStatus
 import Amazonka.EMR.Types.Tag
@@ -82,7 +83,7 @@ data NotebookExecution = NotebookExecution'
     -- | A name for the notebook execution.
     notebookExecutionName :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when notebook execution ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the EMR Notebook that is used for the notebook
     -- execution.
     editorId :: Prelude.Maybe Prelude.Text,
@@ -90,7 +91,7 @@ data NotebookExecution = NotebookExecution'
     -- for execution.
     notebookParams :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when notebook execution started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of a notebook execution.
     notebookExecutionId :: Prelude.Maybe Prelude.Text
   }
@@ -252,7 +253,7 @@ notebookExecution_notebookExecutionName = Lens.lens (\NotebookExecution' {notebo
 
 -- | The timestamp when notebook execution ended.
 notebookExecution_endTime :: Lens.Lens' NotebookExecution (Prelude.Maybe Prelude.UTCTime)
-notebookExecution_endTime = Lens.lens (\NotebookExecution' {endTime} -> endTime) (\s@NotebookExecution' {} a -> s {endTime = a} :: NotebookExecution) Prelude.. Lens.mapping Core._Time
+notebookExecution_endTime = Lens.lens (\NotebookExecution' {endTime} -> endTime) (\s@NotebookExecution' {} a -> s {endTime = a} :: NotebookExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of the EMR Notebook that is used for the notebook
 -- execution.
@@ -266,31 +267,31 @@ notebookExecution_notebookParams = Lens.lens (\NotebookExecution' {notebookParam
 
 -- | The timestamp when notebook execution started.
 notebookExecution_startTime :: Lens.Lens' NotebookExecution (Prelude.Maybe Prelude.UTCTime)
-notebookExecution_startTime = Lens.lens (\NotebookExecution' {startTime} -> startTime) (\s@NotebookExecution' {} a -> s {startTime = a} :: NotebookExecution) Prelude.. Lens.mapping Core._Time
+notebookExecution_startTime = Lens.lens (\NotebookExecution' {startTime} -> startTime) (\s@NotebookExecution' {} a -> s {startTime = a} :: NotebookExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of a notebook execution.
 notebookExecution_notebookExecutionId :: Lens.Lens' NotebookExecution (Prelude.Maybe Prelude.Text)
 notebookExecution_notebookExecutionId = Lens.lens (\NotebookExecution' {notebookExecutionId} -> notebookExecutionId) (\s@NotebookExecution' {} a -> s {notebookExecutionId = a} :: NotebookExecution)
 
-instance Core.FromJSON NotebookExecution where
+instance Data.FromJSON NotebookExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotebookExecution"
       ( \x ->
           NotebookExecution'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LastStateChangeReason")
-            Prelude.<*> (x Core..:? "ExecutionEngine")
-            Prelude.<*> (x Core..:? "NotebookInstanceSecurityGroupId")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "OutputNotebookURI")
-            Prelude.<*> (x Core..:? "NotebookExecutionName")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "EditorId")
-            Prelude.<*> (x Core..:? "NotebookParams")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "NotebookExecutionId")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LastStateChangeReason")
+            Prelude.<*> (x Data..:? "ExecutionEngine")
+            Prelude.<*> (x Data..:? "NotebookInstanceSecurityGroupId")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "OutputNotebookURI")
+            Prelude.<*> (x Data..:? "NotebookExecutionName")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "EditorId")
+            Prelude.<*> (x Data..:? "NotebookParams")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "NotebookExecutionId")
       )
 
 instance Prelude.Hashable NotebookExecution where

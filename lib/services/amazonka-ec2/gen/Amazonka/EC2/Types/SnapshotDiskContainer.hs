@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SnapshotDiskContainer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.UserBucket
 import qualified Amazonka.Prelude as Prelude
@@ -104,11 +105,11 @@ instance Prelude.NFData SnapshotDiskContainer where
       `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToQuery SnapshotDiskContainer where
+instance Data.ToQuery SnapshotDiskContainer where
   toQuery SnapshotDiskContainer' {..} =
     Prelude.mconcat
-      [ "Format" Core.=: format,
-        "UserBucket" Core.=: userBucket,
-        "Url" Core.=: url,
-        "Description" Core.=: description
+      [ "Format" Data.=: format,
+        "UserBucket" Data.=: userBucket,
+        "Url" Data.=: url,
+        "Description" Data.=: description
       ]

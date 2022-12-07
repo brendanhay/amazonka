@@ -21,6 +21,7 @@ module Amazonka.SNS.Types.Topic where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A wrapper type for the topic\'s Amazon Resource Name (ARN). To retrieve
@@ -50,9 +51,9 @@ newTopic = Topic' {topicArn = Prelude.Nothing}
 topic_topicArn :: Lens.Lens' Topic (Prelude.Maybe Prelude.Text)
 topic_topicArn = Lens.lens (\Topic' {topicArn} -> topicArn) (\s@Topic' {} a -> s {topicArn = a} :: Topic)
 
-instance Core.FromXML Topic where
+instance Data.FromXML Topic where
   parseXML x =
-    Topic' Prelude.<$> (x Core..@? "TopicArn")
+    Topic' Prelude.<$> (x Data..@? "TopicArn")
 
 instance Prelude.Hashable Topic where
   hashWithSalt _salt Topic' {..} =

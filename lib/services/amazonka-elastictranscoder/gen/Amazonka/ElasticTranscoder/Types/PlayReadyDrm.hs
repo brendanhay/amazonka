@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.PlayReadyDrm where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The PlayReady DRM settings, if any, that you want Elastic Transcoder to
@@ -181,18 +182,18 @@ playReadyDrm_keyMd5 = Lens.lens (\PlayReadyDrm' {keyMd5} -> keyMd5) (\s@PlayRead
 playReadyDrm_keyId :: Lens.Lens' PlayReadyDrm (Prelude.Maybe Prelude.Text)
 playReadyDrm_keyId = Lens.lens (\PlayReadyDrm' {keyId} -> keyId) (\s@PlayReadyDrm' {} a -> s {keyId = a} :: PlayReadyDrm)
 
-instance Core.FromJSON PlayReadyDrm where
+instance Data.FromJSON PlayReadyDrm where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlayReadyDrm"
       ( \x ->
           PlayReadyDrm'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "LicenseAcquisitionUrl")
-            Prelude.<*> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "InitializationVector")
-            Prelude.<*> (x Core..:? "KeyMd5")
-            Prelude.<*> (x Core..:? "KeyId")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "LicenseAcquisitionUrl")
+            Prelude.<*> (x Data..:? "Format")
+            Prelude.<*> (x Data..:? "InitializationVector")
+            Prelude.<*> (x Data..:? "KeyMd5")
+            Prelude.<*> (x Data..:? "KeyId")
       )
 
 instance Prelude.Hashable PlayReadyDrm where
@@ -213,17 +214,17 @@ instance Prelude.NFData PlayReadyDrm where
       `Prelude.seq` Prelude.rnf keyMd5
       `Prelude.seq` Prelude.rnf keyId
 
-instance Core.ToJSON PlayReadyDrm where
+instance Data.ToJSON PlayReadyDrm where
   toJSON PlayReadyDrm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("LicenseAcquisitionUrl" Core..=)
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("LicenseAcquisitionUrl" Data..=)
               Prelude.<$> licenseAcquisitionUrl,
-            ("Format" Core..=) Prelude.<$> format,
-            ("InitializationVector" Core..=)
+            ("Format" Data..=) Prelude.<$> format,
+            ("InitializationVector" Data..=)
               Prelude.<$> initializationVector,
-            ("KeyMd5" Core..=) Prelude.<$> keyMd5,
-            ("KeyId" Core..=) Prelude.<$> keyId
+            ("KeyMd5" Data..=) Prelude.<$> keyMd5,
+            ("KeyId" Data..=) Prelude.<$> keyId
           ]
       )

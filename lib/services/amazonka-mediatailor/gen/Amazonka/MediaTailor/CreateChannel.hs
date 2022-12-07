@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -187,16 +188,16 @@ instance Core.AWSRequest CreateChannel where
     Response.receiveJSON
       ( \s h x ->
           CreateChannelResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ChannelName")
-            Prelude.<*> (x Core..?> "FillerSlate")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "Tier")
-            Prelude.<*> (x Core..?> "Outputs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "PlaybackMode")
-            Prelude.<*> (x Core..?> "ChannelState")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ChannelName")
+            Prelude.<*> (x Data..?> "FillerSlate")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "Tier")
+            Prelude.<*> (x Data..?> "Outputs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "PlaybackMode")
+            Prelude.<*> (x Data..?> "ChannelState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,35 +219,35 @@ instance Prelude.NFData CreateChannel where
       `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf playbackMode
 
-instance Core.ToHeaders CreateChannel where
+instance Data.ToHeaders CreateChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateChannel where
+instance Data.ToJSON CreateChannel where
   toJSON CreateChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("FillerSlate" Core..=) Prelude.<$> fillerSlate,
-            ("Tier" Core..=) Prelude.<$> tier,
-            Prelude.Just ("Outputs" Core..= outputs),
-            Prelude.Just ("PlaybackMode" Core..= playbackMode)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("FillerSlate" Data..=) Prelude.<$> fillerSlate,
+            ("Tier" Data..=) Prelude.<$> tier,
+            Prelude.Just ("Outputs" Data..= outputs),
+            Prelude.Just ("PlaybackMode" Data..= playbackMode)
           ]
       )
 
-instance Core.ToPath CreateChannel where
+instance Data.ToPath CreateChannel where
   toPath CreateChannel' {..} =
     Prelude.mconcat
-      ["/channel/", Core.toBS channelName]
+      ["/channel/", Data.toBS channelName]
 
-instance Core.ToQuery CreateChannel where
+instance Data.ToQuery CreateChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateChannelResponse' smart constructor.
@@ -264,13 +265,13 @@ data CreateChannelResponse = CreateChannelResponse'
     -- | The Amazon Resource Name (ARN) to assign to the channel.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the channel was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The tier of the channel.
     tier :: Prelude.Maybe Prelude.Text,
     -- | The output properties to assign to the channel.
     outputs :: Prelude.Maybe [ResponseOutputItem],
     -- | The timestamp of when the channel was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The playback mode to assign to the channel.
     playbackMode :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the channel is in a running state or not.
@@ -354,7 +355,7 @@ createChannelResponse_arn = Lens.lens (\CreateChannelResponse' {arn} -> arn) (\s
 
 -- | The timestamp of when the channel was last modified.
 createChannelResponse_lastModifiedTime :: Lens.Lens' CreateChannelResponse (Prelude.Maybe Prelude.UTCTime)
-createChannelResponse_lastModifiedTime = Lens.lens (\CreateChannelResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateChannelResponse' {} a -> s {lastModifiedTime = a} :: CreateChannelResponse) Prelude.. Lens.mapping Core._Time
+createChannelResponse_lastModifiedTime = Lens.lens (\CreateChannelResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateChannelResponse' {} a -> s {lastModifiedTime = a} :: CreateChannelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The tier of the channel.
 createChannelResponse_tier :: Lens.Lens' CreateChannelResponse (Prelude.Maybe Prelude.Text)
@@ -366,7 +367,7 @@ createChannelResponse_outputs = Lens.lens (\CreateChannelResponse' {outputs} -> 
 
 -- | The timestamp of when the channel was created.
 createChannelResponse_creationTime :: Lens.Lens' CreateChannelResponse (Prelude.Maybe Prelude.UTCTime)
-createChannelResponse_creationTime = Lens.lens (\CreateChannelResponse' {creationTime} -> creationTime) (\s@CreateChannelResponse' {} a -> s {creationTime = a} :: CreateChannelResponse) Prelude.. Lens.mapping Core._Time
+createChannelResponse_creationTime = Lens.lens (\CreateChannelResponse' {creationTime} -> creationTime) (\s@CreateChannelResponse' {} a -> s {creationTime = a} :: CreateChannelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The playback mode to assign to the channel.
 createChannelResponse_playbackMode :: Lens.Lens' CreateChannelResponse (Prelude.Maybe Prelude.Text)

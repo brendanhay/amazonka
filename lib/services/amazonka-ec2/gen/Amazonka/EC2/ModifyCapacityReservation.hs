@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,7 +74,7 @@ data ModifyCapacityReservation = ModifyCapacityReservation'
     --
     -- You must provide an @EndDate@ value if @EndDateType@ is @limited@. Omit
     -- @EndDate@ if @EndDateType@ is @unlimited@.
-    endDate :: Prelude.Maybe Core.ISO8601,
+    endDate :: Prelude.Maybe Data.ISO8601,
     -- | Reserved. Capacity Reservations you have created are accepted by
     -- default.
     accept :: Prelude.Maybe Prelude.Bool,
@@ -182,7 +183,7 @@ modifyCapacityReservation_additionalInfo = Lens.lens (\ModifyCapacityReservation
 -- You must provide an @EndDate@ value if @EndDateType@ is @limited@. Omit
 -- @EndDate@ if @EndDateType@ is @unlimited@.
 modifyCapacityReservation_endDate :: Lens.Lens' ModifyCapacityReservation (Prelude.Maybe Prelude.UTCTime)
-modifyCapacityReservation_endDate = Lens.lens (\ModifyCapacityReservation' {endDate} -> endDate) (\s@ModifyCapacityReservation' {} a -> s {endDate = a} :: ModifyCapacityReservation) Prelude.. Lens.mapping Core._Time
+modifyCapacityReservation_endDate = Lens.lens (\ModifyCapacityReservation' {endDate} -> endDate) (\s@ModifyCapacityReservation' {} a -> s {endDate = a} :: ModifyCapacityReservation) Prelude.. Lens.mapping Data._Time
 
 -- | Reserved. Capacity Reservations you have created are accepted by
 -- default.
@@ -229,7 +230,7 @@ instance Core.AWSRequest ModifyCapacityReservation where
     Response.receiveXML
       ( \s h x ->
           ModifyCapacityReservationResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -253,27 +254,27 @@ instance Prelude.NFData ModifyCapacityReservation where
       `Prelude.seq` Prelude.rnf endDateType
       `Prelude.seq` Prelude.rnf capacityReservationId
 
-instance Core.ToHeaders ModifyCapacityReservation where
+instance Data.ToHeaders ModifyCapacityReservation where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyCapacityReservation where
+instance Data.ToPath ModifyCapacityReservation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyCapacityReservation where
+instance Data.ToQuery ModifyCapacityReservation where
   toQuery ModifyCapacityReservation' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyCapacityReservation" :: Prelude.ByteString),
+          Data.=: ("ModifyCapacityReservation" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "AdditionalInfo" Core.=: additionalInfo,
-        "EndDate" Core.=: endDate,
-        "Accept" Core.=: accept,
-        "DryRun" Core.=: dryRun,
-        "InstanceCount" Core.=: instanceCount,
-        "EndDateType" Core.=: endDateType,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "AdditionalInfo" Data.=: additionalInfo,
+        "EndDate" Data.=: endDate,
+        "Accept" Data.=: accept,
+        "DryRun" Data.=: dryRun,
+        "InstanceCount" Data.=: instanceCount,
+        "EndDateType" Data.=: endDateType,
         "CapacityReservationId"
-          Core.=: capacityReservationId
+          Data.=: capacityReservationId
       ]
 
 -- | /See:/ 'newModifyCapacityReservationResponse' smart constructor.

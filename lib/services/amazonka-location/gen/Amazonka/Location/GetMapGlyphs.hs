@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -211,7 +212,7 @@ instance Core.AWSRequest GetMapGlyphs where
       ( \s h x ->
           GetMapGlyphsResponse'
             Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
-            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -227,29 +228,29 @@ instance Prelude.NFData GetMapGlyphs where
       `Prelude.seq` Prelude.rnf fontUnicodeRange
       `Prelude.seq` Prelude.rnf mapName
 
-instance Core.ToHeaders GetMapGlyphs where
+instance Data.ToHeaders GetMapGlyphs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetMapGlyphs where
+instance Data.ToPath GetMapGlyphs where
   toPath GetMapGlyphs' {..} =
     Prelude.mconcat
       [ "/maps/v0/maps/",
-        Core.toBS mapName,
+        Data.toBS mapName,
         "/glyphs/",
-        Core.toBS fontStack,
+        Data.toBS fontStack,
         "/",
-        Core.toBS fontUnicodeRange
+        Data.toBS fontUnicodeRange
       ]
 
-instance Core.ToQuery GetMapGlyphs where
+instance Data.ToQuery GetMapGlyphs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMapGlyphsResponse' smart constructor.

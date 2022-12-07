@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.S3ContentLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a Kinesis Data Analytics application provides a description of an
@@ -80,15 +81,15 @@ s3ContentLocation_bucketARN = Lens.lens (\S3ContentLocation' {bucketARN} -> buck
 s3ContentLocation_fileKey :: Lens.Lens' S3ContentLocation Prelude.Text
 s3ContentLocation_fileKey = Lens.lens (\S3ContentLocation' {fileKey} -> fileKey) (\s@S3ContentLocation' {} a -> s {fileKey = a} :: S3ContentLocation)
 
-instance Core.FromJSON S3ContentLocation where
+instance Data.FromJSON S3ContentLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3ContentLocation"
       ( \x ->
           S3ContentLocation'
-            Prelude.<$> (x Core..:? "ObjectVersion")
-            Prelude.<*> (x Core..: "BucketARN")
-            Prelude.<*> (x Core..: "FileKey")
+            Prelude.<$> (x Data..:? "ObjectVersion")
+            Prelude.<*> (x Data..: "BucketARN")
+            Prelude.<*> (x Data..: "FileKey")
       )
 
 instance Prelude.Hashable S3ContentLocation where
@@ -103,12 +104,12 @@ instance Prelude.NFData S3ContentLocation where
       `Prelude.seq` Prelude.rnf bucketARN
       `Prelude.seq` Prelude.rnf fileKey
 
-instance Core.ToJSON S3ContentLocation where
+instance Data.ToJSON S3ContentLocation where
   toJSON S3ContentLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ObjectVersion" Core..=) Prelude.<$> objectVersion,
-            Prelude.Just ("BucketARN" Core..= bucketARN),
-            Prelude.Just ("FileKey" Core..= fileKey)
+          [ ("ObjectVersion" Data..=) Prelude.<$> objectVersion,
+            Prelude.Just ("BucketARN" Data..= bucketARN),
+            Prelude.Just ("FileKey" Data..= fileKey)
           ]
       )

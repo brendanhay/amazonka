@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.FeatureTransformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides feature transformation information. Feature transformation is
@@ -32,7 +33,7 @@ data FeatureTransformation = FeatureTransformation'
   { -- | The name of the feature transformation.
     name :: Prelude.Maybe Prelude.Text,
     -- | The creation date and time (in Unix time) of the feature transformation.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the FeatureTransformation object.
     featureTransformationArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the feature transformation.
@@ -45,7 +46,7 @@ data FeatureTransformation = FeatureTransformation'
     defaultParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The last update date and time (in Unix time) of the feature
     -- transformation.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,7 +92,7 @@ featureTransformation_name = Lens.lens (\FeatureTransformation' {name} -> name) 
 
 -- | The creation date and time (in Unix time) of the feature transformation.
 featureTransformation_creationDateTime :: Lens.Lens' FeatureTransformation (Prelude.Maybe Prelude.UTCTime)
-featureTransformation_creationDateTime = Lens.lens (\FeatureTransformation' {creationDateTime} -> creationDateTime) (\s@FeatureTransformation' {} a -> s {creationDateTime = a} :: FeatureTransformation) Prelude.. Lens.mapping Core._Time
+featureTransformation_creationDateTime = Lens.lens (\FeatureTransformation' {creationDateTime} -> creationDateTime) (\s@FeatureTransformation' {} a -> s {creationDateTime = a} :: FeatureTransformation) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the FeatureTransformation object.
 featureTransformation_featureTransformationArn :: Lens.Lens' FeatureTransformation (Prelude.Maybe Prelude.Text)
@@ -112,22 +113,22 @@ featureTransformation_defaultParameters = Lens.lens (\FeatureTransformation' {de
 -- | The last update date and time (in Unix time) of the feature
 -- transformation.
 featureTransformation_lastUpdatedDateTime :: Lens.Lens' FeatureTransformation (Prelude.Maybe Prelude.UTCTime)
-featureTransformation_lastUpdatedDateTime = Lens.lens (\FeatureTransformation' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@FeatureTransformation' {} a -> s {lastUpdatedDateTime = a} :: FeatureTransformation) Prelude.. Lens.mapping Core._Time
+featureTransformation_lastUpdatedDateTime = Lens.lens (\FeatureTransformation' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@FeatureTransformation' {} a -> s {lastUpdatedDateTime = a} :: FeatureTransformation) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON FeatureTransformation where
+instance Data.FromJSON FeatureTransformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FeatureTransformation"
       ( \x ->
           FeatureTransformation'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "featureTransformationArn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> ( x Core..:? "defaultParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "featureTransformationArn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> ( x Data..:? "defaultParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable FeatureTransformation where

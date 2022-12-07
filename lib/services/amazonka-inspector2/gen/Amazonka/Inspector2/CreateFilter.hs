@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,7 +148,7 @@ instance Core.AWSRequest CreateFilter where
       ( \s h x ->
           CreateFilterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable CreateFilter where
@@ -168,35 +169,35 @@ instance Prelude.NFData CreateFilter where
       `Prelude.seq` Prelude.rnf filterCriteria
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateFilter where
+instance Data.ToHeaders CreateFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFilter where
+instance Data.ToJSON CreateFilter where
   toJSON CreateFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            ("reason" Core..=) Prelude.<$> reason,
-            Prelude.Just ("action" Core..= action),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            ("reason" Data..=) Prelude.<$> reason,
+            Prelude.Just ("action" Data..= action),
             Prelude.Just
-              ("filterCriteria" Core..= filterCriteria),
-            Prelude.Just ("name" Core..= name)
+              ("filterCriteria" Data..= filterCriteria),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateFilter where
+instance Data.ToPath CreateFilter where
   toPath = Prelude.const "/filters/create"
 
-instance Core.ToQuery CreateFilter where
+instance Data.ToQuery CreateFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFilterResponse' smart constructor.

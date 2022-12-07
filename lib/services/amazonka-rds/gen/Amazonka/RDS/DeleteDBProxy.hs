@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest DeleteDBProxy where
       "DeleteDBProxyResult"
       ( \s h x ->
           DeleteDBProxyResponse'
-            Prelude.<$> (x Core..@? "DBProxy")
+            Prelude.<$> (x Data..@? "DBProxy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,20 +96,20 @@ instance Prelude.Hashable DeleteDBProxy where
 instance Prelude.NFData DeleteDBProxy where
   rnf DeleteDBProxy' {..} = Prelude.rnf dbProxyName
 
-instance Core.ToHeaders DeleteDBProxy where
+instance Data.ToHeaders DeleteDBProxy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteDBProxy where
+instance Data.ToPath DeleteDBProxy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDBProxy where
+instance Data.ToQuery DeleteDBProxy where
   toQuery DeleteDBProxy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDBProxy" :: Prelude.ByteString),
+          Data.=: ("DeleteDBProxy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBProxyName" Core.=: dbProxyName
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBProxyName" Data.=: dbProxyName
       ]
 
 -- | /See:/ 'newDeleteDBProxyResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.S3.Types.LifecycleRuleAndOperator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.Tag
@@ -86,15 +87,15 @@ lifecycleRuleAndOperator_prefix = Lens.lens (\LifecycleRuleAndOperator' {prefix}
 lifecycleRuleAndOperator_objectSizeGreaterThan :: Lens.Lens' LifecycleRuleAndOperator (Prelude.Maybe Prelude.Integer)
 lifecycleRuleAndOperator_objectSizeGreaterThan = Lens.lens (\LifecycleRuleAndOperator' {objectSizeGreaterThan} -> objectSizeGreaterThan) (\s@LifecycleRuleAndOperator' {} a -> s {objectSizeGreaterThan = a} :: LifecycleRuleAndOperator)
 
-instance Core.FromXML LifecycleRuleAndOperator where
+instance Data.FromXML LifecycleRuleAndOperator where
   parseXML x =
     LifecycleRuleAndOperator'
-      Prelude.<$> ( x Core..@? "Tag" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Tag" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "ObjectSizeLessThan")
-      Prelude.<*> (x Core..@? "Prefix")
-      Prelude.<*> (x Core..@? "ObjectSizeGreaterThan")
+      Prelude.<*> (x Data..@? "ObjectSizeLessThan")
+      Prelude.<*> (x Data..@? "Prefix")
+      Prelude.<*> (x Data..@? "ObjectSizeGreaterThan")
 
 instance Prelude.Hashable LifecycleRuleAndOperator where
   hashWithSalt _salt LifecycleRuleAndOperator' {..} =
@@ -110,13 +111,13 @@ instance Prelude.NFData LifecycleRuleAndOperator where
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf objectSizeGreaterThan
 
-instance Core.ToXML LifecycleRuleAndOperator where
+instance Data.ToXML LifecycleRuleAndOperator where
   toXML LifecycleRuleAndOperator' {..} =
     Prelude.mconcat
       [ "Tag"
-          Core.@= Core.toXML (Core.toXMLList "Tag" Prelude.<$> tags),
-        "ObjectSizeLessThan" Core.@= objectSizeLessThan,
-        "Prefix" Core.@= prefix,
+          Data.@= Data.toXML (Data.toXMLList "Tag" Prelude.<$> tags),
+        "ObjectSizeLessThan" Data.@= objectSizeLessThan,
+        "Prefix" Data.@= prefix,
         "ObjectSizeGreaterThan"
-          Core.@= objectSizeGreaterThan
+          Data.@= objectSizeGreaterThan
       ]

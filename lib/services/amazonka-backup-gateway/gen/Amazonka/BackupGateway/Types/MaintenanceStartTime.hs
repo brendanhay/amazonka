@@ -21,6 +21,7 @@ module Amazonka.BackupGateway.Types.MaintenanceStartTime where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This is your gateway\'s weekly maintenance start time including the day
@@ -109,16 +110,16 @@ maintenanceStartTime_hourOfDay = Lens.lens (\MaintenanceStartTime' {hourOfDay} -
 maintenanceStartTime_minuteOfHour :: Lens.Lens' MaintenanceStartTime Prelude.Natural
 maintenanceStartTime_minuteOfHour = Lens.lens (\MaintenanceStartTime' {minuteOfHour} -> minuteOfHour) (\s@MaintenanceStartTime' {} a -> s {minuteOfHour = a} :: MaintenanceStartTime)
 
-instance Core.FromJSON MaintenanceStartTime where
+instance Data.FromJSON MaintenanceStartTime where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MaintenanceStartTime"
       ( \x ->
           MaintenanceStartTime'
-            Prelude.<$> (x Core..:? "DayOfWeek")
-            Prelude.<*> (x Core..:? "DayOfMonth")
-            Prelude.<*> (x Core..: "HourOfDay")
-            Prelude.<*> (x Core..: "MinuteOfHour")
+            Prelude.<$> (x Data..:? "DayOfWeek")
+            Prelude.<*> (x Data..:? "DayOfMonth")
+            Prelude.<*> (x Data..: "HourOfDay")
+            Prelude.<*> (x Data..: "MinuteOfHour")
       )
 
 instance Prelude.Hashable MaintenanceStartTime where

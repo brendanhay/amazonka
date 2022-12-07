@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.ReplicationSubnetGroup where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.Subnet
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a subnet group in response to a request by the
@@ -109,19 +110,19 @@ replicationSubnetGroup_replicationSubnetGroupIdentifier = Lens.lens (\Replicatio
 replicationSubnetGroup_supportedNetworkTypes :: Lens.Lens' ReplicationSubnetGroup (Prelude.Maybe [Prelude.Text])
 replicationSubnetGroup_supportedNetworkTypes = Lens.lens (\ReplicationSubnetGroup' {supportedNetworkTypes} -> supportedNetworkTypes) (\s@ReplicationSubnetGroup' {} a -> s {supportedNetworkTypes = a} :: ReplicationSubnetGroup) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ReplicationSubnetGroup where
+instance Data.FromJSON ReplicationSubnetGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationSubnetGroup"
       ( \x ->
           ReplicationSubnetGroup'
-            Prelude.<$> (x Core..:? "SubnetGroupStatus")
-            Prelude.<*> (x Core..:? "Subnets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ReplicationSubnetGroupDescription")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "ReplicationSubnetGroupIdentifier")
-            Prelude.<*> ( x Core..:? "SupportedNetworkTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SubnetGroupStatus")
+            Prelude.<*> (x Data..:? "Subnets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ReplicationSubnetGroupDescription")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "ReplicationSubnetGroupIdentifier")
+            Prelude.<*> ( x Data..:? "SupportedNetworkTypes"
+                            Data..!= Prelude.mempty
                         )
       )
 

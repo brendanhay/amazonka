@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.AmazonOpenSearchParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for OpenSearch.
@@ -52,13 +53,13 @@ newAmazonOpenSearchParameters pDomain_ =
 amazonOpenSearchParameters_domain :: Lens.Lens' AmazonOpenSearchParameters Prelude.Text
 amazonOpenSearchParameters_domain = Lens.lens (\AmazonOpenSearchParameters' {domain} -> domain) (\s@AmazonOpenSearchParameters' {} a -> s {domain = a} :: AmazonOpenSearchParameters)
 
-instance Core.FromJSON AmazonOpenSearchParameters where
+instance Data.FromJSON AmazonOpenSearchParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AmazonOpenSearchParameters"
       ( \x ->
           AmazonOpenSearchParameters'
-            Prelude.<$> (x Core..: "Domain")
+            Prelude.<$> (x Data..: "Domain")
       )
 
 instance Prelude.Hashable AmazonOpenSearchParameters where
@@ -69,9 +70,9 @@ instance Prelude.NFData AmazonOpenSearchParameters where
   rnf AmazonOpenSearchParameters' {..} =
     Prelude.rnf domain
 
-instance Core.ToJSON AmazonOpenSearchParameters where
+instance Data.ToJSON AmazonOpenSearchParameters where
   toJSON AmazonOpenSearchParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Domain" Core..= domain)]
+          [Prelude.Just ("Domain" Data..= domain)]
       )

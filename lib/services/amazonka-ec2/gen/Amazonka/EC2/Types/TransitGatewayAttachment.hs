@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayAttachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TransitGatewayAttachmentAssociation
@@ -51,7 +52,7 @@ data TransitGatewayAttachment = TransitGatewayAttachment'
     -- | The association.
     association :: Prelude.Maybe TransitGatewayAttachmentAssociation,
     -- | The creation time.
-    creationTime :: Prelude.Maybe Core.ISO8601,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the Amazon Web Services account that owns the transit gateway.
     transitGatewayOwnerId :: Prelude.Maybe Prelude.Text
   }
@@ -139,27 +140,27 @@ transitGatewayAttachment_association = Lens.lens (\TransitGatewayAttachment' {as
 
 -- | The creation time.
 transitGatewayAttachment_creationTime :: Lens.Lens' TransitGatewayAttachment (Prelude.Maybe Prelude.UTCTime)
-transitGatewayAttachment_creationTime = Lens.lens (\TransitGatewayAttachment' {creationTime} -> creationTime) (\s@TransitGatewayAttachment' {} a -> s {creationTime = a} :: TransitGatewayAttachment) Prelude.. Lens.mapping Core._Time
+transitGatewayAttachment_creationTime = Lens.lens (\TransitGatewayAttachment' {creationTime} -> creationTime) (\s@TransitGatewayAttachment' {} a -> s {creationTime = a} :: TransitGatewayAttachment) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the Amazon Web Services account that owns the transit gateway.
 transitGatewayAttachment_transitGatewayOwnerId :: Lens.Lens' TransitGatewayAttachment (Prelude.Maybe Prelude.Text)
 transitGatewayAttachment_transitGatewayOwnerId = Lens.lens (\TransitGatewayAttachment' {transitGatewayOwnerId} -> transitGatewayOwnerId) (\s@TransitGatewayAttachment' {} a -> s {transitGatewayOwnerId = a} :: TransitGatewayAttachment)
 
-instance Core.FromXML TransitGatewayAttachment where
+instance Data.FromXML TransitGatewayAttachment where
   parseXML x =
     TransitGatewayAttachment'
-      Prelude.<$> (x Core..@? "resourceId")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "resourceId")
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "resourceType")
-      Prelude.<*> (x Core..@? "resourceOwnerId")
-      Prelude.<*> (x Core..@? "transitGatewayId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
-      Prelude.<*> (x Core..@? "association")
-      Prelude.<*> (x Core..@? "creationTime")
-      Prelude.<*> (x Core..@? "transitGatewayOwnerId")
+      Prelude.<*> (x Data..@? "resourceType")
+      Prelude.<*> (x Data..@? "resourceOwnerId")
+      Prelude.<*> (x Data..@? "transitGatewayId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
+      Prelude.<*> (x Data..@? "association")
+      Prelude.<*> (x Data..@? "creationTime")
+      Prelude.<*> (x Data..@? "transitGatewayOwnerId")
 
 instance Prelude.Hashable TransitGatewayAttachment where
   hashWithSalt _salt TransitGatewayAttachment' {..} =

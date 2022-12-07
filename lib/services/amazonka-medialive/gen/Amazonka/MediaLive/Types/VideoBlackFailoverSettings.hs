@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.VideoBlackFailoverSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Placeholder documentation for VideoBlackFailoverSettings
@@ -92,14 +93,14 @@ videoBlackFailoverSettings_blackDetectThreshold = Lens.lens (\VideoBlackFailover
 videoBlackFailoverSettings_videoBlackThresholdMsec :: Lens.Lens' VideoBlackFailoverSettings (Prelude.Maybe Prelude.Natural)
 videoBlackFailoverSettings_videoBlackThresholdMsec = Lens.lens (\VideoBlackFailoverSettings' {videoBlackThresholdMsec} -> videoBlackThresholdMsec) (\s@VideoBlackFailoverSettings' {} a -> s {videoBlackThresholdMsec = a} :: VideoBlackFailoverSettings)
 
-instance Core.FromJSON VideoBlackFailoverSettings where
+instance Data.FromJSON VideoBlackFailoverSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VideoBlackFailoverSettings"
       ( \x ->
           VideoBlackFailoverSettings'
-            Prelude.<$> (x Core..:? "blackDetectThreshold")
-            Prelude.<*> (x Core..:? "videoBlackThresholdMsec")
+            Prelude.<$> (x Data..:? "blackDetectThreshold")
+            Prelude.<*> (x Data..:? "videoBlackThresholdMsec")
       )
 
 instance Prelude.Hashable VideoBlackFailoverSettings where
@@ -112,13 +113,13 @@ instance Prelude.NFData VideoBlackFailoverSettings where
     Prelude.rnf blackDetectThreshold
       `Prelude.seq` Prelude.rnf videoBlackThresholdMsec
 
-instance Core.ToJSON VideoBlackFailoverSettings where
+instance Data.ToJSON VideoBlackFailoverSettings where
   toJSON VideoBlackFailoverSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("blackDetectThreshold" Core..=)
+          [ ("blackDetectThreshold" Data..=)
               Prelude.<$> blackDetectThreshold,
-            ("videoBlackThresholdMsec" Core..=)
+            ("videoBlackThresholdMsec" Data..=)
               Prelude.<$> videoBlackThresholdMsec
           ]
       )

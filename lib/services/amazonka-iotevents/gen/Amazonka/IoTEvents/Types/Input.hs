@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.Input where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.InputConfiguration
 import Amazonka.IoTEvents.Types.InputDefinition
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ input_inputDefinition = Lens.lens (\Input' {inputDefinition} -> inputDefinition)
 input_inputConfiguration :: Lens.Lens' Input (Prelude.Maybe InputConfiguration)
 input_inputConfiguration = Lens.lens (\Input' {inputConfiguration} -> inputConfiguration) (\s@Input' {} a -> s {inputConfiguration = a} :: Input)
 
-instance Core.FromJSON Input where
+instance Data.FromJSON Input where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Input"
       ( \x ->
           Input'
-            Prelude.<$> (x Core..:? "inputDefinition")
-            Prelude.<*> (x Core..:? "inputConfiguration")
+            Prelude.<$> (x Data..:? "inputDefinition")
+            Prelude.<*> (x Data..:? "inputConfiguration")
       )
 
 instance Prelude.Hashable Input where

@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.Grantee where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types.Type
 import qualified Amazonka.Prelude as Prelude
 
@@ -91,17 +92,17 @@ grantee_emailAddress = Lens.lens (\Grantee' {emailAddress} -> emailAddress) (\s@
 grantee_type :: Lens.Lens' Grantee Type
 grantee_type = Lens.lens (\Grantee' {type'} -> type') (\s@Grantee' {} a -> s {type' = a} :: Grantee)
 
-instance Core.FromJSON Grantee where
+instance Data.FromJSON Grantee where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Grantee"
       ( \x ->
           Grantee'
-            Prelude.<$> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "URI")
-            Prelude.<*> (x Core..:? "ID")
-            Prelude.<*> (x Core..:? "EmailAddress")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "URI")
+            Prelude.<*> (x Data..:? "ID")
+            Prelude.<*> (x Data..:? "EmailAddress")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable Grantee where
@@ -120,14 +121,14 @@ instance Prelude.NFData Grantee where
       `Prelude.seq` Prelude.rnf emailAddress
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON Grantee where
+instance Data.ToJSON Grantee where
   toJSON Grantee' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("URI" Core..=) Prelude.<$> uri,
-            ("ID" Core..=) Prelude.<$> id,
-            ("EmailAddress" Core..=) Prelude.<$> emailAddress,
-            Prelude.Just ("Type" Core..= type')
+          [ ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("URI" Data..=) Prelude.<$> uri,
+            ("ID" Data..=) Prelude.<$> id,
+            ("EmailAddress" Data..=) Prelude.<$> emailAddress,
+            Prelude.Just ("Type" Data..= type')
           ]
       )

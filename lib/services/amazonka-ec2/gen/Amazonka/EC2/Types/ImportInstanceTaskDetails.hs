@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ImportInstanceTaskDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ImportInstanceVolumeDetailItem
 import Amazonka.EC2.Types.PlatformValues
@@ -83,15 +84,15 @@ importInstanceTaskDetails_volumes = Lens.lens (\ImportInstanceTaskDetails' {volu
 importInstanceTaskDetails_instanceId :: Lens.Lens' ImportInstanceTaskDetails (Prelude.Maybe Prelude.Text)
 importInstanceTaskDetails_instanceId = Lens.lens (\ImportInstanceTaskDetails' {instanceId} -> instanceId) (\s@ImportInstanceTaskDetails' {} a -> s {instanceId = a} :: ImportInstanceTaskDetails)
 
-instance Core.FromXML ImportInstanceTaskDetails where
+instance Data.FromXML ImportInstanceTaskDetails where
   parseXML x =
     ImportInstanceTaskDetails'
-      Prelude.<$> (x Core..@? "platform")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> ( x Core..@? "volumes" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "platform")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> ( x Data..@? "volumes" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "instanceId")
+      Prelude.<*> (x Data..@? "instanceId")
 
 instance Prelude.Hashable ImportInstanceTaskDetails where
   hashWithSalt _salt ImportInstanceTaskDetails' {..} =

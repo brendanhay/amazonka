@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,20 +114,20 @@ instance Core.AWSRequest GetApplication where
     Response.receiveJSON
       ( \s h x ->
           GetApplicationResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "ProxyType")
-            Prelude.<*> (x Core..?> "CreatedTime")
-            Prelude.<*> (x Core..?> "CreatedByAccountId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "LastUpdatedTime")
-            Prelude.<*> (x Core..?> "OwnerAccountId")
-            Prelude.<*> (x Core..?> "VpcId")
-            Prelude.<*> (x Core..?> "EnvironmentId")
-            Prelude.<*> (x Core..?> "Error")
-            Prelude.<*> (x Core..?> "ApplicationId")
-            Prelude.<*> (x Core..?> "ApiGatewayProxy")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "ProxyType")
+            Prelude.<*> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "CreatedByAccountId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "LastUpdatedTime")
+            Prelude.<*> (x Data..?> "OwnerAccountId")
+            Prelude.<*> (x Data..?> "VpcId")
+            Prelude.<*> (x Data..?> "EnvironmentId")
+            Prelude.<*> (x Data..?> "Error")
+            Prelude.<*> (x Data..?> "ApplicationId")
+            Prelude.<*> (x Data..?> "ApiGatewayProxy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,27 +141,27 @@ instance Prelude.NFData GetApplication where
     Prelude.rnf applicationIdentifier
       `Prelude.seq` Prelude.rnf environmentIdentifier
 
-instance Core.ToHeaders GetApplication where
+instance Data.ToHeaders GetApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetApplication where
+instance Data.ToPath GetApplication where
   toPath GetApplication' {..} =
     Prelude.mconcat
       [ "/environments/",
-        Core.toBS environmentIdentifier,
+        Data.toBS environmentIdentifier,
         "/applications/",
-        Core.toBS applicationIdentifier
+        Data.toBS applicationIdentifier
       ]
 
-instance Core.ToQuery GetApplication where
+instance Data.ToQuery GetApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetApplicationResponse' smart constructor.
@@ -168,13 +169,13 @@ data GetApplicationResponse = GetApplicationResponse'
   { -- | The tags assigned to the application. A tag is a label that you assign
     -- to an Amazon Web Services resource. Each tag consists of a key-value
     -- pair.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The name of the application.
     name :: Prelude.Maybe Prelude.Text,
     -- | The proxy type of the proxy created within the application.
     proxyType :: Prelude.Maybe ProxyType,
     -- | A timestamp that indicates when the application is created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID of the application creator.
     createdByAccountId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the application.
@@ -182,7 +183,7 @@ data GetApplicationResponse = GetApplicationResponse'
     -- | The current state of the application.
     state :: Prelude.Maybe ApplicationState,
     -- | A timestamp that indicates when the application was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID of the application owner (which is
     -- always the same as the environment owner account ID).
     ownerAccountId :: Prelude.Maybe Prelude.Text,
@@ -268,7 +269,7 @@ newGetApplicationResponse pHttpStatus_ =
 -- to an Amazon Web Services resource. Each tag consists of a key-value
 -- pair.
 getApplicationResponse_tags :: Lens.Lens' GetApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getApplicationResponse_tags = Lens.lens (\GetApplicationResponse' {tags} -> tags) (\s@GetApplicationResponse' {} a -> s {tags = a} :: GetApplicationResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+getApplicationResponse_tags = Lens.lens (\GetApplicationResponse' {tags} -> tags) (\s@GetApplicationResponse' {} a -> s {tags = a} :: GetApplicationResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the application.
 getApplicationResponse_name :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
@@ -280,7 +281,7 @@ getApplicationResponse_proxyType = Lens.lens (\GetApplicationResponse' {proxyTyp
 
 -- | A timestamp that indicates when the application is created.
 getApplicationResponse_createdTime :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.UTCTime)
-getApplicationResponse_createdTime = Lens.lens (\GetApplicationResponse' {createdTime} -> createdTime) (\s@GetApplicationResponse' {} a -> s {createdTime = a} :: GetApplicationResponse) Prelude.. Lens.mapping Core._Time
+getApplicationResponse_createdTime = Lens.lens (\GetApplicationResponse' {createdTime} -> createdTime) (\s@GetApplicationResponse' {} a -> s {createdTime = a} :: GetApplicationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account ID of the application creator.
 getApplicationResponse_createdByAccountId :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
@@ -296,7 +297,7 @@ getApplicationResponse_state = Lens.lens (\GetApplicationResponse' {state} -> st
 
 -- | A timestamp that indicates when the application was last updated.
 getApplicationResponse_lastUpdatedTime :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.UTCTime)
-getApplicationResponse_lastUpdatedTime = Lens.lens (\GetApplicationResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@GetApplicationResponse' {} a -> s {lastUpdatedTime = a} :: GetApplicationResponse) Prelude.. Lens.mapping Core._Time
+getApplicationResponse_lastUpdatedTime = Lens.lens (\GetApplicationResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@GetApplicationResponse' {} a -> s {lastUpdatedTime = a} :: GetApplicationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account ID of the application owner (which is
 -- always the same as the environment owner account ID).

@@ -21,6 +21,7 @@ module Amazonka.AuditManager.Types.BatchDeleteDelegationByAssessmentError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An error entity for the @BatchDeleteDelegationByAssessment@ API. This is
@@ -79,17 +80,17 @@ batchDeleteDelegationByAssessmentError_errorCode :: Lens.Lens' BatchDeleteDelega
 batchDeleteDelegationByAssessmentError_errorCode = Lens.lens (\BatchDeleteDelegationByAssessmentError' {errorCode} -> errorCode) (\s@BatchDeleteDelegationByAssessmentError' {} a -> s {errorCode = a} :: BatchDeleteDelegationByAssessmentError)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchDeleteDelegationByAssessmentError
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDeleteDelegationByAssessmentError"
       ( \x ->
           BatchDeleteDelegationByAssessmentError'
-            Prelude.<$> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "delegationId")
-            Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "delegationId")
+            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance

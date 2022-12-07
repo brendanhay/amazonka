@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,14 +94,14 @@ instance Core.AWSRequest GetConnectorDefinition where
     Response.receiveJSON
       ( \s h x ->
           GetConnectorDefinitionResponse'
-            Prelude.<$> (x Core..?> "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "LatestVersion")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "LatestVersionArn")
+            Prelude.<$> (x Data..?> "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "LatestVersion")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "LatestVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,25 +113,25 @@ instance Prelude.NFData GetConnectorDefinition where
   rnf GetConnectorDefinition' {..} =
     Prelude.rnf connectorDefinitionId
 
-instance Core.ToHeaders GetConnectorDefinition where
+instance Data.ToHeaders GetConnectorDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetConnectorDefinition where
+instance Data.ToPath GetConnectorDefinition where
   toPath GetConnectorDefinition' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/connectors/",
-        Core.toBS connectorDefinitionId
+        Data.toBS connectorDefinitionId
       ]
 
-instance Core.ToQuery GetConnectorDefinition where
+instance Data.ToQuery GetConnectorDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetConnectorDefinitionResponse' smart constructor.

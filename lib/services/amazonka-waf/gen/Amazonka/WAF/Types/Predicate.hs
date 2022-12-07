@@ -21,6 +21,7 @@ module Amazonka.WAF.Types.Predicate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAF.Types.PredicateType
 
@@ -132,15 +133,15 @@ predicate_type = Lens.lens (\Predicate' {type'} -> type') (\s@Predicate' {} a ->
 predicate_dataId :: Lens.Lens' Predicate Prelude.Text
 predicate_dataId = Lens.lens (\Predicate' {dataId} -> dataId) (\s@Predicate' {} a -> s {dataId = a} :: Predicate)
 
-instance Core.FromJSON Predicate where
+instance Data.FromJSON Predicate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Predicate"
       ( \x ->
           Predicate'
-            Prelude.<$> (x Core..: "Negated")
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "DataId")
+            Prelude.<$> (x Data..: "Negated")
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "DataId")
       )
 
 instance Prelude.Hashable Predicate where
@@ -155,12 +156,12 @@ instance Prelude.NFData Predicate where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf dataId
 
-instance Core.ToJSON Predicate where
+instance Data.ToJSON Predicate where
   toJSON Predicate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Negated" Core..= negated),
-            Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("DataId" Core..= dataId)
+          [ Prelude.Just ("Negated" Data..= negated),
+            Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("DataId" Data..= dataId)
           ]
       )

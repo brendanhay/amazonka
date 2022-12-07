@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,30 +103,30 @@ instance Prelude.NFData DisconnectRecoveryInstance where
   rnf DisconnectRecoveryInstance' {..} =
     Prelude.rnf recoveryInstanceID
 
-instance Core.ToHeaders DisconnectRecoveryInstance where
+instance Data.ToHeaders DisconnectRecoveryInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisconnectRecoveryInstance where
+instance Data.ToJSON DisconnectRecoveryInstance where
   toJSON DisconnectRecoveryInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("recoveryInstanceID" Core..= recoveryInstanceID)
+              ("recoveryInstanceID" Data..= recoveryInstanceID)
           ]
       )
 
-instance Core.ToPath DisconnectRecoveryInstance where
+instance Data.ToPath DisconnectRecoveryInstance where
   toPath = Prelude.const "/DisconnectRecoveryInstance"
 
-instance Core.ToQuery DisconnectRecoveryInstance where
+instance Data.ToQuery DisconnectRecoveryInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisconnectRecoveryInstanceResponse' smart constructor.

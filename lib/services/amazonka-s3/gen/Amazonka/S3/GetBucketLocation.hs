@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,7 +119,7 @@ instance Core.AWSRequest GetBucketLocation where
       ( \s h x ->
           GetBucketLocationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (Data.parseXML x)
       )
 
 instance Prelude.Hashable GetBucketLocation where
@@ -131,18 +132,18 @@ instance Prelude.NFData GetBucketLocation where
     Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders GetBucketLocation where
+instance Data.ToHeaders GetBucketLocation where
   toHeaders GetBucketLocation' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath GetBucketLocation where
+instance Data.ToPath GetBucketLocation where
   toPath GetBucketLocation' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery GetBucketLocation where
+instance Data.ToQuery GetBucketLocation where
   toQuery =
     Prelude.const (Prelude.mconcat ["location"])
 

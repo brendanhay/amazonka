@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.PipelineExecutionStepMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CallbackStepMetadata
 import Amazonka.SageMaker.Types.ClarifyCheckStepMetadata
@@ -327,25 +328,25 @@ pipelineExecutionStepMetadata_callback = Lens.lens (\PipelineExecutionStepMetada
 pipelineExecutionStepMetadata_tuningJob :: Lens.Lens' PipelineExecutionStepMetadata (Prelude.Maybe TuningJobStepMetaData)
 pipelineExecutionStepMetadata_tuningJob = Lens.lens (\PipelineExecutionStepMetadata' {tuningJob} -> tuningJob) (\s@PipelineExecutionStepMetadata' {} a -> s {tuningJob = a} :: PipelineExecutionStepMetadata)
 
-instance Core.FromJSON PipelineExecutionStepMetadata where
+instance Data.FromJSON PipelineExecutionStepMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelineExecutionStepMetadata"
       ( \x ->
           PipelineExecutionStepMetadata'
-            Prelude.<$> (x Core..:? "TrainingJob")
-            Prelude.<*> (x Core..:? "Model")
-            Prelude.<*> (x Core..:? "ProcessingJob")
-            Prelude.<*> (x Core..:? "Fail")
-            Prelude.<*> (x Core..:? "ClarifyCheck")
-            Prelude.<*> (x Core..:? "RegisterModel")
-            Prelude.<*> (x Core..:? "EMR")
-            Prelude.<*> (x Core..:? "Condition")
-            Prelude.<*> (x Core..:? "Lambda")
-            Prelude.<*> (x Core..:? "QualityCheck")
-            Prelude.<*> (x Core..:? "TransformJob")
-            Prelude.<*> (x Core..:? "Callback")
-            Prelude.<*> (x Core..:? "TuningJob")
+            Prelude.<$> (x Data..:? "TrainingJob")
+            Prelude.<*> (x Data..:? "Model")
+            Prelude.<*> (x Data..:? "ProcessingJob")
+            Prelude.<*> (x Data..:? "Fail")
+            Prelude.<*> (x Data..:? "ClarifyCheck")
+            Prelude.<*> (x Data..:? "RegisterModel")
+            Prelude.<*> (x Data..:? "EMR")
+            Prelude.<*> (x Data..:? "Condition")
+            Prelude.<*> (x Data..:? "Lambda")
+            Prelude.<*> (x Data..:? "QualityCheck")
+            Prelude.<*> (x Data..:? "TransformJob")
+            Prelude.<*> (x Data..:? "Callback")
+            Prelude.<*> (x Data..:? "TuningJob")
       )
 
 instance

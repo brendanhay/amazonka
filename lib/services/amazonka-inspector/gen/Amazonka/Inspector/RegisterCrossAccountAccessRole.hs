@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,34 +107,34 @@ instance
     Prelude.rnf roleArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RegisterCrossAccountAccessRole
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.RegisterCrossAccountAccessRole" ::
+              Data.=# ( "InspectorService.RegisterCrossAccountAccessRole" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterCrossAccountAccessRole where
+instance Data.ToJSON RegisterCrossAccountAccessRole where
   toJSON RegisterCrossAccountAccessRole' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("roleArn" Core..= roleArn)]
+          [Prelude.Just ("roleArn" Data..= roleArn)]
       )
 
-instance Core.ToPath RegisterCrossAccountAccessRole where
+instance Data.ToPath RegisterCrossAccountAccessRole where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterCrossAccountAccessRole where
+instance Data.ToQuery RegisterCrossAccountAccessRole where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterCrossAccountAccessRoleResponse' smart constructor.

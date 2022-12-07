@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,7 +132,7 @@ instance Core.AWSRequest TransferCertificate where
     Response.receiveJSON
       ( \s h x ->
           TransferCertificateResponse'
-            Prelude.<$> (x Core..?> "transferredCertificateArn")
+            Prelude.<$> (x Data..?> "transferredCertificateArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,27 +148,27 @@ instance Prelude.NFData TransferCertificate where
       `Prelude.seq` Prelude.rnf certificateId
       `Prelude.seq` Prelude.rnf targetAwsAccount
 
-instance Core.ToHeaders TransferCertificate where
+instance Data.ToHeaders TransferCertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON TransferCertificate where
+instance Data.ToJSON TransferCertificate where
   toJSON TransferCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("transferMessage" Core..=)
+          [ ("transferMessage" Data..=)
               Prelude.<$> transferMessage
           ]
       )
 
-instance Core.ToPath TransferCertificate where
+instance Data.ToPath TransferCertificate where
   toPath TransferCertificate' {..} =
     Prelude.mconcat
-      ["/transfer-certificate/", Core.toBS certificateId]
+      ["/transfer-certificate/", Data.toBS certificateId]
 
-instance Core.ToQuery TransferCertificate where
+instance Data.ToQuery TransferCertificate where
   toQuery TransferCertificate' {..} =
     Prelude.mconcat
-      ["targetAwsAccount" Core.=: targetAwsAccount]
+      ["targetAwsAccount" Data.=: targetAwsAccount]
 
 -- | The output from the TransferCertificate operation.
 --

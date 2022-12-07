@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -180,7 +181,7 @@ instance Core.AWSRequest ModifyVpnConnectionOptions where
     Response.receiveXML
       ( \s h x ->
           ModifyVpnConnectionOptionsResponse'
-            Prelude.<$> (x Core..@? "vpnConnection")
+            Prelude.<$> (x Data..@? "vpnConnection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,27 +203,27 @@ instance Prelude.NFData ModifyVpnConnectionOptions where
       `Prelude.seq` Prelude.rnf localIpv6NetworkCidr
       `Prelude.seq` Prelude.rnf vpnConnectionId
 
-instance Core.ToHeaders ModifyVpnConnectionOptions where
+instance Data.ToHeaders ModifyVpnConnectionOptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyVpnConnectionOptions where
+instance Data.ToPath ModifyVpnConnectionOptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyVpnConnectionOptions where
+instance Data.ToQuery ModifyVpnConnectionOptions where
   toQuery ModifyVpnConnectionOptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyVpnConnectionOptions" :: Prelude.ByteString),
+          Data.=: ("ModifyVpnConnectionOptions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "RemoteIpv6NetworkCidr"
-          Core.=: remoteIpv6NetworkCidr,
-        "LocalIpv4NetworkCidr" Core.=: localIpv4NetworkCidr,
-        "DryRun" Core.=: dryRun,
+          Data.=: remoteIpv6NetworkCidr,
+        "LocalIpv4NetworkCidr" Data.=: localIpv4NetworkCidr,
+        "DryRun" Data.=: dryRun,
         "RemoteIpv4NetworkCidr"
-          Core.=: remoteIpv4NetworkCidr,
-        "LocalIpv6NetworkCidr" Core.=: localIpv6NetworkCidr,
-        "VpnConnectionId" Core.=: vpnConnectionId
+          Data.=: remoteIpv4NetworkCidr,
+        "LocalIpv6NetworkCidr" Data.=: localIpv6NetworkCidr,
+        "VpnConnectionId" Data.=: vpnConnectionId
       ]
 
 -- | /See:/ 'newModifyVpnConnectionOptionsResponse' smart constructor.

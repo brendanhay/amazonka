@@ -54,6 +54,7 @@ where
 import Amazonka.Account.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -178,7 +179,7 @@ instance Core.AWSRequest GetAlternateContact where
     Response.receiveJSON
       ( \s h x ->
           GetAlternateContactResponse'
-            Prelude.<$> (x Core..?> "AlternateContact")
+            Prelude.<$> (x Data..?> "AlternateContact")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,33 +193,33 @@ instance Prelude.NFData GetAlternateContact where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf alternateContactType
 
-instance Core.ToHeaders GetAlternateContact where
+instance Data.ToHeaders GetAlternateContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAlternateContact where
+instance Data.ToJSON GetAlternateContact where
   toJSON GetAlternateContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccountId" Core..=) Prelude.<$> accountId,
+          [ ("AccountId" Data..=) Prelude.<$> accountId,
             Prelude.Just
               ( "AlternateContactType"
-                  Core..= alternateContactType
+                  Data..= alternateContactType
               )
           ]
       )
 
-instance Core.ToPath GetAlternateContact where
+instance Data.ToPath GetAlternateContact where
   toPath = Prelude.const "/getAlternateContact"
 
-instance Core.ToQuery GetAlternateContact where
+instance Data.ToQuery GetAlternateContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAlternateContactResponse' smart constructor.

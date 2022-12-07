@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.RepositorySyncDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A repository sync definition.
@@ -91,16 +92,16 @@ repositorySyncDefinition_parent = Lens.lens (\RepositorySyncDefinition' {parent}
 repositorySyncDefinition_target :: Lens.Lens' RepositorySyncDefinition Prelude.Text
 repositorySyncDefinition_target = Lens.lens (\RepositorySyncDefinition' {target} -> target) (\s@RepositorySyncDefinition' {} a -> s {target = a} :: RepositorySyncDefinition)
 
-instance Core.FromJSON RepositorySyncDefinition where
+instance Data.FromJSON RepositorySyncDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositorySyncDefinition"
       ( \x ->
           RepositorySyncDefinition'
-            Prelude.<$> (x Core..: "branch")
-            Prelude.<*> (x Core..: "directory")
-            Prelude.<*> (x Core..: "parent")
-            Prelude.<*> (x Core..: "target")
+            Prelude.<$> (x Data..: "branch")
+            Prelude.<*> (x Data..: "directory")
+            Prelude.<*> (x Data..: "parent")
+            Prelude.<*> (x Data..: "target")
       )
 
 instance Prelude.Hashable RepositorySyncDefinition where

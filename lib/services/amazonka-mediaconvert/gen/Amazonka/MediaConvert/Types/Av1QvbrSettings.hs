@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Av1QvbrSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for quality-defined variable bitrate encoding with the AV1
@@ -118,14 +119,14 @@ av1QvbrSettings_qvbrQualityLevel = Lens.lens (\Av1QvbrSettings' {qvbrQualityLeve
 av1QvbrSettings_qvbrQualityLevelFineTune :: Lens.Lens' Av1QvbrSettings (Prelude.Maybe Prelude.Double)
 av1QvbrSettings_qvbrQualityLevelFineTune = Lens.lens (\Av1QvbrSettings' {qvbrQualityLevelFineTune} -> qvbrQualityLevelFineTune) (\s@Av1QvbrSettings' {} a -> s {qvbrQualityLevelFineTune = a} :: Av1QvbrSettings)
 
-instance Core.FromJSON Av1QvbrSettings where
+instance Data.FromJSON Av1QvbrSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Av1QvbrSettings"
       ( \x ->
           Av1QvbrSettings'
-            Prelude.<$> (x Core..:? "qvbrQualityLevel")
-            Prelude.<*> (x Core..:? "qvbrQualityLevelFineTune")
+            Prelude.<$> (x Data..:? "qvbrQualityLevel")
+            Prelude.<*> (x Data..:? "qvbrQualityLevelFineTune")
       )
 
 instance Prelude.Hashable Av1QvbrSettings where
@@ -138,13 +139,13 @@ instance Prelude.NFData Av1QvbrSettings where
     Prelude.rnf qvbrQualityLevel
       `Prelude.seq` Prelude.rnf qvbrQualityLevelFineTune
 
-instance Core.ToJSON Av1QvbrSettings where
+instance Data.ToJSON Av1QvbrSettings where
   toJSON Av1QvbrSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("qvbrQualityLevel" Core..=)
+          [ ("qvbrQualityLevel" Data..=)
               Prelude.<$> qvbrQualityLevel,
-            ("qvbrQualityLevelFineTune" Core..=)
+            ("qvbrQualityLevelFineTune" Data..=)
               Prelude.<$> qvbrQualityLevelFineTune
           ]
       )

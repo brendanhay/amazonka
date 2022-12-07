@@ -22,6 +22,7 @@ module Amazonka.DLM.Types.DeprecateRule where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.RetentionIntervalUnitValues
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[AMI policies only]__ Specifies an AMI deprecation rule for AMIs
@@ -96,15 +97,15 @@ deprecateRule_count = Lens.lens (\DeprecateRule' {count} -> count) (\s@Deprecate
 deprecateRule_intervalUnit :: Lens.Lens' DeprecateRule (Prelude.Maybe RetentionIntervalUnitValues)
 deprecateRule_intervalUnit = Lens.lens (\DeprecateRule' {intervalUnit} -> intervalUnit) (\s@DeprecateRule' {} a -> s {intervalUnit = a} :: DeprecateRule)
 
-instance Core.FromJSON DeprecateRule where
+instance Data.FromJSON DeprecateRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeprecateRule"
       ( \x ->
           DeprecateRule'
-            Prelude.<$> (x Core..:? "Interval")
-            Prelude.<*> (x Core..:? "Count")
-            Prelude.<*> (x Core..:? "IntervalUnit")
+            Prelude.<$> (x Data..:? "Interval")
+            Prelude.<*> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "IntervalUnit")
       )
 
 instance Prelude.Hashable DeprecateRule where
@@ -119,12 +120,12 @@ instance Prelude.NFData DeprecateRule where
       `Prelude.seq` Prelude.rnf count
       `Prelude.seq` Prelude.rnf intervalUnit
 
-instance Core.ToJSON DeprecateRule where
+instance Data.ToJSON DeprecateRule where
   toJSON DeprecateRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Interval" Core..=) Prelude.<$> interval,
-            ("Count" Core..=) Prelude.<$> count,
-            ("IntervalUnit" Core..=) Prelude.<$> intervalUnit
+          [ ("Interval" Data..=) Prelude.<$> interval,
+            ("Count" Data..=) Prelude.<$> count,
+            ("IntervalUnit" Data..=) Prelude.<$> intervalUnit
           ]
       )

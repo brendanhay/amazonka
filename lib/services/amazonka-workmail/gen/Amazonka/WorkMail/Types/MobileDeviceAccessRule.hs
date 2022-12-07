@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.MobileDeviceAccessRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect
 
@@ -58,9 +59,9 @@ data MobileDeviceAccessRule = MobileDeviceAccessRule'
     -- device types will match.
     notDeviceOperatingSystems :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The date and time at which an access rule was created.
-    dateCreated :: Prelude.Maybe Core.POSIX,
+    dateCreated :: Prelude.Maybe Data.POSIX,
     -- | The date and time at which an access rule was modified.
-    dateModified :: Prelude.Maybe Core.POSIX
+    dateModified :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -179,32 +180,32 @@ mobileDeviceAccessRule_notDeviceOperatingSystems = Lens.lens (\MobileDeviceAcces
 
 -- | The date and time at which an access rule was created.
 mobileDeviceAccessRule_dateCreated :: Lens.Lens' MobileDeviceAccessRule (Prelude.Maybe Prelude.UTCTime)
-mobileDeviceAccessRule_dateCreated = Lens.lens (\MobileDeviceAccessRule' {dateCreated} -> dateCreated) (\s@MobileDeviceAccessRule' {} a -> s {dateCreated = a} :: MobileDeviceAccessRule) Prelude.. Lens.mapping Core._Time
+mobileDeviceAccessRule_dateCreated = Lens.lens (\MobileDeviceAccessRule' {dateCreated} -> dateCreated) (\s@MobileDeviceAccessRule' {} a -> s {dateCreated = a} :: MobileDeviceAccessRule) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time at which an access rule was modified.
 mobileDeviceAccessRule_dateModified :: Lens.Lens' MobileDeviceAccessRule (Prelude.Maybe Prelude.UTCTime)
-mobileDeviceAccessRule_dateModified = Lens.lens (\MobileDeviceAccessRule' {dateModified} -> dateModified) (\s@MobileDeviceAccessRule' {} a -> s {dateModified = a} :: MobileDeviceAccessRule) Prelude.. Lens.mapping Core._Time
+mobileDeviceAccessRule_dateModified = Lens.lens (\MobileDeviceAccessRule' {dateModified} -> dateModified) (\s@MobileDeviceAccessRule' {} a -> s {dateModified = a} :: MobileDeviceAccessRule) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON MobileDeviceAccessRule where
+instance Data.FromJSON MobileDeviceAccessRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MobileDeviceAccessRule"
       ( \x ->
           MobileDeviceAccessRule'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "DeviceTypes")
-            Prelude.<*> (x Core..:? "MobileDeviceAccessRuleId")
-            Prelude.<*> (x Core..:? "NotDeviceUserAgents")
-            Prelude.<*> (x Core..:? "DeviceUserAgents")
-            Prelude.<*> (x Core..:? "NotDeviceModels")
-            Prelude.<*> (x Core..:? "Effect")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "DeviceModels")
-            Prelude.<*> (x Core..:? "NotDeviceTypes")
-            Prelude.<*> (x Core..:? "DeviceOperatingSystems")
-            Prelude.<*> (x Core..:? "NotDeviceOperatingSystems")
-            Prelude.<*> (x Core..:? "DateCreated")
-            Prelude.<*> (x Core..:? "DateModified")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "DeviceTypes")
+            Prelude.<*> (x Data..:? "MobileDeviceAccessRuleId")
+            Prelude.<*> (x Data..:? "NotDeviceUserAgents")
+            Prelude.<*> (x Data..:? "DeviceUserAgents")
+            Prelude.<*> (x Data..:? "NotDeviceModels")
+            Prelude.<*> (x Data..:? "Effect")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "DeviceModels")
+            Prelude.<*> (x Data..:? "NotDeviceTypes")
+            Prelude.<*> (x Data..:? "DeviceOperatingSystems")
+            Prelude.<*> (x Data..:? "NotDeviceOperatingSystems")
+            Prelude.<*> (x Data..:? "DateCreated")
+            Prelude.<*> (x Data..:? "DateModified")
       )
 
 instance Prelude.Hashable MobileDeviceAccessRule where

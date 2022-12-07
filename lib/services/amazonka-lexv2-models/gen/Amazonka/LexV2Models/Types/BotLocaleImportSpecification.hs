@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.BotLocaleImportSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.VoiceSettings
 import qualified Amazonka.Prelude as Prelude
 
@@ -167,17 +168,17 @@ botLocaleImportSpecification_botVersion = Lens.lens (\BotLocaleImportSpecificati
 botLocaleImportSpecification_localeId :: Lens.Lens' BotLocaleImportSpecification Prelude.Text
 botLocaleImportSpecification_localeId = Lens.lens (\BotLocaleImportSpecification' {localeId} -> localeId) (\s@BotLocaleImportSpecification' {} a -> s {localeId = a} :: BotLocaleImportSpecification)
 
-instance Core.FromJSON BotLocaleImportSpecification where
+instance Data.FromJSON BotLocaleImportSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BotLocaleImportSpecification"
       ( \x ->
           BotLocaleImportSpecification'
-            Prelude.<$> (x Core..:? "nluIntentConfidenceThreshold")
-            Prelude.<*> (x Core..:? "voiceSettings")
-            Prelude.<*> (x Core..: "botId")
-            Prelude.<*> (x Core..: "botVersion")
-            Prelude.<*> (x Core..: "localeId")
+            Prelude.<$> (x Data..:? "nluIntentConfidenceThreshold")
+            Prelude.<*> (x Data..:? "voiceSettings")
+            Prelude.<*> (x Data..: "botId")
+            Prelude.<*> (x Data..: "botVersion")
+            Prelude.<*> (x Data..: "localeId")
       )
 
 instance
@@ -200,15 +201,15 @@ instance Prelude.NFData BotLocaleImportSpecification where
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
 
-instance Core.ToJSON BotLocaleImportSpecification where
+instance Data.ToJSON BotLocaleImportSpecification where
   toJSON BotLocaleImportSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nluIntentConfidenceThreshold" Core..=)
+          [ ("nluIntentConfidenceThreshold" Data..=)
               Prelude.<$> nluIntentConfidenceThreshold,
-            ("voiceSettings" Core..=) Prelude.<$> voiceSettings,
-            Prelude.Just ("botId" Core..= botId),
-            Prelude.Just ("botVersion" Core..= botVersion),
-            Prelude.Just ("localeId" Core..= localeId)
+            ("voiceSettings" Data..=) Prelude.<$> voiceSettings,
+            Prelude.Just ("botId" Data..= botId),
+            Prelude.Just ("botVersion" Data..= botVersion),
+            Prelude.Just ("localeId" Data..= localeId)
           ]
       )

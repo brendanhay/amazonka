@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.TextWithHighlights where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.Highlight
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ textWithHighlights_highlights = Lens.lens (\TextWithHighlights' {highlights} -> 
 textWithHighlights_text :: Lens.Lens' TextWithHighlights (Prelude.Maybe Prelude.Text)
 textWithHighlights_text = Lens.lens (\TextWithHighlights' {text} -> text) (\s@TextWithHighlights' {} a -> s {text = a} :: TextWithHighlights)
 
-instance Core.FromJSON TextWithHighlights where
+instance Data.FromJSON TextWithHighlights where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TextWithHighlights"
       ( \x ->
           TextWithHighlights'
-            Prelude.<$> (x Core..:? "Highlights" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Text")
+            Prelude.<$> (x Data..:? "Highlights" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Text")
       )
 
 instance Prelude.Hashable TextWithHighlights where

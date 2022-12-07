@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AsyncInferenceNotificationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration for notifications of inference results for
@@ -73,16 +74,16 @@ asyncInferenceNotificationConfig_successTopic :: Lens.Lens' AsyncInferenceNotifi
 asyncInferenceNotificationConfig_successTopic = Lens.lens (\AsyncInferenceNotificationConfig' {successTopic} -> successTopic) (\s@AsyncInferenceNotificationConfig' {} a -> s {successTopic = a} :: AsyncInferenceNotificationConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AsyncInferenceNotificationConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AsyncInferenceNotificationConfig"
       ( \x ->
           AsyncInferenceNotificationConfig'
-            Prelude.<$> (x Core..:? "ErrorTopic")
-            Prelude.<*> (x Core..:? "SuccessTopic")
+            Prelude.<$> (x Data..:? "ErrorTopic")
+            Prelude.<*> (x Data..:? "SuccessTopic")
       )
 
 instance
@@ -103,11 +104,11 @@ instance
     Prelude.rnf errorTopic
       `Prelude.seq` Prelude.rnf successTopic
 
-instance Core.ToJSON AsyncInferenceNotificationConfig where
+instance Data.ToJSON AsyncInferenceNotificationConfig where
   toJSON AsyncInferenceNotificationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ErrorTopic" Core..=) Prelude.<$> errorTopic,
-            ("SuccessTopic" Core..=) Prelude.<$> successTopic
+          [ ("ErrorTopic" Data..=) Prelude.<$> errorTopic,
+            ("SuccessTopic" Data..=) Prelude.<$> successTopic
           ]
       )

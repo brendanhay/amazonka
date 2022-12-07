@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.NotebookExecutionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.NotebookExecutionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,12 +62,12 @@ data NotebookExecutionSummary = NotebookExecutionSummary'
     -- | The name of the notebook execution.
     notebookExecutionName :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when notebook execution started.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the editor associated with the notebook
     -- execution.
     editorId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when notebook execution started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the notebook execution.
     notebookExecutionId :: Prelude.Maybe Prelude.Text
   }
@@ -168,7 +169,7 @@ notebookExecutionSummary_notebookExecutionName = Lens.lens (\NotebookExecutionSu
 
 -- | The timestamp when notebook execution started.
 notebookExecutionSummary_endTime :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.UTCTime)
-notebookExecutionSummary_endTime = Lens.lens (\NotebookExecutionSummary' {endTime} -> endTime) (\s@NotebookExecutionSummary' {} a -> s {endTime = a} :: NotebookExecutionSummary) Prelude.. Lens.mapping Core._Time
+notebookExecutionSummary_endTime = Lens.lens (\NotebookExecutionSummary' {endTime} -> endTime) (\s@NotebookExecutionSummary' {} a -> s {endTime = a} :: NotebookExecutionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of the editor associated with the notebook
 -- execution.
@@ -177,24 +178,24 @@ notebookExecutionSummary_editorId = Lens.lens (\NotebookExecutionSummary' {edito
 
 -- | The timestamp when notebook execution started.
 notebookExecutionSummary_startTime :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.UTCTime)
-notebookExecutionSummary_startTime = Lens.lens (\NotebookExecutionSummary' {startTime} -> startTime) (\s@NotebookExecutionSummary' {} a -> s {startTime = a} :: NotebookExecutionSummary) Prelude.. Lens.mapping Core._Time
+notebookExecutionSummary_startTime = Lens.lens (\NotebookExecutionSummary' {startTime} -> startTime) (\s@NotebookExecutionSummary' {} a -> s {startTime = a} :: NotebookExecutionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of the notebook execution.
 notebookExecutionSummary_notebookExecutionId :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.Text)
 notebookExecutionSummary_notebookExecutionId = Lens.lens (\NotebookExecutionSummary' {notebookExecutionId} -> notebookExecutionId) (\s@NotebookExecutionSummary' {} a -> s {notebookExecutionId = a} :: NotebookExecutionSummary)
 
-instance Core.FromJSON NotebookExecutionSummary where
+instance Data.FromJSON NotebookExecutionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotebookExecutionSummary"
       ( \x ->
           NotebookExecutionSummary'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "NotebookExecutionName")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "EditorId")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "NotebookExecutionId")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "NotebookExecutionName")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "EditorId")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "NotebookExecutionId")
       )
 
 instance Prelude.Hashable NotebookExecutionSummary where

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -182,23 +183,23 @@ instance Prelude.NFData ResyncMFADevice where
       `Prelude.seq` Prelude.rnf authenticationCode1
       `Prelude.seq` Prelude.rnf authenticationCode2
 
-instance Core.ToHeaders ResyncMFADevice where
+instance Data.ToHeaders ResyncMFADevice where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ResyncMFADevice where
+instance Data.ToPath ResyncMFADevice where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResyncMFADevice where
+instance Data.ToQuery ResyncMFADevice where
   toQuery ResyncMFADevice' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ResyncMFADevice" :: Prelude.ByteString),
+          Data.=: ("ResyncMFADevice" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
-        "SerialNumber" Core.=: serialNumber,
-        "AuthenticationCode1" Core.=: authenticationCode1,
-        "AuthenticationCode2" Core.=: authenticationCode2
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
+        "SerialNumber" Data.=: serialNumber,
+        "AuthenticationCode1" Data.=: authenticationCode1,
+        "AuthenticationCode2" Data.=: authenticationCode2
       ]
 
 -- | /See:/ 'newResyncMFADeviceResponse' smart constructor.

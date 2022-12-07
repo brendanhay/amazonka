@@ -21,6 +21,7 @@ module Amazonka.MwAA.Types.LastUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MwAA.Types.UpdateError
 import Amazonka.MwAA.Types.UpdateStatus
 import qualified Amazonka.Prelude as Prelude
@@ -39,7 +40,7 @@ data LastUpdate = LastUpdate'
     -- environment.
     error :: Prelude.Maybe UpdateError,
     -- | The day and time of the last update on the environment.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,18 +87,18 @@ lastUpdate_error = Lens.lens (\LastUpdate' {error} -> error) (\s@LastUpdate' {} 
 
 -- | The day and time of the last update on the environment.
 lastUpdate_createdAt :: Lens.Lens' LastUpdate (Prelude.Maybe Prelude.UTCTime)
-lastUpdate_createdAt = Lens.lens (\LastUpdate' {createdAt} -> createdAt) (\s@LastUpdate' {} a -> s {createdAt = a} :: LastUpdate) Prelude.. Lens.mapping Core._Time
+lastUpdate_createdAt = Lens.lens (\LastUpdate' {createdAt} -> createdAt) (\s@LastUpdate' {} a -> s {createdAt = a} :: LastUpdate) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON LastUpdate where
+instance Data.FromJSON LastUpdate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LastUpdate"
       ( \x ->
           LastUpdate'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "Error")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "Error")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable LastUpdate where

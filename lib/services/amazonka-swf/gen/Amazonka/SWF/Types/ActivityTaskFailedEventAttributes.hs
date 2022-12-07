@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.ActivityTaskFailedEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @ActivityTaskFailed@ event.
@@ -102,18 +103,18 @@ activityTaskFailedEventAttributes_startedEventId :: Lens.Lens' ActivityTaskFaile
 activityTaskFailedEventAttributes_startedEventId = Lens.lens (\ActivityTaskFailedEventAttributes' {startedEventId} -> startedEventId) (\s@ActivityTaskFailedEventAttributes' {} a -> s {startedEventId = a} :: ActivityTaskFailedEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ActivityTaskFailedEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActivityTaskFailedEventAttributes"
       ( \x ->
           ActivityTaskFailedEventAttributes'
-            Prelude.<$> (x Core..:? "details")
-            Prelude.<*> (x Core..:? "reason")
-            Prelude.<*> (x Core..: "scheduledEventId")
-            Prelude.<*> (x Core..: "startedEventId")
+            Prelude.<$> (x Data..:? "details")
+            Prelude.<*> (x Data..:? "reason")
+            Prelude.<*> (x Data..: "scheduledEventId")
+            Prelude.<*> (x Data..: "startedEventId")
       )
 
 instance

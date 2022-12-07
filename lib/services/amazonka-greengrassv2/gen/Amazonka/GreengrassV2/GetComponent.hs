@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,10 +102,10 @@ instance Core.AWSRequest GetComponent where
     Response.receiveJSON
       ( \s h x ->
           GetComponentResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "recipeOutputFormat")
-            Prelude.<*> (x Core..:> "recipe")
+            Prelude.<*> (x Data..:> "recipeOutputFormat")
+            Prelude.<*> (x Data..:> "recipe")
       )
 
 instance Prelude.Hashable GetComponent where
@@ -117,18 +118,18 @@ instance Prelude.NFData GetComponent where
     Prelude.rnf recipeOutputFormat
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders GetComponent where
+instance Data.ToHeaders GetComponent where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetComponent where
+instance Data.ToPath GetComponent where
   toPath GetComponent' {..} =
     Prelude.mconcat
-      ["/greengrass/v2/components/", Core.toBS arn]
+      ["/greengrass/v2/components/", Data.toBS arn]
 
-instance Core.ToQuery GetComponent where
+instance Data.ToQuery GetComponent where
   toQuery GetComponent' {..} =
     Prelude.mconcat
-      ["recipeOutputFormat" Core.=: recipeOutputFormat]
+      ["recipeOutputFormat" Data.=: recipeOutputFormat]
 
 -- | /See:/ 'newGetComponentResponse' smart constructor.
 data GetComponentResponse = GetComponentResponse'
@@ -142,7 +143,7 @@ data GetComponentResponse = GetComponentResponse'
     -- | The format of the recipe.
     recipeOutputFormat :: RecipeOutputFormat,
     -- | The recipe of the component version.
-    recipe :: Core.Base64
+    recipe :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -184,7 +185,7 @@ newGetComponentResponse
       { tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         recipeOutputFormat = pRecipeOutputFormat_,
-        recipe = Core._Base64 Lens.# pRecipe_
+        recipe = Data._Base64 Lens.# pRecipe_
       }
 
 -- | A list of key-value pairs that contain metadata for the resource. For
@@ -208,7 +209,7 @@ getComponentResponse_recipeOutputFormat = Lens.lens (\GetComponentResponse' {rec
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 getComponentResponse_recipe :: Lens.Lens' GetComponentResponse Prelude.ByteString
-getComponentResponse_recipe = Lens.lens (\GetComponentResponse' {recipe} -> recipe) (\s@GetComponentResponse' {} a -> s {recipe = a} :: GetComponentResponse) Prelude.. Core._Base64
+getComponentResponse_recipe = Lens.lens (\GetComponentResponse' {recipe} -> recipe) (\s@GetComponentResponse' {} a -> s {recipe = a} :: GetComponentResponse) Prelude.. Data._Base64
 
 instance Prelude.NFData GetComponentResponse where
   rnf GetComponentResponse' {..} =

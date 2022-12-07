@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -426,9 +427,9 @@ instance Core.AWSRequest CreateClientVpnEndpoint where
     Response.receiveXML
       ( \s h x ->
           CreateClientVpnEndpointResponse'
-            Prelude.<$> (x Core..@? "status")
-            Prelude.<*> (x Core..@? "clientVpnEndpointId")
-            Prelude.<*> (x Core..@? "dnsName")
+            Prelude.<$> (x Data..@? "status")
+            Prelude.<*> (x Data..@? "clientVpnEndpointId")
+            Prelude.<*> (x Data..@? "dnsName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -474,49 +475,49 @@ instance Prelude.NFData CreateClientVpnEndpoint where
       `Prelude.seq` Prelude.rnf authenticationOptions
       `Prelude.seq` Prelude.rnf connectionLogOptions
 
-instance Core.ToHeaders CreateClientVpnEndpoint where
+instance Data.ToHeaders CreateClientVpnEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateClientVpnEndpoint where
+instance Data.ToPath CreateClientVpnEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateClientVpnEndpoint where
+instance Data.ToQuery CreateClientVpnEndpoint where
   toQuery CreateClientVpnEndpoint' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateClientVpnEndpoint" :: Prelude.ByteString),
+          Data.=: ("CreateClientVpnEndpoint" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "TransportProtocol" Core.=: transportProtocol,
-        "SessionTimeoutHours" Core.=: sessionTimeoutHours,
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroupId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "TransportProtocol" Data.=: transportProtocol,
+        "SessionTimeoutHours" Data.=: sessionTimeoutHours,
+        Data.toQuery
+          ( Data.toQueryList "SecurityGroupId"
               Prelude.<$> securityGroupIds
           ),
-        Core.toQuery
-          ( Core.toQueryList "DnsServers"
+        Data.toQuery
+          ( Data.toQueryList "DnsServers"
               Prelude.<$> dnsServers
           ),
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
         "ClientLoginBannerOptions"
-          Core.=: clientLoginBannerOptions,
-        "ClientConnectOptions" Core.=: clientConnectOptions,
-        "SplitTunnel" Core.=: splitTunnel,
-        "VpcId" Core.=: vpcId,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: clientLoginBannerOptions,
+        "ClientConnectOptions" Data.=: clientConnectOptions,
+        "SplitTunnel" Data.=: splitTunnel,
+        "VpcId" Data.=: vpcId,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "VpnPort" Core.=: vpnPort,
-        "SelfServicePortal" Core.=: selfServicePortal,
-        "ClientCidrBlock" Core.=: clientCidrBlock,
-        "ServerCertificateArn" Core.=: serverCertificateArn,
-        Core.toQueryList
+        "VpnPort" Data.=: vpnPort,
+        "SelfServicePortal" Data.=: selfServicePortal,
+        "ClientCidrBlock" Data.=: clientCidrBlock,
+        "ServerCertificateArn" Data.=: serverCertificateArn,
+        Data.toQueryList
           "Authentication"
           authenticationOptions,
-        "ConnectionLogOptions" Core.=: connectionLogOptions
+        "ConnectionLogOptions" Data.=: connectionLogOptions
       ]
 
 -- | /See:/ 'newCreateClientVpnEndpointResponse' smart constructor.

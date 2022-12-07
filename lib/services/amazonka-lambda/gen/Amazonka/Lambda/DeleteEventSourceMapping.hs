@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,7 +111,7 @@ instance Core.AWSRequest DeleteEventSourceMapping where
     Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable DeleteEventSourceMapping where
   hashWithSalt _salt DeleteEventSourceMapping' {..} =
@@ -119,15 +120,15 @@ instance Prelude.Hashable DeleteEventSourceMapping where
 instance Prelude.NFData DeleteEventSourceMapping where
   rnf DeleteEventSourceMapping' {..} = Prelude.rnf uuid
 
-instance Core.ToHeaders DeleteEventSourceMapping where
+instance Data.ToHeaders DeleteEventSourceMapping where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteEventSourceMapping where
+instance Data.ToPath DeleteEventSourceMapping where
   toPath DeleteEventSourceMapping' {..} =
     Prelude.mconcat
       [ "/2015-03-31/event-source-mappings/",
-        Core.toBS uuid
+        Data.toBS uuid
       ]
 
-instance Core.ToQuery DeleteEventSourceMapping where
+instance Data.ToQuery DeleteEventSourceMapping where
   toQuery = Prelude.const Prelude.mempty

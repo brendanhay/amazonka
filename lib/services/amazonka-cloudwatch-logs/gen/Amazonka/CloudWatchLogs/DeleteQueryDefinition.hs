@@ -49,6 +49,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,7 +100,7 @@ instance Core.AWSRequest DeleteQueryDefinition where
     Response.receiveJSON
       ( \s h x ->
           DeleteQueryDefinitionResponse'
-            Prelude.<$> (x Core..?> "success")
+            Prelude.<$> (x Data..?> "success")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,34 +112,34 @@ instance Prelude.NFData DeleteQueryDefinition where
   rnf DeleteQueryDefinition' {..} =
     Prelude.rnf queryDefinitionId
 
-instance Core.ToHeaders DeleteQueryDefinition where
+instance Data.ToHeaders DeleteQueryDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DeleteQueryDefinition" ::
+              Data.=# ( "Logs_20140328.DeleteQueryDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteQueryDefinition where
+instance Data.ToJSON DeleteQueryDefinition where
   toJSON DeleteQueryDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("queryDefinitionId" Core..= queryDefinitionId)
+              ("queryDefinitionId" Data..= queryDefinitionId)
           ]
       )
 
-instance Core.ToPath DeleteQueryDefinition where
+instance Data.ToPath DeleteQueryDefinition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteQueryDefinition where
+instance Data.ToQuery DeleteQueryDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteQueryDefinitionResponse' smart constructor.

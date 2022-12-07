@@ -46,6 +46,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,8 +131,8 @@ instance Core.AWSRequest CreateUserHierarchyGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateUserHierarchyGroupResponse'
-            Prelude.<$> (x Core..?> "HierarchyGroupId")
-            Prelude.<*> (x Core..?> "HierarchyGroupArn")
+            Prelude.<$> (x Data..?> "HierarchyGroupId")
+            Prelude.<*> (x Data..?> "HierarchyGroupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,33 +150,33 @@ instance Prelude.NFData CreateUserHierarchyGroup where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders CreateUserHierarchyGroup where
+instance Data.ToHeaders CreateUserHierarchyGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUserHierarchyGroup where
+instance Data.ToJSON CreateUserHierarchyGroup where
   toJSON CreateUserHierarchyGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ParentGroupId" Core..=) Prelude.<$> parentGroupId,
-            Prelude.Just ("Name" Core..= name)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ParentGroupId" Data..=) Prelude.<$> parentGroupId,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateUserHierarchyGroup where
+instance Data.ToPath CreateUserHierarchyGroup where
   toPath CreateUserHierarchyGroup' {..} =
     Prelude.mconcat
-      ["/user-hierarchy-groups/", Core.toBS instanceId]
+      ["/user-hierarchy-groups/", Data.toBS instanceId]
 
-instance Core.ToQuery CreateUserHierarchyGroup where
+instance Data.ToQuery CreateUserHierarchyGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserHierarchyGroupResponse' smart constructor.

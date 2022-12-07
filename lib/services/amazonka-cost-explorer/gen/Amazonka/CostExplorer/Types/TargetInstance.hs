@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.PlatformDifference
 import Amazonka.CostExplorer.Types.ResourceDetails
 import Amazonka.CostExplorer.Types.ResourceUtilization
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on recommended instance.
@@ -122,21 +123,21 @@ targetInstance_resourceDetails = Lens.lens (\TargetInstance' {resourceDetails} -
 targetInstance_currencyCode :: Lens.Lens' TargetInstance (Prelude.Maybe Prelude.Text)
 targetInstance_currencyCode = Lens.lens (\TargetInstance' {currencyCode} -> currencyCode) (\s@TargetInstance' {} a -> s {currencyCode = a} :: TargetInstance)
 
-instance Core.FromJSON TargetInstance where
+instance Data.FromJSON TargetInstance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetInstance"
       ( \x ->
           TargetInstance'
-            Prelude.<$> (x Core..:? "EstimatedMonthlyCost")
-            Prelude.<*> ( x Core..:? "PlatformDifferences"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "EstimatedMonthlyCost")
+            Prelude.<*> ( x Data..:? "PlatformDifferences"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ExpectedResourceUtilization")
-            Prelude.<*> (x Core..:? "DefaultTargetInstance")
-            Prelude.<*> (x Core..:? "EstimatedMonthlySavings")
-            Prelude.<*> (x Core..:? "ResourceDetails")
-            Prelude.<*> (x Core..:? "CurrencyCode")
+            Prelude.<*> (x Data..:? "ExpectedResourceUtilization")
+            Prelude.<*> (x Data..:? "DefaultTargetInstance")
+            Prelude.<*> (x Data..:? "EstimatedMonthlySavings")
+            Prelude.<*> (x Data..:? "ResourceDetails")
+            Prelude.<*> (x Data..:? "CurrencyCode")
       )
 
 instance Prelude.Hashable TargetInstance where

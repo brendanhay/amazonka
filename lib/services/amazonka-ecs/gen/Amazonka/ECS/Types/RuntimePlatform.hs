@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.RuntimePlatform where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.CPUArchitecture
 import Amazonka.ECS.Types.OSFamily
 import qualified Amazonka.Prelude as Prelude
@@ -80,14 +81,14 @@ runtimePlatform_operatingSystemFamily = Lens.lens (\RuntimePlatform' {operatingS
 runtimePlatform_cpuArchitecture :: Lens.Lens' RuntimePlatform (Prelude.Maybe CPUArchitecture)
 runtimePlatform_cpuArchitecture = Lens.lens (\RuntimePlatform' {cpuArchitecture} -> cpuArchitecture) (\s@RuntimePlatform' {} a -> s {cpuArchitecture = a} :: RuntimePlatform)
 
-instance Core.FromJSON RuntimePlatform where
+instance Data.FromJSON RuntimePlatform where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuntimePlatform"
       ( \x ->
           RuntimePlatform'
-            Prelude.<$> (x Core..:? "operatingSystemFamily")
-            Prelude.<*> (x Core..:? "cpuArchitecture")
+            Prelude.<$> (x Data..:? "operatingSystemFamily")
+            Prelude.<*> (x Data..:? "cpuArchitecture")
       )
 
 instance Prelude.Hashable RuntimePlatform where
@@ -100,13 +101,13 @@ instance Prelude.NFData RuntimePlatform where
     Prelude.rnf operatingSystemFamily
       `Prelude.seq` Prelude.rnf cpuArchitecture
 
-instance Core.ToJSON RuntimePlatform where
+instance Data.ToJSON RuntimePlatform where
   toJSON RuntimePlatform' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("operatingSystemFamily" Core..=)
+          [ ("operatingSystemFamily" Data..=)
               Prelude.<$> operatingSystemFamily,
-            ("cpuArchitecture" Core..=)
+            ("cpuArchitecture" Data..=)
               Prelude.<$> cpuArchitecture
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.WorkSpacesWeb.Types.UserAccessLoggingSettingsSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of user access logging settings.
@@ -64,16 +65,16 @@ userAccessLoggingSettingsSummary_userAccessLoggingSettingsArn :: Lens.Lens' User
 userAccessLoggingSettingsSummary_userAccessLoggingSettingsArn = Lens.lens (\UserAccessLoggingSettingsSummary' {userAccessLoggingSettingsArn} -> userAccessLoggingSettingsArn) (\s@UserAccessLoggingSettingsSummary' {} a -> s {userAccessLoggingSettingsArn = a} :: UserAccessLoggingSettingsSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     UserAccessLoggingSettingsSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserAccessLoggingSettingsSummary"
       ( \x ->
           UserAccessLoggingSettingsSummary'
-            Prelude.<$> (x Core..:? "kinesisStreamArn")
-            Prelude.<*> (x Core..:? "userAccessLoggingSettingsArn")
+            Prelude.<$> (x Data..:? "kinesisStreamArn")
+            Prelude.<*> (x Data..:? "userAccessLoggingSettingsArn")
       )
 
 instance

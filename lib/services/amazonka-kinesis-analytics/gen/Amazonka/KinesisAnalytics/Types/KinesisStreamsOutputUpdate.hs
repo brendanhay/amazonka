@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.KinesisStreamsOutputUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | When updating an output configuration using the
@@ -84,12 +85,12 @@ instance Prelude.NFData KinesisStreamsOutputUpdate where
     Prelude.rnf roleARNUpdate
       `Prelude.seq` Prelude.rnf resourceARNUpdate
 
-instance Core.ToJSON KinesisStreamsOutputUpdate where
+instance Data.ToJSON KinesisStreamsOutputUpdate where
   toJSON KinesisStreamsOutputUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleARNUpdate" Core..=) Prelude.<$> roleARNUpdate,
-            ("ResourceARNUpdate" Core..=)
+          [ ("RoleARNUpdate" Data..=) Prelude.<$> roleARNUpdate,
+            ("ResourceARNUpdate" Data..=)
               Prelude.<$> resourceARNUpdate
           ]
       )

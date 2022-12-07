@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest DescribeFargateProfile where
     Response.receiveJSON
       ( \s h x ->
           DescribeFargateProfileResponse'
-            Prelude.<$> (x Core..?> "fargateProfile")
+            Prelude.<$> (x Data..?> "fargateProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,27 +115,27 @@ instance Prelude.NFData DescribeFargateProfile where
     Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf fargateProfileName
 
-instance Core.ToHeaders DescribeFargateProfile where
+instance Data.ToHeaders DescribeFargateProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeFargateProfile where
+instance Data.ToPath DescribeFargateProfile where
   toPath DescribeFargateProfile' {..} =
     Prelude.mconcat
       [ "/clusters/",
-        Core.toBS clusterName,
+        Data.toBS clusterName,
         "/fargate-profiles/",
-        Core.toBS fargateProfileName
+        Data.toBS fargateProfileName
       ]
 
-instance Core.ToQuery DescribeFargateProfile where
+instance Data.ToQuery DescribeFargateProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFargateProfileResponse' smart constructor.

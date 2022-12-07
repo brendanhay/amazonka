@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.InventoryItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information collected from managed nodes based on your inventory policy
@@ -155,15 +156,15 @@ instance Prelude.NFData InventoryItem where
       `Prelude.seq` Prelude.rnf schemaVersion
       `Prelude.seq` Prelude.rnf captureTime
 
-instance Core.ToJSON InventoryItem where
+instance Data.ToJSON InventoryItem where
   toJSON InventoryItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContentHash" Core..=) Prelude.<$> contentHash,
-            ("Context" Core..=) Prelude.<$> context,
-            ("Content" Core..=) Prelude.<$> content,
-            Prelude.Just ("TypeName" Core..= typeName),
-            Prelude.Just ("SchemaVersion" Core..= schemaVersion),
-            Prelude.Just ("CaptureTime" Core..= captureTime)
+          [ ("ContentHash" Data..=) Prelude.<$> contentHash,
+            ("Context" Data..=) Prelude.<$> context,
+            ("Content" Data..=) Prelude.<$> content,
+            Prelude.Just ("TypeName" Data..= typeName),
+            Prelude.Just ("SchemaVersion" Data..= schemaVersion),
+            Prelude.Just ("CaptureTime" Data..= captureTime)
           ]
       )

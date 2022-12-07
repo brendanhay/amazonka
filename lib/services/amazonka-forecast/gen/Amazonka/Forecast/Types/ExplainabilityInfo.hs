@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.ExplainabilityInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the Explainability resource.
@@ -85,14 +86,14 @@ explainabilityInfo_status = Lens.lens (\ExplainabilityInfo' {status} -> status) 
 explainabilityInfo_explainabilityArn :: Lens.Lens' ExplainabilityInfo (Prelude.Maybe Prelude.Text)
 explainabilityInfo_explainabilityArn = Lens.lens (\ExplainabilityInfo' {explainabilityArn} -> explainabilityArn) (\s@ExplainabilityInfo' {} a -> s {explainabilityArn = a} :: ExplainabilityInfo)
 
-instance Core.FromJSON ExplainabilityInfo where
+instance Data.FromJSON ExplainabilityInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExplainabilityInfo"
       ( \x ->
           ExplainabilityInfo'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ExplainabilityArn")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ExplainabilityArn")
       )
 
 instance Prelude.Hashable ExplainabilityInfo where

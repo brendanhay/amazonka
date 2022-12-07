@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.AssetPropertyTimestamp where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains timestamp information. For more information,
@@ -101,14 +102,14 @@ assetPropertyTimestamp_offsetInNanos = Lens.lens (\AssetPropertyTimestamp' {offs
 assetPropertyTimestamp_timeInSeconds :: Lens.Lens' AssetPropertyTimestamp Prelude.Text
 assetPropertyTimestamp_timeInSeconds = Lens.lens (\AssetPropertyTimestamp' {timeInSeconds} -> timeInSeconds) (\s@AssetPropertyTimestamp' {} a -> s {timeInSeconds = a} :: AssetPropertyTimestamp)
 
-instance Core.FromJSON AssetPropertyTimestamp where
+instance Data.FromJSON AssetPropertyTimestamp where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetPropertyTimestamp"
       ( \x ->
           AssetPropertyTimestamp'
-            Prelude.<$> (x Core..:? "offsetInNanos")
-            Prelude.<*> (x Core..: "timeInSeconds")
+            Prelude.<$> (x Data..:? "offsetInNanos")
+            Prelude.<*> (x Data..: "timeInSeconds")
       )
 
 instance Prelude.Hashable AssetPropertyTimestamp where
@@ -121,12 +122,12 @@ instance Prelude.NFData AssetPropertyTimestamp where
     Prelude.rnf offsetInNanos
       `Prelude.seq` Prelude.rnf timeInSeconds
 
-instance Core.ToJSON AssetPropertyTimestamp where
+instance Data.ToJSON AssetPropertyTimestamp where
   toJSON AssetPropertyTimestamp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("offsetInNanos" Core..=) Prelude.<$> offsetInNanos,
+          [ ("offsetInNanos" Data..=) Prelude.<$> offsetInNanos,
             Prelude.Just
-              ("timeInSeconds" Core..= timeInSeconds)
+              ("timeInSeconds" Data..= timeInSeconds)
           ]
       )

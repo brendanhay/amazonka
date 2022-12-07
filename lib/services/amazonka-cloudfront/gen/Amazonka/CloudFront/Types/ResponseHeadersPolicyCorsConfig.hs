@@ -25,6 +25,7 @@ import Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowOrigins
 import Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlExposeHeaders
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration for a set of HTTP response headers that are used for
@@ -252,16 +253,16 @@ responseHeadersPolicyCorsConfig_accessControlAllowCredentials = Lens.lens (\Resp
 responseHeadersPolicyCorsConfig_originOverride :: Lens.Lens' ResponseHeadersPolicyCorsConfig Prelude.Bool
 responseHeadersPolicyCorsConfig_originOverride = Lens.lens (\ResponseHeadersPolicyCorsConfig' {originOverride} -> originOverride) (\s@ResponseHeadersPolicyCorsConfig' {} a -> s {originOverride = a} :: ResponseHeadersPolicyCorsConfig)
 
-instance Core.FromXML ResponseHeadersPolicyCorsConfig where
+instance Data.FromXML ResponseHeadersPolicyCorsConfig where
   parseXML x =
     ResponseHeadersPolicyCorsConfig'
-      Prelude.<$> (x Core..@? "AccessControlMaxAgeSec")
-      Prelude.<*> (x Core..@? "AccessControlExposeHeaders")
-      Prelude.<*> (x Core..@ "AccessControlAllowOrigins")
-      Prelude.<*> (x Core..@ "AccessControlAllowHeaders")
-      Prelude.<*> (x Core..@ "AccessControlAllowMethods")
-      Prelude.<*> (x Core..@ "AccessControlAllowCredentials")
-      Prelude.<*> (x Core..@ "OriginOverride")
+      Prelude.<$> (x Data..@? "AccessControlMaxAgeSec")
+      Prelude.<*> (x Data..@? "AccessControlExposeHeaders")
+      Prelude.<*> (x Data..@ "AccessControlAllowOrigins")
+      Prelude.<*> (x Data..@ "AccessControlAllowHeaders")
+      Prelude.<*> (x Data..@ "AccessControlAllowMethods")
+      Prelude.<*> (x Data..@ "AccessControlAllowCredentials")
+      Prelude.<*> (x Data..@ "OriginOverride")
 
 instance
   Prelude.Hashable
@@ -291,20 +292,20 @@ instance
       `Prelude.seq` Prelude.rnf accessControlAllowCredentials
       `Prelude.seq` Prelude.rnf originOverride
 
-instance Core.ToXML ResponseHeadersPolicyCorsConfig where
+instance Data.ToXML ResponseHeadersPolicyCorsConfig where
   toXML ResponseHeadersPolicyCorsConfig' {..} =
     Prelude.mconcat
       [ "AccessControlMaxAgeSec"
-          Core.@= accessControlMaxAgeSec,
+          Data.@= accessControlMaxAgeSec,
         "AccessControlExposeHeaders"
-          Core.@= accessControlExposeHeaders,
+          Data.@= accessControlExposeHeaders,
         "AccessControlAllowOrigins"
-          Core.@= accessControlAllowOrigins,
+          Data.@= accessControlAllowOrigins,
         "AccessControlAllowHeaders"
-          Core.@= accessControlAllowHeaders,
+          Data.@= accessControlAllowHeaders,
         "AccessControlAllowMethods"
-          Core.@= accessControlAllowMethods,
+          Data.@= accessControlAllowMethods,
         "AccessControlAllowCredentials"
-          Core.@= accessControlAllowCredentials,
-        "OriginOverride" Core.@= originOverride
+          Data.@= accessControlAllowCredentials,
+        "OriginOverride" Data.@= originOverride
       ]

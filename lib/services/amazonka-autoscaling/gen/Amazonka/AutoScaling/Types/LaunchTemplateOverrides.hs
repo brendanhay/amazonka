@@ -23,6 +23,7 @@ import Amazonka.AutoScaling.Types.InstanceRequirements
 import Amazonka.AutoScaling.Types.LaunchTemplateSpecification
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use this structure to let Amazon EC2 Auto Scaling do the following when
@@ -256,13 +257,13 @@ launchTemplateOverrides_instanceType = Lens.lens (\LaunchTemplateOverrides' {ins
 launchTemplateOverrides_weightedCapacity :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
 launchTemplateOverrides_weightedCapacity = Lens.lens (\LaunchTemplateOverrides' {weightedCapacity} -> weightedCapacity) (\s@LaunchTemplateOverrides' {} a -> s {weightedCapacity = a} :: LaunchTemplateOverrides)
 
-instance Core.FromXML LaunchTemplateOverrides where
+instance Data.FromXML LaunchTemplateOverrides where
   parseXML x =
     LaunchTemplateOverrides'
-      Prelude.<$> (x Core..@? "InstanceRequirements")
-      Prelude.<*> (x Core..@? "LaunchTemplateSpecification")
-      Prelude.<*> (x Core..@? "InstanceType")
-      Prelude.<*> (x Core..@? "WeightedCapacity")
+      Prelude.<$> (x Data..@? "InstanceRequirements")
+      Prelude.<*> (x Data..@? "LaunchTemplateSpecification")
+      Prelude.<*> (x Data..@? "InstanceType")
+      Prelude.<*> (x Data..@? "WeightedCapacity")
 
 instance Prelude.Hashable LaunchTemplateOverrides where
   hashWithSalt _salt LaunchTemplateOverrides' {..} =
@@ -278,12 +279,12 @@ instance Prelude.NFData LaunchTemplateOverrides where
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf weightedCapacity
 
-instance Core.ToQuery LaunchTemplateOverrides where
+instance Data.ToQuery LaunchTemplateOverrides where
   toQuery LaunchTemplateOverrides' {..} =
     Prelude.mconcat
-      [ "InstanceRequirements" Core.=: instanceRequirements,
+      [ "InstanceRequirements" Data.=: instanceRequirements,
         "LaunchTemplateSpecification"
-          Core.=: launchTemplateSpecification,
-        "InstanceType" Core.=: instanceType,
-        "WeightedCapacity" Core.=: weightedCapacity
+          Data.=: launchTemplateSpecification,
+        "InstanceType" Data.=: instanceType,
+        "WeightedCapacity" Data.=: weightedCapacity
       ]

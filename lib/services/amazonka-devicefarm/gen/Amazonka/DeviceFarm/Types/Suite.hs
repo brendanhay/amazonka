@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.Suite where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.Counters
 import Amazonka.DeviceFarm.Types.DeviceMinutes
 import Amazonka.DeviceFarm.Types.ExecutionResult
@@ -81,9 +82,9 @@ data Suite = Suite'
     -- -   XCTEST_UI
     type' :: Prelude.Maybe TestType,
     -- | The suite\'s start time.
-    started :: Prelude.Maybe Core.POSIX,
+    started :: Prelude.Maybe Data.POSIX,
     -- | When the suite was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | Represents the total (metered or unmetered) minutes used by the test
     -- suite.
     deviceMinutes :: Prelude.Maybe DeviceMinutes,
@@ -132,7 +133,7 @@ data Suite = Suite'
     -- -   STOPPED
     result :: Prelude.Maybe ExecutionResult,
     -- | The suite\'s stop time.
-    stopped :: Prelude.Maybe Core.POSIX
+    stopped :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -317,11 +318,11 @@ suite_type = Lens.lens (\Suite' {type'} -> type') (\s@Suite' {} a -> s {type' = 
 
 -- | The suite\'s start time.
 suite_started :: Lens.Lens' Suite (Prelude.Maybe Prelude.UTCTime)
-suite_started = Lens.lens (\Suite' {started} -> started) (\s@Suite' {} a -> s {started = a} :: Suite) Prelude.. Lens.mapping Core._Time
+suite_started = Lens.lens (\Suite' {started} -> started) (\s@Suite' {} a -> s {started = a} :: Suite) Prelude.. Lens.mapping Data._Time
 
 -- | When the suite was created.
 suite_created :: Lens.Lens' Suite (Prelude.Maybe Prelude.UTCTime)
-suite_created = Lens.lens (\Suite' {created} -> created) (\s@Suite' {} a -> s {created = a} :: Suite) Prelude.. Lens.mapping Core._Time
+suite_created = Lens.lens (\Suite' {created} -> created) (\s@Suite' {} a -> s {created = a} :: Suite) Prelude.. Lens.mapping Data._Time
 
 -- | Represents the total (metered or unmetered) minutes used by the test
 -- suite.
@@ -382,25 +383,25 @@ suite_result = Lens.lens (\Suite' {result} -> result) (\s@Suite' {} a -> s {resu
 
 -- | The suite\'s stop time.
 suite_stopped :: Lens.Lens' Suite (Prelude.Maybe Prelude.UTCTime)
-suite_stopped = Lens.lens (\Suite' {stopped} -> stopped) (\s@Suite' {} a -> s {stopped = a} :: Suite) Prelude.. Lens.mapping Core._Time
+suite_stopped = Lens.lens (\Suite' {stopped} -> stopped) (\s@Suite' {} a -> s {stopped = a} :: Suite) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Suite where
+instance Data.FromJSON Suite where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Suite"
       ( \x ->
           Suite'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "started")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "deviceMinutes")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "counters")
-            Prelude.<*> (x Core..:? "result")
-            Prelude.<*> (x Core..:? "stopped")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "started")
+            Prelude.<*> (x Data..:? "created")
+            Prelude.<*> (x Data..:? "deviceMinutes")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "counters")
+            Prelude.<*> (x Data..:? "result")
+            Prelude.<*> (x Data..:? "stopped")
       )
 
 instance Prelude.Hashable Suite where

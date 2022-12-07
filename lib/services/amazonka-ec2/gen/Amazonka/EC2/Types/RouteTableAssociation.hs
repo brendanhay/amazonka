@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.RouteTableAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.RouteTableAssociationState
 import qualified Amazonka.Prelude as Prelude
@@ -103,15 +104,15 @@ routeTableAssociation_gatewayId = Lens.lens (\RouteTableAssociation' {gatewayId}
 routeTableAssociation_main :: Lens.Lens' RouteTableAssociation (Prelude.Maybe Prelude.Bool)
 routeTableAssociation_main = Lens.lens (\RouteTableAssociation' {main} -> main) (\s@RouteTableAssociation' {} a -> s {main = a} :: RouteTableAssociation)
 
-instance Core.FromXML RouteTableAssociation where
+instance Data.FromXML RouteTableAssociation where
   parseXML x =
     RouteTableAssociation'
-      Prelude.<$> (x Core..@? "routeTableAssociationId")
-      Prelude.<*> (x Core..@? "associationState")
-      Prelude.<*> (x Core..@? "subnetId")
-      Prelude.<*> (x Core..@? "routeTableId")
-      Prelude.<*> (x Core..@? "gatewayId")
-      Prelude.<*> (x Core..@? "main")
+      Prelude.<$> (x Data..@? "routeTableAssociationId")
+      Prelude.<*> (x Data..@? "associationState")
+      Prelude.<*> (x Data..@? "subnetId")
+      Prelude.<*> (x Data..@? "routeTableId")
+      Prelude.<*> (x Data..@? "gatewayId")
+      Prelude.<*> (x Data..@? "main")
 
 instance Prelude.Hashable RouteTableAssociation where
   hashWithSalt _salt RouteTableAssociation' {..} =

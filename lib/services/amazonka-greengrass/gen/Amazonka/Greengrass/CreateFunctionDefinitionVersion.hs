@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,10 +134,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateFunctionDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Version")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,34 +164,34 @@ instance
       `Prelude.seq` Prelude.rnf functionDefinitionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateFunctionDefinitionVersion
   where
   toHeaders CreateFunctionDefinitionVersion' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
+      [ "X-Amzn-Client-Token" Data.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateFunctionDefinitionVersion where
+instance Data.ToJSON CreateFunctionDefinitionVersion where
   toJSON CreateFunctionDefinitionVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Functions" Core..=) Prelude.<$> functions,
-            ("DefaultConfig" Core..=) Prelude.<$> defaultConfig
+          [ ("Functions" Data..=) Prelude.<$> functions,
+            ("DefaultConfig" Data..=) Prelude.<$> defaultConfig
           ]
       )
 
-instance Core.ToPath CreateFunctionDefinitionVersion where
+instance Data.ToPath CreateFunctionDefinitionVersion where
   toPath CreateFunctionDefinitionVersion' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/functions/",
-        Core.toBS functionDefinitionId,
+        Data.toBS functionDefinitionId,
         "/versions"
       ]
 
-instance Core.ToQuery CreateFunctionDefinitionVersion where
+instance Data.ToQuery CreateFunctionDefinitionVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFunctionDefinitionVersionResponse' smart constructor.

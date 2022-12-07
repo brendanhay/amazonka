@@ -49,6 +49,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,9 +92,9 @@ instance Core.AWSRequest PauseService where
     Response.receiveJSON
       ( \s h x ->
           PauseServiceResponse'
-            Prelude.<$> (x Core..?> "OperationId")
+            Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Service")
+            Prelude.<*> (x Data..:> "Service")
       )
 
 instance Prelude.Hashable PauseService where
@@ -103,30 +104,30 @@ instance Prelude.Hashable PauseService where
 instance Prelude.NFData PauseService where
   rnf PauseService' {..} = Prelude.rnf serviceArn
 
-instance Core.ToHeaders PauseService where
+instance Data.ToHeaders PauseService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AppRunner.PauseService" :: Prelude.ByteString),
+              Data.=# ("AppRunner.PauseService" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PauseService where
+instance Data.ToJSON PauseService where
   toJSON PauseService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ServiceArn" Core..= serviceArn)]
+          [Prelude.Just ("ServiceArn" Data..= serviceArn)]
       )
 
-instance Core.ToPath PauseService where
+instance Data.ToPath PauseService where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PauseService where
+instance Data.ToQuery PauseService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPauseServiceResponse' smart constructor.

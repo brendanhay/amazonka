@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceNetworkInterfaceAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -94,16 +95,16 @@ instanceNetworkInterfaceAssociation_customerOwnedIp :: Lens.Lens' InstanceNetwor
 instanceNetworkInterfaceAssociation_customerOwnedIp = Lens.lens (\InstanceNetworkInterfaceAssociation' {customerOwnedIp} -> customerOwnedIp) (\s@InstanceNetworkInterfaceAssociation' {} a -> s {customerOwnedIp = a} :: InstanceNetworkInterfaceAssociation)
 
 instance
-  Core.FromXML
+  Data.FromXML
     InstanceNetworkInterfaceAssociation
   where
   parseXML x =
     InstanceNetworkInterfaceAssociation'
-      Prelude.<$> (x Core..@? "ipOwnerId")
-      Prelude.<*> (x Core..@? "carrierIp")
-      Prelude.<*> (x Core..@? "publicIp")
-      Prelude.<*> (x Core..@? "publicDnsName")
-      Prelude.<*> (x Core..@? "customerOwnedIp")
+      Prelude.<$> (x Data..@? "ipOwnerId")
+      Prelude.<*> (x Data..@? "carrierIp")
+      Prelude.<*> (x Data..@? "publicIp")
+      Prelude.<*> (x Data..@? "publicDnsName")
+      Prelude.<*> (x Data..@? "customerOwnedIp")
 
 instance
   Prelude.Hashable

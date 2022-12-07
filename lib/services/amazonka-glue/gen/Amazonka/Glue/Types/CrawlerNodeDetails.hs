@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CrawlerNodeDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.Crawl
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newCrawlerNodeDetails =
 crawlerNodeDetails_crawls :: Lens.Lens' CrawlerNodeDetails (Prelude.Maybe [Crawl])
 crawlerNodeDetails_crawls = Lens.lens (\CrawlerNodeDetails' {crawls} -> crawls) (\s@CrawlerNodeDetails' {} a -> s {crawls = a} :: CrawlerNodeDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CrawlerNodeDetails where
+instance Data.FromJSON CrawlerNodeDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CrawlerNodeDetails"
       ( \x ->
           CrawlerNodeDetails'
-            Prelude.<$> (x Core..:? "Crawls" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Crawls" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CrawlerNodeDetails where

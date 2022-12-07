@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.EventSubscription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types.InspectorEvent
 import qualified Amazonka.Prelude as Prelude
 
@@ -32,7 +33,7 @@ data EventSubscription = EventSubscription'
     -- notifications are sent.
     event :: InspectorEvent,
     -- | The time at which SubscribeToEvent is called.
-    subscribedAt :: Core.POSIX
+    subscribedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +58,7 @@ newEventSubscription ::
 newEventSubscription pEvent_ pSubscribedAt_ =
   EventSubscription'
     { event = pEvent_,
-      subscribedAt = Core._Time Lens.# pSubscribedAt_
+      subscribedAt = Data._Time Lens.# pSubscribedAt_
     }
 
 -- | The event for which Amazon Simple Notification Service (SNS)
@@ -67,16 +68,16 @@ eventSubscription_event = Lens.lens (\EventSubscription' {event} -> event) (\s@E
 
 -- | The time at which SubscribeToEvent is called.
 eventSubscription_subscribedAt :: Lens.Lens' EventSubscription Prelude.UTCTime
-eventSubscription_subscribedAt = Lens.lens (\EventSubscription' {subscribedAt} -> subscribedAt) (\s@EventSubscription' {} a -> s {subscribedAt = a} :: EventSubscription) Prelude.. Core._Time
+eventSubscription_subscribedAt = Lens.lens (\EventSubscription' {subscribedAt} -> subscribedAt) (\s@EventSubscription' {} a -> s {subscribedAt = a} :: EventSubscription) Prelude.. Data._Time
 
-instance Core.FromJSON EventSubscription where
+instance Data.FromJSON EventSubscription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventSubscription"
       ( \x ->
           EventSubscription'
-            Prelude.<$> (x Core..: "event")
-            Prelude.<*> (x Core..: "subscribedAt")
+            Prelude.<$> (x Data..: "event")
+            Prelude.<*> (x Data..: "subscribedAt")
       )
 
 instance Prelude.Hashable EventSubscription where

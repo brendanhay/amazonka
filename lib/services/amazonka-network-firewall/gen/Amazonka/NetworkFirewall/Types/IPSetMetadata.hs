@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.IPSetMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | General information about the IP set.
@@ -59,13 +60,13 @@ newIPSetMetadata =
 iPSetMetadata_resolvedCIDRCount :: Lens.Lens' IPSetMetadata (Prelude.Maybe Prelude.Natural)
 iPSetMetadata_resolvedCIDRCount = Lens.lens (\IPSetMetadata' {resolvedCIDRCount} -> resolvedCIDRCount) (\s@IPSetMetadata' {} a -> s {resolvedCIDRCount = a} :: IPSetMetadata)
 
-instance Core.FromJSON IPSetMetadata where
+instance Data.FromJSON IPSetMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IPSetMetadata"
       ( \x ->
           IPSetMetadata'
-            Prelude.<$> (x Core..:? "ResolvedCIDRCount")
+            Prelude.<$> (x Data..:? "ResolvedCIDRCount")
       )
 
 instance Prelude.Hashable IPSetMetadata where

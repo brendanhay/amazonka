@@ -21,6 +21,7 @@ module Amazonka.AppIntegrationS.Types.EventIntegrationAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The event integration association.
@@ -103,19 +104,19 @@ eventIntegrationAssociation_eventIntegrationAssociationId = Lens.lens (\EventInt
 eventIntegrationAssociation_clientAssociationMetadata :: Lens.Lens' EventIntegrationAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 eventIntegrationAssociation_clientAssociationMetadata = Lens.lens (\EventIntegrationAssociation' {clientAssociationMetadata} -> clientAssociationMetadata) (\s@EventIntegrationAssociation' {} a -> s {clientAssociationMetadata = a} :: EventIntegrationAssociation) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EventIntegrationAssociation where
+instance Data.FromJSON EventIntegrationAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventIntegrationAssociation"
       ( \x ->
           EventIntegrationAssociation'
-            Prelude.<$> (x Core..:? "EventBridgeRuleName")
-            Prelude.<*> (x Core..:? "ClientId")
-            Prelude.<*> (x Core..:? "EventIntegrationName")
-            Prelude.<*> (x Core..:? "EventIntegrationAssociationArn")
-            Prelude.<*> (x Core..:? "EventIntegrationAssociationId")
-            Prelude.<*> ( x Core..:? "ClientAssociationMetadata"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "EventBridgeRuleName")
+            Prelude.<*> (x Data..:? "ClientId")
+            Prelude.<*> (x Data..:? "EventIntegrationName")
+            Prelude.<*> (x Data..:? "EventIntegrationAssociationArn")
+            Prelude.<*> (x Data..:? "EventIntegrationAssociationId")
+            Prelude.<*> ( x Data..:? "ClientAssociationMetadata"
+                            Data..!= Prelude.mempty
                         )
       )
 

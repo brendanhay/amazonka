@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateOverrides where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceRequirements
 import Amazonka.EC2.Types.InstanceType
@@ -194,16 +195,16 @@ launchTemplateOverrides_weightedCapacity = Lens.lens (\LaunchTemplateOverrides' 
 launchTemplateOverrides_spotPrice :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
 launchTemplateOverrides_spotPrice = Lens.lens (\LaunchTemplateOverrides' {spotPrice} -> spotPrice) (\s@LaunchTemplateOverrides' {} a -> s {spotPrice = a} :: LaunchTemplateOverrides)
 
-instance Core.FromXML LaunchTemplateOverrides where
+instance Data.FromXML LaunchTemplateOverrides where
   parseXML x =
     LaunchTemplateOverrides'
-      Prelude.<$> (x Core..@? "instanceRequirements")
-      Prelude.<*> (x Core..@? "subnetId")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "priority")
-      Prelude.<*> (x Core..@? "weightedCapacity")
-      Prelude.<*> (x Core..@? "spotPrice")
+      Prelude.<$> (x Data..@? "instanceRequirements")
+      Prelude.<*> (x Data..@? "subnetId")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "priority")
+      Prelude.<*> (x Data..@? "weightedCapacity")
+      Prelude.<*> (x Data..@? "spotPrice")
 
 instance Prelude.Hashable LaunchTemplateOverrides where
   hashWithSalt _salt LaunchTemplateOverrides' {..} =
@@ -225,14 +226,14 @@ instance Prelude.NFData LaunchTemplateOverrides where
       `Prelude.seq` Prelude.rnf weightedCapacity
       `Prelude.seq` Prelude.rnf spotPrice
 
-instance Core.ToQuery LaunchTemplateOverrides where
+instance Data.ToQuery LaunchTemplateOverrides where
   toQuery LaunchTemplateOverrides' {..} =
     Prelude.mconcat
-      [ "InstanceRequirements" Core.=: instanceRequirements,
-        "SubnetId" Core.=: subnetId,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "InstanceType" Core.=: instanceType,
-        "Priority" Core.=: priority,
-        "WeightedCapacity" Core.=: weightedCapacity,
-        "SpotPrice" Core.=: spotPrice
+      [ "InstanceRequirements" Data.=: instanceRequirements,
+        "SubnetId" Data.=: subnetId,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "InstanceType" Data.=: instanceType,
+        "Priority" Data.=: priority,
+        "WeightedCapacity" Data.=: weightedCapacity,
+        "SpotPrice" Data.=: spotPrice
       ]

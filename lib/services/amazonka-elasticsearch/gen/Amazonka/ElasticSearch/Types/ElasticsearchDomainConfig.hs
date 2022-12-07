@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.ElasticsearchDomainConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.AccessPoliciesStatus
 import Amazonka.ElasticSearch.Types.AdvancedOptionsStatus
 import Amazonka.ElasticSearch.Types.AdvancedSecurityOptionsStatus
@@ -209,27 +210,27 @@ elasticsearchDomainConfig_snapshotOptions = Lens.lens (\ElasticsearchDomainConfi
 elasticsearchDomainConfig_logPublishingOptions :: Lens.Lens' ElasticsearchDomainConfig (Prelude.Maybe LogPublishingOptionsStatus)
 elasticsearchDomainConfig_logPublishingOptions = Lens.lens (\ElasticsearchDomainConfig' {logPublishingOptions} -> logPublishingOptions) (\s@ElasticsearchDomainConfig' {} a -> s {logPublishingOptions = a} :: ElasticsearchDomainConfig)
 
-instance Core.FromJSON ElasticsearchDomainConfig where
+instance Data.FromJSON ElasticsearchDomainConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ElasticsearchDomainConfig"
       ( \x ->
           ElasticsearchDomainConfig'
-            Prelude.<$> (x Core..:? "NodeToNodeEncryptionOptions")
-            Prelude.<*> (x Core..:? "AdvancedOptions")
-            Prelude.<*> (x Core..:? "ElasticsearchClusterConfig")
-            Prelude.<*> (x Core..:? "ChangeProgressDetails")
-            Prelude.<*> (x Core..:? "AdvancedSecurityOptions")
-            Prelude.<*> (x Core..:? "CognitoOptions")
-            Prelude.<*> (x Core..:? "EncryptionAtRestOptions")
-            Prelude.<*> (x Core..:? "ElasticsearchVersion")
-            Prelude.<*> (x Core..:? "EBSOptions")
-            Prelude.<*> (x Core..:? "AccessPolicies")
-            Prelude.<*> (x Core..:? "VPCOptions")
-            Prelude.<*> (x Core..:? "AutoTuneOptions")
-            Prelude.<*> (x Core..:? "DomainEndpointOptions")
-            Prelude.<*> (x Core..:? "SnapshotOptions")
-            Prelude.<*> (x Core..:? "LogPublishingOptions")
+            Prelude.<$> (x Data..:? "NodeToNodeEncryptionOptions")
+            Prelude.<*> (x Data..:? "AdvancedOptions")
+            Prelude.<*> (x Data..:? "ElasticsearchClusterConfig")
+            Prelude.<*> (x Data..:? "ChangeProgressDetails")
+            Prelude.<*> (x Data..:? "AdvancedSecurityOptions")
+            Prelude.<*> (x Data..:? "CognitoOptions")
+            Prelude.<*> (x Data..:? "EncryptionAtRestOptions")
+            Prelude.<*> (x Data..:? "ElasticsearchVersion")
+            Prelude.<*> (x Data..:? "EBSOptions")
+            Prelude.<*> (x Data..:? "AccessPolicies")
+            Prelude.<*> (x Data..:? "VPCOptions")
+            Prelude.<*> (x Data..:? "AutoTuneOptions")
+            Prelude.<*> (x Data..:? "DomainEndpointOptions")
+            Prelude.<*> (x Data..:? "SnapshotOptions")
+            Prelude.<*> (x Data..:? "LogPublishingOptions")
       )
 
 instance Prelude.Hashable ElasticsearchDomainConfig where

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsLambdaFunctionEnvironmentError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Error messages for environment variables that could not be applied.
@@ -63,16 +64,16 @@ awsLambdaFunctionEnvironmentError_errorCode :: Lens.Lens' AwsLambdaFunctionEnvir
 awsLambdaFunctionEnvironmentError_errorCode = Lens.lens (\AwsLambdaFunctionEnvironmentError' {errorCode} -> errorCode) (\s@AwsLambdaFunctionEnvironmentError' {} a -> s {errorCode = a} :: AwsLambdaFunctionEnvironmentError)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsLambdaFunctionEnvironmentError
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsLambdaFunctionEnvironmentError"
       ( \x ->
           AwsLambdaFunctionEnvironmentError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance
@@ -94,13 +95,13 @@ instance
       `Prelude.seq` Prelude.rnf errorCode
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsLambdaFunctionEnvironmentError
   where
   toJSON AwsLambdaFunctionEnvironmentError' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Message" Core..=) Prelude.<$> message,
-            ("ErrorCode" Core..=) Prelude.<$> errorCode
+          [ ("Message" Data..=) Prelude.<$> message,
+            ("ErrorCode" Data..=) Prelude.<$> errorCode
           ]
       )

@@ -53,6 +53,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,12 +69,12 @@ data ListRecoveryPointsByBackupVault = ListRecoveryPointsByBackupVault'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns only recovery points that were created after the specified
     -- timestamp.
-    byCreatedAfter :: Prelude.Maybe Core.POSIX,
+    byCreatedAfter :: Prelude.Maybe Data.POSIX,
     -- | Returns only recovery points that match the specified resource type.
     byResourceType :: Prelude.Maybe Prelude.Text,
     -- | Returns only recovery points that were created before the specified
     -- timestamp.
-    byCreatedBefore :: Prelude.Maybe Core.POSIX,
+    byCreatedBefore :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of items to be returned.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Returns only recovery points that match the specified resource Amazon
@@ -156,7 +157,7 @@ listRecoveryPointsByBackupVault_nextToken = Lens.lens (\ListRecoveryPointsByBack
 -- | Returns only recovery points that were created after the specified
 -- timestamp.
 listRecoveryPointsByBackupVault_byCreatedAfter :: Lens.Lens' ListRecoveryPointsByBackupVault (Prelude.Maybe Prelude.UTCTime)
-listRecoveryPointsByBackupVault_byCreatedAfter = Lens.lens (\ListRecoveryPointsByBackupVault' {byCreatedAfter} -> byCreatedAfter) (\s@ListRecoveryPointsByBackupVault' {} a -> s {byCreatedAfter = a} :: ListRecoveryPointsByBackupVault) Prelude.. Lens.mapping Core._Time
+listRecoveryPointsByBackupVault_byCreatedAfter = Lens.lens (\ListRecoveryPointsByBackupVault' {byCreatedAfter} -> byCreatedAfter) (\s@ListRecoveryPointsByBackupVault' {} a -> s {byCreatedAfter = a} :: ListRecoveryPointsByBackupVault) Prelude.. Lens.mapping Data._Time
 
 -- | Returns only recovery points that match the specified resource type.
 listRecoveryPointsByBackupVault_byResourceType :: Lens.Lens' ListRecoveryPointsByBackupVault (Prelude.Maybe Prelude.Text)
@@ -165,7 +166,7 @@ listRecoveryPointsByBackupVault_byResourceType = Lens.lens (\ListRecoveryPointsB
 -- | Returns only recovery points that were created before the specified
 -- timestamp.
 listRecoveryPointsByBackupVault_byCreatedBefore :: Lens.Lens' ListRecoveryPointsByBackupVault (Prelude.Maybe Prelude.UTCTime)
-listRecoveryPointsByBackupVault_byCreatedBefore = Lens.lens (\ListRecoveryPointsByBackupVault' {byCreatedBefore} -> byCreatedBefore) (\s@ListRecoveryPointsByBackupVault' {} a -> s {byCreatedBefore = a} :: ListRecoveryPointsByBackupVault) Prelude.. Lens.mapping Core._Time
+listRecoveryPointsByBackupVault_byCreatedBefore = Lens.lens (\ListRecoveryPointsByBackupVault' {byCreatedBefore} -> byCreatedBefore) (\s@ListRecoveryPointsByBackupVault' {} a -> s {byCreatedBefore = a} :: ListRecoveryPointsByBackupVault) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of items to be returned.
 listRecoveryPointsByBackupVault_maxResults :: Lens.Lens' ListRecoveryPointsByBackupVault (Prelude.Maybe Prelude.Natural)
@@ -224,8 +225,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListRecoveryPointsByBackupVaultResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "RecoveryPoints" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "RecoveryPoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -260,37 +261,37 @@ instance
       `Prelude.seq` Prelude.rnf backupVaultName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListRecoveryPointsByBackupVault
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRecoveryPointsByBackupVault where
+instance Data.ToPath ListRecoveryPointsByBackupVault where
   toPath ListRecoveryPointsByBackupVault' {..} =
     Prelude.mconcat
       [ "/backup-vaults/",
-        Core.toBS backupVaultName,
+        Data.toBS backupVaultName,
         "/recovery-points/"
       ]
 
-instance Core.ToQuery ListRecoveryPointsByBackupVault where
+instance Data.ToQuery ListRecoveryPointsByBackupVault where
   toQuery ListRecoveryPointsByBackupVault' {..} =
     Prelude.mconcat
-      [ "backupPlanId" Core.=: byBackupPlanId,
-        "nextToken" Core.=: nextToken,
-        "createdAfter" Core.=: byCreatedAfter,
-        "resourceType" Core.=: byResourceType,
-        "createdBefore" Core.=: byCreatedBefore,
-        "maxResults" Core.=: maxResults,
-        "resourceArn" Core.=: byResourceArn
+      [ "backupPlanId" Data.=: byBackupPlanId,
+        "nextToken" Data.=: nextToken,
+        "createdAfter" Data.=: byCreatedAfter,
+        "resourceType" Data.=: byResourceType,
+        "createdBefore" Data.=: byCreatedBefore,
+        "maxResults" Data.=: maxResults,
+        "resourceArn" Data.=: byResourceArn
       ]
 
 -- | /See:/ 'newListRecoveryPointsByBackupVaultResponse' smart constructor.

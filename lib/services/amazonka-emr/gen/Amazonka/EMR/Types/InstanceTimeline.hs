@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceTimeline where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The timeline of the instance lifecycle.
@@ -28,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newInstanceTimeline' smart constructor.
 data InstanceTimeline = InstanceTimeline'
   { -- | The creation date and time of the instance.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the instance was ready to perform tasks.
-    readyDateTime :: Prelude.Maybe Core.POSIX,
+    readyDateTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the instance was terminated.
-    endDateTime :: Prelude.Maybe Core.POSIX
+    endDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,25 +62,25 @@ newInstanceTimeline =
 
 -- | The creation date and time of the instance.
 instanceTimeline_creationDateTime :: Lens.Lens' InstanceTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceTimeline_creationDateTime = Lens.lens (\InstanceTimeline' {creationDateTime} -> creationDateTime) (\s@InstanceTimeline' {} a -> s {creationDateTime = a} :: InstanceTimeline) Prelude.. Lens.mapping Core._Time
+instanceTimeline_creationDateTime = Lens.lens (\InstanceTimeline' {creationDateTime} -> creationDateTime) (\s@InstanceTimeline' {} a -> s {creationDateTime = a} :: InstanceTimeline) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the instance was ready to perform tasks.
 instanceTimeline_readyDateTime :: Lens.Lens' InstanceTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceTimeline_readyDateTime = Lens.lens (\InstanceTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceTimeline' {} a -> s {readyDateTime = a} :: InstanceTimeline) Prelude.. Lens.mapping Core._Time
+instanceTimeline_readyDateTime = Lens.lens (\InstanceTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceTimeline' {} a -> s {readyDateTime = a} :: InstanceTimeline) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the instance was terminated.
 instanceTimeline_endDateTime :: Lens.Lens' InstanceTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceTimeline_endDateTime = Lens.lens (\InstanceTimeline' {endDateTime} -> endDateTime) (\s@InstanceTimeline' {} a -> s {endDateTime = a} :: InstanceTimeline) Prelude.. Lens.mapping Core._Time
+instanceTimeline_endDateTime = Lens.lens (\InstanceTimeline' {endDateTime} -> endDateTime) (\s@InstanceTimeline' {} a -> s {endDateTime = a} :: InstanceTimeline) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON InstanceTimeline where
+instance Data.FromJSON InstanceTimeline where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceTimeline"
       ( \x ->
           InstanceTimeline'
-            Prelude.<$> (x Core..:? "CreationDateTime")
-            Prelude.<*> (x Core..:? "ReadyDateTime")
-            Prelude.<*> (x Core..:? "EndDateTime")
+            Prelude.<$> (x Data..:? "CreationDateTime")
+            Prelude.<*> (x Data..:? "ReadyDateTime")
+            Prelude.<*> (x Data..:? "EndDateTime")
       )
 
 instance Prelude.Hashable InstanceTimeline where

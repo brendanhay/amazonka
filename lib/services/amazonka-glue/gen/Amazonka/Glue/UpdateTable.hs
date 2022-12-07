@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -170,36 +171,36 @@ instance Prelude.NFData UpdateTable where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableInput
 
-instance Core.ToHeaders UpdateTable where
+instance Data.ToHeaders UpdateTable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdateTable" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.UpdateTable" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTable where
+instance Data.ToJSON UpdateTable where
   toJSON UpdateTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SkipArchive" Core..=) Prelude.<$> skipArchive,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("TransactionId" Core..=) Prelude.<$> transactionId,
-            ("VersionId" Core..=) Prelude.<$> versionId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableInput" Core..= tableInput)
+          [ ("SkipArchive" Data..=) Prelude.<$> skipArchive,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("TransactionId" Data..=) Prelude.<$> transactionId,
+            ("VersionId" Data..=) Prelude.<$> versionId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableInput" Data..= tableInput)
           ]
       )
 
-instance Core.ToPath UpdateTable where
+instance Data.ToPath UpdateTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTable where
+instance Data.ToQuery UpdateTable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTableResponse' smart constructor.

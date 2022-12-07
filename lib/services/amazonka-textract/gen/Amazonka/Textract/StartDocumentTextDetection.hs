@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -200,7 +201,7 @@ instance Core.AWSRequest StartDocumentTextDetection where
     Response.receiveJSON
       ( \s h x ->
           StartDocumentTextDetectionResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -222,41 +223,41 @@ instance Prelude.NFData StartDocumentTextDetection where
       `Prelude.seq` Prelude.rnf notificationChannel
       `Prelude.seq` Prelude.rnf documentLocation
 
-instance Core.ToHeaders StartDocumentTextDetection where
+instance Data.ToHeaders StartDocumentTextDetection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Textract.StartDocumentTextDetection" ::
+              Data.=# ( "Textract.StartDocumentTextDetection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartDocumentTextDetection where
+instance Data.ToJSON StartDocumentTextDetection where
   toJSON StartDocumentTextDetection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("KMSKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
-            ("OutputConfig" Core..=) Prelude.<$> outputConfig,
-            ("NotificationChannel" Core..=)
+            ("KMSKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("JobTag" Data..=) Prelude.<$> jobTag,
+            ("OutputConfig" Data..=) Prelude.<$> outputConfig,
+            ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
             Prelude.Just
-              ("DocumentLocation" Core..= documentLocation)
+              ("DocumentLocation" Data..= documentLocation)
           ]
       )
 
-instance Core.ToPath StartDocumentTextDetection where
+instance Data.ToPath StartDocumentTextDetection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartDocumentTextDetection where
+instance Data.ToQuery StartDocumentTextDetection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartDocumentTextDetectionResponse' smart constructor.

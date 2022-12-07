@@ -21,6 +21,7 @@ module Amazonka.Kinesis.Types.HashKeyRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The range of possible hash key values for the shard, which is a set of
@@ -66,14 +67,14 @@ hashKeyRange_startingHashKey = Lens.lens (\HashKeyRange' {startingHashKey} -> st
 hashKeyRange_endingHashKey :: Lens.Lens' HashKeyRange Prelude.Text
 hashKeyRange_endingHashKey = Lens.lens (\HashKeyRange' {endingHashKey} -> endingHashKey) (\s@HashKeyRange' {} a -> s {endingHashKey = a} :: HashKeyRange)
 
-instance Core.FromJSON HashKeyRange where
+instance Data.FromJSON HashKeyRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HashKeyRange"
       ( \x ->
           HashKeyRange'
-            Prelude.<$> (x Core..: "StartingHashKey")
-            Prelude.<*> (x Core..: "EndingHashKey")
+            Prelude.<$> (x Data..: "StartingHashKey")
+            Prelude.<*> (x Data..: "EndingHashKey")
       )
 
 instance Prelude.Hashable HashKeyRange where

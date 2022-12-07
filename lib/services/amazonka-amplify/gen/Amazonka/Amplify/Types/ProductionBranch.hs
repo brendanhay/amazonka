@@ -21,6 +21,7 @@ module Amazonka.Amplify.Types.ProductionBranch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the information about a production branch for an Amplify app.
@@ -34,7 +35,7 @@ data ProductionBranch = ProductionBranch'
     -- | The status of the production branch.
     status :: Prelude.Maybe Prelude.Text,
     -- | The last deploy time of the production branch.
-    lastDeployTime :: Prelude.Maybe Core.POSIX
+    lastDeployTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,18 +78,18 @@ productionBranch_status = Lens.lens (\ProductionBranch' {status} -> status) (\s@
 
 -- | The last deploy time of the production branch.
 productionBranch_lastDeployTime :: Lens.Lens' ProductionBranch (Prelude.Maybe Prelude.UTCTime)
-productionBranch_lastDeployTime = Lens.lens (\ProductionBranch' {lastDeployTime} -> lastDeployTime) (\s@ProductionBranch' {} a -> s {lastDeployTime = a} :: ProductionBranch) Prelude.. Lens.mapping Core._Time
+productionBranch_lastDeployTime = Lens.lens (\ProductionBranch' {lastDeployTime} -> lastDeployTime) (\s@ProductionBranch' {} a -> s {lastDeployTime = a} :: ProductionBranch) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ProductionBranch where
+instance Data.FromJSON ProductionBranch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProductionBranch"
       ( \x ->
           ProductionBranch'
-            Prelude.<$> (x Core..:? "thumbnailUrl")
-            Prelude.<*> (x Core..:? "branchName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastDeployTime")
+            Prelude.<$> (x Data..:? "thumbnailUrl")
+            Prelude.<*> (x Data..:? "branchName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "lastDeployTime")
       )
 
 instance Prelude.Hashable ProductionBranch where

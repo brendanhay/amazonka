@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,34 +121,34 @@ instance
     Prelude.rnf name
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteMatchmakingConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DeleteMatchmakingConfiguration" ::
+              Data.=# ( "GameLift.DeleteMatchmakingConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteMatchmakingConfiguration where
+instance Data.ToJSON DeleteMatchmakingConfiguration where
   toJSON DeleteMatchmakingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DeleteMatchmakingConfiguration where
+instance Data.ToPath DeleteMatchmakingConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteMatchmakingConfiguration where
+instance Data.ToQuery DeleteMatchmakingConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMatchmakingConfigurationResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,12 +93,12 @@ instance Core.AWSRequest GetContactList where
     Response.receiveJSON
       ( \s h x ->
           GetContactListResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "Topics" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ContactListName")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "Topics" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ContactListName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,25 +109,25 @@ instance Prelude.Hashable GetContactList where
 instance Prelude.NFData GetContactList where
   rnf GetContactList' {..} = Prelude.rnf contactListName
 
-instance Core.ToHeaders GetContactList where
+instance Data.ToHeaders GetContactList where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetContactList where
+instance Data.ToPath GetContactList where
   toPath GetContactList' {..} =
     Prelude.mconcat
       [ "/v2/email/contact-lists/",
-        Core.toBS contactListName
+        Data.toBS contactListName
       ]
 
-instance Core.ToQuery GetContactList where
+instance Data.ToQuery GetContactList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContactListResponse' smart constructor.
@@ -134,9 +135,9 @@ data GetContactListResponse = GetContactListResponse'
   { -- | The tags associated with a contact list.
     tags :: Prelude.Maybe [Tag],
     -- | A timestamp noting the last time the contact list was updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | A timestamp noting when the contact list was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | A description of what the contact list is about.
     description :: Prelude.Maybe Prelude.Text,
     -- | An interest group, theme, or label within a list. A contact list can
@@ -192,11 +193,11 @@ getContactListResponse_tags = Lens.lens (\GetContactListResponse' {tags} -> tags
 
 -- | A timestamp noting the last time the contact list was updated.
 getContactListResponse_lastUpdatedTimestamp :: Lens.Lens' GetContactListResponse (Prelude.Maybe Prelude.UTCTime)
-getContactListResponse_lastUpdatedTimestamp = Lens.lens (\GetContactListResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetContactListResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetContactListResponse) Prelude.. Lens.mapping Core._Time
+getContactListResponse_lastUpdatedTimestamp = Lens.lens (\GetContactListResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetContactListResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetContactListResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A timestamp noting when the contact list was created.
 getContactListResponse_createdTimestamp :: Lens.Lens' GetContactListResponse (Prelude.Maybe Prelude.UTCTime)
-getContactListResponse_createdTimestamp = Lens.lens (\GetContactListResponse' {createdTimestamp} -> createdTimestamp) (\s@GetContactListResponse' {} a -> s {createdTimestamp = a} :: GetContactListResponse) Prelude.. Lens.mapping Core._Time
+getContactListResponse_createdTimestamp = Lens.lens (\GetContactListResponse' {createdTimestamp} -> createdTimestamp) (\s@GetContactListResponse' {} a -> s {createdTimestamp = a} :: GetContactListResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A description of what the contact list is about.
 getContactListResponse_description :: Lens.Lens' GetContactListResponse (Prelude.Maybe Prelude.Text)

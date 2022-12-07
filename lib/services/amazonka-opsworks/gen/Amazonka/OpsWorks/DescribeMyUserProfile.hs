@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -72,7 +73,7 @@ instance Core.AWSRequest DescribeMyUserProfile where
     Response.receiveJSON
       ( \s h x ->
           DescribeMyUserProfileResponse'
-            Prelude.<$> (x Core..?> "UserProfile")
+            Prelude.<$> (x Data..?> "UserProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -83,28 +84,28 @@ instance Prelude.Hashable DescribeMyUserProfile where
 instance Prelude.NFData DescribeMyUserProfile where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeMyUserProfile where
+instance Data.ToHeaders DescribeMyUserProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DescribeMyUserProfile" ::
+              Data.=# ( "OpsWorks_20130218.DescribeMyUserProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeMyUserProfile where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DescribeMyUserProfile where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DescribeMyUserProfile where
+instance Data.ToPath DescribeMyUserProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeMyUserProfile where
+instance Data.ToQuery DescribeMyUserProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeMyUserProfile@ request.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest GetMapping where
       ( \s h x ->
           GetMappingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Mapping" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Mapping" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable GetMapping where
@@ -119,33 +120,33 @@ instance Prelude.NFData GetMapping where
       `Prelude.seq` Prelude.rnf sinks
       `Prelude.seq` Prelude.rnf source
 
-instance Core.ToHeaders GetMapping where
+instance Data.ToHeaders GetMapping where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetMapping" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetMapping" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMapping where
+instance Data.ToJSON GetMapping where
   toJSON GetMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Location" Core..=) Prelude.<$> location,
-            ("Sinks" Core..=) Prelude.<$> sinks,
-            Prelude.Just ("Source" Core..= source)
+          [ ("Location" Data..=) Prelude.<$> location,
+            ("Sinks" Data..=) Prelude.<$> sinks,
+            Prelude.Just ("Source" Data..= source)
           ]
       )
 
-instance Core.ToPath GetMapping where
+instance Data.ToPath GetMapping where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMapping where
+instance Data.ToQuery GetMapping where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMappingResponse' smart constructor.

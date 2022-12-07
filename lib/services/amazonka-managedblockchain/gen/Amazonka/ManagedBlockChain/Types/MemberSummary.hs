@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.MemberSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.MemberStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -38,7 +39,7 @@ data MemberSummary = MemberSummary'
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the member was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the member.
     --
     -- -   @CREATING@ - The Amazon Web Services account is in the process of
@@ -168,7 +169,7 @@ memberSummary_arn = Lens.lens (\MemberSummary' {arn} -> arn) (\s@MemberSummary' 
 
 -- | The date and time that the member was created.
 memberSummary_creationDate :: Lens.Lens' MemberSummary (Prelude.Maybe Prelude.UTCTime)
-memberSummary_creationDate = Lens.lens (\MemberSummary' {creationDate} -> creationDate) (\s@MemberSummary' {} a -> s {creationDate = a} :: MemberSummary) Prelude.. Lens.mapping Core._Time
+memberSummary_creationDate = Lens.lens (\MemberSummary' {creationDate} -> creationDate) (\s@MemberSummary' {} a -> s {creationDate = a} :: MemberSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the member.
 --
@@ -220,19 +221,19 @@ memberSummary_description = Lens.lens (\MemberSummary' {description} -> descript
 memberSummary_isOwned :: Lens.Lens' MemberSummary (Prelude.Maybe Prelude.Bool)
 memberSummary_isOwned = Lens.lens (\MemberSummary' {isOwned} -> isOwned) (\s@MemberSummary' {} a -> s {isOwned = a} :: MemberSummary)
 
-instance Core.FromJSON MemberSummary where
+instance Data.FromJSON MemberSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MemberSummary"
       ( \x ->
           MemberSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "IsOwned")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "IsOwned")
       )
 
 instance Prelude.Hashable MemberSummary where

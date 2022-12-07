@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsWafRuleGroupRulesDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsWafRuleGroupRulesActionDetails
 
@@ -88,16 +89,16 @@ awsWafRuleGroupRulesDetails_priority = Lens.lens (\AwsWafRuleGroupRulesDetails' 
 awsWafRuleGroupRulesDetails_action :: Lens.Lens' AwsWafRuleGroupRulesDetails (Prelude.Maybe AwsWafRuleGroupRulesActionDetails)
 awsWafRuleGroupRulesDetails_action = Lens.lens (\AwsWafRuleGroupRulesDetails' {action} -> action) (\s@AwsWafRuleGroupRulesDetails' {} a -> s {action = a} :: AwsWafRuleGroupRulesDetails)
 
-instance Core.FromJSON AwsWafRuleGroupRulesDetails where
+instance Data.FromJSON AwsWafRuleGroupRulesDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsWafRuleGroupRulesDetails"
       ( \x ->
           AwsWafRuleGroupRulesDetails'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "RuleId")
-            Prelude.<*> (x Core..:? "Priority")
-            Prelude.<*> (x Core..:? "Action")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "RuleId")
+            Prelude.<*> (x Data..:? "Priority")
+            Prelude.<*> (x Data..:? "Action")
       )
 
 instance Prelude.Hashable AwsWafRuleGroupRulesDetails where
@@ -114,13 +115,13 @@ instance Prelude.NFData AwsWafRuleGroupRulesDetails where
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToJSON AwsWafRuleGroupRulesDetails where
+instance Data.ToJSON AwsWafRuleGroupRulesDetails where
   toJSON AwsWafRuleGroupRulesDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("RuleId" Core..=) Prelude.<$> ruleId,
-            ("Priority" Core..=) Prelude.<$> priority,
-            ("Action" Core..=) Prelude.<$> action
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("RuleId" Data..=) Prelude.<$> ruleId,
+            ("Priority" Data..=) Prelude.<$> priority,
+            ("Action" Data..=) Prelude.<$> action
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.ParticipatingServer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.LaunchStatus
 import Amazonka.MGN.Types.PostLaunchActionsStatus
 import qualified Amazonka.Prelude as Prelude
@@ -84,16 +85,16 @@ participatingServer_postLaunchActionsStatus = Lens.lens (\ParticipatingServer' {
 participatingServer_sourceServerID :: Lens.Lens' ParticipatingServer Prelude.Text
 participatingServer_sourceServerID = Lens.lens (\ParticipatingServer' {sourceServerID} -> sourceServerID) (\s@ParticipatingServer' {} a -> s {sourceServerID = a} :: ParticipatingServer)
 
-instance Core.FromJSON ParticipatingServer where
+instance Data.FromJSON ParticipatingServer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParticipatingServer"
       ( \x ->
           ParticipatingServer'
-            Prelude.<$> (x Core..:? "launchStatus")
-            Prelude.<*> (x Core..:? "launchedEc2InstanceID")
-            Prelude.<*> (x Core..:? "postLaunchActionsStatus")
-            Prelude.<*> (x Core..: "sourceServerID")
+            Prelude.<$> (x Data..:? "launchStatus")
+            Prelude.<*> (x Data..:? "launchedEc2InstanceID")
+            Prelude.<*> (x Data..:? "postLaunchActionsStatus")
+            Prelude.<*> (x Data..: "sourceServerID")
       )
 
 instance Prelude.Hashable ParticipatingServer where

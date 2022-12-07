@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -57,7 +58,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateNetworkSite' smart constructor.
 data CreateNetworkSite = CreateNetworkSite'
   { -- | The tags to apply to the network site.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
@@ -128,7 +129,7 @@ newCreateNetworkSite pNetworkArn_ pNetworkSiteName_ =
 
 -- | The tags to apply to the network site.
 createNetworkSite_tags :: Lens.Lens' CreateNetworkSite (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createNetworkSite_tags = Lens.lens (\CreateNetworkSite' {tags} -> tags) (\s@CreateNetworkSite' {} a -> s {tags = a} :: CreateNetworkSite) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createNetworkSite_tags = Lens.lens (\CreateNetworkSite' {tags} -> tags) (\s@CreateNetworkSite' {} a -> s {tags = a} :: CreateNetworkSite) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
@@ -173,8 +174,8 @@ instance Core.AWSRequest CreateNetworkSite where
     Response.receiveJSON
       ( \s h x ->
           CreateNetworkSiteResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "networkSite")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "networkSite")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,45 +201,45 @@ instance Prelude.NFData CreateNetworkSite where
       `Prelude.seq` Prelude.rnf networkArn
       `Prelude.seq` Prelude.rnf networkSiteName
 
-instance Core.ToHeaders CreateNetworkSite where
+instance Data.ToHeaders CreateNetworkSite where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateNetworkSite where
+instance Data.ToJSON CreateNetworkSite where
   toJSON CreateNetworkSite' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("description" Core..=) Prelude.<$> description,
-            ("availabilityZone" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
+            ("availabilityZone" Data..=)
               Prelude.<$> availabilityZone,
-            ("pendingPlan" Core..=) Prelude.<$> pendingPlan,
-            ("availabilityZoneId" Core..=)
+            ("pendingPlan" Data..=) Prelude.<$> pendingPlan,
+            ("availabilityZoneId" Data..=)
               Prelude.<$> availabilityZoneId,
-            Prelude.Just ("networkArn" Core..= networkArn),
+            Prelude.Just ("networkArn" Data..= networkArn),
             Prelude.Just
-              ("networkSiteName" Core..= networkSiteName)
+              ("networkSiteName" Data..= networkSiteName)
           ]
       )
 
-instance Core.ToPath CreateNetworkSite where
+instance Data.ToPath CreateNetworkSite where
   toPath = Prelude.const "/v1/network-sites"
 
-instance Core.ToQuery CreateNetworkSite where
+instance Data.ToQuery CreateNetworkSite where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateNetworkSiteResponse' smart constructor.
 data CreateNetworkSiteResponse = CreateNetworkSiteResponse'
   { -- | The network site tags.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Information about the network site.
     networkSite :: Prelude.Maybe NetworkSite,
     -- | The response's http status code.
@@ -272,7 +273,7 @@ newCreateNetworkSiteResponse pHttpStatus_ =
 
 -- | The network site tags.
 createNetworkSiteResponse_tags :: Lens.Lens' CreateNetworkSiteResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createNetworkSiteResponse_tags = Lens.lens (\CreateNetworkSiteResponse' {tags} -> tags) (\s@CreateNetworkSiteResponse' {} a -> s {tags = a} :: CreateNetworkSiteResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createNetworkSiteResponse_tags = Lens.lens (\CreateNetworkSiteResponse' {tags} -> tags) (\s@CreateNetworkSiteResponse' {} a -> s {tags = a} :: CreateNetworkSiteResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Information about the network site.
 createNetworkSiteResponse_networkSite :: Lens.Lens' CreateNetworkSiteResponse (Prelude.Maybe NetworkSite)

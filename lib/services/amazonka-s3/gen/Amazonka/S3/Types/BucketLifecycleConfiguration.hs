@@ -21,6 +21,7 @@ module Amazonka.S3.Types.BucketLifecycleConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.LifecycleRule
@@ -69,6 +70,6 @@ instance Prelude.NFData BucketLifecycleConfiguration where
   rnf BucketLifecycleConfiguration' {..} =
     Prelude.rnf rules
 
-instance Core.ToXML BucketLifecycleConfiguration where
+instance Data.ToXML BucketLifecycleConfiguration where
   toXML BucketLifecycleConfiguration' {..} =
-    Prelude.mconcat [Core.toXMLList "Rule" rules]
+    Prelude.mconcat [Data.toXMLList "Rule" rules]

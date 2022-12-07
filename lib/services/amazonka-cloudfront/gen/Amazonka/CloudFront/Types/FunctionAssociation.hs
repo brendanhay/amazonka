@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.FunctionAssociation where
 import Amazonka.CloudFront.Types.EventType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A CloudFront function that is associated with a cache behavior in a
@@ -73,11 +74,11 @@ functionAssociation_functionARN = Lens.lens (\FunctionAssociation' {functionARN}
 functionAssociation_eventType :: Lens.Lens' FunctionAssociation EventType
 functionAssociation_eventType = Lens.lens (\FunctionAssociation' {eventType} -> eventType) (\s@FunctionAssociation' {} a -> s {eventType = a} :: FunctionAssociation)
 
-instance Core.FromXML FunctionAssociation where
+instance Data.FromXML FunctionAssociation where
   parseXML x =
     FunctionAssociation'
-      Prelude.<$> (x Core..@ "FunctionARN")
-      Prelude.<*> (x Core..@ "EventType")
+      Prelude.<$> (x Data..@ "FunctionARN")
+      Prelude.<*> (x Data..@ "EventType")
 
 instance Prelude.Hashable FunctionAssociation where
   hashWithSalt _salt FunctionAssociation' {..} =
@@ -89,9 +90,9 @@ instance Prelude.NFData FunctionAssociation where
     Prelude.rnf functionARN
       `Prelude.seq` Prelude.rnf eventType
 
-instance Core.ToXML FunctionAssociation where
+instance Data.ToXML FunctionAssociation where
   toXML FunctionAssociation' {..} =
     Prelude.mconcat
-      [ "FunctionARN" Core.@= functionARN,
-        "EventType" Core.@= eventType
+      [ "FunctionARN" Data.@= functionARN,
+        "EventType" Data.@= eventType
       ]

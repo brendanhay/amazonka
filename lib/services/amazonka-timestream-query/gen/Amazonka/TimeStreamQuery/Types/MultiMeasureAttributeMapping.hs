@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.MultiMeasureAttributeMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamQuery.Types.ScalarMeasureValueType
 
@@ -81,15 +82,15 @@ multiMeasureAttributeMapping_sourceColumn = Lens.lens (\MultiMeasureAttributeMap
 multiMeasureAttributeMapping_measureValueType :: Lens.Lens' MultiMeasureAttributeMapping ScalarMeasureValueType
 multiMeasureAttributeMapping_measureValueType = Lens.lens (\MultiMeasureAttributeMapping' {measureValueType} -> measureValueType) (\s@MultiMeasureAttributeMapping' {} a -> s {measureValueType = a} :: MultiMeasureAttributeMapping)
 
-instance Core.FromJSON MultiMeasureAttributeMapping where
+instance Data.FromJSON MultiMeasureAttributeMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiMeasureAttributeMapping"
       ( \x ->
           MultiMeasureAttributeMapping'
-            Prelude.<$> (x Core..:? "TargetMultiMeasureAttributeName")
-            Prelude.<*> (x Core..: "SourceColumn")
-            Prelude.<*> (x Core..: "MeasureValueType")
+            Prelude.<$> (x Data..:? "TargetMultiMeasureAttributeName")
+            Prelude.<*> (x Data..: "SourceColumn")
+            Prelude.<*> (x Data..: "MeasureValueType")
       )
 
 instance
@@ -108,14 +109,14 @@ instance Prelude.NFData MultiMeasureAttributeMapping where
       `Prelude.seq` Prelude.rnf sourceColumn
       `Prelude.seq` Prelude.rnf measureValueType
 
-instance Core.ToJSON MultiMeasureAttributeMapping where
+instance Data.ToJSON MultiMeasureAttributeMapping where
   toJSON MultiMeasureAttributeMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetMultiMeasureAttributeName" Core..=)
+          [ ("TargetMultiMeasureAttributeName" Data..=)
               Prelude.<$> targetMultiMeasureAttributeName,
-            Prelude.Just ("SourceColumn" Core..= sourceColumn),
+            Prelude.Just ("SourceColumn" Data..= sourceColumn),
             Prelude.Just
-              ("MeasureValueType" Core..= measureValueType)
+              ("MeasureValueType" Data..= measureValueType)
           ]
       )

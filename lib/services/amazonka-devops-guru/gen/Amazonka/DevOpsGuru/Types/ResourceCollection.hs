@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ResourceCollection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.CloudFormationCollection
 import Amazonka.DevOpsGuru.Types.TagCollection
 import qualified Amazonka.Prelude as Prelude
@@ -174,14 +175,14 @@ resourceCollection_tags = Lens.lens (\ResourceCollection' {tags} -> tags) (\s@Re
 resourceCollection_cloudFormation :: Lens.Lens' ResourceCollection (Prelude.Maybe CloudFormationCollection)
 resourceCollection_cloudFormation = Lens.lens (\ResourceCollection' {cloudFormation} -> cloudFormation) (\s@ResourceCollection' {} a -> s {cloudFormation = a} :: ResourceCollection)
 
-instance Core.FromJSON ResourceCollection where
+instance Data.FromJSON ResourceCollection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceCollection"
       ( \x ->
           ResourceCollection'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CloudFormation")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CloudFormation")
       )
 
 instance Prelude.Hashable ResourceCollection where
@@ -194,12 +195,12 @@ instance Prelude.NFData ResourceCollection where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf cloudFormation
 
-instance Core.ToJSON ResourceCollection where
+instance Data.ToJSON ResourceCollection where
   toJSON ResourceCollection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("CloudFormation" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("CloudFormation" Data..=)
               Prelude.<$> cloudFormation
           ]
       )

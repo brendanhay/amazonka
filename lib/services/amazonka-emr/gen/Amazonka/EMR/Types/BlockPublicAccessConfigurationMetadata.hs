@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.BlockPublicAccessConfigurationMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Properties that describe the Amazon Web Services principal that created
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newBlockPublicAccessConfigurationMetadata' smart constructor.
 data BlockPublicAccessConfigurationMetadata = BlockPublicAccessConfigurationMetadata'
   { -- | The date and time that the configuration was created.
-    creationDateTime :: Core.POSIX,
+    creationDateTime :: Data.POSIX,
     -- | The Amazon Resource Name that created or last modified the
     -- configuration.
     createdByArn :: Prelude.Text
@@ -62,14 +63,14 @@ newBlockPublicAccessConfigurationMetadata
   pCreatedByArn_ =
     BlockPublicAccessConfigurationMetadata'
       { creationDateTime =
-          Core._Time
+          Data._Time
             Lens.# pCreationDateTime_,
         createdByArn = pCreatedByArn_
       }
 
 -- | The date and time that the configuration was created.
 blockPublicAccessConfigurationMetadata_creationDateTime :: Lens.Lens' BlockPublicAccessConfigurationMetadata Prelude.UTCTime
-blockPublicAccessConfigurationMetadata_creationDateTime = Lens.lens (\BlockPublicAccessConfigurationMetadata' {creationDateTime} -> creationDateTime) (\s@BlockPublicAccessConfigurationMetadata' {} a -> s {creationDateTime = a} :: BlockPublicAccessConfigurationMetadata) Prelude.. Core._Time
+blockPublicAccessConfigurationMetadata_creationDateTime = Lens.lens (\BlockPublicAccessConfigurationMetadata' {creationDateTime} -> creationDateTime) (\s@BlockPublicAccessConfigurationMetadata' {} a -> s {creationDateTime = a} :: BlockPublicAccessConfigurationMetadata) Prelude.. Data._Time
 
 -- | The Amazon Resource Name that created or last modified the
 -- configuration.
@@ -77,16 +78,16 @@ blockPublicAccessConfigurationMetadata_createdByArn :: Lens.Lens' BlockPublicAcc
 blockPublicAccessConfigurationMetadata_createdByArn = Lens.lens (\BlockPublicAccessConfigurationMetadata' {createdByArn} -> createdByArn) (\s@BlockPublicAccessConfigurationMetadata' {} a -> s {createdByArn = a} :: BlockPublicAccessConfigurationMetadata)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BlockPublicAccessConfigurationMetadata
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BlockPublicAccessConfigurationMetadata"
       ( \x ->
           BlockPublicAccessConfigurationMetadata'
-            Prelude.<$> (x Core..: "CreationDateTime")
-            Prelude.<*> (x Core..: "CreatedByArn")
+            Prelude.<$> (x Data..: "CreationDateTime")
+            Prelude.<*> (x Data..: "CreatedByArn")
       )
 
 instance

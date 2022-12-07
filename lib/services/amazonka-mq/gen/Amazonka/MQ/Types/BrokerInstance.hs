@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.BrokerInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about all brokers.
@@ -73,15 +74,15 @@ brokerInstance_endpoints = Lens.lens (\BrokerInstance' {endpoints} -> endpoints)
 brokerInstance_ipAddress :: Lens.Lens' BrokerInstance (Prelude.Maybe Prelude.Text)
 brokerInstance_ipAddress = Lens.lens (\BrokerInstance' {ipAddress} -> ipAddress) (\s@BrokerInstance' {} a -> s {ipAddress = a} :: BrokerInstance)
 
-instance Core.FromJSON BrokerInstance where
+instance Data.FromJSON BrokerInstance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BrokerInstance"
       ( \x ->
           BrokerInstance'
-            Prelude.<$> (x Core..:? "consoleURL")
-            Prelude.<*> (x Core..:? "endpoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ipAddress")
+            Prelude.<$> (x Data..:? "consoleURL")
+            Prelude.<*> (x Data..:? "endpoints" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ipAddress")
       )
 
 instance Prelude.Hashable BrokerInstance where

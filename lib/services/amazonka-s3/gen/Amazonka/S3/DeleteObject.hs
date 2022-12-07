@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -256,9 +257,9 @@ instance Core.AWSRequest DeleteObject where
     Response.receiveEmpty
       ( \s h x ->
           DeleteObjectResponse'
-            Prelude.<$> (h Core..#? "x-amz-request-charged")
-            Prelude.<*> (h Core..#? "x-amz-delete-marker")
-            Prelude.<*> (h Core..#? "x-amz-version-id")
+            Prelude.<$> (h Data..#? "x-amz-request-charged")
+            Prelude.<*> (h Data..#? "x-amz-delete-marker")
+            Prelude.<*> (h Data..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -282,25 +283,25 @@ instance Prelude.NFData DeleteObject where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToHeaders DeleteObject where
+instance Data.ToHeaders DeleteObject where
   toHeaders DeleteObject' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer,
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer,
         "x-amz-bypass-governance-retention"
-          Core.=# bypassGovernanceRetention,
-        "x-amz-mfa" Core.=# mfa
+          Data.=# bypassGovernanceRetention,
+        "x-amz-mfa" Data.=# mfa
       ]
 
-instance Core.ToPath DeleteObject where
+instance Data.ToPath DeleteObject where
   toPath DeleteObject' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery DeleteObject where
+instance Data.ToQuery DeleteObject where
   toQuery DeleteObject' {..} =
-    Prelude.mconcat ["versionId" Core.=: versionId]
+    Prelude.mconcat ["versionId" Data.=: versionId]
 
 -- | /See:/ 'newDeleteObjectResponse' smart constructor.
 data DeleteObjectResponse = DeleteObjectResponse'

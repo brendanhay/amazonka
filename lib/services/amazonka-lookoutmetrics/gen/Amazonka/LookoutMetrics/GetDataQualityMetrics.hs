@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest GetDataQualityMetrics where
     Response.receiveJSON
       ( \s h x ->
           GetDataQualityMetricsResponse'
-            Prelude.<$> ( x Core..?> "AnomalyDetectorDataQualityMetricList"
+            Prelude.<$> ( x Data..?> "AnomalyDetectorDataQualityMetricList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -115,31 +116,31 @@ instance Prelude.NFData GetDataQualityMetrics where
     Prelude.rnf metricSetArn
       `Prelude.seq` Prelude.rnf anomalyDetectorArn
 
-instance Core.ToHeaders GetDataQualityMetrics where
+instance Data.ToHeaders GetDataQualityMetrics where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDataQualityMetrics where
+instance Data.ToJSON GetDataQualityMetrics where
   toJSON GetDataQualityMetrics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MetricSetArn" Core..=) Prelude.<$> metricSetArn,
+          [ ("MetricSetArn" Data..=) Prelude.<$> metricSetArn,
             Prelude.Just
-              ("AnomalyDetectorArn" Core..= anomalyDetectorArn)
+              ("AnomalyDetectorArn" Data..= anomalyDetectorArn)
           ]
       )
 
-instance Core.ToPath GetDataQualityMetrics where
+instance Data.ToPath GetDataQualityMetrics where
   toPath = Prelude.const "/GetDataQualityMetrics"
 
-instance Core.ToQuery GetDataQualityMetrics where
+instance Data.ToQuery GetDataQualityMetrics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDataQualityMetricsResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest CreateCampaign where
       ( \s h x ->
           CreateCampaignResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable CreateCampaign where
@@ -116,27 +117,27 @@ instance Prelude.NFData CreateCampaign where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf writeCampaignRequest
 
-instance Core.ToHeaders CreateCampaign where
+instance Data.ToHeaders CreateCampaign where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCampaign where
+instance Data.ToJSON CreateCampaign where
   toJSON CreateCampaign' {..} =
-    Core.toJSON writeCampaignRequest
+    Data.toJSON writeCampaignRequest
 
-instance Core.ToPath CreateCampaign where
+instance Data.ToPath CreateCampaign where
   toPath CreateCampaign' {..} =
     Prelude.mconcat
-      ["/v1/apps/", Core.toBS applicationId, "/campaigns"]
+      ["/v1/apps/", Data.toBS applicationId, "/campaigns"]
 
-instance Core.ToQuery CreateCampaign where
+instance Data.ToQuery CreateCampaign where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCampaignResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A ProfileObjectTypeTemplate in a list of ProfileObjectTypeTemplates.
@@ -72,17 +73,17 @@ listProfileObjectTypeTemplateItem_sourceObject :: Lens.Lens' ListProfileObjectTy
 listProfileObjectTypeTemplateItem_sourceObject = Lens.lens (\ListProfileObjectTypeTemplateItem' {sourceObject} -> sourceObject) (\s@ListProfileObjectTypeTemplateItem' {} a -> s {sourceObject = a} :: ListProfileObjectTypeTemplateItem)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ListProfileObjectTypeTemplateItem
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListProfileObjectTypeTemplateItem"
       ( \x ->
           ListProfileObjectTypeTemplateItem'
-            Prelude.<$> (x Core..:? "SourceName")
-            Prelude.<*> (x Core..:? "TemplateId")
-            Prelude.<*> (x Core..:? "SourceObject")
+            Prelude.<$> (x Data..:? "SourceName")
+            Prelude.<*> (x Data..:? "TemplateId")
+            Prelude.<*> (x Data..:? "SourceObject")
       )
 
 instance

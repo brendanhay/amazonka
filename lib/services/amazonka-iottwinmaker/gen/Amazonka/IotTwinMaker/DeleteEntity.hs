@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,7 +110,7 @@ instance Core.AWSRequest DeleteEntity where
       ( \s h x ->
           DeleteEntityResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "state")
+            Prelude.<*> (x Data..:> "state")
       )
 
 instance Prelude.Hashable DeleteEntity where
@@ -124,29 +125,29 @@ instance Prelude.NFData DeleteEntity where
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf entityId
 
-instance Core.ToHeaders DeleteEntity where
+instance Data.ToHeaders DeleteEntity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteEntity where
+instance Data.ToPath DeleteEntity where
   toPath DeleteEntity' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/entities/",
-        Core.toBS entityId
+        Data.toBS entityId
       ]
 
-instance Core.ToQuery DeleteEntity where
+instance Data.ToQuery DeleteEntity where
   toQuery DeleteEntity' {..} =
-    Prelude.mconcat ["isRecursive" Core.=: isRecursive]
+    Prelude.mconcat ["isRecursive" Data.=: isRecursive]
 
 -- | /See:/ 'newDeleteEntityResponse' smart constructor.
 data DeleteEntityResponse = DeleteEntityResponse'

@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.ReservationUtilizationGroup where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.ReservationAggregates
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A group of reservations that share a set of attributes.
@@ -80,16 +81,16 @@ reservationUtilizationGroup_attributes = Lens.lens (\ReservationUtilizationGroup
 reservationUtilizationGroup_value :: Lens.Lens' ReservationUtilizationGroup (Prelude.Maybe Prelude.Text)
 reservationUtilizationGroup_value = Lens.lens (\ReservationUtilizationGroup' {value} -> value) (\s@ReservationUtilizationGroup' {} a -> s {value = a} :: ReservationUtilizationGroup)
 
-instance Core.FromJSON ReservationUtilizationGroup where
+instance Data.FromJSON ReservationUtilizationGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReservationUtilizationGroup"
       ( \x ->
           ReservationUtilizationGroup'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Utilization")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Utilization")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable ReservationUtilizationGroup where

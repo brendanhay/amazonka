@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.DocumentReviewCommentSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.DocumentReviewCommentType
 
@@ -69,14 +70,14 @@ documentReviewCommentSource_type = Lens.lens (\DocumentReviewCommentSource' {typ
 documentReviewCommentSource_content :: Lens.Lens' DocumentReviewCommentSource (Prelude.Maybe Prelude.Text)
 documentReviewCommentSource_content = Lens.lens (\DocumentReviewCommentSource' {content} -> content) (\s@DocumentReviewCommentSource' {} a -> s {content = a} :: DocumentReviewCommentSource)
 
-instance Core.FromJSON DocumentReviewCommentSource where
+instance Data.FromJSON DocumentReviewCommentSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentReviewCommentSource"
       ( \x ->
           DocumentReviewCommentSource'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Content")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Content")
       )
 
 instance Prelude.Hashable DocumentReviewCommentSource where
@@ -88,11 +89,11 @@ instance Prelude.NFData DocumentReviewCommentSource where
   rnf DocumentReviewCommentSource' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf content
 
-instance Core.ToJSON DocumentReviewCommentSource where
+instance Data.ToJSON DocumentReviewCommentSource where
   toJSON DocumentReviewCommentSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Content" Core..=) Prelude.<$> content
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Content" Data..=) Prelude.<$> content
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.CaptionDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.CaptionDestinationSettings
 import Amazonka.MediaConvert.Types.LanguageCode
 import qualified Amazonka.Prelude as Prelude
@@ -168,17 +169,17 @@ captionDescription_languageCode = Lens.lens (\CaptionDescription' {languageCode}
 captionDescription_destinationSettings :: Lens.Lens' CaptionDescription (Prelude.Maybe CaptionDestinationSettings)
 captionDescription_destinationSettings = Lens.lens (\CaptionDescription' {destinationSettings} -> destinationSettings) (\s@CaptionDescription' {} a -> s {destinationSettings = a} :: CaptionDescription)
 
-instance Core.FromJSON CaptionDescription where
+instance Data.FromJSON CaptionDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptionDescription"
       ( \x ->
           CaptionDescription'
-            Prelude.<$> (x Core..:? "captionSelectorName")
-            Prelude.<*> (x Core..:? "customLanguageCode")
-            Prelude.<*> (x Core..:? "languageDescription")
-            Prelude.<*> (x Core..:? "languageCode")
-            Prelude.<*> (x Core..:? "destinationSettings")
+            Prelude.<$> (x Data..:? "captionSelectorName")
+            Prelude.<*> (x Data..:? "customLanguageCode")
+            Prelude.<*> (x Data..:? "languageDescription")
+            Prelude.<*> (x Data..:? "languageCode")
+            Prelude.<*> (x Data..:? "destinationSettings")
       )
 
 instance Prelude.Hashable CaptionDescription where
@@ -197,18 +198,18 @@ instance Prelude.NFData CaptionDescription where
       `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf destinationSettings
 
-instance Core.ToJSON CaptionDescription where
+instance Data.ToJSON CaptionDescription where
   toJSON CaptionDescription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("captionSelectorName" Core..=)
+          [ ("captionSelectorName" Data..=)
               Prelude.<$> captionSelectorName,
-            ("customLanguageCode" Core..=)
+            ("customLanguageCode" Data..=)
               Prelude.<$> customLanguageCode,
-            ("languageDescription" Core..=)
+            ("languageDescription" Data..=)
               Prelude.<$> languageDescription,
-            ("languageCode" Core..=) Prelude.<$> languageCode,
-            ("destinationSettings" Core..=)
+            ("languageCode" Data..=) Prelude.<$> languageCode,
+            ("destinationSettings" Data..=)
               Prelude.<$> destinationSettings
           ]
       )

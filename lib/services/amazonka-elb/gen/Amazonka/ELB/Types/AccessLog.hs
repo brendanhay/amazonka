@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.AccessLog where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -97,13 +98,13 @@ accessLog_emitInterval = Lens.lens (\AccessLog' {emitInterval} -> emitInterval) 
 accessLog_enabled :: Lens.Lens' AccessLog Prelude.Bool
 accessLog_enabled = Lens.lens (\AccessLog' {enabled} -> enabled) (\s@AccessLog' {} a -> s {enabled = a} :: AccessLog)
 
-instance Core.FromXML AccessLog where
+instance Data.FromXML AccessLog where
   parseXML x =
     AccessLog'
-      Prelude.<$> (x Core..@? "S3BucketPrefix")
-      Prelude.<*> (x Core..@? "S3BucketName")
-      Prelude.<*> (x Core..@? "EmitInterval")
-      Prelude.<*> (x Core..@ "Enabled")
+      Prelude.<$> (x Data..@? "S3BucketPrefix")
+      Prelude.<*> (x Data..@? "S3BucketName")
+      Prelude.<*> (x Data..@? "EmitInterval")
+      Prelude.<*> (x Data..@ "Enabled")
 
 instance Prelude.Hashable AccessLog where
   hashWithSalt _salt AccessLog' {..} =
@@ -119,11 +120,11 @@ instance Prelude.NFData AccessLog where
       `Prelude.seq` Prelude.rnf emitInterval
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToQuery AccessLog where
+instance Data.ToQuery AccessLog where
   toQuery AccessLog' {..} =
     Prelude.mconcat
-      [ "S3BucketPrefix" Core.=: s3BucketPrefix,
-        "S3BucketName" Core.=: s3BucketName,
-        "EmitInterval" Core.=: emitInterval,
-        "Enabled" Core.=: enabled
+      [ "S3BucketPrefix" Data.=: s3BucketPrefix,
+        "S3BucketName" Data.=: s3BucketName,
+        "EmitInterval" Data.=: emitInterval,
+        "Enabled" Data.=: enabled
       ]

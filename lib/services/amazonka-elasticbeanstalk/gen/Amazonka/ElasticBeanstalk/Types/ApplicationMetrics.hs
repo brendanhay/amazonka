@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.ApplicationMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.Latency
 import Amazonka.ElasticBeanstalk.Types.StatusCodes
 import qualified Amazonka.Prelude as Prelude
@@ -99,13 +100,13 @@ applicationMetrics_requestCount = Lens.lens (\ApplicationMetrics' {requestCount}
 applicationMetrics_statusCodes :: Lens.Lens' ApplicationMetrics (Prelude.Maybe StatusCodes)
 applicationMetrics_statusCodes = Lens.lens (\ApplicationMetrics' {statusCodes} -> statusCodes) (\s@ApplicationMetrics' {} a -> s {statusCodes = a} :: ApplicationMetrics)
 
-instance Core.FromXML ApplicationMetrics where
+instance Data.FromXML ApplicationMetrics where
   parseXML x =
     ApplicationMetrics'
-      Prelude.<$> (x Core..@? "Latency")
-      Prelude.<*> (x Core..@? "Duration")
-      Prelude.<*> (x Core..@? "RequestCount")
-      Prelude.<*> (x Core..@? "StatusCodes")
+      Prelude.<$> (x Data..@? "Latency")
+      Prelude.<*> (x Data..@? "Duration")
+      Prelude.<*> (x Data..@? "RequestCount")
+      Prelude.<*> (x Data..@? "StatusCodes")
 
 instance Prelude.Hashable ApplicationMetrics where
   hashWithSalt _salt ApplicationMetrics' {..} =

@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.Sample where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.SampleType
 import qualified Amazonka.Prelude as Prelude
 
@@ -200,15 +201,15 @@ sample_arn = Lens.lens (\Sample' {arn} -> arn) (\s@Sample' {} a -> s {arn = a} :
 sample_url :: Lens.Lens' Sample (Prelude.Maybe Prelude.Text)
 sample_url = Lens.lens (\Sample' {url} -> url) (\s@Sample' {} a -> s {url = a} :: Sample)
 
-instance Core.FromJSON Sample where
+instance Data.FromJSON Sample where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Sample"
       ( \x ->
           Sample'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "url")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "url")
       )
 
 instance Prelude.Hashable Sample where

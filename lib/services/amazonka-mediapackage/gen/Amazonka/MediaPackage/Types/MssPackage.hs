@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.MssPackage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types.MssEncryption
 import Amazonka.MediaPackage.Types.StreamSelection
 import qualified Amazonka.Prelude as Prelude
@@ -79,16 +80,16 @@ mssPackage_segmentDurationSeconds = Lens.lens (\MssPackage' {segmentDurationSeco
 mssPackage_encryption :: Lens.Lens' MssPackage (Prelude.Maybe MssEncryption)
 mssPackage_encryption = Lens.lens (\MssPackage' {encryption} -> encryption) (\s@MssPackage' {} a -> s {encryption = a} :: MssPackage)
 
-instance Core.FromJSON MssPackage where
+instance Data.FromJSON MssPackage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MssPackage"
       ( \x ->
           MssPackage'
-            Prelude.<$> (x Core..:? "streamSelection")
-            Prelude.<*> (x Core..:? "manifestWindowSeconds")
-            Prelude.<*> (x Core..:? "segmentDurationSeconds")
-            Prelude.<*> (x Core..:? "encryption")
+            Prelude.<$> (x Data..:? "streamSelection")
+            Prelude.<*> (x Data..:? "manifestWindowSeconds")
+            Prelude.<*> (x Data..:? "segmentDurationSeconds")
+            Prelude.<*> (x Data..:? "encryption")
       )
 
 instance Prelude.Hashable MssPackage where
@@ -105,16 +106,16 @@ instance Prelude.NFData MssPackage where
       `Prelude.seq` Prelude.rnf segmentDurationSeconds
       `Prelude.seq` Prelude.rnf encryption
 
-instance Core.ToJSON MssPackage where
+instance Data.ToJSON MssPackage where
   toJSON MssPackage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("streamSelection" Core..=)
+          [ ("streamSelection" Data..=)
               Prelude.<$> streamSelection,
-            ("manifestWindowSeconds" Core..=)
+            ("manifestWindowSeconds" Data..=)
               Prelude.<$> manifestWindowSeconds,
-            ("segmentDurationSeconds" Core..=)
+            ("segmentDurationSeconds" Data..=)
               Prelude.<$> segmentDurationSeconds,
-            ("encryption" Core..=) Prelude.<$> encryption
+            ("encryption" Data..=) Prelude.<$> encryption
           ]
       )

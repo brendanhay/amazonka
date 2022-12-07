@@ -21,6 +21,7 @@ module Amazonka.MediaPackageVOD.Types.AssetShallow where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A MediaPackage VOD Asset resource.
@@ -114,20 +115,20 @@ assetShallow_id = Lens.lens (\AssetShallow' {id} -> id) (\s@AssetShallow' {} a -
 assetShallow_createdAt :: Lens.Lens' AssetShallow (Prelude.Maybe Prelude.Text)
 assetShallow_createdAt = Lens.lens (\AssetShallow' {createdAt} -> createdAt) (\s@AssetShallow' {} a -> s {createdAt = a} :: AssetShallow)
 
-instance Core.FromJSON AssetShallow where
+instance Data.FromJSON AssetShallow where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetShallow"
       ( \x ->
           AssetShallow'
-            Prelude.<$> (x Core..:? "resourceId")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "sourceRoleArn")
-            Prelude.<*> (x Core..:? "sourceArn")
-            Prelude.<*> (x Core..:? "packagingGroupId")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "resourceId")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "sourceRoleArn")
+            Prelude.<*> (x Data..:? "sourceArn")
+            Prelude.<*> (x Data..:? "packagingGroupId")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable AssetShallow where

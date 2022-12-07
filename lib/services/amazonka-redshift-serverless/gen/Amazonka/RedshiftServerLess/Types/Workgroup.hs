@@ -21,6 +21,7 @@ module Amazonka.RedshiftServerLess.Types.Workgroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types.ConfigParameter
 import Amazonka.RedshiftServerLess.Types.Endpoint
@@ -38,7 +39,7 @@ data Workgroup = Workgroup'
     -- Units (RPUs).
     baseCapacity :: Prelude.Maybe Prelude.Int,
     -- | The creation date of the workgroup.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the workgroup.
     workgroupName :: Prelude.Maybe Prelude.Text,
     -- | The status of the workgroup.
@@ -138,7 +139,7 @@ workgroup_baseCapacity = Lens.lens (\Workgroup' {baseCapacity} -> baseCapacity) 
 
 -- | The creation date of the workgroup.
 workgroup_creationDate :: Lens.Lens' Workgroup (Prelude.Maybe Prelude.UTCTime)
-workgroup_creationDate = Lens.lens (\Workgroup' {creationDate} -> creationDate) (\s@Workgroup' {} a -> s {creationDate = a} :: Workgroup) Prelude.. Lens.mapping Core._Time
+workgroup_creationDate = Lens.lens (\Workgroup' {creationDate} -> creationDate) (\s@Workgroup' {} a -> s {creationDate = a} :: Workgroup) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the workgroup.
 workgroup_workgroupName :: Lens.Lens' Workgroup (Prelude.Maybe Prelude.Text)
@@ -181,29 +182,29 @@ workgroup_subnetIds = Lens.lens (\Workgroup' {subnetIds} -> subnetIds) (\s@Workg
 workgroup_workgroupArn :: Lens.Lens' Workgroup (Prelude.Maybe Prelude.Text)
 workgroup_workgroupArn = Lens.lens (\Workgroup' {workgroupArn} -> workgroupArn) (\s@Workgroup' {} a -> s {workgroupArn = a} :: Workgroup)
 
-instance Core.FromJSON Workgroup where
+instance Data.FromJSON Workgroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Workgroup"
       ( \x ->
           Workgroup'
-            Prelude.<$> ( x Core..:? "securityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "securityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "namespaceName")
-            Prelude.<*> (x Core..:? "baseCapacity")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "workgroupName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "publiclyAccessible")
-            Prelude.<*> ( x Core..:? "configParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "namespaceName")
+            Prelude.<*> (x Data..:? "baseCapacity")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "workgroupName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "publiclyAccessible")
+            Prelude.<*> ( x Data..:? "configParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "enhancedVpcRouting")
-            Prelude.<*> (x Core..:? "endpoint")
-            Prelude.<*> (x Core..:? "workgroupId")
-            Prelude.<*> (x Core..:? "subnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "workgroupArn")
+            Prelude.<*> (x Data..:? "enhancedVpcRouting")
+            Prelude.<*> (x Data..:? "endpoint")
+            Prelude.<*> (x Data..:? "workgroupId")
+            Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "workgroupArn")
       )
 
 instance Prelude.Hashable Workgroup where

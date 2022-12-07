@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.Offering where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.DevicePlatform
 import Amazonka.DeviceFarm.Types.OfferingType
 import Amazonka.DeviceFarm.Types.RecurringCharge
@@ -91,19 +92,19 @@ offering_platform = Lens.lens (\Offering' {platform} -> platform) (\s@Offering' 
 offering_id :: Lens.Lens' Offering (Prelude.Maybe Prelude.Text)
 offering_id = Lens.lens (\Offering' {id} -> id) (\s@Offering' {} a -> s {id = a} :: Offering)
 
-instance Core.FromJSON Offering where
+instance Data.FromJSON Offering where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Offering"
       ( \x ->
           Offering'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> ( x Core..:? "recurringCharges"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> ( x Data..:? "recurringCharges"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable Offering where

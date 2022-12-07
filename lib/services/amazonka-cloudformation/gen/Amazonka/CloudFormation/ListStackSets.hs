@@ -63,6 +63,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -223,9 +224,9 @@ instance Core.AWSRequest ListStackSets where
       "ListStackSetsResult"
       ( \s h x ->
           ListStackSetsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "Summaries" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "Summaries" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -244,23 +245,23 @@ instance Prelude.NFData ListStackSets where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListStackSets where
+instance Data.ToHeaders ListStackSets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListStackSets where
+instance Data.ToPath ListStackSets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListStackSets where
+instance Data.ToQuery ListStackSets where
   toQuery ListStackSets' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListStackSets" :: Prelude.ByteString),
+          Data.=: ("ListStackSets" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "CallAs" Core.=: callAs,
-        "Status" Core.=: status,
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "CallAs" Data.=: callAs,
+        "Status" Data.=: status,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListStackSetsResponse' smart constructor.

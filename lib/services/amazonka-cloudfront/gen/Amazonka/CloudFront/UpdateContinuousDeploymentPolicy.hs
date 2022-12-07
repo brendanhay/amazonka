@@ -63,6 +63,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,8 +140,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           UpdateContinuousDeploymentPolicyResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,30 +166,30 @@ instance
       `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToElement
+  Data.ToElement
     UpdateContinuousDeploymentPolicy
   where
   toElement UpdateContinuousDeploymentPolicy' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}ContinuousDeploymentPolicyConfig"
       continuousDeploymentPolicyConfig
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateContinuousDeploymentPolicy
   where
   toHeaders UpdateContinuousDeploymentPolicy' {..} =
-    Prelude.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Data.=# ifMatch]
 
-instance Core.ToPath UpdateContinuousDeploymentPolicy where
+instance Data.ToPath UpdateContinuousDeploymentPolicy where
   toPath UpdateContinuousDeploymentPolicy' {..} =
     Prelude.mconcat
       [ "/2020-05-31/continuous-deployment-policy/",
-        Core.toBS id
+        Data.toBS id
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateContinuousDeploymentPolicy
   where
   toQuery = Prelude.const Prelude.mempty

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,13 +89,13 @@ instance Core.AWSRequest GetImport where
     Response.receiveJSON
       ( \s h x ->
           GetImportResponse'
-            Prelude.<$> (x Core..?> "resourceType")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "importId")
-            Prelude.<*> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "importStatus")
-            Prelude.<*> (x Core..?> "failureReason" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "mergeStrategy")
+            Prelude.<$> (x Data..?> "resourceType")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "importId")
+            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> (x Data..?> "importStatus")
+            Prelude.<*> (x Data..?> "failureReason" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "mergeStrategy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,22 +106,22 @@ instance Prelude.Hashable GetImport where
 instance Prelude.NFData GetImport where
   rnf GetImport' {..} = Prelude.rnf importId
 
-instance Core.ToHeaders GetImport where
+instance Data.ToHeaders GetImport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetImport where
+instance Data.ToPath GetImport where
   toPath GetImport' {..} =
-    Prelude.mconcat ["/imports/", Core.toBS importId]
+    Prelude.mconcat ["/imports/", Data.toBS importId]
 
-instance Core.ToQuery GetImport where
+instance Data.ToQuery GetImport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetImportResponse' smart constructor.
@@ -132,7 +133,7 @@ data GetImportResponse = GetImportResponse'
     -- | The identifier for the specific import job.
     importId :: Prelude.Maybe Prelude.Text,
     -- | A timestamp for the date and time that the import job was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the import job. If the status is @FAILED@, you can get the
     -- reason for the failure from the @failureReason@ field.
     importStatus :: Prelude.Maybe ImportStatus,
@@ -201,7 +202,7 @@ getImportResponse_importId = Lens.lens (\GetImportResponse' {importId} -> import
 
 -- | A timestamp for the date and time that the import job was created.
 getImportResponse_createdDate :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.UTCTime)
-getImportResponse_createdDate = Lens.lens (\GetImportResponse' {createdDate} -> createdDate) (\s@GetImportResponse' {} a -> s {createdDate = a} :: GetImportResponse) Prelude.. Lens.mapping Core._Time
+getImportResponse_createdDate = Lens.lens (\GetImportResponse' {createdDate} -> createdDate) (\s@GetImportResponse' {} a -> s {createdDate = a} :: GetImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the import job. If the status is @FAILED@, you can get the
 -- reason for the failure from the @failureReason@ field.

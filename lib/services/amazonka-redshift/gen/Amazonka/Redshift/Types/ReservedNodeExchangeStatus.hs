@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ReservedNodeExchangeStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.ReservedNodeExchangeStatusType
@@ -39,7 +40,7 @@ data ReservedNodeExchangeStatus = ReservedNodeExchangeStatus'
     reservedNodeExchangeRequestId :: Prelude.Maybe Prelude.Text,
     -- | A date and time that indicate when the reserved-node exchange was
     -- requested.
-    requestTime :: Prelude.Maybe Core.ISO8601,
+    requestTime :: Prelude.Maybe Data.ISO8601,
     -- | The status of the reserved-node exchange request. Statuses include
     -- in-progress and requested.
     status :: Prelude.Maybe ReservedNodeExchangeStatusType,
@@ -112,7 +113,7 @@ reservedNodeExchangeStatus_reservedNodeExchangeRequestId = Lens.lens (\ReservedN
 -- | A date and time that indicate when the reserved-node exchange was
 -- requested.
 reservedNodeExchangeStatus_requestTime :: Lens.Lens' ReservedNodeExchangeStatus (Prelude.Maybe Prelude.UTCTime)
-reservedNodeExchangeStatus_requestTime = Lens.lens (\ReservedNodeExchangeStatus' {requestTime} -> requestTime) (\s@ReservedNodeExchangeStatus' {} a -> s {requestTime = a} :: ReservedNodeExchangeStatus) Prelude.. Lens.mapping Core._Time
+reservedNodeExchangeStatus_requestTime = Lens.lens (\ReservedNodeExchangeStatus' {requestTime} -> requestTime) (\s@ReservedNodeExchangeStatus' {} a -> s {requestTime = a} :: ReservedNodeExchangeStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the reserved-node exchange request. Statuses include
 -- in-progress and requested.
@@ -135,18 +136,18 @@ reservedNodeExchangeStatus_sourceReservedNodeCount = Lens.lens (\ReservedNodeExc
 reservedNodeExchangeStatus_sourceReservedNodeType :: Lens.Lens' ReservedNodeExchangeStatus (Prelude.Maybe Prelude.Text)
 reservedNodeExchangeStatus_sourceReservedNodeType = Lens.lens (\ReservedNodeExchangeStatus' {sourceReservedNodeType} -> sourceReservedNodeType) (\s@ReservedNodeExchangeStatus' {} a -> s {sourceReservedNodeType = a} :: ReservedNodeExchangeStatus)
 
-instance Core.FromXML ReservedNodeExchangeStatus where
+instance Data.FromXML ReservedNodeExchangeStatus where
   parseXML x =
     ReservedNodeExchangeStatus'
-      Prelude.<$> (x Core..@? "TargetReservedNodeCount")
-      Prelude.<*> (x Core..@? "TargetReservedNodeType")
-      Prelude.<*> (x Core..@? "ReservedNodeExchangeRequestId")
-      Prelude.<*> (x Core..@? "RequestTime")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "SourceReservedNodeId")
-      Prelude.<*> (x Core..@? "TargetReservedNodeOfferingId")
-      Prelude.<*> (x Core..@? "SourceReservedNodeCount")
-      Prelude.<*> (x Core..@? "SourceReservedNodeType")
+      Prelude.<$> (x Data..@? "TargetReservedNodeCount")
+      Prelude.<*> (x Data..@? "TargetReservedNodeType")
+      Prelude.<*> (x Data..@? "ReservedNodeExchangeRequestId")
+      Prelude.<*> (x Data..@? "RequestTime")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "SourceReservedNodeId")
+      Prelude.<*> (x Data..@? "TargetReservedNodeOfferingId")
+      Prelude.<*> (x Data..@? "SourceReservedNodeCount")
+      Prelude.<*> (x Data..@? "SourceReservedNodeType")
 
 instance Prelude.Hashable ReservedNodeExchangeStatus where
   hashWithSalt _salt ReservedNodeExchangeStatus' {..} =

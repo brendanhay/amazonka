@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.AudioCodecSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AacSettings
 import Amazonka.MediaConvert.Types.Ac3Settings
 import Amazonka.MediaConvert.Types.AiffSettings
@@ -229,23 +230,23 @@ audioCodecSettings_eac3AtmosSettings = Lens.lens (\AudioCodecSettings' {eac3Atmo
 audioCodecSettings_aacSettings :: Lens.Lens' AudioCodecSettings (Prelude.Maybe AacSettings)
 audioCodecSettings_aacSettings = Lens.lens (\AudioCodecSettings' {aacSettings} -> aacSettings) (\s@AudioCodecSettings' {} a -> s {aacSettings = a} :: AudioCodecSettings)
 
-instance Core.FromJSON AudioCodecSettings where
+instance Data.FromJSON AudioCodecSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioCodecSettings"
       ( \x ->
           AudioCodecSettings'
-            Prelude.<$> (x Core..:? "aiffSettings")
-            Prelude.<*> (x Core..:? "vorbisSettings")
-            Prelude.<*> (x Core..:? "eac3Settings")
-            Prelude.<*> (x Core..:? "mp2Settings")
-            Prelude.<*> (x Core..:? "wavSettings")
-            Prelude.<*> (x Core..:? "opusSettings")
-            Prelude.<*> (x Core..:? "codec")
-            Prelude.<*> (x Core..:? "ac3Settings")
-            Prelude.<*> (x Core..:? "mp3Settings")
-            Prelude.<*> (x Core..:? "eac3AtmosSettings")
-            Prelude.<*> (x Core..:? "aacSettings")
+            Prelude.<$> (x Data..:? "aiffSettings")
+            Prelude.<*> (x Data..:? "vorbisSettings")
+            Prelude.<*> (x Data..:? "eac3Settings")
+            Prelude.<*> (x Data..:? "mp2Settings")
+            Prelude.<*> (x Data..:? "wavSettings")
+            Prelude.<*> (x Data..:? "opusSettings")
+            Prelude.<*> (x Data..:? "codec")
+            Prelude.<*> (x Data..:? "ac3Settings")
+            Prelude.<*> (x Data..:? "mp3Settings")
+            Prelude.<*> (x Data..:? "eac3AtmosSettings")
+            Prelude.<*> (x Data..:? "aacSettings")
       )
 
 instance Prelude.Hashable AudioCodecSettings where
@@ -276,22 +277,22 @@ instance Prelude.NFData AudioCodecSettings where
       `Prelude.seq` Prelude.rnf eac3AtmosSettings
       `Prelude.seq` Prelude.rnf aacSettings
 
-instance Core.ToJSON AudioCodecSettings where
+instance Data.ToJSON AudioCodecSettings where
   toJSON AudioCodecSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("aiffSettings" Core..=) Prelude.<$> aiffSettings,
-            ("vorbisSettings" Core..=)
+          [ ("aiffSettings" Data..=) Prelude.<$> aiffSettings,
+            ("vorbisSettings" Data..=)
               Prelude.<$> vorbisSettings,
-            ("eac3Settings" Core..=) Prelude.<$> eac3Settings,
-            ("mp2Settings" Core..=) Prelude.<$> mp2Settings,
-            ("wavSettings" Core..=) Prelude.<$> wavSettings,
-            ("opusSettings" Core..=) Prelude.<$> opusSettings,
-            ("codec" Core..=) Prelude.<$> codec,
-            ("ac3Settings" Core..=) Prelude.<$> ac3Settings,
-            ("mp3Settings" Core..=) Prelude.<$> mp3Settings,
-            ("eac3AtmosSettings" Core..=)
+            ("eac3Settings" Data..=) Prelude.<$> eac3Settings,
+            ("mp2Settings" Data..=) Prelude.<$> mp2Settings,
+            ("wavSettings" Data..=) Prelude.<$> wavSettings,
+            ("opusSettings" Data..=) Prelude.<$> opusSettings,
+            ("codec" Data..=) Prelude.<$> codec,
+            ("ac3Settings" Data..=) Prelude.<$> ac3Settings,
+            ("mp3Settings" Data..=) Prelude.<$> mp3Settings,
+            ("eac3AtmosSettings" Data..=)
               Prelude.<$> eac3AtmosSettings,
-            ("aacSettings" Core..=) Prelude.<$> aacSettings
+            ("aacSettings" Data..=) Prelude.<$> aacSettings
           ]
       )

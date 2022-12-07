@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,7 +91,7 @@ instance Core.AWSRequest GetReusableDelegationSet where
       ( \s h x ->
           GetReusableDelegationSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "DelegationSet")
+            Prelude.<*> (x Data..@ "DelegationSet")
       )
 
 instance Prelude.Hashable GetReusableDelegationSet where
@@ -100,15 +101,15 @@ instance Prelude.Hashable GetReusableDelegationSet where
 instance Prelude.NFData GetReusableDelegationSet where
   rnf GetReusableDelegationSet' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetReusableDelegationSet where
+instance Data.ToHeaders GetReusableDelegationSet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetReusableDelegationSet where
+instance Data.ToPath GetReusableDelegationSet where
   toPath GetReusableDelegationSet' {..} =
     Prelude.mconcat
-      ["/2013-04-01/delegationset/", Core.toBS id]
+      ["/2013-04-01/delegationset/", Data.toBS id]
 
-instance Core.ToQuery GetReusableDelegationSet where
+instance Data.ToQuery GetReusableDelegationSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A complex type that contains the response to the

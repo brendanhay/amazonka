@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,10 +141,10 @@ instance Core.AWSRequest CreateStream where
     Response.receiveJSON
       ( \s h x ->
           CreateStreamResponse'
-            Prelude.<$> (x Core..?> "streamId")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "streamVersion")
-            Prelude.<*> (x Core..?> "streamArn")
+            Prelude.<$> (x Data..?> "streamId")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "streamVersion")
+            Prelude.<*> (x Data..?> "streamArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,25 +164,25 @@ instance Prelude.NFData CreateStream where
       `Prelude.seq` Prelude.rnf files
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateStream where
+instance Data.ToHeaders CreateStream where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateStream where
+instance Data.ToJSON CreateStream where
   toJSON CreateStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("files" Core..= files),
-            Prelude.Just ("roleArn" Core..= roleArn)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("files" Data..= files),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateStream where
+instance Data.ToPath CreateStream where
   toPath CreateStream' {..} =
-    Prelude.mconcat ["/streams/", Core.toBS streamId]
+    Prelude.mconcat ["/streams/", Data.toBS streamId]
 
-instance Core.ToQuery CreateStream where
+instance Data.ToQuery CreateStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStreamResponse' smart constructor.

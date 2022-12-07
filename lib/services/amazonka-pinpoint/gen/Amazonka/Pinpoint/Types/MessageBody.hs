@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.MessageBody where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an API request or response.
@@ -61,14 +62,14 @@ messageBody_message = Lens.lens (\MessageBody' {message} -> message) (\s@Message
 messageBody_requestID :: Lens.Lens' MessageBody (Prelude.Maybe Prelude.Text)
 messageBody_requestID = Lens.lens (\MessageBody' {requestID} -> requestID) (\s@MessageBody' {} a -> s {requestID = a} :: MessageBody)
 
-instance Core.FromJSON MessageBody where
+instance Data.FromJSON MessageBody where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MessageBody"
       ( \x ->
           MessageBody'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "RequestID")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "RequestID")
       )
 
 instance Prelude.Hashable MessageBody where

@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.TimeSeriesSelector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.TimeSeriesIdentifiers
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,13 +67,13 @@ newTimeSeriesSelector =
 timeSeriesSelector_timeSeriesIdentifiers :: Lens.Lens' TimeSeriesSelector (Prelude.Maybe TimeSeriesIdentifiers)
 timeSeriesSelector_timeSeriesIdentifiers = Lens.lens (\TimeSeriesSelector' {timeSeriesIdentifiers} -> timeSeriesIdentifiers) (\s@TimeSeriesSelector' {} a -> s {timeSeriesIdentifiers = a} :: TimeSeriesSelector)
 
-instance Core.FromJSON TimeSeriesSelector where
+instance Data.FromJSON TimeSeriesSelector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeSeriesSelector"
       ( \x ->
           TimeSeriesSelector'
-            Prelude.<$> (x Core..:? "TimeSeriesIdentifiers")
+            Prelude.<$> (x Data..:? "TimeSeriesIdentifiers")
       )
 
 instance Prelude.Hashable TimeSeriesSelector where
@@ -83,11 +84,11 @@ instance Prelude.NFData TimeSeriesSelector where
   rnf TimeSeriesSelector' {..} =
     Prelude.rnf timeSeriesIdentifiers
 
-instance Core.ToJSON TimeSeriesSelector where
+instance Data.ToJSON TimeSeriesSelector where
   toJSON TimeSeriesSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TimeSeriesIdentifiers" Core..=)
+          [ ("TimeSeriesIdentifiers" Data..=)
               Prelude.<$> timeSeriesIdentifiers
           ]
       )

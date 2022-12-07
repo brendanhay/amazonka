@@ -45,6 +45,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,8 +108,8 @@ instance Core.AWSRequest ListControls where
     Response.receiveJSON
       ( \s h x ->
           ListControlsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "controlMetadataList"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "controlMetadataList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -126,26 +127,26 @@ instance Prelude.NFData ListControls where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf controlType
 
-instance Core.ToHeaders ListControls where
+instance Data.ToHeaders ListControls where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListControls where
+instance Data.ToPath ListControls where
   toPath = Prelude.const "/controls"
 
-instance Core.ToQuery ListControls where
+instance Data.ToQuery ListControls where
   toQuery ListControls' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "controlType" Core.=: controlType
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "controlType" Data.=: controlType
       ]
 
 -- | /See:/ 'newListControlsResponse' smart constructor.

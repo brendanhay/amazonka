@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,7 +86,7 @@ instance Core.AWSRequest CancelDeployment where
     Response.receiveJSON
       ( \s h x ->
           CancelDeploymentResponse'
-            Prelude.<$> (x Core..?> "message")
+            Prelude.<$> (x Data..?> "message")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,21 +97,21 @@ instance Prelude.Hashable CancelDeployment where
 instance Prelude.NFData CancelDeployment where
   rnf CancelDeployment' {..} = Prelude.rnf deploymentId
 
-instance Core.ToHeaders CancelDeployment where
+instance Data.ToHeaders CancelDeployment where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CancelDeployment where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CancelDeployment where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CancelDeployment where
+instance Data.ToPath CancelDeployment where
   toPath CancelDeployment' {..} =
     Prelude.mconcat
       [ "/greengrass/v2/deployments/",
-        Core.toBS deploymentId,
+        Data.toBS deploymentId,
         "/cancel"
       ]
 
-instance Core.ToQuery CancelDeployment where
+instance Data.ToQuery CancelDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelDeploymentResponse' smart constructor.

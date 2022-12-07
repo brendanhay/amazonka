@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.Principal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The IAM principal that you allowing or denying access to an Amazon Lex
@@ -77,11 +78,11 @@ instance Prelude.NFData Principal where
   rnf Principal' {..} =
     Prelude.rnf arn `Prelude.seq` Prelude.rnf service
 
-instance Core.ToJSON Principal where
+instance Data.ToJSON Principal where
   toJSON Principal' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("arn" Core..=) Prelude.<$> arn,
-            ("service" Core..=) Prelude.<$> service
+          [ ("arn" Data..=) Prelude.<$> arn,
+            ("service" Data..=) Prelude.<$> service
           ]
       )

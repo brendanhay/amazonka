@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,21 +126,21 @@ instance Prelude.NFData DeleteSnapshot where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf snapshotId
 
-instance Core.ToHeaders DeleteSnapshot where
+instance Data.ToHeaders DeleteSnapshot where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteSnapshot where
+instance Data.ToPath DeleteSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSnapshot where
+instance Data.ToQuery DeleteSnapshot where
   toQuery DeleteSnapshot' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteSnapshot" :: Prelude.ByteString),
+          Data.=: ("DeleteSnapshot" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "SnapshotId" Core.=: snapshotId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "SnapshotId" Data.=: snapshotId
       ]
 
 -- | /See:/ 'newDeleteSnapshotResponse' smart constructor.

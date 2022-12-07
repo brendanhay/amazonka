@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpcPeeringConnectionStateReason where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.VpcPeeringConnectionStateReasonCode
 import qualified Amazonka.Prelude as Prelude
@@ -67,11 +68,11 @@ vpcPeeringConnectionStateReason_message = Lens.lens (\VpcPeeringConnectionStateR
 vpcPeeringConnectionStateReason_code :: Lens.Lens' VpcPeeringConnectionStateReason (Prelude.Maybe VpcPeeringConnectionStateReasonCode)
 vpcPeeringConnectionStateReason_code = Lens.lens (\VpcPeeringConnectionStateReason' {code} -> code) (\s@VpcPeeringConnectionStateReason' {} a -> s {code = a} :: VpcPeeringConnectionStateReason)
 
-instance Core.FromXML VpcPeeringConnectionStateReason where
+instance Data.FromXML VpcPeeringConnectionStateReason where
   parseXML x =
     VpcPeeringConnectionStateReason'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance
   Prelude.Hashable

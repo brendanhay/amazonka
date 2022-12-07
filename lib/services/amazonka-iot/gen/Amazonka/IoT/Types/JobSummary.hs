@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.JobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.JobStatus
 import Amazonka.IoT.Types.TargetSelection
 import qualified Amazonka.Prelude as Prelude
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newJobSummary' smart constructor.
 data JobSummary = JobSummary'
   { -- | The time, in seconds since the epoch, when the job was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | Indicates whether a job is concurrent. Will be true when a job is
     -- rolling out new job executions or canceling previously created
     -- executions, otherwise false.
@@ -53,11 +54,11 @@ data JobSummary = JobSummary'
     -- | The job ARN.
     jobArn :: Prelude.Maybe Prelude.Text,
     -- | The time, in seconds since the epoch, when the job completed.
-    completedAt :: Prelude.Maybe Core.POSIX,
+    completedAt :: Prelude.Maybe Data.POSIX,
     -- | The ID of the thing group.
     thingGroupId :: Prelude.Maybe Prelude.Text,
     -- | The time, in seconds since the epoch, when the job was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,7 +115,7 @@ newJobSummary =
 
 -- | The time, in seconds since the epoch, when the job was last updated.
 jobSummary_lastUpdatedAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.UTCTime)
-jobSummary_lastUpdatedAt = Lens.lens (\JobSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@JobSummary' {} a -> s {lastUpdatedAt = a} :: JobSummary) Prelude.. Lens.mapping Core._Time
+jobSummary_lastUpdatedAt = Lens.lens (\JobSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@JobSummary' {} a -> s {lastUpdatedAt = a} :: JobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether a job is concurrent. Will be true when a job is
 -- rolling out new job executions or canceling previously created
@@ -149,7 +150,7 @@ jobSummary_jobArn = Lens.lens (\JobSummary' {jobArn} -> jobArn) (\s@JobSummary' 
 
 -- | The time, in seconds since the epoch, when the job completed.
 jobSummary_completedAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.UTCTime)
-jobSummary_completedAt = Lens.lens (\JobSummary' {completedAt} -> completedAt) (\s@JobSummary' {} a -> s {completedAt = a} :: JobSummary) Prelude.. Lens.mapping Core._Time
+jobSummary_completedAt = Lens.lens (\JobSummary' {completedAt} -> completedAt) (\s@JobSummary' {} a -> s {completedAt = a} :: JobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the thing group.
 jobSummary_thingGroupId :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Text)
@@ -157,23 +158,23 @@ jobSummary_thingGroupId = Lens.lens (\JobSummary' {thingGroupId} -> thingGroupId
 
 -- | The time, in seconds since the epoch, when the job was created.
 jobSummary_createdAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.UTCTime)
-jobSummary_createdAt = Lens.lens (\JobSummary' {createdAt} -> createdAt) (\s@JobSummary' {} a -> s {createdAt = a} :: JobSummary) Prelude.. Lens.mapping Core._Time
+jobSummary_createdAt = Lens.lens (\JobSummary' {createdAt} -> createdAt) (\s@JobSummary' {} a -> s {createdAt = a} :: JobSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON JobSummary where
+instance Data.FromJSON JobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobSummary"
       ( \x ->
           JobSummary'
-            Prelude.<$> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "isConcurrent")
-            Prelude.<*> (x Core..:? "targetSelection")
-            Prelude.<*> (x Core..:? "jobId")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "jobArn")
-            Prelude.<*> (x Core..:? "completedAt")
-            Prelude.<*> (x Core..:? "thingGroupId")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "isConcurrent")
+            Prelude.<*> (x Data..:? "targetSelection")
+            Prelude.<*> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "jobArn")
+            Prelude.<*> (x Data..:? "completedAt")
+            Prelude.<*> (x Data..:? "thingGroupId")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable JobSummary where

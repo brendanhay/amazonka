@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -237,10 +238,10 @@ instance Core.AWSRequest DescribeClusterSubnetGroups where
       "DescribeClusterSubnetGroupsResult"
       ( \s h x ->
           DescribeClusterSubnetGroupsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "ClusterSubnetGroups"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "ClusterSubnetGroups"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "ClusterSubnetGroup")
+                            Prelude.>>= Core.may (Data.parseXMLList "ClusterSubnetGroup")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -261,31 +262,31 @@ instance Prelude.NFData DescribeClusterSubnetGroups where
       `Prelude.seq` Prelude.rnf tagValues
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeClusterSubnetGroups where
+instance Data.ToHeaders DescribeClusterSubnetGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeClusterSubnetGroups where
+instance Data.ToPath DescribeClusterSubnetGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeClusterSubnetGroups where
+instance Data.ToQuery DescribeClusterSubnetGroups where
   toQuery DescribeClusterSubnetGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeClusterSubnetGroups" ::
+          Data.=: ( "DescribeClusterSubnetGroups" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "TagKeys"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
-        "Marker" Core.=: marker,
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagKey" Prelude.<$> tagKeys),
+        "Marker" Data.=: marker,
         "ClusterSubnetGroupName"
-          Core.=: clusterSubnetGroupName,
+          Data.=: clusterSubnetGroupName,
         "TagValues"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "MaxRecords" Core.=: maxRecords
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagValue" Prelude.<$> tagValues),
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | Contains the output from the DescribeClusterSubnetGroups action.

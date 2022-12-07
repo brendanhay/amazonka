@@ -21,6 +21,7 @@ module Amazonka.CloudDirectory.Types.BatchRemoveFacetFromObjectResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An empty result that represents success.
@@ -41,11 +42,11 @@ newBatchRemoveFacetFromObjectResponse =
   BatchRemoveFacetFromObjectResponse'
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchRemoveFacetFromObjectResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchRemoveFacetFromObjectResponse"
       ( \x ->
           Prelude.pure BatchRemoveFacetFromObjectResponse'

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest DeleteEnvironment where
     Response.receiveJSON
       ( \s h x ->
           DeleteEnvironmentResponse'
-            Prelude.<$> (x Core..?> "environment")
+            Prelude.<$> (x Data..?> "environment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable DeleteEnvironment where
 instance Prelude.NFData DeleteEnvironment where
   rnf DeleteEnvironment' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteEnvironment where
+instance Data.ToHeaders DeleteEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.DeleteEnvironment" ::
+              Data.=# ( "AwsProton20200720.DeleteEnvironment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteEnvironment where
+instance Data.ToJSON DeleteEnvironment where
   toJSON DeleteEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath DeleteEnvironment where
+instance Data.ToPath DeleteEnvironment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteEnvironment where
+instance Data.ToQuery DeleteEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEnvironmentResponse' smart constructor.

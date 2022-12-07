@@ -22,6 +22,7 @@ module Amazonka.CloudFormation.Types.StackInstanceComprehensiveStatus where
 import Amazonka.CloudFormation.Types.StackInstanceDetailedStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detailed status of the stack instance.
@@ -127,12 +128,12 @@ stackInstanceComprehensiveStatus_detailedStatus :: Lens.Lens' StackInstanceCompr
 stackInstanceComprehensiveStatus_detailedStatus = Lens.lens (\StackInstanceComprehensiveStatus' {detailedStatus} -> detailedStatus) (\s@StackInstanceComprehensiveStatus' {} a -> s {detailedStatus = a} :: StackInstanceComprehensiveStatus)
 
 instance
-  Core.FromXML
+  Data.FromXML
     StackInstanceComprehensiveStatus
   where
   parseXML x =
     StackInstanceComprehensiveStatus'
-      Prelude.<$> (x Core..@? "DetailedStatus")
+      Prelude.<$> (x Data..@? "DetailedStatus")
 
 instance
   Prelude.Hashable

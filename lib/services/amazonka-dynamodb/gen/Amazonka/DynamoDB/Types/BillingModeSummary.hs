@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.BillingModeSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.BillingMode
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -48,7 +49,7 @@ data BillingModeSummary = BillingModeSummary'
     billingMode :: Prelude.Maybe BillingMode,
     -- | Represents the time when @PAY_PER_REQUEST@ was last set as the
     -- read\/write capacity mode.
-    lastUpdateToPayPerRequestDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdateToPayPerRequestDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,16 +96,16 @@ billingModeSummary_billingMode = Lens.lens (\BillingModeSummary' {billingMode} -
 -- | Represents the time when @PAY_PER_REQUEST@ was last set as the
 -- read\/write capacity mode.
 billingModeSummary_lastUpdateToPayPerRequestDateTime :: Lens.Lens' BillingModeSummary (Prelude.Maybe Prelude.UTCTime)
-billingModeSummary_lastUpdateToPayPerRequestDateTime = Lens.lens (\BillingModeSummary' {lastUpdateToPayPerRequestDateTime} -> lastUpdateToPayPerRequestDateTime) (\s@BillingModeSummary' {} a -> s {lastUpdateToPayPerRequestDateTime = a} :: BillingModeSummary) Prelude.. Lens.mapping Core._Time
+billingModeSummary_lastUpdateToPayPerRequestDateTime = Lens.lens (\BillingModeSummary' {lastUpdateToPayPerRequestDateTime} -> lastUpdateToPayPerRequestDateTime) (\s@BillingModeSummary' {} a -> s {lastUpdateToPayPerRequestDateTime = a} :: BillingModeSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON BillingModeSummary where
+instance Data.FromJSON BillingModeSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BillingModeSummary"
       ( \x ->
           BillingModeSummary'
-            Prelude.<$> (x Core..:? "BillingMode")
-            Prelude.<*> (x Core..:? "LastUpdateToPayPerRequestDateTime")
+            Prelude.<$> (x Data..:? "BillingMode")
+            Prelude.<*> (x Data..:? "LastUpdateToPayPerRequestDateTime")
       )
 
 instance Prelude.Hashable BillingModeSummary where

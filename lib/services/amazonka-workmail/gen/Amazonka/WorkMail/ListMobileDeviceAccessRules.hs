@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ instance Core.AWSRequest ListMobileDeviceAccessRules where
     Response.receiveJSON
       ( \s h x ->
           ListMobileDeviceAccessRulesResponse'
-            Prelude.<$> (x Core..?> "Rules" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Rules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,34 +100,34 @@ instance Prelude.NFData ListMobileDeviceAccessRules where
   rnf ListMobileDeviceAccessRules' {..} =
     Prelude.rnf organizationId
 
-instance Core.ToHeaders ListMobileDeviceAccessRules where
+instance Data.ToHeaders ListMobileDeviceAccessRules where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.ListMobileDeviceAccessRules" ::
+              Data.=# ( "WorkMailService.ListMobileDeviceAccessRules" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListMobileDeviceAccessRules where
+instance Data.ToJSON ListMobileDeviceAccessRules where
   toJSON ListMobileDeviceAccessRules' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId)
+              ("OrganizationId" Data..= organizationId)
           ]
       )
 
-instance Core.ToPath ListMobileDeviceAccessRules where
+instance Data.ToPath ListMobileDeviceAccessRules where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListMobileDeviceAccessRules where
+instance Data.ToQuery ListMobileDeviceAccessRules where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListMobileDeviceAccessRulesResponse' smart constructor.

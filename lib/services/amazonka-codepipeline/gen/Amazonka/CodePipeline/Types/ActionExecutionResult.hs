@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.ActionExecutionResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Execution result information, such as the external execution ID.
@@ -77,15 +78,15 @@ actionExecutionResult_externalExecutionUrl = Lens.lens (\ActionExecutionResult' 
 actionExecutionResult_externalExecutionSummary :: Lens.Lens' ActionExecutionResult (Prelude.Maybe Prelude.Text)
 actionExecutionResult_externalExecutionSummary = Lens.lens (\ActionExecutionResult' {externalExecutionSummary} -> externalExecutionSummary) (\s@ActionExecutionResult' {} a -> s {externalExecutionSummary = a} :: ActionExecutionResult)
 
-instance Core.FromJSON ActionExecutionResult where
+instance Data.FromJSON ActionExecutionResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionExecutionResult"
       ( \x ->
           ActionExecutionResult'
-            Prelude.<$> (x Core..:? "externalExecutionId")
-            Prelude.<*> (x Core..:? "externalExecutionUrl")
-            Prelude.<*> (x Core..:? "externalExecutionSummary")
+            Prelude.<$> (x Data..:? "externalExecutionId")
+            Prelude.<*> (x Data..:? "externalExecutionUrl")
+            Prelude.<*> (x Data..:? "externalExecutionSummary")
       )
 
 instance Prelude.Hashable ActionExecutionResult where

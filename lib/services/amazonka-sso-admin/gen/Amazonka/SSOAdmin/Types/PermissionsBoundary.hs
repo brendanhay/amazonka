@@ -21,6 +21,7 @@ module Amazonka.SSOAdmin.Types.PermissionsBoundary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSOAdmin.Types.CustomerManagedPolicyReference
 
@@ -85,14 +86,14 @@ permissionsBoundary_managedPolicyArn = Lens.lens (\PermissionsBoundary' {managed
 permissionsBoundary_customerManagedPolicyReference :: Lens.Lens' PermissionsBoundary (Prelude.Maybe CustomerManagedPolicyReference)
 permissionsBoundary_customerManagedPolicyReference = Lens.lens (\PermissionsBoundary' {customerManagedPolicyReference} -> customerManagedPolicyReference) (\s@PermissionsBoundary' {} a -> s {customerManagedPolicyReference = a} :: PermissionsBoundary)
 
-instance Core.FromJSON PermissionsBoundary where
+instance Data.FromJSON PermissionsBoundary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PermissionsBoundary"
       ( \x ->
           PermissionsBoundary'
-            Prelude.<$> (x Core..:? "ManagedPolicyArn")
-            Prelude.<*> (x Core..:? "CustomerManagedPolicyReference")
+            Prelude.<$> (x Data..:? "ManagedPolicyArn")
+            Prelude.<*> (x Data..:? "CustomerManagedPolicyReference")
       )
 
 instance Prelude.Hashable PermissionsBoundary where
@@ -105,13 +106,13 @@ instance Prelude.NFData PermissionsBoundary where
     Prelude.rnf managedPolicyArn
       `Prelude.seq` Prelude.rnf customerManagedPolicyReference
 
-instance Core.ToJSON PermissionsBoundary where
+instance Data.ToJSON PermissionsBoundary where
   toJSON PermissionsBoundary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ManagedPolicyArn" Core..=)
+          [ ("ManagedPolicyArn" Data..=)
               Prelude.<$> managedPolicyArn,
-            ("CustomerManagedPolicyReference" Core..=)
+            ("CustomerManagedPolicyReference" Data..=)
               Prelude.<$> customerManagedPolicyReference
           ]
       )

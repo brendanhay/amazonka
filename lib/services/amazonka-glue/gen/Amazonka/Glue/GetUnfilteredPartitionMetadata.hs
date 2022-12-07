@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,11 +148,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetUnfilteredPartitionMetadataResponse'
-            Prelude.<$> ( x Core..?> "AuthorizedColumns"
+            Prelude.<$> ( x Data..?> "AuthorizedColumns"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Partition")
-            Prelude.<*> (x Core..?> "IsRegisteredWithLakeFormation")
+            Prelude.<*> (x Data..?> "Partition")
+            Prelude.<*> (x Data..?> "IsRegisteredWithLakeFormation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,44 +183,44 @@ instance
       `Prelude.seq` Prelude.rnf supportedPermissionTypes
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetUnfilteredPartitionMetadata
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.GetUnfilteredPartitionMetadata" ::
+              Data.=# ( "AWSGlue.GetUnfilteredPartitionMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetUnfilteredPartitionMetadata where
+instance Data.ToJSON GetUnfilteredPartitionMetadata where
   toJSON GetUnfilteredPartitionMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AuditContext" Core..=) Prelude.<$> auditContext,
-            Prelude.Just ("CatalogId" Core..= catalogId),
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
+          [ ("AuditContext" Data..=) Prelude.<$> auditContext,
+            Prelude.Just ("CatalogId" Data..= catalogId),
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
             Prelude.Just
-              ("PartitionValues" Core..= partitionValues),
+              ("PartitionValues" Data..= partitionValues),
             Prelude.Just
               ( "SupportedPermissionTypes"
-                  Core..= supportedPermissionTypes
+                  Data..= supportedPermissionTypes
               )
           ]
       )
 
-instance Core.ToPath GetUnfilteredPartitionMetadata where
+instance Data.ToPath GetUnfilteredPartitionMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetUnfilteredPartitionMetadata where
+instance Data.ToQuery GetUnfilteredPartitionMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetUnfilteredPartitionMetadataResponse' smart constructor.

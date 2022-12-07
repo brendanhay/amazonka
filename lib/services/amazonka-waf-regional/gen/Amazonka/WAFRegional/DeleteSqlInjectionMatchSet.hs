@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,7 +134,7 @@ instance Core.AWSRequest DeleteSqlInjectionMatchSet where
     Response.receiveJSON
       ( \s h x ->
           DeleteSqlInjectionMatchSetResponse'
-            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,37 +148,37 @@ instance Prelude.NFData DeleteSqlInjectionMatchSet where
     Prelude.rnf sqlInjectionMatchSetId
       `Prelude.seq` Prelude.rnf changeToken
 
-instance Core.ToHeaders DeleteSqlInjectionMatchSet where
+instance Data.ToHeaders DeleteSqlInjectionMatchSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.DeleteSqlInjectionMatchSet" ::
+              Data.=# ( "AWSWAF_Regional_20161128.DeleteSqlInjectionMatchSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSqlInjectionMatchSet where
+instance Data.ToJSON DeleteSqlInjectionMatchSet where
   toJSON DeleteSqlInjectionMatchSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "SqlInjectionMatchSetId"
-                  Core..= sqlInjectionMatchSetId
+                  Data..= sqlInjectionMatchSetId
               ),
-            Prelude.Just ("ChangeToken" Core..= changeToken)
+            Prelude.Just ("ChangeToken" Data..= changeToken)
           ]
       )
 
-instance Core.ToPath DeleteSqlInjectionMatchSet where
+instance Data.ToPath DeleteSqlInjectionMatchSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSqlInjectionMatchSet where
+instance Data.ToQuery DeleteSqlInjectionMatchSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response to a request to delete a SqlInjectionMatchSet from AWS WAF.

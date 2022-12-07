@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.FargateProfileSelector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing an Fargate profile selector.
@@ -67,14 +68,14 @@ fargateProfileSelector_labels = Lens.lens (\FargateProfileSelector' {labels} -> 
 fargateProfileSelector_namespace :: Lens.Lens' FargateProfileSelector (Prelude.Maybe Prelude.Text)
 fargateProfileSelector_namespace = Lens.lens (\FargateProfileSelector' {namespace} -> namespace) (\s@FargateProfileSelector' {} a -> s {namespace = a} :: FargateProfileSelector)
 
-instance Core.FromJSON FargateProfileSelector where
+instance Data.FromJSON FargateProfileSelector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FargateProfileSelector"
       ( \x ->
           FargateProfileSelector'
-            Prelude.<$> (x Core..:? "labels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "namespace")
+            Prelude.<$> (x Data..:? "labels" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "namespace")
       )
 
 instance Prelude.Hashable FargateProfileSelector where
@@ -87,11 +88,11 @@ instance Prelude.NFData FargateProfileSelector where
     Prelude.rnf labels
       `Prelude.seq` Prelude.rnf namespace
 
-instance Core.ToJSON FargateProfileSelector where
+instance Data.ToJSON FargateProfileSelector where
   toJSON FargateProfileSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("labels" Core..=) Prelude.<$> labels,
-            ("namespace" Core..=) Prelude.<$> namespace
+          [ ("labels" Data..=) Prelude.<$> labels,
+            ("namespace" Data..=) Prelude.<$> namespace
           ]
       )

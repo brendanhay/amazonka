@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.CapacityUsageSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.CIDRSummary
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,13 +56,13 @@ newCapacityUsageSummary =
 capacityUsageSummary_cIDRs :: Lens.Lens' CapacityUsageSummary (Prelude.Maybe CIDRSummary)
 capacityUsageSummary_cIDRs = Lens.lens (\CapacityUsageSummary' {cIDRs} -> cIDRs) (\s@CapacityUsageSummary' {} a -> s {cIDRs = a} :: CapacityUsageSummary)
 
-instance Core.FromJSON CapacityUsageSummary where
+instance Data.FromJSON CapacityUsageSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CapacityUsageSummary"
       ( \x ->
           CapacityUsageSummary'
-            Prelude.<$> (x Core..:? "CIDRs")
+            Prelude.<$> (x Data..:? "CIDRs")
       )
 
 instance Prelude.Hashable CapacityUsageSummary where

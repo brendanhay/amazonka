@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,12 +89,12 @@ instance Core.AWSRequest DescribePackagingGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribePackagingGroupResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "domainName")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "authorization")
-            Prelude.<*> (x Core..?> "egressAccessLogs")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "domainName")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "authorization")
+            Prelude.<*> (x Data..?> "egressAccessLogs")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,23 +105,23 @@ instance Prelude.Hashable DescribePackagingGroup where
 instance Prelude.NFData DescribePackagingGroup where
   rnf DescribePackagingGroup' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DescribePackagingGroup where
+instance Data.ToHeaders DescribePackagingGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribePackagingGroup where
+instance Data.ToPath DescribePackagingGroup where
   toPath DescribePackagingGroup' {..} =
     Prelude.mconcat
-      ["/packaging_groups/", Core.toBS id]
+      ["/packaging_groups/", Data.toBS id]
 
-instance Core.ToQuery DescribePackagingGroup where
+instance Data.ToQuery DescribePackagingGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePackagingGroupResponse' smart constructor.

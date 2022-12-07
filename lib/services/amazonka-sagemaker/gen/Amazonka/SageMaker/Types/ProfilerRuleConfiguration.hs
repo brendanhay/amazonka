@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProfilerRuleConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProcessingInstanceType
 
@@ -129,19 +130,19 @@ profilerRuleConfiguration_ruleConfigurationName = Lens.lens (\ProfilerRuleConfig
 profilerRuleConfiguration_ruleEvaluatorImage :: Lens.Lens' ProfilerRuleConfiguration Prelude.Text
 profilerRuleConfiguration_ruleEvaluatorImage = Lens.lens (\ProfilerRuleConfiguration' {ruleEvaluatorImage} -> ruleEvaluatorImage) (\s@ProfilerRuleConfiguration' {} a -> s {ruleEvaluatorImage = a} :: ProfilerRuleConfiguration)
 
-instance Core.FromJSON ProfilerRuleConfiguration where
+instance Data.FromJSON ProfilerRuleConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProfilerRuleConfiguration"
       ( \x ->
           ProfilerRuleConfiguration'
-            Prelude.<$> (x Core..:? "S3OutputPath")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "RuleParameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LocalPath")
-            Prelude.<*> (x Core..:? "VolumeSizeInGB")
-            Prelude.<*> (x Core..: "RuleConfigurationName")
-            Prelude.<*> (x Core..: "RuleEvaluatorImage")
+            Prelude.<$> (x Data..:? "S3OutputPath")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "RuleParameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LocalPath")
+            Prelude.<*> (x Data..:? "VolumeSizeInGB")
+            Prelude.<*> (x Data..: "RuleConfigurationName")
+            Prelude.<*> (x Data..: "RuleEvaluatorImage")
       )
 
 instance Prelude.Hashable ProfilerRuleConfiguration where
@@ -164,22 +165,22 @@ instance Prelude.NFData ProfilerRuleConfiguration where
       `Prelude.seq` Prelude.rnf ruleConfigurationName
       `Prelude.seq` Prelude.rnf ruleEvaluatorImage
 
-instance Core.ToJSON ProfilerRuleConfiguration where
+instance Data.ToJSON ProfilerRuleConfiguration where
   toJSON ProfilerRuleConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3OutputPath" Core..=) Prelude.<$> s3OutputPath,
-            ("InstanceType" Core..=) Prelude.<$> instanceType,
-            ("RuleParameters" Core..=)
+          [ ("S3OutputPath" Data..=) Prelude.<$> s3OutputPath,
+            ("InstanceType" Data..=) Prelude.<$> instanceType,
+            ("RuleParameters" Data..=)
               Prelude.<$> ruleParameters,
-            ("LocalPath" Core..=) Prelude.<$> localPath,
-            ("VolumeSizeInGB" Core..=)
+            ("LocalPath" Data..=) Prelude.<$> localPath,
+            ("VolumeSizeInGB" Data..=)
               Prelude.<$> volumeSizeInGB,
             Prelude.Just
               ( "RuleConfigurationName"
-                  Core..= ruleConfigurationName
+                  Data..= ruleConfigurationName
               ),
             Prelude.Just
-              ("RuleEvaluatorImage" Core..= ruleEvaluatorImage)
+              ("RuleEvaluatorImage" Data..= ruleEvaluatorImage)
           ]
       )

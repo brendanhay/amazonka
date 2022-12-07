@@ -42,6 +42,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest DeleteBillingGroup where
     Response.receiveJSON
       ( \s h x ->
           DeleteBillingGroupResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,28 +98,28 @@ instance Prelude.Hashable DeleteBillingGroup where
 instance Prelude.NFData DeleteBillingGroup where
   rnf DeleteBillingGroup' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeleteBillingGroup where
+instance Data.ToHeaders DeleteBillingGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteBillingGroup where
+instance Data.ToJSON DeleteBillingGroup where
   toJSON DeleteBillingGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Arn" Core..= arn)]
+          [Prelude.Just ("Arn" Data..= arn)]
       )
 
-instance Core.ToPath DeleteBillingGroup where
+instance Data.ToPath DeleteBillingGroup where
   toPath = Prelude.const "/delete-billing-group"
 
-instance Core.ToQuery DeleteBillingGroup where
+instance Data.ToQuery DeleteBillingGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBillingGroupResponse' smart constructor.

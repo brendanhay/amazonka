@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.ParquetSerDe where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.ParquetCompression
 import Amazonka.Firehose.Types.ParquetWriterVersion
 import qualified Amazonka.Prelude as Prelude
@@ -131,18 +132,18 @@ parquetSerDe_enableDictionaryCompression = Lens.lens (\ParquetSerDe' {enableDict
 parquetSerDe_pageSizeBytes :: Lens.Lens' ParquetSerDe (Prelude.Maybe Prelude.Natural)
 parquetSerDe_pageSizeBytes = Lens.lens (\ParquetSerDe' {pageSizeBytes} -> pageSizeBytes) (\s@ParquetSerDe' {} a -> s {pageSizeBytes = a} :: ParquetSerDe)
 
-instance Core.FromJSON ParquetSerDe where
+instance Data.FromJSON ParquetSerDe where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParquetSerDe"
       ( \x ->
           ParquetSerDe'
-            Prelude.<$> (x Core..:? "Compression")
-            Prelude.<*> (x Core..:? "BlockSizeBytes")
-            Prelude.<*> (x Core..:? "MaxPaddingBytes")
-            Prelude.<*> (x Core..:? "WriterVersion")
-            Prelude.<*> (x Core..:? "EnableDictionaryCompression")
-            Prelude.<*> (x Core..:? "PageSizeBytes")
+            Prelude.<$> (x Data..:? "Compression")
+            Prelude.<*> (x Data..:? "BlockSizeBytes")
+            Prelude.<*> (x Data..:? "MaxPaddingBytes")
+            Prelude.<*> (x Data..:? "WriterVersion")
+            Prelude.<*> (x Data..:? "EnableDictionaryCompression")
+            Prelude.<*> (x Data..:? "PageSizeBytes")
       )
 
 instance Prelude.Hashable ParquetSerDe where
@@ -163,18 +164,18 @@ instance Prelude.NFData ParquetSerDe where
       `Prelude.seq` Prelude.rnf enableDictionaryCompression
       `Prelude.seq` Prelude.rnf pageSizeBytes
 
-instance Core.ToJSON ParquetSerDe where
+instance Data.ToJSON ParquetSerDe where
   toJSON ParquetSerDe' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Compression" Core..=) Prelude.<$> compression,
-            ("BlockSizeBytes" Core..=)
+          [ ("Compression" Data..=) Prelude.<$> compression,
+            ("BlockSizeBytes" Data..=)
               Prelude.<$> blockSizeBytes,
-            ("MaxPaddingBytes" Core..=)
+            ("MaxPaddingBytes" Data..=)
               Prelude.<$> maxPaddingBytes,
-            ("WriterVersion" Core..=) Prelude.<$> writerVersion,
-            ("EnableDictionaryCompression" Core..=)
+            ("WriterVersion" Data..=) Prelude.<$> writerVersion,
+            ("EnableDictionaryCompression" Data..=)
               Prelude.<$> enableDictionaryCompression,
-            ("PageSizeBytes" Core..=) Prelude.<$> pageSizeBytes
+            ("PageSizeBytes" Data..=) Prelude.<$> pageSizeBytes
           ]
       )

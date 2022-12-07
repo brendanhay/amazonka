@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DataQualityBaselineConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MonitoringConstraintsResource
 import Amazonka.SageMaker.Types.MonitoringStatisticsResource
@@ -76,15 +77,15 @@ dataQualityBaselineConfig_constraintsResource = Lens.lens (\DataQualityBaselineC
 dataQualityBaselineConfig_statisticsResource :: Lens.Lens' DataQualityBaselineConfig (Prelude.Maybe MonitoringStatisticsResource)
 dataQualityBaselineConfig_statisticsResource = Lens.lens (\DataQualityBaselineConfig' {statisticsResource} -> statisticsResource) (\s@DataQualityBaselineConfig' {} a -> s {statisticsResource = a} :: DataQualityBaselineConfig)
 
-instance Core.FromJSON DataQualityBaselineConfig where
+instance Data.FromJSON DataQualityBaselineConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataQualityBaselineConfig"
       ( \x ->
           DataQualityBaselineConfig'
-            Prelude.<$> (x Core..:? "BaseliningJobName")
-            Prelude.<*> (x Core..:? "ConstraintsResource")
-            Prelude.<*> (x Core..:? "StatisticsResource")
+            Prelude.<$> (x Data..:? "BaseliningJobName")
+            Prelude.<*> (x Data..:? "ConstraintsResource")
+            Prelude.<*> (x Data..:? "StatisticsResource")
       )
 
 instance Prelude.Hashable DataQualityBaselineConfig where
@@ -99,15 +100,15 @@ instance Prelude.NFData DataQualityBaselineConfig where
       `Prelude.seq` Prelude.rnf constraintsResource
       `Prelude.seq` Prelude.rnf statisticsResource
 
-instance Core.ToJSON DataQualityBaselineConfig where
+instance Data.ToJSON DataQualityBaselineConfig where
   toJSON DataQualityBaselineConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BaseliningJobName" Core..=)
+          [ ("BaseliningJobName" Data..=)
               Prelude.<$> baseliningJobName,
-            ("ConstraintsResource" Core..=)
+            ("ConstraintsResource" Data..=)
               Prelude.<$> constraintsResource,
-            ("StatisticsResource" Core..=)
+            ("StatisticsResource" Data..=)
               Prelude.<$> statisticsResource
           ]
       )

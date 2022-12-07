@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsApiGatewayCanarySettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about settings for canary deployment in the stage.
@@ -95,18 +96,18 @@ awsApiGatewayCanarySettings_stageVariableOverrides = Lens.lens (\AwsApiGatewayCa
 awsApiGatewayCanarySettings_percentTraffic :: Lens.Lens' AwsApiGatewayCanarySettings (Prelude.Maybe Prelude.Double)
 awsApiGatewayCanarySettings_percentTraffic = Lens.lens (\AwsApiGatewayCanarySettings' {percentTraffic} -> percentTraffic) (\s@AwsApiGatewayCanarySettings' {} a -> s {percentTraffic = a} :: AwsApiGatewayCanarySettings)
 
-instance Core.FromJSON AwsApiGatewayCanarySettings where
+instance Data.FromJSON AwsApiGatewayCanarySettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsApiGatewayCanarySettings"
       ( \x ->
           AwsApiGatewayCanarySettings'
-            Prelude.<$> (x Core..:? "DeploymentId")
-            Prelude.<*> (x Core..:? "UseStageCache")
-            Prelude.<*> ( x Core..:? "StageVariableOverrides"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DeploymentId")
+            Prelude.<*> (x Data..:? "UseStageCache")
+            Prelude.<*> ( x Data..:? "StageVariableOverrides"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PercentTraffic")
+            Prelude.<*> (x Data..:? "PercentTraffic")
       )
 
 instance Prelude.Hashable AwsApiGatewayCanarySettings where
@@ -123,15 +124,15 @@ instance Prelude.NFData AwsApiGatewayCanarySettings where
       `Prelude.seq` Prelude.rnf stageVariableOverrides
       `Prelude.seq` Prelude.rnf percentTraffic
 
-instance Core.ToJSON AwsApiGatewayCanarySettings where
+instance Data.ToJSON AwsApiGatewayCanarySettings where
   toJSON AwsApiGatewayCanarySettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeploymentId" Core..=) Prelude.<$> deploymentId,
-            ("UseStageCache" Core..=) Prelude.<$> useStageCache,
-            ("StageVariableOverrides" Core..=)
+          [ ("DeploymentId" Data..=) Prelude.<$> deploymentId,
+            ("UseStageCache" Data..=) Prelude.<$> useStageCache,
+            ("StageVariableOverrides" Data..=)
               Prelude.<$> stageVariableOverrides,
-            ("PercentTraffic" Core..=)
+            ("PercentTraffic" Data..=)
               Prelude.<$> percentTraffic
           ]
       )

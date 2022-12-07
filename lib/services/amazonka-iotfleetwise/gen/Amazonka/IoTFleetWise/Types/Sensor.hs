@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.Sensor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.NodeDataType
 import qualified Amazonka.Prelude as Prelude
 
@@ -118,19 +119,19 @@ sensor_fullyQualifiedName = Lens.lens (\Sensor' {fullyQualifiedName} -> fullyQua
 sensor_dataType :: Lens.Lens' Sensor NodeDataType
 sensor_dataType = Lens.lens (\Sensor' {dataType} -> dataType) (\s@Sensor' {} a -> s {dataType = a} :: Sensor)
 
-instance Core.FromJSON Sensor where
+instance Data.FromJSON Sensor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Sensor"
       ( \x ->
           Sensor'
-            Prelude.<$> (x Core..:? "max")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "min")
-            Prelude.<*> (x Core..:? "allowedValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "unit")
-            Prelude.<*> (x Core..: "fullyQualifiedName")
-            Prelude.<*> (x Core..: "dataType")
+            Prelude.<$> (x Data..:? "max")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "min")
+            Prelude.<*> (x Data..:? "allowedValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "unit")
+            Prelude.<*> (x Data..: "fullyQualifiedName")
+            Prelude.<*> (x Data..: "dataType")
       )
 
 instance Prelude.Hashable Sensor where
@@ -153,17 +154,17 @@ instance Prelude.NFData Sensor where
       `Prelude.seq` Prelude.rnf fullyQualifiedName
       `Prelude.seq` Prelude.rnf dataType
 
-instance Core.ToJSON Sensor where
+instance Data.ToJSON Sensor where
   toJSON Sensor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("max" Core..=) Prelude.<$> max,
-            ("description" Core..=) Prelude.<$> description,
-            ("min" Core..=) Prelude.<$> min,
-            ("allowedValues" Core..=) Prelude.<$> allowedValues,
-            ("unit" Core..=) Prelude.<$> unit,
+          [ ("max" Data..=) Prelude.<$> max,
+            ("description" Data..=) Prelude.<$> description,
+            ("min" Data..=) Prelude.<$> min,
+            ("allowedValues" Data..=) Prelude.<$> allowedValues,
+            ("unit" Data..=) Prelude.<$> unit,
             Prelude.Just
-              ("fullyQualifiedName" Core..= fullyQualifiedName),
-            Prelude.Just ("dataType" Core..= dataType)
+              ("fullyQualifiedName" Data..= fullyQualifiedName),
+            Prelude.Just ("dataType" Data..= dataType)
           ]
       )

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,32 +108,32 @@ instance Prelude.NFData UpdateFunctionDefinition where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf functionDefinitionId
 
-instance Core.ToHeaders UpdateFunctionDefinition where
+instance Data.ToHeaders UpdateFunctionDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFunctionDefinition where
+instance Data.ToJSON UpdateFunctionDefinition where
   toJSON UpdateFunctionDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Name" Core..=) Prelude.<$> name]
+          [("Name" Data..=) Prelude.<$> name]
       )
 
-instance Core.ToPath UpdateFunctionDefinition where
+instance Data.ToPath UpdateFunctionDefinition where
   toPath UpdateFunctionDefinition' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/functions/",
-        Core.toBS functionDefinitionId
+        Data.toBS functionDefinitionId
       ]
 
-instance Core.ToQuery UpdateFunctionDefinition where
+instance Data.ToQuery UpdateFunctionDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFunctionDefinitionResponse' smart constructor.

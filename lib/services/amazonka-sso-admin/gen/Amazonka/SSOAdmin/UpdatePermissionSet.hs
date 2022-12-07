@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -162,39 +163,39 @@ instance Prelude.NFData UpdatePermissionSet where
       `Prelude.seq` Prelude.rnf instanceArn
       `Prelude.seq` Prelude.rnf permissionSetArn
 
-instance Core.ToHeaders UpdatePermissionSet where
+instance Data.ToHeaders UpdatePermissionSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SWBExternalService.UpdatePermissionSet" ::
+              Data.=# ( "SWBExternalService.UpdatePermissionSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePermissionSet where
+instance Data.ToJSON UpdatePermissionSet where
   toJSON UpdatePermissionSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("SessionDuration" Core..=)
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("SessionDuration" Data..=)
               Prelude.<$> sessionDuration,
-            ("RelayState" Core..=) Prelude.<$> relayState,
-            Prelude.Just ("InstanceArn" Core..= instanceArn),
+            ("RelayState" Data..=) Prelude.<$> relayState,
+            Prelude.Just ("InstanceArn" Data..= instanceArn),
             Prelude.Just
-              ("PermissionSetArn" Core..= permissionSetArn)
+              ("PermissionSetArn" Data..= permissionSetArn)
           ]
       )
 
-instance Core.ToPath UpdatePermissionSet where
+instance Data.ToPath UpdatePermissionSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdatePermissionSet where
+instance Data.ToQuery UpdatePermissionSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePermissionSetResponse' smart constructor.

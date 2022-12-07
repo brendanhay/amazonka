@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.DetectedMetricSetConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.DetectedField
 import Amazonka.LookoutMetrics.Types.DetectedMetricSource
 import qualified Amazonka.Prelude as Prelude
@@ -72,15 +73,15 @@ detectedMetricSetConfig_metricSource = Lens.lens (\DetectedMetricSetConfig' {met
 detectedMetricSetConfig_metricSetFrequency :: Lens.Lens' DetectedMetricSetConfig (Prelude.Maybe DetectedField)
 detectedMetricSetConfig_metricSetFrequency = Lens.lens (\DetectedMetricSetConfig' {metricSetFrequency} -> metricSetFrequency) (\s@DetectedMetricSetConfig' {} a -> s {metricSetFrequency = a} :: DetectedMetricSetConfig)
 
-instance Core.FromJSON DetectedMetricSetConfig where
+instance Data.FromJSON DetectedMetricSetConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectedMetricSetConfig"
       ( \x ->
           DetectedMetricSetConfig'
-            Prelude.<$> (x Core..:? "Offset")
-            Prelude.<*> (x Core..:? "MetricSource")
-            Prelude.<*> (x Core..:? "MetricSetFrequency")
+            Prelude.<$> (x Data..:? "Offset")
+            Prelude.<*> (x Data..:? "MetricSource")
+            Prelude.<*> (x Data..:? "MetricSetFrequency")
       )
 
 instance Prelude.Hashable DetectedMetricSetConfig where

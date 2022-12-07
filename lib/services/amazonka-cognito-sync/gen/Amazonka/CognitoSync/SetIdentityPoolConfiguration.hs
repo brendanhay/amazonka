@@ -50,6 +50,7 @@ where
 import Amazonka.CognitoSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,9 +121,9 @@ instance Core.AWSRequest SetIdentityPoolConfiguration where
     Response.receiveJSON
       ( \s h x ->
           SetIdentityPoolConfigurationResponse'
-            Prelude.<$> (x Core..?> "CognitoStreams")
-            Prelude.<*> (x Core..?> "IdentityPoolId")
-            Prelude.<*> (x Core..?> "PushSync")
+            Prelude.<$> (x Data..?> "CognitoStreams")
+            Prelude.<*> (x Data..?> "IdentityPoolId")
+            Prelude.<*> (x Data..?> "PushSync")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,36 +142,36 @@ instance Prelude.NFData SetIdentityPoolConfiguration where
       `Prelude.seq` Prelude.rnf pushSync
       `Prelude.seq` Prelude.rnf identityPoolId
 
-instance Core.ToHeaders SetIdentityPoolConfiguration where
+instance Data.ToHeaders SetIdentityPoolConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetIdentityPoolConfiguration where
+instance Data.ToJSON SetIdentityPoolConfiguration where
   toJSON SetIdentityPoolConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CognitoStreams" Core..=)
+          [ ("CognitoStreams" Data..=)
               Prelude.<$> cognitoStreams,
-            ("PushSync" Core..=) Prelude.<$> pushSync
+            ("PushSync" Data..=) Prelude.<$> pushSync
           ]
       )
 
-instance Core.ToPath SetIdentityPoolConfiguration where
+instance Data.ToPath SetIdentityPoolConfiguration where
   toPath SetIdentityPoolConfiguration' {..} =
     Prelude.mconcat
       [ "/identitypools/",
-        Core.toBS identityPoolId,
+        Data.toBS identityPoolId,
         "/configuration"
       ]
 
-instance Core.ToQuery SetIdentityPoolConfiguration where
+instance Data.ToQuery SetIdentityPoolConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the SetIdentityPoolConfiguration operation

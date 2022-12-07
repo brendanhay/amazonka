@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,10 +135,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetDeployablePatchSnapshotForInstanceResponse'
-            Prelude.<$> (x Core..?> "Product")
-              Prelude.<*> (x Core..?> "SnapshotId")
-              Prelude.<*> (x Core..?> "InstanceId")
-              Prelude.<*> (x Core..?> "SnapshotDownloadUrl")
+            Prelude.<$> (x Data..?> "Product")
+              Prelude.<*> (x Data..?> "SnapshotId")
+              Prelude.<*> (x Data..?> "InstanceId")
+              Prelude.<*> (x Data..?> "SnapshotDownloadUrl")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,45 +163,45 @@ instance
       `Prelude.seq` Prelude.rnf snapshotId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetDeployablePatchSnapshotForInstance
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.GetDeployablePatchSnapshotForInstance" ::
+              Data.=# ( "AmazonSSM.GetDeployablePatchSnapshotForInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetDeployablePatchSnapshotForInstance
   where
   toJSON GetDeployablePatchSnapshotForInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BaselineOverride" Core..=)
+          [ ("BaselineOverride" Data..=)
               Prelude.<$> baselineOverride,
-            Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("SnapshotId" Core..= snapshotId)
+            Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("SnapshotId" Data..= snapshotId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetDeployablePatchSnapshotForInstance
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetDeployablePatchSnapshotForInstance
   where
   toQuery = Prelude.const Prelude.mempty

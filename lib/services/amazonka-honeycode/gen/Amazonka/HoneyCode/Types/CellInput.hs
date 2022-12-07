@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.CellInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | CellInput object contains the data needed to create or update cells in a
@@ -34,10 +35,10 @@ data CellInput = CellInput'
   { -- | A list representing the values that are entered into a ROWSET cell.
     -- Facts list can have either only values or rowIDs, and rowIDs should from
     -- the same table.
-    facts :: Prelude.Maybe [Core.Sensitive Prelude.Text],
+    facts :: Prelude.Maybe [Data.Sensitive Prelude.Text],
     -- | Fact represents the data that is entered into a cell. This data can be
     -- free text or a formula. Formulas need to start with the equals (=) sign.
-    fact :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    fact :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -72,7 +73,7 @@ cellInput_facts = Lens.lens (\CellInput' {facts} -> facts) (\s@CellInput' {} a -
 -- | Fact represents the data that is entered into a cell. This data can be
 -- free text or a formula. Formulas need to start with the equals (=) sign.
 cellInput_fact :: Lens.Lens' CellInput (Prelude.Maybe Prelude.Text)
-cellInput_fact = Lens.lens (\CellInput' {fact} -> fact) (\s@CellInput' {} a -> s {fact = a} :: CellInput) Prelude.. Lens.mapping Core._Sensitive
+cellInput_fact = Lens.lens (\CellInput' {fact} -> fact) (\s@CellInput' {} a -> s {fact = a} :: CellInput) Prelude.. Lens.mapping Data._Sensitive
 
 instance Prelude.Hashable CellInput where
   hashWithSalt _salt CellInput' {..} =
@@ -83,11 +84,11 @@ instance Prelude.NFData CellInput where
   rnf CellInput' {..} =
     Prelude.rnf facts `Prelude.seq` Prelude.rnf fact
 
-instance Core.ToJSON CellInput where
+instance Data.ToJSON CellInput where
   toJSON CellInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("facts" Core..=) Prelude.<$> facts,
-            ("fact" Core..=) Prelude.<$> fact
+          [ ("facts" Data..=) Prelude.<$> facts,
+            ("fact" Data..=) Prelude.<$> fact
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.TaskStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Statistics for the checks performed during the audit.
@@ -107,19 +108,19 @@ taskStatistics_canceledChecks = Lens.lens (\TaskStatistics' {canceledChecks} -> 
 taskStatistics_failedChecks :: Lens.Lens' TaskStatistics (Prelude.Maybe Prelude.Int)
 taskStatistics_failedChecks = Lens.lens (\TaskStatistics' {failedChecks} -> failedChecks) (\s@TaskStatistics' {} a -> s {failedChecks = a} :: TaskStatistics)
 
-instance Core.FromJSON TaskStatistics where
+instance Data.FromJSON TaskStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskStatistics"
       ( \x ->
           TaskStatistics'
-            Prelude.<$> (x Core..:? "waitingForDataCollectionChecks")
-            Prelude.<*> (x Core..:? "compliantChecks")
-            Prelude.<*> (x Core..:? "nonCompliantChecks")
-            Prelude.<*> (x Core..:? "inProgressChecks")
-            Prelude.<*> (x Core..:? "totalChecks")
-            Prelude.<*> (x Core..:? "canceledChecks")
-            Prelude.<*> (x Core..:? "failedChecks")
+            Prelude.<$> (x Data..:? "waitingForDataCollectionChecks")
+            Prelude.<*> (x Data..:? "compliantChecks")
+            Prelude.<*> (x Data..:? "nonCompliantChecks")
+            Prelude.<*> (x Data..:? "inProgressChecks")
+            Prelude.<*> (x Data..:? "totalChecks")
+            Prelude.<*> (x Data..:? "canceledChecks")
+            Prelude.<*> (x Data..:? "failedChecks")
       )
 
 instance Prelude.Hashable TaskStatistics where

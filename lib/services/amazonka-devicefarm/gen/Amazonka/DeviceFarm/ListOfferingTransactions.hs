@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,8 +123,8 @@ instance Core.AWSRequest ListOfferingTransactions where
     Response.receiveJSON
       ( \s h x ->
           ListOfferingTransactionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "offeringTransactions"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "offeringTransactions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -137,32 +138,32 @@ instance Prelude.NFData ListOfferingTransactions where
   rnf ListOfferingTransactions' {..} =
     Prelude.rnf nextToken
 
-instance Core.ToHeaders ListOfferingTransactions where
+instance Data.ToHeaders ListOfferingTransactions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.ListOfferingTransactions" ::
+              Data.=# ( "DeviceFarm_20150623.ListOfferingTransactions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListOfferingTransactions where
+instance Data.ToJSON ListOfferingTransactions where
   toJSON ListOfferingTransactions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("nextToken" Core..=) Prelude.<$> nextToken]
+          [("nextToken" Data..=) Prelude.<$> nextToken]
       )
 
-instance Core.ToPath ListOfferingTransactions where
+instance Data.ToPath ListOfferingTransactions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListOfferingTransactions where
+instance Data.ToQuery ListOfferingTransactions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returns the transaction log of the specified offerings.

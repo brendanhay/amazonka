@@ -53,6 +53,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,17 +109,17 @@ instance Core.AWSRequest GetBackupPlan where
     Response.receiveJSON
       ( \s h x ->
           GetBackupPlanResponse'
-            Prelude.<$> (x Core..?> "BackupPlan")
-            Prelude.<*> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "CreatorRequestId")
-            Prelude.<*> (x Core..?> "BackupPlanArn")
-            Prelude.<*> (x Core..?> "BackupPlanId")
-            Prelude.<*> ( x Core..?> "AdvancedBackupSettings"
+            Prelude.<$> (x Data..?> "BackupPlan")
+            Prelude.<*> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "CreatorRequestId")
+            Prelude.<*> (x Data..?> "BackupPlanArn")
+            Prelude.<*> (x Data..?> "BackupPlanId")
+            Prelude.<*> ( x Data..?> "AdvancedBackupSettings"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "LastExecutionDate")
-            Prelude.<*> (x Core..?> "DeletionDate")
-            Prelude.<*> (x Core..?> "VersionId")
+            Prelude.<*> (x Data..?> "LastExecutionDate")
+            Prelude.<*> (x Data..?> "DeletionDate")
+            Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,25 +133,25 @@ instance Prelude.NFData GetBackupPlan where
     Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf backupPlanId
 
-instance Core.ToHeaders GetBackupPlan where
+instance Data.ToHeaders GetBackupPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetBackupPlan where
+instance Data.ToPath GetBackupPlan where
   toPath GetBackupPlan' {..} =
     Prelude.mconcat
-      ["/backup/plans/", Core.toBS backupPlanId, "/"]
+      ["/backup/plans/", Data.toBS backupPlanId, "/"]
 
-instance Core.ToQuery GetBackupPlan where
+instance Data.ToQuery GetBackupPlan where
   toQuery GetBackupPlan' {..} =
-    Prelude.mconcat ["versionId" Core.=: versionId]
+    Prelude.mconcat ["versionId" Data.=: versionId]
 
 -- | /See:/ 'newGetBackupPlanResponse' smart constructor.
 data GetBackupPlanResponse = GetBackupPlanResponse'
@@ -161,7 +162,7 @@ data GetBackupPlanResponse = GetBackupPlanResponse'
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | A unique string that identifies the request and allows failed requests
     -- to be retried without the risk of running the operation twice.
     creatorRequestId :: Prelude.Maybe Prelude.Text,
@@ -179,12 +180,12 @@ data GetBackupPlanResponse = GetBackupPlanResponse'
     -- The value of @LastExecutionDate@ is accurate to milliseconds. For
     -- example, the value 1516925490.087 represents Friday, January 26, 2018
     -- 12:11:30.087 AM.
-    lastExecutionDate :: Prelude.Maybe Core.POSIX,
+    lastExecutionDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time that a backup plan is deleted, in Unix format and
     -- Coordinated Universal Time (UTC). The value of @DeletionDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    deletionDate :: Prelude.Maybe Core.POSIX,
+    deletionDate :: Prelude.Maybe Data.POSIX,
     -- | Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
     -- most 1,024 bytes long. Version IDs cannot be edited.
     versionId :: Prelude.Maybe Prelude.Text,
@@ -265,7 +266,7 @@ getBackupPlanResponse_backupPlan = Lens.lens (\GetBackupPlanResponse' {backupPla
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 getBackupPlanResponse_creationDate :: Lens.Lens' GetBackupPlanResponse (Prelude.Maybe Prelude.UTCTime)
-getBackupPlanResponse_creationDate = Lens.lens (\GetBackupPlanResponse' {creationDate} -> creationDate) (\s@GetBackupPlanResponse' {} a -> s {creationDate = a} :: GetBackupPlanResponse) Prelude.. Lens.mapping Core._Time
+getBackupPlanResponse_creationDate = Lens.lens (\GetBackupPlanResponse' {creationDate} -> creationDate) (\s@GetBackupPlanResponse' {} a -> s {creationDate = a} :: GetBackupPlanResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A unique string that identifies the request and allows failed requests
 -- to be retried without the risk of running the operation twice.
@@ -293,14 +294,14 @@ getBackupPlanResponse_advancedBackupSettings = Lens.lens (\GetBackupPlanResponse
 -- example, the value 1516925490.087 represents Friday, January 26, 2018
 -- 12:11:30.087 AM.
 getBackupPlanResponse_lastExecutionDate :: Lens.Lens' GetBackupPlanResponse (Prelude.Maybe Prelude.UTCTime)
-getBackupPlanResponse_lastExecutionDate = Lens.lens (\GetBackupPlanResponse' {lastExecutionDate} -> lastExecutionDate) (\s@GetBackupPlanResponse' {} a -> s {lastExecutionDate = a} :: GetBackupPlanResponse) Prelude.. Lens.mapping Core._Time
+getBackupPlanResponse_lastExecutionDate = Lens.lens (\GetBackupPlanResponse' {lastExecutionDate} -> lastExecutionDate) (\s@GetBackupPlanResponse' {} a -> s {lastExecutionDate = a} :: GetBackupPlanResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that a backup plan is deleted, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @DeletionDate@ is
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 getBackupPlanResponse_deletionDate :: Lens.Lens' GetBackupPlanResponse (Prelude.Maybe Prelude.UTCTime)
-getBackupPlanResponse_deletionDate = Lens.lens (\GetBackupPlanResponse' {deletionDate} -> deletionDate) (\s@GetBackupPlanResponse' {} a -> s {deletionDate = a} :: GetBackupPlanResponse) Prelude.. Lens.mapping Core._Time
+getBackupPlanResponse_deletionDate = Lens.lens (\GetBackupPlanResponse' {deletionDate} -> deletionDate) (\s@GetBackupPlanResponse' {} a -> s {deletionDate = a} :: GetBackupPlanResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
 -- most 1,024 bytes long. Version IDs cannot be edited.

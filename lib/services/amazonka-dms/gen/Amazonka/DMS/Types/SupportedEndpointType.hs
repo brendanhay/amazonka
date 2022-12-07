@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.SupportedEndpointType where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.ReplicationEndpointTypeValue
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about types of supported endpoints in response to a
@@ -118,18 +119,18 @@ supportedEndpointType_endpointType = Lens.lens (\SupportedEndpointType' {endpoin
 supportedEndpointType_replicationInstanceEngineMinimumVersion :: Lens.Lens' SupportedEndpointType (Prelude.Maybe Prelude.Text)
 supportedEndpointType_replicationInstanceEngineMinimumVersion = Lens.lens (\SupportedEndpointType' {replicationInstanceEngineMinimumVersion} -> replicationInstanceEngineMinimumVersion) (\s@SupportedEndpointType' {} a -> s {replicationInstanceEngineMinimumVersion = a} :: SupportedEndpointType)
 
-instance Core.FromJSON SupportedEndpointType where
+instance Data.FromJSON SupportedEndpointType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SupportedEndpointType"
       ( \x ->
           SupportedEndpointType'
-            Prelude.<$> (x Core..:? "EngineName")
-            Prelude.<*> (x Core..:? "EngineDisplayName")
-            Prelude.<*> (x Core..:? "SupportsCDC")
-            Prelude.<*> (x Core..:? "EndpointType")
+            Prelude.<$> (x Data..:? "EngineName")
+            Prelude.<*> (x Data..:? "EngineDisplayName")
+            Prelude.<*> (x Data..:? "SupportsCDC")
+            Prelude.<*> (x Data..:? "EndpointType")
             Prelude.<*> ( x
-                            Core..:? "ReplicationInstanceEngineMinimumVersion"
+                            Data..:? "ReplicationInstanceEngineMinimumVersion"
                         )
       )
 

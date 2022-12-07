@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest ReadJob where
       ( \s h x ->
           ReadJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Job")
+            Prelude.<*> (x Data..:> "Job")
       )
 
 instance Prelude.Hashable ReadJob where
@@ -96,14 +97,14 @@ instance Prelude.Hashable ReadJob where
 instance Prelude.NFData ReadJob where
   rnf ReadJob' {..} = Prelude.rnf id
 
-instance Core.ToHeaders ReadJob where
+instance Data.ToHeaders ReadJob where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ReadJob where
+instance Data.ToPath ReadJob where
   toPath ReadJob' {..} =
-    Prelude.mconcat ["/2012-09-25/jobs/", Core.toBS id]
+    Prelude.mconcat ["/2012-09-25/jobs/", Data.toBS id]
 
-instance Core.ToQuery ReadJob where
+instance Data.ToQuery ReadJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The @ReadJobResponse@ structure.

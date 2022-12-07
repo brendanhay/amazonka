@@ -22,6 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.PushNotificationConfiguration where
 import Amazonka.ChimeSDKMessaging.Types.PushNotificationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The push notification configuration of the message.
@@ -33,9 +34,9 @@ data PushNotificationConfiguration = PushNotificationConfiguration'
     -- push notification.
     type' :: Prelude.Maybe PushNotificationType,
     -- | The body of the push notification.
-    body :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    body :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The title of the push notification.
-    title :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    title :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -72,11 +73,11 @@ pushNotificationConfiguration_type = Lens.lens (\PushNotificationConfiguration' 
 
 -- | The body of the push notification.
 pushNotificationConfiguration_body :: Lens.Lens' PushNotificationConfiguration (Prelude.Maybe Prelude.Text)
-pushNotificationConfiguration_body = Lens.lens (\PushNotificationConfiguration' {body} -> body) (\s@PushNotificationConfiguration' {} a -> s {body = a} :: PushNotificationConfiguration) Prelude.. Lens.mapping Core._Sensitive
+pushNotificationConfiguration_body = Lens.lens (\PushNotificationConfiguration' {body} -> body) (\s@PushNotificationConfiguration' {} a -> s {body = a} :: PushNotificationConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The title of the push notification.
 pushNotificationConfiguration_title :: Lens.Lens' PushNotificationConfiguration (Prelude.Maybe Prelude.Text)
-pushNotificationConfiguration_title = Lens.lens (\PushNotificationConfiguration' {title} -> title) (\s@PushNotificationConfiguration' {} a -> s {title = a} :: PushNotificationConfiguration) Prelude.. Lens.mapping Core._Sensitive
+pushNotificationConfiguration_title = Lens.lens (\PushNotificationConfiguration' {title} -> title) (\s@PushNotificationConfiguration' {} a -> s {title = a} :: PushNotificationConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 instance
   Prelude.Hashable
@@ -93,12 +94,12 @@ instance Prelude.NFData PushNotificationConfiguration where
       `Prelude.seq` Prelude.rnf body
       `Prelude.seq` Prelude.rnf title
 
-instance Core.ToJSON PushNotificationConfiguration where
+instance Data.ToJSON PushNotificationConfiguration where
   toJSON PushNotificationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Body" Core..=) Prelude.<$> body,
-            ("Title" Core..=) Prelude.<$> title
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Body" Data..=) Prelude.<$> body,
+            ("Title" Data..=) Prelude.<$> title
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.Update where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -151,21 +152,21 @@ instance Prelude.NFData Update where
       `Prelude.seq` Prelude.rnf updateExpression
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToJSON Update where
+instance Data.ToJSON Update where
   toJSON Update' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExpressionAttributeValues" Core..=)
+          [ ("ExpressionAttributeValues" Data..=)
               Prelude.<$> expressionAttributeValues,
-            ("ExpressionAttributeNames" Core..=)
+            ("ExpressionAttributeNames" Data..=)
               Prelude.<$> expressionAttributeNames,
-            ("ReturnValuesOnConditionCheckFailure" Core..=)
+            ("ReturnValuesOnConditionCheckFailure" Data..=)
               Prelude.<$> returnValuesOnConditionCheckFailure,
-            ("ConditionExpression" Core..=)
+            ("ConditionExpression" Data..=)
               Prelude.<$> conditionExpression,
-            Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Key" Data..= key),
             Prelude.Just
-              ("UpdateExpression" Core..= updateExpression),
-            Prelude.Just ("TableName" Core..= tableName)
+              ("UpdateExpression" Data..= updateExpression),
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )

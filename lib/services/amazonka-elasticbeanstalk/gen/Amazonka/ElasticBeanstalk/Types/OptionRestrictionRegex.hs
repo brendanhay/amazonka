@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.OptionRestrictionRegex where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A regular expression representing a restriction on a string
@@ -65,11 +66,11 @@ optionRestrictionRegex_pattern = Lens.lens (\OptionRestrictionRegex' {pattern'} 
 optionRestrictionRegex_label :: Lens.Lens' OptionRestrictionRegex (Prelude.Maybe Prelude.Text)
 optionRestrictionRegex_label = Lens.lens (\OptionRestrictionRegex' {label} -> label) (\s@OptionRestrictionRegex' {} a -> s {label = a} :: OptionRestrictionRegex)
 
-instance Core.FromXML OptionRestrictionRegex where
+instance Data.FromXML OptionRestrictionRegex where
   parseXML x =
     OptionRestrictionRegex'
-      Prelude.<$> (x Core..@? "Pattern")
-      Prelude.<*> (x Core..@? "Label")
+      Prelude.<$> (x Data..@? "Pattern")
+      Prelude.<*> (x Data..@? "Label")
 
 instance Prelude.Hashable OptionRestrictionRegex where
   hashWithSalt _salt OptionRestrictionRegex' {..} =

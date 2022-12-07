@@ -23,6 +23,7 @@ import Amazonka.AuditManager.Types.ActionEnum
 import Amazonka.AuditManager.Types.ObjectTypeEnum
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The record of a change within Audit Manager. For example, this could be
@@ -39,7 +40,7 @@ data ChangeLog = ChangeLog'
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The time when the action was performed and the changelog record was
     -- created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The object that was changed, such as an assessment, control, or control
     -- set.
     objectType :: Prelude.Maybe ObjectTypeEnum
@@ -93,24 +94,24 @@ changeLog_createdBy = Lens.lens (\ChangeLog' {createdBy} -> createdBy) (\s@Chang
 -- | The time when the action was performed and the changelog record was
 -- created.
 changeLog_createdAt :: Lens.Lens' ChangeLog (Prelude.Maybe Prelude.UTCTime)
-changeLog_createdAt = Lens.lens (\ChangeLog' {createdAt} -> createdAt) (\s@ChangeLog' {} a -> s {createdAt = a} :: ChangeLog) Prelude.. Lens.mapping Core._Time
+changeLog_createdAt = Lens.lens (\ChangeLog' {createdAt} -> createdAt) (\s@ChangeLog' {} a -> s {createdAt = a} :: ChangeLog) Prelude.. Lens.mapping Data._Time
 
 -- | The object that was changed, such as an assessment, control, or control
 -- set.
 changeLog_objectType :: Lens.Lens' ChangeLog (Prelude.Maybe ObjectTypeEnum)
 changeLog_objectType = Lens.lens (\ChangeLog' {objectType} -> objectType) (\s@ChangeLog' {} a -> s {objectType = a} :: ChangeLog)
 
-instance Core.FromJSON ChangeLog where
+instance Data.FromJSON ChangeLog where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChangeLog"
       ( \x ->
           ChangeLog'
-            Prelude.<$> (x Core..:? "action")
-            Prelude.<*> (x Core..:? "objectName")
-            Prelude.<*> (x Core..:? "createdBy")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "objectType")
+            Prelude.<$> (x Data..:? "action")
+            Prelude.<*> (x Data..:? "objectName")
+            Prelude.<*> (x Data..:? "createdBy")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "objectType")
       )
 
 instance Prelude.Hashable ChangeLog where

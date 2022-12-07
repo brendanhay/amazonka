@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,7 +57,7 @@ data RevokeSigningProfile = RevokeSigningProfile'
     -- | A timestamp for when revocation of a Signing Profile should become
     -- effective. Signatures generated using the signing profile after this
     -- timestamp are not trusted.
-    effectiveTime :: Core.POSIX,
+    effectiveTime :: Data.POSIX,
     -- | The name of the signing profile to be revoked.
     profileName :: Prelude.Text
   }
@@ -98,7 +99,7 @@ newRevokeSigningProfile
       { profileVersion =
           pProfileVersion_,
         reason = pReason_,
-        effectiveTime = Core._Time Lens.# pEffectiveTime_,
+        effectiveTime = Data._Time Lens.# pEffectiveTime_,
         profileName = pProfileName_
       }
 
@@ -114,7 +115,7 @@ revokeSigningProfile_reason = Lens.lens (\RevokeSigningProfile' {reason} -> reas
 -- effective. Signatures generated using the signing profile after this
 -- timestamp are not trusted.
 revokeSigningProfile_effectiveTime :: Lens.Lens' RevokeSigningProfile Prelude.UTCTime
-revokeSigningProfile_effectiveTime = Lens.lens (\RevokeSigningProfile' {effectiveTime} -> effectiveTime) (\s@RevokeSigningProfile' {} a -> s {effectiveTime = a} :: RevokeSigningProfile) Prelude.. Core._Time
+revokeSigningProfile_effectiveTime = Lens.lens (\RevokeSigningProfile' {effectiveTime} -> effectiveTime) (\s@RevokeSigningProfile' {} a -> s {effectiveTime = a} :: RevokeSigningProfile) Prelude.. Data._Time
 
 -- | The name of the signing profile to be revoked.
 revokeSigningProfile_profileName :: Lens.Lens' RevokeSigningProfile Prelude.Text
@@ -143,38 +144,38 @@ instance Prelude.NFData RevokeSigningProfile where
       `Prelude.seq` Prelude.rnf effectiveTime
       `Prelude.seq` Prelude.rnf profileName
 
-instance Core.ToHeaders RevokeSigningProfile where
+instance Data.ToHeaders RevokeSigningProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RevokeSigningProfile where
+instance Data.ToJSON RevokeSigningProfile where
   toJSON RevokeSigningProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("profileVersion" Core..= profileVersion),
-            Prelude.Just ("reason" Core..= reason),
+              ("profileVersion" Data..= profileVersion),
+            Prelude.Just ("reason" Data..= reason),
             Prelude.Just
-              ("effectiveTime" Core..= effectiveTime)
+              ("effectiveTime" Data..= effectiveTime)
           ]
       )
 
-instance Core.ToPath RevokeSigningProfile where
+instance Data.ToPath RevokeSigningProfile where
   toPath RevokeSigningProfile' {..} =
     Prelude.mconcat
       [ "/signing-profiles/",
-        Core.toBS profileName,
+        Data.toBS profileName,
         "/revoke"
       ]
 
-instance Core.ToQuery RevokeSigningProfile where
+instance Data.ToQuery RevokeSigningProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRevokeSigningProfileResponse' smart constructor.

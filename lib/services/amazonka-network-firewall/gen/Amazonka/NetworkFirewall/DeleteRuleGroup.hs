@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,7 +135,7 @@ instance Core.AWSRequest DeleteRuleGroup where
       ( \s h x ->
           DeleteRuleGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "RuleGroupResponse")
+            Prelude.<*> (x Data..:> "RuleGroupResponse")
       )
 
 instance Prelude.Hashable DeleteRuleGroup where
@@ -149,35 +150,35 @@ instance Prelude.NFData DeleteRuleGroup where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf ruleGroupArn
 
-instance Core.ToHeaders DeleteRuleGroup where
+instance Data.ToHeaders DeleteRuleGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "NetworkFirewall_20201112.DeleteRuleGroup" ::
+              Data.=# ( "NetworkFirewall_20201112.DeleteRuleGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRuleGroup where
+instance Data.ToJSON DeleteRuleGroup where
   toJSON DeleteRuleGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RuleGroupName" Core..=) Prelude.<$> ruleGroupName,
-            ("Type" Core..=) Prelude.<$> type',
-            ("RuleGroupArn" Core..=) Prelude.<$> ruleGroupArn
+          [ ("RuleGroupName" Data..=) Prelude.<$> ruleGroupName,
+            ("Type" Data..=) Prelude.<$> type',
+            ("RuleGroupArn" Data..=) Prelude.<$> ruleGroupArn
           ]
       )
 
-instance Core.ToPath DeleteRuleGroup where
+instance Data.ToPath DeleteRuleGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRuleGroup where
+instance Data.ToQuery DeleteRuleGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRuleGroupResponse' smart constructor.

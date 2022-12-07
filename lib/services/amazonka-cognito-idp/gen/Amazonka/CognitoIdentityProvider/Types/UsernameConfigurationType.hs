@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.UsernameConfigurationType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The username configuration type.
@@ -100,13 +101,13 @@ newUsernameConfigurationType pCaseSensitive_ =
 usernameConfigurationType_caseSensitive :: Lens.Lens' UsernameConfigurationType Prelude.Bool
 usernameConfigurationType_caseSensitive = Lens.lens (\UsernameConfigurationType' {caseSensitive} -> caseSensitive) (\s@UsernameConfigurationType' {} a -> s {caseSensitive = a} :: UsernameConfigurationType)
 
-instance Core.FromJSON UsernameConfigurationType where
+instance Data.FromJSON UsernameConfigurationType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsernameConfigurationType"
       ( \x ->
           UsernameConfigurationType'
-            Prelude.<$> (x Core..: "CaseSensitive")
+            Prelude.<$> (x Data..: "CaseSensitive")
       )
 
 instance Prelude.Hashable UsernameConfigurationType where
@@ -117,11 +118,11 @@ instance Prelude.NFData UsernameConfigurationType where
   rnf UsernameConfigurationType' {..} =
     Prelude.rnf caseSensitive
 
-instance Core.ToJSON UsernameConfigurationType where
+instance Data.ToJSON UsernameConfigurationType where
   toJSON UsernameConfigurationType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("CaseSensitive" Core..= caseSensitive)
+              ("CaseSensitive" Data..= caseSensitive)
           ]
       )

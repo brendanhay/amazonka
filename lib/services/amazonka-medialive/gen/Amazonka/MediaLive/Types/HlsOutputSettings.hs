@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.HlsOutputSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.HlsH265PackagingType
 import Amazonka.MediaLive.Types.HlsSettings
 import qualified Amazonka.Prelude as Prelude
@@ -95,16 +96,16 @@ hlsOutputSettings_h265PackagingType = Lens.lens (\HlsOutputSettings' {h265Packag
 hlsOutputSettings_hlsSettings :: Lens.Lens' HlsOutputSettings HlsSettings
 hlsOutputSettings_hlsSettings = Lens.lens (\HlsOutputSettings' {hlsSettings} -> hlsSettings) (\s@HlsOutputSettings' {} a -> s {hlsSettings = a} :: HlsOutputSettings)
 
-instance Core.FromJSON HlsOutputSettings where
+instance Data.FromJSON HlsOutputSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsOutputSettings"
       ( \x ->
           HlsOutputSettings'
-            Prelude.<$> (x Core..:? "nameModifier")
-            Prelude.<*> (x Core..:? "segmentModifier")
-            Prelude.<*> (x Core..:? "h265PackagingType")
-            Prelude.<*> (x Core..: "hlsSettings")
+            Prelude.<$> (x Data..:? "nameModifier")
+            Prelude.<*> (x Data..:? "segmentModifier")
+            Prelude.<*> (x Data..:? "h265PackagingType")
+            Prelude.<*> (x Data..: "hlsSettings")
       )
 
 instance Prelude.Hashable HlsOutputSettings where
@@ -121,15 +122,15 @@ instance Prelude.NFData HlsOutputSettings where
       `Prelude.seq` Prelude.rnf h265PackagingType
       `Prelude.seq` Prelude.rnf hlsSettings
 
-instance Core.ToJSON HlsOutputSettings where
+instance Data.ToJSON HlsOutputSettings where
   toJSON HlsOutputSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nameModifier" Core..=) Prelude.<$> nameModifier,
-            ("segmentModifier" Core..=)
+          [ ("nameModifier" Data..=) Prelude.<$> nameModifier,
+            ("segmentModifier" Data..=)
               Prelude.<$> segmentModifier,
-            ("h265PackagingType" Core..=)
+            ("h265PackagingType" Data..=)
               Prelude.<$> h265PackagingType,
-            Prelude.Just ("hlsSettings" Core..= hlsSettings)
+            Prelude.Just ("hlsSettings" Data..= hlsSettings)
           ]
       )

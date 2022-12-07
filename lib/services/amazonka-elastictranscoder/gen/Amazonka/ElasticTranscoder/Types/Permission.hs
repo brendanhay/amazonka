@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.Permission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @Permission@ structure.
@@ -154,15 +155,15 @@ permission_access = Lens.lens (\Permission' {access} -> access) (\s@Permission' 
 permission_grantee :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
 permission_grantee = Lens.lens (\Permission' {grantee} -> grantee) (\s@Permission' {} a -> s {grantee = a} :: Permission)
 
-instance Core.FromJSON Permission where
+instance Data.FromJSON Permission where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Permission"
       ( \x ->
           Permission'
-            Prelude.<$> (x Core..:? "GranteeType")
-            Prelude.<*> (x Core..:? "Access" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Grantee")
+            Prelude.<$> (x Data..:? "GranteeType")
+            Prelude.<*> (x Data..:? "Access" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Grantee")
       )
 
 instance Prelude.Hashable Permission where
@@ -177,12 +178,12 @@ instance Prelude.NFData Permission where
       `Prelude.seq` Prelude.rnf access
       `Prelude.seq` Prelude.rnf grantee
 
-instance Core.ToJSON Permission where
+instance Data.ToJSON Permission where
   toJSON Permission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GranteeType" Core..=) Prelude.<$> granteeType,
-            ("Access" Core..=) Prelude.<$> access,
-            ("Grantee" Core..=) Prelude.<$> grantee
+          [ ("GranteeType" Data..=) Prelude.<$> granteeType,
+            ("Access" Data..=) Prelude.<$> access,
+            ("Grantee" Data..=) Prelude.<$> grantee
           ]
       )

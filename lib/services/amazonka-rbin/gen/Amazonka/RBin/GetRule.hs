@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RBin.Types
 import qualified Amazonka.Request as Request
@@ -89,15 +90,15 @@ instance Core.AWSRequest GetRule where
     Response.receiveJSON
       ( \s h x ->
           GetRuleResponse'
-            Prelude.<$> (x Core..?> "ResourceType")
-            Prelude.<*> (x Core..?> "LockState")
-            Prelude.<*> (x Core..?> "LockConfiguration")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ResourceTags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LockEndTime")
-            Prelude.<*> (x Core..?> "RetentionPeriod")
-            Prelude.<*> (x Core..?> "Identifier")
+            Prelude.<$> (x Data..?> "ResourceType")
+            Prelude.<*> (x Data..?> "LockState")
+            Prelude.<*> (x Data..?> "LockConfiguration")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ResourceTags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LockEndTime")
+            Prelude.<*> (x Data..?> "RetentionPeriod")
+            Prelude.<*> (x Data..?> "Identifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,22 +109,22 @@ instance Prelude.Hashable GetRule where
 instance Prelude.NFData GetRule where
   rnf GetRule' {..} = Prelude.rnf identifier
 
-instance Core.ToHeaders GetRule where
+instance Data.ToHeaders GetRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetRule where
+instance Data.ToPath GetRule where
   toPath GetRule' {..} =
-    Prelude.mconcat ["/rules/", Core.toBS identifier]
+    Prelude.mconcat ["/rules/", Data.toBS identifier]
 
-instance Core.ToQuery GetRule where
+instance Data.ToQuery GetRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRuleResponse' smart constructor.
@@ -159,7 +160,7 @@ data GetRuleResponse = GetRuleResponse'
     -- | The date and time at which the unlock delay is set to expire. Only
     -- returned for retention rules that have been unlocked and that are still
     -- within the unlock delay period.
-    lockEndTime :: Prelude.Maybe Core.POSIX,
+    lockEndTime :: Prelude.Maybe Data.POSIX,
     -- | Information about the retention period for which the retention rule is
     -- to retain resources.
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
@@ -278,7 +279,7 @@ getRuleResponse_description = Lens.lens (\GetRuleResponse' {description} -> desc
 -- returned for retention rules that have been unlocked and that are still
 -- within the unlock delay period.
 getRuleResponse_lockEndTime :: Lens.Lens' GetRuleResponse (Prelude.Maybe Prelude.UTCTime)
-getRuleResponse_lockEndTime = Lens.lens (\GetRuleResponse' {lockEndTime} -> lockEndTime) (\s@GetRuleResponse' {} a -> s {lockEndTime = a} :: GetRuleResponse) Prelude.. Lens.mapping Core._Time
+getRuleResponse_lockEndTime = Lens.lens (\GetRuleResponse' {lockEndTime} -> lockEndTime) (\s@GetRuleResponse' {} a -> s {lockEndTime = a} :: GetRuleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the retention period for which the retention rule is
 -- to retain resources.

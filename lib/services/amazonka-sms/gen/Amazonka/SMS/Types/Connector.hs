@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.Connector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.ConnectorCapability
 import Amazonka.SMS.Types.ConnectorStatus
@@ -31,7 +32,7 @@ import Amazonka.SMS.Types.VmManagerType
 -- /See:/ 'newConnector' smart constructor.
 data Connector = Connector'
   { -- | The time the connector was associated.
-    associatedOn :: Prelude.Maybe Core.POSIX,
+    associatedOn :: Prelude.Maybe Data.POSIX,
     -- | The name of the VM manager.
     vmManagerName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VM manager.
@@ -98,7 +99,7 @@ newConnector =
 
 -- | The time the connector was associated.
 connector_associatedOn :: Lens.Lens' Connector (Prelude.Maybe Prelude.UTCTime)
-connector_associatedOn = Lens.lens (\Connector' {associatedOn} -> associatedOn) (\s@Connector' {} a -> s {associatedOn = a} :: Connector) Prelude.. Lens.mapping Core._Time
+connector_associatedOn = Lens.lens (\Connector' {associatedOn} -> associatedOn) (\s@Connector' {} a -> s {associatedOn = a} :: Connector) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the VM manager.
 connector_vmManagerName :: Lens.Lens' Connector (Prelude.Maybe Prelude.Text)
@@ -136,22 +137,22 @@ connector_version = Lens.lens (\Connector' {version} -> version) (\s@Connector' 
 connector_ipAddress :: Lens.Lens' Connector (Prelude.Maybe Prelude.Text)
 connector_ipAddress = Lens.lens (\Connector' {ipAddress} -> ipAddress) (\s@Connector' {} a -> s {ipAddress = a} :: Connector)
 
-instance Core.FromJSON Connector where
+instance Data.FromJSON Connector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Connector"
       ( \x ->
           Connector'
-            Prelude.<$> (x Core..:? "associatedOn")
-            Prelude.<*> (x Core..:? "vmManagerName")
-            Prelude.<*> (x Core..:? "vmManagerId")
-            Prelude.<*> (x Core..:? "connectorId")
-            Prelude.<*> (x Core..:? "capabilityList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "macAddress")
-            Prelude.<*> (x Core..:? "vmManagerType")
-            Prelude.<*> (x Core..:? "version")
-            Prelude.<*> (x Core..:? "ipAddress")
+            Prelude.<$> (x Data..:? "associatedOn")
+            Prelude.<*> (x Data..:? "vmManagerName")
+            Prelude.<*> (x Data..:? "vmManagerId")
+            Prelude.<*> (x Data..:? "connectorId")
+            Prelude.<*> (x Data..:? "capabilityList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "macAddress")
+            Prelude.<*> (x Data..:? "vmManagerType")
+            Prelude.<*> (x Data..:? "version")
+            Prelude.<*> (x Data..:? "ipAddress")
       )
 
 instance Prelude.Hashable Connector where

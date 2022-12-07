@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.WindowSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.EvaluationType
 import Amazonka.Forecast.Types.Metrics
 import qualified Amazonka.Prelude as Prelude
@@ -44,9 +45,9 @@ data WindowSummary = WindowSummary'
     -- -   @COMPUTED@ - The metrics for the specified window.
     evaluationType :: Prelude.Maybe EvaluationType,
     -- | The timestamp that defines the end of the window.
-    testWindowEnd :: Prelude.Maybe Core.POSIX,
+    testWindowEnd :: Prelude.Maybe Data.POSIX,
     -- | The timestamp that defines the start of the window.
-    testWindowStart :: Prelude.Maybe Core.POSIX
+    testWindowStart :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,23 +101,23 @@ windowSummary_evaluationType = Lens.lens (\WindowSummary' {evaluationType} -> ev
 
 -- | The timestamp that defines the end of the window.
 windowSummary_testWindowEnd :: Lens.Lens' WindowSummary (Prelude.Maybe Prelude.UTCTime)
-windowSummary_testWindowEnd = Lens.lens (\WindowSummary' {testWindowEnd} -> testWindowEnd) (\s@WindowSummary' {} a -> s {testWindowEnd = a} :: WindowSummary) Prelude.. Lens.mapping Core._Time
+windowSummary_testWindowEnd = Lens.lens (\WindowSummary' {testWindowEnd} -> testWindowEnd) (\s@WindowSummary' {} a -> s {testWindowEnd = a} :: WindowSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp that defines the start of the window.
 windowSummary_testWindowStart :: Lens.Lens' WindowSummary (Prelude.Maybe Prelude.UTCTime)
-windowSummary_testWindowStart = Lens.lens (\WindowSummary' {testWindowStart} -> testWindowStart) (\s@WindowSummary' {} a -> s {testWindowStart = a} :: WindowSummary) Prelude.. Lens.mapping Core._Time
+windowSummary_testWindowStart = Lens.lens (\WindowSummary' {testWindowStart} -> testWindowStart) (\s@WindowSummary' {} a -> s {testWindowStart = a} :: WindowSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON WindowSummary where
+instance Data.FromJSON WindowSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WindowSummary"
       ( \x ->
           WindowSummary'
-            Prelude.<$> (x Core..:? "ItemCount")
-            Prelude.<*> (x Core..:? "Metrics")
-            Prelude.<*> (x Core..:? "EvaluationType")
-            Prelude.<*> (x Core..:? "TestWindowEnd")
-            Prelude.<*> (x Core..:? "TestWindowStart")
+            Prelude.<$> (x Data..:? "ItemCount")
+            Prelude.<*> (x Data..:? "Metrics")
+            Prelude.<*> (x Data..:? "EvaluationType")
+            Prelude.<*> (x Data..:? "TestWindowEnd")
+            Prelude.<*> (x Data..:? "TestWindowStart")
       )
 
 instance Prelude.Hashable WindowSummary where

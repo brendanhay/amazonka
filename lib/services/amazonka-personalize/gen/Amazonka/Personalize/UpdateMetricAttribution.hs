@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,7 +115,7 @@ instance Core.AWSRequest UpdateMetricAttribution where
     Response.receiveJSON
       ( \s h x ->
           UpdateMetricAttributionResponse'
-            Prelude.<$> (x Core..?> "metricAttributionArn")
+            Prelude.<$> (x Data..?> "metricAttributionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,38 +133,38 @@ instance Prelude.NFData UpdateMetricAttribution where
       `Prelude.seq` Prelude.rnf metricAttributionArn
       `Prelude.seq` Prelude.rnf removeMetrics
 
-instance Core.ToHeaders UpdateMetricAttribution where
+instance Data.ToHeaders UpdateMetricAttribution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.UpdateMetricAttribution" ::
+              Data.=# ( "AmazonPersonalize.UpdateMetricAttribution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMetricAttribution where
+instance Data.ToJSON UpdateMetricAttribution where
   toJSON UpdateMetricAttribution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("addMetrics" Core..=) Prelude.<$> addMetrics,
-            ("metricsOutputConfig" Core..=)
+          [ ("addMetrics" Data..=) Prelude.<$> addMetrics,
+            ("metricsOutputConfig" Data..=)
               Prelude.<$> metricsOutputConfig,
-            ("metricAttributionArn" Core..=)
+            ("metricAttributionArn" Data..=)
               Prelude.<$> metricAttributionArn,
-            ("removeMetrics" Core..=) Prelude.<$> removeMetrics
+            ("removeMetrics" Data..=) Prelude.<$> removeMetrics
           ]
       )
 
-instance Core.ToPath UpdateMetricAttribution where
+instance Data.ToPath UpdateMetricAttribution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateMetricAttribution where
+instance Data.ToQuery UpdateMetricAttribution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMetricAttributionResponse' smart constructor.

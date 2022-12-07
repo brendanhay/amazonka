@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.CompliantSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.SeveritySummary
 
@@ -63,14 +64,14 @@ compliantSummary_compliantCount = Lens.lens (\CompliantSummary' {compliantCount}
 compliantSummary_severitySummary :: Lens.Lens' CompliantSummary (Prelude.Maybe SeveritySummary)
 compliantSummary_severitySummary = Lens.lens (\CompliantSummary' {severitySummary} -> severitySummary) (\s@CompliantSummary' {} a -> s {severitySummary = a} :: CompliantSummary)
 
-instance Core.FromJSON CompliantSummary where
+instance Data.FromJSON CompliantSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CompliantSummary"
       ( \x ->
           CompliantSummary'
-            Prelude.<$> (x Core..:? "CompliantCount")
-            Prelude.<*> (x Core..:? "SeveritySummary")
+            Prelude.<$> (x Data..:? "CompliantCount")
+            Prelude.<*> (x Data..:? "SeveritySummary")
       )
 
 instance Prelude.Hashable CompliantSummary where

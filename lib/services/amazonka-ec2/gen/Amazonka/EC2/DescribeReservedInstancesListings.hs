@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,9 +164,9 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeReservedInstancesListingsResponse'
-            Prelude.<$> ( x Core..@? "reservedInstancesListingsSet"
+            Prelude.<$> ( x Data..@? "reservedInstancesListingsSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -191,34 +192,34 @@ instance
       `Prelude.seq` Prelude.rnf reservedInstancesListingId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeReservedInstancesListings
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeReservedInstancesListings
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeReservedInstancesListings
   where
   toQuery DescribeReservedInstancesListings' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeReservedInstancesListings" ::
+          Data.=: ( "DescribeReservedInstancesListings" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ReservedInstancesId" Core.=: reservedInstancesId,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ReservedInstancesId" Data.=: reservedInstancesId,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
         "ReservedInstancesListingId"
-          Core.=: reservedInstancesListingId
+          Data.=: reservedInstancesListingId
       ]
 
 -- | Contains the output of DescribeReservedInstancesListings.

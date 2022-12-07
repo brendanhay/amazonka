@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.VpcConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the VPC configuration data necessary to interface with AWS
@@ -78,15 +79,15 @@ vpcConfig_subnetIds = Lens.lens (\VpcConfig' {subnetIds} -> subnetIds) (\s@VpcCo
 vpcConfig_vpcId :: Lens.Lens' VpcConfig Prelude.Text
 vpcConfig_vpcId = Lens.lens (\VpcConfig' {vpcId} -> vpcId) (\s@VpcConfig' {} a -> s {vpcId = a} :: VpcConfig)
 
-instance Core.FromJSON VpcConfig where
+instance Data.FromJSON VpcConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcConfig"
       ( \x ->
           VpcConfig'
-            Prelude.<$> (x Core..: "securityGroupIds")
-            Prelude.<*> (x Core..: "subnetIds")
-            Prelude.<*> (x Core..: "vpcId")
+            Prelude.<$> (x Data..: "securityGroupIds")
+            Prelude.<*> (x Data..: "subnetIds")
+            Prelude.<*> (x Data..: "vpcId")
       )
 
 instance Prelude.Hashable VpcConfig where
@@ -101,13 +102,13 @@ instance Prelude.NFData VpcConfig where
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToJSON VpcConfig where
+instance Data.ToJSON VpcConfig where
   toJSON VpcConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("securityGroupIds" Core..= securityGroupIds),
-            Prelude.Just ("subnetIds" Core..= subnetIds),
-            Prelude.Just ("vpcId" Core..= vpcId)
+              ("securityGroupIds" Data..= securityGroupIds),
+            Prelude.Just ("subnetIds" Data..= subnetIds),
+            Prelude.Just ("vpcId" Data..= vpcId)
           ]
       )

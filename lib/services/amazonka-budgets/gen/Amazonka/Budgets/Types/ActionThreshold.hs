@@ -22,6 +22,7 @@ module Amazonka.Budgets.Types.ActionThreshold where
 import Amazonka.Budgets.Types.ThresholdType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The trigger threshold of the action.
@@ -67,14 +68,14 @@ actionThreshold_actionThresholdValue = Lens.lens (\ActionThreshold' {actionThres
 actionThreshold_actionThresholdType :: Lens.Lens' ActionThreshold ThresholdType
 actionThreshold_actionThresholdType = Lens.lens (\ActionThreshold' {actionThresholdType} -> actionThresholdType) (\s@ActionThreshold' {} a -> s {actionThresholdType = a} :: ActionThreshold)
 
-instance Core.FromJSON ActionThreshold where
+instance Data.FromJSON ActionThreshold where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionThreshold"
       ( \x ->
           ActionThreshold'
-            Prelude.<$> (x Core..: "ActionThresholdValue")
-            Prelude.<*> (x Core..: "ActionThresholdType")
+            Prelude.<$> (x Data..: "ActionThresholdValue")
+            Prelude.<*> (x Data..: "ActionThresholdType")
       )
 
 instance Prelude.Hashable ActionThreshold where
@@ -87,15 +88,15 @@ instance Prelude.NFData ActionThreshold where
     Prelude.rnf actionThresholdValue
       `Prelude.seq` Prelude.rnf actionThresholdType
 
-instance Core.ToJSON ActionThreshold where
+instance Data.ToJSON ActionThreshold where
   toJSON ActionThreshold' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ActionThresholdValue"
-                  Core..= actionThresholdValue
+                  Data..= actionThresholdValue
               ),
             Prelude.Just
-              ("ActionThresholdType" Core..= actionThresholdType)
+              ("ActionThresholdType" Data..= actionThresholdType)
           ]
       )

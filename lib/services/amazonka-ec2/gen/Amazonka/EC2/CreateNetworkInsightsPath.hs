@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -202,7 +203,7 @@ instance Core.AWSRequest CreateNetworkInsightsPath where
     Response.receiveXML
       ( \s h x ->
           CreateNetworkInsightsPathResponse'
-            Prelude.<$> (x Core..@? "networkInsightsPath")
+            Prelude.<$> (x Data..@? "networkInsightsPath")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -230,31 +231,31 @@ instance Prelude.NFData CreateNetworkInsightsPath where
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateNetworkInsightsPath where
+instance Data.ToHeaders CreateNetworkInsightsPath where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateNetworkInsightsPath where
+instance Data.ToPath CreateNetworkInsightsPath where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateNetworkInsightsPath where
+instance Data.ToQuery CreateNetworkInsightsPath where
   toQuery CreateNetworkInsightsPath' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateNetworkInsightsPath" :: Prelude.ByteString),
+          Data.=: ("CreateNetworkInsightsPath" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DestinationIp" Core.=: destinationIp,
-        "SourceIp" Core.=: sourceIp,
-        "DestinationPort" Core.=: destinationPort,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DestinationIp" Data.=: destinationIp,
+        "SourceIp" Data.=: sourceIp,
+        "DestinationPort" Data.=: destinationPort,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "Source" Core.=: source,
-        "Destination" Core.=: destination,
-        "Protocol" Core.=: protocol,
-        "ClientToken" Core.=: clientToken
+        "Source" Data.=: source,
+        "Destination" Data.=: destination,
+        "Protocol" Data.=: protocol,
+        "ClientToken" Data.=: clientToken
       ]
 
 -- | /See:/ 'newCreateNetworkInsightsPathResponse' smart constructor.

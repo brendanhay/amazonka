@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ADMMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Action
 import qualified Amazonka.Prelude as Prelude
 
@@ -326,27 +327,27 @@ instance Prelude.NFData ADMMessage where
       `Prelude.seq` Prelude.rnf data'
       `Prelude.seq` Prelude.rnf smallImageIconUrl
 
-instance Core.ToJSON ADMMessage where
+instance Data.ToJSON ADMMessage where
   toJSON ADMMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExpiresAfter" Core..=) Prelude.<$> expiresAfter,
-            ("MD5" Core..=) Prelude.<$> md5,
-            ("IconReference" Core..=) Prelude.<$> iconReference,
-            ("Body" Core..=) Prelude.<$> body,
-            ("ImageUrl" Core..=) Prelude.<$> imageUrl,
-            ("Url" Core..=) Prelude.<$> url,
-            ("Substitutions" Core..=) Prelude.<$> substitutions,
-            ("RawContent" Core..=) Prelude.<$> rawContent,
-            ("Sound" Core..=) Prelude.<$> sound,
-            ("SilentPush" Core..=) Prelude.<$> silentPush,
-            ("ConsolidationKey" Core..=)
+          [ ("ExpiresAfter" Data..=) Prelude.<$> expiresAfter,
+            ("MD5" Data..=) Prelude.<$> md5,
+            ("IconReference" Data..=) Prelude.<$> iconReference,
+            ("Body" Data..=) Prelude.<$> body,
+            ("ImageUrl" Data..=) Prelude.<$> imageUrl,
+            ("Url" Data..=) Prelude.<$> url,
+            ("Substitutions" Data..=) Prelude.<$> substitutions,
+            ("RawContent" Data..=) Prelude.<$> rawContent,
+            ("Sound" Data..=) Prelude.<$> sound,
+            ("SilentPush" Data..=) Prelude.<$> silentPush,
+            ("ConsolidationKey" Data..=)
               Prelude.<$> consolidationKey,
-            ("ImageIconUrl" Core..=) Prelude.<$> imageIconUrl,
-            ("Title" Core..=) Prelude.<$> title,
-            ("Action" Core..=) Prelude.<$> action,
-            ("Data" Core..=) Prelude.<$> data',
-            ("SmallImageIconUrl" Core..=)
+            ("ImageIconUrl" Data..=) Prelude.<$> imageIconUrl,
+            ("Title" Data..=) Prelude.<$> title,
+            ("Action" Data..=) Prelude.<$> action,
+            ("Data" Data..=) Prelude.<$> data',
+            ("SmallImageIconUrl" Data..=)
               Prelude.<$> smallImageIconUrl
           ]
       )

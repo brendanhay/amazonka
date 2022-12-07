@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.S3JsonSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CompressionType
 import Amazonka.Glue.Types.GlueSchema
 import Amazonka.Glue.Types.S3DirectSourceAdditionalOptions
@@ -228,25 +229,25 @@ s3JsonSource_name = Lens.lens (\S3JsonSource' {name} -> name) (\s@S3JsonSource' 
 s3JsonSource_paths :: Lens.Lens' S3JsonSource [Prelude.Text]
 s3JsonSource_paths = Lens.lens (\S3JsonSource' {paths} -> paths) (\s@S3JsonSource' {} a -> s {paths = a} :: S3JsonSource) Prelude.. Lens.coerced
 
-instance Core.FromJSON S3JsonSource where
+instance Data.FromJSON S3JsonSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3JsonSource"
       ( \x ->
           S3JsonSource'
-            Prelude.<$> (x Core..:? "OutputSchemas" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "GroupFiles")
-            Prelude.<*> (x Core..:? "MaxBand")
-            Prelude.<*> (x Core..:? "MaxFilesInBand")
-            Prelude.<*> (x Core..:? "Recurse")
-            Prelude.<*> (x Core..:? "JsonPath")
-            Prelude.<*> (x Core..:? "AdditionalOptions")
-            Prelude.<*> (x Core..:? "CompressionType")
-            Prelude.<*> (x Core..:? "Multiline")
-            Prelude.<*> (x Core..:? "Exclusions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "GroupSize")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..:? "Paths" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "GroupFiles")
+            Prelude.<*> (x Data..:? "MaxBand")
+            Prelude.<*> (x Data..:? "MaxFilesInBand")
+            Prelude.<*> (x Data..:? "Recurse")
+            Prelude.<*> (x Data..:? "JsonPath")
+            Prelude.<*> (x Data..:? "AdditionalOptions")
+            Prelude.<*> (x Data..:? "CompressionType")
+            Prelude.<*> (x Data..:? "Multiline")
+            Prelude.<*> (x Data..:? "Exclusions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "GroupSize")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..:? "Paths" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable S3JsonSource where
@@ -281,25 +282,25 @@ instance Prelude.NFData S3JsonSource where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf paths
 
-instance Core.ToJSON S3JsonSource where
+instance Data.ToJSON S3JsonSource where
   toJSON S3JsonSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutputSchemas" Core..=) Prelude.<$> outputSchemas,
-            ("GroupFiles" Core..=) Prelude.<$> groupFiles,
-            ("MaxBand" Core..=) Prelude.<$> maxBand,
-            ("MaxFilesInBand" Core..=)
+          [ ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
+            ("GroupFiles" Data..=) Prelude.<$> groupFiles,
+            ("MaxBand" Data..=) Prelude.<$> maxBand,
+            ("MaxFilesInBand" Data..=)
               Prelude.<$> maxFilesInBand,
-            ("Recurse" Core..=) Prelude.<$> recurse,
-            ("JsonPath" Core..=) Prelude.<$> jsonPath,
-            ("AdditionalOptions" Core..=)
+            ("Recurse" Data..=) Prelude.<$> recurse,
+            ("JsonPath" Data..=) Prelude.<$> jsonPath,
+            ("AdditionalOptions" Data..=)
               Prelude.<$> additionalOptions,
-            ("CompressionType" Core..=)
+            ("CompressionType" Data..=)
               Prelude.<$> compressionType,
-            ("Multiline" Core..=) Prelude.<$> multiline,
-            ("Exclusions" Core..=) Prelude.<$> exclusions,
-            ("GroupSize" Core..=) Prelude.<$> groupSize,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Paths" Core..= paths)
+            ("Multiline" Data..=) Prelude.<$> multiline,
+            ("Exclusions" Data..=) Prelude.<$> exclusions,
+            ("GroupSize" Data..=) Prelude.<$> groupSize,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Paths" Data..= paths)
           ]
       )

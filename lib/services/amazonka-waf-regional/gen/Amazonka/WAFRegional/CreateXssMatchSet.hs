@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,8 +134,8 @@ instance Core.AWSRequest CreateXssMatchSet where
     Response.receiveJSON
       ( \s h x ->
           CreateXssMatchSetResponse'
-            Prelude.<$> (x Core..?> "XssMatchSet")
-            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "XssMatchSet")
+            Prelude.<*> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,34 +149,34 @@ instance Prelude.NFData CreateXssMatchSet where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf changeToken
 
-instance Core.ToHeaders CreateXssMatchSet where
+instance Data.ToHeaders CreateXssMatchSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.CreateXssMatchSet" ::
+              Data.=# ( "AWSWAF_Regional_20161128.CreateXssMatchSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateXssMatchSet where
+instance Data.ToJSON CreateXssMatchSet where
   toJSON CreateXssMatchSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("ChangeToken" Core..= changeToken)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("ChangeToken" Data..= changeToken)
           ]
       )
 
-instance Core.ToPath CreateXssMatchSet where
+instance Data.ToPath CreateXssMatchSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateXssMatchSet where
+instance Data.ToQuery CreateXssMatchSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response to a @CreateXssMatchSet@ request.

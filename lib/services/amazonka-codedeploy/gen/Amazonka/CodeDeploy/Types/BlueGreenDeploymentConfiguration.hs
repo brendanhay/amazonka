@@ -24,6 +24,7 @@ import Amazonka.CodeDeploy.Types.DeploymentReadyOption
 import Amazonka.CodeDeploy.Types.GreenFleetProvisioningOption
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about blue\/green deployment options for a deployment group.
@@ -85,19 +86,19 @@ blueGreenDeploymentConfiguration_deploymentReadyOption :: Lens.Lens' BlueGreenDe
 blueGreenDeploymentConfiguration_deploymentReadyOption = Lens.lens (\BlueGreenDeploymentConfiguration' {deploymentReadyOption} -> deploymentReadyOption) (\s@BlueGreenDeploymentConfiguration' {} a -> s {deploymentReadyOption = a} :: BlueGreenDeploymentConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BlueGreenDeploymentConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BlueGreenDeploymentConfiguration"
       ( \x ->
           BlueGreenDeploymentConfiguration'
-            Prelude.<$> (x Core..:? "greenFleetProvisioningOption")
+            Prelude.<$> (x Data..:? "greenFleetProvisioningOption")
             Prelude.<*> ( x
-                            Core..:? "terminateBlueInstancesOnDeploymentSuccess"
+                            Data..:? "terminateBlueInstancesOnDeploymentSuccess"
                         )
-            Prelude.<*> (x Core..:? "deploymentReadyOption")
+            Prelude.<*> (x Data..:? "deploymentReadyOption")
       )
 
 instance
@@ -121,15 +122,15 @@ instance
       `Prelude.seq` Prelude.rnf terminateBlueInstancesOnDeploymentSuccess
       `Prelude.seq` Prelude.rnf deploymentReadyOption
 
-instance Core.ToJSON BlueGreenDeploymentConfiguration where
+instance Data.ToJSON BlueGreenDeploymentConfiguration where
   toJSON BlueGreenDeploymentConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("greenFleetProvisioningOption" Core..=)
+          [ ("greenFleetProvisioningOption" Data..=)
               Prelude.<$> greenFleetProvisioningOption,
-            ("terminateBlueInstancesOnDeploymentSuccess" Core..=)
+            ("terminateBlueInstancesOnDeploymentSuccess" Data..=)
               Prelude.<$> terminateBlueInstancesOnDeploymentSuccess,
-            ("deploymentReadyOption" Core..=)
+            ("deploymentReadyOption" Data..=)
               Prelude.<$> deploymentReadyOption
           ]
       )

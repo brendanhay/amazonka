@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.HlsGroupSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.DestinationSettings
 import Amazonka.MediaConvert.Types.HlsAdMarkers
 import Amazonka.MediaConvert.Types.HlsAdditionalManifest
@@ -633,47 +634,47 @@ hlsGroupSettings_targetDurationCompatibilityMode = Lens.lens (\HlsGroupSettings'
 hlsGroupSettings_destinationSettings :: Lens.Lens' HlsGroupSettings (Prelude.Maybe DestinationSettings)
 hlsGroupSettings_destinationSettings = Lens.lens (\HlsGroupSettings' {destinationSettings} -> destinationSettings) (\s@HlsGroupSettings' {} a -> s {destinationSettings = a} :: HlsGroupSettings)
 
-instance Core.FromJSON HlsGroupSettings where
+instance Data.FromJSON HlsGroupSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsGroupSettings"
       ( \x ->
           HlsGroupSettings'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "baseUrl")
-            Prelude.<*> (x Core..:? "imageBasedTrickPlaySettings")
-            Prelude.<*> (x Core..:? "streamInfResolution")
-            Prelude.<*> (x Core..:? "programDateTime")
-            Prelude.<*> (x Core..:? "manifestCompression")
-            Prelude.<*> (x Core..:? "minSegmentLength")
-            Prelude.<*> ( x Core..:? "captionLanguageMappings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "baseUrl")
+            Prelude.<*> (x Data..:? "imageBasedTrickPlaySettings")
+            Prelude.<*> (x Data..:? "streamInfResolution")
+            Prelude.<*> (x Data..:? "programDateTime")
+            Prelude.<*> (x Data..:? "manifestCompression")
+            Prelude.<*> (x Data..:? "minSegmentLength")
+            Prelude.<*> ( x Data..:? "captionLanguageMappings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "directoryStructure")
-            Prelude.<*> (x Core..:? "programDateTimePeriod")
-            Prelude.<*> (x Core..:? "segmentLength")
-            Prelude.<*> (x Core..:? "codecSpecification")
-            Prelude.<*> (x Core..:? "outputSelection")
-            Prelude.<*> (x Core..:? "audioOnlyHeader")
-            Prelude.<*> (x Core..:? "adMarkers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "manifestDurationFormat")
-            Prelude.<*> (x Core..:? "timedMetadataId3Frame")
-            Prelude.<*> (x Core..:? "captionLanguageSetting")
-            Prelude.<*> (x Core..:? "segmentControl")
-            Prelude.<*> (x Core..:? "captionSegmentLengthControl")
-            Prelude.<*> (x Core..:? "encryption")
-            Prelude.<*> (x Core..:? "imageBasedTrickPlay")
-            Prelude.<*> (x Core..:? "clientCache")
-            Prelude.<*> ( x Core..:? "additionalManifests"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "directoryStructure")
+            Prelude.<*> (x Data..:? "programDateTimePeriod")
+            Prelude.<*> (x Data..:? "segmentLength")
+            Prelude.<*> (x Data..:? "codecSpecification")
+            Prelude.<*> (x Data..:? "outputSelection")
+            Prelude.<*> (x Data..:? "audioOnlyHeader")
+            Prelude.<*> (x Data..:? "adMarkers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "manifestDurationFormat")
+            Prelude.<*> (x Data..:? "timedMetadataId3Frame")
+            Prelude.<*> (x Data..:? "captionLanguageSetting")
+            Prelude.<*> (x Data..:? "segmentControl")
+            Prelude.<*> (x Data..:? "captionSegmentLengthControl")
+            Prelude.<*> (x Data..:? "encryption")
+            Prelude.<*> (x Data..:? "imageBasedTrickPlay")
+            Prelude.<*> (x Data..:? "clientCache")
+            Prelude.<*> ( x Data..:? "additionalManifests"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "segmentLengthControl")
-            Prelude.<*> (x Core..:? "timedMetadataId3Period")
-            Prelude.<*> (x Core..:? "timestampDeltaMilliseconds")
-            Prelude.<*> (x Core..:? "minFinalSegmentLength")
-            Prelude.<*> (x Core..:? "segmentsPerSubdirectory")
-            Prelude.<*> (x Core..:? "targetDurationCompatibilityMode")
-            Prelude.<*> (x Core..:? "destinationSettings")
+            Prelude.<*> (x Data..:? "segmentLengthControl")
+            Prelude.<*> (x Data..:? "timedMetadataId3Period")
+            Prelude.<*> (x Data..:? "timestampDeltaMilliseconds")
+            Prelude.<*> (x Data..:? "minFinalSegmentLength")
+            Prelude.<*> (x Data..:? "segmentsPerSubdirectory")
+            Prelude.<*> (x Data..:? "targetDurationCompatibilityMode")
+            Prelude.<*> (x Data..:? "destinationSettings")
       )
 
 instance Prelude.Hashable HlsGroupSettings where
@@ -754,65 +755,65 @@ instance Prelude.NFData HlsGroupSettings where
       `Prelude.seq` Prelude.rnf
         destinationSettings
 
-instance Core.ToJSON HlsGroupSettings where
+instance Data.ToJSON HlsGroupSettings where
   toJSON HlsGroupSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("destination" Core..=) Prelude.<$> destination,
-            ("baseUrl" Core..=) Prelude.<$> baseUrl,
-            ("imageBasedTrickPlaySettings" Core..=)
+          [ ("destination" Data..=) Prelude.<$> destination,
+            ("baseUrl" Data..=) Prelude.<$> baseUrl,
+            ("imageBasedTrickPlaySettings" Data..=)
               Prelude.<$> imageBasedTrickPlaySettings,
-            ("streamInfResolution" Core..=)
+            ("streamInfResolution" Data..=)
               Prelude.<$> streamInfResolution,
-            ("programDateTime" Core..=)
+            ("programDateTime" Data..=)
               Prelude.<$> programDateTime,
-            ("manifestCompression" Core..=)
+            ("manifestCompression" Data..=)
               Prelude.<$> manifestCompression,
-            ("minSegmentLength" Core..=)
+            ("minSegmentLength" Data..=)
               Prelude.<$> minSegmentLength,
-            ("captionLanguageMappings" Core..=)
+            ("captionLanguageMappings" Data..=)
               Prelude.<$> captionLanguageMappings,
-            ("directoryStructure" Core..=)
+            ("directoryStructure" Data..=)
               Prelude.<$> directoryStructure,
-            ("programDateTimePeriod" Core..=)
+            ("programDateTimePeriod" Data..=)
               Prelude.<$> programDateTimePeriod,
-            ("segmentLength" Core..=) Prelude.<$> segmentLength,
-            ("codecSpecification" Core..=)
+            ("segmentLength" Data..=) Prelude.<$> segmentLength,
+            ("codecSpecification" Data..=)
               Prelude.<$> codecSpecification,
-            ("outputSelection" Core..=)
+            ("outputSelection" Data..=)
               Prelude.<$> outputSelection,
-            ("audioOnlyHeader" Core..=)
+            ("audioOnlyHeader" Data..=)
               Prelude.<$> audioOnlyHeader,
-            ("adMarkers" Core..=) Prelude.<$> adMarkers,
-            ("manifestDurationFormat" Core..=)
+            ("adMarkers" Data..=) Prelude.<$> adMarkers,
+            ("manifestDurationFormat" Data..=)
               Prelude.<$> manifestDurationFormat,
-            ("timedMetadataId3Frame" Core..=)
+            ("timedMetadataId3Frame" Data..=)
               Prelude.<$> timedMetadataId3Frame,
-            ("captionLanguageSetting" Core..=)
+            ("captionLanguageSetting" Data..=)
               Prelude.<$> captionLanguageSetting,
-            ("segmentControl" Core..=)
+            ("segmentControl" Data..=)
               Prelude.<$> segmentControl,
-            ("captionSegmentLengthControl" Core..=)
+            ("captionSegmentLengthControl" Data..=)
               Prelude.<$> captionSegmentLengthControl,
-            ("encryption" Core..=) Prelude.<$> encryption,
-            ("imageBasedTrickPlay" Core..=)
+            ("encryption" Data..=) Prelude.<$> encryption,
+            ("imageBasedTrickPlay" Data..=)
               Prelude.<$> imageBasedTrickPlay,
-            ("clientCache" Core..=) Prelude.<$> clientCache,
-            ("additionalManifests" Core..=)
+            ("clientCache" Data..=) Prelude.<$> clientCache,
+            ("additionalManifests" Data..=)
               Prelude.<$> additionalManifests,
-            ("segmentLengthControl" Core..=)
+            ("segmentLengthControl" Data..=)
               Prelude.<$> segmentLengthControl,
-            ("timedMetadataId3Period" Core..=)
+            ("timedMetadataId3Period" Data..=)
               Prelude.<$> timedMetadataId3Period,
-            ("timestampDeltaMilliseconds" Core..=)
+            ("timestampDeltaMilliseconds" Data..=)
               Prelude.<$> timestampDeltaMilliseconds,
-            ("minFinalSegmentLength" Core..=)
+            ("minFinalSegmentLength" Data..=)
               Prelude.<$> minFinalSegmentLength,
-            ("segmentsPerSubdirectory" Core..=)
+            ("segmentsPerSubdirectory" Data..=)
               Prelude.<$> segmentsPerSubdirectory,
-            ("targetDurationCompatibilityMode" Core..=)
+            ("targetDurationCompatibilityMode" Data..=)
               Prelude.<$> targetDurationCompatibilityMode,
-            ("destinationSettings" Core..=)
+            ("destinationSettings" Data..=)
               Prelude.<$> destinationSettings
           ]
       )

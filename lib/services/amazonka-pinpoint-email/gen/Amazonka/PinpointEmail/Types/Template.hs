@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.Template where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newTemplate' smart constructor.
@@ -78,11 +79,11 @@ instance Prelude.NFData Template where
     Prelude.rnf templateData
       `Prelude.seq` Prelude.rnf templateArn
 
-instance Core.ToJSON Template where
+instance Data.ToJSON Template where
   toJSON Template' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TemplateData" Core..=) Prelude.<$> templateData,
-            ("TemplateArn" Core..=) Prelude.<$> templateArn
+          [ ("TemplateData" Data..=) Prelude.<$> templateData,
+            ("TemplateArn" Data..=) Prelude.<$> templateArn
           ]
       )

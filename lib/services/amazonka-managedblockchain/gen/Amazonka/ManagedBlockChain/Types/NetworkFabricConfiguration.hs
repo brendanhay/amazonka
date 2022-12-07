@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.NetworkFabricConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.Edition
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,9 +68,9 @@ instance Prelude.NFData NetworkFabricConfiguration where
   rnf NetworkFabricConfiguration' {..} =
     Prelude.rnf edition
 
-instance Core.ToJSON NetworkFabricConfiguration where
+instance Data.ToJSON NetworkFabricConfiguration where
   toJSON NetworkFabricConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Edition" Core..= edition)]
+          [Prelude.Just ("Edition" Data..= edition)]
       )

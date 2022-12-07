@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,8 +108,8 @@ instance Core.AWSRequest CheckSchemaVersionValidity where
     Response.receiveJSON
       ( \s h x ->
           CheckSchemaVersionValidityResponse'
-            Prelude.<$> (x Core..?> "Valid")
-            Prelude.<*> (x Core..?> "Error")
+            Prelude.<$> (x Data..?> "Valid")
+            Prelude.<*> (x Data..?> "Error")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,35 +123,35 @@ instance Prelude.NFData CheckSchemaVersionValidity where
     Prelude.rnf dataFormat
       `Prelude.seq` Prelude.rnf schemaDefinition
 
-instance Core.ToHeaders CheckSchemaVersionValidity where
+instance Data.ToHeaders CheckSchemaVersionValidity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.CheckSchemaVersionValidity" ::
+              Data.=# ( "AWSGlue.CheckSchemaVersionValidity" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CheckSchemaVersionValidity where
+instance Data.ToJSON CheckSchemaVersionValidity where
   toJSON CheckSchemaVersionValidity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DataFormat" Core..= dataFormat),
+          [ Prelude.Just ("DataFormat" Data..= dataFormat),
             Prelude.Just
-              ("SchemaDefinition" Core..= schemaDefinition)
+              ("SchemaDefinition" Data..= schemaDefinition)
           ]
       )
 
-instance Core.ToPath CheckSchemaVersionValidity where
+instance Data.ToPath CheckSchemaVersionValidity where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CheckSchemaVersionValidity where
+instance Data.ToQuery CheckSchemaVersionValidity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCheckSchemaVersionValidityResponse' smart constructor.

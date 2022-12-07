@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,8 +88,8 @@ instance Core.AWSRequest DeleteConfiguration where
     Response.receiveJSON
       ( \s h x ->
           DeleteConfigurationResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "state")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "state")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,23 +100,23 @@ instance Prelude.Hashable DeleteConfiguration where
 instance Prelude.NFData DeleteConfiguration where
   rnf DeleteConfiguration' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeleteConfiguration where
+instance Data.ToHeaders DeleteConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteConfiguration where
+instance Data.ToPath DeleteConfiguration where
   toPath DeleteConfiguration' {..} =
     Prelude.mconcat
-      ["/v1/configurations/", Core.toBS arn]
+      ["/v1/configurations/", Data.toBS arn]
 
-instance Core.ToQuery DeleteConfiguration where
+instance Data.ToQuery DeleteConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConfigurationResponse' smart constructor.

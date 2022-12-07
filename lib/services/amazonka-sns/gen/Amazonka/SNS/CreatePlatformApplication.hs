@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,7 +159,7 @@ instance Core.AWSRequest CreatePlatformApplication where
       "CreatePlatformApplicationResult"
       ( \s h x ->
           CreatePlatformApplicationResponse'
-            Prelude.<$> (x Core..@? "PlatformApplicationArn")
+            Prelude.<$> (x Data..@? "PlatformApplicationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,23 +175,23 @@ instance Prelude.NFData CreatePlatformApplication where
       `Prelude.seq` Prelude.rnf platform
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToHeaders CreatePlatformApplication where
+instance Data.ToHeaders CreatePlatformApplication where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreatePlatformApplication where
+instance Data.ToPath CreatePlatformApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePlatformApplication where
+instance Data.ToQuery CreatePlatformApplication where
   toQuery CreatePlatformApplication' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreatePlatformApplication" :: Prelude.ByteString),
+          Data.=: ("CreatePlatformApplication" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "Name" Core.=: name,
-        "Platform" Core.=: platform,
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "Name" Data.=: name,
+        "Platform" Data.=: platform,
         "Attributes"
-          Core.=: Core.toQueryMap "entry" "key" "value" attributes
+          Data.=: Data.toQueryMap "entry" "key" "value" attributes
       ]
 
 -- | Response from CreatePlatformApplication action.

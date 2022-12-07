@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ProvisioningTemplateSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.TemplateType
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,9 +38,9 @@ data ProvisioningTemplateSummary = ProvisioningTemplateSummary'
     -- <https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning template>.
     type' :: Prelude.Maybe TemplateType,
     -- | The date when the provisioning template summary was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The date when the provisioning template summary was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The description of the provisioning template.
     description :: Prelude.Maybe Prelude.Text,
     -- | True if the fleet provision template is enabled, otherwise false.
@@ -102,11 +103,11 @@ provisioningTemplateSummary_type = Lens.lens (\ProvisioningTemplateSummary' {typ
 
 -- | The date when the provisioning template summary was last modified.
 provisioningTemplateSummary_lastModifiedDate :: Lens.Lens' ProvisioningTemplateSummary (Prelude.Maybe Prelude.UTCTime)
-provisioningTemplateSummary_lastModifiedDate = Lens.lens (\ProvisioningTemplateSummary' {lastModifiedDate} -> lastModifiedDate) (\s@ProvisioningTemplateSummary' {} a -> s {lastModifiedDate = a} :: ProvisioningTemplateSummary) Prelude.. Lens.mapping Core._Time
+provisioningTemplateSummary_lastModifiedDate = Lens.lens (\ProvisioningTemplateSummary' {lastModifiedDate} -> lastModifiedDate) (\s@ProvisioningTemplateSummary' {} a -> s {lastModifiedDate = a} :: ProvisioningTemplateSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The date when the provisioning template summary was created.
 provisioningTemplateSummary_creationDate :: Lens.Lens' ProvisioningTemplateSummary (Prelude.Maybe Prelude.UTCTime)
-provisioningTemplateSummary_creationDate = Lens.lens (\ProvisioningTemplateSummary' {creationDate} -> creationDate) (\s@ProvisioningTemplateSummary' {} a -> s {creationDate = a} :: ProvisioningTemplateSummary) Prelude.. Lens.mapping Core._Time
+provisioningTemplateSummary_creationDate = Lens.lens (\ProvisioningTemplateSummary' {creationDate} -> creationDate) (\s@ProvisioningTemplateSummary' {} a -> s {creationDate = a} :: ProvisioningTemplateSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the provisioning template.
 provisioningTemplateSummary_description :: Lens.Lens' ProvisioningTemplateSummary (Prelude.Maybe Prelude.Text)
@@ -120,19 +121,19 @@ provisioningTemplateSummary_enabled = Lens.lens (\ProvisioningTemplateSummary' {
 provisioningTemplateSummary_templateArn :: Lens.Lens' ProvisioningTemplateSummary (Prelude.Maybe Prelude.Text)
 provisioningTemplateSummary_templateArn = Lens.lens (\ProvisioningTemplateSummary' {templateArn} -> templateArn) (\s@ProvisioningTemplateSummary' {} a -> s {templateArn = a} :: ProvisioningTemplateSummary)
 
-instance Core.FromJSON ProvisioningTemplateSummary where
+instance Data.FromJSON ProvisioningTemplateSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisioningTemplateSummary"
       ( \x ->
           ProvisioningTemplateSummary'
-            Prelude.<$> (x Core..:? "templateName")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "lastModifiedDate")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "enabled")
-            Prelude.<*> (x Core..:? "templateArn")
+            Prelude.<$> (x Data..:? "templateName")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "lastModifiedDate")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "templateArn")
       )
 
 instance Prelude.Hashable ProvisioningTemplateSummary where

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ValidationError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,11 +77,11 @@ validationError_message = Lens.lens (\ValidationError' {message} -> message) (\s
 validationError_code :: Lens.Lens' ValidationError (Prelude.Maybe Prelude.Text)
 validationError_code = Lens.lens (\ValidationError' {code} -> code) (\s@ValidationError' {} a -> s {code = a} :: ValidationError)
 
-instance Core.FromXML ValidationError where
+instance Data.FromXML ValidationError where
   parseXML x =
     ValidationError'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance Prelude.Hashable ValidationError where
   hashWithSalt _salt ValidationError' {..} =

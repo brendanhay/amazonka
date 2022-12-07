@@ -45,6 +45,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,7 +118,7 @@ instance Core.AWSRequest UpdateType where
     Response.receiveJSON
       ( \s h x ->
           UpdateTypeResponse'
-            Prelude.<$> (x Core..?> "type")
+            Prelude.<$> (x Data..?> "type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,36 +136,36 @@ instance Prelude.NFData UpdateType where
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf format
 
-instance Core.ToHeaders UpdateType where
+instance Data.ToHeaders UpdateType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateType where
+instance Data.ToJSON UpdateType where
   toJSON UpdateType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("definition" Core..=) Prelude.<$> definition,
-            Prelude.Just ("format" Core..= format)
+          [ ("definition" Data..=) Prelude.<$> definition,
+            Prelude.Just ("format" Data..= format)
           ]
       )
 
-instance Core.ToPath UpdateType where
+instance Data.ToPath UpdateType where
   toPath UpdateType' {..} =
     Prelude.mconcat
       [ "/v1/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/types/",
-        Core.toBS typeName
+        Data.toBS typeName
       ]
 
-instance Core.ToQuery UpdateType where
+instance Data.ToQuery UpdateType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTypeResponse' smart constructor.

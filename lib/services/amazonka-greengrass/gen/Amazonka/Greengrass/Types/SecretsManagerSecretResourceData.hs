@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.SecretsManagerSecretResourceData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attributes that define a secret resource, which references a secret from
@@ -75,18 +76,18 @@ secretsManagerSecretResourceData_arn :: Lens.Lens' SecretsManagerSecretResourceD
 secretsManagerSecretResourceData_arn = Lens.lens (\SecretsManagerSecretResourceData' {arn} -> arn) (\s@SecretsManagerSecretResourceData' {} a -> s {arn = a} :: SecretsManagerSecretResourceData)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SecretsManagerSecretResourceData
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecretsManagerSecretResourceData"
       ( \x ->
           SecretsManagerSecretResourceData'
-            Prelude.<$> ( x Core..:? "AdditionalStagingLabelsToDownload"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "AdditionalStagingLabelsToDownload"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ARN")
+            Prelude.<*> (x Data..:? "ARN")
       )
 
 instance
@@ -108,12 +109,12 @@ instance
     Prelude.rnf additionalStagingLabelsToDownload
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToJSON SecretsManagerSecretResourceData where
+instance Data.ToJSON SecretsManagerSecretResourceData where
   toJSON SecretsManagerSecretResourceData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AdditionalStagingLabelsToDownload" Core..=)
+          [ ("AdditionalStagingLabelsToDownload" Data..=)
               Prelude.<$> additionalStagingLabelsToDownload,
-            ("ARN" Core..=) Prelude.<$> arn
+            ("ARN" Data..=) Prelude.<$> arn
           ]
       )

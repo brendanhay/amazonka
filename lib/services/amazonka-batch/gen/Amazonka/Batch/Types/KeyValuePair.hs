@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.KeyValuePair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A key-value pair object.
@@ -67,13 +68,13 @@ keyValuePair_name = Lens.lens (\KeyValuePair' {name} -> name) (\s@KeyValuePair' 
 keyValuePair_value :: Lens.Lens' KeyValuePair (Prelude.Maybe Prelude.Text)
 keyValuePair_value = Lens.lens (\KeyValuePair' {value} -> value) (\s@KeyValuePair' {} a -> s {value = a} :: KeyValuePair)
 
-instance Core.FromJSON KeyValuePair where
+instance Data.FromJSON KeyValuePair where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeyValuePair"
       ( \x ->
           KeyValuePair'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable KeyValuePair where
@@ -85,11 +86,11 @@ instance Prelude.NFData KeyValuePair where
   rnf KeyValuePair' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON KeyValuePair where
+instance Data.ToJSON KeyValuePair where
   toJSON KeyValuePair' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("value" Core..=) Prelude.<$> value
+          [ ("name" Data..=) Prelude.<$> name,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

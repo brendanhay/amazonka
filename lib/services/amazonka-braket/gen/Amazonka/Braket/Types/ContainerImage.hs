@@ -21,6 +21,7 @@ module Amazonka.Braket.Types.ContainerImage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The container image used to create an Amazon Braket job.
@@ -52,12 +53,12 @@ newContainerImage pUri_ =
 containerImage_uri :: Lens.Lens' ContainerImage Prelude.Text
 containerImage_uri = Lens.lens (\ContainerImage' {uri} -> uri) (\s@ContainerImage' {} a -> s {uri = a} :: ContainerImage)
 
-instance Core.FromJSON ContainerImage where
+instance Data.FromJSON ContainerImage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerImage"
       ( \x ->
-          ContainerImage' Prelude.<$> (x Core..: "uri")
+          ContainerImage' Prelude.<$> (x Data..: "uri")
       )
 
 instance Prelude.Hashable ContainerImage where
@@ -67,9 +68,9 @@ instance Prelude.Hashable ContainerImage where
 instance Prelude.NFData ContainerImage where
   rnf ContainerImage' {..} = Prelude.rnf uri
 
-instance Core.ToJSON ContainerImage where
+instance Data.ToJSON ContainerImage where
   toJSON ContainerImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("uri" Core..= uri)]
+          [Prelude.Just ("uri" Data..= uri)]
       )

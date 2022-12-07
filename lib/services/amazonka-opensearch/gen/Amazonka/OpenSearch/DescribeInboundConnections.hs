@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,8 +126,8 @@ instance Core.AWSRequest DescribeInboundConnections where
     Response.receiveJSON
       ( \s h x ->
           DescribeInboundConnectionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Connections" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Connections" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,25 +143,25 @@ instance Prelude.NFData DescribeInboundConnections where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeInboundConnections where
+instance Data.ToHeaders DescribeInboundConnections where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON DescribeInboundConnections where
+instance Data.ToJSON DescribeInboundConnections where
   toJSON DescribeInboundConnections' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeInboundConnections where
+instance Data.ToPath DescribeInboundConnections where
   toPath =
     Prelude.const
       "/2021-01-01/opensearch/cc/inboundConnection/search"
 
-instance Core.ToQuery DescribeInboundConnections where
+instance Data.ToQuery DescribeInboundConnections where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains a list of connections matching the filter criteria.

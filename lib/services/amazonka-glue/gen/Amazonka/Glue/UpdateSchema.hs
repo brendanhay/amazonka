@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,9 +153,9 @@ instance Core.AWSRequest UpdateSchema where
     Response.receiveJSON
       ( \s h x ->
           UpdateSchemaResponse'
-            Prelude.<$> (x Core..?> "RegistryName")
-            Prelude.<*> (x Core..?> "SchemaName")
-            Prelude.<*> (x Core..?> "SchemaArn")
+            Prelude.<$> (x Data..?> "RegistryName")
+            Prelude.<*> (x Data..?> "SchemaName")
+            Prelude.<*> (x Data..?> "SchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,35 +173,35 @@ instance Prelude.NFData UpdateSchema where
       `Prelude.seq` Prelude.rnf schemaVersionNumber
       `Prelude.seq` Prelude.rnf schemaId
 
-instance Core.ToHeaders UpdateSchema where
+instance Data.ToHeaders UpdateSchema where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdateSchema" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.UpdateSchema" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSchema where
+instance Data.ToJSON UpdateSchema where
   toJSON UpdateSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Compatibility" Core..=) Prelude.<$> compatibility,
-            ("Description" Core..=) Prelude.<$> description,
-            ("SchemaVersionNumber" Core..=)
+          [ ("Compatibility" Data..=) Prelude.<$> compatibility,
+            ("Description" Data..=) Prelude.<$> description,
+            ("SchemaVersionNumber" Data..=)
               Prelude.<$> schemaVersionNumber,
-            Prelude.Just ("SchemaId" Core..= schemaId)
+            Prelude.Just ("SchemaId" Data..= schemaId)
           ]
       )
 
-instance Core.ToPath UpdateSchema where
+instance Data.ToPath UpdateSchema where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateSchema where
+instance Data.ToQuery UpdateSchema where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSchemaResponse' smart constructor.

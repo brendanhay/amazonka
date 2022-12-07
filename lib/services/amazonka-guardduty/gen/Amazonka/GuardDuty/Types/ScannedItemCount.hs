@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ScannedItemCount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Total number of scanned files.
@@ -70,15 +71,15 @@ scannedItemCount_totalGb = Lens.lens (\ScannedItemCount' {totalGb} -> totalGb) (
 scannedItemCount_volumes :: Lens.Lens' ScannedItemCount (Prelude.Maybe Prelude.Int)
 scannedItemCount_volumes = Lens.lens (\ScannedItemCount' {volumes} -> volumes) (\s@ScannedItemCount' {} a -> s {volumes = a} :: ScannedItemCount)
 
-instance Core.FromJSON ScannedItemCount where
+instance Data.FromJSON ScannedItemCount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScannedItemCount"
       ( \x ->
           ScannedItemCount'
-            Prelude.<$> (x Core..:? "files")
-            Prelude.<*> (x Core..:? "totalGb")
-            Prelude.<*> (x Core..:? "volumes")
+            Prelude.<$> (x Data..:? "files")
+            Prelude.<*> (x Data..:? "totalGb")
+            Prelude.<*> (x Data..:? "volumes")
       )
 
 instance Prelude.Hashable ScannedItemCount where

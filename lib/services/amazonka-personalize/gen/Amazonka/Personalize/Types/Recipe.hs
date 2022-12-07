@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.Recipe where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a recipe. Each recipe provides an algorithm
@@ -33,7 +34,7 @@ data Recipe = Recipe'
   { -- | The name of the recipe.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix format) that the recipe was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the FeatureTransformation object.
     featureTransformationArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the recipe.
@@ -54,7 +55,7 @@ data Recipe = Recipe'
     -- | The Amazon Resource Name (ARN) of the recipe.
     recipeArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix format) that the recipe was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -111,7 +112,7 @@ recipe_name = Lens.lens (\Recipe' {name} -> name) (\s@Recipe' {} a -> s {name = 
 
 -- | The date and time (in Unix format) that the recipe was created.
 recipe_creationDateTime :: Lens.Lens' Recipe (Prelude.Maybe Prelude.UTCTime)
-recipe_creationDateTime = Lens.lens (\Recipe' {creationDateTime} -> creationDateTime) (\s@Recipe' {} a -> s {creationDateTime = a} :: Recipe) Prelude.. Lens.mapping Core._Time
+recipe_creationDateTime = Lens.lens (\Recipe' {creationDateTime} -> creationDateTime) (\s@Recipe' {} a -> s {creationDateTime = a} :: Recipe) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the FeatureTransformation object.
 recipe_featureTransformationArn :: Lens.Lens' Recipe (Prelude.Maybe Prelude.Text)
@@ -146,23 +147,23 @@ recipe_recipeArn = Lens.lens (\Recipe' {recipeArn} -> recipeArn) (\s@Recipe' {} 
 
 -- | The date and time (in Unix format) that the recipe was last updated.
 recipe_lastUpdatedDateTime :: Lens.Lens' Recipe (Prelude.Maybe Prelude.UTCTime)
-recipe_lastUpdatedDateTime = Lens.lens (\Recipe' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Recipe' {} a -> s {lastUpdatedDateTime = a} :: Recipe) Prelude.. Lens.mapping Core._Time
+recipe_lastUpdatedDateTime = Lens.lens (\Recipe' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Recipe' {} a -> s {lastUpdatedDateTime = a} :: Recipe) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Recipe where
+instance Data.FromJSON Recipe where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Recipe"
       ( \x ->
           Recipe'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "featureTransformationArn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "algorithmArn")
-            Prelude.<*> (x Core..:? "recipeType")
-            Prelude.<*> (x Core..:? "recipeArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "featureTransformationArn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "algorithmArn")
+            Prelude.<*> (x Data..:? "recipeType")
+            Prelude.<*> (x Data..:? "recipeArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable Recipe where

@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,21 +129,21 @@ instance Prelude.NFData TagResource where
     Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders TagResource where
+instance Data.ToHeaders TagResource where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath TagResource where
+instance Data.ToPath TagResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TagResource where
+instance Data.ToQuery TagResource where
   toQuery TagResource' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("TagResource" :: Prelude.ByteString),
+          Data.=: ("TagResource" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "ResourceArn" Core.=: resourceArn,
-        "Tags" Core.=: Core.toQueryList "member" tags
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "ResourceArn" Data.=: resourceArn,
+        "Tags" Data.=: Data.toQueryList "member" tags
       ]
 
 -- | /See:/ 'newTagResourceResponse' smart constructor.

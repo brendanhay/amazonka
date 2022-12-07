@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -193,8 +194,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeMatchmakingConfigurationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "Configurations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "Configurations" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -221,45 +222,45 @@ instance
       `Prelude.seq` Prelude.rnf limit
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeMatchmakingConfigurations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeMatchmakingConfigurations" ::
+              Data.=# ( "GameLift.DescribeMatchmakingConfigurations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeMatchmakingConfigurations
   where
   toJSON DescribeMatchmakingConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("RuleSetName" Core..=) Prelude.<$> ruleSetName,
-            ("Names" Core..=) Prelude.<$> names,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("RuleSetName" Data..=) Prelude.<$> ruleSetName,
+            ("Names" Data..=) Prelude.<$> names,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeMatchmakingConfigurations
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeMatchmakingConfigurations
   where
   toQuery = Prelude.const Prelude.mempty

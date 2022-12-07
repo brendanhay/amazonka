@@ -21,6 +21,7 @@ module Amazonka.CloudHSMV2.Types.DestinationBackup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the backup that will be copied and created by
@@ -35,7 +36,7 @@ data DestinationBackup = DestinationBackup'
     -- was copied.
     sourceRegion :: Prelude.Maybe Prelude.Text,
     -- | The date and time when both the source backup was created.
-    createTimestamp :: Prelude.Maybe Core.POSIX,
+    createTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The identifier (ID) of the source backup from which the new backup was
     -- copied.
     sourceBackup :: Prelude.Maybe Prelude.Text
@@ -82,23 +83,23 @@ destinationBackup_sourceRegion = Lens.lens (\DestinationBackup' {sourceRegion} -
 
 -- | The date and time when both the source backup was created.
 destinationBackup_createTimestamp :: Lens.Lens' DestinationBackup (Prelude.Maybe Prelude.UTCTime)
-destinationBackup_createTimestamp = Lens.lens (\DestinationBackup' {createTimestamp} -> createTimestamp) (\s@DestinationBackup' {} a -> s {createTimestamp = a} :: DestinationBackup) Prelude.. Lens.mapping Core._Time
+destinationBackup_createTimestamp = Lens.lens (\DestinationBackup' {createTimestamp} -> createTimestamp) (\s@DestinationBackup' {} a -> s {createTimestamp = a} :: DestinationBackup) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier (ID) of the source backup from which the new backup was
 -- copied.
 destinationBackup_sourceBackup :: Lens.Lens' DestinationBackup (Prelude.Maybe Prelude.Text)
 destinationBackup_sourceBackup = Lens.lens (\DestinationBackup' {sourceBackup} -> sourceBackup) (\s@DestinationBackup' {} a -> s {sourceBackup = a} :: DestinationBackup)
 
-instance Core.FromJSON DestinationBackup where
+instance Data.FromJSON DestinationBackup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DestinationBackup"
       ( \x ->
           DestinationBackup'
-            Prelude.<$> (x Core..:? "SourceCluster")
-            Prelude.<*> (x Core..:? "SourceRegion")
-            Prelude.<*> (x Core..:? "CreateTimestamp")
-            Prelude.<*> (x Core..:? "SourceBackup")
+            Prelude.<$> (x Data..:? "SourceCluster")
+            Prelude.<*> (x Data..:? "SourceRegion")
+            Prelude.<*> (x Data..:? "CreateTimestamp")
+            Prelude.<*> (x Data..:? "SourceBackup")
       )
 
 instance Prelude.Hashable DestinationBackup where

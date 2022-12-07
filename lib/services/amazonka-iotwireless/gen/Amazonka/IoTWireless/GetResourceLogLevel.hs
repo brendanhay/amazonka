@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest GetResourceLogLevel where
     Response.receiveJSON
       ( \s h x ->
           GetResourceLogLevelResponse'
-            Prelude.<$> (x Core..?> "LogLevel")
+            Prelude.<$> (x Data..?> "LogLevel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,18 +119,18 @@ instance Prelude.NFData GetResourceLogLevel where
     Prelude.rnf resourceIdentifier
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToHeaders GetResourceLogLevel where
+instance Data.ToHeaders GetResourceLogLevel where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetResourceLogLevel where
+instance Data.ToPath GetResourceLogLevel where
   toPath GetResourceLogLevel' {..} =
     Prelude.mconcat
-      ["/log-levels/", Core.toBS resourceIdentifier]
+      ["/log-levels/", Data.toBS resourceIdentifier]
 
-instance Core.ToQuery GetResourceLogLevel where
+instance Data.ToQuery GetResourceLogLevel where
   toQuery GetResourceLogLevel' {..} =
     Prelude.mconcat
-      ["resourceType" Core.=: resourceType]
+      ["resourceType" Data.=: resourceType]
 
 -- | /See:/ 'newGetResourceLogLevelResponse' smart constructor.
 data GetResourceLogLevelResponse = GetResourceLogLevelResponse'

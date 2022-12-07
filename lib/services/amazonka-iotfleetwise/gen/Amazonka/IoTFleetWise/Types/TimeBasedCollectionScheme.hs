@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.TimeBasedCollectionScheme where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a collection scheme that uses a time period to decide
@@ -59,13 +60,13 @@ newTimeBasedCollectionScheme pPeriodMs_ =
 timeBasedCollectionScheme_periodMs :: Lens.Lens' TimeBasedCollectionScheme Prelude.Natural
 timeBasedCollectionScheme_periodMs = Lens.lens (\TimeBasedCollectionScheme' {periodMs} -> periodMs) (\s@TimeBasedCollectionScheme' {} a -> s {periodMs = a} :: TimeBasedCollectionScheme)
 
-instance Core.FromJSON TimeBasedCollectionScheme where
+instance Data.FromJSON TimeBasedCollectionScheme where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeBasedCollectionScheme"
       ( \x ->
           TimeBasedCollectionScheme'
-            Prelude.<$> (x Core..: "periodMs")
+            Prelude.<$> (x Data..: "periodMs")
       )
 
 instance Prelude.Hashable TimeBasedCollectionScheme where
@@ -76,9 +77,9 @@ instance Prelude.NFData TimeBasedCollectionScheme where
   rnf TimeBasedCollectionScheme' {..} =
     Prelude.rnf periodMs
 
-instance Core.ToJSON TimeBasedCollectionScheme where
+instance Data.ToJSON TimeBasedCollectionScheme where
   toJSON TimeBasedCollectionScheme' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("periodMs" Core..= periodMs)]
+          [Prelude.Just ("periodMs" Data..= periodMs)]
       )

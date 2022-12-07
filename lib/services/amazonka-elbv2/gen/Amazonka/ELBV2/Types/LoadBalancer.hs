@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.LoadBalancer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types.AvailabilityZone
 import Amazonka.ELBV2.Types.IpAddressType
 import Amazonka.ELBV2.Types.LoadBalancerSchemeEnum
@@ -46,7 +47,7 @@ data LoadBalancer = LoadBalancer'
     -- | The type of load balancer.
     type' :: Prelude.Maybe LoadBalancerTypeEnum,
     -- | The date and time the load balancer was created.
-    createdTime :: Prelude.Maybe Core.ISO8601,
+    createdTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the load balancer.
     loadBalancerName :: Prelude.Maybe Prelude.Text,
     -- | The subnets for the load balancer.
@@ -158,7 +159,7 @@ loadBalancer_type = Lens.lens (\LoadBalancer' {type'} -> type') (\s@LoadBalancer
 
 -- | The date and time the load balancer was created.
 loadBalancer_createdTime :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.UTCTime)
-loadBalancer_createdTime = Lens.lens (\LoadBalancer' {createdTime} -> createdTime) (\s@LoadBalancer' {} a -> s {createdTime = a} :: LoadBalancer) Prelude.. Lens.mapping Core._Time
+loadBalancer_createdTime = Lens.lens (\LoadBalancer' {createdTime} -> createdTime) (\s@LoadBalancer' {} a -> s {createdTime = a} :: LoadBalancer) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the load balancer.
 loadBalancer_loadBalancerName :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
@@ -204,27 +205,27 @@ loadBalancer_canonicalHostedZoneId = Lens.lens (\LoadBalancer' {canonicalHostedZ
 loadBalancer_ipAddressType :: Lens.Lens' LoadBalancer (Prelude.Maybe IpAddressType)
 loadBalancer_ipAddressType = Lens.lens (\LoadBalancer' {ipAddressType} -> ipAddressType) (\s@LoadBalancer' {} a -> s {ipAddressType = a} :: LoadBalancer)
 
-instance Core.FromXML LoadBalancer where
+instance Data.FromXML LoadBalancer where
   parseXML x =
     LoadBalancer'
-      Prelude.<$> (x Core..@? "Scheme")
-      Prelude.<*> (x Core..@? "Type")
-      Prelude.<*> (x Core..@? "CreatedTime")
-      Prelude.<*> (x Core..@? "LoadBalancerName")
-      Prelude.<*> ( x Core..@? "AvailabilityZones"
+      Prelude.<$> (x Data..@? "Scheme")
+      Prelude.<*> (x Data..@? "Type")
+      Prelude.<*> (x Data..@? "CreatedTime")
+      Prelude.<*> (x Data..@? "LoadBalancerName")
+      Prelude.<*> ( x Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "State")
-      Prelude.<*> (x Core..@? "LoadBalancerArn")
-      Prelude.<*> (x Core..@? "CustomerOwnedIpv4Pool")
-      Prelude.<*> ( x Core..@? "SecurityGroups" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "State")
+      Prelude.<*> (x Data..@? "LoadBalancerArn")
+      Prelude.<*> (x Data..@? "CustomerOwnedIpv4Pool")
+      Prelude.<*> ( x Data..@? "SecurityGroups" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "DNSName")
-      Prelude.<*> (x Core..@? "VpcId")
-      Prelude.<*> (x Core..@? "CanonicalHostedZoneId")
-      Prelude.<*> (x Core..@? "IpAddressType")
+      Prelude.<*> (x Data..@? "DNSName")
+      Prelude.<*> (x Data..@? "VpcId")
+      Prelude.<*> (x Data..@? "CanonicalHostedZoneId")
+      Prelude.<*> (x Data..@? "IpAddressType")
 
 instance Prelude.Hashable LoadBalancer where
   hashWithSalt _salt LoadBalancer' {..} =

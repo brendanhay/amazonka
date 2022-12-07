@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.ServerSideEncryption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.EncryptionType
 import qualified Amazonka.Prelude as Prelude
 
@@ -79,14 +80,14 @@ serverSideEncryption_kmsMasterKeyId = Lens.lens (\ServerSideEncryption' {kmsMast
 serverSideEncryption_encryptionType :: Lens.Lens' ServerSideEncryption (Prelude.Maybe EncryptionType)
 serverSideEncryption_encryptionType = Lens.lens (\ServerSideEncryption' {encryptionType} -> encryptionType) (\s@ServerSideEncryption' {} a -> s {encryptionType = a} :: ServerSideEncryption)
 
-instance Core.FromJSON ServerSideEncryption where
+instance Data.FromJSON ServerSideEncryption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerSideEncryption"
       ( \x ->
           ServerSideEncryption'
-            Prelude.<$> (x Core..:? "kmsMasterKeyId")
-            Prelude.<*> (x Core..:? "encryptionType")
+            Prelude.<$> (x Data..:? "kmsMasterKeyId")
+            Prelude.<*> (x Data..:? "encryptionType")
       )
 
 instance Prelude.Hashable ServerSideEncryption where

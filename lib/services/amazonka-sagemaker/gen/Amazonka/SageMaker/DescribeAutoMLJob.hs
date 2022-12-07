@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,28 +104,28 @@ instance Core.AWSRequest DescribeAutoMLJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeAutoMLJobResponse'
-            Prelude.<$> (x Core..?> "AutoMLJobConfig")
-            Prelude.<*> (x Core..?> "AutoMLJobArtifacts")
-            Prelude.<*> (x Core..?> "AutoMLJobObjective")
-            Prelude.<*> (x Core..?> "PartialFailureReasons")
-            Prelude.<*> (x Core..?> "EndTime")
-            Prelude.<*> (x Core..?> "ResolvedAttributes")
-            Prelude.<*> (x Core..?> "ModelDeployConfig")
-            Prelude.<*> (x Core..?> "ModelDeployResult")
-            Prelude.<*> (x Core..?> "ProblemType")
-            Prelude.<*> (x Core..?> "BestCandidate")
-            Prelude.<*> (x Core..?> "GenerateCandidateDefinitionsOnly")
-            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<$> (x Data..?> "AutoMLJobConfig")
+            Prelude.<*> (x Data..?> "AutoMLJobArtifacts")
+            Prelude.<*> (x Data..?> "AutoMLJobObjective")
+            Prelude.<*> (x Data..?> "PartialFailureReasons")
+            Prelude.<*> (x Data..?> "EndTime")
+            Prelude.<*> (x Data..?> "ResolvedAttributes")
+            Prelude.<*> (x Data..?> "ModelDeployConfig")
+            Prelude.<*> (x Data..?> "ModelDeployResult")
+            Prelude.<*> (x Data..?> "ProblemType")
+            Prelude.<*> (x Data..?> "BestCandidate")
+            Prelude.<*> (x Data..?> "GenerateCandidateDefinitionsOnly")
+            Prelude.<*> (x Data..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "AutoMLJobName")
-            Prelude.<*> (x Core..:> "AutoMLJobArn")
-            Prelude.<*> (x Core..:> "InputDataConfig")
-            Prelude.<*> (x Core..:> "OutputDataConfig")
-            Prelude.<*> (x Core..:> "RoleArn")
-            Prelude.<*> (x Core..:> "CreationTime")
-            Prelude.<*> (x Core..:> "LastModifiedTime")
-            Prelude.<*> (x Core..:> "AutoMLJobStatus")
-            Prelude.<*> (x Core..:> "AutoMLJobSecondaryStatus")
+            Prelude.<*> (x Data..:> "AutoMLJobName")
+            Prelude.<*> (x Data..:> "AutoMLJobArn")
+            Prelude.<*> (x Data..:> "InputDataConfig")
+            Prelude.<*> (x Data..:> "OutputDataConfig")
+            Prelude.<*> (x Data..:> "RoleArn")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "LastModifiedTime")
+            Prelude.<*> (x Data..:> "AutoMLJobStatus")
+            Prelude.<*> (x Data..:> "AutoMLJobSecondaryStatus")
       )
 
 instance Prelude.Hashable DescribeAutoMLJob where
@@ -135,34 +136,34 @@ instance Prelude.NFData DescribeAutoMLJob where
   rnf DescribeAutoMLJob' {..} =
     Prelude.rnf autoMLJobName
 
-instance Core.ToHeaders DescribeAutoMLJob where
+instance Data.ToHeaders DescribeAutoMLJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeAutoMLJob" ::
+              Data.=# ( "SageMaker.DescribeAutoMLJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAutoMLJob where
+instance Data.ToJSON DescribeAutoMLJob where
   toJSON DescribeAutoMLJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AutoMLJobName" Core..= autoMLJobName)
+              ("AutoMLJobName" Data..= autoMLJobName)
           ]
       )
 
-instance Core.ToPath DescribeAutoMLJob where
+instance Data.ToPath DescribeAutoMLJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAutoMLJob where
+instance Data.ToQuery DescribeAutoMLJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAutoMLJobResponse' smart constructor.
@@ -177,7 +178,7 @@ data DescribeAutoMLJobResponse = DescribeAutoMLJobResponse'
     -- | Returns a list of reasons for partial failures within an AutoML job.
     partialFailureReasons :: Prelude.Maybe (Prelude.NonEmpty AutoMLPartialFailureReason),
     -- | Returns the end time of the AutoML job.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | This contains @ProblemType@, @AutoMLJobObjective@, and
     -- @CompletionCriteria@. If you do not provide these values, they are
     -- auto-inferred. If you do provide them, the values used are the ones you
@@ -212,9 +213,9 @@ data DescribeAutoMLJobResponse = DescribeAutoMLJobResponse'
     -- location and write permission to the output data location in Amazon S3.
     roleArn :: Prelude.Text,
     -- | Returns the creation time of the AutoML job.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | Returns the job\'s last modified time.
-    lastModifiedTime :: Core.POSIX,
+    lastModifiedTime :: Data.POSIX,
     -- | Returns the status of the AutoML job.
     autoMLJobStatus :: AutoMLJobStatus,
     -- | Returns the secondary status of the AutoML job.
@@ -336,9 +337,9 @@ newDescribeAutoMLJobResponse
           Lens.coerced Lens.# pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         roleArn = pRoleArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         autoMLJobStatus = pAutoMLJobStatus_,
         autoMLJobSecondaryStatus =
           pAutoMLJobSecondaryStatus_
@@ -363,7 +364,7 @@ describeAutoMLJobResponse_partialFailureReasons = Lens.lens (\DescribeAutoMLJobR
 
 -- | Returns the end time of the AutoML job.
 describeAutoMLJobResponse_endTime :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeAutoMLJobResponse_endTime = Lens.lens (\DescribeAutoMLJobResponse' {endTime} -> endTime) (\s@DescribeAutoMLJobResponse' {} a -> s {endTime = a} :: DescribeAutoMLJobResponse) Prelude.. Lens.mapping Core._Time
+describeAutoMLJobResponse_endTime = Lens.lens (\DescribeAutoMLJobResponse' {endTime} -> endTime) (\s@DescribeAutoMLJobResponse' {} a -> s {endTime = a} :: DescribeAutoMLJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | This contains @ProblemType@, @AutoMLJobObjective@, and
 -- @CompletionCriteria@. If you do not provide these values, they are
@@ -426,11 +427,11 @@ describeAutoMLJobResponse_roleArn = Lens.lens (\DescribeAutoMLJobResponse' {role
 
 -- | Returns the creation time of the AutoML job.
 describeAutoMLJobResponse_creationTime :: Lens.Lens' DescribeAutoMLJobResponse Prelude.UTCTime
-describeAutoMLJobResponse_creationTime = Lens.lens (\DescribeAutoMLJobResponse' {creationTime} -> creationTime) (\s@DescribeAutoMLJobResponse' {} a -> s {creationTime = a} :: DescribeAutoMLJobResponse) Prelude.. Core._Time
+describeAutoMLJobResponse_creationTime = Lens.lens (\DescribeAutoMLJobResponse' {creationTime} -> creationTime) (\s@DescribeAutoMLJobResponse' {} a -> s {creationTime = a} :: DescribeAutoMLJobResponse) Prelude.. Data._Time
 
 -- | Returns the job\'s last modified time.
 describeAutoMLJobResponse_lastModifiedTime :: Lens.Lens' DescribeAutoMLJobResponse Prelude.UTCTime
-describeAutoMLJobResponse_lastModifiedTime = Lens.lens (\DescribeAutoMLJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeAutoMLJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeAutoMLJobResponse) Prelude.. Core._Time
+describeAutoMLJobResponse_lastModifiedTime = Lens.lens (\DescribeAutoMLJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeAutoMLJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeAutoMLJobResponse) Prelude.. Data._Time
 
 -- | Returns the status of the AutoML job.
 describeAutoMLJobResponse_autoMLJobStatus :: Lens.Lens' DescribeAutoMLJobResponse AutoMLJobStatus

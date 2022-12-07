@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PeeringAttachmentStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,11 +63,11 @@ peeringAttachmentStatus_message = Lens.lens (\PeeringAttachmentStatus' {message}
 peeringAttachmentStatus_code :: Lens.Lens' PeeringAttachmentStatus (Prelude.Maybe Prelude.Text)
 peeringAttachmentStatus_code = Lens.lens (\PeeringAttachmentStatus' {code} -> code) (\s@PeeringAttachmentStatus' {} a -> s {code = a} :: PeeringAttachmentStatus)
 
-instance Core.FromXML PeeringAttachmentStatus where
+instance Data.FromXML PeeringAttachmentStatus where
   parseXML x =
     PeeringAttachmentStatus'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance Prelude.Hashable PeeringAttachmentStatus where
   hashWithSalt _salt PeeringAttachmentStatus' {..} =

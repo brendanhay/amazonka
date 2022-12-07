@@ -24,6 +24,7 @@ import Amazonka.Comprehend.Types.DocumentReadFeatureTypes
 import Amazonka.Comprehend.Types.DocumentReadMode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The input properties for a topic detection job.
@@ -115,15 +116,15 @@ documentReaderConfig_featureTypes = Lens.lens (\DocumentReaderConfig' {featureTy
 documentReaderConfig_documentReadAction :: Lens.Lens' DocumentReaderConfig DocumentReadAction
 documentReaderConfig_documentReadAction = Lens.lens (\DocumentReaderConfig' {documentReadAction} -> documentReadAction) (\s@DocumentReaderConfig' {} a -> s {documentReadAction = a} :: DocumentReaderConfig)
 
-instance Core.FromJSON DocumentReaderConfig where
+instance Data.FromJSON DocumentReaderConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentReaderConfig"
       ( \x ->
           DocumentReaderConfig'
-            Prelude.<$> (x Core..:? "DocumentReadMode")
-            Prelude.<*> (x Core..:? "FeatureTypes")
-            Prelude.<*> (x Core..: "DocumentReadAction")
+            Prelude.<$> (x Data..:? "DocumentReadMode")
+            Prelude.<*> (x Data..:? "FeatureTypes")
+            Prelude.<*> (x Data..: "DocumentReadAction")
       )
 
 instance Prelude.Hashable DocumentReaderConfig where
@@ -138,14 +139,14 @@ instance Prelude.NFData DocumentReaderConfig where
       `Prelude.seq` Prelude.rnf featureTypes
       `Prelude.seq` Prelude.rnf documentReadAction
 
-instance Core.ToJSON DocumentReaderConfig where
+instance Data.ToJSON DocumentReaderConfig where
   toJSON DocumentReaderConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DocumentReadMode" Core..=)
+          [ ("DocumentReadMode" Data..=)
               Prelude.<$> documentReadMode,
-            ("FeatureTypes" Core..=) Prelude.<$> featureTypes,
+            ("FeatureTypes" Data..=) Prelude.<$> featureTypes,
             Prelude.Just
-              ("DocumentReadAction" Core..= documentReadAction)
+              ("DocumentReadAction" Data..= documentReadAction)
           ]
       )

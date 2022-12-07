@@ -45,6 +45,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,9 +104,9 @@ instance Core.AWSRequest DeleteVocabulary where
       ( \s h x ->
           DeleteVocabularyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "VocabularyArn")
-            Prelude.<*> (x Core..:> "VocabularyId")
-            Prelude.<*> (x Core..:> "State")
+            Prelude.<*> (x Data..:> "VocabularyArn")
+            Prelude.<*> (x Data..:> "VocabularyId")
+            Prelude.<*> (x Data..:> "State")
       )
 
 instance Prelude.Hashable DeleteVocabulary where
@@ -118,30 +119,30 @@ instance Prelude.NFData DeleteVocabulary where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf vocabularyId
 
-instance Core.ToHeaders DeleteVocabulary where
+instance Data.ToHeaders DeleteVocabulary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteVocabulary where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DeleteVocabulary where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DeleteVocabulary where
+instance Data.ToPath DeleteVocabulary where
   toPath DeleteVocabulary' {..} =
     Prelude.mconcat
       [ "/vocabulary-remove/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS vocabularyId
+        Data.toBS vocabularyId
       ]
 
-instance Core.ToQuery DeleteVocabulary where
+instance Data.ToQuery DeleteVocabulary where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVocabularyResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -192,38 +193,38 @@ instance Prelude.NFData CreateBatchImportJob where
       `Prelude.seq` Prelude.rnf eventTypeName
       `Prelude.seq` Prelude.rnf iamRoleArn
 
-instance Core.ToHeaders CreateBatchImportJob where
+instance Data.ToHeaders CreateBatchImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.CreateBatchImportJob" ::
+              Data.=# ( "AWSHawksNestServiceFacade.CreateBatchImportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBatchImportJob where
+instance Data.ToJSON CreateBatchImportJob where
   toJSON CreateBatchImportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("jobId" Core..= jobId),
-            Prelude.Just ("inputPath" Core..= inputPath),
-            Prelude.Just ("outputPath" Core..= outputPath),
-            Prelude.Just ("eventTypeName" Core..= eventTypeName),
-            Prelude.Just ("iamRoleArn" Core..= iamRoleArn)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("jobId" Data..= jobId),
+            Prelude.Just ("inputPath" Data..= inputPath),
+            Prelude.Just ("outputPath" Data..= outputPath),
+            Prelude.Just ("eventTypeName" Data..= eventTypeName),
+            Prelude.Just ("iamRoleArn" Data..= iamRoleArn)
           ]
       )
 
-instance Core.ToPath CreateBatchImportJob where
+instance Data.ToPath CreateBatchImportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateBatchImportJob where
+instance Data.ToQuery CreateBatchImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBatchImportJobResponse' smart constructor.

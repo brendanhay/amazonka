@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -175,20 +176,20 @@ instance Core.AWSRequest UpdateBotLocale where
     Response.receiveJSON
       ( \s h x ->
           UpdateBotLocaleResponse'
-            Prelude.<$> (x Core..?> "nluIntentConfidenceThreshold")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "localeName")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> ( x Core..?> "recommendedActions"
+            Prelude.<$> (x Data..?> "nluIntentConfidenceThreshold")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "localeName")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> ( x Data..?> "recommendedActions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botLocaleStatus")
-            Prelude.<*> (x Core..?> "voiceSettings")
-            Prelude.<*> (x Core..?> "failureReasons" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "lastUpdatedDateTime")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botLocaleStatus")
+            Prelude.<*> (x Data..?> "voiceSettings")
+            Prelude.<*> (x Data..?> "failureReasons" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,43 +211,43 @@ instance Prelude.NFData UpdateBotLocale where
       `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf nluIntentConfidenceThreshold
 
-instance Core.ToHeaders UpdateBotLocale where
+instance Data.ToHeaders UpdateBotLocale where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBotLocale where
+instance Data.ToJSON UpdateBotLocale where
   toJSON UpdateBotLocale' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("voiceSettings" Core..=) Prelude.<$> voiceSettings,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("voiceSettings" Data..=) Prelude.<$> voiceSettings,
             Prelude.Just
               ( "nluIntentConfidenceThreshold"
-                  Core..= nluIntentConfidenceThreshold
+                  Data..= nluIntentConfidenceThreshold
               )
           ]
       )
 
-instance Core.ToPath UpdateBotLocale where
+instance Data.ToPath UpdateBotLocale where
   toPath UpdateBotLocale' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/"
       ]
 
-instance Core.ToQuery UpdateBotLocale where
+instance Data.ToQuery UpdateBotLocale where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBotLocaleResponse' smart constructor.
@@ -258,7 +259,7 @@ data UpdateBotLocaleResponse = UpdateBotLocaleResponse'
     -- | The version of the bot that contains the updated locale.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the locale was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The updated locale name for the locale.
     localeName :: Prelude.Maybe Prelude.Text,
     -- | The language and locale of the updated bot locale.
@@ -280,7 +281,7 @@ data UpdateBotLocaleResponse = UpdateBotLocaleResponse'
     -- the errors that occurred while building the bot.
     failureReasons :: Prelude.Maybe [Prelude.Text],
     -- | A timestamp of the date and time that the locale was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -359,7 +360,7 @@ updateBotLocaleResponse_botVersion = Lens.lens (\UpdateBotLocaleResponse' {botVe
 
 -- | A timestamp of the date and time that the locale was created.
 updateBotLocaleResponse_creationDateTime :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.UTCTime)
-updateBotLocaleResponse_creationDateTime = Lens.lens (\UpdateBotLocaleResponse' {creationDateTime} -> creationDateTime) (\s@UpdateBotLocaleResponse' {} a -> s {creationDateTime = a} :: UpdateBotLocaleResponse) Prelude.. Lens.mapping Core._Time
+updateBotLocaleResponse_creationDateTime = Lens.lens (\UpdateBotLocaleResponse' {creationDateTime} -> creationDateTime) (\s@UpdateBotLocaleResponse' {} a -> s {creationDateTime = a} :: UpdateBotLocaleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The updated locale name for the locale.
 updateBotLocaleResponse_localeName :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.Text)
@@ -399,7 +400,7 @@ updateBotLocaleResponse_failureReasons = Lens.lens (\UpdateBotLocaleResponse' {f
 
 -- | A timestamp of the date and time that the locale was last updated.
 updateBotLocaleResponse_lastUpdatedDateTime :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.UTCTime)
-updateBotLocaleResponse_lastUpdatedDateTime = Lens.lens (\UpdateBotLocaleResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateBotLocaleResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateBotLocaleResponse) Prelude.. Lens.mapping Core._Time
+updateBotLocaleResponse_lastUpdatedDateTime = Lens.lens (\UpdateBotLocaleResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateBotLocaleResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateBotLocaleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updateBotLocaleResponse_httpStatus :: Lens.Lens' UpdateBotLocaleResponse Prelude.Int

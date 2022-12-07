@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.BillingDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that describes workflow billing details.
@@ -62,14 +63,14 @@ billingDetails_billedDurationInMilliseconds = Lens.lens (\BillingDetails' {bille
 billingDetails_billedMemoryUsedInMB :: Lens.Lens' BillingDetails (Prelude.Maybe Prelude.Natural)
 billingDetails_billedMemoryUsedInMB = Lens.lens (\BillingDetails' {billedMemoryUsedInMB} -> billedMemoryUsedInMB) (\s@BillingDetails' {} a -> s {billedMemoryUsedInMB = a} :: BillingDetails)
 
-instance Core.FromJSON BillingDetails where
+instance Data.FromJSON BillingDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BillingDetails"
       ( \x ->
           BillingDetails'
-            Prelude.<$> (x Core..:? "billedDurationInMilliseconds")
-            Prelude.<*> (x Core..:? "billedMemoryUsedInMB")
+            Prelude.<$> (x Data..:? "billedDurationInMilliseconds")
+            Prelude.<*> (x Data..:? "billedMemoryUsedInMB")
       )
 
 instance Prelude.Hashable BillingDetails where

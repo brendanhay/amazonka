@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -372,12 +373,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListResolverQueryLogConfigAssociationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "TotalFilteredCount")
-              Prelude.<*> ( x Core..?> "ResolverQueryLogConfigAssociations"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "TotalFilteredCount")
+              Prelude.<*> ( x Data..?> "ResolverQueryLogConfigAssociations"
                               Core..!@ Prelude.mempty
                           )
-              Prelude.<*> (x Core..?> "TotalCount")
+              Prelude.<*> (x Data..?> "TotalCount")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -406,46 +407,46 @@ instance
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListResolverQueryLogConfigAssociations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.ListResolverQueryLogConfigAssociations" ::
+              Data.=# ( "Route53Resolver.ListResolverQueryLogConfigAssociations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListResolverQueryLogConfigAssociations
   where
   toJSON ListResolverQueryLogConfigAssociations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListResolverQueryLogConfigAssociations
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListResolverQueryLogConfigAssociations
   where
   toQuery = Prelude.const Prelude.mempty

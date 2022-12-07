@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,26 +91,26 @@ instance Prelude.Hashable RebootBroker where
 instance Prelude.NFData RebootBroker where
   rnf RebootBroker' {..} = Prelude.rnf brokerId
 
-instance Core.ToHeaders RebootBroker where
+instance Data.ToHeaders RebootBroker where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RebootBroker where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON RebootBroker where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath RebootBroker where
+instance Data.ToPath RebootBroker where
   toPath RebootBroker' {..} =
     Prelude.mconcat
-      ["/v1/brokers/", Core.toBS brokerId, "/reboot"]
+      ["/v1/brokers/", Data.toBS brokerId, "/reboot"]
 
-instance Core.ToQuery RebootBroker where
+instance Data.ToQuery RebootBroker where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRebootBrokerResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateSpotMarketOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceInterruptionBehavior
 import Amazonka.EC2.Types.SpotInstanceType
@@ -50,7 +51,7 @@ data LaunchTemplateSpotMarketOptions = LaunchTemplateSpotMarketOptions'
     -- active until all instances launch, the request is canceled, or this date
     -- is reached. If the request is persistent, it remains active until it is
     -- canceled or this date and time is reached.
-    validUntil :: Prelude.Maybe Core.ISO8601
+    validUntil :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -124,16 +125,16 @@ launchTemplateSpotMarketOptions_spotInstanceType = Lens.lens (\LaunchTemplateSpo
 -- is reached. If the request is persistent, it remains active until it is
 -- canceled or this date and time is reached.
 launchTemplateSpotMarketOptions_validUntil :: Lens.Lens' LaunchTemplateSpotMarketOptions (Prelude.Maybe Prelude.UTCTime)
-launchTemplateSpotMarketOptions_validUntil = Lens.lens (\LaunchTemplateSpotMarketOptions' {validUntil} -> validUntil) (\s@LaunchTemplateSpotMarketOptions' {} a -> s {validUntil = a} :: LaunchTemplateSpotMarketOptions) Prelude.. Lens.mapping Core._Time
+launchTemplateSpotMarketOptions_validUntil = Lens.lens (\LaunchTemplateSpotMarketOptions' {validUntil} -> validUntil) (\s@LaunchTemplateSpotMarketOptions' {} a -> s {validUntil = a} :: LaunchTemplateSpotMarketOptions) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML LaunchTemplateSpotMarketOptions where
+instance Data.FromXML LaunchTemplateSpotMarketOptions where
   parseXML x =
     LaunchTemplateSpotMarketOptions'
-      Prelude.<$> (x Core..@? "blockDurationMinutes")
-      Prelude.<*> (x Core..@? "maxPrice")
-      Prelude.<*> (x Core..@? "instanceInterruptionBehavior")
-      Prelude.<*> (x Core..@? "spotInstanceType")
-      Prelude.<*> (x Core..@? "validUntil")
+      Prelude.<$> (x Data..@? "blockDurationMinutes")
+      Prelude.<*> (x Data..@? "maxPrice")
+      Prelude.<*> (x Data..@? "instanceInterruptionBehavior")
+      Prelude.<*> (x Data..@? "spotInstanceType")
+      Prelude.<*> (x Data..@? "validUntil")
 
 instance
   Prelude.Hashable

@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.Headers where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a list of HTTP header names.
@@ -63,13 +64,13 @@ headers_items = Lens.lens (\Headers' {items} -> items) (\s@Headers' {} a -> s {i
 headers_quantity :: Lens.Lens' Headers Prelude.Int
 headers_quantity = Lens.lens (\Headers' {quantity} -> quantity) (\s@Headers' {} a -> s {quantity = a} :: Headers)
 
-instance Core.FromXML Headers where
+instance Data.FromXML Headers where
   parseXML x =
     Headers'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Name")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Name")
                   )
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable Headers where
   hashWithSalt _salt Headers' {..} =
@@ -81,10 +82,10 @@ instance Prelude.NFData Headers where
     Prelude.rnf items
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML Headers where
+instance Data.ToXML Headers where
   toXML Headers' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML (Core.toXMLList "Name" Prelude.<$> items),
-        "Quantity" Core.@= quantity
+          Data.@= Data.toXML (Data.toXMLList "Name" Prelude.<$> items),
+        "Quantity" Data.@= quantity
       ]

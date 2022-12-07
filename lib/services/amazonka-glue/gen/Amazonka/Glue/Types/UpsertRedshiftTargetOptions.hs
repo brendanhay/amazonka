@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.UpsertRedshiftTargetOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The options to configure an upsert operation when writing to a Redshift
@@ -72,15 +73,15 @@ upsertRedshiftTargetOptions_upsertKeys = Lens.lens (\UpsertRedshiftTargetOptions
 upsertRedshiftTargetOptions_connectionName :: Lens.Lens' UpsertRedshiftTargetOptions (Prelude.Maybe Prelude.Text)
 upsertRedshiftTargetOptions_connectionName = Lens.lens (\UpsertRedshiftTargetOptions' {connectionName} -> connectionName) (\s@UpsertRedshiftTargetOptions' {} a -> s {connectionName = a} :: UpsertRedshiftTargetOptions)
 
-instance Core.FromJSON UpsertRedshiftTargetOptions where
+instance Data.FromJSON UpsertRedshiftTargetOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpsertRedshiftTargetOptions"
       ( \x ->
           UpsertRedshiftTargetOptions'
-            Prelude.<$> (x Core..:? "TableLocation")
-            Prelude.<*> (x Core..:? "UpsertKeys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ConnectionName")
+            Prelude.<$> (x Data..:? "TableLocation")
+            Prelude.<*> (x Data..:? "UpsertKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ConnectionName")
       )
 
 instance Prelude.Hashable UpsertRedshiftTargetOptions where
@@ -95,13 +96,13 @@ instance Prelude.NFData UpsertRedshiftTargetOptions where
       `Prelude.seq` Prelude.rnf upsertKeys
       `Prelude.seq` Prelude.rnf connectionName
 
-instance Core.ToJSON UpsertRedshiftTargetOptions where
+instance Data.ToJSON UpsertRedshiftTargetOptions where
   toJSON UpsertRedshiftTargetOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TableLocation" Core..=) Prelude.<$> tableLocation,
-            ("UpsertKeys" Core..=) Prelude.<$> upsertKeys,
-            ("ConnectionName" Core..=)
+          [ ("TableLocation" Data..=) Prelude.<$> tableLocation,
+            ("UpsertKeys" Data..=) Prelude.<$> upsertKeys,
+            ("ConnectionName" Data..=)
               Prelude.<$> connectionName
           ]
       )

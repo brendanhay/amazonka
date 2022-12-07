@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.NfsMountOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types.NfsVersion
 import qualified Amazonka.Prelude as Prelude
 
@@ -108,12 +109,12 @@ newNfsMountOptions =
 nfsMountOptions_version :: Lens.Lens' NfsMountOptions (Prelude.Maybe NfsVersion)
 nfsMountOptions_version = Lens.lens (\NfsMountOptions' {version} -> version) (\s@NfsMountOptions' {} a -> s {version = a} :: NfsMountOptions)
 
-instance Core.FromJSON NfsMountOptions where
+instance Data.FromJSON NfsMountOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NfsMountOptions"
       ( \x ->
-          NfsMountOptions' Prelude.<$> (x Core..:? "Version")
+          NfsMountOptions' Prelude.<$> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable NfsMountOptions where
@@ -123,9 +124,9 @@ instance Prelude.Hashable NfsMountOptions where
 instance Prelude.NFData NfsMountOptions where
   rnf NfsMountOptions' {..} = Prelude.rnf version
 
-instance Core.ToJSON NfsMountOptions where
+instance Data.ToJSON NfsMountOptions where
   toJSON NfsMountOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Version" Core..=) Prelude.<$> version]
+          [("Version" Data..=) Prelude.<$> version]
       )

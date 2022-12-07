@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -181,15 +182,15 @@ instance Core.AWSRequest EnableFastLaunch where
     Response.receiveXML
       ( \s h x ->
           EnableFastLaunchResponse'
-            Prelude.<$> (x Core..@? "resourceType")
-            Prelude.<*> (x Core..@? "ownerId")
-            Prelude.<*> (x Core..@? "launchTemplate")
-            Prelude.<*> (x Core..@? "stateTransitionTime")
-            Prelude.<*> (x Core..@? "state")
-            Prelude.<*> (x Core..@? "stateTransitionReason")
-            Prelude.<*> (x Core..@? "snapshotConfiguration")
-            Prelude.<*> (x Core..@? "maxParallelLaunches")
-            Prelude.<*> (x Core..@? "imageId")
+            Prelude.<$> (x Data..@? "resourceType")
+            Prelude.<*> (x Data..@? "ownerId")
+            Prelude.<*> (x Data..@? "launchTemplate")
+            Prelude.<*> (x Data..@? "stateTransitionTime")
+            Prelude.<*> (x Data..@? "state")
+            Prelude.<*> (x Data..@? "stateTransitionReason")
+            Prelude.<*> (x Data..@? "snapshotConfiguration")
+            Prelude.<*> (x Data..@? "maxParallelLaunches")
+            Prelude.<*> (x Data..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,26 +212,26 @@ instance Prelude.NFData EnableFastLaunch where
       `Prelude.seq` Prelude.rnf maxParallelLaunches
       `Prelude.seq` Prelude.rnf imageId
 
-instance Core.ToHeaders EnableFastLaunch where
+instance Data.ToHeaders EnableFastLaunch where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath EnableFastLaunch where
+instance Data.ToPath EnableFastLaunch where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnableFastLaunch where
+instance Data.ToQuery EnableFastLaunch where
   toQuery EnableFastLaunch' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("EnableFastLaunch" :: Prelude.ByteString),
+          Data.=: ("EnableFastLaunch" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ResourceType" Core.=: resourceType,
-        "LaunchTemplate" Core.=: launchTemplate,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ResourceType" Data.=: resourceType,
+        "LaunchTemplate" Data.=: launchTemplate,
         "SnapshotConfiguration"
-          Core.=: snapshotConfiguration,
-        "DryRun" Core.=: dryRun,
-        "MaxParallelLaunches" Core.=: maxParallelLaunches,
-        "ImageId" Core.=: imageId
+          Data.=: snapshotConfiguration,
+        "DryRun" Data.=: dryRun,
+        "MaxParallelLaunches" Data.=: maxParallelLaunches,
+        "ImageId" Data.=: imageId
       ]
 
 -- | /See:/ 'newEnableFastLaunchResponse' smart constructor.
@@ -245,7 +246,7 @@ data EnableFastLaunchResponse = EnableFastLaunchResponse'
     launchTemplate :: Prelude.Maybe FastLaunchLaunchTemplateSpecificationResponse,
     -- | The time that the state changed for faster launching for the Windows
     -- AMI.
-    stateTransitionTime :: Prelude.Maybe Core.ISO8601,
+    stateTransitionTime :: Prelude.Maybe Data.ISO8601,
     -- | The current state of faster launching for the specified Windows AMI.
     state :: Prelude.Maybe FastLaunchStateCode,
     -- | The reason that the state changed for faster launching for the Windows
@@ -339,7 +340,7 @@ enableFastLaunchResponse_launchTemplate = Lens.lens (\EnableFastLaunchResponse' 
 -- | The time that the state changed for faster launching for the Windows
 -- AMI.
 enableFastLaunchResponse_stateTransitionTime :: Lens.Lens' EnableFastLaunchResponse (Prelude.Maybe Prelude.UTCTime)
-enableFastLaunchResponse_stateTransitionTime = Lens.lens (\EnableFastLaunchResponse' {stateTransitionTime} -> stateTransitionTime) (\s@EnableFastLaunchResponse' {} a -> s {stateTransitionTime = a} :: EnableFastLaunchResponse) Prelude.. Lens.mapping Core._Time
+enableFastLaunchResponse_stateTransitionTime = Lens.lens (\EnableFastLaunchResponse' {stateTransitionTime} -> stateTransitionTime) (\s@EnableFastLaunchResponse' {} a -> s {stateTransitionTime = a} :: EnableFastLaunchResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The current state of faster launching for the specified Windows AMI.
 enableFastLaunchResponse_state :: Lens.Lens' EnableFastLaunchResponse (Prelude.Maybe FastLaunchStateCode)

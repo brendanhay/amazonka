@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.InventoryAggregator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.InventoryGroup
 
@@ -90,12 +91,12 @@ instance Prelude.NFData InventoryAggregator where
       `Prelude.seq` Prelude.rnf aggregators
       `Prelude.seq` Prelude.rnf groups
 
-instance Core.ToJSON InventoryAggregator where
+instance Data.ToJSON InventoryAggregator where
   toJSON InventoryAggregator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Expression" Core..=) Prelude.<$> expression,
-            ("Aggregators" Core..=) Prelude.<$> aggregators,
-            ("Groups" Core..=) Prelude.<$> groups
+          [ ("Expression" Data..=) Prelude.<$> expression,
+            ("Aggregators" Data..=) Prelude.<$> aggregators,
+            ("Groups" Data..=) Prelude.<$> groups
           ]
       )

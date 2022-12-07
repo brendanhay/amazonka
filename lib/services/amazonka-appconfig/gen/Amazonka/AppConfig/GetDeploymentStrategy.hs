@@ -52,6 +52,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,7 +95,7 @@ instance Core.AWSRequest GetDeploymentStrategy where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetDeploymentStrategy where
   hashWithSalt _salt GetDeploymentStrategy' {..} =
@@ -104,23 +105,23 @@ instance Prelude.NFData GetDeploymentStrategy where
   rnf GetDeploymentStrategy' {..} =
     Prelude.rnf deploymentStrategyId
 
-instance Core.ToHeaders GetDeploymentStrategy where
+instance Data.ToHeaders GetDeploymentStrategy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDeploymentStrategy where
+instance Data.ToPath GetDeploymentStrategy where
   toPath GetDeploymentStrategy' {..} =
     Prelude.mconcat
       [ "/deploymentstrategies/",
-        Core.toBS deploymentStrategyId
+        Data.toBS deploymentStrategyId
       ]
 
-instance Core.ToQuery GetDeploymentStrategy where
+instance Data.ToQuery GetDeploymentStrategy where
   toQuery = Prelude.const Prelude.mempty

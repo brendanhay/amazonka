@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.CaptchaConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.ImmunityTimeProperty
 
@@ -58,13 +59,13 @@ newCaptchaConfig =
 captchaConfig_immunityTimeProperty :: Lens.Lens' CaptchaConfig (Prelude.Maybe ImmunityTimeProperty)
 captchaConfig_immunityTimeProperty = Lens.lens (\CaptchaConfig' {immunityTimeProperty} -> immunityTimeProperty) (\s@CaptchaConfig' {} a -> s {immunityTimeProperty = a} :: CaptchaConfig)
 
-instance Core.FromJSON CaptchaConfig where
+instance Data.FromJSON CaptchaConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptchaConfig"
       ( \x ->
           CaptchaConfig'
-            Prelude.<$> (x Core..:? "ImmunityTimeProperty")
+            Prelude.<$> (x Data..:? "ImmunityTimeProperty")
       )
 
 instance Prelude.Hashable CaptchaConfig where
@@ -75,11 +76,11 @@ instance Prelude.NFData CaptchaConfig where
   rnf CaptchaConfig' {..} =
     Prelude.rnf immunityTimeProperty
 
-instance Core.ToJSON CaptchaConfig where
+instance Data.ToJSON CaptchaConfig where
   toJSON CaptchaConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ImmunityTimeProperty" Core..=)
+          [ ("ImmunityTimeProperty" Data..=)
               Prelude.<$> immunityTimeProperty
           ]
       )

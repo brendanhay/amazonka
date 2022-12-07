@@ -26,6 +26,7 @@ import Amazonka.Comprehend.Types.OutputDataConfig
 import Amazonka.Comprehend.Types.VpcConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a sentiment detection job.
@@ -48,7 +49,7 @@ data SentimentDetectionJobProperties = SentimentDetectionJobProperties'
     -- | The name that you assigned to the sentiment detection job
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The time that the sentiment detection job was submitted for processing.
-    submitTime :: Prelude.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier assigned to the sentiment detection job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
@@ -65,7 +66,7 @@ data SentimentDetectionJobProperties = SentimentDetectionJobProperties'
     -- to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the sentiment detection job ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The language code of the input documents.
     languageCode :: Prelude.Maybe LanguageCode,
     -- | The Amazon Resource Name (ARN) of the sentiment detection job. It is a
@@ -187,7 +188,7 @@ sentimentDetectionJobProperties_jobName = Lens.lens (\SentimentDetectionJobPrope
 
 -- | The time that the sentiment detection job was submitted for processing.
 sentimentDetectionJobProperties_submitTime :: Lens.Lens' SentimentDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
-sentimentDetectionJobProperties_submitTime = Lens.lens (\SentimentDetectionJobProperties' {submitTime} -> submitTime) (\s@SentimentDetectionJobProperties' {} a -> s {submitTime = a} :: SentimentDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+sentimentDetectionJobProperties_submitTime = Lens.lens (\SentimentDetectionJobProperties' {submitTime} -> submitTime) (\s@SentimentDetectionJobProperties' {} a -> s {submitTime = a} :: SentimentDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier assigned to the sentiment detection job.
 sentimentDetectionJobProperties_jobId :: Lens.Lens' SentimentDetectionJobProperties (Prelude.Maybe Prelude.Text)
@@ -212,7 +213,7 @@ sentimentDetectionJobProperties_dataAccessRoleArn = Lens.lens (\SentimentDetecti
 
 -- | The time that the sentiment detection job ended.
 sentimentDetectionJobProperties_endTime :: Lens.Lens' SentimentDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
-sentimentDetectionJobProperties_endTime = Lens.lens (\SentimentDetectionJobProperties' {endTime} -> endTime) (\s@SentimentDetectionJobProperties' {} a -> s {endTime = a} :: SentimentDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+sentimentDetectionJobProperties_endTime = Lens.lens (\SentimentDetectionJobProperties' {endTime} -> endTime) (\s@SentimentDetectionJobProperties' {} a -> s {endTime = a} :: SentimentDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The language code of the input documents.
 sentimentDetectionJobProperties_languageCode :: Lens.Lens' SentimentDetectionJobProperties (Prelude.Maybe LanguageCode)
@@ -236,27 +237,27 @@ sentimentDetectionJobProperties_inputDataConfig :: Lens.Lens' SentimentDetection
 sentimentDetectionJobProperties_inputDataConfig = Lens.lens (\SentimentDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@SentimentDetectionJobProperties' {} a -> s {inputDataConfig = a} :: SentimentDetectionJobProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SentimentDetectionJobProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SentimentDetectionJobProperties"
       ( \x ->
           SentimentDetectionJobProperties'
-            Prelude.<$> (x Core..:? "OutputDataConfig")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "JobStatus")
-            Prelude.<*> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "SubmitTime")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "JobArn")
-            Prelude.<*> (x Core..:? "InputDataConfig")
+            Prelude.<$> (x Data..:? "OutputDataConfig")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "JobStatus")
+            Prelude.<*> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "SubmitTime")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Data..:? "DataAccessRoleArn")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "JobArn")
+            Prelude.<*> (x Data..:? "InputDataConfig")
       )
 
 instance

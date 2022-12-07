@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,30 +85,30 @@ instance Prelude.Hashable DeleteIndex where
 instance Prelude.NFData DeleteIndex where
   rnf DeleteIndex' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteIndex where
+instance Data.ToHeaders DeleteIndex where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DeleteIndex" ::
+              Data.=# ( "AWSKendraFrontendService.DeleteIndex" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteIndex where
+instance Data.ToJSON DeleteIndex where
   toJSON DeleteIndex' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("Id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("Id" Data..= id)])
 
-instance Core.ToPath DeleteIndex where
+instance Data.ToPath DeleteIndex where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteIndex where
+instance Data.ToQuery DeleteIndex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteIndexResponse' smart constructor.

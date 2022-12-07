@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2VolumeDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEc2VolumeAttachment
 
@@ -197,23 +198,23 @@ awsEc2VolumeDetails_volumeId = Lens.lens (\AwsEc2VolumeDetails' {volumeId} -> vo
 awsEc2VolumeDetails_createTime :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Text)
 awsEc2VolumeDetails_createTime = Lens.lens (\AwsEc2VolumeDetails' {createTime} -> createTime) (\s@AwsEc2VolumeDetails' {} a -> s {createTime = a} :: AwsEc2VolumeDetails)
 
-instance Core.FromJSON AwsEc2VolumeDetails where
+instance Data.FromJSON AwsEc2VolumeDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2VolumeDetails"
       ( \x ->
           AwsEc2VolumeDetails'
-            Prelude.<$> (x Core..:? "DeviceName")
-            Prelude.<*> (x Core..:? "SnapshotId")
-            Prelude.<*> (x Core..:? "Size")
-            Prelude.<*> (x Core..:? "VolumeType")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Attachments" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "VolumeScanStatus")
-            Prelude.<*> (x Core..:? "Encrypted")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "VolumeId")
-            Prelude.<*> (x Core..:? "CreateTime")
+            Prelude.<$> (x Data..:? "DeviceName")
+            Prelude.<*> (x Data..:? "SnapshotId")
+            Prelude.<*> (x Data..:? "Size")
+            Prelude.<*> (x Data..:? "VolumeType")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Attachments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VolumeScanStatus")
+            Prelude.<*> (x Data..:? "Encrypted")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "VolumeId")
+            Prelude.<*> (x Data..:? "CreateTime")
       )
 
 instance Prelude.Hashable AwsEc2VolumeDetails where
@@ -244,21 +245,21 @@ instance Prelude.NFData AwsEc2VolumeDetails where
       `Prelude.seq` Prelude.rnf volumeId
       `Prelude.seq` Prelude.rnf createTime
 
-instance Core.ToJSON AwsEc2VolumeDetails where
+instance Data.ToJSON AwsEc2VolumeDetails where
   toJSON AwsEc2VolumeDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeviceName" Core..=) Prelude.<$> deviceName,
-            ("SnapshotId" Core..=) Prelude.<$> snapshotId,
-            ("Size" Core..=) Prelude.<$> size,
-            ("VolumeType" Core..=) Prelude.<$> volumeType,
-            ("Status" Core..=) Prelude.<$> status,
-            ("Attachments" Core..=) Prelude.<$> attachments,
-            ("VolumeScanStatus" Core..=)
+          [ ("DeviceName" Data..=) Prelude.<$> deviceName,
+            ("SnapshotId" Data..=) Prelude.<$> snapshotId,
+            ("Size" Data..=) Prelude.<$> size,
+            ("VolumeType" Data..=) Prelude.<$> volumeType,
+            ("Status" Data..=) Prelude.<$> status,
+            ("Attachments" Data..=) Prelude.<$> attachments,
+            ("VolumeScanStatus" Data..=)
               Prelude.<$> volumeScanStatus,
-            ("Encrypted" Core..=) Prelude.<$> encrypted,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("VolumeId" Core..=) Prelude.<$> volumeId,
-            ("CreateTime" Core..=) Prelude.<$> createTime
+            ("Encrypted" Data..=) Prelude.<$> encrypted,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("VolumeId" Data..=) Prelude.<$> volumeId,
+            ("CreateTime" Data..=) Prelude.<$> createTime
           ]
       )

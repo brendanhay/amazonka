@@ -23,6 +23,7 @@ import Amazonka.AppFlow.Types.ConnectorType
 import Amazonka.AppFlow.Types.DestinationConnectorProperties
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the configuration of destination connectors
@@ -96,16 +97,16 @@ destinationFlowConfig_connectorType = Lens.lens (\DestinationFlowConfig' {connec
 destinationFlowConfig_destinationConnectorProperties :: Lens.Lens' DestinationFlowConfig DestinationConnectorProperties
 destinationFlowConfig_destinationConnectorProperties = Lens.lens (\DestinationFlowConfig' {destinationConnectorProperties} -> destinationConnectorProperties) (\s@DestinationFlowConfig' {} a -> s {destinationConnectorProperties = a} :: DestinationFlowConfig)
 
-instance Core.FromJSON DestinationFlowConfig where
+instance Data.FromJSON DestinationFlowConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DestinationFlowConfig"
       ( \x ->
           DestinationFlowConfig'
-            Prelude.<$> (x Core..:? "apiVersion")
-            Prelude.<*> (x Core..:? "connectorProfileName")
-            Prelude.<*> (x Core..: "connectorType")
-            Prelude.<*> (x Core..: "destinationConnectorProperties")
+            Prelude.<$> (x Data..:? "apiVersion")
+            Prelude.<*> (x Data..:? "connectorProfileName")
+            Prelude.<*> (x Data..: "connectorType")
+            Prelude.<*> (x Data..: "destinationConnectorProperties")
       )
 
 instance Prelude.Hashable DestinationFlowConfig where
@@ -122,17 +123,17 @@ instance Prelude.NFData DestinationFlowConfig where
       `Prelude.seq` Prelude.rnf connectorType
       `Prelude.seq` Prelude.rnf destinationConnectorProperties
 
-instance Core.ToJSON DestinationFlowConfig where
+instance Data.ToJSON DestinationFlowConfig where
   toJSON DestinationFlowConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("apiVersion" Core..=) Prelude.<$> apiVersion,
-            ("connectorProfileName" Core..=)
+          [ ("apiVersion" Data..=) Prelude.<$> apiVersion,
+            ("connectorProfileName" Data..=)
               Prelude.<$> connectorProfileName,
-            Prelude.Just ("connectorType" Core..= connectorType),
+            Prelude.Just ("connectorType" Data..= connectorType),
             Prelude.Just
               ( "destinationConnectorProperties"
-                  Core..= destinationConnectorProperties
+                  Data..= destinationConnectorProperties
               )
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.Rule where
 import Amazonka.CloudDirectory.Types.RuleType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an Amazon Resource Name (ARN) and parameters that are
@@ -63,14 +64,14 @@ rule_type = Lens.lens (\Rule' {type'} -> type') (\s@Rule' {} a -> s {type' = a} 
 rule_parameters :: Lens.Lens' Rule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 rule_parameters = Lens.lens (\Rule' {parameters} -> parameters) (\s@Rule' {} a -> s {parameters = a} :: Rule) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Rule where
+instance Data.FromJSON Rule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Rule where
@@ -83,11 +84,11 @@ instance Prelude.NFData Rule where
     Prelude.rnf type'
       `Prelude.seq` Prelude.rnf parameters
 
-instance Core.ToJSON Rule where
+instance Data.ToJSON Rule where
   toJSON Rule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Parameters" Core..=) Prelude.<$> parameters
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Parameters" Data..=) Prelude.<$> parameters
           ]
       )

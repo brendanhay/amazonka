@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,7 +150,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateWirelessGatewayTaskDefinitionResponse'
-            Prelude.<$> (x Core..?> "Arn") Prelude.<*> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Arn") Prelude.<*> (x Data..?> "Id")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,37 +179,37 @@ instance
       `Prelude.seq` Prelude.rnf autoCreateTasks
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateWirelessGatewayTaskDefinition
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateWirelessGatewayTaskDefinition
   where
   toJSON CreateWirelessGatewayTaskDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Name" Data..=) Prelude.<$> name,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("Update" Core..=) Prelude.<$> update,
+            ("Update" Data..=) Prelude.<$> update,
             Prelude.Just
-              ("AutoCreateTasks" Core..= autoCreateTasks)
+              ("AutoCreateTasks" Data..= autoCreateTasks)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateWirelessGatewayTaskDefinition
   where
   toPath =
     Prelude.const "/wireless-gateway-task-definitions"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateWirelessGatewayTaskDefinition
   where
   toQuery = Prelude.const Prelude.mempty

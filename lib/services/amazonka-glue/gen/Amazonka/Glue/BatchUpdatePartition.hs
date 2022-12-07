@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,7 +132,7 @@ instance Core.AWSRequest BatchUpdatePartition where
     Response.receiveJSON
       ( \s h x ->
           BatchUpdatePartitionResponse'
-            Prelude.<$> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,36 +150,36 @@ instance Prelude.NFData BatchUpdatePartition where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf entries
 
-instance Core.ToHeaders BatchUpdatePartition where
+instance Data.ToHeaders BatchUpdatePartition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.BatchUpdatePartition" ::
+              Data.=# ( "AWSGlue.BatchUpdatePartition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchUpdatePartition where
+instance Data.ToJSON BatchUpdatePartition where
   toJSON BatchUpdatePartition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("Entries" Core..= entries)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("Entries" Data..= entries)
           ]
       )
 
-instance Core.ToPath BatchUpdatePartition where
+instance Data.ToPath BatchUpdatePartition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchUpdatePartition where
+instance Data.ToQuery BatchUpdatePartition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchUpdatePartitionResponse' smart constructor.

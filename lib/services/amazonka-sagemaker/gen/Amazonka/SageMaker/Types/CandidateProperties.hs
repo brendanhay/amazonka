@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.CandidateProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CandidateArtifactLocations
 import Amazonka.SageMaker.Types.MetricDatum
@@ -64,16 +65,16 @@ candidateProperties_candidateMetrics = Lens.lens (\CandidateProperties' {candida
 candidateProperties_candidateArtifactLocations :: Lens.Lens' CandidateProperties (Prelude.Maybe CandidateArtifactLocations)
 candidateProperties_candidateArtifactLocations = Lens.lens (\CandidateProperties' {candidateArtifactLocations} -> candidateArtifactLocations) (\s@CandidateProperties' {} a -> s {candidateArtifactLocations = a} :: CandidateProperties)
 
-instance Core.FromJSON CandidateProperties where
+instance Data.FromJSON CandidateProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CandidateProperties"
       ( \x ->
           CandidateProperties'
-            Prelude.<$> ( x Core..:? "CandidateMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "CandidateMetrics"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CandidateArtifactLocations")
+            Prelude.<*> (x Data..:? "CandidateArtifactLocations")
       )
 
 instance Prelude.Hashable CandidateProperties where

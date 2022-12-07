@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,12 +94,12 @@ instance Core.AWSRequest DescribeInputSecurityGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeInputSecurityGroupResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "whitelistRules" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "inputs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "whitelistRules" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "inputs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,25 +111,25 @@ instance Prelude.NFData DescribeInputSecurityGroup where
   rnf DescribeInputSecurityGroup' {..} =
     Prelude.rnf inputSecurityGroupId
 
-instance Core.ToHeaders DescribeInputSecurityGroup where
+instance Data.ToHeaders DescribeInputSecurityGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeInputSecurityGroup where
+instance Data.ToPath DescribeInputSecurityGroup where
   toPath DescribeInputSecurityGroup' {..} =
     Prelude.mconcat
       [ "/prod/inputSecurityGroups/",
-        Core.toBS inputSecurityGroupId
+        Data.toBS inputSecurityGroupId
       ]
 
-instance Core.ToQuery DescribeInputSecurityGroup where
+instance Data.ToQuery DescribeInputSecurityGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for DescribeInputSecurityGroupResponse

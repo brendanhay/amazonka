@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.Owner where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on the owner of the bucket.
@@ -55,11 +56,11 @@ newOwner = Owner' {id = Prelude.Nothing}
 owner_id :: Lens.Lens' Owner (Prelude.Maybe Prelude.Text)
 owner_id = Lens.lens (\Owner' {id} -> id) (\s@Owner' {} a -> s {id = a} :: Owner)
 
-instance Core.FromJSON Owner where
+instance Data.FromJSON Owner where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Owner"
-      (\x -> Owner' Prelude.<$> (x Core..:? "id"))
+      (\x -> Owner' Prelude.<$> (x Data..:? "id"))
 
 instance Prelude.Hashable Owner where
   hashWithSalt _salt Owner' {..} =

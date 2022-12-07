@@ -23,6 +23,7 @@ import Amazonka.Athena.Types.EngineVersion
 import Amazonka.Athena.Types.ResultConfigurationUpdates
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration information that will be updated for this workgroup,
@@ -198,22 +199,22 @@ instance Prelude.NFData WorkGroupConfigurationUpdates where
       `Prelude.seq` Prelude.rnf requesterPaysEnabled
       `Prelude.seq` Prelude.rnf engineVersion
 
-instance Core.ToJSON WorkGroupConfigurationUpdates where
+instance Data.ToJSON WorkGroupConfigurationUpdates where
   toJSON WorkGroupConfigurationUpdates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResultConfigurationUpdates" Core..=)
+          [ ("ResultConfigurationUpdates" Data..=)
               Prelude.<$> resultConfigurationUpdates,
-            ("PublishCloudWatchMetricsEnabled" Core..=)
+            ("PublishCloudWatchMetricsEnabled" Data..=)
               Prelude.<$> publishCloudWatchMetricsEnabled,
-            ("EnforceWorkGroupConfiguration" Core..=)
+            ("EnforceWorkGroupConfiguration" Data..=)
               Prelude.<$> enforceWorkGroupConfiguration,
-            ("RemoveBytesScannedCutoffPerQuery" Core..=)
+            ("RemoveBytesScannedCutoffPerQuery" Data..=)
               Prelude.<$> removeBytesScannedCutoffPerQuery,
-            ("BytesScannedCutoffPerQuery" Core..=)
+            ("BytesScannedCutoffPerQuery" Data..=)
               Prelude.<$> bytesScannedCutoffPerQuery,
-            ("RequesterPaysEnabled" Core..=)
+            ("RequesterPaysEnabled" Data..=)
               Prelude.<$> requesterPaysEnabled,
-            ("EngineVersion" Core..=) Prelude.<$> engineVersion
+            ("EngineVersion" Data..=) Prelude.<$> engineVersion
           ]
       )

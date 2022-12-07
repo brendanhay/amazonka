@@ -43,6 +43,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetVoiceConnectorGroup where
     Response.receiveJSON
       ( \s h x ->
           GetVoiceConnectorGroupResponse'
-            Prelude.<$> (x Core..?> "VoiceConnectorGroup")
+            Prelude.<$> (x Data..?> "VoiceConnectorGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,17 +100,17 @@ instance Prelude.NFData GetVoiceConnectorGroup where
   rnf GetVoiceConnectorGroup' {..} =
     Prelude.rnf voiceConnectorGroupId
 
-instance Core.ToHeaders GetVoiceConnectorGroup where
+instance Data.ToHeaders GetVoiceConnectorGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetVoiceConnectorGroup where
+instance Data.ToPath GetVoiceConnectorGroup where
   toPath GetVoiceConnectorGroup' {..} =
     Prelude.mconcat
       [ "/voice-connector-groups/",
-        Core.toBS voiceConnectorGroupId
+        Data.toBS voiceConnectorGroupId
       ]
 
-instance Core.ToQuery GetVoiceConnectorGroup where
+instance Data.ToQuery GetVoiceConnectorGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetVoiceConnectorGroupResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.AddOutputRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.Encryption
 import Amazonka.MediaConnect.Types.MediaStreamOutputConfigurationRequest
 import Amazonka.MediaConnect.Types.Protocol
@@ -262,28 +263,28 @@ instance Prelude.NFData AddOutputRequest where
       `Prelude.seq` Prelude.rnf minLatency
       `Prelude.seq` Prelude.rnf protocol
 
-instance Core.ToJSON AddOutputRequest where
+instance Data.ToJSON AddOutputRequest where
   toJSON AddOutputRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("destination" Core..=) Prelude.<$> destination,
-            ("port" Core..=) Prelude.<$> port,
-            ("maxLatency" Core..=) Prelude.<$> maxLatency,
-            ("name" Core..=) Prelude.<$> name,
-            ("mediaStreamOutputConfigurations" Core..=)
+          [ ("destination" Data..=) Prelude.<$> destination,
+            ("port" Data..=) Prelude.<$> port,
+            ("maxLatency" Data..=) Prelude.<$> maxLatency,
+            ("name" Data..=) Prelude.<$> name,
+            ("mediaStreamOutputConfigurations" Data..=)
               Prelude.<$> mediaStreamOutputConfigurations,
-            ("smoothingLatency" Core..=)
+            ("smoothingLatency" Data..=)
               Prelude.<$> smoothingLatency,
-            ("cidrAllowList" Core..=) Prelude.<$> cidrAllowList,
-            ("streamId" Core..=) Prelude.<$> streamId,
-            ("remoteId" Core..=) Prelude.<$> remoteId,
-            ("vpcInterfaceAttachment" Core..=)
+            ("cidrAllowList" Data..=) Prelude.<$> cidrAllowList,
+            ("streamId" Data..=) Prelude.<$> streamId,
+            ("remoteId" Data..=) Prelude.<$> remoteId,
+            ("vpcInterfaceAttachment" Data..=)
               Prelude.<$> vpcInterfaceAttachment,
-            ("description" Core..=) Prelude.<$> description,
-            ("senderControlPort" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("senderControlPort" Data..=)
               Prelude.<$> senderControlPort,
-            ("encryption" Core..=) Prelude.<$> encryption,
-            ("minLatency" Core..=) Prelude.<$> minLatency,
-            Prelude.Just ("protocol" Core..= protocol)
+            ("encryption" Data..=) Prelude.<$> encryption,
+            ("minLatency" Data..=) Prelude.<$> minLatency,
+            Prelude.Just ("protocol" Data..= protocol)
           ]
       )

@@ -49,6 +49,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,25 +172,25 @@ instance Prelude.NFData SuspendProcesses where
     Prelude.rnf scalingProcesses
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
-instance Core.ToHeaders SuspendProcesses where
+instance Data.ToHeaders SuspendProcesses where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SuspendProcesses where
+instance Data.ToPath SuspendProcesses where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SuspendProcesses where
+instance Data.ToQuery SuspendProcesses where
   toQuery SuspendProcesses' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SuspendProcesses" :: Prelude.ByteString),
+          Data.=: ("SuspendProcesses" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
         "ScalingProcesses"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> scalingProcesses
             ),
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+        "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newSuspendProcessesResponse' smart constructor.

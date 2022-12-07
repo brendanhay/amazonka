@@ -23,6 +23,7 @@ import Amazonka.CloudWatch.Types.ActionsSuppressedBy
 import Amazonka.CloudWatch.Types.StateValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details about a composite alarm.
@@ -35,7 +36,7 @@ data CompositeAlarm = CompositeAlarm'
     alarmActions :: Prelude.Maybe [Prelude.Text],
     -- | Tracks the timestamp of any state update, even if @StateValue@ doesn\'t
     -- change.
-    stateUpdatedTimestamp :: Prelude.Maybe Core.ISO8601,
+    stateUpdatedTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The maximum time in seconds that the composite alarm waits after
     -- suppressor alarm goes out of the @ALARM@ state. After this time, the
     -- composite alarm performs its actions.
@@ -65,11 +66,11 @@ data CompositeAlarm = CompositeAlarm'
     -- as an Amazon Resource Name (ARN).
     insufficientDataActions :: Prelude.Maybe [Prelude.Text],
     -- | The timestamp of the last change to the alarm\'s @StateValue@.
-    stateTransitionedTimestamp :: Prelude.Maybe Core.ISO8601,
+    stateTransitionedTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Resource Name (ARN) of the alarm.
     alarmArn :: Prelude.Maybe Prelude.Text,
     -- | The time stamp of the last update to the alarm configuration.
-    alarmConfigurationUpdatedTimestamp :: Prelude.Maybe Core.ISO8601,
+    alarmConfigurationUpdatedTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The state value for the alarm.
     stateValue :: Prelude.Maybe StateValue,
     -- | An explanation for the alarm state, in JSON format.
@@ -207,7 +208,7 @@ compositeAlarm_alarmActions = Lens.lens (\CompositeAlarm' {alarmActions} -> alar
 -- | Tracks the timestamp of any state update, even if @StateValue@ doesn\'t
 -- change.
 compositeAlarm_stateUpdatedTimestamp :: Lens.Lens' CompositeAlarm (Prelude.Maybe Prelude.UTCTime)
-compositeAlarm_stateUpdatedTimestamp = Lens.lens (\CompositeAlarm' {stateUpdatedTimestamp} -> stateUpdatedTimestamp) (\s@CompositeAlarm' {} a -> s {stateUpdatedTimestamp = a} :: CompositeAlarm) Prelude.. Lens.mapping Core._Time
+compositeAlarm_stateUpdatedTimestamp = Lens.lens (\CompositeAlarm' {stateUpdatedTimestamp} -> stateUpdatedTimestamp) (\s@CompositeAlarm' {} a -> s {stateUpdatedTimestamp = a} :: CompositeAlarm) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum time in seconds that the composite alarm waits after
 -- suppressor alarm goes out of the @ALARM@ state. After this time, the
@@ -249,7 +250,7 @@ compositeAlarm_insufficientDataActions = Lens.lens (\CompositeAlarm' {insufficie
 
 -- | The timestamp of the last change to the alarm\'s @StateValue@.
 compositeAlarm_stateTransitionedTimestamp :: Lens.Lens' CompositeAlarm (Prelude.Maybe Prelude.UTCTime)
-compositeAlarm_stateTransitionedTimestamp = Lens.lens (\CompositeAlarm' {stateTransitionedTimestamp} -> stateTransitionedTimestamp) (\s@CompositeAlarm' {} a -> s {stateTransitionedTimestamp = a} :: CompositeAlarm) Prelude.. Lens.mapping Core._Time
+compositeAlarm_stateTransitionedTimestamp = Lens.lens (\CompositeAlarm' {stateTransitionedTimestamp} -> stateTransitionedTimestamp) (\s@CompositeAlarm' {} a -> s {stateTransitionedTimestamp = a} :: CompositeAlarm) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the alarm.
 compositeAlarm_alarmArn :: Lens.Lens' CompositeAlarm (Prelude.Maybe Prelude.Text)
@@ -257,7 +258,7 @@ compositeAlarm_alarmArn = Lens.lens (\CompositeAlarm' {alarmArn} -> alarmArn) (\
 
 -- | The time stamp of the last update to the alarm configuration.
 compositeAlarm_alarmConfigurationUpdatedTimestamp :: Lens.Lens' CompositeAlarm (Prelude.Maybe Prelude.UTCTime)
-compositeAlarm_alarmConfigurationUpdatedTimestamp = Lens.lens (\CompositeAlarm' {alarmConfigurationUpdatedTimestamp} -> alarmConfigurationUpdatedTimestamp) (\s@CompositeAlarm' {} a -> s {alarmConfigurationUpdatedTimestamp = a} :: CompositeAlarm) Prelude.. Lens.mapping Core._Time
+compositeAlarm_alarmConfigurationUpdatedTimestamp = Lens.lens (\CompositeAlarm' {alarmConfigurationUpdatedTimestamp} -> alarmConfigurationUpdatedTimestamp) (\s@CompositeAlarm' {} a -> s {alarmConfigurationUpdatedTimestamp = a} :: CompositeAlarm) Prelude.. Lens.mapping Data._Time
 
 -- | The state value for the alarm.
 compositeAlarm_stateValue :: Lens.Lens' CompositeAlarm (Prelude.Maybe StateValue)
@@ -303,35 +304,35 @@ compositeAlarm_alarmRule = Lens.lens (\CompositeAlarm' {alarmRule} -> alarmRule)
 compositeAlarm_stateReason :: Lens.Lens' CompositeAlarm (Prelude.Maybe Prelude.Text)
 compositeAlarm_stateReason = Lens.lens (\CompositeAlarm' {stateReason} -> stateReason) (\s@CompositeAlarm' {} a -> s {stateReason = a} :: CompositeAlarm)
 
-instance Core.FromXML CompositeAlarm where
+instance Data.FromXML CompositeAlarm where
   parseXML x =
     CompositeAlarm'
-      Prelude.<$> ( x Core..@? "AlarmActions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "AlarmActions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "StateUpdatedTimestamp")
-      Prelude.<*> (x Core..@? "ActionsSuppressorExtensionPeriod")
-      Prelude.<*> (x Core..@? "AlarmDescription")
-      Prelude.<*> (x Core..@? "ActionsEnabled")
-      Prelude.<*> (x Core..@? "ActionsSuppressedBy")
-      Prelude.<*> ( x Core..@? "InsufficientDataActions"
+      Prelude.<*> (x Data..@? "StateUpdatedTimestamp")
+      Prelude.<*> (x Data..@? "ActionsSuppressorExtensionPeriod")
+      Prelude.<*> (x Data..@? "AlarmDescription")
+      Prelude.<*> (x Data..@? "ActionsEnabled")
+      Prelude.<*> (x Data..@? "ActionsSuppressedBy")
+      Prelude.<*> ( x Data..@? "InsufficientDataActions"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "StateTransitionedTimestamp")
-      Prelude.<*> (x Core..@? "AlarmArn")
-      Prelude.<*> (x Core..@? "AlarmConfigurationUpdatedTimestamp")
-      Prelude.<*> (x Core..@? "StateValue")
-      Prelude.<*> (x Core..@? "StateReasonData")
-      Prelude.<*> ( x Core..@? "OKActions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "StateTransitionedTimestamp")
+      Prelude.<*> (x Data..@? "AlarmArn")
+      Prelude.<*> (x Data..@? "AlarmConfigurationUpdatedTimestamp")
+      Prelude.<*> (x Data..@? "StateValue")
+      Prelude.<*> (x Data..@? "StateReasonData")
+      Prelude.<*> ( x Data..@? "OKActions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "ActionsSuppressor")
-      Prelude.<*> (x Core..@? "ActionsSuppressorWaitPeriod")
-      Prelude.<*> (x Core..@? "AlarmName")
-      Prelude.<*> (x Core..@? "ActionsSuppressedReason")
-      Prelude.<*> (x Core..@? "AlarmRule")
-      Prelude.<*> (x Core..@? "StateReason")
+      Prelude.<*> (x Data..@? "ActionsSuppressor")
+      Prelude.<*> (x Data..@? "ActionsSuppressorWaitPeriod")
+      Prelude.<*> (x Data..@? "AlarmName")
+      Prelude.<*> (x Data..@? "ActionsSuppressedReason")
+      Prelude.<*> (x Data..@? "AlarmRule")
+      Prelude.<*> (x Data..@? "StateReason")
 
 instance Prelude.Hashable CompositeAlarm where
   hashWithSalt _salt CompositeAlarm' {..} =

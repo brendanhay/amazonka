@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.ResourceQuotas where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.ResourceQuota
 import qualified Amazonka.Prelude as Prelude
 
@@ -92,14 +93,14 @@ resourceQuotas_customPlatformQuota = Lens.lens (\ResourceQuotas' {customPlatform
 resourceQuotas_applicationQuota :: Lens.Lens' ResourceQuotas (Prelude.Maybe ResourceQuota)
 resourceQuotas_applicationQuota = Lens.lens (\ResourceQuotas' {applicationQuota} -> applicationQuota) (\s@ResourceQuotas' {} a -> s {applicationQuota = a} :: ResourceQuotas)
 
-instance Core.FromXML ResourceQuotas where
+instance Data.FromXML ResourceQuotas where
   parseXML x =
     ResourceQuotas'
-      Prelude.<$> (x Core..@? "ApplicationVersionQuota")
-      Prelude.<*> (x Core..@? "EnvironmentQuota")
-      Prelude.<*> (x Core..@? "ConfigurationTemplateQuota")
-      Prelude.<*> (x Core..@? "CustomPlatformQuota")
-      Prelude.<*> (x Core..@? "ApplicationQuota")
+      Prelude.<$> (x Data..@? "ApplicationVersionQuota")
+      Prelude.<*> (x Data..@? "EnvironmentQuota")
+      Prelude.<*> (x Data..@? "ConfigurationTemplateQuota")
+      Prelude.<*> (x Data..@? "CustomPlatformQuota")
+      Prelude.<*> (x Data..@? "ApplicationQuota")
 
 instance Prelude.Hashable ResourceQuotas where
   hashWithSalt _salt ResourceQuotas' {..} =

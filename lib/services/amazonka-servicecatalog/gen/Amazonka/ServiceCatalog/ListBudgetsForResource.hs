@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,8 +139,8 @@ instance Core.AWSRequest ListBudgetsForResource where
     Response.receiveJSON
       ( \s h x ->
           ListBudgetsForResourceResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> (x Core..?> "Budgets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> (x Data..?> "Budgets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,37 +158,37 @@ instance Prelude.NFData ListBudgetsForResource where
       `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToHeaders ListBudgetsForResource where
+instance Data.ToHeaders ListBudgetsForResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ListBudgetsForResource" ::
+              Data.=# ( "AWS242ServiceCatalogService.ListBudgetsForResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListBudgetsForResource where
+instance Data.ToJSON ListBudgetsForResource where
   toJSON ListBudgetsForResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Core..=)
+          [ ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("ResourceId" Core..= resourceId)
+            Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )
 
-instance Core.ToPath ListBudgetsForResource where
+instance Data.ToPath ListBudgetsForResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListBudgetsForResource where
+instance Data.ToQuery ListBudgetsForResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBudgetsForResourceResponse' smart constructor.

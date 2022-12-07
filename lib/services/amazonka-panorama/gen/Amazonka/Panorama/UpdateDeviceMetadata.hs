@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,7 +97,7 @@ instance Core.AWSRequest UpdateDeviceMetadata where
     Response.receiveJSON
       ( \s h x ->
           UpdateDeviceMetadataResponse'
-            Prelude.<$> (x Core..?> "DeviceId")
+            Prelude.<$> (x Data..?> "DeviceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,29 +111,29 @@ instance Prelude.NFData UpdateDeviceMetadata where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf deviceId
 
-instance Core.ToHeaders UpdateDeviceMetadata where
+instance Data.ToHeaders UpdateDeviceMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDeviceMetadata where
+instance Data.ToJSON UpdateDeviceMetadata where
   toJSON UpdateDeviceMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Description" Core..=) Prelude.<$> description]
+          [("Description" Data..=) Prelude.<$> description]
       )
 
-instance Core.ToPath UpdateDeviceMetadata where
+instance Data.ToPath UpdateDeviceMetadata where
   toPath UpdateDeviceMetadata' {..} =
-    Prelude.mconcat ["/devices/", Core.toBS deviceId]
+    Prelude.mconcat ["/devices/", Data.toBS deviceId]
 
-instance Core.ToQuery UpdateDeviceMetadata where
+instance Data.ToQuery UpdateDeviceMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDeviceMetadataResponse' smart constructor.

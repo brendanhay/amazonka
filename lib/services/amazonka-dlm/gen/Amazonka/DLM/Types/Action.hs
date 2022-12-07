@@ -22,6 +22,7 @@ module Amazonka.DLM.Types.Action where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.CrossRegionCopyAction
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Event-based policies only]__ Specifies an action for an event-based
@@ -65,15 +66,15 @@ action_name = Lens.lens (\Action' {name} -> name) (\s@Action' {} a -> s {name = 
 action_crossRegionCopy :: Lens.Lens' Action [CrossRegionCopyAction]
 action_crossRegionCopy = Lens.lens (\Action' {crossRegionCopy} -> crossRegionCopy) (\s@Action' {} a -> s {crossRegionCopy = a} :: Action) Prelude.. Lens.coerced
 
-instance Core.FromJSON Action where
+instance Data.FromJSON Action where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Action"
       ( \x ->
           Action'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> ( x Core..:? "CrossRegionCopy"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> ( x Data..:? "CrossRegionCopy"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -87,12 +88,12 @@ instance Prelude.NFData Action where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf crossRegionCopy
 
-instance Core.ToJSON Action where
+instance Data.ToJSON Action where
   toJSON Action' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
+          [ Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("CrossRegionCopy" Core..= crossRegionCopy)
+              ("CrossRegionCopy" Data..= crossRegionCopy)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.ProvisionedCapacityUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An update to a connector\'s fixed capacity.
@@ -78,11 +79,11 @@ instance Prelude.NFData ProvisionedCapacityUpdate where
     Prelude.rnf mcuCount
       `Prelude.seq` Prelude.rnf workerCount
 
-instance Core.ToJSON ProvisionedCapacityUpdate where
+instance Data.ToJSON ProvisionedCapacityUpdate where
   toJSON ProvisionedCapacityUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("mcuCount" Core..= mcuCount),
-            Prelude.Just ("workerCount" Core..= workerCount)
+          [ Prelude.Just ("mcuCount" Data..= mcuCount),
+            Prelude.Just ("workerCount" Data..= workerCount)
           ]
       )

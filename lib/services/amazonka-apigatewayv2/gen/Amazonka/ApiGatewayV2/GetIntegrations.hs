@@ -47,6 +47,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,8 +133,8 @@ instance Core.AWSRequest GetIntegrations where
     Response.receiveJSON
       ( \s h x ->
           GetIntegrationsResponse'
-            Prelude.<$> (x Core..?> "items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,27 +150,27 @@ instance Prelude.NFData GetIntegrations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf apiId
 
-instance Core.ToHeaders GetIntegrations where
+instance Data.ToHeaders GetIntegrations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetIntegrations where
+instance Data.ToPath GetIntegrations where
   toPath GetIntegrations' {..} =
     Prelude.mconcat
-      ["/v2/apis/", Core.toBS apiId, "/integrations"]
+      ["/v2/apis/", Data.toBS apiId, "/integrations"]
 
-instance Core.ToQuery GetIntegrations where
+instance Data.ToQuery GetIntegrations where
   toQuery GetIntegrations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetIntegrationsResponse' smart constructor.

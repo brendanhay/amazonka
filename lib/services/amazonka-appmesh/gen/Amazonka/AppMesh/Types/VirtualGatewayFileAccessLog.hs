@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.VirtualGatewayFileAccessLog where
 import Amazonka.AppMesh.Types.LoggingFormat
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents an access log file.
@@ -80,13 +81,13 @@ virtualGatewayFileAccessLog_format = Lens.lens (\VirtualGatewayFileAccessLog' {f
 virtualGatewayFileAccessLog_path :: Lens.Lens' VirtualGatewayFileAccessLog Prelude.Text
 virtualGatewayFileAccessLog_path = Lens.lens (\VirtualGatewayFileAccessLog' {path} -> path) (\s@VirtualGatewayFileAccessLog' {} a -> s {path = a} :: VirtualGatewayFileAccessLog)
 
-instance Core.FromJSON VirtualGatewayFileAccessLog where
+instance Data.FromJSON VirtualGatewayFileAccessLog where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewayFileAccessLog"
       ( \x ->
           VirtualGatewayFileAccessLog'
-            Prelude.<$> (x Core..:? "format") Prelude.<*> (x Core..: "path")
+            Prelude.<$> (x Data..:? "format") Prelude.<*> (x Data..: "path")
       )
 
 instance Prelude.Hashable VirtualGatewayFileAccessLog where
@@ -98,11 +99,11 @@ instance Prelude.NFData VirtualGatewayFileAccessLog where
   rnf VirtualGatewayFileAccessLog' {..} =
     Prelude.rnf format `Prelude.seq` Prelude.rnf path
 
-instance Core.ToJSON VirtualGatewayFileAccessLog where
+instance Data.ToJSON VirtualGatewayFileAccessLog where
   toJSON VirtualGatewayFileAccessLog' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("format" Core..=) Prelude.<$> format,
-            Prelude.Just ("path" Core..= path)
+          [ ("format" Data..=) Prelude.<$> format,
+            Prelude.Just ("path" Data..= path)
           ]
       )

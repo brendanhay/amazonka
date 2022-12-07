@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.RegionInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.RegionStatus
 
@@ -38,7 +39,7 @@ data RegionInfo = RegionInfo'
     status :: RegionStatus,
     -- | The most recent date and time that Incident Manager updated the Amazon
     -- Web Services Region\'s status.
-    statusUpdateDateTime :: Core.POSIX
+    statusUpdateDateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,7 +73,7 @@ newRegionInfo pStatus_ pStatusUpdateDateTime_ =
       statusMessage = Prelude.Nothing,
       status = pStatus_,
       statusUpdateDateTime =
-        Core._Time Lens.# pStatusUpdateDateTime_
+        Data._Time Lens.# pStatusUpdateDateTime_
     }
 
 -- | The ID of the KMS key used to encrypt the data in this Amazon Web
@@ -92,18 +93,18 @@ regionInfo_status = Lens.lens (\RegionInfo' {status} -> status) (\s@RegionInfo' 
 -- | The most recent date and time that Incident Manager updated the Amazon
 -- Web Services Region\'s status.
 regionInfo_statusUpdateDateTime :: Lens.Lens' RegionInfo Prelude.UTCTime
-regionInfo_statusUpdateDateTime = Lens.lens (\RegionInfo' {statusUpdateDateTime} -> statusUpdateDateTime) (\s@RegionInfo' {} a -> s {statusUpdateDateTime = a} :: RegionInfo) Prelude.. Core._Time
+regionInfo_statusUpdateDateTime = Lens.lens (\RegionInfo' {statusUpdateDateTime} -> statusUpdateDateTime) (\s@RegionInfo' {} a -> s {statusUpdateDateTime = a} :: RegionInfo) Prelude.. Data._Time
 
-instance Core.FromJSON RegionInfo where
+instance Data.FromJSON RegionInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegionInfo"
       ( \x ->
           RegionInfo'
-            Prelude.<$> (x Core..:? "sseKmsKeyId")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "statusUpdateDateTime")
+            Prelude.<$> (x Data..:? "sseKmsKeyId")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "statusUpdateDateTime")
       )
 
 instance Prelude.Hashable RegionInfo where

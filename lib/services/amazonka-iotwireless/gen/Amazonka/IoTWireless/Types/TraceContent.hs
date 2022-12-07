@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.TraceContent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.LogLevel
 import Amazonka.IoTWireless.Types.WirelessDeviceFrameInfo
 import qualified Amazonka.Prelude as Prelude
@@ -61,14 +62,14 @@ traceContent_logLevel = Lens.lens (\TraceContent' {logLevel} -> logLevel) (\s@Tr
 traceContent_wirelessDeviceFrameInfo :: Lens.Lens' TraceContent (Prelude.Maybe WirelessDeviceFrameInfo)
 traceContent_wirelessDeviceFrameInfo = Lens.lens (\TraceContent' {wirelessDeviceFrameInfo} -> wirelessDeviceFrameInfo) (\s@TraceContent' {} a -> s {wirelessDeviceFrameInfo = a} :: TraceContent)
 
-instance Core.FromJSON TraceContent where
+instance Data.FromJSON TraceContent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TraceContent"
       ( \x ->
           TraceContent'
-            Prelude.<$> (x Core..:? "LogLevel")
-            Prelude.<*> (x Core..:? "WirelessDeviceFrameInfo")
+            Prelude.<$> (x Data..:? "LogLevel")
+            Prelude.<*> (x Data..:? "WirelessDeviceFrameInfo")
       )
 
 instance Prelude.Hashable TraceContent where
@@ -81,12 +82,12 @@ instance Prelude.NFData TraceContent where
     Prelude.rnf logLevel
       `Prelude.seq` Prelude.rnf wirelessDeviceFrameInfo
 
-instance Core.ToJSON TraceContent where
+instance Data.ToJSON TraceContent where
   toJSON TraceContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LogLevel" Core..=) Prelude.<$> logLevel,
-            ("WirelessDeviceFrameInfo" Core..=)
+          [ ("LogLevel" Data..=) Prelude.<$> logLevel,
+            ("WirelessDeviceFrameInfo" Data..=)
               Prelude.<$> wirelessDeviceFrameInfo
           ]
       )

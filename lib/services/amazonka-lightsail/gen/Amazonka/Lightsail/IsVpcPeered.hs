@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -65,7 +66,7 @@ instance Core.AWSRequest IsVpcPeered where
     Response.receiveJSON
       ( \s h x ->
           IsVpcPeeredResponse'
-            Prelude.<$> (x Core..?> "isPeered")
+            Prelude.<$> (x Data..?> "isPeered")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -76,28 +77,28 @@ instance Prelude.Hashable IsVpcPeered where
 instance Prelude.NFData IsVpcPeered where
   rnf _ = ()
 
-instance Core.ToHeaders IsVpcPeered where
+instance Data.ToHeaders IsVpcPeered where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.IsVpcPeered" ::
+              Data.=# ( "Lightsail_20161128.IsVpcPeered" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON IsVpcPeered where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON IsVpcPeered where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath IsVpcPeered where
+instance Data.ToPath IsVpcPeered where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery IsVpcPeered where
+instance Data.ToQuery IsVpcPeered where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newIsVpcPeeredResponse' smart constructor.

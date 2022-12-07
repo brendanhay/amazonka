@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.PagerDutyIncidentConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the PagerDuty service where the response plan creates an
@@ -59,13 +60,13 @@ newPagerDutyIncidentConfiguration pServiceId_ =
 pagerDutyIncidentConfiguration_serviceId :: Lens.Lens' PagerDutyIncidentConfiguration Prelude.Text
 pagerDutyIncidentConfiguration_serviceId = Lens.lens (\PagerDutyIncidentConfiguration' {serviceId} -> serviceId) (\s@PagerDutyIncidentConfiguration' {} a -> s {serviceId = a} :: PagerDutyIncidentConfiguration)
 
-instance Core.FromJSON PagerDutyIncidentConfiguration where
+instance Data.FromJSON PagerDutyIncidentConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PagerDutyIncidentConfiguration"
       ( \x ->
           PagerDutyIncidentConfiguration'
-            Prelude.<$> (x Core..: "serviceId")
+            Prelude.<$> (x Data..: "serviceId")
       )
 
 instance
@@ -84,9 +85,9 @@ instance
   rnf PagerDutyIncidentConfiguration' {..} =
     Prelude.rnf serviceId
 
-instance Core.ToJSON PagerDutyIncidentConfiguration where
+instance Data.ToJSON PagerDutyIncidentConfiguration where
   toJSON PagerDutyIncidentConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("serviceId" Core..= serviceId)]
+          [Prelude.Just ("serviceId" Data..= serviceId)]
       )

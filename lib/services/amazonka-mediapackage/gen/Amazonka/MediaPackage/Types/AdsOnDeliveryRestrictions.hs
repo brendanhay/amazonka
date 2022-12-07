@@ -29,6 +29,7 @@ module Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This setting allows the delivery restriction flags on SCTE-35
@@ -44,7 +45,7 @@ import qualified Amazonka.Prelude as Prelude
 -- specified in AdTriggers.
 newtype AdsOnDeliveryRestrictions = AdsOnDeliveryRestrictions'
   { fromAdsOnDeliveryRestrictions ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -56,18 +57,18 @@ newtype AdsOnDeliveryRestrictions = AdsOnDeliveryRestrictions'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern AdsOnDeliveryRestrictions_BOTH :: AdsOnDeliveryRestrictions

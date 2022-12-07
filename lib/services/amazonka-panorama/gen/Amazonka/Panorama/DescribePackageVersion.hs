@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,17 +130,17 @@ instance Core.AWSRequest DescribePackageVersion where
     Response.receiveJSON
       ( \s h x ->
           DescribePackageVersionResponse'
-            Prelude.<$> (x Core..?> "StatusDescription")
-            Prelude.<*> (x Core..?> "PackageArn")
-            Prelude.<*> (x Core..?> "RegisteredTime")
-            Prelude.<*> (x Core..?> "OwnerAccount")
+            Prelude.<$> (x Data..?> "StatusDescription")
+            Prelude.<*> (x Data..?> "PackageArn")
+            Prelude.<*> (x Data..?> "RegisteredTime")
+            Prelude.<*> (x Data..?> "OwnerAccount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "IsLatestPatch")
-            Prelude.<*> (x Core..:> "PackageId")
-            Prelude.<*> (x Core..:> "PackageName")
-            Prelude.<*> (x Core..:> "PackageVersion")
-            Prelude.<*> (x Core..:> "PatchVersion")
-            Prelude.<*> (x Core..:> "Status")
+            Prelude.<*> (x Data..:> "IsLatestPatch")
+            Prelude.<*> (x Data..:> "PackageId")
+            Prelude.<*> (x Data..:> "PackageName")
+            Prelude.<*> (x Data..:> "PackageVersion")
+            Prelude.<*> (x Data..:> "PatchVersion")
+            Prelude.<*> (x Data..:> "Status")
       )
 
 instance Prelude.Hashable DescribePackageVersion where
@@ -156,31 +157,31 @@ instance Prelude.NFData DescribePackageVersion where
       `Prelude.seq` Prelude.rnf packageId
       `Prelude.seq` Prelude.rnf packageVersion
 
-instance Core.ToHeaders DescribePackageVersion where
+instance Data.ToHeaders DescribePackageVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribePackageVersion where
+instance Data.ToPath DescribePackageVersion where
   toPath DescribePackageVersion' {..} =
     Prelude.mconcat
       [ "/packages/metadata/",
-        Core.toBS packageId,
+        Data.toBS packageId,
         "/versions/",
-        Core.toBS packageVersion
+        Data.toBS packageVersion
       ]
 
-instance Core.ToQuery DescribePackageVersion where
+instance Data.ToQuery DescribePackageVersion where
   toQuery DescribePackageVersion' {..} =
     Prelude.mconcat
-      [ "PatchVersion" Core.=: patchVersion,
-        "OwnerAccount" Core.=: ownerAccount
+      [ "PatchVersion" Data.=: patchVersion,
+        "OwnerAccount" Data.=: ownerAccount
       ]
 
 -- | /See:/ 'newDescribePackageVersionResponse' smart constructor.
@@ -190,7 +191,7 @@ data DescribePackageVersionResponse = DescribePackageVersionResponse'
     -- | The ARN of the package.
     packageArn :: Prelude.Maybe Prelude.Text,
     -- | The version\'s registered time.
-    registeredTime :: Prelude.Maybe Core.POSIX,
+    registeredTime :: Prelude.Maybe Data.POSIX,
     -- | The account ID of the version\'s owner.
     ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -288,7 +289,7 @@ describePackageVersionResponse_packageArn = Lens.lens (\DescribePackageVersionRe
 
 -- | The version\'s registered time.
 describePackageVersionResponse_registeredTime :: Lens.Lens' DescribePackageVersionResponse (Prelude.Maybe Prelude.UTCTime)
-describePackageVersionResponse_registeredTime = Lens.lens (\DescribePackageVersionResponse' {registeredTime} -> registeredTime) (\s@DescribePackageVersionResponse' {} a -> s {registeredTime = a} :: DescribePackageVersionResponse) Prelude.. Lens.mapping Core._Time
+describePackageVersionResponse_registeredTime = Lens.lens (\DescribePackageVersionResponse' {registeredTime} -> registeredTime) (\s@DescribePackageVersionResponse' {} a -> s {registeredTime = a} :: DescribePackageVersionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The account ID of the version\'s owner.
 describePackageVersionResponse_ownerAccount :: Lens.Lens' DescribePackageVersionResponse (Prelude.Maybe Prelude.Text)

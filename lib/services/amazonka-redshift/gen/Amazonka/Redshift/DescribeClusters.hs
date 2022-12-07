@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -252,9 +253,9 @@ instance Core.AWSRequest DescribeClusters where
       "DescribeClustersResult"
       ( \s h x ->
           DescribeClustersResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "Clusters" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "Cluster")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "Clusters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "Cluster")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -275,28 +276,28 @@ instance Prelude.NFData DescribeClusters where
       `Prelude.seq` Prelude.rnf tagValues
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeClusters where
+instance Data.ToHeaders DescribeClusters where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeClusters where
+instance Data.ToPath DescribeClusters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeClusters where
+instance Data.ToQuery DescribeClusters where
   toQuery DescribeClusters' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeClusters" :: Prelude.ByteString),
+          Data.=: ("DescribeClusters" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Core.=: clusterIdentifier,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ClusterIdentifier" Data.=: clusterIdentifier,
         "TagKeys"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
-        "Marker" Core.=: marker,
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagKey" Prelude.<$> tagKeys),
+        "Marker" Data.=: marker,
         "TagValues"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "MaxRecords" Core.=: maxRecords
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagValue" Prelude.<$> tagValues),
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | Contains the output from the DescribeClusters action.

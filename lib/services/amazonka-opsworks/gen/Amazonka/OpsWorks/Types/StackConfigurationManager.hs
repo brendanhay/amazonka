@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.StackConfigurationManager where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration manager.
@@ -67,14 +68,14 @@ stackConfigurationManager_name = Lens.lens (\StackConfigurationManager' {name} -
 stackConfigurationManager_version :: Lens.Lens' StackConfigurationManager (Prelude.Maybe Prelude.Text)
 stackConfigurationManager_version = Lens.lens (\StackConfigurationManager' {version} -> version) (\s@StackConfigurationManager' {} a -> s {version = a} :: StackConfigurationManager)
 
-instance Core.FromJSON StackConfigurationManager where
+instance Data.FromJSON StackConfigurationManager where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StackConfigurationManager"
       ( \x ->
           StackConfigurationManager'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable StackConfigurationManager where
@@ -86,11 +87,11 @@ instance Prelude.NFData StackConfigurationManager where
   rnf StackConfigurationManager' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON StackConfigurationManager where
+instance Data.ToJSON StackConfigurationManager where
   toJSON StackConfigurationManager' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Version" Core..=) Prelude.<$> version
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Version" Data..=) Prelude.<$> version
           ]
       )

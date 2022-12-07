@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.ErrorRootCause where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.ErrorRootCauseService
 
@@ -65,14 +66,14 @@ errorRootCause_services = Lens.lens (\ErrorRootCause' {services} -> services) (\
 errorRootCause_clientImpacting :: Lens.Lens' ErrorRootCause (Prelude.Maybe Prelude.Bool)
 errorRootCause_clientImpacting = Lens.lens (\ErrorRootCause' {clientImpacting} -> clientImpacting) (\s@ErrorRootCause' {} a -> s {clientImpacting = a} :: ErrorRootCause)
 
-instance Core.FromJSON ErrorRootCause where
+instance Data.FromJSON ErrorRootCause where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorRootCause"
       ( \x ->
           ErrorRootCause'
-            Prelude.<$> (x Core..:? "Services" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ClientImpacting")
+            Prelude.<$> (x Data..:? "Services" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ClientImpacting")
       )
 
 instance Prelude.Hashable ErrorRootCause where

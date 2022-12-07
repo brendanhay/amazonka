@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.CharacterSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a character set.
@@ -61,11 +62,11 @@ characterSet_characterSetName = Lens.lens (\CharacterSet' {characterSetName} -> 
 characterSet_characterSetDescription :: Lens.Lens' CharacterSet (Prelude.Maybe Prelude.Text)
 characterSet_characterSetDescription = Lens.lens (\CharacterSet' {characterSetDescription} -> characterSetDescription) (\s@CharacterSet' {} a -> s {characterSetDescription = a} :: CharacterSet)
 
-instance Core.FromXML CharacterSet where
+instance Data.FromXML CharacterSet where
   parseXML x =
     CharacterSet'
-      Prelude.<$> (x Core..@? "CharacterSetName")
-      Prelude.<*> (x Core..@? "CharacterSetDescription")
+      Prelude.<$> (x Data..@? "CharacterSetName")
+      Prelude.<*> (x Data..@? "CharacterSetDescription")
 
 instance Prelude.Hashable CharacterSet where
   hashWithSalt _salt CharacterSet' {..} =

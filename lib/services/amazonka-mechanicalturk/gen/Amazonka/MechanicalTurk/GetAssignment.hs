@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,8 +86,8 @@ instance Core.AWSRequest GetAssignment where
     Response.receiveJSON
       ( \s h x ->
           GetAssignmentResponse'
-            Prelude.<$> (x Core..?> "HIT")
-            Prelude.<*> (x Core..?> "Assignment")
+            Prelude.<$> (x Data..?> "HIT")
+            Prelude.<*> (x Data..?> "Assignment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,32 +98,32 @@ instance Prelude.Hashable GetAssignment where
 instance Prelude.NFData GetAssignment where
   rnf GetAssignment' {..} = Prelude.rnf assignmentId
 
-instance Core.ToHeaders GetAssignment where
+instance Data.ToHeaders GetAssignment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.GetAssignment" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.GetAssignment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAssignment where
+instance Data.ToJSON GetAssignment where
   toJSON GetAssignment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AssignmentId" Core..= assignmentId)]
+          [Prelude.Just ("AssignmentId" Data..= assignmentId)]
       )
 
-instance Core.ToPath GetAssignment where
+instance Data.ToPath GetAssignment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAssignment where
+instance Data.ToQuery GetAssignment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAssignmentResponse' smart constructor.

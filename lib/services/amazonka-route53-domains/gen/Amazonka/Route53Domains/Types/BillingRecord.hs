@@ -21,6 +21,7 @@ module Amazonka.Route53Domains.Types.BillingRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Domains.Types.OperationType
 
@@ -31,7 +32,7 @@ data BillingRecord = BillingRecord'
   { -- | The ID of the invoice that is associated with the billing record.
     invoiceId :: Prelude.Maybe Prelude.Text,
     -- | The date that the operation was billed, in Unix format.
-    billDate :: Prelude.Maybe Core.POSIX,
+    billDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the domain that the billing record applies to. If the domain
     -- name contains characters other than a-z, 0-9, and - (hyphen), such as an
     -- internationalized domain name, then this value is in Punycode. For more
@@ -89,7 +90,7 @@ billingRecord_invoiceId = Lens.lens (\BillingRecord' {invoiceId} -> invoiceId) (
 
 -- | The date that the operation was billed, in Unix format.
 billingRecord_billDate :: Lens.Lens' BillingRecord (Prelude.Maybe Prelude.UTCTime)
-billingRecord_billDate = Lens.lens (\BillingRecord' {billDate} -> billDate) (\s@BillingRecord' {} a -> s {billDate = a} :: BillingRecord) Prelude.. Lens.mapping Core._Time
+billingRecord_billDate = Lens.lens (\BillingRecord' {billDate} -> billDate) (\s@BillingRecord' {} a -> s {billDate = a} :: BillingRecord) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the domain that the billing record applies to. If the domain
 -- name contains characters other than a-z, 0-9, and - (hyphen), such as an
@@ -110,17 +111,17 @@ billingRecord_price = Lens.lens (\BillingRecord' {price} -> price) (\s@BillingRe
 billingRecord_operation :: Lens.Lens' BillingRecord (Prelude.Maybe OperationType)
 billingRecord_operation = Lens.lens (\BillingRecord' {operation} -> operation) (\s@BillingRecord' {} a -> s {operation = a} :: BillingRecord)
 
-instance Core.FromJSON BillingRecord where
+instance Data.FromJSON BillingRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BillingRecord"
       ( \x ->
           BillingRecord'
-            Prelude.<$> (x Core..:? "InvoiceId")
-            Prelude.<*> (x Core..:? "BillDate")
-            Prelude.<*> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "Price")
-            Prelude.<*> (x Core..:? "Operation")
+            Prelude.<$> (x Data..:? "InvoiceId")
+            Prelude.<*> (x Data..:? "BillDate")
+            Prelude.<*> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "Price")
+            Prelude.<*> (x Data..:? "Operation")
       )
 
 instance Prelude.Hashable BillingRecord where

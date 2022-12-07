@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.StringAttributeConstraintsType whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The constraints associated with a string attribute.
@@ -62,14 +63,14 @@ stringAttributeConstraintsType_maxLength = Lens.lens (\StringAttributeConstraint
 stringAttributeConstraintsType_minLength :: Lens.Lens' StringAttributeConstraintsType (Prelude.Maybe Prelude.Text)
 stringAttributeConstraintsType_minLength = Lens.lens (\StringAttributeConstraintsType' {minLength} -> minLength) (\s@StringAttributeConstraintsType' {} a -> s {minLength = a} :: StringAttributeConstraintsType)
 
-instance Core.FromJSON StringAttributeConstraintsType where
+instance Data.FromJSON StringAttributeConstraintsType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StringAttributeConstraintsType"
       ( \x ->
           StringAttributeConstraintsType'
-            Prelude.<$> (x Core..:? "MaxLength")
-            Prelude.<*> (x Core..:? "MinLength")
+            Prelude.<$> (x Data..:? "MaxLength")
+            Prelude.<*> (x Data..:? "MinLength")
       )
 
 instance
@@ -90,11 +91,11 @@ instance
     Prelude.rnf maxLength
       `Prelude.seq` Prelude.rnf minLength
 
-instance Core.ToJSON StringAttributeConstraintsType where
+instance Data.ToJSON StringAttributeConstraintsType where
   toJSON StringAttributeConstraintsType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxLength" Core..=) Prelude.<$> maxLength,
-            ("MinLength" Core..=) Prelude.<$> minLength
+          [ ("MaxLength" Data..=) Prelude.<$> maxLength,
+            ("MinLength" Data..=) Prelude.<$> minLength
           ]
       )

@@ -60,6 +60,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -215,7 +216,7 @@ instance Core.AWSRequest PutConformancePack where
     Response.receiveJSON
       ( \s h x ->
           PutConformancePackResponse'
-            Prelude.<$> (x Core..?> "ConformancePackArn")
+            Prelude.<$> (x Data..?> "ConformancePackArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -239,44 +240,44 @@ instance Prelude.NFData PutConformancePack where
       `Prelude.seq` Prelude.rnf deliveryS3KeyPrefix
       `Prelude.seq` Prelude.rnf conformancePackName
 
-instance Core.ToHeaders PutConformancePack where
+instance Data.ToHeaders PutConformancePack where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.PutConformancePack" ::
+              Data.=# ( "StarlingDoveService.PutConformancePack" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutConformancePack where
+instance Data.ToJSON PutConformancePack where
   toJSON PutConformancePack' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TemplateS3Uri" Core..=) Prelude.<$> templateS3Uri,
-            ("ConformancePackInputParameters" Core..=)
+          [ ("TemplateS3Uri" Data..=) Prelude.<$> templateS3Uri,
+            ("ConformancePackInputParameters" Data..=)
               Prelude.<$> conformancePackInputParameters,
-            ("TemplateBody" Core..=) Prelude.<$> templateBody,
-            ("DeliveryS3Bucket" Core..=)
+            ("TemplateBody" Data..=) Prelude.<$> templateBody,
+            ("DeliveryS3Bucket" Data..=)
               Prelude.<$> deliveryS3Bucket,
-            ("TemplateSSMDocumentDetails" Core..=)
+            ("TemplateSSMDocumentDetails" Data..=)
               Prelude.<$> templateSSMDocumentDetails,
-            ("DeliveryS3KeyPrefix" Core..=)
+            ("DeliveryS3KeyPrefix" Data..=)
               Prelude.<$> deliveryS3KeyPrefix,
             Prelude.Just
-              ("ConformancePackName" Core..= conformancePackName)
+              ("ConformancePackName" Data..= conformancePackName)
           ]
       )
 
-instance Core.ToPath PutConformancePack where
+instance Data.ToPath PutConformancePack where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutConformancePack where
+instance Data.ToQuery PutConformancePack where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutConformancePackResponse' smart constructor.

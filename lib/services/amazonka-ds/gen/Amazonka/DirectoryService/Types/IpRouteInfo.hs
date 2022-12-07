@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.IpRouteInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.IpRouteStatusMsg
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ data IpRouteInfo = IpRouteInfo'
     -- | IP address block in the IpRoute.
     cidrIp :: Prelude.Maybe Prelude.Text,
     -- | The date and time the address block was added to the directory.
-    addedDateTime :: Prelude.Maybe Core.POSIX,
+    addedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The reason for the IpRouteStatusMsg.
     ipRouteStatusReason :: Prelude.Maybe Prelude.Text
   }
@@ -92,24 +93,24 @@ ipRouteInfo_cidrIp = Lens.lens (\IpRouteInfo' {cidrIp} -> cidrIp) (\s@IpRouteInf
 
 -- | The date and time the address block was added to the directory.
 ipRouteInfo_addedDateTime :: Lens.Lens' IpRouteInfo (Prelude.Maybe Prelude.UTCTime)
-ipRouteInfo_addedDateTime = Lens.lens (\IpRouteInfo' {addedDateTime} -> addedDateTime) (\s@IpRouteInfo' {} a -> s {addedDateTime = a} :: IpRouteInfo) Prelude.. Lens.mapping Core._Time
+ipRouteInfo_addedDateTime = Lens.lens (\IpRouteInfo' {addedDateTime} -> addedDateTime) (\s@IpRouteInfo' {} a -> s {addedDateTime = a} :: IpRouteInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The reason for the IpRouteStatusMsg.
 ipRouteInfo_ipRouteStatusReason :: Lens.Lens' IpRouteInfo (Prelude.Maybe Prelude.Text)
 ipRouteInfo_ipRouteStatusReason = Lens.lens (\IpRouteInfo' {ipRouteStatusReason} -> ipRouteStatusReason) (\s@IpRouteInfo' {} a -> s {ipRouteStatusReason = a} :: IpRouteInfo)
 
-instance Core.FromJSON IpRouteInfo where
+instance Data.FromJSON IpRouteInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IpRouteInfo"
       ( \x ->
           IpRouteInfo'
-            Prelude.<$> (x Core..:? "IpRouteStatusMsg")
-            Prelude.<*> (x Core..:? "DirectoryId")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CidrIp")
-            Prelude.<*> (x Core..:? "AddedDateTime")
-            Prelude.<*> (x Core..:? "IpRouteStatusReason")
+            Prelude.<$> (x Data..:? "IpRouteStatusMsg")
+            Prelude.<*> (x Data..:? "DirectoryId")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CidrIp")
+            Prelude.<*> (x Data..:? "AddedDateTime")
+            Prelude.<*> (x Data..:? "IpRouteStatusReason")
       )
 
 instance Prelude.Hashable IpRouteInfo where

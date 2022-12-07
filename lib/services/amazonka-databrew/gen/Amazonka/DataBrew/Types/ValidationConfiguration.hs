@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.ValidationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.ValidationMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,14 +81,14 @@ validationConfiguration_validationMode = Lens.lens (\ValidationConfiguration' {v
 validationConfiguration_rulesetArn :: Lens.Lens' ValidationConfiguration Prelude.Text
 validationConfiguration_rulesetArn = Lens.lens (\ValidationConfiguration' {rulesetArn} -> rulesetArn) (\s@ValidationConfiguration' {} a -> s {rulesetArn = a} :: ValidationConfiguration)
 
-instance Core.FromJSON ValidationConfiguration where
+instance Data.FromJSON ValidationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ValidationConfiguration"
       ( \x ->
           ValidationConfiguration'
-            Prelude.<$> (x Core..:? "ValidationMode")
-            Prelude.<*> (x Core..: "RulesetArn")
+            Prelude.<$> (x Data..:? "ValidationMode")
+            Prelude.<*> (x Data..: "RulesetArn")
       )
 
 instance Prelude.Hashable ValidationConfiguration where
@@ -100,12 +101,12 @@ instance Prelude.NFData ValidationConfiguration where
     Prelude.rnf validationMode
       `Prelude.seq` Prelude.rnf rulesetArn
 
-instance Core.ToJSON ValidationConfiguration where
+instance Data.ToJSON ValidationConfiguration where
   toJSON ValidationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ValidationMode" Core..=)
+          [ ("ValidationMode" Data..=)
               Prelude.<$> validationMode,
-            Prelude.Just ("RulesetArn" Core..= rulesetArn)
+            Prelude.Just ("RulesetArn" Data..= rulesetArn)
           ]
       )

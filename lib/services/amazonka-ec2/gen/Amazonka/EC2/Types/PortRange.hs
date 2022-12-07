@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PortRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,10 +63,10 @@ portRange_from = Lens.lens (\PortRange' {from} -> from) (\s@PortRange' {} a -> s
 portRange_to :: Lens.Lens' PortRange (Prelude.Maybe Prelude.Int)
 portRange_to = Lens.lens (\PortRange' {to} -> to) (\s@PortRange' {} a -> s {to = a} :: PortRange)
 
-instance Core.FromXML PortRange where
+instance Data.FromXML PortRange where
   parseXML x =
     PortRange'
-      Prelude.<$> (x Core..@? "from") Prelude.<*> (x Core..@? "to")
+      Prelude.<$> (x Data..@? "from") Prelude.<*> (x Data..@? "to")
 
 instance Prelude.Hashable PortRange where
   hashWithSalt _salt PortRange' {..} =
@@ -76,7 +77,7 @@ instance Prelude.NFData PortRange where
   rnf PortRange' {..} =
     Prelude.rnf from `Prelude.seq` Prelude.rnf to
 
-instance Core.ToQuery PortRange where
+instance Data.ToQuery PortRange where
   toQuery PortRange' {..} =
     Prelude.mconcat
-      ["From" Core.=: from, "To" Core.=: to]
+      ["From" Data.=: from, "To" Data.=: to]

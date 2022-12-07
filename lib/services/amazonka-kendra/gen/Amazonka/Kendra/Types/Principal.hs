@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.Principal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.PrincipalType
 import Amazonka.Kendra.Types.ReadAccessType
 import qualified Amazonka.Prelude as Prelude
@@ -91,16 +92,16 @@ principal_type = Lens.lens (\Principal' {type'} -> type') (\s@Principal' {} a ->
 principal_access :: Lens.Lens' Principal ReadAccessType
 principal_access = Lens.lens (\Principal' {access} -> access) (\s@Principal' {} a -> s {access = a} :: Principal)
 
-instance Core.FromJSON Principal where
+instance Data.FromJSON Principal where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Principal"
       ( \x ->
           Principal'
-            Prelude.<$> (x Core..:? "DataSourceId")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "Access")
+            Prelude.<$> (x Data..:? "DataSourceId")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Access")
       )
 
 instance Prelude.Hashable Principal where
@@ -117,13 +118,13 @@ instance Prelude.NFData Principal where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf access
 
-instance Core.ToJSON Principal where
+instance Data.ToJSON Principal where
   toJSON Principal' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSourceId" Core..=) Prelude.<$> dataSourceId,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Access" Core..= access)
+          [ ("DataSourceId" Data..=) Prelude.<$> dataSourceId,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Access" Data..= access)
           ]
       )

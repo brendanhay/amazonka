@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.OptionVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The version for an option. Option group option versions are returned by
@@ -65,11 +66,11 @@ optionVersion_isDefault = Lens.lens (\OptionVersion' {isDefault} -> isDefault) (
 optionVersion_version :: Lens.Lens' OptionVersion (Prelude.Maybe Prelude.Text)
 optionVersion_version = Lens.lens (\OptionVersion' {version} -> version) (\s@OptionVersion' {} a -> s {version = a} :: OptionVersion)
 
-instance Core.FromXML OptionVersion where
+instance Data.FromXML OptionVersion where
   parseXML x =
     OptionVersion'
-      Prelude.<$> (x Core..@? "IsDefault")
-      Prelude.<*> (x Core..@? "Version")
+      Prelude.<$> (x Data..@? "IsDefault")
+      Prelude.<*> (x Data..@? "Version")
 
 instance Prelude.Hashable OptionVersion where
   hashWithSalt _salt OptionVersion' {..} =

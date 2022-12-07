@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.GatewayListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Gateway list item object that specifies the frequency and list of
@@ -72,14 +73,14 @@ gatewayListItem_gatewayId = Lens.lens (\GatewayListItem' {gatewayId} -> gatewayI
 gatewayListItem_downlinkFrequency :: Lens.Lens' GatewayListItem Prelude.Natural
 gatewayListItem_downlinkFrequency = Lens.lens (\GatewayListItem' {downlinkFrequency} -> downlinkFrequency) (\s@GatewayListItem' {} a -> s {downlinkFrequency = a} :: GatewayListItem)
 
-instance Core.FromJSON GatewayListItem where
+instance Data.FromJSON GatewayListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GatewayListItem"
       ( \x ->
           GatewayListItem'
-            Prelude.<$> (x Core..: "GatewayId")
-            Prelude.<*> (x Core..: "DownlinkFrequency")
+            Prelude.<$> (x Data..: "GatewayId")
+            Prelude.<*> (x Data..: "DownlinkFrequency")
       )
 
 instance Prelude.Hashable GatewayListItem where
@@ -92,12 +93,12 @@ instance Prelude.NFData GatewayListItem where
     Prelude.rnf gatewayId
       `Prelude.seq` Prelude.rnf downlinkFrequency
 
-instance Core.ToJSON GatewayListItem where
+instance Data.ToJSON GatewayListItem where
   toJSON GatewayListItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GatewayId" Core..= gatewayId),
+          [ Prelude.Just ("GatewayId" Data..= gatewayId),
             Prelude.Just
-              ("DownlinkFrequency" Core..= downlinkFrequency)
+              ("DownlinkFrequency" Data..= downlinkFrequency)
           ]
       )

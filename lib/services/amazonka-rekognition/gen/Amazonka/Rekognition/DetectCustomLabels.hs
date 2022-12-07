@@ -86,6 +86,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -183,7 +184,7 @@ instance Core.AWSRequest DetectCustomLabels where
     Response.receiveJSON
       ( \s h x ->
           DetectCustomLabelsResponse'
-            Prelude.<$> (x Core..?> "CustomLabels" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "CustomLabels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,37 +202,37 @@ instance Prelude.NFData DetectCustomLabels where
       `Prelude.seq` Prelude.rnf projectVersionArn
       `Prelude.seq` Prelude.rnf image
 
-instance Core.ToHeaders DetectCustomLabels where
+instance Data.ToHeaders DetectCustomLabels where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.DetectCustomLabels" ::
+              Data.=# ( "RekognitionService.DetectCustomLabels" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DetectCustomLabels where
+instance Data.ToJSON DetectCustomLabels where
   toJSON DetectCustomLabels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MinConfidence" Core..=) Prelude.<$> minConfidence,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("MinConfidence" Data..=) Prelude.<$> minConfidence,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("ProjectVersionArn" Core..= projectVersionArn),
-            Prelude.Just ("Image" Core..= image)
+              ("ProjectVersionArn" Data..= projectVersionArn),
+            Prelude.Just ("Image" Data..= image)
           ]
       )
 
-instance Core.ToPath DetectCustomLabels where
+instance Data.ToPath DetectCustomLabels where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetectCustomLabels where
+instance Data.ToQuery DetectCustomLabels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectCustomLabelsResponse' smart constructor.

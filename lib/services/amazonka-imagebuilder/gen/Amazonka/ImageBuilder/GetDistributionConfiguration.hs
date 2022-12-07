@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,8 +92,8 @@ instance Core.AWSRequest GetDistributionConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetDistributionConfigurationResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "distributionConfiguration")
+            Prelude.<$> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "distributionConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,26 +109,26 @@ instance Prelude.NFData GetDistributionConfiguration where
   rnf GetDistributionConfiguration' {..} =
     Prelude.rnf distributionConfigurationArn
 
-instance Core.ToHeaders GetDistributionConfiguration where
+instance Data.ToHeaders GetDistributionConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDistributionConfiguration where
+instance Data.ToPath GetDistributionConfiguration where
   toPath =
     Prelude.const "/GetDistributionConfiguration"
 
-instance Core.ToQuery GetDistributionConfiguration where
+instance Data.ToQuery GetDistributionConfiguration where
   toQuery GetDistributionConfiguration' {..} =
     Prelude.mconcat
       [ "distributionConfigurationArn"
-          Core.=: distributionConfigurationArn
+          Data.=: distributionConfigurationArn
       ]
 
 -- | /See:/ 'newGetDistributionConfigurationResponse' smart constructor.

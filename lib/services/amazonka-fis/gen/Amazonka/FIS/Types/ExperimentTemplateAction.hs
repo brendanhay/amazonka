@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentTemplateAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an action for an experiment template.
@@ -92,17 +93,17 @@ experimentTemplateAction_actionId = Lens.lens (\ExperimentTemplateAction' {actio
 experimentTemplateAction_parameters :: Lens.Lens' ExperimentTemplateAction (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 experimentTemplateAction_parameters = Lens.lens (\ExperimentTemplateAction' {parameters} -> parameters) (\s@ExperimentTemplateAction' {} a -> s {parameters = a} :: ExperimentTemplateAction) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ExperimentTemplateAction where
+instance Data.FromJSON ExperimentTemplateAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentTemplateAction"
       ( \x ->
           ExperimentTemplateAction'
-            Prelude.<$> (x Core..:? "startAfter" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "actionId")
-            Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "startAfter" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "actionId")
+            Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ExperimentTemplateAction where

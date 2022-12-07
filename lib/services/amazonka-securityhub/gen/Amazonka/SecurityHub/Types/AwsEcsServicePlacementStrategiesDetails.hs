@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsServicePlacementStrategiesDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A placement strategy that determines how to place the tasks for the
@@ -127,15 +128,15 @@ awsEcsServicePlacementStrategiesDetails_field :: Lens.Lens' AwsEcsServicePlaceme
 awsEcsServicePlacementStrategiesDetails_field = Lens.lens (\AwsEcsServicePlacementStrategiesDetails' {field} -> field) (\s@AwsEcsServicePlacementStrategiesDetails' {} a -> s {field = a} :: AwsEcsServicePlacementStrategiesDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsServicePlacementStrategiesDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsServicePlacementStrategiesDetails"
       ( \x ->
           AwsEcsServicePlacementStrategiesDetails'
-            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Field")
+            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Field")
       )
 
 instance
@@ -156,13 +157,13 @@ instance
     Prelude.rnf type' `Prelude.seq` Prelude.rnf field
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsServicePlacementStrategiesDetails
   where
   toJSON AwsEcsServicePlacementStrategiesDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Field" Core..=) Prelude.<$> field
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Field" Data..=) Prelude.<$> field
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.AudioDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AudioChannelTaggingSettings
 import Amazonka.MediaConvert.Types.AudioCodecSettings
 import Amazonka.MediaConvert.Types.AudioLanguageCodeControl
@@ -308,23 +309,23 @@ audioDescription_languageCodeControl = Lens.lens (\AudioDescription' {languageCo
 audioDescription_streamName :: Lens.Lens' AudioDescription (Prelude.Maybe Prelude.Text)
 audioDescription_streamName = Lens.lens (\AudioDescription' {streamName} -> streamName) (\s@AudioDescription' {} a -> s {streamName = a} :: AudioDescription)
 
-instance Core.FromJSON AudioDescription where
+instance Data.FromJSON AudioDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioDescription"
       ( \x ->
           AudioDescription'
-            Prelude.<$> (x Core..:? "customLanguageCode")
-            Prelude.<*> (x Core..:? "audioNormalizationSettings")
-            Prelude.<*> (x Core..:? "codecSettings")
-            Prelude.<*> (x Core..:? "remixSettings")
-            Prelude.<*> (x Core..:? "languageCode")
-            Prelude.<*> (x Core..:? "audioChannelTaggingSettings")
-            Prelude.<*> (x Core..:? "audioSourceName")
-            Prelude.<*> (x Core..:? "audioTypeControl")
-            Prelude.<*> (x Core..:? "audioType")
-            Prelude.<*> (x Core..:? "languageCodeControl")
-            Prelude.<*> (x Core..:? "streamName")
+            Prelude.<$> (x Data..:? "customLanguageCode")
+            Prelude.<*> (x Data..:? "audioNormalizationSettings")
+            Prelude.<*> (x Data..:? "codecSettings")
+            Prelude.<*> (x Data..:? "remixSettings")
+            Prelude.<*> (x Data..:? "languageCode")
+            Prelude.<*> (x Data..:? "audioChannelTaggingSettings")
+            Prelude.<*> (x Data..:? "audioSourceName")
+            Prelude.<*> (x Data..:? "audioTypeControl")
+            Prelude.<*> (x Data..:? "audioType")
+            Prelude.<*> (x Data..:? "languageCodeControl")
+            Prelude.<*> (x Data..:? "streamName")
       )
 
 instance Prelude.Hashable AudioDescription where
@@ -355,26 +356,26 @@ instance Prelude.NFData AudioDescription where
       `Prelude.seq` Prelude.rnf languageCodeControl
       `Prelude.seq` Prelude.rnf streamName
 
-instance Core.ToJSON AudioDescription where
+instance Data.ToJSON AudioDescription where
   toJSON AudioDescription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("customLanguageCode" Core..=)
+          [ ("customLanguageCode" Data..=)
               Prelude.<$> customLanguageCode,
-            ("audioNormalizationSettings" Core..=)
+            ("audioNormalizationSettings" Data..=)
               Prelude.<$> audioNormalizationSettings,
-            ("codecSettings" Core..=) Prelude.<$> codecSettings,
-            ("remixSettings" Core..=) Prelude.<$> remixSettings,
-            ("languageCode" Core..=) Prelude.<$> languageCode,
-            ("audioChannelTaggingSettings" Core..=)
+            ("codecSettings" Data..=) Prelude.<$> codecSettings,
+            ("remixSettings" Data..=) Prelude.<$> remixSettings,
+            ("languageCode" Data..=) Prelude.<$> languageCode,
+            ("audioChannelTaggingSettings" Data..=)
               Prelude.<$> audioChannelTaggingSettings,
-            ("audioSourceName" Core..=)
+            ("audioSourceName" Data..=)
               Prelude.<$> audioSourceName,
-            ("audioTypeControl" Core..=)
+            ("audioTypeControl" Data..=)
               Prelude.<$> audioTypeControl,
-            ("audioType" Core..=) Prelude.<$> audioType,
-            ("languageCodeControl" Core..=)
+            ("audioType" Data..=) Prelude.<$> audioType,
+            ("languageCodeControl" Data..=)
               Prelude.<$> languageCodeControl,
-            ("streamName" Core..=) Prelude.<$> streamName
+            ("streamName" Data..=) Prelude.<$> streamName
           ]
       )

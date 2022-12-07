@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.Compute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.ComputeType
 
@@ -83,15 +84,15 @@ compute_simulationUnitLimit = Lens.lens (\Compute' {simulationUnitLimit} -> simu
 compute_computeType :: Lens.Lens' Compute (Prelude.Maybe ComputeType)
 compute_computeType = Lens.lens (\Compute' {computeType} -> computeType) (\s@Compute' {} a -> s {computeType = a} :: Compute)
 
-instance Core.FromJSON Compute where
+instance Data.FromJSON Compute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Compute"
       ( \x ->
           Compute'
-            Prelude.<$> (x Core..:? "gpuUnitLimit")
-            Prelude.<*> (x Core..:? "simulationUnitLimit")
-            Prelude.<*> (x Core..:? "computeType")
+            Prelude.<$> (x Data..:? "gpuUnitLimit")
+            Prelude.<*> (x Data..:? "simulationUnitLimit")
+            Prelude.<*> (x Data..:? "computeType")
       )
 
 instance Prelude.Hashable Compute where
@@ -106,13 +107,13 @@ instance Prelude.NFData Compute where
       `Prelude.seq` Prelude.rnf simulationUnitLimit
       `Prelude.seq` Prelude.rnf computeType
 
-instance Core.ToJSON Compute where
+instance Data.ToJSON Compute where
   toJSON Compute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("gpuUnitLimit" Core..=) Prelude.<$> gpuUnitLimit,
-            ("simulationUnitLimit" Core..=)
+          [ ("gpuUnitLimit" Data..=) Prelude.<$> gpuUnitLimit,
+            ("simulationUnitLimit" Data..=)
               Prelude.<$> simulationUnitLimit,
-            ("computeType" Core..=) Prelude.<$> computeType
+            ("computeType" Data..=) Prelude.<$> computeType
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.TableAutoScalingDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ReplicaAutoScalingDescription
 import Amazonka.DynamoDB.Types.TableStatus
@@ -99,15 +100,15 @@ tableAutoScalingDescription_tableStatus = Lens.lens (\TableAutoScalingDescriptio
 tableAutoScalingDescription_replicas :: Lens.Lens' TableAutoScalingDescription (Prelude.Maybe [ReplicaAutoScalingDescription])
 tableAutoScalingDescription_replicas = Lens.lens (\TableAutoScalingDescription' {replicas} -> replicas) (\s@TableAutoScalingDescription' {} a -> s {replicas = a} :: TableAutoScalingDescription) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TableAutoScalingDescription where
+instance Data.FromJSON TableAutoScalingDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TableAutoScalingDescription"
       ( \x ->
           TableAutoScalingDescription'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "TableStatus")
-            Prelude.<*> (x Core..:? "Replicas" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "TableStatus")
+            Prelude.<*> (x Data..:? "Replicas" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TableAutoScalingDescription where

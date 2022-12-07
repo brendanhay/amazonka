@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.AdvancedSecurityOptionsInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.MasterUserOptions
 import Amazonka.OpenSearch.Types.SAMLOptionsInput
 import qualified Amazonka.Prelude as Prelude
@@ -122,17 +123,17 @@ instance Prelude.NFData AdvancedSecurityOptionsInput where
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf masterUserOptions
 
-instance Core.ToJSON AdvancedSecurityOptionsInput where
+instance Data.ToJSON AdvancedSecurityOptionsInput where
   toJSON AdvancedSecurityOptionsInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InternalUserDatabaseEnabled" Core..=)
+          [ ("InternalUserDatabaseEnabled" Data..=)
               Prelude.<$> internalUserDatabaseEnabled,
-            ("SAMLOptions" Core..=) Prelude.<$> sAMLOptions,
-            ("AnonymousAuthEnabled" Core..=)
+            ("SAMLOptions" Data..=) Prelude.<$> sAMLOptions,
+            ("AnonymousAuthEnabled" Data..=)
               Prelude.<$> anonymousAuthEnabled,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("MasterUserOptions" Core..=)
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("MasterUserOptions" Data..=)
               Prelude.<$> masterUserOptions
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.ConnectCases.Types.Contact where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents an Amazon Connect contact object.
@@ -59,9 +60,9 @@ instance Prelude.Hashable Contact where
 instance Prelude.NFData Contact where
   rnf Contact' {..} = Prelude.rnf contactArn
 
-instance Core.ToJSON Contact where
+instance Data.ToJSON Contact where
   toJSON Contact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("contactArn" Core..= contactArn)]
+          [Prelude.Just ("contactArn" Data..= contactArn)]
       )

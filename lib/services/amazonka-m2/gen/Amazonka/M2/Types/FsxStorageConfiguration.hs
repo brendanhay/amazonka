@@ -21,6 +21,7 @@ module Amazonka.M2.Types.FsxStorageConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the storage configuration for an Amazon FSx file system.
@@ -68,14 +69,14 @@ fsxStorageConfiguration_fileSystemId = Lens.lens (\FsxStorageConfiguration' {fil
 fsxStorageConfiguration_mountPoint :: Lens.Lens' FsxStorageConfiguration Prelude.Text
 fsxStorageConfiguration_mountPoint = Lens.lens (\FsxStorageConfiguration' {mountPoint} -> mountPoint) (\s@FsxStorageConfiguration' {} a -> s {mountPoint = a} :: FsxStorageConfiguration)
 
-instance Core.FromJSON FsxStorageConfiguration where
+instance Data.FromJSON FsxStorageConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FsxStorageConfiguration"
       ( \x ->
           FsxStorageConfiguration'
-            Prelude.<$> (x Core..: "file-system-id")
-            Prelude.<*> (x Core..: "mount-point")
+            Prelude.<$> (x Data..: "file-system-id")
+            Prelude.<*> (x Data..: "mount-point")
       )
 
 instance Prelude.Hashable FsxStorageConfiguration where
@@ -88,12 +89,12 @@ instance Prelude.NFData FsxStorageConfiguration where
     Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf mountPoint
 
-instance Core.ToJSON FsxStorageConfiguration where
+instance Data.ToJSON FsxStorageConfiguration where
   toJSON FsxStorageConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("file-system-id" Core..= fileSystemId),
-            Prelude.Just ("mount-point" Core..= mountPoint)
+              ("file-system-id" Data..= fileSystemId),
+            Prelude.Just ("mount-point" Data..= mountPoint)
           ]
       )

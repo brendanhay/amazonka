@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -56,7 +57,7 @@ data GetTable = GetTable'
   { -- | The time as of when to read the table contents. If not set, the most
     -- recent transaction commit time will be used. Cannot be specified along
     -- with @TransactionId@.
-    queryAsOfTime :: Prelude.Maybe Core.POSIX,
+    queryAsOfTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the Data Catalog where the table resides. If none is provided,
     -- the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
@@ -112,7 +113,7 @@ newGetTable pDatabaseName_ pName_ =
 -- recent transaction commit time will be used. Cannot be specified along
 -- with @TransactionId@.
 getTable_queryAsOfTime :: Lens.Lens' GetTable (Prelude.Maybe Prelude.UTCTime)
-getTable_queryAsOfTime = Lens.lens (\GetTable' {queryAsOfTime} -> queryAsOfTime) (\s@GetTable' {} a -> s {queryAsOfTime = a} :: GetTable) Prelude.. Lens.mapping Core._Time
+getTable_queryAsOfTime = Lens.lens (\GetTable' {queryAsOfTime} -> queryAsOfTime) (\s@GetTable' {} a -> s {queryAsOfTime = a} :: GetTable) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the Data Catalog where the table resides. If none is provided,
 -- the Amazon Web Services account ID is used by default.
@@ -141,7 +142,7 @@ instance Core.AWSRequest GetTable where
     Response.receiveJSON
       ( \s h x ->
           GetTableResponse'
-            Prelude.<$> (x Core..?> "Table")
+            Prelude.<$> (x Data..?> "Table")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,35 +162,35 @@ instance Prelude.NFData GetTable where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders GetTable where
+instance Data.ToHeaders GetTable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetTable" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetTable" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTable where
+instance Data.ToJSON GetTable where
   toJSON GetTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("QueryAsOfTime" Core..=) Prelude.<$> queryAsOfTime,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("TransactionId" Core..=) Prelude.<$> transactionId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("Name" Core..= name)
+          [ ("QueryAsOfTime" Data..=) Prelude.<$> queryAsOfTime,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("TransactionId" Data..=) Prelude.<$> transactionId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath GetTable where
+instance Data.ToPath GetTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTable where
+instance Data.ToQuery GetTable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTableResponse' smart constructor.

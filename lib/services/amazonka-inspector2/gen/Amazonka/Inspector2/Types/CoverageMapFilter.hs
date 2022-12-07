@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.CoverageMapFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.CoverageMapComparison
 import qualified Amazonka.Prelude as Prelude
 
@@ -87,12 +88,12 @@ instance Prelude.NFData CoverageMapFilter where
       `Prelude.seq` Prelude.rnf comparison
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON CoverageMapFilter where
+instance Data.ToJSON CoverageMapFilter where
   toJSON CoverageMapFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            Prelude.Just ("comparison" Core..= comparison),
-            Prelude.Just ("key" Core..= key)
+          [ ("value" Data..=) Prelude.<$> value,
+            Prelude.Just ("comparison" Data..= comparison),
+            Prelude.Just ("key" Data..= key)
           ]
       )

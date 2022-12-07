@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.BaselineEbsBandwidthMbpsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the minimum and maximum for the @BaselineEbsBandwidthMbps@
@@ -63,10 +64,10 @@ baselineEbsBandwidthMbpsRequest_max = Lens.lens (\BaselineEbsBandwidthMbpsReques
 baselineEbsBandwidthMbpsRequest_min :: Lens.Lens' BaselineEbsBandwidthMbpsRequest (Prelude.Maybe Prelude.Natural)
 baselineEbsBandwidthMbpsRequest_min = Lens.lens (\BaselineEbsBandwidthMbpsRequest' {min} -> min) (\s@BaselineEbsBandwidthMbpsRequest' {} a -> s {min = a} :: BaselineEbsBandwidthMbpsRequest)
 
-instance Core.FromXML BaselineEbsBandwidthMbpsRequest where
+instance Data.FromXML BaselineEbsBandwidthMbpsRequest where
   parseXML x =
     BaselineEbsBandwidthMbpsRequest'
-      Prelude.<$> (x Core..@? "Max") Prelude.<*> (x Core..@? "Min")
+      Prelude.<$> (x Data..@? "Max") Prelude.<*> (x Data..@? "Min")
 
 instance
   Prelude.Hashable
@@ -85,7 +86,7 @@ instance
   rnf BaselineEbsBandwidthMbpsRequest' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery BaselineEbsBandwidthMbpsRequest where
+instance Data.ToQuery BaselineEbsBandwidthMbpsRequest where
   toQuery BaselineEbsBandwidthMbpsRequest' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

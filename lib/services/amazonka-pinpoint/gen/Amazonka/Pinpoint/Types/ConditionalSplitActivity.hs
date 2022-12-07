@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ConditionalSplitActivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Condition
 import Amazonka.Pinpoint.Types.WaitTime
 import qualified Amazonka.Prelude as Prelude
@@ -106,16 +107,16 @@ conditionalSplitActivity_evaluationWaitTime = Lens.lens (\ConditionalSplitActivi
 conditionalSplitActivity_trueActivity :: Lens.Lens' ConditionalSplitActivity (Prelude.Maybe Prelude.Text)
 conditionalSplitActivity_trueActivity = Lens.lens (\ConditionalSplitActivity' {trueActivity} -> trueActivity) (\s@ConditionalSplitActivity' {} a -> s {trueActivity = a} :: ConditionalSplitActivity)
 
-instance Core.FromJSON ConditionalSplitActivity where
+instance Data.FromJSON ConditionalSplitActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConditionalSplitActivity"
       ( \x ->
           ConditionalSplitActivity'
-            Prelude.<$> (x Core..:? "Condition")
-            Prelude.<*> (x Core..:? "FalseActivity")
-            Prelude.<*> (x Core..:? "EvaluationWaitTime")
-            Prelude.<*> (x Core..:? "TrueActivity")
+            Prelude.<$> (x Data..:? "Condition")
+            Prelude.<*> (x Data..:? "FalseActivity")
+            Prelude.<*> (x Data..:? "EvaluationWaitTime")
+            Prelude.<*> (x Data..:? "TrueActivity")
       )
 
 instance Prelude.Hashable ConditionalSplitActivity where
@@ -132,14 +133,14 @@ instance Prelude.NFData ConditionalSplitActivity where
       `Prelude.seq` Prelude.rnf evaluationWaitTime
       `Prelude.seq` Prelude.rnf trueActivity
 
-instance Core.ToJSON ConditionalSplitActivity where
+instance Data.ToJSON ConditionalSplitActivity where
   toJSON ConditionalSplitActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Condition" Core..=) Prelude.<$> condition,
-            ("FalseActivity" Core..=) Prelude.<$> falseActivity,
-            ("EvaluationWaitTime" Core..=)
+          [ ("Condition" Data..=) Prelude.<$> condition,
+            ("FalseActivity" Data..=) Prelude.<$> falseActivity,
+            ("EvaluationWaitTime" Data..=)
               Prelude.<$> evaluationWaitTime,
-            ("TrueActivity" Core..=) Prelude.<$> trueActivity
+            ("TrueActivity" Data..=) Prelude.<$> trueActivity
           ]
       )

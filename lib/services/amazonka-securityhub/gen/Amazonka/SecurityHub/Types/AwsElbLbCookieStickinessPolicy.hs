@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElbLbCookieStickinessPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a stickiness policy that was created using
@@ -72,14 +73,14 @@ awsElbLbCookieStickinessPolicy_policyName = Lens.lens (\AwsElbLbCookieStickiness
 awsElbLbCookieStickinessPolicy_cookieExpirationPeriod :: Lens.Lens' AwsElbLbCookieStickinessPolicy (Prelude.Maybe Prelude.Integer)
 awsElbLbCookieStickinessPolicy_cookieExpirationPeriod = Lens.lens (\AwsElbLbCookieStickinessPolicy' {cookieExpirationPeriod} -> cookieExpirationPeriod) (\s@AwsElbLbCookieStickinessPolicy' {} a -> s {cookieExpirationPeriod = a} :: AwsElbLbCookieStickinessPolicy)
 
-instance Core.FromJSON AwsElbLbCookieStickinessPolicy where
+instance Data.FromJSON AwsElbLbCookieStickinessPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElbLbCookieStickinessPolicy"
       ( \x ->
           AwsElbLbCookieStickinessPolicy'
-            Prelude.<$> (x Core..:? "PolicyName")
-            Prelude.<*> (x Core..:? "CookieExpirationPeriod")
+            Prelude.<$> (x Data..:? "PolicyName")
+            Prelude.<*> (x Data..:? "CookieExpirationPeriod")
       )
 
 instance
@@ -100,12 +101,12 @@ instance
     Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf cookieExpirationPeriod
 
-instance Core.ToJSON AwsElbLbCookieStickinessPolicy where
+instance Data.ToJSON AwsElbLbCookieStickinessPolicy where
   toJSON AwsElbLbCookieStickinessPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PolicyName" Core..=) Prelude.<$> policyName,
-            ("CookieExpirationPeriod" Core..=)
+          [ ("PolicyName" Data..=) Prelude.<$> policyName,
+            ("CookieExpirationPeriod" Data..=)
               Prelude.<$> cookieExpirationPeriod
           ]
       )

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,8 +90,8 @@ instance Core.AWSRequest GetSubscriptionAttributes where
       "GetSubscriptionAttributesResult"
       ( \s h x ->
           GetSubscriptionAttributesResponse'
-            Prelude.<$> ( x Core..@? "Attributes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+            Prelude.<$> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -103,20 +104,20 @@ instance Prelude.NFData GetSubscriptionAttributes where
   rnf GetSubscriptionAttributes' {..} =
     Prelude.rnf subscriptionArn
 
-instance Core.ToHeaders GetSubscriptionAttributes where
+instance Data.ToHeaders GetSubscriptionAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetSubscriptionAttributes where
+instance Data.ToPath GetSubscriptionAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSubscriptionAttributes where
+instance Data.ToQuery GetSubscriptionAttributes where
   toQuery GetSubscriptionAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetSubscriptionAttributes" :: Prelude.ByteString),
+          Data.=: ("GetSubscriptionAttributes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "SubscriptionArn" Core.=: subscriptionArn
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "SubscriptionArn" Data.=: subscriptionArn
       ]
 
 -- | Response for GetSubscriptionAttributes action.

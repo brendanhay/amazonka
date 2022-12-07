@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.VolumeInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a storage volume object.
@@ -168,19 +169,19 @@ volumeInfo_gatewayId = Lens.lens (\VolumeInfo' {gatewayId} -> gatewayId) (\s@Vol
 volumeInfo_volumeId :: Lens.Lens' VolumeInfo (Prelude.Maybe Prelude.Text)
 volumeInfo_volumeId = Lens.lens (\VolumeInfo' {volumeId} -> volumeId) (\s@VolumeInfo' {} a -> s {volumeId = a} :: VolumeInfo)
 
-instance Core.FromJSON VolumeInfo where
+instance Data.FromJSON VolumeInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VolumeInfo"
       ( \x ->
           VolumeInfo'
-            Prelude.<$> (x Core..:? "VolumeSizeInBytes")
-            Prelude.<*> (x Core..:? "VolumeAttachmentStatus")
-            Prelude.<*> (x Core..:? "VolumeType")
-            Prelude.<*> (x Core..:? "VolumeARN")
-            Prelude.<*> (x Core..:? "GatewayARN")
-            Prelude.<*> (x Core..:? "GatewayId")
-            Prelude.<*> (x Core..:? "VolumeId")
+            Prelude.<$> (x Data..:? "VolumeSizeInBytes")
+            Prelude.<*> (x Data..:? "VolumeAttachmentStatus")
+            Prelude.<*> (x Data..:? "VolumeType")
+            Prelude.<*> (x Data..:? "VolumeARN")
+            Prelude.<*> (x Data..:? "GatewayARN")
+            Prelude.<*> (x Data..:? "GatewayId")
+            Prelude.<*> (x Data..:? "VolumeId")
       )
 
 instance Prelude.Hashable VolumeInfo where

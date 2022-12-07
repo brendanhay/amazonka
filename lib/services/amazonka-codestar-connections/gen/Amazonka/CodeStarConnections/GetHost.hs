@@ -47,6 +47,7 @@ where
 import Amazonka.CodeStarConnections.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,11 +86,11 @@ instance Core.AWSRequest GetHost where
     Response.receiveJSON
       ( \s h x ->
           GetHostResponse'
-            Prelude.<$> (x Core..?> "VpcConfiguration")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "ProviderEndpoint")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ProviderType")
+            Prelude.<$> (x Data..?> "VpcConfiguration")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "ProviderEndpoint")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ProviderType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,32 +101,32 @@ instance Prelude.Hashable GetHost where
 instance Prelude.NFData GetHost where
   rnf GetHost' {..} = Prelude.rnf hostArn
 
-instance Core.ToHeaders GetHost where
+instance Data.ToHeaders GetHost where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.codestar.connections.CodeStar_connections_20191201.GetHost" ::
+              Data.=# ( "com.amazonaws.codestar.connections.CodeStar_connections_20191201.GetHost" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetHost where
+instance Data.ToJSON GetHost where
   toJSON GetHost' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("HostArn" Core..= hostArn)]
+          [Prelude.Just ("HostArn" Data..= hostArn)]
       )
 
-instance Core.ToPath GetHost where
+instance Data.ToPath GetHost where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetHost where
+instance Data.ToQuery GetHost where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetHostResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.DocumentReviewerResponseSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.DocumentReviewCommentSource
 import Amazonka.SSM.Types.ReviewStatus
@@ -36,10 +37,10 @@ data DocumentReviewerResponseSource = DocumentReviewerResponseSource'
     comment :: Prelude.Maybe [DocumentReviewCommentSource],
     -- | The date and time that a reviewer entered a response to a document
     -- review request.
-    createTime :: Prelude.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time that a reviewer last updated a response to a document
     -- review request.
-    updatedTime :: Prelude.Maybe Core.POSIX,
+    updatedTime :: Prelude.Maybe Data.POSIX,
     -- | The current review status of a new custom SSM document created by a
     -- member of your organization, or of the latest version of an existing SSM
     -- document.
@@ -105,12 +106,12 @@ documentReviewerResponseSource_comment = Lens.lens (\DocumentReviewerResponseSou
 -- | The date and time that a reviewer entered a response to a document
 -- review request.
 documentReviewerResponseSource_createTime :: Lens.Lens' DocumentReviewerResponseSource (Prelude.Maybe Prelude.UTCTime)
-documentReviewerResponseSource_createTime = Lens.lens (\DocumentReviewerResponseSource' {createTime} -> createTime) (\s@DocumentReviewerResponseSource' {} a -> s {createTime = a} :: DocumentReviewerResponseSource) Prelude.. Lens.mapping Core._Time
+documentReviewerResponseSource_createTime = Lens.lens (\DocumentReviewerResponseSource' {createTime} -> createTime) (\s@DocumentReviewerResponseSource' {} a -> s {createTime = a} :: DocumentReviewerResponseSource) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that a reviewer last updated a response to a document
 -- review request.
 documentReviewerResponseSource_updatedTime :: Lens.Lens' DocumentReviewerResponseSource (Prelude.Maybe Prelude.UTCTime)
-documentReviewerResponseSource_updatedTime = Lens.lens (\DocumentReviewerResponseSource' {updatedTime} -> updatedTime) (\s@DocumentReviewerResponseSource' {} a -> s {updatedTime = a} :: DocumentReviewerResponseSource) Prelude.. Lens.mapping Core._Time
+documentReviewerResponseSource_updatedTime = Lens.lens (\DocumentReviewerResponseSource' {updatedTime} -> updatedTime) (\s@DocumentReviewerResponseSource' {} a -> s {updatedTime = a} :: DocumentReviewerResponseSource) Prelude.. Lens.mapping Data._Time
 
 -- | The current review status of a new custom SSM document created by a
 -- member of your organization, or of the latest version of an existing SSM
@@ -124,17 +125,17 @@ documentReviewerResponseSource_updatedTime = Lens.lens (\DocumentReviewerRespons
 documentReviewerResponseSource_reviewStatus :: Lens.Lens' DocumentReviewerResponseSource (Prelude.Maybe ReviewStatus)
 documentReviewerResponseSource_reviewStatus = Lens.lens (\DocumentReviewerResponseSource' {reviewStatus} -> reviewStatus) (\s@DocumentReviewerResponseSource' {} a -> s {reviewStatus = a} :: DocumentReviewerResponseSource)
 
-instance Core.FromJSON DocumentReviewerResponseSource where
+instance Data.FromJSON DocumentReviewerResponseSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentReviewerResponseSource"
       ( \x ->
           DocumentReviewerResponseSource'
-            Prelude.<$> (x Core..:? "Reviewer")
-            Prelude.<*> (x Core..:? "Comment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CreateTime")
-            Prelude.<*> (x Core..:? "UpdatedTime")
-            Prelude.<*> (x Core..:? "ReviewStatus")
+            Prelude.<$> (x Data..:? "Reviewer")
+            Prelude.<*> (x Data..:? "Comment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CreateTime")
+            Prelude.<*> (x Data..:? "UpdatedTime")
+            Prelude.<*> (x Data..:? "ReviewStatus")
       )
 
 instance

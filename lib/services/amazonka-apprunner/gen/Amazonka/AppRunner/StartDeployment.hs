@@ -53,6 +53,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,7 +99,7 @@ instance Core.AWSRequest StartDeployment where
       ( \s h x ->
           StartDeploymentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "OperationId")
+            Prelude.<*> (x Data..:> "OperationId")
       )
 
 instance Prelude.Hashable StartDeployment where
@@ -108,30 +109,30 @@ instance Prelude.Hashable StartDeployment where
 instance Prelude.NFData StartDeployment where
   rnf StartDeployment' {..} = Prelude.rnf serviceArn
 
-instance Core.ToHeaders StartDeployment where
+instance Data.ToHeaders StartDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AppRunner.StartDeployment" :: Prelude.ByteString),
+              Data.=# ("AppRunner.StartDeployment" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartDeployment where
+instance Data.ToJSON StartDeployment where
   toJSON StartDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ServiceArn" Core..= serviceArn)]
+          [Prelude.Just ("ServiceArn" Data..= serviceArn)]
       )
 
-instance Core.ToPath StartDeployment where
+instance Data.ToPath StartDeployment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartDeployment where
+instance Data.ToQuery StartDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartDeploymentResponse' smart constructor.

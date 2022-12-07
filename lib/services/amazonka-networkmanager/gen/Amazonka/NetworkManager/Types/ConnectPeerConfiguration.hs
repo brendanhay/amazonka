@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.ConnectPeerConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.ConnectPeerBgpConfiguration
 import Amazonka.NetworkManager.Types.TunnelProtocol
 import qualified Amazonka.Prelude as Prelude
@@ -91,21 +92,21 @@ connectPeerConfiguration_peerAddress = Lens.lens (\ConnectPeerConfiguration' {pe
 connectPeerConfiguration_protocol :: Lens.Lens' ConnectPeerConfiguration (Prelude.Maybe TunnelProtocol)
 connectPeerConfiguration_protocol = Lens.lens (\ConnectPeerConfiguration' {protocol} -> protocol) (\s@ConnectPeerConfiguration' {} a -> s {protocol = a} :: ConnectPeerConfiguration)
 
-instance Core.FromJSON ConnectPeerConfiguration where
+instance Data.FromJSON ConnectPeerConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectPeerConfiguration"
       ( \x ->
           ConnectPeerConfiguration'
-            Prelude.<$> ( x Core..:? "BgpConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "BgpConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CoreNetworkAddress")
-            Prelude.<*> ( x Core..:? "InsideCidrBlocks"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "CoreNetworkAddress")
+            Prelude.<*> ( x Data..:? "InsideCidrBlocks"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PeerAddress")
-            Prelude.<*> (x Core..:? "Protocol")
+            Prelude.<*> (x Data..:? "PeerAddress")
+            Prelude.<*> (x Data..:? "Protocol")
       )
 
 instance Prelude.Hashable ConnectPeerConfiguration where

@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.MatchingBucket where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.BucketMetadataErrorCode
 import Amazonka.MacieV2.Types.JobDetails
 import Amazonka.MacieV2.Types.ObjectCountByEncryptionType
@@ -287,25 +288,25 @@ matchingBucket_sizeInBytesCompressed = Lens.lens (\MatchingBucket' {sizeInBytesC
 matchingBucket_unclassifiableObjectSizeInBytes :: Lens.Lens' MatchingBucket (Prelude.Maybe ObjectLevelStatistics)
 matchingBucket_unclassifiableObjectSizeInBytes = Lens.lens (\MatchingBucket' {unclassifiableObjectSizeInBytes} -> unclassifiableObjectSizeInBytes) (\s@MatchingBucket' {} a -> s {unclassifiableObjectSizeInBytes = a} :: MatchingBucket)
 
-instance Core.FromJSON MatchingBucket where
+instance Data.FromJSON MatchingBucket where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MatchingBucket"
       ( \x ->
           MatchingBucket'
-            Prelude.<$> (x Core..:? "objectCountByEncryptionType")
-            Prelude.<*> (x Core..:? "classifiableSizeInBytes")
-            Prelude.<*> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "jobDetails")
-            Prelude.<*> (x Core..:? "unclassifiableObjectCount")
-            Prelude.<*> (x Core..:? "objectCount")
-            Prelude.<*> (x Core..:? "bucketName")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "classifiableObjectCount")
-            Prelude.<*> (x Core..:? "sizeInBytes")
-            Prelude.<*> (x Core..:? "errorCode")
-            Prelude.<*> (x Core..:? "sizeInBytesCompressed")
-            Prelude.<*> (x Core..:? "unclassifiableObjectSizeInBytes")
+            Prelude.<$> (x Data..:? "objectCountByEncryptionType")
+            Prelude.<*> (x Data..:? "classifiableSizeInBytes")
+            Prelude.<*> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "jobDetails")
+            Prelude.<*> (x Data..:? "unclassifiableObjectCount")
+            Prelude.<*> (x Data..:? "objectCount")
+            Prelude.<*> (x Data..:? "bucketName")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "classifiableObjectCount")
+            Prelude.<*> (x Data..:? "sizeInBytes")
+            Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "sizeInBytesCompressed")
+            Prelude.<*> (x Data..:? "unclassifiableObjectSizeInBytes")
       )
 
 instance Prelude.Hashable MatchingBucket where

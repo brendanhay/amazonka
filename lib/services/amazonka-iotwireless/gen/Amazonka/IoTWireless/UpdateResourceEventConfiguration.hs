@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -203,39 +204,39 @@ instance
       `Prelude.seq` Prelude.rnf identifierType
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateResourceEventConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateResourceEventConfiguration where
+instance Data.ToJSON UpdateResourceEventConfiguration where
   toJSON UpdateResourceEventConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeviceRegistrationState" Core..=)
+          [ ("DeviceRegistrationState" Data..=)
               Prelude.<$> deviceRegistrationState,
-            ("ConnectionStatus" Core..=)
+            ("ConnectionStatus" Data..=)
               Prelude.<$> connectionStatus,
-            ("MessageDeliveryStatus" Core..=)
+            ("MessageDeliveryStatus" Data..=)
               Prelude.<$> messageDeliveryStatus,
-            ("Join" Core..=) Prelude.<$> join,
-            ("Proximity" Core..=) Prelude.<$> proximity
+            ("Join" Data..=) Prelude.<$> join,
+            ("Proximity" Data..=) Prelude.<$> proximity
           ]
       )
 
-instance Core.ToPath UpdateResourceEventConfiguration where
+instance Data.ToPath UpdateResourceEventConfiguration where
   toPath UpdateResourceEventConfiguration' {..} =
     Prelude.mconcat
-      ["/event-configurations/", Core.toBS identifier]
+      ["/event-configurations/", Data.toBS identifier]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateResourceEventConfiguration
   where
   toQuery UpdateResourceEventConfiguration' {..} =
     Prelude.mconcat
-      [ "partnerType" Core.=: partnerType,
-        "identifierType" Core.=: identifierType
+      [ "partnerType" Data.=: partnerType,
+        "identifierType" Data.=: identifierType
       ]
 
 -- | /See:/ 'newUpdateResourceEventConfigurationResponse' smart constructor.

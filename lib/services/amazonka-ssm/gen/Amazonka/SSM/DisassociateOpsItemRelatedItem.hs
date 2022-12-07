@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,37 +134,37 @@ instance
       `Prelude.seq` Prelude.rnf associationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateOpsItemRelatedItem
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DisassociateOpsItemRelatedItem" ::
+              Data.=# ( "AmazonSSM.DisassociateOpsItemRelatedItem" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateOpsItemRelatedItem where
+instance Data.ToJSON DisassociateOpsItemRelatedItem where
   toJSON DisassociateOpsItemRelatedItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("OpsItemId" Core..= opsItemId),
+          [ Prelude.Just ("OpsItemId" Data..= opsItemId),
             Prelude.Just
-              ("AssociationId" Core..= associationId)
+              ("AssociationId" Data..= associationId)
           ]
       )
 
-instance Core.ToPath DisassociateOpsItemRelatedItem where
+instance Data.ToPath DisassociateOpsItemRelatedItem where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateOpsItemRelatedItem where
+instance Data.ToQuery DisassociateOpsItemRelatedItem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateOpsItemRelatedItemResponse' smart constructor.

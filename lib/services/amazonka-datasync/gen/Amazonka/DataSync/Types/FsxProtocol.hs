@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.FsxProtocol where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types.FsxProtocolNfs
 import Amazonka.DataSync.Types.FsxProtocolSmb
 import qualified Amazonka.Prelude as Prelude
@@ -73,13 +74,13 @@ fsxProtocol_smb = Lens.lens (\FsxProtocol' {smb} -> smb) (\s@FsxProtocol' {} a -
 fsxProtocol_nfs :: Lens.Lens' FsxProtocol (Prelude.Maybe FsxProtocolNfs)
 fsxProtocol_nfs = Lens.lens (\FsxProtocol' {nfs} -> nfs) (\s@FsxProtocol' {} a -> s {nfs = a} :: FsxProtocol)
 
-instance Core.FromJSON FsxProtocol where
+instance Data.FromJSON FsxProtocol where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FsxProtocol"
       ( \x ->
           FsxProtocol'
-            Prelude.<$> (x Core..:? "SMB") Prelude.<*> (x Core..:? "NFS")
+            Prelude.<$> (x Data..:? "SMB") Prelude.<*> (x Data..:? "NFS")
       )
 
 instance Prelude.Hashable FsxProtocol where
@@ -91,11 +92,11 @@ instance Prelude.NFData FsxProtocol where
   rnf FsxProtocol' {..} =
     Prelude.rnf smb `Prelude.seq` Prelude.rnf nfs
 
-instance Core.ToJSON FsxProtocol where
+instance Data.ToJSON FsxProtocol where
   toJSON FsxProtocol' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SMB" Core..=) Prelude.<$> smb,
-            ("NFS" Core..=) Prelude.<$> nfs
+          [ ("SMB" Data..=) Prelude.<$> smb,
+            ("NFS" Data..=) Prelude.<$> nfs
           ]
       )

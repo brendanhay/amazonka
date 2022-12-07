@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,8 +157,8 @@ instance Core.AWSRequest ListModelPackagingJobs where
     Response.receiveJSON
       ( \s h x ->
           ListModelPackagingJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ModelPackagingJobs"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ModelPackagingJobs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -175,30 +176,30 @@ instance Prelude.NFData ListModelPackagingJobs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf projectName
 
-instance Core.ToHeaders ListModelPackagingJobs where
+instance Data.ToHeaders ListModelPackagingJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListModelPackagingJobs where
+instance Data.ToPath ListModelPackagingJobs where
   toPath ListModelPackagingJobs' {..} =
     Prelude.mconcat
       [ "/2020-11-20/projects/",
-        Core.toBS projectName,
+        Data.toBS projectName,
         "/modelpackagingjobs"
       ]
 
-instance Core.ToQuery ListModelPackagingJobs where
+instance Data.ToQuery ListModelPackagingJobs where
   toQuery ListModelPackagingJobs' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListModelPackagingJobsResponse' smart constructor.

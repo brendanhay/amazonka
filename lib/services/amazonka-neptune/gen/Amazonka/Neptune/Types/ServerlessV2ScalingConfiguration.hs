@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.ServerlessV2ScalingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the scaling configuration of a Neptune Serverless DB cluster.
@@ -97,11 +98,11 @@ instance
       `Prelude.seq` Prelude.rnf minCapacity
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ServerlessV2ScalingConfiguration
   where
   toQuery ServerlessV2ScalingConfiguration' {..} =
     Prelude.mconcat
-      [ "MaxCapacity" Core.=: maxCapacity,
-        "MinCapacity" Core.=: minCapacity
+      [ "MaxCapacity" Data.=: maxCapacity,
+        "MinCapacity" Data.=: minCapacity
       ]

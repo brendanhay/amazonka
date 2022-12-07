@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteEnvironmentAccountConnectionResponse'
-            Prelude.<$> (x Core..?> "environmentAccountConnection")
+            Prelude.<$> (x Data..?> "environmentAccountConnection")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,39 +119,39 @@ instance
     Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteEnvironmentAccountConnection
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.DeleteEnvironmentAccountConnection" ::
+              Data.=# ( "AwsProton20200720.DeleteEnvironmentAccountConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeleteEnvironmentAccountConnection
   where
   toJSON DeleteEnvironmentAccountConnection' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("id" Data..= id)])
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteEnvironmentAccountConnection
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteEnvironmentAccountConnection
   where
   toQuery = Prelude.const Prelude.mempty

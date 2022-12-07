@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsDynamoDbTableProvisionedThroughputOverride 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Replica-specific configuration for the provisioned throughput.
@@ -54,15 +55,15 @@ awsDynamoDbTableProvisionedThroughputOverride_readCapacityUnits :: Lens.Lens' Aw
 awsDynamoDbTableProvisionedThroughputOverride_readCapacityUnits = Lens.lens (\AwsDynamoDbTableProvisionedThroughputOverride' {readCapacityUnits} -> readCapacityUnits) (\s@AwsDynamoDbTableProvisionedThroughputOverride' {} a -> s {readCapacityUnits = a} :: AwsDynamoDbTableProvisionedThroughputOverride)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsDynamoDbTableProvisionedThroughputOverride
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsDynamoDbTableProvisionedThroughputOverride"
       ( \x ->
           AwsDynamoDbTableProvisionedThroughputOverride'
-            Prelude.<$> (x Core..:? "ReadCapacityUnits")
+            Prelude.<$> (x Data..:? "ReadCapacityUnits")
       )
 
 instance
@@ -83,14 +84,14 @@ instance
       Prelude.rnf readCapacityUnits
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsDynamoDbTableProvisionedThroughputOverride
   where
   toJSON
     AwsDynamoDbTableProvisionedThroughputOverride' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ReadCapacityUnits" Core..=)
+            [ ("ReadCapacityUnits" Data..=)
                 Prelude.<$> readCapacityUnits
             ]
         )

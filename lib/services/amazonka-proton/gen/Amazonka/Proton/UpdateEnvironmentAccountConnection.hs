@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -170,7 +171,7 @@ instance
       ( \s h x ->
           UpdateEnvironmentAccountConnectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "environmentAccountConnection")
+              Prelude.<*> (x Data..:> "environmentAccountConnection")
       )
 
 instance
@@ -196,47 +197,47 @@ instance
       `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateEnvironmentAccountConnection
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.UpdateEnvironmentAccountConnection" ::
+              Data.=# ( "AwsProton20200720.UpdateEnvironmentAccountConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateEnvironmentAccountConnection
   where
   toJSON UpdateEnvironmentAccountConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("codebuildRoleArn" Core..=)
+          [ ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("codebuildRoleArn" Data..=)
               Prelude.<$> codebuildRoleArn,
-            ("componentRoleArn" Core..=)
+            ("componentRoleArn" Data..=)
               Prelude.<$> componentRoleArn,
-            Prelude.Just ("id" Core..= id)
+            Prelude.Just ("id" Data..= id)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateEnvironmentAccountConnection
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateEnvironmentAccountConnection
   where
   toQuery = Prelude.const Prelude.mempty

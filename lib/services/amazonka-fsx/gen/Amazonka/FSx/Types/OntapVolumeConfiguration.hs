@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.OntapVolumeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.FlexCacheEndpointType
 import Amazonka.FSx.Types.OntapVolumeType
 import Amazonka.FSx.Types.SecurityStyle
@@ -240,22 +241,22 @@ ontapVolumeConfiguration_ontapVolumeType = Lens.lens (\OntapVolumeConfiguration'
 ontapVolumeConfiguration_sizeInMegabytes :: Lens.Lens' OntapVolumeConfiguration (Prelude.Maybe Prelude.Natural)
 ontapVolumeConfiguration_sizeInMegabytes = Lens.lens (\OntapVolumeConfiguration' {sizeInMegabytes} -> sizeInMegabytes) (\s@OntapVolumeConfiguration' {} a -> s {sizeInMegabytes = a} :: OntapVolumeConfiguration)
 
-instance Core.FromJSON OntapVolumeConfiguration where
+instance Data.FromJSON OntapVolumeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OntapVolumeConfiguration"
       ( \x ->
           OntapVolumeConfiguration'
-            Prelude.<$> (x Core..:? "StorageEfficiencyEnabled")
-            Prelude.<*> (x Core..:? "TieringPolicy")
-            Prelude.<*> (x Core..:? "SecurityStyle")
-            Prelude.<*> (x Core..:? "StorageVirtualMachineId")
-            Prelude.<*> (x Core..:? "StorageVirtualMachineRoot")
-            Prelude.<*> (x Core..:? "UUID")
-            Prelude.<*> (x Core..:? "JunctionPath")
-            Prelude.<*> (x Core..:? "FlexCacheEndpointType")
-            Prelude.<*> (x Core..:? "OntapVolumeType")
-            Prelude.<*> (x Core..:? "SizeInMegabytes")
+            Prelude.<$> (x Data..:? "StorageEfficiencyEnabled")
+            Prelude.<*> (x Data..:? "TieringPolicy")
+            Prelude.<*> (x Data..:? "SecurityStyle")
+            Prelude.<*> (x Data..:? "StorageVirtualMachineId")
+            Prelude.<*> (x Data..:? "StorageVirtualMachineRoot")
+            Prelude.<*> (x Data..:? "UUID")
+            Prelude.<*> (x Data..:? "JunctionPath")
+            Prelude.<*> (x Data..:? "FlexCacheEndpointType")
+            Prelude.<*> (x Data..:? "OntapVolumeType")
+            Prelude.<*> (x Data..:? "SizeInMegabytes")
       )
 
 instance Prelude.Hashable OntapVolumeConfiguration where

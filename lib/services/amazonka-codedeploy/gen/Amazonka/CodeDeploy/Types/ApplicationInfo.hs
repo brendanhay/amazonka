@@ -22,6 +22,7 @@ module Amazonka.CodeDeploy.Types.ApplicationInfo where
 import Amazonka.CodeDeploy.Types.ComputePlatform
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an application.
@@ -37,7 +38,7 @@ data ApplicationInfo = ApplicationInfo'
     -- (@Lambda@ or @Server@).
     computePlatform :: Prelude.Maybe ComputePlatform,
     -- | The time at which the application was created.
-    createTime :: Prelude.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Data.POSIX,
     -- | The application ID.
     applicationId :: Prelude.Maybe Prelude.Text,
     -- | The application name.
@@ -94,7 +95,7 @@ applicationInfo_computePlatform = Lens.lens (\ApplicationInfo' {computePlatform}
 
 -- | The time at which the application was created.
 applicationInfo_createTime :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.UTCTime)
-applicationInfo_createTime = Lens.lens (\ApplicationInfo' {createTime} -> createTime) (\s@ApplicationInfo' {} a -> s {createTime = a} :: ApplicationInfo) Prelude.. Lens.mapping Core._Time
+applicationInfo_createTime = Lens.lens (\ApplicationInfo' {createTime} -> createTime) (\s@ApplicationInfo' {} a -> s {createTime = a} :: ApplicationInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The application ID.
 applicationInfo_applicationId :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Text)
@@ -104,18 +105,18 @@ applicationInfo_applicationId = Lens.lens (\ApplicationInfo' {applicationId} -> 
 applicationInfo_applicationName :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Text)
 applicationInfo_applicationName = Lens.lens (\ApplicationInfo' {applicationName} -> applicationName) (\s@ApplicationInfo' {} a -> s {applicationName = a} :: ApplicationInfo)
 
-instance Core.FromJSON ApplicationInfo where
+instance Data.FromJSON ApplicationInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationInfo"
       ( \x ->
           ApplicationInfo'
-            Prelude.<$> (x Core..:? "linkedToGitHub")
-            Prelude.<*> (x Core..:? "gitHubAccountName")
-            Prelude.<*> (x Core..:? "computePlatform")
-            Prelude.<*> (x Core..:? "createTime")
-            Prelude.<*> (x Core..:? "applicationId")
-            Prelude.<*> (x Core..:? "applicationName")
+            Prelude.<$> (x Data..:? "linkedToGitHub")
+            Prelude.<*> (x Data..:? "gitHubAccountName")
+            Prelude.<*> (x Data..:? "computePlatform")
+            Prelude.<*> (x Data..:? "createTime")
+            Prelude.<*> (x Data..:? "applicationId")
+            Prelude.<*> (x Data..:? "applicationName")
       )
 
 instance Prelude.Hashable ApplicationInfo where

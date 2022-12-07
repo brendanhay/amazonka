@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.AuthenticateCognitoActionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
 import qualified Amazonka.Prelude as Prelude
 
@@ -176,20 +177,20 @@ authenticateCognitoActionConfig_userPoolClientId = Lens.lens (\AuthenticateCogni
 authenticateCognitoActionConfig_userPoolDomain :: Lens.Lens' AuthenticateCognitoActionConfig Prelude.Text
 authenticateCognitoActionConfig_userPoolDomain = Lens.lens (\AuthenticateCognitoActionConfig' {userPoolDomain} -> userPoolDomain) (\s@AuthenticateCognitoActionConfig' {} a -> s {userPoolDomain = a} :: AuthenticateCognitoActionConfig)
 
-instance Core.FromXML AuthenticateCognitoActionConfig where
+instance Data.FromXML AuthenticateCognitoActionConfig where
   parseXML x =
     AuthenticateCognitoActionConfig'
-      Prelude.<$> (x Core..@? "SessionTimeout")
-      Prelude.<*> (x Core..@? "OnUnauthenticatedRequest")
-      Prelude.<*> ( x Core..@? "AuthenticationRequestExtraParams"
+      Prelude.<$> (x Data..@? "SessionTimeout")
+      Prelude.<*> (x Data..@? "OnUnauthenticatedRequest")
+      Prelude.<*> ( x Data..@? "AuthenticationRequestExtraParams"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                      Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                   )
-      Prelude.<*> (x Core..@? "Scope")
-      Prelude.<*> (x Core..@? "SessionCookieName")
-      Prelude.<*> (x Core..@ "UserPoolArn")
-      Prelude.<*> (x Core..@ "UserPoolClientId")
-      Prelude.<*> (x Core..@ "UserPoolDomain")
+      Prelude.<*> (x Data..@? "Scope")
+      Prelude.<*> (x Data..@? "SessionCookieName")
+      Prelude.<*> (x Data..@ "UserPoolArn")
+      Prelude.<*> (x Data..@ "UserPoolClientId")
+      Prelude.<*> (x Data..@ "UserPoolDomain")
 
 instance
   Prelude.Hashable
@@ -221,20 +222,20 @@ instance
       `Prelude.seq` Prelude.rnf userPoolClientId
       `Prelude.seq` Prelude.rnf userPoolDomain
 
-instance Core.ToQuery AuthenticateCognitoActionConfig where
+instance Data.ToQuery AuthenticateCognitoActionConfig where
   toQuery AuthenticateCognitoActionConfig' {..} =
     Prelude.mconcat
-      [ "SessionTimeout" Core.=: sessionTimeout,
+      [ "SessionTimeout" Data.=: sessionTimeout,
         "OnUnauthenticatedRequest"
-          Core.=: onUnauthenticatedRequest,
+          Data.=: onUnauthenticatedRequest,
         "AuthenticationRequestExtraParams"
-          Core.=: Core.toQuery
-            ( Core.toQueryMap "entry" "key" "value"
+          Data.=: Data.toQuery
+            ( Data.toQueryMap "entry" "key" "value"
                 Prelude.<$> authenticationRequestExtraParams
             ),
-        "Scope" Core.=: scope,
-        "SessionCookieName" Core.=: sessionCookieName,
-        "UserPoolArn" Core.=: userPoolArn,
-        "UserPoolClientId" Core.=: userPoolClientId,
-        "UserPoolDomain" Core.=: userPoolDomain
+        "Scope" Data.=: scope,
+        "SessionCookieName" Data.=: sessionCookieName,
+        "UserPoolArn" Data.=: userPoolArn,
+        "UserPoolClientId" Data.=: userPoolClientId,
+        "UserPoolDomain" Data.=: userPoolDomain
       ]

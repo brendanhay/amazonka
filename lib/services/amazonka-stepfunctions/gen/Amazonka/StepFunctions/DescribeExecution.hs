@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,18 +99,18 @@ instance Core.AWSRequest DescribeExecution where
     Response.receiveJSON
       ( \s h x ->
           DescribeExecutionResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "stopDate")
-            Prelude.<*> (x Core..?> "inputDetails")
-            Prelude.<*> (x Core..?> "outputDetails")
-            Prelude.<*> (x Core..?> "input")
-            Prelude.<*> (x Core..?> "output")
-            Prelude.<*> (x Core..?> "traceHeader")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "stopDate")
+            Prelude.<*> (x Data..?> "inputDetails")
+            Prelude.<*> (x Data..?> "outputDetails")
+            Prelude.<*> (x Data..?> "input")
+            Prelude.<*> (x Data..?> "output")
+            Prelude.<*> (x Data..?> "traceHeader")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "executionArn")
-            Prelude.<*> (x Core..:> "stateMachineArn")
-            Prelude.<*> (x Core..:> "status")
-            Prelude.<*> (x Core..:> "startDate")
+            Prelude.<*> (x Data..:> "executionArn")
+            Prelude.<*> (x Data..:> "stateMachineArn")
+            Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "startDate")
       )
 
 instance Prelude.Hashable DescribeExecution where
@@ -119,32 +120,32 @@ instance Prelude.Hashable DescribeExecution where
 instance Prelude.NFData DescribeExecution where
   rnf DescribeExecution' {..} = Prelude.rnf executionArn
 
-instance Core.ToHeaders DescribeExecution where
+instance Data.ToHeaders DescribeExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSStepFunctions.DescribeExecution" ::
+              Data.=# ( "AWSStepFunctions.DescribeExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeExecution where
+instance Data.ToJSON DescribeExecution where
   toJSON DescribeExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("executionArn" Core..= executionArn)]
+          [Prelude.Just ("executionArn" Data..= executionArn)]
       )
 
-instance Core.ToPath DescribeExecution where
+instance Data.ToPath DescribeExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeExecution where
+instance Data.ToQuery DescribeExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeExecutionResponse' smart constructor.
@@ -167,19 +168,19 @@ data DescribeExecutionResponse = DescribeExecutionResponse'
     -- 0-9, A-Z, a-z, - and _.
     name :: Prelude.Maybe Prelude.Text,
     -- | If the execution has already ended, the date the execution stopped.
-    stopDate :: Prelude.Maybe Core.POSIX,
+    stopDate :: Prelude.Maybe Data.POSIX,
     inputDetails :: Prelude.Maybe CloudWatchEventsExecutionDataDetails,
     outputDetails :: Prelude.Maybe CloudWatchEventsExecutionDataDetails,
     -- | The string that contains the JSON input data of the execution. Length
     -- constraints apply to the payload size, and are expressed as bytes in
     -- UTF-8 encoding.
-    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    input :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The JSON output data of the execution. Length constraints apply to the
     -- payload size, and are expressed as bytes in UTF-8 encoding.
     --
     -- This field is set only if the execution succeeds. If the execution
     -- fails, this field is null.
-    output :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    output :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The X-Ray trace header that was passed to the execution.
     traceHeader :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -191,7 +192,7 @@ data DescribeExecutionResponse = DescribeExecutionResponse'
     -- | The current status of the execution.
     status :: ExecutionStatus,
     -- | The date the execution is started.
-    startDate :: Core.POSIX
+    startDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -277,7 +278,7 @@ newDescribeExecutionResponse
         executionArn = pExecutionArn_,
         stateMachineArn = pStateMachineArn_,
         status = pStatus_,
-        startDate = Core._Time Lens.# pStartDate_
+        startDate = Data._Time Lens.# pStartDate_
       }
 
 -- | The name of the execution.
@@ -301,7 +302,7 @@ describeExecutionResponse_name = Lens.lens (\DescribeExecutionResponse' {name} -
 
 -- | If the execution has already ended, the date the execution stopped.
 describeExecutionResponse_stopDate :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-describeExecutionResponse_stopDate = Lens.lens (\DescribeExecutionResponse' {stopDate} -> stopDate) (\s@DescribeExecutionResponse' {} a -> s {stopDate = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Core._Time
+describeExecutionResponse_stopDate = Lens.lens (\DescribeExecutionResponse' {stopDate} -> stopDate) (\s@DescribeExecutionResponse' {} a -> s {stopDate = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 describeExecutionResponse_inputDetails :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe CloudWatchEventsExecutionDataDetails)
@@ -315,7 +316,7 @@ describeExecutionResponse_outputDetails = Lens.lens (\DescribeExecutionResponse'
 -- constraints apply to the payload size, and are expressed as bytes in
 -- UTF-8 encoding.
 describeExecutionResponse_input :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
-describeExecutionResponse_input = Lens.lens (\DescribeExecutionResponse' {input} -> input) (\s@DescribeExecutionResponse' {} a -> s {input = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Core._Sensitive
+describeExecutionResponse_input = Lens.lens (\DescribeExecutionResponse' {input} -> input) (\s@DescribeExecutionResponse' {} a -> s {input = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The JSON output data of the execution. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
@@ -323,7 +324,7 @@ describeExecutionResponse_input = Lens.lens (\DescribeExecutionResponse' {input}
 -- This field is set only if the execution succeeds. If the execution
 -- fails, this field is null.
 describeExecutionResponse_output :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
-describeExecutionResponse_output = Lens.lens (\DescribeExecutionResponse' {output} -> output) (\s@DescribeExecutionResponse' {} a -> s {output = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Core._Sensitive
+describeExecutionResponse_output = Lens.lens (\DescribeExecutionResponse' {output} -> output) (\s@DescribeExecutionResponse' {} a -> s {output = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The X-Ray trace header that was passed to the execution.
 describeExecutionResponse_traceHeader :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
@@ -347,7 +348,7 @@ describeExecutionResponse_status = Lens.lens (\DescribeExecutionResponse' {statu
 
 -- | The date the execution is started.
 describeExecutionResponse_startDate :: Lens.Lens' DescribeExecutionResponse Prelude.UTCTime
-describeExecutionResponse_startDate = Lens.lens (\DescribeExecutionResponse' {startDate} -> startDate) (\s@DescribeExecutionResponse' {} a -> s {startDate = a} :: DescribeExecutionResponse) Prelude.. Core._Time
+describeExecutionResponse_startDate = Lens.lens (\DescribeExecutionResponse' {startDate} -> startDate) (\s@DescribeExecutionResponse' {} a -> s {startDate = a} :: DescribeExecutionResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeExecutionResponse where
   rnf DescribeExecutionResponse' {..} =

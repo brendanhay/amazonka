@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.LifeCycleLastCutoverReverted where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Lifecycle last Cutover reverted.
@@ -53,13 +54,13 @@ newLifeCycleLastCutoverReverted =
 lifeCycleLastCutoverReverted_apiCallDateTime :: Lens.Lens' LifeCycleLastCutoverReverted (Prelude.Maybe Prelude.Text)
 lifeCycleLastCutoverReverted_apiCallDateTime = Lens.lens (\LifeCycleLastCutoverReverted' {apiCallDateTime} -> apiCallDateTime) (\s@LifeCycleLastCutoverReverted' {} a -> s {apiCallDateTime = a} :: LifeCycleLastCutoverReverted)
 
-instance Core.FromJSON LifeCycleLastCutoverReverted where
+instance Data.FromJSON LifeCycleLastCutoverReverted where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifeCycleLastCutoverReverted"
       ( \x ->
           LifeCycleLastCutoverReverted'
-            Prelude.<$> (x Core..:? "apiCallDateTime")
+            Prelude.<$> (x Data..:? "apiCallDateTime")
       )
 
 instance

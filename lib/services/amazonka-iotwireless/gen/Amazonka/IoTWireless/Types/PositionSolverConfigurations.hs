@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.PositionSolverConfigurations where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.SemtechGnssConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,9 +66,9 @@ instance Prelude.NFData PositionSolverConfigurations where
   rnf PositionSolverConfigurations' {..} =
     Prelude.rnf semtechGnss
 
-instance Core.ToJSON PositionSolverConfigurations where
+instance Data.ToJSON PositionSolverConfigurations where
   toJSON PositionSolverConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("SemtechGnss" Core..=) Prelude.<$> semtechGnss]
+          [("SemtechGnss" Data..=) Prelude.<$> semtechGnss]
       )

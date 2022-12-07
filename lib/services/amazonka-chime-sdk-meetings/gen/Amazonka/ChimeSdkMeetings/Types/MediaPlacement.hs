@@ -21,6 +21,7 @@ module Amazonka.ChimeSdkMeetings.Types.MediaPlacement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of endpoints used by clients to connect to the media service group
@@ -116,20 +117,20 @@ mediaPlacement_audioFallbackUrl = Lens.lens (\MediaPlacement' {audioFallbackUrl}
 mediaPlacement_turnControlUrl :: Lens.Lens' MediaPlacement (Prelude.Maybe Prelude.Text)
 mediaPlacement_turnControlUrl = Lens.lens (\MediaPlacement' {turnControlUrl} -> turnControlUrl) (\s@MediaPlacement' {} a -> s {turnControlUrl = a} :: MediaPlacement)
 
-instance Core.FromJSON MediaPlacement where
+instance Data.FromJSON MediaPlacement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MediaPlacement"
       ( \x ->
           MediaPlacement'
-            Prelude.<$> (x Core..:? "SignalingUrl")
-            Prelude.<*> (x Core..:? "ScreenViewingUrl")
-            Prelude.<*> (x Core..:? "EventIngestionUrl")
-            Prelude.<*> (x Core..:? "AudioHostUrl")
-            Prelude.<*> (x Core..:? "ScreenSharingUrl")
-            Prelude.<*> (x Core..:? "ScreenDataUrl")
-            Prelude.<*> (x Core..:? "AudioFallbackUrl")
-            Prelude.<*> (x Core..:? "TurnControlUrl")
+            Prelude.<$> (x Data..:? "SignalingUrl")
+            Prelude.<*> (x Data..:? "ScreenViewingUrl")
+            Prelude.<*> (x Data..:? "EventIngestionUrl")
+            Prelude.<*> (x Data..:? "AudioHostUrl")
+            Prelude.<*> (x Data..:? "ScreenSharingUrl")
+            Prelude.<*> (x Data..:? "ScreenDataUrl")
+            Prelude.<*> (x Data..:? "AudioFallbackUrl")
+            Prelude.<*> (x Data..:? "TurnControlUrl")
       )
 
 instance Prelude.Hashable MediaPlacement where

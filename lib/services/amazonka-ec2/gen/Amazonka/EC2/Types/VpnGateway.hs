@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpnGateway where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.GatewayType
 import Amazonka.EC2.Types.Tag
@@ -117,20 +118,20 @@ vpnGateway_vpcAttachments = Lens.lens (\VpnGateway' {vpcAttachments} -> vpcAttac
 vpnGateway_amazonSideAsn :: Lens.Lens' VpnGateway (Prelude.Maybe Prelude.Integer)
 vpnGateway_amazonSideAsn = Lens.lens (\VpnGateway' {amazonSideAsn} -> amazonSideAsn) (\s@VpnGateway' {} a -> s {amazonSideAsn = a} :: VpnGateway)
 
-instance Core.FromXML VpnGateway where
+instance Data.FromXML VpnGateway where
   parseXML x =
     VpnGateway'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "type")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "vpnGatewayId")
-      Prelude.<*> ( x Core..@? "attachments" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "type")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "vpnGatewayId")
+      Prelude.<*> ( x Data..@? "attachments" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "amazonSideAsn")
+      Prelude.<*> (x Data..@? "amazonSideAsn")
 
 instance Prelude.Hashable VpnGateway where
   hashWithSalt _salt VpnGateway' {..} =

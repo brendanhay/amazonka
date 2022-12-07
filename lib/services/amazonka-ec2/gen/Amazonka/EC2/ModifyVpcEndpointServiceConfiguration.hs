@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -233,7 +234,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyVpcEndpointServiceConfigurationResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -274,58 +275,58 @@ instance
       `Prelude.seq` Prelude.rnf serviceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ModifyVpcEndpointServiceConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ModifyVpcEndpointServiceConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ModifyVpcEndpointServiceConfiguration
   where
   toQuery ModifyVpcEndpointServiceConfiguration' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyVpcEndpointServiceConfiguration" ::
+          Data.=: ( "ModifyVpcEndpointServiceConfiguration" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "AcceptanceRequired" Core.=: acceptanceRequired,
-        Core.toQuery
-          ( Core.toQueryList "RemoveNetworkLoadBalancerArn"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "AcceptanceRequired" Data.=: acceptanceRequired,
+        Data.toQuery
+          ( Data.toQueryList "RemoveNetworkLoadBalancerArn"
               Prelude.<$> removeNetworkLoadBalancerArns
           ),
-        Core.toQuery
-          ( Core.toQueryList "AddNetworkLoadBalancerArn"
+        Data.toQuery
+          ( Data.toQueryList "AddNetworkLoadBalancerArn"
               Prelude.<$> addNetworkLoadBalancerArns
           ),
-        Core.toQuery
-          ( Core.toQueryList "AddGatewayLoadBalancerArn"
+        Data.toQuery
+          ( Data.toQueryList "AddGatewayLoadBalancerArn"
               Prelude.<$> addGatewayLoadBalancerArns
           ),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "RemoveGatewayLoadBalancerArn"
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "RemoveGatewayLoadBalancerArn"
               Prelude.<$> removeGatewayLoadBalancerArns
           ),
-        Core.toQuery
-          ( Core.toQueryList "RemoveSupportedIpAddressType"
+        Data.toQuery
+          ( Data.toQueryList "RemoveSupportedIpAddressType"
               Prelude.<$> removeSupportedIpAddressTypes
           ),
-        "PrivateDnsName" Core.=: privateDnsName,
-        Core.toQuery
-          ( Core.toQueryList "AddSupportedIpAddressType"
+        "PrivateDnsName" Data.=: privateDnsName,
+        Data.toQuery
+          ( Data.toQueryList "AddSupportedIpAddressType"
               Prelude.<$> addSupportedIpAddressTypes
           ),
-        "RemovePrivateDnsName" Core.=: removePrivateDnsName,
-        "ServiceId" Core.=: serviceId
+        "RemovePrivateDnsName" Data.=: removePrivateDnsName,
+        "ServiceId" Data.=: serviceId
       ]
 
 -- | /See:/ 'newModifyVpcEndpointServiceConfigurationResponse' smart constructor.

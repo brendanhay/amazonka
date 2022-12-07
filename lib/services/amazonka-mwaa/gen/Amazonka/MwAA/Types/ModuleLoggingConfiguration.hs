@@ -21,6 +21,7 @@ module Amazonka.MwAA.Types.ModuleLoggingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MwAA.Types.LoggingLevel
 import qualified Amazonka.Prelude as Prelude
 
@@ -88,15 +89,15 @@ moduleLoggingConfiguration_cloudWatchLogGroupArn = Lens.lens (\ModuleLoggingConf
 moduleLoggingConfiguration_enabled :: Lens.Lens' ModuleLoggingConfiguration (Prelude.Maybe Prelude.Bool)
 moduleLoggingConfiguration_enabled = Lens.lens (\ModuleLoggingConfiguration' {enabled} -> enabled) (\s@ModuleLoggingConfiguration' {} a -> s {enabled = a} :: ModuleLoggingConfiguration)
 
-instance Core.FromJSON ModuleLoggingConfiguration where
+instance Data.FromJSON ModuleLoggingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModuleLoggingConfiguration"
       ( \x ->
           ModuleLoggingConfiguration'
-            Prelude.<$> (x Core..:? "LogLevel")
-            Prelude.<*> (x Core..:? "CloudWatchLogGroupArn")
-            Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<$> (x Data..:? "LogLevel")
+            Prelude.<*> (x Data..:? "CloudWatchLogGroupArn")
+            Prelude.<*> (x Data..:? "Enabled")
       )
 
 instance Prelude.Hashable ModuleLoggingConfiguration where

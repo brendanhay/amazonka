@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -160,9 +161,9 @@ instance Core.AWSRequest ListAssignmentsForHIT where
     Response.receiveJSON
       ( \s h x ->
           ListAssignmentsForHITResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "NumResults")
-            Prelude.<*> (x Core..?> "Assignments" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "NumResults")
+            Prelude.<*> (x Data..?> "Assignments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,37 +181,37 @@ instance Prelude.NFData ListAssignmentsForHIT where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf hITId
 
-instance Core.ToHeaders ListAssignmentsForHIT where
+instance Data.ToHeaders ListAssignmentsForHIT where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.ListAssignmentsForHIT" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.ListAssignmentsForHIT" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAssignmentsForHIT where
+instance Data.ToJSON ListAssignmentsForHIT where
   toJSON ListAssignmentsForHIT' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("AssignmentStatuses" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("AssignmentStatuses" Data..=)
               Prelude.<$> assignmentStatuses,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("HITId" Core..= hITId)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("HITId" Data..= hITId)
           ]
       )
 
-instance Core.ToPath ListAssignmentsForHIT where
+instance Data.ToPath ListAssignmentsForHIT where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAssignmentsForHIT where
+instance Data.ToQuery ListAssignmentsForHIT where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAssignmentsForHITResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentTemplateStopCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a stop condition for an experiment template.
@@ -63,16 +64,16 @@ experimentTemplateStopCondition_value :: Lens.Lens' ExperimentTemplateStopCondit
 experimentTemplateStopCondition_value = Lens.lens (\ExperimentTemplateStopCondition' {value} -> value) (\s@ExperimentTemplateStopCondition' {} a -> s {value = a} :: ExperimentTemplateStopCondition)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ExperimentTemplateStopCondition
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentTemplateStopCondition"
       ( \x ->
           ExperimentTemplateStopCondition'
-            Prelude.<$> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "source")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.ReplicaConfigurationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A request to configure the number of replicas in a shard
@@ -61,9 +62,9 @@ instance Prelude.NFData ReplicaConfigurationRequest where
   rnf ReplicaConfigurationRequest' {..} =
     Prelude.rnf replicaCount
 
-instance Core.ToJSON ReplicaConfigurationRequest where
+instance Data.ToJSON ReplicaConfigurationRequest where
   toJSON ReplicaConfigurationRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("ReplicaCount" Core..=) Prelude.<$> replicaCount]
+          [("ReplicaCount" Data..=) Prelude.<$> replicaCount]
       )

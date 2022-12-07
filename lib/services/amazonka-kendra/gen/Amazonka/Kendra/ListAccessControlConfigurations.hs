@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,9 +123,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAccessControlConfigurationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "AccessControlConfigurations"
+            Prelude.<*> ( x Data..?> "AccessControlConfigurations"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -150,37 +151,37 @@ instance
       `Prelude.seq` Prelude.rnf indexId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListAccessControlConfigurations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.ListAccessControlConfigurations" ::
+              Data.=# ( "AWSKendraFrontendService.ListAccessControlConfigurations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAccessControlConfigurations where
+instance Data.ToJSON ListAccessControlConfigurations where
   toJSON ListAccessControlConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath ListAccessControlConfigurations where
+instance Data.ToPath ListAccessControlConfigurations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAccessControlConfigurations where
+instance Data.ToQuery ListAccessControlConfigurations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAccessControlConfigurationsResponse' smart constructor.

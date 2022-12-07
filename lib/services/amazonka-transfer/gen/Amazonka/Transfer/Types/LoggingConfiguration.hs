@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.LoggingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Consists of the logging role and the log group name.
@@ -74,14 +75,14 @@ loggingConfiguration_loggingRole = Lens.lens (\LoggingConfiguration' {loggingRol
 loggingConfiguration_logGroupName :: Lens.Lens' LoggingConfiguration (Prelude.Maybe Prelude.Text)
 loggingConfiguration_logGroupName = Lens.lens (\LoggingConfiguration' {logGroupName} -> logGroupName) (\s@LoggingConfiguration' {} a -> s {logGroupName = a} :: LoggingConfiguration)
 
-instance Core.FromJSON LoggingConfiguration where
+instance Data.FromJSON LoggingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoggingConfiguration"
       ( \x ->
           LoggingConfiguration'
-            Prelude.<$> (x Core..:? "LoggingRole")
-            Prelude.<*> (x Core..:? "LogGroupName")
+            Prelude.<$> (x Data..:? "LoggingRole")
+            Prelude.<*> (x Data..:? "LogGroupName")
       )
 
 instance Prelude.Hashable LoggingConfiguration where

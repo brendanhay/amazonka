@@ -52,6 +52,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -187,9 +188,9 @@ instance Core.AWSRequest StartEventsDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           StartEventsDetectionJobResponse'
-            Prelude.<$> (x Core..?> "JobStatus")
-            Prelude.<*> (x Core..?> "JobId")
-            Prelude.<*> (x Core..?> "JobArn")
+            Prelude.<$> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "JobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -215,45 +216,45 @@ instance Prelude.NFData StartEventsDetectionJob where
       `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf targetEventTypes
 
-instance Core.ToHeaders StartEventsDetectionJob where
+instance Data.ToHeaders StartEventsDetectionJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.StartEventsDetectionJob" ::
+              Data.=# ( "Comprehend_20171127.StartEventsDetectionJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartEventsDetectionJob where
+instance Data.ToJSON StartEventsDetectionJob where
   toJSON StartEventsDetectionJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("JobName" Core..=) Prelude.<$> jobName,
+            ("JobName" Data..=) Prelude.<$> jobName,
             Prelude.Just
-              ("InputDataConfig" Core..= inputDataConfig),
+              ("InputDataConfig" Data..= inputDataConfig),
             Prelude.Just
-              ("OutputDataConfig" Core..= outputDataConfig),
+              ("OutputDataConfig" Data..= outputDataConfig),
             Prelude.Just
-              ("DataAccessRoleArn" Core..= dataAccessRoleArn),
-            Prelude.Just ("LanguageCode" Core..= languageCode),
+              ("DataAccessRoleArn" Data..= dataAccessRoleArn),
+            Prelude.Just ("LanguageCode" Data..= languageCode),
             Prelude.Just
-              ("TargetEventTypes" Core..= targetEventTypes)
+              ("TargetEventTypes" Data..= targetEventTypes)
           ]
       )
 
-instance Core.ToPath StartEventsDetectionJob where
+instance Data.ToPath StartEventsDetectionJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartEventsDetectionJob where
+instance Data.ToQuery StartEventsDetectionJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartEventsDetectionJobResponse' smart constructor.

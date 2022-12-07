@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,22 +109,22 @@ instance Core.AWSRequest GetSigningProfile where
     Response.receiveJSON
       ( \s h x ->
           GetSigningProfileResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "signatureValidityPeriod")
-            Prelude.<*> (x Core..?> "profileName")
-            Prelude.<*> ( x Core..?> "signingParameters"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "signatureValidityPeriod")
+            Prelude.<*> (x Data..?> "profileName")
+            Prelude.<*> ( x Data..?> "signingParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "profileVersionArn")
-            Prelude.<*> (x Core..?> "platformDisplayName")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "statusReason")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "profileVersion")
-            Prelude.<*> (x Core..?> "revocationRecord")
-            Prelude.<*> (x Core..?> "signingMaterial")
-            Prelude.<*> (x Core..?> "platformId")
-            Prelude.<*> (x Core..?> "overrides")
+            Prelude.<*> (x Data..?> "profileVersionArn")
+            Prelude.<*> (x Data..?> "platformDisplayName")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "statusReason")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "profileVersion")
+            Prelude.<*> (x Data..?> "revocationRecord")
+            Prelude.<*> (x Data..?> "signingMaterial")
+            Prelude.<*> (x Data..?> "platformId")
+            Prelude.<*> (x Data..?> "overrides")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,26 +138,26 @@ instance Prelude.NFData GetSigningProfile where
     Prelude.rnf profileOwner
       `Prelude.seq` Prelude.rnf profileName
 
-instance Core.ToHeaders GetSigningProfile where
+instance Data.ToHeaders GetSigningProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSigningProfile where
+instance Data.ToPath GetSigningProfile where
   toPath GetSigningProfile' {..} =
     Prelude.mconcat
-      ["/signing-profiles/", Core.toBS profileName]
+      ["/signing-profiles/", Data.toBS profileName]
 
-instance Core.ToQuery GetSigningProfile where
+instance Data.ToQuery GetSigningProfile where
   toQuery GetSigningProfile' {..} =
     Prelude.mconcat
-      ["profileOwner" Core.=: profileOwner]
+      ["profileOwner" Data.=: profileOwner]
 
 -- | /See:/ 'newGetSigningProfileResponse' smart constructor.
 data GetSigningProfileResponse = GetSigningProfileResponse'

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,13 +100,13 @@ instance Core.AWSRequest DescribeLocationFsxOntap where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationFsxOntapResponse'
-            Prelude.<$> (x Core..?> "FsxFilesystemArn")
-            Prelude.<*> (x Core..?> "StorageVirtualMachineArn")
-            Prelude.<*> (x Core..?> "LocationArn")
-            Prelude.<*> (x Core..?> "LocationUri")
-            Prelude.<*> (x Core..?> "SecurityGroupArns")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "Protocol")
+            Prelude.<$> (x Data..?> "FsxFilesystemArn")
+            Prelude.<*> (x Data..?> "StorageVirtualMachineArn")
+            Prelude.<*> (x Data..?> "LocationArn")
+            Prelude.<*> (x Data..?> "LocationUri")
+            Prelude.<*> (x Data..?> "SecurityGroupArns")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "Protocol")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,32 +118,32 @@ instance Prelude.NFData DescribeLocationFsxOntap where
   rnf DescribeLocationFsxOntap' {..} =
     Prelude.rnf locationArn
 
-instance Core.ToHeaders DescribeLocationFsxOntap where
+instance Data.ToHeaders DescribeLocationFsxOntap where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.DescribeLocationFsxOntap" ::
+              Data.=# ( "FmrsService.DescribeLocationFsxOntap" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLocationFsxOntap where
+instance Data.ToJSON DescribeLocationFsxOntap where
   toJSON DescribeLocationFsxOntap' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LocationArn" Core..= locationArn)]
+          [Prelude.Just ("LocationArn" Data..= locationArn)]
       )
 
-instance Core.ToPath DescribeLocationFsxOntap where
+instance Data.ToPath DescribeLocationFsxOntap where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLocationFsxOntap where
+instance Data.ToQuery DescribeLocationFsxOntap where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLocationFsxOntapResponse' smart constructor.
@@ -161,7 +162,7 @@ data DescribeLocationFsxOntapResponse = DescribeLocationFsxOntapResponse'
     -- system.
     securityGroupArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The time that the location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     protocol :: Prelude.Maybe FsxProtocol,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -237,7 +238,7 @@ describeLocationFsxOntapResponse_securityGroupArns = Lens.lens (\DescribeLocatio
 
 -- | The time that the location was created.
 describeLocationFsxOntapResponse_creationTime :: Lens.Lens' DescribeLocationFsxOntapResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationFsxOntapResponse_creationTime = Lens.lens (\DescribeLocationFsxOntapResponse' {creationTime} -> creationTime) (\s@DescribeLocationFsxOntapResponse' {} a -> s {creationTime = a} :: DescribeLocationFsxOntapResponse) Prelude.. Lens.mapping Core._Time
+describeLocationFsxOntapResponse_creationTime = Lens.lens (\DescribeLocationFsxOntapResponse' {creationTime} -> creationTime) (\s@DescribeLocationFsxOntapResponse' {} a -> s {creationTime = a} :: DescribeLocationFsxOntapResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 describeLocationFsxOntapResponse_protocol :: Lens.Lens' DescribeLocationFsxOntapResponse (Prelude.Maybe FsxProtocol)

@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.DuplicateTimestamps where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Entity that comprises information abount duplicate timestamps in the
@@ -57,13 +58,13 @@ newDuplicateTimestamps
 duplicateTimestamps_totalNumberOfDuplicateTimestamps :: Lens.Lens' DuplicateTimestamps Prelude.Int
 duplicateTimestamps_totalNumberOfDuplicateTimestamps = Lens.lens (\DuplicateTimestamps' {totalNumberOfDuplicateTimestamps} -> totalNumberOfDuplicateTimestamps) (\s@DuplicateTimestamps' {} a -> s {totalNumberOfDuplicateTimestamps = a} :: DuplicateTimestamps)
 
-instance Core.FromJSON DuplicateTimestamps where
+instance Data.FromJSON DuplicateTimestamps where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DuplicateTimestamps"
       ( \x ->
           DuplicateTimestamps'
-            Prelude.<$> (x Core..: "TotalNumberOfDuplicateTimestamps")
+            Prelude.<$> (x Data..: "TotalNumberOfDuplicateTimestamps")
       )
 
 instance Prelude.Hashable DuplicateTimestamps where

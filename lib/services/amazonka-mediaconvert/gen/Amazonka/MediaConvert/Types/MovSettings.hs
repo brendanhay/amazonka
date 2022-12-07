@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.MovSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.MovClapAtom
 import Amazonka.MediaConvert.Types.MovCslgAtom
 import Amazonka.MediaConvert.Types.MovMpeg2FourCCControl
@@ -129,17 +130,17 @@ movSettings_clapAtom = Lens.lens (\MovSettings' {clapAtom} -> clapAtom) (\s@MovS
 movSettings_mpeg2FourCCControl :: Lens.Lens' MovSettings (Prelude.Maybe MovMpeg2FourCCControl)
 movSettings_mpeg2FourCCControl = Lens.lens (\MovSettings' {mpeg2FourCCControl} -> mpeg2FourCCControl) (\s@MovSettings' {} a -> s {mpeg2FourCCControl = a} :: MovSettings)
 
-instance Core.FromJSON MovSettings where
+instance Data.FromJSON MovSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MovSettings"
       ( \x ->
           MovSettings'
-            Prelude.<$> (x Core..:? "paddingControl")
-            Prelude.<*> (x Core..:? "cslgAtom")
-            Prelude.<*> (x Core..:? "reference")
-            Prelude.<*> (x Core..:? "clapAtom")
-            Prelude.<*> (x Core..:? "mpeg2FourCCControl")
+            Prelude.<$> (x Data..:? "paddingControl")
+            Prelude.<*> (x Data..:? "cslgAtom")
+            Prelude.<*> (x Data..:? "reference")
+            Prelude.<*> (x Data..:? "clapAtom")
+            Prelude.<*> (x Data..:? "mpeg2FourCCControl")
       )
 
 instance Prelude.Hashable MovSettings where
@@ -158,16 +159,16 @@ instance Prelude.NFData MovSettings where
       `Prelude.seq` Prelude.rnf clapAtom
       `Prelude.seq` Prelude.rnf mpeg2FourCCControl
 
-instance Core.ToJSON MovSettings where
+instance Data.ToJSON MovSettings where
   toJSON MovSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("paddingControl" Core..=)
+          [ ("paddingControl" Data..=)
               Prelude.<$> paddingControl,
-            ("cslgAtom" Core..=) Prelude.<$> cslgAtom,
-            ("reference" Core..=) Prelude.<$> reference,
-            ("clapAtom" Core..=) Prelude.<$> clapAtom,
-            ("mpeg2FourCCControl" Core..=)
+            ("cslgAtom" Data..=) Prelude.<$> cslgAtom,
+            ("reference" Data..=) Prelude.<$> reference,
+            ("clapAtom" Data..=) Prelude.<$> clapAtom,
+            ("mpeg2FourCCControl" Data..=)
               Prelude.<$> mpeg2FourCCControl
           ]
       )

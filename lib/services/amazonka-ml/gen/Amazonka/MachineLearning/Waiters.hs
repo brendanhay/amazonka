@@ -18,6 +18,7 @@ module Amazonka.MachineLearning.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.DescribeBatchPredictions
 import Amazonka.MachineLearning.DescribeDataSources
 import Amazonka.MachineLearning.DescribeEvaluations
@@ -45,7 +46,7 @@ newEvaluationAvailable =
                 )
                 Prelude.. evaluation_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "FAILED"
@@ -58,7 +59,7 @@ newEvaluationAvailable =
                 )
                 Prelude.. evaluation_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -82,7 +83,7 @@ newMLModelAvailable =
                 )
                 Prelude.. mLModel_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "FAILED"
@@ -95,7 +96,7 @@ newMLModelAvailable =
                 )
                 Prelude.. mLModel_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -119,7 +120,7 @@ newDataSourceAvailable =
                 )
                 Prelude.. dataSource_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "FAILED"
@@ -132,7 +133,7 @@ newDataSourceAvailable =
                 )
                 Prelude.. dataSource_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -156,7 +157,7 @@ newBatchPredictionAvailable =
                 )
                 Prelude.. batchPrediction_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "FAILED"
@@ -169,7 +170,7 @@ newBatchPredictionAvailable =
                 )
                 Prelude.. batchPrediction_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

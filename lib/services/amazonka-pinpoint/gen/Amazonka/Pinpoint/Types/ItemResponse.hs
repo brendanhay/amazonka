@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ItemResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.EndpointItemResponse
 import Amazonka.Pinpoint.Types.EventItemResponse
 import qualified Amazonka.Prelude as Prelude
@@ -70,16 +71,16 @@ itemResponse_eventsItemResponse = Lens.lens (\ItemResponse' {eventsItemResponse}
 itemResponse_endpointItemResponse :: Lens.Lens' ItemResponse (Prelude.Maybe EndpointItemResponse)
 itemResponse_endpointItemResponse = Lens.lens (\ItemResponse' {endpointItemResponse} -> endpointItemResponse) (\s@ItemResponse' {} a -> s {endpointItemResponse = a} :: ItemResponse)
 
-instance Core.FromJSON ItemResponse where
+instance Data.FromJSON ItemResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ItemResponse"
       ( \x ->
           ItemResponse'
-            Prelude.<$> ( x Core..:? "EventsItemResponse"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "EventsItemResponse"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EndpointItemResponse")
+            Prelude.<*> (x Data..:? "EndpointItemResponse")
       )
 
 instance Prelude.Hashable ItemResponse where

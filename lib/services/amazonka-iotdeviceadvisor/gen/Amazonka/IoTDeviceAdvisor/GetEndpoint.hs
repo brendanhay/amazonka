@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance Core.AWSRequest GetEndpoint where
     Response.receiveJSON
       ( \s h x ->
           GetEndpointResponse'
-            Prelude.<$> (x Core..?> "endpoint")
+            Prelude.<$> (x Data..?> "endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,25 +106,25 @@ instance Prelude.NFData GetEndpoint where
     Prelude.rnf thingArn
       `Prelude.seq` Prelude.rnf certificateArn
 
-instance Core.ToHeaders GetEndpoint where
+instance Data.ToHeaders GetEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetEndpoint where
+instance Data.ToPath GetEndpoint where
   toPath = Prelude.const "/endpoint"
 
-instance Core.ToQuery GetEndpoint where
+instance Data.ToQuery GetEndpoint where
   toQuery GetEndpoint' {..} =
     Prelude.mconcat
-      [ "thingArn" Core.=: thingArn,
-        "certificateArn" Core.=: certificateArn
+      [ "thingArn" Data.=: thingArn,
+        "certificateArn" Data.=: certificateArn
       ]
 
 -- | /See:/ 'newGetEndpointResponse' smart constructor.

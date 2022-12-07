@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.SolutionVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.SolutionConfig
 import Amazonka.Personalize.Types.TrainingMode
 import Amazonka.Personalize.Types.TunedHPOParams
@@ -51,7 +52,7 @@ data SolutionVersion = SolutionVersion'
     performHPO :: Prelude.Maybe Prelude.Bool,
     -- | The date and time (in Unix time) that this version of the solution was
     -- created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | Describes the configuration properties for the solution.
     solutionConfig :: Prelude.Maybe SolutionConfig,
     -- | The status of the solution version.
@@ -97,7 +98,7 @@ data SolutionVersion = SolutionVersion'
     -- | The ARN of the recipe used in the solution.
     recipeArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the solution was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | If training a solution version fails, the reason for the failure.
     failureReason :: Prelude.Maybe Prelude.Text
   }
@@ -232,7 +233,7 @@ solutionVersion_performHPO = Lens.lens (\SolutionVersion' {performHPO} -> perfor
 -- | The date and time (in Unix time) that this version of the solution was
 -- created.
 solutionVersion_creationDateTime :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.UTCTime)
-solutionVersion_creationDateTime = Lens.lens (\SolutionVersion' {creationDateTime} -> creationDateTime) (\s@SolutionVersion' {} a -> s {creationDateTime = a} :: SolutionVersion) Prelude.. Lens.mapping Core._Time
+solutionVersion_creationDateTime = Lens.lens (\SolutionVersion' {creationDateTime} -> creationDateTime) (\s@SolutionVersion' {} a -> s {creationDateTime = a} :: SolutionVersion) Prelude.. Lens.mapping Data._Time
 
 -- | Describes the configuration properties for the solution.
 solutionVersion_solutionConfig :: Lens.Lens' SolutionVersion (Prelude.Maybe SolutionConfig)
@@ -294,34 +295,34 @@ solutionVersion_recipeArn = Lens.lens (\SolutionVersion' {recipeArn} -> recipeAr
 
 -- | The date and time (in Unix time) that the solution was last updated.
 solutionVersion_lastUpdatedDateTime :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.UTCTime)
-solutionVersion_lastUpdatedDateTime = Lens.lens (\SolutionVersion' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SolutionVersion' {} a -> s {lastUpdatedDateTime = a} :: SolutionVersion) Prelude.. Lens.mapping Core._Time
+solutionVersion_lastUpdatedDateTime = Lens.lens (\SolutionVersion' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SolutionVersion' {} a -> s {lastUpdatedDateTime = a} :: SolutionVersion) Prelude.. Lens.mapping Data._Time
 
 -- | If training a solution version fails, the reason for the failure.
 solutionVersion_failureReason :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.Text)
 solutionVersion_failureReason = Lens.lens (\SolutionVersion' {failureReason} -> failureReason) (\s@SolutionVersion' {} a -> s {failureReason = a} :: SolutionVersion)
 
-instance Core.FromJSON SolutionVersion where
+instance Data.FromJSON SolutionVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SolutionVersion"
       ( \x ->
           SolutionVersion'
-            Prelude.<$> (x Core..:? "solutionArn")
-            Prelude.<*> (x Core..:? "eventType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "tunedHPOParams")
-            Prelude.<*> (x Core..:? "performAutoML")
-            Prelude.<*> (x Core..:? "performHPO")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "solutionConfig")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "trainingHours")
-            Prelude.<*> (x Core..:? "trainingMode")
-            Prelude.<*> (x Core..:? "datasetGroupArn")
-            Prelude.<*> (x Core..:? "solutionVersionArn")
-            Prelude.<*> (x Core..:? "recipeArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "solutionArn")
+            Prelude.<*> (x Data..:? "eventType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "tunedHPOParams")
+            Prelude.<*> (x Data..:? "performAutoML")
+            Prelude.<*> (x Data..:? "performHPO")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "solutionConfig")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "trainingHours")
+            Prelude.<*> (x Data..:? "trainingMode")
+            Prelude.<*> (x Data..:? "datasetGroupArn")
+            Prelude.<*> (x Data..:? "solutionVersionArn")
+            Prelude.<*> (x Data..:? "recipeArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable SolutionVersion where

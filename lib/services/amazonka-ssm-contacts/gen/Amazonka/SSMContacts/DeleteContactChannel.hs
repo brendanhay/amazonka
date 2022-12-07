@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,34 +101,34 @@ instance Prelude.NFData DeleteContactChannel where
   rnf DeleteContactChannel' {..} =
     Prelude.rnf contactChannelId
 
-instance Core.ToHeaders DeleteContactChannel where
+instance Data.ToHeaders DeleteContactChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SSMContacts.DeleteContactChannel" ::
+              Data.=# ( "SSMContacts.DeleteContactChannel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteContactChannel where
+instance Data.ToJSON DeleteContactChannel where
   toJSON DeleteContactChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ContactChannelId" Core..= contactChannelId)
+              ("ContactChannelId" Data..= contactChannelId)
           ]
       )
 
-instance Core.ToPath DeleteContactChannel where
+instance Data.ToPath DeleteContactChannel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteContactChannel where
+instance Data.ToQuery DeleteContactChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteContactChannelResponse' smart constructor.

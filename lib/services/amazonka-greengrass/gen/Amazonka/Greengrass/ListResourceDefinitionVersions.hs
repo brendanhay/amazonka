@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,8 +140,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListResourceDefinitionVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,32 +166,32 @@ instance
       `Prelude.seq` Prelude.rnf resourceDefinitionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListResourceDefinitionVersions
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListResourceDefinitionVersions where
+instance Data.ToPath ListResourceDefinitionVersions where
   toPath ListResourceDefinitionVersions' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/resources/",
-        Core.toBS resourceDefinitionId,
+        Data.toBS resourceDefinitionId,
         "/versions"
       ]
 
-instance Core.ToQuery ListResourceDefinitionVersions where
+instance Data.ToQuery ListResourceDefinitionVersions where
   toQuery ListResourceDefinitionVersions' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListResourceDefinitionVersionsResponse' smart constructor.

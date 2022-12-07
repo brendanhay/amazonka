@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.ScalarTrustAnchorRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newScalarTrustAnchorRequest' smart constructor.
@@ -61,11 +62,11 @@ instance Prelude.NFData ScalarTrustAnchorRequest where
   rnf ScalarTrustAnchorRequest' {..} =
     Prelude.rnf trustAnchorId
 
-instance Core.ToJSON ScalarTrustAnchorRequest where
+instance Data.ToJSON ScalarTrustAnchorRequest where
   toJSON ScalarTrustAnchorRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("trustAnchorId" Core..= trustAnchorId)
+              ("trustAnchorId" Data..= trustAnchorId)
           ]
       )

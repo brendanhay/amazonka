@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Phase2EncryptionAlgorithmsRequestListValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,9 +73,9 @@ instance
     Prelude.rnf value
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     Phase2EncryptionAlgorithmsRequestListValue
   where
   toQuery
     Phase2EncryptionAlgorithmsRequestListValue' {..} =
-      Prelude.mconcat ["Value" Core.=: value]
+      Prelude.mconcat ["Value" Data.=: value]

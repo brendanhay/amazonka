@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.S3MachineLearningModelResourceData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.ResourceDownloadOwnerSetting
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,17 +76,17 @@ s3MachineLearningModelResourceData_s3Uri :: Lens.Lens' S3MachineLearningModelRes
 s3MachineLearningModelResourceData_s3Uri = Lens.lens (\S3MachineLearningModelResourceData' {s3Uri} -> s3Uri) (\s@S3MachineLearningModelResourceData' {} a -> s {s3Uri = a} :: S3MachineLearningModelResourceData)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     S3MachineLearningModelResourceData
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3MachineLearningModelResourceData"
       ( \x ->
           S3MachineLearningModelResourceData'
-            Prelude.<$> (x Core..:? "DestinationPath")
-            Prelude.<*> (x Core..:? "OwnerSetting")
-            Prelude.<*> (x Core..:? "S3Uri")
+            Prelude.<$> (x Data..:? "DestinationPath")
+            Prelude.<*> (x Data..:? "OwnerSetting")
+            Prelude.<*> (x Data..:? "S3Uri")
       )
 
 instance
@@ -109,15 +110,15 @@ instance
       `Prelude.seq` Prelude.rnf s3Uri
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     S3MachineLearningModelResourceData
   where
   toJSON S3MachineLearningModelResourceData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DestinationPath" Core..=)
+          [ ("DestinationPath" Data..=)
               Prelude.<$> destinationPath,
-            ("OwnerSetting" Core..=) Prelude.<$> ownerSetting,
-            ("S3Uri" Core..=) Prelude.<$> s3Uri
+            ("OwnerSetting" Data..=) Prelude.<$> ownerSetting,
+            ("S3Uri" Data..=) Prelude.<$> s3Uri
           ]
       )

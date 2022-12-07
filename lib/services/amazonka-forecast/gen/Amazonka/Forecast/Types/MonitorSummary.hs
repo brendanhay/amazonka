@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.MonitorSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the monitor properties used in the ListMonitors
@@ -40,7 +41,7 @@ data MonitorSummary = MonitorSummary'
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the monitor creation finished or
     --     failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the monitor resource.
     monitorArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the monitor. States include:
@@ -58,7 +59,7 @@ data MonitorSummary = MonitorSummary'
     -- | The name of the monitor resource.
     monitorName :: Prelude.Maybe Prelude.Text,
     -- | When the monitor resource was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the predictor being monitored.
     resourceArn :: Prelude.Maybe Prelude.Text
   }
@@ -128,7 +129,7 @@ newMonitorSummary =
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the monitor creation finished or
 --     failed.
 monitorSummary_lastModificationTime :: Lens.Lens' MonitorSummary (Prelude.Maybe Prelude.UTCTime)
-monitorSummary_lastModificationTime = Lens.lens (\MonitorSummary' {lastModificationTime} -> lastModificationTime) (\s@MonitorSummary' {} a -> s {lastModificationTime = a} :: MonitorSummary) Prelude.. Lens.mapping Core._Time
+monitorSummary_lastModificationTime = Lens.lens (\MonitorSummary' {lastModificationTime} -> lastModificationTime) (\s@MonitorSummary' {} a -> s {lastModificationTime = a} :: MonitorSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the monitor resource.
 monitorSummary_monitorArn :: Lens.Lens' MonitorSummary (Prelude.Maybe Prelude.Text)
@@ -154,24 +155,24 @@ monitorSummary_monitorName = Lens.lens (\MonitorSummary' {monitorName} -> monito
 
 -- | When the monitor resource was created.
 monitorSummary_creationTime :: Lens.Lens' MonitorSummary (Prelude.Maybe Prelude.UTCTime)
-monitorSummary_creationTime = Lens.lens (\MonitorSummary' {creationTime} -> creationTime) (\s@MonitorSummary' {} a -> s {creationTime = a} :: MonitorSummary) Prelude.. Lens.mapping Core._Time
+monitorSummary_creationTime = Lens.lens (\MonitorSummary' {creationTime} -> creationTime) (\s@MonitorSummary' {} a -> s {creationTime = a} :: MonitorSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the predictor being monitored.
 monitorSummary_resourceArn :: Lens.Lens' MonitorSummary (Prelude.Maybe Prelude.Text)
 monitorSummary_resourceArn = Lens.lens (\MonitorSummary' {resourceArn} -> resourceArn) (\s@MonitorSummary' {} a -> s {resourceArn = a} :: MonitorSummary)
 
-instance Core.FromJSON MonitorSummary where
+instance Data.FromJSON MonitorSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitorSummary"
       ( \x ->
           MonitorSummary'
-            Prelude.<$> (x Core..:? "LastModificationTime")
-            Prelude.<*> (x Core..:? "MonitorArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "MonitorName")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ResourceArn")
+            Prelude.<$> (x Data..:? "LastModificationTime")
+            Prelude.<*> (x Data..:? "MonitorArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "MonitorName")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "ResourceArn")
       )
 
 instance Prelude.Hashable MonitorSummary where

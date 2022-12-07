@@ -21,6 +21,7 @@ module Amazonka.ConnectCases.Types.CaseSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Case summary information.
@@ -65,14 +66,14 @@ caseSummary_caseId = Lens.lens (\CaseSummary' {caseId} -> caseId) (\s@CaseSummar
 caseSummary_templateId :: Lens.Lens' CaseSummary Prelude.Text
 caseSummary_templateId = Lens.lens (\CaseSummary' {templateId} -> templateId) (\s@CaseSummary' {} a -> s {templateId = a} :: CaseSummary)
 
-instance Core.FromJSON CaseSummary where
+instance Data.FromJSON CaseSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaseSummary"
       ( \x ->
           CaseSummary'
-            Prelude.<$> (x Core..: "caseId")
-            Prelude.<*> (x Core..: "templateId")
+            Prelude.<$> (x Data..: "caseId")
+            Prelude.<*> (x Data..: "templateId")
       )
 
 instance Prelude.Hashable CaseSummary where

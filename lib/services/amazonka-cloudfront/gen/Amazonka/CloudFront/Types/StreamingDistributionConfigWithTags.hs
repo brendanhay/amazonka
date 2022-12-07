@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.StreamingDistributionConfig
 import Amazonka.CloudFront.Types.Tags
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A streaming distribution Configuration and a list of tags to be
@@ -91,12 +92,12 @@ instance
       `Prelude.seq` Prelude.rnf tags
 
 instance
-  Core.ToXML
+  Data.ToXML
     StreamingDistributionConfigWithTags
   where
   toXML StreamingDistributionConfigWithTags' {..} =
     Prelude.mconcat
       [ "StreamingDistributionConfig"
-          Core.@= streamingDistributionConfig,
-        "Tags" Core.@= tags
+          Data.@= streamingDistributionConfig,
+        "Tags" Data.@= tags
       ]

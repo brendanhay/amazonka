@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.ServerGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.Server
 
@@ -71,15 +72,15 @@ serverGroup_serverGroupId = Lens.lens (\ServerGroup' {serverGroupId} -> serverGr
 serverGroup_serverList :: Lens.Lens' ServerGroup (Prelude.Maybe [Server])
 serverGroup_serverList = Lens.lens (\ServerGroup' {serverList} -> serverList) (\s@ServerGroup' {} a -> s {serverList = a} :: ServerGroup) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ServerGroup where
+instance Data.FromJSON ServerGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerGroup"
       ( \x ->
           ServerGroup'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "serverGroupId")
-            Prelude.<*> (x Core..:? "serverList" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "serverGroupId")
+            Prelude.<*> (x Data..:? "serverList" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ServerGroup where
@@ -94,12 +95,12 @@ instance Prelude.NFData ServerGroup where
       `Prelude.seq` Prelude.rnf serverGroupId
       `Prelude.seq` Prelude.rnf serverList
 
-instance Core.ToJSON ServerGroup where
+instance Data.ToJSON ServerGroup where
   toJSON ServerGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("serverGroupId" Core..=) Prelude.<$> serverGroupId,
-            ("serverList" Core..=) Prelude.<$> serverList
+          [ ("name" Data..=) Prelude.<$> name,
+            ("serverGroupId" Data..=) Prelude.<$> serverGroupId,
+            ("serverList" Data..=) Prelude.<$> serverList
           ]
       )

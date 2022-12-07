@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceTypeInfoFromInstanceRequirements where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,12 +56,12 @@ instanceTypeInfoFromInstanceRequirements_instanceType :: Lens.Lens' InstanceType
 instanceTypeInfoFromInstanceRequirements_instanceType = Lens.lens (\InstanceTypeInfoFromInstanceRequirements' {instanceType} -> instanceType) (\s@InstanceTypeInfoFromInstanceRequirements' {} a -> s {instanceType = a} :: InstanceTypeInfoFromInstanceRequirements)
 
 instance
-  Core.FromXML
+  Data.FromXML
     InstanceTypeInfoFromInstanceRequirements
   where
   parseXML x =
     InstanceTypeInfoFromInstanceRequirements'
-      Prelude.<$> (x Core..@? "instanceType")
+      Prelude.<$> (x Data..@? "instanceType")
 
 instance
   Prelude.Hashable

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,8 +90,8 @@ instance Core.AWSRequest DescribeVpcEndpoints where
       ( \s h x ->
           DescribeVpcEndpointsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "VpcEndpoints" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "VpcEndpointErrors"
+            Prelude.<*> (x Data..?> "VpcEndpoints" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "VpcEndpointErrors"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -103,24 +104,24 @@ instance Prelude.NFData DescribeVpcEndpoints where
   rnf DescribeVpcEndpoints' {..} =
     Prelude.rnf vpcEndpointIds
 
-instance Core.ToHeaders DescribeVpcEndpoints where
+instance Data.ToHeaders DescribeVpcEndpoints where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON DescribeVpcEndpoints where
+instance Data.ToJSON DescribeVpcEndpoints where
   toJSON DescribeVpcEndpoints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("VpcEndpointIds" Core..= vpcEndpointIds)
+              ("VpcEndpointIds" Data..= vpcEndpointIds)
           ]
       )
 
-instance Core.ToPath DescribeVpcEndpoints where
+instance Data.ToPath DescribeVpcEndpoints where
   toPath =
     Prelude.const
       "/2015-01-01/es/vpcEndpoints/describe"
 
-instance Core.ToQuery DescribeVpcEndpoints where
+instance Data.ToQuery DescribeVpcEndpoints where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Container for response parameters to the @DescribeVpcEndpoints@

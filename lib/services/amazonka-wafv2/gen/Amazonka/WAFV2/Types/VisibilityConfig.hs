@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.VisibilityConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines and enables Amazon CloudWatch metrics and web request sample
@@ -103,15 +104,15 @@ visibilityConfig_cloudWatchMetricsEnabled = Lens.lens (\VisibilityConfig' {cloud
 visibilityConfig_metricName :: Lens.Lens' VisibilityConfig Prelude.Text
 visibilityConfig_metricName = Lens.lens (\VisibilityConfig' {metricName} -> metricName) (\s@VisibilityConfig' {} a -> s {metricName = a} :: VisibilityConfig)
 
-instance Core.FromJSON VisibilityConfig where
+instance Data.FromJSON VisibilityConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VisibilityConfig"
       ( \x ->
           VisibilityConfig'
-            Prelude.<$> (x Core..: "SampledRequestsEnabled")
-            Prelude.<*> (x Core..: "CloudWatchMetricsEnabled")
-            Prelude.<*> (x Core..: "MetricName")
+            Prelude.<$> (x Data..: "SampledRequestsEnabled")
+            Prelude.<*> (x Data..: "CloudWatchMetricsEnabled")
+            Prelude.<*> (x Data..: "MetricName")
       )
 
 instance Prelude.Hashable VisibilityConfig where
@@ -126,18 +127,18 @@ instance Prelude.NFData VisibilityConfig where
       `Prelude.seq` Prelude.rnf cloudWatchMetricsEnabled
       `Prelude.seq` Prelude.rnf metricName
 
-instance Core.ToJSON VisibilityConfig where
+instance Data.ToJSON VisibilityConfig where
   toJSON VisibilityConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "SampledRequestsEnabled"
-                  Core..= sampledRequestsEnabled
+                  Data..= sampledRequestsEnabled
               ),
             Prelude.Just
               ( "CloudWatchMetricsEnabled"
-                  Core..= cloudWatchMetricsEnabled
+                  Data..= cloudWatchMetricsEnabled
               ),
-            Prelude.Just ("MetricName" Core..= metricName)
+            Prelude.Just ("MetricName" Data..= metricName)
           ]
       )

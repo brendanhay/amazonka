@@ -84,6 +84,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -189,32 +190,32 @@ instance Prelude.Hashable DisableKeyRotation where
 instance Prelude.NFData DisableKeyRotation where
   rnf DisableKeyRotation' {..} = Prelude.rnf keyId
 
-instance Core.ToHeaders DisableKeyRotation where
+instance Data.ToHeaders DisableKeyRotation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.DisableKeyRotation" ::
+              Data.=# ( "TrentService.DisableKeyRotation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisableKeyRotation where
+instance Data.ToJSON DisableKeyRotation where
   toJSON DisableKeyRotation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("KeyId" Core..= keyId)]
+          [Prelude.Just ("KeyId" Data..= keyId)]
       )
 
-instance Core.ToPath DisableKeyRotation where
+instance Data.ToPath DisableKeyRotation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableKeyRotation where
+instance Data.ToQuery DisableKeyRotation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableKeyRotationResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.OutputDestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Placeholder documentation for OutputDestinationSettings
@@ -80,16 +81,16 @@ outputDestinationSettings_url = Lens.lens (\OutputDestinationSettings' {url} -> 
 outputDestinationSettings_streamName :: Lens.Lens' OutputDestinationSettings (Prelude.Maybe Prelude.Text)
 outputDestinationSettings_streamName = Lens.lens (\OutputDestinationSettings' {streamName} -> streamName) (\s@OutputDestinationSettings' {} a -> s {streamName = a} :: OutputDestinationSettings)
 
-instance Core.FromJSON OutputDestinationSettings where
+instance Data.FromJSON OutputDestinationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputDestinationSettings"
       ( \x ->
           OutputDestinationSettings'
-            Prelude.<$> (x Core..:? "username")
-            Prelude.<*> (x Core..:? "passwordParam")
-            Prelude.<*> (x Core..:? "url")
-            Prelude.<*> (x Core..:? "streamName")
+            Prelude.<$> (x Data..:? "username")
+            Prelude.<*> (x Data..:? "passwordParam")
+            Prelude.<*> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "streamName")
       )
 
 instance Prelude.Hashable OutputDestinationSettings where
@@ -106,13 +107,13 @@ instance Prelude.NFData OutputDestinationSettings where
       `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf streamName
 
-instance Core.ToJSON OutputDestinationSettings where
+instance Data.ToJSON OutputDestinationSettings where
   toJSON OutputDestinationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("username" Core..=) Prelude.<$> username,
-            ("passwordParam" Core..=) Prelude.<$> passwordParam,
-            ("url" Core..=) Prelude.<$> url,
-            ("streamName" Core..=) Prelude.<$> streamName
+          [ ("username" Data..=) Prelude.<$> username,
+            ("passwordParam" Data..=) Prelude.<$> passwordParam,
+            ("url" Data..=) Prelude.<$> url,
+            ("streamName" Data..=) Prelude.<$> streamName
           ]
       )

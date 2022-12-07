@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.BillingGroupMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Additional information about the billing group.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newBillingGroupMetadata' smart constructor.
 data BillingGroupMetadata = BillingGroupMetadata'
   { -- | The date the billing group was created.
-    creationDate :: Prelude.Maybe Core.POSIX
+    creationDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,15 +52,15 @@ newBillingGroupMetadata =
 
 -- | The date the billing group was created.
 billingGroupMetadata_creationDate :: Lens.Lens' BillingGroupMetadata (Prelude.Maybe Prelude.UTCTime)
-billingGroupMetadata_creationDate = Lens.lens (\BillingGroupMetadata' {creationDate} -> creationDate) (\s@BillingGroupMetadata' {} a -> s {creationDate = a} :: BillingGroupMetadata) Prelude.. Lens.mapping Core._Time
+billingGroupMetadata_creationDate = Lens.lens (\BillingGroupMetadata' {creationDate} -> creationDate) (\s@BillingGroupMetadata' {} a -> s {creationDate = a} :: BillingGroupMetadata) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON BillingGroupMetadata where
+instance Data.FromJSON BillingGroupMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BillingGroupMetadata"
       ( \x ->
           BillingGroupMetadata'
-            Prelude.<$> (x Core..:? "creationDate")
+            Prelude.<$> (x Data..:? "creationDate")
       )
 
 instance Prelude.Hashable BillingGroupMetadata where

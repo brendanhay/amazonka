@@ -41,6 +41,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,23 +97,23 @@ instance Prelude.NFData DeleteAssessmentFramework where
   rnf DeleteAssessmentFramework' {..} =
     Prelude.rnf frameworkId
 
-instance Core.ToHeaders DeleteAssessmentFramework where
+instance Data.ToHeaders DeleteAssessmentFramework where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteAssessmentFramework where
+instance Data.ToPath DeleteAssessmentFramework where
   toPath DeleteAssessmentFramework' {..} =
     Prelude.mconcat
-      ["/assessmentFrameworks/", Core.toBS frameworkId]
+      ["/assessmentFrameworks/", Data.toBS frameworkId]
 
-instance Core.ToQuery DeleteAssessmentFramework where
+instance Data.ToQuery DeleteAssessmentFramework where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAssessmentFrameworkResponse' smart constructor.

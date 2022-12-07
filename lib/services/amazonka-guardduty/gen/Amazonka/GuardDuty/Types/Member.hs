@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.Member where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the member account.
@@ -130,20 +131,20 @@ member_relationshipStatus = Lens.lens (\Member' {relationshipStatus} -> relation
 member_updatedAt :: Lens.Lens' Member Prelude.Text
 member_updatedAt = Lens.lens (\Member' {updatedAt} -> updatedAt) (\s@Member' {} a -> s {updatedAt = a} :: Member)
 
-instance Core.FromJSON Member where
+instance Data.FromJSON Member where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Member"
       ( \x ->
           Member'
-            Prelude.<$> (x Core..:? "administratorId")
-            Prelude.<*> (x Core..:? "invitedAt")
-            Prelude.<*> (x Core..:? "detectorId")
-            Prelude.<*> (x Core..: "accountId")
-            Prelude.<*> (x Core..: "masterId")
-            Prelude.<*> (x Core..: "email")
-            Prelude.<*> (x Core..: "relationshipStatus")
-            Prelude.<*> (x Core..: "updatedAt")
+            Prelude.<$> (x Data..:? "administratorId")
+            Prelude.<*> (x Data..:? "invitedAt")
+            Prelude.<*> (x Data..:? "detectorId")
+            Prelude.<*> (x Data..: "accountId")
+            Prelude.<*> (x Data..: "masterId")
+            Prelude.<*> (x Data..: "email")
+            Prelude.<*> (x Data..: "relationshipStatus")
+            Prelude.<*> (x Data..: "updatedAt")
       )
 
 instance Prelude.Hashable Member where

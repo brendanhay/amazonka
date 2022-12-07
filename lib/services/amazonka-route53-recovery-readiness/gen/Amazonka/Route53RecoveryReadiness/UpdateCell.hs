@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,13 +102,13 @@ instance Core.AWSRequest UpdateCell where
     Response.receiveJSON
       ( \s h x ->
           UpdateCellResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "parentReadinessScopes"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "parentReadinessScopes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "cellArn")
-            Prelude.<*> (x Core..?> "cellName")
-            Prelude.<*> (x Core..?> "cells" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "cellArn")
+            Prelude.<*> (x Data..?> "cellName")
+            Prelude.<*> (x Data..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,29 +122,29 @@ instance Prelude.NFData UpdateCell where
     Prelude.rnf cellName
       `Prelude.seq` Prelude.rnf cells
 
-instance Core.ToHeaders UpdateCell where
+instance Data.ToHeaders UpdateCell where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCell where
+instance Data.ToJSON UpdateCell where
   toJSON UpdateCell' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("cells" Core..= cells)]
+          [Prelude.Just ("cells" Data..= cells)]
       )
 
-instance Core.ToPath UpdateCell where
+instance Data.ToPath UpdateCell where
   toPath UpdateCell' {..} =
-    Prelude.mconcat ["/cells/", Core.toBS cellName]
+    Prelude.mconcat ["/cells/", Data.toBS cellName]
 
-instance Core.ToQuery UpdateCell where
+instance Data.ToQuery UpdateCell where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCellResponse' smart constructor.

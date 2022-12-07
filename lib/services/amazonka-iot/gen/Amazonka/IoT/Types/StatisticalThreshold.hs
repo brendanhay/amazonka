@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.StatisticalThreshold where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A statistical ranking (percentile) that indicates a threshold value by
@@ -76,13 +77,13 @@ newStatisticalThreshold =
 statisticalThreshold_statistic :: Lens.Lens' StatisticalThreshold (Prelude.Maybe Prelude.Text)
 statisticalThreshold_statistic = Lens.lens (\StatisticalThreshold' {statistic} -> statistic) (\s@StatisticalThreshold' {} a -> s {statistic = a} :: StatisticalThreshold)
 
-instance Core.FromJSON StatisticalThreshold where
+instance Data.FromJSON StatisticalThreshold where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatisticalThreshold"
       ( \x ->
           StatisticalThreshold'
-            Prelude.<$> (x Core..:? "statistic")
+            Prelude.<$> (x Data..:? "statistic")
       )
 
 instance Prelude.Hashable StatisticalThreshold where
@@ -92,9 +93,9 @@ instance Prelude.Hashable StatisticalThreshold where
 instance Prelude.NFData StatisticalThreshold where
   rnf StatisticalThreshold' {..} = Prelude.rnf statistic
 
-instance Core.ToJSON StatisticalThreshold where
+instance Data.ToJSON StatisticalThreshold where
   toJSON StatisticalThreshold' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("statistic" Core..=) Prelude.<$> statistic]
+          [("statistic" Data..=) Prelude.<$> statistic]
       )

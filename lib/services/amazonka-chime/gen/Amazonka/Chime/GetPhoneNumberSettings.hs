@@ -41,6 +41,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -69,8 +70,8 @@ instance Core.AWSRequest GetPhoneNumberSettings where
     Response.receiveJSON
       ( \s h x ->
           GetPhoneNumberSettingsResponse'
-            Prelude.<$> (x Core..?> "CallingNameUpdatedTimestamp")
-            Prelude.<*> (x Core..?> "CallingName")
+            Prelude.<$> (x Data..?> "CallingNameUpdatedTimestamp")
+            Prelude.<*> (x Data..?> "CallingName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -81,21 +82,21 @@ instance Prelude.Hashable GetPhoneNumberSettings where
 instance Prelude.NFData GetPhoneNumberSettings where
   rnf _ = ()
 
-instance Core.ToHeaders GetPhoneNumberSettings where
+instance Data.ToHeaders GetPhoneNumberSettings where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetPhoneNumberSettings where
+instance Data.ToPath GetPhoneNumberSettings where
   toPath = Prelude.const "/settings/phone-number"
 
-instance Core.ToQuery GetPhoneNumberSettings where
+instance Data.ToQuery GetPhoneNumberSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPhoneNumberSettingsResponse' smart constructor.
 data GetPhoneNumberSettingsResponse = GetPhoneNumberSettingsResponse'
   { -- | The updated outbound calling name timestamp, in ISO 8601 format.
-    callingNameUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    callingNameUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The default outbound calling name for the account.
-    callingName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    callingName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -128,11 +129,11 @@ newGetPhoneNumberSettingsResponse pHttpStatus_ =
 
 -- | The updated outbound calling name timestamp, in ISO 8601 format.
 getPhoneNumberSettingsResponse_callingNameUpdatedTimestamp :: Lens.Lens' GetPhoneNumberSettingsResponse (Prelude.Maybe Prelude.UTCTime)
-getPhoneNumberSettingsResponse_callingNameUpdatedTimestamp = Lens.lens (\GetPhoneNumberSettingsResponse' {callingNameUpdatedTimestamp} -> callingNameUpdatedTimestamp) (\s@GetPhoneNumberSettingsResponse' {} a -> s {callingNameUpdatedTimestamp = a} :: GetPhoneNumberSettingsResponse) Prelude.. Lens.mapping Core._Time
+getPhoneNumberSettingsResponse_callingNameUpdatedTimestamp = Lens.lens (\GetPhoneNumberSettingsResponse' {callingNameUpdatedTimestamp} -> callingNameUpdatedTimestamp) (\s@GetPhoneNumberSettingsResponse' {} a -> s {callingNameUpdatedTimestamp = a} :: GetPhoneNumberSettingsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The default outbound calling name for the account.
 getPhoneNumberSettingsResponse_callingName :: Lens.Lens' GetPhoneNumberSettingsResponse (Prelude.Maybe Prelude.Text)
-getPhoneNumberSettingsResponse_callingName = Lens.lens (\GetPhoneNumberSettingsResponse' {callingName} -> callingName) (\s@GetPhoneNumberSettingsResponse' {} a -> s {callingName = a} :: GetPhoneNumberSettingsResponse) Prelude.. Lens.mapping Core._Sensitive
+getPhoneNumberSettingsResponse_callingName = Lens.lens (\GetPhoneNumberSettingsResponse' {callingName} -> callingName) (\s@GetPhoneNumberSettingsResponse' {} a -> s {callingName = a} :: GetPhoneNumberSettingsResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The response's http status code.
 getPhoneNumberSettingsResponse_httpStatus :: Lens.Lens' GetPhoneNumberSettingsResponse Prelude.Int

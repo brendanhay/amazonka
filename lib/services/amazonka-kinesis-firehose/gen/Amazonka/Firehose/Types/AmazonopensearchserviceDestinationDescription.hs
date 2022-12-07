@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.AmazonopensearchserviceBufferingHints
 import Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod
 import Amazonka.Firehose.Types.AmazonopensearchserviceRetryOptions
@@ -163,27 +164,27 @@ amazonopensearchserviceDestinationDescription_s3DestinationDescription :: Lens.L
 amazonopensearchserviceDestinationDescription_s3DestinationDescription = Lens.lens (\AmazonopensearchserviceDestinationDescription' {s3DestinationDescription} -> s3DestinationDescription) (\s@AmazonopensearchserviceDestinationDescription' {} a -> s {s3DestinationDescription = a} :: AmazonopensearchserviceDestinationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AmazonopensearchserviceDestinationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AmazonopensearchserviceDestinationDescription"
       ( \x ->
           AmazonopensearchserviceDestinationDescription'
-            Prelude.<$> (x Core..:? "ProcessingConfiguration")
-              Prelude.<*> (x Core..:? "RoleARN")
-              Prelude.<*> (x Core..:? "BufferingHints")
-              Prelude.<*> (x Core..:? "ClusterEndpoint")
-              Prelude.<*> (x Core..:? "DomainARN")
-              Prelude.<*> (x Core..:? "TypeName")
-              Prelude.<*> (x Core..:? "IndexName")
-              Prelude.<*> (x Core..:? "CloudWatchLoggingOptions")
-              Prelude.<*> (x Core..:? "S3BackupMode")
-              Prelude.<*> (x Core..:? "VpcConfigurationDescription")
-              Prelude.<*> (x Core..:? "IndexRotationPeriod")
-              Prelude.<*> (x Core..:? "RetryOptions")
-              Prelude.<*> (x Core..:? "S3DestinationDescription")
+            Prelude.<$> (x Data..:? "ProcessingConfiguration")
+              Prelude.<*> (x Data..:? "RoleARN")
+              Prelude.<*> (x Data..:? "BufferingHints")
+              Prelude.<*> (x Data..:? "ClusterEndpoint")
+              Prelude.<*> (x Data..:? "DomainARN")
+              Prelude.<*> (x Data..:? "TypeName")
+              Prelude.<*> (x Data..:? "IndexName")
+              Prelude.<*> (x Data..:? "CloudWatchLoggingOptions")
+              Prelude.<*> (x Data..:? "S3BackupMode")
+              Prelude.<*> (x Data..:? "VpcConfigurationDescription")
+              Prelude.<*> (x Data..:? "IndexRotationPeriod")
+              Prelude.<*> (x Data..:? "RetryOptions")
+              Prelude.<*> (x Data..:? "S3DestinationDescription")
       )
 
 instance

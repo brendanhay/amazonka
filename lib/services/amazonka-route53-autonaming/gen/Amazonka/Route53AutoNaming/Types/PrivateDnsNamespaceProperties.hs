@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutable
 
@@ -67,11 +68,11 @@ instance Prelude.NFData PrivateDnsNamespaceProperties where
   rnf PrivateDnsNamespaceProperties' {..} =
     Prelude.rnf dnsProperties
 
-instance Core.ToJSON PrivateDnsNamespaceProperties where
+instance Data.ToJSON PrivateDnsNamespaceProperties where
   toJSON PrivateDnsNamespaceProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DnsProperties" Core..= dnsProperties)
+              ("DnsProperties" Data..= dnsProperties)
           ]
       )

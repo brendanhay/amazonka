@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.Answer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.AnswerReason
 import Amazonka.WellArchitected.Types.Choice
@@ -162,28 +163,28 @@ answer_pillarId = Lens.lens (\Answer' {pillarId} -> pillarId) (\s@Answer' {} a -
 answer_choiceAnswers :: Lens.Lens' Answer (Prelude.Maybe [ChoiceAnswer])
 answer_choiceAnswers = Lens.lens (\Answer' {choiceAnswers} -> choiceAnswers) (\s@Answer' {} a -> s {choiceAnswers = a} :: Answer) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Answer where
+instance Data.FromJSON Answer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Answer"
       ( \x ->
           Answer'
-            Prelude.<$> (x Core..:? "Choices" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "SelectedChoices"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Choices" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "SelectedChoices"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "HelpfulResourceDisplayText")
-            Prelude.<*> (x Core..:? "Risk")
-            Prelude.<*> (x Core..:? "QuestionId")
-            Prelude.<*> (x Core..:? "QuestionDescription")
-            Prelude.<*> (x Core..:? "ImprovementPlanUrl")
-            Prelude.<*> (x Core..:? "IsApplicable")
-            Prelude.<*> (x Core..:? "Reason")
-            Prelude.<*> (x Core..:? "Notes")
-            Prelude.<*> (x Core..:? "QuestionTitle")
-            Prelude.<*> (x Core..:? "HelpfulResourceUrl")
-            Prelude.<*> (x Core..:? "PillarId")
-            Prelude.<*> (x Core..:? "ChoiceAnswers" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "HelpfulResourceDisplayText")
+            Prelude.<*> (x Data..:? "Risk")
+            Prelude.<*> (x Data..:? "QuestionId")
+            Prelude.<*> (x Data..:? "QuestionDescription")
+            Prelude.<*> (x Data..:? "ImprovementPlanUrl")
+            Prelude.<*> (x Data..:? "IsApplicable")
+            Prelude.<*> (x Data..:? "Reason")
+            Prelude.<*> (x Data..:? "Notes")
+            Prelude.<*> (x Data..:? "QuestionTitle")
+            Prelude.<*> (x Data..:? "HelpfulResourceUrl")
+            Prelude.<*> (x Data..:? "PillarId")
+            Prelude.<*> (x Data..:? "ChoiceAnswers" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Answer where

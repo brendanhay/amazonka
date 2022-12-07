@@ -50,6 +50,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,7 +138,7 @@ instance Core.AWSRequest PutGatewayResponse where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable PutGatewayResponse where
   hashWithSalt _salt PutGatewayResponse' {..} =
@@ -155,35 +156,35 @@ instance Prelude.NFData PutGatewayResponse where
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf responseType
 
-instance Core.ToHeaders PutGatewayResponse where
+instance Data.ToHeaders PutGatewayResponse where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON PutGatewayResponse where
+instance Data.ToJSON PutGatewayResponse where
   toJSON PutGatewayResponse' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("responseParameters" Core..=)
+          [ ("responseParameters" Data..=)
               Prelude.<$> responseParameters,
-            ("responseTemplates" Core..=)
+            ("responseTemplates" Data..=)
               Prelude.<$> responseTemplates,
-            ("statusCode" Core..=) Prelude.<$> statusCode
+            ("statusCode" Data..=) Prelude.<$> statusCode
           ]
       )
 
-instance Core.ToPath PutGatewayResponse where
+instance Data.ToPath PutGatewayResponse where
   toPath PutGatewayResponse' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/gatewayresponses/",
-        Core.toBS responseType
+        Data.toBS responseType
       ]
 
-instance Core.ToQuery PutGatewayResponse where
+instance Data.ToQuery PutGatewayResponse where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.Component where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.ComponentParameterDetail
 import Amazonka.ImageBuilder.Types.ComponentState
 import Amazonka.ImageBuilder.Types.ComponentType
@@ -206,28 +207,28 @@ component_version = Lens.lens (\Component' {version} -> version) (\s@Component' 
 component_parameters :: Lens.Lens' Component (Prelude.Maybe [ComponentParameterDetail])
 component_parameters = Lens.lens (\Component' {parameters} -> parameters) (\s@Component' {} a -> s {parameters = a} :: Component) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Component where
+instance Data.FromJSON Component where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Component"
       ( \x ->
           Component'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "changeDescription")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "owner")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "encrypted")
-            Prelude.<*> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..:? "dateCreated")
-            Prelude.<*> (x Core..:? "data")
-            Prelude.<*> (x Core..:? "supportedOsVersions")
-            Prelude.<*> (x Core..:? "version")
-            Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "changeDescription")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "encrypted")
+            Prelude.<*> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..:? "dateCreated")
+            Prelude.<*> (x Data..:? "data")
+            Prelude.<*> (x Data..:? "supportedOsVersions")
+            Prelude.<*> (x Data..:? "version")
+            Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Component where

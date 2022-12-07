@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.CaptionDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AccessibilityType
 import Amazonka.MediaLive.Types.CaptionDestinationSettings
 import qualified Amazonka.Prelude as Prelude
@@ -122,18 +123,18 @@ captionDescription_captionSelectorName = Lens.lens (\CaptionDescription' {captio
 captionDescription_name :: Lens.Lens' CaptionDescription Prelude.Text
 captionDescription_name = Lens.lens (\CaptionDescription' {name} -> name) (\s@CaptionDescription' {} a -> s {name = a} :: CaptionDescription)
 
-instance Core.FromJSON CaptionDescription where
+instance Data.FromJSON CaptionDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptionDescription"
       ( \x ->
           CaptionDescription'
-            Prelude.<$> (x Core..:? "accessibility")
-            Prelude.<*> (x Core..:? "languageDescription")
-            Prelude.<*> (x Core..:? "languageCode")
-            Prelude.<*> (x Core..:? "destinationSettings")
-            Prelude.<*> (x Core..: "captionSelectorName")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "accessibility")
+            Prelude.<*> (x Data..:? "languageDescription")
+            Prelude.<*> (x Data..:? "languageCode")
+            Prelude.<*> (x Data..:? "destinationSettings")
+            Prelude.<*> (x Data..: "captionSelectorName")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable CaptionDescription where
@@ -154,18 +155,18 @@ instance Prelude.NFData CaptionDescription where
       `Prelude.seq` Prelude.rnf captionSelectorName
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON CaptionDescription where
+instance Data.ToJSON CaptionDescription where
   toJSON CaptionDescription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accessibility" Core..=) Prelude.<$> accessibility,
-            ("languageDescription" Core..=)
+          [ ("accessibility" Data..=) Prelude.<$> accessibility,
+            ("languageDescription" Data..=)
               Prelude.<$> languageDescription,
-            ("languageCode" Core..=) Prelude.<$> languageCode,
-            ("destinationSettings" Core..=)
+            ("languageCode" Data..=) Prelude.<$> languageCode,
+            ("destinationSettings" Data..=)
               Prelude.<$> destinationSettings,
             Prelude.Just
-              ("captionSelectorName" Core..= captionSelectorName),
-            Prelude.Just ("name" Core..= name)
+              ("captionSelectorName" Data..= captionSelectorName),
+            Prelude.Just ("name" Data..= name)
           ]
       )

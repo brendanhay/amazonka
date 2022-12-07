@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.TaskListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types.TaskStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,15 +76,15 @@ taskListEntry_taskArn = Lens.lens (\TaskListEntry' {taskArn} -> taskArn) (\s@Tas
 taskListEntry_status :: Lens.Lens' TaskListEntry (Prelude.Maybe TaskStatus)
 taskListEntry_status = Lens.lens (\TaskListEntry' {status} -> status) (\s@TaskListEntry' {} a -> s {status = a} :: TaskListEntry)
 
-instance Core.FromJSON TaskListEntry where
+instance Data.FromJSON TaskListEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskListEntry"
       ( \x ->
           TaskListEntry'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "TaskArn")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "TaskArn")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable TaskListEntry where

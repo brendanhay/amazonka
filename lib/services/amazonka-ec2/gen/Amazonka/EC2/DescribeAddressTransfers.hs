@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,10 +157,10 @@ instance Core.AWSRequest DescribeAddressTransfers where
     Response.receiveXML
       ( \s h x ->
           DescribeAddressTransfersResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "addressTransferSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "addressTransferSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -178,26 +179,26 @@ instance Prelude.NFData DescribeAddressTransfers where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeAddressTransfers where
+instance Data.ToHeaders DescribeAddressTransfers where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAddressTransfers where
+instance Data.ToPath DescribeAddressTransfers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAddressTransfers where
+instance Data.ToQuery DescribeAddressTransfers where
   toQuery DescribeAddressTransfers' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAddressTransfers" :: Prelude.ByteString),
+          Data.=: ("DescribeAddressTransfers" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "AllocationId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "AllocationId"
               Prelude.<$> allocationIds
           ),
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeAddressTransfersResponse' smart constructor.

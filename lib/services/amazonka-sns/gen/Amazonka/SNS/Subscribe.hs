@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -418,7 +419,7 @@ instance Core.AWSRequest Subscribe where
       "SubscribeResult"
       ( \s h x ->
           SubscribeResponse'
-            Prelude.<$> (x Core..@? "SubscriptionArn")
+            Prelude.<$> (x Data..@? "SubscriptionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -438,29 +439,29 @@ instance Prelude.NFData Subscribe where
       `Prelude.seq` Prelude.rnf topicArn
       `Prelude.seq` Prelude.rnf protocol
 
-instance Core.ToHeaders Subscribe where
+instance Data.ToHeaders Subscribe where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath Subscribe where
+instance Data.ToPath Subscribe where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery Subscribe where
+instance Data.ToQuery Subscribe where
   toQuery Subscribe' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("Subscribe" :: Prelude.ByteString),
+          Data.=: ("Subscribe" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
         "ReturnSubscriptionArn"
-          Core.=: returnSubscriptionArn,
+          Data.=: returnSubscriptionArn,
         "Attributes"
-          Core.=: Core.toQuery
-            ( Core.toQueryMap "entry" "key" "value"
+          Data.=: Data.toQuery
+            ( Data.toQueryMap "entry" "key" "value"
                 Prelude.<$> attributes
             ),
-        "Endpoint" Core.=: endpoint,
-        "TopicArn" Core.=: topicArn,
-        "Protocol" Core.=: protocol
+        "Endpoint" Data.=: endpoint,
+        "TopicArn" Data.=: topicArn,
+        "Protocol" Data.=: protocol
       ]
 
 -- | Response for Subscribe action.

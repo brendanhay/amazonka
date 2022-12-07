@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ContainerInstanceHealthStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.InstanceHealthCheckResult
 import Amazonka.ECS.Types.InstanceHealthCheckState
 import qualified Amazonka.Prelude as Prelude
@@ -70,14 +71,14 @@ containerInstanceHealthStatus_details = Lens.lens (\ContainerInstanceHealthStatu
 containerInstanceHealthStatus_overallStatus :: Lens.Lens' ContainerInstanceHealthStatus (Prelude.Maybe InstanceHealthCheckState)
 containerInstanceHealthStatus_overallStatus = Lens.lens (\ContainerInstanceHealthStatus' {overallStatus} -> overallStatus) (\s@ContainerInstanceHealthStatus' {} a -> s {overallStatus = a} :: ContainerInstanceHealthStatus)
 
-instance Core.FromJSON ContainerInstanceHealthStatus where
+instance Data.FromJSON ContainerInstanceHealthStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerInstanceHealthStatus"
       ( \x ->
           ContainerInstanceHealthStatus'
-            Prelude.<$> (x Core..:? "details" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "overallStatus")
+            Prelude.<$> (x Data..:? "details" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "overallStatus")
       )
 
 instance

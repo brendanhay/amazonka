@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.BundleTaskError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,11 +63,11 @@ bundleTaskError_message = Lens.lens (\BundleTaskError' {message} -> message) (\s
 bundleTaskError_code :: Lens.Lens' BundleTaskError (Prelude.Maybe Prelude.Text)
 bundleTaskError_code = Lens.lens (\BundleTaskError' {code} -> code) (\s@BundleTaskError' {} a -> s {code = a} :: BundleTaskError)
 
-instance Core.FromXML BundleTaskError where
+instance Data.FromXML BundleTaskError where
   parseXML x =
     BundleTaskError'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance Prelude.Hashable BundleTaskError where
   hashWithSalt _salt BundleTaskError' {..} =

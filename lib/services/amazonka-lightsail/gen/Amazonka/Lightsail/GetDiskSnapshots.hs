@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,8 +120,8 @@ instance Core.AWSRequest GetDiskSnapshots where
     Response.receiveJSON
       ( \s h x ->
           GetDiskSnapshotsResponse'
-            Prelude.<$> (x Core..?> "nextPageToken")
-            Prelude.<*> (x Core..?> "diskSnapshots" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextPageToken")
+            Prelude.<*> (x Data..?> "diskSnapshots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,32 +132,32 @@ instance Prelude.Hashable GetDiskSnapshots where
 instance Prelude.NFData GetDiskSnapshots where
   rnf GetDiskSnapshots' {..} = Prelude.rnf pageToken
 
-instance Core.ToHeaders GetDiskSnapshots where
+instance Data.ToHeaders GetDiskSnapshots where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetDiskSnapshots" ::
+              Data.=# ( "Lightsail_20161128.GetDiskSnapshots" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDiskSnapshots where
+instance Data.ToJSON GetDiskSnapshots where
   toJSON GetDiskSnapshots' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("pageToken" Core..=) Prelude.<$> pageToken]
+          [("pageToken" Data..=) Prelude.<$> pageToken]
       )
 
-instance Core.ToPath GetDiskSnapshots where
+instance Data.ToPath GetDiskSnapshots where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDiskSnapshots where
+instance Data.ToQuery GetDiskSnapshots where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDiskSnapshotsResponse' smart constructor.

@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -304,9 +305,9 @@ instance Core.AWSRequest CreateRouteCalculator where
       ( \s h x ->
           CreateRouteCalculatorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CalculatorArn")
-            Prelude.<*> (x Core..:> "CalculatorName")
-            Prelude.<*> (x Core..:> "CreateTime")
+            Prelude.<*> (x Data..:> "CalculatorArn")
+            Prelude.<*> (x Data..:> "CalculatorName")
+            Prelude.<*> (x Data..:> "CreateTime")
       )
 
 instance Prelude.Hashable CreateRouteCalculator where
@@ -325,34 +326,34 @@ instance Prelude.NFData CreateRouteCalculator where
       `Prelude.seq` Prelude.rnf calculatorName
       `Prelude.seq` Prelude.rnf dataSource
 
-instance Core.ToHeaders CreateRouteCalculator where
+instance Data.ToHeaders CreateRouteCalculator where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRouteCalculator where
+instance Data.ToJSON CreateRouteCalculator where
   toJSON CreateRouteCalculator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("PricingPlan" Data..=) Prelude.<$> pricingPlan,
             Prelude.Just
-              ("CalculatorName" Core..= calculatorName),
-            Prelude.Just ("DataSource" Core..= dataSource)
+              ("CalculatorName" Data..= calculatorName),
+            Prelude.Just ("DataSource" Data..= dataSource)
           ]
       )
 
-instance Core.ToPath CreateRouteCalculator where
+instance Data.ToPath CreateRouteCalculator where
   toPath = Prelude.const "/routes/v0/calculators"
 
-instance Core.ToQuery CreateRouteCalculator where
+instance Data.ToQuery CreateRouteCalculator where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRouteCalculatorResponse' smart constructor.
@@ -374,7 +375,7 @@ data CreateRouteCalculatorResponse = CreateRouteCalculatorResponse'
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
     --
     -- -   For example, @2020–07-2T12:15:20.000Z+01:00@
-    createTime :: Core.POSIX
+    createTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -423,7 +424,7 @@ newCreateRouteCalculatorResponse
           pHttpStatus_,
         calculatorArn = pCalculatorArn_,
         calculatorName = pCalculatorName_,
-        createTime = Core._Time Lens.# pCreateTime_
+        createTime = Data._Time Lens.# pCreateTime_
       }
 
 -- | The response's http status code.
@@ -450,7 +451,7 @@ createRouteCalculatorResponse_calculatorName = Lens.lens (\CreateRouteCalculator
 --
 -- -   For example, @2020–07-2T12:15:20.000Z+01:00@
 createRouteCalculatorResponse_createTime :: Lens.Lens' CreateRouteCalculatorResponse Prelude.UTCTime
-createRouteCalculatorResponse_createTime = Lens.lens (\CreateRouteCalculatorResponse' {createTime} -> createTime) (\s@CreateRouteCalculatorResponse' {} a -> s {createTime = a} :: CreateRouteCalculatorResponse) Prelude.. Core._Time
+createRouteCalculatorResponse_createTime = Lens.lens (\CreateRouteCalculatorResponse' {createTime} -> createTime) (\s@CreateRouteCalculatorResponse' {} a -> s {createTime = a} :: CreateRouteCalculatorResponse) Prelude.. Data._Time
 
 instance Prelude.NFData CreateRouteCalculatorResponse where
   rnf CreateRouteCalculatorResponse' {..} =

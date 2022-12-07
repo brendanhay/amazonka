@@ -23,6 +23,7 @@ import Amazonka.ApplicationInsights.Types.OsType
 import Amazonka.ApplicationInsights.Types.Tier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a standalone resource or similarly grouped resources that the
@@ -116,21 +117,21 @@ applicationComponent_monitor = Lens.lens (\ApplicationComponent' {monitor} -> mo
 applicationComponent_osType :: Lens.Lens' ApplicationComponent (Prelude.Maybe OsType)
 applicationComponent_osType = Lens.lens (\ApplicationComponent' {osType} -> osType) (\s@ApplicationComponent' {} a -> s {osType = a} :: ApplicationComponent)
 
-instance Core.FromJSON ApplicationComponent where
+instance Data.FromJSON ApplicationComponent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationComponent"
       ( \x ->
           ApplicationComponent'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "ComponentRemarks")
-            Prelude.<*> (x Core..:? "ComponentName")
-            Prelude.<*> ( x Core..:? "DetectedWorkload"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "ComponentRemarks")
+            Prelude.<*> (x Data..:? "ComponentName")
+            Prelude.<*> ( x Data..:? "DetectedWorkload"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Tier")
-            Prelude.<*> (x Core..:? "Monitor")
-            Prelude.<*> (x Core..:? "OsType")
+            Prelude.<*> (x Data..:? "Tier")
+            Prelude.<*> (x Data..:? "Monitor")
+            Prelude.<*> (x Data..:? "OsType")
       )
 
 instance Prelude.Hashable ApplicationComponent where

@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -175,10 +176,10 @@ instance Core.AWSRequest DescribeTableRestoreStatus where
       "DescribeTableRestoreStatusResult"
       ( \s h x ->
           DescribeTableRestoreStatusResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "TableRestoreStatusDetails"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "TableRestoreStatusDetails"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "TableRestoreStatus")
+                            Prelude.>>= Core.may (Data.parseXMLList "TableRestoreStatus")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -197,24 +198,24 @@ instance Prelude.NFData DescribeTableRestoreStatus where
       `Prelude.seq` Prelude.rnf tableRestoreRequestId
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeTableRestoreStatus where
+instance Data.ToHeaders DescribeTableRestoreStatus where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeTableRestoreStatus where
+instance Data.ToPath DescribeTableRestoreStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTableRestoreStatus where
+instance Data.ToQuery DescribeTableRestoreStatus where
   toQuery DescribeTableRestoreStatus' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeTableRestoreStatus" :: Prelude.ByteString),
+          Data.=: ("DescribeTableRestoreStatus" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Core.=: clusterIdentifier,
-        "Marker" Core.=: marker,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ClusterIdentifier" Data.=: clusterIdentifier,
+        "Marker" Data.=: marker,
         "TableRestoreRequestId"
-          Core.=: tableRestoreRequestId,
-        "MaxRecords" Core.=: maxRecords
+          Data.=: tableRestoreRequestId,
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- |

@@ -21,6 +21,7 @@ module Amazonka.TimeStreamWrite.Types.RecordsIngested where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information on the records ingested by this request.
@@ -70,15 +71,15 @@ recordsIngested_magneticStore = Lens.lens (\RecordsIngested' {magneticStore} -> 
 recordsIngested_memoryStore :: Lens.Lens' RecordsIngested (Prelude.Maybe Prelude.Int)
 recordsIngested_memoryStore = Lens.lens (\RecordsIngested' {memoryStore} -> memoryStore) (\s@RecordsIngested' {} a -> s {memoryStore = a} :: RecordsIngested)
 
-instance Core.FromJSON RecordsIngested where
+instance Data.FromJSON RecordsIngested where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecordsIngested"
       ( \x ->
           RecordsIngested'
-            Prelude.<$> (x Core..:? "Total")
-            Prelude.<*> (x Core..:? "MagneticStore")
-            Prelude.<*> (x Core..:? "MemoryStore")
+            Prelude.<$> (x Data..:? "Total")
+            Prelude.<*> (x Data..:? "MagneticStore")
+            Prelude.<*> (x Data..:? "MemoryStore")
       )
 
 instance Prelude.Hashable RecordsIngested where

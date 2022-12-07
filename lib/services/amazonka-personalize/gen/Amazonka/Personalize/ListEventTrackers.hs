@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,8 +136,8 @@ instance Core.AWSRequest ListEventTrackers where
     Response.receiveJSON
       ( \s h x ->
           ListEventTrackersResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "eventTrackers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "eventTrackers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,36 +153,36 @@ instance Prelude.NFData ListEventTrackers where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf datasetGroupArn
 
-instance Core.ToHeaders ListEventTrackers where
+instance Data.ToHeaders ListEventTrackers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.ListEventTrackers" ::
+              Data.=# ( "AmazonPersonalize.ListEventTrackers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEventTrackers where
+instance Data.ToJSON ListEventTrackers where
   toJSON ListEventTrackers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("datasetGroupArn" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("datasetGroupArn" Data..=)
               Prelude.<$> datasetGroupArn
           ]
       )
 
-instance Core.ToPath ListEventTrackers where
+instance Data.ToPath ListEventTrackers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEventTrackers where
+instance Data.ToQuery ListEventTrackers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEventTrackersResponse' smart constructor.

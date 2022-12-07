@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,7 +93,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CancelMaintenanceWindowExecutionResponse'
-            Prelude.<$> (x Core..?> "WindowExecutionId")
+            Prelude.<$> (x Data..?> "WindowExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,37 +114,37 @@ instance
     Prelude.rnf windowExecutionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CancelMaintenanceWindowExecution
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.CancelMaintenanceWindowExecution" ::
+              Data.=# ( "AmazonSSM.CancelMaintenanceWindowExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelMaintenanceWindowExecution where
+instance Data.ToJSON CancelMaintenanceWindowExecution where
   toJSON CancelMaintenanceWindowExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("WindowExecutionId" Core..= windowExecutionId)
+              ("WindowExecutionId" Data..= windowExecutionId)
           ]
       )
 
-instance Core.ToPath CancelMaintenanceWindowExecution where
+instance Data.ToPath CancelMaintenanceWindowExecution where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CancelMaintenanceWindowExecution
   where
   toQuery = Prelude.const Prelude.mempty

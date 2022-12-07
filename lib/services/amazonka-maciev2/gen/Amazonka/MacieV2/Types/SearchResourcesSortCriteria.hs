@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.SearchResourcesSortCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.OrderBy
 import Amazonka.MacieV2.Types.SearchResourcesSortAttributeName
 import qualified Amazonka.Prelude as Prelude
@@ -85,11 +86,11 @@ instance Prelude.NFData SearchResourcesSortCriteria where
     Prelude.rnf orderBy
       `Prelude.seq` Prelude.rnf attributeName
 
-instance Core.ToJSON SearchResourcesSortCriteria where
+instance Data.ToJSON SearchResourcesSortCriteria where
   toJSON SearchResourcesSortCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("orderBy" Core..=) Prelude.<$> orderBy,
-            ("attributeName" Core..=) Prelude.<$> attributeName
+          [ ("orderBy" Data..=) Prelude.<$> orderBy,
+            ("attributeName" Data..=) Prelude.<$> attributeName
           ]
       )

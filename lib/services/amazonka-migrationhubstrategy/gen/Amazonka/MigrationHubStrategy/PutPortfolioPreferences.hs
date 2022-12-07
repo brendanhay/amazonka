@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,34 +119,34 @@ instance Prelude.NFData PutPortfolioPreferences where
       `Prelude.seq` Prelude.rnf prioritizeBusinessGoals
       `Prelude.seq` Prelude.rnf applicationPreferences
 
-instance Core.ToHeaders PutPortfolioPreferences where
+instance Data.ToHeaders PutPortfolioPreferences where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutPortfolioPreferences where
+instance Data.ToJSON PutPortfolioPreferences where
   toJSON PutPortfolioPreferences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("databasePreferences" Core..=)
+          [ ("databasePreferences" Data..=)
               Prelude.<$> databasePreferences,
-            ("prioritizeBusinessGoals" Core..=)
+            ("prioritizeBusinessGoals" Data..=)
               Prelude.<$> prioritizeBusinessGoals,
-            ("applicationPreferences" Core..=)
+            ("applicationPreferences" Data..=)
               Prelude.<$> applicationPreferences
           ]
       )
 
-instance Core.ToPath PutPortfolioPreferences where
+instance Data.ToPath PutPortfolioPreferences where
   toPath = Prelude.const "/put-portfolio-preferences"
 
-instance Core.ToQuery PutPortfolioPreferences where
+instance Data.ToQuery PutPortfolioPreferences where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutPortfolioPreferencesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.CodeGuruProfiler.Types.FindingsReportSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about potential recommendations that might be created from
@@ -32,7 +33,7 @@ data FindingsReportSummary = FindingsReportSummary'
     -- specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    profileStartTime :: Prelude.Maybe Core.POSIX,
+    profileStartTime :: Prelude.Maybe Data.POSIX,
     -- | The total number of different recommendations that were found by the
     -- analysis.
     totalNumberOfFindings :: Prelude.Maybe Prelude.Int,
@@ -45,7 +46,7 @@ data FindingsReportSummary = FindingsReportSummary'
     -- anomalous. This is specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
-    profileEndTime :: Prelude.Maybe Core.POSIX
+    profileEndTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,7 +92,7 @@ newFindingsReportSummary =
 -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
 -- 1:15:02 PM UTC.
 findingsReportSummary_profileStartTime :: Lens.Lens' FindingsReportSummary (Prelude.Maybe Prelude.UTCTime)
-findingsReportSummary_profileStartTime = Lens.lens (\FindingsReportSummary' {profileStartTime} -> profileStartTime) (\s@FindingsReportSummary' {} a -> s {profileStartTime = a} :: FindingsReportSummary) Prelude.. Lens.mapping Core._Time
+findingsReportSummary_profileStartTime = Lens.lens (\FindingsReportSummary' {profileStartTime} -> profileStartTime) (\s@FindingsReportSummary' {} a -> s {profileStartTime = a} :: FindingsReportSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The total number of different recommendations that were found by the
 -- analysis.
@@ -112,19 +113,19 @@ findingsReportSummary_profilingGroupName = Lens.lens (\FindingsReportSummary' {p
 -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
 -- 1:15:02 PM UTC.
 findingsReportSummary_profileEndTime :: Lens.Lens' FindingsReportSummary (Prelude.Maybe Prelude.UTCTime)
-findingsReportSummary_profileEndTime = Lens.lens (\FindingsReportSummary' {profileEndTime} -> profileEndTime) (\s@FindingsReportSummary' {} a -> s {profileEndTime = a} :: FindingsReportSummary) Prelude.. Lens.mapping Core._Time
+findingsReportSummary_profileEndTime = Lens.lens (\FindingsReportSummary' {profileEndTime} -> profileEndTime) (\s@FindingsReportSummary' {} a -> s {profileEndTime = a} :: FindingsReportSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON FindingsReportSummary where
+instance Data.FromJSON FindingsReportSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FindingsReportSummary"
       ( \x ->
           FindingsReportSummary'
-            Prelude.<$> (x Core..:? "profileStartTime")
-            Prelude.<*> (x Core..:? "totalNumberOfFindings")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "profilingGroupName")
-            Prelude.<*> (x Core..:? "profileEndTime")
+            Prelude.<$> (x Data..:? "profileStartTime")
+            Prelude.<*> (x Data..:? "totalNumberOfFindings")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "profilingGroupName")
+            Prelude.<*> (x Data..:? "profileEndTime")
       )
 
 instance Prelude.Hashable FindingsReportSummary where

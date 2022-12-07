@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.WarmPoolStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.WarmPoolResourceStatus
 
@@ -131,15 +132,15 @@ warmPoolStatus_resourceRetainedBillableTimeInSeconds = Lens.lens (\WarmPoolStatu
 warmPoolStatus_status :: Lens.Lens' WarmPoolStatus WarmPoolResourceStatus
 warmPoolStatus_status = Lens.lens (\WarmPoolStatus' {status} -> status) (\s@WarmPoolStatus' {} a -> s {status = a} :: WarmPoolStatus)
 
-instance Core.FromJSON WarmPoolStatus where
+instance Data.FromJSON WarmPoolStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WarmPoolStatus"
       ( \x ->
           WarmPoolStatus'
-            Prelude.<$> (x Core..:? "ReusedByJob")
-            Prelude.<*> (x Core..:? "ResourceRetainedBillableTimeInSeconds")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..:? "ReusedByJob")
+            Prelude.<*> (x Data..:? "ResourceRetainedBillableTimeInSeconds")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable WarmPoolStatus where

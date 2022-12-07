@@ -21,6 +21,7 @@ module Amazonka.S3.Types.BucketLoggingStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.LoggingEnabled
@@ -62,7 +63,7 @@ instance Prelude.NFData BucketLoggingStatus where
   rnf BucketLoggingStatus' {..} =
     Prelude.rnf loggingEnabled
 
-instance Core.ToXML BucketLoggingStatus where
+instance Data.ToXML BucketLoggingStatus where
   toXML BucketLoggingStatus' {..} =
     Prelude.mconcat
-      ["LoggingEnabled" Core.@= loggingEnabled]
+      ["LoggingEnabled" Data.@= loggingEnabled]

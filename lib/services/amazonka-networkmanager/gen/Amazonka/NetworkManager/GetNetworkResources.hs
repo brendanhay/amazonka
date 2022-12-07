@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -329,8 +330,8 @@ instance Core.AWSRequest GetNetworkResources where
     Response.receiveJSON
       ( \s h x ->
           GetNetworkResourcesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "NetworkResources"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "NetworkResources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -360,36 +361,36 @@ instance Prelude.NFData GetNetworkResources where
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf globalNetworkId
 
-instance Core.ToHeaders GetNetworkResources where
+instance Data.ToHeaders GetNetworkResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetNetworkResources where
+instance Data.ToPath GetNetworkResources where
   toPath GetNetworkResources' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/network-resources"
       ]
 
-instance Core.ToQuery GetNetworkResources where
+instance Data.ToQuery GetNetworkResources where
   toQuery GetNetworkResources' {..} =
     Prelude.mconcat
-      [ "resourceType" Core.=: resourceType,
-        "coreNetworkId" Core.=: coreNetworkId,
-        "nextToken" Core.=: nextToken,
-        "accountId" Core.=: accountId,
-        "maxResults" Core.=: maxResults,
-        "registeredGatewayArn" Core.=: registeredGatewayArn,
-        "awsRegion" Core.=: awsRegion,
-        "resourceArn" Core.=: resourceArn
+      [ "resourceType" Data.=: resourceType,
+        "coreNetworkId" Data.=: coreNetworkId,
+        "nextToken" Data.=: nextToken,
+        "accountId" Data.=: accountId,
+        "maxResults" Data.=: maxResults,
+        "registeredGatewayArn" Data.=: registeredGatewayArn,
+        "awsRegion" Data.=: awsRegion,
+        "resourceArn" Data.=: resourceArn
       ]
 
 -- | /See:/ 'newGetNetworkResourcesResponse' smart constructor.

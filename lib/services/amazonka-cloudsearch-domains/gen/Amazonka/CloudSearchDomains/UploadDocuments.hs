@@ -71,6 +71,7 @@ where
 import Amazonka.CloudSearchDomains.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ data UploadDocuments = UploadDocuments'
     -- -   application\/xml
     contentType :: ContentType,
     -- | A batch of documents formatted in JSON or HTML.
-    documents :: Core.HashedBody
+    documents :: Data.HashedBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -109,7 +110,7 @@ newUploadDocuments ::
   -- | 'contentType'
   ContentType ->
   -- | 'documents'
-  Core.HashedBody ->
+  Data.HashedBody ->
   UploadDocuments
 newUploadDocuments pContentType_ pDocuments_ =
   UploadDocuments'
@@ -126,7 +127,7 @@ uploadDocuments_contentType :: Lens.Lens' UploadDocuments ContentType
 uploadDocuments_contentType = Lens.lens (\UploadDocuments' {contentType} -> contentType) (\s@UploadDocuments' {} a -> s {contentType = a} :: UploadDocuments)
 
 -- | A batch of documents formatted in JSON or HTML.
-uploadDocuments_documents :: Lens.Lens' UploadDocuments Core.HashedBody
+uploadDocuments_documents :: Lens.Lens' UploadDocuments Data.HashedBody
 uploadDocuments_documents = Lens.lens (\UploadDocuments' {documents} -> documents) (\s@UploadDocuments' {} a -> s {documents = a} :: UploadDocuments)
 
 instance Core.AWSRequest UploadDocuments where
@@ -139,25 +140,25 @@ instance Core.AWSRequest UploadDocuments where
     Response.receiveJSON
       ( \s h x ->
           UploadDocumentsResponse'
-            Prelude.<$> (x Core..?> "adds")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "warnings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "deletes")
+            Prelude.<$> (x Data..?> "adds")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "deletes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.ToBody UploadDocuments where
-  toBody UploadDocuments' {..} = Core.toBody documents
+instance Data.ToBody UploadDocuments where
+  toBody UploadDocuments' {..} = Data.toBody documents
 
-instance Core.ToHeaders UploadDocuments where
+instance Data.ToHeaders UploadDocuments where
   toHeaders UploadDocuments' {..} =
     Prelude.mconcat
-      ["Content-Type" Core.=# contentType]
+      ["Content-Type" Data.=# contentType]
 
-instance Core.ToPath UploadDocuments where
+instance Data.ToPath UploadDocuments where
   toPath = Prelude.const "/2013-01-01/documents/batch"
 
-instance Core.ToQuery UploadDocuments where
+instance Data.ToQuery UploadDocuments where
   toQuery =
     Prelude.const (Prelude.mconcat ["format=sdk"])
 

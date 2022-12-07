@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.BaselineMetric where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An individual metric that you can use for comparison as you evaluate
@@ -62,13 +63,13 @@ baselineMetric_name = Lens.lens (\BaselineMetric' {name} -> name) (\s@BaselineMe
 baselineMetric_value :: Lens.Lens' BaselineMetric (Prelude.Maybe Prelude.Double)
 baselineMetric_value = Lens.lens (\BaselineMetric' {value} -> value) (\s@BaselineMetric' {} a -> s {value = a} :: BaselineMetric)
 
-instance Core.FromJSON BaselineMetric where
+instance Data.FromJSON BaselineMetric where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BaselineMetric"
       ( \x ->
           BaselineMetric'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable BaselineMetric where

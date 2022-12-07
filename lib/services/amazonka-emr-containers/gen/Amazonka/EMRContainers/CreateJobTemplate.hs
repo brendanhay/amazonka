@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,10 +139,10 @@ instance Core.AWSRequest CreateJobTemplate where
     Response.receiveJSON
       ( \s h x ->
           CreateJobTemplateResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,34 +162,34 @@ instance Prelude.NFData CreateJobTemplate where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf jobTemplateData
 
-instance Core.ToHeaders CreateJobTemplate where
+instance Data.ToHeaders CreateJobTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateJobTemplate where
+instance Data.ToJSON CreateJobTemplate where
   toJSON CreateJobTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("clientToken" Core..= clientToken),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("clientToken" Data..= clientToken),
             Prelude.Just
-              ("jobTemplateData" Core..= jobTemplateData)
+              ("jobTemplateData" Data..= jobTemplateData)
           ]
       )
 
-instance Core.ToPath CreateJobTemplate where
+instance Data.ToPath CreateJobTemplate where
   toPath = Prelude.const "/jobtemplates"
 
-instance Core.ToQuery CreateJobTemplate where
+instance Data.ToQuery CreateJobTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateJobTemplateResponse' smart constructor.
@@ -201,7 +202,7 @@ data CreateJobTemplateResponse = CreateJobTemplateResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | This output displays the date and time when the job template was
     -- created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -253,7 +254,7 @@ createJobTemplateResponse_id = Lens.lens (\CreateJobTemplateResponse' {id} -> id
 -- | This output displays the date and time when the job template was
 -- created.
 createJobTemplateResponse_createdAt :: Lens.Lens' CreateJobTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-createJobTemplateResponse_createdAt = Lens.lens (\CreateJobTemplateResponse' {createdAt} -> createdAt) (\s@CreateJobTemplateResponse' {} a -> s {createdAt = a} :: CreateJobTemplateResponse) Prelude.. Lens.mapping Core._Time
+createJobTemplateResponse_createdAt = Lens.lens (\CreateJobTemplateResponse' {createdAt} -> createdAt) (\s@CreateJobTemplateResponse' {} a -> s {createdAt = a} :: CreateJobTemplateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createJobTemplateResponse_httpStatus :: Lens.Lens' CreateJobTemplateResponse Prelude.Int

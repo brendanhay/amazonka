@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -205,7 +206,7 @@ instance Core.AWSRequest CreateInput' where
     Response.receiveJSON
       ( \s h x ->
           CreateInputResponse'
-            Prelude.<$> (x Core..?> "input")
+            Prelude.<$> (x Data..?> "input")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -237,41 +238,41 @@ instance Prelude.NFData CreateInput' where
       `Prelude.seq` Prelude.rnf mediaConnectFlows
       `Prelude.seq` Prelude.rnf destinations
 
-instance Core.ToHeaders CreateInput' where
+instance Data.ToHeaders CreateInput' where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateInput' where
+instance Data.ToJSON CreateInput' where
   toJSON CreateInput'' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("inputSecurityGroups" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("inputSecurityGroups" Data..=)
               Prelude.<$> inputSecurityGroups,
-            ("sources" Core..=) Prelude.<$> sources,
-            ("name" Core..=) Prelude.<$> name,
-            ("type" Core..=) Prelude.<$> type',
-            ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("vpc" Core..=) Prelude.<$> vpc,
-            ("inputDevices" Core..=) Prelude.<$> inputDevices,
-            ("requestId" Core..=) Prelude.<$> requestId,
-            ("mediaConnectFlows" Core..=)
+            ("sources" Data..=) Prelude.<$> sources,
+            ("name" Data..=) Prelude.<$> name,
+            ("type" Data..=) Prelude.<$> type',
+            ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("vpc" Data..=) Prelude.<$> vpc,
+            ("inputDevices" Data..=) Prelude.<$> inputDevices,
+            ("requestId" Data..=) Prelude.<$> requestId,
+            ("mediaConnectFlows" Data..=)
               Prelude.<$> mediaConnectFlows,
-            ("destinations" Core..=) Prelude.<$> destinations
+            ("destinations" Data..=) Prelude.<$> destinations
           ]
       )
 
-instance Core.ToPath CreateInput' where
+instance Data.ToPath CreateInput' where
   toPath = Prelude.const "/prod/inputs"
 
-instance Core.ToQuery CreateInput' where
+instance Data.ToQuery CreateInput' where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for CreateInputResponse

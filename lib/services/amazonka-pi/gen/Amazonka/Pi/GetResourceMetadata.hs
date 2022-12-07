@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pi.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,8 +116,8 @@ instance Core.AWSRequest GetResourceMetadata where
     Response.receiveJSON
       ( \s h x ->
           GetResourceMetadataResponse'
-            Prelude.<$> (x Core..?> "Features" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Identifier")
+            Prelude.<$> (x Data..?> "Features" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Identifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,34 +131,34 @@ instance Prelude.NFData GetResourceMetadata where
     Prelude.rnf serviceType
       `Prelude.seq` Prelude.rnf identifier
 
-instance Core.ToHeaders GetResourceMetadata where
+instance Data.ToHeaders GetResourceMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PerformanceInsightsv20180227.GetResourceMetadata" ::
+              Data.=# ( "PerformanceInsightsv20180227.GetResourceMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResourceMetadata where
+instance Data.ToJSON GetResourceMetadata where
   toJSON GetResourceMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ServiceType" Core..= serviceType),
-            Prelude.Just ("Identifier" Core..= identifier)
+          [ Prelude.Just ("ServiceType" Data..= serviceType),
+            Prelude.Just ("Identifier" Data..= identifier)
           ]
       )
 
-instance Core.ToPath GetResourceMetadata where
+instance Data.ToPath GetResourceMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetResourceMetadata where
+instance Data.ToQuery GetResourceMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourceMetadataResponse' smart constructor.

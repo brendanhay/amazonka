@@ -21,6 +21,7 @@ module Amazonka.Backup.Types.ProtectedResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains information about a backed-up resource.
@@ -39,7 +40,7 @@ data ProtectedResource = ProtectedResource'
     -- Coordinated Universal Time (UTC). The value of @LastBackupTime@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    lastBackupTime :: Prelude.Maybe Core.POSIX
+    lastBackupTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,17 +90,17 @@ protectedResource_resourceArn = Lens.lens (\ProtectedResource' {resourceArn} -> 
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 protectedResource_lastBackupTime :: Lens.Lens' ProtectedResource (Prelude.Maybe Prelude.UTCTime)
-protectedResource_lastBackupTime = Lens.lens (\ProtectedResource' {lastBackupTime} -> lastBackupTime) (\s@ProtectedResource' {} a -> s {lastBackupTime = a} :: ProtectedResource) Prelude.. Lens.mapping Core._Time
+protectedResource_lastBackupTime = Lens.lens (\ProtectedResource' {lastBackupTime} -> lastBackupTime) (\s@ProtectedResource' {} a -> s {lastBackupTime = a} :: ProtectedResource) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ProtectedResource where
+instance Data.FromJSON ProtectedResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProtectedResource"
       ( \x ->
           ProtectedResource'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "LastBackupTime")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "LastBackupTime")
       )
 
 instance Prelude.Hashable ProtectedResource where

@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.AnalyticsMetadataType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon Pinpoint analytics endpoint.
@@ -67,11 +68,11 @@ instance Prelude.NFData AnalyticsMetadataType where
   rnf AnalyticsMetadataType' {..} =
     Prelude.rnf analyticsEndpointId
 
-instance Core.ToJSON AnalyticsMetadataType where
+instance Data.ToJSON AnalyticsMetadataType where
   toJSON AnalyticsMetadataType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AnalyticsEndpointId" Core..=)
+          [ ("AnalyticsEndpointId" Data..=)
               Prelude.<$> analyticsEndpointId
           ]
       )

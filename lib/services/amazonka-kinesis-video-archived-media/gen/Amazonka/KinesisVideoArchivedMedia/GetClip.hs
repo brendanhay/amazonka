@@ -86,6 +86,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideoArchivedMedia.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,7 +162,7 @@ instance Core.AWSRequest GetClip where
     Response.receiveBody
       ( \s h x ->
           GetClipResponse'
-            Prelude.<$> (h Core..#? "Content-Type")
+            Prelude.<$> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
@@ -178,26 +179,26 @@ instance Prelude.NFData GetClip where
       `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf clipFragmentSelector
 
-instance Core.ToHeaders GetClip where
+instance Data.ToHeaders GetClip where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetClip where
+instance Data.ToJSON GetClip where
   toJSON GetClip' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StreamARN" Core..=) Prelude.<$> streamARN,
-            ("StreamName" Core..=) Prelude.<$> streamName,
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
             Prelude.Just
               ( "ClipFragmentSelector"
-                  Core..= clipFragmentSelector
+                  Data..= clipFragmentSelector
               )
           ]
       )
 
-instance Core.ToPath GetClip where
+instance Data.ToPath GetClip where
   toPath = Prelude.const "/getClip"
 
-instance Core.ToQuery GetClip where
+instance Data.ToQuery GetClip where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetClipResponse' smart constructor.
@@ -210,7 +211,7 @@ data GetClipResponse = GetClipResponse'
     -- video stream. The output will contain the first 100 MB or the first 200
     -- fragments from the specified start timestamp. For more information, see
     -- <https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html Kinesis Video Streams Limits>.
-    payload :: Core.ResponseBody
+    payload :: Data.ResponseBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -234,7 +235,7 @@ newGetClipResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   -- | 'payload'
-  Core.ResponseBody ->
+  Data.ResponseBody ->
   GetClipResponse
 newGetClipResponse pHttpStatus_ pPayload_ =
   GetClipResponse'
@@ -255,5 +256,5 @@ getClipResponse_httpStatus = Lens.lens (\GetClipResponse' {httpStatus} -> httpSt
 -- video stream. The output will contain the first 100 MB or the first 200
 -- fragments from the specified start timestamp. For more information, see
 -- <https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html Kinesis Video Streams Limits>.
-getClipResponse_payload :: Lens.Lens' GetClipResponse Core.ResponseBody
+getClipResponse_payload :: Lens.Lens' GetClipResponse Data.ResponseBody
 getClipResponse_payload = Lens.lens (\GetClipResponse' {payload} -> payload) (\s@GetClipResponse' {} a -> s {payload = a} :: GetClipResponse)

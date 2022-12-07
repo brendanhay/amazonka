@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ExperienceEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.EndpointType
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ experienceEndpoint_endpointType = Lens.lens (\ExperienceEndpoint' {endpointType}
 experienceEndpoint_endpoint :: Lens.Lens' ExperienceEndpoint (Prelude.Maybe Prelude.Text)
 experienceEndpoint_endpoint = Lens.lens (\ExperienceEndpoint' {endpoint} -> endpoint) (\s@ExperienceEndpoint' {} a -> s {endpoint = a} :: ExperienceEndpoint)
 
-instance Core.FromJSON ExperienceEndpoint where
+instance Data.FromJSON ExperienceEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperienceEndpoint"
       ( \x ->
           ExperienceEndpoint'
-            Prelude.<$> (x Core..:? "EndpointType")
-            Prelude.<*> (x Core..:? "Endpoint")
+            Prelude.<$> (x Data..:? "EndpointType")
+            Prelude.<*> (x Data..:? "Endpoint")
       )
 
 instance Prelude.Hashable ExperienceEndpoint where

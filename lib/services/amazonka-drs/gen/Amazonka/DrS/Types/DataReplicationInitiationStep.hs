@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.DataReplicationInitiationStep where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.DataReplicationInitiationStepName
 import Amazonka.DrS.Types.DataReplicationInitiationStepStatus
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ dataReplicationInitiationStep_name = Lens.lens (\DataReplicationInitiationStep' 
 dataReplicationInitiationStep_status :: Lens.Lens' DataReplicationInitiationStep (Prelude.Maybe DataReplicationInitiationStepStatus)
 dataReplicationInitiationStep_status = Lens.lens (\DataReplicationInitiationStep' {status} -> status) (\s@DataReplicationInitiationStep' {} a -> s {status = a} :: DataReplicationInitiationStep)
 
-instance Core.FromJSON DataReplicationInitiationStep where
+instance Data.FromJSON DataReplicationInitiationStep where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataReplicationInitiationStep"
       ( \x ->
           DataReplicationInitiationStep'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "status")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.CoverageCost where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | How much it costs to run an instance.
@@ -50,13 +51,13 @@ newCoverageCost =
 coverageCost_onDemandCost :: Lens.Lens' CoverageCost (Prelude.Maybe Prelude.Text)
 coverageCost_onDemandCost = Lens.lens (\CoverageCost' {onDemandCost} -> onDemandCost) (\s@CoverageCost' {} a -> s {onDemandCost = a} :: CoverageCost)
 
-instance Core.FromJSON CoverageCost where
+instance Data.FromJSON CoverageCost where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoverageCost"
       ( \x ->
           CoverageCost'
-            Prelude.<$> (x Core..:? "OnDemandCost")
+            Prelude.<$> (x Data..:? "OnDemandCost")
       )
 
 instance Prelude.Hashable CoverageCost where

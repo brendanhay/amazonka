@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsSsmPatchComplianceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsSsmPatch
 
@@ -55,13 +56,13 @@ newAwsSsmPatchComplianceDetails =
 awsSsmPatchComplianceDetails_patch :: Lens.Lens' AwsSsmPatchComplianceDetails (Prelude.Maybe AwsSsmPatch)
 awsSsmPatchComplianceDetails_patch = Lens.lens (\AwsSsmPatchComplianceDetails' {patch} -> patch) (\s@AwsSsmPatchComplianceDetails' {} a -> s {patch = a} :: AwsSsmPatchComplianceDetails)
 
-instance Core.FromJSON AwsSsmPatchComplianceDetails where
+instance Data.FromJSON AwsSsmPatchComplianceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsSsmPatchComplianceDetails"
       ( \x ->
           AwsSsmPatchComplianceDetails'
-            Prelude.<$> (x Core..:? "Patch")
+            Prelude.<$> (x Data..:? "Patch")
       )
 
 instance
@@ -75,9 +76,9 @@ instance Prelude.NFData AwsSsmPatchComplianceDetails where
   rnf AwsSsmPatchComplianceDetails' {..} =
     Prelude.rnf patch
 
-instance Core.ToJSON AwsSsmPatchComplianceDetails where
+instance Data.ToJSON AwsSsmPatchComplianceDetails where
   toJSON AwsSsmPatchComplianceDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Patch" Core..=) Prelude.<$> patch]
+          [("Patch" Data..=) Prelude.<$> patch]
       )

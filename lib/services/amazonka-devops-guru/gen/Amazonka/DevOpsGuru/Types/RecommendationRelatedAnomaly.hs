@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.RecommendationRelatedAnomaly where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.RecommendationRelatedAnomalyResource
 import Amazonka.DevOpsGuru.Types.RecommendationRelatedAnomalySourceDetail
 import qualified Amazonka.Prelude as Prelude
@@ -88,15 +89,15 @@ recommendationRelatedAnomaly_sourceDetails = Lens.lens (\RecommendationRelatedAn
 recommendationRelatedAnomaly_resources :: Lens.Lens' RecommendationRelatedAnomaly (Prelude.Maybe [RecommendationRelatedAnomalyResource])
 recommendationRelatedAnomaly_resources = Lens.lens (\RecommendationRelatedAnomaly' {resources} -> resources) (\s@RecommendationRelatedAnomaly' {} a -> s {resources = a} :: RecommendationRelatedAnomaly) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RecommendationRelatedAnomaly where
+instance Data.FromJSON RecommendationRelatedAnomaly where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationRelatedAnomaly"
       ( \x ->
           RecommendationRelatedAnomaly'
-            Prelude.<$> (x Core..:? "AnomalyId")
-            Prelude.<*> (x Core..:? "SourceDetails" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Resources" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "AnomalyId")
+            Prelude.<*> (x Data..:? "SourceDetails" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Resources" Data..!= Prelude.mempty)
       )
 
 instance

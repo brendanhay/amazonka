@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.Flow where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.Entitlement
 import Amazonka.MediaConnect.Types.FailoverConfig
 import Amazonka.MediaConnect.Types.Maintenance
@@ -204,26 +205,26 @@ flow_source = Lens.lens (\Flow' {source} -> source) (\s@Flow' {} a -> s {source 
 flow_name :: Lens.Lens' Flow Prelude.Text
 flow_name = Lens.lens (\Flow' {name} -> name) (\s@Flow' {} a -> s {name = a} :: Flow)
 
-instance Core.FromJSON Flow where
+instance Data.FromJSON Flow where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Flow"
       ( \x ->
           Flow'
-            Prelude.<$> (x Core..:? "sources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "maintenance")
-            Prelude.<*> (x Core..:? "vpcInterfaces" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "egressIp")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "sourceFailoverConfig")
-            Prelude.<*> (x Core..:? "mediaStreams" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..:? "entitlements" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "outputs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "availabilityZone")
-            Prelude.<*> (x Core..: "flowArn")
-            Prelude.<*> (x Core..: "source")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "sources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "maintenance")
+            Prelude.<*> (x Data..:? "vpcInterfaces" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "egressIp")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "sourceFailoverConfig")
+            Prelude.<*> (x Data..:? "mediaStreams" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..:? "entitlements" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "outputs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "availabilityZone")
+            Prelude.<*> (x Data..: "flowArn")
+            Prelude.<*> (x Data..: "source")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable Flow where

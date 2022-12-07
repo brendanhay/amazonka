@@ -21,6 +21,7 @@ module Amazonka.Athena.Types.UnprocessedPreparedStatementName where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The name of a prepared statement that could not be returned.
@@ -108,17 +109,17 @@ unprocessedPreparedStatementName_statementName :: Lens.Lens' UnprocessedPrepared
 unprocessedPreparedStatementName_statementName = Lens.lens (\UnprocessedPreparedStatementName' {statementName} -> statementName) (\s@UnprocessedPreparedStatementName' {} a -> s {statementName = a} :: UnprocessedPreparedStatementName)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     UnprocessedPreparedStatementName
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnprocessedPreparedStatementName"
       ( \x ->
           UnprocessedPreparedStatementName'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "StatementName")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "StatementName")
       )
 
 instance

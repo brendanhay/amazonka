@@ -46,6 +46,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,7 +150,7 @@ instance Core.AWSRequest ModifyEventSubscription where
     Response.receiveJSON
       ( \s h x ->
           ModifyEventSubscriptionResponse'
-            Prelude.<$> (x Core..?> "EventSubscription")
+            Prelude.<$> (x Data..?> "EventSubscription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,39 +170,39 @@ instance Prelude.NFData ModifyEventSubscription where
       `Prelude.seq` Prelude.rnf eventCategories
       `Prelude.seq` Prelude.rnf subscriptionName
 
-instance Core.ToHeaders ModifyEventSubscription where
+instance Data.ToHeaders ModifyEventSubscription where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.ModifyEventSubscription" ::
+              Data.=# ( "AmazonDMSv20160101.ModifyEventSubscription" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ModifyEventSubscription where
+instance Data.ToJSON ModifyEventSubscription where
   toJSON ModifyEventSubscription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceType" Core..=) Prelude.<$> sourceType,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
-            ("EventCategories" Core..=)
+          [ ("SourceType" Data..=) Prelude.<$> sourceType,
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("SnsTopicArn" Data..=) Prelude.<$> snsTopicArn,
+            ("EventCategories" Data..=)
               Prelude.<$> eventCategories,
             Prelude.Just
-              ("SubscriptionName" Core..= subscriptionName)
+              ("SubscriptionName" Data..= subscriptionName)
           ]
       )
 
-instance Core.ToPath ModifyEventSubscription where
+instance Data.ToPath ModifyEventSubscription where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyEventSubscription where
+instance Data.ToQuery ModifyEventSubscription where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

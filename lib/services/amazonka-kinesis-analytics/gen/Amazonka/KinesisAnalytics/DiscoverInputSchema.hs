@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,16 +165,16 @@ instance Core.AWSRequest DiscoverInputSchema where
     Response.receiveJSON
       ( \s h x ->
           DiscoverInputSchemaResponse'
-            Prelude.<$> ( x Core..?> "ParsedInputRecords"
+            Prelude.<$> ( x Data..?> "ParsedInputRecords"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "ProcessedInputRecords"
+            Prelude.<*> ( x Data..?> "ProcessedInputRecords"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "RawInputRecords"
+            Prelude.<*> ( x Data..?> "RawInputRecords"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "InputSchema")
+            Prelude.<*> (x Data..?> "InputSchema")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,40 +194,40 @@ instance Prelude.NFData DiscoverInputSchema where
       `Prelude.seq` Prelude.rnf inputStartingPositionConfiguration
       `Prelude.seq` Prelude.rnf resourceARN
 
-instance Core.ToHeaders DiscoverInputSchema where
+instance Data.ToHeaders DiscoverInputSchema where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20150814.DiscoverInputSchema" ::
+              Data.=# ( "KinesisAnalytics_20150814.DiscoverInputSchema" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DiscoverInputSchema where
+instance Data.ToJSON DiscoverInputSchema where
   toJSON DiscoverInputSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Configuration" Core..=)
+          [ ("S3Configuration" Data..=)
               Prelude.<$> s3Configuration,
-            ("RoleARN" Core..=) Prelude.<$> roleARN,
-            ("InputProcessingConfiguration" Core..=)
+            ("RoleARN" Data..=) Prelude.<$> roleARN,
+            ("InputProcessingConfiguration" Data..=)
               Prelude.<$> inputProcessingConfiguration,
-            ("InputStartingPositionConfiguration" Core..=)
+            ("InputStartingPositionConfiguration" Data..=)
               Prelude.<$> inputStartingPositionConfiguration,
-            ("ResourceARN" Core..=) Prelude.<$> resourceARN
+            ("ResourceARN" Data..=) Prelude.<$> resourceARN
           ]
       )
 
-instance Core.ToPath DiscoverInputSchema where
+instance Data.ToPath DiscoverInputSchema where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DiscoverInputSchema where
+instance Data.ToQuery DiscoverInputSchema where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

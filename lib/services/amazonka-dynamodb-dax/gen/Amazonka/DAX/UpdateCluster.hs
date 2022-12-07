@@ -50,6 +50,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -169,7 +170,7 @@ instance Core.AWSRequest UpdateCluster where
     Response.receiveJSON
       ( \s h x ->
           UpdateClusterResponse'
-            Prelude.<$> (x Core..?> "Cluster")
+            Prelude.<$> (x Data..?> "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,42 +195,42 @@ instance Prelude.NFData UpdateCluster where
       `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf clusterName
 
-instance Core.ToHeaders UpdateCluster where
+instance Data.ToHeaders UpdateCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonDAXV3.UpdateCluster" :: Prelude.ByteString),
+              Data.=# ("AmazonDAXV3.UpdateCluster" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCluster where
+instance Data.ToJSON UpdateCluster where
   toJSON UpdateCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NotificationTopicStatus" Core..=)
+          [ ("NotificationTopicStatus" Data..=)
               Prelude.<$> notificationTopicStatus,
-            ("ParameterGroupName" Core..=)
+            ("ParameterGroupName" Data..=)
               Prelude.<$> parameterGroupName,
-            ("SecurityGroupIds" Core..=)
+            ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("Description" Core..=) Prelude.<$> description,
-            ("NotificationTopicArn" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("NotificationTopicArn" Data..=)
               Prelude.<$> notificationTopicArn,
-            ("PreferredMaintenanceWindow" Core..=)
+            ("PreferredMaintenanceWindow" Data..=)
               Prelude.<$> preferredMaintenanceWindow,
-            Prelude.Just ("ClusterName" Core..= clusterName)
+            Prelude.Just ("ClusterName" Data..= clusterName)
           ]
       )
 
-instance Core.ToPath UpdateCluster where
+instance Data.ToPath UpdateCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateCluster where
+instance Data.ToQuery UpdateCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateClusterResponse' smart constructor.

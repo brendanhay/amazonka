@@ -58,6 +58,7 @@ where
 import Amazonka.ApplicationInsights.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -71,7 +72,7 @@ data ListConfigurationHistory = ListConfigurationHistory'
     -- This value is @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The end time of the event.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Resource group to which the application belongs.
     resourceGroupName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results returned by @ListConfigurationHistory@ in
@@ -87,7 +88,7 @@ data ListConfigurationHistory = ListConfigurationHistory'
     -- INFO, WARN, and ERROR.
     eventStatus :: Prelude.Maybe ConfigurationEventStatus,
     -- | The start time of the event.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -145,7 +146,7 @@ listConfigurationHistory_nextToken = Lens.lens (\ListConfigurationHistory' {next
 
 -- | The end time of the event.
 listConfigurationHistory_endTime :: Lens.Lens' ListConfigurationHistory (Prelude.Maybe Prelude.UTCTime)
-listConfigurationHistory_endTime = Lens.lens (\ListConfigurationHistory' {endTime} -> endTime) (\s@ListConfigurationHistory' {} a -> s {endTime = a} :: ListConfigurationHistory) Prelude.. Lens.mapping Core._Time
+listConfigurationHistory_endTime = Lens.lens (\ListConfigurationHistory' {endTime} -> endTime) (\s@ListConfigurationHistory' {} a -> s {endTime = a} :: ListConfigurationHistory) Prelude.. Lens.mapping Data._Time
 
 -- | Resource group to which the application belongs.
 listConfigurationHistory_resourceGroupName :: Lens.Lens' ListConfigurationHistory (Prelude.Maybe Prelude.Text)
@@ -169,7 +170,7 @@ listConfigurationHistory_eventStatus = Lens.lens (\ListConfigurationHistory' {ev
 
 -- | The start time of the event.
 listConfigurationHistory_startTime :: Lens.Lens' ListConfigurationHistory (Prelude.Maybe Prelude.UTCTime)
-listConfigurationHistory_startTime = Lens.lens (\ListConfigurationHistory' {startTime} -> startTime) (\s@ListConfigurationHistory' {} a -> s {startTime = a} :: ListConfigurationHistory) Prelude.. Lens.mapping Core._Time
+listConfigurationHistory_startTime = Lens.lens (\ListConfigurationHistory' {startTime} -> startTime) (\s@ListConfigurationHistory' {} a -> s {startTime = a} :: ListConfigurationHistory) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSRequest ListConfigurationHistory where
   type
@@ -181,8 +182,8 @@ instance Core.AWSRequest ListConfigurationHistory where
     Response.receiveJSON
       ( \s h x ->
           ListConfigurationHistoryResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "EventList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "EventList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,39 +205,39 @@ instance Prelude.NFData ListConfigurationHistory where
       `Prelude.seq` Prelude.rnf eventStatus
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders ListConfigurationHistory where
+instance Data.ToHeaders ListConfigurationHistory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "EC2WindowsBarleyService.ListConfigurationHistory" ::
+              Data.=# ( "EC2WindowsBarleyService.ListConfigurationHistory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListConfigurationHistory where
+instance Data.ToJSON ListConfigurationHistory where
   toJSON ListConfigurationHistory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("EndTime" Core..=) Prelude.<$> endTime,
-            ("ResourceGroupName" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("EndTime" Data..=) Prelude.<$> endTime,
+            ("ResourceGroupName" Data..=)
               Prelude.<$> resourceGroupName,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("EventStatus" Core..=) Prelude.<$> eventStatus,
-            ("StartTime" Core..=) Prelude.<$> startTime
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("EventStatus" Data..=) Prelude.<$> eventStatus,
+            ("StartTime" Data..=) Prelude.<$> startTime
           ]
       )
 
-instance Core.ToPath ListConfigurationHistory where
+instance Data.ToPath ListConfigurationHistory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListConfigurationHistory where
+instance Data.ToQuery ListConfigurationHistory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListConfigurationHistoryResponse' smart constructor.

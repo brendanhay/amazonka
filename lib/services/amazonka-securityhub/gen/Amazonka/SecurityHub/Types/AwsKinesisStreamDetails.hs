@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsKinesisStreamDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsKinesisStreamStreamEncryptionDetails
 
@@ -101,17 +102,17 @@ awsKinesisStreamDetails_retentionPeriodHours = Lens.lens (\AwsKinesisStreamDetai
 awsKinesisStreamDetails_streamEncryption :: Lens.Lens' AwsKinesisStreamDetails (Prelude.Maybe AwsKinesisStreamStreamEncryptionDetails)
 awsKinesisStreamDetails_streamEncryption = Lens.lens (\AwsKinesisStreamDetails' {streamEncryption} -> streamEncryption) (\s@AwsKinesisStreamDetails' {} a -> s {streamEncryption = a} :: AwsKinesisStreamDetails)
 
-instance Core.FromJSON AwsKinesisStreamDetails where
+instance Data.FromJSON AwsKinesisStreamDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsKinesisStreamDetails"
       ( \x ->
           AwsKinesisStreamDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "ShardCount")
-            Prelude.<*> (x Core..:? "RetentionPeriodHours")
-            Prelude.<*> (x Core..:? "StreamEncryption")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "ShardCount")
+            Prelude.<*> (x Data..:? "RetentionPeriodHours")
+            Prelude.<*> (x Data..:? "StreamEncryption")
       )
 
 instance Prelude.Hashable AwsKinesisStreamDetails where
@@ -130,16 +131,16 @@ instance Prelude.NFData AwsKinesisStreamDetails where
       `Prelude.seq` Prelude.rnf retentionPeriodHours
       `Prelude.seq` Prelude.rnf streamEncryption
 
-instance Core.ToJSON AwsKinesisStreamDetails where
+instance Data.ToJSON AwsKinesisStreamDetails where
   toJSON AwsKinesisStreamDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Arn" Core..=) Prelude.<$> arn,
-            ("ShardCount" Core..=) Prelude.<$> shardCount,
-            ("RetentionPeriodHours" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Arn" Data..=) Prelude.<$> arn,
+            ("ShardCount" Data..=) Prelude.<$> shardCount,
+            ("RetentionPeriodHours" Data..=)
               Prelude.<$> retentionPeriodHours,
-            ("StreamEncryption" Core..=)
+            ("StreamEncryption" Data..=)
               Prelude.<$> streamEncryption
           ]
       )

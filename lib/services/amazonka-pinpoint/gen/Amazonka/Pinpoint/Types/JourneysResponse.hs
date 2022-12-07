@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.JourneysResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.JourneyResponse
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,14 +73,14 @@ journeysResponse_nextToken = Lens.lens (\JourneysResponse' {nextToken} -> nextTo
 journeysResponse_item :: Lens.Lens' JourneysResponse [JourneyResponse]
 journeysResponse_item = Lens.lens (\JourneysResponse' {item} -> item) (\s@JourneysResponse' {} a -> s {item = a} :: JourneysResponse) Prelude.. Lens.coerced
 
-instance Core.FromJSON JourneysResponse where
+instance Data.FromJSON JourneysResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JourneysResponse"
       ( \x ->
           JourneysResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> (x Data..:? "Item" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable JourneysResponse where

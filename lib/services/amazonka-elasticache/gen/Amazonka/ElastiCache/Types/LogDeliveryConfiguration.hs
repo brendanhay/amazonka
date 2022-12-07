@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.LogDeliveryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.DestinationDetails
 import Amazonka.ElastiCache.Types.DestinationType
 import Amazonka.ElastiCache.Types.LogDeliveryConfigurationStatus
@@ -112,15 +113,15 @@ logDeliveryConfiguration_logFormat = Lens.lens (\LogDeliveryConfiguration' {logF
 logDeliveryConfiguration_destinationDetails :: Lens.Lens' LogDeliveryConfiguration (Prelude.Maybe DestinationDetails)
 logDeliveryConfiguration_destinationDetails = Lens.lens (\LogDeliveryConfiguration' {destinationDetails} -> destinationDetails) (\s@LogDeliveryConfiguration' {} a -> s {destinationDetails = a} :: LogDeliveryConfiguration)
 
-instance Core.FromXML LogDeliveryConfiguration where
+instance Data.FromXML LogDeliveryConfiguration where
   parseXML x =
     LogDeliveryConfiguration'
-      Prelude.<$> (x Core..@? "Message")
-      Prelude.<*> (x Core..@? "LogType")
-      Prelude.<*> (x Core..@? "DestinationType")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "LogFormat")
-      Prelude.<*> (x Core..@? "DestinationDetails")
+      Prelude.<$> (x Data..@? "Message")
+      Prelude.<*> (x Data..@? "LogType")
+      Prelude.<*> (x Data..@? "DestinationType")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "LogFormat")
+      Prelude.<*> (x Data..@? "DestinationDetails")
 
 instance Prelude.Hashable LogDeliveryConfiguration where
   hashWithSalt _salt LogDeliveryConfiguration' {..} =

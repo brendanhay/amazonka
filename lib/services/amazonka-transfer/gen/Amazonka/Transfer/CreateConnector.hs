@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -176,7 +177,7 @@ instance Core.AWSRequest CreateConnector where
       ( \s h x ->
           CreateConnectorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ConnectorId")
+            Prelude.<*> (x Data..:> "ConnectorId")
       )
 
 instance Prelude.Hashable CreateConnector where
@@ -195,37 +196,37 @@ instance Prelude.NFData CreateConnector where
       `Prelude.seq` Prelude.rnf as2Config
       `Prelude.seq` Prelude.rnf accessRole
 
-instance Core.ToHeaders CreateConnector where
+instance Data.ToHeaders CreateConnector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.CreateConnector" ::
+              Data.=# ( "TransferService.CreateConnector" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConnector where
+instance Data.ToJSON CreateConnector where
   toJSON CreateConnector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("LoggingRole" Core..=) Prelude.<$> loggingRole,
-            Prelude.Just ("Url" Core..= url),
-            Prelude.Just ("As2Config" Core..= as2Config),
-            Prelude.Just ("AccessRole" Core..= accessRole)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("LoggingRole" Data..=) Prelude.<$> loggingRole,
+            Prelude.Just ("Url" Data..= url),
+            Prelude.Just ("As2Config" Data..= as2Config),
+            Prelude.Just ("AccessRole" Data..= accessRole)
           ]
       )
 
-instance Core.ToPath CreateConnector where
+instance Data.ToPath CreateConnector where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateConnector where
+instance Data.ToQuery CreateConnector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConnectorResponse' smart constructor.

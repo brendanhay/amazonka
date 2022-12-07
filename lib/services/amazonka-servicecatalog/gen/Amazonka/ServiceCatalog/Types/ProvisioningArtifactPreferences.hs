@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ProvisioningArtifactPreferences where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The user-defined preferences that will be applied during product
@@ -100,19 +101,19 @@ provisioningArtifactPreferences_stackSetAccounts :: Lens.Lens' ProvisioningArtif
 provisioningArtifactPreferences_stackSetAccounts = Lens.lens (\ProvisioningArtifactPreferences' {stackSetAccounts} -> stackSetAccounts) (\s@ProvisioningArtifactPreferences' {} a -> s {stackSetAccounts = a} :: ProvisioningArtifactPreferences) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ProvisioningArtifactPreferences
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisioningArtifactPreferences"
       ( \x ->
           ProvisioningArtifactPreferences'
-            Prelude.<$> ( x Core..:? "StackSetRegions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "StackSetRegions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StackSetAccounts"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "StackSetAccounts"
+                            Data..!= Prelude.mempty
                         )
       )
 

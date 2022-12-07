@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest DeleteGateway where
     Response.receiveJSON
       ( \s h x ->
           DeleteGatewayResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,32 +113,32 @@ instance Prelude.Hashable DeleteGateway where
 instance Prelude.NFData DeleteGateway where
   rnf DeleteGateway' {..} = Prelude.rnf gatewayARN
 
-instance Core.ToHeaders DeleteGateway where
+instance Data.ToHeaders DeleteGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DeleteGateway" ::
+              Data.=# ( "StorageGateway_20130630.DeleteGateway" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteGateway where
+instance Data.ToJSON DeleteGateway where
   toJSON DeleteGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
+          [Prelude.Just ("GatewayARN" Data..= gatewayARN)]
       )
 
-instance Core.ToPath DeleteGateway where
+instance Data.ToPath DeleteGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteGateway where
+instance Data.ToQuery DeleteGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the ID of the deleted gateway.

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TimeSeriesForecastingSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.FeatureStatus
 
@@ -90,14 +91,14 @@ timeSeriesForecastingSettings_status = Lens.lens (\TimeSeriesForecastingSettings
 timeSeriesForecastingSettings_amazonForecastRoleArn :: Lens.Lens' TimeSeriesForecastingSettings (Prelude.Maybe Prelude.Text)
 timeSeriesForecastingSettings_amazonForecastRoleArn = Lens.lens (\TimeSeriesForecastingSettings' {amazonForecastRoleArn} -> amazonForecastRoleArn) (\s@TimeSeriesForecastingSettings' {} a -> s {amazonForecastRoleArn = a} :: TimeSeriesForecastingSettings)
 
-instance Core.FromJSON TimeSeriesForecastingSettings where
+instance Data.FromJSON TimeSeriesForecastingSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeSeriesForecastingSettings"
       ( \x ->
           TimeSeriesForecastingSettings'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AmazonForecastRoleArn")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "AmazonForecastRoleArn")
       )
 
 instance
@@ -113,12 +114,12 @@ instance Prelude.NFData TimeSeriesForecastingSettings where
     Prelude.rnf status
       `Prelude.seq` Prelude.rnf amazonForecastRoleArn
 
-instance Core.ToJSON TimeSeriesForecastingSettings where
+instance Data.ToJSON TimeSeriesForecastingSettings where
   toJSON TimeSeriesForecastingSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("AmazonForecastRoleArn" Core..=)
+          [ ("Status" Data..=) Prelude.<$> status,
+            ("AmazonForecastRoleArn" Data..=)
               Prelude.<$> amazonForecastRoleArn
           ]
       )

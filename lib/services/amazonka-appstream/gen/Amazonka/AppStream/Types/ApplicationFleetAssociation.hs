@@ -21,6 +21,7 @@ module Amazonka.AppStream.Types.ApplicationFleetAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the application fleet association.
@@ -68,14 +69,14 @@ applicationFleetAssociation_fleetName = Lens.lens (\ApplicationFleetAssociation'
 applicationFleetAssociation_applicationArn :: Lens.Lens' ApplicationFleetAssociation Prelude.Text
 applicationFleetAssociation_applicationArn = Lens.lens (\ApplicationFleetAssociation' {applicationArn} -> applicationArn) (\s@ApplicationFleetAssociation' {} a -> s {applicationArn = a} :: ApplicationFleetAssociation)
 
-instance Core.FromJSON ApplicationFleetAssociation where
+instance Data.FromJSON ApplicationFleetAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationFleetAssociation"
       ( \x ->
           ApplicationFleetAssociation'
-            Prelude.<$> (x Core..: "FleetName")
-            Prelude.<*> (x Core..: "ApplicationArn")
+            Prelude.<$> (x Data..: "FleetName")
+            Prelude.<*> (x Data..: "ApplicationArn")
       )
 
 instance Prelude.Hashable ApplicationFleetAssociation where

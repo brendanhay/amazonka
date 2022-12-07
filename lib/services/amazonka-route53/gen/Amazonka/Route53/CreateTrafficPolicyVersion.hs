@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,8 +133,8 @@ instance Core.AWSRequest CreateTrafficPolicyVersion where
       ( \s h x ->
           CreateTrafficPolicyVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "TrafficPolicy")
-            Prelude.<*> (h Core..# "Location")
+            Prelude.<*> (x Data..@ "TrafficPolicy")
+            Prelude.<*> (h Data..# "Location")
       )
 
 instance Prelude.Hashable CreateTrafficPolicyVersion where
@@ -148,27 +149,27 @@ instance Prelude.NFData CreateTrafficPolicyVersion where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf document
 
-instance Core.ToElement CreateTrafficPolicyVersion where
+instance Data.ToElement CreateTrafficPolicyVersion where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateTrafficPolicyVersionRequest"
 
-instance Core.ToHeaders CreateTrafficPolicyVersion where
+instance Data.ToHeaders CreateTrafficPolicyVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateTrafficPolicyVersion where
+instance Data.ToPath CreateTrafficPolicyVersion where
   toPath CreateTrafficPolicyVersion' {..} =
     Prelude.mconcat
-      ["/2013-04-01/trafficpolicy/", Core.toBS id]
+      ["/2013-04-01/trafficpolicy/", Data.toBS id]
 
-instance Core.ToQuery CreateTrafficPolicyVersion where
+instance Data.ToQuery CreateTrafficPolicyVersion where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML CreateTrafficPolicyVersion where
+instance Data.ToXML CreateTrafficPolicyVersion where
   toXML CreateTrafficPolicyVersion' {..} =
     Prelude.mconcat
-      [ "Comment" Core.@= comment,
-        "Document" Core.@= document
+      [ "Comment" Data.@= comment,
+        "Document" Data.@= document
       ]
 
 -- | A complex type that contains the response information for the

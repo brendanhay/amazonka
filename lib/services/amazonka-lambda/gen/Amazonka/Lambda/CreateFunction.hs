@@ -156,6 +156,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -550,7 +551,7 @@ instance Core.AWSRequest CreateFunction where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateFunction where
   hashWithSalt _salt CreateFunction' {..} =
@@ -602,44 +603,44 @@ instance Prelude.NFData CreateFunction where
       `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf code
 
-instance Core.ToHeaders CreateFunction where
+instance Data.ToHeaders CreateFunction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateFunction where
+instance Data.ToJSON CreateFunction where
   toJSON CreateFunction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TracingConfig" Core..=) Prelude.<$> tracingConfig,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("FileSystemConfigs" Core..=)
+          [ ("TracingConfig" Data..=) Prelude.<$> tracingConfig,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("FileSystemConfigs" Data..=)
               Prelude.<$> fileSystemConfigs,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("EphemeralStorage" Core..=)
+            ("Timeout" Data..=) Prelude.<$> timeout,
+            ("EphemeralStorage" Data..=)
               Prelude.<$> ephemeralStorage,
-            ("MemorySize" Core..=) Prelude.<$> memorySize,
-            ("Publish" Core..=) Prelude.<$> publish,
-            ("ImageConfig" Core..=) Prelude.<$> imageConfig,
-            ("Environment" Core..=) Prelude.<$> environment,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("CodeSigningConfigArn" Core..=)
+            ("MemorySize" Data..=) Prelude.<$> memorySize,
+            ("Publish" Data..=) Prelude.<$> publish,
+            ("ImageConfig" Data..=) Prelude.<$> imageConfig,
+            ("Environment" Data..=) Prelude.<$> environment,
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("CodeSigningConfigArn" Data..=)
               Prelude.<$> codeSigningConfigArn,
-            ("Runtime" Core..=) Prelude.<$> runtime,
-            ("Description" Core..=) Prelude.<$> description,
-            ("KMSKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("Handler" Core..=) Prelude.<$> handler,
-            ("Layers" Core..=) Prelude.<$> layers,
-            ("PackageType" Core..=) Prelude.<$> packageType,
-            ("Architectures" Core..=) Prelude.<$> architectures,
-            ("DeadLetterConfig" Core..=)
+            ("Runtime" Data..=) Prelude.<$> runtime,
+            ("Description" Data..=) Prelude.<$> description,
+            ("KMSKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("Handler" Data..=) Prelude.<$> handler,
+            ("Layers" Data..=) Prelude.<$> layers,
+            ("PackageType" Data..=) Prelude.<$> packageType,
+            ("Architectures" Data..=) Prelude.<$> architectures,
+            ("DeadLetterConfig" Data..=)
               Prelude.<$> deadLetterConfig,
-            Prelude.Just ("FunctionName" Core..= functionName),
-            Prelude.Just ("Role" Core..= role'),
-            Prelude.Just ("Code" Core..= code)
+            Prelude.Just ("FunctionName" Data..= functionName),
+            Prelude.Just ("Role" Data..= role'),
+            Prelude.Just ("Code" Data..= code)
           ]
       )
 
-instance Core.ToPath CreateFunction where
+instance Data.ToPath CreateFunction where
   toPath = Prelude.const "/2015-03-31/functions"
 
-instance Core.ToQuery CreateFunction where
+instance Data.ToQuery CreateFunction where
   toQuery = Prelude.const Prelude.mempty

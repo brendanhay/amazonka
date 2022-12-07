@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.DeviceRegistryEnrichActivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An activity that adds data from the IoT device registry to your message.
@@ -107,17 +108,17 @@ deviceRegistryEnrichActivity_thingName = Lens.lens (\DeviceRegistryEnrichActivit
 deviceRegistryEnrichActivity_roleArn :: Lens.Lens' DeviceRegistryEnrichActivity Prelude.Text
 deviceRegistryEnrichActivity_roleArn = Lens.lens (\DeviceRegistryEnrichActivity' {roleArn} -> roleArn) (\s@DeviceRegistryEnrichActivity' {} a -> s {roleArn = a} :: DeviceRegistryEnrichActivity)
 
-instance Core.FromJSON DeviceRegistryEnrichActivity where
+instance Data.FromJSON DeviceRegistryEnrichActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceRegistryEnrichActivity"
       ( \x ->
           DeviceRegistryEnrichActivity'
-            Prelude.<$> (x Core..:? "next")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "attribute")
-            Prelude.<*> (x Core..: "thingName")
-            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Data..:? "next")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "attribute")
+            Prelude.<*> (x Data..: "thingName")
+            Prelude.<*> (x Data..: "roleArn")
       )
 
 instance
@@ -139,14 +140,14 @@ instance Prelude.NFData DeviceRegistryEnrichActivity where
       `Prelude.seq` Prelude.rnf thingName
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON DeviceRegistryEnrichActivity where
+instance Data.ToJSON DeviceRegistryEnrichActivity where
   toJSON DeviceRegistryEnrichActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("next" Core..=) Prelude.<$> next,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("attribute" Core..= attribute),
-            Prelude.Just ("thingName" Core..= thingName),
-            Prelude.Just ("roleArn" Core..= roleArn)
+          [ ("next" Data..=) Prelude.<$> next,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("attribute" Data..= attribute),
+            Prelude.Just ("thingName" Data..= thingName),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.LoadBalancerTlsCertificateRenewalSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationOption
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateRenewalStatus
 import qualified Amazonka.Prelude as Prelude
@@ -165,18 +166,18 @@ loadBalancerTlsCertificateRenewalSummary_renewalStatus :: Lens.Lens' LoadBalance
 loadBalancerTlsCertificateRenewalSummary_renewalStatus = Lens.lens (\LoadBalancerTlsCertificateRenewalSummary' {renewalStatus} -> renewalStatus) (\s@LoadBalancerTlsCertificateRenewalSummary' {} a -> s {renewalStatus = a} :: LoadBalancerTlsCertificateRenewalSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LoadBalancerTlsCertificateRenewalSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoadBalancerTlsCertificateRenewalSummary"
       ( \x ->
           LoadBalancerTlsCertificateRenewalSummary'
-            Prelude.<$> ( x Core..:? "domainValidationOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "domainValidationOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "renewalStatus")
+            Prelude.<*> (x Data..:? "renewalStatus")
       )
 
 instance

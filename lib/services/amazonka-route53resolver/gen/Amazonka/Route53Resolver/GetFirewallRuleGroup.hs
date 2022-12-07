@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetFirewallRuleGroup where
     Response.receiveJSON
       ( \s h x ->
           GetFirewallRuleGroupResponse'
-            Prelude.<$> (x Core..?> "FirewallRuleGroup")
+            Prelude.<$> (x Data..?> "FirewallRuleGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,34 +99,34 @@ instance Prelude.NFData GetFirewallRuleGroup where
   rnf GetFirewallRuleGroup' {..} =
     Prelude.rnf firewallRuleGroupId
 
-instance Core.ToHeaders GetFirewallRuleGroup where
+instance Data.ToHeaders GetFirewallRuleGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.GetFirewallRuleGroup" ::
+              Data.=# ( "Route53Resolver.GetFirewallRuleGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetFirewallRuleGroup where
+instance Data.ToJSON GetFirewallRuleGroup where
   toJSON GetFirewallRuleGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("FirewallRuleGroupId" Core..= firewallRuleGroupId)
+              ("FirewallRuleGroupId" Data..= firewallRuleGroupId)
           ]
       )
 
-instance Core.ToPath GetFirewallRuleGroup where
+instance Data.ToPath GetFirewallRuleGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetFirewallRuleGroup where
+instance Data.ToQuery GetFirewallRuleGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFirewallRuleGroupResponse' smart constructor.

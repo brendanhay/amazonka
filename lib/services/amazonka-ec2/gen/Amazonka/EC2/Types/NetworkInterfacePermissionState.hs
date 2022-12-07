@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkInterfacePermissionState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.NetworkInterfacePermissionStateCode
 import qualified Amazonka.Prelude as Prelude
@@ -64,11 +65,11 @@ networkInterfacePermissionState_state = Lens.lens (\NetworkInterfacePermissionSt
 networkInterfacePermissionState_statusMessage :: Lens.Lens' NetworkInterfacePermissionState (Prelude.Maybe Prelude.Text)
 networkInterfacePermissionState_statusMessage = Lens.lens (\NetworkInterfacePermissionState' {statusMessage} -> statusMessage) (\s@NetworkInterfacePermissionState' {} a -> s {statusMessage = a} :: NetworkInterfacePermissionState)
 
-instance Core.FromXML NetworkInterfacePermissionState where
+instance Data.FromXML NetworkInterfacePermissionState where
   parseXML x =
     NetworkInterfacePermissionState'
-      Prelude.<$> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "statusMessage")
+      Prelude.<$> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "statusMessage")
 
 instance
   Prelude.Hashable

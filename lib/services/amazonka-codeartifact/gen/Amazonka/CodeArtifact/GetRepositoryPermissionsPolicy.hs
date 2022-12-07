@@ -44,6 +44,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,7 +123,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRepositoryPermissionsPolicyResponse'
-            Prelude.<$> (x Core..?> "policy")
+            Prelude.<$> (x Data..?> "policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,29 +148,29 @@ instance
       `Prelude.seq` Prelude.rnf repository
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetRepositoryPermissionsPolicy
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetRepositoryPermissionsPolicy where
+instance Data.ToPath GetRepositoryPermissionsPolicy where
   toPath =
     Prelude.const "/v1/repository/permissions/policy"
 
-instance Core.ToQuery GetRepositoryPermissionsPolicy where
+instance Data.ToQuery GetRepositoryPermissionsPolicy where
   toQuery GetRepositoryPermissionsPolicy' {..} =
     Prelude.mconcat
-      [ "domain-owner" Core.=: domainOwner,
-        "domain" Core.=: domain,
-        "repository" Core.=: repository
+      [ "domain-owner" Data.=: domainOwner,
+        "domain" Data.=: domain,
+        "repository" Data.=: repository
       ]
 
 -- | /See:/ 'newGetRepositoryPermissionsPolicyResponse' smart constructor.

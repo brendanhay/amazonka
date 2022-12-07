@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SalesforceStandardObjectConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import Amazonka.Kendra.Types.SalesforceStandardObjectName
 import qualified Amazonka.Prelude as Prelude
@@ -113,18 +114,18 @@ salesforceStandardObjectConfiguration_documentDataFieldName :: Lens.Lens' Salesf
 salesforceStandardObjectConfiguration_documentDataFieldName = Lens.lens (\SalesforceStandardObjectConfiguration' {documentDataFieldName} -> documentDataFieldName) (\s@SalesforceStandardObjectConfiguration' {} a -> s {documentDataFieldName = a} :: SalesforceStandardObjectConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SalesforceStandardObjectConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SalesforceStandardObjectConfiguration"
       ( \x ->
           SalesforceStandardObjectConfiguration'
-            Prelude.<$> (x Core..:? "FieldMappings")
-            Prelude.<*> (x Core..:? "DocumentTitleFieldName")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "DocumentDataFieldName")
+            Prelude.<$> (x Data..:? "FieldMappings")
+            Prelude.<*> (x Data..:? "DocumentTitleFieldName")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "DocumentDataFieldName")
       )
 
 instance
@@ -150,19 +151,19 @@ instance
       `Prelude.seq` Prelude.rnf documentDataFieldName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SalesforceStandardObjectConfiguration
   where
   toJSON SalesforceStandardObjectConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FieldMappings" Core..=) Prelude.<$> fieldMappings,
-            ("DocumentTitleFieldName" Core..=)
+          [ ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
+            ("DocumentTitleFieldName" Data..=)
               Prelude.<$> documentTitleFieldName,
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ( "DocumentDataFieldName"
-                  Core..= documentDataFieldName
+                  Data..= documentDataFieldName
               )
           ]
       )

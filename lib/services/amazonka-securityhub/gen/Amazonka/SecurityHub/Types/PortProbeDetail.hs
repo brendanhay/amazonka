@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.PortProbeDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.ActionLocalIpDetails
 import Amazonka.SecurityHub.Types.ActionLocalPortDetails
@@ -82,15 +83,15 @@ portProbeDetail_localPortDetails = Lens.lens (\PortProbeDetail' {localPortDetail
 portProbeDetail_localIpDetails :: Lens.Lens' PortProbeDetail (Prelude.Maybe ActionLocalIpDetails)
 portProbeDetail_localIpDetails = Lens.lens (\PortProbeDetail' {localIpDetails} -> localIpDetails) (\s@PortProbeDetail' {} a -> s {localIpDetails = a} :: PortProbeDetail)
 
-instance Core.FromJSON PortProbeDetail where
+instance Data.FromJSON PortProbeDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortProbeDetail"
       ( \x ->
           PortProbeDetail'
-            Prelude.<$> (x Core..:? "RemoteIpDetails")
-            Prelude.<*> (x Core..:? "LocalPortDetails")
-            Prelude.<*> (x Core..:? "LocalIpDetails")
+            Prelude.<$> (x Data..:? "RemoteIpDetails")
+            Prelude.<*> (x Data..:? "LocalPortDetails")
+            Prelude.<*> (x Data..:? "LocalIpDetails")
       )
 
 instance Prelude.Hashable PortProbeDetail where
@@ -105,15 +106,15 @@ instance Prelude.NFData PortProbeDetail where
       `Prelude.seq` Prelude.rnf localPortDetails
       `Prelude.seq` Prelude.rnf localIpDetails
 
-instance Core.ToJSON PortProbeDetail where
+instance Data.ToJSON PortProbeDetail where
   toJSON PortProbeDetail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RemoteIpDetails" Core..=)
+          [ ("RemoteIpDetails" Data..=)
               Prelude.<$> remoteIpDetails,
-            ("LocalPortDetails" Core..=)
+            ("LocalPortDetails" Data..=)
               Prelude.<$> localPortDetails,
-            ("LocalIpDetails" Core..=)
+            ("LocalIpDetails" Data..=)
               Prelude.<$> localIpDetails
           ]
       )

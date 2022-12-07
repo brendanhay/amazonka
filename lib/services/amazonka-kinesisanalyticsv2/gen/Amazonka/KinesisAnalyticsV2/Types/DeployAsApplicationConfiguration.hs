@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.DeployAsApplicationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.S3ContentBaseLocation
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,11 +84,11 @@ instance
   rnf DeployAsApplicationConfiguration' {..} =
     Prelude.rnf s3ContentLocation
 
-instance Core.ToJSON DeployAsApplicationConfiguration where
+instance Data.ToJSON DeployAsApplicationConfiguration where
   toJSON DeployAsApplicationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("S3ContentLocation" Core..= s3ContentLocation)
+              ("S3ContentLocation" Data..= s3ContentLocation)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RecommendationJobResourceLimit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the maximum number of jobs that can run in parallel and the
@@ -63,14 +64,14 @@ recommendationJobResourceLimit_maxNumberOfTests = Lens.lens (\RecommendationJobR
 recommendationJobResourceLimit_maxParallelOfTests :: Lens.Lens' RecommendationJobResourceLimit (Prelude.Maybe Prelude.Natural)
 recommendationJobResourceLimit_maxParallelOfTests = Lens.lens (\RecommendationJobResourceLimit' {maxParallelOfTests} -> maxParallelOfTests) (\s@RecommendationJobResourceLimit' {} a -> s {maxParallelOfTests = a} :: RecommendationJobResourceLimit)
 
-instance Core.FromJSON RecommendationJobResourceLimit where
+instance Data.FromJSON RecommendationJobResourceLimit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationJobResourceLimit"
       ( \x ->
           RecommendationJobResourceLimit'
-            Prelude.<$> (x Core..:? "MaxNumberOfTests")
-            Prelude.<*> (x Core..:? "MaxParallelOfTests")
+            Prelude.<$> (x Data..:? "MaxNumberOfTests")
+            Prelude.<*> (x Data..:? "MaxParallelOfTests")
       )
 
 instance
@@ -91,13 +92,13 @@ instance
     Prelude.rnf maxNumberOfTests
       `Prelude.seq` Prelude.rnf maxParallelOfTests
 
-instance Core.ToJSON RecommendationJobResourceLimit where
+instance Data.ToJSON RecommendationJobResourceLimit where
   toJSON RecommendationJobResourceLimit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxNumberOfTests" Core..=)
+          [ ("MaxNumberOfTests" Data..=)
               Prelude.<$> maxNumberOfTests,
-            ("MaxParallelOfTests" Core..=)
+            ("MaxParallelOfTests" Data..=)
               Prelude.<$> maxParallelOfTests
           ]
       )

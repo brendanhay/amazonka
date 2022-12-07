@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -177,7 +178,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateCustomRoutingAcceleratorAttributesResponse'
-            Prelude.<$> (x Core..?> "AcceleratorAttributes")
+            Prelude.<$> (x Data..?> "AcceleratorAttributes")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,49 +205,49 @@ instance
       `Prelude.seq` Prelude.rnf acceleratorArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateCustomRoutingAcceleratorAttributes
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.UpdateCustomRoutingAcceleratorAttributes" ::
+              Data.=# ( "GlobalAccelerator_V20180706.UpdateCustomRoutingAcceleratorAttributes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateCustomRoutingAcceleratorAttributes
   where
   toJSON UpdateCustomRoutingAcceleratorAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FlowLogsEnabled" Core..=)
+          [ ("FlowLogsEnabled" Data..=)
               Prelude.<$> flowLogsEnabled,
-            ("FlowLogsS3Bucket" Core..=)
+            ("FlowLogsS3Bucket" Data..=)
               Prelude.<$> flowLogsS3Bucket,
-            ("FlowLogsS3Prefix" Core..=)
+            ("FlowLogsS3Prefix" Data..=)
               Prelude.<$> flowLogsS3Prefix,
             Prelude.Just
-              ("AcceleratorArn" Core..= acceleratorArn)
+              ("AcceleratorArn" Data..= acceleratorArn)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateCustomRoutingAcceleratorAttributes
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateCustomRoutingAcceleratorAttributes
   where
   toQuery = Prelude.const Prelude.mempty

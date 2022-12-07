@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -185,7 +186,7 @@ instance
       ( \s h x ->
           DescribeEngineDefaultParametersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "EngineDefaults")
+            Prelude.<*> (x Data..@ "EngineDefaults")
       )
 
 instance
@@ -209,27 +210,27 @@ instance
       `Prelude.seq` Prelude.rnf cacheParameterGroupFamily
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeEngineDefaultParameters
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeEngineDefaultParameters where
+instance Data.ToPath DescribeEngineDefaultParameters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEngineDefaultParameters where
+instance Data.ToQuery DescribeEngineDefaultParameters where
   toQuery DescribeEngineDefaultParameters' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeEngineDefaultParameters" ::
+          Data.=: ( "DescribeEngineDefaultParameters" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords,
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
         "CacheParameterGroupFamily"
-          Core.=: cacheParameterGroupFamily
+          Data.=: cacheParameterGroupFamily
       ]
 
 -- | /See:/ 'newDescribeEngineDefaultParametersResponse' smart constructor.

@@ -23,6 +23,7 @@ import Amazonka.Config.Types.ComplianceContributorCount
 import Amazonka.Config.Types.ComplianceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether an Amazon Web Services resource or Config rule is
@@ -117,14 +118,14 @@ compliance_complianceContributorCount = Lens.lens (\Compliance' {complianceContr
 compliance_complianceType :: Lens.Lens' Compliance (Prelude.Maybe ComplianceType)
 compliance_complianceType = Lens.lens (\Compliance' {complianceType} -> complianceType) (\s@Compliance' {} a -> s {complianceType = a} :: Compliance)
 
-instance Core.FromJSON Compliance where
+instance Data.FromJSON Compliance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Compliance"
       ( \x ->
           Compliance'
-            Prelude.<$> (x Core..:? "ComplianceContributorCount")
-            Prelude.<*> (x Core..:? "ComplianceType")
+            Prelude.<$> (x Data..:? "ComplianceContributorCount")
+            Prelude.<*> (x Data..:? "ComplianceType")
       )
 
 instance Prelude.Hashable Compliance where

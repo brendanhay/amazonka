@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsWafRegionalWebAclRulesListDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsWafRegionalWebAclRulesListActionDetails
 import Amazonka.SecurityHub.Types.AwsWafRegionalWebAclRulesListOverrideActionDetails
@@ -100,19 +101,19 @@ awsWafRegionalWebAclRulesListDetails_action :: Lens.Lens' AwsWafRegionalWebAclRu
 awsWafRegionalWebAclRulesListDetails_action = Lens.lens (\AwsWafRegionalWebAclRulesListDetails' {action} -> action) (\s@AwsWafRegionalWebAclRulesListDetails' {} a -> s {action = a} :: AwsWafRegionalWebAclRulesListDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsWafRegionalWebAclRulesListDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsWafRegionalWebAclRulesListDetails"
       ( \x ->
           AwsWafRegionalWebAclRulesListDetails'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "RuleId")
-            Prelude.<*> (x Core..:? "OverrideAction")
-            Prelude.<*> (x Core..:? "Priority")
-            Prelude.<*> (x Core..:? "Action")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "RuleId")
+            Prelude.<*> (x Data..:? "OverrideAction")
+            Prelude.<*> (x Data..:? "Priority")
+            Prelude.<*> (x Data..:? "Action")
       )
 
 instance
@@ -140,17 +141,17 @@ instance
       `Prelude.seq` Prelude.rnf action
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsWafRegionalWebAclRulesListDetails
   where
   toJSON AwsWafRegionalWebAclRulesListDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("RuleId" Core..=) Prelude.<$> ruleId,
-            ("OverrideAction" Core..=)
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("RuleId" Data..=) Prelude.<$> ruleId,
+            ("OverrideAction" Data..=)
               Prelude.<$> overrideAction,
-            ("Priority" Core..=) Prelude.<$> priority,
-            ("Action" Core..=) Prelude.<$> action
+            ("Priority" Data..=) Prelude.<$> priority,
+            ("Action" Data..=) Prelude.<$> action
           ]
       )

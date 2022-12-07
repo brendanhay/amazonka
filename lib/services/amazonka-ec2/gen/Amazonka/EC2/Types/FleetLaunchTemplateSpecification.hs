@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FleetLaunchTemplateSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -118,14 +119,14 @@ fleetLaunchTemplateSpecification_launchTemplateName :: Lens.Lens' FleetLaunchTem
 fleetLaunchTemplateSpecification_launchTemplateName = Lens.lens (\FleetLaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@FleetLaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: FleetLaunchTemplateSpecification)
 
 instance
-  Core.FromXML
+  Data.FromXML
     FleetLaunchTemplateSpecification
   where
   parseXML x =
     FleetLaunchTemplateSpecification'
-      Prelude.<$> (x Core..@? "launchTemplateId")
-      Prelude.<*> (x Core..@? "version")
-      Prelude.<*> (x Core..@? "launchTemplateName")
+      Prelude.<$> (x Data..@? "launchTemplateId")
+      Prelude.<*> (x Data..@? "version")
+      Prelude.<*> (x Data..@? "launchTemplateName")
 
 instance
   Prelude.Hashable
@@ -148,12 +149,12 @@ instance
       `Prelude.seq` Prelude.rnf launchTemplateName
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     FleetLaunchTemplateSpecification
   where
   toQuery FleetLaunchTemplateSpecification' {..} =
     Prelude.mconcat
-      [ "LaunchTemplateId" Core.=: launchTemplateId,
-        "Version" Core.=: version,
-        "LaunchTemplateName" Core.=: launchTemplateName
+      [ "LaunchTemplateId" Data.=: launchTemplateId,
+        "Version" Data.=: version,
+        "LaunchTemplateName" Data.=: launchTemplateName
       ]

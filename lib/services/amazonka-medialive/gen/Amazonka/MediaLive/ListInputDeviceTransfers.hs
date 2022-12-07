@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,8 +133,8 @@ instance Core.AWSRequest ListInputDeviceTransfers where
     Response.receiveJSON
       ( \s h x ->
           ListInputDeviceTransfersResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "inputDeviceTransfers"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "inputDeviceTransfers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -151,26 +152,26 @@ instance Prelude.NFData ListInputDeviceTransfers where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf transferType
 
-instance Core.ToHeaders ListInputDeviceTransfers where
+instance Data.ToHeaders ListInputDeviceTransfers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListInputDeviceTransfers where
+instance Data.ToPath ListInputDeviceTransfers where
   toPath = Prelude.const "/prod/inputDeviceTransfers"
 
-instance Core.ToQuery ListInputDeviceTransfers where
+instance Data.ToQuery ListInputDeviceTransfers where
   toQuery ListInputDeviceTransfers' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "transferType" Core.=: transferType
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "transferType" Data.=: transferType
       ]
 
 -- | Placeholder documentation for ListInputDeviceTransfersResponse

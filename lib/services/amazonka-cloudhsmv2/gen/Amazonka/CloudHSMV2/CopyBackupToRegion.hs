@@ -44,6 +44,7 @@ where
 import Amazonka.CloudHSMV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,7 +117,7 @@ instance Core.AWSRequest CopyBackupToRegion where
     Response.receiveJSON
       ( \s h x ->
           CopyBackupToRegionResponse'
-            Prelude.<$> (x Core..?> "DestinationBackup")
+            Prelude.<$> (x Data..?> "DestinationBackup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,36 +133,36 @@ instance Prelude.NFData CopyBackupToRegion where
       `Prelude.seq` Prelude.rnf destinationRegion
       `Prelude.seq` Prelude.rnf backupId
 
-instance Core.ToHeaders CopyBackupToRegion where
+instance Data.ToHeaders CopyBackupToRegion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BaldrApiService.CopyBackupToRegion" ::
+              Data.=# ( "BaldrApiService.CopyBackupToRegion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CopyBackupToRegion where
+instance Data.ToJSON CopyBackupToRegion where
   toJSON CopyBackupToRegion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TagList" Core..=) Prelude.<$> tagList,
+          [ ("TagList" Data..=) Prelude.<$> tagList,
             Prelude.Just
-              ("DestinationRegion" Core..= destinationRegion),
-            Prelude.Just ("BackupId" Core..= backupId)
+              ("DestinationRegion" Data..= destinationRegion),
+            Prelude.Just ("BackupId" Data..= backupId)
           ]
       )
 
-instance Core.ToPath CopyBackupToRegion where
+instance Data.ToPath CopyBackupToRegion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CopyBackupToRegion where
+instance Data.ToQuery CopyBackupToRegion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCopyBackupToRegionResponse' smart constructor.

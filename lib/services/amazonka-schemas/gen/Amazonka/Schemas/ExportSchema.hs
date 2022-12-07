@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,11 +121,11 @@ instance Core.AWSRequest ExportSchema where
     Response.receiveJSON
       ( \s h x ->
           ExportSchemaResponse'
-            Prelude.<$> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "SchemaName")
-            Prelude.<*> (x Core..?> "SchemaArn")
-            Prelude.<*> (x Core..?> "SchemaVersion")
-            Prelude.<*> (x Core..?> "Content")
+            Prelude.<$> (x Data..?> "Type")
+            Prelude.<*> (x Data..?> "SchemaName")
+            Prelude.<*> (x Data..?> "SchemaArn")
+            Prelude.<*> (x Data..?> "SchemaVersion")
+            Prelude.<*> (x Data..?> "Content")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,32 +143,32 @@ instance Prelude.NFData ExportSchema where
       `Prelude.seq` Prelude.rnf schemaName
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders ExportSchema where
+instance Data.ToHeaders ExportSchema where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ExportSchema where
+instance Data.ToPath ExportSchema where
   toPath ExportSchema' {..} =
     Prelude.mconcat
       [ "/v1/registries/name/",
-        Core.toBS registryName,
+        Data.toBS registryName,
         "/schemas/name/",
-        Core.toBS schemaName,
+        Data.toBS schemaName,
         "/export"
       ]
 
-instance Core.ToQuery ExportSchema where
+instance Data.ToQuery ExportSchema where
   toQuery ExportSchema' {..} =
     Prelude.mconcat
-      [ "schemaVersion" Core.=: schemaVersion,
-        "type" Core.=: type'
+      [ "schemaVersion" Data.=: schemaVersion,
+        "type" Data.=: type'
       ]
 
 -- | /See:/ 'newExportSchemaResponse' smart constructor.

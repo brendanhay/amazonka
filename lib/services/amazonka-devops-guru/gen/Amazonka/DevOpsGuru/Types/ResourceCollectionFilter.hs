@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ResourceCollectionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.CloudFormationCollectionFilter
 import Amazonka.DevOpsGuru.Types.TagCollectionFilter
 import qualified Amazonka.Prelude as Prelude
@@ -175,14 +176,14 @@ resourceCollectionFilter_tags = Lens.lens (\ResourceCollectionFilter' {tags} -> 
 resourceCollectionFilter_cloudFormation :: Lens.Lens' ResourceCollectionFilter (Prelude.Maybe CloudFormationCollectionFilter)
 resourceCollectionFilter_cloudFormation = Lens.lens (\ResourceCollectionFilter' {cloudFormation} -> cloudFormation) (\s@ResourceCollectionFilter' {} a -> s {cloudFormation = a} :: ResourceCollectionFilter)
 
-instance Core.FromJSON ResourceCollectionFilter where
+instance Data.FromJSON ResourceCollectionFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceCollectionFilter"
       ( \x ->
           ResourceCollectionFilter'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CloudFormation")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CloudFormation")
       )
 
 instance Prelude.Hashable ResourceCollectionFilter where

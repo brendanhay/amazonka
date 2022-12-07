@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -151,7 +152,7 @@ instance Core.AWSRequest UpdateApp where
       ( \s h x ->
           UpdateAppResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "app")
+            Prelude.<*> (x Data..:> "app")
       )
 
 instance Prelude.Hashable UpdateApp where
@@ -170,35 +171,35 @@ instance Prelude.NFData UpdateApp where
       `Prelude.seq` Prelude.rnf assessmentSchedule
       `Prelude.seq` Prelude.rnf appArn
 
-instance Core.ToHeaders UpdateApp where
+instance Data.ToHeaders UpdateApp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateApp where
+instance Data.ToJSON UpdateApp where
   toJSON UpdateApp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("policyArn" Core..=) Prelude.<$> policyArn,
-            ("clearResiliencyPolicyArn" Core..=)
+          [ ("description" Data..=) Prelude.<$> description,
+            ("policyArn" Data..=) Prelude.<$> policyArn,
+            ("clearResiliencyPolicyArn" Data..=)
               Prelude.<$> clearResiliencyPolicyArn,
-            ("assessmentSchedule" Core..=)
+            ("assessmentSchedule" Data..=)
               Prelude.<$> assessmentSchedule,
-            Prelude.Just ("appArn" Core..= appArn)
+            Prelude.Just ("appArn" Data..= appArn)
           ]
       )
 
-instance Core.ToPath UpdateApp where
+instance Data.ToPath UpdateApp where
   toPath = Prelude.const "/update-app"
 
-instance Core.ToQuery UpdateApp where
+instance Data.ToQuery UpdateApp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAppResponse' smart constructor.

@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,34 +90,34 @@ instance Prelude.NFData DeleteScheduledQuery where
   rnf DeleteScheduledQuery' {..} =
     Prelude.rnf scheduledQueryArn
 
-instance Core.ToHeaders DeleteScheduledQuery where
+instance Data.ToHeaders DeleteScheduledQuery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Timestream_20181101.DeleteScheduledQuery" ::
+              Data.=# ( "Timestream_20181101.DeleteScheduledQuery" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteScheduledQuery where
+instance Data.ToJSON DeleteScheduledQuery where
   toJSON DeleteScheduledQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ScheduledQueryArn" Core..= scheduledQueryArn)
+              ("ScheduledQueryArn" Data..= scheduledQueryArn)
           ]
       )
 
-instance Core.ToPath DeleteScheduledQuery where
+instance Data.ToPath DeleteScheduledQuery where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteScheduledQuery where
+instance Data.ToQuery DeleteScheduledQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteScheduledQueryResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.WebvttHlsSourceSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.LanguageCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,15 +81,15 @@ webvttHlsSourceSettings_renditionName = Lens.lens (\WebvttHlsSourceSettings' {re
 webvttHlsSourceSettings_renditionGroupId :: Lens.Lens' WebvttHlsSourceSettings (Prelude.Maybe Prelude.Text)
 webvttHlsSourceSettings_renditionGroupId = Lens.lens (\WebvttHlsSourceSettings' {renditionGroupId} -> renditionGroupId) (\s@WebvttHlsSourceSettings' {} a -> s {renditionGroupId = a} :: WebvttHlsSourceSettings)
 
-instance Core.FromJSON WebvttHlsSourceSettings where
+instance Data.FromJSON WebvttHlsSourceSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WebvttHlsSourceSettings"
       ( \x ->
           WebvttHlsSourceSettings'
-            Prelude.<$> (x Core..:? "renditionLanguageCode")
-            Prelude.<*> (x Core..:? "renditionName")
-            Prelude.<*> (x Core..:? "renditionGroupId")
+            Prelude.<$> (x Data..:? "renditionLanguageCode")
+            Prelude.<*> (x Data..:? "renditionName")
+            Prelude.<*> (x Data..:? "renditionGroupId")
       )
 
 instance Prelude.Hashable WebvttHlsSourceSettings where
@@ -103,14 +104,14 @@ instance Prelude.NFData WebvttHlsSourceSettings where
       `Prelude.seq` Prelude.rnf renditionName
       `Prelude.seq` Prelude.rnf renditionGroupId
 
-instance Core.ToJSON WebvttHlsSourceSettings where
+instance Data.ToJSON WebvttHlsSourceSettings where
   toJSON WebvttHlsSourceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("renditionLanguageCode" Core..=)
+          [ ("renditionLanguageCode" Data..=)
               Prelude.<$> renditionLanguageCode,
-            ("renditionName" Core..=) Prelude.<$> renditionName,
-            ("renditionGroupId" Core..=)
+            ("renditionName" Data..=) Prelude.<$> renditionName,
+            ("renditionGroupId" Data..=)
               Prelude.<$> renditionGroupId
           ]
       )

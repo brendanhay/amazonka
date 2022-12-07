@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2InstanceMetadataOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata options that allow you to configure and secure the Amazon EC2
@@ -99,17 +100,17 @@ awsEc2InstanceMetadataOptions_instanceMetadataTags = Lens.lens (\AwsEc2InstanceM
 awsEc2InstanceMetadataOptions_httpProtocolIpv6 :: Lens.Lens' AwsEc2InstanceMetadataOptions (Prelude.Maybe Prelude.Text)
 awsEc2InstanceMetadataOptions_httpProtocolIpv6 = Lens.lens (\AwsEc2InstanceMetadataOptions' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@AwsEc2InstanceMetadataOptions' {} a -> s {httpProtocolIpv6 = a} :: AwsEc2InstanceMetadataOptions)
 
-instance Core.FromJSON AwsEc2InstanceMetadataOptions where
+instance Data.FromJSON AwsEc2InstanceMetadataOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2InstanceMetadataOptions"
       ( \x ->
           AwsEc2InstanceMetadataOptions'
-            Prelude.<$> (x Core..:? "HttpPutResponseHopLimit")
-            Prelude.<*> (x Core..:? "HttpTokens")
-            Prelude.<*> (x Core..:? "HttpEndpoint")
-            Prelude.<*> (x Core..:? "InstanceMetadataTags")
-            Prelude.<*> (x Core..:? "HttpProtocolIpv6")
+            Prelude.<$> (x Data..:? "HttpPutResponseHopLimit")
+            Prelude.<*> (x Data..:? "HttpTokens")
+            Prelude.<*> (x Data..:? "HttpEndpoint")
+            Prelude.<*> (x Data..:? "InstanceMetadataTags")
+            Prelude.<*> (x Data..:? "HttpProtocolIpv6")
       )
 
 instance
@@ -132,17 +133,17 @@ instance Prelude.NFData AwsEc2InstanceMetadataOptions where
       `Prelude.seq` Prelude.rnf instanceMetadataTags
       `Prelude.seq` Prelude.rnf httpProtocolIpv6
 
-instance Core.ToJSON AwsEc2InstanceMetadataOptions where
+instance Data.ToJSON AwsEc2InstanceMetadataOptions where
   toJSON AwsEc2InstanceMetadataOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HttpPutResponseHopLimit" Core..=)
+          [ ("HttpPutResponseHopLimit" Data..=)
               Prelude.<$> httpPutResponseHopLimit,
-            ("HttpTokens" Core..=) Prelude.<$> httpTokens,
-            ("HttpEndpoint" Core..=) Prelude.<$> httpEndpoint,
-            ("InstanceMetadataTags" Core..=)
+            ("HttpTokens" Data..=) Prelude.<$> httpTokens,
+            ("HttpEndpoint" Data..=) Prelude.<$> httpEndpoint,
+            ("InstanceMetadataTags" Data..=)
               Prelude.<$> instanceMetadataTags,
-            ("HttpProtocolIpv6" Core..=)
+            ("HttpProtocolIpv6" Data..=)
               Prelude.<$> httpProtocolIpv6
           ]
       )

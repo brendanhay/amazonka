@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Delete where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ObjectIdentifier
@@ -75,9 +76,9 @@ instance Prelude.NFData Delete where
   rnf Delete' {..} =
     Prelude.rnf quiet `Prelude.seq` Prelude.rnf objects
 
-instance Core.ToXML Delete where
+instance Data.ToXML Delete where
   toXML Delete' {..} =
     Prelude.mconcat
-      [ "Quiet" Core.@= quiet,
-        Core.toXMLList "Object" objects
+      [ "Quiet" Data.@= quiet,
+        Data.toXMLList "Object" objects
       ]

@@ -54,6 +54,7 @@ where
 import Amazonka.Cloud9.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -65,7 +66,7 @@ data CreateEnvironmentEC2 = CreateEnvironmentEC2'
     automaticStopTimeMinutes :: Prelude.Maybe Prelude.Int,
     -- | An array of key-value pairs that will be associated with the new Cloud9
     -- development environment.
-    tags :: Prelude.Maybe (Core.Sensitive [Core.Sensitive Tag]),
+    tags :: Prelude.Maybe (Data.Sensitive [Data.Sensitive Tag]),
     -- | A unique, case-sensitive string that helps Cloud9 to ensure this
     -- operation completes no more than one time.
     --
@@ -85,7 +86,7 @@ data CreateEnvironmentEC2 = CreateEnvironmentEC2'
     -- with the Amazon EC2 instance.
     subnetId :: Prelude.Maybe Prelude.Text,
     -- | The description of the environment to create.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -248,7 +249,7 @@ createEnvironmentEC2_automaticStopTimeMinutes = Lens.lens (\CreateEnvironmentEC2
 -- | An array of key-value pairs that will be associated with the new Cloud9
 -- development environment.
 createEnvironmentEC2_tags :: Lens.Lens' CreateEnvironmentEC2 (Prelude.Maybe [Tag])
-createEnvironmentEC2_tags = Lens.lens (\CreateEnvironmentEC2' {tags} -> tags) (\s@CreateEnvironmentEC2' {} a -> s {tags = a} :: CreateEnvironmentEC2) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createEnvironmentEC2_tags = Lens.lens (\CreateEnvironmentEC2' {tags} -> tags) (\s@CreateEnvironmentEC2' {} a -> s {tags = a} :: CreateEnvironmentEC2) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | A unique, case-sensitive string that helps Cloud9 to ensure this
 -- operation completes no more than one time.
@@ -276,7 +277,7 @@ createEnvironmentEC2_subnetId = Lens.lens (\CreateEnvironmentEC2' {subnetId} -> 
 
 -- | The description of the environment to create.
 createEnvironmentEC2_description :: Lens.Lens' CreateEnvironmentEC2 (Prelude.Maybe Prelude.Text)
-createEnvironmentEC2_description = Lens.lens (\CreateEnvironmentEC2' {description} -> description) (\s@CreateEnvironmentEC2' {} a -> s {description = a} :: CreateEnvironmentEC2) Prelude.. Lens.mapping Core._Sensitive
+createEnvironmentEC2_description = Lens.lens (\CreateEnvironmentEC2' {description} -> description) (\s@CreateEnvironmentEC2' {} a -> s {description = a} :: CreateEnvironmentEC2) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -346,7 +347,7 @@ instance Core.AWSRequest CreateEnvironmentEC2 where
     Response.receiveJSON
       ( \s h x ->
           CreateEnvironmentEC2Response'
-            Prelude.<$> (x Core..?> "environmentId")
+            Prelude.<$> (x Data..?> "environmentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -379,46 +380,46 @@ instance Prelude.NFData CreateEnvironmentEC2 where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf instanceType
 
-instance Core.ToHeaders CreateEnvironmentEC2 where
+instance Data.ToHeaders CreateEnvironmentEC2 where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2" ::
+              Data.=# ( "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEnvironmentEC2 where
+instance Data.ToJSON CreateEnvironmentEC2 where
   toJSON CreateEnvironmentEC2' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("automaticStopTimeMinutes" Core..=)
+          [ ("automaticStopTimeMinutes" Data..=)
               Prelude.<$> automaticStopTimeMinutes,
-            ("tags" Core..=) Prelude.<$> tags,
-            ("clientRequestToken" Core..=)
+            ("tags" Data..=) Prelude.<$> tags,
+            ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("connectionType" Core..=)
+            ("connectionType" Data..=)
               Prelude.<$> connectionType,
-            ("subnetId" Core..=) Prelude.<$> subnetId,
-            ("description" Core..=) Prelude.<$> description,
-            ("dryRun" Core..=) Prelude.<$> dryRun,
-            ("ownerArn" Core..=) Prelude.<$> ownerArn,
-            ("imageId" Core..=) Prelude.<$> imageId,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("instanceType" Core..= instanceType)
+            ("subnetId" Data..=) Prelude.<$> subnetId,
+            ("description" Data..=) Prelude.<$> description,
+            ("dryRun" Data..=) Prelude.<$> dryRun,
+            ("ownerArn" Data..=) Prelude.<$> ownerArn,
+            ("imageId" Data..=) Prelude.<$> imageId,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("instanceType" Data..= instanceType)
           ]
       )
 
-instance Core.ToPath CreateEnvironmentEC2 where
+instance Data.ToPath CreateEnvironmentEC2 where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEnvironmentEC2 where
+instance Data.ToQuery CreateEnvironmentEC2 where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEnvironmentEC2Response' smart constructor.

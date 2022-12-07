@@ -23,6 +23,7 @@ import Amazonka.Budgets.Types.Notification
 import Amazonka.Budgets.Types.Subscriber
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A notification with subscribers. A notification can have one SNS
@@ -83,11 +84,11 @@ instance Prelude.NFData NotificationWithSubscribers where
     Prelude.rnf notification
       `Prelude.seq` Prelude.rnf subscribers
 
-instance Core.ToJSON NotificationWithSubscribers where
+instance Data.ToJSON NotificationWithSubscribers where
   toJSON NotificationWithSubscribers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Notification" Core..= notification),
-            Prelude.Just ("Subscribers" Core..= subscribers)
+          [ Prelude.Just ("Notification" Data..= notification),
+            Prelude.Just ("Subscribers" Data..= subscribers)
           ]
       )

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,8 +130,8 @@ instance Core.AWSRequest ListDelegatedAdminAccounts where
     Response.receiveJSON
       ( \s h x ->
           ListDelegatedAdminAccountsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "delegatedAdminAccounts"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "delegatedAdminAccounts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -146,30 +147,30 @@ instance Prelude.NFData ListDelegatedAdminAccounts where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListDelegatedAdminAccounts where
+instance Data.ToHeaders ListDelegatedAdminAccounts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDelegatedAdminAccounts where
+instance Data.ToJSON ListDelegatedAdminAccounts where
   toJSON ListDelegatedAdminAccounts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListDelegatedAdminAccounts where
+instance Data.ToPath ListDelegatedAdminAccounts where
   toPath = Prelude.const "/delegatedadminaccounts/list"
 
-instance Core.ToQuery ListDelegatedAdminAccounts where
+instance Data.ToQuery ListDelegatedAdminAccounts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDelegatedAdminAccountsResponse' smart constructor.

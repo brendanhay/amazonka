@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentitySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the information about a CloudFront origin access identity.
@@ -90,14 +91,14 @@ cloudFrontOriginAccessIdentitySummary_comment :: Lens.Lens' CloudFrontOriginAcce
 cloudFrontOriginAccessIdentitySummary_comment = Lens.lens (\CloudFrontOriginAccessIdentitySummary' {comment} -> comment) (\s@CloudFrontOriginAccessIdentitySummary' {} a -> s {comment = a} :: CloudFrontOriginAccessIdentitySummary)
 
 instance
-  Core.FromXML
+  Data.FromXML
     CloudFrontOriginAccessIdentitySummary
   where
   parseXML x =
     CloudFrontOriginAccessIdentitySummary'
-      Prelude.<$> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "S3CanonicalUserId")
-      Prelude.<*> (x Core..@ "Comment")
+      Prelude.<$> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "S3CanonicalUserId")
+      Prelude.<*> (x Data..@ "Comment")
 
 instance
   Prelude.Hashable

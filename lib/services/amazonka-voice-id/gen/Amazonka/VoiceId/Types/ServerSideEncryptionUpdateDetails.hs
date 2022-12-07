@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.ServerSideEncryptionUpdateDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.ServerSideEncryptionUpdateStatus
 
@@ -98,17 +99,17 @@ serverSideEncryptionUpdateDetails_updateStatus :: Lens.Lens' ServerSideEncryptio
 serverSideEncryptionUpdateDetails_updateStatus = Lens.lens (\ServerSideEncryptionUpdateDetails' {updateStatus} -> updateStatus) (\s@ServerSideEncryptionUpdateDetails' {} a -> s {updateStatus = a} :: ServerSideEncryptionUpdateDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ServerSideEncryptionUpdateDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerSideEncryptionUpdateDetails"
       ( \x ->
           ServerSideEncryptionUpdateDetails'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "OldKmsKeyId")
-            Prelude.<*> (x Core..:? "UpdateStatus")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "OldKmsKeyId")
+            Prelude.<*> (x Data..:? "UpdateStatus")
       )
 
 instance

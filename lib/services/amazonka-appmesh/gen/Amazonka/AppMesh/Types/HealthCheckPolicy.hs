@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.HealthCheckPolicy where
 import Amazonka.AppMesh.Types.PortProtocol
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the health check policy for a virtual node\'s
@@ -147,19 +148,19 @@ healthCheckPolicy_timeoutMillis = Lens.lens (\HealthCheckPolicy' {timeoutMillis}
 healthCheckPolicy_unhealthyThreshold :: Lens.Lens' HealthCheckPolicy Prelude.Natural
 healthCheckPolicy_unhealthyThreshold = Lens.lens (\HealthCheckPolicy' {unhealthyThreshold} -> unhealthyThreshold) (\s@HealthCheckPolicy' {} a -> s {unhealthyThreshold = a} :: HealthCheckPolicy)
 
-instance Core.FromJSON HealthCheckPolicy where
+instance Data.FromJSON HealthCheckPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HealthCheckPolicy"
       ( \x ->
           HealthCheckPolicy'
-            Prelude.<$> (x Core..:? "port")
-            Prelude.<*> (x Core..:? "path")
-            Prelude.<*> (x Core..: "healthyThreshold")
-            Prelude.<*> (x Core..: "intervalMillis")
-            Prelude.<*> (x Core..: "protocol")
-            Prelude.<*> (x Core..: "timeoutMillis")
-            Prelude.<*> (x Core..: "unhealthyThreshold")
+            Prelude.<$> (x Data..:? "port")
+            Prelude.<*> (x Data..:? "path")
+            Prelude.<*> (x Data..: "healthyThreshold")
+            Prelude.<*> (x Data..: "intervalMillis")
+            Prelude.<*> (x Data..: "protocol")
+            Prelude.<*> (x Data..: "timeoutMillis")
+            Prelude.<*> (x Data..: "unhealthyThreshold")
       )
 
 instance Prelude.Hashable HealthCheckPolicy where
@@ -182,19 +183,19 @@ instance Prelude.NFData HealthCheckPolicy where
       `Prelude.seq` Prelude.rnf timeoutMillis
       `Prelude.seq` Prelude.rnf unhealthyThreshold
 
-instance Core.ToJSON HealthCheckPolicy where
+instance Data.ToJSON HealthCheckPolicy where
   toJSON HealthCheckPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("port" Core..=) Prelude.<$> port,
-            ("path" Core..=) Prelude.<$> path,
+          [ ("port" Data..=) Prelude.<$> port,
+            ("path" Data..=) Prelude.<$> path,
             Prelude.Just
-              ("healthyThreshold" Core..= healthyThreshold),
+              ("healthyThreshold" Data..= healthyThreshold),
             Prelude.Just
-              ("intervalMillis" Core..= intervalMillis),
-            Prelude.Just ("protocol" Core..= protocol),
-            Prelude.Just ("timeoutMillis" Core..= timeoutMillis),
+              ("intervalMillis" Data..= intervalMillis),
+            Prelude.Just ("protocol" Data..= protocol),
+            Prelude.Just ("timeoutMillis" Data..= timeoutMillis),
             Prelude.Just
-              ("unhealthyThreshold" Core..= unhealthyThreshold)
+              ("unhealthyThreshold" Data..= unhealthyThreshold)
           ]
       )

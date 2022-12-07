@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.MaintenanceWindowIdentity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the maintenance window.
@@ -41,7 +42,7 @@ data MaintenanceWindowIdentity = MaintenanceWindowIdentity'
     -- | The ID of the maintenance window.
     windowId :: Prelude.Maybe Prelude.Text,
     -- | A description of the maintenance window.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Indicates whether the maintenance window is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The duration of the maintenance window in hours.
@@ -145,7 +146,7 @@ maintenanceWindowIdentity_windowId = Lens.lens (\MaintenanceWindowIdentity' {win
 
 -- | A description of the maintenance window.
 maintenanceWindowIdentity_description :: Lens.Lens' MaintenanceWindowIdentity (Prelude.Maybe Prelude.Text)
-maintenanceWindowIdentity_description = Lens.lens (\MaintenanceWindowIdentity' {description} -> description) (\s@MaintenanceWindowIdentity' {} a -> s {description = a} :: MaintenanceWindowIdentity) Prelude.. Lens.mapping Core._Sensitive
+maintenanceWindowIdentity_description = Lens.lens (\MaintenanceWindowIdentity' {description} -> description) (\s@MaintenanceWindowIdentity' {} a -> s {description = a} :: MaintenanceWindowIdentity) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Indicates whether the maintenance window is enabled.
 maintenanceWindowIdentity_enabled :: Lens.Lens' MaintenanceWindowIdentity (Prelude.Maybe Prelude.Bool)
@@ -176,24 +177,24 @@ maintenanceWindowIdentity_startDate = Lens.lens (\MaintenanceWindowIdentity' {st
 maintenanceWindowIdentity_nextExecutionTime :: Lens.Lens' MaintenanceWindowIdentity (Prelude.Maybe Prelude.Text)
 maintenanceWindowIdentity_nextExecutionTime = Lens.lens (\MaintenanceWindowIdentity' {nextExecutionTime} -> nextExecutionTime) (\s@MaintenanceWindowIdentity' {} a -> s {nextExecutionTime = a} :: MaintenanceWindowIdentity)
 
-instance Core.FromJSON MaintenanceWindowIdentity where
+instance Data.FromJSON MaintenanceWindowIdentity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MaintenanceWindowIdentity"
       ( \x ->
           MaintenanceWindowIdentity'
-            Prelude.<$> (x Core..:? "Schedule")
-            Prelude.<*> (x Core..:? "Cutoff")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "EndDate")
-            Prelude.<*> (x Core..:? "WindowId")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "Duration")
-            Prelude.<*> (x Core..:? "ScheduleTimezone")
-            Prelude.<*> (x Core..:? "ScheduleOffset")
-            Prelude.<*> (x Core..:? "StartDate")
-            Prelude.<*> (x Core..:? "NextExecutionTime")
+            Prelude.<$> (x Data..:? "Schedule")
+            Prelude.<*> (x Data..:? "Cutoff")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "EndDate")
+            Prelude.<*> (x Data..:? "WindowId")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "Duration")
+            Prelude.<*> (x Data..:? "ScheduleTimezone")
+            Prelude.<*> (x Data..:? "ScheduleOffset")
+            Prelude.<*> (x Data..:? "StartDate")
+            Prelude.<*> (x Data..:? "NextExecutionTime")
       )
 
 instance Prelude.Hashable MaintenanceWindowIdentity where

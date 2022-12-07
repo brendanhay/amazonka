@@ -68,6 +68,7 @@ where
 import Amazonka.ChimeSdkMeetings.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,7 +138,7 @@ instance Core.AWSRequest UpdateAttendeeCapabilities where
     Response.receiveJSON
       ( \s h x ->
           UpdateAttendeeCapabilitiesResponse'
-            Prelude.<$> (x Core..?> "Attendee")
+            Prelude.<$> (x Data..?> "Attendee")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,27 +154,27 @@ instance Prelude.NFData UpdateAttendeeCapabilities where
       `Prelude.seq` Prelude.rnf attendeeId
       `Prelude.seq` Prelude.rnf capabilities
 
-instance Core.ToHeaders UpdateAttendeeCapabilities where
+instance Data.ToHeaders UpdateAttendeeCapabilities where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateAttendeeCapabilities where
+instance Data.ToJSON UpdateAttendeeCapabilities where
   toJSON UpdateAttendeeCapabilities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Capabilities" Core..= capabilities)]
+          [Prelude.Just ("Capabilities" Data..= capabilities)]
       )
 
-instance Core.ToPath UpdateAttendeeCapabilities where
+instance Data.ToPath UpdateAttendeeCapabilities where
   toPath UpdateAttendeeCapabilities' {..} =
     Prelude.mconcat
       [ "/meetings/",
-        Core.toBS meetingId,
+        Data.toBS meetingId,
         "/attendees/",
-        Core.toBS attendeeId,
+        Data.toBS attendeeId,
         "/capabilities"
       ]
 
-instance Core.ToQuery UpdateAttendeeCapabilities where
+instance Data.ToQuery UpdateAttendeeCapabilities where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAttendeeCapabilitiesResponse' smart constructor.

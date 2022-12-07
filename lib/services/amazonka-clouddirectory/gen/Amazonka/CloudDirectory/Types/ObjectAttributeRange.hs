@@ -23,6 +23,7 @@ import Amazonka.CloudDirectory.Types.AttributeKey
 import Amazonka.CloudDirectory.Types.TypedAttributeValueRange
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A range of attributes.
@@ -73,11 +74,11 @@ instance Prelude.NFData ObjectAttributeRange where
     Prelude.rnf range
       `Prelude.seq` Prelude.rnf attributeKey
 
-instance Core.ToJSON ObjectAttributeRange where
+instance Data.ToJSON ObjectAttributeRange where
   toJSON ObjectAttributeRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Range" Core..=) Prelude.<$> range,
-            ("AttributeKey" Core..=) Prelude.<$> attributeKey
+          [ ("Range" Data..=) Prelude.<$> range,
+            ("AttributeKey" Data..=) Prelude.<$> attributeKey
           ]
       )

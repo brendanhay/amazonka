@@ -25,6 +25,7 @@ import Amazonka.Comprehend.Types.OutputDataConfig
 import Amazonka.Comprehend.Types.VpcConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a document classification job.
@@ -48,7 +49,7 @@ data DocumentClassificationJobProperties = DocumentClassificationJobProperties'
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The time that the document classification job was submitted for
     -- processing.
-    submitTime :: Prelude.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier assigned to the document classification job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
@@ -65,7 +66,7 @@ data DocumentClassificationJobProperties = DocumentClassificationJobProperties'
     -- (IAM) role that grants Amazon Comprehend read access to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the document classification job completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) that identifies the document classifier.
     documentClassifierArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the document classification job. It is
@@ -190,7 +191,7 @@ documentClassificationJobProperties_jobName = Lens.lens (\DocumentClassification
 -- | The time that the document classification job was submitted for
 -- processing.
 documentClassificationJobProperties_submitTime :: Lens.Lens' DocumentClassificationJobProperties (Prelude.Maybe Prelude.UTCTime)
-documentClassificationJobProperties_submitTime = Lens.lens (\DocumentClassificationJobProperties' {submitTime} -> submitTime) (\s@DocumentClassificationJobProperties' {} a -> s {submitTime = a} :: DocumentClassificationJobProperties) Prelude.. Lens.mapping Core._Time
+documentClassificationJobProperties_submitTime = Lens.lens (\DocumentClassificationJobProperties' {submitTime} -> submitTime) (\s@DocumentClassificationJobProperties' {} a -> s {submitTime = a} :: DocumentClassificationJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier assigned to the document classification job.
 documentClassificationJobProperties_jobId :: Lens.Lens' DocumentClassificationJobProperties (Prelude.Maybe Prelude.Text)
@@ -215,7 +216,7 @@ documentClassificationJobProperties_dataAccessRoleArn = Lens.lens (\DocumentClas
 
 -- | The time that the document classification job completed.
 documentClassificationJobProperties_endTime :: Lens.Lens' DocumentClassificationJobProperties (Prelude.Maybe Prelude.UTCTime)
-documentClassificationJobProperties_endTime = Lens.lens (\DocumentClassificationJobProperties' {endTime} -> endTime) (\s@DocumentClassificationJobProperties' {} a -> s {endTime = a} :: DocumentClassificationJobProperties) Prelude.. Lens.mapping Core._Time
+documentClassificationJobProperties_endTime = Lens.lens (\DocumentClassificationJobProperties' {endTime} -> endTime) (\s@DocumentClassificationJobProperties' {} a -> s {endTime = a} :: DocumentClassificationJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) that identifies the document classifier.
 documentClassificationJobProperties_documentClassifierArn :: Lens.Lens' DocumentClassificationJobProperties (Prelude.Maybe Prelude.Text)
@@ -239,27 +240,27 @@ documentClassificationJobProperties_inputDataConfig :: Lens.Lens' DocumentClassi
 documentClassificationJobProperties_inputDataConfig = Lens.lens (\DocumentClassificationJobProperties' {inputDataConfig} -> inputDataConfig) (\s@DocumentClassificationJobProperties' {} a -> s {inputDataConfig = a} :: DocumentClassificationJobProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DocumentClassificationJobProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentClassificationJobProperties"
       ( \x ->
           DocumentClassificationJobProperties'
-            Prelude.<$> (x Core..:? "OutputDataConfig")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "JobStatus")
-            Prelude.<*> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "SubmitTime")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "DocumentClassifierArn")
-            Prelude.<*> (x Core..:? "JobArn")
-            Prelude.<*> (x Core..:? "InputDataConfig")
+            Prelude.<$> (x Data..:? "OutputDataConfig")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "JobStatus")
+            Prelude.<*> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "SubmitTime")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Data..:? "DataAccessRoleArn")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "DocumentClassifierArn")
+            Prelude.<*> (x Data..:? "JobArn")
+            Prelude.<*> (x Data..:? "InputDataConfig")
       )
 
 instance

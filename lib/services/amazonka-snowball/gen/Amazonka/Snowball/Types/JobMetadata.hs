@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.JobMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.DataTransfer
 import Amazonka.Snowball.Types.DeviceConfiguration
@@ -52,7 +53,7 @@ data JobMetadata = JobMetadata'
     roleARN :: Prelude.Maybe Prelude.Text,
     deviceConfiguration :: Prelude.Maybe DeviceConfiguration,
     -- | The creation date for this job.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The automatically generated ID for a job, for example
     -- @JID123e4567-e89b-12d3-a456-426655440000@.
     jobId :: Prelude.Maybe Prelude.Text,
@@ -257,7 +258,7 @@ jobMetadata_deviceConfiguration = Lens.lens (\JobMetadata' {deviceConfiguration}
 
 -- | The creation date for this job.
 jobMetadata_creationDate :: Lens.Lens' JobMetadata (Prelude.Maybe Prelude.UTCTime)
-jobMetadata_creationDate = Lens.lens (\JobMetadata' {creationDate} -> creationDate) (\s@JobMetadata' {} a -> s {creationDate = a} :: JobMetadata) Prelude.. Lens.mapping Core._Time
+jobMetadata_creationDate = Lens.lens (\JobMetadata' {creationDate} -> creationDate) (\s@JobMetadata' {} a -> s {creationDate = a} :: JobMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The automatically generated ID for a job, for example
 -- @JID123e4567-e89b-12d3-a456-426655440000@.
@@ -364,34 +365,34 @@ jobMetadata_jobLogInfo = Lens.lens (\JobMetadata' {jobLogInfo} -> jobLogInfo) (\
 jobMetadata_onDeviceServiceConfiguration :: Lens.Lens' JobMetadata (Prelude.Maybe OnDeviceServiceConfiguration)
 jobMetadata_onDeviceServiceConfiguration = Lens.lens (\JobMetadata' {onDeviceServiceConfiguration} -> onDeviceServiceConfiguration) (\s@JobMetadata' {} a -> s {onDeviceServiceConfiguration = a} :: JobMetadata)
 
-instance Core.FromJSON JobMetadata where
+instance Data.FromJSON JobMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobMetadata"
       ( \x ->
           JobMetadata'
-            Prelude.<$> (x Core..:? "ShippingDetails")
-            Prelude.<*> (x Core..:? "RoleARN")
-            Prelude.<*> (x Core..:? "DeviceConfiguration")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "ForwardingAddressId")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "KmsKeyARN")
-            Prelude.<*> (x Core..:? "LongTermPricingId")
-            Prelude.<*> (x Core..:? "Notification")
-            Prelude.<*> (x Core..:? "DataTransferProgress")
-            Prelude.<*> (x Core..:? "RemoteManagement")
-            Prelude.<*> (x Core..:? "ClusterId")
-            Prelude.<*> (x Core..:? "JobState")
-            Prelude.<*> (x Core..:? "TaxDocuments")
-            Prelude.<*> (x Core..:? "Resources")
-            Prelude.<*> (x Core..:? "SnowballCapacityPreference")
-            Prelude.<*> (x Core..:? "AddressId")
-            Prelude.<*> (x Core..:? "SnowballType")
-            Prelude.<*> (x Core..:? "JobType")
-            Prelude.<*> (x Core..:? "JobLogInfo")
-            Prelude.<*> (x Core..:? "OnDeviceServiceConfiguration")
+            Prelude.<$> (x Data..:? "ShippingDetails")
+            Prelude.<*> (x Data..:? "RoleARN")
+            Prelude.<*> (x Data..:? "DeviceConfiguration")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "ForwardingAddressId")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "KmsKeyARN")
+            Prelude.<*> (x Data..:? "LongTermPricingId")
+            Prelude.<*> (x Data..:? "Notification")
+            Prelude.<*> (x Data..:? "DataTransferProgress")
+            Prelude.<*> (x Data..:? "RemoteManagement")
+            Prelude.<*> (x Data..:? "ClusterId")
+            Prelude.<*> (x Data..:? "JobState")
+            Prelude.<*> (x Data..:? "TaxDocuments")
+            Prelude.<*> (x Data..:? "Resources")
+            Prelude.<*> (x Data..:? "SnowballCapacityPreference")
+            Prelude.<*> (x Data..:? "AddressId")
+            Prelude.<*> (x Data..:? "SnowballType")
+            Prelude.<*> (x Data..:? "JobType")
+            Prelude.<*> (x Data..:? "JobLogInfo")
+            Prelude.<*> (x Data..:? "OnDeviceServiceConfiguration")
       )
 
 instance Prelude.Hashable JobMetadata where

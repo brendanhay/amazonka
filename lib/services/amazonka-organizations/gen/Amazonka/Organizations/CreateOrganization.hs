@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,7 +148,7 @@ instance Core.AWSRequest CreateOrganization where
     Response.receiveJSON
       ( \s h x ->
           CreateOrganizationResponse'
-            Prelude.<$> (x Core..?> "Organization")
+            Prelude.<$> (x Data..?> "Organization")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,32 +159,32 @@ instance Prelude.Hashable CreateOrganization where
 instance Prelude.NFData CreateOrganization where
   rnf CreateOrganization' {..} = Prelude.rnf featureSet
 
-instance Core.ToHeaders CreateOrganization where
+instance Data.ToHeaders CreateOrganization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.CreateOrganization" ::
+              Data.=# ( "AWSOrganizationsV20161128.CreateOrganization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateOrganization where
+instance Data.ToJSON CreateOrganization where
   toJSON CreateOrganization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("FeatureSet" Core..=) Prelude.<$> featureSet]
+          [("FeatureSet" Data..=) Prelude.<$> featureSet]
       )
 
-instance Core.ToPath CreateOrganization where
+instance Data.ToPath CreateOrganization where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateOrganization where
+instance Data.ToQuery CreateOrganization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateOrganizationResponse' smart constructor.

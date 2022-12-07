@@ -23,6 +23,7 @@ import Amazonka.ConnectCampaigns.Types.PredictiveDialerConfig
 import Amazonka.ConnectCampaigns.Types.ProgressiveDialerConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The possible types of dialer config parameters
@@ -62,14 +63,14 @@ dialerConfig_predictiveDialerConfig = Lens.lens (\DialerConfig' {predictiveDiale
 dialerConfig_progressiveDialerConfig :: Lens.Lens' DialerConfig (Prelude.Maybe ProgressiveDialerConfig)
 dialerConfig_progressiveDialerConfig = Lens.lens (\DialerConfig' {progressiveDialerConfig} -> progressiveDialerConfig) (\s@DialerConfig' {} a -> s {progressiveDialerConfig = a} :: DialerConfig)
 
-instance Core.FromJSON DialerConfig where
+instance Data.FromJSON DialerConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DialerConfig"
       ( \x ->
           DialerConfig'
-            Prelude.<$> (x Core..:? "predictiveDialerConfig")
-            Prelude.<*> (x Core..:? "progressiveDialerConfig")
+            Prelude.<$> (x Data..:? "predictiveDialerConfig")
+            Prelude.<*> (x Data..:? "progressiveDialerConfig")
       )
 
 instance Prelude.Hashable DialerConfig where
@@ -82,13 +83,13 @@ instance Prelude.NFData DialerConfig where
     Prelude.rnf predictiveDialerConfig
       `Prelude.seq` Prelude.rnf progressiveDialerConfig
 
-instance Core.ToJSON DialerConfig where
+instance Data.ToJSON DialerConfig where
   toJSON DialerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("predictiveDialerConfig" Core..=)
+          [ ("predictiveDialerConfig" Data..=)
               Prelude.<$> predictiveDialerConfig,
-            ("progressiveDialerConfig" Core..=)
+            ("progressiveDialerConfig" Data..=)
               Prelude.<$> progressiveDialerConfig
           ]
       )

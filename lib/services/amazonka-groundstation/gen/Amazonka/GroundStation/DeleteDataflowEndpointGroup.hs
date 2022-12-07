@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest DeleteDataflowEndpointGroup where
     Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable DeleteDataflowEndpointGroup where
   hashWithSalt _salt DeleteDataflowEndpointGroup' {..} =
@@ -97,23 +98,23 @@ instance Prelude.NFData DeleteDataflowEndpointGroup where
   rnf DeleteDataflowEndpointGroup' {..} =
     Prelude.rnf dataflowEndpointGroupId
 
-instance Core.ToHeaders DeleteDataflowEndpointGroup where
+instance Data.ToHeaders DeleteDataflowEndpointGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteDataflowEndpointGroup where
+instance Data.ToPath DeleteDataflowEndpointGroup where
   toPath DeleteDataflowEndpointGroup' {..} =
     Prelude.mconcat
       [ "/dataflowEndpointGroup/",
-        Core.toBS dataflowEndpointGroupId
+        Data.toBS dataflowEndpointGroupId
       ]
 
-instance Core.ToQuery DeleteDataflowEndpointGroup where
+instance Data.ToQuery DeleteDataflowEndpointGroup where
   toQuery = Prelude.const Prelude.mempty

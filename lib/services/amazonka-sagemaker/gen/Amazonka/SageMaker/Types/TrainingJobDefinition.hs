@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TrainingJobDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.Channel
 import Amazonka.SageMaker.Types.OutputDataConfig
@@ -145,20 +146,20 @@ trainingJobDefinition_resourceConfig = Lens.lens (\TrainingJobDefinition' {resou
 trainingJobDefinition_stoppingCondition :: Lens.Lens' TrainingJobDefinition StoppingCondition
 trainingJobDefinition_stoppingCondition = Lens.lens (\TrainingJobDefinition' {stoppingCondition} -> stoppingCondition) (\s@TrainingJobDefinition' {} a -> s {stoppingCondition = a} :: TrainingJobDefinition)
 
-instance Core.FromJSON TrainingJobDefinition where
+instance Data.FromJSON TrainingJobDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrainingJobDefinition"
       ( \x ->
           TrainingJobDefinition'
-            Prelude.<$> ( x Core..:? "HyperParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "HyperParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "TrainingInputMode")
-            Prelude.<*> (x Core..: "InputDataConfig")
-            Prelude.<*> (x Core..: "OutputDataConfig")
-            Prelude.<*> (x Core..: "ResourceConfig")
-            Prelude.<*> (x Core..: "StoppingCondition")
+            Prelude.<*> (x Data..: "TrainingInputMode")
+            Prelude.<*> (x Data..: "InputDataConfig")
+            Prelude.<*> (x Data..: "OutputDataConfig")
+            Prelude.<*> (x Data..: "ResourceConfig")
+            Prelude.<*> (x Data..: "StoppingCondition")
       )
 
 instance Prelude.Hashable TrainingJobDefinition where
@@ -179,21 +180,21 @@ instance Prelude.NFData TrainingJobDefinition where
       `Prelude.seq` Prelude.rnf resourceConfig
       `Prelude.seq` Prelude.rnf stoppingCondition
 
-instance Core.ToJSON TrainingJobDefinition where
+instance Data.ToJSON TrainingJobDefinition where
   toJSON TrainingJobDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HyperParameters" Core..=)
+          [ ("HyperParameters" Data..=)
               Prelude.<$> hyperParameters,
             Prelude.Just
-              ("TrainingInputMode" Core..= trainingInputMode),
+              ("TrainingInputMode" Data..= trainingInputMode),
             Prelude.Just
-              ("InputDataConfig" Core..= inputDataConfig),
+              ("InputDataConfig" Data..= inputDataConfig),
             Prelude.Just
-              ("OutputDataConfig" Core..= outputDataConfig),
+              ("OutputDataConfig" Data..= outputDataConfig),
             Prelude.Just
-              ("ResourceConfig" Core..= resourceConfig),
+              ("ResourceConfig" Data..= resourceConfig),
             Prelude.Just
-              ("StoppingCondition" Core..= stoppingCondition)
+              ("StoppingCondition" Data..= stoppingCondition)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.ExpenseGroupProperty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Shows the group that a certain key belongs to. This helps differentiate
@@ -66,14 +67,14 @@ expenseGroupProperty_id = Lens.lens (\ExpenseGroupProperty' {id} -> id) (\s@Expe
 expenseGroupProperty_types :: Lens.Lens' ExpenseGroupProperty (Prelude.Maybe [Prelude.Text])
 expenseGroupProperty_types = Lens.lens (\ExpenseGroupProperty' {types} -> types) (\s@ExpenseGroupProperty' {} a -> s {types = a} :: ExpenseGroupProperty) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ExpenseGroupProperty where
+instance Data.FromJSON ExpenseGroupProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExpenseGroupProperty"
       ( \x ->
           ExpenseGroupProperty'
-            Prelude.<$> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Types" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Types" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ExpenseGroupProperty where

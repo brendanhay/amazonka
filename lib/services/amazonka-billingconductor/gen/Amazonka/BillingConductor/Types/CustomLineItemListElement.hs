@@ -23,6 +23,7 @@ import Amazonka.BillingConductor.Types.CurrencyCode
 import Amazonka.BillingConductor.Types.ListCustomLineItemChargeDetails
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of a custom line item.
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newCustomLineItemListElement' smart constructor.
 data CustomLineItemListElement = CustomLineItemListElement'
   { -- | The custom line item\'s name.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A @ListCustomLineItemChargeDetails@ that describes the charge details of
     -- a custom line item.
     chargeDetails :: Prelude.Maybe ListCustomLineItemChargeDetails,
@@ -45,7 +46,7 @@ data CustomLineItemListElement = CustomLineItemListElement'
     productCode :: Prelude.Maybe Prelude.Text,
     -- | The custom line item\'s description. This is shown on the Bills page in
     -- association with the charge value.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The custom line item\'s charge value currency. Only one of the valid
     -- values can be used.
     currencyCode :: Prelude.Maybe CurrencyCode,
@@ -105,7 +106,7 @@ newCustomLineItemListElement =
 
 -- | The custom line item\'s name.
 customLineItemListElement_name :: Lens.Lens' CustomLineItemListElement (Prelude.Maybe Prelude.Text)
-customLineItemListElement_name = Lens.lens (\CustomLineItemListElement' {name} -> name) (\s@CustomLineItemListElement' {} a -> s {name = a} :: CustomLineItemListElement) Prelude.. Lens.mapping Core._Sensitive
+customLineItemListElement_name = Lens.lens (\CustomLineItemListElement' {name} -> name) (\s@CustomLineItemListElement' {} a -> s {name = a} :: CustomLineItemListElement) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A @ListCustomLineItemChargeDetails@ that describes the charge details of
 -- a custom line item.
@@ -132,7 +133,7 @@ customLineItemListElement_productCode = Lens.lens (\CustomLineItemListElement' {
 -- | The custom line item\'s description. This is shown on the Bills page in
 -- association with the charge value.
 customLineItemListElement_description :: Lens.Lens' CustomLineItemListElement (Prelude.Maybe Prelude.Text)
-customLineItemListElement_description = Lens.lens (\CustomLineItemListElement' {description} -> description) (\s@CustomLineItemListElement' {} a -> s {description = a} :: CustomLineItemListElement) Prelude.. Lens.mapping Core._Sensitive
+customLineItemListElement_description = Lens.lens (\CustomLineItemListElement' {description} -> description) (\s@CustomLineItemListElement' {} a -> s {description = a} :: CustomLineItemListElement) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The custom line item\'s charge value currency. Only one of the valid
 -- values can be used.
@@ -147,22 +148,22 @@ customLineItemListElement_lastModifiedTime = Lens.lens (\CustomLineItemListEleme
 customLineItemListElement_creationTime :: Lens.Lens' CustomLineItemListElement (Prelude.Maybe Prelude.Integer)
 customLineItemListElement_creationTime = Lens.lens (\CustomLineItemListElement' {creationTime} -> creationTime) (\s@CustomLineItemListElement' {} a -> s {creationTime = a} :: CustomLineItemListElement)
 
-instance Core.FromJSON CustomLineItemListElement where
+instance Data.FromJSON CustomLineItemListElement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomLineItemListElement"
       ( \x ->
           CustomLineItemListElement'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ChargeDetails")
-            Prelude.<*> (x Core..:? "BillingGroupArn")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "AssociationSize")
-            Prelude.<*> (x Core..:? "ProductCode")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CurrencyCode")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ChargeDetails")
+            Prelude.<*> (x Data..:? "BillingGroupArn")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "AssociationSize")
+            Prelude.<*> (x Data..:? "ProductCode")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CurrencyCode")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable CustomLineItemListElement where

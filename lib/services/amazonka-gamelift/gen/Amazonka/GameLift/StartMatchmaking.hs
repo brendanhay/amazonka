@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,7 +165,7 @@ instance Core.AWSRequest StartMatchmaking where
     Response.receiveJSON
       ( \s h x ->
           StartMatchmakingResponse'
-            Prelude.<$> (x Core..?> "MatchmakingTicket")
+            Prelude.<$> (x Data..?> "MatchmakingTicket")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,34 +181,34 @@ instance Prelude.NFData StartMatchmaking where
       `Prelude.seq` Prelude.rnf configurationName
       `Prelude.seq` Prelude.rnf players
 
-instance Core.ToHeaders StartMatchmaking where
+instance Data.ToHeaders StartMatchmaking where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.StartMatchmaking" :: Prelude.ByteString),
+              Data.=# ("GameLift.StartMatchmaking" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartMatchmaking where
+instance Data.ToJSON StartMatchmaking where
   toJSON StartMatchmaking' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TicketId" Core..=) Prelude.<$> ticketId,
+          [ ("TicketId" Data..=) Prelude.<$> ticketId,
             Prelude.Just
-              ("ConfigurationName" Core..= configurationName),
-            Prelude.Just ("Players" Core..= players)
+              ("ConfigurationName" Data..= configurationName),
+            Prelude.Just ("Players" Data..= players)
           ]
       )
 
-instance Core.ToPath StartMatchmaking where
+instance Data.ToPath StartMatchmaking where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartMatchmaking where
+instance Data.ToQuery StartMatchmaking where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

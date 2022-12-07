@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,11 +134,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateOutboundCrossClusterSearchConnectionResponse'
-            Prelude.<$> (x Core..?> "ConnectionAlias")
-              Prelude.<*> (x Core..?> "CrossClusterSearchConnectionId")
-              Prelude.<*> (x Core..?> "SourceDomainInfo")
-              Prelude.<*> (x Core..?> "ConnectionStatus")
-              Prelude.<*> (x Core..?> "DestinationDomainInfo")
+            Prelude.<$> (x Data..?> "ConnectionAlias")
+              Prelude.<*> (x Data..?> "CrossClusterSearchConnectionId")
+              Prelude.<*> (x Data..?> "SourceDomainInfo")
+              Prelude.<*> (x Data..?> "ConnectionStatus")
+              Prelude.<*> (x Data..?> "DestinationDomainInfo")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,32 +163,32 @@ instance
       `Prelude.seq` Prelude.rnf connectionAlias
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateOutboundCrossClusterSearchConnection
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateOutboundCrossClusterSearchConnection
   where
   toJSON
     CreateOutboundCrossClusterSearchConnection' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
             [ Prelude.Just
-                ("SourceDomainInfo" Core..= sourceDomainInfo),
+                ("SourceDomainInfo" Data..= sourceDomainInfo),
               Prelude.Just
                 ( "DestinationDomainInfo"
-                    Core..= destinationDomainInfo
+                    Data..= destinationDomainInfo
                 ),
               Prelude.Just
-                ("ConnectionAlias" Core..= connectionAlias)
+                ("ConnectionAlias" Data..= connectionAlias)
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateOutboundCrossClusterSearchConnection
   where
   toPath =
@@ -195,7 +196,7 @@ instance
       "/2015-01-01/es/ccs/outboundConnection"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateOutboundCrossClusterSearchConnection
   where
   toQuery = Prelude.const Prelude.mempty

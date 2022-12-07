@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.PortalResource
 import Amazonka.IoTSiteWise.Types.ProjectResource
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ resource_project = Lens.lens (\Resource' {project} -> project) (\s@Resource' {} 
 resource_portal :: Lens.Lens' Resource (Prelude.Maybe PortalResource)
 resource_portal = Lens.lens (\Resource' {portal} -> portal) (\s@Resource' {} a -> s {portal = a} :: Resource)
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "project")
-            Prelude.<*> (x Core..:? "portal")
+            Prelude.<$> (x Data..:? "project")
+            Prelude.<*> (x Data..:? "portal")
       )
 
 instance Prelude.Hashable Resource where
@@ -83,11 +84,11 @@ instance Prelude.NFData Resource where
     Prelude.rnf project
       `Prelude.seq` Prelude.rnf portal
 
-instance Core.ToJSON Resource where
+instance Data.ToJSON Resource where
   toJSON Resource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("project" Core..=) Prelude.<$> project,
-            ("portal" Core..=) Prelude.<$> portal
+          [ ("project" Data..=) Prelude.<$> project,
+            ("portal" Data..=) Prelude.<$> portal
           ]
       )

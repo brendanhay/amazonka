@@ -202,6 +202,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -1037,7 +1038,7 @@ instance Core.AWSRequest CreateKey where
     Response.receiveJSON
       ( \s h x ->
           CreateKeyResponse'
-            Prelude.<$> (x Core..?> "KeyMetadata")
+            Prelude.<$> (x Data..?> "KeyMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -1067,43 +1068,43 @@ instance Prelude.NFData CreateKey where
       `Prelude.seq` Prelude.rnf bypassPolicyLockoutSafetyCheck
       `Prelude.seq` Prelude.rnf origin
 
-instance Core.ToHeaders CreateKey where
+instance Data.ToHeaders CreateKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.CreateKey" :: Prelude.ByteString),
+              Data.=# ("TrentService.CreateKey" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateKey where
+instance Data.ToJSON CreateKey where
   toJSON CreateKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Policy" Core..=) Prelude.<$> policy,
-            ("CustomKeyStoreId" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Policy" Data..=) Prelude.<$> policy,
+            ("CustomKeyStoreId" Data..=)
               Prelude.<$> customKeyStoreId,
-            ("CustomerMasterKeySpec" Core..=)
+            ("CustomerMasterKeySpec" Data..=)
               Prelude.<$> customerMasterKeySpec,
-            ("KeyUsage" Core..=) Prelude.<$> keyUsage,
-            ("Description" Core..=) Prelude.<$> description,
-            ("MultiRegion" Core..=) Prelude.<$> multiRegion,
-            ("KeySpec" Core..=) Prelude.<$> keySpec,
-            ("BypassPolicyLockoutSafetyCheck" Core..=)
+            ("KeyUsage" Data..=) Prelude.<$> keyUsage,
+            ("Description" Data..=) Prelude.<$> description,
+            ("MultiRegion" Data..=) Prelude.<$> multiRegion,
+            ("KeySpec" Data..=) Prelude.<$> keySpec,
+            ("BypassPolicyLockoutSafetyCheck" Data..=)
               Prelude.<$> bypassPolicyLockoutSafetyCheck,
-            ("Origin" Core..=) Prelude.<$> origin
+            ("Origin" Data..=) Prelude.<$> origin
           ]
       )
 
-instance Core.ToPath CreateKey where
+instance Data.ToPath CreateKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateKey where
+instance Data.ToQuery CreateKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateKeyResponse' smart constructor.

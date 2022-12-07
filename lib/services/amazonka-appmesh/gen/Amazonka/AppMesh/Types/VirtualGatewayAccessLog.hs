@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.VirtualGatewayAccessLog where
 import Amazonka.AppMesh.Types.VirtualGatewayFileAccessLog
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The access log configuration for a virtual gateway.
@@ -51,13 +52,13 @@ newVirtualGatewayAccessLog =
 virtualGatewayAccessLog_file :: Lens.Lens' VirtualGatewayAccessLog (Prelude.Maybe VirtualGatewayFileAccessLog)
 virtualGatewayAccessLog_file = Lens.lens (\VirtualGatewayAccessLog' {file} -> file) (\s@VirtualGatewayAccessLog' {} a -> s {file = a} :: VirtualGatewayAccessLog)
 
-instance Core.FromJSON VirtualGatewayAccessLog where
+instance Data.FromJSON VirtualGatewayAccessLog where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewayAccessLog"
       ( \x ->
           VirtualGatewayAccessLog'
-            Prelude.<$> (x Core..:? "file")
+            Prelude.<$> (x Data..:? "file")
       )
 
 instance Prelude.Hashable VirtualGatewayAccessLog where
@@ -67,9 +68,9 @@ instance Prelude.Hashable VirtualGatewayAccessLog where
 instance Prelude.NFData VirtualGatewayAccessLog where
   rnf VirtualGatewayAccessLog' {..} = Prelude.rnf file
 
-instance Core.ToJSON VirtualGatewayAccessLog where
+instance Data.ToJSON VirtualGatewayAccessLog where
   toJSON VirtualGatewayAccessLog' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("file" Core..=) Prelude.<$> file]
+          [("file" Data..=) Prelude.<$> file]
       )

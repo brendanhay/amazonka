@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -247,10 +248,10 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeTransitGatewayPeeringAttachmentsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-              Prelude.<*> ( x Core..@? "transitGatewayPeeringAttachments"
+            Prelude.<$> (x Data..@? "nextToken")
+              Prelude.<*> ( x Data..@? "transitGatewayPeeringAttachments"
                               Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                              Prelude.>>= Core.may (Data.parseXMLList "item")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -280,36 +281,36 @@ instance
       `Prelude.seq` Prelude.rnf transitGatewayAttachmentIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeTransitGatewayPeeringAttachments
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeTransitGatewayPeeringAttachments
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeTransitGatewayPeeringAttachments
   where
   toQuery DescribeTransitGatewayPeeringAttachments' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeTransitGatewayPeeringAttachments" ::
+          Data.=: ( "DescribeTransitGatewayPeeringAttachments" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          ( Core.toQueryList "TransitGatewayAttachmentIds"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          ( Data.toQueryList "TransitGatewayAttachmentIds"
               Prelude.<$> transitGatewayAttachmentIds
           )
       ]

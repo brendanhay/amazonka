@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.OutlierDetection where
 import Amazonka.AppMesh.Types.Duration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the outlier detection for a virtual node\'s
@@ -100,16 +101,16 @@ outlierDetection_maxEjectionPercent = Lens.lens (\OutlierDetection' {maxEjection
 outlierDetection_maxServerErrors :: Lens.Lens' OutlierDetection Prelude.Natural
 outlierDetection_maxServerErrors = Lens.lens (\OutlierDetection' {maxServerErrors} -> maxServerErrors) (\s@OutlierDetection' {} a -> s {maxServerErrors = a} :: OutlierDetection)
 
-instance Core.FromJSON OutlierDetection where
+instance Data.FromJSON OutlierDetection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutlierDetection"
       ( \x ->
           OutlierDetection'
-            Prelude.<$> (x Core..: "baseEjectionDuration")
-            Prelude.<*> (x Core..: "interval")
-            Prelude.<*> (x Core..: "maxEjectionPercent")
-            Prelude.<*> (x Core..: "maxServerErrors")
+            Prelude.<$> (x Data..: "baseEjectionDuration")
+            Prelude.<*> (x Data..: "interval")
+            Prelude.<*> (x Data..: "maxEjectionPercent")
+            Prelude.<*> (x Data..: "maxServerErrors")
       )
 
 instance Prelude.Hashable OutlierDetection where
@@ -126,18 +127,18 @@ instance Prelude.NFData OutlierDetection where
       `Prelude.seq` Prelude.rnf maxEjectionPercent
       `Prelude.seq` Prelude.rnf maxServerErrors
 
-instance Core.ToJSON OutlierDetection where
+instance Data.ToJSON OutlierDetection where
   toJSON OutlierDetection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "baseEjectionDuration"
-                  Core..= baseEjectionDuration
+                  Data..= baseEjectionDuration
               ),
-            Prelude.Just ("interval" Core..= interval),
+            Prelude.Just ("interval" Data..= interval),
             Prelude.Just
-              ("maxEjectionPercent" Core..= maxEjectionPercent),
+              ("maxEjectionPercent" Data..= maxEjectionPercent),
             Prelude.Just
-              ("maxServerErrors" Core..= maxServerErrors)
+              ("maxServerErrors" Data..= maxServerErrors)
           ]
       )

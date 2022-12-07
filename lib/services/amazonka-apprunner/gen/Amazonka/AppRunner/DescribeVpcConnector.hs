@@ -42,6 +42,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,7 +97,7 @@ instance Core.AWSRequest DescribeVpcConnector where
       ( \s h x ->
           DescribeVpcConnectorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "VpcConnector")
+            Prelude.<*> (x Data..:> "VpcConnector")
       )
 
 instance Prelude.Hashable DescribeVpcConnector where
@@ -107,34 +108,34 @@ instance Prelude.NFData DescribeVpcConnector where
   rnf DescribeVpcConnector' {..} =
     Prelude.rnf vpcConnectorArn
 
-instance Core.ToHeaders DescribeVpcConnector where
+instance Data.ToHeaders DescribeVpcConnector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.DescribeVpcConnector" ::
+              Data.=# ( "AppRunner.DescribeVpcConnector" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeVpcConnector where
+instance Data.ToJSON DescribeVpcConnector where
   toJSON DescribeVpcConnector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("VpcConnectorArn" Core..= vpcConnectorArn)
+              ("VpcConnectorArn" Data..= vpcConnectorArn)
           ]
       )
 
-instance Core.ToPath DescribeVpcConnector where
+instance Data.ToPath DescribeVpcConnector where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVpcConnector where
+instance Data.ToQuery DescribeVpcConnector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeVpcConnectorResponse' smart constructor.

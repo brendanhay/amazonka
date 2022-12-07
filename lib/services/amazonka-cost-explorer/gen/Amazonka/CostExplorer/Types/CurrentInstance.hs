@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.ResourceDetails
 import Amazonka.CostExplorer.Types.ResourceUtilization
 import Amazonka.CostExplorer.Types.TagValues
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Context about the current instance.
@@ -171,27 +172,27 @@ currentInstance_monthlyCost = Lens.lens (\CurrentInstance' {monthlyCost} -> mont
 currentInstance_onDemandHoursInLookbackPeriod :: Lens.Lens' CurrentInstance (Prelude.Maybe Prelude.Text)
 currentInstance_onDemandHoursInLookbackPeriod = Lens.lens (\CurrentInstance' {onDemandHoursInLookbackPeriod} -> onDemandHoursInLookbackPeriod) (\s@CurrentInstance' {} a -> s {onDemandHoursInLookbackPeriod = a} :: CurrentInstance)
 
-instance Core.FromJSON CurrentInstance where
+instance Data.FromJSON CurrentInstance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CurrentInstance"
       ( \x ->
           CurrentInstance'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
             Prelude.<*> ( x
-                            Core..:? "SavingsPlansCoveredHoursInLookbackPeriod"
+                            Data..:? "SavingsPlansCoveredHoursInLookbackPeriod"
                         )
-            Prelude.<*> (x Core..:? "InstanceName")
+            Prelude.<*> (x Data..:? "InstanceName")
             Prelude.<*> ( x
-                            Core..:? "ReservationCoveredHoursInLookbackPeriod"
+                            Data..:? "ReservationCoveredHoursInLookbackPeriod"
                         )
-            Prelude.<*> (x Core..:? "TotalRunningHoursInLookbackPeriod")
-            Prelude.<*> (x Core..:? "ResourceDetails")
-            Prelude.<*> (x Core..:? "CurrencyCode")
-            Prelude.<*> (x Core..:? "ResourceUtilization")
-            Prelude.<*> (x Core..:? "MonthlyCost")
-            Prelude.<*> (x Core..:? "OnDemandHoursInLookbackPeriod")
+            Prelude.<*> (x Data..:? "TotalRunningHoursInLookbackPeriod")
+            Prelude.<*> (x Data..:? "ResourceDetails")
+            Prelude.<*> (x Data..:? "CurrencyCode")
+            Prelude.<*> (x Data..:? "ResourceUtilization")
+            Prelude.<*> (x Data..:? "MonthlyCost")
+            Prelude.<*> (x Data..:? "OnDemandHoursInLookbackPeriod")
       )
 
 instance Prelude.Hashable CurrentInstance where

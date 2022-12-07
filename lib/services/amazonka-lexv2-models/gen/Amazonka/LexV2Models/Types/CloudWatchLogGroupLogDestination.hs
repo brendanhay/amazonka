@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.CloudWatchLogGroupLogDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon CloudWatch Logs log group where the text and metadata logs
@@ -76,16 +77,16 @@ cloudWatchLogGroupLogDestination_logPrefix :: Lens.Lens' CloudWatchLogGroupLogDe
 cloudWatchLogGroupLogDestination_logPrefix = Lens.lens (\CloudWatchLogGroupLogDestination' {logPrefix} -> logPrefix) (\s@CloudWatchLogGroupLogDestination' {} a -> s {logPrefix = a} :: CloudWatchLogGroupLogDestination)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CloudWatchLogGroupLogDestination
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchLogGroupLogDestination"
       ( \x ->
           CloudWatchLogGroupLogDestination'
-            Prelude.<$> (x Core..: "cloudWatchLogGroupArn")
-            Prelude.<*> (x Core..: "logPrefix")
+            Prelude.<$> (x Data..: "cloudWatchLogGroupArn")
+            Prelude.<*> (x Data..: "logPrefix")
       )
 
 instance
@@ -106,14 +107,14 @@ instance
     Prelude.rnf cloudWatchLogGroupArn
       `Prelude.seq` Prelude.rnf logPrefix
 
-instance Core.ToJSON CloudWatchLogGroupLogDestination where
+instance Data.ToJSON CloudWatchLogGroupLogDestination where
   toJSON CloudWatchLogGroupLogDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "cloudWatchLogGroupArn"
-                  Core..= cloudWatchLogGroupArn
+                  Data..= cloudWatchLogGroupArn
               ),
-            Prelude.Just ("logPrefix" Core..= logPrefix)
+            Prelude.Just ("logPrefix" Data..= logPrefix)
           ]
       )

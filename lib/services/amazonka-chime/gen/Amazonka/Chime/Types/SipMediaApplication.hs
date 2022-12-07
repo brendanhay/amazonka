@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.SipMediaApplication where
 import Amazonka.Chime.Types.SipMediaApplicationEndpoint
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the SIP media application, including name and endpoints.
@@ -32,9 +33,9 @@ data SipMediaApplication = SipMediaApplication'
   { -- | The name of the SIP media application.
     name :: Prelude.Maybe Prelude.Text,
     -- | The SIP media application creation timestamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The SIP media application updated timestamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | List of endpoints for SIP media application. Currently, only one
     -- endpoint per SIP media application is permitted.
     endpoints :: Prelude.Maybe (Prelude.NonEmpty SipMediaApplicationEndpoint),
@@ -83,11 +84,11 @@ sipMediaApplication_name = Lens.lens (\SipMediaApplication' {name} -> name) (\s@
 
 -- | The SIP media application creation timestamp, in ISO 8601 format.
 sipMediaApplication_createdTimestamp :: Lens.Lens' SipMediaApplication (Prelude.Maybe Prelude.UTCTime)
-sipMediaApplication_createdTimestamp = Lens.lens (\SipMediaApplication' {createdTimestamp} -> createdTimestamp) (\s@SipMediaApplication' {} a -> s {createdTimestamp = a} :: SipMediaApplication) Prelude.. Lens.mapping Core._Time
+sipMediaApplication_createdTimestamp = Lens.lens (\SipMediaApplication' {createdTimestamp} -> createdTimestamp) (\s@SipMediaApplication' {} a -> s {createdTimestamp = a} :: SipMediaApplication) Prelude.. Lens.mapping Data._Time
 
 -- | The SIP media application updated timestamp, in ISO 8601 format.
 sipMediaApplication_updatedTimestamp :: Lens.Lens' SipMediaApplication (Prelude.Maybe Prelude.UTCTime)
-sipMediaApplication_updatedTimestamp = Lens.lens (\SipMediaApplication' {updatedTimestamp} -> updatedTimestamp) (\s@SipMediaApplication' {} a -> s {updatedTimestamp = a} :: SipMediaApplication) Prelude.. Lens.mapping Core._Time
+sipMediaApplication_updatedTimestamp = Lens.lens (\SipMediaApplication' {updatedTimestamp} -> updatedTimestamp) (\s@SipMediaApplication' {} a -> s {updatedTimestamp = a} :: SipMediaApplication) Prelude.. Lens.mapping Data._Time
 
 -- | List of endpoints for SIP media application. Currently, only one
 -- endpoint per SIP media application is permitted.
@@ -102,18 +103,18 @@ sipMediaApplication_awsRegion = Lens.lens (\SipMediaApplication' {awsRegion} -> 
 sipMediaApplication_sipMediaApplicationId :: Lens.Lens' SipMediaApplication (Prelude.Maybe Prelude.Text)
 sipMediaApplication_sipMediaApplicationId = Lens.lens (\SipMediaApplication' {sipMediaApplicationId} -> sipMediaApplicationId) (\s@SipMediaApplication' {} a -> s {sipMediaApplicationId = a} :: SipMediaApplication)
 
-instance Core.FromJSON SipMediaApplication where
+instance Data.FromJSON SipMediaApplication where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SipMediaApplication"
       ( \x ->
           SipMediaApplication'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "UpdatedTimestamp")
-            Prelude.<*> (x Core..:? "Endpoints")
-            Prelude.<*> (x Core..:? "AwsRegion")
-            Prelude.<*> (x Core..:? "SipMediaApplicationId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
+            Prelude.<*> (x Data..:? "Endpoints")
+            Prelude.<*> (x Data..:? "AwsRegion")
+            Prelude.<*> (x Data..:? "SipMediaApplicationId")
       )
 
 instance Prelude.Hashable SipMediaApplication where

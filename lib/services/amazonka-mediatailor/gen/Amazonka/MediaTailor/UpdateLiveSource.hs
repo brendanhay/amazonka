@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,13 +120,13 @@ instance Core.AWSRequest UpdateLiveSource where
     Response.receiveJSON
       ( \s h x ->
           UpdateLiveSourceResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "LiveSourceName")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "SourceLocationName")
-            Prelude.<*> ( x Core..?> "HttpPackageConfigurations"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "LiveSourceName")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "SourceLocationName")
+            Prelude.<*> ( x Data..?> "HttpPackageConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -144,38 +145,38 @@ instance Prelude.NFData UpdateLiveSource where
       `Prelude.seq` Prelude.rnf liveSourceName
       `Prelude.seq` Prelude.rnf sourceLocationName
 
-instance Core.ToHeaders UpdateLiveSource where
+instance Data.ToHeaders UpdateLiveSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLiveSource where
+instance Data.ToJSON UpdateLiveSource where
   toJSON UpdateLiveSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "HttpPackageConfigurations"
-                  Core..= httpPackageConfigurations
+                  Data..= httpPackageConfigurations
               )
           ]
       )
 
-instance Core.ToPath UpdateLiveSource where
+instance Data.ToPath UpdateLiveSource where
   toPath UpdateLiveSource' {..} =
     Prelude.mconcat
       [ "/sourceLocation/",
-        Core.toBS sourceLocationName,
+        Data.toBS sourceLocationName,
         "/liveSource/",
-        Core.toBS liveSourceName
+        Data.toBS liveSourceName
       ]
 
-instance Core.ToQuery UpdateLiveSource where
+instance Data.ToQuery UpdateLiveSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLiveSourceResponse' smart constructor.
@@ -190,9 +191,9 @@ data UpdateLiveSourceResponse = UpdateLiveSourceResponse'
     -- | The Amazon Resource Name (ARN) associated with this live source.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp that indicates when the live source was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp that indicates when the live source was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the source location associated with the live source.
     sourceLocationName :: Prelude.Maybe Prelude.Text,
     -- | A list of HTTP package configurations for the live source on this
@@ -263,11 +264,11 @@ updateLiveSourceResponse_arn = Lens.lens (\UpdateLiveSourceResponse' {arn} -> ar
 
 -- | The timestamp that indicates when the live source was last modified.
 updateLiveSourceResponse_lastModifiedTime :: Lens.Lens' UpdateLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
-updateLiveSourceResponse_lastModifiedTime = Lens.lens (\UpdateLiveSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateLiveSourceResponse' {} a -> s {lastModifiedTime = a} :: UpdateLiveSourceResponse) Prelude.. Lens.mapping Core._Time
+updateLiveSourceResponse_lastModifiedTime = Lens.lens (\UpdateLiveSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateLiveSourceResponse' {} a -> s {lastModifiedTime = a} :: UpdateLiveSourceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp that indicates when the live source was created.
 updateLiveSourceResponse_creationTime :: Lens.Lens' UpdateLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
-updateLiveSourceResponse_creationTime = Lens.lens (\UpdateLiveSourceResponse' {creationTime} -> creationTime) (\s@UpdateLiveSourceResponse' {} a -> s {creationTime = a} :: UpdateLiveSourceResponse) Prelude.. Lens.mapping Core._Time
+updateLiveSourceResponse_creationTime = Lens.lens (\UpdateLiveSourceResponse' {creationTime} -> creationTime) (\s@UpdateLiveSourceResponse' {} a -> s {creationTime = a} :: UpdateLiveSourceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the source location associated with the live source.
 updateLiveSourceResponse_sourceLocationName :: Lens.Lens' UpdateLiveSourceResponse (Prelude.Maybe Prelude.Text)

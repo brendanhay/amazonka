@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayPolicyRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.TransitGatewayPolicyRuleMetaData
 import qualified Amazonka.Prelude as Prelude
@@ -106,15 +107,15 @@ transitGatewayPolicyRule_protocol = Lens.lens (\TransitGatewayPolicyRule' {proto
 transitGatewayPolicyRule_sourcePortRange :: Lens.Lens' TransitGatewayPolicyRule (Prelude.Maybe Prelude.Text)
 transitGatewayPolicyRule_sourcePortRange = Lens.lens (\TransitGatewayPolicyRule' {sourcePortRange} -> sourcePortRange) (\s@TransitGatewayPolicyRule' {} a -> s {sourcePortRange = a} :: TransitGatewayPolicyRule)
 
-instance Core.FromXML TransitGatewayPolicyRule where
+instance Data.FromXML TransitGatewayPolicyRule where
   parseXML x =
     TransitGatewayPolicyRule'
-      Prelude.<$> (x Core..@? "metaData")
-      Prelude.<*> (x Core..@? "destinationCidrBlock")
-      Prelude.<*> (x Core..@? "destinationPortRange")
-      Prelude.<*> (x Core..@? "sourceCidrBlock")
-      Prelude.<*> (x Core..@? "protocol")
-      Prelude.<*> (x Core..@? "sourcePortRange")
+      Prelude.<$> (x Data..@? "metaData")
+      Prelude.<*> (x Data..@? "destinationCidrBlock")
+      Prelude.<*> (x Data..@? "destinationPortRange")
+      Prelude.<*> (x Data..@? "sourceCidrBlock")
+      Prelude.<*> (x Data..@? "protocol")
+      Prelude.<*> (x Data..@? "sourcePortRange")
 
 instance Prelude.Hashable TransitGatewayPolicyRule where
   hashWithSalt _salt TransitGatewayPolicyRule' {..} =

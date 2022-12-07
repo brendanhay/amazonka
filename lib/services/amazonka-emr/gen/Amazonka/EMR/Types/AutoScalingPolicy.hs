@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.AutoScalingPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.ScalingConstraints
 import Amazonka.EMR.Types.ScalingRule
 import qualified Amazonka.Prelude as Prelude
@@ -87,11 +88,11 @@ instance Prelude.NFData AutoScalingPolicy where
     Prelude.rnf constraints
       `Prelude.seq` Prelude.rnf rules
 
-instance Core.ToJSON AutoScalingPolicy where
+instance Data.ToJSON AutoScalingPolicy where
   toJSON AutoScalingPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Constraints" Core..= constraints),
-            Prelude.Just ("Rules" Core..= rules)
+          [ Prelude.Just ("Constraints" Data..= constraints),
+            Prelude.Just ("Rules" Data..= rules)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.APIGateway.Types.CanarySettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration settings of a canary deployment.
@@ -91,18 +92,18 @@ canarySettings_stageVariableOverrides = Lens.lens (\CanarySettings' {stageVariab
 canarySettings_percentTraffic :: Lens.Lens' CanarySettings (Prelude.Maybe Prelude.Double)
 canarySettings_percentTraffic = Lens.lens (\CanarySettings' {percentTraffic} -> percentTraffic) (\s@CanarySettings' {} a -> s {percentTraffic = a} :: CanarySettings)
 
-instance Core.FromJSON CanarySettings where
+instance Data.FromJSON CanarySettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CanarySettings"
       ( \x ->
           CanarySettings'
-            Prelude.<$> (x Core..:? "deploymentId")
-            Prelude.<*> (x Core..:? "useStageCache")
-            Prelude.<*> ( x Core..:? "stageVariableOverrides"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "deploymentId")
+            Prelude.<*> (x Data..:? "useStageCache")
+            Prelude.<*> ( x Data..:? "stageVariableOverrides"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "percentTraffic")
+            Prelude.<*> (x Data..:? "percentTraffic")
       )
 
 instance Prelude.Hashable CanarySettings where
@@ -119,15 +120,15 @@ instance Prelude.NFData CanarySettings where
       `Prelude.seq` Prelude.rnf stageVariableOverrides
       `Prelude.seq` Prelude.rnf percentTraffic
 
-instance Core.ToJSON CanarySettings where
+instance Data.ToJSON CanarySettings where
   toJSON CanarySettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deploymentId" Core..=) Prelude.<$> deploymentId,
-            ("useStageCache" Core..=) Prelude.<$> useStageCache,
-            ("stageVariableOverrides" Core..=)
+          [ ("deploymentId" Data..=) Prelude.<$> deploymentId,
+            ("useStageCache" Data..=) Prelude.<$> useStageCache,
+            ("stageVariableOverrides" Data..=)
               Prelude.<$> stageVariableOverrides,
-            ("percentTraffic" Core..=)
+            ("percentTraffic" Data..=)
               Prelude.<$> percentTraffic
           ]
       )

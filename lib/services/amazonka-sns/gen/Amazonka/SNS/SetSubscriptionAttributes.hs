@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -235,22 +236,22 @@ instance Prelude.NFData SetSubscriptionAttributes where
       `Prelude.seq` Prelude.rnf subscriptionArn
       `Prelude.seq` Prelude.rnf attributeName
 
-instance Core.ToHeaders SetSubscriptionAttributes where
+instance Data.ToHeaders SetSubscriptionAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SetSubscriptionAttributes where
+instance Data.ToPath SetSubscriptionAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetSubscriptionAttributes where
+instance Data.ToQuery SetSubscriptionAttributes where
   toQuery SetSubscriptionAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SetSubscriptionAttributes" :: Prelude.ByteString),
+          Data.=: ("SetSubscriptionAttributes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "AttributeValue" Core.=: attributeValue,
-        "SubscriptionArn" Core.=: subscriptionArn,
-        "AttributeName" Core.=: attributeName
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "AttributeValue" Data.=: attributeValue,
+        "SubscriptionArn" Data.=: subscriptionArn,
+        "AttributeName" Data.=: attributeName
       ]
 
 -- | /See:/ 'newSetSubscriptionAttributesResponse' smart constructor.

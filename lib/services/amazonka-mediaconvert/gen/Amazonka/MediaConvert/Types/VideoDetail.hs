@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.VideoDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about the output\'s video stream
@@ -61,14 +62,14 @@ videoDetail_widthInPx = Lens.lens (\VideoDetail' {widthInPx} -> widthInPx) (\s@V
 videoDetail_heightInPx :: Lens.Lens' VideoDetail (Prelude.Maybe Prelude.Int)
 videoDetail_heightInPx = Lens.lens (\VideoDetail' {heightInPx} -> heightInPx) (\s@VideoDetail' {} a -> s {heightInPx = a} :: VideoDetail)
 
-instance Core.FromJSON VideoDetail where
+instance Data.FromJSON VideoDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VideoDetail"
       ( \x ->
           VideoDetail'
-            Prelude.<$> (x Core..:? "widthInPx")
-            Prelude.<*> (x Core..:? "heightInPx")
+            Prelude.<$> (x Data..:? "widthInPx")
+            Prelude.<*> (x Data..:? "heightInPx")
       )
 
 instance Prelude.Hashable VideoDetail where

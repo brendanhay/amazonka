@@ -28,6 +28,7 @@ import Amazonka.Batch.Types.PlatformCapability
 import Amazonka.Batch.Types.RetryStrategy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents an Batch job definition.
@@ -305,30 +306,30 @@ jobDefinition_revision = Lens.lens (\JobDefinition' {revision} -> revision) (\s@
 jobDefinition_type :: Lens.Lens' JobDefinition Prelude.Text
 jobDefinition_type = Lens.lens (\JobDefinition' {type'} -> type') (\s@JobDefinition' {} a -> s {type' = a} :: JobDefinition)
 
-instance Core.FromJSON JobDefinition where
+instance Data.FromJSON JobDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobDefinition"
       ( \x ->
           JobDefinition'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "timeout")
-            Prelude.<*> (x Core..:? "containerProperties")
-            Prelude.<*> (x Core..:? "retryStrategy")
-            Prelude.<*> ( x Core..:? "platformCapabilities"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "timeout")
+            Prelude.<*> (x Data..:? "containerProperties")
+            Prelude.<*> (x Data..:? "retryStrategy")
+            Prelude.<*> ( x Data..:? "platformCapabilities"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "containerOrchestrationType")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "propagateTags")
-            Prelude.<*> (x Core..:? "nodeProperties")
-            Prelude.<*> (x Core..:? "schedulingPriority")
-            Prelude.<*> (x Core..:? "eksProperties")
-            Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "jobDefinitionName")
-            Prelude.<*> (x Core..: "jobDefinitionArn")
-            Prelude.<*> (x Core..: "revision")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<*> (x Data..:? "containerOrchestrationType")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "propagateTags")
+            Prelude.<*> (x Data..:? "nodeProperties")
+            Prelude.<*> (x Data..:? "schedulingPriority")
+            Prelude.<*> (x Data..:? "eksProperties")
+            Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "jobDefinitionName")
+            Prelude.<*> (x Data..: "jobDefinitionArn")
+            Prelude.<*> (x Data..: "revision")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable JobDefinition where

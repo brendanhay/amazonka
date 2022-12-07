@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -155,9 +156,9 @@ instance Core.AWSRequest ListNamespaces where
     Response.receiveJSON
       ( \s h x ->
           ListNamespacesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Namespaces" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Namespaces" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,27 +174,27 @@ instance Prelude.NFData ListNamespaces where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf awsAccountId
 
-instance Core.ToHeaders ListNamespaces where
+instance Data.ToHeaders ListNamespaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListNamespaces where
+instance Data.ToPath ListNamespaces where
   toPath ListNamespaces' {..} =
     Prelude.mconcat
-      ["/accounts/", Core.toBS awsAccountId, "/namespaces"]
+      ["/accounts/", Data.toBS awsAccountId, "/namespaces"]
 
-instance Core.ToQuery ListNamespaces where
+instance Data.ToQuery ListNamespaces where
   toQuery ListNamespaces' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListNamespacesResponse' smart constructor.

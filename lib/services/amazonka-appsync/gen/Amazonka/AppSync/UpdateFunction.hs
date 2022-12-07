@@ -53,6 +53,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -218,7 +219,7 @@ instance Core.AWSRequest UpdateFunction where
     Response.receiveJSON
       ( \s h x ->
           UpdateFunctionResponse'
-            Prelude.<$> (x Core..?> "functionConfiguration")
+            Prelude.<$> (x Data..?> "functionConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -252,48 +253,48 @@ instance Prelude.NFData UpdateFunction where
       `Prelude.seq` Prelude.rnf functionId
       `Prelude.seq` Prelude.rnf dataSourceName
 
-instance Core.ToHeaders UpdateFunction where
+instance Data.ToHeaders UpdateFunction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFunction where
+instance Data.ToJSON UpdateFunction where
   toJSON UpdateFunction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("code" Core..=) Prelude.<$> code,
-            ("maxBatchSize" Core..=) Prelude.<$> maxBatchSize,
-            ("functionVersion" Core..=)
+          [ ("code" Data..=) Prelude.<$> code,
+            ("maxBatchSize" Data..=) Prelude.<$> maxBatchSize,
+            ("functionVersion" Data..=)
               Prelude.<$> functionVersion,
-            ("runtime" Core..=) Prelude.<$> runtime,
-            ("description" Core..=) Prelude.<$> description,
-            ("responseMappingTemplate" Core..=)
+            ("runtime" Data..=) Prelude.<$> runtime,
+            ("description" Data..=) Prelude.<$> description,
+            ("responseMappingTemplate" Data..=)
               Prelude.<$> responseMappingTemplate,
-            ("syncConfig" Core..=) Prelude.<$> syncConfig,
-            ("requestMappingTemplate" Core..=)
+            ("syncConfig" Data..=) Prelude.<$> syncConfig,
+            ("requestMappingTemplate" Data..=)
               Prelude.<$> requestMappingTemplate,
-            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("dataSourceName" Core..= dataSourceName)
+              ("dataSourceName" Data..= dataSourceName)
           ]
       )
 
-instance Core.ToPath UpdateFunction where
+instance Data.ToPath UpdateFunction where
   toPath UpdateFunction' {..} =
     Prelude.mconcat
       [ "/v1/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/functions/",
-        Core.toBS functionId
+        Data.toBS functionId
       ]
 
-instance Core.ToQuery UpdateFunction where
+instance Data.ToQuery UpdateFunction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFunctionResponse' smart constructor.

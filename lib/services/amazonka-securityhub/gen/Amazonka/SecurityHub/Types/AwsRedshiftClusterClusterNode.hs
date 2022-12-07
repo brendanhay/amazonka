@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRedshiftClusterClusterNode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A node in an Amazon Redshift cluster.
@@ -71,15 +72,15 @@ awsRedshiftClusterClusterNode_publicIpAddress = Lens.lens (\AwsRedshiftClusterCl
 awsRedshiftClusterClusterNode_privateIpAddress :: Lens.Lens' AwsRedshiftClusterClusterNode (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterClusterNode_privateIpAddress = Lens.lens (\AwsRedshiftClusterClusterNode' {privateIpAddress} -> privateIpAddress) (\s@AwsRedshiftClusterClusterNode' {} a -> s {privateIpAddress = a} :: AwsRedshiftClusterClusterNode)
 
-instance Core.FromJSON AwsRedshiftClusterClusterNode where
+instance Data.FromJSON AwsRedshiftClusterClusterNode where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRedshiftClusterClusterNode"
       ( \x ->
           AwsRedshiftClusterClusterNode'
-            Prelude.<$> (x Core..:? "NodeRole")
-            Prelude.<*> (x Core..:? "PublicIpAddress")
-            Prelude.<*> (x Core..:? "PrivateIpAddress")
+            Prelude.<$> (x Data..:? "NodeRole")
+            Prelude.<*> (x Data..:? "PublicIpAddress")
+            Prelude.<*> (x Data..:? "PrivateIpAddress")
       )
 
 instance
@@ -97,14 +98,14 @@ instance Prelude.NFData AwsRedshiftClusterClusterNode where
       `Prelude.seq` Prelude.rnf publicIpAddress
       `Prelude.seq` Prelude.rnf privateIpAddress
 
-instance Core.ToJSON AwsRedshiftClusterClusterNode where
+instance Data.ToJSON AwsRedshiftClusterClusterNode where
   toJSON AwsRedshiftClusterClusterNode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NodeRole" Core..=) Prelude.<$> nodeRole,
-            ("PublicIpAddress" Core..=)
+          [ ("NodeRole" Data..=) Prelude.<$> nodeRole,
+            ("PublicIpAddress" Data..=)
               Prelude.<$> publicIpAddress,
-            ("PrivateIpAddress" Core..=)
+            ("PrivateIpAddress" Data..=)
               Prelude.<$> privateIpAddress
           ]
       )

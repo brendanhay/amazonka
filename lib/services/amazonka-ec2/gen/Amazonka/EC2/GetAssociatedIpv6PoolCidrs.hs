@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,10 +158,10 @@ instance Core.AWSRequest GetAssociatedIpv6PoolCidrs where
     Response.receiveXML
       ( \s h x ->
           GetAssociatedIpv6PoolCidrsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "ipv6CidrAssociationSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "ipv6CidrAssociationSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -179,23 +180,23 @@ instance Prelude.NFData GetAssociatedIpv6PoolCidrs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf poolId
 
-instance Core.ToHeaders GetAssociatedIpv6PoolCidrs where
+instance Data.ToHeaders GetAssociatedIpv6PoolCidrs where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetAssociatedIpv6PoolCidrs where
+instance Data.ToPath GetAssociatedIpv6PoolCidrs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAssociatedIpv6PoolCidrs where
+instance Data.ToQuery GetAssociatedIpv6PoolCidrs where
   toQuery GetAssociatedIpv6PoolCidrs' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetAssociatedIpv6PoolCidrs" :: Prelude.ByteString),
+          Data.=: ("GetAssociatedIpv6PoolCidrs" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        "PoolId" Core.=: poolId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        "PoolId" Data.=: poolId
       ]
 
 -- | /See:/ 'newGetAssociatedIpv6PoolCidrsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.UpdateFileSystemOpenZFSConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.DiskIopsConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -182,25 +183,25 @@ instance
       `Prelude.seq` Prelude.rnf copyTagsToVolumes
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateFileSystemOpenZFSConfiguration
   where
   toJSON UpdateFileSystemOpenZFSConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CopyTagsToBackups" Core..=)
+          [ ("CopyTagsToBackups" Data..=)
               Prelude.<$> copyTagsToBackups,
-            ("WeeklyMaintenanceStartTime" Core..=)
+            ("WeeklyMaintenanceStartTime" Data..=)
               Prelude.<$> weeklyMaintenanceStartTime,
-            ("ThroughputCapacity" Core..=)
+            ("ThroughputCapacity" Data..=)
               Prelude.<$> throughputCapacity,
-            ("AutomaticBackupRetentionDays" Core..=)
+            ("AutomaticBackupRetentionDays" Data..=)
               Prelude.<$> automaticBackupRetentionDays,
-            ("DiskIopsConfiguration" Core..=)
+            ("DiskIopsConfiguration" Data..=)
               Prelude.<$> diskIopsConfiguration,
-            ("DailyAutomaticBackupStartTime" Core..=)
+            ("DailyAutomaticBackupStartTime" Data..=)
               Prelude.<$> dailyAutomaticBackupStartTime,
-            ("CopyTagsToVolumes" Core..=)
+            ("CopyTagsToVolumes" Data..=)
               Prelude.<$> copyTagsToVolumes
           ]
       )

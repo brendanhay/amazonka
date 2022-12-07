@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelQualityAppSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MonitoringProblemType
 
@@ -129,19 +130,19 @@ modelQualityAppSpecification_problemType = Lens.lens (\ModelQualityAppSpecificat
 modelQualityAppSpecification_imageUri :: Lens.Lens' ModelQualityAppSpecification Prelude.Text
 modelQualityAppSpecification_imageUri = Lens.lens (\ModelQualityAppSpecification' {imageUri} -> imageUri) (\s@ModelQualityAppSpecification' {} a -> s {imageUri = a} :: ModelQualityAppSpecification)
 
-instance Core.FromJSON ModelQualityAppSpecification where
+instance Data.FromJSON ModelQualityAppSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelQualityAppSpecification"
       ( \x ->
           ModelQualityAppSpecification'
-            Prelude.<$> (x Core..:? "ContainerEntrypoint")
-            Prelude.<*> (x Core..:? "RecordPreprocessorSourceUri")
-            Prelude.<*> (x Core..:? "Environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ContainerArguments")
-            Prelude.<*> (x Core..:? "PostAnalyticsProcessorSourceUri")
-            Prelude.<*> (x Core..:? "ProblemType")
-            Prelude.<*> (x Core..: "ImageUri")
+            Prelude.<$> (x Data..:? "ContainerEntrypoint")
+            Prelude.<*> (x Data..:? "RecordPreprocessorSourceUri")
+            Prelude.<*> (x Data..:? "Environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ContainerArguments")
+            Prelude.<*> (x Data..:? "PostAnalyticsProcessorSourceUri")
+            Prelude.<*> (x Data..:? "ProblemType")
+            Prelude.<*> (x Data..: "ImageUri")
       )
 
 instance
@@ -167,20 +168,20 @@ instance Prelude.NFData ModelQualityAppSpecification where
       `Prelude.seq` Prelude.rnf problemType
       `Prelude.seq` Prelude.rnf imageUri
 
-instance Core.ToJSON ModelQualityAppSpecification where
+instance Data.ToJSON ModelQualityAppSpecification where
   toJSON ModelQualityAppSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContainerEntrypoint" Core..=)
+          [ ("ContainerEntrypoint" Data..=)
               Prelude.<$> containerEntrypoint,
-            ("RecordPreprocessorSourceUri" Core..=)
+            ("RecordPreprocessorSourceUri" Data..=)
               Prelude.<$> recordPreprocessorSourceUri,
-            ("Environment" Core..=) Prelude.<$> environment,
-            ("ContainerArguments" Core..=)
+            ("Environment" Data..=) Prelude.<$> environment,
+            ("ContainerArguments" Data..=)
               Prelude.<$> containerArguments,
-            ("PostAnalyticsProcessorSourceUri" Core..=)
+            ("PostAnalyticsProcessorSourceUri" Data..=)
               Prelude.<$> postAnalyticsProcessorSourceUri,
-            ("ProblemType" Core..=) Prelude.<$> problemType,
-            Prelude.Just ("ImageUri" Core..= imageUri)
+            ("ProblemType" Data..=) Prelude.<$> problemType,
+            Prelude.Just ("ImageUri" Data..= imageUri)
           ]
       )

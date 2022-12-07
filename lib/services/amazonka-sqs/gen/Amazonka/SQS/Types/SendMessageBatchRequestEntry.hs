@@ -21,6 +21,7 @@ module Amazonka.SQS.Types.SendMessageBatchRequestEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SQS.Types.MessageAttributeValue
 import Amazonka.SQS.Types.MessageSystemAttributeNameForSends
@@ -449,24 +450,24 @@ instance Prelude.NFData SendMessageBatchRequestEntry where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf messageBody
 
-instance Core.ToQuery SendMessageBatchRequestEntry where
+instance Data.ToQuery SendMessageBatchRequestEntry where
   toQuery SendMessageBatchRequestEntry' {..} =
     Prelude.mconcat
       [ "MessageDeduplicationId"
-          Core.=: messageDeduplicationId,
-        "MessageGroupId" Core.=: messageGroupId,
-        "DelaySeconds" Core.=: delaySeconds,
-        Core.toQuery
-          ( Core.toQueryMap "MessageAttribute" "Name" "Value"
+          Data.=: messageDeduplicationId,
+        "MessageGroupId" Data.=: messageGroupId,
+        "DelaySeconds" Data.=: delaySeconds,
+        Data.toQuery
+          ( Data.toQueryMap "MessageAttribute" "Name" "Value"
               Prelude.<$> messageAttributes
           ),
-        Core.toQuery
-          ( Core.toQueryMap
+        Data.toQuery
+          ( Data.toQueryMap
               "MessageSystemAttribute"
               "Name"
               "Value"
               Prelude.<$> messageSystemAttributes
           ),
-        "Id" Core.=: id,
-        "MessageBody" Core.=: messageBody
+        "Id" Data.=: id,
+        "MessageBody" Data.=: messageBody
       ]

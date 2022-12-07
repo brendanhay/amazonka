@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.TimecodeConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.TimecodeConfigSource
 import qualified Amazonka.Prelude as Prelude
 
@@ -91,14 +92,14 @@ timecodeConfig_syncThreshold = Lens.lens (\TimecodeConfig' {syncThreshold} -> sy
 timecodeConfig_source :: Lens.Lens' TimecodeConfig TimecodeConfigSource
 timecodeConfig_source = Lens.lens (\TimecodeConfig' {source} -> source) (\s@TimecodeConfig' {} a -> s {source = a} :: TimecodeConfig)
 
-instance Core.FromJSON TimecodeConfig where
+instance Data.FromJSON TimecodeConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimecodeConfig"
       ( \x ->
           TimecodeConfig'
-            Prelude.<$> (x Core..:? "syncThreshold")
-            Prelude.<*> (x Core..: "source")
+            Prelude.<$> (x Data..:? "syncThreshold")
+            Prelude.<*> (x Data..: "source")
       )
 
 instance Prelude.Hashable TimecodeConfig where
@@ -111,11 +112,11 @@ instance Prelude.NFData TimecodeConfig where
     Prelude.rnf syncThreshold
       `Prelude.seq` Prelude.rnf source
 
-instance Core.ToJSON TimecodeConfig where
+instance Data.ToJSON TimecodeConfig where
   toJSON TimecodeConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("syncThreshold" Core..=) Prelude.<$> syncThreshold,
-            Prelude.Just ("source" Core..= source)
+          [ ("syncThreshold" Data..=) Prelude.<$> syncThreshold,
+            Prelude.Just ("source" Data..= source)
           ]
       )

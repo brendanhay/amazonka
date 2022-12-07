@@ -45,6 +45,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -61,16 +62,16 @@ data CreateUser = CreateUser'
     -- welcome email.
     messageAction :: Prelude.Maybe MessageAction,
     -- | The first name, or given name, of the user.
-    firstName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    firstName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The last name, or surname, of the user.
-    lastName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    lastName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The email address of the user.
     --
     -- Users\' email addresses are case-sensitive. During login, if they
     -- specify an email address that doesn\'t use the same capitalization as
     -- the email address specified when their user pool account was created, a
     -- \"user does not exist\" error message displays.
-    userName :: Core.Sensitive Prelude.Text,
+    userName :: Data.Sensitive Prelude.Text,
     -- | The authentication type for the user. You must specify USERPOOL.
     authenticationType :: AuthenticationType
   }
@@ -116,7 +117,7 @@ newCreateUser pUserName_ pAuthenticationType_ =
     { messageAction = Prelude.Nothing,
       firstName = Prelude.Nothing,
       lastName = Prelude.Nothing,
-      userName = Core._Sensitive Lens.# pUserName_,
+      userName = Data._Sensitive Lens.# pUserName_,
       authenticationType = pAuthenticationType_
     }
 
@@ -133,11 +134,11 @@ createUser_messageAction = Lens.lens (\CreateUser' {messageAction} -> messageAct
 
 -- | The first name, or given name, of the user.
 createUser_firstName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_firstName = Lens.lens (\CreateUser' {firstName} -> firstName) (\s@CreateUser' {} a -> s {firstName = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+createUser_firstName = Lens.lens (\CreateUser' {firstName} -> firstName) (\s@CreateUser' {} a -> s {firstName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The last name, or surname, of the user.
 createUser_lastName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_lastName = Lens.lens (\CreateUser' {lastName} -> lastName) (\s@CreateUser' {} a -> s {lastName = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+createUser_lastName = Lens.lens (\CreateUser' {lastName} -> lastName) (\s@CreateUser' {} a -> s {lastName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The email address of the user.
 --
@@ -146,7 +147,7 @@ createUser_lastName = Lens.lens (\CreateUser' {lastName} -> lastName) (\s@Create
 -- the email address specified when their user pool account was created, a
 -- \"user does not exist\" error message displays.
 createUser_userName :: Lens.Lens' CreateUser Prelude.Text
-createUser_userName = Lens.lens (\CreateUser' {userName} -> userName) (\s@CreateUser' {} a -> s {userName = a} :: CreateUser) Prelude.. Core._Sensitive
+createUser_userName = Lens.lens (\CreateUser' {userName} -> userName) (\s@CreateUser' {} a -> s {userName = a} :: CreateUser) Prelude.. Data._Sensitive
 
 -- | The authentication type for the user. You must specify USERPOOL.
 createUser_authenticationType :: Lens.Lens' CreateUser AuthenticationType
@@ -179,38 +180,38 @@ instance Prelude.NFData CreateUser where
       `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf authenticationType
 
-instance Core.ToHeaders CreateUser where
+instance Data.ToHeaders CreateUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.CreateUser" ::
+              Data.=# ( "PhotonAdminProxyService.CreateUser" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUser where
+instance Data.ToJSON CreateUser where
   toJSON CreateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MessageAction" Core..=) Prelude.<$> messageAction,
-            ("FirstName" Core..=) Prelude.<$> firstName,
-            ("LastName" Core..=) Prelude.<$> lastName,
-            Prelude.Just ("UserName" Core..= userName),
+          [ ("MessageAction" Data..=) Prelude.<$> messageAction,
+            ("FirstName" Data..=) Prelude.<$> firstName,
+            ("LastName" Data..=) Prelude.<$> lastName,
+            Prelude.Just ("UserName" Data..= userName),
             Prelude.Just
-              ("AuthenticationType" Core..= authenticationType)
+              ("AuthenticationType" Data..= authenticationType)
           ]
       )
 
-instance Core.ToPath CreateUser where
+instance Data.ToPath CreateUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUser where
+instance Data.ToQuery CreateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserResponse' smart constructor.

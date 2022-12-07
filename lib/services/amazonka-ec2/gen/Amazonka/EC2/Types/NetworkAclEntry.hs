@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkAclEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IcmpTypeCode
 import Amazonka.EC2.Types.PortRange
@@ -125,17 +126,17 @@ networkAclEntry_protocol = Lens.lens (\NetworkAclEntry' {protocol} -> protocol) 
 networkAclEntry_ipv6CidrBlock :: Lens.Lens' NetworkAclEntry (Prelude.Maybe Prelude.Text)
 networkAclEntry_ipv6CidrBlock = Lens.lens (\NetworkAclEntry' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@NetworkAclEntry' {} a -> s {ipv6CidrBlock = a} :: NetworkAclEntry)
 
-instance Core.FromXML NetworkAclEntry where
+instance Data.FromXML NetworkAclEntry where
   parseXML x =
     NetworkAclEntry'
-      Prelude.<$> (x Core..@? "icmpTypeCode")
-      Prelude.<*> (x Core..@? "egress")
-      Prelude.<*> (x Core..@? "portRange")
-      Prelude.<*> (x Core..@? "ruleNumber")
-      Prelude.<*> (x Core..@? "cidrBlock")
-      Prelude.<*> (x Core..@? "ruleAction")
-      Prelude.<*> (x Core..@? "protocol")
-      Prelude.<*> (x Core..@? "ipv6CidrBlock")
+      Prelude.<$> (x Data..@? "icmpTypeCode")
+      Prelude.<*> (x Data..@? "egress")
+      Prelude.<*> (x Data..@? "portRange")
+      Prelude.<*> (x Data..@? "ruleNumber")
+      Prelude.<*> (x Data..@? "cidrBlock")
+      Prelude.<*> (x Data..@? "ruleAction")
+      Prelude.<*> (x Data..@? "protocol")
+      Prelude.<*> (x Data..@? "ipv6CidrBlock")
 
 instance Prelude.Hashable NetworkAclEntry where
   hashWithSalt _salt NetworkAclEntry' {..} =

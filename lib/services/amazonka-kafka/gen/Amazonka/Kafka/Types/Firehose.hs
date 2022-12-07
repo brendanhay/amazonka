@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.Firehose where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newFirehose' smart constructor.
@@ -59,14 +60,14 @@ firehose_deliveryStream = Lens.lens (\Firehose' {deliveryStream} -> deliveryStre
 firehose_enabled :: Lens.Lens' Firehose Prelude.Bool
 firehose_enabled = Lens.lens (\Firehose' {enabled} -> enabled) (\s@Firehose' {} a -> s {enabled = a} :: Firehose)
 
-instance Core.FromJSON Firehose where
+instance Data.FromJSON Firehose where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Firehose"
       ( \x ->
           Firehose'
-            Prelude.<$> (x Core..:? "deliveryStream")
-            Prelude.<*> (x Core..: "enabled")
+            Prelude.<$> (x Data..:? "deliveryStream")
+            Prelude.<*> (x Data..: "enabled")
       )
 
 instance Prelude.Hashable Firehose where
@@ -79,12 +80,12 @@ instance Prelude.NFData Firehose where
     Prelude.rnf deliveryStream
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON Firehose where
+instance Data.ToJSON Firehose where
   toJSON Firehose' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deliveryStream" Core..=)
+          [ ("deliveryStream" Data..=)
               Prelude.<$> deliveryStream,
-            Prelude.Just ("enabled" Core..= enabled)
+            Prelude.Just ("enabled" Data..= enabled)
           ]
       )

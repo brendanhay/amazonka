@@ -22,6 +22,7 @@ module Amazonka.CodeDeploy.Types.GreenFleetProvisioningOption where
 import Amazonka.CodeDeploy.Types.GreenFleetProvisioningAction
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the instances that belong to the replacement
@@ -76,13 +77,13 @@ newGreenFleetProvisioningOption =
 greenFleetProvisioningOption_action :: Lens.Lens' GreenFleetProvisioningOption (Prelude.Maybe GreenFleetProvisioningAction)
 greenFleetProvisioningOption_action = Lens.lens (\GreenFleetProvisioningOption' {action} -> action) (\s@GreenFleetProvisioningOption' {} a -> s {action = a} :: GreenFleetProvisioningOption)
 
-instance Core.FromJSON GreenFleetProvisioningOption where
+instance Data.FromJSON GreenFleetProvisioningOption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GreenFleetProvisioningOption"
       ( \x ->
           GreenFleetProvisioningOption'
-            Prelude.<$> (x Core..:? "action")
+            Prelude.<$> (x Data..:? "action")
       )
 
 instance
@@ -96,9 +97,9 @@ instance Prelude.NFData GreenFleetProvisioningOption where
   rnf GreenFleetProvisioningOption' {..} =
     Prelude.rnf action
 
-instance Core.ToJSON GreenFleetProvisioningOption where
+instance Data.ToJSON GreenFleetProvisioningOption where
   toJSON GreenFleetProvisioningOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("action" Core..=) Prelude.<$> action]
+          [("action" Data..=) Prelude.<$> action]
       )

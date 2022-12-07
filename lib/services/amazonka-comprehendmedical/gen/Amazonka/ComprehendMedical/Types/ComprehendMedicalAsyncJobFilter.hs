@@ -22,6 +22,7 @@ module Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter where
 import Amazonka.ComprehendMedical.Types.JobStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information for filtering a list of detection jobs.
@@ -36,11 +37,11 @@ data ComprehendMedicalAsyncJobFilter = ComprehendMedicalAsyncJobFilter'
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Returns only jobs submitted before the specified time.
     -- Jobs are returned in ascending order, oldest to newest.
-    submitTimeBefore :: Prelude.Maybe Core.POSIX,
+    submitTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Returns only jobs submitted after the specified time.
     -- Jobs are returned in descending order, newest to oldest.
-    submitTimeAfter :: Prelude.Maybe Core.POSIX
+    submitTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,13 +89,13 @@ comprehendMedicalAsyncJobFilter_jobName = Lens.lens (\ComprehendMedicalAsyncJobF
 -- for processing. Returns only jobs submitted before the specified time.
 -- Jobs are returned in ascending order, oldest to newest.
 comprehendMedicalAsyncJobFilter_submitTimeBefore :: Lens.Lens' ComprehendMedicalAsyncJobFilter (Prelude.Maybe Prelude.UTCTime)
-comprehendMedicalAsyncJobFilter_submitTimeBefore = Lens.lens (\ComprehendMedicalAsyncJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@ComprehendMedicalAsyncJobFilter' {} a -> s {submitTimeBefore = a} :: ComprehendMedicalAsyncJobFilter) Prelude.. Lens.mapping Core._Time
+comprehendMedicalAsyncJobFilter_submitTimeBefore = Lens.lens (\ComprehendMedicalAsyncJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@ComprehendMedicalAsyncJobFilter' {} a -> s {submitTimeBefore = a} :: ComprehendMedicalAsyncJobFilter) Prelude.. Lens.mapping Data._Time
 
 -- | Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted after the specified time.
 -- Jobs are returned in descending order, newest to oldest.
 comprehendMedicalAsyncJobFilter_submitTimeAfter :: Lens.Lens' ComprehendMedicalAsyncJobFilter (Prelude.Maybe Prelude.UTCTime)
-comprehendMedicalAsyncJobFilter_submitTimeAfter = Lens.lens (\ComprehendMedicalAsyncJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@ComprehendMedicalAsyncJobFilter' {} a -> s {submitTimeAfter = a} :: ComprehendMedicalAsyncJobFilter) Prelude.. Lens.mapping Core._Time
+comprehendMedicalAsyncJobFilter_submitTimeAfter = Lens.lens (\ComprehendMedicalAsyncJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@ComprehendMedicalAsyncJobFilter' {} a -> s {submitTimeAfter = a} :: ComprehendMedicalAsyncJobFilter) Prelude.. Lens.mapping Data._Time
 
 instance
   Prelude.Hashable
@@ -118,15 +119,15 @@ instance
       `Prelude.seq` Prelude.rnf submitTimeBefore
       `Prelude.seq` Prelude.rnf submitTimeAfter
 
-instance Core.ToJSON ComprehendMedicalAsyncJobFilter where
+instance Data.ToJSON ComprehendMedicalAsyncJobFilter where
   toJSON ComprehendMedicalAsyncJobFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("JobStatus" Core..=) Prelude.<$> jobStatus,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("SubmitTimeBefore" Core..=)
+          [ ("JobStatus" Data..=) Prelude.<$> jobStatus,
+            ("JobName" Data..=) Prelude.<$> jobName,
+            ("SubmitTimeBefore" Data..=)
               Prelude.<$> submitTimeBefore,
-            ("SubmitTimeAfter" Core..=)
+            ("SubmitTimeAfter" Data..=)
               Prelude.<$> submitTimeAfter
           ]
       )

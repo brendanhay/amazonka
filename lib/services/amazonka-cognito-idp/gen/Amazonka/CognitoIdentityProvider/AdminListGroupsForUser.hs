@@ -50,6 +50,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -63,7 +64,7 @@ data AdminListGroupsForUser = AdminListGroupsForUser'
     -- | The limit of the request to list groups.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The username for the user.
-    username :: Core.Sensitive Prelude.Text,
+    username :: Data.Sensitive Prelude.Text,
     -- | The user pool ID for the user pool.
     userPoolId :: Prelude.Text
   }
@@ -97,7 +98,7 @@ newAdminListGroupsForUser pUsername_ pUserPoolId_ =
     { nextToken =
         Prelude.Nothing,
       limit = Prelude.Nothing,
-      username = Core._Sensitive Lens.# pUsername_,
+      username = Data._Sensitive Lens.# pUsername_,
       userPoolId = pUserPoolId_
     }
 
@@ -113,7 +114,7 @@ adminListGroupsForUser_limit = Lens.lens (\AdminListGroupsForUser' {limit} -> li
 
 -- | The username for the user.
 adminListGroupsForUser_username :: Lens.Lens' AdminListGroupsForUser Prelude.Text
-adminListGroupsForUser_username = Lens.lens (\AdminListGroupsForUser' {username} -> username) (\s@AdminListGroupsForUser' {} a -> s {username = a} :: AdminListGroupsForUser) Prelude.. Core._Sensitive
+adminListGroupsForUser_username = Lens.lens (\AdminListGroupsForUser' {username} -> username) (\s@AdminListGroupsForUser' {} a -> s {username = a} :: AdminListGroupsForUser) Prelude.. Data._Sensitive
 
 -- | The user pool ID for the user pool.
 adminListGroupsForUser_userPoolId :: Lens.Lens' AdminListGroupsForUser Prelude.Text
@@ -151,8 +152,8 @@ instance Core.AWSRequest AdminListGroupsForUser where
     Response.receiveJSON
       ( \s h x ->
           AdminListGroupsForUserResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Groups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Groups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,36 +171,36 @@ instance Prelude.NFData AdminListGroupsForUser where
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf userPoolId
 
-instance Core.ToHeaders AdminListGroupsForUser where
+instance Data.ToHeaders AdminListGroupsForUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminListGroupsForUser" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminListGroupsForUser" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminListGroupsForUser where
+instance Data.ToJSON AdminListGroupsForUser where
   toJSON AdminListGroupsForUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("Username" Core..= username),
-            Prelude.Just ("UserPoolId" Core..= userPoolId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("Username" Data..= username),
+            Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )
 
-instance Core.ToPath AdminListGroupsForUser where
+instance Data.ToPath AdminListGroupsForUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminListGroupsForUser where
+instance Data.ToQuery AdminListGroupsForUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdminListGroupsForUserResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.GreengrassV2 where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details for a gateway that runs on IoT Greengrass V2. To create
@@ -62,13 +63,13 @@ newGreengrassV2 pCoreDeviceThingName_ =
 greengrassV2_coreDeviceThingName :: Lens.Lens' GreengrassV2 Prelude.Text
 greengrassV2_coreDeviceThingName = Lens.lens (\GreengrassV2' {coreDeviceThingName} -> coreDeviceThingName) (\s@GreengrassV2' {} a -> s {coreDeviceThingName = a} :: GreengrassV2)
 
-instance Core.FromJSON GreengrassV2 where
+instance Data.FromJSON GreengrassV2 where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GreengrassV2"
       ( \x ->
           GreengrassV2'
-            Prelude.<$> (x Core..: "coreDeviceThingName")
+            Prelude.<$> (x Data..: "coreDeviceThingName")
       )
 
 instance Prelude.Hashable GreengrassV2 where
@@ -79,11 +80,11 @@ instance Prelude.NFData GreengrassV2 where
   rnf GreengrassV2' {..} =
     Prelude.rnf coreDeviceThingName
 
-instance Core.ToJSON GreengrassV2 where
+instance Data.ToJSON GreengrassV2 where
   toJSON GreengrassV2' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("coreDeviceThingName" Core..= coreDeviceThingName)
+              ("coreDeviceThingName" Data..= coreDeviceThingName)
           ]
       )

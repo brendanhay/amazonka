@@ -21,6 +21,7 @@ module Amazonka.S3.Types.DeleteMarkerReplication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.DeleteMarkerReplicationStatus
@@ -72,10 +73,10 @@ newDeleteMarkerReplication =
 deleteMarkerReplication_status :: Lens.Lens' DeleteMarkerReplication (Prelude.Maybe DeleteMarkerReplicationStatus)
 deleteMarkerReplication_status = Lens.lens (\DeleteMarkerReplication' {status} -> status) (\s@DeleteMarkerReplication' {} a -> s {status = a} :: DeleteMarkerReplication)
 
-instance Core.FromXML DeleteMarkerReplication where
+instance Data.FromXML DeleteMarkerReplication where
   parseXML x =
     DeleteMarkerReplication'
-      Prelude.<$> (x Core..@? "Status")
+      Prelude.<$> (x Data..@? "Status")
 
 instance Prelude.Hashable DeleteMarkerReplication where
   hashWithSalt _salt DeleteMarkerReplication' {..} =
@@ -84,6 +85,6 @@ instance Prelude.Hashable DeleteMarkerReplication where
 instance Prelude.NFData DeleteMarkerReplication where
   rnf DeleteMarkerReplication' {..} = Prelude.rnf status
 
-instance Core.ToXML DeleteMarkerReplication where
+instance Data.ToXML DeleteMarkerReplication where
   toXML DeleteMarkerReplication' {..} =
-    Prelude.mconcat ["Status" Core.@= status]
+    Prelude.mconcat ["Status" Data.@= status]

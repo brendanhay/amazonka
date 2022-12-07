@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsIamAccessKeySessionContextSessionIssuer whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the entity that created the session.
@@ -96,19 +97,19 @@ awsIamAccessKeySessionContextSessionIssuer_accountId :: Lens.Lens' AwsIamAccessK
 awsIamAccessKeySessionContextSessionIssuer_accountId = Lens.lens (\AwsIamAccessKeySessionContextSessionIssuer' {accountId} -> accountId) (\s@AwsIamAccessKeySessionContextSessionIssuer' {} a -> s {accountId = a} :: AwsIamAccessKeySessionContextSessionIssuer)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsIamAccessKeySessionContextSessionIssuer
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamAccessKeySessionContextSessionIssuer"
       ( \x ->
           AwsIamAccessKeySessionContextSessionIssuer'
-            Prelude.<$> (x Core..:? "PrincipalId")
-              Prelude.<*> (x Core..:? "Type")
-              Prelude.<*> (x Core..:? "UserName")
-              Prelude.<*> (x Core..:? "Arn")
-              Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<$> (x Data..:? "PrincipalId")
+              Prelude.<*> (x Data..:? "Type")
+              Prelude.<*> (x Data..:? "UserName")
+              Prelude.<*> (x Data..:? "Arn")
+              Prelude.<*> (x Data..:? "AccountId")
       )
 
 instance
@@ -136,17 +137,17 @@ instance
       `Prelude.seq` Prelude.rnf accountId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsIamAccessKeySessionContextSessionIssuer
   where
   toJSON
     AwsIamAccessKeySessionContextSessionIssuer' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("PrincipalId" Core..=) Prelude.<$> principalId,
-              ("Type" Core..=) Prelude.<$> type',
-              ("UserName" Core..=) Prelude.<$> userName,
-              ("Arn" Core..=) Prelude.<$> arn,
-              ("AccountId" Core..=) Prelude.<$> accountId
+            [ ("PrincipalId" Data..=) Prelude.<$> principalId,
+              ("Type" Data..=) Prelude.<$> type',
+              ("UserName" Data..=) Prelude.<$> userName,
+              ("Arn" Data..=) Prelude.<$> arn,
+              ("AccountId" Data..=) Prelude.<$> accountId
             ]
         )

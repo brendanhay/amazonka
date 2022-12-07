@@ -21,6 +21,7 @@ module Amazonka.ControlTower.Types.EnabledControlSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of enabled controls.
@@ -59,13 +60,13 @@ newEnabledControlSummary =
 enabledControlSummary_controlIdentifier :: Lens.Lens' EnabledControlSummary (Prelude.Maybe Prelude.Text)
 enabledControlSummary_controlIdentifier = Lens.lens (\EnabledControlSummary' {controlIdentifier} -> controlIdentifier) (\s@EnabledControlSummary' {} a -> s {controlIdentifier = a} :: EnabledControlSummary)
 
-instance Core.FromJSON EnabledControlSummary where
+instance Data.FromJSON EnabledControlSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnabledControlSummary"
       ( \x ->
           EnabledControlSummary'
-            Prelude.<$> (x Core..:? "controlIdentifier")
+            Prelude.<$> (x Data..:? "controlIdentifier")
       )
 
 instance Prelude.Hashable EnabledControlSummary where

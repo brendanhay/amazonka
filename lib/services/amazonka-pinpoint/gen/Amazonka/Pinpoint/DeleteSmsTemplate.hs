@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,7 +170,7 @@ instance Core.AWSRequest DeleteSmsTemplate where
       ( \s h x ->
           DeleteSmsTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable DeleteSmsTemplate where
@@ -182,25 +183,25 @@ instance Prelude.NFData DeleteSmsTemplate where
     Prelude.rnf version
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToHeaders DeleteSmsTemplate where
+instance Data.ToHeaders DeleteSmsTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteSmsTemplate where
+instance Data.ToPath DeleteSmsTemplate where
   toPath DeleteSmsTemplate' {..} =
     Prelude.mconcat
-      ["/v1/templates/", Core.toBS templateName, "/sms"]
+      ["/v1/templates/", Data.toBS templateName, "/sms"]
 
-instance Core.ToQuery DeleteSmsTemplate where
+instance Data.ToQuery DeleteSmsTemplate where
   toQuery DeleteSmsTemplate' {..} =
-    Prelude.mconcat ["version" Core.=: version]
+    Prelude.mconcat ["version" Data.=: version]
 
 -- | /See:/ 'newDeleteSmsTemplateResponse' smart constructor.
 data DeleteSmsTemplateResponse = DeleteSmsTemplateResponse'

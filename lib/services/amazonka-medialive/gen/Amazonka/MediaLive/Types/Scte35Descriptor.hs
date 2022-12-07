@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Scte35Descriptor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.Scte35DescriptorSettings
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,13 +57,13 @@ newScte35Descriptor pScte35DescriptorSettings_ =
 scte35Descriptor_scte35DescriptorSettings :: Lens.Lens' Scte35Descriptor Scte35DescriptorSettings
 scte35Descriptor_scte35DescriptorSettings = Lens.lens (\Scte35Descriptor' {scte35DescriptorSettings} -> scte35DescriptorSettings) (\s@Scte35Descriptor' {} a -> s {scte35DescriptorSettings = a} :: Scte35Descriptor)
 
-instance Core.FromJSON Scte35Descriptor where
+instance Data.FromJSON Scte35Descriptor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scte35Descriptor"
       ( \x ->
           Scte35Descriptor'
-            Prelude.<$> (x Core..: "scte35DescriptorSettings")
+            Prelude.<$> (x Data..: "scte35DescriptorSettings")
       )
 
 instance Prelude.Hashable Scte35Descriptor where
@@ -74,13 +75,13 @@ instance Prelude.NFData Scte35Descriptor where
   rnf Scte35Descriptor' {..} =
     Prelude.rnf scte35DescriptorSettings
 
-instance Core.ToJSON Scte35Descriptor where
+instance Data.ToJSON Scte35Descriptor where
   toJSON Scte35Descriptor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "scte35DescriptorSettings"
-                  Core..= scte35DescriptorSettings
+                  Data..= scte35DescriptorSettings
               )
           ]
       )

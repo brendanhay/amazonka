@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,11 +105,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateGroupCertificateConfigurationResponse'
-            Prelude.<$> (x Core..?> "CertificateExpiryInMilliseconds")
+            Prelude.<$> (x Data..?> "CertificateExpiryInMilliseconds")
               Prelude.<*> ( x
-                              Core..?> "CertificateAuthorityExpiryInMilliseconds"
+                              Data..?> "CertificateAuthorityExpiryInMilliseconds"
                           )
-              Prelude.<*> (x Core..?> "GroupId")
+              Prelude.<*> (x Data..?> "GroupId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,44 +133,44 @@ instance
       `Prelude.seq` Prelude.rnf groupId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateGroupCertificateConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateGroupCertificateConfiguration
   where
   toJSON UpdateGroupCertificateConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CertificateExpiryInMilliseconds" Core..=)
+          [ ("CertificateExpiryInMilliseconds" Data..=)
               Prelude.<$> certificateExpiryInMilliseconds
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateGroupCertificateConfiguration
   where
   toPath UpdateGroupCertificateConfiguration' {..} =
     Prelude.mconcat
       [ "/greengrass/groups/",
-        Core.toBS groupId,
+        Data.toBS groupId,
         "/certificateauthorities/configuration/expiry"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateGroupCertificateConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

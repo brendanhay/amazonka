@@ -24,6 +24,7 @@ import Amazonka.CodePipeline.Types.StageExecution
 import Amazonka.CodePipeline.Types.TransitionState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the state of the stage.
@@ -96,17 +97,17 @@ stageState_inboundTransitionState = Lens.lens (\StageState' {inboundTransitionSt
 stageState_latestExecution :: Lens.Lens' StageState (Prelude.Maybe StageExecution)
 stageState_latestExecution = Lens.lens (\StageState' {latestExecution} -> latestExecution) (\s@StageState' {} a -> s {latestExecution = a} :: StageState)
 
-instance Core.FromJSON StageState where
+instance Data.FromJSON StageState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StageState"
       ( \x ->
           StageState'
-            Prelude.<$> (x Core..:? "stageName")
-            Prelude.<*> (x Core..:? "inboundExecution")
-            Prelude.<*> (x Core..:? "actionStates" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "inboundTransitionState")
-            Prelude.<*> (x Core..:? "latestExecution")
+            Prelude.<$> (x Data..:? "stageName")
+            Prelude.<*> (x Data..:? "inboundExecution")
+            Prelude.<*> (x Data..:? "actionStates" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "inboundTransitionState")
+            Prelude.<*> (x Data..:? "latestExecution")
       )
 
 instance Prelude.Hashable StageState where

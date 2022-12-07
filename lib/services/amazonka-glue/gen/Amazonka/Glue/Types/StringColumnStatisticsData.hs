@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.StringColumnStatisticsData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines column statistics supported for character sequence data values.
@@ -93,16 +94,16 @@ stringColumnStatisticsData_numberOfNulls = Lens.lens (\StringColumnStatisticsDat
 stringColumnStatisticsData_numberOfDistinctValues :: Lens.Lens' StringColumnStatisticsData Prelude.Natural
 stringColumnStatisticsData_numberOfDistinctValues = Lens.lens (\StringColumnStatisticsData' {numberOfDistinctValues} -> numberOfDistinctValues) (\s@StringColumnStatisticsData' {} a -> s {numberOfDistinctValues = a} :: StringColumnStatisticsData)
 
-instance Core.FromJSON StringColumnStatisticsData where
+instance Data.FromJSON StringColumnStatisticsData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StringColumnStatisticsData"
       ( \x ->
           StringColumnStatisticsData'
-            Prelude.<$> (x Core..: "MaximumLength")
-            Prelude.<*> (x Core..: "AverageLength")
-            Prelude.<*> (x Core..: "NumberOfNulls")
-            Prelude.<*> (x Core..: "NumberOfDistinctValues")
+            Prelude.<$> (x Data..: "MaximumLength")
+            Prelude.<*> (x Data..: "AverageLength")
+            Prelude.<*> (x Data..: "NumberOfNulls")
+            Prelude.<*> (x Data..: "NumberOfDistinctValues")
       )
 
 instance Prelude.Hashable StringColumnStatisticsData where
@@ -119,17 +120,17 @@ instance Prelude.NFData StringColumnStatisticsData where
       `Prelude.seq` Prelude.rnf numberOfNulls
       `Prelude.seq` Prelude.rnf numberOfDistinctValues
 
-instance Core.ToJSON StringColumnStatisticsData where
+instance Data.ToJSON StringColumnStatisticsData where
   toJSON StringColumnStatisticsData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("MaximumLength" Core..= maximumLength),
-            Prelude.Just ("AverageLength" Core..= averageLength),
-            Prelude.Just ("NumberOfNulls" Core..= numberOfNulls),
+              ("MaximumLength" Data..= maximumLength),
+            Prelude.Just ("AverageLength" Data..= averageLength),
+            Prelude.Just ("NumberOfNulls" Data..= numberOfNulls),
             Prelude.Just
               ( "NumberOfDistinctValues"
-                  Core..= numberOfDistinctValues
+                  Data..= numberOfDistinctValues
               )
           ]
       )

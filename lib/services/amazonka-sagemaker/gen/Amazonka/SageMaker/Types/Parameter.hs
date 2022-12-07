@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Parameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Assigns a value to a named Pipeline parameter.
@@ -65,13 +66,13 @@ parameter_name = Lens.lens (\Parameter' {name} -> name) (\s@Parameter' {} a -> s
 parameter_value :: Lens.Lens' Parameter Prelude.Text
 parameter_value = Lens.lens (\Parameter' {value} -> value) (\s@Parameter' {} a -> s {value = a} :: Parameter)
 
-instance Core.FromJSON Parameter where
+instance Data.FromJSON Parameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Parameter"
       ( \x ->
           Parameter'
-            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable Parameter where
@@ -83,11 +84,11 @@ instance Prelude.NFData Parameter where
   rnf Parameter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Parameter where
+instance Data.ToJSON Parameter where
   toJSON Parameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

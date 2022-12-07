@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.CategoricalParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Environment parameters you want to benchmark your load test against.
@@ -65,13 +66,13 @@ categoricalParameter_name = Lens.lens (\CategoricalParameter' {name} -> name) (\
 categoricalParameter_value :: Lens.Lens' CategoricalParameter (Prelude.NonEmpty Prelude.Text)
 categoricalParameter_value = Lens.lens (\CategoricalParameter' {value} -> value) (\s@CategoricalParameter' {} a -> s {value = a} :: CategoricalParameter) Prelude.. Lens.coerced
 
-instance Core.FromJSON CategoricalParameter where
+instance Data.FromJSON CategoricalParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CategoricalParameter"
       ( \x ->
           CategoricalParameter'
-            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable CategoricalParameter where
@@ -83,11 +84,11 @@ instance Prelude.NFData CategoricalParameter where
   rnf CategoricalParameter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON CategoricalParameter where
+instance Data.ToJSON CategoricalParameter where
   toJSON CategoricalParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

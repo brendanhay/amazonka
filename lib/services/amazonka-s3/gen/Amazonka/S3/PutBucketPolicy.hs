@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -227,26 +228,26 @@ instance Prelude.NFData PutBucketPolicy where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf policy
 
-instance Core.ToBody PutBucketPolicy where
-  toBody PutBucketPolicy' {..} = Core.toBody policy
+instance Data.ToBody PutBucketPolicy where
+  toBody PutBucketPolicy' {..} = Data.toBody policy
 
-instance Core.ToHeaders PutBucketPolicy where
+instance Data.ToHeaders PutBucketPolicy where
   toHeaders PutBucketPolicy' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
-        "Content-MD5" Core.=# contentMD5,
+          Data.=# checksumAlgorithm,
+        "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
+          Data.=# expectedBucketOwner,
         "x-amz-confirm-remove-self-bucket-access"
-          Core.=# confirmRemoveSelfBucketAccess
+          Data.=# confirmRemoveSelfBucketAccess
       ]
 
-instance Core.ToPath PutBucketPolicy where
+instance Data.ToPath PutBucketPolicy where
   toPath PutBucketPolicy' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery PutBucketPolicy where
+instance Data.ToQuery PutBucketPolicy where
   toQuery = Prelude.const (Prelude.mconcat ["policy"])
 
 -- | /See:/ 'newPutBucketPolicyResponse' smart constructor.

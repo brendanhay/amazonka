@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.DeploymentCircuitBreaker where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The deployment circuit breaker can only be used for services using the
@@ -88,14 +89,14 @@ deploymentCircuitBreaker_enable = Lens.lens (\DeploymentCircuitBreaker' {enable}
 deploymentCircuitBreaker_rollback :: Lens.Lens' DeploymentCircuitBreaker Prelude.Bool
 deploymentCircuitBreaker_rollback = Lens.lens (\DeploymentCircuitBreaker' {rollback} -> rollback) (\s@DeploymentCircuitBreaker' {} a -> s {rollback = a} :: DeploymentCircuitBreaker)
 
-instance Core.FromJSON DeploymentCircuitBreaker where
+instance Data.FromJSON DeploymentCircuitBreaker where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentCircuitBreaker"
       ( \x ->
           DeploymentCircuitBreaker'
-            Prelude.<$> (x Core..: "enable")
-            Prelude.<*> (x Core..: "rollback")
+            Prelude.<$> (x Data..: "enable")
+            Prelude.<*> (x Data..: "rollback")
       )
 
 instance Prelude.Hashable DeploymentCircuitBreaker where
@@ -108,11 +109,11 @@ instance Prelude.NFData DeploymentCircuitBreaker where
     Prelude.rnf enable
       `Prelude.seq` Prelude.rnf rollback
 
-instance Core.ToJSON DeploymentCircuitBreaker where
+instance Data.ToJSON DeploymentCircuitBreaker where
   toJSON DeploymentCircuitBreaker' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("enable" Core..= enable),
-            Prelude.Just ("rollback" Core..= rollback)
+          [ Prelude.Just ("enable" Data..= enable),
+            Prelude.Just ("rollback" Data..= rollback)
           ]
       )

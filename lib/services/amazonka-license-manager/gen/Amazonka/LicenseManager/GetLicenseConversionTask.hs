@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,15 +95,15 @@ instance Core.AWSRequest GetLicenseConversionTask where
     Response.receiveJSON
       ( \s h x ->
           GetLicenseConversionTaskResponse'
-            Prelude.<$> (x Core..?> "SourceLicenseContext")
-            Prelude.<*> (x Core..?> "LicenseConversionTime")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "EndTime")
-            Prelude.<*> (x Core..?> "DestinationLicenseContext")
-            Prelude.<*> (x Core..?> "ResourceArn")
-            Prelude.<*> (x Core..?> "LicenseConversionTaskId")
-            Prelude.<*> (x Core..?> "StatusMessage")
-            Prelude.<*> (x Core..?> "StartTime")
+            Prelude.<$> (x Data..?> "SourceLicenseContext")
+            Prelude.<*> (x Data..?> "LicenseConversionTime")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "EndTime")
+            Prelude.<*> (x Data..?> "DestinationLicenseContext")
+            Prelude.<*> (x Data..?> "ResourceArn")
+            Prelude.<*> (x Data..?> "LicenseConversionTaskId")
+            Prelude.<*> (x Data..?> "StatusMessage")
+            Prelude.<*> (x Data..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,36 +116,36 @@ instance Prelude.NFData GetLicenseConversionTask where
   rnf GetLicenseConversionTask' {..} =
     Prelude.rnf licenseConversionTaskId
 
-instance Core.ToHeaders GetLicenseConversionTask where
+instance Data.ToHeaders GetLicenseConversionTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.GetLicenseConversionTask" ::
+              Data.=# ( "AWSLicenseManager.GetLicenseConversionTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLicenseConversionTask where
+instance Data.ToJSON GetLicenseConversionTask where
   toJSON GetLicenseConversionTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "LicenseConversionTaskId"
-                  Core..= licenseConversionTaskId
+                  Data..= licenseConversionTaskId
               )
           ]
       )
 
-instance Core.ToPath GetLicenseConversionTask where
+instance Data.ToPath GetLicenseConversionTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetLicenseConversionTask where
+instance Data.ToQuery GetLicenseConversionTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLicenseConversionTaskResponse' smart constructor.
@@ -152,11 +153,11 @@ data GetLicenseConversionTaskResponse = GetLicenseConversionTaskResponse'
   { -- | Information about the license type converted from.
     sourceLicenseContext :: Prelude.Maybe LicenseConversionContext,
     -- | Amount of time to complete the license type conversion.
-    licenseConversionTime :: Prelude.Maybe Core.POSIX,
+    licenseConversionTime :: Prelude.Maybe Data.POSIX,
     -- | Status of the license type conversion task.
     status :: Prelude.Maybe LicenseConversionTaskStatus,
     -- | Time at which the license type conversion task was completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Information about the license type converted to.
     destinationLicenseContext :: Prelude.Maybe LicenseConversionContext,
     -- | Amazon Resource Names (ARN) of the resources the license conversion task
@@ -167,7 +168,7 @@ data GetLicenseConversionTaskResponse = GetLicenseConversionTaskResponse'
     -- | The status message for the conversion task.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | Time at which the license type conversion task was started .
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -227,7 +228,7 @@ getLicenseConversionTaskResponse_sourceLicenseContext = Lens.lens (\GetLicenseCo
 
 -- | Amount of time to complete the license type conversion.
 getLicenseConversionTaskResponse_licenseConversionTime :: Lens.Lens' GetLicenseConversionTaskResponse (Prelude.Maybe Prelude.UTCTime)
-getLicenseConversionTaskResponse_licenseConversionTime = Lens.lens (\GetLicenseConversionTaskResponse' {licenseConversionTime} -> licenseConversionTime) (\s@GetLicenseConversionTaskResponse' {} a -> s {licenseConversionTime = a} :: GetLicenseConversionTaskResponse) Prelude.. Lens.mapping Core._Time
+getLicenseConversionTaskResponse_licenseConversionTime = Lens.lens (\GetLicenseConversionTaskResponse' {licenseConversionTime} -> licenseConversionTime) (\s@GetLicenseConversionTaskResponse' {} a -> s {licenseConversionTime = a} :: GetLicenseConversionTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Status of the license type conversion task.
 getLicenseConversionTaskResponse_status :: Lens.Lens' GetLicenseConversionTaskResponse (Prelude.Maybe LicenseConversionTaskStatus)
@@ -235,7 +236,7 @@ getLicenseConversionTaskResponse_status = Lens.lens (\GetLicenseConversionTaskRe
 
 -- | Time at which the license type conversion task was completed.
 getLicenseConversionTaskResponse_endTime :: Lens.Lens' GetLicenseConversionTaskResponse (Prelude.Maybe Prelude.UTCTime)
-getLicenseConversionTaskResponse_endTime = Lens.lens (\GetLicenseConversionTaskResponse' {endTime} -> endTime) (\s@GetLicenseConversionTaskResponse' {} a -> s {endTime = a} :: GetLicenseConversionTaskResponse) Prelude.. Lens.mapping Core._Time
+getLicenseConversionTaskResponse_endTime = Lens.lens (\GetLicenseConversionTaskResponse' {endTime} -> endTime) (\s@GetLicenseConversionTaskResponse' {} a -> s {endTime = a} :: GetLicenseConversionTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the license type converted to.
 getLicenseConversionTaskResponse_destinationLicenseContext :: Lens.Lens' GetLicenseConversionTaskResponse (Prelude.Maybe LicenseConversionContext)
@@ -256,7 +257,7 @@ getLicenseConversionTaskResponse_statusMessage = Lens.lens (\GetLicenseConversio
 
 -- | Time at which the license type conversion task was started .
 getLicenseConversionTaskResponse_startTime :: Lens.Lens' GetLicenseConversionTaskResponse (Prelude.Maybe Prelude.UTCTime)
-getLicenseConversionTaskResponse_startTime = Lens.lens (\GetLicenseConversionTaskResponse' {startTime} -> startTime) (\s@GetLicenseConversionTaskResponse' {} a -> s {startTime = a} :: GetLicenseConversionTaskResponse) Prelude.. Lens.mapping Core._Time
+getLicenseConversionTaskResponse_startTime = Lens.lens (\GetLicenseConversionTaskResponse' {startTime} -> startTime) (\s@GetLicenseConversionTaskResponse' {} a -> s {startTime = a} :: GetLicenseConversionTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getLicenseConversionTaskResponse_httpStatus :: Lens.Lens' GetLicenseConversionTaskResponse Prelude.Int

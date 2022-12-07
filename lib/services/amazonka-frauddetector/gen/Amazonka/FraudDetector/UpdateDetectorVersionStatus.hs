@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,36 +136,36 @@ instance Prelude.NFData UpdateDetectorVersionStatus where
       `Prelude.seq` Prelude.rnf detectorVersionId
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToHeaders UpdateDetectorVersionStatus where
+instance Data.ToHeaders UpdateDetectorVersionStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.UpdateDetectorVersionStatus" ::
+              Data.=# ( "AWSHawksNestServiceFacade.UpdateDetectorVersionStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDetectorVersionStatus where
+instance Data.ToJSON UpdateDetectorVersionStatus where
   toJSON UpdateDetectorVersionStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("detectorId" Core..= detectorId),
+          [ Prelude.Just ("detectorId" Data..= detectorId),
             Prelude.Just
-              ("detectorVersionId" Core..= detectorVersionId),
-            Prelude.Just ("status" Core..= status)
+              ("detectorVersionId" Data..= detectorVersionId),
+            Prelude.Just ("status" Data..= status)
           ]
       )
 
-instance Core.ToPath UpdateDetectorVersionStatus where
+instance Data.ToPath UpdateDetectorVersionStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDetectorVersionStatus where
+instance Data.ToQuery UpdateDetectorVersionStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDetectorVersionStatusResponse' smart constructor.

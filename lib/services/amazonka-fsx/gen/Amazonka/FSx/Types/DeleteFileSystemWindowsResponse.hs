@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.DeleteFileSystemWindowsResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,16 +66,16 @@ deleteFileSystemWindowsResponse_finalBackupId :: Lens.Lens' DeleteFileSystemWind
 deleteFileSystemWindowsResponse_finalBackupId = Lens.lens (\DeleteFileSystemWindowsResponse' {finalBackupId} -> finalBackupId) (\s@DeleteFileSystemWindowsResponse' {} a -> s {finalBackupId = a} :: DeleteFileSystemWindowsResponse)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DeleteFileSystemWindowsResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeleteFileSystemWindowsResponse"
       ( \x ->
           DeleteFileSystemWindowsResponse'
-            Prelude.<$> (x Core..:? "FinalBackupTags")
-            Prelude.<*> (x Core..:? "FinalBackupId")
+            Prelude.<$> (x Data..:? "FinalBackupTags")
+            Prelude.<*> (x Data..:? "FinalBackupId")
       )
 
 instance

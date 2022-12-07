@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -221,9 +222,9 @@ instance Core.AWSRequest SearchTransitGatewayRoutes where
     Response.receiveXML
       ( \s h x ->
           SearchTransitGatewayRoutesResponse'
-            Prelude.<$> (x Core..@? "additionalRoutesAvailable")
-            Prelude.<*> ( x Core..@? "routeSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "additionalRoutesAvailable")
+            Prelude.<*> ( x Data..@? "routeSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -242,24 +243,24 @@ instance Prelude.NFData SearchTransitGatewayRoutes where
       `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
       `Prelude.seq` Prelude.rnf filters
 
-instance Core.ToHeaders SearchTransitGatewayRoutes where
+instance Data.ToHeaders SearchTransitGatewayRoutes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SearchTransitGatewayRoutes where
+instance Data.ToPath SearchTransitGatewayRoutes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SearchTransitGatewayRoutes where
+instance Data.ToQuery SearchTransitGatewayRoutes where
   toQuery SearchTransitGatewayRoutes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SearchTransitGatewayRoutes" :: Prelude.ByteString),
+          Data.=: ("SearchTransitGatewayRoutes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
         "TransitGatewayRouteTableId"
-          Core.=: transitGatewayRouteTableId,
-        Core.toQueryList "Filter" filters
+          Data.=: transitGatewayRouteTableId,
+        Data.toQueryList "Filter" filters
       ]
 
 -- | /See:/ 'newSearchTransitGatewayRoutesResponse' smart constructor.

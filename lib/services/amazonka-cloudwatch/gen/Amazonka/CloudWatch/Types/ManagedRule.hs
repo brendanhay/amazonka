@@ -22,6 +22,7 @@ module Amazonka.CloudWatch.Types.ManagedRule where
 import Amazonka.CloudWatch.Types.Tag
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the information that\'s required to enable a managed
@@ -121,12 +122,12 @@ instance Prelude.NFData ManagedRule where
       `Prelude.seq` Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf resourceARN
 
-instance Core.ToQuery ManagedRule where
+instance Data.ToQuery ManagedRule where
   toQuery ManagedRule' {..} =
     Prelude.mconcat
       [ "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "TemplateName" Core.=: templateName,
-        "ResourceARN" Core.=: resourceARN
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "TemplateName" Data.=: templateName,
+        "ResourceARN" Data.=: resourceARN
       ]

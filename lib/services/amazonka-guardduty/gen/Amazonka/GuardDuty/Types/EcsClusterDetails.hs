@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.EcsClusterDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.EcsTaskDetails
 import Amazonka.GuardDuty.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -120,20 +121,20 @@ ecsClusterDetails_runningTasksCount = Lens.lens (\EcsClusterDetails' {runningTas
 ecsClusterDetails_activeServicesCount :: Lens.Lens' EcsClusterDetails (Prelude.Maybe Prelude.Int)
 ecsClusterDetails_activeServicesCount = Lens.lens (\EcsClusterDetails' {activeServicesCount} -> activeServicesCount) (\s@EcsClusterDetails' {} a -> s {activeServicesCount = a} :: EcsClusterDetails)
 
-instance Core.FromJSON EcsClusterDetails where
+instance Data.FromJSON EcsClusterDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EcsClusterDetails"
       ( \x ->
           EcsClusterDetails'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "taskDetails")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "registeredContainerInstancesCount")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "runningTasksCount")
-            Prelude.<*> (x Core..:? "activeServicesCount")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "taskDetails")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "registeredContainerInstancesCount")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "runningTasksCount")
+            Prelude.<*> (x Data..:? "activeServicesCount")
       )
 
 instance Prelude.Hashable EcsClusterDetails where

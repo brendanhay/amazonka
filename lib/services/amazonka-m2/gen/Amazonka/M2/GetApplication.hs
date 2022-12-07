@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,25 +101,25 @@ instance Core.AWSRequest GetApplication where
     Response.receiveJSON
       ( \s h x ->
           GetApplicationResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "listenerArns")
-            Prelude.<*> (x Core..?> "deployedVersion")
-            Prelude.<*> (x Core..?> "lastStartTime")
-            Prelude.<*> (x Core..?> "statusReason")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "loadBalancerDnsName")
-            Prelude.<*> (x Core..?> "targetGroupArns")
-            Prelude.<*> (x Core..?> "logGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "listenerPorts")
-            Prelude.<*> (x Core..?> "environmentId")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "listenerArns")
+            Prelude.<*> (x Data..?> "deployedVersion")
+            Prelude.<*> (x Data..?> "lastStartTime")
+            Prelude.<*> (x Data..?> "statusReason")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "loadBalancerDnsName")
+            Prelude.<*> (x Data..?> "targetGroupArns")
+            Prelude.<*> (x Data..?> "logGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "listenerPorts")
+            Prelude.<*> (x Data..?> "environmentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "applicationArn")
-            Prelude.<*> (x Core..:> "applicationId")
-            Prelude.<*> (x Core..:> "creationTime")
-            Prelude.<*> (x Core..:> "engineType")
-            Prelude.<*> (x Core..:> "latestVersion")
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Data..:> "applicationArn")
+            Prelude.<*> (x Data..:> "applicationId")
+            Prelude.<*> (x Data..:> "creationTime")
+            Prelude.<*> (x Data..:> "engineType")
+            Prelude.<*> (x Data..:> "latestVersion")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance Prelude.Hashable GetApplication where
@@ -128,23 +129,23 @@ instance Prelude.Hashable GetApplication where
 instance Prelude.NFData GetApplication where
   rnf GetApplication' {..} = Prelude.rnf applicationId
 
-instance Core.ToHeaders GetApplication where
+instance Data.ToHeaders GetApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetApplication where
+instance Data.ToPath GetApplication where
   toPath GetApplication' {..} =
     Prelude.mconcat
-      ["/applications/", Core.toBS applicationId]
+      ["/applications/", Data.toBS applicationId]
 
-instance Core.ToQuery GetApplication where
+instance Data.ToQuery GetApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetApplicationResponse' smart constructor.
@@ -160,7 +161,7 @@ data GetApplicationResponse = GetApplicationResponse'
     deployedVersion :: Prelude.Maybe DeployedVersionSummary,
     -- | The timestamp when the application was last started. Null until the
     -- application has started running for the first time.
-    lastStartTime :: Prelude.Maybe Core.POSIX,
+    lastStartTime :: Prelude.Maybe Data.POSIX,
     -- | The reason for the reported status.
     statusReason :: Prelude.Maybe Prelude.Text,
     -- | The description of the application.
@@ -189,7 +190,7 @@ data GetApplicationResponse = GetApplicationResponse'
     -- | The identifier of the application.
     applicationId :: Prelude.Text,
     -- | The timestamp when this application was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The type of the target platform for the application.
     engineType :: EngineType,
     -- | The latest version of the application.
@@ -299,7 +300,7 @@ newGetApplicationResponse
         httpStatus = pHttpStatus_,
         applicationArn = pApplicationArn_,
         applicationId = pApplicationId_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         engineType = pEngineType_,
         latestVersion = pLatestVersion_,
         name = pName_,
@@ -324,7 +325,7 @@ getApplicationResponse_deployedVersion = Lens.lens (\GetApplicationResponse' {de
 -- | The timestamp when the application was last started. Null until the
 -- application has started running for the first time.
 getApplicationResponse_lastStartTime :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.UTCTime)
-getApplicationResponse_lastStartTime = Lens.lens (\GetApplicationResponse' {lastStartTime} -> lastStartTime) (\s@GetApplicationResponse' {} a -> s {lastStartTime = a} :: GetApplicationResponse) Prelude.. Lens.mapping Core._Time
+getApplicationResponse_lastStartTime = Lens.lens (\GetApplicationResponse' {lastStartTime} -> lastStartTime) (\s@GetApplicationResponse' {} a -> s {lastStartTime = a} :: GetApplicationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The reason for the reported status.
 getApplicationResponse_statusReason :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
@@ -375,7 +376,7 @@ getApplicationResponse_applicationId = Lens.lens (\GetApplicationResponse' {appl
 
 -- | The timestamp when this application was created.
 getApplicationResponse_creationTime :: Lens.Lens' GetApplicationResponse Prelude.UTCTime
-getApplicationResponse_creationTime = Lens.lens (\GetApplicationResponse' {creationTime} -> creationTime) (\s@GetApplicationResponse' {} a -> s {creationTime = a} :: GetApplicationResponse) Prelude.. Core._Time
+getApplicationResponse_creationTime = Lens.lens (\GetApplicationResponse' {creationTime} -> creationTime) (\s@GetApplicationResponse' {} a -> s {creationTime = a} :: GetApplicationResponse) Prelude.. Data._Time
 
 -- | The type of the target platform for the application.
 getApplicationResponse_engineType :: Lens.Lens' GetApplicationResponse EngineType

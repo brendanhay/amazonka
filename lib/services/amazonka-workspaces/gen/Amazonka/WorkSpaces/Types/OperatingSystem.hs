@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.OperatingSystem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.OperatingSystemType
 
@@ -51,12 +52,12 @@ newOperatingSystem =
 operatingSystem_type :: Lens.Lens' OperatingSystem (Prelude.Maybe OperatingSystemType)
 operatingSystem_type = Lens.lens (\OperatingSystem' {type'} -> type') (\s@OperatingSystem' {} a -> s {type' = a} :: OperatingSystem)
 
-instance Core.FromJSON OperatingSystem where
+instance Data.FromJSON OperatingSystem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OperatingSystem"
       ( \x ->
-          OperatingSystem' Prelude.<$> (x Core..:? "Type")
+          OperatingSystem' Prelude.<$> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable OperatingSystem where

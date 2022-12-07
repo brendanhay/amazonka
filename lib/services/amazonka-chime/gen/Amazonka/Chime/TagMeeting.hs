@@ -39,6 +39,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,22 +100,22 @@ instance Prelude.NFData TagMeeting where
     Prelude.rnf meetingId
       `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders TagMeeting where
+instance Data.ToHeaders TagMeeting where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON TagMeeting where
+instance Data.ToJSON TagMeeting where
   toJSON TagMeeting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Tags" Core..= tags)]
+          [Prelude.Just ("Tags" Data..= tags)]
       )
 
-instance Core.ToPath TagMeeting where
+instance Data.ToPath TagMeeting where
   toPath TagMeeting' {..} =
     Prelude.mconcat
-      ["/meetings/", Core.toBS meetingId, "/tags"]
+      ["/meetings/", Data.toBS meetingId, "/tags"]
 
-instance Core.ToQuery TagMeeting where
+instance Data.ToQuery TagMeeting where
   toQuery =
     Prelude.const (Prelude.mconcat ["operation=add"])
 

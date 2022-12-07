@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.SourceSchema where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.RecordColumn
 import Amazonka.KinesisAnalyticsV2.Types.RecordFormat
 import qualified Amazonka.Prelude as Prelude
@@ -81,15 +82,15 @@ sourceSchema_recordFormat = Lens.lens (\SourceSchema' {recordFormat} -> recordFo
 sourceSchema_recordColumns :: Lens.Lens' SourceSchema (Prelude.NonEmpty RecordColumn)
 sourceSchema_recordColumns = Lens.lens (\SourceSchema' {recordColumns} -> recordColumns) (\s@SourceSchema' {} a -> s {recordColumns = a} :: SourceSchema) Prelude.. Lens.coerced
 
-instance Core.FromJSON SourceSchema where
+instance Data.FromJSON SourceSchema where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceSchema"
       ( \x ->
           SourceSchema'
-            Prelude.<$> (x Core..:? "RecordEncoding")
-            Prelude.<*> (x Core..: "RecordFormat")
-            Prelude.<*> (x Core..: "RecordColumns")
+            Prelude.<$> (x Data..:? "RecordEncoding")
+            Prelude.<*> (x Data..: "RecordFormat")
+            Prelude.<*> (x Data..: "RecordColumns")
       )
 
 instance Prelude.Hashable SourceSchema where
@@ -104,14 +105,14 @@ instance Prelude.NFData SourceSchema where
       `Prelude.seq` Prelude.rnf recordFormat
       `Prelude.seq` Prelude.rnf recordColumns
 
-instance Core.ToJSON SourceSchema where
+instance Data.ToJSON SourceSchema where
   toJSON SourceSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RecordEncoding" Core..=)
+          [ ("RecordEncoding" Data..=)
               Prelude.<$> recordEncoding,
-            Prelude.Just ("RecordFormat" Core..= recordFormat),
+            Prelude.Just ("RecordFormat" Data..= recordFormat),
             Prelude.Just
-              ("RecordColumns" Core..= recordColumns)
+              ("RecordColumns" Data..= recordColumns)
           ]
       )

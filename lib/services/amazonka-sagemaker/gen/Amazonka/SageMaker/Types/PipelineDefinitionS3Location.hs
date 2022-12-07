@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.PipelineDefinitionS3Location where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The location of the pipeline definition stored in Amazon S3.
@@ -96,12 +97,12 @@ instance Prelude.NFData PipelineDefinitionS3Location where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf objectKey
 
-instance Core.ToJSON PipelineDefinitionS3Location where
+instance Data.ToJSON PipelineDefinitionS3Location where
   toJSON PipelineDefinitionS3Location' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VersionId" Core..=) Prelude.<$> versionId,
-            Prelude.Just ("Bucket" Core..= bucket),
-            Prelude.Just ("ObjectKey" Core..= objectKey)
+          [ ("VersionId" Data..=) Prelude.<$> versionId,
+            Prelude.Just ("Bucket" Data..= bucket),
+            Prelude.Just ("ObjectKey" Data..= objectKey)
           ]
       )

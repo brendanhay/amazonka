@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryControlConfig.Types.NewAssertionRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryControlConfig.Types.RuleConfig
 
@@ -154,16 +155,16 @@ instance Prelude.NFData NewAssertionRule where
       `Prelude.seq` Prelude.rnf waitPeriodMs
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON NewAssertionRule where
+instance Data.ToJSON NewAssertionRule where
   toJSON NewAssertionRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ControlPanelArn" Core..= controlPanelArn),
+              ("ControlPanelArn" Data..= controlPanelArn),
             Prelude.Just
-              ("AssertedControls" Core..= assertedControls),
-            Prelude.Just ("RuleConfig" Core..= ruleConfig),
-            Prelude.Just ("WaitPeriodMs" Core..= waitPeriodMs),
-            Prelude.Just ("Name" Core..= name)
+              ("AssertedControls" Data..= assertedControls),
+            Prelude.Just ("RuleConfig" Data..= ruleConfig),
+            Prelude.Just ("WaitPeriodMs" Data..= waitPeriodMs),
+            Prelude.Just ("Name" Data..= name)
           ]
       )

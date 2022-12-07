@@ -46,6 +46,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,8 +115,8 @@ instance Core.AWSRequest ListIdentityResolutionJobs where
     Response.receiveJSON
       ( \s h x ->
           ListIdentityResolutionJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "IdentityResolutionJobsList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "IdentityResolutionJobsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -133,30 +134,30 @@ instance Prelude.NFData ListIdentityResolutionJobs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders ListIdentityResolutionJobs where
+instance Data.ToHeaders ListIdentityResolutionJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListIdentityResolutionJobs where
+instance Data.ToPath ListIdentityResolutionJobs where
   toPath ListIdentityResolutionJobs' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/identity-resolution-jobs"
       ]
 
-instance Core.ToQuery ListIdentityResolutionJobs where
+instance Data.ToQuery ListIdentityResolutionJobs where
   toQuery ListIdentityResolutionJobs' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListIdentityResolutionJobsResponse' smart constructor.

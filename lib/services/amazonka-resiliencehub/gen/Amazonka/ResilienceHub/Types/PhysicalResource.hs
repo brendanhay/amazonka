@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.PhysicalResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.AppComponent
 import Amazonka.ResilienceHub.Types.LogicalResourceId
@@ -102,17 +103,17 @@ physicalResource_physicalResourceId = Lens.lens (\PhysicalResource' {physicalRes
 physicalResource_resourceType :: Lens.Lens' PhysicalResource Prelude.Text
 physicalResource_resourceType = Lens.lens (\PhysicalResource' {resourceType} -> resourceType) (\s@PhysicalResource' {} a -> s {resourceType = a} :: PhysicalResource)
 
-instance Core.FromJSON PhysicalResource where
+instance Data.FromJSON PhysicalResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PhysicalResource"
       ( \x ->
           PhysicalResource'
-            Prelude.<$> (x Core..:? "appComponents" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resourceName")
-            Prelude.<*> (x Core..: "logicalResourceId")
-            Prelude.<*> (x Core..: "physicalResourceId")
-            Prelude.<*> (x Core..: "resourceType")
+            Prelude.<$> (x Data..:? "appComponents" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceName")
+            Prelude.<*> (x Data..: "logicalResourceId")
+            Prelude.<*> (x Data..: "physicalResourceId")
+            Prelude.<*> (x Data..: "resourceType")
       )
 
 instance Prelude.Hashable PhysicalResource where

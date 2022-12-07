@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.DetectLabelsImagePropertiesSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for the IMAGE_PROPERTIES feature type.
@@ -73,13 +74,13 @@ instance
     Prelude.rnf maxDominantColors
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DetectLabelsImagePropertiesSettings
   where
   toJSON DetectLabelsImagePropertiesSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxDominantColors" Core..=)
+          [ ("MaxDominantColors" Data..=)
               Prelude.<$> maxDominantColors
           ]
       )

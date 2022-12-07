@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,9 +139,9 @@ instance Core.AWSRequest ListEngagements where
     Response.receiveJSON
       ( \s h x ->
           ListEngagementsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Engagements" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Engagements" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListEngagements where
@@ -157,37 +158,37 @@ instance Prelude.NFData ListEngagements where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf incidentId
 
-instance Core.ToHeaders ListEngagements where
+instance Data.ToHeaders ListEngagements where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SSMContacts.ListEngagements" ::
+              Data.=# ( "SSMContacts.ListEngagements" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEngagements where
+instance Data.ToJSON ListEngagements where
   toJSON ListEngagements' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("TimeRangeValue" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("TimeRangeValue" Data..=)
               Prelude.<$> timeRangeValue,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("IncidentId" Core..=) Prelude.<$> incidentId
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("IncidentId" Data..=) Prelude.<$> incidentId
           ]
       )
 
-instance Core.ToPath ListEngagements where
+instance Data.ToPath ListEngagements where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEngagements where
+instance Data.ToQuery ListEngagements where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEngagementsResponse' smart constructor.

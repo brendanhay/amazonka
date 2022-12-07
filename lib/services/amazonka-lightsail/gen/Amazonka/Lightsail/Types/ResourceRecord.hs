@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ResourceRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the domain name system (DNS) records to add to your domain\'s
@@ -71,15 +72,15 @@ resourceRecord_type = Lens.lens (\ResourceRecord' {type'} -> type') (\s@Resource
 resourceRecord_value :: Lens.Lens' ResourceRecord (Prelude.Maybe Prelude.Text)
 resourceRecord_value = Lens.lens (\ResourceRecord' {value} -> value) (\s@ResourceRecord' {} a -> s {value = a} :: ResourceRecord)
 
-instance Core.FromJSON ResourceRecord where
+instance Data.FromJSON ResourceRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceRecord"
       ( \x ->
           ResourceRecord'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ResourceRecord where

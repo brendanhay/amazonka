@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,10 +137,10 @@ instance Core.AWSRequest ListClusters where
     Response.receiveJSON
       ( \s h x ->
           ListClustersResponse'
-            Prelude.<$> ( x Core..?> "clusterInfoList"
+            Prelude.<$> ( x Data..?> "clusterInfoList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,26 +156,26 @@ instance Prelude.NFData ListClusters where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf clusterNameFilter
 
-instance Core.ToHeaders ListClusters where
+instance Data.ToHeaders ListClusters where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListClusters where
+instance Data.ToPath ListClusters where
   toPath = Prelude.const "/v1/clusters"
 
-instance Core.ToQuery ListClusters where
+instance Data.ToQuery ListClusters where
   toQuery ListClusters' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "clusterNameFilter" Core.=: clusterNameFilter
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "clusterNameFilter" Data.=: clusterNameFilter
       ]
 
 -- | /See:/ 'newListClustersResponse' smart constructor.

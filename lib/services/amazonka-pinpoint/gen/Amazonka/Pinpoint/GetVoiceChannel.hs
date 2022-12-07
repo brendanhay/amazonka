@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest GetVoiceChannel where
       ( \s h x ->
           GetVoiceChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetVoiceChannel where
@@ -98,26 +99,26 @@ instance Prelude.Hashable GetVoiceChannel where
 instance Prelude.NFData GetVoiceChannel where
   rnf GetVoiceChannel' {..} = Prelude.rnf applicationId
 
-instance Core.ToHeaders GetVoiceChannel where
+instance Data.ToHeaders GetVoiceChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetVoiceChannel where
+instance Data.ToPath GetVoiceChannel where
   toPath GetVoiceChannel' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/channels/voice"
       ]
 
-instance Core.ToQuery GetVoiceChannel where
+instance Data.ToQuery GetVoiceChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetVoiceChannelResponse' smart constructor.

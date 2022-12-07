@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -145,11 +146,11 @@ instance Core.AWSRequest DescribeTapeRecoveryPoints where
     Response.receiveJSON
       ( \s h x ->
           DescribeTapeRecoveryPointsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> ( x Core..?> "TapeRecoveryPointInfos"
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> ( x Data..?> "TapeRecoveryPointInfos"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "GatewayARN")
+            Prelude.<*> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,35 +166,35 @@ instance Prelude.NFData DescribeTapeRecoveryPoints where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf gatewayARN
 
-instance Core.ToHeaders DescribeTapeRecoveryPoints where
+instance Data.ToHeaders DescribeTapeRecoveryPoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DescribeTapeRecoveryPoints" ::
+              Data.=# ( "StorageGateway_20130630.DescribeTapeRecoveryPoints" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTapeRecoveryPoints where
+instance Data.ToJSON DescribeTapeRecoveryPoints where
   toJSON DescribeTapeRecoveryPoints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("GatewayARN" Core..= gatewayARN)
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("GatewayARN" Data..= gatewayARN)
           ]
       )
 
-instance Core.ToPath DescribeTapeRecoveryPoints where
+instance Data.ToPath DescribeTapeRecoveryPoints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTapeRecoveryPoints where
+instance Data.ToQuery DescribeTapeRecoveryPoints where
   toQuery = Prelude.const Prelude.mempty
 
 -- | DescribeTapeRecoveryPointsOutput

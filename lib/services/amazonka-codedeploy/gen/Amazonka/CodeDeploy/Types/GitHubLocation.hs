@@ -21,6 +21,7 @@ module Amazonka.CodeDeploy.Types.GitHubLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the location of application artifacts stored in
@@ -77,14 +78,14 @@ gitHubLocation_commitId = Lens.lens (\GitHubLocation' {commitId} -> commitId) (\
 gitHubLocation_repository :: Lens.Lens' GitHubLocation (Prelude.Maybe Prelude.Text)
 gitHubLocation_repository = Lens.lens (\GitHubLocation' {repository} -> repository) (\s@GitHubLocation' {} a -> s {repository = a} :: GitHubLocation)
 
-instance Core.FromJSON GitHubLocation where
+instance Data.FromJSON GitHubLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GitHubLocation"
       ( \x ->
           GitHubLocation'
-            Prelude.<$> (x Core..:? "commitId")
-            Prelude.<*> (x Core..:? "repository")
+            Prelude.<$> (x Data..:? "commitId")
+            Prelude.<*> (x Data..:? "repository")
       )
 
 instance Prelude.Hashable GitHubLocation where
@@ -97,11 +98,11 @@ instance Prelude.NFData GitHubLocation where
     Prelude.rnf commitId
       `Prelude.seq` Prelude.rnf repository
 
-instance Core.ToJSON GitHubLocation where
+instance Data.ToJSON GitHubLocation where
   toJSON GitHubLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("commitId" Core..=) Prelude.<$> commitId,
-            ("repository" Core..=) Prelude.<$> repository
+          [ ("commitId" Data..=) Prelude.<$> commitId,
+            ("repository" Data..=) Prelude.<$> repository
           ]
       )

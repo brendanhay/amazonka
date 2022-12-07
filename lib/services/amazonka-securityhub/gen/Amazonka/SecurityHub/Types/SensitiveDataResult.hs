@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.SensitiveDataResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.SensitiveDataDetections
 
@@ -78,15 +79,15 @@ sensitiveDataResult_category = Lens.lens (\SensitiveDataResult' {category} -> ca
 sensitiveDataResult_totalCount :: Lens.Lens' SensitiveDataResult (Prelude.Maybe Prelude.Integer)
 sensitiveDataResult_totalCount = Lens.lens (\SensitiveDataResult' {totalCount} -> totalCount) (\s@SensitiveDataResult' {} a -> s {totalCount = a} :: SensitiveDataResult)
 
-instance Core.FromJSON SensitiveDataResult where
+instance Data.FromJSON SensitiveDataResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SensitiveDataResult"
       ( \x ->
           SensitiveDataResult'
-            Prelude.<$> (x Core..:? "Detections" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Category")
-            Prelude.<*> (x Core..:? "TotalCount")
+            Prelude.<$> (x Data..:? "Detections" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Category")
+            Prelude.<*> (x Data..:? "TotalCount")
       )
 
 instance Prelude.Hashable SensitiveDataResult where
@@ -101,12 +102,12 @@ instance Prelude.NFData SensitiveDataResult where
       `Prelude.seq` Prelude.rnf category
       `Prelude.seq` Prelude.rnf totalCount
 
-instance Core.ToJSON SensitiveDataResult where
+instance Data.ToJSON SensitiveDataResult where
   toJSON SensitiveDataResult' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Detections" Core..=) Prelude.<$> detections,
-            ("Category" Core..=) Prelude.<$> category,
-            ("TotalCount" Core..=) Prelude.<$> totalCount
+          [ ("Detections" Data..=) Prelude.<$> detections,
+            ("Category" Data..=) Prelude.<$> category,
+            ("TotalCount" Data..=) Prelude.<$> totalCount
           ]
       )

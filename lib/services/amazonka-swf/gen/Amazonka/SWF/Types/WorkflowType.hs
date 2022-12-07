@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.WorkflowType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a workflow type.
@@ -80,13 +81,13 @@ workflowType_name = Lens.lens (\WorkflowType' {name} -> name) (\s@WorkflowType' 
 workflowType_version :: Lens.Lens' WorkflowType Prelude.Text
 workflowType_version = Lens.lens (\WorkflowType' {version} -> version) (\s@WorkflowType' {} a -> s {version = a} :: WorkflowType)
 
-instance Core.FromJSON WorkflowType where
+instance Data.FromJSON WorkflowType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowType"
       ( \x ->
           WorkflowType'
-            Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "version")
+            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "version")
       )
 
 instance Prelude.Hashable WorkflowType where
@@ -98,11 +99,11 @@ instance Prelude.NFData WorkflowType where
   rnf WorkflowType' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON WorkflowType where
+instance Data.ToJSON WorkflowType where
   toJSON WorkflowType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("version" Core..= version)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("version" Data..= version)
           ]
       )

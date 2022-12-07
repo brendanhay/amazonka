@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AutoMLSecurityConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.VpcConfig
 
@@ -72,15 +73,15 @@ autoMLSecurityConfig_volumeKmsKeyId = Lens.lens (\AutoMLSecurityConfig' {volumeK
 autoMLSecurityConfig_enableInterContainerTrafficEncryption :: Lens.Lens' AutoMLSecurityConfig (Prelude.Maybe Prelude.Bool)
 autoMLSecurityConfig_enableInterContainerTrafficEncryption = Lens.lens (\AutoMLSecurityConfig' {enableInterContainerTrafficEncryption} -> enableInterContainerTrafficEncryption) (\s@AutoMLSecurityConfig' {} a -> s {enableInterContainerTrafficEncryption = a} :: AutoMLSecurityConfig)
 
-instance Core.FromJSON AutoMLSecurityConfig where
+instance Data.FromJSON AutoMLSecurityConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoMLSecurityConfig"
       ( \x ->
           AutoMLSecurityConfig'
-            Prelude.<$> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Core..:? "EnableInterContainerTrafficEncryption")
+            Prelude.<$> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Data..:? "EnableInterContainerTrafficEncryption")
       )
 
 instance Prelude.Hashable AutoMLSecurityConfig where
@@ -95,14 +96,14 @@ instance Prelude.NFData AutoMLSecurityConfig where
       `Prelude.seq` Prelude.rnf volumeKmsKeyId
       `Prelude.seq` Prelude.rnf enableInterContainerTrafficEncryption
 
-instance Core.ToJSON AutoMLSecurityConfig where
+instance Data.ToJSON AutoMLSecurityConfig where
   toJSON AutoMLSecurityConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("VolumeKmsKeyId" Core..=)
+          [ ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("VolumeKmsKeyId" Data..=)
               Prelude.<$> volumeKmsKeyId,
-            ("EnableInterContainerTrafficEncryption" Core..=)
+            ("EnableInterContainerTrafficEncryption" Data..=)
               Prelude.<$> enableInterContainerTrafficEncryption
           ]
       )

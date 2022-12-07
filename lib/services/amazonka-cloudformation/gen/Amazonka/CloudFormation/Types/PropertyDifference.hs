@@ -22,6 +22,7 @@ module Amazonka.CloudFormation.Types.PropertyDifference where
 import Amazonka.CloudFormation.Types.DifferenceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a resource property whose actual value differs from
@@ -130,13 +131,13 @@ propertyDifference_actualValue = Lens.lens (\PropertyDifference' {actualValue} -
 propertyDifference_differenceType :: Lens.Lens' PropertyDifference DifferenceType
 propertyDifference_differenceType = Lens.lens (\PropertyDifference' {differenceType} -> differenceType) (\s@PropertyDifference' {} a -> s {differenceType = a} :: PropertyDifference)
 
-instance Core.FromXML PropertyDifference where
+instance Data.FromXML PropertyDifference where
   parseXML x =
     PropertyDifference'
-      Prelude.<$> (x Core..@ "PropertyPath")
-      Prelude.<*> (x Core..@ "ExpectedValue")
-      Prelude.<*> (x Core..@ "ActualValue")
-      Prelude.<*> (x Core..@ "DifferenceType")
+      Prelude.<$> (x Data..@ "PropertyPath")
+      Prelude.<*> (x Data..@ "ExpectedValue")
+      Prelude.<*> (x Data..@ "ActualValue")
+      Prelude.<*> (x Data..@ "DifferenceType")
 
 instance Prelude.Hashable PropertyDifference where
   hashWithSalt _salt PropertyDifference' {..} =

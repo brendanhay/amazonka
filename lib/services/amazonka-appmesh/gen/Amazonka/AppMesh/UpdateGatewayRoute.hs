@@ -48,6 +48,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -168,7 +169,7 @@ instance Core.AWSRequest UpdateGatewayRoute where
       ( \s h x ->
           UpdateGatewayRouteResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable UpdateGatewayRoute where
@@ -189,40 +190,40 @@ instance Prelude.NFData UpdateGatewayRoute where
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf virtualGatewayName
 
-instance Core.ToHeaders UpdateGatewayRoute where
+instance Data.ToHeaders UpdateGatewayRoute where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGatewayRoute where
+instance Data.ToJSON UpdateGatewayRoute where
   toJSON UpdateGatewayRoute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("spec" Core..= spec)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("spec" Data..= spec)
           ]
       )
 
-instance Core.ToPath UpdateGatewayRoute where
+instance Data.ToPath UpdateGatewayRoute where
   toPath UpdateGatewayRoute' {..} =
     Prelude.mconcat
       [ "/v20190125/meshes/",
-        Core.toBS meshName,
+        Data.toBS meshName,
         "/virtualGateway/",
-        Core.toBS virtualGatewayName,
+        Data.toBS virtualGatewayName,
         "/gatewayRoutes/",
-        Core.toBS gatewayRouteName
+        Data.toBS gatewayRouteName
       ]
 
-instance Core.ToQuery UpdateGatewayRoute where
+instance Data.ToQuery UpdateGatewayRoute where
   toQuery UpdateGatewayRoute' {..} =
-    Prelude.mconcat ["meshOwner" Core.=: meshOwner]
+    Prelude.mconcat ["meshOwner" Data.=: meshOwner]
 
 -- | /See:/ 'newUpdateGatewayRouteResponse' smart constructor.
 data UpdateGatewayRouteResponse = UpdateGatewayRouteResponse'

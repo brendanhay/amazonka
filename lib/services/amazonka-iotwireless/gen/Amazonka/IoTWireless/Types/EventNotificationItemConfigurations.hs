@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.EventNotificationItemConfigurations where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.ConnectionStatusEventConfiguration
 import Amazonka.IoTWireless.Types.DeviceRegistrationStateEventConfiguration
 import Amazonka.IoTWireless.Types.JoinEventConfiguration
@@ -102,19 +103,19 @@ eventNotificationItemConfigurations_proximity :: Lens.Lens' EventNotificationIte
 eventNotificationItemConfigurations_proximity = Lens.lens (\EventNotificationItemConfigurations' {proximity} -> proximity) (\s@EventNotificationItemConfigurations' {} a -> s {proximity = a} :: EventNotificationItemConfigurations)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     EventNotificationItemConfigurations
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventNotificationItemConfigurations"
       ( \x ->
           EventNotificationItemConfigurations'
-            Prelude.<$> (x Core..:? "DeviceRegistrationState")
-            Prelude.<*> (x Core..:? "ConnectionStatus")
-            Prelude.<*> (x Core..:? "MessageDeliveryStatus")
-            Prelude.<*> (x Core..:? "Join")
-            Prelude.<*> (x Core..:? "Proximity")
+            Prelude.<$> (x Data..:? "DeviceRegistrationState")
+            Prelude.<*> (x Data..:? "ConnectionStatus")
+            Prelude.<*> (x Data..:? "MessageDeliveryStatus")
+            Prelude.<*> (x Data..:? "Join")
+            Prelude.<*> (x Data..:? "Proximity")
       )
 
 instance

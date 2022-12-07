@@ -24,6 +24,7 @@ import Amazonka.CloudFormation.Types.HookFailureMode
 import Amazonka.CloudFormation.Types.HookInvocationPoint
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the resource, the hook, and the hook version to be invoked.
@@ -170,15 +171,15 @@ changeSetHook_typeVersionId = Lens.lens (\ChangeSetHook' {typeVersionId} -> type
 changeSetHook_targetDetails :: Lens.Lens' ChangeSetHook (Prelude.Maybe ChangeSetHookTargetDetails)
 changeSetHook_targetDetails = Lens.lens (\ChangeSetHook' {targetDetails} -> targetDetails) (\s@ChangeSetHook' {} a -> s {targetDetails = a} :: ChangeSetHook)
 
-instance Core.FromXML ChangeSetHook where
+instance Data.FromXML ChangeSetHook where
   parseXML x =
     ChangeSetHook'
-      Prelude.<$> (x Core..@? "TypeConfigurationVersionId")
-      Prelude.<*> (x Core..@? "InvocationPoint")
-      Prelude.<*> (x Core..@? "FailureMode")
-      Prelude.<*> (x Core..@? "TypeName")
-      Prelude.<*> (x Core..@? "TypeVersionId")
-      Prelude.<*> (x Core..@? "TargetDetails")
+      Prelude.<$> (x Data..@? "TypeConfigurationVersionId")
+      Prelude.<*> (x Data..@? "InvocationPoint")
+      Prelude.<*> (x Data..@? "FailureMode")
+      Prelude.<*> (x Data..@? "TypeName")
+      Prelude.<*> (x Data..@? "TypeVersionId")
+      Prelude.<*> (x Data..@? "TargetDetails")
 
 instance Prelude.Hashable ChangeSetHook where
   hashWithSalt _salt ChangeSetHook' {..} =

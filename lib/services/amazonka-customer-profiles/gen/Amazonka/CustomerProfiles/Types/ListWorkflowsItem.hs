@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.Status
 import Amazonka.CustomerProfiles.Types.WorkflowType
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A workflow in list of workflows.
@@ -38,9 +39,9 @@ data ListWorkflowsItem = ListWorkflowsItem'
     -- | Description for workflow execution status.
     statusDescription :: Prelude.Text,
     -- | Creation timestamp for workflow.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | Last updated timestamp for workflow.
-    lastUpdatedAt :: Core.POSIX
+    lastUpdatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,8 +90,8 @@ newListWorkflowsItem
         workflowId = pWorkflowId_,
         status = pStatus_,
         statusDescription = pStatusDescription_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastUpdatedAt = Core._Time Lens.# pLastUpdatedAt_
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_
       }
 
 -- | The type of workflow. The only supported value is APPFLOW_INTEGRATION.
@@ -111,24 +112,24 @@ listWorkflowsItem_statusDescription = Lens.lens (\ListWorkflowsItem' {statusDesc
 
 -- | Creation timestamp for workflow.
 listWorkflowsItem_createdAt :: Lens.Lens' ListWorkflowsItem Prelude.UTCTime
-listWorkflowsItem_createdAt = Lens.lens (\ListWorkflowsItem' {createdAt} -> createdAt) (\s@ListWorkflowsItem' {} a -> s {createdAt = a} :: ListWorkflowsItem) Prelude.. Core._Time
+listWorkflowsItem_createdAt = Lens.lens (\ListWorkflowsItem' {createdAt} -> createdAt) (\s@ListWorkflowsItem' {} a -> s {createdAt = a} :: ListWorkflowsItem) Prelude.. Data._Time
 
 -- | Last updated timestamp for workflow.
 listWorkflowsItem_lastUpdatedAt :: Lens.Lens' ListWorkflowsItem Prelude.UTCTime
-listWorkflowsItem_lastUpdatedAt = Lens.lens (\ListWorkflowsItem' {lastUpdatedAt} -> lastUpdatedAt) (\s@ListWorkflowsItem' {} a -> s {lastUpdatedAt = a} :: ListWorkflowsItem) Prelude.. Core._Time
+listWorkflowsItem_lastUpdatedAt = Lens.lens (\ListWorkflowsItem' {lastUpdatedAt} -> lastUpdatedAt) (\s@ListWorkflowsItem' {} a -> s {lastUpdatedAt = a} :: ListWorkflowsItem) Prelude.. Data._Time
 
-instance Core.FromJSON ListWorkflowsItem where
+instance Data.FromJSON ListWorkflowsItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListWorkflowsItem"
       ( \x ->
           ListWorkflowsItem'
-            Prelude.<$> (x Core..: "WorkflowType")
-            Prelude.<*> (x Core..: "WorkflowId")
-            Prelude.<*> (x Core..: "Status")
-            Prelude.<*> (x Core..: "StatusDescription")
-            Prelude.<*> (x Core..: "CreatedAt")
-            Prelude.<*> (x Core..: "LastUpdatedAt")
+            Prelude.<$> (x Data..: "WorkflowType")
+            Prelude.<*> (x Data..: "WorkflowId")
+            Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..: "StatusDescription")
+            Prelude.<*> (x Data..: "CreatedAt")
+            Prelude.<*> (x Data..: "LastUpdatedAt")
       )
 
 instance Prelude.Hashable ListWorkflowsItem where

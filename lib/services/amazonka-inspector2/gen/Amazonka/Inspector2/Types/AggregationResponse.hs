@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.AggregationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.AccountAggregationResponse
 import Amazonka.Inspector2.Types.AmiAggregationResponse
 import Amazonka.Inspector2.Types.AwsEcrContainerAggregationResponse
@@ -162,21 +163,21 @@ aggregationResponse_titleAggregation = Lens.lens (\AggregationResponse' {titleAg
 aggregationResponse_amiAggregation :: Lens.Lens' AggregationResponse (Prelude.Maybe AmiAggregationResponse)
 aggregationResponse_amiAggregation = Lens.lens (\AggregationResponse' {amiAggregation} -> amiAggregation) (\s@AggregationResponse' {} a -> s {amiAggregation = a} :: AggregationResponse)
 
-instance Core.FromJSON AggregationResponse where
+instance Data.FromJSON AggregationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregationResponse"
       ( \x ->
           AggregationResponse'
-            Prelude.<$> (x Core..:? "repositoryAggregation")
-            Prelude.<*> (x Core..:? "imageLayerAggregation")
-            Prelude.<*> (x Core..:? "accountAggregation")
-            Prelude.<*> (x Core..:? "awsEcrContainerAggregation")
-            Prelude.<*> (x Core..:? "ec2InstanceAggregation")
-            Prelude.<*> (x Core..:? "findingTypeAggregation")
-            Prelude.<*> (x Core..:? "packageAggregation")
-            Prelude.<*> (x Core..:? "titleAggregation")
-            Prelude.<*> (x Core..:? "amiAggregation")
+            Prelude.<$> (x Data..:? "repositoryAggregation")
+            Prelude.<*> (x Data..:? "imageLayerAggregation")
+            Prelude.<*> (x Data..:? "accountAggregation")
+            Prelude.<*> (x Data..:? "awsEcrContainerAggregation")
+            Prelude.<*> (x Data..:? "ec2InstanceAggregation")
+            Prelude.<*> (x Data..:? "findingTypeAggregation")
+            Prelude.<*> (x Data..:? "packageAggregation")
+            Prelude.<*> (x Data..:? "titleAggregation")
+            Prelude.<*> (x Data..:? "amiAggregation")
       )
 
 instance Prelude.Hashable AggregationResponse where

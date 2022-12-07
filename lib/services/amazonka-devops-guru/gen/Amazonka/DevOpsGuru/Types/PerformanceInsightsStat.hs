@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.PerformanceInsightsStat where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A statistic in a Performance Insights collection.
@@ -61,13 +62,13 @@ performanceInsightsStat_type = Lens.lens (\PerformanceInsightsStat' {type'} -> t
 performanceInsightsStat_value :: Lens.Lens' PerformanceInsightsStat (Prelude.Maybe Prelude.Double)
 performanceInsightsStat_value = Lens.lens (\PerformanceInsightsStat' {value} -> value) (\s@PerformanceInsightsStat' {} a -> s {value = a} :: PerformanceInsightsStat)
 
-instance Core.FromJSON PerformanceInsightsStat where
+instance Data.FromJSON PerformanceInsightsStat where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PerformanceInsightsStat"
       ( \x ->
           PerformanceInsightsStat'
-            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable PerformanceInsightsStat where

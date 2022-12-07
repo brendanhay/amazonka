@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance Core.AWSRequest DeleteNetworkInsightsPath where
     Response.receiveXML
       ( \s h x ->
           DeleteNetworkInsightsPathResponse'
-            Prelude.<$> (x Core..@? "networkInsightsPathId")
+            Prelude.<$> (x Data..@? "networkInsightsPathId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,22 +120,22 @@ instance Prelude.NFData DeleteNetworkInsightsPath where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf networkInsightsPathId
 
-instance Core.ToHeaders DeleteNetworkInsightsPath where
+instance Data.ToHeaders DeleteNetworkInsightsPath where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteNetworkInsightsPath where
+instance Data.ToPath DeleteNetworkInsightsPath where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteNetworkInsightsPath where
+instance Data.ToQuery DeleteNetworkInsightsPath where
   toQuery DeleteNetworkInsightsPath' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteNetworkInsightsPath" :: Prelude.ByteString),
+          Data.=: ("DeleteNetworkInsightsPath" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
         "NetworkInsightsPathId"
-          Core.=: networkInsightsPathId
+          Data.=: networkInsightsPathId
       ]
 
 -- | /See:/ 'newDeleteNetworkInsightsPathResponse' smart constructor.

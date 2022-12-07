@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,24 +117,24 @@ instance Core.AWSRequest DescribeFeatureGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeFeatureGroupResponse'
-            Prelude.<$> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "OfflineStoreStatus")
-            Prelude.<*> (x Core..?> "OnlineStoreConfig")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "OnlineStoreTotalSizeBytes")
-            Prelude.<*> (x Core..?> "LastUpdateStatus")
-            Prelude.<*> (x Core..?> "FeatureGroupStatus")
-            Prelude.<*> (x Core..?> "OfflineStoreConfig")
-            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<$> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "OfflineStoreStatus")
+            Prelude.<*> (x Data..?> "OnlineStoreConfig")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "OnlineStoreTotalSizeBytes")
+            Prelude.<*> (x Data..?> "LastUpdateStatus")
+            Prelude.<*> (x Data..?> "FeatureGroupStatus")
+            Prelude.<*> (x Data..?> "OfflineStoreConfig")
+            Prelude.<*> (x Data..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "FeatureGroupArn")
-            Prelude.<*> (x Core..:> "FeatureGroupName")
-            Prelude.<*> (x Core..:> "RecordIdentifierFeatureName")
-            Prelude.<*> (x Core..:> "EventTimeFeatureName")
-            Prelude.<*> (x Core..:> "FeatureDefinitions")
-            Prelude.<*> (x Core..:> "CreationTime")
-            Prelude.<*> (x Core..:> "NextToken")
+            Prelude.<*> (x Data..:> "FeatureGroupArn")
+            Prelude.<*> (x Data..:> "FeatureGroupName")
+            Prelude.<*> (x Data..:> "RecordIdentifierFeatureName")
+            Prelude.<*> (x Data..:> "EventTimeFeatureName")
+            Prelude.<*> (x Data..:> "FeatureDefinitions")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "NextToken")
       )
 
 instance Prelude.Hashable DescribeFeatureGroup where
@@ -146,35 +147,35 @@ instance Prelude.NFData DescribeFeatureGroup where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf featureGroupName
 
-instance Core.ToHeaders DescribeFeatureGroup where
+instance Data.ToHeaders DescribeFeatureGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeFeatureGroup" ::
+              Data.=# ( "SageMaker.DescribeFeatureGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFeatureGroup where
+instance Data.ToJSON DescribeFeatureGroup where
   toJSON DescribeFeatureGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
-              ("FeatureGroupName" Core..= featureGroupName)
+              ("FeatureGroupName" Data..= featureGroupName)
           ]
       )
 
-instance Core.ToPath DescribeFeatureGroup where
+instance Data.ToPath DescribeFeatureGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFeatureGroup where
+instance Data.ToQuery DescribeFeatureGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFeatureGroupResponse' smart constructor.
@@ -190,7 +191,7 @@ data DescribeFeatureGroupResponse = DescribeFeatureGroupResponse'
     -- | The configuration for the @OnlineStore@.
     onlineStoreConfig :: Prelude.Maybe OnlineStoreConfig,
     -- | A timestamp indicating when the feature group was last updated.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The size of the @OnlineStore@ in bytes.
     onlineStoreTotalSizeBytes :: Prelude.Maybe Prelude.Integer,
     -- | A value indicating whether the update made to the feature group was
@@ -229,7 +230,7 @@ data DescribeFeatureGroupResponse = DescribeFeatureGroupResponse'
     -- by a @FeatureName@ and @FeatureType@.
     featureDefinitions :: Prelude.NonEmpty FeatureDefinition,
     -- | A timestamp indicating when SageMaker created the @FeatureGroup@.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | A token to resume pagination of the list of @Features@
     -- (@FeatureDefinitions@).
     nextToken :: Prelude.Text
@@ -345,7 +346,7 @@ newDescribeFeatureGroupResponse
         featureDefinitions =
           Lens.coerced Lens.# pFeatureDefinitions_,
         creationTime =
-          Core._Time Lens.# pCreationTime_,
+          Data._Time Lens.# pCreationTime_,
         nextToken = pNextToken_
       }
 
@@ -369,7 +370,7 @@ describeFeatureGroupResponse_onlineStoreConfig = Lens.lens (\DescribeFeatureGrou
 
 -- | A timestamp indicating when the feature group was last updated.
 describeFeatureGroupResponse_lastModifiedTime :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe Prelude.UTCTime)
-describeFeatureGroupResponse_lastModifiedTime = Lens.lens (\DescribeFeatureGroupResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeFeatureGroupResponse' {} a -> s {lastModifiedTime = a} :: DescribeFeatureGroupResponse) Prelude.. Lens.mapping Core._Time
+describeFeatureGroupResponse_lastModifiedTime = Lens.lens (\DescribeFeatureGroupResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeFeatureGroupResponse' {} a -> s {lastModifiedTime = a} :: DescribeFeatureGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The size of the @OnlineStore@ in bytes.
 describeFeatureGroupResponse_onlineStoreTotalSizeBytes :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe Prelude.Integer)
@@ -432,7 +433,7 @@ describeFeatureGroupResponse_featureDefinitions = Lens.lens (\DescribeFeatureGro
 
 -- | A timestamp indicating when SageMaker created the @FeatureGroup@.
 describeFeatureGroupResponse_creationTime :: Lens.Lens' DescribeFeatureGroupResponse Prelude.UTCTime
-describeFeatureGroupResponse_creationTime = Lens.lens (\DescribeFeatureGroupResponse' {creationTime} -> creationTime) (\s@DescribeFeatureGroupResponse' {} a -> s {creationTime = a} :: DescribeFeatureGroupResponse) Prelude.. Core._Time
+describeFeatureGroupResponse_creationTime = Lens.lens (\DescribeFeatureGroupResponse' {creationTime} -> creationTime) (\s@DescribeFeatureGroupResponse' {} a -> s {creationTime = a} :: DescribeFeatureGroupResponse) Prelude.. Data._Time
 
 -- | A token to resume pagination of the list of @Features@
 -- (@FeatureDefinitions@).

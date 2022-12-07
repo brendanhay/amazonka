@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -68,7 +69,7 @@ data GetDevicePositionHistory = GetDevicePositionHistory'
     --
     -- -   The time specified for @StartTimeInclusive@ must be before
     --     @EndTimeExclusive@.
-    startTimeInclusive :: Prelude.Maybe Core.POSIX,
+    startTimeInclusive :: Prelude.Maybe Data.POSIX,
     -- | The pagination token specifying which page of results to return in the
     -- response. If no token is provided, the default page is the first page.
     --
@@ -88,7 +89,7 @@ data GetDevicePositionHistory = GetDevicePositionHistory'
     --
     -- -   The time specified for @EndTimeExclusive@ must be after the time for
     --     @StartTimeInclusive@.
-    endTimeExclusive :: Prelude.Maybe Core.POSIX,
+    endTimeExclusive :: Prelude.Maybe Data.POSIX,
     -- | The device whose position history you want to retrieve.
     deviceId :: Prelude.Text,
     -- | The tracker resource receiving the request for the device position
@@ -166,7 +167,7 @@ newGetDevicePositionHistory pDeviceId_ pTrackerName_ =
 -- -   The time specified for @StartTimeInclusive@ must be before
 --     @EndTimeExclusive@.
 getDevicePositionHistory_startTimeInclusive :: Lens.Lens' GetDevicePositionHistory (Prelude.Maybe Prelude.UTCTime)
-getDevicePositionHistory_startTimeInclusive = Lens.lens (\GetDevicePositionHistory' {startTimeInclusive} -> startTimeInclusive) (\s@GetDevicePositionHistory' {} a -> s {startTimeInclusive = a} :: GetDevicePositionHistory) Prelude.. Lens.mapping Core._Time
+getDevicePositionHistory_startTimeInclusive = Lens.lens (\GetDevicePositionHistory' {startTimeInclusive} -> startTimeInclusive) (\s@GetDevicePositionHistory' {} a -> s {startTimeInclusive = a} :: GetDevicePositionHistory) Prelude.. Lens.mapping Data._Time
 
 -- | The pagination token specifying which page of results to return in the
 -- response. If no token is provided, the default page is the first page.
@@ -192,7 +193,7 @@ getDevicePositionHistory_maxResults = Lens.lens (\GetDevicePositionHistory' {max
 -- -   The time specified for @EndTimeExclusive@ must be after the time for
 --     @StartTimeInclusive@.
 getDevicePositionHistory_endTimeExclusive :: Lens.Lens' GetDevicePositionHistory (Prelude.Maybe Prelude.UTCTime)
-getDevicePositionHistory_endTimeExclusive = Lens.lens (\GetDevicePositionHistory' {endTimeExclusive} -> endTimeExclusive) (\s@GetDevicePositionHistory' {} a -> s {endTimeExclusive = a} :: GetDevicePositionHistory) Prelude.. Lens.mapping Core._Time
+getDevicePositionHistory_endTimeExclusive = Lens.lens (\GetDevicePositionHistory' {endTimeExclusive} -> endTimeExclusive) (\s@GetDevicePositionHistory' {} a -> s {endTimeExclusive = a} :: GetDevicePositionHistory) Prelude.. Lens.mapping Data._Time
 
 -- | The device whose position history you want to retrieve.
 getDevicePositionHistory_deviceId :: Lens.Lens' GetDevicePositionHistory Prelude.Text
@@ -234,9 +235,9 @@ instance Core.AWSRequest GetDevicePositionHistory where
     Response.receiveJSON
       ( \s h x ->
           GetDevicePositionHistoryResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "DevicePositions"
+            Prelude.<*> ( x Data..?> "DevicePositions"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -259,41 +260,41 @@ instance Prelude.NFData GetDevicePositionHistory where
       `Prelude.seq` Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf trackerName
 
-instance Core.ToHeaders GetDevicePositionHistory where
+instance Data.ToHeaders GetDevicePositionHistory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDevicePositionHistory where
+instance Data.ToJSON GetDevicePositionHistory where
   toJSON GetDevicePositionHistory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StartTimeInclusive" Core..=)
+          [ ("StartTimeInclusive" Data..=)
               Prelude.<$> startTimeInclusive,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("EndTimeExclusive" Core..=)
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("EndTimeExclusive" Data..=)
               Prelude.<$> endTimeExclusive
           ]
       )
 
-instance Core.ToPath GetDevicePositionHistory where
+instance Data.ToPath GetDevicePositionHistory where
   toPath GetDevicePositionHistory' {..} =
     Prelude.mconcat
       [ "/tracking/v0/trackers/",
-        Core.toBS trackerName,
+        Data.toBS trackerName,
         "/devices/",
-        Core.toBS deviceId,
+        Data.toBS deviceId,
         "/list-positions"
       ]
 
-instance Core.ToQuery GetDevicePositionHistory where
+instance Data.ToQuery GetDevicePositionHistory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDevicePositionHistoryResponse' smart constructor.

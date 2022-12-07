@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.ControlDomainInsights where
 import Amazonka.AuditManager.Types.EvidenceInsights
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the latest analytics data for a specific control domain.
@@ -41,7 +42,7 @@ data ControlDomainInsights = ControlDomainInsights'
     -- | The unique identifier for the control domain.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time when the control domain insights were last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | The number of controls in the control domain that collected
     -- non-compliant evidence on the @lastUpdated@ date.
     controlsCountByNoncompliantEvidence :: Prelude.Maybe Prelude.Int
@@ -102,25 +103,25 @@ controlDomainInsights_id = Lens.lens (\ControlDomainInsights' {id} -> id) (\s@Co
 
 -- | The time when the control domain insights were last updated.
 controlDomainInsights_lastUpdated :: Lens.Lens' ControlDomainInsights (Prelude.Maybe Prelude.UTCTime)
-controlDomainInsights_lastUpdated = Lens.lens (\ControlDomainInsights' {lastUpdated} -> lastUpdated) (\s@ControlDomainInsights' {} a -> s {lastUpdated = a} :: ControlDomainInsights) Prelude.. Lens.mapping Core._Time
+controlDomainInsights_lastUpdated = Lens.lens (\ControlDomainInsights' {lastUpdated} -> lastUpdated) (\s@ControlDomainInsights' {} a -> s {lastUpdated = a} :: ControlDomainInsights) Prelude.. Lens.mapping Data._Time
 
 -- | The number of controls in the control domain that collected
 -- non-compliant evidence on the @lastUpdated@ date.
 controlDomainInsights_controlsCountByNoncompliantEvidence :: Lens.Lens' ControlDomainInsights (Prelude.Maybe Prelude.Int)
 controlDomainInsights_controlsCountByNoncompliantEvidence = Lens.lens (\ControlDomainInsights' {controlsCountByNoncompliantEvidence} -> controlsCountByNoncompliantEvidence) (\s@ControlDomainInsights' {} a -> s {controlsCountByNoncompliantEvidence = a} :: ControlDomainInsights)
 
-instance Core.FromJSON ControlDomainInsights where
+instance Data.FromJSON ControlDomainInsights where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ControlDomainInsights"
       ( \x ->
           ControlDomainInsights'
-            Prelude.<$> (x Core..:? "evidenceInsights")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "totalControlsCount")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "lastUpdated")
-            Prelude.<*> (x Core..:? "controlsCountByNoncompliantEvidence")
+            Prelude.<$> (x Data..:? "evidenceInsights")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "totalControlsCount")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "lastUpdated")
+            Prelude.<*> (x Data..:? "controlsCountByNoncompliantEvidence")
       )
 
 instance Prelude.Hashable ControlDomainInsights where

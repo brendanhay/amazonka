@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.ContactData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.ContactStatus
 import Amazonka.GroundStation.Types.Elevation
 import qualified Amazonka.Prelude as Prelude
@@ -39,22 +40,22 @@ data ContactData = ContactData'
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | Amount of time after a contact ends that you’d like to receive a
     -- CloudWatch event indicating the pass has finished.
-    postPassEndTime :: Prelude.Maybe Core.POSIX,
+    postPassEndTime :: Prelude.Maybe Data.POSIX,
     -- | ARN of a satellite.
     satelliteArn :: Prelude.Maybe Prelude.Text,
     -- | Status of a contact.
     contactStatus :: Prelude.Maybe ContactStatus,
     -- | End time of a contact in UTC.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Region of a contact.
     region :: Prelude.Maybe Prelude.Text,
     -- | Amount of time prior to contact start you’d like to receive a CloudWatch
     -- event indicating an upcoming pass.
-    prePassStartTime :: Prelude.Maybe Core.POSIX,
+    prePassStartTime :: Prelude.Maybe Data.POSIX,
     -- | Name of a ground station.
     groundStation :: Prelude.Maybe Prelude.Text,
     -- | Start time of a contact in UTC.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | Maximum elevation angle of a contact.
     maximumElevation :: Prelude.Maybe Elevation
   }
@@ -133,7 +134,7 @@ contactData_errorMessage = Lens.lens (\ContactData' {errorMessage} -> errorMessa
 -- | Amount of time after a contact ends that you’d like to receive a
 -- CloudWatch event indicating the pass has finished.
 contactData_postPassEndTime :: Lens.Lens' ContactData (Prelude.Maybe Prelude.UTCTime)
-contactData_postPassEndTime = Lens.lens (\ContactData' {postPassEndTime} -> postPassEndTime) (\s@ContactData' {} a -> s {postPassEndTime = a} :: ContactData) Prelude.. Lens.mapping Core._Time
+contactData_postPassEndTime = Lens.lens (\ContactData' {postPassEndTime} -> postPassEndTime) (\s@ContactData' {} a -> s {postPassEndTime = a} :: ContactData) Prelude.. Lens.mapping Data._Time
 
 -- | ARN of a satellite.
 contactData_satelliteArn :: Lens.Lens' ContactData (Prelude.Maybe Prelude.Text)
@@ -145,7 +146,7 @@ contactData_contactStatus = Lens.lens (\ContactData' {contactStatus} -> contactS
 
 -- | End time of a contact in UTC.
 contactData_endTime :: Lens.Lens' ContactData (Prelude.Maybe Prelude.UTCTime)
-contactData_endTime = Lens.lens (\ContactData' {endTime} -> endTime) (\s@ContactData' {} a -> s {endTime = a} :: ContactData) Prelude.. Lens.mapping Core._Time
+contactData_endTime = Lens.lens (\ContactData' {endTime} -> endTime) (\s@ContactData' {} a -> s {endTime = a} :: ContactData) Prelude.. Lens.mapping Data._Time
 
 -- | Region of a contact.
 contactData_region :: Lens.Lens' ContactData (Prelude.Maybe Prelude.Text)
@@ -154,7 +155,7 @@ contactData_region = Lens.lens (\ContactData' {region} -> region) (\s@ContactDat
 -- | Amount of time prior to contact start you’d like to receive a CloudWatch
 -- event indicating an upcoming pass.
 contactData_prePassStartTime :: Lens.Lens' ContactData (Prelude.Maybe Prelude.UTCTime)
-contactData_prePassStartTime = Lens.lens (\ContactData' {prePassStartTime} -> prePassStartTime) (\s@ContactData' {} a -> s {prePassStartTime = a} :: ContactData) Prelude.. Lens.mapping Core._Time
+contactData_prePassStartTime = Lens.lens (\ContactData' {prePassStartTime} -> prePassStartTime) (\s@ContactData' {} a -> s {prePassStartTime = a} :: ContactData) Prelude.. Lens.mapping Data._Time
 
 -- | Name of a ground station.
 contactData_groundStation :: Lens.Lens' ContactData (Prelude.Maybe Prelude.Text)
@@ -162,31 +163,31 @@ contactData_groundStation = Lens.lens (\ContactData' {groundStation} -> groundSt
 
 -- | Start time of a contact in UTC.
 contactData_startTime :: Lens.Lens' ContactData (Prelude.Maybe Prelude.UTCTime)
-contactData_startTime = Lens.lens (\ContactData' {startTime} -> startTime) (\s@ContactData' {} a -> s {startTime = a} :: ContactData) Prelude.. Lens.mapping Core._Time
+contactData_startTime = Lens.lens (\ContactData' {startTime} -> startTime) (\s@ContactData' {} a -> s {startTime = a} :: ContactData) Prelude.. Lens.mapping Data._Time
 
 -- | Maximum elevation angle of a contact.
 contactData_maximumElevation :: Lens.Lens' ContactData (Prelude.Maybe Elevation)
 contactData_maximumElevation = Lens.lens (\ContactData' {maximumElevation} -> maximumElevation) (\s@ContactData' {} a -> s {maximumElevation = a} :: ContactData)
 
-instance Core.FromJSON ContactData where
+instance Data.FromJSON ContactData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContactData"
       ( \x ->
           ContactData'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "missionProfileArn")
-            Prelude.<*> (x Core..:? "contactId")
-            Prelude.<*> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "postPassEndTime")
-            Prelude.<*> (x Core..:? "satelliteArn")
-            Prelude.<*> (x Core..:? "contactStatus")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "prePassStartTime")
-            Prelude.<*> (x Core..:? "groundStation")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "maximumElevation")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "missionProfileArn")
+            Prelude.<*> (x Data..:? "contactId")
+            Prelude.<*> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "postPassEndTime")
+            Prelude.<*> (x Data..:? "satelliteArn")
+            Prelude.<*> (x Data..:? "contactStatus")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "prePassStartTime")
+            Prelude.<*> (x Data..:? "groundStation")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "maximumElevation")
       )
 
 instance Prelude.Hashable ContactData where

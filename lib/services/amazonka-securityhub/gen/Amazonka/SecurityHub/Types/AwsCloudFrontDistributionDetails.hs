@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudFrontDistributionDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionCacheBehaviors
 import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionDefaultCacheBehavior
@@ -195,26 +196,26 @@ awsCloudFrontDistributionDetails_defaultCacheBehavior :: Lens.Lens' AwsCloudFron
 awsCloudFrontDistributionDetails_defaultCacheBehavior = Lens.lens (\AwsCloudFrontDistributionDetails' {defaultCacheBehavior} -> defaultCacheBehavior) (\s@AwsCloudFrontDistributionDetails' {} a -> s {defaultCacheBehavior = a} :: AwsCloudFrontDistributionDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCloudFrontDistributionDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudFrontDistributionDetails"
       ( \x ->
           AwsCloudFrontDistributionDetails'
-            Prelude.<$> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "DefaultRootObject")
-            Prelude.<*> (x Core..:? "ViewerCertificate")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "Logging")
-            Prelude.<*> (x Core..:? "WebAclId")
-            Prelude.<*> (x Core..:? "OriginGroups")
-            Prelude.<*> (x Core..:? "Origins")
-            Prelude.<*> (x Core..:? "CacheBehaviors")
-            Prelude.<*> (x Core..:? "ETag")
-            Prelude.<*> (x Core..:? "DefaultCacheBehavior")
+            Prelude.<$> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "DefaultRootObject")
+            Prelude.<*> (x Data..:? "ViewerCertificate")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "Logging")
+            Prelude.<*> (x Data..:? "WebAclId")
+            Prelude.<*> (x Data..:? "OriginGroups")
+            Prelude.<*> (x Data..:? "Origins")
+            Prelude.<*> (x Data..:? "CacheBehaviors")
+            Prelude.<*> (x Data..:? "ETag")
+            Prelude.<*> (x Data..:? "DefaultCacheBehavior")
       )
 
 instance
@@ -255,26 +256,26 @@ instance
       `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf defaultCacheBehavior
 
-instance Core.ToJSON AwsCloudFrontDistributionDetails where
+instance Data.ToJSON AwsCloudFrontDistributionDetails where
   toJSON AwsCloudFrontDistributionDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DomainName" Core..=) Prelude.<$> domainName,
-            ("Status" Core..=) Prelude.<$> status,
-            ("DefaultRootObject" Core..=)
+          [ ("DomainName" Data..=) Prelude.<$> domainName,
+            ("Status" Data..=) Prelude.<$> status,
+            ("DefaultRootObject" Data..=)
               Prelude.<$> defaultRootObject,
-            ("ViewerCertificate" Core..=)
+            ("ViewerCertificate" Data..=)
               Prelude.<$> viewerCertificate,
-            ("LastModifiedTime" Core..=)
+            ("LastModifiedTime" Data..=)
               Prelude.<$> lastModifiedTime,
-            ("Logging" Core..=) Prelude.<$> logging,
-            ("WebAclId" Core..=) Prelude.<$> webAclId,
-            ("OriginGroups" Core..=) Prelude.<$> originGroups,
-            ("Origins" Core..=) Prelude.<$> origins,
-            ("CacheBehaviors" Core..=)
+            ("Logging" Data..=) Prelude.<$> logging,
+            ("WebAclId" Data..=) Prelude.<$> webAclId,
+            ("OriginGroups" Data..=) Prelude.<$> originGroups,
+            ("Origins" Data..=) Prelude.<$> origins,
+            ("CacheBehaviors" Data..=)
               Prelude.<$> cacheBehaviors,
-            ("ETag" Core..=) Prelude.<$> eTag,
-            ("DefaultCacheBehavior" Core..=)
+            ("ETag" Data..=) Prelude.<$> eTag,
+            ("DefaultCacheBehavior" Data..=)
               Prelude.<$> defaultCacheBehavior
           ]
       )

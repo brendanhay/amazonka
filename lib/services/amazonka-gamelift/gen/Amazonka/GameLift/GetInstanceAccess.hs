@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,7 +144,7 @@ instance Core.AWSRequest GetInstanceAccess where
     Response.receiveJSON
       ( \s h x ->
           GetInstanceAccessResponse'
-            Prelude.<$> (x Core..?> "InstanceAccess")
+            Prelude.<$> (x Data..?> "InstanceAccess")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,32 +158,32 @@ instance Prelude.NFData GetInstanceAccess where
     Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders GetInstanceAccess where
+instance Data.ToHeaders GetInstanceAccess where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.GetInstanceAccess" :: Prelude.ByteString),
+              Data.=# ("GameLift.GetInstanceAccess" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetInstanceAccess where
+instance Data.ToJSON GetInstanceAccess where
   toJSON GetInstanceAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FleetId" Core..= fleetId),
-            Prelude.Just ("InstanceId" Core..= instanceId)
+          [ Prelude.Just ("FleetId" Data..= fleetId),
+            Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
 
-instance Core.ToPath GetInstanceAccess where
+instance Data.ToPath GetInstanceAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetInstanceAccess where
+instance Data.ToQuery GetInstanceAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

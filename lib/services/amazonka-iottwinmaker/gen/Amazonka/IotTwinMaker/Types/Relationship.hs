@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.Relationship where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that specifies a relationship with another component type.
@@ -62,14 +63,14 @@ relationship_targetComponentTypeId = Lens.lens (\Relationship' {targetComponentT
 relationship_relationshipType :: Lens.Lens' Relationship (Prelude.Maybe Prelude.Text)
 relationship_relationshipType = Lens.lens (\Relationship' {relationshipType} -> relationshipType) (\s@Relationship' {} a -> s {relationshipType = a} :: Relationship)
 
-instance Core.FromJSON Relationship where
+instance Data.FromJSON Relationship where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Relationship"
       ( \x ->
           Relationship'
-            Prelude.<$> (x Core..:? "targetComponentTypeId")
-            Prelude.<*> (x Core..:? "relationshipType")
+            Prelude.<$> (x Data..:? "targetComponentTypeId")
+            Prelude.<*> (x Data..:? "relationshipType")
       )
 
 instance Prelude.Hashable Relationship where
@@ -82,13 +83,13 @@ instance Prelude.NFData Relationship where
     Prelude.rnf targetComponentTypeId
       `Prelude.seq` Prelude.rnf relationshipType
 
-instance Core.ToJSON Relationship where
+instance Data.ToJSON Relationship where
   toJSON Relationship' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetComponentTypeId" Core..=)
+          [ ("targetComponentTypeId" Data..=)
               Prelude.<$> targetComponentTypeId,
-            ("relationshipType" Core..=)
+            ("relationshipType" Data..=)
               Prelude.<$> relationshipType
           ]
       )

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,8 +138,8 @@ instance Core.AWSRequest DescribeClusters where
     Response.receiveJSON
       ( \s h x ->
           DescribeClustersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Clusters" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Clusters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,37 +157,37 @@ instance Prelude.NFData DescribeClusters where
       `Prelude.seq` Prelude.rnf showShardDetails
       `Prelude.seq` Prelude.rnf clusterName
 
-instance Core.ToHeaders DescribeClusters where
+instance Data.ToHeaders DescribeClusters where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonMemoryDB.DescribeClusters" ::
+              Data.=# ( "AmazonMemoryDB.DescribeClusters" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeClusters where
+instance Data.ToJSON DescribeClusters where
   toJSON DescribeClusters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ShowShardDetails" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ShowShardDetails" Data..=)
               Prelude.<$> showShardDetails,
-            ("ClusterName" Core..=) Prelude.<$> clusterName
+            ("ClusterName" Data..=) Prelude.<$> clusterName
           ]
       )
 
-instance Core.ToPath DescribeClusters where
+instance Data.ToPath DescribeClusters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeClusters where
+instance Data.ToQuery DescribeClusters where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeClustersResponse' smart constructor.

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ instance Core.AWSRequest UpdateCoreNetwork where
     Response.receiveJSON
       ( \s h x ->
           UpdateCoreNetworkResponse'
-            Prelude.<$> (x Core..?> "CoreNetwork")
+            Prelude.<$> (x Data..?> "CoreNetwork")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,30 +110,30 @@ instance Prelude.NFData UpdateCoreNetwork where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf coreNetworkId
 
-instance Core.ToHeaders UpdateCoreNetwork where
+instance Data.ToHeaders UpdateCoreNetwork where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCoreNetwork where
+instance Data.ToJSON UpdateCoreNetwork where
   toJSON UpdateCoreNetwork' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Description" Core..=) Prelude.<$> description]
+          [("Description" Data..=) Prelude.<$> description]
       )
 
-instance Core.ToPath UpdateCoreNetwork where
+instance Data.ToPath UpdateCoreNetwork where
   toPath UpdateCoreNetwork' {..} =
     Prelude.mconcat
-      ["/core-networks/", Core.toBS coreNetworkId]
+      ["/core-networks/", Data.toBS coreNetworkId]
 
-instance Core.ToQuery UpdateCoreNetwork where
+instance Data.ToQuery UpdateCoreNetwork where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCoreNetworkResponse' smart constructor.

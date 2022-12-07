@@ -22,6 +22,7 @@ module Amazonka.AccessAnalyzer.Types.RdsDbClusterSnapshotConfiguration where
 import Amazonka.AccessAnalyzer.Types.RdsDbClusterSnapshotAttributeValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The proposed access control configuration for an Amazon RDS DB cluster
@@ -111,16 +112,16 @@ rdsDbClusterSnapshotConfiguration_attributes :: Lens.Lens' RdsDbClusterSnapshotC
 rdsDbClusterSnapshotConfiguration_attributes = Lens.lens (\RdsDbClusterSnapshotConfiguration' {attributes} -> attributes) (\s@RdsDbClusterSnapshotConfiguration' {} a -> s {attributes = a} :: RdsDbClusterSnapshotConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RdsDbClusterSnapshotConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RdsDbClusterSnapshotConfiguration"
       ( \x ->
           RdsDbClusterSnapshotConfiguration'
-            Prelude.<$> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
       )
 
 instance
@@ -142,13 +143,13 @@ instance
       `Prelude.seq` Prelude.rnf attributes
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RdsDbClusterSnapshotConfiguration
   where
   toJSON RdsDbClusterSnapshotConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("attributes" Core..=) Prelude.<$> attributes
+          [ ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("attributes" Data..=) Prelude.<$> attributes
           ]
       )

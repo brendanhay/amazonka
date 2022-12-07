@@ -22,6 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.ChannelFlowSummary where
 import Amazonka.ChimeSDKMessaging.Types.Processor
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of details of a channel flow.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newChannelFlowSummary' smart constructor.
 data ChannelFlowSummary = ChannelFlowSummary'
   { -- | The name of the channel flow.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Information about the processor Lambda functions.
     processors :: Prelude.Maybe (Prelude.NonEmpty Processor),
     -- | The ARN of the channel flow.
@@ -61,7 +62,7 @@ newChannelFlowSummary =
 
 -- | The name of the channel flow.
 channelFlowSummary_name :: Lens.Lens' ChannelFlowSummary (Prelude.Maybe Prelude.Text)
-channelFlowSummary_name = Lens.lens (\ChannelFlowSummary' {name} -> name) (\s@ChannelFlowSummary' {} a -> s {name = a} :: ChannelFlowSummary) Prelude.. Lens.mapping Core._Sensitive
+channelFlowSummary_name = Lens.lens (\ChannelFlowSummary' {name} -> name) (\s@ChannelFlowSummary' {} a -> s {name = a} :: ChannelFlowSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Information about the processor Lambda functions.
 channelFlowSummary_processors :: Lens.Lens' ChannelFlowSummary (Prelude.Maybe (Prelude.NonEmpty Processor))
@@ -71,15 +72,15 @@ channelFlowSummary_processors = Lens.lens (\ChannelFlowSummary' {processors} -> 
 channelFlowSummary_channelFlowArn :: Lens.Lens' ChannelFlowSummary (Prelude.Maybe Prelude.Text)
 channelFlowSummary_channelFlowArn = Lens.lens (\ChannelFlowSummary' {channelFlowArn} -> channelFlowArn) (\s@ChannelFlowSummary' {} a -> s {channelFlowArn = a} :: ChannelFlowSummary)
 
-instance Core.FromJSON ChannelFlowSummary where
+instance Data.FromJSON ChannelFlowSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelFlowSummary"
       ( \x ->
           ChannelFlowSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Processors")
-            Prelude.<*> (x Core..:? "ChannelFlowArn")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Processors")
+            Prelude.<*> (x Data..:? "ChannelFlowArn")
       )
 
 instance Prelude.Hashable ChannelFlowSummary where

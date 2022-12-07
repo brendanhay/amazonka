@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,8 +85,8 @@ instance Core.AWSRequest BatchGetChannel where
     Response.receiveJSON
       ( \s h x ->
           BatchGetChannelResponse'
-            Prelude.<$> (x Core..?> "channels" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "channels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,28 +97,28 @@ instance Prelude.Hashable BatchGetChannel where
 instance Prelude.NFData BatchGetChannel where
   rnf BatchGetChannel' {..} = Prelude.rnf arns
 
-instance Core.ToHeaders BatchGetChannel where
+instance Data.ToHeaders BatchGetChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetChannel where
+instance Data.ToJSON BatchGetChannel where
   toJSON BatchGetChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arns" Core..= arns)]
+          [Prelude.Just ("arns" Data..= arns)]
       )
 
-instance Core.ToPath BatchGetChannel where
+instance Data.ToPath BatchGetChannel where
   toPath = Prelude.const "/BatchGetChannel"
 
-instance Core.ToQuery BatchGetChannel where
+instance Data.ToQuery BatchGetChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetChannelResponse' smart constructor.

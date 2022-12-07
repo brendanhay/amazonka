@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DataSourceErrorInfo
 import Amazonka.QuickSight.Types.DataSourceParameters
@@ -42,7 +43,7 @@ data DataSource = DataSource'
     -- Region for each Amazon Web Services account.
     dataSourceId :: Prelude.Maybe Prelude.Text,
     -- | The time that this data source was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The parameters that Amazon QuickSight uses to connect to your underlying
     -- source. This is a variant type structure. For this structure to be
     -- valid, only one of the attributes can be non-null.
@@ -52,7 +53,7 @@ data DataSource = DataSource'
     -- | The HTTP status of the request.
     status :: Prelude.Maybe ResourceStatus,
     -- | The last time that this data source was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The VPC connection information. You need to use this parameter only when
     -- you want Amazon QuickSight to use a VPC connection when connecting to
     -- your underlying source.
@@ -168,7 +169,7 @@ dataSource_dataSourceId = Lens.lens (\DataSource' {dataSourceId} -> dataSourceId
 
 -- | The time that this data source was created.
 dataSource_createdTime :: Lens.Lens' DataSource (Prelude.Maybe Prelude.UTCTime)
-dataSource_createdTime = Lens.lens (\DataSource' {createdTime} -> createdTime) (\s@DataSource' {} a -> s {createdTime = a} :: DataSource) Prelude.. Lens.mapping Core._Time
+dataSource_createdTime = Lens.lens (\DataSource' {createdTime} -> createdTime) (\s@DataSource' {} a -> s {createdTime = a} :: DataSource) Prelude.. Lens.mapping Data._Time
 
 -- | The parameters that Amazon QuickSight uses to connect to your underlying
 -- source. This is a variant type structure. For this structure to be
@@ -186,7 +187,7 @@ dataSource_status = Lens.lens (\DataSource' {status} -> status) (\s@DataSource' 
 
 -- | The last time that this data source was updated.
 dataSource_lastUpdatedTime :: Lens.Lens' DataSource (Prelude.Maybe Prelude.UTCTime)
-dataSource_lastUpdatedTime = Lens.lens (\DataSource' {lastUpdatedTime} -> lastUpdatedTime) (\s@DataSource' {} a -> s {lastUpdatedTime = a} :: DataSource) Prelude.. Lens.mapping Core._Time
+dataSource_lastUpdatedTime = Lens.lens (\DataSource' {lastUpdatedTime} -> lastUpdatedTime) (\s@DataSource' {} a -> s {lastUpdatedTime = a} :: DataSource) Prelude.. Lens.mapping Data._Time
 
 -- | The VPC connection information. You need to use this parameter only when
 -- you want Amazon QuickSight to use a VPC connection when connecting to
@@ -223,25 +224,25 @@ dataSource_alternateDataSourceParameters = Lens.lens (\DataSource' {alternateDat
 dataSource_errorInfo :: Lens.Lens' DataSource (Prelude.Maybe DataSourceErrorInfo)
 dataSource_errorInfo = Lens.lens (\DataSource' {errorInfo} -> errorInfo) (\s@DataSource' {} a -> s {errorInfo = a} :: DataSource)
 
-instance Core.FromJSON DataSource where
+instance Data.FromJSON DataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSource"
       ( \x ->
           DataSource'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DataSourceId")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "DataSourceParameters")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "VpcConnectionProperties")
-            Prelude.<*> (x Core..:? "SslProperties")
-            Prelude.<*> (x Core..:? "SecretArn")
-            Prelude.<*> (x Core..:? "AlternateDataSourceParameters")
-            Prelude.<*> (x Core..:? "ErrorInfo")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DataSourceId")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "DataSourceParameters")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "VpcConnectionProperties")
+            Prelude.<*> (x Data..:? "SslProperties")
+            Prelude.<*> (x Data..:? "SecretArn")
+            Prelude.<*> (x Data..:? "AlternateDataSourceParameters")
+            Prelude.<*> (x Data..:? "ErrorInfo")
       )
 
 instance Prelude.Hashable DataSource where

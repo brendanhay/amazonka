@@ -45,6 +45,7 @@ where
 import Amazonka.Budgets.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,34 +116,34 @@ instance Prelude.NFData DeleteBudget where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf budgetName
 
-instance Core.ToHeaders DeleteBudget where
+instance Data.ToHeaders DeleteBudget where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSBudgetServiceGateway.DeleteBudget" ::
+              Data.=# ( "AWSBudgetServiceGateway.DeleteBudget" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteBudget where
+instance Data.ToJSON DeleteBudget where
   toJSON DeleteBudget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Core..= accountId),
-            Prelude.Just ("BudgetName" Core..= budgetName)
+          [ Prelude.Just ("AccountId" Data..= accountId),
+            Prelude.Just ("BudgetName" Data..= budgetName)
           ]
       )
 
-instance Core.ToPath DeleteBudget where
+instance Data.ToPath DeleteBudget where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteBudget where
+instance Data.ToQuery DeleteBudget where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Response of DeleteBudget

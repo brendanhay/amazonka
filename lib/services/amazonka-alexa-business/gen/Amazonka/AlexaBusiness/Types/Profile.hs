@@ -25,6 +25,7 @@ import Amazonka.AlexaBusiness.Types.TemperatureUnit
 import Amazonka.AlexaBusiness.Types.WakeWord
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A room profile with attributes.
@@ -185,27 +186,27 @@ profile_maxVolumeLimit = Lens.lens (\Profile' {maxVolumeLimit} -> maxVolumeLimit
 profile_temperatureUnit :: Lens.Lens' Profile (Prelude.Maybe TemperatureUnit)
 profile_temperatureUnit = Lens.lens (\Profile' {temperatureUnit} -> temperatureUnit) (\s@Profile' {} a -> s {temperatureUnit = a} :: Profile)
 
-instance Core.FromJSON Profile where
+instance Data.FromJSON Profile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Profile"
       ( \x ->
           Profile'
-            Prelude.<$> (x Core..:? "SetupModeDisabled")
-            Prelude.<*> (x Core..:? "DistanceUnit")
-            Prelude.<*> (x Core..:? "DataRetentionOptIn")
-            Prelude.<*> (x Core..:? "ProfileName")
-            Prelude.<*> (x Core..:? "WakeWord")
-            Prelude.<*> (x Core..:? "Locale")
-            Prelude.<*> (x Core..:? "MeetingRoomConfiguration")
-            Prelude.<*> (x Core..:? "Timezone")
-            Prelude.<*> (x Core..:? "ProfileArn")
-            Prelude.<*> (x Core..:? "PSTNEnabled")
-            Prelude.<*> (x Core..:? "IsDefault")
-            Prelude.<*> (x Core..:? "Address")
-            Prelude.<*> (x Core..:? "AddressBookArn")
-            Prelude.<*> (x Core..:? "MaxVolumeLimit")
-            Prelude.<*> (x Core..:? "TemperatureUnit")
+            Prelude.<$> (x Data..:? "SetupModeDisabled")
+            Prelude.<*> (x Data..:? "DistanceUnit")
+            Prelude.<*> (x Data..:? "DataRetentionOptIn")
+            Prelude.<*> (x Data..:? "ProfileName")
+            Prelude.<*> (x Data..:? "WakeWord")
+            Prelude.<*> (x Data..:? "Locale")
+            Prelude.<*> (x Data..:? "MeetingRoomConfiguration")
+            Prelude.<*> (x Data..:? "Timezone")
+            Prelude.<*> (x Data..:? "ProfileArn")
+            Prelude.<*> (x Data..:? "PSTNEnabled")
+            Prelude.<*> (x Data..:? "IsDefault")
+            Prelude.<*> (x Data..:? "Address")
+            Prelude.<*> (x Data..:? "AddressBookArn")
+            Prelude.<*> (x Data..:? "MaxVolumeLimit")
+            Prelude.<*> (x Data..:? "TemperatureUnit")
       )
 
 instance Prelude.Hashable Profile where

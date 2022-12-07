@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.AnomalyGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.MetricLevelImpact
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,20 +99,20 @@ anomalyGroup_startTime = Lens.lens (\AnomalyGroup' {startTime} -> startTime) (\s
 anomalyGroup_primaryMetricName :: Lens.Lens' AnomalyGroup (Prelude.Maybe Prelude.Text)
 anomalyGroup_primaryMetricName = Lens.lens (\AnomalyGroup' {primaryMetricName} -> primaryMetricName) (\s@AnomalyGroup' {} a -> s {primaryMetricName = a} :: AnomalyGroup)
 
-instance Core.FromJSON AnomalyGroup where
+instance Data.FromJSON AnomalyGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnomalyGroup"
       ( \x ->
           AnomalyGroup'
-            Prelude.<$> (x Core..:? "AnomalyGroupScore")
-            Prelude.<*> ( x Core..:? "MetricLevelImpactList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "AnomalyGroupScore")
+            Prelude.<*> ( x Data..:? "MetricLevelImpactList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "AnomalyGroupId")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "PrimaryMetricName")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "AnomalyGroupId")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "PrimaryMetricName")
       )
 
 instance Prelude.Hashable AnomalyGroup where

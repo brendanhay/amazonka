@@ -47,6 +47,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -65,7 +66,7 @@ data UpdateContact = UpdateContact'
     -- to WORK. You can either specify PhoneNumber or PhoneNumbers. We
     -- recommend that you use PhoneNumbers, which lets you specify the phone
     -- number type and multiple numbers.
-    phoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    phoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The list of phone numbers for the contact.
     phoneNumbers :: Prelude.Maybe [PhoneNumber],
     -- | The ARN of the contact to update.
@@ -133,7 +134,7 @@ updateContact_lastName = Lens.lens (\UpdateContact' {lastName} -> lastName) (\s@
 -- recommend that you use PhoneNumbers, which lets you specify the phone
 -- number type and multiple numbers.
 updateContact_phoneNumber :: Lens.Lens' UpdateContact (Prelude.Maybe Prelude.Text)
-updateContact_phoneNumber = Lens.lens (\UpdateContact' {phoneNumber} -> phoneNumber) (\s@UpdateContact' {} a -> s {phoneNumber = a} :: UpdateContact) Prelude.. Lens.mapping Core._Sensitive
+updateContact_phoneNumber = Lens.lens (\UpdateContact' {phoneNumber} -> phoneNumber) (\s@UpdateContact' {} a -> s {phoneNumber = a} :: UpdateContact) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The list of phone numbers for the contact.
 updateContact_phoneNumbers :: Lens.Lens' UpdateContact (Prelude.Maybe [PhoneNumber])
@@ -176,39 +177,39 @@ instance Prelude.NFData UpdateContact where
       `Prelude.seq` Prelude.rnf phoneNumbers
       `Prelude.seq` Prelude.rnf contactArn
 
-instance Core.ToHeaders UpdateContact where
+instance Data.ToHeaders UpdateContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.UpdateContact" ::
+              Data.=# ( "AlexaForBusiness.UpdateContact" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateContact where
+instance Data.ToJSON UpdateContact where
   toJSON UpdateContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FirstName" Core..=) Prelude.<$> firstName,
-            ("SipAddresses" Core..=) Prelude.<$> sipAddresses,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("LastName" Core..=) Prelude.<$> lastName,
-            ("PhoneNumber" Core..=) Prelude.<$> phoneNumber,
-            ("PhoneNumbers" Core..=) Prelude.<$> phoneNumbers,
-            Prelude.Just ("ContactArn" Core..= contactArn)
+          [ ("FirstName" Data..=) Prelude.<$> firstName,
+            ("SipAddresses" Data..=) Prelude.<$> sipAddresses,
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("LastName" Data..=) Prelude.<$> lastName,
+            ("PhoneNumber" Data..=) Prelude.<$> phoneNumber,
+            ("PhoneNumbers" Data..=) Prelude.<$> phoneNumbers,
+            Prelude.Just ("ContactArn" Data..= contactArn)
           ]
       )
 
-instance Core.ToPath UpdateContact where
+instance Data.ToPath UpdateContact where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateContact where
+instance Data.ToQuery UpdateContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateContactResponse' smart constructor.

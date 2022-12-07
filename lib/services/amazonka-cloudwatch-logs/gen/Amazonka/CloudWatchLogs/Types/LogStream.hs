@@ -21,6 +21,7 @@ module Amazonka.CloudWatchLogs.Types.LogStream where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a log stream, which is a sequence of log events from a single
@@ -149,20 +150,20 @@ logStream_logStreamName = Lens.lens (\LogStream' {logStreamName} -> logStreamNam
 logStream_lastIngestionTime :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Natural)
 logStream_lastIngestionTime = Lens.lens (\LogStream' {lastIngestionTime} -> lastIngestionTime) (\s@LogStream' {} a -> s {lastIngestionTime = a} :: LogStream)
 
-instance Core.FromJSON LogStream where
+instance Data.FromJSON LogStream where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogStream"
       ( \x ->
           LogStream'
-            Prelude.<$> (x Core..:? "uploadSequenceToken")
-            Prelude.<*> (x Core..:? "storedBytes")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "firstEventTimestamp")
-            Prelude.<*> (x Core..:? "lastEventTimestamp")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "logStreamName")
-            Prelude.<*> (x Core..:? "lastIngestionTime")
+            Prelude.<$> (x Data..:? "uploadSequenceToken")
+            Prelude.<*> (x Data..:? "storedBytes")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "firstEventTimestamp")
+            Prelude.<*> (x Data..:? "lastEventTimestamp")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "logStreamName")
+            Prelude.<*> (x Data..:? "lastIngestionTime")
       )
 
 instance Prelude.Hashable LogStream where

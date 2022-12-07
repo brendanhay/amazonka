@@ -47,6 +47,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,9 +55,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newPutEventsConfiguration' smart constructor.
 data PutEventsConfiguration = PutEventsConfiguration'
   { -- | HTTPS endpoint that allows the bot to receive outgoing events.
-    outboundEventsHTTPSEndpoint :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    outboundEventsHTTPSEndpoint :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Lambda function ARN that allows the bot to receive outgoing events.
-    lambdaFunctionArn :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    lambdaFunctionArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Chime account ID.
     accountId :: Prelude.Text,
     -- | The bot ID.
@@ -96,11 +97,11 @@ newPutEventsConfiguration pAccountId_ pBotId_ =
 
 -- | HTTPS endpoint that allows the bot to receive outgoing events.
 putEventsConfiguration_outboundEventsHTTPSEndpoint :: Lens.Lens' PutEventsConfiguration (Prelude.Maybe Prelude.Text)
-putEventsConfiguration_outboundEventsHTTPSEndpoint = Lens.lens (\PutEventsConfiguration' {outboundEventsHTTPSEndpoint} -> outboundEventsHTTPSEndpoint) (\s@PutEventsConfiguration' {} a -> s {outboundEventsHTTPSEndpoint = a} :: PutEventsConfiguration) Prelude.. Lens.mapping Core._Sensitive
+putEventsConfiguration_outboundEventsHTTPSEndpoint = Lens.lens (\PutEventsConfiguration' {outboundEventsHTTPSEndpoint} -> outboundEventsHTTPSEndpoint) (\s@PutEventsConfiguration' {} a -> s {outboundEventsHTTPSEndpoint = a} :: PutEventsConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Lambda function ARN that allows the bot to receive outgoing events.
 putEventsConfiguration_lambdaFunctionArn :: Lens.Lens' PutEventsConfiguration (Prelude.Maybe Prelude.Text)
-putEventsConfiguration_lambdaFunctionArn = Lens.lens (\PutEventsConfiguration' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@PutEventsConfiguration' {} a -> s {lambdaFunctionArn = a} :: PutEventsConfiguration) Prelude.. Lens.mapping Core._Sensitive
+putEventsConfiguration_lambdaFunctionArn = Lens.lens (\PutEventsConfiguration' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@PutEventsConfiguration' {} a -> s {lambdaFunctionArn = a} :: PutEventsConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Chime account ID.
 putEventsConfiguration_accountId :: Lens.Lens' PutEventsConfiguration Prelude.Text
@@ -120,7 +121,7 @@ instance Core.AWSRequest PutEventsConfiguration where
     Response.receiveJSON
       ( \s h x ->
           PutEventsConfigurationResponse'
-            Prelude.<$> (x Core..?> "EventsConfiguration")
+            Prelude.<$> (x Data..?> "EventsConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,31 +140,31 @@ instance Prelude.NFData PutEventsConfiguration where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf botId
 
-instance Core.ToHeaders PutEventsConfiguration where
+instance Data.ToHeaders PutEventsConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutEventsConfiguration where
+instance Data.ToJSON PutEventsConfiguration where
   toJSON PutEventsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutboundEventsHTTPSEndpoint" Core..=)
+          [ ("OutboundEventsHTTPSEndpoint" Data..=)
               Prelude.<$> outboundEventsHTTPSEndpoint,
-            ("LambdaFunctionArn" Core..=)
+            ("LambdaFunctionArn" Data..=)
               Prelude.<$> lambdaFunctionArn
           ]
       )
 
-instance Core.ToPath PutEventsConfiguration where
+instance Data.ToPath PutEventsConfiguration where
   toPath PutEventsConfiguration' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/events-configuration"
       ]
 
-instance Core.ToQuery PutEventsConfiguration where
+instance Data.ToQuery PutEventsConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutEventsConfigurationResponse' smart constructor.

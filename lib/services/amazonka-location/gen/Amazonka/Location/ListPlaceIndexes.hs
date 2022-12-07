@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,9 +134,9 @@ instance Core.AWSRequest ListPlaceIndexes where
     Response.receiveJSON
       ( \s h x ->
           ListPlaceIndexesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Entries" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListPlaceIndexes where
@@ -148,30 +149,30 @@ instance Prelude.NFData ListPlaceIndexes where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListPlaceIndexes where
+instance Data.ToHeaders ListPlaceIndexes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPlaceIndexes where
+instance Data.ToJSON ListPlaceIndexes where
   toJSON ListPlaceIndexes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListPlaceIndexes where
+instance Data.ToPath ListPlaceIndexes where
   toPath = Prelude.const "/places/v0/list-indexes"
 
-instance Core.ToQuery ListPlaceIndexes where
+instance Data.ToQuery ListPlaceIndexes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPlaceIndexesResponse' smart constructor.

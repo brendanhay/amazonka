@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -166,36 +167,36 @@ instance Prelude.NFData UpdateDashboard where
       `Prelude.seq` Prelude.rnf dashboardName
       `Prelude.seq` Prelude.rnf dashboardDefinition
 
-instance Core.ToHeaders UpdateDashboard where
+instance Data.ToHeaders UpdateDashboard where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDashboard where
+instance Data.ToJSON UpdateDashboard where
   toJSON UpdateDashboard' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("dashboardDescription" Core..=)
+          [ ("dashboardDescription" Data..=)
               Prelude.<$> dashboardDescription,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("dashboardName" Core..= dashboardName),
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("dashboardName" Data..= dashboardName),
             Prelude.Just
-              ("dashboardDefinition" Core..= dashboardDefinition)
+              ("dashboardDefinition" Data..= dashboardDefinition)
           ]
       )
 
-instance Core.ToPath UpdateDashboard where
+instance Data.ToPath UpdateDashboard where
   toPath UpdateDashboard' {..} =
     Prelude.mconcat
-      ["/dashboards/", Core.toBS dashboardId]
+      ["/dashboards/", Data.toBS dashboardId]
 
-instance Core.ToQuery UpdateDashboard where
+instance Data.ToQuery UpdateDashboard where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDashboardResponse' smart constructor.

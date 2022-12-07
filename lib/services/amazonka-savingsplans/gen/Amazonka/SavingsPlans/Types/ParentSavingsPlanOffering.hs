@@ -21,6 +21,7 @@ module Amazonka.SavingsPlans.Types.ParentSavingsPlanOffering where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SavingsPlans.Types.CurrencyCode
 import Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption
@@ -101,18 +102,18 @@ parentSavingsPlanOffering_paymentOption = Lens.lens (\ParentSavingsPlanOffering'
 parentSavingsPlanOffering_planDescription :: Lens.Lens' ParentSavingsPlanOffering (Prelude.Maybe Prelude.Text)
 parentSavingsPlanOffering_planDescription = Lens.lens (\ParentSavingsPlanOffering' {planDescription} -> planDescription) (\s@ParentSavingsPlanOffering' {} a -> s {planDescription = a} :: ParentSavingsPlanOffering)
 
-instance Core.FromJSON ParentSavingsPlanOffering where
+instance Data.FromJSON ParentSavingsPlanOffering where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParentSavingsPlanOffering"
       ( \x ->
           ParentSavingsPlanOffering'
-            Prelude.<$> (x Core..:? "planType")
-            Prelude.<*> (x Core..:? "durationSeconds")
-            Prelude.<*> (x Core..:? "currency")
-            Prelude.<*> (x Core..:? "offeringId")
-            Prelude.<*> (x Core..:? "paymentOption")
-            Prelude.<*> (x Core..:? "planDescription")
+            Prelude.<$> (x Data..:? "planType")
+            Prelude.<*> (x Data..:? "durationSeconds")
+            Prelude.<*> (x Data..:? "currency")
+            Prelude.<*> (x Data..:? "offeringId")
+            Prelude.<*> (x Data..:? "paymentOption")
+            Prelude.<*> (x Data..:? "planDescription")
       )
 
 instance Prelude.Hashable ParentSavingsPlanOffering where

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,37 +126,37 @@ instance
     Prelude.rnf indexId `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteAccessControlConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DeleteAccessControlConfiguration" ::
+              Data.=# ( "AWSKendraFrontendService.DeleteAccessControlConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAccessControlConfiguration where
+instance Data.ToJSON DeleteAccessControlConfiguration where
   toJSON DeleteAccessControlConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("Id" Core..= id)
+          [ Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath DeleteAccessControlConfiguration where
+instance Data.ToPath DeleteAccessControlConfiguration where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteAccessControlConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

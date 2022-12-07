@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.AttachmentStateChange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a change in state for a task attachment.
@@ -76,12 +77,12 @@ instance Prelude.NFData AttachmentStateChange where
     Prelude.rnf attachmentArn
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToJSON AttachmentStateChange where
+instance Data.ToJSON AttachmentStateChange where
   toJSON AttachmentStateChange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("attachmentArn" Core..= attachmentArn),
-            Prelude.Just ("status" Core..= status)
+              ("attachmentArn" Data..= attachmentArn),
+            Prelude.Just ("status" Data..= status)
           ]
       )

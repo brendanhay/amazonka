@@ -18,6 +18,7 @@ module Amazonka.ElastiCache.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.DescribeCacheClusters
 import Amazonka.ElastiCache.DescribeReplicationGroups
 import Amazonka.ElastiCache.Lens
@@ -43,7 +44,7 @@ newReplicationGroupAvailable =
                 )
                 Prelude.. replicationGroup_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -56,7 +57,7 @@ newReplicationGroupAvailable =
                 )
                 Prelude.. replicationGroup_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -80,7 +81,7 @@ newCacheClusterAvailable =
                 )
                 Prelude.. cacheCluster_cacheClusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -93,7 +94,7 @@ newCacheClusterAvailable =
                 )
                 Prelude.. cacheCluster_cacheClusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -106,7 +107,7 @@ newCacheClusterAvailable =
                 )
                 Prelude.. cacheCluster_cacheClusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "incompatible-network"
@@ -119,7 +120,7 @@ newCacheClusterAvailable =
                 )
                 Prelude.. cacheCluster_cacheClusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "restore-failed"
@@ -132,7 +133,7 @@ newCacheClusterAvailable =
                 )
                 Prelude.. cacheCluster_cacheClusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -156,7 +157,7 @@ newReplicationGroupDeleted =
                 )
                 Prelude.. replicationGroup_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "available"
@@ -169,7 +170,7 @@ newReplicationGroupDeleted =
                 )
                 Prelude.. replicationGroup_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ReplicationGroupNotFoundFault"
@@ -196,7 +197,7 @@ newCacheClusterDeleted =
                 )
                 Prelude.. cacheCluster_cacheClusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "CacheClusterNotFound"
@@ -212,7 +213,7 @@ newCacheClusterDeleted =
                 )
                 Prelude.. cacheCluster_cacheClusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "creating"
@@ -225,7 +226,7 @@ newCacheClusterDeleted =
                 )
                 Prelude.. cacheCluster_cacheClusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "incompatible-network"
@@ -238,7 +239,7 @@ newCacheClusterDeleted =
                 )
                 Prelude.. cacheCluster_cacheClusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -251,7 +252,7 @@ newCacheClusterDeleted =
                 )
                 Prelude.. cacheCluster_cacheClusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "restore-failed"
@@ -264,7 +265,7 @@ newCacheClusterDeleted =
                 )
                 Prelude.. cacheCluster_cacheClusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "snapshotting"
@@ -277,7 +278,7 @@ newCacheClusterDeleted =
                 )
                 Prelude.. cacheCluster_cacheClusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.SecretsManagerSecretConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for a Secrets Manager secret. For more information,
@@ -83,16 +84,16 @@ secretsManagerSecretConfiguration_kmsKeyId :: Lens.Lens' SecretsManagerSecretCon
 secretsManagerSecretConfiguration_kmsKeyId = Lens.lens (\SecretsManagerSecretConfiguration' {kmsKeyId} -> kmsKeyId) (\s@SecretsManagerSecretConfiguration' {} a -> s {kmsKeyId = a} :: SecretsManagerSecretConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SecretsManagerSecretConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecretsManagerSecretConfiguration"
       ( \x ->
           SecretsManagerSecretConfiguration'
-            Prelude.<$> (x Core..:? "secretPolicy")
-            Prelude.<*> (x Core..:? "kmsKeyId")
+            Prelude.<$> (x Data..:? "secretPolicy")
+            Prelude.<*> (x Data..:? "kmsKeyId")
       )
 
 instance
@@ -114,13 +115,13 @@ instance
       `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SecretsManagerSecretConfiguration
   where
   toJSON SecretsManagerSecretConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("secretPolicy" Core..=) Prelude.<$> secretPolicy,
-            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId
+          [ ("secretPolicy" Data..=) Prelude.<$> secretPolicy,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId
           ]
       )

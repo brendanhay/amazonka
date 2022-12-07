@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.HeaderMatchPattern where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.All
 
@@ -85,15 +86,15 @@ headerMatchPattern_includedHeaders = Lens.lens (\HeaderMatchPattern' {includedHe
 headerMatchPattern_all :: Lens.Lens' HeaderMatchPattern (Prelude.Maybe All)
 headerMatchPattern_all = Lens.lens (\HeaderMatchPattern' {all} -> all) (\s@HeaderMatchPattern' {} a -> s {all = a} :: HeaderMatchPattern)
 
-instance Core.FromJSON HeaderMatchPattern where
+instance Data.FromJSON HeaderMatchPattern where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HeaderMatchPattern"
       ( \x ->
           HeaderMatchPattern'
-            Prelude.<$> (x Core..:? "ExcludedHeaders")
-            Prelude.<*> (x Core..:? "IncludedHeaders")
-            Prelude.<*> (x Core..:? "All")
+            Prelude.<$> (x Data..:? "ExcludedHeaders")
+            Prelude.<*> (x Data..:? "IncludedHeaders")
+            Prelude.<*> (x Data..:? "All")
       )
 
 instance Prelude.Hashable HeaderMatchPattern where
@@ -108,14 +109,14 @@ instance Prelude.NFData HeaderMatchPattern where
       `Prelude.seq` Prelude.rnf includedHeaders
       `Prelude.seq` Prelude.rnf all
 
-instance Core.ToJSON HeaderMatchPattern where
+instance Data.ToJSON HeaderMatchPattern where
   toJSON HeaderMatchPattern' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExcludedHeaders" Core..=)
+          [ ("ExcludedHeaders" Data..=)
               Prelude.<$> excludedHeaders,
-            ("IncludedHeaders" Core..=)
+            ("IncludedHeaders" Data..=)
               Prelude.<$> includedHeaders,
-            ("All" Core..=) Prelude.<$> all
+            ("All" Data..=) Prelude.<$> all
           ]
       )

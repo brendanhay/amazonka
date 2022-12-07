@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBProxyTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.TargetHealth
 import Amazonka.RDS.Types.TargetRole
@@ -147,17 +148,17 @@ dbProxyTarget_endpoint = Lens.lens (\DBProxyTarget' {endpoint} -> endpoint) (\s@
 dbProxyTarget_trackedClusterId :: Lens.Lens' DBProxyTarget (Prelude.Maybe Prelude.Text)
 dbProxyTarget_trackedClusterId = Lens.lens (\DBProxyTarget' {trackedClusterId} -> trackedClusterId) (\s@DBProxyTarget' {} a -> s {trackedClusterId = a} :: DBProxyTarget)
 
-instance Core.FromXML DBProxyTarget where
+instance Data.FromXML DBProxyTarget where
   parseXML x =
     DBProxyTarget'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "Type")
-      Prelude.<*> (x Core..@? "TargetHealth")
-      Prelude.<*> (x Core..@? "TargetArn")
-      Prelude.<*> (x Core..@? "RdsResourceId")
-      Prelude.<*> (x Core..@? "Role")
-      Prelude.<*> (x Core..@? "Endpoint")
-      Prelude.<*> (x Core..@? "TrackedClusterId")
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "Type")
+      Prelude.<*> (x Data..@? "TargetHealth")
+      Prelude.<*> (x Data..@? "TargetArn")
+      Prelude.<*> (x Data..@? "RdsResourceId")
+      Prelude.<*> (x Data..@? "Role")
+      Prelude.<*> (x Data..@? "Endpoint")
+      Prelude.<*> (x Data..@? "TrackedClusterId")
 
 instance Prelude.Hashable DBProxyTarget where
   hashWithSalt _salt DBProxyTarget' {..} =

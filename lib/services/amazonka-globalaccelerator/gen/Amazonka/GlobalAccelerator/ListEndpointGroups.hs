@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,8 +137,8 @@ instance Core.AWSRequest ListEndpointGroups where
     Response.receiveJSON
       ( \s h x ->
           ListEndpointGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "EndpointGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "EndpointGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,35 +154,35 @@ instance Prelude.NFData ListEndpointGroups where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf listenerArn
 
-instance Core.ToHeaders ListEndpointGroups where
+instance Data.ToHeaders ListEndpointGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.ListEndpointGroups" ::
+              Data.=# ( "GlobalAccelerator_V20180706.ListEndpointGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEndpointGroups where
+instance Data.ToJSON ListEndpointGroups where
   toJSON ListEndpointGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ListenerArn" Core..= listenerArn)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ListenerArn" Data..= listenerArn)
           ]
       )
 
-instance Core.ToPath ListEndpointGroups where
+instance Data.ToPath ListEndpointGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEndpointGroups where
+instance Data.ToQuery ListEndpointGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEndpointGroupsResponse' smart constructor.

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -63,7 +64,7 @@ data GetTables = GetTables'
     -- | The time as of when to read the table contents. If not set, the most
     -- recent transaction commit time will be used. Cannot be specified along
     -- with @TransactionId@.
-    queryAsOfTime :: Prelude.Maybe Core.POSIX,
+    queryAsOfTime :: Prelude.Maybe Data.POSIX,
     -- | A regular expression pattern. If present, only those tables whose names
     -- match the pattern are returned.
     expression :: Prelude.Maybe Prelude.Text,
@@ -129,7 +130,7 @@ getTables_nextToken = Lens.lens (\GetTables' {nextToken} -> nextToken) (\s@GetTa
 -- recent transaction commit time will be used. Cannot be specified along
 -- with @TransactionId@.
 getTables_queryAsOfTime :: Lens.Lens' GetTables (Prelude.Maybe Prelude.UTCTime)
-getTables_queryAsOfTime = Lens.lens (\GetTables' {queryAsOfTime} -> queryAsOfTime) (\s@GetTables' {} a -> s {queryAsOfTime = a} :: GetTables) Prelude.. Lens.mapping Core._Time
+getTables_queryAsOfTime = Lens.lens (\GetTables' {queryAsOfTime} -> queryAsOfTime) (\s@GetTables' {} a -> s {queryAsOfTime = a} :: GetTables) Prelude.. Lens.mapping Data._Time
 
 -- | A regular expression pattern. If present, only those tables whose names
 -- match the pattern are returned.
@@ -181,8 +182,8 @@ instance Core.AWSRequest GetTables where
     Response.receiveJSON
       ( \s h x ->
           GetTablesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "TableList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "TableList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -206,37 +207,37 @@ instance Prelude.NFData GetTables where
       `Prelude.seq` Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf databaseName
 
-instance Core.ToHeaders GetTables where
+instance Data.ToHeaders GetTables where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetTables" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetTables" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTables where
+instance Data.ToJSON GetTables where
   toJSON GetTables' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("QueryAsOfTime" Core..=) Prelude.<$> queryAsOfTime,
-            ("Expression" Core..=) Prelude.<$> expression,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("TransactionId" Core..=) Prelude.<$> transactionId,
-            Prelude.Just ("DatabaseName" Core..= databaseName)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("QueryAsOfTime" Data..=) Prelude.<$> queryAsOfTime,
+            ("Expression" Data..=) Prelude.<$> expression,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("TransactionId" Data..=) Prelude.<$> transactionId,
+            Prelude.Just ("DatabaseName" Data..= databaseName)
           ]
       )
 
-instance Core.ToPath GetTables where
+instance Data.ToPath GetTables where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTables where
+instance Data.ToQuery GetTables where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTablesResponse' smart constructor.

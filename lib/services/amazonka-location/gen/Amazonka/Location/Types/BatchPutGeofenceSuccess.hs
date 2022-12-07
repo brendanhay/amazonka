@@ -21,6 +21,7 @@ module Amazonka.Location.Types.BatchPutGeofenceSuccess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a summary of each geofence that was successfully stored in a
@@ -31,13 +32,13 @@ data BatchPutGeofenceSuccess = BatchPutGeofenceSuccess'
   { -- | The timestamp for when the geofence was stored in a geofence collection
     -- in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | The geofence successfully stored in a geofence collection.
     geofenceId :: Prelude.Text,
     -- | The timestamp for when the geofence was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,16 +73,16 @@ newBatchPutGeofenceSuccess
   pUpdateTime_ =
     BatchPutGeofenceSuccess'
       { createTime =
-          Core._Time Lens.# pCreateTime_,
+          Data._Time Lens.# pCreateTime_,
         geofenceId = pGeofenceId_,
-        updateTime = Core._Time Lens.# pUpdateTime_
+        updateTime = Data._Time Lens.# pUpdateTime_
       }
 
 -- | The timestamp for when the geofence was stored in a geofence collection
 -- in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
 batchPutGeofenceSuccess_createTime :: Lens.Lens' BatchPutGeofenceSuccess Prelude.UTCTime
-batchPutGeofenceSuccess_createTime = Lens.lens (\BatchPutGeofenceSuccess' {createTime} -> createTime) (\s@BatchPutGeofenceSuccess' {} a -> s {createTime = a} :: BatchPutGeofenceSuccess) Prelude.. Core._Time
+batchPutGeofenceSuccess_createTime = Lens.lens (\BatchPutGeofenceSuccess' {createTime} -> createTime) (\s@BatchPutGeofenceSuccess' {} a -> s {createTime = a} :: BatchPutGeofenceSuccess) Prelude.. Data._Time
 
 -- | The geofence successfully stored in a geofence collection.
 batchPutGeofenceSuccess_geofenceId :: Lens.Lens' BatchPutGeofenceSuccess Prelude.Text
@@ -91,17 +92,17 @@ batchPutGeofenceSuccess_geofenceId = Lens.lens (\BatchPutGeofenceSuccess' {geofe
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
 batchPutGeofenceSuccess_updateTime :: Lens.Lens' BatchPutGeofenceSuccess Prelude.UTCTime
-batchPutGeofenceSuccess_updateTime = Lens.lens (\BatchPutGeofenceSuccess' {updateTime} -> updateTime) (\s@BatchPutGeofenceSuccess' {} a -> s {updateTime = a} :: BatchPutGeofenceSuccess) Prelude.. Core._Time
+batchPutGeofenceSuccess_updateTime = Lens.lens (\BatchPutGeofenceSuccess' {updateTime} -> updateTime) (\s@BatchPutGeofenceSuccess' {} a -> s {updateTime = a} :: BatchPutGeofenceSuccess) Prelude.. Data._Time
 
-instance Core.FromJSON BatchPutGeofenceSuccess where
+instance Data.FromJSON BatchPutGeofenceSuccess where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchPutGeofenceSuccess"
       ( \x ->
           BatchPutGeofenceSuccess'
-            Prelude.<$> (x Core..: "CreateTime")
-            Prelude.<*> (x Core..: "GeofenceId")
-            Prelude.<*> (x Core..: "UpdateTime")
+            Prelude.<$> (x Data..: "CreateTime")
+            Prelude.<*> (x Data..: "GeofenceId")
+            Prelude.<*> (x Data..: "UpdateTime")
       )
 
 instance Prelude.Hashable BatchPutGeofenceSuccess where

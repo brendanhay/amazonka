@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.M2tsSegmentationStyle
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The segmentation style parameter controls how segmentation markers are
@@ -43,7 +44,7 @@ import qualified Amazonka.Prelude as Prelude
 -- Note that EBP lookahead is a slight exception to this rule.
 newtype M2tsSegmentationStyle = M2tsSegmentationStyle'
   { fromM2tsSegmentationStyle ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -55,18 +56,18 @@ newtype M2tsSegmentationStyle = M2tsSegmentationStyle'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern M2tsSegmentationStyle_MAINTAIN_CADENCE :: M2tsSegmentationStyle

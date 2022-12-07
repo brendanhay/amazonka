@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.CustomerGatewayAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.CustomerGatewayAssociationState
 import qualified Amazonka.Prelude as Prelude
 
@@ -91,17 +92,17 @@ customerGatewayAssociation_state = Lens.lens (\CustomerGatewayAssociation' {stat
 customerGatewayAssociation_customerGatewayArn :: Lens.Lens' CustomerGatewayAssociation (Prelude.Maybe Prelude.Text)
 customerGatewayAssociation_customerGatewayArn = Lens.lens (\CustomerGatewayAssociation' {customerGatewayArn} -> customerGatewayArn) (\s@CustomerGatewayAssociation' {} a -> s {customerGatewayArn = a} :: CustomerGatewayAssociation)
 
-instance Core.FromJSON CustomerGatewayAssociation where
+instance Data.FromJSON CustomerGatewayAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomerGatewayAssociation"
       ( \x ->
           CustomerGatewayAssociation'
-            Prelude.<$> (x Core..:? "GlobalNetworkId")
-            Prelude.<*> (x Core..:? "LinkId")
-            Prelude.<*> (x Core..:? "DeviceId")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CustomerGatewayArn")
+            Prelude.<$> (x Data..:? "GlobalNetworkId")
+            Prelude.<*> (x Data..:? "LinkId")
+            Prelude.<*> (x Data..:? "DeviceId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "CustomerGatewayArn")
       )
 
 instance Prelude.Hashable CustomerGatewayAssociation where

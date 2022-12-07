@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.ComponentPropertyGroupResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.GroupType
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,15 +82,15 @@ componentPropertyGroupResponse_propertyNames = Lens.lens (\ComponentPropertyGrou
 componentPropertyGroupResponse_isInherited :: Lens.Lens' ComponentPropertyGroupResponse Prelude.Bool
 componentPropertyGroupResponse_isInherited = Lens.lens (\ComponentPropertyGroupResponse' {isInherited} -> isInherited) (\s@ComponentPropertyGroupResponse' {} a -> s {isInherited = a} :: ComponentPropertyGroupResponse)
 
-instance Core.FromJSON ComponentPropertyGroupResponse where
+instance Data.FromJSON ComponentPropertyGroupResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentPropertyGroupResponse"
       ( \x ->
           ComponentPropertyGroupResponse'
-            Prelude.<$> (x Core..: "groupType")
-            Prelude.<*> (x Core..:? "propertyNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "isInherited")
+            Prelude.<$> (x Data..: "groupType")
+            Prelude.<*> (x Data..:? "propertyNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "isInherited")
       )
 
 instance

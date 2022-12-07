@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -183,12 +184,12 @@ instance Core.AWSRequest GetLabelDetection where
     Response.receiveJSON
       ( \s h x ->
           GetLabelDetectionResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "JobStatus")
-            Prelude.<*> (x Core..?> "LabelModelVersion")
-            Prelude.<*> (x Core..?> "Labels" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "VideoMetadata")
-            Prelude.<*> (x Core..?> "StatusMessage")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "LabelModelVersion")
+            Prelude.<*> (x Data..?> "Labels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "VideoMetadata")
+            Prelude.<*> (x Data..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -206,36 +207,36 @@ instance Prelude.NFData GetLabelDetection where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders GetLabelDetection where
+instance Data.ToHeaders GetLabelDetection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.GetLabelDetection" ::
+              Data.=# ( "RekognitionService.GetLabelDetection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLabelDetection where
+instance Data.ToJSON GetLabelDetection where
   toJSON GetLabelDetection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("JobId" Core..= jobId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("JobId" Data..= jobId)
           ]
       )
 
-instance Core.ToPath GetLabelDetection where
+instance Data.ToPath GetLabelDetection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetLabelDetection where
+instance Data.ToQuery GetLabelDetection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLabelDetectionResponse' smart constructor.

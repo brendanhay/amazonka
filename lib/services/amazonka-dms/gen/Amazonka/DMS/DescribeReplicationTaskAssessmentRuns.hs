@@ -54,6 +54,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,8 +148,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeReplicationTaskAssessmentRunsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-              Prelude.<*> ( x Core..?> "ReplicationTaskAssessmentRuns"
+            Prelude.<$> (x Data..?> "Marker")
+              Prelude.<*> ( x Data..?> "ReplicationTaskAssessmentRuns"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -175,44 +176,44 @@ instance
       `Prelude.seq` Prelude.rnf maxRecords
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeReplicationTaskAssessmentRuns
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DescribeReplicationTaskAssessmentRuns" ::
+              Data.=# ( "AmazonDMSv20160101.DescribeReplicationTaskAssessmentRuns" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeReplicationTaskAssessmentRuns
   where
   toJSON DescribeReplicationTaskAssessmentRuns' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxRecords" Data..=) Prelude.<$> maxRecords
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeReplicationTaskAssessmentRuns
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeReplicationTaskAssessmentRuns
   where
   toQuery = Prelude.const Prelude.mempty

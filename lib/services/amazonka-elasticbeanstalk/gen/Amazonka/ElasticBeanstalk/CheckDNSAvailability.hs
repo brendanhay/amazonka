@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,8 +88,8 @@ instance Core.AWSRequest CheckDNSAvailability where
       "CheckDNSAvailabilityResult"
       ( \s h x ->
           CheckDNSAvailabilityResponse'
-            Prelude.<$> (x Core..@? "Available")
-            Prelude.<*> (x Core..@? "FullyQualifiedCNAME")
+            Prelude.<$> (x Data..@? "Available")
+            Prelude.<*> (x Data..@? "FullyQualifiedCNAME")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,20 +101,20 @@ instance Prelude.NFData CheckDNSAvailability where
   rnf CheckDNSAvailability' {..} =
     Prelude.rnf cNAMEPrefix
 
-instance Core.ToHeaders CheckDNSAvailability where
+instance Data.ToHeaders CheckDNSAvailability where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CheckDNSAvailability where
+instance Data.ToPath CheckDNSAvailability where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CheckDNSAvailability where
+instance Data.ToQuery CheckDNSAvailability where
   toQuery CheckDNSAvailability' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CheckDNSAvailability" :: Prelude.ByteString),
+          Data.=: ("CheckDNSAvailability" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "CNAMEPrefix" Core.=: cNAMEPrefix
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "CNAMEPrefix" Data.=: cNAMEPrefix
       ]
 
 -- | Indicates if the specified CNAME is available.

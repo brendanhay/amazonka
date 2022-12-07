@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -312,7 +313,7 @@ instance Core.AWSRequest CreateFileCache where
     Response.receiveJSON
       ( \s h x ->
           CreateFileCacheResponse'
-            Prelude.<$> (x Core..?> "FileCache")
+            Prelude.<$> (x Data..?> "FileCache")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -344,52 +345,52 @@ instance Prelude.NFData CreateFileCache where
       `Prelude.seq` Prelude.rnf storageCapacity
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToHeaders CreateFileCache where
+instance Data.ToHeaders CreateFileCache where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.CreateFileCache" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.CreateFileCache" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFileCache where
+instance Data.ToJSON CreateFileCache where
   toJSON CreateFileCache' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("SecurityGroupIds" Core..=)
+            ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("CopyTagsToDataRepositoryAssociations" Core..=)
+            ("CopyTagsToDataRepositoryAssociations" Data..=)
               Prelude.<$> copyTagsToDataRepositoryAssociations,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("DataRepositoryAssociations" Core..=)
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("DataRepositoryAssociations" Data..=)
               Prelude.<$> dataRepositoryAssociations,
-            ("LustreConfiguration" Core..=)
+            ("LustreConfiguration" Data..=)
               Prelude.<$> lustreConfiguration,
-            Prelude.Just ("FileCacheType" Core..= fileCacheType),
+            Prelude.Just ("FileCacheType" Data..= fileCacheType),
             Prelude.Just
               ( "FileCacheTypeVersion"
-                  Core..= fileCacheTypeVersion
+                  Data..= fileCacheTypeVersion
               ),
             Prelude.Just
-              ("StorageCapacity" Core..= storageCapacity),
-            Prelude.Just ("SubnetIds" Core..= subnetIds)
+              ("StorageCapacity" Data..= storageCapacity),
+            Prelude.Just ("SubnetIds" Data..= subnetIds)
           ]
       )
 
-instance Core.ToPath CreateFileCache where
+instance Data.ToPath CreateFileCache where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFileCache where
+instance Data.ToQuery CreateFileCache where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFileCacheResponse' smart constructor.

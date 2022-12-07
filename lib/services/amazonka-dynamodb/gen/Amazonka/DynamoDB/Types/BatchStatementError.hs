@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.BatchStatementError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.BatchStatementErrorCodeEnum
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -64,14 +65,14 @@ batchStatementError_message = Lens.lens (\BatchStatementError' {message} -> mess
 batchStatementError_code :: Lens.Lens' BatchStatementError (Prelude.Maybe BatchStatementErrorCodeEnum)
 batchStatementError_code = Lens.lens (\BatchStatementError' {code} -> code) (\s@BatchStatementError' {} a -> s {code = a} :: BatchStatementError)
 
-instance Core.FromJSON BatchStatementError where
+instance Data.FromJSON BatchStatementError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchStatementError"
       ( \x ->
           BatchStatementError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Code")
       )
 
 instance Prelude.Hashable BatchStatementError where

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -259,8 +260,8 @@ instance Core.AWSRequest AllocateHosts where
     Response.receiveXML
       ( \s h x ->
           AllocateHostsResponse'
-            Prelude.<$> ( x Core..@? "hostIdSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "hostIdSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -289,31 +290,31 @@ instance Prelude.NFData AllocateHosts where
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToHeaders AllocateHosts where
+instance Data.ToHeaders AllocateHosts where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AllocateHosts where
+instance Data.ToPath AllocateHosts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AllocateHosts where
+instance Data.ToQuery AllocateHosts where
   toQuery AllocateHosts' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AllocateHosts" :: Prelude.ByteString),
+          Data.=: ("AllocateHosts" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "AutoPlacement" Core.=: autoPlacement,
-        "ClientToken" Core.=: clientToken,
-        "OutpostArn" Core.=: outpostArn,
-        "HostRecovery" Core.=: hostRecovery,
-        "InstanceType" Core.=: instanceType,
-        "InstanceFamily" Core.=: instanceFamily,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "AutoPlacement" Data.=: autoPlacement,
+        "ClientToken" Data.=: clientToken,
+        "OutpostArn" Data.=: outpostArn,
+        "HostRecovery" Data.=: hostRecovery,
+        "InstanceType" Data.=: instanceType,
+        "InstanceFamily" Data.=: instanceFamily,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "AvailabilityZone" Core.=: availabilityZone,
-        "Quantity" Core.=: quantity
+        "AvailabilityZone" Data.=: availabilityZone,
+        "Quantity" Data.=: quantity
       ]
 
 -- | Contains the output of AllocateHosts.

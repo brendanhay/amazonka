@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -189,11 +190,11 @@ instance Core.AWSRequest ListUserPolicies where
       "ListUserPoliciesResult"
       ( \s h x ->
           ListUserPoliciesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "PolicyNames" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "PolicyNames" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -209,22 +210,22 @@ instance Prelude.NFData ListUserPolicies where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf userName
 
-instance Core.ToHeaders ListUserPolicies where
+instance Data.ToHeaders ListUserPolicies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListUserPolicies where
+instance Data.ToPath ListUserPolicies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListUserPolicies where
+instance Data.ToQuery ListUserPolicies where
   toQuery ListUserPolicies' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListUserPolicies" :: Prelude.ByteString),
+          Data.=: ("ListUserPolicies" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "UserName" Core.=: userName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "UserName" Data.=: userName
       ]
 
 -- | Contains the response to a successful ListUserPolicies request.

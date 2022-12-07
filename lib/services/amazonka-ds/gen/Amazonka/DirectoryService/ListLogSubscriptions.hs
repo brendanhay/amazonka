@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,8 +142,8 @@ instance Core.AWSRequest ListLogSubscriptions where
     Response.receiveJSON
       ( \s h x ->
           ListLogSubscriptionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "LogSubscriptions"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "LogSubscriptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -160,35 +161,35 @@ instance Prelude.NFData ListLogSubscriptions where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders ListLogSubscriptions where
+instance Data.ToHeaders ListLogSubscriptions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.ListLogSubscriptions" ::
+              Data.=# ( "DirectoryService_20150416.ListLogSubscriptions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListLogSubscriptions where
+instance Data.ToJSON ListLogSubscriptions where
   toJSON ListLogSubscriptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DirectoryId" Core..=) Prelude.<$> directoryId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("DirectoryId" Data..=) Prelude.<$> directoryId,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath ListLogSubscriptions where
+instance Data.ToPath ListLogSubscriptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListLogSubscriptions where
+instance Data.ToQuery ListLogSubscriptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListLogSubscriptionsResponse' smart constructor.

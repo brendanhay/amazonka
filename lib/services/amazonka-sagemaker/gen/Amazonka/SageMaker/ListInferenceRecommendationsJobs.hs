@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,16 +69,16 @@ data ListInferenceRecommendationsJobs = ListInferenceRecommendationsJobs'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only jobs that were last modified after the
     -- specified time (timestamp).
-    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | A string in the job name. This filter returns only recommendations whose
     -- name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only jobs that were last modified before the
     -- specified time (timestamp).
-    lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only jobs created before the specified time
     -- (timestamp).
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The parameter by which to sort the results.
     sortBy :: Prelude.Maybe ListInferenceRecommendationsJobsSortBy,
     -- | The maximum number of recommendations to return in the response.
@@ -87,7 +88,7 @@ data ListInferenceRecommendationsJobs = ListInferenceRecommendationsJobs'
     statusEquals :: Prelude.Maybe RecommendationJobStatus,
     -- | A filter that returns only jobs created after the specified time
     -- (timestamp).
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -156,7 +157,7 @@ listInferenceRecommendationsJobs_nextToken = Lens.lens (\ListInferenceRecommenda
 -- | A filter that returns only jobs that were last modified after the
 -- specified time (timestamp).
 listInferenceRecommendationsJobs_lastModifiedTimeAfter :: Lens.Lens' ListInferenceRecommendationsJobs (Prelude.Maybe Prelude.UTCTime)
-listInferenceRecommendationsJobs_lastModifiedTimeAfter = Lens.lens (\ListInferenceRecommendationsJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListInferenceRecommendationsJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListInferenceRecommendationsJobs) Prelude.. Lens.mapping Core._Time
+listInferenceRecommendationsJobs_lastModifiedTimeAfter = Lens.lens (\ListInferenceRecommendationsJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListInferenceRecommendationsJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListInferenceRecommendationsJobs) Prelude.. Lens.mapping Data._Time
 
 -- | A string in the job name. This filter returns only recommendations whose
 -- name contains the specified string.
@@ -166,12 +167,12 @@ listInferenceRecommendationsJobs_nameContains = Lens.lens (\ListInferenceRecomme
 -- | A filter that returns only jobs that were last modified before the
 -- specified time (timestamp).
 listInferenceRecommendationsJobs_lastModifiedTimeBefore :: Lens.Lens' ListInferenceRecommendationsJobs (Prelude.Maybe Prelude.UTCTime)
-listInferenceRecommendationsJobs_lastModifiedTimeBefore = Lens.lens (\ListInferenceRecommendationsJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListInferenceRecommendationsJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListInferenceRecommendationsJobs) Prelude.. Lens.mapping Core._Time
+listInferenceRecommendationsJobs_lastModifiedTimeBefore = Lens.lens (\ListInferenceRecommendationsJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListInferenceRecommendationsJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListInferenceRecommendationsJobs) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns only jobs created before the specified time
 -- (timestamp).
 listInferenceRecommendationsJobs_creationTimeBefore :: Lens.Lens' ListInferenceRecommendationsJobs (Prelude.Maybe Prelude.UTCTime)
-listInferenceRecommendationsJobs_creationTimeBefore = Lens.lens (\ListInferenceRecommendationsJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListInferenceRecommendationsJobs' {} a -> s {creationTimeBefore = a} :: ListInferenceRecommendationsJobs) Prelude.. Lens.mapping Core._Time
+listInferenceRecommendationsJobs_creationTimeBefore = Lens.lens (\ListInferenceRecommendationsJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListInferenceRecommendationsJobs' {} a -> s {creationTimeBefore = a} :: ListInferenceRecommendationsJobs) Prelude.. Lens.mapping Data._Time
 
 -- | The parameter by which to sort the results.
 listInferenceRecommendationsJobs_sortBy :: Lens.Lens' ListInferenceRecommendationsJobs (Prelude.Maybe ListInferenceRecommendationsJobsSortBy)
@@ -189,7 +190,7 @@ listInferenceRecommendationsJobs_statusEquals = Lens.lens (\ListInferenceRecomme
 -- | A filter that returns only jobs created after the specified time
 -- (timestamp).
 listInferenceRecommendationsJobs_creationTimeAfter :: Lens.Lens' ListInferenceRecommendationsJobs (Prelude.Maybe Prelude.UTCTime)
-listInferenceRecommendationsJobs_creationTimeAfter = Lens.lens (\ListInferenceRecommendationsJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListInferenceRecommendationsJobs' {} a -> s {creationTimeAfter = a} :: ListInferenceRecommendationsJobs) Prelude.. Lens.mapping Core._Time
+listInferenceRecommendationsJobs_creationTimeAfter = Lens.lens (\ListInferenceRecommendationsJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListInferenceRecommendationsJobs' {} a -> s {creationTimeAfter = a} :: ListInferenceRecommendationsJobs) Prelude.. Lens.mapping Data._Time
 
 instance
   Core.AWSPager
@@ -228,9 +229,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListInferenceRecommendationsJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "InferenceRecommendationsJobs"
+            Prelude.<*> ( x Data..?> "InferenceRecommendationsJobs"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -270,49 +271,49 @@ instance
       `Prelude.seq` Prelude.rnf creationTimeAfter
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListInferenceRecommendationsJobs
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListInferenceRecommendationsJobs" ::
+              Data.=# ( "SageMaker.ListInferenceRecommendationsJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListInferenceRecommendationsJobs where
+instance Data.ToJSON ListInferenceRecommendationsJobs where
   toJSON ListInferenceRecommendationsJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("LastModifiedTimeAfter" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("LastModifiedTimeAfter" Data..=)
               Prelude.<$> lastModifiedTimeAfter,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("LastModifiedTimeBefore" Core..=)
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("LastModifiedTimeBefore" Data..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("CreationTimeBefore" Core..=)
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StatusEquals" Core..=) Prelude.<$> statusEquals,
-            ("CreationTimeAfter" Core..=)
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StatusEquals" Data..=) Prelude.<$> statusEquals,
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter
           ]
       )
 
-instance Core.ToPath ListInferenceRecommendationsJobs where
+instance Data.ToPath ListInferenceRecommendationsJobs where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListInferenceRecommendationsJobs
   where
   toQuery = Prelude.const Prelude.mempty

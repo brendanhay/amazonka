@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClientCertificateRevocationListStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ClientCertificateRevocationListStatusCode
 import qualified Amazonka.Prelude as Prelude
@@ -68,13 +69,13 @@ clientCertificateRevocationListStatus_code :: Lens.Lens' ClientCertificateRevoca
 clientCertificateRevocationListStatus_code = Lens.lens (\ClientCertificateRevocationListStatus' {code} -> code) (\s@ClientCertificateRevocationListStatus' {} a -> s {code = a} :: ClientCertificateRevocationListStatus)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ClientCertificateRevocationListStatus
   where
   parseXML x =
     ClientCertificateRevocationListStatus'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance
   Prelude.Hashable

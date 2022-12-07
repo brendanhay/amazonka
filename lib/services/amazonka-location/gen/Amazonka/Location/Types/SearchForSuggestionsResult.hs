@@ -21,6 +21,7 @@ module Amazonka.Location.Types.SearchForSuggestionsResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a place suggestion resulting from a place suggestion query that
@@ -80,14 +81,14 @@ searchForSuggestionsResult_placeId = Lens.lens (\SearchForSuggestionsResult' {pl
 searchForSuggestionsResult_text :: Lens.Lens' SearchForSuggestionsResult Prelude.Text
 searchForSuggestionsResult_text = Lens.lens (\SearchForSuggestionsResult' {text} -> text) (\s@SearchForSuggestionsResult' {} a -> s {text = a} :: SearchForSuggestionsResult)
 
-instance Core.FromJSON SearchForSuggestionsResult where
+instance Data.FromJSON SearchForSuggestionsResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SearchForSuggestionsResult"
       ( \x ->
           SearchForSuggestionsResult'
-            Prelude.<$> (x Core..:? "PlaceId")
-            Prelude.<*> (x Core..: "Text")
+            Prelude.<$> (x Data..:? "PlaceId")
+            Prelude.<*> (x Data..: "Text")
       )
 
 instance Prelude.Hashable SearchForSuggestionsResult where

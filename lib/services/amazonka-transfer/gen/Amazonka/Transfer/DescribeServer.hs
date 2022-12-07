@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,7 +90,7 @@ instance Core.AWSRequest DescribeServer where
       ( \s h x ->
           DescribeServerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Server")
+            Prelude.<*> (x Data..:> "Server")
       )
 
 instance Prelude.Hashable DescribeServer where
@@ -99,32 +100,32 @@ instance Prelude.Hashable DescribeServer where
 instance Prelude.NFData DescribeServer where
   rnf DescribeServer' {..} = Prelude.rnf serverId
 
-instance Core.ToHeaders DescribeServer where
+instance Data.ToHeaders DescribeServer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.DescribeServer" ::
+              Data.=# ( "TransferService.DescribeServer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeServer where
+instance Data.ToJSON DescribeServer where
   toJSON DescribeServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ServerId" Core..= serverId)]
+          [Prelude.Just ("ServerId" Data..= serverId)]
       )
 
-instance Core.ToPath DescribeServer where
+instance Data.ToPath DescribeServer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeServer where
+instance Data.ToQuery DescribeServer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeServerResponse' smart constructor.

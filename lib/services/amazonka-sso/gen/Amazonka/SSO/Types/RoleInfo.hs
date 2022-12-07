@@ -21,6 +21,7 @@ module Amazonka.SSO.Types.RoleInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the role that is assigned to the user.
@@ -61,14 +62,14 @@ roleInfo_roleName = Lens.lens (\RoleInfo' {roleName} -> roleName) (\s@RoleInfo' 
 roleInfo_accountId :: Lens.Lens' RoleInfo (Prelude.Maybe Prelude.Text)
 roleInfo_accountId = Lens.lens (\RoleInfo' {accountId} -> accountId) (\s@RoleInfo' {} a -> s {accountId = a} :: RoleInfo)
 
-instance Core.FromJSON RoleInfo where
+instance Data.FromJSON RoleInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RoleInfo"
       ( \x ->
           RoleInfo'
-            Prelude.<$> (x Core..:? "roleName")
-            Prelude.<*> (x Core..:? "accountId")
+            Prelude.<$> (x Data..:? "roleName")
+            Prelude.<*> (x Data..:? "accountId")
       )
 
 instance Prelude.Hashable RoleInfo where

@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.Source where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types.SourceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -180,18 +181,18 @@ source_url = Lens.lens (\Source' {url} -> url) (\s@Source' {} a -> s {url = a} :
 source_sshKey :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
 source_sshKey = Lens.lens (\Source' {sshKey} -> sshKey) (\s@Source' {} a -> s {sshKey = a} :: Source)
 
-instance Core.FromJSON Source where
+instance Data.FromJSON Source where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Source"
       ( \x ->
           Source'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Password")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "Revision")
-            Prelude.<*> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "SshKey")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Password")
+            Prelude.<*> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "Revision")
+            Prelude.<*> (x Data..:? "Url")
+            Prelude.<*> (x Data..:? "SshKey")
       )
 
 instance Prelude.Hashable Source where
@@ -212,15 +213,15 @@ instance Prelude.NFData Source where
       `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf sshKey
 
-instance Core.ToJSON Source where
+instance Data.ToJSON Source where
   toJSON Source' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Password" Core..=) Prelude.<$> password,
-            ("Username" Core..=) Prelude.<$> username,
-            ("Revision" Core..=) Prelude.<$> revision,
-            ("Url" Core..=) Prelude.<$> url,
-            ("SshKey" Core..=) Prelude.<$> sshKey
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Password" Data..=) Prelude.<$> password,
+            ("Username" Data..=) Prelude.<$> username,
+            ("Revision" Data..=) Prelude.<$> revision,
+            ("Url" Data..=) Prelude.<$> url,
+            ("SshKey" Data..=) Prelude.<$> sshKey
           ]
       )

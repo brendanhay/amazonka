@@ -22,6 +22,7 @@ module Amazonka.CodeCommit.Types.ObjectTypes where
 import Amazonka.CodeCommit.Types.ObjectTypeEnum
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the type of an object in a merge operation.
@@ -71,15 +72,15 @@ objectTypes_base = Lens.lens (\ObjectTypes' {base} -> base) (\s@ObjectTypes' {} 
 objectTypes_source :: Lens.Lens' ObjectTypes (Prelude.Maybe ObjectTypeEnum)
 objectTypes_source = Lens.lens (\ObjectTypes' {source} -> source) (\s@ObjectTypes' {} a -> s {source = a} :: ObjectTypes)
 
-instance Core.FromJSON ObjectTypes where
+instance Data.FromJSON ObjectTypes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ObjectTypes"
       ( \x ->
           ObjectTypes'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "base")
-            Prelude.<*> (x Core..:? "source")
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "base")
+            Prelude.<*> (x Data..:? "source")
       )
 
 instance Prelude.Hashable ObjectTypes where

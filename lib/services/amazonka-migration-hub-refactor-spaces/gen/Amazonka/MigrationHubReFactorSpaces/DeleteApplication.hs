@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,12 +108,12 @@ instance Core.AWSRequest DeleteApplication where
     Response.receiveJSON
       ( \s h x ->
           DeleteApplicationResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "LastUpdatedTime")
-            Prelude.<*> (x Core..?> "EnvironmentId")
-            Prelude.<*> (x Core..?> "ApplicationId")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "LastUpdatedTime")
+            Prelude.<*> (x Data..?> "EnvironmentId")
+            Prelude.<*> (x Data..?> "ApplicationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,27 +127,27 @@ instance Prelude.NFData DeleteApplication where
     Prelude.rnf applicationIdentifier
       `Prelude.seq` Prelude.rnf environmentIdentifier
 
-instance Core.ToHeaders DeleteApplication where
+instance Data.ToHeaders DeleteApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteApplication where
+instance Data.ToPath DeleteApplication where
   toPath DeleteApplication' {..} =
     Prelude.mconcat
       [ "/environments/",
-        Core.toBS environmentIdentifier,
+        Data.toBS environmentIdentifier,
         "/applications/",
-        Core.toBS applicationIdentifier
+        Data.toBS applicationIdentifier
       ]
 
-instance Core.ToQuery DeleteApplication where
+instance Data.ToQuery DeleteApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteApplicationResponse' smart constructor.
@@ -158,7 +159,7 @@ data DeleteApplicationResponse = DeleteApplicationResponse'
     -- | The current state of the application.
     state :: Prelude.Maybe ApplicationState,
     -- | A timestamp that indicates when the environment was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the application’s environment.
     environmentId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the application.
@@ -218,7 +219,7 @@ deleteApplicationResponse_state = Lens.lens (\DeleteApplicationResponse' {state}
 
 -- | A timestamp that indicates when the environment was last updated.
 deleteApplicationResponse_lastUpdatedTime :: Lens.Lens' DeleteApplicationResponse (Prelude.Maybe Prelude.UTCTime)
-deleteApplicationResponse_lastUpdatedTime = Lens.lens (\DeleteApplicationResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DeleteApplicationResponse' {} a -> s {lastUpdatedTime = a} :: DeleteApplicationResponse) Prelude.. Lens.mapping Core._Time
+deleteApplicationResponse_lastUpdatedTime = Lens.lens (\DeleteApplicationResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DeleteApplicationResponse' {} a -> s {lastUpdatedTime = a} :: DeleteApplicationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of the application’s environment.
 deleteApplicationResponse_environmentId :: Lens.Lens' DeleteApplicationResponse (Prelude.Maybe Prelude.Text)

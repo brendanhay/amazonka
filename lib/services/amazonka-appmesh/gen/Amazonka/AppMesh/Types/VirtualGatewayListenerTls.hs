@@ -24,6 +24,7 @@ import Amazonka.AppMesh.Types.VirtualGatewayListenerTlsMode
 import Amazonka.AppMesh.Types.VirtualGatewayListenerTlsValidationContext
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the Transport Layer Security (TLS) properties
@@ -103,15 +104,15 @@ virtualGatewayListenerTls_certificate = Lens.lens (\VirtualGatewayListenerTls' {
 virtualGatewayListenerTls_mode :: Lens.Lens' VirtualGatewayListenerTls VirtualGatewayListenerTlsMode
 virtualGatewayListenerTls_mode = Lens.lens (\VirtualGatewayListenerTls' {mode} -> mode) (\s@VirtualGatewayListenerTls' {} a -> s {mode = a} :: VirtualGatewayListenerTls)
 
-instance Core.FromJSON VirtualGatewayListenerTls where
+instance Data.FromJSON VirtualGatewayListenerTls where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewayListenerTls"
       ( \x ->
           VirtualGatewayListenerTls'
-            Prelude.<$> (x Core..:? "validation")
-            Prelude.<*> (x Core..: "certificate")
-            Prelude.<*> (x Core..: "mode")
+            Prelude.<$> (x Data..:? "validation")
+            Prelude.<*> (x Data..: "certificate")
+            Prelude.<*> (x Data..: "mode")
       )
 
 instance Prelude.Hashable VirtualGatewayListenerTls where
@@ -126,12 +127,12 @@ instance Prelude.NFData VirtualGatewayListenerTls where
       `Prelude.seq` Prelude.rnf certificate
       `Prelude.seq` Prelude.rnf mode
 
-instance Core.ToJSON VirtualGatewayListenerTls where
+instance Data.ToJSON VirtualGatewayListenerTls where
   toJSON VirtualGatewayListenerTls' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("validation" Core..=) Prelude.<$> validation,
-            Prelude.Just ("certificate" Core..= certificate),
-            Prelude.Just ("mode" Core..= mode)
+          [ ("validation" Data..=) Prelude.<$> validation,
+            Prelude.Just ("certificate" Data..= certificate),
+            Prelude.Just ("mode" Data..= mode)
           ]
       )

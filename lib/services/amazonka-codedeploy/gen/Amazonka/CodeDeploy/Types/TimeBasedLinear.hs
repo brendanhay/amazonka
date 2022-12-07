@@ -21,6 +21,7 @@ module Amazonka.CodeDeploy.Types.TimeBasedLinear where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration that shifts traffic from one version of a Lambda
@@ -71,14 +72,14 @@ timeBasedLinear_linearInterval = Lens.lens (\TimeBasedLinear' {linearInterval} -
 timeBasedLinear_linearPercentage :: Lens.Lens' TimeBasedLinear (Prelude.Maybe Prelude.Int)
 timeBasedLinear_linearPercentage = Lens.lens (\TimeBasedLinear' {linearPercentage} -> linearPercentage) (\s@TimeBasedLinear' {} a -> s {linearPercentage = a} :: TimeBasedLinear)
 
-instance Core.FromJSON TimeBasedLinear where
+instance Data.FromJSON TimeBasedLinear where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeBasedLinear"
       ( \x ->
           TimeBasedLinear'
-            Prelude.<$> (x Core..:? "linearInterval")
-            Prelude.<*> (x Core..:? "linearPercentage")
+            Prelude.<$> (x Data..:? "linearInterval")
+            Prelude.<*> (x Data..:? "linearPercentage")
       )
 
 instance Prelude.Hashable TimeBasedLinear where
@@ -91,13 +92,13 @@ instance Prelude.NFData TimeBasedLinear where
     Prelude.rnf linearInterval
       `Prelude.seq` Prelude.rnf linearPercentage
 
-instance Core.ToJSON TimeBasedLinear where
+instance Data.ToJSON TimeBasedLinear where
   toJSON TimeBasedLinear' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("linearInterval" Core..=)
+          [ ("linearInterval" Data..=)
               Prelude.<$> linearInterval,
-            ("linearPercentage" Core..=)
+            ("linearPercentage" Data..=)
               Prelude.<$> linearPercentage
           ]
       )

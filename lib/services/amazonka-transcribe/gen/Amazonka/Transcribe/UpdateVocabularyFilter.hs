@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -178,9 +179,9 @@ instance Core.AWSRequest UpdateVocabularyFilter where
     Response.receiveJSON
       ( \s h x ->
           UpdateVocabularyFilterResponse'
-            Prelude.<$> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "LanguageCode")
-            Prelude.<*> (x Core..?> "VocabularyFilterName")
+            Prelude.<$> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "LanguageCode")
+            Prelude.<*> (x Data..?> "VocabularyFilterName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,39 +197,39 @@ instance Prelude.NFData UpdateVocabularyFilter where
       `Prelude.seq` Prelude.rnf vocabularyFilterFileUri
       `Prelude.seq` Prelude.rnf vocabularyFilterName
 
-instance Core.ToHeaders UpdateVocabularyFilter where
+instance Data.ToHeaders UpdateVocabularyFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.UpdateVocabularyFilter" ::
+              Data.=# ( "Transcribe.UpdateVocabularyFilter" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateVocabularyFilter where
+instance Data.ToJSON UpdateVocabularyFilter where
   toJSON UpdateVocabularyFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Words" Core..=) Prelude.<$> words,
-            ("VocabularyFilterFileUri" Core..=)
+          [ ("Words" Data..=) Prelude.<$> words,
+            ("VocabularyFilterFileUri" Data..=)
               Prelude.<$> vocabularyFilterFileUri,
             Prelude.Just
               ( "VocabularyFilterName"
-                  Core..= vocabularyFilterName
+                  Data..= vocabularyFilterName
               )
           ]
       )
 
-instance Core.ToPath UpdateVocabularyFilter where
+instance Data.ToPath UpdateVocabularyFilter where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateVocabularyFilter where
+instance Data.ToQuery UpdateVocabularyFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateVocabularyFilterResponse' smart constructor.
@@ -238,7 +239,7 @@ data UpdateVocabularyFilterResponse = UpdateVocabularyFilterResponse'
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
     -- May 4, 2022.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The language code you selected for your vocabulary filter.
     languageCode :: Prelude.Maybe LanguageCode,
     -- | The name of the updated custom vocabulary filter.
@@ -286,7 +287,7 @@ newUpdateVocabularyFilterResponse pHttpStatus_ =
 -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
 -- May 4, 2022.
 updateVocabularyFilterResponse_lastModifiedTime :: Lens.Lens' UpdateVocabularyFilterResponse (Prelude.Maybe Prelude.UTCTime)
-updateVocabularyFilterResponse_lastModifiedTime = Lens.lens (\UpdateVocabularyFilterResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateVocabularyFilterResponse' {} a -> s {lastModifiedTime = a} :: UpdateVocabularyFilterResponse) Prelude.. Lens.mapping Core._Time
+updateVocabularyFilterResponse_lastModifiedTime = Lens.lens (\UpdateVocabularyFilterResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateVocabularyFilterResponse' {} a -> s {lastModifiedTime = a} :: UpdateVocabularyFilterResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The language code you selected for your vocabulary filter.
 updateVocabularyFilterResponse_languageCode :: Lens.Lens' UpdateVocabularyFilterResponse (Prelude.Maybe LanguageCode)

@@ -40,6 +40,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,35 +127,35 @@ instance Prelude.NFData UpdateUserHierarchyGroupName where
       `Prelude.seq` Prelude.rnf hierarchyGroupId
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders UpdateUserHierarchyGroupName where
+instance Data.ToHeaders UpdateUserHierarchyGroupName where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateUserHierarchyGroupName where
+instance Data.ToJSON UpdateUserHierarchyGroupName where
   toJSON UpdateUserHierarchyGroupName' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath UpdateUserHierarchyGroupName where
+instance Data.ToPath UpdateUserHierarchyGroupName where
   toPath UpdateUserHierarchyGroupName' {..} =
     Prelude.mconcat
       [ "/user-hierarchy-groups/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS hierarchyGroupId,
+        Data.toBS hierarchyGroupId,
         "/name"
       ]
 
-instance Core.ToQuery UpdateUserHierarchyGroupName where
+instance Data.ToQuery UpdateUserHierarchyGroupName where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserHierarchyGroupNameResponse' smart constructor.

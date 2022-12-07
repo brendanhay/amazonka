@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.TrustedKeyGroups where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of key groups whose public keys CloudFront can use to verify the
@@ -81,14 +82,14 @@ trustedKeyGroups_enabled = Lens.lens (\TrustedKeyGroups' {enabled} -> enabled) (
 trustedKeyGroups_quantity :: Lens.Lens' TrustedKeyGroups Prelude.Int
 trustedKeyGroups_quantity = Lens.lens (\TrustedKeyGroups' {quantity} -> quantity) (\s@TrustedKeyGroups' {} a -> s {quantity = a} :: TrustedKeyGroups)
 
-instance Core.FromXML TrustedKeyGroups where
+instance Data.FromXML TrustedKeyGroups where
   parseXML x =
     TrustedKeyGroups'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "KeyGroup")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "KeyGroup")
                   )
-      Prelude.<*> (x Core..@ "Enabled")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Enabled")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable TrustedKeyGroups where
   hashWithSalt _salt TrustedKeyGroups' {..} =
@@ -102,12 +103,12 @@ instance Prelude.NFData TrustedKeyGroups where
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf quantity
 
-instance Core.ToXML TrustedKeyGroups where
+instance Data.ToXML TrustedKeyGroups where
   toXML TrustedKeyGroups' {..} =
     Prelude.mconcat
       [ "Items"
-          Core.@= Core.toXML
-            (Core.toXMLList "KeyGroup" Prelude.<$> items),
-        "Enabled" Core.@= enabled,
-        "Quantity" Core.@= quantity
+          Data.@= Data.toXML
+            (Data.toXMLList "KeyGroup" Prelude.<$> items),
+        "Enabled" Data.@= enabled,
+        "Quantity" Data.@= quantity
       ]

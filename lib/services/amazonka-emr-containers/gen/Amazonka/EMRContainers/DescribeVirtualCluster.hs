@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,7 +90,7 @@ instance Core.AWSRequest DescribeVirtualCluster where
     Response.receiveJSON
       ( \s h x ->
           DescribeVirtualClusterResponse'
-            Prelude.<$> (x Core..?> "virtualCluster")
+            Prelude.<$> (x Data..?> "virtualCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,22 +101,22 @@ instance Prelude.Hashable DescribeVirtualCluster where
 instance Prelude.NFData DescribeVirtualCluster where
   rnf DescribeVirtualCluster' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DescribeVirtualCluster where
+instance Data.ToHeaders DescribeVirtualCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeVirtualCluster where
+instance Data.ToPath DescribeVirtualCluster where
   toPath DescribeVirtualCluster' {..} =
-    Prelude.mconcat ["/virtualclusters/", Core.toBS id]
+    Prelude.mconcat ["/virtualclusters/", Data.toBS id]
 
-instance Core.ToQuery DescribeVirtualCluster where
+instance Data.ToQuery DescribeVirtualCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeVirtualClusterResponse' smart constructor.

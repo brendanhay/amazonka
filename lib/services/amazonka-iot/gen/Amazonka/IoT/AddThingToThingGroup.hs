@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -155,28 +156,28 @@ instance Prelude.NFData AddThingToThingGroup where
       `Prelude.seq` Prelude.rnf thingGroupName
       `Prelude.seq` Prelude.rnf thingGroupArn
 
-instance Core.ToHeaders AddThingToThingGroup where
+instance Data.ToHeaders AddThingToThingGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON AddThingToThingGroup where
+instance Data.ToJSON AddThingToThingGroup where
   toJSON AddThingToThingGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("overrideDynamicGroups" Core..=)
+          [ ("overrideDynamicGroups" Data..=)
               Prelude.<$> overrideDynamicGroups,
-            ("thingName" Core..=) Prelude.<$> thingName,
-            ("thingArn" Core..=) Prelude.<$> thingArn,
-            ("thingGroupName" Core..=)
+            ("thingName" Data..=) Prelude.<$> thingName,
+            ("thingArn" Data..=) Prelude.<$> thingArn,
+            ("thingGroupName" Data..=)
               Prelude.<$> thingGroupName,
-            ("thingGroupArn" Core..=) Prelude.<$> thingGroupArn
+            ("thingGroupArn" Data..=) Prelude.<$> thingGroupArn
           ]
       )
 
-instance Core.ToPath AddThingToThingGroup where
+instance Data.ToPath AddThingToThingGroup where
   toPath =
     Prelude.const "/thing-groups/addThingToThingGroup"
 
-instance Core.ToQuery AddThingToThingGroup where
+instance Data.ToQuery AddThingToThingGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddThingToThingGroupResponse' smart constructor.

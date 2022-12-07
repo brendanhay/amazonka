@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ instance Core.AWSRequest UpdateSnapshot where
     Response.receiveJSON
       ( \s h x ->
           UpdateSnapshotResponse'
-            Prelude.<$> (x Core..?> "snapshot")
+            Prelude.<$> (x Data..?> "snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,35 +110,35 @@ instance Prelude.NFData UpdateSnapshot where
     Prelude.rnf retentionPeriod
       `Prelude.seq` Prelude.rnf snapshotName
 
-instance Core.ToHeaders UpdateSnapshot where
+instance Data.ToHeaders UpdateSnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.UpdateSnapshot" ::
+              Data.=# ( "RedshiftServerless.UpdateSnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSnapshot where
+instance Data.ToJSON UpdateSnapshot where
   toJSON UpdateSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("retentionPeriod" Core..=)
+          [ ("retentionPeriod" Data..=)
               Prelude.<$> retentionPeriod,
-            Prelude.Just ("snapshotName" Core..= snapshotName)
+            Prelude.Just ("snapshotName" Data..= snapshotName)
           ]
       )
 
-instance Core.ToPath UpdateSnapshot where
+instance Data.ToPath UpdateSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateSnapshot where
+instance Data.ToQuery UpdateSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSnapshotResponse' smart constructor.

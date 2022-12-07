@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.InventoryResultEntity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.InventoryResultItem
 
@@ -68,14 +69,14 @@ inventoryResultEntity_id = Lens.lens (\InventoryResultEntity' {id} -> id) (\s@In
 inventoryResultEntity_data :: Lens.Lens' InventoryResultEntity (Prelude.Maybe (Prelude.HashMap Prelude.Text InventoryResultItem))
 inventoryResultEntity_data = Lens.lens (\InventoryResultEntity' {data'} -> data') (\s@InventoryResultEntity' {} a -> s {data' = a} :: InventoryResultEntity) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON InventoryResultEntity where
+instance Data.FromJSON InventoryResultEntity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InventoryResultEntity"
       ( \x ->
           InventoryResultEntity'
-            Prelude.<$> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Data" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Data" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable InventoryResultEntity where

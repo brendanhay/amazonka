@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,20 +109,20 @@ instance Prelude.NFData DeleteLoadBalancer where
   rnf DeleteLoadBalancer' {..} =
     Prelude.rnf loadBalancerArn
 
-instance Core.ToHeaders DeleteLoadBalancer where
+instance Data.ToHeaders DeleteLoadBalancer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteLoadBalancer where
+instance Data.ToPath DeleteLoadBalancer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLoadBalancer where
+instance Data.ToQuery DeleteLoadBalancer where
   toQuery DeleteLoadBalancer' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteLoadBalancer" :: Prelude.ByteString),
+          Data.=: ("DeleteLoadBalancer" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "LoadBalancerArn" Core.=: loadBalancerArn
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "LoadBalancerArn" Data.=: loadBalancerArn
       ]
 
 -- | /See:/ 'newDeleteLoadBalancerResponse' smart constructor.

@@ -54,6 +54,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,35 +119,35 @@ instance Prelude.NFData PutRetentionPolicy where
     Prelude.rnf logGroupName
       `Prelude.seq` Prelude.rnf retentionInDays
 
-instance Core.ToHeaders PutRetentionPolicy where
+instance Data.ToHeaders PutRetentionPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.PutRetentionPolicy" ::
+              Data.=# ( "Logs_20140328.PutRetentionPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRetentionPolicy where
+instance Data.ToJSON PutRetentionPolicy where
   toJSON PutRetentionPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("logGroupName" Core..= logGroupName),
+          [ Prelude.Just ("logGroupName" Data..= logGroupName),
             Prelude.Just
-              ("retentionInDays" Core..= retentionInDays)
+              ("retentionInDays" Data..= retentionInDays)
           ]
       )
 
-instance Core.ToPath PutRetentionPolicy where
+instance Data.ToPath PutRetentionPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutRetentionPolicy where
+instance Data.ToQuery PutRetentionPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRetentionPolicyResponse' smart constructor.

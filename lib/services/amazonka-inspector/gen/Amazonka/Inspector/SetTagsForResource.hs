@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,34 +105,34 @@ instance Prelude.NFData SetTagsForResource where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders SetTagsForResource where
+instance Data.ToHeaders SetTagsForResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.SetTagsForResource" ::
+              Data.=# ( "InspectorService.SetTagsForResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetTagsForResource where
+instance Data.ToJSON SetTagsForResource where
   toJSON SetTagsForResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("resourceArn" Core..= resourceArn)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("resourceArn" Data..= resourceArn)
           ]
       )
 
-instance Core.ToPath SetTagsForResource where
+instance Data.ToPath SetTagsForResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetTagsForResource where
+instance Data.ToQuery SetTagsForResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetTagsForResourceResponse' smart constructor.

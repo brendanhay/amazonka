@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,8 +151,8 @@ instance Core.AWSRequest StopFleetActions where
     Response.receiveJSON
       ( \s h x ->
           StopFleetActionsResponse'
-            Prelude.<$> (x Core..?> "FleetId")
-            Prelude.<*> (x Core..?> "FleetArn")
+            Prelude.<$> (x Data..?> "FleetId")
+            Prelude.<*> (x Data..?> "FleetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,33 +168,33 @@ instance Prelude.NFData StopFleetActions where
       `Prelude.seq` Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf actions
 
-instance Core.ToHeaders StopFleetActions where
+instance Data.ToHeaders StopFleetActions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.StopFleetActions" :: Prelude.ByteString),
+              Data.=# ("GameLift.StopFleetActions" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopFleetActions where
+instance Data.ToJSON StopFleetActions where
   toJSON StopFleetActions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Location" Core..=) Prelude.<$> location,
-            Prelude.Just ("FleetId" Core..= fleetId),
-            Prelude.Just ("Actions" Core..= actions)
+          [ ("Location" Data..=) Prelude.<$> location,
+            Prelude.Just ("FleetId" Data..= fleetId),
+            Prelude.Just ("Actions" Data..= actions)
           ]
       )
 
-instance Core.ToPath StopFleetActions where
+instance Data.ToPath StopFleetActions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopFleetActions where
+instance Data.ToQuery StopFleetActions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the input for a request operation.

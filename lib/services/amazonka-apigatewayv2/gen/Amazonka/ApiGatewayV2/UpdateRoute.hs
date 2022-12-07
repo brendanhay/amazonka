@@ -66,6 +66,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -246,23 +247,23 @@ instance Core.AWSRequest UpdateRoute where
     Response.receiveJSON
       ( \s h x ->
           UpdateRouteResponse''
-            Prelude.<$> (x Core..?> "requestModels" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "requestParameters"
+            Prelude.<$> (x Data..?> "requestModels" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "requestParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "apiKeyRequired")
-            Prelude.<*> (x Core..?> "target")
-            Prelude.<*> (x Core..?> "modelSelectionExpression")
-            Prelude.<*> (x Core..?> "routeKey")
-            Prelude.<*> (x Core..?> "routeId")
-            Prelude.<*> ( x Core..?> "authorizationScopes"
+            Prelude.<*> (x Data..?> "apiKeyRequired")
+            Prelude.<*> (x Data..?> "target")
+            Prelude.<*> (x Data..?> "modelSelectionExpression")
+            Prelude.<*> (x Data..?> "routeKey")
+            Prelude.<*> (x Data..?> "routeId")
+            Prelude.<*> ( x Data..?> "authorizationScopes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "authorizationType")
-            Prelude.<*> (x Core..?> "operationName")
-            Prelude.<*> (x Core..?> "apiGatewayManaged")
-            Prelude.<*> (x Core..?> "routeResponseSelectionExpression")
-            Prelude.<*> (x Core..?> "authorizerId")
+            Prelude.<*> (x Data..?> "authorizationType")
+            Prelude.<*> (x Data..?> "operationName")
+            Prelude.<*> (x Data..?> "apiGatewayManaged")
+            Prelude.<*> (x Data..?> "routeResponseSelectionExpression")
+            Prelude.<*> (x Data..?> "authorizerId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -298,51 +299,51 @@ instance Prelude.NFData UpdateRoute where
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf routeId
 
-instance Core.ToHeaders UpdateRoute where
+instance Data.ToHeaders UpdateRoute where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRoute where
+instance Data.ToJSON UpdateRoute where
   toJSON UpdateRoute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("requestModels" Core..=) Prelude.<$> requestModels,
-            ("requestParameters" Core..=)
+          [ ("requestModels" Data..=) Prelude.<$> requestModels,
+            ("requestParameters" Data..=)
               Prelude.<$> requestParameters,
-            ("apiKeyRequired" Core..=)
+            ("apiKeyRequired" Data..=)
               Prelude.<$> apiKeyRequired,
-            ("target" Core..=) Prelude.<$> target,
-            ("modelSelectionExpression" Core..=)
+            ("target" Data..=) Prelude.<$> target,
+            ("modelSelectionExpression" Data..=)
               Prelude.<$> modelSelectionExpression,
-            ("routeKey" Core..=) Prelude.<$> routeKey,
-            ("authorizationScopes" Core..=)
+            ("routeKey" Data..=) Prelude.<$> routeKey,
+            ("authorizationScopes" Data..=)
               Prelude.<$> authorizationScopes,
-            ("authorizationType" Core..=)
+            ("authorizationType" Data..=)
               Prelude.<$> authorizationType,
-            ("operationName" Core..=) Prelude.<$> operationName,
-            ("routeResponseSelectionExpression" Core..=)
+            ("operationName" Data..=) Prelude.<$> operationName,
+            ("routeResponseSelectionExpression" Data..=)
               Prelude.<$> routeResponseSelectionExpression,
-            ("authorizerId" Core..=) Prelude.<$> authorizerId
+            ("authorizerId" Data..=) Prelude.<$> authorizerId
           ]
       )
 
-instance Core.ToPath UpdateRoute where
+instance Data.ToPath UpdateRoute where
   toPath UpdateRoute' {..} =
     Prelude.mconcat
       [ "/v2/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/routes/",
-        Core.toBS routeId
+        Data.toBS routeId
       ]
 
-instance Core.ToQuery UpdateRoute where
+instance Data.ToQuery UpdateRoute where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRouteResponse'' smart constructor.

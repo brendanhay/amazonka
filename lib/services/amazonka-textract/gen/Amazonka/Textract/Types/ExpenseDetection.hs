@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.ExpenseDetection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.Geometry
 
@@ -71,15 +72,15 @@ expenseDetection_text = Lens.lens (\ExpenseDetection' {text} -> text) (\s@Expens
 expenseDetection_geometry :: Lens.Lens' ExpenseDetection (Prelude.Maybe Geometry)
 expenseDetection_geometry = Lens.lens (\ExpenseDetection' {geometry} -> geometry) (\s@ExpenseDetection' {} a -> s {geometry = a} :: ExpenseDetection)
 
-instance Core.FromJSON ExpenseDetection where
+instance Data.FromJSON ExpenseDetection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExpenseDetection"
       ( \x ->
           ExpenseDetection'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Text")
-            Prelude.<*> (x Core..:? "Geometry")
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Text")
+            Prelude.<*> (x Data..:? "Geometry")
       )
 
 instance Prelude.Hashable ExpenseDetection where

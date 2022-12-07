@@ -70,6 +70,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -266,39 +267,39 @@ instance Prelude.NFData PutSubscriptionFilter where
       `Prelude.seq` Prelude.rnf filterPattern
       `Prelude.seq` Prelude.rnf destinationArn
 
-instance Core.ToHeaders PutSubscriptionFilter where
+instance Data.ToHeaders PutSubscriptionFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.PutSubscriptionFilter" ::
+              Data.=# ( "Logs_20140328.PutSubscriptionFilter" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutSubscriptionFilter where
+instance Data.ToJSON PutSubscriptionFilter where
   toJSON PutSubscriptionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("distribution" Core..=) Prelude.<$> distribution,
-            Prelude.Just ("logGroupName" Core..= logGroupName),
-            Prelude.Just ("filterName" Core..= filterName),
-            Prelude.Just ("filterPattern" Core..= filterPattern),
+          [ ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("distribution" Data..=) Prelude.<$> distribution,
+            Prelude.Just ("logGroupName" Data..= logGroupName),
+            Prelude.Just ("filterName" Data..= filterName),
+            Prelude.Just ("filterPattern" Data..= filterPattern),
             Prelude.Just
-              ("destinationArn" Core..= destinationArn)
+              ("destinationArn" Data..= destinationArn)
           ]
       )
 
-instance Core.ToPath PutSubscriptionFilter where
+instance Data.ToPath PutSubscriptionFilter where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutSubscriptionFilter where
+instance Data.ToQuery PutSubscriptionFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutSubscriptionFilterResponse' smart constructor.

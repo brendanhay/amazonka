@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.NeptuneSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines an Amazon Neptune endpoint.
@@ -164,19 +165,19 @@ neptuneSettings_s3BucketName = Lens.lens (\NeptuneSettings' {s3BucketName} -> s3
 neptuneSettings_s3BucketFolder :: Lens.Lens' NeptuneSettings Prelude.Text
 neptuneSettings_s3BucketFolder = Lens.lens (\NeptuneSettings' {s3BucketFolder} -> s3BucketFolder) (\s@NeptuneSettings' {} a -> s {s3BucketFolder = a} :: NeptuneSettings)
 
-instance Core.FromJSON NeptuneSettings where
+instance Data.FromJSON NeptuneSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NeptuneSettings"
       ( \x ->
           NeptuneSettings'
-            Prelude.<$> (x Core..:? "MaxFileSize")
-            Prelude.<*> (x Core..:? "MaxRetryCount")
-            Prelude.<*> (x Core..:? "ServiceAccessRoleArn")
-            Prelude.<*> (x Core..:? "ErrorRetryDuration")
-            Prelude.<*> (x Core..:? "IamAuthEnabled")
-            Prelude.<*> (x Core..: "S3BucketName")
-            Prelude.<*> (x Core..: "S3BucketFolder")
+            Prelude.<$> (x Data..:? "MaxFileSize")
+            Prelude.<*> (x Data..:? "MaxRetryCount")
+            Prelude.<*> (x Data..:? "ServiceAccessRoleArn")
+            Prelude.<*> (x Data..:? "ErrorRetryDuration")
+            Prelude.<*> (x Data..:? "IamAuthEnabled")
+            Prelude.<*> (x Data..: "S3BucketName")
+            Prelude.<*> (x Data..: "S3BucketFolder")
       )
 
 instance Prelude.Hashable NeptuneSettings where
@@ -199,20 +200,20 @@ instance Prelude.NFData NeptuneSettings where
       `Prelude.seq` Prelude.rnf s3BucketName
       `Prelude.seq` Prelude.rnf s3BucketFolder
 
-instance Core.ToJSON NeptuneSettings where
+instance Data.ToJSON NeptuneSettings where
   toJSON NeptuneSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxFileSize" Core..=) Prelude.<$> maxFileSize,
-            ("MaxRetryCount" Core..=) Prelude.<$> maxRetryCount,
-            ("ServiceAccessRoleArn" Core..=)
+          [ ("MaxFileSize" Data..=) Prelude.<$> maxFileSize,
+            ("MaxRetryCount" Data..=) Prelude.<$> maxRetryCount,
+            ("ServiceAccessRoleArn" Data..=)
               Prelude.<$> serviceAccessRoleArn,
-            ("ErrorRetryDuration" Core..=)
+            ("ErrorRetryDuration" Data..=)
               Prelude.<$> errorRetryDuration,
-            ("IamAuthEnabled" Core..=)
+            ("IamAuthEnabled" Data..=)
               Prelude.<$> iamAuthEnabled,
-            Prelude.Just ("S3BucketName" Core..= s3BucketName),
+            Prelude.Just ("S3BucketName" Data..= s3BucketName),
             Prelude.Just
-              ("S3BucketFolder" Core..= s3BucketFolder)
+              ("S3BucketFolder" Data..= s3BucketFolder)
           ]
       )

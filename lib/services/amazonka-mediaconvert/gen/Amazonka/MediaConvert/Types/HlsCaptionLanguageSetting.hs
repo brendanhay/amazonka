@@ -28,6 +28,7 @@ module Amazonka.MediaConvert.Types.HlsCaptionLanguageSetting
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Applies only to 608 Embedded output captions. Insert: Include
@@ -42,7 +43,7 @@ import qualified Amazonka.Prelude as Prelude
 -- CLOSED-CAPTIONS line from the manifest.
 newtype HlsCaptionLanguageSetting = HlsCaptionLanguageSetting'
   { fromHlsCaptionLanguageSetting ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -54,18 +55,18 @@ newtype HlsCaptionLanguageSetting = HlsCaptionLanguageSetting'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern HlsCaptionLanguageSetting_INSERT :: HlsCaptionLanguageSetting

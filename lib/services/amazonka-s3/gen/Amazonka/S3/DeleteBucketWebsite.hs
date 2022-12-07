@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,18 +129,18 @@ instance Prelude.NFData DeleteBucketWebsite where
     Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders DeleteBucketWebsite where
+instance Data.ToHeaders DeleteBucketWebsite where
   toHeaders DeleteBucketWebsite' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath DeleteBucketWebsite where
+instance Data.ToPath DeleteBucketWebsite where
   toPath DeleteBucketWebsite' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery DeleteBucketWebsite where
+instance Data.ToQuery DeleteBucketWebsite where
   toQuery = Prelude.const (Prelude.mconcat ["website"])
 
 -- | /See:/ 'newDeleteBucketWebsiteResponse' smart constructor.

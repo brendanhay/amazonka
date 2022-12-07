@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -268,11 +269,11 @@ instance
       "DescribeReservedDBInstancesOfferingsResult"
       ( \s h x ->
           DescribeReservedDBInstancesOfferingsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-              Prelude.<*> ( x Core..@? "ReservedDBInstancesOfferings"
+            Prelude.<$> (x Data..@? "Marker")
+              Prelude.<*> ( x Data..@? "ReservedDBInstancesOfferings"
                               Core..!@ Prelude.mempty
                               Prelude.>>= Core.may
-                                (Core.parseXMLList "ReservedDBInstancesOffering")
+                                (Data.parseXMLList "ReservedDBInstancesOffering")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -310,41 +311,41 @@ instance
       `Prelude.seq` Prelude.rnf multiAZ
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeReservedDBInstancesOfferings
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeReservedDBInstancesOfferings
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeReservedDBInstancesOfferings
   where
   toQuery DescribeReservedDBInstancesOfferings' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeReservedDBInstancesOfferings" ::
+          Data.=: ( "DescribeReservedDBInstancesOfferings" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBInstanceClass" Core.=: dbInstanceClass,
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBInstanceClass" Data.=: dbInstanceClass,
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "OfferingType" Core.=: offeringType,
-        "MaxRecords" Core.=: maxRecords,
-        "Duration" Core.=: duration,
-        "ProductDescription" Core.=: productDescription,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "OfferingType" Data.=: offeringType,
+        "MaxRecords" Data.=: maxRecords,
+        "Duration" Data.=: duration,
+        "ProductDescription" Data.=: productDescription,
         "ReservedDBInstancesOfferingId"
-          Core.=: reservedDBInstancesOfferingId,
-        "MultiAZ" Core.=: multiAZ
+          Data.=: reservedDBInstancesOfferingId,
+        "MultiAZ" Data.=: multiAZ
       ]
 
 -- | Contains the result of a successful invocation of the

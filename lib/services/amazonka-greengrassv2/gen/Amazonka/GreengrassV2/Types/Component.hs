@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.Component where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.ComponentLatestVersion
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,15 +78,15 @@ component_arn = Lens.lens (\Component' {arn} -> arn) (\s@Component' {} a -> s {a
 component_latestVersion :: Lens.Lens' Component (Prelude.Maybe ComponentLatestVersion)
 component_latestVersion = Lens.lens (\Component' {latestVersion} -> latestVersion) (\s@Component' {} a -> s {latestVersion = a} :: Component)
 
-instance Core.FromJSON Component where
+instance Data.FromJSON Component where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Component"
       ( \x ->
           Component'
-            Prelude.<$> (x Core..:? "componentName")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "latestVersion")
+            Prelude.<$> (x Data..:? "componentName")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "latestVersion")
       )
 
 instance Prelude.Hashable Component where

@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.ImportSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.ImportResourceType
 import Amazonka.LexV2Models.Types.ImportStatus
 import Amazonka.LexV2Models.Types.MergeStrategy
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newImportSummary' smart constructor.
 data ImportSummary = ImportSummary'
   { -- | The date and time that the import was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The name that you gave the imported resource.
     importedResourceName :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier that Amazon Lex assigned to the import.
@@ -44,7 +45,7 @@ data ImportSummary = ImportSummary'
     -- | The type of resource that was imported.
     importedResourceType :: Prelude.Maybe ImportResourceType,
     -- | The date and time that the import was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The strategy used to merge existing bot or bot locale definitions with
     -- the imported definition.
     mergeStrategy :: Prelude.Maybe MergeStrategy
@@ -92,7 +93,7 @@ newImportSummary =
 
 -- | The date and time that the import was created.
 importSummary_creationDateTime :: Lens.Lens' ImportSummary (Prelude.Maybe Prelude.UTCTime)
-importSummary_creationDateTime = Lens.lens (\ImportSummary' {creationDateTime} -> creationDateTime) (\s@ImportSummary' {} a -> s {creationDateTime = a} :: ImportSummary) Prelude.. Lens.mapping Core._Time
+importSummary_creationDateTime = Lens.lens (\ImportSummary' {creationDateTime} -> creationDateTime) (\s@ImportSummary' {} a -> s {creationDateTime = a} :: ImportSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name that you gave the imported resource.
 importSummary_importedResourceName :: Lens.Lens' ImportSummary (Prelude.Maybe Prelude.Text)
@@ -117,27 +118,27 @@ importSummary_importedResourceType = Lens.lens (\ImportSummary' {importedResourc
 
 -- | The date and time that the import was last updated.
 importSummary_lastUpdatedDateTime :: Lens.Lens' ImportSummary (Prelude.Maybe Prelude.UTCTime)
-importSummary_lastUpdatedDateTime = Lens.lens (\ImportSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@ImportSummary' {} a -> s {lastUpdatedDateTime = a} :: ImportSummary) Prelude.. Lens.mapping Core._Time
+importSummary_lastUpdatedDateTime = Lens.lens (\ImportSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@ImportSummary' {} a -> s {lastUpdatedDateTime = a} :: ImportSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The strategy used to merge existing bot or bot locale definitions with
 -- the imported definition.
 importSummary_mergeStrategy :: Lens.Lens' ImportSummary (Prelude.Maybe MergeStrategy)
 importSummary_mergeStrategy = Lens.lens (\ImportSummary' {mergeStrategy} -> mergeStrategy) (\s@ImportSummary' {} a -> s {mergeStrategy = a} :: ImportSummary)
 
-instance Core.FromJSON ImportSummary where
+instance Data.FromJSON ImportSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportSummary"
       ( \x ->
           ImportSummary'
-            Prelude.<$> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "importedResourceName")
-            Prelude.<*> (x Core..:? "importId")
-            Prelude.<*> (x Core..:? "importStatus")
-            Prelude.<*> (x Core..:? "importedResourceId")
-            Prelude.<*> (x Core..:? "importedResourceType")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "mergeStrategy")
+            Prelude.<$> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "importedResourceName")
+            Prelude.<*> (x Data..:? "importId")
+            Prelude.<*> (x Data..:? "importStatus")
+            Prelude.<*> (x Data..:? "importedResourceId")
+            Prelude.<*> (x Data..:? "importedResourceType")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "mergeStrategy")
       )
 
 instance Prelude.Hashable ImportSummary where

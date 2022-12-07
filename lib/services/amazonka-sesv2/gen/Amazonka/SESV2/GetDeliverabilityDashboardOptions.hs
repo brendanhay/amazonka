@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,16 +100,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetDeliverabilityDashboardOptionsResponse'
-            Prelude.<$> (x Core..?> "AccountStatus")
-              Prelude.<*> ( x Core..?> "PendingExpirationSubscribedDomains"
+            Prelude.<$> (x Data..?> "AccountStatus")
+              Prelude.<*> ( x Data..?> "PendingExpirationSubscribedDomains"
                               Core..!@ Prelude.mempty
                           )
-              Prelude.<*> ( x Core..?> "ActiveSubscribedDomains"
+              Prelude.<*> ( x Data..?> "ActiveSubscribedDomains"
                               Core..!@ Prelude.mempty
                           )
-              Prelude.<*> (x Core..?> "SubscriptionExpiryDate")
+              Prelude.<*> (x Data..?> "SubscriptionExpiryDate")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "DashboardEnabled")
+              Prelude.<*> (x Data..:> "DashboardEnabled")
       )
 
 instance
@@ -125,28 +126,28 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetDeliverabilityDashboardOptions
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetDeliverabilityDashboardOptions
   where
   toPath =
     Prelude.const "/v2/email/deliverability-dashboard"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetDeliverabilityDashboardOptions
   where
   toQuery = Prelude.const Prelude.mempty
@@ -171,7 +172,7 @@ data GetDeliverabilityDashboardOptionsResponse = GetDeliverabilityDashboardOptio
     -- is scheduled to expire, if your subscription is scheduled to expire at
     -- the end of the current calendar month. This value is null if you have an
     -- active subscription that isn’t due to expire at the end of the month.
-    subscriptionExpiryDate :: Prelude.Maybe Core.POSIX,
+    subscriptionExpiryDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Specifies whether the Deliverability dashboard is enabled. If this value
@@ -255,7 +256,7 @@ getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains = Lens.lens (\
 -- the end of the current calendar month. This value is null if you have an
 -- active subscription that isn’t due to expire at the end of the month.
 getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate :: Lens.Lens' GetDeliverabilityDashboardOptionsResponse (Prelude.Maybe Prelude.UTCTime)
-getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate = Lens.lens (\GetDeliverabilityDashboardOptionsResponse' {subscriptionExpiryDate} -> subscriptionExpiryDate) (\s@GetDeliverabilityDashboardOptionsResponse' {} a -> s {subscriptionExpiryDate = a} :: GetDeliverabilityDashboardOptionsResponse) Prelude.. Lens.mapping Core._Time
+getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate = Lens.lens (\GetDeliverabilityDashboardOptionsResponse' {subscriptionExpiryDate} -> subscriptionExpiryDate) (\s@GetDeliverabilityDashboardOptionsResponse' {} a -> s {subscriptionExpiryDate = a} :: GetDeliverabilityDashboardOptionsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getDeliverabilityDashboardOptionsResponse_httpStatus :: Lens.Lens' GetDeliverabilityDashboardOptionsResponse Prelude.Int

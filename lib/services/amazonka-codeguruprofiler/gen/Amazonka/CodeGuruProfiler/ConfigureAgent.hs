@@ -47,6 +47,7 @@ where
 import Amazonka.CodeGuruProfiler.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -201,7 +202,7 @@ instance Core.AWSRequest ConfigureAgent where
       ( \s h x ->
           ConfigureAgentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable ConfigureAgent where
@@ -216,36 +217,36 @@ instance Prelude.NFData ConfigureAgent where
       `Prelude.seq` Prelude.rnf fleetInstanceId
       `Prelude.seq` Prelude.rnf profilingGroupName
 
-instance Core.ToHeaders ConfigureAgent where
+instance Data.ToHeaders ConfigureAgent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ConfigureAgent where
+instance Data.ToJSON ConfigureAgent where
   toJSON ConfigureAgent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("metadata" Core..=) Prelude.<$> metadata,
-            ("fleetInstanceId" Core..=)
+          [ ("metadata" Data..=) Prelude.<$> metadata,
+            ("fleetInstanceId" Data..=)
               Prelude.<$> fleetInstanceId
           ]
       )
 
-instance Core.ToPath ConfigureAgent where
+instance Data.ToPath ConfigureAgent where
   toPath ConfigureAgent' {..} =
     Prelude.mconcat
       [ "/profilingGroups/",
-        Core.toBS profilingGroupName,
+        Data.toBS profilingGroupName,
         "/configureAgent"
       ]
 
-instance Core.ToQuery ConfigureAgent where
+instance Data.ToQuery ConfigureAgent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The structure representing the configureAgentResponse.

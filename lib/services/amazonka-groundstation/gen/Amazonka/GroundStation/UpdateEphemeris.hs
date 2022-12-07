@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,7 +139,7 @@ instance Core.AWSRequest UpdateEphemeris where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateEphemeris where
   hashWithSalt _salt UpdateEphemeris' {..} =
@@ -154,31 +155,31 @@ instance Prelude.NFData UpdateEphemeris where
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf ephemerisId
 
-instance Core.ToHeaders UpdateEphemeris where
+instance Data.ToHeaders UpdateEphemeris where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEphemeris where
+instance Data.ToJSON UpdateEphemeris where
   toJSON UpdateEphemeris' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("priority" Core..=) Prelude.<$> priority,
-            Prelude.Just ("enabled" Core..= enabled)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("priority" Data..=) Prelude.<$> priority,
+            Prelude.Just ("enabled" Data..= enabled)
           ]
       )
 
-instance Core.ToPath UpdateEphemeris where
+instance Data.ToPath UpdateEphemeris where
   toPath UpdateEphemeris' {..} =
     Prelude.mconcat
-      ["/ephemeris/", Core.toBS ephemerisId]
+      ["/ephemeris/", Data.toBS ephemerisId]
 
-instance Core.ToQuery UpdateEphemeris where
+instance Data.ToQuery UpdateEphemeris where
   toQuery = Prelude.const Prelude.mempty

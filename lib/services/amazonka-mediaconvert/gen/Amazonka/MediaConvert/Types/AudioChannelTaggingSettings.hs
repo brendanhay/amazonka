@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.AudioChannelTaggingSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AudioChannelTag
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,13 +68,13 @@ newAudioChannelTaggingSettings =
 audioChannelTaggingSettings_channelTag :: Lens.Lens' AudioChannelTaggingSettings (Prelude.Maybe AudioChannelTag)
 audioChannelTaggingSettings_channelTag = Lens.lens (\AudioChannelTaggingSettings' {channelTag} -> channelTag) (\s@AudioChannelTaggingSettings' {} a -> s {channelTag = a} :: AudioChannelTaggingSettings)
 
-instance Core.FromJSON AudioChannelTaggingSettings where
+instance Data.FromJSON AudioChannelTaggingSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioChannelTaggingSettings"
       ( \x ->
           AudioChannelTaggingSettings'
-            Prelude.<$> (x Core..:? "channelTag")
+            Prelude.<$> (x Data..:? "channelTag")
       )
 
 instance Prelude.Hashable AudioChannelTaggingSettings where
@@ -84,9 +85,9 @@ instance Prelude.NFData AudioChannelTaggingSettings where
   rnf AudioChannelTaggingSettings' {..} =
     Prelude.rnf channelTag
 
-instance Core.ToJSON AudioChannelTaggingSettings where
+instance Data.ToJSON AudioChannelTaggingSettings where
   toJSON AudioChannelTaggingSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("channelTag" Core..=) Prelude.<$> channelTag]
+          [("channelTag" Data..=) Prelude.<$> channelTag]
       )

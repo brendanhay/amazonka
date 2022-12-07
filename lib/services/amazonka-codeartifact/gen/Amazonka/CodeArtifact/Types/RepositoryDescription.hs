@@ -23,6 +23,7 @@ import Amazonka.CodeArtifact.Types.RepositoryExternalConnectionInfo
 import Amazonka.CodeArtifact.Types.UpstreamRepositoryInfo
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a repository stored in CodeArtifact. A CodeArtifact
@@ -145,22 +146,22 @@ repositoryDescription_externalConnections = Lens.lens (\RepositoryDescription' {
 repositoryDescription_domainOwner :: Lens.Lens' RepositoryDescription (Prelude.Maybe Prelude.Text)
 repositoryDescription_domainOwner = Lens.lens (\RepositoryDescription' {domainOwner} -> domainOwner) (\s@RepositoryDescription' {} a -> s {domainOwner = a} :: RepositoryDescription)
 
-instance Core.FromJSON RepositoryDescription where
+instance Data.FromJSON RepositoryDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositoryDescription"
       ( \x ->
           RepositoryDescription'
-            Prelude.<$> (x Core..:? "administratorAccount")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "domainName")
-            Prelude.<*> (x Core..:? "upstreams" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> ( x Core..:? "externalConnections"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "administratorAccount")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "domainName")
+            Prelude.<*> (x Data..:? "upstreams" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> ( x Data..:? "externalConnections"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "domainOwner")
+            Prelude.<*> (x Data..:? "domainOwner")
       )
 
 instance Prelude.Hashable RepositoryDescription where

@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.AdvancedOptionsStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -91,14 +92,14 @@ advancedOptionsStatus_options = Lens.lens (\AdvancedOptionsStatus' {options} -> 
 advancedOptionsStatus_status :: Lens.Lens' AdvancedOptionsStatus OptionStatus
 advancedOptionsStatus_status = Lens.lens (\AdvancedOptionsStatus' {status} -> status) (\s@AdvancedOptionsStatus' {} a -> s {status = a} :: AdvancedOptionsStatus)
 
-instance Core.FromJSON AdvancedOptionsStatus where
+instance Data.FromJSON AdvancedOptionsStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdvancedOptionsStatus"
       ( \x ->
           AdvancedOptionsStatus'
-            Prelude.<$> (x Core..:? "Options" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..:? "Options" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable AdvancedOptionsStatus where

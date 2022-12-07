@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.EndpointDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The virtual private cloud (VPC) endpoint settings that are configured
@@ -184,21 +185,21 @@ endpointDetails_vpcId = Lens.lens (\EndpointDetails' {vpcId} -> vpcId) (\s@Endpo
 endpointDetails_subnetIds :: Lens.Lens' EndpointDetails (Prelude.Maybe [Prelude.Text])
 endpointDetails_subnetIds = Lens.lens (\EndpointDetails' {subnetIds} -> subnetIds) (\s@EndpointDetails' {} a -> s {subnetIds = a} :: EndpointDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EndpointDetails where
+instance Data.FromJSON EndpointDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointDetails"
       ( \x ->
           EndpointDetails'
-            Prelude.<$> ( x Core..:? "SecurityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "VpcEndpointId")
-            Prelude.<*> ( x Core..:? "AddressAllocationIds"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "VpcEndpointId")
+            Prelude.<*> ( x Data..:? "AddressAllocationIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EndpointDetails where
@@ -217,16 +218,16 @@ instance Prelude.NFData EndpointDetails where
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToJSON EndpointDetails where
+instance Data.ToJSON EndpointDetails where
   toJSON EndpointDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityGroupIds" Core..=)
+          [ ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("VpcEndpointId" Core..=) Prelude.<$> vpcEndpointId,
-            ("AddressAllocationIds" Core..=)
+            ("VpcEndpointId" Data..=) Prelude.<$> vpcEndpointId,
+            ("AddressAllocationIds" Data..=)
               Prelude.<$> addressAllocationIds,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("SubnetIds" Core..=) Prelude.<$> subnetIds
+            ("VpcId" Data..=) Prelude.<$> vpcId,
+            ("SubnetIds" Data..=) Prelude.<$> subnetIds
           ]
       )

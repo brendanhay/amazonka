@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,15 +98,15 @@ instance Core.AWSRequest DescribeComponent where
     Response.receiveJSON
       ( \s h x ->
           DescribeComponentResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "componentVersion")
-            Prelude.<*> (x Core..?> "componentName")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "creationTimestamp")
-            Prelude.<*> (x Core..?> "platforms" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "publisher")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "componentVersion")
+            Prelude.<*> (x Data..?> "componentName")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "creationTimestamp")
+            Prelude.<*> (x Data..?> "platforms" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "publisher")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,18 +117,18 @@ instance Prelude.Hashable DescribeComponent where
 instance Prelude.NFData DescribeComponent where
   rnf DescribeComponent' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DescribeComponent where
+instance Data.ToHeaders DescribeComponent where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeComponent where
+instance Data.ToPath DescribeComponent where
   toPath DescribeComponent' {..} =
     Prelude.mconcat
       [ "/greengrass/v2/components/",
-        Core.toBS arn,
+        Data.toBS arn,
         "/metadata"
       ]
 
-instance Core.ToQuery DescribeComponent where
+instance Data.ToQuery DescribeComponent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeComponentResponse' smart constructor.
@@ -152,7 +153,7 @@ data DescribeComponentResponse = DescribeComponentResponse'
     description :: Prelude.Maybe Prelude.Text,
     -- | The time at which the component was created, expressed in ISO 8601
     -- format.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The platforms that the component version supports.
     platforms :: Prelude.Maybe [ComponentPlatform],
     -- | The publisher of the component version.
@@ -247,7 +248,7 @@ describeComponentResponse_description = Lens.lens (\DescribeComponentResponse' {
 -- | The time at which the component was created, expressed in ISO 8601
 -- format.
 describeComponentResponse_creationTimestamp :: Lens.Lens' DescribeComponentResponse (Prelude.Maybe Prelude.UTCTime)
-describeComponentResponse_creationTimestamp = Lens.lens (\DescribeComponentResponse' {creationTimestamp} -> creationTimestamp) (\s@DescribeComponentResponse' {} a -> s {creationTimestamp = a} :: DescribeComponentResponse) Prelude.. Lens.mapping Core._Time
+describeComponentResponse_creationTimestamp = Lens.lens (\DescribeComponentResponse' {creationTimestamp} -> creationTimestamp) (\s@DescribeComponentResponse' {} a -> s {creationTimestamp = a} :: DescribeComponentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The platforms that the component version supports.
 describeComponentResponse_platforms :: Lens.Lens' DescribeComponentResponse (Prelude.Maybe [ComponentPlatform])

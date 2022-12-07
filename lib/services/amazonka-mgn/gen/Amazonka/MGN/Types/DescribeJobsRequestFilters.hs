@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.DescribeJobsRequestFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Request to describe Job log filters.
@@ -83,12 +84,12 @@ instance Prelude.NFData DescribeJobsRequestFilters where
       `Prelude.seq` Prelude.rnf fromDate
       `Prelude.seq` Prelude.rnf jobIDs
 
-instance Core.ToJSON DescribeJobsRequestFilters where
+instance Data.ToJSON DescribeJobsRequestFilters where
   toJSON DescribeJobsRequestFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("toDate" Core..=) Prelude.<$> toDate,
-            ("fromDate" Core..=) Prelude.<$> fromDate,
-            ("jobIDs" Core..=) Prelude.<$> jobIDs
+          [ ("toDate" Data..=) Prelude.<$> toDate,
+            ("fromDate" Data..=) Prelude.<$> fromDate,
+            ("jobIDs" Data..=) Prelude.<$> jobIDs
           ]
       )

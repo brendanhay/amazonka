@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,14 +100,14 @@ instance Core.AWSRequest CreateJob where
     Response.receiveJSON
       ( \s h x ->
           CreateJobResponse'
-            Prelude.<$> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Details")
-            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "UpdatedAt")
+            Prelude.<$> (x Data..?> "Type")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Details")
+            Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,30 +120,30 @@ instance Prelude.NFData CreateJob where
   rnf CreateJob' {..} =
     Prelude.rnf details `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateJob where
+instance Data.ToHeaders CreateJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateJob where
+instance Data.ToJSON CreateJob where
   toJSON CreateJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Details" Core..= details),
-            Prelude.Just ("Type" Core..= type')
+          [ Prelude.Just ("Details" Data..= details),
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateJob where
+instance Data.ToPath CreateJob where
   toPath = Prelude.const "/v1/jobs"
 
-instance Core.ToQuery CreateJob where
+instance Data.ToQuery CreateJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateJobResponse' smart constructor.
@@ -160,9 +161,9 @@ data CreateJobResponse = CreateJobResponse'
     -- | The errors associated with jobs.
     errors :: Prelude.Maybe [JobError],
     -- | The date and time that the job was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the job was last updated, in ISO 8601 format.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -236,11 +237,11 @@ createJobResponse_errors = Lens.lens (\CreateJobResponse' {errors} -> errors) (\
 
 -- | The date and time that the job was created, in ISO 8601 format.
 createJobResponse_createdAt :: Lens.Lens' CreateJobResponse (Prelude.Maybe Prelude.UTCTime)
-createJobResponse_createdAt = Lens.lens (\CreateJobResponse' {createdAt} -> createdAt) (\s@CreateJobResponse' {} a -> s {createdAt = a} :: CreateJobResponse) Prelude.. Lens.mapping Core._Time
+createJobResponse_createdAt = Lens.lens (\CreateJobResponse' {createdAt} -> createdAt) (\s@CreateJobResponse' {} a -> s {createdAt = a} :: CreateJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the job was last updated, in ISO 8601 format.
 createJobResponse_updatedAt :: Lens.Lens' CreateJobResponse (Prelude.Maybe Prelude.UTCTime)
-createJobResponse_updatedAt = Lens.lens (\CreateJobResponse' {updatedAt} -> updatedAt) (\s@CreateJobResponse' {} a -> s {updatedAt = a} :: CreateJobResponse) Prelude.. Lens.mapping Core._Time
+createJobResponse_updatedAt = Lens.lens (\CreateJobResponse' {updatedAt} -> updatedAt) (\s@CreateJobResponse' {} a -> s {updatedAt = a} :: CreateJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createJobResponse_httpStatus :: Lens.Lens' CreateJobResponse Prelude.Int

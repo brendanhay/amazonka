@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -228,8 +229,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateResourcePolicyStatementResponse'
-            Prelude.<$> (x Core..?> "revisionId")
-            Prelude.<*> (x Core..?> "resourceArn")
+            Prelude.<$> (x Data..?> "revisionId")
+            Prelude.<*> (x Data..?> "resourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -256,38 +257,38 @@ instance Prelude.NFData CreateResourcePolicyStatement where
       `Prelude.seq` Prelude.rnf principal
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToHeaders CreateResourcePolicyStatement where
+instance Data.ToHeaders CreateResourcePolicyStatement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateResourcePolicyStatement where
+instance Data.ToJSON CreateResourcePolicyStatement where
   toJSON CreateResourcePolicyStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("condition" Core..=) Prelude.<$> condition,
-            Prelude.Just ("statementId" Core..= statementId),
-            Prelude.Just ("effect" Core..= effect),
-            Prelude.Just ("principal" Core..= principal),
-            Prelude.Just ("action" Core..= action)
+          [ ("condition" Data..=) Prelude.<$> condition,
+            Prelude.Just ("statementId" Data..= statementId),
+            Prelude.Just ("effect" Data..= effect),
+            Prelude.Just ("principal" Data..= principal),
+            Prelude.Just ("action" Data..= action)
           ]
       )
 
-instance Core.ToPath CreateResourcePolicyStatement where
+instance Data.ToPath CreateResourcePolicyStatement where
   toPath CreateResourcePolicyStatement' {..} =
     Prelude.mconcat
-      ["/policy/", Core.toBS resourceArn, "/statements/"]
+      ["/policy/", Data.toBS resourceArn, "/statements/"]
 
-instance Core.ToQuery CreateResourcePolicyStatement where
+instance Data.ToQuery CreateResourcePolicyStatement where
   toQuery CreateResourcePolicyStatement' {..} =
     Prelude.mconcat
-      ["expectedRevisionId" Core.=: expectedRevisionId]
+      ["expectedRevisionId" Data.=: expectedRevisionId]
 
 -- | /See:/ 'newCreateResourcePolicyStatementResponse' smart constructor.
 data CreateResourcePolicyStatementResponse = CreateResourcePolicyStatementResponse'

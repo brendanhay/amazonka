@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,10 +103,10 @@ instance Core.AWSRequest ListVpcEndpointsForDomain where
       ( \s h x ->
           ListVpcEndpointsForDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "VpcEndpointSummaryList"
+            Prelude.<*> ( x Data..?> "VpcEndpointSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..:> "NextToken")
+            Prelude.<*> (x Data..:> "NextToken")
       )
 
 instance Prelude.Hashable ListVpcEndpointsForDomain where
@@ -118,20 +119,20 @@ instance Prelude.NFData ListVpcEndpointsForDomain where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders ListVpcEndpointsForDomain where
+instance Data.ToHeaders ListVpcEndpointsForDomain where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListVpcEndpointsForDomain where
+instance Data.ToPath ListVpcEndpointsForDomain where
   toPath ListVpcEndpointsForDomain' {..} =
     Prelude.mconcat
       [ "/2015-01-01/es/domain/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/vpcEndpoints"
       ]
 
-instance Core.ToQuery ListVpcEndpointsForDomain where
+instance Data.ToQuery ListVpcEndpointsForDomain where
   toQuery ListVpcEndpointsForDomain' {..} =
-    Prelude.mconcat ["nextToken" Core.=: nextToken]
+    Prelude.mconcat ["nextToken" Data.=: nextToken]
 
 -- | Container for response parameters to the @ListVpcEndpointsForDomain@
 -- operation. Returns a list containing summarized details of the VPC

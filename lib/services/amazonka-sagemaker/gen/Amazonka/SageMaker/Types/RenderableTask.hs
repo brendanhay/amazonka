@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RenderableTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains input values for a task.
@@ -71,9 +72,9 @@ instance Prelude.Hashable RenderableTask where
 instance Prelude.NFData RenderableTask where
   rnf RenderableTask' {..} = Prelude.rnf input
 
-instance Core.ToJSON RenderableTask where
+instance Data.ToJSON RenderableTask where
   toJSON RenderableTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Input" Core..= input)]
+          [Prelude.Just ("Input" Data..= input)]
       )

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -75,7 +76,7 @@ data GetTableObjects = GetTableObjects'
     -- | The time as of when to read the governed table contents. If not set, the
     -- most recent transaction commit time is used. Cannot be specified along
     -- with @TransactionId@.
-    queryAsOfTime :: Prelude.Maybe Core.POSIX,
+    queryAsOfTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies how many values to return in a page.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The catalog containing the governed table. Defaults to the caller’s
@@ -172,7 +173,7 @@ getTableObjects_partitionPredicate = Lens.lens (\GetTableObjects' {partitionPred
 -- most recent transaction commit time is used. Cannot be specified along
 -- with @TransactionId@.
 getTableObjects_queryAsOfTime :: Lens.Lens' GetTableObjects (Prelude.Maybe Prelude.UTCTime)
-getTableObjects_queryAsOfTime = Lens.lens (\GetTableObjects' {queryAsOfTime} -> queryAsOfTime) (\s@GetTableObjects' {} a -> s {queryAsOfTime = a} :: GetTableObjects) Prelude.. Lens.mapping Core._Time
+getTableObjects_queryAsOfTime = Lens.lens (\GetTableObjects' {queryAsOfTime} -> queryAsOfTime) (\s@GetTableObjects' {} a -> s {queryAsOfTime = a} :: GetTableObjects) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies how many values to return in a page.
 getTableObjects_maxResults :: Lens.Lens' GetTableObjects (Prelude.Maybe Prelude.Natural)
@@ -208,8 +209,8 @@ instance Core.AWSRequest GetTableObjects where
     Response.receiveJSON
       ( \s h x ->
           GetTableObjectsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Objects" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Objects" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -235,37 +236,37 @@ instance Prelude.NFData GetTableObjects where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToHeaders GetTableObjects where
+instance Data.ToHeaders GetTableObjects where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTableObjects where
+instance Data.ToJSON GetTableObjects where
   toJSON GetTableObjects' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("PartitionPredicate" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("PartitionPredicate" Data..=)
               Prelude.<$> partitionPredicate,
-            ("QueryAsOfTime" Core..=) Prelude.<$> queryAsOfTime,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("TransactionId" Core..=) Prelude.<$> transactionId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName)
+            ("QueryAsOfTime" Data..=) Prelude.<$> queryAsOfTime,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("TransactionId" Data..=) Prelude.<$> transactionId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )
 
-instance Core.ToPath GetTableObjects where
+instance Data.ToPath GetTableObjects where
   toPath = Prelude.const "/GetTableObjects"
 
-instance Core.ToQuery GetTableObjects where
+instance Data.ToQuery GetTableObjects where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTableObjectsResponse' smart constructor.

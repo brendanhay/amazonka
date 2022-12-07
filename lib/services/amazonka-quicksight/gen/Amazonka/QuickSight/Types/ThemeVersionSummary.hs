@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ThemeVersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ResourceStatus
 
@@ -29,7 +30,7 @@ import Amazonka.QuickSight.Types.ResourceStatus
 -- /See:/ 'newThemeVersionSummary' smart constructor.
 data ThemeVersionSummary = ThemeVersionSummary'
   { -- | The date and time that this theme version was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the theme version.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The status of the theme version.
@@ -71,7 +72,7 @@ newThemeVersionSummary =
 
 -- | The date and time that this theme version was created.
 themeVersionSummary_createdTime :: Lens.Lens' ThemeVersionSummary (Prelude.Maybe Prelude.UTCTime)
-themeVersionSummary_createdTime = Lens.lens (\ThemeVersionSummary' {createdTime} -> createdTime) (\s@ThemeVersionSummary' {} a -> s {createdTime = a} :: ThemeVersionSummary) Prelude.. Lens.mapping Core._Time
+themeVersionSummary_createdTime = Lens.lens (\ThemeVersionSummary' {createdTime} -> createdTime) (\s@ThemeVersionSummary' {} a -> s {createdTime = a} :: ThemeVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the theme version.
 themeVersionSummary_arn :: Lens.Lens' ThemeVersionSummary (Prelude.Maybe Prelude.Text)
@@ -89,17 +90,17 @@ themeVersionSummary_description = Lens.lens (\ThemeVersionSummary' {description}
 themeVersionSummary_versionNumber :: Lens.Lens' ThemeVersionSummary (Prelude.Maybe Prelude.Natural)
 themeVersionSummary_versionNumber = Lens.lens (\ThemeVersionSummary' {versionNumber} -> versionNumber) (\s@ThemeVersionSummary' {} a -> s {versionNumber = a} :: ThemeVersionSummary)
 
-instance Core.FromJSON ThemeVersionSummary where
+instance Data.FromJSON ThemeVersionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThemeVersionSummary"
       ( \x ->
           ThemeVersionSummary'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "VersionNumber")
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "VersionNumber")
       )
 
 instance Prelude.Hashable ThemeVersionSummary where

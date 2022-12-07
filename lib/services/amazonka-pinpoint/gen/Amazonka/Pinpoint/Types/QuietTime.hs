@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.QuietTime where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the start and end times that define a time range when messages
@@ -80,13 +81,13 @@ quietTime_start = Lens.lens (\QuietTime' {start} -> start) (\s@QuietTime' {} a -
 quietTime_end :: Lens.Lens' QuietTime (Prelude.Maybe Prelude.Text)
 quietTime_end = Lens.lens (\QuietTime' {end} -> end) (\s@QuietTime' {} a -> s {end = a} :: QuietTime)
 
-instance Core.FromJSON QuietTime where
+instance Data.FromJSON QuietTime where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QuietTime"
       ( \x ->
           QuietTime'
-            Prelude.<$> (x Core..:? "Start") Prelude.<*> (x Core..:? "End")
+            Prelude.<$> (x Data..:? "Start") Prelude.<*> (x Data..:? "End")
       )
 
 instance Prelude.Hashable QuietTime where
@@ -98,11 +99,11 @@ instance Prelude.NFData QuietTime where
   rnf QuietTime' {..} =
     Prelude.rnf start `Prelude.seq` Prelude.rnf end
 
-instance Core.ToJSON QuietTime where
+instance Data.ToJSON QuietTime where
   toJSON QuietTime' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Start" Core..=) Prelude.<$> start,
-            ("End" Core..=) Prelude.<$> end
+          [ ("Start" Data..=) Prelude.<$> start,
+            ("End" Data..=) Prelude.<$> end
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsLambdaFunctionEnvironment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsLambdaFunctionEnvironmentError
 
@@ -63,14 +64,14 @@ awsLambdaFunctionEnvironment_error = Lens.lens (\AwsLambdaFunctionEnvironment' {
 awsLambdaFunctionEnvironment_variables :: Lens.Lens' AwsLambdaFunctionEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 awsLambdaFunctionEnvironment_variables = Lens.lens (\AwsLambdaFunctionEnvironment' {variables} -> variables) (\s@AwsLambdaFunctionEnvironment' {} a -> s {variables = a} :: AwsLambdaFunctionEnvironment) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsLambdaFunctionEnvironment where
+instance Data.FromJSON AwsLambdaFunctionEnvironment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsLambdaFunctionEnvironment"
       ( \x ->
           AwsLambdaFunctionEnvironment'
-            Prelude.<$> (x Core..:? "Error")
-            Prelude.<*> (x Core..:? "Variables" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Error")
+            Prelude.<*> (x Data..:? "Variables" Data..!= Prelude.mempty)
       )
 
 instance
@@ -86,11 +87,11 @@ instance Prelude.NFData AwsLambdaFunctionEnvironment where
     Prelude.rnf error
       `Prelude.seq` Prelude.rnf variables
 
-instance Core.ToJSON AwsLambdaFunctionEnvironment where
+instance Data.ToJSON AwsLambdaFunctionEnvironment where
   toJSON AwsLambdaFunctionEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Error" Core..=) Prelude.<$> error,
-            ("Variables" Core..=) Prelude.<$> variables
+          [ ("Error" Data..=) Prelude.<$> error,
+            ("Variables" Data..=) Prelude.<$> variables
           ]
       )

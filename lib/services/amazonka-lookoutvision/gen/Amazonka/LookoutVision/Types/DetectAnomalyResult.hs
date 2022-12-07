@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.DetectAnomalyResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types.Anomaly
 import Amazonka.LookoutVision.Types.ImageSource
 import qualified Amazonka.Prelude as Prelude
@@ -65,7 +66,7 @@ data DetectAnomalyResult = DetectAnomalyResult'
     -- type, see the @color@ field of the PixelAnomaly object.
     --
     -- An image classification model doesn\'t return an @Anomalies@ list.
-    anomalyMask :: Prelude.Maybe Core.Base64
+    anomalyMask :: Prelude.Maybe Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -165,19 +166,19 @@ detectAnomalyResult_isAnomalous = Lens.lens (\DetectAnomalyResult' {isAnomalous}
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 detectAnomalyResult_anomalyMask :: Lens.Lens' DetectAnomalyResult (Prelude.Maybe Prelude.ByteString)
-detectAnomalyResult_anomalyMask = Lens.lens (\DetectAnomalyResult' {anomalyMask} -> anomalyMask) (\s@DetectAnomalyResult' {} a -> s {anomalyMask = a} :: DetectAnomalyResult) Prelude.. Lens.mapping Core._Base64
+detectAnomalyResult_anomalyMask = Lens.lens (\DetectAnomalyResult' {anomalyMask} -> anomalyMask) (\s@DetectAnomalyResult' {} a -> s {anomalyMask = a} :: DetectAnomalyResult) Prelude.. Lens.mapping Data._Base64
 
-instance Core.FromJSON DetectAnomalyResult where
+instance Data.FromJSON DetectAnomalyResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectAnomalyResult"
       ( \x ->
           DetectAnomalyResult'
-            Prelude.<$> (x Core..:? "Anomalies" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "IsAnomalous")
-            Prelude.<*> (x Core..:? "AnomalyMask")
+            Prelude.<$> (x Data..:? "Anomalies" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "IsAnomalous")
+            Prelude.<*> (x Data..:? "AnomalyMask")
       )
 
 instance Prelude.Hashable DetectAnomalyResult where

@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.CoverageHours where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | How long a running instance either used a reservation or was On-Demand.
@@ -79,16 +80,16 @@ coverageHours_reservedHours = Lens.lens (\CoverageHours' {reservedHours} -> rese
 coverageHours_coverageHoursPercentage :: Lens.Lens' CoverageHours (Prelude.Maybe Prelude.Text)
 coverageHours_coverageHoursPercentage = Lens.lens (\CoverageHours' {coverageHoursPercentage} -> coverageHoursPercentage) (\s@CoverageHours' {} a -> s {coverageHoursPercentage = a} :: CoverageHours)
 
-instance Core.FromJSON CoverageHours where
+instance Data.FromJSON CoverageHours where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoverageHours"
       ( \x ->
           CoverageHours'
-            Prelude.<$> (x Core..:? "OnDemandHours")
-            Prelude.<*> (x Core..:? "TotalRunningHours")
-            Prelude.<*> (x Core..:? "ReservedHours")
-            Prelude.<*> (x Core..:? "CoverageHoursPercentage")
+            Prelude.<$> (x Data..:? "OnDemandHours")
+            Prelude.<*> (x Data..:? "TotalRunningHours")
+            Prelude.<*> (x Data..:? "ReservedHours")
+            Prelude.<*> (x Data..:? "CoverageHoursPercentage")
       )
 
 instance Prelude.Hashable CoverageHours where

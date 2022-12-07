@@ -18,6 +18,7 @@ module Amazonka.MacieV2.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.GetSensitiveDataOccurrences
 import Amazonka.MacieV2.Lens
 import Amazonka.MacieV2.Types
@@ -36,14 +37,14 @@ newFindingRevealed =
             Core.AcceptSuccess
             ( getSensitiveDataOccurrencesResponse_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "ERROR"
             Core.AcceptSuccess
             ( getSensitiveDataOccurrencesResponse_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

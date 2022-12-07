@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -154,8 +155,8 @@ instance Core.AWSRequest ListUsageLimits where
     Response.receiveJSON
       ( \s h x ->
           ListUsageLimitsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "usageLimits")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "usageLimits")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,36 +174,36 @@ instance Prelude.NFData ListUsageLimits where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders ListUsageLimits where
+instance Data.ToHeaders ListUsageLimits where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.ListUsageLimits" ::
+              Data.=# ( "RedshiftServerless.ListUsageLimits" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListUsageLimits where
+instance Data.ToJSON ListUsageLimits where
   toJSON ListUsageLimits' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("usageType" Core..=) Prelude.<$> usageType,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("resourceArn" Core..=) Prelude.<$> resourceArn
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("usageType" Data..=) Prelude.<$> usageType,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("resourceArn" Data..=) Prelude.<$> resourceArn
           ]
       )
 
-instance Core.ToPath ListUsageLimits where
+instance Data.ToPath ListUsageLimits where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListUsageLimits where
+instance Data.ToQuery ListUsageLimits where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListUsageLimitsResponse' smart constructor.

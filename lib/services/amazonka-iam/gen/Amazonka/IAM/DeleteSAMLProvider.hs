@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,20 +98,20 @@ instance Prelude.NFData DeleteSAMLProvider where
   rnf DeleteSAMLProvider' {..} =
     Prelude.rnf sAMLProviderArn
 
-instance Core.ToHeaders DeleteSAMLProvider where
+instance Data.ToHeaders DeleteSAMLProvider where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteSAMLProvider where
+instance Data.ToPath DeleteSAMLProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSAMLProvider where
+instance Data.ToQuery DeleteSAMLProvider where
   toQuery DeleteSAMLProvider' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteSAMLProvider" :: Prelude.ByteString),
+          Data.=: ("DeleteSAMLProvider" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "SAMLProviderArn" Core.=: sAMLProviderArn
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "SAMLProviderArn" Data.=: sAMLProviderArn
       ]
 
 -- | /See:/ 'newDeleteSAMLProviderResponse' smart constructor.

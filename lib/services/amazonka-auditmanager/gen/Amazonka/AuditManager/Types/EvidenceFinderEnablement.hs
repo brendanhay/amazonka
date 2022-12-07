@@ -23,6 +23,7 @@ import Amazonka.AuditManager.Types.EvidenceFinderBackfillStatus
 import Amazonka.AuditManager.Types.EvidenceFinderEnablementStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings object that specifies whether evidence finder is enabled.
@@ -189,16 +190,16 @@ evidenceFinderEnablement_backfillStatus = Lens.lens (\EvidenceFinderEnablement' 
 evidenceFinderEnablement_error :: Lens.Lens' EvidenceFinderEnablement (Prelude.Maybe Prelude.Text)
 evidenceFinderEnablement_error = Lens.lens (\EvidenceFinderEnablement' {error} -> error) (\s@EvidenceFinderEnablement' {} a -> s {error = a} :: EvidenceFinderEnablement)
 
-instance Core.FromJSON EvidenceFinderEnablement where
+instance Data.FromJSON EvidenceFinderEnablement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EvidenceFinderEnablement"
       ( \x ->
           EvidenceFinderEnablement'
-            Prelude.<$> (x Core..:? "eventDataStoreArn")
-            Prelude.<*> (x Core..:? "enablementStatus")
-            Prelude.<*> (x Core..:? "backfillStatus")
-            Prelude.<*> (x Core..:? "error")
+            Prelude.<$> (x Data..:? "eventDataStoreArn")
+            Prelude.<*> (x Data..:? "enablementStatus")
+            Prelude.<*> (x Data..:? "backfillStatus")
+            Prelude.<*> (x Data..:? "error")
       )
 
 instance Prelude.Hashable EvidenceFinderEnablement where

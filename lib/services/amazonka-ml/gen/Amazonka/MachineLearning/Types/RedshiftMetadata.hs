@@ -21,6 +21,7 @@ module Amazonka.MachineLearning.Types.RedshiftMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types.RedshiftDatabase
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,15 +74,15 @@ redshiftMetadata_selectSqlQuery = Lens.lens (\RedshiftMetadata' {selectSqlQuery}
 redshiftMetadata_redshiftDatabase :: Lens.Lens' RedshiftMetadata (Prelude.Maybe RedshiftDatabase)
 redshiftMetadata_redshiftDatabase = Lens.lens (\RedshiftMetadata' {redshiftDatabase} -> redshiftDatabase) (\s@RedshiftMetadata' {} a -> s {redshiftDatabase = a} :: RedshiftMetadata)
 
-instance Core.FromJSON RedshiftMetadata where
+instance Data.FromJSON RedshiftMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedshiftMetadata"
       ( \x ->
           RedshiftMetadata'
-            Prelude.<$> (x Core..:? "DatabaseUserName")
-            Prelude.<*> (x Core..:? "SelectSqlQuery")
-            Prelude.<*> (x Core..:? "RedshiftDatabase")
+            Prelude.<$> (x Data..:? "DatabaseUserName")
+            Prelude.<*> (x Data..:? "SelectSqlQuery")
+            Prelude.<*> (x Data..:? "RedshiftDatabase")
       )
 
 instance Prelude.Hashable RedshiftMetadata where

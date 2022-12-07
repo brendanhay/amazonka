@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DataProcessing where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.JoinSource
 
@@ -189,15 +190,15 @@ dataProcessing_inputFilter = Lens.lens (\DataProcessing' {inputFilter} -> inputF
 dataProcessing_joinSource :: Lens.Lens' DataProcessing (Prelude.Maybe JoinSource)
 dataProcessing_joinSource = Lens.lens (\DataProcessing' {joinSource} -> joinSource) (\s@DataProcessing' {} a -> s {joinSource = a} :: DataProcessing)
 
-instance Core.FromJSON DataProcessing where
+instance Data.FromJSON DataProcessing where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataProcessing"
       ( \x ->
           DataProcessing'
-            Prelude.<$> (x Core..:? "OutputFilter")
-            Prelude.<*> (x Core..:? "InputFilter")
-            Prelude.<*> (x Core..:? "JoinSource")
+            Prelude.<$> (x Data..:? "OutputFilter")
+            Prelude.<*> (x Data..:? "InputFilter")
+            Prelude.<*> (x Data..:? "JoinSource")
       )
 
 instance Prelude.Hashable DataProcessing where
@@ -212,12 +213,12 @@ instance Prelude.NFData DataProcessing where
       `Prelude.seq` Prelude.rnf inputFilter
       `Prelude.seq` Prelude.rnf joinSource
 
-instance Core.ToJSON DataProcessing where
+instance Data.ToJSON DataProcessing where
   toJSON DataProcessing' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutputFilter" Core..=) Prelude.<$> outputFilter,
-            ("InputFilter" Core..=) Prelude.<$> inputFilter,
-            ("JoinSource" Core..=) Prelude.<$> joinSource
+          [ ("OutputFilter" Data..=) Prelude.<$> outputFilter,
+            ("InputFilter" Data..=) Prelude.<$> inputFilter,
+            ("JoinSource" Data..=) Prelude.<$> joinSource
           ]
       )

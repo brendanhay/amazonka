@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Hdr10Metadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use these settings to specify static color calibration metadata, as
@@ -245,24 +246,24 @@ hdr10Metadata_minLuminance = Lens.lens (\Hdr10Metadata' {minLuminance} -> minLum
 hdr10Metadata_bluePrimaryY :: Lens.Lens' Hdr10Metadata (Prelude.Maybe Prelude.Natural)
 hdr10Metadata_bluePrimaryY = Lens.lens (\Hdr10Metadata' {bluePrimaryY} -> bluePrimaryY) (\s@Hdr10Metadata' {} a -> s {bluePrimaryY = a} :: Hdr10Metadata)
 
-instance Core.FromJSON Hdr10Metadata where
+instance Data.FromJSON Hdr10Metadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Hdr10Metadata"
       ( \x ->
           Hdr10Metadata'
-            Prelude.<$> (x Core..:? "redPrimaryX")
-            Prelude.<*> (x Core..:? "whitePointY")
-            Prelude.<*> (x Core..:? "greenPrimaryX")
-            Prelude.<*> (x Core..:? "maxContentLightLevel")
-            Prelude.<*> (x Core..:? "redPrimaryY")
-            Prelude.<*> (x Core..:? "bluePrimaryX")
-            Prelude.<*> (x Core..:? "whitePointX")
-            Prelude.<*> (x Core..:? "maxLuminance")
-            Prelude.<*> (x Core..:? "maxFrameAverageLightLevel")
-            Prelude.<*> (x Core..:? "greenPrimaryY")
-            Prelude.<*> (x Core..:? "minLuminance")
-            Prelude.<*> (x Core..:? "bluePrimaryY")
+            Prelude.<$> (x Data..:? "redPrimaryX")
+            Prelude.<*> (x Data..:? "whitePointY")
+            Prelude.<*> (x Data..:? "greenPrimaryX")
+            Prelude.<*> (x Data..:? "maxContentLightLevel")
+            Prelude.<*> (x Data..:? "redPrimaryY")
+            Prelude.<*> (x Data..:? "bluePrimaryX")
+            Prelude.<*> (x Data..:? "whitePointX")
+            Prelude.<*> (x Data..:? "maxLuminance")
+            Prelude.<*> (x Data..:? "maxFrameAverageLightLevel")
+            Prelude.<*> (x Data..:? "greenPrimaryY")
+            Prelude.<*> (x Data..:? "minLuminance")
+            Prelude.<*> (x Data..:? "bluePrimaryY")
       )
 
 instance Prelude.Hashable Hdr10Metadata where
@@ -295,23 +296,23 @@ instance Prelude.NFData Hdr10Metadata where
       `Prelude.seq` Prelude.rnf minLuminance
       `Prelude.seq` Prelude.rnf bluePrimaryY
 
-instance Core.ToJSON Hdr10Metadata where
+instance Data.ToJSON Hdr10Metadata where
   toJSON Hdr10Metadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("redPrimaryX" Core..=) Prelude.<$> redPrimaryX,
-            ("whitePointY" Core..=) Prelude.<$> whitePointY,
-            ("greenPrimaryX" Core..=) Prelude.<$> greenPrimaryX,
-            ("maxContentLightLevel" Core..=)
+          [ ("redPrimaryX" Data..=) Prelude.<$> redPrimaryX,
+            ("whitePointY" Data..=) Prelude.<$> whitePointY,
+            ("greenPrimaryX" Data..=) Prelude.<$> greenPrimaryX,
+            ("maxContentLightLevel" Data..=)
               Prelude.<$> maxContentLightLevel,
-            ("redPrimaryY" Core..=) Prelude.<$> redPrimaryY,
-            ("bluePrimaryX" Core..=) Prelude.<$> bluePrimaryX,
-            ("whitePointX" Core..=) Prelude.<$> whitePointX,
-            ("maxLuminance" Core..=) Prelude.<$> maxLuminance,
-            ("maxFrameAverageLightLevel" Core..=)
+            ("redPrimaryY" Data..=) Prelude.<$> redPrimaryY,
+            ("bluePrimaryX" Data..=) Prelude.<$> bluePrimaryX,
+            ("whitePointX" Data..=) Prelude.<$> whitePointX,
+            ("maxLuminance" Data..=) Prelude.<$> maxLuminance,
+            ("maxFrameAverageLightLevel" Data..=)
               Prelude.<$> maxFrameAverageLightLevel,
-            ("greenPrimaryY" Core..=) Prelude.<$> greenPrimaryY,
-            ("minLuminance" Core..=) Prelude.<$> minLuminance,
-            ("bluePrimaryY" Core..=) Prelude.<$> bluePrimaryY
+            ("greenPrimaryY" Data..=) Prelude.<$> greenPrimaryY,
+            ("minLuminance" Data..=) Prelude.<$> minLuminance,
+            ("bluePrimaryY" Data..=) Prelude.<$> bluePrimaryY
           ]
       )

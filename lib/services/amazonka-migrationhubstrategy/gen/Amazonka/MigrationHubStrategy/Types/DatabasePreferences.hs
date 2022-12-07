@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.DatabasePreferences where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.DatabaseManagementPreference
 import Amazonka.MigrationHubStrategy.Types.DatabaseMigrationPreference
 import qualified Amazonka.Prelude as Prelude
@@ -67,14 +68,14 @@ databasePreferences_databaseManagementPreference = Lens.lens (\DatabasePreferenc
 databasePreferences_databaseMigrationPreference :: Lens.Lens' DatabasePreferences (Prelude.Maybe DatabaseMigrationPreference)
 databasePreferences_databaseMigrationPreference = Lens.lens (\DatabasePreferences' {databaseMigrationPreference} -> databaseMigrationPreference) (\s@DatabasePreferences' {} a -> s {databaseMigrationPreference = a} :: DatabasePreferences)
 
-instance Core.FromJSON DatabasePreferences where
+instance Data.FromJSON DatabasePreferences where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatabasePreferences"
       ( \x ->
           DatabasePreferences'
-            Prelude.<$> (x Core..:? "databaseManagementPreference")
-            Prelude.<*> (x Core..:? "databaseMigrationPreference")
+            Prelude.<$> (x Data..:? "databaseManagementPreference")
+            Prelude.<*> (x Data..:? "databaseMigrationPreference")
       )
 
 instance Prelude.Hashable DatabasePreferences where
@@ -88,13 +89,13 @@ instance Prelude.NFData DatabasePreferences where
     Prelude.rnf databaseManagementPreference
       `Prelude.seq` Prelude.rnf databaseMigrationPreference
 
-instance Core.ToJSON DatabasePreferences where
+instance Data.ToJSON DatabasePreferences where
   toJSON DatabasePreferences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("databaseManagementPreference" Core..=)
+          [ ("databaseManagementPreference" Data..=)
               Prelude.<$> databaseManagementPreference,
-            ("databaseMigrationPreference" Core..=)
+            ("databaseMigrationPreference" Data..=)
               Prelude.<$> databaseMigrationPreference
           ]
       )

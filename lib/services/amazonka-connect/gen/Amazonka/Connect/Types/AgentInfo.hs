@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.AgentInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the agent who accepted the contact.
@@ -30,7 +31,7 @@ data AgentInfo = AgentInfo'
   { -- | The identifier of the agent who accepted the contact.
     id :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the contact was connected to the agent.
-    connectedToAgentTimestamp :: Prelude.Maybe Core.POSIX
+    connectedToAgentTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,16 +60,16 @@ agentInfo_id = Lens.lens (\AgentInfo' {id} -> id) (\s@AgentInfo' {} a -> s {id =
 
 -- | The timestamp when the contact was connected to the agent.
 agentInfo_connectedToAgentTimestamp :: Lens.Lens' AgentInfo (Prelude.Maybe Prelude.UTCTime)
-agentInfo_connectedToAgentTimestamp = Lens.lens (\AgentInfo' {connectedToAgentTimestamp} -> connectedToAgentTimestamp) (\s@AgentInfo' {} a -> s {connectedToAgentTimestamp = a} :: AgentInfo) Prelude.. Lens.mapping Core._Time
+agentInfo_connectedToAgentTimestamp = Lens.lens (\AgentInfo' {connectedToAgentTimestamp} -> connectedToAgentTimestamp) (\s@AgentInfo' {} a -> s {connectedToAgentTimestamp = a} :: AgentInfo) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AgentInfo where
+instance Data.FromJSON AgentInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AgentInfo"
       ( \x ->
           AgentInfo'
-            Prelude.<$> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ConnectedToAgentTimestamp")
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ConnectedToAgentTimestamp")
       )
 
 instance Prelude.Hashable AgentInfo where

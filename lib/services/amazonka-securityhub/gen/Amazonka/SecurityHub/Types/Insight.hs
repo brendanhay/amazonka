@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Insight where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsSecurityFindingFilters
 
@@ -107,16 +108,16 @@ insight_filters = Lens.lens (\Insight' {filters} -> filters) (\s@Insight' {} a -
 insight_groupByAttribute :: Lens.Lens' Insight Prelude.Text
 insight_groupByAttribute = Lens.lens (\Insight' {groupByAttribute} -> groupByAttribute) (\s@Insight' {} a -> s {groupByAttribute = a} :: Insight)
 
-instance Core.FromJSON Insight where
+instance Data.FromJSON Insight where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Insight"
       ( \x ->
           Insight'
-            Prelude.<$> (x Core..: "InsightArn")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Filters")
-            Prelude.<*> (x Core..: "GroupByAttribute")
+            Prelude.<$> (x Data..: "InsightArn")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Filters")
+            Prelude.<*> (x Data..: "GroupByAttribute")
       )
 
 instance Prelude.Hashable Insight where

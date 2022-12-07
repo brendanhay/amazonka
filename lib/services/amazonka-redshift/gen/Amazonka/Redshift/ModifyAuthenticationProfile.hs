@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -109,8 +110,8 @@ instance Core.AWSRequest ModifyAuthenticationProfile where
       "ModifyAuthenticationProfileResult"
       ( \s h x ->
           ModifyAuthenticationProfileResponse'
-            Prelude.<$> (x Core..@? "AuthenticationProfileName")
-            Prelude.<*> (x Core..@? "AuthenticationProfileContent")
+            Prelude.<$> (x Data..@? "AuthenticationProfileName")
+            Prelude.<*> (x Data..@? "AuthenticationProfileContent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,25 +126,25 @@ instance Prelude.NFData ModifyAuthenticationProfile where
     Prelude.rnf authenticationProfileName
       `Prelude.seq` Prelude.rnf authenticationProfileContent
 
-instance Core.ToHeaders ModifyAuthenticationProfile where
+instance Data.ToHeaders ModifyAuthenticationProfile where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyAuthenticationProfile where
+instance Data.ToPath ModifyAuthenticationProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyAuthenticationProfile where
+instance Data.ToQuery ModifyAuthenticationProfile where
   toQuery ModifyAuthenticationProfile' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyAuthenticationProfile" ::
+          Data.=: ( "ModifyAuthenticationProfile" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "AuthenticationProfileName"
-          Core.=: authenticationProfileName,
+          Data.=: authenticationProfileName,
         "AuthenticationProfileContent"
-          Core.=: authenticationProfileContent
+          Data.=: authenticationProfileContent
       ]
 
 -- | /See:/ 'newModifyAuthenticationProfileResponse' smart constructor.

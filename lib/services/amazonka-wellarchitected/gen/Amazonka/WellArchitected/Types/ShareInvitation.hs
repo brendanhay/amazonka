@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.ShareInvitation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.ShareResourceType
 
@@ -87,17 +88,17 @@ shareInvitation_shareResourceType = Lens.lens (\ShareInvitation' {shareResourceT
 shareInvitation_workloadId :: Lens.Lens' ShareInvitation (Prelude.Maybe Prelude.Text)
 shareInvitation_workloadId = Lens.lens (\ShareInvitation' {workloadId} -> workloadId) (\s@ShareInvitation' {} a -> s {workloadId = a} :: ShareInvitation)
 
-instance Core.FromJSON ShareInvitation where
+instance Data.FromJSON ShareInvitation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ShareInvitation"
       ( \x ->
           ShareInvitation'
-            Prelude.<$> (x Core..:? "LensArn")
-            Prelude.<*> (x Core..:? "LensAlias")
-            Prelude.<*> (x Core..:? "ShareInvitationId")
-            Prelude.<*> (x Core..:? "ShareResourceType")
-            Prelude.<*> (x Core..:? "WorkloadId")
+            Prelude.<$> (x Data..:? "LensArn")
+            Prelude.<*> (x Data..:? "LensAlias")
+            Prelude.<*> (x Data..:? "ShareInvitationId")
+            Prelude.<*> (x Data..:? "ShareResourceType")
+            Prelude.<*> (x Data..:? "WorkloadId")
       )
 
 instance Prelude.Hashable ShareInvitation where

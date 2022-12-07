@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,8 +127,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAnomalyDetectionExecutionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "ExecutionList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "ExecutionList" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,43 +155,43 @@ instance
       `Prelude.seq` Prelude.rnf anomalyDetectorArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeAnomalyDetectionExecutions
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeAnomalyDetectionExecutions
   where
   toJSON DescribeAnomalyDetectionExecutions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Timestamp" Core..=) Prelude.<$> timestamp,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Timestamp" Data..=) Prelude.<$> timestamp,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("AnomalyDetectorArn" Core..= anomalyDetectorArn)
+              ("AnomalyDetectorArn" Data..= anomalyDetectorArn)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeAnomalyDetectionExecutions
   where
   toPath =
     Prelude.const "/DescribeAnomalyDetectionExecutions"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeAnomalyDetectionExecutions
   where
   toQuery = Prelude.const Prelude.mempty

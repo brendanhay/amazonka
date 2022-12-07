@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.UplinkEchoConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an uplink echo @Config@.
@@ -72,14 +73,14 @@ uplinkEchoConfig_antennaUplinkConfigArn = Lens.lens (\UplinkEchoConfig' {antenna
 uplinkEchoConfig_enabled :: Lens.Lens' UplinkEchoConfig Prelude.Bool
 uplinkEchoConfig_enabled = Lens.lens (\UplinkEchoConfig' {enabled} -> enabled) (\s@UplinkEchoConfig' {} a -> s {enabled = a} :: UplinkEchoConfig)
 
-instance Core.FromJSON UplinkEchoConfig where
+instance Data.FromJSON UplinkEchoConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UplinkEchoConfig"
       ( \x ->
           UplinkEchoConfig'
-            Prelude.<$> (x Core..: "antennaUplinkConfigArn")
-            Prelude.<*> (x Core..: "enabled")
+            Prelude.<$> (x Data..: "antennaUplinkConfigArn")
+            Prelude.<*> (x Data..: "enabled")
       )
 
 instance Prelude.Hashable UplinkEchoConfig where
@@ -92,14 +93,14 @@ instance Prelude.NFData UplinkEchoConfig where
     Prelude.rnf antennaUplinkConfigArn
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON UplinkEchoConfig where
+instance Data.ToJSON UplinkEchoConfig where
   toJSON UplinkEchoConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "antennaUplinkConfigArn"
-                  Core..= antennaUplinkConfigArn
+                  Data..= antennaUplinkConfigArn
               ),
-            Prelude.Just ("enabled" Core..= enabled)
+            Prelude.Just ("enabled" Data..= enabled)
           ]
       )

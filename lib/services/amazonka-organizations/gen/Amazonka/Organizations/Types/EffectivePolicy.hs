@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.EffectivePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types.EffectivePolicyType
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEffectivePolicy' smart constructor.
 data EffectivePolicy = EffectivePolicy'
   { -- | The time of the last update to this policy.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The account ID of the policy target.
     targetId :: Prelude.Maybe Prelude.Text,
     -- | The policy type.
@@ -69,7 +70,7 @@ newEffectivePolicy =
 
 -- | The time of the last update to this policy.
 effectivePolicy_lastUpdatedTimestamp :: Lens.Lens' EffectivePolicy (Prelude.Maybe Prelude.UTCTime)
-effectivePolicy_lastUpdatedTimestamp = Lens.lens (\EffectivePolicy' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@EffectivePolicy' {} a -> s {lastUpdatedTimestamp = a} :: EffectivePolicy) Prelude.. Lens.mapping Core._Time
+effectivePolicy_lastUpdatedTimestamp = Lens.lens (\EffectivePolicy' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@EffectivePolicy' {} a -> s {lastUpdatedTimestamp = a} :: EffectivePolicy) Prelude.. Lens.mapping Data._Time
 
 -- | The account ID of the policy target.
 effectivePolicy_targetId :: Lens.Lens' EffectivePolicy (Prelude.Maybe Prelude.Text)
@@ -83,16 +84,16 @@ effectivePolicy_policyType = Lens.lens (\EffectivePolicy' {policyType} -> policy
 effectivePolicy_policyContent :: Lens.Lens' EffectivePolicy (Prelude.Maybe Prelude.Text)
 effectivePolicy_policyContent = Lens.lens (\EffectivePolicy' {policyContent} -> policyContent) (\s@EffectivePolicy' {} a -> s {policyContent = a} :: EffectivePolicy)
 
-instance Core.FromJSON EffectivePolicy where
+instance Data.FromJSON EffectivePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EffectivePolicy"
       ( \x ->
           EffectivePolicy'
-            Prelude.<$> (x Core..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "TargetId")
-            Prelude.<*> (x Core..:? "PolicyType")
-            Prelude.<*> (x Core..:? "PolicyContent")
+            Prelude.<$> (x Data..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "TargetId")
+            Prelude.<*> (x Data..:? "PolicyType")
+            Prelude.<*> (x Data..:? "PolicyContent")
       )
 
 instance Prelude.Hashable EffectivePolicy where

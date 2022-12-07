@@ -27,6 +27,7 @@ module Amazonka.IAM.Types.PolicyUsageType
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The policy usage type that indicates whether the policy is used as a
@@ -37,7 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 -- in the /IAM User Guide/.
 newtype PolicyUsageType = PolicyUsageType'
   { fromPolicyUsageType ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -49,18 +50,18 @@ newtype PolicyUsageType = PolicyUsageType'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern PolicyUsageType_PermissionsBoundary :: PolicyUsageType

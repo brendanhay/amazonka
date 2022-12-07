@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SegmentGroupList where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Include
 import Amazonka.Pinpoint.Types.SegmentGroup
 import qualified Amazonka.Prelude as Prelude
@@ -76,14 +77,14 @@ segmentGroupList_include = Lens.lens (\SegmentGroupList' {include} -> include) (
 segmentGroupList_groups :: Lens.Lens' SegmentGroupList (Prelude.Maybe [SegmentGroup])
 segmentGroupList_groups = Lens.lens (\SegmentGroupList' {groups} -> groups) (\s@SegmentGroupList' {} a -> s {groups = a} :: SegmentGroupList) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SegmentGroupList where
+instance Data.FromJSON SegmentGroupList where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SegmentGroupList"
       ( \x ->
           SegmentGroupList'
-            Prelude.<$> (x Core..:? "Include")
-            Prelude.<*> (x Core..:? "Groups" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Include")
+            Prelude.<*> (x Data..:? "Groups" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SegmentGroupList where
@@ -96,11 +97,11 @@ instance Prelude.NFData SegmentGroupList where
     Prelude.rnf include
       `Prelude.seq` Prelude.rnf groups
 
-instance Core.ToJSON SegmentGroupList where
+instance Data.ToJSON SegmentGroupList where
   toJSON SegmentGroupList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Include" Core..=) Prelude.<$> include,
-            ("Groups" Core..=) Prelude.<$> groups
+          [ ("Include" Data..=) Prelude.<$> include,
+            ("Groups" Data..=) Prelude.<$> groups
           ]
       )

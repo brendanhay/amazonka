@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -72,8 +73,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRegistryScanningConfigurationResponse'
-            Prelude.<$> (x Core..?> "scanningConfiguration")
-            Prelude.<*> (x Core..?> "registryId")
+            Prelude.<$> (x Data..?> "scanningConfiguration")
+            Prelude.<*> (x Data..?> "registryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -91,31 +92,31 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetRegistryScanningConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.GetRegistryScanningConfiguration" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.GetRegistryScanningConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRegistryScanningConfiguration where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetRegistryScanningConfiguration where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetRegistryScanningConfiguration where
+instance Data.ToPath GetRegistryScanningConfiguration where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetRegistryScanningConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

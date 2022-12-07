@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudFormationStackDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCloudFormationStackDriftInformationDetails
 import Amazonka.SecurityHub.Types.AwsCloudFormationStackOutputsDetails
@@ -198,29 +199,29 @@ awsCloudFormationStackDetails_creationTime = Lens.lens (\AwsCloudFormationStackD
 awsCloudFormationStackDetails_driftInformation :: Lens.Lens' AwsCloudFormationStackDetails (Prelude.Maybe AwsCloudFormationStackDriftInformationDetails)
 awsCloudFormationStackDetails_driftInformation = Lens.lens (\AwsCloudFormationStackDetails' {driftInformation} -> driftInformation) (\s@AwsCloudFormationStackDetails' {} a -> s {driftInformation = a} :: AwsCloudFormationStackDetails)
 
-instance Core.FromJSON AwsCloudFormationStackDetails where
+instance Data.FromJSON AwsCloudFormationStackDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudFormationStackDetails"
       ( \x ->
           AwsCloudFormationStackDetails'
-            Prelude.<$> (x Core..:? "StackId")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "TimeoutInMinutes")
-            Prelude.<*> (x Core..:? "EnableTerminationProtection")
-            Prelude.<*> ( x Core..:? "NotificationArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "StackId")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "TimeoutInMinutes")
+            Prelude.<*> (x Data..:? "EnableTerminationProtection")
+            Prelude.<*> ( x Data..:? "NotificationArns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StackStatusReason")
-            Prelude.<*> (x Core..:? "DisableRollback")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "StackName")
-            Prelude.<*> (x Core..:? "StackStatus")
-            Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Capabilities" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "DriftInformation")
+            Prelude.<*> (x Data..:? "StackStatusReason")
+            Prelude.<*> (x Data..:? "DisableRollback")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "StackName")
+            Prelude.<*> (x Data..:? "StackStatus")
+            Prelude.<*> (x Data..:? "Outputs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Capabilities" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DriftInformation")
       )
 
 instance
@@ -262,31 +263,31 @@ instance Prelude.NFData AwsCloudFormationStackDetails where
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf driftInformation
 
-instance Core.ToJSON AwsCloudFormationStackDetails where
+instance Data.ToJSON AwsCloudFormationStackDetails where
   toJSON AwsCloudFormationStackDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StackId" Core..=) Prelude.<$> stackId,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("TimeoutInMinutes" Core..=)
+          [ ("StackId" Data..=) Prelude.<$> stackId,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("TimeoutInMinutes" Data..=)
               Prelude.<$> timeoutInMinutes,
-            ("EnableTerminationProtection" Core..=)
+            ("EnableTerminationProtection" Data..=)
               Prelude.<$> enableTerminationProtection,
-            ("NotificationArns" Core..=)
+            ("NotificationArns" Data..=)
               Prelude.<$> notificationArns,
-            ("StackStatusReason" Core..=)
+            ("StackStatusReason" Data..=)
               Prelude.<$> stackStatusReason,
-            ("DisableRollback" Core..=)
+            ("DisableRollback" Data..=)
               Prelude.<$> disableRollback,
-            ("LastUpdatedTime" Core..=)
+            ("LastUpdatedTime" Data..=)
               Prelude.<$> lastUpdatedTime,
-            ("Description" Core..=) Prelude.<$> description,
-            ("StackName" Core..=) Prelude.<$> stackName,
-            ("StackStatus" Core..=) Prelude.<$> stackStatus,
-            ("Outputs" Core..=) Prelude.<$> outputs,
-            ("Capabilities" Core..=) Prelude.<$> capabilities,
-            ("CreationTime" Core..=) Prelude.<$> creationTime,
-            ("DriftInformation" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("StackName" Data..=) Prelude.<$> stackName,
+            ("StackStatus" Data..=) Prelude.<$> stackStatus,
+            ("Outputs" Data..=) Prelude.<$> outputs,
+            ("Capabilities" Data..=) Prelude.<$> capabilities,
+            ("CreationTime" Data..=) Prelude.<$> creationTime,
+            ("DriftInformation" Data..=)
               Prelude.<$> driftInformation
           ]
       )

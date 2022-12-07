@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,7 +126,7 @@ instance Core.AWSRequest ImportPlaybackKeyPair where
     Response.receiveJSON
       ( \s h x ->
           ImportPlaybackKeyPairResponse'
-            Prelude.<$> (x Core..?> "keyPair")
+            Prelude.<$> (x Data..?> "keyPair")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,32 +142,32 @@ instance Prelude.NFData ImportPlaybackKeyPair where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf publicKeyMaterial
 
-instance Core.ToHeaders ImportPlaybackKeyPair where
+instance Data.ToHeaders ImportPlaybackKeyPair where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportPlaybackKeyPair where
+instance Data.ToJSON ImportPlaybackKeyPair where
   toJSON ImportPlaybackKeyPair' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("name" Core..=) Prelude.<$> name,
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("name" Data..=) Prelude.<$> name,
             Prelude.Just
-              ("publicKeyMaterial" Core..= publicKeyMaterial)
+              ("publicKeyMaterial" Data..= publicKeyMaterial)
           ]
       )
 
-instance Core.ToPath ImportPlaybackKeyPair where
+instance Data.ToPath ImportPlaybackKeyPair where
   toPath = Prelude.const "/ImportPlaybackKeyPair"
 
-instance Core.ToQuery ImportPlaybackKeyPair where
+instance Data.ToQuery ImportPlaybackKeyPair where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportPlaybackKeyPairResponse' smart constructor.

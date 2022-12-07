@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest DescribeInput where
     Response.receiveJSON
       ( \s h x ->
           DescribeInputResponse'
-            Prelude.<$> (x Core..?> "input")
+            Prelude.<$> (x Data..?> "input")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,14 +95,14 @@ instance Prelude.Hashable DescribeInput where
 instance Prelude.NFData DescribeInput where
   rnf DescribeInput' {..} = Prelude.rnf inputName
 
-instance Core.ToHeaders DescribeInput where
+instance Data.ToHeaders DescribeInput where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeInput where
+instance Data.ToPath DescribeInput where
   toPath DescribeInput' {..} =
-    Prelude.mconcat ["/inputs/", Core.toBS inputName]
+    Prelude.mconcat ["/inputs/", Data.toBS inputName]
 
-instance Core.ToQuery DescribeInput where
+instance Data.ToQuery DescribeInput where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeInputResponse' smart constructor.

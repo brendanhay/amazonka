@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.ParameterMapEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This data structure is the data type for the AnswerKey parameter of the
@@ -74,14 +75,14 @@ parameterMapEntry_key = Lens.lens (\ParameterMapEntry' {key} -> key) (\s@Paramet
 parameterMapEntry_values :: Lens.Lens' ParameterMapEntry (Prelude.Maybe [Prelude.Text])
 parameterMapEntry_values = Lens.lens (\ParameterMapEntry' {values} -> values) (\s@ParameterMapEntry' {} a -> s {values = a} :: ParameterMapEntry) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ParameterMapEntry where
+instance Data.FromJSON ParameterMapEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParameterMapEntry"
       ( \x ->
           ParameterMapEntry'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ParameterMapEntry where
@@ -93,11 +94,11 @@ instance Prelude.NFData ParameterMapEntry where
   rnf ParameterMapEntry' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON ParameterMapEntry where
+instance Data.ToJSON ParameterMapEntry where
   toJSON ParameterMapEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Values" Data..=) Prelude.<$> values
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.VpcOutputSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties for a private VPC Output When this property is specified,
@@ -99,14 +100,14 @@ instance Prelude.NFData VpcOutputSettings where
       `Prelude.seq` Prelude.rnf publicAddressAllocationIds
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToJSON VpcOutputSettings where
+instance Data.ToJSON VpcOutputSettings where
   toJSON VpcOutputSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("securityGroupIds" Core..=)
+          [ ("securityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("publicAddressAllocationIds" Core..=)
+            ("publicAddressAllocationIds" Data..=)
               Prelude.<$> publicAddressAllocationIds,
-            Prelude.Just ("subnetIds" Core..= subnetIds)
+            Prelude.Just ("subnetIds" Data..= subnetIds)
           ]
       )

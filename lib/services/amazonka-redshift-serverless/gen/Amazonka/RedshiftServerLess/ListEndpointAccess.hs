@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -147,9 +148,9 @@ instance Core.AWSRequest ListEndpointAccess where
     Response.receiveJSON
       ( \s h x ->
           ListEndpointAccessResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "endpoints" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "endpoints" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListEndpointAccess where
@@ -166,36 +167,36 @@ instance Prelude.NFData ListEndpointAccess where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToHeaders ListEndpointAccess where
+instance Data.ToHeaders ListEndpointAccess where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.ListEndpointAccess" ::
+              Data.=# ( "RedshiftServerless.ListEndpointAccess" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEndpointAccess where
+instance Data.ToJSON ListEndpointAccess where
   toJSON ListEndpointAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("workgroupName" Core..=) Prelude.<$> workgroupName,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("vpcId" Core..=) Prelude.<$> vpcId
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("workgroupName" Data..=) Prelude.<$> workgroupName,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("vpcId" Data..=) Prelude.<$> vpcId
           ]
       )
 
-instance Core.ToPath ListEndpointAccess where
+instance Data.ToPath ListEndpointAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEndpointAccess where
+instance Data.ToQuery ListEndpointAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEndpointAccessResponse' smart constructor.

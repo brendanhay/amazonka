@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.MailDomainSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The data for a given domain.
@@ -61,14 +62,14 @@ mailDomainSummary_defaultDomain = Lens.lens (\MailDomainSummary' {defaultDomain}
 mailDomainSummary_domainName :: Lens.Lens' MailDomainSummary (Prelude.Maybe Prelude.Text)
 mailDomainSummary_domainName = Lens.lens (\MailDomainSummary' {domainName} -> domainName) (\s@MailDomainSummary' {} a -> s {domainName = a} :: MailDomainSummary)
 
-instance Core.FromJSON MailDomainSummary where
+instance Data.FromJSON MailDomainSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MailDomainSummary"
       ( \x ->
           MailDomainSummary'
-            Prelude.<$> (x Core..:? "DefaultDomain")
-            Prelude.<*> (x Core..:? "DomainName")
+            Prelude.<$> (x Data..:? "DefaultDomain")
+            Prelude.<*> (x Data..:? "DomainName")
       )
 
 instance Prelude.Hashable MailDomainSummary where

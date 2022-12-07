@@ -80,6 +80,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -353,7 +354,7 @@ instance Core.AWSRequest PutMetricStream where
       "PutMetricStreamResult"
       ( \s h x ->
           PutMetricStreamResponse'
-            Prelude.<$> (x Core..@? "Arn")
+            Prelude.<$> (x Data..@? "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -379,41 +380,41 @@ instance Prelude.NFData PutMetricStream where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf outputFormat
 
-instance Core.ToHeaders PutMetricStream where
+instance Data.ToHeaders PutMetricStream where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutMetricStream where
+instance Data.ToPath PutMetricStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutMetricStream where
+instance Data.ToQuery PutMetricStream where
   toQuery PutMetricStream' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PutMetricStream" :: Prelude.ByteString),
+          Data.=: ("PutMetricStream" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
         "StatisticsConfigurations"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> statisticsConfigurations
             ),
         "ExcludeFilters"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> excludeFilters
             ),
         "IncludeFilters"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> includeFilters
             ),
-        "Name" Core.=: name,
-        "FirehoseArn" Core.=: firehoseArn,
-        "RoleArn" Core.=: roleArn,
-        "OutputFormat" Core.=: outputFormat
+        "Name" Data.=: name,
+        "FirehoseArn" Data.=: firehoseArn,
+        "RoleArn" Data.=: roleArn,
+        "OutputFormat" Data.=: outputFormat
       ]
 
 -- | /See:/ 'newPutMetricStreamResponse' smart constructor.

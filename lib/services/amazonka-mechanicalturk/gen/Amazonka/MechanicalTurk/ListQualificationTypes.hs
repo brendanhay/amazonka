@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -173,9 +174,9 @@ instance Core.AWSRequest ListQualificationTypes where
     Response.receiveJSON
       ( \s h x ->
           ListQualificationTypesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "NumResults")
-            Prelude.<*> ( x Core..?> "QualificationTypes"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "NumResults")
+            Prelude.<*> ( x Data..?> "QualificationTypes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -197,39 +198,39 @@ instance Prelude.NFData ListQualificationTypes where
       `Prelude.seq` Prelude.rnf query
       `Prelude.seq` Prelude.rnf mustBeRequestable
 
-instance Core.ToHeaders ListQualificationTypes where
+instance Data.ToHeaders ListQualificationTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.ListQualificationTypes" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.ListQualificationTypes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListQualificationTypes where
+instance Data.ToJSON ListQualificationTypes where
   toJSON ListQualificationTypes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MustBeOwnedByCaller" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MustBeOwnedByCaller" Data..=)
               Prelude.<$> mustBeOwnedByCaller,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Query" Core..=) Prelude.<$> query,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("Query" Data..=) Prelude.<$> query,
             Prelude.Just
-              ("MustBeRequestable" Core..= mustBeRequestable)
+              ("MustBeRequestable" Data..= mustBeRequestable)
           ]
       )
 
-instance Core.ToPath ListQualificationTypes where
+instance Data.ToPath ListQualificationTypes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListQualificationTypes where
+instance Data.ToQuery ListQualificationTypes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListQualificationTypesResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.KinesisSettings where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.MessageFormatValue
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that describes an Amazon Kinesis Data Stream
@@ -212,22 +213,22 @@ kinesisSettings_streamArn = Lens.lens (\KinesisSettings' {streamArn} -> streamAr
 kinesisSettings_includeControlDetails :: Lens.Lens' KinesisSettings (Prelude.Maybe Prelude.Bool)
 kinesisSettings_includeControlDetails = Lens.lens (\KinesisSettings' {includeControlDetails} -> includeControlDetails) (\s@KinesisSettings' {} a -> s {includeControlDetails = a} :: KinesisSettings)
 
-instance Core.FromJSON KinesisSettings where
+instance Data.FromJSON KinesisSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KinesisSettings"
       ( \x ->
           KinesisSettings'
-            Prelude.<$> (x Core..:? "NoHexPrefix")
-            Prelude.<*> (x Core..:? "MessageFormat")
-            Prelude.<*> (x Core..:? "ServiceAccessRoleArn")
-            Prelude.<*> (x Core..:? "IncludePartitionValue")
-            Prelude.<*> (x Core..:? "IncludeTableAlterOperations")
-            Prelude.<*> (x Core..:? "PartitionIncludeSchemaTable")
-            Prelude.<*> (x Core..:? "IncludeNullAndEmpty")
-            Prelude.<*> (x Core..:? "IncludeTransactionDetails")
-            Prelude.<*> (x Core..:? "StreamArn")
-            Prelude.<*> (x Core..:? "IncludeControlDetails")
+            Prelude.<$> (x Data..:? "NoHexPrefix")
+            Prelude.<*> (x Data..:? "MessageFormat")
+            Prelude.<*> (x Data..:? "ServiceAccessRoleArn")
+            Prelude.<*> (x Data..:? "IncludePartitionValue")
+            Prelude.<*> (x Data..:? "IncludeTableAlterOperations")
+            Prelude.<*> (x Data..:? "PartitionIncludeSchemaTable")
+            Prelude.<*> (x Data..:? "IncludeNullAndEmpty")
+            Prelude.<*> (x Data..:? "IncludeTransactionDetails")
+            Prelude.<*> (x Data..:? "StreamArn")
+            Prelude.<*> (x Data..:? "IncludeControlDetails")
       )
 
 instance Prelude.Hashable KinesisSettings where
@@ -256,26 +257,26 @@ instance Prelude.NFData KinesisSettings where
       `Prelude.seq` Prelude.rnf streamArn
       `Prelude.seq` Prelude.rnf includeControlDetails
 
-instance Core.ToJSON KinesisSettings where
+instance Data.ToJSON KinesisSettings where
   toJSON KinesisSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NoHexPrefix" Core..=) Prelude.<$> noHexPrefix,
-            ("MessageFormat" Core..=) Prelude.<$> messageFormat,
-            ("ServiceAccessRoleArn" Core..=)
+          [ ("NoHexPrefix" Data..=) Prelude.<$> noHexPrefix,
+            ("MessageFormat" Data..=) Prelude.<$> messageFormat,
+            ("ServiceAccessRoleArn" Data..=)
               Prelude.<$> serviceAccessRoleArn,
-            ("IncludePartitionValue" Core..=)
+            ("IncludePartitionValue" Data..=)
               Prelude.<$> includePartitionValue,
-            ("IncludeTableAlterOperations" Core..=)
+            ("IncludeTableAlterOperations" Data..=)
               Prelude.<$> includeTableAlterOperations,
-            ("PartitionIncludeSchemaTable" Core..=)
+            ("PartitionIncludeSchemaTable" Data..=)
               Prelude.<$> partitionIncludeSchemaTable,
-            ("IncludeNullAndEmpty" Core..=)
+            ("IncludeNullAndEmpty" Data..=)
               Prelude.<$> includeNullAndEmpty,
-            ("IncludeTransactionDetails" Core..=)
+            ("IncludeTransactionDetails" Data..=)
               Prelude.<$> includeTransactionDetails,
-            ("StreamArn" Core..=) Prelude.<$> streamArn,
-            ("IncludeControlDetails" Core..=)
+            ("StreamArn" Data..=) Prelude.<$> streamArn,
+            ("IncludeControlDetails" Data..=)
               Prelude.<$> includeControlDetails
           ]
       )

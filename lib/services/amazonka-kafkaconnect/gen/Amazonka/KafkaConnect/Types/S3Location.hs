@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.S3Location where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The location of an object in Amazon S3.
@@ -86,12 +87,12 @@ instance Prelude.NFData S3Location where
       `Prelude.seq` Prelude.rnf bucketArn
       `Prelude.seq` Prelude.rnf fileKey
 
-instance Core.ToJSON S3Location where
+instance Data.ToJSON S3Location where
   toJSON S3Location' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("objectVersion" Core..=) Prelude.<$> objectVersion,
-            Prelude.Just ("bucketArn" Core..= bucketArn),
-            Prelude.Just ("fileKey" Core..= fileKey)
+          [ ("objectVersion" Data..=) Prelude.<$> objectVersion,
+            Prelude.Just ("bucketArn" Data..= bucketArn),
+            Prelude.Just ("fileKey" Data..= fileKey)
           ]
       )

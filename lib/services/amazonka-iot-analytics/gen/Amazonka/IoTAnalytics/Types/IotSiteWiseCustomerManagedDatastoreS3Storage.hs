@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.IotSiteWiseCustomerManagedDatastoreS3Storage 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to store data used by IoT SiteWise in an Amazon S3 bucket that you
@@ -77,16 +78,16 @@ iotSiteWiseCustomerManagedDatastoreS3Storage_bucket :: Lens.Lens' IotSiteWiseCus
 iotSiteWiseCustomerManagedDatastoreS3Storage_bucket = Lens.lens (\IotSiteWiseCustomerManagedDatastoreS3Storage' {bucket} -> bucket) (\s@IotSiteWiseCustomerManagedDatastoreS3Storage' {} a -> s {bucket = a} :: IotSiteWiseCustomerManagedDatastoreS3Storage)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     IotSiteWiseCustomerManagedDatastoreS3Storage
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IotSiteWiseCustomerManagedDatastoreS3Storage"
       ( \x ->
           IotSiteWiseCustomerManagedDatastoreS3Storage'
-            Prelude.<$> (x Core..:? "keyPrefix")
-              Prelude.<*> (x Core..: "bucket")
+            Prelude.<$> (x Data..:? "keyPrefix")
+              Prelude.<*> (x Data..: "bucket")
       )
 
 instance
@@ -108,14 +109,14 @@ instance
       `Prelude.seq` Prelude.rnf bucket
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     IotSiteWiseCustomerManagedDatastoreS3Storage
   where
   toJSON
     IotSiteWiseCustomerManagedDatastoreS3Storage' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("keyPrefix" Core..=) Prelude.<$> keyPrefix,
-              Prelude.Just ("bucket" Core..= bucket)
+            [ ("keyPrefix" Data..=) Prelude.<$> keyPrefix,
+              Prelude.Just ("bucket" Data..= bucket)
             ]
         )

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,7 +172,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ExecuteProvisionedProductServiceActionResponse'
-            Prelude.<$> (x Core..?> "RecordDetail")
+            Prelude.<$> (x Data..?> "RecordDetail")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,51 +201,51 @@ instance
       `Prelude.seq` Prelude.rnf executeToken
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ExecuteProvisionedProductServiceAction
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ExecuteProvisionedProductServiceAction" ::
+              Data.=# ( "AWS242ServiceCatalogService.ExecuteProvisionedProductServiceAction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ExecuteProvisionedProductServiceAction
   where
   toJSON ExecuteProvisionedProductServiceAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            ("Parameters" Core..=) Prelude.<$> parameters,
+            ("Parameters" Data..=) Prelude.<$> parameters,
             Prelude.Just
               ( "ProvisionedProductId"
-                  Core..= provisionedProductId
+                  Data..= provisionedProductId
               ),
             Prelude.Just
-              ("ServiceActionId" Core..= serviceActionId),
-            Prelude.Just ("ExecuteToken" Core..= executeToken)
+              ("ServiceActionId" Data..= serviceActionId),
+            Prelude.Just ("ExecuteToken" Data..= executeToken)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ExecuteProvisionedProductServiceAction
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ExecuteProvisionedProductServiceAction
   where
   toQuery = Prelude.const Prelude.mempty

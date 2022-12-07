@@ -22,6 +22,7 @@ module Amazonka.CodeStar.Types.ToolchainSource where
 import Amazonka.CodeStar.Types.S3Location
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon S3 location where the toolchain template file provided with
@@ -64,7 +65,7 @@ instance Prelude.Hashable ToolchainSource where
 instance Prelude.NFData ToolchainSource where
   rnf ToolchainSource' {..} = Prelude.rnf s3
 
-instance Core.ToJSON ToolchainSource where
+instance Data.ToJSON ToolchainSource where
   toJSON ToolchainSource' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("s3" Core..= s3)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("s3" Data..= s3)])

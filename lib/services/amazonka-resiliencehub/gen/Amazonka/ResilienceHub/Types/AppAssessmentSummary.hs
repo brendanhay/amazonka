@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.AppAssessmentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.AssessmentInvoker
 import Amazonka.ResilienceHub.Types.AssessmentStatus
@@ -42,7 +43,7 @@ data AppAssessmentSummary = AppAssessmentSummary'
     -- | The entity that invoked the assessment.
     invoker :: Prelude.Maybe AssessmentInvoker,
     -- | The end time for the action.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The version of the application.
     appVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the application. The format for this
@@ -54,7 +55,7 @@ data AppAssessmentSummary = AppAssessmentSummary'
     -- | The cost for the application.
     cost :: Prelude.Maybe Cost,
     -- | The starting time for the action.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the assessment. The format for this
     -- ARN is:
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
@@ -153,7 +154,7 @@ appAssessmentSummary_invoker = Lens.lens (\AppAssessmentSummary' {invoker} -> in
 
 -- | The end time for the action.
 appAssessmentSummary_endTime :: Lens.Lens' AppAssessmentSummary (Prelude.Maybe Prelude.UTCTime)
-appAssessmentSummary_endTime = Lens.lens (\AppAssessmentSummary' {endTime} -> endTime) (\s@AppAssessmentSummary' {} a -> s {endTime = a} :: AppAssessmentSummary) Prelude.. Lens.mapping Core._Time
+appAssessmentSummary_endTime = Lens.lens (\AppAssessmentSummary' {endTime} -> endTime) (\s@AppAssessmentSummary' {} a -> s {endTime = a} :: AppAssessmentSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The version of the application.
 appAssessmentSummary_appVersion :: Lens.Lens' AppAssessmentSummary (Prelude.Maybe Prelude.Text)
@@ -173,7 +174,7 @@ appAssessmentSummary_cost = Lens.lens (\AppAssessmentSummary' {cost} -> cost) (\
 
 -- | The starting time for the action.
 appAssessmentSummary_startTime :: Lens.Lens' AppAssessmentSummary (Prelude.Maybe Prelude.UTCTime)
-appAssessmentSummary_startTime = Lens.lens (\AppAssessmentSummary' {startTime} -> startTime) (\s@AppAssessmentSummary' {} a -> s {startTime = a} :: AppAssessmentSummary) Prelude.. Lens.mapping Core._Time
+appAssessmentSummary_startTime = Lens.lens (\AppAssessmentSummary' {startTime} -> startTime) (\s@AppAssessmentSummary' {} a -> s {startTime = a} :: AppAssessmentSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the assessment. The format for this
 -- ARN is:
@@ -188,24 +189,24 @@ appAssessmentSummary_assessmentArn = Lens.lens (\AppAssessmentSummary' {assessme
 appAssessmentSummary_assessmentStatus :: Lens.Lens' AppAssessmentSummary AssessmentStatus
 appAssessmentSummary_assessmentStatus = Lens.lens (\AppAssessmentSummary' {assessmentStatus} -> assessmentStatus) (\s@AppAssessmentSummary' {} a -> s {assessmentStatus = a} :: AppAssessmentSummary)
 
-instance Core.FromJSON AppAssessmentSummary where
+instance Data.FromJSON AppAssessmentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppAssessmentSummary"
       ( \x ->
           AppAssessmentSummary'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "assessmentName")
-            Prelude.<*> (x Core..:? "resiliencyScore")
-            Prelude.<*> (x Core..:? "complianceStatus")
-            Prelude.<*> (x Core..:? "invoker")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "appVersion")
-            Prelude.<*> (x Core..:? "appArn")
-            Prelude.<*> (x Core..:? "cost")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..: "assessmentArn")
-            Prelude.<*> (x Core..: "assessmentStatus")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "assessmentName")
+            Prelude.<*> (x Data..:? "resiliencyScore")
+            Prelude.<*> (x Data..:? "complianceStatus")
+            Prelude.<*> (x Data..:? "invoker")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "appVersion")
+            Prelude.<*> (x Data..:? "appArn")
+            Prelude.<*> (x Data..:? "cost")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..: "assessmentArn")
+            Prelude.<*> (x Data..: "assessmentStatus")
       )
 
 instance Prelude.Hashable AppAssessmentSummary where

@@ -43,6 +43,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance
       ( \s h x ->
           GetIdentityProviderByIdentifierResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "IdentityProvider")
+            Prelude.<*> (x Data..:> "IdentityProvider")
       )
 
 instance
@@ -126,37 +127,37 @@ instance
       `Prelude.seq` Prelude.rnf idpIdentifier
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetIdentityProviderByIdentifier
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.GetIdentityProviderByIdentifier" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.GetIdentityProviderByIdentifier" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetIdentityProviderByIdentifier where
+instance Data.ToJSON GetIdentityProviderByIdentifier where
   toJSON GetIdentityProviderByIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
+          [ Prelude.Just ("UserPoolId" Data..= userPoolId),
             Prelude.Just
-              ("IdpIdentifier" Core..= idpIdentifier)
+              ("IdpIdentifier" Data..= idpIdentifier)
           ]
       )
 
-instance Core.ToPath GetIdentityProviderByIdentifier where
+instance Data.ToPath GetIdentityProviderByIdentifier where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetIdentityProviderByIdentifier where
+instance Data.ToQuery GetIdentityProviderByIdentifier where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetIdentityProviderByIdentifierResponse' smart constructor.

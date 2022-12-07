@@ -21,6 +21,7 @@ module Amazonka.AmplifyBackend.Types.EmailSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for the email sent when an app user forgets their
@@ -62,14 +63,14 @@ emailSettings_emailSubject = Lens.lens (\EmailSettings' {emailSubject} -> emailS
 emailSettings_emailMessage :: Lens.Lens' EmailSettings (Prelude.Maybe Prelude.Text)
 emailSettings_emailMessage = Lens.lens (\EmailSettings' {emailMessage} -> emailMessage) (\s@EmailSettings' {} a -> s {emailMessage = a} :: EmailSettings)
 
-instance Core.FromJSON EmailSettings where
+instance Data.FromJSON EmailSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EmailSettings"
       ( \x ->
           EmailSettings'
-            Prelude.<$> (x Core..:? "emailSubject")
-            Prelude.<*> (x Core..:? "emailMessage")
+            Prelude.<$> (x Data..:? "emailSubject")
+            Prelude.<*> (x Data..:? "emailMessage")
       )
 
 instance Prelude.Hashable EmailSettings where
@@ -82,11 +83,11 @@ instance Prelude.NFData EmailSettings where
     Prelude.rnf emailSubject
       `Prelude.seq` Prelude.rnf emailMessage
 
-instance Core.ToJSON EmailSettings where
+instance Data.ToJSON EmailSettings where
   toJSON EmailSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("emailSubject" Core..=) Prelude.<$> emailSubject,
-            ("emailMessage" Core..=) Prelude.<$> emailMessage
+          [ ("emailSubject" Data..=) Prelude.<$> emailSubject,
+            ("emailMessage" Data..=) Prelude.<$> emailMessage
           ]
       )

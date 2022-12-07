@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -172,8 +173,8 @@ instance Core.AWSRequest ListNetworkResources where
     Response.receiveJSON
       ( \s h x ->
           ListNetworkResourcesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "networkResources"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "networkResources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -193,32 +194,32 @@ instance Prelude.NFData ListNetworkResources where
       `Prelude.seq` Prelude.rnf startToken
       `Prelude.seq` Prelude.rnf networkArn
 
-instance Core.ToHeaders ListNetworkResources where
+instance Data.ToHeaders ListNetworkResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListNetworkResources where
+instance Data.ToJSON ListNetworkResources where
   toJSON ListNetworkResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("filters" Core..=) Prelude.<$> filters,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("startToken" Core..=) Prelude.<$> startToken,
-            Prelude.Just ("networkArn" Core..= networkArn)
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("startToken" Data..=) Prelude.<$> startToken,
+            Prelude.Just ("networkArn" Data..= networkArn)
           ]
       )
 
-instance Core.ToPath ListNetworkResources where
+instance Data.ToPath ListNetworkResources where
   toPath = Prelude.const "/v1/network-resources"
 
-instance Core.ToQuery ListNetworkResources where
+instance Data.ToQuery ListNetworkResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListNetworkResourcesResponse' smart constructor.

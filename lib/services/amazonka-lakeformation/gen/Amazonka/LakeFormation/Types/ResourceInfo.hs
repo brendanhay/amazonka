@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.ResourceInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing information about an Lake Formation resource.
@@ -30,7 +31,7 @@ data ResourceInfo = ResourceInfo'
   { -- | The IAM role that registered a resource.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time the resource was last modified.
-    lastModified :: Prelude.Maybe Core.POSIX,
+    lastModified :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the resource.
     resourceArn :: Prelude.Maybe Prelude.Text
   }
@@ -64,21 +65,21 @@ resourceInfo_roleArn = Lens.lens (\ResourceInfo' {roleArn} -> roleArn) (\s@Resou
 
 -- | The date and time the resource was last modified.
 resourceInfo_lastModified :: Lens.Lens' ResourceInfo (Prelude.Maybe Prelude.UTCTime)
-resourceInfo_lastModified = Lens.lens (\ResourceInfo' {lastModified} -> lastModified) (\s@ResourceInfo' {} a -> s {lastModified = a} :: ResourceInfo) Prelude.. Lens.mapping Core._Time
+resourceInfo_lastModified = Lens.lens (\ResourceInfo' {lastModified} -> lastModified) (\s@ResourceInfo' {} a -> s {lastModified = a} :: ResourceInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the resource.
 resourceInfo_resourceArn :: Lens.Lens' ResourceInfo (Prelude.Maybe Prelude.Text)
 resourceInfo_resourceArn = Lens.lens (\ResourceInfo' {resourceArn} -> resourceArn) (\s@ResourceInfo' {} a -> s {resourceArn = a} :: ResourceInfo)
 
-instance Core.FromJSON ResourceInfo where
+instance Data.FromJSON ResourceInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceInfo"
       ( \x ->
           ResourceInfo'
-            Prelude.<$> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "LastModified")
-            Prelude.<*> (x Core..:? "ResourceArn")
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "LastModified")
+            Prelude.<*> (x Data..:? "ResourceArn")
       )
 
 instance Prelude.Hashable ResourceInfo where

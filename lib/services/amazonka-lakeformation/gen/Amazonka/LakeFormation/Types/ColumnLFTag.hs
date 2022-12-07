@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.ColumnLFTag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.LFTagPair
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ columnLFTag_name = Lens.lens (\ColumnLFTag' {name} -> name) (\s@ColumnLFTag' {} 
 columnLFTag_lFTags :: Lens.Lens' ColumnLFTag (Prelude.Maybe (Prelude.NonEmpty LFTagPair))
 columnLFTag_lFTags = Lens.lens (\ColumnLFTag' {lFTags} -> lFTags) (\s@ColumnLFTag' {} a -> s {lFTags = a} :: ColumnLFTag) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ColumnLFTag where
+instance Data.FromJSON ColumnLFTag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnLFTag"
       ( \x ->
           ColumnLFTag'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LFTags")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LFTags")
       )
 
 instance Prelude.Hashable ColumnLFTag where

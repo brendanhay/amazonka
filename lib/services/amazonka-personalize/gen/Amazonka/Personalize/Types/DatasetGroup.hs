@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.DatasetGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.Domain
 import qualified Amazonka.Prelude as Prelude
 
@@ -44,7 +45,7 @@ data DatasetGroup = DatasetGroup'
     -- group.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The creation date and time (in Unix time) of the dataset group.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The domain of a Domain dataset group.
     domain :: Prelude.Maybe Domain,
     -- | The current status of the dataset group.
@@ -61,7 +62,7 @@ data DatasetGroup = DatasetGroup'
     -- | The Amazon Resource Name (ARN) of the dataset group.
     datasetGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The last update date and time (in Unix time) of the dataset group.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | If creating a dataset group fails, provides the reason why.
     failureReason :: Prelude.Maybe Prelude.Text
   }
@@ -126,7 +127,7 @@ datasetGroup_roleArn = Lens.lens (\DatasetGroup' {roleArn} -> roleArn) (\s@Datas
 
 -- | The creation date and time (in Unix time) of the dataset group.
 datasetGroup_creationDateTime :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.UTCTime)
-datasetGroup_creationDateTime = Lens.lens (\DatasetGroup' {creationDateTime} -> creationDateTime) (\s@DatasetGroup' {} a -> s {creationDateTime = a} :: DatasetGroup) Prelude.. Lens.mapping Core._Time
+datasetGroup_creationDateTime = Lens.lens (\DatasetGroup' {creationDateTime} -> creationDateTime) (\s@DatasetGroup' {} a -> s {creationDateTime = a} :: DatasetGroup) Prelude.. Lens.mapping Data._Time
 
 -- | The domain of a Domain dataset group.
 datasetGroup_domain :: Lens.Lens' DatasetGroup (Prelude.Maybe Domain)
@@ -153,27 +154,27 @@ datasetGroup_datasetGroupArn = Lens.lens (\DatasetGroup' {datasetGroupArn} -> da
 
 -- | The last update date and time (in Unix time) of the dataset group.
 datasetGroup_lastUpdatedDateTime :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.UTCTime)
-datasetGroup_lastUpdatedDateTime = Lens.lens (\DatasetGroup' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetGroup' {} a -> s {lastUpdatedDateTime = a} :: DatasetGroup) Prelude.. Lens.mapping Core._Time
+datasetGroup_lastUpdatedDateTime = Lens.lens (\DatasetGroup' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetGroup' {} a -> s {lastUpdatedDateTime = a} :: DatasetGroup) Prelude.. Lens.mapping Data._Time
 
 -- | If creating a dataset group fails, provides the reason why.
 datasetGroup_failureReason :: Lens.Lens' DatasetGroup (Prelude.Maybe Prelude.Text)
 datasetGroup_failureReason = Lens.lens (\DatasetGroup' {failureReason} -> failureReason) (\s@DatasetGroup' {} a -> s {failureReason = a} :: DatasetGroup)
 
-instance Core.FromJSON DatasetGroup where
+instance Data.FromJSON DatasetGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetGroup"
       ( \x ->
           DatasetGroup'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "domain")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "kmsKeyArn")
-            Prelude.<*> (x Core..:? "datasetGroupArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "domain")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "kmsKeyArn")
+            Prelude.<*> (x Data..:? "datasetGroupArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable DatasetGroup where

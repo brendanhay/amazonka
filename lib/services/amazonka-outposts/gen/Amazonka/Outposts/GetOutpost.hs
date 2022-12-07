@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -81,7 +82,7 @@ instance Core.AWSRequest GetOutpost where
     Response.receiveJSON
       ( \s h x ->
           GetOutpostResponse'
-            Prelude.<$> (x Core..?> "Outpost")
+            Prelude.<$> (x Data..?> "Outpost")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -92,22 +93,22 @@ instance Prelude.Hashable GetOutpost where
 instance Prelude.NFData GetOutpost where
   rnf GetOutpost' {..} = Prelude.rnf outpostId
 
-instance Core.ToHeaders GetOutpost where
+instance Data.ToHeaders GetOutpost where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetOutpost where
+instance Data.ToPath GetOutpost where
   toPath GetOutpost' {..} =
-    Prelude.mconcat ["/outposts/", Core.toBS outpostId]
+    Prelude.mconcat ["/outposts/", Data.toBS outpostId]
 
-instance Core.ToQuery GetOutpost where
+instance Data.ToQuery GetOutpost where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetOutpostResponse' smart constructor.

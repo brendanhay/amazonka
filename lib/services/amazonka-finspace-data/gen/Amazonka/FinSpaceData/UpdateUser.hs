@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -66,9 +67,9 @@ data UpdateUser = UpdateUser'
     --     are assigned permissions by adding them to a permission group.
     type' :: Prelude.Maybe UserType,
     -- | The first name of the user.
-    firstName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    firstName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The last name of the user.
-    lastName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    lastName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The option to indicate whether the user can use the
     -- @GetProgrammaticAccessCredentials@ API to obtain credentials that can
     -- then be used to access other FinSpace Data API operations.
@@ -154,11 +155,11 @@ updateUser_type = Lens.lens (\UpdateUser' {type'} -> type') (\s@UpdateUser' {} a
 
 -- | The first name of the user.
 updateUser_firstName :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
-updateUser_firstName = Lens.lens (\UpdateUser' {firstName} -> firstName) (\s@UpdateUser' {} a -> s {firstName = a} :: UpdateUser) Prelude.. Lens.mapping Core._Sensitive
+updateUser_firstName = Lens.lens (\UpdateUser' {firstName} -> firstName) (\s@UpdateUser' {} a -> s {firstName = a} :: UpdateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The last name of the user.
 updateUser_lastName :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
-updateUser_lastName = Lens.lens (\UpdateUser' {lastName} -> lastName) (\s@UpdateUser' {} a -> s {lastName = a} :: UpdateUser) Prelude.. Lens.mapping Core._Sensitive
+updateUser_lastName = Lens.lens (\UpdateUser' {lastName} -> lastName) (\s@UpdateUser' {} a -> s {lastName = a} :: UpdateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The option to indicate whether the user can use the
 -- @GetProgrammaticAccessCredentials@ API to obtain credentials that can
@@ -189,7 +190,7 @@ instance Core.AWSRequest UpdateUser where
     Response.receiveJSON
       ( \s h x ->
           UpdateUserResponse'
-            Prelude.<$> (x Core..?> "userId")
+            Prelude.<$> (x Data..?> "userId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,36 +214,36 @@ instance Prelude.NFData UpdateUser where
       `Prelude.seq` Prelude.rnf apiAccessPrincipalArn
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders UpdateUser where
+instance Data.ToHeaders UpdateUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateUser where
+instance Data.ToJSON UpdateUser where
   toJSON UpdateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("type" Core..=) Prelude.<$> type',
-            ("firstName" Core..=) Prelude.<$> firstName,
-            ("lastName" Core..=) Prelude.<$> lastName,
-            ("apiAccess" Core..=) Prelude.<$> apiAccess,
-            ("apiAccessPrincipalArn" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("type" Data..=) Prelude.<$> type',
+            ("firstName" Data..=) Prelude.<$> firstName,
+            ("lastName" Data..=) Prelude.<$> lastName,
+            ("apiAccess" Data..=) Prelude.<$> apiAccess,
+            ("apiAccessPrincipalArn" Data..=)
               Prelude.<$> apiAccessPrincipalArn
           ]
       )
 
-instance Core.ToPath UpdateUser where
+instance Data.ToPath UpdateUser where
   toPath UpdateUser' {..} =
-    Prelude.mconcat ["/user/", Core.toBS userId]
+    Prelude.mconcat ["/user/", Data.toBS userId]
 
-instance Core.ToQuery UpdateUser where
+instance Data.ToQuery UpdateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserResponse' smart constructor.

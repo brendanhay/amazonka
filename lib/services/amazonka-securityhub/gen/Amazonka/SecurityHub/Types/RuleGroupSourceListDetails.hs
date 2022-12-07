@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.RuleGroupSourceListDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stateful inspection criteria for a domain list rule group.
@@ -83,15 +84,15 @@ ruleGroupSourceListDetails_generatedRulesType = Lens.lens (\RuleGroupSourceListD
 ruleGroupSourceListDetails_targets :: Lens.Lens' RuleGroupSourceListDetails (Prelude.Maybe [Prelude.Text])
 ruleGroupSourceListDetails_targets = Lens.lens (\RuleGroupSourceListDetails' {targets} -> targets) (\s@RuleGroupSourceListDetails' {} a -> s {targets = a} :: RuleGroupSourceListDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RuleGroupSourceListDetails where
+instance Data.FromJSON RuleGroupSourceListDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupSourceListDetails"
       ( \x ->
           RuleGroupSourceListDetails'
-            Prelude.<$> (x Core..:? "TargetTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "GeneratedRulesType")
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "TargetTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "GeneratedRulesType")
+            Prelude.<*> (x Data..:? "Targets" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RuleGroupSourceListDetails where
@@ -106,13 +107,13 @@ instance Prelude.NFData RuleGroupSourceListDetails where
       `Prelude.seq` Prelude.rnf generatedRulesType
       `Prelude.seq` Prelude.rnf targets
 
-instance Core.ToJSON RuleGroupSourceListDetails where
+instance Data.ToJSON RuleGroupSourceListDetails where
   toJSON RuleGroupSourceListDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetTypes" Core..=) Prelude.<$> targetTypes,
-            ("GeneratedRulesType" Core..=)
+          [ ("TargetTypes" Data..=) Prelude.<$> targetTypes,
+            ("GeneratedRulesType" Data..=)
               Prelude.<$> generatedRulesType,
-            ("Targets" Core..=) Prelude.<$> targets
+            ("Targets" Data..=) Prelude.<$> targets
           ]
       )

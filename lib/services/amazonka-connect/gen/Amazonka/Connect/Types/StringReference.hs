@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.StringReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a reference when the @referenceType@ is @STRING@.
@@ -62,13 +63,13 @@ stringReference_name = Lens.lens (\StringReference' {name} -> name) (\s@StringRe
 stringReference_value :: Lens.Lens' StringReference (Prelude.Maybe Prelude.Text)
 stringReference_value = Lens.lens (\StringReference' {value} -> value) (\s@StringReference' {} a -> s {value = a} :: StringReference)
 
-instance Core.FromJSON StringReference where
+instance Data.FromJSON StringReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StringReference"
       ( \x ->
           StringReference'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable StringReference where

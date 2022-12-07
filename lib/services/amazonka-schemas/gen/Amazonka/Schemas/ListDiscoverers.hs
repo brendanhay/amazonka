@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,8 +150,8 @@ instance Core.AWSRequest ListDiscoverers where
     Response.receiveJSON
       ( \s h x ->
           ListDiscoverersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Discoverers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Discoverers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,27 +169,27 @@ instance Prelude.NFData ListDiscoverers where
       `Prelude.seq` Prelude.rnf sourceArnPrefix
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders ListDiscoverers where
+instance Data.ToHeaders ListDiscoverers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListDiscoverers where
+instance Data.ToPath ListDiscoverers where
   toPath = Prelude.const "/v1/discoverers"
 
-instance Core.ToQuery ListDiscoverers where
+instance Data.ToQuery ListDiscoverers where
   toQuery ListDiscoverers' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "discovererIdPrefix" Core.=: discovererIdPrefix,
-        "sourceArnPrefix" Core.=: sourceArnPrefix,
-        "limit" Core.=: limit
+      [ "nextToken" Data.=: nextToken,
+        "discovererIdPrefix" Data.=: discovererIdPrefix,
+        "sourceArnPrefix" Data.=: sourceArnPrefix,
+        "limit" Data.=: limit
       ]
 
 -- | /See:/ 'newListDiscoverersResponse' smart constructor.

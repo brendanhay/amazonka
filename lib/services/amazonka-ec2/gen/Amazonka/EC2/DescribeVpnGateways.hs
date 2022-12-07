@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -215,8 +216,8 @@ instance Core.AWSRequest DescribeVpnGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeVpnGatewaysResponse'
-            Prelude.<$> ( x Core..@? "vpnGatewaySet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "vpnGatewaySet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -233,26 +234,26 @@ instance Prelude.NFData DescribeVpnGateways where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
 
-instance Core.ToHeaders DescribeVpnGateways where
+instance Data.ToHeaders DescribeVpnGateways where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeVpnGateways where
+instance Data.ToPath DescribeVpnGateways where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVpnGateways where
+instance Data.ToQuery DescribeVpnGateways where
   toQuery DescribeVpnGateways' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeVpnGateways" :: Prelude.ByteString),
+          Data.=: ("DescribeVpnGateways" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "VpnGatewayId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "VpnGatewayId"
               Prelude.<$> vpnGatewayIds
           ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun
       ]
 
 -- | Contains the output of DescribeVpnGateways.

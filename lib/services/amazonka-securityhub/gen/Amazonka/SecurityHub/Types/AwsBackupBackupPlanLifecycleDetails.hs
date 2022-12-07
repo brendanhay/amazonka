@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsBackupBackupPlanLifecycleDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides lifecycle details for the backup plan. A lifecycle defines when
@@ -71,16 +72,16 @@ awsBackupBackupPlanLifecycleDetails_moveToColdStorageAfterDays :: Lens.Lens' Aws
 awsBackupBackupPlanLifecycleDetails_moveToColdStorageAfterDays = Lens.lens (\AwsBackupBackupPlanLifecycleDetails' {moveToColdStorageAfterDays} -> moveToColdStorageAfterDays) (\s@AwsBackupBackupPlanLifecycleDetails' {} a -> s {moveToColdStorageAfterDays = a} :: AwsBackupBackupPlanLifecycleDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsBackupBackupPlanLifecycleDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsBackupBackupPlanLifecycleDetails"
       ( \x ->
           AwsBackupBackupPlanLifecycleDetails'
-            Prelude.<$> (x Core..:? "DeleteAfterDays")
-            Prelude.<*> (x Core..:? "MoveToColdStorageAfterDays")
+            Prelude.<$> (x Data..:? "DeleteAfterDays")
+            Prelude.<*> (x Data..:? "MoveToColdStorageAfterDays")
       )
 
 instance
@@ -102,15 +103,15 @@ instance
       `Prelude.seq` Prelude.rnf moveToColdStorageAfterDays
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsBackupBackupPlanLifecycleDetails
   where
   toJSON AwsBackupBackupPlanLifecycleDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeleteAfterDays" Core..=)
+          [ ("DeleteAfterDays" Data..=)
               Prelude.<$> deleteAfterDays,
-            ("MoveToColdStorageAfterDays" Core..=)
+            ("MoveToColdStorageAfterDays" Data..=)
               Prelude.<$> moveToColdStorageAfterDays
           ]
       )

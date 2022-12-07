@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,8 +104,8 @@ instance Core.AWSRequest ListStudios where
     Response.receiveJSON
       ( \s h x ->
           ListStudiosResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "Studios" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "Studios" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,32 +116,32 @@ instance Prelude.Hashable ListStudios where
 instance Prelude.NFData ListStudios where
   rnf ListStudios' {..} = Prelude.rnf marker
 
-instance Core.ToHeaders ListStudios where
+instance Data.ToHeaders ListStudios where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.ListStudios" ::
+              Data.=# ( "ElasticMapReduce.ListStudios" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListStudios where
+instance Data.ToJSON ListStudios where
   toJSON ListStudios' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Marker" Core..=) Prelude.<$> marker]
+          [("Marker" Data..=) Prelude.<$> marker]
       )
 
-instance Core.ToPath ListStudios where
+instance Data.ToPath ListStudios where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListStudios where
+instance Data.ToQuery ListStudios where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListStudiosResponse' smart constructor.

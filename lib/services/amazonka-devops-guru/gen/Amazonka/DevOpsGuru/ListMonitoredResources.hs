@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,9 +142,9 @@ instance Core.AWSRequest ListMonitoredResources where
     Response.receiveJSON
       ( \s h x ->
           ListMonitoredResourcesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "MonitoredResourceIdentifiers"
+            Prelude.<*> ( x Data..?> "MonitoredResourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -160,31 +161,31 @@ instance Prelude.NFData ListMonitoredResources where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListMonitoredResources where
+instance Data.ToHeaders ListMonitoredResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListMonitoredResources where
+instance Data.ToJSON ListMonitoredResources where
   toJSON ListMonitoredResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListMonitoredResources where
+instance Data.ToPath ListMonitoredResources where
   toPath = Prelude.const "/monitoredResources"
 
-instance Core.ToQuery ListMonitoredResources where
+instance Data.ToQuery ListMonitoredResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListMonitoredResourcesResponse' smart constructor.

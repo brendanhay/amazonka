@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.Endpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This data type represents the information you need to connect to an
@@ -84,12 +85,12 @@ endpoint_hostedZoneId = Lens.lens (\Endpoint' {hostedZoneId} -> hostedZoneId) (\
 endpoint_address :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_address = Lens.lens (\Endpoint' {address} -> address) (\s@Endpoint' {} a -> s {address = a} :: Endpoint)
 
-instance Core.FromXML Endpoint where
+instance Data.FromXML Endpoint where
   parseXML x =
     Endpoint'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "HostedZoneId")
-      Prelude.<*> (x Core..@? "Address")
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "HostedZoneId")
+      Prelude.<*> (x Data..@? "Address")
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =

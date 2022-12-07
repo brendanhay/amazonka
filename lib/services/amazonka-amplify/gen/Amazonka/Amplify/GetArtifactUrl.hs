@@ -43,6 +43,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,8 +88,8 @@ instance Core.AWSRequest GetArtifactUrl where
       ( \s h x ->
           GetArtifactUrlResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "artifactId")
-            Prelude.<*> (x Core..:> "artifactUrl")
+            Prelude.<*> (x Data..:> "artifactId")
+            Prelude.<*> (x Data..:> "artifactUrl")
       )
 
 instance Prelude.Hashable GetArtifactUrl where
@@ -98,23 +99,23 @@ instance Prelude.Hashable GetArtifactUrl where
 instance Prelude.NFData GetArtifactUrl where
   rnf GetArtifactUrl' {..} = Prelude.rnf artifactId
 
-instance Core.ToHeaders GetArtifactUrl where
+instance Data.ToHeaders GetArtifactUrl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetArtifactUrl where
+instance Data.ToPath GetArtifactUrl where
   toPath GetArtifactUrl' {..} =
     Prelude.mconcat
-      ["/artifacts/", Core.toBS artifactId]
+      ["/artifacts/", Data.toBS artifactId]
 
-instance Core.ToQuery GetArtifactUrl where
+instance Data.ToQuery GetArtifactUrl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returns the result structure for the get artifact request.

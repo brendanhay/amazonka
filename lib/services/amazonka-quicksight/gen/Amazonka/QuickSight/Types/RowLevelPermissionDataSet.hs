@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.RowLevelPermissionDataSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.RowLevelPermissionFormatVersion
 import Amazonka.QuickSight.Types.RowLevelPermissionPolicy
@@ -133,17 +134,17 @@ rowLevelPermissionDataSet_arn = Lens.lens (\RowLevelPermissionDataSet' {arn} -> 
 rowLevelPermissionDataSet_permissionPolicy :: Lens.Lens' RowLevelPermissionDataSet RowLevelPermissionPolicy
 rowLevelPermissionDataSet_permissionPolicy = Lens.lens (\RowLevelPermissionDataSet' {permissionPolicy} -> permissionPolicy) (\s@RowLevelPermissionDataSet' {} a -> s {permissionPolicy = a} :: RowLevelPermissionDataSet)
 
-instance Core.FromJSON RowLevelPermissionDataSet where
+instance Data.FromJSON RowLevelPermissionDataSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RowLevelPermissionDataSet"
       ( \x ->
           RowLevelPermissionDataSet'
-            Prelude.<$> (x Core..:? "FormatVersion")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Namespace")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "PermissionPolicy")
+            Prelude.<$> (x Data..:? "FormatVersion")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Namespace")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "PermissionPolicy")
       )
 
 instance Prelude.Hashable RowLevelPermissionDataSet where
@@ -162,15 +163,15 @@ instance Prelude.NFData RowLevelPermissionDataSet where
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf permissionPolicy
 
-instance Core.ToJSON RowLevelPermissionDataSet where
+instance Data.ToJSON RowLevelPermissionDataSet where
   toJSON RowLevelPermissionDataSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FormatVersion" Core..=) Prelude.<$> formatVersion,
-            ("Status" Core..=) Prelude.<$> status,
-            ("Namespace" Core..=) Prelude.<$> namespace,
-            Prelude.Just ("Arn" Core..= arn),
+          [ ("FormatVersion" Data..=) Prelude.<$> formatVersion,
+            ("Status" Data..=) Prelude.<$> status,
+            ("Namespace" Data..=) Prelude.<$> namespace,
+            Prelude.Just ("Arn" Data..= arn),
             Prelude.Just
-              ("PermissionPolicy" Core..= permissionPolicy)
+              ("PermissionPolicy" Data..= permissionPolicy)
           ]
       )

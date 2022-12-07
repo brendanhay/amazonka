@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,9 +142,9 @@ instance Core.AWSRequest PreviewAgents where
     Response.receiveJSON
       ( \s h x ->
           PreviewAgentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "agentPreviews" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "agentPreviews" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable PreviewAgents where
@@ -158,36 +159,36 @@ instance Prelude.NFData PreviewAgents where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf previewAgentsArn
 
-instance Core.ToHeaders PreviewAgents where
+instance Data.ToHeaders PreviewAgents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.PreviewAgents" ::
+              Data.=# ( "InspectorService.PreviewAgents" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PreviewAgents where
+instance Data.ToJSON PreviewAgents where
   toJSON PreviewAgents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("previewAgentsArn" Core..= previewAgentsArn)
+              ("previewAgentsArn" Data..= previewAgentsArn)
           ]
       )
 
-instance Core.ToPath PreviewAgents where
+instance Data.ToPath PreviewAgents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PreviewAgents where
+instance Data.ToQuery PreviewAgents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPreviewAgentsResponse' smart constructor.

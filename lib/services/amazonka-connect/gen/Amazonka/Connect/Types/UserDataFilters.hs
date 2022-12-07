@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.UserDataFilters where
 import Amazonka.Connect.Types.ContactFilter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter for the user data.
@@ -78,11 +79,11 @@ instance Prelude.NFData UserDataFilters where
     Prelude.rnf contactFilter
       `Prelude.seq` Prelude.rnf queues
 
-instance Core.ToJSON UserDataFilters where
+instance Data.ToJSON UserDataFilters where
   toJSON UserDataFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContactFilter" Core..=) Prelude.<$> contactFilter,
-            ("Queues" Core..=) Prelude.<$> queues
+          [ ("ContactFilter" Data..=) Prelude.<$> contactFilter,
+            ("Queues" Data..=) Prelude.<$> queues
           ]
       )

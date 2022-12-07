@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,8 +140,8 @@ instance Core.AWSRequest ListContacts where
     Response.receiveJSON
       ( \s h x ->
           ListContactsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Contacts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Contacts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,34 +159,34 @@ instance Prelude.NFData ListContacts where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf aliasPrefix
 
-instance Core.ToHeaders ListContacts where
+instance Data.ToHeaders ListContacts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SSMContacts.ListContacts" :: Prelude.ByteString),
+              Data.=# ("SSMContacts.ListContacts" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListContacts where
+instance Data.ToJSON ListContacts where
   toJSON ListContacts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Type" Core..=) Prelude.<$> type',
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("AliasPrefix" Core..=) Prelude.<$> aliasPrefix
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Type" Data..=) Prelude.<$> type',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("AliasPrefix" Data..=) Prelude.<$> aliasPrefix
           ]
       )
 
-instance Core.ToPath ListContacts where
+instance Data.ToPath ListContacts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListContacts where
+instance Data.ToQuery ListContacts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListContactsResponse' smart constructor.

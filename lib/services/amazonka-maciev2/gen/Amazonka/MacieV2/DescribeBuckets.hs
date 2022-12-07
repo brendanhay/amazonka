@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,8 +145,8 @@ instance Core.AWSRequest DescribeBuckets where
     Response.receiveJSON
       ( \s h x ->
           DescribeBucketsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "buckets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "buckets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,32 +164,32 @@ instance Prelude.NFData DescribeBuckets where
       `Prelude.seq` Prelude.rnf criteria
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeBuckets where
+instance Data.ToHeaders DescribeBuckets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeBuckets where
+instance Data.ToJSON DescribeBuckets where
   toJSON DescribeBuckets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortCriteria" Core..=) Prelude.<$> sortCriteria,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("criteria" Core..=) Prelude.<$> criteria,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("sortCriteria" Data..=) Prelude.<$> sortCriteria,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("criteria" Data..=) Prelude.<$> criteria,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeBuckets where
+instance Data.ToPath DescribeBuckets where
   toPath = Prelude.const "/datasources/s3"
 
-instance Core.ToQuery DescribeBuckets where
+instance Data.ToQuery DescribeBuckets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeBucketsResponse' smart constructor.

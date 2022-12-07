@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.ExportServerSideEncryption
 import Amazonka.DataExchange.Types.RevisionDestinationEntry
 import qualified Amazonka.Prelude as Prelude
@@ -96,17 +97,17 @@ instance
       `Prelude.seq` Prelude.rnf revisionDestinations
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ExportRevisionsToS3RequestDetails
   where
   toJSON ExportRevisionsToS3RequestDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Encryption" Core..=) Prelude.<$> encryption,
-            Prelude.Just ("DataSetId" Core..= dataSetId),
+          [ ("Encryption" Data..=) Prelude.<$> encryption,
+            Prelude.Just ("DataSetId" Data..= dataSetId),
             Prelude.Just
               ( "RevisionDestinations"
-                  Core..= revisionDestinations
+                  Data..= revisionDestinations
               )
           ]
       )

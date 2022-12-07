@@ -21,6 +21,7 @@ module Amazonka.Comprehend.Types.EntityRecognizerAnnotations where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the annotations associated with a entity recognizer.
@@ -76,14 +77,14 @@ entityRecognizerAnnotations_testS3Uri = Lens.lens (\EntityRecognizerAnnotations'
 entityRecognizerAnnotations_s3Uri :: Lens.Lens' EntityRecognizerAnnotations Prelude.Text
 entityRecognizerAnnotations_s3Uri = Lens.lens (\EntityRecognizerAnnotations' {s3Uri} -> s3Uri) (\s@EntityRecognizerAnnotations' {} a -> s {s3Uri = a} :: EntityRecognizerAnnotations)
 
-instance Core.FromJSON EntityRecognizerAnnotations where
+instance Data.FromJSON EntityRecognizerAnnotations where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntityRecognizerAnnotations"
       ( \x ->
           EntityRecognizerAnnotations'
-            Prelude.<$> (x Core..:? "TestS3Uri")
-            Prelude.<*> (x Core..: "S3Uri")
+            Prelude.<$> (x Data..:? "TestS3Uri")
+            Prelude.<*> (x Data..: "S3Uri")
       )
 
 instance Prelude.Hashable EntityRecognizerAnnotations where
@@ -96,11 +97,11 @@ instance Prelude.NFData EntityRecognizerAnnotations where
     Prelude.rnf testS3Uri
       `Prelude.seq` Prelude.rnf s3Uri
 
-instance Core.ToJSON EntityRecognizerAnnotations where
+instance Data.ToJSON EntityRecognizerAnnotations where
   toJSON EntityRecognizerAnnotations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TestS3Uri" Core..=) Prelude.<$> testS3Uri,
-            Prelude.Just ("S3Uri" Core..= s3Uri)
+          [ ("TestS3Uri" Data..=) Prelude.<$> testS3Uri,
+            Prelude.Just ("S3Uri" Data..= s3Uri)
           ]
       )

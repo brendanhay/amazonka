@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -74,7 +75,7 @@ data ListOperations = ListOperations'
     -- operations that you submitted after a specified date and time. Specify
     -- the date and time in Unix time format and Coordinated Universal time
     -- (UTC).
-    submittedSince :: Prelude.Maybe Core.POSIX
+    submittedSince :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -130,7 +131,7 @@ listOperations_maxItems = Lens.lens (\ListOperations' {maxItems} -> maxItems) (\
 -- the date and time in Unix time format and Coordinated Universal time
 -- (UTC).
 listOperations_submittedSince :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.UTCTime)
-listOperations_submittedSince = Lens.lens (\ListOperations' {submittedSince} -> submittedSince) (\s@ListOperations' {} a -> s {submittedSince = a} :: ListOperations) Prelude.. Lens.mapping Core._Time
+listOperations_submittedSince = Lens.lens (\ListOperations' {submittedSince} -> submittedSince) (\s@ListOperations' {} a -> s {submittedSince = a} :: ListOperations) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListOperations where
   page rq rs
@@ -161,9 +162,9 @@ instance Core.AWSRequest ListOperations where
     Response.receiveJSON
       ( \s h x ->
           ListOperationsResponse'
-            Prelude.<$> (x Core..?> "NextPageMarker")
+            Prelude.<$> (x Data..?> "NextPageMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Operations" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListOperations where
@@ -178,36 +179,36 @@ instance Prelude.NFData ListOperations where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf submittedSince
 
-instance Core.ToHeaders ListOperations where
+instance Data.ToHeaders ListOperations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.ListOperations" ::
+              Data.=# ( "Route53Domains_v20140515.ListOperations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListOperations where
+instance Data.ToJSON ListOperations where
   toJSON ListOperations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("MaxItems" Core..=) Prelude.<$> maxItems,
-            ("SubmittedSince" Core..=)
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("MaxItems" Data..=) Prelude.<$> maxItems,
+            ("SubmittedSince" Data..=)
               Prelude.<$> submittedSince
           ]
       )
 
-instance Core.ToPath ListOperations where
+instance Data.ToPath ListOperations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListOperations where
+instance Data.ToQuery ListOperations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The ListOperations response includes the following elements.

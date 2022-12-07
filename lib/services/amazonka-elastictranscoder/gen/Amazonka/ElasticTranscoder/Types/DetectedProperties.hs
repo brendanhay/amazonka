@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.DetectedProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detected properties of the input file. Elastic Transcoder identifies
@@ -89,17 +90,17 @@ detectedProperties_height = Lens.lens (\DetectedProperties' {height} -> height) 
 detectedProperties_frameRate :: Lens.Lens' DetectedProperties (Prelude.Maybe Prelude.Text)
 detectedProperties_frameRate = Lens.lens (\DetectedProperties' {frameRate} -> frameRate) (\s@DetectedProperties' {} a -> s {frameRate = a} :: DetectedProperties)
 
-instance Core.FromJSON DetectedProperties where
+instance Data.FromJSON DetectedProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectedProperties"
       ( \x ->
           DetectedProperties'
-            Prelude.<$> (x Core..:? "FileSize")
-            Prelude.<*> (x Core..:? "Width")
-            Prelude.<*> (x Core..:? "DurationMillis")
-            Prelude.<*> (x Core..:? "Height")
-            Prelude.<*> (x Core..:? "FrameRate")
+            Prelude.<$> (x Data..:? "FileSize")
+            Prelude.<*> (x Data..:? "Width")
+            Prelude.<*> (x Data..:? "DurationMillis")
+            Prelude.<*> (x Data..:? "Height")
+            Prelude.<*> (x Data..:? "FrameRate")
       )
 
 instance Prelude.Hashable DetectedProperties where
@@ -118,15 +119,15 @@ instance Prelude.NFData DetectedProperties where
       `Prelude.seq` Prelude.rnf height
       `Prelude.seq` Prelude.rnf frameRate
 
-instance Core.ToJSON DetectedProperties where
+instance Data.ToJSON DetectedProperties where
   toJSON DetectedProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FileSize" Core..=) Prelude.<$> fileSize,
-            ("Width" Core..=) Prelude.<$> width,
-            ("DurationMillis" Core..=)
+          [ ("FileSize" Data..=) Prelude.<$> fileSize,
+            ("Width" Data..=) Prelude.<$> width,
+            ("DurationMillis" Data..=)
               Prelude.<$> durationMillis,
-            ("Height" Core..=) Prelude.<$> height,
-            ("FrameRate" Core..=) Prelude.<$> frameRate
+            ("Height" Data..=) Prelude.<$> height,
+            ("FrameRate" Data..=) Prelude.<$> frameRate
           ]
       )

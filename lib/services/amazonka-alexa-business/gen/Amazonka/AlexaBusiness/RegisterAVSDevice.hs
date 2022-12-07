@@ -49,6 +49,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -177,7 +178,7 @@ instance Core.AWSRequest RegisterAVSDevice where
     Response.receiveJSON
       ( \s h x ->
           RegisterAVSDeviceResponse'
-            Prelude.<$> (x Core..?> "DeviceArn")
+            Prelude.<$> (x Data..?> "DeviceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,40 +202,40 @@ instance Prelude.NFData RegisterAVSDevice where
       `Prelude.seq` Prelude.rnf productId
       `Prelude.seq` Prelude.rnf amazonId
 
-instance Core.ToHeaders RegisterAVSDevice where
+instance Data.ToHeaders RegisterAVSDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.RegisterAVSDevice" ::
+              Data.=# ( "AlexaForBusiness.RegisterAVSDevice" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterAVSDevice where
+instance Data.ToJSON RegisterAVSDevice where
   toJSON RegisterAVSDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("DeviceSerialNumber" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("DeviceSerialNumber" Data..=)
               Prelude.<$> deviceSerialNumber,
-            ("RoomArn" Core..=) Prelude.<$> roomArn,
-            Prelude.Just ("ClientId" Core..= clientId),
-            Prelude.Just ("UserCode" Core..= userCode),
-            Prelude.Just ("ProductId" Core..= productId),
-            Prelude.Just ("AmazonId" Core..= amazonId)
+            ("RoomArn" Data..=) Prelude.<$> roomArn,
+            Prelude.Just ("ClientId" Data..= clientId),
+            Prelude.Just ("UserCode" Data..= userCode),
+            Prelude.Just ("ProductId" Data..= productId),
+            Prelude.Just ("AmazonId" Data..= amazonId)
           ]
       )
 
-instance Core.ToPath RegisterAVSDevice where
+instance Data.ToPath RegisterAVSDevice where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterAVSDevice where
+instance Data.ToQuery RegisterAVSDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterAVSDeviceResponse' smart constructor.

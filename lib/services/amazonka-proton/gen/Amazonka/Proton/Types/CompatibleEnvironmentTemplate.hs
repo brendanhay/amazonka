@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.CompatibleEnvironmentTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Compatible environment template data.
@@ -68,14 +69,14 @@ compatibleEnvironmentTemplate_majorVersion = Lens.lens (\CompatibleEnvironmentTe
 compatibleEnvironmentTemplate_templateName :: Lens.Lens' CompatibleEnvironmentTemplate Prelude.Text
 compatibleEnvironmentTemplate_templateName = Lens.lens (\CompatibleEnvironmentTemplate' {templateName} -> templateName) (\s@CompatibleEnvironmentTemplate' {} a -> s {templateName = a} :: CompatibleEnvironmentTemplate)
 
-instance Core.FromJSON CompatibleEnvironmentTemplate where
+instance Data.FromJSON CompatibleEnvironmentTemplate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CompatibleEnvironmentTemplate"
       ( \x ->
           CompatibleEnvironmentTemplate'
-            Prelude.<$> (x Core..: "majorVersion")
-            Prelude.<*> (x Core..: "templateName")
+            Prelude.<$> (x Data..: "majorVersion")
+            Prelude.<*> (x Data..: "templateName")
       )
 
 instance

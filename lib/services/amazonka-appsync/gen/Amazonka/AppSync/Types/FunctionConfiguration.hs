@@ -23,6 +23,7 @@ import Amazonka.AppSync.Types.AppSyncRuntime
 import Amazonka.AppSync.Types.SyncConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A function is a reusable entity. You can use multiple functions to
@@ -165,24 +166,24 @@ functionConfiguration_functionId = Lens.lens (\FunctionConfiguration' {functionI
 functionConfiguration_requestMappingTemplate :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_requestMappingTemplate = Lens.lens (\FunctionConfiguration' {requestMappingTemplate} -> requestMappingTemplate) (\s@FunctionConfiguration' {} a -> s {requestMappingTemplate = a} :: FunctionConfiguration)
 
-instance Core.FromJSON FunctionConfiguration where
+instance Data.FromJSON FunctionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FunctionConfiguration"
       ( \x ->
           FunctionConfiguration'
-            Prelude.<$> (x Core..:? "functionArn")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "maxBatchSize")
-            Prelude.<*> (x Core..:? "functionVersion")
-            Prelude.<*> (x Core..:? "runtime")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "dataSourceName")
-            Prelude.<*> (x Core..:? "responseMappingTemplate")
-            Prelude.<*> (x Core..:? "syncConfig")
-            Prelude.<*> (x Core..:? "functionId")
-            Prelude.<*> (x Core..:? "requestMappingTemplate")
+            Prelude.<$> (x Data..:? "functionArn")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "maxBatchSize")
+            Prelude.<*> (x Data..:? "functionVersion")
+            Prelude.<*> (x Data..:? "runtime")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "dataSourceName")
+            Prelude.<*> (x Data..:? "responseMappingTemplate")
+            Prelude.<*> (x Data..:? "syncConfig")
+            Prelude.<*> (x Data..:? "functionId")
+            Prelude.<*> (x Data..:? "requestMappingTemplate")
       )
 
 instance Prelude.Hashable FunctionConfiguration where

@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,7 +134,7 @@ instance Core.AWSRequest UpdateAlias where
     Response.receiveJSON
       ( \s h x ->
           UpdateAliasResponse'
-            Prelude.<$> (x Core..?> "Alias")
+            Prelude.<$> (x Data..?> "Alias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,35 +152,35 @@ instance Prelude.NFData UpdateAlias where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf aliasId
 
-instance Core.ToHeaders UpdateAlias where
+instance Data.ToHeaders UpdateAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.UpdateAlias" :: Prelude.ByteString),
+              Data.=# ("GameLift.UpdateAlias" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAlias where
+instance Data.ToJSON UpdateAlias where
   toJSON UpdateAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("RoutingStrategy" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("RoutingStrategy" Data..=)
               Prelude.<$> routingStrategy,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("AliasId" Core..= aliasId)
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("AliasId" Data..= aliasId)
           ]
       )
 
-instance Core.ToPath UpdateAlias where
+instance Data.ToPath UpdateAlias where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAlias where
+instance Data.ToQuery UpdateAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

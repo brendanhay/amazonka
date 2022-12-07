@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.BaseKpiResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.ResultRow
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,13 +59,13 @@ newBaseKpiResult =
 baseKpiResult_rows :: Lens.Lens' BaseKpiResult [ResultRow]
 baseKpiResult_rows = Lens.lens (\BaseKpiResult' {rows} -> rows) (\s@BaseKpiResult' {} a -> s {rows = a} :: BaseKpiResult) Prelude.. Lens.coerced
 
-instance Core.FromJSON BaseKpiResult where
+instance Data.FromJSON BaseKpiResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BaseKpiResult"
       ( \x ->
           BaseKpiResult'
-            Prelude.<$> (x Core..:? "Rows" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Rows" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable BaseKpiResult where

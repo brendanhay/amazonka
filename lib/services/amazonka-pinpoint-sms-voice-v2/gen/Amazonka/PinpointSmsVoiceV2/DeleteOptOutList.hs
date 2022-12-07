@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,9 +99,9 @@ instance Core.AWSRequest DeleteOptOutList where
     Response.receiveJSON
       ( \s h x ->
           DeleteOptOutListResponse'
-            Prelude.<$> (x Core..?> "OptOutListArn")
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "OptOutListName")
+            Prelude.<$> (x Data..?> "OptOutListArn")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "OptOutListName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,34 +113,34 @@ instance Prelude.NFData DeleteOptOutList where
   rnf DeleteOptOutList' {..} =
     Prelude.rnf optOutListName
 
-instance Core.ToHeaders DeleteOptOutList where
+instance Data.ToHeaders DeleteOptOutList where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.DeleteOptOutList" ::
+              Data.=# ( "PinpointSMSVoiceV2.DeleteOptOutList" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteOptOutList where
+instance Data.ToJSON DeleteOptOutList where
   toJSON DeleteOptOutList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OptOutListName" Core..= optOutListName)
+              ("OptOutListName" Data..= optOutListName)
           ]
       )
 
-instance Core.ToPath DeleteOptOutList where
+instance Data.ToPath DeleteOptOutList where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteOptOutList where
+instance Data.ToQuery DeleteOptOutList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteOptOutListResponse' smart constructor.
@@ -148,7 +149,7 @@ data DeleteOptOutListResponse = DeleteOptOutListResponse'
     optOutListArn :: Prelude.Maybe Prelude.Text,
     -- | The time when the OptOutList was created, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the OptOutList that was removed.
     optOutListName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -192,7 +193,7 @@ deleteOptOutListResponse_optOutListArn = Lens.lens (\DeleteOptOutListResponse' {
 -- | The time when the OptOutList was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 deleteOptOutListResponse_createdTimestamp :: Lens.Lens' DeleteOptOutListResponse (Prelude.Maybe Prelude.UTCTime)
-deleteOptOutListResponse_createdTimestamp = Lens.lens (\DeleteOptOutListResponse' {createdTimestamp} -> createdTimestamp) (\s@DeleteOptOutListResponse' {} a -> s {createdTimestamp = a} :: DeleteOptOutListResponse) Prelude.. Lens.mapping Core._Time
+deleteOptOutListResponse_createdTimestamp = Lens.lens (\DeleteOptOutListResponse' {createdTimestamp} -> createdTimestamp) (\s@DeleteOptOutListResponse' {} a -> s {createdTimestamp = a} :: DeleteOptOutListResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the OptOutList that was removed.
 deleteOptOutListResponse_optOutListName :: Lens.Lens' DeleteOptOutListResponse (Prelude.Maybe Prelude.Text)

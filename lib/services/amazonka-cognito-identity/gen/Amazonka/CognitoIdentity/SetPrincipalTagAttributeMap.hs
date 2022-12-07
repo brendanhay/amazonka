@@ -49,6 +49,7 @@ where
 import Amazonka.CognitoIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,10 +128,10 @@ instance Core.AWSRequest SetPrincipalTagAttributeMap where
     Response.receiveJSON
       ( \s h x ->
           SetPrincipalTagAttributeMapResponse'
-            Prelude.<$> (x Core..?> "UseDefaults")
-            Prelude.<*> (x Core..?> "IdentityProviderName")
-            Prelude.<*> (x Core..?> "IdentityPoolId")
-            Prelude.<*> (x Core..?> "PrincipalTags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "UseDefaults")
+            Prelude.<*> (x Data..?> "IdentityProviderName")
+            Prelude.<*> (x Data..?> "IdentityPoolId")
+            Prelude.<*> (x Data..?> "PrincipalTags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,40 +149,40 @@ instance Prelude.NFData SetPrincipalTagAttributeMap where
       `Prelude.seq` Prelude.rnf identityPoolId
       `Prelude.seq` Prelude.rnf identityProviderName
 
-instance Core.ToHeaders SetPrincipalTagAttributeMap where
+instance Data.ToHeaders SetPrincipalTagAttributeMap where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityService.SetPrincipalTagAttributeMap" ::
+              Data.=# ( "AWSCognitoIdentityService.SetPrincipalTagAttributeMap" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetPrincipalTagAttributeMap where
+instance Data.ToJSON SetPrincipalTagAttributeMap where
   toJSON SetPrincipalTagAttributeMap' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UseDefaults" Core..=) Prelude.<$> useDefaults,
-            ("PrincipalTags" Core..=) Prelude.<$> principalTags,
+          [ ("UseDefaults" Data..=) Prelude.<$> useDefaults,
+            ("PrincipalTags" Data..=) Prelude.<$> principalTags,
             Prelude.Just
-              ("IdentityPoolId" Core..= identityPoolId),
+              ("IdentityPoolId" Data..= identityPoolId),
             Prelude.Just
               ( "IdentityProviderName"
-                  Core..= identityProviderName
+                  Data..= identityProviderName
               )
           ]
       )
 
-instance Core.ToPath SetPrincipalTagAttributeMap where
+instance Data.ToPath SetPrincipalTagAttributeMap where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetPrincipalTagAttributeMap where
+instance Data.ToQuery SetPrincipalTagAttributeMap where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetPrincipalTagAttributeMapResponse' smart constructor.

@@ -42,6 +42,7 @@ where
 import Amazonka.Batch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,30 +101,30 @@ instance Prelude.NFData DeregisterJobDefinition where
   rnf DeregisterJobDefinition' {..} =
     Prelude.rnf jobDefinition
 
-instance Core.ToHeaders DeregisterJobDefinition where
+instance Data.ToHeaders DeregisterJobDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeregisterJobDefinition where
+instance Data.ToJSON DeregisterJobDefinition where
   toJSON DeregisterJobDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("jobDefinition" Core..= jobDefinition)
+              ("jobDefinition" Data..= jobDefinition)
           ]
       )
 
-instance Core.ToPath DeregisterJobDefinition where
+instance Data.ToPath DeregisterJobDefinition where
   toPath = Prelude.const "/v1/deregisterjobdefinition"
 
-instance Core.ToQuery DeregisterJobDefinition where
+instance Data.ToQuery DeregisterJobDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterJobDefinitionResponse' smart constructor.

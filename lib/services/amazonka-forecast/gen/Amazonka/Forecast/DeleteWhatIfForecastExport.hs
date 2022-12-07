@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,36 +99,36 @@ instance Prelude.NFData DeleteWhatIfForecastExport where
   rnf DeleteWhatIfForecastExport' {..} =
     Prelude.rnf whatIfForecastExportArn
 
-instance Core.ToHeaders DeleteWhatIfForecastExport where
+instance Data.ToHeaders DeleteWhatIfForecastExport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DeleteWhatIfForecastExport" ::
+              Data.=# ( "AmazonForecast.DeleteWhatIfForecastExport" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteWhatIfForecastExport where
+instance Data.ToJSON DeleteWhatIfForecastExport where
   toJSON DeleteWhatIfForecastExport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "WhatIfForecastExportArn"
-                  Core..= whatIfForecastExportArn
+                  Data..= whatIfForecastExportArn
               )
           ]
       )
 
-instance Core.ToPath DeleteWhatIfForecastExport where
+instance Data.ToPath DeleteWhatIfForecastExport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteWhatIfForecastExport where
+instance Data.ToQuery DeleteWhatIfForecastExport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWhatIfForecastExportResponse' smart constructor.

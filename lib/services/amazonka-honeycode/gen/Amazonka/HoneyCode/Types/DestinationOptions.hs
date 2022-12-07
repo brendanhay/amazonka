@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.DestinationOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types.SourceDataColumnProperties
 import qualified Amazonka.Prelude as Prelude
 
@@ -52,13 +53,13 @@ newDestinationOptions =
 destinationOptions_columnMap :: Lens.Lens' DestinationOptions (Prelude.Maybe (Prelude.HashMap Prelude.Text SourceDataColumnProperties))
 destinationOptions_columnMap = Lens.lens (\DestinationOptions' {columnMap} -> columnMap) (\s@DestinationOptions' {} a -> s {columnMap = a} :: DestinationOptions) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DestinationOptions where
+instance Data.FromJSON DestinationOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DestinationOptions"
       ( \x ->
           DestinationOptions'
-            Prelude.<$> (x Core..:? "columnMap" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "columnMap" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DestinationOptions where
@@ -68,9 +69,9 @@ instance Prelude.Hashable DestinationOptions where
 instance Prelude.NFData DestinationOptions where
   rnf DestinationOptions' {..} = Prelude.rnf columnMap
 
-instance Core.ToJSON DestinationOptions where
+instance Data.ToJSON DestinationOptions where
   toJSON DestinationOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("columnMap" Core..=) Prelude.<$> columnMap]
+          [("columnMap" Data..=) Prelude.<$> columnMap]
       )

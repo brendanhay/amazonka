@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -165,7 +166,7 @@ instance Core.AWSRequest UpdateWorkgroup where
       ( \s h x ->
           UpdateWorkgroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "workgroup")
+            Prelude.<*> (x Data..:> "workgroup")
       )
 
 instance Prelude.Hashable UpdateWorkgroup where
@@ -188,44 +189,44 @@ instance Prelude.NFData UpdateWorkgroup where
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf workgroupName
 
-instance Core.ToHeaders UpdateWorkgroup where
+instance Data.ToHeaders UpdateWorkgroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.UpdateWorkgroup" ::
+              Data.=# ( "RedshiftServerless.UpdateWorkgroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkgroup where
+instance Data.ToJSON UpdateWorkgroup where
   toJSON UpdateWorkgroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("securityGroupIds" Core..=)
+          [ ("securityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("baseCapacity" Core..=) Prelude.<$> baseCapacity,
-            ("publiclyAccessible" Core..=)
+            ("baseCapacity" Data..=) Prelude.<$> baseCapacity,
+            ("publiclyAccessible" Data..=)
               Prelude.<$> publiclyAccessible,
-            ("configParameters" Core..=)
+            ("configParameters" Data..=)
               Prelude.<$> configParameters,
-            ("enhancedVpcRouting" Core..=)
+            ("enhancedVpcRouting" Data..=)
               Prelude.<$> enhancedVpcRouting,
-            ("subnetIds" Core..=) Prelude.<$> subnetIds,
+            ("subnetIds" Data..=) Prelude.<$> subnetIds,
             Prelude.Just
-              ("workgroupName" Core..= workgroupName)
+              ("workgroupName" Data..= workgroupName)
           ]
       )
 
-instance Core.ToPath UpdateWorkgroup where
+instance Data.ToPath UpdateWorkgroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateWorkgroup where
+instance Data.ToQuery UpdateWorkgroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWorkgroupResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 import Amazonka.CodeStarNotifications.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,7 +55,7 @@ data Unsubscribe = Unsubscribe'
   { -- | The Amazon Resource Name (ARN) of the notification rule.
     arn :: Prelude.Text,
     -- | The ARN of the Chatbot topic to unsubscribe from the notification rule.
-    targetAddress :: Core.Sensitive Prelude.Text
+    targetAddress :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -79,7 +80,7 @@ newUnsubscribe pArn_ pTargetAddress_ =
   Unsubscribe'
     { arn = pArn_,
       targetAddress =
-        Core._Sensitive Lens.# pTargetAddress_
+        Data._Sensitive Lens.# pTargetAddress_
     }
 
 -- | The Amazon Resource Name (ARN) of the notification rule.
@@ -88,7 +89,7 @@ unsubscribe_arn = Lens.lens (\Unsubscribe' {arn} -> arn) (\s@Unsubscribe' {} a -
 
 -- | The ARN of the Chatbot topic to unsubscribe from the notification rule.
 unsubscribe_targetAddress :: Lens.Lens' Unsubscribe Prelude.Text
-unsubscribe_targetAddress = Lens.lens (\Unsubscribe' {targetAddress} -> targetAddress) (\s@Unsubscribe' {} a -> s {targetAddress = a} :: Unsubscribe) Prelude.. Core._Sensitive
+unsubscribe_targetAddress = Lens.lens (\Unsubscribe' {targetAddress} -> targetAddress) (\s@Unsubscribe' {} a -> s {targetAddress = a} :: Unsubscribe) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest Unsubscribe where
   type AWSResponse Unsubscribe = UnsubscribeResponse
@@ -99,7 +100,7 @@ instance Core.AWSRequest Unsubscribe where
       ( \s h x ->
           UnsubscribeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Arn")
+            Prelude.<*> (x Data..:> "Arn")
       )
 
 instance Prelude.Hashable Unsubscribe where
@@ -112,31 +113,31 @@ instance Prelude.NFData Unsubscribe where
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf targetAddress
 
-instance Core.ToHeaders Unsubscribe where
+instance Data.ToHeaders Unsubscribe where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON Unsubscribe where
+instance Data.ToJSON Unsubscribe where
   toJSON Unsubscribe' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Arn" Core..= arn),
+          [ Prelude.Just ("Arn" Data..= arn),
             Prelude.Just
-              ("TargetAddress" Core..= targetAddress)
+              ("TargetAddress" Data..= targetAddress)
           ]
       )
 
-instance Core.ToPath Unsubscribe where
+instance Data.ToPath Unsubscribe where
   toPath = Prelude.const "/unsubscribe"
 
-instance Core.ToQuery Unsubscribe where
+instance Data.ToQuery Unsubscribe where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUnsubscribeResponse' smart constructor.

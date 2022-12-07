@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.S3Location where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A location in Amazon S3.
@@ -74,15 +75,15 @@ s3Location_bucketName = Lens.lens (\S3Location' {bucketName} -> bucketName) (\s@
 s3Location_objectKey :: Lens.Lens' S3Location Prelude.Text
 s3Location_objectKey = Lens.lens (\S3Location' {objectKey} -> objectKey) (\s@S3Location' {} a -> s {objectKey = a} :: S3Location)
 
-instance Core.FromJSON S3Location where
+instance Data.FromJSON S3Location where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> (x Core..:? "Region")
-            Prelude.<*> (x Core..: "BucketName")
-            Prelude.<*> (x Core..: "ObjectKey")
+            Prelude.<$> (x Data..:? "Region")
+            Prelude.<*> (x Data..: "BucketName")
+            Prelude.<*> (x Data..: "ObjectKey")
       )
 
 instance Prelude.Hashable S3Location where
@@ -97,12 +98,12 @@ instance Prelude.NFData S3Location where
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf objectKey
 
-instance Core.ToJSON S3Location where
+instance Data.ToJSON S3Location where
   toJSON S3Location' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Region" Core..=) Prelude.<$> region,
-            Prelude.Just ("BucketName" Core..= bucketName),
-            Prelude.Just ("ObjectKey" Core..= objectKey)
+          [ ("Region" Data..=) Prelude.<$> region,
+            Prelude.Just ("BucketName" Data..= bucketName),
+            Prelude.Just ("ObjectKey" Data..= objectKey)
           ]
       )

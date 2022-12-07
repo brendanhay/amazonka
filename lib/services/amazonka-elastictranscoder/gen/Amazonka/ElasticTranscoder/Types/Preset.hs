@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.Preset where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.AudioParameters
 import Amazonka.ElasticTranscoder.Types.Thumbnails
 import Amazonka.ElasticTranscoder.Types.VideoParameters
@@ -153,21 +154,21 @@ preset_thumbnails = Lens.lens (\Preset' {thumbnails} -> thumbnails) (\s@Preset' 
 preset_video :: Lens.Lens' Preset (Prelude.Maybe VideoParameters)
 preset_video = Lens.lens (\Preset' {video} -> video) (\s@Preset' {} a -> s {video = a} :: Preset)
 
-instance Core.FromJSON Preset where
+instance Data.FromJSON Preset where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Preset"
       ( \x ->
           Preset'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Audio")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Container")
-            Prelude.<*> (x Core..:? "Thumbnails")
-            Prelude.<*> (x Core..:? "Video")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Audio")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Container")
+            Prelude.<*> (x Data..:? "Thumbnails")
+            Prelude.<*> (x Data..:? "Video")
       )
 
 instance Prelude.Hashable Preset where

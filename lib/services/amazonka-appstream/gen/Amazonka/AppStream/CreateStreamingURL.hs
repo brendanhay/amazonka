@@ -50,6 +50,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,8 +168,8 @@ instance Core.AWSRequest CreateStreamingURL where
     Response.receiveJSON
       ( \s h x ->
           CreateStreamingURLResponse'
-            Prelude.<$> (x Core..?> "StreamingURL")
-            Prelude.<*> (x Core..?> "Expires")
+            Prelude.<$> (x Data..?> "StreamingURL")
+            Prelude.<*> (x Data..?> "Expires")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,39 +191,39 @@ instance Prelude.NFData CreateStreamingURL where
       `Prelude.seq` Prelude.rnf fleetName
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders CreateStreamingURL where
+instance Data.ToHeaders CreateStreamingURL where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.CreateStreamingURL" ::
+              Data.=# ( "PhotonAdminProxyService.CreateStreamingURL" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateStreamingURL where
+instance Data.ToJSON CreateStreamingURL where
   toJSON CreateStreamingURL' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SessionContext" Core..=)
+          [ ("SessionContext" Data..=)
               Prelude.<$> sessionContext,
-            ("ApplicationId" Core..=) Prelude.<$> applicationId,
-            ("Validity" Core..=) Prelude.<$> validity,
-            Prelude.Just ("StackName" Core..= stackName),
-            Prelude.Just ("FleetName" Core..= fleetName),
-            Prelude.Just ("UserId" Core..= userId)
+            ("ApplicationId" Data..=) Prelude.<$> applicationId,
+            ("Validity" Data..=) Prelude.<$> validity,
+            Prelude.Just ("StackName" Data..= stackName),
+            Prelude.Just ("FleetName" Data..= fleetName),
+            Prelude.Just ("UserId" Data..= userId)
           ]
       )
 
-instance Core.ToPath CreateStreamingURL where
+instance Data.ToPath CreateStreamingURL where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateStreamingURL where
+instance Data.ToQuery CreateStreamingURL where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStreamingURLResponse' smart constructor.
@@ -231,7 +232,7 @@ data CreateStreamingURLResponse = CreateStreamingURLResponse'
     streamingURL :: Prelude.Maybe Prelude.Text,
     -- | The elapsed time, in seconds after the Unix epoch, when this URL
     -- expires.
-    expires :: Prelude.Maybe Core.POSIX,
+    expires :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -270,7 +271,7 @@ createStreamingURLResponse_streamingURL = Lens.lens (\CreateStreamingURLResponse
 -- | The elapsed time, in seconds after the Unix epoch, when this URL
 -- expires.
 createStreamingURLResponse_expires :: Lens.Lens' CreateStreamingURLResponse (Prelude.Maybe Prelude.UTCTime)
-createStreamingURLResponse_expires = Lens.lens (\CreateStreamingURLResponse' {expires} -> expires) (\s@CreateStreamingURLResponse' {} a -> s {expires = a} :: CreateStreamingURLResponse) Prelude.. Lens.mapping Core._Time
+createStreamingURLResponse_expires = Lens.lens (\CreateStreamingURLResponse' {expires} -> expires) (\s@CreateStreamingURLResponse' {} a -> s {expires = a} :: CreateStreamingURLResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createStreamingURLResponse_httpStatus :: Lens.Lens' CreateStreamingURLResponse Prelude.Int

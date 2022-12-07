@@ -22,6 +22,7 @@ module Amazonka.DAX.Types.SSEDescription where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types.SSEStatus
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The description of the server-side encryption status on the specified
@@ -76,12 +77,12 @@ newSSEDescription =
 sSEDescription_status :: Lens.Lens' SSEDescription (Prelude.Maybe SSEStatus)
 sSEDescription_status = Lens.lens (\SSEDescription' {status} -> status) (\s@SSEDescription' {} a -> s {status = a} :: SSEDescription)
 
-instance Core.FromJSON SSEDescription where
+instance Data.FromJSON SSEDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SSEDescription"
       ( \x ->
-          SSEDescription' Prelude.<$> (x Core..:? "Status")
+          SSEDescription' Prelude.<$> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable SSEDescription where

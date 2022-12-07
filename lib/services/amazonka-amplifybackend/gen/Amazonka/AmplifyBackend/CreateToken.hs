@@ -46,6 +46,7 @@ where
 import Amazonka.AmplifyBackend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,10 +86,10 @@ instance Core.AWSRequest CreateToken where
     Response.receiveJSON
       ( \s h x ->
           CreateTokenResponse'
-            Prelude.<$> (x Core..?> "challengeCode")
-            Prelude.<*> (x Core..?> "ttl")
-            Prelude.<*> (x Core..?> "sessionId")
-            Prelude.<*> (x Core..?> "appId")
+            Prelude.<$> (x Data..?> "challengeCode")
+            Prelude.<*> (x Data..?> "ttl")
+            Prelude.<*> (x Data..?> "sessionId")
+            Prelude.<*> (x Data..?> "appId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,26 +100,26 @@ instance Prelude.Hashable CreateToken where
 instance Prelude.NFData CreateToken where
   rnf CreateToken' {..} = Prelude.rnf appId
 
-instance Core.ToHeaders CreateToken where
+instance Data.ToHeaders CreateToken where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateToken where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CreateToken where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CreateToken where
+instance Data.ToPath CreateToken where
   toPath CreateToken' {..} =
     Prelude.mconcat
-      ["/backend/", Core.toBS appId, "/challenge"]
+      ["/backend/", Data.toBS appId, "/challenge"]
 
-instance Core.ToQuery CreateToken where
+instance Data.ToQuery CreateToken where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTokenResponse' smart constructor.

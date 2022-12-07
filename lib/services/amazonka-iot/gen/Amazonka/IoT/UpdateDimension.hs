@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,12 +117,12 @@ instance Core.AWSRequest UpdateDimension where
     Response.receiveJSON
       ( \s h x ->
           UpdateDimensionResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "type")
-            Prelude.<*> (x Core..?> "stringValues")
-            Prelude.<*> (x Core..?> "lastModifiedDate")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "creationDate")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "type")
+            Prelude.<*> (x Data..?> "stringValues")
+            Prelude.<*> (x Data..?> "lastModifiedDate")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "creationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,21 +136,21 @@ instance Prelude.NFData UpdateDimension where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf stringValues
 
-instance Core.ToHeaders UpdateDimension where
+instance Data.ToHeaders UpdateDimension where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateDimension where
+instance Data.ToJSON UpdateDimension where
   toJSON UpdateDimension' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("stringValues" Core..= stringValues)]
+          [Prelude.Just ("stringValues" Data..= stringValues)]
       )
 
-instance Core.ToPath UpdateDimension where
+instance Data.ToPath UpdateDimension where
   toPath UpdateDimension' {..} =
-    Prelude.mconcat ["/dimensions/", Core.toBS name]
+    Prelude.mconcat ["/dimensions/", Data.toBS name]
 
-instance Core.ToQuery UpdateDimension where
+instance Data.ToQuery UpdateDimension where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDimensionResponse' smart constructor.
@@ -164,12 +165,12 @@ data UpdateDimensionResponse = UpdateDimensionResponse'
     stringValues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The date and time, in milliseconds since epoch, when the dimension was
     -- most recently updated.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN)of the created dimension.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in milliseconds since epoch, when the dimension was
     -- initially created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -232,7 +233,7 @@ updateDimensionResponse_stringValues = Lens.lens (\UpdateDimensionResponse' {str
 -- | The date and time, in milliseconds since epoch, when the dimension was
 -- most recently updated.
 updateDimensionResponse_lastModifiedDate :: Lens.Lens' UpdateDimensionResponse (Prelude.Maybe Prelude.UTCTime)
-updateDimensionResponse_lastModifiedDate = Lens.lens (\UpdateDimensionResponse' {lastModifiedDate} -> lastModifiedDate) (\s@UpdateDimensionResponse' {} a -> s {lastModifiedDate = a} :: UpdateDimensionResponse) Prelude.. Lens.mapping Core._Time
+updateDimensionResponse_lastModifiedDate = Lens.lens (\UpdateDimensionResponse' {lastModifiedDate} -> lastModifiedDate) (\s@UpdateDimensionResponse' {} a -> s {lastModifiedDate = a} :: UpdateDimensionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN)of the created dimension.
 updateDimensionResponse_arn :: Lens.Lens' UpdateDimensionResponse (Prelude.Maybe Prelude.Text)
@@ -241,7 +242,7 @@ updateDimensionResponse_arn = Lens.lens (\UpdateDimensionResponse' {arn} -> arn)
 -- | The date and time, in milliseconds since epoch, when the dimension was
 -- initially created.
 updateDimensionResponse_creationDate :: Lens.Lens' UpdateDimensionResponse (Prelude.Maybe Prelude.UTCTime)
-updateDimensionResponse_creationDate = Lens.lens (\UpdateDimensionResponse' {creationDate} -> creationDate) (\s@UpdateDimensionResponse' {} a -> s {creationDate = a} :: UpdateDimensionResponse) Prelude.. Lens.mapping Core._Time
+updateDimensionResponse_creationDate = Lens.lens (\UpdateDimensionResponse' {creationDate} -> creationDate) (\s@UpdateDimensionResponse' {} a -> s {creationDate = a} :: UpdateDimensionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updateDimensionResponse_httpStatus :: Lens.Lens' UpdateDimensionResponse Prelude.Int

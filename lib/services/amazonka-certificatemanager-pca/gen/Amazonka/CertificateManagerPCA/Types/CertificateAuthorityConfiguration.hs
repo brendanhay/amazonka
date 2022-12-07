@@ -25,6 +25,7 @@ import Amazonka.CertificateManagerPCA.Types.KeyAlgorithm
 import Amazonka.CertificateManagerPCA.Types.SigningAlgorithm
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration information for your private certificate
@@ -122,18 +123,18 @@ certificateAuthorityConfiguration_subject :: Lens.Lens' CertificateAuthorityConf
 certificateAuthorityConfiguration_subject = Lens.lens (\CertificateAuthorityConfiguration' {subject} -> subject) (\s@CertificateAuthorityConfiguration' {} a -> s {subject = a} :: CertificateAuthorityConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CertificateAuthorityConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CertificateAuthorityConfiguration"
       ( \x ->
           CertificateAuthorityConfiguration'
-            Prelude.<$> (x Core..:? "CsrExtensions")
-            Prelude.<*> (x Core..: "KeyAlgorithm")
-            Prelude.<*> (x Core..: "SigningAlgorithm")
-            Prelude.<*> (x Core..: "Subject")
+            Prelude.<$> (x Data..:? "CsrExtensions")
+            Prelude.<*> (x Data..: "KeyAlgorithm")
+            Prelude.<*> (x Data..: "SigningAlgorithm")
+            Prelude.<*> (x Data..: "Subject")
       )
 
 instance
@@ -159,16 +160,16 @@ instance
       `Prelude.seq` Prelude.rnf subject
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CertificateAuthorityConfiguration
   where
   toJSON CertificateAuthorityConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CsrExtensions" Core..=) Prelude.<$> csrExtensions,
-            Prelude.Just ("KeyAlgorithm" Core..= keyAlgorithm),
+          [ ("CsrExtensions" Data..=) Prelude.<$> csrExtensions,
+            Prelude.Just ("KeyAlgorithm" Data..= keyAlgorithm),
             Prelude.Just
-              ("SigningAlgorithm" Core..= signingAlgorithm),
-            Prelude.Just ("Subject" Core..= subject)
+              ("SigningAlgorithm" Data..= signingAlgorithm),
+            Prelude.Just ("Subject" Data..= subject)
           ]
       )

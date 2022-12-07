@@ -104,6 +104,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -657,52 +658,52 @@ instance Prelude.NFData UpdateAutoScalingGroup where
       `Prelude.seq` Prelude.rnf
         autoScalingGroupName
 
-instance Core.ToHeaders UpdateAutoScalingGroup where
+instance Data.ToHeaders UpdateAutoScalingGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateAutoScalingGroup where
+instance Data.ToPath UpdateAutoScalingGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAutoScalingGroup where
+instance Data.ToQuery UpdateAutoScalingGroup where
   toQuery UpdateAutoScalingGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateAutoScalingGroup" :: Prelude.ByteString),
+          Data.=: ("UpdateAutoScalingGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
         "AvailabilityZones"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> availabilityZones
             ),
         "HealthCheckGracePeriod"
-          Core.=: healthCheckGracePeriod,
-        "LaunchTemplate" Core.=: launchTemplate,
-        "ServiceLinkedRoleARN" Core.=: serviceLinkedRoleARN,
-        "Context" Core.=: context,
-        "MaxInstanceLifetime" Core.=: maxInstanceLifetime,
-        "VPCZoneIdentifier" Core.=: vPCZoneIdentifier,
+          Data.=: healthCheckGracePeriod,
+        "LaunchTemplate" Data.=: launchTemplate,
+        "ServiceLinkedRoleARN" Data.=: serviceLinkedRoleARN,
+        "Context" Data.=: context,
+        "MaxInstanceLifetime" Data.=: maxInstanceLifetime,
+        "VPCZoneIdentifier" Data.=: vPCZoneIdentifier,
         "LaunchConfigurationName"
-          Core.=: launchConfigurationName,
+          Data.=: launchConfigurationName,
         "DefaultInstanceWarmup"
-          Core.=: defaultInstanceWarmup,
-        "MixedInstancesPolicy" Core.=: mixedInstancesPolicy,
-        "MinSize" Core.=: minSize,
-        "HealthCheckType" Core.=: healthCheckType,
-        "PlacementGroup" Core.=: placementGroup,
-        "DesiredCapacityType" Core.=: desiredCapacityType,
+          Data.=: defaultInstanceWarmup,
+        "MixedInstancesPolicy" Data.=: mixedInstancesPolicy,
+        "MinSize" Data.=: minSize,
+        "HealthCheckType" Data.=: healthCheckType,
+        "PlacementGroup" Data.=: placementGroup,
+        "DesiredCapacityType" Data.=: desiredCapacityType,
         "NewInstancesProtectedFromScaleIn"
-          Core.=: newInstancesProtectedFromScaleIn',
-        "DefaultCooldown" Core.=: defaultCooldown,
+          Data.=: newInstancesProtectedFromScaleIn',
+        "DefaultCooldown" Data.=: defaultCooldown,
         "TerminationPolicies"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> terminationPolicies
             ),
-        "MaxSize" Core.=: maxSize,
-        "DesiredCapacity" Core.=: desiredCapacity,
-        "CapacityRebalance" Core.=: capacityRebalance,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+        "MaxSize" Data.=: maxSize,
+        "DesiredCapacity" Data.=: desiredCapacity,
+        "CapacityRebalance" Data.=: capacityRebalance,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newUpdateAutoScalingGroupResponse' smart constructor.

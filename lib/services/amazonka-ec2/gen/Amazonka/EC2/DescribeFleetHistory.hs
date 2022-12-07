@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,7 +86,7 @@ data DescribeFleetHistory = DescribeFleetHistory'
     fleetId :: Prelude.Text,
     -- | The start date and time for the events, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    startTime :: Core.ISO8601
+    startTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -128,7 +129,7 @@ newDescribeFleetHistory pFleetId_ pStartTime_ =
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       fleetId = pFleetId_,
-      startTime = Core._Time Lens.# pStartTime_
+      startTime = Data._Time Lens.# pStartTime_
     }
 
 -- | The type of events to describe. By default, all events are described.
@@ -160,7 +161,7 @@ describeFleetHistory_fleetId = Lens.lens (\DescribeFleetHistory' {fleetId} -> fl
 -- | The start date and time for the events, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 describeFleetHistory_startTime :: Lens.Lens' DescribeFleetHistory Prelude.UTCTime
-describeFleetHistory_startTime = Lens.lens (\DescribeFleetHistory' {startTime} -> startTime) (\s@DescribeFleetHistory' {} a -> s {startTime = a} :: DescribeFleetHistory) Prelude.. Core._Time
+describeFleetHistory_startTime = Lens.lens (\DescribeFleetHistory' {startTime} -> startTime) (\s@DescribeFleetHistory' {} a -> s {startTime = a} :: DescribeFleetHistory) Prelude.. Data._Time
 
 instance Core.AWSRequest DescribeFleetHistory where
   type
@@ -172,14 +173,14 @@ instance Core.AWSRequest DescribeFleetHistory where
     Response.receiveXML
       ( \s h x ->
           DescribeFleetHistoryResponse'
-            Prelude.<$> (x Core..@? "fleetId")
-            Prelude.<*> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "historyRecordSet"
+            Prelude.<$> (x Data..@? "fleetId")
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "historyRecordSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "startTime")
-            Prelude.<*> (x Core..@? "lastEvaluatedTime")
+            Prelude.<*> (x Data..@? "startTime")
+            Prelude.<*> (x Data..@? "lastEvaluatedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,25 +202,25 @@ instance Prelude.NFData DescribeFleetHistory where
       `Prelude.seq` Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders DescribeFleetHistory where
+instance Data.ToHeaders DescribeFleetHistory where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeFleetHistory where
+instance Data.ToPath DescribeFleetHistory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFleetHistory where
+instance Data.ToQuery DescribeFleetHistory where
   toQuery DescribeFleetHistory' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeFleetHistory" :: Prelude.ByteString),
+          Data.=: ("DescribeFleetHistory" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "EventType" Core.=: eventType,
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        "FleetId" Core.=: fleetId,
-        "StartTime" Core.=: startTime
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "EventType" Data.=: eventType,
+        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        "FleetId" Data.=: fleetId,
+        "StartTime" Data.=: startTime
       ]
 
 -- | /See:/ 'newDescribeFleetHistoryResponse' smart constructor.
@@ -232,14 +233,14 @@ data DescribeFleetHistoryResponse = DescribeFleetHistoryResponse'
     historyRecords :: Prelude.Maybe [HistoryRecordEntry],
     -- | The start date and time for the events, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    startTime :: Prelude.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The last date and time for the events, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). All records up to this time were
     -- retrieved.
     --
     -- If @nextToken@ indicates that there are more results, this value is not
     -- present.
-    lastEvaluatedTime :: Prelude.Maybe Core.ISO8601,
+    lastEvaluatedTime :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -300,7 +301,7 @@ describeFleetHistoryResponse_historyRecords = Lens.lens (\DescribeFleetHistoryRe
 -- | The start date and time for the events, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 describeFleetHistoryResponse_startTime :: Lens.Lens' DescribeFleetHistoryResponse (Prelude.Maybe Prelude.UTCTime)
-describeFleetHistoryResponse_startTime = Lens.lens (\DescribeFleetHistoryResponse' {startTime} -> startTime) (\s@DescribeFleetHistoryResponse' {} a -> s {startTime = a} :: DescribeFleetHistoryResponse) Prelude.. Lens.mapping Core._Time
+describeFleetHistoryResponse_startTime = Lens.lens (\DescribeFleetHistoryResponse' {startTime} -> startTime) (\s@DescribeFleetHistoryResponse' {} a -> s {startTime = a} :: DescribeFleetHistoryResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The last date and time for the events, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). All records up to this time were
@@ -309,7 +310,7 @@ describeFleetHistoryResponse_startTime = Lens.lens (\DescribeFleetHistoryRespons
 -- If @nextToken@ indicates that there are more results, this value is not
 -- present.
 describeFleetHistoryResponse_lastEvaluatedTime :: Lens.Lens' DescribeFleetHistoryResponse (Prelude.Maybe Prelude.UTCTime)
-describeFleetHistoryResponse_lastEvaluatedTime = Lens.lens (\DescribeFleetHistoryResponse' {lastEvaluatedTime} -> lastEvaluatedTime) (\s@DescribeFleetHistoryResponse' {} a -> s {lastEvaluatedTime = a} :: DescribeFleetHistoryResponse) Prelude.. Lens.mapping Core._Time
+describeFleetHistoryResponse_lastEvaluatedTime = Lens.lens (\DescribeFleetHistoryResponse' {lastEvaluatedTime} -> lastEvaluatedTime) (\s@DescribeFleetHistoryResponse' {} a -> s {lastEvaluatedTime = a} :: DescribeFleetHistoryResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeFleetHistoryResponse_httpStatus :: Lens.Lens' DescribeFleetHistoryResponse Prelude.Int

@@ -24,6 +24,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorMuxType
 import Amazonka.ChimeSdkMediaPipelines.Types.SourceConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The media pipeline\'s configuration object.
@@ -36,7 +37,7 @@ data ChimeSdkMeetingLiveConnectorConfiguration = ChimeSdkMeetingLiveConnectorCon
     -- | The media pipeline\'s composited video.
     compositedVideo :: Prelude.Maybe CompositedVideoArtifactsConfiguration,
     -- | The configuration object\'s Chime SDK meeting ARN.
-    arn :: Core.Sensitive Prelude.Text,
+    arn :: Data.Sensitive Prelude.Text,
     -- | The configuration object\'s multiplex type.
     muxType :: LiveConnectorMuxType
   }
@@ -73,7 +74,7 @@ newChimeSdkMeetingLiveConnectorConfiguration
         compositedVideo =
           Prelude.Nothing,
         arn =
-          Core._Sensitive Lens.# pArn_,
+          Data._Sensitive Lens.# pArn_,
         muxType = pMuxType_
       }
 
@@ -88,25 +89,25 @@ chimeSdkMeetingLiveConnectorConfiguration_compositedVideo = Lens.lens (\ChimeSdk
 
 -- | The configuration object\'s Chime SDK meeting ARN.
 chimeSdkMeetingLiveConnectorConfiguration_arn :: Lens.Lens' ChimeSdkMeetingLiveConnectorConfiguration Prelude.Text
-chimeSdkMeetingLiveConnectorConfiguration_arn = Lens.lens (\ChimeSdkMeetingLiveConnectorConfiguration' {arn} -> arn) (\s@ChimeSdkMeetingLiveConnectorConfiguration' {} a -> s {arn = a} :: ChimeSdkMeetingLiveConnectorConfiguration) Prelude.. Core._Sensitive
+chimeSdkMeetingLiveConnectorConfiguration_arn = Lens.lens (\ChimeSdkMeetingLiveConnectorConfiguration' {arn} -> arn) (\s@ChimeSdkMeetingLiveConnectorConfiguration' {} a -> s {arn = a} :: ChimeSdkMeetingLiveConnectorConfiguration) Prelude.. Data._Sensitive
 
 -- | The configuration object\'s multiplex type.
 chimeSdkMeetingLiveConnectorConfiguration_muxType :: Lens.Lens' ChimeSdkMeetingLiveConnectorConfiguration LiveConnectorMuxType
 chimeSdkMeetingLiveConnectorConfiguration_muxType = Lens.lens (\ChimeSdkMeetingLiveConnectorConfiguration' {muxType} -> muxType) (\s@ChimeSdkMeetingLiveConnectorConfiguration' {} a -> s {muxType = a} :: ChimeSdkMeetingLiveConnectorConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ChimeSdkMeetingLiveConnectorConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChimeSdkMeetingLiveConnectorConfiguration"
       ( \x ->
           ChimeSdkMeetingLiveConnectorConfiguration'
-            Prelude.<$> (x Core..:? "SourceConfiguration")
-              Prelude.<*> (x Core..:? "CompositedVideo")
-              Prelude.<*> (x Core..: "Arn")
-              Prelude.<*> (x Core..: "MuxType")
+            Prelude.<$> (x Data..:? "SourceConfiguration")
+              Prelude.<*> (x Data..:? "CompositedVideo")
+              Prelude.<*> (x Data..: "Arn")
+              Prelude.<*> (x Data..: "MuxType")
       )
 
 instance
@@ -132,17 +133,17 @@ instance
       `Prelude.seq` Prelude.rnf muxType
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ChimeSdkMeetingLiveConnectorConfiguration
   where
   toJSON ChimeSdkMeetingLiveConnectorConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceConfiguration" Core..=)
+          [ ("SourceConfiguration" Data..=)
               Prelude.<$> sourceConfiguration,
-            ("CompositedVideo" Core..=)
+            ("CompositedVideo" Data..=)
               Prelude.<$> compositedVideo,
-            Prelude.Just ("Arn" Core..= arn),
-            Prelude.Just ("MuxType" Core..= muxType)
+            Prelude.Just ("Arn" Data..= arn),
+            Prelude.Just ("MuxType" Data..= muxType)
           ]
       )

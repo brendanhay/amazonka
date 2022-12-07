@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -118,12 +119,12 @@ instance Core.AWSRequest ModifyActivityStream where
       "ModifyActivityStreamResult"
       ( \s h x ->
           ModifyActivityStreamResponse'
-            Prelude.<$> (x Core..@? "Status")
-            Prelude.<*> (x Core..@? "PolicyStatus")
-            Prelude.<*> (x Core..@? "EngineNativeAuditFieldsIncluded")
-            Prelude.<*> (x Core..@? "KinesisStreamName")
-            Prelude.<*> (x Core..@? "Mode")
-            Prelude.<*> (x Core..@? "KmsKeyId")
+            Prelude.<$> (x Data..@? "Status")
+            Prelude.<*> (x Data..@? "PolicyStatus")
+            Prelude.<*> (x Data..@? "EngineNativeAuditFieldsIncluded")
+            Prelude.<*> (x Data..@? "KinesisStreamName")
+            Prelude.<*> (x Data..@? "Mode")
+            Prelude.<*> (x Data..@? "KmsKeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,21 +138,21 @@ instance Prelude.NFData ModifyActivityStream where
     Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf auditPolicyState
 
-instance Core.ToHeaders ModifyActivityStream where
+instance Data.ToHeaders ModifyActivityStream where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyActivityStream where
+instance Data.ToPath ModifyActivityStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyActivityStream where
+instance Data.ToQuery ModifyActivityStream where
   toQuery ModifyActivityStream' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyActivityStream" :: Prelude.ByteString),
+          Data.=: ("ModifyActivityStream" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "ResourceArn" Core.=: resourceArn,
-        "AuditPolicyState" Core.=: auditPolicyState
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "ResourceArn" Data.=: resourceArn,
+        "AuditPolicyState" Data.=: auditPolicyState
       ]
 
 -- | /See:/ 'newModifyActivityStreamResponse' smart constructor.

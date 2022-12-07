@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.KubernetesAuditLogsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes whether Kubernetes audit logs are enabled as a data source.
@@ -71,9 +72,9 @@ instance
   rnf KubernetesAuditLogsConfiguration' {..} =
     Prelude.rnf enable
 
-instance Core.ToJSON KubernetesAuditLogsConfiguration where
+instance Data.ToJSON KubernetesAuditLogsConfiguration where
   toJSON KubernetesAuditLogsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("enable" Core..= enable)]
+          [Prelude.Just ("enable" Data..= enable)]
       )

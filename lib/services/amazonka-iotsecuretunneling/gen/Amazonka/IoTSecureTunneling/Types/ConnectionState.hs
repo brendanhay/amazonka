@@ -21,6 +21,7 @@ module Amazonka.IoTSecureTunneling.Types.ConnectionState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSecureTunneling.Types.ConnectionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newConnectionState' smart constructor.
 data ConnectionState = ConnectionState'
   { -- | The last time the connection status was updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The connection status of the tunnel. Valid values are @CONNECTED@ and
     -- @DISCONNECTED@.
     status :: Prelude.Maybe ConnectionStatus
@@ -58,21 +59,21 @@ newConnectionState =
 
 -- | The last time the connection status was updated.
 connectionState_lastUpdatedAt :: Lens.Lens' ConnectionState (Prelude.Maybe Prelude.UTCTime)
-connectionState_lastUpdatedAt = Lens.lens (\ConnectionState' {lastUpdatedAt} -> lastUpdatedAt) (\s@ConnectionState' {} a -> s {lastUpdatedAt = a} :: ConnectionState) Prelude.. Lens.mapping Core._Time
+connectionState_lastUpdatedAt = Lens.lens (\ConnectionState' {lastUpdatedAt} -> lastUpdatedAt) (\s@ConnectionState' {} a -> s {lastUpdatedAt = a} :: ConnectionState) Prelude.. Lens.mapping Data._Time
 
 -- | The connection status of the tunnel. Valid values are @CONNECTED@ and
 -- @DISCONNECTED@.
 connectionState_status :: Lens.Lens' ConnectionState (Prelude.Maybe ConnectionStatus)
 connectionState_status = Lens.lens (\ConnectionState' {status} -> status) (\s@ConnectionState' {} a -> s {status = a} :: ConnectionState)
 
-instance Core.FromJSON ConnectionState where
+instance Data.FromJSON ConnectionState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionState"
       ( \x ->
           ConnectionState'
-            Prelude.<$> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "status")
+            Prelude.<$> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable ConnectionState where

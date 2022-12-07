@@ -51,6 +51,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,7 +60,7 @@ import qualified Amazonka.Response as Response
 data ListChannelModerators = ListChannelModerators'
   { -- | The token passed by previous API calls until all requested moderators
     -- are returned.
-    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The @AppInstanceUserArn@ of the user that makes the API call.
     chimeBearer :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of moderators that you want returned.
@@ -100,7 +101,7 @@ newListChannelModerators pChannelArn_ =
 -- | The token passed by previous API calls until all requested moderators
 -- are returned.
 listChannelModerators_nextToken :: Lens.Lens' ListChannelModerators (Prelude.Maybe Prelude.Text)
-listChannelModerators_nextToken = Lens.lens (\ListChannelModerators' {nextToken} -> nextToken) (\s@ListChannelModerators' {} a -> s {nextToken = a} :: ListChannelModerators) Prelude.. Lens.mapping Core._Sensitive
+listChannelModerators_nextToken = Lens.lens (\ListChannelModerators' {nextToken} -> nextToken) (\s@ListChannelModerators' {} a -> s {nextToken = a} :: ListChannelModerators) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The @AppInstanceUserArn@ of the user that makes the API call.
 listChannelModerators_chimeBearer :: Lens.Lens' ListChannelModerators (Prelude.Maybe Prelude.Text)
@@ -124,11 +125,11 @@ instance Core.AWSRequest ListChannelModerators where
     Response.receiveJSON
       ( \s h x ->
           ListChannelModeratorsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ChannelModerators"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ChannelModerators"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ChannelArn")
+            Prelude.<*> (x Data..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,28 +147,28 @@ instance Prelude.NFData ListChannelModerators where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf channelArn
 
-instance Core.ToHeaders ListChannelModerators where
+instance Data.ToHeaders ListChannelModerators where
   toHeaders ListChannelModerators' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToPath ListChannelModerators where
+instance Data.ToPath ListChannelModerators where
   toPath ListChannelModerators' {..} =
     Prelude.mconcat
-      ["/channels/", Core.toBS channelArn, "/moderators"]
+      ["/channels/", Data.toBS channelArn, "/moderators"]
 
-instance Core.ToQuery ListChannelModerators where
+instance Data.ToQuery ListChannelModerators where
   toQuery ListChannelModerators' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListChannelModeratorsResponse' smart constructor.
 data ListChannelModeratorsResponse = ListChannelModeratorsResponse'
   { -- | The token passed by previous API calls until all requested moderators
     -- are returned.
-    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The information about and names of each moderator.
     channelModerators :: Prelude.Maybe [ChannelModeratorSummary],
     -- | The ARN of the channel.
@@ -209,7 +210,7 @@ newListChannelModeratorsResponse pHttpStatus_ =
 -- | The token passed by previous API calls until all requested moderators
 -- are returned.
 listChannelModeratorsResponse_nextToken :: Lens.Lens' ListChannelModeratorsResponse (Prelude.Maybe Prelude.Text)
-listChannelModeratorsResponse_nextToken = Lens.lens (\ListChannelModeratorsResponse' {nextToken} -> nextToken) (\s@ListChannelModeratorsResponse' {} a -> s {nextToken = a} :: ListChannelModeratorsResponse) Prelude.. Lens.mapping Core._Sensitive
+listChannelModeratorsResponse_nextToken = Lens.lens (\ListChannelModeratorsResponse' {nextToken} -> nextToken) (\s@ListChannelModeratorsResponse' {} a -> s {nextToken = a} :: ListChannelModeratorsResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The information about and names of each moderator.
 listChannelModeratorsResponse_channelModerators :: Lens.Lens' ListChannelModeratorsResponse (Prelude.Maybe [ChannelModeratorSummary])

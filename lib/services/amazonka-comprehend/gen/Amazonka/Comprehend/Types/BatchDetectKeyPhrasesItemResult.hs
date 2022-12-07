@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.BatchDetectKeyPhrasesItemResult where
 import Amazonka.Comprehend.Types.KeyPhrase
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The result of calling the operation. The operation returns one object
@@ -68,16 +69,16 @@ batchDetectKeyPhrasesItemResult_keyPhrases :: Lens.Lens' BatchDetectKeyPhrasesIt
 batchDetectKeyPhrasesItemResult_keyPhrases = Lens.lens (\BatchDetectKeyPhrasesItemResult' {keyPhrases} -> keyPhrases) (\s@BatchDetectKeyPhrasesItemResult' {} a -> s {keyPhrases = a} :: BatchDetectKeyPhrasesItemResult) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchDetectKeyPhrasesItemResult
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDetectKeyPhrasesItemResult"
       ( \x ->
           BatchDetectKeyPhrasesItemResult'
-            Prelude.<$> (x Core..:? "Index")
-            Prelude.<*> (x Core..:? "KeyPhrases" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Index")
+            Prelude.<*> (x Data..:? "KeyPhrases" Data..!= Prelude.mempty)
       )
 
 instance

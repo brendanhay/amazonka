@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.UpdateGlobalSecondaryIndexAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ProvisionedThroughput
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -106,14 +107,14 @@ instance
     Prelude.rnf indexName
       `Prelude.seq` Prelude.rnf provisionedThroughput
 
-instance Core.ToJSON UpdateGlobalSecondaryIndexAction where
+instance Data.ToJSON UpdateGlobalSecondaryIndexAction where
   toJSON UpdateGlobalSecondaryIndexAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("IndexName" Core..= indexName),
+          [ Prelude.Just ("IndexName" Data..= indexName),
             Prelude.Just
               ( "ProvisionedThroughput"
-                  Core..= provisionedThroughput
+                  Data..= provisionedThroughput
               )
           ]
       )

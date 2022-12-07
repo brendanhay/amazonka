@@ -48,6 +48,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,8 +168,8 @@ instance Core.AWSRequest ListActionExecutions where
     Response.receiveJSON
       ( \s h x ->
           ListActionExecutionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "actionExecutionDetails"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "actionExecutionDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -188,36 +189,36 @@ instance Prelude.NFData ListActionExecutions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf pipelineName
 
-instance Core.ToHeaders ListActionExecutions where
+instance Data.ToHeaders ListActionExecutions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.ListActionExecutions" ::
+              Data.=# ( "CodePipeline_20150709.ListActionExecutions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListActionExecutions where
+instance Data.ToJSON ListActionExecutions where
   toJSON ListActionExecutions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filter" Core..=) Prelude.<$> filter',
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("pipelineName" Core..= pipelineName)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filter" Data..=) Prelude.<$> filter',
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("pipelineName" Data..= pipelineName)
           ]
       )
 
-instance Core.ToPath ListActionExecutions where
+instance Data.ToPath ListActionExecutions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListActionExecutions where
+instance Data.ToQuery ListActionExecutions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListActionExecutionsResponse' smart constructor.

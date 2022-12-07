@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.AutoSnapshotAddOnRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a request to enable or modify the automatic snapshot add-on
@@ -121,11 +122,11 @@ instance Prelude.NFData AutoSnapshotAddOnRequest where
   rnf AutoSnapshotAddOnRequest' {..} =
     Prelude.rnf snapshotTimeOfDay
 
-instance Core.ToJSON AutoSnapshotAddOnRequest where
+instance Data.ToJSON AutoSnapshotAddOnRequest where
   toJSON AutoSnapshotAddOnRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("snapshotTimeOfDay" Core..=)
+          [ ("snapshotTimeOfDay" Data..=)
               Prelude.<$> snapshotTimeOfDay
           ]
       )

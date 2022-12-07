@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -68,7 +69,7 @@ instance Core.AWSRequest GetAdministratorAccount where
     Response.receiveJSON
       ( \s h x ->
           GetAdministratorAccountResponse'
-            Prelude.<$> (x Core..?> "administrator")
+            Prelude.<$> (x Data..?> "administrator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -79,21 +80,21 @@ instance Prelude.Hashable GetAdministratorAccount where
 instance Prelude.NFData GetAdministratorAccount where
   rnf _ = ()
 
-instance Core.ToHeaders GetAdministratorAccount where
+instance Data.ToHeaders GetAdministratorAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetAdministratorAccount where
+instance Data.ToPath GetAdministratorAccount where
   toPath = Prelude.const "/administrator"
 
-instance Core.ToQuery GetAdministratorAccount where
+instance Data.ToQuery GetAdministratorAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAdministratorAccountResponse' smart constructor.

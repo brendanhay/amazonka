@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.ListedServer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.Domain
 import Amazonka.Transfer.Types.EndpointType
@@ -227,20 +228,20 @@ listedServer_serverId = Lens.lens (\ListedServer' {serverId} -> serverId) (\s@Li
 listedServer_arn :: Lens.Lens' ListedServer Prelude.Text
 listedServer_arn = Lens.lens (\ListedServer' {arn} -> arn) (\s@ListedServer' {} a -> s {arn = a} :: ListedServer)
 
-instance Core.FromJSON ListedServer where
+instance Data.FromJSON ListedServer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListedServer"
       ( \x ->
           ListedServer'
-            Prelude.<$> (x Core..:? "UserCount")
-            Prelude.<*> (x Core..:? "Domain")
-            Prelude.<*> (x Core..:? "IdentityProviderType")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "EndpointType")
-            Prelude.<*> (x Core..:? "LoggingRole")
-            Prelude.<*> (x Core..:? "ServerId")
-            Prelude.<*> (x Core..: "Arn")
+            Prelude.<$> (x Data..:? "UserCount")
+            Prelude.<*> (x Data..:? "Domain")
+            Prelude.<*> (x Data..:? "IdentityProviderType")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "EndpointType")
+            Prelude.<*> (x Data..:? "LoggingRole")
+            Prelude.<*> (x Data..:? "ServerId")
+            Prelude.<*> (x Data..: "Arn")
       )
 
 instance Prelude.Hashable ListedServer where

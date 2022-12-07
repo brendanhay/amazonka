@@ -21,6 +21,7 @@ module Amazonka.S3.Types.CompletedMultipartUpload where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.CompletedPart
@@ -68,9 +69,9 @@ instance Prelude.Hashable CompletedMultipartUpload where
 instance Prelude.NFData CompletedMultipartUpload where
   rnf CompletedMultipartUpload' {..} = Prelude.rnf parts
 
-instance Core.ToXML CompletedMultipartUpload where
+instance Data.ToXML CompletedMultipartUpload where
   toXML CompletedMultipartUpload' {..} =
     Prelude.mconcat
-      [ Core.toXML
-          (Core.toXMLList "Part" Prelude.<$> parts)
+      [ Data.toXML
+          (Data.toXMLList "Part" Prelude.<$> parts)
       ]

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -150,40 +151,40 @@ instance Prelude.NFData UpdateFeatureMetadata where
       `Prelude.seq` Prelude.rnf featureGroupName
       `Prelude.seq` Prelude.rnf featureName
 
-instance Core.ToHeaders UpdateFeatureMetadata where
+instance Data.ToHeaders UpdateFeatureMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.UpdateFeatureMetadata" ::
+              Data.=# ( "SageMaker.UpdateFeatureMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFeatureMetadata where
+instance Data.ToJSON UpdateFeatureMetadata where
   toJSON UpdateFeatureMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ParameterRemovals" Core..=)
+          [ ("ParameterRemovals" Data..=)
               Prelude.<$> parameterRemovals,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ParameterAdditions" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("ParameterAdditions" Data..=)
               Prelude.<$> parameterAdditions,
             Prelude.Just
-              ("FeatureGroupName" Core..= featureGroupName),
-            Prelude.Just ("FeatureName" Core..= featureName)
+              ("FeatureGroupName" Data..= featureGroupName),
+            Prelude.Just ("FeatureName" Data..= featureName)
           ]
       )
 
-instance Core.ToPath UpdateFeatureMetadata where
+instance Data.ToPath UpdateFeatureMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateFeatureMetadata where
+instance Data.ToQuery UpdateFeatureMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFeatureMetadataResponse' smart constructor.

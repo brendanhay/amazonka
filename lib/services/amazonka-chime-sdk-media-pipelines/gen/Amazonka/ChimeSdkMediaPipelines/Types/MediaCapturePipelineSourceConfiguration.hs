@@ -22,6 +22,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.MediaCapturePipelineSourceConfigura
 import Amazonka.ChimeSdkMediaPipelines.Types.ChimeSdkMeetingConcatenationConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The source configuration object of a media capture pipeline.
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data MediaCapturePipelineSourceConfiguration = MediaCapturePipelineSourceConfiguration'
   { -- | The media pipeline ARN in the configuration object of a media capture
     -- pipeline.
-    mediaPipelineArn :: Core.Sensitive Prelude.Text,
+    mediaPipelineArn :: Data.Sensitive Prelude.Text,
     -- | The meeting configuration settings in a media capture pipeline
     -- configuration object.
     chimeSdkMeetingConfiguration :: ChimeSdkMeetingConcatenationConfiguration
@@ -61,7 +62,7 @@ newMediaCapturePipelineSourceConfiguration
   pChimeSdkMeetingConfiguration_ =
     MediaCapturePipelineSourceConfiguration'
       { mediaPipelineArn =
-          Core._Sensitive
+          Data._Sensitive
             Lens.# pMediaPipelineArn_,
         chimeSdkMeetingConfiguration =
           pChimeSdkMeetingConfiguration_
@@ -70,7 +71,7 @@ newMediaCapturePipelineSourceConfiguration
 -- | The media pipeline ARN in the configuration object of a media capture
 -- pipeline.
 mediaCapturePipelineSourceConfiguration_mediaPipelineArn :: Lens.Lens' MediaCapturePipelineSourceConfiguration Prelude.Text
-mediaCapturePipelineSourceConfiguration_mediaPipelineArn = Lens.lens (\MediaCapturePipelineSourceConfiguration' {mediaPipelineArn} -> mediaPipelineArn) (\s@MediaCapturePipelineSourceConfiguration' {} a -> s {mediaPipelineArn = a} :: MediaCapturePipelineSourceConfiguration) Prelude.. Core._Sensitive
+mediaCapturePipelineSourceConfiguration_mediaPipelineArn = Lens.lens (\MediaCapturePipelineSourceConfiguration' {mediaPipelineArn} -> mediaPipelineArn) (\s@MediaCapturePipelineSourceConfiguration' {} a -> s {mediaPipelineArn = a} :: MediaCapturePipelineSourceConfiguration) Prelude.. Data._Sensitive
 
 -- | The meeting configuration settings in a media capture pipeline
 -- configuration object.
@@ -78,16 +79,16 @@ mediaCapturePipelineSourceConfiguration_chimeSdkMeetingConfiguration :: Lens.Len
 mediaCapturePipelineSourceConfiguration_chimeSdkMeetingConfiguration = Lens.lens (\MediaCapturePipelineSourceConfiguration' {chimeSdkMeetingConfiguration} -> chimeSdkMeetingConfiguration) (\s@MediaCapturePipelineSourceConfiguration' {} a -> s {chimeSdkMeetingConfiguration = a} :: MediaCapturePipelineSourceConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MediaCapturePipelineSourceConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MediaCapturePipelineSourceConfiguration"
       ( \x ->
           MediaCapturePipelineSourceConfiguration'
-            Prelude.<$> (x Core..: "MediaPipelineArn")
-            Prelude.<*> (x Core..: "ChimeSdkMeetingConfiguration")
+            Prelude.<$> (x Data..: "MediaPipelineArn")
+            Prelude.<*> (x Data..: "ChimeSdkMeetingConfiguration")
       )
 
 instance
@@ -109,17 +110,17 @@ instance
       `Prelude.seq` Prelude.rnf chimeSdkMeetingConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     MediaCapturePipelineSourceConfiguration
   where
   toJSON MediaCapturePipelineSourceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("MediaPipelineArn" Core..= mediaPipelineArn),
+              ("MediaPipelineArn" Data..= mediaPipelineArn),
             Prelude.Just
               ( "ChimeSdkMeetingConfiguration"
-                  Core..= chimeSdkMeetingConfiguration
+                  Data..= chimeSdkMeetingConfiguration
               )
           ]
       )

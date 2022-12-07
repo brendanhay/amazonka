@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.DTMFSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the DTMF input specifications.
@@ -100,16 +101,16 @@ dTMFSpecification_deletionCharacter = Lens.lens (\DTMFSpecification' {deletionCh
 dTMFSpecification_endCharacter :: Lens.Lens' DTMFSpecification Prelude.Text
 dTMFSpecification_endCharacter = Lens.lens (\DTMFSpecification' {endCharacter} -> endCharacter) (\s@DTMFSpecification' {} a -> s {endCharacter = a} :: DTMFSpecification)
 
-instance Core.FromJSON DTMFSpecification where
+instance Data.FromJSON DTMFSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DTMFSpecification"
       ( \x ->
           DTMFSpecification'
-            Prelude.<$> (x Core..: "maxLength")
-            Prelude.<*> (x Core..: "endTimeoutMs")
-            Prelude.<*> (x Core..: "deletionCharacter")
-            Prelude.<*> (x Core..: "endCharacter")
+            Prelude.<$> (x Data..: "maxLength")
+            Prelude.<*> (x Data..: "endTimeoutMs")
+            Prelude.<*> (x Data..: "deletionCharacter")
+            Prelude.<*> (x Data..: "endCharacter")
       )
 
 instance Prelude.Hashable DTMFSpecification where
@@ -126,14 +127,14 @@ instance Prelude.NFData DTMFSpecification where
       `Prelude.seq` Prelude.rnf deletionCharacter
       `Prelude.seq` Prelude.rnf endCharacter
 
-instance Core.ToJSON DTMFSpecification where
+instance Data.ToJSON DTMFSpecification where
   toJSON DTMFSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("maxLength" Core..= maxLength),
-            Prelude.Just ("endTimeoutMs" Core..= endTimeoutMs),
+          [ Prelude.Just ("maxLength" Data..= maxLength),
+            Prelude.Just ("endTimeoutMs" Data..= endTimeoutMs),
             Prelude.Just
-              ("deletionCharacter" Core..= deletionCharacter),
-            Prelude.Just ("endCharacter" Core..= endCharacter)
+              ("deletionCharacter" Data..= deletionCharacter),
+            Prelude.Just ("endCharacter" Data..= endCharacter)
           ]
       )

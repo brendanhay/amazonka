@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.WirelessDeviceEventLogOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.LogLevel
 import Amazonka.IoTWireless.Types.WirelessDeviceEvent
 import qualified Amazonka.Prelude as Prelude
@@ -71,14 +72,14 @@ wirelessDeviceEventLogOption_event = Lens.lens (\WirelessDeviceEventLogOption' {
 wirelessDeviceEventLogOption_logLevel :: Lens.Lens' WirelessDeviceEventLogOption LogLevel
 wirelessDeviceEventLogOption_logLevel = Lens.lens (\WirelessDeviceEventLogOption' {logLevel} -> logLevel) (\s@WirelessDeviceEventLogOption' {} a -> s {logLevel = a} :: WirelessDeviceEventLogOption)
 
-instance Core.FromJSON WirelessDeviceEventLogOption where
+instance Data.FromJSON WirelessDeviceEventLogOption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WirelessDeviceEventLogOption"
       ( \x ->
           WirelessDeviceEventLogOption'
-            Prelude.<$> (x Core..: "Event")
-            Prelude.<*> (x Core..: "LogLevel")
+            Prelude.<$> (x Data..: "Event")
+            Prelude.<*> (x Data..: "LogLevel")
       )
 
 instance
@@ -94,11 +95,11 @@ instance Prelude.NFData WirelessDeviceEventLogOption where
     Prelude.rnf event
       `Prelude.seq` Prelude.rnf logLevel
 
-instance Core.ToJSON WirelessDeviceEventLogOption where
+instance Data.ToJSON WirelessDeviceEventLogOption where
   toJSON WirelessDeviceEventLogOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Event" Core..= event),
-            Prelude.Just ("LogLevel" Core..= logLevel)
+          [ Prelude.Just ("Event" Data..= event),
+            Prelude.Just ("LogLevel" Data..= logLevel)
           ]
       )

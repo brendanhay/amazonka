@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.CreateFileSystemLustreConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.AutoImportPolicyType
 import Amazonka.FSx.Types.DataCompressionType
 import Amazonka.FSx.Types.DriveCacheType
@@ -728,37 +729,37 @@ instance
       `Prelude.seq` Prelude.rnf rootSquashConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateFileSystemLustreConfiguration
   where
   toJSON CreateFileSystemLustreConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CopyTagsToBackups" Core..=)
+          [ ("CopyTagsToBackups" Data..=)
               Prelude.<$> copyTagsToBackups,
-            ("DriveCacheType" Core..=)
+            ("DriveCacheType" Data..=)
               Prelude.<$> driveCacheType,
-            ("WeeklyMaintenanceStartTime" Core..=)
+            ("WeeklyMaintenanceStartTime" Data..=)
               Prelude.<$> weeklyMaintenanceStartTime,
-            ("LogConfiguration" Core..=)
+            ("LogConfiguration" Data..=)
               Prelude.<$> logConfiguration,
-            ("AutomaticBackupRetentionDays" Core..=)
+            ("AutomaticBackupRetentionDays" Data..=)
               Prelude.<$> automaticBackupRetentionDays,
-            ("ImportedFileChunkSize" Core..=)
+            ("ImportedFileChunkSize" Data..=)
               Prelude.<$> importedFileChunkSize,
-            ("ImportPath" Core..=) Prelude.<$> importPath,
-            ("AutoImportPolicy" Core..=)
+            ("ImportPath" Data..=) Prelude.<$> importPath,
+            ("AutoImportPolicy" Data..=)
               Prelude.<$> autoImportPolicy,
-            ("DeploymentType" Core..=)
+            ("DeploymentType" Data..=)
               Prelude.<$> deploymentType,
-            ("ExportPath" Core..=) Prelude.<$> exportPath,
-            ("DailyAutomaticBackupStartTime" Core..=)
+            ("ExportPath" Data..=) Prelude.<$> exportPath,
+            ("DailyAutomaticBackupStartTime" Data..=)
               Prelude.<$> dailyAutomaticBackupStartTime,
-            ("PerUnitStorageThroughput" Core..=)
+            ("PerUnitStorageThroughput" Data..=)
               Prelude.<$> perUnitStorageThroughput,
-            ("DataCompressionType" Core..=)
+            ("DataCompressionType" Data..=)
               Prelude.<$> dataCompressionType,
-            ("RootSquashConfiguration" Core..=)
+            ("RootSquashConfiguration" Data..=)
               Prelude.<$> rootSquashConfiguration
           ]
       )

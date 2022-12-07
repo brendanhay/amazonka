@@ -21,6 +21,7 @@ module Amazonka.CloudDirectory.Types.FacetAttributeReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The facet attribute reference that specifies the attribute definition
@@ -84,14 +85,14 @@ facetAttributeReference_targetFacetName = Lens.lens (\FacetAttributeReference' {
 facetAttributeReference_targetAttributeName :: Lens.Lens' FacetAttributeReference Prelude.Text
 facetAttributeReference_targetAttributeName = Lens.lens (\FacetAttributeReference' {targetAttributeName} -> targetAttributeName) (\s@FacetAttributeReference' {} a -> s {targetAttributeName = a} :: FacetAttributeReference)
 
-instance Core.FromJSON FacetAttributeReference where
+instance Data.FromJSON FacetAttributeReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FacetAttributeReference"
       ( \x ->
           FacetAttributeReference'
-            Prelude.<$> (x Core..: "TargetFacetName")
-            Prelude.<*> (x Core..: "TargetAttributeName")
+            Prelude.<$> (x Data..: "TargetFacetName")
+            Prelude.<*> (x Data..: "TargetAttributeName")
       )
 
 instance Prelude.Hashable FacetAttributeReference where
@@ -104,13 +105,13 @@ instance Prelude.NFData FacetAttributeReference where
     Prelude.rnf targetFacetName
       `Prelude.seq` Prelude.rnf targetAttributeName
 
-instance Core.ToJSON FacetAttributeReference where
+instance Data.ToJSON FacetAttributeReference where
   toJSON FacetAttributeReference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TargetFacetName" Core..= targetFacetName),
+              ("TargetFacetName" Data..= targetFacetName),
             Prelude.Just
-              ("TargetAttributeName" Core..= targetAttributeName)
+              ("TargetAttributeName" Data..= targetAttributeName)
           ]
       )

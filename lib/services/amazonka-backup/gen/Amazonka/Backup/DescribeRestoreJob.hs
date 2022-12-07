@@ -55,6 +55,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,19 +97,19 @@ instance Core.AWSRequest DescribeRestoreJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeRestoreJobResponse'
-            Prelude.<$> (x Core..?> "CreatedResourceArn")
-            Prelude.<*> (x Core..?> "ResourceType")
-            Prelude.<*> (x Core..?> "ExpectedCompletionTimeMinutes")
-            Prelude.<*> (x Core..?> "RecoveryPointArn")
-            Prelude.<*> (x Core..?> "CompletionDate")
-            Prelude.<*> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "BackupSizeInBytes")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "RestoreJobId")
-            Prelude.<*> (x Core..?> "IamRoleArn")
-            Prelude.<*> (x Core..?> "AccountId")
-            Prelude.<*> (x Core..?> "PercentDone")
-            Prelude.<*> (x Core..?> "StatusMessage")
+            Prelude.<$> (x Data..?> "CreatedResourceArn")
+            Prelude.<*> (x Data..?> "ResourceType")
+            Prelude.<*> (x Data..?> "ExpectedCompletionTimeMinutes")
+            Prelude.<*> (x Data..?> "RecoveryPointArn")
+            Prelude.<*> (x Data..?> "CompletionDate")
+            Prelude.<*> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "BackupSizeInBytes")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "RestoreJobId")
+            Prelude.<*> (x Data..?> "IamRoleArn")
+            Prelude.<*> (x Data..?> "AccountId")
+            Prelude.<*> (x Data..?> "PercentDone")
+            Prelude.<*> (x Data..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,23 +121,23 @@ instance Prelude.NFData DescribeRestoreJob where
   rnf DescribeRestoreJob' {..} =
     Prelude.rnf restoreJobId
 
-instance Core.ToHeaders DescribeRestoreJob where
+instance Data.ToHeaders DescribeRestoreJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeRestoreJob where
+instance Data.ToPath DescribeRestoreJob where
   toPath DescribeRestoreJob' {..} =
     Prelude.mconcat
-      ["/restore-jobs/", Core.toBS restoreJobId]
+      ["/restore-jobs/", Data.toBS restoreJobId]
 
-instance Core.ToQuery DescribeRestoreJob where
+instance Data.ToQuery DescribeRestoreJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRestoreJobResponse' smart constructor.
@@ -157,12 +158,12 @@ data DescribeRestoreJobResponse = DescribeRestoreJobResponse'
     -- in Unix format and Coordinated Universal Time (UTC). The value of
     -- @CompletionDate@ is accurate to milliseconds. For example, the value
     -- 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
-    completionDate :: Prelude.Maybe Core.POSIX,
+    completionDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time that a restore job is created, in Unix format and
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The size, in bytes, of the restored resource.
     backupSizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | Status code specifying the state of the job that is initiated by Backup
@@ -281,14 +282,14 @@ describeRestoreJobResponse_recoveryPointArn = Lens.lens (\DescribeRestoreJobResp
 -- @CompletionDate@ is accurate to milliseconds. For example, the value
 -- 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
 describeRestoreJobResponse_completionDate :: Lens.Lens' DescribeRestoreJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeRestoreJobResponse_completionDate = Lens.lens (\DescribeRestoreJobResponse' {completionDate} -> completionDate) (\s@DescribeRestoreJobResponse' {} a -> s {completionDate = a} :: DescribeRestoreJobResponse) Prelude.. Lens.mapping Core._Time
+describeRestoreJobResponse_completionDate = Lens.lens (\DescribeRestoreJobResponse' {completionDate} -> completionDate) (\s@DescribeRestoreJobResponse' {} a -> s {completionDate = a} :: DescribeRestoreJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that a restore job is created, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 describeRestoreJobResponse_creationDate :: Lens.Lens' DescribeRestoreJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeRestoreJobResponse_creationDate = Lens.lens (\DescribeRestoreJobResponse' {creationDate} -> creationDate) (\s@DescribeRestoreJobResponse' {} a -> s {creationDate = a} :: DescribeRestoreJobResponse) Prelude.. Lens.mapping Core._Time
+describeRestoreJobResponse_creationDate = Lens.lens (\DescribeRestoreJobResponse' {creationDate} -> creationDate) (\s@DescribeRestoreJobResponse' {} a -> s {creationDate = a} :: DescribeRestoreJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The size, in bytes, of the restored resource.
 describeRestoreJobResponse_backupSizeInBytes :: Lens.Lens' DescribeRestoreJobResponse (Prelude.Maybe Prelude.Integer)

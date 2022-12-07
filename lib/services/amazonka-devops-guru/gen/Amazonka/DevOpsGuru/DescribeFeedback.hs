@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -82,7 +83,7 @@ instance Core.AWSRequest DescribeFeedback where
     Response.receiveJSON
       ( \s h x ->
           DescribeFeedbackResponse'
-            Prelude.<$> (x Core..?> "InsightFeedback")
+            Prelude.<$> (x Data..?> "InsightFeedback")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -93,28 +94,28 @@ instance Prelude.Hashable DescribeFeedback where
 instance Prelude.NFData DescribeFeedback where
   rnf DescribeFeedback' {..} = Prelude.rnf insightId
 
-instance Core.ToHeaders DescribeFeedback where
+instance Data.ToHeaders DescribeFeedback where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFeedback where
+instance Data.ToJSON DescribeFeedback where
   toJSON DescribeFeedback' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("InsightId" Core..=) Prelude.<$> insightId]
+          [("InsightId" Data..=) Prelude.<$> insightId]
       )
 
-instance Core.ToPath DescribeFeedback where
+instance Data.ToPath DescribeFeedback where
   toPath = Prelude.const "/feedback"
 
-instance Core.ToQuery DescribeFeedback where
+instance Data.ToQuery DescribeFeedback where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFeedbackResponse' smart constructor.

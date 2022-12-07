@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,7 +132,7 @@ instance Core.AWSRequest ResetDBClusterParameterGroup where
   response =
     Response.receiveXMLWrapper
       "ResetDBClusterParameterGroupResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance
   Prelude.Hashable
@@ -148,27 +149,27 @@ instance Prelude.NFData ResetDBClusterParameterGroup where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
 
-instance Core.ToHeaders ResetDBClusterParameterGroup where
+instance Data.ToHeaders ResetDBClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ResetDBClusterParameterGroup where
+instance Data.ToPath ResetDBClusterParameterGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResetDBClusterParameterGroup where
+instance Data.ToQuery ResetDBClusterParameterGroup where
   toQuery ResetDBClusterParameterGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ResetDBClusterParameterGroup" ::
+          Data.=: ( "ResetDBClusterParameterGroup" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "ResetAllParameters" Core.=: resetAllParameters,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "ResetAllParameters" Data.=: resetAllParameters,
         "Parameters"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "Parameter"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "Parameter"
                 Prelude.<$> parameters
             ),
         "DBClusterParameterGroupName"
-          Core.=: dbClusterParameterGroupName
+          Data.=: dbClusterParameterGroupName
       ]

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.CreateColumnsOperation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.CalculatedColumn
 
@@ -57,13 +58,13 @@ newCreateColumnsOperation pColumns_ =
 createColumnsOperation_columns :: Lens.Lens' CreateColumnsOperation (Prelude.NonEmpty CalculatedColumn)
 createColumnsOperation_columns = Lens.lens (\CreateColumnsOperation' {columns} -> columns) (\s@CreateColumnsOperation' {} a -> s {columns = a} :: CreateColumnsOperation) Prelude.. Lens.coerced
 
-instance Core.FromJSON CreateColumnsOperation where
+instance Data.FromJSON CreateColumnsOperation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CreateColumnsOperation"
       ( \x ->
           CreateColumnsOperation'
-            Prelude.<$> (x Core..: "Columns")
+            Prelude.<$> (x Data..: "Columns")
       )
 
 instance Prelude.Hashable CreateColumnsOperation where
@@ -73,9 +74,9 @@ instance Prelude.Hashable CreateColumnsOperation where
 instance Prelude.NFData CreateColumnsOperation where
   rnf CreateColumnsOperation' {..} = Prelude.rnf columns
 
-instance Core.ToJSON CreateColumnsOperation where
+instance Data.ToJSON CreateColumnsOperation where
   toJSON CreateColumnsOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Columns" Core..= columns)]
+          [Prelude.Just ("Columns" Data..= columns)]
       )

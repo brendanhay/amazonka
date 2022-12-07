@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceExplorer2.Types
@@ -69,7 +70,7 @@ data UpdateView = UpdateView'
     -- @region:us* service:ec2 -tag:stage=prod@ includes all Amazon EC2
     -- resources in any Amazon Web Services Region that begins with the letters
     -- @us@ and is /not/ tagged with a key @Stage@ that has the value @prod@.
-    filters :: Prelude.Maybe (Core.Sensitive SearchFilter),
+    filters :: Prelude.Maybe (Data.Sensitive SearchFilter),
     -- | Specifies optional fields that you want included in search results from
     -- this view. It is a list of objects that each describe a field to
     -- include.
@@ -149,7 +150,7 @@ newUpdateView pViewArn_ =
 -- resources in any Amazon Web Services Region that begins with the letters
 -- @us@ and is /not/ tagged with a key @Stage@ that has the value @prod@.
 updateView_filters :: Lens.Lens' UpdateView (Prelude.Maybe SearchFilter)
-updateView_filters = Lens.lens (\UpdateView' {filters} -> filters) (\s@UpdateView' {} a -> s {filters = a} :: UpdateView) Prelude.. Lens.mapping Core._Sensitive
+updateView_filters = Lens.lens (\UpdateView' {filters} -> filters) (\s@UpdateView' {} a -> s {filters = a} :: UpdateView) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies optional fields that you want included in search results from
 -- this view. It is a list of objects that each describe a field to
@@ -174,7 +175,7 @@ instance Core.AWSRequest UpdateView where
     Response.receiveJSON
       ( \s h x ->
           UpdateViewResponse'
-            Prelude.<$> (x Core..?> "View")
+            Prelude.<$> (x Data..?> "View")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,32 +191,32 @@ instance Prelude.NFData UpdateView where
       `Prelude.seq` Prelude.rnf includedProperties
       `Prelude.seq` Prelude.rnf viewArn
 
-instance Core.ToHeaders UpdateView where
+instance Data.ToHeaders UpdateView where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateView where
+instance Data.ToJSON UpdateView where
   toJSON UpdateView' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("IncludedProperties" Core..=)
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("IncludedProperties" Data..=)
               Prelude.<$> includedProperties,
-            Prelude.Just ("ViewArn" Core..= viewArn)
+            Prelude.Just ("ViewArn" Data..= viewArn)
           ]
       )
 
-instance Core.ToPath UpdateView where
+instance Data.ToPath UpdateView where
   toPath = Prelude.const "/UpdateView"
 
-instance Core.ToQuery UpdateView where
+instance Data.ToQuery UpdateView where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateViewResponse' smart constructor.

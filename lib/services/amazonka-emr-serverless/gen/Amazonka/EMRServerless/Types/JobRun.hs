@@ -21,6 +21,7 @@ module Amazonka.EMRServerless.Types.JobRun where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRServerless.Types.ConfigurationOverrides
 import Amazonka.EMRServerless.Types.JobDriver
 import Amazonka.EMRServerless.Types.JobRunState
@@ -58,9 +59,9 @@ data JobRun = JobRun'
     -- | The user who created the job run.
     createdBy :: Prelude.Text,
     -- | The date and time when the job run was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The date and time when the job run was updated.
-    updatedAt :: Core.POSIX,
+    updatedAt :: Data.POSIX,
     -- | The execution role ARN of the job run.
     executionRole :: Prelude.Text,
     -- | The state of the job run.
@@ -168,8 +169,8 @@ newJobRun
         jobRunId = pJobRunId_,
         arn = pArn_,
         createdBy = pCreatedBy_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_,
         executionRole = pExecutionRole_,
         state = pState_,
         stateDetails = pStateDetails_,
@@ -223,11 +224,11 @@ jobRun_createdBy = Lens.lens (\JobRun' {createdBy} -> createdBy) (\s@JobRun' {} 
 
 -- | The date and time when the job run was created.
 jobRun_createdAt :: Lens.Lens' JobRun Prelude.UTCTime
-jobRun_createdAt = Lens.lens (\JobRun' {createdAt} -> createdAt) (\s@JobRun' {} a -> s {createdAt = a} :: JobRun) Prelude.. Core._Time
+jobRun_createdAt = Lens.lens (\JobRun' {createdAt} -> createdAt) (\s@JobRun' {} a -> s {createdAt = a} :: JobRun) Prelude.. Data._Time
 
 -- | The date and time when the job run was updated.
 jobRun_updatedAt :: Lens.Lens' JobRun Prelude.UTCTime
-jobRun_updatedAt = Lens.lens (\JobRun' {updatedAt} -> updatedAt) (\s@JobRun' {} a -> s {updatedAt = a} :: JobRun) Prelude.. Core._Time
+jobRun_updatedAt = Lens.lens (\JobRun' {updatedAt} -> updatedAt) (\s@JobRun' {} a -> s {updatedAt = a} :: JobRun) Prelude.. Data._Time
 
 -- | The execution role ARN of the job run.
 jobRun_executionRole :: Lens.Lens' JobRun Prelude.Text
@@ -250,29 +251,29 @@ jobRun_releaseLabel = Lens.lens (\JobRun' {releaseLabel} -> releaseLabel) (\s@Jo
 jobRun_jobDriver :: Lens.Lens' JobRun JobDriver
 jobRun_jobDriver = Lens.lens (\JobRun' {jobDriver} -> jobDriver) (\s@JobRun' {} a -> s {jobDriver = a} :: JobRun)
 
-instance Core.FromJSON JobRun where
+instance Data.FromJSON JobRun where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobRun"
       ( \x ->
           JobRun'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "networkConfiguration")
-            Prelude.<*> (x Core..:? "configurationOverrides")
-            Prelude.<*> (x Core..:? "totalExecutionDurationSeconds")
-            Prelude.<*> (x Core..:? "totalResourceUtilization")
-            Prelude.<*> (x Core..: "applicationId")
-            Prelude.<*> (x Core..: "jobRunId")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdBy")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "updatedAt")
-            Prelude.<*> (x Core..: "executionRole")
-            Prelude.<*> (x Core..: "state")
-            Prelude.<*> (x Core..: "stateDetails")
-            Prelude.<*> (x Core..: "releaseLabel")
-            Prelude.<*> (x Core..: "jobDriver")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "networkConfiguration")
+            Prelude.<*> (x Data..:? "configurationOverrides")
+            Prelude.<*> (x Data..:? "totalExecutionDurationSeconds")
+            Prelude.<*> (x Data..:? "totalResourceUtilization")
+            Prelude.<*> (x Data..: "applicationId")
+            Prelude.<*> (x Data..: "jobRunId")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdBy")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "updatedAt")
+            Prelude.<*> (x Data..: "executionRole")
+            Prelude.<*> (x Data..: "state")
+            Prelude.<*> (x Data..: "stateDetails")
+            Prelude.<*> (x Data..: "releaseLabel")
+            Prelude.<*> (x Data..: "jobDriver")
       )
 
 instance Prelude.Hashable JobRun where

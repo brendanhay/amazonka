@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataPipeline.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,10 +162,10 @@ instance Core.AWSRequest DescribeObjects where
     Response.receiveJSON
       ( \s h x ->
           DescribeObjectsResponse'
-            Prelude.<$> (x Core..?> "marker")
-            Prelude.<*> (x Core..?> "hasMoreResults")
+            Prelude.<$> (x Data..?> "marker")
+            Prelude.<*> (x Data..?> "hasMoreResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "pipelineObjects"
+            Prelude.<*> ( x Data..?> "pipelineObjects"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -183,37 +184,37 @@ instance Prelude.NFData DescribeObjects where
       `Prelude.seq` Prelude.rnf pipelineId
       `Prelude.seq` Prelude.rnf objectIds
 
-instance Core.ToHeaders DescribeObjects where
+instance Data.ToHeaders DescribeObjects where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DataPipeline.DescribeObjects" ::
+              Data.=# ( "DataPipeline.DescribeObjects" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeObjects where
+instance Data.ToJSON DescribeObjects where
   toJSON DescribeObjects' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("marker" Core..=) Prelude.<$> marker,
-            ("evaluateExpressions" Core..=)
+          [ ("marker" Data..=) Prelude.<$> marker,
+            ("evaluateExpressions" Data..=)
               Prelude.<$> evaluateExpressions,
-            Prelude.Just ("pipelineId" Core..= pipelineId),
-            Prelude.Just ("objectIds" Core..= objectIds)
+            Prelude.Just ("pipelineId" Data..= pipelineId),
+            Prelude.Just ("objectIds" Data..= objectIds)
           ]
       )
 
-instance Core.ToPath DescribeObjects where
+instance Data.ToPath DescribeObjects where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeObjects where
+instance Data.ToQuery DescribeObjects where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of DescribeObjects.

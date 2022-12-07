@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.Activation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.Tag
 
@@ -48,13 +49,13 @@ data Activation = Activation'
     -- | The number of managed nodes already registered with this activation.
     registrationsCount :: Prelude.Maybe Prelude.Natural,
     -- | The date the activation was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of managed nodes that can be registered using this
     -- activation.
     registrationLimit :: Prelude.Maybe Prelude.Natural,
     -- | The date when this activation can no longer be used to register managed
     -- nodes.
-    expirationDate :: Prelude.Maybe Core.POSIX
+    expirationDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -135,7 +136,7 @@ activation_registrationsCount = Lens.lens (\Activation' {registrationsCount} -> 
 
 -- | The date the activation was created.
 activation_createdDate :: Lens.Lens' Activation (Prelude.Maybe Prelude.UTCTime)
-activation_createdDate = Lens.lens (\Activation' {createdDate} -> createdDate) (\s@Activation' {} a -> s {createdDate = a} :: Activation) Prelude.. Lens.mapping Core._Time
+activation_createdDate = Lens.lens (\Activation' {createdDate} -> createdDate) (\s@Activation' {} a -> s {createdDate = a} :: Activation) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of managed nodes that can be registered using this
 -- activation.
@@ -145,24 +146,24 @@ activation_registrationLimit = Lens.lens (\Activation' {registrationLimit} -> re
 -- | The date when this activation can no longer be used to register managed
 -- nodes.
 activation_expirationDate :: Lens.Lens' Activation (Prelude.Maybe Prelude.UTCTime)
-activation_expirationDate = Lens.lens (\Activation' {expirationDate} -> expirationDate) (\s@Activation' {} a -> s {expirationDate = a} :: Activation) Prelude.. Lens.mapping Core._Time
+activation_expirationDate = Lens.lens (\Activation' {expirationDate} -> expirationDate) (\s@Activation' {} a -> s {expirationDate = a} :: Activation) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Activation where
+instance Data.FromJSON Activation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Activation"
       ( \x ->
           Activation'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "IamRole")
-            Prelude.<*> (x Core..:? "DefaultInstanceName")
-            Prelude.<*> (x Core..:? "Expired")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ActivationId")
-            Prelude.<*> (x Core..:? "RegistrationsCount")
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "RegistrationLimit")
-            Prelude.<*> (x Core..:? "ExpirationDate")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "IamRole")
+            Prelude.<*> (x Data..:? "DefaultInstanceName")
+            Prelude.<*> (x Data..:? "Expired")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ActivationId")
+            Prelude.<*> (x Data..:? "RegistrationsCount")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "RegistrationLimit")
+            Prelude.<*> (x Data..:? "ExpirationDate")
       )
 
 instance Prelude.Hashable Activation where

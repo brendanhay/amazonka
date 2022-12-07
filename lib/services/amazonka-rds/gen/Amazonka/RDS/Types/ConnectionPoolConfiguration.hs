@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.ConnectionPoolConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the settings that control the size and behavior of the
@@ -248,19 +249,19 @@ instance Prelude.NFData ConnectionPoolConfiguration where
       `Prelude.seq` Prelude.rnf maxConnectionsPercent
       `Prelude.seq` Prelude.rnf sessionPinningFilters
 
-instance Core.ToQuery ConnectionPoolConfiguration where
+instance Data.ToQuery ConnectionPoolConfiguration where
   toQuery ConnectionPoolConfiguration' {..} =
     Prelude.mconcat
       [ "MaxIdleConnectionsPercent"
-          Core.=: maxIdleConnectionsPercent,
-        "InitQuery" Core.=: initQuery,
+          Data.=: maxIdleConnectionsPercent,
+        "InitQuery" Data.=: initQuery,
         "ConnectionBorrowTimeout"
-          Core.=: connectionBorrowTimeout,
+          Data.=: connectionBorrowTimeout,
         "MaxConnectionsPercent"
-          Core.=: maxConnectionsPercent,
+          Data.=: maxConnectionsPercent,
         "SessionPinningFilters"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> sessionPinningFilters
             )
       ]

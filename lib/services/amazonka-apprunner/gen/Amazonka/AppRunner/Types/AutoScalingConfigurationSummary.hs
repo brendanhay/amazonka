@@ -21,6 +21,7 @@ module Amazonka.AppRunner.Types.AutoScalingConfigurationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information about an App Runner automatic scaling
@@ -92,17 +93,17 @@ autoScalingConfigurationSummary_autoScalingConfigurationRevision :: Lens.Lens' A
 autoScalingConfigurationSummary_autoScalingConfigurationRevision = Lens.lens (\AutoScalingConfigurationSummary' {autoScalingConfigurationRevision} -> autoScalingConfigurationRevision) (\s@AutoScalingConfigurationSummary' {} a -> s {autoScalingConfigurationRevision = a} :: AutoScalingConfigurationSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AutoScalingConfigurationSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoScalingConfigurationSummary"
       ( \x ->
           AutoScalingConfigurationSummary'
-            Prelude.<$> (x Core..:? "AutoScalingConfigurationName")
-            Prelude.<*> (x Core..:? "AutoScalingConfigurationArn")
-            Prelude.<*> (x Core..:? "AutoScalingConfigurationRevision")
+            Prelude.<$> (x Data..:? "AutoScalingConfigurationName")
+            Prelude.<*> (x Data..:? "AutoScalingConfigurationArn")
+            Prelude.<*> (x Data..:? "AutoScalingConfigurationRevision")
       )
 
 instance

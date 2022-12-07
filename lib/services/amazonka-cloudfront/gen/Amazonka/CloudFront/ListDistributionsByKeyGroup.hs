@@ -52,6 +52,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,7 +130,7 @@ instance Core.AWSRequest ListDistributionsByKeyGroup where
     Response.receiveXML
       ( \s h x ->
           ListDistributionsByKeyGroupResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,21 +146,21 @@ instance Prelude.NFData ListDistributionsByKeyGroup where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf keyGroupId
 
-instance Core.ToHeaders ListDistributionsByKeyGroup where
+instance Data.ToHeaders ListDistributionsByKeyGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListDistributionsByKeyGroup where
+instance Data.ToPath ListDistributionsByKeyGroup where
   toPath ListDistributionsByKeyGroup' {..} =
     Prelude.mconcat
       [ "/2020-05-31/distributionsByKeyGroupId/",
-        Core.toBS keyGroupId
+        Data.toBS keyGroupId
       ]
 
-instance Core.ToQuery ListDistributionsByKeyGroup where
+instance Data.ToQuery ListDistributionsByKeyGroup where
   toQuery ListDistributionsByKeyGroup' {..} =
     Prelude.mconcat
-      [ "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+      [ "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | /See:/ 'newListDistributionsByKeyGroupResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsContainerDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsMountPoint
 
@@ -83,16 +84,16 @@ awsEcsContainerDetails_mountPoints = Lens.lens (\AwsEcsContainerDetails' {mountP
 awsEcsContainerDetails_image :: Lens.Lens' AwsEcsContainerDetails (Prelude.Maybe Prelude.Text)
 awsEcsContainerDetails_image = Lens.lens (\AwsEcsContainerDetails' {image} -> image) (\s@AwsEcsContainerDetails' {} a -> s {image = a} :: AwsEcsContainerDetails)
 
-instance Core.FromJSON AwsEcsContainerDetails where
+instance Data.FromJSON AwsEcsContainerDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsContainerDetails"
       ( \x ->
           AwsEcsContainerDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Privileged")
-            Prelude.<*> (x Core..:? "MountPoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Image")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Privileged")
+            Prelude.<*> (x Data..:? "MountPoints" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Image")
       )
 
 instance Prelude.Hashable AwsEcsContainerDetails where
@@ -109,13 +110,13 @@ instance Prelude.NFData AwsEcsContainerDetails where
       `Prelude.seq` Prelude.rnf mountPoints
       `Prelude.seq` Prelude.rnf image
 
-instance Core.ToJSON AwsEcsContainerDetails where
+instance Data.ToJSON AwsEcsContainerDetails where
   toJSON AwsEcsContainerDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Privileged" Core..=) Prelude.<$> privileged,
-            ("MountPoints" Core..=) Prelude.<$> mountPoints,
-            ("Image" Core..=) Prelude.<$> image
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Privileged" Data..=) Prelude.<$> privileged,
+            ("MountPoints" Data..=) Prelude.<$> mountPoints,
+            ("Image" Data..=) Prelude.<$> image
           ]
       )

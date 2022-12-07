@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.Event where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.EventClass
 import Amazonka.DevOpsGuru.Types.EventDataSource
 import Amazonka.DevOpsGuru.Types.EventResource
@@ -38,7 +39,7 @@ data Event = Event'
     name :: Prelude.Maybe Prelude.Text,
     resourceCollection :: Prelude.Maybe ResourceCollection,
     -- | A @Timestamp@ that specifies the time the event occurred.
-    time :: Prelude.Maybe Core.POSIX,
+    time :: Prelude.Maybe Data.POSIX,
     -- | The ID of the event.
     id :: Prelude.Maybe Prelude.Text,
     -- | The source, @AWS_CLOUD_TRAIL@ or @AWS_CODE_DEPLOY@, where DevOps Guru
@@ -105,7 +106,7 @@ event_resourceCollection = Lens.lens (\Event' {resourceCollection} -> resourceCo
 
 -- | A @Timestamp@ that specifies the time the event occurred.
 event_time :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_time = Lens.lens (\Event' {time} -> time) (\s@Event' {} a -> s {time = a} :: Event) Prelude.. Lens.mapping Core._Time
+event_time = Lens.lens (\Event' {time} -> time) (\s@Event' {} a -> s {time = a} :: Event) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the event.
 event_id :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
@@ -130,20 +131,20 @@ event_resources = Lens.lens (\Event' {resources} -> resources) (\s@Event' {} a -
 event_eventSource :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_eventSource = Lens.lens (\Event' {eventSource} -> eventSource) (\s@Event' {} a -> s {eventSource = a} :: Event)
 
-instance Core.FromJSON Event where
+instance Data.FromJSON Event where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Event"
       ( \x ->
           Event'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ResourceCollection")
-            Prelude.<*> (x Core..:? "Time")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "DataSource")
-            Prelude.<*> (x Core..:? "EventClass")
-            Prelude.<*> (x Core..:? "Resources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EventSource")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ResourceCollection")
+            Prelude.<*> (x Data..:? "Time")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "DataSource")
+            Prelude.<*> (x Data..:? "EventClass")
+            Prelude.<*> (x Data..:? "Resources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EventSource")
       )
 
 instance Prelude.Hashable Event where

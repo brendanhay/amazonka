@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.RoomSkillParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A skill parameter associated with a room.
@@ -68,14 +69,14 @@ roomSkillParameter_parameterKey = Lens.lens (\RoomSkillParameter' {parameterKey}
 roomSkillParameter_parameterValue :: Lens.Lens' RoomSkillParameter Prelude.Text
 roomSkillParameter_parameterValue = Lens.lens (\RoomSkillParameter' {parameterValue} -> parameterValue) (\s@RoomSkillParameter' {} a -> s {parameterValue = a} :: RoomSkillParameter)
 
-instance Core.FromJSON RoomSkillParameter where
+instance Data.FromJSON RoomSkillParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RoomSkillParameter"
       ( \x ->
           RoomSkillParameter'
-            Prelude.<$> (x Core..: "ParameterKey")
-            Prelude.<*> (x Core..: "ParameterValue")
+            Prelude.<$> (x Data..: "ParameterKey")
+            Prelude.<*> (x Data..: "ParameterValue")
       )
 
 instance Prelude.Hashable RoomSkillParameter where
@@ -88,12 +89,12 @@ instance Prelude.NFData RoomSkillParameter where
     Prelude.rnf parameterKey
       `Prelude.seq` Prelude.rnf parameterValue
 
-instance Core.ToJSON RoomSkillParameter where
+instance Data.ToJSON RoomSkillParameter where
   toJSON RoomSkillParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ParameterKey" Core..= parameterKey),
+          [ Prelude.Just ("ParameterKey" Data..= parameterKey),
             Prelude.Just
-              ("ParameterValue" Core..= parameterValue)
+              ("ParameterValue" Data..= parameterValue)
           ]
       )

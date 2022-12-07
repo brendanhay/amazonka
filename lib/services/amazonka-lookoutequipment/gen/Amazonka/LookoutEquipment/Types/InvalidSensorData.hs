@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.InvalidSensorData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Entity that comprises aggregated information on sensors having
@@ -70,14 +71,14 @@ invalidSensorData_affectedSensorCount = Lens.lens (\InvalidSensorData' {affected
 invalidSensorData_totalNumberOfInvalidValues :: Lens.Lens' InvalidSensorData Prelude.Int
 invalidSensorData_totalNumberOfInvalidValues = Lens.lens (\InvalidSensorData' {totalNumberOfInvalidValues} -> totalNumberOfInvalidValues) (\s@InvalidSensorData' {} a -> s {totalNumberOfInvalidValues = a} :: InvalidSensorData)
 
-instance Core.FromJSON InvalidSensorData where
+instance Data.FromJSON InvalidSensorData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InvalidSensorData"
       ( \x ->
           InvalidSensorData'
-            Prelude.<$> (x Core..: "AffectedSensorCount")
-            Prelude.<*> (x Core..: "TotalNumberOfInvalidValues")
+            Prelude.<$> (x Data..: "AffectedSensorCount")
+            Prelude.<*> (x Data..: "TotalNumberOfInvalidValues")
       )
 
 instance Prelude.Hashable InvalidSensorData where

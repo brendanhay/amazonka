@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBProxyTargetGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.ConnectionPoolConfigurationInfo
 
@@ -49,9 +50,9 @@ data DBProxyTargetGroup = DBProxyTargetGroup'
     -- a single target group, currently this setting is always @true@.
     isDefault :: Prelude.Maybe Prelude.Bool,
     -- | The date and time when the target group was last updated.
-    updatedDate :: Prelude.Maybe Core.ISO8601,
+    updatedDate :: Prelude.Maybe Data.ISO8601,
     -- | The date and time when the target group was first created.
-    createdDate :: Prelude.Maybe Core.ISO8601,
+    createdDate :: Prelude.Maybe Data.ISO8601,
     -- | The settings that determine the size and behavior of the connection pool
     -- for the target group.
     connectionPoolConfig :: Prelude.Maybe ConnectionPoolConfigurationInfo,
@@ -131,11 +132,11 @@ dbProxyTargetGroup_isDefault = Lens.lens (\DBProxyTargetGroup' {isDefault} -> is
 
 -- | The date and time when the target group was last updated.
 dbProxyTargetGroup_updatedDate :: Lens.Lens' DBProxyTargetGroup (Prelude.Maybe Prelude.UTCTime)
-dbProxyTargetGroup_updatedDate = Lens.lens (\DBProxyTargetGroup' {updatedDate} -> updatedDate) (\s@DBProxyTargetGroup' {} a -> s {updatedDate = a} :: DBProxyTargetGroup) Prelude.. Lens.mapping Core._Time
+dbProxyTargetGroup_updatedDate = Lens.lens (\DBProxyTargetGroup' {updatedDate} -> updatedDate) (\s@DBProxyTargetGroup' {} a -> s {updatedDate = a} :: DBProxyTargetGroup) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the target group was first created.
 dbProxyTargetGroup_createdDate :: Lens.Lens' DBProxyTargetGroup (Prelude.Maybe Prelude.UTCTime)
-dbProxyTargetGroup_createdDate = Lens.lens (\DBProxyTargetGroup' {createdDate} -> createdDate) (\s@DBProxyTargetGroup' {} a -> s {createdDate = a} :: DBProxyTargetGroup) Prelude.. Lens.mapping Core._Time
+dbProxyTargetGroup_createdDate = Lens.lens (\DBProxyTargetGroup' {createdDate} -> createdDate) (\s@DBProxyTargetGroup' {} a -> s {createdDate = a} :: DBProxyTargetGroup) Prelude.. Lens.mapping Data._Time
 
 -- | The settings that determine the size and behavior of the connection pool
 -- for the target group.
@@ -146,17 +147,17 @@ dbProxyTargetGroup_connectionPoolConfig = Lens.lens (\DBProxyTargetGroup' {conne
 dbProxyTargetGroup_dbProxyName :: Lens.Lens' DBProxyTargetGroup (Prelude.Maybe Prelude.Text)
 dbProxyTargetGroup_dbProxyName = Lens.lens (\DBProxyTargetGroup' {dbProxyName} -> dbProxyName) (\s@DBProxyTargetGroup' {} a -> s {dbProxyName = a} :: DBProxyTargetGroup)
 
-instance Core.FromXML DBProxyTargetGroup where
+instance Data.FromXML DBProxyTargetGroup where
   parseXML x =
     DBProxyTargetGroup'
-      Prelude.<$> (x Core..@? "TargetGroupName")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "TargetGroupArn")
-      Prelude.<*> (x Core..@? "IsDefault")
-      Prelude.<*> (x Core..@? "UpdatedDate")
-      Prelude.<*> (x Core..@? "CreatedDate")
-      Prelude.<*> (x Core..@? "ConnectionPoolConfig")
-      Prelude.<*> (x Core..@? "DBProxyName")
+      Prelude.<$> (x Data..@? "TargetGroupName")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "TargetGroupArn")
+      Prelude.<*> (x Data..@? "IsDefault")
+      Prelude.<*> (x Data..@? "UpdatedDate")
+      Prelude.<*> (x Data..@? "CreatedDate")
+      Prelude.<*> (x Data..@? "ConnectionPoolConfig")
+      Prelude.<*> (x Data..@? "DBProxyName")
 
 instance Prelude.Hashable DBProxyTargetGroup where
   hashWithSalt _salt DBProxyTargetGroup' {..} =

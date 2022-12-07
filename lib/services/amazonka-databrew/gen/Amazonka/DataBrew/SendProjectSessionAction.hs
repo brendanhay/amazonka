@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -67,7 +68,7 @@ data SendProjectSessionAction = SendProjectSessionAction'
     stepIndex :: Prelude.Maybe Prelude.Natural,
     -- | A unique identifier for an interactive session that\'s currently open
     -- and ready for work. The action will be performed on this session.
-    clientSessionId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    clientSessionId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the project to apply the action to.
     name :: Prelude.Text
   }
@@ -133,7 +134,7 @@ sendProjectSessionAction_stepIndex = Lens.lens (\SendProjectSessionAction' {step
 -- | A unique identifier for an interactive session that\'s currently open
 -- and ready for work. The action will be performed on this session.
 sendProjectSessionAction_clientSessionId :: Lens.Lens' SendProjectSessionAction (Prelude.Maybe Prelude.Text)
-sendProjectSessionAction_clientSessionId = Lens.lens (\SendProjectSessionAction' {clientSessionId} -> clientSessionId) (\s@SendProjectSessionAction' {} a -> s {clientSessionId = a} :: SendProjectSessionAction) Prelude.. Lens.mapping Core._Sensitive
+sendProjectSessionAction_clientSessionId = Lens.lens (\SendProjectSessionAction' {clientSessionId} -> clientSessionId) (\s@SendProjectSessionAction' {} a -> s {clientSessionId = a} :: SendProjectSessionAction) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the project to apply the action to.
 sendProjectSessionAction_name :: Lens.Lens' SendProjectSessionAction Prelude.Text
@@ -149,10 +150,10 @@ instance Core.AWSRequest SendProjectSessionAction where
     Response.receiveJSON
       ( \s h x ->
           SendProjectSessionActionResponse'
-            Prelude.<$> (x Core..?> "ActionId")
-            Prelude.<*> (x Core..?> "Result")
+            Prelude.<$> (x Data..?> "ActionId")
+            Prelude.<*> (x Data..?> "Result")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable SendProjectSessionAction where
@@ -173,39 +174,39 @@ instance Prelude.NFData SendProjectSessionAction where
       `Prelude.seq` Prelude.rnf clientSessionId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders SendProjectSessionAction where
+instance Data.ToHeaders SendProjectSessionAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendProjectSessionAction where
+instance Data.ToJSON SendProjectSessionAction where
   toJSON SendProjectSessionAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ViewFrame" Core..=) Prelude.<$> viewFrame,
-            ("Preview" Core..=) Prelude.<$> preview,
-            ("RecipeStep" Core..=) Prelude.<$> recipeStep,
-            ("StepIndex" Core..=) Prelude.<$> stepIndex,
-            ("ClientSessionId" Core..=)
+          [ ("ViewFrame" Data..=) Prelude.<$> viewFrame,
+            ("Preview" Data..=) Prelude.<$> preview,
+            ("RecipeStep" Data..=) Prelude.<$> recipeStep,
+            ("StepIndex" Data..=) Prelude.<$> stepIndex,
+            ("ClientSessionId" Data..=)
               Prelude.<$> clientSessionId
           ]
       )
 
-instance Core.ToPath SendProjectSessionAction where
+instance Data.ToPath SendProjectSessionAction where
   toPath SendProjectSessionAction' {..} =
     Prelude.mconcat
       [ "/projects/",
-        Core.toBS name,
+        Data.toBS name,
         "/sendProjectSessionAction"
       ]
 
-instance Core.ToQuery SendProjectSessionAction where
+instance Data.ToQuery SendProjectSessionAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendProjectSessionActionResponse' smart constructor.

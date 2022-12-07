@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,12 +86,12 @@ instance Core.AWSRequest GetAppLaunchConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetAppLaunchConfigurationResponse'
-            Prelude.<$> (x Core..?> "roleName")
-            Prelude.<*> ( x Core..?> "serverGroupLaunchConfigurations"
+            Prelude.<$> (x Data..?> "roleName")
+            Prelude.<*> ( x Data..?> "serverGroupLaunchConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "autoLaunch")
-            Prelude.<*> (x Core..?> "appId")
+            Prelude.<*> (x Data..?> "autoLaunch")
+            Prelude.<*> (x Data..?> "appId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,32 +103,32 @@ instance Prelude.NFData GetAppLaunchConfiguration where
   rnf GetAppLaunchConfiguration' {..} =
     Prelude.rnf appId
 
-instance Core.ToHeaders GetAppLaunchConfiguration where
+instance Data.ToHeaders GetAppLaunchConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.GetAppLaunchConfiguration" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.GetAppLaunchConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAppLaunchConfiguration where
+instance Data.ToJSON GetAppLaunchConfiguration where
   toJSON GetAppLaunchConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("appId" Core..=) Prelude.<$> appId]
+          [("appId" Data..=) Prelude.<$> appId]
       )
 
-instance Core.ToPath GetAppLaunchConfiguration where
+instance Data.ToPath GetAppLaunchConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAppLaunchConfiguration where
+instance Data.ToQuery GetAppLaunchConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAppLaunchConfigurationResponse' smart constructor.

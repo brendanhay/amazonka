@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,10 +145,10 @@ instance Core.AWSRequest GetFunction where
     Response.receiveJSON
       ( \s h x ->
           GetFunctionResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Code")
-            Prelude.<*> (x Core..?> "Configuration")
-            Prelude.<*> (x Core..?> "Concurrency")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Code")
+            Prelude.<*> (x Data..?> "Configuration")
+            Prelude.<*> (x Data..?> "Concurrency")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,17 +162,17 @@ instance Prelude.NFData GetFunction where
     Prelude.rnf qualifier
       `Prelude.seq` Prelude.rnf functionName
 
-instance Core.ToHeaders GetFunction where
+instance Data.ToHeaders GetFunction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetFunction where
+instance Data.ToPath GetFunction where
   toPath GetFunction' {..} =
     Prelude.mconcat
-      ["/2015-03-31/functions/", Core.toBS functionName]
+      ["/2015-03-31/functions/", Data.toBS functionName]
 
-instance Core.ToQuery GetFunction where
+instance Data.ToQuery GetFunction where
   toQuery GetFunction' {..} =
-    Prelude.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Data.=: qualifier]
 
 -- | /See:/ 'newGetFunctionResponse' smart constructor.
 data GetFunctionResponse = GetFunctionResponse'

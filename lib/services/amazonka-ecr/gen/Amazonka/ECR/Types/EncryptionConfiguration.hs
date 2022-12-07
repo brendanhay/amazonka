@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.EncryptionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.EncryptionType
 import qualified Amazonka.Prelude as Prelude
 
@@ -138,14 +139,14 @@ encryptionConfiguration_kmsKey = Lens.lens (\EncryptionConfiguration' {kmsKey} -
 encryptionConfiguration_encryptionType :: Lens.Lens' EncryptionConfiguration EncryptionType
 encryptionConfiguration_encryptionType = Lens.lens (\EncryptionConfiguration' {encryptionType} -> encryptionType) (\s@EncryptionConfiguration' {} a -> s {encryptionType = a} :: EncryptionConfiguration)
 
-instance Core.FromJSON EncryptionConfiguration where
+instance Data.FromJSON EncryptionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionConfiguration"
       ( \x ->
           EncryptionConfiguration'
-            Prelude.<$> (x Core..:? "kmsKey")
-            Prelude.<*> (x Core..: "encryptionType")
+            Prelude.<$> (x Data..:? "kmsKey")
+            Prelude.<*> (x Data..: "encryptionType")
       )
 
 instance Prelude.Hashable EncryptionConfiguration where
@@ -158,12 +159,12 @@ instance Prelude.NFData EncryptionConfiguration where
     Prelude.rnf kmsKey
       `Prelude.seq` Prelude.rnf encryptionType
 
-instance Core.ToJSON EncryptionConfiguration where
+instance Data.ToJSON EncryptionConfiguration where
   toJSON EncryptionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsKey" Core..=) Prelude.<$> kmsKey,
+          [ ("kmsKey" Data..=) Prelude.<$> kmsKey,
             Prelude.Just
-              ("encryptionType" Core..= encryptionType)
+              ("encryptionType" Data..= encryptionType)
           ]
       )

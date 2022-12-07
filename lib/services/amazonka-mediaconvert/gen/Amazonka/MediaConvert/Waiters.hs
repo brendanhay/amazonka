@@ -18,6 +18,7 @@ module Amazonka.MediaConvert.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Lens
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude

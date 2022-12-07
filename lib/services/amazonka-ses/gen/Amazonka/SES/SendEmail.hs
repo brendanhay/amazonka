@@ -86,6 +86,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -393,7 +394,7 @@ instance Core.AWSRequest SendEmail where
       ( \s h x ->
           SendEmailResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "MessageId")
+            Prelude.<*> (x Data..@ "MessageId")
       )
 
 instance Prelude.Hashable SendEmail where
@@ -420,34 +421,34 @@ instance Prelude.NFData SendEmail where
       `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf message
 
-instance Core.ToHeaders SendEmail where
+instance Data.ToHeaders SendEmail where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SendEmail where
+instance Data.ToPath SendEmail where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendEmail where
+instance Data.ToQuery SendEmail where
   toQuery SendEmail' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SendEmail" :: Prelude.ByteString),
+          Data.=: ("SendEmail" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "ReturnPath" Core.=: returnPath,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "ReturnPath" Data.=: returnPath,
         "ReplyToAddresses"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> replyToAddresses
             ),
-        "SourceArn" Core.=: sourceArn,
-        "ConfigurationSetName" Core.=: configurationSetName,
-        "ReturnPathArn" Core.=: returnPathArn,
-        "Source" Core.=: source,
-        "Destination" Core.=: destination,
-        "Message" Core.=: message
+        "SourceArn" Data.=: sourceArn,
+        "ConfigurationSetName" Data.=: configurationSetName,
+        "ReturnPathArn" Data.=: returnPathArn,
+        "Source" Data.=: source,
+        "Destination" Data.=: destination,
+        "Message" Data.=: message
       ]
 
 -- | Represents a unique message ID.

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,8 +118,8 @@ instance Core.AWSRequest DeleteOrganization where
     Response.receiveJSON
       ( \s h x ->
           DeleteOrganizationResponse'
-            Prelude.<$> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "OrganizationId")
+            Prelude.<$> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "OrganizationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,37 +135,37 @@ instance Prelude.NFData DeleteOrganization where
       `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf deleteDirectory
 
-instance Core.ToHeaders DeleteOrganization where
+instance Data.ToHeaders DeleteOrganization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.DeleteOrganization" ::
+              Data.=# ( "WorkMailService.DeleteOrganization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteOrganization where
+instance Data.ToJSON DeleteOrganization where
   toJSON DeleteOrganization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("OrganizationId" Core..= organizationId),
+              ("OrganizationId" Data..= organizationId),
             Prelude.Just
-              ("DeleteDirectory" Core..= deleteDirectory)
+              ("DeleteDirectory" Data..= deleteDirectory)
           ]
       )
 
-instance Core.ToPath DeleteOrganization where
+instance Data.ToPath DeleteOrganization where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteOrganization where
+instance Data.ToQuery DeleteOrganization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteOrganizationResponse' smart constructor.

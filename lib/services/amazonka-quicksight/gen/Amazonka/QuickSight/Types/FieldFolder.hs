@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.FieldFolder where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A FieldFolder element is a folder that contains fields and nested
@@ -62,14 +63,14 @@ fieldFolder_columns = Lens.lens (\FieldFolder' {columns} -> columns) (\s@FieldFo
 fieldFolder_description :: Lens.Lens' FieldFolder (Prelude.Maybe Prelude.Text)
 fieldFolder_description = Lens.lens (\FieldFolder' {description} -> description) (\s@FieldFolder' {} a -> s {description = a} :: FieldFolder)
 
-instance Core.FromJSON FieldFolder where
+instance Data.FromJSON FieldFolder where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldFolder"
       ( \x ->
           FieldFolder'
-            Prelude.<$> (x Core..:? "columns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<$> (x Data..:? "columns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
       )
 
 instance Prelude.Hashable FieldFolder where
@@ -82,11 +83,11 @@ instance Prelude.NFData FieldFolder where
     Prelude.rnf columns
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToJSON FieldFolder where
+instance Data.ToJSON FieldFolder where
   toJSON FieldFolder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("columns" Core..=) Prelude.<$> columns,
-            ("description" Core..=) Prelude.<$> description
+          [ ("columns" Data..=) Prelude.<$> columns,
+            ("description" Data..=) Prelude.<$> description
           ]
       )

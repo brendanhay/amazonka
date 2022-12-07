@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.TemplateVersionsResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.TemplateVersionResponse
 import qualified Amazonka.Prelude as Prelude
 
@@ -94,16 +95,16 @@ templateVersionsResponse_requestID = Lens.lens (\TemplateVersionsResponse' {requ
 templateVersionsResponse_item :: Lens.Lens' TemplateVersionsResponse [TemplateVersionResponse]
 templateVersionsResponse_item = Lens.lens (\TemplateVersionsResponse' {item} -> item) (\s@TemplateVersionsResponse' {} a -> s {item = a} :: TemplateVersionsResponse) Prelude.. Lens.coerced
 
-instance Core.FromJSON TemplateVersionsResponse where
+instance Data.FromJSON TemplateVersionsResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateVersionsResponse"
       ( \x ->
           TemplateVersionsResponse'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "NextToken")
-            Prelude.<*> (x Core..:? "RequestID")
-            Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "NextToken")
+            Prelude.<*> (x Data..:? "RequestID")
+            Prelude.<*> (x Data..:? "Item" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TemplateVersionsResponse where

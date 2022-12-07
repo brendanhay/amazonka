@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.DatabaseMigrationPreference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.Heterogeneous
 import Amazonka.MigrationHubStrategy.Types.Homogeneous
 import Amazonka.MigrationHubStrategy.Types.NoDatabaseMigrationPreference
@@ -86,15 +87,15 @@ databaseMigrationPreference_heterogeneous = Lens.lens (\DatabaseMigrationPrefere
 databaseMigrationPreference_noPreference :: Lens.Lens' DatabaseMigrationPreference (Prelude.Maybe NoDatabaseMigrationPreference)
 databaseMigrationPreference_noPreference = Lens.lens (\DatabaseMigrationPreference' {noPreference} -> noPreference) (\s@DatabaseMigrationPreference' {} a -> s {noPreference = a} :: DatabaseMigrationPreference)
 
-instance Core.FromJSON DatabaseMigrationPreference where
+instance Data.FromJSON DatabaseMigrationPreference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatabaseMigrationPreference"
       ( \x ->
           DatabaseMigrationPreference'
-            Prelude.<$> (x Core..:? "homogeneous")
-            Prelude.<*> (x Core..:? "heterogeneous")
-            Prelude.<*> (x Core..:? "noPreference")
+            Prelude.<$> (x Data..:? "homogeneous")
+            Prelude.<*> (x Data..:? "heterogeneous")
+            Prelude.<*> (x Data..:? "noPreference")
       )
 
 instance Prelude.Hashable DatabaseMigrationPreference where
@@ -109,12 +110,12 @@ instance Prelude.NFData DatabaseMigrationPreference where
       `Prelude.seq` Prelude.rnf heterogeneous
       `Prelude.seq` Prelude.rnf noPreference
 
-instance Core.ToJSON DatabaseMigrationPreference where
+instance Data.ToJSON DatabaseMigrationPreference where
   toJSON DatabaseMigrationPreference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("homogeneous" Core..=) Prelude.<$> homogeneous,
-            ("heterogeneous" Core..=) Prelude.<$> heterogeneous,
-            ("noPreference" Core..=) Prelude.<$> noPreference
+          [ ("homogeneous" Data..=) Prelude.<$> homogeneous,
+            ("heterogeneous" Data..=) Prelude.<$> heterogeneous,
+            ("noPreference" Data..=) Prelude.<$> noPreference
           ]
       )

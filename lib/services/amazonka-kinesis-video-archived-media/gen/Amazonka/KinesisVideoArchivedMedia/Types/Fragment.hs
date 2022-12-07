@@ -21,6 +21,7 @@ module Amazonka.KinesisVideoArchivedMedia.Types.Fragment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a segment of video or other time-delimited data.
@@ -30,9 +31,9 @@ data Fragment = Fragment'
   { -- | The playback duration or other time value associated with the fragment.
     fragmentLengthInMilliseconds :: Prelude.Maybe Prelude.Integer,
     -- | The timestamp from the AWS server corresponding to the fragment.
-    serverTimestamp :: Prelude.Maybe Core.POSIX,
+    serverTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The timestamp from the producer corresponding to the fragment.
-    producerTimestamp :: Prelude.Maybe Core.POSIX,
+    producerTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the fragment. This value monotonically
     -- increases based on the ingestion order.
     fragmentNumber :: Prelude.Maybe Prelude.Text,
@@ -79,11 +80,11 @@ fragment_fragmentLengthInMilliseconds = Lens.lens (\Fragment' {fragmentLengthInM
 
 -- | The timestamp from the AWS server corresponding to the fragment.
 fragment_serverTimestamp :: Lens.Lens' Fragment (Prelude.Maybe Prelude.UTCTime)
-fragment_serverTimestamp = Lens.lens (\Fragment' {serverTimestamp} -> serverTimestamp) (\s@Fragment' {} a -> s {serverTimestamp = a} :: Fragment) Prelude.. Lens.mapping Core._Time
+fragment_serverTimestamp = Lens.lens (\Fragment' {serverTimestamp} -> serverTimestamp) (\s@Fragment' {} a -> s {serverTimestamp = a} :: Fragment) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp from the producer corresponding to the fragment.
 fragment_producerTimestamp :: Lens.Lens' Fragment (Prelude.Maybe Prelude.UTCTime)
-fragment_producerTimestamp = Lens.lens (\Fragment' {producerTimestamp} -> producerTimestamp) (\s@Fragment' {} a -> s {producerTimestamp = a} :: Fragment) Prelude.. Lens.mapping Core._Time
+fragment_producerTimestamp = Lens.lens (\Fragment' {producerTimestamp} -> producerTimestamp) (\s@Fragment' {} a -> s {producerTimestamp = a} :: Fragment) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of the fragment. This value monotonically
 -- increases based on the ingestion order.
@@ -95,17 +96,17 @@ fragment_fragmentNumber = Lens.lens (\Fragment' {fragmentNumber} -> fragmentNumb
 fragment_fragmentSizeInBytes :: Lens.Lens' Fragment (Prelude.Maybe Prelude.Integer)
 fragment_fragmentSizeInBytes = Lens.lens (\Fragment' {fragmentSizeInBytes} -> fragmentSizeInBytes) (\s@Fragment' {} a -> s {fragmentSizeInBytes = a} :: Fragment)
 
-instance Core.FromJSON Fragment where
+instance Data.FromJSON Fragment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Fragment"
       ( \x ->
           Fragment'
-            Prelude.<$> (x Core..:? "FragmentLengthInMilliseconds")
-            Prelude.<*> (x Core..:? "ServerTimestamp")
-            Prelude.<*> (x Core..:? "ProducerTimestamp")
-            Prelude.<*> (x Core..:? "FragmentNumber")
-            Prelude.<*> (x Core..:? "FragmentSizeInBytes")
+            Prelude.<$> (x Data..:? "FragmentLengthInMilliseconds")
+            Prelude.<*> (x Data..:? "ServerTimestamp")
+            Prelude.<*> (x Data..:? "ProducerTimestamp")
+            Prelude.<*> (x Data..:? "FragmentNumber")
+            Prelude.<*> (x Data..:? "FragmentSizeInBytes")
       )
 
 instance Prelude.Hashable Fragment where

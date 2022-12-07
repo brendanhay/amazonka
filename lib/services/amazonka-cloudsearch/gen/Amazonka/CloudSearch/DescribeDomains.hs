@@ -49,6 +49,7 @@ where
 import Amazonka.CloudSearch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,9 +96,9 @@ instance Core.AWSRequest DescribeDomains where
       ( \s h x ->
           DescribeDomainsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "DomainStatusList"
+            Prelude.<*> ( x Data..@? "DomainStatusList"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -108,22 +109,22 @@ instance Prelude.Hashable DescribeDomains where
 instance Prelude.NFData DescribeDomains where
   rnf DescribeDomains' {..} = Prelude.rnf domainNames
 
-instance Core.ToHeaders DescribeDomains where
+instance Data.ToHeaders DescribeDomains where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDomains where
+instance Data.ToPath DescribeDomains where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDomains where
+instance Data.ToQuery DescribeDomains where
   toQuery DescribeDomains' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDomains" :: Prelude.ByteString),
+          Data.=: ("DescribeDomains" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2013-01-01" :: Prelude.ByteString),
+          Data.=: ("2013-01-01" :: Prelude.ByteString),
         "DomainNames"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> domainNames)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> domainNames)
       ]
 
 -- | The result of a @DescribeDomains@ request. Contains the status of the

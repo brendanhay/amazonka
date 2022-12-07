@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MonitoringS3Output
 
@@ -56,12 +57,12 @@ newMonitoringOutput pS3Output_ =
 monitoringOutput_s3Output :: Lens.Lens' MonitoringOutput MonitoringS3Output
 monitoringOutput_s3Output = Lens.lens (\MonitoringOutput' {s3Output} -> s3Output) (\s@MonitoringOutput' {} a -> s {s3Output = a} :: MonitoringOutput)
 
-instance Core.FromJSON MonitoringOutput where
+instance Data.FromJSON MonitoringOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringOutput"
       ( \x ->
-          MonitoringOutput' Prelude.<$> (x Core..: "S3Output")
+          MonitoringOutput' Prelude.<$> (x Data..: "S3Output")
       )
 
 instance Prelude.Hashable MonitoringOutput where
@@ -71,9 +72,9 @@ instance Prelude.Hashable MonitoringOutput where
 instance Prelude.NFData MonitoringOutput where
   rnf MonitoringOutput' {..} = Prelude.rnf s3Output
 
-instance Core.ToJSON MonitoringOutput where
+instance Data.ToJSON MonitoringOutput where
   toJSON MonitoringOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("S3Output" Core..= s3Output)]
+          [Prelude.Just ("S3Output" Data..= s3Output)]
       )

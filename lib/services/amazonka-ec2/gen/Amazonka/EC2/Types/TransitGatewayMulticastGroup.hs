@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayMulticastGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.MembershipType
 import Amazonka.EC2.Types.TransitGatewayAttachmentResourceType
@@ -149,20 +150,20 @@ transitGatewayMulticastGroup_groupMember = Lens.lens (\TransitGatewayMulticastGr
 transitGatewayMulticastGroup_groupSource :: Lens.Lens' TransitGatewayMulticastGroup (Prelude.Maybe Prelude.Bool)
 transitGatewayMulticastGroup_groupSource = Lens.lens (\TransitGatewayMulticastGroup' {groupSource} -> groupSource) (\s@TransitGatewayMulticastGroup' {} a -> s {groupSource = a} :: TransitGatewayMulticastGroup)
 
-instance Core.FromXML TransitGatewayMulticastGroup where
+instance Data.FromXML TransitGatewayMulticastGroup where
   parseXML x =
     TransitGatewayMulticastGroup'
-      Prelude.<$> (x Core..@? "resourceId")
-      Prelude.<*> (x Core..@? "resourceType")
-      Prelude.<*> (x Core..@? "resourceOwnerId")
-      Prelude.<*> (x Core..@? "memberType")
-      Prelude.<*> (x Core..@? "subnetId")
-      Prelude.<*> (x Core..@? "groupIpAddress")
-      Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
-      Prelude.<*> (x Core..@? "sourceType")
-      Prelude.<*> (x Core..@? "networkInterfaceId")
-      Prelude.<*> (x Core..@? "groupMember")
-      Prelude.<*> (x Core..@? "groupSource")
+      Prelude.<$> (x Data..@? "resourceId")
+      Prelude.<*> (x Data..@? "resourceType")
+      Prelude.<*> (x Data..@? "resourceOwnerId")
+      Prelude.<*> (x Data..@? "memberType")
+      Prelude.<*> (x Data..@? "subnetId")
+      Prelude.<*> (x Data..@? "groupIpAddress")
+      Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
+      Prelude.<*> (x Data..@? "sourceType")
+      Prelude.<*> (x Data..@? "networkInterfaceId")
+      Prelude.<*> (x Data..@? "groupMember")
+      Prelude.<*> (x Data..@? "groupSource")
 
 instance
   Prelude.Hashable

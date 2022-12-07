@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,17 +127,17 @@ instance Prelude.NFData DetachThingPrincipal where
     Prelude.rnf thingName
       `Prelude.seq` Prelude.rnf principal
 
-instance Core.ToHeaders DetachThingPrincipal where
+instance Data.ToHeaders DetachThingPrincipal where
   toHeaders DetachThingPrincipal' {..} =
     Prelude.mconcat
-      ["x-amzn-principal" Core.=# principal]
+      ["x-amzn-principal" Data.=# principal]
 
-instance Core.ToPath DetachThingPrincipal where
+instance Data.ToPath DetachThingPrincipal where
   toPath DetachThingPrincipal' {..} =
     Prelude.mconcat
-      ["/things/", Core.toBS thingName, "/principals"]
+      ["/things/", Data.toBS thingName, "/principals"]
 
-instance Core.ToQuery DetachThingPrincipal where
+instance Data.ToQuery DetachThingPrincipal where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the DetachThingPrincipal operation.

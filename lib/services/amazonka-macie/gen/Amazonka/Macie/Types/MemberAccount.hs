@@ -21,6 +21,7 @@ module Amazonka.Macie.Types.MemberAccount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | (Discontinued) Contains information about the Amazon Macie Classic
@@ -54,12 +55,12 @@ newMemberAccount =
 memberAccount_accountId :: Lens.Lens' MemberAccount (Prelude.Maybe Prelude.Text)
 memberAccount_accountId = Lens.lens (\MemberAccount' {accountId} -> accountId) (\s@MemberAccount' {} a -> s {accountId = a} :: MemberAccount)
 
-instance Core.FromJSON MemberAccount where
+instance Data.FromJSON MemberAccount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MemberAccount"
       ( \x ->
-          MemberAccount' Prelude.<$> (x Core..:? "accountId")
+          MemberAccount' Prelude.<$> (x Data..:? "accountId")
       )
 
 instance Prelude.Hashable MemberAccount where

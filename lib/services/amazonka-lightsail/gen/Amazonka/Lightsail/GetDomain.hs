@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -81,7 +82,7 @@ instance Core.AWSRequest GetDomain where
     Response.receiveJSON
       ( \s h x ->
           GetDomainResponse'
-            Prelude.<$> (x Core..?> "domain")
+            Prelude.<$> (x Data..?> "domain")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -92,32 +93,32 @@ instance Prelude.Hashable GetDomain where
 instance Prelude.NFData GetDomain where
   rnf GetDomain' {..} = Prelude.rnf domainName
 
-instance Core.ToHeaders GetDomain where
+instance Data.ToHeaders GetDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetDomain" ::
+              Data.=# ( "Lightsail_20161128.GetDomain" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDomain where
+instance Data.ToJSON GetDomain where
   toJSON GetDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("domainName" Core..= domainName)]
+          [Prelude.Just ("domainName" Data..= domainName)]
       )
 
-instance Core.ToPath GetDomain where
+instance Data.ToPath GetDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDomain where
+instance Data.ToQuery GetDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDomainResponse' smart constructor.

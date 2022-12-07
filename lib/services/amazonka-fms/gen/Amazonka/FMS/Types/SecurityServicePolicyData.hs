@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.SecurityServicePolicyData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.PolicyOption
 import Amazonka.FMS.Types.SecurityServiceType
 import qualified Amazonka.Prelude as Prelude
@@ -532,15 +533,15 @@ securityServicePolicyData_policyOption = Lens.lens (\SecurityServicePolicyData' 
 securityServicePolicyData_type :: Lens.Lens' SecurityServicePolicyData SecurityServiceType
 securityServicePolicyData_type = Lens.lens (\SecurityServicePolicyData' {type'} -> type') (\s@SecurityServicePolicyData' {} a -> s {type' = a} :: SecurityServicePolicyData)
 
-instance Core.FromJSON SecurityServicePolicyData where
+instance Data.FromJSON SecurityServicePolicyData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecurityServicePolicyData"
       ( \x ->
           SecurityServicePolicyData'
-            Prelude.<$> (x Core..:? "ManagedServiceData")
-            Prelude.<*> (x Core..:? "PolicyOption")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "ManagedServiceData")
+            Prelude.<*> (x Data..:? "PolicyOption")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable SecurityServicePolicyData where
@@ -555,13 +556,13 @@ instance Prelude.NFData SecurityServicePolicyData where
       `Prelude.seq` Prelude.rnf policyOption
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON SecurityServicePolicyData where
+instance Data.ToJSON SecurityServicePolicyData where
   toJSON SecurityServicePolicyData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ManagedServiceData" Core..=)
+          [ ("ManagedServiceData" Data..=)
               Prelude.<$> managedServiceData,
-            ("PolicyOption" Core..=) Prelude.<$> policyOption,
-            Prelude.Just ("Type" Core..= type')
+            ("PolicyOption" Data..=) Prelude.<$> policyOption,
+            Prelude.Just ("Type" Data..= type')
           ]
       )

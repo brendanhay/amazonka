@@ -21,6 +21,7 @@ module Amazonka.S3.Types.InventoryS3BucketDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.InventoryEncryption
@@ -115,14 +116,14 @@ inventoryS3BucketDestination_bucket = Lens.lens (\InventoryS3BucketDestination' 
 inventoryS3BucketDestination_format :: Lens.Lens' InventoryS3BucketDestination InventoryFormat
 inventoryS3BucketDestination_format = Lens.lens (\InventoryS3BucketDestination' {format} -> format) (\s@InventoryS3BucketDestination' {} a -> s {format = a} :: InventoryS3BucketDestination)
 
-instance Core.FromXML InventoryS3BucketDestination where
+instance Data.FromXML InventoryS3BucketDestination where
   parseXML x =
     InventoryS3BucketDestination'
-      Prelude.<$> (x Core..@? "AccountId")
-      Prelude.<*> (x Core..@? "Encryption")
-      Prelude.<*> (x Core..@? "Prefix")
-      Prelude.<*> (x Core..@ "Bucket")
-      Prelude.<*> (x Core..@ "Format")
+      Prelude.<$> (x Data..@? "AccountId")
+      Prelude.<*> (x Data..@? "Encryption")
+      Prelude.<*> (x Data..@? "Prefix")
+      Prelude.<*> (x Data..@ "Bucket")
+      Prelude.<*> (x Data..@ "Format")
 
 instance
   Prelude.Hashable
@@ -143,12 +144,12 @@ instance Prelude.NFData InventoryS3BucketDestination where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf format
 
-instance Core.ToXML InventoryS3BucketDestination where
+instance Data.ToXML InventoryS3BucketDestination where
   toXML InventoryS3BucketDestination' {..} =
     Prelude.mconcat
-      [ "AccountId" Core.@= accountId,
-        "Encryption" Core.@= encryption,
-        "Prefix" Core.@= prefix,
-        "Bucket" Core.@= bucket,
-        "Format" Core.@= format
+      [ "AccountId" Data.@= accountId,
+        "Encryption" Data.@= encryption,
+        "Prefix" Data.@= prefix,
+        "Bucket" Data.@= bucket,
+        "Format" Data.@= format
       ]

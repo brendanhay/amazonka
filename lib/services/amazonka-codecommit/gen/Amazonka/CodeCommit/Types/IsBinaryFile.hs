@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.IsBinaryFile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about whether a file is binary or textual in a merge or pull
@@ -80,15 +81,15 @@ isBinaryFile_base = Lens.lens (\IsBinaryFile' {base} -> base) (\s@IsBinaryFile' 
 isBinaryFile_source :: Lens.Lens' IsBinaryFile (Prelude.Maybe Prelude.Bool)
 isBinaryFile_source = Lens.lens (\IsBinaryFile' {source} -> source) (\s@IsBinaryFile' {} a -> s {source = a} :: IsBinaryFile)
 
-instance Core.FromJSON IsBinaryFile where
+instance Data.FromJSON IsBinaryFile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IsBinaryFile"
       ( \x ->
           IsBinaryFile'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "base")
-            Prelude.<*> (x Core..:? "source")
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "base")
+            Prelude.<*> (x Data..:? "source")
       )
 
 instance Prelude.Hashable IsBinaryFile where

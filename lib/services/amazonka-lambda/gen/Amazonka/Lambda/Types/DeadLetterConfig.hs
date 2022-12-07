@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.DeadLetterConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The
@@ -55,13 +56,13 @@ newDeadLetterConfig =
 deadLetterConfig_targetArn :: Lens.Lens' DeadLetterConfig (Prelude.Maybe Prelude.Text)
 deadLetterConfig_targetArn = Lens.lens (\DeadLetterConfig' {targetArn} -> targetArn) (\s@DeadLetterConfig' {} a -> s {targetArn = a} :: DeadLetterConfig)
 
-instance Core.FromJSON DeadLetterConfig where
+instance Data.FromJSON DeadLetterConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeadLetterConfig"
       ( \x ->
           DeadLetterConfig'
-            Prelude.<$> (x Core..:? "TargetArn")
+            Prelude.<$> (x Data..:? "TargetArn")
       )
 
 instance Prelude.Hashable DeadLetterConfig where
@@ -71,9 +72,9 @@ instance Prelude.Hashable DeadLetterConfig where
 instance Prelude.NFData DeadLetterConfig where
   rnf DeadLetterConfig' {..} = Prelude.rnf targetArn
 
-instance Core.ToJSON DeadLetterConfig where
+instance Data.ToJSON DeadLetterConfig where
   toJSON DeadLetterConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("TargetArn" Core..=) Prelude.<$> targetArn]
+          [("TargetArn" Data..=) Prelude.<$> targetArn]
       )

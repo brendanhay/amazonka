@@ -21,6 +21,7 @@ module Amazonka.SNS.Types.Endpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The endpoint for mobile app and device.
@@ -61,13 +62,13 @@ endpoint_attributes = Lens.lens (\Endpoint' {attributes} -> attributes) (\s@Endp
 endpoint_endpointArn :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_endpointArn = Lens.lens (\Endpoint' {endpointArn} -> endpointArn) (\s@Endpoint' {} a -> s {endpointArn = a} :: Endpoint)
 
-instance Core.FromXML Endpoint where
+instance Data.FromXML Endpoint where
   parseXML x =
     Endpoint'
-      Prelude.<$> ( x Core..@? "Attributes" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+      Prelude.<$> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                   )
-      Prelude.<*> (x Core..@? "EndpointArn")
+      Prelude.<*> (x Data..@? "EndpointArn")
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =

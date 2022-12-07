@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.PrivateLinkConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The VPC endpoint, subnet, and security group that an agent uses to
@@ -110,16 +111,16 @@ privateLinkConfig_vpcEndpointId = Lens.lens (\PrivateLinkConfig' {vpcEndpointId}
 privateLinkConfig_securityGroupArns :: Lens.Lens' PrivateLinkConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 privateLinkConfig_securityGroupArns = Lens.lens (\PrivateLinkConfig' {securityGroupArns} -> securityGroupArns) (\s@PrivateLinkConfig' {} a -> s {securityGroupArns = a} :: PrivateLinkConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PrivateLinkConfig where
+instance Data.FromJSON PrivateLinkConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PrivateLinkConfig"
       ( \x ->
           PrivateLinkConfig'
-            Prelude.<$> (x Core..:? "SubnetArns")
-            Prelude.<*> (x Core..:? "PrivateLinkEndpoint")
-            Prelude.<*> (x Core..:? "VpcEndpointId")
-            Prelude.<*> (x Core..:? "SecurityGroupArns")
+            Prelude.<$> (x Data..:? "SubnetArns")
+            Prelude.<*> (x Data..:? "PrivateLinkEndpoint")
+            Prelude.<*> (x Data..:? "VpcEndpointId")
+            Prelude.<*> (x Data..:? "SecurityGroupArns")
       )
 
 instance Prelude.Hashable PrivateLinkConfig where

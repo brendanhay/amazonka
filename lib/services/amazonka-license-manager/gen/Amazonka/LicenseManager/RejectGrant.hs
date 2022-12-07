@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,9 +84,9 @@ instance Core.AWSRequest RejectGrant where
     Response.receiveJSON
       ( \s h x ->
           RejectGrantResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "GrantArn")
-            Prelude.<*> (x Core..?> "Version")
+            Prelude.<$> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "GrantArn")
+            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,32 +97,32 @@ instance Prelude.Hashable RejectGrant where
 instance Prelude.NFData RejectGrant where
   rnf RejectGrant' {..} = Prelude.rnf grantArn
 
-instance Core.ToHeaders RejectGrant where
+instance Data.ToHeaders RejectGrant where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.RejectGrant" ::
+              Data.=# ( "AWSLicenseManager.RejectGrant" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RejectGrant where
+instance Data.ToJSON RejectGrant where
   toJSON RejectGrant' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GrantArn" Core..= grantArn)]
+          [Prelude.Just ("GrantArn" Data..= grantArn)]
       )
 
-instance Core.ToPath RejectGrant where
+instance Data.ToPath RejectGrant where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RejectGrant where
+instance Data.ToQuery RejectGrant where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRejectGrantResponse' smart constructor.

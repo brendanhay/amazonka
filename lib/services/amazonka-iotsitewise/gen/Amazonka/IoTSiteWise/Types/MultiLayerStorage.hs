@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.MultiLayerStorage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.CustomerManagedS3Storage
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,13 +57,13 @@ newMultiLayerStorage pCustomerManagedS3Storage_ =
 multiLayerStorage_customerManagedS3Storage :: Lens.Lens' MultiLayerStorage CustomerManagedS3Storage
 multiLayerStorage_customerManagedS3Storage = Lens.lens (\MultiLayerStorage' {customerManagedS3Storage} -> customerManagedS3Storage) (\s@MultiLayerStorage' {} a -> s {customerManagedS3Storage = a} :: MultiLayerStorage)
 
-instance Core.FromJSON MultiLayerStorage where
+instance Data.FromJSON MultiLayerStorage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiLayerStorage"
       ( \x ->
           MultiLayerStorage'
-            Prelude.<$> (x Core..: "customerManagedS3Storage")
+            Prelude.<$> (x Data..: "customerManagedS3Storage")
       )
 
 instance Prelude.Hashable MultiLayerStorage where
@@ -74,13 +75,13 @@ instance Prelude.NFData MultiLayerStorage where
   rnf MultiLayerStorage' {..} =
     Prelude.rnf customerManagedS3Storage
 
-instance Core.ToJSON MultiLayerStorage where
+instance Data.ToJSON MultiLayerStorage where
   toJSON MultiLayerStorage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "customerManagedS3Storage"
-                  Core..= customerManagedS3Storage
+                  Data..= customerManagedS3Storage
               )
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.WorkerConfigurationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ data WorkerConfigurationSummary = WorkerConfigurationSummary'
     -- | The Amazon Resource Name (ARN) of the worker configuration.
     workerConfigurationArn :: Prelude.Maybe Prelude.Text,
     -- | The time that a worker configuration was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,19 +89,19 @@ workerConfigurationSummary_workerConfigurationArn = Lens.lens (\WorkerConfigurat
 
 -- | The time that a worker configuration was created.
 workerConfigurationSummary_creationTime :: Lens.Lens' WorkerConfigurationSummary (Prelude.Maybe Prelude.UTCTime)
-workerConfigurationSummary_creationTime = Lens.lens (\WorkerConfigurationSummary' {creationTime} -> creationTime) (\s@WorkerConfigurationSummary' {} a -> s {creationTime = a} :: WorkerConfigurationSummary) Prelude.. Lens.mapping Core._Time
+workerConfigurationSummary_creationTime = Lens.lens (\WorkerConfigurationSummary' {creationTime} -> creationTime) (\s@WorkerConfigurationSummary' {} a -> s {creationTime = a} :: WorkerConfigurationSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON WorkerConfigurationSummary where
+instance Data.FromJSON WorkerConfigurationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkerConfigurationSummary"
       ( \x ->
           WorkerConfigurationSummary'
-            Prelude.<$> (x Core..:? "latestRevision")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "workerConfigurationArn")
-            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<$> (x Data..:? "latestRevision")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "workerConfigurationArn")
+            Prelude.<*> (x Data..:? "creationTime")
       )
 
 instance Prelude.Hashable WorkerConfigurationSummary where

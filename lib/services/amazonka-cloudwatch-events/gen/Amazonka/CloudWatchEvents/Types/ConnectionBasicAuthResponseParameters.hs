@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the authorization parameters for the connection if Basic is
@@ -55,15 +56,15 @@ connectionBasicAuthResponseParameters_username :: Lens.Lens' ConnectionBasicAuth
 connectionBasicAuthResponseParameters_username = Lens.lens (\ConnectionBasicAuthResponseParameters' {username} -> username) (\s@ConnectionBasicAuthResponseParameters' {} a -> s {username = a} :: ConnectionBasicAuthResponseParameters)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ConnectionBasicAuthResponseParameters
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionBasicAuthResponseParameters"
       ( \x ->
           ConnectionBasicAuthResponseParameters'
-            Prelude.<$> (x Core..:? "Username")
+            Prelude.<$> (x Data..:? "Username")
       )
 
 instance

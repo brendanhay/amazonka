@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,23 +103,23 @@ instance Prelude.NFData DeleteEmailIdentity where
   rnf DeleteEmailIdentity' {..} =
     Prelude.rnf emailIdentity
 
-instance Core.ToHeaders DeleteEmailIdentity where
+instance Data.ToHeaders DeleteEmailIdentity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteEmailIdentity where
+instance Data.ToPath DeleteEmailIdentity where
   toPath DeleteEmailIdentity' {..} =
     Prelude.mconcat
-      ["/v2/email/identities/", Core.toBS emailIdentity]
+      ["/v2/email/identities/", Data.toBS emailIdentity]
 
-instance Core.ToQuery DeleteEmailIdentity where
+instance Data.ToQuery DeleteEmailIdentity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the

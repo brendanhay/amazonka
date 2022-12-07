@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.KeyRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a key range. For export jobs, a @S3Resource@ object can have an
@@ -70,14 +71,14 @@ keyRange_beginMarker = Lens.lens (\KeyRange' {beginMarker} -> beginMarker) (\s@K
 keyRange_endMarker :: Lens.Lens' KeyRange (Prelude.Maybe Prelude.Text)
 keyRange_endMarker = Lens.lens (\KeyRange' {endMarker} -> endMarker) (\s@KeyRange' {} a -> s {endMarker = a} :: KeyRange)
 
-instance Core.FromJSON KeyRange where
+instance Data.FromJSON KeyRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeyRange"
       ( \x ->
           KeyRange'
-            Prelude.<$> (x Core..:? "BeginMarker")
-            Prelude.<*> (x Core..:? "EndMarker")
+            Prelude.<$> (x Data..:? "BeginMarker")
+            Prelude.<*> (x Data..:? "EndMarker")
       )
 
 instance Prelude.Hashable KeyRange where
@@ -90,11 +91,11 @@ instance Prelude.NFData KeyRange where
     Prelude.rnf beginMarker
       `Prelude.seq` Prelude.rnf endMarker
 
-instance Core.ToJSON KeyRange where
+instance Data.ToJSON KeyRange where
   toJSON KeyRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BeginMarker" Core..=) Prelude.<$> beginMarker,
-            ("EndMarker" Core..=) Prelude.<$> endMarker
+          [ ("BeginMarker" Data..=) Prelude.<$> beginMarker,
+            ("EndMarker" Data..=) Prelude.<$> endMarker
           ]
       )

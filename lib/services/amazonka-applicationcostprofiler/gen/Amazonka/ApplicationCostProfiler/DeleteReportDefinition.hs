@@ -43,6 +43,7 @@ where
 import Amazonka.ApplicationCostProfiler.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest DeleteReportDefinition where
     Response.receiveJSON
       ( \s h x ->
           DeleteReportDefinitionResponse'
-            Prelude.<$> (x Core..?> "reportId")
+            Prelude.<$> (x Data..?> "reportId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,23 +97,23 @@ instance Prelude.NFData DeleteReportDefinition where
   rnf DeleteReportDefinition' {..} =
     Prelude.rnf reportId
 
-instance Core.ToHeaders DeleteReportDefinition where
+instance Data.ToHeaders DeleteReportDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteReportDefinition where
+instance Data.ToPath DeleteReportDefinition where
   toPath DeleteReportDefinition' {..} =
     Prelude.mconcat
-      ["/reportDefinition/", Core.toBS reportId]
+      ["/reportDefinition/", Data.toBS reportId]
 
-instance Core.ToQuery DeleteReportDefinition where
+instance Data.ToQuery DeleteReportDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteReportDefinitionResponse' smart constructor.

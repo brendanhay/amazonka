@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.ResourcePermission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Resource permission for a dataset. When you create a dataset, all the
@@ -78,9 +79,9 @@ instance Prelude.Hashable ResourcePermission where
 instance Prelude.NFData ResourcePermission where
   rnf ResourcePermission' {..} = Prelude.rnf permission
 
-instance Core.ToJSON ResourcePermission where
+instance Data.ToJSON ResourcePermission where
   toJSON ResourcePermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("permission" Core..=) Prelude.<$> permission]
+          [("permission" Data..=) Prelude.<$> permission]
       )

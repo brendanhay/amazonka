@@ -40,6 +40,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -70,8 +71,8 @@ instance Core.AWSRequest DescribeScalingProcessTypes where
       "DescribeScalingProcessTypesResult"
       ( \s h x ->
           DescribeScalingProcessTypesResponse'
-            Prelude.<$> ( x Core..@? "Processes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Processes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -83,22 +84,22 @@ instance Prelude.Hashable DescribeScalingProcessTypes where
 instance Prelude.NFData DescribeScalingProcessTypes where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeScalingProcessTypes where
+instance Data.ToHeaders DescribeScalingProcessTypes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeScalingProcessTypes where
+instance Data.ToPath DescribeScalingProcessTypes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeScalingProcessTypes where
+instance Data.ToQuery DescribeScalingProcessTypes where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ( "DescribeScalingProcessTypes" ::
+              Data.=: ( "DescribeScalingProcessTypes" ::
                           Prelude.ByteString
                       ),
             "Version"
-              Core.=: ("2011-01-01" :: Prelude.ByteString)
+              Data.=: ("2011-01-01" :: Prelude.ByteString)
           ]
       )
 

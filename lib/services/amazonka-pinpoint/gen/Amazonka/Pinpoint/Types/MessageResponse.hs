@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.MessageResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.EndpointMessageResult
 import Amazonka.Pinpoint.Types.MessageResult
 import qualified Amazonka.Prelude as Prelude
@@ -102,16 +103,16 @@ messageResponse_result = Lens.lens (\MessageResponse' {result} -> result) (\s@Me
 messageResponse_applicationId :: Lens.Lens' MessageResponse Prelude.Text
 messageResponse_applicationId = Lens.lens (\MessageResponse' {applicationId} -> applicationId) (\s@MessageResponse' {} a -> s {applicationId = a} :: MessageResponse)
 
-instance Core.FromJSON MessageResponse where
+instance Data.FromJSON MessageResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MessageResponse"
       ( \x ->
           MessageResponse'
-            Prelude.<$> (x Core..:? "RequestId")
-            Prelude.<*> (x Core..:? "EndpointResult" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Result" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "ApplicationId")
+            Prelude.<$> (x Data..:? "RequestId")
+            Prelude.<*> (x Data..:? "EndpointResult" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Result" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "ApplicationId")
       )
 
 instance Prelude.Hashable MessageResponse where

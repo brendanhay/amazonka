@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.Configuration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Amazon EMR releases 4.x or later.
@@ -82,15 +83,15 @@ configuration_configurations = Lens.lens (\Configuration' {configurations} -> co
 configuration_classification :: Lens.Lens' Configuration (Prelude.Maybe Prelude.Text)
 configuration_classification = Lens.lens (\Configuration' {classification} -> classification) (\s@Configuration' {} a -> s {classification = a} :: Configuration)
 
-instance Core.FromJSON Configuration where
+instance Data.FromJSON Configuration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Configuration"
       ( \x ->
           Configuration'
-            Prelude.<$> (x Core..:? "Properties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Configurations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Classification")
+            Prelude.<$> (x Data..:? "Properties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Configurations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Classification")
       )
 
 instance Prelude.Hashable Configuration where
@@ -105,14 +106,14 @@ instance Prelude.NFData Configuration where
       `Prelude.seq` Prelude.rnf configurations
       `Prelude.seq` Prelude.rnf classification
 
-instance Core.ToJSON Configuration where
+instance Data.ToJSON Configuration where
   toJSON Configuration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Properties" Core..=) Prelude.<$> properties,
-            ("Configurations" Core..=)
+          [ ("Properties" Data..=) Prelude.<$> properties,
+            ("Configurations" Data..=)
               Prelude.<$> configurations,
-            ("Classification" Core..=)
+            ("Classification" Data..=)
               Prelude.<$> classification
           ]
       )

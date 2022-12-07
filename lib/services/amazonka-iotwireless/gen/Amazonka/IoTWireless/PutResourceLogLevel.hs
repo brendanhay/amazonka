@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,25 +131,25 @@ instance Prelude.NFData PutResourceLogLevel where
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf logLevel
 
-instance Core.ToHeaders PutResourceLogLevel where
+instance Data.ToHeaders PutResourceLogLevel where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON PutResourceLogLevel where
+instance Data.ToJSON PutResourceLogLevel where
   toJSON PutResourceLogLevel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LogLevel" Core..= logLevel)]
+          [Prelude.Just ("LogLevel" Data..= logLevel)]
       )
 
-instance Core.ToPath PutResourceLogLevel where
+instance Data.ToPath PutResourceLogLevel where
   toPath PutResourceLogLevel' {..} =
     Prelude.mconcat
-      ["/log-levels/", Core.toBS resourceIdentifier]
+      ["/log-levels/", Data.toBS resourceIdentifier]
 
-instance Core.ToQuery PutResourceLogLevel where
+instance Data.ToQuery PutResourceLogLevel where
   toQuery PutResourceLogLevel' {..} =
     Prelude.mconcat
-      ["resourceType" Core.=: resourceType]
+      ["resourceType" Data.=: resourceType]
 
 -- | /See:/ 'newPutResourceLogLevelResponse' smart constructor.
 data PutResourceLogLevelResponse = PutResourceLogLevelResponse'

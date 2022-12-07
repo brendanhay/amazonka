@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,16 +98,16 @@ instance Core.AWSRequest DescribeStateMachine where
     Response.receiveJSON
       ( \s h x ->
           DescribeStateMachineResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "tracingConfiguration")
-            Prelude.<*> (x Core..?> "loggingConfiguration")
+            Prelude.<$> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "tracingConfiguration")
+            Prelude.<*> (x Data..?> "loggingConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "stateMachineArn")
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "definition")
-            Prelude.<*> (x Core..:> "roleArn")
-            Prelude.<*> (x Core..:> "type")
-            Prelude.<*> (x Core..:> "creationDate")
+            Prelude.<*> (x Data..:> "stateMachineArn")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "definition")
+            Prelude.<*> (x Data..:> "roleArn")
+            Prelude.<*> (x Data..:> "type")
+            Prelude.<*> (x Data..:> "creationDate")
       )
 
 instance Prelude.Hashable DescribeStateMachine where
@@ -117,34 +118,34 @@ instance Prelude.NFData DescribeStateMachine where
   rnf DescribeStateMachine' {..} =
     Prelude.rnf stateMachineArn
 
-instance Core.ToHeaders DescribeStateMachine where
+instance Data.ToHeaders DescribeStateMachine where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSStepFunctions.DescribeStateMachine" ::
+              Data.=# ( "AWSStepFunctions.DescribeStateMachine" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeStateMachine where
+instance Data.ToJSON DescribeStateMachine where
   toJSON DescribeStateMachine' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("stateMachineArn" Core..= stateMachineArn)
+              ("stateMachineArn" Data..= stateMachineArn)
           ]
       )
 
-instance Core.ToPath DescribeStateMachine where
+instance Data.ToPath DescribeStateMachine where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStateMachine where
+instance Data.ToQuery DescribeStateMachine where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeStateMachineResponse' smart constructor.
@@ -177,7 +178,7 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
     name :: Prelude.Text,
     -- | The Amazon States Language definition of the state machine. See
     -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
-    definition :: Core.Sensitive Prelude.Text,
+    definition :: Data.Sensitive Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role used when creating this
     -- state machine. (The IAM role maintains security by granting Step
     -- Functions access to Amazon Web Services resources.)
@@ -185,7 +186,7 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
     -- | The @type@ of the state machine (@STANDARD@ or @EXPRESS@).
     type' :: StateMachineType,
     -- | The date the state machine is created.
-    creationDate :: Core.POSIX
+    creationDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -267,11 +268,11 @@ newDescribeStateMachineResponse
         stateMachineArn = pStateMachineArn_,
         name = pName_,
         definition =
-          Core._Sensitive Lens.# pDefinition_,
+          Data._Sensitive Lens.# pDefinition_,
         roleArn = pRoleArn_,
         type' = pType_,
         creationDate =
-          Core._Time Lens.# pCreationDate_
+          Data._Time Lens.# pCreationDate_
       }
 
 -- | The current status of the state machine.
@@ -316,7 +317,7 @@ describeStateMachineResponse_name = Lens.lens (\DescribeStateMachineResponse' {n
 -- | The Amazon States Language definition of the state machine. See
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>.
 describeStateMachineResponse_definition :: Lens.Lens' DescribeStateMachineResponse Prelude.Text
-describeStateMachineResponse_definition = Lens.lens (\DescribeStateMachineResponse' {definition} -> definition) (\s@DescribeStateMachineResponse' {} a -> s {definition = a} :: DescribeStateMachineResponse) Prelude.. Core._Sensitive
+describeStateMachineResponse_definition = Lens.lens (\DescribeStateMachineResponse' {definition} -> definition) (\s@DescribeStateMachineResponse' {} a -> s {definition = a} :: DescribeStateMachineResponse) Prelude.. Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the IAM role used when creating this
 -- state machine. (The IAM role maintains security by granting Step
@@ -330,7 +331,7 @@ describeStateMachineResponse_type = Lens.lens (\DescribeStateMachineResponse' {t
 
 -- | The date the state machine is created.
 describeStateMachineResponse_creationDate :: Lens.Lens' DescribeStateMachineResponse Prelude.UTCTime
-describeStateMachineResponse_creationDate = Lens.lens (\DescribeStateMachineResponse' {creationDate} -> creationDate) (\s@DescribeStateMachineResponse' {} a -> s {creationDate = a} :: DescribeStateMachineResponse) Prelude.. Core._Time
+describeStateMachineResponse_creationDate = Lens.lens (\DescribeStateMachineResponse' {creationDate} -> creationDate) (\s@DescribeStateMachineResponse' {} a -> s {creationDate = a} :: DescribeStateMachineResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeStateMachineResponse where
   rnf DescribeStateMachineResponse' {..} =

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,8 +124,8 @@ instance Core.AWSRequest ListAssets where
     Response.receiveJSON
       ( \s h x ->
           ListAssetsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "assets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "assets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,26 +141,26 @@ instance Prelude.NFData ListAssets where
       `Prelude.seq` Prelude.rnf packagingGroupId
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListAssets where
+instance Data.ToHeaders ListAssets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAssets where
+instance Data.ToPath ListAssets where
   toPath = Prelude.const "/assets"
 
-instance Core.ToQuery ListAssets where
+instance Data.ToQuery ListAssets where
   toQuery ListAssets' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "packagingGroupId" Core.=: packagingGroupId,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "packagingGroupId" Data.=: packagingGroupId,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListAssetsResponse' smart constructor.

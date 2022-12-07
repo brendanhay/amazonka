@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.AccountLimit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Limits that are related to concurrency and storage. All file and storage
@@ -105,17 +106,17 @@ accountLimit_codeSizeZipped = Lens.lens (\AccountLimit' {codeSizeZipped} -> code
 accountLimit_codeSizeUnzipped :: Lens.Lens' AccountLimit (Prelude.Maybe Prelude.Integer)
 accountLimit_codeSizeUnzipped = Lens.lens (\AccountLimit' {codeSizeUnzipped} -> codeSizeUnzipped) (\s@AccountLimit' {} a -> s {codeSizeUnzipped = a} :: AccountLimit)
 
-instance Core.FromJSON AccountLimit where
+instance Data.FromJSON AccountLimit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountLimit"
       ( \x ->
           AccountLimit'
-            Prelude.<$> (x Core..:? "UnreservedConcurrentExecutions")
-            Prelude.<*> (x Core..:? "TotalCodeSize")
-            Prelude.<*> (x Core..:? "ConcurrentExecutions")
-            Prelude.<*> (x Core..:? "CodeSizeZipped")
-            Prelude.<*> (x Core..:? "CodeSizeUnzipped")
+            Prelude.<$> (x Data..:? "UnreservedConcurrentExecutions")
+            Prelude.<*> (x Data..:? "TotalCodeSize")
+            Prelude.<*> (x Data..:? "ConcurrentExecutions")
+            Prelude.<*> (x Data..:? "CodeSizeZipped")
+            Prelude.<*> (x Data..:? "CodeSizeUnzipped")
       )
 
 instance Prelude.Hashable AccountLimit where

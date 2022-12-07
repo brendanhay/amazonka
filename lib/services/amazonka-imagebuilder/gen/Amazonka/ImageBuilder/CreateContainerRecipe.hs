@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -311,9 +312,9 @@ instance Core.AWSRequest CreateContainerRecipe where
     Response.receiveJSON
       ( \s h x ->
           CreateContainerRecipeResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-            Prelude.<*> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "containerRecipeArn")
+            Prelude.<$> (x Data..?> "clientToken")
+            Prelude.<*> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "containerRecipeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -355,52 +356,52 @@ instance Prelude.NFData CreateContainerRecipe where
       `Prelude.seq` Prelude.rnf targetRepository
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateContainerRecipe where
+instance Data.ToHeaders CreateContainerRecipe where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateContainerRecipe where
+instance Data.ToJSON CreateContainerRecipe where
   toJSON CreateContainerRecipe' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("instanceConfiguration" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("instanceConfiguration" Data..=)
               Prelude.<$> instanceConfiguration,
-            ("description" Core..=) Prelude.<$> description,
-            ("platformOverride" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("platformOverride" Data..=)
               Prelude.<$> platformOverride,
-            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("imageOsVersionOverride" Core..=)
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("imageOsVersionOverride" Data..=)
               Prelude.<$> imageOsVersionOverride,
-            ("dockerfileTemplateData" Core..=)
+            ("dockerfileTemplateData" Data..=)
               Prelude.<$> dockerfileTemplateData,
-            ("dockerfileTemplateUri" Core..=)
+            ("dockerfileTemplateUri" Data..=)
               Prelude.<$> dockerfileTemplateUri,
-            ("workingDirectory" Core..=)
+            ("workingDirectory" Data..=)
               Prelude.<$> workingDirectory,
-            Prelude.Just ("containerType" Core..= containerType),
-            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("containerType" Data..= containerType),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("semanticVersion" Core..= semanticVersion),
-            Prelude.Just ("components" Core..= components),
-            Prelude.Just ("parentImage" Core..= parentImage),
+              ("semanticVersion" Data..= semanticVersion),
+            Prelude.Just ("components" Data..= components),
+            Prelude.Just ("parentImage" Data..= parentImage),
             Prelude.Just
-              ("targetRepository" Core..= targetRepository),
-            Prelude.Just ("clientToken" Core..= clientToken)
+              ("targetRepository" Data..= targetRepository),
+            Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CreateContainerRecipe where
+instance Data.ToPath CreateContainerRecipe where
   toPath = Prelude.const "/CreateContainerRecipe"
 
-instance Core.ToQuery CreateContainerRecipe where
+instance Data.ToQuery CreateContainerRecipe where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateContainerRecipeResponse' smart constructor.

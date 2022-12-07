@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CertificateAuthentication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,10 +55,10 @@ newCertificateAuthentication =
 certificateAuthentication_clientRootCertificateChain :: Lens.Lens' CertificateAuthentication (Prelude.Maybe Prelude.Text)
 certificateAuthentication_clientRootCertificateChain = Lens.lens (\CertificateAuthentication' {clientRootCertificateChain} -> clientRootCertificateChain) (\s@CertificateAuthentication' {} a -> s {clientRootCertificateChain = a} :: CertificateAuthentication)
 
-instance Core.FromXML CertificateAuthentication where
+instance Data.FromXML CertificateAuthentication where
   parseXML x =
     CertificateAuthentication'
-      Prelude.<$> (x Core..@? "clientRootCertificateChain")
+      Prelude.<$> (x Data..@? "clientRootCertificateChain")
 
 instance Prelude.Hashable CertificateAuthentication where
   hashWithSalt _salt CertificateAuthentication' {..} =

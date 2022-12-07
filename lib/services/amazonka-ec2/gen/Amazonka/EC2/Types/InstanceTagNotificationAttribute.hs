@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceTagNotificationAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,15 +71,15 @@ instanceTagNotificationAttribute_instanceTagKeys :: Lens.Lens' InstanceTagNotifi
 instanceTagNotificationAttribute_instanceTagKeys = Lens.lens (\InstanceTagNotificationAttribute' {instanceTagKeys} -> instanceTagKeys) (\s@InstanceTagNotificationAttribute' {} a -> s {instanceTagKeys = a} :: InstanceTagNotificationAttribute) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromXML
+  Data.FromXML
     InstanceTagNotificationAttribute
   where
   parseXML x =
     InstanceTagNotificationAttribute'
-      Prelude.<$> (x Core..@? "includeAllTagsOfInstance")
-      Prelude.<*> ( x Core..@? "instanceTagKeySet"
+      Prelude.<$> (x Data..@? "includeAllTagsOfInstance")
+      Prelude.<*> ( x Data..@? "instanceTagKeySet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance

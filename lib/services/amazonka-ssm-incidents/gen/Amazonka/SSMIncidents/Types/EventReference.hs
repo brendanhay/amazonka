@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.EventReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An item referenced in a @TimelineEvent@ that is involved in or somehow
@@ -66,14 +67,14 @@ eventReference_relatedItemId = Lens.lens (\EventReference' {relatedItemId} -> re
 eventReference_resource :: Lens.Lens' EventReference (Prelude.Maybe Prelude.Text)
 eventReference_resource = Lens.lens (\EventReference' {resource} -> resource) (\s@EventReference' {} a -> s {resource = a} :: EventReference)
 
-instance Core.FromJSON EventReference where
+instance Data.FromJSON EventReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventReference"
       ( \x ->
           EventReference'
-            Prelude.<$> (x Core..:? "relatedItemId")
-            Prelude.<*> (x Core..:? "resource")
+            Prelude.<$> (x Data..:? "relatedItemId")
+            Prelude.<*> (x Data..:? "resource")
       )
 
 instance Prelude.Hashable EventReference where
@@ -86,11 +87,11 @@ instance Prelude.NFData EventReference where
     Prelude.rnf relatedItemId
       `Prelude.seq` Prelude.rnf resource
 
-instance Core.ToJSON EventReference where
+instance Data.ToJSON EventReference where
   toJSON EventReference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("relatedItemId" Core..=) Prelude.<$> relatedItemId,
-            ("resource" Core..=) Prelude.<$> resource
+          [ ("relatedItemId" Data..=) Prelude.<$> relatedItemId,
+            ("resource" Data..=) Prelude.<$> resource
           ]
       )

@@ -61,6 +61,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -255,8 +256,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateUnreferencedMergeCommitResponse'
-            Prelude.<$> (x Core..?> "commitId")
-            Prelude.<*> (x Core..?> "treeId")
+            Prelude.<$> (x Data..?> "commitId")
+            Prelude.<*> (x Data..?> "treeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -291,54 +292,54 @@ instance Prelude.NFData CreateUnreferencedMergeCommit where
       `Prelude.seq` Prelude.rnf destinationCommitSpecifier
       `Prelude.seq` Prelude.rnf mergeOption
 
-instance Core.ToHeaders CreateUnreferencedMergeCommit where
+instance Data.ToHeaders CreateUnreferencedMergeCommit where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.CreateUnreferencedMergeCommit" ::
+              Data.=# ( "CodeCommit_20150413.CreateUnreferencedMergeCommit" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUnreferencedMergeCommit where
+instance Data.ToJSON CreateUnreferencedMergeCommit where
   toJSON CreateUnreferencedMergeCommit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("keepEmptyFolders" Core..=)
+          [ ("keepEmptyFolders" Data..=)
               Prelude.<$> keepEmptyFolders,
-            ("conflictResolution" Core..=)
+            ("conflictResolution" Data..=)
               Prelude.<$> conflictResolution,
-            ("email" Core..=) Prelude.<$> email,
-            ("authorName" Core..=) Prelude.<$> authorName,
-            ("commitMessage" Core..=) Prelude.<$> commitMessage,
-            ("conflictResolutionStrategy" Core..=)
+            ("email" Data..=) Prelude.<$> email,
+            ("authorName" Data..=) Prelude.<$> authorName,
+            ("commitMessage" Data..=) Prelude.<$> commitMessage,
+            ("conflictResolutionStrategy" Data..=)
               Prelude.<$> conflictResolutionStrategy,
-            ("conflictDetailLevel" Core..=)
+            ("conflictDetailLevel" Data..=)
               Prelude.<$> conflictDetailLevel,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
+              ("repositoryName" Data..= repositoryName),
             Prelude.Just
               ( "sourceCommitSpecifier"
-                  Core..= sourceCommitSpecifier
+                  Data..= sourceCommitSpecifier
               ),
             Prelude.Just
               ( "destinationCommitSpecifier"
-                  Core..= destinationCommitSpecifier
+                  Data..= destinationCommitSpecifier
               ),
-            Prelude.Just ("mergeOption" Core..= mergeOption)
+            Prelude.Just ("mergeOption" Data..= mergeOption)
           ]
       )
 
-instance Core.ToPath CreateUnreferencedMergeCommit where
+instance Data.ToPath CreateUnreferencedMergeCommit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUnreferencedMergeCommit where
+instance Data.ToQuery CreateUnreferencedMergeCommit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUnreferencedMergeCommitResponse' smart constructor.

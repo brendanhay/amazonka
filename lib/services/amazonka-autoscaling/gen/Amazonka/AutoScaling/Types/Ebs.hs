@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.Ebs where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes information used to set up an Amazon EBS volume specified in a
@@ -275,16 +276,16 @@ ebs_throughput = Lens.lens (\Ebs' {throughput} -> throughput) (\s@Ebs' {} a -> s
 ebs_iops :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Natural)
 ebs_iops = Lens.lens (\Ebs' {iops} -> iops) (\s@Ebs' {} a -> s {iops = a} :: Ebs)
 
-instance Core.FromXML Ebs where
+instance Data.FromXML Ebs where
   parseXML x =
     Ebs'
-      Prelude.<$> (x Core..@? "DeleteOnTermination")
-      Prelude.<*> (x Core..@? "SnapshotId")
-      Prelude.<*> (x Core..@? "VolumeType")
-      Prelude.<*> (x Core..@? "VolumeSize")
-      Prelude.<*> (x Core..@? "Encrypted")
-      Prelude.<*> (x Core..@? "Throughput")
-      Prelude.<*> (x Core..@? "Iops")
+      Prelude.<$> (x Data..@? "DeleteOnTermination")
+      Prelude.<*> (x Data..@? "SnapshotId")
+      Prelude.<*> (x Data..@? "VolumeType")
+      Prelude.<*> (x Data..@? "VolumeSize")
+      Prelude.<*> (x Data..@? "Encrypted")
+      Prelude.<*> (x Data..@? "Throughput")
+      Prelude.<*> (x Data..@? "Iops")
 
 instance Prelude.Hashable Ebs where
   hashWithSalt _salt Ebs' {..} =
@@ -306,14 +307,14 @@ instance Prelude.NFData Ebs where
       `Prelude.seq` Prelude.rnf throughput
       `Prelude.seq` Prelude.rnf iops
 
-instance Core.ToQuery Ebs where
+instance Data.ToQuery Ebs where
   toQuery Ebs' {..} =
     Prelude.mconcat
-      [ "DeleteOnTermination" Core.=: deleteOnTermination,
-        "SnapshotId" Core.=: snapshotId,
-        "VolumeType" Core.=: volumeType,
-        "VolumeSize" Core.=: volumeSize,
-        "Encrypted" Core.=: encrypted,
-        "Throughput" Core.=: throughput,
-        "Iops" Core.=: iops
+      [ "DeleteOnTermination" Data.=: deleteOnTermination,
+        "SnapshotId" Data.=: snapshotId,
+        "VolumeType" Data.=: volumeType,
+        "VolumeSize" Data.=: volumeSize,
+        "Encrypted" Data.=: encrypted,
+        "Throughput" Data.=: throughput,
+        "Iops" Data.=: iops
       ]

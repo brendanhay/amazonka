@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsServiceServiceRegistriesDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a service discovery registry to assign to the service.
@@ -129,18 +130,18 @@ awsEcsServiceServiceRegistriesDetails_registryArn :: Lens.Lens' AwsEcsServiceSer
 awsEcsServiceServiceRegistriesDetails_registryArn = Lens.lens (\AwsEcsServiceServiceRegistriesDetails' {registryArn} -> registryArn) (\s@AwsEcsServiceServiceRegistriesDetails' {} a -> s {registryArn = a} :: AwsEcsServiceServiceRegistriesDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsServiceServiceRegistriesDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsServiceServiceRegistriesDetails"
       ( \x ->
           AwsEcsServiceServiceRegistriesDetails'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "ContainerPort")
-            Prelude.<*> (x Core..:? "ContainerName")
-            Prelude.<*> (x Core..:? "RegistryArn")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "ContainerPort")
+            Prelude.<*> (x Data..:? "ContainerName")
+            Prelude.<*> (x Data..:? "RegistryArn")
       )
 
 instance
@@ -166,15 +167,15 @@ instance
       `Prelude.seq` Prelude.rnf registryArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsServiceServiceRegistriesDetails
   where
   toJSON AwsEcsServiceServiceRegistriesDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("ContainerPort" Core..=) Prelude.<$> containerPort,
-            ("ContainerName" Core..=) Prelude.<$> containerName,
-            ("RegistryArn" Core..=) Prelude.<$> registryArn
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("ContainerPort" Data..=) Prelude.<$> containerPort,
+            ("ContainerName" Data..=) Prelude.<$> containerName,
+            ("RegistryArn" Data..=) Prelude.<$> registryArn
           ]
       )

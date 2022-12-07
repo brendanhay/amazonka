@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.MaxAgeRule
 import Amazonka.ElasticBeanstalk.Types.MaxCountRule
 import qualified Amazonka.Prelude as Prelude
@@ -77,13 +78,13 @@ applicationVersionLifecycleConfig_maxAgeRule :: Lens.Lens' ApplicationVersionLif
 applicationVersionLifecycleConfig_maxAgeRule = Lens.lens (\ApplicationVersionLifecycleConfig' {maxAgeRule} -> maxAgeRule) (\s@ApplicationVersionLifecycleConfig' {} a -> s {maxAgeRule = a} :: ApplicationVersionLifecycleConfig)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ApplicationVersionLifecycleConfig
   where
   parseXML x =
     ApplicationVersionLifecycleConfig'
-      Prelude.<$> (x Core..@? "MaxCountRule")
-      Prelude.<*> (x Core..@? "MaxAgeRule")
+      Prelude.<$> (x Data..@? "MaxCountRule")
+      Prelude.<*> (x Data..@? "MaxAgeRule")
 
 instance
   Prelude.Hashable
@@ -104,11 +105,11 @@ instance
       `Prelude.seq` Prelude.rnf maxAgeRule
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ApplicationVersionLifecycleConfig
   where
   toQuery ApplicationVersionLifecycleConfig' {..} =
     Prelude.mconcat
-      [ "MaxCountRule" Core.=: maxCountRule,
-        "MaxAgeRule" Core.=: maxAgeRule
+      [ "MaxCountRule" Data.=: maxCountRule,
+        "MaxAgeRule" Data.=: maxAgeRule
       ]

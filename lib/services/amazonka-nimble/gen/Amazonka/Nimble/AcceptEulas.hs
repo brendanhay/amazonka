@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,7 +113,7 @@ instance Core.AWSRequest AcceptEulas where
     Response.receiveJSON
       ( \s h x ->
           AcceptEulasResponse'
-            Prelude.<$> ( x Core..?> "eulaAcceptances"
+            Prelude.<$> ( x Data..?> "eulaAcceptances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -130,30 +131,30 @@ instance Prelude.NFData AcceptEulas where
       `Prelude.seq` Prelude.rnf eulaIds
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders AcceptEulas where
+instance Data.ToHeaders AcceptEulas where
   toHeaders AcceptEulas' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON AcceptEulas where
+instance Data.ToJSON AcceptEulas where
   toJSON AcceptEulas' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("eulaIds" Core..=) Prelude.<$> eulaIds]
+          [("eulaIds" Data..=) Prelude.<$> eulaIds]
       )
 
-instance Core.ToPath AcceptEulas where
+instance Data.ToPath AcceptEulas where
   toPath AcceptEulas' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/eula-acceptances"
       ]
 
-instance Core.ToQuery AcceptEulas where
+instance Data.ToQuery AcceptEulas where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAcceptEulasResponse' smart constructor.

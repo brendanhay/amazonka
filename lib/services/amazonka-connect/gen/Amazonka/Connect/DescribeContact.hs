@@ -51,6 +51,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,7 +109,7 @@ instance Core.AWSRequest DescribeContact where
     Response.receiveJSON
       ( \s h x ->
           DescribeContactResponse'
-            Prelude.<$> (x Core..?> "Contact")
+            Prelude.<$> (x Data..?> "Contact")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,27 +123,27 @@ instance Prelude.NFData DescribeContact where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf contactId
 
-instance Core.ToHeaders DescribeContact where
+instance Data.ToHeaders DescribeContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeContact where
+instance Data.ToPath DescribeContact where
   toPath DescribeContact' {..} =
     Prelude.mconcat
       [ "/contacts/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS contactId
+        Data.toBS contactId
       ]
 
-instance Core.ToQuery DescribeContact where
+instance Data.ToQuery DescribeContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeContactResponse' smart constructor.

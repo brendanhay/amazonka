@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.ParentEntityUpdateRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.ParentEntityUpdateType
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,12 +76,12 @@ instance Prelude.NFData ParentEntityUpdateRequest where
     Prelude.rnf parentEntityId
       `Prelude.seq` Prelude.rnf updateType
 
-instance Core.ToJSON ParentEntityUpdateRequest where
+instance Data.ToJSON ParentEntityUpdateRequest where
   toJSON ParentEntityUpdateRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("parentEntityId" Core..=)
+          [ ("parentEntityId" Data..=)
               Prelude.<$> parentEntityId,
-            Prelude.Just ("updateType" Core..= updateType)
+            Prelude.Just ("updateType" Data..= updateType)
           ]
       )

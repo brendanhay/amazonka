@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TrafficRoutingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CapacitySize
 import Amazonka.SageMaker.Types.TrafficRoutingConfigType
@@ -131,16 +132,16 @@ trafficRoutingConfig_type = Lens.lens (\TrafficRoutingConfig' {type'} -> type') 
 trafficRoutingConfig_waitIntervalInSeconds :: Lens.Lens' TrafficRoutingConfig Prelude.Natural
 trafficRoutingConfig_waitIntervalInSeconds = Lens.lens (\TrafficRoutingConfig' {waitIntervalInSeconds} -> waitIntervalInSeconds) (\s@TrafficRoutingConfig' {} a -> s {waitIntervalInSeconds = a} :: TrafficRoutingConfig)
 
-instance Core.FromJSON TrafficRoutingConfig where
+instance Data.FromJSON TrafficRoutingConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrafficRoutingConfig"
       ( \x ->
           TrafficRoutingConfig'
-            Prelude.<$> (x Core..:? "LinearStepSize")
-            Prelude.<*> (x Core..:? "CanarySize")
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "WaitIntervalInSeconds")
+            Prelude.<$> (x Data..:? "LinearStepSize")
+            Prelude.<*> (x Data..:? "CanarySize")
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "WaitIntervalInSeconds")
       )
 
 instance Prelude.Hashable TrafficRoutingConfig where
@@ -157,17 +158,17 @@ instance Prelude.NFData TrafficRoutingConfig where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf waitIntervalInSeconds
 
-instance Core.ToJSON TrafficRoutingConfig where
+instance Data.ToJSON TrafficRoutingConfig where
   toJSON TrafficRoutingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LinearStepSize" Core..=)
+          [ ("LinearStepSize" Data..=)
               Prelude.<$> linearStepSize,
-            ("CanarySize" Core..=) Prelude.<$> canarySize,
-            Prelude.Just ("Type" Core..= type'),
+            ("CanarySize" Data..=) Prelude.<$> canarySize,
+            Prelude.Just ("Type" Data..= type'),
             Prelude.Just
               ( "WaitIntervalInSeconds"
-                  Core..= waitIntervalInSeconds
+                  Data..= waitIntervalInSeconds
               )
           ]
       )

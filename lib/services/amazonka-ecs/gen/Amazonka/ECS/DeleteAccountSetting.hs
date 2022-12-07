@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,7 +134,7 @@ instance Core.AWSRequest DeleteAccountSetting where
     Response.receiveJSON
       ( \s h x ->
           DeleteAccountSettingResponse'
-            Prelude.<$> (x Core..?> "setting")
+            Prelude.<$> (x Data..?> "setting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,34 +148,34 @@ instance Prelude.NFData DeleteAccountSetting where
     Prelude.rnf principalArn
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders DeleteAccountSetting where
+instance Data.ToHeaders DeleteAccountSetting where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.DeleteAccountSetting" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.DeleteAccountSetting" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAccountSetting where
+instance Data.ToJSON DeleteAccountSetting where
   toJSON DeleteAccountSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("principalArn" Core..=) Prelude.<$> principalArn,
-            Prelude.Just ("name" Core..= name)
+          [ ("principalArn" Data..=) Prelude.<$> principalArn,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath DeleteAccountSetting where
+instance Data.ToPath DeleteAccountSetting where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAccountSetting where
+instance Data.ToQuery DeleteAccountSetting where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAccountSettingResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentTemplateCloudWatchLogsLogConfigurationInput 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration for experiment logging to Amazon CloudWatch
@@ -78,12 +79,12 @@ instance
       Prelude.rnf logGroupArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ExperimentTemplateCloudWatchLogsLogConfigurationInput
   where
   toJSON
     ExperimentTemplateCloudWatchLogsLogConfigurationInput' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [Prelude.Just ("logGroupArn" Core..= logGroupArn)]
+            [Prelude.Just ("logGroupArn" Data..= logGroupArn)]
         )

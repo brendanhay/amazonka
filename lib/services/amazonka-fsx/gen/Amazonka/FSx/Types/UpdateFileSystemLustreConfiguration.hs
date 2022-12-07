@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.UpdateFileSystemLustreConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.AutoImportPolicyType
 import Amazonka.FSx.Types.DataCompressionType
 import Amazonka.FSx.Types.LustreLogCreateConfiguration
@@ -278,25 +279,25 @@ instance
       `Prelude.seq` Prelude.rnf rootSquashConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateFileSystemLustreConfiguration
   where
   toJSON UpdateFileSystemLustreConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WeeklyMaintenanceStartTime" Core..=)
+          [ ("WeeklyMaintenanceStartTime" Data..=)
               Prelude.<$> weeklyMaintenanceStartTime,
-            ("LogConfiguration" Core..=)
+            ("LogConfiguration" Data..=)
               Prelude.<$> logConfiguration,
-            ("AutomaticBackupRetentionDays" Core..=)
+            ("AutomaticBackupRetentionDays" Data..=)
               Prelude.<$> automaticBackupRetentionDays,
-            ("AutoImportPolicy" Core..=)
+            ("AutoImportPolicy" Data..=)
               Prelude.<$> autoImportPolicy,
-            ("DailyAutomaticBackupStartTime" Core..=)
+            ("DailyAutomaticBackupStartTime" Data..=)
               Prelude.<$> dailyAutomaticBackupStartTime,
-            ("DataCompressionType" Core..=)
+            ("DataCompressionType" Data..=)
               Prelude.<$> dataCompressionType,
-            ("RootSquashConfiguration" Core..=)
+            ("RootSquashConfiguration" Data..=)
               Prelude.<$> rootSquashConfiguration
           ]
       )

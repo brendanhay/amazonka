@@ -44,6 +44,7 @@ where
 import Amazonka.CloudHSMV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,7 +89,7 @@ instance Core.AWSRequest RestoreBackup where
     Response.receiveJSON
       ( \s h x ->
           RestoreBackupResponse'
-            Prelude.<$> (x Core..?> "Backup")
+            Prelude.<$> (x Data..?> "Backup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,32 +100,32 @@ instance Prelude.Hashable RestoreBackup where
 instance Prelude.NFData RestoreBackup where
   rnf RestoreBackup' {..} = Prelude.rnf backupId
 
-instance Core.ToHeaders RestoreBackup where
+instance Data.ToHeaders RestoreBackup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BaldrApiService.RestoreBackup" ::
+              Data.=# ( "BaldrApiService.RestoreBackup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RestoreBackup where
+instance Data.ToJSON RestoreBackup where
   toJSON RestoreBackup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("BackupId" Core..= backupId)]
+          [Prelude.Just ("BackupId" Data..= backupId)]
       )
 
-instance Core.ToPath RestoreBackup where
+instance Data.ToPath RestoreBackup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreBackup where
+instance Data.ToQuery RestoreBackup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRestoreBackupResponse' smart constructor.

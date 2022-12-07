@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,7 +55,7 @@ data DeleteLabels = DeleteLabels'
     deleteAll :: Prelude.Maybe Prelude.Bool,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | List of labels to delete from the resource.
     labels :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the resource.
@@ -97,7 +98,7 @@ deleteLabels_deleteAll = Lens.lens (\DeleteLabels' {deleteAll} -> deleteAll) (\s
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 deleteLabels_authenticationToken :: Lens.Lens' DeleteLabels (Prelude.Maybe Prelude.Text)
-deleteLabels_authenticationToken = Lens.lens (\DeleteLabels' {authenticationToken} -> authenticationToken) (\s@DeleteLabels' {} a -> s {authenticationToken = a} :: DeleteLabels) Prelude.. Lens.mapping Core._Sensitive
+deleteLabels_authenticationToken = Lens.lens (\DeleteLabels' {authenticationToken} -> authenticationToken) (\s@DeleteLabels' {} a -> s {authenticationToken = a} :: DeleteLabels) Prelude.. Lens.mapping Data._Sensitive
 
 -- | List of labels to delete from the resource.
 deleteLabels_labels :: Lens.Lens' DeleteLabels (Prelude.Maybe [Prelude.Text])
@@ -132,29 +133,29 @@ instance Prelude.NFData DeleteLabels where
       `Prelude.seq` Prelude.rnf labels
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToHeaders DeleteLabels where
+instance Data.ToHeaders DeleteLabels where
   toHeaders DeleteLabels' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DeleteLabels where
+instance Data.ToPath DeleteLabels where
   toPath DeleteLabels' {..} =
     Prelude.mconcat
       [ "/api/v1/resources/",
-        Core.toBS resourceId,
+        Data.toBS resourceId,
         "/labels"
       ]
 
-instance Core.ToQuery DeleteLabels where
+instance Data.ToQuery DeleteLabels where
   toQuery DeleteLabels' {..} =
     Prelude.mconcat
-      [ "deleteAll" Core.=: deleteAll,
+      [ "deleteAll" Data.=: deleteAll,
         "labels"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> labels)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> labels)
       ]
 
 -- | /See:/ 'newDeleteLabelsResponse' smart constructor.

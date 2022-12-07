@@ -21,6 +21,7 @@ module Amazonka.AppRunner.Types.ImageConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration that App Runner uses to run an App Runner
@@ -35,11 +36,11 @@ data ImageConfiguration = ImageConfiguration'
     -- | An optional command that App Runner runs to start the application in the
     -- source image. If specified, this command overrides the Docker image’s
     -- default start command.
-    startCommand :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    startCommand :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Environment variables that are available to your running App Runner
     -- service. An array of key-value pairs. Keys with a prefix of
     -- @AWSAPPRUNNER@ are reserved for system use and aren\'t valid.
-    runtimeEnvironmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text))
+    runtimeEnvironmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -81,7 +82,7 @@ imageConfiguration_port = Lens.lens (\ImageConfiguration' {port} -> port) (\s@Im
 -- source image. If specified, this command overrides the Docker image’s
 -- default start command.
 imageConfiguration_startCommand :: Lens.Lens' ImageConfiguration (Prelude.Maybe Prelude.Text)
-imageConfiguration_startCommand = Lens.lens (\ImageConfiguration' {startCommand} -> startCommand) (\s@ImageConfiguration' {} a -> s {startCommand = a} :: ImageConfiguration) Prelude.. Lens.mapping Core._Sensitive
+imageConfiguration_startCommand = Lens.lens (\ImageConfiguration' {startCommand} -> startCommand) (\s@ImageConfiguration' {} a -> s {startCommand = a} :: ImageConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Environment variables that are available to your running App Runner
 -- service. An array of key-value pairs. Keys with a prefix of
@@ -89,16 +90,16 @@ imageConfiguration_startCommand = Lens.lens (\ImageConfiguration' {startCommand}
 imageConfiguration_runtimeEnvironmentVariables :: Lens.Lens' ImageConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 imageConfiguration_runtimeEnvironmentVariables = Lens.lens (\ImageConfiguration' {runtimeEnvironmentVariables} -> runtimeEnvironmentVariables) (\s@ImageConfiguration' {} a -> s {runtimeEnvironmentVariables = a} :: ImageConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ImageConfiguration where
+instance Data.FromJSON ImageConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageConfiguration"
       ( \x ->
           ImageConfiguration'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "StartCommand")
-            Prelude.<*> ( x Core..:? "RuntimeEnvironmentVariables"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "StartCommand")
+            Prelude.<*> ( x Data..:? "RuntimeEnvironmentVariables"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -114,13 +115,13 @@ instance Prelude.NFData ImageConfiguration where
       `Prelude.seq` Prelude.rnf startCommand
       `Prelude.seq` Prelude.rnf runtimeEnvironmentVariables
 
-instance Core.ToJSON ImageConfiguration where
+instance Data.ToJSON ImageConfiguration where
   toJSON ImageConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("StartCommand" Core..=) Prelude.<$> startCommand,
-            ("RuntimeEnvironmentVariables" Core..=)
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("StartCommand" Data..=) Prelude.<$> startCommand,
+            ("RuntimeEnvironmentVariables" Data..=)
               Prelude.<$> runtimeEnvironmentVariables
           ]
       )

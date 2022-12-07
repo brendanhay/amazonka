@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest UpdateReservation' where
     Response.receiveJSON
       ( \s h x ->
           UpdateReservationResponse'
-            Prelude.<$> (x Core..?> "reservation")
+            Prelude.<$> (x Data..?> "reservation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,33 +124,33 @@ instance Prelude.NFData UpdateReservation' where
       `Prelude.seq` Prelude.rnf renewalSettings
       `Prelude.seq` Prelude.rnf reservationId
 
-instance Core.ToHeaders UpdateReservation' where
+instance Data.ToHeaders UpdateReservation' where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateReservation' where
+instance Data.ToJSON UpdateReservation' where
   toJSON UpdateReservation'' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("renewalSettings" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("renewalSettings" Data..=)
               Prelude.<$> renewalSettings
           ]
       )
 
-instance Core.ToPath UpdateReservation' where
+instance Data.ToPath UpdateReservation' where
   toPath UpdateReservation'' {..} =
     Prelude.mconcat
-      ["/prod/reservations/", Core.toBS reservationId]
+      ["/prod/reservations/", Data.toBS reservationId]
 
-instance Core.ToQuery UpdateReservation' where
+instance Data.ToQuery UpdateReservation' where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for UpdateReservationResponse

@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.ContactFilter where
 import Amazonka.Connect.Types.ContactState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters user data based on the contact information that is associated to
@@ -63,11 +64,11 @@ instance Prelude.Hashable ContactFilter where
 instance Prelude.NFData ContactFilter where
   rnf ContactFilter' {..} = Prelude.rnf contactStates
 
-instance Core.ToJSON ContactFilter where
+instance Data.ToJSON ContactFilter where
   toJSON ContactFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContactStates" Core..=)
+          [ ("ContactStates" Data..=)
               Prelude.<$> contactStates
           ]
       )

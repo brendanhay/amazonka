@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,8 +105,8 @@ instance Core.AWSRequest DescribeInstanceHealth where
       "DescribeInstanceHealthResult"
       ( \s h x ->
           DescribeInstanceHealthResponse'
-            Prelude.<$> ( x Core..@? "InstanceStates" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "InstanceStates" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -120,23 +121,23 @@ instance Prelude.NFData DescribeInstanceHealth where
     Prelude.rnf instances
       `Prelude.seq` Prelude.rnf loadBalancerName
 
-instance Core.ToHeaders DescribeInstanceHealth where
+instance Data.ToHeaders DescribeInstanceHealth where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeInstanceHealth where
+instance Data.ToPath DescribeInstanceHealth where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeInstanceHealth where
+instance Data.ToQuery DescribeInstanceHealth where
   toQuery DescribeInstanceHealth' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeInstanceHealth" :: Prelude.ByteString),
+          Data.=: ("DescribeInstanceHealth" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
         "Instances"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> instances),
-        "LoadBalancerName" Core.=: loadBalancerName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> instances),
+        "LoadBalancerName" Data.=: loadBalancerName
       ]
 
 -- | Contains the output for DescribeInstanceHealth.

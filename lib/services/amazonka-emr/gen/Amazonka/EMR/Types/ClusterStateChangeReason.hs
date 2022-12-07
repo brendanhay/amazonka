@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.ClusterStateChangeReason where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.ClusterStateChangeReasonCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ clusterStateChangeReason_message = Lens.lens (\ClusterStateChangeReason' {messag
 clusterStateChangeReason_code :: Lens.Lens' ClusterStateChangeReason (Prelude.Maybe ClusterStateChangeReasonCode)
 clusterStateChangeReason_code = Lens.lens (\ClusterStateChangeReason' {code} -> code) (\s@ClusterStateChangeReason' {} a -> s {code = a} :: ClusterStateChangeReason)
 
-instance Core.FromJSON ClusterStateChangeReason where
+instance Data.FromJSON ClusterStateChangeReason where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusterStateChangeReason"
       ( \x ->
           ClusterStateChangeReason'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Code")
       )
 
 instance Prelude.Hashable ClusterStateChangeReason where

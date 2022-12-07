@@ -21,6 +21,7 @@ module Amazonka.MachineLearning.Types.RealtimeEndpointInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types.RealtimeEndpointStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -48,7 +49,7 @@ data RealtimeEndpointInfo = RealtimeEndpointInfo'
     endpointStatus :: Prelude.Maybe RealtimeEndpointStatus,
     -- | The time that the request to create the real-time endpoint for the
     -- @MLModel@ was received. The time is expressed in epoch time.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -118,18 +119,18 @@ realtimeEndpointInfo_endpointStatus = Lens.lens (\RealtimeEndpointInfo' {endpoin
 -- | The time that the request to create the real-time endpoint for the
 -- @MLModel@ was received. The time is expressed in epoch time.
 realtimeEndpointInfo_createdAt :: Lens.Lens' RealtimeEndpointInfo (Prelude.Maybe Prelude.UTCTime)
-realtimeEndpointInfo_createdAt = Lens.lens (\RealtimeEndpointInfo' {createdAt} -> createdAt) (\s@RealtimeEndpointInfo' {} a -> s {createdAt = a} :: RealtimeEndpointInfo) Prelude.. Lens.mapping Core._Time
+realtimeEndpointInfo_createdAt = Lens.lens (\RealtimeEndpointInfo' {createdAt} -> createdAt) (\s@RealtimeEndpointInfo' {} a -> s {createdAt = a} :: RealtimeEndpointInfo) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON RealtimeEndpointInfo where
+instance Data.FromJSON RealtimeEndpointInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RealtimeEndpointInfo"
       ( \x ->
           RealtimeEndpointInfo'
-            Prelude.<$> (x Core..:? "PeakRequestsPerSecond")
-            Prelude.<*> (x Core..:? "EndpointUrl")
-            Prelude.<*> (x Core..:? "EndpointStatus")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "PeakRequestsPerSecond")
+            Prelude.<*> (x Data..:? "EndpointUrl")
+            Prelude.<*> (x Data..:? "EndpointStatus")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable RealtimeEndpointInfo where

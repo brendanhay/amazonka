@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.QueryStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the status of the query, including progress and bytes
@@ -90,15 +91,15 @@ queryStatus_cumulativeBytesMetered = Lens.lens (\QueryStatus' {cumulativeBytesMe
 queryStatus_progressPercentage :: Lens.Lens' QueryStatus (Prelude.Maybe Prelude.Double)
 queryStatus_progressPercentage = Lens.lens (\QueryStatus' {progressPercentage} -> progressPercentage) (\s@QueryStatus' {} a -> s {progressPercentage = a} :: QueryStatus)
 
-instance Core.FromJSON QueryStatus where
+instance Data.FromJSON QueryStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryStatus"
       ( \x ->
           QueryStatus'
-            Prelude.<$> (x Core..:? "CumulativeBytesScanned")
-            Prelude.<*> (x Core..:? "CumulativeBytesMetered")
-            Prelude.<*> (x Core..:? "ProgressPercentage")
+            Prelude.<$> (x Data..:? "CumulativeBytesScanned")
+            Prelude.<*> (x Data..:? "CumulativeBytesMetered")
+            Prelude.<*> (x Data..:? "ProgressPercentage")
       )
 
 instance Prelude.Hashable QueryStatus where

@@ -42,6 +42,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,34 +116,34 @@ instance Prelude.NFData DeleteUserPoolDomain where
     Prelude.rnf domain
       `Prelude.seq` Prelude.rnf userPoolId
 
-instance Core.ToHeaders DeleteUserPoolDomain where
+instance Data.ToHeaders DeleteUserPoolDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.DeleteUserPoolDomain" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.DeleteUserPoolDomain" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteUserPoolDomain where
+instance Data.ToJSON DeleteUserPoolDomain where
   toJSON DeleteUserPoolDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Domain" Core..= domain),
-            Prelude.Just ("UserPoolId" Core..= userPoolId)
+          [ Prelude.Just ("Domain" Data..= domain),
+            Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )
 
-instance Core.ToPath DeleteUserPoolDomain where
+instance Data.ToPath DeleteUserPoolDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteUserPoolDomain where
+instance Data.ToQuery DeleteUserPoolDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserPoolDomainResponse' smart constructor.

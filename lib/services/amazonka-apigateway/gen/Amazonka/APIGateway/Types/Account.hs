@@ -22,6 +22,7 @@ module Amazonka.APIGateway.Types.Account where
 import Amazonka.APIGateway.Types.ThrottleSettings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an AWS account that is associated with API Gateway.
@@ -83,16 +84,16 @@ account_throttleSettings = Lens.lens (\Account' {throttleSettings} -> throttleSe
 account_apiKeyVersion :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
 account_apiKeyVersion = Lens.lens (\Account' {apiKeyVersion} -> apiKeyVersion) (\s@Account' {} a -> s {apiKeyVersion = a} :: Account)
 
-instance Core.FromJSON Account where
+instance Data.FromJSON Account where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Account"
       ( \x ->
           Account'
-            Prelude.<$> (x Core..:? "cloudwatchRoleArn")
-            Prelude.<*> (x Core..:? "features" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "throttleSettings")
-            Prelude.<*> (x Core..:? "apiKeyVersion")
+            Prelude.<$> (x Data..:? "cloudwatchRoleArn")
+            Prelude.<*> (x Data..:? "features" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "throttleSettings")
+            Prelude.<*> (x Data..:? "apiKeyVersion")
       )
 
 instance Prelude.Hashable Account where

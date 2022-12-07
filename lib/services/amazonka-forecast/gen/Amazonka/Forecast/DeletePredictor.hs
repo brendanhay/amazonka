@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,32 +89,32 @@ instance Prelude.Hashable DeletePredictor where
 instance Prelude.NFData DeletePredictor where
   rnf DeletePredictor' {..} = Prelude.rnf predictorArn
 
-instance Core.ToHeaders DeletePredictor where
+instance Data.ToHeaders DeletePredictor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DeletePredictor" ::
+              Data.=# ( "AmazonForecast.DeletePredictor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeletePredictor where
+instance Data.ToJSON DeletePredictor where
   toJSON DeletePredictor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("PredictorArn" Core..= predictorArn)]
+          [Prelude.Just ("PredictorArn" Data..= predictorArn)]
       )
 
-instance Core.ToPath DeletePredictor where
+instance Data.ToPath DeletePredictor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeletePredictor where
+instance Data.ToQuery DeletePredictor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePredictorResponse' smart constructor.

@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,15 +137,15 @@ instance Core.AWSRequest DisableFastLaunch where
     Response.receiveXML
       ( \s h x ->
           DisableFastLaunchResponse'
-            Prelude.<$> (x Core..@? "resourceType")
-            Prelude.<*> (x Core..@? "ownerId")
-            Prelude.<*> (x Core..@? "launchTemplate")
-            Prelude.<*> (x Core..@? "stateTransitionTime")
-            Prelude.<*> (x Core..@? "state")
-            Prelude.<*> (x Core..@? "stateTransitionReason")
-            Prelude.<*> (x Core..@? "snapshotConfiguration")
-            Prelude.<*> (x Core..@? "maxParallelLaunches")
-            Prelude.<*> (x Core..@? "imageId")
+            Prelude.<$> (x Data..@? "resourceType")
+            Prelude.<*> (x Data..@? "ownerId")
+            Prelude.<*> (x Data..@? "launchTemplate")
+            Prelude.<*> (x Data..@? "stateTransitionTime")
+            Prelude.<*> (x Data..@? "state")
+            Prelude.<*> (x Data..@? "stateTransitionReason")
+            Prelude.<*> (x Data..@? "snapshotConfiguration")
+            Prelude.<*> (x Data..@? "maxParallelLaunches")
+            Prelude.<*> (x Data..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,22 +161,22 @@ instance Prelude.NFData DisableFastLaunch where
       `Prelude.seq` Prelude.rnf force
       `Prelude.seq` Prelude.rnf imageId
 
-instance Core.ToHeaders DisableFastLaunch where
+instance Data.ToHeaders DisableFastLaunch where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DisableFastLaunch where
+instance Data.ToPath DisableFastLaunch where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableFastLaunch where
+instance Data.ToQuery DisableFastLaunch where
   toQuery DisableFastLaunch' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DisableFastLaunch" :: Prelude.ByteString),
+          Data.=: ("DisableFastLaunch" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Force" Core.=: force,
-        "ImageId" Core.=: imageId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Force" Data.=: force,
+        "ImageId" Data.=: imageId
       ]
 
 -- | /See:/ 'newDisableFastLaunchResponse' smart constructor.
@@ -191,7 +192,7 @@ data DisableFastLaunchResponse = DisableFastLaunchResponse'
     launchTemplate :: Prelude.Maybe FastLaunchLaunchTemplateSpecificationResponse,
     -- | The time that the state changed for faster launching for the Windows
     -- AMI.
-    stateTransitionTime :: Prelude.Maybe Core.ISO8601,
+    stateTransitionTime :: Prelude.Maybe Data.ISO8601,
     -- | The current state of faster launching for the specified Windows AMI.
     state :: Prelude.Maybe FastLaunchStateCode,
     -- | The reason that the state changed for faster launching for the Windows
@@ -283,7 +284,7 @@ disableFastLaunchResponse_launchTemplate = Lens.lens (\DisableFastLaunchResponse
 -- | The time that the state changed for faster launching for the Windows
 -- AMI.
 disableFastLaunchResponse_stateTransitionTime :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe Prelude.UTCTime)
-disableFastLaunchResponse_stateTransitionTime = Lens.lens (\DisableFastLaunchResponse' {stateTransitionTime} -> stateTransitionTime) (\s@DisableFastLaunchResponse' {} a -> s {stateTransitionTime = a} :: DisableFastLaunchResponse) Prelude.. Lens.mapping Core._Time
+disableFastLaunchResponse_stateTransitionTime = Lens.lens (\DisableFastLaunchResponse' {stateTransitionTime} -> stateTransitionTime) (\s@DisableFastLaunchResponse' {} a -> s {stateTransitionTime = a} :: DisableFastLaunchResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The current state of faster launching for the specified Windows AMI.
 disableFastLaunchResponse_state :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe FastLaunchStateCode)

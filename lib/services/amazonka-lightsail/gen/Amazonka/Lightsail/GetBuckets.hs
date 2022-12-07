@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,9 +142,9 @@ instance Core.AWSRequest GetBuckets where
     Response.receiveJSON
       ( \s h x ->
           GetBucketsResponse'
-            Prelude.<$> (x Core..?> "nextPageToken")
-            Prelude.<*> (x Core..?> "accountLevelBpaSync")
-            Prelude.<*> (x Core..?> "buckets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextPageToken")
+            Prelude.<*> (x Data..?> "accountLevelBpaSync")
+            Prelude.<*> (x Data..?> "buckets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,36 +161,36 @@ instance Prelude.NFData GetBuckets where
       `Prelude.seq` Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf bucketName
 
-instance Core.ToHeaders GetBuckets where
+instance Data.ToHeaders GetBuckets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetBuckets" ::
+              Data.=# ( "Lightsail_20161128.GetBuckets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetBuckets where
+instance Data.ToJSON GetBuckets where
   toJSON GetBuckets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("includeConnectedResources" Core..=)
+          [ ("includeConnectedResources" Data..=)
               Prelude.<$> includeConnectedResources,
-            ("pageToken" Core..=) Prelude.<$> pageToken,
-            ("bucketName" Core..=) Prelude.<$> bucketName
+            ("pageToken" Data..=) Prelude.<$> pageToken,
+            ("bucketName" Data..=) Prelude.<$> bucketName
           ]
       )
 
-instance Core.ToPath GetBuckets where
+instance Data.ToPath GetBuckets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetBuckets where
+instance Data.ToQuery GetBuckets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBucketsResponse' smart constructor.

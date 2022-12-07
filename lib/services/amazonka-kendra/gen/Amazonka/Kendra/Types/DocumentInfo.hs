@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DocumentInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DocumentAttribute
 import qualified Amazonka.Prelude as Prelude
 
@@ -128,11 +129,11 @@ instance Prelude.NFData DocumentInfo where
     Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf documentId
 
-instance Core.ToJSON DocumentInfo where
+instance Data.ToJSON DocumentInfo where
   toJSON DocumentInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Attributes" Core..=) Prelude.<$> attributes,
-            Prelude.Just ("DocumentId" Core..= documentId)
+          [ ("Attributes" Data..=) Prelude.<$> attributes,
+            Prelude.Just ("DocumentId" Data..= documentId)
           ]
       )

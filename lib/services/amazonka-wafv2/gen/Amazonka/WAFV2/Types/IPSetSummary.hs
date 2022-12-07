@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.IPSetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | High-level information about an IPSet, returned by operations like
@@ -121,17 +122,17 @@ iPSetSummary_description = Lens.lens (\IPSetSummary' {description} -> descriptio
 iPSetSummary_lockToken :: Lens.Lens' IPSetSummary (Prelude.Maybe Prelude.Text)
 iPSetSummary_lockToken = Lens.lens (\IPSetSummary' {lockToken} -> lockToken) (\s@IPSetSummary' {} a -> s {lockToken = a} :: IPSetSummary)
 
-instance Core.FromJSON IPSetSummary where
+instance Data.FromJSON IPSetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IPSetSummary"
       ( \x ->
           IPSetSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LockToken")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LockToken")
       )
 
 instance Prelude.Hashable IPSetSummary where

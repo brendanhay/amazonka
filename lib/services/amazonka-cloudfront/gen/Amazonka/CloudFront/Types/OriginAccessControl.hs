@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.OriginAccessControl where
 import Amazonka.CloudFront.Types.OriginAccessControlConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A CloudFront origin access control, including its unique identifier.
@@ -65,11 +66,11 @@ originAccessControl_originAccessControlConfig = Lens.lens (\OriginAccessControl'
 originAccessControl_id :: Lens.Lens' OriginAccessControl Prelude.Text
 originAccessControl_id = Lens.lens (\OriginAccessControl' {id} -> id) (\s@OriginAccessControl' {} a -> s {id = a} :: OriginAccessControl)
 
-instance Core.FromXML OriginAccessControl where
+instance Data.FromXML OriginAccessControl where
   parseXML x =
     OriginAccessControl'
-      Prelude.<$> (x Core..@? "OriginAccessControlConfig")
-      Prelude.<*> (x Core..@ "Id")
+      Prelude.<$> (x Data..@? "OriginAccessControlConfig")
+      Prelude.<*> (x Data..@ "Id")
 
 instance Prelude.Hashable OriginAccessControl where
   hashWithSalt _salt OriginAccessControl' {..} =

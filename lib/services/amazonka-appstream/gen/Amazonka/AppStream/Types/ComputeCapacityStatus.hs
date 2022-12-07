@@ -21,6 +21,7 @@ module Amazonka.AppStream.Types.ComputeCapacityStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the capacity status for a fleet.
@@ -84,16 +85,16 @@ computeCapacityStatus_inUse = Lens.lens (\ComputeCapacityStatus' {inUse} -> inUs
 computeCapacityStatus_desired :: Lens.Lens' ComputeCapacityStatus Prelude.Int
 computeCapacityStatus_desired = Lens.lens (\ComputeCapacityStatus' {desired} -> desired) (\s@ComputeCapacityStatus' {} a -> s {desired = a} :: ComputeCapacityStatus)
 
-instance Core.FromJSON ComputeCapacityStatus where
+instance Data.FromJSON ComputeCapacityStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComputeCapacityStatus"
       ( \x ->
           ComputeCapacityStatus'
-            Prelude.<$> (x Core..:? "Available")
-            Prelude.<*> (x Core..:? "Running")
-            Prelude.<*> (x Core..:? "InUse")
-            Prelude.<*> (x Core..: "Desired")
+            Prelude.<$> (x Data..:? "Available")
+            Prelude.<*> (x Data..:? "Running")
+            Prelude.<*> (x Data..:? "InUse")
+            Prelude.<*> (x Data..: "Desired")
       )
 
 instance Prelude.Hashable ComputeCapacityStatus where

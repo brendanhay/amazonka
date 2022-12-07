@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types
 import qualified Amazonka.Request as Request
@@ -119,8 +120,8 @@ instance Core.AWSRequest ListJournalS3Exports where
     Response.receiveJSON
       ( \s h x ->
           ListJournalS3ExportsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "JournalS3Exports"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "JournalS3Exports"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -136,25 +137,25 @@ instance Prelude.NFData ListJournalS3Exports where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListJournalS3Exports where
+instance Data.ToHeaders ListJournalS3Exports where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListJournalS3Exports where
+instance Data.ToPath ListJournalS3Exports where
   toPath = Prelude.const "/journal-s3-exports"
 
-instance Core.ToQuery ListJournalS3Exports where
+instance Data.ToQuery ListJournalS3Exports where
   toQuery ListJournalS3Exports' {..} =
     Prelude.mconcat
-      [ "next_token" Core.=: nextToken,
-        "max_results" Core.=: maxResults
+      [ "next_token" Data.=: nextToken,
+        "max_results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListJournalS3ExportsResponse' smart constructor.

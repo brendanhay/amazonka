@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.CacheNodeTypeSpecificParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.CacheNodeTypeSpecificValue
 import Amazonka.ElastiCache.Types.ChangeType
 import qualified Amazonka.Prelude as Prelude
@@ -152,22 +153,22 @@ cacheNodeTypeSpecificParameter_allowedValues = Lens.lens (\CacheNodeTypeSpecific
 cacheNodeTypeSpecificParameter_dataType :: Lens.Lens' CacheNodeTypeSpecificParameter (Prelude.Maybe Prelude.Text)
 cacheNodeTypeSpecificParameter_dataType = Lens.lens (\CacheNodeTypeSpecificParameter' {dataType} -> dataType) (\s@CacheNodeTypeSpecificParameter' {} a -> s {dataType = a} :: CacheNodeTypeSpecificParameter)
 
-instance Core.FromXML CacheNodeTypeSpecificParameter where
+instance Data.FromXML CacheNodeTypeSpecificParameter where
   parseXML x =
     CacheNodeTypeSpecificParameter'
-      Prelude.<$> (x Core..@? "ChangeType")
-      Prelude.<*> (x Core..@? "IsModifiable")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "ParameterName")
-      Prelude.<*> ( x Core..@? "CacheNodeTypeSpecificValues"
+      Prelude.<$> (x Data..@? "ChangeType")
+      Prelude.<*> (x Data..@? "IsModifiable")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "ParameterName")
+      Prelude.<*> ( x Data..@? "CacheNodeTypeSpecificValues"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "CacheNodeTypeSpecificValue")
+                        (Data.parseXMLList "CacheNodeTypeSpecificValue")
                   )
-      Prelude.<*> (x Core..@? "MinimumEngineVersion")
-      Prelude.<*> (x Core..@? "Source")
-      Prelude.<*> (x Core..@? "AllowedValues")
-      Prelude.<*> (x Core..@? "DataType")
+      Prelude.<*> (x Data..@? "MinimumEngineVersion")
+      Prelude.<*> (x Data..@? "Source")
+      Prelude.<*> (x Data..@? "AllowedValues")
+      Prelude.<*> (x Data..@? "DataType")
 
 instance
   Prelude.Hashable

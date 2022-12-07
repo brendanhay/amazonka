@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.ErrorDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the reason that the operation failed.
@@ -66,10 +67,10 @@ errorDetails_message = Lens.lens (\ErrorDetails' {message} -> message) (\s@Error
 errorDetails_code :: Lens.Lens' ErrorDetails Prelude.Text
 errorDetails_code = Lens.lens (\ErrorDetails' {code} -> code) (\s@ErrorDetails' {} a -> s {code = a} :: ErrorDetails)
 
-instance Core.FromXML ErrorDetails where
+instance Data.FromXML ErrorDetails where
   parseXML x =
     ErrorDetails'
-      Prelude.<$> (x Core..@ "Message") Prelude.<*> (x Core..@ "Code")
+      Prelude.<$> (x Data..@ "Message") Prelude.<*> (x Data..@ "Code")
 
 instance Prelude.Hashable ErrorDetails where
   hashWithSalt _salt ErrorDetails' {..} =

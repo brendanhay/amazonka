@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,18 +109,18 @@ instance Core.AWSRequest DescribeMailboxExportJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeMailboxExportJobResponse'
-            Prelude.<$> (x Core..?> "EntityId")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "S3BucketName")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "EndTime")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "KmsKeyArn")
-            Prelude.<*> (x Core..?> "S3Path")
-            Prelude.<*> (x Core..?> "ErrorInfo")
-            Prelude.<*> (x Core..?> "StartTime")
-            Prelude.<*> (x Core..?> "S3Prefix")
-            Prelude.<*> (x Core..?> "EstimatedProgress")
+            Prelude.<$> (x Data..?> "EntityId")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "S3BucketName")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "EndTime")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "KmsKeyArn")
+            Prelude.<*> (x Data..?> "S3Path")
+            Prelude.<*> (x Data..?> "ErrorInfo")
+            Prelude.<*> (x Data..?> "StartTime")
+            Prelude.<*> (x Data..?> "S3Prefix")
+            Prelude.<*> (x Data..?> "EstimatedProgress")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,35 +134,35 @@ instance Prelude.NFData DescribeMailboxExportJob where
     Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf organizationId
 
-instance Core.ToHeaders DescribeMailboxExportJob where
+instance Data.ToHeaders DescribeMailboxExportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.DescribeMailboxExportJob" ::
+              Data.=# ( "WorkMailService.DescribeMailboxExportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeMailboxExportJob where
+instance Data.ToJSON DescribeMailboxExportJob where
   toJSON DescribeMailboxExportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("JobId" Core..= jobId),
+          [ Prelude.Just ("JobId" Data..= jobId),
             Prelude.Just
-              ("OrganizationId" Core..= organizationId)
+              ("OrganizationId" Data..= organizationId)
           ]
       )
 
-instance Core.ToPath DescribeMailboxExportJob where
+instance Data.ToPath DescribeMailboxExportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeMailboxExportJob where
+instance Data.ToQuery DescribeMailboxExportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeMailboxExportJobResponse' smart constructor.
@@ -177,7 +178,7 @@ data DescribeMailboxExportJobResponse = DescribeMailboxExportJobResponse'
     -- | The state of the mailbox export job.
     state :: Prelude.Maybe MailboxExportJobState,
     -- | The mailbox export job end timestamp.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The mailbox export job description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the symmetric AWS Key Management
@@ -189,7 +190,7 @@ data DescribeMailboxExportJobResponse = DescribeMailboxExportJobResponse'
     -- | Error information for failed mailbox export jobs.
     errorInfo :: Prelude.Maybe Prelude.Text,
     -- | The mailbox export job start timestamp.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The S3 bucket prefix.
     s3Prefix :: Prelude.Maybe Prelude.Text,
     -- | The estimated progress of the mailbox export job, in percentage points.
@@ -278,7 +279,7 @@ describeMailboxExportJobResponse_state = Lens.lens (\DescribeMailboxExportJobRes
 
 -- | The mailbox export job end timestamp.
 describeMailboxExportJobResponse_endTime :: Lens.Lens' DescribeMailboxExportJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeMailboxExportJobResponse_endTime = Lens.lens (\DescribeMailboxExportJobResponse' {endTime} -> endTime) (\s@DescribeMailboxExportJobResponse' {} a -> s {endTime = a} :: DescribeMailboxExportJobResponse) Prelude.. Lens.mapping Core._Time
+describeMailboxExportJobResponse_endTime = Lens.lens (\DescribeMailboxExportJobResponse' {endTime} -> endTime) (\s@DescribeMailboxExportJobResponse' {} a -> s {endTime = a} :: DescribeMailboxExportJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The mailbox export job description.
 describeMailboxExportJobResponse_description :: Lens.Lens' DescribeMailboxExportJobResponse (Prelude.Maybe Prelude.Text)
@@ -300,7 +301,7 @@ describeMailboxExportJobResponse_errorInfo = Lens.lens (\DescribeMailboxExportJo
 
 -- | The mailbox export job start timestamp.
 describeMailboxExportJobResponse_startTime :: Lens.Lens' DescribeMailboxExportJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeMailboxExportJobResponse_startTime = Lens.lens (\DescribeMailboxExportJobResponse' {startTime} -> startTime) (\s@DescribeMailboxExportJobResponse' {} a -> s {startTime = a} :: DescribeMailboxExportJobResponse) Prelude.. Lens.mapping Core._Time
+describeMailboxExportJobResponse_startTime = Lens.lens (\DescribeMailboxExportJobResponse' {startTime} -> startTime) (\s@DescribeMailboxExportJobResponse' {} a -> s {startTime = a} :: DescribeMailboxExportJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The S3 bucket prefix.
 describeMailboxExportJobResponse_s3Prefix :: Lens.Lens' DescribeMailboxExportJobResponse (Prelude.Maybe Prelude.Text)

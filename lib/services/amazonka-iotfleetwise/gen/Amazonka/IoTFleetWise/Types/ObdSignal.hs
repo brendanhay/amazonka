@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.ObdSignal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about signal messages using the on-board diagnostics (OBD)
@@ -146,21 +147,21 @@ obdSignal_startByte = Lens.lens (\ObdSignal' {startByte} -> startByte) (\s@ObdSi
 obdSignal_byteLength :: Lens.Lens' ObdSignal Prelude.Natural
 obdSignal_byteLength = Lens.lens (\ObdSignal' {byteLength} -> byteLength) (\s@ObdSignal' {} a -> s {byteLength = a} :: ObdSignal)
 
-instance Core.FromJSON ObdSignal where
+instance Data.FromJSON ObdSignal where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ObdSignal"
       ( \x ->
           ObdSignal'
-            Prelude.<$> (x Core..:? "bitMaskLength")
-            Prelude.<*> (x Core..:? "bitRightShift")
-            Prelude.<*> (x Core..: "pidResponseLength")
-            Prelude.<*> (x Core..: "serviceMode")
-            Prelude.<*> (x Core..: "pid")
-            Prelude.<*> (x Core..: "scaling")
-            Prelude.<*> (x Core..: "offset")
-            Prelude.<*> (x Core..: "startByte")
-            Prelude.<*> (x Core..: "byteLength")
+            Prelude.<$> (x Data..:? "bitMaskLength")
+            Prelude.<*> (x Data..:? "bitRightShift")
+            Prelude.<*> (x Data..: "pidResponseLength")
+            Prelude.<*> (x Data..: "serviceMode")
+            Prelude.<*> (x Data..: "pid")
+            Prelude.<*> (x Data..: "scaling")
+            Prelude.<*> (x Data..: "offset")
+            Prelude.<*> (x Data..: "startByte")
+            Prelude.<*> (x Data..: "byteLength")
       )
 
 instance Prelude.Hashable ObdSignal where
@@ -187,19 +188,19 @@ instance Prelude.NFData ObdSignal where
       `Prelude.seq` Prelude.rnf startByte
       `Prelude.seq` Prelude.rnf byteLength
 
-instance Core.ToJSON ObdSignal where
+instance Data.ToJSON ObdSignal where
   toJSON ObdSignal' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bitMaskLength" Core..=) Prelude.<$> bitMaskLength,
-            ("bitRightShift" Core..=) Prelude.<$> bitRightShift,
+          [ ("bitMaskLength" Data..=) Prelude.<$> bitMaskLength,
+            ("bitRightShift" Data..=) Prelude.<$> bitRightShift,
             Prelude.Just
-              ("pidResponseLength" Core..= pidResponseLength),
-            Prelude.Just ("serviceMode" Core..= serviceMode),
-            Prelude.Just ("pid" Core..= pid),
-            Prelude.Just ("scaling" Core..= scaling),
-            Prelude.Just ("offset" Core..= offset),
-            Prelude.Just ("startByte" Core..= startByte),
-            Prelude.Just ("byteLength" Core..= byteLength)
+              ("pidResponseLength" Data..= pidResponseLength),
+            Prelude.Just ("serviceMode" Data..= serviceMode),
+            Prelude.Just ("pid" Data..= pid),
+            Prelude.Just ("scaling" Data..= scaling),
+            Prelude.Just ("offset" Data..= offset),
+            Prelude.Just ("startByte" Data..= startByte),
+            Prelude.Just ("byteLength" Data..= byteLength)
           ]
       )

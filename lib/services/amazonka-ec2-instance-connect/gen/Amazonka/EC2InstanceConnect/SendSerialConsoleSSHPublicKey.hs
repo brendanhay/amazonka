@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2InstanceConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,8 +137,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           SendSerialConsoleSSHPublicKeyResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Success")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Success")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,35 +157,35 @@ instance Prelude.NFData SendSerialConsoleSSHPublicKey where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf sSHPublicKey
 
-instance Core.ToHeaders SendSerialConsoleSSHPublicKey where
+instance Data.ToHeaders SendSerialConsoleSSHPublicKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSEC2InstanceConnectService.SendSerialConsoleSSHPublicKey" ::
+              Data.=# ( "AWSEC2InstanceConnectService.SendSerialConsoleSSHPublicKey" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendSerialConsoleSSHPublicKey where
+instance Data.ToJSON SendSerialConsoleSSHPublicKey where
   toJSON SendSerialConsoleSSHPublicKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SerialPort" Core..=) Prelude.<$> serialPort,
-            Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("SSHPublicKey" Core..= sSHPublicKey)
+          [ ("SerialPort" Data..=) Prelude.<$> serialPort,
+            Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("SSHPublicKey" Data..= sSHPublicKey)
           ]
       )
 
-instance Core.ToPath SendSerialConsoleSSHPublicKey where
+instance Data.ToPath SendSerialConsoleSSHPublicKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendSerialConsoleSSHPublicKey where
+instance Data.ToQuery SendSerialConsoleSSHPublicKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendSerialConsoleSSHPublicKeyResponse' smart constructor.

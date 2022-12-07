@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,35 +117,35 @@ instance Prelude.NFData DeregisterFromWorkMail where
     Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf entityId
 
-instance Core.ToHeaders DeregisterFromWorkMail where
+instance Data.ToHeaders DeregisterFromWorkMail where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.DeregisterFromWorkMail" ::
+              Data.=# ( "WorkMailService.DeregisterFromWorkMail" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeregisterFromWorkMail where
+instance Data.ToJSON DeregisterFromWorkMail where
   toJSON DeregisterFromWorkMail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("EntityId" Core..= entityId)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("EntityId" Data..= entityId)
           ]
       )
 
-instance Core.ToPath DeregisterFromWorkMail where
+instance Data.ToPath DeregisterFromWorkMail where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeregisterFromWorkMail where
+instance Data.ToQuery DeregisterFromWorkMail where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterFromWorkMailResponse' smart constructor.

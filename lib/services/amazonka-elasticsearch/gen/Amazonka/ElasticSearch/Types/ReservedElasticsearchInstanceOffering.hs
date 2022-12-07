@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.ESPartitionInstanceType
 import Amazonka.ElasticSearch.Types.RecurringCharge
 import Amazonka.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption
@@ -137,26 +138,26 @@ reservedElasticsearchInstanceOffering_usagePrice :: Lens.Lens' ReservedElasticse
 reservedElasticsearchInstanceOffering_usagePrice = Lens.lens (\ReservedElasticsearchInstanceOffering' {usagePrice} -> usagePrice) (\s@ReservedElasticsearchInstanceOffering' {} a -> s {usagePrice = a} :: ReservedElasticsearchInstanceOffering)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ReservedElasticsearchInstanceOffering
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReservedElasticsearchInstanceOffering"
       ( \x ->
           ReservedElasticsearchInstanceOffering'
-            Prelude.<$> ( x Core..:? "RecurringCharges"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "RecurringCharges"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ElasticsearchInstanceType")
-            Prelude.<*> (x Core..:? "Duration")
-            Prelude.<*> (x Core..:? "CurrencyCode")
+            Prelude.<*> (x Data..:? "ElasticsearchInstanceType")
+            Prelude.<*> (x Data..:? "Duration")
+            Prelude.<*> (x Data..:? "CurrencyCode")
             Prelude.<*> ( x
-                            Core..:? "ReservedElasticsearchInstanceOfferingId"
+                            Data..:? "ReservedElasticsearchInstanceOfferingId"
                         )
-            Prelude.<*> (x Core..:? "FixedPrice")
-            Prelude.<*> (x Core..:? "PaymentOption")
-            Prelude.<*> (x Core..:? "UsagePrice")
+            Prelude.<*> (x Data..:? "FixedPrice")
+            Prelude.<*> (x Data..:? "PaymentOption")
+            Prelude.<*> (x Data..:? "UsagePrice")
       )
 
 instance

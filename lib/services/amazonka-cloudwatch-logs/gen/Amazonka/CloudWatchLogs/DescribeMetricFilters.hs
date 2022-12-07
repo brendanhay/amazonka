@@ -52,6 +52,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -181,8 +182,8 @@ instance Core.AWSRequest DescribeMetricFilters where
     Response.receiveJSON
       ( \s h x ->
           DescribeMetricFiltersResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "metricFilters" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "metricFilters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,40 +205,40 @@ instance Prelude.NFData DescribeMetricFilters where
       `Prelude.seq` Prelude.rnf metricNamespace
       `Prelude.seq` Prelude.rnf logGroupName
 
-instance Core.ToHeaders DescribeMetricFilters where
+instance Data.ToHeaders DescribeMetricFilters where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DescribeMetricFilters" ::
+              Data.=# ( "Logs_20140328.DescribeMetricFilters" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeMetricFilters where
+instance Data.ToJSON DescribeMetricFilters where
   toJSON DescribeMetricFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("limit" Core..=) Prelude.<$> limit,
-            ("metricName" Core..=) Prelude.<$> metricName,
-            ("filterNamePrefix" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("limit" Data..=) Prelude.<$> limit,
+            ("metricName" Data..=) Prelude.<$> metricName,
+            ("filterNamePrefix" Data..=)
               Prelude.<$> filterNamePrefix,
-            ("metricNamespace" Core..=)
+            ("metricNamespace" Data..=)
               Prelude.<$> metricNamespace,
-            ("logGroupName" Core..=) Prelude.<$> logGroupName
+            ("logGroupName" Data..=) Prelude.<$> logGroupName
           ]
       )
 
-instance Core.ToPath DescribeMetricFilters where
+instance Data.ToPath DescribeMetricFilters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeMetricFilters where
+instance Data.ToQuery DescribeMetricFilters where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeMetricFiltersResponse' smart constructor.

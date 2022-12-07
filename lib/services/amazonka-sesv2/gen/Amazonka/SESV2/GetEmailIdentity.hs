@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,15 +96,15 @@ instance Core.AWSRequest GetEmailIdentity where
     Response.receiveJSON
       ( \s h x ->
           GetEmailIdentityResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "VerifiedForSendingStatus")
-            Prelude.<*> (x Core..?> "FeedbackForwardingStatus")
-            Prelude.<*> (x Core..?> "MailFromAttributes")
-            Prelude.<*> (x Core..?> "ConfigurationSetName")
-            Prelude.<*> (x Core..?> "Policies" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "DkimAttributes")
-            Prelude.<*> (x Core..?> "IdentityType")
-            Prelude.<*> (x Core..?> "VerificationStatus")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "VerifiedForSendingStatus")
+            Prelude.<*> (x Data..?> "FeedbackForwardingStatus")
+            Prelude.<*> (x Data..?> "MailFromAttributes")
+            Prelude.<*> (x Data..?> "ConfigurationSetName")
+            Prelude.<*> (x Data..?> "Policies" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "DkimAttributes")
+            Prelude.<*> (x Data..?> "IdentityType")
+            Prelude.<*> (x Data..?> "VerificationStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,23 +115,23 @@ instance Prelude.Hashable GetEmailIdentity where
 instance Prelude.NFData GetEmailIdentity where
   rnf GetEmailIdentity' {..} = Prelude.rnf emailIdentity
 
-instance Core.ToHeaders GetEmailIdentity where
+instance Data.ToHeaders GetEmailIdentity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetEmailIdentity where
+instance Data.ToPath GetEmailIdentity where
   toPath GetEmailIdentity' {..} =
     Prelude.mconcat
-      ["/v2/email/identities/", Core.toBS emailIdentity]
+      ["/v2/email/identities/", Data.toBS emailIdentity]
 
-instance Core.ToQuery GetEmailIdentity where
+instance Data.ToQuery GetEmailIdentity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Details about an email identity.

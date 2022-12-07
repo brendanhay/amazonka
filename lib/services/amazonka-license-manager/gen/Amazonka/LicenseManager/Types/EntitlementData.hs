@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.EntitlementData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.EntitlementDataUnit
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,15 +76,15 @@ entitlementData_name = Lens.lens (\EntitlementData' {name} -> name) (\s@Entitlem
 entitlementData_unit :: Lens.Lens' EntitlementData EntitlementDataUnit
 entitlementData_unit = Lens.lens (\EntitlementData' {unit} -> unit) (\s@EntitlementData' {} a -> s {unit = a} :: EntitlementData)
 
-instance Core.FromJSON EntitlementData where
+instance Data.FromJSON EntitlementData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntitlementData"
       ( \x ->
           EntitlementData'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Unit")
+            Prelude.<$> (x Data..:? "Value")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Unit")
       )
 
 instance Prelude.Hashable EntitlementData where
@@ -98,12 +99,12 @@ instance Prelude.NFData EntitlementData where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf unit
 
-instance Core.ToJSON EntitlementData where
+instance Data.ToJSON EntitlementData where
   toJSON EntitlementData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Unit" Core..= unit)
+          [ ("Value" Data..=) Prelude.<$> value,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Unit" Data..= unit)
           ]
       )

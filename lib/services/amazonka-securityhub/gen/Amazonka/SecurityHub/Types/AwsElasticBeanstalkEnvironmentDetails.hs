@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElasticBeanstalkEnvironmentDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsElasticBeanstalkEnvironmentEnvironmentLink
 import Amazonka.SecurityHub.Types.AwsElasticBeanstalkEnvironmentOptionSetting
@@ -249,33 +250,33 @@ awsElasticBeanstalkEnvironmentDetails_optionSettings :: Lens.Lens' AwsElasticBea
 awsElasticBeanstalkEnvironmentDetails_optionSettings = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {optionSettings} -> optionSettings) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {optionSettings = a} :: AwsElasticBeanstalkEnvironmentDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElasticBeanstalkEnvironmentDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElasticBeanstalkEnvironmentDetails"
       ( \x ->
           AwsElasticBeanstalkEnvironmentDetails'
-            Prelude.<$> (x Core..:? "Cname")
-            Prelude.<*> (x Core..:? "EnvironmentName")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Tier")
-            Prelude.<*> (x Core..:? "EndpointUrl")
-            Prelude.<*> (x Core..:? "SolutionStackName")
-            Prelude.<*> (x Core..:? "DateUpdated")
-            Prelude.<*> (x Core..:? "DateCreated")
-            Prelude.<*> (x Core..:? "EnvironmentArn")
-            Prelude.<*> ( x Core..:? "EnvironmentLinks"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Cname")
+            Prelude.<*> (x Data..:? "EnvironmentName")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Tier")
+            Prelude.<*> (x Data..:? "EndpointUrl")
+            Prelude.<*> (x Data..:? "SolutionStackName")
+            Prelude.<*> (x Data..:? "DateUpdated")
+            Prelude.<*> (x Data..:? "DateCreated")
+            Prelude.<*> (x Data..:? "EnvironmentArn")
+            Prelude.<*> ( x Data..:? "EnvironmentLinks"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PlatformArn")
-            Prelude.<*> (x Core..:? "EnvironmentId")
-            Prelude.<*> (x Core..:? "VersionLabel")
-            Prelude.<*> (x Core..:? "ApplicationName")
-            Prelude.<*> ( x Core..:? "OptionSettings"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "PlatformArn")
+            Prelude.<*> (x Data..:? "EnvironmentId")
+            Prelude.<*> (x Data..:? "VersionLabel")
+            Prelude.<*> (x Data..:? "ApplicationName")
+            Prelude.<*> ( x Data..:? "OptionSettings"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -326,33 +327,33 @@ instance
       `Prelude.seq` Prelude.rnf optionSettings
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsElasticBeanstalkEnvironmentDetails
   where
   toJSON AwsElasticBeanstalkEnvironmentDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Cname" Core..=) Prelude.<$> cname,
-            ("EnvironmentName" Core..=)
+          [ ("Cname" Data..=) Prelude.<$> cname,
+            ("EnvironmentName" Data..=)
               Prelude.<$> environmentName,
-            ("Status" Core..=) Prelude.<$> status,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Tier" Core..=) Prelude.<$> tier,
-            ("EndpointUrl" Core..=) Prelude.<$> endpointUrl,
-            ("SolutionStackName" Core..=)
+            ("Status" Data..=) Prelude.<$> status,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Tier" Data..=) Prelude.<$> tier,
+            ("EndpointUrl" Data..=) Prelude.<$> endpointUrl,
+            ("SolutionStackName" Data..=)
               Prelude.<$> solutionStackName,
-            ("DateUpdated" Core..=) Prelude.<$> dateUpdated,
-            ("DateCreated" Core..=) Prelude.<$> dateCreated,
-            ("EnvironmentArn" Core..=)
+            ("DateUpdated" Data..=) Prelude.<$> dateUpdated,
+            ("DateCreated" Data..=) Prelude.<$> dateCreated,
+            ("EnvironmentArn" Data..=)
               Prelude.<$> environmentArn,
-            ("EnvironmentLinks" Core..=)
+            ("EnvironmentLinks" Data..=)
               Prelude.<$> environmentLinks,
-            ("PlatformArn" Core..=) Prelude.<$> platformArn,
-            ("EnvironmentId" Core..=) Prelude.<$> environmentId,
-            ("VersionLabel" Core..=) Prelude.<$> versionLabel,
-            ("ApplicationName" Core..=)
+            ("PlatformArn" Data..=) Prelude.<$> platformArn,
+            ("EnvironmentId" Data..=) Prelude.<$> environmentId,
+            ("VersionLabel" Data..=) Prelude.<$> versionLabel,
+            ("ApplicationName" Data..=)
               Prelude.<$> applicationName,
-            ("OptionSettings" Core..=)
+            ("OptionSettings" Data..=)
               Prelude.<$> optionSettings
           ]
       )

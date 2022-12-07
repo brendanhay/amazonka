@@ -59,6 +59,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,35 +137,35 @@ instance Prelude.NFData StartDeviceSync where
       `Prelude.seq` Prelude.rnf deviceArn
       `Prelude.seq` Prelude.rnf features
 
-instance Core.ToHeaders StartDeviceSync where
+instance Data.ToHeaders StartDeviceSync where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.StartDeviceSync" ::
+              Data.=# ( "AlexaForBusiness.StartDeviceSync" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartDeviceSync where
+instance Data.ToJSON StartDeviceSync where
   toJSON StartDeviceSync' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoomArn" Core..=) Prelude.<$> roomArn,
-            ("DeviceArn" Core..=) Prelude.<$> deviceArn,
-            Prelude.Just ("Features" Core..= features)
+          [ ("RoomArn" Data..=) Prelude.<$> roomArn,
+            ("DeviceArn" Data..=) Prelude.<$> deviceArn,
+            Prelude.Just ("Features" Data..= features)
           ]
       )
 
-instance Core.ToPath StartDeviceSync where
+instance Data.ToPath StartDeviceSync where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartDeviceSync where
+instance Data.ToQuery StartDeviceSync where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartDeviceSyncResponse' smart constructor.

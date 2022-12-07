@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,8 +128,8 @@ instance Core.AWSRequest DescribeFileCaches where
     Response.receiveJSON
       ( \s h x ->
           DescribeFileCachesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "FileCaches" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "FileCaches" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,35 +145,35 @@ instance Prelude.NFData DescribeFileCaches where
       `Prelude.seq` Prelude.rnf fileCacheIds
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeFileCaches where
+instance Data.ToHeaders DescribeFileCaches where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.DescribeFileCaches" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.DescribeFileCaches" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFileCaches where
+instance Data.ToJSON DescribeFileCaches where
   toJSON DescribeFileCaches' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("FileCacheIds" Core..=) Prelude.<$> fileCacheIds,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("FileCacheIds" Data..=) Prelude.<$> fileCacheIds,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeFileCaches where
+instance Data.ToPath DescribeFileCaches where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFileCaches where
+instance Data.ToQuery DescribeFileCaches where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFileCachesResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,8 +99,8 @@ instance Core.AWSRequest DeleteLicense where
     Response.receiveJSON
       ( \s h x ->
           DeleteLicenseResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "DeletionDate")
+            Prelude.<$> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "DeletionDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,35 +114,35 @@ instance Prelude.NFData DeleteLicense where
     Prelude.rnf licenseArn
       `Prelude.seq` Prelude.rnf sourceVersion
 
-instance Core.ToHeaders DeleteLicense where
+instance Data.ToHeaders DeleteLicense where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.DeleteLicense" ::
+              Data.=# ( "AWSLicenseManager.DeleteLicense" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteLicense where
+instance Data.ToJSON DeleteLicense where
   toJSON DeleteLicense' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("LicenseArn" Core..= licenseArn),
+          [ Prelude.Just ("LicenseArn" Data..= licenseArn),
             Prelude.Just
-              ("SourceVersion" Core..= sourceVersion)
+              ("SourceVersion" Data..= sourceVersion)
           ]
       )
 
-instance Core.ToPath DeleteLicense where
+instance Data.ToPath DeleteLicense where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLicense where
+instance Data.ToQuery DeleteLicense where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLicenseResponse' smart constructor.

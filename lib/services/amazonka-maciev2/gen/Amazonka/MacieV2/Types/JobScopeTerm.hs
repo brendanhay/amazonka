@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.JobScopeTerm where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.SimpleScopeTerm
 import Amazonka.MacieV2.Types.TagScopeTerm
 import qualified Amazonka.Prelude as Prelude
@@ -72,14 +73,14 @@ jobScopeTerm_tagScopeTerm = Lens.lens (\JobScopeTerm' {tagScopeTerm} -> tagScope
 jobScopeTerm_simpleScopeTerm :: Lens.Lens' JobScopeTerm (Prelude.Maybe SimpleScopeTerm)
 jobScopeTerm_simpleScopeTerm = Lens.lens (\JobScopeTerm' {simpleScopeTerm} -> simpleScopeTerm) (\s@JobScopeTerm' {} a -> s {simpleScopeTerm = a} :: JobScopeTerm)
 
-instance Core.FromJSON JobScopeTerm where
+instance Data.FromJSON JobScopeTerm where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobScopeTerm"
       ( \x ->
           JobScopeTerm'
-            Prelude.<$> (x Core..:? "tagScopeTerm")
-            Prelude.<*> (x Core..:? "simpleScopeTerm")
+            Prelude.<$> (x Data..:? "tagScopeTerm")
+            Prelude.<*> (x Data..:? "simpleScopeTerm")
       )
 
 instance Prelude.Hashable JobScopeTerm where
@@ -92,12 +93,12 @@ instance Prelude.NFData JobScopeTerm where
     Prelude.rnf tagScopeTerm
       `Prelude.seq` Prelude.rnf simpleScopeTerm
 
-instance Core.ToJSON JobScopeTerm where
+instance Data.ToJSON JobScopeTerm where
   toJSON JobScopeTerm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tagScopeTerm" Core..=) Prelude.<$> tagScopeTerm,
-            ("simpleScopeTerm" Core..=)
+          [ ("tagScopeTerm" Data..=) Prelude.<$> tagScopeTerm,
+            ("simpleScopeTerm" Data..=)
               Prelude.<$> simpleScopeTerm
           ]
       )

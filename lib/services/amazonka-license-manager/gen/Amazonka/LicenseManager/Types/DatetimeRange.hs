@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.DatetimeRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a time range, in ISO8601-UTC format.
@@ -63,13 +64,13 @@ datetimeRange_end = Lens.lens (\DatetimeRange' {end} -> end) (\s@DatetimeRange' 
 datetimeRange_begin :: Lens.Lens' DatetimeRange Prelude.Text
 datetimeRange_begin = Lens.lens (\DatetimeRange' {begin} -> begin) (\s@DatetimeRange' {} a -> s {begin = a} :: DatetimeRange)
 
-instance Core.FromJSON DatetimeRange where
+instance Data.FromJSON DatetimeRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatetimeRange"
       ( \x ->
           DatetimeRange'
-            Prelude.<$> (x Core..:? "End") Prelude.<*> (x Core..: "Begin")
+            Prelude.<$> (x Data..:? "End") Prelude.<*> (x Data..: "Begin")
       )
 
 instance Prelude.Hashable DatetimeRange where
@@ -81,11 +82,11 @@ instance Prelude.NFData DatetimeRange where
   rnf DatetimeRange' {..} =
     Prelude.rnf end `Prelude.seq` Prelude.rnf begin
 
-instance Core.ToJSON DatetimeRange where
+instance Data.ToJSON DatetimeRange where
   toJSON DatetimeRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("End" Core..=) Prelude.<$> end,
-            Prelude.Just ("Begin" Core..= begin)
+          [ ("End" Data..=) Prelude.<$> end,
+            Prelude.Just ("Begin" Data..= begin)
           ]
       )

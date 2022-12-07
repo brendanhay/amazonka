@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.PointInTimeRecoveryStatus
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 data PointInTimeRecoveryDescription = PointInTimeRecoveryDescription'
   { -- | Specifies the earliest point in time you can restore your table to. You
     -- can restore your table to any point in time during the last 35 days.
-    earliestRestorableDateTime :: Prelude.Maybe Core.POSIX,
+    earliestRestorableDateTime :: Prelude.Maybe Data.POSIX,
     -- | The current state of point in time recovery:
     --
     -- -   @ENABLED@ - Point in time recovery is enabled.
@@ -41,7 +42,7 @@ data PointInTimeRecoveryDescription = PointInTimeRecoveryDescription'
     pointInTimeRecoveryStatus :: Prelude.Maybe PointInTimeRecoveryStatus,
     -- | @LatestRestorableDateTime@ is typically 5 minutes before the current
     -- time.
-    latestRestorableDateTime :: Prelude.Maybe Core.POSIX
+    latestRestorableDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,7 +78,7 @@ newPointInTimeRecoveryDescription =
 -- | Specifies the earliest point in time you can restore your table to. You
 -- can restore your table to any point in time during the last 35 days.
 pointInTimeRecoveryDescription_earliestRestorableDateTime :: Lens.Lens' PointInTimeRecoveryDescription (Prelude.Maybe Prelude.UTCTime)
-pointInTimeRecoveryDescription_earliestRestorableDateTime = Lens.lens (\PointInTimeRecoveryDescription' {earliestRestorableDateTime} -> earliestRestorableDateTime) (\s@PointInTimeRecoveryDescription' {} a -> s {earliestRestorableDateTime = a} :: PointInTimeRecoveryDescription) Prelude.. Lens.mapping Core._Time
+pointInTimeRecoveryDescription_earliestRestorableDateTime = Lens.lens (\PointInTimeRecoveryDescription' {earliestRestorableDateTime} -> earliestRestorableDateTime) (\s@PointInTimeRecoveryDescription' {} a -> s {earliestRestorableDateTime = a} :: PointInTimeRecoveryDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The current state of point in time recovery:
 --
@@ -90,17 +91,17 @@ pointInTimeRecoveryDescription_pointInTimeRecoveryStatus = Lens.lens (\PointInTi
 -- | @LatestRestorableDateTime@ is typically 5 minutes before the current
 -- time.
 pointInTimeRecoveryDescription_latestRestorableDateTime :: Lens.Lens' PointInTimeRecoveryDescription (Prelude.Maybe Prelude.UTCTime)
-pointInTimeRecoveryDescription_latestRestorableDateTime = Lens.lens (\PointInTimeRecoveryDescription' {latestRestorableDateTime} -> latestRestorableDateTime) (\s@PointInTimeRecoveryDescription' {} a -> s {latestRestorableDateTime = a} :: PointInTimeRecoveryDescription) Prelude.. Lens.mapping Core._Time
+pointInTimeRecoveryDescription_latestRestorableDateTime = Lens.lens (\PointInTimeRecoveryDescription' {latestRestorableDateTime} -> latestRestorableDateTime) (\s@PointInTimeRecoveryDescription' {} a -> s {latestRestorableDateTime = a} :: PointInTimeRecoveryDescription) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON PointInTimeRecoveryDescription where
+instance Data.FromJSON PointInTimeRecoveryDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PointInTimeRecoveryDescription"
       ( \x ->
           PointInTimeRecoveryDescription'
-            Prelude.<$> (x Core..:? "EarliestRestorableDateTime")
-            Prelude.<*> (x Core..:? "PointInTimeRecoveryStatus")
-            Prelude.<*> (x Core..:? "LatestRestorableDateTime")
+            Prelude.<$> (x Data..:? "EarliestRestorableDateTime")
+            Prelude.<*> (x Data..:? "PointInTimeRecoveryStatus")
+            Prelude.<*> (x Data..:? "LatestRestorableDateTime")
       )
 
 instance

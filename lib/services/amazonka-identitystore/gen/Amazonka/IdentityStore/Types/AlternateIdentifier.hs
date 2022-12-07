@@ -21,6 +21,7 @@ module Amazonka.IdentityStore.Types.AlternateIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IdentityStore.Types.ExternalId
 import Amazonka.IdentityStore.Types.UniqueAttribute
 import qualified Amazonka.Prelude as Prelude
@@ -76,12 +77,12 @@ instance Prelude.NFData AlternateIdentifier where
     Prelude.rnf externalId
       `Prelude.seq` Prelude.rnf uniqueAttribute
 
-instance Core.ToJSON AlternateIdentifier where
+instance Data.ToJSON AlternateIdentifier where
   toJSON AlternateIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExternalId" Core..=) Prelude.<$> externalId,
-            ("UniqueAttribute" Core..=)
+          [ ("ExternalId" Data..=) Prelude.<$> externalId,
+            ("UniqueAttribute" Data..=)
               Prelude.<$> uniqueAttribute
           ]
       )

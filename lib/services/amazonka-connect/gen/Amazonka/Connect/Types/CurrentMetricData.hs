@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.CurrentMetricData where
 import Amazonka.Connect.Types.CurrentMetric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the data for a real-time metric.
@@ -62,14 +63,14 @@ currentMetricData_metric = Lens.lens (\CurrentMetricData' {metric} -> metric) (\
 currentMetricData_value :: Lens.Lens' CurrentMetricData (Prelude.Maybe Prelude.Double)
 currentMetricData_value = Lens.lens (\CurrentMetricData' {value} -> value) (\s@CurrentMetricData' {} a -> s {value = a} :: CurrentMetricData)
 
-instance Core.FromJSON CurrentMetricData where
+instance Data.FromJSON CurrentMetricData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CurrentMetricData"
       ( \x ->
           CurrentMetricData'
-            Prelude.<$> (x Core..:? "Metric")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Metric")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable CurrentMetricData where

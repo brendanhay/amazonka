@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.ReplicationConfigurationTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.PITPolicyRule
 import Amazonka.DrS.Types.ReplicationConfigurationDataPlaneRouting
 import Amazonka.DrS.Types.ReplicationConfigurationDefaultLargeStagingDiskType
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data ReplicationConfigurationTemplate = ReplicationConfigurationTemplate'
   { -- | A set of tags to be associated with the Replication Configuration
     -- Template resource.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Configure bandwidth throttling for the outbound data transfer rate of
     -- the Source Server in Mbps.
     bandwidthThrottling :: Prelude.Maybe Prelude.Natural,
@@ -40,7 +41,7 @@ data ReplicationConfigurationTemplate = ReplicationConfigurationTemplate'
     -- | A set of tags to be associated with all resources created in the
     -- replication staging area: EC2 replication server, EBS volumes, EBS
     -- snapshots, etc.
-    stagingAreaTags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    stagingAreaTags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Whether to associate the default Elastic Disaster Recovery Security
     -- group with the Replication Configuration Template.
     associateDefaultSecurityGroup :: Prelude.Maybe Prelude.Bool,
@@ -152,7 +153,7 @@ newReplicationConfigurationTemplate
 -- | A set of tags to be associated with the Replication Configuration
 -- Template resource.
 replicationConfigurationTemplate_tags :: Lens.Lens' ReplicationConfigurationTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-replicationConfigurationTemplate_tags = Lens.lens (\ReplicationConfigurationTemplate' {tags} -> tags) (\s@ReplicationConfigurationTemplate' {} a -> s {tags = a} :: ReplicationConfigurationTemplate) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+replicationConfigurationTemplate_tags = Lens.lens (\ReplicationConfigurationTemplate' {tags} -> tags) (\s@ReplicationConfigurationTemplate' {} a -> s {tags = a} :: ReplicationConfigurationTemplate) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Configure bandwidth throttling for the outbound data transfer rate of
 -- the Source Server in Mbps.
@@ -167,7 +168,7 @@ replicationConfigurationTemplate_replicationServerInstanceType = Lens.lens (\Rep
 -- replication staging area: EC2 replication server, EBS volumes, EBS
 -- snapshots, etc.
 replicationConfigurationTemplate_stagingAreaTags :: Lens.Lens' ReplicationConfigurationTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-replicationConfigurationTemplate_stagingAreaTags = Lens.lens (\ReplicationConfigurationTemplate' {stagingAreaTags} -> stagingAreaTags) (\s@ReplicationConfigurationTemplate' {} a -> s {stagingAreaTags = a} :: ReplicationConfigurationTemplate) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+replicationConfigurationTemplate_stagingAreaTags = Lens.lens (\ReplicationConfigurationTemplate' {stagingAreaTags} -> stagingAreaTags) (\s@ReplicationConfigurationTemplate' {} a -> s {stagingAreaTags = a} :: ReplicationConfigurationTemplate) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Whether to associate the default Elastic Disaster Recovery Security
 -- group with the Replication Configuration Template.
@@ -221,34 +222,34 @@ replicationConfigurationTemplate_replicationConfigurationTemplateID :: Lens.Lens
 replicationConfigurationTemplate_replicationConfigurationTemplateID = Lens.lens (\ReplicationConfigurationTemplate' {replicationConfigurationTemplateID} -> replicationConfigurationTemplateID) (\s@ReplicationConfigurationTemplate' {} a -> s {replicationConfigurationTemplateID = a} :: ReplicationConfigurationTemplate)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ReplicationConfigurationTemplate
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationConfigurationTemplate"
       ( \x ->
           ReplicationConfigurationTemplate'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "bandwidthThrottling")
-            Prelude.<*> (x Core..:? "replicationServerInstanceType")
-            Prelude.<*> ( x Core..:? "stagingAreaTags"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "bandwidthThrottling")
+            Prelude.<*> (x Data..:? "replicationServerInstanceType")
+            Prelude.<*> ( x Data..:? "stagingAreaTags"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "associateDefaultSecurityGroup")
-            Prelude.<*> (x Core..:? "defaultLargeStagingDiskType")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "stagingAreaSubnetId")
-            Prelude.<*> (x Core..:? "createPublicIP")
-            Prelude.<*> (x Core..:? "dataPlaneRouting")
-            Prelude.<*> (x Core..:? "ebsEncryption")
-            Prelude.<*> (x Core..:? "pitPolicy")
-            Prelude.<*> (x Core..:? "useDedicatedReplicationServer")
-            Prelude.<*> ( x Core..:? "replicationServersSecurityGroupsIDs"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "associateDefaultSecurityGroup")
+            Prelude.<*> (x Data..:? "defaultLargeStagingDiskType")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "stagingAreaSubnetId")
+            Prelude.<*> (x Data..:? "createPublicIP")
+            Prelude.<*> (x Data..:? "dataPlaneRouting")
+            Prelude.<*> (x Data..:? "ebsEncryption")
+            Prelude.<*> (x Data..:? "pitPolicy")
+            Prelude.<*> (x Data..:? "useDedicatedReplicationServer")
+            Prelude.<*> ( x Data..:? "replicationServersSecurityGroupsIDs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ebsEncryptionKeyArn")
-            Prelude.<*> (x Core..: "replicationConfigurationTemplateID")
+            Prelude.<*> (x Data..:? "ebsEncryptionKeyArn")
+            Prelude.<*> (x Data..: "replicationConfigurationTemplateID")
       )
 
 instance

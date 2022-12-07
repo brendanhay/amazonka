@@ -22,6 +22,7 @@ module Amazonka.BackupGateway.Types.Gateway where
 import Amazonka.BackupGateway.Types.GatewayType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A gateway is an Backup Gateway appliance that runs on the customer\'s
@@ -40,7 +41,7 @@ data Gateway = Gateway'
     hypervisorId :: Prelude.Maybe Prelude.Text,
     -- | The last time Backup gateway communicated with the gateway, in Unix
     -- format and UTC time.
-    lastSeenTime :: Prelude.Maybe Core.POSIX,
+    lastSeenTime :: Prelude.Maybe Data.POSIX,
     -- | The display name of the gateway.
     gatewayDisplayName :: Prelude.Maybe Prelude.Text
   }
@@ -94,23 +95,23 @@ gateway_hypervisorId = Lens.lens (\Gateway' {hypervisorId} -> hypervisorId) (\s@
 -- | The last time Backup gateway communicated with the gateway, in Unix
 -- format and UTC time.
 gateway_lastSeenTime :: Lens.Lens' Gateway (Prelude.Maybe Prelude.UTCTime)
-gateway_lastSeenTime = Lens.lens (\Gateway' {lastSeenTime} -> lastSeenTime) (\s@Gateway' {} a -> s {lastSeenTime = a} :: Gateway) Prelude.. Lens.mapping Core._Time
+gateway_lastSeenTime = Lens.lens (\Gateway' {lastSeenTime} -> lastSeenTime) (\s@Gateway' {} a -> s {lastSeenTime = a} :: Gateway) Prelude.. Lens.mapping Data._Time
 
 -- | The display name of the gateway.
 gateway_gatewayDisplayName :: Lens.Lens' Gateway (Prelude.Maybe Prelude.Text)
 gateway_gatewayDisplayName = Lens.lens (\Gateway' {gatewayDisplayName} -> gatewayDisplayName) (\s@Gateway' {} a -> s {gatewayDisplayName = a} :: Gateway)
 
-instance Core.FromJSON Gateway where
+instance Data.FromJSON Gateway where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Gateway"
       ( \x ->
           Gateway'
-            Prelude.<$> (x Core..:? "GatewayType")
-            Prelude.<*> (x Core..:? "GatewayArn")
-            Prelude.<*> (x Core..:? "HypervisorId")
-            Prelude.<*> (x Core..:? "LastSeenTime")
-            Prelude.<*> (x Core..:? "GatewayDisplayName")
+            Prelude.<$> (x Data..:? "GatewayType")
+            Prelude.<*> (x Data..:? "GatewayArn")
+            Prelude.<*> (x Data..:? "HypervisorId")
+            Prelude.<*> (x Data..:? "LastSeenTime")
+            Prelude.<*> (x Data..:? "GatewayDisplayName")
       )
 
 instance Prelude.Hashable Gateway where

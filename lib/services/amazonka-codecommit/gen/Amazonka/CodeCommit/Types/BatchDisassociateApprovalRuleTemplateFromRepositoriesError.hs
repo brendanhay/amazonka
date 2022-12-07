@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.BatchDisassociateApprovalRuleTemplateFromReposi
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about errors in a
@@ -84,17 +85,17 @@ batchDisassociateApprovalRuleTemplateFromRepositoriesError_errorCode :: Lens.Len
 batchDisassociateApprovalRuleTemplateFromRepositoriesError_errorCode = Lens.lens (\BatchDisassociateApprovalRuleTemplateFromRepositoriesError' {errorCode} -> errorCode) (\s@BatchDisassociateApprovalRuleTemplateFromRepositoriesError' {} a -> s {errorCode = a} :: BatchDisassociateApprovalRuleTemplateFromRepositoriesError)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchDisassociateApprovalRuleTemplateFromRepositoriesError
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDisassociateApprovalRuleTemplateFromRepositoriesError"
       ( \x ->
           BatchDisassociateApprovalRuleTemplateFromRepositoriesError'
-            Prelude.<$> (x Core..:? "errorMessage")
-              Prelude.<*> (x Core..:? "repositoryName")
-              Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Data..:? "errorMessage")
+              Prelude.<*> (x Data..:? "repositoryName")
+              Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance

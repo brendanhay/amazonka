@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,8 +109,8 @@ instance Core.AWSRequest MonitorInstances where
     Response.receiveXML
       ( \s h x ->
           MonitorInstancesResponse'
-            Prelude.<$> ( x Core..@? "instancesSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -124,21 +125,21 @@ instance Prelude.NFData MonitorInstances where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf instanceIds
 
-instance Core.ToHeaders MonitorInstances where
+instance Data.ToHeaders MonitorInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath MonitorInstances where
+instance Data.ToPath MonitorInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery MonitorInstances where
+instance Data.ToQuery MonitorInstances where
   toQuery MonitorInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("MonitorInstances" :: Prelude.ByteString),
+          Data.=: ("MonitorInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQueryList "InstanceId" instanceIds
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQueryList "InstanceId" instanceIds
       ]
 
 -- | /See:/ 'newMonitorInstancesResponse' smart constructor.

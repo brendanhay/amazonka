@@ -49,6 +49,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -183,8 +184,8 @@ instance Core.AWSRequest ListTaskTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListTaskTemplatesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "TaskTemplates" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "TaskTemplates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,32 +205,32 @@ instance Prelude.NFData ListTaskTemplates where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ListTaskTemplates where
+instance Data.ToHeaders ListTaskTemplates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListTaskTemplates where
+instance Data.ToPath ListTaskTemplates where
   toPath ListTaskTemplates' {..} =
     Prelude.mconcat
       [ "/instance/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/task/template"
       ]
 
-instance Core.ToQuery ListTaskTemplates where
+instance Data.ToQuery ListTaskTemplates where
   toQuery ListTaskTemplates' {..} =
     Prelude.mconcat
-      [ "name" Core.=: name,
-        "nextToken" Core.=: nextToken,
-        "status" Core.=: status,
-        "maxResults" Core.=: maxResults
+      [ "name" Data.=: name,
+        "nextToken" Data.=: nextToken,
+        "status" Data.=: status,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListTaskTemplatesResponse' smart constructor.

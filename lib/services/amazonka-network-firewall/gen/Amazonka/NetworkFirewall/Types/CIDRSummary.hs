@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.CIDRSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.IPSetMetadata
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,16 +77,16 @@ cIDRSummary_utilizedCIDRCount = Lens.lens (\CIDRSummary' {utilizedCIDRCount} -> 
 cIDRSummary_iPSetReferences :: Lens.Lens' CIDRSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text IPSetMetadata))
 cIDRSummary_iPSetReferences = Lens.lens (\CIDRSummary' {iPSetReferences} -> iPSetReferences) (\s@CIDRSummary' {} a -> s {iPSetReferences = a} :: CIDRSummary) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CIDRSummary where
+instance Data.FromJSON CIDRSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CIDRSummary"
       ( \x ->
           CIDRSummary'
-            Prelude.<$> (x Core..:? "AvailableCIDRCount")
-            Prelude.<*> (x Core..:? "UtilizedCIDRCount")
-            Prelude.<*> ( x Core..:? "IPSetReferences"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "AvailableCIDRCount")
+            Prelude.<*> (x Data..:? "UtilizedCIDRCount")
+            Prelude.<*> ( x Data..:? "IPSetReferences"
+                            Data..!= Prelude.mempty
                         )
       )
 

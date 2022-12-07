@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointEmail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,44 +137,44 @@ instance
       `Prelude.seq` Prelude.rnf configurationSetName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutConfigurationSetReputationOptions
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     PutConfigurationSetReputationOptions
   where
   toJSON PutConfigurationSetReputationOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReputationMetricsEnabled" Core..=)
+          [ ("ReputationMetricsEnabled" Data..=)
               Prelude.<$> reputationMetricsEnabled
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     PutConfigurationSetReputationOptions
   where
   toPath PutConfigurationSetReputationOptions' {..} =
     Prelude.mconcat
       [ "/v1/email/configuration-sets/",
-        Core.toBS configurationSetName,
+        Data.toBS configurationSetName,
         "/reputation-options"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutConfigurationSetReputationOptions
   where
   toQuery = Prelude.const Prelude.mempty

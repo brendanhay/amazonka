@@ -45,6 +45,7 @@ where
 import Amazonka.ComprehendMedical.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,8 +112,8 @@ instance Core.AWSRequest ListRxNormInferenceJobs where
     Response.receiveJSON
       ( \s h x ->
           ListRxNormInferenceJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ComprehendMedicalAsyncJobPropertiesList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ComprehendMedicalAsyncJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -130,35 +131,35 @@ instance Prelude.NFData ListRxNormInferenceJobs where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListRxNormInferenceJobs where
+instance Data.ToHeaders ListRxNormInferenceJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComprehendMedical_20181030.ListRxNormInferenceJobs" ::
+              Data.=# ( "ComprehendMedical_20181030.ListRxNormInferenceJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRxNormInferenceJobs where
+instance Data.ToJSON ListRxNormInferenceJobs where
   toJSON ListRxNormInferenceJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListRxNormInferenceJobs where
+instance Data.ToPath ListRxNormInferenceJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRxNormInferenceJobs where
+instance Data.ToQuery ListRxNormInferenceJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRxNormInferenceJobsResponse' smart constructor.

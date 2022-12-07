@@ -44,6 +44,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,8 +103,8 @@ instance Core.AWSRequest BatchGetDeploymentGroups where
     Response.receiveJSON
       ( \s h x ->
           BatchGetDeploymentGroupsResponse'
-            Prelude.<$> (x Core..?> "errorMessage")
-            Prelude.<*> ( x Core..?> "deploymentGroupsInfo"
+            Prelude.<$> (x Data..?> "errorMessage")
+            Prelude.<*> ( x Data..?> "deploymentGroupsInfo"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -119,38 +120,38 @@ instance Prelude.NFData BatchGetDeploymentGroups where
     Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf deploymentGroupNames
 
-instance Core.ToHeaders BatchGetDeploymentGroups where
+instance Data.ToHeaders BatchGetDeploymentGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.BatchGetDeploymentGroups" ::
+              Data.=# ( "CodeDeploy_20141006.BatchGetDeploymentGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetDeploymentGroups where
+instance Data.ToJSON BatchGetDeploymentGroups where
   toJSON BatchGetDeploymentGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("applicationName" Core..= applicationName),
+              ("applicationName" Data..= applicationName),
             Prelude.Just
               ( "deploymentGroupNames"
-                  Core..= deploymentGroupNames
+                  Data..= deploymentGroupNames
               )
           ]
       )
 
-instance Core.ToPath BatchGetDeploymentGroups where
+instance Data.ToPath BatchGetDeploymentGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetDeploymentGroups where
+instance Data.ToQuery BatchGetDeploymentGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @BatchGetDeploymentGroups@ operation.

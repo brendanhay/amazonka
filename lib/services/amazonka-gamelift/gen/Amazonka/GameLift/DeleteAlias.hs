@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,30 +97,30 @@ instance Prelude.Hashable DeleteAlias where
 instance Prelude.NFData DeleteAlias where
   rnf DeleteAlias' {..} = Prelude.rnf aliasId
 
-instance Core.ToHeaders DeleteAlias where
+instance Data.ToHeaders DeleteAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.DeleteAlias" :: Prelude.ByteString),
+              Data.=# ("GameLift.DeleteAlias" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAlias where
+instance Data.ToJSON DeleteAlias where
   toJSON DeleteAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AliasId" Core..= aliasId)]
+          [Prelude.Just ("AliasId" Data..= aliasId)]
       )
 
-instance Core.ToPath DeleteAlias where
+instance Data.ToPath DeleteAlias where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAlias where
+instance Data.ToQuery DeleteAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAliasResponse' smart constructor.

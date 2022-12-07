@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.FaqStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides statistical information about the FAQ questions and answers
@@ -56,13 +57,13 @@ newFaqStatistics pIndexedQuestionAnswersCount_ =
 faqStatistics_indexedQuestionAnswersCount :: Lens.Lens' FaqStatistics Prelude.Natural
 faqStatistics_indexedQuestionAnswersCount = Lens.lens (\FaqStatistics' {indexedQuestionAnswersCount} -> indexedQuestionAnswersCount) (\s@FaqStatistics' {} a -> s {indexedQuestionAnswersCount = a} :: FaqStatistics)
 
-instance Core.FromJSON FaqStatistics where
+instance Data.FromJSON FaqStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FaqStatistics"
       ( \x ->
           FaqStatistics'
-            Prelude.<$> (x Core..: "IndexedQuestionAnswersCount")
+            Prelude.<$> (x Data..: "IndexedQuestionAnswersCount")
       )
 
 instance Prelude.Hashable FaqStatistics where

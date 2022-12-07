@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest DescribeCluster where
     Response.receiveJSON
       ( \s h x ->
           DescribeClusterResponse'
-            Prelude.<$> (x Core..?> "ClusterMetadata")
+            Prelude.<$> (x Data..?> "ClusterMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,32 +96,32 @@ instance Prelude.Hashable DescribeCluster where
 instance Prelude.NFData DescribeCluster where
   rnf DescribeCluster' {..} = Prelude.rnf clusterId
 
-instance Core.ToHeaders DescribeCluster where
+instance Data.ToHeaders DescribeCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.DescribeCluster" ::
+              Data.=# ( "AWSIESnowballJobManagementService.DescribeCluster" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCluster where
+instance Data.ToJSON DescribeCluster where
   toJSON DescribeCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ClusterId" Core..= clusterId)]
+          [Prelude.Just ("ClusterId" Data..= clusterId)]
       )
 
-instance Core.ToPath DescribeCluster where
+instance Data.ToPath DescribeCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCluster where
+instance Data.ToQuery DescribeCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeClusterResponse' smart constructor.

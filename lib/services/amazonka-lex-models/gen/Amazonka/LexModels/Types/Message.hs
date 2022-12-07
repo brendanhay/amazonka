@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.Message where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.ContentType
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,15 +82,15 @@ message_contentType = Lens.lens (\Message' {contentType} -> contentType) (\s@Mes
 message_content :: Lens.Lens' Message Prelude.Text
 message_content = Lens.lens (\Message' {content} -> content) (\s@Message' {} a -> s {content = a} :: Message)
 
-instance Core.FromJSON Message where
+instance Data.FromJSON Message where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Message"
       ( \x ->
           Message'
-            Prelude.<$> (x Core..:? "groupNumber")
-            Prelude.<*> (x Core..: "contentType")
-            Prelude.<*> (x Core..: "content")
+            Prelude.<$> (x Data..:? "groupNumber")
+            Prelude.<*> (x Data..: "contentType")
+            Prelude.<*> (x Data..: "content")
       )
 
 instance Prelude.Hashable Message where
@@ -104,12 +105,12 @@ instance Prelude.NFData Message where
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToJSON Message where
+instance Data.ToJSON Message where
   toJSON Message' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("groupNumber" Core..=) Prelude.<$> groupNumber,
-            Prelude.Just ("contentType" Core..= contentType),
-            Prelude.Just ("content" Core..= content)
+          [ ("groupNumber" Data..=) Prelude.<$> groupNumber,
+            Prelude.Just ("contentType" Data..= contentType),
+            Prelude.Just ("content" Data..= content)
           ]
       )

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -216,9 +217,9 @@ instance Core.AWSRequest CreateProvisioningTemplate where
     Response.receiveJSON
       ( \s h x ->
           CreateProvisioningTemplateResponse'
-            Prelude.<$> (x Core..?> "templateName")
-            Prelude.<*> (x Core..?> "defaultVersionId")
-            Prelude.<*> (x Core..?> "templateArn")
+            Prelude.<$> (x Data..?> "templateName")
+            Prelude.<*> (x Data..?> "defaultVersionId")
+            Prelude.<*> (x Data..?> "templateArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -244,30 +245,30 @@ instance Prelude.NFData CreateProvisioningTemplate where
       `Prelude.seq` Prelude.rnf templateBody
       `Prelude.seq` Prelude.rnf provisioningRoleArn
 
-instance Core.ToHeaders CreateProvisioningTemplate where
+instance Data.ToHeaders CreateProvisioningTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateProvisioningTemplate where
+instance Data.ToJSON CreateProvisioningTemplate where
   toJSON CreateProvisioningTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("type" Core..=) Prelude.<$> type',
-            ("preProvisioningHook" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("type" Data..=) Prelude.<$> type',
+            ("preProvisioningHook" Data..=)
               Prelude.<$> preProvisioningHook,
-            ("description" Core..=) Prelude.<$> description,
-            ("enabled" Core..=) Prelude.<$> enabled,
-            Prelude.Just ("templateName" Core..= templateName),
-            Prelude.Just ("templateBody" Core..= templateBody),
+            ("description" Data..=) Prelude.<$> description,
+            ("enabled" Data..=) Prelude.<$> enabled,
+            Prelude.Just ("templateName" Data..= templateName),
+            Prelude.Just ("templateBody" Data..= templateBody),
             Prelude.Just
-              ("provisioningRoleArn" Core..= provisioningRoleArn)
+              ("provisioningRoleArn" Data..= provisioningRoleArn)
           ]
       )
 
-instance Core.ToPath CreateProvisioningTemplate where
+instance Data.ToPath CreateProvisioningTemplate where
   toPath = Prelude.const "/provisioning-templates"
 
-instance Core.ToQuery CreateProvisioningTemplate where
+instance Data.ToQuery CreateProvisioningTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProvisioningTemplateResponse' smart constructor.

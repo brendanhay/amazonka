@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.DimensionContribution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.DimensionValueContribution
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,15 +64,15 @@ dimensionContribution_dimensionName = Lens.lens (\DimensionContribution' {dimens
 dimensionContribution_dimensionValueContributionList :: Lens.Lens' DimensionContribution (Prelude.Maybe [DimensionValueContribution])
 dimensionContribution_dimensionValueContributionList = Lens.lens (\DimensionContribution' {dimensionValueContributionList} -> dimensionValueContributionList) (\s@DimensionContribution' {} a -> s {dimensionValueContributionList = a} :: DimensionContribution) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DimensionContribution where
+instance Data.FromJSON DimensionContribution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DimensionContribution"
       ( \x ->
           DimensionContribution'
-            Prelude.<$> (x Core..:? "DimensionName")
-            Prelude.<*> ( x Core..:? "DimensionValueContributionList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DimensionName")
+            Prelude.<*> ( x Data..:? "DimensionValueContributionList"
+                            Data..!= Prelude.mempty
                         )
       )
 

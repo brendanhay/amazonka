@@ -48,6 +48,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,11 +143,11 @@ instance
       "DescribeNotificationConfigurationsResult"
       ( \s h x ->
           DescribeNotificationConfigurationsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<$> (x Data..@? "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Core..@? "NotificationConfigurations"
+              Prelude.<*> ( x Data..@? "NotificationConfigurations"
                               Core..!@ Prelude.mempty
-                              Prelude.>>= Core.parseXMLList "member"
+                              Prelude.>>= Data.parseXMLList "member"
                           )
       )
 
@@ -171,36 +172,36 @@ instance
       `Prelude.seq` Prelude.rnf maxRecords
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeNotificationConfigurations
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeNotificationConfigurations
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeNotificationConfigurations
   where
   toQuery DescribeNotificationConfigurations' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeNotificationConfigurations" ::
+          Data.=: ( "DescribeNotificationConfigurations" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
         "AutoScalingGroupNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> autoScalingGroupNames
             ),
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeNotificationConfigurationsResponse' smart constructor.

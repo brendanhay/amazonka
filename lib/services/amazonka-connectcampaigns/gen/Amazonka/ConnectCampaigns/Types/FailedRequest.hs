@@ -22,6 +22,7 @@ module Amazonka.ConnectCampaigns.Types.FailedRequest where
 import Amazonka.ConnectCampaigns.Types.FailureCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A failed request identified by the unique client token.
@@ -68,15 +69,15 @@ failedRequest_failureCode = Lens.lens (\FailedRequest' {failureCode} -> failureC
 failedRequest_id :: Lens.Lens' FailedRequest (Prelude.Maybe Prelude.Text)
 failedRequest_id = Lens.lens (\FailedRequest' {id} -> id) (\s@FailedRequest' {} a -> s {id = a} :: FailedRequest)
 
-instance Core.FromJSON FailedRequest where
+instance Data.FromJSON FailedRequest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedRequest"
       ( \x ->
           FailedRequest'
-            Prelude.<$> (x Core..:? "clientToken")
-            Prelude.<*> (x Core..:? "failureCode")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "clientToken")
+            Prelude.<*> (x Data..:? "failureCode")
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable FailedRequest where

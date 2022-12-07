@@ -59,6 +59,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -333,7 +334,7 @@ instance Core.AWSRequest CreateAuthorizer where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateAuthorizer where
   hashWithSalt _salt CreateAuthorizer' {..} =
@@ -361,39 +362,39 @@ instance Prelude.NFData CreateAuthorizer where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateAuthorizer where
+instance Data.ToHeaders CreateAuthorizer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON CreateAuthorizer where
+instance Data.ToJSON CreateAuthorizer where
   toJSON CreateAuthorizer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("authorizerCredentials" Core..=)
+          [ ("authorizerCredentials" Data..=)
               Prelude.<$> authorizerCredentials,
-            ("identitySource" Core..=)
+            ("identitySource" Data..=)
               Prelude.<$> identitySource,
-            ("authorizerResultTtlInSeconds" Core..=)
+            ("authorizerResultTtlInSeconds" Data..=)
               Prelude.<$> authorizerResultTtlInSeconds,
-            ("identityValidationExpression" Core..=)
+            ("identityValidationExpression" Data..=)
               Prelude.<$> identityValidationExpression,
-            ("authorizerUri" Core..=) Prelude.<$> authorizerUri,
-            ("providerARNs" Core..=) Prelude.<$> providerARNs,
-            ("authType" Core..=) Prelude.<$> authType,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("type" Core..= type')
+            ("authorizerUri" Data..=) Prelude.<$> authorizerUri,
+            ("providerARNs" Data..=) Prelude.<$> providerARNs,
+            ("authType" Data..=) Prelude.<$> authType,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateAuthorizer where
+instance Data.ToPath CreateAuthorizer where
   toPath CreateAuthorizer' {..} =
     Prelude.mconcat
-      ["/restapis/", Core.toBS restApiId, "/authorizers"]
+      ["/restapis/", Data.toBS restApiId, "/authorizers"]
 
-instance Core.ToQuery CreateAuthorizer where
+instance Data.ToQuery CreateAuthorizer where
   toQuery = Prelude.const Prelude.mempty

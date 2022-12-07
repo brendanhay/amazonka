@@ -59,6 +59,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -271,13 +272,13 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetSavingsPlansUtilizationDetailsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "Total")
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "Total")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Core..?> "SavingsPlansUtilizationDetails"
+              Prelude.<*> ( x Data..?> "SavingsPlansUtilizationDetails"
                               Core..!@ Prelude.mempty
                           )
-              Prelude.<*> (x Core..:> "TimePeriod")
+              Prelude.<*> (x Data..:> "TimePeriod")
       )
 
 instance
@@ -307,47 +308,47 @@ instance
       `Prelude.seq` Prelude.rnf timePeriod
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetSavingsPlansUtilizationDetails
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.GetSavingsPlansUtilizationDetails" ::
+              Data.=# ( "AWSInsightsIndexService.GetSavingsPlansUtilizationDetails" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetSavingsPlansUtilizationDetails
   where
   toJSON GetSavingsPlansUtilizationDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("DataType" Core..=) Prelude.<$> dataType,
-            Prelude.Just ("TimePeriod" Core..= timePeriod)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("DataType" Data..=) Prelude.<$> dataType,
+            Prelude.Just ("TimePeriod" Data..= timePeriod)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetSavingsPlansUtilizationDetails
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetSavingsPlansUtilizationDetails
   where
   toQuery = Prelude.const Prelude.mempty

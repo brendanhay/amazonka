@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -196,7 +197,7 @@ instance Core.AWSRequest BatchPutDocument where
     Response.receiveJSON
       ( \s h x ->
           BatchPutDocumentResponse'
-            Prelude.<$> ( x Core..?> "FailedDocuments"
+            Prelude.<$> ( x Data..?> "FailedDocuments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -217,37 +218,37 @@ instance Prelude.NFData BatchPutDocument where
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf documents
 
-instance Core.ToHeaders BatchPutDocument where
+instance Data.ToHeaders BatchPutDocument where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.BatchPutDocument" ::
+              Data.=# ( "AWSKendraFrontendService.BatchPutDocument" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchPutDocument where
+instance Data.ToJSON BatchPutDocument where
   toJSON BatchPutDocument' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomDocumentEnrichmentConfiguration" Core..=)
+          [ ("CustomDocumentEnrichmentConfiguration" Data..=)
               Prelude.<$> customDocumentEnrichmentConfiguration,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("Documents" Core..= documents)
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("Documents" Data..= documents)
           ]
       )
 
-instance Core.ToPath BatchPutDocument where
+instance Data.ToPath BatchPutDocument where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchPutDocument where
+instance Data.ToQuery BatchPutDocument where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchPutDocumentResponse' smart constructor.

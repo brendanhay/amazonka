@@ -58,6 +58,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -496,7 +497,7 @@ instance Core.AWSRequest CreateImageBuilder where
     Response.receiveJSON
       ( \s h x ->
           CreateImageBuilderResponse'
-            Prelude.<$> (x Core..?> "ImageBuilder")
+            Prelude.<$> (x Data..?> "ImageBuilder")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -532,49 +533,49 @@ instance Prelude.NFData CreateImageBuilder where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf instanceType
 
-instance Core.ToHeaders CreateImageBuilder where
+instance Data.ToHeaders CreateImageBuilder where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.CreateImageBuilder" ::
+              Data.=# ( "PhotonAdminProxyService.CreateImageBuilder" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateImageBuilder where
+instance Data.ToJSON CreateImageBuilder where
   toJSON CreateImageBuilder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("AccessEndpoints" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("AccessEndpoints" Data..=)
               Prelude.<$> accessEndpoints,
-            ("ImageArn" Core..=) Prelude.<$> imageArn,
-            ("Description" Core..=) Prelude.<$> description,
-            ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
-            ("DomainJoinInfo" Core..=)
+            ("ImageArn" Data..=) Prelude.<$> imageArn,
+            ("Description" Data..=) Prelude.<$> description,
+            ("IamRoleArn" Data..=) Prelude.<$> iamRoleArn,
+            ("DomainJoinInfo" Data..=)
               Prelude.<$> domainJoinInfo,
-            ("AppstreamAgentVersion" Core..=)
+            ("AppstreamAgentVersion" Data..=)
               Prelude.<$> appstreamAgentVersion,
-            ("EnableDefaultInternetAccess" Core..=)
+            ("EnableDefaultInternetAccess" Data..=)
               Prelude.<$> enableDefaultInternetAccess,
-            ("ImageName" Core..=) Prelude.<$> imageName,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("InstanceType" Core..= instanceType)
+            ("ImageName" Data..=) Prelude.<$> imageName,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("InstanceType" Data..= instanceType)
           ]
       )
 
-instance Core.ToPath CreateImageBuilder where
+instance Data.ToPath CreateImageBuilder where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateImageBuilder where
+instance Data.ToQuery CreateImageBuilder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateImageBuilderResponse' smart constructor.

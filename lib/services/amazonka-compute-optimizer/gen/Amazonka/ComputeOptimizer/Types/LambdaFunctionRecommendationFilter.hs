@@ -22,6 +22,7 @@ module Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFilter where
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFilterName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a filter that returns a more specific list of Lambda function
@@ -136,13 +137,13 @@ instance
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     LambdaFunctionRecommendationFilter
   where
   toJSON LambdaFunctionRecommendationFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("values" Core..=) Prelude.<$> values
+          [ ("name" Data..=) Prelude.<$> name,
+            ("values" Data..=) Prelude.<$> values
           ]
       )

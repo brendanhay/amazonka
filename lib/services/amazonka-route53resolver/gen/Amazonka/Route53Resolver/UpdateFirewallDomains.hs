@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -173,10 +174,10 @@ instance Core.AWSRequest UpdateFirewallDomains where
     Response.receiveJSON
       ( \s h x ->
           UpdateFirewallDomainsResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "StatusMessage")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,38 +193,38 @@ instance Prelude.NFData UpdateFirewallDomains where
       `Prelude.seq` Prelude.rnf operation
       `Prelude.seq` Prelude.rnf domains
 
-instance Core.ToHeaders UpdateFirewallDomains where
+instance Data.ToHeaders UpdateFirewallDomains where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.UpdateFirewallDomains" ::
+              Data.=# ( "Route53Resolver.UpdateFirewallDomains" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFirewallDomains where
+instance Data.ToJSON UpdateFirewallDomains where
   toJSON UpdateFirewallDomains' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "FirewallDomainListId"
-                  Core..= firewallDomainListId
+                  Data..= firewallDomainListId
               ),
-            Prelude.Just ("Operation" Core..= operation),
-            Prelude.Just ("Domains" Core..= domains)
+            Prelude.Just ("Operation" Data..= operation),
+            Prelude.Just ("Domains" Data..= domains)
           ]
       )
 
-instance Core.ToPath UpdateFirewallDomains where
+instance Data.ToPath UpdateFirewallDomains where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateFirewallDomains where
+instance Data.ToQuery UpdateFirewallDomains where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFirewallDomainsResponse' smart constructor.

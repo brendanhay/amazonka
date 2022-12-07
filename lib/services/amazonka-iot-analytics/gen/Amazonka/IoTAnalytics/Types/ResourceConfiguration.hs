@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.ResourceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.ComputeType
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,14 +78,14 @@ resourceConfiguration_computeType = Lens.lens (\ResourceConfiguration' {computeT
 resourceConfiguration_volumeSizeInGB :: Lens.Lens' ResourceConfiguration Prelude.Natural
 resourceConfiguration_volumeSizeInGB = Lens.lens (\ResourceConfiguration' {volumeSizeInGB} -> volumeSizeInGB) (\s@ResourceConfiguration' {} a -> s {volumeSizeInGB = a} :: ResourceConfiguration)
 
-instance Core.FromJSON ResourceConfiguration where
+instance Data.FromJSON ResourceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceConfiguration"
       ( \x ->
           ResourceConfiguration'
-            Prelude.<$> (x Core..: "computeType")
-            Prelude.<*> (x Core..: "volumeSizeInGB")
+            Prelude.<$> (x Data..: "computeType")
+            Prelude.<*> (x Data..: "volumeSizeInGB")
       )
 
 instance Prelude.Hashable ResourceConfiguration where
@@ -97,12 +98,12 @@ instance Prelude.NFData ResourceConfiguration where
     Prelude.rnf computeType
       `Prelude.seq` Prelude.rnf volumeSizeInGB
 
-instance Core.ToJSON ResourceConfiguration where
+instance Data.ToJSON ResourceConfiguration where
   toJSON ResourceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("computeType" Core..= computeType),
+          [ Prelude.Just ("computeType" Data..= computeType),
             Prelude.Just
-              ("volumeSizeInGB" Core..= volumeSizeInGB)
+              ("volumeSizeInGB" Data..= volumeSizeInGB)
           ]
       )

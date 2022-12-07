@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,9 +134,9 @@ instance Core.AWSRequest GetCellReadinessSummary where
     Response.receiveJSON
       ( \s h x ->
           GetCellReadinessSummaryResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "readiness")
-            Prelude.<*> ( x Core..?> "readinessChecks"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "readiness")
+            Prelude.<*> ( x Data..?> "readinessChecks"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -153,27 +154,27 @@ instance Prelude.NFData GetCellReadinessSummary where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf cellName
 
-instance Core.ToHeaders GetCellReadinessSummary where
+instance Data.ToHeaders GetCellReadinessSummary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetCellReadinessSummary where
+instance Data.ToPath GetCellReadinessSummary where
   toPath GetCellReadinessSummary' {..} =
     Prelude.mconcat
-      ["/cellreadiness/", Core.toBS cellName]
+      ["/cellreadiness/", Data.toBS cellName]
 
-instance Core.ToQuery GetCellReadinessSummary where
+instance Data.ToQuery GetCellReadinessSummary where
   toQuery GetCellReadinessSummary' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetCellReadinessSummaryResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.DocumentIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.DocumentFormat
 import Amazonka.SSM.Types.DocumentRequires
@@ -66,7 +67,7 @@ data DocumentIdentifier = DocumentIdentifier'
     -- | The schema version.
     schemaVersion :: Prelude.Maybe Prelude.Text,
     -- | The date the SSM document was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The current status of a document review.
     reviewStatus :: Prelude.Maybe ReviewStatus,
     -- | The document format, either JSON or YAML.
@@ -200,7 +201,7 @@ documentIdentifier_schemaVersion = Lens.lens (\DocumentIdentifier' {schemaVersio
 
 -- | The date the SSM document was created.
 documentIdentifier_createdDate :: Lens.Lens' DocumentIdentifier (Prelude.Maybe Prelude.UTCTime)
-documentIdentifier_createdDate = Lens.lens (\DocumentIdentifier' {createdDate} -> createdDate) (\s@DocumentIdentifier' {} a -> s {createdDate = a} :: DocumentIdentifier) Prelude.. Lens.mapping Core._Time
+documentIdentifier_createdDate = Lens.lens (\DocumentIdentifier' {createdDate} -> createdDate) (\s@DocumentIdentifier' {} a -> s {createdDate = a} :: DocumentIdentifier) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of a document review.
 documentIdentifier_reviewStatus :: Lens.Lens' DocumentIdentifier (Prelude.Maybe ReviewStatus)
@@ -214,27 +215,27 @@ documentIdentifier_documentFormat = Lens.lens (\DocumentIdentifier' {documentFor
 documentIdentifier_documentVersion :: Lens.Lens' DocumentIdentifier (Prelude.Maybe Prelude.Text)
 documentIdentifier_documentVersion = Lens.lens (\DocumentIdentifier' {documentVersion} -> documentVersion) (\s@DocumentIdentifier' {} a -> s {documentVersion = a} :: DocumentIdentifier)
 
-instance Core.FromJSON DocumentIdentifier where
+instance Data.FromJSON DocumentIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentIdentifier"
       ( \x ->
           DocumentIdentifier'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Requires")
-            Prelude.<*> (x Core..:? "Author")
-            Prelude.<*> (x Core..:? "DocumentType")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "TargetType")
-            Prelude.<*> (x Core..:? "VersionName")
-            Prelude.<*> (x Core..:? "PlatformTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SchemaVersion")
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "ReviewStatus")
-            Prelude.<*> (x Core..:? "DocumentFormat")
-            Prelude.<*> (x Core..:? "DocumentVersion")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Requires")
+            Prelude.<*> (x Data..:? "Author")
+            Prelude.<*> (x Data..:? "DocumentType")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "TargetType")
+            Prelude.<*> (x Data..:? "VersionName")
+            Prelude.<*> (x Data..:? "PlatformTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SchemaVersion")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "ReviewStatus")
+            Prelude.<*> (x Data..:? "DocumentFormat")
+            Prelude.<*> (x Data..:? "DocumentVersion")
       )
 
 instance Prelude.Hashable DocumentIdentifier where

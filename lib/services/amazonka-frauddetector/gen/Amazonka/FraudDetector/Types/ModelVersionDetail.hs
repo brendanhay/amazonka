@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.ModelVersionDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.ExternalEventsDetail
 import Amazonka.FraudDetector.Types.IngestedEventsDetail
 import Amazonka.FraudDetector.Types.ModelTypeEnum
@@ -182,25 +183,25 @@ modelVersionDetail_trainingDataSource = Lens.lens (\ModelVersionDetail' {trainin
 modelVersionDetail_modelId :: Lens.Lens' ModelVersionDetail (Prelude.Maybe Prelude.Text)
 modelVersionDetail_modelId = Lens.lens (\ModelVersionDetail' {modelId} -> modelId) (\s@ModelVersionDetail' {} a -> s {modelId = a} :: ModelVersionDetail)
 
-instance Core.FromJSON ModelVersionDetail where
+instance Data.FromJSON ModelVersionDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelVersionDetail"
       ( \x ->
           ModelVersionDetail'
-            Prelude.<$> (x Core..:? "createdTime")
-            Prelude.<*> (x Core..:? "ingestedEventsDetail")
-            Prelude.<*> (x Core..:? "trainingResultV2")
-            Prelude.<*> (x Core..:? "modelVersionNumber")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "modelType")
-            Prelude.<*> (x Core..:? "trainingDataSchema")
-            Prelude.<*> (x Core..:? "trainingResult")
-            Prelude.<*> (x Core..:? "externalEventsDetail")
-            Prelude.<*> (x Core..:? "trainingDataSource")
-            Prelude.<*> (x Core..:? "modelId")
+            Prelude.<$> (x Data..:? "createdTime")
+            Prelude.<*> (x Data..:? "ingestedEventsDetail")
+            Prelude.<*> (x Data..:? "trainingResultV2")
+            Prelude.<*> (x Data..:? "modelVersionNumber")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "modelType")
+            Prelude.<*> (x Data..:? "trainingDataSchema")
+            Prelude.<*> (x Data..:? "trainingResult")
+            Prelude.<*> (x Data..:? "externalEventsDetail")
+            Prelude.<*> (x Data..:? "trainingDataSource")
+            Prelude.<*> (x Data..:? "modelId")
       )
 
 instance Prelude.Hashable ModelVersionDetail where

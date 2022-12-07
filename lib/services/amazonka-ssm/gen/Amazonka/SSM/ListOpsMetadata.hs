@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,8 +143,8 @@ instance Core.AWSRequest ListOpsMetadata where
     Response.receiveJSON
       ( \s h x ->
           ListOpsMetadataResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "OpsMetadataList")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "OpsMetadataList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,33 +160,33 @@ instance Prelude.NFData ListOpsMetadata where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListOpsMetadata where
+instance Data.ToHeaders ListOpsMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.ListOpsMetadata" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.ListOpsMetadata" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListOpsMetadata where
+instance Data.ToJSON ListOpsMetadata where
   toJSON ListOpsMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListOpsMetadata where
+instance Data.ToPath ListOpsMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListOpsMetadata where
+instance Data.ToQuery ListOpsMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListOpsMetadataResponse' smart constructor.

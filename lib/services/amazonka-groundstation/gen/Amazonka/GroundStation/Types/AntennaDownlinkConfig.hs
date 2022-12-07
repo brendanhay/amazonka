@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.AntennaDownlinkConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.SpectrumConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newAntennaDownlinkConfig pSpectrumConfig_ =
 antennaDownlinkConfig_spectrumConfig :: Lens.Lens' AntennaDownlinkConfig SpectrumConfig
 antennaDownlinkConfig_spectrumConfig = Lens.lens (\AntennaDownlinkConfig' {spectrumConfig} -> spectrumConfig) (\s@AntennaDownlinkConfig' {} a -> s {spectrumConfig = a} :: AntennaDownlinkConfig)
 
-instance Core.FromJSON AntennaDownlinkConfig where
+instance Data.FromJSON AntennaDownlinkConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AntennaDownlinkConfig"
       ( \x ->
           AntennaDownlinkConfig'
-            Prelude.<$> (x Core..: "spectrumConfig")
+            Prelude.<$> (x Data..: "spectrumConfig")
       )
 
 instance Prelude.Hashable AntennaDownlinkConfig where
@@ -74,11 +75,11 @@ instance Prelude.NFData AntennaDownlinkConfig where
   rnf AntennaDownlinkConfig' {..} =
     Prelude.rnf spectrumConfig
 
-instance Core.ToJSON AntennaDownlinkConfig where
+instance Data.ToJSON AntennaDownlinkConfig where
   toJSON AntennaDownlinkConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("spectrumConfig" Core..= spectrumConfig)
+              ("spectrumConfig" Data..= spectrumConfig)
           ]
       )

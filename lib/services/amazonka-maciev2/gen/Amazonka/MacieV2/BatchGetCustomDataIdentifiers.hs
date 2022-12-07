@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,10 +92,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchGetCustomDataIdentifiersResponse'
-            Prelude.<$> ( x Core..?> "notFoundIdentifierIds"
+            Prelude.<$> ( x Data..?> "notFoundIdentifierIds"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "customDataIdentifiers"
+            Prelude.<*> ( x Data..?> "customDataIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -111,26 +112,26 @@ instance Prelude.NFData BatchGetCustomDataIdentifiers where
   rnf BatchGetCustomDataIdentifiers' {..} =
     Prelude.rnf ids
 
-instance Core.ToHeaders BatchGetCustomDataIdentifiers where
+instance Data.ToHeaders BatchGetCustomDataIdentifiers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetCustomDataIdentifiers where
+instance Data.ToJSON BatchGetCustomDataIdentifiers where
   toJSON BatchGetCustomDataIdentifiers' {..} =
-    Core.object
-      (Prelude.catMaybes [("ids" Core..=) Prelude.<$> ids])
+    Data.object
+      (Prelude.catMaybes [("ids" Data..=) Prelude.<$> ids])
 
-instance Core.ToPath BatchGetCustomDataIdentifiers where
+instance Data.ToPath BatchGetCustomDataIdentifiers where
   toPath = Prelude.const "/custom-data-identifiers/get"
 
-instance Core.ToQuery BatchGetCustomDataIdentifiers where
+instance Data.ToQuery BatchGetCustomDataIdentifiers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetCustomDataIdentifiersResponse' smart constructor.

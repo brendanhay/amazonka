@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.FailedWorkspaceChangeRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a WorkSpace that could not be rebooted. (RebootWorkspaces),
@@ -77,15 +78,15 @@ failedWorkspaceChangeRequest_workspaceId = Lens.lens (\FailedWorkspaceChangeRequ
 failedWorkspaceChangeRequest_errorCode :: Lens.Lens' FailedWorkspaceChangeRequest (Prelude.Maybe Prelude.Text)
 failedWorkspaceChangeRequest_errorCode = Lens.lens (\FailedWorkspaceChangeRequest' {errorCode} -> errorCode) (\s@FailedWorkspaceChangeRequest' {} a -> s {errorCode = a} :: FailedWorkspaceChangeRequest)
 
-instance Core.FromJSON FailedWorkspaceChangeRequest where
+instance Data.FromJSON FailedWorkspaceChangeRequest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedWorkspaceChangeRequest"
       ( \x ->
           FailedWorkspaceChangeRequest'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "WorkspaceId")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "WorkspaceId")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance

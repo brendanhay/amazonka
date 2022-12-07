@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,30 +103,30 @@ instance Prelude.NFData UpdateGateway where
     Prelude.rnf gatewayId
       `Prelude.seq` Prelude.rnf gatewayName
 
-instance Core.ToHeaders UpdateGateway where
+instance Data.ToHeaders UpdateGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGateway where
+instance Data.ToJSON UpdateGateway where
   toJSON UpdateGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("gatewayName" Core..= gatewayName)]
+          [Prelude.Just ("gatewayName" Data..= gatewayName)]
       )
 
-instance Core.ToPath UpdateGateway where
+instance Data.ToPath UpdateGateway where
   toPath UpdateGateway' {..} =
     Prelude.mconcat
-      ["/20200301/gateways/", Core.toBS gatewayId]
+      ["/20200301/gateways/", Data.toBS gatewayId]
 
-instance Core.ToQuery UpdateGateway where
+instance Data.ToQuery UpdateGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGatewayResponse' smart constructor.

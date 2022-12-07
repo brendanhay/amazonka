@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -214,13 +215,13 @@ instance Core.AWSRequest ListParts where
     Response.receiveJSON
       ( \s h x ->
           ListPartsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "Parts" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "MultipartUploadId")
-            Prelude.<*> (x Core..?> "ArchiveDescription")
-            Prelude.<*> (x Core..?> "VaultARN")
-            Prelude.<*> (x Core..?> "PartSizeInBytes")
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "Parts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "MultipartUploadId")
+            Prelude.<*> (x Data..?> "ArchiveDescription")
+            Prelude.<*> (x Data..?> "VaultARN")
+            Prelude.<*> (x Data..?> "PartSizeInBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -240,24 +241,24 @@ instance Prelude.NFData ListParts where
       `Prelude.seq` Prelude.rnf vaultName
       `Prelude.seq` Prelude.rnf uploadId
 
-instance Core.ToHeaders ListParts where
+instance Data.ToHeaders ListParts where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListParts where
+instance Data.ToPath ListParts where
   toPath ListParts' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/multipart-uploads/",
-        Core.toBS uploadId
+        Data.toBS uploadId
       ]
 
-instance Core.ToQuery ListParts where
+instance Data.ToQuery ListParts where
   toQuery ListParts' {..} =
     Prelude.mconcat
-      ["marker" Core.=: marker, "limit" Core.=: limit]
+      ["marker" Data.=: marker, "limit" Data.=: limit]
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --

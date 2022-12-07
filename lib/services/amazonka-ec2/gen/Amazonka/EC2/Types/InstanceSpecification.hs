@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -96,13 +97,13 @@ instance Prelude.NFData InstanceSpecification where
       `Prelude.seq` Prelude.rnf excludeBootVolume
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToQuery InstanceSpecification where
+instance Data.ToQuery InstanceSpecification where
   toQuery InstanceSpecification' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          ( Core.toQueryList "ExcludeDataVolumeId"
+      [ Data.toQuery
+          ( Data.toQueryList "ExcludeDataVolumeId"
               Prelude.<$> excludeDataVolumeIds
           ),
-        "ExcludeBootVolume" Core.=: excludeBootVolume,
-        "InstanceId" Core.=: instanceId
+        "ExcludeBootVolume" Data.=: excludeBootVolume,
+        "InstanceId" Data.=: instanceId
       ]

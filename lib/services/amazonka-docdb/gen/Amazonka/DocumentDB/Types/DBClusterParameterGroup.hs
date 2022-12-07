@@ -21,6 +21,7 @@ module Amazonka.DocumentDB.Types.DBClusterParameterGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about a cluster parameter group.
@@ -86,13 +87,13 @@ dbClusterParameterGroup_dbParameterGroupFamily = Lens.lens (\DBClusterParameterG
 dbClusterParameterGroup_dbClusterParameterGroupName :: Lens.Lens' DBClusterParameterGroup (Prelude.Maybe Prelude.Text)
 dbClusterParameterGroup_dbClusterParameterGroupName = Lens.lens (\DBClusterParameterGroup' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@DBClusterParameterGroup' {} a -> s {dbClusterParameterGroupName = a} :: DBClusterParameterGroup)
 
-instance Core.FromXML DBClusterParameterGroup where
+instance Data.FromXML DBClusterParameterGroup where
   parseXML x =
     DBClusterParameterGroup'
-      Prelude.<$> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "DBClusterParameterGroupArn")
-      Prelude.<*> (x Core..@? "DBParameterGroupFamily")
-      Prelude.<*> (x Core..@? "DBClusterParameterGroupName")
+      Prelude.<$> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "DBClusterParameterGroupArn")
+      Prelude.<*> (x Data..@? "DBParameterGroupFamily")
+      Prelude.<*> (x Data..@? "DBClusterParameterGroupName")
 
 instance Prelude.Hashable DBClusterParameterGroup where
   hashWithSalt _salt DBClusterParameterGroup' {..} =

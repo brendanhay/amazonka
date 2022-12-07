@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.LoadBalancerDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import Amazonka.ELB.Types.BackendServerDescription
 import Amazonka.ELB.Types.HealthCheck
@@ -47,7 +48,7 @@ data LoadBalancerDescription = LoadBalancerDescription'
     -- resolves to a private IP address.
     scheme :: Prelude.Maybe Prelude.Text,
     -- | The date and time the load balancer was created.
-    createdTime :: Prelude.Maybe Core.ISO8601,
+    createdTime :: Prelude.Maybe Data.ISO8601,
     -- | The DNS name of the load balancer.
     --
     -- For more information, see
@@ -179,7 +180,7 @@ loadBalancerDescription_scheme = Lens.lens (\LoadBalancerDescription' {scheme} -
 
 -- | The date and time the load balancer was created.
 loadBalancerDescription_createdTime :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.UTCTime)
-loadBalancerDescription_createdTime = Lens.lens (\LoadBalancerDescription' {createdTime} -> createdTime) (\s@LoadBalancerDescription' {} a -> s {createdTime = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Core._Time
+loadBalancerDescription_createdTime = Lens.lens (\LoadBalancerDescription' {createdTime} -> createdTime) (\s@LoadBalancerDescription' {} a -> s {createdTime = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The DNS name of the load balancer.
 --
@@ -237,40 +238,40 @@ loadBalancerDescription_vPCId = Lens.lens (\LoadBalancerDescription' {vPCId} -> 
 loadBalancerDescription_dNSName :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.Text)
 loadBalancerDescription_dNSName = Lens.lens (\LoadBalancerDescription' {dNSName} -> dNSName) (\s@LoadBalancerDescription' {} a -> s {dNSName = a} :: LoadBalancerDescription)
 
-instance Core.FromXML LoadBalancerDescription where
+instance Data.FromXML LoadBalancerDescription where
   parseXML x =
     LoadBalancerDescription'
-      Prelude.<$> ( x Core..@? "Instances" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Instances" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "HealthCheck")
-      Prelude.<*> (x Core..@? "Scheme")
-      Prelude.<*> (x Core..@? "CreatedTime")
-      Prelude.<*> (x Core..@? "CanonicalHostedZoneName")
-      Prelude.<*> (x Core..@? "CanonicalHostedZoneNameID")
-      Prelude.<*> (x Core..@? "LoadBalancerName")
-      Prelude.<*> ( x Core..@? "Subnets" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "HealthCheck")
+      Prelude.<*> (x Data..@? "Scheme")
+      Prelude.<*> (x Data..@? "CreatedTime")
+      Prelude.<*> (x Data..@? "CanonicalHostedZoneName")
+      Prelude.<*> (x Data..@? "CanonicalHostedZoneNameID")
+      Prelude.<*> (x Data..@? "LoadBalancerName")
+      Prelude.<*> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "SourceSecurityGroup")
-      Prelude.<*> ( x Core..@? "AvailabilityZones"
+      Prelude.<*> (x Data..@? "SourceSecurityGroup")
+      Prelude.<*> ( x Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "ListenerDescriptions"
+      Prelude.<*> ( x Data..@? "ListenerDescriptions"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Policies")
-      Prelude.<*> ( x Core..@? "BackendServerDescriptions"
+      Prelude.<*> (x Data..@? "Policies")
+      Prelude.<*> ( x Data..@? "BackendServerDescriptions"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "SecurityGroups" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> ( x Data..@? "SecurityGroups" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "VPCId")
-      Prelude.<*> (x Core..@? "DNSName")
+      Prelude.<*> (x Data..@? "VPCId")
+      Prelude.<*> (x Data..@? "DNSName")
 
 instance Prelude.Hashable LoadBalancerDescription where
   hashWithSalt _salt LoadBalancerDescription' {..} =

@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.DatasetLabelDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.DatasetLabelStats
 
@@ -63,14 +64,14 @@ datasetLabelDescription_labelName = Lens.lens (\DatasetLabelDescription' {labelN
 datasetLabelDescription_labelStats :: Lens.Lens' DatasetLabelDescription (Prelude.Maybe DatasetLabelStats)
 datasetLabelDescription_labelStats = Lens.lens (\DatasetLabelDescription' {labelStats} -> labelStats) (\s@DatasetLabelDescription' {} a -> s {labelStats = a} :: DatasetLabelDescription)
 
-instance Core.FromJSON DatasetLabelDescription where
+instance Data.FromJSON DatasetLabelDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetLabelDescription"
       ( \x ->
           DatasetLabelDescription'
-            Prelude.<$> (x Core..:? "LabelName")
-            Prelude.<*> (x Core..:? "LabelStats")
+            Prelude.<$> (x Data..:? "LabelName")
+            Prelude.<*> (x Data..:? "LabelStats")
       )
 
 instance Prelude.Hashable DatasetLabelDescription where

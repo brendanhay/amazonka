@@ -21,6 +21,7 @@ module Amazonka.Rum.Types.MetricDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that displays the definition of one extended metric that RUM
@@ -136,18 +137,18 @@ metricDefinition_metricDefinitionId = Lens.lens (\MetricDefinition' {metricDefin
 metricDefinition_name :: Lens.Lens' MetricDefinition Prelude.Text
 metricDefinition_name = Lens.lens (\MetricDefinition' {name} -> name) (\s@MetricDefinition' {} a -> s {name = a} :: MetricDefinition)
 
-instance Core.FromJSON MetricDefinition where
+instance Data.FromJSON MetricDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricDefinition"
       ( \x ->
           MetricDefinition'
-            Prelude.<$> (x Core..:? "ValueKey")
-            Prelude.<*> (x Core..:? "UnitLabel")
-            Prelude.<*> (x Core..:? "EventPattern")
-            Prelude.<*> (x Core..:? "DimensionKeys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "MetricDefinitionId")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "ValueKey")
+            Prelude.<*> (x Data..:? "UnitLabel")
+            Prelude.<*> (x Data..:? "EventPattern")
+            Prelude.<*> (x Data..:? "DimensionKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "MetricDefinitionId")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable MetricDefinition where

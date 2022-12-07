@@ -26,6 +26,7 @@ import Amazonka.CodeDeploy.Types.RevisionLocationType
 import Amazonka.CodeDeploy.Types.S3Location
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the location of an application revision.
@@ -138,17 +139,17 @@ revisionLocation_gitHubLocation = Lens.lens (\RevisionLocation' {gitHubLocation}
 revisionLocation_revisionType :: Lens.Lens' RevisionLocation (Prelude.Maybe RevisionLocationType)
 revisionLocation_revisionType = Lens.lens (\RevisionLocation' {revisionType} -> revisionType) (\s@RevisionLocation' {} a -> s {revisionType = a} :: RevisionLocation)
 
-instance Core.FromJSON RevisionLocation where
+instance Data.FromJSON RevisionLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RevisionLocation"
       ( \x ->
           RevisionLocation'
-            Prelude.<$> (x Core..:? "string")
-            Prelude.<*> (x Core..:? "appSpecContent")
-            Prelude.<*> (x Core..:? "s3Location")
-            Prelude.<*> (x Core..:? "gitHubLocation")
-            Prelude.<*> (x Core..:? "revisionType")
+            Prelude.<$> (x Data..:? "string")
+            Prelude.<*> (x Data..:? "appSpecContent")
+            Prelude.<*> (x Data..:? "s3Location")
+            Prelude.<*> (x Data..:? "gitHubLocation")
+            Prelude.<*> (x Data..:? "revisionType")
       )
 
 instance Prelude.Hashable RevisionLocation where
@@ -167,16 +168,16 @@ instance Prelude.NFData RevisionLocation where
       `Prelude.seq` Prelude.rnf gitHubLocation
       `Prelude.seq` Prelude.rnf revisionType
 
-instance Core.ToJSON RevisionLocation where
+instance Data.ToJSON RevisionLocation where
   toJSON RevisionLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("string" Core..=) Prelude.<$> string,
-            ("appSpecContent" Core..=)
+          [ ("string" Data..=) Prelude.<$> string,
+            ("appSpecContent" Data..=)
               Prelude.<$> appSpecContent,
-            ("s3Location" Core..=) Prelude.<$> s3Location,
-            ("gitHubLocation" Core..=)
+            ("s3Location" Data..=) Prelude.<$> s3Location,
+            ("gitHubLocation" Data..=)
               Prelude.<$> gitHubLocation,
-            ("revisionType" Core..=) Prelude.<$> revisionType
+            ("revisionType" Data..=) Prelude.<$> revisionType
           ]
       )

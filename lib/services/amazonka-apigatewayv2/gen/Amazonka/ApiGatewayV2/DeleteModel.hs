@@ -39,6 +39,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,27 +96,27 @@ instance Prelude.NFData DeleteModel where
   rnf DeleteModel' {..} =
     Prelude.rnf modelId `Prelude.seq` Prelude.rnf apiId
 
-instance Core.ToHeaders DeleteModel where
+instance Data.ToHeaders DeleteModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteModel where
+instance Data.ToPath DeleteModel where
   toPath DeleteModel' {..} =
     Prelude.mconcat
       [ "/v2/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/models/",
-        Core.toBS modelId
+        Data.toBS modelId
       ]
 
-instance Core.ToQuery DeleteModel where
+instance Data.ToQuery DeleteModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteModelResponse' smart constructor.

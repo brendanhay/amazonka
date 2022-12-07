@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.AlarmConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.Alarm
 
@@ -72,14 +73,14 @@ alarmConfiguration_ignorePollAlarmFailure = Lens.lens (\AlarmConfiguration' {ign
 alarmConfiguration_alarms :: Lens.Lens' AlarmConfiguration (Prelude.NonEmpty Alarm)
 alarmConfiguration_alarms = Lens.lens (\AlarmConfiguration' {alarms} -> alarms) (\s@AlarmConfiguration' {} a -> s {alarms = a} :: AlarmConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON AlarmConfiguration where
+instance Data.FromJSON AlarmConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlarmConfiguration"
       ( \x ->
           AlarmConfiguration'
-            Prelude.<$> (x Core..:? "IgnorePollAlarmFailure")
-            Prelude.<*> (x Core..: "Alarms")
+            Prelude.<$> (x Data..:? "IgnorePollAlarmFailure")
+            Prelude.<*> (x Data..: "Alarms")
       )
 
 instance Prelude.Hashable AlarmConfiguration where
@@ -92,12 +93,12 @@ instance Prelude.NFData AlarmConfiguration where
     Prelude.rnf ignorePollAlarmFailure
       `Prelude.seq` Prelude.rnf alarms
 
-instance Core.ToJSON AlarmConfiguration where
+instance Data.ToJSON AlarmConfiguration where
   toJSON AlarmConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IgnorePollAlarmFailure" Core..=)
+          [ ("IgnorePollAlarmFailure" Data..=)
               Prelude.<$> ignorePollAlarmFailure,
-            Prelude.Just ("Alarms" Core..= alarms)
+            Prelude.Just ("Alarms" Data..= alarms)
           ]
       )

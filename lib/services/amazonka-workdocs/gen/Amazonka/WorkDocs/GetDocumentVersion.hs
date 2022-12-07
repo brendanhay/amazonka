@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -57,7 +58,7 @@ data GetDocumentVersion = GetDocumentVersion'
     includeCustomMetadata :: Prelude.Maybe Prelude.Bool,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A comma-separated list of values. Specify \"SOURCE\" to include a URL
     -- for the source document.
     fields :: Prelude.Maybe Prelude.Text,
@@ -110,7 +111,7 @@ getDocumentVersion_includeCustomMetadata = Lens.lens (\GetDocumentVersion' {incl
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 getDocumentVersion_authenticationToken :: Lens.Lens' GetDocumentVersion (Prelude.Maybe Prelude.Text)
-getDocumentVersion_authenticationToken = Lens.lens (\GetDocumentVersion' {authenticationToken} -> authenticationToken) (\s@GetDocumentVersion' {} a -> s {authenticationToken = a} :: GetDocumentVersion) Prelude.. Lens.mapping Core._Sensitive
+getDocumentVersion_authenticationToken = Lens.lens (\GetDocumentVersion' {authenticationToken} -> authenticationToken) (\s@GetDocumentVersion' {} a -> s {authenticationToken = a} :: GetDocumentVersion) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A comma-separated list of values. Specify \"SOURCE\" to include a URL
 -- for the source document.
@@ -135,8 +136,8 @@ instance Core.AWSRequest GetDocumentVersion where
     Response.receiveJSON
       ( \s h x ->
           GetDocumentVersionResponse'
-            Prelude.<$> (x Core..?> "Metadata")
-            Prelude.<*> (x Core..?> "CustomMetadata" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Metadata")
+            Prelude.<*> (x Data..?> "CustomMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,29 +157,29 @@ instance Prelude.NFData GetDocumentVersion where
       `Prelude.seq` Prelude.rnf documentId
       `Prelude.seq` Prelude.rnf versionId
 
-instance Core.ToHeaders GetDocumentVersion where
+instance Data.ToHeaders GetDocumentVersion where
   toHeaders GetDocumentVersion' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath GetDocumentVersion where
+instance Data.ToPath GetDocumentVersion where
   toPath GetDocumentVersion' {..} =
     Prelude.mconcat
       [ "/api/v1/documents/",
-        Core.toBS documentId,
+        Data.toBS documentId,
         "/versions/",
-        Core.toBS versionId
+        Data.toBS versionId
       ]
 
-instance Core.ToQuery GetDocumentVersion where
+instance Data.ToQuery GetDocumentVersion where
   toQuery GetDocumentVersion' {..} =
     Prelude.mconcat
       [ "includeCustomMetadata"
-          Core.=: includeCustomMetadata,
-        "fields" Core.=: fields
+          Data.=: includeCustomMetadata,
+        "fields" Data.=: fields
       ]
 
 -- | /See:/ 'newGetDocumentVersionResponse' smart constructor.

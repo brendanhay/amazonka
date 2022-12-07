@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,38 +162,38 @@ instance Prelude.NFData MergeShards where
       `Prelude.seq` Prelude.rnf shardToMerge
       `Prelude.seq` Prelude.rnf adjacentShardToMerge
 
-instance Core.ToHeaders MergeShards where
+instance Data.ToHeaders MergeShards where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.MergeShards" ::
+              Data.=# ( "Kinesis_20131202.MergeShards" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON MergeShards where
+instance Data.ToJSON MergeShards where
   toJSON MergeShards' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Core..= streamName),
-            Prelude.Just ("ShardToMerge" Core..= shardToMerge),
+          [ Prelude.Just ("StreamName" Data..= streamName),
+            Prelude.Just ("ShardToMerge" Data..= shardToMerge),
             Prelude.Just
               ( "AdjacentShardToMerge"
-                  Core..= adjacentShardToMerge
+                  Data..= adjacentShardToMerge
               )
           ]
       )
 
-instance Core.ToPath MergeShards where
+instance Data.ToPath MergeShards where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery MergeShards where
+instance Data.ToQuery MergeShards where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newMergeShardsResponse' smart constructor.

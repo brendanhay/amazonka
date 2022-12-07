@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DiskImageDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DiskImageFormat
 import qualified Amazonka.Prelude as Prelude
@@ -106,13 +107,13 @@ diskImageDescription_size = Lens.lens (\DiskImageDescription' {size} -> size) (\
 diskImageDescription_checksum :: Lens.Lens' DiskImageDescription (Prelude.Maybe Prelude.Text)
 diskImageDescription_checksum = Lens.lens (\DiskImageDescription' {checksum} -> checksum) (\s@DiskImageDescription' {} a -> s {checksum = a} :: DiskImageDescription)
 
-instance Core.FromXML DiskImageDescription where
+instance Data.FromXML DiskImageDescription where
   parseXML x =
     DiskImageDescription'
-      Prelude.<$> (x Core..@? "importManifestUrl")
-      Prelude.<*> (x Core..@? "format")
-      Prelude.<*> (x Core..@? "size")
-      Prelude.<*> (x Core..@? "checksum")
+      Prelude.<$> (x Data..@? "importManifestUrl")
+      Prelude.<*> (x Data..@? "format")
+      Prelude.<*> (x Data..@? "size")
+      Prelude.<*> (x Data..@? "checksum")
 
 instance Prelude.Hashable DiskImageDescription where
   hashWithSalt _salt DiskImageDescription' {..} =

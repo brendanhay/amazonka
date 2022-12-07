@@ -25,6 +25,7 @@ import Amazonka.CloudFront.Types.OriginShield
 import Amazonka.CloudFront.Types.S3OriginConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An origin.
@@ -324,19 +325,19 @@ origin_id = Lens.lens (\Origin' {id} -> id) (\s@Origin' {} a -> s {id = a} :: Or
 origin_domainName :: Lens.Lens' Origin Prelude.Text
 origin_domainName = Lens.lens (\Origin' {domainName} -> domainName) (\s@Origin' {} a -> s {domainName = a} :: Origin)
 
-instance Core.FromXML Origin where
+instance Data.FromXML Origin where
   parseXML x =
     Origin'
-      Prelude.<$> (x Core..@? "CustomHeaders")
-      Prelude.<*> (x Core..@? "ConnectionTimeout")
-      Prelude.<*> (x Core..@? "S3OriginConfig")
-      Prelude.<*> (x Core..@? "OriginPath")
-      Prelude.<*> (x Core..@? "OriginAccessControlId")
-      Prelude.<*> (x Core..@? "CustomOriginConfig")
-      Prelude.<*> (x Core..@? "OriginShield")
-      Prelude.<*> (x Core..@? "ConnectionAttempts")
-      Prelude.<*> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "DomainName")
+      Prelude.<$> (x Data..@? "CustomHeaders")
+      Prelude.<*> (x Data..@? "ConnectionTimeout")
+      Prelude.<*> (x Data..@? "S3OriginConfig")
+      Prelude.<*> (x Data..@? "OriginPath")
+      Prelude.<*> (x Data..@? "OriginAccessControlId")
+      Prelude.<*> (x Data..@? "CustomOriginConfig")
+      Prelude.<*> (x Data..@? "OriginShield")
+      Prelude.<*> (x Data..@? "ConnectionAttempts")
+      Prelude.<*> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "DomainName")
 
 instance Prelude.Hashable Origin where
   hashWithSalt _salt Origin' {..} =
@@ -364,18 +365,18 @@ instance Prelude.NFData Origin where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToXML Origin where
+instance Data.ToXML Origin where
   toXML Origin' {..} =
     Prelude.mconcat
-      [ "CustomHeaders" Core.@= customHeaders,
-        "ConnectionTimeout" Core.@= connectionTimeout,
-        "S3OriginConfig" Core.@= s3OriginConfig,
-        "OriginPath" Core.@= originPath,
+      [ "CustomHeaders" Data.@= customHeaders,
+        "ConnectionTimeout" Data.@= connectionTimeout,
+        "S3OriginConfig" Data.@= s3OriginConfig,
+        "OriginPath" Data.@= originPath,
         "OriginAccessControlId"
-          Core.@= originAccessControlId,
-        "CustomOriginConfig" Core.@= customOriginConfig,
-        "OriginShield" Core.@= originShield,
-        "ConnectionAttempts" Core.@= connectionAttempts,
-        "Id" Core.@= id,
-        "DomainName" Core.@= domainName
+          Data.@= originAccessControlId,
+        "CustomOriginConfig" Data.@= customOriginConfig,
+        "OriginShield" Data.@= originShield,
+        "ConnectionAttempts" Data.@= connectionAttempts,
+        "Id" Data.@= id,
+        "DomainName" Data.@= domainName
       ]

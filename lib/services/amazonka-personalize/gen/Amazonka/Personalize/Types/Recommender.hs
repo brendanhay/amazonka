@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.Recommender where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.RecommenderConfig
 import Amazonka.Personalize.Types.RecommenderUpdateSummary
 import qualified Amazonka.Prelude as Prelude
@@ -36,7 +37,7 @@ data Recommender = Recommender'
   { -- | The name of the recommender.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix format) that the recommender was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the recommender.
     recommenderArn :: Prelude.Maybe Prelude.Text,
     -- | The configuration details of the recommender.
@@ -66,7 +67,7 @@ data Recommender = Recommender'
     recipeArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix format) that the recommender was last
     -- updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | If a recommender fails, the reason behind the failure.
     failureReason :: Prelude.Maybe Prelude.Text
   }
@@ -138,7 +139,7 @@ recommender_name = Lens.lens (\Recommender' {name} -> name) (\s@Recommender' {} 
 
 -- | The date and time (in Unix format) that the recommender was created.
 recommender_creationDateTime :: Lens.Lens' Recommender (Prelude.Maybe Prelude.UTCTime)
-recommender_creationDateTime = Lens.lens (\Recommender' {creationDateTime} -> creationDateTime) (\s@Recommender' {} a -> s {creationDateTime = a} :: Recommender) Prelude.. Lens.mapping Core._Time
+recommender_creationDateTime = Lens.lens (\Recommender' {creationDateTime} -> creationDateTime) (\s@Recommender' {} a -> s {creationDateTime = a} :: Recommender) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the recommender.
 recommender_recommenderArn :: Lens.Lens' Recommender (Prelude.Maybe Prelude.Text)
@@ -184,29 +185,29 @@ recommender_recipeArn = Lens.lens (\Recommender' {recipeArn} -> recipeArn) (\s@R
 -- | The date and time (in Unix format) that the recommender was last
 -- updated.
 recommender_lastUpdatedDateTime :: Lens.Lens' Recommender (Prelude.Maybe Prelude.UTCTime)
-recommender_lastUpdatedDateTime = Lens.lens (\Recommender' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Recommender' {} a -> s {lastUpdatedDateTime = a} :: Recommender) Prelude.. Lens.mapping Core._Time
+recommender_lastUpdatedDateTime = Lens.lens (\Recommender' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Recommender' {} a -> s {lastUpdatedDateTime = a} :: Recommender) Prelude.. Lens.mapping Data._Time
 
 -- | If a recommender fails, the reason behind the failure.
 recommender_failureReason :: Lens.Lens' Recommender (Prelude.Maybe Prelude.Text)
 recommender_failureReason = Lens.lens (\Recommender' {failureReason} -> failureReason) (\s@Recommender' {} a -> s {failureReason = a} :: Recommender)
 
-instance Core.FromJSON Recommender where
+instance Data.FromJSON Recommender where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Recommender"
       ( \x ->
           Recommender'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "recommenderArn")
-            Prelude.<*> (x Core..:? "recommenderConfig")
-            Prelude.<*> (x Core..:? "latestRecommenderUpdate")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "modelMetrics" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "datasetGroupArn")
-            Prelude.<*> (x Core..:? "recipeArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "recommenderArn")
+            Prelude.<*> (x Data..:? "recommenderConfig")
+            Prelude.<*> (x Data..:? "latestRecommenderUpdate")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "modelMetrics" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "datasetGroupArn")
+            Prelude.<*> (x Data..:? "recipeArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable Recommender where

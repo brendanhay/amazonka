@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.DeveloperInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details about the developer that published the skill.
@@ -79,16 +80,16 @@ developerInfo_url = Lens.lens (\DeveloperInfo' {url} -> url) (\s@DeveloperInfo' 
 developerInfo_privacyPolicy :: Lens.Lens' DeveloperInfo (Prelude.Maybe Prelude.Text)
 developerInfo_privacyPolicy = Lens.lens (\DeveloperInfo' {privacyPolicy} -> privacyPolicy) (\s@DeveloperInfo' {} a -> s {privacyPolicy = a} :: DeveloperInfo)
 
-instance Core.FromJSON DeveloperInfo where
+instance Data.FromJSON DeveloperInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeveloperInfo"
       ( \x ->
           DeveloperInfo'
-            Prelude.<$> (x Core..:? "Email")
-            Prelude.<*> (x Core..:? "DeveloperName")
-            Prelude.<*> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "PrivacyPolicy")
+            Prelude.<$> (x Data..:? "Email")
+            Prelude.<*> (x Data..:? "DeveloperName")
+            Prelude.<*> (x Data..:? "Url")
+            Prelude.<*> (x Data..:? "PrivacyPolicy")
       )
 
 instance Prelude.Hashable DeveloperInfo where

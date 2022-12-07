@@ -23,6 +23,7 @@ import Amazonka.Athena.Types.WorkGroupConfiguration
 import Amazonka.Athena.Types.WorkGroupState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A workgroup, which contains a name, description, creation time, state,
@@ -54,7 +55,7 @@ data WorkGroup = WorkGroup'
     -- | The workgroup description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The date and time the workgroup was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The workgroup name.
     name :: Prelude.Text
   }
@@ -120,23 +121,23 @@ workGroup_description = Lens.lens (\WorkGroup' {description} -> description) (\s
 
 -- | The date and time the workgroup was created.
 workGroup_creationTime :: Lens.Lens' WorkGroup (Prelude.Maybe Prelude.UTCTime)
-workGroup_creationTime = Lens.lens (\WorkGroup' {creationTime} -> creationTime) (\s@WorkGroup' {} a -> s {creationTime = a} :: WorkGroup) Prelude.. Lens.mapping Core._Time
+workGroup_creationTime = Lens.lens (\WorkGroup' {creationTime} -> creationTime) (\s@WorkGroup' {} a -> s {creationTime = a} :: WorkGroup) Prelude.. Lens.mapping Data._Time
 
 -- | The workgroup name.
 workGroup_name :: Lens.Lens' WorkGroup Prelude.Text
 workGroup_name = Lens.lens (\WorkGroup' {name} -> name) (\s@WorkGroup' {} a -> s {name = a} :: WorkGroup)
 
-instance Core.FromJSON WorkGroup where
+instance Data.FromJSON WorkGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkGroup"
       ( \x ->
           WorkGroup'
-            Prelude.<$> (x Core..:? "Configuration")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "Configuration")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable WorkGroup where

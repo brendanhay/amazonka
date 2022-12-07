@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.S3OutputUrl where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A URL for the Amazon Web Services Systems Manager (Systems Manager)
@@ -54,12 +55,12 @@ newS3OutputUrl =
 s3OutputUrl_outputUrl :: Lens.Lens' S3OutputUrl (Prelude.Maybe Prelude.Text)
 s3OutputUrl_outputUrl = Lens.lens (\S3OutputUrl' {outputUrl} -> outputUrl) (\s@S3OutputUrl' {} a -> s {outputUrl = a} :: S3OutputUrl)
 
-instance Core.FromJSON S3OutputUrl where
+instance Data.FromJSON S3OutputUrl where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3OutputUrl"
       ( \x ->
-          S3OutputUrl' Prelude.<$> (x Core..:? "OutputUrl")
+          S3OutputUrl' Prelude.<$> (x Data..:? "OutputUrl")
       )
 
 instance Prelude.Hashable S3OutputUrl where

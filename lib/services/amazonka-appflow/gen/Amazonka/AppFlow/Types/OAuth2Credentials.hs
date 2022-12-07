@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.OAuth2Credentials where
 import Amazonka.AppFlow.Types.ConnectorOAuthRequest
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The OAuth 2.0 credentials required for OAuth 2.0 authentication.
@@ -29,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newOAuth2Credentials' smart constructor.
 data OAuth2Credentials = OAuth2Credentials'
   { -- | The access token used to access the connector on your behalf.
-    accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    accessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The client secret used by the OAuth client to authenticate to the
     -- authorization server.
-    clientSecret :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    clientSecret :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The identifier for the desired client.
     clientId :: Prelude.Maybe Prelude.Text,
     oAuthRequest :: Prelude.Maybe ConnectorOAuthRequest,
@@ -72,12 +73,12 @@ newOAuth2Credentials =
 
 -- | The access token used to access the connector on your behalf.
 oAuth2Credentials_accessToken :: Lens.Lens' OAuth2Credentials (Prelude.Maybe Prelude.Text)
-oAuth2Credentials_accessToken = Lens.lens (\OAuth2Credentials' {accessToken} -> accessToken) (\s@OAuth2Credentials' {} a -> s {accessToken = a} :: OAuth2Credentials) Prelude.. Lens.mapping Core._Sensitive
+oAuth2Credentials_accessToken = Lens.lens (\OAuth2Credentials' {accessToken} -> accessToken) (\s@OAuth2Credentials' {} a -> s {accessToken = a} :: OAuth2Credentials) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The client secret used by the OAuth client to authenticate to the
 -- authorization server.
 oAuth2Credentials_clientSecret :: Lens.Lens' OAuth2Credentials (Prelude.Maybe Prelude.Text)
-oAuth2Credentials_clientSecret = Lens.lens (\OAuth2Credentials' {clientSecret} -> clientSecret) (\s@OAuth2Credentials' {} a -> s {clientSecret = a} :: OAuth2Credentials) Prelude.. Lens.mapping Core._Sensitive
+oAuth2Credentials_clientSecret = Lens.lens (\OAuth2Credentials' {clientSecret} -> clientSecret) (\s@OAuth2Credentials' {} a -> s {clientSecret = a} :: OAuth2Credentials) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The identifier for the desired client.
 oAuth2Credentials_clientId :: Lens.Lens' OAuth2Credentials (Prelude.Maybe Prelude.Text)
@@ -107,14 +108,14 @@ instance Prelude.NFData OAuth2Credentials where
       `Prelude.seq` Prelude.rnf oAuthRequest
       `Prelude.seq` Prelude.rnf refreshToken
 
-instance Core.ToJSON OAuth2Credentials where
+instance Data.ToJSON OAuth2Credentials where
   toJSON OAuth2Credentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accessToken" Core..=) Prelude.<$> accessToken,
-            ("clientSecret" Core..=) Prelude.<$> clientSecret,
-            ("clientId" Core..=) Prelude.<$> clientId,
-            ("oAuthRequest" Core..=) Prelude.<$> oAuthRequest,
-            ("refreshToken" Core..=) Prelude.<$> refreshToken
+          [ ("accessToken" Data..=) Prelude.<$> accessToken,
+            ("clientSecret" Data..=) Prelude.<$> clientSecret,
+            ("clientId" Data..=) Prelude.<$> clientId,
+            ("oAuthRequest" Data..=) Prelude.<$> oAuthRequest,
+            ("refreshToken" Data..=) Prelude.<$> refreshToken
           ]
       )

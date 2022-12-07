@@ -21,6 +21,7 @@ module Amazonka.CodeGuruReviewer.Types.ThirdPartySourceRepository where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a third-party source repository connected to CodeGuru
@@ -116,12 +117,12 @@ instance Prelude.NFData ThirdPartySourceRepository where
       `Prelude.seq` Prelude.rnf connectionArn
       `Prelude.seq` Prelude.rnf owner
 
-instance Core.ToJSON ThirdPartySourceRepository where
+instance Data.ToJSON ThirdPartySourceRepository where
   toJSON ThirdPartySourceRepository' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("ConnectionArn" Core..= connectionArn),
-            Prelude.Just ("Owner" Core..= owner)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("ConnectionArn" Data..= connectionArn),
+            Prelude.Just ("Owner" Data..= owner)
           ]
       )

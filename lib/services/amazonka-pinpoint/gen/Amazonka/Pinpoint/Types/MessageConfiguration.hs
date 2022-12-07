@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.MessageConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.CampaignCustomMessage
 import Amazonka.Pinpoint.Types.CampaignEmailMessage
 import Amazonka.Pinpoint.Types.CampaignInAppMessage
@@ -171,21 +172,21 @@ messageConfiguration_emailMessage = Lens.lens (\MessageConfiguration' {emailMess
 messageConfiguration_baiduMessage :: Lens.Lens' MessageConfiguration (Prelude.Maybe Message)
 messageConfiguration_baiduMessage = Lens.lens (\MessageConfiguration' {baiduMessage} -> baiduMessage) (\s@MessageConfiguration' {} a -> s {baiduMessage = a} :: MessageConfiguration)
 
-instance Core.FromJSON MessageConfiguration where
+instance Data.FromJSON MessageConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MessageConfiguration"
       ( \x ->
           MessageConfiguration'
-            Prelude.<$> (x Core..:? "ADMMessage")
-            Prelude.<*> (x Core..:? "SMSMessage")
-            Prelude.<*> (x Core..:? "InAppMessage")
-            Prelude.<*> (x Core..:? "DefaultMessage")
-            Prelude.<*> (x Core..:? "APNSMessage")
-            Prelude.<*> (x Core..:? "CustomMessage")
-            Prelude.<*> (x Core..:? "GCMMessage")
-            Prelude.<*> (x Core..:? "EmailMessage")
-            Prelude.<*> (x Core..:? "BaiduMessage")
+            Prelude.<$> (x Data..:? "ADMMessage")
+            Prelude.<*> (x Data..:? "SMSMessage")
+            Prelude.<*> (x Data..:? "InAppMessage")
+            Prelude.<*> (x Data..:? "DefaultMessage")
+            Prelude.<*> (x Data..:? "APNSMessage")
+            Prelude.<*> (x Data..:? "CustomMessage")
+            Prelude.<*> (x Data..:? "GCMMessage")
+            Prelude.<*> (x Data..:? "EmailMessage")
+            Prelude.<*> (x Data..:? "BaiduMessage")
       )
 
 instance Prelude.Hashable MessageConfiguration where
@@ -212,19 +213,19 @@ instance Prelude.NFData MessageConfiguration where
       `Prelude.seq` Prelude.rnf emailMessage
       `Prelude.seq` Prelude.rnf baiduMessage
 
-instance Core.ToJSON MessageConfiguration where
+instance Data.ToJSON MessageConfiguration where
   toJSON MessageConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ADMMessage" Core..=) Prelude.<$> aDMMessage,
-            ("SMSMessage" Core..=) Prelude.<$> sMSMessage,
-            ("InAppMessage" Core..=) Prelude.<$> inAppMessage,
-            ("DefaultMessage" Core..=)
+          [ ("ADMMessage" Data..=) Prelude.<$> aDMMessage,
+            ("SMSMessage" Data..=) Prelude.<$> sMSMessage,
+            ("InAppMessage" Data..=) Prelude.<$> inAppMessage,
+            ("DefaultMessage" Data..=)
               Prelude.<$> defaultMessage,
-            ("APNSMessage" Core..=) Prelude.<$> aPNSMessage,
-            ("CustomMessage" Core..=) Prelude.<$> customMessage,
-            ("GCMMessage" Core..=) Prelude.<$> gCMMessage,
-            ("EmailMessage" Core..=) Prelude.<$> emailMessage,
-            ("BaiduMessage" Core..=) Prelude.<$> baiduMessage
+            ("APNSMessage" Data..=) Prelude.<$> aPNSMessage,
+            ("CustomMessage" Data..=) Prelude.<$> customMessage,
+            ("GCMMessage" Data..=) Prelude.<$> gCMMessage,
+            ("EmailMessage" Data..=) Prelude.<$> emailMessage,
+            ("BaiduMessage" Data..=) Prelude.<$> baiduMessage
           ]
       )

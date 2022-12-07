@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TargetReservationValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ReservationValue
 import Amazonka.EC2.Types.TargetConfiguration
@@ -74,11 +75,11 @@ targetReservationValue_reservationValue = Lens.lens (\TargetReservationValue' {r
 targetReservationValue_targetConfiguration :: Lens.Lens' TargetReservationValue (Prelude.Maybe TargetConfiguration)
 targetReservationValue_targetConfiguration = Lens.lens (\TargetReservationValue' {targetConfiguration} -> targetConfiguration) (\s@TargetReservationValue' {} a -> s {targetConfiguration = a} :: TargetReservationValue)
 
-instance Core.FromXML TargetReservationValue where
+instance Data.FromXML TargetReservationValue where
   parseXML x =
     TargetReservationValue'
-      Prelude.<$> (x Core..@? "reservationValue")
-      Prelude.<*> (x Core..@? "targetConfiguration")
+      Prelude.<$> (x Data..@? "reservationValue")
+      Prelude.<*> (x Data..@? "targetConfiguration")
 
 instance Prelude.Hashable TargetReservationValue where
   hashWithSalt _salt TargetReservationValue' {..} =

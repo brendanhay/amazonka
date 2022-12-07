@@ -49,6 +49,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,7 +108,7 @@ instance Core.AWSRequest GetConfigurationProfile where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetConfigurationProfile where
   hashWithSalt _salt GetConfigurationProfile' {..} =
@@ -119,25 +120,25 @@ instance Prelude.NFData GetConfigurationProfile where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf configurationProfileId
 
-instance Core.ToHeaders GetConfigurationProfile where
+instance Data.ToHeaders GetConfigurationProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetConfigurationProfile where
+instance Data.ToPath GetConfigurationProfile where
   toPath GetConfigurationProfile' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/configurationprofiles/",
-        Core.toBS configurationProfileId
+        Data.toBS configurationProfileId
       ]
 
-instance Core.ToQuery GetConfigurationProfile where
+instance Data.ToQuery GetConfigurationProfile where
   toQuery = Prelude.const Prelude.mempty

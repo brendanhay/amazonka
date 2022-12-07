@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,8 +123,8 @@ instance Core.AWSRequest ListJobTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListJobTemplatesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "jobTemplates" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "jobTemplates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,17 +138,17 @@ instance Prelude.NFData ListJobTemplates where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListJobTemplates where
+instance Data.ToHeaders ListJobTemplates where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListJobTemplates where
+instance Data.ToPath ListJobTemplates where
   toPath = Prelude.const "/job-templates"
 
-instance Core.ToQuery ListJobTemplates where
+instance Data.ToQuery ListJobTemplates where
   toQuery ListJobTemplates' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListJobTemplatesResponse' smart constructor.

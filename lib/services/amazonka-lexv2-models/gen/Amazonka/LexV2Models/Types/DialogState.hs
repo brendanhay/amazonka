@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.DialogState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.DialogAction
 import Amazonka.LexV2Models.Types.IntentOverride
 import qualified Amazonka.Prelude as Prelude
@@ -76,17 +77,17 @@ dialogState_sessionAttributes = Lens.lens (\DialogState' {sessionAttributes} -> 
 dialogState_intent :: Lens.Lens' DialogState (Prelude.Maybe IntentOverride)
 dialogState_intent = Lens.lens (\DialogState' {intent} -> intent) (\s@DialogState' {} a -> s {intent = a} :: DialogState)
 
-instance Core.FromJSON DialogState where
+instance Data.FromJSON DialogState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DialogState"
       ( \x ->
           DialogState'
-            Prelude.<$> (x Core..:? "dialogAction")
-            Prelude.<*> ( x Core..:? "sessionAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "dialogAction")
+            Prelude.<*> ( x Data..:? "sessionAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "intent")
+            Prelude.<*> (x Data..:? "intent")
       )
 
 instance Prelude.Hashable DialogState where
@@ -101,13 +102,13 @@ instance Prelude.NFData DialogState where
       `Prelude.seq` Prelude.rnf sessionAttributes
       `Prelude.seq` Prelude.rnf intent
 
-instance Core.ToJSON DialogState where
+instance Data.ToJSON DialogState where
   toJSON DialogState' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("dialogAction" Core..=) Prelude.<$> dialogAction,
-            ("sessionAttributes" Core..=)
+          [ ("dialogAction" Data..=) Prelude.<$> dialogAction,
+            ("sessionAttributes" Data..=)
               Prelude.<$> sessionAttributes,
-            ("intent" Core..=) Prelude.<$> intent
+            ("intent" Data..=) Prelude.<$> intent
           ]
       )

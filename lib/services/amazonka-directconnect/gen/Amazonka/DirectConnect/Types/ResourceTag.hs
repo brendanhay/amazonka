@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.ResourceTag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ resourceTag_tags = Lens.lens (\ResourceTag' {tags} -> tags) (\s@ResourceTag' {} 
 resourceTag_resourceArn :: Lens.Lens' ResourceTag (Prelude.Maybe Prelude.Text)
 resourceTag_resourceArn = Lens.lens (\ResourceTag' {resourceArn} -> resourceArn) (\s@ResourceTag' {} a -> s {resourceArn = a} :: ResourceTag)
 
-instance Core.FromJSON ResourceTag where
+instance Data.FromJSON ResourceTag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceTag"
       ( \x ->
           ResourceTag'
-            Prelude.<$> (x Core..:? "tags")
-            Prelude.<*> (x Core..:? "resourceArn")
+            Prelude.<$> (x Data..:? "tags")
+            Prelude.<*> (x Data..:? "resourceArn")
       )
 
 instance Prelude.Hashable ResourceTag where

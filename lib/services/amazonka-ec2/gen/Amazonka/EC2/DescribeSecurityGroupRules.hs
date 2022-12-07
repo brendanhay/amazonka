@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -197,11 +198,11 @@ instance Core.AWSRequest DescribeSecurityGroupRules where
     Response.receiveXML
       ( \s h x ->
           DescribeSecurityGroupRulesResponse'
-            Prelude.<$> ( x Core..@? "securityGroupRuleSet"
+            Prelude.<$> ( x Data..@? "securityGroupRuleSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -221,28 +222,28 @@ instance Prelude.NFData DescribeSecurityGroupRules where
       `Prelude.seq` Prelude.rnf securityGroupRuleIds
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeSecurityGroupRules where
+instance Data.ToHeaders DescribeSecurityGroupRules where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeSecurityGroupRules where
+instance Data.ToPath DescribeSecurityGroupRules where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSecurityGroupRules where
+instance Data.ToQuery DescribeSecurityGroupRules where
   toQuery DescribeSecurityGroupRules' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSecurityGroupRules" :: Prelude.ByteString),
+          Data.=: ("DescribeSecurityGroupRules" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroupRuleId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "SecurityGroupRuleId"
               Prelude.<$> securityGroupRuleIds
           ),
-        "MaxResults" Core.=: maxResults
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeSecurityGroupRulesResponse' smart constructor.

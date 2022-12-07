@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.StaticImageDeactivateScheduleActionSettings wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for the action to deactivate the image in a specific layer.
@@ -66,16 +67,16 @@ staticImageDeactivateScheduleActionSettings_layer :: Lens.Lens' StaticImageDeact
 staticImageDeactivateScheduleActionSettings_layer = Lens.lens (\StaticImageDeactivateScheduleActionSettings' {layer} -> layer) (\s@StaticImageDeactivateScheduleActionSettings' {} a -> s {layer = a} :: StaticImageDeactivateScheduleActionSettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     StaticImageDeactivateScheduleActionSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StaticImageDeactivateScheduleActionSettings"
       ( \x ->
           StaticImageDeactivateScheduleActionSettings'
-            Prelude.<$> (x Core..:? "fadeOut")
-              Prelude.<*> (x Core..:? "layer")
+            Prelude.<$> (x Data..:? "fadeOut")
+              Prelude.<*> (x Data..:? "layer")
       )
 
 instance
@@ -96,14 +97,14 @@ instance
     Prelude.rnf fadeOut `Prelude.seq` Prelude.rnf layer
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StaticImageDeactivateScheduleActionSettings
   where
   toJSON
     StaticImageDeactivateScheduleActionSettings' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("fadeOut" Core..=) Prelude.<$> fadeOut,
-              ("layer" Core..=) Prelude.<$> layer
+            [ ("fadeOut" Data..=) Prelude.<$> fadeOut,
+              ("layer" Data..=) Prelude.<$> layer
             ]
         )

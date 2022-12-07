@@ -277,6 +277,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -469,8 +470,8 @@ instance Core.AWSRequest RestoreObject where
     Response.receiveEmpty
       ( \s h x ->
           RestoreObjectResponse'
-            Prelude.<$> (h Core..#? "x-amz-request-charged")
-            Prelude.<*> (h Core..#? "x-amz-restore-output-path")
+            Prelude.<$> (h Data..#? "x-amz-request-charged")
+            Prelude.<*> (h Data..#? "x-amz-restore-output-path")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -494,31 +495,31 @@ instance Prelude.NFData RestoreObject where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToElement RestoreObject where
+instance Data.ToElement RestoreObject where
   toElement RestoreObject' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}RestoreRequest"
       restoreRequest
 
-instance Core.ToHeaders RestoreObject where
+instance Data.ToHeaders RestoreObject where
   toHeaders RestoreObject' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
+          Data.=# checksumAlgorithm,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
-instance Core.ToPath RestoreObject where
+instance Data.ToPath RestoreObject where
   toPath RestoreObject' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery RestoreObject where
+instance Data.ToQuery RestoreObject where
   toQuery RestoreObject' {..} =
     Prelude.mconcat
-      ["versionId" Core.=: versionId, "restore"]
+      ["versionId" Data.=: versionId, "restore"]
 
 -- | /See:/ 'newRestoreObjectResponse' smart constructor.
 data RestoreObjectResponse = RestoreObjectResponse'

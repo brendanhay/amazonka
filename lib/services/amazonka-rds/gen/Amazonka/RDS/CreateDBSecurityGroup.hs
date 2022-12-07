@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -166,7 +167,7 @@ instance Core.AWSRequest CreateDBSecurityGroup where
       "CreateDBSecurityGroupResult"
       ( \s h x ->
           CreateDBSecurityGroupResponse'
-            Prelude.<$> (x Core..@? "DBSecurityGroup")
+            Prelude.<$> (x Data..@? "DBSecurityGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,25 +183,25 @@ instance Prelude.NFData CreateDBSecurityGroup where
       `Prelude.seq` Prelude.rnf dbSecurityGroupName
       `Prelude.seq` Prelude.rnf dbSecurityGroupDescription
 
-instance Core.ToHeaders CreateDBSecurityGroup where
+instance Data.ToHeaders CreateDBSecurityGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDBSecurityGroup where
+instance Data.ToPath CreateDBSecurityGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDBSecurityGroup where
+instance Data.ToQuery CreateDBSecurityGroup where
   toQuery CreateDBSecurityGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDBSecurityGroup" :: Prelude.ByteString),
+          Data.=: ("CreateDBSecurityGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "DBSecurityGroupName" Core.=: dbSecurityGroupName,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "DBSecurityGroupName" Data.=: dbSecurityGroupName,
         "DBSecurityGroupDescription"
-          Core.=: dbSecurityGroupDescription
+          Data.=: dbSecurityGroupDescription
       ]
 
 -- | /See:/ 'newCreateDBSecurityGroupResponse' smart constructor.

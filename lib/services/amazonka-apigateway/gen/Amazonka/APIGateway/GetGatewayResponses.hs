@@ -50,6 +50,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -150,8 +151,8 @@ instance Core.AWSRequest GetGatewayResponses where
     Response.receiveJSON
       ( \s h x ->
           GetGatewayResponsesResponse'
-            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "position")
+            Prelude.<$> (x Data..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,27 +168,27 @@ instance Prelude.NFData GetGatewayResponses where
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf restApiId
 
-instance Core.ToHeaders GetGatewayResponses where
+instance Data.ToHeaders GetGatewayResponses where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetGatewayResponses where
+instance Data.ToPath GetGatewayResponses where
   toPath GetGatewayResponses' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/gatewayresponses"
       ]
 
-instance Core.ToQuery GetGatewayResponses where
+instance Data.ToQuery GetGatewayResponses where
   toQuery GetGatewayResponses' {..} =
     Prelude.mconcat
-      ["limit" Core.=: limit, "position" Core.=: position]
+      ["limit" Data.=: limit, "position" Data.=: position]
 
 -- | The collection of the GatewayResponse instances of a RestApi as a
 -- @responseType@-to-GatewayResponse object map of key-value pairs. As

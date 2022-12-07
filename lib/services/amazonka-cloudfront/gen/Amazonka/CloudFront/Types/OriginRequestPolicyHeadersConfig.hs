@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.Headers
 import Amazonka.CloudFront.Types.OriginRequestPolicyHeaderBehavior
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that determines whether any HTTP headers (and if so, which
@@ -118,13 +119,13 @@ originRequestPolicyHeadersConfig_headerBehavior :: Lens.Lens' OriginRequestPolic
 originRequestPolicyHeadersConfig_headerBehavior = Lens.lens (\OriginRequestPolicyHeadersConfig' {headerBehavior} -> headerBehavior) (\s@OriginRequestPolicyHeadersConfig' {} a -> s {headerBehavior = a} :: OriginRequestPolicyHeadersConfig)
 
 instance
-  Core.FromXML
+  Data.FromXML
     OriginRequestPolicyHeadersConfig
   where
   parseXML x =
     OriginRequestPolicyHeadersConfig'
-      Prelude.<$> (x Core..@? "Headers")
-      Prelude.<*> (x Core..@ "HeaderBehavior")
+      Prelude.<$> (x Data..@? "Headers")
+      Prelude.<*> (x Data..@ "HeaderBehavior")
 
 instance
   Prelude.Hashable
@@ -144,9 +145,9 @@ instance
     Prelude.rnf headers
       `Prelude.seq` Prelude.rnf headerBehavior
 
-instance Core.ToXML OriginRequestPolicyHeadersConfig where
+instance Data.ToXML OriginRequestPolicyHeadersConfig where
   toXML OriginRequestPolicyHeadersConfig' {..} =
     Prelude.mconcat
-      [ "Headers" Core.@= headers,
-        "HeaderBehavior" Core.@= headerBehavior
+      [ "Headers" Data.@= headers,
+        "HeaderBehavior" Data.@= headerBehavior
       ]

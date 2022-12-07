@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -203,9 +204,9 @@ instance Core.AWSRequest DescribePlacementGroups where
     Response.receiveXML
       ( \s h x ->
           DescribePlacementGroupsResponse'
-            Prelude.<$> ( x Core..@? "placementGroupSet"
+            Prelude.<$> ( x Data..@? "placementGroupSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -224,26 +225,26 @@ instance Prelude.NFData DescribePlacementGroups where
       `Prelude.seq` Prelude.rnf groupIds
       `Prelude.seq` Prelude.rnf groupNames
 
-instance Core.ToHeaders DescribePlacementGroups where
+instance Data.ToHeaders DescribePlacementGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribePlacementGroups where
+instance Data.ToPath DescribePlacementGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePlacementGroups where
+instance Data.ToQuery DescribePlacementGroups where
   toQuery DescribePlacementGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribePlacementGroups" :: Prelude.ByteString),
+          Data.=: ("DescribePlacementGroups" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "GroupId" Prelude.<$> groupIds),
-        Core.toQuery
-          ( Core.toQueryList "GroupName"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          (Data.toQueryList "GroupId" Prelude.<$> groupIds),
+        Data.toQuery
+          ( Data.toQueryList "GroupName"
               Prelude.<$> groupNames
           )
       ]

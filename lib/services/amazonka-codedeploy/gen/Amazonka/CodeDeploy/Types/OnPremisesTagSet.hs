@@ -22,6 +22,7 @@ module Amazonka.CodeDeploy.Types.OnPremisesTagSet where
 import Amazonka.CodeDeploy.Types.TagFilter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about groups of on-premises instance tags.
@@ -60,14 +61,14 @@ newOnPremisesTagSet =
 onPremisesTagSet_onPremisesTagSetList :: Lens.Lens' OnPremisesTagSet (Prelude.Maybe [[TagFilter]])
 onPremisesTagSet_onPremisesTagSetList = Lens.lens (\OnPremisesTagSet' {onPremisesTagSetList} -> onPremisesTagSetList) (\s@OnPremisesTagSet' {} a -> s {onPremisesTagSetList = a} :: OnPremisesTagSet) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON OnPremisesTagSet where
+instance Data.FromJSON OnPremisesTagSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OnPremisesTagSet"
       ( \x ->
           OnPremisesTagSet'
-            Prelude.<$> ( x Core..:? "onPremisesTagSetList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "onPremisesTagSetList"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -79,11 +80,11 @@ instance Prelude.NFData OnPremisesTagSet where
   rnf OnPremisesTagSet' {..} =
     Prelude.rnf onPremisesTagSetList
 
-instance Core.ToJSON OnPremisesTagSet where
+instance Data.ToJSON OnPremisesTagSet where
   toJSON OnPremisesTagSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("onPremisesTagSetList" Core..=)
+          [ ("onPremisesTagSetList" Data..=)
               Prelude.<$> onPremisesTagSetList
           ]
       )

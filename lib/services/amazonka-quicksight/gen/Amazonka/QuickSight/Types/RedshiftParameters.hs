@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.RedshiftParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for Amazon Redshift. The @ClusterId@ field can be blank
@@ -86,16 +87,16 @@ redshiftParameters_clusterId = Lens.lens (\RedshiftParameters' {clusterId} -> cl
 redshiftParameters_database :: Lens.Lens' RedshiftParameters Prelude.Text
 redshiftParameters_database = Lens.lens (\RedshiftParameters' {database} -> database) (\s@RedshiftParameters' {} a -> s {database = a} :: RedshiftParameters)
 
-instance Core.FromJSON RedshiftParameters where
+instance Data.FromJSON RedshiftParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedshiftParameters"
       ( \x ->
           RedshiftParameters'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "Host")
-            Prelude.<*> (x Core..:? "ClusterId")
-            Prelude.<*> (x Core..: "Database")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "Host")
+            Prelude.<*> (x Data..:? "ClusterId")
+            Prelude.<*> (x Data..: "Database")
       )
 
 instance Prelude.Hashable RedshiftParameters where
@@ -112,13 +113,13 @@ instance Prelude.NFData RedshiftParameters where
       `Prelude.seq` Prelude.rnf clusterId
       `Prelude.seq` Prelude.rnf database
 
-instance Core.ToJSON RedshiftParameters where
+instance Data.ToJSON RedshiftParameters where
   toJSON RedshiftParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("Host" Core..=) Prelude.<$> host,
-            ("ClusterId" Core..=) Prelude.<$> clusterId,
-            Prelude.Just ("Database" Core..= database)
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("Host" Data..=) Prelude.<$> host,
+            ("ClusterId" Data..=) Prelude.<$> clusterId,
+            Prelude.Just ("Database" Data..= database)
           ]
       )

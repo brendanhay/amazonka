@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelPackageGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ModelPackageGroupStatus
 import Amazonka.SageMaker.Types.Tag
@@ -56,7 +57,7 @@ data ModelPackageGroup = ModelPackageGroup'
     -- | The description for the model group.
     modelPackageGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | The time that the model group was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     createdBy :: Prelude.Maybe UserContext
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -147,25 +148,25 @@ modelPackageGroup_modelPackageGroupDescription = Lens.lens (\ModelPackageGroup' 
 
 -- | The time that the model group was created.
 modelPackageGroup_creationTime :: Lens.Lens' ModelPackageGroup (Prelude.Maybe Prelude.UTCTime)
-modelPackageGroup_creationTime = Lens.lens (\ModelPackageGroup' {creationTime} -> creationTime) (\s@ModelPackageGroup' {} a -> s {creationTime = a} :: ModelPackageGroup) Prelude.. Lens.mapping Core._Time
+modelPackageGroup_creationTime = Lens.lens (\ModelPackageGroup' {creationTime} -> creationTime) (\s@ModelPackageGroup' {} a -> s {creationTime = a} :: ModelPackageGroup) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 modelPackageGroup_createdBy :: Lens.Lens' ModelPackageGroup (Prelude.Maybe UserContext)
 modelPackageGroup_createdBy = Lens.lens (\ModelPackageGroup' {createdBy} -> createdBy) (\s@ModelPackageGroup' {} a -> s {createdBy = a} :: ModelPackageGroup)
 
-instance Core.FromJSON ModelPackageGroup where
+instance Data.FromJSON ModelPackageGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelPackageGroup"
       ( \x ->
           ModelPackageGroup'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ModelPackageGroupName")
-            Prelude.<*> (x Core..:? "ModelPackageGroupArn")
-            Prelude.<*> (x Core..:? "ModelPackageGroupStatus")
-            Prelude.<*> (x Core..:? "ModelPackageGroupDescription")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ModelPackageGroupName")
+            Prelude.<*> (x Data..:? "ModelPackageGroupArn")
+            Prelude.<*> (x Data..:? "ModelPackageGroupStatus")
+            Prelude.<*> (x Data..:? "ModelPackageGroupDescription")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "CreatedBy")
       )
 
 instance Prelude.Hashable ModelPackageGroup where

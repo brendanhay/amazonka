@@ -21,6 +21,7 @@ module Amazonka.RDSData.Types.Field where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDSData.Types.ArrayValue
 
@@ -39,7 +40,7 @@ data Field = Field'
     -- | A value of long data type.
     longValue :: Prelude.Maybe Prelude.Integer,
     -- | A value of BLOB data type.
-    blobValue :: Prelude.Maybe Core.Base64,
+    blobValue :: Prelude.Maybe Data.Base64,
     -- | An array of values.
     arrayValue :: Prelude.Maybe ArrayValue
   }
@@ -109,25 +110,25 @@ field_longValue = Lens.lens (\Field' {longValue} -> longValue) (\s@Field' {} a -
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 field_blobValue :: Lens.Lens' Field (Prelude.Maybe Prelude.ByteString)
-field_blobValue = Lens.lens (\Field' {blobValue} -> blobValue) (\s@Field' {} a -> s {blobValue = a} :: Field) Prelude.. Lens.mapping Core._Base64
+field_blobValue = Lens.lens (\Field' {blobValue} -> blobValue) (\s@Field' {} a -> s {blobValue = a} :: Field) Prelude.. Lens.mapping Data._Base64
 
 -- | An array of values.
 field_arrayValue :: Lens.Lens' Field (Prelude.Maybe ArrayValue)
 field_arrayValue = Lens.lens (\Field' {arrayValue} -> arrayValue) (\s@Field' {} a -> s {arrayValue = a} :: Field)
 
-instance Core.FromJSON Field where
+instance Data.FromJSON Field where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Field"
       ( \x ->
           Field'
-            Prelude.<$> (x Core..:? "doubleValue")
-            Prelude.<*> (x Core..:? "booleanValue")
-            Prelude.<*> (x Core..:? "isNull")
-            Prelude.<*> (x Core..:? "stringValue")
-            Prelude.<*> (x Core..:? "longValue")
-            Prelude.<*> (x Core..:? "blobValue")
-            Prelude.<*> (x Core..:? "arrayValue")
+            Prelude.<$> (x Data..:? "doubleValue")
+            Prelude.<*> (x Data..:? "booleanValue")
+            Prelude.<*> (x Data..:? "isNull")
+            Prelude.<*> (x Data..:? "stringValue")
+            Prelude.<*> (x Data..:? "longValue")
+            Prelude.<*> (x Data..:? "blobValue")
+            Prelude.<*> (x Data..:? "arrayValue")
       )
 
 instance Prelude.Hashable Field where
@@ -150,16 +151,16 @@ instance Prelude.NFData Field where
       `Prelude.seq` Prelude.rnf blobValue
       `Prelude.seq` Prelude.rnf arrayValue
 
-instance Core.ToJSON Field where
+instance Data.ToJSON Field where
   toJSON Field' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("doubleValue" Core..=) Prelude.<$> doubleValue,
-            ("booleanValue" Core..=) Prelude.<$> booleanValue,
-            ("isNull" Core..=) Prelude.<$> isNull,
-            ("stringValue" Core..=) Prelude.<$> stringValue,
-            ("longValue" Core..=) Prelude.<$> longValue,
-            ("blobValue" Core..=) Prelude.<$> blobValue,
-            ("arrayValue" Core..=) Prelude.<$> arrayValue
+          [ ("doubleValue" Data..=) Prelude.<$> doubleValue,
+            ("booleanValue" Data..=) Prelude.<$> booleanValue,
+            ("isNull" Data..=) Prelude.<$> isNull,
+            ("stringValue" Data..=) Prelude.<$> stringValue,
+            ("longValue" Data..=) Prelude.<$> longValue,
+            ("blobValue" Data..=) Prelude.<$> blobValue,
+            ("arrayValue" Data..=) Prelude.<$> arrayValue
           ]
       )

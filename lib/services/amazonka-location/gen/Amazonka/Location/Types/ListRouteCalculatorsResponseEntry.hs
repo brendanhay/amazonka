@@ -21,6 +21,7 @@ module Amazonka.Location.Types.ListRouteCalculatorsResponseEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.PricingPlan
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ data ListRouteCalculatorsResponseEntry = ListRouteCalculatorsResponseEntry'
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
     --
     -- -   For example, @2020–07-2T12:15:20.000Z+01:00@
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | The data provider of traffic and road network data. Indicates one of the
     -- available providers:
     --
@@ -55,7 +56,7 @@ data ListRouteCalculatorsResponseEntry = ListRouteCalculatorsResponseEntry'
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
     --
     -- -   For example, @2020–07-2T12:15:20.000Z+01:00@
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -117,11 +118,11 @@ newListRouteCalculatorsResponseEntry
           Prelude.Nothing,
         calculatorName = pCalculatorName_,
         createTime =
-          Core._Time Lens.# pCreateTime_,
+          Data._Time Lens.# pCreateTime_,
         dataSource = pDataSource_,
         description = pDescription_,
         updateTime =
-          Core._Time Lens.# pUpdateTime_
+          Data._Time Lens.# pUpdateTime_
       }
 
 -- | Always returns @RequestBasedUsage@.
@@ -138,7 +139,7 @@ listRouteCalculatorsResponseEntry_calculatorName = Lens.lens (\ListRouteCalculat
 --
 -- -   For example, @2020–07-2T12:15:20.000Z+01:00@
 listRouteCalculatorsResponseEntry_createTime :: Lens.Lens' ListRouteCalculatorsResponseEntry Prelude.UTCTime
-listRouteCalculatorsResponseEntry_createTime = Lens.lens (\ListRouteCalculatorsResponseEntry' {createTime} -> createTime) (\s@ListRouteCalculatorsResponseEntry' {} a -> s {createTime = a} :: ListRouteCalculatorsResponseEntry) Prelude.. Core._Time
+listRouteCalculatorsResponseEntry_createTime = Lens.lens (\ListRouteCalculatorsResponseEntry' {createTime} -> createTime) (\s@ListRouteCalculatorsResponseEntry' {} a -> s {createTime = a} :: ListRouteCalculatorsResponseEntry) Prelude.. Data._Time
 
 -- | The data provider of traffic and road network data. Indicates one of the
 -- available providers:
@@ -162,23 +163,23 @@ listRouteCalculatorsResponseEntry_description = Lens.lens (\ListRouteCalculators
 --
 -- -   For example, @2020–07-2T12:15:20.000Z+01:00@
 listRouteCalculatorsResponseEntry_updateTime :: Lens.Lens' ListRouteCalculatorsResponseEntry Prelude.UTCTime
-listRouteCalculatorsResponseEntry_updateTime = Lens.lens (\ListRouteCalculatorsResponseEntry' {updateTime} -> updateTime) (\s@ListRouteCalculatorsResponseEntry' {} a -> s {updateTime = a} :: ListRouteCalculatorsResponseEntry) Prelude.. Core._Time
+listRouteCalculatorsResponseEntry_updateTime = Lens.lens (\ListRouteCalculatorsResponseEntry' {updateTime} -> updateTime) (\s@ListRouteCalculatorsResponseEntry' {} a -> s {updateTime = a} :: ListRouteCalculatorsResponseEntry) Prelude.. Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ListRouteCalculatorsResponseEntry
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListRouteCalculatorsResponseEntry"
       ( \x ->
           ListRouteCalculatorsResponseEntry'
-            Prelude.<$> (x Core..:? "PricingPlan")
-            Prelude.<*> (x Core..: "CalculatorName")
-            Prelude.<*> (x Core..: "CreateTime")
-            Prelude.<*> (x Core..: "DataSource")
-            Prelude.<*> (x Core..: "Description")
-            Prelude.<*> (x Core..: "UpdateTime")
+            Prelude.<$> (x Data..:? "PricingPlan")
+            Prelude.<*> (x Data..: "CalculatorName")
+            Prelude.<*> (x Data..: "CreateTime")
+            Prelude.<*> (x Data..: "DataSource")
+            Prelude.<*> (x Data..: "Description")
+            Prelude.<*> (x Data..: "UpdateTime")
       )
 
 instance

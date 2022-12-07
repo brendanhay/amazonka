@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -194,7 +195,7 @@ instance Core.AWSRequest EnableSnapshotCopy where
       "EnableSnapshotCopyResult"
       ( \s h x ->
           EnableSnapshotCopyResponse'
-            Prelude.<$> (x Core..@? "Cluster")
+            Prelude.<$> (x Data..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -215,26 +216,26 @@ instance Prelude.NFData EnableSnapshotCopy where
       `Prelude.seq` Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf destinationRegion
 
-instance Core.ToHeaders EnableSnapshotCopy where
+instance Data.ToHeaders EnableSnapshotCopy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath EnableSnapshotCopy where
+instance Data.ToPath EnableSnapshotCopy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnableSnapshotCopy where
+instance Data.ToQuery EnableSnapshotCopy where
   toQuery EnableSnapshotCopy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("EnableSnapshotCopy" :: Prelude.ByteString),
+          Data.=: ("EnableSnapshotCopy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "ManualSnapshotRetentionPeriod"
-          Core.=: manualSnapshotRetentionPeriod,
+          Data.=: manualSnapshotRetentionPeriod,
         "SnapshotCopyGrantName"
-          Core.=: snapshotCopyGrantName,
-        "RetentionPeriod" Core.=: retentionPeriod,
-        "ClusterIdentifier" Core.=: clusterIdentifier,
-        "DestinationRegion" Core.=: destinationRegion
+          Data.=: snapshotCopyGrantName,
+        "RetentionPeriod" Data.=: retentionPeriod,
+        "ClusterIdentifier" Data.=: clusterIdentifier,
+        "DestinationRegion" Data.=: destinationRegion
       ]
 
 -- | /See:/ 'newEnableSnapshotCopyResponse' smart constructor.

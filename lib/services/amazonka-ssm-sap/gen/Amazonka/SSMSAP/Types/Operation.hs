@@ -21,6 +21,7 @@ module Amazonka.SSMSAP.Types.Operation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMSAP.Types.OperationStatus
 
@@ -33,12 +34,12 @@ data Operation = Operation'
     type' :: Prelude.Maybe Prelude.Text,
     properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     status :: Prelude.Maybe OperationStatus,
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
-    endTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     id :: Prelude.Maybe Prelude.Text,
     resourceArn :: Prelude.Maybe Prelude.Text,
     statusMessage :: Prelude.Maybe Prelude.Text,
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -110,11 +111,11 @@ operation_status = Lens.lens (\Operation' {status} -> status) (\s@Operation' {} 
 
 -- |
 operation_lastUpdatedTime :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
-operation_lastUpdatedTime = Lens.lens (\Operation' {lastUpdatedTime} -> lastUpdatedTime) (\s@Operation' {} a -> s {lastUpdatedTime = a} :: Operation) Prelude.. Lens.mapping Core._Time
+operation_lastUpdatedTime = Lens.lens (\Operation' {lastUpdatedTime} -> lastUpdatedTime) (\s@Operation' {} a -> s {lastUpdatedTime = a} :: Operation) Prelude.. Lens.mapping Data._Time
 
 -- |
 operation_endTime :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
-operation_endTime = Lens.lens (\Operation' {endTime} -> endTime) (\s@Operation' {} a -> s {endTime = a} :: Operation) Prelude.. Lens.mapping Core._Time
+operation_endTime = Lens.lens (\Operation' {endTime} -> endTime) (\s@Operation' {} a -> s {endTime = a} :: Operation) Prelude.. Lens.mapping Data._Time
 
 -- |
 operation_id :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
@@ -130,25 +131,25 @@ operation_statusMessage = Lens.lens (\Operation' {statusMessage} -> statusMessag
 
 -- |
 operation_startTime :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
-operation_startTime = Lens.lens (\Operation' {startTime} -> startTime) (\s@Operation' {} a -> s {startTime = a} :: Operation) Prelude.. Lens.mapping Core._Time
+operation_startTime = Lens.lens (\Operation' {startTime} -> startTime) (\s@Operation' {} a -> s {startTime = a} :: Operation) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Operation where
+instance Data.FromJSON Operation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Operation"
       ( \x ->
           Operation'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Properties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Properties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable Operation where

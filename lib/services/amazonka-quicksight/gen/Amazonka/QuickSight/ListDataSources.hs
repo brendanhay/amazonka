@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -135,9 +136,9 @@ instance Core.AWSRequest ListDataSources where
     Response.receiveJSON
       ( \s h x ->
           ListDataSourcesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "DataSources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "DataSources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,30 +154,30 @@ instance Prelude.NFData ListDataSources where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf awsAccountId
 
-instance Core.ToHeaders ListDataSources where
+instance Data.ToHeaders ListDataSources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListDataSources where
+instance Data.ToPath ListDataSources where
   toPath ListDataSources' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/data-sources"
       ]
 
-instance Core.ToQuery ListDataSources where
+instance Data.ToQuery ListDataSources where
   toQuery ListDataSources' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListDataSourcesResponse' smart constructor.

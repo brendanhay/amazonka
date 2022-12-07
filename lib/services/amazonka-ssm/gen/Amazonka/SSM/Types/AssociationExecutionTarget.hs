@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.AssociationExecutionTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.OutputSource
 
@@ -44,7 +45,7 @@ data AssociationExecutionTarget = AssociationExecutionTarget'
     -- | Detailed information about the execution status.
     detailedStatus :: Prelude.Maybe Prelude.Text,
     -- | The date of the last execution.
-    lastExecutionDate :: Prelude.Maybe Core.POSIX,
+    lastExecutionDate :: Prelude.Maybe Data.POSIX,
     -- | The association ID.
     associationId :: Prelude.Maybe Prelude.Text
   }
@@ -123,27 +124,27 @@ associationExecutionTarget_detailedStatus = Lens.lens (\AssociationExecutionTarg
 
 -- | The date of the last execution.
 associationExecutionTarget_lastExecutionDate :: Lens.Lens' AssociationExecutionTarget (Prelude.Maybe Prelude.UTCTime)
-associationExecutionTarget_lastExecutionDate = Lens.lens (\AssociationExecutionTarget' {lastExecutionDate} -> lastExecutionDate) (\s@AssociationExecutionTarget' {} a -> s {lastExecutionDate = a} :: AssociationExecutionTarget) Prelude.. Lens.mapping Core._Time
+associationExecutionTarget_lastExecutionDate = Lens.lens (\AssociationExecutionTarget' {lastExecutionDate} -> lastExecutionDate) (\s@AssociationExecutionTarget' {} a -> s {lastExecutionDate = a} :: AssociationExecutionTarget) Prelude.. Lens.mapping Data._Time
 
 -- | The association ID.
 associationExecutionTarget_associationId :: Lens.Lens' AssociationExecutionTarget (Prelude.Maybe Prelude.Text)
 associationExecutionTarget_associationId = Lens.lens (\AssociationExecutionTarget' {associationId} -> associationId) (\s@AssociationExecutionTarget' {} a -> s {associationId = a} :: AssociationExecutionTarget)
 
-instance Core.FromJSON AssociationExecutionTarget where
+instance Data.FromJSON AssociationExecutionTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssociationExecutionTarget"
       ( \x ->
           AssociationExecutionTarget'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "AssociationVersion")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ExecutionId")
-            Prelude.<*> (x Core..:? "OutputSource")
-            Prelude.<*> (x Core..:? "DetailedStatus")
-            Prelude.<*> (x Core..:? "LastExecutionDate")
-            Prelude.<*> (x Core..:? "AssociationId")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "AssociationVersion")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ExecutionId")
+            Prelude.<*> (x Data..:? "OutputSource")
+            Prelude.<*> (x Data..:? "DetailedStatus")
+            Prelude.<*> (x Data..:? "LastExecutionDate")
+            Prelude.<*> (x Data..:? "AssociationId")
       )
 
 instance Prelude.Hashable AssociationExecutionTarget where

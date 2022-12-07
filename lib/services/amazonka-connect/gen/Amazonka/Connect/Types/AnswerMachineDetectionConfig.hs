@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.AnswerMachineDetectionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration of the answering machine detection.
@@ -83,13 +84,13 @@ instance Prelude.NFData AnswerMachineDetectionConfig where
     Prelude.rnf awaitAnswerMachinePrompt
       `Prelude.seq` Prelude.rnf enableAnswerMachineDetection
 
-instance Core.ToJSON AnswerMachineDetectionConfig where
+instance Data.ToJSON AnswerMachineDetectionConfig where
   toJSON AnswerMachineDetectionConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AwaitAnswerMachinePrompt" Core..=)
+          [ ("AwaitAnswerMachinePrompt" Data..=)
               Prelude.<$> awaitAnswerMachinePrompt,
-            ("EnableAnswerMachineDetection" Core..=)
+            ("EnableAnswerMachineDetection" Data..=)
               Prelude.<$> enableAnswerMachineDetection
           ]
       )

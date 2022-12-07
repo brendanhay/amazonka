@@ -21,6 +21,7 @@ module Amazonka.ComprehendMedical.Types.RxNormConcept where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The RxNorm concept that the entity could refer to, along with a score
@@ -74,15 +75,15 @@ rxNormConcept_score = Lens.lens (\RxNormConcept' {score} -> score) (\s@RxNormCon
 rxNormConcept_description :: Lens.Lens' RxNormConcept (Prelude.Maybe Prelude.Text)
 rxNormConcept_description = Lens.lens (\RxNormConcept' {description} -> description) (\s@RxNormConcept' {} a -> s {description = a} :: RxNormConcept)
 
-instance Core.FromJSON RxNormConcept where
+instance Data.FromJSON RxNormConcept where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RxNormConcept"
       ( \x ->
           RxNormConcept'
-            Prelude.<$> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable RxNormConcept where

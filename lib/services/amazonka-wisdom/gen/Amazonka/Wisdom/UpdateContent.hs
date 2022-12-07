@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -193,7 +194,7 @@ instance Core.AWSRequest UpdateContent where
     Response.receiveJSON
       ( \s h x ->
           UpdateContentResponse'
-            Prelude.<$> (x Core..?> "content")
+            Prelude.<$> (x Data..?> "content")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,42 +220,42 @@ instance Prelude.NFData UpdateContent where
       `Prelude.seq` Prelude.rnf contentId
       `Prelude.seq` Prelude.rnf knowledgeBaseId
 
-instance Core.ToHeaders UpdateContent where
+instance Data.ToHeaders UpdateContent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateContent where
+instance Data.ToJSON UpdateContent where
   toJSON UpdateContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("uploadId" Core..=) Prelude.<$> uploadId,
-            ("metadata" Core..=) Prelude.<$> metadata,
-            ("title" Core..=) Prelude.<$> title,
-            ("revisionId" Core..=) Prelude.<$> revisionId,
-            ("overrideLinkOutUri" Core..=)
+          [ ("uploadId" Data..=) Prelude.<$> uploadId,
+            ("metadata" Data..=) Prelude.<$> metadata,
+            ("title" Data..=) Prelude.<$> title,
+            ("revisionId" Data..=) Prelude.<$> revisionId,
+            ("overrideLinkOutUri" Data..=)
               Prelude.<$> overrideLinkOutUri,
-            ("removeOverrideLinkOutUri" Core..=)
+            ("removeOverrideLinkOutUri" Data..=)
               Prelude.<$> removeOverrideLinkOutUri
           ]
       )
 
-instance Core.ToPath UpdateContent where
+instance Data.ToPath UpdateContent where
   toPath UpdateContent' {..} =
     Prelude.mconcat
       [ "/knowledgeBases/",
-        Core.toBS knowledgeBaseId,
+        Data.toBS knowledgeBaseId,
         "/contents/",
-        Core.toBS contentId
+        Data.toBS contentId
       ]
 
-instance Core.ToQuery UpdateContent where
+instance Data.ToQuery UpdateContent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateContentResponse' smart constructor.

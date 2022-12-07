@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.InventoryItemAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.InventoryAttributeDataType
 
@@ -67,14 +68,14 @@ inventoryItemAttribute_name = Lens.lens (\InventoryItemAttribute' {name} -> name
 inventoryItemAttribute_dataType :: Lens.Lens' InventoryItemAttribute InventoryAttributeDataType
 inventoryItemAttribute_dataType = Lens.lens (\InventoryItemAttribute' {dataType} -> dataType) (\s@InventoryItemAttribute' {} a -> s {dataType = a} :: InventoryItemAttribute)
 
-instance Core.FromJSON InventoryItemAttribute where
+instance Data.FromJSON InventoryItemAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InventoryItemAttribute"
       ( \x ->
           InventoryItemAttribute'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "DataType")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "DataType")
       )
 
 instance Prelude.Hashable InventoryItemAttribute where

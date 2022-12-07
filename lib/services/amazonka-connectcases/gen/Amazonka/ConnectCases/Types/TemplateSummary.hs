@@ -22,6 +22,7 @@ module Amazonka.ConnectCases.Types.TemplateSummary where
 import Amazonka.ConnectCases.Types.TemplateStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Template summary information.
@@ -92,16 +93,16 @@ templateSummary_templateArn = Lens.lens (\TemplateSummary' {templateArn} -> temp
 templateSummary_templateId :: Lens.Lens' TemplateSummary Prelude.Text
 templateSummary_templateId = Lens.lens (\TemplateSummary' {templateId} -> templateId) (\s@TemplateSummary' {} a -> s {templateId = a} :: TemplateSummary)
 
-instance Core.FromJSON TemplateSummary where
+instance Data.FromJSON TemplateSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateSummary"
       ( \x ->
           TemplateSummary'
-            Prelude.<$> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "templateArn")
-            Prelude.<*> (x Core..: "templateId")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "templateArn")
+            Prelude.<*> (x Data..: "templateId")
       )
 
 instance Prelude.Hashable TemplateSummary where

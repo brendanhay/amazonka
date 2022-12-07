@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,30 +95,30 @@ instance Prelude.NFData CancelTransaction where
   rnf CancelTransaction' {..} =
     Prelude.rnf transactionId
 
-instance Core.ToHeaders CancelTransaction where
+instance Data.ToHeaders CancelTransaction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelTransaction where
+instance Data.ToJSON CancelTransaction where
   toJSON CancelTransaction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TransactionId" Core..= transactionId)
+              ("TransactionId" Data..= transactionId)
           ]
       )
 
-instance Core.ToPath CancelTransaction where
+instance Data.ToPath CancelTransaction where
   toPath = Prelude.const "/CancelTransaction"
 
-instance Core.ToQuery CancelTransaction where
+instance Data.ToQuery CancelTransaction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelTransactionResponse' smart constructor.

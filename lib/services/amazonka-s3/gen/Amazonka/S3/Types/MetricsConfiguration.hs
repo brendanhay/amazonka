@@ -21,6 +21,7 @@ module Amazonka.S3.Types.MetricsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.MetricsFilter
@@ -80,10 +81,10 @@ metricsConfiguration_filter = Lens.lens (\MetricsConfiguration' {filter'} -> fil
 metricsConfiguration_id :: Lens.Lens' MetricsConfiguration Prelude.Text
 metricsConfiguration_id = Lens.lens (\MetricsConfiguration' {id} -> id) (\s@MetricsConfiguration' {} a -> s {id = a} :: MetricsConfiguration)
 
-instance Core.FromXML MetricsConfiguration where
+instance Data.FromXML MetricsConfiguration where
   parseXML x =
     MetricsConfiguration'
-      Prelude.<$> (x Core..@? "Filter") Prelude.<*> (x Core..@ "Id")
+      Prelude.<$> (x Data..@? "Filter") Prelude.<*> (x Data..@ "Id")
 
 instance Prelude.Hashable MetricsConfiguration where
   hashWithSalt _salt MetricsConfiguration' {..} =
@@ -94,7 +95,7 @@ instance Prelude.NFData MetricsConfiguration where
   rnf MetricsConfiguration' {..} =
     Prelude.rnf filter' `Prelude.seq` Prelude.rnf id
 
-instance Core.ToXML MetricsConfiguration where
+instance Data.ToXML MetricsConfiguration where
   toXML MetricsConfiguration' {..} =
     Prelude.mconcat
-      ["Filter" Core.@= filter', "Id" Core.@= id]
+      ["Filter" Data.@= filter', "Id" Data.@= id]

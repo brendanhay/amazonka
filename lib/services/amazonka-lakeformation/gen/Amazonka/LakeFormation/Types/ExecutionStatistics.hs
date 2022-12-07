@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.ExecutionStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Statistics related to the processing of a query statement.
@@ -71,15 +72,15 @@ executionStatistics_averageExecutionTimeMillis = Lens.lens (\ExecutionStatistics
 executionStatistics_dataScannedBytes :: Lens.Lens' ExecutionStatistics (Prelude.Maybe Prelude.Integer)
 executionStatistics_dataScannedBytes = Lens.lens (\ExecutionStatistics' {dataScannedBytes} -> dataScannedBytes) (\s@ExecutionStatistics' {} a -> s {dataScannedBytes = a} :: ExecutionStatistics)
 
-instance Core.FromJSON ExecutionStatistics where
+instance Data.FromJSON ExecutionStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecutionStatistics"
       ( \x ->
           ExecutionStatistics'
-            Prelude.<$> (x Core..:? "WorkUnitsExecutedCount")
-            Prelude.<*> (x Core..:? "AverageExecutionTimeMillis")
-            Prelude.<*> (x Core..:? "DataScannedBytes")
+            Prelude.<$> (x Data..:? "WorkUnitsExecutedCount")
+            Prelude.<*> (x Data..:? "AverageExecutionTimeMillis")
+            Prelude.<*> (x Data..:? "DataScannedBytes")
       )
 
 instance Prelude.Hashable ExecutionStatistics where

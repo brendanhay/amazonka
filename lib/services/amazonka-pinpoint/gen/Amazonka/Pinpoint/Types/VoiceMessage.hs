@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.VoiceMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the settings for a one-time voice message that\'s sent
@@ -135,15 +136,15 @@ instance Prelude.NFData VoiceMessage where
       `Prelude.seq` Prelude.rnf originationNumber
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToJSON VoiceMessage where
+instance Data.ToJSON VoiceMessage where
   toJSON VoiceMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VoiceId" Core..=) Prelude.<$> voiceId,
-            ("Body" Core..=) Prelude.<$> body,
-            ("Substitutions" Core..=) Prelude.<$> substitutions,
-            ("OriginationNumber" Core..=)
+          [ ("VoiceId" Data..=) Prelude.<$> voiceId,
+            ("Body" Data..=) Prelude.<$> body,
+            ("Substitutions" Data..=) Prelude.<$> substitutions,
+            ("OriginationNumber" Data..=)
               Prelude.<$> originationNumber,
-            ("LanguageCode" Core..=) Prelude.<$> languageCode
+            ("LanguageCode" Data..=) Prelude.<$> languageCode
           ]
       )

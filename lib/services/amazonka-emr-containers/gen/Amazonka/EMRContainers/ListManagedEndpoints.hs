@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -62,13 +63,13 @@ data ListManagedEndpoints = ListManagedEndpoints'
   { -- | The token for the next set of managed endpoints to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The date and time before which the endpoints are created.
-    createdBefore :: Prelude.Maybe Core.POSIX,
+    createdBefore :: Prelude.Maybe Data.POSIX,
     -- | The types of the managed endpoints.
     types :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of managed endpoints that can be listed.
     maxResults :: Prelude.Maybe Prelude.Int,
     -- | The date and time after which the endpoints are created.
-    createdAfter :: Prelude.Maybe Core.POSIX,
+    createdAfter :: Prelude.Maybe Data.POSIX,
     -- | The states of the managed endpoints.
     states :: Prelude.Maybe [EndpointState],
     -- | The ID of the virtual cluster.
@@ -118,7 +119,7 @@ listManagedEndpoints_nextToken = Lens.lens (\ListManagedEndpoints' {nextToken} -
 
 -- | The date and time before which the endpoints are created.
 listManagedEndpoints_createdBefore :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe Prelude.UTCTime)
-listManagedEndpoints_createdBefore = Lens.lens (\ListManagedEndpoints' {createdBefore} -> createdBefore) (\s@ListManagedEndpoints' {} a -> s {createdBefore = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Core._Time
+listManagedEndpoints_createdBefore = Lens.lens (\ListManagedEndpoints' {createdBefore} -> createdBefore) (\s@ListManagedEndpoints' {} a -> s {createdBefore = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Data._Time
 
 -- | The types of the managed endpoints.
 listManagedEndpoints_types :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe [Prelude.Text])
@@ -130,7 +131,7 @@ listManagedEndpoints_maxResults = Lens.lens (\ListManagedEndpoints' {maxResults}
 
 -- | The date and time after which the endpoints are created.
 listManagedEndpoints_createdAfter :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe Prelude.UTCTime)
-listManagedEndpoints_createdAfter = Lens.lens (\ListManagedEndpoints' {createdAfter} -> createdAfter) (\s@ListManagedEndpoints' {} a -> s {createdAfter = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Core._Time
+listManagedEndpoints_createdAfter = Lens.lens (\ListManagedEndpoints' {createdAfter} -> createdAfter) (\s@ListManagedEndpoints' {} a -> s {createdAfter = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Data._Time
 
 -- | The states of the managed endpoints.
 listManagedEndpoints_states :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe [EndpointState])
@@ -172,8 +173,8 @@ instance Core.AWSRequest ListManagedEndpoints where
     Response.receiveJSON
       ( \s h x ->
           ListManagedEndpointsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "endpoints" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "endpoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,38 +198,38 @@ instance Prelude.NFData ListManagedEndpoints where
       `Prelude.seq` Prelude.rnf states
       `Prelude.seq` Prelude.rnf virtualClusterId
 
-instance Core.ToHeaders ListManagedEndpoints where
+instance Data.ToHeaders ListManagedEndpoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListManagedEndpoints where
+instance Data.ToPath ListManagedEndpoints where
   toPath ListManagedEndpoints' {..} =
     Prelude.mconcat
       [ "/virtualclusters/",
-        Core.toBS virtualClusterId,
+        Data.toBS virtualClusterId,
         "/endpoints"
       ]
 
-instance Core.ToQuery ListManagedEndpoints where
+instance Data.ToQuery ListManagedEndpoints where
   toQuery ListManagedEndpoints' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "createdBefore" Core.=: createdBefore,
+      [ "nextToken" Data.=: nextToken,
+        "createdBefore" Data.=: createdBefore,
         "types"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> types),
-        "maxResults" Core.=: maxResults,
-        "createdAfter" Core.=: createdAfter,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> types),
+        "maxResults" Data.=: maxResults,
+        "createdAfter" Data.=: createdAfter,
         "states"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> states)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> states)
       ]
 
 -- | /See:/ 'newListManagedEndpointsResponse' smart constructor.

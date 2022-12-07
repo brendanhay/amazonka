@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,7 +131,7 @@ instance Core.AWSRequest DeleteSchemaVersions where
     Response.receiveJSON
       ( \s h x ->
           DeleteSchemaVersionsResponse'
-            Prelude.<$> ( x Core..?> "SchemaVersionErrors"
+            Prelude.<$> ( x Data..?> "SchemaVersionErrors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -146,34 +147,34 @@ instance Prelude.NFData DeleteSchemaVersions where
     Prelude.rnf schemaId
       `Prelude.seq` Prelude.rnf versions
 
-instance Core.ToHeaders DeleteSchemaVersions where
+instance Data.ToHeaders DeleteSchemaVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.DeleteSchemaVersions" ::
+              Data.=# ( "AWSGlue.DeleteSchemaVersions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSchemaVersions where
+instance Data.ToJSON DeleteSchemaVersions where
   toJSON DeleteSchemaVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SchemaId" Core..= schemaId),
-            Prelude.Just ("Versions" Core..= versions)
+          [ Prelude.Just ("SchemaId" Data..= schemaId),
+            Prelude.Just ("Versions" Data..= versions)
           ]
       )
 
-instance Core.ToPath DeleteSchemaVersions where
+instance Data.ToPath DeleteSchemaVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSchemaVersions where
+instance Data.ToQuery DeleteSchemaVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSchemaVersionsResponse' smart constructor.

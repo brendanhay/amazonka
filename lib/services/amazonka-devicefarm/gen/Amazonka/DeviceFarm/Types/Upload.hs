@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.Upload where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.UploadCategory
 import Amazonka.DeviceFarm.Types.UploadStatus
 import Amazonka.DeviceFarm.Types.UploadType
@@ -104,7 +105,7 @@ data Upload = Upload'
     -- -   XCTEST_UI_TEST_SPEC
     type' :: Prelude.Maybe UploadType,
     -- | When the upload was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The upload\'s metadata. For example, for Android, this contains
     -- information that is parsed from the manifest and is displayed in the AWS
     -- Device Farm console after the associated app is uploaded.
@@ -113,7 +114,7 @@ data Upload = Upload'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The presigned Amazon S3 URL that was used to store a file using a PUT
     -- request.
-    url :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    url :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The upload\'s status.
     --
     -- Must be one of the following values:
@@ -343,7 +344,7 @@ upload_type = Lens.lens (\Upload' {type'} -> type') (\s@Upload' {} a -> s {type'
 
 -- | When the upload was created.
 upload_created :: Lens.Lens' Upload (Prelude.Maybe Prelude.UTCTime)
-upload_created = Lens.lens (\Upload' {created} -> created) (\s@Upload' {} a -> s {created = a} :: Upload) Prelude.. Lens.mapping Core._Time
+upload_created = Lens.lens (\Upload' {created} -> created) (\s@Upload' {} a -> s {created = a} :: Upload) Prelude.. Lens.mapping Data._Time
 
 -- | The upload\'s metadata. For example, for Android, this contains
 -- information that is parsed from the manifest and is displayed in the AWS
@@ -358,7 +359,7 @@ upload_arn = Lens.lens (\Upload' {arn} -> arn) (\s@Upload' {} a -> s {arn = a} :
 -- | The presigned Amazon S3 URL that was used to store a file using a PUT
 -- request.
 upload_url :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
-upload_url = Lens.lens (\Upload' {url} -> url) (\s@Upload' {} a -> s {url = a} :: Upload) Prelude.. Lens.mapping Core._Sensitive
+upload_url = Lens.lens (\Upload' {url} -> url) (\s@Upload' {} a -> s {url = a} :: Upload) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The upload\'s status.
 --
@@ -386,22 +387,22 @@ upload_category = Lens.lens (\Upload' {category} -> category) (\s@Upload' {} a -
 upload_contentType :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
 upload_contentType = Lens.lens (\Upload' {contentType} -> contentType) (\s@Upload' {} a -> s {contentType = a} :: Upload)
 
-instance Core.FromJSON Upload where
+instance Data.FromJSON Upload where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Upload"
       ( \x ->
           Upload'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "metadata")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "url")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "category")
-            Prelude.<*> (x Core..:? "contentType")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "created")
+            Prelude.<*> (x Data..:? "metadata")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "category")
+            Prelude.<*> (x Data..:? "contentType")
       )
 
 instance Prelude.Hashable Upload where

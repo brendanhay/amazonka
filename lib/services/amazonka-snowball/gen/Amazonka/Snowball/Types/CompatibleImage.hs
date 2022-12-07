@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.CompatibleImage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A JSON-formatted object that describes a compatible Amazon Machine Image
@@ -64,13 +65,13 @@ compatibleImage_amiId = Lens.lens (\CompatibleImage' {amiId} -> amiId) (\s@Compa
 compatibleImage_name :: Lens.Lens' CompatibleImage (Prelude.Maybe Prelude.Text)
 compatibleImage_name = Lens.lens (\CompatibleImage' {name} -> name) (\s@CompatibleImage' {} a -> s {name = a} :: CompatibleImage)
 
-instance Core.FromJSON CompatibleImage where
+instance Data.FromJSON CompatibleImage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CompatibleImage"
       ( \x ->
           CompatibleImage'
-            Prelude.<$> (x Core..:? "AmiId") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Data..:? "AmiId") Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable CompatibleImage where

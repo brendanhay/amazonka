@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.AnomalousLogGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.LogAnomalyShowcase
 import qualified Amazonka.Prelude as Prelude
 
@@ -30,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAnomalousLogGroup' smart constructor.
 data AnomalousLogGroup = AnomalousLogGroup'
   { -- | The time the anomalous log events stopped.
-    impactEndTime :: Prelude.Maybe Core.POSIX,
+    impactEndTime :: Prelude.Maybe Data.POSIX,
     -- | The number of log lines that were scanned for anomalous log events.
     numberOfLogLinesScanned :: Prelude.Maybe Prelude.Int,
     -- | The time the anomalous log events began. The impact start time indicates
     -- the time of the first log anomaly event that occurs.
-    impactStartTime :: Prelude.Maybe Core.POSIX,
+    impactStartTime :: Prelude.Maybe Data.POSIX,
     -- | The log anomalies in the log group. Each log anomaly displayed
     -- represents a cluster of similar anomalous log events.
     logAnomalyShowcases :: Prelude.Maybe [LogAnomalyShowcase],
@@ -76,7 +77,7 @@ newAnomalousLogGroup =
 
 -- | The time the anomalous log events stopped.
 anomalousLogGroup_impactEndTime :: Lens.Lens' AnomalousLogGroup (Prelude.Maybe Prelude.UTCTime)
-anomalousLogGroup_impactEndTime = Lens.lens (\AnomalousLogGroup' {impactEndTime} -> impactEndTime) (\s@AnomalousLogGroup' {} a -> s {impactEndTime = a} :: AnomalousLogGroup) Prelude.. Lens.mapping Core._Time
+anomalousLogGroup_impactEndTime = Lens.lens (\AnomalousLogGroup' {impactEndTime} -> impactEndTime) (\s@AnomalousLogGroup' {} a -> s {impactEndTime = a} :: AnomalousLogGroup) Prelude.. Lens.mapping Data._Time
 
 -- | The number of log lines that were scanned for anomalous log events.
 anomalousLogGroup_numberOfLogLinesScanned :: Lens.Lens' AnomalousLogGroup (Prelude.Maybe Prelude.Int)
@@ -85,7 +86,7 @@ anomalousLogGroup_numberOfLogLinesScanned = Lens.lens (\AnomalousLogGroup' {numb
 -- | The time the anomalous log events began. The impact start time indicates
 -- the time of the first log anomaly event that occurs.
 anomalousLogGroup_impactStartTime :: Lens.Lens' AnomalousLogGroup (Prelude.Maybe Prelude.UTCTime)
-anomalousLogGroup_impactStartTime = Lens.lens (\AnomalousLogGroup' {impactStartTime} -> impactStartTime) (\s@AnomalousLogGroup' {} a -> s {impactStartTime = a} :: AnomalousLogGroup) Prelude.. Lens.mapping Core._Time
+anomalousLogGroup_impactStartTime = Lens.lens (\AnomalousLogGroup' {impactStartTime} -> impactStartTime) (\s@AnomalousLogGroup' {} a -> s {impactStartTime = a} :: AnomalousLogGroup) Prelude.. Lens.mapping Data._Time
 
 -- | The log anomalies in the log group. Each log anomaly displayed
 -- represents a cluster of similar anomalous log events.
@@ -96,19 +97,19 @@ anomalousLogGroup_logAnomalyShowcases = Lens.lens (\AnomalousLogGroup' {logAnoma
 anomalousLogGroup_logGroupName :: Lens.Lens' AnomalousLogGroup (Prelude.Maybe Prelude.Text)
 anomalousLogGroup_logGroupName = Lens.lens (\AnomalousLogGroup' {logGroupName} -> logGroupName) (\s@AnomalousLogGroup' {} a -> s {logGroupName = a} :: AnomalousLogGroup)
 
-instance Core.FromJSON AnomalousLogGroup where
+instance Data.FromJSON AnomalousLogGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnomalousLogGroup"
       ( \x ->
           AnomalousLogGroup'
-            Prelude.<$> (x Core..:? "ImpactEndTime")
-            Prelude.<*> (x Core..:? "NumberOfLogLinesScanned")
-            Prelude.<*> (x Core..:? "ImpactStartTime")
-            Prelude.<*> ( x Core..:? "LogAnomalyShowcases"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ImpactEndTime")
+            Prelude.<*> (x Data..:? "NumberOfLogLinesScanned")
+            Prelude.<*> (x Data..:? "ImpactStartTime")
+            Prelude.<*> ( x Data..:? "LogAnomalyShowcases"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LogGroupName")
+            Prelude.<*> (x Data..:? "LogGroupName")
       )
 
 instance Prelude.Hashable AnomalousLogGroup where

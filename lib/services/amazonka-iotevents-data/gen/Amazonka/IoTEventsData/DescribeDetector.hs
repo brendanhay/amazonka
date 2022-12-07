@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,7 +102,7 @@ instance Core.AWSRequest DescribeDetector where
     Response.receiveJSON
       ( \s h x ->
           DescribeDetectorResponse'
-            Prelude.<$> (x Core..?> "detector")
+            Prelude.<$> (x Data..?> "detector")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,20 +116,20 @@ instance Prelude.NFData DescribeDetector where
     Prelude.rnf keyValue
       `Prelude.seq` Prelude.rnf detectorModelName
 
-instance Core.ToHeaders DescribeDetector where
+instance Data.ToHeaders DescribeDetector where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDetector where
+instance Data.ToPath DescribeDetector where
   toPath DescribeDetector' {..} =
     Prelude.mconcat
       [ "/detectors/",
-        Core.toBS detectorModelName,
+        Data.toBS detectorModelName,
         "/keyValues/"
       ]
 
-instance Core.ToQuery DescribeDetector where
+instance Data.ToQuery DescribeDetector where
   toQuery DescribeDetector' {..} =
-    Prelude.mconcat ["keyValue" Core.=: keyValue]
+    Prelude.mconcat ["keyValue" Data.=: keyValue]
 
 -- | /See:/ 'newDescribeDetectorResponse' smart constructor.
 data DescribeDetectorResponse = DescribeDetectorResponse'

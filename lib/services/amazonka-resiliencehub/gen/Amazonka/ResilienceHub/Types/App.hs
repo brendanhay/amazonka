@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.App where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.AppAssessmentScheduleType
 import Amazonka.ResilienceHub.Types.AppComplianceStatusType
@@ -32,7 +33,7 @@ import Amazonka.ResilienceHub.Types.AppStatusType
 data App = App'
   { -- | The tags assigned to the resource. A tag is a label that you assign to
     -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The current resiliency score for the application.
     resiliencyScore :: Prelude.Maybe Prelude.Double,
     -- | The current status of compliance for the resiliency policy.
@@ -42,7 +43,7 @@ data App = App'
     -- | The optional description for an app.
     description :: Prelude.Maybe Prelude.Text,
     -- | The timestamp for the most recent compliance evaluation.
-    lastAppComplianceEvaluationTime :: Prelude.Maybe Core.POSIX,
+    lastAppComplianceEvaluationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the resiliency policy. The format for
     -- this ARN is:
     -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
@@ -53,7 +54,7 @@ data App = App'
     -- | Assessment execution schedule with \'Daily\' or \'Disabled\' values.
     assessmentSchedule :: Prelude.Maybe AppAssessmentScheduleType,
     -- | The timestamp for the most recent resiliency score evaluation.
-    lastResiliencyScoreEvaluationTime :: Prelude.Maybe Core.POSIX,
+    lastResiliencyScoreEvaluationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the application. The format for this
     -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
     -- For more information about ARNs, see
@@ -61,7 +62,7 @@ data App = App'
     -- in the /AWS General Reference/.
     appArn :: Prelude.Text,
     -- | The timestamp for when the app was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The name for the application.
     name :: Prelude.Text
   }
@@ -128,14 +129,14 @@ newApp pAppArn_ pCreationTime_ pName_ =
       assessmentSchedule = Prelude.Nothing,
       lastResiliencyScoreEvaluationTime = Prelude.Nothing,
       appArn = pAppArn_,
-      creationTime = Core._Time Lens.# pCreationTime_,
+      creationTime = Data._Time Lens.# pCreationTime_,
       name = pName_
     }
 
 -- | The tags assigned to the resource. A tag is a label that you assign to
 -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
 app_tags :: Lens.Lens' App (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-app_tags = Lens.lens (\App' {tags} -> tags) (\s@App' {} a -> s {tags = a} :: App) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+app_tags = Lens.lens (\App' {tags} -> tags) (\s@App' {} a -> s {tags = a} :: App) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The current resiliency score for the application.
 app_resiliencyScore :: Lens.Lens' App (Prelude.Maybe Prelude.Double)
@@ -155,7 +156,7 @@ app_description = Lens.lens (\App' {description} -> description) (\s@App' {} a -
 
 -- | The timestamp for the most recent compliance evaluation.
 app_lastAppComplianceEvaluationTime :: Lens.Lens' App (Prelude.Maybe Prelude.UTCTime)
-app_lastAppComplianceEvaluationTime = Lens.lens (\App' {lastAppComplianceEvaluationTime} -> lastAppComplianceEvaluationTime) (\s@App' {} a -> s {lastAppComplianceEvaluationTime = a} :: App) Prelude.. Lens.mapping Core._Time
+app_lastAppComplianceEvaluationTime = Lens.lens (\App' {lastAppComplianceEvaluationTime} -> lastAppComplianceEvaluationTime) (\s@App' {} a -> s {lastAppComplianceEvaluationTime = a} :: App) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the resiliency policy. The format for
 -- this ARN is:
@@ -172,7 +173,7 @@ app_assessmentSchedule = Lens.lens (\App' {assessmentSchedule} -> assessmentSche
 
 -- | The timestamp for the most recent resiliency score evaluation.
 app_lastResiliencyScoreEvaluationTime :: Lens.Lens' App (Prelude.Maybe Prelude.UTCTime)
-app_lastResiliencyScoreEvaluationTime = Lens.lens (\App' {lastResiliencyScoreEvaluationTime} -> lastResiliencyScoreEvaluationTime) (\s@App' {} a -> s {lastResiliencyScoreEvaluationTime = a} :: App) Prelude.. Lens.mapping Core._Time
+app_lastResiliencyScoreEvaluationTime = Lens.lens (\App' {lastResiliencyScoreEvaluationTime} -> lastResiliencyScoreEvaluationTime) (\s@App' {} a -> s {lastResiliencyScoreEvaluationTime = a} :: App) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -184,30 +185,30 @@ app_appArn = Lens.lens (\App' {appArn} -> appArn) (\s@App' {} a -> s {appArn = a
 
 -- | The timestamp for when the app was created.
 app_creationTime :: Lens.Lens' App Prelude.UTCTime
-app_creationTime = Lens.lens (\App' {creationTime} -> creationTime) (\s@App' {} a -> s {creationTime = a} :: App) Prelude.. Core._Time
+app_creationTime = Lens.lens (\App' {creationTime} -> creationTime) (\s@App' {} a -> s {creationTime = a} :: App) Prelude.. Data._Time
 
 -- | The name for the application.
 app_name :: Lens.Lens' App Prelude.Text
 app_name = Lens.lens (\App' {name} -> name) (\s@App' {} a -> s {name = a} :: App)
 
-instance Core.FromJSON App where
+instance Data.FromJSON App where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "App"
       ( \x ->
           App'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resiliencyScore")
-            Prelude.<*> (x Core..:? "complianceStatus")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "lastAppComplianceEvaluationTime")
-            Prelude.<*> (x Core..:? "policyArn")
-            Prelude.<*> (x Core..:? "assessmentSchedule")
-            Prelude.<*> (x Core..:? "lastResiliencyScoreEvaluationTime")
-            Prelude.<*> (x Core..: "appArn")
-            Prelude.<*> (x Core..: "creationTime")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resiliencyScore")
+            Prelude.<*> (x Data..:? "complianceStatus")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastAppComplianceEvaluationTime")
+            Prelude.<*> (x Data..:? "policyArn")
+            Prelude.<*> (x Data..:? "assessmentSchedule")
+            Prelude.<*> (x Data..:? "lastResiliencyScoreEvaluationTime")
+            Prelude.<*> (x Data..: "appArn")
+            Prelude.<*> (x Data..: "creationTime")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable App where

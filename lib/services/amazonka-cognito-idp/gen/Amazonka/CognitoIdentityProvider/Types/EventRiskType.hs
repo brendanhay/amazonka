@@ -23,6 +23,7 @@ import Amazonka.CognitoIdentityProvider.Types.RiskDecisionType
 import Amazonka.CognitoIdentityProvider.Types.RiskLevelType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The event risk type.
@@ -76,15 +77,15 @@ eventRiskType_riskLevel = Lens.lens (\EventRiskType' {riskLevel} -> riskLevel) (
 eventRiskType_riskDecision :: Lens.Lens' EventRiskType (Prelude.Maybe RiskDecisionType)
 eventRiskType_riskDecision = Lens.lens (\EventRiskType' {riskDecision} -> riskDecision) (\s@EventRiskType' {} a -> s {riskDecision = a} :: EventRiskType)
 
-instance Core.FromJSON EventRiskType where
+instance Data.FromJSON EventRiskType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventRiskType"
       ( \x ->
           EventRiskType'
-            Prelude.<$> (x Core..:? "CompromisedCredentialsDetected")
-            Prelude.<*> (x Core..:? "RiskLevel")
-            Prelude.<*> (x Core..:? "RiskDecision")
+            Prelude.<$> (x Data..:? "CompromisedCredentialsDetected")
+            Prelude.<*> (x Data..:? "RiskLevel")
+            Prelude.<*> (x Data..:? "RiskDecision")
       )
 
 instance Prelude.Hashable EventRiskType where

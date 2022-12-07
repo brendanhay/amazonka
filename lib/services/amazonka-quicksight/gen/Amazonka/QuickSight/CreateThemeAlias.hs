@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -135,8 +136,8 @@ instance Core.AWSRequest CreateThemeAlias where
     Response.receiveJSON
       ( \s h x ->
           CreateThemeAliasResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "ThemeAlias")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "ThemeAlias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,38 +155,38 @@ instance Prelude.NFData CreateThemeAlias where
       `Prelude.seq` Prelude.rnf aliasName
       `Prelude.seq` Prelude.rnf themeVersionNumber
 
-instance Core.ToHeaders CreateThemeAlias where
+instance Data.ToHeaders CreateThemeAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateThemeAlias where
+instance Data.ToJSON CreateThemeAlias where
   toJSON CreateThemeAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ThemeVersionNumber" Core..= themeVersionNumber)
+              ("ThemeVersionNumber" Data..= themeVersionNumber)
           ]
       )
 
-instance Core.ToPath CreateThemeAlias where
+instance Data.ToPath CreateThemeAlias where
   toPath CreateThemeAlias' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/themes/",
-        Core.toBS themeId,
+        Data.toBS themeId,
         "/aliases/",
-        Core.toBS aliasName
+        Data.toBS aliasName
       ]
 
-instance Core.ToQuery CreateThemeAlias where
+instance Data.ToQuery CreateThemeAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateThemeAliasResponse' smart constructor.

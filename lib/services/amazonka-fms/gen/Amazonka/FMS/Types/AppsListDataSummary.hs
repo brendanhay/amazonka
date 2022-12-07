@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.AppsListDataSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.App
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,16 +81,16 @@ appsListDataSummary_listName = Lens.lens (\AppsListDataSummary' {listName} -> li
 appsListDataSummary_listArn :: Lens.Lens' AppsListDataSummary (Prelude.Maybe Prelude.Text)
 appsListDataSummary_listArn = Lens.lens (\AppsListDataSummary' {listArn} -> listArn) (\s@AppsListDataSummary' {} a -> s {listArn = a} :: AppsListDataSummary)
 
-instance Core.FromJSON AppsListDataSummary where
+instance Data.FromJSON AppsListDataSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppsListDataSummary"
       ( \x ->
           AppsListDataSummary'
-            Prelude.<$> (x Core..:? "ListId")
-            Prelude.<*> (x Core..:? "AppsList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ListName")
-            Prelude.<*> (x Core..:? "ListArn")
+            Prelude.<$> (x Data..:? "ListId")
+            Prelude.<*> (x Data..:? "AppsList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ListName")
+            Prelude.<*> (x Data..:? "ListArn")
       )
 
 instance Prelude.Hashable AppsListDataSummary where

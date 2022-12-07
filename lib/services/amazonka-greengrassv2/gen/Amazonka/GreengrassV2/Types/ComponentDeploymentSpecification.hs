@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.ComponentDeploymentSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.ComponentConfigurationUpdate
 import Amazonka.GreengrassV2.Types.ComponentRunWith
 import qualified Amazonka.Prelude as Prelude
@@ -110,17 +111,17 @@ componentDeploymentSpecification_configurationUpdate :: Lens.Lens' ComponentDepl
 componentDeploymentSpecification_configurationUpdate = Lens.lens (\ComponentDeploymentSpecification' {configurationUpdate} -> configurationUpdate) (\s@ComponentDeploymentSpecification' {} a -> s {configurationUpdate = a} :: ComponentDeploymentSpecification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ComponentDeploymentSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentDeploymentSpecification"
       ( \x ->
           ComponentDeploymentSpecification'
-            Prelude.<$> (x Core..:? "componentVersion")
-            Prelude.<*> (x Core..:? "runWith")
-            Prelude.<*> (x Core..:? "configurationUpdate")
+            Prelude.<$> (x Data..:? "componentVersion")
+            Prelude.<*> (x Data..:? "runWith")
+            Prelude.<*> (x Data..:? "configurationUpdate")
       )
 
 instance
@@ -143,14 +144,14 @@ instance
       `Prelude.seq` Prelude.rnf runWith
       `Prelude.seq` Prelude.rnf configurationUpdate
 
-instance Core.ToJSON ComponentDeploymentSpecification where
+instance Data.ToJSON ComponentDeploymentSpecification where
   toJSON ComponentDeploymentSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("componentVersion" Core..=)
+          [ ("componentVersion" Data..=)
               Prelude.<$> componentVersion,
-            ("runWith" Core..=) Prelude.<$> runWith,
-            ("configurationUpdate" Core..=)
+            ("runWith" Data..=) Prelude.<$> runWith,
+            ("configurationUpdate" Data..=)
               Prelude.<$> configurationUpdate
           ]
       )

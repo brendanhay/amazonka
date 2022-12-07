@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.Attachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.KeyValuePair
 import qualified Amazonka.Prelude as Prelude
 
@@ -92,16 +93,16 @@ attachment_details = Lens.lens (\Attachment' {details} -> details) (\s@Attachmen
 attachment_id :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
 attachment_id = Lens.lens (\Attachment' {id} -> id) (\s@Attachment' {} a -> s {id = a} :: Attachment)
 
-instance Core.FromJSON Attachment where
+instance Data.FromJSON Attachment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Attachment"
       ( \x ->
           Attachment'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "details" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "details" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable Attachment where

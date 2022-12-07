@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,7 +94,7 @@ instance Core.AWSRequest GetLaunchConfiguration where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetLaunchConfiguration where
   hashWithSalt _salt GetLaunchConfiguration' {..} =
@@ -103,28 +104,28 @@ instance Prelude.NFData GetLaunchConfiguration where
   rnf GetLaunchConfiguration' {..} =
     Prelude.rnf sourceServerID
 
-instance Core.ToHeaders GetLaunchConfiguration where
+instance Data.ToHeaders GetLaunchConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLaunchConfiguration where
+instance Data.ToJSON GetLaunchConfiguration where
   toJSON GetLaunchConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("sourceServerID" Core..= sourceServerID)
+              ("sourceServerID" Data..= sourceServerID)
           ]
       )
 
-instance Core.ToPath GetLaunchConfiguration where
+instance Data.ToPath GetLaunchConfiguration where
   toPath = Prelude.const "/GetLaunchConfiguration"
 
-instance Core.ToQuery GetLaunchConfiguration where
+instance Data.ToQuery GetLaunchConfiguration where
   toQuery = Prelude.const Prelude.mempty

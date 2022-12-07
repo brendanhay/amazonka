@@ -21,6 +21,7 @@ module Amazonka.MigrationHubReFactorSpaces.Types.UriPathRouteInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types.HttpMethod
 import Amazonka.MigrationHubReFactorSpaces.Types.RouteActivationState
 import qualified Amazonka.Prelude as Prelude
@@ -103,16 +104,16 @@ uriPathRouteInput_activationState = Lens.lens (\UriPathRouteInput' {activationSt
 uriPathRouteInput_sourcePath :: Lens.Lens' UriPathRouteInput Prelude.Text
 uriPathRouteInput_sourcePath = Lens.lens (\UriPathRouteInput' {sourcePath} -> sourcePath) (\s@UriPathRouteInput' {} a -> s {sourcePath = a} :: UriPathRouteInput)
 
-instance Core.FromJSON UriPathRouteInput where
+instance Data.FromJSON UriPathRouteInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UriPathRouteInput"
       ( \x ->
           UriPathRouteInput'
-            Prelude.<$> (x Core..:? "Methods" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "IncludeChildPaths")
-            Prelude.<*> (x Core..: "ActivationState")
-            Prelude.<*> (x Core..: "SourcePath")
+            Prelude.<$> (x Data..:? "Methods" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "IncludeChildPaths")
+            Prelude.<*> (x Data..: "ActivationState")
+            Prelude.<*> (x Data..: "SourcePath")
       )
 
 instance Prelude.Hashable UriPathRouteInput where
@@ -129,15 +130,15 @@ instance Prelude.NFData UriPathRouteInput where
       `Prelude.seq` Prelude.rnf activationState
       `Prelude.seq` Prelude.rnf sourcePath
 
-instance Core.ToJSON UriPathRouteInput where
+instance Data.ToJSON UriPathRouteInput where
   toJSON UriPathRouteInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Methods" Core..=) Prelude.<$> methods,
-            ("IncludeChildPaths" Core..=)
+          [ ("Methods" Data..=) Prelude.<$> methods,
+            ("IncludeChildPaths" Data..=)
               Prelude.<$> includeChildPaths,
             Prelude.Just
-              ("ActivationState" Core..= activationState),
-            Prelude.Just ("SourcePath" Core..= sourcePath)
+              ("ActivationState" Data..= activationState),
+            Prelude.Just ("SourcePath" Data..= sourcePath)
           ]
       )

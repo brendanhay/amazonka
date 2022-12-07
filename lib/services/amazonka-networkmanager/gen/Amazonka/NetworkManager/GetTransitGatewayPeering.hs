@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetTransitGatewayPeering where
     Response.receiveJSON
       ( \s h x ->
           GetTransitGatewayPeeringResponse'
-            Prelude.<$> (x Core..?> "TransitGatewayPeering")
+            Prelude.<$> (x Data..?> "TransitGatewayPeering")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,23 +96,23 @@ instance Prelude.NFData GetTransitGatewayPeering where
   rnf GetTransitGatewayPeering' {..} =
     Prelude.rnf peeringId
 
-instance Core.ToHeaders GetTransitGatewayPeering where
+instance Data.ToHeaders GetTransitGatewayPeering where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetTransitGatewayPeering where
+instance Data.ToPath GetTransitGatewayPeering where
   toPath GetTransitGatewayPeering' {..} =
     Prelude.mconcat
-      ["/transit-gateway-peerings/", Core.toBS peeringId]
+      ["/transit-gateway-peerings/", Data.toBS peeringId]
 
-instance Core.ToQuery GetTransitGatewayPeering where
+instance Data.ToQuery GetTransitGatewayPeering where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTransitGatewayPeeringResponse' smart constructor.

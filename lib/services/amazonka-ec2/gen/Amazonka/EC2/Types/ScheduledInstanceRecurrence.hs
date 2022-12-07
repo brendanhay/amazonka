@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ScheduledInstanceRecurrence where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -102,17 +103,17 @@ scheduledInstanceRecurrence_occurrenceRelativeToEnd = Lens.lens (\ScheduledInsta
 scheduledInstanceRecurrence_occurrenceUnit :: Lens.Lens' ScheduledInstanceRecurrence (Prelude.Maybe Prelude.Text)
 scheduledInstanceRecurrence_occurrenceUnit = Lens.lens (\ScheduledInstanceRecurrence' {occurrenceUnit} -> occurrenceUnit) (\s@ScheduledInstanceRecurrence' {} a -> s {occurrenceUnit = a} :: ScheduledInstanceRecurrence)
 
-instance Core.FromXML ScheduledInstanceRecurrence where
+instance Data.FromXML ScheduledInstanceRecurrence where
   parseXML x =
     ScheduledInstanceRecurrence'
-      Prelude.<$> ( x Core..@? "occurrenceDaySet"
+      Prelude.<$> ( x Data..@? "occurrenceDaySet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "interval")
-      Prelude.<*> (x Core..@? "frequency")
-      Prelude.<*> (x Core..@? "occurrenceRelativeToEnd")
-      Prelude.<*> (x Core..@? "occurrenceUnit")
+      Prelude.<*> (x Data..@? "interval")
+      Prelude.<*> (x Data..@? "frequency")
+      Prelude.<*> (x Data..@? "occurrenceRelativeToEnd")
+      Prelude.<*> (x Data..@? "occurrenceUnit")
 
 instance Prelude.Hashable ScheduledInstanceRecurrence where
   hashWithSalt _salt ScheduledInstanceRecurrence' {..} =

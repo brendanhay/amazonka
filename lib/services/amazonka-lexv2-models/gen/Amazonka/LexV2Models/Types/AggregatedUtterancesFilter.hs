@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.AggregatedUtterancesFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.AggregatedUtterancesFilterName
 import Amazonka.LexV2Models.Types.AggregatedUtterancesFilterOperator
 import qualified Amazonka.Prelude as Prelude
@@ -105,12 +106,12 @@ instance Prelude.NFData AggregatedUtterancesFilter where
       `Prelude.seq` Prelude.rnf values
       `Prelude.seq` Prelude.rnf operator
 
-instance Core.ToJSON AggregatedUtterancesFilter where
+instance Data.ToJSON AggregatedUtterancesFilter where
   toJSON AggregatedUtterancesFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("values" Core..= values),
-            Prelude.Just ("operator" Core..= operator)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("values" Data..= values),
+            Prelude.Just ("operator" Data..= operator)
           ]
       )

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest UpdateSamplingRule where
     Response.receiveJSON
       ( \s h x ->
           UpdateSamplingRuleResponse'
-            Prelude.<$> (x Core..?> "SamplingRuleRecord")
+            Prelude.<$> (x Data..?> "SamplingRuleRecord")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,22 +99,22 @@ instance Prelude.NFData UpdateSamplingRule where
   rnf UpdateSamplingRule' {..} =
     Prelude.rnf samplingRuleUpdate
 
-instance Core.ToHeaders UpdateSamplingRule where
+instance Data.ToHeaders UpdateSamplingRule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateSamplingRule where
+instance Data.ToJSON UpdateSamplingRule where
   toJSON UpdateSamplingRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("SamplingRuleUpdate" Core..= samplingRuleUpdate)
+              ("SamplingRuleUpdate" Data..= samplingRuleUpdate)
           ]
       )
 
-instance Core.ToPath UpdateSamplingRule where
+instance Data.ToPath UpdateSamplingRule where
   toPath = Prelude.const "/UpdateSamplingRule"
 
-instance Core.ToQuery UpdateSamplingRule where
+instance Data.ToQuery UpdateSamplingRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSamplingRuleResponse' smart constructor.

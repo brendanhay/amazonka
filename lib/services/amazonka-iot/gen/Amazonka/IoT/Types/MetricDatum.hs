@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.MetricDatum where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.MetricValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newMetricDatum' smart constructor.
 data MetricDatum = MetricDatum'
   { -- | The time the metric value was reported.
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The value reported for the metric.
     value :: Prelude.Maybe MetricValue
   }
@@ -56,20 +57,20 @@ newMetricDatum =
 
 -- | The time the metric value was reported.
 metricDatum_timestamp :: Lens.Lens' MetricDatum (Prelude.Maybe Prelude.UTCTime)
-metricDatum_timestamp = Lens.lens (\MetricDatum' {timestamp} -> timestamp) (\s@MetricDatum' {} a -> s {timestamp = a} :: MetricDatum) Prelude.. Lens.mapping Core._Time
+metricDatum_timestamp = Lens.lens (\MetricDatum' {timestamp} -> timestamp) (\s@MetricDatum' {} a -> s {timestamp = a} :: MetricDatum) Prelude.. Lens.mapping Data._Time
 
 -- | The value reported for the metric.
 metricDatum_value :: Lens.Lens' MetricDatum (Prelude.Maybe MetricValue)
 metricDatum_value = Lens.lens (\MetricDatum' {value} -> value) (\s@MetricDatum' {} a -> s {value = a} :: MetricDatum)
 
-instance Core.FromJSON MetricDatum where
+instance Data.FromJSON MetricDatum where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricDatum"
       ( \x ->
           MetricDatum'
-            Prelude.<$> (x Core..:? "timestamp")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "timestamp")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable MetricDatum where

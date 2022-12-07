@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.HomeDirectoryMapEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an object that contains entries and targets for
@@ -70,13 +71,13 @@ homeDirectoryMapEntry_entry = Lens.lens (\HomeDirectoryMapEntry' {entry} -> entr
 homeDirectoryMapEntry_target :: Lens.Lens' HomeDirectoryMapEntry Prelude.Text
 homeDirectoryMapEntry_target = Lens.lens (\HomeDirectoryMapEntry' {target} -> target) (\s@HomeDirectoryMapEntry' {} a -> s {target = a} :: HomeDirectoryMapEntry)
 
-instance Core.FromJSON HomeDirectoryMapEntry where
+instance Data.FromJSON HomeDirectoryMapEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HomeDirectoryMapEntry"
       ( \x ->
           HomeDirectoryMapEntry'
-            Prelude.<$> (x Core..: "Entry") Prelude.<*> (x Core..: "Target")
+            Prelude.<$> (x Data..: "Entry") Prelude.<*> (x Data..: "Target")
       )
 
 instance Prelude.Hashable HomeDirectoryMapEntry where
@@ -88,11 +89,11 @@ instance Prelude.NFData HomeDirectoryMapEntry where
   rnf HomeDirectoryMapEntry' {..} =
     Prelude.rnf entry `Prelude.seq` Prelude.rnf target
 
-instance Core.ToJSON HomeDirectoryMapEntry where
+instance Data.ToJSON HomeDirectoryMapEntry where
   toJSON HomeDirectoryMapEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Entry" Core..= entry),
-            Prelude.Just ("Target" Core..= target)
+          [ Prelude.Just ("Entry" Data..= entry),
+            Prelude.Just ("Target" Data..= target)
           ]
       )

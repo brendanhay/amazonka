@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Member where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details about a member account.
@@ -71,9 +72,9 @@ data Member = Member'
     masterId :: Prelude.Maybe Prelude.Text,
     -- | A timestamp for the date and time when the invitation was sent to the
     -- member account.
-    invitedAt :: Prelude.Maybe Core.POSIX,
+    invitedAt :: Prelude.Maybe Data.POSIX,
     -- | The timestamp for the date and time when the member account was updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -199,25 +200,25 @@ member_masterId = Lens.lens (\Member' {masterId} -> masterId) (\s@Member' {} a -
 -- | A timestamp for the date and time when the invitation was sent to the
 -- member account.
 member_invitedAt :: Lens.Lens' Member (Prelude.Maybe Prelude.UTCTime)
-member_invitedAt = Lens.lens (\Member' {invitedAt} -> invitedAt) (\s@Member' {} a -> s {invitedAt = a} :: Member) Prelude.. Lens.mapping Core._Time
+member_invitedAt = Lens.lens (\Member' {invitedAt} -> invitedAt) (\s@Member' {} a -> s {invitedAt = a} :: Member) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp for the date and time when the member account was updated.
 member_updatedAt :: Lens.Lens' Member (Prelude.Maybe Prelude.UTCTime)
-member_updatedAt = Lens.lens (\Member' {updatedAt} -> updatedAt) (\s@Member' {} a -> s {updatedAt = a} :: Member) Prelude.. Lens.mapping Core._Time
+member_updatedAt = Lens.lens (\Member' {updatedAt} -> updatedAt) (\s@Member' {} a -> s {updatedAt = a} :: Member) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Member where
+instance Data.FromJSON Member where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Member"
       ( \x ->
           Member'
-            Prelude.<$> (x Core..:? "Email")
-            Prelude.<*> (x Core..:? "AdministratorId")
-            Prelude.<*> (x Core..:? "MemberStatus")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "MasterId")
-            Prelude.<*> (x Core..:? "InvitedAt")
-            Prelude.<*> (x Core..:? "UpdatedAt")
+            Prelude.<$> (x Data..:? "Email")
+            Prelude.<*> (x Data..:? "AdministratorId")
+            Prelude.<*> (x Data..:? "MemberStatus")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "MasterId")
+            Prelude.<*> (x Data..:? "InvitedAt")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable Member where

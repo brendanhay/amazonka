@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.UpdateVehicleError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An HTTP error resulting from updating the description for a vehicle.
@@ -70,15 +71,15 @@ updateVehicleError_code = Lens.lens (\UpdateVehicleError' {code} -> code) (\s@Up
 updateVehicleError_vehicleName :: Lens.Lens' UpdateVehicleError (Prelude.Maybe Prelude.Text)
 updateVehicleError_vehicleName = Lens.lens (\UpdateVehicleError' {vehicleName} -> vehicleName) (\s@UpdateVehicleError' {} a -> s {vehicleName = a} :: UpdateVehicleError)
 
-instance Core.FromJSON UpdateVehicleError where
+instance Data.FromJSON UpdateVehicleError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpdateVehicleError"
       ( \x ->
           UpdateVehicleError'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "vehicleName")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "vehicleName")
       )
 
 instance Prelude.Hashable UpdateVehicleError where

@@ -45,6 +45,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,10 +117,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchDisassociateResourcesFromCustomLineItemResponse'
-            Prelude.<$> ( x Core..?> "SuccessfullyDisassociatedResources"
+            Prelude.<$> ( x Data..?> "SuccessfullyDisassociatedResources"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> ( x Core..?> "FailedDisassociatedResources"
+              Prelude.<*> ( x Data..?> "FailedDisassociatedResources"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -146,36 +147,36 @@ instance
       `Prelude.seq` Prelude.rnf resourceArns
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchDisassociateResourcesFromCustomLineItem
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     BatchDisassociateResourcesFromCustomLineItem
   where
   toJSON
     BatchDisassociateResourcesFromCustomLineItem' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("BillingPeriodRange" Core..=)
+            [ ("BillingPeriodRange" Data..=)
                 Prelude.<$> billingPeriodRange,
-              Prelude.Just ("TargetArn" Core..= targetArn),
-              Prelude.Just ("ResourceArns" Core..= resourceArns)
+              Prelude.Just ("TargetArn" Data..= targetArn),
+              Prelude.Just ("ResourceArns" Data..= resourceArns)
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     BatchDisassociateResourcesFromCustomLineItem
   where
   toPath =
@@ -183,7 +184,7 @@ instance
       "/batch-disassociate-resources-from-custom-line-item"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     BatchDisassociateResourcesFromCustomLineItem
   where
   toQuery = Prelude.const Prelude.mempty

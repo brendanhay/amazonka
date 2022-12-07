@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,7 +175,7 @@ instance Core.AWSRequest StartImportTask where
     Response.receiveJSON
       ( \s h x ->
           StartImportTaskResponse'
-            Prelude.<$> (x Core..?> "task")
+            Prelude.<$> (x Data..?> "task")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,36 +191,36 @@ instance Prelude.NFData StartImportTask where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf importUrl
 
-instance Core.ToHeaders StartImportTask where
+instance Data.ToHeaders StartImportTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSPoseidonService_V2015_11_01.StartImportTask" ::
+              Data.=# ( "AWSPoseidonService_V2015_11_01.StartImportTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartImportTask where
+instance Data.ToJSON StartImportTask where
   toJSON StartImportTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientRequestToken" Core..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("importUrl" Core..= importUrl)
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("importUrl" Data..= importUrl)
           ]
       )
 
-instance Core.ToPath StartImportTask where
+instance Data.ToPath StartImportTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartImportTask where
+instance Data.ToQuery StartImportTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartImportTaskResponse' smart constructor.

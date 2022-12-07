@@ -24,6 +24,7 @@ import Amazonka.CodeBuild.Types.PhaseContext
 import Amazonka.CodeBuild.Types.StatusType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a stage for a batch build.
@@ -54,7 +55,7 @@ data BuildBatchPhase = BuildBatchPhase'
     --     The build phase timed out.
     phaseStatus :: Prelude.Maybe StatusType,
     -- | When the batch build phase ended, expressed in Unix time format.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the batch build phase. Valid values include:
     --
     -- [COMBINE_ARTIFACTS]
@@ -83,7 +84,7 @@ data BuildBatchPhase = BuildBatchPhase'
     -- build\'s phase.
     durationInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | When the batch build phase started, expressed in Unix time format.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -189,7 +190,7 @@ buildBatchPhase_phaseStatus = Lens.lens (\BuildBatchPhase' {phaseStatus} -> phas
 
 -- | When the batch build phase ended, expressed in Unix time format.
 buildBatchPhase_endTime :: Lens.Lens' BuildBatchPhase (Prelude.Maybe Prelude.UTCTime)
-buildBatchPhase_endTime = Lens.lens (\BuildBatchPhase' {endTime} -> endTime) (\s@BuildBatchPhase' {} a -> s {endTime = a} :: BuildBatchPhase) Prelude.. Lens.mapping Core._Time
+buildBatchPhase_endTime = Lens.lens (\BuildBatchPhase' {endTime} -> endTime) (\s@BuildBatchPhase' {} a -> s {endTime = a} :: BuildBatchPhase) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the batch build phase. Valid values include:
 --
@@ -224,20 +225,20 @@ buildBatchPhase_durationInSeconds = Lens.lens (\BuildBatchPhase' {durationInSeco
 
 -- | When the batch build phase started, expressed in Unix time format.
 buildBatchPhase_startTime :: Lens.Lens' BuildBatchPhase (Prelude.Maybe Prelude.UTCTime)
-buildBatchPhase_startTime = Lens.lens (\BuildBatchPhase' {startTime} -> startTime) (\s@BuildBatchPhase' {} a -> s {startTime = a} :: BuildBatchPhase) Prelude.. Lens.mapping Core._Time
+buildBatchPhase_startTime = Lens.lens (\BuildBatchPhase' {startTime} -> startTime) (\s@BuildBatchPhase' {} a -> s {startTime = a} :: BuildBatchPhase) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON BuildBatchPhase where
+instance Data.FromJSON BuildBatchPhase where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BuildBatchPhase"
       ( \x ->
           BuildBatchPhase'
-            Prelude.<$> (x Core..:? "contexts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "phaseStatus")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "phaseType")
-            Prelude.<*> (x Core..:? "durationInSeconds")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<$> (x Data..:? "contexts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "phaseStatus")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "phaseType")
+            Prelude.<*> (x Data..:? "durationInSeconds")
+            Prelude.<*> (x Data..:? "startTime")
       )
 
 instance Prelude.Hashable BuildBatchPhase where

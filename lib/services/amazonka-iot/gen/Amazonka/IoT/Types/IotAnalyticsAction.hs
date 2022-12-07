@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.IotAnalyticsAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Sends message data to an IoT Analytics channel.
@@ -112,16 +113,16 @@ iotAnalyticsAction_channelArn = Lens.lens (\IotAnalyticsAction' {channelArn} -> 
 iotAnalyticsAction_batchMode :: Lens.Lens' IotAnalyticsAction (Prelude.Maybe Prelude.Bool)
 iotAnalyticsAction_batchMode = Lens.lens (\IotAnalyticsAction' {batchMode} -> batchMode) (\s@IotAnalyticsAction' {} a -> s {batchMode = a} :: IotAnalyticsAction)
 
-instance Core.FromJSON IotAnalyticsAction where
+instance Data.FromJSON IotAnalyticsAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IotAnalyticsAction"
       ( \x ->
           IotAnalyticsAction'
-            Prelude.<$> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "channelName")
-            Prelude.<*> (x Core..:? "channelArn")
-            Prelude.<*> (x Core..:? "batchMode")
+            Prelude.<$> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "channelName")
+            Prelude.<*> (x Data..:? "channelArn")
+            Prelude.<*> (x Data..:? "batchMode")
       )
 
 instance Prelude.Hashable IotAnalyticsAction where
@@ -138,13 +139,13 @@ instance Prelude.NFData IotAnalyticsAction where
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf batchMode
 
-instance Core.ToJSON IotAnalyticsAction where
+instance Data.ToJSON IotAnalyticsAction where
   toJSON IotAnalyticsAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("channelName" Core..=) Prelude.<$> channelName,
-            ("channelArn" Core..=) Prelude.<$> channelArn,
-            ("batchMode" Core..=) Prelude.<$> batchMode
+          [ ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("channelName" Data..=) Prelude.<$> channelName,
+            ("channelArn" Data..=) Prelude.<$> channelArn,
+            ("batchMode" Data..=) Prelude.<$> batchMode
           ]
       )

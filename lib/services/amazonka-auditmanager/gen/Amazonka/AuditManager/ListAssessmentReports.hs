@@ -44,6 +44,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,8 +98,8 @@ instance Core.AWSRequest ListAssessmentReports where
     Response.receiveJSON
       ( \s h x ->
           ListAssessmentReportsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "assessmentReports"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "assessmentReports"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -114,25 +115,25 @@ instance Prelude.NFData ListAssessmentReports where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListAssessmentReports where
+instance Data.ToHeaders ListAssessmentReports where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAssessmentReports where
+instance Data.ToPath ListAssessmentReports where
   toPath = Prelude.const "/assessmentReports"
 
-instance Core.ToQuery ListAssessmentReports where
+instance Data.ToQuery ListAssessmentReports where
   toQuery ListAssessmentReports' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListAssessmentReportsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.BgpOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the BGP options.
@@ -57,9 +58,9 @@ instance Prelude.Hashable BgpOptions where
 instance Prelude.NFData BgpOptions where
   rnf BgpOptions' {..} = Prelude.rnf peerAsn
 
-instance Core.ToJSON BgpOptions where
+instance Data.ToJSON BgpOptions where
   toJSON BgpOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("PeerAsn" Core..=) Prelude.<$> peerAsn]
+          [("PeerAsn" Data..=) Prelude.<$> peerAsn]
       )

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,14 +97,14 @@ instance Core.AWSRequest DescribeLineageGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeLineageGroupResponse'
-            Prelude.<$> (x Core..?> "LineageGroupName")
-            Prelude.<*> (x Core..?> "DisplayName")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "LineageGroupArn")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
-            Prelude.<*> (x Core..?> "CreatedBy")
+            Prelude.<$> (x Data..?> "LineageGroupName")
+            Prelude.<*> (x Data..?> "DisplayName")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "LineageGroupArn")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "CreatedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,34 +116,34 @@ instance Prelude.NFData DescribeLineageGroup where
   rnf DescribeLineageGroup' {..} =
     Prelude.rnf lineageGroupName
 
-instance Core.ToHeaders DescribeLineageGroup where
+instance Data.ToHeaders DescribeLineageGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeLineageGroup" ::
+              Data.=# ( "SageMaker.DescribeLineageGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLineageGroup where
+instance Data.ToJSON DescribeLineageGroup where
   toJSON DescribeLineageGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("LineageGroupName" Core..= lineageGroupName)
+              ("LineageGroupName" Data..= lineageGroupName)
           ]
       )
 
-instance Core.ToPath DescribeLineageGroup where
+instance Data.ToPath DescribeLineageGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLineageGroup where
+instance Data.ToQuery DescribeLineageGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLineageGroupResponse' smart constructor.
@@ -154,11 +155,11 @@ data DescribeLineageGroupResponse = DescribeLineageGroupResponse'
     -- | The description of the lineage group.
     description :: Prelude.Maybe Prelude.Text,
     -- | The last modified time of the lineage group.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the lineage group.
     lineageGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The creation time of lineage group.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     lastModifiedBy :: Prelude.Maybe UserContext,
     createdBy :: Prelude.Maybe UserContext,
     -- | The response's http status code.
@@ -223,7 +224,7 @@ describeLineageGroupResponse_description = Lens.lens (\DescribeLineageGroupRespo
 
 -- | The last modified time of the lineage group.
 describeLineageGroupResponse_lastModifiedTime :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe Prelude.UTCTime)
-describeLineageGroupResponse_lastModifiedTime = Lens.lens (\DescribeLineageGroupResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeLineageGroupResponse' {} a -> s {lastModifiedTime = a} :: DescribeLineageGroupResponse) Prelude.. Lens.mapping Core._Time
+describeLineageGroupResponse_lastModifiedTime = Lens.lens (\DescribeLineageGroupResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeLineageGroupResponse' {} a -> s {lastModifiedTime = a} :: DescribeLineageGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the lineage group.
 describeLineageGroupResponse_lineageGroupArn :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe Prelude.Text)
@@ -231,7 +232,7 @@ describeLineageGroupResponse_lineageGroupArn = Lens.lens (\DescribeLineageGroupR
 
 -- | The creation time of lineage group.
 describeLineageGroupResponse_creationTime :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe Prelude.UTCTime)
-describeLineageGroupResponse_creationTime = Lens.lens (\DescribeLineageGroupResponse' {creationTime} -> creationTime) (\s@DescribeLineageGroupResponse' {} a -> s {creationTime = a} :: DescribeLineageGroupResponse) Prelude.. Lens.mapping Core._Time
+describeLineageGroupResponse_creationTime = Lens.lens (\DescribeLineageGroupResponse' {creationTime} -> creationTime) (\s@DescribeLineageGroupResponse' {} a -> s {creationTime = a} :: DescribeLineageGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 describeLineageGroupResponse_lastModifiedBy :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe UserContext)

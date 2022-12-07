@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.IntervalUnitValues
 import Amazonka.DLM.Types.LocationValues
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Snapshot and AMI policies only]__ Specifies when the policy should
@@ -151,17 +152,17 @@ createRule_times = Lens.lens (\CreateRule' {times} -> times) (\s@CreateRule' {} 
 createRule_cronExpression :: Lens.Lens' CreateRule (Prelude.Maybe Prelude.Text)
 createRule_cronExpression = Lens.lens (\CreateRule' {cronExpression} -> cronExpression) (\s@CreateRule' {} a -> s {cronExpression = a} :: CreateRule)
 
-instance Core.FromJSON CreateRule where
+instance Data.FromJSON CreateRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CreateRule"
       ( \x ->
           CreateRule'
-            Prelude.<$> (x Core..:? "Interval")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "IntervalUnit")
-            Prelude.<*> (x Core..:? "Times" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CronExpression")
+            Prelude.<$> (x Data..:? "Interval")
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "IntervalUnit")
+            Prelude.<*> (x Data..:? "Times" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CronExpression")
       )
 
 instance Prelude.Hashable CreateRule where
@@ -180,15 +181,15 @@ instance Prelude.NFData CreateRule where
       `Prelude.seq` Prelude.rnf times
       `Prelude.seq` Prelude.rnf cronExpression
 
-instance Core.ToJSON CreateRule where
+instance Data.ToJSON CreateRule where
   toJSON CreateRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Interval" Core..=) Prelude.<$> interval,
-            ("Location" Core..=) Prelude.<$> location,
-            ("IntervalUnit" Core..=) Prelude.<$> intervalUnit,
-            ("Times" Core..=) Prelude.<$> times,
-            ("CronExpression" Core..=)
+          [ ("Interval" Data..=) Prelude.<$> interval,
+            ("Location" Data..=) Prelude.<$> location,
+            ("IntervalUnit" Data..=) Prelude.<$> intervalUnit,
+            ("Times" Data..=) Prelude.<$> times,
+            ("CronExpression" Data..=)
               Prelude.<$> cronExpression
           ]
       )

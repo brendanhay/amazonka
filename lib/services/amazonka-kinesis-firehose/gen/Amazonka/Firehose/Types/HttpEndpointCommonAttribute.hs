@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.HttpEndpointCommonAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the metadata that\'s delivered to the specified HTTP endpoint
@@ -29,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newHttpEndpointCommonAttribute' smart constructor.
 data HttpEndpointCommonAttribute = HttpEndpointCommonAttribute'
   { -- | The name of the HTTP endpoint common attribute.
-    attributeName :: Core.Sensitive Prelude.Text,
+    attributeName :: Data.Sensitive Prelude.Text,
     -- | The value of the HTTP endpoint common attribute.
-    attributeValue :: Core.Sensitive Prelude.Text
+    attributeValue :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -57,27 +58,27 @@ newHttpEndpointCommonAttribute
   pAttributeValue_ =
     HttpEndpointCommonAttribute'
       { attributeName =
-          Core._Sensitive Lens.# pAttributeName_,
+          Data._Sensitive Lens.# pAttributeName_,
         attributeValue =
-          Core._Sensitive Lens.# pAttributeValue_
+          Data._Sensitive Lens.# pAttributeValue_
       }
 
 -- | The name of the HTTP endpoint common attribute.
 httpEndpointCommonAttribute_attributeName :: Lens.Lens' HttpEndpointCommonAttribute Prelude.Text
-httpEndpointCommonAttribute_attributeName = Lens.lens (\HttpEndpointCommonAttribute' {attributeName} -> attributeName) (\s@HttpEndpointCommonAttribute' {} a -> s {attributeName = a} :: HttpEndpointCommonAttribute) Prelude.. Core._Sensitive
+httpEndpointCommonAttribute_attributeName = Lens.lens (\HttpEndpointCommonAttribute' {attributeName} -> attributeName) (\s@HttpEndpointCommonAttribute' {} a -> s {attributeName = a} :: HttpEndpointCommonAttribute) Prelude.. Data._Sensitive
 
 -- | The value of the HTTP endpoint common attribute.
 httpEndpointCommonAttribute_attributeValue :: Lens.Lens' HttpEndpointCommonAttribute Prelude.Text
-httpEndpointCommonAttribute_attributeValue = Lens.lens (\HttpEndpointCommonAttribute' {attributeValue} -> attributeValue) (\s@HttpEndpointCommonAttribute' {} a -> s {attributeValue = a} :: HttpEndpointCommonAttribute) Prelude.. Core._Sensitive
+httpEndpointCommonAttribute_attributeValue = Lens.lens (\HttpEndpointCommonAttribute' {attributeValue} -> attributeValue) (\s@HttpEndpointCommonAttribute' {} a -> s {attributeValue = a} :: HttpEndpointCommonAttribute) Prelude.. Data._Sensitive
 
-instance Core.FromJSON HttpEndpointCommonAttribute where
+instance Data.FromJSON HttpEndpointCommonAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpEndpointCommonAttribute"
       ( \x ->
           HttpEndpointCommonAttribute'
-            Prelude.<$> (x Core..: "AttributeName")
-            Prelude.<*> (x Core..: "AttributeValue")
+            Prelude.<$> (x Data..: "AttributeName")
+            Prelude.<*> (x Data..: "AttributeValue")
       )
 
 instance Prelude.Hashable HttpEndpointCommonAttribute where
@@ -90,13 +91,13 @@ instance Prelude.NFData HttpEndpointCommonAttribute where
     Prelude.rnf attributeName
       `Prelude.seq` Prelude.rnf attributeValue
 
-instance Core.ToJSON HttpEndpointCommonAttribute where
+instance Data.ToJSON HttpEndpointCommonAttribute where
   toJSON HttpEndpointCommonAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AttributeName" Core..= attributeName),
+              ("AttributeName" Data..= attributeName),
             Prelude.Just
-              ("AttributeValue" Core..= attributeValue)
+              ("AttributeValue" Data..= attributeValue)
           ]
       )

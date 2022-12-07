@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,21 +108,21 @@ instance Prelude.NFData BatchDeleteAttributes where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf items
 
-instance Core.ToHeaders BatchDeleteAttributes where
+instance Data.ToHeaders BatchDeleteAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath BatchDeleteAttributes where
+instance Data.ToPath BatchDeleteAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchDeleteAttributes where
+instance Data.ToQuery BatchDeleteAttributes where
   toQuery BatchDeleteAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("BatchDeleteAttributes" :: Prelude.ByteString),
+          Data.=: ("BatchDeleteAttributes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2009-04-15" :: Prelude.ByteString),
-        "DomainName" Core.=: domainName,
-        Core.toQueryList "Item" items
+          Data.=: ("2009-04-15" :: Prelude.ByteString),
+        "DomainName" Data.=: domainName,
+        Data.toQueryList "Item" items
       ]
 
 -- | /See:/ 'newBatchDeleteAttributesResponse' smart constructor.

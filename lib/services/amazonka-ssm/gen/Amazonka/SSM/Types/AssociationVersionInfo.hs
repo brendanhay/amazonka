@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.AssociationVersionInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AssociationComplianceSeverity
 import Amazonka.SSM.Types.AssociationSyncCompliance
@@ -97,7 +98,7 @@ data AssociationVersionInfo = AssociationVersionInfo'
     -- one at a time.
     maxErrors :: Prelude.Maybe Prelude.Text,
     -- | The date the association version was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The severity level that is assigned to the association.
     complianceSeverity :: Prelude.Maybe AssociationComplianceSeverity,
     -- | The mode for generating association compliance. You can specify @AUTO@
@@ -121,7 +122,7 @@ data AssociationVersionInfo = AssociationVersionInfo'
     -- document) used when the association version was created.
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | Parameters specified when the association version was created.
-    parameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text]))
+    parameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text]))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -340,7 +341,7 @@ associationVersionInfo_maxErrors = Lens.lens (\AssociationVersionInfo' {maxError
 
 -- | The date the association version was created.
 associationVersionInfo_createdDate :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe Prelude.UTCTime)
-associationVersionInfo_createdDate = Lens.lens (\AssociationVersionInfo' {createdDate} -> createdDate) (\s@AssociationVersionInfo' {} a -> s {createdDate = a} :: AssociationVersionInfo) Prelude.. Lens.mapping Core._Time
+associationVersionInfo_createdDate = Lens.lens (\AssociationVersionInfo' {createdDate} -> createdDate) (\s@AssociationVersionInfo' {} a -> s {createdDate = a} :: AssociationVersionInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The severity level that is assigned to the association.
 associationVersionInfo_complianceSeverity :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe AssociationComplianceSeverity)
@@ -374,33 +375,33 @@ associationVersionInfo_documentVersion = Lens.lens (\AssociationVersionInfo' {do
 
 -- | Parameters specified when the association version was created.
 associationVersionInfo_parameters :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-associationVersionInfo_parameters = Lens.lens (\AssociationVersionInfo' {parameters} -> parameters) (\s@AssociationVersionInfo' {} a -> s {parameters = a} :: AssociationVersionInfo) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+associationVersionInfo_parameters = Lens.lens (\AssociationVersionInfo' {parameters} -> parameters) (\s@AssociationVersionInfo' {} a -> s {parameters = a} :: AssociationVersionInfo) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
-instance Core.FromJSON AssociationVersionInfo where
+instance Data.FromJSON AssociationVersionInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssociationVersionInfo"
       ( \x ->
           AssociationVersionInfo'
-            Prelude.<$> (x Core..:? "AssociationName")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AssociationVersion")
-            Prelude.<*> (x Core..:? "TargetLocations")
-            Prelude.<*> (x Core..:? "TargetMaps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "OutputLocation")
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CalendarNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ScheduleExpression")
-            Prelude.<*> (x Core..:? "ScheduleOffset")
-            Prelude.<*> (x Core..:? "MaxConcurrency")
-            Prelude.<*> (x Core..:? "ApplyOnlyAtCronInterval")
-            Prelude.<*> (x Core..:? "MaxErrors")
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "ComplianceSeverity")
-            Prelude.<*> (x Core..:? "SyncCompliance")
-            Prelude.<*> (x Core..:? "AssociationId")
-            Prelude.<*> (x Core..:? "DocumentVersion")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "AssociationName")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AssociationVersion")
+            Prelude.<*> (x Data..:? "TargetLocations")
+            Prelude.<*> (x Data..:? "TargetMaps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "OutputLocation")
+            Prelude.<*> (x Data..:? "Targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CalendarNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ScheduleExpression")
+            Prelude.<*> (x Data..:? "ScheduleOffset")
+            Prelude.<*> (x Data..:? "MaxConcurrency")
+            Prelude.<*> (x Data..:? "ApplyOnlyAtCronInterval")
+            Prelude.<*> (x Data..:? "MaxErrors")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "ComplianceSeverity")
+            Prelude.<*> (x Data..:? "SyncCompliance")
+            Prelude.<*> (x Data..:? "AssociationId")
+            Prelude.<*> (x Data..:? "DocumentVersion")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AssociationVersionInfo where

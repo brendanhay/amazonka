@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,7 +144,7 @@ instance Core.AWSRequest StartTaskExecution where
     Response.receiveJSON
       ( \s h x ->
           StartTaskExecutionResponse'
-            Prelude.<$> (x Core..?> "TaskExecutionArn")
+            Prelude.<$> (x Data..?> "TaskExecutionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,37 +162,37 @@ instance Prelude.NFData StartTaskExecution where
       `Prelude.seq` Prelude.rnf includes
       `Prelude.seq` Prelude.rnf taskArn
 
-instance Core.ToHeaders StartTaskExecution where
+instance Data.ToHeaders StartTaskExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.StartTaskExecution" ::
+              Data.=# ( "FmrsService.StartTaskExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartTaskExecution where
+instance Data.ToJSON StartTaskExecution where
   toJSON StartTaskExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OverrideOptions" Core..=)
+          [ ("OverrideOptions" Data..=)
               Prelude.<$> overrideOptions,
-            ("Excludes" Core..=) Prelude.<$> excludes,
-            ("Includes" Core..=) Prelude.<$> includes,
-            Prelude.Just ("TaskArn" Core..= taskArn)
+            ("Excludes" Data..=) Prelude.<$> excludes,
+            ("Includes" Data..=) Prelude.<$> includes,
+            Prelude.Just ("TaskArn" Data..= taskArn)
           ]
       )
 
-instance Core.ToPath StartTaskExecution where
+instance Data.ToPath StartTaskExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartTaskExecution where
+instance Data.ToQuery StartTaskExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | StartTaskExecutionResponse

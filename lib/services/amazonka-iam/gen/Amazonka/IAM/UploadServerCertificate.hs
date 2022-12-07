@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -165,7 +166,7 @@ data UploadServerCertificate = UploadServerCertificate'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    privateKey :: Core.Sensitive Prelude.Text
+    privateKey :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -274,7 +275,7 @@ newUploadServerCertificate
         certificateChain = Prelude.Nothing,
         serverCertificateName = pServerCertificateName_,
         certificateBody = pCertificateBody_,
-        privateKey = Core._Sensitive Lens.# pPrivateKey_
+        privateKey = Data._Sensitive Lens.# pPrivateKey_
       }
 
 -- | A list of tags that you want to attach to the new IAM server certificate
@@ -367,7 +368,7 @@ uploadServerCertificate_certificateBody = Lens.lens (\UploadServerCertificate' {
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
 uploadServerCertificate_privateKey :: Lens.Lens' UploadServerCertificate Prelude.Text
-uploadServerCertificate_privateKey = Lens.lens (\UploadServerCertificate' {privateKey} -> privateKey) (\s@UploadServerCertificate' {} a -> s {privateKey = a} :: UploadServerCertificate) Prelude.. Core._Sensitive
+uploadServerCertificate_privateKey = Lens.lens (\UploadServerCertificate' {privateKey} -> privateKey) (\s@UploadServerCertificate' {} a -> s {privateKey = a} :: UploadServerCertificate) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest UploadServerCertificate where
   type
@@ -380,10 +381,10 @@ instance Core.AWSRequest UploadServerCertificate where
       "UploadServerCertificateResult"
       ( \s h x ->
           UploadServerCertificateResponse'
-            Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "ServerCertificateMetadata")
+            Prelude.<*> (x Data..@? "ServerCertificateMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -405,28 +406,28 @@ instance Prelude.NFData UploadServerCertificate where
       `Prelude.seq` Prelude.rnf certificateBody
       `Prelude.seq` Prelude.rnf privateKey
 
-instance Core.ToHeaders UploadServerCertificate where
+instance Data.ToHeaders UploadServerCertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UploadServerCertificate where
+instance Data.ToPath UploadServerCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UploadServerCertificate where
+instance Data.ToQuery UploadServerCertificate where
   toQuery UploadServerCertificate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UploadServerCertificate" :: Prelude.ByteString),
+          Data.=: ("UploadServerCertificate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "Path" Core.=: path,
-        "CertificateChain" Core.=: certificateChain,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "Path" Data.=: path,
+        "CertificateChain" Data.=: certificateChain,
         "ServerCertificateName"
-          Core.=: serverCertificateName,
-        "CertificateBody" Core.=: certificateBody,
-        "PrivateKey" Core.=: privateKey
+          Data.=: serverCertificateName,
+        "CertificateBody" Data.=: certificateBody,
+        "PrivateKey" Data.=: privateKey
       ]
 
 -- | Contains the response to a successful UploadServerCertificate request.

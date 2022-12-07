@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.Greengrass where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details for a gateway that runs on IoT Greengrass. To create a
@@ -79,12 +80,12 @@ newGreengrass pGroupArn_ =
 greengrass_groupArn :: Lens.Lens' Greengrass Prelude.Text
 greengrass_groupArn = Lens.lens (\Greengrass' {groupArn} -> groupArn) (\s@Greengrass' {} a -> s {groupArn = a} :: Greengrass)
 
-instance Core.FromJSON Greengrass where
+instance Data.FromJSON Greengrass where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Greengrass"
       ( \x ->
-          Greengrass' Prelude.<$> (x Core..: "groupArn")
+          Greengrass' Prelude.<$> (x Data..: "groupArn")
       )
 
 instance Prelude.Hashable Greengrass where
@@ -94,9 +95,9 @@ instance Prelude.Hashable Greengrass where
 instance Prelude.NFData Greengrass where
   rnf Greengrass' {..} = Prelude.rnf groupArn
 
-instance Core.ToJSON Greengrass where
+instance Data.ToJSON Greengrass where
   toJSON Greengrass' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("groupArn" Core..= groupArn)]
+          [Prelude.Just ("groupArn" Data..= groupArn)]
       )

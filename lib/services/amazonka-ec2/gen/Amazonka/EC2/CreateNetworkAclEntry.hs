@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -291,29 +292,29 @@ instance Prelude.NFData CreateNetworkAclEntry where
       `Prelude.seq` Prelude.rnf ruleAction
       `Prelude.seq` Prelude.rnf ruleNumber
 
-instance Core.ToHeaders CreateNetworkAclEntry where
+instance Data.ToHeaders CreateNetworkAclEntry where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateNetworkAclEntry where
+instance Data.ToPath CreateNetworkAclEntry where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateNetworkAclEntry where
+instance Data.ToQuery CreateNetworkAclEntry where
   toQuery CreateNetworkAclEntry' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateNetworkAclEntry" :: Prelude.ByteString),
+          Data.=: ("CreateNetworkAclEntry" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Icmp" Core.=: icmpTypeCode,
-        "PortRange" Core.=: portRange,
-        "DryRun" Core.=: dryRun,
-        "CidrBlock" Core.=: cidrBlock,
-        "Ipv6CidrBlock" Core.=: ipv6CidrBlock,
-        "Egress" Core.=: egress,
-        "NetworkAclId" Core.=: networkAclId,
-        "Protocol" Core.=: protocol,
-        "RuleAction" Core.=: ruleAction,
-        "RuleNumber" Core.=: ruleNumber
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Icmp" Data.=: icmpTypeCode,
+        "PortRange" Data.=: portRange,
+        "DryRun" Data.=: dryRun,
+        "CidrBlock" Data.=: cidrBlock,
+        "Ipv6CidrBlock" Data.=: ipv6CidrBlock,
+        "Egress" Data.=: egress,
+        "NetworkAclId" Data.=: networkAclId,
+        "Protocol" Data.=: protocol,
+        "RuleAction" Data.=: ruleAction,
+        "RuleNumber" Data.=: ruleNumber
       ]
 
 -- | /See:/ 'newCreateNetworkAclEntryResponse' smart constructor.

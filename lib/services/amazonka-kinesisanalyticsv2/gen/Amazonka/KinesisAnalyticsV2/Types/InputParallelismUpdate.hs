@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.InputParallelismUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a SQL-based Kinesis Data Analytics application, provides updates to
@@ -67,9 +68,9 @@ instance Prelude.NFData InputParallelismUpdate where
   rnf InputParallelismUpdate' {..} =
     Prelude.rnf countUpdate
 
-instance Core.ToJSON InputParallelismUpdate where
+instance Data.ToJSON InputParallelismUpdate where
   toJSON InputParallelismUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("CountUpdate" Core..= countUpdate)]
+          [Prelude.Just ("CountUpdate" Data..= countUpdate)]
       )

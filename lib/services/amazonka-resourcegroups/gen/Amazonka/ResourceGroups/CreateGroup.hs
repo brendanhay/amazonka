@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroups.Types
@@ -191,10 +192,10 @@ instance Core.AWSRequest CreateGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateGroupResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "GroupConfiguration")
-            Prelude.<*> (x Core..?> "ResourceQuery")
-            Prelude.<*> (x Core..?> "Group")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "GroupConfiguration")
+            Prelude.<*> (x Data..?> "ResourceQuery")
+            Prelude.<*> (x Data..?> "Group")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -214,25 +215,25 @@ instance Prelude.NFData CreateGroup where
       `Prelude.seq` Prelude.rnf resourceQuery
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateGroup where
+instance Data.ToHeaders CreateGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateGroup where
+instance Data.ToJSON CreateGroup where
   toJSON CreateGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Configuration" Core..=) Prelude.<$> configuration,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ResourceQuery" Core..=) Prelude.<$> resourceQuery,
-            Prelude.Just ("Name" Core..= name)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Configuration" Data..=) Prelude.<$> configuration,
+            ("Description" Data..=) Prelude.<$> description,
+            ("ResourceQuery" Data..=) Prelude.<$> resourceQuery,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateGroup where
+instance Data.ToPath CreateGroup where
   toPath = Prelude.const "/groups"
 
-instance Core.ToQuery CreateGroup where
+instance Data.ToQuery CreateGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGroupResponse' smart constructor.

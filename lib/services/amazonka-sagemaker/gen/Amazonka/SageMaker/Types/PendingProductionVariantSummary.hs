@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.PendingProductionVariantSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.DeployedImage
 import Amazonka.SageMaker.Types.ProductionVariantAcceleratorType
@@ -187,25 +188,25 @@ pendingProductionVariantSummary_variantName :: Lens.Lens' PendingProductionVaria
 pendingProductionVariantSummary_variantName = Lens.lens (\PendingProductionVariantSummary' {variantName} -> variantName) (\s@PendingProductionVariantSummary' {} a -> s {variantName = a} :: PendingProductionVariantSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PendingProductionVariantSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PendingProductionVariantSummary"
       ( \x ->
           PendingProductionVariantSummary'
-            Prelude.<$> (x Core..:? "DesiredServerlessConfig")
-            Prelude.<*> (x Core..:? "DesiredWeight")
-            Prelude.<*> (x Core..:? "AcceleratorType")
-            Prelude.<*> (x Core..:? "CurrentServerlessConfig")
-            Prelude.<*> (x Core..:? "VariantStatus" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DesiredInstanceCount")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "CurrentWeight")
-            Prelude.<*> (x Core..:? "DeployedImages" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CurrentInstanceCount")
-            Prelude.<*> (x Core..: "VariantName")
+            Prelude.<$> (x Data..:? "DesiredServerlessConfig")
+            Prelude.<*> (x Data..:? "DesiredWeight")
+            Prelude.<*> (x Data..:? "AcceleratorType")
+            Prelude.<*> (x Data..:? "CurrentServerlessConfig")
+            Prelude.<*> (x Data..:? "VariantStatus" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DesiredInstanceCount")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "CurrentWeight")
+            Prelude.<*> (x Data..:? "DeployedImages" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CurrentInstanceCount")
+            Prelude.<*> (x Data..: "VariantName")
       )
 
 instance

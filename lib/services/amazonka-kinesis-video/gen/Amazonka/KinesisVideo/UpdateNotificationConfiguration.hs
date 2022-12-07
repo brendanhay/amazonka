@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,27 +150,27 @@ instance
       `Prelude.seq` Prelude.rnf streamName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateNotificationConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateNotificationConfiguration where
+instance Data.ToJSON UpdateNotificationConfiguration where
   toJSON UpdateNotificationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NotificationConfiguration" Core..=)
+          [ ("NotificationConfiguration" Data..=)
               Prelude.<$> notificationConfiguration,
-            ("StreamARN" Core..=) Prelude.<$> streamARN,
-            ("StreamName" Core..=) Prelude.<$> streamName
+            ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName
           ]
       )
 
-instance Core.ToPath UpdateNotificationConfiguration where
+instance Data.ToPath UpdateNotificationConfiguration where
   toPath =
     Prelude.const "/updateNotificationConfiguration"
 
-instance Core.ToQuery UpdateNotificationConfiguration where
+instance Data.ToQuery UpdateNotificationConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateNotificationConfigurationResponse' smart constructor.

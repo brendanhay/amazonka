@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.CustomPlugin where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A plugin is an AWS resource that contains the code that defines a
@@ -76,12 +77,12 @@ instance Prelude.NFData CustomPlugin where
     Prelude.rnf customPluginArn
       `Prelude.seq` Prelude.rnf revision
 
-instance Core.ToJSON CustomPlugin where
+instance Data.ToJSON CustomPlugin where
   toJSON CustomPlugin' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("customPluginArn" Core..= customPluginArn),
-            Prelude.Just ("revision" Core..= revision)
+              ("customPluginArn" Data..= customPluginArn),
+            Prelude.Just ("revision" Data..= revision)
           ]
       )

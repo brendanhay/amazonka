@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,7 +118,7 @@ instance Core.AWSRequest CreateBlueprint where
     Response.receiveJSON
       ( \s h x ->
           CreateBlueprintResponse'
-            Prelude.<$> (x Core..?> "Name")
+            Prelude.<$> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,35 +136,35 @@ instance Prelude.NFData CreateBlueprint where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf blueprintLocation
 
-instance Core.ToHeaders CreateBlueprint where
+instance Data.ToHeaders CreateBlueprint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CreateBlueprint" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.CreateBlueprint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBlueprint where
+instance Data.ToJSON CreateBlueprint where
   toJSON CreateBlueprint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("BlueprintLocation" Core..= blueprintLocation)
+              ("BlueprintLocation" Data..= blueprintLocation)
           ]
       )
 
-instance Core.ToPath CreateBlueprint where
+instance Data.ToPath CreateBlueprint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateBlueprint where
+instance Data.ToQuery CreateBlueprint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBlueprintResponse' smart constructor.

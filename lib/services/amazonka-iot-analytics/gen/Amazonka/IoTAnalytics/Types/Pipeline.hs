@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.Pipeline where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.PipelineActivity
 import Amazonka.IoTAnalytics.Types.ReprocessingSummary
 import qualified Amazonka.Prelude as Prelude
@@ -38,9 +39,9 @@ data Pipeline = Pipeline'
     -- | The ARN of the pipeline.
     arn :: Prelude.Maybe Prelude.Text,
     -- | When the pipeline was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The last time the pipeline was updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX
+    lastUpdateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,26 +94,26 @@ pipeline_arn = Lens.lens (\Pipeline' {arn} -> arn) (\s@Pipeline' {} a -> s {arn 
 
 -- | When the pipeline was created.
 pipeline_creationTime :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.UTCTime)
-pipeline_creationTime = Lens.lens (\Pipeline' {creationTime} -> creationTime) (\s@Pipeline' {} a -> s {creationTime = a} :: Pipeline) Prelude.. Lens.mapping Core._Time
+pipeline_creationTime = Lens.lens (\Pipeline' {creationTime} -> creationTime) (\s@Pipeline' {} a -> s {creationTime = a} :: Pipeline) Prelude.. Lens.mapping Data._Time
 
 -- | The last time the pipeline was updated.
 pipeline_lastUpdateTime :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.UTCTime)
-pipeline_lastUpdateTime = Lens.lens (\Pipeline' {lastUpdateTime} -> lastUpdateTime) (\s@Pipeline' {} a -> s {lastUpdateTime = a} :: Pipeline) Prelude.. Lens.mapping Core._Time
+pipeline_lastUpdateTime = Lens.lens (\Pipeline' {lastUpdateTime} -> lastUpdateTime) (\s@Pipeline' {} a -> s {lastUpdateTime = a} :: Pipeline) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Pipeline where
+instance Data.FromJSON Pipeline where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Pipeline"
       ( \x ->
           Pipeline'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "activities")
-            Prelude.<*> ( x Core..:? "reprocessingSummaries"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "activities")
+            Prelude.<*> ( x Data..:? "reprocessingSummaries"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
       )
 
 instance Prelude.Hashable Pipeline where

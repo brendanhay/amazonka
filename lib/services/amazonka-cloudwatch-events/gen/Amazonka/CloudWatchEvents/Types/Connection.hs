@@ -23,6 +23,7 @@ import Amazonka.CloudWatchEvents.Types.ConnectionAuthorizationType
 import Amazonka.CloudWatchEvents.Types.ConnectionState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a connection.
@@ -36,11 +37,11 @@ data Connection = Connection'
     -- | The ARN of the connection.
     connectionArn :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time that the connection was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | A time stamp for the time that the connection was last authorized.
-    lastAuthorizedTime :: Prelude.Maybe Core.POSIX,
+    lastAuthorizedTime :: Prelude.Maybe Data.POSIX,
     -- | A time stamp for the time that the connection was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The authorization type specified for the connection.
     authorizationType :: Prelude.Maybe ConnectionAuthorizationType,
     -- | The reason that the connection is in the connection state.
@@ -99,15 +100,15 @@ connection_connectionArn = Lens.lens (\Connection' {connectionArn} -> connection
 
 -- | A time stamp for the time that the connection was last modified.
 connection_lastModifiedTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
-connection_lastModifiedTime = Lens.lens (\Connection' {lastModifiedTime} -> lastModifiedTime) (\s@Connection' {} a -> s {lastModifiedTime = a} :: Connection) Prelude.. Lens.mapping Core._Time
+connection_lastModifiedTime = Lens.lens (\Connection' {lastModifiedTime} -> lastModifiedTime) (\s@Connection' {} a -> s {lastModifiedTime = a} :: Connection) Prelude.. Lens.mapping Data._Time
 
 -- | A time stamp for the time that the connection was last authorized.
 connection_lastAuthorizedTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
-connection_lastAuthorizedTime = Lens.lens (\Connection' {lastAuthorizedTime} -> lastAuthorizedTime) (\s@Connection' {} a -> s {lastAuthorizedTime = a} :: Connection) Prelude.. Lens.mapping Core._Time
+connection_lastAuthorizedTime = Lens.lens (\Connection' {lastAuthorizedTime} -> lastAuthorizedTime) (\s@Connection' {} a -> s {lastAuthorizedTime = a} :: Connection) Prelude.. Lens.mapping Data._Time
 
 -- | A time stamp for the time that the connection was created.
 connection_creationTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
-connection_creationTime = Lens.lens (\Connection' {creationTime} -> creationTime) (\s@Connection' {} a -> s {creationTime = a} :: Connection) Prelude.. Lens.mapping Core._Time
+connection_creationTime = Lens.lens (\Connection' {creationTime} -> creationTime) (\s@Connection' {} a -> s {creationTime = a} :: Connection) Prelude.. Lens.mapping Data._Time
 
 -- | The authorization type specified for the connection.
 connection_authorizationType :: Lens.Lens' Connection (Prelude.Maybe ConnectionAuthorizationType)
@@ -117,20 +118,20 @@ connection_authorizationType = Lens.lens (\Connection' {authorizationType} -> au
 connection_stateReason :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
 connection_stateReason = Lens.lens (\Connection' {stateReason} -> stateReason) (\s@Connection' {} a -> s {stateReason = a} :: Connection)
 
-instance Core.FromJSON Connection where
+instance Data.FromJSON Connection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Connection"
       ( \x ->
           Connection'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ConnectionState")
-            Prelude.<*> (x Core..:? "ConnectionArn")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "LastAuthorizedTime")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "AuthorizationType")
-            Prelude.<*> (x Core..:? "StateReason")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ConnectionState")
+            Prelude.<*> (x Data..:? "ConnectionArn")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "LastAuthorizedTime")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "AuthorizationType")
+            Prelude.<*> (x Data..:? "StateReason")
       )
 
 instance Prelude.Hashable Connection where

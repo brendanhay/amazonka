@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -105,9 +106,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListSuggestedResiliencyPoliciesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "resiliencyPolicies"
+            Prelude.<*> ( x Data..?> "resiliencyPolicies"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -131,28 +132,28 @@ instance
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListSuggestedResiliencyPolicies
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListSuggestedResiliencyPolicies where
+instance Data.ToPath ListSuggestedResiliencyPolicies where
   toPath =
     Prelude.const "/list-suggested-resiliency-policies"
 
-instance Core.ToQuery ListSuggestedResiliencyPolicies where
+instance Data.ToQuery ListSuggestedResiliencyPolicies where
   toQuery ListSuggestedResiliencyPolicies' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListSuggestedResiliencyPoliciesResponse' smart constructor.

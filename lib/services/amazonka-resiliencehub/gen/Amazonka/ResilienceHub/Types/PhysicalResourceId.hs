@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.PhysicalResourceId where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.PhysicalIdentifierType
 
@@ -102,16 +103,16 @@ physicalResourceId_identifier = Lens.lens (\PhysicalResourceId' {identifier} -> 
 physicalResourceId_type :: Lens.Lens' PhysicalResourceId PhysicalIdentifierType
 physicalResourceId_type = Lens.lens (\PhysicalResourceId' {type'} -> type') (\s@PhysicalResourceId' {} a -> s {type' = a} :: PhysicalResourceId)
 
-instance Core.FromJSON PhysicalResourceId where
+instance Data.FromJSON PhysicalResourceId where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PhysicalResourceId"
       ( \x ->
           PhysicalResourceId'
-            Prelude.<$> (x Core..:? "awsAccountId")
-            Prelude.<*> (x Core..:? "awsRegion")
-            Prelude.<*> (x Core..: "identifier")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "awsAccountId")
+            Prelude.<*> (x Data..:? "awsRegion")
+            Prelude.<*> (x Data..: "identifier")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable PhysicalResourceId where
@@ -128,13 +129,13 @@ instance Prelude.NFData PhysicalResourceId where
       `Prelude.seq` Prelude.rnf identifier
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON PhysicalResourceId where
+instance Data.ToJSON PhysicalResourceId where
   toJSON PhysicalResourceId' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("awsAccountId" Core..=) Prelude.<$> awsAccountId,
-            ("awsRegion" Core..=) Prelude.<$> awsRegion,
-            Prelude.Just ("identifier" Core..= identifier),
-            Prelude.Just ("type" Core..= type')
+          [ ("awsAccountId" Data..=) Prelude.<$> awsAccountId,
+            ("awsRegion" Data..=) Prelude.<$> awsRegion,
+            Prelude.Just ("identifier" Data..= identifier),
+            Prelude.Just ("type" Data..= type')
           ]
       )

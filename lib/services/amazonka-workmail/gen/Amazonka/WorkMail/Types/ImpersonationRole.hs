@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.ImpersonationRole where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.ImpersonationRoleType
 
@@ -33,11 +34,11 @@ data ImpersonationRole = ImpersonationRole'
     -- | The impersonation role type.
     type' :: Prelude.Maybe ImpersonationRoleType,
     -- | The date when the impersonation role was created.
-    dateCreated :: Prelude.Maybe Core.POSIX,
+    dateCreated :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the impersonation role.
     impersonationRoleId :: Prelude.Maybe Prelude.Text,
     -- | The date when the impersonation role was last modified.
-    dateModified :: Prelude.Maybe Core.POSIX
+    dateModified :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,7 +80,7 @@ impersonationRole_type = Lens.lens (\ImpersonationRole' {type'} -> type') (\s@Im
 
 -- | The date when the impersonation role was created.
 impersonationRole_dateCreated :: Lens.Lens' ImpersonationRole (Prelude.Maybe Prelude.UTCTime)
-impersonationRole_dateCreated = Lens.lens (\ImpersonationRole' {dateCreated} -> dateCreated) (\s@ImpersonationRole' {} a -> s {dateCreated = a} :: ImpersonationRole) Prelude.. Lens.mapping Core._Time
+impersonationRole_dateCreated = Lens.lens (\ImpersonationRole' {dateCreated} -> dateCreated) (\s@ImpersonationRole' {} a -> s {dateCreated = a} :: ImpersonationRole) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the impersonation role.
 impersonationRole_impersonationRoleId :: Lens.Lens' ImpersonationRole (Prelude.Maybe Prelude.Text)
@@ -87,19 +88,19 @@ impersonationRole_impersonationRoleId = Lens.lens (\ImpersonationRole' {imperson
 
 -- | The date when the impersonation role was last modified.
 impersonationRole_dateModified :: Lens.Lens' ImpersonationRole (Prelude.Maybe Prelude.UTCTime)
-impersonationRole_dateModified = Lens.lens (\ImpersonationRole' {dateModified} -> dateModified) (\s@ImpersonationRole' {} a -> s {dateModified = a} :: ImpersonationRole) Prelude.. Lens.mapping Core._Time
+impersonationRole_dateModified = Lens.lens (\ImpersonationRole' {dateModified} -> dateModified) (\s@ImpersonationRole' {} a -> s {dateModified = a} :: ImpersonationRole) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ImpersonationRole where
+instance Data.FromJSON ImpersonationRole where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImpersonationRole"
       ( \x ->
           ImpersonationRole'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DateCreated")
-            Prelude.<*> (x Core..:? "ImpersonationRoleId")
-            Prelude.<*> (x Core..:? "DateModified")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DateCreated")
+            Prelude.<*> (x Data..:? "ImpersonationRoleId")
+            Prelude.<*> (x Data..:? "DateModified")
       )
 
 instance Prelude.Hashable ImpersonationRole where

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,32 +93,32 @@ instance Prelude.Hashable DeleteSolution where
 instance Prelude.NFData DeleteSolution where
   rnf DeleteSolution' {..} = Prelude.rnf solutionArn
 
-instance Core.ToHeaders DeleteSolution where
+instance Data.ToHeaders DeleteSolution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DeleteSolution" ::
+              Data.=# ( "AmazonPersonalize.DeleteSolution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSolution where
+instance Data.ToJSON DeleteSolution where
   toJSON DeleteSolution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("solutionArn" Core..= solutionArn)]
+          [Prelude.Just ("solutionArn" Data..= solutionArn)]
       )
 
-instance Core.ToPath DeleteSolution where
+instance Data.ToPath DeleteSolution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSolution where
+instance Data.ToQuery DeleteSolution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSolutionResponse' smart constructor.

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,21 +129,21 @@ instance Prelude.NFData DeregisterImage where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf imageId
 
-instance Core.ToHeaders DeregisterImage where
+instance Data.ToHeaders DeregisterImage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeregisterImage where
+instance Data.ToPath DeregisterImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeregisterImage where
+instance Data.ToQuery DeregisterImage where
   toQuery DeregisterImage' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeregisterImage" :: Prelude.ByteString),
+          Data.=: ("DeregisterImage" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "ImageId" Core.=: imageId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "ImageId" Data.=: imageId
       ]
 
 -- | /See:/ 'newDeregisterImageResponse' smart constructor.

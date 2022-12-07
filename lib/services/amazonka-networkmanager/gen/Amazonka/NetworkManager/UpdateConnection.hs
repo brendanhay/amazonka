@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,7 +135,7 @@ instance Core.AWSRequest UpdateConnection where
     Response.receiveJSON
       ( \s h x ->
           UpdateConnectionResponse'
-            Prelude.<$> (x Core..?> "Connection")
+            Prelude.<$> (x Data..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,38 +155,38 @@ instance Prelude.NFData UpdateConnection where
       `Prelude.seq` Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf connectionId
 
-instance Core.ToHeaders UpdateConnection where
+instance Data.ToHeaders UpdateConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateConnection where
+instance Data.ToJSON UpdateConnection where
   toJSON UpdateConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LinkId" Core..=) Prelude.<$> linkId,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ConnectedLinkId" Core..=)
+          [ ("LinkId" Data..=) Prelude.<$> linkId,
+            ("Description" Data..=) Prelude.<$> description,
+            ("ConnectedLinkId" Data..=)
               Prelude.<$> connectedLinkId
           ]
       )
 
-instance Core.ToPath UpdateConnection where
+instance Data.ToPath UpdateConnection where
   toPath UpdateConnection' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/connections/",
-        Core.toBS connectionId
+        Data.toBS connectionId
       ]
 
-instance Core.ToQuery UpdateConnection where
+instance Data.ToQuery UpdateConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConnectionResponse' smart constructor.

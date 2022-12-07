@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.SelfManagedActiveDirectoryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that Amazon FSx uses to join a FSx for Windows File
@@ -63,7 +64,7 @@ data SelfManagedActiveDirectoryConfiguration = SelfManagedActiveDirectoryConfigu
     userName :: Prelude.Text,
     -- | The password for the service account on your self-managed AD domain that
     -- Amazon FSx will use to join to your AD domain.
-    password :: Core.Sensitive Prelude.Text,
+    password :: Data.Sensitive Prelude.Text,
     -- | A list of up to three IP addresses of DNS servers or domain controllers
     -- in the self-managed AD directory.
     dnsIps :: Prelude.NonEmpty Prelude.Text
@@ -134,7 +135,7 @@ newSelfManagedActiveDirectoryConfiguration
         domainName = pDomainName_,
         userName = pUserName_,
         password =
-          Core._Sensitive
+          Data._Sensitive
             Lens.# pPassword_,
         dnsIps =
           Lens.coerced Lens.# pDnsIps_
@@ -179,7 +180,7 @@ selfManagedActiveDirectoryConfiguration_userName = Lens.lens (\SelfManagedActive
 -- | The password for the service account on your self-managed AD domain that
 -- Amazon FSx will use to join to your AD domain.
 selfManagedActiveDirectoryConfiguration_password :: Lens.Lens' SelfManagedActiveDirectoryConfiguration Prelude.Text
-selfManagedActiveDirectoryConfiguration_password = Lens.lens (\SelfManagedActiveDirectoryConfiguration' {password} -> password) (\s@SelfManagedActiveDirectoryConfiguration' {} a -> s {password = a} :: SelfManagedActiveDirectoryConfiguration) Prelude.. Core._Sensitive
+selfManagedActiveDirectoryConfiguration_password = Lens.lens (\SelfManagedActiveDirectoryConfiguration' {password} -> password) (\s@SelfManagedActiveDirectoryConfiguration' {} a -> s {password = a} :: SelfManagedActiveDirectoryConfiguration) Prelude.. Data._Sensitive
 
 -- | A list of up to three IP addresses of DNS servers or domain controllers
 -- in the self-managed AD directory.
@@ -214,19 +215,19 @@ instance
       `Prelude.seq` Prelude.rnf dnsIps
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SelfManagedActiveDirectoryConfiguration
   where
   toJSON SelfManagedActiveDirectoryConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OrganizationalUnitDistinguishedName" Core..=)
+          [ ("OrganizationalUnitDistinguishedName" Data..=)
               Prelude.<$> organizationalUnitDistinguishedName,
-            ("FileSystemAdministratorsGroup" Core..=)
+            ("FileSystemAdministratorsGroup" Data..=)
               Prelude.<$> fileSystemAdministratorsGroup,
-            Prelude.Just ("DomainName" Core..= domainName),
-            Prelude.Just ("UserName" Core..= userName),
-            Prelude.Just ("Password" Core..= password),
-            Prelude.Just ("DnsIps" Core..= dnsIps)
+            Prelude.Just ("DomainName" Data..= domainName),
+            Prelude.Just ("UserName" Data..= userName),
+            Prelude.Just ("Password" Data..= password),
+            Prelude.Just ("DnsIps" Data..= dnsIps)
           ]
       )

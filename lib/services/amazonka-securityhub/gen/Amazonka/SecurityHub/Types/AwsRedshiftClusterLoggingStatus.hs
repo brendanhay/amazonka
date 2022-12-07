@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRedshiftClusterLoggingStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the logging status of the cluster.
@@ -129,20 +130,20 @@ awsRedshiftClusterLoggingStatus_lastFailureTime :: Lens.Lens' AwsRedshiftCluster
 awsRedshiftClusterLoggingStatus_lastFailureTime = Lens.lens (\AwsRedshiftClusterLoggingStatus' {lastFailureTime} -> lastFailureTime) (\s@AwsRedshiftClusterLoggingStatus' {} a -> s {lastFailureTime = a} :: AwsRedshiftClusterLoggingStatus)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsRedshiftClusterLoggingStatus
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRedshiftClusterLoggingStatus"
       ( \x ->
           AwsRedshiftClusterLoggingStatus'
-            Prelude.<$> (x Core..:? "LastSuccessfulDeliveryTime")
-            Prelude.<*> (x Core..:? "S3KeyPrefix")
-            Prelude.<*> (x Core..:? "LastFailureMessage")
-            Prelude.<*> (x Core..:? "LoggingEnabled")
-            Prelude.<*> (x Core..:? "BucketName")
-            Prelude.<*> (x Core..:? "LastFailureTime")
+            Prelude.<$> (x Data..:? "LastSuccessfulDeliveryTime")
+            Prelude.<*> (x Data..:? "S3KeyPrefix")
+            Prelude.<*> (x Data..:? "LastFailureMessage")
+            Prelude.<*> (x Data..:? "LoggingEnabled")
+            Prelude.<*> (x Data..:? "BucketName")
+            Prelude.<*> (x Data..:? "LastFailureTime")
       )
 
 instance
@@ -172,19 +173,19 @@ instance
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf lastFailureTime
 
-instance Core.ToJSON AwsRedshiftClusterLoggingStatus where
+instance Data.ToJSON AwsRedshiftClusterLoggingStatus where
   toJSON AwsRedshiftClusterLoggingStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LastSuccessfulDeliveryTime" Core..=)
+          [ ("LastSuccessfulDeliveryTime" Data..=)
               Prelude.<$> lastSuccessfulDeliveryTime,
-            ("S3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
-            ("LastFailureMessage" Core..=)
+            ("S3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix,
+            ("LastFailureMessage" Data..=)
               Prelude.<$> lastFailureMessage,
-            ("LoggingEnabled" Core..=)
+            ("LoggingEnabled" Data..=)
               Prelude.<$> loggingEnabled,
-            ("BucketName" Core..=) Prelude.<$> bucketName,
-            ("LastFailureTime" Core..=)
+            ("BucketName" Data..=) Prelude.<$> bucketName,
+            ("LastFailureTime" Data..=)
               Prelude.<$> lastFailureTime
           ]
       )

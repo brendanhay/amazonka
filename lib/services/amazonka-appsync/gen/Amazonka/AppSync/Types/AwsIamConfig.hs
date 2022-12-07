@@ -21,6 +21,7 @@ module Amazonka.AppSync.Types.AwsIamConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Identity and Access Management (IAM) configuration.
@@ -61,14 +62,14 @@ awsIamConfig_signingServiceName = Lens.lens (\AwsIamConfig' {signingServiceName}
 awsIamConfig_signingRegion :: Lens.Lens' AwsIamConfig (Prelude.Maybe Prelude.Text)
 awsIamConfig_signingRegion = Lens.lens (\AwsIamConfig' {signingRegion} -> signingRegion) (\s@AwsIamConfig' {} a -> s {signingRegion = a} :: AwsIamConfig)
 
-instance Core.FromJSON AwsIamConfig where
+instance Data.FromJSON AwsIamConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamConfig"
       ( \x ->
           AwsIamConfig'
-            Prelude.<$> (x Core..:? "signingServiceName")
-            Prelude.<*> (x Core..:? "signingRegion")
+            Prelude.<$> (x Data..:? "signingServiceName")
+            Prelude.<*> (x Data..:? "signingRegion")
       )
 
 instance Prelude.Hashable AwsIamConfig where
@@ -81,12 +82,12 @@ instance Prelude.NFData AwsIamConfig where
     Prelude.rnf signingServiceName
       `Prelude.seq` Prelude.rnf signingRegion
 
-instance Core.ToJSON AwsIamConfig where
+instance Data.ToJSON AwsIamConfig where
   toJSON AwsIamConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("signingServiceName" Core..=)
+          [ ("signingServiceName" Data..=)
               Prelude.<$> signingServiceName,
-            ("signingRegion" Core..=) Prelude.<$> signingRegion
+            ("signingRegion" Data..=) Prelude.<$> signingRegion
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.NodeGroupMemberUpdateStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.NodeUpdateInitiatedBy
 import Amazonka.ElastiCache.Types.NodeUpdateStatus
 import qualified Amazonka.Prelude as Prelude
@@ -32,20 +33,20 @@ data NodeGroupMemberUpdateStatus = NodeGroupMemberUpdateStatus'
   { -- | The update status of the node
     nodeUpdateStatus :: Prelude.Maybe NodeUpdateStatus,
     -- | The end date of the update for a node
-    nodeUpdateEndDate :: Prelude.Maybe Core.ISO8601,
+    nodeUpdateEndDate :: Prelude.Maybe Data.ISO8601,
     -- | The start date of the update for a node
-    nodeUpdateStartDate :: Prelude.Maybe Core.ISO8601,
+    nodeUpdateStartDate :: Prelude.Maybe Data.ISO8601,
     -- | The deletion date of the node
-    nodeDeletionDate :: Prelude.Maybe Core.ISO8601,
+    nodeDeletionDate :: Prelude.Maybe Data.ISO8601,
     -- | Reflects whether the update was initiated by the customer or
     -- automatically applied
     nodeUpdateInitiatedBy :: Prelude.Maybe NodeUpdateInitiatedBy,
     -- | The date when the update is triggered
-    nodeUpdateInitiatedDate :: Prelude.Maybe Core.ISO8601,
+    nodeUpdateInitiatedDate :: Prelude.Maybe Data.ISO8601,
     -- | The cache cluster ID
     cacheClusterId :: Prelude.Maybe Prelude.Text,
     -- | The date when the NodeUpdateStatus was last modified
-    nodeUpdateStatusModifiedDate :: Prelude.Maybe Core.ISO8601,
+    nodeUpdateStatusModifiedDate :: Prelude.Maybe Data.ISO8601,
     -- | The node ID of the cache cluster
     cacheNodeId :: Prelude.Maybe Prelude.Text
   }
@@ -99,15 +100,15 @@ nodeGroupMemberUpdateStatus_nodeUpdateStatus = Lens.lens (\NodeGroupMemberUpdate
 
 -- | The end date of the update for a node
 nodeGroupMemberUpdateStatus_nodeUpdateEndDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Prelude.Maybe Prelude.UTCTime)
-nodeGroupMemberUpdateStatus_nodeUpdateEndDate = Lens.lens (\NodeGroupMemberUpdateStatus' {nodeUpdateEndDate} -> nodeUpdateEndDate) (\s@NodeGroupMemberUpdateStatus' {} a -> s {nodeUpdateEndDate = a} :: NodeGroupMemberUpdateStatus) Prelude.. Lens.mapping Core._Time
+nodeGroupMemberUpdateStatus_nodeUpdateEndDate = Lens.lens (\NodeGroupMemberUpdateStatus' {nodeUpdateEndDate} -> nodeUpdateEndDate) (\s@NodeGroupMemberUpdateStatus' {} a -> s {nodeUpdateEndDate = a} :: NodeGroupMemberUpdateStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The start date of the update for a node
 nodeGroupMemberUpdateStatus_nodeUpdateStartDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Prelude.Maybe Prelude.UTCTime)
-nodeGroupMemberUpdateStatus_nodeUpdateStartDate = Lens.lens (\NodeGroupMemberUpdateStatus' {nodeUpdateStartDate} -> nodeUpdateStartDate) (\s@NodeGroupMemberUpdateStatus' {} a -> s {nodeUpdateStartDate = a} :: NodeGroupMemberUpdateStatus) Prelude.. Lens.mapping Core._Time
+nodeGroupMemberUpdateStatus_nodeUpdateStartDate = Lens.lens (\NodeGroupMemberUpdateStatus' {nodeUpdateStartDate} -> nodeUpdateStartDate) (\s@NodeGroupMemberUpdateStatus' {} a -> s {nodeUpdateStartDate = a} :: NodeGroupMemberUpdateStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The deletion date of the node
 nodeGroupMemberUpdateStatus_nodeDeletionDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Prelude.Maybe Prelude.UTCTime)
-nodeGroupMemberUpdateStatus_nodeDeletionDate = Lens.lens (\NodeGroupMemberUpdateStatus' {nodeDeletionDate} -> nodeDeletionDate) (\s@NodeGroupMemberUpdateStatus' {} a -> s {nodeDeletionDate = a} :: NodeGroupMemberUpdateStatus) Prelude.. Lens.mapping Core._Time
+nodeGroupMemberUpdateStatus_nodeDeletionDate = Lens.lens (\NodeGroupMemberUpdateStatus' {nodeDeletionDate} -> nodeDeletionDate) (\s@NodeGroupMemberUpdateStatus' {} a -> s {nodeDeletionDate = a} :: NodeGroupMemberUpdateStatus) Prelude.. Lens.mapping Data._Time
 
 -- | Reflects whether the update was initiated by the customer or
 -- automatically applied
@@ -116,7 +117,7 @@ nodeGroupMemberUpdateStatus_nodeUpdateInitiatedBy = Lens.lens (\NodeGroupMemberU
 
 -- | The date when the update is triggered
 nodeGroupMemberUpdateStatus_nodeUpdateInitiatedDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Prelude.Maybe Prelude.UTCTime)
-nodeGroupMemberUpdateStatus_nodeUpdateInitiatedDate = Lens.lens (\NodeGroupMemberUpdateStatus' {nodeUpdateInitiatedDate} -> nodeUpdateInitiatedDate) (\s@NodeGroupMemberUpdateStatus' {} a -> s {nodeUpdateInitiatedDate = a} :: NodeGroupMemberUpdateStatus) Prelude.. Lens.mapping Core._Time
+nodeGroupMemberUpdateStatus_nodeUpdateInitiatedDate = Lens.lens (\NodeGroupMemberUpdateStatus' {nodeUpdateInitiatedDate} -> nodeUpdateInitiatedDate) (\s@NodeGroupMemberUpdateStatus' {} a -> s {nodeUpdateInitiatedDate = a} :: NodeGroupMemberUpdateStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The cache cluster ID
 nodeGroupMemberUpdateStatus_cacheClusterId :: Lens.Lens' NodeGroupMemberUpdateStatus (Prelude.Maybe Prelude.Text)
@@ -124,24 +125,24 @@ nodeGroupMemberUpdateStatus_cacheClusterId = Lens.lens (\NodeGroupMemberUpdateSt
 
 -- | The date when the NodeUpdateStatus was last modified
 nodeGroupMemberUpdateStatus_nodeUpdateStatusModifiedDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Prelude.Maybe Prelude.UTCTime)
-nodeGroupMemberUpdateStatus_nodeUpdateStatusModifiedDate = Lens.lens (\NodeGroupMemberUpdateStatus' {nodeUpdateStatusModifiedDate} -> nodeUpdateStatusModifiedDate) (\s@NodeGroupMemberUpdateStatus' {} a -> s {nodeUpdateStatusModifiedDate = a} :: NodeGroupMemberUpdateStatus) Prelude.. Lens.mapping Core._Time
+nodeGroupMemberUpdateStatus_nodeUpdateStatusModifiedDate = Lens.lens (\NodeGroupMemberUpdateStatus' {nodeUpdateStatusModifiedDate} -> nodeUpdateStatusModifiedDate) (\s@NodeGroupMemberUpdateStatus' {} a -> s {nodeUpdateStatusModifiedDate = a} :: NodeGroupMemberUpdateStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The node ID of the cache cluster
 nodeGroupMemberUpdateStatus_cacheNodeId :: Lens.Lens' NodeGroupMemberUpdateStatus (Prelude.Maybe Prelude.Text)
 nodeGroupMemberUpdateStatus_cacheNodeId = Lens.lens (\NodeGroupMemberUpdateStatus' {cacheNodeId} -> cacheNodeId) (\s@NodeGroupMemberUpdateStatus' {} a -> s {cacheNodeId = a} :: NodeGroupMemberUpdateStatus)
 
-instance Core.FromXML NodeGroupMemberUpdateStatus where
+instance Data.FromXML NodeGroupMemberUpdateStatus where
   parseXML x =
     NodeGroupMemberUpdateStatus'
-      Prelude.<$> (x Core..@? "NodeUpdateStatus")
-      Prelude.<*> (x Core..@? "NodeUpdateEndDate")
-      Prelude.<*> (x Core..@? "NodeUpdateStartDate")
-      Prelude.<*> (x Core..@? "NodeDeletionDate")
-      Prelude.<*> (x Core..@? "NodeUpdateInitiatedBy")
-      Prelude.<*> (x Core..@? "NodeUpdateInitiatedDate")
-      Prelude.<*> (x Core..@? "CacheClusterId")
-      Prelude.<*> (x Core..@? "NodeUpdateStatusModifiedDate")
-      Prelude.<*> (x Core..@? "CacheNodeId")
+      Prelude.<$> (x Data..@? "NodeUpdateStatus")
+      Prelude.<*> (x Data..@? "NodeUpdateEndDate")
+      Prelude.<*> (x Data..@? "NodeUpdateStartDate")
+      Prelude.<*> (x Data..@? "NodeDeletionDate")
+      Prelude.<*> (x Data..@? "NodeUpdateInitiatedBy")
+      Prelude.<*> (x Data..@? "NodeUpdateInitiatedDate")
+      Prelude.<*> (x Data..@? "CacheClusterId")
+      Prelude.<*> (x Data..@? "NodeUpdateStatusModifiedDate")
+      Prelude.<*> (x Data..@? "CacheNodeId")
 
 instance Prelude.Hashable NodeGroupMemberUpdateStatus where
   hashWithSalt _salt NodeGroupMemberUpdateStatus' {..} =

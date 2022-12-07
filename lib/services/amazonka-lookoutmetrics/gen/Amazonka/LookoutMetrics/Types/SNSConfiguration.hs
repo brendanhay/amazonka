@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.SNSConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.SnsFormat
 import qualified Amazonka.Prelude as Prelude
 
@@ -106,15 +107,15 @@ sNSConfiguration_roleArn = Lens.lens (\SNSConfiguration' {roleArn} -> roleArn) (
 sNSConfiguration_snsTopicArn :: Lens.Lens' SNSConfiguration Prelude.Text
 sNSConfiguration_snsTopicArn = Lens.lens (\SNSConfiguration' {snsTopicArn} -> snsTopicArn) (\s@SNSConfiguration' {} a -> s {snsTopicArn = a} :: SNSConfiguration)
 
-instance Core.FromJSON SNSConfiguration where
+instance Data.FromJSON SNSConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SNSConfiguration"
       ( \x ->
           SNSConfiguration'
-            Prelude.<$> (x Core..:? "SnsFormat")
-            Prelude.<*> (x Core..: "RoleArn")
-            Prelude.<*> (x Core..: "SnsTopicArn")
+            Prelude.<$> (x Data..:? "SnsFormat")
+            Prelude.<*> (x Data..: "RoleArn")
+            Prelude.<*> (x Data..: "SnsTopicArn")
       )
 
 instance Prelude.Hashable SNSConfiguration where
@@ -129,12 +130,12 @@ instance Prelude.NFData SNSConfiguration where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf snsTopicArn
 
-instance Core.ToJSON SNSConfiguration where
+instance Data.ToJSON SNSConfiguration where
   toJSON SNSConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SnsFormat" Core..=) Prelude.<$> snsFormat,
-            Prelude.Just ("RoleArn" Core..= roleArn),
-            Prelude.Just ("SnsTopicArn" Core..= snsTopicArn)
+          [ ("SnsFormat" Data..=) Prelude.<$> snsFormat,
+            Prelude.Just ("RoleArn" Data..= roleArn),
+            Prelude.Just ("SnsTopicArn" Data..= snsTopicArn)
           ]
       )

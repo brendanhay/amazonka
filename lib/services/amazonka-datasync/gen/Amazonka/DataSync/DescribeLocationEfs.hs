@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,13 +96,13 @@ instance Core.AWSRequest DescribeLocationEfs where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationEfsResponse'
-            Prelude.<$> (x Core..?> "InTransitEncryption")
-            Prelude.<*> (x Core..?> "AccessPointArn")
-            Prelude.<*> (x Core..?> "FileSystemAccessRoleArn")
-            Prelude.<*> (x Core..?> "LocationArn")
-            Prelude.<*> (x Core..?> "Ec2Config")
-            Prelude.<*> (x Core..?> "LocationUri")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Data..?> "InTransitEncryption")
+            Prelude.<*> (x Data..?> "AccessPointArn")
+            Prelude.<*> (x Data..?> "FileSystemAccessRoleArn")
+            Prelude.<*> (x Data..?> "LocationArn")
+            Prelude.<*> (x Data..?> "Ec2Config")
+            Prelude.<*> (x Data..?> "LocationUri")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,32 +114,32 @@ instance Prelude.NFData DescribeLocationEfs where
   rnf DescribeLocationEfs' {..} =
     Prelude.rnf locationArn
 
-instance Core.ToHeaders DescribeLocationEfs where
+instance Data.ToHeaders DescribeLocationEfs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.DescribeLocationEfs" ::
+              Data.=# ( "FmrsService.DescribeLocationEfs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLocationEfs where
+instance Data.ToJSON DescribeLocationEfs where
   toJSON DescribeLocationEfs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LocationArn" Core..= locationArn)]
+          [Prelude.Just ("LocationArn" Data..= locationArn)]
       )
 
-instance Core.ToPath DescribeLocationEfs where
+instance Data.ToPath DescribeLocationEfs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLocationEfs where
+instance Data.ToQuery DescribeLocationEfs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | DescribeLocationEfsResponse
@@ -160,7 +161,7 @@ data DescribeLocationEfsResponse = DescribeLocationEfsResponse'
     -- | The URL of the Amazon EFS file system location.
     locationUri :: Prelude.Maybe Prelude.Text,
     -- | The time that the location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -238,7 +239,7 @@ describeLocationEfsResponse_locationUri = Lens.lens (\DescribeLocationEfsRespons
 
 -- | The time that the location was created.
 describeLocationEfsResponse_creationTime :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationEfsResponse_creationTime = Lens.lens (\DescribeLocationEfsResponse' {creationTime} -> creationTime) (\s@DescribeLocationEfsResponse' {} a -> s {creationTime = a} :: DescribeLocationEfsResponse) Prelude.. Lens.mapping Core._Time
+describeLocationEfsResponse_creationTime = Lens.lens (\DescribeLocationEfsResponse' {creationTime} -> creationTime) (\s@DescribeLocationEfsResponse' {} a -> s {creationTime = a} :: DescribeLocationEfsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeLocationEfsResponse_httpStatus :: Lens.Lens' DescribeLocationEfsResponse Prelude.Int

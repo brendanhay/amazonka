@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.IdentificationHints where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Hints used to uniquely identify a machine.
@@ -80,16 +81,16 @@ identificationHints_hostname = Lens.lens (\IdentificationHints' {hostname} -> ho
 identificationHints_vmWareUuid :: Lens.Lens' IdentificationHints (Prelude.Maybe Prelude.Text)
 identificationHints_vmWareUuid = Lens.lens (\IdentificationHints' {vmWareUuid} -> vmWareUuid) (\s@IdentificationHints' {} a -> s {vmWareUuid = a} :: IdentificationHints)
 
-instance Core.FromJSON IdentificationHints where
+instance Data.FromJSON IdentificationHints where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentificationHints"
       ( \x ->
           IdentificationHints'
-            Prelude.<$> (x Core..:? "awsInstanceID")
-            Prelude.<*> (x Core..:? "fqdn")
-            Prelude.<*> (x Core..:? "hostname")
-            Prelude.<*> (x Core..:? "vmWareUuid")
+            Prelude.<$> (x Data..:? "awsInstanceID")
+            Prelude.<*> (x Data..:? "fqdn")
+            Prelude.<*> (x Data..:? "hostname")
+            Prelude.<*> (x Data..:? "vmWareUuid")
       )
 
 instance Prelude.Hashable IdentificationHints where

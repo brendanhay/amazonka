@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.CustomPayload where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A custom response string that Amazon Lex sends to your application. You
@@ -53,12 +54,12 @@ newCustomPayload pValue_ =
 customPayload_value :: Lens.Lens' CustomPayload Prelude.Text
 customPayload_value = Lens.lens (\CustomPayload' {value} -> value) (\s@CustomPayload' {} a -> s {value = a} :: CustomPayload)
 
-instance Core.FromJSON CustomPayload where
+instance Data.FromJSON CustomPayload where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomPayload"
       ( \x ->
-          CustomPayload' Prelude.<$> (x Core..: "value")
+          CustomPayload' Prelude.<$> (x Data..: "value")
       )
 
 instance Prelude.Hashable CustomPayload where
@@ -68,9 +69,9 @@ instance Prelude.Hashable CustomPayload where
 instance Prelude.NFData CustomPayload where
   rnf CustomPayload' {..} = Prelude.rnf value
 
-instance Core.ToJSON CustomPayload where
+instance Data.ToJSON CustomPayload where
   toJSON CustomPayload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("value" Core..= value)]
+          [Prelude.Just ("value" Data..= value)]
       )

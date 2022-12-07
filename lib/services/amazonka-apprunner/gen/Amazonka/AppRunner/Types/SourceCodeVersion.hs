@@ -22,6 +22,7 @@ module Amazonka.AppRunner.Types.SourceCodeVersion where
 import Amazonka.AppRunner.Types.SourceCodeVersionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies a version of code that App Runner refers to within a source
@@ -79,13 +80,13 @@ sourceCodeVersion_type = Lens.lens (\SourceCodeVersion' {type'} -> type') (\s@So
 sourceCodeVersion_value :: Lens.Lens' SourceCodeVersion Prelude.Text
 sourceCodeVersion_value = Lens.lens (\SourceCodeVersion' {value} -> value) (\s@SourceCodeVersion' {} a -> s {value = a} :: SourceCodeVersion)
 
-instance Core.FromJSON SourceCodeVersion where
+instance Data.FromJSON SourceCodeVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceCodeVersion"
       ( \x ->
           SourceCodeVersion'
-            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable SourceCodeVersion where
@@ -97,11 +98,11 @@ instance Prelude.NFData SourceCodeVersion where
   rnf SourceCodeVersion' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON SourceCodeVersion where
+instance Data.ToJSON SourceCodeVersion where
   toJSON SourceCodeVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

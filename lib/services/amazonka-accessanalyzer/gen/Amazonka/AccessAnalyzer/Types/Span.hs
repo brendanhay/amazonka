@@ -22,6 +22,7 @@ module Amazonka.AccessAnalyzer.Types.Span where
 import Amazonka.AccessAnalyzer.Types.Position
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A span in a policy. The span consists of a start position (inclusive)
@@ -64,13 +65,13 @@ span_start = Lens.lens (\Span' {start} -> start) (\s@Span' {} a -> s {start = a}
 span_end :: Lens.Lens' Span Position
 span_end = Lens.lens (\Span' {end} -> end) (\s@Span' {} a -> s {end = a} :: Span)
 
-instance Core.FromJSON Span where
+instance Data.FromJSON Span where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Span"
       ( \x ->
           Span'
-            Prelude.<$> (x Core..: "start") Prelude.<*> (x Core..: "end")
+            Prelude.<$> (x Data..: "start") Prelude.<*> (x Data..: "end")
       )
 
 instance Prelude.Hashable Span where

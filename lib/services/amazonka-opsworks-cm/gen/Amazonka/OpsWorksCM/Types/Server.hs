@@ -21,6 +21,7 @@ module Amazonka.OpsWorksCM.Types.Server where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorksCM.Types.EngineAttribute
 import Amazonka.OpsWorksCM.Types.MaintenanceStatus
 import Amazonka.OpsWorksCM.Types.ServerStatus
@@ -111,7 +112,7 @@ data Server = Server'
     -- | The subnet IDs specified in a CreateServer request.
     subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | Time stamp of server creation. Example @2016-07-29T13:38:47.520Z@
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Disables automated backups. The number of stored backups is dependent on
     -- the value of PreferredBackupCount.
     disableAutomatedBackup :: Prelude.Maybe Prelude.Bool,
@@ -378,7 +379,7 @@ server_subnetIds = Lens.lens (\Server' {subnetIds} -> subnetIds) (\s@Server' {} 
 
 -- | Time stamp of server creation. Example @2016-07-29T13:38:47.520Z@
 server_createdAt :: Lens.Lens' Server (Prelude.Maybe Prelude.UTCTime)
-server_createdAt = Lens.lens (\Server' {createdAt} -> createdAt) (\s@Server' {} a -> s {createdAt = a} :: Server) Prelude.. Lens.mapping Core._Time
+server_createdAt = Lens.lens (\Server' {createdAt} -> createdAt) (\s@Server' {} a -> s {createdAt = a} :: Server) Prelude.. Lens.mapping Data._Time
 
 -- | Disables automated backups. The number of stored backups is dependent on
 -- the value of PreferredBackupCount.
@@ -397,40 +398,40 @@ server_engineVersion = Lens.lens (\Server' {engineVersion} -> engineVersion) (\s
 server_customDomain :: Lens.Lens' Server (Prelude.Maybe Prelude.Text)
 server_customDomain = Lens.lens (\Server' {customDomain} -> customDomain) (\s@Server' {} a -> s {customDomain = a} :: Server)
 
-instance Core.FromJSON Server where
+instance Data.FromJSON Server where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Server"
       ( \x ->
           Server'
-            Prelude.<$> (x Core..:? "MaintenanceStatus")
-            Prelude.<*> (x Core..:? "PreferredBackupWindow")
-            Prelude.<*> (x Core..:? "AssociatePublicIpAddress")
-            Prelude.<*> (x Core..:? "ServiceRoleArn")
-            Prelude.<*> ( x Core..:? "SecurityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "MaintenanceStatus")
+            Prelude.<*> (x Data..:? "PreferredBackupWindow")
+            Prelude.<*> (x Data..:? "AssociatePublicIpAddress")
+            Prelude.<*> (x Data..:? "ServiceRoleArn")
+            Prelude.<*> ( x Data..:? "SecurityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ServerName")
-            Prelude.<*> (x Core..:? "EngineModel")
-            Prelude.<*> (x Core..:? "InstanceProfileArn")
-            Prelude.<*> (x Core..:? "StatusReason")
-            Prelude.<*> ( x Core..:? "EngineAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ServerName")
+            Prelude.<*> (x Data..:? "EngineModel")
+            Prelude.<*> (x Data..:? "InstanceProfileArn")
+            Prelude.<*> (x Data..:? "StatusReason")
+            Prelude.<*> ( x Data..:? "EngineAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CloudFormationStackArn")
-            Prelude.<*> (x Core..:? "KeyPair")
-            Prelude.<*> (x Core..:? "BackupRetentionCount")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "ServerArn")
-            Prelude.<*> (x Core..:? "Engine")
-            Prelude.<*> (x Core..:? "PreferredMaintenanceWindow")
-            Prelude.<*> (x Core..:? "Endpoint")
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "DisableAutomatedBackup")
-            Prelude.<*> (x Core..:? "EngineVersion")
-            Prelude.<*> (x Core..:? "CustomDomain")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CloudFormationStackArn")
+            Prelude.<*> (x Data..:? "KeyPair")
+            Prelude.<*> (x Data..:? "BackupRetentionCount")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "ServerArn")
+            Prelude.<*> (x Data..:? "Engine")
+            Prelude.<*> (x Data..:? "PreferredMaintenanceWindow")
+            Prelude.<*> (x Data..:? "Endpoint")
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "DisableAutomatedBackup")
+            Prelude.<*> (x Data..:? "EngineVersion")
+            Prelude.<*> (x Data..:? "CustomDomain")
       )
 
 instance Prelude.Hashable Server where

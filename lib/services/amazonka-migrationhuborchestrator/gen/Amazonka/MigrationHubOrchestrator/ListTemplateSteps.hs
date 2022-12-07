@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,8 +143,8 @@ instance Core.AWSRequest ListTemplateSteps where
     Response.receiveJSON
       ( \s h x ->
           ListTemplateStepsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "templateStepSummaryList"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "templateStepSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -163,27 +164,27 @@ instance Prelude.NFData ListTemplateSteps where
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf stepGroupId
 
-instance Core.ToHeaders ListTemplateSteps where
+instance Data.ToHeaders ListTemplateSteps where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListTemplateSteps where
+instance Data.ToPath ListTemplateSteps where
   toPath = Prelude.const "/templatesteps"
 
-instance Core.ToQuery ListTemplateSteps where
+instance Data.ToQuery ListTemplateSteps where
   toQuery ListTemplateSteps' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "templateId" Core.=: templateId,
-        "stepGroupId" Core.=: stepGroupId
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "templateId" Data.=: templateId,
+        "stepGroupId" Data.=: stepGroupId
       ]
 
 -- | /See:/ 'newListTemplateStepsResponse' smart constructor.

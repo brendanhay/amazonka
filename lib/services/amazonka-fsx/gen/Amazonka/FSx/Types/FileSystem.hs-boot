@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.FSx.Types.FileSystem where
 
-import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 data FileSystem
@@ -24,7 +24,7 @@ instance Prelude.Show FileSystem
 
 instance Prelude.Generic FileSystem
 
-instance Core.FromJSON FileSystem
+instance Data.FromJSON FileSystem
 
 instance Prelude.NFData FileSystem
 

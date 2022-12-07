@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -260,8 +261,8 @@ instance Core.AWSRequest CreateTrafficMirrorSession where
     Response.receiveXML
       ( \s h x ->
           CreateTrafficMirrorSessionResponse'
-            Prelude.<$> (x Core..@? "clientToken")
-            Prelude.<*> (x Core..@? "trafficMirrorSession")
+            Prelude.<$> (x Data..@? "clientToken")
+            Prelude.<*> (x Data..@? "trafficMirrorSession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -291,34 +292,34 @@ instance Prelude.NFData CreateTrafficMirrorSession where
       `Prelude.seq` Prelude.rnf trafficMirrorFilterId
       `Prelude.seq` Prelude.rnf sessionNumber
 
-instance Core.ToHeaders CreateTrafficMirrorSession where
+instance Data.ToHeaders CreateTrafficMirrorSession where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateTrafficMirrorSession where
+instance Data.ToPath CreateTrafficMirrorSession where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTrafficMirrorSession where
+instance Data.ToQuery CreateTrafficMirrorSession where
   toQuery CreateTrafficMirrorSession' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateTrafficMirrorSession" :: Prelude.ByteString),
+          Data.=: ("CreateTrafficMirrorSession" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "Description" Core.=: description,
-        "PacketLength" Core.=: packetLength,
-        "DryRun" Core.=: dryRun,
-        "VirtualNetworkId" Core.=: virtualNetworkId,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "Description" Data.=: description,
+        "PacketLength" Data.=: packetLength,
+        "DryRun" Data.=: dryRun,
+        "VirtualNetworkId" Data.=: virtualNetworkId,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "NetworkInterfaceId" Core.=: networkInterfaceId,
+        "NetworkInterfaceId" Data.=: networkInterfaceId,
         "TrafficMirrorTargetId"
-          Core.=: trafficMirrorTargetId,
+          Data.=: trafficMirrorTargetId,
         "TrafficMirrorFilterId"
-          Core.=: trafficMirrorFilterId,
-        "SessionNumber" Core.=: sessionNumber
+          Data.=: trafficMirrorFilterId,
+        "SessionNumber" Data.=: sessionNumber
       ]
 
 -- | /See:/ 'newCreateTrafficMirrorSessionResponse' smart constructor.

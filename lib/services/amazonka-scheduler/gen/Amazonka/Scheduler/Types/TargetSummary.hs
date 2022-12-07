@@ -21,6 +21,7 @@ module Amazonka.Scheduler.Types.TargetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a target.
@@ -51,11 +52,11 @@ newTargetSummary pArn_ = TargetSummary' {arn = pArn_}
 targetSummary_arn :: Lens.Lens' TargetSummary Prelude.Text
 targetSummary_arn = Lens.lens (\TargetSummary' {arn} -> arn) (\s@TargetSummary' {} a -> s {arn = a} :: TargetSummary)
 
-instance Core.FromJSON TargetSummary where
+instance Data.FromJSON TargetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetSummary"
-      (\x -> TargetSummary' Prelude.<$> (x Core..: "Arn"))
+      (\x -> TargetSummary' Prelude.<$> (x Data..: "Arn"))
 
 instance Prelude.Hashable TargetSummary where
   hashWithSalt _salt TargetSummary' {..} =

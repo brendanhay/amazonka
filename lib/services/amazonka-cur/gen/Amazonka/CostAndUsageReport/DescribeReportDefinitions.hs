@@ -46,6 +46,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostAndUsageReport.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,8 +120,8 @@ instance Core.AWSRequest DescribeReportDefinitions where
     Response.receiveJSON
       ( \s h x ->
           DescribeReportDefinitionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ReportDefinitions"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ReportDefinitions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -136,34 +137,34 @@ instance Prelude.NFData DescribeReportDefinitions where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeReportDefinitions where
+instance Data.ToHeaders DescribeReportDefinitions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrigamiServiceGatewayService.DescribeReportDefinitions" ::
+              Data.=# ( "AWSOrigamiServiceGatewayService.DescribeReportDefinitions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeReportDefinitions where
+instance Data.ToJSON DescribeReportDefinitions where
   toJSON DescribeReportDefinitions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeReportDefinitions where
+instance Data.ToPath DescribeReportDefinitions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeReportDefinitions where
+instance Data.ToQuery DescribeReportDefinitions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | If the action is successful, the service sends back an HTTP 200

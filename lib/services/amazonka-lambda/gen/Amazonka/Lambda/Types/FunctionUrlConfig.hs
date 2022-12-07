@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.FunctionUrlConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.Cors
 import Amazonka.Lambda.Types.FunctionUrlAuthType
 import qualified Amazonka.Prelude as Prelude
@@ -144,18 +145,18 @@ functionUrlConfig_lastModifiedTime = Lens.lens (\FunctionUrlConfig' {lastModifie
 functionUrlConfig_authType :: Lens.Lens' FunctionUrlConfig FunctionUrlAuthType
 functionUrlConfig_authType = Lens.lens (\FunctionUrlConfig' {authType} -> authType) (\s@FunctionUrlConfig' {} a -> s {authType = a} :: FunctionUrlConfig)
 
-instance Core.FromJSON FunctionUrlConfig where
+instance Data.FromJSON FunctionUrlConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FunctionUrlConfig"
       ( \x ->
           FunctionUrlConfig'
-            Prelude.<$> (x Core..:? "Cors")
-            Prelude.<*> (x Core..: "FunctionUrl")
-            Prelude.<*> (x Core..: "FunctionArn")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "LastModifiedTime")
-            Prelude.<*> (x Core..: "AuthType")
+            Prelude.<$> (x Data..:? "Cors")
+            Prelude.<*> (x Data..: "FunctionUrl")
+            Prelude.<*> (x Data..: "FunctionArn")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "LastModifiedTime")
+            Prelude.<*> (x Data..: "AuthType")
       )
 
 instance Prelude.Hashable FunctionUrlConfig where

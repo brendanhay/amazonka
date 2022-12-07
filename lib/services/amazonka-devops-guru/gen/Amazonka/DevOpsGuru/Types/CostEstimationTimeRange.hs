@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.CostEstimationTimeRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The time range of a cost estimation.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newCostEstimationTimeRange' smart constructor.
 data CostEstimationTimeRange = CostEstimationTimeRange'
   { -- | The end time of the cost estimation.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The start time of the cost estimation.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,20 +56,20 @@ newCostEstimationTimeRange =
 
 -- | The end time of the cost estimation.
 costEstimationTimeRange_endTime :: Lens.Lens' CostEstimationTimeRange (Prelude.Maybe Prelude.UTCTime)
-costEstimationTimeRange_endTime = Lens.lens (\CostEstimationTimeRange' {endTime} -> endTime) (\s@CostEstimationTimeRange' {} a -> s {endTime = a} :: CostEstimationTimeRange) Prelude.. Lens.mapping Core._Time
+costEstimationTimeRange_endTime = Lens.lens (\CostEstimationTimeRange' {endTime} -> endTime) (\s@CostEstimationTimeRange' {} a -> s {endTime = a} :: CostEstimationTimeRange) Prelude.. Lens.mapping Data._Time
 
 -- | The start time of the cost estimation.
 costEstimationTimeRange_startTime :: Lens.Lens' CostEstimationTimeRange (Prelude.Maybe Prelude.UTCTime)
-costEstimationTimeRange_startTime = Lens.lens (\CostEstimationTimeRange' {startTime} -> startTime) (\s@CostEstimationTimeRange' {} a -> s {startTime = a} :: CostEstimationTimeRange) Prelude.. Lens.mapping Core._Time
+costEstimationTimeRange_startTime = Lens.lens (\CostEstimationTimeRange' {startTime} -> startTime) (\s@CostEstimationTimeRange' {} a -> s {startTime = a} :: CostEstimationTimeRange) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CostEstimationTimeRange where
+instance Data.FromJSON CostEstimationTimeRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CostEstimationTimeRange"
       ( \x ->
           CostEstimationTimeRange'
-            Prelude.<$> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable CostEstimationTimeRange where

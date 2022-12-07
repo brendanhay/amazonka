@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.NewBGPPeer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types.AddressFamily
 import qualified Amazonka.Prelude as Prelude
 
@@ -111,15 +112,15 @@ instance Prelude.NFData NewBGPPeer where
       `Prelude.seq` Prelude.rnf asn
       `Prelude.seq` Prelude.rnf amazonAddress
 
-instance Core.ToJSON NewBGPPeer where
+instance Data.ToJSON NewBGPPeer where
   toJSON NewBGPPeer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("addressFamily" Core..=) Prelude.<$> addressFamily,
-            ("authKey" Core..=) Prelude.<$> authKey,
-            ("customerAddress" Core..=)
+          [ ("addressFamily" Data..=) Prelude.<$> addressFamily,
+            ("authKey" Data..=) Prelude.<$> authKey,
+            ("customerAddress" Data..=)
               Prelude.<$> customerAddress,
-            ("asn" Core..=) Prelude.<$> asn,
-            ("amazonAddress" Core..=) Prelude.<$> amazonAddress
+            ("asn" Data..=) Prelude.<$> asn,
+            ("amazonAddress" Data..=) Prelude.<$> amazonAddress
           ]
       )

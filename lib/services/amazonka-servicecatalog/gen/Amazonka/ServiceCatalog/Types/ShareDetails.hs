@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ShareDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ShareError
 
@@ -62,16 +63,16 @@ shareDetails_successfulShares = Lens.lens (\ShareDetails' {successfulShares} -> 
 shareDetails_shareErrors :: Lens.Lens' ShareDetails (Prelude.Maybe [ShareError])
 shareDetails_shareErrors = Lens.lens (\ShareDetails' {shareErrors} -> shareErrors) (\s@ShareDetails' {} a -> s {shareErrors = a} :: ShareDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ShareDetails where
+instance Data.FromJSON ShareDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ShareDetails"
       ( \x ->
           ShareDetails'
-            Prelude.<$> ( x Core..:? "SuccessfulShares"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SuccessfulShares"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ShareErrors" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ShareErrors" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ShareDetails where

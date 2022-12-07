@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,22 +121,22 @@ instance Prelude.NFData DeleteKeyPair where
       `Prelude.seq` Prelude.rnf keyName
       `Prelude.seq` Prelude.rnf keyPairId
 
-instance Core.ToHeaders DeleteKeyPair where
+instance Data.ToHeaders DeleteKeyPair where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteKeyPair where
+instance Data.ToPath DeleteKeyPair where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteKeyPair where
+instance Data.ToQuery DeleteKeyPair where
   toQuery DeleteKeyPair' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteKeyPair" :: Prelude.ByteString),
+          Data.=: ("DeleteKeyPair" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "KeyName" Core.=: keyName,
-        "KeyPairId" Core.=: keyPairId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "KeyName" Data.=: keyName,
+        "KeyPairId" Data.=: keyPairId
       ]
 
 -- | /See:/ 'newDeleteKeyPairResponse' smart constructor.

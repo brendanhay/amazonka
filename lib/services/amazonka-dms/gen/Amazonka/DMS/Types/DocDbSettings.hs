@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.DocDbSettings where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.NestingLevelValue
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines a DocumentDB endpoint.
@@ -47,7 +48,7 @@ data DocDbSettings = DocDbSettings'
     secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The password for the user account you use to access the DocumentDB
     -- source endpoint.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the server on the DocumentDB source endpoint.
     serverName :: Prelude.Maybe Prelude.Text,
     -- | The database name on the DocumentDB source endpoint.
@@ -183,7 +184,7 @@ docDbSettings_secretsManagerAccessRoleArn = Lens.lens (\DocDbSettings' {secretsM
 -- | The password for the user account you use to access the DocumentDB
 -- source endpoint.
 docDbSettings_password :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Text)
-docDbSettings_password = Lens.lens (\DocDbSettings' {password} -> password) (\s@DocDbSettings' {} a -> s {password = a} :: DocDbSettings) Prelude.. Lens.mapping Core._Sensitive
+docDbSettings_password = Lens.lens (\DocDbSettings' {password} -> password) (\s@DocDbSettings' {} a -> s {password = a} :: DocDbSettings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the server on the DocumentDB source endpoint.
 docDbSettings_serverName :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Text)
@@ -233,23 +234,23 @@ docDbSettings_kmsKeyId = Lens.lens (\DocDbSettings' {kmsKeyId} -> kmsKeyId) (\s@
 docDbSettings_extractDocId :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Bool)
 docDbSettings_extractDocId = Lens.lens (\DocDbSettings' {extractDocId} -> extractDocId) (\s@DocDbSettings' {} a -> s {extractDocId = a} :: DocDbSettings)
 
-instance Core.FromJSON DocDbSettings where
+instance Data.FromJSON DocDbSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocDbSettings"
       ( \x ->
           DocDbSettings'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
-            Prelude.<*> (x Core..:? "Password")
-            Prelude.<*> (x Core..:? "ServerName")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "NestingLevel")
-            Prelude.<*> (x Core..:? "DocsToInvestigate")
-            Prelude.<*> (x Core..:? "SecretsManagerSecretId")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "ExtractDocId")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "SecretsManagerAccessRoleArn")
+            Prelude.<*> (x Data..:? "Password")
+            Prelude.<*> (x Data..:? "ServerName")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "NestingLevel")
+            Prelude.<*> (x Data..:? "DocsToInvestigate")
+            Prelude.<*> (x Data..:? "SecretsManagerSecretId")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "ExtractDocId")
       )
 
 instance Prelude.Hashable DocDbSettings where
@@ -280,23 +281,23 @@ instance Prelude.NFData DocDbSettings where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf extractDocId
 
-instance Core.ToJSON DocDbSettings where
+instance Data.ToJSON DocDbSettings where
   toJSON DocDbSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("SecretsManagerAccessRoleArn" Core..=)
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("SecretsManagerAccessRoleArn" Data..=)
               Prelude.<$> secretsManagerAccessRoleArn,
-            ("Password" Core..=) Prelude.<$> password,
-            ("ServerName" Core..=) Prelude.<$> serverName,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("Username" Core..=) Prelude.<$> username,
-            ("NestingLevel" Core..=) Prelude.<$> nestingLevel,
-            ("DocsToInvestigate" Core..=)
+            ("Password" Data..=) Prelude.<$> password,
+            ("ServerName" Data..=) Prelude.<$> serverName,
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("Username" Data..=) Prelude.<$> username,
+            ("NestingLevel" Data..=) Prelude.<$> nestingLevel,
+            ("DocsToInvestigate" Data..=)
               Prelude.<$> docsToInvestigate,
-            ("SecretsManagerSecretId" Core..=)
+            ("SecretsManagerSecretId" Data..=)
               Prelude.<$> secretsManagerSecretId,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("ExtractDocId" Core..=) Prelude.<$> extractDocId
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("ExtractDocId" Data..=) Prelude.<$> extractDocId
           ]
       )

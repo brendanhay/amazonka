@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a load balancer that the service uses.
@@ -120,18 +121,18 @@ awsEcsServiceLoadBalancersDetails_targetGroupArn :: Lens.Lens' AwsEcsServiceLoad
 awsEcsServiceLoadBalancersDetails_targetGroupArn = Lens.lens (\AwsEcsServiceLoadBalancersDetails' {targetGroupArn} -> targetGroupArn) (\s@AwsEcsServiceLoadBalancersDetails' {} a -> s {targetGroupArn = a} :: AwsEcsServiceLoadBalancersDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsServiceLoadBalancersDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsServiceLoadBalancersDetails"
       ( \x ->
           AwsEcsServiceLoadBalancersDetails'
-            Prelude.<$> (x Core..:? "ContainerPort")
-            Prelude.<*> (x Core..:? "ContainerName")
-            Prelude.<*> (x Core..:? "LoadBalancerName")
-            Prelude.<*> (x Core..:? "TargetGroupArn")
+            Prelude.<$> (x Data..:? "ContainerPort")
+            Prelude.<*> (x Data..:? "ContainerName")
+            Prelude.<*> (x Data..:? "LoadBalancerName")
+            Prelude.<*> (x Data..:? "TargetGroupArn")
       )
 
 instance
@@ -157,17 +158,17 @@ instance
       `Prelude.seq` Prelude.rnf targetGroupArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsServiceLoadBalancersDetails
   where
   toJSON AwsEcsServiceLoadBalancersDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContainerPort" Core..=) Prelude.<$> containerPort,
-            ("ContainerName" Core..=) Prelude.<$> containerName,
-            ("LoadBalancerName" Core..=)
+          [ ("ContainerPort" Data..=) Prelude.<$> containerPort,
+            ("ContainerName" Data..=) Prelude.<$> containerName,
+            ("LoadBalancerName" Data..=)
               Prelude.<$> loadBalancerName,
-            ("TargetGroupArn" Core..=)
+            ("TargetGroupArn" Data..=)
               Prelude.<$> targetGroupArn
           ]
       )

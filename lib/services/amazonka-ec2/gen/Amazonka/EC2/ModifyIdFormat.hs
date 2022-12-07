@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,21 +163,21 @@ instance Prelude.NFData ModifyIdFormat where
     Prelude.rnf resource
       `Prelude.seq` Prelude.rnf useLongIds
 
-instance Core.ToHeaders ModifyIdFormat where
+instance Data.ToHeaders ModifyIdFormat where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyIdFormat where
+instance Data.ToPath ModifyIdFormat where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyIdFormat where
+instance Data.ToQuery ModifyIdFormat where
   toQuery ModifyIdFormat' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyIdFormat" :: Prelude.ByteString),
+          Data.=: ("ModifyIdFormat" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Resource" Core.=: resource,
-        "UseLongIds" Core.=: useLongIds
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Resource" Data.=: resource,
+        "UseLongIds" Data.=: useLongIds
       ]
 
 -- | /See:/ 'newModifyIdFormatResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -148,7 +149,7 @@ instance Core.AWSRequest EstimateTemplateCost where
       "EstimateTemplateCostResult"
       ( \s h x ->
           EstimateTemplateCostResponse'
-            Prelude.<$> (x Core..@? "Url")
+            Prelude.<$> (x Data..@? "Url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,24 +165,24 @@ instance Prelude.NFData EstimateTemplateCost where
       `Prelude.seq` Prelude.rnf templateURL
       `Prelude.seq` Prelude.rnf parameters
 
-instance Core.ToHeaders EstimateTemplateCost where
+instance Data.ToHeaders EstimateTemplateCost where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath EstimateTemplateCost where
+instance Data.ToPath EstimateTemplateCost where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EstimateTemplateCost where
+instance Data.ToQuery EstimateTemplateCost where
   toQuery EstimateTemplateCost' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("EstimateTemplateCost" :: Prelude.ByteString),
+          Data.=: ("EstimateTemplateCost" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "TemplateBody" Core.=: templateBody,
-        "TemplateURL" Core.=: templateURL,
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "TemplateBody" Data.=: templateBody,
+        "TemplateURL" Data.=: templateURL,
         "Parameters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> parameters)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> parameters)
       ]
 
 -- | The output for a EstimateTemplateCost action.

@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,22 +159,22 @@ instance Prelude.NFData TagServerCertificate where
     Prelude.rnf serverCertificateName
       `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders TagServerCertificate where
+instance Data.ToHeaders TagServerCertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath TagServerCertificate where
+instance Data.ToPath TagServerCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TagServerCertificate where
+instance Data.ToQuery TagServerCertificate where
   toQuery TagServerCertificate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("TagServerCertificate" :: Prelude.ByteString),
+          Data.=: ("TagServerCertificate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
         "ServerCertificateName"
-          Core.=: serverCertificateName,
-        "Tags" Core.=: Core.toQueryList "member" tags
+          Data.=: serverCertificateName,
+        "Tags" Data.=: Data.toQueryList "member" tags
       ]
 
 -- | /See:/ 'newTagServerCertificateResponse' smart constructor.

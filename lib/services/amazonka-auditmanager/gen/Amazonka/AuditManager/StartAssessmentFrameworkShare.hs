@@ -86,6 +86,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,7 +168,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           StartAssessmentFrameworkShareResponse'
-            Prelude.<$> (x Core..?> "assessmentFrameworkShareRequest")
+            Prelude.<$> (x Data..?> "assessmentFrameworkShareRequest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,38 +189,38 @@ instance Prelude.NFData StartAssessmentFrameworkShare where
       `Prelude.seq` Prelude.rnf destinationAccount
       `Prelude.seq` Prelude.rnf destinationRegion
 
-instance Core.ToHeaders StartAssessmentFrameworkShare where
+instance Data.ToHeaders StartAssessmentFrameworkShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartAssessmentFrameworkShare where
+instance Data.ToJSON StartAssessmentFrameworkShare where
   toJSON StartAssessmentFrameworkShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("comment" Core..=) Prelude.<$> comment,
+          [ ("comment" Data..=) Prelude.<$> comment,
             Prelude.Just
-              ("destinationAccount" Core..= destinationAccount),
+              ("destinationAccount" Data..= destinationAccount),
             Prelude.Just
-              ("destinationRegion" Core..= destinationRegion)
+              ("destinationRegion" Data..= destinationRegion)
           ]
       )
 
-instance Core.ToPath StartAssessmentFrameworkShare where
+instance Data.ToPath StartAssessmentFrameworkShare where
   toPath StartAssessmentFrameworkShare' {..} =
     Prelude.mconcat
       [ "/assessmentFrameworks/",
-        Core.toBS frameworkId,
+        Data.toBS frameworkId,
         "/shareRequests"
       ]
 
-instance Core.ToQuery StartAssessmentFrameworkShare where
+instance Data.ToQuery StartAssessmentFrameworkShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartAssessmentFrameworkShareResponse' smart constructor.

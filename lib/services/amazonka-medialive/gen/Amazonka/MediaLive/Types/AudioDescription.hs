@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.AudioDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AudioCodecSettings
 import Amazonka.MediaLive.Types.AudioDescriptionAudioTypeControl
 import Amazonka.MediaLive.Types.AudioDescriptionLanguageCodeControl
@@ -205,23 +206,23 @@ audioDescription_audioSelectorName = Lens.lens (\AudioDescription' {audioSelecto
 audioDescription_name :: Lens.Lens' AudioDescription Prelude.Text
 audioDescription_name = Lens.lens (\AudioDescription' {name} -> name) (\s@AudioDescription' {} a -> s {name = a} :: AudioDescription)
 
-instance Core.FromJSON AudioDescription where
+instance Data.FromJSON AudioDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioDescription"
       ( \x ->
           AudioDescription'
-            Prelude.<$> (x Core..:? "audioWatermarkingSettings")
-            Prelude.<*> (x Core..:? "audioNormalizationSettings")
-            Prelude.<*> (x Core..:? "codecSettings")
-            Prelude.<*> (x Core..:? "remixSettings")
-            Prelude.<*> (x Core..:? "languageCode")
-            Prelude.<*> (x Core..:? "audioTypeControl")
-            Prelude.<*> (x Core..:? "audioType")
-            Prelude.<*> (x Core..:? "languageCodeControl")
-            Prelude.<*> (x Core..:? "streamName")
-            Prelude.<*> (x Core..: "audioSelectorName")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "audioWatermarkingSettings")
+            Prelude.<*> (x Data..:? "audioNormalizationSettings")
+            Prelude.<*> (x Data..:? "codecSettings")
+            Prelude.<*> (x Data..:? "remixSettings")
+            Prelude.<*> (x Data..:? "languageCode")
+            Prelude.<*> (x Data..:? "audioTypeControl")
+            Prelude.<*> (x Data..:? "audioType")
+            Prelude.<*> (x Data..:? "languageCodeControl")
+            Prelude.<*> (x Data..:? "streamName")
+            Prelude.<*> (x Data..: "audioSelectorName")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable AudioDescription where
@@ -253,25 +254,25 @@ instance Prelude.NFData AudioDescription where
       `Prelude.seq` Prelude.rnf audioSelectorName
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON AudioDescription where
+instance Data.ToJSON AudioDescription where
   toJSON AudioDescription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("audioWatermarkingSettings" Core..=)
+          [ ("audioWatermarkingSettings" Data..=)
               Prelude.<$> audioWatermarkingSettings,
-            ("audioNormalizationSettings" Core..=)
+            ("audioNormalizationSettings" Data..=)
               Prelude.<$> audioNormalizationSettings,
-            ("codecSettings" Core..=) Prelude.<$> codecSettings,
-            ("remixSettings" Core..=) Prelude.<$> remixSettings,
-            ("languageCode" Core..=) Prelude.<$> languageCode,
-            ("audioTypeControl" Core..=)
+            ("codecSettings" Data..=) Prelude.<$> codecSettings,
+            ("remixSettings" Data..=) Prelude.<$> remixSettings,
+            ("languageCode" Data..=) Prelude.<$> languageCode,
+            ("audioTypeControl" Data..=)
               Prelude.<$> audioTypeControl,
-            ("audioType" Core..=) Prelude.<$> audioType,
-            ("languageCodeControl" Core..=)
+            ("audioType" Data..=) Prelude.<$> audioType,
+            ("languageCodeControl" Data..=)
               Prelude.<$> languageCodeControl,
-            ("streamName" Core..=) Prelude.<$> streamName,
+            ("streamName" Data..=) Prelude.<$> streamName,
             Prelude.Just
-              ("audioSelectorName" Core..= audioSelectorName),
-            Prelude.Just ("name" Core..= name)
+              ("audioSelectorName" Data..= audioSelectorName),
+            Prelude.Just ("name" Data..= name)
           ]
       )

@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,7 +124,7 @@ instance Core.AWSRequest BatchUpdateDevicePosition where
       ( \s h x ->
           BatchUpdateDevicePositionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable BatchUpdateDevicePosition where
@@ -136,33 +137,33 @@ instance Prelude.NFData BatchUpdateDevicePosition where
     Prelude.rnf trackerName
       `Prelude.seq` Prelude.rnf updates
 
-instance Core.ToHeaders BatchUpdateDevicePosition where
+instance Data.ToHeaders BatchUpdateDevicePosition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchUpdateDevicePosition where
+instance Data.ToJSON BatchUpdateDevicePosition where
   toJSON BatchUpdateDevicePosition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Updates" Core..= updates)]
+          [Prelude.Just ("Updates" Data..= updates)]
       )
 
-instance Core.ToPath BatchUpdateDevicePosition where
+instance Data.ToPath BatchUpdateDevicePosition where
   toPath BatchUpdateDevicePosition' {..} =
     Prelude.mconcat
       [ "/tracking/v0/trackers/",
-        Core.toBS trackerName,
+        Data.toBS trackerName,
         "/positions"
       ]
 
-instance Core.ToQuery BatchUpdateDevicePosition where
+instance Data.ToQuery BatchUpdateDevicePosition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchUpdateDevicePositionResponse' smart constructor.

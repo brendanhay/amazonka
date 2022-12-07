@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.OS where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Operating System.
@@ -49,11 +50,11 @@ newOS = OS' {fullString = Prelude.Nothing}
 os_fullString :: Lens.Lens' OS (Prelude.Maybe Prelude.Text)
 os_fullString = Lens.lens (\OS' {fullString} -> fullString) (\s@OS' {} a -> s {fullString = a} :: OS)
 
-instance Core.FromJSON OS where
+instance Data.FromJSON OS where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OS"
-      (\x -> OS' Prelude.<$> (x Core..:? "fullString"))
+      (\x -> OS' Prelude.<$> (x Data..:? "fullString"))
 
 instance Prelude.Hashable OS where
   hashWithSalt _salt OS' {..} =

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,7 +111,7 @@ instance
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance
   Prelude.Hashable
@@ -131,42 +132,42 @@ instance
       `Prelude.seq` Prelude.rnf sourceServerID
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateSourceServerReplicationType
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateSourceServerReplicationType
   where
   toJSON UpdateSourceServerReplicationType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("replicationType" Core..= replicationType),
+              ("replicationType" Data..= replicationType),
             Prelude.Just
-              ("sourceServerID" Core..= sourceServerID)
+              ("sourceServerID" Data..= sourceServerID)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateSourceServerReplicationType
   where
   toPath =
     Prelude.const "/UpdateSourceServerReplicationType"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateSourceServerReplicationType
   where
   toQuery = Prelude.const Prelude.mempty

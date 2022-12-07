@@ -23,6 +23,7 @@ import Amazonka.CodeDeploy.Types.Diagnostics
 import Amazonka.CodeDeploy.Types.LifecycleEventStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a deployment lifecycle event.
@@ -48,11 +49,11 @@ data LifecycleEvent = LifecycleEvent'
     -- -   Unknown: The deployment lifecycle event is unknown.
     status :: Prelude.Maybe LifecycleEventStatus,
     -- | A timestamp that indicates when the deployment lifecycle event ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Diagnostic information about the deployment lifecycle event.
     diagnostics :: Prelude.Maybe Diagnostics,
     -- | A timestamp that indicates when the deployment lifecycle event started.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -123,7 +124,7 @@ lifecycleEvent_status = Lens.lens (\LifecycleEvent' {status} -> status) (\s@Life
 
 -- | A timestamp that indicates when the deployment lifecycle event ended.
 lifecycleEvent_endTime :: Lens.Lens' LifecycleEvent (Prelude.Maybe Prelude.UTCTime)
-lifecycleEvent_endTime = Lens.lens (\LifecycleEvent' {endTime} -> endTime) (\s@LifecycleEvent' {} a -> s {endTime = a} :: LifecycleEvent) Prelude.. Lens.mapping Core._Time
+lifecycleEvent_endTime = Lens.lens (\LifecycleEvent' {endTime} -> endTime) (\s@LifecycleEvent' {} a -> s {endTime = a} :: LifecycleEvent) Prelude.. Lens.mapping Data._Time
 
 -- | Diagnostic information about the deployment lifecycle event.
 lifecycleEvent_diagnostics :: Lens.Lens' LifecycleEvent (Prelude.Maybe Diagnostics)
@@ -131,19 +132,19 @@ lifecycleEvent_diagnostics = Lens.lens (\LifecycleEvent' {diagnostics} -> diagno
 
 -- | A timestamp that indicates when the deployment lifecycle event started.
 lifecycleEvent_startTime :: Lens.Lens' LifecycleEvent (Prelude.Maybe Prelude.UTCTime)
-lifecycleEvent_startTime = Lens.lens (\LifecycleEvent' {startTime} -> startTime) (\s@LifecycleEvent' {} a -> s {startTime = a} :: LifecycleEvent) Prelude.. Lens.mapping Core._Time
+lifecycleEvent_startTime = Lens.lens (\LifecycleEvent' {startTime} -> startTime) (\s@LifecycleEvent' {} a -> s {startTime = a} :: LifecycleEvent) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON LifecycleEvent where
+instance Data.FromJSON LifecycleEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifecycleEvent"
       ( \x ->
           LifecycleEvent'
-            Prelude.<$> (x Core..:? "lifecycleEventName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "diagnostics")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<$> (x Data..:? "lifecycleEventName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "diagnostics")
+            Prelude.<*> (x Data..:? "startTime")
       )
 
 instance Prelude.Hashable LifecycleEvent where

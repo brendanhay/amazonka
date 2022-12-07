@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -206,15 +207,15 @@ instance Core.AWSRequest AssignPrivateIpAddresses where
     Response.receiveXML
       ( \s h x ->
           AssignPrivateIpAddressesResponse'
-            Prelude.<$> ( x Core..@? "assignedIpv4PrefixSet"
+            Prelude.<$> ( x Data..@? "assignedIpv4PrefixSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Core..@? "assignedPrivateIpAddressesSet"
+            Prelude.<*> ( x Data..@? "assignedPrivateIpAddressesSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "networkInterfaceId")
+            Prelude.<*> (x Data..@? "networkInterfaceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -236,32 +237,32 @@ instance Prelude.NFData AssignPrivateIpAddresses where
       `Prelude.seq` Prelude.rnf secondaryPrivateIpAddressCount
       `Prelude.seq` Prelude.rnf networkInterfaceId
 
-instance Core.ToHeaders AssignPrivateIpAddresses where
+instance Data.ToHeaders AssignPrivateIpAddresses where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AssignPrivateIpAddresses where
+instance Data.ToPath AssignPrivateIpAddresses where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssignPrivateIpAddresses where
+instance Data.ToQuery AssignPrivateIpAddresses where
   toQuery AssignPrivateIpAddresses' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AssignPrivateIpAddresses" :: Prelude.ByteString),
+          Data.=: ("AssignPrivateIpAddresses" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Ipv4PrefixCount" Core.=: ipv4PrefixCount,
-        Core.toQuery
-          ( Core.toQueryList "PrivateIpAddress"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Ipv4PrefixCount" Data.=: ipv4PrefixCount,
+        Data.toQuery
+          ( Data.toQueryList "PrivateIpAddress"
               Prelude.<$> privateIpAddresses
           ),
-        "AllowReassignment" Core.=: allowReassignment,
-        Core.toQuery
-          ( Core.toQueryList "Ipv4Prefix"
+        "AllowReassignment" Data.=: allowReassignment,
+        Data.toQuery
+          ( Data.toQueryList "Ipv4Prefix"
               Prelude.<$> ipv4Prefixes
           ),
         "SecondaryPrivateIpAddressCount"
-          Core.=: secondaryPrivateIpAddressCount,
-        "NetworkInterfaceId" Core.=: networkInterfaceId
+          Data.=: secondaryPrivateIpAddressCount,
+        "NetworkInterfaceId" Data.=: networkInterfaceId
       ]
 
 -- | /See:/ 'newAssignPrivateIpAddressesResponse' smart constructor.

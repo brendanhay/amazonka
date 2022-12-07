@@ -47,6 +47,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationRecorderStatusResponse'
-            Prelude.<$> ( x Core..?> "ConfigurationRecordersStatus"
+            Prelude.<$> ( x Data..?> "ConfigurationRecordersStatus"
                             Core..!@ Prelude.mempty
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -124,43 +125,43 @@ instance
     Prelude.rnf configurationRecorderNames
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeConfigurationRecorderStatus
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DescribeConfigurationRecorderStatus" ::
+              Data.=# ( "StarlingDoveService.DescribeConfigurationRecorderStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeConfigurationRecorderStatus
   where
   toJSON DescribeConfigurationRecorderStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConfigurationRecorderNames" Core..=)
+          [ ("ConfigurationRecorderNames" Data..=)
               Prelude.<$> configurationRecorderNames
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeConfigurationRecorderStatus
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeConfigurationRecorderStatus
   where
   toQuery = Prelude.const Prelude.mempty

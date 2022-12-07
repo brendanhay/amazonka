@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConditionalForwardersResponse'
-            Prelude.<$> ( x Core..?> "ConditionalForwarders"
+            Prelude.<$> ( x Data..?> "ConditionalForwarders"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -132,35 +133,35 @@ instance Prelude.NFData DescribeConditionalForwarders where
     Prelude.rnf remoteDomainNames
       `Prelude.seq` Prelude.rnf directoryId
 
-instance Core.ToHeaders DescribeConditionalForwarders where
+instance Data.ToHeaders DescribeConditionalForwarders where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.DescribeConditionalForwarders" ::
+              Data.=# ( "DirectoryService_20150416.DescribeConditionalForwarders" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeConditionalForwarders where
+instance Data.ToJSON DescribeConditionalForwarders where
   toJSON DescribeConditionalForwarders' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RemoteDomainNames" Core..=)
+          [ ("RemoteDomainNames" Data..=)
               Prelude.<$> remoteDomainNames,
-            Prelude.Just ("DirectoryId" Core..= directoryId)
+            Prelude.Just ("DirectoryId" Data..= directoryId)
           ]
       )
 
-instance Core.ToPath DescribeConditionalForwarders where
+instance Data.ToPath DescribeConditionalForwarders where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeConditionalForwarders where
+instance Data.ToQuery DescribeConditionalForwarders where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a DescribeConditionalForwarder request.

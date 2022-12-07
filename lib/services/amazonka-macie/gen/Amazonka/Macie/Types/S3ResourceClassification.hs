@@ -21,6 +21,7 @@ module Amazonka.Macie.Types.S3ResourceClassification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Macie.Types.ClassificationType
 import qualified Amazonka.Prelude as Prelude
 
@@ -89,15 +90,15 @@ s3ResourceClassification_bucketName = Lens.lens (\S3ResourceClassification' {buc
 s3ResourceClassification_classificationType :: Lens.Lens' S3ResourceClassification ClassificationType
 s3ResourceClassification_classificationType = Lens.lens (\S3ResourceClassification' {classificationType} -> classificationType) (\s@S3ResourceClassification' {} a -> s {classificationType = a} :: S3ResourceClassification)
 
-instance Core.FromJSON S3ResourceClassification where
+instance Data.FromJSON S3ResourceClassification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3ResourceClassification"
       ( \x ->
           S3ResourceClassification'
-            Prelude.<$> (x Core..:? "prefix")
-            Prelude.<*> (x Core..: "bucketName")
-            Prelude.<*> (x Core..: "classificationType")
+            Prelude.<$> (x Data..:? "prefix")
+            Prelude.<*> (x Data..: "bucketName")
+            Prelude.<*> (x Data..: "classificationType")
       )
 
 instance Prelude.Hashable S3ResourceClassification where
@@ -112,13 +113,13 @@ instance Prelude.NFData S3ResourceClassification where
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf classificationType
 
-instance Core.ToJSON S3ResourceClassification where
+instance Data.ToJSON S3ResourceClassification where
   toJSON S3ResourceClassification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("prefix" Core..=) Prelude.<$> prefix,
-            Prelude.Just ("bucketName" Core..= bucketName),
+          [ ("prefix" Data..=) Prelude.<$> prefix,
+            Prelude.Just ("bucketName" Data..= bucketName),
             Prelude.Just
-              ("classificationType" Core..= classificationType)
+              ("classificationType" Data..= classificationType)
           ]
       )

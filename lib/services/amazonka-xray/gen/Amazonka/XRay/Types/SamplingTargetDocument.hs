@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.SamplingTargetDocument where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Temporary changes to a sampling rule configuration. To meet the global
@@ -39,7 +40,7 @@ data SamplingTargetDocument = SamplingTargetDocument'
     -- targets again.
     interval :: Prelude.Maybe Prelude.Int,
     -- | When the reservoir quota expires.
-    reservoirQuotaTTL :: Prelude.Maybe Core.POSIX,
+    reservoirQuotaTTL :: Prelude.Maybe Data.POSIX,
     -- | The name of the sampling rule.
     ruleName :: Prelude.Maybe Prelude.Text
   }
@@ -92,23 +93,23 @@ samplingTargetDocument_interval = Lens.lens (\SamplingTargetDocument' {interval}
 
 -- | When the reservoir quota expires.
 samplingTargetDocument_reservoirQuotaTTL :: Lens.Lens' SamplingTargetDocument (Prelude.Maybe Prelude.UTCTime)
-samplingTargetDocument_reservoirQuotaTTL = Lens.lens (\SamplingTargetDocument' {reservoirQuotaTTL} -> reservoirQuotaTTL) (\s@SamplingTargetDocument' {} a -> s {reservoirQuotaTTL = a} :: SamplingTargetDocument) Prelude.. Lens.mapping Core._Time
+samplingTargetDocument_reservoirQuotaTTL = Lens.lens (\SamplingTargetDocument' {reservoirQuotaTTL} -> reservoirQuotaTTL) (\s@SamplingTargetDocument' {} a -> s {reservoirQuotaTTL = a} :: SamplingTargetDocument) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the sampling rule.
 samplingTargetDocument_ruleName :: Lens.Lens' SamplingTargetDocument (Prelude.Maybe Prelude.Text)
 samplingTargetDocument_ruleName = Lens.lens (\SamplingTargetDocument' {ruleName} -> ruleName) (\s@SamplingTargetDocument' {} a -> s {ruleName = a} :: SamplingTargetDocument)
 
-instance Core.FromJSON SamplingTargetDocument where
+instance Data.FromJSON SamplingTargetDocument where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SamplingTargetDocument"
       ( \x ->
           SamplingTargetDocument'
-            Prelude.<$> (x Core..:? "FixedRate")
-            Prelude.<*> (x Core..:? "ReservoirQuota")
-            Prelude.<*> (x Core..:? "Interval")
-            Prelude.<*> (x Core..:? "ReservoirQuotaTTL")
-            Prelude.<*> (x Core..:? "RuleName")
+            Prelude.<$> (x Data..:? "FixedRate")
+            Prelude.<*> (x Data..:? "ReservoirQuota")
+            Prelude.<*> (x Data..:? "Interval")
+            Prelude.<*> (x Data..:? "ReservoirQuotaTTL")
+            Prelude.<*> (x Data..:? "RuleName")
       )
 
 instance Prelude.Hashable SamplingTargetDocument where

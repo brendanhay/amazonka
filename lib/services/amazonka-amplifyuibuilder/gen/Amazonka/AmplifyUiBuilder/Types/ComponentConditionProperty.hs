@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.ComponentConditionProperty where
 import {-# SOURCE #-} Amazonka.AmplifyUiBuilder.Types.ComponentProperty
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a conditional expression to set a component property. Use
@@ -113,19 +114,19 @@ componentConditionProperty_property = Lens.lens (\ComponentConditionProperty' {p
 componentConditionProperty_operator :: Lens.Lens' ComponentConditionProperty (Prelude.Maybe Prelude.Text)
 componentConditionProperty_operator = Lens.lens (\ComponentConditionProperty' {operator} -> operator) (\s@ComponentConditionProperty' {} a -> s {operator = a} :: ComponentConditionProperty)
 
-instance Core.FromJSON ComponentConditionProperty where
+instance Data.FromJSON ComponentConditionProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentConditionProperty"
       ( \x ->
           ComponentConditionProperty'
-            Prelude.<$> (x Core..:? "operand")
-            Prelude.<*> (x Core..:? "else")
-            Prelude.<*> (x Core..:? "then")
-            Prelude.<*> (x Core..:? "operandType")
-            Prelude.<*> (x Core..:? "field")
-            Prelude.<*> (x Core..:? "property")
-            Prelude.<*> (x Core..:? "operator")
+            Prelude.<$> (x Data..:? "operand")
+            Prelude.<*> (x Data..:? "else")
+            Prelude.<*> (x Data..:? "then")
+            Prelude.<*> (x Data..:? "operandType")
+            Prelude.<*> (x Data..:? "field")
+            Prelude.<*> (x Data..:? "property")
+            Prelude.<*> (x Data..:? "operator")
       )
 
 instance Prelude.Hashable ComponentConditionProperty where
@@ -148,16 +149,16 @@ instance Prelude.NFData ComponentConditionProperty where
       `Prelude.seq` Prelude.rnf property
       `Prelude.seq` Prelude.rnf operator
 
-instance Core.ToJSON ComponentConditionProperty where
+instance Data.ToJSON ComponentConditionProperty where
   toJSON ComponentConditionProperty' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("operand" Core..=) Prelude.<$> operand,
-            ("else" Core..=) Prelude.<$> else',
-            ("then" Core..=) Prelude.<$> then',
-            ("operandType" Core..=) Prelude.<$> operandType,
-            ("field" Core..=) Prelude.<$> field,
-            ("property" Core..=) Prelude.<$> property,
-            ("operator" Core..=) Prelude.<$> operator
+          [ ("operand" Data..=) Prelude.<$> operand,
+            ("else" Data..=) Prelude.<$> else',
+            ("then" Data..=) Prelude.<$> then',
+            ("operandType" Data..=) Prelude.<$> operandType,
+            ("field" Data..=) Prelude.<$> field,
+            ("property" Data..=) Prelude.<$> property,
+            ("operator" Data..=) Prelude.<$> operator
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ParameterInlinePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | One or more policies assigned to a parameter.
@@ -86,15 +87,15 @@ parameterInlinePolicy_policyText = Lens.lens (\ParameterInlinePolicy' {policyTex
 parameterInlinePolicy_policyStatus :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
 parameterInlinePolicy_policyStatus = Lens.lens (\ParameterInlinePolicy' {policyStatus} -> policyStatus) (\s@ParameterInlinePolicy' {} a -> s {policyStatus = a} :: ParameterInlinePolicy)
 
-instance Core.FromJSON ParameterInlinePolicy where
+instance Data.FromJSON ParameterInlinePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParameterInlinePolicy"
       ( \x ->
           ParameterInlinePolicy'
-            Prelude.<$> (x Core..:? "PolicyType")
-            Prelude.<*> (x Core..:? "PolicyText")
-            Prelude.<*> (x Core..:? "PolicyStatus")
+            Prelude.<$> (x Data..:? "PolicyType")
+            Prelude.<*> (x Data..:? "PolicyText")
+            Prelude.<*> (x Data..:? "PolicyStatus")
       )
 
 instance Prelude.Hashable ParameterInlinePolicy where

@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentStopCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the stop condition for an experiment.
@@ -61,14 +62,14 @@ experimentStopCondition_source = Lens.lens (\ExperimentStopCondition' {source} -
 experimentStopCondition_value :: Lens.Lens' ExperimentStopCondition (Prelude.Maybe Prelude.Text)
 experimentStopCondition_value = Lens.lens (\ExperimentStopCondition' {value} -> value) (\s@ExperimentStopCondition' {} a -> s {value = a} :: ExperimentStopCondition)
 
-instance Core.FromJSON ExperimentStopCondition where
+instance Data.FromJSON ExperimentStopCondition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentStopCondition"
       ( \x ->
           ExperimentStopCondition'
-            Prelude.<$> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "source")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ExperimentStopCondition where

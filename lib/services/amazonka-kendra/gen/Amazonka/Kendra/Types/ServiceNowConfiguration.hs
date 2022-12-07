@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ServiceNowConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ServiceNowAuthenticationType
 import Amazonka.Kendra.Types.ServiceNowBuildVersionType
 import Amazonka.Kendra.Types.ServiceNowKnowledgeArticleConfiguration
@@ -166,18 +167,18 @@ serviceNowConfiguration_secretArn = Lens.lens (\ServiceNowConfiguration' {secret
 serviceNowConfiguration_serviceNowBuildVersion :: Lens.Lens' ServiceNowConfiguration ServiceNowBuildVersionType
 serviceNowConfiguration_serviceNowBuildVersion = Lens.lens (\ServiceNowConfiguration' {serviceNowBuildVersion} -> serviceNowBuildVersion) (\s@ServiceNowConfiguration' {} a -> s {serviceNowBuildVersion = a} :: ServiceNowConfiguration)
 
-instance Core.FromJSON ServiceNowConfiguration where
+instance Data.FromJSON ServiceNowConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceNowConfiguration"
       ( \x ->
           ServiceNowConfiguration'
-            Prelude.<$> (x Core..:? "AuthenticationType")
-            Prelude.<*> (x Core..:? "ServiceCatalogConfiguration")
-            Prelude.<*> (x Core..:? "KnowledgeArticleConfiguration")
-            Prelude.<*> (x Core..: "HostUrl")
-            Prelude.<*> (x Core..: "SecretArn")
-            Prelude.<*> (x Core..: "ServiceNowBuildVersion")
+            Prelude.<$> (x Data..:? "AuthenticationType")
+            Prelude.<*> (x Data..:? "ServiceCatalogConfiguration")
+            Prelude.<*> (x Data..:? "KnowledgeArticleConfiguration")
+            Prelude.<*> (x Data..: "HostUrl")
+            Prelude.<*> (x Data..: "SecretArn")
+            Prelude.<*> (x Data..: "ServiceNowBuildVersion")
       )
 
 instance Prelude.Hashable ServiceNowConfiguration where
@@ -198,21 +199,21 @@ instance Prelude.NFData ServiceNowConfiguration where
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf serviceNowBuildVersion
 
-instance Core.ToJSON ServiceNowConfiguration where
+instance Data.ToJSON ServiceNowConfiguration where
   toJSON ServiceNowConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AuthenticationType" Core..=)
+          [ ("AuthenticationType" Data..=)
               Prelude.<$> authenticationType,
-            ("ServiceCatalogConfiguration" Core..=)
+            ("ServiceCatalogConfiguration" Data..=)
               Prelude.<$> serviceCatalogConfiguration,
-            ("KnowledgeArticleConfiguration" Core..=)
+            ("KnowledgeArticleConfiguration" Data..=)
               Prelude.<$> knowledgeArticleConfiguration,
-            Prelude.Just ("HostUrl" Core..= hostUrl),
-            Prelude.Just ("SecretArn" Core..= secretArn),
+            Prelude.Just ("HostUrl" Data..= hostUrl),
+            Prelude.Just ("SecretArn" Data..= secretArn),
             Prelude.Just
               ( "ServiceNowBuildVersion"
-                  Core..= serviceNowBuildVersion
+                  Data..= serviceNowBuildVersion
               )
           ]
       )

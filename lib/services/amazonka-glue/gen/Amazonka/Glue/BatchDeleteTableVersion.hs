@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,7 +131,7 @@ instance Core.AWSRequest BatchDeleteTableVersion where
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteTableVersionResponse'
-            Prelude.<$> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,36 +149,36 @@ instance Prelude.NFData BatchDeleteTableVersion where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf versionIds
 
-instance Core.ToHeaders BatchDeleteTableVersion where
+instance Data.ToHeaders BatchDeleteTableVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.BatchDeleteTableVersion" ::
+              Data.=# ( "AWSGlue.BatchDeleteTableVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDeleteTableVersion where
+instance Data.ToJSON BatchDeleteTableVersion where
   toJSON BatchDeleteTableVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("VersionIds" Core..= versionIds)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("VersionIds" Data..= versionIds)
           ]
       )
 
-instance Core.ToPath BatchDeleteTableVersion where
+instance Data.ToPath BatchDeleteTableVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchDeleteTableVersion where
+instance Data.ToQuery BatchDeleteTableVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDeleteTableVersionResponse' smart constructor.

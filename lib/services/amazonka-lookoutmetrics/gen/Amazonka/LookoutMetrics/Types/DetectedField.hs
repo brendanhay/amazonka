@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.DetectedField where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.AttributeValue
 import Amazonka.LookoutMetrics.Types.Confidence
 import qualified Amazonka.Prelude as Prelude
@@ -72,15 +73,15 @@ detectedField_confidence = Lens.lens (\DetectedField' {confidence} -> confidence
 detectedField_value :: Lens.Lens' DetectedField (Prelude.Maybe AttributeValue)
 detectedField_value = Lens.lens (\DetectedField' {value} -> value) (\s@DetectedField' {} a -> s {value = a} :: DetectedField)
 
-instance Core.FromJSON DetectedField where
+instance Data.FromJSON DetectedField where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectedField"
       ( \x ->
           DetectedField'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable DetectedField where

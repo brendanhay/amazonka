@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -151,8 +152,8 @@ instance Core.AWSRequest ListDatasetLabels where
     Response.receiveJSON
       ( \s h x ->
           ListDatasetLabelsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DatasetLabelDescriptions"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "DatasetLabelDescriptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -170,35 +171,35 @@ instance Prelude.NFData ListDatasetLabels where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf datasetArn
 
-instance Core.ToHeaders ListDatasetLabels where
+instance Data.ToHeaders ListDatasetLabels where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.ListDatasetLabels" ::
+              Data.=# ( "RekognitionService.ListDatasetLabels" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDatasetLabels where
+instance Data.ToJSON ListDatasetLabels where
   toJSON ListDatasetLabels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("DatasetArn" Core..= datasetArn)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("DatasetArn" Data..= datasetArn)
           ]
       )
 
-instance Core.ToPath ListDatasetLabels where
+instance Data.ToPath ListDatasetLabels where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDatasetLabels where
+instance Data.ToQuery ListDatasetLabels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDatasetLabelsResponse' smart constructor.

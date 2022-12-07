@@ -21,6 +21,7 @@ module Amazonka.S3.Types.RoutingRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.Condition
@@ -87,11 +88,11 @@ routingRule_condition = Lens.lens (\RoutingRule' {condition} -> condition) (\s@R
 routingRule_redirect :: Lens.Lens' RoutingRule Redirect
 routingRule_redirect = Lens.lens (\RoutingRule' {redirect} -> redirect) (\s@RoutingRule' {} a -> s {redirect = a} :: RoutingRule)
 
-instance Core.FromXML RoutingRule where
+instance Data.FromXML RoutingRule where
   parseXML x =
     RoutingRule'
-      Prelude.<$> (x Core..@? "Condition")
-      Prelude.<*> (x Core..@ "Redirect")
+      Prelude.<$> (x Data..@? "Condition")
+      Prelude.<*> (x Data..@ "Redirect")
 
 instance Prelude.Hashable RoutingRule where
   hashWithSalt _salt RoutingRule' {..} =
@@ -103,9 +104,9 @@ instance Prelude.NFData RoutingRule where
     Prelude.rnf condition
       `Prelude.seq` Prelude.rnf redirect
 
-instance Core.ToXML RoutingRule where
+instance Data.ToXML RoutingRule where
   toXML RoutingRule' {..} =
     Prelude.mconcat
-      [ "Condition" Core.@= condition,
-        "Redirect" Core.@= redirect
+      [ "Condition" Data.@= condition,
+        "Redirect" Data.@= redirect
       ]

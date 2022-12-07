@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance
   Prelude.Hashable
@@ -119,18 +120,18 @@ instance
     Prelude.rnf fileSystemId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeLifecycleConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeLifecycleConfiguration where
+instance Data.ToPath DescribeLifecycleConfiguration where
   toPath DescribeLifecycleConfiguration' {..} =
     Prelude.mconcat
       [ "/2015-02-01/file-systems/",
-        Core.toBS fileSystemId,
+        Data.toBS fileSystemId,
         "/lifecycle-configuration"
       ]
 
-instance Core.ToQuery DescribeLifecycleConfiguration where
+instance Data.ToQuery DescribeLifecycleConfiguration where
   toQuery = Prelude.const Prelude.mempty

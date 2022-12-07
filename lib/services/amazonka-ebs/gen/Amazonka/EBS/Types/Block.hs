@@ -21,6 +21,7 @@ module Amazonka.EBS.Types.Block where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A block of data in an Amazon Elastic Block Store snapshot.
@@ -61,14 +62,14 @@ block_blockToken = Lens.lens (\Block' {blockToken} -> blockToken) (\s@Block' {} 
 block_blockIndex :: Lens.Lens' Block (Prelude.Maybe Prelude.Natural)
 block_blockIndex = Lens.lens (\Block' {blockIndex} -> blockIndex) (\s@Block' {} a -> s {blockIndex = a} :: Block)
 
-instance Core.FromJSON Block where
+instance Data.FromJSON Block where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Block"
       ( \x ->
           Block'
-            Prelude.<$> (x Core..:? "BlockToken")
-            Prelude.<*> (x Core..:? "BlockIndex")
+            Prelude.<$> (x Data..:? "BlockToken")
+            Prelude.<*> (x Data..:? "BlockIndex")
       )
 
 instance Prelude.Hashable Block where

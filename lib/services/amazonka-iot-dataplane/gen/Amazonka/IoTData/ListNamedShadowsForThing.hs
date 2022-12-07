@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,9 +113,9 @@ instance Core.AWSRequest ListNamedShadowsForThing where
     Response.receiveJSON
       ( \s h x ->
           ListNamedShadowsForThingResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "timestamp")
-            Prelude.<*> (x Core..?> "results" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "timestamp")
+            Prelude.<*> (x Data..?> "results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,21 +131,21 @@ instance Prelude.NFData ListNamedShadowsForThing where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf thingName
 
-instance Core.ToHeaders ListNamedShadowsForThing where
+instance Data.ToHeaders ListNamedShadowsForThing where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListNamedShadowsForThing where
+instance Data.ToPath ListNamedShadowsForThing where
   toPath ListNamedShadowsForThing' {..} =
     Prelude.mconcat
       [ "/api/things/shadow/ListNamedShadowsForThing/",
-        Core.toBS thingName
+        Data.toBS thingName
       ]
 
-instance Core.ToQuery ListNamedShadowsForThing where
+instance Data.ToQuery ListNamedShadowsForThing where
   toQuery ListNamedShadowsForThing' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "pageSize" Core.=: pageSize
+      [ "nextToken" Data.=: nextToken,
+        "pageSize" Data.=: pageSize
       ]
 
 -- | /See:/ 'newListNamedShadowsForThingResponse' smart constructor.

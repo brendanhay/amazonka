@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.IpRoute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | IP address block. This is often the address block of the DNS server used
@@ -81,11 +82,11 @@ instance Prelude.NFData IpRoute where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf cidrIp
 
-instance Core.ToJSON IpRoute where
+instance Data.ToJSON IpRoute where
   toJSON IpRoute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("CidrIp" Core..=) Prelude.<$> cidrIp
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("CidrIp" Data..=) Prelude.<$> cidrIp
           ]
       )

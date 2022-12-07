@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,8 +89,8 @@ instance Core.AWSRequest BatchGetFreeTrialInfo where
       ( \s h x ->
           BatchGetFreeTrialInfoResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "accounts" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "failedAccounts"
+            Prelude.<*> (x Data..?> "accounts" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "failedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -102,28 +103,28 @@ instance Prelude.NFData BatchGetFreeTrialInfo where
   rnf BatchGetFreeTrialInfo' {..} =
     Prelude.rnf accountIds
 
-instance Core.ToHeaders BatchGetFreeTrialInfo where
+instance Data.ToHeaders BatchGetFreeTrialInfo where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetFreeTrialInfo where
+instance Data.ToJSON BatchGetFreeTrialInfo where
   toJSON BatchGetFreeTrialInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("accountIds" Core..= accountIds)]
+          [Prelude.Just ("accountIds" Data..= accountIds)]
       )
 
-instance Core.ToPath BatchGetFreeTrialInfo where
+instance Data.ToPath BatchGetFreeTrialInfo where
   toPath = Prelude.const "/freetrialinfo/batchget"
 
-instance Core.ToQuery BatchGetFreeTrialInfo where
+instance Data.ToQuery BatchGetFreeTrialInfo where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetFreeTrialInfoResponse' smart constructor.

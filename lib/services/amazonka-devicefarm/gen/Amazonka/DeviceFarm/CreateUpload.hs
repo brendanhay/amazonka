@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -338,7 +339,7 @@ instance Core.AWSRequest CreateUpload where
     Response.receiveJSON
       ( \s h x ->
           CreateUploadResponse'
-            Prelude.<$> (x Core..?> "upload")
+            Prelude.<$> (x Data..?> "upload")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -356,36 +357,36 @@ instance Prelude.NFData CreateUpload where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateUpload where
+instance Data.ToHeaders CreateUpload where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.CreateUpload" ::
+              Data.=# ( "DeviceFarm_20150623.CreateUpload" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUpload where
+instance Data.ToJSON CreateUpload where
   toJSON CreateUpload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("contentType" Core..=) Prelude.<$> contentType,
-            Prelude.Just ("projectArn" Core..= projectArn),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("type" Core..= type')
+          [ ("contentType" Data..=) Prelude.<$> contentType,
+            Prelude.Just ("projectArn" Data..= projectArn),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateUpload where
+instance Data.ToPath CreateUpload where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUpload where
+instance Data.ToQuery CreateUpload where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a create upload request.

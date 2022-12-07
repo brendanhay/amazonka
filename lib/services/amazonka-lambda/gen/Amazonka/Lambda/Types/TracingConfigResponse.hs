@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.TracingConfigResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.TracingMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newTracingConfigResponse =
 tracingConfigResponse_mode :: Lens.Lens' TracingConfigResponse (Prelude.Maybe TracingMode)
 tracingConfigResponse_mode = Lens.lens (\TracingConfigResponse' {mode} -> mode) (\s@TracingConfigResponse' {} a -> s {mode = a} :: TracingConfigResponse)
 
-instance Core.FromJSON TracingConfigResponse where
+instance Data.FromJSON TracingConfigResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TracingConfigResponse"
       ( \x ->
           TracingConfigResponse'
-            Prelude.<$> (x Core..:? "Mode")
+            Prelude.<$> (x Data..:? "Mode")
       )
 
 instance Prelude.Hashable TracingConfigResponse where

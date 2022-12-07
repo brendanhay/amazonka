@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.CsvFormatDescriptor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.CSVFileCompression
 import qualified Amazonka.Prelude as Prelude
 
@@ -99,18 +100,18 @@ csvFormatDescriptor_fileCompression = Lens.lens (\CsvFormatDescriptor' {fileComp
 csvFormatDescriptor_charset :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe Prelude.Text)
 csvFormatDescriptor_charset = Lens.lens (\CsvFormatDescriptor' {charset} -> charset) (\s@CsvFormatDescriptor' {} a -> s {charset = a} :: CsvFormatDescriptor)
 
-instance Core.FromJSON CsvFormatDescriptor where
+instance Data.FromJSON CsvFormatDescriptor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CsvFormatDescriptor"
       ( \x ->
           CsvFormatDescriptor'
-            Prelude.<$> (x Core..:? "QuoteSymbol")
-            Prelude.<*> (x Core..:? "ContainsHeader")
-            Prelude.<*> (x Core..:? "Delimiter")
-            Prelude.<*> (x Core..:? "HeaderList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "FileCompression")
-            Prelude.<*> (x Core..:? "Charset")
+            Prelude.<$> (x Data..:? "QuoteSymbol")
+            Prelude.<*> (x Data..:? "ContainsHeader")
+            Prelude.<*> (x Data..:? "Delimiter")
+            Prelude.<*> (x Data..:? "HeaderList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "FileCompression")
+            Prelude.<*> (x Data..:? "Charset")
       )
 
 instance Prelude.Hashable CsvFormatDescriptor where
@@ -131,17 +132,17 @@ instance Prelude.NFData CsvFormatDescriptor where
       `Prelude.seq` Prelude.rnf fileCompression
       `Prelude.seq` Prelude.rnf charset
 
-instance Core.ToJSON CsvFormatDescriptor where
+instance Data.ToJSON CsvFormatDescriptor where
   toJSON CsvFormatDescriptor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("QuoteSymbol" Core..=) Prelude.<$> quoteSymbol,
-            ("ContainsHeader" Core..=)
+          [ ("QuoteSymbol" Data..=) Prelude.<$> quoteSymbol,
+            ("ContainsHeader" Data..=)
               Prelude.<$> containsHeader,
-            ("Delimiter" Core..=) Prelude.<$> delimiter,
-            ("HeaderList" Core..=) Prelude.<$> headerList,
-            ("FileCompression" Core..=)
+            ("Delimiter" Data..=) Prelude.<$> delimiter,
+            ("HeaderList" Data..=) Prelude.<$> headerList,
+            ("FileCompression" Data..=)
               Prelude.<$> fileCompression,
-            ("Charset" Core..=) Prelude.<$> charset
+            ("Charset" Data..=) Prelude.<$> charset
           ]
       )

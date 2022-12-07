@@ -21,6 +21,7 @@ module Amazonka.HealthLake.Types.DatastoreProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HealthLake.Types.DatastoreStatus
 import Amazonka.HealthLake.Types.FHIRVersion
 import Amazonka.HealthLake.Types.PreloadDataConfig
@@ -41,7 +42,7 @@ data DatastoreProperties = DatastoreProperties'
     -- from Synthea is supported.
     preloadDataConfig :: Prelude.Maybe PreloadDataConfig,
     -- | The time that a Data Store was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The AWS-generated ID number for the Data Store.
     datastoreId :: Prelude.Text,
     -- | The Amazon Resource Name used in the creation of the Data Store.
@@ -133,7 +134,7 @@ datastoreProperties_preloadDataConfig = Lens.lens (\DatastoreProperties' {preloa
 
 -- | The time that a Data Store was created.
 datastoreProperties_createdAt :: Lens.Lens' DatastoreProperties (Prelude.Maybe Prelude.UTCTime)
-datastoreProperties_createdAt = Lens.lens (\DatastoreProperties' {createdAt} -> createdAt) (\s@DatastoreProperties' {} a -> s {createdAt = a} :: DatastoreProperties) Prelude.. Lens.mapping Core._Time
+datastoreProperties_createdAt = Lens.lens (\DatastoreProperties' {createdAt} -> createdAt) (\s@DatastoreProperties' {} a -> s {createdAt = a} :: DatastoreProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The AWS-generated ID number for the Data Store.
 datastoreProperties_datastoreId :: Lens.Lens' DatastoreProperties Prelude.Text
@@ -157,21 +158,21 @@ datastoreProperties_datastoreTypeVersion = Lens.lens (\DatastoreProperties' {dat
 datastoreProperties_datastoreEndpoint :: Lens.Lens' DatastoreProperties Prelude.Text
 datastoreProperties_datastoreEndpoint = Lens.lens (\DatastoreProperties' {datastoreEndpoint} -> datastoreEndpoint) (\s@DatastoreProperties' {} a -> s {datastoreEndpoint = a} :: DatastoreProperties)
 
-instance Core.FromJSON DatastoreProperties where
+instance Data.FromJSON DatastoreProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatastoreProperties"
       ( \x ->
           DatastoreProperties'
-            Prelude.<$> (x Core..:? "DatastoreName")
-            Prelude.<*> (x Core..:? "SseConfiguration")
-            Prelude.<*> (x Core..:? "PreloadDataConfig")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..: "DatastoreId")
-            Prelude.<*> (x Core..: "DatastoreArn")
-            Prelude.<*> (x Core..: "DatastoreStatus")
-            Prelude.<*> (x Core..: "DatastoreTypeVersion")
-            Prelude.<*> (x Core..: "DatastoreEndpoint")
+            Prelude.<$> (x Data..:? "DatastoreName")
+            Prelude.<*> (x Data..:? "SseConfiguration")
+            Prelude.<*> (x Data..:? "PreloadDataConfig")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..: "DatastoreId")
+            Prelude.<*> (x Data..: "DatastoreArn")
+            Prelude.<*> (x Data..: "DatastoreStatus")
+            Prelude.<*> (x Data..: "DatastoreTypeVersion")
+            Prelude.<*> (x Data..: "DatastoreEndpoint")
       )
 
 instance Prelude.Hashable DatastoreProperties where

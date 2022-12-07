@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ClusterSecurityGroupMembership where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -63,11 +64,11 @@ clusterSecurityGroupMembership_clusterSecurityGroupName = Lens.lens (\ClusterSec
 clusterSecurityGroupMembership_status :: Lens.Lens' ClusterSecurityGroupMembership (Prelude.Maybe Prelude.Text)
 clusterSecurityGroupMembership_status = Lens.lens (\ClusterSecurityGroupMembership' {status} -> status) (\s@ClusterSecurityGroupMembership' {} a -> s {status = a} :: ClusterSecurityGroupMembership)
 
-instance Core.FromXML ClusterSecurityGroupMembership where
+instance Data.FromXML ClusterSecurityGroupMembership where
   parseXML x =
     ClusterSecurityGroupMembership'
-      Prelude.<$> (x Core..@? "ClusterSecurityGroupName")
-      Prelude.<*> (x Core..@? "Status")
+      Prelude.<$> (x Data..@? "ClusterSecurityGroupName")
+      Prelude.<*> (x Data..@? "Status")
 
 instance
   Prelude.Hashable

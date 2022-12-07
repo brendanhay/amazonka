@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TrialComponentStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.TrialComponentPrimaryStatus
 
@@ -62,14 +63,14 @@ trialComponentStatus_message = Lens.lens (\TrialComponentStatus' {message} -> me
 trialComponentStatus_primaryStatus :: Lens.Lens' TrialComponentStatus (Prelude.Maybe TrialComponentPrimaryStatus)
 trialComponentStatus_primaryStatus = Lens.lens (\TrialComponentStatus' {primaryStatus} -> primaryStatus) (\s@TrialComponentStatus' {} a -> s {primaryStatus = a} :: TrialComponentStatus)
 
-instance Core.FromJSON TrialComponentStatus where
+instance Data.FromJSON TrialComponentStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrialComponentStatus"
       ( \x ->
           TrialComponentStatus'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "PrimaryStatus")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "PrimaryStatus")
       )
 
 instance Prelude.Hashable TrialComponentStatus where
@@ -82,11 +83,11 @@ instance Prelude.NFData TrialComponentStatus where
     Prelude.rnf message
       `Prelude.seq` Prelude.rnf primaryStatus
 
-instance Core.ToJSON TrialComponentStatus where
+instance Data.ToJSON TrialComponentStatus where
   toJSON TrialComponentStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Message" Core..=) Prelude.<$> message,
-            ("PrimaryStatus" Core..=) Prelude.<$> primaryStatus
+          [ ("Message" Data..=) Prelude.<$> message,
+            ("PrimaryStatus" Data..=) Prelude.<$> primaryStatus
           ]
       )

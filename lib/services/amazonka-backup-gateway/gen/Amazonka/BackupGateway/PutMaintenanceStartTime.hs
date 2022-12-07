@@ -46,6 +46,7 @@ where
 import Amazonka.BackupGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,7 +143,7 @@ instance Core.AWSRequest PutMaintenanceStartTime where
     Response.receiveJSON
       ( \s h x ->
           PutMaintenanceStartTimeResponse'
-            Prelude.<$> (x Core..?> "GatewayArn")
+            Prelude.<$> (x Data..?> "GatewayArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,37 +163,37 @@ instance Prelude.NFData PutMaintenanceStartTime where
       `Prelude.seq` Prelude.rnf hourOfDay
       `Prelude.seq` Prelude.rnf minuteOfHour
 
-instance Core.ToHeaders PutMaintenanceStartTime where
+instance Data.ToHeaders PutMaintenanceStartTime where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BackupOnPremises_v20210101.PutMaintenanceStartTime" ::
+              Data.=# ( "BackupOnPremises_v20210101.PutMaintenanceStartTime" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutMaintenanceStartTime where
+instance Data.ToJSON PutMaintenanceStartTime where
   toJSON PutMaintenanceStartTime' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DayOfWeek" Core..=) Prelude.<$> dayOfWeek,
-            ("DayOfMonth" Core..=) Prelude.<$> dayOfMonth,
-            Prelude.Just ("GatewayArn" Core..= gatewayArn),
-            Prelude.Just ("HourOfDay" Core..= hourOfDay),
-            Prelude.Just ("MinuteOfHour" Core..= minuteOfHour)
+          [ ("DayOfWeek" Data..=) Prelude.<$> dayOfWeek,
+            ("DayOfMonth" Data..=) Prelude.<$> dayOfMonth,
+            Prelude.Just ("GatewayArn" Data..= gatewayArn),
+            Prelude.Just ("HourOfDay" Data..= hourOfDay),
+            Prelude.Just ("MinuteOfHour" Data..= minuteOfHour)
           ]
       )
 
-instance Core.ToPath PutMaintenanceStartTime where
+instance Data.ToPath PutMaintenanceStartTime where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutMaintenanceStartTime where
+instance Data.ToQuery PutMaintenanceStartTime where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutMaintenanceStartTimeResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Storage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.S3Storage
 import qualified Amazonka.Prelude as Prelude
@@ -51,8 +52,8 @@ newStorage = Storage' {s3 = Prelude.Nothing}
 storage_s3 :: Lens.Lens' Storage (Prelude.Maybe S3Storage)
 storage_s3 = Lens.lens (\Storage' {s3} -> s3) (\s@Storage' {} a -> s {s3 = a} :: Storage)
 
-instance Core.FromXML Storage where
-  parseXML x = Storage' Prelude.<$> (x Core..@? "S3")
+instance Data.FromXML Storage where
+  parseXML x = Storage' Prelude.<$> (x Data..@? "S3")
 
 instance Prelude.Hashable Storage where
   hashWithSalt _salt Storage' {..} =
@@ -61,6 +62,6 @@ instance Prelude.Hashable Storage where
 instance Prelude.NFData Storage where
   rnf Storage' {..} = Prelude.rnf s3
 
-instance Core.ToQuery Storage where
+instance Data.ToQuery Storage where
   toQuery Storage' {..} =
-    Prelude.mconcat ["S3" Core.=: s3]
+    Prelude.mconcat ["S3" Data.=: s3]

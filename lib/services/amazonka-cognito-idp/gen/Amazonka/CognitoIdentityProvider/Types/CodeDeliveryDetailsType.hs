@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.CodeDeliveryDetailsType where
 import Amazonka.CognitoIdentityProvider.Types.DeliveryMediumType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The delivery details for an email or SMS message that Amazon Cognito
@@ -76,15 +77,15 @@ codeDeliveryDetailsType_deliveryMedium = Lens.lens (\CodeDeliveryDetailsType' {d
 codeDeliveryDetailsType_attributeName :: Lens.Lens' CodeDeliveryDetailsType (Prelude.Maybe Prelude.Text)
 codeDeliveryDetailsType_attributeName = Lens.lens (\CodeDeliveryDetailsType' {attributeName} -> attributeName) (\s@CodeDeliveryDetailsType' {} a -> s {attributeName = a} :: CodeDeliveryDetailsType)
 
-instance Core.FromJSON CodeDeliveryDetailsType where
+instance Data.FromJSON CodeDeliveryDetailsType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeDeliveryDetailsType"
       ( \x ->
           CodeDeliveryDetailsType'
-            Prelude.<$> (x Core..:? "Destination")
-            Prelude.<*> (x Core..:? "DeliveryMedium")
-            Prelude.<*> (x Core..:? "AttributeName")
+            Prelude.<$> (x Data..:? "Destination")
+            Prelude.<*> (x Data..:? "DeliveryMedium")
+            Prelude.<*> (x Data..:? "AttributeName")
       )
 
 instance Prelude.Hashable CodeDeliveryDetailsType where

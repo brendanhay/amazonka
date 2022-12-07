@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.DNSLogsConfigurationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.DataSourceStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -53,13 +54,13 @@ newDNSLogsConfigurationResult pStatus_ =
 dNSLogsConfigurationResult_status :: Lens.Lens' DNSLogsConfigurationResult DataSourceStatus
 dNSLogsConfigurationResult_status = Lens.lens (\DNSLogsConfigurationResult' {status} -> status) (\s@DNSLogsConfigurationResult' {} a -> s {status = a} :: DNSLogsConfigurationResult)
 
-instance Core.FromJSON DNSLogsConfigurationResult where
+instance Data.FromJSON DNSLogsConfigurationResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DNSLogsConfigurationResult"
       ( \x ->
           DNSLogsConfigurationResult'
-            Prelude.<$> (x Core..: "status")
+            Prelude.<$> (x Data..: "status")
       )
 
 instance Prelude.Hashable DNSLogsConfigurationResult where

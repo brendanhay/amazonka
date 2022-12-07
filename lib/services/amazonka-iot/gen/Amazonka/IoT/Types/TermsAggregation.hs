@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.TermsAggregation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Performs an aggregation that will return a list of buckets. The list of
@@ -59,9 +60,9 @@ instance Prelude.Hashable TermsAggregation where
 instance Prelude.NFData TermsAggregation where
   rnf TermsAggregation' {..} = Prelude.rnf maxBuckets
 
-instance Core.ToJSON TermsAggregation where
+instance Data.ToJSON TermsAggregation where
   toJSON TermsAggregation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("maxBuckets" Core..=) Prelude.<$> maxBuckets]
+          [("maxBuckets" Data..=) Prelude.<$> maxBuckets]
       )

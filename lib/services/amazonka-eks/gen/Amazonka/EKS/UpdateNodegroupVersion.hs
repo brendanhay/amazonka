@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -248,7 +249,7 @@ instance Core.AWSRequest UpdateNodegroupVersion where
     Response.receiveJSON
       ( \s h x ->
           UpdateNodegroupVersionResponse'
-            Prelude.<$> (x Core..?> "update")
+            Prelude.<$> (x Data..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -272,43 +273,43 @@ instance Prelude.NFData UpdateNodegroupVersion where
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf nodegroupName
 
-instance Core.ToHeaders UpdateNodegroupVersion where
+instance Data.ToHeaders UpdateNodegroupVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNodegroupVersion where
+instance Data.ToJSON UpdateNodegroupVersion where
   toJSON UpdateNodegroupVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("releaseVersion" Core..=)
+          [ ("releaseVersion" Data..=)
               Prelude.<$> releaseVersion,
-            ("clientRequestToken" Core..=)
+            ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("launchTemplate" Core..=)
+            ("launchTemplate" Data..=)
               Prelude.<$> launchTemplate,
-            ("force" Core..=) Prelude.<$> force,
-            ("version" Core..=) Prelude.<$> version
+            ("force" Data..=) Prelude.<$> force,
+            ("version" Data..=) Prelude.<$> version
           ]
       )
 
-instance Core.ToPath UpdateNodegroupVersion where
+instance Data.ToPath UpdateNodegroupVersion where
   toPath UpdateNodegroupVersion' {..} =
     Prelude.mconcat
       [ "/clusters/",
-        Core.toBS clusterName,
+        Data.toBS clusterName,
         "/node-groups/",
-        Core.toBS nodegroupName,
+        Data.toBS nodegroupName,
         "/update-version"
       ]
 
-instance Core.ToQuery UpdateNodegroupVersion where
+instance Data.ToQuery UpdateNodegroupVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateNodegroupVersionResponse' smart constructor.

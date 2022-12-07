@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.ExcludedRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a single rule in a rule group whose action you want to
@@ -55,11 +56,11 @@ newExcludedRule pName_ = ExcludedRule' {name = pName_}
 excludedRule_name :: Lens.Lens' ExcludedRule Prelude.Text
 excludedRule_name = Lens.lens (\ExcludedRule' {name} -> name) (\s@ExcludedRule' {} a -> s {name = a} :: ExcludedRule)
 
-instance Core.FromJSON ExcludedRule where
+instance Data.FromJSON ExcludedRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExcludedRule"
-      (\x -> ExcludedRule' Prelude.<$> (x Core..: "Name"))
+      (\x -> ExcludedRule' Prelude.<$> (x Data..: "Name"))
 
 instance Prelude.Hashable ExcludedRule where
   hashWithSalt _salt ExcludedRule' {..} =
@@ -68,9 +69,9 @@ instance Prelude.Hashable ExcludedRule where
 instance Prelude.NFData ExcludedRule where
   rnf ExcludedRule' {..} = Prelude.rnf name
 
-instance Core.ToJSON ExcludedRule where
+instance Data.ToJSON ExcludedRule where
   toJSON ExcludedRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )

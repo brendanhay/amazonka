@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,21 +118,21 @@ instance Prelude.NFData DeregisterTargets where
     Prelude.rnf targetGroupArn
       `Prelude.seq` Prelude.rnf targets
 
-instance Core.ToHeaders DeregisterTargets where
+instance Data.ToHeaders DeregisterTargets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeregisterTargets where
+instance Data.ToPath DeregisterTargets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeregisterTargets where
+instance Data.ToQuery DeregisterTargets where
   toQuery DeregisterTargets' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeregisterTargets" :: Prelude.ByteString),
+          Data.=: ("DeregisterTargets" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "TargetGroupArn" Core.=: targetGroupArn,
-        "Targets" Core.=: Core.toQueryList "member" targets
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "TargetGroupArn" Data.=: targetGroupArn,
+        "Targets" Data.=: Data.toQueryList "member" targets
       ]
 
 -- | /See:/ 'newDeregisterTargetsResponse' smart constructor.

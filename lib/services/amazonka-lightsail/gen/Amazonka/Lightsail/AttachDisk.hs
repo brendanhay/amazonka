@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,7 +117,7 @@ instance Core.AWSRequest AttachDisk where
     Response.receiveJSON
       ( \s h x ->
           AttachDiskResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,35 +133,35 @@ instance Prelude.NFData AttachDisk where
       `Prelude.seq` Prelude.rnf instanceName
       `Prelude.seq` Prelude.rnf diskPath
 
-instance Core.ToHeaders AttachDisk where
+instance Data.ToHeaders AttachDisk where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.AttachDisk" ::
+              Data.=# ( "Lightsail_20161128.AttachDisk" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AttachDisk where
+instance Data.ToJSON AttachDisk where
   toJSON AttachDisk' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("diskName" Core..= diskName),
-            Prelude.Just ("instanceName" Core..= instanceName),
-            Prelude.Just ("diskPath" Core..= diskPath)
+          [ Prelude.Just ("diskName" Data..= diskName),
+            Prelude.Just ("instanceName" Data..= instanceName),
+            Prelude.Just ("diskPath" Data..= diskPath)
           ]
       )
 
-instance Core.ToPath AttachDisk where
+instance Data.ToPath AttachDisk where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AttachDisk where
+instance Data.ToQuery AttachDisk where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAttachDiskResponse' smart constructor.

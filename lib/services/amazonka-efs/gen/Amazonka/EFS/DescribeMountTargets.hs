@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -198,9 +199,9 @@ instance Core.AWSRequest DescribeMountTargets where
     Response.receiveJSON
       ( \s h x ->
           DescribeMountTargetsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "MountTargets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "MountTargets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -220,20 +221,20 @@ instance Prelude.NFData DescribeMountTargets where
       `Prelude.seq` Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf accessPointId
 
-instance Core.ToHeaders DescribeMountTargets where
+instance Data.ToHeaders DescribeMountTargets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeMountTargets where
+instance Data.ToPath DescribeMountTargets where
   toPath = Prelude.const "/2015-02-01/mount-targets"
 
-instance Core.ToQuery DescribeMountTargets where
+instance Data.ToQuery DescribeMountTargets where
   toQuery DescribeMountTargets' {..} =
     Prelude.mconcat
-      [ "Marker" Core.=: marker,
-        "MountTargetId" Core.=: mountTargetId,
-        "MaxItems" Core.=: maxItems,
-        "FileSystemId" Core.=: fileSystemId,
-        "AccessPointId" Core.=: accessPointId
+      [ "Marker" Data.=: marker,
+        "MountTargetId" Data.=: mountTargetId,
+        "MaxItems" Data.=: maxItems,
+        "FileSystemId" Data.=: fileSystemId,
+        "AccessPointId" Data.=: accessPointId
       ]
 
 -- |

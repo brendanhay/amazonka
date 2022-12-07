@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManagerUserSubscriptions.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -159,8 +160,8 @@ instance Core.AWSRequest ListProductSubscriptions where
     Response.receiveJSON
       ( \s h x ->
           ListProductSubscriptionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ProductUserSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ProductUserSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -182,35 +183,35 @@ instance Prelude.NFData ListProductSubscriptions where
       `Prelude.seq` Prelude.rnf identityProvider
       `Prelude.seq` Prelude.rnf product
 
-instance Core.ToHeaders ListProductSubscriptions where
+instance Data.ToHeaders ListProductSubscriptions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListProductSubscriptions where
+instance Data.ToJSON ListProductSubscriptions where
   toJSON ListProductSubscriptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("IdentityProvider" Core..= identityProvider),
-            Prelude.Just ("Product" Core..= product)
+              ("IdentityProvider" Data..= identityProvider),
+            Prelude.Just ("Product" Data..= product)
           ]
       )
 
-instance Core.ToPath ListProductSubscriptions where
+instance Data.ToPath ListProductSubscriptions where
   toPath =
     Prelude.const "/user/ListProductSubscriptions"
 
-instance Core.ToQuery ListProductSubscriptions where
+instance Data.ToQuery ListProductSubscriptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListProductSubscriptionsResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.Theme where
 import Amazonka.AmplifyUiBuilder.Types.ThemeValues
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A theme is a collection of style settings that apply globally to the
@@ -32,13 +33,13 @@ data Theme = Theme'
   { -- | One or more key-value pairs to use when tagging the theme.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time that the theme was modified.
-    modifiedAt :: Prelude.Maybe Core.POSIX,
+    modifiedAt :: Prelude.Maybe Data.POSIX,
     -- | Describes the properties that can be overriden to customize a theme.
     overrides :: Prelude.Maybe [ThemeValues],
     -- | The unique ID for the Amplify app associated with the theme.
     appId :: Prelude.Text,
     -- | The time that the theme was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The name of the backend environment that is a part of the Amplify app.
     environmentName :: Prelude.Text,
     -- | The ID for the theme.
@@ -98,7 +99,7 @@ newTheme
         modifiedAt = Prelude.Nothing,
         overrides = Prelude.Nothing,
         appId = pAppId_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         environmentName = pEnvironmentName_,
         id = pId_,
         name = pName_,
@@ -111,7 +112,7 @@ theme_tags = Lens.lens (\Theme' {tags} -> tags) (\s@Theme' {} a -> s {tags = a} 
 
 -- | The time that the theme was modified.
 theme_modifiedAt :: Lens.Lens' Theme (Prelude.Maybe Prelude.UTCTime)
-theme_modifiedAt = Lens.lens (\Theme' {modifiedAt} -> modifiedAt) (\s@Theme' {} a -> s {modifiedAt = a} :: Theme) Prelude.. Lens.mapping Core._Time
+theme_modifiedAt = Lens.lens (\Theme' {modifiedAt} -> modifiedAt) (\s@Theme' {} a -> s {modifiedAt = a} :: Theme) Prelude.. Lens.mapping Data._Time
 
 -- | Describes the properties that can be overriden to customize a theme.
 theme_overrides :: Lens.Lens' Theme (Prelude.Maybe [ThemeValues])
@@ -123,7 +124,7 @@ theme_appId = Lens.lens (\Theme' {appId} -> appId) (\s@Theme' {} a -> s {appId =
 
 -- | The time that the theme was created.
 theme_createdAt :: Lens.Lens' Theme Prelude.UTCTime
-theme_createdAt = Lens.lens (\Theme' {createdAt} -> createdAt) (\s@Theme' {} a -> s {createdAt = a} :: Theme) Prelude.. Core._Time
+theme_createdAt = Lens.lens (\Theme' {createdAt} -> createdAt) (\s@Theme' {} a -> s {createdAt = a} :: Theme) Prelude.. Data._Time
 
 -- | The name of the backend environment that is a part of the Amplify app.
 theme_environmentName :: Lens.Lens' Theme Prelude.Text
@@ -141,21 +142,21 @@ theme_name = Lens.lens (\Theme' {name} -> name) (\s@Theme' {} a -> s {name = a} 
 theme_values :: Lens.Lens' Theme [ThemeValues]
 theme_values = Lens.lens (\Theme' {values} -> values) (\s@Theme' {} a -> s {values = a} :: Theme) Prelude.. Lens.coerced
 
-instance Core.FromJSON Theme where
+instance Data.FromJSON Theme where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Theme"
       ( \x ->
           Theme'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "modifiedAt")
-            Prelude.<*> (x Core..:? "overrides" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "appId")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "environmentName")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "modifiedAt")
+            Prelude.<*> (x Data..:? "overrides" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "appId")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "environmentName")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Theme where

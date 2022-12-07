@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.Intent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies the specific version of an intent.
@@ -65,14 +66,14 @@ intent_intentName = Lens.lens (\Intent' {intentName} -> intentName) (\s@Intent' 
 intent_intentVersion :: Lens.Lens' Intent Prelude.Text
 intent_intentVersion = Lens.lens (\Intent' {intentVersion} -> intentVersion) (\s@Intent' {} a -> s {intentVersion = a} :: Intent)
 
-instance Core.FromJSON Intent where
+instance Data.FromJSON Intent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Intent"
       ( \x ->
           Intent'
-            Prelude.<$> (x Core..: "intentName")
-            Prelude.<*> (x Core..: "intentVersion")
+            Prelude.<$> (x Data..: "intentName")
+            Prelude.<*> (x Data..: "intentVersion")
       )
 
 instance Prelude.Hashable Intent where
@@ -85,12 +86,12 @@ instance Prelude.NFData Intent where
     Prelude.rnf intentName
       `Prelude.seq` Prelude.rnf intentVersion
 
-instance Core.ToJSON Intent where
+instance Data.ToJSON Intent where
   toJSON Intent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("intentName" Core..= intentName),
+          [ Prelude.Just ("intentName" Data..= intentName),
             Prelude.Just
-              ("intentVersion" Core..= intentVersion)
+              ("intentVersion" Data..= intentVersion)
           ]
       )

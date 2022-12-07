@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.JobExecutionSummaryForThing where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.JobExecutionSummary
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ jobExecutionSummaryForThing_jobId = Lens.lens (\JobExecutionSummaryForThing' {jo
 jobExecutionSummaryForThing_jobExecutionSummary :: Lens.Lens' JobExecutionSummaryForThing (Prelude.Maybe JobExecutionSummary)
 jobExecutionSummaryForThing_jobExecutionSummary = Lens.lens (\JobExecutionSummaryForThing' {jobExecutionSummary} -> jobExecutionSummary) (\s@JobExecutionSummaryForThing' {} a -> s {jobExecutionSummary = a} :: JobExecutionSummaryForThing)
 
-instance Core.FromJSON JobExecutionSummaryForThing where
+instance Data.FromJSON JobExecutionSummaryForThing where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobExecutionSummaryForThing"
       ( \x ->
           JobExecutionSummaryForThing'
-            Prelude.<$> (x Core..:? "jobId")
-            Prelude.<*> (x Core..:? "jobExecutionSummary")
+            Prelude.<$> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "jobExecutionSummary")
       )
 
 instance Prelude.Hashable JobExecutionSummaryForThing where

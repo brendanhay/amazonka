@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,9 +86,9 @@ instance Core.AWSRequest DeleteWorkflow where
     Response.receiveJSON
       ( \s h x ->
           DeleteWorkflowResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "id")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,23 +99,23 @@ instance Prelude.Hashable DeleteWorkflow where
 instance Prelude.NFData DeleteWorkflow where
   rnf DeleteWorkflow' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteWorkflow where
+instance Data.ToHeaders DeleteWorkflow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteWorkflow where
+instance Data.ToPath DeleteWorkflow where
   toPath DeleteWorkflow' {..} =
     Prelude.mconcat
-      ["/migrationworkflow/", Core.toBS id]
+      ["/migrationworkflow/", Data.toBS id]
 
-instance Core.ToQuery DeleteWorkflow where
+instance Data.ToQuery DeleteWorkflow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWorkflowResponse' smart constructor.

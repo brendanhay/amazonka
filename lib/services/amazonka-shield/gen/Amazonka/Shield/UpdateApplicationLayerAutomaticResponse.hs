@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,43 +145,43 @@ instance
       `Prelude.seq` Prelude.rnf action
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateApplicationLayerAutomaticResponse
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.UpdateApplicationLayerAutomaticResponse" ::
+              Data.=# ( "AWSShield_20160616.UpdateApplicationLayerAutomaticResponse" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateApplicationLayerAutomaticResponse
   where
   toJSON UpdateApplicationLayerAutomaticResponse' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceArn" Core..= resourceArn),
-            Prelude.Just ("Action" Core..= action)
+          [ Prelude.Just ("ResourceArn" Data..= resourceArn),
+            Prelude.Just ("Action" Data..= action)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateApplicationLayerAutomaticResponse
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateApplicationLayerAutomaticResponse
   where
   toQuery = Prelude.const Prelude.mempty

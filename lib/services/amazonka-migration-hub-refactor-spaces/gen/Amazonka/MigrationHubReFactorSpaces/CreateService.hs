@@ -75,6 +75,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ import qualified Amazonka.Response as Response
 data CreateService = CreateService'
   { -- | The tags to assign to the service. A tag is a label that you assign to
     -- an Amazon Web Services resource. Each tag consists of a key-value pair..
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
@@ -169,7 +170,7 @@ newCreateService
 -- | The tags to assign to the service. A tag is a label that you assign to
 -- an Amazon Web Services resource. Each tag consists of a key-value pair..
 createService_tags :: Lens.Lens' CreateService (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createService_tags = Lens.lens (\CreateService' {tags} -> tags) (\s@CreateService' {} a -> s {tags = a} :: CreateService) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createService_tags = Lens.lens (\CreateService' {tags} -> tags) (\s@CreateService' {} a -> s {tags = a} :: CreateService) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -219,22 +220,22 @@ instance Core.AWSRequest CreateService where
     Response.receiveJSON
       ( \s h x ->
           CreateServiceResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "CreatedTime")
-            Prelude.<*> (x Core..?> "CreatedByAccountId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "UrlEndpoint")
-            Prelude.<*> (x Core..?> "LastUpdatedTime")
-            Prelude.<*> (x Core..?> "EndpointType")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "OwnerAccountId")
-            Prelude.<*> (x Core..?> "LambdaEndpoint")
-            Prelude.<*> (x Core..?> "VpcId")
-            Prelude.<*> (x Core..?> "EnvironmentId")
-            Prelude.<*> (x Core..?> "ApplicationId")
-            Prelude.<*> (x Core..?> "ServiceId")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "CreatedByAccountId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "UrlEndpoint")
+            Prelude.<*> (x Data..?> "LastUpdatedTime")
+            Prelude.<*> (x Data..?> "EndpointType")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "OwnerAccountId")
+            Prelude.<*> (x Data..?> "LambdaEndpoint")
+            Prelude.<*> (x Data..?> "VpcId")
+            Prelude.<*> (x Data..?> "EnvironmentId")
+            Prelude.<*> (x Data..?> "ApplicationId")
+            Prelude.<*> (x Data..?> "ServiceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -264,44 +265,44 @@ instance Prelude.NFData CreateService where
       `Prelude.seq` Prelude.rnf environmentIdentifier
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateService where
+instance Data.ToHeaders CreateService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateService where
+instance Data.ToJSON CreateService where
   toJSON CreateService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("UrlEndpoint" Core..=) Prelude.<$> urlEndpoint,
-            ("Description" Core..=) Prelude.<$> description,
-            ("LambdaEndpoint" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("UrlEndpoint" Data..=) Prelude.<$> urlEndpoint,
+            ("Description" Data..=) Prelude.<$> description,
+            ("LambdaEndpoint" Data..=)
               Prelude.<$> lambdaEndpoint,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            Prelude.Just ("EndpointType" Core..= endpointType),
-            Prelude.Just ("Name" Core..= name)
+            ("VpcId" Data..=) Prelude.<$> vpcId,
+            Prelude.Just ("EndpointType" Data..= endpointType),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateService where
+instance Data.ToPath CreateService where
   toPath CreateService' {..} =
     Prelude.mconcat
       [ "/environments/",
-        Core.toBS environmentIdentifier,
+        Data.toBS environmentIdentifier,
         "/applications/",
-        Core.toBS applicationIdentifier,
+        Data.toBS applicationIdentifier,
         "/services"
       ]
 
-instance Core.ToQuery CreateService where
+instance Data.ToQuery CreateService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateServiceResponse' smart constructor.
@@ -309,11 +310,11 @@ data CreateServiceResponse = CreateServiceResponse'
   { -- | The tags assigned to the created service. A tag is a label that you
     -- assign to an Amazon Web Services resource. Each tag consists of a
     -- key-value pair..
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The name of the service.
     name :: Prelude.Maybe Prelude.Text,
     -- | A timestamp that indicates when the service is created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID of the service creator.
     createdByAccountId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the service.
@@ -323,7 +324,7 @@ data CreateServiceResponse = CreateServiceResponse'
     -- | The configuration for the URL endpoint type.
     urlEndpoint :: Prelude.Maybe UrlEndpointInput,
     -- | A timestamp that indicates when the service was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The endpoint type of the service.
     endpointType :: Prelude.Maybe ServiceEndpointType,
     -- | The description of the created service.
@@ -417,7 +418,7 @@ newCreateServiceResponse pHttpStatus_ =
 -- assign to an Amazon Web Services resource. Each tag consists of a
 -- key-value pair..
 createServiceResponse_tags :: Lens.Lens' CreateServiceResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createServiceResponse_tags = Lens.lens (\CreateServiceResponse' {tags} -> tags) (\s@CreateServiceResponse' {} a -> s {tags = a} :: CreateServiceResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createServiceResponse_tags = Lens.lens (\CreateServiceResponse' {tags} -> tags) (\s@CreateServiceResponse' {} a -> s {tags = a} :: CreateServiceResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the service.
 createServiceResponse_name :: Lens.Lens' CreateServiceResponse (Prelude.Maybe Prelude.Text)
@@ -425,7 +426,7 @@ createServiceResponse_name = Lens.lens (\CreateServiceResponse' {name} -> name) 
 
 -- | A timestamp that indicates when the service is created.
 createServiceResponse_createdTime :: Lens.Lens' CreateServiceResponse (Prelude.Maybe Prelude.UTCTime)
-createServiceResponse_createdTime = Lens.lens (\CreateServiceResponse' {createdTime} -> createdTime) (\s@CreateServiceResponse' {} a -> s {createdTime = a} :: CreateServiceResponse) Prelude.. Lens.mapping Core._Time
+createServiceResponse_createdTime = Lens.lens (\CreateServiceResponse' {createdTime} -> createdTime) (\s@CreateServiceResponse' {} a -> s {createdTime = a} :: CreateServiceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account ID of the service creator.
 createServiceResponse_createdByAccountId :: Lens.Lens' CreateServiceResponse (Prelude.Maybe Prelude.Text)
@@ -445,7 +446,7 @@ createServiceResponse_urlEndpoint = Lens.lens (\CreateServiceResponse' {urlEndpo
 
 -- | A timestamp that indicates when the service was last updated.
 createServiceResponse_lastUpdatedTime :: Lens.Lens' CreateServiceResponse (Prelude.Maybe Prelude.UTCTime)
-createServiceResponse_lastUpdatedTime = Lens.lens (\CreateServiceResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@CreateServiceResponse' {} a -> s {lastUpdatedTime = a} :: CreateServiceResponse) Prelude.. Lens.mapping Core._Time
+createServiceResponse_lastUpdatedTime = Lens.lens (\CreateServiceResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@CreateServiceResponse' {} a -> s {lastUpdatedTime = a} :: CreateServiceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The endpoint type of the service.
 createServiceResponse_endpointType :: Lens.Lens' CreateServiceResponse (Prelude.Maybe ServiceEndpointType)

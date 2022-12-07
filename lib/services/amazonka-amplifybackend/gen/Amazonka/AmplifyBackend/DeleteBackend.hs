@@ -48,6 +48,7 @@ where
 import Amazonka.AmplifyBackend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,12 +103,12 @@ instance Core.AWSRequest DeleteBackend where
     Response.receiveJSON
       ( \s h x ->
           DeleteBackendResponse'
-            Prelude.<$> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "error")
-            Prelude.<*> (x Core..?> "operation")
-            Prelude.<*> (x Core..?> "appId")
-            Prelude.<*> (x Core..?> "backendEnvironmentName")
+            Prelude.<$> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "error")
+            Prelude.<*> (x Data..?> "operation")
+            Prelude.<*> (x Data..?> "appId")
+            Prelude.<*> (x Data..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,31 +122,31 @@ instance Prelude.NFData DeleteBackend where
     Prelude.rnf appId
       `Prelude.seq` Prelude.rnf backendEnvironmentName
 
-instance Core.ToHeaders DeleteBackend where
+instance Data.ToHeaders DeleteBackend where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteBackend where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DeleteBackend where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DeleteBackend where
+instance Data.ToPath DeleteBackend where
   toPath DeleteBackend' {..} =
     Prelude.mconcat
       [ "/backend/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/environments/",
-        Core.toBS backendEnvironmentName,
+        Data.toBS backendEnvironmentName,
         "/remove"
       ]
 
-instance Core.ToQuery DeleteBackend where
+instance Data.ToQuery DeleteBackend where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBackendResponse' smart constructor.

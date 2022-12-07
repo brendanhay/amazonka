@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TrafficMirrorPortRangeRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -82,9 +83,9 @@ instance Prelude.NFData TrafficMirrorPortRangeRequest where
     Prelude.rnf toPort
       `Prelude.seq` Prelude.rnf fromPort
 
-instance Core.ToQuery TrafficMirrorPortRangeRequest where
+instance Data.ToQuery TrafficMirrorPortRangeRequest where
   toQuery TrafficMirrorPortRangeRequest' {..} =
     Prelude.mconcat
-      [ "ToPort" Core.=: toPort,
-        "FromPort" Core.=: fromPort
+      [ "ToPort" Data.=: toPort,
+        "FromPort" Data.=: fromPort
       ]

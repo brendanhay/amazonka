@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.PendingCloudwatchLogsExports where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of the log types whose configuration is still pending. In other
@@ -70,16 +71,16 @@ pendingCloudwatchLogsExports_logTypesToEnable = Lens.lens (\PendingCloudwatchLog
 pendingCloudwatchLogsExports_logTypesToDisable :: Lens.Lens' PendingCloudwatchLogsExports (Prelude.Maybe [Prelude.Text])
 pendingCloudwatchLogsExports_logTypesToDisable = Lens.lens (\PendingCloudwatchLogsExports' {logTypesToDisable} -> logTypesToDisable) (\s@PendingCloudwatchLogsExports' {} a -> s {logTypesToDisable = a} :: PendingCloudwatchLogsExports) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML PendingCloudwatchLogsExports where
+instance Data.FromXML PendingCloudwatchLogsExports where
   parseXML x =
     PendingCloudwatchLogsExports'
-      Prelude.<$> ( x Core..@? "LogTypesToEnable"
+      Prelude.<$> ( x Data..@? "LogTypesToEnable"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "LogTypesToDisable"
+      Prelude.<*> ( x Data..@? "LogTypesToDisable"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance

@@ -23,6 +23,7 @@ import Amazonka.CloudFormation.Types.ChangeType
 import Amazonka.CloudFormation.Types.ResourceChange
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @Change@ structure describes the changes CloudFormation will perform
@@ -82,12 +83,12 @@ change_hookInvocationCount = Lens.lens (\Change' {hookInvocationCount} -> hookIn
 change_resourceChange :: Lens.Lens' Change (Prelude.Maybe ResourceChange)
 change_resourceChange = Lens.lens (\Change' {resourceChange} -> resourceChange) (\s@Change' {} a -> s {resourceChange = a} :: Change)
 
-instance Core.FromXML Change where
+instance Data.FromXML Change where
   parseXML x =
     Change'
-      Prelude.<$> (x Core..@? "Type")
-      Prelude.<*> (x Core..@? "HookInvocationCount")
-      Prelude.<*> (x Core..@? "ResourceChange")
+      Prelude.<$> (x Data..@? "Type")
+      Prelude.<*> (x Data..@? "HookInvocationCount")
+      Prelude.<*> (x Data..@? "ResourceChange")
 
 instance Prelude.Hashable Change where
   hashWithSalt _salt Change' {..} =

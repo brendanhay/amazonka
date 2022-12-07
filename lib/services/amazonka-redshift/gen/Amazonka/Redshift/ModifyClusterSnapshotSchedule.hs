@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -129,24 +130,24 @@ instance Prelude.NFData ModifyClusterSnapshotSchedule where
       `Prelude.seq` Prelude.rnf scheduleIdentifier
       `Prelude.seq` Prelude.rnf clusterIdentifier
 
-instance Core.ToHeaders ModifyClusterSnapshotSchedule where
+instance Data.ToHeaders ModifyClusterSnapshotSchedule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyClusterSnapshotSchedule where
+instance Data.ToPath ModifyClusterSnapshotSchedule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyClusterSnapshotSchedule where
+instance Data.ToQuery ModifyClusterSnapshotSchedule where
   toQuery ModifyClusterSnapshotSchedule' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyClusterSnapshotSchedule" ::
+          Data.=: ( "ModifyClusterSnapshotSchedule" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "DisassociateSchedule" Core.=: disassociateSchedule,
-        "ScheduleIdentifier" Core.=: scheduleIdentifier,
-        "ClusterIdentifier" Core.=: clusterIdentifier
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "DisassociateSchedule" Data.=: disassociateSchedule,
+        "ScheduleIdentifier" Data.=: scheduleIdentifier,
+        "ClusterIdentifier" Data.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newModifyClusterSnapshotScheduleResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.ClusterConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.ColdStorageOptions
 import Amazonka.OpenSearch.Types.OpenSearchPartitionInstanceType
 import Amazonka.OpenSearch.Types.OpenSearchWarmPartitionInstanceType
@@ -172,23 +173,23 @@ clusterConfig_warmEnabled = Lens.lens (\ClusterConfig' {warmEnabled} -> warmEnab
 clusterConfig_dedicatedMasterCount :: Lens.Lens' ClusterConfig (Prelude.Maybe Prelude.Int)
 clusterConfig_dedicatedMasterCount = Lens.lens (\ClusterConfig' {dedicatedMasterCount} -> dedicatedMasterCount) (\s@ClusterConfig' {} a -> s {dedicatedMasterCount = a} :: ClusterConfig)
 
-instance Core.FromJSON ClusterConfig where
+instance Data.FromJSON ClusterConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusterConfig"
       ( \x ->
           ClusterConfig'
-            Prelude.<$> (x Core..:? "WarmCount")
-            Prelude.<*> (x Core..:? "ColdStorageOptions")
-            Prelude.<*> (x Core..:? "DedicatedMasterType")
-            Prelude.<*> (x Core..:? "ZoneAwarenessEnabled")
-            Prelude.<*> (x Core..:? "DedicatedMasterEnabled")
-            Prelude.<*> (x Core..:? "WarmType")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "ZoneAwarenessConfig")
-            Prelude.<*> (x Core..:? "InstanceCount")
-            Prelude.<*> (x Core..:? "WarmEnabled")
-            Prelude.<*> (x Core..:? "DedicatedMasterCount")
+            Prelude.<$> (x Data..:? "WarmCount")
+            Prelude.<*> (x Data..:? "ColdStorageOptions")
+            Prelude.<*> (x Data..:? "DedicatedMasterType")
+            Prelude.<*> (x Data..:? "ZoneAwarenessEnabled")
+            Prelude.<*> (x Data..:? "DedicatedMasterEnabled")
+            Prelude.<*> (x Data..:? "WarmType")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "ZoneAwarenessConfig")
+            Prelude.<*> (x Data..:? "InstanceCount")
+            Prelude.<*> (x Data..:? "WarmEnabled")
+            Prelude.<*> (x Data..:? "DedicatedMasterCount")
       )
 
 instance Prelude.Hashable ClusterConfig where
@@ -219,26 +220,26 @@ instance Prelude.NFData ClusterConfig where
       `Prelude.seq` Prelude.rnf warmEnabled
       `Prelude.seq` Prelude.rnf dedicatedMasterCount
 
-instance Core.ToJSON ClusterConfig where
+instance Data.ToJSON ClusterConfig where
   toJSON ClusterConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WarmCount" Core..=) Prelude.<$> warmCount,
-            ("ColdStorageOptions" Core..=)
+          [ ("WarmCount" Data..=) Prelude.<$> warmCount,
+            ("ColdStorageOptions" Data..=)
               Prelude.<$> coldStorageOptions,
-            ("DedicatedMasterType" Core..=)
+            ("DedicatedMasterType" Data..=)
               Prelude.<$> dedicatedMasterType,
-            ("ZoneAwarenessEnabled" Core..=)
+            ("ZoneAwarenessEnabled" Data..=)
               Prelude.<$> zoneAwarenessEnabled,
-            ("DedicatedMasterEnabled" Core..=)
+            ("DedicatedMasterEnabled" Data..=)
               Prelude.<$> dedicatedMasterEnabled,
-            ("WarmType" Core..=) Prelude.<$> warmType,
-            ("InstanceType" Core..=) Prelude.<$> instanceType,
-            ("ZoneAwarenessConfig" Core..=)
+            ("WarmType" Data..=) Prelude.<$> warmType,
+            ("InstanceType" Data..=) Prelude.<$> instanceType,
+            ("ZoneAwarenessConfig" Data..=)
               Prelude.<$> zoneAwarenessConfig,
-            ("InstanceCount" Core..=) Prelude.<$> instanceCount,
-            ("WarmEnabled" Core..=) Prelude.<$> warmEnabled,
-            ("DedicatedMasterCount" Core..=)
+            ("InstanceCount" Data..=) Prelude.<$> instanceCount,
+            ("WarmEnabled" Data..=) Prelude.<$> warmEnabled,
+            ("DedicatedMasterCount" Data..=)
               Prelude.<$> dedicatedMasterCount
           ]
       )

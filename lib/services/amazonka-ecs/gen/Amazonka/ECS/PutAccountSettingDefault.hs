@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,7 +145,7 @@ instance Core.AWSRequest PutAccountSettingDefault where
     Response.receiveJSON
       ( \s h x ->
           PutAccountSettingDefaultResponse'
-            Prelude.<$> (x Core..?> "setting")
+            Prelude.<$> (x Data..?> "setting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,34 +158,34 @@ instance Prelude.NFData PutAccountSettingDefault where
   rnf PutAccountSettingDefault' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToHeaders PutAccountSettingDefault where
+instance Data.ToHeaders PutAccountSettingDefault where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.PutAccountSettingDefault" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.PutAccountSettingDefault" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutAccountSettingDefault where
+instance Data.ToJSON PutAccountSettingDefault where
   toJSON PutAccountSettingDefault' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("value" Data..= value)
           ]
       )
 
-instance Core.ToPath PutAccountSettingDefault where
+instance Data.ToPath PutAccountSettingDefault where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutAccountSettingDefault where
+instance Data.ToQuery PutAccountSettingDefault where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAccountSettingDefaultResponse' smart constructor.

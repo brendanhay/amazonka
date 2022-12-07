@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IpamResourceTag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,10 +73,10 @@ ipamResourceTag_key = Lens.lens (\IpamResourceTag' {key} -> key) (\s@IpamResourc
 ipamResourceTag_value :: Lens.Lens' IpamResourceTag (Prelude.Maybe Prelude.Text)
 ipamResourceTag_value = Lens.lens (\IpamResourceTag' {value} -> value) (\s@IpamResourceTag' {} a -> s {value = a} :: IpamResourceTag)
 
-instance Core.FromXML IpamResourceTag where
+instance Data.FromXML IpamResourceTag where
   parseXML x =
     IpamResourceTag'
-      Prelude.<$> (x Core..@? "key") Prelude.<*> (x Core..@? "value")
+      Prelude.<$> (x Data..@? "key") Prelude.<*> (x Data..@? "value")
 
 instance Prelude.Hashable IpamResourceTag where
   hashWithSalt _salt IpamResourceTag' {..} =

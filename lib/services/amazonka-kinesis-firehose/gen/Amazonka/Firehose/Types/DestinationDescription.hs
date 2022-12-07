@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.DestinationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription
 import Amazonka.Firehose.Types.ElasticsearchDestinationDescription
 import Amazonka.Firehose.Types.ExtendedS3DestinationDescription
@@ -127,22 +128,22 @@ destinationDescription_s3DestinationDescription = Lens.lens (\DestinationDescrip
 destinationDescription_destinationId :: Lens.Lens' DestinationDescription Prelude.Text
 destinationDescription_destinationId = Lens.lens (\DestinationDescription' {destinationId} -> destinationId) (\s@DestinationDescription' {} a -> s {destinationId = a} :: DestinationDescription)
 
-instance Core.FromJSON DestinationDescription where
+instance Data.FromJSON DestinationDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DestinationDescription"
       ( \x ->
           DestinationDescription'
-            Prelude.<$> (x Core..:? "ExtendedS3DestinationDescription")
-            Prelude.<*> (x Core..:? "RedshiftDestinationDescription")
-            Prelude.<*> (x Core..:? "ElasticsearchDestinationDescription")
-            Prelude.<*> (x Core..:? "HttpEndpointDestinationDescription")
-            Prelude.<*> (x Core..:? "SplunkDestinationDescription")
+            Prelude.<$> (x Data..:? "ExtendedS3DestinationDescription")
+            Prelude.<*> (x Data..:? "RedshiftDestinationDescription")
+            Prelude.<*> (x Data..:? "ElasticsearchDestinationDescription")
+            Prelude.<*> (x Data..:? "HttpEndpointDestinationDescription")
+            Prelude.<*> (x Data..:? "SplunkDestinationDescription")
             Prelude.<*> ( x
-                            Core..:? "AmazonopensearchserviceDestinationDescription"
+                            Data..:? "AmazonopensearchserviceDestinationDescription"
                         )
-            Prelude.<*> (x Core..:? "S3DestinationDescription")
-            Prelude.<*> (x Core..: "DestinationId")
+            Prelude.<*> (x Data..:? "S3DestinationDescription")
+            Prelude.<*> (x Data..: "DestinationId")
       )
 
 instance Prelude.Hashable DestinationDescription where

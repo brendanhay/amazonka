@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -189,8 +190,8 @@ instance Core.AWSRequest ListPrefetchSchedules where
     Response.receiveJSON
       ( \s h x ->
           ListPrefetchSchedulesResponse'
-            Prelude.<$> (x Core..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,35 +209,35 @@ instance Prelude.NFData ListPrefetchSchedules where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf playbackConfigurationName
 
-instance Core.ToHeaders ListPrefetchSchedules where
+instance Data.ToHeaders ListPrefetchSchedules where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPrefetchSchedules where
+instance Data.ToJSON ListPrefetchSchedules where
   toJSON ListPrefetchSchedules' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("StreamId" Core..=) Prelude.<$> streamId,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("StreamId" Data..=) Prelude.<$> streamId,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListPrefetchSchedules where
+instance Data.ToPath ListPrefetchSchedules where
   toPath ListPrefetchSchedules' {..} =
     Prelude.mconcat
       [ "/prefetchSchedule/",
-        Core.toBS playbackConfigurationName
+        Data.toBS playbackConfigurationName
       ]
 
-instance Core.ToQuery ListPrefetchSchedules where
+instance Data.ToQuery ListPrefetchSchedules where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPrefetchSchedulesResponse' smart constructor.

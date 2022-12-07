@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.HttpNamespaceChange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updated properties for the HTTP namespace.
@@ -60,9 +61,9 @@ instance Prelude.NFData HttpNamespaceChange where
   rnf HttpNamespaceChange' {..} =
     Prelude.rnf description
 
-instance Core.ToJSON HttpNamespaceChange where
+instance Data.ToJSON HttpNamespaceChange where
   toJSON HttpNamespaceChange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Description" Core..= description)]
+          [Prelude.Just ("Description" Data..= description)]
       )

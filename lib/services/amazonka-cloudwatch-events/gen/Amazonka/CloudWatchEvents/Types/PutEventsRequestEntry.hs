@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.PutEventsRequestEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an event to be submitted.
@@ -44,7 +45,7 @@ data PutEventsRequestEntry = PutEventsRequestEntry'
     -- is provided, the time stamp of the
     -- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html PutEvents>
     -- call is used.
-    time :: Prelude.Maybe Core.POSIX,
+    time :: Prelude.Maybe Data.POSIX,
     -- | The source of the event.
     source :: Prelude.Maybe Prelude.Text,
     -- | Amazon Web Services resources, identified by Amazon Resource Name (ARN),
@@ -141,7 +142,7 @@ putEventsRequestEntry_eventBusName = Lens.lens (\PutEventsRequestEntry' {eventBu
 -- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html PutEvents>
 -- call is used.
 putEventsRequestEntry_time :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.UTCTime)
-putEventsRequestEntry_time = Lens.lens (\PutEventsRequestEntry' {time} -> time) (\s@PutEventsRequestEntry' {} a -> s {time = a} :: PutEventsRequestEntry) Prelude.. Lens.mapping Core._Time
+putEventsRequestEntry_time = Lens.lens (\PutEventsRequestEntry' {time} -> time) (\s@PutEventsRequestEntry' {} a -> s {time = a} :: PutEventsRequestEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The source of the event.
 putEventsRequestEntry_source :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
@@ -187,16 +188,16 @@ instance Prelude.NFData PutEventsRequestEntry where
       `Prelude.seq` Prelude.rnf traceHeader
       `Prelude.seq` Prelude.rnf detail
 
-instance Core.ToJSON PutEventsRequestEntry where
+instance Data.ToJSON PutEventsRequestEntry where
   toJSON PutEventsRequestEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DetailType" Core..=) Prelude.<$> detailType,
-            ("EventBusName" Core..=) Prelude.<$> eventBusName,
-            ("Time" Core..=) Prelude.<$> time,
-            ("Source" Core..=) Prelude.<$> source,
-            ("Resources" Core..=) Prelude.<$> resources,
-            ("TraceHeader" Core..=) Prelude.<$> traceHeader,
-            ("Detail" Core..=) Prelude.<$> detail
+          [ ("DetailType" Data..=) Prelude.<$> detailType,
+            ("EventBusName" Data..=) Prelude.<$> eventBusName,
+            ("Time" Data..=) Prelude.<$> time,
+            ("Source" Data..=) Prelude.<$> source,
+            ("Resources" Data..=) Prelude.<$> resources,
+            ("TraceHeader" Data..=) Prelude.<$> traceHeader,
+            ("Detail" Data..=) Prelude.<$> detail
           ]
       )

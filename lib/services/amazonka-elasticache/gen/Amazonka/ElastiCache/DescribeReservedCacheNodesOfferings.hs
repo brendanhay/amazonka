@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -549,11 +550,11 @@ instance
       "DescribeReservedCacheNodesOfferingsResult"
       ( \s h x ->
           DescribeReservedCacheNodesOfferingsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-              Prelude.<*> ( x Core..@? "ReservedCacheNodesOfferings"
+            Prelude.<$> (x Data..@? "Marker")
+              Prelude.<*> ( x Data..@? "ReservedCacheNodesOfferings"
                               Core..!@ Prelude.mempty
                               Prelude.>>= Core.may
-                                (Core.parseXMLList "ReservedCacheNodesOffering")
+                                (Data.parseXMLList "ReservedCacheNodesOffering")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -587,37 +588,37 @@ instance
       `Prelude.seq` Prelude.rnf productDescription
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeReservedCacheNodesOfferings
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeReservedCacheNodesOfferings
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeReservedCacheNodesOfferings
   where
   toQuery DescribeReservedCacheNodesOfferings' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeReservedCacheNodesOfferings" ::
+          Data.=: ( "DescribeReservedCacheNodesOfferings" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "ReservedCacheNodesOfferingId"
-          Core.=: reservedCacheNodesOfferingId,
-        "OfferingType" Core.=: offeringType,
-        "CacheNodeType" Core.=: cacheNodeType,
-        "MaxRecords" Core.=: maxRecords,
-        "Duration" Core.=: duration,
-        "ProductDescription" Core.=: productDescription
+          Data.=: reservedCacheNodesOfferingId,
+        "OfferingType" Data.=: offeringType,
+        "CacheNodeType" Data.=: cacheNodeType,
+        "MaxRecords" Data.=: maxRecords,
+        "Duration" Data.=: duration,
+        "ProductDescription" Data.=: productDescription
       ]
 
 -- | Represents the output of a @DescribeReservedCacheNodesOfferings@

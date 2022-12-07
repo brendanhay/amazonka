@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -153,8 +154,8 @@ instance Core.AWSRequest Select where
       "SelectResult"
       ( \s h x ->
           SelectResponse'
-            Prelude.<$> (Core.may (Core.parseXMLList "Item") x)
-            Prelude.<*> (x Core..@? "NextToken")
+            Prelude.<$> (Core.may (Data.parseXMLList "Item") x)
+            Prelude.<*> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,21 +171,21 @@ instance Prelude.NFData Select where
       `Prelude.seq` Prelude.rnf consistentRead
       `Prelude.seq` Prelude.rnf selectExpression
 
-instance Core.ToHeaders Select where
+instance Data.ToHeaders Select where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath Select where
+instance Data.ToPath Select where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery Select where
+instance Data.ToQuery Select where
   toQuery Select' {..} =
     Prelude.mconcat
-      [ "Action" Core.=: ("Select" :: Prelude.ByteString),
+      [ "Action" Data.=: ("Select" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2009-04-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "ConsistentRead" Core.=: consistentRead,
-        "SelectExpression" Core.=: selectExpression
+          Data.=: ("2009-04-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "ConsistentRead" Data.=: consistentRead,
+        "SelectExpression" Data.=: selectExpression
       ]
 
 -- | /See:/ 'newSelectResponse' smart constructor.

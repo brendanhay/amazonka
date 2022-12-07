@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Hdr10Plus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Setting for HDR10+ metadata insertion
@@ -73,14 +74,14 @@ hdr10Plus_targetMonitorNits = Lens.lens (\Hdr10Plus' {targetMonitorNits} -> targ
 hdr10Plus_masteringMonitorNits :: Lens.Lens' Hdr10Plus (Prelude.Maybe Prelude.Natural)
 hdr10Plus_masteringMonitorNits = Lens.lens (\Hdr10Plus' {masteringMonitorNits} -> masteringMonitorNits) (\s@Hdr10Plus' {} a -> s {masteringMonitorNits = a} :: Hdr10Plus)
 
-instance Core.FromJSON Hdr10Plus where
+instance Data.FromJSON Hdr10Plus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Hdr10Plus"
       ( \x ->
           Hdr10Plus'
-            Prelude.<$> (x Core..:? "targetMonitorNits")
-            Prelude.<*> (x Core..:? "masteringMonitorNits")
+            Prelude.<$> (x Data..:? "targetMonitorNits")
+            Prelude.<*> (x Data..:? "masteringMonitorNits")
       )
 
 instance Prelude.Hashable Hdr10Plus where
@@ -93,13 +94,13 @@ instance Prelude.NFData Hdr10Plus where
     Prelude.rnf targetMonitorNits
       `Prelude.seq` Prelude.rnf masteringMonitorNits
 
-instance Core.ToJSON Hdr10Plus where
+instance Data.ToJSON Hdr10Plus where
   toJSON Hdr10Plus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetMonitorNits" Core..=)
+          [ ("targetMonitorNits" Data..=)
               Prelude.<$> targetMonitorNits,
-            ("masteringMonitorNits" Core..=)
+            ("masteringMonitorNits" Data..=)
               Prelude.<$> masteringMonitorNits
           ]
       )

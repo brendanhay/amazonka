@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.TemplateCreateMessageBody where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a request to create a message template.
@@ -74,15 +75,15 @@ templateCreateMessageBody_requestID = Lens.lens (\TemplateCreateMessageBody' {re
 templateCreateMessageBody_arn :: Lens.Lens' TemplateCreateMessageBody (Prelude.Maybe Prelude.Text)
 templateCreateMessageBody_arn = Lens.lens (\TemplateCreateMessageBody' {arn} -> arn) (\s@TemplateCreateMessageBody' {} a -> s {arn = a} :: TemplateCreateMessageBody)
 
-instance Core.FromJSON TemplateCreateMessageBody where
+instance Data.FromJSON TemplateCreateMessageBody where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateCreateMessageBody"
       ( \x ->
           TemplateCreateMessageBody'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "RequestID")
-            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "RequestID")
+            Prelude.<*> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable TemplateCreateMessageBody where

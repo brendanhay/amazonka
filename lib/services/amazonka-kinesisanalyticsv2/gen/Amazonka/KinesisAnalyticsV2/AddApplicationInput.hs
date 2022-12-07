@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,11 +135,11 @@ instance Core.AWSRequest AddApplicationInput where
     Response.receiveJSON
       ( \s h x ->
           AddApplicationInputResponse'
-            Prelude.<$> ( x Core..?> "InputDescriptions"
+            Prelude.<$> ( x Data..?> "InputDescriptions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ApplicationARN")
-            Prelude.<*> (x Core..?> "ApplicationVersionId")
+            Prelude.<*> (x Data..?> "ApplicationARN")
+            Prelude.<*> (x Data..?> "ApplicationVersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,39 +155,39 @@ instance Prelude.NFData AddApplicationInput where
       `Prelude.seq` Prelude.rnf currentApplicationVersionId
       `Prelude.seq` Prelude.rnf input
 
-instance Core.ToHeaders AddApplicationInput where
+instance Data.ToHeaders AddApplicationInput where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20180523.AddApplicationInput" ::
+              Data.=# ( "KinesisAnalytics_20180523.AddApplicationInput" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddApplicationInput where
+instance Data.ToJSON AddApplicationInput where
   toJSON AddApplicationInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ApplicationName" Core..= applicationName),
+              ("ApplicationName" Data..= applicationName),
             Prelude.Just
               ( "CurrentApplicationVersionId"
-                  Core..= currentApplicationVersionId
+                  Data..= currentApplicationVersionId
               ),
-            Prelude.Just ("Input" Core..= input)
+            Prelude.Just ("Input" Data..= input)
           ]
       )
 
-instance Core.ToPath AddApplicationInput where
+instance Data.ToPath AddApplicationInput where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddApplicationInput where
+instance Data.ToQuery AddApplicationInput where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddApplicationInputResponse' smart constructor.

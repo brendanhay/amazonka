@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.SearchableQueueType
 import Amazonka.Connect.Types.StringCondition
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The search criteria to be used to return queues.
@@ -105,15 +106,15 @@ instance Prelude.NFData QueueSearchCriteria where
       `Prelude.seq` Prelude.rnf andConditions
       `Prelude.seq` Prelude.rnf queueTypeCondition
 
-instance Core.ToJSON QueueSearchCriteria where
+instance Data.ToJSON QueueSearchCriteria where
   toJSON QueueSearchCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StringCondition" Core..=)
+          [ ("StringCondition" Data..=)
               Prelude.<$> stringCondition,
-            ("OrConditions" Core..=) Prelude.<$> orConditions,
-            ("AndConditions" Core..=) Prelude.<$> andConditions,
-            ("QueueTypeCondition" Core..=)
+            ("OrConditions" Data..=) Prelude.<$> orConditions,
+            ("AndConditions" Data..=) Prelude.<$> andConditions,
+            ("QueueTypeCondition" Data..=)
               Prelude.<$> queueTypeCondition
           ]
       )

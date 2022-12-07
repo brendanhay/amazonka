@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.Finding where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.Resource
 import Amazonka.GuardDuty.Types.ServiceInfo
 import qualified Amazonka.Prelude as Prelude
@@ -209,27 +210,27 @@ finding_type = Lens.lens (\Finding' {type'} -> type') (\s@Finding' {} a -> s {ty
 finding_updatedAt :: Lens.Lens' Finding Prelude.Text
 finding_updatedAt = Lens.lens (\Finding' {updatedAt} -> updatedAt) (\s@Finding' {} a -> s {updatedAt = a} :: Finding)
 
-instance Core.FromJSON Finding where
+instance Data.FromJSON Finding where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Finding"
       ( \x ->
           Finding'
-            Prelude.<$> (x Core..:? "confidence")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "service")
-            Prelude.<*> (x Core..:? "partition")
-            Prelude.<*> (x Core..:? "title")
-            Prelude.<*> (x Core..: "accountId")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "region")
-            Prelude.<*> (x Core..: "resource")
-            Prelude.<*> (x Core..: "schemaVersion")
-            Prelude.<*> (x Core..: "severity")
-            Prelude.<*> (x Core..: "type")
-            Prelude.<*> (x Core..: "updatedAt")
+            Prelude.<$> (x Data..:? "confidence")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "service")
+            Prelude.<*> (x Data..:? "partition")
+            Prelude.<*> (x Data..:? "title")
+            Prelude.<*> (x Data..: "accountId")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "region")
+            Prelude.<*> (x Data..: "resource")
+            Prelude.<*> (x Data..: "schemaVersion")
+            Prelude.<*> (x Data..: "severity")
+            Prelude.<*> (x Data..: "type")
+            Prelude.<*> (x Data..: "updatedAt")
       )
 
 instance Prelude.Hashable Finding where

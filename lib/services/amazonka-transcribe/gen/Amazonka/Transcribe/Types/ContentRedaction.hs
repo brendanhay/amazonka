@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.ContentRedaction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.PiiEntityType
 import Amazonka.Transcribe.Types.RedactionOutput
@@ -113,15 +114,15 @@ contentRedaction_redactionType = Lens.lens (\ContentRedaction' {redactionType} -
 contentRedaction_redactionOutput :: Lens.Lens' ContentRedaction RedactionOutput
 contentRedaction_redactionOutput = Lens.lens (\ContentRedaction' {redactionOutput} -> redactionOutput) (\s@ContentRedaction' {} a -> s {redactionOutput = a} :: ContentRedaction)
 
-instance Core.FromJSON ContentRedaction where
+instance Data.FromJSON ContentRedaction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContentRedaction"
       ( \x ->
           ContentRedaction'
-            Prelude.<$> (x Core..:? "PiiEntityTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "RedactionType")
-            Prelude.<*> (x Core..: "RedactionOutput")
+            Prelude.<$> (x Data..:? "PiiEntityTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "RedactionType")
+            Prelude.<*> (x Data..: "RedactionOutput")
       )
 
 instance Prelude.Hashable ContentRedaction where
@@ -136,14 +137,14 @@ instance Prelude.NFData ContentRedaction where
       `Prelude.seq` Prelude.rnf redactionType
       `Prelude.seq` Prelude.rnf redactionOutput
 
-instance Core.ToJSON ContentRedaction where
+instance Data.ToJSON ContentRedaction where
   toJSON ContentRedaction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PiiEntityTypes" Core..=)
+          [ ("PiiEntityTypes" Data..=)
               Prelude.<$> piiEntityTypes,
-            Prelude.Just ("RedactionType" Core..= redactionType),
+            Prelude.Just ("RedactionType" Data..= redactionType),
             Prelude.Just
-              ("RedactionOutput" Core..= redactionOutput)
+              ("RedactionOutput" Data..= redactionOutput)
           ]
       )

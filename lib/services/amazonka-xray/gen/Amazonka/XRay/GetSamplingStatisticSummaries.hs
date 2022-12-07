@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,10 +114,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetSamplingStatisticSummariesResponse'
-            Prelude.<$> ( x Core..?> "SamplingStatisticSummaries"
+            Prelude.<$> ( x Data..?> "SamplingStatisticSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,20 +132,20 @@ instance Prelude.NFData GetSamplingStatisticSummaries where
   rnf GetSamplingStatisticSummaries' {..} =
     Prelude.rnf nextToken
 
-instance Core.ToHeaders GetSamplingStatisticSummaries where
+instance Data.ToHeaders GetSamplingStatisticSummaries where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetSamplingStatisticSummaries where
+instance Data.ToJSON GetSamplingStatisticSummaries where
   toJSON GetSamplingStatisticSummaries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("NextToken" Core..=) Prelude.<$> nextToken]
+          [("NextToken" Data..=) Prelude.<$> nextToken]
       )
 
-instance Core.ToPath GetSamplingStatisticSummaries where
+instance Data.ToPath GetSamplingStatisticSummaries where
   toPath = Prelude.const "/SamplingStatisticSummaries"
 
-instance Core.ToQuery GetSamplingStatisticSummaries where
+instance Data.ToQuery GetSamplingStatisticSummaries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSamplingStatisticSummariesResponse' smart constructor.

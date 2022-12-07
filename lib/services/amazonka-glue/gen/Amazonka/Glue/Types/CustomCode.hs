@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CustomCode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.GlueSchema
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,17 +99,17 @@ customCode_code = Lens.lens (\CustomCode' {code} -> code) (\s@CustomCode' {} a -
 customCode_className :: Lens.Lens' CustomCode Prelude.Text
 customCode_className = Lens.lens (\CustomCode' {className} -> className) (\s@CustomCode' {} a -> s {className = a} :: CustomCode)
 
-instance Core.FromJSON CustomCode where
+instance Data.FromJSON CustomCode where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomCode"
       ( \x ->
           CustomCode'
-            Prelude.<$> (x Core..:? "OutputSchemas" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "Code")
-            Prelude.<*> (x Core..: "ClassName")
+            Prelude.<$> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "Code")
+            Prelude.<*> (x Data..: "ClassName")
       )
 
 instance Prelude.Hashable CustomCode where
@@ -127,14 +128,14 @@ instance Prelude.NFData CustomCode where
       `Prelude.seq` Prelude.rnf code
       `Prelude.seq` Prelude.rnf className
 
-instance Core.ToJSON CustomCode where
+instance Data.ToJSON CustomCode where
   toJSON CustomCode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutputSchemas" Core..=) Prelude.<$> outputSchemas,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Code" Core..= code),
-            Prelude.Just ("ClassName" Core..= className)
+          [ ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Code" Data..= code),
+            Prelude.Just ("ClassName" Data..= className)
           ]
       )

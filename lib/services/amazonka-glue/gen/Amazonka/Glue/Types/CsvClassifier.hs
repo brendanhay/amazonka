@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CsvClassifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CsvHeaderOption
 import qualified Amazonka.Prelude as Prelude
 
@@ -41,13 +42,13 @@ data CsvClassifier = CsvClassifier'
     -- | Enables the processing of files that contain only one column.
     allowSingleColumn :: Prelude.Maybe Prelude.Bool,
     -- | The time that this classifier was last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | A custom symbol to denote what separates each column entry in the row.
     delimiter :: Prelude.Maybe Prelude.Text,
     -- | Enables the custom datatype to be configured.
     customDatatypeConfigured :: Prelude.Maybe Prelude.Bool,
     -- | The time that this classifier was registered.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | A list of custom datatypes including \"BINARY\", \"BOOLEAN\", \"DATE\",
     -- \"DECIMAL\", \"DOUBLE\", \"FLOAT\", \"INT\", \"LONG\", \"SHORT\",
     -- \"STRING\", \"TIMESTAMP\".
@@ -138,7 +139,7 @@ csvClassifier_allowSingleColumn = Lens.lens (\CsvClassifier' {allowSingleColumn}
 
 -- | The time that this classifier was last updated.
 csvClassifier_lastUpdated :: Lens.Lens' CsvClassifier (Prelude.Maybe Prelude.UTCTime)
-csvClassifier_lastUpdated = Lens.lens (\CsvClassifier' {lastUpdated} -> lastUpdated) (\s@CsvClassifier' {} a -> s {lastUpdated = a} :: CsvClassifier) Prelude.. Lens.mapping Core._Time
+csvClassifier_lastUpdated = Lens.lens (\CsvClassifier' {lastUpdated} -> lastUpdated) (\s@CsvClassifier' {} a -> s {lastUpdated = a} :: CsvClassifier) Prelude.. Lens.mapping Data._Time
 
 -- | A custom symbol to denote what separates each column entry in the row.
 csvClassifier_delimiter :: Lens.Lens' CsvClassifier (Prelude.Maybe Prelude.Text)
@@ -150,7 +151,7 @@ csvClassifier_customDatatypeConfigured = Lens.lens (\CsvClassifier' {customDatat
 
 -- | The time that this classifier was registered.
 csvClassifier_creationTime :: Lens.Lens' CsvClassifier (Prelude.Maybe Prelude.UTCTime)
-csvClassifier_creationTime = Lens.lens (\CsvClassifier' {creationTime} -> creationTime) (\s@CsvClassifier' {} a -> s {creationTime = a} :: CsvClassifier) Prelude.. Lens.mapping Core._Time
+csvClassifier_creationTime = Lens.lens (\CsvClassifier' {creationTime} -> creationTime) (\s@CsvClassifier' {} a -> s {creationTime = a} :: CsvClassifier) Prelude.. Lens.mapping Data._Time
 
 -- | A list of custom datatypes including \"BINARY\", \"BOOLEAN\", \"DATE\",
 -- \"DECIMAL\", \"DOUBLE\", \"FLOAT\", \"INT\", \"LONG\", \"SHORT\",
@@ -166,26 +167,26 @@ csvClassifier_version = Lens.lens (\CsvClassifier' {version} -> version) (\s@Csv
 csvClassifier_name :: Lens.Lens' CsvClassifier Prelude.Text
 csvClassifier_name = Lens.lens (\CsvClassifier' {name} -> name) (\s@CsvClassifier' {} a -> s {name = a} :: CsvClassifier)
 
-instance Core.FromJSON CsvClassifier where
+instance Data.FromJSON CsvClassifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CsvClassifier"
       ( \x ->
           CsvClassifier'
-            Prelude.<$> (x Core..:? "QuoteSymbol")
-            Prelude.<*> (x Core..:? "Header" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ContainsHeader")
-            Prelude.<*> (x Core..:? "DisableValueTrimming")
-            Prelude.<*> (x Core..:? "AllowSingleColumn")
-            Prelude.<*> (x Core..:? "LastUpdated")
-            Prelude.<*> (x Core..:? "Delimiter")
-            Prelude.<*> (x Core..:? "CustomDatatypeConfigured")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> ( x Core..:? "CustomDatatypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "QuoteSymbol")
+            Prelude.<*> (x Data..:? "Header" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ContainsHeader")
+            Prelude.<*> (x Data..:? "DisableValueTrimming")
+            Prelude.<*> (x Data..:? "AllowSingleColumn")
+            Prelude.<*> (x Data..:? "LastUpdated")
+            Prelude.<*> (x Data..:? "Delimiter")
+            Prelude.<*> (x Data..:? "CustomDatatypeConfigured")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> ( x Data..:? "CustomDatatypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable CsvClassifier where

@@ -23,6 +23,7 @@ import Amazonka.CodeDeploy.Types.EC2TagFilter
 import Amazonka.CodeDeploy.Types.EC2TagSet
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the instances to be used in the replacement
@@ -92,17 +93,17 @@ targetInstances_tagFilters = Lens.lens (\TargetInstances' {tagFilters} -> tagFil
 targetInstances_ec2TagSet :: Lens.Lens' TargetInstances (Prelude.Maybe EC2TagSet)
 targetInstances_ec2TagSet = Lens.lens (\TargetInstances' {ec2TagSet} -> ec2TagSet) (\s@TargetInstances' {} a -> s {ec2TagSet = a} :: TargetInstances)
 
-instance Core.FromJSON TargetInstances where
+instance Data.FromJSON TargetInstances where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetInstances"
       ( \x ->
           TargetInstances'
-            Prelude.<$> ( x Core..:? "autoScalingGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "autoScalingGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "tagFilters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ec2TagSet")
+            Prelude.<*> (x Data..:? "tagFilters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ec2TagSet")
       )
 
 instance Prelude.Hashable TargetInstances where
@@ -117,13 +118,13 @@ instance Prelude.NFData TargetInstances where
       `Prelude.seq` Prelude.rnf tagFilters
       `Prelude.seq` Prelude.rnf ec2TagSet
 
-instance Core.ToJSON TargetInstances where
+instance Data.ToJSON TargetInstances where
   toJSON TargetInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("autoScalingGroups" Core..=)
+          [ ("autoScalingGroups" Data..=)
               Prelude.<$> autoScalingGroups,
-            ("tagFilters" Core..=) Prelude.<$> tagFilters,
-            ("ec2TagSet" Core..=) Prelude.<$> ec2TagSet
+            ("tagFilters" Data..=) Prelude.<$> tagFilters,
+            ("ec2TagSet" Data..=) Prelude.<$> ec2TagSet
           ]
       )

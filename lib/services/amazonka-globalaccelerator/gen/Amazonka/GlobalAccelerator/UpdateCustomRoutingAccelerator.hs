@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,7 +141,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateCustomRoutingAcceleratorResponse'
-            Prelude.<$> (x Core..?> "Accelerator")
+            Prelude.<$> (x Data..?> "Accelerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,39 +168,39 @@ instance
       `Prelude.seq` Prelude.rnf acceleratorArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateCustomRoutingAccelerator
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.UpdateCustomRoutingAccelerator" ::
+              Data.=# ( "GlobalAccelerator_V20180706.UpdateCustomRoutingAccelerator" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCustomRoutingAccelerator where
+instance Data.ToJSON UpdateCustomRoutingAccelerator where
   toJSON UpdateCustomRoutingAccelerator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("IpAddressType" Core..=) Prelude.<$> ipAddressType,
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("IpAddressType" Data..=) Prelude.<$> ipAddressType,
             Prelude.Just
-              ("AcceleratorArn" Core..= acceleratorArn)
+              ("AcceleratorArn" Data..= acceleratorArn)
           ]
       )
 
-instance Core.ToPath UpdateCustomRoutingAccelerator where
+instance Data.ToPath UpdateCustomRoutingAccelerator where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateCustomRoutingAccelerator where
+instance Data.ToQuery UpdateCustomRoutingAccelerator where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCustomRoutingAcceleratorResponse' smart constructor.

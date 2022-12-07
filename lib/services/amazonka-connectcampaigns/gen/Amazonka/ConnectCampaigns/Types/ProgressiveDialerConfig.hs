@@ -21,6 +21,7 @@ module Amazonka.ConnectCampaigns.Types.ProgressiveDialerConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Progressive Dialer config
@@ -54,13 +55,13 @@ newProgressiveDialerConfig pBandwidthAllocation_ =
 progressiveDialerConfig_bandwidthAllocation :: Lens.Lens' ProgressiveDialerConfig Prelude.Double
 progressiveDialerConfig_bandwidthAllocation = Lens.lens (\ProgressiveDialerConfig' {bandwidthAllocation} -> bandwidthAllocation) (\s@ProgressiveDialerConfig' {} a -> s {bandwidthAllocation = a} :: ProgressiveDialerConfig)
 
-instance Core.FromJSON ProgressiveDialerConfig where
+instance Data.FromJSON ProgressiveDialerConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProgressiveDialerConfig"
       ( \x ->
           ProgressiveDialerConfig'
-            Prelude.<$> (x Core..: "bandwidthAllocation")
+            Prelude.<$> (x Data..: "bandwidthAllocation")
       )
 
 instance Prelude.Hashable ProgressiveDialerConfig where
@@ -71,11 +72,11 @@ instance Prelude.NFData ProgressiveDialerConfig where
   rnf ProgressiveDialerConfig' {..} =
     Prelude.rnf bandwidthAllocation
 
-instance Core.ToJSON ProgressiveDialerConfig where
+instance Data.ToJSON ProgressiveDialerConfig where
   toJSON ProgressiveDialerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("bandwidthAllocation" Core..= bandwidthAllocation)
+              ("bandwidthAllocation" Data..= bandwidthAllocation)
           ]
       )

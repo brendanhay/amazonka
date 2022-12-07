@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,37 +130,37 @@ instance Prelude.NFData PutAppValidationConfiguration where
       `Prelude.seq` Prelude.rnf appValidationConfigurations
       `Prelude.seq` Prelude.rnf appId
 
-instance Core.ToHeaders PutAppValidationConfiguration where
+instance Data.ToHeaders PutAppValidationConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.PutAppValidationConfiguration" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.PutAppValidationConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutAppValidationConfiguration where
+instance Data.ToJSON PutAppValidationConfiguration where
   toJSON PutAppValidationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("serverGroupValidationConfigurations" Core..=)
+          [ ("serverGroupValidationConfigurations" Data..=)
               Prelude.<$> serverGroupValidationConfigurations,
-            ("appValidationConfigurations" Core..=)
+            ("appValidationConfigurations" Data..=)
               Prelude.<$> appValidationConfigurations,
-            Prelude.Just ("appId" Core..= appId)
+            Prelude.Just ("appId" Data..= appId)
           ]
       )
 
-instance Core.ToPath PutAppValidationConfiguration where
+instance Data.ToPath PutAppValidationConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutAppValidationConfiguration where
+instance Data.ToQuery PutAppValidationConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAppValidationConfigurationResponse' smart constructor.

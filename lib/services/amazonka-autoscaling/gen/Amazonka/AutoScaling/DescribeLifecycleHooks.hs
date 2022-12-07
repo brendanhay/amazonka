@@ -44,6 +44,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,8 +102,8 @@ instance Core.AWSRequest DescribeLifecycleHooks where
       "DescribeLifecycleHooksResult"
       ( \s h x ->
           DescribeLifecycleHooksResponse'
-            Prelude.<$> ( x Core..@? "LifecycleHooks" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "LifecycleHooks" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -117,25 +118,25 @@ instance Prelude.NFData DescribeLifecycleHooks where
     Prelude.rnf lifecycleHookNames
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
-instance Core.ToHeaders DescribeLifecycleHooks where
+instance Data.ToHeaders DescribeLifecycleHooks where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeLifecycleHooks where
+instance Data.ToPath DescribeLifecycleHooks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLifecycleHooks where
+instance Data.ToQuery DescribeLifecycleHooks where
   toQuery DescribeLifecycleHooks' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeLifecycleHooks" :: Prelude.ByteString),
+          Data.=: ("DescribeLifecycleHooks" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
         "LifecycleHookNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> lifecycleHookNames
             ),
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+        "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newDescribeLifecycleHooksResponse' smart constructor.

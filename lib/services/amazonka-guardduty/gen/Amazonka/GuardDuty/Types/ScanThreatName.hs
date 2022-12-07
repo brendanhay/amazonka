@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ScanThreatName where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.ScanFilePath
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,16 +82,16 @@ scanThreatName_itemCount = Lens.lens (\ScanThreatName' {itemCount} -> itemCount)
 scanThreatName_filePaths :: Lens.Lens' ScanThreatName (Prelude.Maybe [ScanFilePath])
 scanThreatName_filePaths = Lens.lens (\ScanThreatName' {filePaths} -> filePaths) (\s@ScanThreatName' {} a -> s {filePaths = a} :: ScanThreatName) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ScanThreatName where
+instance Data.FromJSON ScanThreatName where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScanThreatName"
       ( \x ->
           ScanThreatName'
-            Prelude.<$> (x Core..:? "severity")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "itemCount")
-            Prelude.<*> (x Core..:? "filePaths" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "severity")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "itemCount")
+            Prelude.<*> (x Data..:? "filePaths" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ScanThreatName where

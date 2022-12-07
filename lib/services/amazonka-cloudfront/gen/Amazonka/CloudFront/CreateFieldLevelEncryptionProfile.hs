@@ -44,6 +44,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,8 +93,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateFieldLevelEncryptionProfileResponse'
-            Prelude.<$> (Core.parseXML x) Prelude.<*> (h Core..#? "Location")
-              Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x) Prelude.<*> (h Data..#? "Location")
+              Prelude.<*> (h Data..#? "ETag")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,22 +116,22 @@ instance
     Prelude.rnf fieldLevelEncryptionProfileConfig
 
 instance
-  Core.ToElement
+  Data.ToElement
     CreateFieldLevelEncryptionProfile
   where
   toElement CreateFieldLevelEncryptionProfile' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}FieldLevelEncryptionProfileConfig"
       fieldLevelEncryptionProfileConfig
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateFieldLevelEncryptionProfile
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateFieldLevelEncryptionProfile
   where
   toPath =
@@ -138,7 +139,7 @@ instance
       "/2020-05-31/field-level-encryption-profile"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateFieldLevelEncryptionProfile
   where
   toQuery = Prelude.const Prelude.mempty

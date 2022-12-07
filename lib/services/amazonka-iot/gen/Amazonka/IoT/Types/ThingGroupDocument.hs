@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ThingGroupDocument where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The thing group search index document.
@@ -89,19 +90,19 @@ thingGroupDocument_attributes = Lens.lens (\ThingGroupDocument' {attributes} -> 
 thingGroupDocument_thingGroupId :: Lens.Lens' ThingGroupDocument (Prelude.Maybe Prelude.Text)
 thingGroupDocument_thingGroupId = Lens.lens (\ThingGroupDocument' {thingGroupId} -> thingGroupId) (\s@ThingGroupDocument' {} a -> s {thingGroupId = a} :: ThingGroupDocument)
 
-instance Core.FromJSON ThingGroupDocument where
+instance Data.FromJSON ThingGroupDocument where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThingGroupDocument"
       ( \x ->
           ThingGroupDocument'
-            Prelude.<$> (x Core..:? "thingGroupDescription")
-            Prelude.<*> (x Core..:? "thingGroupName")
-            Prelude.<*> ( x Core..:? "parentGroupNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "thingGroupDescription")
+            Prelude.<*> (x Data..:? "thingGroupName")
+            Prelude.<*> ( x Data..:? "parentGroupNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "thingGroupId")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "thingGroupId")
       )
 
 instance Prelude.Hashable ThingGroupDocument where

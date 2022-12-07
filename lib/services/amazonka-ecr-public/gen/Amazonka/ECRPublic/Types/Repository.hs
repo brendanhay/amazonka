@@ -21,6 +21,7 @@ module Amazonka.ECRPublic.Types.Repository where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a repository.
@@ -43,7 +44,7 @@ data Repository = Repository'
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in JavaScript date format, when the repository was
     -- created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,19 +108,19 @@ repository_registryId = Lens.lens (\Repository' {registryId} -> registryId) (\s@
 -- | The date and time, in JavaScript date format, when the repository was
 -- created.
 repository_createdAt :: Lens.Lens' Repository (Prelude.Maybe Prelude.UTCTime)
-repository_createdAt = Lens.lens (\Repository' {createdAt} -> createdAt) (\s@Repository' {} a -> s {createdAt = a} :: Repository) Prelude.. Lens.mapping Core._Time
+repository_createdAt = Lens.lens (\Repository' {createdAt} -> createdAt) (\s@Repository' {} a -> s {createdAt = a} :: Repository) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Repository where
+instance Data.FromJSON Repository where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Repository"
       ( \x ->
           Repository'
-            Prelude.<$> (x Core..:? "repositoryArn")
-            Prelude.<*> (x Core..:? "repositoryUri")
-            Prelude.<*> (x Core..:? "repositoryName")
-            Prelude.<*> (x Core..:? "registryId")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "repositoryArn")
+            Prelude.<*> (x Data..:? "repositoryUri")
+            Prelude.<*> (x Data..:? "repositoryName")
+            Prelude.<*> (x Data..:? "registryId")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable Repository where

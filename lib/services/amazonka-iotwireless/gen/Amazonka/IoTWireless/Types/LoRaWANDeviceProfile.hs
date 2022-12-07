@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANDeviceProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | LoRaWANDeviceProfile object.
@@ -218,33 +219,33 @@ loRaWANDeviceProfile_supports32BitFCnt = Lens.lens (\LoRaWANDeviceProfile' {supp
 loRaWANDeviceProfile_macVersion :: Lens.Lens' LoRaWANDeviceProfile (Prelude.Maybe Prelude.Text)
 loRaWANDeviceProfile_macVersion = Lens.lens (\LoRaWANDeviceProfile' {macVersion} -> macVersion) (\s@LoRaWANDeviceProfile' {} a -> s {macVersion = a} :: LoRaWANDeviceProfile)
 
-instance Core.FromJSON LoRaWANDeviceProfile where
+instance Data.FromJSON LoRaWANDeviceProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoRaWANDeviceProfile"
       ( \x ->
           LoRaWANDeviceProfile'
-            Prelude.<$> (x Core..:? "RxDataRate2")
-            Prelude.<*> (x Core..:? "RfRegion")
-            Prelude.<*> (x Core..:? "SupportsJoin")
-            Prelude.<*> (x Core..:? "SupportsClassC")
-            Prelude.<*> (x Core..:? "MaxEirp")
-            Prelude.<*> ( x Core..:? "FactoryPresetFreqsList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "RxDataRate2")
+            Prelude.<*> (x Data..:? "RfRegion")
+            Prelude.<*> (x Data..:? "SupportsJoin")
+            Prelude.<*> (x Data..:? "SupportsClassC")
+            Prelude.<*> (x Data..:? "MaxEirp")
+            Prelude.<*> ( x Data..:? "FactoryPresetFreqsList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MaxDutyCycle")
-            Prelude.<*> (x Core..:? "RegParamsRevision")
-            Prelude.<*> (x Core..:? "PingSlotDr")
-            Prelude.<*> (x Core..:? "RxDelay1")
-            Prelude.<*> (x Core..:? "ClassBTimeout")
-            Prelude.<*> (x Core..:? "PingSlotPeriod")
-            Prelude.<*> (x Core..:? "PingSlotFreq")
-            Prelude.<*> (x Core..:? "ClassCTimeout")
-            Prelude.<*> (x Core..:? "RxFreq2")
-            Prelude.<*> (x Core..:? "SupportsClassB")
-            Prelude.<*> (x Core..:? "RxDrOffset1")
-            Prelude.<*> (x Core..:? "Supports32BitFCnt")
-            Prelude.<*> (x Core..:? "MacVersion")
+            Prelude.<*> (x Data..:? "MaxDutyCycle")
+            Prelude.<*> (x Data..:? "RegParamsRevision")
+            Prelude.<*> (x Data..:? "PingSlotDr")
+            Prelude.<*> (x Data..:? "RxDelay1")
+            Prelude.<*> (x Data..:? "ClassBTimeout")
+            Prelude.<*> (x Data..:? "PingSlotPeriod")
+            Prelude.<*> (x Data..:? "PingSlotFreq")
+            Prelude.<*> (x Data..:? "ClassCTimeout")
+            Prelude.<*> (x Data..:? "RxFreq2")
+            Prelude.<*> (x Data..:? "SupportsClassB")
+            Prelude.<*> (x Data..:? "RxDrOffset1")
+            Prelude.<*> (x Data..:? "Supports32BitFCnt")
+            Prelude.<*> (x Data..:? "MacVersion")
       )
 
 instance Prelude.Hashable LoRaWANDeviceProfile where
@@ -291,34 +292,34 @@ instance Prelude.NFData LoRaWANDeviceProfile where
       `Prelude.seq` Prelude.rnf supports32BitFCnt
       `Prelude.seq` Prelude.rnf macVersion
 
-instance Core.ToJSON LoRaWANDeviceProfile where
+instance Data.ToJSON LoRaWANDeviceProfile where
   toJSON LoRaWANDeviceProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RxDataRate2" Core..=) Prelude.<$> rxDataRate2,
-            ("RfRegion" Core..=) Prelude.<$> rfRegion,
-            ("SupportsJoin" Core..=) Prelude.<$> supportsJoin,
-            ("SupportsClassC" Core..=)
+          [ ("RxDataRate2" Data..=) Prelude.<$> rxDataRate2,
+            ("RfRegion" Data..=) Prelude.<$> rfRegion,
+            ("SupportsJoin" Data..=) Prelude.<$> supportsJoin,
+            ("SupportsClassC" Data..=)
               Prelude.<$> supportsClassC,
-            ("MaxEirp" Core..=) Prelude.<$> maxEirp,
-            ("FactoryPresetFreqsList" Core..=)
+            ("MaxEirp" Data..=) Prelude.<$> maxEirp,
+            ("FactoryPresetFreqsList" Data..=)
               Prelude.<$> factoryPresetFreqsList,
-            ("MaxDutyCycle" Core..=) Prelude.<$> maxDutyCycle,
-            ("RegParamsRevision" Core..=)
+            ("MaxDutyCycle" Data..=) Prelude.<$> maxDutyCycle,
+            ("RegParamsRevision" Data..=)
               Prelude.<$> regParamsRevision,
-            ("PingSlotDr" Core..=) Prelude.<$> pingSlotDr,
-            ("RxDelay1" Core..=) Prelude.<$> rxDelay1,
-            ("ClassBTimeout" Core..=) Prelude.<$> classBTimeout,
-            ("PingSlotPeriod" Core..=)
+            ("PingSlotDr" Data..=) Prelude.<$> pingSlotDr,
+            ("RxDelay1" Data..=) Prelude.<$> rxDelay1,
+            ("ClassBTimeout" Data..=) Prelude.<$> classBTimeout,
+            ("PingSlotPeriod" Data..=)
               Prelude.<$> pingSlotPeriod,
-            ("PingSlotFreq" Core..=) Prelude.<$> pingSlotFreq,
-            ("ClassCTimeout" Core..=) Prelude.<$> classCTimeout,
-            ("RxFreq2" Core..=) Prelude.<$> rxFreq2,
-            ("SupportsClassB" Core..=)
+            ("PingSlotFreq" Data..=) Prelude.<$> pingSlotFreq,
+            ("ClassCTimeout" Data..=) Prelude.<$> classCTimeout,
+            ("RxFreq2" Data..=) Prelude.<$> rxFreq2,
+            ("SupportsClassB" Data..=)
               Prelude.<$> supportsClassB,
-            ("RxDrOffset1" Core..=) Prelude.<$> rxDrOffset1,
-            ("Supports32BitFCnt" Core..=)
+            ("RxDrOffset1" Data..=) Prelude.<$> rxDrOffset1,
+            ("Supports32BitFCnt" Data..=)
               Prelude.<$> supports32BitFCnt,
-            ("MacVersion" Core..=) Prelude.<$> macVersion
+            ("MacVersion" Data..=) Prelude.<$> macVersion
           ]
       )

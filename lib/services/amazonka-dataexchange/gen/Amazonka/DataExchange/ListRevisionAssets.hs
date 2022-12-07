@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,8 +147,8 @@ instance Core.AWSRequest ListRevisionAssets where
     Response.receiveJSON
       ( \s h x ->
           ListRevisionAssetsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Assets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Assets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,32 +166,32 @@ instance Prelude.NFData ListRevisionAssets where
       `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf revisionId
 
-instance Core.ToHeaders ListRevisionAssets where
+instance Data.ToHeaders ListRevisionAssets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRevisionAssets where
+instance Data.ToPath ListRevisionAssets where
   toPath ListRevisionAssets' {..} =
     Prelude.mconcat
       [ "/v1/data-sets/",
-        Core.toBS dataSetId,
+        Data.toBS dataSetId,
         "/revisions/",
-        Core.toBS revisionId,
+        Data.toBS revisionId,
         "/assets"
       ]
 
-instance Core.ToQuery ListRevisionAssets where
+instance Data.ToQuery ListRevisionAssets where
   toQuery ListRevisionAssets' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListRevisionAssetsResponse' smart constructor.

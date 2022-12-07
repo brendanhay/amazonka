@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -192,8 +193,8 @@ instance Core.AWSRequest ListJobExecutionsForThing where
     Response.receiveJSON
       ( \s h x ->
           ListJobExecutionsForThingResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "executionSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "executionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -217,22 +218,22 @@ instance Prelude.NFData ListJobExecutionsForThing where
       `Prelude.seq` Prelude.rnf namespaceId
       `Prelude.seq` Prelude.rnf thingName
 
-instance Core.ToHeaders ListJobExecutionsForThing where
+instance Data.ToHeaders ListJobExecutionsForThing where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListJobExecutionsForThing where
+instance Data.ToPath ListJobExecutionsForThing where
   toPath ListJobExecutionsForThing' {..} =
     Prelude.mconcat
-      ["/things/", Core.toBS thingName, "/jobs"]
+      ["/things/", Data.toBS thingName, "/jobs"]
 
-instance Core.ToQuery ListJobExecutionsForThing where
+instance Data.ToQuery ListJobExecutionsForThing where
   toQuery ListJobExecutionsForThing' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "jobId" Core.=: jobId,
-        "status" Core.=: status,
-        "maxResults" Core.=: maxResults,
-        "namespaceId" Core.=: namespaceId
+      [ "nextToken" Data.=: nextToken,
+        "jobId" Data.=: jobId,
+        "status" Data.=: status,
+        "maxResults" Data.=: maxResults,
+        "namespaceId" Data.=: namespaceId
       ]
 
 -- | /See:/ 'newListJobExecutionsForThingResponse' smart constructor.

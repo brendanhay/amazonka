@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,7 +96,7 @@ instance Core.AWSRequest DisableDomainTransferLock where
       ( \s h x ->
           DisableDomainTransferLockResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "OperationId")
+            Prelude.<*> (x Data..:> "OperationId")
       )
 
 instance Prelude.Hashable DisableDomainTransferLock where
@@ -106,32 +107,32 @@ instance Prelude.NFData DisableDomainTransferLock where
   rnf DisableDomainTransferLock' {..} =
     Prelude.rnf domainName
 
-instance Core.ToHeaders DisableDomainTransferLock where
+instance Data.ToHeaders DisableDomainTransferLock where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.DisableDomainTransferLock" ::
+              Data.=# ( "Route53Domains_v20140515.DisableDomainTransferLock" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisableDomainTransferLock where
+instance Data.ToJSON DisableDomainTransferLock where
   toJSON DisableDomainTransferLock' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DomainName" Core..= domainName)]
+          [Prelude.Just ("DomainName" Data..= domainName)]
       )
 
-instance Core.ToPath DisableDomainTransferLock where
+instance Data.ToPath DisableDomainTransferLock where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableDomainTransferLock where
+instance Data.ToQuery DisableDomainTransferLock where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The DisableDomainTransferLock response includes the following element.

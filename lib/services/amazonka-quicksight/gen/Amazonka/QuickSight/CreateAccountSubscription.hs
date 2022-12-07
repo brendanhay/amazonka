@@ -90,6 +90,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -415,8 +416,8 @@ instance Core.AWSRequest CreateAccountSubscription where
     Response.receiveJSON
       ( \s h x ->
           CreateAccountSubscriptionResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "SignupResponse")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "SignupResponse")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -456,49 +457,49 @@ instance Prelude.NFData CreateAccountSubscription where
       `Prelude.seq` Prelude.rnf accountName
       `Prelude.seq` Prelude.rnf notificationEmail
 
-instance Core.ToHeaders CreateAccountSubscription where
+instance Data.ToHeaders CreateAccountSubscription where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAccountSubscription where
+instance Data.ToJSON CreateAccountSubscription where
   toJSON CreateAccountSubscription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DirectoryId" Core..=) Prelude.<$> directoryId,
-            ("ActiveDirectoryName" Core..=)
+          [ ("DirectoryId" Data..=) Prelude.<$> directoryId,
+            ("ActiveDirectoryName" Data..=)
               Prelude.<$> activeDirectoryName,
-            ("ReaderGroup" Core..=) Prelude.<$> readerGroup,
-            ("FirstName" Core..=) Prelude.<$> firstName,
-            ("AdminGroup" Core..=) Prelude.<$> adminGroup,
-            ("ContactNumber" Core..=) Prelude.<$> contactNumber,
-            ("LastName" Core..=) Prelude.<$> lastName,
-            ("AuthorGroup" Core..=) Prelude.<$> authorGroup,
-            ("Realm" Core..=) Prelude.<$> realm,
-            ("EmailAddress" Core..=) Prelude.<$> emailAddress,
-            Prelude.Just ("Edition" Core..= edition),
+            ("ReaderGroup" Data..=) Prelude.<$> readerGroup,
+            ("FirstName" Data..=) Prelude.<$> firstName,
+            ("AdminGroup" Data..=) Prelude.<$> adminGroup,
+            ("ContactNumber" Data..=) Prelude.<$> contactNumber,
+            ("LastName" Data..=) Prelude.<$> lastName,
+            ("AuthorGroup" Data..=) Prelude.<$> authorGroup,
+            ("Realm" Data..=) Prelude.<$> realm,
+            ("EmailAddress" Data..=) Prelude.<$> emailAddress,
+            Prelude.Just ("Edition" Data..= edition),
             Prelude.Just
               ( "AuthenticationMethod"
-                  Core..= authenticationMethod
+                  Data..= authenticationMethod
               ),
-            Prelude.Just ("AccountName" Core..= accountName),
+            Prelude.Just ("AccountName" Data..= accountName),
             Prelude.Just
-              ("NotificationEmail" Core..= notificationEmail)
+              ("NotificationEmail" Data..= notificationEmail)
           ]
       )
 
-instance Core.ToPath CreateAccountSubscription where
+instance Data.ToPath CreateAccountSubscription where
   toPath CreateAccountSubscription' {..} =
     Prelude.mconcat
-      ["/account/", Core.toBS awsAccountId]
+      ["/account/", Data.toBS awsAccountId]
 
-instance Core.ToQuery CreateAccountSubscription where
+instance Data.ToQuery CreateAccountSubscription where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAccountSubscriptionResponse' smart constructor.

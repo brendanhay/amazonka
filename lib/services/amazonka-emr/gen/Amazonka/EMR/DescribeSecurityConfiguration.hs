@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,9 +90,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeSecurityConfigurationResponse'
-            Prelude.<$> (x Core..?> "SecurityConfiguration")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "CreationDateTime")
+            Prelude.<$> (x Data..?> "SecurityConfiguration")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "CreationDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,32 +107,32 @@ instance Prelude.NFData DescribeSecurityConfiguration where
   rnf DescribeSecurityConfiguration' {..} =
     Prelude.rnf name
 
-instance Core.ToHeaders DescribeSecurityConfiguration where
+instance Data.ToHeaders DescribeSecurityConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.DescribeSecurityConfiguration" ::
+              Data.=# ( "ElasticMapReduce.DescribeSecurityConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSecurityConfiguration where
+instance Data.ToJSON DescribeSecurityConfiguration where
   toJSON DescribeSecurityConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DescribeSecurityConfiguration where
+instance Data.ToPath DescribeSecurityConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSecurityConfiguration where
+instance Data.ToQuery DescribeSecurityConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSecurityConfigurationResponse' smart constructor.
@@ -141,7 +142,7 @@ data DescribeSecurityConfigurationResponse = DescribeSecurityConfigurationRespon
     -- | The name of the security configuration.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time the security configuration was created
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,7 +186,7 @@ describeSecurityConfigurationResponse_name = Lens.lens (\DescribeSecurityConfigu
 
 -- | The date and time the security configuration was created
 describeSecurityConfigurationResponse_creationDateTime :: Lens.Lens' DescribeSecurityConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecurityConfigurationResponse_creationDateTime = Lens.lens (\DescribeSecurityConfigurationResponse' {creationDateTime} -> creationDateTime) (\s@DescribeSecurityConfigurationResponse' {} a -> s {creationDateTime = a} :: DescribeSecurityConfigurationResponse) Prelude.. Lens.mapping Core._Time
+describeSecurityConfigurationResponse_creationDateTime = Lens.lens (\DescribeSecurityConfigurationResponse' {creationDateTime} -> creationDateTime) (\s@DescribeSecurityConfigurationResponse' {} a -> s {creationDateTime = a} :: DescribeSecurityConfigurationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeSecurityConfigurationResponse_httpStatus :: Lens.Lens' DescribeSecurityConfigurationResponse Prelude.Int

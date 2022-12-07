@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.GitHubDocumentCrawlProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information to include certain types of
@@ -112,19 +113,19 @@ gitHubDocumentCrawlProperties_crawlIssueCommentAttachment = Lens.lens (\GitHubDo
 gitHubDocumentCrawlProperties_crawlIssue :: Lens.Lens' GitHubDocumentCrawlProperties (Prelude.Maybe Prelude.Bool)
 gitHubDocumentCrawlProperties_crawlIssue = Lens.lens (\GitHubDocumentCrawlProperties' {crawlIssue} -> crawlIssue) (\s@GitHubDocumentCrawlProperties' {} a -> s {crawlIssue = a} :: GitHubDocumentCrawlProperties)
 
-instance Core.FromJSON GitHubDocumentCrawlProperties where
+instance Data.FromJSON GitHubDocumentCrawlProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GitHubDocumentCrawlProperties"
       ( \x ->
           GitHubDocumentCrawlProperties'
-            Prelude.<$> (x Core..:? "CrawlPullRequestComment")
-            Prelude.<*> (x Core..:? "CrawlRepositoryDocuments")
-            Prelude.<*> (x Core..:? "CrawlPullRequestCommentAttachment")
-            Prelude.<*> (x Core..:? "CrawlPullRequest")
-            Prelude.<*> (x Core..:? "CrawlIssueComment")
-            Prelude.<*> (x Core..:? "CrawlIssueCommentAttachment")
-            Prelude.<*> (x Core..:? "CrawlIssue")
+            Prelude.<$> (x Data..:? "CrawlPullRequestComment")
+            Prelude.<*> (x Data..:? "CrawlRepositoryDocuments")
+            Prelude.<*> (x Data..:? "CrawlPullRequestCommentAttachment")
+            Prelude.<*> (x Data..:? "CrawlPullRequest")
+            Prelude.<*> (x Data..:? "CrawlIssueComment")
+            Prelude.<*> (x Data..:? "CrawlIssueCommentAttachment")
+            Prelude.<*> (x Data..:? "CrawlIssue")
       )
 
 instance
@@ -151,22 +152,22 @@ instance Prelude.NFData GitHubDocumentCrawlProperties where
       `Prelude.seq` Prelude.rnf crawlIssueCommentAttachment
       `Prelude.seq` Prelude.rnf crawlIssue
 
-instance Core.ToJSON GitHubDocumentCrawlProperties where
+instance Data.ToJSON GitHubDocumentCrawlProperties where
   toJSON GitHubDocumentCrawlProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CrawlPullRequestComment" Core..=)
+          [ ("CrawlPullRequestComment" Data..=)
               Prelude.<$> crawlPullRequestComment,
-            ("CrawlRepositoryDocuments" Core..=)
+            ("CrawlRepositoryDocuments" Data..=)
               Prelude.<$> crawlRepositoryDocuments,
-            ("CrawlPullRequestCommentAttachment" Core..=)
+            ("CrawlPullRequestCommentAttachment" Data..=)
               Prelude.<$> crawlPullRequestCommentAttachment,
-            ("CrawlPullRequest" Core..=)
+            ("CrawlPullRequest" Data..=)
               Prelude.<$> crawlPullRequest,
-            ("CrawlIssueComment" Core..=)
+            ("CrawlIssueComment" Data..=)
               Prelude.<$> crawlIssueComment,
-            ("CrawlIssueCommentAttachment" Core..=)
+            ("CrawlIssueCommentAttachment" Data..=)
               Prelude.<$> crawlIssueCommentAttachment,
-            ("CrawlIssue" Core..=) Prelude.<$> crawlIssue
+            ("CrawlIssue" Data..=) Prelude.<$> crawlIssue
           ]
       )

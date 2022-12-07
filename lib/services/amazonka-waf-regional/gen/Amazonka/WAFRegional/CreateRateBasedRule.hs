@@ -121,6 +121,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -270,8 +271,8 @@ instance Core.AWSRequest CreateRateBasedRule where
     Response.receiveJSON
       ( \s h x ->
           CreateRateBasedRuleResponse'
-            Prelude.<$> (x Core..?> "Rule")
-            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "Rule")
+            Prelude.<*> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -293,38 +294,38 @@ instance Prelude.NFData CreateRateBasedRule where
       `Prelude.seq` Prelude.rnf rateLimit
       `Prelude.seq` Prelude.rnf changeToken
 
-instance Core.ToHeaders CreateRateBasedRule where
+instance Data.ToHeaders CreateRateBasedRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.CreateRateBasedRule" ::
+              Data.=# ( "AWSWAF_Regional_20161128.CreateRateBasedRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRateBasedRule where
+instance Data.ToJSON CreateRateBasedRule where
   toJSON CreateRateBasedRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("MetricName" Core..= metricName),
-            Prelude.Just ("RateKey" Core..= rateKey),
-            Prelude.Just ("RateLimit" Core..= rateLimit),
-            Prelude.Just ("ChangeToken" Core..= changeToken)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("MetricName" Data..= metricName),
+            Prelude.Just ("RateKey" Data..= rateKey),
+            Prelude.Just ("RateLimit" Data..= rateLimit),
+            Prelude.Just ("ChangeToken" Data..= changeToken)
           ]
       )
 
-instance Core.ToPath CreateRateBasedRule where
+instance Data.ToPath CreateRateBasedRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateRateBasedRule where
+instance Data.ToQuery CreateRateBasedRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRateBasedRuleResponse' smart constructor.

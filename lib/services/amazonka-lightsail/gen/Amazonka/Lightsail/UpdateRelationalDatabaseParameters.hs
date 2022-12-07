@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,7 +115,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateRelationalDatabaseParametersResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,46 +138,46 @@ instance
       `Prelude.seq` Prelude.rnf parameters
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateRelationalDatabaseParameters
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.UpdateRelationalDatabaseParameters" ::
+              Data.=# ( "Lightsail_20161128.UpdateRelationalDatabaseParameters" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateRelationalDatabaseParameters
   where
   toJSON UpdateRelationalDatabaseParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "relationalDatabaseName"
-                  Core..= relationalDatabaseName
+                  Data..= relationalDatabaseName
               ),
-            Prelude.Just ("parameters" Core..= parameters)
+            Prelude.Just ("parameters" Data..= parameters)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateRelationalDatabaseParameters
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateRelationalDatabaseParameters
   where
   toQuery = Prelude.const Prelude.mempty

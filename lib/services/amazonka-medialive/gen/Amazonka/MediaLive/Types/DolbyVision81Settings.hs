@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.DolbyVision81Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Dolby Vision Profile 8.1 Settings
@@ -39,9 +40,9 @@ newDolbyVision81Settings ::
   DolbyVision81Settings
 newDolbyVision81Settings = DolbyVision81Settings'
 
-instance Core.FromJSON DolbyVision81Settings where
+instance Data.FromJSON DolbyVision81Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DolbyVision81Settings"
       (\x -> Prelude.pure DolbyVision81Settings')
 
@@ -52,5 +53,5 @@ instance Prelude.Hashable DolbyVision81Settings where
 instance Prelude.NFData DolbyVision81Settings where
   rnf _ = ()
 
-instance Core.ToJSON DolbyVision81Settings where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DolbyVision81Settings where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

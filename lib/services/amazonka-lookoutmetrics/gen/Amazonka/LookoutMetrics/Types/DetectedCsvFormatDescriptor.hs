@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.DetectedCsvFormatDescriptor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.DetectedField
 import qualified Amazonka.Prelude as Prelude
 
@@ -99,18 +100,18 @@ detectedCsvFormatDescriptor_fileCompression = Lens.lens (\DetectedCsvFormatDescr
 detectedCsvFormatDescriptor_charset :: Lens.Lens' DetectedCsvFormatDescriptor (Prelude.Maybe DetectedField)
 detectedCsvFormatDescriptor_charset = Lens.lens (\DetectedCsvFormatDescriptor' {charset} -> charset) (\s@DetectedCsvFormatDescriptor' {} a -> s {charset = a} :: DetectedCsvFormatDescriptor)
 
-instance Core.FromJSON DetectedCsvFormatDescriptor where
+instance Data.FromJSON DetectedCsvFormatDescriptor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectedCsvFormatDescriptor"
       ( \x ->
           DetectedCsvFormatDescriptor'
-            Prelude.<$> (x Core..:? "QuoteSymbol")
-            Prelude.<*> (x Core..:? "ContainsHeader")
-            Prelude.<*> (x Core..:? "Delimiter")
-            Prelude.<*> (x Core..:? "HeaderList")
-            Prelude.<*> (x Core..:? "FileCompression")
-            Prelude.<*> (x Core..:? "Charset")
+            Prelude.<$> (x Data..:? "QuoteSymbol")
+            Prelude.<*> (x Data..:? "ContainsHeader")
+            Prelude.<*> (x Data..:? "Delimiter")
+            Prelude.<*> (x Data..:? "HeaderList")
+            Prelude.<*> (x Data..:? "FileCompression")
+            Prelude.<*> (x Data..:? "Charset")
       )
 
 instance Prelude.Hashable DetectedCsvFormatDescriptor where

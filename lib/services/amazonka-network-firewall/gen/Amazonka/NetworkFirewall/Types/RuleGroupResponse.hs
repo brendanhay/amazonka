@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.RuleGroupResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.EncryptionConfiguration
 import Amazonka.NetworkFirewall.Types.ResourceStatus
 import Amazonka.NetworkFirewall.Types.RuleGroupType
@@ -50,7 +51,7 @@ data RuleGroupResponse = RuleGroupResponse'
     -- | A description of the rule group.
     description :: Prelude.Maybe Prelude.Text,
     -- | The last time that the rule group was changed.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | A complex type that contains metadata about the rule group that your own
     -- rule group is copied from. You can use the metadata to track the version
     -- updates made to the originating rule group.
@@ -200,7 +201,7 @@ ruleGroupResponse_description = Lens.lens (\RuleGroupResponse' {description} -> 
 
 -- | The last time that the rule group was changed.
 ruleGroupResponse_lastModifiedTime :: Lens.Lens' RuleGroupResponse (Prelude.Maybe Prelude.UTCTime)
-ruleGroupResponse_lastModifiedTime = Lens.lens (\RuleGroupResponse' {lastModifiedTime} -> lastModifiedTime) (\s@RuleGroupResponse' {} a -> s {lastModifiedTime = a} :: RuleGroupResponse) Prelude.. Lens.mapping Core._Time
+ruleGroupResponse_lastModifiedTime = Lens.lens (\RuleGroupResponse' {lastModifiedTime} -> lastModifiedTime) (\s@RuleGroupResponse' {} a -> s {lastModifiedTime = a} :: RuleGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A complex type that contains metadata about the rule group that your own
 -- rule group is copied from. You can use the metadata to track the version
@@ -254,26 +255,26 @@ ruleGroupResponse_ruleGroupName = Lens.lens (\RuleGroupResponse' {ruleGroupName}
 ruleGroupResponse_ruleGroupId :: Lens.Lens' RuleGroupResponse Prelude.Text
 ruleGroupResponse_ruleGroupId = Lens.lens (\RuleGroupResponse' {ruleGroupId} -> ruleGroupId) (\s@RuleGroupResponse' {} a -> s {ruleGroupId = a} :: RuleGroupResponse)
 
-instance Core.FromJSON RuleGroupResponse where
+instance Data.FromJSON RuleGroupResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupResponse"
       ( \x ->
           RuleGroupResponse'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "SnsTopic")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "SourceMetadata")
-            Prelude.<*> (x Core..:? "ConsumedCapacity")
-            Prelude.<*> (x Core..:? "EncryptionConfiguration")
-            Prelude.<*> (x Core..:? "NumberOfAssociations")
-            Prelude.<*> (x Core..:? "Capacity")
-            Prelude.<*> (x Core..:? "RuleGroupStatus")
-            Prelude.<*> (x Core..: "RuleGroupArn")
-            Prelude.<*> (x Core..: "RuleGroupName")
-            Prelude.<*> (x Core..: "RuleGroupId")
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "SnsTopic")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "SourceMetadata")
+            Prelude.<*> (x Data..:? "ConsumedCapacity")
+            Prelude.<*> (x Data..:? "EncryptionConfiguration")
+            Prelude.<*> (x Data..:? "NumberOfAssociations")
+            Prelude.<*> (x Data..:? "Capacity")
+            Prelude.<*> (x Data..:? "RuleGroupStatus")
+            Prelude.<*> (x Data..: "RuleGroupArn")
+            Prelude.<*> (x Data..: "RuleGroupName")
+            Prelude.<*> (x Data..: "RuleGroupId")
       )
 
 instance Prelude.Hashable RuleGroupResponse where

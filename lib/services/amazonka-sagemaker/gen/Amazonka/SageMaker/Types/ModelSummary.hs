@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information about a model.
@@ -32,7 +33,7 @@ data ModelSummary = ModelSummary'
     -- | The Amazon Resource Name (ARN) of the model.
     modelArn :: Prelude.Text,
     -- | A timestamp that indicates when the model was created.
-    creationTime :: Core.POSIX
+    creationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +62,7 @@ newModelSummary pModelName_ pModelArn_ pCreationTime_ =
   ModelSummary'
     { modelName = pModelName_,
       modelArn = pModelArn_,
-      creationTime = Core._Time Lens.# pCreationTime_
+      creationTime = Data._Time Lens.# pCreationTime_
     }
 
 -- | The name of the model that you want a summary for.
@@ -74,17 +75,17 @@ modelSummary_modelArn = Lens.lens (\ModelSummary' {modelArn} -> modelArn) (\s@Mo
 
 -- | A timestamp that indicates when the model was created.
 modelSummary_creationTime :: Lens.Lens' ModelSummary Prelude.UTCTime
-modelSummary_creationTime = Lens.lens (\ModelSummary' {creationTime} -> creationTime) (\s@ModelSummary' {} a -> s {creationTime = a} :: ModelSummary) Prelude.. Core._Time
+modelSummary_creationTime = Lens.lens (\ModelSummary' {creationTime} -> creationTime) (\s@ModelSummary' {} a -> s {creationTime = a} :: ModelSummary) Prelude.. Data._Time
 
-instance Core.FromJSON ModelSummary where
+instance Data.FromJSON ModelSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelSummary"
       ( \x ->
           ModelSummary'
-            Prelude.<$> (x Core..: "ModelName")
-            Prelude.<*> (x Core..: "ModelArn")
-            Prelude.<*> (x Core..: "CreationTime")
+            Prelude.<$> (x Data..: "ModelName")
+            Prelude.<*> (x Data..: "ModelArn")
+            Prelude.<*> (x Data..: "CreationTime")
       )
 
 instance Prelude.Hashable ModelSummary where

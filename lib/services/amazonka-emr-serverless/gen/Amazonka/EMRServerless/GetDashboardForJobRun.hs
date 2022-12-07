@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRServerless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ instance Core.AWSRequest GetDashboardForJobRun where
     Response.receiveJSON
       ( \s h x ->
           GetDashboardForJobRunResponse'
-            Prelude.<$> (x Core..?> "url")
+            Prelude.<$> (x Data..?> "url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,28 +113,28 @@ instance Prelude.NFData GetDashboardForJobRun where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf jobRunId
 
-instance Core.ToHeaders GetDashboardForJobRun where
+instance Data.ToHeaders GetDashboardForJobRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDashboardForJobRun where
+instance Data.ToPath GetDashboardForJobRun where
   toPath GetDashboardForJobRun' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/jobruns/",
-        Core.toBS jobRunId,
+        Data.toBS jobRunId,
         "/dashboard"
       ]
 
-instance Core.ToQuery GetDashboardForJobRun where
+instance Data.ToQuery GetDashboardForJobRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDashboardForJobRunResponse' smart constructor.

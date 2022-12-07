@@ -42,6 +42,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,7 +90,7 @@ instance Core.AWSRequest DescribeDocumentClassifier where
     Response.receiveJSON
       ( \s h x ->
           DescribeDocumentClassifierResponse'
-            Prelude.<$> (x Core..?> "DocumentClassifierProperties")
+            Prelude.<$> (x Data..?> "DocumentClassifierProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,36 +102,36 @@ instance Prelude.NFData DescribeDocumentClassifier where
   rnf DescribeDocumentClassifier' {..} =
     Prelude.rnf documentClassifierArn
 
-instance Core.ToHeaders DescribeDocumentClassifier where
+instance Data.ToHeaders DescribeDocumentClassifier where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.DescribeDocumentClassifier" ::
+              Data.=# ( "Comprehend_20171127.DescribeDocumentClassifier" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDocumentClassifier where
+instance Data.ToJSON DescribeDocumentClassifier where
   toJSON DescribeDocumentClassifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "DocumentClassifierArn"
-                  Core..= documentClassifierArn
+                  Data..= documentClassifierArn
               )
           ]
       )
 
-instance Core.ToPath DescribeDocumentClassifier where
+instance Data.ToPath DescribeDocumentClassifier where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDocumentClassifier where
+instance Data.ToQuery DescribeDocumentClassifier where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDocumentClassifierResponse' smart constructor.

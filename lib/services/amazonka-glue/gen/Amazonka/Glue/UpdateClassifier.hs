@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,36 +132,36 @@ instance Prelude.NFData UpdateClassifier where
       `Prelude.seq` Prelude.rnf grokClassifier
       `Prelude.seq` Prelude.rnf jsonClassifier
 
-instance Core.ToHeaders UpdateClassifier where
+instance Data.ToHeaders UpdateClassifier where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdateClassifier" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.UpdateClassifier" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateClassifier where
+instance Data.ToJSON UpdateClassifier where
   toJSON UpdateClassifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CsvClassifier" Core..=) Prelude.<$> csvClassifier,
-            ("XMLClassifier" Core..=) Prelude.<$> xMLClassifier,
-            ("GrokClassifier" Core..=)
+          [ ("CsvClassifier" Data..=) Prelude.<$> csvClassifier,
+            ("XMLClassifier" Data..=) Prelude.<$> xMLClassifier,
+            ("GrokClassifier" Data..=)
               Prelude.<$> grokClassifier,
-            ("JsonClassifier" Core..=)
+            ("JsonClassifier" Data..=)
               Prelude.<$> jsonClassifier
           ]
       )
 
-instance Core.ToPath UpdateClassifier where
+instance Data.ToPath UpdateClassifier where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateClassifier where
+instance Data.ToQuery UpdateClassifier where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateClassifierResponse' smart constructor.

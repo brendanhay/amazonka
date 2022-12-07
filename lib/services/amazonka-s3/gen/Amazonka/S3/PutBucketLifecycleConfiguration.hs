@@ -111,6 +111,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -247,31 +248,31 @@ instance
       `Prelude.seq` Prelude.rnf bucket
 
 instance
-  Core.ToElement
+  Data.ToElement
     PutBucketLifecycleConfiguration
   where
   toElement PutBucketLifecycleConfiguration' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}LifecycleConfiguration"
       lifecycleConfiguration
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutBucketLifecycleConfiguration
   where
   toHeaders PutBucketLifecycleConfiguration' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
+          Data.=# checksumAlgorithm,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath PutBucketLifecycleConfiguration where
+instance Data.ToPath PutBucketLifecycleConfiguration where
   toPath PutBucketLifecycleConfiguration' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery PutBucketLifecycleConfiguration where
+instance Data.ToQuery PutBucketLifecycleConfiguration where
   toQuery =
     Prelude.const (Prelude.mconcat ["lifecycle"])
 

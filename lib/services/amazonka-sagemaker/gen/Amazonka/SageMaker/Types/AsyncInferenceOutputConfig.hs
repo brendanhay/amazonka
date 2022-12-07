@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AsyncInferenceOutputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AsyncInferenceNotificationConfig
 
@@ -84,15 +85,15 @@ asyncInferenceOutputConfig_notificationConfig = Lens.lens (\AsyncInferenceOutput
 asyncInferenceOutputConfig_s3OutputPath :: Lens.Lens' AsyncInferenceOutputConfig Prelude.Text
 asyncInferenceOutputConfig_s3OutputPath = Lens.lens (\AsyncInferenceOutputConfig' {s3OutputPath} -> s3OutputPath) (\s@AsyncInferenceOutputConfig' {} a -> s {s3OutputPath = a} :: AsyncInferenceOutputConfig)
 
-instance Core.FromJSON AsyncInferenceOutputConfig where
+instance Data.FromJSON AsyncInferenceOutputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AsyncInferenceOutputConfig"
       ( \x ->
           AsyncInferenceOutputConfig'
-            Prelude.<$> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "NotificationConfig")
-            Prelude.<*> (x Core..: "S3OutputPath")
+            Prelude.<$> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "NotificationConfig")
+            Prelude.<*> (x Data..: "S3OutputPath")
       )
 
 instance Prelude.Hashable AsyncInferenceOutputConfig where
@@ -107,13 +108,13 @@ instance Prelude.NFData AsyncInferenceOutputConfig where
       `Prelude.seq` Prelude.rnf notificationConfig
       `Prelude.seq` Prelude.rnf s3OutputPath
 
-instance Core.ToJSON AsyncInferenceOutputConfig where
+instance Data.ToJSON AsyncInferenceOutputConfig where
   toJSON AsyncInferenceOutputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("NotificationConfig" Core..=)
+          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("NotificationConfig" Data..=)
               Prelude.<$> notificationConfig,
-            Prelude.Just ("S3OutputPath" Core..= s3OutputPath)
+            Prelude.Just ("S3OutputPath" Data..= s3OutputPath)
           ]
       )

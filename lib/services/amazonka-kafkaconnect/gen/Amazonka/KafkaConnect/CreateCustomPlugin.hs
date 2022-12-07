@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,10 +123,10 @@ instance Core.AWSRequest CreateCustomPlugin where
     Response.receiveJSON
       ( \s h x ->
           CreateCustomPluginResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "revision")
-            Prelude.<*> (x Core..?> "customPluginState")
-            Prelude.<*> (x Core..?> "customPluginArn")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "revision")
+            Prelude.<*> (x Data..?> "customPluginState")
+            Prelude.<*> (x Data..?> "customPluginArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,32 +144,32 @@ instance Prelude.NFData CreateCustomPlugin where
       `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateCustomPlugin where
+instance Data.ToHeaders CreateCustomPlugin where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCustomPlugin where
+instance Data.ToJSON CreateCustomPlugin where
   toJSON CreateCustomPlugin' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("contentType" Core..= contentType),
-            Prelude.Just ("location" Core..= location),
-            Prelude.Just ("name" Core..= name)
+          [ ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("contentType" Data..= contentType),
+            Prelude.Just ("location" Data..= location),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateCustomPlugin where
+instance Data.ToPath CreateCustomPlugin where
   toPath = Prelude.const "/v1/custom-plugins"
 
-instance Core.ToQuery CreateCustomPlugin where
+instance Data.ToQuery CreateCustomPlugin where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCustomPluginResponse' smart constructor.

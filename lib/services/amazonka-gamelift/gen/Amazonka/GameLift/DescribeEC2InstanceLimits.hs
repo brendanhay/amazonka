@@ -103,6 +103,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -172,7 +173,7 @@ instance Core.AWSRequest DescribeEC2InstanceLimits where
     Response.receiveJSON
       ( \s h x ->
           DescribeEC2InstanceLimitsResponse'
-            Prelude.<$> ( x Core..?> "EC2InstanceLimits"
+            Prelude.<$> ( x Data..?> "EC2InstanceLimits"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -188,35 +189,35 @@ instance Prelude.NFData DescribeEC2InstanceLimits where
     Prelude.rnf eC2InstanceType
       `Prelude.seq` Prelude.rnf location
 
-instance Core.ToHeaders DescribeEC2InstanceLimits where
+instance Data.ToHeaders DescribeEC2InstanceLimits where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeEC2InstanceLimits" ::
+              Data.=# ( "GameLift.DescribeEC2InstanceLimits" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEC2InstanceLimits where
+instance Data.ToJSON DescribeEC2InstanceLimits where
   toJSON DescribeEC2InstanceLimits' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EC2InstanceType" Core..=)
+          [ ("EC2InstanceType" Data..=)
               Prelude.<$> eC2InstanceType,
-            ("Location" Core..=) Prelude.<$> location
+            ("Location" Data..=) Prelude.<$> location
           ]
       )
 
-instance Core.ToPath DescribeEC2InstanceLimits where
+instance Data.ToPath DescribeEC2InstanceLimits where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEC2InstanceLimits where
+instance Data.ToQuery DescribeEC2InstanceLimits where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

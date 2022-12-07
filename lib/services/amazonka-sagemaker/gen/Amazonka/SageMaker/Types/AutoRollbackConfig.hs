@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AutoRollbackConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.Alarm
 
@@ -58,13 +59,13 @@ newAutoRollbackConfig =
 autoRollbackConfig_alarms :: Lens.Lens' AutoRollbackConfig (Prelude.Maybe (Prelude.NonEmpty Alarm))
 autoRollbackConfig_alarms = Lens.lens (\AutoRollbackConfig' {alarms} -> alarms) (\s@AutoRollbackConfig' {} a -> s {alarms = a} :: AutoRollbackConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AutoRollbackConfig where
+instance Data.FromJSON AutoRollbackConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoRollbackConfig"
       ( \x ->
           AutoRollbackConfig'
-            Prelude.<$> (x Core..:? "Alarms")
+            Prelude.<$> (x Data..:? "Alarms")
       )
 
 instance Prelude.Hashable AutoRollbackConfig where
@@ -74,9 +75,9 @@ instance Prelude.Hashable AutoRollbackConfig where
 instance Prelude.NFData AutoRollbackConfig where
   rnf AutoRollbackConfig' {..} = Prelude.rnf alarms
 
-instance Core.ToJSON AutoRollbackConfig where
+instance Data.ToJSON AutoRollbackConfig where
   toJSON AutoRollbackConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Alarms" Core..=) Prelude.<$> alarms]
+          [("Alarms" Data..=) Prelude.<$> alarms]
       )

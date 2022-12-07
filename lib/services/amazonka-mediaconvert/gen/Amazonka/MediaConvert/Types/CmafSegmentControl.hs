@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.CmafSegmentControl
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | When set to SINGLE_FILE, a single output file is generated, which is
@@ -34,7 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 -- set to SEGMENTED_FILES, separate segment files will be created.
 newtype CmafSegmentControl = CmafSegmentControl'
   { fromCmafSegmentControl ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -46,18 +47,18 @@ newtype CmafSegmentControl = CmafSegmentControl'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern CmafSegmentControl_SEGMENTED_FILES :: CmafSegmentControl

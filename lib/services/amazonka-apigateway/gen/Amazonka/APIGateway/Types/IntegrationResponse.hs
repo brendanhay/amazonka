@@ -22,6 +22,7 @@ module Amazonka.APIGateway.Types.IntegrationResponse where
 import Amazonka.APIGateway.Types.ContentHandlingStrategy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an integration response. The status code must map to an
@@ -170,21 +171,21 @@ integrationResponse_contentHandling = Lens.lens (\IntegrationResponse' {contentH
 integrationResponse_statusCode :: Lens.Lens' IntegrationResponse (Prelude.Maybe Prelude.Text)
 integrationResponse_statusCode = Lens.lens (\IntegrationResponse' {statusCode} -> statusCode) (\s@IntegrationResponse' {} a -> s {statusCode = a} :: IntegrationResponse)
 
-instance Core.FromJSON IntegrationResponse where
+instance Data.FromJSON IntegrationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IntegrationResponse"
       ( \x ->
           IntegrationResponse'
-            Prelude.<$> ( x Core..:? "responseParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "responseParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "responseTemplates"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "responseTemplates"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "selectionPattern")
-            Prelude.<*> (x Core..:? "contentHandling")
-            Prelude.<*> (x Core..:? "statusCode")
+            Prelude.<*> (x Data..:? "selectionPattern")
+            Prelude.<*> (x Data..:? "contentHandling")
+            Prelude.<*> (x Data..:? "statusCode")
       )
 
 instance Prelude.Hashable IntegrationResponse where

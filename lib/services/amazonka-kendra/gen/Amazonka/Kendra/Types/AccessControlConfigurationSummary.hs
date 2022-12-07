@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.AccessControlConfigurationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information on an access control configuration that you created
@@ -54,15 +55,15 @@ accessControlConfigurationSummary_id :: Lens.Lens' AccessControlConfigurationSum
 accessControlConfigurationSummary_id = Lens.lens (\AccessControlConfigurationSummary' {id} -> id) (\s@AccessControlConfigurationSummary' {} a -> s {id = a} :: AccessControlConfigurationSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AccessControlConfigurationSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessControlConfigurationSummary"
       ( \x ->
           AccessControlConfigurationSummary'
-            Prelude.<$> (x Core..: "Id")
+            Prelude.<$> (x Data..: "Id")
       )
 
 instance

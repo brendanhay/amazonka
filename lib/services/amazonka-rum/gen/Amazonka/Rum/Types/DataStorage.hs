@@ -21,6 +21,7 @@ module Amazonka.Rum.Types.DataStorage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rum.Types.CwLog
 
@@ -59,12 +60,12 @@ newDataStorage =
 dataStorage_cwLog :: Lens.Lens' DataStorage (Prelude.Maybe CwLog)
 dataStorage_cwLog = Lens.lens (\DataStorage' {cwLog} -> cwLog) (\s@DataStorage' {} a -> s {cwLog = a} :: DataStorage)
 
-instance Core.FromJSON DataStorage where
+instance Data.FromJSON DataStorage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataStorage"
       ( \x ->
-          DataStorage' Prelude.<$> (x Core..:? "CwLog")
+          DataStorage' Prelude.<$> (x Data..:? "CwLog")
       )
 
 instance Prelude.Hashable DataStorage where

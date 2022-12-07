@@ -46,6 +46,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -57,7 +58,7 @@ data InviteUsers = InviteUsers'
     -- | The Amazon Chime account ID.
     accountId :: Prelude.Text,
     -- | The user email addresses to which to send the email invitation.
-    userEmailList :: [Core.Sensitive Prelude.Text]
+    userEmailList :: [Data.Sensitive Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -105,7 +106,7 @@ instance Core.AWSRequest InviteUsers where
     Response.receiveJSON
       ( \s h x ->
           InviteUsersResponse'
-            Prelude.<$> (x Core..?> "Invites" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Invites" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,25 +122,25 @@ instance Prelude.NFData InviteUsers where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf userEmailList
 
-instance Core.ToHeaders InviteUsers where
+instance Data.ToHeaders InviteUsers where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON InviteUsers where
+instance Data.ToJSON InviteUsers where
   toJSON InviteUsers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UserType" Core..=) Prelude.<$> userType,
+          [ ("UserType" Data..=) Prelude.<$> userType,
             Prelude.Just
-              ("UserEmailList" Core..= userEmailList)
+              ("UserEmailList" Data..= userEmailList)
           ]
       )
 
-instance Core.ToPath InviteUsers where
+instance Data.ToPath InviteUsers where
   toPath InviteUsers' {..} =
     Prelude.mconcat
-      ["/accounts/", Core.toBS accountId, "/users"]
+      ["/accounts/", Data.toBS accountId, "/users"]
 
-instance Core.ToQuery InviteUsers where
+instance Data.ToQuery InviteUsers where
   toQuery =
     Prelude.const (Prelude.mconcat ["operation=add"])
 

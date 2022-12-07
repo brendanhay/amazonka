@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,14 +98,14 @@ instance Core.AWSRequest GetAttributeGroup where
     Response.receiveJSON
       ( \s h x ->
           GetAttributeGroupResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "lastUpdateTime")
-            Prelude.<*> (x Core..?> "attributes")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "lastUpdateTime")
+            Prelude.<*> (x Data..?> "attributes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,23 +117,23 @@ instance Prelude.NFData GetAttributeGroup where
   rnf GetAttributeGroup' {..} =
     Prelude.rnf attributeGroup
 
-instance Core.ToHeaders GetAttributeGroup where
+instance Data.ToHeaders GetAttributeGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetAttributeGroup where
+instance Data.ToPath GetAttributeGroup where
   toPath GetAttributeGroup' {..} =
     Prelude.mconcat
-      ["/attribute-groups/", Core.toBS attributeGroup]
+      ["/attribute-groups/", Data.toBS attributeGroup]
 
-instance Core.ToQuery GetAttributeGroup where
+instance Data.ToQuery GetAttributeGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAttributeGroupResponse' smart constructor.
@@ -150,11 +151,11 @@ data GetAttributeGroupResponse = GetAttributeGroupResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 formatted timestamp of the moment the attribute group was
     -- created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ISO-8601 formatted timestamp of the moment the attribute group was
     -- last updated. This time is the same as the creationTime for a newly
     -- created attribute group.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | A JSON string in the form of nested key-value pairs that represent the
     -- attributes in the group and describes an application and its components.
     attributes :: Prelude.Maybe Prelude.Text,
@@ -234,13 +235,13 @@ getAttributeGroupResponse_id = Lens.lens (\GetAttributeGroupResponse' {id} -> id
 -- | The ISO-8601 formatted timestamp of the moment the attribute group was
 -- created.
 getAttributeGroupResponse_creationTime :: Lens.Lens' GetAttributeGroupResponse (Prelude.Maybe Prelude.UTCTime)
-getAttributeGroupResponse_creationTime = Lens.lens (\GetAttributeGroupResponse' {creationTime} -> creationTime) (\s@GetAttributeGroupResponse' {} a -> s {creationTime = a} :: GetAttributeGroupResponse) Prelude.. Lens.mapping Core._Time
+getAttributeGroupResponse_creationTime = Lens.lens (\GetAttributeGroupResponse' {creationTime} -> creationTime) (\s@GetAttributeGroupResponse' {} a -> s {creationTime = a} :: GetAttributeGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ISO-8601 formatted timestamp of the moment the attribute group was
 -- last updated. This time is the same as the creationTime for a newly
 -- created attribute group.
 getAttributeGroupResponse_lastUpdateTime :: Lens.Lens' GetAttributeGroupResponse (Prelude.Maybe Prelude.UTCTime)
-getAttributeGroupResponse_lastUpdateTime = Lens.lens (\GetAttributeGroupResponse' {lastUpdateTime} -> lastUpdateTime) (\s@GetAttributeGroupResponse' {} a -> s {lastUpdateTime = a} :: GetAttributeGroupResponse) Prelude.. Lens.mapping Core._Time
+getAttributeGroupResponse_lastUpdateTime = Lens.lens (\GetAttributeGroupResponse' {lastUpdateTime} -> lastUpdateTime) (\s@GetAttributeGroupResponse' {} a -> s {lastUpdateTime = a} :: GetAttributeGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A JSON string in the form of nested key-value pairs that represent the
 -- attributes in the group and describes an application and its components.

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointEmail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,9 +152,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListDeliverabilityTestReportsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "DeliverabilityTestReports"
+            Prelude.<*> ( x Data..?> "DeliverabilityTestReports"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -171,27 +172,27 @@ instance Prelude.NFData ListDeliverabilityTestReports where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pageSize
 
-instance Core.ToHeaders ListDeliverabilityTestReports where
+instance Data.ToHeaders ListDeliverabilityTestReports where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListDeliverabilityTestReports where
+instance Data.ToPath ListDeliverabilityTestReports where
   toPath =
     Prelude.const
       "/v1/email/deliverability-dashboard/test-reports"
 
-instance Core.ToQuery ListDeliverabilityTestReports where
+instance Data.ToQuery ListDeliverabilityTestReports where
   toQuery ListDeliverabilityTestReports' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "PageSize" Core.=: pageSize
+      [ "NextToken" Data.=: nextToken,
+        "PageSize" Data.=: pageSize
       ]
 
 -- | A list of the predictive inbox placement test reports that are available

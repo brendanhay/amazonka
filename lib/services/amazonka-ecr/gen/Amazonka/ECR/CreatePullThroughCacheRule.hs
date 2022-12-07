@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,10 +128,10 @@ instance Core.AWSRequest CreatePullThroughCacheRule where
     Response.receiveJSON
       ( \s h x ->
           CreatePullThroughCacheRuleResponse'
-            Prelude.<$> (x Core..?> "upstreamRegistryUrl")
-            Prelude.<*> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "ecrRepositoryPrefix")
-            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<$> (x Data..?> "upstreamRegistryUrl")
+            Prelude.<*> (x Data..?> "registryId")
+            Prelude.<*> (x Data..?> "ecrRepositoryPrefix")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,37 +147,37 @@ instance Prelude.NFData CreatePullThroughCacheRule where
       `Prelude.seq` Prelude.rnf ecrRepositoryPrefix
       `Prelude.seq` Prelude.rnf upstreamRegistryUrl
 
-instance Core.ToHeaders CreatePullThroughCacheRule where
+instance Data.ToHeaders CreatePullThroughCacheRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.CreatePullThroughCacheRule" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.CreatePullThroughCacheRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePullThroughCacheRule where
+instance Data.ToJSON CreatePullThroughCacheRule where
   toJSON CreatePullThroughCacheRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
-              ("ecrRepositoryPrefix" Core..= ecrRepositoryPrefix),
+              ("ecrRepositoryPrefix" Data..= ecrRepositoryPrefix),
             Prelude.Just
-              ("upstreamRegistryUrl" Core..= upstreamRegistryUrl)
+              ("upstreamRegistryUrl" Data..= upstreamRegistryUrl)
           ]
       )
 
-instance Core.ToPath CreatePullThroughCacheRule where
+instance Data.ToPath CreatePullThroughCacheRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePullThroughCacheRule where
+instance Data.ToQuery CreatePullThroughCacheRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePullThroughCacheRuleResponse' smart constructor.
@@ -190,7 +191,7 @@ data CreatePullThroughCacheRuleResponse = CreatePullThroughCacheRuleResponse'
     ecrRepositoryPrefix :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in JavaScript date format, when the pull through
     -- cache rule was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -245,7 +246,7 @@ createPullThroughCacheRuleResponse_ecrRepositoryPrefix = Lens.lens (\CreatePullT
 -- | The date and time, in JavaScript date format, when the pull through
 -- cache rule was created.
 createPullThroughCacheRuleResponse_createdAt :: Lens.Lens' CreatePullThroughCacheRuleResponse (Prelude.Maybe Prelude.UTCTime)
-createPullThroughCacheRuleResponse_createdAt = Lens.lens (\CreatePullThroughCacheRuleResponse' {createdAt} -> createdAt) (\s@CreatePullThroughCacheRuleResponse' {} a -> s {createdAt = a} :: CreatePullThroughCacheRuleResponse) Prelude.. Lens.mapping Core._Time
+createPullThroughCacheRuleResponse_createdAt = Lens.lens (\CreatePullThroughCacheRuleResponse' {createdAt} -> createdAt) (\s@CreatePullThroughCacheRuleResponse' {} a -> s {createdAt = a} :: CreatePullThroughCacheRuleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createPullThroughCacheRuleResponse_httpStatus :: Lens.Lens' CreatePullThroughCacheRuleResponse Prelude.Int

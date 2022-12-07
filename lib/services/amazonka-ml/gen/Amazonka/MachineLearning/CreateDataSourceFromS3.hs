@@ -75,6 +75,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -200,7 +201,7 @@ instance Core.AWSRequest CreateDataSourceFromS3 where
     Response.receiveJSON
       ( \s h x ->
           CreateDataSourceFromS3Response'
-            Prelude.<$> (x Core..?> "DataSourceId")
+            Prelude.<$> (x Data..?> "DataSourceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,38 +219,38 @@ instance Prelude.NFData CreateDataSourceFromS3 where
       `Prelude.seq` Prelude.rnf dataSourceId
       `Prelude.seq` Prelude.rnf dataSpec
 
-instance Core.ToHeaders CreateDataSourceFromS3 where
+instance Data.ToHeaders CreateDataSourceFromS3 where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.CreateDataSourceFromS3" ::
+              Data.=# ( "AmazonML_20141212.CreateDataSourceFromS3" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataSourceFromS3 where
+instance Data.ToJSON CreateDataSourceFromS3 where
   toJSON CreateDataSourceFromS3' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSourceName" Core..=)
+          [ ("DataSourceName" Data..=)
               Prelude.<$> dataSourceName,
-            ("ComputeStatistics" Core..=)
+            ("ComputeStatistics" Data..=)
               Prelude.<$> computeStatistics,
-            Prelude.Just ("DataSourceId" Core..= dataSourceId),
-            Prelude.Just ("DataSpec" Core..= dataSpec)
+            Prelude.Just ("DataSourceId" Data..= dataSourceId),
+            Prelude.Just ("DataSpec" Data..= dataSpec)
           ]
       )
 
-instance Core.ToPath CreateDataSourceFromS3 where
+instance Data.ToPath CreateDataSourceFromS3 where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDataSourceFromS3 where
+instance Data.ToQuery CreateDataSourceFromS3 where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateDataSourceFromS3@ operation, and is an

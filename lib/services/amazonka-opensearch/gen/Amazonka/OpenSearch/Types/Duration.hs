@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.Duration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.TimeUnit
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,13 +64,13 @@ duration_unit = Lens.lens (\Duration' {unit} -> unit) (\s@Duration' {} a -> s {u
 duration_value :: Lens.Lens' Duration (Prelude.Maybe Prelude.Natural)
 duration_value = Lens.lens (\Duration' {value} -> value) (\s@Duration' {} a -> s {value = a} :: Duration)
 
-instance Core.FromJSON Duration where
+instance Data.FromJSON Duration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Duration"
       ( \x ->
           Duration'
-            Prelude.<$> (x Core..:? "Unit") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Unit") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Duration where
@@ -81,11 +82,11 @@ instance Prelude.NFData Duration where
   rnf Duration' {..} =
     Prelude.rnf unit `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Duration where
+instance Data.ToJSON Duration where
   toJSON Duration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Unit" Core..=) Prelude.<$> unit,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Unit" Data..=) Prelude.<$> unit,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

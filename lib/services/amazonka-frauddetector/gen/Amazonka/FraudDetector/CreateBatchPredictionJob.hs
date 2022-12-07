@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -213,41 +214,41 @@ instance Prelude.NFData CreateBatchPredictionJob where
       `Prelude.seq` Prelude.rnf detectorName
       `Prelude.seq` Prelude.rnf iamRoleArn
 
-instance Core.ToHeaders CreateBatchPredictionJob where
+instance Data.ToHeaders CreateBatchPredictionJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.CreateBatchPredictionJob" ::
+              Data.=# ( "AWSHawksNestServiceFacade.CreateBatchPredictionJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBatchPredictionJob where
+instance Data.ToJSON CreateBatchPredictionJob where
   toJSON CreateBatchPredictionJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("detectorVersion" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("detectorVersion" Data..=)
               Prelude.<$> detectorVersion,
-            Prelude.Just ("jobId" Core..= jobId),
-            Prelude.Just ("inputPath" Core..= inputPath),
-            Prelude.Just ("outputPath" Core..= outputPath),
-            Prelude.Just ("eventTypeName" Core..= eventTypeName),
-            Prelude.Just ("detectorName" Core..= detectorName),
-            Prelude.Just ("iamRoleArn" Core..= iamRoleArn)
+            Prelude.Just ("jobId" Data..= jobId),
+            Prelude.Just ("inputPath" Data..= inputPath),
+            Prelude.Just ("outputPath" Data..= outputPath),
+            Prelude.Just ("eventTypeName" Data..= eventTypeName),
+            Prelude.Just ("detectorName" Data..= detectorName),
+            Prelude.Just ("iamRoleArn" Data..= iamRoleArn)
           ]
       )
 
-instance Core.ToPath CreateBatchPredictionJob where
+instance Data.ToPath CreateBatchPredictionJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateBatchPredictionJob where
+instance Data.ToQuery CreateBatchPredictionJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBatchPredictionJobResponse' smart constructor.

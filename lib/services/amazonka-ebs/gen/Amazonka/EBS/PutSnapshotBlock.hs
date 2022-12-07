@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EBS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ data PutSnapshotBlock = PutSnapshotBlock'
     -- request fails. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-checksums Using checksums with the EBS direct APIs>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
-    blockData :: Core.HashedBody
+    blockData :: Data.HashedBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -163,7 +164,7 @@ newPutSnapshotBlock ::
   -- | 'checksumAlgorithm'
   ChecksumAlgorithm ->
   -- | 'blockData'
-  Core.HashedBody ->
+  Data.HashedBody ->
   PutSnapshotBlock
 newPutSnapshotBlock
   pSnapshotId_
@@ -234,7 +235,7 @@ putSnapshotBlock_checksumAlgorithm = Lens.lens (\PutSnapshotBlock' {checksumAlgo
 -- request fails. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-checksums Using checksums with the EBS direct APIs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-putSnapshotBlock_blockData :: Lens.Lens' PutSnapshotBlock Core.HashedBody
+putSnapshotBlock_blockData :: Lens.Lens' PutSnapshotBlock Data.HashedBody
 putSnapshotBlock_blockData = Lens.lens (\PutSnapshotBlock' {blockData} -> blockData) (\s@PutSnapshotBlock' {} a -> s {blockData = a} :: PutSnapshotBlock)
 
 instance Core.AWSRequest PutSnapshotBlock where
@@ -247,35 +248,35 @@ instance Core.AWSRequest PutSnapshotBlock where
     Response.receiveEmpty
       ( \s h x ->
           PutSnapshotBlockResponse'
-            Prelude.<$> (h Core..#? "x-amz-Checksum-Algorithm")
-            Prelude.<*> (h Core..#? "x-amz-Checksum")
+            Prelude.<$> (h Data..#? "x-amz-Checksum-Algorithm")
+            Prelude.<*> (h Data..#? "x-amz-Checksum")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.ToBody PutSnapshotBlock where
-  toBody PutSnapshotBlock' {..} = Core.toBody blockData
+instance Data.ToBody PutSnapshotBlock where
+  toBody PutSnapshotBlock' {..} = Data.toBody blockData
 
-instance Core.ToHeaders PutSnapshotBlock where
+instance Data.ToHeaders PutSnapshotBlock where
   toHeaders PutSnapshotBlock' {..} =
     Prelude.mconcat
-      [ "x-amz-Progress" Core.=# progress,
-        "x-amz-Data-Length" Core.=# dataLength,
-        "x-amz-Checksum" Core.=# checksum,
-        "x-amz-Checksum-Algorithm" Core.=# checksumAlgorithm,
+      [ "x-amz-Progress" Data.=# progress,
+        "x-amz-Data-Length" Data.=# dataLength,
+        "x-amz-Checksum" Data.=# checksum,
+        "x-amz-Checksum-Algorithm" Data.=# checksumAlgorithm,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath PutSnapshotBlock where
+instance Data.ToPath PutSnapshotBlock where
   toPath PutSnapshotBlock' {..} =
     Prelude.mconcat
       [ "/snapshots/",
-        Core.toBS snapshotId,
+        Data.toBS snapshotId,
         "/blocks/",
-        Core.toBS blockIndex
+        Data.toBS blockIndex
       ]
 
-instance Core.ToQuery PutSnapshotBlock where
+instance Data.ToQuery PutSnapshotBlock where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutSnapshotBlockResponse' smart constructor.

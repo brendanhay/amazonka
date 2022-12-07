@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,8 +164,8 @@ instance Core.AWSRequest ListLaunchPaths where
     Response.receiveJSON
       ( \s h x ->
           ListLaunchPathsResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> ( x Core..?> "LaunchPathSummaries"
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> ( x Data..?> "LaunchPathSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -184,37 +185,37 @@ instance Prelude.NFData ListLaunchPaths where
       `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf productId
 
-instance Core.ToHeaders ListLaunchPaths where
+instance Data.ToHeaders ListLaunchPaths where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ListLaunchPaths" ::
+              Data.=# ( "AWS242ServiceCatalogService.ListLaunchPaths" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListLaunchPaths where
+instance Data.ToJSON ListLaunchPaths where
   toJSON ListLaunchPaths' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Core..=)
+          [ ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("ProductId" Core..= productId)
+            Prelude.Just ("ProductId" Data..= productId)
           ]
       )
 
-instance Core.ToPath ListLaunchPaths where
+instance Data.ToPath ListLaunchPaths where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListLaunchPaths where
+instance Data.ToQuery ListLaunchPaths where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListLaunchPathsResponse' smart constructor.

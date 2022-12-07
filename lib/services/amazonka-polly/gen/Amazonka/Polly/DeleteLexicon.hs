@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Polly.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,14 +102,14 @@ instance Prelude.Hashable DeleteLexicon where
 instance Prelude.NFData DeleteLexicon where
   rnf DeleteLexicon' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteLexicon where
+instance Data.ToHeaders DeleteLexicon where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteLexicon where
+instance Data.ToPath DeleteLexicon where
   toPath DeleteLexicon' {..} =
-    Prelude.mconcat ["/v1/lexicons/", Core.toBS name]
+    Prelude.mconcat ["/v1/lexicons/", Data.toBS name]
 
-instance Core.ToQuery DeleteLexicon where
+instance Data.ToQuery DeleteLexicon where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLexiconResponse' smart constructor.

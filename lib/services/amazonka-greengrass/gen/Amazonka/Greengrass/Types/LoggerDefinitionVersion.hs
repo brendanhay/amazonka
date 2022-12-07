@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.LoggerDefinitionVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.GreengrassLogger
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newLoggerDefinitionVersion =
 loggerDefinitionVersion_loggers :: Lens.Lens' LoggerDefinitionVersion (Prelude.Maybe [GreengrassLogger])
 loggerDefinitionVersion_loggers = Lens.lens (\LoggerDefinitionVersion' {loggers} -> loggers) (\s@LoggerDefinitionVersion' {} a -> s {loggers = a} :: LoggerDefinitionVersion) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON LoggerDefinitionVersion where
+instance Data.FromJSON LoggerDefinitionVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoggerDefinitionVersion"
       ( \x ->
           LoggerDefinitionVersion'
-            Prelude.<$> (x Core..:? "Loggers" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Loggers" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable LoggerDefinitionVersion where
@@ -68,9 +69,9 @@ instance Prelude.NFData LoggerDefinitionVersion where
   rnf LoggerDefinitionVersion' {..} =
     Prelude.rnf loggers
 
-instance Core.ToJSON LoggerDefinitionVersion where
+instance Data.ToJSON LoggerDefinitionVersion where
   toJSON LoggerDefinitionVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Loggers" Core..=) Prelude.<$> loggers]
+          [("Loggers" Data..=) Prelude.<$> loggers]
       )

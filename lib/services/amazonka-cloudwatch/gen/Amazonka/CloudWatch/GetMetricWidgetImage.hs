@@ -57,6 +57,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -231,7 +232,7 @@ instance Core.AWSRequest GetMetricWidgetImage where
       "GetMetricWidgetImageResult"
       ( \s h x ->
           GetMetricWidgetImageResponse'
-            Prelude.<$> (x Core..@? "MetricWidgetImage")
+            Prelude.<$> (x Data..@? "MetricWidgetImage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -245,28 +246,28 @@ instance Prelude.NFData GetMetricWidgetImage where
     Prelude.rnf outputFormat
       `Prelude.seq` Prelude.rnf metricWidget
 
-instance Core.ToHeaders GetMetricWidgetImage where
+instance Data.ToHeaders GetMetricWidgetImage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetMetricWidgetImage where
+instance Data.ToPath GetMetricWidgetImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMetricWidgetImage where
+instance Data.ToQuery GetMetricWidgetImage where
   toQuery GetMetricWidgetImage' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetMetricWidgetImage" :: Prelude.ByteString),
+          Data.=: ("GetMetricWidgetImage" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "OutputFormat" Core.=: outputFormat,
-        "MetricWidget" Core.=: metricWidget
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
+        "OutputFormat" Data.=: outputFormat,
+        "MetricWidget" Data.=: metricWidget
       ]
 
 -- | /See:/ 'newGetMetricWidgetImageResponse' smart constructor.
 data GetMetricWidgetImageResponse = GetMetricWidgetImageResponse'
   { -- | The image of the graph, in the output format specified. The output is
     -- base64-encoded.
-    metricWidgetImage :: Prelude.Maybe Core.Base64,
+    metricWidgetImage :: Prelude.Maybe Data.Base64,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -306,7 +307,7 @@ newGetMetricWidgetImageResponse pHttpStatus_ =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 getMetricWidgetImageResponse_metricWidgetImage :: Lens.Lens' GetMetricWidgetImageResponse (Prelude.Maybe Prelude.ByteString)
-getMetricWidgetImageResponse_metricWidgetImage = Lens.lens (\GetMetricWidgetImageResponse' {metricWidgetImage} -> metricWidgetImage) (\s@GetMetricWidgetImageResponse' {} a -> s {metricWidgetImage = a} :: GetMetricWidgetImageResponse) Prelude.. Lens.mapping Core._Base64
+getMetricWidgetImageResponse_metricWidgetImage = Lens.lens (\GetMetricWidgetImageResponse' {metricWidgetImage} -> metricWidgetImage) (\s@GetMetricWidgetImageResponse' {} a -> s {metricWidgetImage = a} :: GetMetricWidgetImageResponse) Prelude.. Lens.mapping Data._Base64
 
 -- | The response's http status code.
 getMetricWidgetImageResponse_httpStatus :: Lens.Lens' GetMetricWidgetImageResponse Prelude.Int

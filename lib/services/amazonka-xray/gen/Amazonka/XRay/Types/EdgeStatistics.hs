@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.EdgeStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.ErrorStatistics
 import Amazonka.XRay.Types.FaultStatistics
@@ -96,17 +97,17 @@ edgeStatistics_totalCount = Lens.lens (\EdgeStatistics' {totalCount} -> totalCou
 edgeStatistics_errorStatistics :: Lens.Lens' EdgeStatistics (Prelude.Maybe ErrorStatistics)
 edgeStatistics_errorStatistics = Lens.lens (\EdgeStatistics' {errorStatistics} -> errorStatistics) (\s@EdgeStatistics' {} a -> s {errorStatistics = a} :: EdgeStatistics)
 
-instance Core.FromJSON EdgeStatistics where
+instance Data.FromJSON EdgeStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EdgeStatistics"
       ( \x ->
           EdgeStatistics'
-            Prelude.<$> (x Core..:? "FaultStatistics")
-            Prelude.<*> (x Core..:? "OkCount")
-            Prelude.<*> (x Core..:? "TotalResponseTime")
-            Prelude.<*> (x Core..:? "TotalCount")
-            Prelude.<*> (x Core..:? "ErrorStatistics")
+            Prelude.<$> (x Data..:? "FaultStatistics")
+            Prelude.<*> (x Data..:? "OkCount")
+            Prelude.<*> (x Data..:? "TotalResponseTime")
+            Prelude.<*> (x Data..:? "TotalCount")
+            Prelude.<*> (x Data..:? "ErrorStatistics")
       )
 
 instance Prelude.Hashable EdgeStatistics where

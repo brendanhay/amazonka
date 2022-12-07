@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.Category where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The skill store category that is shown. Alexa skills are assigned a
@@ -63,14 +64,14 @@ category_categoryId = Lens.lens (\Category' {categoryId} -> categoryId) (\s@Cate
 category_categoryName :: Lens.Lens' Category (Prelude.Maybe Prelude.Text)
 category_categoryName = Lens.lens (\Category' {categoryName} -> categoryName) (\s@Category' {} a -> s {categoryName = a} :: Category)
 
-instance Core.FromJSON Category where
+instance Data.FromJSON Category where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Category"
       ( \x ->
           Category'
-            Prelude.<$> (x Core..:? "CategoryId")
-            Prelude.<*> (x Core..:? "CategoryName")
+            Prelude.<$> (x Data..:? "CategoryId")
+            Prelude.<*> (x Data..:? "CategoryName")
       )
 
 instance Prelude.Hashable Category where

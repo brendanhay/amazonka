@@ -25,6 +25,7 @@ import Amazonka.Budgets.Types.CostTypes
 import Amazonka.Budgets.Types.TimeUnit
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A history of the state of a budget at the end of the budget\'s specified
@@ -109,20 +110,20 @@ budgetPerformanceHistory_costTypes = Lens.lens (\BudgetPerformanceHistory' {cost
 budgetPerformanceHistory_budgetName :: Lens.Lens' BudgetPerformanceHistory (Prelude.Maybe Prelude.Text)
 budgetPerformanceHistory_budgetName = Lens.lens (\BudgetPerformanceHistory' {budgetName} -> budgetName) (\s@BudgetPerformanceHistory' {} a -> s {budgetName = a} :: BudgetPerformanceHistory)
 
-instance Core.FromJSON BudgetPerformanceHistory where
+instance Data.FromJSON BudgetPerformanceHistory where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BudgetPerformanceHistory"
       ( \x ->
           BudgetPerformanceHistory'
-            Prelude.<$> (x Core..:? "TimeUnit")
-            Prelude.<*> ( x Core..:? "BudgetedAndActualAmountsList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "TimeUnit")
+            Prelude.<*> ( x Data..:? "BudgetedAndActualAmountsList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CostFilters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "BudgetType")
-            Prelude.<*> (x Core..:? "CostTypes")
-            Prelude.<*> (x Core..:? "BudgetName")
+            Prelude.<*> (x Data..:? "CostFilters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "BudgetType")
+            Prelude.<*> (x Data..:? "CostTypes")
+            Prelude.<*> (x Data..:? "BudgetName")
       )
 
 instance Prelude.Hashable BudgetPerformanceHistory where

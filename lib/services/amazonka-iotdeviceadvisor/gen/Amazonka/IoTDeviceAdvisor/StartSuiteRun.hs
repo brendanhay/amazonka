@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,9 +122,9 @@ instance Core.AWSRequest StartSuiteRun where
     Response.receiveJSON
       ( \s h x ->
           StartSuiteRunResponse'
-            Prelude.<$> (x Core..?> "suiteRunArn")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "suiteRunId")
+            Prelude.<$> (x Data..?> "suiteRunArn")
+            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "suiteRunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,38 +142,38 @@ instance Prelude.NFData StartSuiteRun where
       `Prelude.seq` Prelude.rnf suiteDefinitionVersion
       `Prelude.seq` Prelude.rnf suiteDefinitionId
 
-instance Core.ToHeaders StartSuiteRun where
+instance Data.ToHeaders StartSuiteRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartSuiteRun where
+instance Data.ToJSON StartSuiteRun where
   toJSON StartSuiteRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("suiteRunConfiguration" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("suiteRunConfiguration" Data..=)
               Prelude.<$> suiteRunConfiguration,
-            ("suiteDefinitionVersion" Core..=)
+            ("suiteDefinitionVersion" Data..=)
               Prelude.<$> suiteDefinitionVersion
           ]
       )
 
-instance Core.ToPath StartSuiteRun where
+instance Data.ToPath StartSuiteRun where
   toPath StartSuiteRun' {..} =
     Prelude.mconcat
       [ "/suiteDefinitions/",
-        Core.toBS suiteDefinitionId,
+        Data.toBS suiteDefinitionId,
         "/suiteRuns"
       ]
 
-instance Core.ToQuery StartSuiteRun where
+instance Data.ToQuery StartSuiteRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartSuiteRunResponse' smart constructor.
@@ -180,7 +181,7 @@ data StartSuiteRunResponse = StartSuiteRunResponse'
   { -- | Amazon Resource Name (ARN) of the started suite run.
     suiteRunArn :: Prelude.Maybe Prelude.Text,
     -- | Starts a Device Advisor test suite run based on suite create time.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Suite Run ID of the started suite run.
     suiteRunId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -222,7 +223,7 @@ startSuiteRunResponse_suiteRunArn = Lens.lens (\StartSuiteRunResponse' {suiteRun
 
 -- | Starts a Device Advisor test suite run based on suite create time.
 startSuiteRunResponse_createdAt :: Lens.Lens' StartSuiteRunResponse (Prelude.Maybe Prelude.UTCTime)
-startSuiteRunResponse_createdAt = Lens.lens (\StartSuiteRunResponse' {createdAt} -> createdAt) (\s@StartSuiteRunResponse' {} a -> s {createdAt = a} :: StartSuiteRunResponse) Prelude.. Lens.mapping Core._Time
+startSuiteRunResponse_createdAt = Lens.lens (\StartSuiteRunResponse' {createdAt} -> createdAt) (\s@StartSuiteRunResponse' {} a -> s {createdAt = a} :: StartSuiteRunResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Suite Run ID of the started suite run.
 startSuiteRunResponse_suiteRunId :: Lens.Lens' StartSuiteRunResponse (Prelude.Maybe Prelude.Text)

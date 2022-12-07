@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.Route
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,20 +86,20 @@ networkFirewallUnexpectedGatewayRoutesViolation_vpcId :: Lens.Lens' NetworkFirew
 networkFirewallUnexpectedGatewayRoutesViolation_vpcId = Lens.lens (\NetworkFirewallUnexpectedGatewayRoutesViolation' {vpcId} -> vpcId) (\s@NetworkFirewallUnexpectedGatewayRoutesViolation' {} a -> s {vpcId = a} :: NetworkFirewallUnexpectedGatewayRoutesViolation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     NetworkFirewallUnexpectedGatewayRoutesViolation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkFirewallUnexpectedGatewayRoutesViolation"
       ( \x ->
           NetworkFirewallUnexpectedGatewayRoutesViolation'
-            Prelude.<$> ( x Core..:? "ViolatingRoutes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ViolatingRoutes"
+                            Data..!= Prelude.mempty
                         )
-              Prelude.<*> (x Core..:? "RouteTableId")
-              Prelude.<*> (x Core..:? "GatewayId")
-              Prelude.<*> (x Core..:? "VpcId")
+              Prelude.<*> (x Data..:? "RouteTableId")
+              Prelude.<*> (x Data..:? "GatewayId")
+              Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance

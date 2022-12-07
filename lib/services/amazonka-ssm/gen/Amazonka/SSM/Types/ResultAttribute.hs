@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ResultAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The inventory item result attribute.
@@ -62,9 +63,9 @@ instance Prelude.Hashable ResultAttribute where
 instance Prelude.NFData ResultAttribute where
   rnf ResultAttribute' {..} = Prelude.rnf typeName
 
-instance Core.ToJSON ResultAttribute where
+instance Data.ToJSON ResultAttribute where
   toJSON ResultAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TypeName" Core..= typeName)]
+          [Prelude.Just ("TypeName" Data..= typeName)]
       )

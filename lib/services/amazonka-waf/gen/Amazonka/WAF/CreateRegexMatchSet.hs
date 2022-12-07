@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,8 +136,8 @@ instance Core.AWSRequest CreateRegexMatchSet where
     Response.receiveJSON
       ( \s h x ->
           CreateRegexMatchSetResponse'
-            Prelude.<$> (x Core..?> "RegexMatchSet")
-            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "RegexMatchSet")
+            Prelude.<*> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,34 +151,34 @@ instance Prelude.NFData CreateRegexMatchSet where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf changeToken
 
-instance Core.ToHeaders CreateRegexMatchSet where
+instance Data.ToHeaders CreateRegexMatchSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20150824.CreateRegexMatchSet" ::
+              Data.=# ( "AWSWAF_20150824.CreateRegexMatchSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRegexMatchSet where
+instance Data.ToJSON CreateRegexMatchSet where
   toJSON CreateRegexMatchSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("ChangeToken" Core..= changeToken)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("ChangeToken" Data..= changeToken)
           ]
       )
 
-instance Core.ToPath CreateRegexMatchSet where
+instance Data.ToPath CreateRegexMatchSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateRegexMatchSet where
+instance Data.ToQuery CreateRegexMatchSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRegexMatchSetResponse' smart constructor.

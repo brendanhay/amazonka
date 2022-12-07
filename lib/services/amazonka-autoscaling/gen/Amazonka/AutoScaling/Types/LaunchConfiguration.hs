@@ -24,6 +24,7 @@ import Amazonka.AutoScaling.Types.InstanceMetadataOptions
 import Amazonka.AutoScaling.Types.InstanceMonitoring
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a launch configuration.
@@ -125,7 +126,7 @@ data LaunchConfiguration = LaunchConfiguration'
     -- in the /Amazon EC2 User Guide for Linux Instances/.
     instanceType :: Prelude.Text,
     -- | The creation date and time for the launch configuration.
-    createdTime :: Core.ISO8601
+    createdTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -268,7 +269,7 @@ newLaunchConfiguration
         launchConfigurationName = pLaunchConfigurationName_,
         imageId = pImageId_,
         instanceType = pInstanceType_,
-        createdTime = Core._Time Lens.# pCreatedTime_
+        createdTime = Data._Time Lens.# pCreatedTime_
       }
 
 -- | Specifies whether the launch configuration is optimized for EBS I\/O
@@ -405,39 +406,39 @@ launchConfiguration_instanceType = Lens.lens (\LaunchConfiguration' {instanceTyp
 
 -- | The creation date and time for the launch configuration.
 launchConfiguration_createdTime :: Lens.Lens' LaunchConfiguration Prelude.UTCTime
-launchConfiguration_createdTime = Lens.lens (\LaunchConfiguration' {createdTime} -> createdTime) (\s@LaunchConfiguration' {} a -> s {createdTime = a} :: LaunchConfiguration) Prelude.. Core._Time
+launchConfiguration_createdTime = Lens.lens (\LaunchConfiguration' {createdTime} -> createdTime) (\s@LaunchConfiguration' {} a -> s {createdTime = a} :: LaunchConfiguration) Prelude.. Data._Time
 
-instance Core.FromXML LaunchConfiguration where
+instance Data.FromXML LaunchConfiguration where
   parseXML x =
     LaunchConfiguration'
-      Prelude.<$> (x Core..@? "EbsOptimized")
-      Prelude.<*> (x Core..@? "IamInstanceProfile")
-      Prelude.<*> (x Core..@? "ClassicLinkVPCId")
-      Prelude.<*> (x Core..@? "UserData")
-      Prelude.<*> (x Core..@? "AssociatePublicIpAddress")
-      Prelude.<*> ( x Core..@? "BlockDeviceMappings"
+      Prelude.<$> (x Data..@? "EbsOptimized")
+      Prelude.<*> (x Data..@? "IamInstanceProfile")
+      Prelude.<*> (x Data..@? "ClassicLinkVPCId")
+      Prelude.<*> (x Data..@? "UserData")
+      Prelude.<*> (x Data..@? "AssociatePublicIpAddress")
+      Prelude.<*> ( x Data..@? "BlockDeviceMappings"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "LaunchConfigurationARN")
-      Prelude.<*> (x Core..@? "PlacementTenancy")
-      Prelude.<*> ( x Core..@? "SecurityGroups" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "LaunchConfigurationARN")
+      Prelude.<*> (x Data..@? "PlacementTenancy")
+      Prelude.<*> ( x Data..@? "SecurityGroups" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "RamdiskId")
-      Prelude.<*> (x Core..@? "InstanceMonitoring")
-      Prelude.<*> (x Core..@? "KeyName")
-      Prelude.<*> (x Core..@? "KernelId")
-      Prelude.<*> (x Core..@? "SpotPrice")
-      Prelude.<*> ( x Core..@? "ClassicLinkVPCSecurityGroups"
+      Prelude.<*> (x Data..@? "RamdiskId")
+      Prelude.<*> (x Data..@? "InstanceMonitoring")
+      Prelude.<*> (x Data..@? "KeyName")
+      Prelude.<*> (x Data..@? "KernelId")
+      Prelude.<*> (x Data..@? "SpotPrice")
+      Prelude.<*> ( x Data..@? "ClassicLinkVPCSecurityGroups"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "MetadataOptions")
-      Prelude.<*> (x Core..@ "LaunchConfigurationName")
-      Prelude.<*> (x Core..@ "ImageId")
-      Prelude.<*> (x Core..@ "InstanceType")
-      Prelude.<*> (x Core..@ "CreatedTime")
+      Prelude.<*> (x Data..@? "MetadataOptions")
+      Prelude.<*> (x Data..@ "LaunchConfigurationName")
+      Prelude.<*> (x Data..@ "ImageId")
+      Prelude.<*> (x Data..@ "InstanceType")
+      Prelude.<*> (x Data..@ "CreatedTime")
 
 instance Prelude.Hashable LaunchConfiguration where
   hashWithSalt _salt LaunchConfiguration' {..} =

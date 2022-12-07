@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.DecoderManifestSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.ManifestStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -45,10 +46,10 @@ data DecoderManifestSummary = DecoderManifestSummary'
     description :: Prelude.Maybe Prelude.Text,
     -- | The time the decoder manifest was created in seconds since epoch
     -- (January 1, 1970 at midnight UTC time).
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The time the decoder manifest was last updated in seconds since epoch
     -- (January 1, 1970 at midnight UTC time).
-    lastModificationTime :: Core.POSIX
+    lastModificationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,9 +95,9 @@ newDecoderManifestSummary
         arn = Prelude.Nothing,
         status = Prelude.Nothing,
         description = Prelude.Nothing,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lastModificationTime =
-          Core._Time Lens.# pLastModificationTime_
+          Data._Time Lens.# pLastModificationTime_
       }
 
 -- | The name of the decoder manifest.
@@ -126,26 +127,26 @@ decoderManifestSummary_description = Lens.lens (\DecoderManifestSummary' {descri
 -- | The time the decoder manifest was created in seconds since epoch
 -- (January 1, 1970 at midnight UTC time).
 decoderManifestSummary_creationTime :: Lens.Lens' DecoderManifestSummary Prelude.UTCTime
-decoderManifestSummary_creationTime = Lens.lens (\DecoderManifestSummary' {creationTime} -> creationTime) (\s@DecoderManifestSummary' {} a -> s {creationTime = a} :: DecoderManifestSummary) Prelude.. Core._Time
+decoderManifestSummary_creationTime = Lens.lens (\DecoderManifestSummary' {creationTime} -> creationTime) (\s@DecoderManifestSummary' {} a -> s {creationTime = a} :: DecoderManifestSummary) Prelude.. Data._Time
 
 -- | The time the decoder manifest was last updated in seconds since epoch
 -- (January 1, 1970 at midnight UTC time).
 decoderManifestSummary_lastModificationTime :: Lens.Lens' DecoderManifestSummary Prelude.UTCTime
-decoderManifestSummary_lastModificationTime = Lens.lens (\DecoderManifestSummary' {lastModificationTime} -> lastModificationTime) (\s@DecoderManifestSummary' {} a -> s {lastModificationTime = a} :: DecoderManifestSummary) Prelude.. Core._Time
+decoderManifestSummary_lastModificationTime = Lens.lens (\DecoderManifestSummary' {lastModificationTime} -> lastModificationTime) (\s@DecoderManifestSummary' {} a -> s {lastModificationTime = a} :: DecoderManifestSummary) Prelude.. Data._Time
 
-instance Core.FromJSON DecoderManifestSummary where
+instance Data.FromJSON DecoderManifestSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DecoderManifestSummary"
       ( \x ->
           DecoderManifestSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "modelManifestArn")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "creationTime")
-            Prelude.<*> (x Core..: "lastModificationTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "modelManifestArn")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "creationTime")
+            Prelude.<*> (x Data..: "lastModificationTime")
       )
 
 instance Prelude.Hashable DecoderManifestSummary where

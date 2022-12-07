@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,8 +111,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetDistributionLatestCacheResetResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "createTime")
+            Prelude.<$> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "createTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,36 +133,36 @@ instance
     Prelude.rnf distributionName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetDistributionLatestCacheReset
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetDistributionLatestCacheReset" ::
+              Data.=# ( "Lightsail_20161128.GetDistributionLatestCacheReset" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDistributionLatestCacheReset where
+instance Data.ToJSON GetDistributionLatestCacheReset where
   toJSON GetDistributionLatestCacheReset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("distributionName" Core..=)
+          [ ("distributionName" Data..=)
               Prelude.<$> distributionName
           ]
       )
 
-instance Core.ToPath GetDistributionLatestCacheReset where
+instance Data.ToPath GetDistributionLatestCacheReset where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDistributionLatestCacheReset where
+instance Data.ToQuery GetDistributionLatestCacheReset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDistributionLatestCacheResetResponse' smart constructor.
@@ -170,7 +171,7 @@ data GetDistributionLatestCacheResetResponse = GetDistributionLatestCacheResetRe
     status :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the last cache reset (e.g., @1479734909.17@) in Unix
     -- time format.
-    createTime :: Prelude.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,7 +211,7 @@ getDistributionLatestCacheResetResponse_status = Lens.lens (\GetDistributionLate
 -- | The timestamp of the last cache reset (e.g., @1479734909.17@) in Unix
 -- time format.
 getDistributionLatestCacheResetResponse_createTime :: Lens.Lens' GetDistributionLatestCacheResetResponse (Prelude.Maybe Prelude.UTCTime)
-getDistributionLatestCacheResetResponse_createTime = Lens.lens (\GetDistributionLatestCacheResetResponse' {createTime} -> createTime) (\s@GetDistributionLatestCacheResetResponse' {} a -> s {createTime = a} :: GetDistributionLatestCacheResetResponse) Prelude.. Lens.mapping Core._Time
+getDistributionLatestCacheResetResponse_createTime = Lens.lens (\GetDistributionLatestCacheResetResponse' {createTime} -> createTime) (\s@GetDistributionLatestCacheResetResponse' {} a -> s {createTime = a} :: GetDistributionLatestCacheResetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getDistributionLatestCacheResetResponse_httpStatus :: Lens.Lens' GetDistributionLatestCacheResetResponse Prelude.Int

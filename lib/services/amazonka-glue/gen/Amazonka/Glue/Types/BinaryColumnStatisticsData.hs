@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.BinaryColumnStatisticsData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines column statistics supported for bit sequence data values.
@@ -80,15 +81,15 @@ binaryColumnStatisticsData_averageLength = Lens.lens (\BinaryColumnStatisticsDat
 binaryColumnStatisticsData_numberOfNulls :: Lens.Lens' BinaryColumnStatisticsData Prelude.Natural
 binaryColumnStatisticsData_numberOfNulls = Lens.lens (\BinaryColumnStatisticsData' {numberOfNulls} -> numberOfNulls) (\s@BinaryColumnStatisticsData' {} a -> s {numberOfNulls = a} :: BinaryColumnStatisticsData)
 
-instance Core.FromJSON BinaryColumnStatisticsData where
+instance Data.FromJSON BinaryColumnStatisticsData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BinaryColumnStatisticsData"
       ( \x ->
           BinaryColumnStatisticsData'
-            Prelude.<$> (x Core..: "MaximumLength")
-            Prelude.<*> (x Core..: "AverageLength")
-            Prelude.<*> (x Core..: "NumberOfNulls")
+            Prelude.<$> (x Data..: "MaximumLength")
+            Prelude.<*> (x Data..: "AverageLength")
+            Prelude.<*> (x Data..: "NumberOfNulls")
       )
 
 instance Prelude.Hashable BinaryColumnStatisticsData where
@@ -103,14 +104,14 @@ instance Prelude.NFData BinaryColumnStatisticsData where
       `Prelude.seq` Prelude.rnf averageLength
       `Prelude.seq` Prelude.rnf numberOfNulls
 
-instance Core.ToJSON BinaryColumnStatisticsData where
+instance Data.ToJSON BinaryColumnStatisticsData where
   toJSON BinaryColumnStatisticsData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("MaximumLength" Core..= maximumLength),
-            Prelude.Just ("AverageLength" Core..= averageLength),
+              ("MaximumLength" Data..= maximumLength),
+            Prelude.Just ("AverageLength" Data..= averageLength),
             Prelude.Just
-              ("NumberOfNulls" Core..= numberOfNulls)
+              ("NumberOfNulls" Data..= numberOfNulls)
           ]
       )

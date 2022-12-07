@@ -21,6 +21,7 @@ module Amazonka.CloudWatch.Types.PartialFailure where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This array is empty if the API operation was successful for all the
@@ -82,13 +83,13 @@ partialFailure_exceptionType = Lens.lens (\PartialFailure' {exceptionType} -> ex
 partialFailure_failureResource :: Lens.Lens' PartialFailure (Prelude.Maybe Prelude.Text)
 partialFailure_failureResource = Lens.lens (\PartialFailure' {failureResource} -> failureResource) (\s@PartialFailure' {} a -> s {failureResource = a} :: PartialFailure)
 
-instance Core.FromXML PartialFailure where
+instance Data.FromXML PartialFailure where
   parseXML x =
     PartialFailure'
-      Prelude.<$> (x Core..@? "FailureDescription")
-      Prelude.<*> (x Core..@? "FailureCode")
-      Prelude.<*> (x Core..@? "ExceptionType")
-      Prelude.<*> (x Core..@? "FailureResource")
+      Prelude.<$> (x Data..@? "FailureDescription")
+      Prelude.<*> (x Data..@? "FailureCode")
+      Prelude.<*> (x Data..@? "ExceptionType")
+      Prelude.<*> (x Data..@? "FailureResource")
 
 instance Prelude.Hashable PartialFailure where
   hashWithSalt _salt PartialFailure' {..} =

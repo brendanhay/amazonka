@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.DatasetMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.DatasetStatus
 import Amazonka.Rekognition.Types.DatasetStatusMessageCode
@@ -40,7 +41,7 @@ data DatasetMetadata = DatasetMetadata'
     -- | The status for the dataset.
     status :: Prelude.Maybe DatasetStatus,
     -- | The Unix timestamp for the date and time that the dataset was created.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) for the dataset.
     datasetArn :: Prelude.Maybe Prelude.Text,
     -- | The status message for the dataset.
@@ -98,7 +99,7 @@ datasetMetadata_status = Lens.lens (\DatasetMetadata' {status} -> status) (\s@Da
 
 -- | The Unix timestamp for the date and time that the dataset was created.
 datasetMetadata_creationTimestamp :: Lens.Lens' DatasetMetadata (Prelude.Maybe Prelude.UTCTime)
-datasetMetadata_creationTimestamp = Lens.lens (\DatasetMetadata' {creationTimestamp} -> creationTimestamp) (\s@DatasetMetadata' {} a -> s {creationTimestamp = a} :: DatasetMetadata) Prelude.. Lens.mapping Core._Time
+datasetMetadata_creationTimestamp = Lens.lens (\DatasetMetadata' {creationTimestamp} -> creationTimestamp) (\s@DatasetMetadata' {} a -> s {creationTimestamp = a} :: DatasetMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) for the dataset.
 datasetMetadata_datasetArn :: Lens.Lens' DatasetMetadata (Prelude.Maybe Prelude.Text)
@@ -108,18 +109,18 @@ datasetMetadata_datasetArn = Lens.lens (\DatasetMetadata' {datasetArn} -> datase
 datasetMetadata_statusMessage :: Lens.Lens' DatasetMetadata (Prelude.Maybe Prelude.Text)
 datasetMetadata_statusMessage = Lens.lens (\DatasetMetadata' {statusMessage} -> statusMessage) (\s@DatasetMetadata' {} a -> s {statusMessage = a} :: DatasetMetadata)
 
-instance Core.FromJSON DatasetMetadata where
+instance Data.FromJSON DatasetMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetMetadata"
       ( \x ->
           DatasetMetadata'
-            Prelude.<$> (x Core..:? "StatusMessageCode")
-            Prelude.<*> (x Core..:? "DatasetType")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTimestamp")
-            Prelude.<*> (x Core..:? "DatasetArn")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "StatusMessageCode")
+            Prelude.<*> (x Data..:? "DatasetType")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CreationTimestamp")
+            Prelude.<*> (x Data..:? "DatasetArn")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable DatasetMetadata where

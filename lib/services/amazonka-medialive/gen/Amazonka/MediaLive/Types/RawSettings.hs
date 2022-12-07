@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.RawSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Raw Settings
@@ -39,9 +40,9 @@ newRawSettings ::
   RawSettings
 newRawSettings = RawSettings'
 
-instance Core.FromJSON RawSettings where
+instance Data.FromJSON RawSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RawSettings"
       (\x -> Prelude.pure RawSettings')
 
@@ -52,5 +53,5 @@ instance Prelude.Hashable RawSettings where
 instance Prelude.NFData RawSettings where
   rnf _ = ()
 
-instance Core.ToJSON RawSettings where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON RawSettings where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

@@ -45,6 +45,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,28 +133,28 @@ instance Prelude.NFData UpdateLinkAttributes where
       `Prelude.seq` Prelude.rnf typedLinkSpecifier
       `Prelude.seq` Prelude.rnf attributeUpdates
 
-instance Core.ToHeaders UpdateLinkAttributes where
+instance Data.ToHeaders UpdateLinkAttributes where
   toHeaders UpdateLinkAttributes' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON UpdateLinkAttributes where
+instance Data.ToJSON UpdateLinkAttributes where
   toJSON UpdateLinkAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TypedLinkSpecifier" Core..= typedLinkSpecifier),
+              ("TypedLinkSpecifier" Data..= typedLinkSpecifier),
             Prelude.Just
-              ("AttributeUpdates" Core..= attributeUpdates)
+              ("AttributeUpdates" Data..= attributeUpdates)
           ]
       )
 
-instance Core.ToPath UpdateLinkAttributes where
+instance Data.ToPath UpdateLinkAttributes where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/typedlink/attributes/update"
 
-instance Core.ToQuery UpdateLinkAttributes where
+instance Data.ToQuery UpdateLinkAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLinkAttributesResponse' smart constructor.

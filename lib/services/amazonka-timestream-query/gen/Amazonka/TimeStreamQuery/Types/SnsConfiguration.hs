@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.SnsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on SNS that are required to send the notification.
@@ -55,12 +56,12 @@ newSnsConfiguration pTopicArn_ =
 snsConfiguration_topicArn :: Lens.Lens' SnsConfiguration Prelude.Text
 snsConfiguration_topicArn = Lens.lens (\SnsConfiguration' {topicArn} -> topicArn) (\s@SnsConfiguration' {} a -> s {topicArn = a} :: SnsConfiguration)
 
-instance Core.FromJSON SnsConfiguration where
+instance Data.FromJSON SnsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SnsConfiguration"
       ( \x ->
-          SnsConfiguration' Prelude.<$> (x Core..: "TopicArn")
+          SnsConfiguration' Prelude.<$> (x Data..: "TopicArn")
       )
 
 instance Prelude.Hashable SnsConfiguration where
@@ -70,9 +71,9 @@ instance Prelude.Hashable SnsConfiguration where
 instance Prelude.NFData SnsConfiguration where
   rnf SnsConfiguration' {..} = Prelude.rnf topicArn
 
-instance Core.ToJSON SnsConfiguration where
+instance Data.ToJSON SnsConfiguration where
   toJSON SnsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TopicArn" Core..= topicArn)]
+          [Prelude.Just ("TopicArn" Data..= topicArn)]
       )

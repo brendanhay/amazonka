@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,23 +125,23 @@ instance Prelude.NFData UntagStream where
       `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf tagKeyList
 
-instance Core.ToHeaders UntagStream where
+instance Data.ToHeaders UntagStream where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UntagStream where
+instance Data.ToJSON UntagStream where
   toJSON UntagStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StreamARN" Core..=) Prelude.<$> streamARN,
-            ("StreamName" Core..=) Prelude.<$> streamName,
-            Prelude.Just ("TagKeyList" Core..= tagKeyList)
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
+            Prelude.Just ("TagKeyList" Data..= tagKeyList)
           ]
       )
 
-instance Core.ToPath UntagStream where
+instance Data.ToPath UntagStream where
   toPath = Prelude.const "/untagStream"
 
-instance Core.ToQuery UntagStream where
+instance Data.ToQuery UntagStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUntagStreamResponse' smart constructor.

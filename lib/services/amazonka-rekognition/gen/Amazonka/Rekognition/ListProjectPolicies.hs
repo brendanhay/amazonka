@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -148,10 +149,10 @@ instance Core.AWSRequest ListProjectPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListProjectPoliciesResponse'
-            Prelude.<$> ( x Core..?> "ProjectPolicies"
+            Prelude.<$> ( x Data..?> "ProjectPolicies"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,35 +168,35 @@ instance Prelude.NFData ListProjectPolicies where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf projectArn
 
-instance Core.ToHeaders ListProjectPolicies where
+instance Data.ToHeaders ListProjectPolicies where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.ListProjectPolicies" ::
+              Data.=# ( "RekognitionService.ListProjectPolicies" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListProjectPolicies where
+instance Data.ToJSON ListProjectPolicies where
   toJSON ListProjectPolicies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ProjectArn" Core..= projectArn)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ProjectArn" Data..= projectArn)
           ]
       )
 
-instance Core.ToPath ListProjectPolicies where
+instance Data.ToPath ListProjectPolicies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListProjectPolicies where
+instance Data.ToQuery ListProjectPolicies where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListProjectPoliciesResponse' smart constructor.

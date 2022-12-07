@@ -48,6 +48,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,7 +113,7 @@ instance
       ( \s h x ->
           DeletePullRequestApprovalRuleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "approvalRuleId")
+            Prelude.<*> (x Data..:> "approvalRuleId")
       )
 
 instance
@@ -128,36 +129,36 @@ instance Prelude.NFData DeletePullRequestApprovalRule where
     Prelude.rnf pullRequestId
       `Prelude.seq` Prelude.rnf approvalRuleName
 
-instance Core.ToHeaders DeletePullRequestApprovalRule where
+instance Data.ToHeaders DeletePullRequestApprovalRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.DeletePullRequestApprovalRule" ::
+              Data.=# ( "CodeCommit_20150413.DeletePullRequestApprovalRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeletePullRequestApprovalRule where
+instance Data.ToJSON DeletePullRequestApprovalRule where
   toJSON DeletePullRequestApprovalRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("pullRequestId" Core..= pullRequestId),
+              ("pullRequestId" Data..= pullRequestId),
             Prelude.Just
-              ("approvalRuleName" Core..= approvalRuleName)
+              ("approvalRuleName" Data..= approvalRuleName)
           ]
       )
 
-instance Core.ToPath DeletePullRequestApprovalRule where
+instance Data.ToPath DeletePullRequestApprovalRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeletePullRequestApprovalRule where
+instance Data.ToQuery DeletePullRequestApprovalRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePullRequestApprovalRuleResponse' smart constructor.

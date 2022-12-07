@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -82,32 +83,32 @@ instance Prelude.Hashable DeleteStudio where
 instance Prelude.NFData DeleteStudio where
   rnf DeleteStudio' {..} = Prelude.rnf studioId
 
-instance Core.ToHeaders DeleteStudio where
+instance Data.ToHeaders DeleteStudio where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.DeleteStudio" ::
+              Data.=# ( "ElasticMapReduce.DeleteStudio" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteStudio where
+instance Data.ToJSON DeleteStudio where
   toJSON DeleteStudio' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("StudioId" Core..= studioId)]
+          [Prelude.Just ("StudioId" Data..= studioId)]
       )
 
-instance Core.ToPath DeleteStudio where
+instance Data.ToPath DeleteStudio where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteStudio where
+instance Data.ToQuery DeleteStudio where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStudioResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,8 +108,8 @@ instance Core.AWSRequest BatchAssociateResource where
       ( \s h x ->
           BatchAssociateResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ResourceSetIdentifier")
-            Prelude.<*> (x Core..?> "FailedItems" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "ResourceSetIdentifier")
+            Prelude.<*> (x Data..?> "FailedItems" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable BatchAssociateResource where
@@ -121,37 +122,37 @@ instance Prelude.NFData BatchAssociateResource where
     Prelude.rnf resourceSetIdentifier
       `Prelude.seq` Prelude.rnf items
 
-instance Core.ToHeaders BatchAssociateResource where
+instance Data.ToHeaders BatchAssociateResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.BatchAssociateResource" ::
+              Data.=# ( "AWSFMS_20180101.BatchAssociateResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchAssociateResource where
+instance Data.ToJSON BatchAssociateResource where
   toJSON BatchAssociateResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ResourceSetIdentifier"
-                  Core..= resourceSetIdentifier
+                  Data..= resourceSetIdentifier
               ),
-            Prelude.Just ("Items" Core..= items)
+            Prelude.Just ("Items" Data..= items)
           ]
       )
 
-instance Core.ToPath BatchAssociateResource where
+instance Data.ToPath BatchAssociateResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchAssociateResource where
+instance Data.ToQuery BatchAssociateResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchAssociateResourceResponse' smart constructor.

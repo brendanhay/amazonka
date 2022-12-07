@@ -104,6 +104,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -166,34 +167,34 @@ instance Prelude.NFData ConnectCustomKeyStore where
   rnf ConnectCustomKeyStore' {..} =
     Prelude.rnf customKeyStoreId
 
-instance Core.ToHeaders ConnectCustomKeyStore where
+instance Data.ToHeaders ConnectCustomKeyStore where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.ConnectCustomKeyStore" ::
+              Data.=# ( "TrentService.ConnectCustomKeyStore" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ConnectCustomKeyStore where
+instance Data.ToJSON ConnectCustomKeyStore where
   toJSON ConnectCustomKeyStore' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("CustomKeyStoreId" Core..= customKeyStoreId)
+              ("CustomKeyStoreId" Data..= customKeyStoreId)
           ]
       )
 
-instance Core.ToPath ConnectCustomKeyStore where
+instance Data.ToPath ConnectCustomKeyStore where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ConnectCustomKeyStore where
+instance Data.ToQuery ConnectCustomKeyStore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newConnectCustomKeyStoreResponse' smart constructor.

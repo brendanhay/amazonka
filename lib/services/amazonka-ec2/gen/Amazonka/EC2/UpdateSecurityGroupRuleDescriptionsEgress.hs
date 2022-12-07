@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,7 +158,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           UpdateSecurityGroupRuleDescriptionsEgressResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,41 +187,41 @@ instance
       `Prelude.seq` Prelude.rnf groupId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateSecurityGroupRuleDescriptionsEgress
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateSecurityGroupRuleDescriptionsEgress
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateSecurityGroupRuleDescriptionsEgress
   where
   toQuery
     UpdateSecurityGroupRuleDescriptionsEgress' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "UpdateSecurityGroupRuleDescriptionsEgress" ::
+            Data.=: ( "UpdateSecurityGroupRuleDescriptionsEgress" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2016-11-15" :: Prelude.ByteString),
-          Core.toQuery
-            ( Core.toQueryList "IpPermissions"
+            Data.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.toQuery
+            ( Data.toQueryList "IpPermissions"
                 Prelude.<$> ipPermissions
             ),
-          "GroupName" Core.=: groupName,
-          "DryRun" Core.=: dryRun,
-          Core.toQuery
-            ( Core.toQueryList "SecurityGroupRuleDescription"
+          "GroupName" Data.=: groupName,
+          "DryRun" Data.=: dryRun,
+          Data.toQuery
+            ( Data.toQueryList "SecurityGroupRuleDescription"
                 Prelude.<$> securityGroupRuleDescriptions
             ),
-          "GroupId" Core.=: groupId
+          "GroupId" Data.=: groupId
         ]
 
 -- | /See:/ 'newUpdateSecurityGroupRuleDescriptionsEgressResponse' smart constructor.

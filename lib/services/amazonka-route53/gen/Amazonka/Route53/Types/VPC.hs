@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.VPC where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Types.VPCRegion
@@ -71,11 +72,11 @@ vpc_vPCId = Lens.lens (\VPC' {vPCId} -> vPCId) (\s@VPC' {} a -> s {vPCId = a} ::
 vpc_vPCRegion :: Lens.Lens' VPC (Prelude.Maybe VPCRegion)
 vpc_vPCRegion = Lens.lens (\VPC' {vPCRegion} -> vPCRegion) (\s@VPC' {} a -> s {vPCRegion = a} :: VPC)
 
-instance Core.FromXML VPC where
+instance Data.FromXML VPC where
   parseXML x =
     VPC'
-      Prelude.<$> (x Core..@? "VPCId")
-      Prelude.<*> (x Core..@? "VPCRegion")
+      Prelude.<$> (x Data..@? "VPCId")
+      Prelude.<*> (x Data..@? "VPCRegion")
 
 instance Prelude.Hashable VPC where
   hashWithSalt _salt VPC' {..} =
@@ -87,9 +88,9 @@ instance Prelude.NFData VPC where
     Prelude.rnf vPCId
       `Prelude.seq` Prelude.rnf vPCRegion
 
-instance Core.ToXML VPC where
+instance Data.ToXML VPC where
   toXML VPC' {..} =
     Prelude.mconcat
-      [ "VPCId" Core.@= vPCId,
-        "VPCRegion" Core.@= vPCRegion
+      [ "VPCId" Data.@= vPCId,
+        "VPCRegion" Data.@= vPCRegion
       ]

@@ -44,6 +44,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,9 +91,9 @@ instance Core.AWSRequest CreateDistribution where
     Response.receiveXML
       ( \s h x ->
           CreateDistributionResponse'
-            Prelude.<$> (h Core..#? "Location")
-            Prelude.<*> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (h Data..#? "Location")
+            Prelude.<*> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,19 +105,19 @@ instance Prelude.NFData CreateDistribution where
   rnf CreateDistribution' {..} =
     Prelude.rnf distributionConfig
 
-instance Core.ToElement CreateDistribution where
+instance Data.ToElement CreateDistribution where
   toElement CreateDistribution' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}DistributionConfig"
       distributionConfig
 
-instance Core.ToHeaders CreateDistribution where
+instance Data.ToHeaders CreateDistribution where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDistribution where
+instance Data.ToPath CreateDistribution where
   toPath = Prelude.const "/2020-05-31/distribution"
 
-instance Core.ToQuery CreateDistribution where
+instance Data.ToQuery CreateDistribution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The returned result of the corresponding request.

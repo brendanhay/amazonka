@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.AwsVpcConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.AssignPublicIp
 import qualified Amazonka.Prelude as Prelude
 
@@ -99,15 +100,15 @@ awsVpcConfiguration_assignPublicIp = Lens.lens (\AwsVpcConfiguration' {assignPub
 awsVpcConfiguration_subnets :: Lens.Lens' AwsVpcConfiguration [Prelude.Text]
 awsVpcConfiguration_subnets = Lens.lens (\AwsVpcConfiguration' {subnets} -> subnets) (\s@AwsVpcConfiguration' {} a -> s {subnets = a} :: AwsVpcConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON AwsVpcConfiguration where
+instance Data.FromJSON AwsVpcConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsVpcConfiguration"
       ( \x ->
           AwsVpcConfiguration'
-            Prelude.<$> (x Core..:? "securityGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "assignPublicIp")
-            Prelude.<*> (x Core..:? "subnets" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "securityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "assignPublicIp")
+            Prelude.<*> (x Data..:? "subnets" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AwsVpcConfiguration where
@@ -122,14 +123,14 @@ instance Prelude.NFData AwsVpcConfiguration where
       `Prelude.seq` Prelude.rnf assignPublicIp
       `Prelude.seq` Prelude.rnf subnets
 
-instance Core.ToJSON AwsVpcConfiguration where
+instance Data.ToJSON AwsVpcConfiguration where
   toJSON AwsVpcConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("securityGroups" Core..=)
+          [ ("securityGroups" Data..=)
               Prelude.<$> securityGroups,
-            ("assignPublicIp" Core..=)
+            ("assignPublicIp" Data..=)
               Prelude.<$> assignPublicIp,
-            Prelude.Just ("subnets" Core..= subnets)
+            Prelude.Just ("subnets" Data..= subnets)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.NoiseReducerTemporalFilterSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.NoiseFilterPostTemporalSharpening
 import Amazonka.MediaConvert.Types.NoiseFilterPostTemporalSharpeningStrength
 import qualified Amazonka.Prelude as Prelude
@@ -157,19 +158,19 @@ noiseReducerTemporalFilterSettings_speed :: Lens.Lens' NoiseReducerTemporalFilte
 noiseReducerTemporalFilterSettings_speed = Lens.lens (\NoiseReducerTemporalFilterSettings' {speed} -> speed) (\s@NoiseReducerTemporalFilterSettings' {} a -> s {speed = a} :: NoiseReducerTemporalFilterSettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     NoiseReducerTemporalFilterSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NoiseReducerTemporalFilterSettings"
       ( \x ->
           NoiseReducerTemporalFilterSettings'
-            Prelude.<$> (x Core..:? "strength")
-            Prelude.<*> (x Core..:? "aggressiveMode")
-            Prelude.<*> (x Core..:? "postTemporalSharpening")
-            Prelude.<*> (x Core..:? "postTemporalSharpeningStrength")
-            Prelude.<*> (x Core..:? "speed")
+            Prelude.<$> (x Data..:? "strength")
+            Prelude.<*> (x Data..:? "aggressiveMode")
+            Prelude.<*> (x Data..:? "postTemporalSharpening")
+            Prelude.<*> (x Data..:? "postTemporalSharpeningStrength")
+            Prelude.<*> (x Data..:? "speed")
       )
 
 instance
@@ -197,19 +198,19 @@ instance
       `Prelude.seq` Prelude.rnf speed
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     NoiseReducerTemporalFilterSettings
   where
   toJSON NoiseReducerTemporalFilterSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("strength" Core..=) Prelude.<$> strength,
-            ("aggressiveMode" Core..=)
+          [ ("strength" Data..=) Prelude.<$> strength,
+            ("aggressiveMode" Data..=)
               Prelude.<$> aggressiveMode,
-            ("postTemporalSharpening" Core..=)
+            ("postTemporalSharpening" Data..=)
               Prelude.<$> postTemporalSharpening,
-            ("postTemporalSharpeningStrength" Core..=)
+            ("postTemporalSharpeningStrength" Data..=)
               Prelude.<$> postTemporalSharpeningStrength,
-            ("speed" Core..=) Prelude.<$> speed
+            ("speed" Data..=) Prelude.<$> speed
           ]
       )

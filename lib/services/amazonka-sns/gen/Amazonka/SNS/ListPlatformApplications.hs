@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,10 +130,10 @@ instance Core.AWSRequest ListPlatformApplications where
       "ListPlatformApplicationsResult"
       ( \s h x ->
           ListPlatformApplicationsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "PlatformApplications"
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "PlatformApplications"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -145,20 +146,20 @@ instance Prelude.NFData ListPlatformApplications where
   rnf ListPlatformApplications' {..} =
     Prelude.rnf nextToken
 
-instance Core.ToHeaders ListPlatformApplications where
+instance Data.ToHeaders ListPlatformApplications where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListPlatformApplications where
+instance Data.ToPath ListPlatformApplications where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPlatformApplications where
+instance Data.ToQuery ListPlatformApplications where
   toQuery ListPlatformApplications' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListPlatformApplications" :: Prelude.ByteString),
+          Data.=: ("ListPlatformApplications" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken
       ]
 
 -- | Response for ListPlatformApplications action.

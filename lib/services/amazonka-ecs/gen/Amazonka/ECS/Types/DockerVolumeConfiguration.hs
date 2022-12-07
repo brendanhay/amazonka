@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.DockerVolumeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.Scope
 import qualified Amazonka.Prelude as Prelude
 
@@ -183,17 +184,17 @@ dockerVolumeConfiguration_scope = Lens.lens (\DockerVolumeConfiguration' {scope}
 dockerVolumeConfiguration_driver :: Lens.Lens' DockerVolumeConfiguration (Prelude.Maybe Prelude.Text)
 dockerVolumeConfiguration_driver = Lens.lens (\DockerVolumeConfiguration' {driver} -> driver) (\s@DockerVolumeConfiguration' {} a -> s {driver = a} :: DockerVolumeConfiguration)
 
-instance Core.FromJSON DockerVolumeConfiguration where
+instance Data.FromJSON DockerVolumeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DockerVolumeConfiguration"
       ( \x ->
           DockerVolumeConfiguration'
-            Prelude.<$> (x Core..:? "driverOpts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "autoprovision")
-            Prelude.<*> (x Core..:? "labels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "scope")
-            Prelude.<*> (x Core..:? "driver")
+            Prelude.<$> (x Data..:? "driverOpts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "autoprovision")
+            Prelude.<*> (x Data..:? "labels" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "scope")
+            Prelude.<*> (x Data..:? "driver")
       )
 
 instance Prelude.Hashable DockerVolumeConfiguration where
@@ -212,14 +213,14 @@ instance Prelude.NFData DockerVolumeConfiguration where
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf driver
 
-instance Core.ToJSON DockerVolumeConfiguration where
+instance Data.ToJSON DockerVolumeConfiguration where
   toJSON DockerVolumeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("driverOpts" Core..=) Prelude.<$> driverOpts,
-            ("autoprovision" Core..=) Prelude.<$> autoprovision,
-            ("labels" Core..=) Prelude.<$> labels,
-            ("scope" Core..=) Prelude.<$> scope,
-            ("driver" Core..=) Prelude.<$> driver
+          [ ("driverOpts" Data..=) Prelude.<$> driverOpts,
+            ("autoprovision" Data..=) Prelude.<$> autoprovision,
+            ("labels" Data..=) Prelude.<$> labels,
+            ("scope" Data..=) Prelude.<$> scope,
+            ("driver" Data..=) Prelude.<$> driver
           ]
       )

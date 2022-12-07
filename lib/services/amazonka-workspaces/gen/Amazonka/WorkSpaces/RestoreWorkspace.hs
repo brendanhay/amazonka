@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,32 +103,32 @@ instance Prelude.Hashable RestoreWorkspace where
 instance Prelude.NFData RestoreWorkspace where
   rnf RestoreWorkspace' {..} = Prelude.rnf workspaceId
 
-instance Core.ToHeaders RestoreWorkspace where
+instance Data.ToHeaders RestoreWorkspace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.RestoreWorkspace" ::
+              Data.=# ( "WorkspacesService.RestoreWorkspace" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RestoreWorkspace where
+instance Data.ToJSON RestoreWorkspace where
   toJSON RestoreWorkspace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("WorkspaceId" Core..= workspaceId)]
+          [Prelude.Just ("WorkspaceId" Data..= workspaceId)]
       )
 
-instance Core.ToPath RestoreWorkspace where
+instance Data.ToPath RestoreWorkspace where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreWorkspace where
+instance Data.ToQuery RestoreWorkspace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRestoreWorkspaceResponse' smart constructor.

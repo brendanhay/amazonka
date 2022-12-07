@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ExportSnapshotRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.DestinationInfo
 import Amazonka.Lightsail.Types.ExportSnapshotRecordSourceInfo
 import Amazonka.Lightsail.Types.RecordState
@@ -46,7 +47,7 @@ data ExportSnapshotRecord = ExportSnapshotRecord'
     -- located.
     location :: Prelude.Maybe ResourceLocation,
     -- | The date when the export snapshot record was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | A list of objects describing the destination of the export snapshot
     -- record.
     destinationInfo :: Prelude.Maybe DestinationInfo
@@ -120,27 +121,27 @@ exportSnapshotRecord_location = Lens.lens (\ExportSnapshotRecord' {location} -> 
 
 -- | The date when the export snapshot record was created.
 exportSnapshotRecord_createdAt :: Lens.Lens' ExportSnapshotRecord (Prelude.Maybe Prelude.UTCTime)
-exportSnapshotRecord_createdAt = Lens.lens (\ExportSnapshotRecord' {createdAt} -> createdAt) (\s@ExportSnapshotRecord' {} a -> s {createdAt = a} :: ExportSnapshotRecord) Prelude.. Lens.mapping Core._Time
+exportSnapshotRecord_createdAt = Lens.lens (\ExportSnapshotRecord' {createdAt} -> createdAt) (\s@ExportSnapshotRecord' {} a -> s {createdAt = a} :: ExportSnapshotRecord) Prelude.. Lens.mapping Data._Time
 
 -- | A list of objects describing the destination of the export snapshot
 -- record.
 exportSnapshotRecord_destinationInfo :: Lens.Lens' ExportSnapshotRecord (Prelude.Maybe DestinationInfo)
 exportSnapshotRecord_destinationInfo = Lens.lens (\ExportSnapshotRecord' {destinationInfo} -> destinationInfo) (\s@ExportSnapshotRecord' {} a -> s {destinationInfo = a} :: ExportSnapshotRecord)
 
-instance Core.FromJSON ExportSnapshotRecord where
+instance Data.FromJSON ExportSnapshotRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExportSnapshotRecord"
       ( \x ->
           ExportSnapshotRecord'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "sourceInfo")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "destinationInfo")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "sourceInfo")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "destinationInfo")
       )
 
 instance Prelude.Hashable ExportSnapshotRecord where

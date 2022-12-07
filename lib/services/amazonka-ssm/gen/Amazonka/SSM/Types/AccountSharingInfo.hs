@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.AccountSharingInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information includes the Amazon Web Services account ID where the
@@ -62,14 +63,14 @@ accountSharingInfo_accountId = Lens.lens (\AccountSharingInfo' {accountId} -> ac
 accountSharingInfo_sharedDocumentVersion :: Lens.Lens' AccountSharingInfo (Prelude.Maybe Prelude.Text)
 accountSharingInfo_sharedDocumentVersion = Lens.lens (\AccountSharingInfo' {sharedDocumentVersion} -> sharedDocumentVersion) (\s@AccountSharingInfo' {} a -> s {sharedDocumentVersion = a} :: AccountSharingInfo)
 
-instance Core.FromJSON AccountSharingInfo where
+instance Data.FromJSON AccountSharingInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountSharingInfo"
       ( \x ->
           AccountSharingInfo'
-            Prelude.<$> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "SharedDocumentVersion")
+            Prelude.<$> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "SharedDocumentVersion")
       )
 
 instance Prelude.Hashable AccountSharingInfo where

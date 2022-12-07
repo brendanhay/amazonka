@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.SidewalkDevice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.CertificateList
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,18 +81,18 @@ sidewalkDevice_amazonId = Lens.lens (\SidewalkDevice' {amazonId} -> amazonId) (\
 sidewalkDevice_sidewalkManufacturingSn :: Lens.Lens' SidewalkDevice (Prelude.Maybe Prelude.Text)
 sidewalkDevice_sidewalkManufacturingSn = Lens.lens (\SidewalkDevice' {sidewalkManufacturingSn} -> sidewalkManufacturingSn) (\s@SidewalkDevice' {} a -> s {sidewalkManufacturingSn = a} :: SidewalkDevice)
 
-instance Core.FromJSON SidewalkDevice where
+instance Data.FromJSON SidewalkDevice where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SidewalkDevice"
       ( \x ->
           SidewalkDevice'
-            Prelude.<$> ( x Core..:? "DeviceCertificates"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "DeviceCertificates"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SidewalkId")
-            Prelude.<*> (x Core..:? "AmazonId")
-            Prelude.<*> (x Core..:? "SidewalkManufacturingSn")
+            Prelude.<*> (x Data..:? "SidewalkId")
+            Prelude.<*> (x Data..:? "AmazonId")
+            Prelude.<*> (x Data..:? "SidewalkManufacturingSn")
       )
 
 instance Prelude.Hashable SidewalkDevice where

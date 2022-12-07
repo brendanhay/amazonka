@@ -21,6 +21,7 @@ module Amazonka.ApiGatewayV2.Types.Model where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a data model for an API. Supported only for WebSocket APIs.
@@ -95,17 +96,17 @@ model_contentType = Lens.lens (\Model' {contentType} -> contentType) (\s@Model' 
 model_name :: Lens.Lens' Model Prelude.Text
 model_name = Lens.lens (\Model' {name} -> name) (\s@Model' {} a -> s {name = a} :: Model)
 
-instance Core.FromJSON Model where
+instance Data.FromJSON Model where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Model"
       ( \x ->
           Model'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "schema")
-            Prelude.<*> (x Core..:? "modelId")
-            Prelude.<*> (x Core..:? "contentType")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "schema")
+            Prelude.<*> (x Data..:? "modelId")
+            Prelude.<*> (x Data..:? "contentType")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable Model where

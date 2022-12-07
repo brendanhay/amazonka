@@ -21,6 +21,7 @@ module Amazonka.AppSync.Types.ApiKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an API key.
@@ -130,16 +131,16 @@ apiKey_expires = Lens.lens (\ApiKey' {expires} -> expires) (\s@ApiKey' {} a -> s
 apiKey_deletes :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Integer)
 apiKey_deletes = Lens.lens (\ApiKey' {deletes} -> deletes) (\s@ApiKey' {} a -> s {deletes = a} :: ApiKey)
 
-instance Core.FromJSON ApiKey where
+instance Data.FromJSON ApiKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApiKey"
       ( \x ->
           ApiKey'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "expires")
-            Prelude.<*> (x Core..:? "deletes")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "expires")
+            Prelude.<*> (x Data..:? "deletes")
       )
 
 instance Prelude.Hashable ApiKey where

@@ -50,6 +50,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,36 +108,36 @@ instance Prelude.NFData PutConfigurationRecorder where
   rnf PutConfigurationRecorder' {..} =
     Prelude.rnf configurationRecorder
 
-instance Core.ToHeaders PutConfigurationRecorder where
+instance Data.ToHeaders PutConfigurationRecorder where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.PutConfigurationRecorder" ::
+              Data.=# ( "StarlingDoveService.PutConfigurationRecorder" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutConfigurationRecorder where
+instance Data.ToJSON PutConfigurationRecorder where
   toJSON PutConfigurationRecorder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ConfigurationRecorder"
-                  Core..= configurationRecorder
+                  Data..= configurationRecorder
               )
           ]
       )
 
-instance Core.ToPath PutConfigurationRecorder where
+instance Data.ToPath PutConfigurationRecorder where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutConfigurationRecorder where
+instance Data.ToQuery PutConfigurationRecorder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutConfigurationRecorderResponse' smart constructor.

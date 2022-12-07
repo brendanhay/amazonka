@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.RouterType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the virtual router.
@@ -100,18 +101,18 @@ routerType_xsltTemplateNameForMacSec = Lens.lens (\RouterType' {xsltTemplateName
 routerType_vendor :: Lens.Lens' RouterType (Prelude.Maybe Prelude.Text)
 routerType_vendor = Lens.lens (\RouterType' {vendor} -> vendor) (\s@RouterType' {} a -> s {vendor = a} :: RouterType)
 
-instance Core.FromJSON RouterType where
+instance Data.FromJSON RouterType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RouterType"
       ( \x ->
           RouterType'
-            Prelude.<$> (x Core..:? "xsltTemplateName")
-            Prelude.<*> (x Core..:? "routerTypeIdentifier")
-            Prelude.<*> (x Core..:? "software")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "xsltTemplateNameForMacSec")
-            Prelude.<*> (x Core..:? "vendor")
+            Prelude.<$> (x Data..:? "xsltTemplateName")
+            Prelude.<*> (x Data..:? "routerTypeIdentifier")
+            Prelude.<*> (x Data..:? "software")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "xsltTemplateNameForMacSec")
+            Prelude.<*> (x Data..:? "vendor")
       )
 
 instance Prelude.Hashable RouterType where

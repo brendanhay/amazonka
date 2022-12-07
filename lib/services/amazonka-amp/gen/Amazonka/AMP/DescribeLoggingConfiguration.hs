@@ -42,6 +42,7 @@ where
 import Amazonka.AMP.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,7 +90,7 @@ instance Core.AWSRequest DescribeLoggingConfiguration where
       ( \s h x ->
           DescribeLoggingConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "loggingConfiguration")
+            Prelude.<*> (x Data..:> "loggingConfiguration")
       )
 
 instance
@@ -103,23 +104,23 @@ instance Prelude.NFData DescribeLoggingConfiguration where
   rnf DescribeLoggingConfiguration' {..} =
     Prelude.rnf workspaceId
 
-instance Core.ToHeaders DescribeLoggingConfiguration where
+instance Data.ToHeaders DescribeLoggingConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeLoggingConfiguration where
+instance Data.ToPath DescribeLoggingConfiguration where
   toPath DescribeLoggingConfiguration' {..} =
     Prelude.mconcat
-      ["/workspaces/", Core.toBS workspaceId, "/logging"]
+      ["/workspaces/", Data.toBS workspaceId, "/logging"]
 
-instance Core.ToQuery DescribeLoggingConfiguration where
+instance Data.ToQuery DescribeLoggingConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a DescribeLoggingConfiguration operation.

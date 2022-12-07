@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,9 +162,9 @@ instance Core.AWSRequest CreateApplication where
       ( \s h x ->
           CreateApplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "applicationArn")
-            Prelude.<*> (x Core..:> "applicationId")
-            Prelude.<*> (x Core..:> "applicationVersion")
+            Prelude.<*> (x Data..:> "applicationArn")
+            Prelude.<*> (x Data..:> "applicationId")
+            Prelude.<*> (x Data..:> "applicationVersion")
       )
 
 instance Prelude.Hashable CreateApplication where
@@ -184,34 +185,34 @@ instance Prelude.NFData CreateApplication where
       `Prelude.seq` Prelude.rnf engineType
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateApplication where
+instance Data.ToHeaders CreateApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApplication where
+instance Data.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("definition" Core..= definition),
-            Prelude.Just ("engineType" Core..= engineType),
-            Prelude.Just ("name" Core..= name)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("definition" Data..= definition),
+            Prelude.Just ("engineType" Data..= engineType),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateApplication where
+instance Data.ToPath CreateApplication where
   toPath = Prelude.const "/applications"
 
-instance Core.ToQuery CreateApplication where
+instance Data.ToQuery CreateApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateApplicationResponse' smart constructor.

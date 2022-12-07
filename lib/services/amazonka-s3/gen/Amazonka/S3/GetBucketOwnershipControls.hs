@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,7 +119,7 @@ instance Core.AWSRequest GetBucketOwnershipControls where
     Response.receiveXML
       ( \s h x ->
           GetBucketOwnershipControlsResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,18 +133,18 @@ instance Prelude.NFData GetBucketOwnershipControls where
     Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders GetBucketOwnershipControls where
+instance Data.ToHeaders GetBucketOwnershipControls where
   toHeaders GetBucketOwnershipControls' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath GetBucketOwnershipControls where
+instance Data.ToPath GetBucketOwnershipControls where
   toPath GetBucketOwnershipControls' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery GetBucketOwnershipControls where
+instance Data.ToQuery GetBucketOwnershipControls where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["ownershipControls"])

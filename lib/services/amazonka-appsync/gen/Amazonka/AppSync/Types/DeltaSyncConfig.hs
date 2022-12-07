@@ -21,6 +21,7 @@ module Amazonka.AppSync.Types.DeltaSyncConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a Delta Sync configuration.
@@ -73,15 +74,15 @@ deltaSyncConfig_deltaSyncTableName = Lens.lens (\DeltaSyncConfig' {deltaSyncTabl
 deltaSyncConfig_deltaSyncTableTTL :: Lens.Lens' DeltaSyncConfig (Prelude.Maybe Prelude.Integer)
 deltaSyncConfig_deltaSyncTableTTL = Lens.lens (\DeltaSyncConfig' {deltaSyncTableTTL} -> deltaSyncTableTTL) (\s@DeltaSyncConfig' {} a -> s {deltaSyncTableTTL = a} :: DeltaSyncConfig)
 
-instance Core.FromJSON DeltaSyncConfig where
+instance Data.FromJSON DeltaSyncConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeltaSyncConfig"
       ( \x ->
           DeltaSyncConfig'
-            Prelude.<$> (x Core..:? "baseTableTTL")
-            Prelude.<*> (x Core..:? "deltaSyncTableName")
-            Prelude.<*> (x Core..:? "deltaSyncTableTTL")
+            Prelude.<$> (x Data..:? "baseTableTTL")
+            Prelude.<*> (x Data..:? "deltaSyncTableName")
+            Prelude.<*> (x Data..:? "deltaSyncTableTTL")
       )
 
 instance Prelude.Hashable DeltaSyncConfig where
@@ -96,14 +97,14 @@ instance Prelude.NFData DeltaSyncConfig where
       `Prelude.seq` Prelude.rnf deltaSyncTableName
       `Prelude.seq` Prelude.rnf deltaSyncTableTTL
 
-instance Core.ToJSON DeltaSyncConfig where
+instance Data.ToJSON DeltaSyncConfig where
   toJSON DeltaSyncConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("baseTableTTL" Core..=) Prelude.<$> baseTableTTL,
-            ("deltaSyncTableName" Core..=)
+          [ ("baseTableTTL" Data..=) Prelude.<$> baseTableTTL,
+            ("deltaSyncTableName" Data..=)
               Prelude.<$> deltaSyncTableName,
-            ("deltaSyncTableTTL" Core..=)
+            ("deltaSyncTableTTL" Data..=)
               Prelude.<$> deltaSyncTableTTL
           ]
       )

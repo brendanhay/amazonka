@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ListEventsFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.EventClass
 import Amazonka.DevOpsGuru.Types.EventDataSource
 import Amazonka.DevOpsGuru.Types.EventTimeRange
@@ -132,17 +133,17 @@ instance Prelude.NFData ListEventsFilters where
       `Prelude.seq` Prelude.rnf eventTimeRange
       `Prelude.seq` Prelude.rnf eventSource
 
-instance Core.ToJSON ListEventsFilters where
+instance Data.ToJSON ListEventsFilters where
   toJSON ListEventsFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceCollection" Core..=)
+          [ ("ResourceCollection" Data..=)
               Prelude.<$> resourceCollection,
-            ("InsightId" Core..=) Prelude.<$> insightId,
-            ("DataSource" Core..=) Prelude.<$> dataSource,
-            ("EventClass" Core..=) Prelude.<$> eventClass,
-            ("EventTimeRange" Core..=)
+            ("InsightId" Data..=) Prelude.<$> insightId,
+            ("DataSource" Data..=) Prelude.<$> dataSource,
+            ("EventClass" Data..=) Prelude.<$> eventClass,
+            ("EventTimeRange" Data..=)
               Prelude.<$> eventTimeRange,
-            ("EventSource" Core..=) Prelude.<$> eventSource
+            ("EventSource" Data..=) Prelude.<$> eventSource
           ]
       )

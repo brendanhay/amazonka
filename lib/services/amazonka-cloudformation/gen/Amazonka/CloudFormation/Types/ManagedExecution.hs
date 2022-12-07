@@ -21,6 +21,7 @@ module Amazonka.CloudFormation.Types.ManagedExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes whether StackSets performs non-conflicting operations
@@ -84,9 +85,9 @@ newManagedExecution =
 managedExecution_active :: Lens.Lens' ManagedExecution (Prelude.Maybe Prelude.Bool)
 managedExecution_active = Lens.lens (\ManagedExecution' {active} -> active) (\s@ManagedExecution' {} a -> s {active = a} :: ManagedExecution)
 
-instance Core.FromXML ManagedExecution where
+instance Data.FromXML ManagedExecution where
   parseXML x =
-    ManagedExecution' Prelude.<$> (x Core..@? "Active")
+    ManagedExecution' Prelude.<$> (x Data..@? "Active")
 
 instance Prelude.Hashable ManagedExecution where
   hashWithSalt _salt ManagedExecution' {..} =
@@ -95,6 +96,6 @@ instance Prelude.Hashable ManagedExecution where
 instance Prelude.NFData ManagedExecution where
   rnf ManagedExecution' {..} = Prelude.rnf active
 
-instance Core.ToQuery ManagedExecution where
+instance Data.ToQuery ManagedExecution where
   toQuery ManagedExecution' {..} =
-    Prelude.mconcat ["Active" Core.=: active]
+    Prelude.mconcat ["Active" Data.=: active]

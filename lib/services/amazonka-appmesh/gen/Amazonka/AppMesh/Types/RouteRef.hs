@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.RouteRef where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a route returned by a list operation.
@@ -30,10 +31,10 @@ data RouteRef = RouteRef'
   { -- | The full Amazon Resource Name (ARN) for the route.
     arn :: Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The Unix epoch timestamp in seconds for when the resource was last
     -- updated.
-    lastUpdatedAt :: Core.POSIX,
+    lastUpdatedAt :: Data.POSIX,
     -- | The name of the service mesh that the route resides in.
     meshName :: Prelude.Text,
     -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
@@ -123,8 +124,8 @@ newRouteRef
   pVirtualRouterName_ =
     RouteRef'
       { arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastUpdatedAt = Core._Time Lens.# pLastUpdatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_,
         meshName = pMeshName_,
         meshOwner = pMeshOwner_,
         resourceOwner = pResourceOwner_,
@@ -139,12 +140,12 @@ routeRef_arn = Lens.lens (\RouteRef' {arn} -> arn) (\s@RouteRef' {} a -> s {arn 
 
 -- | The Unix epoch timestamp in seconds for when the resource was created.
 routeRef_createdAt :: Lens.Lens' RouteRef Prelude.UTCTime
-routeRef_createdAt = Lens.lens (\RouteRef' {createdAt} -> createdAt) (\s@RouteRef' {} a -> s {createdAt = a} :: RouteRef) Prelude.. Core._Time
+routeRef_createdAt = Lens.lens (\RouteRef' {createdAt} -> createdAt) (\s@RouteRef' {} a -> s {createdAt = a} :: RouteRef) Prelude.. Data._Time
 
 -- | The Unix epoch timestamp in seconds for when the resource was last
 -- updated.
 routeRef_lastUpdatedAt :: Lens.Lens' RouteRef Prelude.UTCTime
-routeRef_lastUpdatedAt = Lens.lens (\RouteRef' {lastUpdatedAt} -> lastUpdatedAt) (\s@RouteRef' {} a -> s {lastUpdatedAt = a} :: RouteRef) Prelude.. Core._Time
+routeRef_lastUpdatedAt = Lens.lens (\RouteRef' {lastUpdatedAt} -> lastUpdatedAt) (\s@RouteRef' {} a -> s {lastUpdatedAt = a} :: RouteRef) Prelude.. Data._Time
 
 -- | The name of the service mesh that the route resides in.
 routeRef_meshName :: Lens.Lens' RouteRef Prelude.Text
@@ -178,21 +179,21 @@ routeRef_version = Lens.lens (\RouteRef' {version} -> version) (\s@RouteRef' {} 
 routeRef_virtualRouterName :: Lens.Lens' RouteRef Prelude.Text
 routeRef_virtualRouterName = Lens.lens (\RouteRef' {virtualRouterName} -> virtualRouterName) (\s@RouteRef' {} a -> s {virtualRouterName = a} :: RouteRef)
 
-instance Core.FromJSON RouteRef where
+instance Data.FromJSON RouteRef where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RouteRef"
       ( \x ->
           RouteRef'
-            Prelude.<$> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "lastUpdatedAt")
-            Prelude.<*> (x Core..: "meshName")
-            Prelude.<*> (x Core..: "meshOwner")
-            Prelude.<*> (x Core..: "resourceOwner")
-            Prelude.<*> (x Core..: "routeName")
-            Prelude.<*> (x Core..: "version")
-            Prelude.<*> (x Core..: "virtualRouterName")
+            Prelude.<$> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "lastUpdatedAt")
+            Prelude.<*> (x Data..: "meshName")
+            Prelude.<*> (x Data..: "meshOwner")
+            Prelude.<*> (x Data..: "resourceOwner")
+            Prelude.<*> (x Data..: "routeName")
+            Prelude.<*> (x Data..: "version")
+            Prelude.<*> (x Data..: "virtualRouterName")
       )
 
 instance Prelude.Hashable RouteRef where

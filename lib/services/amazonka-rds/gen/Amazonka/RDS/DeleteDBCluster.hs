@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -198,7 +199,7 @@ instance Core.AWSRequest DeleteDBCluster where
       "DeleteDBClusterResult"
       ( \s h x ->
           DeleteDBClusterResponse'
-            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<$> (x Data..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -215,23 +216,23 @@ instance Prelude.NFData DeleteDBCluster where
       `Prelude.seq` Prelude.rnf skipFinalSnapshot
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
 
-instance Core.ToHeaders DeleteDBCluster where
+instance Data.ToHeaders DeleteDBCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteDBCluster where
+instance Data.ToPath DeleteDBCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDBCluster where
+instance Data.ToQuery DeleteDBCluster where
   toQuery DeleteDBCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDBCluster" :: Prelude.ByteString),
+          Data.=: ("DeleteDBCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "FinalDBSnapshotIdentifier"
-          Core.=: finalDBSnapshotIdentifier,
-        "SkipFinalSnapshot" Core.=: skipFinalSnapshot,
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier
+          Data.=: finalDBSnapshotIdentifier,
+        "SkipFinalSnapshot" Data.=: skipFinalSnapshot,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier
       ]
 
 -- | /See:/ 'newDeleteDBClusterResponse' smart constructor.

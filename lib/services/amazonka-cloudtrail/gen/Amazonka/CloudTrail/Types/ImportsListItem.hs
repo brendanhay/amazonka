@@ -22,6 +22,7 @@ module Amazonka.CloudTrail.Types.ImportsListItem where
 import Amazonka.CloudTrail.Types.ImportStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an import that was returned by a lookup
@@ -30,9 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newImportsListItem' smart constructor.
 data ImportsListItem = ImportsListItem'
   { -- | The timestamp of the import\'s creation.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The timestamp of the import\'s last update.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The ID of the import.
     importId :: Prelude.Maybe Prelude.Text,
     -- | The status of the import.
@@ -73,11 +74,11 @@ newImportsListItem =
 
 -- | The timestamp of the import\'s creation.
 importsListItem_createdTimestamp :: Lens.Lens' ImportsListItem (Prelude.Maybe Prelude.UTCTime)
-importsListItem_createdTimestamp = Lens.lens (\ImportsListItem' {createdTimestamp} -> createdTimestamp) (\s@ImportsListItem' {} a -> s {createdTimestamp = a} :: ImportsListItem) Prelude.. Lens.mapping Core._Time
+importsListItem_createdTimestamp = Lens.lens (\ImportsListItem' {createdTimestamp} -> createdTimestamp) (\s@ImportsListItem' {} a -> s {createdTimestamp = a} :: ImportsListItem) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of the import\'s last update.
 importsListItem_updatedTimestamp :: Lens.Lens' ImportsListItem (Prelude.Maybe Prelude.UTCTime)
-importsListItem_updatedTimestamp = Lens.lens (\ImportsListItem' {updatedTimestamp} -> updatedTimestamp) (\s@ImportsListItem' {} a -> s {updatedTimestamp = a} :: ImportsListItem) Prelude.. Lens.mapping Core._Time
+importsListItem_updatedTimestamp = Lens.lens (\ImportsListItem' {updatedTimestamp} -> updatedTimestamp) (\s@ImportsListItem' {} a -> s {updatedTimestamp = a} :: ImportsListItem) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the import.
 importsListItem_importId :: Lens.Lens' ImportsListItem (Prelude.Maybe Prelude.Text)
@@ -91,17 +92,17 @@ importsListItem_importStatus = Lens.lens (\ImportsListItem' {importStatus} -> im
 importsListItem_destinations :: Lens.Lens' ImportsListItem (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 importsListItem_destinations = Lens.lens (\ImportsListItem' {destinations} -> destinations) (\s@ImportsListItem' {} a -> s {destinations = a} :: ImportsListItem) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ImportsListItem where
+instance Data.FromJSON ImportsListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportsListItem"
       ( \x ->
           ImportsListItem'
-            Prelude.<$> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "UpdatedTimestamp")
-            Prelude.<*> (x Core..:? "ImportId")
-            Prelude.<*> (x Core..:? "ImportStatus")
-            Prelude.<*> (x Core..:? "Destinations")
+            Prelude.<$> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
+            Prelude.<*> (x Data..:? "ImportId")
+            Prelude.<*> (x Data..:? "ImportStatus")
+            Prelude.<*> (x Data..:? "Destinations")
       )
 
 instance Prelude.Hashable ImportsListItem where

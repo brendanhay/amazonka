@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,9 +137,9 @@ instance Core.AWSRequest ListDeployments where
     Response.receiveJSON
       ( \s h x ->
           ListDeploymentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "deployments" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "deployments" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListDeployments where
@@ -153,30 +154,30 @@ instance Prelude.NFData ListDeployments where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders ListDeployments where
+instance Data.ToHeaders ListDeployments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListDeployments where
+instance Data.ToPath ListDeployments where
   toPath ListDeployments' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/deployments"
       ]
 
-instance Core.ToQuery ListDeployments where
+instance Data.ToQuery ListDeployments where
   toQuery ListDeployments' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListDeploymentsResponse' smart constructor.

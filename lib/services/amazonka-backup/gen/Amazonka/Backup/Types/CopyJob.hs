@@ -23,6 +23,7 @@ import Amazonka.Backup.Types.CopyJobState
 import Amazonka.Backup.Types.RecoveryPointCreator
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains detailed information about a copy job.
@@ -37,14 +38,14 @@ data CopyJob = CopyJob'
     -- Coordinated Universal Time (UTC). The value of @CompletionDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    completionDate :: Prelude.Maybe Core.POSIX,
+    completionDate :: Prelude.Maybe Data.POSIX,
     -- | The current state of a copy job.
     state :: Prelude.Maybe CopyJobState,
     -- | The date and time a copy job is created, in Unix format and Coordinated
     -- Universal Time (UTC). The value of @CreationDate@ is accurate to
     -- milliseconds. For example, the value 1516925490.087 represents Friday,
     -- January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | An Amazon Resource Name (ARN) that uniquely identifies a destination
     -- copy vault; for example,
     -- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
@@ -166,7 +167,7 @@ copyJob_resourceType = Lens.lens (\CopyJob' {resourceType} -> resourceType) (\s@
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 copyJob_completionDate :: Lens.Lens' CopyJob (Prelude.Maybe Prelude.UTCTime)
-copyJob_completionDate = Lens.lens (\CopyJob' {completionDate} -> completionDate) (\s@CopyJob' {} a -> s {completionDate = a} :: CopyJob) Prelude.. Lens.mapping Core._Time
+copyJob_completionDate = Lens.lens (\CopyJob' {completionDate} -> completionDate) (\s@CopyJob' {} a -> s {completionDate = a} :: CopyJob) Prelude.. Lens.mapping Data._Time
 
 -- | The current state of a copy job.
 copyJob_state :: Lens.Lens' CopyJob (Prelude.Maybe CopyJobState)
@@ -177,7 +178,7 @@ copyJob_state = Lens.lens (\CopyJob' {state} -> state) (\s@CopyJob' {} a -> s {s
 -- milliseconds. For example, the value 1516925490.087 represents Friday,
 -- January 26, 2018 12:11:30.087 AM.
 copyJob_creationDate :: Lens.Lens' CopyJob (Prelude.Maybe Prelude.UTCTime)
-copyJob_creationDate = Lens.lens (\CopyJob' {creationDate} -> creationDate) (\s@CopyJob' {} a -> s {creationDate = a} :: CopyJob) Prelude.. Lens.mapping Core._Time
+copyJob_creationDate = Lens.lens (\CopyJob' {creationDate} -> creationDate) (\s@CopyJob' {} a -> s {creationDate = a} :: CopyJob) Prelude.. Lens.mapping Data._Time
 
 -- | An Amazon Resource Name (ARN) that uniquely identifies a destination
 -- copy vault; for example,
@@ -233,27 +234,27 @@ copyJob_createdBy = Lens.lens (\CopyJob' {createdBy} -> createdBy) (\s@CopyJob' 
 copyJob_sourceRecoveryPointArn :: Lens.Lens' CopyJob (Prelude.Maybe Prelude.Text)
 copyJob_sourceRecoveryPointArn = Lens.lens (\CopyJob' {sourceRecoveryPointArn} -> sourceRecoveryPointArn) (\s@CopyJob' {} a -> s {sourceRecoveryPointArn = a} :: CopyJob)
 
-instance Core.FromJSON CopyJob where
+instance Data.FromJSON CopyJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CopyJob"
       ( \x ->
           CopyJob'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "CompletionDate")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "DestinationBackupVaultArn")
-            Prelude.<*> (x Core..:? "BackupSizeInBytes")
-            Prelude.<*> (x Core..:? "IamRoleArn")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "DestinationRecoveryPointArn")
-            Prelude.<*> (x Core..:? "CopyJobId")
-            Prelude.<*> (x Core..:? "SourceBackupVaultArn")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "SourceRecoveryPointArn")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "CompletionDate")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "DestinationBackupVaultArn")
+            Prelude.<*> (x Data..:? "BackupSizeInBytes")
+            Prelude.<*> (x Data..:? "IamRoleArn")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "DestinationRecoveryPointArn")
+            Prelude.<*> (x Data..:? "CopyJobId")
+            Prelude.<*> (x Data..:? "SourceBackupVaultArn")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "SourceRecoveryPointArn")
       )
 
 instance Prelude.Hashable CopyJob where

@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.NetworkFirewallMissingSubnetViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Violation detail for Network Firewall for an Availability Zone that\'s
@@ -83,18 +84,18 @@ networkFirewallMissingSubnetViolation_targetViolationReason :: Lens.Lens' Networ
 networkFirewallMissingSubnetViolation_targetViolationReason = Lens.lens (\NetworkFirewallMissingSubnetViolation' {targetViolationReason} -> targetViolationReason) (\s@NetworkFirewallMissingSubnetViolation' {} a -> s {targetViolationReason = a} :: NetworkFirewallMissingSubnetViolation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     NetworkFirewallMissingSubnetViolation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkFirewallMissingSubnetViolation"
       ( \x ->
           NetworkFirewallMissingSubnetViolation'
-            Prelude.<$> (x Core..:? "VPC")
-            Prelude.<*> (x Core..:? "ViolationTarget")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "TargetViolationReason")
+            Prelude.<$> (x Data..:? "VPC")
+            Prelude.<*> (x Data..:? "ViolationTarget")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "TargetViolationReason")
       )
 
 instance

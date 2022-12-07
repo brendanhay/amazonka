@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.GreengrassOutputDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the AWS IoT Greengrass component created by a model
@@ -72,15 +73,15 @@ greengrassOutputDetails_componentName = Lens.lens (\GreengrassOutputDetails' {co
 greengrassOutputDetails_componentVersionArn :: Lens.Lens' GreengrassOutputDetails (Prelude.Maybe Prelude.Text)
 greengrassOutputDetails_componentVersionArn = Lens.lens (\GreengrassOutputDetails' {componentVersionArn} -> componentVersionArn) (\s@GreengrassOutputDetails' {} a -> s {componentVersionArn = a} :: GreengrassOutputDetails)
 
-instance Core.FromJSON GreengrassOutputDetails where
+instance Data.FromJSON GreengrassOutputDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GreengrassOutputDetails"
       ( \x ->
           GreengrassOutputDetails'
-            Prelude.<$> (x Core..:? "ComponentVersion")
-            Prelude.<*> (x Core..:? "ComponentName")
-            Prelude.<*> (x Core..:? "ComponentVersionArn")
+            Prelude.<$> (x Data..:? "ComponentVersion")
+            Prelude.<*> (x Data..:? "ComponentName")
+            Prelude.<*> (x Data..:? "ComponentVersionArn")
       )
 
 instance Prelude.Hashable GreengrassOutputDetails where

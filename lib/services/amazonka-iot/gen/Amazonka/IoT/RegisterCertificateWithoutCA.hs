@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,8 +100,8 @@ instance Core.AWSRequest RegisterCertificateWithoutCA where
     Response.receiveJSON
       ( \s h x ->
           RegisterCertificateWithoutCAResponse'
-            Prelude.<$> (x Core..?> "certificateArn")
-            Prelude.<*> (x Core..?> "certificateId")
+            Prelude.<$> (x Data..?> "certificateArn")
+            Prelude.<*> (x Data..?> "certificateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,23 +118,23 @@ instance Prelude.NFData RegisterCertificateWithoutCA where
     Prelude.rnf status
       `Prelude.seq` Prelude.rnf certificatePem
 
-instance Core.ToHeaders RegisterCertificateWithoutCA where
+instance Data.ToHeaders RegisterCertificateWithoutCA where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON RegisterCertificateWithoutCA where
+instance Data.ToJSON RegisterCertificateWithoutCA where
   toJSON RegisterCertificateWithoutCA' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("status" Core..=) Prelude.<$> status,
+          [ ("status" Data..=) Prelude.<$> status,
             Prelude.Just
-              ("certificatePem" Core..= certificatePem)
+              ("certificatePem" Data..= certificatePem)
           ]
       )
 
-instance Core.ToPath RegisterCertificateWithoutCA where
+instance Data.ToPath RegisterCertificateWithoutCA where
   toPath = Prelude.const "/certificate/register-no-ca"
 
-instance Core.ToQuery RegisterCertificateWithoutCA where
+instance Data.ToQuery RegisterCertificateWithoutCA where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterCertificateWithoutCAResponse' smart constructor.

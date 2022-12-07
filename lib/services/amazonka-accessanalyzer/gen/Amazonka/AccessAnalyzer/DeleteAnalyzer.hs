@@ -42,6 +42,7 @@ where
 import Amazonka.AccessAnalyzer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,25 +106,25 @@ instance Prelude.NFData DeleteAnalyzer where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf analyzerName
 
-instance Core.ToHeaders DeleteAnalyzer where
+instance Data.ToHeaders DeleteAnalyzer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteAnalyzer where
+instance Data.ToPath DeleteAnalyzer where
   toPath DeleteAnalyzer' {..} =
     Prelude.mconcat
-      ["/analyzer/", Core.toBS analyzerName]
+      ["/analyzer/", Data.toBS analyzerName]
 
-instance Core.ToQuery DeleteAnalyzer where
+instance Data.ToQuery DeleteAnalyzer where
   toQuery DeleteAnalyzer' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | /See:/ 'newDeleteAnalyzerResponse' smart constructor.
 data DeleteAnalyzerResponse = DeleteAnalyzerResponse'

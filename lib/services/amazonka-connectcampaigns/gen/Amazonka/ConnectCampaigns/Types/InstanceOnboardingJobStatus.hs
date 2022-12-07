@@ -23,6 +23,7 @@ import Amazonka.ConnectCampaigns.Types.InstanceOnboardingJobFailureCode
 import Amazonka.ConnectCampaigns.Types.InstanceOnboardingJobStatusCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Instance onboarding job status object
@@ -76,15 +77,15 @@ instanceOnboardingJobStatus_connectInstanceId = Lens.lens (\InstanceOnboardingJo
 instanceOnboardingJobStatus_status :: Lens.Lens' InstanceOnboardingJobStatus InstanceOnboardingJobStatusCode
 instanceOnboardingJobStatus_status = Lens.lens (\InstanceOnboardingJobStatus' {status} -> status) (\s@InstanceOnboardingJobStatus' {} a -> s {status = a} :: InstanceOnboardingJobStatus)
 
-instance Core.FromJSON InstanceOnboardingJobStatus where
+instance Data.FromJSON InstanceOnboardingJobStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceOnboardingJobStatus"
       ( \x ->
           InstanceOnboardingJobStatus'
-            Prelude.<$> (x Core..:? "failureCode")
-            Prelude.<*> (x Core..: "connectInstanceId")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "failureCode")
+            Prelude.<*> (x Data..: "connectInstanceId")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable InstanceOnboardingJobStatus where

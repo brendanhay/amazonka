@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VCpuCountRangeRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,7 +77,7 @@ instance Prelude.NFData VCpuCountRangeRequest where
   rnf VCpuCountRangeRequest' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery VCpuCountRangeRequest where
+instance Data.ToQuery VCpuCountRangeRequest where
   toQuery VCpuCountRangeRequest' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

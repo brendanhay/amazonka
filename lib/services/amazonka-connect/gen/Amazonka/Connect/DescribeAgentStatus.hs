@@ -46,6 +46,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,7 +104,7 @@ instance Core.AWSRequest DescribeAgentStatus where
     Response.receiveJSON
       ( \s h x ->
           DescribeAgentStatusResponse'
-            Prelude.<$> (x Core..?> "AgentStatus")
+            Prelude.<$> (x Data..?> "AgentStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,27 +118,27 @@ instance Prelude.NFData DescribeAgentStatus where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf agentStatusId
 
-instance Core.ToHeaders DescribeAgentStatus where
+instance Data.ToHeaders DescribeAgentStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeAgentStatus where
+instance Data.ToPath DescribeAgentStatus where
   toPath DescribeAgentStatus' {..} =
     Prelude.mconcat
       [ "/agent-status/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS agentStatusId
+        Data.toBS agentStatusId
       ]
 
-instance Core.ToQuery DescribeAgentStatus where
+instance Data.ToQuery DescribeAgentStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAgentStatusResponse' smart constructor.

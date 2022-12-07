@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.InferenceInputConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.InferenceInputNameConfiguration
 import Amazonka.LookoutEquipment.Types.InferenceS3InputConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -84,15 +85,15 @@ inferenceInputConfiguration_s3InputConfiguration = Lens.lens (\InferenceInputCon
 inferenceInputConfiguration_inferenceInputNameConfiguration :: Lens.Lens' InferenceInputConfiguration (Prelude.Maybe InferenceInputNameConfiguration)
 inferenceInputConfiguration_inferenceInputNameConfiguration = Lens.lens (\InferenceInputConfiguration' {inferenceInputNameConfiguration} -> inferenceInputNameConfiguration) (\s@InferenceInputConfiguration' {} a -> s {inferenceInputNameConfiguration = a} :: InferenceInputConfiguration)
 
-instance Core.FromJSON InferenceInputConfiguration where
+instance Data.FromJSON InferenceInputConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InferenceInputConfiguration"
       ( \x ->
           InferenceInputConfiguration'
-            Prelude.<$> (x Core..:? "InputTimeZoneOffset")
-            Prelude.<*> (x Core..:? "S3InputConfiguration")
-            Prelude.<*> (x Core..:? "InferenceInputNameConfiguration")
+            Prelude.<$> (x Data..:? "InputTimeZoneOffset")
+            Prelude.<*> (x Data..:? "S3InputConfiguration")
+            Prelude.<*> (x Data..:? "InferenceInputNameConfiguration")
       )
 
 instance Prelude.Hashable InferenceInputConfiguration where
@@ -107,15 +108,15 @@ instance Prelude.NFData InferenceInputConfiguration where
       `Prelude.seq` Prelude.rnf s3InputConfiguration
       `Prelude.seq` Prelude.rnf inferenceInputNameConfiguration
 
-instance Core.ToJSON InferenceInputConfiguration where
+instance Data.ToJSON InferenceInputConfiguration where
   toJSON InferenceInputConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InputTimeZoneOffset" Core..=)
+          [ ("InputTimeZoneOffset" Data..=)
               Prelude.<$> inputTimeZoneOffset,
-            ("S3InputConfiguration" Core..=)
+            ("S3InputConfiguration" Data..=)
               Prelude.<$> s3InputConfiguration,
-            ("InferenceInputNameConfiguration" Core..=)
+            ("InferenceInputNameConfiguration" Data..=)
               Prelude.<$> inferenceInputNameConfiguration
           ]
       )

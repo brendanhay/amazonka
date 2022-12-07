@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,12 +56,12 @@ applicationVersionDescriptionMessage_applicationVersion :: Lens.Lens' Applicatio
 applicationVersionDescriptionMessage_applicationVersion = Lens.lens (\ApplicationVersionDescriptionMessage' {applicationVersion} -> applicationVersion) (\s@ApplicationVersionDescriptionMessage' {} a -> s {applicationVersion = a} :: ApplicationVersionDescriptionMessage)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ApplicationVersionDescriptionMessage
   where
   parseXML x =
     ApplicationVersionDescriptionMessage'
-      Prelude.<$> (x Core..@? "ApplicationVersion")
+      Prelude.<$> (x Data..@? "ApplicationVersion")
 
 instance
   Prelude.Hashable

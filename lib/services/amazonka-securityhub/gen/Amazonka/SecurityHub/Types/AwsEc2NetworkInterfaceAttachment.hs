@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2NetworkInterfaceAttachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the network interface attachment.
@@ -132,21 +133,21 @@ awsEc2NetworkInterfaceAttachment_instanceOwnerId :: Lens.Lens' AwsEc2NetworkInte
 awsEc2NetworkInterfaceAttachment_instanceOwnerId = Lens.lens (\AwsEc2NetworkInterfaceAttachment' {instanceOwnerId} -> instanceOwnerId) (\s@AwsEc2NetworkInterfaceAttachment' {} a -> s {instanceOwnerId = a} :: AwsEc2NetworkInterfaceAttachment)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEc2NetworkInterfaceAttachment
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2NetworkInterfaceAttachment"
       ( \x ->
           AwsEc2NetworkInterfaceAttachment'
-            Prelude.<$> (x Core..:? "DeleteOnTermination")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AttachmentId")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "AttachTime")
-            Prelude.<*> (x Core..:? "DeviceIndex")
-            Prelude.<*> (x Core..:? "InstanceOwnerId")
+            Prelude.<$> (x Data..:? "DeleteOnTermination")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "AttachmentId")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "AttachTime")
+            Prelude.<*> (x Data..:? "DeviceIndex")
+            Prelude.<*> (x Data..:? "InstanceOwnerId")
       )
 
 instance
@@ -177,18 +178,18 @@ instance
       `Prelude.seq` Prelude.rnf deviceIndex
       `Prelude.seq` Prelude.rnf instanceOwnerId
 
-instance Core.ToJSON AwsEc2NetworkInterfaceAttachment where
+instance Data.ToJSON AwsEc2NetworkInterfaceAttachment where
   toJSON AwsEc2NetworkInterfaceAttachment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeleteOnTermination" Core..=)
+          [ ("DeleteOnTermination" Data..=)
               Prelude.<$> deleteOnTermination,
-            ("Status" Core..=) Prelude.<$> status,
-            ("AttachmentId" Core..=) Prelude.<$> attachmentId,
-            ("InstanceId" Core..=) Prelude.<$> instanceId,
-            ("AttachTime" Core..=) Prelude.<$> attachTime,
-            ("DeviceIndex" Core..=) Prelude.<$> deviceIndex,
-            ("InstanceOwnerId" Core..=)
+            ("Status" Data..=) Prelude.<$> status,
+            ("AttachmentId" Data..=) Prelude.<$> attachmentId,
+            ("InstanceId" Data..=) Prelude.<$> instanceId,
+            ("AttachTime" Data..=) Prelude.<$> attachTime,
+            ("DeviceIndex" Data..=) Prelude.<$> deviceIndex,
+            ("InstanceOwnerId" Data..=)
               Prelude.<$> instanceOwnerId
           ]
       )

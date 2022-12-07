@@ -50,6 +50,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,7 +132,7 @@ instance Core.AWSRequest AttachObject where
     Response.receiveJSON
       ( \s h x ->
           AttachObjectResponse'
-            Prelude.<$> (x Core..?> "AttachedObjectIdentifier")
+            Prelude.<$> (x Data..?> "AttachedObjectIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,29 +150,29 @@ instance Prelude.NFData AttachObject where
       `Prelude.seq` Prelude.rnf childReference
       `Prelude.seq` Prelude.rnf linkName
 
-instance Core.ToHeaders AttachObject where
+instance Data.ToHeaders AttachObject where
   toHeaders AttachObject' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON AttachObject where
+instance Data.ToJSON AttachObject where
   toJSON AttachObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ParentReference" Core..= parentReference),
+              ("ParentReference" Data..= parentReference),
             Prelude.Just
-              ("ChildReference" Core..= childReference),
-            Prelude.Just ("LinkName" Core..= linkName)
+              ("ChildReference" Data..= childReference),
+            Prelude.Just ("LinkName" Data..= linkName)
           ]
       )
 
-instance Core.ToPath AttachObject where
+instance Data.ToPath AttachObject where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/object/attach"
 
-instance Core.ToQuery AttachObject where
+instance Data.ToQuery AttachObject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAttachObjectResponse' smart constructor.

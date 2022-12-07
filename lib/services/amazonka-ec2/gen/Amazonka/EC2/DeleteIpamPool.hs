@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,7 +115,7 @@ instance Core.AWSRequest DeleteIpamPool where
     Response.receiveXML
       ( \s h x ->
           DeleteIpamPoolResponse'
-            Prelude.<$> (x Core..@? "ipamPool")
+            Prelude.<$> (x Data..@? "ipamPool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,21 +129,21 @@ instance Prelude.NFData DeleteIpamPool where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf ipamPoolId
 
-instance Core.ToHeaders DeleteIpamPool where
+instance Data.ToHeaders DeleteIpamPool where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteIpamPool where
+instance Data.ToPath DeleteIpamPool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteIpamPool where
+instance Data.ToQuery DeleteIpamPool where
   toQuery DeleteIpamPool' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteIpamPool" :: Prelude.ByteString),
+          Data.=: ("DeleteIpamPool" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "IpamPoolId" Core.=: ipamPoolId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "IpamPoolId" Data.=: ipamPoolId
       ]
 
 -- | /See:/ 'newDeleteIpamPoolResponse' smart constructor.

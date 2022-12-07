@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.AudioNormalizationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AudioNormalizationAlgorithm
 import Amazonka.MediaLive.Types.AudioNormalizationAlgorithmControl
 import qualified Amazonka.Prelude as Prelude
@@ -91,15 +92,15 @@ audioNormalizationSettings_algorithm = Lens.lens (\AudioNormalizationSettings' {
 audioNormalizationSettings_algorithmControl :: Lens.Lens' AudioNormalizationSettings (Prelude.Maybe AudioNormalizationAlgorithmControl)
 audioNormalizationSettings_algorithmControl = Lens.lens (\AudioNormalizationSettings' {algorithmControl} -> algorithmControl) (\s@AudioNormalizationSettings' {} a -> s {algorithmControl = a} :: AudioNormalizationSettings)
 
-instance Core.FromJSON AudioNormalizationSettings where
+instance Data.FromJSON AudioNormalizationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioNormalizationSettings"
       ( \x ->
           AudioNormalizationSettings'
-            Prelude.<$> (x Core..:? "targetLkfs")
-            Prelude.<*> (x Core..:? "algorithm")
-            Prelude.<*> (x Core..:? "algorithmControl")
+            Prelude.<$> (x Data..:? "targetLkfs")
+            Prelude.<*> (x Data..:? "algorithm")
+            Prelude.<*> (x Data..:? "algorithmControl")
       )
 
 instance Prelude.Hashable AudioNormalizationSettings where
@@ -114,13 +115,13 @@ instance Prelude.NFData AudioNormalizationSettings where
       `Prelude.seq` Prelude.rnf algorithm
       `Prelude.seq` Prelude.rnf algorithmControl
 
-instance Core.ToJSON AudioNormalizationSettings where
+instance Data.ToJSON AudioNormalizationSettings where
   toJSON AudioNormalizationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetLkfs" Core..=) Prelude.<$> targetLkfs,
-            ("algorithm" Core..=) Prelude.<$> algorithm,
-            ("algorithmControl" Core..=)
+          [ ("targetLkfs" Data..=) Prelude.<$> targetLkfs,
+            ("algorithm" Data..=) Prelude.<$> algorithm,
+            ("algorithmControl" Data..=)
               Prelude.<$> algorithmControl
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.InferenceRecommendationsJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.RecommendationJobStatus
 import Amazonka.SageMaker.Types.RecommendationJobType
@@ -30,7 +31,7 @@ import Amazonka.SageMaker.Types.RecommendationJobType
 -- /See:/ 'newInferenceRecommendationsJob' smart constructor.
 data InferenceRecommendationsJob = InferenceRecommendationsJob'
   { -- | A timestamp that shows when the job completed.
-    completionTime :: Prelude.Maybe Core.POSIX,
+    completionTime :: Prelude.Maybe Data.POSIX,
     -- | If the job fails, provides information why the job failed.
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the job.
@@ -44,12 +45,12 @@ data InferenceRecommendationsJob = InferenceRecommendationsJob'
     -- | The status of the job.
     status :: RecommendationJobStatus,
     -- | A timestamp that shows when the job was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon
     -- SageMaker to perform tasks on your behalf.
     roleArn :: Prelude.Text,
     -- | A timestamp that shows when the job was last modified.
-    lastModifiedTime :: Core.POSIX
+    lastModifiedTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -118,15 +119,15 @@ newInferenceRecommendationsJob
         jobArn = pJobArn_,
         status = pStatus_,
         creationTime =
-          Core._Time Lens.# pCreationTime_,
+          Data._Time Lens.# pCreationTime_,
         roleArn = pRoleArn_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_
+          Data._Time Lens.# pLastModifiedTime_
       }
 
 -- | A timestamp that shows when the job completed.
 inferenceRecommendationsJob_completionTime :: Lens.Lens' InferenceRecommendationsJob (Prelude.Maybe Prelude.UTCTime)
-inferenceRecommendationsJob_completionTime = Lens.lens (\InferenceRecommendationsJob' {completionTime} -> completionTime) (\s@InferenceRecommendationsJob' {} a -> s {completionTime = a} :: InferenceRecommendationsJob) Prelude.. Lens.mapping Core._Time
+inferenceRecommendationsJob_completionTime = Lens.lens (\InferenceRecommendationsJob' {completionTime} -> completionTime) (\s@InferenceRecommendationsJob' {} a -> s {completionTime = a} :: InferenceRecommendationsJob) Prelude.. Lens.mapping Data._Time
 
 -- | If the job fails, provides information why the job failed.
 inferenceRecommendationsJob_failureReason :: Lens.Lens' InferenceRecommendationsJob (Prelude.Maybe Prelude.Text)
@@ -154,7 +155,7 @@ inferenceRecommendationsJob_status = Lens.lens (\InferenceRecommendationsJob' {s
 
 -- | A timestamp that shows when the job was created.
 inferenceRecommendationsJob_creationTime :: Lens.Lens' InferenceRecommendationsJob Prelude.UTCTime
-inferenceRecommendationsJob_creationTime = Lens.lens (\InferenceRecommendationsJob' {creationTime} -> creationTime) (\s@InferenceRecommendationsJob' {} a -> s {creationTime = a} :: InferenceRecommendationsJob) Prelude.. Core._Time
+inferenceRecommendationsJob_creationTime = Lens.lens (\InferenceRecommendationsJob' {creationTime} -> creationTime) (\s@InferenceRecommendationsJob' {} a -> s {creationTime = a} :: InferenceRecommendationsJob) Prelude.. Data._Time
 
 -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon
 -- SageMaker to perform tasks on your behalf.
@@ -163,24 +164,24 @@ inferenceRecommendationsJob_roleArn = Lens.lens (\InferenceRecommendationsJob' {
 
 -- | A timestamp that shows when the job was last modified.
 inferenceRecommendationsJob_lastModifiedTime :: Lens.Lens' InferenceRecommendationsJob Prelude.UTCTime
-inferenceRecommendationsJob_lastModifiedTime = Lens.lens (\InferenceRecommendationsJob' {lastModifiedTime} -> lastModifiedTime) (\s@InferenceRecommendationsJob' {} a -> s {lastModifiedTime = a} :: InferenceRecommendationsJob) Prelude.. Core._Time
+inferenceRecommendationsJob_lastModifiedTime = Lens.lens (\InferenceRecommendationsJob' {lastModifiedTime} -> lastModifiedTime) (\s@InferenceRecommendationsJob' {} a -> s {lastModifiedTime = a} :: InferenceRecommendationsJob) Prelude.. Data._Time
 
-instance Core.FromJSON InferenceRecommendationsJob where
+instance Data.FromJSON InferenceRecommendationsJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InferenceRecommendationsJob"
       ( \x ->
           InferenceRecommendationsJob'
-            Prelude.<$> (x Core..:? "CompletionTime")
-            Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..: "JobName")
-            Prelude.<*> (x Core..: "JobDescription")
-            Prelude.<*> (x Core..: "JobType")
-            Prelude.<*> (x Core..: "JobArn")
-            Prelude.<*> (x Core..: "Status")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "RoleArn")
-            Prelude.<*> (x Core..: "LastModifiedTime")
+            Prelude.<$> (x Data..:? "CompletionTime")
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..: "JobName")
+            Prelude.<*> (x Data..: "JobDescription")
+            Prelude.<*> (x Data..: "JobType")
+            Prelude.<*> (x Data..: "JobArn")
+            Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "RoleArn")
+            Prelude.<*> (x Data..: "LastModifiedTime")
       )
 
 instance Prelude.Hashable InferenceRecommendationsJob where

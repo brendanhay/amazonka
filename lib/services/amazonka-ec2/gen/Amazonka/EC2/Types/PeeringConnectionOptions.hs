@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PeeringConnectionOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -94,15 +95,15 @@ peeringConnectionOptions_allowEgressFromLocalVpcToRemoteClassicLink = Lens.lens 
 peeringConnectionOptions_allowEgressFromLocalClassicLinkToRemoteVpc :: Lens.Lens' PeeringConnectionOptions (Prelude.Maybe Prelude.Bool)
 peeringConnectionOptions_allowEgressFromLocalClassicLinkToRemoteVpc = Lens.lens (\PeeringConnectionOptions' {allowEgressFromLocalClassicLinkToRemoteVpc} -> allowEgressFromLocalClassicLinkToRemoteVpc) (\s@PeeringConnectionOptions' {} a -> s {allowEgressFromLocalClassicLinkToRemoteVpc = a} :: PeeringConnectionOptions)
 
-instance Core.FromXML PeeringConnectionOptions where
+instance Data.FromXML PeeringConnectionOptions where
   parseXML x =
     PeeringConnectionOptions'
-      Prelude.<$> (x Core..@? "allowDnsResolutionFromRemoteVpc")
+      Prelude.<$> (x Data..@? "allowDnsResolutionFromRemoteVpc")
       Prelude.<*> ( x
-                      Core..@? "allowEgressFromLocalVpcToRemoteClassicLink"
+                      Data..@? "allowEgressFromLocalVpcToRemoteClassicLink"
                   )
       Prelude.<*> ( x
-                      Core..@? "allowEgressFromLocalClassicLinkToRemoteVpc"
+                      Data..@? "allowEgressFromLocalClassicLinkToRemoteVpc"
                   )
 
 instance Prelude.Hashable PeeringConnectionOptions where

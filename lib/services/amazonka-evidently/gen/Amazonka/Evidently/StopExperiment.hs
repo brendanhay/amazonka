@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,7 +122,7 @@ instance Core.AWSRequest StopExperiment where
     Response.receiveJSON
       ( \s h x ->
           StopExperimentResponse'
-            Prelude.<$> (x Core..?> "endedTime")
+            Prelude.<$> (x Data..?> "endedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,43 +140,43 @@ instance Prelude.NFData StopExperiment where
       `Prelude.seq` Prelude.rnf experiment
       `Prelude.seq` Prelude.rnf project
 
-instance Core.ToHeaders StopExperiment where
+instance Data.ToHeaders StopExperiment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopExperiment where
+instance Data.ToJSON StopExperiment where
   toJSON StopExperiment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("desiredState" Core..=) Prelude.<$> desiredState,
-            ("reason" Core..=) Prelude.<$> reason
+          [ ("desiredState" Data..=) Prelude.<$> desiredState,
+            ("reason" Data..=) Prelude.<$> reason
           ]
       )
 
-instance Core.ToPath StopExperiment where
+instance Data.ToPath StopExperiment where
   toPath StopExperiment' {..} =
     Prelude.mconcat
       [ "/projects/",
-        Core.toBS project,
+        Data.toBS project,
         "/experiments/",
-        Core.toBS experiment,
+        Data.toBS experiment,
         "/cancel"
       ]
 
-instance Core.ToQuery StopExperiment where
+instance Data.ToQuery StopExperiment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopExperimentResponse' smart constructor.
 data StopExperimentResponse = StopExperimentResponse'
   { -- | The date and time that the experiment stopped.
-    endedTime :: Prelude.Maybe Core.POSIX,
+    endedTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,7 +206,7 @@ newStopExperimentResponse pHttpStatus_ =
 
 -- | The date and time that the experiment stopped.
 stopExperimentResponse_endedTime :: Lens.Lens' StopExperimentResponse (Prelude.Maybe Prelude.UTCTime)
-stopExperimentResponse_endedTime = Lens.lens (\StopExperimentResponse' {endedTime} -> endedTime) (\s@StopExperimentResponse' {} a -> s {endedTime = a} :: StopExperimentResponse) Prelude.. Lens.mapping Core._Time
+stopExperimentResponse_endedTime = Lens.lens (\StopExperimentResponse' {endedTime} -> endedTime) (\s@StopExperimentResponse' {} a -> s {endedTime = a} :: StopExperimentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 stopExperimentResponse_httpStatus :: Lens.Lens' StopExperimentResponse Prelude.Int

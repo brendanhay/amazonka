@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,25 +116,25 @@ instance Prelude.NFData DeleteAccessPolicy where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf accessPolicyId
 
-instance Core.ToHeaders DeleteAccessPolicy where
+instance Data.ToHeaders DeleteAccessPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteAccessPolicy where
+instance Data.ToPath DeleteAccessPolicy where
   toPath DeleteAccessPolicy' {..} =
     Prelude.mconcat
-      ["/access-policies/", Core.toBS accessPolicyId]
+      ["/access-policies/", Data.toBS accessPolicyId]
 
-instance Core.ToQuery DeleteAccessPolicy where
+instance Data.ToQuery DeleteAccessPolicy where
   toQuery DeleteAccessPolicy' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | /See:/ 'newDeleteAccessPolicyResponse' smart constructor.
 data DeleteAccessPolicyResponse = DeleteAccessPolicyResponse'

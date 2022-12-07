@@ -28,13 +28,14 @@ module Amazonka.MediaConvert.Types.Eac3SurroundExMode
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | When encoding 3\/2 audio, sets whether an extra center back surround
 -- channel is matrix encoded into the left and right surround channels.
 newtype Eac3SurroundExMode = Eac3SurroundExMode'
   { fromEac3SurroundExMode ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -46,18 +47,18 @@ newtype Eac3SurroundExMode = Eac3SurroundExMode'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern Eac3SurroundExMode_DISABLED :: Eac3SurroundExMode

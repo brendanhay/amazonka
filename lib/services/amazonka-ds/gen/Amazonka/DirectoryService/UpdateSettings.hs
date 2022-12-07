@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ instance Core.AWSRequest UpdateSettings where
     Response.receiveJSON
       ( \s h x ->
           UpdateSettingsResponse'
-            Prelude.<$> (x Core..?> "DirectoryId")
+            Prelude.<$> (x Data..?> "DirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,34 +110,34 @@ instance Prelude.NFData UpdateSettings where
     Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf settings
 
-instance Core.ToHeaders UpdateSettings where
+instance Data.ToHeaders UpdateSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.UpdateSettings" ::
+              Data.=# ( "DirectoryService_20150416.UpdateSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSettings where
+instance Data.ToJSON UpdateSettings where
   toJSON UpdateSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Core..= directoryId),
-            Prelude.Just ("Settings" Core..= settings)
+          [ Prelude.Just ("DirectoryId" Data..= directoryId),
+            Prelude.Just ("Settings" Data..= settings)
           ]
       )
 
-instance Core.ToPath UpdateSettings where
+instance Data.ToPath UpdateSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateSettings where
+instance Data.ToQuery UpdateSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSettingsResponse' smart constructor.

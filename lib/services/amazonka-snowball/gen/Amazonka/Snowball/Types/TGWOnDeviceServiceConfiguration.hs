@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.TGWOnDeviceServiceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.StorageUnit
 
@@ -72,16 +73,16 @@ tGWOnDeviceServiceConfiguration_storageLimit :: Lens.Lens' TGWOnDeviceServiceCon
 tGWOnDeviceServiceConfiguration_storageLimit = Lens.lens (\TGWOnDeviceServiceConfiguration' {storageLimit} -> storageLimit) (\s@TGWOnDeviceServiceConfiguration' {} a -> s {storageLimit = a} :: TGWOnDeviceServiceConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     TGWOnDeviceServiceConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TGWOnDeviceServiceConfiguration"
       ( \x ->
           TGWOnDeviceServiceConfiguration'
-            Prelude.<$> (x Core..:? "StorageUnit")
-            Prelude.<*> (x Core..:? "StorageLimit")
+            Prelude.<$> (x Data..:? "StorageUnit")
+            Prelude.<*> (x Data..:? "StorageLimit")
       )
 
 instance
@@ -102,11 +103,11 @@ instance
     Prelude.rnf storageUnit
       `Prelude.seq` Prelude.rnf storageLimit
 
-instance Core.ToJSON TGWOnDeviceServiceConfiguration where
+instance Data.ToJSON TGWOnDeviceServiceConfiguration where
   toJSON TGWOnDeviceServiceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StorageUnit" Core..=) Prelude.<$> storageUnit,
-            ("StorageLimit" Core..=) Prelude.<$> storageLimit
+          [ ("StorageUnit" Data..=) Prelude.<$> storageUnit,
+            ("StorageLimit" Data..=) Prelude.<$> storageLimit
           ]
       )

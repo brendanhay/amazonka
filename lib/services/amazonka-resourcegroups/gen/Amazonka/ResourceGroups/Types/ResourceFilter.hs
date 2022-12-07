@@ -21,6 +21,7 @@ module Amazonka.ResourceGroups.Types.ResourceFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceGroups.Types.ResourceFilterName
 
@@ -79,11 +80,11 @@ instance Prelude.NFData ResourceFilter where
   rnf ResourceFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON ResourceFilter where
+instance Data.ToJSON ResourceFilter where
   toJSON ResourceFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Values" Core..= values)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

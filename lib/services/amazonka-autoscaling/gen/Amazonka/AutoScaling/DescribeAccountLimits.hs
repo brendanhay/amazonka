@@ -50,6 +50,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -79,10 +80,10 @@ instance Core.AWSRequest DescribeAccountLimits where
       "DescribeAccountLimitsResult"
       ( \s h x ->
           DescribeAccountLimitsResponse'
-            Prelude.<$> (x Core..@? "NumberOfAutoScalingGroups")
-            Prelude.<*> (x Core..@? "MaxNumberOfLaunchConfigurations")
-            Prelude.<*> (x Core..@? "MaxNumberOfAutoScalingGroups")
-            Prelude.<*> (x Core..@? "NumberOfLaunchConfigurations")
+            Prelude.<$> (x Data..@? "NumberOfAutoScalingGroups")
+            Prelude.<*> (x Data..@? "MaxNumberOfLaunchConfigurations")
+            Prelude.<*> (x Data..@? "MaxNumberOfAutoScalingGroups")
+            Prelude.<*> (x Data..@? "NumberOfLaunchConfigurations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -93,20 +94,20 @@ instance Prelude.Hashable DescribeAccountLimits where
 instance Prelude.NFData DescribeAccountLimits where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeAccountLimits where
+instance Data.ToHeaders DescribeAccountLimits where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAccountLimits where
+instance Data.ToPath DescribeAccountLimits where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAccountLimits where
+instance Data.ToQuery DescribeAccountLimits where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ("DescribeAccountLimits" :: Prelude.ByteString),
+              Data.=: ("DescribeAccountLimits" :: Prelude.ByteString),
             "Version"
-              Core.=: ("2011-01-01" :: Prelude.ByteString)
+              Data.=: ("2011-01-01" :: Prelude.ByteString)
           ]
       )
 

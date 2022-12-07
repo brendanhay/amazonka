@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,9 +120,9 @@ instance Core.AWSRequest GetResourceLFTags where
     Response.receiveJSON
       ( \s h x ->
           GetResourceLFTagsResponse'
-            Prelude.<$> (x Core..?> "LFTagsOnTable")
-            Prelude.<*> (x Core..?> "LFTagOnDatabase")
-            Prelude.<*> ( x Core..?> "LFTagsOnColumns"
+            Prelude.<$> (x Data..?> "LFTagsOnTable")
+            Prelude.<*> (x Data..?> "LFTagOnDatabase")
+            Prelude.<*> ( x Data..?> "LFTagsOnColumns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -139,32 +140,32 @@ instance Prelude.NFData GetResourceLFTags where
       `Prelude.seq` Prelude.rnf showAssignedLFTags
       `Prelude.seq` Prelude.rnf resource
 
-instance Core.ToHeaders GetResourceLFTags where
+instance Data.ToHeaders GetResourceLFTags where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResourceLFTags where
+instance Data.ToJSON GetResourceLFTags where
   toJSON GetResourceLFTags' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("ShowAssignedLFTags" Core..=)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("ShowAssignedLFTags" Data..=)
               Prelude.<$> showAssignedLFTags,
-            Prelude.Just ("Resource" Core..= resource)
+            Prelude.Just ("Resource" Data..= resource)
           ]
       )
 
-instance Core.ToPath GetResourceLFTags where
+instance Data.ToPath GetResourceLFTags where
   toPath = Prelude.const "/GetResourceLFTags"
 
-instance Core.ToQuery GetResourceLFTags where
+instance Data.ToQuery GetResourceLFTags where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourceLFTagsResponse' smart constructor.

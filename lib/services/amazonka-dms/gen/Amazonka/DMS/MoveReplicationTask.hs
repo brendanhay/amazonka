@@ -46,6 +46,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ instance Core.AWSRequest MoveReplicationTask where
     Response.receiveJSON
       ( \s h x ->
           MoveReplicationTaskResponse'
-            Prelude.<$> (x Core..?> "ReplicationTask")
+            Prelude.<$> (x Data..?> "ReplicationTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,38 +121,38 @@ instance Prelude.NFData MoveReplicationTask where
     Prelude.rnf replicationTaskArn
       `Prelude.seq` Prelude.rnf targetReplicationInstanceArn
 
-instance Core.ToHeaders MoveReplicationTask where
+instance Data.ToHeaders MoveReplicationTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.MoveReplicationTask" ::
+              Data.=# ( "AmazonDMSv20160101.MoveReplicationTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON MoveReplicationTask where
+instance Data.ToJSON MoveReplicationTask where
   toJSON MoveReplicationTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ReplicationTaskArn" Core..= replicationTaskArn),
+              ("ReplicationTaskArn" Data..= replicationTaskArn),
             Prelude.Just
               ( "TargetReplicationInstanceArn"
-                  Core..= targetReplicationInstanceArn
+                  Data..= targetReplicationInstanceArn
               )
           ]
       )
 
-instance Core.ToPath MoveReplicationTask where
+instance Data.ToPath MoveReplicationTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery MoveReplicationTask where
+instance Data.ToQuery MoveReplicationTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ScheduledWindowExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a scheduled execution for a maintenance window.
@@ -73,15 +74,15 @@ scheduledWindowExecution_executionTime = Lens.lens (\ScheduledWindowExecution' {
 scheduledWindowExecution_windowId :: Lens.Lens' ScheduledWindowExecution (Prelude.Maybe Prelude.Text)
 scheduledWindowExecution_windowId = Lens.lens (\ScheduledWindowExecution' {windowId} -> windowId) (\s@ScheduledWindowExecution' {} a -> s {windowId = a} :: ScheduledWindowExecution)
 
-instance Core.FromJSON ScheduledWindowExecution where
+instance Data.FromJSON ScheduledWindowExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScheduledWindowExecution"
       ( \x ->
           ScheduledWindowExecution'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ExecutionTime")
-            Prelude.<*> (x Core..:? "WindowId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ExecutionTime")
+            Prelude.<*> (x Data..:? "WindowId")
       )
 
 instance Prelude.Hashable ScheduledWindowExecution where

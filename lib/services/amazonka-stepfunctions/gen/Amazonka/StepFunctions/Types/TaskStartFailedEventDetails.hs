@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.TaskStartFailedEventDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about a task that failed to start during an execution.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTaskStartFailedEventDetails' smart constructor.
 data TaskStartFailedEventDetails = TaskStartFailedEventDetails'
   { -- | The error code of the failure.
-    error :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    error :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A more detailed explanation of the cause of the failure.
-    cause :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    cause :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The service name of the resource in a task state.
     resourceType :: Prelude.Text,
     -- | The action of the resource called by a task state.
@@ -72,11 +73,11 @@ newTaskStartFailedEventDetails
 
 -- | The error code of the failure.
 taskStartFailedEventDetails_error :: Lens.Lens' TaskStartFailedEventDetails (Prelude.Maybe Prelude.Text)
-taskStartFailedEventDetails_error = Lens.lens (\TaskStartFailedEventDetails' {error} -> error) (\s@TaskStartFailedEventDetails' {} a -> s {error = a} :: TaskStartFailedEventDetails) Prelude.. Lens.mapping Core._Sensitive
+taskStartFailedEventDetails_error = Lens.lens (\TaskStartFailedEventDetails' {error} -> error) (\s@TaskStartFailedEventDetails' {} a -> s {error = a} :: TaskStartFailedEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A more detailed explanation of the cause of the failure.
 taskStartFailedEventDetails_cause :: Lens.Lens' TaskStartFailedEventDetails (Prelude.Maybe Prelude.Text)
-taskStartFailedEventDetails_cause = Lens.lens (\TaskStartFailedEventDetails' {cause} -> cause) (\s@TaskStartFailedEventDetails' {} a -> s {cause = a} :: TaskStartFailedEventDetails) Prelude.. Lens.mapping Core._Sensitive
+taskStartFailedEventDetails_cause = Lens.lens (\TaskStartFailedEventDetails' {cause} -> cause) (\s@TaskStartFailedEventDetails' {} a -> s {cause = a} :: TaskStartFailedEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The service name of the resource in a task state.
 taskStartFailedEventDetails_resourceType :: Lens.Lens' TaskStartFailedEventDetails Prelude.Text
@@ -86,16 +87,16 @@ taskStartFailedEventDetails_resourceType = Lens.lens (\TaskStartFailedEventDetai
 taskStartFailedEventDetails_resource :: Lens.Lens' TaskStartFailedEventDetails Prelude.Text
 taskStartFailedEventDetails_resource = Lens.lens (\TaskStartFailedEventDetails' {resource} -> resource) (\s@TaskStartFailedEventDetails' {} a -> s {resource = a} :: TaskStartFailedEventDetails)
 
-instance Core.FromJSON TaskStartFailedEventDetails where
+instance Data.FromJSON TaskStartFailedEventDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskStartFailedEventDetails"
       ( \x ->
           TaskStartFailedEventDetails'
-            Prelude.<$> (x Core..:? "error")
-            Prelude.<*> (x Core..:? "cause")
-            Prelude.<*> (x Core..: "resourceType")
-            Prelude.<*> (x Core..: "resource")
+            Prelude.<$> (x Data..:? "error")
+            Prelude.<*> (x Data..:? "cause")
+            Prelude.<*> (x Data..: "resourceType")
+            Prelude.<*> (x Data..: "resource")
       )
 
 instance Prelude.Hashable TaskStartFailedEventDetails where

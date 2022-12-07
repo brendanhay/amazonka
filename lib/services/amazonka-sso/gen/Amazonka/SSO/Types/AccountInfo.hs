@@ -21,6 +21,7 @@ module Amazonka.SSO.Types.AccountInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about your AWS account.
@@ -70,15 +71,15 @@ accountInfo_accountName = Lens.lens (\AccountInfo' {accountName} -> accountName)
 accountInfo_emailAddress :: Lens.Lens' AccountInfo (Prelude.Maybe Prelude.Text)
 accountInfo_emailAddress = Lens.lens (\AccountInfo' {emailAddress} -> emailAddress) (\s@AccountInfo' {} a -> s {emailAddress = a} :: AccountInfo)
 
-instance Core.FromJSON AccountInfo where
+instance Data.FromJSON AccountInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountInfo"
       ( \x ->
           AccountInfo'
-            Prelude.<$> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "accountName")
-            Prelude.<*> (x Core..:? "emailAddress")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "accountName")
+            Prelude.<*> (x Data..:? "emailAddress")
       )
 
 instance Prelude.Hashable AccountInfo where

@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.InsightsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structure containing configurations related to insights.
@@ -71,14 +72,14 @@ insightsConfiguration_insightsEnabled = Lens.lens (\InsightsConfiguration' {insi
 insightsConfiguration_notificationsEnabled :: Lens.Lens' InsightsConfiguration (Prelude.Maybe Prelude.Bool)
 insightsConfiguration_notificationsEnabled = Lens.lens (\InsightsConfiguration' {notificationsEnabled} -> notificationsEnabled) (\s@InsightsConfiguration' {} a -> s {notificationsEnabled = a} :: InsightsConfiguration)
 
-instance Core.FromJSON InsightsConfiguration where
+instance Data.FromJSON InsightsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InsightsConfiguration"
       ( \x ->
           InsightsConfiguration'
-            Prelude.<$> (x Core..:? "InsightsEnabled")
-            Prelude.<*> (x Core..:? "NotificationsEnabled")
+            Prelude.<$> (x Data..:? "InsightsEnabled")
+            Prelude.<*> (x Data..:? "NotificationsEnabled")
       )
 
 instance Prelude.Hashable InsightsConfiguration where
@@ -91,13 +92,13 @@ instance Prelude.NFData InsightsConfiguration where
     Prelude.rnf insightsEnabled
       `Prelude.seq` Prelude.rnf notificationsEnabled
 
-instance Core.ToJSON InsightsConfiguration where
+instance Data.ToJSON InsightsConfiguration where
   toJSON InsightsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InsightsEnabled" Core..=)
+          [ ("InsightsEnabled" Data..=)
               Prelude.<$> insightsEnabled,
-            ("NotificationsEnabled" Core..=)
+            ("NotificationsEnabled" Data..=)
               Prelude.<$> notificationsEnabled
           ]
       )

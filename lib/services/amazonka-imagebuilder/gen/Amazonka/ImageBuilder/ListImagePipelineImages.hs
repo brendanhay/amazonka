@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,9 +137,9 @@ instance Core.AWSRequest ListImagePipelineImages where
     Response.receiveJSON
       ( \s h x ->
           ListImagePipelineImagesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "requestId")
-            Prelude.<*> ( x Core..?> "imageSummaryList"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "requestId")
+            Prelude.<*> ( x Data..?> "imageSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -158,33 +159,33 @@ instance Prelude.NFData ListImagePipelineImages where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf imagePipelineArn
 
-instance Core.ToHeaders ListImagePipelineImages where
+instance Data.ToHeaders ListImagePipelineImages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListImagePipelineImages where
+instance Data.ToJSON ListImagePipelineImages where
   toJSON ListImagePipelineImages' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("imagePipelineArn" Core..= imagePipelineArn)
+              ("imagePipelineArn" Data..= imagePipelineArn)
           ]
       )
 
-instance Core.ToPath ListImagePipelineImages where
+instance Data.ToPath ListImagePipelineImages where
   toPath = Prelude.const "/ListImagePipelineImages"
 
-instance Core.ToQuery ListImagePipelineImages where
+instance Data.ToQuery ListImagePipelineImages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListImagePipelineImagesResponse' smart constructor.

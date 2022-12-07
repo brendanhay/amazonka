@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.Member where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.RelationshipStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -36,7 +37,7 @@ data Member = Member'
     -- | The status of the member account.
     relationshipStatus :: Prelude.Maybe RelationshipStatus,
     -- | A timestamp showing when the status of this member was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,18 +82,18 @@ member_relationshipStatus = Lens.lens (\Member' {relationshipStatus} -> relation
 
 -- | A timestamp showing when the status of this member was last updated.
 member_updatedAt :: Lens.Lens' Member (Prelude.Maybe Prelude.UTCTime)
-member_updatedAt = Lens.lens (\Member' {updatedAt} -> updatedAt) (\s@Member' {} a -> s {updatedAt = a} :: Member) Prelude.. Lens.mapping Core._Time
+member_updatedAt = Lens.lens (\Member' {updatedAt} -> updatedAt) (\s@Member' {} a -> s {updatedAt = a} :: Member) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Member where
+instance Data.FromJSON Member where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Member"
       ( \x ->
           Member'
-            Prelude.<$> (x Core..:? "delegatedAdminAccountId")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "relationshipStatus")
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<$> (x Data..:? "delegatedAdminAccountId")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "relationshipStatus")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable Member where

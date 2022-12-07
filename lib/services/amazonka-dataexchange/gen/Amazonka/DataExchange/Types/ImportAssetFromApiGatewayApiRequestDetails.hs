@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.ImportAssetFromApiGatewayApiRequestDetails wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.ProtocolType
 import qualified Amazonka.Prelude as Prelude
 
@@ -185,25 +186,25 @@ instance
       `Prelude.seq` Prelude.rnf stage
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ImportAssetFromApiGatewayApiRequestDetails
   where
   toJSON
     ImportAssetFromApiGatewayApiRequestDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ApiKey" Core..=) Prelude.<$> apiKey,
-              ("ApiDescription" Core..=)
+            [ ("ApiKey" Data..=) Prelude.<$> apiKey,
+              ("ApiDescription" Data..=)
                 Prelude.<$> apiDescription,
-              Prelude.Just ("ApiId" Core..= apiId),
-              Prelude.Just ("ApiName" Core..= apiName),
+              Prelude.Just ("ApiId" Data..= apiId),
+              Prelude.Just ("ApiName" Data..= apiName),
               Prelude.Just
                 ( "ApiSpecificationMd5Hash"
-                    Core..= apiSpecificationMd5Hash
+                    Data..= apiSpecificationMd5Hash
                 ),
-              Prelude.Just ("DataSetId" Core..= dataSetId),
-              Prelude.Just ("ProtocolType" Core..= protocolType),
-              Prelude.Just ("RevisionId" Core..= revisionId),
-              Prelude.Just ("Stage" Core..= stage)
+              Prelude.Just ("DataSetId" Data..= dataSetId),
+              Prelude.Just ("ProtocolType" Data..= protocolType),
+              Prelude.Just ("RevisionId" Data..= revisionId),
+              Prelude.Just ("Stage" Data..= stage)
             ]
         )

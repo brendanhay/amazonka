@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -675,7 +676,7 @@ instance Core.AWSRequest CreateDBCluster where
       "CreateDBClusterResult"
       ( \s h x ->
           CreateDBClusterResponse'
-            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<$> (x Data..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -750,68 +751,68 @@ instance Prelude.NFData CreateDBCluster where
       `Prelude.seq` Prelude.rnf
         engine
 
-instance Core.ToHeaders CreateDBCluster where
+instance Data.ToHeaders CreateDBCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDBCluster where
+instance Data.ToPath CreateDBCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDBCluster where
+instance Data.ToQuery CreateDBCluster where
   toQuery CreateDBCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDBCluster" :: Prelude.ByteString),
+          Data.=: ("CreateDBCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "Port" Core.=: port,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "Port" Data.=: port,
         "ServerlessV2ScalingConfiguration"
-          Core.=: serverlessV2ScalingConfiguration,
+          Data.=: serverlessV2ScalingConfiguration,
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
         "PreferredBackupWindow"
-          Core.=: preferredBackupWindow,
+          Data.=: preferredBackupWindow,
         "BackupRetentionPeriod"
-          Core.=: backupRetentionPeriod,
-        "CharacterSetName" Core.=: characterSetName,
-        "MasterUsername" Core.=: masterUsername,
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
-        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
-        "DatabaseName" Core.=: databaseName,
-        "OptionGroupName" Core.=: optionGroupName,
+          Data.=: backupRetentionPeriod,
+        "CharacterSetName" Data.=: characterSetName,
+        "MasterUsername" Data.=: masterUsername,
+        "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
+        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
+        "DatabaseName" Data.=: databaseName,
+        "OptionGroupName" Data.=: optionGroupName,
         "AvailabilityZones"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "AvailabilityZone"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "AvailabilityZone"
                 Prelude.<$> availabilityZones
             ),
         "EnableIAMDatabaseAuthentication"
-          Core.=: enableIAMDatabaseAuthentication,
-        "MasterUserPassword" Core.=: masterUserPassword,
+          Data.=: enableIAMDatabaseAuthentication,
+        "MasterUserPassword" Data.=: masterUserPassword,
         "EnableCloudwatchLogsExports"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> enableCloudwatchLogsExports
             ),
         "ReplicationSourceIdentifier"
-          Core.=: replicationSourceIdentifier,
-        "StorageEncrypted" Core.=: storageEncrypted,
-        "KmsKeyId" Core.=: kmsKeyId,
+          Data.=: replicationSourceIdentifier,
+        "StorageEncrypted" Data.=: storageEncrypted,
+        "KmsKeyId" Data.=: kmsKeyId,
         "GlobalClusterIdentifier"
-          Core.=: globalClusterIdentifier,
-        "DeletionProtection" Core.=: deletionProtection,
+          Data.=: globalClusterIdentifier,
+        "DeletionProtection" Data.=: deletionProtection,
         "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
+          Data.=: preferredMaintenanceWindow,
         "DBClusterParameterGroupName"
-          Core.=: dbClusterParameterGroupName,
-        "PreSignedUrl" Core.=: preSignedUrl,
-        "EngineVersion" Core.=: engineVersion,
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier,
-        "Engine" Core.=: engine
+          Data.=: dbClusterParameterGroupName,
+        "PreSignedUrl" Data.=: preSignedUrl,
+        "EngineVersion" Data.=: engineVersion,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier,
+        "Engine" Data.=: engine
       ]
 
 -- | /See:/ 'newCreateDBClusterResponse' smart constructor.

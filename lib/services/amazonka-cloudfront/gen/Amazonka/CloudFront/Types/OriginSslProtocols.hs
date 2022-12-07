@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.OriginSslProtocols where
 import Amazonka.CloudFront.Types.SslProtocol
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains information about the SSL\/TLS protocols
@@ -69,12 +70,12 @@ originSslProtocols_quantity = Lens.lens (\OriginSslProtocols' {quantity} -> quan
 originSslProtocols_items :: Lens.Lens' OriginSslProtocols [SslProtocol]
 originSslProtocols_items = Lens.lens (\OriginSslProtocols' {items} -> items) (\s@OriginSslProtocols' {} a -> s {items = a} :: OriginSslProtocols) Prelude.. Lens.coerced
 
-instance Core.FromXML OriginSslProtocols where
+instance Data.FromXML OriginSslProtocols where
   parseXML x =
     OriginSslProtocols'
-      Prelude.<$> (x Core..@ "Quantity")
-      Prelude.<*> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.parseXMLList "SslProtocol"
+      Prelude.<$> (x Data..@ "Quantity")
+      Prelude.<*> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Data.parseXMLList "SslProtocol"
                   )
 
 instance Prelude.Hashable OriginSslProtocols where
@@ -87,9 +88,9 @@ instance Prelude.NFData OriginSslProtocols where
     Prelude.rnf quantity
       `Prelude.seq` Prelude.rnf items
 
-instance Core.ToXML OriginSslProtocols where
+instance Data.ToXML OriginSslProtocols where
   toXML OriginSslProtocols' {..} =
     Prelude.mconcat
-      [ "Quantity" Core.@= quantity,
-        "Items" Core.@= Core.toXMLList "SslProtocol" items
+      [ "Quantity" Data.@= quantity,
+        "Items" Data.@= Data.toXMLList "SslProtocol" items
       ]

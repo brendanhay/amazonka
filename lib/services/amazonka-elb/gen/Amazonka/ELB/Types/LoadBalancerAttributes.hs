@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.LoadBalancerAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import Amazonka.ELB.Types.AccessLog
 import Amazonka.ELB.Types.AdditionalAttribute
@@ -167,17 +168,17 @@ loadBalancerAttributes_accessLog = Lens.lens (\LoadBalancerAttributes' {accessLo
 loadBalancerAttributes_crossZoneLoadBalancing :: Lens.Lens' LoadBalancerAttributes (Prelude.Maybe CrossZoneLoadBalancing)
 loadBalancerAttributes_crossZoneLoadBalancing = Lens.lens (\LoadBalancerAttributes' {crossZoneLoadBalancing} -> crossZoneLoadBalancing) (\s@LoadBalancerAttributes' {} a -> s {crossZoneLoadBalancing = a} :: LoadBalancerAttributes)
 
-instance Core.FromXML LoadBalancerAttributes where
+instance Data.FromXML LoadBalancerAttributes where
   parseXML x =
     LoadBalancerAttributes'
-      Prelude.<$> (x Core..@? "ConnectionSettings")
-      Prelude.<*> (x Core..@? "ConnectionDraining")
-      Prelude.<*> ( x Core..@? "AdditionalAttributes"
+      Prelude.<$> (x Data..@? "ConnectionSettings")
+      Prelude.<*> (x Data..@? "ConnectionDraining")
+      Prelude.<*> ( x Data..@? "AdditionalAttributes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "AccessLog")
-      Prelude.<*> (x Core..@? "CrossZoneLoadBalancing")
+      Prelude.<*> (x Data..@? "AccessLog")
+      Prelude.<*> (x Data..@? "CrossZoneLoadBalancing")
 
 instance Prelude.Hashable LoadBalancerAttributes where
   hashWithSalt _salt LoadBalancerAttributes' {..} =
@@ -195,17 +196,17 @@ instance Prelude.NFData LoadBalancerAttributes where
       `Prelude.seq` Prelude.rnf accessLog
       `Prelude.seq` Prelude.rnf crossZoneLoadBalancing
 
-instance Core.ToQuery LoadBalancerAttributes where
+instance Data.ToQuery LoadBalancerAttributes where
   toQuery LoadBalancerAttributes' {..} =
     Prelude.mconcat
-      [ "ConnectionSettings" Core.=: connectionSettings,
-        "ConnectionDraining" Core.=: connectionDraining,
+      [ "ConnectionSettings" Data.=: connectionSettings,
+        "ConnectionDraining" Data.=: connectionDraining,
         "AdditionalAttributes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> additionalAttributes
             ),
-        "AccessLog" Core.=: accessLog,
+        "AccessLog" Data.=: accessLog,
         "CrossZoneLoadBalancing"
-          Core.=: crossZoneLoadBalancing
+          Data.=: crossZoneLoadBalancing
       ]

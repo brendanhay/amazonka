@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,34 +109,34 @@ instance Prelude.NFData UpdateElasticIp where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf elasticIp
 
-instance Core.ToHeaders UpdateElasticIp where
+instance Data.ToHeaders UpdateElasticIp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.UpdateElasticIp" ::
+              Data.=# ( "OpsWorks_20130218.UpdateElasticIp" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateElasticIp where
+instance Data.ToJSON UpdateElasticIp where
   toJSON UpdateElasticIp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            Prelude.Just ("ElasticIp" Core..= elasticIp)
+          [ ("Name" Data..=) Prelude.<$> name,
+            Prelude.Just ("ElasticIp" Data..= elasticIp)
           ]
       )
 
-instance Core.ToPath UpdateElasticIp where
+instance Data.ToPath UpdateElasticIp where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateElasticIp where
+instance Data.ToQuery UpdateElasticIp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateElasticIpResponse' smart constructor.

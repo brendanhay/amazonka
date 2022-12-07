@@ -47,6 +47,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -164,7 +165,7 @@ instance Core.AWSRequest CreateSipRule where
     Response.receiveJSON
       ( \s h x ->
           CreateSipRuleResponse'
-            Prelude.<$> (x Core..?> "SipRule")
+            Prelude.<$> (x Data..?> "SipRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,26 +185,26 @@ instance Prelude.NFData CreateSipRule where
       `Prelude.seq` Prelude.rnf triggerValue
       `Prelude.seq` Prelude.rnf targetApplications
 
-instance Core.ToHeaders CreateSipRule where
+instance Data.ToHeaders CreateSipRule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateSipRule where
+instance Data.ToJSON CreateSipRule where
   toJSON CreateSipRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Disabled" Core..=) Prelude.<$> disabled,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("TriggerType" Core..= triggerType),
-            Prelude.Just ("TriggerValue" Core..= triggerValue),
+          [ ("Disabled" Data..=) Prelude.<$> disabled,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("TriggerType" Data..= triggerType),
+            Prelude.Just ("TriggerValue" Data..= triggerValue),
             Prelude.Just
-              ("TargetApplications" Core..= targetApplications)
+              ("TargetApplications" Data..= targetApplications)
           ]
       )
 
-instance Core.ToPath CreateSipRule where
+instance Data.ToPath CreateSipRule where
   toPath = Prelude.const "/sip-rules"
 
-instance Core.ToQuery CreateSipRule where
+instance Data.ToQuery CreateSipRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSipRuleResponse' smart constructor.

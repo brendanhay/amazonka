@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.ResourceUri where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ResourceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ resourceUri_resourceType = Lens.lens (\ResourceUri' {resourceType} -> resourceTy
 resourceUri_uri :: Lens.Lens' ResourceUri (Prelude.Maybe Prelude.Text)
 resourceUri_uri = Lens.lens (\ResourceUri' {uri} -> uri) (\s@ResourceUri' {} a -> s {uri = a} :: ResourceUri)
 
-instance Core.FromJSON ResourceUri where
+instance Data.FromJSON ResourceUri where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceUri"
       ( \x ->
           ResourceUri'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "Uri")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "Uri")
       )
 
 instance Prelude.Hashable ResourceUri where
@@ -82,11 +83,11 @@ instance Prelude.NFData ResourceUri where
     Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf uri
 
-instance Core.ToJSON ResourceUri where
+instance Data.ToJSON ResourceUri where
   toJSON ResourceUri' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceType" Core..=) Prelude.<$> resourceType,
-            ("Uri" Core..=) Prelude.<$> uri
+          [ ("ResourceType" Data..=) Prelude.<$> resourceType,
+            ("Uri" Data..=) Prelude.<$> uri
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AlgorithmStatusItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.DetailedAlgorithmStatus
 
@@ -79,15 +80,15 @@ algorithmStatusItem_name = Lens.lens (\AlgorithmStatusItem' {name} -> name) (\s@
 algorithmStatusItem_status :: Lens.Lens' AlgorithmStatusItem DetailedAlgorithmStatus
 algorithmStatusItem_status = Lens.lens (\AlgorithmStatusItem' {status} -> status) (\s@AlgorithmStatusItem' {} a -> s {status = a} :: AlgorithmStatusItem)
 
-instance Core.FromJSON AlgorithmStatusItem where
+instance Data.FromJSON AlgorithmStatusItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlgorithmStatusItem"
       ( \x ->
           AlgorithmStatusItem'
-            Prelude.<$> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable AlgorithmStatusItem where

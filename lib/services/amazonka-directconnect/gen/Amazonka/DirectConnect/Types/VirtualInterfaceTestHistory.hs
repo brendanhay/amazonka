@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.VirtualInterfaceTestHistory where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the virtual interface failover test.
@@ -32,7 +33,7 @@ data VirtualInterfaceTestHistory = VirtualInterfaceTestHistory'
     -- | The status of the virtual interface failover test.
     status :: Prelude.Maybe Prelude.Text,
     -- | The time that the virtual interface moves out of the DOWN state.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the tested virtual interface.
     virtualInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The BGP peers that were put in the DOWN state as part of the virtual
@@ -43,7 +44,7 @@ data VirtualInterfaceTestHistory = VirtualInterfaceTestHistory'
     -- | The owner ID of the tested virtual interface.
     ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The time that the virtual interface moves to the DOWN state.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,7 +97,7 @@ virtualInterfaceTestHistory_status = Lens.lens (\VirtualInterfaceTestHistory' {s
 
 -- | The time that the virtual interface moves out of the DOWN state.
 virtualInterfaceTestHistory_endTime :: Lens.Lens' VirtualInterfaceTestHistory (Prelude.Maybe Prelude.UTCTime)
-virtualInterfaceTestHistory_endTime = Lens.lens (\VirtualInterfaceTestHistory' {endTime} -> endTime) (\s@VirtualInterfaceTestHistory' {} a -> s {endTime = a} :: VirtualInterfaceTestHistory) Prelude.. Lens.mapping Core._Time
+virtualInterfaceTestHistory_endTime = Lens.lens (\VirtualInterfaceTestHistory' {endTime} -> endTime) (\s@VirtualInterfaceTestHistory' {} a -> s {endTime = a} :: VirtualInterfaceTestHistory) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the tested virtual interface.
 virtualInterfaceTestHistory_virtualInterfaceId :: Lens.Lens' VirtualInterfaceTestHistory (Prelude.Maybe Prelude.Text)
@@ -117,22 +118,22 @@ virtualInterfaceTestHistory_ownerAccount = Lens.lens (\VirtualInterfaceTestHisto
 
 -- | The time that the virtual interface moves to the DOWN state.
 virtualInterfaceTestHistory_startTime :: Lens.Lens' VirtualInterfaceTestHistory (Prelude.Maybe Prelude.UTCTime)
-virtualInterfaceTestHistory_startTime = Lens.lens (\VirtualInterfaceTestHistory' {startTime} -> startTime) (\s@VirtualInterfaceTestHistory' {} a -> s {startTime = a} :: VirtualInterfaceTestHistory) Prelude.. Lens.mapping Core._Time
+virtualInterfaceTestHistory_startTime = Lens.lens (\VirtualInterfaceTestHistory' {startTime} -> startTime) (\s@VirtualInterfaceTestHistory' {} a -> s {startTime = a} :: VirtualInterfaceTestHistory) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON VirtualInterfaceTestHistory where
+instance Data.FromJSON VirtualInterfaceTestHistory where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualInterfaceTestHistory"
       ( \x ->
           VirtualInterfaceTestHistory'
-            Prelude.<$> (x Core..:? "testDurationInMinutes")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "virtualInterfaceId")
-            Prelude.<*> (x Core..:? "bgpPeers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "testId")
-            Prelude.<*> (x Core..:? "ownerAccount")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<$> (x Data..:? "testDurationInMinutes")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "virtualInterfaceId")
+            Prelude.<*> (x Data..:? "bgpPeers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "testId")
+            Prelude.<*> (x Data..:? "ownerAccount")
+            Prelude.<*> (x Data..:? "startTime")
       )
 
 instance Prelude.Hashable VirtualInterfaceTestHistory where

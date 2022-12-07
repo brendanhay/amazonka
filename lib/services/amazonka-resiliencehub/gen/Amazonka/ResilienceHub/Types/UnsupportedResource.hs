@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.UnsupportedResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.LogicalResourceId
 import Amazonka.ResilienceHub.Types.PhysicalResourceId
@@ -82,15 +83,15 @@ unsupportedResource_physicalResourceId = Lens.lens (\UnsupportedResource' {physi
 unsupportedResource_resourceType :: Lens.Lens' UnsupportedResource Prelude.Text
 unsupportedResource_resourceType = Lens.lens (\UnsupportedResource' {resourceType} -> resourceType) (\s@UnsupportedResource' {} a -> s {resourceType = a} :: UnsupportedResource)
 
-instance Core.FromJSON UnsupportedResource where
+instance Data.FromJSON UnsupportedResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnsupportedResource"
       ( \x ->
           UnsupportedResource'
-            Prelude.<$> (x Core..: "logicalResourceId")
-            Prelude.<*> (x Core..: "physicalResourceId")
-            Prelude.<*> (x Core..: "resourceType")
+            Prelude.<$> (x Data..: "logicalResourceId")
+            Prelude.<*> (x Data..: "physicalResourceId")
+            Prelude.<*> (x Data..: "resourceType")
       )
 
 instance Prelude.Hashable UnsupportedResource where

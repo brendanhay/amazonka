@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SecurityGroupRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ReferencedSecurityGroup
 import Amazonka.EC2.Types.Tag
@@ -184,24 +185,24 @@ securityGroupRule_fromPort = Lens.lens (\SecurityGroupRule' {fromPort} -> fromPo
 securityGroupRule_groupId :: Lens.Lens' SecurityGroupRule (Prelude.Maybe Prelude.Text)
 securityGroupRule_groupId = Lens.lens (\SecurityGroupRule' {groupId} -> groupId) (\s@SecurityGroupRule' {} a -> s {groupId = a} :: SecurityGroupRule)
 
-instance Core.FromXML SecurityGroupRule where
+instance Data.FromXML SecurityGroupRule where
   parseXML x =
     SecurityGroupRule'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "toPort")
-      Prelude.<*> (x Core..@? "ipProtocol")
-      Prelude.<*> (x Core..@? "cidrIpv6")
-      Prelude.<*> (x Core..@? "prefixListId")
-      Prelude.<*> (x Core..@? "securityGroupRuleId")
-      Prelude.<*> (x Core..@? "groupOwnerId")
-      Prelude.<*> (x Core..@? "isEgress")
-      Prelude.<*> (x Core..@? "referencedGroupInfo")
-      Prelude.<*> (x Core..@? "cidrIpv4")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "fromPort")
-      Prelude.<*> (x Core..@? "groupId")
+      Prelude.<*> (x Data..@? "toPort")
+      Prelude.<*> (x Data..@? "ipProtocol")
+      Prelude.<*> (x Data..@? "cidrIpv6")
+      Prelude.<*> (x Data..@? "prefixListId")
+      Prelude.<*> (x Data..@? "securityGroupRuleId")
+      Prelude.<*> (x Data..@? "groupOwnerId")
+      Prelude.<*> (x Data..@? "isEgress")
+      Prelude.<*> (x Data..@? "referencedGroupInfo")
+      Prelude.<*> (x Data..@? "cidrIpv4")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "fromPort")
+      Prelude.<*> (x Data..@? "groupId")
 
 instance Prelude.Hashable SecurityGroupRule where
   hashWithSalt _salt SecurityGroupRule' {..} =

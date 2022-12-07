@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -423,8 +424,8 @@ instance Core.AWSRequest CreateUser where
       ( \s h x ->
           CreateUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ServerId")
-            Prelude.<*> (x Core..:> "UserName")
+            Prelude.<*> (x Data..:> "ServerId")
+            Prelude.<*> (x Data..:> "UserName")
       )
 
 instance Prelude.Hashable CreateUser where
@@ -453,43 +454,43 @@ instance Prelude.NFData CreateUser where
       `Prelude.seq` Prelude.rnf serverId
       `Prelude.seq` Prelude.rnf userName
 
-instance Core.ToHeaders CreateUser where
+instance Data.ToHeaders CreateUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TransferService.CreateUser" :: Prelude.ByteString),
+              Data.=# ("TransferService.CreateUser" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateUser where
+instance Data.ToJSON CreateUser where
   toJSON CreateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("HomeDirectory" Core..=) Prelude.<$> homeDirectory,
-            ("Policy" Core..=) Prelude.<$> policy,
-            ("SshPublicKeyBody" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("HomeDirectory" Data..=) Prelude.<$> homeDirectory,
+            ("Policy" Data..=) Prelude.<$> policy,
+            ("SshPublicKeyBody" Data..=)
               Prelude.<$> sshPublicKeyBody,
-            ("PosixProfile" Core..=) Prelude.<$> posixProfile,
-            ("HomeDirectoryType" Core..=)
+            ("PosixProfile" Data..=) Prelude.<$> posixProfile,
+            ("HomeDirectoryType" Data..=)
               Prelude.<$> homeDirectoryType,
-            ("HomeDirectoryMappings" Core..=)
+            ("HomeDirectoryMappings" Data..=)
               Prelude.<$> homeDirectoryMappings,
-            Prelude.Just ("Role" Core..= role'),
-            Prelude.Just ("ServerId" Core..= serverId),
-            Prelude.Just ("UserName" Core..= userName)
+            Prelude.Just ("Role" Data..= role'),
+            Prelude.Just ("ServerId" Data..= serverId),
+            Prelude.Just ("UserName" Data..= userName)
           ]
       )
 
-instance Core.ToPath CreateUser where
+instance Data.ToPath CreateUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUser where
+instance Data.ToQuery CreateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateUserResponse' smart constructor.

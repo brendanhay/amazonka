@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.AutoMerging
 import Amazonka.CustomerProfiles.Types.ExportingConfig
 import Amazonka.CustomerProfiles.Types.JobSchedule
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The flag that enables the matching process of duplicate profiles.
@@ -104,14 +105,14 @@ instance Prelude.NFData MatchingRequest where
       `Prelude.seq` Prelude.rnf exportingConfig
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON MatchingRequest where
+instance Data.ToJSON MatchingRequest where
   toJSON MatchingRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("JobSchedule" Core..=) Prelude.<$> jobSchedule,
-            ("AutoMerging" Core..=) Prelude.<$> autoMerging,
-            ("ExportingConfig" Core..=)
+          [ ("JobSchedule" Data..=) Prelude.<$> jobSchedule,
+            ("AutoMerging" Data..=) Prelude.<$> autoMerging,
+            ("ExportingConfig" Data..=)
               Prelude.<$> exportingConfig,
-            Prelude.Just ("Enabled" Core..= enabled)
+            Prelude.Just ("Enabled" Data..= enabled)
           ]
       )

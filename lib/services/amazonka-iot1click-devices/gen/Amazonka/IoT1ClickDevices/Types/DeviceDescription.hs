@@ -21,6 +21,7 @@ module Amazonka.IoT1ClickDevices.Types.DeviceDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newDeviceDescription' smart constructor.
@@ -110,19 +111,19 @@ deviceDescription_enabled = Lens.lens (\DeviceDescription' {enabled} -> enabled)
 deviceDescription_attributes :: Lens.Lens' DeviceDescription (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 deviceDescription_attributes = Lens.lens (\DeviceDescription' {attributes} -> attributes) (\s@DeviceDescription' {} a -> s {attributes = a} :: DeviceDescription) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DeviceDescription where
+instance Data.FromJSON DeviceDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceDescription"
       ( \x ->
           DeviceDescription'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "remainingLife")
-            Prelude.<*> (x Core..:? "deviceId")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "enabled")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "remainingLife")
+            Prelude.<*> (x Data..:? "deviceId")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DeviceDescription where

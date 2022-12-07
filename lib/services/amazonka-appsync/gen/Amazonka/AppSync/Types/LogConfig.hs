@@ -22,6 +22,7 @@ module Amazonka.AppSync.Types.LogConfig where
 import Amazonka.AppSync.Types.FieldLogLevel
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon CloudWatch Logs configuration.
@@ -144,15 +145,15 @@ logConfig_fieldLogLevel = Lens.lens (\LogConfig' {fieldLogLevel} -> fieldLogLeve
 logConfig_cloudWatchLogsRoleArn :: Lens.Lens' LogConfig Prelude.Text
 logConfig_cloudWatchLogsRoleArn = Lens.lens (\LogConfig' {cloudWatchLogsRoleArn} -> cloudWatchLogsRoleArn) (\s@LogConfig' {} a -> s {cloudWatchLogsRoleArn = a} :: LogConfig)
 
-instance Core.FromJSON LogConfig where
+instance Data.FromJSON LogConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogConfig"
       ( \x ->
           LogConfig'
-            Prelude.<$> (x Core..:? "excludeVerboseContent")
-            Prelude.<*> (x Core..: "fieldLogLevel")
-            Prelude.<*> (x Core..: "cloudWatchLogsRoleArn")
+            Prelude.<$> (x Data..:? "excludeVerboseContent")
+            Prelude.<*> (x Data..: "fieldLogLevel")
+            Prelude.<*> (x Data..: "cloudWatchLogsRoleArn")
       )
 
 instance Prelude.Hashable LogConfig where
@@ -167,16 +168,16 @@ instance Prelude.NFData LogConfig where
       `Prelude.seq` Prelude.rnf fieldLogLevel
       `Prelude.seq` Prelude.rnf cloudWatchLogsRoleArn
 
-instance Core.ToJSON LogConfig where
+instance Data.ToJSON LogConfig where
   toJSON LogConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("excludeVerboseContent" Core..=)
+          [ ("excludeVerboseContent" Data..=)
               Prelude.<$> excludeVerboseContent,
-            Prelude.Just ("fieldLogLevel" Core..= fieldLogLevel),
+            Prelude.Just ("fieldLogLevel" Data..= fieldLogLevel),
             Prelude.Just
               ( "cloudWatchLogsRoleArn"
-                  Core..= cloudWatchLogsRoleArn
+                  Data..= cloudWatchLogsRoleArn
               )
           ]
       )

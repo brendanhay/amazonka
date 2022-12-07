@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.ViolationDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.ResourceViolation
 import Amazonka.FMS.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -127,20 +128,20 @@ violationDetail_resourceType = Lens.lens (\ViolationDetail' {resourceType} -> re
 violationDetail_resourceViolations :: Lens.Lens' ViolationDetail [ResourceViolation]
 violationDetail_resourceViolations = Lens.lens (\ViolationDetail' {resourceViolations} -> resourceViolations) (\s@ViolationDetail' {} a -> s {resourceViolations = a} :: ViolationDetail) Prelude.. Lens.coerced
 
-instance Core.FromJSON ViolationDetail where
+instance Data.FromJSON ViolationDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ViolationDetail"
       ( \x ->
           ViolationDetail'
-            Prelude.<$> (x Core..:? "ResourceTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResourceDescription")
-            Prelude.<*> (x Core..: "PolicyId")
-            Prelude.<*> (x Core..: "MemberAccount")
-            Prelude.<*> (x Core..: "ResourceId")
-            Prelude.<*> (x Core..: "ResourceType")
-            Prelude.<*> ( x Core..:? "ResourceViolations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ResourceTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResourceDescription")
+            Prelude.<*> (x Data..: "PolicyId")
+            Prelude.<*> (x Data..: "MemberAccount")
+            Prelude.<*> (x Data..: "ResourceId")
+            Prelude.<*> (x Data..: "ResourceType")
+            Prelude.<*> ( x Data..:? "ResourceViolations"
+                            Data..!= Prelude.mempty
                         )
       )
 

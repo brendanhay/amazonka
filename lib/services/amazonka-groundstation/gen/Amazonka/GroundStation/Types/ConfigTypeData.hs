@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.ConfigTypeData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.AntennaDownlinkConfig
 import Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig
 import Amazonka.GroundStation.Types.AntennaUplinkConfig
@@ -139,19 +140,19 @@ configTypeData_antennaUplinkConfig = Lens.lens (\ConfigTypeData' {antennaUplinkC
 configTypeData_s3RecordingConfig :: Lens.Lens' ConfigTypeData (Prelude.Maybe S3RecordingConfig)
 configTypeData_s3RecordingConfig = Lens.lens (\ConfigTypeData' {s3RecordingConfig} -> s3RecordingConfig) (\s@ConfigTypeData' {} a -> s {s3RecordingConfig = a} :: ConfigTypeData)
 
-instance Core.FromJSON ConfigTypeData where
+instance Data.FromJSON ConfigTypeData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigTypeData"
       ( \x ->
           ConfigTypeData'
-            Prelude.<$> (x Core..:? "trackingConfig")
-            Prelude.<*> (x Core..:? "dataflowEndpointConfig")
-            Prelude.<*> (x Core..:? "uplinkEchoConfig")
-            Prelude.<*> (x Core..:? "antennaDownlinkConfig")
-            Prelude.<*> (x Core..:? "antennaDownlinkDemodDecodeConfig")
-            Prelude.<*> (x Core..:? "antennaUplinkConfig")
-            Prelude.<*> (x Core..:? "s3RecordingConfig")
+            Prelude.<$> (x Data..:? "trackingConfig")
+            Prelude.<*> (x Data..:? "dataflowEndpointConfig")
+            Prelude.<*> (x Data..:? "uplinkEchoConfig")
+            Prelude.<*> (x Data..:? "antennaDownlinkConfig")
+            Prelude.<*> (x Data..:? "antennaDownlinkDemodDecodeConfig")
+            Prelude.<*> (x Data..:? "antennaUplinkConfig")
+            Prelude.<*> (x Data..:? "s3RecordingConfig")
       )
 
 instance Prelude.Hashable ConfigTypeData where
@@ -174,23 +175,23 @@ instance Prelude.NFData ConfigTypeData where
       `Prelude.seq` Prelude.rnf antennaUplinkConfig
       `Prelude.seq` Prelude.rnf s3RecordingConfig
 
-instance Core.ToJSON ConfigTypeData where
+instance Data.ToJSON ConfigTypeData where
   toJSON ConfigTypeData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("trackingConfig" Core..=)
+          [ ("trackingConfig" Data..=)
               Prelude.<$> trackingConfig,
-            ("dataflowEndpointConfig" Core..=)
+            ("dataflowEndpointConfig" Data..=)
               Prelude.<$> dataflowEndpointConfig,
-            ("uplinkEchoConfig" Core..=)
+            ("uplinkEchoConfig" Data..=)
               Prelude.<$> uplinkEchoConfig,
-            ("antennaDownlinkConfig" Core..=)
+            ("antennaDownlinkConfig" Data..=)
               Prelude.<$> antennaDownlinkConfig,
-            ("antennaDownlinkDemodDecodeConfig" Core..=)
+            ("antennaDownlinkDemodDecodeConfig" Data..=)
               Prelude.<$> antennaDownlinkDemodDecodeConfig,
-            ("antennaUplinkConfig" Core..=)
+            ("antennaUplinkConfig" Data..=)
               Prelude.<$> antennaUplinkConfig,
-            ("s3RecordingConfig" Core..=)
+            ("s3RecordingConfig" Data..=)
               Prelude.<$> s3RecordingConfig
           ]
       )

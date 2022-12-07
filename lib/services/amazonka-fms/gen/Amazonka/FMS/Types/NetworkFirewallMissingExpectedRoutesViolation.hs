@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.ExpectedRoute
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,17 +75,17 @@ networkFirewallMissingExpectedRoutesViolation_vpcId :: Lens.Lens' NetworkFirewal
 networkFirewallMissingExpectedRoutesViolation_vpcId = Lens.lens (\NetworkFirewallMissingExpectedRoutesViolation' {vpcId} -> vpcId) (\s@NetworkFirewallMissingExpectedRoutesViolation' {} a -> s {vpcId = a} :: NetworkFirewallMissingExpectedRoutesViolation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     NetworkFirewallMissingExpectedRoutesViolation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkFirewallMissingExpectedRoutesViolation"
       ( \x ->
           NetworkFirewallMissingExpectedRoutesViolation'
-            Prelude.<$> (x Core..:? "ViolationTarget")
-              Prelude.<*> (x Core..:? "ExpectedRoutes" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<$> (x Data..:? "ViolationTarget")
+              Prelude.<*> (x Data..:? "ExpectedRoutes" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance

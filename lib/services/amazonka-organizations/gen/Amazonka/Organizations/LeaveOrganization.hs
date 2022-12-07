@@ -88,6 +88,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,28 +124,28 @@ instance Prelude.Hashable LeaveOrganization where
 instance Prelude.NFData LeaveOrganization where
   rnf _ = ()
 
-instance Core.ToHeaders LeaveOrganization where
+instance Data.ToHeaders LeaveOrganization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.LeaveOrganization" ::
+              Data.=# ( "AWSOrganizationsV20161128.LeaveOrganization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON LeaveOrganization where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON LeaveOrganization where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath LeaveOrganization where
+instance Data.ToPath LeaveOrganization where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery LeaveOrganization where
+instance Data.ToQuery LeaveOrganization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newLeaveOrganizationResponse' smart constructor.

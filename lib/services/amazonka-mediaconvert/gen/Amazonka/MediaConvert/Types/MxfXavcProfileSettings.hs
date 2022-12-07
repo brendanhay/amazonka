@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.MxfXavcProfileSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.MxfXavcDurationMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -103,14 +104,14 @@ mxfXavcProfileSettings_durationMode = Lens.lens (\MxfXavcProfileSettings' {durat
 mxfXavcProfileSettings_maxAncDataSize :: Lens.Lens' MxfXavcProfileSettings (Prelude.Maybe Prelude.Natural)
 mxfXavcProfileSettings_maxAncDataSize = Lens.lens (\MxfXavcProfileSettings' {maxAncDataSize} -> maxAncDataSize) (\s@MxfXavcProfileSettings' {} a -> s {maxAncDataSize = a} :: MxfXavcProfileSettings)
 
-instance Core.FromJSON MxfXavcProfileSettings where
+instance Data.FromJSON MxfXavcProfileSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MxfXavcProfileSettings"
       ( \x ->
           MxfXavcProfileSettings'
-            Prelude.<$> (x Core..:? "durationMode")
-            Prelude.<*> (x Core..:? "maxAncDataSize")
+            Prelude.<$> (x Data..:? "durationMode")
+            Prelude.<*> (x Data..:? "maxAncDataSize")
       )
 
 instance Prelude.Hashable MxfXavcProfileSettings where
@@ -123,12 +124,12 @@ instance Prelude.NFData MxfXavcProfileSettings where
     Prelude.rnf durationMode
       `Prelude.seq` Prelude.rnf maxAncDataSize
 
-instance Core.ToJSON MxfXavcProfileSettings where
+instance Data.ToJSON MxfXavcProfileSettings where
   toJSON MxfXavcProfileSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("durationMode" Core..=) Prelude.<$> durationMode,
-            ("maxAncDataSize" Core..=)
+          [ ("durationMode" Data..=) Prelude.<$> durationMode,
+            ("maxAncDataSize" Data..=)
               Prelude.<$> maxAncDataSize
           ]
       )

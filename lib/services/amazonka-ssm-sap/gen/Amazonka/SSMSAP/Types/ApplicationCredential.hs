@@ -21,6 +21,7 @@ module Amazonka.SSMSAP.Types.ApplicationCredential where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMSAP.Types.CredentialType
 
@@ -30,7 +31,7 @@ import Amazonka.SSMSAP.Types.CredentialType
 data ApplicationCredential = ApplicationCredential'
   { databaseName :: Prelude.Text,
     credentialType :: CredentialType,
-    secretId :: Core.Sensitive Prelude.Text
+    secretId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -63,7 +64,7 @@ newApplicationCredential
       { databaseName =
           pDatabaseName_,
         credentialType = pCredentialType_,
-        secretId = Core._Sensitive Lens.# pSecretId_
+        secretId = Data._Sensitive Lens.# pSecretId_
       }
 
 -- |
@@ -76,17 +77,17 @@ applicationCredential_credentialType = Lens.lens (\ApplicationCredential' {crede
 
 -- |
 applicationCredential_secretId :: Lens.Lens' ApplicationCredential Prelude.Text
-applicationCredential_secretId = Lens.lens (\ApplicationCredential' {secretId} -> secretId) (\s@ApplicationCredential' {} a -> s {secretId = a} :: ApplicationCredential) Prelude.. Core._Sensitive
+applicationCredential_secretId = Lens.lens (\ApplicationCredential' {secretId} -> secretId) (\s@ApplicationCredential' {} a -> s {secretId = a} :: ApplicationCredential) Prelude.. Data._Sensitive
 
-instance Core.FromJSON ApplicationCredential where
+instance Data.FromJSON ApplicationCredential where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationCredential"
       ( \x ->
           ApplicationCredential'
-            Prelude.<$> (x Core..: "DatabaseName")
-            Prelude.<*> (x Core..: "CredentialType")
-            Prelude.<*> (x Core..: "SecretId")
+            Prelude.<$> (x Data..: "DatabaseName")
+            Prelude.<*> (x Data..: "CredentialType")
+            Prelude.<*> (x Data..: "SecretId")
       )
 
 instance Prelude.Hashable ApplicationCredential where
@@ -101,13 +102,13 @@ instance Prelude.NFData ApplicationCredential where
       `Prelude.seq` Prelude.rnf credentialType
       `Prelude.seq` Prelude.rnf secretId
 
-instance Core.ToJSON ApplicationCredential where
+instance Data.ToJSON ApplicationCredential where
   toJSON ApplicationCredential' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DatabaseName" Core..= databaseName),
+          [ Prelude.Just ("DatabaseName" Data..= databaseName),
             Prelude.Just
-              ("CredentialType" Core..= credentialType),
-            Prelude.Just ("SecretId" Core..= secretId)
+              ("CredentialType" Data..= credentialType),
+            Prelude.Just ("SecretId" Data..= secretId)
           ]
       )

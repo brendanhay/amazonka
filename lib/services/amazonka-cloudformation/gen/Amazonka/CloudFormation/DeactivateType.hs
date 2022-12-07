@@ -50,6 +50,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,22 +153,22 @@ instance Prelude.NFData DeactivateType where
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf typeName
 
-instance Core.ToHeaders DeactivateType where
+instance Data.ToHeaders DeactivateType where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeactivateType where
+instance Data.ToPath DeactivateType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeactivateType where
+instance Data.ToQuery DeactivateType where
   toQuery DeactivateType' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeactivateType" :: Prelude.ByteString),
+          Data.=: ("DeactivateType" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "Type" Core.=: type',
-        "Arn" Core.=: arn,
-        "TypeName" Core.=: typeName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "Type" Data.=: type',
+        "Arn" Data.=: arn,
+        "TypeName" Data.=: typeName
       ]
 
 -- | /See:/ 'newDeactivateTypeResponse' smart constructor.

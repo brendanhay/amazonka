@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.AttributeValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Values for use in Player attribute key-value pairs. This object lets you
@@ -91,16 +92,16 @@ attributeValue_sdm = Lens.lens (\AttributeValue' {sdm} -> sdm) (\s@AttributeValu
 attributeValue_n :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.Double)
 attributeValue_n = Lens.lens (\AttributeValue' {n} -> n) (\s@AttributeValue' {} a -> s {n = a} :: AttributeValue)
 
-instance Core.FromJSON AttributeValue where
+instance Data.FromJSON AttributeValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttributeValue"
       ( \x ->
           AttributeValue'
-            Prelude.<$> (x Core..:? "SL" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "S")
-            Prelude.<*> (x Core..:? "SDM" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "N")
+            Prelude.<$> (x Data..:? "SL" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "S")
+            Prelude.<*> (x Data..:? "SDM" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "N")
       )
 
 instance Prelude.Hashable AttributeValue where
@@ -117,13 +118,13 @@ instance Prelude.NFData AttributeValue where
       `Prelude.seq` Prelude.rnf sdm
       `Prelude.seq` Prelude.rnf n
 
-instance Core.ToJSON AttributeValue where
+instance Data.ToJSON AttributeValue where
   toJSON AttributeValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SL" Core..=) Prelude.<$> sl,
-            ("S" Core..=) Prelude.<$> s,
-            ("SDM" Core..=) Prelude.<$> sdm,
-            ("N" Core..=) Prelude.<$> n
+          [ ("SL" Data..=) Prelude.<$> sl,
+            ("S" Data..=) Prelude.<$> s,
+            ("SDM" Data..=) Prelude.<$> sdm,
+            ("N" Data..=) Prelude.<$> n
           ]
       )

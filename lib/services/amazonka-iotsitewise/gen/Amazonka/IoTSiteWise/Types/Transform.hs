@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.Transform where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.ExpressionVariable
 import Amazonka.IoTSiteWise.Types.TransformProcessingConfig
 import qualified Amazonka.Prelude as Prelude
@@ -110,15 +111,15 @@ transform_expression = Lens.lens (\Transform' {expression} -> expression) (\s@Tr
 transform_variables :: Lens.Lens' Transform [ExpressionVariable]
 transform_variables = Lens.lens (\Transform' {variables} -> variables) (\s@Transform' {} a -> s {variables = a} :: Transform) Prelude.. Lens.coerced
 
-instance Core.FromJSON Transform where
+instance Data.FromJSON Transform where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Transform"
       ( \x ->
           Transform'
-            Prelude.<$> (x Core..:? "processingConfig")
-            Prelude.<*> (x Core..: "expression")
-            Prelude.<*> (x Core..:? "variables" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "processingConfig")
+            Prelude.<*> (x Data..: "expression")
+            Prelude.<*> (x Data..:? "variables" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Transform where
@@ -133,13 +134,13 @@ instance Prelude.NFData Transform where
       `Prelude.seq` Prelude.rnf expression
       `Prelude.seq` Prelude.rnf variables
 
-instance Core.ToJSON Transform where
+instance Data.ToJSON Transform where
   toJSON Transform' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("processingConfig" Core..=)
+          [ ("processingConfig" Data..=)
               Prelude.<$> processingConfig,
-            Prelude.Just ("expression" Core..= expression),
-            Prelude.Just ("variables" Core..= variables)
+            Prelude.Just ("expression" Data..= expression),
+            Prelude.Just ("variables" Data..= variables)
           ]
       )

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,9 +91,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetPortalServiceProviderMetadataResponse'
-            Prelude.<$> (x Core..?> "serviceProviderSamlMetadata")
+            Prelude.<$> (x Data..?> "serviceProviderSamlMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "portalArn")
+            Prelude.<*> (x Data..:> "portalArn")
       )
 
 instance
@@ -112,26 +113,26 @@ instance
     Prelude.rnf portalArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetPortalServiceProviderMetadata
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetPortalServiceProviderMetadata where
+instance Data.ToPath GetPortalServiceProviderMetadata where
   toPath GetPortalServiceProviderMetadata' {..} =
     Prelude.mconcat
-      ["/portalIdp/", Core.toBS portalArn]
+      ["/portalIdp/", Data.toBS portalArn]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetPortalServiceProviderMetadata
   where
   toQuery = Prelude.const Prelude.mempty

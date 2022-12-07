@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.Participants where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.GroupMetadata
 import Amazonka.WorkDocs.Types.UserMetadata
@@ -63,14 +64,14 @@ participants_users = Lens.lens (\Participants' {users} -> users) (\s@Participant
 participants_groups :: Lens.Lens' Participants (Prelude.Maybe [GroupMetadata])
 participants_groups = Lens.lens (\Participants' {groups} -> groups) (\s@Participants' {} a -> s {groups = a} :: Participants) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Participants where
+instance Data.FromJSON Participants where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Participants"
       ( \x ->
           Participants'
-            Prelude.<$> (x Core..:? "Users" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Groups" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Users" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Groups" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Participants where

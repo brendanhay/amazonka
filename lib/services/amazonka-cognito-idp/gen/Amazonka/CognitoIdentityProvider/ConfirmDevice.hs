@@ -46,6 +46,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -60,7 +61,7 @@ data ConfirmDevice = ConfirmDevice'
     deviceName :: Prelude.Maybe Prelude.Text,
     -- | A valid access token that Amazon Cognito issued to the user whose device
     -- you want to confirm.
-    accessToken :: Core.Sensitive Prelude.Text,
+    accessToken :: Data.Sensitive Prelude.Text,
     -- | The device key.
     deviceKey :: Prelude.Text
   }
@@ -93,7 +94,7 @@ newConfirmDevice pAccessToken_ pDeviceKey_ =
     { deviceSecretVerifierConfig =
         Prelude.Nothing,
       deviceName = Prelude.Nothing,
-      accessToken = Core._Sensitive Lens.# pAccessToken_,
+      accessToken = Data._Sensitive Lens.# pAccessToken_,
       deviceKey = pDeviceKey_
     }
 
@@ -108,7 +109,7 @@ confirmDevice_deviceName = Lens.lens (\ConfirmDevice' {deviceName} -> deviceName
 -- | A valid access token that Amazon Cognito issued to the user whose device
 -- you want to confirm.
 confirmDevice_accessToken :: Lens.Lens' ConfirmDevice Prelude.Text
-confirmDevice_accessToken = Lens.lens (\ConfirmDevice' {accessToken} -> accessToken) (\s@ConfirmDevice' {} a -> s {accessToken = a} :: ConfirmDevice) Prelude.. Core._Sensitive
+confirmDevice_accessToken = Lens.lens (\ConfirmDevice' {accessToken} -> accessToken) (\s@ConfirmDevice' {} a -> s {accessToken = a} :: ConfirmDevice) Prelude.. Data._Sensitive
 
 -- | The device key.
 confirmDevice_deviceKey :: Lens.Lens' ConfirmDevice Prelude.Text
@@ -124,7 +125,7 @@ instance Core.AWSRequest ConfirmDevice where
     Response.receiveJSON
       ( \s h x ->
           ConfirmDeviceResponse'
-            Prelude.<$> (x Core..?> "UserConfirmationNecessary")
+            Prelude.<$> (x Data..?> "UserConfirmationNecessary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,37 +144,37 @@ instance Prelude.NFData ConfirmDevice where
       `Prelude.seq` Prelude.rnf accessToken
       `Prelude.seq` Prelude.rnf deviceKey
 
-instance Core.ToHeaders ConfirmDevice where
+instance Data.ToHeaders ConfirmDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.ConfirmDevice" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.ConfirmDevice" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ConfirmDevice where
+instance Data.ToJSON ConfirmDevice where
   toJSON ConfirmDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeviceSecretVerifierConfig" Core..=)
+          [ ("DeviceSecretVerifierConfig" Data..=)
               Prelude.<$> deviceSecretVerifierConfig,
-            ("DeviceName" Core..=) Prelude.<$> deviceName,
-            Prelude.Just ("AccessToken" Core..= accessToken),
-            Prelude.Just ("DeviceKey" Core..= deviceKey)
+            ("DeviceName" Data..=) Prelude.<$> deviceName,
+            Prelude.Just ("AccessToken" Data..= accessToken),
+            Prelude.Just ("DeviceKey" Data..= deviceKey)
           ]
       )
 
-instance Core.ToPath ConfirmDevice where
+instance Data.ToPath ConfirmDevice where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ConfirmDevice where
+instance Data.ToQuery ConfirmDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Confirms the device response.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,8 +101,8 @@ instance Core.AWSRequest DescribeFindings where
       ( \s h x ->
           DescribeFindingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "findings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "findings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failedItems" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable DescribeFindings where
@@ -114,34 +115,34 @@ instance Prelude.NFData DescribeFindings where
     Prelude.rnf locale
       `Prelude.seq` Prelude.rnf findingArns
 
-instance Core.ToHeaders DescribeFindings where
+instance Data.ToHeaders DescribeFindings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.DescribeFindings" ::
+              Data.=# ( "InspectorService.DescribeFindings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFindings where
+instance Data.ToJSON DescribeFindings where
   toJSON DescribeFindings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("locale" Core..=) Prelude.<$> locale,
-            Prelude.Just ("findingArns" Core..= findingArns)
+          [ ("locale" Data..=) Prelude.<$> locale,
+            Prelude.Just ("findingArns" Data..= findingArns)
           ]
       )
 
-instance Core.ToPath DescribeFindings where
+instance Data.ToPath DescribeFindings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFindings where
+instance Data.ToQuery DescribeFindings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFindingsResponse' smart constructor.

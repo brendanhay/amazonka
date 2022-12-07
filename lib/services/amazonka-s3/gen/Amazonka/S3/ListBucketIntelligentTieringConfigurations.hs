@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,11 +141,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           ListBucketIntelligentTieringConfigurationsResponse'
-            Prelude.<$> (x Core..@? "IsTruncated")
-              Prelude.<*> (x Core..@? "ContinuationToken")
-              Prelude.<*> (x Core..@? "NextContinuationToken")
+            Prelude.<$> (x Data..@? "IsTruncated")
+              Prelude.<*> (x Data..@? "ContinuationToken")
+              Prelude.<*> (x Data..@? "NextContinuationToken")
               Prelude.<*> ( Core.may
-                              (Core.parseXMLList "IntelligentTieringConfiguration")
+                              (Data.parseXMLList "IntelligentTieringConfiguration")
                               x
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -169,27 +170,27 @@ instance
       `Prelude.seq` Prelude.rnf bucket
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListBucketIntelligentTieringConfigurations
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListBucketIntelligentTieringConfigurations
   where
   toPath
     ListBucketIntelligentTieringConfigurations' {..} =
-      Prelude.mconcat ["/", Core.toBS bucket]
+      Prelude.mconcat ["/", Data.toBS bucket]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListBucketIntelligentTieringConfigurations
   where
   toQuery
     ListBucketIntelligentTieringConfigurations' {..} =
       Prelude.mconcat
-        [ "continuation-token" Core.=: continuationToken,
+        [ "continuation-token" Data.=: continuationToken,
           "intelligent-tiering"
         ]
 

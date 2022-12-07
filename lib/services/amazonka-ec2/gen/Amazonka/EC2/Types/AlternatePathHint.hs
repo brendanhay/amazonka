@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AlternatePathHint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,11 +63,11 @@ alternatePathHint_componentArn = Lens.lens (\AlternatePathHint' {componentArn} -
 alternatePathHint_componentId :: Lens.Lens' AlternatePathHint (Prelude.Maybe Prelude.Text)
 alternatePathHint_componentId = Lens.lens (\AlternatePathHint' {componentId} -> componentId) (\s@AlternatePathHint' {} a -> s {componentId = a} :: AlternatePathHint)
 
-instance Core.FromXML AlternatePathHint where
+instance Data.FromXML AlternatePathHint where
   parseXML x =
     AlternatePathHint'
-      Prelude.<$> (x Core..@? "componentArn")
-      Prelude.<*> (x Core..@? "componentId")
+      Prelude.<$> (x Data..@? "componentArn")
+      Prelude.<*> (x Data..@? "componentId")
 
 instance Prelude.Hashable AlternatePathHint where
   hashWithSalt _salt AlternatePathHint' {..} =

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -134,7 +135,7 @@ instance Core.AWSRequest ModifyClusterIamRoles where
       "ModifyClusterIamRolesResult"
       ( \s h x ->
           ModifyClusterIamRolesResponse'
-            Prelude.<$> (x Core..@? "Cluster")
+            Prelude.<$> (x Data..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,31 +153,31 @@ instance Prelude.NFData ModifyClusterIamRoles where
       `Prelude.seq` Prelude.rnf defaultIamRoleArn
       `Prelude.seq` Prelude.rnf clusterIdentifier
 
-instance Core.ToHeaders ModifyClusterIamRoles where
+instance Data.ToHeaders ModifyClusterIamRoles where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyClusterIamRoles where
+instance Data.ToPath ModifyClusterIamRoles where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyClusterIamRoles where
+instance Data.ToQuery ModifyClusterIamRoles where
   toQuery ModifyClusterIamRoles' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyClusterIamRoles" :: Prelude.ByteString),
+          Data.=: ("ModifyClusterIamRoles" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "RemoveIamRoles"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "IamRoleArn"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "IamRoleArn"
                 Prelude.<$> removeIamRoles
             ),
         "AddIamRoles"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "IamRoleArn"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "IamRoleArn"
                 Prelude.<$> addIamRoles
             ),
-        "DefaultIamRoleArn" Core.=: defaultIamRoleArn,
-        "ClusterIdentifier" Core.=: clusterIdentifier
+        "DefaultIamRoleArn" Data.=: defaultIamRoleArn,
+        "ClusterIdentifier" Data.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newModifyClusterIamRolesResponse' smart constructor.

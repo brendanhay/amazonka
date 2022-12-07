@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.MilestoneSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.WorkloadSummary
 
@@ -28,7 +29,7 @@ import Amazonka.WellArchitected.Types.WorkloadSummary
 --
 -- /See:/ 'newMilestoneSummary' smart constructor.
 data MilestoneSummary = MilestoneSummary'
-  { recordedAt :: Prelude.Maybe Core.POSIX,
+  { recordedAt :: Prelude.Maybe Data.POSIX,
     milestoneName :: Prelude.Maybe Prelude.Text,
     workloadSummary :: Prelude.Maybe WorkloadSummary,
     milestoneNumber :: Prelude.Maybe Prelude.Natural
@@ -62,7 +63,7 @@ newMilestoneSummary =
 
 -- | Undocumented member.
 milestoneSummary_recordedAt :: Lens.Lens' MilestoneSummary (Prelude.Maybe Prelude.UTCTime)
-milestoneSummary_recordedAt = Lens.lens (\MilestoneSummary' {recordedAt} -> recordedAt) (\s@MilestoneSummary' {} a -> s {recordedAt = a} :: MilestoneSummary) Prelude.. Lens.mapping Core._Time
+milestoneSummary_recordedAt = Lens.lens (\MilestoneSummary' {recordedAt} -> recordedAt) (\s@MilestoneSummary' {} a -> s {recordedAt = a} :: MilestoneSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 milestoneSummary_milestoneName :: Lens.Lens' MilestoneSummary (Prelude.Maybe Prelude.Text)
@@ -76,16 +77,16 @@ milestoneSummary_workloadSummary = Lens.lens (\MilestoneSummary' {workloadSummar
 milestoneSummary_milestoneNumber :: Lens.Lens' MilestoneSummary (Prelude.Maybe Prelude.Natural)
 milestoneSummary_milestoneNumber = Lens.lens (\MilestoneSummary' {milestoneNumber} -> milestoneNumber) (\s@MilestoneSummary' {} a -> s {milestoneNumber = a} :: MilestoneSummary)
 
-instance Core.FromJSON MilestoneSummary where
+instance Data.FromJSON MilestoneSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MilestoneSummary"
       ( \x ->
           MilestoneSummary'
-            Prelude.<$> (x Core..:? "RecordedAt")
-            Prelude.<*> (x Core..:? "MilestoneName")
-            Prelude.<*> (x Core..:? "WorkloadSummary")
-            Prelude.<*> (x Core..:? "MilestoneNumber")
+            Prelude.<$> (x Data..:? "RecordedAt")
+            Prelude.<*> (x Data..:? "MilestoneName")
+            Prelude.<*> (x Data..:? "WorkloadSummary")
+            Prelude.<*> (x Data..:? "MilestoneNumber")
       )
 
 instance Prelude.Hashable MilestoneSummary where

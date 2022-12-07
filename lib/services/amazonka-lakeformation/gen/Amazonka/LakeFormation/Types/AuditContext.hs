@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.AuditContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure used to include auditing information on the privileged API.
@@ -67,11 +68,11 @@ instance Prelude.NFData AuditContext where
   rnf AuditContext' {..} =
     Prelude.rnf additionalAuditContext
 
-instance Core.ToJSON AuditContext where
+instance Data.ToJSON AuditContext where
   toJSON AuditContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AdditionalAuditContext" Core..=)
+          [ ("AdditionalAuditContext" Data..=)
               Prelude.<$> additionalAuditContext
           ]
       )

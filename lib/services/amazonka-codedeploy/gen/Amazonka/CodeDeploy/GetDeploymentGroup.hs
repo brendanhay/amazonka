@@ -43,6 +43,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,7 +106,7 @@ instance Core.AWSRequest GetDeploymentGroup where
     Response.receiveJSON
       ( \s h x ->
           GetDeploymentGroupResponse'
-            Prelude.<$> (x Core..?> "deploymentGroupInfo")
+            Prelude.<$> (x Data..?> "deploymentGroupInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,36 +120,36 @@ instance Prelude.NFData GetDeploymentGroup where
     Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf deploymentGroupName
 
-instance Core.ToHeaders GetDeploymentGroup where
+instance Data.ToHeaders GetDeploymentGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.GetDeploymentGroup" ::
+              Data.=# ( "CodeDeploy_20141006.GetDeploymentGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDeploymentGroup where
+instance Data.ToJSON GetDeploymentGroup where
   toJSON GetDeploymentGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("applicationName" Core..= applicationName),
+              ("applicationName" Data..= applicationName),
             Prelude.Just
-              ("deploymentGroupName" Core..= deploymentGroupName)
+              ("deploymentGroupName" Data..= deploymentGroupName)
           ]
       )
 
-instance Core.ToPath GetDeploymentGroup where
+instance Data.ToPath GetDeploymentGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDeploymentGroup where
+instance Data.ToQuery GetDeploymentGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetDeploymentGroup@ operation.

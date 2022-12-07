@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.AnomalyGroupSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a group of anomalous metrics.
@@ -89,17 +90,17 @@ anomalyGroupSummary_startTime = Lens.lens (\AnomalyGroupSummary' {startTime} -> 
 anomalyGroupSummary_primaryMetricName :: Lens.Lens' AnomalyGroupSummary (Prelude.Maybe Prelude.Text)
 anomalyGroupSummary_primaryMetricName = Lens.lens (\AnomalyGroupSummary' {primaryMetricName} -> primaryMetricName) (\s@AnomalyGroupSummary' {} a -> s {primaryMetricName = a} :: AnomalyGroupSummary)
 
-instance Core.FromJSON AnomalyGroupSummary where
+instance Data.FromJSON AnomalyGroupSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnomalyGroupSummary"
       ( \x ->
           AnomalyGroupSummary'
-            Prelude.<$> (x Core..:? "AnomalyGroupScore")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "AnomalyGroupId")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "PrimaryMetricName")
+            Prelude.<$> (x Data..:? "AnomalyGroupScore")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "AnomalyGroupId")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "PrimaryMetricName")
       )
 
 instance Prelude.Hashable AnomalyGroupSummary where

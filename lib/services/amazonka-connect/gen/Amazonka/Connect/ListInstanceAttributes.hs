@@ -50,6 +50,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,8 +144,8 @@ instance Core.AWSRequest ListInstanceAttributes where
     Response.receiveJSON
       ( \s h x ->
           ListInstanceAttributesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Attributes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,27 +161,27 @@ instance Prelude.NFData ListInstanceAttributes where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ListInstanceAttributes where
+instance Data.ToHeaders ListInstanceAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListInstanceAttributes where
+instance Data.ToPath ListInstanceAttributes where
   toPath ListInstanceAttributes' {..} =
     Prelude.mconcat
-      ["/instance/", Core.toBS instanceId, "/attributes"]
+      ["/instance/", Data.toBS instanceId, "/attributes"]
 
-instance Core.ToQuery ListInstanceAttributes where
+instance Data.ToQuery ListInstanceAttributes where
   toQuery ListInstanceAttributes' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListInstanceAttributesResponse' smart constructor.

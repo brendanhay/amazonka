@@ -24,6 +24,7 @@ import Amazonka.AccessAnalyzer.Types.S3BucketAclGrantConfiguration
 import Amazonka.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Proposed access control configuration for an Amazon S3 bucket. You can
@@ -113,18 +114,18 @@ s3BucketConfiguration_bucketAclGrants = Lens.lens (\S3BucketConfiguration' {buck
 s3BucketConfiguration_bucketPolicy :: Lens.Lens' S3BucketConfiguration (Prelude.Maybe Prelude.Text)
 s3BucketConfiguration_bucketPolicy = Lens.lens (\S3BucketConfiguration' {bucketPolicy} -> bucketPolicy) (\s@S3BucketConfiguration' {} a -> s {bucketPolicy = a} :: S3BucketConfiguration)
 
-instance Core.FromJSON S3BucketConfiguration where
+instance Data.FromJSON S3BucketConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3BucketConfiguration"
       ( \x ->
           S3BucketConfiguration'
-            Prelude.<$> (x Core..:? "accessPoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "bucketPublicAccessBlock")
-            Prelude.<*> ( x Core..:? "bucketAclGrants"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "accessPoints" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "bucketPublicAccessBlock")
+            Prelude.<*> ( x Data..:? "bucketAclGrants"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "bucketPolicy")
+            Prelude.<*> (x Data..:? "bucketPolicy")
       )
 
 instance Prelude.Hashable S3BucketConfiguration where
@@ -141,15 +142,15 @@ instance Prelude.NFData S3BucketConfiguration where
       `Prelude.seq` Prelude.rnf bucketAclGrants
       `Prelude.seq` Prelude.rnf bucketPolicy
 
-instance Core.ToJSON S3BucketConfiguration where
+instance Data.ToJSON S3BucketConfiguration where
   toJSON S3BucketConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accessPoints" Core..=) Prelude.<$> accessPoints,
-            ("bucketPublicAccessBlock" Core..=)
+          [ ("accessPoints" Data..=) Prelude.<$> accessPoints,
+            ("bucketPublicAccessBlock" Data..=)
               Prelude.<$> bucketPublicAccessBlock,
-            ("bucketAclGrants" Core..=)
+            ("bucketAclGrants" Data..=)
               Prelude.<$> bucketAclGrants,
-            ("bucketPolicy" Core..=) Prelude.<$> bucketPolicy
+            ("bucketPolicy" Data..=) Prelude.<$> bucketPolicy
           ]
       )

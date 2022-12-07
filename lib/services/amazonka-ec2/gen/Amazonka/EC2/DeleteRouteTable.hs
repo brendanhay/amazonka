@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,21 +112,21 @@ instance Prelude.NFData DeleteRouteTable where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf routeTableId
 
-instance Core.ToHeaders DeleteRouteTable where
+instance Data.ToHeaders DeleteRouteTable where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteRouteTable where
+instance Data.ToPath DeleteRouteTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRouteTable where
+instance Data.ToQuery DeleteRouteTable where
   toQuery DeleteRouteTable' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteRouteTable" :: Prelude.ByteString),
+          Data.=: ("DeleteRouteTable" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "RouteTableId" Core.=: routeTableId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "RouteTableId" Data.=: routeTableId
       ]
 
 -- | /See:/ 'newDeleteRouteTableResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringBaselineConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MonitoringConstraintsResource
 import Amazonka.SageMaker.Types.MonitoringStatisticsResource
@@ -81,15 +82,15 @@ monitoringBaselineConfig_constraintsResource = Lens.lens (\MonitoringBaselineCon
 monitoringBaselineConfig_statisticsResource :: Lens.Lens' MonitoringBaselineConfig (Prelude.Maybe MonitoringStatisticsResource)
 monitoringBaselineConfig_statisticsResource = Lens.lens (\MonitoringBaselineConfig' {statisticsResource} -> statisticsResource) (\s@MonitoringBaselineConfig' {} a -> s {statisticsResource = a} :: MonitoringBaselineConfig)
 
-instance Core.FromJSON MonitoringBaselineConfig where
+instance Data.FromJSON MonitoringBaselineConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringBaselineConfig"
       ( \x ->
           MonitoringBaselineConfig'
-            Prelude.<$> (x Core..:? "BaseliningJobName")
-            Prelude.<*> (x Core..:? "ConstraintsResource")
-            Prelude.<*> (x Core..:? "StatisticsResource")
+            Prelude.<$> (x Data..:? "BaseliningJobName")
+            Prelude.<*> (x Data..:? "ConstraintsResource")
+            Prelude.<*> (x Data..:? "StatisticsResource")
       )
 
 instance Prelude.Hashable MonitoringBaselineConfig where
@@ -104,15 +105,15 @@ instance Prelude.NFData MonitoringBaselineConfig where
       `Prelude.seq` Prelude.rnf constraintsResource
       `Prelude.seq` Prelude.rnf statisticsResource
 
-instance Core.ToJSON MonitoringBaselineConfig where
+instance Data.ToJSON MonitoringBaselineConfig where
   toJSON MonitoringBaselineConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BaseliningJobName" Core..=)
+          [ ("BaseliningJobName" Data..=)
               Prelude.<$> baseliningJobName,
-            ("ConstraintsResource" Core..=)
+            ("ConstraintsResource" Data..=)
               Prelude.<$> constraintsResource,
-            ("StatisticsResource" Core..=)
+            ("StatisticsResource" Data..=)
               Prelude.<$> statisticsResource
           ]
       )

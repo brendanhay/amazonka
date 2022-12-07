@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.EC2Capacity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about EC2 capacity.
@@ -70,15 +71,15 @@ eC2Capacity_family = Lens.lens (\EC2Capacity' {family} -> family) (\s@EC2Capacit
 eC2Capacity_maxSize :: Lens.Lens' EC2Capacity (Prelude.Maybe Prelude.Text)
 eC2Capacity_maxSize = Lens.lens (\EC2Capacity' {maxSize} -> maxSize) (\s@EC2Capacity' {} a -> s {maxSize = a} :: EC2Capacity)
 
-instance Core.FromJSON EC2Capacity where
+instance Data.FromJSON EC2Capacity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EC2Capacity"
       ( \x ->
           EC2Capacity'
-            Prelude.<$> (x Core..:? "Quantity")
-            Prelude.<*> (x Core..:? "Family")
-            Prelude.<*> (x Core..:? "MaxSize")
+            Prelude.<$> (x Data..:? "Quantity")
+            Prelude.<*> (x Data..:? "Family")
+            Prelude.<*> (x Data..:? "MaxSize")
       )
 
 instance Prelude.Hashable EC2Capacity where

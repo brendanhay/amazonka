@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.DirectoryVpcSettingsDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the directory.
@@ -81,20 +82,20 @@ directoryVpcSettingsDescription_subnetIds :: Lens.Lens' DirectoryVpcSettingsDesc
 directoryVpcSettingsDescription_subnetIds = Lens.lens (\DirectoryVpcSettingsDescription' {subnetIds} -> subnetIds) (\s@DirectoryVpcSettingsDescription' {} a -> s {subnetIds = a} :: DirectoryVpcSettingsDescription) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DirectoryVpcSettingsDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DirectoryVpcSettingsDescription"
       ( \x ->
           DirectoryVpcSettingsDescription'
-            Prelude.<$> ( x Core..:? "AvailabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "AvailabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SecurityGroupId")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SecurityGroupId")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
       )
 
 instance

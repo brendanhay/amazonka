@@ -21,6 +21,7 @@ module Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types.ChannelProtocol
 import Amazonka.KinesisVideo.Types.ChannelRole
 import qualified Amazonka.Prelude as Prelude
@@ -111,13 +112,13 @@ instance
       `Prelude.seq` Prelude.rnf role'
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SingleMasterChannelEndpointConfiguration
   where
   toJSON SingleMasterChannelEndpointConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Protocols" Core..=) Prelude.<$> protocols,
-            ("Role" Core..=) Prelude.<$> role'
+          [ ("Protocols" Data..=) Prelude.<$> protocols,
+            ("Role" Data..=) Prelude.<$> role'
           ]
       )

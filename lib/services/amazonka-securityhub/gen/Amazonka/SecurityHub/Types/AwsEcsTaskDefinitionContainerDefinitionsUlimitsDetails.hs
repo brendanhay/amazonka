@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimit
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A ulimit to set in the container.
@@ -164,17 +165,17 @@ awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_hardLimit :: Lens.Lens' A
 awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_hardLimit = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {hardLimit} -> hardLimit) (\s@AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {} a -> s {hardLimit = a} :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'
-            Prelude.<$> (x Core..:? "Name")
-              Prelude.<*> (x Core..:? "SoftLimit")
-              Prelude.<*> (x Core..:? "HardLimit")
+            Prelude.<$> (x Data..:? "Name")
+              Prelude.<*> (x Data..:? "SoftLimit")
+              Prelude.<*> (x Data..:? "HardLimit")
       )
 
 instance
@@ -199,15 +200,15 @@ instance
         `Prelude.seq` Prelude.rnf hardLimit
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Name" Core..=) Prelude.<$> name,
-              ("SoftLimit" Core..=) Prelude.<$> softLimit,
-              ("HardLimit" Core..=) Prelude.<$> hardLimit
+            [ ("Name" Data..=) Prelude.<$> name,
+              ("SoftLimit" Data..=) Prelude.<$> softLimit,
+              ("HardLimit" Data..=) Prelude.<$> hardLimit
             ]
         )

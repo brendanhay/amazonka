@@ -50,6 +50,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,14 +133,14 @@ instance Core.AWSRequest GetFolder where
     Response.receiveJSON
       ( \s h x ->
           GetFolderResponse'
-            Prelude.<$> (x Core..?> "files" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "symbolicLinks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "subFolders" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "treeId")
-            Prelude.<*> (x Core..?> "subModules" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "files" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "symbolicLinks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "subFolders" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "treeId")
+            Prelude.<*> (x Data..?> "subModules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "commitId")
-            Prelude.<*> (x Core..:> "folderPath")
+            Prelude.<*> (x Data..:> "commitId")
+            Prelude.<*> (x Data..:> "folderPath")
       )
 
 instance Prelude.Hashable GetFolder where
@@ -154,37 +155,37 @@ instance Prelude.NFData GetFolder where
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf folderPath
 
-instance Core.ToHeaders GetFolder where
+instance Data.ToHeaders GetFolder where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.GetFolder" ::
+              Data.=# ( "CodeCommit_20150413.GetFolder" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetFolder where
+instance Data.ToJSON GetFolder where
   toJSON GetFolder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("commitSpecifier" Core..=)
+          [ ("commitSpecifier" Data..=)
               Prelude.<$> commitSpecifier,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("folderPath" Core..= folderPath)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("folderPath" Data..= folderPath)
           ]
       )
 
-instance Core.ToPath GetFolder where
+instance Data.ToPath GetFolder where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetFolder where
+instance Data.ToQuery GetFolder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFolderResponse' smart constructor.

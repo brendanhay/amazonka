@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.UserContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the user who created or modified an experiment, trial,
@@ -71,15 +72,15 @@ userContext_userProfileName = Lens.lens (\UserContext' {userProfileName} -> user
 userContext_domainId :: Lens.Lens' UserContext (Prelude.Maybe Prelude.Text)
 userContext_domainId = Lens.lens (\UserContext' {domainId} -> domainId) (\s@UserContext' {} a -> s {domainId = a} :: UserContext)
 
-instance Core.FromJSON UserContext where
+instance Data.FromJSON UserContext where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserContext"
       ( \x ->
           UserContext'
-            Prelude.<$> (x Core..:? "UserProfileArn")
-            Prelude.<*> (x Core..:? "UserProfileName")
-            Prelude.<*> (x Core..:? "DomainId")
+            Prelude.<$> (x Data..:? "UserProfileArn")
+            Prelude.<*> (x Data..:? "UserProfileName")
+            Prelude.<*> (x Data..:? "DomainId")
       )
 
 instance Prelude.Hashable UserContext where

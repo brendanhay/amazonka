@@ -46,6 +46,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,8 +125,8 @@ instance Core.AWSRequest ListEntitledApplications where
     Response.receiveJSON
       ( \s h x ->
           ListEntitledApplicationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "EntitledApplications"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "EntitledApplications"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -145,37 +146,37 @@ instance Prelude.NFData ListEntitledApplications where
       `Prelude.seq` Prelude.rnf stackName
       `Prelude.seq` Prelude.rnf entitlementName
 
-instance Core.ToHeaders ListEntitledApplications where
+instance Data.ToHeaders ListEntitledApplications where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.ListEntitledApplications" ::
+              Data.=# ( "PhotonAdminProxyService.ListEntitledApplications" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEntitledApplications where
+instance Data.ToJSON ListEntitledApplications where
   toJSON ListEntitledApplications' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("StackName" Core..= stackName),
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("StackName" Data..= stackName),
             Prelude.Just
-              ("EntitlementName" Core..= entitlementName)
+              ("EntitlementName" Data..= entitlementName)
           ]
       )
 
-instance Core.ToPath ListEntitledApplications where
+instance Data.ToPath ListEntitledApplications where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEntitledApplications where
+instance Data.ToQuery ListEntitledApplications where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEntitledApplicationsResponse' smart constructor.

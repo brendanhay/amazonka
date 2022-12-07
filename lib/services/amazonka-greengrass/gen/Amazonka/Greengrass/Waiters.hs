@@ -18,6 +18,7 @@ module Amazonka.Greengrass.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Lens
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude

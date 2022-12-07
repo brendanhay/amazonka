@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Ipv6Pool where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PoolCidrBlock
 import Amazonka.EC2.Types.Tag
@@ -82,18 +83,18 @@ ipv6Pool_description = Lens.lens (\Ipv6Pool' {description} -> description) (\s@I
 ipv6Pool_poolId :: Lens.Lens' Ipv6Pool (Prelude.Maybe Prelude.Text)
 ipv6Pool_poolId = Lens.lens (\Ipv6Pool' {poolId} -> poolId) (\s@Ipv6Pool' {} a -> s {poolId = a} :: Ipv6Pool)
 
-instance Core.FromXML Ipv6Pool where
+instance Data.FromXML Ipv6Pool where
   parseXML x =
     Ipv6Pool'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "poolCidrBlockSet"
+      Prelude.<*> ( x Data..@? "poolCidrBlockSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "poolId")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "poolId")
 
 instance Prelude.Hashable Ipv6Pool where
   hashWithSalt _salt Ipv6Pool' {..} =

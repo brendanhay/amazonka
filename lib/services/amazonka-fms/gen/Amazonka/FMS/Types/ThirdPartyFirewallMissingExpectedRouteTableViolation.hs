@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.ThirdPartyFirewallMissingExpectedRouteTableViolation w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The violation details for a third-party firewall that\'s not associated
@@ -110,19 +111,19 @@ thirdPartyFirewallMissingExpectedRouteTableViolation_expectedRouteTable :: Lens.
 thirdPartyFirewallMissingExpectedRouteTableViolation_expectedRouteTable = Lens.lens (\ThirdPartyFirewallMissingExpectedRouteTableViolation' {expectedRouteTable} -> expectedRouteTable) (\s@ThirdPartyFirewallMissingExpectedRouteTableViolation' {} a -> s {expectedRouteTable = a} :: ThirdPartyFirewallMissingExpectedRouteTableViolation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ThirdPartyFirewallMissingExpectedRouteTableViolation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThirdPartyFirewallMissingExpectedRouteTableViolation"
       ( \x ->
           ThirdPartyFirewallMissingExpectedRouteTableViolation'
-            Prelude.<$> (x Core..:? "VPC")
-              Prelude.<*> (x Core..:? "ViolationTarget")
-              Prelude.<*> (x Core..:? "CurrentRouteTable")
-              Prelude.<*> (x Core..:? "AvailabilityZone")
-              Prelude.<*> (x Core..:? "ExpectedRouteTable")
+            Prelude.<$> (x Data..:? "VPC")
+              Prelude.<*> (x Data..:? "ViolationTarget")
+              Prelude.<*> (x Data..:? "CurrentRouteTable")
+              Prelude.<*> (x Data..:? "AvailabilityZone")
+              Prelude.<*> (x Data..:? "ExpectedRouteTable")
       )
 
 instance

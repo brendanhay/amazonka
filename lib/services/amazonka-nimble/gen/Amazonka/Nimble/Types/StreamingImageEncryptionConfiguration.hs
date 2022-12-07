@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.StreamingImageEncryptionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.StreamingImageEncryptionConfigurationKeyType
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,16 +67,16 @@ streamingImageEncryptionConfiguration_keyType :: Lens.Lens' StreamingImageEncryp
 streamingImageEncryptionConfiguration_keyType = Lens.lens (\StreamingImageEncryptionConfiguration' {keyType} -> keyType) (\s@StreamingImageEncryptionConfiguration' {} a -> s {keyType = a} :: StreamingImageEncryptionConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     StreamingImageEncryptionConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamingImageEncryptionConfiguration"
       ( \x ->
           StreamingImageEncryptionConfiguration'
-            Prelude.<$> (x Core..:? "keyArn")
-            Prelude.<*> (x Core..: "keyType")
+            Prelude.<$> (x Data..:? "keyArn")
+            Prelude.<*> (x Data..: "keyType")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.TargetResourceType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types.TargetResourceTypeParameter
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ targetResourceType_description = Lens.lens (\TargetResourceType' {description} -
 targetResourceType_parameters :: Lens.Lens' TargetResourceType (Prelude.Maybe (Prelude.HashMap Prelude.Text TargetResourceTypeParameter))
 targetResourceType_parameters = Lens.lens (\TargetResourceType' {parameters} -> parameters) (\s@TargetResourceType' {} a -> s {parameters = a} :: TargetResourceType) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TargetResourceType where
+instance Data.FromJSON TargetResourceType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetResourceType"
       ( \x ->
           TargetResourceType'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TargetResourceType where

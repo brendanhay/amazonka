@@ -47,6 +47,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,8 +123,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeApplicationFleetAssociationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "ApplicationFleetAssociations")
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "ApplicationFleetAssociations")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,46 +151,46 @@ instance
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeApplicationFleetAssociations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DescribeApplicationFleetAssociations" ::
+              Data.=# ( "PhotonAdminProxyService.DescribeApplicationFleetAssociations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeApplicationFleetAssociations
   where
   toJSON DescribeApplicationFleetAssociations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ApplicationArn" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ApplicationArn" Data..=)
               Prelude.<$> applicationArn,
-            ("FleetName" Core..=) Prelude.<$> fleetName,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("FleetName" Data..=) Prelude.<$> fleetName,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeApplicationFleetAssociations
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeApplicationFleetAssociations
   where
   toQuery = Prelude.const Prelude.mempty

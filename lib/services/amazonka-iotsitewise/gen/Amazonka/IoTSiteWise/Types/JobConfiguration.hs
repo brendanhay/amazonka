@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.JobConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.FileFormat
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newJobConfiguration pFileFormat_ =
 jobConfiguration_fileFormat :: Lens.Lens' JobConfiguration FileFormat
 jobConfiguration_fileFormat = Lens.lens (\JobConfiguration' {fileFormat} -> fileFormat) (\s@JobConfiguration' {} a -> s {fileFormat = a} :: JobConfiguration)
 
-instance Core.FromJSON JobConfiguration where
+instance Data.FromJSON JobConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobConfiguration"
       ( \x ->
           JobConfiguration'
-            Prelude.<$> (x Core..: "fileFormat")
+            Prelude.<$> (x Data..: "fileFormat")
       )
 
 instance Prelude.Hashable JobConfiguration where
@@ -70,9 +71,9 @@ instance Prelude.Hashable JobConfiguration where
 instance Prelude.NFData JobConfiguration where
   rnf JobConfiguration' {..} = Prelude.rnf fileFormat
 
-instance Core.ToJSON JobConfiguration where
+instance Data.ToJSON JobConfiguration where
   toJSON JobConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("fileFormat" Core..= fileFormat)]
+          [Prelude.Just ("fileFormat" Data..= fileFormat)]
       )

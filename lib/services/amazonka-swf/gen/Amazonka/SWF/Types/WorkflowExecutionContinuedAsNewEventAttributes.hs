@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.ChildPolicy
 import Amazonka.SWF.Types.TaskList
@@ -246,25 +247,25 @@ workflowExecutionContinuedAsNewEventAttributes_workflowType :: Lens.Lens' Workfl
 workflowExecutionContinuedAsNewEventAttributes_workflowType = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {workflowType} -> workflowType) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {workflowType = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     WorkflowExecutionContinuedAsNewEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowExecutionContinuedAsNewEventAttributes"
       ( \x ->
           WorkflowExecutionContinuedAsNewEventAttributes'
-            Prelude.<$> (x Core..:? "lambdaRole")
-              Prelude.<*> (x Core..:? "tagList" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "taskPriority")
-              Prelude.<*> (x Core..:? "input")
-              Prelude.<*> (x Core..:? "taskStartToCloseTimeout")
-              Prelude.<*> (x Core..:? "executionStartToCloseTimeout")
-              Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
-              Prelude.<*> (x Core..: "newExecutionRunId")
-              Prelude.<*> (x Core..: "taskList")
-              Prelude.<*> (x Core..: "childPolicy")
-              Prelude.<*> (x Core..: "workflowType")
+            Prelude.<$> (x Data..:? "lambdaRole")
+              Prelude.<*> (x Data..:? "tagList" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "taskPriority")
+              Prelude.<*> (x Data..:? "input")
+              Prelude.<*> (x Data..:? "taskStartToCloseTimeout")
+              Prelude.<*> (x Data..:? "executionStartToCloseTimeout")
+              Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
+              Prelude.<*> (x Data..: "newExecutionRunId")
+              Prelude.<*> (x Data..: "taskList")
+              Prelude.<*> (x Data..: "childPolicy")
+              Prelude.<*> (x Data..: "workflowType")
       )
 
 instance

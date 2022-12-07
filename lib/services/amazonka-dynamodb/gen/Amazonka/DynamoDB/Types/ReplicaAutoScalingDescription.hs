@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ReplicaAutoScalingDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.AutoScalingSettingsDescription
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingDescription
@@ -117,23 +118,23 @@ replicaAutoScalingDescription_globalSecondaryIndexes = Lens.lens (\ReplicaAutoSc
 replicaAutoScalingDescription_replicaStatus :: Lens.Lens' ReplicaAutoScalingDescription (Prelude.Maybe ReplicaStatus)
 replicaAutoScalingDescription_replicaStatus = Lens.lens (\ReplicaAutoScalingDescription' {replicaStatus} -> replicaStatus) (\s@ReplicaAutoScalingDescription' {} a -> s {replicaStatus = a} :: ReplicaAutoScalingDescription)
 
-instance Core.FromJSON ReplicaAutoScalingDescription where
+instance Data.FromJSON ReplicaAutoScalingDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicaAutoScalingDescription"
       ( \x ->
           ReplicaAutoScalingDescription'
             Prelude.<$> ( x
-                            Core..:? "ReplicaProvisionedReadCapacityAutoScalingSettings"
+                            Data..:? "ReplicaProvisionedReadCapacityAutoScalingSettings"
                         )
             Prelude.<*> ( x
-                            Core..:? "ReplicaProvisionedWriteCapacityAutoScalingSettings"
+                            Data..:? "ReplicaProvisionedWriteCapacityAutoScalingSettings"
                         )
-            Prelude.<*> (x Core..:? "RegionName")
-            Prelude.<*> ( x Core..:? "GlobalSecondaryIndexes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "RegionName")
+            Prelude.<*> ( x Data..:? "GlobalSecondaryIndexes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ReplicaStatus")
+            Prelude.<*> (x Data..:? "ReplicaStatus")
       )
 
 instance

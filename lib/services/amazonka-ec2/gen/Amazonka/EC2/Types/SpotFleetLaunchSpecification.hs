@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotFleetLaunchSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.BlockDeviceMapping
 import Amazonka.EC2.Types.GroupIdentifier
@@ -355,38 +356,38 @@ spotFleetLaunchSpecification_imageId = Lens.lens (\SpotFleetLaunchSpecification'
 spotFleetLaunchSpecification_networkInterfaces :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe [InstanceNetworkInterfaceSpecification])
 spotFleetLaunchSpecification_networkInterfaces = Lens.lens (\SpotFleetLaunchSpecification' {networkInterfaces} -> networkInterfaces) (\s@SpotFleetLaunchSpecification' {} a -> s {networkInterfaces = a} :: SpotFleetLaunchSpecification) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML SpotFleetLaunchSpecification where
+instance Data.FromXML SpotFleetLaunchSpecification where
   parseXML x =
     SpotFleetLaunchSpecification'
-      Prelude.<$> (x Core..@? "ebsOptimized")
-      Prelude.<*> (x Core..@? "iamInstanceProfile")
-      Prelude.<*> (x Core..@? "placement")
-      Prelude.<*> (x Core..@? "userData")
-      Prelude.<*> (x Core..@? "instanceRequirements")
-      Prelude.<*> ( x Core..@? "blockDeviceMapping"
+      Prelude.<$> (x Data..@? "ebsOptimized")
+      Prelude.<*> (x Data..@? "iamInstanceProfile")
+      Prelude.<*> (x Data..@? "placement")
+      Prelude.<*> (x Data..@? "userData")
+      Prelude.<*> (x Data..@? "instanceRequirements")
+      Prelude.<*> ( x Data..@? "blockDeviceMapping"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "addressingType")
-      Prelude.<*> (x Core..@? "monitoring")
-      Prelude.<*> (x Core..@? "subnetId")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "addressingType")
+      Prelude.<*> (x Data..@? "monitoring")
+      Prelude.<*> (x Data..@? "subnetId")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ramdiskId")
-      Prelude.<*> (x Core..@? "weightedCapacity")
-      Prelude.<*> (x Core..@? "keyName")
-      Prelude.<*> (x Core..@? "kernelId")
-      Prelude.<*> ( x Core..@? "tagSpecificationSet"
+      Prelude.<*> (x Data..@? "ramdiskId")
+      Prelude.<*> (x Data..@? "weightedCapacity")
+      Prelude.<*> (x Data..@? "keyName")
+      Prelude.<*> (x Data..@? "kernelId")
+      Prelude.<*> ( x Data..@? "tagSpecificationSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "spotPrice")
-      Prelude.<*> (x Core..@? "imageId")
-      Prelude.<*> ( x Core..@? "networkInterfaceSet"
+      Prelude.<*> (x Data..@? "spotPrice")
+      Prelude.<*> (x Data..@? "imageId")
+      Prelude.<*> ( x Data..@? "networkInterfaceSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance
@@ -436,38 +437,38 @@ instance Prelude.NFData SpotFleetLaunchSpecification where
       `Prelude.seq` Prelude.rnf imageId
       `Prelude.seq` Prelude.rnf networkInterfaces
 
-instance Core.ToQuery SpotFleetLaunchSpecification where
+instance Data.ToQuery SpotFleetLaunchSpecification where
   toQuery SpotFleetLaunchSpecification' {..} =
     Prelude.mconcat
-      [ "EbsOptimized" Core.=: ebsOptimized,
-        "IamInstanceProfile" Core.=: iamInstanceProfile,
-        "Placement" Core.=: placement,
-        "UserData" Core.=: userData,
-        "InstanceRequirements" Core.=: instanceRequirements,
-        Core.toQuery
-          ( Core.toQueryList "BlockDeviceMapping"
+      [ "EbsOptimized" Data.=: ebsOptimized,
+        "IamInstanceProfile" Data.=: iamInstanceProfile,
+        "Placement" Data.=: placement,
+        "UserData" Data.=: userData,
+        "InstanceRequirements" Data.=: instanceRequirements,
+        Data.toQuery
+          ( Data.toQueryList "BlockDeviceMapping"
               Prelude.<$> blockDeviceMappings
           ),
-        "AddressingType" Core.=: addressingType,
-        "Monitoring" Core.=: monitoring,
-        "SubnetId" Core.=: subnetId,
-        "InstanceType" Core.=: instanceType,
-        Core.toQuery
-          ( Core.toQueryList "GroupSet"
+        "AddressingType" Data.=: addressingType,
+        "Monitoring" Data.=: monitoring,
+        "SubnetId" Data.=: subnetId,
+        "InstanceType" Data.=: instanceType,
+        Data.toQuery
+          ( Data.toQueryList "GroupSet"
               Prelude.<$> securityGroups
           ),
-        "RamdiskId" Core.=: ramdiskId,
-        "WeightedCapacity" Core.=: weightedCapacity,
-        "KeyName" Core.=: keyName,
-        "KernelId" Core.=: kernelId,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecificationSet"
+        "RamdiskId" Data.=: ramdiskId,
+        "WeightedCapacity" Data.=: weightedCapacity,
+        "KeyName" Data.=: keyName,
+        "KernelId" Data.=: kernelId,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecificationSet"
               Prelude.<$> tagSpecifications
           ),
-        "SpotPrice" Core.=: spotPrice,
-        "ImageId" Core.=: imageId,
-        Core.toQuery
-          ( Core.toQueryList "NetworkInterfaceSet"
+        "SpotPrice" Data.=: spotPrice,
+        "ImageId" Data.=: imageId,
+        Data.toQuery
+          ( Data.toQueryList "NetworkInterfaceSet"
               Prelude.<$> networkInterfaces
           )
       ]

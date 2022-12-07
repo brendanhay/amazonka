@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest DescribeCluster where
     Response.receiveJSON
       ( \s h x ->
           DescribeClusterResponse'
-            Prelude.<$> (x Core..?> "Cluster")
+            Prelude.<$> (x Data..?> "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,22 +96,22 @@ instance Prelude.Hashable DescribeCluster where
 instance Prelude.NFData DescribeCluster where
   rnf DescribeCluster' {..} = Prelude.rnf clusterArn
 
-instance Core.ToHeaders DescribeCluster where
+instance Data.ToHeaders DescribeCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeCluster where
+instance Data.ToPath DescribeCluster where
   toPath DescribeCluster' {..} =
-    Prelude.mconcat ["/cluster/", Core.toBS clusterArn]
+    Prelude.mconcat ["/cluster/", Data.toBS clusterArn]
 
-instance Core.ToQuery DescribeCluster where
+instance Data.ToQuery DescribeCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeClusterResponse' smart constructor.

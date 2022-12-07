@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,18 +118,18 @@ instance Core.AWSRequest DescribeDevice where
     Response.receiveJSON
       ( \s h x ->
           DescribeDeviceResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Models" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "IotThingName")
-            Prelude.<*> (x Core..?> "MaxModels")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LatestHeartbeat")
-            Prelude.<*> (x Core..?> "DeviceArn")
-            Prelude.<*> (x Core..?> "AgentVersion")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Models" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "IotThingName")
+            Prelude.<*> (x Data..?> "MaxModels")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LatestHeartbeat")
+            Prelude.<*> (x Data..?> "DeviceArn")
+            Prelude.<*> (x Data..?> "AgentVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DeviceName")
-            Prelude.<*> (x Core..:> "DeviceFleetName")
-            Prelude.<*> (x Core..:> "RegistrationTime")
+            Prelude.<*> (x Data..:> "DeviceName")
+            Prelude.<*> (x Data..:> "DeviceFleetName")
+            Prelude.<*> (x Data..:> "RegistrationTime")
       )
 
 instance Prelude.Hashable DescribeDevice where
@@ -143,34 +144,34 @@ instance Prelude.NFData DescribeDevice where
       `Prelude.seq` Prelude.rnf deviceName
       `Prelude.seq` Prelude.rnf deviceFleetName
 
-instance Core.ToHeaders DescribeDevice where
+instance Data.ToHeaders DescribeDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeDevice" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DescribeDevice" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDevice where
+instance Data.ToJSON DescribeDevice where
   toJSON DescribeDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            Prelude.Just ("DeviceName" Core..= deviceName),
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            Prelude.Just ("DeviceName" Data..= deviceName),
             Prelude.Just
-              ("DeviceFleetName" Core..= deviceFleetName)
+              ("DeviceFleetName" Data..= deviceFleetName)
           ]
       )
 
-instance Core.ToPath DescribeDevice where
+instance Data.ToPath DescribeDevice where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDevice where
+instance Data.ToQuery DescribeDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDeviceResponse' smart constructor.
@@ -188,7 +189,7 @@ data DescribeDeviceResponse = DescribeDeviceResponse'
     -- | A description of the device.
     description :: Prelude.Maybe Prelude.Text,
     -- | The last heartbeat received from the device.
-    latestHeartbeat :: Prelude.Maybe Core.POSIX,
+    latestHeartbeat :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the device.
     deviceArn :: Prelude.Maybe Prelude.Text,
     -- | Edge Manager agent version.
@@ -200,7 +201,7 @@ data DescribeDeviceResponse = DescribeDeviceResponse'
     -- | The name of the fleet the device belongs to.
     deviceFleetName :: Prelude.Text,
     -- | The timestamp of the last registration or de-reregistration.
-    registrationTime :: Core.POSIX
+    registrationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -266,7 +267,7 @@ newDescribeDeviceResponse
         deviceName = pDeviceName_,
         deviceFleetName = pDeviceFleetName_,
         registrationTime =
-          Core._Time Lens.# pRegistrationTime_
+          Data._Time Lens.# pRegistrationTime_
       }
 
 -- | The response from the last list when returning a list large enough to
@@ -293,7 +294,7 @@ describeDeviceResponse_description = Lens.lens (\DescribeDeviceResponse' {descri
 
 -- | The last heartbeat received from the device.
 describeDeviceResponse_latestHeartbeat :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.UTCTime)
-describeDeviceResponse_latestHeartbeat = Lens.lens (\DescribeDeviceResponse' {latestHeartbeat} -> latestHeartbeat) (\s@DescribeDeviceResponse' {} a -> s {latestHeartbeat = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Core._Time
+describeDeviceResponse_latestHeartbeat = Lens.lens (\DescribeDeviceResponse' {latestHeartbeat} -> latestHeartbeat) (\s@DescribeDeviceResponse' {} a -> s {latestHeartbeat = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the device.
 describeDeviceResponse_deviceArn :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
@@ -317,7 +318,7 @@ describeDeviceResponse_deviceFleetName = Lens.lens (\DescribeDeviceResponse' {de
 
 -- | The timestamp of the last registration or de-reregistration.
 describeDeviceResponse_registrationTime :: Lens.Lens' DescribeDeviceResponse Prelude.UTCTime
-describeDeviceResponse_registrationTime = Lens.lens (\DescribeDeviceResponse' {registrationTime} -> registrationTime) (\s@DescribeDeviceResponse' {} a -> s {registrationTime = a} :: DescribeDeviceResponse) Prelude.. Core._Time
+describeDeviceResponse_registrationTime = Lens.lens (\DescribeDeviceResponse' {registrationTime} -> registrationTime) (\s@DescribeDeviceResponse' {} a -> s {registrationTime = a} :: DescribeDeviceResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeDeviceResponse where
   rnf DescribeDeviceResponse' {..} =

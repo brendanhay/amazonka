@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,34 +98,34 @@ instance Prelude.NFData StartAssociationsOnce where
   rnf StartAssociationsOnce' {..} =
     Prelude.rnf associationIds
 
-instance Core.ToHeaders StartAssociationsOnce where
+instance Data.ToHeaders StartAssociationsOnce where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.StartAssociationsOnce" ::
+              Data.=# ( "AmazonSSM.StartAssociationsOnce" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartAssociationsOnce where
+instance Data.ToJSON StartAssociationsOnce where
   toJSON StartAssociationsOnce' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AssociationIds" Core..= associationIds)
+              ("AssociationIds" Data..= associationIds)
           ]
       )
 
-instance Core.ToPath StartAssociationsOnce where
+instance Data.ToPath StartAssociationsOnce where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartAssociationsOnce where
+instance Data.ToQuery StartAssociationsOnce where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartAssociationsOnceResponse' smart constructor.

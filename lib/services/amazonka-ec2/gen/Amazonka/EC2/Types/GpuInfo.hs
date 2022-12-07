@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.GpuInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.GpuDeviceInfo
 import qualified Amazonka.Prelude as Prelude
@@ -66,12 +67,12 @@ gpuInfo_totalGpuMemoryInMiB = Lens.lens (\GpuInfo' {totalGpuMemoryInMiB} -> tota
 gpuInfo_gpus :: Lens.Lens' GpuInfo (Prelude.Maybe [GpuDeviceInfo])
 gpuInfo_gpus = Lens.lens (\GpuInfo' {gpus} -> gpus) (\s@GpuInfo' {} a -> s {gpus = a} :: GpuInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML GpuInfo where
+instance Data.FromXML GpuInfo where
   parseXML x =
     GpuInfo'
-      Prelude.<$> (x Core..@? "totalGpuMemoryInMiB")
-      Prelude.<*> ( x Core..@? "gpus" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "totalGpuMemoryInMiB")
+      Prelude.<*> ( x Data..@? "gpus" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable GpuInfo where

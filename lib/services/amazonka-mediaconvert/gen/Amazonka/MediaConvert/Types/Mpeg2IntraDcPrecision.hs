@@ -30,6 +30,7 @@ module Amazonka.MediaConvert.Types.Mpeg2IntraDcPrecision
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use Intra DC precision (Mpeg2IntraDcPrecision) to set quantization
@@ -38,7 +39,7 @@ import qualified Amazonka.Prelude as Prelude
 -- per-frame compression ratio.
 newtype Mpeg2IntraDcPrecision = Mpeg2IntraDcPrecision'
   { fromMpeg2IntraDcPrecision ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -50,18 +51,18 @@ newtype Mpeg2IntraDcPrecision = Mpeg2IntraDcPrecision'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern Mpeg2IntraDcPrecision_AUTO :: Mpeg2IntraDcPrecision

@@ -82,6 +82,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -735,7 +736,7 @@ instance Core.AWSRequest CreateSMBFileShare where
     Response.receiveJSON
       ( \s h x ->
           CreateSMBFileShareResponse'
-            Prelude.<$> (x Core..?> "FileShareARN")
+            Prelude.<$> (x Data..?> "FileShareARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -801,69 +802,69 @@ instance Prelude.NFData CreateSMBFileShare where
       `Prelude.seq` Prelude.rnf
         locationARN
 
-instance Core.ToHeaders CreateSMBFileShare where
+instance Data.ToHeaders CreateSMBFileShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.CreateSMBFileShare" ::
+              Data.=# ( "StorageGateway_20130630.CreateSMBFileShare" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSMBFileShare where
+instance Data.ToJSON CreateSMBFileShare where
   toJSON CreateSMBFileShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ValidUserList" Core..=) Prelude.<$> validUserList,
-            ("Authentication" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ValidUserList" Data..=) Prelude.<$> validUserList,
+            ("Authentication" Data..=)
               Prelude.<$> authentication,
-            ("FileShareName" Core..=) Prelude.<$> fileShareName,
-            ("RequesterPays" Core..=) Prelude.<$> requesterPays,
-            ("ObjectACL" Core..=) Prelude.<$> objectACL,
-            ("CaseSensitivity" Core..=)
+            ("FileShareName" Data..=) Prelude.<$> fileShareName,
+            ("RequesterPays" Data..=) Prelude.<$> requesterPays,
+            ("ObjectACL" Data..=) Prelude.<$> objectACL,
+            ("CaseSensitivity" Data..=)
               Prelude.<$> caseSensitivity,
-            ("KMSKey" Core..=) Prelude.<$> kmsKey,
-            ("SMBACLEnabled" Core..=) Prelude.<$> sMBACLEnabled,
-            ("OplocksEnabled" Core..=)
+            ("KMSKey" Data..=) Prelude.<$> kmsKey,
+            ("SMBACLEnabled" Data..=) Prelude.<$> sMBACLEnabled,
+            ("OplocksEnabled" Data..=)
               Prelude.<$> oplocksEnabled,
-            ("VPCEndpointDNSName" Core..=)
+            ("VPCEndpointDNSName" Data..=)
               Prelude.<$> vPCEndpointDNSName,
-            ("AccessBasedEnumeration" Core..=)
+            ("AccessBasedEnumeration" Data..=)
               Prelude.<$> accessBasedEnumeration,
-            ("InvalidUserList" Core..=)
+            ("InvalidUserList" Data..=)
               Prelude.<$> invalidUserList,
-            ("AdminUserList" Core..=) Prelude.<$> adminUserList,
-            ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
-            ("DefaultStorageClass" Core..=)
+            ("AdminUserList" Data..=) Prelude.<$> adminUserList,
+            ("KMSEncrypted" Data..=) Prelude.<$> kmsEncrypted,
+            ("DefaultStorageClass" Data..=)
               Prelude.<$> defaultStorageClass,
-            ("CacheAttributes" Core..=)
+            ("CacheAttributes" Data..=)
               Prelude.<$> cacheAttributes,
-            ("ReadOnly" Core..=) Prelude.<$> readOnly,
-            ("BucketRegion" Core..=) Prelude.<$> bucketRegion,
-            ("AuditDestinationARN" Core..=)
+            ("ReadOnly" Data..=) Prelude.<$> readOnly,
+            ("BucketRegion" Data..=) Prelude.<$> bucketRegion,
+            ("AuditDestinationARN" Data..=)
               Prelude.<$> auditDestinationARN,
-            ("GuessMIMETypeEnabled" Core..=)
+            ("GuessMIMETypeEnabled" Data..=)
               Prelude.<$> guessMIMETypeEnabled,
-            ("NotificationPolicy" Core..=)
+            ("NotificationPolicy" Data..=)
               Prelude.<$> notificationPolicy,
-            Prelude.Just ("ClientToken" Core..= clientToken),
-            Prelude.Just ("GatewayARN" Core..= gatewayARN),
-            Prelude.Just ("Role" Core..= role'),
-            Prelude.Just ("LocationARN" Core..= locationARN)
+            Prelude.Just ("ClientToken" Data..= clientToken),
+            Prelude.Just ("GatewayARN" Data..= gatewayARN),
+            Prelude.Just ("Role" Data..= role'),
+            Prelude.Just ("LocationARN" Data..= locationARN)
           ]
       )
 
-instance Core.ToPath CreateSMBFileShare where
+instance Data.ToPath CreateSMBFileShare where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSMBFileShare where
+instance Data.ToQuery CreateSMBFileShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | CreateSMBFileShareOutput

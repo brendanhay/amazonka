@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -179,9 +180,9 @@ instance Core.AWSRequest DescribeDBProxyTargets where
       "DescribeDBProxyTargetsResult"
       ( \s h x ->
           DescribeDBProxyTargetsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "Targets" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "Targets" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -202,26 +203,26 @@ instance Prelude.NFData DescribeDBProxyTargets where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf dbProxyName
 
-instance Core.ToHeaders DescribeDBProxyTargets where
+instance Data.ToHeaders DescribeDBProxyTargets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBProxyTargets where
+instance Data.ToPath DescribeDBProxyTargets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDBProxyTargets where
+instance Data.ToQuery DescribeDBProxyTargets where
   toQuery DescribeDBProxyTargets' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBProxyTargets" :: Prelude.ByteString),
+          Data.=: ("DescribeDBProxyTargets" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "TargetGroupName" Core.=: targetGroupName,
-        "MaxRecords" Core.=: maxRecords,
-        "DBProxyName" Core.=: dbProxyName
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "TargetGroupName" Data.=: targetGroupName,
+        "MaxRecords" Data.=: maxRecords,
+        "DBProxyName" Data.=: dbProxyName
       ]
 
 -- | /See:/ 'newDescribeDBProxyTargetsResponse' smart constructor.

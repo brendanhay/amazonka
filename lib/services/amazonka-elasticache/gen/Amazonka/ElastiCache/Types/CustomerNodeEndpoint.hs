@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.CustomerNodeEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The endpoint from which data should be migrated.
@@ -70,7 +71,7 @@ instance Prelude.NFData CustomerNodeEndpoint where
   rnf CustomerNodeEndpoint' {..} =
     Prelude.rnf port `Prelude.seq` Prelude.rnf address
 
-instance Core.ToQuery CustomerNodeEndpoint where
+instance Data.ToQuery CustomerNodeEndpoint where
   toQuery CustomerNodeEndpoint' {..} =
     Prelude.mconcat
-      ["Port" Core.=: port, "Address" Core.=: address]
+      ["Port" Data.=: port, "Address" Data.=: address]

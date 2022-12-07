@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.IpOwner where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the registered owner of an IP address.
@@ -91,16 +92,16 @@ ipOwner_asn = Lens.lens (\IpOwner' {asn} -> asn) (\s@IpOwner' {} a -> s {asn = a
 ipOwner_asnOrg :: Lens.Lens' IpOwner (Prelude.Maybe Prelude.Text)
 ipOwner_asnOrg = Lens.lens (\IpOwner' {asnOrg} -> asnOrg) (\s@IpOwner' {} a -> s {asnOrg = a} :: IpOwner)
 
-instance Core.FromJSON IpOwner where
+instance Data.FromJSON IpOwner where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IpOwner"
       ( \x ->
           IpOwner'
-            Prelude.<$> (x Core..:? "isp")
-            Prelude.<*> (x Core..:? "org")
-            Prelude.<*> (x Core..:? "asn")
-            Prelude.<*> (x Core..:? "asnOrg")
+            Prelude.<$> (x Data..:? "isp")
+            Prelude.<*> (x Data..:? "org")
+            Prelude.<*> (x Data..:? "asn")
+            Prelude.<*> (x Data..:? "asnOrg")
       )
 
 instance Prelude.Hashable IpOwner where

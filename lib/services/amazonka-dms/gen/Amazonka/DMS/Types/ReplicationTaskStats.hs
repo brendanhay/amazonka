@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.ReplicationTaskStats where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | In response to a request by the @DescribeReplicationTasks@ operation,
@@ -32,22 +33,22 @@ data ReplicationTaskStats = ReplicationTaskStats'
   { -- | The elapsed time of the task, in milliseconds.
     elapsedTimeMillis :: Prelude.Maybe Prelude.Integer,
     -- | The date the replication task full load was started.
-    fullLoadStartDate :: Prelude.Maybe Core.POSIX,
+    fullLoadStartDate :: Prelude.Maybe Data.POSIX,
     -- | The date the replication task was stopped.
-    stopDate :: Prelude.Maybe Core.POSIX,
+    stopDate :: Prelude.Maybe Data.POSIX,
     -- | The number of errors that have occurred during this task.
     tablesErrored :: Prelude.Maybe Prelude.Int,
     -- | The date the replication task was started either with a fresh start or a
     -- target reload.
-    freshStartDate :: Prelude.Maybe Core.POSIX,
+    freshStartDate :: Prelude.Maybe Data.POSIX,
     -- | The number of tables currently loading for this task.
     tablesLoading :: Prelude.Maybe Prelude.Int,
     -- | The date the replication task was started either with a fresh start or a
     -- resume. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html#DMS-StartReplicationTask-request-StartReplicationTaskType StartReplicationTaskType>.
-    startDate :: Prelude.Maybe Core.POSIX,
+    startDate :: Prelude.Maybe Data.POSIX,
     -- | The date the replication task full load was completed.
-    fullLoadFinishDate :: Prelude.Maybe Core.POSIX,
+    fullLoadFinishDate :: Prelude.Maybe Data.POSIX,
     -- | The number of tables loaded for this task.
     tablesLoaded :: Prelude.Maybe Prelude.Int,
     -- | The percent complete for the full load migration task.
@@ -113,11 +114,11 @@ replicationTaskStats_elapsedTimeMillis = Lens.lens (\ReplicationTaskStats' {elap
 
 -- | The date the replication task full load was started.
 replicationTaskStats_fullLoadStartDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
-replicationTaskStats_fullLoadStartDate = Lens.lens (\ReplicationTaskStats' {fullLoadStartDate} -> fullLoadStartDate) (\s@ReplicationTaskStats' {} a -> s {fullLoadStartDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Core._Time
+replicationTaskStats_fullLoadStartDate = Lens.lens (\ReplicationTaskStats' {fullLoadStartDate} -> fullLoadStartDate) (\s@ReplicationTaskStats' {} a -> s {fullLoadStartDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Data._Time
 
 -- | The date the replication task was stopped.
 replicationTaskStats_stopDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
-replicationTaskStats_stopDate = Lens.lens (\ReplicationTaskStats' {stopDate} -> stopDate) (\s@ReplicationTaskStats' {} a -> s {stopDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Core._Time
+replicationTaskStats_stopDate = Lens.lens (\ReplicationTaskStats' {stopDate} -> stopDate) (\s@ReplicationTaskStats' {} a -> s {stopDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Data._Time
 
 -- | The number of errors that have occurred during this task.
 replicationTaskStats_tablesErrored :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.Int)
@@ -126,7 +127,7 @@ replicationTaskStats_tablesErrored = Lens.lens (\ReplicationTaskStats' {tablesEr
 -- | The date the replication task was started either with a fresh start or a
 -- target reload.
 replicationTaskStats_freshStartDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
-replicationTaskStats_freshStartDate = Lens.lens (\ReplicationTaskStats' {freshStartDate} -> freshStartDate) (\s@ReplicationTaskStats' {} a -> s {freshStartDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Core._Time
+replicationTaskStats_freshStartDate = Lens.lens (\ReplicationTaskStats' {freshStartDate} -> freshStartDate) (\s@ReplicationTaskStats' {} a -> s {freshStartDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Data._Time
 
 -- | The number of tables currently loading for this task.
 replicationTaskStats_tablesLoading :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.Int)
@@ -136,11 +137,11 @@ replicationTaskStats_tablesLoading = Lens.lens (\ReplicationTaskStats' {tablesLo
 -- resume. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html#DMS-StartReplicationTask-request-StartReplicationTaskType StartReplicationTaskType>.
 replicationTaskStats_startDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
-replicationTaskStats_startDate = Lens.lens (\ReplicationTaskStats' {startDate} -> startDate) (\s@ReplicationTaskStats' {} a -> s {startDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Core._Time
+replicationTaskStats_startDate = Lens.lens (\ReplicationTaskStats' {startDate} -> startDate) (\s@ReplicationTaskStats' {} a -> s {startDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Data._Time
 
 -- | The date the replication task full load was completed.
 replicationTaskStats_fullLoadFinishDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
-replicationTaskStats_fullLoadFinishDate = Lens.lens (\ReplicationTaskStats' {fullLoadFinishDate} -> fullLoadFinishDate) (\s@ReplicationTaskStats' {} a -> s {fullLoadFinishDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Core._Time
+replicationTaskStats_fullLoadFinishDate = Lens.lens (\ReplicationTaskStats' {fullLoadFinishDate} -> fullLoadFinishDate) (\s@ReplicationTaskStats' {} a -> s {fullLoadFinishDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Data._Time
 
 -- | The number of tables loaded for this task.
 replicationTaskStats_tablesLoaded :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.Int)
@@ -154,23 +155,23 @@ replicationTaskStats_fullLoadProgressPercent = Lens.lens (\ReplicationTaskStats'
 replicationTaskStats_tablesQueued :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.Int)
 replicationTaskStats_tablesQueued = Lens.lens (\ReplicationTaskStats' {tablesQueued} -> tablesQueued) (\s@ReplicationTaskStats' {} a -> s {tablesQueued = a} :: ReplicationTaskStats)
 
-instance Core.FromJSON ReplicationTaskStats where
+instance Data.FromJSON ReplicationTaskStats where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationTaskStats"
       ( \x ->
           ReplicationTaskStats'
-            Prelude.<$> (x Core..:? "ElapsedTimeMillis")
-            Prelude.<*> (x Core..:? "FullLoadStartDate")
-            Prelude.<*> (x Core..:? "StopDate")
-            Prelude.<*> (x Core..:? "TablesErrored")
-            Prelude.<*> (x Core..:? "FreshStartDate")
-            Prelude.<*> (x Core..:? "TablesLoading")
-            Prelude.<*> (x Core..:? "StartDate")
-            Prelude.<*> (x Core..:? "FullLoadFinishDate")
-            Prelude.<*> (x Core..:? "TablesLoaded")
-            Prelude.<*> (x Core..:? "FullLoadProgressPercent")
-            Prelude.<*> (x Core..:? "TablesQueued")
+            Prelude.<$> (x Data..:? "ElapsedTimeMillis")
+            Prelude.<*> (x Data..:? "FullLoadStartDate")
+            Prelude.<*> (x Data..:? "StopDate")
+            Prelude.<*> (x Data..:? "TablesErrored")
+            Prelude.<*> (x Data..:? "FreshStartDate")
+            Prelude.<*> (x Data..:? "TablesLoading")
+            Prelude.<*> (x Data..:? "StartDate")
+            Prelude.<*> (x Data..:? "FullLoadFinishDate")
+            Prelude.<*> (x Data..:? "TablesLoaded")
+            Prelude.<*> (x Data..:? "FullLoadProgressPercent")
+            Prelude.<*> (x Data..:? "TablesQueued")
       )
 
 instance Prelude.Hashable ReplicationTaskStats where

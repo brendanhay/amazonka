@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.MatchmakingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.BackfillMode
 import Amazonka.GameLift.Types.FlexMatchMode
 import Amazonka.GameLift.Types.GameProperty
@@ -123,7 +124,7 @@ data MatchmakingConfiguration = MatchmakingConfiguration'
     -- | A time stamp indicating when this data object was created. Format is a
     -- number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The maximum duration, in seconds, that a matchmaking ticket can remain
     -- in process before timing out. Requests that fail due to timing out can
     -- be resubmitted as needed.
@@ -386,7 +387,7 @@ matchmakingConfiguration_gameProperties = Lens.lens (\MatchmakingConfiguration' 
 -- number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 matchmakingConfiguration_creationTime :: Lens.Lens' MatchmakingConfiguration (Prelude.Maybe Prelude.UTCTime)
-matchmakingConfiguration_creationTime = Lens.lens (\MatchmakingConfiguration' {creationTime} -> creationTime) (\s@MatchmakingConfiguration' {} a -> s {creationTime = a} :: MatchmakingConfiguration) Prelude.. Lens.mapping Core._Time
+matchmakingConfiguration_creationTime = Lens.lens (\MatchmakingConfiguration' {creationTime} -> creationTime) (\s@MatchmakingConfiguration' {} a -> s {creationTime = a} :: MatchmakingConfiguration) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum duration, in seconds, that a matchmaking ticket can remain
 -- in process before timing out. Requests that fail due to timing out can
@@ -399,31 +400,31 @@ matchmakingConfiguration_requestTimeoutSeconds = Lens.lens (\MatchmakingConfigur
 matchmakingConfiguration_customEventData :: Lens.Lens' MatchmakingConfiguration (Prelude.Maybe Prelude.Text)
 matchmakingConfiguration_customEventData = Lens.lens (\MatchmakingConfiguration' {customEventData} -> customEventData) (\s@MatchmakingConfiguration' {} a -> s {customEventData = a} :: MatchmakingConfiguration)
 
-instance Core.FromJSON MatchmakingConfiguration where
+instance Data.FromJSON MatchmakingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MatchmakingConfiguration"
       ( \x ->
           MatchmakingConfiguration'
-            Prelude.<$> (x Core..:? "ConfigurationArn")
-            Prelude.<*> (x Core..:? "NotificationTarget")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AcceptanceTimeoutSeconds")
-            Prelude.<*> (x Core..:? "RuleSetName")
-            Prelude.<*> (x Core..:? "AcceptanceRequired")
-            Prelude.<*> (x Core..:? "AdditionalPlayerCount")
-            Prelude.<*> (x Core..:? "GameSessionData")
-            Prelude.<*> (x Core..:? "RuleSetArn")
-            Prelude.<*> (x Core..:? "FlexMatchMode")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "BackfillMode")
-            Prelude.<*> ( x Core..:? "GameSessionQueueArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ConfigurationArn")
+            Prelude.<*> (x Data..:? "NotificationTarget")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AcceptanceTimeoutSeconds")
+            Prelude.<*> (x Data..:? "RuleSetName")
+            Prelude.<*> (x Data..:? "AcceptanceRequired")
+            Prelude.<*> (x Data..:? "AdditionalPlayerCount")
+            Prelude.<*> (x Data..:? "GameSessionData")
+            Prelude.<*> (x Data..:? "RuleSetArn")
+            Prelude.<*> (x Data..:? "FlexMatchMode")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "BackfillMode")
+            Prelude.<*> ( x Data..:? "GameSessionQueueArns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "GameProperties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "RequestTimeoutSeconds")
-            Prelude.<*> (x Core..:? "CustomEventData")
+            Prelude.<*> (x Data..:? "GameProperties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "RequestTimeoutSeconds")
+            Prelude.<*> (x Data..:? "CustomEventData")
       )
 
 instance Prelude.Hashable MatchmakingConfiguration where

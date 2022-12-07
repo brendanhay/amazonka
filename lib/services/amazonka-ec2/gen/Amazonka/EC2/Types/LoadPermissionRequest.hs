@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LoadPermissionRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PermissionGroup
 import qualified Amazonka.Prelude as Prelude
@@ -72,7 +73,7 @@ instance Prelude.NFData LoadPermissionRequest where
   rnf LoadPermissionRequest' {..} =
     Prelude.rnf userId `Prelude.seq` Prelude.rnf group'
 
-instance Core.ToQuery LoadPermissionRequest where
+instance Data.ToQuery LoadPermissionRequest where
   toQuery LoadPermissionRequest' {..} =
     Prelude.mconcat
-      ["UserId" Core.=: userId, "Group" Core.=: group']
+      ["UserId" Data.=: userId, "Group" Data.=: group']

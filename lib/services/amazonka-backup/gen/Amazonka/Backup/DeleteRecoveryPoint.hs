@@ -43,6 +43,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,27 +125,27 @@ instance Prelude.NFData DeleteRecoveryPoint where
     Prelude.rnf backupVaultName
       `Prelude.seq` Prelude.rnf recoveryPointArn
 
-instance Core.ToHeaders DeleteRecoveryPoint where
+instance Data.ToHeaders DeleteRecoveryPoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteRecoveryPoint where
+instance Data.ToPath DeleteRecoveryPoint where
   toPath DeleteRecoveryPoint' {..} =
     Prelude.mconcat
       [ "/backup-vaults/",
-        Core.toBS backupVaultName,
+        Data.toBS backupVaultName,
         "/recovery-points/",
-        Core.toBS recoveryPointArn
+        Data.toBS recoveryPointArn
       ]
 
-instance Core.ToQuery DeleteRecoveryPoint where
+instance Data.ToQuery DeleteRecoveryPoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRecoveryPointResponse' smart constructor.

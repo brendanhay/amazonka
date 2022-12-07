@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types.ErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,15 +76,15 @@ batchPutMessageErrorEntry_messageId = Lens.lens (\BatchPutMessageErrorEntry' {me
 batchPutMessageErrorEntry_errorCode :: Lens.Lens' BatchPutMessageErrorEntry (Prelude.Maybe ErrorCode)
 batchPutMessageErrorEntry_errorCode = Lens.lens (\BatchPutMessageErrorEntry' {errorCode} -> errorCode) (\s@BatchPutMessageErrorEntry' {} a -> s {errorCode = a} :: BatchPutMessageErrorEntry)
 
-instance Core.FromJSON BatchPutMessageErrorEntry where
+instance Data.FromJSON BatchPutMessageErrorEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchPutMessageErrorEntry"
       ( \x ->
           BatchPutMessageErrorEntry'
-            Prelude.<$> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "messageId")
-            Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "messageId")
+            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance Prelude.Hashable BatchPutMessageErrorEntry where

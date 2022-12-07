@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.LoggingOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.DetectorDebugOption
 import Amazonka.IoTEvents.Types.LoggingLevel
 import qualified Amazonka.Prelude as Prelude
@@ -94,16 +95,16 @@ loggingOptions_level = Lens.lens (\LoggingOptions' {level} -> level) (\s@Logging
 loggingOptions_enabled :: Lens.Lens' LoggingOptions Prelude.Bool
 loggingOptions_enabled = Lens.lens (\LoggingOptions' {enabled} -> enabled) (\s@LoggingOptions' {} a -> s {enabled = a} :: LoggingOptions)
 
-instance Core.FromJSON LoggingOptions where
+instance Data.FromJSON LoggingOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoggingOptions"
       ( \x ->
           LoggingOptions'
-            Prelude.<$> (x Core..:? "detectorDebugOptions")
-            Prelude.<*> (x Core..: "roleArn")
-            Prelude.<*> (x Core..: "level")
-            Prelude.<*> (x Core..: "enabled")
+            Prelude.<$> (x Data..:? "detectorDebugOptions")
+            Prelude.<*> (x Data..: "roleArn")
+            Prelude.<*> (x Data..: "level")
+            Prelude.<*> (x Data..: "enabled")
       )
 
 instance Prelude.Hashable LoggingOptions where
@@ -120,14 +121,14 @@ instance Prelude.NFData LoggingOptions where
       `Prelude.seq` Prelude.rnf level
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON LoggingOptions where
+instance Data.ToJSON LoggingOptions where
   toJSON LoggingOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("detectorDebugOptions" Core..=)
+          [ ("detectorDebugOptions" Data..=)
               Prelude.<$> detectorDebugOptions,
-            Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("level" Core..= level),
-            Prelude.Just ("enabled" Core..= enabled)
+            Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("level" Data..= level),
+            Prelude.Just ("enabled" Data..= enabled)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.Issuer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the issuer of a license.
@@ -75,11 +76,11 @@ instance Prelude.NFData Issuer where
   rnf Issuer' {..} =
     Prelude.rnf signKey `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON Issuer where
+instance Data.ToJSON Issuer where
   toJSON Issuer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SignKey" Core..=) Prelude.<$> signKey,
-            Prelude.Just ("Name" Core..= name)
+          [ ("SignKey" Data..=) Prelude.<$> signKey,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

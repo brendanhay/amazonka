@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on a recommendation filter, including its ARN,
@@ -33,18 +34,18 @@ data Filter = Filter'
     -- | The ARN of the filter.
     filterArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the filter was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies the type of item interactions to filter out of recommendation
     -- results. The filter expression must follow specific format rules. For
     -- information about filter expression structure and syntax, see
     -- <https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html Filter expressions>.
-    filterExpression :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    filterExpression :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The status of the filter.
     status :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the dataset group to which the filter belongs.
     datasetGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the filter was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | If the filter failed, the reason for its failure.
     failureReason :: Prelude.Maybe Prelude.Text
   }
@@ -100,14 +101,14 @@ filter_filterArn = Lens.lens (\Filter' {filterArn} -> filterArn) (\s@Filter' {} 
 
 -- | The time at which the filter was created.
 filter_creationDateTime :: Lens.Lens' Filter (Prelude.Maybe Prelude.UTCTime)
-filter_creationDateTime = Lens.lens (\Filter' {creationDateTime} -> creationDateTime) (\s@Filter' {} a -> s {creationDateTime = a} :: Filter) Prelude.. Lens.mapping Core._Time
+filter_creationDateTime = Lens.lens (\Filter' {creationDateTime} -> creationDateTime) (\s@Filter' {} a -> s {creationDateTime = a} :: Filter) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the type of item interactions to filter out of recommendation
 -- results. The filter expression must follow specific format rules. For
 -- information about filter expression structure and syntax, see
 -- <https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html Filter expressions>.
 filter_filterExpression :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
-filter_filterExpression = Lens.lens (\Filter' {filterExpression} -> filterExpression) (\s@Filter' {} a -> s {filterExpression = a} :: Filter) Prelude.. Lens.mapping Core._Sensitive
+filter_filterExpression = Lens.lens (\Filter' {filterExpression} -> filterExpression) (\s@Filter' {} a -> s {filterExpression = a} :: Filter) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The status of the filter.
 filter_status :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
@@ -119,26 +120,26 @@ filter_datasetGroupArn = Lens.lens (\Filter' {datasetGroupArn} -> datasetGroupAr
 
 -- | The time at which the filter was last updated.
 filter_lastUpdatedDateTime :: Lens.Lens' Filter (Prelude.Maybe Prelude.UTCTime)
-filter_lastUpdatedDateTime = Lens.lens (\Filter' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Filter' {} a -> s {lastUpdatedDateTime = a} :: Filter) Prelude.. Lens.mapping Core._Time
+filter_lastUpdatedDateTime = Lens.lens (\Filter' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Filter' {} a -> s {lastUpdatedDateTime = a} :: Filter) Prelude.. Lens.mapping Data._Time
 
 -- | If the filter failed, the reason for its failure.
 filter_failureReason :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
 filter_failureReason = Lens.lens (\Filter' {failureReason} -> failureReason) (\s@Filter' {} a -> s {failureReason = a} :: Filter)
 
-instance Core.FromJSON Filter where
+instance Data.FromJSON Filter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Filter"
       ( \x ->
           Filter'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "filterArn")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "filterExpression")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "datasetGroupArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "filterArn")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "filterExpression")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "datasetGroupArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable Filter where

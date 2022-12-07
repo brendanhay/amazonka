@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.FeatureSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.EvaluationRule
 import Amazonka.Evidently.Types.FeatureEvaluationStrategy
 import Amazonka.Evidently.Types.FeatureStatus
@@ -44,13 +45,13 @@ data FeatureSummary = FeatureSummary'
     -- | The ARN of the feature.
     arn :: Prelude.Text,
     -- | The date and time that the feature is created.
-    createdTime :: Core.POSIX,
+    createdTime :: Data.POSIX,
     -- | If this value is @ALL_RULES@, the traffic allocation specified by any
     -- ongoing launches or experiments is being used. If this is
     -- @DEFAULT_VARIATION@, the default variation is being served to all users.
     evaluationStrategy :: FeatureEvaluationStrategy,
     -- | The date and time that the feature was most recently updated.
-    lastUpdatedTime :: Core.POSIX,
+    lastUpdatedTime :: Data.POSIX,
     -- | The name of the feature.
     name :: Prelude.Text,
     -- | The current state of the feature.
@@ -116,10 +117,10 @@ newFeatureSummary
         evaluationRules = Prelude.Nothing,
         defaultVariation = Prelude.Nothing,
         arn = pArn_,
-        createdTime = Core._Time Lens.# pCreatedTime_,
+        createdTime = Data._Time Lens.# pCreatedTime_,
         evaluationStrategy = pEvaluationStrategy_,
         lastUpdatedTime =
-          Core._Time Lens.# pLastUpdatedTime_,
+          Data._Time Lens.# pLastUpdatedTime_,
         name = pName_,
         status = pStatus_
       }
@@ -148,7 +149,7 @@ featureSummary_arn = Lens.lens (\FeatureSummary' {arn} -> arn) (\s@FeatureSummar
 
 -- | The date and time that the feature is created.
 featureSummary_createdTime :: Lens.Lens' FeatureSummary Prelude.UTCTime
-featureSummary_createdTime = Lens.lens (\FeatureSummary' {createdTime} -> createdTime) (\s@FeatureSummary' {} a -> s {createdTime = a} :: FeatureSummary) Prelude.. Core._Time
+featureSummary_createdTime = Lens.lens (\FeatureSummary' {createdTime} -> createdTime) (\s@FeatureSummary' {} a -> s {createdTime = a} :: FeatureSummary) Prelude.. Data._Time
 
 -- | If this value is @ALL_RULES@, the traffic allocation specified by any
 -- ongoing launches or experiments is being used. If this is
@@ -158,7 +159,7 @@ featureSummary_evaluationStrategy = Lens.lens (\FeatureSummary' {evaluationStrat
 
 -- | The date and time that the feature was most recently updated.
 featureSummary_lastUpdatedTime :: Lens.Lens' FeatureSummary Prelude.UTCTime
-featureSummary_lastUpdatedTime = Lens.lens (\FeatureSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@FeatureSummary' {} a -> s {lastUpdatedTime = a} :: FeatureSummary) Prelude.. Core._Time
+featureSummary_lastUpdatedTime = Lens.lens (\FeatureSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@FeatureSummary' {} a -> s {lastUpdatedTime = a} :: FeatureSummary) Prelude.. Data._Time
 
 -- | The name of the feature.
 featureSummary_name :: Lens.Lens' FeatureSummary Prelude.Text
@@ -168,24 +169,24 @@ featureSummary_name = Lens.lens (\FeatureSummary' {name} -> name) (\s@FeatureSum
 featureSummary_status :: Lens.Lens' FeatureSummary FeatureStatus
 featureSummary_status = Lens.lens (\FeatureSummary' {status} -> status) (\s@FeatureSummary' {} a -> s {status = a} :: FeatureSummary)
 
-instance Core.FromJSON FeatureSummary where
+instance Data.FromJSON FeatureSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FeatureSummary"
       ( \x ->
           FeatureSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "project")
-            Prelude.<*> ( x Core..:? "evaluationRules"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "project")
+            Prelude.<*> ( x Data..:? "evaluationRules"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "defaultVariation")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdTime")
-            Prelude.<*> (x Core..: "evaluationStrategy")
-            Prelude.<*> (x Core..: "lastUpdatedTime")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<*> (x Data..:? "defaultVariation")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdTime")
+            Prelude.<*> (x Data..: "evaluationStrategy")
+            Prelude.<*> (x Data..: "lastUpdatedTime")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable FeatureSummary where

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FleetSpotMaintenanceStrategies
 import Amazonka.EC2.Types.SpotAllocationStrategy
@@ -320,17 +321,17 @@ spotOptions_allocationStrategy = Lens.lens (\SpotOptions' {allocationStrategy} -
 spotOptions_maxTotalPrice :: Lens.Lens' SpotOptions (Prelude.Maybe Prelude.Text)
 spotOptions_maxTotalPrice = Lens.lens (\SpotOptions' {maxTotalPrice} -> maxTotalPrice) (\s@SpotOptions' {} a -> s {maxTotalPrice = a} :: SpotOptions)
 
-instance Core.FromXML SpotOptions where
+instance Data.FromXML SpotOptions where
   parseXML x =
     SpotOptions'
-      Prelude.<$> (x Core..@? "singleInstanceType")
-      Prelude.<*> (x Core..@? "instancePoolsToUseCount")
-      Prelude.<*> (x Core..@? "singleAvailabilityZone")
-      Prelude.<*> (x Core..@? "minTargetCapacity")
-      Prelude.<*> (x Core..@? "instanceInterruptionBehavior")
-      Prelude.<*> (x Core..@? "maintenanceStrategies")
-      Prelude.<*> (x Core..@? "allocationStrategy")
-      Prelude.<*> (x Core..@? "maxTotalPrice")
+      Prelude.<$> (x Data..@? "singleInstanceType")
+      Prelude.<*> (x Data..@? "instancePoolsToUseCount")
+      Prelude.<*> (x Data..@? "singleAvailabilityZone")
+      Prelude.<*> (x Data..@? "minTargetCapacity")
+      Prelude.<*> (x Data..@? "instanceInterruptionBehavior")
+      Prelude.<*> (x Data..@? "maintenanceStrategies")
+      Prelude.<*> (x Data..@? "allocationStrategy")
+      Prelude.<*> (x Data..@? "maxTotalPrice")
 
 instance Prelude.Hashable SpotOptions where
   hashWithSalt _salt SpotOptions' {..} =

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest UpdateBaiduChannel where
       ( \s h x ->
           UpdateBaiduChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable UpdateBaiduChannel where
@@ -117,30 +118,30 @@ instance Prelude.NFData UpdateBaiduChannel where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf baiduChannelRequest
 
-instance Core.ToHeaders UpdateBaiduChannel where
+instance Data.ToHeaders UpdateBaiduChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBaiduChannel where
+instance Data.ToJSON UpdateBaiduChannel where
   toJSON UpdateBaiduChannel' {..} =
-    Core.toJSON baiduChannelRequest
+    Data.toJSON baiduChannelRequest
 
-instance Core.ToPath UpdateBaiduChannel where
+instance Data.ToPath UpdateBaiduChannel where
   toPath UpdateBaiduChannel' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/channels/baidu"
       ]
 
-instance Core.ToQuery UpdateBaiduChannel where
+instance Data.ToQuery UpdateBaiduChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBaiduChannelResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,39 +172,39 @@ instance
       `Prelude.seq` Prelude.rnf deviceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteMobileDeviceAccessOverride
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.DeleteMobileDeviceAccessOverride" ::
+              Data.=# ( "WorkMailService.DeleteMobileDeviceAccessOverride" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteMobileDeviceAccessOverride where
+instance Data.ToJSON DeleteMobileDeviceAccessOverride where
   toJSON DeleteMobileDeviceAccessOverride' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("UserId" Core..= userId),
-            Prelude.Just ("DeviceId" Core..= deviceId)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("UserId" Data..= userId),
+            Prelude.Just ("DeviceId" Data..= deviceId)
           ]
       )
 
-instance Core.ToPath DeleteMobileDeviceAccessOverride where
+instance Data.ToPath DeleteMobileDeviceAccessOverride where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteMobileDeviceAccessOverride
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.AliasConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.AliasRoutingConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -105,18 +106,18 @@ aliasConfiguration_description = Lens.lens (\AliasConfiguration' {description} -
 aliasConfiguration_revisionId :: Lens.Lens' AliasConfiguration (Prelude.Maybe Prelude.Text)
 aliasConfiguration_revisionId = Lens.lens (\AliasConfiguration' {revisionId} -> revisionId) (\s@AliasConfiguration' {} a -> s {revisionId = a} :: AliasConfiguration)
 
-instance Core.FromJSON AliasConfiguration where
+instance Data.FromJSON AliasConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AliasConfiguration"
       ( \x ->
           AliasConfiguration'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RoutingConfig")
-            Prelude.<*> (x Core..:? "FunctionVersion")
-            Prelude.<*> (x Core..:? "AliasArn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "RevisionId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RoutingConfig")
+            Prelude.<*> (x Data..:? "FunctionVersion")
+            Prelude.<*> (x Data..:? "AliasArn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "RevisionId")
       )
 
 instance Prelude.Hashable AliasConfiguration where

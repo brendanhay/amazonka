@@ -23,6 +23,7 @@ import Amazonka.AppMesh.Types.Duration
 import Amazonka.AppMesh.Types.TcpRetryPolicyEvent
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a retry policy. Specify at least one value for
@@ -123,16 +124,16 @@ httpRetryPolicy_maxRetries = Lens.lens (\HttpRetryPolicy' {maxRetries} -> maxRet
 httpRetryPolicy_perRetryTimeout :: Lens.Lens' HttpRetryPolicy Duration
 httpRetryPolicy_perRetryTimeout = Lens.lens (\HttpRetryPolicy' {perRetryTimeout} -> perRetryTimeout) (\s@HttpRetryPolicy' {} a -> s {perRetryTimeout = a} :: HttpRetryPolicy)
 
-instance Core.FromJSON HttpRetryPolicy where
+instance Data.FromJSON HttpRetryPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpRetryPolicy"
       ( \x ->
           HttpRetryPolicy'
-            Prelude.<$> (x Core..:? "httpRetryEvents")
-            Prelude.<*> (x Core..:? "tcpRetryEvents")
-            Prelude.<*> (x Core..: "maxRetries")
-            Prelude.<*> (x Core..: "perRetryTimeout")
+            Prelude.<$> (x Data..:? "httpRetryEvents")
+            Prelude.<*> (x Data..:? "tcpRetryEvents")
+            Prelude.<*> (x Data..: "maxRetries")
+            Prelude.<*> (x Data..: "perRetryTimeout")
       )
 
 instance Prelude.Hashable HttpRetryPolicy where
@@ -149,16 +150,16 @@ instance Prelude.NFData HttpRetryPolicy where
       `Prelude.seq` Prelude.rnf maxRetries
       `Prelude.seq` Prelude.rnf perRetryTimeout
 
-instance Core.ToJSON HttpRetryPolicy where
+instance Data.ToJSON HttpRetryPolicy where
   toJSON HttpRetryPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("httpRetryEvents" Core..=)
+          [ ("httpRetryEvents" Data..=)
               Prelude.<$> httpRetryEvents,
-            ("tcpRetryEvents" Core..=)
+            ("tcpRetryEvents" Data..=)
               Prelude.<$> tcpRetryEvents,
-            Prelude.Just ("maxRetries" Core..= maxRetries),
+            Prelude.Just ("maxRetries" Data..= maxRetries),
             Prelude.Just
-              ("perRetryTimeout" Core..= perRetryTimeout)
+              ("perRetryTimeout" Data..= perRetryTimeout)
           ]
       )

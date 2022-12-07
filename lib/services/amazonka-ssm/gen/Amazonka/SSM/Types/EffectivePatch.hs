@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.EffectivePatch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.Patch
 import Amazonka.SSM.Types.PatchStatus
@@ -82,14 +83,14 @@ effectivePatch_patch = Lens.lens (\EffectivePatch' {patch} -> patch) (\s@Effecti
 effectivePatch_patchStatus :: Lens.Lens' EffectivePatch (Prelude.Maybe PatchStatus)
 effectivePatch_patchStatus = Lens.lens (\EffectivePatch' {patchStatus} -> patchStatus) (\s@EffectivePatch' {} a -> s {patchStatus = a} :: EffectivePatch)
 
-instance Core.FromJSON EffectivePatch where
+instance Data.FromJSON EffectivePatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EffectivePatch"
       ( \x ->
           EffectivePatch'
-            Prelude.<$> (x Core..:? "Patch")
-            Prelude.<*> (x Core..:? "PatchStatus")
+            Prelude.<$> (x Data..:? "Patch")
+            Prelude.<*> (x Data..:? "PatchStatus")
       )
 
 instance Prelude.Hashable EffectivePatch where

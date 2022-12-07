@@ -22,6 +22,7 @@ module Amazonka.CloudWatchEvents.Types.ReplicationConfig where
 import Amazonka.CloudWatchEvents.Types.ReplicationState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Endpoints can replicate all events to the secondary Region.
@@ -51,12 +52,12 @@ newReplicationConfig =
 replicationConfig_state :: Lens.Lens' ReplicationConfig (Prelude.Maybe ReplicationState)
 replicationConfig_state = Lens.lens (\ReplicationConfig' {state} -> state) (\s@ReplicationConfig' {} a -> s {state = a} :: ReplicationConfig)
 
-instance Core.FromJSON ReplicationConfig where
+instance Data.FromJSON ReplicationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationConfig"
       ( \x ->
-          ReplicationConfig' Prelude.<$> (x Core..:? "State")
+          ReplicationConfig' Prelude.<$> (x Data..:? "State")
       )
 
 instance Prelude.Hashable ReplicationConfig where
@@ -66,9 +67,9 @@ instance Prelude.Hashable ReplicationConfig where
 instance Prelude.NFData ReplicationConfig where
   rnf ReplicationConfig' {..} = Prelude.rnf state
 
-instance Core.ToJSON ReplicationConfig where
+instance Data.ToJSON ReplicationConfig where
   toJSON ReplicationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("State" Core..=) Prelude.<$> state]
+          [("State" Data..=) Prelude.<$> state]
       )

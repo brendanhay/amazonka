@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,7 +140,7 @@ instance Core.AWSRequest ModifyUser where
   response =
     Response.receiveXMLWrapper
       "ModifyUserResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable ModifyUser where
   hashWithSalt _salt ModifyUser' {..} =
@@ -159,25 +160,25 @@ instance Prelude.NFData ModifyUser where
       `Prelude.seq` Prelude.rnf noPasswordRequired
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders ModifyUser where
+instance Data.ToHeaders ModifyUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyUser where
+instance Data.ToPath ModifyUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyUser where
+instance Data.ToQuery ModifyUser where
   toQuery ModifyUser' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyUser" :: Prelude.ByteString),
+          Data.=: ("ModifyUser" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "AccessString" Core.=: accessString,
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "AccessString" Data.=: accessString,
         "Passwords"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> passwords),
-        "AppendAccessString" Core.=: appendAccessString,
-        "AuthenticationMode" Core.=: authenticationMode,
-        "NoPasswordRequired" Core.=: noPasswordRequired,
-        "UserId" Core.=: userId
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> passwords),
+        "AppendAccessString" Data.=: appendAccessString,
+        "AuthenticationMode" Data.=: authenticationMode,
+        "NoPasswordRequired" Data.=: noPasswordRequired,
+        "UserId" Data.=: userId
       ]

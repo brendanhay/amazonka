@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.MsSmoothGroupSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.DestinationSettings
 import Amazonka.MediaConvert.Types.MsSmoothAdditionalManifest
 import Amazonka.MediaConvert.Types.MsSmoothAudioDeduplication
@@ -190,22 +191,22 @@ msSmoothGroupSettings_manifestEncoding = Lens.lens (\MsSmoothGroupSettings' {man
 msSmoothGroupSettings_destinationSettings :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe DestinationSettings)
 msSmoothGroupSettings_destinationSettings = Lens.lens (\MsSmoothGroupSettings' {destinationSettings} -> destinationSettings) (\s@MsSmoothGroupSettings' {} a -> s {destinationSettings = a} :: MsSmoothGroupSettings)
 
-instance Core.FromJSON MsSmoothGroupSettings where
+instance Data.FromJSON MsSmoothGroupSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MsSmoothGroupSettings"
       ( \x ->
           MsSmoothGroupSettings'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "fragmentLengthControl")
-            Prelude.<*> (x Core..:? "fragmentLength")
-            Prelude.<*> (x Core..:? "audioDeduplication")
-            Prelude.<*> (x Core..:? "encryption")
-            Prelude.<*> ( x Core..:? "additionalManifests"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "fragmentLengthControl")
+            Prelude.<*> (x Data..:? "fragmentLength")
+            Prelude.<*> (x Data..:? "audioDeduplication")
+            Prelude.<*> (x Data..:? "encryption")
+            Prelude.<*> ( x Data..:? "additionalManifests"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "manifestEncoding")
-            Prelude.<*> (x Core..:? "destinationSettings")
+            Prelude.<*> (x Data..:? "manifestEncoding")
+            Prelude.<*> (x Data..:? "destinationSettings")
       )
 
 instance Prelude.Hashable MsSmoothGroupSettings where
@@ -230,23 +231,23 @@ instance Prelude.NFData MsSmoothGroupSettings where
       `Prelude.seq` Prelude.rnf manifestEncoding
       `Prelude.seq` Prelude.rnf destinationSettings
 
-instance Core.ToJSON MsSmoothGroupSettings where
+instance Data.ToJSON MsSmoothGroupSettings where
   toJSON MsSmoothGroupSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("destination" Core..=) Prelude.<$> destination,
-            ("fragmentLengthControl" Core..=)
+          [ ("destination" Data..=) Prelude.<$> destination,
+            ("fragmentLengthControl" Data..=)
               Prelude.<$> fragmentLengthControl,
-            ("fragmentLength" Core..=)
+            ("fragmentLength" Data..=)
               Prelude.<$> fragmentLength,
-            ("audioDeduplication" Core..=)
+            ("audioDeduplication" Data..=)
               Prelude.<$> audioDeduplication,
-            ("encryption" Core..=) Prelude.<$> encryption,
-            ("additionalManifests" Core..=)
+            ("encryption" Data..=) Prelude.<$> encryption,
+            ("additionalManifests" Data..=)
               Prelude.<$> additionalManifests,
-            ("manifestEncoding" Core..=)
+            ("manifestEncoding" Data..=)
               Prelude.<$> manifestEncoding,
-            ("destinationSettings" Core..=)
+            ("destinationSettings" Data..=)
               Prelude.<$> destinationSettings
           ]
       )

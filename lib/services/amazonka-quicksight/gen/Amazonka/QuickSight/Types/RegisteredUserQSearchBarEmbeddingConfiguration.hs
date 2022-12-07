@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.RegisteredUserQSearchBarEmbeddingConfiguration 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the Q search bar embedding experience.
@@ -95,14 +96,14 @@ instance
       Prelude.rnf initialTopicId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RegisteredUserQSearchBarEmbeddingConfiguration
   where
   toJSON
     RegisteredUserQSearchBarEmbeddingConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("InitialTopicId" Core..=)
+            [ ("InitialTopicId" Data..=)
                 Prelude.<$> initialTopicId
             ]
         )

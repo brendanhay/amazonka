@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.EphemerisIdResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newEphemerisIdResponse' smart constructor.
@@ -48,13 +49,13 @@ newEphemerisIdResponse =
 ephemerisIdResponse_ephemerisId :: Lens.Lens' EphemerisIdResponse (Prelude.Maybe Prelude.Text)
 ephemerisIdResponse_ephemerisId = Lens.lens (\EphemerisIdResponse' {ephemerisId} -> ephemerisId) (\s@EphemerisIdResponse' {} a -> s {ephemerisId = a} :: EphemerisIdResponse)
 
-instance Core.FromJSON EphemerisIdResponse where
+instance Data.FromJSON EphemerisIdResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EphemerisIdResponse"
       ( \x ->
           EphemerisIdResponse'
-            Prelude.<$> (x Core..:? "ephemerisId")
+            Prelude.<$> (x Data..:? "ephemerisId")
       )
 
 instance Prelude.Hashable EphemerisIdResponse where

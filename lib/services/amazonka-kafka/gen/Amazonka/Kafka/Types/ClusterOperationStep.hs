@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.ClusterOperationStep where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.ClusterOperationStepInfo
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ clusterOperationStep_stepName = Lens.lens (\ClusterOperationStep' {stepName} -> 
 clusterOperationStep_stepInfo :: Lens.Lens' ClusterOperationStep (Prelude.Maybe ClusterOperationStepInfo)
 clusterOperationStep_stepInfo = Lens.lens (\ClusterOperationStep' {stepInfo} -> stepInfo) (\s@ClusterOperationStep' {} a -> s {stepInfo = a} :: ClusterOperationStep)
 
-instance Core.FromJSON ClusterOperationStep where
+instance Data.FromJSON ClusterOperationStep where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusterOperationStep"
       ( \x ->
           ClusterOperationStep'
-            Prelude.<$> (x Core..:? "stepName")
-            Prelude.<*> (x Core..:? "stepInfo")
+            Prelude.<$> (x Data..:? "stepName")
+            Prelude.<*> (x Data..:? "stepInfo")
       )
 
 instance Prelude.Hashable ClusterOperationStep where

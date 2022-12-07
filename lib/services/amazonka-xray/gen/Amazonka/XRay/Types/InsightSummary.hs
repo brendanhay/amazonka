@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.InsightSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.AnomalousService
 import Amazonka.XRay.Types.InsightCategory
@@ -48,9 +49,9 @@ data InsightSummary = InsightSummary'
     -- | The name of the group that the insight belongs to.
     groupName :: Prelude.Maybe Prelude.Text,
     -- | The time, in Unix seconds, at which the insight ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The time, in Unix seconds, that the insight was last updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | Categories The categories that label and describe the type of insight.
     categories :: Prelude.Maybe [InsightCategory],
     -- | The impact statistics of the client side service. This includes the
@@ -60,7 +61,7 @@ data InsightSummary = InsightSummary'
     -- | The Amazon Resource Name (ARN) of the group that the insight belongs to.
     groupARN :: Prelude.Maybe Prelude.Text,
     -- | The time, in Unix seconds, at which the insight began.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -154,11 +155,11 @@ insightSummary_groupName = Lens.lens (\InsightSummary' {groupName} -> groupName)
 
 -- | The time, in Unix seconds, at which the insight ended.
 insightSummary_endTime :: Lens.Lens' InsightSummary (Prelude.Maybe Prelude.UTCTime)
-insightSummary_endTime = Lens.lens (\InsightSummary' {endTime} -> endTime) (\s@InsightSummary' {} a -> s {endTime = a} :: InsightSummary) Prelude.. Lens.mapping Core._Time
+insightSummary_endTime = Lens.lens (\InsightSummary' {endTime} -> endTime) (\s@InsightSummary' {} a -> s {endTime = a} :: InsightSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The time, in Unix seconds, that the insight was last updated.
 insightSummary_lastUpdateTime :: Lens.Lens' InsightSummary (Prelude.Maybe Prelude.UTCTime)
-insightSummary_lastUpdateTime = Lens.lens (\InsightSummary' {lastUpdateTime} -> lastUpdateTime) (\s@InsightSummary' {} a -> s {lastUpdateTime = a} :: InsightSummary) Prelude.. Lens.mapping Core._Time
+insightSummary_lastUpdateTime = Lens.lens (\InsightSummary' {lastUpdateTime} -> lastUpdateTime) (\s@InsightSummary' {} a -> s {lastUpdateTime = a} :: InsightSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Categories The categories that label and describe the type of insight.
 insightSummary_categories :: Lens.Lens' InsightSummary (Prelude.Maybe [InsightCategory])
@@ -176,31 +177,31 @@ insightSummary_groupARN = Lens.lens (\InsightSummary' {groupARN} -> groupARN) (\
 
 -- | The time, in Unix seconds, at which the insight began.
 insightSummary_startTime :: Lens.Lens' InsightSummary (Prelude.Maybe Prelude.UTCTime)
-insightSummary_startTime = Lens.lens (\InsightSummary' {startTime} -> startTime) (\s@InsightSummary' {} a -> s {startTime = a} :: InsightSummary) Prelude.. Lens.mapping Core._Time
+insightSummary_startTime = Lens.lens (\InsightSummary' {startTime} -> startTime) (\s@InsightSummary' {} a -> s {startTime = a} :: InsightSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON InsightSummary where
+instance Data.FromJSON InsightSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InsightSummary"
       ( \x ->
           InsightSummary'
-            Prelude.<$> (x Core..:? "RootCauseServiceId")
+            Prelude.<$> (x Data..:? "RootCauseServiceId")
             Prelude.<*> ( x
-                            Core..:? "RootCauseServiceRequestImpactStatistics"
+                            Data..:? "RootCauseServiceRequestImpactStatistics"
                         )
-            Prelude.<*> ( x Core..:? "TopAnomalousServices"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "TopAnomalousServices"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "InsightId")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Summary")
-            Prelude.<*> (x Core..:? "GroupName")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "LastUpdateTime")
-            Prelude.<*> (x Core..:? "Categories" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ClientRequestImpactStatistics")
-            Prelude.<*> (x Core..:? "GroupARN")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Data..:? "InsightId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Summary")
+            Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "LastUpdateTime")
+            Prelude.<*> (x Data..:? "Categories" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ClientRequestImpactStatistics")
+            Prelude.<*> (x Data..:? "GroupARN")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable InsightSummary where

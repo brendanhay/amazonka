@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.FaultStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about requests that failed with a 5xx Server Error status
@@ -68,14 +69,14 @@ faultStatistics_otherCount = Lens.lens (\FaultStatistics' {otherCount} -> otherC
 faultStatistics_totalCount :: Lens.Lens' FaultStatistics (Prelude.Maybe Prelude.Integer)
 faultStatistics_totalCount = Lens.lens (\FaultStatistics' {totalCount} -> totalCount) (\s@FaultStatistics' {} a -> s {totalCount = a} :: FaultStatistics)
 
-instance Core.FromJSON FaultStatistics where
+instance Data.FromJSON FaultStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FaultStatistics"
       ( \x ->
           FaultStatistics'
-            Prelude.<$> (x Core..:? "OtherCount")
-            Prelude.<*> (x Core..:? "TotalCount")
+            Prelude.<$> (x Data..:? "OtherCount")
+            Prelude.<*> (x Data..:? "TotalCount")
       )
 
 instance Prelude.Hashable FaultStatistics where

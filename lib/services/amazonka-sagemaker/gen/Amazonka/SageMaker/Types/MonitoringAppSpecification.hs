@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringAppSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Container image configuration object for the monitoring job.
@@ -104,17 +105,17 @@ monitoringAppSpecification_postAnalyticsProcessorSourceUri = Lens.lens (\Monitor
 monitoringAppSpecification_imageUri :: Lens.Lens' MonitoringAppSpecification Prelude.Text
 monitoringAppSpecification_imageUri = Lens.lens (\MonitoringAppSpecification' {imageUri} -> imageUri) (\s@MonitoringAppSpecification' {} a -> s {imageUri = a} :: MonitoringAppSpecification)
 
-instance Core.FromJSON MonitoringAppSpecification where
+instance Data.FromJSON MonitoringAppSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringAppSpecification"
       ( \x ->
           MonitoringAppSpecification'
-            Prelude.<$> (x Core..:? "ContainerEntrypoint")
-            Prelude.<*> (x Core..:? "RecordPreprocessorSourceUri")
-            Prelude.<*> (x Core..:? "ContainerArguments")
-            Prelude.<*> (x Core..:? "PostAnalyticsProcessorSourceUri")
-            Prelude.<*> (x Core..: "ImageUri")
+            Prelude.<$> (x Data..:? "ContainerEntrypoint")
+            Prelude.<*> (x Data..:? "RecordPreprocessorSourceUri")
+            Prelude.<*> (x Data..:? "ContainerArguments")
+            Prelude.<*> (x Data..:? "PostAnalyticsProcessorSourceUri")
+            Prelude.<*> (x Data..: "ImageUri")
       )
 
 instance Prelude.Hashable MonitoringAppSpecification where
@@ -133,18 +134,18 @@ instance Prelude.NFData MonitoringAppSpecification where
       `Prelude.seq` Prelude.rnf postAnalyticsProcessorSourceUri
       `Prelude.seq` Prelude.rnf imageUri
 
-instance Core.ToJSON MonitoringAppSpecification where
+instance Data.ToJSON MonitoringAppSpecification where
   toJSON MonitoringAppSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContainerEntrypoint" Core..=)
+          [ ("ContainerEntrypoint" Data..=)
               Prelude.<$> containerEntrypoint,
-            ("RecordPreprocessorSourceUri" Core..=)
+            ("RecordPreprocessorSourceUri" Data..=)
               Prelude.<$> recordPreprocessorSourceUri,
-            ("ContainerArguments" Core..=)
+            ("ContainerArguments" Data..=)
               Prelude.<$> containerArguments,
-            ("PostAnalyticsProcessorSourceUri" Core..=)
+            ("PostAnalyticsProcessorSourceUri" Data..=)
               Prelude.<$> postAnalyticsProcessorSourceUri,
-            Prelude.Just ("ImageUri" Core..= imageUri)
+            Prelude.Just ("ImageUri" Data..= imageUri)
           ]
       )

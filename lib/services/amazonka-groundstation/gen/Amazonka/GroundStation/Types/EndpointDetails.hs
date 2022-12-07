@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.EndpointDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.DataflowEndpoint
 import Amazonka.GroundStation.Types.SecurityDetails
 import qualified Amazonka.Prelude as Prelude
@@ -66,14 +67,14 @@ endpointDetails_endpoint = Lens.lens (\EndpointDetails' {endpoint} -> endpoint) 
 endpointDetails_securityDetails :: Lens.Lens' EndpointDetails (Prelude.Maybe SecurityDetails)
 endpointDetails_securityDetails = Lens.lens (\EndpointDetails' {securityDetails} -> securityDetails) (\s@EndpointDetails' {} a -> s {securityDetails = a} :: EndpointDetails)
 
-instance Core.FromJSON EndpointDetails where
+instance Data.FromJSON EndpointDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointDetails"
       ( \x ->
           EndpointDetails'
-            Prelude.<$> (x Core..:? "endpoint")
-            Prelude.<*> (x Core..:? "securityDetails")
+            Prelude.<$> (x Data..:? "endpoint")
+            Prelude.<*> (x Data..:? "securityDetails")
       )
 
 instance Prelude.Hashable EndpointDetails where
@@ -86,12 +87,12 @@ instance Prelude.NFData EndpointDetails where
     Prelude.rnf endpoint
       `Prelude.seq` Prelude.rnf securityDetails
 
-instance Core.ToJSON EndpointDetails where
+instance Data.ToJSON EndpointDetails where
   toJSON EndpointDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("endpoint" Core..=) Prelude.<$> endpoint,
-            ("securityDetails" Core..=)
+          [ ("endpoint" Data..=) Prelude.<$> endpoint,
+            ("securityDetails" Data..=)
               Prelude.<$> securityDetails
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Bias where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MetricsSource
 
@@ -71,15 +72,15 @@ bias_postTrainingReport = Lens.lens (\Bias' {postTrainingReport} -> postTraining
 bias_report :: Lens.Lens' Bias (Prelude.Maybe MetricsSource)
 bias_report = Lens.lens (\Bias' {report} -> report) (\s@Bias' {} a -> s {report = a} :: Bias)
 
-instance Core.FromJSON Bias where
+instance Data.FromJSON Bias where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Bias"
       ( \x ->
           Bias'
-            Prelude.<$> (x Core..:? "PreTrainingReport")
-            Prelude.<*> (x Core..:? "PostTrainingReport")
-            Prelude.<*> (x Core..:? "Report")
+            Prelude.<$> (x Data..:? "PreTrainingReport")
+            Prelude.<*> (x Data..:? "PostTrainingReport")
+            Prelude.<*> (x Data..:? "Report")
       )
 
 instance Prelude.Hashable Bias where
@@ -94,14 +95,14 @@ instance Prelude.NFData Bias where
       `Prelude.seq` Prelude.rnf postTrainingReport
       `Prelude.seq` Prelude.rnf report
 
-instance Core.ToJSON Bias where
+instance Data.ToJSON Bias where
   toJSON Bias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PreTrainingReport" Core..=)
+          [ ("PreTrainingReport" Data..=)
               Prelude.<$> preTrainingReport,
-            ("PostTrainingReport" Core..=)
+            ("PostTrainingReport" Data..=)
               Prelude.<$> postTrainingReport,
-            ("Report" Core..=) Prelude.<$> report
+            ("Report" Data..=) Prelude.<$> report
           ]
       )

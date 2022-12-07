@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,7 +109,7 @@ instance Core.AWSRequest CreateMember where
     Response.receiveJSON
       ( \s h x ->
           CreateMemberResponse'
-            Prelude.<$> (x Core..?> "arn")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,30 +122,30 @@ instance Prelude.NFData CreateMember where
   rnf CreateMember' {..} =
     Prelude.rnf tags `Prelude.seq` Prelude.rnf account
 
-instance Core.ToHeaders CreateMember where
+instance Data.ToHeaders CreateMember where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateMember where
+instance Data.ToJSON CreateMember where
   toJSON CreateMember' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("account" Core..= account)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("account" Data..= account)
           ]
       )
 
-instance Core.ToPath CreateMember where
+instance Data.ToPath CreateMember where
   toPath = Prelude.const "/members"
 
-instance Core.ToQuery CreateMember where
+instance Data.ToQuery CreateMember where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateMemberResponse' smart constructor.

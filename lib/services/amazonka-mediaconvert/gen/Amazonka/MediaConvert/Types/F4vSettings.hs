@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.F4vSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.F4vMoovPlacement
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newF4vSettings =
 f4vSettings_moovPlacement :: Lens.Lens' F4vSettings (Prelude.Maybe F4vMoovPlacement)
 f4vSettings_moovPlacement = Lens.lens (\F4vSettings' {moovPlacement} -> moovPlacement) (\s@F4vSettings' {} a -> s {moovPlacement = a} :: F4vSettings)
 
-instance Core.FromJSON F4vSettings where
+instance Data.FromJSON F4vSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "F4vSettings"
       ( \x ->
           F4vSettings'
-            Prelude.<$> (x Core..:? "moovPlacement")
+            Prelude.<$> (x Data..:? "moovPlacement")
       )
 
 instance Prelude.Hashable F4vSettings where
@@ -73,11 +74,11 @@ instance Prelude.Hashable F4vSettings where
 instance Prelude.NFData F4vSettings where
   rnf F4vSettings' {..} = Prelude.rnf moovPlacement
 
-instance Core.ToJSON F4vSettings where
+instance Data.ToJSON F4vSettings where
   toJSON F4vSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("moovPlacement" Core..=)
+          [ ("moovPlacement" Data..=)
               Prelude.<$> moovPlacement
           ]
       )

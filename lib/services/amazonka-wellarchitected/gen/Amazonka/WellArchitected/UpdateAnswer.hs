@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,10 +160,10 @@ instance Core.AWSRequest UpdateAnswer where
     Response.receiveJSON
       ( \s h x ->
           UpdateAnswerResponse'
-            Prelude.<$> (x Core..?> "LensArn")
-            Prelude.<*> (x Core..?> "LensAlias")
-            Prelude.<*> (x Core..?> "Answer")
-            Prelude.<*> (x Core..?> "WorkloadId")
+            Prelude.<$> (x Data..?> "LensArn")
+            Prelude.<*> (x Data..?> "LensAlias")
+            Prelude.<*> (x Data..?> "Answer")
+            Prelude.<*> (x Data..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,42 +189,42 @@ instance Prelude.NFData UpdateAnswer where
       `Prelude.seq` Prelude.rnf lensAlias
       `Prelude.seq` Prelude.rnf questionId
 
-instance Core.ToHeaders UpdateAnswer where
+instance Data.ToHeaders UpdateAnswer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAnswer where
+instance Data.ToJSON UpdateAnswer where
   toJSON UpdateAnswer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SelectedChoices" Core..=)
+          [ ("SelectedChoices" Data..=)
               Prelude.<$> selectedChoices,
-            ("ChoiceUpdates" Core..=) Prelude.<$> choiceUpdates,
-            ("IsApplicable" Core..=) Prelude.<$> isApplicable,
-            ("Reason" Core..=) Prelude.<$> reason,
-            ("Notes" Core..=) Prelude.<$> notes
+            ("ChoiceUpdates" Data..=) Prelude.<$> choiceUpdates,
+            ("IsApplicable" Data..=) Prelude.<$> isApplicable,
+            ("Reason" Data..=) Prelude.<$> reason,
+            ("Notes" Data..=) Prelude.<$> notes
           ]
       )
 
-instance Core.ToPath UpdateAnswer where
+instance Data.ToPath UpdateAnswer where
   toPath UpdateAnswer' {..} =
     Prelude.mconcat
       [ "/workloads/",
-        Core.toBS workloadId,
+        Data.toBS workloadId,
         "/lensReviews/",
-        Core.toBS lensAlias,
+        Data.toBS lensAlias,
         "/answers/",
-        Core.toBS questionId
+        Data.toBS questionId
       ]
 
-instance Core.ToQuery UpdateAnswer where
+instance Data.ToQuery UpdateAnswer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Output of a update answer call.

@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.MonitoringSubscription where
 import Amazonka.CloudFront.Types.RealtimeMetricsSubscriptionConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A monitoring subscription. This structure contains information about
@@ -56,10 +57,10 @@ newMonitoringSubscription =
 monitoringSubscription_realtimeMetricsSubscriptionConfig :: Lens.Lens' MonitoringSubscription (Prelude.Maybe RealtimeMetricsSubscriptionConfig)
 monitoringSubscription_realtimeMetricsSubscriptionConfig = Lens.lens (\MonitoringSubscription' {realtimeMetricsSubscriptionConfig} -> realtimeMetricsSubscriptionConfig) (\s@MonitoringSubscription' {} a -> s {realtimeMetricsSubscriptionConfig = a} :: MonitoringSubscription)
 
-instance Core.FromXML MonitoringSubscription where
+instance Data.FromXML MonitoringSubscription where
   parseXML x =
     MonitoringSubscription'
-      Prelude.<$> (x Core..@? "RealtimeMetricsSubscriptionConfig")
+      Prelude.<$> (x Data..@? "RealtimeMetricsSubscriptionConfig")
 
 instance Prelude.Hashable MonitoringSubscription where
   hashWithSalt _salt MonitoringSubscription' {..} =
@@ -70,9 +71,9 @@ instance Prelude.NFData MonitoringSubscription where
   rnf MonitoringSubscription' {..} =
     Prelude.rnf realtimeMetricsSubscriptionConfig
 
-instance Core.ToXML MonitoringSubscription where
+instance Data.ToXML MonitoringSubscription where
   toXML MonitoringSubscription' {..} =
     Prelude.mconcat
       [ "RealtimeMetricsSubscriptionConfig"
-          Core.@= realtimeMetricsSubscriptionConfig
+          Data.@= realtimeMetricsSubscriptionConfig
       ]

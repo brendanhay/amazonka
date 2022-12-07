@@ -21,6 +21,7 @@ module Amazonka.ConnectCampaigns.Types.PredictiveDialerConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Predictive Dialer config
@@ -54,13 +55,13 @@ newPredictiveDialerConfig pBandwidthAllocation_ =
 predictiveDialerConfig_bandwidthAllocation :: Lens.Lens' PredictiveDialerConfig Prelude.Double
 predictiveDialerConfig_bandwidthAllocation = Lens.lens (\PredictiveDialerConfig' {bandwidthAllocation} -> bandwidthAllocation) (\s@PredictiveDialerConfig' {} a -> s {bandwidthAllocation = a} :: PredictiveDialerConfig)
 
-instance Core.FromJSON PredictiveDialerConfig where
+instance Data.FromJSON PredictiveDialerConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PredictiveDialerConfig"
       ( \x ->
           PredictiveDialerConfig'
-            Prelude.<$> (x Core..: "bandwidthAllocation")
+            Prelude.<$> (x Data..: "bandwidthAllocation")
       )
 
 instance Prelude.Hashable PredictiveDialerConfig where
@@ -71,11 +72,11 @@ instance Prelude.NFData PredictiveDialerConfig where
   rnf PredictiveDialerConfig' {..} =
     Prelude.rnf bandwidthAllocation
 
-instance Core.ToJSON PredictiveDialerConfig where
+instance Data.ToJSON PredictiveDialerConfig where
   toJSON PredictiveDialerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("bandwidthAllocation" Core..= bandwidthAllocation)
+              ("bandwidthAllocation" Data..= bandwidthAllocation)
           ]
       )

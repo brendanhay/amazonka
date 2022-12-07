@@ -52,6 +52,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest DeliverConfigSnapshot where
     Response.receiveJSON
       ( \s h x ->
           DeliverConfigSnapshotResponse'
-            Prelude.<$> (x Core..?> "configSnapshotId")
+            Prelude.<$> (x Data..?> "configSnapshotId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,34 +114,34 @@ instance Prelude.NFData DeliverConfigSnapshot where
   rnf DeliverConfigSnapshot' {..} =
     Prelude.rnf deliveryChannelName
 
-instance Core.ToHeaders DeliverConfigSnapshot where
+instance Data.ToHeaders DeliverConfigSnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DeliverConfigSnapshot" ::
+              Data.=# ( "StarlingDoveService.DeliverConfigSnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeliverConfigSnapshot where
+instance Data.ToJSON DeliverConfigSnapshot where
   toJSON DeliverConfigSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("deliveryChannelName" Core..= deliveryChannelName)
+              ("deliveryChannelName" Data..= deliveryChannelName)
           ]
       )
 
-instance Core.ToPath DeliverConfigSnapshot where
+instance Data.ToPath DeliverConfigSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeliverConfigSnapshot where
+instance Data.ToQuery DeliverConfigSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the DeliverConfigSnapshot action, in JSON format.

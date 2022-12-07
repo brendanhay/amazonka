@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.AssetModelHierarchy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an asset hierarchy that contains a hierarchy\'s name, ID, and
@@ -91,15 +92,15 @@ assetModelHierarchy_name = Lens.lens (\AssetModelHierarchy' {name} -> name) (\s@
 assetModelHierarchy_childAssetModelId :: Lens.Lens' AssetModelHierarchy Prelude.Text
 assetModelHierarchy_childAssetModelId = Lens.lens (\AssetModelHierarchy' {childAssetModelId} -> childAssetModelId) (\s@AssetModelHierarchy' {} a -> s {childAssetModelId = a} :: AssetModelHierarchy)
 
-instance Core.FromJSON AssetModelHierarchy where
+instance Data.FromJSON AssetModelHierarchy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetModelHierarchy"
       ( \x ->
           AssetModelHierarchy'
-            Prelude.<$> (x Core..:? "id")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "childAssetModelId")
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "childAssetModelId")
       )
 
 instance Prelude.Hashable AssetModelHierarchy where
@@ -114,13 +115,13 @@ instance Prelude.NFData AssetModelHierarchy where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf childAssetModelId
 
-instance Core.ToJSON AssetModelHierarchy where
+instance Data.ToJSON AssetModelHierarchy where
   toJSON AssetModelHierarchy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("id" Core..=) Prelude.<$> id,
-            Prelude.Just ("name" Core..= name),
+          [ ("id" Data..=) Prelude.<$> id,
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("childAssetModelId" Core..= childAssetModelId)
+              ("childAssetModelId" Data..= childAssetModelId)
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.EndpointFilter where
 import Amazonka.Comprehend.Types.EndpointStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The filter used to determine which endpoints are returned. You can
@@ -35,13 +36,13 @@ data EndpointFilter = EndpointFilter'
     status :: Prelude.Maybe EndpointStatus,
     -- | Specifies a date before which the returned endpoint or endpoints were
     -- created.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Number (ARN) of the model to which the endpoint is
     -- attached.
     modelArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies a date after which the returned endpoint or endpoints were
     -- created.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,7 +83,7 @@ endpointFilter_status = Lens.lens (\EndpointFilter' {status} -> status) (\s@Endp
 -- | Specifies a date before which the returned endpoint or endpoints were
 -- created.
 endpointFilter_creationTimeBefore :: Lens.Lens' EndpointFilter (Prelude.Maybe Prelude.UTCTime)
-endpointFilter_creationTimeBefore = Lens.lens (\EndpointFilter' {creationTimeBefore} -> creationTimeBefore) (\s@EndpointFilter' {} a -> s {creationTimeBefore = a} :: EndpointFilter) Prelude.. Lens.mapping Core._Time
+endpointFilter_creationTimeBefore = Lens.lens (\EndpointFilter' {creationTimeBefore} -> creationTimeBefore) (\s@EndpointFilter' {} a -> s {creationTimeBefore = a} :: EndpointFilter) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Number (ARN) of the model to which the endpoint is
 -- attached.
@@ -92,7 +93,7 @@ endpointFilter_modelArn = Lens.lens (\EndpointFilter' {modelArn} -> modelArn) (\
 -- | Specifies a date after which the returned endpoint or endpoints were
 -- created.
 endpointFilter_creationTimeAfter :: Lens.Lens' EndpointFilter (Prelude.Maybe Prelude.UTCTime)
-endpointFilter_creationTimeAfter = Lens.lens (\EndpointFilter' {creationTimeAfter} -> creationTimeAfter) (\s@EndpointFilter' {} a -> s {creationTimeAfter = a} :: EndpointFilter) Prelude.. Lens.mapping Core._Time
+endpointFilter_creationTimeAfter = Lens.lens (\EndpointFilter' {creationTimeAfter} -> creationTimeAfter) (\s@EndpointFilter' {} a -> s {creationTimeAfter = a} :: EndpointFilter) Prelude.. Lens.mapping Data._Time
 
 instance Prelude.Hashable EndpointFilter where
   hashWithSalt _salt EndpointFilter' {..} =
@@ -108,15 +109,15 @@ instance Prelude.NFData EndpointFilter where
       `Prelude.seq` Prelude.rnf modelArn
       `Prelude.seq` Prelude.rnf creationTimeAfter
 
-instance Core.ToJSON EndpointFilter where
+instance Data.ToJSON EndpointFilter where
   toJSON EndpointFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("CreationTimeBefore" Core..=)
+          [ ("Status" Data..=) Prelude.<$> status,
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("ModelArn" Core..=) Prelude.<$> modelArn,
-            ("CreationTimeAfter" Core..=)
+            ("ModelArn" Data..=) Prelude.<$> modelArn,
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter
           ]
       )

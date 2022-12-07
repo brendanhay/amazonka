@@ -21,6 +21,7 @@ module Amazonka.IVSChat.Types.RoomSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVSChat.Types.MessageReviewHandler
 import qualified Amazonka.Prelude as Prelude
 
@@ -48,10 +49,10 @@ data RoomSummary = RoomSummary'
     id :: Prelude.Maybe Prelude.Text,
     -- | Time of the room’s last update. This is an ISO 8601 timestamp; /note
     -- that this is returned as a string/.
-    updateTime :: Prelude.Maybe Core.POSIX,
+    updateTime :: Prelude.Maybe Data.POSIX,
     -- | Time when the room was created. This is an ISO 8601 timestamp; /note
     -- that this is returned as a string/.
-    createTime :: Prelude.Maybe Core.POSIX
+    createTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -133,29 +134,29 @@ roomSummary_id = Lens.lens (\RoomSummary' {id} -> id) (\s@RoomSummary' {} a -> s
 -- | Time of the room’s last update. This is an ISO 8601 timestamp; /note
 -- that this is returned as a string/.
 roomSummary_updateTime :: Lens.Lens' RoomSummary (Prelude.Maybe Prelude.UTCTime)
-roomSummary_updateTime = Lens.lens (\RoomSummary' {updateTime} -> updateTime) (\s@RoomSummary' {} a -> s {updateTime = a} :: RoomSummary) Prelude.. Lens.mapping Core._Time
+roomSummary_updateTime = Lens.lens (\RoomSummary' {updateTime} -> updateTime) (\s@RoomSummary' {} a -> s {updateTime = a} :: RoomSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Time when the room was created. This is an ISO 8601 timestamp; /note
 -- that this is returned as a string/.
 roomSummary_createTime :: Lens.Lens' RoomSummary (Prelude.Maybe Prelude.UTCTime)
-roomSummary_createTime = Lens.lens (\RoomSummary' {createTime} -> createTime) (\s@RoomSummary' {} a -> s {createTime = a} :: RoomSummary) Prelude.. Lens.mapping Core._Time
+roomSummary_createTime = Lens.lens (\RoomSummary' {createTime} -> createTime) (\s@RoomSummary' {} a -> s {createTime = a} :: RoomSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON RoomSummary where
+instance Data.FromJSON RoomSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RoomSummary"
       ( \x ->
           RoomSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "loggingConfigurationIdentifiers"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "loggingConfigurationIdentifiers"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "messageReviewHandler")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "updateTime")
-            Prelude.<*> (x Core..:? "createTime")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "messageReviewHandler")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "updateTime")
+            Prelude.<*> (x Data..:? "createTime")
       )
 
 instance Prelude.Hashable RoomSummary where

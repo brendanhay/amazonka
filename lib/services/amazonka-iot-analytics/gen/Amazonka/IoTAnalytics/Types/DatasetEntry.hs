@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.DatasetEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The reference to a dataset entry.
@@ -61,14 +62,14 @@ datasetEntry_entryName = Lens.lens (\DatasetEntry' {entryName} -> entryName) (\s
 datasetEntry_dataURI :: Lens.Lens' DatasetEntry (Prelude.Maybe Prelude.Text)
 datasetEntry_dataURI = Lens.lens (\DatasetEntry' {dataURI} -> dataURI) (\s@DatasetEntry' {} a -> s {dataURI = a} :: DatasetEntry)
 
-instance Core.FromJSON DatasetEntry where
+instance Data.FromJSON DatasetEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetEntry"
       ( \x ->
           DatasetEntry'
-            Prelude.<$> (x Core..:? "entryName")
-            Prelude.<*> (x Core..:? "dataURI")
+            Prelude.<$> (x Data..:? "entryName")
+            Prelude.<*> (x Data..:? "dataURI")
       )
 
 instance Prelude.Hashable DatasetEntry where

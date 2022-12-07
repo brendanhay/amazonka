@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.DetectMitigationActionsTaskStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The statistics of a mitigation action task.
@@ -72,17 +73,17 @@ detectMitigationActionsTaskStatistics_actionsSkipped :: Lens.Lens' DetectMitigat
 detectMitigationActionsTaskStatistics_actionsSkipped = Lens.lens (\DetectMitigationActionsTaskStatistics' {actionsSkipped} -> actionsSkipped) (\s@DetectMitigationActionsTaskStatistics' {} a -> s {actionsSkipped = a} :: DetectMitigationActionsTaskStatistics)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DetectMitigationActionsTaskStatistics
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectMitigationActionsTaskStatistics"
       ( \x ->
           DetectMitigationActionsTaskStatistics'
-            Prelude.<$> (x Core..:? "actionsExecuted")
-            Prelude.<*> (x Core..:? "actionsFailed")
-            Prelude.<*> (x Core..:? "actionsSkipped")
+            Prelude.<$> (x Data..:? "actionsExecuted")
+            Prelude.<*> (x Data..:? "actionsFailed")
+            Prelude.<*> (x Data..:? "actionsSkipped")
       )
 
 instance

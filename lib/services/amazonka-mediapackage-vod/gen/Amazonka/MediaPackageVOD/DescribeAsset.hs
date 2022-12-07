@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,15 +91,15 @@ instance Core.AWSRequest DescribeAsset where
     Response.receiveJSON
       ( \s h x ->
           DescribeAssetResponse'
-            Prelude.<$> (x Core..?> "resourceId")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "sourceRoleArn")
-            Prelude.<*> (x Core..?> "sourceArn")
-            Prelude.<*> (x Core..?> "packagingGroupId")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> ( x Core..?> "egressEndpoints"
+            Prelude.<$> (x Data..?> "resourceId")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "sourceRoleArn")
+            Prelude.<*> (x Data..?> "sourceArn")
+            Prelude.<*> (x Data..?> "packagingGroupId")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> ( x Data..?> "egressEndpoints"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -111,22 +112,22 @@ instance Prelude.Hashable DescribeAsset where
 instance Prelude.NFData DescribeAsset where
   rnf DescribeAsset' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DescribeAsset where
+instance Data.ToHeaders DescribeAsset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeAsset where
+instance Data.ToPath DescribeAsset where
   toPath DescribeAsset' {..} =
-    Prelude.mconcat ["/assets/", Core.toBS id]
+    Prelude.mconcat ["/assets/", Data.toBS id]
 
-instance Core.ToQuery DescribeAsset where
+instance Data.ToQuery DescribeAsset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAssetResponse' smart constructor.

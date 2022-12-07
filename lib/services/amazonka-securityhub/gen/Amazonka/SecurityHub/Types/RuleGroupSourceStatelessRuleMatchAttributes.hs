@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleMatchAttributes wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts
 import Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleMatchAttributesDestinations
@@ -110,22 +111,22 @@ ruleGroupSourceStatelessRuleMatchAttributes_destinations :: Lens.Lens' RuleGroup
 ruleGroupSourceStatelessRuleMatchAttributes_destinations = Lens.lens (\RuleGroupSourceStatelessRuleMatchAttributes' {destinations} -> destinations) (\s@RuleGroupSourceStatelessRuleMatchAttributes' {} a -> s {destinations = a} :: RuleGroupSourceStatelessRuleMatchAttributes) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RuleGroupSourceStatelessRuleMatchAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupSourceStatelessRuleMatchAttributes"
       ( \x ->
           RuleGroupSourceStatelessRuleMatchAttributes'
-            Prelude.<$> ( x Core..:? "DestinationPorts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "DestinationPorts"
+                            Data..!= Prelude.mempty
                         )
-              Prelude.<*> (x Core..:? "Sources" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "TcpFlags" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "Protocols" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "SourcePorts" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "Destinations" Core..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Sources" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "TcpFlags" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Protocols" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "SourcePorts" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Destinations" Data..!= Prelude.mempty)
       )
 
 instance
@@ -155,19 +156,19 @@ instance
       `Prelude.seq` Prelude.rnf destinations
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RuleGroupSourceStatelessRuleMatchAttributes
   where
   toJSON
     RuleGroupSourceStatelessRuleMatchAttributes' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("DestinationPorts" Core..=)
+            [ ("DestinationPorts" Data..=)
                 Prelude.<$> destinationPorts,
-              ("Sources" Core..=) Prelude.<$> sources,
-              ("TcpFlags" Core..=) Prelude.<$> tcpFlags,
-              ("Protocols" Core..=) Prelude.<$> protocols,
-              ("SourcePorts" Core..=) Prelude.<$> sourcePorts,
-              ("Destinations" Core..=) Prelude.<$> destinations
+              ("Sources" Data..=) Prelude.<$> sources,
+              ("TcpFlags" Data..=) Prelude.<$> tcpFlags,
+              ("Protocols" Data..=) Prelude.<$> protocols,
+              ("SourcePorts" Data..=) Prelude.<$> sourcePorts,
+              ("Destinations" Data..=) Prelude.<$> destinations
             ]
         )

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,8 +99,8 @@ instance Core.AWSRequest ImportDecoderManifest where
       ( \s h x ->
           ImportDecoderManifestResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable ImportDecoderManifest where
@@ -112,37 +113,37 @@ instance Prelude.NFData ImportDecoderManifest where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf networkFileDefinitions
 
-instance Core.ToHeaders ImportDecoderManifest where
+instance Data.ToHeaders ImportDecoderManifest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.ImportDecoderManifest" ::
+              Data.=# ( "IoTAutobahnControlPlane.ImportDecoderManifest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportDecoderManifest where
+instance Data.ToJSON ImportDecoderManifest where
   toJSON ImportDecoderManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
+          [ Prelude.Just ("name" Data..= name),
             Prelude.Just
               ( "networkFileDefinitions"
-                  Core..= networkFileDefinitions
+                  Data..= networkFileDefinitions
               )
           ]
       )
 
-instance Core.ToPath ImportDecoderManifest where
+instance Data.ToPath ImportDecoderManifest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportDecoderManifest where
+instance Data.ToQuery ImportDecoderManifest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportDecoderManifestResponse' smart constructor.

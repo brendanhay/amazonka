@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -310,47 +311,47 @@ instance
       `Prelude.seq` Prelude.rnf teamId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateSlackChannelConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSlackChannelConfiguration where
+instance Data.ToJSON CreateSlackChannelConfiguration where
   toJSON CreateSlackChannelConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("channelName" Core..=) Prelude.<$> channelName,
-            ("notifyOnCreateOrReopenCase" Core..=)
+          [ ("channelName" Data..=) Prelude.<$> channelName,
+            ("notifyOnCreateOrReopenCase" Data..=)
               Prelude.<$> notifyOnCreateOrReopenCase,
-            ("notifyOnAddCorrespondenceToCase" Core..=)
+            ("notifyOnAddCorrespondenceToCase" Data..=)
               Prelude.<$> notifyOnAddCorrespondenceToCase,
-            ("notifyOnResolveCase" Core..=)
+            ("notifyOnResolveCase" Data..=)
               Prelude.<$> notifyOnResolveCase,
-            Prelude.Just ("channelId" Core..= channelId),
+            Prelude.Just ("channelId" Data..= channelId),
             Prelude.Just
-              ("channelRoleArn" Core..= channelRoleArn),
+              ("channelRoleArn" Data..= channelRoleArn),
             Prelude.Just
               ( "notifyOnCaseSeverity"
-                  Core..= notifyOnCaseSeverity
+                  Data..= notifyOnCaseSeverity
               ),
-            Prelude.Just ("teamId" Core..= teamId)
+            Prelude.Just ("teamId" Data..= teamId)
           ]
       )
 
-instance Core.ToPath CreateSlackChannelConfiguration where
+instance Data.ToPath CreateSlackChannelConfiguration where
   toPath =
     Prelude.const
       "/control/create-slack-channel-configuration"
 
-instance Core.ToQuery CreateSlackChannelConfiguration where
+instance Data.ToQuery CreateSlackChannelConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSlackChannelConfigurationResponse' smart constructor.

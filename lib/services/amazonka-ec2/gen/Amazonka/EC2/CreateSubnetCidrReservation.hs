@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -188,7 +189,7 @@ instance Core.AWSRequest CreateSubnetCidrReservation where
     Response.receiveXML
       ( \s h x ->
           CreateSubnetCidrReservationResponse'
-            Prelude.<$> (x Core..@? "subnetCidrReservation")
+            Prelude.<$> (x Data..@? "subnetCidrReservation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,30 +211,30 @@ instance Prelude.NFData CreateSubnetCidrReservation where
       `Prelude.seq` Prelude.rnf cidr
       `Prelude.seq` Prelude.rnf reservationType
 
-instance Core.ToHeaders CreateSubnetCidrReservation where
+instance Data.ToHeaders CreateSubnetCidrReservation where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateSubnetCidrReservation where
+instance Data.ToPath CreateSubnetCidrReservation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSubnetCidrReservation where
+instance Data.ToQuery CreateSubnetCidrReservation where
   toQuery CreateSubnetCidrReservation' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateSubnetCidrReservation" ::
+          Data.=: ( "CreateSubnetCidrReservation" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "SubnetId" Core.=: subnetId,
-        "Cidr" Core.=: cidr,
-        "ReservationType" Core.=: reservationType
+        "SubnetId" Data.=: subnetId,
+        "Cidr" Data.=: cidr,
+        "ReservationType" Data.=: reservationType
       ]
 
 -- | /See:/ 'newCreateSubnetCidrReservationResponse' smart constructor.

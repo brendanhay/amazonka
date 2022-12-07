@@ -55,6 +55,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -200,11 +201,11 @@ instance Core.AWSRequest CreateCommit where
     Response.receiveJSON
       ( \s h x ->
           CreateCommitResponse'
-            Prelude.<$> (x Core..?> "commitId")
-            Prelude.<*> (x Core..?> "filesAdded" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "treeId")
-            Prelude.<*> (x Core..?> "filesUpdated" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "filesDeleted" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "commitId")
+            Prelude.<*> (x Data..?> "filesAdded" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "treeId")
+            Prelude.<*> (x Data..?> "filesUpdated" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "filesDeleted" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -234,45 +235,45 @@ instance Prelude.NFData CreateCommit where
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf branchName
 
-instance Core.ToHeaders CreateCommit where
+instance Data.ToHeaders CreateCommit where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.CreateCommit" ::
+              Data.=# ( "CodeCommit_20150413.CreateCommit" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCommit where
+instance Data.ToJSON CreateCommit where
   toJSON CreateCommit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("parentCommitId" Core..=)
+          [ ("parentCommitId" Data..=)
               Prelude.<$> parentCommitId,
-            ("keepEmptyFolders" Core..=)
+            ("keepEmptyFolders" Data..=)
               Prelude.<$> keepEmptyFolders,
-            ("email" Core..=) Prelude.<$> email,
-            ("authorName" Core..=) Prelude.<$> authorName,
-            ("setFileModes" Core..=) Prelude.<$> setFileModes,
-            ("deleteFiles" Core..=) Prelude.<$> deleteFiles,
-            ("putFiles" Core..=) Prelude.<$> putFiles,
-            ("commitMessage" Core..=) Prelude.<$> commitMessage,
+            ("email" Data..=) Prelude.<$> email,
+            ("authorName" Data..=) Prelude.<$> authorName,
+            ("setFileModes" Data..=) Prelude.<$> setFileModes,
+            ("deleteFiles" Data..=) Prelude.<$> deleteFiles,
+            ("putFiles" Data..=) Prelude.<$> putFiles,
+            ("commitMessage" Data..=) Prelude.<$> commitMessage,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("branchName" Core..= branchName)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("branchName" Data..= branchName)
           ]
       )
 
-instance Core.ToPath CreateCommit where
+instance Data.ToPath CreateCommit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCommit where
+instance Data.ToQuery CreateCommit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCommitResponse' smart constructor.

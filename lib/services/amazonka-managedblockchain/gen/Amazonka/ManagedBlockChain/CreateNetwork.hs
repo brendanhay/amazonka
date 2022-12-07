@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -235,8 +236,8 @@ instance Core.AWSRequest CreateNetwork where
     Response.receiveJSON
       ( \s h x ->
           CreateNetworkResponse'
-            Prelude.<$> (x Core..?> "MemberId")
-            Prelude.<*> (x Core..?> "NetworkId")
+            Prelude.<$> (x Data..?> "MemberId")
+            Prelude.<*> (x Data..?> "NetworkId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -264,41 +265,41 @@ instance Prelude.NFData CreateNetwork where
       `Prelude.seq` Prelude.rnf votingPolicy
       `Prelude.seq` Prelude.rnf memberConfiguration
 
-instance Core.ToHeaders CreateNetwork where
+instance Data.ToHeaders CreateNetwork where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateNetwork where
+instance Data.ToJSON CreateNetwork where
   toJSON CreateNetwork' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("FrameworkConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("FrameworkConfiguration" Data..=)
               Prelude.<$> frameworkConfiguration,
-            ("Description" Core..=) Prelude.<$> description,
+            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Framework" Core..= framework),
+              ("ClientRequestToken" Data..= clientRequestToken),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Framework" Data..= framework),
             Prelude.Just
-              ("FrameworkVersion" Core..= frameworkVersion),
-            Prelude.Just ("VotingPolicy" Core..= votingPolicy),
+              ("FrameworkVersion" Data..= frameworkVersion),
+            Prelude.Just ("VotingPolicy" Data..= votingPolicy),
             Prelude.Just
-              ("MemberConfiguration" Core..= memberConfiguration)
+              ("MemberConfiguration" Data..= memberConfiguration)
           ]
       )
 
-instance Core.ToPath CreateNetwork where
+instance Data.ToPath CreateNetwork where
   toPath = Prelude.const "/networks"
 
-instance Core.ToQuery CreateNetwork where
+instance Data.ToQuery CreateNetwork where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateNetworkResponse' smart constructor.

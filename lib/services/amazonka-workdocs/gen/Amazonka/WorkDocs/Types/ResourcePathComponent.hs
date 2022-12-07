@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.ResourcePathComponent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the resource path.
@@ -61,13 +62,13 @@ resourcePathComponent_name = Lens.lens (\ResourcePathComponent' {name} -> name) 
 resourcePathComponent_id :: Lens.Lens' ResourcePathComponent (Prelude.Maybe Prelude.Text)
 resourcePathComponent_id = Lens.lens (\ResourcePathComponent' {id} -> id) (\s@ResourcePathComponent' {} a -> s {id = a} :: ResourcePathComponent)
 
-instance Core.FromJSON ResourcePathComponent where
+instance Data.FromJSON ResourcePathComponent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourcePathComponent"
       ( \x ->
           ResourcePathComponent'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable ResourcePathComponent where

@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.PhoneNumberCountryCode
 import Amazonka.Connect.Types.PhoneNumberType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about phone numbers that have been claimed to your Amazon
@@ -107,18 +108,18 @@ listPhoneNumbersSummary_phoneNumberId = Lens.lens (\ListPhoneNumbersSummary' {ph
 listPhoneNumbersSummary_phoneNumber :: Lens.Lens' ListPhoneNumbersSummary (Prelude.Maybe Prelude.Text)
 listPhoneNumbersSummary_phoneNumber = Lens.lens (\ListPhoneNumbersSummary' {phoneNumber} -> phoneNumber) (\s@ListPhoneNumbersSummary' {} a -> s {phoneNumber = a} :: ListPhoneNumbersSummary)
 
-instance Core.FromJSON ListPhoneNumbersSummary where
+instance Data.FromJSON ListPhoneNumbersSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListPhoneNumbersSummary"
       ( \x ->
           ListPhoneNumbersSummary'
-            Prelude.<$> (x Core..:? "PhoneNumberCountryCode")
-            Prelude.<*> (x Core..:? "PhoneNumberArn")
-            Prelude.<*> (x Core..:? "PhoneNumberType")
-            Prelude.<*> (x Core..:? "TargetArn")
-            Prelude.<*> (x Core..:? "PhoneNumberId")
-            Prelude.<*> (x Core..:? "PhoneNumber")
+            Prelude.<$> (x Data..:? "PhoneNumberCountryCode")
+            Prelude.<*> (x Data..:? "PhoneNumberArn")
+            Prelude.<*> (x Data..:? "PhoneNumberType")
+            Prelude.<*> (x Data..:? "TargetArn")
+            Prelude.<*> (x Data..:? "PhoneNumberId")
+            Prelude.<*> (x Data..:? "PhoneNumber")
       )
 
 instance Prelude.Hashable ListPhoneNumbersSummary where

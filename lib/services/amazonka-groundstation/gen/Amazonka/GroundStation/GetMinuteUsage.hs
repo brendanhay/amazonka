@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,11 +101,11 @@ instance Core.AWSRequest GetMinuteUsage where
     Response.receiveJSON
       ( \s h x ->
           GetMinuteUsageResponse'
-            Prelude.<$> (x Core..?> "upcomingMinutesScheduled")
-            Prelude.<*> (x Core..?> "totalScheduledMinutes")
-            Prelude.<*> (x Core..?> "estimatedMinutesRemaining")
-            Prelude.<*> (x Core..?> "totalReservedMinuteAllocation")
-            Prelude.<*> (x Core..?> "isReservedMinutesCustomer")
+            Prelude.<$> (x Data..?> "upcomingMinutesScheduled")
+            Prelude.<*> (x Data..?> "totalScheduledMinutes")
+            Prelude.<*> (x Data..?> "estimatedMinutesRemaining")
+            Prelude.<*> (x Data..?> "totalReservedMinuteAllocation")
+            Prelude.<*> (x Data..?> "isReservedMinutesCustomer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,30 +118,30 @@ instance Prelude.NFData GetMinuteUsage where
   rnf GetMinuteUsage' {..} =
     Prelude.rnf month `Prelude.seq` Prelude.rnf year
 
-instance Core.ToHeaders GetMinuteUsage where
+instance Data.ToHeaders GetMinuteUsage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMinuteUsage where
+instance Data.ToJSON GetMinuteUsage where
   toJSON GetMinuteUsage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("month" Core..= month),
-            Prelude.Just ("year" Core..= year)
+          [ Prelude.Just ("month" Data..= month),
+            Prelude.Just ("year" Data..= year)
           ]
       )
 
-instance Core.ToPath GetMinuteUsage where
+instance Data.ToPath GetMinuteUsage where
   toPath = Prelude.const "/minute-usage"
 
-instance Core.ToQuery GetMinuteUsage where
+instance Data.ToQuery GetMinuteUsage where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

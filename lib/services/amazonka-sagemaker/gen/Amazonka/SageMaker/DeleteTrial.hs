@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest DeleteTrial where
     Response.receiveJSON
       ( \s h x ->
           DeleteTrialResponse'
-            Prelude.<$> (x Core..?> "TrialArn")
+            Prelude.<$> (x Data..?> "TrialArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,30 +95,30 @@ instance Prelude.Hashable DeleteTrial where
 instance Prelude.NFData DeleteTrial where
   rnf DeleteTrial' {..} = Prelude.rnf trialName
 
-instance Core.ToHeaders DeleteTrial where
+instance Data.ToHeaders DeleteTrial where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteTrial" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DeleteTrial" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteTrial where
+instance Data.ToJSON DeleteTrial where
   toJSON DeleteTrial' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TrialName" Core..= trialName)]
+          [Prelude.Just ("TrialName" Data..= trialName)]
       )
 
-instance Core.ToPath DeleteTrial where
+instance Data.ToPath DeleteTrial where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteTrial where
+instance Data.ToQuery DeleteTrial where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTrialResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ImportExport.Types.Artifact where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A discrete item that contains the description and URL of an artifact
@@ -60,11 +61,11 @@ artifact_url = Lens.lens (\Artifact' {url} -> url) (\s@Artifact' {} a -> s {url 
 artifact_description :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
 artifact_description = Lens.lens (\Artifact' {description} -> description) (\s@Artifact' {} a -> s {description = a} :: Artifact)
 
-instance Core.FromXML Artifact where
+instance Data.FromXML Artifact where
   parseXML x =
     Artifact'
-      Prelude.<$> (x Core..@? "URL")
-      Prelude.<*> (x Core..@? "Description")
+      Prelude.<$> (x Data..@? "URL")
+      Prelude.<*> (x Data..@? "Description")
 
 instance Prelude.Hashable Artifact where
   hashWithSalt _salt Artifact' {..} =

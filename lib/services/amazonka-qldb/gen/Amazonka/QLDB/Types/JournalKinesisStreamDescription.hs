@@ -21,6 +21,7 @@ module Amazonka.QLDB.Types.JournalKinesisStreamDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types.ErrorCause
 import Amazonka.QLDB.Types.KinesisConfiguration
@@ -38,17 +39,17 @@ data JournalKinesisStreamDescription = JournalKinesisStreamDescription'
     errorCause :: Prelude.Maybe ErrorCause,
     -- | The inclusive start date and time from which to start streaming journal
     -- data.
-    inclusiveStartTime :: Prelude.Maybe Core.POSIX,
+    inclusiveStartTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the QLDB journal stream.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The exclusive date and time that specifies when the stream ends. If this
     -- parameter is undefined, the stream runs indefinitely until you cancel
     -- it.
-    exclusiveEndTime :: Prelude.Maybe Core.POSIX,
+    exclusiveEndTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time, in epoch time format, when the QLDB journal stream
     -- was created. (Epoch time format is the number of seconds elapsed since
     -- 12:00:00 AM January 1, 1970 UTC.)
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the ledger.
     ledgerName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
@@ -154,7 +155,7 @@ journalKinesisStreamDescription_errorCause = Lens.lens (\JournalKinesisStreamDes
 -- | The inclusive start date and time from which to start streaming journal
 -- data.
 journalKinesisStreamDescription_inclusiveStartTime :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe Prelude.UTCTime)
-journalKinesisStreamDescription_inclusiveStartTime = Lens.lens (\JournalKinesisStreamDescription' {inclusiveStartTime} -> inclusiveStartTime) (\s@JournalKinesisStreamDescription' {} a -> s {inclusiveStartTime = a} :: JournalKinesisStreamDescription) Prelude.. Lens.mapping Core._Time
+journalKinesisStreamDescription_inclusiveStartTime = Lens.lens (\JournalKinesisStreamDescription' {inclusiveStartTime} -> inclusiveStartTime) (\s@JournalKinesisStreamDescription' {} a -> s {inclusiveStartTime = a} :: JournalKinesisStreamDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the QLDB journal stream.
 journalKinesisStreamDescription_arn :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe Prelude.Text)
@@ -164,13 +165,13 @@ journalKinesisStreamDescription_arn = Lens.lens (\JournalKinesisStreamDescriptio
 -- parameter is undefined, the stream runs indefinitely until you cancel
 -- it.
 journalKinesisStreamDescription_exclusiveEndTime :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe Prelude.UTCTime)
-journalKinesisStreamDescription_exclusiveEndTime = Lens.lens (\JournalKinesisStreamDescription' {exclusiveEndTime} -> exclusiveEndTime) (\s@JournalKinesisStreamDescription' {} a -> s {exclusiveEndTime = a} :: JournalKinesisStreamDescription) Prelude.. Lens.mapping Core._Time
+journalKinesisStreamDescription_exclusiveEndTime = Lens.lens (\JournalKinesisStreamDescription' {exclusiveEndTime} -> exclusiveEndTime) (\s@JournalKinesisStreamDescription' {} a -> s {exclusiveEndTime = a} :: JournalKinesisStreamDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time, in epoch time format, when the QLDB journal stream
 -- was created. (Epoch time format is the number of seconds elapsed since
 -- 12:00:00 AM January 1, 1970 UTC.)
 journalKinesisStreamDescription_creationTime :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe Prelude.UTCTime)
-journalKinesisStreamDescription_creationTime = Lens.lens (\JournalKinesisStreamDescription' {creationTime} -> creationTime) (\s@JournalKinesisStreamDescription' {} a -> s {creationTime = a} :: JournalKinesisStreamDescription) Prelude.. Lens.mapping Core._Time
+journalKinesisStreamDescription_creationTime = Lens.lens (\JournalKinesisStreamDescription' {creationTime} -> creationTime) (\s@JournalKinesisStreamDescription' {} a -> s {creationTime = a} :: JournalKinesisStreamDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the ledger.
 journalKinesisStreamDescription_ledgerName :: Lens.Lens' JournalKinesisStreamDescription Prelude.Text
@@ -201,25 +202,25 @@ journalKinesisStreamDescription_streamName :: Lens.Lens' JournalKinesisStreamDes
 journalKinesisStreamDescription_streamName = Lens.lens (\JournalKinesisStreamDescription' {streamName} -> streamName) (\s@JournalKinesisStreamDescription' {} a -> s {streamName = a} :: JournalKinesisStreamDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     JournalKinesisStreamDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JournalKinesisStreamDescription"
       ( \x ->
           JournalKinesisStreamDescription'
-            Prelude.<$> (x Core..:? "ErrorCause")
-            Prelude.<*> (x Core..:? "InclusiveStartTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "ExclusiveEndTime")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..: "LedgerName")
-            Prelude.<*> (x Core..: "RoleArn")
-            Prelude.<*> (x Core..: "StreamId")
-            Prelude.<*> (x Core..: "Status")
-            Prelude.<*> (x Core..: "KinesisConfiguration")
-            Prelude.<*> (x Core..: "StreamName")
+            Prelude.<$> (x Data..:? "ErrorCause")
+            Prelude.<*> (x Data..:? "InclusiveStartTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "ExclusiveEndTime")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..: "LedgerName")
+            Prelude.<*> (x Data..: "RoleArn")
+            Prelude.<*> (x Data..: "StreamId")
+            Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..: "KinesisConfiguration")
+            Prelude.<*> (x Data..: "StreamName")
       )
 
 instance

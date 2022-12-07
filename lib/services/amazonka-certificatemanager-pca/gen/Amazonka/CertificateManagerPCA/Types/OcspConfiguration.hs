@@ -21,6 +21,7 @@ module Amazonka.CertificateManagerPCA.Types.OcspConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information to enable and configure Online Certificate Status
@@ -101,14 +102,14 @@ ocspConfiguration_ocspCustomCname = Lens.lens (\OcspConfiguration' {ocspCustomCn
 ocspConfiguration_enabled :: Lens.Lens' OcspConfiguration Prelude.Bool
 ocspConfiguration_enabled = Lens.lens (\OcspConfiguration' {enabled} -> enabled) (\s@OcspConfiguration' {} a -> s {enabled = a} :: OcspConfiguration)
 
-instance Core.FromJSON OcspConfiguration where
+instance Data.FromJSON OcspConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OcspConfiguration"
       ( \x ->
           OcspConfiguration'
-            Prelude.<$> (x Core..:? "OcspCustomCname")
-            Prelude.<*> (x Core..: "Enabled")
+            Prelude.<$> (x Data..:? "OcspCustomCname")
+            Prelude.<*> (x Data..: "Enabled")
       )
 
 instance Prelude.Hashable OcspConfiguration where
@@ -121,12 +122,12 @@ instance Prelude.NFData OcspConfiguration where
     Prelude.rnf ocspCustomCname
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON OcspConfiguration where
+instance Data.ToJSON OcspConfiguration where
   toJSON OcspConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OcspCustomCname" Core..=)
+          [ ("OcspCustomCname" Data..=)
               Prelude.<$> ocspCustomCname,
-            Prelude.Just ("Enabled" Core..= enabled)
+            Prelude.Just ("Enabled" Data..= enabled)
           ]
       )

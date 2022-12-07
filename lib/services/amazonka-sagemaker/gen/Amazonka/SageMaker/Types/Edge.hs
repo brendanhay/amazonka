@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Edge where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AssociationEdgeType
 
@@ -80,15 +81,15 @@ edge_sourceArn = Lens.lens (\Edge' {sourceArn} -> sourceArn) (\s@Edge' {} a -> s
 edge_destinationArn :: Lens.Lens' Edge (Prelude.Maybe Prelude.Text)
 edge_destinationArn = Lens.lens (\Edge' {destinationArn} -> destinationArn) (\s@Edge' {} a -> s {destinationArn = a} :: Edge)
 
-instance Core.FromJSON Edge where
+instance Data.FromJSON Edge where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Edge"
       ( \x ->
           Edge'
-            Prelude.<$> (x Core..:? "AssociationType")
-            Prelude.<*> (x Core..:? "SourceArn")
-            Prelude.<*> (x Core..:? "DestinationArn")
+            Prelude.<$> (x Data..:? "AssociationType")
+            Prelude.<*> (x Data..:? "SourceArn")
+            Prelude.<*> (x Data..:? "DestinationArn")
       )
 
 instance Prelude.Hashable Edge where

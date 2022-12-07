@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.ClearTimerAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information needed to clear the timer.
@@ -52,13 +53,13 @@ newClearTimerAction pTimerName_ =
 clearTimerAction_timerName :: Lens.Lens' ClearTimerAction Prelude.Text
 clearTimerAction_timerName = Lens.lens (\ClearTimerAction' {timerName} -> timerName) (\s@ClearTimerAction' {} a -> s {timerName = a} :: ClearTimerAction)
 
-instance Core.FromJSON ClearTimerAction where
+instance Data.FromJSON ClearTimerAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClearTimerAction"
       ( \x ->
           ClearTimerAction'
-            Prelude.<$> (x Core..: "timerName")
+            Prelude.<$> (x Data..: "timerName")
       )
 
 instance Prelude.Hashable ClearTimerAction where
@@ -68,9 +69,9 @@ instance Prelude.Hashable ClearTimerAction where
 instance Prelude.NFData ClearTimerAction where
   rnf ClearTimerAction' {..} = Prelude.rnf timerName
 
-instance Core.ToJSON ClearTimerAction where
+instance Data.ToJSON ClearTimerAction where
   toJSON ClearTimerAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("timerName" Core..= timerName)]
+          [Prelude.Just ("timerName" Data..= timerName)]
       )

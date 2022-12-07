@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.FleetAdvisorLsaAnalysisResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a large-scale assessment (LSA) analysis run by a Fleet Advisor
@@ -64,16 +65,16 @@ fleetAdvisorLsaAnalysisResponse_status :: Lens.Lens' FleetAdvisorLsaAnalysisResp
 fleetAdvisorLsaAnalysisResponse_status = Lens.lens (\FleetAdvisorLsaAnalysisResponse' {status} -> status) (\s@FleetAdvisorLsaAnalysisResponse' {} a -> s {status = a} :: FleetAdvisorLsaAnalysisResponse)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FleetAdvisorLsaAnalysisResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FleetAdvisorLsaAnalysisResponse"
       ( \x ->
           FleetAdvisorLsaAnalysisResponse'
-            Prelude.<$> (x Core..:? "LsaAnalysisId")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "LsaAnalysisId")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance

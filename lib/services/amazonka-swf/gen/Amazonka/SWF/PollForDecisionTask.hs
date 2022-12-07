@@ -98,6 +98,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -296,14 +297,14 @@ instance Core.AWSRequest PollForDecisionTask where
     Response.receiveJSON
       ( \s h x ->
           PollForDecisionTaskResponse'
-            Prelude.<$> (x Core..?> "nextPageToken")
-            Prelude.<*> (x Core..?> "previousStartedEventId")
-            Prelude.<*> (x Core..?> "workflowExecution")
-            Prelude.<*> (x Core..?> "taskToken")
-            Prelude.<*> (x Core..?> "workflowType")
-            Prelude.<*> (x Core..?> "events" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextPageToken")
+            Prelude.<*> (x Data..?> "previousStartedEventId")
+            Prelude.<*> (x Data..?> "workflowExecution")
+            Prelude.<*> (x Data..?> "taskToken")
+            Prelude.<*> (x Data..?> "workflowType")
+            Prelude.<*> (x Data..?> "events" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "startedEventId")
+            Prelude.<*> (x Data..:> "startedEventId")
       )
 
 instance Prelude.Hashable PollForDecisionTask where
@@ -324,39 +325,39 @@ instance Prelude.NFData PollForDecisionTask where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf taskList
 
-instance Core.ToHeaders PollForDecisionTask where
+instance Data.ToHeaders PollForDecisionTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.PollForDecisionTask" ::
+              Data.=# ( "SimpleWorkflowService.PollForDecisionTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PollForDecisionTask where
+instance Data.ToJSON PollForDecisionTask where
   toJSON PollForDecisionTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maximumPageSize" Core..=)
+          [ ("maximumPageSize" Data..=)
               Prelude.<$> maximumPageSize,
-            ("nextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("identity" Core..=) Prelude.<$> identity,
-            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
-            Prelude.Just ("domain" Core..= domain),
-            Prelude.Just ("taskList" Core..= taskList)
+            ("nextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("identity" Data..=) Prelude.<$> identity,
+            ("reverseOrder" Data..=) Prelude.<$> reverseOrder,
+            Prelude.Just ("domain" Data..= domain),
+            Prelude.Just ("taskList" Data..= taskList)
           ]
       )
 
-instance Core.ToPath PollForDecisionTask where
+instance Data.ToPath PollForDecisionTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PollForDecisionTask where
+instance Data.ToQuery PollForDecisionTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A structure that represents a decision task. Decision tasks are sent to

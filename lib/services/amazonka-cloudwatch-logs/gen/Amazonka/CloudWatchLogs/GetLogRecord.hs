@@ -47,6 +47,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,7 +99,7 @@ instance Core.AWSRequest GetLogRecord where
     Response.receiveJSON
       ( \s h x ->
           GetLogRecordResponse'
-            Prelude.<$> (x Core..?> "logRecord" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "logRecord" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,32 +110,32 @@ instance Prelude.Hashable GetLogRecord where
 instance Prelude.NFData GetLogRecord where
   rnf GetLogRecord' {..} = Prelude.rnf logRecordPointer
 
-instance Core.ToHeaders GetLogRecord where
+instance Data.ToHeaders GetLogRecord where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Logs_20140328.GetLogRecord" :: Prelude.ByteString),
+              Data.=# ("Logs_20140328.GetLogRecord" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLogRecord where
+instance Data.ToJSON GetLogRecord where
   toJSON GetLogRecord' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("logRecordPointer" Core..= logRecordPointer)
+              ("logRecordPointer" Data..= logRecordPointer)
           ]
       )
 
-instance Core.ToPath GetLogRecord where
+instance Data.ToPath GetLogRecord where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetLogRecord where
+instance Data.ToQuery GetLogRecord where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLogRecordResponse' smart constructor.

@@ -48,6 +48,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -145,11 +146,11 @@ instance Core.AWSRequest DescribeLaunchConfigurations where
       "DescribeLaunchConfigurationsResult"
       ( \s h x ->
           DescribeLaunchConfigurationsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "LaunchConfigurations"
+            Prelude.<*> ( x Data..@? "LaunchConfigurations"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -168,26 +169,26 @@ instance Prelude.NFData DescribeLaunchConfigurations where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf launchConfigurationNames
 
-instance Core.ToHeaders DescribeLaunchConfigurations where
+instance Data.ToHeaders DescribeLaunchConfigurations where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeLaunchConfigurations where
+instance Data.ToPath DescribeLaunchConfigurations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLaunchConfigurations where
+instance Data.ToQuery DescribeLaunchConfigurations where
   toQuery DescribeLaunchConfigurations' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeLaunchConfigurations" ::
+          Data.=: ( "DescribeLaunchConfigurations" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxRecords" Core.=: maxRecords,
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "MaxRecords" Data.=: maxRecords,
         "LaunchConfigurationNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> launchConfigurationNames
             )
       ]

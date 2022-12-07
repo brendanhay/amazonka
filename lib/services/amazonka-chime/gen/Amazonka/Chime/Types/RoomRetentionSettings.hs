@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.RoomRetentionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The retention settings that determine how long to retain chat-room
@@ -54,13 +55,13 @@ newRoomRetentionSettings =
 roomRetentionSettings_retentionDays :: Lens.Lens' RoomRetentionSettings (Prelude.Maybe Prelude.Natural)
 roomRetentionSettings_retentionDays = Lens.lens (\RoomRetentionSettings' {retentionDays} -> retentionDays) (\s@RoomRetentionSettings' {} a -> s {retentionDays = a} :: RoomRetentionSettings)
 
-instance Core.FromJSON RoomRetentionSettings where
+instance Data.FromJSON RoomRetentionSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RoomRetentionSettings"
       ( \x ->
           RoomRetentionSettings'
-            Prelude.<$> (x Core..:? "RetentionDays")
+            Prelude.<$> (x Data..:? "RetentionDays")
       )
 
 instance Prelude.Hashable RoomRetentionSettings where
@@ -71,11 +72,11 @@ instance Prelude.NFData RoomRetentionSettings where
   rnf RoomRetentionSettings' {..} =
     Prelude.rnf retentionDays
 
-instance Core.ToJSON RoomRetentionSettings where
+instance Data.ToJSON RoomRetentionSettings where
   toJSON RoomRetentionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RetentionDays" Core..=)
+          [ ("RetentionDays" Data..=)
               Prelude.<$> retentionDays
           ]
       )

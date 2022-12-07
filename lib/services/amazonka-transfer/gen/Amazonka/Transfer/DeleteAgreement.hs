@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,34 +109,34 @@ instance Prelude.NFData DeleteAgreement where
     Prelude.rnf agreementId
       `Prelude.seq` Prelude.rnf serverId
 
-instance Core.ToHeaders DeleteAgreement where
+instance Data.ToHeaders DeleteAgreement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.DeleteAgreement" ::
+              Data.=# ( "TransferService.DeleteAgreement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAgreement where
+instance Data.ToJSON DeleteAgreement where
   toJSON DeleteAgreement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AgreementId" Core..= agreementId),
-            Prelude.Just ("ServerId" Core..= serverId)
+          [ Prelude.Just ("AgreementId" Data..= agreementId),
+            Prelude.Just ("ServerId" Data..= serverId)
           ]
       )
 
-instance Core.ToPath DeleteAgreement where
+instance Data.ToPath DeleteAgreement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAgreement where
+instance Data.ToQuery DeleteAgreement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAgreementResponse' smart constructor.

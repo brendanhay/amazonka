@@ -46,6 +46,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,9 +152,9 @@ instance Core.AWSRequest ListMeshes where
     Response.receiveJSON
       ( \s h x ->
           ListMeshesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "meshes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "meshes" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListMeshes where
@@ -166,25 +167,25 @@ instance Prelude.NFData ListMeshes where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders ListMeshes where
+instance Data.ToHeaders ListMeshes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListMeshes where
+instance Data.ToPath ListMeshes where
   toPath = Prelude.const "/v20190125/meshes"
 
-instance Core.ToQuery ListMeshes where
+instance Data.ToQuery ListMeshes where
   toQuery ListMeshes' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "limit" Core.=: limit
+      [ "nextToken" Data.=: nextToken,
+        "limit" Data.=: limit
       ]
 
 -- |

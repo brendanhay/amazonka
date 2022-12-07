@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.AutoScalingGroupProvider where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.ManagedScaling
 import Amazonka.ECS.Types.ManagedTerminationProtection
 import qualified Amazonka.Prelude as Prelude
@@ -129,15 +130,15 @@ autoScalingGroupProvider_managedTerminationProtection = Lens.lens (\AutoScalingG
 autoScalingGroupProvider_autoScalingGroupArn :: Lens.Lens' AutoScalingGroupProvider Prelude.Text
 autoScalingGroupProvider_autoScalingGroupArn = Lens.lens (\AutoScalingGroupProvider' {autoScalingGroupArn} -> autoScalingGroupArn) (\s@AutoScalingGroupProvider' {} a -> s {autoScalingGroupArn = a} :: AutoScalingGroupProvider)
 
-instance Core.FromJSON AutoScalingGroupProvider where
+instance Data.FromJSON AutoScalingGroupProvider where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoScalingGroupProvider"
       ( \x ->
           AutoScalingGroupProvider'
-            Prelude.<$> (x Core..:? "managedScaling")
-            Prelude.<*> (x Core..:? "managedTerminationProtection")
-            Prelude.<*> (x Core..: "autoScalingGroupArn")
+            Prelude.<$> (x Data..:? "managedScaling")
+            Prelude.<*> (x Data..:? "managedTerminationProtection")
+            Prelude.<*> (x Data..: "autoScalingGroupArn")
       )
 
 instance Prelude.Hashable AutoScalingGroupProvider where
@@ -152,15 +153,15 @@ instance Prelude.NFData AutoScalingGroupProvider where
       `Prelude.seq` Prelude.rnf managedTerminationProtection
       `Prelude.seq` Prelude.rnf autoScalingGroupArn
 
-instance Core.ToJSON AutoScalingGroupProvider where
+instance Data.ToJSON AutoScalingGroupProvider where
   toJSON AutoScalingGroupProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("managedScaling" Core..=)
+          [ ("managedScaling" Data..=)
               Prelude.<$> managedScaling,
-            ("managedTerminationProtection" Core..=)
+            ("managedTerminationProtection" Data..=)
               Prelude.<$> managedTerminationProtection,
             Prelude.Just
-              ("autoScalingGroupArn" Core..= autoScalingGroupArn)
+              ("autoScalingGroupArn" Data..= autoScalingGroupArn)
           ]
       )

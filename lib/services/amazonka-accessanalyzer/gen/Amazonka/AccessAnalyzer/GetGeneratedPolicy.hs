@@ -45,6 +45,7 @@ where
 import Amazonka.AccessAnalyzer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,8 +148,8 @@ instance Core.AWSRequest GetGeneratedPolicy where
       ( \s h x ->
           GetGeneratedPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "jobDetails")
-            Prelude.<*> (x Core..:> "generatedPolicyResult")
+            Prelude.<*> (x Data..:> "jobDetails")
+            Prelude.<*> (x Data..:> "generatedPolicyResult")
       )
 
 instance Prelude.Hashable GetGeneratedPolicy where
@@ -164,29 +165,29 @@ instance Prelude.NFData GetGeneratedPolicy where
       `Prelude.seq` Prelude.rnf includeResourcePlaceholders
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders GetGeneratedPolicy where
+instance Data.ToHeaders GetGeneratedPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetGeneratedPolicy where
+instance Data.ToPath GetGeneratedPolicy where
   toPath GetGeneratedPolicy' {..} =
     Prelude.mconcat
-      ["/policy/generation/", Core.toBS jobId]
+      ["/policy/generation/", Data.toBS jobId]
 
-instance Core.ToQuery GetGeneratedPolicy where
+instance Data.ToQuery GetGeneratedPolicy where
   toQuery GetGeneratedPolicy' {..} =
     Prelude.mconcat
       [ "includeServiceLevelTemplate"
-          Core.=: includeServiceLevelTemplate,
+          Data.=: includeServiceLevelTemplate,
         "includeResourcePlaceholders"
-          Core.=: includeResourcePlaceholders
+          Data.=: includeResourcePlaceholders
       ]
 
 -- | /See:/ 'newGetGeneratedPolicyResponse' smart constructor.

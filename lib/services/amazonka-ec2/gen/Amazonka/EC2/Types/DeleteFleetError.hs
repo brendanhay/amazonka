@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DeleteFleetError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DeleteFleetErrorCode
 import qualified Amazonka.Prelude as Prelude
@@ -63,11 +64,11 @@ deleteFleetError_message = Lens.lens (\DeleteFleetError' {message} -> message) (
 deleteFleetError_code :: Lens.Lens' DeleteFleetError (Prelude.Maybe DeleteFleetErrorCode)
 deleteFleetError_code = Lens.lens (\DeleteFleetError' {code} -> code) (\s@DeleteFleetError' {} a -> s {code = a} :: DeleteFleetError)
 
-instance Core.FromXML DeleteFleetError where
+instance Data.FromXML DeleteFleetError where
   parseXML x =
     DeleteFleetError'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance Prelude.Hashable DeleteFleetError where
   hashWithSalt _salt DeleteFleetError' {..} =

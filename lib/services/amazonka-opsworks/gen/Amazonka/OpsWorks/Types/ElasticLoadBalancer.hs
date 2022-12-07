@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.ElasticLoadBalancer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Elastic Load Balancing instance.
@@ -128,23 +129,23 @@ elasticLoadBalancer_dnsName = Lens.lens (\ElasticLoadBalancer' {dnsName} -> dnsN
 elasticLoadBalancer_subnetIds :: Lens.Lens' ElasticLoadBalancer (Prelude.Maybe [Prelude.Text])
 elasticLoadBalancer_subnetIds = Lens.lens (\ElasticLoadBalancer' {subnetIds} -> subnetIds) (\s@ElasticLoadBalancer' {} a -> s {subnetIds = a} :: ElasticLoadBalancer) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ElasticLoadBalancer where
+instance Data.FromJSON ElasticLoadBalancer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ElasticLoadBalancer"
       ( \x ->
           ElasticLoadBalancer'
-            Prelude.<$> (x Core..:? "ElasticLoadBalancerName")
-            Prelude.<*> (x Core..:? "StackId")
-            Prelude.<*> ( x Core..:? "AvailabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ElasticLoadBalancerName")
+            Prelude.<*> (x Data..:? "StackId")
+            Prelude.<*> ( x Data..:? "AvailabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "Ec2InstanceIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "LayerId")
-            Prelude.<*> (x Core..:? "DnsName")
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "Ec2InstanceIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "LayerId")
+            Prelude.<*> (x Data..:? "DnsName")
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ElasticLoadBalancer where

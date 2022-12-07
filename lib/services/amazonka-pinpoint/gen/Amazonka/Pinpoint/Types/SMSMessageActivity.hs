@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SMSMessageActivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.JourneySMSMessage
 import qualified Amazonka.Prelude as Prelude
 
@@ -120,16 +121,16 @@ sMSMessageActivity_templateVersion = Lens.lens (\SMSMessageActivity' {templateVe
 sMSMessageActivity_messageConfig :: Lens.Lens' SMSMessageActivity (Prelude.Maybe JourneySMSMessage)
 sMSMessageActivity_messageConfig = Lens.lens (\SMSMessageActivity' {messageConfig} -> messageConfig) (\s@SMSMessageActivity' {} a -> s {messageConfig = a} :: SMSMessageActivity)
 
-instance Core.FromJSON SMSMessageActivity where
+instance Data.FromJSON SMSMessageActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SMSMessageActivity"
       ( \x ->
           SMSMessageActivity'
-            Prelude.<$> (x Core..:? "TemplateName")
-            Prelude.<*> (x Core..:? "NextActivity")
-            Prelude.<*> (x Core..:? "TemplateVersion")
-            Prelude.<*> (x Core..:? "MessageConfig")
+            Prelude.<$> (x Data..:? "TemplateName")
+            Prelude.<*> (x Data..:? "NextActivity")
+            Prelude.<*> (x Data..:? "TemplateVersion")
+            Prelude.<*> (x Data..:? "MessageConfig")
       )
 
 instance Prelude.Hashable SMSMessageActivity where
@@ -146,14 +147,14 @@ instance Prelude.NFData SMSMessageActivity where
       `Prelude.seq` Prelude.rnf templateVersion
       `Prelude.seq` Prelude.rnf messageConfig
 
-instance Core.ToJSON SMSMessageActivity where
+instance Data.ToJSON SMSMessageActivity where
   toJSON SMSMessageActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TemplateName" Core..=) Prelude.<$> templateName,
-            ("NextActivity" Core..=) Prelude.<$> nextActivity,
-            ("TemplateVersion" Core..=)
+          [ ("TemplateName" Data..=) Prelude.<$> templateName,
+            ("NextActivity" Data..=) Prelude.<$> nextActivity,
+            ("TemplateVersion" Data..=)
               Prelude.<$> templateVersion,
-            ("MessageConfig" Core..=) Prelude.<$> messageConfig
+            ("MessageConfig" Data..=) Prelude.<$> messageConfig
           ]
       )

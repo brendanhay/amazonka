@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.VoiceTemplateRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the content and settings for a message template that can be
@@ -158,17 +159,17 @@ instance Prelude.NFData VoiceTemplateRequest where
       `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf templateDescription
 
-instance Core.ToJSON VoiceTemplateRequest where
+instance Data.ToJSON VoiceTemplateRequest where
   toJSON VoiceTemplateRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("VoiceId" Core..=) Prelude.<$> voiceId,
-            ("Body" Core..=) Prelude.<$> body,
-            ("DefaultSubstitutions" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("VoiceId" Data..=) Prelude.<$> voiceId,
+            ("Body" Data..=) Prelude.<$> body,
+            ("DefaultSubstitutions" Data..=)
               Prelude.<$> defaultSubstitutions,
-            ("LanguageCode" Core..=) Prelude.<$> languageCode,
-            ("TemplateDescription" Core..=)
+            ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            ("TemplateDescription" Data..=)
               Prelude.<$> templateDescription
           ]
       )

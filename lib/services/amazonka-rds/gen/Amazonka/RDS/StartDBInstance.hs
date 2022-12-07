@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -96,7 +97,7 @@ instance Core.AWSRequest StartDBInstance where
       "StartDBInstanceResult"
       ( \s h x ->
           StartDBInstanceResponse'
-            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<$> (x Data..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,20 +109,20 @@ instance Prelude.NFData StartDBInstance where
   rnf StartDBInstance' {..} =
     Prelude.rnf dbInstanceIdentifier
 
-instance Core.ToHeaders StartDBInstance where
+instance Data.ToHeaders StartDBInstance where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath StartDBInstance where
+instance Data.ToPath StartDBInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartDBInstance where
+instance Data.ToQuery StartDBInstance where
   toQuery StartDBInstance' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("StartDBInstance" :: Prelude.ByteString),
+          Data.=: ("StartDBInstance" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier
       ]
 
 -- | /See:/ 'newStartDBInstanceResponse' smart constructor.

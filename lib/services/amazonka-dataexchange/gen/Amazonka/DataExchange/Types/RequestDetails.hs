@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.RequestDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails
 import Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails
 import Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails
@@ -135,23 +136,23 @@ instance Prelude.NFData RequestDetails where
       `Prelude.seq` Prelude.rnf importAssetsFromS3
       `Prelude.seq` Prelude.rnf importAssetFromApiGatewayApi
 
-instance Core.ToJSON RequestDetails where
+instance Data.ToJSON RequestDetails where
   toJSON RequestDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ImportAssetFromSignedUrl" Core..=)
+          [ ("ImportAssetFromSignedUrl" Data..=)
               Prelude.<$> importAssetFromSignedUrl,
-            ("ImportAssetsFromRedshiftDataShares" Core..=)
+            ("ImportAssetsFromRedshiftDataShares" Data..=)
               Prelude.<$> importAssetsFromRedshiftDataShares,
-            ("ExportAssetToSignedUrl" Core..=)
+            ("ExportAssetToSignedUrl" Data..=)
               Prelude.<$> exportAssetToSignedUrl,
-            ("ExportRevisionsToS3" Core..=)
+            ("ExportRevisionsToS3" Data..=)
               Prelude.<$> exportRevisionsToS3,
-            ("ExportAssetsToS3" Core..=)
+            ("ExportAssetsToS3" Data..=)
               Prelude.<$> exportAssetsToS3,
-            ("ImportAssetsFromS3" Core..=)
+            ("ImportAssetsFromS3" Data..=)
               Prelude.<$> importAssetsFromS3,
-            ("ImportAssetFromApiGatewayApi" Core..=)
+            ("ImportAssetFromApiGatewayApi" Data..=)
               Prelude.<$> importAssetFromApiGatewayApi
           ]
       )

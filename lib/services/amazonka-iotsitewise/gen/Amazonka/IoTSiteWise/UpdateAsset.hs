@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,7 +125,7 @@ instance Core.AWSRequest UpdateAsset where
       ( \s h x ->
           UpdateAssetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "assetStatus")
+            Prelude.<*> (x Data..:> "assetStatus")
       )
 
 instance Prelude.Hashable UpdateAsset where
@@ -141,33 +142,33 @@ instance Prelude.NFData UpdateAsset where
       `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf assetName
 
-instance Core.ToHeaders UpdateAsset where
+instance Data.ToHeaders UpdateAsset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAsset where
+instance Data.ToJSON UpdateAsset where
   toJSON UpdateAsset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("assetDescription" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("assetDescription" Data..=)
               Prelude.<$> assetDescription,
-            Prelude.Just ("assetName" Core..= assetName)
+            Prelude.Just ("assetName" Data..= assetName)
           ]
       )
 
-instance Core.ToPath UpdateAsset where
+instance Data.ToPath UpdateAsset where
   toPath UpdateAsset' {..} =
-    Prelude.mconcat ["/assets/", Core.toBS assetId]
+    Prelude.mconcat ["/assets/", Data.toBS assetId]
 
-instance Core.ToQuery UpdateAsset where
+instance Data.ToQuery UpdateAsset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAssetResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.JobStats where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Statistics about the Identity Resolution Job.
@@ -70,15 +71,15 @@ jobStats_numberOfMatchesFound = Lens.lens (\JobStats' {numberOfMatchesFound} -> 
 jobStats_numberOfProfilesReviewed :: Lens.Lens' JobStats (Prelude.Maybe Prelude.Integer)
 jobStats_numberOfProfilesReviewed = Lens.lens (\JobStats' {numberOfProfilesReviewed} -> numberOfProfilesReviewed) (\s@JobStats' {} a -> s {numberOfProfilesReviewed = a} :: JobStats)
 
-instance Core.FromJSON JobStats where
+instance Data.FromJSON JobStats where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobStats"
       ( \x ->
           JobStats'
-            Prelude.<$> (x Core..:? "NumberOfMergesDone")
-            Prelude.<*> (x Core..:? "NumberOfMatchesFound")
-            Prelude.<*> (x Core..:? "NumberOfProfilesReviewed")
+            Prelude.<$> (x Data..:? "NumberOfMergesDone")
+            Prelude.<*> (x Data..:? "NumberOfMatchesFound")
+            Prelude.<*> (x Data..:? "NumberOfProfilesReviewed")
       )
 
 instance Prelude.Hashable JobStats where

@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.EphemerisData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.OEMEphemeris
 import Amazonka.GroundStation.Types.TLEEphemeris
 import qualified Amazonka.Prelude as Prelude
@@ -70,11 +71,11 @@ instance Prelude.NFData EphemerisData where
   rnf EphemerisData' {..} =
     Prelude.rnf tle `Prelude.seq` Prelude.rnf oem
 
-instance Core.ToJSON EphemerisData where
+instance Data.ToJSON EphemerisData where
   toJSON EphemerisData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tle" Core..=) Prelude.<$> tle,
-            ("oem" Core..=) Prelude.<$> oem
+          [ ("tle" Data..=) Prelude.<$> tle,
+            ("oem" Data..=) Prelude.<$> oem
           ]
       )

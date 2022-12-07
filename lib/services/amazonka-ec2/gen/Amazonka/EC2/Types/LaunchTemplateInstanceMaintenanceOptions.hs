@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateInstanceMaintenanceOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.LaunchTemplateAutoRecoveryState
 import qualified Amazonka.Prelude as Prelude
@@ -59,12 +60,12 @@ launchTemplateInstanceMaintenanceOptions_autoRecovery :: Lens.Lens' LaunchTempla
 launchTemplateInstanceMaintenanceOptions_autoRecovery = Lens.lens (\LaunchTemplateInstanceMaintenanceOptions' {autoRecovery} -> autoRecovery) (\s@LaunchTemplateInstanceMaintenanceOptions' {} a -> s {autoRecovery = a} :: LaunchTemplateInstanceMaintenanceOptions)
 
 instance
-  Core.FromXML
+  Data.FromXML
     LaunchTemplateInstanceMaintenanceOptions
   where
   parseXML x =
     LaunchTemplateInstanceMaintenanceOptions'
-      Prelude.<$> (x Core..@? "autoRecovery")
+      Prelude.<$> (x Data..@? "autoRecovery")
 
 instance
   Prelude.Hashable

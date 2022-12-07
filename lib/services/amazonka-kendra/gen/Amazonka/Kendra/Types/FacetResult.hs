@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.FacetResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import {-# SOURCE #-} Amazonka.Kendra.Types.DocumentAttributeValueCountPair
 import Amazonka.Kendra.Types.DocumentAttributeValueType
 import qualified Amazonka.Prelude as Prelude
@@ -85,17 +86,17 @@ facetResult_documentAttributeValueType = Lens.lens (\FacetResult' {documentAttri
 facetResult_documentAttributeKey :: Lens.Lens' FacetResult (Prelude.Maybe Prelude.Text)
 facetResult_documentAttributeKey = Lens.lens (\FacetResult' {documentAttributeKey} -> documentAttributeKey) (\s@FacetResult' {} a -> s {documentAttributeKey = a} :: FacetResult)
 
-instance Core.FromJSON FacetResult where
+instance Data.FromJSON FacetResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FacetResult"
       ( \x ->
           FacetResult'
-            Prelude.<$> ( x Core..:? "DocumentAttributeValueCountPairs"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "DocumentAttributeValueCountPairs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DocumentAttributeValueType")
-            Prelude.<*> (x Core..:? "DocumentAttributeKey")
+            Prelude.<*> (x Data..:? "DocumentAttributeValueType")
+            Prelude.<*> (x Data..:? "DocumentAttributeKey")
       )
 
 instance Prelude.Hashable FacetResult where

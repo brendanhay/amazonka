@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.FulfillmentUpdatesSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.FulfillmentStartResponseSpecification
 import Amazonka.LexV2Models.Types.FulfillmentUpdateResponseSpecification
 import qualified Amazonka.Prelude as Prelude
@@ -107,18 +108,18 @@ fulfillmentUpdatesSpecification_active :: Lens.Lens' FulfillmentUpdatesSpecifica
 fulfillmentUpdatesSpecification_active = Lens.lens (\FulfillmentUpdatesSpecification' {active} -> active) (\s@FulfillmentUpdatesSpecification' {} a -> s {active = a} :: FulfillmentUpdatesSpecification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FulfillmentUpdatesSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FulfillmentUpdatesSpecification"
       ( \x ->
           FulfillmentUpdatesSpecification'
-            Prelude.<$> (x Core..:? "startResponse")
-            Prelude.<*> (x Core..:? "timeoutInSeconds")
-            Prelude.<*> (x Core..:? "updateResponse")
-            Prelude.<*> (x Core..: "active")
+            Prelude.<$> (x Data..:? "startResponse")
+            Prelude.<*> (x Data..:? "timeoutInSeconds")
+            Prelude.<*> (x Data..:? "updateResponse")
+            Prelude.<*> (x Data..: "active")
       )
 
 instance
@@ -143,15 +144,15 @@ instance
       `Prelude.seq` Prelude.rnf updateResponse
       `Prelude.seq` Prelude.rnf active
 
-instance Core.ToJSON FulfillmentUpdatesSpecification where
+instance Data.ToJSON FulfillmentUpdatesSpecification where
   toJSON FulfillmentUpdatesSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("startResponse" Core..=) Prelude.<$> startResponse,
-            ("timeoutInSeconds" Core..=)
+          [ ("startResponse" Data..=) Prelude.<$> startResponse,
+            ("timeoutInSeconds" Data..=)
               Prelude.<$> timeoutInSeconds,
-            ("updateResponse" Core..=)
+            ("updateResponse" Data..=)
               Prelude.<$> updateResponse,
-            Prelude.Just ("active" Core..= active)
+            Prelude.Just ("active" Data..= active)
           ]
       )

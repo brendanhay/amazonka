@@ -52,6 +52,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,10 +145,10 @@ instance Core.AWSRequest GetInsightSelectors where
     Response.receiveJSON
       ( \s h x ->
           GetInsightSelectorsResponse'
-            Prelude.<$> ( x Core..?> "InsightSelectors"
+            Prelude.<$> ( x Data..?> "InsightSelectors"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "TrailARN")
+            Prelude.<*> (x Data..?> "TrailARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,32 +159,32 @@ instance Prelude.Hashable GetInsightSelectors where
 instance Prelude.NFData GetInsightSelectors where
   rnf GetInsightSelectors' {..} = Prelude.rnf trailName
 
-instance Core.ToHeaders GetInsightSelectors where
+instance Data.ToHeaders GetInsightSelectors where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetInsightSelectors" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetInsightSelectors" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetInsightSelectors where
+instance Data.ToJSON GetInsightSelectors where
   toJSON GetInsightSelectors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TrailName" Core..= trailName)]
+          [Prelude.Just ("TrailName" Data..= trailName)]
       )
 
-instance Core.ToPath GetInsightSelectors where
+instance Data.ToPath GetInsightSelectors where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetInsightSelectors where
+instance Data.ToQuery GetInsightSelectors where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInsightSelectorsResponse' smart constructor.

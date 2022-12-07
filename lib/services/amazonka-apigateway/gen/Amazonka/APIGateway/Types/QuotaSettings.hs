@@ -22,6 +22,7 @@ module Amazonka.APIGateway.Types.QuotaSettings where
 import Amazonka.APIGateway.Types.QuotaPeriodType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Quotas configured for a usage plan.
@@ -80,15 +81,15 @@ quotaSettings_period = Lens.lens (\QuotaSettings' {period} -> period) (\s@QuotaS
 quotaSettings_limit :: Lens.Lens' QuotaSettings (Prelude.Maybe Prelude.Int)
 quotaSettings_limit = Lens.lens (\QuotaSettings' {limit} -> limit) (\s@QuotaSettings' {} a -> s {limit = a} :: QuotaSettings)
 
-instance Core.FromJSON QuotaSettings where
+instance Data.FromJSON QuotaSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QuotaSettings"
       ( \x ->
           QuotaSettings'
-            Prelude.<$> (x Core..:? "offset")
-            Prelude.<*> (x Core..:? "period")
-            Prelude.<*> (x Core..:? "limit")
+            Prelude.<$> (x Data..:? "offset")
+            Prelude.<*> (x Data..:? "period")
+            Prelude.<*> (x Data..:? "limit")
       )
 
 instance Prelude.Hashable QuotaSettings where
@@ -103,12 +104,12 @@ instance Prelude.NFData QuotaSettings where
       `Prelude.seq` Prelude.rnf period
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToJSON QuotaSettings where
+instance Data.ToJSON QuotaSettings where
   toJSON QuotaSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("offset" Core..=) Prelude.<$> offset,
-            ("period" Core..=) Prelude.<$> period,
-            ("limit" Core..=) Prelude.<$> limit
+          [ ("offset" Data..=) Prelude.<$> offset,
+            ("period" Data..=) Prelude.<$> period,
+            ("limit" Data..=) Prelude.<$> limit
           ]
       )

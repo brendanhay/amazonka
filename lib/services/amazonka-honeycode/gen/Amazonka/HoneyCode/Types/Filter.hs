@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a filter formula along with the id of the
@@ -39,7 +40,7 @@ data Filter = Filter'
     -- Any other formula that returns zero or more rows is also acceptable. For
     -- example, you can use a formula that points to a cell that contains a
     -- filter function.
-    formula :: Core.Sensitive Prelude.Text
+    formula :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -69,7 +70,7 @@ newFilter ::
 newFilter pFormula_ =
   Filter'
     { contextRowId = Prelude.Nothing,
-      formula = Core._Sensitive Lens.# pFormula_
+      formula = Data._Sensitive Lens.# pFormula_
     }
 
 -- | The optional contextRowId attribute can be used to specify the row id of
@@ -86,7 +87,7 @@ filter_contextRowId = Lens.lens (\Filter' {contextRowId} -> contextRowId) (\s@Fi
 -- example, you can use a formula that points to a cell that contains a
 -- filter function.
 filter_formula :: Lens.Lens' Filter Prelude.Text
-filter_formula = Lens.lens (\Filter' {formula} -> formula) (\s@Filter' {} a -> s {formula = a} :: Filter) Prelude.. Core._Sensitive
+filter_formula = Lens.lens (\Filter' {formula} -> formula) (\s@Filter' {} a -> s {formula = a} :: Filter) Prelude.. Data._Sensitive
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
@@ -98,11 +99,11 @@ instance Prelude.NFData Filter where
     Prelude.rnf contextRowId
       `Prelude.seq` Prelude.rnf formula
 
-instance Core.ToJSON Filter where
+instance Data.ToJSON Filter where
   toJSON Filter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("contextRowId" Core..=) Prelude.<$> contextRowId,
-            Prelude.Just ("formula" Core..= formula)
+          [ ("contextRowId" Data..=) Prelude.<$> contextRowId,
+            Prelude.Just ("formula" Data..= formula)
           ]
       )

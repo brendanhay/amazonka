@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.AllowedRenditionSize where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.RequiredFlag
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,15 +86,15 @@ allowedRenditionSize_width = Lens.lens (\AllowedRenditionSize' {width} -> width)
 allowedRenditionSize_height :: Lens.Lens' AllowedRenditionSize (Prelude.Maybe Prelude.Natural)
 allowedRenditionSize_height = Lens.lens (\AllowedRenditionSize' {height} -> height) (\s@AllowedRenditionSize' {} a -> s {height = a} :: AllowedRenditionSize)
 
-instance Core.FromJSON AllowedRenditionSize where
+instance Data.FromJSON AllowedRenditionSize where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AllowedRenditionSize"
       ( \x ->
           AllowedRenditionSize'
-            Prelude.<$> (x Core..:? "required")
-            Prelude.<*> (x Core..:? "width")
-            Prelude.<*> (x Core..:? "height")
+            Prelude.<$> (x Data..:? "required")
+            Prelude.<*> (x Data..:? "width")
+            Prelude.<*> (x Data..:? "height")
       )
 
 instance Prelude.Hashable AllowedRenditionSize where
@@ -108,12 +109,12 @@ instance Prelude.NFData AllowedRenditionSize where
       `Prelude.seq` Prelude.rnf width
       `Prelude.seq` Prelude.rnf height
 
-instance Core.ToJSON AllowedRenditionSize where
+instance Data.ToJSON AllowedRenditionSize where
   toJSON AllowedRenditionSize' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("required" Core..=) Prelude.<$> required,
-            ("width" Core..=) Prelude.<$> width,
-            ("height" Core..=) Prelude.<$> height
+          [ ("required" Data..=) Prelude.<$> required,
+            ("width" Data..=) Prelude.<$> width,
+            ("height" Data..=) Prelude.<$> height
           ]
       )

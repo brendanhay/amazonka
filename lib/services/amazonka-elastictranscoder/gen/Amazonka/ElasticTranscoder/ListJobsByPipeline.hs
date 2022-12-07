@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,8 +149,8 @@ instance Core.AWSRequest ListJobsByPipeline where
     Response.receiveJSON
       ( \s h x ->
           ListJobsByPipelineResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> (x Core..?> "Jobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> (x Data..?> "Jobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,19 +166,19 @@ instance Prelude.NFData ListJobsByPipeline where
       `Prelude.seq` Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf pipelineId
 
-instance Core.ToHeaders ListJobsByPipeline where
+instance Data.ToHeaders ListJobsByPipeline where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListJobsByPipeline where
+instance Data.ToPath ListJobsByPipeline where
   toPath ListJobsByPipeline' {..} =
     Prelude.mconcat
-      ["/2012-09-25/jobsByPipeline/", Core.toBS pipelineId]
+      ["/2012-09-25/jobsByPipeline/", Data.toBS pipelineId]
 
-instance Core.ToQuery ListJobsByPipeline where
+instance Data.ToQuery ListJobsByPipeline where
   toQuery ListJobsByPipeline' {..} =
     Prelude.mconcat
-      [ "Ascending" Core.=: ascending,
-        "PageToken" Core.=: pageToken
+      [ "Ascending" Data.=: ascending,
+        "PageToken" Data.=: pageToken
       ]
 
 -- | The @ListJobsByPipelineResponse@ structure.

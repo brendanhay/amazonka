@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,7 +147,7 @@ instance Core.AWSRequest CreateStage where
     Response.receiveJSON
       ( \s h x ->
           CreateStageResponse'
-            Prelude.<$> (x Core..?> "Stage")
+            Prelude.<$> (x Data..?> "Stage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,35 +169,35 @@ instance Prelude.NFData CreateStage where
       `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf stageName
 
-instance Core.ToHeaders CreateStage where
+instance Data.ToHeaders CreateStage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateStage where
+instance Data.ToJSON CreateStage where
   toJSON CreateStage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Role" Core..= role'),
-            Prelude.Just ("StageName" Core..= stageName)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Role" Data..= role'),
+            Prelude.Just ("StageName" Data..= stageName)
           ]
       )
 
-instance Core.ToPath CreateStage where
+instance Data.ToPath CreateStage where
   toPath CreateStage' {..} =
     Prelude.mconcat
-      ["/game/", Core.toBS gameName, "/stage"]
+      ["/game/", Data.toBS gameName, "/stage"]
 
-instance Core.ToQuery CreateStage where
+instance Data.ToQuery CreateStage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStageResponse' smart constructor.

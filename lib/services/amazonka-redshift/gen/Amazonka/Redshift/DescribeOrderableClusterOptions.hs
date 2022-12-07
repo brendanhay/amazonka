@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -220,11 +221,11 @@ instance
       "DescribeOrderableClusterOptionsResult"
       ( \s h x ->
           DescribeOrderableClusterOptionsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "OrderableClusterOptions"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "OrderableClusterOptions"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may
-                              (Core.parseXMLList "OrderableClusterOption")
+                              (Data.parseXMLList "OrderableClusterOption")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -252,27 +253,27 @@ instance
       `Prelude.seq` Prelude.rnf maxRecords
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeOrderableClusterOptions
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeOrderableClusterOptions where
+instance Data.ToPath DescribeOrderableClusterOptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeOrderableClusterOptions where
+instance Data.ToQuery DescribeOrderableClusterOptions where
   toQuery DescribeOrderableClusterOptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeOrderableClusterOptions" ::
+          Data.=: ( "DescribeOrderableClusterOptions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "ClusterVersion" Core.=: clusterVersion,
-        "NodeType" Core.=: nodeType,
-        "MaxRecords" Core.=: maxRecords
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "ClusterVersion" Data.=: clusterVersion,
+        "NodeType" Data.=: nodeType,
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | Contains the output from the DescribeOrderableClusterOptions action.

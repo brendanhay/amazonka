@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.AppValidationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.AppValidationStrategy
 import Amazonka.SMS.Types.SSMValidationParameters
@@ -81,16 +82,16 @@ appValidationConfiguration_appValidationStrategy = Lens.lens (\AppValidationConf
 appValidationConfiguration_validationId :: Lens.Lens' AppValidationConfiguration (Prelude.Maybe Prelude.Text)
 appValidationConfiguration_validationId = Lens.lens (\AppValidationConfiguration' {validationId} -> validationId) (\s@AppValidationConfiguration' {} a -> s {validationId = a} :: AppValidationConfiguration)
 
-instance Core.FromJSON AppValidationConfiguration where
+instance Data.FromJSON AppValidationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppValidationConfiguration"
       ( \x ->
           AppValidationConfiguration'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "ssmValidationParameters")
-            Prelude.<*> (x Core..:? "appValidationStrategy")
-            Prelude.<*> (x Core..:? "validationId")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "ssmValidationParameters")
+            Prelude.<*> (x Data..:? "appValidationStrategy")
+            Prelude.<*> (x Data..:? "validationId")
       )
 
 instance Prelude.Hashable AppValidationConfiguration where
@@ -107,15 +108,15 @@ instance Prelude.NFData AppValidationConfiguration where
       `Prelude.seq` Prelude.rnf appValidationStrategy
       `Prelude.seq` Prelude.rnf validationId
 
-instance Core.ToJSON AppValidationConfiguration where
+instance Data.ToJSON AppValidationConfiguration where
   toJSON AppValidationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("ssmValidationParameters" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("ssmValidationParameters" Data..=)
               Prelude.<$> ssmValidationParameters,
-            ("appValidationStrategy" Core..=)
+            ("appValidationStrategy" Data..=)
               Prelude.<$> appValidationStrategy,
-            ("validationId" Core..=) Prelude.<$> validationId
+            ("validationId" Data..=) Prelude.<$> validationId
           ]
       )

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,7 +93,7 @@ instance Core.AWSRequest DescribeAuditFinding where
     Response.receiveJSON
       ( \s h x ->
           DescribeAuditFindingResponse'
-            Prelude.<$> (x Core..?> "finding")
+            Prelude.<$> (x Data..?> "finding")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,15 +104,15 @@ instance Prelude.Hashable DescribeAuditFinding where
 instance Prelude.NFData DescribeAuditFinding where
   rnf DescribeAuditFinding' {..} = Prelude.rnf findingId
 
-instance Core.ToHeaders DescribeAuditFinding where
+instance Data.ToHeaders DescribeAuditFinding where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAuditFinding where
+instance Data.ToPath DescribeAuditFinding where
   toPath DescribeAuditFinding' {..} =
     Prelude.mconcat
-      ["/audit/findings/", Core.toBS findingId]
+      ["/audit/findings/", Data.toBS findingId]
 
-instance Core.ToQuery DescribeAuditFinding where
+instance Data.ToQuery DescribeAuditFinding where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAuditFindingResponse' smart constructor.

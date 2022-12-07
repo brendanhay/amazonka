@@ -54,6 +54,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -181,9 +182,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListObservabilityConfigurationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "ObservabilityConfigurationSummaryList"
+            Prelude.<*> ( x Data..?> "ObservabilityConfigurationSummaryList"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -211,39 +212,39 @@ instance
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListObservabilityConfigurations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.ListObservabilityConfigurations" ::
+              Data.=# ( "AppRunner.ListObservabilityConfigurations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListObservabilityConfigurations where
+instance Data.ToJSON ListObservabilityConfigurations where
   toJSON ListObservabilityConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ObservabilityConfigurationName" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ObservabilityConfigurationName" Data..=)
               Prelude.<$> observabilityConfigurationName,
-            ("LatestOnly" Core..=) Prelude.<$> latestOnly,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("LatestOnly" Data..=) Prelude.<$> latestOnly,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListObservabilityConfigurations where
+instance Data.ToPath ListObservabilityConfigurations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListObservabilityConfigurations where
+instance Data.ToQuery ListObservabilityConfigurations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListObservabilityConfigurationsResponse' smart constructor.

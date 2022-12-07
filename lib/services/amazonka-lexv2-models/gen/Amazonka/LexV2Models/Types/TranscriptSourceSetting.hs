@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.TranscriptSourceSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.S3BucketTranscriptSource
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newTranscriptSourceSetting =
 transcriptSourceSetting_s3BucketTranscriptSource :: Lens.Lens' TranscriptSourceSetting (Prelude.Maybe S3BucketTranscriptSource)
 transcriptSourceSetting_s3BucketTranscriptSource = Lens.lens (\TranscriptSourceSetting' {s3BucketTranscriptSource} -> s3BucketTranscriptSource) (\s@TranscriptSourceSetting' {} a -> s {s3BucketTranscriptSource = a} :: TranscriptSourceSetting)
 
-instance Core.FromJSON TranscriptSourceSetting where
+instance Data.FromJSON TranscriptSourceSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TranscriptSourceSetting"
       ( \x ->
           TranscriptSourceSetting'
-            Prelude.<$> (x Core..:? "s3BucketTranscriptSource")
+            Prelude.<$> (x Data..:? "s3BucketTranscriptSource")
       )
 
 instance Prelude.Hashable TranscriptSourceSetting where
@@ -75,11 +76,11 @@ instance Prelude.NFData TranscriptSourceSetting where
   rnf TranscriptSourceSetting' {..} =
     Prelude.rnf s3BucketTranscriptSource
 
-instance Core.ToJSON TranscriptSourceSetting where
+instance Data.ToJSON TranscriptSourceSetting where
   toJSON TranscriptSourceSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3BucketTranscriptSource" Core..=)
+          [ ("s3BucketTranscriptSource" Data..=)
               Prelude.<$> s3BucketTranscriptSource
           ]
       )

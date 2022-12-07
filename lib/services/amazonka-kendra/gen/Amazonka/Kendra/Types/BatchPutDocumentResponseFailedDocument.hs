@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.BatchPutDocumentResponseFailedDocument where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,17 +74,17 @@ batchPutDocumentResponseFailedDocument_errorCode :: Lens.Lens' BatchPutDocumentR
 batchPutDocumentResponseFailedDocument_errorCode = Lens.lens (\BatchPutDocumentResponseFailedDocument' {errorCode} -> errorCode) (\s@BatchPutDocumentResponseFailedDocument' {} a -> s {errorCode = a} :: BatchPutDocumentResponseFailedDocument)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchPutDocumentResponseFailedDocument
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchPutDocumentResponseFailedDocument"
       ( \x ->
           BatchPutDocumentResponseFailedDocument'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance

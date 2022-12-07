@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.AssessmentRunAgent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types.AgentHealth
 import Amazonka.Inspector.Types.AgentHealthCode
 import Amazonka.Inspector.Types.TelemetryMetadata
@@ -129,20 +130,20 @@ assessmentRunAgent_agentHealthCode = Lens.lens (\AssessmentRunAgent' {agentHealt
 assessmentRunAgent_telemetryMetadata :: Lens.Lens' AssessmentRunAgent [TelemetryMetadata]
 assessmentRunAgent_telemetryMetadata = Lens.lens (\AssessmentRunAgent' {telemetryMetadata} -> telemetryMetadata) (\s@AssessmentRunAgent' {} a -> s {telemetryMetadata = a} :: AssessmentRunAgent) Prelude.. Lens.coerced
 
-instance Core.FromJSON AssessmentRunAgent where
+instance Data.FromJSON AssessmentRunAgent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssessmentRunAgent"
       ( \x ->
           AssessmentRunAgent'
-            Prelude.<$> (x Core..:? "agentHealthDetails")
-            Prelude.<*> (x Core..:? "autoScalingGroup")
-            Prelude.<*> (x Core..: "agentId")
-            Prelude.<*> (x Core..: "assessmentRunArn")
-            Prelude.<*> (x Core..: "agentHealth")
-            Prelude.<*> (x Core..: "agentHealthCode")
-            Prelude.<*> ( x Core..:? "telemetryMetadata"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "agentHealthDetails")
+            Prelude.<*> (x Data..:? "autoScalingGroup")
+            Prelude.<*> (x Data..: "agentId")
+            Prelude.<*> (x Data..: "assessmentRunArn")
+            Prelude.<*> (x Data..: "agentHealth")
+            Prelude.<*> (x Data..: "agentHealthCode")
+            Prelude.<*> ( x Data..:? "telemetryMetadata"
+                            Data..!= Prelude.mempty
                         )
       )
 

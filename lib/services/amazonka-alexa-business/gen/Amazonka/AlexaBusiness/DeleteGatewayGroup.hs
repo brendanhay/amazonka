@@ -41,6 +41,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,34 +97,34 @@ instance Prelude.NFData DeleteGatewayGroup where
   rnf DeleteGatewayGroup' {..} =
     Prelude.rnf gatewayGroupArn
 
-instance Core.ToHeaders DeleteGatewayGroup where
+instance Data.ToHeaders DeleteGatewayGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.DeleteGatewayGroup" ::
+              Data.=# ( "AlexaForBusiness.DeleteGatewayGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteGatewayGroup where
+instance Data.ToJSON DeleteGatewayGroup where
   toJSON DeleteGatewayGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("GatewayGroupArn" Core..= gatewayGroupArn)
+              ("GatewayGroupArn" Data..= gatewayGroupArn)
           ]
       )
 
-instance Core.ToPath DeleteGatewayGroup where
+instance Data.ToPath DeleteGatewayGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteGatewayGroup where
+instance Data.ToQuery DeleteGatewayGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGatewayGroupResponse' smart constructor.

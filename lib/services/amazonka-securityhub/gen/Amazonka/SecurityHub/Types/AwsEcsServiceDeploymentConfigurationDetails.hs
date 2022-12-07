@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsServiceDeploymentConfigurationDetails wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails
 
@@ -153,17 +154,17 @@ awsEcsServiceDeploymentConfigurationDetails_deploymentCircuitBreaker :: Lens.Len
 awsEcsServiceDeploymentConfigurationDetails_deploymentCircuitBreaker = Lens.lens (\AwsEcsServiceDeploymentConfigurationDetails' {deploymentCircuitBreaker} -> deploymentCircuitBreaker) (\s@AwsEcsServiceDeploymentConfigurationDetails' {} a -> s {deploymentCircuitBreaker = a} :: AwsEcsServiceDeploymentConfigurationDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsServiceDeploymentConfigurationDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsServiceDeploymentConfigurationDetails"
       ( \x ->
           AwsEcsServiceDeploymentConfigurationDetails'
-            Prelude.<$> (x Core..:? "MinimumHealthyPercent")
-              Prelude.<*> (x Core..:? "MaximumPercent")
-              Prelude.<*> (x Core..:? "DeploymentCircuitBreaker")
+            Prelude.<$> (x Data..:? "MinimumHealthyPercent")
+              Prelude.<*> (x Data..:? "MaximumPercent")
+              Prelude.<*> (x Data..:? "DeploymentCircuitBreaker")
       )
 
 instance
@@ -187,18 +188,18 @@ instance
       `Prelude.seq` Prelude.rnf deploymentCircuitBreaker
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsServiceDeploymentConfigurationDetails
   where
   toJSON
     AwsEcsServiceDeploymentConfigurationDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("MinimumHealthyPercent" Core..=)
+            [ ("MinimumHealthyPercent" Data..=)
                 Prelude.<$> minimumHealthyPercent,
-              ("MaximumPercent" Core..=)
+              ("MaximumPercent" Data..=)
                 Prelude.<$> maximumPercent,
-              ("DeploymentCircuitBreaker" Core..=)
+              ("DeploymentCircuitBreaker" Data..=)
                 Prelude.<$> deploymentCircuitBreaker
             ]
         )

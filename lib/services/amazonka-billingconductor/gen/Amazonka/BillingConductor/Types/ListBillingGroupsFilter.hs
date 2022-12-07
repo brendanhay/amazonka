@@ -21,6 +21,7 @@ module Amazonka.BillingConductor.Types.ListBillingGroupsFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The filter that specifies the billing groups and pricing plans to
@@ -75,11 +76,11 @@ instance Prelude.NFData ListBillingGroupsFilter where
     Prelude.rnf arns
       `Prelude.seq` Prelude.rnf pricingPlan
 
-instance Core.ToJSON ListBillingGroupsFilter where
+instance Data.ToJSON ListBillingGroupsFilter where
   toJSON ListBillingGroupsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Arns" Core..=) Prelude.<$> arns,
-            ("PricingPlan" Core..=) Prelude.<$> pricingPlan
+          [ ("Arns" Data..=) Prelude.<$> arns,
+            ("PricingPlan" Data..=) Prelude.<$> pricingPlan
           ]
       )

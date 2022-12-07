@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,23 +97,23 @@ instance Prelude.Hashable DeleteTracker where
 instance Prelude.NFData DeleteTracker where
   rnf DeleteTracker' {..} = Prelude.rnf trackerName
 
-instance Core.ToHeaders DeleteTracker where
+instance Data.ToHeaders DeleteTracker where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteTracker where
+instance Data.ToPath DeleteTracker where
   toPath DeleteTracker' {..} =
     Prelude.mconcat
-      ["/tracking/v0/trackers/", Core.toBS trackerName]
+      ["/tracking/v0/trackers/", Data.toBS trackerName]
 
-instance Core.ToQuery DeleteTracker where
+instance Data.ToQuery DeleteTracker where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTrackerResponse' smart constructor.

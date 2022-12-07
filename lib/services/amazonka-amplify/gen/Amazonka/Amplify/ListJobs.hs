@@ -48,6 +48,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,9 +144,9 @@ instance Core.AWSRequest ListJobs where
     Response.receiveJSON
       ( \s h x ->
           ListJobsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "jobSummaries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "jobSummaries" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListJobs where
@@ -162,32 +163,32 @@ instance Prelude.NFData ListJobs where
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf branchName
 
-instance Core.ToHeaders ListJobs where
+instance Data.ToHeaders ListJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListJobs where
+instance Data.ToPath ListJobs where
   toPath ListJobs' {..} =
     Prelude.mconcat
       [ "/apps/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/branches/",
-        Core.toBS branchName,
+        Data.toBS branchName,
         "/jobs"
       ]
 
-instance Core.ToQuery ListJobs where
+instance Data.ToQuery ListJobs where
   toQuery ListJobs' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | The maximum number of records to list in a single response.

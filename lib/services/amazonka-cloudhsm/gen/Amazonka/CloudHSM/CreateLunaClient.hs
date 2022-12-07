@@ -57,6 +57,7 @@ where
 import Amazonka.CloudHSM.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,7 +115,7 @@ instance Core.AWSRequest CreateLunaClient where
     Response.receiveJSON
       ( \s h x ->
           CreateLunaClientResponse'
-            Prelude.<$> (x Core..?> "ClientArn")
+            Prelude.<$> (x Data..?> "ClientArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,34 +129,34 @@ instance Prelude.NFData CreateLunaClient where
     Prelude.rnf label
       `Prelude.seq` Prelude.rnf certificate
 
-instance Core.ToHeaders CreateLunaClient where
+instance Data.ToHeaders CreateLunaClient where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudHsmFrontendService.CreateLunaClient" ::
+              Data.=# ( "CloudHsmFrontendService.CreateLunaClient" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLunaClient where
+instance Data.ToJSON CreateLunaClient where
   toJSON CreateLunaClient' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Label" Core..=) Prelude.<$> label,
-            Prelude.Just ("Certificate" Core..= certificate)
+          [ ("Label" Data..=) Prelude.<$> label,
+            Prelude.Just ("Certificate" Data..= certificate)
           ]
       )
 
-instance Core.ToPath CreateLunaClient where
+instance Data.ToPath CreateLunaClient where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLunaClient where
+instance Data.ToQuery CreateLunaClient where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of the CreateLunaClient action.

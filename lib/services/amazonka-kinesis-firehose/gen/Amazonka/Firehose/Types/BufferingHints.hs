@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.BufferingHints where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes hints for the buffering to perform before delivering data to
@@ -99,14 +100,14 @@ bufferingHints_sizeInMBs = Lens.lens (\BufferingHints' {sizeInMBs} -> sizeInMBs)
 bufferingHints_intervalInSeconds :: Lens.Lens' BufferingHints (Prelude.Maybe Prelude.Natural)
 bufferingHints_intervalInSeconds = Lens.lens (\BufferingHints' {intervalInSeconds} -> intervalInSeconds) (\s@BufferingHints' {} a -> s {intervalInSeconds = a} :: BufferingHints)
 
-instance Core.FromJSON BufferingHints where
+instance Data.FromJSON BufferingHints where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BufferingHints"
       ( \x ->
           BufferingHints'
-            Prelude.<$> (x Core..:? "SizeInMBs")
-            Prelude.<*> (x Core..:? "IntervalInSeconds")
+            Prelude.<$> (x Data..:? "SizeInMBs")
+            Prelude.<*> (x Data..:? "IntervalInSeconds")
       )
 
 instance Prelude.Hashable BufferingHints where
@@ -119,12 +120,12 @@ instance Prelude.NFData BufferingHints where
     Prelude.rnf sizeInMBs
       `Prelude.seq` Prelude.rnf intervalInSeconds
 
-instance Core.ToJSON BufferingHints where
+instance Data.ToJSON BufferingHints where
   toJSON BufferingHints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SizeInMBs" Core..=) Prelude.<$> sizeInMBs,
-            ("IntervalInSeconds" Core..=)
+          [ ("SizeInMBs" Data..=) Prelude.<$> sizeInMBs,
+            ("IntervalInSeconds" Data..=)
               Prelude.<$> intervalInSeconds
           ]
       )

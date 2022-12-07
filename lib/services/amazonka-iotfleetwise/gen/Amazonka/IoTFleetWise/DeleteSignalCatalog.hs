@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,8 +89,8 @@ instance Core.AWSRequest DeleteSignalCatalog where
       ( \s h x ->
           DeleteSignalCatalogResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable DeleteSignalCatalog where
@@ -99,32 +100,32 @@ instance Prelude.Hashable DeleteSignalCatalog where
 instance Prelude.NFData DeleteSignalCatalog where
   rnf DeleteSignalCatalog' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteSignalCatalog where
+instance Data.ToHeaders DeleteSignalCatalog where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.DeleteSignalCatalog" ::
+              Data.=# ( "IoTAutobahnControlPlane.DeleteSignalCatalog" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSignalCatalog where
+instance Data.ToJSON DeleteSignalCatalog where
   toJSON DeleteSignalCatalog' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath DeleteSignalCatalog where
+instance Data.ToPath DeleteSignalCatalog where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSignalCatalog where
+instance Data.ToQuery DeleteSignalCatalog where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSignalCatalogResponse' smart constructor.

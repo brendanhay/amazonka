@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.ApplicationComponentStrategy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.RecommendationSet
 import Amazonka.MigrationHubStrategy.Types.StrategyRecommendation
 import qualified Amazonka.Prelude as Prelude
@@ -74,15 +75,15 @@ applicationComponentStrategy_recommendation = Lens.lens (\ApplicationComponentSt
 applicationComponentStrategy_isPreferred :: Lens.Lens' ApplicationComponentStrategy (Prelude.Maybe Prelude.Bool)
 applicationComponentStrategy_isPreferred = Lens.lens (\ApplicationComponentStrategy' {isPreferred} -> isPreferred) (\s@ApplicationComponentStrategy' {} a -> s {isPreferred = a} :: ApplicationComponentStrategy)
 
-instance Core.FromJSON ApplicationComponentStrategy where
+instance Data.FromJSON ApplicationComponentStrategy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationComponentStrategy"
       ( \x ->
           ApplicationComponentStrategy'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "recommendation")
-            Prelude.<*> (x Core..:? "isPreferred")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "recommendation")
+            Prelude.<*> (x Data..:? "isPreferred")
       )
 
 instance

@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,7 +117,7 @@ instance Core.AWSRequest RollbackApplication where
       ( \s h x ->
           RollbackApplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ApplicationDetail")
+            Prelude.<*> (x Data..:> "ApplicationDetail")
       )
 
 instance Prelude.Hashable RollbackApplication where
@@ -129,38 +130,38 @@ instance Prelude.NFData RollbackApplication where
     Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf currentApplicationVersionId
 
-instance Core.ToHeaders RollbackApplication where
+instance Data.ToHeaders RollbackApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20180523.RollbackApplication" ::
+              Data.=# ( "KinesisAnalytics_20180523.RollbackApplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RollbackApplication where
+instance Data.ToJSON RollbackApplication where
   toJSON RollbackApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ApplicationName" Core..= applicationName),
+              ("ApplicationName" Data..= applicationName),
             Prelude.Just
               ( "CurrentApplicationVersionId"
-                  Core..= currentApplicationVersionId
+                  Data..= currentApplicationVersionId
               )
           ]
       )
 
-instance Core.ToPath RollbackApplication where
+instance Data.ToPath RollbackApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RollbackApplication where
+instance Data.ToQuery RollbackApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRollbackApplicationResponse' smart constructor.

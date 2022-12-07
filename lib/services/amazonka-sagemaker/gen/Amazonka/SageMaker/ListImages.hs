@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,16 +69,16 @@ data ListImages = ListImages'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only images modified on or after the specified
     -- time.
-    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only images whose name contains the specified
     -- string.
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only images modified on or before the specified
     -- time.
-    lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only images created on or before the specified
     -- time.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The property used to sort results. The default value is @CREATION_TIME@.
     sortBy :: Prelude.Maybe ImageSortBy,
     -- | The maximum number of images to return in the response. The default
@@ -85,7 +86,7 @@ data ListImages = ListImages'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only images created on or after the specified
     -- time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -148,7 +149,7 @@ listImages_nextToken = Lens.lens (\ListImages' {nextToken} -> nextToken) (\s@Lis
 -- | A filter that returns only images modified on or after the specified
 -- time.
 listImages_lastModifiedTimeAfter :: Lens.Lens' ListImages (Prelude.Maybe Prelude.UTCTime)
-listImages_lastModifiedTimeAfter = Lens.lens (\ListImages' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListImages' {} a -> s {lastModifiedTimeAfter = a} :: ListImages) Prelude.. Lens.mapping Core._Time
+listImages_lastModifiedTimeAfter = Lens.lens (\ListImages' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListImages' {} a -> s {lastModifiedTimeAfter = a} :: ListImages) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns only images whose name contains the specified
 -- string.
@@ -158,12 +159,12 @@ listImages_nameContains = Lens.lens (\ListImages' {nameContains} -> nameContains
 -- | A filter that returns only images modified on or before the specified
 -- time.
 listImages_lastModifiedTimeBefore :: Lens.Lens' ListImages (Prelude.Maybe Prelude.UTCTime)
-listImages_lastModifiedTimeBefore = Lens.lens (\ListImages' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListImages' {} a -> s {lastModifiedTimeBefore = a} :: ListImages) Prelude.. Lens.mapping Core._Time
+listImages_lastModifiedTimeBefore = Lens.lens (\ListImages' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListImages' {} a -> s {lastModifiedTimeBefore = a} :: ListImages) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns only images created on or before the specified
 -- time.
 listImages_creationTimeBefore :: Lens.Lens' ListImages (Prelude.Maybe Prelude.UTCTime)
-listImages_creationTimeBefore = Lens.lens (\ListImages' {creationTimeBefore} -> creationTimeBefore) (\s@ListImages' {} a -> s {creationTimeBefore = a} :: ListImages) Prelude.. Lens.mapping Core._Time
+listImages_creationTimeBefore = Lens.lens (\ListImages' {creationTimeBefore} -> creationTimeBefore) (\s@ListImages' {} a -> s {creationTimeBefore = a} :: ListImages) Prelude.. Lens.mapping Data._Time
 
 -- | The property used to sort results. The default value is @CREATION_TIME@.
 listImages_sortBy :: Lens.Lens' ListImages (Prelude.Maybe ImageSortBy)
@@ -177,7 +178,7 @@ listImages_maxResults = Lens.lens (\ListImages' {maxResults} -> maxResults) (\s@
 -- | A filter that returns only images created on or after the specified
 -- time.
 listImages_creationTimeAfter :: Lens.Lens' ListImages (Prelude.Maybe Prelude.UTCTime)
-listImages_creationTimeAfter = Lens.lens (\ListImages' {creationTimeAfter} -> creationTimeAfter) (\s@ListImages' {} a -> s {creationTimeAfter = a} :: ListImages) Prelude.. Lens.mapping Core._Time
+listImages_creationTimeAfter = Lens.lens (\ListImages' {creationTimeAfter} -> creationTimeAfter) (\s@ListImages' {} a -> s {creationTimeAfter = a} :: ListImages) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListImages where
   page rq rs
@@ -206,8 +207,8 @@ instance Core.AWSRequest ListImages where
     Response.receiveJSON
       ( \s h x ->
           ListImagesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Images" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Images" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -235,43 +236,43 @@ instance Prelude.NFData ListImages where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf creationTimeAfter
 
-instance Core.ToHeaders ListImages where
+instance Data.ToHeaders ListImages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListImages" :: Prelude.ByteString),
+              Data.=# ("SageMaker.ListImages" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListImages where
+instance Data.ToJSON ListImages where
   toJSON ListImages' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("LastModifiedTimeAfter" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("LastModifiedTimeAfter" Data..=)
               Prelude.<$> lastModifiedTimeAfter,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("LastModifiedTimeBefore" Core..=)
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("LastModifiedTimeBefore" Data..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("CreationTimeBefore" Core..=)
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CreationTimeAfter" Core..=)
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter
           ]
       )
 
-instance Core.ToPath ListImages where
+instance Data.ToPath ListImages where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListImages where
+instance Data.ToQuery ListImages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListImagesResponse' smart constructor.

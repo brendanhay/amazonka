@@ -42,6 +42,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,27 +113,27 @@ instance Prelude.NFData DeleteTaskTemplate where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf taskTemplateId
 
-instance Core.ToHeaders DeleteTaskTemplate where
+instance Data.ToHeaders DeleteTaskTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteTaskTemplate where
+instance Data.ToPath DeleteTaskTemplate where
   toPath DeleteTaskTemplate' {..} =
     Prelude.mconcat
       [ "/instance/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/task/template/",
-        Core.toBS taskTemplateId
+        Data.toBS taskTemplateId
       ]
 
-instance Core.ToQuery DeleteTaskTemplate where
+instance Data.ToQuery DeleteTaskTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTaskTemplateResponse' smart constructor.

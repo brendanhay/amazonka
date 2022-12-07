@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TransformOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AssemblyType
 
@@ -223,16 +224,16 @@ transformOutput_kmsKeyId = Lens.lens (\TransformOutput' {kmsKeyId} -> kmsKeyId) 
 transformOutput_s3OutputPath :: Lens.Lens' TransformOutput Prelude.Text
 transformOutput_s3OutputPath = Lens.lens (\TransformOutput' {s3OutputPath} -> s3OutputPath) (\s@TransformOutput' {} a -> s {s3OutputPath = a} :: TransformOutput)
 
-instance Core.FromJSON TransformOutput where
+instance Data.FromJSON TransformOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransformOutput"
       ( \x ->
           TransformOutput'
-            Prelude.<$> (x Core..:? "AssembleWith")
-            Prelude.<*> (x Core..:? "Accept")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..: "S3OutputPath")
+            Prelude.<$> (x Data..:? "AssembleWith")
+            Prelude.<*> (x Data..:? "Accept")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..: "S3OutputPath")
       )
 
 instance Prelude.Hashable TransformOutput where
@@ -249,13 +250,13 @@ instance Prelude.NFData TransformOutput where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf s3OutputPath
 
-instance Core.ToJSON TransformOutput where
+instance Data.ToJSON TransformOutput where
   toJSON TransformOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AssembleWith" Core..=) Prelude.<$> assembleWith,
-            ("Accept" Core..=) Prelude.<$> accept,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            Prelude.Just ("S3OutputPath" Core..= s3OutputPath)
+          [ ("AssembleWith" Data..=) Prelude.<$> assembleWith,
+            ("Accept" Data..=) Prelude.<$> accept,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            Prelude.Just ("S3OutputPath" Data..= s3OutputPath)
           ]
       )

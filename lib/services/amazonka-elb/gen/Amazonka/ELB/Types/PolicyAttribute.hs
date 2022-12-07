@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.PolicyAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,9 +73,9 @@ instance Prelude.NFData PolicyAttribute where
     Prelude.rnf attributeValue
       `Prelude.seq` Prelude.rnf attributeName
 
-instance Core.ToQuery PolicyAttribute where
+instance Data.ToQuery PolicyAttribute where
   toQuery PolicyAttribute' {..} =
     Prelude.mconcat
-      [ "AttributeValue" Core.=: attributeValue,
-        "AttributeName" Core.=: attributeName
+      [ "AttributeValue" Data.=: attributeValue,
+        "AttributeName" Data.=: attributeName
       ]

@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.UsageInstruction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Additional information provided by the administrator.
@@ -61,13 +62,13 @@ usageInstruction_type = Lens.lens (\UsageInstruction' {type'} -> type') (\s@Usag
 usageInstruction_value :: Lens.Lens' UsageInstruction (Prelude.Maybe Prelude.Text)
 usageInstruction_value = Lens.lens (\UsageInstruction' {value} -> value) (\s@UsageInstruction' {} a -> s {value = a} :: UsageInstruction)
 
-instance Core.FromJSON UsageInstruction where
+instance Data.FromJSON UsageInstruction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsageInstruction"
       ( \x ->
           UsageInstruction'
-            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable UsageInstruction where

@@ -44,6 +44,7 @@ where
 import Amazonka.AMP.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,7 +57,7 @@ data PutAlertManagerDefinition = PutAlertManagerDefinition'
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The alert manager definition data.
-    data' :: Core.Base64,
+    data' :: Data.Base64,
     -- | The ID of the workspace in which to update the alert manager definition.
     workspaceId :: Prelude.Text
   }
@@ -90,7 +91,7 @@ newPutAlertManagerDefinition pData_ pWorkspaceId_ =
   PutAlertManagerDefinition'
     { clientToken =
         Prelude.Nothing,
-      data' = Core._Base64 Lens.# pData_,
+      data' = Data._Base64 Lens.# pData_,
       workspaceId = pWorkspaceId_
     }
 
@@ -105,7 +106,7 @@ putAlertManagerDefinition_clientToken = Lens.lens (\PutAlertManagerDefinition' {
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 putAlertManagerDefinition_data :: Lens.Lens' PutAlertManagerDefinition Prelude.ByteString
-putAlertManagerDefinition_data = Lens.lens (\PutAlertManagerDefinition' {data'} -> data') (\s@PutAlertManagerDefinition' {} a -> s {data' = a} :: PutAlertManagerDefinition) Prelude.. Core._Base64
+putAlertManagerDefinition_data = Lens.lens (\PutAlertManagerDefinition' {data'} -> data') (\s@PutAlertManagerDefinition' {} a -> s {data' = a} :: PutAlertManagerDefinition) Prelude.. Data._Base64
 
 -- | The ID of the workspace in which to update the alert manager definition.
 putAlertManagerDefinition_workspaceId :: Lens.Lens' PutAlertManagerDefinition Prelude.Text
@@ -122,7 +123,7 @@ instance Core.AWSRequest PutAlertManagerDefinition where
       ( \s h x ->
           PutAlertManagerDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance Prelude.Hashable PutAlertManagerDefinition where
@@ -137,35 +138,35 @@ instance Prelude.NFData PutAlertManagerDefinition where
       `Prelude.seq` Prelude.rnf data'
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders PutAlertManagerDefinition where
+instance Data.ToHeaders PutAlertManagerDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutAlertManagerDefinition where
+instance Data.ToJSON PutAlertManagerDefinition where
   toJSON PutAlertManagerDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("data" Core..= data')
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("data" Data..= data')
           ]
       )
 
-instance Core.ToPath PutAlertManagerDefinition where
+instance Data.ToPath PutAlertManagerDefinition where
   toPath PutAlertManagerDefinition' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/alertmanager/definition"
       ]
 
-instance Core.ToQuery PutAlertManagerDefinition where
+instance Data.ToQuery PutAlertManagerDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a PutAlertManagerDefinition operation.

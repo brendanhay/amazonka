@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.GoogleDriveConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import qualified Amazonka.Prelude as Prelude
 
@@ -186,29 +187,29 @@ googleDriveConfiguration_exclusionPatterns = Lens.lens (\GoogleDriveConfiguratio
 googleDriveConfiguration_secretArn :: Lens.Lens' GoogleDriveConfiguration Prelude.Text
 googleDriveConfiguration_secretArn = Lens.lens (\GoogleDriveConfiguration' {secretArn} -> secretArn) (\s@GoogleDriveConfiguration' {} a -> s {secretArn = a} :: GoogleDriveConfiguration)
 
-instance Core.FromJSON GoogleDriveConfiguration where
+instance Data.FromJSON GoogleDriveConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GoogleDriveConfiguration"
       ( \x ->
           GoogleDriveConfiguration'
-            Prelude.<$> ( x Core..:? "InclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "InclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "FieldMappings")
-            Prelude.<*> ( x Core..:? "ExcludeSharedDrives"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "FieldMappings")
+            Prelude.<*> ( x Data..:? "ExcludeSharedDrives"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ExcludeUserAccounts"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ExcludeUserAccounts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ExcludeMimeTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ExcludeMimeTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ExclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "SecretArn")
+            Prelude.<*> (x Data..: "SecretArn")
       )
 
 instance Prelude.Hashable GoogleDriveConfiguration where
@@ -231,21 +232,21 @@ instance Prelude.NFData GoogleDriveConfiguration where
       `Prelude.seq` Prelude.rnf exclusionPatterns
       `Prelude.seq` Prelude.rnf secretArn
 
-instance Core.ToJSON GoogleDriveConfiguration where
+instance Data.ToJSON GoogleDriveConfiguration where
   toJSON GoogleDriveConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InclusionPatterns" Core..=)
+          [ ("InclusionPatterns" Data..=)
               Prelude.<$> inclusionPatterns,
-            ("FieldMappings" Core..=) Prelude.<$> fieldMappings,
-            ("ExcludeSharedDrives" Core..=)
+            ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
+            ("ExcludeSharedDrives" Data..=)
               Prelude.<$> excludeSharedDrives,
-            ("ExcludeUserAccounts" Core..=)
+            ("ExcludeUserAccounts" Data..=)
               Prelude.<$> excludeUserAccounts,
-            ("ExcludeMimeTypes" Core..=)
+            ("ExcludeMimeTypes" Data..=)
               Prelude.<$> excludeMimeTypes,
-            ("ExclusionPatterns" Core..=)
+            ("ExclusionPatterns" Data..=)
               Prelude.<$> exclusionPatterns,
-            Prelude.Just ("SecretArn" Core..= secretArn)
+            Prelude.Just ("SecretArn" Data..= secretArn)
           ]
       )

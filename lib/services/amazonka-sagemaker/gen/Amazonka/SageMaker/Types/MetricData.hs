@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MetricData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The name, value, and date and time of a metric that was emitted to
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newMetricData' smart constructor.
 data MetricData = MetricData'
   { -- | The date and time that the algorithm emitted the metric.
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the metric.
     metricName :: Prelude.Maybe Prelude.Text,
     -- | The value of the metric.
@@ -61,7 +62,7 @@ newMetricData =
 
 -- | The date and time that the algorithm emitted the metric.
 metricData_timestamp :: Lens.Lens' MetricData (Prelude.Maybe Prelude.UTCTime)
-metricData_timestamp = Lens.lens (\MetricData' {timestamp} -> timestamp) (\s@MetricData' {} a -> s {timestamp = a} :: MetricData) Prelude.. Lens.mapping Core._Time
+metricData_timestamp = Lens.lens (\MetricData' {timestamp} -> timestamp) (\s@MetricData' {} a -> s {timestamp = a} :: MetricData) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the metric.
 metricData_metricName :: Lens.Lens' MetricData (Prelude.Maybe Prelude.Text)
@@ -71,15 +72,15 @@ metricData_metricName = Lens.lens (\MetricData' {metricName} -> metricName) (\s@
 metricData_value :: Lens.Lens' MetricData (Prelude.Maybe Prelude.Double)
 metricData_value = Lens.lens (\MetricData' {value} -> value) (\s@MetricData' {} a -> s {value = a} :: MetricData)
 
-instance Core.FromJSON MetricData where
+instance Data.FromJSON MetricData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricData"
       ( \x ->
           MetricData'
-            Prelude.<$> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable MetricData where

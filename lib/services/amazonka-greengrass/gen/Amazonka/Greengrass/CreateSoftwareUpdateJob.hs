@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,9 +159,9 @@ instance Core.AWSRequest CreateSoftwareUpdateJob where
     Response.receiveJSON
       ( \s h x ->
           CreateSoftwareUpdateJobResponse'
-            Prelude.<$> (x Core..?> "IotJobArn")
-            Prelude.<*> (x Core..?> "PlatformSoftwareVersion")
-            Prelude.<*> (x Core..?> "IotJobId")
+            Prelude.<$> (x Data..?> "IotJobArn")
+            Prelude.<*> (x Data..?> "PlatformSoftwareVersion")
+            Prelude.<*> (x Data..?> "IotJobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,40 +185,40 @@ instance Prelude.NFData CreateSoftwareUpdateJob where
       `Prelude.seq` Prelude.rnf updateTargets
       `Prelude.seq` Prelude.rnf updateTargetsOperatingSystem
 
-instance Core.ToHeaders CreateSoftwareUpdateJob where
+instance Data.ToHeaders CreateSoftwareUpdateJob where
   toHeaders CreateSoftwareUpdateJob' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
+      [ "X-Amzn-Client-Token" Data.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateSoftwareUpdateJob where
+instance Data.ToJSON CreateSoftwareUpdateJob where
   toJSON CreateSoftwareUpdateJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UpdateAgentLogLevel" Core..=)
+          [ ("UpdateAgentLogLevel" Data..=)
               Prelude.<$> updateAgentLogLevel,
             Prelude.Just
-              ("S3UrlSignerRole" Core..= s3UrlSignerRole),
+              ("S3UrlSignerRole" Data..= s3UrlSignerRole),
             Prelude.Just
               ( "UpdateTargetsArchitecture"
-                  Core..= updateTargetsArchitecture
+                  Data..= updateTargetsArchitecture
               ),
             Prelude.Just
-              ("SoftwareToUpdate" Core..= softwareToUpdate),
-            Prelude.Just ("UpdateTargets" Core..= updateTargets),
+              ("SoftwareToUpdate" Data..= softwareToUpdate),
+            Prelude.Just ("UpdateTargets" Data..= updateTargets),
             Prelude.Just
               ( "UpdateTargetsOperatingSystem"
-                  Core..= updateTargetsOperatingSystem
+                  Data..= updateTargetsOperatingSystem
               )
           ]
       )
 
-instance Core.ToPath CreateSoftwareUpdateJob where
+instance Data.ToPath CreateSoftwareUpdateJob where
   toPath = Prelude.const "/greengrass/updates"
 
-instance Core.ToQuery CreateSoftwareUpdateJob where
+instance Data.ToQuery CreateSoftwareUpdateJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSoftwareUpdateJobResponse' smart constructor.

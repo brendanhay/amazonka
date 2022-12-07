@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.ReplicationPendingModifiedValues where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the values of pending modifications to a
@@ -124,19 +125,19 @@ replicationPendingModifiedValues_multiAZ :: Lens.Lens' ReplicationPendingModifie
 replicationPendingModifiedValues_multiAZ = Lens.lens (\ReplicationPendingModifiedValues' {multiAZ} -> multiAZ) (\s@ReplicationPendingModifiedValues' {} a -> s {multiAZ = a} :: ReplicationPendingModifiedValues)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ReplicationPendingModifiedValues
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationPendingModifiedValues"
       ( \x ->
           ReplicationPendingModifiedValues'
-            Prelude.<$> (x Core..:? "AllocatedStorage")
-            Prelude.<*> (x Core..:? "ReplicationInstanceClass")
-            Prelude.<*> (x Core..:? "EngineVersion")
-            Prelude.<*> (x Core..:? "NetworkType")
-            Prelude.<*> (x Core..:? "MultiAZ")
+            Prelude.<$> (x Data..:? "AllocatedStorage")
+            Prelude.<*> (x Data..:? "ReplicationInstanceClass")
+            Prelude.<*> (x Data..:? "EngineVersion")
+            Prelude.<*> (x Data..:? "NetworkType")
+            Prelude.<*> (x Data..:? "MultiAZ")
       )
 
 instance

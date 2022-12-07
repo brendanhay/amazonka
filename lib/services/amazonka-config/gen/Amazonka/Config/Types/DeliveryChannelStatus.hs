@@ -23,6 +23,7 @@ import Amazonka.Config.Types.ConfigExportDeliveryInfo
 import Amazonka.Config.Types.ConfigStreamDeliveryInfo
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status of a specified delivery channel.
@@ -92,16 +93,16 @@ deliveryChannelStatus_configSnapshotDeliveryInfo = Lens.lens (\DeliveryChannelSt
 deliveryChannelStatus_configStreamDeliveryInfo :: Lens.Lens' DeliveryChannelStatus (Prelude.Maybe ConfigStreamDeliveryInfo)
 deliveryChannelStatus_configStreamDeliveryInfo = Lens.lens (\DeliveryChannelStatus' {configStreamDeliveryInfo} -> configStreamDeliveryInfo) (\s@DeliveryChannelStatus' {} a -> s {configStreamDeliveryInfo = a} :: DeliveryChannelStatus)
 
-instance Core.FromJSON DeliveryChannelStatus where
+instance Data.FromJSON DeliveryChannelStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeliveryChannelStatus"
       ( \x ->
           DeliveryChannelStatus'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "configHistoryDeliveryInfo")
-            Prelude.<*> (x Core..:? "configSnapshotDeliveryInfo")
-            Prelude.<*> (x Core..:? "configStreamDeliveryInfo")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "configHistoryDeliveryInfo")
+            Prelude.<*> (x Data..:? "configSnapshotDeliveryInfo")
+            Prelude.<*> (x Data..:? "configStreamDeliveryInfo")
       )
 
 instance Prelude.Hashable DeliveryChannelStatus where

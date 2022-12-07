@@ -26,6 +26,7 @@ import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReason
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionUtilizationMetric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Lambda function recommendation.
@@ -75,7 +76,7 @@ data LambdaFunctionRecommendation = LambdaFunctionRecommendation'
     -- period.
     numberOfInvocations :: Prelude.Maybe Prelude.Integer,
     -- | The timestamp of when the function recommendation was last generated.
-    lastRefreshTimestamp :: Prelude.Maybe Core.POSIX,
+    lastRefreshTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The version number of the current function.
     functionVersion :: Prelude.Maybe Prelude.Text,
     -- | The number of days for which utilization metrics were analyzed for the
@@ -288,7 +289,7 @@ lambdaFunctionRecommendation_numberOfInvocations = Lens.lens (\LambdaFunctionRec
 
 -- | The timestamp of when the function recommendation was last generated.
 lambdaFunctionRecommendation_lastRefreshTimestamp :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.UTCTime)
-lambdaFunctionRecommendation_lastRefreshTimestamp = Lens.lens (\LambdaFunctionRecommendation' {lastRefreshTimestamp} -> lastRefreshTimestamp) (\s@LambdaFunctionRecommendation' {} a -> s {lastRefreshTimestamp = a} :: LambdaFunctionRecommendation) Prelude.. Lens.mapping Core._Time
+lambdaFunctionRecommendation_lastRefreshTimestamp = Lens.lens (\LambdaFunctionRecommendation' {lastRefreshTimestamp} -> lastRefreshTimestamp) (\s@LambdaFunctionRecommendation' {} a -> s {lastRefreshTimestamp = a} :: LambdaFunctionRecommendation) Prelude.. Lens.mapping Data._Time
 
 -- | The version number of the current function.
 lambdaFunctionRecommendation_functionVersion :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.Text)
@@ -344,30 +345,30 @@ lambdaFunctionRecommendation_memorySizeRecommendationOptions = Lens.lens (\Lambd
 lambdaFunctionRecommendation_finding :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe LambdaFunctionRecommendationFinding)
 lambdaFunctionRecommendation_finding = Lens.lens (\LambdaFunctionRecommendation' {finding} -> finding) (\s@LambdaFunctionRecommendation' {} a -> s {finding = a} :: LambdaFunctionRecommendation)
 
-instance Core.FromJSON LambdaFunctionRecommendation where
+instance Data.FromJSON LambdaFunctionRecommendation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaFunctionRecommendation"
       ( \x ->
           LambdaFunctionRecommendation'
-            Prelude.<$> ( x Core..:? "findingReasonCodes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "findingReasonCodes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "functionArn")
-            Prelude.<*> (x Core..:? "currentPerformanceRisk")
-            Prelude.<*> (x Core..:? "currentMemorySize")
-            Prelude.<*> (x Core..:? "numberOfInvocations")
-            Prelude.<*> (x Core..:? "lastRefreshTimestamp")
-            Prelude.<*> (x Core..:? "functionVersion")
-            Prelude.<*> (x Core..:? "lookbackPeriodInDays")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> ( x Core..:? "utilizationMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "functionArn")
+            Prelude.<*> (x Data..:? "currentPerformanceRisk")
+            Prelude.<*> (x Data..:? "currentMemorySize")
+            Prelude.<*> (x Data..:? "numberOfInvocations")
+            Prelude.<*> (x Data..:? "lastRefreshTimestamp")
+            Prelude.<*> (x Data..:? "functionVersion")
+            Prelude.<*> (x Data..:? "lookbackPeriodInDays")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> ( x Data..:? "utilizationMetrics"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "memorySizeRecommendationOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "memorySizeRecommendationOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "finding")
+            Prelude.<*> (x Data..:? "finding")
       )
 
 instance

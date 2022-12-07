@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,21 +95,21 @@ instance Core.AWSRequest GetBucketStatistics where
     Response.receiveJSON
       ( \s h x ->
           GetBucketStatisticsResponse'
-            Prelude.<$> (x Core..?> "classifiableSizeInBytes")
-            Prelude.<*> (x Core..?> "bucketCountByEffectivePermission")
-            Prelude.<*> (x Core..?> "unclassifiableObjectCount")
-            Prelude.<*> (x Core..?> "bucketCount")
-            Prelude.<*> (x Core..?> "objectCount")
-            Prelude.<*> (x Core..?> "lastUpdated")
-            Prelude.<*> (x Core..?> "classifiableObjectCount")
-            Prelude.<*> (x Core..?> "sizeInBytes")
-            Prelude.<*> (x Core..?> "sizeInBytesCompressed")
-            Prelude.<*> (x Core..?> "bucketCountBySharedAccessType")
+            Prelude.<$> (x Data..?> "classifiableSizeInBytes")
+            Prelude.<*> (x Data..?> "bucketCountByEffectivePermission")
+            Prelude.<*> (x Data..?> "unclassifiableObjectCount")
+            Prelude.<*> (x Data..?> "bucketCount")
+            Prelude.<*> (x Data..?> "objectCount")
+            Prelude.<*> (x Data..?> "lastUpdated")
+            Prelude.<*> (x Data..?> "classifiableObjectCount")
+            Prelude.<*> (x Data..?> "sizeInBytes")
+            Prelude.<*> (x Data..?> "sizeInBytesCompressed")
+            Prelude.<*> (x Data..?> "bucketCountBySharedAccessType")
             Prelude.<*> ( x
-                            Core..?> "bucketCountByObjectEncryptionRequirement"
+                            Data..?> "bucketCountByObjectEncryptionRequirement"
                         )
-            Prelude.<*> (x Core..?> "unclassifiableObjectSizeInBytes")
-            Prelude.<*> (x Core..?> "bucketCountByEncryptionType")
+            Prelude.<*> (x Data..?> "unclassifiableObjectSizeInBytes")
+            Prelude.<*> (x Data..?> "bucketCountByEncryptionType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,28 +120,28 @@ instance Prelude.Hashable GetBucketStatistics where
 instance Prelude.NFData GetBucketStatistics where
   rnf GetBucketStatistics' {..} = Prelude.rnf accountId
 
-instance Core.ToHeaders GetBucketStatistics where
+instance Data.ToHeaders GetBucketStatistics where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetBucketStatistics where
+instance Data.ToJSON GetBucketStatistics where
   toJSON GetBucketStatistics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("accountId" Core..=) Prelude.<$> accountId]
+          [("accountId" Data..=) Prelude.<$> accountId]
       )
 
-instance Core.ToPath GetBucketStatistics where
+instance Data.ToPath GetBucketStatistics where
   toPath = Prelude.const "/datasources/s3/statistics"
 
-instance Core.ToQuery GetBucketStatistics where
+instance Data.ToQuery GetBucketStatistics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBucketStatisticsResponse' smart constructor.
@@ -168,7 +169,7 @@ data GetBucketStatisticsResponse = GetBucketStatisticsResponse'
     -- | The date and time, in UTC and extended ISO 8601 format, when Amazon
     -- Macie most recently retrieved both bucket and object metadata from
     -- Amazon S3 for the buckets.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | The total number of objects that Amazon Macie can analyze in the
     -- buckets. These objects use a supported storage class and have a file
     -- name extension for a supported file or storage format.
@@ -338,7 +339,7 @@ getBucketStatisticsResponse_objectCount = Lens.lens (\GetBucketStatisticsRespons
 -- Macie most recently retrieved both bucket and object metadata from
 -- Amazon S3 for the buckets.
 getBucketStatisticsResponse_lastUpdated :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe Prelude.UTCTime)
-getBucketStatisticsResponse_lastUpdated = Lens.lens (\GetBucketStatisticsResponse' {lastUpdated} -> lastUpdated) (\s@GetBucketStatisticsResponse' {} a -> s {lastUpdated = a} :: GetBucketStatisticsResponse) Prelude.. Lens.mapping Core._Time
+getBucketStatisticsResponse_lastUpdated = Lens.lens (\GetBucketStatisticsResponse' {lastUpdated} -> lastUpdated) (\s@GetBucketStatisticsResponse' {} a -> s {lastUpdated = a} :: GetBucketStatisticsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The total number of objects that Amazon Macie can analyze in the
 -- buckets. These objects use a supported storage class and have a file

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,8 +142,8 @@ instance Core.AWSRequest ListAssociationVersions where
     Response.receiveJSON
       ( \s h x ->
           ListAssociationVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "AssociationVersions")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "AssociationVersions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,36 +159,36 @@ instance Prelude.NFData ListAssociationVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf associationId
 
-instance Core.ToHeaders ListAssociationVersions where
+instance Data.ToHeaders ListAssociationVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.ListAssociationVersions" ::
+              Data.=# ( "AmazonSSM.ListAssociationVersions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAssociationVersions where
+instance Data.ToJSON ListAssociationVersions where
   toJSON ListAssociationVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("AssociationId" Core..= associationId)
+              ("AssociationId" Data..= associationId)
           ]
       )
 
-instance Core.ToPath ListAssociationVersions where
+instance Data.ToPath ListAssociationVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAssociationVersions where
+instance Data.ToQuery ListAssociationVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAssociationVersionsResponse' smart constructor.

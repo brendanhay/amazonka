@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.InputParallelismUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides updates to the parallelism count.
@@ -64,9 +65,9 @@ instance Prelude.NFData InputParallelismUpdate where
   rnf InputParallelismUpdate' {..} =
     Prelude.rnf countUpdate
 
-instance Core.ToJSON InputParallelismUpdate where
+instance Data.ToJSON InputParallelismUpdate where
   toJSON InputParallelismUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("CountUpdate" Core..=) Prelude.<$> countUpdate]
+          [("CountUpdate" Data..=) Prelude.<$> countUpdate]
       )

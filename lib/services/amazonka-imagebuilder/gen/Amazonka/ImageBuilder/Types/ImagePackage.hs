@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.ImagePackage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a package installed on an Image Builder image.
@@ -67,14 +68,14 @@ imagePackage_packageName = Lens.lens (\ImagePackage' {packageName} -> packageNam
 imagePackage_packageVersion :: Lens.Lens' ImagePackage (Prelude.Maybe Prelude.Text)
 imagePackage_packageVersion = Lens.lens (\ImagePackage' {packageVersion} -> packageVersion) (\s@ImagePackage' {} a -> s {packageVersion = a} :: ImagePackage)
 
-instance Core.FromJSON ImagePackage where
+instance Data.FromJSON ImagePackage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImagePackage"
       ( \x ->
           ImagePackage'
-            Prelude.<$> (x Core..:? "packageName")
-            Prelude.<*> (x Core..:? "packageVersion")
+            Prelude.<$> (x Data..:? "packageName")
+            Prelude.<*> (x Data..:? "packageVersion")
       )
 
 instance Prelude.Hashable ImagePackage where

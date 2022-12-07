@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.MsSmoothEncryptionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.SpekeKeyProvider
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,13 +65,13 @@ newMsSmoothEncryptionSettings =
 msSmoothEncryptionSettings_spekeKeyProvider :: Lens.Lens' MsSmoothEncryptionSettings (Prelude.Maybe SpekeKeyProvider)
 msSmoothEncryptionSettings_spekeKeyProvider = Lens.lens (\MsSmoothEncryptionSettings' {spekeKeyProvider} -> spekeKeyProvider) (\s@MsSmoothEncryptionSettings' {} a -> s {spekeKeyProvider = a} :: MsSmoothEncryptionSettings)
 
-instance Core.FromJSON MsSmoothEncryptionSettings where
+instance Data.FromJSON MsSmoothEncryptionSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MsSmoothEncryptionSettings"
       ( \x ->
           MsSmoothEncryptionSettings'
-            Prelude.<$> (x Core..:? "spekeKeyProvider")
+            Prelude.<$> (x Data..:? "spekeKeyProvider")
       )
 
 instance Prelude.Hashable MsSmoothEncryptionSettings where
@@ -81,11 +82,11 @@ instance Prelude.NFData MsSmoothEncryptionSettings where
   rnf MsSmoothEncryptionSettings' {..} =
     Prelude.rnf spekeKeyProvider
 
-instance Core.ToJSON MsSmoothEncryptionSettings where
+instance Data.ToJSON MsSmoothEncryptionSettings where
   toJSON MsSmoothEncryptionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("spekeKeyProvider" Core..=)
+          [ ("spekeKeyProvider" Data..=)
               Prelude.<$> spekeKeyProvider
           ]
       )

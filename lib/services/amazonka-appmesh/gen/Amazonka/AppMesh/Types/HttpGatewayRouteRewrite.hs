@@ -24,6 +24,7 @@ import Amazonka.AppMesh.Types.HttpGatewayRoutePathRewrite
 import Amazonka.AppMesh.Types.HttpGatewayRoutePrefixRewrite
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the gateway route to rewrite.
@@ -73,15 +74,15 @@ httpGatewayRouteRewrite_hostname = Lens.lens (\HttpGatewayRouteRewrite' {hostnam
 httpGatewayRouteRewrite_prefix :: Lens.Lens' HttpGatewayRouteRewrite (Prelude.Maybe HttpGatewayRoutePrefixRewrite)
 httpGatewayRouteRewrite_prefix = Lens.lens (\HttpGatewayRouteRewrite' {prefix} -> prefix) (\s@HttpGatewayRouteRewrite' {} a -> s {prefix = a} :: HttpGatewayRouteRewrite)
 
-instance Core.FromJSON HttpGatewayRouteRewrite where
+instance Data.FromJSON HttpGatewayRouteRewrite where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpGatewayRouteRewrite"
       ( \x ->
           HttpGatewayRouteRewrite'
-            Prelude.<$> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "hostname")
-            Prelude.<*> (x Core..:? "prefix")
+            Prelude.<$> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "hostname")
+            Prelude.<*> (x Data..:? "prefix")
       )
 
 instance Prelude.Hashable HttpGatewayRouteRewrite where
@@ -96,12 +97,12 @@ instance Prelude.NFData HttpGatewayRouteRewrite where
       `Prelude.seq` Prelude.rnf hostname
       `Prelude.seq` Prelude.rnf prefix
 
-instance Core.ToJSON HttpGatewayRouteRewrite where
+instance Data.ToJSON HttpGatewayRouteRewrite where
   toJSON HttpGatewayRouteRewrite' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("path" Core..=) Prelude.<$> path,
-            ("hostname" Core..=) Prelude.<$> hostname,
-            ("prefix" Core..=) Prelude.<$> prefix
+          [ ("path" Data..=) Prelude.<$> path,
+            ("hostname" Data..=) Prelude.<$> hostname,
+            ("prefix" Data..=) Prelude.<$> prefix
           ]
       )

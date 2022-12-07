@@ -21,6 +21,7 @@ module Amazonka.PinpointEmail.Types.Destination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that describes the recipients for an email.
@@ -91,12 +92,12 @@ instance Prelude.NFData Destination where
       `Prelude.seq` Prelude.rnf bccAddresses
       `Prelude.seq` Prelude.rnf toAddresses
 
-instance Core.ToJSON Destination where
+instance Data.ToJSON Destination where
   toJSON Destination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CcAddresses" Core..=) Prelude.<$> ccAddresses,
-            ("BccAddresses" Core..=) Prelude.<$> bccAddresses,
-            ("ToAddresses" Core..=) Prelude.<$> toAddresses
+          [ ("CcAddresses" Data..=) Prelude.<$> ccAddresses,
+            ("BccAddresses" Data..=) Prelude.<$> bccAddresses,
+            ("ToAddresses" Data..=) Prelude.<$> toAddresses
           ]
       )

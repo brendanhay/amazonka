@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.SourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.Architecture
 
@@ -83,12 +84,12 @@ instance Prelude.NFData SourceConfig where
       `Prelude.seq` Prelude.rnf s3Key
       `Prelude.seq` Prelude.rnf architecture
 
-instance Core.ToJSON SourceConfig where
+instance Data.ToJSON SourceConfig where
   toJSON SourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3Bucket" Core..=) Prelude.<$> s3Bucket,
-            ("s3Key" Core..=) Prelude.<$> s3Key,
-            ("architecture" Core..=) Prelude.<$> architecture
+          [ ("s3Bucket" Data..=) Prelude.<$> s3Bucket,
+            ("s3Key" Data..=) Prelude.<$> s3Key,
+            ("architecture" Data..=) Prelude.<$> architecture
           ]
       )

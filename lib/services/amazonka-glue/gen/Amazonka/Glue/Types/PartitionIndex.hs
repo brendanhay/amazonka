@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.PartitionIndex where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure for a partition index.
@@ -75,11 +76,11 @@ instance Prelude.NFData PartitionIndex where
     Prelude.rnf keys
       `Prelude.seq` Prelude.rnf indexName
 
-instance Core.ToJSON PartitionIndex where
+instance Data.ToJSON PartitionIndex where
   toJSON PartitionIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Keys" Core..= keys),
-            Prelude.Just ("IndexName" Core..= indexName)
+          [ Prelude.Just ("Keys" Data..= keys),
+            Prelude.Just ("IndexName" Data..= indexName)
           ]
       )

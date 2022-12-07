@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,22 +112,22 @@ instance Prelude.NFData RemoveTags where
     Prelude.rnf loadBalancerNames
       `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders RemoveTags where
+instance Data.ToHeaders RemoveTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RemoveTags where
+instance Data.ToPath RemoveTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveTags where
+instance Data.ToQuery RemoveTags where
   toQuery RemoveTags' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RemoveTags" :: Prelude.ByteString),
+          Data.=: ("RemoveTags" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
         "LoadBalancerNames"
-          Core.=: Core.toQueryList "member" loadBalancerNames,
-        "Tags" Core.=: Core.toQueryList "member" tags
+          Data.=: Data.toQueryList "member" loadBalancerNames,
+        "Tags" Data.=: Data.toQueryList "member" tags
       ]
 
 -- | Contains the output of RemoveTags.

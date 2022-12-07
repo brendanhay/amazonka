@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.DataCatalogInputDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.S3Location
 import qualified Amazonka.Prelude as Prelude
 
@@ -97,16 +98,16 @@ dataCatalogInputDefinition_databaseName = Lens.lens (\DataCatalogInputDefinition
 dataCatalogInputDefinition_tableName :: Lens.Lens' DataCatalogInputDefinition Prelude.Text
 dataCatalogInputDefinition_tableName = Lens.lens (\DataCatalogInputDefinition' {tableName} -> tableName) (\s@DataCatalogInputDefinition' {} a -> s {tableName = a} :: DataCatalogInputDefinition)
 
-instance Core.FromJSON DataCatalogInputDefinition where
+instance Data.FromJSON DataCatalogInputDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataCatalogInputDefinition"
       ( \x ->
           DataCatalogInputDefinition'
-            Prelude.<$> (x Core..:? "TempDirectory")
-            Prelude.<*> (x Core..:? "CatalogId")
-            Prelude.<*> (x Core..: "DatabaseName")
-            Prelude.<*> (x Core..: "TableName")
+            Prelude.<$> (x Data..:? "TempDirectory")
+            Prelude.<*> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..: "DatabaseName")
+            Prelude.<*> (x Data..: "TableName")
       )
 
 instance Prelude.Hashable DataCatalogInputDefinition where
@@ -123,13 +124,13 @@ instance Prelude.NFData DataCatalogInputDefinition where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToJSON DataCatalogInputDefinition where
+instance Data.ToJSON DataCatalogInputDefinition where
   toJSON DataCatalogInputDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TempDirectory" Core..=) Prelude.<$> tempDirectory,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName)
+          [ ("TempDirectory" Data..=) Prelude.<$> tempDirectory,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.DomainValidationRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.CertificateDomainValidationStatus
 import Amazonka.Lightsail.Types.DnsRecordCreationState
 import Amazonka.Lightsail.Types.ResourceRecord
@@ -97,16 +98,16 @@ domainValidationRecord_validationStatus = Lens.lens (\DomainValidationRecord' {v
 domainValidationRecord_resourceRecord :: Lens.Lens' DomainValidationRecord (Prelude.Maybe ResourceRecord)
 domainValidationRecord_resourceRecord = Lens.lens (\DomainValidationRecord' {resourceRecord} -> resourceRecord) (\s@DomainValidationRecord' {} a -> s {resourceRecord = a} :: DomainValidationRecord)
 
-instance Core.FromJSON DomainValidationRecord where
+instance Data.FromJSON DomainValidationRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainValidationRecord"
       ( \x ->
           DomainValidationRecord'
-            Prelude.<$> (x Core..:? "dnsRecordCreationState")
-            Prelude.<*> (x Core..:? "domainName")
-            Prelude.<*> (x Core..:? "validationStatus")
-            Prelude.<*> (x Core..:? "resourceRecord")
+            Prelude.<$> (x Data..:? "dnsRecordCreationState")
+            Prelude.<*> (x Data..:? "domainName")
+            Prelude.<*> (x Data..:? "validationStatus")
+            Prelude.<*> (x Data..:? "resourceRecord")
       )
 
 instance Prelude.Hashable DomainValidationRecord where

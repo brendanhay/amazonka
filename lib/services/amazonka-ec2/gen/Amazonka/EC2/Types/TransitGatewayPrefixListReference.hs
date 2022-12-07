@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayPrefixListReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.TransitGatewayPrefixListAttachment
 import Amazonka.EC2.Types.TransitGatewayPrefixListReferenceState
@@ -103,17 +104,17 @@ transitGatewayPrefixListReference_transitGatewayRouteTableId :: Lens.Lens' Trans
 transitGatewayPrefixListReference_transitGatewayRouteTableId = Lens.lens (\TransitGatewayPrefixListReference' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@TransitGatewayPrefixListReference' {} a -> s {transitGatewayRouteTableId = a} :: TransitGatewayPrefixListReference)
 
 instance
-  Core.FromXML
+  Data.FromXML
     TransitGatewayPrefixListReference
   where
   parseXML x =
     TransitGatewayPrefixListReference'
-      Prelude.<$> (x Core..@? "transitGatewayAttachment")
-      Prelude.<*> (x Core..@? "prefixListId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "prefixListOwnerId")
-      Prelude.<*> (x Core..@? "blackhole")
-      Prelude.<*> (x Core..@? "transitGatewayRouteTableId")
+      Prelude.<$> (x Data..@? "transitGatewayAttachment")
+      Prelude.<*> (x Data..@? "prefixListId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "prefixListOwnerId")
+      Prelude.<*> (x Data..@? "blackhole")
+      Prelude.<*> (x Data..@? "transitGatewayRouteTableId")
 
 instance
   Prelude.Hashable

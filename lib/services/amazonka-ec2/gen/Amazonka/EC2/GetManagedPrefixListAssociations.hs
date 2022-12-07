@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,10 +164,10 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetManagedPrefixListAssociationsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "prefixListAssociationSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "prefixListAssociationSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -194,30 +195,30 @@ instance
       `Prelude.seq` Prelude.rnf prefixListId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetManagedPrefixListAssociations
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetManagedPrefixListAssociations where
+instance Data.ToPath GetManagedPrefixListAssociations where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetManagedPrefixListAssociations
   where
   toQuery GetManagedPrefixListAssociations' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetManagedPrefixListAssociations" ::
+          Data.=: ( "GetManagedPrefixListAssociations" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        "PrefixListId" Core.=: prefixListId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        "PrefixListId" Data.=: prefixListId
       ]
 
 -- | /See:/ 'newGetManagedPrefixListAssociationsResponse' smart constructor.

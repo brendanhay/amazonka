@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.FunctionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.Architecture
 import Amazonka.Lambda.Types.DeadLetterConfig
 import Amazonka.Lambda.Types.EnvironmentResponse
@@ -404,47 +405,47 @@ functionConfiguration_deadLetterConfig = Lens.lens (\FunctionConfiguration' {dea
 functionConfiguration_codeSize :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Integer)
 functionConfiguration_codeSize = Lens.lens (\FunctionConfiguration' {codeSize} -> codeSize) (\s@FunctionConfiguration' {} a -> s {codeSize = a} :: FunctionConfiguration)
 
-instance Core.FromJSON FunctionConfiguration where
+instance Data.FromJSON FunctionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FunctionConfiguration"
       ( \x ->
           FunctionConfiguration'
-            Prelude.<$> (x Core..:? "TracingConfig")
-            Prelude.<*> ( x Core..:? "FileSystemConfigs"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "TracingConfig")
+            Prelude.<*> ( x Data..:? "FileSystemConfigs"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastUpdateStatusReason")
-            Prelude.<*> (x Core..:? "MasterArn")
-            Prelude.<*> (x Core..:? "FunctionArn")
-            Prelude.<*> (x Core..:? "Timeout")
-            Prelude.<*> (x Core..:? "EphemeralStorage")
-            Prelude.<*> (x Core..:? "MemorySize")
-            Prelude.<*> (x Core..:? "CodeSha256")
-            Prelude.<*> (x Core..:? "Environment")
-            Prelude.<*> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "FunctionName")
-            Prelude.<*> (x Core..:? "Runtime")
-            Prelude.<*> (x Core..:? "SigningProfileVersionArn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "KMSKeyArn")
-            Prelude.<*> (x Core..:? "Handler")
-            Prelude.<*> (x Core..:? "Layers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StateReasonCode")
-            Prelude.<*> (x Core..:? "PackageType")
-            Prelude.<*> (x Core..:? "LastUpdateStatusReasonCode")
-            Prelude.<*> (x Core..:? "RevisionId")
-            Prelude.<*> (x Core..:? "SigningJobArn")
-            Prelude.<*> (x Core..:? "ImageConfigResponse")
-            Prelude.<*> (x Core..:? "LastUpdateStatus")
-            Prelude.<*> (x Core..:? "LastModified")
-            Prelude.<*> (x Core..:? "Role")
-            Prelude.<*> (x Core..:? "Architectures")
-            Prelude.<*> (x Core..:? "StateReason")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "DeadLetterConfig")
-            Prelude.<*> (x Core..:? "CodeSize")
+            Prelude.<*> (x Data..:? "LastUpdateStatusReason")
+            Prelude.<*> (x Data..:? "MasterArn")
+            Prelude.<*> (x Data..:? "FunctionArn")
+            Prelude.<*> (x Data..:? "Timeout")
+            Prelude.<*> (x Data..:? "EphemeralStorage")
+            Prelude.<*> (x Data..:? "MemorySize")
+            Prelude.<*> (x Data..:? "CodeSha256")
+            Prelude.<*> (x Data..:? "Environment")
+            Prelude.<*> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "FunctionName")
+            Prelude.<*> (x Data..:? "Runtime")
+            Prelude.<*> (x Data..:? "SigningProfileVersionArn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "KMSKeyArn")
+            Prelude.<*> (x Data..:? "Handler")
+            Prelude.<*> (x Data..:? "Layers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StateReasonCode")
+            Prelude.<*> (x Data..:? "PackageType")
+            Prelude.<*> (x Data..:? "LastUpdateStatusReasonCode")
+            Prelude.<*> (x Data..:? "RevisionId")
+            Prelude.<*> (x Data..:? "SigningJobArn")
+            Prelude.<*> (x Data..:? "ImageConfigResponse")
+            Prelude.<*> (x Data..:? "LastUpdateStatus")
+            Prelude.<*> (x Data..:? "LastModified")
+            Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "Architectures")
+            Prelude.<*> (x Data..:? "StateReason")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..:? "DeadLetterConfig")
+            Prelude.<*> (x Data..:? "CodeSize")
       )
 
 instance Prelude.Hashable FunctionConfiguration where

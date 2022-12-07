@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -189,12 +190,12 @@ instance Core.AWSRequest ListTableRows where
     Response.receiveJSON
       ( \s h x ->
           ListTableRowsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "rowIdsNotFound")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "rowIdsNotFound")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "columnIds")
-            Prelude.<*> (x Core..?> "rows" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "workbookCursor")
+            Prelude.<*> (x Data..:> "columnIds")
+            Prelude.<*> (x Data..?> "rows" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "workbookCursor")
       )
 
 instance Prelude.Hashable ListTableRows where
@@ -213,38 +214,38 @@ instance Prelude.NFData ListTableRows where
       `Prelude.seq` Prelude.rnf workbookId
       `Prelude.seq` Prelude.rnf tableId
 
-instance Core.ToHeaders ListTableRows where
+instance Data.ToHeaders ListTableRows where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTableRows where
+instance Data.ToJSON ListTableRows where
   toJSON ListTableRows' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("rowIds" Core..=) Prelude.<$> rowIds,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("rowIds" Data..=) Prelude.<$> rowIds,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListTableRows where
+instance Data.ToPath ListTableRows where
   toPath ListTableRows' {..} =
     Prelude.mconcat
       [ "/workbooks/",
-        Core.toBS workbookId,
+        Data.toBS workbookId,
         "/tables/",
-        Core.toBS tableId,
+        Data.toBS tableId,
         "/rows/list"
       ]
 
-instance Core.ToQuery ListTableRows where
+instance Data.ToQuery ListTableRows where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTableRowsResponse' smart constructor.

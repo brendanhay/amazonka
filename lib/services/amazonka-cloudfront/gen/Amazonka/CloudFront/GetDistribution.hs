@@ -43,6 +43,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,8 +89,8 @@ instance Core.AWSRequest GetDistribution where
     Response.receiveXML
       ( \s h x ->
           GetDistributionResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,15 +101,15 @@ instance Prelude.Hashable GetDistribution where
 instance Prelude.NFData GetDistribution where
   rnf GetDistribution' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetDistribution where
+instance Data.ToHeaders GetDistribution where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetDistribution where
+instance Data.ToPath GetDistribution where
   toPath GetDistribution' {..} =
     Prelude.mconcat
-      ["/2020-05-31/distribution/", Core.toBS id]
+      ["/2020-05-31/distribution/", Data.toBS id]
 
-instance Core.ToQuery GetDistribution where
+instance Data.ToQuery GetDistribution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The returned result of the corresponding request.

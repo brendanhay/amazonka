@@ -41,6 +41,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,23 +93,23 @@ instance Prelude.Hashable DeleteAssessment where
 instance Prelude.NFData DeleteAssessment where
   rnf DeleteAssessment' {..} = Prelude.rnf assessmentId
 
-instance Core.ToHeaders DeleteAssessment where
+instance Data.ToHeaders DeleteAssessment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteAssessment where
+instance Data.ToPath DeleteAssessment where
   toPath DeleteAssessment' {..} =
     Prelude.mconcat
-      ["/assessments/", Core.toBS assessmentId]
+      ["/assessments/", Data.toBS assessmentId]
 
-instance Core.ToQuery DeleteAssessment where
+instance Data.ToQuery DeleteAssessment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAssessmentResponse' smart constructor.

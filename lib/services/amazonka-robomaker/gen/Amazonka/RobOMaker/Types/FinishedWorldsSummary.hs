@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.FinishedWorldsSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.FailureSummary
 
@@ -72,15 +73,15 @@ finishedWorldsSummary_succeededWorlds = Lens.lens (\FinishedWorldsSummary' {succ
 finishedWorldsSummary_finishedCount :: Lens.Lens' FinishedWorldsSummary (Prelude.Maybe Prelude.Int)
 finishedWorldsSummary_finishedCount = Lens.lens (\FinishedWorldsSummary' {finishedCount} -> finishedCount) (\s@FinishedWorldsSummary' {} a -> s {finishedCount = a} :: FinishedWorldsSummary)
 
-instance Core.FromJSON FinishedWorldsSummary where
+instance Data.FromJSON FinishedWorldsSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FinishedWorldsSummary"
       ( \x ->
           FinishedWorldsSummary'
-            Prelude.<$> (x Core..:? "failureSummary")
-            Prelude.<*> (x Core..:? "succeededWorlds")
-            Prelude.<*> (x Core..:? "finishedCount")
+            Prelude.<$> (x Data..:? "failureSummary")
+            Prelude.<*> (x Data..:? "succeededWorlds")
+            Prelude.<*> (x Data..:? "finishedCount")
       )
 
 instance Prelude.Hashable FinishedWorldsSummary where

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,7 +118,7 @@ instance Core.AWSRequest DeleteStreamingImage where
     Response.receiveJSON
       ( \s h x ->
           DeleteStreamingImageResponse'
-            Prelude.<$> (x Core..?> "streamingImage")
+            Prelude.<$> (x Data..?> "streamingImage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,24 +134,24 @@ instance Prelude.NFData DeleteStreamingImage where
       `Prelude.seq` Prelude.rnf streamingImageId
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders DeleteStreamingImage where
+instance Data.ToHeaders DeleteStreamingImage where
   toHeaders DeleteStreamingImage' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DeleteStreamingImage where
+instance Data.ToPath DeleteStreamingImage where
   toPath DeleteStreamingImage' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/streaming-images/",
-        Core.toBS streamingImageId
+        Data.toBS streamingImageId
       ]
 
-instance Core.ToQuery DeleteStreamingImage where
+instance Data.ToQuery DeleteStreamingImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStreamingImageResponse' smart constructor.

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -125,11 +126,11 @@ instance Core.AWSRequest UpdateFolderPermissions where
     Response.receiveJSON
       ( \s h x ->
           UpdateFolderPermissionsResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Permissions")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "FolderId")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Permissions")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "FolderId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,39 +148,39 @@ instance Prelude.NFData UpdateFolderPermissions where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf folderId
 
-instance Core.ToHeaders UpdateFolderPermissions where
+instance Data.ToHeaders UpdateFolderPermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFolderPermissions where
+instance Data.ToJSON UpdateFolderPermissions where
   toJSON UpdateFolderPermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GrantPermissions" Core..=)
+          [ ("GrantPermissions" Data..=)
               Prelude.<$> grantPermissions,
-            ("RevokePermissions" Core..=)
+            ("RevokePermissions" Data..=)
               Prelude.<$> revokePermissions
           ]
       )
 
-instance Core.ToPath UpdateFolderPermissions where
+instance Data.ToPath UpdateFolderPermissions where
   toPath UpdateFolderPermissions' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/folders/",
-        Core.toBS folderId,
+        Data.toBS folderId,
         "/permissions"
       ]
 
-instance Core.ToQuery UpdateFolderPermissions where
+instance Data.ToQuery UpdateFolderPermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFolderPermissionsResponse' smart constructor.

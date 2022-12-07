@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.ConnectedHomeSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Label detection settings to use on a streaming video. Defining the
@@ -79,14 +80,14 @@ connectedHomeSettings_minConfidence = Lens.lens (\ConnectedHomeSettings' {minCon
 connectedHomeSettings_labels :: Lens.Lens' ConnectedHomeSettings (Prelude.NonEmpty Prelude.Text)
 connectedHomeSettings_labels = Lens.lens (\ConnectedHomeSettings' {labels} -> labels) (\s@ConnectedHomeSettings' {} a -> s {labels = a} :: ConnectedHomeSettings) Prelude.. Lens.coerced
 
-instance Core.FromJSON ConnectedHomeSettings where
+instance Data.FromJSON ConnectedHomeSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectedHomeSettings"
       ( \x ->
           ConnectedHomeSettings'
-            Prelude.<$> (x Core..:? "MinConfidence")
-            Prelude.<*> (x Core..: "Labels")
+            Prelude.<$> (x Data..:? "MinConfidence")
+            Prelude.<*> (x Data..: "Labels")
       )
 
 instance Prelude.Hashable ConnectedHomeSettings where
@@ -99,11 +100,11 @@ instance Prelude.NFData ConnectedHomeSettings where
     Prelude.rnf minConfidence
       `Prelude.seq` Prelude.rnf labels
 
-instance Core.ToJSON ConnectedHomeSettings where
+instance Data.ToJSON ConnectedHomeSettings where
   toJSON ConnectedHomeSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MinConfidence" Core..=) Prelude.<$> minConfidence,
-            Prelude.Just ("Labels" Core..= labels)
+          [ ("MinConfidence" Data..=) Prelude.<$> minConfidence,
+            Prelude.Just ("Labels" Data..= labels)
           ]
       )

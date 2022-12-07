@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.CoreNetworkChangeEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.ChangeAction
 import Amazonka.NetworkManager.Types.ChangeStatus
 import Amazonka.NetworkManager.Types.ChangeType
@@ -45,7 +46,7 @@ data CoreNetworkChangeEvent = CoreNetworkChangeEvent'
     -- | Details of the change event.
     values :: Prelude.Maybe CoreNetworkChangeEventValues,
     -- | The timestamp for an event change in status.
-    eventTime :: Prelude.Maybe Core.POSIX
+    eventTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,20 +107,20 @@ coreNetworkChangeEvent_values = Lens.lens (\CoreNetworkChangeEvent' {values} -> 
 
 -- | The timestamp for an event change in status.
 coreNetworkChangeEvent_eventTime :: Lens.Lens' CoreNetworkChangeEvent (Prelude.Maybe Prelude.UTCTime)
-coreNetworkChangeEvent_eventTime = Lens.lens (\CoreNetworkChangeEvent' {eventTime} -> eventTime) (\s@CoreNetworkChangeEvent' {} a -> s {eventTime = a} :: CoreNetworkChangeEvent) Prelude.. Lens.mapping Core._Time
+coreNetworkChangeEvent_eventTime = Lens.lens (\CoreNetworkChangeEvent' {eventTime} -> eventTime) (\s@CoreNetworkChangeEvent' {} a -> s {eventTime = a} :: CoreNetworkChangeEvent) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CoreNetworkChangeEvent where
+instance Data.FromJSON CoreNetworkChangeEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoreNetworkChangeEvent"
       ( \x ->
           CoreNetworkChangeEvent'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "IdentifierPath")
-            Prelude.<*> (x Core..:? "Action")
-            Prelude.<*> (x Core..:? "Values")
-            Prelude.<*> (x Core..:? "EventTime")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "IdentifierPath")
+            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "Values")
+            Prelude.<*> (x Data..:? "EventTime")
       )
 
 instance Prelude.Hashable CoreNetworkChangeEvent where

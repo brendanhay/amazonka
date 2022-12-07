@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -81,7 +82,7 @@ instance Core.AWSRequest GetOrder where
     Response.receiveJSON
       ( \s h x ->
           GetOrderResponse'
-            Prelude.<$> (x Core..?> "Order")
+            Prelude.<$> (x Data..?> "Order")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -92,22 +93,22 @@ instance Prelude.Hashable GetOrder where
 instance Prelude.NFData GetOrder where
   rnf GetOrder' {..} = Prelude.rnf orderId
 
-instance Core.ToHeaders GetOrder where
+instance Data.ToHeaders GetOrder where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetOrder where
+instance Data.ToPath GetOrder where
   toPath GetOrder' {..} =
-    Prelude.mconcat ["/orders/", Core.toBS orderId]
+    Prelude.mconcat ["/orders/", Data.toBS orderId]
 
-instance Core.ToQuery GetOrder where
+instance Data.ToQuery GetOrder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetOrderResponse' smart constructor.

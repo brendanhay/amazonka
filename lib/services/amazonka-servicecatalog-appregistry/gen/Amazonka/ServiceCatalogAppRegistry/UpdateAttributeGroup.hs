@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,7 +128,7 @@ instance Core.AWSRequest UpdateAttributeGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateAttributeGroupResponse'
-            Prelude.<$> (x Core..?> "attributeGroup")
+            Prelude.<$> (x Data..?> "attributeGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,33 +146,33 @@ instance Prelude.NFData UpdateAttributeGroup where
       `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf attributeGroup
 
-instance Core.ToHeaders UpdateAttributeGroup where
+instance Data.ToHeaders UpdateAttributeGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAttributeGroup where
+instance Data.ToJSON UpdateAttributeGroup where
   toJSON UpdateAttributeGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("description" Core..=) Prelude.<$> description,
-            ("attributes" Core..=) Prelude.<$> attributes
+          [ ("name" Data..=) Prelude.<$> name,
+            ("description" Data..=) Prelude.<$> description,
+            ("attributes" Data..=) Prelude.<$> attributes
           ]
       )
 
-instance Core.ToPath UpdateAttributeGroup where
+instance Data.ToPath UpdateAttributeGroup where
   toPath UpdateAttributeGroup' {..} =
     Prelude.mconcat
-      ["/attribute-groups/", Core.toBS attributeGroup]
+      ["/attribute-groups/", Data.toBS attributeGroup]
 
-instance Core.ToQuery UpdateAttributeGroup where
+instance Data.ToQuery UpdateAttributeGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAttributeGroupResponse' smart constructor.

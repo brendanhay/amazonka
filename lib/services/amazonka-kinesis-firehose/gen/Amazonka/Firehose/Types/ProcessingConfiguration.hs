@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.ProcessingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.Processor
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ processingConfiguration_processors = Lens.lens (\ProcessingConfiguration' {proce
 processingConfiguration_enabled :: Lens.Lens' ProcessingConfiguration (Prelude.Maybe Prelude.Bool)
 processingConfiguration_enabled = Lens.lens (\ProcessingConfiguration' {enabled} -> enabled) (\s@ProcessingConfiguration' {} a -> s {enabled = a} :: ProcessingConfiguration)
 
-instance Core.FromJSON ProcessingConfiguration where
+instance Data.FromJSON ProcessingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProcessingConfiguration"
       ( \x ->
           ProcessingConfiguration'
-            Prelude.<$> (x Core..:? "Processors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<$> (x Data..:? "Processors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Enabled")
       )
 
 instance Prelude.Hashable ProcessingConfiguration where
@@ -83,11 +84,11 @@ instance Prelude.NFData ProcessingConfiguration where
     Prelude.rnf processors
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON ProcessingConfiguration where
+instance Data.ToJSON ProcessingConfiguration where
   toJSON ProcessingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Processors" Core..=) Prelude.<$> processors,
-            ("Enabled" Core..=) Prelude.<$> enabled
+          [ ("Processors" Data..=) Prelude.<$> processors,
+            ("Enabled" Data..=) Prelude.<$> enabled
           ]
       )

@@ -71,6 +71,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -285,7 +286,7 @@ instance Core.AWSRequest StartOutboundVoiceContact where
     Response.receiveJSON
       ( \s h x ->
           StartOutboundVoiceContactResponse'
-            Prelude.<$> (x Core..?> "ContactId")
+            Prelude.<$> (x Data..?> "ContactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -315,43 +316,43 @@ instance Prelude.NFData StartOutboundVoiceContact where
       `Prelude.seq` Prelude.rnf contactFlowId
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders StartOutboundVoiceContact where
+instance Data.ToHeaders StartOutboundVoiceContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartOutboundVoiceContact where
+instance Data.ToJSON StartOutboundVoiceContact where
   toJSON StartOutboundVoiceContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("TrafficType" Core..=) Prelude.<$> trafficType,
-            ("CampaignId" Core..=) Prelude.<$> campaignId,
-            ("AnswerMachineDetectionConfig" Core..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("TrafficType" Data..=) Prelude.<$> trafficType,
+            ("CampaignId" Data..=) Prelude.<$> campaignId,
+            ("AnswerMachineDetectionConfig" Data..=)
               Prelude.<$> answerMachineDetectionConfig,
-            ("QueueId" Core..=) Prelude.<$> queueId,
-            ("SourcePhoneNumber" Core..=)
+            ("QueueId" Data..=) Prelude.<$> queueId,
+            ("SourcePhoneNumber" Data..=)
               Prelude.<$> sourcePhoneNumber,
-            ("Attributes" Core..=) Prelude.<$> attributes,
+            ("Attributes" Data..=) Prelude.<$> attributes,
             Prelude.Just
               ( "DestinationPhoneNumber"
-                  Core..= destinationPhoneNumber
+                  Data..= destinationPhoneNumber
               ),
-            Prelude.Just ("ContactFlowId" Core..= contactFlowId),
-            Prelude.Just ("InstanceId" Core..= instanceId)
+            Prelude.Just ("ContactFlowId" Data..= contactFlowId),
+            Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
 
-instance Core.ToPath StartOutboundVoiceContact where
+instance Data.ToPath StartOutboundVoiceContact where
   toPath = Prelude.const "/contact/outbound-voice"
 
-instance Core.ToQuery StartOutboundVoiceContact where
+instance Data.ToQuery StartOutboundVoiceContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartOutboundVoiceContactResponse' smart constructor.

@@ -54,6 +54,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,13 +99,13 @@ instance Core.AWSRequest GetProfileObjectTypeTemplate where
     Response.receiveJSON
       ( \s h x ->
           GetProfileObjectTypeTemplateResponse'
-            Prelude.<$> (x Core..?> "SourceName")
-            Prelude.<*> (x Core..?> "Fields" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "TemplateId")
-            Prelude.<*> (x Core..?> "SourceObject")
-            Prelude.<*> (x Core..?> "SourceLastUpdatedTimestampFormat")
-            Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "AllowProfileCreation")
+            Prelude.<$> (x Data..?> "SourceName")
+            Prelude.<*> (x Data..?> "Fields" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TemplateId")
+            Prelude.<*> (x Data..?> "SourceObject")
+            Prelude.<*> (x Data..?> "SourceLastUpdatedTimestampFormat")
+            Prelude.<*> (x Data..?> "Keys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "AllowProfileCreation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,23 +120,23 @@ instance Prelude.NFData GetProfileObjectTypeTemplate where
   rnf GetProfileObjectTypeTemplate' {..} =
     Prelude.rnf templateId
 
-instance Core.ToHeaders GetProfileObjectTypeTemplate where
+instance Data.ToHeaders GetProfileObjectTypeTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetProfileObjectTypeTemplate where
+instance Data.ToPath GetProfileObjectTypeTemplate where
   toPath GetProfileObjectTypeTemplate' {..} =
     Prelude.mconcat
-      ["/templates/", Core.toBS templateId]
+      ["/templates/", Data.toBS templateId]
 
-instance Core.ToQuery GetProfileObjectTypeTemplate where
+instance Data.ToQuery GetProfileObjectTypeTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetProfileObjectTypeTemplateResponse' smart constructor.

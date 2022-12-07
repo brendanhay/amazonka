@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.AccessKeyDetails
 import Amazonka.GuardDuty.Types.Container
 import Amazonka.GuardDuty.Types.EbsVolumeDetails
@@ -141,23 +142,23 @@ resource_kubernetesDetails = Lens.lens (\Resource' {kubernetesDetails} -> kubern
 resource_ebsVolumeDetails :: Lens.Lens' Resource (Prelude.Maybe EbsVolumeDetails)
 resource_ebsVolumeDetails = Lens.lens (\Resource' {ebsVolumeDetails} -> ebsVolumeDetails) (\s@Resource' {} a -> s {ebsVolumeDetails = a} :: Resource)
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "instanceDetails")
-            Prelude.<*> ( x Core..:? "s3BucketDetails"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "instanceDetails")
+            Prelude.<*> ( x Data..:? "s3BucketDetails"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ecsClusterDetails")
-            Prelude.<*> (x Core..:? "containerDetails")
-            Prelude.<*> (x Core..:? "accessKeyDetails")
-            Prelude.<*> (x Core..:? "eksClusterDetails")
-            Prelude.<*> (x Core..:? "kubernetesDetails")
-            Prelude.<*> (x Core..:? "ebsVolumeDetails")
+            Prelude.<*> (x Data..:? "ecsClusterDetails")
+            Prelude.<*> (x Data..:? "containerDetails")
+            Prelude.<*> (x Data..:? "accessKeyDetails")
+            Prelude.<*> (x Data..:? "eksClusterDetails")
+            Prelude.<*> (x Data..:? "kubernetesDetails")
+            Prelude.<*> (x Data..:? "ebsVolumeDetails")
       )
 
 instance Prelude.Hashable Resource where

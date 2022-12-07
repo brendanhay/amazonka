@@ -21,13 +21,14 @@ module Amazonka.IoTWireless.Types.LoRaWANStartFuotaTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The LoRaWAN information used to start a FUOTA task.
 --
 -- /See:/ 'newLoRaWANStartFuotaTask' smart constructor.
 data LoRaWANStartFuotaTask = LoRaWANStartFuotaTask'
-  { startTime :: Prelude.Maybe Core.POSIX
+  { startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,7 +48,7 @@ newLoRaWANStartFuotaTask =
 
 -- | Undocumented member.
 loRaWANStartFuotaTask_startTime :: Lens.Lens' LoRaWANStartFuotaTask (Prelude.Maybe Prelude.UTCTime)
-loRaWANStartFuotaTask_startTime = Lens.lens (\LoRaWANStartFuotaTask' {startTime} -> startTime) (\s@LoRaWANStartFuotaTask' {} a -> s {startTime = a} :: LoRaWANStartFuotaTask) Prelude.. Lens.mapping Core._Time
+loRaWANStartFuotaTask_startTime = Lens.lens (\LoRaWANStartFuotaTask' {startTime} -> startTime) (\s@LoRaWANStartFuotaTask' {} a -> s {startTime = a} :: LoRaWANStartFuotaTask) Prelude.. Lens.mapping Data._Time
 
 instance Prelude.Hashable LoRaWANStartFuotaTask where
   hashWithSalt _salt LoRaWANStartFuotaTask' {..} =
@@ -57,9 +58,9 @@ instance Prelude.NFData LoRaWANStartFuotaTask where
   rnf LoRaWANStartFuotaTask' {..} =
     Prelude.rnf startTime
 
-instance Core.ToJSON LoRaWANStartFuotaTask where
+instance Data.ToJSON LoRaWANStartFuotaTask where
   toJSON LoRaWANStartFuotaTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("StartTime" Core..=) Prelude.<$> startTime]
+          [("StartTime" Data..=) Prelude.<$> startTime]
       )

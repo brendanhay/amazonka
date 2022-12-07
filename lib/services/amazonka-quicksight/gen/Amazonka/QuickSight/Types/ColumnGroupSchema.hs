@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ColumnGroupSchema where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ColumnGroupColumnSchema
 
@@ -63,16 +64,16 @@ columnGroupSchema_columnGroupColumnSchemaList = Lens.lens (\ColumnGroupSchema' {
 columnGroupSchema_name :: Lens.Lens' ColumnGroupSchema (Prelude.Maybe Prelude.Text)
 columnGroupSchema_name = Lens.lens (\ColumnGroupSchema' {name} -> name) (\s@ColumnGroupSchema' {} a -> s {name = a} :: ColumnGroupSchema)
 
-instance Core.FromJSON ColumnGroupSchema where
+instance Data.FromJSON ColumnGroupSchema where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnGroupSchema"
       ( \x ->
           ColumnGroupSchema'
-            Prelude.<$> ( x Core..:? "ColumnGroupColumnSchemaList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ColumnGroupColumnSchemaList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable ColumnGroupSchema where

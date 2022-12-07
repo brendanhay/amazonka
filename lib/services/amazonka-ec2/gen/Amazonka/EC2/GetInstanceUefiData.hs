@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,8 +122,8 @@ instance Core.AWSRequest GetInstanceUefiData where
     Response.receiveXML
       ( \s h x ->
           GetInstanceUefiDataResponse'
-            Prelude.<$> (x Core..@? "instanceId")
-            Prelude.<*> (x Core..@? "uefiData")
+            Prelude.<$> (x Data..@? "instanceId")
+            Prelude.<*> (x Data..@? "uefiData")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,21 +137,21 @@ instance Prelude.NFData GetInstanceUefiData where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders GetInstanceUefiData where
+instance Data.ToHeaders GetInstanceUefiData where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetInstanceUefiData where
+instance Data.ToPath GetInstanceUefiData where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetInstanceUefiData where
+instance Data.ToQuery GetInstanceUefiData where
   toQuery GetInstanceUefiData' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetInstanceUefiData" :: Prelude.ByteString),
+          Data.=: ("GetInstanceUefiData" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "InstanceId" Core.=: instanceId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "InstanceId" Data.=: instanceId
       ]
 
 -- | /See:/ 'newGetInstanceUefiDataResponse' smart constructor.

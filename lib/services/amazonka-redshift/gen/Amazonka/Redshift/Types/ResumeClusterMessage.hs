@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ResumeClusterMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -57,10 +58,10 @@ newResumeClusterMessage pClusterIdentifier_ =
 resumeClusterMessage_clusterIdentifier :: Lens.Lens' ResumeClusterMessage Prelude.Text
 resumeClusterMessage_clusterIdentifier = Lens.lens (\ResumeClusterMessage' {clusterIdentifier} -> clusterIdentifier) (\s@ResumeClusterMessage' {} a -> s {clusterIdentifier = a} :: ResumeClusterMessage)
 
-instance Core.FromXML ResumeClusterMessage where
+instance Data.FromXML ResumeClusterMessage where
   parseXML x =
     ResumeClusterMessage'
-      Prelude.<$> (x Core..@ "ClusterIdentifier")
+      Prelude.<$> (x Data..@ "ClusterIdentifier")
 
 instance Prelude.Hashable ResumeClusterMessage where
   hashWithSalt _salt ResumeClusterMessage' {..} =
@@ -70,7 +71,7 @@ instance Prelude.NFData ResumeClusterMessage where
   rnf ResumeClusterMessage' {..} =
     Prelude.rnf clusterIdentifier
 
-instance Core.ToQuery ResumeClusterMessage where
+instance Data.ToQuery ResumeClusterMessage where
   toQuery ResumeClusterMessage' {..} =
     Prelude.mconcat
-      ["ClusterIdentifier" Core.=: clusterIdentifier]
+      ["ClusterIdentifier" Data.=: clusterIdentifier]

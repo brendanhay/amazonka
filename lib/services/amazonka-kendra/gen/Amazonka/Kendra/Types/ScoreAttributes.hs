@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ScoreAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ScoreConfidence
 import qualified Amazonka.Prelude as Prelude
 
@@ -52,13 +53,13 @@ newScoreAttributes =
 scoreAttributes_scoreConfidence :: Lens.Lens' ScoreAttributes (Prelude.Maybe ScoreConfidence)
 scoreAttributes_scoreConfidence = Lens.lens (\ScoreAttributes' {scoreConfidence} -> scoreConfidence) (\s@ScoreAttributes' {} a -> s {scoreConfidence = a} :: ScoreAttributes)
 
-instance Core.FromJSON ScoreAttributes where
+instance Data.FromJSON ScoreAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScoreAttributes"
       ( \x ->
           ScoreAttributes'
-            Prelude.<$> (x Core..:? "ScoreConfidence")
+            Prelude.<$> (x Data..:? "ScoreConfidence")
       )
 
 instance Prelude.Hashable ScoreAttributes where

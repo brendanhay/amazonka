@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PeeringConnectionOptionsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -114,13 +115,13 @@ instance
       `Prelude.seq` Prelude.rnf
         allowEgressFromLocalClassicLinkToRemoteVpc
 
-instance Core.ToQuery PeeringConnectionOptionsRequest where
+instance Data.ToQuery PeeringConnectionOptionsRequest where
   toQuery PeeringConnectionOptionsRequest' {..} =
     Prelude.mconcat
       [ "AllowDnsResolutionFromRemoteVpc"
-          Core.=: allowDnsResolutionFromRemoteVpc,
+          Data.=: allowDnsResolutionFromRemoteVpc,
         "AllowEgressFromLocalVpcToRemoteClassicLink"
-          Core.=: allowEgressFromLocalVpcToRemoteClassicLink,
+          Data.=: allowEgressFromLocalVpcToRemoteClassicLink,
         "AllowEgressFromLocalClassicLinkToRemoteVpc"
-          Core.=: allowEgressFromLocalClassicLinkToRemoteVpc
+          Data.=: allowEgressFromLocalClassicLinkToRemoteVpc
       ]

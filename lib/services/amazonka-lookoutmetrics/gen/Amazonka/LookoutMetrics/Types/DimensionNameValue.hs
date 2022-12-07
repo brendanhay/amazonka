@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.DimensionNameValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A dimension name and value.
@@ -68,14 +69,14 @@ dimensionNameValue_dimensionName = Lens.lens (\DimensionNameValue' {dimensionNam
 dimensionNameValue_dimensionValue :: Lens.Lens' DimensionNameValue Prelude.Text
 dimensionNameValue_dimensionValue = Lens.lens (\DimensionNameValue' {dimensionValue} -> dimensionValue) (\s@DimensionNameValue' {} a -> s {dimensionValue = a} :: DimensionNameValue)
 
-instance Core.FromJSON DimensionNameValue where
+instance Data.FromJSON DimensionNameValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DimensionNameValue"
       ( \x ->
           DimensionNameValue'
-            Prelude.<$> (x Core..: "DimensionName")
-            Prelude.<*> (x Core..: "DimensionValue")
+            Prelude.<$> (x Data..: "DimensionName")
+            Prelude.<*> (x Data..: "DimensionValue")
       )
 
 instance Prelude.Hashable DimensionNameValue where

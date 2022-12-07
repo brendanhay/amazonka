@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -123,7 +124,7 @@ instance Core.AWSRequest DeleteApp where
       ( \s h x ->
           DeleteAppResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "appArn")
+            Prelude.<*> (x Data..:> "appArn")
       )
 
 instance Prelude.Hashable DeleteApp where
@@ -138,31 +139,31 @@ instance Prelude.NFData DeleteApp where
       `Prelude.seq` Prelude.rnf forceDelete
       `Prelude.seq` Prelude.rnf appArn
 
-instance Core.ToHeaders DeleteApp where
+instance Data.ToHeaders DeleteApp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteApp where
+instance Data.ToJSON DeleteApp where
   toJSON DeleteApp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("forceDelete" Core..=) Prelude.<$> forceDelete,
-            Prelude.Just ("appArn" Core..= appArn)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("forceDelete" Data..=) Prelude.<$> forceDelete,
+            Prelude.Just ("appArn" Data..= appArn)
           ]
       )
 
-instance Core.ToPath DeleteApp where
+instance Data.ToPath DeleteApp where
   toPath = Prelude.const "/delete-app"
 
-instance Core.ToQuery DeleteApp where
+instance Data.ToQuery DeleteApp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAppResponse' smart constructor.

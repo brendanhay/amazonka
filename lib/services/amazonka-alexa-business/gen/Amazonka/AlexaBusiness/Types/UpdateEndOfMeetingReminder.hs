@@ -22,6 +22,7 @@ module Amazonka.AlexaBusiness.Types.UpdateEndOfMeetingReminder where
 import Amazonka.AlexaBusiness.Types.EndOfMeetingReminderType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for the end of meeting reminder feature that are applied to a
@@ -92,13 +93,13 @@ instance Prelude.NFData UpdateEndOfMeetingReminder where
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf reminderAtMinutes
 
-instance Core.ToJSON UpdateEndOfMeetingReminder where
+instance Data.ToJSON UpdateEndOfMeetingReminder where
   toJSON UpdateEndOfMeetingReminder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReminderType" Core..=) Prelude.<$> reminderType,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("ReminderAtMinutes" Core..=)
+          [ ("ReminderType" Data..=) Prelude.<$> reminderType,
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("ReminderAtMinutes" Data..=)
               Prelude.<$> reminderAtMinutes
           ]
       )

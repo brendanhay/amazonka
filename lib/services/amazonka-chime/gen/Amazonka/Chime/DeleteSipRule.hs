@@ -39,6 +39,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,15 +87,15 @@ instance Prelude.Hashable DeleteSipRule where
 instance Prelude.NFData DeleteSipRule where
   rnf DeleteSipRule' {..} = Prelude.rnf sipRuleId
 
-instance Core.ToHeaders DeleteSipRule where
+instance Data.ToHeaders DeleteSipRule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteSipRule where
+instance Data.ToPath DeleteSipRule where
   toPath DeleteSipRule' {..} =
     Prelude.mconcat
-      ["/sip-rules/", Core.toBS sipRuleId]
+      ["/sip-rules/", Data.toBS sipRuleId]
 
-instance Core.ToQuery DeleteSipRule where
+instance Data.ToQuery DeleteSipRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSipRuleResponse' smart constructor.

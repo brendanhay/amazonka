@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.ApplicationDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalytics.Types.ApplicationStatus
 import Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOptionDescription
 import Amazonka.KinesisAnalytics.Types.InputDescription
@@ -47,9 +48,9 @@ data ApplicationDetail = ApplicationDetail'
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
     inputDescriptions :: Prelude.Maybe [InputDescription],
     -- | Time stamp when the application was last updated.
-    lastUpdateTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdateTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Time stamp when the application version was created.
-    createTimestamp :: Prelude.Maybe Core.POSIX,
+    createTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Describes the CloudWatch log streams that are configured to receive
     -- application messages. For more information about using CloudWatch log
     -- streams with Amazon Kinesis Analytics applications, see
@@ -160,11 +161,11 @@ applicationDetail_inputDescriptions = Lens.lens (\ApplicationDetail' {inputDescr
 
 -- | Time stamp when the application was last updated.
 applicationDetail_lastUpdateTimestamp :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.UTCTime)
-applicationDetail_lastUpdateTimestamp = Lens.lens (\ApplicationDetail' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ApplicationDetail' {} a -> s {lastUpdateTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Core._Time
+applicationDetail_lastUpdateTimestamp = Lens.lens (\ApplicationDetail' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ApplicationDetail' {} a -> s {lastUpdateTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Data._Time
 
 -- | Time stamp when the application version was created.
 applicationDetail_createTimestamp :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.UTCTime)
-applicationDetail_createTimestamp = Lens.lens (\ApplicationDetail' {createTimestamp} -> createTimestamp) (\s@ApplicationDetail' {} a -> s {createTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Core._Time
+applicationDetail_createTimestamp = Lens.lens (\ApplicationDetail' {createTimestamp} -> createTimestamp) (\s@ApplicationDetail' {} a -> s {createTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Data._Time
 
 -- | Describes the CloudWatch log streams that are configured to receive
 -- application messages. For more information about using CloudWatch log
@@ -204,32 +205,32 @@ applicationDetail_applicationStatus = Lens.lens (\ApplicationDetail' {applicatio
 applicationDetail_applicationVersionId :: Lens.Lens' ApplicationDetail Prelude.Natural
 applicationDetail_applicationVersionId = Lens.lens (\ApplicationDetail' {applicationVersionId} -> applicationVersionId) (\s@ApplicationDetail' {} a -> s {applicationVersionId = a} :: ApplicationDetail)
 
-instance Core.FromJSON ApplicationDetail where
+instance Data.FromJSON ApplicationDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationDetail"
       ( \x ->
           ApplicationDetail'
-            Prelude.<$> ( x Core..:? "ReferenceDataSourceDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ReferenceDataSourceDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "InputDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "InputDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastUpdateTimestamp")
-            Prelude.<*> (x Core..:? "CreateTimestamp")
-            Prelude.<*> ( x Core..:? "CloudWatchLoggingOptionDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "LastUpdateTimestamp")
+            Prelude.<*> (x Data..:? "CreateTimestamp")
+            Prelude.<*> ( x Data..:? "CloudWatchLoggingOptionDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ApplicationCode")
-            Prelude.<*> (x Core..:? "ApplicationDescription")
-            Prelude.<*> ( x Core..:? "OutputDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ApplicationCode")
+            Prelude.<*> (x Data..:? "ApplicationDescription")
+            Prelude.<*> ( x Data..:? "OutputDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "ApplicationName")
-            Prelude.<*> (x Core..: "ApplicationARN")
-            Prelude.<*> (x Core..: "ApplicationStatus")
-            Prelude.<*> (x Core..: "ApplicationVersionId")
+            Prelude.<*> (x Data..: "ApplicationName")
+            Prelude.<*> (x Data..: "ApplicationARN")
+            Prelude.<*> (x Data..: "ApplicationStatus")
+            Prelude.<*> (x Data..: "ApplicationVersionId")
       )
 
 instance Prelude.Hashable ApplicationDetail where

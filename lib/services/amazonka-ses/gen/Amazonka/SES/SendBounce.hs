@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -182,7 +183,7 @@ instance Core.AWSRequest SendBounce where
       "SendBounceResult"
       ( \s h x ->
           SendBounceResponse'
-            Prelude.<$> (x Core..@? "MessageId")
+            Prelude.<$> (x Data..@? "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,26 +205,26 @@ instance Prelude.NFData SendBounce where
       `Prelude.seq` Prelude.rnf bounceSender
       `Prelude.seq` Prelude.rnf bouncedRecipientInfoList
 
-instance Core.ToHeaders SendBounce where
+instance Data.ToHeaders SendBounce where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SendBounce where
+instance Data.ToPath SendBounce where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendBounce where
+instance Data.ToQuery SendBounce where
   toQuery SendBounce' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SendBounce" :: Prelude.ByteString),
+          Data.=: ("SendBounce" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "BounceSenderArn" Core.=: bounceSenderArn,
-        "Explanation" Core.=: explanation,
-        "MessageDsn" Core.=: messageDsn,
-        "OriginalMessageId" Core.=: originalMessageId,
-        "BounceSender" Core.=: bounceSender,
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "BounceSenderArn" Data.=: bounceSenderArn,
+        "Explanation" Data.=: explanation,
+        "MessageDsn" Data.=: messageDsn,
+        "OriginalMessageId" Data.=: originalMessageId,
+        "BounceSender" Data.=: bounceSender,
         "BouncedRecipientInfoList"
-          Core.=: Core.toQueryList "member" bouncedRecipientInfoList
+          Data.=: Data.toQueryList "member" bouncedRecipientInfoList
       ]
 
 -- | Represents a unique message ID.

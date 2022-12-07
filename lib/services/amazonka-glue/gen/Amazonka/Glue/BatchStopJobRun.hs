@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,10 +102,10 @@ instance Core.AWSRequest BatchStopJobRun where
     Response.receiveJSON
       ( \s h x ->
           BatchStopJobRunResponse'
-            Prelude.<$> ( x Core..?> "SuccessfulSubmissions"
+            Prelude.<$> ( x Data..?> "SuccessfulSubmissions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,32 +119,32 @@ instance Prelude.NFData BatchStopJobRun where
     Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf jobRunIds
 
-instance Core.ToHeaders BatchStopJobRun where
+instance Data.ToHeaders BatchStopJobRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.BatchStopJobRun" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.BatchStopJobRun" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchStopJobRun where
+instance Data.ToJSON BatchStopJobRun where
   toJSON BatchStopJobRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("JobName" Core..= jobName),
-            Prelude.Just ("JobRunIds" Core..= jobRunIds)
+          [ Prelude.Just ("JobName" Data..= jobName),
+            Prelude.Just ("JobRunIds" Data..= jobRunIds)
           ]
       )
 
-instance Core.ToPath BatchStopJobRun where
+instance Data.ToPath BatchStopJobRun where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchStopJobRun where
+instance Data.ToQuery BatchStopJobRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchStopJobRunResponse' smart constructor.

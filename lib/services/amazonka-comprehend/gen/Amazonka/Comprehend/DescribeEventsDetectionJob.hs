@@ -42,6 +42,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest DescribeEventsDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventsDetectionJobResponse'
-            Prelude.<$> (x Core..?> "EventsDetectionJobProperties")
+            Prelude.<$> (x Data..?> "EventsDetectionJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,32 +96,32 @@ instance Prelude.NFData DescribeEventsDetectionJob where
   rnf DescribeEventsDetectionJob' {..} =
     Prelude.rnf jobId
 
-instance Core.ToHeaders DescribeEventsDetectionJob where
+instance Data.ToHeaders DescribeEventsDetectionJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.DescribeEventsDetectionJob" ::
+              Data.=# ( "Comprehend_20171127.DescribeEventsDetectionJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEventsDetectionJob where
+instance Data.ToJSON DescribeEventsDetectionJob where
   toJSON DescribeEventsDetectionJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Core..= jobId)]
+          [Prelude.Just ("JobId" Data..= jobId)]
       )
 
-instance Core.ToPath DescribeEventsDetectionJob where
+instance Data.ToPath DescribeEventsDetectionJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEventsDetectionJob where
+instance Data.ToQuery DescribeEventsDetectionJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEventsDetectionJobResponse' smart constructor.

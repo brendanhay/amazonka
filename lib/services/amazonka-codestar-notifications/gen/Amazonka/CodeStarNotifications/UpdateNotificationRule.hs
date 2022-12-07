@@ -51,6 +51,7 @@ where
 import Amazonka.CodeStarNotifications.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -58,7 +59,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateNotificationRule' smart constructor.
 data UpdateNotificationRule = UpdateNotificationRule'
   { -- | The name of the notification rule.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The level of detail to include in the notifications for this resource.
     -- BASIC will include only the contents of the event as it would appear in
     -- Amazon CloudWatch. FULL will include any supplemental information
@@ -125,7 +126,7 @@ newUpdateNotificationRule pArn_ =
 
 -- | The name of the notification rule.
 updateNotificationRule_name :: Lens.Lens' UpdateNotificationRule (Prelude.Maybe Prelude.Text)
-updateNotificationRule_name = Lens.lens (\UpdateNotificationRule' {name} -> name) (\s@UpdateNotificationRule' {} a -> s {name = a} :: UpdateNotificationRule) Prelude.. Lens.mapping Core._Sensitive
+updateNotificationRule_name = Lens.lens (\UpdateNotificationRule' {name} -> name) (\s@UpdateNotificationRule' {} a -> s {name = a} :: UpdateNotificationRule) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The level of detail to include in the notifications for this resource.
 -- BASIC will include only the contents of the event as it would appear in
@@ -187,34 +188,34 @@ instance Prelude.NFData UpdateNotificationRule where
       `Prelude.seq` Prelude.rnf eventTypeIds
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders UpdateNotificationRule where
+instance Data.ToHeaders UpdateNotificationRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNotificationRule where
+instance Data.ToJSON UpdateNotificationRule where
   toJSON UpdateNotificationRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("DetailType" Core..=) Prelude.<$> detailType,
-            ("Status" Core..=) Prelude.<$> status,
-            ("Targets" Core..=) Prelude.<$> targets,
-            ("EventTypeIds" Core..=) Prelude.<$> eventTypeIds,
-            Prelude.Just ("Arn" Core..= arn)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("DetailType" Data..=) Prelude.<$> detailType,
+            ("Status" Data..=) Prelude.<$> status,
+            ("Targets" Data..=) Prelude.<$> targets,
+            ("EventTypeIds" Data..=) Prelude.<$> eventTypeIds,
+            Prelude.Just ("Arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath UpdateNotificationRule where
+instance Data.ToPath UpdateNotificationRule where
   toPath = Prelude.const "/updateNotificationRule"
 
-instance Core.ToQuery UpdateNotificationRule where
+instance Data.ToQuery UpdateNotificationRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateNotificationRuleResponse' smart constructor.

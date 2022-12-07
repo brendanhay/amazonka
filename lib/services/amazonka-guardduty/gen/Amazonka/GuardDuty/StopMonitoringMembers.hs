@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest StopMonitoringMembers where
       ( \s h x ->
           StopMonitoringMembersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "unprocessedAccounts"
+            Prelude.<*> ( x Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -118,30 +119,30 @@ instance Prelude.NFData StopMonitoringMembers where
     Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf accountIds
 
-instance Core.ToHeaders StopMonitoringMembers where
+instance Data.ToHeaders StopMonitoringMembers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopMonitoringMembers where
+instance Data.ToJSON StopMonitoringMembers where
   toJSON StopMonitoringMembers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("accountIds" Core..= accountIds)]
+          [Prelude.Just ("accountIds" Data..= accountIds)]
       )
 
-instance Core.ToPath StopMonitoringMembers where
+instance Data.ToPath StopMonitoringMembers where
   toPath StopMonitoringMembers' {..} =
     Prelude.mconcat
-      ["/detector/", Core.toBS detectorId, "/member/stop"]
+      ["/detector/", Data.toBS detectorId, "/member/stop"]
 
-instance Core.ToQuery StopMonitoringMembers where
+instance Data.ToQuery StopMonitoringMembers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopMonitoringMembersResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.ImagePipeline where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.ImageTestsConfiguration
 import Amazonka.ImageBuilder.Types.PipelineStatus
 import Amazonka.ImageBuilder.Types.Platform
@@ -222,29 +223,29 @@ imagePipeline_dateCreated = Lens.lens (\ImagePipeline' {dateCreated} -> dateCrea
 imagePipeline_distributionConfigurationArn :: Lens.Lens' ImagePipeline (Prelude.Maybe Prelude.Text)
 imagePipeline_distributionConfigurationArn = Lens.lens (\ImagePipeline' {distributionConfigurationArn} -> distributionConfigurationArn) (\s@ImagePipeline' {} a -> s {distributionConfigurationArn = a} :: ImagePipeline)
 
-instance Core.FromJSON ImagePipeline where
+instance Data.FromJSON ImagePipeline where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImagePipeline"
       ( \x ->
           ImagePipeline'
-            Prelude.<$> (x Core..:? "enhancedImageMetadataEnabled")
-            Prelude.<*> (x Core..:? "schedule")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "imageTestsConfiguration")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "imageRecipeArn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "containerRecipeArn")
-            Prelude.<*> (x Core..:? "dateLastRun")
-            Prelude.<*> (x Core..:? "dateNextRun")
-            Prelude.<*> (x Core..:? "infrastructureConfigurationArn")
-            Prelude.<*> (x Core..:? "dateUpdated")
-            Prelude.<*> (x Core..:? "dateCreated")
-            Prelude.<*> (x Core..:? "distributionConfigurationArn")
+            Prelude.<$> (x Data..:? "enhancedImageMetadataEnabled")
+            Prelude.<*> (x Data..:? "schedule")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "imageTestsConfiguration")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "imageRecipeArn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "containerRecipeArn")
+            Prelude.<*> (x Data..:? "dateLastRun")
+            Prelude.<*> (x Data..:? "dateNextRun")
+            Prelude.<*> (x Data..:? "infrastructureConfigurationArn")
+            Prelude.<*> (x Data..:? "dateUpdated")
+            Prelude.<*> (x Data..:? "dateCreated")
+            Prelude.<*> (x Data..:? "distributionConfigurationArn")
       )
 
 instance Prelude.Hashable ImagePipeline where

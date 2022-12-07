@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelPackage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AdditionalInferenceSpecificationDefinition
 import Amazonka.SageMaker.Types.DriftCheckBaselines
@@ -94,7 +95,7 @@ data ModelPackage = ModelPackage'
     -- | The Amazon Resource Name (ARN) of the model package.
     modelPackageArn :: Prelude.Maybe Prelude.Text,
     -- | The last time the model package was modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The status of the model package. This can be one of the following
     -- values.
     --
@@ -114,7 +115,7 @@ data ModelPackage = ModelPackage'
     -- | Specifies the validation and image scan statuses of the model package.
     modelPackageStatusDetails :: Prelude.Maybe ModelPackageStatusDetails,
     -- | The time that the model package was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Information about the user who created or modified an experiment, trial,
     -- trial component, lineage group, or project.
     lastModifiedBy :: Prelude.Maybe UserContext,
@@ -345,7 +346,7 @@ modelPackage_modelPackageArn = Lens.lens (\ModelPackage' {modelPackageArn} -> mo
 
 -- | The last time the model package was modified.
 modelPackage_lastModifiedTime :: Lens.Lens' ModelPackage (Prelude.Maybe Prelude.UTCTime)
-modelPackage_lastModifiedTime = Lens.lens (\ModelPackage' {lastModifiedTime} -> lastModifiedTime) (\s@ModelPackage' {} a -> s {lastModifiedTime = a} :: ModelPackage) Prelude.. Lens.mapping Core._Time
+modelPackage_lastModifiedTime = Lens.lens (\ModelPackage' {lastModifiedTime} -> lastModifiedTime) (\s@ModelPackage' {} a -> s {lastModifiedTime = a} :: ModelPackage) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the model package. This can be one of the following
 -- values.
@@ -373,7 +374,7 @@ modelPackage_modelPackageStatusDetails = Lens.lens (\ModelPackage' {modelPackage
 
 -- | The time that the model package was created.
 modelPackage_creationTime :: Lens.Lens' ModelPackage (Prelude.Maybe Prelude.UTCTime)
-modelPackage_creationTime = Lens.lens (\ModelPackage' {creationTime} -> creationTime) (\s@ModelPackage' {} a -> s {creationTime = a} :: ModelPackage) Prelude.. Lens.mapping Core._Time
+modelPackage_creationTime = Lens.lens (\ModelPackage' {creationTime} -> creationTime) (\s@ModelPackage' {} a -> s {creationTime = a} :: ModelPackage) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the user who created or modified an experiment, trial,
 -- trial component, lineage group, or project.
@@ -397,40 +398,40 @@ modelPackage_customerMetadataProperties = Lens.lens (\ModelPackage' {customerMet
 modelPackage_modelPackageName :: Lens.Lens' ModelPackage (Prelude.Maybe Prelude.Text)
 modelPackage_modelPackageName = Lens.lens (\ModelPackage' {modelPackageName} -> modelPackageName) (\s@ModelPackage' {} a -> s {modelPackageName = a} :: ModelPackage)
 
-instance Core.FromJSON ModelPackage where
+instance Data.FromJSON ModelPackage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelPackage"
       ( \x ->
           ModelPackage'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ModelPackageVersion")
-            Prelude.<*> (x Core..:? "ModelPackageGroupName")
-            Prelude.<*> (x Core..:? "SourceAlgorithmSpecification")
-            Prelude.<*> (x Core..:? "ValidationSpecification")
-            Prelude.<*> (x Core..:? "SamplePayloadUrl")
-            Prelude.<*> (x Core..:? "Task")
-            Prelude.<*> (x Core..:? "CertifyForMarketplace")
-            Prelude.<*> (x Core..:? "InferenceSpecification")
-            Prelude.<*> (x Core..:? "ModelApprovalStatus")
-            Prelude.<*> (x Core..:? "MetadataProperties")
-            Prelude.<*> (x Core..:? "Domain")
-            Prelude.<*> (x Core..:? "ModelPackageDescription")
-            Prelude.<*> (x Core..:? "DriftCheckBaselines")
-            Prelude.<*> (x Core..:? "ApprovalDescription")
-            Prelude.<*> (x Core..:? "ModelPackageArn")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "ModelPackageStatus")
-            Prelude.<*> (x Core..:? "ModelMetrics")
-            Prelude.<*> (x Core..:? "ModelPackageStatusDetails")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "AdditionalInferenceSpecifications")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> ( x Core..:? "CustomerMetadataProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ModelPackageVersion")
+            Prelude.<*> (x Data..:? "ModelPackageGroupName")
+            Prelude.<*> (x Data..:? "SourceAlgorithmSpecification")
+            Prelude.<*> (x Data..:? "ValidationSpecification")
+            Prelude.<*> (x Data..:? "SamplePayloadUrl")
+            Prelude.<*> (x Data..:? "Task")
+            Prelude.<*> (x Data..:? "CertifyForMarketplace")
+            Prelude.<*> (x Data..:? "InferenceSpecification")
+            Prelude.<*> (x Data..:? "ModelApprovalStatus")
+            Prelude.<*> (x Data..:? "MetadataProperties")
+            Prelude.<*> (x Data..:? "Domain")
+            Prelude.<*> (x Data..:? "ModelPackageDescription")
+            Prelude.<*> (x Data..:? "DriftCheckBaselines")
+            Prelude.<*> (x Data..:? "ApprovalDescription")
+            Prelude.<*> (x Data..:? "ModelPackageArn")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "ModelPackageStatus")
+            Prelude.<*> (x Data..:? "ModelMetrics")
+            Prelude.<*> (x Data..:? "ModelPackageStatusDetails")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "AdditionalInferenceSpecifications")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> ( x Data..:? "CustomerMetadataProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ModelPackageName")
+            Prelude.<*> (x Data..:? "ModelPackageName")
       )
 
 instance Prelude.Hashable ModelPackage where

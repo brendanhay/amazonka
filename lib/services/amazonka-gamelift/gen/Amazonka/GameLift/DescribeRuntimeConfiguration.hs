@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,7 +113,7 @@ instance Core.AWSRequest DescribeRuntimeConfiguration where
     Response.receiveJSON
       ( \s h x ->
           DescribeRuntimeConfigurationResponse'
-            Prelude.<$> (x Core..?> "RuntimeConfiguration")
+            Prelude.<$> (x Data..?> "RuntimeConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,32 +128,32 @@ instance Prelude.NFData DescribeRuntimeConfiguration where
   rnf DescribeRuntimeConfiguration' {..} =
     Prelude.rnf fleetId
 
-instance Core.ToHeaders DescribeRuntimeConfiguration where
+instance Data.ToHeaders DescribeRuntimeConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeRuntimeConfiguration" ::
+              Data.=# ( "GameLift.DescribeRuntimeConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRuntimeConfiguration where
+instance Data.ToJSON DescribeRuntimeConfiguration where
   toJSON DescribeRuntimeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("FleetId" Core..= fleetId)]
+          [Prelude.Just ("FleetId" Data..= fleetId)]
       )
 
-instance Core.ToPath DescribeRuntimeConfiguration where
+instance Data.ToPath DescribeRuntimeConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeRuntimeConfiguration where
+instance Data.ToQuery DescribeRuntimeConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

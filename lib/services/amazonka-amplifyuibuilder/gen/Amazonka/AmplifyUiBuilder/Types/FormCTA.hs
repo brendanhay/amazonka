@@ -23,6 +23,7 @@ import Amazonka.AmplifyUiBuilder.Types.FormButton
 import Amazonka.AmplifyUiBuilder.Types.FormButtonsPosition
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the call to action button configuration for the form.
@@ -81,16 +82,16 @@ formCTA_position = Lens.lens (\FormCTA' {position} -> position) (\s@FormCTA' {} 
 formCTA_cancel :: Lens.Lens' FormCTA (Prelude.Maybe FormButton)
 formCTA_cancel = Lens.lens (\FormCTA' {cancel} -> cancel) (\s@FormCTA' {} a -> s {cancel = a} :: FormCTA)
 
-instance Core.FromJSON FormCTA where
+instance Data.FromJSON FormCTA where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FormCTA"
       ( \x ->
           FormCTA'
-            Prelude.<$> (x Core..:? "clear")
-            Prelude.<*> (x Core..:? "submit")
-            Prelude.<*> (x Core..:? "position")
-            Prelude.<*> (x Core..:? "cancel")
+            Prelude.<$> (x Data..:? "clear")
+            Prelude.<*> (x Data..:? "submit")
+            Prelude.<*> (x Data..:? "position")
+            Prelude.<*> (x Data..:? "cancel")
       )
 
 instance Prelude.Hashable FormCTA where
@@ -107,13 +108,13 @@ instance Prelude.NFData FormCTA where
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf cancel
 
-instance Core.ToJSON FormCTA where
+instance Data.ToJSON FormCTA where
   toJSON FormCTA' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clear" Core..=) Prelude.<$> clear,
-            ("submit" Core..=) Prelude.<$> submit,
-            ("position" Core..=) Prelude.<$> position,
-            ("cancel" Core..=) Prelude.<$> cancel
+          [ ("clear" Data..=) Prelude.<$> clear,
+            ("submit" Data..=) Prelude.<$> submit,
+            ("position" Data..=) Prelude.<$> position,
+            ("cancel" Data..=) Prelude.<$> cancel
           ]
       )

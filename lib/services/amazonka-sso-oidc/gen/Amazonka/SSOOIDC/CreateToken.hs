@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -232,11 +233,11 @@ instance Core.AWSRequest CreateToken where
     Response.receiveJSON
       ( \s h x ->
           CreateTokenResponse'
-            Prelude.<$> (x Core..?> "accessToken")
-            Prelude.<*> (x Core..?> "expiresIn")
-            Prelude.<*> (x Core..?> "idToken")
-            Prelude.<*> (x Core..?> "tokenType")
-            Prelude.<*> (x Core..?> "refreshToken")
+            Prelude.<$> (x Data..?> "accessToken")
+            Prelude.<*> (x Data..?> "expiresIn")
+            Prelude.<*> (x Data..?> "idToken")
+            Prelude.<*> (x Data..?> "tokenType")
+            Prelude.<*> (x Data..?> "refreshToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -262,36 +263,36 @@ instance Prelude.NFData CreateToken where
       `Prelude.seq` Prelude.rnf clientSecret
       `Prelude.seq` Prelude.rnf grantType
 
-instance Core.ToHeaders CreateToken where
+instance Data.ToHeaders CreateToken where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateToken where
+instance Data.ToJSON CreateToken where
   toJSON CreateToken' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("code" Core..=) Prelude.<$> code,
-            ("deviceCode" Core..=) Prelude.<$> deviceCode,
-            ("redirectUri" Core..=) Prelude.<$> redirectUri,
-            ("scope" Core..=) Prelude.<$> scope,
-            ("refreshToken" Core..=) Prelude.<$> refreshToken,
-            Prelude.Just ("clientId" Core..= clientId),
-            Prelude.Just ("clientSecret" Core..= clientSecret),
-            Prelude.Just ("grantType" Core..= grantType)
+          [ ("code" Data..=) Prelude.<$> code,
+            ("deviceCode" Data..=) Prelude.<$> deviceCode,
+            ("redirectUri" Data..=) Prelude.<$> redirectUri,
+            ("scope" Data..=) Prelude.<$> scope,
+            ("refreshToken" Data..=) Prelude.<$> refreshToken,
+            Prelude.Just ("clientId" Data..= clientId),
+            Prelude.Just ("clientSecret" Data..= clientSecret),
+            Prelude.Just ("grantType" Data..= grantType)
           ]
       )
 
-instance Core.ToPath CreateToken where
+instance Data.ToPath CreateToken where
   toPath = Prelude.const "/token"
 
-instance Core.ToQuery CreateToken where
+instance Data.ToQuery CreateToken where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTokenResponse' smart constructor.

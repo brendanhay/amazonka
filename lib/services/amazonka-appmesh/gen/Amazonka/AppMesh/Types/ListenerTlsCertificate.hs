@@ -24,6 +24,7 @@ import Amazonka.AppMesh.Types.ListenerTlsFileCertificate
 import Amazonka.AppMesh.Types.ListenerTlsSdsCertificate
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a listener\'s Transport Layer Security (TLS)
@@ -80,15 +81,15 @@ listenerTlsCertificate_file = Lens.lens (\ListenerTlsCertificate' {file} -> file
 listenerTlsCertificate_acm :: Lens.Lens' ListenerTlsCertificate (Prelude.Maybe ListenerTlsAcmCertificate)
 listenerTlsCertificate_acm = Lens.lens (\ListenerTlsCertificate' {acm} -> acm) (\s@ListenerTlsCertificate' {} a -> s {acm = a} :: ListenerTlsCertificate)
 
-instance Core.FromJSON ListenerTlsCertificate where
+instance Data.FromJSON ListenerTlsCertificate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListenerTlsCertificate"
       ( \x ->
           ListenerTlsCertificate'
-            Prelude.<$> (x Core..:? "sds")
-            Prelude.<*> (x Core..:? "file")
-            Prelude.<*> (x Core..:? "acm")
+            Prelude.<$> (x Data..:? "sds")
+            Prelude.<*> (x Data..:? "file")
+            Prelude.<*> (x Data..:? "acm")
       )
 
 instance Prelude.Hashable ListenerTlsCertificate where
@@ -103,12 +104,12 @@ instance Prelude.NFData ListenerTlsCertificate where
       `Prelude.seq` Prelude.rnf file
       `Prelude.seq` Prelude.rnf acm
 
-instance Core.ToJSON ListenerTlsCertificate where
+instance Data.ToJSON ListenerTlsCertificate where
   toJSON ListenerTlsCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sds" Core..=) Prelude.<$> sds,
-            ("file" Core..=) Prelude.<$> file,
-            ("acm" Core..=) Prelude.<$> acm
+          [ ("sds" Data..=) Prelude.<$> sds,
+            ("file" Data..=) Prelude.<$> file,
+            ("acm" Data..=) Prelude.<$> acm
           ]
       )

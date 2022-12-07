@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -303,30 +304,30 @@ instance
       `Prelude.seq` Prelude.rnf attributes
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     SetPlatformApplicationAttributes
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SetPlatformApplicationAttributes where
+instance Data.ToPath SetPlatformApplicationAttributes where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     SetPlatformApplicationAttributes
   where
   toQuery SetPlatformApplicationAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "SetPlatformApplicationAttributes" ::
+          Data.=: ( "SetPlatformApplicationAttributes" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
         "PlatformApplicationArn"
-          Core.=: platformApplicationArn,
+          Data.=: platformApplicationArn,
         "Attributes"
-          Core.=: Core.toQueryMap "entry" "key" "value" attributes
+          Data.=: Data.toQueryMap "entry" "key" "value" attributes
       ]
 
 -- | /See:/ 'newSetPlatformApplicationAttributesResponse' smart constructor.

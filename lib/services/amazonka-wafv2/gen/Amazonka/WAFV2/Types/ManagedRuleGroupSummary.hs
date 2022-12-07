@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.ManagedRuleGroupSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | High-level information about a managed rule group, returned by
@@ -104,16 +105,16 @@ managedRuleGroupSummary_versioningSupported = Lens.lens (\ManagedRuleGroupSummar
 managedRuleGroupSummary_vendorName :: Lens.Lens' ManagedRuleGroupSummary (Prelude.Maybe Prelude.Text)
 managedRuleGroupSummary_vendorName = Lens.lens (\ManagedRuleGroupSummary' {vendorName} -> vendorName) (\s@ManagedRuleGroupSummary' {} a -> s {vendorName = a} :: ManagedRuleGroupSummary)
 
-instance Core.FromJSON ManagedRuleGroupSummary where
+instance Data.FromJSON ManagedRuleGroupSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManagedRuleGroupSummary"
       ( \x ->
           ManagedRuleGroupSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "VersioningSupported")
-            Prelude.<*> (x Core..:? "VendorName")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "VersioningSupported")
+            Prelude.<*> (x Data..:? "VendorName")
       )
 
 instance Prelude.Hashable ManagedRuleGroupSummary where

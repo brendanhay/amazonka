@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest StopJob where
     Response.receiveJSON
       ( \s h x ->
           StopJobResponse'
-            Prelude.<$> (x Core..?> "job")
+            Prelude.<$> (x Data..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,32 +100,32 @@ instance Prelude.Hashable StopJob where
 instance Prelude.NFData StopJob where
   rnf StopJob' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders StopJob where
+instance Data.ToHeaders StopJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.StopJob" ::
+              Data.=# ( "DeviceFarm_20150623.StopJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopJob where
+instance Data.ToJSON StopJob where
   toJSON StopJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath StopJob where
+instance Data.ToPath StopJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopJob where
+instance Data.ToQuery StopJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopJobResponse' smart constructor.

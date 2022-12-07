@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -187,11 +188,11 @@ instance Core.AWSRequest DescribeElasticGpus where
     Response.receiveXML
       ( \s h x ->
           DescribeElasticGpusResponse'
-            Prelude.<$> ( x Core..@? "elasticGpuSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "elasticGpuSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
-            Prelude.<*> (x Core..@? "maxResults")
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> (x Data..@? "maxResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,26 +212,26 @@ instance Prelude.NFData DescribeElasticGpus where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf elasticGpuIds
 
-instance Core.ToHeaders DescribeElasticGpus where
+instance Data.ToHeaders DescribeElasticGpus where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeElasticGpus where
+instance Data.ToPath DescribeElasticGpus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeElasticGpus where
+instance Data.ToQuery DescribeElasticGpus where
   toQuery DescribeElasticGpus' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeElasticGpus" :: Prelude.ByteString),
+          Data.=: ("DescribeElasticGpus" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          ( Core.toQueryList "ElasticGpuId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          ( Data.toQueryList "ElasticGpuId"
               Prelude.<$> elasticGpuIds
           )
       ]

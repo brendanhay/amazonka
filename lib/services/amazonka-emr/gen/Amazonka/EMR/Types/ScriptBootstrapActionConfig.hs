@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.ScriptBootstrapActionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration of the script to run during a bootstrap action.
@@ -73,11 +74,11 @@ instance Prelude.NFData ScriptBootstrapActionConfig where
   rnf ScriptBootstrapActionConfig' {..} =
     Prelude.rnf args `Prelude.seq` Prelude.rnf path
 
-instance Core.ToJSON ScriptBootstrapActionConfig where
+instance Data.ToJSON ScriptBootstrapActionConfig where
   toJSON ScriptBootstrapActionConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Args" Core..=) Prelude.<$> args,
-            Prelude.Just ("Path" Core..= path)
+          [ ("Args" Data..=) Prelude.<$> args,
+            Prelude.Just ("Path" Data..= path)
           ]
       )

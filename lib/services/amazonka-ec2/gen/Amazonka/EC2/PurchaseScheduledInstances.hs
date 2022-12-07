@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,9 +137,9 @@ instance Core.AWSRequest PurchaseScheduledInstances where
     Response.receiveXML
       ( \s h x ->
           PurchaseScheduledInstancesResponse'
-            Prelude.<$> ( x Core..@? "scheduledInstanceSet"
+            Prelude.<$> ( x Data..@? "scheduledInstanceSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -155,22 +156,22 @@ instance Prelude.NFData PurchaseScheduledInstances where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf purchaseRequests
 
-instance Core.ToHeaders PurchaseScheduledInstances where
+instance Data.ToHeaders PurchaseScheduledInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PurchaseScheduledInstances where
+instance Data.ToPath PurchaseScheduledInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PurchaseScheduledInstances where
+instance Data.ToQuery PurchaseScheduledInstances where
   toQuery PurchaseScheduledInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PurchaseScheduledInstances" :: Prelude.ByteString),
+          Data.=: ("PurchaseScheduledInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "DryRun" Core.=: dryRun,
-        Core.toQueryList "PurchaseRequest" purchaseRequests
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "DryRun" Data.=: dryRun,
+        Data.toQueryList "PurchaseRequest" purchaseRequests
       ]
 
 -- | Contains the output of PurchaseScheduledInstances.

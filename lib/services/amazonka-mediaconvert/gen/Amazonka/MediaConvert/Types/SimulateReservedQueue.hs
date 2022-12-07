@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.SimulateReservedQueue
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Enable this setting when you run a test job to estimate how many
@@ -36,7 +37,7 @@ import qualified Amazonka.Prelude as Prelude
 -- setting is disabled by default.
 newtype SimulateReservedQueue = SimulateReservedQueue'
   { fromSimulateReservedQueue ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -48,18 +49,18 @@ newtype SimulateReservedQueue = SimulateReservedQueue'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern SimulateReservedQueue_DISABLED :: SimulateReservedQueue

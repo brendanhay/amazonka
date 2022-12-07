@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ instance Core.AWSRequest GetJobManifest where
     Response.receiveJSON
       ( \s h x ->
           GetJobManifestResponse'
-            Prelude.<$> (x Core..?> "ManifestURI")
+            Prelude.<$> (x Data..?> "ManifestURI")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,32 +118,32 @@ instance Prelude.Hashable GetJobManifest where
 instance Prelude.NFData GetJobManifest where
   rnf GetJobManifest' {..} = Prelude.rnf jobId
 
-instance Core.ToHeaders GetJobManifest where
+instance Data.ToHeaders GetJobManifest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.GetJobManifest" ::
+              Data.=# ( "AWSIESnowballJobManagementService.GetJobManifest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetJobManifest where
+instance Data.ToJSON GetJobManifest where
   toJSON GetJobManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Core..= jobId)]
+          [Prelude.Just ("JobId" Data..= jobId)]
       )
 
-instance Core.ToPath GetJobManifest where
+instance Data.ToPath GetJobManifest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetJobManifest where
+instance Data.ToQuery GetJobManifest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetJobManifestResponse' smart constructor.

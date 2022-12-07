@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.FileSystemFailureDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure providing details of any failures that occurred.
@@ -53,13 +54,13 @@ newFileSystemFailureDetails =
 fileSystemFailureDetails_message :: Lens.Lens' FileSystemFailureDetails (Prelude.Maybe Prelude.Text)
 fileSystemFailureDetails_message = Lens.lens (\FileSystemFailureDetails' {message} -> message) (\s@FileSystemFailureDetails' {} a -> s {message = a} :: FileSystemFailureDetails)
 
-instance Core.FromJSON FileSystemFailureDetails where
+instance Data.FromJSON FileSystemFailureDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileSystemFailureDetails"
       ( \x ->
           FileSystemFailureDetails'
-            Prelude.<$> (x Core..:? "Message")
+            Prelude.<$> (x Data..:? "Message")
       )
 
 instance Prelude.Hashable FileSystemFailureDetails where

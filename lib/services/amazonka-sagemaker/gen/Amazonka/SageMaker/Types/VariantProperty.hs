@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.VariantProperty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.VariantPropertyType
 
@@ -100,11 +101,11 @@ instance Prelude.NFData VariantProperty where
   rnf VariantProperty' {..} =
     Prelude.rnf variantPropertyType
 
-instance Core.ToJSON VariantProperty where
+instance Data.ToJSON VariantProperty where
   toJSON VariantProperty' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("VariantPropertyType" Core..= variantPropertyType)
+              ("VariantPropertyType" Data..= variantPropertyType)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.EventSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.EventReference
 
@@ -33,11 +34,11 @@ data EventSummary = EventSummary'
     -- | The timeline event ID.
     eventId :: Prelude.Text,
     -- | The time that the event occurred.
-    eventTime :: Core.POSIX,
+    eventTime :: Data.POSIX,
     -- | The type of event. The timeline event must be @Custom Event@.
     eventType :: Prelude.Text,
     -- | The time that the timeline event was last updated.
-    eventUpdatedTime :: Core.POSIX,
+    eventUpdatedTime :: Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the incident that the event happened
     -- during.
     incidentRecordArn :: Prelude.Text
@@ -85,10 +86,10 @@ newEventSummary
     EventSummary'
       { eventReferences = Prelude.Nothing,
         eventId = pEventId_,
-        eventTime = Core._Time Lens.# pEventTime_,
+        eventTime = Data._Time Lens.# pEventTime_,
         eventType = pEventType_,
         eventUpdatedTime =
-          Core._Time Lens.# pEventUpdatedTime_,
+          Data._Time Lens.# pEventUpdatedTime_,
         incidentRecordArn = pIncidentRecordArn_
       }
 
@@ -102,7 +103,7 @@ eventSummary_eventId = Lens.lens (\EventSummary' {eventId} -> eventId) (\s@Event
 
 -- | The time that the event occurred.
 eventSummary_eventTime :: Lens.Lens' EventSummary Prelude.UTCTime
-eventSummary_eventTime = Lens.lens (\EventSummary' {eventTime} -> eventTime) (\s@EventSummary' {} a -> s {eventTime = a} :: EventSummary) Prelude.. Core._Time
+eventSummary_eventTime = Lens.lens (\EventSummary' {eventTime} -> eventTime) (\s@EventSummary' {} a -> s {eventTime = a} :: EventSummary) Prelude.. Data._Time
 
 -- | The type of event. The timeline event must be @Custom Event@.
 eventSummary_eventType :: Lens.Lens' EventSummary Prelude.Text
@@ -110,27 +111,27 @@ eventSummary_eventType = Lens.lens (\EventSummary' {eventType} -> eventType) (\s
 
 -- | The time that the timeline event was last updated.
 eventSummary_eventUpdatedTime :: Lens.Lens' EventSummary Prelude.UTCTime
-eventSummary_eventUpdatedTime = Lens.lens (\EventSummary' {eventUpdatedTime} -> eventUpdatedTime) (\s@EventSummary' {} a -> s {eventUpdatedTime = a} :: EventSummary) Prelude.. Core._Time
+eventSummary_eventUpdatedTime = Lens.lens (\EventSummary' {eventUpdatedTime} -> eventUpdatedTime) (\s@EventSummary' {} a -> s {eventUpdatedTime = a} :: EventSummary) Prelude.. Data._Time
 
 -- | The Amazon Resource Name (ARN) of the incident that the event happened
 -- during.
 eventSummary_incidentRecordArn :: Lens.Lens' EventSummary Prelude.Text
 eventSummary_incidentRecordArn = Lens.lens (\EventSummary' {incidentRecordArn} -> incidentRecordArn) (\s@EventSummary' {} a -> s {incidentRecordArn = a} :: EventSummary)
 
-instance Core.FromJSON EventSummary where
+instance Data.FromJSON EventSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventSummary"
       ( \x ->
           EventSummary'
-            Prelude.<$> ( x Core..:? "eventReferences"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "eventReferences"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "eventId")
-            Prelude.<*> (x Core..: "eventTime")
-            Prelude.<*> (x Core..: "eventType")
-            Prelude.<*> (x Core..: "eventUpdatedTime")
-            Prelude.<*> (x Core..: "incidentRecordArn")
+            Prelude.<*> (x Data..: "eventId")
+            Prelude.<*> (x Data..: "eventTime")
+            Prelude.<*> (x Data..: "eventType")
+            Prelude.<*> (x Data..: "eventUpdatedTime")
+            Prelude.<*> (x Data..: "incidentRecordArn")
       )
 
 instance Prelude.Hashable EventSummary where

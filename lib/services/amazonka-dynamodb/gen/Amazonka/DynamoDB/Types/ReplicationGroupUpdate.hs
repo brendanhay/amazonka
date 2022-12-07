@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ReplicationGroupUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.CreateReplicationGroupMemberAction
 import Amazonka.DynamoDB.Types.DeleteReplicationGroupMemberAction
@@ -102,12 +103,12 @@ instance Prelude.NFData ReplicationGroupUpdate where
       `Prelude.seq` Prelude.rnf delete'
       `Prelude.seq` Prelude.rnf update
 
-instance Core.ToJSON ReplicationGroupUpdate where
+instance Data.ToJSON ReplicationGroupUpdate where
   toJSON ReplicationGroupUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Create" Core..=) Prelude.<$> create,
-            ("Delete" Core..=) Prelude.<$> delete',
-            ("Update" Core..=) Prelude.<$> update
+          [ ("Create" Data..=) Prelude.<$> create,
+            ("Delete" Data..=) Prelude.<$> delete',
+            ("Update" Data..=) Prelude.<$> update
           ]
       )

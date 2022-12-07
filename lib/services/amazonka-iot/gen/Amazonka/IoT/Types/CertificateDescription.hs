@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.CertificateDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.CertificateMode
 import Amazonka.IoT.Types.CertificateStatus
 import Amazonka.IoT.Types.CertificateValidity
@@ -34,9 +35,9 @@ data CertificateDescription = CertificateDescription'
   { -- | The customer version of the certificate.
     customerVersion :: Prelude.Maybe Prelude.Natural,
     -- | The date and time the certificate was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time the certificate was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the certificate.
     status :: Prelude.Maybe CertificateStatus,
     -- | The certificate ID of the CA certificate used to sign this certificate.
@@ -156,11 +157,11 @@ certificateDescription_customerVersion = Lens.lens (\CertificateDescription' {cu
 
 -- | The date and time the certificate was last modified.
 certificateDescription_lastModifiedDate :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.UTCTime)
-certificateDescription_lastModifiedDate = Lens.lens (\CertificateDescription' {lastModifiedDate} -> lastModifiedDate) (\s@CertificateDescription' {} a -> s {lastModifiedDate = a} :: CertificateDescription) Prelude.. Lens.mapping Core._Time
+certificateDescription_lastModifiedDate = Lens.lens (\CertificateDescription' {lastModifiedDate} -> lastModifiedDate) (\s@CertificateDescription' {} a -> s {lastModifiedDate = a} :: CertificateDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time the certificate was created.
 certificateDescription_creationDate :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.UTCTime)
-certificateDescription_creationDate = Lens.lens (\CertificateDescription' {creationDate} -> creationDate) (\s@CertificateDescription' {} a -> s {creationDate = a} :: CertificateDescription) Prelude.. Lens.mapping Core._Time
+certificateDescription_creationDate = Lens.lens (\CertificateDescription' {creationDate} -> creationDate) (\s@CertificateDescription' {} a -> s {creationDate = a} :: CertificateDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the certificate.
 certificateDescription_status :: Lens.Lens' CertificateDescription (Prelude.Maybe CertificateStatus)
@@ -222,26 +223,26 @@ certificateDescription_ownedBy = Lens.lens (\CertificateDescription' {ownedBy} -
 certificateDescription_validity :: Lens.Lens' CertificateDescription (Prelude.Maybe CertificateValidity)
 certificateDescription_validity = Lens.lens (\CertificateDescription' {validity} -> validity) (\s@CertificateDescription' {} a -> s {validity = a} :: CertificateDescription)
 
-instance Core.FromJSON CertificateDescription where
+instance Data.FromJSON CertificateDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CertificateDescription"
       ( \x ->
           CertificateDescription'
-            Prelude.<$> (x Core..:? "customerVersion")
-            Prelude.<*> (x Core..:? "lastModifiedDate")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "caCertificateId")
-            Prelude.<*> (x Core..:? "certificateArn")
-            Prelude.<*> (x Core..:? "certificateId")
-            Prelude.<*> (x Core..:? "certificatePem")
-            Prelude.<*> (x Core..:? "transferData")
-            Prelude.<*> (x Core..:? "generationId")
-            Prelude.<*> (x Core..:? "previousOwnedBy")
-            Prelude.<*> (x Core..:? "certificateMode")
-            Prelude.<*> (x Core..:? "ownedBy")
-            Prelude.<*> (x Core..:? "validity")
+            Prelude.<$> (x Data..:? "customerVersion")
+            Prelude.<*> (x Data..:? "lastModifiedDate")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "caCertificateId")
+            Prelude.<*> (x Data..:? "certificateArn")
+            Prelude.<*> (x Data..:? "certificateId")
+            Prelude.<*> (x Data..:? "certificatePem")
+            Prelude.<*> (x Data..:? "transferData")
+            Prelude.<*> (x Data..:? "generationId")
+            Prelude.<*> (x Data..:? "previousOwnedBy")
+            Prelude.<*> (x Data..:? "certificateMode")
+            Prelude.<*> (x Data..:? "ownedBy")
+            Prelude.<*> (x Data..:? "validity")
       )
 
 instance Prelude.Hashable CertificateDescription where

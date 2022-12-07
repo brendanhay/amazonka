@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.IntentFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.IntentFilterName
 import Amazonka.LexV2Models.Types.IntentFilterOperator
 import qualified Amazonka.Prelude as Prelude
@@ -99,12 +100,12 @@ instance Prelude.NFData IntentFilter where
       `Prelude.seq` Prelude.rnf values
       `Prelude.seq` Prelude.rnf operator
 
-instance Core.ToJSON IntentFilter where
+instance Data.ToJSON IntentFilter where
   toJSON IntentFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("values" Core..= values),
-            Prelude.Just ("operator" Core..= operator)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("values" Data..= values),
+            Prelude.Just ("operator" Data..= operator)
           ]
       )

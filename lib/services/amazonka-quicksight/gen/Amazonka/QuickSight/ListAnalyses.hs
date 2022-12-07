@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -128,11 +129,11 @@ instance Core.AWSRequest ListAnalyses where
     Response.receiveJSON
       ( \s h x ->
           ListAnalysesResponse'
-            Prelude.<$> ( x Core..?> "AnalysisSummaryList"
+            Prelude.<$> ( x Data..?> "AnalysisSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,27 +149,27 @@ instance Prelude.NFData ListAnalyses where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf awsAccountId
 
-instance Core.ToHeaders ListAnalyses where
+instance Data.ToHeaders ListAnalyses where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAnalyses where
+instance Data.ToPath ListAnalyses where
   toPath ListAnalyses' {..} =
     Prelude.mconcat
-      ["/accounts/", Core.toBS awsAccountId, "/analyses"]
+      ["/accounts/", Data.toBS awsAccountId, "/analyses"]
 
-instance Core.ToQuery ListAnalyses where
+instance Data.ToQuery ListAnalyses where
   toQuery ListAnalyses' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListAnalysesResponse' smart constructor.

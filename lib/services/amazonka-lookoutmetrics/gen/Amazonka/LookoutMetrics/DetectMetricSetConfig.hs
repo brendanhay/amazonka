@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,7 +102,7 @@ instance Core.AWSRequest DetectMetricSetConfig where
     Response.receiveJSON
       ( \s h x ->
           DetectMetricSetConfigResponse'
-            Prelude.<$> (x Core..?> "DetectedMetricSetConfig")
+            Prelude.<$> (x Data..?> "DetectedMetricSetConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,34 +116,34 @@ instance Prelude.NFData DetectMetricSetConfig where
     Prelude.rnf anomalyDetectorArn
       `Prelude.seq` Prelude.rnf autoDetectionMetricSource
 
-instance Core.ToHeaders DetectMetricSetConfig where
+instance Data.ToHeaders DetectMetricSetConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DetectMetricSetConfig where
+instance Data.ToJSON DetectMetricSetConfig where
   toJSON DetectMetricSetConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AnomalyDetectorArn" Core..= anomalyDetectorArn),
+              ("AnomalyDetectorArn" Data..= anomalyDetectorArn),
             Prelude.Just
               ( "AutoDetectionMetricSource"
-                  Core..= autoDetectionMetricSource
+                  Data..= autoDetectionMetricSource
               )
           ]
       )
 
-instance Core.ToPath DetectMetricSetConfig where
+instance Data.ToPath DetectMetricSetConfig where
   toPath = Prelude.const "/DetectMetricSetConfig"
 
-instance Core.ToQuery DetectMetricSetConfig where
+instance Data.ToQuery DetectMetricSetConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectMetricSetConfigResponse' smart constructor.

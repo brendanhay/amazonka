@@ -87,6 +87,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -180,7 +181,7 @@ instance Core.AWSRequest ModifyVpnConnection where
     Response.receiveXML
       ( \s h x ->
           ModifyVpnConnectionResponse'
-            Prelude.<$> (x Core..@? "vpnConnection")
+            Prelude.<$> (x Data..@? "vpnConnection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,24 +201,24 @@ instance Prelude.NFData ModifyVpnConnection where
       `Prelude.seq` Prelude.rnf vpnGatewayId
       `Prelude.seq` Prelude.rnf vpnConnectionId
 
-instance Core.ToHeaders ModifyVpnConnection where
+instance Data.ToHeaders ModifyVpnConnection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyVpnConnection where
+instance Data.ToPath ModifyVpnConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyVpnConnection where
+instance Data.ToQuery ModifyVpnConnection where
   toQuery ModifyVpnConnection' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyVpnConnection" :: Prelude.ByteString),
+          Data.=: ("ModifyVpnConnection" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "TransitGatewayId" Core.=: transitGatewayId,
-        "DryRun" Core.=: dryRun,
-        "CustomerGatewayId" Core.=: customerGatewayId,
-        "VpnGatewayId" Core.=: vpnGatewayId,
-        "VpnConnectionId" Core.=: vpnConnectionId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "TransitGatewayId" Data.=: transitGatewayId,
+        "DryRun" Data.=: dryRun,
+        "CustomerGatewayId" Data.=: customerGatewayId,
+        "VpnGatewayId" Data.=: vpnGatewayId,
+        "VpnConnectionId" Data.=: vpnConnectionId
       ]
 
 -- | /See:/ 'newModifyVpnConnectionResponse' smart constructor.

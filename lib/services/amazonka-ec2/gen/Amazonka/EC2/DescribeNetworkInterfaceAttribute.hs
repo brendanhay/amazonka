@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,12 +128,12 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkInterfaceAttributeResponse'
-            Prelude.<$> (x Core..@? "attachment")
-              Prelude.<*> (x Core..@? "sourceDestCheck")
-              Prelude.<*> (x Core..@? "description")
-              Prelude.<*> (x Core..@? "networkInterfaceId")
-              Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "attachment")
+              Prelude.<*> (x Data..@? "sourceDestCheck")
+              Prelude.<*> (x Data..@? "description")
+              Prelude.<*> (x Data..@? "networkInterfaceId")
+              Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Data.parseXMLList "item")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -158,32 +159,32 @@ instance
       `Prelude.seq` Prelude.rnf networkInterfaceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeNetworkInterfaceAttribute
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeNetworkInterfaceAttribute
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeNetworkInterfaceAttribute
   where
   toQuery DescribeNetworkInterfaceAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeNetworkInterfaceAttribute" ::
+          Data.=: ( "DescribeNetworkInterfaceAttribute" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Attribute" Core.=: attribute,
-        "DryRun" Core.=: dryRun,
-        "NetworkInterfaceId" Core.=: networkInterfaceId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Attribute" Data.=: attribute,
+        "DryRun" Data.=: dryRun,
+        "NetworkInterfaceId" Data.=: networkInterfaceId
       ]
 
 -- | Contains the output of DescribeNetworkInterfaceAttribute.

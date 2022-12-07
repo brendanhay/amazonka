@@ -23,6 +23,7 @@ import Amazonka.Config.Types.MaximumExecutionFrequency
 import Amazonka.Config.Types.OrganizationConfigRuleTriggerTypeNoSN
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that specifies metadata for your organization\'s Config Custom
@@ -271,28 +272,28 @@ instance
       `Prelude.seq` Prelude.rnf policyText
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     OrganizationCustomPolicyRuleMetadata
   where
   toJSON OrganizationCustomPolicyRuleMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaximumExecutionFrequency" Core..=)
+          [ ("MaximumExecutionFrequency" Data..=)
               Prelude.<$> maximumExecutionFrequency,
-            ("ResourceTypesScope" Core..=)
+            ("ResourceTypesScope" Data..=)
               Prelude.<$> resourceTypesScope,
-            ("InputParameters" Core..=)
+            ("InputParameters" Data..=)
               Prelude.<$> inputParameters,
-            ("TagValueScope" Core..=) Prelude.<$> tagValueScope,
-            ("ResourceIdScope" Core..=)
+            ("TagValueScope" Data..=) Prelude.<$> tagValueScope,
+            ("ResourceIdScope" Data..=)
               Prelude.<$> resourceIdScope,
-            ("DebugLogDeliveryAccounts" Core..=)
+            ("DebugLogDeliveryAccounts" Data..=)
               Prelude.<$> debugLogDeliveryAccounts,
-            ("Description" Core..=) Prelude.<$> description,
-            ("OrganizationConfigRuleTriggerTypes" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("OrganizationConfigRuleTriggerTypes" Data..=)
               Prelude.<$> organizationConfigRuleTriggerTypes,
-            ("TagKeyScope" Core..=) Prelude.<$> tagKeyScope,
-            Prelude.Just ("PolicyRuntime" Core..= policyRuntime),
-            Prelude.Just ("PolicyText" Core..= policyText)
+            ("TagKeyScope" Data..=) Prelude.<$> tagKeyScope,
+            Prelude.Just ("PolicyRuntime" Data..= policyRuntime),
+            Prelude.Just ("PolicyText" Data..= policyText)
           ]
       )

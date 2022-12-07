@@ -57,6 +57,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,34 +133,34 @@ instance Prelude.NFData AssociateKmsKey where
     Prelude.rnf logGroupName
       `Prelude.seq` Prelude.rnf kmsKeyId
 
-instance Core.ToHeaders AssociateKmsKey where
+instance Data.ToHeaders AssociateKmsKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.AssociateKmsKey" ::
+              Data.=# ( "Logs_20140328.AssociateKmsKey" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateKmsKey where
+instance Data.ToJSON AssociateKmsKey where
   toJSON AssociateKmsKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("logGroupName" Core..= logGroupName),
-            Prelude.Just ("kmsKeyId" Core..= kmsKeyId)
+          [ Prelude.Just ("logGroupName" Data..= logGroupName),
+            Prelude.Just ("kmsKeyId" Data..= kmsKeyId)
           ]
       )
 
-instance Core.ToPath AssociateKmsKey where
+instance Data.ToPath AssociateKmsKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateKmsKey where
+instance Data.ToQuery AssociateKmsKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateKmsKeyResponse' smart constructor.

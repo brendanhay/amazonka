@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.OutputLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The output location.
@@ -61,14 +62,14 @@ outputLocation_s3Bucket = Lens.lens (\OutputLocation' {s3Bucket} -> s3Bucket) (\
 outputLocation_s3Prefix :: Lens.Lens' OutputLocation (Prelude.Maybe Prelude.Text)
 outputLocation_s3Prefix = Lens.lens (\OutputLocation' {s3Prefix} -> s3Prefix) (\s@OutputLocation' {} a -> s {s3Prefix = a} :: OutputLocation)
 
-instance Core.FromJSON OutputLocation where
+instance Data.FromJSON OutputLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputLocation"
       ( \x ->
           OutputLocation'
-            Prelude.<$> (x Core..:? "s3Bucket")
-            Prelude.<*> (x Core..:? "s3Prefix")
+            Prelude.<$> (x Data..:? "s3Bucket")
+            Prelude.<*> (x Data..:? "s3Prefix")
       )
 
 instance Prelude.Hashable OutputLocation where
@@ -81,11 +82,11 @@ instance Prelude.NFData OutputLocation where
     Prelude.rnf s3Bucket
       `Prelude.seq` Prelude.rnf s3Prefix
 
-instance Core.ToJSON OutputLocation where
+instance Data.ToJSON OutputLocation where
   toJSON OutputLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3Bucket" Core..=) Prelude.<$> s3Bucket,
-            ("s3Prefix" Core..=) Prelude.<$> s3Prefix
+          [ ("s3Bucket" Data..=) Prelude.<$> s3Bucket,
+            ("s3Prefix" Data..=) Prelude.<$> s3Prefix
           ]
       )

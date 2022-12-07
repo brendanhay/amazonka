@@ -55,6 +55,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,9 +104,9 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateContinuousDeploymentPolicyResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "Location")
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "Location")
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,27 +128,27 @@ instance
     Prelude.rnf continuousDeploymentPolicyConfig
 
 instance
-  Core.ToElement
+  Data.ToElement
     CreateContinuousDeploymentPolicy
   where
   toElement CreateContinuousDeploymentPolicy' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}ContinuousDeploymentPolicyConfig"
       continuousDeploymentPolicyConfig
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateContinuousDeploymentPolicy
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateContinuousDeploymentPolicy where
+instance Data.ToPath CreateContinuousDeploymentPolicy where
   toPath =
     Prelude.const
       "/2020-05-31/continuous-deployment-policy"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateContinuousDeploymentPolicy
   where
   toQuery = Prelude.const Prelude.mempty

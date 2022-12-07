@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.MetricDataError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.QueryErrorCode
 
@@ -90,15 +91,15 @@ metricDataError_code = Lens.lens (\MetricDataError' {code} -> code) (\s@MetricDa
 metricDataError_id :: Lens.Lens' MetricDataError (Prelude.Maybe Prelude.Text)
 metricDataError_id = Lens.lens (\MetricDataError' {id} -> id) (\s@MetricDataError' {} a -> s {id = a} :: MetricDataError)
 
-instance Core.FromJSON MetricDataError where
+instance Data.FromJSON MetricDataError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricDataError"
       ( \x ->
           MetricDataError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable MetricDataError where

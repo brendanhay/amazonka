@@ -60,6 +60,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -271,20 +272,20 @@ instance Core.AWSRequest CreateEventDataStore where
     Response.receiveJSON
       ( \s h x ->
           CreateEventDataStoreResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "EventDataStoreArn")
-            Prelude.<*> ( x Core..?> "AdvancedEventSelectors"
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "EventDataStoreArn")
+            Prelude.<*> ( x Data..?> "AdvancedEventSelectors"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "MultiRegionEnabled")
-            Prelude.<*> (x Core..?> "TagsList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "UpdatedTimestamp")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "RetentionPeriod")
-            Prelude.<*> (x Core..?> "KmsKeyId")
-            Prelude.<*> (x Core..?> "OrganizationEnabled")
-            Prelude.<*> (x Core..?> "TerminationProtectionEnabled")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "MultiRegionEnabled")
+            Prelude.<*> (x Data..?> "TagsList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "UpdatedTimestamp")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "RetentionPeriod")
+            Prelude.<*> (x Data..?> "KmsKeyId")
+            Prelude.<*> (x Data..?> "OrganizationEnabled")
+            Prelude.<*> (x Data..?> "TerminationProtectionEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -310,45 +311,45 @@ instance Prelude.NFData CreateEventDataStore where
       `Prelude.seq` Prelude.rnf terminationProtectionEnabled
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateEventDataStore where
+instance Data.ToHeaders CreateEventDataStore where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.CreateEventDataStore" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.CreateEventDataStore" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEventDataStore where
+instance Data.ToJSON CreateEventDataStore where
   toJSON CreateEventDataStore' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AdvancedEventSelectors" Core..=)
+          [ ("AdvancedEventSelectors" Data..=)
               Prelude.<$> advancedEventSelectors,
-            ("MultiRegionEnabled" Core..=)
+            ("MultiRegionEnabled" Data..=)
               Prelude.<$> multiRegionEnabled,
-            ("TagsList" Core..=) Prelude.<$> tagsList,
-            ("RetentionPeriod" Core..=)
+            ("TagsList" Data..=) Prelude.<$> tagsList,
+            ("RetentionPeriod" Data..=)
               Prelude.<$> retentionPeriod,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("OrganizationEnabled" Core..=)
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("OrganizationEnabled" Data..=)
               Prelude.<$> organizationEnabled,
-            ("TerminationProtectionEnabled" Core..=)
+            ("TerminationProtectionEnabled" Data..=)
               Prelude.<$> terminationProtectionEnabled,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateEventDataStore where
+instance Data.ToPath CreateEventDataStore where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEventDataStore where
+instance Data.ToQuery CreateEventDataStore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEventDataStoreResponse' smart constructor.
@@ -361,7 +362,7 @@ data CreateEventDataStoreResponse = CreateEventDataStoreResponse'
     -- data store.
     advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
     -- | The timestamp that shows when the event data store was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Indicates whether the event data store collects events from all regions,
     -- or only from the region in which it was created.
     multiRegionEnabled :: Prelude.Maybe Prelude.Bool,
@@ -369,7 +370,7 @@ data CreateEventDataStoreResponse = CreateEventDataStoreResponse'
     -- | The timestamp that shows when an event data store was updated, if
     -- applicable. @UpdatedTimestamp@ is always either the same or newer than
     -- the time shown in @CreatedTimestamp@.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The status of event data store creation.
     status :: Prelude.Maybe EventDataStoreStatus,
     -- | The retention period of an event data store, in days.
@@ -472,7 +473,7 @@ createEventDataStoreResponse_advancedEventSelectors = Lens.lens (\CreateEventDat
 
 -- | The timestamp that shows when the event data store was created.
 createEventDataStoreResponse_createdTimestamp :: Lens.Lens' CreateEventDataStoreResponse (Prelude.Maybe Prelude.UTCTime)
-createEventDataStoreResponse_createdTimestamp = Lens.lens (\CreateEventDataStoreResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateEventDataStoreResponse' {} a -> s {createdTimestamp = a} :: CreateEventDataStoreResponse) Prelude.. Lens.mapping Core._Time
+createEventDataStoreResponse_createdTimestamp = Lens.lens (\CreateEventDataStoreResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateEventDataStoreResponse' {} a -> s {createdTimestamp = a} :: CreateEventDataStoreResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether the event data store collects events from all regions,
 -- or only from the region in which it was created.
@@ -487,7 +488,7 @@ createEventDataStoreResponse_tagsList = Lens.lens (\CreateEventDataStoreResponse
 -- applicable. @UpdatedTimestamp@ is always either the same or newer than
 -- the time shown in @CreatedTimestamp@.
 createEventDataStoreResponse_updatedTimestamp :: Lens.Lens' CreateEventDataStoreResponse (Prelude.Maybe Prelude.UTCTime)
-createEventDataStoreResponse_updatedTimestamp = Lens.lens (\CreateEventDataStoreResponse' {updatedTimestamp} -> updatedTimestamp) (\s@CreateEventDataStoreResponse' {} a -> s {updatedTimestamp = a} :: CreateEventDataStoreResponse) Prelude.. Lens.mapping Core._Time
+createEventDataStoreResponse_updatedTimestamp = Lens.lens (\CreateEventDataStoreResponse' {updatedTimestamp} -> updatedTimestamp) (\s@CreateEventDataStoreResponse' {} a -> s {updatedTimestamp = a} :: CreateEventDataStoreResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status of event data store creation.
 createEventDataStoreResponse_status :: Lens.Lens' CreateEventDataStoreResponse (Prelude.Maybe EventDataStoreStatus)

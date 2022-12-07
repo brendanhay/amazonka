@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClassicLinkDnsSupport where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,11 +64,11 @@ classicLinkDnsSupport_classicLinkDnsSupported = Lens.lens (\ClassicLinkDnsSuppor
 classicLinkDnsSupport_vpcId :: Lens.Lens' ClassicLinkDnsSupport (Prelude.Maybe Prelude.Text)
 classicLinkDnsSupport_vpcId = Lens.lens (\ClassicLinkDnsSupport' {vpcId} -> vpcId) (\s@ClassicLinkDnsSupport' {} a -> s {vpcId = a} :: ClassicLinkDnsSupport)
 
-instance Core.FromXML ClassicLinkDnsSupport where
+instance Data.FromXML ClassicLinkDnsSupport where
   parseXML x =
     ClassicLinkDnsSupport'
-      Prelude.<$> (x Core..@? "classicLinkDnsSupported")
-      Prelude.<*> (x Core..@? "vpcId")
+      Prelude.<$> (x Data..@? "classicLinkDnsSupported")
+      Prelude.<*> (x Data..@? "vpcId")
 
 instance Prelude.Hashable ClassicLinkDnsSupport where
   hashWithSalt _salt ClassicLinkDnsSupport' {..} =

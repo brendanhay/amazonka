@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,12 +137,12 @@ instance Core.AWSRequest GetFunctionDefinitionVersion where
     Response.receiveJSON
       ( \s h x ->
           GetFunctionDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Version")
-            Prelude.<*> (x Core..?> "Definition")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Version")
+            Prelude.<*> (x Data..?> "Definition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,29 +161,29 @@ instance Prelude.NFData GetFunctionDefinitionVersion where
       `Prelude.seq` Prelude.rnf functionDefinitionId
       `Prelude.seq` Prelude.rnf functionDefinitionVersionId
 
-instance Core.ToHeaders GetFunctionDefinitionVersion where
+instance Data.ToHeaders GetFunctionDefinitionVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetFunctionDefinitionVersion where
+instance Data.ToPath GetFunctionDefinitionVersion where
   toPath GetFunctionDefinitionVersion' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/functions/",
-        Core.toBS functionDefinitionId,
+        Data.toBS functionDefinitionId,
         "/versions/",
-        Core.toBS functionDefinitionVersionId
+        Data.toBS functionDefinitionVersionId
       ]
 
-instance Core.ToQuery GetFunctionDefinitionVersion where
+instance Data.ToQuery GetFunctionDefinitionVersion where
   toQuery GetFunctionDefinitionVersion' {..} =
-    Prelude.mconcat ["NextToken" Core.=: nextToken]
+    Prelude.mconcat ["NextToken" Data.=: nextToken]
 
 -- | /See:/ 'newGetFunctionDefinitionVersionResponse' smart constructor.
 data GetFunctionDefinitionVersionResponse = GetFunctionDefinitionVersionResponse'

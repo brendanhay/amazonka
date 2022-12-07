@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,8 +113,8 @@ instance Core.AWSRequest PutContainerRecipePolicy where
     Response.receiveJSON
       ( \s h x ->
           PutContainerRecipePolicyResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "containerRecipeArn")
+            Prelude.<$> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "containerRecipeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,31 +128,31 @@ instance Prelude.NFData PutContainerRecipePolicy where
     Prelude.rnf containerRecipeArn
       `Prelude.seq` Prelude.rnf policy
 
-instance Core.ToHeaders PutContainerRecipePolicy where
+instance Data.ToHeaders PutContainerRecipePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutContainerRecipePolicy where
+instance Data.ToJSON PutContainerRecipePolicy where
   toJSON PutContainerRecipePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("containerRecipeArn" Core..= containerRecipeArn),
-            Prelude.Just ("policy" Core..= policy)
+              ("containerRecipeArn" Data..= containerRecipeArn),
+            Prelude.Just ("policy" Data..= policy)
           ]
       )
 
-instance Core.ToPath PutContainerRecipePolicy where
+instance Data.ToPath PutContainerRecipePolicy where
   toPath = Prelude.const "/PutContainerRecipePolicy"
 
-instance Core.ToQuery PutContainerRecipePolicy where
+instance Data.ToQuery PutContainerRecipePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutContainerRecipePolicyResponse' smart constructor.

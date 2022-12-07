@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.CmfcSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.CmfcAudioDuration
 import Amazonka.MediaConvert.Types.CmfcAudioTrackType
 import Amazonka.MediaConvert.Types.CmfcDescriptiveVideoServiceFlag
@@ -392,22 +393,22 @@ cmfcSettings_scte35Source = Lens.lens (\CmfcSettings' {scte35Source} -> scte35So
 cmfcSettings_audioGroupId :: Lens.Lens' CmfcSettings (Prelude.Maybe Prelude.Text)
 cmfcSettings_audioGroupId = Lens.lens (\CmfcSettings' {audioGroupId} -> audioGroupId) (\s@CmfcSettings' {} a -> s {audioGroupId = a} :: CmfcSettings)
 
-instance Core.FromJSON CmfcSettings where
+instance Data.FromJSON CmfcSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CmfcSettings"
       ( \x ->
           CmfcSettings'
-            Prelude.<$> (x Core..:? "descriptiveVideoServiceFlag")
-            Prelude.<*> (x Core..:? "audioDuration")
-            Prelude.<*> (x Core..:? "audioTrackType")
-            Prelude.<*> (x Core..:? "timedMetadata")
-            Prelude.<*> (x Core..:? "klvMetadata")
-            Prelude.<*> (x Core..:? "iFrameOnlyManifest")
-            Prelude.<*> (x Core..:? "audioRenditionSets")
-            Prelude.<*> (x Core..:? "scte35Esam")
-            Prelude.<*> (x Core..:? "scte35Source")
-            Prelude.<*> (x Core..:? "audioGroupId")
+            Prelude.<$> (x Data..:? "descriptiveVideoServiceFlag")
+            Prelude.<*> (x Data..:? "audioDuration")
+            Prelude.<*> (x Data..:? "audioTrackType")
+            Prelude.<*> (x Data..:? "timedMetadata")
+            Prelude.<*> (x Data..:? "klvMetadata")
+            Prelude.<*> (x Data..:? "iFrameOnlyManifest")
+            Prelude.<*> (x Data..:? "audioRenditionSets")
+            Prelude.<*> (x Data..:? "scte35Esam")
+            Prelude.<*> (x Data..:? "scte35Source")
+            Prelude.<*> (x Data..:? "audioGroupId")
       )
 
 instance Prelude.Hashable CmfcSettings where
@@ -437,23 +438,23 @@ instance Prelude.NFData CmfcSettings where
       `Prelude.seq` Prelude.rnf scte35Source
       `Prelude.seq` Prelude.rnf audioGroupId
 
-instance Core.ToJSON CmfcSettings where
+instance Data.ToJSON CmfcSettings where
   toJSON CmfcSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("descriptiveVideoServiceFlag" Core..=)
+          [ ("descriptiveVideoServiceFlag" Data..=)
               Prelude.<$> descriptiveVideoServiceFlag,
-            ("audioDuration" Core..=) Prelude.<$> audioDuration,
-            ("audioTrackType" Core..=)
+            ("audioDuration" Data..=) Prelude.<$> audioDuration,
+            ("audioTrackType" Data..=)
               Prelude.<$> audioTrackType,
-            ("timedMetadata" Core..=) Prelude.<$> timedMetadata,
-            ("klvMetadata" Core..=) Prelude.<$> klvMetadata,
-            ("iFrameOnlyManifest" Core..=)
+            ("timedMetadata" Data..=) Prelude.<$> timedMetadata,
+            ("klvMetadata" Data..=) Prelude.<$> klvMetadata,
+            ("iFrameOnlyManifest" Data..=)
               Prelude.<$> iFrameOnlyManifest,
-            ("audioRenditionSets" Core..=)
+            ("audioRenditionSets" Data..=)
               Prelude.<$> audioRenditionSets,
-            ("scte35Esam" Core..=) Prelude.<$> scte35Esam,
-            ("scte35Source" Core..=) Prelude.<$> scte35Source,
-            ("audioGroupId" Core..=) Prelude.<$> audioGroupId
+            ("scte35Esam" Data..=) Prelude.<$> scte35Esam,
+            ("scte35Source" Data..=) Prelude.<$> scte35Source,
+            ("audioGroupId" Data..=) Prelude.<$> audioGroupId
           ]
       )

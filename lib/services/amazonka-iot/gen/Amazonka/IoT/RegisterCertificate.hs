@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,8 +137,8 @@ instance Core.AWSRequest RegisterCertificate where
     Response.receiveJSON
       ( \s h x ->
           RegisterCertificateResponse'
-            Prelude.<$> (x Core..?> "certificateArn")
-            Prelude.<*> (x Core..?> "certificateId")
+            Prelude.<$> (x Data..?> "certificateArn")
+            Prelude.<*> (x Data..?> "certificateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,27 +156,27 @@ instance Prelude.NFData RegisterCertificate where
       `Prelude.seq` Prelude.rnf setAsActive
       `Prelude.seq` Prelude.rnf certificatePem
 
-instance Core.ToHeaders RegisterCertificate where
+instance Data.ToHeaders RegisterCertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON RegisterCertificate where
+instance Data.ToJSON RegisterCertificate where
   toJSON RegisterCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("caCertificatePem" Core..=)
+          [ ("caCertificatePem" Data..=)
               Prelude.<$> caCertificatePem,
-            ("status" Core..=) Prelude.<$> status,
+            ("status" Data..=) Prelude.<$> status,
             Prelude.Just
-              ("certificatePem" Core..= certificatePem)
+              ("certificatePem" Data..= certificatePem)
           ]
       )
 
-instance Core.ToPath RegisterCertificate where
+instance Data.ToPath RegisterCertificate where
   toPath = Prelude.const "/certificate/register"
 
-instance Core.ToQuery RegisterCertificate where
+instance Data.ToQuery RegisterCertificate where
   toQuery RegisterCertificate' {..} =
-    Prelude.mconcat ["setAsActive" Core.=: setAsActive]
+    Prelude.mconcat ["setAsActive" Data.=: setAsActive]
 
 -- | The output from the RegisterCertificate operation.
 --

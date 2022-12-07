@@ -24,6 +24,7 @@ import Amazonka.CodeDeploy.Types.TimeBasedLinear
 import Amazonka.CodeDeploy.Types.TrafficRoutingType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that specifies how traffic is shifted from one version
@@ -99,15 +100,15 @@ trafficRoutingConfig_timeBasedLinear = Lens.lens (\TrafficRoutingConfig' {timeBa
 trafficRoutingConfig_timeBasedCanary :: Lens.Lens' TrafficRoutingConfig (Prelude.Maybe TimeBasedCanary)
 trafficRoutingConfig_timeBasedCanary = Lens.lens (\TrafficRoutingConfig' {timeBasedCanary} -> timeBasedCanary) (\s@TrafficRoutingConfig' {} a -> s {timeBasedCanary = a} :: TrafficRoutingConfig)
 
-instance Core.FromJSON TrafficRoutingConfig where
+instance Data.FromJSON TrafficRoutingConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrafficRoutingConfig"
       ( \x ->
           TrafficRoutingConfig'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "timeBasedLinear")
-            Prelude.<*> (x Core..:? "timeBasedCanary")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "timeBasedLinear")
+            Prelude.<*> (x Data..:? "timeBasedCanary")
       )
 
 instance Prelude.Hashable TrafficRoutingConfig where
@@ -122,14 +123,14 @@ instance Prelude.NFData TrafficRoutingConfig where
       `Prelude.seq` Prelude.rnf timeBasedLinear
       `Prelude.seq` Prelude.rnf timeBasedCanary
 
-instance Core.ToJSON TrafficRoutingConfig where
+instance Data.ToJSON TrafficRoutingConfig where
   toJSON TrafficRoutingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("timeBasedLinear" Core..=)
+          [ ("type" Data..=) Prelude.<$> type',
+            ("timeBasedLinear" Data..=)
               Prelude.<$> timeBasedLinear,
-            ("timeBasedCanary" Core..=)
+            ("timeBasedCanary" Data..=)
               Prelude.<$> timeBasedCanary
           ]
       )

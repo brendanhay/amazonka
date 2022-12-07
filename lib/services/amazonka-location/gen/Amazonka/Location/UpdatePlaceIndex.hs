@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,9 +123,9 @@ instance Core.AWSRequest UpdatePlaceIndex where
       ( \s h x ->
           UpdatePlaceIndexResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "IndexArn")
-            Prelude.<*> (x Core..:> "IndexName")
-            Prelude.<*> (x Core..:> "UpdateTime")
+            Prelude.<*> (x Data..:> "IndexArn")
+            Prelude.<*> (x Data..:> "IndexName")
+            Prelude.<*> (x Data..:> "UpdateTime")
       )
 
 instance Prelude.Hashable UpdatePlaceIndex where
@@ -142,34 +143,34 @@ instance Prelude.NFData UpdatePlaceIndex where
       `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf indexName
 
-instance Core.ToHeaders UpdatePlaceIndex where
+instance Data.ToHeaders UpdatePlaceIndex where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePlaceIndex where
+instance Data.ToJSON UpdatePlaceIndex where
   toJSON UpdatePlaceIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSourceConfiguration" Core..=)
+          [ ("DataSourceConfiguration" Data..=)
               Prelude.<$> dataSourceConfiguration,
-            ("Description" Core..=) Prelude.<$> description,
-            ("PricingPlan" Core..=) Prelude.<$> pricingPlan
+            ("Description" Data..=) Prelude.<$> description,
+            ("PricingPlan" Data..=) Prelude.<$> pricingPlan
           ]
       )
 
-instance Core.ToPath UpdatePlaceIndex where
+instance Data.ToPath UpdatePlaceIndex where
   toPath UpdatePlaceIndex' {..} =
     Prelude.mconcat
-      ["/places/v0/indexes/", Core.toBS indexName]
+      ["/places/v0/indexes/", Data.toBS indexName]
 
-instance Core.ToQuery UpdatePlaceIndex where
+instance Data.ToQuery UpdatePlaceIndex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePlaceIndexResponse' smart constructor.
@@ -187,7 +188,7 @@ data UpdatePlaceIndexResponse = UpdatePlaceIndexResponse'
     -- | The timestamp for when the place index resource was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -232,7 +233,7 @@ newUpdatePlaceIndexResponse
           pHttpStatus_,
         indexArn = pIndexArn_,
         indexName = pIndexName_,
-        updateTime = Core._Time Lens.# pUpdateTime_
+        updateTime = Data._Time Lens.# pUpdateTime_
       }
 
 -- | The response's http status code.
@@ -255,7 +256,7 @@ updatePlaceIndexResponse_indexName = Lens.lens (\UpdatePlaceIndexResponse' {inde
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 updatePlaceIndexResponse_updateTime :: Lens.Lens' UpdatePlaceIndexResponse Prelude.UTCTime
-updatePlaceIndexResponse_updateTime = Lens.lens (\UpdatePlaceIndexResponse' {updateTime} -> updateTime) (\s@UpdatePlaceIndexResponse' {} a -> s {updateTime = a} :: UpdatePlaceIndexResponse) Prelude.. Core._Time
+updatePlaceIndexResponse_updateTime = Lens.lens (\UpdatePlaceIndexResponse' {updateTime} -> updateTime) (\s@UpdatePlaceIndexResponse' {} a -> s {updateTime = a} :: UpdatePlaceIndexResponse) Prelude.. Data._Time
 
 instance Prelude.NFData UpdatePlaceIndexResponse where
   rnf UpdatePlaceIndexResponse' {..} =

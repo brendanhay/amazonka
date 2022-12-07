@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.S3Object where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the S3 bucket name and the Amazon S3 key name.
@@ -61,14 +62,14 @@ s3Object_s3Bucket = Lens.lens (\S3Object' {s3Bucket} -> s3Bucket) (\s@S3Object' 
 s3Object_s3key :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
 s3Object_s3key = Lens.lens (\S3Object' {s3key} -> s3key) (\s@S3Object' {} a -> s {s3key = a} :: S3Object)
 
-instance Core.FromJSON S3Object where
+instance Data.FromJSON S3Object where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Object"
       ( \x ->
           S3Object'
-            Prelude.<$> (x Core..:? "s3Bucket")
-            Prelude.<*> (x Core..:? "s3key")
+            Prelude.<$> (x Data..:? "s3Bucket")
+            Prelude.<*> (x Data..:? "s3key")
       )
 
 instance Prelude.Hashable S3Object where

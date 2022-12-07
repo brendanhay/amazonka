@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,11 +122,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeprovisionPublicIpv4PoolCidrResponse'
-            Prelude.<$> ( x Core..@? "deprovisionedAddressSet"
+            Prelude.<$> ( x Data..@? "deprovisionedAddressSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "poolId")
+            Prelude.<*> (x Data..@? "poolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,24 +145,24 @@ instance Prelude.NFData DeprovisionPublicIpv4PoolCidr where
       `Prelude.seq` Prelude.rnf poolId
       `Prelude.seq` Prelude.rnf cidr
 
-instance Core.ToHeaders DeprovisionPublicIpv4PoolCidr where
+instance Data.ToHeaders DeprovisionPublicIpv4PoolCidr where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeprovisionPublicIpv4PoolCidr where
+instance Data.ToPath DeprovisionPublicIpv4PoolCidr where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeprovisionPublicIpv4PoolCidr where
+instance Data.ToQuery DeprovisionPublicIpv4PoolCidr where
   toQuery DeprovisionPublicIpv4PoolCidr' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DeprovisionPublicIpv4PoolCidr" ::
+          Data.=: ( "DeprovisionPublicIpv4PoolCidr" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "PoolId" Core.=: poolId,
-        "Cidr" Core.=: cidr
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "PoolId" Data.=: poolId,
+        "Cidr" Data.=: cidr
       ]
 
 -- | /See:/ 'newDeprovisionPublicIpv4PoolCidrResponse' smart constructor.

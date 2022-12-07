@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.ClusterConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types.ShardDetail
 import qualified Amazonka.Prelude as Prelude
 
@@ -173,26 +174,26 @@ clusterConfiguration_vpcId = Lens.lens (\ClusterConfiguration' {vpcId} -> vpcId)
 clusterConfiguration_engineVersion :: Lens.Lens' ClusterConfiguration (Prelude.Maybe Prelude.Text)
 clusterConfiguration_engineVersion = Lens.lens (\ClusterConfiguration' {engineVersion} -> engineVersion) (\s@ClusterConfiguration' {} a -> s {engineVersion = a} :: ClusterConfiguration)
 
-instance Core.FromJSON ClusterConfiguration where
+instance Data.FromJSON ClusterConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusterConfiguration"
       ( \x ->
           ClusterConfiguration'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "SubnetGroupName")
-            Prelude.<*> (x Core..:? "ParameterGroupName")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "TopicArn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "NodeType")
-            Prelude.<*> (x Core..:? "MaintenanceWindow")
-            Prelude.<*> (x Core..:? "SnapshotWindow")
-            Prelude.<*> (x Core..:? "SnapshotRetentionLimit")
-            Prelude.<*> (x Core..:? "Shards" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "NumShards")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "EngineVersion")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "SubnetGroupName")
+            Prelude.<*> (x Data..:? "ParameterGroupName")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "TopicArn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "NodeType")
+            Prelude.<*> (x Data..:? "MaintenanceWindow")
+            Prelude.<*> (x Data..:? "SnapshotWindow")
+            Prelude.<*> (x Data..:? "SnapshotRetentionLimit")
+            Prelude.<*> (x Data..:? "Shards" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "NumShards")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "EngineVersion")
       )
 
 instance Prelude.Hashable ClusterConfiguration where

@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.Action where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.LambdaConfiguration
 import Amazonka.LookoutMetrics.Types.SNSConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ action_lambdaConfiguration = Lens.lens (\Action' {lambdaConfiguration} -> lambda
 action_sNSConfiguration :: Lens.Lens' Action (Prelude.Maybe SNSConfiguration)
 action_sNSConfiguration = Lens.lens (\Action' {sNSConfiguration} -> sNSConfiguration) (\s@Action' {} a -> s {sNSConfiguration = a} :: Action)
 
-instance Core.FromJSON Action where
+instance Data.FromJSON Action where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Action"
       ( \x ->
           Action'
-            Prelude.<$> (x Core..:? "LambdaConfiguration")
-            Prelude.<*> (x Core..:? "SNSConfiguration")
+            Prelude.<$> (x Data..:? "LambdaConfiguration")
+            Prelude.<*> (x Data..:? "SNSConfiguration")
       )
 
 instance Prelude.Hashable Action where
@@ -84,13 +85,13 @@ instance Prelude.NFData Action where
     Prelude.rnf lambdaConfiguration
       `Prelude.seq` Prelude.rnf sNSConfiguration
 
-instance Core.ToJSON Action where
+instance Data.ToJSON Action where
   toJSON Action' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LambdaConfiguration" Core..=)
+          [ ("LambdaConfiguration" Data..=)
               Prelude.<$> lambdaConfiguration,
-            ("SNSConfiguration" Core..=)
+            ("SNSConfiguration" Data..=)
               Prelude.<$> sNSConfiguration
           ]
       )

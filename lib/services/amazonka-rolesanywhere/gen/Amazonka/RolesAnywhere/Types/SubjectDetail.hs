@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.SubjectDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RolesAnywhere.Types.CredentialSummary
 import Amazonka.RolesAnywhere.Types.InstanceProperty
@@ -43,12 +44,12 @@ data SubjectDetail = SubjectDetail'
     -- | The specified instance properties associated with the request.
     instanceProperties :: Prelude.Maybe [InstanceProperty],
     -- | The ISO-8601 timestamp when the subject was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The ISO-8601 timestamp when the subject was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The ISO-8601 timestamp of the last time this Subject requested temporary
     -- session credentials.
-    lastSeenAt :: Prelude.Maybe Core.POSIX
+    lastSeenAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -121,34 +122,34 @@ subjectDetail_instanceProperties = Lens.lens (\SubjectDetail' {instancePropertie
 
 -- | The ISO-8601 timestamp when the subject was created.
 subjectDetail_createdAt :: Lens.Lens' SubjectDetail (Prelude.Maybe Prelude.UTCTime)
-subjectDetail_createdAt = Lens.lens (\SubjectDetail' {createdAt} -> createdAt) (\s@SubjectDetail' {} a -> s {createdAt = a} :: SubjectDetail) Prelude.. Lens.mapping Core._Time
+subjectDetail_createdAt = Lens.lens (\SubjectDetail' {createdAt} -> createdAt) (\s@SubjectDetail' {} a -> s {createdAt = a} :: SubjectDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The ISO-8601 timestamp when the subject was last updated.
 subjectDetail_updatedAt :: Lens.Lens' SubjectDetail (Prelude.Maybe Prelude.UTCTime)
-subjectDetail_updatedAt = Lens.lens (\SubjectDetail' {updatedAt} -> updatedAt) (\s@SubjectDetail' {} a -> s {updatedAt = a} :: SubjectDetail) Prelude.. Lens.mapping Core._Time
+subjectDetail_updatedAt = Lens.lens (\SubjectDetail' {updatedAt} -> updatedAt) (\s@SubjectDetail' {} a -> s {updatedAt = a} :: SubjectDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The ISO-8601 timestamp of the last time this Subject requested temporary
 -- session credentials.
 subjectDetail_lastSeenAt :: Lens.Lens' SubjectDetail (Prelude.Maybe Prelude.UTCTime)
-subjectDetail_lastSeenAt = Lens.lens (\SubjectDetail' {lastSeenAt} -> lastSeenAt) (\s@SubjectDetail' {} a -> s {lastSeenAt = a} :: SubjectDetail) Prelude.. Lens.mapping Core._Time
+subjectDetail_lastSeenAt = Lens.lens (\SubjectDetail' {lastSeenAt} -> lastSeenAt) (\s@SubjectDetail' {} a -> s {lastSeenAt = a} :: SubjectDetail) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SubjectDetail where
+instance Data.FromJSON SubjectDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubjectDetail"
       ( \x ->
           SubjectDetail'
-            Prelude.<$> (x Core..:? "subjectId")
-            Prelude.<*> (x Core..:? "enabled")
-            Prelude.<*> (x Core..:? "subjectArn")
-            Prelude.<*> (x Core..:? "credentials" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "x509Subject")
-            Prelude.<*> ( x Core..:? "instanceProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "subjectId")
+            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "subjectArn")
+            Prelude.<*> (x Data..:? "credentials" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "x509Subject")
+            Prelude.<*> ( x Data..:? "instanceProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "updatedAt")
-            Prelude.<*> (x Core..:? "lastSeenAt")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "updatedAt")
+            Prelude.<*> (x Data..:? "lastSeenAt")
       )
 
 instance Prelude.Hashable SubjectDetail where

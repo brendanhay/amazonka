@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -190,11 +191,11 @@ instance Core.AWSRequest ListGroupPolicies where
       "ListGroupPoliciesResult"
       ( \s h x ->
           ListGroupPoliciesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "PolicyNames" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "PolicyNames" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -210,22 +211,22 @@ instance Prelude.NFData ListGroupPolicies where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf groupName
 
-instance Core.ToHeaders ListGroupPolicies where
+instance Data.ToHeaders ListGroupPolicies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListGroupPolicies where
+instance Data.ToPath ListGroupPolicies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListGroupPolicies where
+instance Data.ToQuery ListGroupPolicies where
   toQuery ListGroupPolicies' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListGroupPolicies" :: Prelude.ByteString),
+          Data.=: ("ListGroupPolicies" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "GroupName" Core.=: groupName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "GroupName" Data.=: groupName
       ]
 
 -- | Contains the response to a successful ListGroupPolicies request.

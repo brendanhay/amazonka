@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.CACertificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.CACertificateStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newCACertificate' smart constructor.
 data CACertificate = CACertificate'
   { -- | The date the CA certificate was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the CA certificate.
     --
     -- The status value REGISTER_INACTIVE is deprecated and should not be used.
@@ -70,7 +71,7 @@ newCACertificate =
 
 -- | The date the CA certificate was created.
 cACertificate_creationDate :: Lens.Lens' CACertificate (Prelude.Maybe Prelude.UTCTime)
-cACertificate_creationDate = Lens.lens (\CACertificate' {creationDate} -> creationDate) (\s@CACertificate' {} a -> s {creationDate = a} :: CACertificate) Prelude.. Lens.mapping Core._Time
+cACertificate_creationDate = Lens.lens (\CACertificate' {creationDate} -> creationDate) (\s@CACertificate' {} a -> s {creationDate = a} :: CACertificate) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the CA certificate.
 --
@@ -86,16 +87,16 @@ cACertificate_certificateArn = Lens.lens (\CACertificate' {certificateArn} -> ce
 cACertificate_certificateId :: Lens.Lens' CACertificate (Prelude.Maybe Prelude.Text)
 cACertificate_certificateId = Lens.lens (\CACertificate' {certificateId} -> certificateId) (\s@CACertificate' {} a -> s {certificateId = a} :: CACertificate)
 
-instance Core.FromJSON CACertificate where
+instance Data.FromJSON CACertificate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CACertificate"
       ( \x ->
           CACertificate'
-            Prelude.<$> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "certificateArn")
-            Prelude.<*> (x Core..:? "certificateId")
+            Prelude.<$> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "certificateArn")
+            Prelude.<*> (x Data..:? "certificateId")
       )
 
 instance Prelude.Hashable CACertificate where

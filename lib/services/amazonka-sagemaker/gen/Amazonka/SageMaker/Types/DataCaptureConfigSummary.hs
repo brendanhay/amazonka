@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DataCaptureConfigSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CaptureStatus
 
@@ -106,17 +107,17 @@ dataCaptureConfigSummary_destinationS3Uri = Lens.lens (\DataCaptureConfigSummary
 dataCaptureConfigSummary_kmsKeyId :: Lens.Lens' DataCaptureConfigSummary Prelude.Text
 dataCaptureConfigSummary_kmsKeyId = Lens.lens (\DataCaptureConfigSummary' {kmsKeyId} -> kmsKeyId) (\s@DataCaptureConfigSummary' {} a -> s {kmsKeyId = a} :: DataCaptureConfigSummary)
 
-instance Core.FromJSON DataCaptureConfigSummary where
+instance Data.FromJSON DataCaptureConfigSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataCaptureConfigSummary"
       ( \x ->
           DataCaptureConfigSummary'
-            Prelude.<$> (x Core..: "EnableCapture")
-            Prelude.<*> (x Core..: "CaptureStatus")
-            Prelude.<*> (x Core..: "CurrentSamplingPercentage")
-            Prelude.<*> (x Core..: "DestinationS3Uri")
-            Prelude.<*> (x Core..: "KmsKeyId")
+            Prelude.<$> (x Data..: "EnableCapture")
+            Prelude.<*> (x Data..: "CaptureStatus")
+            Prelude.<*> (x Data..: "CurrentSamplingPercentage")
+            Prelude.<*> (x Data..: "DestinationS3Uri")
+            Prelude.<*> (x Data..: "KmsKeyId")
       )
 
 instance Prelude.Hashable DataCaptureConfigSummary where

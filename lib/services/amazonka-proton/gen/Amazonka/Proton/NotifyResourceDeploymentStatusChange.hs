@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -62,9 +63,9 @@ data NotifyResourceDeploymentStatusChange = NotifyResourceDeploymentStatusChange
     status :: Prelude.Maybe ResourceDeploymentStatus,
     -- | The provisioned resource state change detail data that\'s returned by
     -- Proton.
-    outputs :: Prelude.Maybe [Core.Sensitive Output],
+    outputs :: Prelude.Maybe [Data.Sensitive Output],
     -- | The deployment status message for your provisioned resource.
-    statusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    statusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The provisioned resource Amazon Resource Name (ARN).
     resourceArn :: Prelude.Text
   }
@@ -117,7 +118,7 @@ notifyResourceDeploymentStatusChange_outputs = Lens.lens (\NotifyResourceDeploym
 
 -- | The deployment status message for your provisioned resource.
 notifyResourceDeploymentStatusChange_statusMessage :: Lens.Lens' NotifyResourceDeploymentStatusChange (Prelude.Maybe Prelude.Text)
-notifyResourceDeploymentStatusChange_statusMessage = Lens.lens (\NotifyResourceDeploymentStatusChange' {statusMessage} -> statusMessage) (\s@NotifyResourceDeploymentStatusChange' {} a -> s {statusMessage = a} :: NotifyResourceDeploymentStatusChange) Prelude.. Lens.mapping Core._Sensitive
+notifyResourceDeploymentStatusChange_statusMessage = Lens.lens (\NotifyResourceDeploymentStatusChange' {statusMessage} -> statusMessage) (\s@NotifyResourceDeploymentStatusChange' {} a -> s {statusMessage = a} :: NotifyResourceDeploymentStatusChange) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The provisioned resource Amazon Resource Name (ARN).
 notifyResourceDeploymentStatusChange_resourceArn :: Lens.Lens' NotifyResourceDeploymentStatusChange Prelude.Text
@@ -164,46 +165,46 @@ instance
       `Prelude.seq` Prelude.rnf resourceArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     NotifyResourceDeploymentStatusChange
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.NotifyResourceDeploymentStatusChange" ::
+              Data.=# ( "AwsProton20200720.NotifyResourceDeploymentStatusChange" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     NotifyResourceDeploymentStatusChange
   where
   toJSON NotifyResourceDeploymentStatusChange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deploymentId" Core..=) Prelude.<$> deploymentId,
-            ("status" Core..=) Prelude.<$> status,
-            ("outputs" Core..=) Prelude.<$> outputs,
-            ("statusMessage" Core..=) Prelude.<$> statusMessage,
-            Prelude.Just ("resourceArn" Core..= resourceArn)
+          [ ("deploymentId" Data..=) Prelude.<$> deploymentId,
+            ("status" Data..=) Prelude.<$> status,
+            ("outputs" Data..=) Prelude.<$> outputs,
+            ("statusMessage" Data..=) Prelude.<$> statusMessage,
+            Prelude.Just ("resourceArn" Data..= resourceArn)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     NotifyResourceDeploymentStatusChange
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     NotifyResourceDeploymentStatusChange
   where
   toQuery = Prelude.const Prelude.mempty

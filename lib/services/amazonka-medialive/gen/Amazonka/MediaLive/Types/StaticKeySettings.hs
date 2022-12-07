@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.StaticKeySettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.InputLocation
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ staticKeySettings_keyProviderServer = Lens.lens (\StaticKeySettings' {keyProvide
 staticKeySettings_staticKeyValue :: Lens.Lens' StaticKeySettings Prelude.Text
 staticKeySettings_staticKeyValue = Lens.lens (\StaticKeySettings' {staticKeyValue} -> staticKeyValue) (\s@StaticKeySettings' {} a -> s {staticKeyValue = a} :: StaticKeySettings)
 
-instance Core.FromJSON StaticKeySettings where
+instance Data.FromJSON StaticKeySettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StaticKeySettings"
       ( \x ->
           StaticKeySettings'
-            Prelude.<$> (x Core..:? "keyProviderServer")
-            Prelude.<*> (x Core..: "staticKeyValue")
+            Prelude.<$> (x Data..:? "keyProviderServer")
+            Prelude.<*> (x Data..: "staticKeyValue")
       )
 
 instance Prelude.Hashable StaticKeySettings where
@@ -85,13 +86,13 @@ instance Prelude.NFData StaticKeySettings where
     Prelude.rnf keyProviderServer
       `Prelude.seq` Prelude.rnf staticKeyValue
 
-instance Core.ToJSON StaticKeySettings where
+instance Data.ToJSON StaticKeySettings where
   toJSON StaticKeySettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("keyProviderServer" Core..=)
+          [ ("keyProviderServer" Data..=)
               Prelude.<$> keyProviderServer,
             Prelude.Just
-              ("staticKeyValue" Core..= staticKeyValue)
+              ("staticKeyValue" Data..= staticKeyValue)
           ]
       )

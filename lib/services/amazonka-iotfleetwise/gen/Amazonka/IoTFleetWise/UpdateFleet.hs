@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,8 +98,8 @@ instance Core.AWSRequest UpdateFleet where
     Response.receiveJSON
       ( \s h x ->
           UpdateFleetResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,34 +113,34 @@ instance Prelude.NFData UpdateFleet where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf fleetId
 
-instance Core.ToHeaders UpdateFleet where
+instance Data.ToHeaders UpdateFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.UpdateFleet" ::
+              Data.=# ( "IoTAutobahnControlPlane.UpdateFleet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFleet where
+instance Data.ToJSON UpdateFleet where
   toJSON UpdateFleet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("fleetId" Core..= fleetId)
+          [ ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("fleetId" Data..= fleetId)
           ]
       )
 
-instance Core.ToPath UpdateFleet where
+instance Data.ToPath UpdateFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateFleet where
+instance Data.ToQuery UpdateFleet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFleetResponse' smart constructor.

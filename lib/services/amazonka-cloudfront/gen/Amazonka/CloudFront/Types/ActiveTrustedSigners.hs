@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.ActiveTrustedSigners where
 import Amazonka.CloudFront.Types.Signer
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of Amazon Web Services accounts and the active CloudFront key
@@ -92,14 +93,14 @@ activeTrustedSigners_enabled = Lens.lens (\ActiveTrustedSigners' {enabled} -> en
 activeTrustedSigners_quantity :: Lens.Lens' ActiveTrustedSigners Prelude.Int
 activeTrustedSigners_quantity = Lens.lens (\ActiveTrustedSigners' {quantity} -> quantity) (\s@ActiveTrustedSigners' {} a -> s {quantity = a} :: ActiveTrustedSigners)
 
-instance Core.FromXML ActiveTrustedSigners where
+instance Data.FromXML ActiveTrustedSigners where
   parseXML x =
     ActiveTrustedSigners'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Signer")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Signer")
                   )
-      Prelude.<*> (x Core..@ "Enabled")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@ "Enabled")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable ActiveTrustedSigners where
   hashWithSalt _salt ActiveTrustedSigners' {..} =

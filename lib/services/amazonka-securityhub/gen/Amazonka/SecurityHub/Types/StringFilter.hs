@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.StringFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.StringFilterComparison
 
@@ -266,14 +267,14 @@ stringFilter_comparison = Lens.lens (\StringFilter' {comparison} -> comparison) 
 stringFilter_value :: Lens.Lens' StringFilter (Prelude.Maybe Prelude.Text)
 stringFilter_value = Lens.lens (\StringFilter' {value} -> value) (\s@StringFilter' {} a -> s {value = a} :: StringFilter)
 
-instance Core.FromJSON StringFilter where
+instance Data.FromJSON StringFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StringFilter"
       ( \x ->
           StringFilter'
-            Prelude.<$> (x Core..:? "Comparison")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Comparison")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable StringFilter where
@@ -286,11 +287,11 @@ instance Prelude.NFData StringFilter where
     Prelude.rnf comparison
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON StringFilter where
+instance Data.ToJSON StringFilter where
   toJSON StringFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Comparison" Core..=) Prelude.<$> comparison,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Comparison" Data..=) Prelude.<$> comparison,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

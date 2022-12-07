@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.ByoipCidr where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types.ByoipCidrEvent
 import Amazonka.GlobalAccelerator.Types.ByoipCidrState
 import qualified Amazonka.Prelude as Prelude
@@ -128,15 +129,15 @@ byoipCidr_state = Lens.lens (\ByoipCidr' {state} -> state) (\s@ByoipCidr' {} a -
 byoipCidr_events :: Lens.Lens' ByoipCidr (Prelude.Maybe [ByoipCidrEvent])
 byoipCidr_events = Lens.lens (\ByoipCidr' {events} -> events) (\s@ByoipCidr' {} a -> s {events = a} :: ByoipCidr) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ByoipCidr where
+instance Data.FromJSON ByoipCidr where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ByoipCidr"
       ( \x ->
           ByoipCidr'
-            Prelude.<$> (x Core..:? "Cidr")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Events" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Cidr")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Events" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ByoipCidr where

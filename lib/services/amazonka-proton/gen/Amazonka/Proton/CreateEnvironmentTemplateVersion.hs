@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -74,7 +75,7 @@ data CreateEnvironmentTemplateVersion = CreateEnvironmentTemplateVersion'
     -- request created.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A description of the new version of an environment template.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | An object that includes the template bundle S3 bucket path and name for
     -- the new version of an template.
     source :: TemplateVersionSourceInput,
@@ -158,7 +159,7 @@ createEnvironmentTemplateVersion_clientToken = Lens.lens (\CreateEnvironmentTemp
 
 -- | A description of the new version of an environment template.
 createEnvironmentTemplateVersion_description :: Lens.Lens' CreateEnvironmentTemplateVersion (Prelude.Maybe Prelude.Text)
-createEnvironmentTemplateVersion_description = Lens.lens (\CreateEnvironmentTemplateVersion' {description} -> description) (\s@CreateEnvironmentTemplateVersion' {} a -> s {description = a} :: CreateEnvironmentTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
+createEnvironmentTemplateVersion_description = Lens.lens (\CreateEnvironmentTemplateVersion' {description} -> description) (\s@CreateEnvironmentTemplateVersion' {} a -> s {description = a} :: CreateEnvironmentTemplateVersion) Prelude.. Lens.mapping Data._Sensitive
 
 -- | An object that includes the template bundle S3 bucket path and name for
 -- the new version of an template.
@@ -183,7 +184,7 @@ instance
       ( \s h x ->
           CreateEnvironmentTemplateVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "environmentTemplateVersion")
+            Prelude.<*> (x Data..:> "environmentTemplateVersion")
       )
 
 instance
@@ -213,41 +214,41 @@ instance
       `Prelude.seq` Prelude.rnf templateName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateEnvironmentTemplateVersion
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.CreateEnvironmentTemplateVersion" ::
+              Data.=# ( "AwsProton20200720.CreateEnvironmentTemplateVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEnvironmentTemplateVersion where
+instance Data.ToJSON CreateEnvironmentTemplateVersion where
   toJSON CreateEnvironmentTemplateVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("majorVersion" Core..=) Prelude.<$> majorVersion,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("source" Core..= source),
-            Prelude.Just ("templateName" Core..= templateName)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("majorVersion" Data..=) Prelude.<$> majorVersion,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("source" Data..= source),
+            Prelude.Just ("templateName" Data..= templateName)
           ]
       )
 
-instance Core.ToPath CreateEnvironmentTemplateVersion where
+instance Data.ToPath CreateEnvironmentTemplateVersion where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateEnvironmentTemplateVersion
   where
   toQuery = Prelude.const Prelude.mempty

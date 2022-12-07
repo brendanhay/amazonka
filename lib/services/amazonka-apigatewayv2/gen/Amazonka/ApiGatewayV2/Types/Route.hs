@@ -23,6 +23,7 @@ import Amazonka.ApiGatewayV2.Types.AuthorizationType
 import Amazonka.ApiGatewayV2.Types.ParameterConstraints
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a route.
@@ -218,29 +219,29 @@ route_authorizerId = Lens.lens (\Route' {authorizerId} -> authorizerId) (\s@Rout
 route_routeKey :: Lens.Lens' Route Prelude.Text
 route_routeKey = Lens.lens (\Route' {routeKey} -> routeKey) (\s@Route' {} a -> s {routeKey = a} :: Route)
 
-instance Core.FromJSON Route where
+instance Data.FromJSON Route where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Route"
       ( \x ->
           Route'
-            Prelude.<$> (x Core..:? "requestModels" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "requestParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "requestModels" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "requestParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "apiKeyRequired")
-            Prelude.<*> (x Core..:? "target")
-            Prelude.<*> (x Core..:? "modelSelectionExpression")
-            Prelude.<*> (x Core..:? "routeId")
-            Prelude.<*> ( x Core..:? "authorizationScopes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "apiKeyRequired")
+            Prelude.<*> (x Data..:? "target")
+            Prelude.<*> (x Data..:? "modelSelectionExpression")
+            Prelude.<*> (x Data..:? "routeId")
+            Prelude.<*> ( x Data..:? "authorizationScopes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "authorizationType")
-            Prelude.<*> (x Core..:? "operationName")
-            Prelude.<*> (x Core..:? "apiGatewayManaged")
-            Prelude.<*> (x Core..:? "routeResponseSelectionExpression")
-            Prelude.<*> (x Core..:? "authorizerId")
-            Prelude.<*> (x Core..: "routeKey")
+            Prelude.<*> (x Data..:? "authorizationType")
+            Prelude.<*> (x Data..:? "operationName")
+            Prelude.<*> (x Data..:? "apiGatewayManaged")
+            Prelude.<*> (x Data..:? "routeResponseSelectionExpression")
+            Prelude.<*> (x Data..:? "authorizerId")
+            Prelude.<*> (x Data..: "routeKey")
       )
 
 instance Prelude.Hashable Route where

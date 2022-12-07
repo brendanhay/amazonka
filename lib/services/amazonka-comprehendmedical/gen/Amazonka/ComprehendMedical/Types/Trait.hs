@@ -22,6 +22,7 @@ module Amazonka.ComprehendMedical.Types.Trait where
 import Amazonka.ComprehendMedical.Types.AttributeName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides contextual information about the extracted entity.
@@ -65,13 +66,13 @@ trait_name = Lens.lens (\Trait' {name} -> name) (\s@Trait' {} a -> s {name = a} 
 trait_score :: Lens.Lens' Trait (Prelude.Maybe Prelude.Double)
 trait_score = Lens.lens (\Trait' {score} -> score) (\s@Trait' {} a -> s {score = a} :: Trait)
 
-instance Core.FromJSON Trait where
+instance Data.FromJSON Trait where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Trait"
       ( \x ->
           Trait'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Score")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Score")
       )
 
 instance Prelude.Hashable Trait where

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -170,7 +171,7 @@ instance Core.AWSRequest CreateMissionProfile where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateMissionProfile where
   hashWithSalt _salt CreateMissionProfile' {..} =
@@ -192,39 +193,39 @@ instance Prelude.NFData CreateMissionProfile where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf trackingConfigArn
 
-instance Core.ToHeaders CreateMissionProfile where
+instance Data.ToHeaders CreateMissionProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateMissionProfile where
+instance Data.ToJSON CreateMissionProfile where
   toJSON CreateMissionProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("contactPrePassDurationSeconds" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("contactPrePassDurationSeconds" Data..=)
               Prelude.<$> contactPrePassDurationSeconds,
-            ("contactPostPassDurationSeconds" Core..=)
+            ("contactPostPassDurationSeconds" Data..=)
               Prelude.<$> contactPostPassDurationSeconds,
-            Prelude.Just ("dataflowEdges" Core..= dataflowEdges),
+            Prelude.Just ("dataflowEdges" Data..= dataflowEdges),
             Prelude.Just
               ( "minimumViableContactDurationSeconds"
-                  Core..= minimumViableContactDurationSeconds
+                  Data..= minimumViableContactDurationSeconds
               ),
-            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("trackingConfigArn" Core..= trackingConfigArn)
+              ("trackingConfigArn" Data..= trackingConfigArn)
           ]
       )
 
-instance Core.ToPath CreateMissionProfile where
+instance Data.ToPath CreateMissionProfile where
   toPath = Prelude.const "/missionprofile"
 
-instance Core.ToQuery CreateMissionProfile where
+instance Data.ToQuery CreateMissionProfile where
   toQuery = Prelude.const Prelude.mempty

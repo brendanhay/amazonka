@@ -44,6 +44,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,7 +100,7 @@ instance Core.AWSRequest UpdateSchema where
     Response.receiveJSON
       ( \s h x ->
           UpdateSchemaResponse'
-            Prelude.<$> (x Core..?> "SchemaArn")
+            Prelude.<$> (x Data..?> "SchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,24 +114,24 @@ instance Prelude.NFData UpdateSchema where
     Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateSchema where
+instance Data.ToHeaders UpdateSchema where
   toHeaders UpdateSchema' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# schemaArn]
+      ["x-amz-data-partition" Data.=# schemaArn]
 
-instance Core.ToJSON UpdateSchema where
+instance Data.ToJSON UpdateSchema where
   toJSON UpdateSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath UpdateSchema where
+instance Data.ToPath UpdateSchema where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/schema/update"
 
-instance Core.ToQuery UpdateSchema where
+instance Data.ToQuery UpdateSchema where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSchemaResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.ImportDataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types.ImportDataSourceConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newImportDataSource pDataSourceConfig_ =
 importDataSource_dataSourceConfig :: Lens.Lens' ImportDataSource ImportDataSourceConfig
 importDataSource_dataSourceConfig = Lens.lens (\ImportDataSource' {dataSourceConfig} -> dataSourceConfig) (\s@ImportDataSource' {} a -> s {dataSourceConfig = a} :: ImportDataSource)
 
-instance Core.FromJSON ImportDataSource where
+instance Data.FromJSON ImportDataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportDataSource"
       ( \x ->
           ImportDataSource'
-            Prelude.<$> (x Core..: "dataSourceConfig")
+            Prelude.<$> (x Data..: "dataSourceConfig")
       )
 
 instance Prelude.Hashable ImportDataSource where
@@ -74,11 +75,11 @@ instance Prelude.NFData ImportDataSource where
   rnf ImportDataSource' {..} =
     Prelude.rnf dataSourceConfig
 
-instance Core.ToJSON ImportDataSource where
+instance Data.ToJSON ImportDataSource where
   toJSON ImportDataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("dataSourceConfig" Core..= dataSourceConfig)
+              ("dataSourceConfig" Data..= dataSourceConfig)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.CollectorShortInfoResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Briefly describes a Fleet Advisor collector.
@@ -62,14 +63,14 @@ collectorShortInfoResponse_collectorName = Lens.lens (\CollectorShortInfoRespons
 collectorShortInfoResponse_collectorReferencedId :: Lens.Lens' CollectorShortInfoResponse (Prelude.Maybe Prelude.Text)
 collectorShortInfoResponse_collectorReferencedId = Lens.lens (\CollectorShortInfoResponse' {collectorReferencedId} -> collectorReferencedId) (\s@CollectorShortInfoResponse' {} a -> s {collectorReferencedId = a} :: CollectorShortInfoResponse)
 
-instance Core.FromJSON CollectorShortInfoResponse where
+instance Data.FromJSON CollectorShortInfoResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CollectorShortInfoResponse"
       ( \x ->
           CollectorShortInfoResponse'
-            Prelude.<$> (x Core..:? "CollectorName")
-            Prelude.<*> (x Core..:? "CollectorReferencedId")
+            Prelude.<$> (x Data..:? "CollectorName")
+            Prelude.<*> (x Data..:? "CollectorReferencedId")
       )
 
 instance Prelude.Hashable CollectorShortInfoResponse where

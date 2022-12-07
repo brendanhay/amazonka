@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.HyperParameterTuningJobConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.HyperParameterTuningJobObjective
 import Amazonka.SageMaker.Types.HyperParameterTuningJobStrategyConfig
@@ -191,19 +192,19 @@ hyperParameterTuningJobConfig_strategy = Lens.lens (\HyperParameterTuningJobConf
 hyperParameterTuningJobConfig_resourceLimits :: Lens.Lens' HyperParameterTuningJobConfig ResourceLimits
 hyperParameterTuningJobConfig_resourceLimits = Lens.lens (\HyperParameterTuningJobConfig' {resourceLimits} -> resourceLimits) (\s@HyperParameterTuningJobConfig' {} a -> s {resourceLimits = a} :: HyperParameterTuningJobConfig)
 
-instance Core.FromJSON HyperParameterTuningJobConfig where
+instance Data.FromJSON HyperParameterTuningJobConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HyperParameterTuningJobConfig"
       ( \x ->
           HyperParameterTuningJobConfig'
-            Prelude.<$> (x Core..:? "TuningJobCompletionCriteria")
-            Prelude.<*> (x Core..:? "TrainingJobEarlyStoppingType")
-            Prelude.<*> (x Core..:? "HyperParameterTuningJobObjective")
-            Prelude.<*> (x Core..:? "ParameterRanges")
-            Prelude.<*> (x Core..:? "StrategyConfig")
-            Prelude.<*> (x Core..: "Strategy")
-            Prelude.<*> (x Core..: "ResourceLimits")
+            Prelude.<$> (x Data..:? "TuningJobCompletionCriteria")
+            Prelude.<*> (x Data..:? "TrainingJobEarlyStoppingType")
+            Prelude.<*> (x Data..:? "HyperParameterTuningJobObjective")
+            Prelude.<*> (x Data..:? "ParameterRanges")
+            Prelude.<*> (x Data..:? "StrategyConfig")
+            Prelude.<*> (x Data..: "Strategy")
+            Prelude.<*> (x Data..: "ResourceLimits")
       )
 
 instance
@@ -230,22 +231,22 @@ instance Prelude.NFData HyperParameterTuningJobConfig where
       `Prelude.seq` Prelude.rnf strategy
       `Prelude.seq` Prelude.rnf resourceLimits
 
-instance Core.ToJSON HyperParameterTuningJobConfig where
+instance Data.ToJSON HyperParameterTuningJobConfig where
   toJSON HyperParameterTuningJobConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TuningJobCompletionCriteria" Core..=)
+          [ ("TuningJobCompletionCriteria" Data..=)
               Prelude.<$> tuningJobCompletionCriteria,
-            ("TrainingJobEarlyStoppingType" Core..=)
+            ("TrainingJobEarlyStoppingType" Data..=)
               Prelude.<$> trainingJobEarlyStoppingType,
-            ("HyperParameterTuningJobObjective" Core..=)
+            ("HyperParameterTuningJobObjective" Data..=)
               Prelude.<$> hyperParameterTuningJobObjective,
-            ("ParameterRanges" Core..=)
+            ("ParameterRanges" Data..=)
               Prelude.<$> parameterRanges,
-            ("StrategyConfig" Core..=)
+            ("StrategyConfig" Data..=)
               Prelude.<$> strategyConfig,
-            Prelude.Just ("Strategy" Core..= strategy),
+            Prelude.Just ("Strategy" Data..= strategy),
             Prelude.Just
-              ("ResourceLimits" Core..= resourceLimits)
+              ("ResourceLimits" Data..= resourceLimits)
           ]
       )

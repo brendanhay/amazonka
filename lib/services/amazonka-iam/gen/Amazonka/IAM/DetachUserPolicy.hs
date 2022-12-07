@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,21 +138,21 @@ instance Prelude.NFData DetachUserPolicy where
     Prelude.rnf userName
       `Prelude.seq` Prelude.rnf policyArn
 
-instance Core.ToHeaders DetachUserPolicy where
+instance Data.ToHeaders DetachUserPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DetachUserPolicy where
+instance Data.ToPath DetachUserPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetachUserPolicy where
+instance Data.ToQuery DetachUserPolicy where
   toQuery DetachUserPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DetachUserPolicy" :: Prelude.ByteString),
+          Data.=: ("DetachUserPolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
-        "PolicyArn" Core.=: policyArn
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
+        "PolicyArn" Data.=: policyArn
       ]
 
 -- | /See:/ 'newDetachUserPolicyResponse' smart constructor.

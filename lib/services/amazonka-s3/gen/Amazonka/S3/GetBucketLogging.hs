@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,7 +111,7 @@ instance Core.AWSRequest GetBucketLogging where
     Response.receiveXML
       ( \s h x ->
           GetBucketLoggingResponse'
-            Prelude.<$> (x Core..@? "LoggingEnabled")
+            Prelude.<$> (x Data..@? "LoggingEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,18 +125,18 @@ instance Prelude.NFData GetBucketLogging where
     Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders GetBucketLogging where
+instance Data.ToHeaders GetBucketLogging where
   toHeaders GetBucketLogging' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath GetBucketLogging where
+instance Data.ToPath GetBucketLogging where
   toPath GetBucketLogging' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery GetBucketLogging where
+instance Data.ToQuery GetBucketLogging where
   toQuery = Prelude.const (Prelude.mconcat ["logging"])
 
 -- | /See:/ 'newGetBucketLoggingResponse' smart constructor.

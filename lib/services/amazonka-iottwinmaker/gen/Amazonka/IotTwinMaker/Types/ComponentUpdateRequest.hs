@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.ComponentUpdateRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.ComponentPropertyGroupRequest
 import Amazonka.IotTwinMaker.Types.ComponentUpdateType
 import Amazonka.IotTwinMaker.Types.PropertyRequest
@@ -111,17 +112,17 @@ instance Prelude.NFData ComponentUpdateRequest where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf componentTypeId
 
-instance Core.ToJSON ComponentUpdateRequest where
+instance Data.ToJSON ComponentUpdateRequest where
   toJSON ComponentUpdateRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("updateType" Core..=) Prelude.<$> updateType,
-            ("propertyUpdates" Core..=)
+          [ ("updateType" Data..=) Prelude.<$> updateType,
+            ("propertyUpdates" Data..=)
               Prelude.<$> propertyUpdates,
-            ("propertyGroupUpdates" Core..=)
+            ("propertyGroupUpdates" Data..=)
               Prelude.<$> propertyGroupUpdates,
-            ("description" Core..=) Prelude.<$> description,
-            ("componentTypeId" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("componentTypeId" Data..=)
               Prelude.<$> componentTypeId
           ]
       )

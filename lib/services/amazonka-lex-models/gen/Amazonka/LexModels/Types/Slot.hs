@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.Slot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.ObfuscationSetting
 import Amazonka.LexModels.Types.Prompt
 import Amazonka.LexModels.Types.SlotConstraint
@@ -210,25 +211,25 @@ slot_name = Lens.lens (\Slot' {name} -> name) (\s@Slot' {} a -> s {name = a} :: 
 slot_slotConstraint :: Lens.Lens' Slot SlotConstraint
 slot_slotConstraint = Lens.lens (\Slot' {slotConstraint} -> slotConstraint) (\s@Slot' {} a -> s {slotConstraint = a} :: Slot)
 
-instance Core.FromJSON Slot where
+instance Data.FromJSON Slot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Slot"
       ( \x ->
           Slot'
-            Prelude.<$> ( x Core..:? "sampleUtterances"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "sampleUtterances"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "slotType")
-            Prelude.<*> (x Core..:? "defaultValueSpec")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "responseCard")
-            Prelude.<*> (x Core..:? "priority")
-            Prelude.<*> (x Core..:? "obfuscationSetting")
-            Prelude.<*> (x Core..:? "slotTypeVersion")
-            Prelude.<*> (x Core..:? "valueElicitationPrompt")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "slotConstraint")
+            Prelude.<*> (x Data..:? "slotType")
+            Prelude.<*> (x Data..:? "defaultValueSpec")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "responseCard")
+            Prelude.<*> (x Data..:? "priority")
+            Prelude.<*> (x Data..:? "obfuscationSetting")
+            Prelude.<*> (x Data..:? "slotTypeVersion")
+            Prelude.<*> (x Data..:? "valueElicitationPrompt")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "slotConstraint")
       )
 
 instance Prelude.Hashable Slot where
@@ -259,26 +260,26 @@ instance Prelude.NFData Slot where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf slotConstraint
 
-instance Core.ToJSON Slot where
+instance Data.ToJSON Slot where
   toJSON Slot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sampleUtterances" Core..=)
+          [ ("sampleUtterances" Data..=)
               Prelude.<$> sampleUtterances,
-            ("slotType" Core..=) Prelude.<$> slotType,
-            ("defaultValueSpec" Core..=)
+            ("slotType" Data..=) Prelude.<$> slotType,
+            ("defaultValueSpec" Data..=)
               Prelude.<$> defaultValueSpec,
-            ("description" Core..=) Prelude.<$> description,
-            ("responseCard" Core..=) Prelude.<$> responseCard,
-            ("priority" Core..=) Prelude.<$> priority,
-            ("obfuscationSetting" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("responseCard" Data..=) Prelude.<$> responseCard,
+            ("priority" Data..=) Prelude.<$> priority,
+            ("obfuscationSetting" Data..=)
               Prelude.<$> obfuscationSetting,
-            ("slotTypeVersion" Core..=)
+            ("slotTypeVersion" Data..=)
               Prelude.<$> slotTypeVersion,
-            ("valueElicitationPrompt" Core..=)
+            ("valueElicitationPrompt" Data..=)
               Prelude.<$> valueElicitationPrompt,
-            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("slotConstraint" Core..= slotConstraint)
+              ("slotConstraint" Data..= slotConstraint)
           ]
       )

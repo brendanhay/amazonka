@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.RecurringCharge where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the specific price and frequency of a recurring charges for an
@@ -63,14 +64,14 @@ recurringCharge_recurringChargeAmount = Lens.lens (\RecurringCharge' {recurringC
 recurringCharge_recurringChargeFrequency :: Lens.Lens' RecurringCharge (Prelude.Maybe Prelude.Text)
 recurringCharge_recurringChargeFrequency = Lens.lens (\RecurringCharge' {recurringChargeFrequency} -> recurringChargeFrequency) (\s@RecurringCharge' {} a -> s {recurringChargeFrequency = a} :: RecurringCharge)
 
-instance Core.FromJSON RecurringCharge where
+instance Data.FromJSON RecurringCharge where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecurringCharge"
       ( \x ->
           RecurringCharge'
-            Prelude.<$> (x Core..:? "RecurringChargeAmount")
-            Prelude.<*> (x Core..:? "RecurringChargeFrequency")
+            Prelude.<$> (x Data..:? "RecurringChargeAmount")
+            Prelude.<*> (x Data..:? "RecurringChargeFrequency")
       )
 
 instance Prelude.Hashable RecurringCharge where

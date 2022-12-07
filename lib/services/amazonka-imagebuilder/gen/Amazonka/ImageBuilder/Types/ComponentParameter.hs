@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.ComponentParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a key\/value pair that sets the named component parameter.
@@ -63,14 +64,14 @@ componentParameter_name = Lens.lens (\ComponentParameter' {name} -> name) (\s@Co
 componentParameter_value :: Lens.Lens' ComponentParameter [Prelude.Text]
 componentParameter_value = Lens.lens (\ComponentParameter' {value} -> value) (\s@ComponentParameter' {} a -> s {value = a} :: ComponentParameter) Prelude.. Lens.coerced
 
-instance Core.FromJSON ComponentParameter where
+instance Data.FromJSON ComponentParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentParameter"
       ( \x ->
           ComponentParameter'
-            Prelude.<$> (x Core..: "name")
-            Prelude.<*> (x Core..:? "value" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..:? "value" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ComponentParameter where
@@ -82,11 +83,11 @@ instance Prelude.NFData ComponentParameter where
   rnf ComponentParameter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ComponentParameter where
+instance Data.ToJSON ComponentParameter where
   toJSON ComponentParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("value" Data..= value)
           ]
       )

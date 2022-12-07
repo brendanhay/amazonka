@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,15 +87,15 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteElasticsearchServiceRole
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteElasticsearchServiceRole where
+instance Data.ToPath DeleteElasticsearchServiceRole where
   toPath = Prelude.const "/2015-01-01/es/role"
 
-instance Core.ToQuery DeleteElasticsearchServiceRole where
+instance Data.ToQuery DeleteElasticsearchServiceRole where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteElasticsearchServiceRoleResponse' smart constructor.

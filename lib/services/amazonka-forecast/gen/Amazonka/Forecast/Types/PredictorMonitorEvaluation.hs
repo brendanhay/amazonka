@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.PredictorMonitorEvaluation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.MetricResult
 import Amazonka.Forecast.Types.MonitorDataSource
 import Amazonka.Forecast.Types.PredictorEvent
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPredictorMonitorEvaluation' smart constructor.
 data PredictorMonitorEvaluation = PredictorMonitorEvaluation'
   { -- | The timestamp that indicates when the monitor evaluation was started.
-    evaluationTime :: Prelude.Maybe Core.POSIX,
+    evaluationTime :: Prelude.Maybe Data.POSIX,
     -- | Information about any errors that may have occurred during the monitor
     -- evaluation.
     message :: Prelude.Maybe Prelude.Text,
@@ -44,12 +45,12 @@ data PredictorMonitorEvaluation = PredictorMonitorEvaluation'
     numItemsEvaluated :: Prelude.Maybe Prelude.Integer,
     -- | The timestamp that indicates the end of the window that is used for
     -- monitor evaluation.
-    windowEndDatetime :: Prelude.Maybe Core.POSIX,
+    windowEndDatetime :: Prelude.Maybe Data.POSIX,
     -- | The source of the data the monitor resource used during the evaluation.
     monitorDataSource :: Prelude.Maybe MonitorDataSource,
     -- | The timestamp that indicates the start of the window that is used for
     -- monitor evaluation.
-    windowStartDatetime :: Prelude.Maybe Core.POSIX,
+    windowStartDatetime :: Prelude.Maybe Data.POSIX,
     -- | Provides details about a predictor event, such as a retraining.
     predictorEvent :: Prelude.Maybe PredictorEvent,
     -- | A list of metrics Forecast calculated when monitoring a predictor. You
@@ -116,7 +117,7 @@ newPredictorMonitorEvaluation =
 
 -- | The timestamp that indicates when the monitor evaluation was started.
 predictorMonitorEvaluation_evaluationTime :: Lens.Lens' PredictorMonitorEvaluation (Prelude.Maybe Prelude.UTCTime)
-predictorMonitorEvaluation_evaluationTime = Lens.lens (\PredictorMonitorEvaluation' {evaluationTime} -> evaluationTime) (\s@PredictorMonitorEvaluation' {} a -> s {evaluationTime = a} :: PredictorMonitorEvaluation) Prelude.. Lens.mapping Core._Time
+predictorMonitorEvaluation_evaluationTime = Lens.lens (\PredictorMonitorEvaluation' {evaluationTime} -> evaluationTime) (\s@PredictorMonitorEvaluation' {} a -> s {evaluationTime = a} :: PredictorMonitorEvaluation) Prelude.. Lens.mapping Data._Time
 
 -- | Information about any errors that may have occurred during the monitor
 -- evaluation.
@@ -139,7 +140,7 @@ predictorMonitorEvaluation_numItemsEvaluated = Lens.lens (\PredictorMonitorEvalu
 -- | The timestamp that indicates the end of the window that is used for
 -- monitor evaluation.
 predictorMonitorEvaluation_windowEndDatetime :: Lens.Lens' PredictorMonitorEvaluation (Prelude.Maybe Prelude.UTCTime)
-predictorMonitorEvaluation_windowEndDatetime = Lens.lens (\PredictorMonitorEvaluation' {windowEndDatetime} -> windowEndDatetime) (\s@PredictorMonitorEvaluation' {} a -> s {windowEndDatetime = a} :: PredictorMonitorEvaluation) Prelude.. Lens.mapping Core._Time
+predictorMonitorEvaluation_windowEndDatetime = Lens.lens (\PredictorMonitorEvaluation' {windowEndDatetime} -> windowEndDatetime) (\s@PredictorMonitorEvaluation' {} a -> s {windowEndDatetime = a} :: PredictorMonitorEvaluation) Prelude.. Lens.mapping Data._Time
 
 -- | The source of the data the monitor resource used during the evaluation.
 predictorMonitorEvaluation_monitorDataSource :: Lens.Lens' PredictorMonitorEvaluation (Prelude.Maybe MonitorDataSource)
@@ -148,7 +149,7 @@ predictorMonitorEvaluation_monitorDataSource = Lens.lens (\PredictorMonitorEvalu
 -- | The timestamp that indicates the start of the window that is used for
 -- monitor evaluation.
 predictorMonitorEvaluation_windowStartDatetime :: Lens.Lens' PredictorMonitorEvaluation (Prelude.Maybe Prelude.UTCTime)
-predictorMonitorEvaluation_windowStartDatetime = Lens.lens (\PredictorMonitorEvaluation' {windowStartDatetime} -> windowStartDatetime) (\s@PredictorMonitorEvaluation' {} a -> s {windowStartDatetime = a} :: PredictorMonitorEvaluation) Prelude.. Lens.mapping Core._Time
+predictorMonitorEvaluation_windowStartDatetime = Lens.lens (\PredictorMonitorEvaluation' {windowStartDatetime} -> windowStartDatetime) (\s@PredictorMonitorEvaluation' {} a -> s {windowStartDatetime = a} :: PredictorMonitorEvaluation) Prelude.. Lens.mapping Data._Time
 
 -- | Provides details about a predictor event, such as a retraining.
 predictorMonitorEvaluation_predictorEvent :: Lens.Lens' PredictorMonitorEvaluation (Prelude.Maybe PredictorEvent)
@@ -164,23 +165,23 @@ predictorMonitorEvaluation_metricResults = Lens.lens (\PredictorMonitorEvaluatio
 predictorMonitorEvaluation_resourceArn :: Lens.Lens' PredictorMonitorEvaluation (Prelude.Maybe Prelude.Text)
 predictorMonitorEvaluation_resourceArn = Lens.lens (\PredictorMonitorEvaluation' {resourceArn} -> resourceArn) (\s@PredictorMonitorEvaluation' {} a -> s {resourceArn = a} :: PredictorMonitorEvaluation)
 
-instance Core.FromJSON PredictorMonitorEvaluation where
+instance Data.FromJSON PredictorMonitorEvaluation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PredictorMonitorEvaluation"
       ( \x ->
           PredictorMonitorEvaluation'
-            Prelude.<$> (x Core..:? "EvaluationTime")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "EvaluationState")
-            Prelude.<*> (x Core..:? "MonitorArn")
-            Prelude.<*> (x Core..:? "NumItemsEvaluated")
-            Prelude.<*> (x Core..:? "WindowEndDatetime")
-            Prelude.<*> (x Core..:? "MonitorDataSource")
-            Prelude.<*> (x Core..:? "WindowStartDatetime")
-            Prelude.<*> (x Core..:? "PredictorEvent")
-            Prelude.<*> (x Core..:? "MetricResults" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResourceArn")
+            Prelude.<$> (x Data..:? "EvaluationTime")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "EvaluationState")
+            Prelude.<*> (x Data..:? "MonitorArn")
+            Prelude.<*> (x Data..:? "NumItemsEvaluated")
+            Prelude.<*> (x Data..:? "WindowEndDatetime")
+            Prelude.<*> (x Data..:? "MonitorDataSource")
+            Prelude.<*> (x Data..:? "WindowStartDatetime")
+            Prelude.<*> (x Data..:? "PredictorEvent")
+            Prelude.<*> (x Data..:? "MetricResults" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResourceArn")
       )
 
 instance Prelude.Hashable PredictorMonitorEvaluation where

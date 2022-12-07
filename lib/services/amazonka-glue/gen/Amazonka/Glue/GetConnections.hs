@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -165,8 +166,8 @@ instance Core.AWSRequest GetConnections where
     Response.receiveJSON
       ( \s h x ->
           GetConnectionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ConnectionList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ConnectionList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,35 +187,35 @@ instance Prelude.NFData GetConnections where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf catalogId
 
-instance Core.ToHeaders GetConnections where
+instance Data.ToHeaders GetConnections where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetConnections" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetConnections" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetConnections where
+instance Data.ToJSON GetConnections where
   toJSON GetConnections' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("HidePassword" Core..=) Prelude.<$> hidePassword,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CatalogId" Core..=) Prelude.<$> catalogId
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("HidePassword" Data..=) Prelude.<$> hidePassword,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CatalogId" Data..=) Prelude.<$> catalogId
           ]
       )
 
-instance Core.ToPath GetConnections where
+instance Data.ToPath GetConnections where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetConnections where
+instance Data.ToQuery GetConnections where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetConnectionsResponse' smart constructor.

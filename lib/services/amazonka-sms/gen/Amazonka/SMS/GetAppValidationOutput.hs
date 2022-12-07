@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetAppValidationOutput where
     Response.receiveJSON
       ( \s h x ->
           GetAppValidationOutputResponse'
-            Prelude.<$> ( x Core..?> "validationOutputList"
+            Prelude.<$> ( x Data..?> "validationOutputList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -96,32 +97,32 @@ instance Prelude.Hashable GetAppValidationOutput where
 instance Prelude.NFData GetAppValidationOutput where
   rnf GetAppValidationOutput' {..} = Prelude.rnf appId
 
-instance Core.ToHeaders GetAppValidationOutput where
+instance Data.ToHeaders GetAppValidationOutput where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.GetAppValidationOutput" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.GetAppValidationOutput" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAppValidationOutput where
+instance Data.ToJSON GetAppValidationOutput where
   toJSON GetAppValidationOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("appId" Core..= appId)]
+          [Prelude.Just ("appId" Data..= appId)]
       )
 
-instance Core.ToPath GetAppValidationOutput where
+instance Data.ToPath GetAppValidationOutput where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAppValidationOutput where
+instance Data.ToQuery GetAppValidationOutput where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAppValidationOutputResponse' smart constructor.

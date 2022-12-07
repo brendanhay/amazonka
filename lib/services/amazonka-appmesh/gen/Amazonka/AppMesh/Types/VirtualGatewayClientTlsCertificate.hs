@@ -23,6 +23,7 @@ import Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate
 import Amazonka.AppMesh.Types.VirtualGatewayListenerTlsSdsCertificate
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the virtual gateway\'s client\'s Transport
@@ -81,15 +82,15 @@ virtualGatewayClientTlsCertificate_file :: Lens.Lens' VirtualGatewayClientTlsCer
 virtualGatewayClientTlsCertificate_file = Lens.lens (\VirtualGatewayClientTlsCertificate' {file} -> file) (\s@VirtualGatewayClientTlsCertificate' {} a -> s {file = a} :: VirtualGatewayClientTlsCertificate)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     VirtualGatewayClientTlsCertificate
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewayClientTlsCertificate"
       ( \x ->
           VirtualGatewayClientTlsCertificate'
-            Prelude.<$> (x Core..:? "sds") Prelude.<*> (x Core..:? "file")
+            Prelude.<$> (x Data..:? "sds") Prelude.<*> (x Data..:? "file")
       )
 
 instance
@@ -110,13 +111,13 @@ instance
     Prelude.rnf sds `Prelude.seq` Prelude.rnf file
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     VirtualGatewayClientTlsCertificate
   where
   toJSON VirtualGatewayClientTlsCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sds" Core..=) Prelude.<$> sds,
-            ("file" Core..=) Prelude.<$> file
+          [ ("sds" Data..=) Prelude.<$> sds,
+            ("file" Data..=) Prelude.<$> file
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.BucketLevelPermissions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.AccessControlList
 import Amazonka.GuardDuty.Types.BlockPublicAccess
 import Amazonka.GuardDuty.Types.BucketPolicy
@@ -81,15 +82,15 @@ bucketLevelPermissions_blockPublicAccess = Lens.lens (\BucketLevelPermissions' {
 bucketLevelPermissions_bucketPolicy :: Lens.Lens' BucketLevelPermissions (Prelude.Maybe BucketPolicy)
 bucketLevelPermissions_bucketPolicy = Lens.lens (\BucketLevelPermissions' {bucketPolicy} -> bucketPolicy) (\s@BucketLevelPermissions' {} a -> s {bucketPolicy = a} :: BucketLevelPermissions)
 
-instance Core.FromJSON BucketLevelPermissions where
+instance Data.FromJSON BucketLevelPermissions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BucketLevelPermissions"
       ( \x ->
           BucketLevelPermissions'
-            Prelude.<$> (x Core..:? "accessControlList")
-            Prelude.<*> (x Core..:? "blockPublicAccess")
-            Prelude.<*> (x Core..:? "bucketPolicy")
+            Prelude.<$> (x Data..:? "accessControlList")
+            Prelude.<*> (x Data..:? "blockPublicAccess")
+            Prelude.<*> (x Data..:? "bucketPolicy")
       )
 
 instance Prelude.Hashable BucketLevelPermissions where

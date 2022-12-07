@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.BatchRestrictions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies restrictions for the batch build.
@@ -71,16 +72,16 @@ batchRestrictions_computeTypesAllowed = Lens.lens (\BatchRestrictions' {computeT
 batchRestrictions_maximumBuildsAllowed :: Lens.Lens' BatchRestrictions (Prelude.Maybe Prelude.Int)
 batchRestrictions_maximumBuildsAllowed = Lens.lens (\BatchRestrictions' {maximumBuildsAllowed} -> maximumBuildsAllowed) (\s@BatchRestrictions' {} a -> s {maximumBuildsAllowed = a} :: BatchRestrictions)
 
-instance Core.FromJSON BatchRestrictions where
+instance Data.FromJSON BatchRestrictions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchRestrictions"
       ( \x ->
           BatchRestrictions'
-            Prelude.<$> ( x Core..:? "computeTypesAllowed"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "computeTypesAllowed"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "maximumBuildsAllowed")
+            Prelude.<*> (x Data..:? "maximumBuildsAllowed")
       )
 
 instance Prelude.Hashable BatchRestrictions where
@@ -93,13 +94,13 @@ instance Prelude.NFData BatchRestrictions where
     Prelude.rnf computeTypesAllowed
       `Prelude.seq` Prelude.rnf maximumBuildsAllowed
 
-instance Core.ToJSON BatchRestrictions where
+instance Data.ToJSON BatchRestrictions where
   toJSON BatchRestrictions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("computeTypesAllowed" Core..=)
+          [ ("computeTypesAllowed" Data..=)
               Prelude.<$> computeTypesAllowed,
-            ("maximumBuildsAllowed" Core..=)
+            ("maximumBuildsAllowed" Data..=)
               Prelude.<$> maximumBuildsAllowed
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.LineItemGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.LineItemFields
 
@@ -69,14 +70,14 @@ lineItemGroup_lineItems = Lens.lens (\LineItemGroup' {lineItems} -> lineItems) (
 lineItemGroup_lineItemGroupIndex :: Lens.Lens' LineItemGroup (Prelude.Maybe Prelude.Natural)
 lineItemGroup_lineItemGroupIndex = Lens.lens (\LineItemGroup' {lineItemGroupIndex} -> lineItemGroupIndex) (\s@LineItemGroup' {} a -> s {lineItemGroupIndex = a} :: LineItemGroup)
 
-instance Core.FromJSON LineItemGroup where
+instance Data.FromJSON LineItemGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LineItemGroup"
       ( \x ->
           LineItemGroup'
-            Prelude.<$> (x Core..:? "LineItems" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LineItemGroupIndex")
+            Prelude.<$> (x Data..:? "LineItems" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LineItemGroupIndex")
       )
 
 instance Prelude.Hashable LineItemGroup where

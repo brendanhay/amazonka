@@ -21,6 +21,7 @@ module Amazonka.CloudTrail.Types.AdvancedFieldSelector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single selector statement in an advanced event selector.
@@ -495,19 +496,19 @@ advancedFieldSelector_notStartsWith = Lens.lens (\AdvancedFieldSelector' {notSta
 advancedFieldSelector_field :: Lens.Lens' AdvancedFieldSelector Prelude.Text
 advancedFieldSelector_field = Lens.lens (\AdvancedFieldSelector' {field} -> field) (\s@AdvancedFieldSelector' {} a -> s {field = a} :: AdvancedFieldSelector)
 
-instance Core.FromJSON AdvancedFieldSelector where
+instance Data.FromJSON AdvancedFieldSelector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdvancedFieldSelector"
       ( \x ->
           AdvancedFieldSelector'
-            Prelude.<$> (x Core..:? "NotEquals")
-            Prelude.<*> (x Core..:? "Equals")
-            Prelude.<*> (x Core..:? "EndsWith")
-            Prelude.<*> (x Core..:? "StartsWith")
-            Prelude.<*> (x Core..:? "NotEndsWith")
-            Prelude.<*> (x Core..:? "NotStartsWith")
-            Prelude.<*> (x Core..: "Field")
+            Prelude.<$> (x Data..:? "NotEquals")
+            Prelude.<*> (x Data..:? "Equals")
+            Prelude.<*> (x Data..:? "EndsWith")
+            Prelude.<*> (x Data..:? "StartsWith")
+            Prelude.<*> (x Data..:? "NotEndsWith")
+            Prelude.<*> (x Data..:? "NotStartsWith")
+            Prelude.<*> (x Data..: "Field")
       )
 
 instance Prelude.Hashable AdvancedFieldSelector where
@@ -530,16 +531,16 @@ instance Prelude.NFData AdvancedFieldSelector where
       `Prelude.seq` Prelude.rnf notStartsWith
       `Prelude.seq` Prelude.rnf field
 
-instance Core.ToJSON AdvancedFieldSelector where
+instance Data.ToJSON AdvancedFieldSelector where
   toJSON AdvancedFieldSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NotEquals" Core..=) Prelude.<$> notEquals,
-            ("Equals" Core..=) Prelude.<$> equals,
-            ("EndsWith" Core..=) Prelude.<$> endsWith,
-            ("StartsWith" Core..=) Prelude.<$> startsWith,
-            ("NotEndsWith" Core..=) Prelude.<$> notEndsWith,
-            ("NotStartsWith" Core..=) Prelude.<$> notStartsWith,
-            Prelude.Just ("Field" Core..= field)
+          [ ("NotEquals" Data..=) Prelude.<$> notEquals,
+            ("Equals" Data..=) Prelude.<$> equals,
+            ("EndsWith" Data..=) Prelude.<$> endsWith,
+            ("StartsWith" Data..=) Prelude.<$> startsWith,
+            ("NotEndsWith" Data..=) Prelude.<$> notEndsWith,
+            ("NotStartsWith" Data..=) Prelude.<$> notStartsWith,
+            Prelude.Just ("Field" Data..= field)
           ]
       )

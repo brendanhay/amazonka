@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.KGKeyPairIds where
 import Amazonka.CloudFront.Types.KeyPairIds
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of identifiers for the public keys that CloudFront can use to
@@ -62,11 +63,11 @@ kGKeyPairIds_keyPairIds = Lens.lens (\KGKeyPairIds' {keyPairIds} -> keyPairIds) 
 kGKeyPairIds_keyGroupId :: Lens.Lens' KGKeyPairIds (Prelude.Maybe Prelude.Text)
 kGKeyPairIds_keyGroupId = Lens.lens (\KGKeyPairIds' {keyGroupId} -> keyGroupId) (\s@KGKeyPairIds' {} a -> s {keyGroupId = a} :: KGKeyPairIds)
 
-instance Core.FromXML KGKeyPairIds where
+instance Data.FromXML KGKeyPairIds where
   parseXML x =
     KGKeyPairIds'
-      Prelude.<$> (x Core..@? "KeyPairIds")
-      Prelude.<*> (x Core..@? "KeyGroupId")
+      Prelude.<$> (x Data..@? "KeyPairIds")
+      Prelude.<*> (x Data..@? "KeyGroupId")
 
 instance Prelude.Hashable KGKeyPairIds where
   hashWithSalt _salt KGKeyPairIds' {..} =

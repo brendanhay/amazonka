@@ -21,6 +21,7 @@ module Amazonka.SDB.Types.ReplaceableAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- |
@@ -89,10 +90,10 @@ instance Prelude.NFData ReplaceableAttribute where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToQuery ReplaceableAttribute where
+instance Data.ToQuery ReplaceableAttribute where
   toQuery ReplaceableAttribute' {..} =
     Prelude.mconcat
-      [ "Replace" Core.=: replace,
-        "Name" Core.=: name,
-        "Value" Core.=: value
+      [ "Replace" Data.=: replace,
+        "Name" Data.=: name,
+        "Value" Data.=: value
       ]

@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.PatchBaselineIdentity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.OperatingSystem
 
@@ -99,17 +100,17 @@ patchBaselineIdentity_baselineDescription = Lens.lens (\PatchBaselineIdentity' {
 patchBaselineIdentity_defaultBaseline :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe Prelude.Bool)
 patchBaselineIdentity_defaultBaseline = Lens.lens (\PatchBaselineIdentity' {defaultBaseline} -> defaultBaseline) (\s@PatchBaselineIdentity' {} a -> s {defaultBaseline = a} :: PatchBaselineIdentity)
 
-instance Core.FromJSON PatchBaselineIdentity where
+instance Data.FromJSON PatchBaselineIdentity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PatchBaselineIdentity"
       ( \x ->
           PatchBaselineIdentity'
-            Prelude.<$> (x Core..:? "OperatingSystem")
-            Prelude.<*> (x Core..:? "BaselineId")
-            Prelude.<*> (x Core..:? "BaselineName")
-            Prelude.<*> (x Core..:? "BaselineDescription")
-            Prelude.<*> (x Core..:? "DefaultBaseline")
+            Prelude.<$> (x Data..:? "OperatingSystem")
+            Prelude.<*> (x Data..:? "BaselineId")
+            Prelude.<*> (x Data..:? "BaselineName")
+            Prelude.<*> (x Data..:? "BaselineDescription")
+            Prelude.<*> (x Data..:? "DefaultBaseline")
       )
 
 instance Prelude.Hashable PatchBaselineIdentity where

@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.InputLambdaProcessor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the Amazon Resource Name (ARN) of the Amazon
@@ -80,9 +81,9 @@ instance Prelude.NFData InputLambdaProcessor where
   rnf InputLambdaProcessor' {..} =
     Prelude.rnf resourceARN
 
-instance Core.ToJSON InputLambdaProcessor where
+instance Data.ToJSON InputLambdaProcessor where
   toJSON InputLambdaProcessor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ResourceARN" Core..= resourceARN)]
+          [Prelude.Just ("ResourceARN" Data..= resourceARN)]
       )

@@ -21,6 +21,7 @@ module Amazonka.AppConfig.Types.AppliedExtension where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An extension that was invoked during a deployment.
@@ -80,16 +81,16 @@ appliedExtension_extensionId = Lens.lens (\AppliedExtension' {extensionId} -> ex
 appliedExtension_parameters :: Lens.Lens' AppliedExtension (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 appliedExtension_parameters = Lens.lens (\AppliedExtension' {parameters} -> parameters) (\s@AppliedExtension' {} a -> s {parameters = a} :: AppliedExtension) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AppliedExtension where
+instance Data.FromJSON AppliedExtension where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppliedExtension"
       ( \x ->
           AppliedExtension'
-            Prelude.<$> (x Core..:? "ExtensionAssociationId")
-            Prelude.<*> (x Core..:? "VersionNumber")
-            Prelude.<*> (x Core..:? "ExtensionId")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ExtensionAssociationId")
+            Prelude.<*> (x Data..:? "VersionNumber")
+            Prelude.<*> (x Data..:? "ExtensionId")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AppliedExtension where

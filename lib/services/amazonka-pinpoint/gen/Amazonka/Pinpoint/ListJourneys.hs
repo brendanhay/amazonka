@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,7 +118,7 @@ instance Core.AWSRequest ListJourneys where
       ( \s h x ->
           ListJourneysResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable ListJourneys where
@@ -132,26 +133,26 @@ instance Prelude.NFData ListJourneys where
       `Prelude.seq` Prelude.rnf token
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders ListJourneys where
+instance Data.ToHeaders ListJourneys where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListJourneys where
+instance Data.ToPath ListJourneys where
   toPath ListJourneys' {..} =
     Prelude.mconcat
-      ["/v1/apps/", Core.toBS applicationId, "/journeys"]
+      ["/v1/apps/", Data.toBS applicationId, "/journeys"]
 
-instance Core.ToQuery ListJourneys where
+instance Data.ToQuery ListJourneys where
   toQuery ListJourneys' {..} =
     Prelude.mconcat
-      ["page-size" Core.=: pageSize, "token" Core.=: token]
+      ["page-size" Data.=: pageSize, "token" Data.=: token]
 
 -- | /See:/ 'newListJourneysResponse' smart constructor.
 data ListJourneysResponse = ListJourneysResponse'

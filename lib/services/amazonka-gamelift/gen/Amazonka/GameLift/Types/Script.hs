@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.Script where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.S3Location
 import qualified Amazonka.Prelude as Prelude
 
@@ -50,7 +51,7 @@ data Script = Script'
     -- | A time stamp indicating when this data object was created. Format is a
     -- number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | A unique identifier for the Realtime script
     scriptId :: Prelude.Maybe Prelude.Text,
     -- | Version information that is associated with a build or script. Version
@@ -128,7 +129,7 @@ script_storageLocation = Lens.lens (\Script' {storageLocation} -> storageLocatio
 -- number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 script_creationTime :: Lens.Lens' Script (Prelude.Maybe Prelude.UTCTime)
-script_creationTime = Lens.lens (\Script' {creationTime} -> creationTime) (\s@Script' {} a -> s {creationTime = a} :: Script) Prelude.. Lens.mapping Core._Time
+script_creationTime = Lens.lens (\Script' {creationTime} -> creationTime) (\s@Script' {} a -> s {creationTime = a} :: Script) Prelude.. Lens.mapping Data._Time
 
 -- | A unique identifier for the Realtime script
 script_scriptId :: Lens.Lens' Script (Prelude.Maybe Prelude.Text)
@@ -139,19 +140,19 @@ script_scriptId = Lens.lens (\Script' {scriptId} -> scriptId) (\s@Script' {} a -
 script_version :: Lens.Lens' Script (Prelude.Maybe Prelude.Text)
 script_version = Lens.lens (\Script' {version} -> version) (\s@Script' {} a -> s {version = a} :: Script)
 
-instance Core.FromJSON Script where
+instance Data.FromJSON Script where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Script"
       ( \x ->
           Script'
-            Prelude.<$> (x Core..:? "ScriptArn")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "SizeOnDisk")
-            Prelude.<*> (x Core..:? "StorageLocation")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ScriptId")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "ScriptArn")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "SizeOnDisk")
+            Prelude.<*> (x Data..:? "StorageLocation")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "ScriptId")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable Script where

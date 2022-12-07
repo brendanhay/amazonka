@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.Criterion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The criteria to use in the filter that defines the archive rule.
@@ -82,16 +83,16 @@ criterion_contains = Lens.lens (\Criterion' {contains} -> contains) (\s@Criterio
 criterion_eq :: Lens.Lens' Criterion (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 criterion_eq = Lens.lens (\Criterion' {eq} -> eq) (\s@Criterion' {} a -> s {eq = a} :: Criterion) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Criterion where
+instance Data.FromJSON Criterion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Criterion"
       ( \x ->
           Criterion'
-            Prelude.<$> (x Core..:? "neq")
-            Prelude.<*> (x Core..:? "exists")
-            Prelude.<*> (x Core..:? "contains")
-            Prelude.<*> (x Core..:? "eq")
+            Prelude.<$> (x Data..:? "neq")
+            Prelude.<*> (x Data..:? "exists")
+            Prelude.<*> (x Data..:? "contains")
+            Prelude.<*> (x Data..:? "eq")
       )
 
 instance Prelude.Hashable Criterion where
@@ -108,13 +109,13 @@ instance Prelude.NFData Criterion where
       `Prelude.seq` Prelude.rnf contains
       `Prelude.seq` Prelude.rnf eq
 
-instance Core.ToJSON Criterion where
+instance Data.ToJSON Criterion where
   toJSON Criterion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("neq" Core..=) Prelude.<$> neq,
-            ("exists" Core..=) Prelude.<$> exists,
-            ("contains" Core..=) Prelude.<$> contains,
-            ("eq" Core..=) Prelude.<$> eq
+          [ ("neq" Data..=) Prelude.<$> neq,
+            ("exists" Data..=) Prelude.<$> exists,
+            ("contains" Data..=) Prelude.<$> contains,
+            ("eq" Data..=) Prelude.<$> eq
           ]
       )

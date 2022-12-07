@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.MonitorDataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The source of the data the monitor used during the evaluation.
@@ -80,15 +81,15 @@ monitorDataSource_predictorArn = Lens.lens (\MonitorDataSource' {predictorArn} -
 monitorDataSource_forecastArn :: Lens.Lens' MonitorDataSource (Prelude.Maybe Prelude.Text)
 monitorDataSource_forecastArn = Lens.lens (\MonitorDataSource' {forecastArn} -> forecastArn) (\s@MonitorDataSource' {} a -> s {forecastArn = a} :: MonitorDataSource)
 
-instance Core.FromJSON MonitorDataSource where
+instance Data.FromJSON MonitorDataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitorDataSource"
       ( \x ->
           MonitorDataSource'
-            Prelude.<$> (x Core..:? "DatasetImportJobArn")
-            Prelude.<*> (x Core..:? "PredictorArn")
-            Prelude.<*> (x Core..:? "ForecastArn")
+            Prelude.<$> (x Data..:? "DatasetImportJobArn")
+            Prelude.<*> (x Data..:? "PredictorArn")
+            Prelude.<*> (x Data..:? "ForecastArn")
       )
 
 instance Prelude.Hashable MonitorDataSource where

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.NeoVpcConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The VpcConfig configuration object that specifies the VPC that you want
@@ -78,14 +79,14 @@ neoVpcConfig_securityGroupIds = Lens.lens (\NeoVpcConfig' {securityGroupIds} -> 
 neoVpcConfig_subnets :: Lens.Lens' NeoVpcConfig (Prelude.NonEmpty Prelude.Text)
 neoVpcConfig_subnets = Lens.lens (\NeoVpcConfig' {subnets} -> subnets) (\s@NeoVpcConfig' {} a -> s {subnets = a} :: NeoVpcConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON NeoVpcConfig where
+instance Data.FromJSON NeoVpcConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NeoVpcConfig"
       ( \x ->
           NeoVpcConfig'
-            Prelude.<$> (x Core..: "SecurityGroupIds")
-            Prelude.<*> (x Core..: "Subnets")
+            Prelude.<$> (x Data..: "SecurityGroupIds")
+            Prelude.<*> (x Data..: "Subnets")
       )
 
 instance Prelude.Hashable NeoVpcConfig where
@@ -98,12 +99,12 @@ instance Prelude.NFData NeoVpcConfig where
     Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf subnets
 
-instance Core.ToJSON NeoVpcConfig where
+instance Data.ToJSON NeoVpcConfig where
   toJSON NeoVpcConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("SecurityGroupIds" Core..= securityGroupIds),
-            Prelude.Just ("Subnets" Core..= subnets)
+              ("SecurityGroupIds" Data..= securityGroupIds),
+            Prelude.Just ("Subnets" Data..= subnets)
           ]
       )

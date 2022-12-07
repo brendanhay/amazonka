@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AddressAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PtrUpdateStatus
 import qualified Amazonka.Prelude as Prelude
@@ -81,13 +82,13 @@ addressAttribute_publicIp = Lens.lens (\AddressAttribute' {publicIp} -> publicIp
 addressAttribute_ptrRecordUpdate :: Lens.Lens' AddressAttribute (Prelude.Maybe PtrUpdateStatus)
 addressAttribute_ptrRecordUpdate = Lens.lens (\AddressAttribute' {ptrRecordUpdate} -> ptrRecordUpdate) (\s@AddressAttribute' {} a -> s {ptrRecordUpdate = a} :: AddressAttribute)
 
-instance Core.FromXML AddressAttribute where
+instance Data.FromXML AddressAttribute where
   parseXML x =
     AddressAttribute'
-      Prelude.<$> (x Core..@? "ptrRecord")
-      Prelude.<*> (x Core..@? "allocationId")
-      Prelude.<*> (x Core..@? "publicIp")
-      Prelude.<*> (x Core..@? "ptrRecordUpdate")
+      Prelude.<$> (x Data..@? "ptrRecord")
+      Prelude.<*> (x Data..@? "allocationId")
+      Prelude.<*> (x Data..@? "publicIp")
+      Prelude.<*> (x Data..@? "ptrRecordUpdate")
 
 instance Prelude.Hashable AddressAttribute where
   hashWithSalt _salt AddressAttribute' {..} =

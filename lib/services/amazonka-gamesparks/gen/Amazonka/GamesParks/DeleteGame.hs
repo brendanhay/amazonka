@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,22 +91,22 @@ instance Prelude.Hashable DeleteGame where
 instance Prelude.NFData DeleteGame where
   rnf DeleteGame' {..} = Prelude.rnf gameName
 
-instance Core.ToHeaders DeleteGame where
+instance Data.ToHeaders DeleteGame where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteGame where
+instance Data.ToPath DeleteGame where
   toPath DeleteGame' {..} =
-    Prelude.mconcat ["/game/", Core.toBS gameName]
+    Prelude.mconcat ["/game/", Data.toBS gameName]
 
-instance Core.ToQuery DeleteGame where
+instance Data.ToQuery DeleteGame where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGameResponse' smart constructor.

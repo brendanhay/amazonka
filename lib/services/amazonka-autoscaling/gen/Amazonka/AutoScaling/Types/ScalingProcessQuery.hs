@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.ScalingProcessQuery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newScalingProcessQuery' smart constructor.
@@ -132,13 +133,13 @@ instance Prelude.NFData ScalingProcessQuery where
     Prelude.rnf scalingProcesses
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
-instance Core.ToQuery ScalingProcessQuery where
+instance Data.ToQuery ScalingProcessQuery where
   toQuery ScalingProcessQuery' {..} =
     Prelude.mconcat
       [ "ScalingProcesses"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> scalingProcesses
             ),
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+        "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]

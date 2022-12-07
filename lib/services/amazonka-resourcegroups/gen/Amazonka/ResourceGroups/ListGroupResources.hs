@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroups.Types
@@ -283,12 +284,12 @@ instance Core.AWSRequest ListGroupResources where
     Response.receiveJSON
       ( \s h x ->
           ListGroupResourcesResponse'
-            Prelude.<$> ( x Core..?> "ResourceIdentifiers"
+            Prelude.<$> ( x Data..?> "ResourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "QueryErrors" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Resources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "QueryErrors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -308,25 +309,25 @@ instance Prelude.NFData ListGroupResources where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf group'
 
-instance Core.ToHeaders ListGroupResources where
+instance Data.ToHeaders ListGroupResources where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ListGroupResources where
+instance Data.ToJSON ListGroupResources where
   toJSON ListGroupResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("GroupName" Core..=) Prelude.<$> groupName,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Group" Core..=) Prelude.<$> group'
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("GroupName" Data..=) Prelude.<$> groupName,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("Group" Data..=) Prelude.<$> group'
           ]
       )
 
-instance Core.ToPath ListGroupResources where
+instance Data.ToPath ListGroupResources where
   toPath = Prelude.const "/list-group-resources"
 
-instance Core.ToQuery ListGroupResources where
+instance Data.ToQuery ListGroupResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListGroupResourcesResponse' smart constructor.

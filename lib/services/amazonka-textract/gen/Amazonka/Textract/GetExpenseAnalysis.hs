@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,15 +155,15 @@ instance Core.AWSRequest GetExpenseAnalysis where
     Response.receiveJSON
       ( \s h x ->
           GetExpenseAnalysisResponse'
-            Prelude.<$> (x Core..?> "AnalyzeExpenseModelVersion")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "JobStatus")
-            Prelude.<*> (x Core..?> "DocumentMetadata")
-            Prelude.<*> ( x Core..?> "ExpenseDocuments"
+            Prelude.<$> (x Data..?> "AnalyzeExpenseModelVersion")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "DocumentMetadata")
+            Prelude.<*> ( x Data..?> "ExpenseDocuments"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Warnings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "StatusMessage")
+            Prelude.<*> (x Data..?> "Warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,35 +179,35 @@ instance Prelude.NFData GetExpenseAnalysis where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders GetExpenseAnalysis where
+instance Data.ToHeaders GetExpenseAnalysis where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Textract.GetExpenseAnalysis" ::
+              Data.=# ( "Textract.GetExpenseAnalysis" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetExpenseAnalysis where
+instance Data.ToJSON GetExpenseAnalysis where
   toJSON GetExpenseAnalysis' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("JobId" Core..= jobId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("JobId" Data..= jobId)
           ]
       )
 
-instance Core.ToPath GetExpenseAnalysis where
+instance Data.ToPath GetExpenseAnalysis where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetExpenseAnalysis where
+instance Data.ToQuery GetExpenseAnalysis where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetExpenseAnalysisResponse' smart constructor.

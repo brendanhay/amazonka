@@ -74,6 +74,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -260,7 +261,7 @@ instance Core.AWSRequest CreateConfigurationProfile where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateConfigurationProfile where
   hashWithSalt _salt CreateConfigurationProfile' {..} =
@@ -284,39 +285,39 @@ instance Prelude.NFData CreateConfigurationProfile where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf locationUri
 
-instance Core.ToHeaders CreateConfigurationProfile where
+instance Data.ToHeaders CreateConfigurationProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConfigurationProfile where
+instance Data.ToJSON CreateConfigurationProfile where
   toJSON CreateConfigurationProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Type" Core..=) Prelude.<$> type',
-            ("RetrievalRoleArn" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Type" Data..=) Prelude.<$> type',
+            ("RetrievalRoleArn" Data..=)
               Prelude.<$> retrievalRoleArn,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Validators" Core..=) Prelude.<$> validators,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("LocationUri" Core..= locationUri)
+            ("Description" Data..=) Prelude.<$> description,
+            ("Validators" Data..=) Prelude.<$> validators,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("LocationUri" Data..= locationUri)
           ]
       )
 
-instance Core.ToPath CreateConfigurationProfile where
+instance Data.ToPath CreateConfigurationProfile where
   toPath CreateConfigurationProfile' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/configurationprofiles"
       ]
 
-instance Core.ToQuery CreateConfigurationProfile where
+instance Data.ToQuery CreateConfigurationProfile where
   toQuery = Prelude.const Prelude.mempty

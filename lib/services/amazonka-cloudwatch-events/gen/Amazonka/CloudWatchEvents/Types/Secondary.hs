@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.Secondary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The secondary Region that processes events when failover is triggered or
@@ -52,11 +53,11 @@ newSecondary pRoute_ = Secondary' {route = pRoute_}
 secondary_route :: Lens.Lens' Secondary Prelude.Text
 secondary_route = Lens.lens (\Secondary' {route} -> route) (\s@Secondary' {} a -> s {route = a} :: Secondary)
 
-instance Core.FromJSON Secondary where
+instance Data.FromJSON Secondary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Secondary"
-      (\x -> Secondary' Prelude.<$> (x Core..: "Route"))
+      (\x -> Secondary' Prelude.<$> (x Data..: "Route"))
 
 instance Prelude.Hashable Secondary where
   hashWithSalt _salt Secondary' {..} =
@@ -65,9 +66,9 @@ instance Prelude.Hashable Secondary where
 instance Prelude.NFData Secondary where
   rnf Secondary' {..} = Prelude.rnf route
 
-instance Core.ToJSON Secondary where
+instance Data.ToJSON Secondary where
   toJSON Secondary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Route" Core..= route)]
+          [Prelude.Just ("Route" Data..= route)]
       )

@@ -43,6 +43,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,21 +124,21 @@ instance
     Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteContinuousDeploymentPolicy
   where
   toHeaders DeleteContinuousDeploymentPolicy' {..} =
-    Prelude.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Data.=# ifMatch]
 
-instance Core.ToPath DeleteContinuousDeploymentPolicy where
+instance Data.ToPath DeleteContinuousDeploymentPolicy where
   toPath DeleteContinuousDeploymentPolicy' {..} =
     Prelude.mconcat
       [ "/2020-05-31/continuous-deployment-policy/",
-        Core.toBS id
+        Data.toBS id
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteContinuousDeploymentPolicy
   where
   toQuery = Prelude.const Prelude.mempty

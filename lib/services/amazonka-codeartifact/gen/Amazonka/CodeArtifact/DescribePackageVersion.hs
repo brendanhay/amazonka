@@ -50,6 +50,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -195,7 +196,7 @@ instance Core.AWSRequest DescribePackageVersion where
       ( \s h x ->
           DescribePackageVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "packageVersion")
+            Prelude.<*> (x Data..:> "packageVersion")
       )
 
 instance Prelude.Hashable DescribePackageVersion where
@@ -218,30 +219,30 @@ instance Prelude.NFData DescribePackageVersion where
       `Prelude.seq` Prelude.rnf package
       `Prelude.seq` Prelude.rnf packageVersion
 
-instance Core.ToHeaders DescribePackageVersion where
+instance Data.ToHeaders DescribePackageVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribePackageVersion where
+instance Data.ToPath DescribePackageVersion where
   toPath = Prelude.const "/v1/package/version"
 
-instance Core.ToQuery DescribePackageVersion where
+instance Data.ToQuery DescribePackageVersion where
   toQuery DescribePackageVersion' {..} =
     Prelude.mconcat
-      [ "domain-owner" Core.=: domainOwner,
-        "namespace" Core.=: namespace,
-        "domain" Core.=: domain,
-        "repository" Core.=: repository,
-        "format" Core.=: format,
-        "package" Core.=: package,
-        "version" Core.=: packageVersion
+      [ "domain-owner" Data.=: domainOwner,
+        "namespace" Data.=: namespace,
+        "domain" Data.=: domain,
+        "repository" Data.=: repository,
+        "format" Data.=: format,
+        "package" Data.=: package,
+        "version" Data.=: packageVersion
       ]
 
 -- | /See:/ 'newDescribePackageVersionResponse' smart constructor.

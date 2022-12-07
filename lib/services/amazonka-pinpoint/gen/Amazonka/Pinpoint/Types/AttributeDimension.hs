@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.AttributeDimension where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.AttributeType
 import qualified Amazonka.Prelude as Prelude
 
@@ -133,14 +134,14 @@ attributeDimension_attributeType = Lens.lens (\AttributeDimension' {attributeTyp
 attributeDimension_values :: Lens.Lens' AttributeDimension [Prelude.Text]
 attributeDimension_values = Lens.lens (\AttributeDimension' {values} -> values) (\s@AttributeDimension' {} a -> s {values = a} :: AttributeDimension) Prelude.. Lens.coerced
 
-instance Core.FromJSON AttributeDimension where
+instance Data.FromJSON AttributeDimension where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttributeDimension"
       ( \x ->
           AttributeDimension'
-            Prelude.<$> (x Core..:? "AttributeType")
-            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "AttributeType")
+            Prelude.<*> (x Data..:? "Values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AttributeDimension where
@@ -153,11 +154,11 @@ instance Prelude.NFData AttributeDimension where
     Prelude.rnf attributeType
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON AttributeDimension where
+instance Data.ToJSON AttributeDimension where
   toJSON AttributeDimension' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AttributeType" Core..=) Prelude.<$> attributeType,
-            Prelude.Just ("Values" Core..= values)
+          [ ("AttributeType" Data..=) Prelude.<$> attributeType,
+            Prelude.Just ("Values" Data..= values)
           ]
       )

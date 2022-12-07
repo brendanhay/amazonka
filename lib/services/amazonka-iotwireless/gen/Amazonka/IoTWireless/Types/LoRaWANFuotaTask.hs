@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANFuotaTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.SupportedRfRegion
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,9 +58,9 @@ instance Prelude.Hashable LoRaWANFuotaTask where
 instance Prelude.NFData LoRaWANFuotaTask where
   rnf LoRaWANFuotaTask' {..} = Prelude.rnf rfRegion
 
-instance Core.ToJSON LoRaWANFuotaTask where
+instance Data.ToJSON LoRaWANFuotaTask where
   toJSON LoRaWANFuotaTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("RfRegion" Core..=) Prelude.<$> rfRegion]
+          [("RfRegion" Data..=) Prelude.<$> rfRegion]
       )

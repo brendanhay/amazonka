@@ -23,6 +23,7 @@ import Amazonka.ComputeOptimizer.Types.EBSMetricName
 import Amazonka.ComputeOptimizer.Types.MetricStatistic
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a utilization metric of an Amazon Elastic Block Store (Amazon
@@ -182,15 +183,15 @@ eBSUtilizationMetric_statistic = Lens.lens (\EBSUtilizationMetric' {statistic} -
 eBSUtilizationMetric_value :: Lens.Lens' EBSUtilizationMetric (Prelude.Maybe Prelude.Double)
 eBSUtilizationMetric_value = Lens.lens (\EBSUtilizationMetric' {value} -> value) (\s@EBSUtilizationMetric' {} a -> s {value = a} :: EBSUtilizationMetric)
 
-instance Core.FromJSON EBSUtilizationMetric where
+instance Data.FromJSON EBSUtilizationMetric where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EBSUtilizationMetric"
       ( \x ->
           EBSUtilizationMetric'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "statistic")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "statistic")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable EBSUtilizationMetric where

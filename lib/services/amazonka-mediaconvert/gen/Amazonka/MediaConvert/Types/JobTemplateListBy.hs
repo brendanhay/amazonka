@@ -28,6 +28,7 @@ module Amazonka.MediaConvert.Types.JobTemplateListBy
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Optional. When you request a list of job templates, you can choose to
@@ -35,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 -- you don\'t specify, the service will list them by name.
 newtype JobTemplateListBy = JobTemplateListBy'
   { fromJobTemplateListBy ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -47,18 +48,18 @@ newtype JobTemplateListBy = JobTemplateListBy'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern JobTemplateListBy_CREATION_DATE :: JobTemplateListBy

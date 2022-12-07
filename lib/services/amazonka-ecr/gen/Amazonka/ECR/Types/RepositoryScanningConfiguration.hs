@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.RepositoryScanningConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.ScanFrequency
 import Amazonka.ECR.Types.ScanningRepositoryFilter
 import qualified Amazonka.Prelude as Prelude
@@ -92,20 +93,20 @@ repositoryScanningConfiguration_appliedScanFilters :: Lens.Lens' RepositoryScann
 repositoryScanningConfiguration_appliedScanFilters = Lens.lens (\RepositoryScanningConfiguration' {appliedScanFilters} -> appliedScanFilters) (\s@RepositoryScanningConfiguration' {} a -> s {appliedScanFilters = a} :: RepositoryScanningConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RepositoryScanningConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositoryScanningConfiguration"
       ( \x ->
           RepositoryScanningConfiguration'
-            Prelude.<$> (x Core..:? "repositoryArn")
-            Prelude.<*> (x Core..:? "scanOnPush")
-            Prelude.<*> (x Core..:? "scanFrequency")
-            Prelude.<*> (x Core..:? "repositoryName")
-            Prelude.<*> ( x Core..:? "appliedScanFilters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "repositoryArn")
+            Prelude.<*> (x Data..:? "scanOnPush")
+            Prelude.<*> (x Data..:? "scanFrequency")
+            Prelude.<*> (x Data..:? "repositoryName")
+            Prelude.<*> ( x Data..:? "appliedScanFilters"
+                            Data..!= Prelude.mempty
                         )
       )
 

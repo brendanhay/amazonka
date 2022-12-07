@@ -22,6 +22,7 @@ module Amazonka.Braket.Types.InputFileConfig where
 import Amazonka.Braket.Types.DataSource
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of parameters that specify the input channels, type of input
@@ -76,15 +77,15 @@ inputFileConfig_channelName = Lens.lens (\InputFileConfig' {channelName} -> chan
 inputFileConfig_dataSource :: Lens.Lens' InputFileConfig DataSource
 inputFileConfig_dataSource = Lens.lens (\InputFileConfig' {dataSource} -> dataSource) (\s@InputFileConfig' {} a -> s {dataSource = a} :: InputFileConfig)
 
-instance Core.FromJSON InputFileConfig where
+instance Data.FromJSON InputFileConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputFileConfig"
       ( \x ->
           InputFileConfig'
-            Prelude.<$> (x Core..:? "contentType")
-            Prelude.<*> (x Core..: "channelName")
-            Prelude.<*> (x Core..: "dataSource")
+            Prelude.<$> (x Data..:? "contentType")
+            Prelude.<*> (x Data..: "channelName")
+            Prelude.<*> (x Data..: "dataSource")
       )
 
 instance Prelude.Hashable InputFileConfig where
@@ -99,12 +100,12 @@ instance Prelude.NFData InputFileConfig where
       `Prelude.seq` Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf dataSource
 
-instance Core.ToJSON InputFileConfig where
+instance Data.ToJSON InputFileConfig where
   toJSON InputFileConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("contentType" Core..=) Prelude.<$> contentType,
-            Prelude.Just ("channelName" Core..= channelName),
-            Prelude.Just ("dataSource" Core..= dataSource)
+          [ ("contentType" Data..=) Prelude.<$> contentType,
+            Prelude.Just ("channelName" Data..= channelName),
+            Prelude.Just ("dataSource" Data..= dataSource)
           ]
       )

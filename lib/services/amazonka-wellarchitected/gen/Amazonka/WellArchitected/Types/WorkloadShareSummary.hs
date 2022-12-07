@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.WorkloadShareSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.PermissionType
 import Amazonka.WellArchitected.Types.ShareStatus
@@ -87,17 +88,17 @@ workloadShareSummary_shareId = Lens.lens (\WorkloadShareSummary' {shareId} -> sh
 workloadShareSummary_statusMessage :: Lens.Lens' WorkloadShareSummary (Prelude.Maybe Prelude.Text)
 workloadShareSummary_statusMessage = Lens.lens (\WorkloadShareSummary' {statusMessage} -> statusMessage) (\s@WorkloadShareSummary' {} a -> s {statusMessage = a} :: WorkloadShareSummary)
 
-instance Core.FromJSON WorkloadShareSummary where
+instance Data.FromJSON WorkloadShareSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkloadShareSummary"
       ( \x ->
           WorkloadShareSummary'
-            Prelude.<$> (x Core..:? "PermissionType")
-            Prelude.<*> (x Core..:? "SharedWith")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ShareId")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "PermissionType")
+            Prelude.<*> (x Data..:? "SharedWith")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ShareId")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable WorkloadShareSummary where

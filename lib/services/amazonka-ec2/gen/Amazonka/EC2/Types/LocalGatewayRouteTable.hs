@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LocalGatewayRouteTable where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.LocalGatewayRouteTableMode
 import Amazonka.EC2.Types.StateReason
@@ -130,20 +131,20 @@ localGatewayRouteTable_stateReason = Lens.lens (\LocalGatewayRouteTable' {stateR
 localGatewayRouteTable_localGatewayRouteTableArn :: Lens.Lens' LocalGatewayRouteTable (Prelude.Maybe Prelude.Text)
 localGatewayRouteTable_localGatewayRouteTableArn = Lens.lens (\LocalGatewayRouteTable' {localGatewayRouteTableArn} -> localGatewayRouteTableArn) (\s@LocalGatewayRouteTable' {} a -> s {localGatewayRouteTableArn = a} :: LocalGatewayRouteTable)
 
-instance Core.FromXML LocalGatewayRouteTable where
+instance Data.FromXML LocalGatewayRouteTable where
   parseXML x =
     LocalGatewayRouteTable'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "localGatewayId")
-      Prelude.<*> (x Core..@? "outpostArn")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "localGatewayRouteTableId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "mode")
-      Prelude.<*> (x Core..@? "stateReason")
-      Prelude.<*> (x Core..@? "localGatewayRouteTableArn")
+      Prelude.<*> (x Data..@? "localGatewayId")
+      Prelude.<*> (x Data..@? "outpostArn")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "localGatewayRouteTableId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "mode")
+      Prelude.<*> (x Data..@? "stateReason")
+      Prelude.<*> (x Data..@? "localGatewayRouteTableArn")
 
 instance Prelude.Hashable LocalGatewayRouteTable where
   hashWithSalt _salt LocalGatewayRouteTable' {..} =

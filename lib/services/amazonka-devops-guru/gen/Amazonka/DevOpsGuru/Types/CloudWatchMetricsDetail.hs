@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.CloudWatchMetricsDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.CloudWatchMetricsDataSummary
 import Amazonka.DevOpsGuru.Types.CloudWatchMetricsDimension
 import Amazonka.DevOpsGuru.Types.CloudWatchMetricsStat
@@ -128,19 +129,19 @@ cloudWatchMetricsDetail_namespace = Lens.lens (\CloudWatchMetricsDetail' {namesp
 cloudWatchMetricsDetail_unit :: Lens.Lens' CloudWatchMetricsDetail (Prelude.Maybe Prelude.Text)
 cloudWatchMetricsDetail_unit = Lens.lens (\CloudWatchMetricsDetail' {unit} -> unit) (\s@CloudWatchMetricsDetail' {} a -> s {unit = a} :: CloudWatchMetricsDetail)
 
-instance Core.FromJSON CloudWatchMetricsDetail where
+instance Data.FromJSON CloudWatchMetricsDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchMetricsDetail"
       ( \x ->
           CloudWatchMetricsDetail'
-            Prelude.<$> (x Core..:? "MetricDataSummary")
-            Prelude.<*> (x Core..:? "Period")
-            Prelude.<*> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Stat")
-            Prelude.<*> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..:? "Namespace")
-            Prelude.<*> (x Core..:? "Unit")
+            Prelude.<$> (x Data..:? "MetricDataSummary")
+            Prelude.<*> (x Data..:? "Period")
+            Prelude.<*> (x Data..:? "Dimensions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Stat")
+            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "Namespace")
+            Prelude.<*> (x Data..:? "Unit")
       )
 
 instance Prelude.Hashable CloudWatchMetricsDetail where

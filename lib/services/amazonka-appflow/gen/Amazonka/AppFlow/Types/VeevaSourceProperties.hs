@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.VeevaSourceProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when using Veeva as a flow source.
@@ -94,17 +95,17 @@ veevaSourceProperties_includeAllVersions = Lens.lens (\VeevaSourceProperties' {i
 veevaSourceProperties_object :: Lens.Lens' VeevaSourceProperties Prelude.Text
 veevaSourceProperties_object = Lens.lens (\VeevaSourceProperties' {object'} -> object') (\s@VeevaSourceProperties' {} a -> s {object' = a} :: VeevaSourceProperties)
 
-instance Core.FromJSON VeevaSourceProperties where
+instance Data.FromJSON VeevaSourceProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VeevaSourceProperties"
       ( \x ->
           VeevaSourceProperties'
-            Prelude.<$> (x Core..:? "documentType")
-            Prelude.<*> (x Core..:? "includeSourceFiles")
-            Prelude.<*> (x Core..:? "includeRenditions")
-            Prelude.<*> (x Core..:? "includeAllVersions")
-            Prelude.<*> (x Core..: "object")
+            Prelude.<$> (x Data..:? "documentType")
+            Prelude.<*> (x Data..:? "includeSourceFiles")
+            Prelude.<*> (x Data..:? "includeRenditions")
+            Prelude.<*> (x Data..:? "includeAllVersions")
+            Prelude.<*> (x Data..: "object")
       )
 
 instance Prelude.Hashable VeevaSourceProperties where
@@ -123,17 +124,17 @@ instance Prelude.NFData VeevaSourceProperties where
       `Prelude.seq` Prelude.rnf includeAllVersions
       `Prelude.seq` Prelude.rnf object'
 
-instance Core.ToJSON VeevaSourceProperties where
+instance Data.ToJSON VeevaSourceProperties where
   toJSON VeevaSourceProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("documentType" Core..=) Prelude.<$> documentType,
-            ("includeSourceFiles" Core..=)
+          [ ("documentType" Data..=) Prelude.<$> documentType,
+            ("includeSourceFiles" Data..=)
               Prelude.<$> includeSourceFiles,
-            ("includeRenditions" Core..=)
+            ("includeRenditions" Data..=)
               Prelude.<$> includeRenditions,
-            ("includeAllVersions" Core..=)
+            ("includeAllVersions" Data..=)
               Prelude.<$> includeAllVersions,
-            Prelude.Just ("object" Core..= object')
+            Prelude.Just ("object" Data..= object')
           ]
       )

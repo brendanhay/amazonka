@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.ApplicationUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate
 import Amazonka.KinesisAnalytics.Types.InputUpdate
 import Amazonka.KinesisAnalytics.Types.OutputUpdate
@@ -109,17 +110,17 @@ instance Prelude.NFData ApplicationUpdate where
       `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionUpdates
       `Prelude.seq` Prelude.rnf applicationCodeUpdate
 
-instance Core.ToJSON ApplicationUpdate where
+instance Data.ToJSON ApplicationUpdate where
   toJSON ApplicationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InputUpdates" Core..=) Prelude.<$> inputUpdates,
-            ("OutputUpdates" Core..=) Prelude.<$> outputUpdates,
-            ("ReferenceDataSourceUpdates" Core..=)
+          [ ("InputUpdates" Data..=) Prelude.<$> inputUpdates,
+            ("OutputUpdates" Data..=) Prelude.<$> outputUpdates,
+            ("ReferenceDataSourceUpdates" Data..=)
               Prelude.<$> referenceDataSourceUpdates,
-            ("CloudWatchLoggingOptionUpdates" Core..=)
+            ("CloudWatchLoggingOptionUpdates" Data..=)
               Prelude.<$> cloudWatchLoggingOptionUpdates,
-            ("ApplicationCodeUpdate" Core..=)
+            ("ApplicationCodeUpdate" Data..=)
               Prelude.<$> applicationCodeUpdate
           ]
       )

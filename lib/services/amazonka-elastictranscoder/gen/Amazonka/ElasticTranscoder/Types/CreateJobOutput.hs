@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.CreateJobOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.Captions
 import Amazonka.ElasticTranscoder.Types.Clip
 import Amazonka.ElasticTranscoder.Types.Encryption
@@ -547,23 +548,23 @@ instance Prelude.NFData CreateJobOutput where
       `Prelude.seq` Prelude.rnf rotate
       `Prelude.seq` Prelude.rnf segmentDuration
 
-instance Core.ToJSON CreateJobOutput where
+instance Data.ToJSON CreateJobOutput where
   toJSON CreateJobOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Watermarks" Core..=) Prelude.<$> watermarks,
-            ("Composition" Core..=) Prelude.<$> composition,
-            ("ThumbnailEncryption" Core..=)
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Watermarks" Data..=) Prelude.<$> watermarks,
+            ("Composition" Data..=) Prelude.<$> composition,
+            ("ThumbnailEncryption" Data..=)
               Prelude.<$> thumbnailEncryption,
-            ("ThumbnailPattern" Core..=)
+            ("ThumbnailPattern" Data..=)
               Prelude.<$> thumbnailPattern,
-            ("Captions" Core..=) Prelude.<$> captions,
-            ("AlbumArt" Core..=) Prelude.<$> albumArt,
-            ("PresetId" Core..=) Prelude.<$> presetId,
-            ("Encryption" Core..=) Prelude.<$> encryption,
-            ("Rotate" Core..=) Prelude.<$> rotate,
-            ("SegmentDuration" Core..=)
+            ("Captions" Data..=) Prelude.<$> captions,
+            ("AlbumArt" Data..=) Prelude.<$> albumArt,
+            ("PresetId" Data..=) Prelude.<$> presetId,
+            ("Encryption" Data..=) Prelude.<$> encryption,
+            ("Rotate" Data..=) Prelude.<$> rotate,
+            ("SegmentDuration" Data..=)
               Prelude.<$> segmentDuration
           ]
       )

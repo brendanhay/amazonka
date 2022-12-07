@@ -21,6 +21,7 @@ module Amazonka.KeySpaces.Types.PointInTimeRecoverySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types.PointInTimeRecoveryStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data PointInTimeRecoverySummary = PointInTimeRecoverySummary'
   { -- | Specifies the earliest possible restore point of the table in ISO 8601
     -- format.
-    earliestRestorableTimestamp :: Prelude.Maybe Core.POSIX,
+    earliestRestorableTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Shows if point-in-time recovery is enabled or disabled for the specified
     -- table.
     status :: PointInTimeRecoveryStatus
@@ -64,21 +65,21 @@ newPointInTimeRecoverySummary pStatus_ =
 -- | Specifies the earliest possible restore point of the table in ISO 8601
 -- format.
 pointInTimeRecoverySummary_earliestRestorableTimestamp :: Lens.Lens' PointInTimeRecoverySummary (Prelude.Maybe Prelude.UTCTime)
-pointInTimeRecoverySummary_earliestRestorableTimestamp = Lens.lens (\PointInTimeRecoverySummary' {earliestRestorableTimestamp} -> earliestRestorableTimestamp) (\s@PointInTimeRecoverySummary' {} a -> s {earliestRestorableTimestamp = a} :: PointInTimeRecoverySummary) Prelude.. Lens.mapping Core._Time
+pointInTimeRecoverySummary_earliestRestorableTimestamp = Lens.lens (\PointInTimeRecoverySummary' {earliestRestorableTimestamp} -> earliestRestorableTimestamp) (\s@PointInTimeRecoverySummary' {} a -> s {earliestRestorableTimestamp = a} :: PointInTimeRecoverySummary) Prelude.. Lens.mapping Data._Time
 
 -- | Shows if point-in-time recovery is enabled or disabled for the specified
 -- table.
 pointInTimeRecoverySummary_status :: Lens.Lens' PointInTimeRecoverySummary PointInTimeRecoveryStatus
 pointInTimeRecoverySummary_status = Lens.lens (\PointInTimeRecoverySummary' {status} -> status) (\s@PointInTimeRecoverySummary' {} a -> s {status = a} :: PointInTimeRecoverySummary)
 
-instance Core.FromJSON PointInTimeRecoverySummary where
+instance Data.FromJSON PointInTimeRecoverySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PointInTimeRecoverySummary"
       ( \x ->
           PointInTimeRecoverySummary'
-            Prelude.<$> (x Core..:? "earliestRestorableTimestamp")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "earliestRestorableTimestamp")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable PointInTimeRecoverySummary where

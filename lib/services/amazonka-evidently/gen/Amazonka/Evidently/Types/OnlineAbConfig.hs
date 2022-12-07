@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.OnlineAbConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains the configuration of which variation to use as
@@ -90,13 +91,13 @@ instance Prelude.NFData OnlineAbConfig where
     Prelude.rnf controlTreatmentName
       `Prelude.seq` Prelude.rnf treatmentWeights
 
-instance Core.ToJSON OnlineAbConfig where
+instance Data.ToJSON OnlineAbConfig where
   toJSON OnlineAbConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("controlTreatmentName" Core..=)
+          [ ("controlTreatmentName" Data..=)
               Prelude.<$> controlTreatmentName,
-            ("treatmentWeights" Core..=)
+            ("treatmentWeights" Data..=)
               Prelude.<$> treatmentWeights
           ]
       )

@@ -27,12 +27,13 @@ module Amazonka.MediaConvert.Types.AudioNormalizationLoudnessLogging
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If set to LOG, log each output\'s audio track loudness to a CSV file.
 newtype AudioNormalizationLoudnessLogging = AudioNormalizationLoudnessLogging'
   { fromAudioNormalizationLoudnessLogging ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -44,18 +45,18 @@ newtype AudioNormalizationLoudnessLogging = AudioNormalizationLoudnessLogging'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern AudioNormalizationLoudnessLogging_DONT_LOG :: AudioNormalizationLoudnessLogging

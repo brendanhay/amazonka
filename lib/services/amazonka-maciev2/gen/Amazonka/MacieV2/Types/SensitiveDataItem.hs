@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.SensitiveDataItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.DefaultDetection
 import Amazonka.MacieV2.Types.SensitiveDataItemCategory
 import qualified Amazonka.Prelude as Prelude
@@ -97,15 +98,15 @@ sensitiveDataItem_category = Lens.lens (\SensitiveDataItem' {category} -> catego
 sensitiveDataItem_totalCount :: Lens.Lens' SensitiveDataItem (Prelude.Maybe Prelude.Integer)
 sensitiveDataItem_totalCount = Lens.lens (\SensitiveDataItem' {totalCount} -> totalCount) (\s@SensitiveDataItem' {} a -> s {totalCount = a} :: SensitiveDataItem)
 
-instance Core.FromJSON SensitiveDataItem where
+instance Data.FromJSON SensitiveDataItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SensitiveDataItem"
       ( \x ->
           SensitiveDataItem'
-            Prelude.<$> (x Core..:? "detections" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "category")
-            Prelude.<*> (x Core..:? "totalCount")
+            Prelude.<$> (x Data..:? "detections" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "category")
+            Prelude.<*> (x Data..:? "totalCount")
       )
 
 instance Prelude.Hashable SensitiveDataItem where

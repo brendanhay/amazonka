@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -85,20 +86,20 @@ instance Prelude.Hashable DeleteUsageLimit where
 instance Prelude.NFData DeleteUsageLimit where
   rnf DeleteUsageLimit' {..} = Prelude.rnf usageLimitId
 
-instance Core.ToHeaders DeleteUsageLimit where
+instance Data.ToHeaders DeleteUsageLimit where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteUsageLimit where
+instance Data.ToPath DeleteUsageLimit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteUsageLimit where
+instance Data.ToQuery DeleteUsageLimit where
   toQuery DeleteUsageLimit' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteUsageLimit" :: Prelude.ByteString),
+          Data.=: ("DeleteUsageLimit" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "UsageLimitId" Core.=: usageLimitId
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "UsageLimitId" Data.=: usageLimitId
       ]
 
 -- | /See:/ 'newDeleteUsageLimitResponse' smart constructor.

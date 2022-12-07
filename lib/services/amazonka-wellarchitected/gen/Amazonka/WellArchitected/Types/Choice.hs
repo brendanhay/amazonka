@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.Choice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.AdditionalResources
 import Amazonka.WellArchitected.Types.ChoiceContent
@@ -102,20 +103,20 @@ choice_additionalResources = Lens.lens (\Choice' {additionalResources} -> additi
 choice_improvementPlan :: Lens.Lens' Choice (Prelude.Maybe ChoiceContent)
 choice_improvementPlan = Lens.lens (\Choice' {improvementPlan} -> improvementPlan) (\s@Choice' {} a -> s {improvementPlan = a} :: Choice)
 
-instance Core.FromJSON Choice where
+instance Data.FromJSON Choice where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Choice"
       ( \x ->
           Choice'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ChoiceId")
-            Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "HelpfulResource")
-            Prelude.<*> ( x Core..:? "AdditionalResources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ChoiceId")
+            Prelude.<*> (x Data..:? "Title")
+            Prelude.<*> (x Data..:? "HelpfulResource")
+            Prelude.<*> ( x Data..:? "AdditionalResources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ImprovementPlan")
+            Prelude.<*> (x Data..:? "ImprovementPlan")
       )
 
 instance Prelude.Hashable Choice where

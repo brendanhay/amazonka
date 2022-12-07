@@ -21,6 +21,7 @@ module Amazonka.KMS.Types.CustomKeyStoresListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types.ConnectionErrorCodeType
 import Amazonka.KMS.Types.ConnectionStateType
 import qualified Amazonka.Prelude as Prelude
@@ -51,7 +52,7 @@ data CustomKeyStoresListEntry = CustomKeyStoresListEntry'
     -- in the /Key Management Service Developer Guide/.
     connectionState :: Prelude.Maybe ConnectionStateType,
     -- | The date and time when the custom key store was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | A unique identifier for the CloudHSM cluster that is associated with the
     -- custom key store.
     cloudHsmClusterId :: Prelude.Maybe Prelude.Text,
@@ -266,7 +267,7 @@ customKeyStoresListEntry_connectionState = Lens.lens (\CustomKeyStoresListEntry'
 
 -- | The date and time when the custom key store was created.
 customKeyStoresListEntry_creationDate :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe Prelude.UTCTime)
-customKeyStoresListEntry_creationDate = Lens.lens (\CustomKeyStoresListEntry' {creationDate} -> creationDate) (\s@CustomKeyStoresListEntry' {} a -> s {creationDate = a} :: CustomKeyStoresListEntry) Prelude.. Lens.mapping Core._Time
+customKeyStoresListEntry_creationDate = Lens.lens (\CustomKeyStoresListEntry' {creationDate} -> creationDate) (\s@CustomKeyStoresListEntry' {} a -> s {creationDate = a} :: CustomKeyStoresListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | A unique identifier for the CloudHSM cluster that is associated with the
 -- custom key store.
@@ -347,19 +348,19 @@ customKeyStoresListEntry_customKeyStoreName = Lens.lens (\CustomKeyStoresListEnt
 customKeyStoresListEntry_connectionErrorCode :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe ConnectionErrorCodeType)
 customKeyStoresListEntry_connectionErrorCode = Lens.lens (\CustomKeyStoresListEntry' {connectionErrorCode} -> connectionErrorCode) (\s@CustomKeyStoresListEntry' {} a -> s {connectionErrorCode = a} :: CustomKeyStoresListEntry)
 
-instance Core.FromJSON CustomKeyStoresListEntry where
+instance Data.FromJSON CustomKeyStoresListEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomKeyStoresListEntry"
       ( \x ->
           CustomKeyStoresListEntry'
-            Prelude.<$> (x Core..:? "CustomKeyStoreId")
-            Prelude.<*> (x Core..:? "ConnectionState")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "CloudHsmClusterId")
-            Prelude.<*> (x Core..:? "TrustAnchorCertificate")
-            Prelude.<*> (x Core..:? "CustomKeyStoreName")
-            Prelude.<*> (x Core..:? "ConnectionErrorCode")
+            Prelude.<$> (x Data..:? "CustomKeyStoreId")
+            Prelude.<*> (x Data..:? "ConnectionState")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "CloudHsmClusterId")
+            Prelude.<*> (x Data..:? "TrustAnchorCertificate")
+            Prelude.<*> (x Data..:? "CustomKeyStoreName")
+            Prelude.<*> (x Data..:? "ConnectionErrorCode")
       )
 
 instance Prelude.Hashable CustomKeyStoresListEntry where

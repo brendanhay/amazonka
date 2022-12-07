@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -188,7 +189,7 @@ instance Core.AWSRequest StartFaceDetection where
     Response.receiveJSON
       ( \s h x ->
           StartFaceDetectionResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,40 +209,40 @@ instance Prelude.NFData StartFaceDetection where
       `Prelude.seq` Prelude.rnf notificationChannel
       `Prelude.seq` Prelude.rnf video
 
-instance Core.ToHeaders StartFaceDetection where
+instance Data.ToHeaders StartFaceDetection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.StartFaceDetection" ::
+              Data.=# ( "RekognitionService.StartFaceDetection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartFaceDetection where
+instance Data.ToJSON StartFaceDetection where
   toJSON StartFaceDetection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("FaceAttributes" Core..=)
+            ("FaceAttributes" Data..=)
               Prelude.<$> faceAttributes,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
-            ("NotificationChannel" Core..=)
+            ("JobTag" Data..=) Prelude.<$> jobTag,
+            ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
-            Prelude.Just ("Video" Core..= video)
+            Prelude.Just ("Video" Data..= video)
           ]
       )
 
-instance Core.ToPath StartFaceDetection where
+instance Data.ToPath StartFaceDetection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartFaceDetection where
+instance Data.ToQuery StartFaceDetection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartFaceDetectionResponse' smart constructor.

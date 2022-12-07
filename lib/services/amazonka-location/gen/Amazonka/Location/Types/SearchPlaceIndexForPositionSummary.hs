@@ -21,6 +21,7 @@ module Amazonka.Location.Types.SearchPlaceIndexForPositionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the request sent by using @SearchPlaceIndexForPosition@.
@@ -48,7 +49,7 @@ data SearchPlaceIndexForPositionSummary = SearchPlaceIndexForPositionSummary'
     -- <https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Amazon Location Service data providers>.
     dataSource :: Prelude.Text,
     -- | The position specified in the request.
-    position :: Core.Sensitive (Prelude.NonEmpty Prelude.Double)
+    position :: Data.Sensitive (Prelude.NonEmpty Prelude.Double)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -96,7 +97,7 @@ newSearchPlaceIndexForPositionSummary
         language = Prelude.Nothing,
         dataSource = pDataSource_,
         position =
-          Core._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive Prelude.. Lens.coerced
             Lens.# pPosition_
       }
 
@@ -128,21 +129,21 @@ searchPlaceIndexForPositionSummary_dataSource = Lens.lens (\SearchPlaceIndexForP
 
 -- | The position specified in the request.
 searchPlaceIndexForPositionSummary_position :: Lens.Lens' SearchPlaceIndexForPositionSummary (Prelude.NonEmpty Prelude.Double)
-searchPlaceIndexForPositionSummary_position = Lens.lens (\SearchPlaceIndexForPositionSummary' {position} -> position) (\s@SearchPlaceIndexForPositionSummary' {} a -> s {position = a} :: SearchPlaceIndexForPositionSummary) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+searchPlaceIndexForPositionSummary_position = Lens.lens (\SearchPlaceIndexForPositionSummary' {position} -> position) (\s@SearchPlaceIndexForPositionSummary' {} a -> s {position = a} :: SearchPlaceIndexForPositionSummary) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SearchPlaceIndexForPositionSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SearchPlaceIndexForPositionSummary"
       ( \x ->
           SearchPlaceIndexForPositionSummary'
-            Prelude.<$> (x Core..:? "MaxResults")
-            Prelude.<*> (x Core..:? "Language")
-            Prelude.<*> (x Core..: "DataSource")
-            Prelude.<*> (x Core..: "Position")
+            Prelude.<$> (x Data..:? "MaxResults")
+            Prelude.<*> (x Data..:? "Language")
+            Prelude.<*> (x Data..: "DataSource")
+            Prelude.<*> (x Data..: "Position")
       )
 
 instance

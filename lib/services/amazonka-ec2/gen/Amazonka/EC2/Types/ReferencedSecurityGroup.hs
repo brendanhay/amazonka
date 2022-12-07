@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ReferencedSecurityGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -91,14 +92,14 @@ referencedSecurityGroup_vpcId = Lens.lens (\ReferencedSecurityGroup' {vpcId} -> 
 referencedSecurityGroup_groupId :: Lens.Lens' ReferencedSecurityGroup (Prelude.Maybe Prelude.Text)
 referencedSecurityGroup_groupId = Lens.lens (\ReferencedSecurityGroup' {groupId} -> groupId) (\s@ReferencedSecurityGroup' {} a -> s {groupId = a} :: ReferencedSecurityGroup)
 
-instance Core.FromXML ReferencedSecurityGroup where
+instance Data.FromXML ReferencedSecurityGroup where
   parseXML x =
     ReferencedSecurityGroup'
-      Prelude.<$> (x Core..@? "vpcPeeringConnectionId")
-      Prelude.<*> (x Core..@? "peeringStatus")
-      Prelude.<*> (x Core..@? "userId")
-      Prelude.<*> (x Core..@? "vpcId")
-      Prelude.<*> (x Core..@? "groupId")
+      Prelude.<$> (x Data..@? "vpcPeeringConnectionId")
+      Prelude.<*> (x Data..@? "peeringStatus")
+      Prelude.<*> (x Data..@? "userId")
+      Prelude.<*> (x Data..@? "vpcId")
+      Prelude.<*> (x Data..@? "groupId")
 
 instance Prelude.Hashable ReferencedSecurityGroup where
   hashWithSalt _salt ReferencedSecurityGroup' {..} =

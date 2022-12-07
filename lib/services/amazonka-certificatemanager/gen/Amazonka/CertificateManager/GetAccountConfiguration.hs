@@ -40,6 +40,7 @@ where
 import Amazonka.CertificateManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,7 +69,7 @@ instance Core.AWSRequest GetAccountConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetAccountConfigurationResponse'
-            Prelude.<$> (x Core..?> "ExpiryEvents")
+            Prelude.<$> (x Data..?> "ExpiryEvents")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -79,28 +80,28 @@ instance Prelude.Hashable GetAccountConfiguration where
 instance Prelude.NFData GetAccountConfiguration where
   rnf _ = ()
 
-instance Core.ToHeaders GetAccountConfiguration where
+instance Data.ToHeaders GetAccountConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CertificateManager.GetAccountConfiguration" ::
+              Data.=# ( "CertificateManager.GetAccountConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAccountConfiguration where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetAccountConfiguration where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetAccountConfiguration where
+instance Data.ToPath GetAccountConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAccountConfiguration where
+instance Data.ToQuery GetAccountConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAccountConfigurationResponse' smart constructor.

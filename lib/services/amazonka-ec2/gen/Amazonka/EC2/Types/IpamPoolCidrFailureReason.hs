@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IpamPoolCidrFailureReason where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IpamPoolCidrFailureCode
 import qualified Amazonka.Prelude as Prelude
@@ -64,11 +65,11 @@ ipamPoolCidrFailureReason_message = Lens.lens (\IpamPoolCidrFailureReason' {mess
 ipamPoolCidrFailureReason_code :: Lens.Lens' IpamPoolCidrFailureReason (Prelude.Maybe IpamPoolCidrFailureCode)
 ipamPoolCidrFailureReason_code = Lens.lens (\IpamPoolCidrFailureReason' {code} -> code) (\s@IpamPoolCidrFailureReason' {} a -> s {code = a} :: IpamPoolCidrFailureReason)
 
-instance Core.FromXML IpamPoolCidrFailureReason where
+instance Data.FromXML IpamPoolCidrFailureReason where
   parseXML x =
     IpamPoolCidrFailureReason'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance Prelude.Hashable IpamPoolCidrFailureReason where
   hashWithSalt _salt IpamPoolCidrFailureReason' {..} =

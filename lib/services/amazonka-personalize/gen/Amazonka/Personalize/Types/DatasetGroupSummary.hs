@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.DatasetGroupSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.Domain
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data DatasetGroupSummary = DatasetGroupSummary'
   { -- | The name of the dataset group.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the dataset group was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The domain of a Domain dataset group.
     domain :: Prelude.Maybe Domain,
     -- | The status of the dataset group.
@@ -49,7 +50,7 @@ data DatasetGroupSummary = DatasetGroupSummary'
     datasetGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the dataset group was last
     -- updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | If creating a dataset group fails, the reason behind the failure.
     failureReason :: Prelude.Maybe Prelude.Text
   }
@@ -102,7 +103,7 @@ datasetGroupSummary_name = Lens.lens (\DatasetGroupSummary' {name} -> name) (\s@
 
 -- | The date and time (in Unix time) that the dataset group was created.
 datasetGroupSummary_creationDateTime :: Lens.Lens' DatasetGroupSummary (Prelude.Maybe Prelude.UTCTime)
-datasetGroupSummary_creationDateTime = Lens.lens (\DatasetGroupSummary' {creationDateTime} -> creationDateTime) (\s@DatasetGroupSummary' {} a -> s {creationDateTime = a} :: DatasetGroupSummary) Prelude.. Lens.mapping Core._Time
+datasetGroupSummary_creationDateTime = Lens.lens (\DatasetGroupSummary' {creationDateTime} -> creationDateTime) (\s@DatasetGroupSummary' {} a -> s {creationDateTime = a} :: DatasetGroupSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The domain of a Domain dataset group.
 datasetGroupSummary_domain :: Lens.Lens' DatasetGroupSummary (Prelude.Maybe Domain)
@@ -125,25 +126,25 @@ datasetGroupSummary_datasetGroupArn = Lens.lens (\DatasetGroupSummary' {datasetG
 -- | The date and time (in Unix time) that the dataset group was last
 -- updated.
 datasetGroupSummary_lastUpdatedDateTime :: Lens.Lens' DatasetGroupSummary (Prelude.Maybe Prelude.UTCTime)
-datasetGroupSummary_lastUpdatedDateTime = Lens.lens (\DatasetGroupSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetGroupSummary' {} a -> s {lastUpdatedDateTime = a} :: DatasetGroupSummary) Prelude.. Lens.mapping Core._Time
+datasetGroupSummary_lastUpdatedDateTime = Lens.lens (\DatasetGroupSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetGroupSummary' {} a -> s {lastUpdatedDateTime = a} :: DatasetGroupSummary) Prelude.. Lens.mapping Data._Time
 
 -- | If creating a dataset group fails, the reason behind the failure.
 datasetGroupSummary_failureReason :: Lens.Lens' DatasetGroupSummary (Prelude.Maybe Prelude.Text)
 datasetGroupSummary_failureReason = Lens.lens (\DatasetGroupSummary' {failureReason} -> failureReason) (\s@DatasetGroupSummary' {} a -> s {failureReason = a} :: DatasetGroupSummary)
 
-instance Core.FromJSON DatasetGroupSummary where
+instance Data.FromJSON DatasetGroupSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetGroupSummary"
       ( \x ->
           DatasetGroupSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "domain")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "datasetGroupArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "domain")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "datasetGroupArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable DatasetGroupSummary where

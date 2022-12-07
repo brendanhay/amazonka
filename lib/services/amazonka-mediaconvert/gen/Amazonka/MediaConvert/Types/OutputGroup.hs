@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.OutputGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.AutomatedEncodingSettings
 import Amazonka.MediaConvert.Types.Output
 import Amazonka.MediaConvert.Types.OutputGroupSettings
@@ -109,17 +110,17 @@ outputGroup_outputs = Lens.lens (\OutputGroup' {outputs} -> outputs) (\s@OutputG
 outputGroup_customName :: Lens.Lens' OutputGroup (Prelude.Maybe Prelude.Text)
 outputGroup_customName = Lens.lens (\OutputGroup' {customName} -> customName) (\s@OutputGroup' {} a -> s {customName = a} :: OutputGroup)
 
-instance Core.FromJSON OutputGroup where
+instance Data.FromJSON OutputGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputGroup"
       ( \x ->
           OutputGroup'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "outputGroupSettings")
-            Prelude.<*> (x Core..:? "automatedEncodingSettings")
-            Prelude.<*> (x Core..:? "outputs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "customName")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "outputGroupSettings")
+            Prelude.<*> (x Data..:? "automatedEncodingSettings")
+            Prelude.<*> (x Data..:? "outputs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "customName")
       )
 
 instance Prelude.Hashable OutputGroup where
@@ -138,16 +139,16 @@ instance Prelude.NFData OutputGroup where
       `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf customName
 
-instance Core.ToJSON OutputGroup where
+instance Data.ToJSON OutputGroup where
   toJSON OutputGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("outputGroupSettings" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("outputGroupSettings" Data..=)
               Prelude.<$> outputGroupSettings,
-            ("automatedEncodingSettings" Core..=)
+            ("automatedEncodingSettings" Data..=)
               Prelude.<$> automatedEncodingSettings,
-            ("outputs" Core..=) Prelude.<$> outputs,
-            ("customName" Core..=) Prelude.<$> customName
+            ("outputs" Data..=) Prelude.<$> outputs,
+            ("customName" Data..=) Prelude.<$> customName
           ]
       )

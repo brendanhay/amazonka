@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManagerUserSubscriptions.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,7 +125,7 @@ instance Core.AWSRequest DisassociateUser where
       ( \s h x ->
           DisassociateUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "InstanceUserSummary")
+            Prelude.<*> (x Data..:> "InstanceUserSummary")
       )
 
 instance Prelude.Hashable DisassociateUser where
@@ -141,33 +142,33 @@ instance Prelude.NFData DisassociateUser where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf username
 
-instance Core.ToHeaders DisassociateUser where
+instance Data.ToHeaders DisassociateUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateUser where
+instance Data.ToJSON DisassociateUser where
   toJSON DisassociateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Domain" Core..=) Prelude.<$> domain,
+          [ ("Domain" Data..=) Prelude.<$> domain,
             Prelude.Just
-              ("IdentityProvider" Core..= identityProvider),
-            Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("Username" Core..= username)
+              ("IdentityProvider" Data..= identityProvider),
+            Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("Username" Data..= username)
           ]
       )
 
-instance Core.ToPath DisassociateUser where
+instance Data.ToPath DisassociateUser where
   toPath = Prelude.const "/user/DisassociateUser"
 
-instance Core.ToQuery DisassociateUser where
+instance Data.ToQuery DisassociateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateUserResponse' smart constructor.

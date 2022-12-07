@@ -41,6 +41,7 @@ where
 import Amazonka.CodeStarConnections.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,34 +99,34 @@ instance Prelude.Hashable DeleteConnection where
 instance Prelude.NFData DeleteConnection where
   rnf DeleteConnection' {..} = Prelude.rnf connectionArn
 
-instance Core.ToHeaders DeleteConnection where
+instance Data.ToHeaders DeleteConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.codestar.connections.CodeStar_connections_20191201.DeleteConnection" ::
+              Data.=# ( "com.amazonaws.codestar.connections.CodeStar_connections_20191201.DeleteConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteConnection where
+instance Data.ToJSON DeleteConnection where
   toJSON DeleteConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ConnectionArn" Core..= connectionArn)
+              ("ConnectionArn" Data..= connectionArn)
           ]
       )
 
-instance Core.ToPath DeleteConnection where
+instance Data.ToPath DeleteConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteConnection where
+instance Data.ToQuery DeleteConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConnectionResponse' smart constructor.

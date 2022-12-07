@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,7 +129,7 @@ instance Core.AWSRequest DescribeServices where
     Response.receiveJSON
       ( \s h x ->
           DescribeServicesResponse'
-            Prelude.<$> (x Core..?> "services" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "services" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,35 +143,35 @@ instance Prelude.NFData DescribeServices where
     Prelude.rnf serviceCodeList
       `Prelude.seq` Prelude.rnf language
 
-instance Core.ToHeaders DescribeServices where
+instance Data.ToHeaders DescribeServices where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSupport_20130415.DescribeServices" ::
+              Data.=# ( "AWSSupport_20130415.DescribeServices" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeServices where
+instance Data.ToJSON DescribeServices where
   toJSON DescribeServices' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("serviceCodeList" Core..=)
+          [ ("serviceCodeList" Data..=)
               Prelude.<$> serviceCodeList,
-            ("language" Core..=) Prelude.<$> language
+            ("language" Data..=) Prelude.<$> language
           ]
       )
 
-instance Core.ToPath DescribeServices where
+instance Data.ToPath DescribeServices where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeServices where
+instance Data.ToQuery DescribeServices where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The list of Amazon Web Services services returned by the

@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.DomainInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.RegistrationStatus
 
@@ -108,16 +109,16 @@ domainInfo_name = Lens.lens (\DomainInfo' {name} -> name) (\s@DomainInfo' {} a -
 domainInfo_status :: Lens.Lens' DomainInfo RegistrationStatus
 domainInfo_status = Lens.lens (\DomainInfo' {status} -> status) (\s@DomainInfo' {} a -> s {status = a} :: DomainInfo)
 
-instance Core.FromJSON DomainInfo where
+instance Data.FromJSON DomainInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainInfo"
       ( \x ->
           DomainInfo'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable DomainInfo where

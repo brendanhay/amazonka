@@ -24,6 +24,7 @@ import Amazonka.Batch.Types.EksHostPath
 import Amazonka.Batch.Types.EksSecret
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an Amazon EKS volume for a job definition.
@@ -120,16 +121,16 @@ eksVolume_secret = Lens.lens (\EksVolume' {secret} -> secret) (\s@EksVolume' {} 
 eksVolume_name :: Lens.Lens' EksVolume Prelude.Text
 eksVolume_name = Lens.lens (\EksVolume' {name} -> name) (\s@EksVolume' {} a -> s {name = a} :: EksVolume)
 
-instance Core.FromJSON EksVolume where
+instance Data.FromJSON EksVolume where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksVolume"
       ( \x ->
           EksVolume'
-            Prelude.<$> (x Core..:? "hostPath")
-            Prelude.<*> (x Core..:? "emptyDir")
-            Prelude.<*> (x Core..:? "secret")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "hostPath")
+            Prelude.<*> (x Data..:? "emptyDir")
+            Prelude.<*> (x Data..:? "secret")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable EksVolume where
@@ -146,13 +147,13 @@ instance Prelude.NFData EksVolume where
       `Prelude.seq` Prelude.rnf secret
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON EksVolume where
+instance Data.ToJSON EksVolume where
   toJSON EksVolume' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("hostPath" Core..=) Prelude.<$> hostPath,
-            ("emptyDir" Core..=) Prelude.<$> emptyDir,
-            ("secret" Core..=) Prelude.<$> secret,
-            Prelude.Just ("name" Core..= name)
+          [ ("hostPath" Data..=) Prelude.<$> hostPath,
+            ("emptyDir" Data..=) Prelude.<$> emptyDir,
+            ("secret" Data..=) Prelude.<$> secret,
+            Prelude.Just ("name" Data..= name)
           ]
       )

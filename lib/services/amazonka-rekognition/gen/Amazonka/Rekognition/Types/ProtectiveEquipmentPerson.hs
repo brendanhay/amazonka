@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.ProtectiveEquipmentPerson where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.BoundingBox
 import Amazonka.Rekognition.Types.ProtectiveEquipmentBodyPart
@@ -93,16 +94,16 @@ protectiveEquipmentPerson_id = Lens.lens (\ProtectiveEquipmentPerson' {id} -> id
 protectiveEquipmentPerson_boundingBox :: Lens.Lens' ProtectiveEquipmentPerson (Prelude.Maybe BoundingBox)
 protectiveEquipmentPerson_boundingBox = Lens.lens (\ProtectiveEquipmentPerson' {boundingBox} -> boundingBox) (\s@ProtectiveEquipmentPerson' {} a -> s {boundingBox = a} :: ProtectiveEquipmentPerson)
 
-instance Core.FromJSON ProtectiveEquipmentPerson where
+instance Data.FromJSON ProtectiveEquipmentPerson where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProtectiveEquipmentPerson"
       ( \x ->
           ProtectiveEquipmentPerson'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "BodyParts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "BoundingBox")
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "BodyParts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "BoundingBox")
       )
 
 instance Prelude.Hashable ProtectiveEquipmentPerson where

@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,30 +90,30 @@ instance Prelude.NFData DeleteVcenterClient where
   rnf DeleteVcenterClient' {..} =
     Prelude.rnf vcenterClientID
 
-instance Core.ToHeaders DeleteVcenterClient where
+instance Data.ToHeaders DeleteVcenterClient where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteVcenterClient where
+instance Data.ToJSON DeleteVcenterClient where
   toJSON DeleteVcenterClient' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("vcenterClientID" Core..= vcenterClientID)
+              ("vcenterClientID" Data..= vcenterClientID)
           ]
       )
 
-instance Core.ToPath DeleteVcenterClient where
+instance Data.ToPath DeleteVcenterClient where
   toPath = Prelude.const "/DeleteVcenterClient"
 
-instance Core.ToQuery DeleteVcenterClient where
+instance Data.ToQuery DeleteVcenterClient where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVcenterClientResponse' smart constructor.

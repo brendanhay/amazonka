@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.FunctionDefaultConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.FunctionDefaultExecutionConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newFunctionDefaultConfig =
 functionDefaultConfig_execution :: Lens.Lens' FunctionDefaultConfig (Prelude.Maybe FunctionDefaultExecutionConfig)
 functionDefaultConfig_execution = Lens.lens (\FunctionDefaultConfig' {execution} -> execution) (\s@FunctionDefaultConfig' {} a -> s {execution = a} :: FunctionDefaultConfig)
 
-instance Core.FromJSON FunctionDefaultConfig where
+instance Data.FromJSON FunctionDefaultConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FunctionDefaultConfig"
       ( \x ->
           FunctionDefaultConfig'
-            Prelude.<$> (x Core..:? "Execution")
+            Prelude.<$> (x Data..:? "Execution")
       )
 
 instance Prelude.Hashable FunctionDefaultConfig where
@@ -68,9 +69,9 @@ instance Prelude.NFData FunctionDefaultConfig where
   rnf FunctionDefaultConfig' {..} =
     Prelude.rnf execution
 
-instance Core.ToJSON FunctionDefaultConfig where
+instance Data.ToJSON FunctionDefaultConfig where
   toJSON FunctionDefaultConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Execution" Core..=) Prelude.<$> execution]
+          [("Execution" Data..=) Prelude.<$> execution]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RecommendationMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metrics of recommendations.
@@ -94,16 +95,16 @@ recommendationMetrics_maxInvocations = Lens.lens (\RecommendationMetrics' {maxIn
 recommendationMetrics_modelLatency :: Lens.Lens' RecommendationMetrics Prelude.Int
 recommendationMetrics_modelLatency = Lens.lens (\RecommendationMetrics' {modelLatency} -> modelLatency) (\s@RecommendationMetrics' {} a -> s {modelLatency = a} :: RecommendationMetrics)
 
-instance Core.FromJSON RecommendationMetrics where
+instance Data.FromJSON RecommendationMetrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationMetrics"
       ( \x ->
           RecommendationMetrics'
-            Prelude.<$> (x Core..: "CostPerHour")
-            Prelude.<*> (x Core..: "CostPerInference")
-            Prelude.<*> (x Core..: "MaxInvocations")
-            Prelude.<*> (x Core..: "ModelLatency")
+            Prelude.<$> (x Data..: "CostPerHour")
+            Prelude.<*> (x Data..: "CostPerInference")
+            Prelude.<*> (x Data..: "MaxInvocations")
+            Prelude.<*> (x Data..: "ModelLatency")
       )
 
 instance Prelude.Hashable RecommendationMetrics where

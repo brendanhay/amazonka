@@ -50,6 +50,7 @@ where
 import Amazonka.AppFlow.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,7 +115,7 @@ instance Core.AWSRequest UpdateConnectorRegistration where
     Response.receiveJSON
       ( \s h x ->
           UpdateConnectorRegistrationResponse'
-            Prelude.<$> (x Core..?> "connectorArn")
+            Prelude.<$> (x Data..?> "connectorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,34 +131,34 @@ instance Prelude.NFData UpdateConnectorRegistration where
       `Prelude.seq` Prelude.rnf connectorProvisioningConfig
       `Prelude.seq` Prelude.rnf connectorLabel
 
-instance Core.ToHeaders UpdateConnectorRegistration where
+instance Data.ToHeaders UpdateConnectorRegistration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateConnectorRegistration where
+instance Data.ToJSON UpdateConnectorRegistration where
   toJSON UpdateConnectorRegistration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("connectorProvisioningConfig" Core..=)
+          [ ("description" Data..=) Prelude.<$> description,
+            ("connectorProvisioningConfig" Data..=)
               Prelude.<$> connectorProvisioningConfig,
             Prelude.Just
-              ("connectorLabel" Core..= connectorLabel)
+              ("connectorLabel" Data..= connectorLabel)
           ]
       )
 
-instance Core.ToPath UpdateConnectorRegistration where
+instance Data.ToPath UpdateConnectorRegistration where
   toPath =
     Prelude.const "/update-connector-registration"
 
-instance Core.ToQuery UpdateConnectorRegistration where
+instance Data.ToQuery UpdateConnectorRegistration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConnectorRegistrationResponse' smart constructor.

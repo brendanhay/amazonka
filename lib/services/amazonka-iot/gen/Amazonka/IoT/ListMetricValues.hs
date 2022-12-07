@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -74,9 +75,9 @@ data ListMetricValues = ListMetricValues'
     -- | The name of the security profile metric for which values are returned.
     metricName :: Prelude.Text,
     -- | The start of the time period for which metric values are returned.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The end of the time period for which metric values are returned.
-    endTime :: Core.POSIX
+    endTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -126,8 +127,8 @@ newListMetricValues
         maxResults = Prelude.Nothing,
         thingName = pThingName_,
         metricName = pMetricName_,
-        startTime = Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_
+        startTime = Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_
       }
 
 -- | The token for the next set of results.
@@ -157,11 +158,11 @@ listMetricValues_metricName = Lens.lens (\ListMetricValues' {metricName} -> metr
 
 -- | The start of the time period for which metric values are returned.
 listMetricValues_startTime :: Lens.Lens' ListMetricValues Prelude.UTCTime
-listMetricValues_startTime = Lens.lens (\ListMetricValues' {startTime} -> startTime) (\s@ListMetricValues' {} a -> s {startTime = a} :: ListMetricValues) Prelude.. Core._Time
+listMetricValues_startTime = Lens.lens (\ListMetricValues' {startTime} -> startTime) (\s@ListMetricValues' {} a -> s {startTime = a} :: ListMetricValues) Prelude.. Data._Time
 
 -- | The end of the time period for which metric values are returned.
 listMetricValues_endTime :: Lens.Lens' ListMetricValues Prelude.UTCTime
-listMetricValues_endTime = Lens.lens (\ListMetricValues' {endTime} -> endTime) (\s@ListMetricValues' {} a -> s {endTime = a} :: ListMetricValues) Prelude.. Core._Time
+listMetricValues_endTime = Lens.lens (\ListMetricValues' {endTime} -> endTime) (\s@ListMetricValues' {} a -> s {endTime = a} :: ListMetricValues) Prelude.. Data._Time
 
 instance Core.AWSPager ListMetricValues where
   page rq rs
@@ -195,8 +196,8 @@ instance Core.AWSRequest ListMetricValues where
     Response.receiveJSON
       ( \s h x ->
           ListMetricValuesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "metricDatumList"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "metricDatumList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -224,24 +225,24 @@ instance Prelude.NFData ListMetricValues where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
-instance Core.ToHeaders ListMetricValues where
+instance Data.ToHeaders ListMetricValues where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListMetricValues where
+instance Data.ToPath ListMetricValues where
   toPath = Prelude.const "/metric-values"
 
-instance Core.ToQuery ListMetricValues where
+instance Data.ToQuery ListMetricValues where
   toQuery ListMetricValues' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
+      [ "nextToken" Data.=: nextToken,
         "dimensionValueOperator"
-          Core.=: dimensionValueOperator,
-        "dimensionName" Core.=: dimensionName,
-        "maxResults" Core.=: maxResults,
-        "thingName" Core.=: thingName,
-        "metricName" Core.=: metricName,
-        "startTime" Core.=: startTime,
-        "endTime" Core.=: endTime
+          Data.=: dimensionValueOperator,
+        "dimensionName" Data.=: dimensionName,
+        "maxResults" Data.=: maxResults,
+        "thingName" Data.=: thingName,
+        "metricName" Data.=: metricName,
+        "startTime" Data.=: startTime,
+        "endTime" Data.=: endTime
       ]
 
 -- | /See:/ 'newListMetricValuesResponse' smart constructor.

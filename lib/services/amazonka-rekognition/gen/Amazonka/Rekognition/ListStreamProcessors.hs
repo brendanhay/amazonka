@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -131,8 +132,8 @@ instance Core.AWSRequest ListStreamProcessors where
     Response.receiveJSON
       ( \s h x ->
           ListStreamProcessorsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "StreamProcessors"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "StreamProcessors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -148,34 +149,34 @@ instance Prelude.NFData ListStreamProcessors where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListStreamProcessors where
+instance Data.ToHeaders ListStreamProcessors where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.ListStreamProcessors" ::
+              Data.=# ( "RekognitionService.ListStreamProcessors" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListStreamProcessors where
+instance Data.ToJSON ListStreamProcessors where
   toJSON ListStreamProcessors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListStreamProcessors where
+instance Data.ToPath ListStreamProcessors where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListStreamProcessors where
+instance Data.ToQuery ListStreamProcessors where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListStreamProcessorsResponse' smart constructor.

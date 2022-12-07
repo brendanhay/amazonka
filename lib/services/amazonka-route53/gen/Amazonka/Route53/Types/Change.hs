@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.Change where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Types.ChangeAction
@@ -132,9 +133,9 @@ instance Prelude.NFData Change where
     Prelude.rnf action
       `Prelude.seq` Prelude.rnf resourceRecordSet
 
-instance Core.ToXML Change where
+instance Data.ToXML Change where
   toXML Change' {..} =
     Prelude.mconcat
-      [ "Action" Core.@= action,
-        "ResourceRecordSet" Core.@= resourceRecordSet
+      [ "Action" Data.@= action,
+        "ResourceRecordSet" Data.@= resourceRecordSet
       ]

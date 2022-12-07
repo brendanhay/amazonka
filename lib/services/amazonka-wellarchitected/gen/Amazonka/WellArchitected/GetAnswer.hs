@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,11 +120,11 @@ instance Core.AWSRequest GetAnswer where
     Response.receiveJSON
       ( \s h x ->
           GetAnswerResponse'
-            Prelude.<$> (x Core..?> "LensArn")
-            Prelude.<*> (x Core..?> "LensAlias")
-            Prelude.<*> (x Core..?> "Answer")
-            Prelude.<*> (x Core..?> "MilestoneNumber")
-            Prelude.<*> (x Core..?> "WorkloadId")
+            Prelude.<$> (x Data..?> "LensArn")
+            Prelude.<*> (x Data..?> "LensAlias")
+            Prelude.<*> (x Data..?> "Answer")
+            Prelude.<*> (x Data..?> "MilestoneNumber")
+            Prelude.<*> (x Data..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,32 +142,32 @@ instance Prelude.NFData GetAnswer where
       `Prelude.seq` Prelude.rnf lensAlias
       `Prelude.seq` Prelude.rnf questionId
 
-instance Core.ToHeaders GetAnswer where
+instance Data.ToHeaders GetAnswer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetAnswer where
+instance Data.ToPath GetAnswer where
   toPath GetAnswer' {..} =
     Prelude.mconcat
       [ "/workloads/",
-        Core.toBS workloadId,
+        Data.toBS workloadId,
         "/lensReviews/",
-        Core.toBS lensAlias,
+        Data.toBS lensAlias,
         "/answers/",
-        Core.toBS questionId
+        Data.toBS questionId
       ]
 
-instance Core.ToQuery GetAnswer where
+instance Data.ToQuery GetAnswer where
   toQuery GetAnswer' {..} =
     Prelude.mconcat
-      ["MilestoneNumber" Core.=: milestoneNumber]
+      ["MilestoneNumber" Data.=: milestoneNumber]
 
 -- | Output of a get answer call.
 --

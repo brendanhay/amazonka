@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.BurnInDestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.BurnInAlignment
 import Amazonka.MediaLive.Types.BurnInBackgroundColor
 import Amazonka.MediaLive.Types.BurnInFontColor
@@ -342,29 +343,29 @@ burnInDestinationSettings_fontColor = Lens.lens (\BurnInDestinationSettings' {fo
 burnInDestinationSettings_shadowColor :: Lens.Lens' BurnInDestinationSettings (Prelude.Maybe BurnInShadowColor)
 burnInDestinationSettings_shadowColor = Lens.lens (\BurnInDestinationSettings' {shadowColor} -> shadowColor) (\s@BurnInDestinationSettings' {} a -> s {shadowColor = a} :: BurnInDestinationSettings)
 
-instance Core.FromJSON BurnInDestinationSettings where
+instance Data.FromJSON BurnInDestinationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BurnInDestinationSettings"
       ( \x ->
           BurnInDestinationSettings'
-            Prelude.<$> (x Core..:? "fontResolution")
-            Prelude.<*> (x Core..:? "yPosition")
-            Prelude.<*> (x Core..:? "shadowXOffset")
-            Prelude.<*> (x Core..:? "alignment")
-            Prelude.<*> (x Core..:? "xPosition")
-            Prelude.<*> (x Core..:? "fontSize")
-            Prelude.<*> (x Core..:? "outlineSize")
-            Prelude.<*> (x Core..:? "outlineColor")
-            Prelude.<*> (x Core..:? "font")
-            Prelude.<*> (x Core..:? "backgroundColor")
-            Prelude.<*> (x Core..:? "fontOpacity")
-            Prelude.<*> (x Core..:? "teletextGridControl")
-            Prelude.<*> (x Core..:? "shadowYOffset")
-            Prelude.<*> (x Core..:? "backgroundOpacity")
-            Prelude.<*> (x Core..:? "shadowOpacity")
-            Prelude.<*> (x Core..:? "fontColor")
-            Prelude.<*> (x Core..:? "shadowColor")
+            Prelude.<$> (x Data..:? "fontResolution")
+            Prelude.<*> (x Data..:? "yPosition")
+            Prelude.<*> (x Data..:? "shadowXOffset")
+            Prelude.<*> (x Data..:? "alignment")
+            Prelude.<*> (x Data..:? "xPosition")
+            Prelude.<*> (x Data..:? "fontSize")
+            Prelude.<*> (x Data..:? "outlineSize")
+            Prelude.<*> (x Data..:? "outlineColor")
+            Prelude.<*> (x Data..:? "font")
+            Prelude.<*> (x Data..:? "backgroundColor")
+            Prelude.<*> (x Data..:? "fontOpacity")
+            Prelude.<*> (x Data..:? "teletextGridControl")
+            Prelude.<*> (x Data..:? "shadowYOffset")
+            Prelude.<*> (x Data..:? "backgroundOpacity")
+            Prelude.<*> (x Data..:? "shadowOpacity")
+            Prelude.<*> (x Data..:? "fontColor")
+            Prelude.<*> (x Data..:? "shadowColor")
       )
 
 instance Prelude.Hashable BurnInDestinationSettings where
@@ -407,30 +408,30 @@ instance Prelude.NFData BurnInDestinationSettings where
       `Prelude.seq` Prelude.rnf fontColor
       `Prelude.seq` Prelude.rnf shadowColor
 
-instance Core.ToJSON BurnInDestinationSettings where
+instance Data.ToJSON BurnInDestinationSettings where
   toJSON BurnInDestinationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fontResolution" Core..=)
+          [ ("fontResolution" Data..=)
               Prelude.<$> fontResolution,
-            ("yPosition" Core..=) Prelude.<$> yPosition,
-            ("shadowXOffset" Core..=) Prelude.<$> shadowXOffset,
-            ("alignment" Core..=) Prelude.<$> alignment,
-            ("xPosition" Core..=) Prelude.<$> xPosition,
-            ("fontSize" Core..=) Prelude.<$> fontSize,
-            ("outlineSize" Core..=) Prelude.<$> outlineSize,
-            ("outlineColor" Core..=) Prelude.<$> outlineColor,
-            ("font" Core..=) Prelude.<$> font,
-            ("backgroundColor" Core..=)
+            ("yPosition" Data..=) Prelude.<$> yPosition,
+            ("shadowXOffset" Data..=) Prelude.<$> shadowXOffset,
+            ("alignment" Data..=) Prelude.<$> alignment,
+            ("xPosition" Data..=) Prelude.<$> xPosition,
+            ("fontSize" Data..=) Prelude.<$> fontSize,
+            ("outlineSize" Data..=) Prelude.<$> outlineSize,
+            ("outlineColor" Data..=) Prelude.<$> outlineColor,
+            ("font" Data..=) Prelude.<$> font,
+            ("backgroundColor" Data..=)
               Prelude.<$> backgroundColor,
-            ("fontOpacity" Core..=) Prelude.<$> fontOpacity,
-            ("teletextGridControl" Core..=)
+            ("fontOpacity" Data..=) Prelude.<$> fontOpacity,
+            ("teletextGridControl" Data..=)
               Prelude.<$> teletextGridControl,
-            ("shadowYOffset" Core..=) Prelude.<$> shadowYOffset,
-            ("backgroundOpacity" Core..=)
+            ("shadowYOffset" Data..=) Prelude.<$> shadowYOffset,
+            ("backgroundOpacity" Data..=)
               Prelude.<$> backgroundOpacity,
-            ("shadowOpacity" Core..=) Prelude.<$> shadowOpacity,
-            ("fontColor" Core..=) Prelude.<$> fontColor,
-            ("shadowColor" Core..=) Prelude.<$> shadowColor
+            ("shadowOpacity" Data..=) Prelude.<$> shadowOpacity,
+            ("fontColor" Data..=) Prelude.<$> fontColor,
+            ("shadowColor" Data..=) Prelude.<$> shadowColor
           ]
       )

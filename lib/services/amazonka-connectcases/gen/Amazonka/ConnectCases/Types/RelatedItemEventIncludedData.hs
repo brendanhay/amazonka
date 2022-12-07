@@ -21,6 +21,7 @@ module Amazonka.ConnectCases.Types.RelatedItemEventIncludedData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of what related item data is published through the case event
@@ -59,13 +60,13 @@ newRelatedItemEventIncludedData pIncludeContent_ =
 relatedItemEventIncludedData_includeContent :: Lens.Lens' RelatedItemEventIncludedData Prelude.Bool
 relatedItemEventIncludedData_includeContent = Lens.lens (\RelatedItemEventIncludedData' {includeContent} -> includeContent) (\s@RelatedItemEventIncludedData' {} a -> s {includeContent = a} :: RelatedItemEventIncludedData)
 
-instance Core.FromJSON RelatedItemEventIncludedData where
+instance Data.FromJSON RelatedItemEventIncludedData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelatedItemEventIncludedData"
       ( \x ->
           RelatedItemEventIncludedData'
-            Prelude.<$> (x Core..: "includeContent")
+            Prelude.<$> (x Data..: "includeContent")
       )
 
 instance
@@ -79,11 +80,11 @@ instance Prelude.NFData RelatedItemEventIncludedData where
   rnf RelatedItemEventIncludedData' {..} =
     Prelude.rnf includeContent
 
-instance Core.ToJSON RelatedItemEventIncludedData where
+instance Data.ToJSON RelatedItemEventIncludedData where
   toJSON RelatedItemEventIncludedData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("includeContent" Core..= includeContent)
+              ("includeContent" Data..= includeContent)
           ]
       )

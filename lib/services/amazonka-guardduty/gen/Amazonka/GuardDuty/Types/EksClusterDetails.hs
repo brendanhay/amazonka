@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.EksClusterDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
@@ -39,7 +40,7 @@ data EksClusterDetails = EksClusterDetails'
     -- | The VPC ID to which the EKS cluster is attached.
     vpcId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the EKS cluster was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,20 +97,20 @@ eksClusterDetails_vpcId = Lens.lens (\EksClusterDetails' {vpcId} -> vpcId) (\s@E
 
 -- | The timestamp when the EKS cluster was created.
 eksClusterDetails_createdAt :: Lens.Lens' EksClusterDetails (Prelude.Maybe Prelude.UTCTime)
-eksClusterDetails_createdAt = Lens.lens (\EksClusterDetails' {createdAt} -> createdAt) (\s@EksClusterDetails' {} a -> s {createdAt = a} :: EksClusterDetails) Prelude.. Lens.mapping Core._Time
+eksClusterDetails_createdAt = Lens.lens (\EksClusterDetails' {createdAt} -> createdAt) (\s@EksClusterDetails' {} a -> s {createdAt = a} :: EksClusterDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON EksClusterDetails where
+instance Data.FromJSON EksClusterDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksClusterDetails"
       ( \x ->
           EksClusterDetails'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "vpcId")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "vpcId")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable EksClusterDetails where

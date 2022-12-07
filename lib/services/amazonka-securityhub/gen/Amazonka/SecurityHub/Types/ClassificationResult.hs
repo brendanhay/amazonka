@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.ClassificationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.ClassificationStatus
 import Amazonka.SecurityHub.Types.CustomDataIdentifiersResult
@@ -112,18 +113,18 @@ classificationResult_sizeClassified = Lens.lens (\ClassificationResult' {sizeCla
 classificationResult_sensitiveData :: Lens.Lens' ClassificationResult (Prelude.Maybe [SensitiveDataResult])
 classificationResult_sensitiveData = Lens.lens (\ClassificationResult' {sensitiveData} -> sensitiveData) (\s@ClassificationResult' {} a -> s {sensitiveData = a} :: ClassificationResult) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ClassificationResult where
+instance Data.FromJSON ClassificationResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClassificationResult"
       ( \x ->
           ClassificationResult'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AdditionalOccurrences")
-            Prelude.<*> (x Core..:? "CustomDataIdentifiers")
-            Prelude.<*> (x Core..:? "MimeType")
-            Prelude.<*> (x Core..:? "SizeClassified")
-            Prelude.<*> (x Core..:? "SensitiveData" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "AdditionalOccurrences")
+            Prelude.<*> (x Data..:? "CustomDataIdentifiers")
+            Prelude.<*> (x Data..:? "MimeType")
+            Prelude.<*> (x Data..:? "SizeClassified")
+            Prelude.<*> (x Data..:? "SensitiveData" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ClassificationResult where
@@ -144,18 +145,18 @@ instance Prelude.NFData ClassificationResult where
       `Prelude.seq` Prelude.rnf sizeClassified
       `Prelude.seq` Prelude.rnf sensitiveData
 
-instance Core.ToJSON ClassificationResult where
+instance Data.ToJSON ClassificationResult where
   toJSON ClassificationResult' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("AdditionalOccurrences" Core..=)
+          [ ("Status" Data..=) Prelude.<$> status,
+            ("AdditionalOccurrences" Data..=)
               Prelude.<$> additionalOccurrences,
-            ("CustomDataIdentifiers" Core..=)
+            ("CustomDataIdentifiers" Data..=)
               Prelude.<$> customDataIdentifiers,
-            ("MimeType" Core..=) Prelude.<$> mimeType,
-            ("SizeClassified" Core..=)
+            ("MimeType" Data..=) Prelude.<$> mimeType,
+            ("SizeClassified" Data..=)
               Prelude.<$> sizeClassified,
-            ("SensitiveData" Core..=) Prelude.<$> sensitiveData
+            ("SensitiveData" Data..=) Prelude.<$> sensitiveData
           ]
       )

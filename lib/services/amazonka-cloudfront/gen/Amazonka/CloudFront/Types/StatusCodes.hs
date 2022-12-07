@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.StatusCodes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex data type for the status codes that you specify that, when
@@ -67,12 +68,12 @@ statusCodes_quantity = Lens.lens (\StatusCodes' {quantity} -> quantity) (\s@Stat
 statusCodes_items :: Lens.Lens' StatusCodes (Prelude.NonEmpty Prelude.Int)
 statusCodes_items = Lens.lens (\StatusCodes' {items} -> items) (\s@StatusCodes' {} a -> s {items = a} :: StatusCodes) Prelude.. Lens.coerced
 
-instance Core.FromXML StatusCodes where
+instance Data.FromXML StatusCodes where
   parseXML x =
     StatusCodes'
-      Prelude.<$> (x Core..@ "Quantity")
-      Prelude.<*> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.parseXMLList1 "StatusCode"
+      Prelude.<$> (x Data..@ "Quantity")
+      Prelude.<*> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Data.parseXMLList1 "StatusCode"
                   )
 
 instance Prelude.Hashable StatusCodes where
@@ -85,9 +86,9 @@ instance Prelude.NFData StatusCodes where
     Prelude.rnf quantity
       `Prelude.seq` Prelude.rnf items
 
-instance Core.ToXML StatusCodes where
+instance Data.ToXML StatusCodes where
   toXML StatusCodes' {..} =
     Prelude.mconcat
-      [ "Quantity" Core.@= quantity,
-        "Items" Core.@= Core.toXMLList "StatusCode" items
+      [ "Quantity" Data.@= quantity,
+        "Items" Data.@= Data.toXMLList "StatusCode" items
       ]

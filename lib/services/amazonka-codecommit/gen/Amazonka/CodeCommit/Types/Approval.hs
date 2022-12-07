@@ -22,6 +22,7 @@ module Amazonka.CodeCommit.Types.Approval where
 import Amazonka.CodeCommit.Types.ApprovalState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a specific approval on a pull request.
@@ -65,14 +66,14 @@ approval_approvalState = Lens.lens (\Approval' {approvalState} -> approvalState)
 approval_userArn :: Lens.Lens' Approval (Prelude.Maybe Prelude.Text)
 approval_userArn = Lens.lens (\Approval' {userArn} -> userArn) (\s@Approval' {} a -> s {userArn = a} :: Approval)
 
-instance Core.FromJSON Approval where
+instance Data.FromJSON Approval where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Approval"
       ( \x ->
           Approval'
-            Prelude.<$> (x Core..:? "approvalState")
-            Prelude.<*> (x Core..:? "userArn")
+            Prelude.<$> (x Data..:? "approvalState")
+            Prelude.<*> (x Data..:? "userArn")
       )
 
 instance Prelude.Hashable Approval where

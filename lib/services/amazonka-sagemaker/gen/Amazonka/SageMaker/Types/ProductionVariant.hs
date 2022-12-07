@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProductionVariant where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProductionVariantAcceleratorType
 import Amazonka.SageMaker.Types.ProductionVariantCoreDumpConfig
@@ -209,25 +210,25 @@ productionVariant_variantName = Lens.lens (\ProductionVariant' {variantName} -> 
 productionVariant_modelName :: Lens.Lens' ProductionVariant Prelude.Text
 productionVariant_modelName = Lens.lens (\ProductionVariant' {modelName} -> modelName) (\s@ProductionVariant' {} a -> s {modelName = a} :: ProductionVariant)
 
-instance Core.FromJSON ProductionVariant where
+instance Data.FromJSON ProductionVariant where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProductionVariant"
       ( \x ->
           ProductionVariant'
-            Prelude.<$> (x Core..:? "AcceleratorType")
+            Prelude.<$> (x Data..:? "AcceleratorType")
             Prelude.<*> ( x
-                            Core..:? "ContainerStartupHealthCheckTimeoutInSeconds"
+                            Data..:? "ContainerStartupHealthCheckTimeoutInSeconds"
                         )
-            Prelude.<*> (x Core..:? "InitialInstanceCount")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "ServerlessConfig")
-            Prelude.<*> (x Core..:? "CoreDumpConfig")
-            Prelude.<*> (x Core..:? "InitialVariantWeight")
-            Prelude.<*> (x Core..:? "ModelDataDownloadTimeoutInSeconds")
-            Prelude.<*> (x Core..:? "VolumeSizeInGB")
-            Prelude.<*> (x Core..: "VariantName")
-            Prelude.<*> (x Core..: "ModelName")
+            Prelude.<*> (x Data..:? "InitialInstanceCount")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "ServerlessConfig")
+            Prelude.<*> (x Data..:? "CoreDumpConfig")
+            Prelude.<*> (x Data..:? "InitialVariantWeight")
+            Prelude.<*> (x Data..:? "ModelDataDownloadTimeoutInSeconds")
+            Prelude.<*> (x Data..:? "VolumeSizeInGB")
+            Prelude.<*> (x Data..: "VariantName")
+            Prelude.<*> (x Data..: "ModelName")
       )
 
 instance Prelude.Hashable ProductionVariant where
@@ -259,30 +260,30 @@ instance Prelude.NFData ProductionVariant where
       `Prelude.seq` Prelude.rnf variantName
       `Prelude.seq` Prelude.rnf modelName
 
-instance Core.ToJSON ProductionVariant where
+instance Data.ToJSON ProductionVariant where
   toJSON ProductionVariant' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceleratorType" Core..=)
+          [ ("AcceleratorType" Data..=)
               Prelude.<$> acceleratorType,
             ( "ContainerStartupHealthCheckTimeoutInSeconds"
-                Core..=
+                Data..=
             )
               Prelude.<$> containerStartupHealthCheckTimeoutInSeconds,
-            ("InitialInstanceCount" Core..=)
+            ("InitialInstanceCount" Data..=)
               Prelude.<$> initialInstanceCount,
-            ("InstanceType" Core..=) Prelude.<$> instanceType,
-            ("ServerlessConfig" Core..=)
+            ("InstanceType" Data..=) Prelude.<$> instanceType,
+            ("ServerlessConfig" Data..=)
               Prelude.<$> serverlessConfig,
-            ("CoreDumpConfig" Core..=)
+            ("CoreDumpConfig" Data..=)
               Prelude.<$> coreDumpConfig,
-            ("InitialVariantWeight" Core..=)
+            ("InitialVariantWeight" Data..=)
               Prelude.<$> initialVariantWeight,
-            ("ModelDataDownloadTimeoutInSeconds" Core..=)
+            ("ModelDataDownloadTimeoutInSeconds" Data..=)
               Prelude.<$> modelDataDownloadTimeoutInSeconds,
-            ("VolumeSizeInGB" Core..=)
+            ("VolumeSizeInGB" Data..=)
               Prelude.<$> volumeSizeInGB,
-            Prelude.Just ("VariantName" Core..= variantName),
-            Prelude.Just ("ModelName" Core..= modelName)
+            Prelude.Just ("VariantName" Data..= variantName),
+            Prelude.Just ("ModelName" Data..= modelName)
           ]
       )

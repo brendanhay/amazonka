@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,7 +120,7 @@ instance Core.AWSRequest UpdateCodeSigningConfig where
       ( \s h x ->
           UpdateCodeSigningConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CodeSigningConfig")
+            Prelude.<*> (x Data..:> "CodeSigningConfig")
       )
 
 instance Prelude.Hashable UpdateCodeSigningConfig where
@@ -136,29 +137,29 @@ instance Prelude.NFData UpdateCodeSigningConfig where
       `Prelude.seq` Prelude.rnf codeSigningPolicies
       `Prelude.seq` Prelude.rnf codeSigningConfigArn
 
-instance Core.ToHeaders UpdateCodeSigningConfig where
+instance Data.ToHeaders UpdateCodeSigningConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateCodeSigningConfig where
+instance Data.ToJSON UpdateCodeSigningConfig where
   toJSON UpdateCodeSigningConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("AllowedPublishers" Core..=)
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("AllowedPublishers" Data..=)
               Prelude.<$> allowedPublishers,
-            ("CodeSigningPolicies" Core..=)
+            ("CodeSigningPolicies" Data..=)
               Prelude.<$> codeSigningPolicies
           ]
       )
 
-instance Core.ToPath UpdateCodeSigningConfig where
+instance Data.ToPath UpdateCodeSigningConfig where
   toPath UpdateCodeSigningConfig' {..} =
     Prelude.mconcat
       [ "/2020-04-22/code-signing-configs/",
-        Core.toBS codeSigningConfigArn
+        Data.toBS codeSigningConfigArn
       ]
 
-instance Core.ToQuery UpdateCodeSigningConfig where
+instance Data.ToQuery UpdateCodeSigningConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCodeSigningConfigResponse' smart constructor.

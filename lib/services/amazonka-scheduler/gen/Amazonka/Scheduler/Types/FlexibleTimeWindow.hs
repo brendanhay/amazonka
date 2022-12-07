@@ -21,6 +21,7 @@ module Amazonka.Scheduler.Types.FlexibleTimeWindow where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Scheduler.Types.FlexibleTimeWindowMode
 
@@ -69,14 +70,14 @@ flexibleTimeWindow_maximumWindowInMinutes = Lens.lens (\FlexibleTimeWindow' {max
 flexibleTimeWindow_mode :: Lens.Lens' FlexibleTimeWindow FlexibleTimeWindowMode
 flexibleTimeWindow_mode = Lens.lens (\FlexibleTimeWindow' {mode} -> mode) (\s@FlexibleTimeWindow' {} a -> s {mode = a} :: FlexibleTimeWindow)
 
-instance Core.FromJSON FlexibleTimeWindow where
+instance Data.FromJSON FlexibleTimeWindow where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FlexibleTimeWindow"
       ( \x ->
           FlexibleTimeWindow'
-            Prelude.<$> (x Core..:? "MaximumWindowInMinutes")
-            Prelude.<*> (x Core..: "Mode")
+            Prelude.<$> (x Data..:? "MaximumWindowInMinutes")
+            Prelude.<*> (x Data..: "Mode")
       )
 
 instance Prelude.Hashable FlexibleTimeWindow where
@@ -89,12 +90,12 @@ instance Prelude.NFData FlexibleTimeWindow where
     Prelude.rnf maximumWindowInMinutes
       `Prelude.seq` Prelude.rnf mode
 
-instance Core.ToJSON FlexibleTimeWindow where
+instance Data.ToJSON FlexibleTimeWindow where
   toJSON FlexibleTimeWindow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaximumWindowInMinutes" Core..=)
+          [ ("MaximumWindowInMinutes" Data..=)
               Prelude.<$> maximumWindowInMinutes,
-            Prelude.Just ("Mode" Core..= mode)
+            Prelude.Just ("Mode" Data..= mode)
           ]
       )

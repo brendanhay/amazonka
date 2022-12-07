@@ -81,6 +81,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,34 +141,34 @@ instance Prelude.NFData DisconnectCustomKeyStore where
   rnf DisconnectCustomKeyStore' {..} =
     Prelude.rnf customKeyStoreId
 
-instance Core.ToHeaders DisconnectCustomKeyStore where
+instance Data.ToHeaders DisconnectCustomKeyStore where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.DisconnectCustomKeyStore" ::
+              Data.=# ( "TrentService.DisconnectCustomKeyStore" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisconnectCustomKeyStore where
+instance Data.ToJSON DisconnectCustomKeyStore where
   toJSON DisconnectCustomKeyStore' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("CustomKeyStoreId" Core..= customKeyStoreId)
+              ("CustomKeyStoreId" Data..= customKeyStoreId)
           ]
       )
 
-instance Core.ToPath DisconnectCustomKeyStore where
+instance Data.ToPath DisconnectCustomKeyStore where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisconnectCustomKeyStore where
+instance Data.ToQuery DisconnectCustomKeyStore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisconnectCustomKeyStoreResponse' smart constructor.

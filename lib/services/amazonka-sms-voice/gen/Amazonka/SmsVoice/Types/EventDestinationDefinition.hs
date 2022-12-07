@@ -21,6 +21,7 @@ module Amazonka.SmsVoice.Types.EventDestinationDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SmsVoice.Types.CloudWatchLogsDestination
 import Amazonka.SmsVoice.Types.EventType
@@ -112,18 +113,18 @@ instance Prelude.NFData EventDestinationDefinition where
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf kinesisFirehoseDestination
 
-instance Core.ToJSON EventDestinationDefinition where
+instance Data.ToJSON EventDestinationDefinition where
   toJSON EventDestinationDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CloudWatchLogsDestination" Core..=)
+          [ ("CloudWatchLogsDestination" Data..=)
               Prelude.<$> cloudWatchLogsDestination,
-            ("MatchingEventTypes" Core..=)
+            ("MatchingEventTypes" Data..=)
               Prelude.<$> matchingEventTypes,
-            ("SnsDestination" Core..=)
+            ("SnsDestination" Data..=)
               Prelude.<$> snsDestination,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("KinesisFirehoseDestination" Core..=)
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("KinesisFirehoseDestination" Data..=)
               Prelude.<$> kinesisFirehoseDestination
           ]
       )

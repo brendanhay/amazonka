@@ -45,6 +45,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,8 +87,8 @@ instance Core.AWSRequest GetSchemaAsJson where
     Response.receiveJSON
       ( \s h x ->
           GetSchemaAsJsonResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Document")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Document")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,20 +99,20 @@ instance Prelude.Hashable GetSchemaAsJson where
 instance Prelude.NFData GetSchemaAsJson where
   rnf GetSchemaAsJson' {..} = Prelude.rnf schemaArn
 
-instance Core.ToHeaders GetSchemaAsJson where
+instance Data.ToHeaders GetSchemaAsJson where
   toHeaders GetSchemaAsJson' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# schemaArn]
+      ["x-amz-data-partition" Data.=# schemaArn]
 
-instance Core.ToJSON GetSchemaAsJson where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetSchemaAsJson where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetSchemaAsJson where
+instance Data.ToPath GetSchemaAsJson where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/schema/json"
 
-instance Core.ToQuery GetSchemaAsJson where
+instance Data.ToQuery GetSchemaAsJson where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSchemaAsJsonResponse' smart constructor.

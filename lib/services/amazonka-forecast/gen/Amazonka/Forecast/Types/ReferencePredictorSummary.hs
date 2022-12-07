@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.ReferencePredictorSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.State
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,13 +64,13 @@ referencePredictorSummary_arn = Lens.lens (\ReferencePredictorSummary' {arn} -> 
 referencePredictorSummary_state :: Lens.Lens' ReferencePredictorSummary (Prelude.Maybe State)
 referencePredictorSummary_state = Lens.lens (\ReferencePredictorSummary' {state} -> state) (\s@ReferencePredictorSummary' {} a -> s {state = a} :: ReferencePredictorSummary)
 
-instance Core.FromJSON ReferencePredictorSummary where
+instance Data.FromJSON ReferencePredictorSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReferencePredictorSummary"
       ( \x ->
           ReferencePredictorSummary'
-            Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "State")
+            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable ReferencePredictorSummary where

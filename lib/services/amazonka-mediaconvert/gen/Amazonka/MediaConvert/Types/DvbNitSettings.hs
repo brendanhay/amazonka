@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.DvbNitSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use these settings to insert a DVB Network Information Table (NIT) in
@@ -80,15 +81,15 @@ dvbNitSettings_networkName = Lens.lens (\DvbNitSettings' {networkName} -> networ
 dvbNitSettings_networkId :: Lens.Lens' DvbNitSettings (Prelude.Maybe Prelude.Natural)
 dvbNitSettings_networkId = Lens.lens (\DvbNitSettings' {networkId} -> networkId) (\s@DvbNitSettings' {} a -> s {networkId = a} :: DvbNitSettings)
 
-instance Core.FromJSON DvbNitSettings where
+instance Data.FromJSON DvbNitSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DvbNitSettings"
       ( \x ->
           DvbNitSettings'
-            Prelude.<$> (x Core..:? "nitInterval")
-            Prelude.<*> (x Core..:? "networkName")
-            Prelude.<*> (x Core..:? "networkId")
+            Prelude.<$> (x Data..:? "nitInterval")
+            Prelude.<*> (x Data..:? "networkName")
+            Prelude.<*> (x Data..:? "networkId")
       )
 
 instance Prelude.Hashable DvbNitSettings where
@@ -103,12 +104,12 @@ instance Prelude.NFData DvbNitSettings where
       `Prelude.seq` Prelude.rnf networkName
       `Prelude.seq` Prelude.rnf networkId
 
-instance Core.ToJSON DvbNitSettings where
+instance Data.ToJSON DvbNitSettings where
   toJSON DvbNitSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nitInterval" Core..=) Prelude.<$> nitInterval,
-            ("networkName" Core..=) Prelude.<$> networkName,
-            ("networkId" Core..=) Prelude.<$> networkId
+          [ ("nitInterval" Data..=) Prelude.<$> nitInterval,
+            ("networkName" Data..=) Prelude.<$> networkName,
+            ("networkId" Data..=) Prelude.<$> networkId
           ]
       )

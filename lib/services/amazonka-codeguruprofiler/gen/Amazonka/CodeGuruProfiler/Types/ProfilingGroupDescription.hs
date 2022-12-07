@@ -24,6 +24,7 @@ import Amazonka.CodeGuruProfiler.Types.ComputePlatform
 import Amazonka.CodeGuruProfiler.Types.ProfilingStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a profiling group.
@@ -51,11 +52,11 @@ data ProfilingGroupDescription = ProfilingGroupDescription'
     -- | The time when the profiling group was created. Specify using the ISO
     -- 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
     -- millisecond past June 1, 2020 1:15:02 PM UTC.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the profiling group was last updated. Specify
     -- using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
     -- represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | An
     -- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AgentOrchestrationConfig.html AgentOrchestrationConfig>
     -- object that indicates if the profiling group is enabled for profiled or
@@ -148,13 +149,13 @@ profilingGroupDescription_profilingStatus = Lens.lens (\ProfilingGroupDescriptio
 -- 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
 -- millisecond past June 1, 2020 1:15:02 PM UTC.
 profilingGroupDescription_createdAt :: Lens.Lens' ProfilingGroupDescription (Prelude.Maybe Prelude.UTCTime)
-profilingGroupDescription_createdAt = Lens.lens (\ProfilingGroupDescription' {createdAt} -> createdAt) (\s@ProfilingGroupDescription' {} a -> s {createdAt = a} :: ProfilingGroupDescription) Prelude.. Lens.mapping Core._Time
+profilingGroupDescription_createdAt = Lens.lens (\ProfilingGroupDescription' {createdAt} -> createdAt) (\s@ProfilingGroupDescription' {} a -> s {createdAt = a} :: ProfilingGroupDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the profiling group was last updated. Specify
 -- using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
 -- represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
 profilingGroupDescription_updatedAt :: Lens.Lens' ProfilingGroupDescription (Prelude.Maybe Prelude.UTCTime)
-profilingGroupDescription_updatedAt = Lens.lens (\ProfilingGroupDescription' {updatedAt} -> updatedAt) (\s@ProfilingGroupDescription' {} a -> s {updatedAt = a} :: ProfilingGroupDescription) Prelude.. Lens.mapping Core._Time
+profilingGroupDescription_updatedAt = Lens.lens (\ProfilingGroupDescription' {updatedAt} -> updatedAt) (\s@ProfilingGroupDescription' {} a -> s {updatedAt = a} :: ProfilingGroupDescription) Prelude.. Lens.mapping Data._Time
 
 -- | An
 -- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AgentOrchestrationConfig.html AgentOrchestrationConfig>
@@ -163,20 +164,20 @@ profilingGroupDescription_updatedAt = Lens.lens (\ProfilingGroupDescription' {up
 profilingGroupDescription_agentOrchestrationConfig :: Lens.Lens' ProfilingGroupDescription (Prelude.Maybe AgentOrchestrationConfig)
 profilingGroupDescription_agentOrchestrationConfig = Lens.lens (\ProfilingGroupDescription' {agentOrchestrationConfig} -> agentOrchestrationConfig) (\s@ProfilingGroupDescription' {} a -> s {agentOrchestrationConfig = a} :: ProfilingGroupDescription)
 
-instance Core.FromJSON ProfilingGroupDescription where
+instance Data.FromJSON ProfilingGroupDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProfilingGroupDescription"
       ( \x ->
           ProfilingGroupDescription'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "computePlatform")
-            Prelude.<*> (x Core..:? "profilingStatus")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "updatedAt")
-            Prelude.<*> (x Core..:? "agentOrchestrationConfig")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "computePlatform")
+            Prelude.<*> (x Data..:? "profilingStatus")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "updatedAt")
+            Prelude.<*> (x Data..:? "agentOrchestrationConfig")
       )
 
 instance Prelude.Hashable ProfilingGroupDescription where

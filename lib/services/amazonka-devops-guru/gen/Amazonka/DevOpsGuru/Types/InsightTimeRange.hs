@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.InsightTimeRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A time ranged that specifies when the observed behavior in an insight
@@ -29,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newInsightTimeRange' smart constructor.
 data InsightTimeRange = InsightTimeRange'
   { -- | The time when the behavior described in an insight ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The time when the behavior described in an insight started.
-    startTime :: Core.POSIX
+    startTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,25 +54,25 @@ newInsightTimeRange ::
 newInsightTimeRange pStartTime_ =
   InsightTimeRange'
     { endTime = Prelude.Nothing,
-      startTime = Core._Time Lens.# pStartTime_
+      startTime = Data._Time Lens.# pStartTime_
     }
 
 -- | The time when the behavior described in an insight ended.
 insightTimeRange_endTime :: Lens.Lens' InsightTimeRange (Prelude.Maybe Prelude.UTCTime)
-insightTimeRange_endTime = Lens.lens (\InsightTimeRange' {endTime} -> endTime) (\s@InsightTimeRange' {} a -> s {endTime = a} :: InsightTimeRange) Prelude.. Lens.mapping Core._Time
+insightTimeRange_endTime = Lens.lens (\InsightTimeRange' {endTime} -> endTime) (\s@InsightTimeRange' {} a -> s {endTime = a} :: InsightTimeRange) Prelude.. Lens.mapping Data._Time
 
 -- | The time when the behavior described in an insight started.
 insightTimeRange_startTime :: Lens.Lens' InsightTimeRange Prelude.UTCTime
-insightTimeRange_startTime = Lens.lens (\InsightTimeRange' {startTime} -> startTime) (\s@InsightTimeRange' {} a -> s {startTime = a} :: InsightTimeRange) Prelude.. Core._Time
+insightTimeRange_startTime = Lens.lens (\InsightTimeRange' {startTime} -> startTime) (\s@InsightTimeRange' {} a -> s {startTime = a} :: InsightTimeRange) Prelude.. Data._Time
 
-instance Core.FromJSON InsightTimeRange where
+instance Data.FromJSON InsightTimeRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InsightTimeRange"
       ( \x ->
           InsightTimeRange'
-            Prelude.<$> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..: "StartTime")
+            Prelude.<$> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..: "StartTime")
       )
 
 instance Prelude.Hashable InsightTimeRange where

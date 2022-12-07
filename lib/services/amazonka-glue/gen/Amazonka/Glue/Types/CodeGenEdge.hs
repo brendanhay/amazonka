@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CodeGenEdge where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a directional edge in a directed acyclic graph (DAG).
@@ -74,15 +75,15 @@ codeGenEdge_source = Lens.lens (\CodeGenEdge' {source} -> source) (\s@CodeGenEdg
 codeGenEdge_target :: Lens.Lens' CodeGenEdge Prelude.Text
 codeGenEdge_target = Lens.lens (\CodeGenEdge' {target} -> target) (\s@CodeGenEdge' {} a -> s {target = a} :: CodeGenEdge)
 
-instance Core.FromJSON CodeGenEdge where
+instance Data.FromJSON CodeGenEdge where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeGenEdge"
       ( \x ->
           CodeGenEdge'
-            Prelude.<$> (x Core..:? "TargetParameter")
-            Prelude.<*> (x Core..: "Source")
-            Prelude.<*> (x Core..: "Target")
+            Prelude.<$> (x Data..:? "TargetParameter")
+            Prelude.<*> (x Data..: "Source")
+            Prelude.<*> (x Data..: "Target")
       )
 
 instance Prelude.Hashable CodeGenEdge where
@@ -97,13 +98,13 @@ instance Prelude.NFData CodeGenEdge where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf target
 
-instance Core.ToJSON CodeGenEdge where
+instance Data.ToJSON CodeGenEdge where
   toJSON CodeGenEdge' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetParameter" Core..=)
+          [ ("TargetParameter" Data..=)
               Prelude.<$> targetParameter,
-            Prelude.Just ("Source" Core..= source),
-            Prelude.Just ("Target" Core..= target)
+            Prelude.Just ("Source" Data..= source),
+            Prelude.Just ("Target" Data..= target)
           ]
       )

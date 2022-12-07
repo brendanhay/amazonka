@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.StartTimecode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings to identify the start of the clip.
@@ -56,12 +57,12 @@ newStartTimecode =
 startTimecode_timecode :: Lens.Lens' StartTimecode (Prelude.Maybe Prelude.Text)
 startTimecode_timecode = Lens.lens (\StartTimecode' {timecode} -> timecode) (\s@StartTimecode' {} a -> s {timecode = a} :: StartTimecode)
 
-instance Core.FromJSON StartTimecode where
+instance Data.FromJSON StartTimecode where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StartTimecode"
       ( \x ->
-          StartTimecode' Prelude.<$> (x Core..:? "timecode")
+          StartTimecode' Prelude.<$> (x Data..:? "timecode")
       )
 
 instance Prelude.Hashable StartTimecode where
@@ -71,9 +72,9 @@ instance Prelude.Hashable StartTimecode where
 instance Prelude.NFData StartTimecode where
   rnf StartTimecode' {..} = Prelude.rnf timecode
 
-instance Core.ToJSON StartTimecode where
+instance Data.ToJSON StartTimecode where
   toJSON StartTimecode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("timecode" Core..=) Prelude.<$> timecode]
+          [("timecode" Data..=) Prelude.<$> timecode]
       )

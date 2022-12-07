@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MultiplexProgramServiceDescriptor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Transport stream service descriptor configuration for the Multiplex
@@ -70,16 +71,16 @@ multiplexProgramServiceDescriptor_serviceName :: Lens.Lens' MultiplexProgramServ
 multiplexProgramServiceDescriptor_serviceName = Lens.lens (\MultiplexProgramServiceDescriptor' {serviceName} -> serviceName) (\s@MultiplexProgramServiceDescriptor' {} a -> s {serviceName = a} :: MultiplexProgramServiceDescriptor)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MultiplexProgramServiceDescriptor
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiplexProgramServiceDescriptor"
       ( \x ->
           MultiplexProgramServiceDescriptor'
-            Prelude.<$> (x Core..: "providerName")
-            Prelude.<*> (x Core..: "serviceName")
+            Prelude.<$> (x Data..: "providerName")
+            Prelude.<*> (x Data..: "serviceName")
       )
 
 instance
@@ -101,13 +102,13 @@ instance
       `Prelude.seq` Prelude.rnf serviceName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     MultiplexProgramServiceDescriptor
   where
   toJSON MultiplexProgramServiceDescriptor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("providerName" Core..= providerName),
-            Prelude.Just ("serviceName" Core..= serviceName)
+          [ Prelude.Just ("providerName" Data..= providerName),
+            Prelude.Just ("serviceName" Data..= serviceName)
           ]
       )

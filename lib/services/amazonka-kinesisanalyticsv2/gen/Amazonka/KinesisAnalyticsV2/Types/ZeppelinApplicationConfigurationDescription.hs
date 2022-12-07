@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationDescrip
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.CatalogConfigurationDescription
 import Amazonka.KinesisAnalyticsV2.Types.CustomArtifactConfigurationDescription
 import Amazonka.KinesisAnalyticsV2.Types.DeployAsApplicationConfigurationDescription
@@ -100,22 +101,22 @@ zeppelinApplicationConfigurationDescription_monitoringConfigurationDescription :
 zeppelinApplicationConfigurationDescription_monitoringConfigurationDescription = Lens.lens (\ZeppelinApplicationConfigurationDescription' {monitoringConfigurationDescription} -> monitoringConfigurationDescription) (\s@ZeppelinApplicationConfigurationDescription' {} a -> s {monitoringConfigurationDescription = a} :: ZeppelinApplicationConfigurationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ZeppelinApplicationConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ZeppelinApplicationConfigurationDescription"
       ( \x ->
           ZeppelinApplicationConfigurationDescription'
-            Prelude.<$> ( x Core..:? "CustomArtifactsConfigurationDescription"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "CustomArtifactsConfigurationDescription"
+                            Data..!= Prelude.mempty
                         )
               Prelude.<*> ( x
-                              Core..:? "DeployAsApplicationConfigurationDescription"
+                              Data..:? "DeployAsApplicationConfigurationDescription"
                           )
-              Prelude.<*> (x Core..:? "CatalogConfigurationDescription")
-              Prelude.<*> (x Core..: "MonitoringConfigurationDescription")
+              Prelude.<*> (x Data..:? "CatalogConfigurationDescription")
+              Prelude.<*> (x Data..: "MonitoringConfigurationDescription")
       )
 
 instance

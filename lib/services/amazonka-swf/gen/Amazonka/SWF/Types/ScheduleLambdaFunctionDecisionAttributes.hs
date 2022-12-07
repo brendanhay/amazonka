@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.ScheduleLambdaFunctionDecisionAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Decision attributes specified in
@@ -138,17 +139,17 @@ instance
       `Prelude.seq` Prelude.rnf name
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ScheduleLambdaFunctionDecisionAttributes
   where
   toJSON ScheduleLambdaFunctionDecisionAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("input" Core..=) Prelude.<$> input,
-            ("startToCloseTimeout" Core..=)
+          [ ("input" Data..=) Prelude.<$> input,
+            ("startToCloseTimeout" Data..=)
               Prelude.<$> startToCloseTimeout,
-            ("control" Core..=) Prelude.<$> control,
-            Prelude.Just ("id" Core..= id),
-            Prelude.Just ("name" Core..= name)
+            ("control" Data..=) Prelude.<$> control,
+            Prelude.Just ("id" Data..= id),
+            Prelude.Just ("name" Data..= name)
           ]
       )

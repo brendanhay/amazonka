@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.KeyPairInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.KeyType
 import Amazonka.EC2.Types.Tag
@@ -65,7 +66,7 @@ data KeyPairInfo = KeyPairInfo'
     -- time the key was imported, in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 date-time format>,
     -- in the UTC time zone.
-    createTime :: Prelude.Maybe Core.ISO8601,
+    createTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the key pair.
     keyPairId :: Prelude.Maybe Prelude.Text
   }
@@ -175,24 +176,24 @@ keyPairInfo_keyName = Lens.lens (\KeyPairInfo' {keyName} -> keyName) (\s@KeyPair
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 date-time format>,
 -- in the UTC time zone.
 keyPairInfo_createTime :: Lens.Lens' KeyPairInfo (Prelude.Maybe Prelude.UTCTime)
-keyPairInfo_createTime = Lens.lens (\KeyPairInfo' {createTime} -> createTime) (\s@KeyPairInfo' {} a -> s {createTime = a} :: KeyPairInfo) Prelude.. Lens.mapping Core._Time
+keyPairInfo_createTime = Lens.lens (\KeyPairInfo' {createTime} -> createTime) (\s@KeyPairInfo' {} a -> s {createTime = a} :: KeyPairInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the key pair.
 keyPairInfo_keyPairId :: Lens.Lens' KeyPairInfo (Prelude.Maybe Prelude.Text)
 keyPairInfo_keyPairId = Lens.lens (\KeyPairInfo' {keyPairId} -> keyPairId) (\s@KeyPairInfo' {} a -> s {keyPairId = a} :: KeyPairInfo)
 
-instance Core.FromXML KeyPairInfo where
+instance Data.FromXML KeyPairInfo where
   parseXML x =
     KeyPairInfo'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "publicKey")
-      Prelude.<*> (x Core..@? "keyFingerprint")
-      Prelude.<*> (x Core..@? "keyType")
-      Prelude.<*> (x Core..@? "keyName")
-      Prelude.<*> (x Core..@? "createTime")
-      Prelude.<*> (x Core..@? "keyPairId")
+      Prelude.<*> (x Data..@? "publicKey")
+      Prelude.<*> (x Data..@? "keyFingerprint")
+      Prelude.<*> (x Data..@? "keyType")
+      Prelude.<*> (x Data..@? "keyName")
+      Prelude.<*> (x Data..@? "createTime")
+      Prelude.<*> (x Data..@? "keyPairId")
 
 instance Prelude.Hashable KeyPairInfo where
   hashWithSalt _salt KeyPairInfo' {..} =

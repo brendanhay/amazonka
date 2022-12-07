@@ -21,6 +21,7 @@ module Amazonka.ConnectCases.Types.ContactContent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a content of an Amazon Connect contact object.
@@ -31,7 +32,7 @@ data ContactContent = ContactContent'
     channel :: Prelude.Text,
     -- | The difference between the @InitiationTimestamp@ and the
     -- @DisconnectTimestamp@ of the contact.
-    connectedToSystemTime :: Core.POSIX,
+    connectedToSystemTime :: Data.POSIX,
     -- | A unique identifier of a contact in Amazon Connect.
     contactArn :: Prelude.Text
   }
@@ -66,7 +67,7 @@ newContactContent
     ContactContent'
       { channel = pChannel_,
         connectedToSystemTime =
-          Core._Time Lens.# pConnectedToSystemTime_,
+          Data._Time Lens.# pConnectedToSystemTime_,
         contactArn = pContactArn_
       }
 
@@ -77,21 +78,21 @@ contactContent_channel = Lens.lens (\ContactContent' {channel} -> channel) (\s@C
 -- | The difference between the @InitiationTimestamp@ and the
 -- @DisconnectTimestamp@ of the contact.
 contactContent_connectedToSystemTime :: Lens.Lens' ContactContent Prelude.UTCTime
-contactContent_connectedToSystemTime = Lens.lens (\ContactContent' {connectedToSystemTime} -> connectedToSystemTime) (\s@ContactContent' {} a -> s {connectedToSystemTime = a} :: ContactContent) Prelude.. Core._Time
+contactContent_connectedToSystemTime = Lens.lens (\ContactContent' {connectedToSystemTime} -> connectedToSystemTime) (\s@ContactContent' {} a -> s {connectedToSystemTime = a} :: ContactContent) Prelude.. Data._Time
 
 -- | A unique identifier of a contact in Amazon Connect.
 contactContent_contactArn :: Lens.Lens' ContactContent Prelude.Text
 contactContent_contactArn = Lens.lens (\ContactContent' {contactArn} -> contactArn) (\s@ContactContent' {} a -> s {contactArn = a} :: ContactContent)
 
-instance Core.FromJSON ContactContent where
+instance Data.FromJSON ContactContent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContactContent"
       ( \x ->
           ContactContent'
-            Prelude.<$> (x Core..: "channel")
-            Prelude.<*> (x Core..: "connectedToSystemTime")
-            Prelude.<*> (x Core..: "contactArn")
+            Prelude.<$> (x Data..: "channel")
+            Prelude.<*> (x Data..: "connectedToSystemTime")
+            Prelude.<*> (x Data..: "contactArn")
       )
 
 instance Prelude.Hashable ContactContent where

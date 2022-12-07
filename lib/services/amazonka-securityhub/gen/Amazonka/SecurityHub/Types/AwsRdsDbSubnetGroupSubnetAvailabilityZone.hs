@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbSubnetGroupSubnetAvailabilityZone wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Availability Zone for a subnet in a subnet group.
@@ -54,15 +55,15 @@ awsRdsDbSubnetGroupSubnetAvailabilityZone_name :: Lens.Lens' AwsRdsDbSubnetGroup
 awsRdsDbSubnetGroupSubnetAvailabilityZone_name = Lens.lens (\AwsRdsDbSubnetGroupSubnetAvailabilityZone' {name} -> name) (\s@AwsRdsDbSubnetGroupSubnetAvailabilityZone' {} a -> s {name = a} :: AwsRdsDbSubnetGroupSubnetAvailabilityZone)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsRdsDbSubnetGroupSubnetAvailabilityZone
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbSubnetGroupSubnetAvailabilityZone"
       ( \x ->
           AwsRdsDbSubnetGroupSubnetAvailabilityZone'
-            Prelude.<$> (x Core..:? "Name")
+            Prelude.<$> (x Data..:? "Name")
       )
 
 instance
@@ -82,11 +83,11 @@ instance
     Prelude.rnf name
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsRdsDbSubnetGroupSubnetAvailabilityZone
   where
   toJSON AwsRdsDbSubnetGroupSubnetAvailabilityZone' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Name" Core..=) Prelude.<$> name]
+          [("Name" Data..=) Prelude.<$> name]
       )

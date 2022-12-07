@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -56,7 +57,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newChangePassword' smart constructor.
 data ChangePassword = ChangePassword'
   { -- | The IAM user\'s current password.
-    oldPassword :: Core.Sensitive Prelude.Text,
+    oldPassword :: Data.Sensitive Prelude.Text,
     -- | The new password. The new password must conform to the Amazon Web
     -- Services account\'s password policy, if one exists.
     --
@@ -69,7 +70,7 @@ data ChangePassword = ChangePassword'
     -- However, many tools, such as the Amazon Web Services Management Console,
     -- might restrict the ability to type certain characters because they have
     -- special meaning within that tool.
-    newPassword' :: Core.Sensitive Prelude.Text
+    newPassword' :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -104,13 +105,13 @@ newChangePassword ::
 newChangePassword pOldPassword_ pNewPassword_ =
   ChangePassword'
     { oldPassword =
-        Core._Sensitive Lens.# pOldPassword_,
-      newPassword' = Core._Sensitive Lens.# pNewPassword_
+        Data._Sensitive Lens.# pOldPassword_,
+      newPassword' = Data._Sensitive Lens.# pNewPassword_
     }
 
 -- | The IAM user\'s current password.
 changePassword_oldPassword :: Lens.Lens' ChangePassword Prelude.Text
-changePassword_oldPassword = Lens.lens (\ChangePassword' {oldPassword} -> oldPassword) (\s@ChangePassword' {} a -> s {oldPassword = a} :: ChangePassword) Prelude.. Core._Sensitive
+changePassword_oldPassword = Lens.lens (\ChangePassword' {oldPassword} -> oldPassword) (\s@ChangePassword' {} a -> s {oldPassword = a} :: ChangePassword) Prelude.. Data._Sensitive
 
 -- | The new password. The new password must conform to the Amazon Web
 -- Services account\'s password policy, if one exists.
@@ -125,7 +126,7 @@ changePassword_oldPassword = Lens.lens (\ChangePassword' {oldPassword} -> oldPas
 -- might restrict the ability to type certain characters because they have
 -- special meaning within that tool.
 changePassword_newPassword :: Lens.Lens' ChangePassword Prelude.Text
-changePassword_newPassword = Lens.lens (\ChangePassword' {newPassword'} -> newPassword') (\s@ChangePassword' {} a -> s {newPassword' = a} :: ChangePassword) Prelude.. Core._Sensitive
+changePassword_newPassword = Lens.lens (\ChangePassword' {newPassword'} -> newPassword') (\s@ChangePassword' {} a -> s {newPassword' = a} :: ChangePassword) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest ChangePassword where
   type
@@ -146,21 +147,21 @@ instance Prelude.NFData ChangePassword where
     Prelude.rnf oldPassword
       `Prelude.seq` Prelude.rnf newPassword'
 
-instance Core.ToHeaders ChangePassword where
+instance Data.ToHeaders ChangePassword where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ChangePassword where
+instance Data.ToPath ChangePassword where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ChangePassword where
+instance Data.ToQuery ChangePassword where
   toQuery ChangePassword' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ChangePassword" :: Prelude.ByteString),
+          Data.=: ("ChangePassword" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "OldPassword" Core.=: oldPassword,
-        "NewPassword" Core.=: newPassword'
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "OldPassword" Data.=: oldPassword,
+        "NewPassword" Data.=: newPassword'
       ]
 
 -- | /See:/ 'newChangePasswordResponse' smart constructor.

@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,8 +107,8 @@ instance Core.AWSRequest DescribeDomain where
       ( \s h x ->
           DescribeDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "domainInfo")
-            Prelude.<*> (x Core..:> "configuration")
+            Prelude.<*> (x Data..:> "domainInfo")
+            Prelude.<*> (x Data..:> "configuration")
       )
 
 instance Prelude.Hashable DescribeDomain where
@@ -117,32 +118,32 @@ instance Prelude.Hashable DescribeDomain where
 instance Prelude.NFData DescribeDomain where
   rnf DescribeDomain' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DescribeDomain where
+instance Data.ToHeaders DescribeDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.DescribeDomain" ::
+              Data.=# ( "SimpleWorkflowService.DescribeDomain" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDomain where
+instance Data.ToJSON DescribeDomain where
   toJSON DescribeDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath DescribeDomain where
+instance Data.ToPath DescribeDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDomain where
+instance Data.ToQuery DescribeDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains details of a domain.

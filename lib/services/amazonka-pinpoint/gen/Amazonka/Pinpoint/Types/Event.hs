@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.Event where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Session
 import qualified Amazonka.Prelude as Prelude
 
@@ -165,22 +166,22 @@ instance Prelude.NFData Event where
       `Prelude.seq` Prelude.rnf eventType
       `Prelude.seq` Prelude.rnf timestamp
 
-instance Core.ToJSON Event where
+instance Data.ToJSON Event where
   toJSON Event' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AppTitle" Core..=) Prelude.<$> appTitle,
-            ("ClientSdkVersion" Core..=)
+          [ ("AppTitle" Data..=) Prelude.<$> appTitle,
+            ("ClientSdkVersion" Data..=)
               Prelude.<$> clientSdkVersion,
-            ("Session" Core..=) Prelude.<$> session,
-            ("AppPackageName" Core..=)
+            ("Session" Data..=) Prelude.<$> session,
+            ("AppPackageName" Data..=)
               Prelude.<$> appPackageName,
-            ("Metrics" Core..=) Prelude.<$> metrics,
-            ("AppVersionCode" Core..=)
+            ("Metrics" Data..=) Prelude.<$> metrics,
+            ("AppVersionCode" Data..=)
               Prelude.<$> appVersionCode,
-            ("SdkName" Core..=) Prelude.<$> sdkName,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            Prelude.Just ("EventType" Core..= eventType),
-            Prelude.Just ("Timestamp" Core..= timestamp)
+            ("SdkName" Data..=) Prelude.<$> sdkName,
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            Prelude.Just ("EventType" Data..= eventType),
+            Prelude.Just ("Timestamp" Data..= timestamp)
           ]
       )

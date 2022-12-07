@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.ParametricS3MonitoringConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Amazon S3 configuration for monitoring log publishing. You can configure
@@ -56,15 +57,15 @@ parametricS3MonitoringConfiguration_logUri :: Lens.Lens' ParametricS3MonitoringC
 parametricS3MonitoringConfiguration_logUri = Lens.lens (\ParametricS3MonitoringConfiguration' {logUri} -> logUri) (\s@ParametricS3MonitoringConfiguration' {} a -> s {logUri = a} :: ParametricS3MonitoringConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ParametricS3MonitoringConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParametricS3MonitoringConfiguration"
       ( \x ->
           ParametricS3MonitoringConfiguration'
-            Prelude.<$> (x Core..:? "logUri")
+            Prelude.<$> (x Data..:? "logUri")
       )
 
 instance
@@ -84,11 +85,11 @@ instance
     Prelude.rnf logUri
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ParametricS3MonitoringConfiguration
   where
   toJSON ParametricS3MonitoringConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("logUri" Core..=) Prelude.<$> logUri]
+          [("logUri" Data..=) Prelude.<$> logUri]
       )

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,14 +105,14 @@ instance Core.AWSRequest GetDeployment where
     Response.receiveJSON
       ( \s h x ->
           GetDeploymentResponse'
-            Prelude.<$> (x Core..?> "statusReason")
+            Prelude.<$> (x Data..?> "statusReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "applicationId")
-            Prelude.<*> (x Core..:> "applicationVersion")
-            Prelude.<*> (x Core..:> "creationTime")
-            Prelude.<*> (x Core..:> "deploymentId")
-            Prelude.<*> (x Core..:> "environmentId")
-            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Data..:> "applicationId")
+            Prelude.<*> (x Data..:> "applicationVersion")
+            Prelude.<*> (x Data..:> "creationTime")
+            Prelude.<*> (x Data..:> "deploymentId")
+            Prelude.<*> (x Data..:> "environmentId")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance Prelude.Hashable GetDeployment where
@@ -124,27 +125,27 @@ instance Prelude.NFData GetDeployment where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf deploymentId
 
-instance Core.ToHeaders GetDeployment where
+instance Data.ToHeaders GetDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDeployment where
+instance Data.ToPath GetDeployment where
   toPath GetDeployment' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/deployments/",
-        Core.toBS deploymentId
+        Data.toBS deploymentId
       ]
 
-instance Core.ToQuery GetDeployment where
+instance Data.ToQuery GetDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDeploymentResponse' smart constructor.
@@ -158,7 +159,7 @@ data GetDeploymentResponse = GetDeploymentResponse'
     -- | The application version.
     applicationVersion :: Prelude.Natural,
     -- | The timestamp when the deployment was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The unique identifier of the deployment.
     deploymentId :: Prelude.Text,
     -- | The unique identifier of the runtime environment.
@@ -221,7 +222,7 @@ newGetDeploymentResponse
         httpStatus = pHttpStatus_,
         applicationId = pApplicationId_,
         applicationVersion = pApplicationVersion_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         deploymentId = pDeploymentId_,
         environmentId = pEnvironmentId_,
         status = pStatus_
@@ -245,7 +246,7 @@ getDeploymentResponse_applicationVersion = Lens.lens (\GetDeploymentResponse' {a
 
 -- | The timestamp when the deployment was created.
 getDeploymentResponse_creationTime :: Lens.Lens' GetDeploymentResponse Prelude.UTCTime
-getDeploymentResponse_creationTime = Lens.lens (\GetDeploymentResponse' {creationTime} -> creationTime) (\s@GetDeploymentResponse' {} a -> s {creationTime = a} :: GetDeploymentResponse) Prelude.. Core._Time
+getDeploymentResponse_creationTime = Lens.lens (\GetDeploymentResponse' {creationTime} -> creationTime) (\s@GetDeploymentResponse' {} a -> s {creationTime = a} :: GetDeploymentResponse) Prelude.. Data._Time
 
 -- | The unique identifier of the deployment.
 getDeploymentResponse_deploymentId :: Lens.Lens' GetDeploymentResponse Prelude.Text

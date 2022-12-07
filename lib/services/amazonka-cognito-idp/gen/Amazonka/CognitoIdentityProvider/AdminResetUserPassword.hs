@@ -75,6 +75,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,7 +118,7 @@ data AdminResetUserPassword = AdminResetUserPassword'
     -- password.
     userPoolId :: Prelude.Text,
     -- | The user name of the user whose password you want to reset.
-    username :: Core.Sensitive Prelude.Text
+    username :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -174,7 +175,7 @@ newAdminResetUserPassword pUserPoolId_ pUsername_ =
     { clientMetadata =
         Prelude.Nothing,
       userPoolId = pUserPoolId_,
-      username = Core._Sensitive Lens.# pUsername_
+      username = Data._Sensitive Lens.# pUsername_
     }
 
 -- | A map of custom key-value pairs that you can provide as input for any
@@ -216,7 +217,7 @@ adminResetUserPassword_userPoolId = Lens.lens (\AdminResetUserPassword' {userPoo
 
 -- | The user name of the user whose password you want to reset.
 adminResetUserPassword_username :: Lens.Lens' AdminResetUserPassword Prelude.Text
-adminResetUserPassword_username = Lens.lens (\AdminResetUserPassword' {username} -> username) (\s@AdminResetUserPassword' {} a -> s {username = a} :: AdminResetUserPassword) Prelude.. Core._Sensitive
+adminResetUserPassword_username = Lens.lens (\AdminResetUserPassword' {username} -> username) (\s@AdminResetUserPassword' {} a -> s {username = a} :: AdminResetUserPassword) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest AdminResetUserPassword where
   type
@@ -243,36 +244,36 @@ instance Prelude.NFData AdminResetUserPassword where
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf username
 
-instance Core.ToHeaders AdminResetUserPassword where
+instance Data.ToHeaders AdminResetUserPassword where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminResetUserPassword" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminResetUserPassword" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminResetUserPassword where
+instance Data.ToJSON AdminResetUserPassword where
   toJSON AdminResetUserPassword' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientMetadata" Core..=)
+          [ ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("Username" Core..= username)
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("Username" Data..= username)
           ]
       )
 
-instance Core.ToPath AdminResetUserPassword where
+instance Data.ToPath AdminResetUserPassword where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminResetUserPassword where
+instance Data.ToQuery AdminResetUserPassword where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server to reset a user password as an

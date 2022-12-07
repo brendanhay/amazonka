@@ -21,6 +21,7 @@ module Amazonka.S3.Types.InputSerialization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.CSVInput
@@ -101,11 +102,11 @@ instance Prelude.NFData InputSerialization where
       `Prelude.seq` Prelude.rnf json
       `Prelude.seq` Prelude.rnf csv
 
-instance Core.ToXML InputSerialization where
+instance Data.ToXML InputSerialization where
   toXML InputSerialization' {..} =
     Prelude.mconcat
-      [ "Parquet" Core.@= parquet,
-        "CompressionType" Core.@= compressionType,
-        "JSON" Core.@= json,
-        "CSV" Core.@= csv
+      [ "Parquet" Data.@= parquet,
+        "CompressionType" Data.@= compressionType,
+        "JSON" Data.@= json,
+        "CSV" Data.@= csv
       ]

@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.ReactiveInsightSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.InsightSeverity
 import Amazonka.DevOpsGuru.Types.InsightStatus
 import Amazonka.DevOpsGuru.Types.InsightTimeRange
@@ -128,22 +129,22 @@ reactiveInsightSummary_id = Lens.lens (\ReactiveInsightSummary' {id} -> id) (\s@
 reactiveInsightSummary_insightTimeRange :: Lens.Lens' ReactiveInsightSummary (Prelude.Maybe InsightTimeRange)
 reactiveInsightSummary_insightTimeRange = Lens.lens (\ReactiveInsightSummary' {insightTimeRange} -> insightTimeRange) (\s@ReactiveInsightSummary' {} a -> s {insightTimeRange = a} :: ReactiveInsightSummary)
 
-instance Core.FromJSON ReactiveInsightSummary where
+instance Data.FromJSON ReactiveInsightSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReactiveInsightSummary"
       ( \x ->
           ReactiveInsightSummary'
-            Prelude.<$> (x Core..:? "Severity")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ResourceCollection")
-            Prelude.<*> (x Core..:? "ServiceCollection")
-            Prelude.<*> ( x Core..:? "AssociatedResourceArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Severity")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ResourceCollection")
+            Prelude.<*> (x Data..:? "ServiceCollection")
+            Prelude.<*> ( x Data..:? "AssociatedResourceArns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "InsightTimeRange")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "InsightTimeRange")
       )
 
 instance Prelude.Hashable ReactiveInsightSummary where

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -202,7 +203,7 @@ instance Core.AWSRequest UpdateDocument where
     Response.receiveJSON
       ( \s h x ->
           UpdateDocumentResponse'
-            Prelude.<$> (x Core..?> "DocumentDescription")
+            Prelude.<$> (x Data..?> "DocumentDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -228,40 +229,40 @@ instance Prelude.NFData UpdateDocument where
       `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateDocument where
+instance Data.ToHeaders UpdateDocument where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.UpdateDocument" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.UpdateDocument" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDocument where
+instance Data.ToJSON UpdateDocument where
   toJSON UpdateDocument' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("TargetType" Core..=) Prelude.<$> targetType,
-            ("Attachments" Core..=) Prelude.<$> attachments,
-            ("VersionName" Core..=) Prelude.<$> versionName,
-            ("DocumentFormat" Core..=)
+          [ ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("TargetType" Data..=) Prelude.<$> targetType,
+            ("Attachments" Data..=) Prelude.<$> attachments,
+            ("VersionName" Data..=) Prelude.<$> versionName,
+            ("DocumentFormat" Data..=)
               Prelude.<$> documentFormat,
-            ("DocumentVersion" Core..=)
+            ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            Prelude.Just ("Content" Core..= content),
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Content" Data..= content),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateDocument where
+instance Data.ToPath UpdateDocument where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDocument where
+instance Data.ToQuery UpdateDocument where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDocumentResponse' smart constructor.

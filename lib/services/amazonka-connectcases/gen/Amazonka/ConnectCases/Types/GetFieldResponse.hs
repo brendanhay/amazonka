@@ -23,6 +23,7 @@ import Amazonka.ConnectCases.Types.FieldNamespace
 import Amazonka.ConnectCases.Types.FieldType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object to store detailed field information.
@@ -126,19 +127,19 @@ getFieldResponse_namespace = Lens.lens (\GetFieldResponse' {namespace} -> namesp
 getFieldResponse_type :: Lens.Lens' GetFieldResponse FieldType
 getFieldResponse_type = Lens.lens (\GetFieldResponse' {type'} -> type') (\s@GetFieldResponse' {} a -> s {type' = a} :: GetFieldResponse)
 
-instance Core.FromJSON GetFieldResponse where
+instance Data.FromJSON GetFieldResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GetFieldResponse"
       ( \x ->
           GetFieldResponse'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "fieldArn")
-            Prelude.<*> (x Core..: "fieldId")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "namespace")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "fieldArn")
+            Prelude.<*> (x Data..: "fieldId")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "namespace")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable GetFieldResponse where

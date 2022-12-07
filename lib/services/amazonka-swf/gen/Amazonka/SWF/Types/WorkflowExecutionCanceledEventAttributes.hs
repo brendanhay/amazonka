@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.WorkflowExecutionCanceledEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @WorkflowExecutionCanceled@ event.
@@ -79,16 +80,16 @@ workflowExecutionCanceledEventAttributes_decisionTaskCompletedEventId :: Lens.Le
 workflowExecutionCanceledEventAttributes_decisionTaskCompletedEventId = Lens.lens (\WorkflowExecutionCanceledEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@WorkflowExecutionCanceledEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: WorkflowExecutionCanceledEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     WorkflowExecutionCanceledEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowExecutionCanceledEventAttributes"
       ( \x ->
           WorkflowExecutionCanceledEventAttributes'
-            Prelude.<$> (x Core..:? "details")
-            Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Data..:? "details")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance

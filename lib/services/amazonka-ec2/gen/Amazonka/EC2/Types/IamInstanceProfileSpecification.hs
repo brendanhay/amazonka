@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IamInstanceProfileSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,10 +64,10 @@ iamInstanceProfileSpecification_name = Lens.lens (\IamInstanceProfileSpecificati
 iamInstanceProfileSpecification_arn :: Lens.Lens' IamInstanceProfileSpecification (Prelude.Maybe Prelude.Text)
 iamInstanceProfileSpecification_arn = Lens.lens (\IamInstanceProfileSpecification' {arn} -> arn) (\s@IamInstanceProfileSpecification' {} a -> s {arn = a} :: IamInstanceProfileSpecification)
 
-instance Core.FromXML IamInstanceProfileSpecification where
+instance Data.FromXML IamInstanceProfileSpecification where
   parseXML x =
     IamInstanceProfileSpecification'
-      Prelude.<$> (x Core..@? "name") Prelude.<*> (x Core..@? "arn")
+      Prelude.<$> (x Data..@? "name") Prelude.<*> (x Data..@? "arn")
 
 instance
   Prelude.Hashable
@@ -85,7 +86,7 @@ instance
   rnf IamInstanceProfileSpecification' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToQuery IamInstanceProfileSpecification where
+instance Data.ToQuery IamInstanceProfileSpecification where
   toQuery IamInstanceProfileSpecification' {..} =
     Prelude.mconcat
-      ["Name" Core.=: name, "Arn" Core.=: arn]
+      ["Name" Data.=: name, "Arn" Data.=: arn]

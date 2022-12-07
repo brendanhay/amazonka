@@ -21,6 +21,7 @@ module Amazonka.SES.Types.ConfigurationSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The name of the configuration set.
@@ -77,9 +78,9 @@ newConfigurationSet pName_ =
 configurationSet_name :: Lens.Lens' ConfigurationSet Prelude.Text
 configurationSet_name = Lens.lens (\ConfigurationSet' {name} -> name) (\s@ConfigurationSet' {} a -> s {name = a} :: ConfigurationSet)
 
-instance Core.FromXML ConfigurationSet where
+instance Data.FromXML ConfigurationSet where
   parseXML x =
-    ConfigurationSet' Prelude.<$> (x Core..@ "Name")
+    ConfigurationSet' Prelude.<$> (x Data..@ "Name")
 
 instance Prelude.Hashable ConfigurationSet where
   hashWithSalt _salt ConfigurationSet' {..} =
@@ -88,6 +89,6 @@ instance Prelude.Hashable ConfigurationSet where
 instance Prelude.NFData ConfigurationSet where
   rnf ConfigurationSet' {..} = Prelude.rnf name
 
-instance Core.ToQuery ConfigurationSet where
+instance Data.ToQuery ConfigurationSet where
   toQuery ConfigurationSet' {..} =
-    Prelude.mconcat ["Name" Core.=: name]
+    Prelude.mconcat ["Name" Data.=: name]

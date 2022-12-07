@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ClusterParameterGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.Tag
@@ -84,15 +85,15 @@ clusterParameterGroup_parameterGroupFamily = Lens.lens (\ClusterParameterGroup' 
 clusterParameterGroup_description :: Lens.Lens' ClusterParameterGroup (Prelude.Maybe Prelude.Text)
 clusterParameterGroup_description = Lens.lens (\ClusterParameterGroup' {description} -> description) (\s@ClusterParameterGroup' {} a -> s {description = a} :: ClusterParameterGroup)
 
-instance Core.FromXML ClusterParameterGroup where
+instance Data.FromXML ClusterParameterGroup where
   parseXML x =
     ClusterParameterGroup'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "ParameterGroupName")
-      Prelude.<*> (x Core..@? "ParameterGroupFamily")
-      Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Data..@? "ParameterGroupName")
+      Prelude.<*> (x Data..@? "ParameterGroupFamily")
+      Prelude.<*> (x Data..@? "Description")
 
 instance Prelude.Hashable ClusterParameterGroup where
   hashWithSalt _salt ClusterParameterGroup' {..} =

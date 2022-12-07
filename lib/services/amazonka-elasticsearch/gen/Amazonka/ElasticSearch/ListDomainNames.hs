@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest ListDomainNames where
     Response.receiveJSON
       ( \s h x ->
           ListDomainNamesResponse'
-            Prelude.<$> (x Core..?> "DomainNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "DomainNames" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,15 +99,15 @@ instance Prelude.Hashable ListDomainNames where
 instance Prelude.NFData ListDomainNames where
   rnf ListDomainNames' {..} = Prelude.rnf engineType
 
-instance Core.ToHeaders ListDomainNames where
+instance Data.ToHeaders ListDomainNames where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListDomainNames where
+instance Data.ToPath ListDomainNames where
   toPath = Prelude.const "/2015-01-01/domain"
 
-instance Core.ToQuery ListDomainNames where
+instance Data.ToQuery ListDomainNames where
   toQuery ListDomainNames' {..} =
-    Prelude.mconcat ["engineType" Core.=: engineType]
+    Prelude.mconcat ["engineType" Data.=: engineType]
 
 -- | The result of a @ListDomainNames@ operation. Contains the names of all
 -- domains owned by this account and their respective engine types.

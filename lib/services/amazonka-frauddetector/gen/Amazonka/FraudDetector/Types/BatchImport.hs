@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.BatchImport where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.AsyncJobStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -161,25 +162,25 @@ batchImport_startTime = Lens.lens (\BatchImport' {startTime} -> startTime) (\s@B
 batchImport_failureReason :: Lens.Lens' BatchImport (Prelude.Maybe Prelude.Text)
 batchImport_failureReason = Lens.lens (\BatchImport' {failureReason} -> failureReason) (\s@BatchImport' {} a -> s {failureReason = a} :: BatchImport)
 
-instance Core.FromJSON BatchImport where
+instance Data.FromJSON BatchImport where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchImport"
       ( \x ->
           BatchImport'
-            Prelude.<$> (x Core..:? "inputPath")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "jobId")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "completionTime")
-            Prelude.<*> (x Core..:? "outputPath")
-            Prelude.<*> (x Core..:? "iamRoleArn")
-            Prelude.<*> (x Core..:? "totalRecordsCount")
-            Prelude.<*> (x Core..:? "eventTypeName")
-            Prelude.<*> (x Core..:? "failedRecordsCount")
-            Prelude.<*> (x Core..:? "processedRecordsCount")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "inputPath")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "completionTime")
+            Prelude.<*> (x Data..:? "outputPath")
+            Prelude.<*> (x Data..:? "iamRoleArn")
+            Prelude.<*> (x Data..:? "totalRecordsCount")
+            Prelude.<*> (x Data..:? "eventTypeName")
+            Prelude.<*> (x Data..:? "failedRecordsCount")
+            Prelude.<*> (x Data..:? "processedRecordsCount")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable BatchImport where

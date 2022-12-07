@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsDepend
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A dependency that is defined for container startup and shutdown.
@@ -94,16 +95,16 @@ awsEcsTaskDefinitionContainerDefinitionsDependsOnDetails_condition :: Lens.Lens'
 awsEcsTaskDefinitionContainerDefinitionsDependsOnDetails_condition = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {condition} -> condition) (\s@AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {} a -> s {condition = a} :: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails'
-            Prelude.<$> (x Core..:? "ContainerName")
-              Prelude.<*> (x Core..:? "Condition")
+            Prelude.<$> (x Data..:? "ContainerName")
+              Prelude.<*> (x Data..:? "Condition")
       )
 
 instance
@@ -126,14 +127,14 @@ instance
         `Prelude.seq` Prelude.rnf condition
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ContainerName" Core..=) Prelude.<$> containerName,
-              ("Condition" Core..=) Prelude.<$> condition
+            [ ("ContainerName" Data..=) Prelude.<$> containerName,
+              ("Condition" Data..=) Prelude.<$> condition
             ]
         )

@@ -21,6 +21,7 @@ module Amazonka.Signer.Types.HashAlgorithmOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Signer.Types.HashAlgorithm
 
@@ -65,14 +66,14 @@ hashAlgorithmOptions_allowedValues = Lens.lens (\HashAlgorithmOptions' {allowedV
 hashAlgorithmOptions_defaultValue :: Lens.Lens' HashAlgorithmOptions HashAlgorithm
 hashAlgorithmOptions_defaultValue = Lens.lens (\HashAlgorithmOptions' {defaultValue} -> defaultValue) (\s@HashAlgorithmOptions' {} a -> s {defaultValue = a} :: HashAlgorithmOptions)
 
-instance Core.FromJSON HashAlgorithmOptions where
+instance Data.FromJSON HashAlgorithmOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HashAlgorithmOptions"
       ( \x ->
           HashAlgorithmOptions'
-            Prelude.<$> (x Core..:? "allowedValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "defaultValue")
+            Prelude.<$> (x Data..:? "allowedValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "defaultValue")
       )
 
 instance Prelude.Hashable HashAlgorithmOptions where

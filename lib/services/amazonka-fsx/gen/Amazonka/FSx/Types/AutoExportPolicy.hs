@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.AutoExportPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.EventType
 import qualified Amazonka.Prelude as Prelude
 
@@ -95,13 +96,13 @@ newAutoExportPolicy =
 autoExportPolicy_events :: Lens.Lens' AutoExportPolicy (Prelude.Maybe [EventType])
 autoExportPolicy_events = Lens.lens (\AutoExportPolicy' {events} -> events) (\s@AutoExportPolicy' {} a -> s {events = a} :: AutoExportPolicy) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AutoExportPolicy where
+instance Data.FromJSON AutoExportPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoExportPolicy"
       ( \x ->
           AutoExportPolicy'
-            Prelude.<$> (x Core..:? "Events" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Events" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AutoExportPolicy where
@@ -111,9 +112,9 @@ instance Prelude.Hashable AutoExportPolicy where
 instance Prelude.NFData AutoExportPolicy where
   rnf AutoExportPolicy' {..} = Prelude.rnf events
 
-instance Core.ToJSON AutoExportPolicy where
+instance Data.ToJSON AutoExportPolicy where
   toJSON AutoExportPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Events" Core..=) Prelude.<$> events]
+          [("Events" Data..=) Prelude.<$> events]
       )

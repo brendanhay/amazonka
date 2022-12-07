@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.Attribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.TargetType
 import qualified Amazonka.Prelude as Prelude
 
@@ -116,16 +117,16 @@ attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -
 attribute_name :: Lens.Lens' Attribute Prelude.Text
 attribute_name = Lens.lens (\Attribute' {name} -> name) (\s@Attribute' {} a -> s {name = a} :: Attribute)
 
-instance Core.FromJSON Attribute where
+instance Data.FromJSON Attribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Attribute"
       ( \x ->
           Attribute'
-            Prelude.<$> (x Core..:? "targetId")
-            Prelude.<*> (x Core..:? "targetType")
-            Prelude.<*> (x Core..:? "value")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "targetId")
+            Prelude.<*> (x Data..:? "targetType")
+            Prelude.<*> (x Data..:? "value")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable Attribute where
@@ -142,13 +143,13 @@ instance Prelude.NFData Attribute where
       `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON Attribute where
+instance Data.ToJSON Attribute where
   toJSON Attribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetId" Core..=) Prelude.<$> targetId,
-            ("targetType" Core..=) Prelude.<$> targetType,
-            ("value" Core..=) Prelude.<$> value,
-            Prelude.Just ("name" Core..= name)
+          [ ("targetId" Data..=) Prelude.<$> targetId,
+            ("targetType" Data..=) Prelude.<$> targetType,
+            ("value" Data..=) Prelude.<$> value,
+            Prelude.Just ("name" Data..= name)
           ]
       )

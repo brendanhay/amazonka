@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.Handshake where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types.ActionType
 import Amazonka.Organizations.Types.HandshakeParty
 import Amazonka.Organizations.Types.HandshakeResource
@@ -46,7 +47,7 @@ data Handshake = Handshake'
     -- in the /Amazon Web Services Service Authorization Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the handshake request was made.
-    requestedTimestamp :: Prelude.Maybe Core.POSIX,
+    requestedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The current state of the handshake. Use the state to trace the flow of
     -- the handshake through the process from its creation to its acceptance.
     -- The meaning of each of the valid values is as follows:
@@ -86,7 +87,7 @@ data Handshake = Handshake'
     -- | The date and time that the handshake expires. If the recipient of the
     -- handshake request fails to respond before the specified date and time,
     -- the handshake becomes inactive and is no longer valid.
-    expirationTimestamp :: Prelude.Maybe Core.POSIX,
+    expirationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The type of handshake, indicating what action occurs when the recipient
     -- accepts the handshake. The following handshake types are supported:
     --
@@ -211,7 +212,7 @@ handshake_arn = Lens.lens (\Handshake' {arn} -> arn) (\s@Handshake' {} a -> s {a
 
 -- | The date and time that the handshake request was made.
 handshake_requestedTimestamp :: Lens.Lens' Handshake (Prelude.Maybe Prelude.UTCTime)
-handshake_requestedTimestamp = Lens.lens (\Handshake' {requestedTimestamp} -> requestedTimestamp) (\s@Handshake' {} a -> s {requestedTimestamp = a} :: Handshake) Prelude.. Lens.mapping Core._Time
+handshake_requestedTimestamp = Lens.lens (\Handshake' {requestedTimestamp} -> requestedTimestamp) (\s@Handshake' {} a -> s {requestedTimestamp = a} :: Handshake) Prelude.. Lens.mapping Data._Time
 
 -- | The current state of the handshake. Use the state to trace the flow of
 -- the handshake through the process from its creation to its acceptance.
@@ -259,7 +260,7 @@ handshake_parties = Lens.lens (\Handshake' {parties} -> parties) (\s@Handshake' 
 -- handshake request fails to respond before the specified date and time,
 -- the handshake becomes inactive and is no longer valid.
 handshake_expirationTimestamp :: Lens.Lens' Handshake (Prelude.Maybe Prelude.UTCTime)
-handshake_expirationTimestamp = Lens.lens (\Handshake' {expirationTimestamp} -> expirationTimestamp) (\s@Handshake' {} a -> s {expirationTimestamp = a} :: Handshake) Prelude.. Lens.mapping Core._Time
+handshake_expirationTimestamp = Lens.lens (\Handshake' {expirationTimestamp} -> expirationTimestamp) (\s@Handshake' {} a -> s {expirationTimestamp = a} :: Handshake) Prelude.. Lens.mapping Data._Time
 
 -- | The type of handshake, indicating what action occurs when the recipient
 -- accepts the handshake. The following handshake types are supported:
@@ -286,20 +287,20 @@ handshake_action = Lens.lens (\Handshake' {action} -> action) (\s@Handshake' {} 
 handshake_resources :: Lens.Lens' Handshake (Prelude.Maybe [HandshakeResource])
 handshake_resources = Lens.lens (\Handshake' {resources} -> resources) (\s@Handshake' {} a -> s {resources = a} :: Handshake) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Handshake where
+instance Data.FromJSON Handshake where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Handshake"
       ( \x ->
           Handshake'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "RequestedTimestamp")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Parties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ExpirationTimestamp")
-            Prelude.<*> (x Core..:? "Action")
-            Prelude.<*> (x Core..:? "Resources" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "RequestedTimestamp")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Parties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ExpirationTimestamp")
+            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "Resources" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Handshake where

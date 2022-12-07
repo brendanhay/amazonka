@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,7 +86,7 @@ instance Core.AWSRequest ReadPreset where
     Response.receiveJSON
       ( \s h x ->
           ReadPresetResponse'
-            Prelude.<$> (x Core..?> "Preset")
+            Prelude.<$> (x Data..?> "Preset")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,15 +97,15 @@ instance Prelude.Hashable ReadPreset where
 instance Prelude.NFData ReadPreset where
   rnf ReadPreset' {..} = Prelude.rnf id
 
-instance Core.ToHeaders ReadPreset where
+instance Data.ToHeaders ReadPreset where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ReadPreset where
+instance Data.ToPath ReadPreset where
   toPath ReadPreset' {..} =
     Prelude.mconcat
-      ["/2012-09-25/presets/", Core.toBS id]
+      ["/2012-09-25/presets/", Data.toBS id]
 
-instance Core.ToQuery ReadPreset where
+instance Data.ToQuery ReadPreset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The @ReadPresetResponse@ structure.

@@ -45,6 +45,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,7 +112,7 @@ instance Core.AWSRequest UpdateVoiceConnectorGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateVoiceConnectorGroupResponse'
-            Prelude.<$> (x Core..?> "VoiceConnectorGroup")
+            Prelude.<$> (x Data..?> "VoiceConnectorGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,27 +128,27 @@ instance Prelude.NFData UpdateVoiceConnectorGroup where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf voiceConnectorItems
 
-instance Core.ToHeaders UpdateVoiceConnectorGroup where
+instance Data.ToHeaders UpdateVoiceConnectorGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateVoiceConnectorGroup where
+instance Data.ToJSON UpdateVoiceConnectorGroup where
   toJSON UpdateVoiceConnectorGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
+          [ Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("VoiceConnectorItems" Core..= voiceConnectorItems)
+              ("VoiceConnectorItems" Data..= voiceConnectorItems)
           ]
       )
 
-instance Core.ToPath UpdateVoiceConnectorGroup where
+instance Data.ToPath UpdateVoiceConnectorGroup where
   toPath UpdateVoiceConnectorGroup' {..} =
     Prelude.mconcat
       [ "/voice-connector-groups/",
-        Core.toBS voiceConnectorGroupId
+        Data.toBS voiceConnectorGroupId
       ]
 
-instance Core.ToQuery UpdateVoiceConnectorGroup where
+instance Data.ToQuery UpdateVoiceConnectorGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateVoiceConnectorGroupResponse' smart constructor.

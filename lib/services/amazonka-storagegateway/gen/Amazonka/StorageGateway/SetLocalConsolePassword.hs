@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,7 +57,7 @@ import Amazonka.StorageGateway.Types
 data SetLocalConsolePassword = SetLocalConsolePassword'
   { gatewayARN :: Prelude.Text,
     -- | The password you want to set for your VM local console.
-    localConsolePassword :: Core.Sensitive Prelude.Text
+    localConsolePassword :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -83,7 +84,7 @@ newSetLocalConsolePassword
     SetLocalConsolePassword'
       { gatewayARN = pGatewayARN_,
         localConsolePassword =
-          Core._Sensitive Lens.# pLocalConsolePassword_
+          Data._Sensitive Lens.# pLocalConsolePassword_
       }
 
 -- | Undocumented member.
@@ -92,7 +93,7 @@ setLocalConsolePassword_gatewayARN = Lens.lens (\SetLocalConsolePassword' {gatew
 
 -- | The password you want to set for your VM local console.
 setLocalConsolePassword_localConsolePassword :: Lens.Lens' SetLocalConsolePassword Prelude.Text
-setLocalConsolePassword_localConsolePassword = Lens.lens (\SetLocalConsolePassword' {localConsolePassword} -> localConsolePassword) (\s@SetLocalConsolePassword' {} a -> s {localConsolePassword = a} :: SetLocalConsolePassword) Prelude.. Core._Sensitive
+setLocalConsolePassword_localConsolePassword = Lens.lens (\SetLocalConsolePassword' {localConsolePassword} -> localConsolePassword) (\s@SetLocalConsolePassword' {} a -> s {localConsolePassword = a} :: SetLocalConsolePassword) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest SetLocalConsolePassword where
   type
@@ -104,7 +105,7 @@ instance Core.AWSRequest SetLocalConsolePassword where
     Response.receiveJSON
       ( \s h x ->
           SetLocalConsolePasswordResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,37 +119,37 @@ instance Prelude.NFData SetLocalConsolePassword where
     Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf localConsolePassword
 
-instance Core.ToHeaders SetLocalConsolePassword where
+instance Data.ToHeaders SetLocalConsolePassword where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.SetLocalConsolePassword" ::
+              Data.=# ( "StorageGateway_20130630.SetLocalConsolePassword" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetLocalConsolePassword where
+instance Data.ToJSON SetLocalConsolePassword where
   toJSON SetLocalConsolePassword' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GatewayARN" Core..= gatewayARN),
+          [ Prelude.Just ("GatewayARN" Data..= gatewayARN),
             Prelude.Just
               ( "LocalConsolePassword"
-                  Core..= localConsolePassword
+                  Data..= localConsolePassword
               )
           ]
       )
 
-instance Core.ToPath SetLocalConsolePassword where
+instance Data.ToPath SetLocalConsolePassword where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetLocalConsolePassword where
+instance Data.ToQuery SetLocalConsolePassword where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetLocalConsolePasswordResponse' smart constructor.

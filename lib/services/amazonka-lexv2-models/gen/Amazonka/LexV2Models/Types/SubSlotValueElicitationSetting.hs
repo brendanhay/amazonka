@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SubSlotValueElicitationSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.PromptSpecification
 import Amazonka.LexV2Models.Types.SampleUtterance
 import Amazonka.LexV2Models.Types.SlotDefaultValueSpecification
@@ -107,18 +108,18 @@ subSlotValueElicitationSetting_defaultValueSpecification = Lens.lens (\SubSlotVa
 subSlotValueElicitationSetting_promptSpecification :: Lens.Lens' SubSlotValueElicitationSetting PromptSpecification
 subSlotValueElicitationSetting_promptSpecification = Lens.lens (\SubSlotValueElicitationSetting' {promptSpecification} -> promptSpecification) (\s@SubSlotValueElicitationSetting' {} a -> s {promptSpecification = a} :: SubSlotValueElicitationSetting)
 
-instance Core.FromJSON SubSlotValueElicitationSetting where
+instance Data.FromJSON SubSlotValueElicitationSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubSlotValueElicitationSetting"
       ( \x ->
           SubSlotValueElicitationSetting'
-            Prelude.<$> ( x Core..:? "sampleUtterances"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "sampleUtterances"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "waitAndContinueSpecification")
-            Prelude.<*> (x Core..:? "defaultValueSpecification")
-            Prelude.<*> (x Core..: "promptSpecification")
+            Prelude.<*> (x Data..:? "waitAndContinueSpecification")
+            Prelude.<*> (x Data..:? "defaultValueSpecification")
+            Prelude.<*> (x Data..: "promptSpecification")
       )
 
 instance
@@ -143,17 +144,17 @@ instance
       `Prelude.seq` Prelude.rnf defaultValueSpecification
       `Prelude.seq` Prelude.rnf promptSpecification
 
-instance Core.ToJSON SubSlotValueElicitationSetting where
+instance Data.ToJSON SubSlotValueElicitationSetting where
   toJSON SubSlotValueElicitationSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sampleUtterances" Core..=)
+          [ ("sampleUtterances" Data..=)
               Prelude.<$> sampleUtterances,
-            ("waitAndContinueSpecification" Core..=)
+            ("waitAndContinueSpecification" Data..=)
               Prelude.<$> waitAndContinueSpecification,
-            ("defaultValueSpecification" Core..=)
+            ("defaultValueSpecification" Data..=)
               Prelude.<$> defaultValueSpecification,
             Prelude.Just
-              ("promptSpecification" Core..= promptSpecification)
+              ("promptSpecification" Data..= promptSpecification)
           ]
       )

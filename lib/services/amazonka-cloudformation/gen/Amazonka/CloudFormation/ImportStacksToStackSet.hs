@@ -53,6 +53,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -187,7 +188,7 @@ instance Core.AWSRequest ImportStacksToStackSet where
       "ImportStacksToStackSetResult"
       ( \s h x ->
           ImportStacksToStackSetResponse'
-            Prelude.<$> (x Core..@? "OperationId")
+            Prelude.<$> (x Data..@? "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,32 +212,32 @@ instance Prelude.NFData ImportStacksToStackSet where
       `Prelude.seq` Prelude.rnf stackIds
       `Prelude.seq` Prelude.rnf stackSetName
 
-instance Core.ToHeaders ImportStacksToStackSet where
+instance Data.ToHeaders ImportStacksToStackSet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ImportStacksToStackSet where
+instance Data.ToPath ImportStacksToStackSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportStacksToStackSet where
+instance Data.ToQuery ImportStacksToStackSet where
   toQuery ImportStacksToStackSet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ImportStacksToStackSet" :: Prelude.ByteString),
+          Data.=: ("ImportStacksToStackSet" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "OperationPreferences" Core.=: operationPreferences,
-        "CallAs" Core.=: callAs,
-        "OperationId" Core.=: operationId,
-        "StackIdsUrl" Core.=: stackIdsUrl,
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "OperationPreferences" Data.=: operationPreferences,
+        "CallAs" Data.=: callAs,
+        "OperationId" Data.=: operationId,
+        "StackIdsUrl" Data.=: stackIdsUrl,
         "OrganizationalUnitIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> organizationalUnitIds
             ),
         "StackIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> stackIds),
-        "StackSetName" Core.=: stackSetName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> stackIds),
+        "StackSetName" Data.=: stackSetName
       ]
 
 -- | /See:/ 'newImportStacksToStackSetResponse' smart constructor.

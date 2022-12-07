@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,7 +158,7 @@ instance Core.AWSRequest UpdateEnvironment where
       ( \s h x ->
           UpdateEnvironmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "environmentId")
+            Prelude.<*> (x Data..:> "environmentId")
       )
 
 instance Prelude.Hashable UpdateEnvironment where
@@ -178,38 +179,38 @@ instance Prelude.NFData UpdateEnvironment where
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf environmentId
 
-instance Core.ToHeaders UpdateEnvironment where
+instance Data.ToHeaders UpdateEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEnvironment where
+instance Data.ToJSON UpdateEnvironment where
   toJSON UpdateEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("instanceType" Core..=) Prelude.<$> instanceType,
-            ("preferredMaintenanceWindow" Core..=)
+          [ ("instanceType" Data..=) Prelude.<$> instanceType,
+            ("preferredMaintenanceWindow" Data..=)
               Prelude.<$> preferredMaintenanceWindow,
-            ("desiredCapacity" Core..=)
+            ("desiredCapacity" Data..=)
               Prelude.<$> desiredCapacity,
-            ("applyDuringMaintenanceWindow" Core..=)
+            ("applyDuringMaintenanceWindow" Data..=)
               Prelude.<$> applyDuringMaintenanceWindow,
-            ("engineVersion" Core..=) Prelude.<$> engineVersion
+            ("engineVersion" Data..=) Prelude.<$> engineVersion
           ]
       )
 
-instance Core.ToPath UpdateEnvironment where
+instance Data.ToPath UpdateEnvironment where
   toPath UpdateEnvironment' {..} =
     Prelude.mconcat
-      ["/environments/", Core.toBS environmentId]
+      ["/environments/", Data.toBS environmentId]
 
-instance Core.ToQuery UpdateEnvironment where
+instance Data.ToQuery UpdateEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEnvironmentResponse' smart constructor.

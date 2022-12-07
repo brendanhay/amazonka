@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.CloudWatchDashboard where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a CloudWatch dashboard.
@@ -50,12 +51,12 @@ newCloudWatchDashboard =
 cloudWatchDashboard_name :: Lens.Lens' CloudWatchDashboard (Prelude.Maybe Prelude.Text)
 cloudWatchDashboard_name = Lens.lens (\CloudWatchDashboard' {name} -> name) (\s@CloudWatchDashboard' {} a -> s {name = a} :: CloudWatchDashboard)
 
-instance Core.FromJSON CloudWatchDashboard where
+instance Data.FromJSON CloudWatchDashboard where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchDashboard"
       ( \x ->
-          CloudWatchDashboard' Prelude.<$> (x Core..:? "Name")
+          CloudWatchDashboard' Prelude.<$> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable CloudWatchDashboard where

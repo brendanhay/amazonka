@@ -42,6 +42,7 @@ where
 import Amazonka.Cloud9.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,35 +116,35 @@ instance Prelude.NFData DeleteEnvironmentMembership where
     Prelude.rnf environmentId
       `Prelude.seq` Prelude.rnf userArn
 
-instance Core.ToHeaders DeleteEnvironmentMembership where
+instance Data.ToHeaders DeleteEnvironmentMembership where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership" ::
+              Data.=# ( "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteEnvironmentMembership where
+instance Data.ToJSON DeleteEnvironmentMembership where
   toJSON DeleteEnvironmentMembership' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("environmentId" Core..= environmentId),
-            Prelude.Just ("userArn" Core..= userArn)
+              ("environmentId" Data..= environmentId),
+            Prelude.Just ("userArn" Data..= userArn)
           ]
       )
 
-instance Core.ToPath DeleteEnvironmentMembership where
+instance Data.ToPath DeleteEnvironmentMembership where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteEnvironmentMembership where
+instance Data.ToQuery DeleteEnvironmentMembership where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEnvironmentMembershipResponse' smart constructor.

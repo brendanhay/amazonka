@@ -23,6 +23,7 @@ import Amazonka.AlexaBusiness.Types.NetworkEapMethod
 import Amazonka.AlexaBusiness.Types.NetworkSecurityType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The data associated with a network profile.
@@ -121,19 +122,19 @@ networkProfileData_networkProfileArn = Lens.lens (\NetworkProfileData' {networkP
 networkProfileData_networkProfileName :: Lens.Lens' NetworkProfileData (Prelude.Maybe Prelude.Text)
 networkProfileData_networkProfileName = Lens.lens (\NetworkProfileData' {networkProfileName} -> networkProfileName) (\s@NetworkProfileData' {} a -> s {networkProfileName = a} :: NetworkProfileData)
 
-instance Core.FromJSON NetworkProfileData where
+instance Data.FromJSON NetworkProfileData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkProfileData"
       ( \x ->
           NetworkProfileData'
-            Prelude.<$> (x Core..:? "CertificateAuthorityArn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "EapMethod")
-            Prelude.<*> (x Core..:? "Ssid")
-            Prelude.<*> (x Core..:? "SecurityType")
-            Prelude.<*> (x Core..:? "NetworkProfileArn")
-            Prelude.<*> (x Core..:? "NetworkProfileName")
+            Prelude.<$> (x Data..:? "CertificateAuthorityArn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "EapMethod")
+            Prelude.<*> (x Data..:? "Ssid")
+            Prelude.<*> (x Data..:? "SecurityType")
+            Prelude.<*> (x Data..:? "NetworkProfileArn")
+            Prelude.<*> (x Data..:? "NetworkProfileName")
       )
 
 instance Prelude.Hashable NetworkProfileData where

@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.BucketCountByEncryptionType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the number of S3 buckets that use certain
@@ -105,16 +106,16 @@ bucketCountByEncryptionType_kmsManaged = Lens.lens (\BucketCountByEncryptionType
 bucketCountByEncryptionType_unknown :: Lens.Lens' BucketCountByEncryptionType (Prelude.Maybe Prelude.Integer)
 bucketCountByEncryptionType_unknown = Lens.lens (\BucketCountByEncryptionType' {unknown} -> unknown) (\s@BucketCountByEncryptionType' {} a -> s {unknown = a} :: BucketCountByEncryptionType)
 
-instance Core.FromJSON BucketCountByEncryptionType where
+instance Data.FromJSON BucketCountByEncryptionType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BucketCountByEncryptionType"
       ( \x ->
           BucketCountByEncryptionType'
-            Prelude.<$> (x Core..:? "s3Managed")
-            Prelude.<*> (x Core..:? "unencrypted")
-            Prelude.<*> (x Core..:? "kmsManaged")
-            Prelude.<*> (x Core..:? "unknown")
+            Prelude.<$> (x Data..:? "s3Managed")
+            Prelude.<*> (x Data..:? "unencrypted")
+            Prelude.<*> (x Data..:? "kmsManaged")
+            Prelude.<*> (x Data..:? "unknown")
       )
 
 instance Prelude.Hashable BucketCountByEncryptionType where

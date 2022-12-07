@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.VpcDestinationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of a virtual private cloud (VPC) destination.
@@ -82,16 +83,16 @@ vpcDestinationSummary_vpcId = Lens.lens (\VpcDestinationSummary' {vpcId} -> vpcI
 vpcDestinationSummary_subnetIds :: Lens.Lens' VpcDestinationSummary (Prelude.Maybe [Prelude.Text])
 vpcDestinationSummary_subnetIds = Lens.lens (\VpcDestinationSummary' {subnetIds} -> subnetIds) (\s@VpcDestinationSummary' {} a -> s {subnetIds = a} :: VpcDestinationSummary) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON VpcDestinationSummary where
+instance Data.FromJSON VpcDestinationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcDestinationSummary"
       ( \x ->
           VpcDestinationSummary'
-            Prelude.<$> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "securityGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "vpcId")
-            Prelude.<*> (x Core..:? "subnetIds" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "securityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "vpcId")
+            Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable VpcDestinationSummary where

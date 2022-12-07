@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,34 +96,34 @@ instance Prelude.NFData DeleteFaq where
   rnf DeleteFaq' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf indexId
 
-instance Core.ToHeaders DeleteFaq where
+instance Data.ToHeaders DeleteFaq where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.DeleteFaq" ::
+              Data.=# ( "AWSKendraFrontendService.DeleteFaq" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteFaq where
+instance Data.ToJSON DeleteFaq where
   toJSON DeleteFaq' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath DeleteFaq where
+instance Data.ToPath DeleteFaq where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteFaq where
+instance Data.ToQuery DeleteFaq where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFaqResponse' smart constructor.

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,10 +131,10 @@ instance Core.AWSRequest GetExportSnapshotRecords where
     Response.receiveJSON
       ( \s h x ->
           GetExportSnapshotRecordsResponse'
-            Prelude.<$> ( x Core..?> "exportSnapshotRecords"
+            Prelude.<$> ( x Data..?> "exportSnapshotRecords"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,32 +146,32 @@ instance Prelude.NFData GetExportSnapshotRecords where
   rnf GetExportSnapshotRecords' {..} =
     Prelude.rnf pageToken
 
-instance Core.ToHeaders GetExportSnapshotRecords where
+instance Data.ToHeaders GetExportSnapshotRecords where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetExportSnapshotRecords" ::
+              Data.=# ( "Lightsail_20161128.GetExportSnapshotRecords" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetExportSnapshotRecords where
+instance Data.ToJSON GetExportSnapshotRecords where
   toJSON GetExportSnapshotRecords' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("pageToken" Core..=) Prelude.<$> pageToken]
+          [("pageToken" Data..=) Prelude.<$> pageToken]
       )
 
-instance Core.ToPath GetExportSnapshotRecords where
+instance Data.ToPath GetExportSnapshotRecords where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetExportSnapshotRecords where
+instance Data.ToQuery GetExportSnapshotRecords where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetExportSnapshotRecordsResponse' smart constructor.

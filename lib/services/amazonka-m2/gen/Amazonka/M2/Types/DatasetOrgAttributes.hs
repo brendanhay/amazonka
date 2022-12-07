@@ -21,6 +21,7 @@ module Amazonka.M2.Types.DatasetOrgAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.GdgAttributes
 import Amazonka.M2.Types.VsamAttributes
 import qualified Amazonka.Prelude as Prelude
@@ -74,11 +75,11 @@ instance Prelude.NFData DatasetOrgAttributes where
   rnf DatasetOrgAttributes' {..} =
     Prelude.rnf gdg `Prelude.seq` Prelude.rnf vsam
 
-instance Core.ToJSON DatasetOrgAttributes where
+instance Data.ToJSON DatasetOrgAttributes where
   toJSON DatasetOrgAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("gdg" Core..=) Prelude.<$> gdg,
-            ("vsam" Core..=) Prelude.<$> vsam
+          [ ("gdg" Data..=) Prelude.<$> gdg,
+            ("vsam" Data..=) Prelude.<$> vsam
           ]
       )

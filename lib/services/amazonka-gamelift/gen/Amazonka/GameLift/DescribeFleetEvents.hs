@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ data DescribeFleetEvents = DescribeFleetEvents'
     -- specified, this call returns entries from the specified start time up to
     -- the present. Format is a number expressed in Unix time as milliseconds
     -- (ex: \"1469498468.057\").
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
     limit :: Prelude.Maybe Prelude.Natural,
@@ -95,7 +96,7 @@ data DescribeFleetEvents = DescribeFleetEvents'
     -- specified, this call returns entries starting from when the fleet was
     -- created to the specified end time. Format is a number expressed in Unix
     -- time as milliseconds (ex: \"1469498468.057\").
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | A unique identifier for the fleet to get event logs for. You can use
     -- either the fleet ID or ARN value.
     fleetId :: Prelude.Text
@@ -153,7 +154,7 @@ describeFleetEvents_nextToken = Lens.lens (\DescribeFleetEvents' {nextToken} -> 
 -- the present. Format is a number expressed in Unix time as milliseconds
 -- (ex: \"1469498468.057\").
 describeFleetEvents_endTime :: Lens.Lens' DescribeFleetEvents (Prelude.Maybe Prelude.UTCTime)
-describeFleetEvents_endTime = Lens.lens (\DescribeFleetEvents' {endTime} -> endTime) (\s@DescribeFleetEvents' {} a -> s {endTime = a} :: DescribeFleetEvents) Prelude.. Lens.mapping Core._Time
+describeFleetEvents_endTime = Lens.lens (\DescribeFleetEvents' {endTime} -> endTime) (\s@DescribeFleetEvents' {} a -> s {endTime = a} :: DescribeFleetEvents) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
@@ -165,7 +166,7 @@ describeFleetEvents_limit = Lens.lens (\DescribeFleetEvents' {limit} -> limit) (
 -- created to the specified end time. Format is a number expressed in Unix
 -- time as milliseconds (ex: \"1469498468.057\").
 describeFleetEvents_startTime :: Lens.Lens' DescribeFleetEvents (Prelude.Maybe Prelude.UTCTime)
-describeFleetEvents_startTime = Lens.lens (\DescribeFleetEvents' {startTime} -> startTime) (\s@DescribeFleetEvents' {} a -> s {startTime = a} :: DescribeFleetEvents) Prelude.. Lens.mapping Core._Time
+describeFleetEvents_startTime = Lens.lens (\DescribeFleetEvents' {startTime} -> startTime) (\s@DescribeFleetEvents' {} a -> s {startTime = a} :: DescribeFleetEvents) Prelude.. Lens.mapping Data._Time
 
 -- | A unique identifier for the fleet to get event logs for. You can use
 -- either the fleet ID or ARN value.
@@ -204,8 +205,8 @@ instance Core.AWSRequest DescribeFleetEvents where
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetEventsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Events" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Events" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -225,37 +226,37 @@ instance Prelude.NFData DescribeFleetEvents where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf fleetId
 
-instance Core.ToHeaders DescribeFleetEvents where
+instance Data.ToHeaders DescribeFleetEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeFleetEvents" ::
+              Data.=# ( "GameLift.DescribeFleetEvents" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFleetEvents where
+instance Data.ToJSON DescribeFleetEvents where
   toJSON DescribeFleetEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("EndTime" Core..=) Prelude.<$> endTime,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("StartTime" Core..=) Prelude.<$> startTime,
-            Prelude.Just ("FleetId" Core..= fleetId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("EndTime" Data..=) Prelude.<$> endTime,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("StartTime" Data..=) Prelude.<$> startTime,
+            Prelude.Just ("FleetId" Data..= fleetId)
           ]
       )
 
-instance Core.ToPath DescribeFleetEvents where
+instance Data.ToPath DescribeFleetEvents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFleetEvents where
+instance Data.ToQuery DescribeFleetEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

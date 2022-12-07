@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -221,8 +222,8 @@ instance Core.AWSRequest ListOfferings where
     Response.receiveJSON
       ( \s h x ->
           ListOfferingsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "offerings" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "offerings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -256,35 +257,35 @@ instance Prelude.NFData ListOfferings where
       `Prelude.seq` Prelude.rnf specialFeature
       `Prelude.seq` Prelude.rnf resolution
 
-instance Core.ToHeaders ListOfferings where
+instance Data.ToHeaders ListOfferings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListOfferings where
+instance Data.ToPath ListOfferings where
   toPath = Prelude.const "/prod/offerings"
 
-instance Core.ToQuery ListOfferings where
+instance Data.ToQuery ListOfferings where
   toQuery ListOfferings' {..} =
     Prelude.mconcat
-      [ "resourceType" Core.=: resourceType,
-        "nextToken" Core.=: nextToken,
-        "channelConfiguration" Core.=: channelConfiguration,
-        "channelClass" Core.=: channelClass,
-        "codec" Core.=: codec,
-        "duration" Core.=: duration,
-        "maxResults" Core.=: maxResults,
-        "maximumFramerate" Core.=: maximumFramerate,
-        "videoQuality" Core.=: videoQuality,
-        "maximumBitrate" Core.=: maximumBitrate,
-        "specialFeature" Core.=: specialFeature,
-        "resolution" Core.=: resolution
+      [ "resourceType" Data.=: resourceType,
+        "nextToken" Data.=: nextToken,
+        "channelConfiguration" Data.=: channelConfiguration,
+        "channelClass" Data.=: channelClass,
+        "codec" Data.=: codec,
+        "duration" Data.=: duration,
+        "maxResults" Data.=: maxResults,
+        "maximumFramerate" Data.=: maximumFramerate,
+        "videoQuality" Data.=: videoQuality,
+        "maximumBitrate" Data.=: maximumBitrate,
+        "specialFeature" Data.=: specialFeature,
+        "resolution" Data.=: resolution
       ]
 
 -- | Placeholder documentation for ListOfferingsResponse

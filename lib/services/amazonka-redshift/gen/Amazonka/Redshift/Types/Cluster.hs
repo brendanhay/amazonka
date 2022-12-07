@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.Cluster where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.AquaConfiguration
@@ -87,7 +88,7 @@ data Cluster = Cluster'
     -- | A unique identifier for the cluster snapshot schedule.
     snapshotScheduleIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The date and time in UTC when system maintenance can begin.
-    nextMaintenanceWindowStartTime :: Prelude.Maybe Core.ISO8601,
+    nextMaintenanceWindowStartTime :: Prelude.Maybe Data.ISO8601,
     -- | The status of the elastic IP (EIP) address.
     elasticIpStatus :: Prelude.Maybe ElasticIpStatus,
     -- | The nodes in the cluster.
@@ -191,7 +192,7 @@ data Cluster = Cluster'
     defaultIamRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the next snapshot is expected to be taken for
     -- clusters with a valid snapshot schedule and backups enabled.
-    expectedNextSnapshotScheduleTime :: Prelude.Maybe Core.ISO8601,
+    expectedNextSnapshotScheduleTime :: Prelude.Maybe Data.ISO8601,
     -- | The number of nodes that you can resize the cluster to with the elastic
     -- resize method.
     elasticResizeNumberOfNodeOptions :: Prelude.Maybe Prelude.Text,
@@ -228,7 +229,7 @@ data Cluster = Cluster'
     -- | The number of days that automatic cluster snapshots are retained.
     automatedSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The date and time that the cluster was created.
-    clusterCreateTime :: Prelude.Maybe Core.ISO8601,
+    clusterCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | The status of the reserved-node exchange request. Statuses include
     -- in-progress and requested.
     reservedNodeExchangeStatus :: Prelude.Maybe ReservedNodeExchangeStatus,
@@ -614,7 +615,7 @@ cluster_snapshotScheduleIdentifier = Lens.lens (\Cluster' {snapshotScheduleIdent
 
 -- | The date and time in UTC when system maintenance can begin.
 cluster_nextMaintenanceWindowStartTime :: Lens.Lens' Cluster (Prelude.Maybe Prelude.UTCTime)
-cluster_nextMaintenanceWindowStartTime = Lens.lens (\Cluster' {nextMaintenanceWindowStartTime} -> nextMaintenanceWindowStartTime) (\s@Cluster' {} a -> s {nextMaintenanceWindowStartTime = a} :: Cluster) Prelude.. Lens.mapping Core._Time
+cluster_nextMaintenanceWindowStartTime = Lens.lens (\Cluster' {nextMaintenanceWindowStartTime} -> nextMaintenanceWindowStartTime) (\s@Cluster' {} a -> s {nextMaintenanceWindowStartTime = a} :: Cluster) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the elastic IP (EIP) address.
 cluster_elasticIpStatus :: Lens.Lens' Cluster (Prelude.Maybe ElasticIpStatus)
@@ -767,7 +768,7 @@ cluster_defaultIamRoleArn = Lens.lens (\Cluster' {defaultIamRoleArn} -> defaultI
 -- | The date and time when the next snapshot is expected to be taken for
 -- clusters with a valid snapshot schedule and backups enabled.
 cluster_expectedNextSnapshotScheduleTime :: Lens.Lens' Cluster (Prelude.Maybe Prelude.UTCTime)
-cluster_expectedNextSnapshotScheduleTime = Lens.lens (\Cluster' {expectedNextSnapshotScheduleTime} -> expectedNextSnapshotScheduleTime) (\s@Cluster' {} a -> s {expectedNextSnapshotScheduleTime = a} :: Cluster) Prelude.. Lens.mapping Core._Time
+cluster_expectedNextSnapshotScheduleTime = Lens.lens (\Cluster' {expectedNextSnapshotScheduleTime} -> expectedNextSnapshotScheduleTime) (\s@Cluster' {} a -> s {expectedNextSnapshotScheduleTime = a} :: Cluster) Prelude.. Lens.mapping Data._Time
 
 -- | The number of nodes that you can resize the cluster to with the elastic
 -- resize method.
@@ -822,7 +823,7 @@ cluster_automatedSnapshotRetentionPeriod = Lens.lens (\Cluster' {automatedSnapsh
 
 -- | The date and time that the cluster was created.
 cluster_clusterCreateTime :: Lens.Lens' Cluster (Prelude.Maybe Prelude.UTCTime)
-cluster_clusterCreateTime = Lens.lens (\Cluster' {clusterCreateTime} -> clusterCreateTime) (\s@Cluster' {} a -> s {clusterCreateTime = a} :: Cluster) Prelude.. Lens.mapping Core._Time
+cluster_clusterCreateTime = Lens.lens (\Cluster' {clusterCreateTime} -> clusterCreateTime) (\s@Cluster' {} a -> s {clusterCreateTime = a} :: Cluster) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the reserved-node exchange request. Statuses include
 -- in-progress and requested.
@@ -869,81 +870,81 @@ cluster_clusterAvailabilityStatus = Lens.lens (\Cluster' {clusterAvailabilitySta
 cluster_vpcSecurityGroups :: Lens.Lens' Cluster (Prelude.Maybe [VpcSecurityGroupMembership])
 cluster_vpcSecurityGroups = Lens.lens (\Cluster' {vpcSecurityGroups} -> vpcSecurityGroups) (\s@Cluster' {} a -> s {vpcSecurityGroups = a} :: Cluster) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML Cluster where
+instance Data.FromXML Cluster where
   parseXML x =
     Cluster'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "ClusterIdentifier")
-      Prelude.<*> (x Core..@? "AquaConfiguration")
-      Prelude.<*> (x Core..@? "ClusterPublicKey")
-      Prelude.<*> (x Core..@? "ManualSnapshotRetentionPeriod")
-      Prelude.<*> (x Core..@? "MasterUsername")
-      Prelude.<*> (x Core..@? "AvailabilityZoneRelocationStatus")
-      Prelude.<*> ( x Core..@? "ClusterParameterGroups"
+      Prelude.<*> (x Data..@? "ClusterIdentifier")
+      Prelude.<*> (x Data..@? "AquaConfiguration")
+      Prelude.<*> (x Data..@? "ClusterPublicKey")
+      Prelude.<*> (x Data..@? "ManualSnapshotRetentionPeriod")
+      Prelude.<*> (x Data..@? "MasterUsername")
+      Prelude.<*> (x Data..@? "AvailabilityZoneRelocationStatus")
+      Prelude.<*> ( x Data..@? "ClusterParameterGroups"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "ClusterParameterGroup")
+                      Prelude.>>= Core.may (Data.parseXMLList "ClusterParameterGroup")
                   )
-      Prelude.<*> (x Core..@? "AllowVersionUpgrade")
-      Prelude.<*> (x Core..@? "ExpectedNextSnapshotScheduleTimeStatus")
-      Prelude.<*> (x Core..@? "ClusterSubnetGroupName")
-      Prelude.<*> (x Core..@? "SnapshotScheduleIdentifier")
-      Prelude.<*> (x Core..@? "NextMaintenanceWindowStartTime")
-      Prelude.<*> (x Core..@? "ElasticIpStatus")
-      Prelude.<*> ( x Core..@? "ClusterNodes" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "AllowVersionUpgrade")
+      Prelude.<*> (x Data..@? "ExpectedNextSnapshotScheduleTimeStatus")
+      Prelude.<*> (x Data..@? "ClusterSubnetGroupName")
+      Prelude.<*> (x Data..@? "SnapshotScheduleIdentifier")
+      Prelude.<*> (x Data..@? "NextMaintenanceWindowStartTime")
+      Prelude.<*> (x Data..@? "ElasticIpStatus")
+      Prelude.<*> ( x Data..@? "ClusterNodes" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "ClusterVersion")
-      Prelude.<*> ( x Core..@? "PendingActions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "ClusterVersion")
+      Prelude.<*> ( x Data..@? "PendingActions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "ClusterRevisionNumber")
-      Prelude.<*> (x Core..@? "MaintenanceTrackName")
-      Prelude.<*> ( x Core..@? "IamRoles" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "ClusterIamRole")
+      Prelude.<*> (x Data..@? "ClusterRevisionNumber")
+      Prelude.<*> (x Data..@? "MaintenanceTrackName")
+      Prelude.<*> ( x Data..@? "IamRoles" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "ClusterIamRole")
                   )
-      Prelude.<*> (x Core..@? "AvailabilityZone")
-      Prelude.<*> (x Core..@? "NodeType")
-      Prelude.<*> (x Core..@? "PubliclyAccessible")
-      Prelude.<*> (x Core..@? "ModifyStatus")
-      Prelude.<*> (x Core..@? "ClusterSnapshotCopyStatus")
-      Prelude.<*> (x Core..@? "ClusterNamespaceArn")
-      Prelude.<*> (x Core..@? "SnapshotScheduleState")
-      Prelude.<*> (x Core..@? "HsmStatus")
-      Prelude.<*> (x Core..@? "ClusterStatus")
-      Prelude.<*> (x Core..@? "ResizeInfo")
-      Prelude.<*> ( x Core..@? "DeferredMaintenanceWindows"
+      Prelude.<*> (x Data..@? "AvailabilityZone")
+      Prelude.<*> (x Data..@? "NodeType")
+      Prelude.<*> (x Data..@? "PubliclyAccessible")
+      Prelude.<*> (x Data..@? "ModifyStatus")
+      Prelude.<*> (x Data..@? "ClusterSnapshotCopyStatus")
+      Prelude.<*> (x Data..@? "ClusterNamespaceArn")
+      Prelude.<*> (x Data..@? "SnapshotScheduleState")
+      Prelude.<*> (x Data..@? "HsmStatus")
+      Prelude.<*> (x Data..@? "ClusterStatus")
+      Prelude.<*> (x Data..@? "ResizeInfo")
+      Prelude.<*> ( x Data..@? "DeferredMaintenanceWindows"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "DeferredMaintenanceWindow")
+                        (Data.parseXMLList "DeferredMaintenanceWindow")
                   )
-      Prelude.<*> (x Core..@? "Encrypted")
-      Prelude.<*> (x Core..@? "DataTransferProgress")
-      Prelude.<*> (x Core..@? "NumberOfNodes")
-      Prelude.<*> (x Core..@? "KmsKeyId")
-      Prelude.<*> (x Core..@? "DefaultIamRoleArn")
-      Prelude.<*> (x Core..@? "ExpectedNextSnapshotScheduleTime")
-      Prelude.<*> (x Core..@? "ElasticResizeNumberOfNodeOptions")
-      Prelude.<*> (x Core..@? "PendingModifiedValues")
-      Prelude.<*> (x Core..@? "EnhancedVpcRouting")
-      Prelude.<*> (x Core..@? "PreferredMaintenanceWindow")
-      Prelude.<*> ( x Core..@? "ClusterSecurityGroups"
+      Prelude.<*> (x Data..@? "Encrypted")
+      Prelude.<*> (x Data..@? "DataTransferProgress")
+      Prelude.<*> (x Data..@? "NumberOfNodes")
+      Prelude.<*> (x Data..@? "KmsKeyId")
+      Prelude.<*> (x Data..@? "DefaultIamRoleArn")
+      Prelude.<*> (x Data..@? "ExpectedNextSnapshotScheduleTime")
+      Prelude.<*> (x Data..@? "ElasticResizeNumberOfNodeOptions")
+      Prelude.<*> (x Data..@? "PendingModifiedValues")
+      Prelude.<*> (x Data..@? "EnhancedVpcRouting")
+      Prelude.<*> (x Data..@? "PreferredMaintenanceWindow")
+      Prelude.<*> ( x Data..@? "ClusterSecurityGroups"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "ClusterSecurityGroup")
+                      Prelude.>>= Core.may (Data.parseXMLList "ClusterSecurityGroup")
                   )
-      Prelude.<*> (x Core..@? "Endpoint")
-      Prelude.<*> (x Core..@? "VpcId")
-      Prelude.<*> (x Core..@? "AutomatedSnapshotRetentionPeriod")
-      Prelude.<*> (x Core..@? "ClusterCreateTime")
-      Prelude.<*> (x Core..@? "ReservedNodeExchangeStatus")
-      Prelude.<*> (x Core..@? "TotalStorageCapacityInMegaBytes")
-      Prelude.<*> (x Core..@? "DBName")
-      Prelude.<*> (x Core..@? "RestoreStatus")
-      Prelude.<*> (x Core..@? "ClusterAvailabilityStatus")
-      Prelude.<*> ( x Core..@? "VpcSecurityGroups"
+      Prelude.<*> (x Data..@? "Endpoint")
+      Prelude.<*> (x Data..@? "VpcId")
+      Prelude.<*> (x Data..@? "AutomatedSnapshotRetentionPeriod")
+      Prelude.<*> (x Data..@? "ClusterCreateTime")
+      Prelude.<*> (x Data..@? "ReservedNodeExchangeStatus")
+      Prelude.<*> (x Data..@? "TotalStorageCapacityInMegaBytes")
+      Prelude.<*> (x Data..@? "DBName")
+      Prelude.<*> (x Data..@? "RestoreStatus")
+      Prelude.<*> (x Data..@? "ClusterAvailabilityStatus")
+      Prelude.<*> ( x Data..@? "VpcSecurityGroups"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "VpcSecurityGroup")
+                      Prelude.>>= Core.may (Data.parseXMLList "VpcSecurityGroup")
                   )
 
 instance Prelude.Hashable Cluster where

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,13 +113,13 @@ instance Core.AWSRequest CreateCell where
     Response.receiveJSON
       ( \s h x ->
           CreateCellResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "parentReadinessScopes"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "parentReadinessScopes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "cellArn")
-            Prelude.<*> (x Core..?> "cellName")
-            Prelude.<*> (x Core..?> "cells" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "cellArn")
+            Prelude.<*> (x Data..?> "cellName")
+            Prelude.<*> (x Data..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,31 +135,31 @@ instance Prelude.NFData CreateCell where
       `Prelude.seq` Prelude.rnf cells
       `Prelude.seq` Prelude.rnf cellName
 
-instance Core.ToHeaders CreateCell where
+instance Data.ToHeaders CreateCell where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCell where
+instance Data.ToJSON CreateCell where
   toJSON CreateCell' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("cells" Core..=) Prelude.<$> cells,
-            Prelude.Just ("cellName" Core..= cellName)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("cells" Data..=) Prelude.<$> cells,
+            Prelude.Just ("cellName" Data..= cellName)
           ]
       )
 
-instance Core.ToPath CreateCell where
+instance Data.ToPath CreateCell where
   toPath = Prelude.const "/cells"
 
-instance Core.ToQuery CreateCell where
+instance Data.ToQuery CreateCell where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCellResponse' smart constructor.

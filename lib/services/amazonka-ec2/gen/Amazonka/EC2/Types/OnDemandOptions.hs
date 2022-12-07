@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.OnDemandOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CapacityReservationOptions
 import Amazonka.EC2.Types.FleetOnDemandAllocationStrategy
@@ -176,15 +177,15 @@ onDemandOptions_allocationStrategy = Lens.lens (\OnDemandOptions' {allocationStr
 onDemandOptions_maxTotalPrice :: Lens.Lens' OnDemandOptions (Prelude.Maybe Prelude.Text)
 onDemandOptions_maxTotalPrice = Lens.lens (\OnDemandOptions' {maxTotalPrice} -> maxTotalPrice) (\s@OnDemandOptions' {} a -> s {maxTotalPrice = a} :: OnDemandOptions)
 
-instance Core.FromXML OnDemandOptions where
+instance Data.FromXML OnDemandOptions where
   parseXML x =
     OnDemandOptions'
-      Prelude.<$> (x Core..@? "singleInstanceType")
-      Prelude.<*> (x Core..@? "singleAvailabilityZone")
-      Prelude.<*> (x Core..@? "minTargetCapacity")
-      Prelude.<*> (x Core..@? "capacityReservationOptions")
-      Prelude.<*> (x Core..@? "allocationStrategy")
-      Prelude.<*> (x Core..@? "maxTotalPrice")
+      Prelude.<$> (x Data..@? "singleInstanceType")
+      Prelude.<*> (x Data..@? "singleAvailabilityZone")
+      Prelude.<*> (x Data..@? "minTargetCapacity")
+      Prelude.<*> (x Data..@? "capacityReservationOptions")
+      Prelude.<*> (x Data..@? "allocationStrategy")
+      Prelude.<*> (x Data..@? "maxTotalPrice")
 
 instance Prelude.Hashable OnDemandOptions where
   hashWithSalt _salt OnDemandOptions' {..} =

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketLoggingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about logging for the S3 bucket
@@ -63,16 +64,16 @@ awsS3BucketLoggingConfiguration_logFilePrefix :: Lens.Lens' AwsS3BucketLoggingCo
 awsS3BucketLoggingConfiguration_logFilePrefix = Lens.lens (\AwsS3BucketLoggingConfiguration' {logFilePrefix} -> logFilePrefix) (\s@AwsS3BucketLoggingConfiguration' {} a -> s {logFilePrefix = a} :: AwsS3BucketLoggingConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketLoggingConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketLoggingConfiguration"
       ( \x ->
           AwsS3BucketLoggingConfiguration'
-            Prelude.<$> (x Core..:? "DestinationBucketName")
-            Prelude.<*> (x Core..:? "LogFilePrefix")
+            Prelude.<$> (x Data..:? "DestinationBucketName")
+            Prelude.<*> (x Data..:? "LogFilePrefix")
       )
 
 instance
@@ -93,12 +94,12 @@ instance
     Prelude.rnf destinationBucketName
       `Prelude.seq` Prelude.rnf logFilePrefix
 
-instance Core.ToJSON AwsS3BucketLoggingConfiguration where
+instance Data.ToJSON AwsS3BucketLoggingConfiguration where
   toJSON AwsS3BucketLoggingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DestinationBucketName" Core..=)
+          [ ("DestinationBucketName" Data..=)
               Prelude.<$> destinationBucketName,
-            ("LogFilePrefix" Core..=) Prelude.<$> logFilePrefix
+            ("LogFilePrefix" Data..=) Prelude.<$> logFilePrefix
           ]
       )

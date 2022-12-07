@@ -46,6 +46,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,8 +134,8 @@ instance Core.AWSRequest BatchCreateChannelMembership where
     Response.receiveJSON
       ( \s h x ->
           BatchCreateChannelMembershipResponse'
-            Prelude.<$> (x Core..?> "Errors" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "BatchChannelMemberships")
+            Prelude.<$> (x Data..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "BatchChannelMemberships")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,26 +156,26 @@ instance Prelude.NFData BatchCreateChannelMembership where
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf memberArns
 
-instance Core.ToHeaders BatchCreateChannelMembership where
+instance Data.ToHeaders BatchCreateChannelMembership where
   toHeaders BatchCreateChannelMembership' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToJSON BatchCreateChannelMembership where
+instance Data.ToJSON BatchCreateChannelMembership where
   toJSON BatchCreateChannelMembership' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            Prelude.Just ("MemberArns" Core..= memberArns)
+          [ ("Type" Data..=) Prelude.<$> type',
+            Prelude.Just ("MemberArns" Data..= memberArns)
           ]
       )
 
-instance Core.ToPath BatchCreateChannelMembership where
+instance Data.ToPath BatchCreateChannelMembership where
   toPath BatchCreateChannelMembership' {..} =
     Prelude.mconcat
-      ["/channels/", Core.toBS channelArn, "/memberships"]
+      ["/channels/", Data.toBS channelArn, "/memberships"]
 
-instance Core.ToQuery BatchCreateChannelMembership where
+instance Data.ToQuery BatchCreateChannelMembership where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["operation=batch-create"])

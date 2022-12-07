@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.PolicyGrantingServiceAccess
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,14 +99,14 @@ listPoliciesGrantingServiceAccessEntry_policies :: Lens.Lens' ListPoliciesGranti
 listPoliciesGrantingServiceAccessEntry_policies = Lens.lens (\ListPoliciesGrantingServiceAccessEntry' {policies} -> policies) (\s@ListPoliciesGrantingServiceAccessEntry' {} a -> s {policies = a} :: ListPoliciesGrantingServiceAccessEntry) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromXML
+  Data.FromXML
     ListPoliciesGrantingServiceAccessEntry
   where
   parseXML x =
     ListPoliciesGrantingServiceAccessEntry'
-      Prelude.<$> (x Core..@? "ServiceNamespace")
-      Prelude.<*> ( x Core..@? "Policies" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "ServiceNamespace")
+      Prelude.<*> ( x Data..@? "Policies" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance

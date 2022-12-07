@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.RtmpGroupSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AuthenticationScheme
 import Amazonka.MediaLive.Types.InputLossActionForRtmpOut
 import Amazonka.MediaLive.Types.RtmpAdMarkers
@@ -163,19 +164,19 @@ rtmpGroupSettings_adMarkers = Lens.lens (\RtmpGroupSettings' {adMarkers} -> adMa
 rtmpGroupSettings_restartDelay :: Lens.Lens' RtmpGroupSettings (Prelude.Maybe Prelude.Natural)
 rtmpGroupSettings_restartDelay = Lens.lens (\RtmpGroupSettings' {restartDelay} -> restartDelay) (\s@RtmpGroupSettings' {} a -> s {restartDelay = a} :: RtmpGroupSettings)
 
-instance Core.FromJSON RtmpGroupSettings where
+instance Data.FromJSON RtmpGroupSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RtmpGroupSettings"
       ( \x ->
           RtmpGroupSettings'
-            Prelude.<$> (x Core..:? "inputLossAction")
-            Prelude.<*> (x Core..:? "authenticationScheme")
-            Prelude.<*> (x Core..:? "captionData")
-            Prelude.<*> (x Core..:? "cacheFullBehavior")
-            Prelude.<*> (x Core..:? "cacheLength")
-            Prelude.<*> (x Core..:? "adMarkers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "restartDelay")
+            Prelude.<$> (x Data..:? "inputLossAction")
+            Prelude.<*> (x Data..:? "authenticationScheme")
+            Prelude.<*> (x Data..:? "captionData")
+            Prelude.<*> (x Data..:? "cacheFullBehavior")
+            Prelude.<*> (x Data..:? "cacheLength")
+            Prelude.<*> (x Data..:? "adMarkers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "restartDelay")
       )
 
 instance Prelude.Hashable RtmpGroupSettings where
@@ -198,19 +199,19 @@ instance Prelude.NFData RtmpGroupSettings where
       `Prelude.seq` Prelude.rnf adMarkers
       `Prelude.seq` Prelude.rnf restartDelay
 
-instance Core.ToJSON RtmpGroupSettings where
+instance Data.ToJSON RtmpGroupSettings where
   toJSON RtmpGroupSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inputLossAction" Core..=)
+          [ ("inputLossAction" Data..=)
               Prelude.<$> inputLossAction,
-            ("authenticationScheme" Core..=)
+            ("authenticationScheme" Data..=)
               Prelude.<$> authenticationScheme,
-            ("captionData" Core..=) Prelude.<$> captionData,
-            ("cacheFullBehavior" Core..=)
+            ("captionData" Data..=) Prelude.<$> captionData,
+            ("cacheFullBehavior" Data..=)
               Prelude.<$> cacheFullBehavior,
-            ("cacheLength" Core..=) Prelude.<$> cacheLength,
-            ("adMarkers" Core..=) Prelude.<$> adMarkers,
-            ("restartDelay" Core..=) Prelude.<$> restartDelay
+            ("cacheLength" Data..=) Prelude.<$> cacheLength,
+            ("adMarkers" Data..=) Prelude.<$> adMarkers,
+            ("restartDelay" Data..=) Prelude.<$> restartDelay
           ]
       )

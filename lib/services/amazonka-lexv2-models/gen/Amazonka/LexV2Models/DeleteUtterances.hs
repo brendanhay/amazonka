@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -155,27 +156,27 @@ instance Prelude.NFData DeleteUtterances where
       `Prelude.seq` Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf botId
 
-instance Core.ToHeaders DeleteUtterances where
+instance Data.ToHeaders DeleteUtterances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteUtterances where
+instance Data.ToPath DeleteUtterances where
   toPath DeleteUtterances' {..} =
     Prelude.mconcat
-      ["/bots/", Core.toBS botId, "/utterances/"]
+      ["/bots/", Data.toBS botId, "/utterances/"]
 
-instance Core.ToQuery DeleteUtterances where
+instance Data.ToQuery DeleteUtterances where
   toQuery DeleteUtterances' {..} =
     Prelude.mconcat
-      [ "localeId" Core.=: localeId,
-        "sessionId" Core.=: sessionId
+      [ "localeId" Data.=: localeId,
+        "sessionId" Data.=: sessionId
       ]
 
 -- | /See:/ 'newDeleteUtterancesResponse' smart constructor.

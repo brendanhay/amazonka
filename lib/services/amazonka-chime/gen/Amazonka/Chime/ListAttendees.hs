@@ -48,6 +48,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,8 +110,8 @@ instance Core.AWSRequest ListAttendees where
     Response.receiveJSON
       ( \s h x ->
           ListAttendeesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Attendees" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Attendees" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,19 +127,19 @@ instance Prelude.NFData ListAttendees where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf meetingId
 
-instance Core.ToHeaders ListAttendees where
+instance Data.ToHeaders ListAttendees where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListAttendees where
+instance Data.ToPath ListAttendees where
   toPath ListAttendees' {..} =
     Prelude.mconcat
-      ["/meetings/", Core.toBS meetingId, "/attendees"]
+      ["/meetings/", Data.toBS meetingId, "/attendees"]
 
-instance Core.ToQuery ListAttendees where
+instance Data.ToQuery ListAttendees where
   toQuery ListAttendees' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListAttendeesResponse' smart constructor.

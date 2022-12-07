@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClientVpnRoute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ClientVpnRouteStatus
 import qualified Amazonka.Prelude as Prelude
@@ -120,16 +121,16 @@ clientVpnRoute_targetSubnet = Lens.lens (\ClientVpnRoute' {targetSubnet} -> targ
 clientVpnRoute_origin :: Lens.Lens' ClientVpnRoute (Prelude.Maybe Prelude.Text)
 clientVpnRoute_origin = Lens.lens (\ClientVpnRoute' {origin} -> origin) (\s@ClientVpnRoute' {} a -> s {origin = a} :: ClientVpnRoute)
 
-instance Core.FromXML ClientVpnRoute where
+instance Data.FromXML ClientVpnRoute where
   parseXML x =
     ClientVpnRoute'
-      Prelude.<$> (x Core..@? "type")
-      Prelude.<*> (x Core..@? "destinationCidr")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "clientVpnEndpointId")
-      Prelude.<*> (x Core..@? "targetSubnet")
-      Prelude.<*> (x Core..@? "origin")
+      Prelude.<$> (x Data..@? "type")
+      Prelude.<*> (x Data..@? "destinationCidr")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "clientVpnEndpointId")
+      Prelude.<*> (x Data..@? "targetSubnet")
+      Prelude.<*> (x Data..@? "origin")
 
 instance Prelude.Hashable ClientVpnRoute where
   hashWithSalt _salt ClientVpnRoute' {..} =

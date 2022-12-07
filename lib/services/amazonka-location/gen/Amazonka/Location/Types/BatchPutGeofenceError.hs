@@ -21,6 +21,7 @@ module Amazonka.Location.Types.BatchPutGeofenceError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.BatchItemError
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,14 +68,14 @@ batchPutGeofenceError_error = Lens.lens (\BatchPutGeofenceError' {error} -> erro
 batchPutGeofenceError_geofenceId :: Lens.Lens' BatchPutGeofenceError Prelude.Text
 batchPutGeofenceError_geofenceId = Lens.lens (\BatchPutGeofenceError' {geofenceId} -> geofenceId) (\s@BatchPutGeofenceError' {} a -> s {geofenceId = a} :: BatchPutGeofenceError)
 
-instance Core.FromJSON BatchPutGeofenceError where
+instance Data.FromJSON BatchPutGeofenceError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchPutGeofenceError"
       ( \x ->
           BatchPutGeofenceError'
-            Prelude.<$> (x Core..: "Error")
-            Prelude.<*> (x Core..: "GeofenceId")
+            Prelude.<$> (x Data..: "Error")
+            Prelude.<*> (x Data..: "GeofenceId")
       )
 
 instance Prelude.Hashable BatchPutGeofenceError where

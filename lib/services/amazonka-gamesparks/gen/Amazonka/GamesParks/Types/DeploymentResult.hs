@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.DeploymentResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types.ResultCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ deploymentResult_message = Lens.lens (\DeploymentResult' {message} -> message) (
 deploymentResult_resultCode :: Lens.Lens' DeploymentResult (Prelude.Maybe ResultCode)
 deploymentResult_resultCode = Lens.lens (\DeploymentResult' {resultCode} -> resultCode) (\s@DeploymentResult' {} a -> s {resultCode = a} :: DeploymentResult)
 
-instance Core.FromJSON DeploymentResult where
+instance Data.FromJSON DeploymentResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentResult"
       ( \x ->
           DeploymentResult'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "ResultCode")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "ResultCode")
       )
 
 instance Prelude.Hashable DeploymentResult where

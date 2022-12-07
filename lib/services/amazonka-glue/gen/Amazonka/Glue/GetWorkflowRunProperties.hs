@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ instance Core.AWSRequest GetWorkflowRunProperties where
     Response.receiveJSON
       ( \s h x ->
           GetWorkflowRunPropertiesResponse'
-            Prelude.<$> (x Core..?> "RunProperties" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "RunProperties" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,34 +111,34 @@ instance Prelude.NFData GetWorkflowRunProperties where
   rnf GetWorkflowRunProperties' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf runId
 
-instance Core.ToHeaders GetWorkflowRunProperties where
+instance Data.ToHeaders GetWorkflowRunProperties where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.GetWorkflowRunProperties" ::
+              Data.=# ( "AWSGlue.GetWorkflowRunProperties" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetWorkflowRunProperties where
+instance Data.ToJSON GetWorkflowRunProperties where
   toJSON GetWorkflowRunProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("RunId" Core..= runId)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("RunId" Data..= runId)
           ]
       )
 
-instance Core.ToPath GetWorkflowRunProperties where
+instance Data.ToPath GetWorkflowRunProperties where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetWorkflowRunProperties where
+instance Data.ToQuery GetWorkflowRunProperties where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetWorkflowRunPropertiesResponse' smart constructor.

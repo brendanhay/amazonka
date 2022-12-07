@@ -64,6 +64,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -169,10 +170,10 @@ instance Core.AWSRequest UpdateRecoveryPointLifecycle where
     Response.receiveJSON
       ( \s h x ->
           UpdateRecoveryPointLifecycleResponse'
-            Prelude.<$> (x Core..?> "Lifecycle")
-            Prelude.<*> (x Core..?> "RecoveryPointArn")
-            Prelude.<*> (x Core..?> "BackupVaultArn")
-            Prelude.<*> (x Core..?> "CalculatedLifecycle")
+            Prelude.<$> (x Data..?> "Lifecycle")
+            Prelude.<*> (x Data..?> "RecoveryPointArn")
+            Prelude.<*> (x Data..?> "BackupVaultArn")
+            Prelude.<*> (x Data..?> "CalculatedLifecycle")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,34 +192,34 @@ instance Prelude.NFData UpdateRecoveryPointLifecycle where
       `Prelude.seq` Prelude.rnf backupVaultName
       `Prelude.seq` Prelude.rnf recoveryPointArn
 
-instance Core.ToHeaders UpdateRecoveryPointLifecycle where
+instance Data.ToHeaders UpdateRecoveryPointLifecycle where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRecoveryPointLifecycle where
+instance Data.ToJSON UpdateRecoveryPointLifecycle where
   toJSON UpdateRecoveryPointLifecycle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Lifecycle" Core..=) Prelude.<$> lifecycle]
+          [("Lifecycle" Data..=) Prelude.<$> lifecycle]
       )
 
-instance Core.ToPath UpdateRecoveryPointLifecycle where
+instance Data.ToPath UpdateRecoveryPointLifecycle where
   toPath UpdateRecoveryPointLifecycle' {..} =
     Prelude.mconcat
       [ "/backup-vaults/",
-        Core.toBS backupVaultName,
+        Data.toBS backupVaultName,
         "/recovery-points/",
-        Core.toBS recoveryPointArn
+        Data.toBS recoveryPointArn
       ]
 
-instance Core.ToQuery UpdateRecoveryPointLifecycle where
+instance Data.ToQuery UpdateRecoveryPointLifecycle where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRecoveryPointLifecycleResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.OpenMonitoring where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.Prometheus
 import qualified Amazonka.Prelude as Prelude
 
@@ -53,12 +54,12 @@ newOpenMonitoring pPrometheus_ =
 openMonitoring_prometheus :: Lens.Lens' OpenMonitoring Prometheus
 openMonitoring_prometheus = Lens.lens (\OpenMonitoring' {prometheus} -> prometheus) (\s@OpenMonitoring' {} a -> s {prometheus = a} :: OpenMonitoring)
 
-instance Core.FromJSON OpenMonitoring where
+instance Data.FromJSON OpenMonitoring where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpenMonitoring"
       ( \x ->
-          OpenMonitoring' Prelude.<$> (x Core..: "prometheus")
+          OpenMonitoring' Prelude.<$> (x Data..: "prometheus")
       )
 
 instance Prelude.Hashable OpenMonitoring where

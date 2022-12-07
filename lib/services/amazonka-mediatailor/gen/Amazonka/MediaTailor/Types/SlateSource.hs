@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.SlateSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Slate VOD source configuration.
@@ -64,14 +65,14 @@ slateSource_vodSourceName = Lens.lens (\SlateSource' {vodSourceName} -> vodSourc
 slateSource_sourceLocationName :: Lens.Lens' SlateSource (Prelude.Maybe Prelude.Text)
 slateSource_sourceLocationName = Lens.lens (\SlateSource' {sourceLocationName} -> sourceLocationName) (\s@SlateSource' {} a -> s {sourceLocationName = a} :: SlateSource)
 
-instance Core.FromJSON SlateSource where
+instance Data.FromJSON SlateSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlateSource"
       ( \x ->
           SlateSource'
-            Prelude.<$> (x Core..:? "VodSourceName")
-            Prelude.<*> (x Core..:? "SourceLocationName")
+            Prelude.<$> (x Data..:? "VodSourceName")
+            Prelude.<*> (x Data..:? "SourceLocationName")
       )
 
 instance Prelude.Hashable SlateSource where
@@ -84,12 +85,12 @@ instance Prelude.NFData SlateSource where
     Prelude.rnf vodSourceName
       `Prelude.seq` Prelude.rnf sourceLocationName
 
-instance Core.ToJSON SlateSource where
+instance Data.ToJSON SlateSource where
   toJSON SlateSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VodSourceName" Core..=) Prelude.<$> vodSourceName,
-            ("SourceLocationName" Core..=)
+          [ ("VodSourceName" Data..=) Prelude.<$> vodSourceName,
+            ("SourceLocationName" Data..=)
               Prelude.<$> sourceLocationName
           ]
       )

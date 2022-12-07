@@ -22,6 +22,7 @@ module Amazonka.CodeCommit.Types.SetFileModeEntry where
 import Amazonka.CodeCommit.Types.FileModeTypeEnum
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the file mode changes.
@@ -76,11 +77,11 @@ instance Prelude.NFData SetFileModeEntry where
     Prelude.rnf filePath
       `Prelude.seq` Prelude.rnf fileMode
 
-instance Core.ToJSON SetFileModeEntry where
+instance Data.ToJSON SetFileModeEntry where
   toJSON SetFileModeEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("filePath" Core..= filePath),
-            Prelude.Just ("fileMode" Core..= fileMode)
+          [ Prelude.Just ("filePath" Data..= filePath),
+            Prelude.Just ("fileMode" Data..= fileMode)
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.Config.Types.MemberAccountStatus where
 import Amazonka.Config.Types.MemberAccountRuleStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Organization Config rule creation or deletion status in each member
@@ -37,7 +38,7 @@ data MemberAccountStatus = MemberAccountStatus'
     -- failed in the member account.
     errorCode :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the last status update.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The 12-digit account ID of a member account.
     accountId :: Prelude.Text,
     -- | The name of Config rule deployed in the member account.
@@ -174,7 +175,7 @@ memberAccountStatus_errorCode = Lens.lens (\MemberAccountStatus' {errorCode} -> 
 
 -- | The timestamp of the last status update.
 memberAccountStatus_lastUpdateTime :: Lens.Lens' MemberAccountStatus (Prelude.Maybe Prelude.UTCTime)
-memberAccountStatus_lastUpdateTime = Lens.lens (\MemberAccountStatus' {lastUpdateTime} -> lastUpdateTime) (\s@MemberAccountStatus' {} a -> s {lastUpdateTime = a} :: MemberAccountStatus) Prelude.. Lens.mapping Core._Time
+memberAccountStatus_lastUpdateTime = Lens.lens (\MemberAccountStatus' {lastUpdateTime} -> lastUpdateTime) (\s@MemberAccountStatus' {} a -> s {lastUpdateTime = a} :: MemberAccountStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The 12-digit account ID of a member account.
 memberAccountStatus_accountId :: Lens.Lens' MemberAccountStatus Prelude.Text
@@ -224,18 +225,18 @@ memberAccountStatus_configRuleName = Lens.lens (\MemberAccountStatus' {configRul
 memberAccountStatus_memberAccountRuleStatus :: Lens.Lens' MemberAccountStatus MemberAccountRuleStatus
 memberAccountStatus_memberAccountRuleStatus = Lens.lens (\MemberAccountStatus' {memberAccountRuleStatus} -> memberAccountRuleStatus) (\s@MemberAccountStatus' {} a -> s {memberAccountRuleStatus = a} :: MemberAccountStatus)
 
-instance Core.FromJSON MemberAccountStatus where
+instance Data.FromJSON MemberAccountStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MemberAccountStatus"
       ( \x ->
           MemberAccountStatus'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "LastUpdateTime")
-            Prelude.<*> (x Core..: "AccountId")
-            Prelude.<*> (x Core..: "ConfigRuleName")
-            Prelude.<*> (x Core..: "MemberAccountRuleStatus")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "LastUpdateTime")
+            Prelude.<*> (x Data..: "AccountId")
+            Prelude.<*> (x Data..: "ConfigRuleName")
+            Prelude.<*> (x Data..: "MemberAccountRuleStatus")
       )
 
 instance Prelude.Hashable MemberAccountStatus where

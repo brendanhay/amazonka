@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,23 +97,23 @@ instance Prelude.NFData DeleteControlPanel where
   rnf DeleteControlPanel' {..} =
     Prelude.rnf controlPanelArn
 
-instance Core.ToHeaders DeleteControlPanel where
+instance Data.ToHeaders DeleteControlPanel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteControlPanel where
+instance Data.ToPath DeleteControlPanel where
   toPath DeleteControlPanel' {..} =
     Prelude.mconcat
-      ["/controlpanel/", Core.toBS controlPanelArn]
+      ["/controlpanel/", Data.toBS controlPanelArn]
 
-instance Core.ToQuery DeleteControlPanel where
+instance Data.ToQuery DeleteControlPanel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteControlPanelResponse' smart constructor.

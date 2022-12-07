@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.ChatStreamingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The streaming configuration, such as the Amazon SNS streaming endpoint.
@@ -69,13 +70,13 @@ instance Prelude.NFData ChatStreamingConfiguration where
   rnf ChatStreamingConfiguration' {..} =
     Prelude.rnf streamingEndpointArn
 
-instance Core.ToJSON ChatStreamingConfiguration where
+instance Data.ToJSON ChatStreamingConfiguration where
   toJSON ChatStreamingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "StreamingEndpointArn"
-                  Core..= streamingEndpointArn
+                  Data..= streamingEndpointArn
               )
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.SectionModification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types.Document
 import Amazonka.GamesParks.Types.Operation
 import qualified Amazonka.Prelude as Prelude
@@ -113,13 +114,13 @@ instance Prelude.NFData SectionModification where
       `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf section
 
-instance Core.ToJSON SectionModification where
+instance Data.ToJSON SectionModification where
   toJSON SectionModification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            Prelude.Just ("Operation" Core..= operation),
-            Prelude.Just ("Path" Core..= path),
-            Prelude.Just ("Section" Core..= section)
+          [ ("Value" Data..=) Prelude.<$> value,
+            Prelude.Just ("Operation" Data..= operation),
+            Prelude.Just ("Path" Data..= path),
+            Prelude.Just ("Section" Data..= section)
           ]
       )

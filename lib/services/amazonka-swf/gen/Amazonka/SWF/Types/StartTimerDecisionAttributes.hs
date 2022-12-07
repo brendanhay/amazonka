@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.StartTimerDecisionAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @StartTimer@ decision.
@@ -139,13 +140,13 @@ instance Prelude.NFData StartTimerDecisionAttributes where
       `Prelude.seq` Prelude.rnf timerId
       `Prelude.seq` Prelude.rnf startToFireTimeout
 
-instance Core.ToJSON StartTimerDecisionAttributes where
+instance Data.ToJSON StartTimerDecisionAttributes where
   toJSON StartTimerDecisionAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("control" Core..=) Prelude.<$> control,
-            Prelude.Just ("timerId" Core..= timerId),
+          [ ("control" Data..=) Prelude.<$> control,
+            Prelude.Just ("timerId" Data..= timerId),
             Prelude.Just
-              ("startToFireTimeout" Core..= startToFireTimeout)
+              ("startToFireTimeout" Data..= startToFireTimeout)
           ]
       )

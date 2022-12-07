@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.DatasetSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.GroundTruthManifest
 
@@ -84,12 +85,12 @@ instance Prelude.NFData DatasetSource where
     Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf groundTruthManifest
 
-instance Core.ToJSON DatasetSource where
+instance Data.ToJSON DatasetSource where
   toJSON DatasetSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DatasetArn" Core..=) Prelude.<$> datasetArn,
-            ("GroundTruthManifest" Core..=)
+          [ ("DatasetArn" Data..=) Prelude.<$> datasetArn,
+            ("GroundTruthManifest" Data..=)
               Prelude.<$> groundTruthManifest
           ]
       )

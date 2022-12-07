@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -80,7 +81,7 @@ instance Core.AWSRequest GetQueue where
     Response.receiveJSON
       ( \s h x ->
           GetQueueResponse'
-            Prelude.<$> (x Core..?> "queue")
+            Prelude.<$> (x Data..?> "queue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -91,23 +92,23 @@ instance Prelude.Hashable GetQueue where
 instance Prelude.NFData GetQueue where
   rnf GetQueue' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetQueue where
+instance Data.ToHeaders GetQueue where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetQueue where
+instance Data.ToPath GetQueue where
   toPath GetQueue' {..} =
     Prelude.mconcat
-      ["/2017-08-29/queues/", Core.toBS name]
+      ["/2017-08-29/queues/", Data.toBS name]
 
-instance Core.ToQuery GetQueue where
+instance Data.ToQuery GetQueue where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetQueueResponse' smart constructor.

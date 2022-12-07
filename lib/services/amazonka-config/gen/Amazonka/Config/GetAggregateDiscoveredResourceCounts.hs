@@ -57,6 +57,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,13 +152,13 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetAggregateDiscoveredResourceCountsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "GroupedResourceCounts"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "GroupedResourceCounts"
                               Core..!@ Prelude.mempty
                           )
-              Prelude.<*> (x Core..?> "GroupByKey")
+              Prelude.<*> (x Data..?> "GroupByKey")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "TotalDiscoveredResources")
+              Prelude.<*> (x Data..:> "TotalDiscoveredResources")
       )
 
 instance
@@ -185,49 +186,49 @@ instance
       `Prelude.seq` Prelude.rnf configurationAggregatorName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetAggregateDiscoveredResourceCounts
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.GetAggregateDiscoveredResourceCounts" ::
+              Data.=# ( "StarlingDoveService.GetAggregateDiscoveredResourceCounts" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetAggregateDiscoveredResourceCounts
   where
   toJSON GetAggregateDiscoveredResourceCounts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("GroupByKey" Core..=) Prelude.<$> groupByKey,
-            ("Limit" Core..=) Prelude.<$> limit,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("GroupByKey" Data..=) Prelude.<$> groupByKey,
+            ("Limit" Data..=) Prelude.<$> limit,
             Prelude.Just
               ( "ConfigurationAggregatorName"
-                  Core..= configurationAggregatorName
+                  Data..= configurationAggregatorName
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetAggregateDiscoveredResourceCounts
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetAggregateDiscoveredResourceCounts
   where
   toQuery = Prelude.const Prelude.mempty

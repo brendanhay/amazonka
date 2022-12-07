@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CreditSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,10 +58,10 @@ newCreditSpecification =
 creditSpecification_cpuCredits :: Lens.Lens' CreditSpecification (Prelude.Maybe Prelude.Text)
 creditSpecification_cpuCredits = Lens.lens (\CreditSpecification' {cpuCredits} -> cpuCredits) (\s@CreditSpecification' {} a -> s {cpuCredits = a} :: CreditSpecification)
 
-instance Core.FromXML CreditSpecification where
+instance Data.FromXML CreditSpecification where
   parseXML x =
     CreditSpecification'
-      Prelude.<$> (x Core..@? "cpuCredits")
+      Prelude.<$> (x Data..@? "cpuCredits")
 
 instance Prelude.Hashable CreditSpecification where
   hashWithSalt _salt CreditSpecification' {..} =

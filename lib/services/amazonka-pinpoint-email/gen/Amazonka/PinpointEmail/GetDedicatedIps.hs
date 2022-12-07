@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointEmail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,8 +147,8 @@ instance Core.AWSRequest GetDedicatedIps where
     Response.receiveJSON
       ( \s h x ->
           GetDedicatedIpsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "DedicatedIps" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "DedicatedIps" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,26 +164,26 @@ instance Prelude.NFData GetDedicatedIps where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf poolName
 
-instance Core.ToHeaders GetDedicatedIps where
+instance Data.ToHeaders GetDedicatedIps where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDedicatedIps where
+instance Data.ToPath GetDedicatedIps where
   toPath = Prelude.const "/v1/email/dedicated-ips"
 
-instance Core.ToQuery GetDedicatedIps where
+instance Data.ToQuery GetDedicatedIps where
   toQuery GetDedicatedIps' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "PageSize" Core.=: pageSize,
-        "PoolName" Core.=: poolName
+      [ "NextToken" Data.=: nextToken,
+        "PageSize" Data.=: pageSize,
+        "PoolName" Data.=: poolName
       ]
 
 -- | Information about the dedicated IP addresses that are associated with

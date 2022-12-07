@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,16 +135,16 @@ instance Core.AWSRequest DescribeEnvironmentHealth where
       "DescribeEnvironmentHealthResult"
       ( \s h x ->
           DescribeEnvironmentHealthResponse'
-            Prelude.<$> (x Core..@? "InstancesHealth")
-            Prelude.<*> (x Core..@? "EnvironmentName")
-            Prelude.<*> (x Core..@? "Color")
-            Prelude.<*> (x Core..@? "HealthStatus")
-            Prelude.<*> (x Core..@? "Status")
-            Prelude.<*> (x Core..@? "ApplicationMetrics")
-            Prelude.<*> ( x Core..@? "Causes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "InstancesHealth")
+            Prelude.<*> (x Data..@? "EnvironmentName")
+            Prelude.<*> (x Data..@? "Color")
+            Prelude.<*> (x Data..@? "HealthStatus")
+            Prelude.<*> (x Data..@? "Status")
+            Prelude.<*> (x Data..@? "ApplicationMetrics")
+            Prelude.<*> ( x Data..@? "Causes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "RefreshedAt")
+            Prelude.<*> (x Data..@? "RefreshedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,26 +160,26 @@ instance Prelude.NFData DescribeEnvironmentHealth where
       `Prelude.seq` Prelude.rnf attributeNames
       `Prelude.seq` Prelude.rnf environmentId
 
-instance Core.ToHeaders DescribeEnvironmentHealth where
+instance Data.ToHeaders DescribeEnvironmentHealth where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeEnvironmentHealth where
+instance Data.ToPath DescribeEnvironmentHealth where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEnvironmentHealth where
+instance Data.ToQuery DescribeEnvironmentHealth where
   toQuery DescribeEnvironmentHealth' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeEnvironmentHealth" :: Prelude.ByteString),
+          Data.=: ("DescribeEnvironmentHealth" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentName" Core.=: environmentName,
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "EnvironmentName" Data.=: environmentName,
         "AttributeNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> attributeNames
             ),
-        "EnvironmentId" Core.=: environmentId
+        "EnvironmentId" Data.=: environmentId
       ]
 
 -- | Health details for an AWS Elastic Beanstalk environment.
@@ -206,7 +207,7 @@ data DescribeEnvironmentHealthResponse = DescribeEnvironmentHealthResponse'
     -- health status.
     causes :: Prelude.Maybe [Prelude.Text],
     -- | The date and time that the health information was retrieved.
-    refreshedAt :: Prelude.Maybe Core.ISO8601,
+    refreshedAt :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -297,7 +298,7 @@ describeEnvironmentHealthResponse_causes = Lens.lens (\DescribeEnvironmentHealth
 
 -- | The date and time that the health information was retrieved.
 describeEnvironmentHealthResponse_refreshedAt :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe Prelude.UTCTime)
-describeEnvironmentHealthResponse_refreshedAt = Lens.lens (\DescribeEnvironmentHealthResponse' {refreshedAt} -> refreshedAt) (\s@DescribeEnvironmentHealthResponse' {} a -> s {refreshedAt = a} :: DescribeEnvironmentHealthResponse) Prelude.. Lens.mapping Core._Time
+describeEnvironmentHealthResponse_refreshedAt = Lens.lens (\DescribeEnvironmentHealthResponse' {refreshedAt} -> refreshedAt) (\s@DescribeEnvironmentHealthResponse' {} a -> s {refreshedAt = a} :: DescribeEnvironmentHealthResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeEnvironmentHealthResponse_httpStatus :: Lens.Lens' DescribeEnvironmentHealthResponse Prelude.Int

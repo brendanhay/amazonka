@@ -22,6 +22,7 @@ module Amazonka.BillingConductor.Types.AssociateResourceResponseElement where
 import Amazonka.BillingConductor.Types.AssociateResourceError
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource association result for a percentage custom line item.
@@ -67,15 +68,15 @@ associateResourceResponseElement_error :: Lens.Lens' AssociateResourceResponseEl
 associateResourceResponseElement_error = Lens.lens (\AssociateResourceResponseElement' {error} -> error) (\s@AssociateResourceResponseElement' {} a -> s {error = a} :: AssociateResourceResponseElement)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AssociateResourceResponseElement
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssociateResourceResponseElement"
       ( \x ->
           AssociateResourceResponseElement'
-            Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "Error")
+            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Error")
       )
 
 instance

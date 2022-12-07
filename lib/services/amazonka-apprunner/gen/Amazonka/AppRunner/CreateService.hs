@@ -57,6 +57,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -229,8 +230,8 @@ instance Core.AWSRequest CreateService where
       ( \s h x ->
           CreateServiceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Service")
-            Prelude.<*> (x Core..:> "OperationId")
+            Prelude.<*> (x Data..:> "Service")
+            Prelude.<*> (x Data..:> "OperationId")
       )
 
 instance Prelude.Hashable CreateService where
@@ -257,46 +258,46 @@ instance Prelude.NFData CreateService where
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf sourceConfiguration
 
-instance Core.ToHeaders CreateService where
+instance Data.ToHeaders CreateService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AppRunner.CreateService" :: Prelude.ByteString),
+              Data.=# ("AppRunner.CreateService" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateService where
+instance Data.ToJSON CreateService where
   toJSON CreateService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("InstanceConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("InstanceConfiguration" Data..=)
               Prelude.<$> instanceConfiguration,
-            ("ObservabilityConfiguration" Core..=)
+            ("ObservabilityConfiguration" Data..=)
               Prelude.<$> observabilityConfiguration,
-            ("NetworkConfiguration" Core..=)
+            ("NetworkConfiguration" Data..=)
               Prelude.<$> networkConfiguration,
-            ("EncryptionConfiguration" Core..=)
+            ("EncryptionConfiguration" Data..=)
               Prelude.<$> encryptionConfiguration,
-            ("AutoScalingConfigurationArn" Core..=)
+            ("AutoScalingConfigurationArn" Data..=)
               Prelude.<$> autoScalingConfigurationArn,
-            ("HealthCheckConfiguration" Core..=)
+            ("HealthCheckConfiguration" Data..=)
               Prelude.<$> healthCheckConfiguration,
-            Prelude.Just ("ServiceName" Core..= serviceName),
+            Prelude.Just ("ServiceName" Data..= serviceName),
             Prelude.Just
-              ("SourceConfiguration" Core..= sourceConfiguration)
+              ("SourceConfiguration" Data..= sourceConfiguration)
           ]
       )
 
-instance Core.ToPath CreateService where
+instance Data.ToPath CreateService where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateService where
+instance Data.ToQuery CreateService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateServiceResponse' smart constructor.

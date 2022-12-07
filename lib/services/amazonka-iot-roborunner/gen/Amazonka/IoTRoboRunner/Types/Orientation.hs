@@ -21,6 +21,7 @@ module Amazonka.IoTRoboRunner.Types.Orientation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Worker orientation measured in units clockwise from north.
@@ -50,12 +51,12 @@ newOrientation =
 orientation_degrees :: Lens.Lens' Orientation (Prelude.Maybe Prelude.Double)
 orientation_degrees = Lens.lens (\Orientation' {degrees} -> degrees) (\s@Orientation' {} a -> s {degrees = a} :: Orientation)
 
-instance Core.FromJSON Orientation where
+instance Data.FromJSON Orientation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Orientation"
       ( \x ->
-          Orientation' Prelude.<$> (x Core..:? "degrees")
+          Orientation' Prelude.<$> (x Data..:? "degrees")
       )
 
 instance Prelude.Hashable Orientation where
@@ -65,9 +66,9 @@ instance Prelude.Hashable Orientation where
 instance Prelude.NFData Orientation where
   rnf Orientation' {..} = Prelude.rnf degrees
 
-instance Core.ToJSON Orientation where
+instance Data.ToJSON Orientation where
   toJSON Orientation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("degrees" Core..=) Prelude.<$> degrees]
+          [("degrees" Data..=) Prelude.<$> degrees]
       )

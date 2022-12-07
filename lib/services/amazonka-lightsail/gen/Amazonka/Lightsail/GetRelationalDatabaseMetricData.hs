@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,7 +129,7 @@ data GetRelationalDatabaseMetricData = GetRelationalDatabaseMetricData'
     --
     --     For example, if you wish to use a start time of October 1, 2018, at
     --     8 PM UTC, then you input @1538424000@ as the start time.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The end of the time interval from which to get metric data.
     --
     -- Constraints:
@@ -139,7 +140,7 @@ data GetRelationalDatabaseMetricData = GetRelationalDatabaseMetricData'
     --
     --     For example, if you wish to use an end time of October 1, 2018, at 8
     --     PM UTC, then you input @1538424000@ as the end time.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | The unit for the metric data request. Valid units depend on the metric
     -- data being requested. For the valid units with each available metric,
     -- see the @metricName@ parameter.
@@ -316,8 +317,8 @@ newGetRelationalDatabaseMetricData
           pRelationalDatabaseName_,
         metricName = pMetricName_,
         period = pPeriod_,
-        startTime = Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_,
+        startTime = Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         unit = pUnit_,
         statistics = Prelude.mempty
       }
@@ -397,7 +398,7 @@ getRelationalDatabaseMetricData_period = Lens.lens (\GetRelationalDatabaseMetric
 --     For example, if you wish to use a start time of October 1, 2018, at
 --     8 PM UTC, then you input @1538424000@ as the start time.
 getRelationalDatabaseMetricData_startTime :: Lens.Lens' GetRelationalDatabaseMetricData Prelude.UTCTime
-getRelationalDatabaseMetricData_startTime = Lens.lens (\GetRelationalDatabaseMetricData' {startTime} -> startTime) (\s@GetRelationalDatabaseMetricData' {} a -> s {startTime = a} :: GetRelationalDatabaseMetricData) Prelude.. Core._Time
+getRelationalDatabaseMetricData_startTime = Lens.lens (\GetRelationalDatabaseMetricData' {startTime} -> startTime) (\s@GetRelationalDatabaseMetricData' {} a -> s {startTime = a} :: GetRelationalDatabaseMetricData) Prelude.. Data._Time
 
 -- | The end of the time interval from which to get metric data.
 --
@@ -410,7 +411,7 @@ getRelationalDatabaseMetricData_startTime = Lens.lens (\GetRelationalDatabaseMet
 --     For example, if you wish to use an end time of October 1, 2018, at 8
 --     PM UTC, then you input @1538424000@ as the end time.
 getRelationalDatabaseMetricData_endTime :: Lens.Lens' GetRelationalDatabaseMetricData Prelude.UTCTime
-getRelationalDatabaseMetricData_endTime = Lens.lens (\GetRelationalDatabaseMetricData' {endTime} -> endTime) (\s@GetRelationalDatabaseMetricData' {} a -> s {endTime = a} :: GetRelationalDatabaseMetricData) Prelude.. Core._Time
+getRelationalDatabaseMetricData_endTime = Lens.lens (\GetRelationalDatabaseMetricData' {endTime} -> endTime) (\s@GetRelationalDatabaseMetricData' {} a -> s {endTime = a} :: GetRelationalDatabaseMetricData) Prelude.. Data._Time
 
 -- | The unit for the metric data request. Valid units depend on the metric
 -- data being requested. For the valid units with each available metric,
@@ -459,8 +460,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseMetricDataResponse'
-            Prelude.<$> (x Core..?> "metricName")
-            Prelude.<*> (x Core..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "metricName")
+            Prelude.<*> (x Data..?> "metricData" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -493,44 +494,44 @@ instance
       `Prelude.seq` Prelude.rnf statistics
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetRelationalDatabaseMetricData
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetRelationalDatabaseMetricData" ::
+              Data.=# ( "Lightsail_20161128.GetRelationalDatabaseMetricData" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRelationalDatabaseMetricData where
+instance Data.ToJSON GetRelationalDatabaseMetricData where
   toJSON GetRelationalDatabaseMetricData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "relationalDatabaseName"
-                  Core..= relationalDatabaseName
+                  Data..= relationalDatabaseName
               ),
-            Prelude.Just ("metricName" Core..= metricName),
-            Prelude.Just ("period" Core..= period),
-            Prelude.Just ("startTime" Core..= startTime),
-            Prelude.Just ("endTime" Core..= endTime),
-            Prelude.Just ("unit" Core..= unit),
-            Prelude.Just ("statistics" Core..= statistics)
+            Prelude.Just ("metricName" Data..= metricName),
+            Prelude.Just ("period" Data..= period),
+            Prelude.Just ("startTime" Data..= startTime),
+            Prelude.Just ("endTime" Data..= endTime),
+            Prelude.Just ("unit" Data..= unit),
+            Prelude.Just ("statistics" Data..= statistics)
           ]
       )
 
-instance Core.ToPath GetRelationalDatabaseMetricData where
+instance Data.ToPath GetRelationalDatabaseMetricData where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRelationalDatabaseMetricData where
+instance Data.ToQuery GetRelationalDatabaseMetricData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRelationalDatabaseMetricDataResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.MetricResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An individual metric Forecast calculated when monitoring predictor
@@ -66,14 +67,14 @@ metricResult_metricValue = Lens.lens (\MetricResult' {metricValue} -> metricValu
 metricResult_metricName :: Lens.Lens' MetricResult (Prelude.Maybe Prelude.Text)
 metricResult_metricName = Lens.lens (\MetricResult' {metricName} -> metricName) (\s@MetricResult' {} a -> s {metricName = a} :: MetricResult)
 
-instance Core.FromJSON MetricResult where
+instance Data.FromJSON MetricResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricResult"
       ( \x ->
           MetricResult'
-            Prelude.<$> (x Core..:? "MetricValue")
-            Prelude.<*> (x Core..:? "MetricName")
+            Prelude.<$> (x Data..:? "MetricValue")
+            Prelude.<*> (x Data..:? "MetricName")
       )
 
 instance Prelude.Hashable MetricResult where

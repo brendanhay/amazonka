@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,7 +131,7 @@ instance Core.AWSRequest UpdateImage where
     Response.receiveJSON
       ( \s h x ->
           UpdateImageResponse'
-            Prelude.<$> (x Core..?> "ImageArn")
+            Prelude.<$> (x Data..?> "ImageArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,36 +151,36 @@ instance Prelude.NFData UpdateImage where
       `Prelude.seq` Prelude.rnf deleteProperties
       `Prelude.seq` Prelude.rnf imageName
 
-instance Core.ToHeaders UpdateImage where
+instance Data.ToHeaders UpdateImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.UpdateImage" :: Prelude.ByteString),
+              Data.=# ("SageMaker.UpdateImage" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateImage where
+instance Data.ToJSON UpdateImage where
   toJSON UpdateImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("Description" Core..=) Prelude.<$> description,
-            ("DeleteProperties" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("Description" Data..=) Prelude.<$> description,
+            ("DeleteProperties" Data..=)
               Prelude.<$> deleteProperties,
-            Prelude.Just ("ImageName" Core..= imageName)
+            Prelude.Just ("ImageName" Data..= imageName)
           ]
       )
 
-instance Core.ToPath UpdateImage where
+instance Data.ToPath UpdateImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateImage where
+instance Data.ToQuery UpdateImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateImageResponse' smart constructor.

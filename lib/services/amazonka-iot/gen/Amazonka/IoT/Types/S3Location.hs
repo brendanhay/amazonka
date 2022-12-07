@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.S3Location where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The S3 location.
@@ -70,15 +71,15 @@ s3Location_bucket = Lens.lens (\S3Location' {bucket} -> bucket) (\s@S3Location' 
 s3Location_version :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
 s3Location_version = Lens.lens (\S3Location' {version} -> version) (\s@S3Location' {} a -> s {version = a} :: S3Location)
 
-instance Core.FromJSON S3Location where
+instance Data.FromJSON S3Location where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "bucket")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "bucket")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable S3Location where
@@ -93,12 +94,12 @@ instance Prelude.NFData S3Location where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON S3Location where
+instance Data.ToJSON S3Location where
   toJSON S3Location' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("bucket" Core..=) Prelude.<$> bucket,
-            ("version" Core..=) Prelude.<$> version
+          [ ("key" Data..=) Prelude.<$> key,
+            ("bucket" Data..=) Prelude.<$> bucket,
+            ("version" Data..=) Prelude.<$> version
           ]
       )

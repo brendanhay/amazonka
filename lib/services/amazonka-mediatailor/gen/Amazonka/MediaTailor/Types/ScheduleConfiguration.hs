@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.ScheduleConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.Transition
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,9 +63,9 @@ instance Prelude.NFData ScheduleConfiguration where
   rnf ScheduleConfiguration' {..} =
     Prelude.rnf transition
 
-instance Core.ToJSON ScheduleConfiguration where
+instance Data.ToJSON ScheduleConfiguration where
   toJSON ScheduleConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Transition" Core..= transition)]
+          [Prelude.Just ("Transition" Data..= transition)]
       )

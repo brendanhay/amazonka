@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,21 +137,21 @@ instance Prelude.NFData DeleteSSHPublicKey where
     Prelude.rnf userName
       `Prelude.seq` Prelude.rnf sSHPublicKeyId
 
-instance Core.ToHeaders DeleteSSHPublicKey where
+instance Data.ToHeaders DeleteSSHPublicKey where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteSSHPublicKey where
+instance Data.ToPath DeleteSSHPublicKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSSHPublicKey where
+instance Data.ToQuery DeleteSSHPublicKey where
   toQuery DeleteSSHPublicKey' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteSSHPublicKey" :: Prelude.ByteString),
+          Data.=: ("DeleteSSHPublicKey" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
-        "SSHPublicKeyId" Core.=: sSHPublicKeyId
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
+        "SSHPublicKeyId" Data.=: sSHPublicKeyId
       ]
 
 -- | /See:/ 'newDeleteSSHPublicKeyResponse' smart constructor.

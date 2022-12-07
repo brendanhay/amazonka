@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.ImageVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.BuildType
 import Amazonka.ImageBuilder.Types.ImageType
 import Amazonka.ImageBuilder.Types.Platform
@@ -266,21 +267,21 @@ imageVersion_buildType = Lens.lens (\ImageVersion' {buildType} -> buildType) (\s
 imageVersion_version :: Lens.Lens' ImageVersion (Prelude.Maybe Prelude.Text)
 imageVersion_version = Lens.lens (\ImageVersion' {version} -> version) (\s@ImageVersion' {} a -> s {version = a} :: ImageVersion)
 
-instance Core.FromJSON ImageVersion where
+instance Data.FromJSON ImageVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageVersion"
       ( \x ->
           ImageVersion'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "osVersion")
-            Prelude.<*> (x Core..:? "owner")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "dateCreated")
-            Prelude.<*> (x Core..:? "buildType")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "osVersion")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "dateCreated")
+            Prelude.<*> (x Data..:? "buildType")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable ImageVersion where

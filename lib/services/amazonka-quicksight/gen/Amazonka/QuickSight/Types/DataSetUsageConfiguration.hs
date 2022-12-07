@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DataSetUsageConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The usage configuration to apply to child datasets that reference this
@@ -69,14 +70,14 @@ dataSetUsageConfiguration_disableUseAsDirectQuerySource = Lens.lens (\DataSetUsa
 dataSetUsageConfiguration_disableUseAsImportedSource :: Lens.Lens' DataSetUsageConfiguration (Prelude.Maybe Prelude.Bool)
 dataSetUsageConfiguration_disableUseAsImportedSource = Lens.lens (\DataSetUsageConfiguration' {disableUseAsImportedSource} -> disableUseAsImportedSource) (\s@DataSetUsageConfiguration' {} a -> s {disableUseAsImportedSource = a} :: DataSetUsageConfiguration)
 
-instance Core.FromJSON DataSetUsageConfiguration where
+instance Data.FromJSON DataSetUsageConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSetUsageConfiguration"
       ( \x ->
           DataSetUsageConfiguration'
-            Prelude.<$> (x Core..:? "DisableUseAsDirectQuerySource")
-            Prelude.<*> (x Core..:? "DisableUseAsImportedSource")
+            Prelude.<$> (x Data..:? "DisableUseAsDirectQuerySource")
+            Prelude.<*> (x Data..:? "DisableUseAsImportedSource")
       )
 
 instance Prelude.Hashable DataSetUsageConfiguration where
@@ -90,13 +91,13 @@ instance Prelude.NFData DataSetUsageConfiguration where
     Prelude.rnf disableUseAsDirectQuerySource
       `Prelude.seq` Prelude.rnf disableUseAsImportedSource
 
-instance Core.ToJSON DataSetUsageConfiguration where
+instance Data.ToJSON DataSetUsageConfiguration where
   toJSON DataSetUsageConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DisableUseAsDirectQuerySource" Core..=)
+          [ ("DisableUseAsDirectQuerySource" Data..=)
               Prelude.<$> disableUseAsDirectQuerySource,
-            ("DisableUseAsImportedSource" Core..=)
+            ("DisableUseAsImportedSource" Data..=)
               Prelude.<$> disableUseAsImportedSource
           ]
       )

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -160,8 +161,8 @@ instance Core.AWSRequest ListSchemaVersions where
     Response.receiveJSON
       ( \s h x ->
           ListSchemaVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Schemas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,33 +178,33 @@ instance Prelude.NFData ListSchemaVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf schemaId
 
-instance Core.ToHeaders ListSchemaVersions where
+instance Data.ToHeaders ListSchemaVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.ListSchemaVersions" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.ListSchemaVersions" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSchemaVersions where
+instance Data.ToJSON ListSchemaVersions where
   toJSON ListSchemaVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("SchemaId" Core..= schemaId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("SchemaId" Data..= schemaId)
           ]
       )
 
-instance Core.ToPath ListSchemaVersions where
+instance Data.ToPath ListSchemaVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSchemaVersions where
+instance Data.ToQuery ListSchemaVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSchemaVersionsResponse' smart constructor.

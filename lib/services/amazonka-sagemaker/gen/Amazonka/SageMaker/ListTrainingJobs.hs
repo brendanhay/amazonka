@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,16 +90,16 @@ data ListTrainingJobs = ListTrainingJobs'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only training jobs modified after the specified
     -- time (timestamp).
-    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | A string in the training job name. This filter returns only training
     -- jobs whose name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only training jobs modified before the specified
     -- time (timestamp).
-    lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
+    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only training jobs created before the specified
     -- time (timestamp).
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The field to sort results by. The default is @CreationTime@.
     sortBy :: Prelude.Maybe SortBy,
     -- | The maximum number of training jobs to return in the response.
@@ -110,7 +111,7 @@ data ListTrainingJobs = ListTrainingJobs'
     warmPoolStatusEquals :: Prelude.Maybe WarmPoolResourceStatus,
     -- | A filter that returns only training jobs created after the specified
     -- time (timestamp).
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -181,7 +182,7 @@ listTrainingJobs_nextToken = Lens.lens (\ListTrainingJobs' {nextToken} -> nextTo
 -- | A filter that returns only training jobs modified after the specified
 -- time (timestamp).
 listTrainingJobs_lastModifiedTimeAfter :: Lens.Lens' ListTrainingJobs (Prelude.Maybe Prelude.UTCTime)
-listTrainingJobs_lastModifiedTimeAfter = Lens.lens (\ListTrainingJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListTrainingJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListTrainingJobs) Prelude.. Lens.mapping Core._Time
+listTrainingJobs_lastModifiedTimeAfter = Lens.lens (\ListTrainingJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListTrainingJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListTrainingJobs) Prelude.. Lens.mapping Data._Time
 
 -- | A string in the training job name. This filter returns only training
 -- jobs whose name contains the specified string.
@@ -191,12 +192,12 @@ listTrainingJobs_nameContains = Lens.lens (\ListTrainingJobs' {nameContains} -> 
 -- | A filter that returns only training jobs modified before the specified
 -- time (timestamp).
 listTrainingJobs_lastModifiedTimeBefore :: Lens.Lens' ListTrainingJobs (Prelude.Maybe Prelude.UTCTime)
-listTrainingJobs_lastModifiedTimeBefore = Lens.lens (\ListTrainingJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListTrainingJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListTrainingJobs) Prelude.. Lens.mapping Core._Time
+listTrainingJobs_lastModifiedTimeBefore = Lens.lens (\ListTrainingJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListTrainingJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListTrainingJobs) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns only training jobs created before the specified
 -- time (timestamp).
 listTrainingJobs_creationTimeBefore :: Lens.Lens' ListTrainingJobs (Prelude.Maybe Prelude.UTCTime)
-listTrainingJobs_creationTimeBefore = Lens.lens (\ListTrainingJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListTrainingJobs' {} a -> s {creationTimeBefore = a} :: ListTrainingJobs) Prelude.. Lens.mapping Core._Time
+listTrainingJobs_creationTimeBefore = Lens.lens (\ListTrainingJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListTrainingJobs' {} a -> s {creationTimeBefore = a} :: ListTrainingJobs) Prelude.. Lens.mapping Data._Time
 
 -- | The field to sort results by. The default is @CreationTime@.
 listTrainingJobs_sortBy :: Lens.Lens' ListTrainingJobs (Prelude.Maybe SortBy)
@@ -218,7 +219,7 @@ listTrainingJobs_warmPoolStatusEquals = Lens.lens (\ListTrainingJobs' {warmPoolS
 -- | A filter that returns only training jobs created after the specified
 -- time (timestamp).
 listTrainingJobs_creationTimeAfter :: Lens.Lens' ListTrainingJobs (Prelude.Maybe Prelude.UTCTime)
-listTrainingJobs_creationTimeAfter = Lens.lens (\ListTrainingJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListTrainingJobs' {} a -> s {creationTimeAfter = a} :: ListTrainingJobs) Prelude.. Lens.mapping Core._Time
+listTrainingJobs_creationTimeAfter = Lens.lens (\ListTrainingJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListTrainingJobs' {} a -> s {creationTimeAfter = a} :: ListTrainingJobs) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListTrainingJobs where
   page rq rs
@@ -251,9 +252,9 @@ instance Core.AWSRequest ListTrainingJobs where
     Response.receiveJSON
       ( \s h x ->
           ListTrainingJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "TrainingJobSummaries"
+            Prelude.<*> ( x Data..?> "TrainingJobSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -286,46 +287,46 @@ instance Prelude.NFData ListTrainingJobs where
       `Prelude.seq` Prelude.rnf warmPoolStatusEquals
       `Prelude.seq` Prelude.rnf creationTimeAfter
 
-instance Core.ToHeaders ListTrainingJobs where
+instance Data.ToHeaders ListTrainingJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListTrainingJobs" :: Prelude.ByteString),
+              Data.=# ("SageMaker.ListTrainingJobs" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTrainingJobs where
+instance Data.ToJSON ListTrainingJobs where
   toJSON ListTrainingJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("LastModifiedTimeAfter" Core..=)
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("LastModifiedTimeAfter" Data..=)
               Prelude.<$> lastModifiedTimeAfter,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("LastModifiedTimeBefore" Core..=)
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("LastModifiedTimeBefore" Data..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("CreationTimeBefore" Core..=)
+            ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StatusEquals" Core..=) Prelude.<$> statusEquals,
-            ("WarmPoolStatusEquals" Core..=)
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StatusEquals" Data..=) Prelude.<$> statusEquals,
+            ("WarmPoolStatusEquals" Data..=)
               Prelude.<$> warmPoolStatusEquals,
-            ("CreationTimeAfter" Core..=)
+            ("CreationTimeAfter" Data..=)
               Prelude.<$> creationTimeAfter
           ]
       )
 
-instance Core.ToPath ListTrainingJobs where
+instance Data.ToPath ListTrainingJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTrainingJobs where
+instance Data.ToQuery ListTrainingJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTrainingJobsResponse' smart constructor.

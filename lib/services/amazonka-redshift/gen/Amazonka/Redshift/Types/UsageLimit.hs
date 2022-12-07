@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.UsageLimit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.Tag
@@ -154,19 +155,19 @@ usageLimit_amount = Lens.lens (\UsageLimit' {amount} -> amount) (\s@UsageLimit' 
 usageLimit_limitType :: Lens.Lens' UsageLimit (Prelude.Maybe UsageLimitLimitType)
 usageLimit_limitType = Lens.lens (\UsageLimit' {limitType} -> limitType) (\s@UsageLimit' {} a -> s {limitType = a} :: UsageLimit)
 
-instance Core.FromXML UsageLimit where
+instance Data.FromXML UsageLimit where
   parseXML x =
     UsageLimit'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "ClusterIdentifier")
-      Prelude.<*> (x Core..@? "UsageLimitId")
-      Prelude.<*> (x Core..@? "FeatureType")
-      Prelude.<*> (x Core..@? "Period")
-      Prelude.<*> (x Core..@? "BreachAction")
-      Prelude.<*> (x Core..@? "Amount")
-      Prelude.<*> (x Core..@? "LimitType")
+      Prelude.<*> (x Data..@? "ClusterIdentifier")
+      Prelude.<*> (x Data..@? "UsageLimitId")
+      Prelude.<*> (x Data..@? "FeatureType")
+      Prelude.<*> (x Data..@? "Period")
+      Prelude.<*> (x Data..@? "BreachAction")
+      Prelude.<*> (x Data..@? "Amount")
+      Prelude.<*> (x Data..@? "LimitType")
 
 instance Prelude.Hashable UsageLimit where
   hashWithSalt _salt UsageLimit' {..} =

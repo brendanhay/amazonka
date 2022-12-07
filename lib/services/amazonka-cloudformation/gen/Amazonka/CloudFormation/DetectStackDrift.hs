@@ -71,6 +71,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,7 +127,7 @@ instance Core.AWSRequest DetectStackDrift where
       ( \s h x ->
           DetectStackDriftResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "StackDriftDetectionId")
+            Prelude.<*> (x Data..@ "StackDriftDetectionId")
       )
 
 instance Prelude.Hashable DetectStackDrift where
@@ -139,25 +140,25 @@ instance Prelude.NFData DetectStackDrift where
     Prelude.rnf logicalResourceIds
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders DetectStackDrift where
+instance Data.ToHeaders DetectStackDrift where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DetectStackDrift where
+instance Data.ToPath DetectStackDrift where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetectStackDrift where
+instance Data.ToQuery DetectStackDrift where
   toQuery DetectStackDrift' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DetectStackDrift" :: Prelude.ByteString),
+          Data.=: ("DetectStackDrift" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
         "LogicalResourceIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> logicalResourceIds
             ),
-        "StackName" Core.=: stackName
+        "StackName" Data.=: stackName
       ]
 
 -- | /See:/ 'newDetectStackDriftResponse' smart constructor.

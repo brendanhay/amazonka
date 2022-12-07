@@ -47,6 +47,7 @@ where
 import Amazonka.CodeStar.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,9 +131,9 @@ instance Core.AWSRequest ListTeamMembers where
     Response.receiveJSON
       ( \s h x ->
           ListTeamMembersResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "teamMembers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "teamMembers" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListTeamMembers where
@@ -147,35 +148,35 @@ instance Prelude.NFData ListTeamMembers where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf projectId
 
-instance Core.ToHeaders ListTeamMembers where
+instance Data.ToHeaders ListTeamMembers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeStar_20170419.ListTeamMembers" ::
+              Data.=# ( "CodeStar_20170419.ListTeamMembers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTeamMembers where
+instance Data.ToJSON ListTeamMembers where
   toJSON ListTeamMembers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("projectId" Core..= projectId)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("projectId" Data..= projectId)
           ]
       )
 
-instance Core.ToPath ListTeamMembers where
+instance Data.ToPath ListTeamMembers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTeamMembers where
+instance Data.ToQuery ListTeamMembers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTeamMembersResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,11 +126,11 @@ instance Core.AWSRequest ListAnomalyGroupSummaries where
     Response.receiveJSON
       ( \s h x ->
           ListAnomalyGroupSummariesResponse'
-            Prelude.<$> ( x Core..?> "AnomalyGroupSummaryList"
+            Prelude.<$> ( x Data..?> "AnomalyGroupSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "AnomalyGroupStatistics")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "AnomalyGroupStatistics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,36 +148,36 @@ instance Prelude.NFData ListAnomalyGroupSummaries where
       `Prelude.seq` Prelude.rnf anomalyDetectorArn
       `Prelude.seq` Prelude.rnf sensitivityThreshold
 
-instance Core.ToHeaders ListAnomalyGroupSummaries where
+instance Data.ToHeaders ListAnomalyGroupSummaries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAnomalyGroupSummaries where
+instance Data.ToJSON ListAnomalyGroupSummaries where
   toJSON ListAnomalyGroupSummaries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("AnomalyDetectorArn" Core..= anomalyDetectorArn),
+              ("AnomalyDetectorArn" Data..= anomalyDetectorArn),
             Prelude.Just
               ( "SensitivityThreshold"
-                  Core..= sensitivityThreshold
+                  Data..= sensitivityThreshold
               )
           ]
       )
 
-instance Core.ToPath ListAnomalyGroupSummaries where
+instance Data.ToPath ListAnomalyGroupSummaries where
   toPath = Prelude.const "/ListAnomalyGroupSummaries"
 
-instance Core.ToQuery ListAnomalyGroupSummaries where
+instance Data.ToQuery ListAnomalyGroupSummaries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAnomalyGroupSummariesResponse' smart constructor.

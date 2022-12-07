@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,30 +96,30 @@ instance Prelude.NFData ExtendTransaction where
   rnf ExtendTransaction' {..} =
     Prelude.rnf transactionId
 
-instance Core.ToHeaders ExtendTransaction where
+instance Data.ToHeaders ExtendTransaction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExtendTransaction where
+instance Data.ToJSON ExtendTransaction where
   toJSON ExtendTransaction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TransactionId" Core..=)
+          [ ("TransactionId" Data..=)
               Prelude.<$> transactionId
           ]
       )
 
-instance Core.ToPath ExtendTransaction where
+instance Data.ToPath ExtendTransaction where
   toPath = Prelude.const "/ExtendTransaction"
 
-instance Core.ToQuery ExtendTransaction where
+instance Data.ToQuery ExtendTransaction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExtendTransactionResponse' smart constructor.

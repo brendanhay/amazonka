@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -176,10 +177,10 @@ instance Core.AWSRequest GetIpamPoolAllocations where
     Response.receiveXML
       ( \s h x ->
           GetIpamPoolAllocationsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "ipamPoolAllocationSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "ipamPoolAllocationSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -202,26 +203,26 @@ instance Prelude.NFData GetIpamPoolAllocations where
       `Prelude.seq` Prelude.rnf ipamPoolAllocationId
       `Prelude.seq` Prelude.rnf ipamPoolId
 
-instance Core.ToHeaders GetIpamPoolAllocations where
+instance Data.ToHeaders GetIpamPoolAllocations where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetIpamPoolAllocations where
+instance Data.ToPath GetIpamPoolAllocations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetIpamPoolAllocations where
+instance Data.ToQuery GetIpamPoolAllocations where
   toQuery GetIpamPoolAllocations' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetIpamPoolAllocations" :: Prelude.ByteString),
+          Data.=: ("GetIpamPoolAllocations" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        "IpamPoolAllocationId" Core.=: ipamPoolAllocationId,
-        "IpamPoolId" Core.=: ipamPoolId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        "IpamPoolAllocationId" Data.=: ipamPoolAllocationId,
+        "IpamPoolId" Data.=: ipamPoolId
       ]
 
 -- | /See:/ 'newGetIpamPoolAllocationsResponse' smart constructor.

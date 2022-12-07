@@ -21,6 +21,7 @@ module Amazonka.SSMSAP.Types.ApplicationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMSAP.Types.ApplicationType
 
@@ -76,16 +77,16 @@ applicationSummary_arn = Lens.lens (\ApplicationSummary' {arn} -> arn) (\s@Appli
 applicationSummary_id :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
 applicationSummary_id = Lens.lens (\ApplicationSummary' {id} -> id) (\s@ApplicationSummary' {} a -> s {id = a} :: ApplicationSummary)
 
-instance Core.FromJSON ApplicationSummary where
+instance Data.FromJSON ApplicationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationSummary"
       ( \x ->
           ApplicationSummary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable ApplicationSummary where

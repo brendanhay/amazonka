@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.CustomRoutingEndpointGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types.CustomRoutingDestinationDescription
 import Amazonka.GlobalAccelerator.Types.CustomRoutingEndpointDescription
 import qualified Amazonka.Prelude as Prelude
@@ -93,20 +94,20 @@ customRoutingEndpointGroup_destinationDescriptions = Lens.lens (\CustomRoutingEn
 customRoutingEndpointGroup_endpointGroupArn :: Lens.Lens' CustomRoutingEndpointGroup (Prelude.Maybe Prelude.Text)
 customRoutingEndpointGroup_endpointGroupArn = Lens.lens (\CustomRoutingEndpointGroup' {endpointGroupArn} -> endpointGroupArn) (\s@CustomRoutingEndpointGroup' {} a -> s {endpointGroupArn = a} :: CustomRoutingEndpointGroup)
 
-instance Core.FromJSON CustomRoutingEndpointGroup where
+instance Data.FromJSON CustomRoutingEndpointGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomRoutingEndpointGroup"
       ( \x ->
           CustomRoutingEndpointGroup'
-            Prelude.<$> (x Core..:? "EndpointGroupRegion")
-            Prelude.<*> ( x Core..:? "EndpointDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "EndpointGroupRegion")
+            Prelude.<*> ( x Data..:? "EndpointDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "DestinationDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "DestinationDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EndpointGroupArn")
+            Prelude.<*> (x Data..:? "EndpointGroupArn")
       )
 
 instance Prelude.Hashable CustomRoutingEndpointGroup where

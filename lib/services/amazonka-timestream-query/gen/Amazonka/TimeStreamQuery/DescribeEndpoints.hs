@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest DescribeEndpoints where
       ( \s h x ->
           DescribeEndpointsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Endpoints" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Endpoints" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable DescribeEndpoints where
@@ -96,28 +97,28 @@ instance Prelude.Hashable DescribeEndpoints where
 instance Prelude.NFData DescribeEndpoints where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeEndpoints where
+instance Data.ToHeaders DescribeEndpoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Timestream_20181101.DescribeEndpoints" ::
+              Data.=# ( "Timestream_20181101.DescribeEndpoints" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEndpoints where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DescribeEndpoints where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DescribeEndpoints where
+instance Data.ToPath DescribeEndpoints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEndpoints where
+instance Data.ToQuery DescribeEndpoints where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEndpointsResponse' smart constructor.

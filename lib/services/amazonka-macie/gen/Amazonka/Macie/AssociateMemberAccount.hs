@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Macie.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,34 +95,34 @@ instance Prelude.NFData AssociateMemberAccount where
   rnf AssociateMemberAccount' {..} =
     Prelude.rnf memberAccountId
 
-instance Core.ToHeaders AssociateMemberAccount where
+instance Data.ToHeaders AssociateMemberAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MacieService.AssociateMemberAccount" ::
+              Data.=# ( "MacieService.AssociateMemberAccount" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateMemberAccount where
+instance Data.ToJSON AssociateMemberAccount where
   toJSON AssociateMemberAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("memberAccountId" Core..= memberAccountId)
+              ("memberAccountId" Data..= memberAccountId)
           ]
       )
 
-instance Core.ToPath AssociateMemberAccount where
+instance Data.ToPath AssociateMemberAccount where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateMemberAccount where
+instance Data.ToQuery AssociateMemberAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateMemberAccountResponse' smart constructor.

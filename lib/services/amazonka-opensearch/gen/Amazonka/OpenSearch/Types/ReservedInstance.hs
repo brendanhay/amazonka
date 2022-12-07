@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.ReservedInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.OpenSearchPartitionInstanceType
 import Amazonka.OpenSearch.Types.RecurringCharge
 import Amazonka.OpenSearch.Types.ReservedInstancePaymentOption
@@ -55,7 +56,7 @@ data ReservedInstance = ReservedInstance'
     -- | The unique identifier of the Reserved Instance offering.
     reservedInstanceOfferingId :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the reservation was purchased.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The payment option as defined in the Reserved Instance offering.
     paymentOption :: Prelude.Maybe ReservedInstancePaymentOption,
     -- | The hourly rate at which you\'re charged for the domain using this
@@ -171,7 +172,7 @@ reservedInstance_reservedInstanceOfferingId = Lens.lens (\ReservedInstance' {res
 
 -- | The date and time when the reservation was purchased.
 reservedInstance_startTime :: Lens.Lens' ReservedInstance (Prelude.Maybe Prelude.UTCTime)
-reservedInstance_startTime = Lens.lens (\ReservedInstance' {startTime} -> startTime) (\s@ReservedInstance' {} a -> s {startTime = a} :: ReservedInstance) Prelude.. Lens.mapping Core._Time
+reservedInstance_startTime = Lens.lens (\ReservedInstance' {startTime} -> startTime) (\s@ReservedInstance' {} a -> s {startTime = a} :: ReservedInstance) Prelude.. Lens.mapping Data._Time
 
 -- | The payment option as defined in the Reserved Instance offering.
 reservedInstance_paymentOption :: Lens.Lens' ReservedInstance (Prelude.Maybe ReservedInstancePaymentOption)
@@ -182,28 +183,28 @@ reservedInstance_paymentOption = Lens.lens (\ReservedInstance' {paymentOption} -
 reservedInstance_usagePrice :: Lens.Lens' ReservedInstance (Prelude.Maybe Prelude.Double)
 reservedInstance_usagePrice = Lens.lens (\ReservedInstance' {usagePrice} -> usagePrice) (\s@ReservedInstance' {} a -> s {usagePrice = a} :: ReservedInstance)
 
-instance Core.FromJSON ReservedInstance where
+instance Data.FromJSON ReservedInstance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReservedInstance"
       ( \x ->
           ReservedInstance'
-            Prelude.<$> (x Core..:? "BillingSubscriptionId")
-            Prelude.<*> (x Core..:? "ReservedInstanceId")
-            Prelude.<*> ( x Core..:? "RecurringCharges"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "BillingSubscriptionId")
+            Prelude.<*> (x Data..:? "ReservedInstanceId")
+            Prelude.<*> ( x Data..:? "RecurringCharges"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "ReservationName")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "Duration")
-            Prelude.<*> (x Core..:? "CurrencyCode")
-            Prelude.<*> (x Core..:? "InstanceCount")
-            Prelude.<*> (x Core..:? "FixedPrice")
-            Prelude.<*> (x Core..:? "ReservedInstanceOfferingId")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "PaymentOption")
-            Prelude.<*> (x Core..:? "UsagePrice")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "ReservationName")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "Duration")
+            Prelude.<*> (x Data..:? "CurrencyCode")
+            Prelude.<*> (x Data..:? "InstanceCount")
+            Prelude.<*> (x Data..:? "FixedPrice")
+            Prelude.<*> (x Data..:? "ReservedInstanceOfferingId")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "PaymentOption")
+            Prelude.<*> (x Data..:? "UsagePrice")
       )
 
 instance Prelude.Hashable ReservedInstance where

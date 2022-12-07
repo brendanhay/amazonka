@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,26 +151,26 @@ instance Prelude.NFData DeleteRoute where
       `Prelude.seq` Prelude.rnf destinationIpv6CidrBlock
       `Prelude.seq` Prelude.rnf routeTableId
 
-instance Core.ToHeaders DeleteRoute where
+instance Data.ToHeaders DeleteRoute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteRoute where
+instance Data.ToPath DeleteRoute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRoute where
+instance Data.ToQuery DeleteRoute where
   toQuery DeleteRoute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteRoute" :: Prelude.ByteString),
+          Data.=: ("DeleteRoute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "DestinationPrefixListId"
-          Core.=: destinationPrefixListId,
-        "DryRun" Core.=: dryRun,
-        "DestinationCidrBlock" Core.=: destinationCidrBlock,
+          Data.=: destinationPrefixListId,
+        "DryRun" Data.=: dryRun,
+        "DestinationCidrBlock" Data.=: destinationCidrBlock,
         "DestinationIpv6CidrBlock"
-          Core.=: destinationIpv6CidrBlock,
-        "RouteTableId" Core.=: routeTableId
+          Data.=: destinationIpv6CidrBlock,
+        "RouteTableId" Data.=: routeTableId
       ]
 
 -- | /See:/ 'newDeleteRouteResponse' smart constructor.

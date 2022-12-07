@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.EmailContent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the subject and message of an email.
@@ -64,14 +65,14 @@ emailContent_additionalMessage = Lens.lens (\EmailContent' {additionalMessage} -
 emailContent_subject :: Lens.Lens' EmailContent (Prelude.Maybe Prelude.Text)
 emailContent_subject = Lens.lens (\EmailContent' {subject} -> subject) (\s@EmailContent' {} a -> s {subject = a} :: EmailContent)
 
-instance Core.FromJSON EmailContent where
+instance Data.FromJSON EmailContent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EmailContent"
       ( \x ->
           EmailContent'
-            Prelude.<$> (x Core..:? "additionalMessage")
-            Prelude.<*> (x Core..:? "subject")
+            Prelude.<$> (x Data..:? "additionalMessage")
+            Prelude.<*> (x Data..:? "subject")
       )
 
 instance Prelude.Hashable EmailContent where
@@ -84,12 +85,12 @@ instance Prelude.NFData EmailContent where
     Prelude.rnf additionalMessage
       `Prelude.seq` Prelude.rnf subject
 
-instance Core.ToJSON EmailContent where
+instance Data.ToJSON EmailContent where
   toJSON EmailContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("additionalMessage" Core..=)
+          [ ("additionalMessage" Data..=)
               Prelude.<$> additionalMessage,
-            ("subject" Core..=) Prelude.<$> subject
+            ("subject" Data..=) Prelude.<$> subject
           ]
       )

@@ -23,6 +23,7 @@ import Amazonka.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType
 import Amazonka.CodeGuruReviewer.Types.SourceCodeType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A code review type that analyzes all code under a specified branch in an
@@ -82,13 +83,13 @@ instance Prelude.NFData RepositoryAnalysis where
     Prelude.rnf sourceCodeType
       `Prelude.seq` Prelude.rnf repositoryHead
 
-instance Core.ToJSON RepositoryAnalysis where
+instance Data.ToJSON RepositoryAnalysis where
   toJSON RepositoryAnalysis' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceCodeType" Core..=)
+          [ ("SourceCodeType" Data..=)
               Prelude.<$> sourceCodeType,
-            ("RepositoryHead" Core..=)
+            ("RepositoryHead" Data..=)
               Prelude.<$> repositoryHead
           ]
       )

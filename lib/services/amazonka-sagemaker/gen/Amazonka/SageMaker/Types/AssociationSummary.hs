@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AssociationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AssociationEdgeType
 import Amazonka.SageMaker.Types.UserContext
@@ -44,7 +45,7 @@ data AssociationSummary = AssociationSummary'
     -- | The source type.
     sourceType :: Prelude.Maybe Prelude.Text,
     -- | When the association was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     createdBy :: Prelude.Maybe UserContext,
     -- | The Amazon Resource Name (ARN) of the destination.
     destinationArn :: Prelude.Maybe Prelude.Text
@@ -118,7 +119,7 @@ associationSummary_sourceType = Lens.lens (\AssociationSummary' {sourceType} -> 
 
 -- | When the association was created.
 associationSummary_creationTime :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.UTCTime)
-associationSummary_creationTime = Lens.lens (\AssociationSummary' {creationTime} -> creationTime) (\s@AssociationSummary' {} a -> s {creationTime = a} :: AssociationSummary) Prelude.. Lens.mapping Core._Time
+associationSummary_creationTime = Lens.lens (\AssociationSummary' {creationTime} -> creationTime) (\s@AssociationSummary' {} a -> s {creationTime = a} :: AssociationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 associationSummary_createdBy :: Lens.Lens' AssociationSummary (Prelude.Maybe UserContext)
@@ -128,21 +129,21 @@ associationSummary_createdBy = Lens.lens (\AssociationSummary' {createdBy} -> cr
 associationSummary_destinationArn :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
 associationSummary_destinationArn = Lens.lens (\AssociationSummary' {destinationArn} -> destinationArn) (\s@AssociationSummary' {} a -> s {destinationArn = a} :: AssociationSummary)
 
-instance Core.FromJSON AssociationSummary where
+instance Data.FromJSON AssociationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssociationSummary"
       ( \x ->
           AssociationSummary'
-            Prelude.<$> (x Core..:? "AssociationType")
-            Prelude.<*> (x Core..:? "SourceArn")
-            Prelude.<*> (x Core..:? "SourceName")
-            Prelude.<*> (x Core..:? "DestinationName")
-            Prelude.<*> (x Core..:? "DestinationType")
-            Prelude.<*> (x Core..:? "SourceType")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "DestinationArn")
+            Prelude.<$> (x Data..:? "AssociationType")
+            Prelude.<*> (x Data..:? "SourceArn")
+            Prelude.<*> (x Data..:? "SourceName")
+            Prelude.<*> (x Data..:? "DestinationName")
+            Prelude.<*> (x Data..:? "DestinationType")
+            Prelude.<*> (x Data..:? "SourceType")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "DestinationArn")
       )
 
 instance Prelude.Hashable AssociationSummary where

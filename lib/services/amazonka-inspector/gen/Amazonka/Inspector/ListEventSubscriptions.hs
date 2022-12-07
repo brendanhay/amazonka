@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,9 +149,9 @@ instance Core.AWSRequest ListEventSubscriptions where
     Response.receiveJSON
       ( \s h x ->
           ListEventSubscriptionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "subscriptions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "subscriptions" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListEventSubscriptions where
@@ -165,35 +166,35 @@ instance Prelude.NFData ListEventSubscriptions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders ListEventSubscriptions where
+instance Data.ToHeaders ListEventSubscriptions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.ListEventSubscriptions" ::
+              Data.=# ( "InspectorService.ListEventSubscriptions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEventSubscriptions where
+instance Data.ToJSON ListEventSubscriptions where
   toJSON ListEventSubscriptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("resourceArn" Core..=) Prelude.<$> resourceArn
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("resourceArn" Data..=) Prelude.<$> resourceArn
           ]
       )
 
-instance Core.ToPath ListEventSubscriptions where
+instance Data.ToPath ListEventSubscriptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEventSubscriptions where
+instance Data.ToQuery ListEventSubscriptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEventSubscriptionsResponse' smart constructor.

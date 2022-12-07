@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TrialComponentArtifact where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an input or output artifact of a trial component. You specify
@@ -82,14 +83,14 @@ trialComponentArtifact_mediaType = Lens.lens (\TrialComponentArtifact' {mediaTyp
 trialComponentArtifact_value :: Lens.Lens' TrialComponentArtifact Prelude.Text
 trialComponentArtifact_value = Lens.lens (\TrialComponentArtifact' {value} -> value) (\s@TrialComponentArtifact' {} a -> s {value = a} :: TrialComponentArtifact)
 
-instance Core.FromJSON TrialComponentArtifact where
+instance Data.FromJSON TrialComponentArtifact where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrialComponentArtifact"
       ( \x ->
           TrialComponentArtifact'
-            Prelude.<$> (x Core..:? "MediaType")
-            Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..:? "MediaType")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable TrialComponentArtifact where
@@ -102,11 +103,11 @@ instance Prelude.NFData TrialComponentArtifact where
     Prelude.rnf mediaType
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON TrialComponentArtifact where
+instance Data.ToJSON TrialComponentArtifact where
   toJSON TrialComponentArtifact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MediaType" Core..=) Prelude.<$> mediaType,
-            Prelude.Just ("Value" Core..= value)
+          [ ("MediaType" Data..=) Prelude.<$> mediaType,
+            Prelude.Just ("Value" Data..= value)
           ]
       )

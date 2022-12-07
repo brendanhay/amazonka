@@ -45,6 +45,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,8 +108,8 @@ instance Core.AWSRequest DescribeAppBlocks where
     Response.receiveJSON
       ( \s h x ->
           DescribeAppBlocksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "AppBlocks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "AppBlocks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,35 +125,35 @@ instance Prelude.NFData DescribeAppBlocks where
       `Prelude.seq` Prelude.rnf arns
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeAppBlocks where
+instance Data.ToHeaders DescribeAppBlocks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DescribeAppBlocks" ::
+              Data.=# ( "PhotonAdminProxyService.DescribeAppBlocks" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAppBlocks where
+instance Data.ToJSON DescribeAppBlocks where
   toJSON DescribeAppBlocks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Arns" Core..=) Prelude.<$> arns,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Arns" Data..=) Prelude.<$> arns,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeAppBlocks where
+instance Data.ToPath DescribeAppBlocks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAppBlocks where
+instance Data.ToQuery DescribeAppBlocks where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAppBlocksResponse' smart constructor.

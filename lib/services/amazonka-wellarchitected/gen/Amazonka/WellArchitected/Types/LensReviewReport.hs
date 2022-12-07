@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.LensReviewReport where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A report of a lens review.
@@ -68,15 +69,15 @@ lensReviewReport_lensAlias = Lens.lens (\LensReviewReport' {lensAlias} -> lensAl
 lensReviewReport_base64String :: Lens.Lens' LensReviewReport (Prelude.Maybe Prelude.Text)
 lensReviewReport_base64String = Lens.lens (\LensReviewReport' {base64String} -> base64String) (\s@LensReviewReport' {} a -> s {base64String = a} :: LensReviewReport)
 
-instance Core.FromJSON LensReviewReport where
+instance Data.FromJSON LensReviewReport where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LensReviewReport"
       ( \x ->
           LensReviewReport'
-            Prelude.<$> (x Core..:? "LensArn")
-            Prelude.<*> (x Core..:? "LensAlias")
-            Prelude.<*> (x Core..:? "Base64String")
+            Prelude.<$> (x Data..:? "LensArn")
+            Prelude.<*> (x Data..:? "LensAlias")
+            Prelude.<*> (x Data..:? "Base64String")
       )
 
 instance Prelude.Hashable LensReviewReport where

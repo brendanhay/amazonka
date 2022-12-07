@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.UpdateCloudFormationCollectionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the names of Amazon Web Services CloudFormation stacks used to
@@ -78,11 +79,11 @@ instance
     Prelude.rnf stackNames
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateCloudFormationCollectionFilter
   where
   toJSON UpdateCloudFormationCollectionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("StackNames" Core..=) Prelude.<$> stackNames]
+          [("StackNames" Data..=) Prelude.<$> stackNames]
       )

@@ -22,6 +22,7 @@ module Amazonka.AMP.Types.LoggingConfigurationStatus where
 import Amazonka.AMP.Types.LoggingConfigurationStatusCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the status of a logging configuration.
@@ -65,14 +66,14 @@ loggingConfigurationStatus_statusReason = Lens.lens (\LoggingConfigurationStatus
 loggingConfigurationStatus_statusCode :: Lens.Lens' LoggingConfigurationStatus LoggingConfigurationStatusCode
 loggingConfigurationStatus_statusCode = Lens.lens (\LoggingConfigurationStatus' {statusCode} -> statusCode) (\s@LoggingConfigurationStatus' {} a -> s {statusCode = a} :: LoggingConfigurationStatus)
 
-instance Core.FromJSON LoggingConfigurationStatus where
+instance Data.FromJSON LoggingConfigurationStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoggingConfigurationStatus"
       ( \x ->
           LoggingConfigurationStatus'
-            Prelude.<$> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..: "statusCode")
+            Prelude.<$> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..: "statusCode")
       )
 
 instance Prelude.Hashable LoggingConfigurationStatus where

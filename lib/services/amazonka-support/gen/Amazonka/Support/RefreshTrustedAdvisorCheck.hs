@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,7 +113,7 @@ instance Core.AWSRequest RefreshTrustedAdvisorCheck where
       ( \s h x ->
           RefreshTrustedAdvisorCheckResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance Prelude.Hashable RefreshTrustedAdvisorCheck where
@@ -123,32 +124,32 @@ instance Prelude.NFData RefreshTrustedAdvisorCheck where
   rnf RefreshTrustedAdvisorCheck' {..} =
     Prelude.rnf checkId
 
-instance Core.ToHeaders RefreshTrustedAdvisorCheck where
+instance Data.ToHeaders RefreshTrustedAdvisorCheck where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSupport_20130415.RefreshTrustedAdvisorCheck" ::
+              Data.=# ( "AWSSupport_20130415.RefreshTrustedAdvisorCheck" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RefreshTrustedAdvisorCheck where
+instance Data.ToJSON RefreshTrustedAdvisorCheck where
   toJSON RefreshTrustedAdvisorCheck' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("checkId" Core..= checkId)]
+          [Prelude.Just ("checkId" Data..= checkId)]
       )
 
-instance Core.ToPath RefreshTrustedAdvisorCheck where
+instance Data.ToPath RefreshTrustedAdvisorCheck where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RefreshTrustedAdvisorCheck where
+instance Data.ToQuery RefreshTrustedAdvisorCheck where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The current refresh status of a Trusted Advisor check.

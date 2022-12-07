@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.Relationship where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.RelationshipType
 
@@ -88,14 +89,14 @@ relationship_type = Lens.lens (\Relationship' {type'} -> type') (\s@Relationship
 relationship_ids :: Lens.Lens' Relationship (Prelude.Maybe [Prelude.Text])
 relationship_ids = Lens.lens (\Relationship' {ids} -> ids) (\s@Relationship' {} a -> s {ids = a} :: Relationship) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Relationship where
+instance Data.FromJSON Relationship where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Relationship"
       ( \x ->
           Relationship'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Ids" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Ids" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Relationship where

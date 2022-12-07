@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -68,7 +69,7 @@ instance Core.AWSRequest GetRevealConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetRevealConfigurationResponse'
-            Prelude.<$> (x Core..?> "configuration")
+            Prelude.<$> (x Data..?> "configuration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -79,21 +80,21 @@ instance Prelude.Hashable GetRevealConfiguration where
 instance Prelude.NFData GetRevealConfiguration where
   rnf _ = ()
 
-instance Core.ToHeaders GetRevealConfiguration where
+instance Data.ToHeaders GetRevealConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetRevealConfiguration where
+instance Data.ToPath GetRevealConfiguration where
   toPath = Prelude.const "/reveal-configuration"
 
-instance Core.ToQuery GetRevealConfiguration where
+instance Data.ToQuery GetRevealConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRevealConfigurationResponse' smart constructor.

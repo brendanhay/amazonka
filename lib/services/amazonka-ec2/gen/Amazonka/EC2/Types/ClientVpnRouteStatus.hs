@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClientVpnRouteStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ClientVpnRouteStatusCode
 import qualified Amazonka.Prelude as Prelude
@@ -66,11 +67,11 @@ clientVpnRouteStatus_message = Lens.lens (\ClientVpnRouteStatus' {message} -> me
 clientVpnRouteStatus_code :: Lens.Lens' ClientVpnRouteStatus (Prelude.Maybe ClientVpnRouteStatusCode)
 clientVpnRouteStatus_code = Lens.lens (\ClientVpnRouteStatus' {code} -> code) (\s@ClientVpnRouteStatus' {} a -> s {code = a} :: ClientVpnRouteStatus)
 
-instance Core.FromXML ClientVpnRouteStatus where
+instance Data.FromXML ClientVpnRouteStatus where
   parseXML x =
     ClientVpnRouteStatus'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance Prelude.Hashable ClientVpnRouteStatus where
   hashWithSalt _salt ClientVpnRouteStatus' {..} =

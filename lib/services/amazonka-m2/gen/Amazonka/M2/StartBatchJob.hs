@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,7 +117,7 @@ instance Core.AWSRequest StartBatchJob where
       ( \s h x ->
           StartBatchJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "executionId")
+            Prelude.<*> (x Data..:> "executionId")
       )
 
 instance Prelude.Hashable StartBatchJob where
@@ -131,36 +132,36 @@ instance Prelude.NFData StartBatchJob where
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf batchJobIdentifier
 
-instance Core.ToHeaders StartBatchJob where
+instance Data.ToHeaders StartBatchJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartBatchJob where
+instance Data.ToJSON StartBatchJob where
   toJSON StartBatchJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("jobParams" Core..=) Prelude.<$> jobParams,
+          [ ("jobParams" Data..=) Prelude.<$> jobParams,
             Prelude.Just
-              ("batchJobIdentifier" Core..= batchJobIdentifier)
+              ("batchJobIdentifier" Data..= batchJobIdentifier)
           ]
       )
 
-instance Core.ToPath StartBatchJob where
+instance Data.ToPath StartBatchJob where
   toPath StartBatchJob' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/batch-job"
       ]
 
-instance Core.ToQuery StartBatchJob where
+instance Data.ToQuery StartBatchJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartBatchJobResponse' smart constructor.

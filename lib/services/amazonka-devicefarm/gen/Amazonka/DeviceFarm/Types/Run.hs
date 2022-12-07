@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.Run where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.BillingMethod
 import Amazonka.DeviceFarm.Types.Counters
 import Amazonka.DeviceFarm.Types.CustomerArtifactPaths
@@ -94,13 +95,13 @@ data Run = Run'
     -- -   XCTEST_UI
     type' :: Prelude.Maybe TestType,
     -- | The run\'s start time.
-    started :: Prelude.Maybe Core.POSIX,
+    started :: Prelude.Maybe Data.POSIX,
     -- | Output @CustomerArtifactPaths@ object for the test run.
     customerArtifactPaths :: Prelude.Maybe CustomerArtifactPaths,
     -- | The VPC security groups and subnets that are attached to a project.
     vpcConfig :: Prelude.Maybe VpcConfig,
     -- | When the run was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | Represents the total (metered or unmetered) minutes used by the test
     -- run.
     deviceMinutes :: Prelude.Maybe DeviceMinutes,
@@ -198,7 +199,7 @@ data Run = Run'
     -- -   STOPPED
     result :: Prelude.Maybe ExecutionResult,
     -- | The run\'s stop time.
-    stopped :: Prelude.Maybe Core.POSIX,
+    stopped :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the device pool for the run.
     devicePoolArn :: Prelude.Maybe Prelude.Text,
     -- | When set to @true@, for private devices, Device Farm does not sign your
@@ -485,7 +486,7 @@ run_type = Lens.lens (\Run' {type'} -> type') (\s@Run' {} a -> s {type' = a} :: 
 
 -- | The run\'s start time.
 run_started :: Lens.Lens' Run (Prelude.Maybe Prelude.UTCTime)
-run_started = Lens.lens (\Run' {started} -> started) (\s@Run' {} a -> s {started = a} :: Run) Prelude.. Lens.mapping Core._Time
+run_started = Lens.lens (\Run' {started} -> started) (\s@Run' {} a -> s {started = a} :: Run) Prelude.. Lens.mapping Data._Time
 
 -- | Output @CustomerArtifactPaths@ object for the test run.
 run_customerArtifactPaths :: Lens.Lens' Run (Prelude.Maybe CustomerArtifactPaths)
@@ -497,7 +498,7 @@ run_vpcConfig = Lens.lens (\Run' {vpcConfig} -> vpcConfig) (\s@Run' {} a -> s {v
 
 -- | When the run was created.
 run_created :: Lens.Lens' Run (Prelude.Maybe Prelude.UTCTime)
-run_created = Lens.lens (\Run' {created} -> created) (\s@Run' {} a -> s {created = a} :: Run) Prelude.. Lens.mapping Core._Time
+run_created = Lens.lens (\Run' {created} -> created) (\s@Run' {} a -> s {created = a} :: Run) Prelude.. Lens.mapping Data._Time
 
 -- | Represents the total (metered or unmetered) minutes used by the test
 -- run.
@@ -637,7 +638,7 @@ run_result = Lens.lens (\Run' {result} -> result) (\s@Run' {} a -> s {result = a
 
 -- | The run\'s stop time.
 run_stopped :: Lens.Lens' Run (Prelude.Maybe Prelude.UTCTime)
-run_stopped = Lens.lens (\Run' {stopped} -> stopped) (\s@Run' {} a -> s {stopped = a} :: Run) Prelude.. Lens.mapping Core._Time
+run_stopped = Lens.lens (\Run' {stopped} -> stopped) (\s@Run' {} a -> s {stopped = a} :: Run) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the device pool for the run.
 run_devicePoolArn :: Lens.Lens' Run (Prelude.Maybe Prelude.Text)
@@ -652,44 +653,44 @@ run_devicePoolArn = Lens.lens (\Run' {devicePoolArn} -> devicePoolArn) (\s@Run' 
 run_skipAppResign :: Lens.Lens' Run (Prelude.Maybe Prelude.Bool)
 run_skipAppResign = Lens.lens (\Run' {skipAppResign} -> skipAppResign) (\s@Run' {} a -> s {skipAppResign = a} :: Run)
 
-instance Core.FromJSON Run where
+instance Data.FromJSON Run where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Run"
       ( \x ->
           Run'
-            Prelude.<$> (x Core..:? "appUpload")
-            Prelude.<*> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "jobTimeoutMinutes")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "started")
-            Prelude.<*> (x Core..:? "customerArtifactPaths")
-            Prelude.<*> (x Core..:? "vpcConfig")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "deviceMinutes")
-            Prelude.<*> (x Core..:? "locale")
-            Prelude.<*> (x Core..:? "resultCode")
-            Prelude.<*> (x Core..:? "networkProfile")
-            Prelude.<*> (x Core..:? "seed")
-            Prelude.<*> (x Core..:? "radios")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "totalJobs")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "billingMethod")
-            Prelude.<*> (x Core..:? "counters")
-            Prelude.<*> (x Core..:? "webUrl")
-            Prelude.<*> (x Core..:? "eventCount")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "deviceSelectionResult")
-            Prelude.<*> (x Core..:? "parsingResultUrl")
-            Prelude.<*> (x Core..:? "completedJobs")
-            Prelude.<*> (x Core..:? "testSpecArn")
-            Prelude.<*> (x Core..:? "result")
-            Prelude.<*> (x Core..:? "stopped")
-            Prelude.<*> (x Core..:? "devicePoolArn")
-            Prelude.<*> (x Core..:? "skipAppResign")
+            Prelude.<$> (x Data..:? "appUpload")
+            Prelude.<*> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "jobTimeoutMinutes")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "started")
+            Prelude.<*> (x Data..:? "customerArtifactPaths")
+            Prelude.<*> (x Data..:? "vpcConfig")
+            Prelude.<*> (x Data..:? "created")
+            Prelude.<*> (x Data..:? "deviceMinutes")
+            Prelude.<*> (x Data..:? "locale")
+            Prelude.<*> (x Data..:? "resultCode")
+            Prelude.<*> (x Data..:? "networkProfile")
+            Prelude.<*> (x Data..:? "seed")
+            Prelude.<*> (x Data..:? "radios")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "totalJobs")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "billingMethod")
+            Prelude.<*> (x Data..:? "counters")
+            Prelude.<*> (x Data..:? "webUrl")
+            Prelude.<*> (x Data..:? "eventCount")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "deviceSelectionResult")
+            Prelude.<*> (x Data..:? "parsingResultUrl")
+            Prelude.<*> (x Data..:? "completedJobs")
+            Prelude.<*> (x Data..:? "testSpecArn")
+            Prelude.<*> (x Data..:? "result")
+            Prelude.<*> (x Data..:? "stopped")
+            Prelude.<*> (x Data..:? "devicePoolArn")
+            Prelude.<*> (x Data..:? "skipAppResign")
       )
 
 instance Prelude.Hashable Run where

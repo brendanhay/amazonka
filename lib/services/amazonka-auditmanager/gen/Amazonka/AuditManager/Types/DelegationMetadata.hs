@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.DelegationMetadata where
 import Amazonka.AuditManager.Types.DelegationStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata that\'s associated with the delegation.
@@ -41,7 +42,7 @@ data DelegationMetadata = DelegationMetadata'
     -- | Specifies the name of the control set that was delegated for review.
     controlSetName :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the delegation was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -105,21 +106,21 @@ delegationMetadata_controlSetName = Lens.lens (\DelegationMetadata' {controlSetN
 
 -- | Specifies when the delegation was created.
 delegationMetadata_creationTime :: Lens.Lens' DelegationMetadata (Prelude.Maybe Prelude.UTCTime)
-delegationMetadata_creationTime = Lens.lens (\DelegationMetadata' {creationTime} -> creationTime) (\s@DelegationMetadata' {} a -> s {creationTime = a} :: DelegationMetadata) Prelude.. Lens.mapping Core._Time
+delegationMetadata_creationTime = Lens.lens (\DelegationMetadata' {creationTime} -> creationTime) (\s@DelegationMetadata' {} a -> s {creationTime = a} :: DelegationMetadata) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DelegationMetadata where
+instance Data.FromJSON DelegationMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DelegationMetadata"
       ( \x ->
           DelegationMetadata'
-            Prelude.<$> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "assessmentId")
-            Prelude.<*> (x Core..:? "assessmentName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "controlSetName")
-            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<$> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "assessmentId")
+            Prelude.<*> (x Data..:? "assessmentName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "controlSetName")
+            Prelude.<*> (x Data..:? "creationTime")
       )
 
 instance Prelude.Hashable DelegationMetadata where

@@ -23,6 +23,7 @@ import Amazonka.AmplifyBackend.Types.BackendStoragePermissions
 import Amazonka.AmplifyBackend.Types.ServiceName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details for a backend storage resource.
@@ -89,18 +90,18 @@ getBackendStorageResourceConfig_imported :: Lens.Lens' GetBackendStorageResource
 getBackendStorageResourceConfig_imported = Lens.lens (\GetBackendStorageResourceConfig' {imported} -> imported) (\s@GetBackendStorageResourceConfig' {} a -> s {imported = a} :: GetBackendStorageResourceConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     GetBackendStorageResourceConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GetBackendStorageResourceConfig"
       ( \x ->
           GetBackendStorageResourceConfig'
-            Prelude.<$> (x Core..:? "permissions")
-            Prelude.<*> (x Core..:? "bucketName")
-            Prelude.<*> (x Core..: "serviceName")
-            Prelude.<*> (x Core..: "imported")
+            Prelude.<$> (x Data..:? "permissions")
+            Prelude.<*> (x Data..:? "bucketName")
+            Prelude.<*> (x Data..: "serviceName")
+            Prelude.<*> (x Data..: "imported")
       )
 
 instance

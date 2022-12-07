@@ -45,6 +45,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,7 +55,7 @@ data StartSchemaCreation = StartSchemaCreation'
   { -- | The API ID.
     apiId :: Prelude.Text,
     -- | The schema definition, in GraphQL schema language format.
-    definition :: Core.Base64
+    definition :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,7 +83,7 @@ newStartSchemaCreation ::
 newStartSchemaCreation pApiId_ pDefinition_ =
   StartSchemaCreation'
     { apiId = pApiId_,
-      definition = Core._Base64 Lens.# pDefinition_
+      definition = Data._Base64 Lens.# pDefinition_
     }
 
 -- | The API ID.
@@ -95,7 +96,7 @@ startSchemaCreation_apiId = Lens.lens (\StartSchemaCreation' {apiId} -> apiId) (
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 startSchemaCreation_definition :: Lens.Lens' StartSchemaCreation Prelude.ByteString
-startSchemaCreation_definition = Lens.lens (\StartSchemaCreation' {definition} -> definition) (\s@StartSchemaCreation' {} a -> s {definition = a} :: StartSchemaCreation) Prelude.. Core._Base64
+startSchemaCreation_definition = Lens.lens (\StartSchemaCreation' {definition} -> definition) (\s@StartSchemaCreation' {} a -> s {definition = a} :: StartSchemaCreation) Prelude.. Data._Base64
 
 instance Core.AWSRequest StartSchemaCreation where
   type
@@ -107,7 +108,7 @@ instance Core.AWSRequest StartSchemaCreation where
     Response.receiveJSON
       ( \s h x ->
           StartSchemaCreationResponse'
-            Prelude.<$> (x Core..?> "status")
+            Prelude.<$> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,30 +122,30 @@ instance Prelude.NFData StartSchemaCreation where
     Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf definition
 
-instance Core.ToHeaders StartSchemaCreation where
+instance Data.ToHeaders StartSchemaCreation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartSchemaCreation where
+instance Data.ToJSON StartSchemaCreation where
   toJSON StartSchemaCreation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("definition" Core..= definition)]
+          [Prelude.Just ("definition" Data..= definition)]
       )
 
-instance Core.ToPath StartSchemaCreation where
+instance Data.ToPath StartSchemaCreation where
   toPath StartSchemaCreation' {..} =
     Prelude.mconcat
-      ["/v1/apis/", Core.toBS apiId, "/schemacreation"]
+      ["/v1/apis/", Data.toBS apiId, "/schemacreation"]
 
-instance Core.ToQuery StartSchemaCreation where
+instance Data.ToQuery StartSchemaCreation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartSchemaCreationResponse' smart constructor.

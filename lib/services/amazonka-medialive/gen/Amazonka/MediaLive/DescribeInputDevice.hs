@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,18 +100,18 @@ instance Core.AWSRequest DescribeInputDevice where
     Response.receiveJSON
       ( \s h x ->
           DescribeInputDeviceResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "type")
-            Prelude.<*> (x Core..?> "deviceSettingsSyncState")
-            Prelude.<*> (x Core..?> "networkSettings")
-            Prelude.<*> (x Core..?> "uhdDeviceSettings")
-            Prelude.<*> (x Core..?> "connectionState")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "hdDeviceSettings")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "deviceUpdateStatus")
-            Prelude.<*> (x Core..?> "macAddress")
-            Prelude.<*> (x Core..?> "serialNumber")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "type")
+            Prelude.<*> (x Data..?> "deviceSettingsSyncState")
+            Prelude.<*> (x Data..?> "networkSettings")
+            Prelude.<*> (x Data..?> "uhdDeviceSettings")
+            Prelude.<*> (x Data..?> "connectionState")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "hdDeviceSettings")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "deviceUpdateStatus")
+            Prelude.<*> (x Data..?> "macAddress")
+            Prelude.<*> (x Data..?> "serialNumber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,23 +123,23 @@ instance Prelude.NFData DescribeInputDevice where
   rnf DescribeInputDevice' {..} =
     Prelude.rnf inputDeviceId
 
-instance Core.ToHeaders DescribeInputDevice where
+instance Data.ToHeaders DescribeInputDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeInputDevice where
+instance Data.ToPath DescribeInputDevice where
   toPath DescribeInputDevice' {..} =
     Prelude.mconcat
-      ["/prod/inputDevices/", Core.toBS inputDeviceId]
+      ["/prod/inputDevices/", Data.toBS inputDeviceId]
 
-instance Core.ToQuery DescribeInputDevice where
+instance Data.ToQuery DescribeInputDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for DescribeInputDeviceResponse

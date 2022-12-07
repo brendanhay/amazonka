@@ -21,6 +21,7 @@ module Amazonka.AmplifyBackend.Types.BackendAPIAppSyncAuthSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The authentication settings for accessing provisioned data models in
@@ -135,20 +136,20 @@ backendAPIAppSyncAuthSettings_openIDProviderName = Lens.lens (\BackendAPIAppSync
 backendAPIAppSyncAuthSettings_cognitoUserPoolId :: Lens.Lens' BackendAPIAppSyncAuthSettings (Prelude.Maybe Prelude.Text)
 backendAPIAppSyncAuthSettings_cognitoUserPoolId = Lens.lens (\BackendAPIAppSyncAuthSettings' {cognitoUserPoolId} -> cognitoUserPoolId) (\s@BackendAPIAppSyncAuthSettings' {} a -> s {cognitoUserPoolId = a} :: BackendAPIAppSyncAuthSettings)
 
-instance Core.FromJSON BackendAPIAppSyncAuthSettings where
+instance Data.FromJSON BackendAPIAppSyncAuthSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackendAPIAppSyncAuthSettings"
       ( \x ->
           BackendAPIAppSyncAuthSettings'
-            Prelude.<$> (x Core..:? "expirationTime")
-            Prelude.<*> (x Core..:? "openIDAuthTTL")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "openIDIssueURL")
-            Prelude.<*> (x Core..:? "openIDClientId")
-            Prelude.<*> (x Core..:? "openIDIatTTL")
-            Prelude.<*> (x Core..:? "openIDProviderName")
-            Prelude.<*> (x Core..:? "cognitoUserPoolId")
+            Prelude.<$> (x Data..:? "expirationTime")
+            Prelude.<*> (x Data..:? "openIDAuthTTL")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "openIDIssueURL")
+            Prelude.<*> (x Data..:? "openIDClientId")
+            Prelude.<*> (x Data..:? "openIDIatTTL")
+            Prelude.<*> (x Data..:? "openIDProviderName")
+            Prelude.<*> (x Data..:? "cognitoUserPoolId")
       )
 
 instance
@@ -176,22 +177,22 @@ instance Prelude.NFData BackendAPIAppSyncAuthSettings where
       `Prelude.seq` Prelude.rnf openIDProviderName
       `Prelude.seq` Prelude.rnf cognitoUserPoolId
 
-instance Core.ToJSON BackendAPIAppSyncAuthSettings where
+instance Data.ToJSON BackendAPIAppSyncAuthSettings where
   toJSON BackendAPIAppSyncAuthSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("expirationTime" Core..=)
+          [ ("expirationTime" Data..=)
               Prelude.<$> expirationTime,
-            ("openIDAuthTTL" Core..=) Prelude.<$> openIDAuthTTL,
-            ("description" Core..=) Prelude.<$> description,
-            ("openIDIssueURL" Core..=)
+            ("openIDAuthTTL" Data..=) Prelude.<$> openIDAuthTTL,
+            ("description" Data..=) Prelude.<$> description,
+            ("openIDIssueURL" Data..=)
               Prelude.<$> openIDIssueURL,
-            ("openIDClientId" Core..=)
+            ("openIDClientId" Data..=)
               Prelude.<$> openIDClientId,
-            ("openIDIatTTL" Core..=) Prelude.<$> openIDIatTTL,
-            ("openIDProviderName" Core..=)
+            ("openIDIatTTL" Data..=) Prelude.<$> openIDIatTTL,
+            ("openIDProviderName" Data..=)
               Prelude.<$> openIDProviderName,
-            ("cognitoUserPoolId" Core..=)
+            ("cognitoUserPoolId" Data..=)
               Prelude.<$> cognitoUserPoolId
           ]
       )

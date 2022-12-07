@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.UpdateThemeData where
 import Amazonka.AmplifyUiBuilder.Types.ThemeValues
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Saves the data binding information for a theme.
@@ -94,13 +95,13 @@ instance Prelude.NFData UpdateThemeData where
       `Prelude.seq` Prelude.rnf overrides
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON UpdateThemeData where
+instance Data.ToJSON UpdateThemeData where
   toJSON UpdateThemeData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("id" Core..=) Prelude.<$> id,
-            ("overrides" Core..=) Prelude.<$> overrides,
-            Prelude.Just ("values" Core..= values)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("id" Data..=) Prelude.<$> id,
+            ("overrides" Data..=) Prelude.<$> overrides,
+            Prelude.Just ("values" Data..= values)
           ]
       )

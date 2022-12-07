@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcrRepositoryLifecyclePolicyDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the lifecycle policy for the repository.
@@ -67,16 +68,16 @@ awsEcrRepositoryLifecyclePolicyDetails_lifecyclePolicyText :: Lens.Lens' AwsEcrR
 awsEcrRepositoryLifecyclePolicyDetails_lifecyclePolicyText = Lens.lens (\AwsEcrRepositoryLifecyclePolicyDetails' {lifecyclePolicyText} -> lifecyclePolicyText) (\s@AwsEcrRepositoryLifecyclePolicyDetails' {} a -> s {lifecyclePolicyText = a} :: AwsEcrRepositoryLifecyclePolicyDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcrRepositoryLifecyclePolicyDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcrRepositoryLifecyclePolicyDetails"
       ( \x ->
           AwsEcrRepositoryLifecyclePolicyDetails'
-            Prelude.<$> (x Core..:? "RegistryId")
-            Prelude.<*> (x Core..:? "LifecyclePolicyText")
+            Prelude.<$> (x Data..:? "RegistryId")
+            Prelude.<*> (x Data..:? "LifecyclePolicyText")
       )
 
 instance
@@ -98,14 +99,14 @@ instance
       `Prelude.seq` Prelude.rnf lifecyclePolicyText
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcrRepositoryLifecyclePolicyDetails
   where
   toJSON AwsEcrRepositoryLifecyclePolicyDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RegistryId" Core..=) Prelude.<$> registryId,
-            ("LifecyclePolicyText" Core..=)
+          [ ("RegistryId" Data..=) Prelude.<$> registryId,
+            ("LifecyclePolicyText" Data..=)
               Prelude.<$> lifecyclePolicyText
           ]
       )

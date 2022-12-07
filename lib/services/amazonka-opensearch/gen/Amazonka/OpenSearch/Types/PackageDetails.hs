@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.PackageDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.ErrorDetails
 import Amazonka.OpenSearch.Types.PackageStatus
 import Amazonka.OpenSearch.Types.PackageType
@@ -35,7 +36,7 @@ data PackageDetails = PackageDetails'
     -- | User-specified name of the package.
     packageName :: Prelude.Maybe Prelude.Text,
     -- | Date and time when the package was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | Additional information if the package is in an error state. Null
     -- otherwise.
     errorDetails :: Prelude.Maybe ErrorDetails,
@@ -48,7 +49,7 @@ data PackageDetails = PackageDetails'
     -- | Current status of the package.
     packageStatus :: Prelude.Maybe PackageStatus,
     -- | The timestamp when the package was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -104,7 +105,7 @@ packageDetails_packageName = Lens.lens (\PackageDetails' {packageName} -> packag
 
 -- | Date and time when the package was last updated.
 packageDetails_lastUpdatedAt :: Lens.Lens' PackageDetails (Prelude.Maybe Prelude.UTCTime)
-packageDetails_lastUpdatedAt = Lens.lens (\PackageDetails' {lastUpdatedAt} -> lastUpdatedAt) (\s@PackageDetails' {} a -> s {lastUpdatedAt = a} :: PackageDetails) Prelude.. Lens.mapping Core._Time
+packageDetails_lastUpdatedAt = Lens.lens (\PackageDetails' {lastUpdatedAt} -> lastUpdatedAt) (\s@PackageDetails' {} a -> s {lastUpdatedAt = a} :: PackageDetails) Prelude.. Lens.mapping Data._Time
 
 -- | Additional information if the package is in an error state. Null
 -- otherwise.
@@ -129,23 +130,23 @@ packageDetails_packageStatus = Lens.lens (\PackageDetails' {packageStatus} -> pa
 
 -- | The timestamp when the package was created.
 packageDetails_createdAt :: Lens.Lens' PackageDetails (Prelude.Maybe Prelude.UTCTime)
-packageDetails_createdAt = Lens.lens (\PackageDetails' {createdAt} -> createdAt) (\s@PackageDetails' {} a -> s {createdAt = a} :: PackageDetails) Prelude.. Lens.mapping Core._Time
+packageDetails_createdAt = Lens.lens (\PackageDetails' {createdAt} -> createdAt) (\s@PackageDetails' {} a -> s {createdAt = a} :: PackageDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON PackageDetails where
+instance Data.FromJSON PackageDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageDetails"
       ( \x ->
           PackageDetails'
-            Prelude.<$> (x Core..:? "PackageDescription")
-            Prelude.<*> (x Core..:? "PackageName")
-            Prelude.<*> (x Core..:? "LastUpdatedAt")
-            Prelude.<*> (x Core..:? "ErrorDetails")
-            Prelude.<*> (x Core..:? "PackageID")
-            Prelude.<*> (x Core..:? "PackageType")
-            Prelude.<*> (x Core..:? "AvailablePackageVersion")
-            Prelude.<*> (x Core..:? "PackageStatus")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "PackageDescription")
+            Prelude.<*> (x Data..:? "PackageName")
+            Prelude.<*> (x Data..:? "LastUpdatedAt")
+            Prelude.<*> (x Data..:? "ErrorDetails")
+            Prelude.<*> (x Data..:? "PackageID")
+            Prelude.<*> (x Data..:? "PackageType")
+            Prelude.<*> (x Data..:? "AvailablePackageVersion")
+            Prelude.<*> (x Data..:? "PackageStatus")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable PackageDetails where

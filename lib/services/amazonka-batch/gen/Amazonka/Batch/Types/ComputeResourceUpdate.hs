@@ -25,6 +25,7 @@ import Amazonka.Batch.Types.Ec2Configuration
 import Amazonka.Batch.Types.LaunchTemplateSpecification
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the attributes of a compute environment that
@@ -1044,32 +1045,32 @@ instance Prelude.NFData ComputeResourceUpdate where
       `Prelude.seq` Prelude.rnf placementGroup
       `Prelude.seq` Prelude.rnf imageId
 
-instance Core.ToJSON ComputeResourceUpdate where
+instance Data.ToJSON ComputeResourceUpdate where
   toJSON ComputeResourceUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("updateToLatestImageVersion" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("updateToLatestImageVersion" Data..=)
               Prelude.<$> updateToLatestImageVersion,
-            ("ec2KeyPair" Core..=) Prelude.<$> ec2KeyPair,
-            ("type" Core..=) Prelude.<$> type',
-            ("ec2Configuration" Core..=)
+            ("ec2KeyPair" Data..=) Prelude.<$> ec2KeyPair,
+            ("type" Data..=) Prelude.<$> type',
+            ("ec2Configuration" Data..=)
               Prelude.<$> ec2Configuration,
-            ("minvCpus" Core..=) Prelude.<$> minvCpus,
-            ("instanceTypes" Core..=) Prelude.<$> instanceTypes,
-            ("securityGroupIds" Core..=)
+            ("minvCpus" Data..=) Prelude.<$> minvCpus,
+            ("instanceTypes" Data..=) Prelude.<$> instanceTypes,
+            ("securityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("desiredvCpus" Core..=) Prelude.<$> desiredvCpus,
-            ("maxvCpus" Core..=) Prelude.<$> maxvCpus,
-            ("subnets" Core..=) Prelude.<$> subnets,
-            ("launchTemplate" Core..=)
+            ("desiredvCpus" Data..=) Prelude.<$> desiredvCpus,
+            ("maxvCpus" Data..=) Prelude.<$> maxvCpus,
+            ("subnets" Data..=) Prelude.<$> subnets,
+            ("launchTemplate" Data..=)
               Prelude.<$> launchTemplate,
-            ("bidPercentage" Core..=) Prelude.<$> bidPercentage,
-            ("instanceRole" Core..=) Prelude.<$> instanceRole,
-            ("allocationStrategy" Core..=)
+            ("bidPercentage" Data..=) Prelude.<$> bidPercentage,
+            ("instanceRole" Data..=) Prelude.<$> instanceRole,
+            ("allocationStrategy" Data..=)
               Prelude.<$> allocationStrategy,
-            ("placementGroup" Core..=)
+            ("placementGroup" Data..=)
               Prelude.<$> placementGroup,
-            ("imageId" Core..=) Prelude.<$> imageId
+            ("imageId" Data..=) Prelude.<$> imageId
           ]
       )

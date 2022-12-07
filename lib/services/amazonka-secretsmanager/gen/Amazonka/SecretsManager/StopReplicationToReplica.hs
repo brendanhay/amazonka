@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,7 +99,7 @@ instance Core.AWSRequest StopReplicationToReplica where
     Response.receiveJSON
       ( \s h x ->
           StopReplicationToReplicaResponse'
-            Prelude.<$> (x Core..?> "ARN")
+            Prelude.<$> (x Data..?> "ARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,32 +111,32 @@ instance Prelude.NFData StopReplicationToReplica where
   rnf StopReplicationToReplica' {..} =
     Prelude.rnf secretId
 
-instance Core.ToHeaders StopReplicationToReplica where
+instance Data.ToHeaders StopReplicationToReplica where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "secretsmanager.StopReplicationToReplica" ::
+              Data.=# ( "secretsmanager.StopReplicationToReplica" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopReplicationToReplica where
+instance Data.ToJSON StopReplicationToReplica where
   toJSON StopReplicationToReplica' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SecretId" Core..= secretId)]
+          [Prelude.Just ("SecretId" Data..= secretId)]
       )
 
-instance Core.ToPath StopReplicationToReplica where
+instance Data.ToPath StopReplicationToReplica where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopReplicationToReplica where
+instance Data.ToQuery StopReplicationToReplica where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopReplicationToReplicaResponse' smart constructor.

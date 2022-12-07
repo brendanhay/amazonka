@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.BundleTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.BundleTaskError
 import Amazonka.EC2.Types.BundleTaskState
@@ -40,13 +41,13 @@ data BundleTask = BundleTask'
     -- | The level of task completion, as a percent (for example, 20%).
     progress :: Prelude.Text,
     -- | The time this task started.
-    startTime :: Core.ISO8601,
+    startTime :: Data.ISO8601,
     -- | The state of the task.
     state :: BundleTaskState,
     -- | The Amazon S3 storage locations.
     storage :: Storage,
     -- | The time of the most recent update for the task.
-    updateTime :: Core.ISO8601
+    updateTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,10 +103,10 @@ newBundleTask
         bundleId = pBundleId_,
         instanceId = pInstanceId_,
         progress = pProgress_,
-        startTime = Core._Time Lens.# pStartTime_,
+        startTime = Data._Time Lens.# pStartTime_,
         state = pState_,
         storage = pStorage_,
-        updateTime = Core._Time Lens.# pUpdateTime_
+        updateTime = Data._Time Lens.# pUpdateTime_
       }
 
 -- | If the task fails, a description of the error.
@@ -126,7 +127,7 @@ bundleTask_progress = Lens.lens (\BundleTask' {progress} -> progress) (\s@Bundle
 
 -- | The time this task started.
 bundleTask_startTime :: Lens.Lens' BundleTask Prelude.UTCTime
-bundleTask_startTime = Lens.lens (\BundleTask' {startTime} -> startTime) (\s@BundleTask' {} a -> s {startTime = a} :: BundleTask) Prelude.. Core._Time
+bundleTask_startTime = Lens.lens (\BundleTask' {startTime} -> startTime) (\s@BundleTask' {} a -> s {startTime = a} :: BundleTask) Prelude.. Data._Time
 
 -- | The state of the task.
 bundleTask_state :: Lens.Lens' BundleTask BundleTaskState
@@ -138,19 +139,19 @@ bundleTask_storage = Lens.lens (\BundleTask' {storage} -> storage) (\s@BundleTas
 
 -- | The time of the most recent update for the task.
 bundleTask_updateTime :: Lens.Lens' BundleTask Prelude.UTCTime
-bundleTask_updateTime = Lens.lens (\BundleTask' {updateTime} -> updateTime) (\s@BundleTask' {} a -> s {updateTime = a} :: BundleTask) Prelude.. Core._Time
+bundleTask_updateTime = Lens.lens (\BundleTask' {updateTime} -> updateTime) (\s@BundleTask' {} a -> s {updateTime = a} :: BundleTask) Prelude.. Data._Time
 
-instance Core.FromXML BundleTask where
+instance Data.FromXML BundleTask where
   parseXML x =
     BundleTask'
-      Prelude.<$> (x Core..@? "error")
-      Prelude.<*> (x Core..@ "bundleId")
-      Prelude.<*> (x Core..@ "instanceId")
-      Prelude.<*> (x Core..@ "progress")
-      Prelude.<*> (x Core..@ "startTime")
-      Prelude.<*> (x Core..@ "state")
-      Prelude.<*> (x Core..@ "storage")
-      Prelude.<*> (x Core..@ "updateTime")
+      Prelude.<$> (x Data..@? "error")
+      Prelude.<*> (x Data..@ "bundleId")
+      Prelude.<*> (x Data..@ "instanceId")
+      Prelude.<*> (x Data..@ "progress")
+      Prelude.<*> (x Data..@ "startTime")
+      Prelude.<*> (x Data..@ "state")
+      Prelude.<*> (x Data..@ "storage")
+      Prelude.<*> (x Data..@ "updateTime")
 
 instance Prelude.Hashable BundleTask where
   hashWithSalt _salt BundleTask' {..} =

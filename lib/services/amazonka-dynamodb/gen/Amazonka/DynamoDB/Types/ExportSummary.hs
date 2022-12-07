@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ExportSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ExportStatus
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -67,14 +68,14 @@ exportSummary_exportArn = Lens.lens (\ExportSummary' {exportArn} -> exportArn) (
 exportSummary_exportStatus :: Lens.Lens' ExportSummary (Prelude.Maybe ExportStatus)
 exportSummary_exportStatus = Lens.lens (\ExportSummary' {exportStatus} -> exportStatus) (\s@ExportSummary' {} a -> s {exportStatus = a} :: ExportSummary)
 
-instance Core.FromJSON ExportSummary where
+instance Data.FromJSON ExportSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExportSummary"
       ( \x ->
           ExportSummary'
-            Prelude.<$> (x Core..:? "ExportArn")
-            Prelude.<*> (x Core..:? "ExportStatus")
+            Prelude.<$> (x Data..:? "ExportArn")
+            Prelude.<*> (x Data..:? "ExportStatus")
       )
 
 instance Prelude.Hashable ExportSummary where

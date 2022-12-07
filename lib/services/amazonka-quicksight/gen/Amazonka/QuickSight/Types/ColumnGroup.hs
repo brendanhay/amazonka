@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ColumnGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.GeoSpatialColumnGroup
 
@@ -56,13 +57,13 @@ newColumnGroup =
 columnGroup_geoSpatialColumnGroup :: Lens.Lens' ColumnGroup (Prelude.Maybe GeoSpatialColumnGroup)
 columnGroup_geoSpatialColumnGroup = Lens.lens (\ColumnGroup' {geoSpatialColumnGroup} -> geoSpatialColumnGroup) (\s@ColumnGroup' {} a -> s {geoSpatialColumnGroup = a} :: ColumnGroup)
 
-instance Core.FromJSON ColumnGroup where
+instance Data.FromJSON ColumnGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnGroup"
       ( \x ->
           ColumnGroup'
-            Prelude.<$> (x Core..:? "GeoSpatialColumnGroup")
+            Prelude.<$> (x Data..:? "GeoSpatialColumnGroup")
       )
 
 instance Prelude.Hashable ColumnGroup where
@@ -73,11 +74,11 @@ instance Prelude.NFData ColumnGroup where
   rnf ColumnGroup' {..} =
     Prelude.rnf geoSpatialColumnGroup
 
-instance Core.ToJSON ColumnGroup where
+instance Data.ToJSON ColumnGroup where
   toJSON ColumnGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GeoSpatialColumnGroup" Core..=)
+          [ ("GeoSpatialColumnGroup" Data..=)
               Prelude.<$> geoSpatialColumnGroup
           ]
       )

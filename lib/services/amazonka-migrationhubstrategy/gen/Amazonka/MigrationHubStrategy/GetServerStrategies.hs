@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetServerStrategies where
     Response.receiveJSON
       ( \s h x ->
           GetServerStrategiesResponse'
-            Prelude.<$> ( x Core..?> "serverStrategies"
+            Prelude.<$> ( x Data..?> "serverStrategies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -96,23 +97,23 @@ instance Prelude.Hashable GetServerStrategies where
 instance Prelude.NFData GetServerStrategies where
   rnf GetServerStrategies' {..} = Prelude.rnf serverId
 
-instance Core.ToHeaders GetServerStrategies where
+instance Data.ToHeaders GetServerStrategies where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetServerStrategies where
+instance Data.ToPath GetServerStrategies where
   toPath GetServerStrategies' {..} =
     Prelude.mconcat
-      ["/get-server-strategies/", Core.toBS serverId]
+      ["/get-server-strategies/", Data.toBS serverId]
 
-instance Core.ToQuery GetServerStrategies where
+instance Data.ToQuery GetServerStrategies where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetServerStrategiesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRedshiftClusterIamRole where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An IAM role that the cluster can use to access other Amazon Web Services
@@ -69,14 +70,14 @@ awsRedshiftClusterIamRole_iamRoleArn = Lens.lens (\AwsRedshiftClusterIamRole' {i
 awsRedshiftClusterIamRole_applyStatus :: Lens.Lens' AwsRedshiftClusterIamRole (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterIamRole_applyStatus = Lens.lens (\AwsRedshiftClusterIamRole' {applyStatus} -> applyStatus) (\s@AwsRedshiftClusterIamRole' {} a -> s {applyStatus = a} :: AwsRedshiftClusterIamRole)
 
-instance Core.FromJSON AwsRedshiftClusterIamRole where
+instance Data.FromJSON AwsRedshiftClusterIamRole where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRedshiftClusterIamRole"
       ( \x ->
           AwsRedshiftClusterIamRole'
-            Prelude.<$> (x Core..:? "IamRoleArn")
-            Prelude.<*> (x Core..:? "ApplyStatus")
+            Prelude.<$> (x Data..:? "IamRoleArn")
+            Prelude.<*> (x Data..:? "ApplyStatus")
       )
 
 instance Prelude.Hashable AwsRedshiftClusterIamRole where
@@ -89,11 +90,11 @@ instance Prelude.NFData AwsRedshiftClusterIamRole where
     Prelude.rnf iamRoleArn
       `Prelude.seq` Prelude.rnf applyStatus
 
-instance Core.ToJSON AwsRedshiftClusterIamRole where
+instance Data.ToJSON AwsRedshiftClusterIamRole where
   toJSON AwsRedshiftClusterIamRole' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
-            ("ApplyStatus" Core..=) Prelude.<$> applyStatus
+          [ ("IamRoleArn" Data..=) Prelude.<$> iamRoleArn,
+            ("ApplyStatus" Data..=) Prelude.<$> applyStatus
           ]
       )

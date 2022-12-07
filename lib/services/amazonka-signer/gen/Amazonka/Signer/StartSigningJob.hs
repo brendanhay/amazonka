@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -169,8 +170,8 @@ instance Core.AWSRequest StartSigningJob where
     Response.receiveJSON
       ( \s h x ->
           StartSigningJobResponse'
-            Prelude.<$> (x Core..?> "jobOwner")
-            Prelude.<*> (x Core..?> "jobId")
+            Prelude.<$> (x Data..?> "jobOwner")
+            Prelude.<*> (x Data..?> "jobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,34 +191,34 @@ instance Prelude.NFData StartSigningJob where
       `Prelude.seq` Prelude.rnf profileName
       `Prelude.seq` Prelude.rnf clientRequestToken
 
-instance Core.ToHeaders StartSigningJob where
+instance Data.ToHeaders StartSigningJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartSigningJob where
+instance Data.ToJSON StartSigningJob where
   toJSON StartSigningJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("profileOwner" Core..=) Prelude.<$> profileOwner,
-            Prelude.Just ("source" Core..= source),
-            Prelude.Just ("destination" Core..= destination),
-            Prelude.Just ("profileName" Core..= profileName),
+          [ ("profileOwner" Data..=) Prelude.<$> profileOwner,
+            Prelude.Just ("source" Data..= source),
+            Prelude.Just ("destination" Data..= destination),
+            Prelude.Just ("profileName" Data..= profileName),
             Prelude.Just
-              ("clientRequestToken" Core..= clientRequestToken)
+              ("clientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath StartSigningJob where
+instance Data.ToPath StartSigningJob where
   toPath = Prelude.const "/signing-jobs"
 
-instance Core.ToQuery StartSigningJob where
+instance Data.ToQuery StartSigningJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartSigningJobResponse' smart constructor.

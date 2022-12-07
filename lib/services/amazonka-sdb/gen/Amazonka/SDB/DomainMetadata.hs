@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,13 +93,13 @@ instance Core.AWSRequest DomainMetadata where
       "DomainMetadataResult"
       ( \s h x ->
           DomainMetadataResponse'
-            Prelude.<$> (x Core..@? "AttributeNamesSizeBytes")
-            Prelude.<*> (x Core..@? "ItemCount")
-            Prelude.<*> (x Core..@? "Timestamp")
-            Prelude.<*> (x Core..@? "AttributeNameCount")
-            Prelude.<*> (x Core..@? "AttributeValueCount")
-            Prelude.<*> (x Core..@? "ItemNamesSizeBytes")
-            Prelude.<*> (x Core..@? "AttributeValuesSizeBytes")
+            Prelude.<$> (x Data..@? "AttributeNamesSizeBytes")
+            Prelude.<*> (x Data..@? "ItemCount")
+            Prelude.<*> (x Data..@? "Timestamp")
+            Prelude.<*> (x Data..@? "AttributeNameCount")
+            Prelude.<*> (x Data..@? "AttributeValueCount")
+            Prelude.<*> (x Data..@? "ItemNamesSizeBytes")
+            Prelude.<*> (x Data..@? "AttributeValuesSizeBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,20 +110,20 @@ instance Prelude.Hashable DomainMetadata where
 instance Prelude.NFData DomainMetadata where
   rnf DomainMetadata' {..} = Prelude.rnf domainName
 
-instance Core.ToHeaders DomainMetadata where
+instance Data.ToHeaders DomainMetadata where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DomainMetadata where
+instance Data.ToPath DomainMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DomainMetadata where
+instance Data.ToQuery DomainMetadata where
   toQuery DomainMetadata' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DomainMetadata" :: Prelude.ByteString),
+          Data.=: ("DomainMetadata" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2009-04-15" :: Prelude.ByteString),
-        "DomainName" Core.=: domainName
+          Data.=: ("2009-04-15" :: Prelude.ByteString),
+        "DomainName" Data.=: domainName
       ]
 
 -- | /See:/ 'newDomainMetadataResponse' smart constructor.

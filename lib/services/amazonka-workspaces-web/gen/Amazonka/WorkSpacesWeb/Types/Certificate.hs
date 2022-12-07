@@ -21,6 +21,7 @@ module Amazonka.WorkSpacesWeb.Types.Certificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The certificate.
@@ -30,13 +31,13 @@ data Certificate = Certificate'
   { -- | The entity that issued the certificate.
     issuer :: Prelude.Maybe Prelude.Text,
     -- | The certificate is not valid after this date.
-    notValidAfter :: Prelude.Maybe Core.POSIX,
+    notValidAfter :: Prelude.Maybe Data.POSIX,
     -- | A hexadecimal identifier for the certificate.
     thumbprint :: Prelude.Maybe Prelude.Text,
     -- | The body of the certificate.
-    body :: Prelude.Maybe Core.Base64,
+    body :: Prelude.Maybe Data.Base64,
     -- | The certificate is not valid before this date.
-    notValidBefore :: Prelude.Maybe Core.POSIX,
+    notValidBefore :: Prelude.Maybe Data.POSIX,
     -- | The entity the certificate belongs to.
     subject :: Prelude.Maybe Prelude.Text
   }
@@ -83,7 +84,7 @@ certificate_issuer = Lens.lens (\Certificate' {issuer} -> issuer) (\s@Certificat
 
 -- | The certificate is not valid after this date.
 certificate_notValidAfter :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_notValidAfter = Lens.lens (\Certificate' {notValidAfter} -> notValidAfter) (\s@Certificate' {} a -> s {notValidAfter = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+certificate_notValidAfter = Lens.lens (\Certificate' {notValidAfter} -> notValidAfter) (\s@Certificate' {} a -> s {notValidAfter = a} :: Certificate) Prelude.. Lens.mapping Data._Time
 
 -- | A hexadecimal identifier for the certificate.
 certificate_thumbprint :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
@@ -95,28 +96,28 @@ certificate_thumbprint = Lens.lens (\Certificate' {thumbprint} -> thumbprint) (\
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 certificate_body :: Lens.Lens' Certificate (Prelude.Maybe Prelude.ByteString)
-certificate_body = Lens.lens (\Certificate' {body} -> body) (\s@Certificate' {} a -> s {body = a} :: Certificate) Prelude.. Lens.mapping Core._Base64
+certificate_body = Lens.lens (\Certificate' {body} -> body) (\s@Certificate' {} a -> s {body = a} :: Certificate) Prelude.. Lens.mapping Data._Base64
 
 -- | The certificate is not valid before this date.
 certificate_notValidBefore :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_notValidBefore = Lens.lens (\Certificate' {notValidBefore} -> notValidBefore) (\s@Certificate' {} a -> s {notValidBefore = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+certificate_notValidBefore = Lens.lens (\Certificate' {notValidBefore} -> notValidBefore) (\s@Certificate' {} a -> s {notValidBefore = a} :: Certificate) Prelude.. Lens.mapping Data._Time
 
 -- | The entity the certificate belongs to.
 certificate_subject :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
 certificate_subject = Lens.lens (\Certificate' {subject} -> subject) (\s@Certificate' {} a -> s {subject = a} :: Certificate)
 
-instance Core.FromJSON Certificate where
+instance Data.FromJSON Certificate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Certificate"
       ( \x ->
           Certificate'
-            Prelude.<$> (x Core..:? "issuer")
-            Prelude.<*> (x Core..:? "notValidAfter")
-            Prelude.<*> (x Core..:? "thumbprint")
-            Prelude.<*> (x Core..:? "body")
-            Prelude.<*> (x Core..:? "notValidBefore")
-            Prelude.<*> (x Core..:? "subject")
+            Prelude.<$> (x Data..:? "issuer")
+            Prelude.<*> (x Data..:? "notValidAfter")
+            Prelude.<*> (x Data..:? "thumbprint")
+            Prelude.<*> (x Data..:? "body")
+            Prelude.<*> (x Data..:? "notValidBefore")
+            Prelude.<*> (x Data..:? "subject")
       )
 
 instance Prelude.Hashable Certificate where

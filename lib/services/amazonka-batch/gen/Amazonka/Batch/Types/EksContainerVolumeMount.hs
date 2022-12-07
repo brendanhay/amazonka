@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.EksContainerVolumeMount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The volume mounts for a container for an Amazon EKS job. For more
@@ -82,15 +83,15 @@ eksContainerVolumeMount_readOnly = Lens.lens (\EksContainerVolumeMount' {readOnl
 eksContainerVolumeMount_mountPath :: Lens.Lens' EksContainerVolumeMount (Prelude.Maybe Prelude.Text)
 eksContainerVolumeMount_mountPath = Lens.lens (\EksContainerVolumeMount' {mountPath} -> mountPath) (\s@EksContainerVolumeMount' {} a -> s {mountPath = a} :: EksContainerVolumeMount)
 
-instance Core.FromJSON EksContainerVolumeMount where
+instance Data.FromJSON EksContainerVolumeMount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksContainerVolumeMount"
       ( \x ->
           EksContainerVolumeMount'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "readOnly")
-            Prelude.<*> (x Core..:? "mountPath")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "readOnly")
+            Prelude.<*> (x Data..:? "mountPath")
       )
 
 instance Prelude.Hashable EksContainerVolumeMount where
@@ -105,12 +106,12 @@ instance Prelude.NFData EksContainerVolumeMount where
       `Prelude.seq` Prelude.rnf readOnly
       `Prelude.seq` Prelude.rnf mountPath
 
-instance Core.ToJSON EksContainerVolumeMount where
+instance Data.ToJSON EksContainerVolumeMount where
   toJSON EksContainerVolumeMount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("readOnly" Core..=) Prelude.<$> readOnly,
-            ("mountPath" Core..=) Prelude.<$> mountPath
+          [ ("name" Data..=) Prelude.<$> name,
+            ("readOnly" Data..=) Prelude.<$> readOnly,
+            ("mountPath" Data..=) Prelude.<$> mountPath
           ]
       )

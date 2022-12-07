@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.DeviceRegistrationStateEventConfiguration wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.EventNotificationTopicStatus
 import Amazonka.IoTWireless.Types.SidewalkEventNotificationConfigurations
 import qualified Amazonka.Prelude as Prelude
@@ -72,16 +73,16 @@ deviceRegistrationStateEventConfiguration_sidewalk :: Lens.Lens' DeviceRegistrat
 deviceRegistrationStateEventConfiguration_sidewalk = Lens.lens (\DeviceRegistrationStateEventConfiguration' {sidewalk} -> sidewalk) (\s@DeviceRegistrationStateEventConfiguration' {} a -> s {sidewalk = a} :: DeviceRegistrationStateEventConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DeviceRegistrationStateEventConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceRegistrationStateEventConfiguration"
       ( \x ->
           DeviceRegistrationStateEventConfiguration'
-            Prelude.<$> (x Core..:? "WirelessDeviceIdEventTopic")
-              Prelude.<*> (x Core..:? "Sidewalk")
+            Prelude.<$> (x Data..:? "WirelessDeviceIdEventTopic")
+              Prelude.<*> (x Data..:? "Sidewalk")
       )
 
 instance
@@ -104,14 +105,14 @@ instance
       `Prelude.seq` Prelude.rnf sidewalk
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeviceRegistrationStateEventConfiguration
   where
   toJSON DeviceRegistrationStateEventConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WirelessDeviceIdEventTopic" Core..=)
+          [ ("WirelessDeviceIdEventTopic" Data..=)
               Prelude.<$> wirelessDeviceIdEventTopic,
-            ("Sidewalk" Core..=) Prelude.<$> sidewalk
+            ("Sidewalk" Data..=) Prelude.<$> sidewalk
           ]
       )

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -218,41 +219,41 @@ instance Prelude.NFData AllowCustomRoutingTraffic where
       `Prelude.seq` Prelude.rnf endpointGroupArn
       `Prelude.seq` Prelude.rnf endpointId
 
-instance Core.ToHeaders AllowCustomRoutingTraffic where
+instance Data.ToHeaders AllowCustomRoutingTraffic where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.AllowCustomRoutingTraffic" ::
+              Data.=# ( "GlobalAccelerator_V20180706.AllowCustomRoutingTraffic" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AllowCustomRoutingTraffic where
+instance Data.ToJSON AllowCustomRoutingTraffic where
   toJSON AllowCustomRoutingTraffic' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DestinationPorts" Core..=)
+          [ ("DestinationPorts" Data..=)
               Prelude.<$> destinationPorts,
-            ("AllowAllTrafficToEndpoint" Core..=)
+            ("AllowAllTrafficToEndpoint" Data..=)
               Prelude.<$> allowAllTrafficToEndpoint,
-            ("DestinationAddresses" Core..=)
+            ("DestinationAddresses" Data..=)
               Prelude.<$> destinationAddresses,
             Prelude.Just
-              ("EndpointGroupArn" Core..= endpointGroupArn),
-            Prelude.Just ("EndpointId" Core..= endpointId)
+              ("EndpointGroupArn" Data..= endpointGroupArn),
+            Prelude.Just ("EndpointId" Data..= endpointId)
           ]
       )
 
-instance Core.ToPath AllowCustomRoutingTraffic where
+instance Data.ToPath AllowCustomRoutingTraffic where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AllowCustomRoutingTraffic where
+instance Data.ToQuery AllowCustomRoutingTraffic where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAllowCustomRoutingTrafficResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.VpcEndpointSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.VpcEndpointStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,16 +86,16 @@ vpcEndpointSummary_status = Lens.lens (\VpcEndpointSummary' {status} -> status) 
 vpcEndpointSummary_vpcEndpointId :: Lens.Lens' VpcEndpointSummary (Prelude.Maybe Prelude.Text)
 vpcEndpointSummary_vpcEndpointId = Lens.lens (\VpcEndpointSummary' {vpcEndpointId} -> vpcEndpointId) (\s@VpcEndpointSummary' {} a -> s {vpcEndpointId = a} :: VpcEndpointSummary)
 
-instance Core.FromJSON VpcEndpointSummary where
+instance Data.FromJSON VpcEndpointSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcEndpointSummary"
       ( \x ->
           VpcEndpointSummary'
-            Prelude.<$> (x Core..:? "VpcEndpointOwner")
-            Prelude.<*> (x Core..:? "DomainArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "VpcEndpointId")
+            Prelude.<$> (x Data..:? "VpcEndpointOwner")
+            Prelude.<*> (x Data..:? "DomainArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "VpcEndpointId")
       )
 
 instance Prelude.Hashable VpcEndpointSummary where

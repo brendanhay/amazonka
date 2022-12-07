@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.DeleteFileSystemWindowsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
@@ -92,15 +93,15 @@ instance
       `Prelude.seq` Prelude.rnf finalBackupTags
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeleteFileSystemWindowsConfiguration
   where
   toJSON DeleteFileSystemWindowsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SkipFinalBackup" Core..=)
+          [ ("SkipFinalBackup" Data..=)
               Prelude.<$> skipFinalBackup,
-            ("FinalBackupTags" Core..=)
+            ("FinalBackupTags" Data..=)
               Prelude.<$> finalBackupTags
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.AutoScaling.Types.MetricStat where
 import Amazonka.AutoScaling.Types.Metric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure defines the CloudWatch metric to return, along with the
@@ -122,12 +123,12 @@ metricStat_metric = Lens.lens (\MetricStat' {metric} -> metric) (\s@MetricStat' 
 metricStat_stat :: Lens.Lens' MetricStat Prelude.Text
 metricStat_stat = Lens.lens (\MetricStat' {stat} -> stat) (\s@MetricStat' {} a -> s {stat = a} :: MetricStat)
 
-instance Core.FromXML MetricStat where
+instance Data.FromXML MetricStat where
   parseXML x =
     MetricStat'
-      Prelude.<$> (x Core..@? "Unit")
-      Prelude.<*> (x Core..@ "Metric")
-      Prelude.<*> (x Core..@ "Stat")
+      Prelude.<$> (x Data..@? "Unit")
+      Prelude.<*> (x Data..@ "Metric")
+      Prelude.<*> (x Data..@ "Stat")
 
 instance Prelude.Hashable MetricStat where
   hashWithSalt _salt MetricStat' {..} =
@@ -141,10 +142,10 @@ instance Prelude.NFData MetricStat where
       `Prelude.seq` Prelude.rnf metric
       `Prelude.seq` Prelude.rnf stat
 
-instance Core.ToQuery MetricStat where
+instance Data.ToQuery MetricStat where
   toQuery MetricStat' {..} =
     Prelude.mconcat
-      [ "Unit" Core.=: unit,
-        "Metric" Core.=: metric,
-        "Stat" Core.=: stat
+      [ "Unit" Data.=: unit,
+        "Metric" Data.=: metric,
+        "Stat" Data.=: stat
       ]

@@ -21,6 +21,7 @@ module Amazonka.CloudDirectory.Types.ObjectReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The reference that identifies an object.
@@ -104,12 +105,12 @@ newObjectReference =
 objectReference_selector :: Lens.Lens' ObjectReference (Prelude.Maybe Prelude.Text)
 objectReference_selector = Lens.lens (\ObjectReference' {selector} -> selector) (\s@ObjectReference' {} a -> s {selector = a} :: ObjectReference)
 
-instance Core.FromJSON ObjectReference where
+instance Data.FromJSON ObjectReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ObjectReference"
       ( \x ->
-          ObjectReference' Prelude.<$> (x Core..:? "Selector")
+          ObjectReference' Prelude.<$> (x Data..:? "Selector")
       )
 
 instance Prelude.Hashable ObjectReference where
@@ -119,9 +120,9 @@ instance Prelude.Hashable ObjectReference where
 instance Prelude.NFData ObjectReference where
   rnf ObjectReference' {..} = Prelude.rnf selector
 
-instance Core.ToJSON ObjectReference where
+instance Data.ToJSON ObjectReference where
   toJSON ObjectReference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Selector" Core..=) Prelude.<$> selector]
+          [("Selector" Data..=) Prelude.<$> selector]
       )

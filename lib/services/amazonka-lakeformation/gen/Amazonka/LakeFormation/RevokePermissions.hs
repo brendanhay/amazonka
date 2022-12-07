@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,34 +165,34 @@ instance Prelude.NFData RevokePermissions where
       `Prelude.seq` Prelude.rnf resource
       `Prelude.seq` Prelude.rnf permissions
 
-instance Core.ToHeaders RevokePermissions where
+instance Data.ToHeaders RevokePermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RevokePermissions where
+instance Data.ToJSON RevokePermissions where
   toJSON RevokePermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("PermissionsWithGrantOption" Core..=)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("PermissionsWithGrantOption" Data..=)
               Prelude.<$> permissionsWithGrantOption,
-            Prelude.Just ("Principal" Core..= principal),
-            Prelude.Just ("Resource" Core..= resource),
-            Prelude.Just ("Permissions" Core..= permissions)
+            Prelude.Just ("Principal" Data..= principal),
+            Prelude.Just ("Resource" Data..= resource),
+            Prelude.Just ("Permissions" Data..= permissions)
           ]
       )
 
-instance Core.ToPath RevokePermissions where
+instance Data.ToPath RevokePermissions where
   toPath = Prelude.const "/RevokePermissions"
 
-instance Core.ToQuery RevokePermissions where
+instance Data.ToQuery RevokePermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRevokePermissionsResponse' smart constructor.

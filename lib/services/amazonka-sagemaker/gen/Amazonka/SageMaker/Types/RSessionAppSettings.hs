@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RSessionAppSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CustomImage
 import Amazonka.SageMaker.Types.ResourceSpec
@@ -66,14 +67,14 @@ rSessionAppSettings_defaultResourceSpec = Lens.lens (\RSessionAppSettings' {defa
 rSessionAppSettings_customImages :: Lens.Lens' RSessionAppSettings (Prelude.Maybe [CustomImage])
 rSessionAppSettings_customImages = Lens.lens (\RSessionAppSettings' {customImages} -> customImages) (\s@RSessionAppSettings' {} a -> s {customImages = a} :: RSessionAppSettings) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RSessionAppSettings where
+instance Data.FromJSON RSessionAppSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RSessionAppSettings"
       ( \x ->
           RSessionAppSettings'
-            Prelude.<$> (x Core..:? "DefaultResourceSpec")
-            Prelude.<*> (x Core..:? "CustomImages" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "DefaultResourceSpec")
+            Prelude.<*> (x Data..:? "CustomImages" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RSessionAppSettings where
@@ -86,12 +87,12 @@ instance Prelude.NFData RSessionAppSettings where
     Prelude.rnf defaultResourceSpec
       `Prelude.seq` Prelude.rnf customImages
 
-instance Core.ToJSON RSessionAppSettings where
+instance Data.ToJSON RSessionAppSettings where
   toJSON RSessionAppSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DefaultResourceSpec" Core..=)
+          [ ("DefaultResourceSpec" Data..=)
               Prelude.<$> defaultResourceSpec,
-            ("CustomImages" Core..=) Prelude.<$> customImages
+            ("CustomImages" Data..=) Prelude.<$> customImages
           ]
       )

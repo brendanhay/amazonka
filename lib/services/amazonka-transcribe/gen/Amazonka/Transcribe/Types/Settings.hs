@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.VocabularyFilterMethod
 
@@ -316,20 +317,20 @@ settings_channelIdentification = Lens.lens (\Settings' {channelIdentification} -
 settings_showAlternatives :: Lens.Lens' Settings (Prelude.Maybe Prelude.Bool)
 settings_showAlternatives = Lens.lens (\Settings' {showAlternatives} -> showAlternatives) (\s@Settings' {} a -> s {showAlternatives = a} :: Settings)
 
-instance Core.FromJSON Settings where
+instance Data.FromJSON Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Settings"
       ( \x ->
           Settings'
-            Prelude.<$> (x Core..:? "VocabularyFilterMethod")
-            Prelude.<*> (x Core..:? "VocabularyName")
-            Prelude.<*> (x Core..:? "MaxSpeakerLabels")
-            Prelude.<*> (x Core..:? "MaxAlternatives")
-            Prelude.<*> (x Core..:? "VocabularyFilterName")
-            Prelude.<*> (x Core..:? "ShowSpeakerLabels")
-            Prelude.<*> (x Core..:? "ChannelIdentification")
-            Prelude.<*> (x Core..:? "ShowAlternatives")
+            Prelude.<$> (x Data..:? "VocabularyFilterMethod")
+            Prelude.<*> (x Data..:? "VocabularyName")
+            Prelude.<*> (x Data..:? "MaxSpeakerLabels")
+            Prelude.<*> (x Data..:? "MaxAlternatives")
+            Prelude.<*> (x Data..:? "VocabularyFilterName")
+            Prelude.<*> (x Data..:? "ShowSpeakerLabels")
+            Prelude.<*> (x Data..:? "ChannelIdentification")
+            Prelude.<*> (x Data..:? "ShowAlternatives")
       )
 
 instance Prelude.Hashable Settings where
@@ -354,25 +355,25 @@ instance Prelude.NFData Settings where
       `Prelude.seq` Prelude.rnf channelIdentification
       `Prelude.seq` Prelude.rnf showAlternatives
 
-instance Core.ToJSON Settings where
+instance Data.ToJSON Settings where
   toJSON Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VocabularyFilterMethod" Core..=)
+          [ ("VocabularyFilterMethod" Data..=)
               Prelude.<$> vocabularyFilterMethod,
-            ("VocabularyName" Core..=)
+            ("VocabularyName" Data..=)
               Prelude.<$> vocabularyName,
-            ("MaxSpeakerLabels" Core..=)
+            ("MaxSpeakerLabels" Data..=)
               Prelude.<$> maxSpeakerLabels,
-            ("MaxAlternatives" Core..=)
+            ("MaxAlternatives" Data..=)
               Prelude.<$> maxAlternatives,
-            ("VocabularyFilterName" Core..=)
+            ("VocabularyFilterName" Data..=)
               Prelude.<$> vocabularyFilterName,
-            ("ShowSpeakerLabels" Core..=)
+            ("ShowSpeakerLabels" Data..=)
               Prelude.<$> showSpeakerLabels,
-            ("ChannelIdentification" Core..=)
+            ("ChannelIdentification" Data..=)
               Prelude.<$> channelIdentification,
-            ("ShowAlternatives" Core..=)
+            ("ShowAlternatives" Data..=)
               Prelude.<$> showAlternatives
           ]
       )

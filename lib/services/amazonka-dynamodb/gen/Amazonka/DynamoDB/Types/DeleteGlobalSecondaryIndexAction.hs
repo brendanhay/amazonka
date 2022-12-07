@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.DeleteGlobalSecondaryIndexAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -74,9 +75,9 @@ instance
   rnf DeleteGlobalSecondaryIndexAction' {..} =
     Prelude.rnf indexName
 
-instance Core.ToJSON DeleteGlobalSecondaryIndexAction where
+instance Data.ToJSON DeleteGlobalSecondaryIndexAction where
   toJSON DeleteGlobalSecondaryIndexAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("IndexName" Core..= indexName)]
+          [Prelude.Just ("IndexName" Data..= indexName)]
       )

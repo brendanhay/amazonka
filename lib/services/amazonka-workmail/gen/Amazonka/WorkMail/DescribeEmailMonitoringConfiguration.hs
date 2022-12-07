@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,8 +96,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeEmailMonitoringConfigurationResponse'
-            Prelude.<$> (x Core..?> "RoleArn")
-              Prelude.<*> (x Core..?> "LogGroupArn")
+            Prelude.<$> (x Data..?> "RoleArn")
+              Prelude.<*> (x Data..?> "LogGroupArn")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,43 +118,43 @@ instance
     Prelude.rnf organizationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeEmailMonitoringConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.DescribeEmailMonitoringConfiguration" ::
+              Data.=# ( "WorkMailService.DescribeEmailMonitoringConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeEmailMonitoringConfiguration
   where
   toJSON DescribeEmailMonitoringConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId)
+              ("OrganizationId" Data..= organizationId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeEmailMonitoringConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeEmailMonitoringConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

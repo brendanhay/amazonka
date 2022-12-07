@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest CreateACL where
     Response.receiveJSON
       ( \s h x ->
           CreateACLResponse'
-            Prelude.<$> (x Core..?> "ACL")
+            Prelude.<$> (x Data..?> "ACL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,33 +124,33 @@ instance Prelude.NFData CreateACL where
       `Prelude.seq` Prelude.rnf userNames
       `Prelude.seq` Prelude.rnf aCLName
 
-instance Core.ToHeaders CreateACL where
+instance Data.ToHeaders CreateACL where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonMemoryDB.CreateACL" :: Prelude.ByteString),
+              Data.=# ("AmazonMemoryDB.CreateACL" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateACL where
+instance Data.ToJSON CreateACL where
   toJSON CreateACL' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("UserNames" Core..=) Prelude.<$> userNames,
-            Prelude.Just ("ACLName" Core..= aCLName)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("UserNames" Data..=) Prelude.<$> userNames,
+            Prelude.Just ("ACLName" Data..= aCLName)
           ]
       )
 
-instance Core.ToPath CreateACL where
+instance Data.ToPath CreateACL where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateACL where
+instance Data.ToQuery CreateACL where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateACLResponse' smart constructor.

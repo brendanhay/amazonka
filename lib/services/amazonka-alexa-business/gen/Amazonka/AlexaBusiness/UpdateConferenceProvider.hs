@@ -45,6 +45,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,44 +152,44 @@ instance Prelude.NFData UpdateConferenceProvider where
       `Prelude.seq` Prelude.rnf conferenceProviderType
       `Prelude.seq` Prelude.rnf meetingSetting
 
-instance Core.ToHeaders UpdateConferenceProvider where
+instance Data.ToHeaders UpdateConferenceProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.UpdateConferenceProvider" ::
+              Data.=# ( "AlexaForBusiness.UpdateConferenceProvider" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateConferenceProvider where
+instance Data.ToJSON UpdateConferenceProvider where
   toJSON UpdateConferenceProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IPDialIn" Core..=) Prelude.<$> iPDialIn,
-            ("PSTNDialIn" Core..=) Prelude.<$> pSTNDialIn,
+          [ ("IPDialIn" Data..=) Prelude.<$> iPDialIn,
+            ("PSTNDialIn" Data..=) Prelude.<$> pSTNDialIn,
             Prelude.Just
               ( "ConferenceProviderArn"
-                  Core..= conferenceProviderArn
+                  Data..= conferenceProviderArn
               ),
             Prelude.Just
               ( "ConferenceProviderType"
-                  Core..= conferenceProviderType
+                  Data..= conferenceProviderType
               ),
             Prelude.Just
-              ("MeetingSetting" Core..= meetingSetting)
+              ("MeetingSetting" Data..= meetingSetting)
           ]
       )
 
-instance Core.ToPath UpdateConferenceProvider where
+instance Data.ToPath UpdateConferenceProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateConferenceProvider where
+instance Data.ToQuery UpdateConferenceProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConferenceProviderResponse' smart constructor.

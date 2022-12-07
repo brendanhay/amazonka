@@ -21,6 +21,7 @@ module Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSOAdmin.Types.StatusValues
 
@@ -34,7 +35,7 @@ data PermissionSetProvisioningStatusMetadata = PermissionSetProvisioningStatusMe
     -- | The status of the permission set provisioning process.
     status :: Prelude.Maybe StatusValues,
     -- | The date that the permission set was created.
-    createdDate :: Prelude.Maybe Core.POSIX
+    createdDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,20 +74,20 @@ permissionSetProvisioningStatusMetadata_status = Lens.lens (\PermissionSetProvis
 
 -- | The date that the permission set was created.
 permissionSetProvisioningStatusMetadata_createdDate :: Lens.Lens' PermissionSetProvisioningStatusMetadata (Prelude.Maybe Prelude.UTCTime)
-permissionSetProvisioningStatusMetadata_createdDate = Lens.lens (\PermissionSetProvisioningStatusMetadata' {createdDate} -> createdDate) (\s@PermissionSetProvisioningStatusMetadata' {} a -> s {createdDate = a} :: PermissionSetProvisioningStatusMetadata) Prelude.. Lens.mapping Core._Time
+permissionSetProvisioningStatusMetadata_createdDate = Lens.lens (\PermissionSetProvisioningStatusMetadata' {createdDate} -> createdDate) (\s@PermissionSetProvisioningStatusMetadata' {} a -> s {createdDate = a} :: PermissionSetProvisioningStatusMetadata) Prelude.. Lens.mapping Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PermissionSetProvisioningStatusMetadata
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PermissionSetProvisioningStatusMetadata"
       ( \x ->
           PermissionSetProvisioningStatusMetadata'
-            Prelude.<$> (x Core..:? "RequestId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreatedDate")
+            Prelude.<$> (x Data..:? "RequestId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CreatedDate")
       )
 
 instance

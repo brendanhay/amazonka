@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.AutoScalingPolicyDescription
 import Amazonka.EMR.Types.Configuration
 import Amazonka.EMR.Types.EbsBlockDevice
@@ -264,36 +265,36 @@ instanceGroup_ebsBlockDevices = Lens.lens (\InstanceGroup' {ebsBlockDevices} -> 
 instanceGroup_configurationsVersion :: Lens.Lens' InstanceGroup (Prelude.Maybe Prelude.Integer)
 instanceGroup_configurationsVersion = Lens.lens (\InstanceGroup' {configurationsVersion} -> configurationsVersion) (\s@InstanceGroup' {} a -> s {configurationsVersion = a} :: InstanceGroup)
 
-instance Core.FromJSON InstanceGroup where
+instance Data.FromJSON InstanceGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceGroup"
       ( \x ->
           InstanceGroup'
-            Prelude.<$> (x Core..:? "EbsOptimized")
+            Prelude.<$> (x Data..:? "EbsOptimized")
             Prelude.<*> ( x
-                            Core..:? "LastSuccessfullyAppliedConfigurationsVersion"
+                            Data..:? "LastSuccessfullyAppliedConfigurationsVersion"
                         )
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RequestedInstanceCount")
-            Prelude.<*> (x Core..:? "InstanceGroupType")
-            Prelude.<*> (x Core..:? "ShrinkPolicy")
-            Prelude.<*> (x Core..:? "RunningInstanceCount")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Configurations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "BidPrice")
-            Prelude.<*> (x Core..:? "Market")
-            Prelude.<*> (x Core..:? "CustomAmiId")
-            Prelude.<*> (x Core..:? "AutoScalingPolicy")
-            Prelude.<*> ( x Core..:? "LastSuccessfullyAppliedConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RequestedInstanceCount")
+            Prelude.<*> (x Data..:? "InstanceGroupType")
+            Prelude.<*> (x Data..:? "ShrinkPolicy")
+            Prelude.<*> (x Data..:? "RunningInstanceCount")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Configurations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "BidPrice")
+            Prelude.<*> (x Data..:? "Market")
+            Prelude.<*> (x Data..:? "CustomAmiId")
+            Prelude.<*> (x Data..:? "AutoScalingPolicy")
+            Prelude.<*> ( x Data..:? "LastSuccessfullyAppliedConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "EbsBlockDevices"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "EbsBlockDevices"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ConfigurationsVersion")
+            Prelude.<*> (x Data..:? "ConfigurationsVersion")
       )
 
 instance Prelude.Hashable InstanceGroup where

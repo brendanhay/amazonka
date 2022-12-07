@@ -24,6 +24,7 @@ import Amazonka.ChimeSdkMediaPipelines.Types.LayoutOption
 import Amazonka.ChimeSdkMediaPipelines.Types.ResolutionOption
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration for the composited video artifacts.
@@ -82,17 +83,17 @@ compositedVideoArtifactsConfiguration_gridViewConfiguration :: Lens.Lens' Compos
 compositedVideoArtifactsConfiguration_gridViewConfiguration = Lens.lens (\CompositedVideoArtifactsConfiguration' {gridViewConfiguration} -> gridViewConfiguration) (\s@CompositedVideoArtifactsConfiguration' {} a -> s {gridViewConfiguration = a} :: CompositedVideoArtifactsConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CompositedVideoArtifactsConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CompositedVideoArtifactsConfiguration"
       ( \x ->
           CompositedVideoArtifactsConfiguration'
-            Prelude.<$> (x Core..:? "Resolution")
-            Prelude.<*> (x Core..:? "Layout")
-            Prelude.<*> (x Core..: "GridViewConfiguration")
+            Prelude.<$> (x Data..:? "Resolution")
+            Prelude.<*> (x Data..:? "Layout")
+            Prelude.<*> (x Data..: "GridViewConfiguration")
       )
 
 instance
@@ -116,17 +117,17 @@ instance
       `Prelude.seq` Prelude.rnf gridViewConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CompositedVideoArtifactsConfiguration
   where
   toJSON CompositedVideoArtifactsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Resolution" Core..=) Prelude.<$> resolution,
-            ("Layout" Core..=) Prelude.<$> layout,
+          [ ("Resolution" Data..=) Prelude.<$> resolution,
+            ("Layout" Data..=) Prelude.<$> layout,
             Prelude.Just
               ( "GridViewConfiguration"
-                  Core..= gridViewConfiguration
+                  Data..= gridViewConfiguration
               )
           ]
       )

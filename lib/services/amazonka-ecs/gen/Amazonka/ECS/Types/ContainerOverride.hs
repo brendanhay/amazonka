@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ContainerOverride where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.EnvironmentFile
 import Amazonka.ECS.Types.KeyValuePair
 import Amazonka.ECS.Types.ResourceRequirement
@@ -169,23 +170,23 @@ containerOverride_command = Lens.lens (\ContainerOverride' {command} -> command)
 containerOverride_environmentFiles :: Lens.Lens' ContainerOverride (Prelude.Maybe [EnvironmentFile])
 containerOverride_environmentFiles = Lens.lens (\ContainerOverride' {environmentFiles} -> environmentFiles) (\s@ContainerOverride' {} a -> s {environmentFiles = a} :: ContainerOverride) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ContainerOverride where
+instance Data.FromJSON ContainerOverride where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerOverride"
       ( \x ->
           ContainerOverride'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "environment" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "resourceRequirements"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "environment" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "resourceRequirements"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "memory")
-            Prelude.<*> (x Core..:? "cpu")
-            Prelude.<*> (x Core..:? "memoryReservation")
-            Prelude.<*> (x Core..:? "command" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "environmentFiles"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "memory")
+            Prelude.<*> (x Data..:? "cpu")
+            Prelude.<*> (x Data..:? "memoryReservation")
+            Prelude.<*> (x Data..:? "command" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "environmentFiles"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -211,20 +212,20 @@ instance Prelude.NFData ContainerOverride where
       `Prelude.seq` Prelude.rnf command
       `Prelude.seq` Prelude.rnf environmentFiles
 
-instance Core.ToJSON ContainerOverride where
+instance Data.ToJSON ContainerOverride where
   toJSON ContainerOverride' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("environment" Core..=) Prelude.<$> environment,
-            ("resourceRequirements" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("environment" Data..=) Prelude.<$> environment,
+            ("resourceRequirements" Data..=)
               Prelude.<$> resourceRequirements,
-            ("memory" Core..=) Prelude.<$> memory,
-            ("cpu" Core..=) Prelude.<$> cpu,
-            ("memoryReservation" Core..=)
+            ("memory" Data..=) Prelude.<$> memory,
+            ("cpu" Data..=) Prelude.<$> cpu,
+            ("memoryReservation" Data..=)
               Prelude.<$> memoryReservation,
-            ("command" Core..=) Prelude.<$> command,
-            ("environmentFiles" Core..=)
+            ("command" Data..=) Prelude.<$> command,
+            ("environmentFiles" Data..=)
               Prelude.<$> environmentFiles
           ]
       )

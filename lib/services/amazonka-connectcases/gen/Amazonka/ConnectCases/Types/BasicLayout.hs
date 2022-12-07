@@ -22,6 +22,7 @@ module Amazonka.ConnectCases.Types.BasicLayout where
 import Amazonka.ConnectCases.Types.LayoutSections
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Content specific to @BasicLayout@ type. It configures fields in the top
@@ -63,14 +64,14 @@ basicLayout_topPanel = Lens.lens (\BasicLayout' {topPanel} -> topPanel) (\s@Basi
 basicLayout_moreInfo :: Lens.Lens' BasicLayout (Prelude.Maybe LayoutSections)
 basicLayout_moreInfo = Lens.lens (\BasicLayout' {moreInfo} -> moreInfo) (\s@BasicLayout' {} a -> s {moreInfo = a} :: BasicLayout)
 
-instance Core.FromJSON BasicLayout where
+instance Data.FromJSON BasicLayout where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BasicLayout"
       ( \x ->
           BasicLayout'
-            Prelude.<$> (x Core..:? "topPanel")
-            Prelude.<*> (x Core..:? "moreInfo")
+            Prelude.<$> (x Data..:? "topPanel")
+            Prelude.<*> (x Data..:? "moreInfo")
       )
 
 instance Prelude.Hashable BasicLayout where
@@ -83,11 +84,11 @@ instance Prelude.NFData BasicLayout where
     Prelude.rnf topPanel
       `Prelude.seq` Prelude.rnf moreInfo
 
-instance Core.ToJSON BasicLayout where
+instance Data.ToJSON BasicLayout where
   toJSON BasicLayout' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("topPanel" Core..=) Prelude.<$> topPanel,
-            ("moreInfo" Core..=) Prelude.<$> moreInfo
+          [ ("topPanel" Data..=) Prelude.<$> topPanel,
+            ("moreInfo" Data..=) Prelude.<$> moreInfo
           ]
       )

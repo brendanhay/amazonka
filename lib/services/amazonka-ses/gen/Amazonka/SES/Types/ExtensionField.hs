@@ -21,6 +21,7 @@ module Amazonka.SES.Types.ExtensionField where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Additional X-headers to include in the Delivery Status Notification
@@ -84,7 +85,7 @@ instance Prelude.NFData ExtensionField where
   rnf ExtensionField' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToQuery ExtensionField where
+instance Data.ToQuery ExtensionField where
   toQuery ExtensionField' {..} =
     Prelude.mconcat
-      ["Name" Core.=: name, "Value" Core.=: value]
+      ["Name" Data.=: name, "Value" Data.=: value]

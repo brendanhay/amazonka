@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,30 +134,30 @@ instance Prelude.Hashable EnableKey where
 instance Prelude.NFData EnableKey where
   rnf EnableKey' {..} = Prelude.rnf keyId
 
-instance Core.ToHeaders EnableKey where
+instance Data.ToHeaders EnableKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.EnableKey" :: Prelude.ByteString),
+              Data.=# ("TrentService.EnableKey" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EnableKey where
+instance Data.ToJSON EnableKey where
   toJSON EnableKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("KeyId" Core..= keyId)]
+          [Prelude.Just ("KeyId" Data..= keyId)]
       )
 
-instance Core.ToPath EnableKey where
+instance Data.ToPath EnableKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnableKey where
+instance Data.ToQuery EnableKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableKeyResponse' smart constructor.

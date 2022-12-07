@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.FunctionDefaultExecutionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.FunctionIsolationMode
 import Amazonka.Greengrass.Types.FunctionRunAsConfig
 import qualified Amazonka.Prelude as Prelude
@@ -62,14 +63,14 @@ functionDefaultExecutionConfig_isolationMode = Lens.lens (\FunctionDefaultExecut
 functionDefaultExecutionConfig_runAs :: Lens.Lens' FunctionDefaultExecutionConfig (Prelude.Maybe FunctionRunAsConfig)
 functionDefaultExecutionConfig_runAs = Lens.lens (\FunctionDefaultExecutionConfig' {runAs} -> runAs) (\s@FunctionDefaultExecutionConfig' {} a -> s {runAs = a} :: FunctionDefaultExecutionConfig)
 
-instance Core.FromJSON FunctionDefaultExecutionConfig where
+instance Data.FromJSON FunctionDefaultExecutionConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FunctionDefaultExecutionConfig"
       ( \x ->
           FunctionDefaultExecutionConfig'
-            Prelude.<$> (x Core..:? "IsolationMode")
-            Prelude.<*> (x Core..:? "RunAs")
+            Prelude.<$> (x Data..:? "IsolationMode")
+            Prelude.<*> (x Data..:? "RunAs")
       )
 
 instance
@@ -90,11 +91,11 @@ instance
     Prelude.rnf isolationMode
       `Prelude.seq` Prelude.rnf runAs
 
-instance Core.ToJSON FunctionDefaultExecutionConfig where
+instance Data.ToJSON FunctionDefaultExecutionConfig where
   toJSON FunctionDefaultExecutionConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IsolationMode" Core..=) Prelude.<$> isolationMode,
-            ("RunAs" Core..=) Prelude.<$> runAs
+          [ ("IsolationMode" Data..=) Prelude.<$> isolationMode,
+            ("RunAs" Data..=) Prelude.<$> runAs
           ]
       )

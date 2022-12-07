@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.HttpHeader where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The HTTP header.
@@ -71,11 +72,11 @@ instance Prelude.NFData HttpHeader where
     Prelude.rnf headerValue
       `Prelude.seq` Prelude.rnf headerName
 
-instance Core.ToJSON HttpHeader where
+instance Data.ToJSON HttpHeader where
   toJSON HttpHeader' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("headerValue" Core..=) Prelude.<$> headerValue,
-            ("headerName" Core..=) Prelude.<$> headerName
+          [ ("headerValue" Data..=) Prelude.<$> headerValue,
+            ("headerName" Data..=) Prelude.<$> headerName
           ]
       )

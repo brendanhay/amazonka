@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedEventAttributes wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause
 
@@ -105,16 +106,16 @@ continueAsNewWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId
 continueAsNewWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\ContinueAsNewWorkflowExecutionFailedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@ContinueAsNewWorkflowExecutionFailedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: ContinueAsNewWorkflowExecutionFailedEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ContinueAsNewWorkflowExecutionFailedEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContinueAsNewWorkflowExecutionFailedEventAttributes"
       ( \x ->
           ContinueAsNewWorkflowExecutionFailedEventAttributes'
-            Prelude.<$> (x Core..: "cause")
-              Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Data..: "cause")
+              Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance

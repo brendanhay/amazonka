@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackageVOD.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,15 +153,15 @@ instance Core.AWSRequest CreateAsset where
     Response.receiveJSON
       ( \s h x ->
           CreateAssetResponse'
-            Prelude.<$> (x Core..?> "resourceId")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "sourceRoleArn")
-            Prelude.<*> (x Core..?> "sourceArn")
-            Prelude.<*> (x Core..?> "packagingGroupId")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> ( x Core..?> "egressEndpoints"
+            Prelude.<$> (x Data..?> "resourceId")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "sourceRoleArn")
+            Prelude.<*> (x Data..?> "sourceArn")
+            Prelude.<*> (x Data..?> "packagingGroupId")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> ( x Data..?> "egressEndpoints"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -184,36 +185,36 @@ instance Prelude.NFData CreateAsset where
       `Prelude.seq` Prelude.rnf packagingGroupId
       `Prelude.seq` Prelude.rnf sourceRoleArn
 
-instance Core.ToHeaders CreateAsset where
+instance Data.ToHeaders CreateAsset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAsset where
+instance Data.ToJSON CreateAsset where
   toJSON CreateAsset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resourceId" Core..=) Prelude.<$> resourceId,
-            ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("sourceArn" Core..= sourceArn),
-            Prelude.Just ("id" Core..= id),
+          [ ("resourceId" Data..=) Prelude.<$> resourceId,
+            ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("sourceArn" Data..= sourceArn),
+            Prelude.Just ("id" Data..= id),
             Prelude.Just
-              ("packagingGroupId" Core..= packagingGroupId),
+              ("packagingGroupId" Data..= packagingGroupId),
             Prelude.Just
-              ("sourceRoleArn" Core..= sourceRoleArn)
+              ("sourceRoleArn" Data..= sourceRoleArn)
           ]
       )
 
-instance Core.ToPath CreateAsset where
+instance Data.ToPath CreateAsset where
   toPath = Prelude.const "/assets"
 
-instance Core.ToQuery CreateAsset where
+instance Data.ToQuery CreateAsset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAssetResponse' smart constructor.

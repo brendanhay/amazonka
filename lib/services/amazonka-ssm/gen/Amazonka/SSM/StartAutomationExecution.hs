@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -340,7 +341,7 @@ instance Core.AWSRequest StartAutomationExecution where
     Response.receiveJSON
       ( \s h x ->
           StartAutomationExecutionResponse'
-            Prelude.<$> (x Core..?> "AutomationExecutionId")
+            Prelude.<$> (x Data..?> "AutomationExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -376,50 +377,50 @@ instance Prelude.NFData StartAutomationExecution where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf documentName
 
-instance Core.ToHeaders StartAutomationExecution where
+instance Data.ToHeaders StartAutomationExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.StartAutomationExecution" ::
+              Data.=# ( "AmazonSSM.StartAutomationExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartAutomationExecution where
+instance Data.ToJSON StartAutomationExecution where
   toJSON StartAutomationExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("TargetLocations" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("TargetLocations" Data..=)
               Prelude.<$> targetLocations,
-            ("TargetParameterName" Core..=)
+            ("TargetParameterName" Data..=)
               Prelude.<$> targetParameterName,
-            ("TargetMaps" Core..=) Prelude.<$> targetMaps,
-            ("Targets" Core..=) Prelude.<$> targets,
-            ("AlarmConfiguration" Core..=)
+            ("TargetMaps" Data..=) Prelude.<$> targetMaps,
+            ("Targets" Data..=) Prelude.<$> targets,
+            ("AlarmConfiguration" Data..=)
               Prelude.<$> alarmConfiguration,
-            ("MaxConcurrency" Core..=)
+            ("MaxConcurrency" Data..=)
               Prelude.<$> maxConcurrency,
-            ("Mode" Core..=) Prelude.<$> mode,
-            ("MaxErrors" Core..=) Prelude.<$> maxErrors,
-            ("DocumentVersion" Core..=)
+            ("Mode" Data..=) Prelude.<$> mode,
+            ("MaxErrors" Data..=) Prelude.<$> maxErrors,
+            ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("DocumentName" Core..= documentName)
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("DocumentName" Data..= documentName)
           ]
       )
 
-instance Core.ToPath StartAutomationExecution where
+instance Data.ToPath StartAutomationExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartAutomationExecution where
+instance Data.ToQuery StartAutomationExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartAutomationExecutionResponse' smart constructor.

@@ -48,6 +48,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,12 +122,12 @@ instance
     Response.receiveBytes
       ( \s h x ->
           HostedConfigurationVersion'
-            Prelude.<$> (h Core..#? "Description")
-            Prelude.<*> (h Core..#? "Version-Number")
-            Prelude.<*> (h Core..#? "Application-Id")
+            Prelude.<$> (h Data..#? "Description")
+            Prelude.<*> (h Data..#? "Version-Number")
+            Prelude.<*> (h Data..#? "Application-Id")
             Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
-            Prelude.<*> (h Core..#? "Configuration-Profile-Id")
-            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<*> (h Data..#? "Configuration-Profile-Id")
+            Prelude.<*> (h Data..#? "Content-Type")
       )
 
 instance
@@ -144,27 +145,27 @@ instance Prelude.NFData GetHostedConfigurationVersion where
       `Prelude.seq` Prelude.rnf configurationProfileId
       `Prelude.seq` Prelude.rnf versionNumber
 
-instance Core.ToHeaders GetHostedConfigurationVersion where
+instance Data.ToHeaders GetHostedConfigurationVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetHostedConfigurationVersion where
+instance Data.ToPath GetHostedConfigurationVersion where
   toPath GetHostedConfigurationVersion' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/configurationprofiles/",
-        Core.toBS configurationProfileId,
+        Data.toBS configurationProfileId,
         "/hostedconfigurationversions/",
-        Core.toBS versionNumber
+        Data.toBS versionNumber
       ]
 
-instance Core.ToQuery GetHostedConfigurationVersion where
+instance Data.ToQuery GetHostedConfigurationVersion where
   toQuery = Prelude.const Prelude.mempty

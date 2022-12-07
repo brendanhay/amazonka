@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.PipelineExecutionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.PipelineExecutionStatus
 
@@ -40,7 +41,7 @@ data PipelineExecutionSummary = PipelineExecutionSummary'
     -- | The Amazon Resource Name (ARN) of the pipeline execution.
     pipelineExecutionArn :: Prelude.Maybe Prelude.Text,
     -- | The start time of the pipeline execution.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,20 +101,20 @@ pipelineExecutionSummary_pipelineExecutionArn = Lens.lens (\PipelineExecutionSum
 
 -- | The start time of the pipeline execution.
 pipelineExecutionSummary_startTime :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe Prelude.UTCTime)
-pipelineExecutionSummary_startTime = Lens.lens (\PipelineExecutionSummary' {startTime} -> startTime) (\s@PipelineExecutionSummary' {} a -> s {startTime = a} :: PipelineExecutionSummary) Prelude.. Lens.mapping Core._Time
+pipelineExecutionSummary_startTime = Lens.lens (\PipelineExecutionSummary' {startTime} -> startTime) (\s@PipelineExecutionSummary' {} a -> s {startTime = a} :: PipelineExecutionSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON PipelineExecutionSummary where
+instance Data.FromJSON PipelineExecutionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelineExecutionSummary"
       ( \x ->
           PipelineExecutionSummary'
-            Prelude.<$> (x Core..:? "PipelineExecutionDescription")
-            Prelude.<*> (x Core..:? "PipelineExecutionFailureReason")
-            Prelude.<*> (x Core..:? "PipelineExecutionStatus")
-            Prelude.<*> (x Core..:? "PipelineExecutionDisplayName")
-            Prelude.<*> (x Core..:? "PipelineExecutionArn")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "PipelineExecutionDescription")
+            Prelude.<*> (x Data..:? "PipelineExecutionFailureReason")
+            Prelude.<*> (x Data..:? "PipelineExecutionStatus")
+            Prelude.<*> (x Data..:? "PipelineExecutionDisplayName")
+            Prelude.<*> (x Data..:? "PipelineExecutionArn")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable PipelineExecutionSummary where

@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.RecipeVersionErrorDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents any errors encountered when attempting to delete multiple
@@ -72,15 +73,15 @@ recipeVersionErrorDetail_errorCode = Lens.lens (\RecipeVersionErrorDetail' {erro
 recipeVersionErrorDetail_recipeVersion :: Lens.Lens' RecipeVersionErrorDetail (Prelude.Maybe Prelude.Text)
 recipeVersionErrorDetail_recipeVersion = Lens.lens (\RecipeVersionErrorDetail' {recipeVersion} -> recipeVersion) (\s@RecipeVersionErrorDetail' {} a -> s {recipeVersion = a} :: RecipeVersionErrorDetail)
 
-instance Core.FromJSON RecipeVersionErrorDetail where
+instance Data.FromJSON RecipeVersionErrorDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecipeVersionErrorDetail"
       ( \x ->
           RecipeVersionErrorDetail'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "RecipeVersion")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "RecipeVersion")
       )
 
 instance Prelude.Hashable RecipeVersionErrorDetail where

@@ -102,6 +102,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -186,11 +187,11 @@ instance Core.AWSRequest DescribeAccountCustomization where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountCustomizationResponse'
-            Prelude.<$> (x Core..?> "AwsAccountId")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Namespace")
-            Prelude.<*> (x Core..?> "AccountCustomization")
+            Prelude.<$> (x Data..?> "AwsAccountId")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Namespace")
+            Prelude.<*> (x Data..?> "AccountCustomization")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -209,30 +210,30 @@ instance Prelude.NFData DescribeAccountCustomization where
       `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf awsAccountId
 
-instance Core.ToHeaders DescribeAccountCustomization where
+instance Data.ToHeaders DescribeAccountCustomization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeAccountCustomization where
+instance Data.ToPath DescribeAccountCustomization where
   toPath DescribeAccountCustomization' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/customizations"
       ]
 
-instance Core.ToQuery DescribeAccountCustomization where
+instance Data.ToQuery DescribeAccountCustomization where
   toQuery DescribeAccountCustomization' {..} =
     Prelude.mconcat
-      [ "resolved" Core.=: resolved,
-        "namespace" Core.=: namespace
+      [ "resolved" Data.=: resolved,
+        "namespace" Data.=: namespace
       ]
 
 -- | /See:/ 'newDescribeAccountCustomizationResponse' smart constructor.

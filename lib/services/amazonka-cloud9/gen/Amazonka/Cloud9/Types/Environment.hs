@@ -25,6 +25,7 @@ import Amazonka.Cloud9.Types.EnvironmentType
 import Amazonka.Cloud9.Types.ManagedCredentialsStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Cloud9 development environment.
@@ -62,7 +63,7 @@ data Environment = Environment'
     -- -   @DISABLED_BY_DEFAULT@
     managedCredentialsStatus :: Prelude.Maybe ManagedCredentialsStatus,
     -- | The description for the environment.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the environment.
     id :: Prelude.Maybe Prelude.Text,
     -- | The type of environment. Valid values include the following:
@@ -192,7 +193,7 @@ environment_managedCredentialsStatus = Lens.lens (\Environment' {managedCredenti
 
 -- | The description for the environment.
 environment_description :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
-environment_description = Lens.lens (\Environment' {description} -> description) (\s@Environment' {} a -> s {description = a} :: Environment) Prelude.. Lens.mapping Core._Sensitive
+environment_description = Lens.lens (\Environment' {description} -> description) (\s@Environment' {} a -> s {description = a} :: Environment) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the environment.
 environment_id :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
@@ -215,21 +216,21 @@ environment_arn = Lens.lens (\Environment' {arn} -> arn) (\s@Environment' {} a -
 environment_ownerArn :: Lens.Lens' Environment Prelude.Text
 environment_ownerArn = Lens.lens (\Environment' {ownerArn} -> ownerArn) (\s@Environment' {} a -> s {ownerArn = a} :: Environment)
 
-instance Core.FromJSON Environment where
+instance Data.FromJSON Environment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Environment"
       ( \x ->
           Environment'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "lifecycle")
-            Prelude.<*> (x Core..:? "connectionType")
-            Prelude.<*> (x Core..:? "managedCredentialsStatus")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..: "type")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "ownerArn")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "lifecycle")
+            Prelude.<*> (x Data..:? "connectionType")
+            Prelude.<*> (x Data..:? "managedCredentialsStatus")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..: "type")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "ownerArn")
       )
 
 instance Prelude.Hashable Environment where

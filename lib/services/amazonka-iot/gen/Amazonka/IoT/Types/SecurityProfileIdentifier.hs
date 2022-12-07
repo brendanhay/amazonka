@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.SecurityProfileIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifying information for a Device Defender security profile.
@@ -65,13 +66,13 @@ securityProfileIdentifier_name = Lens.lens (\SecurityProfileIdentifier' {name} -
 securityProfileIdentifier_arn :: Lens.Lens' SecurityProfileIdentifier Prelude.Text
 securityProfileIdentifier_arn = Lens.lens (\SecurityProfileIdentifier' {arn} -> arn) (\s@SecurityProfileIdentifier' {} a -> s {arn = a} :: SecurityProfileIdentifier)
 
-instance Core.FromJSON SecurityProfileIdentifier where
+instance Data.FromJSON SecurityProfileIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecurityProfileIdentifier"
       ( \x ->
           SecurityProfileIdentifier'
-            Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "arn")
+            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "arn")
       )
 
 instance Prelude.Hashable SecurityProfileIdentifier where

@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.Failure where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A failed resource. For a list of common causes, see
@@ -72,15 +73,15 @@ failure_reason = Lens.lens (\Failure' {reason} -> reason) (\s@Failure' {} a -> s
 failure_detail :: Lens.Lens' Failure (Prelude.Maybe Prelude.Text)
 failure_detail = Lens.lens (\Failure' {detail} -> detail) (\s@Failure' {} a -> s {detail = a} :: Failure)
 
-instance Core.FromJSON Failure where
+instance Data.FromJSON Failure where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Failure"
       ( \x ->
           Failure'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "reason")
-            Prelude.<*> (x Core..:? "detail")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "reason")
+            Prelude.<*> (x Data..:? "detail")
       )
 
 instance Prelude.Hashable Failure where

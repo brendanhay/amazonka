@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,12 +140,12 @@ instance
     Response.receiveXML
       ( \s h x ->
           TerminateClientVpnConnectionsResponse'
-            Prelude.<$> ( x Core..@? "connectionStatuses"
+            Prelude.<$> ( x Data..@? "connectionStatuses"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "username")
-            Prelude.<*> (x Core..@? "clientVpnEndpointId")
+            Prelude.<*> (x Data..@? "username")
+            Prelude.<*> (x Data..@? "clientVpnEndpointId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,25 +166,25 @@ instance Prelude.NFData TerminateClientVpnConnections where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf clientVpnEndpointId
 
-instance Core.ToHeaders TerminateClientVpnConnections where
+instance Data.ToHeaders TerminateClientVpnConnections where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath TerminateClientVpnConnections where
+instance Data.ToPath TerminateClientVpnConnections where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TerminateClientVpnConnections where
+instance Data.ToQuery TerminateClientVpnConnections where
   toQuery TerminateClientVpnConnections' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "TerminateClientVpnConnections" ::
+          Data.=: ( "TerminateClientVpnConnections" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Username" Core.=: username,
-        "ConnectionId" Core.=: connectionId,
-        "DryRun" Core.=: dryRun,
-        "ClientVpnEndpointId" Core.=: clientVpnEndpointId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Username" Data.=: username,
+        "ConnectionId" Data.=: connectionId,
+        "DryRun" Data.=: dryRun,
+        "ClientVpnEndpointId" Data.=: clientVpnEndpointId
       ]
 
 -- | /See:/ 'newTerminateClientVpnConnectionsResponse' smart constructor.

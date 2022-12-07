@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.NetworkConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.VpcConfig
 
@@ -86,15 +87,15 @@ networkConfig_enableNetworkIsolation = Lens.lens (\NetworkConfig' {enableNetwork
 networkConfig_enableInterContainerTrafficEncryption :: Lens.Lens' NetworkConfig (Prelude.Maybe Prelude.Bool)
 networkConfig_enableInterContainerTrafficEncryption = Lens.lens (\NetworkConfig' {enableInterContainerTrafficEncryption} -> enableInterContainerTrafficEncryption) (\s@NetworkConfig' {} a -> s {enableInterContainerTrafficEncryption = a} :: NetworkConfig)
 
-instance Core.FromJSON NetworkConfig where
+instance Data.FromJSON NetworkConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkConfig"
       ( \x ->
           NetworkConfig'
-            Prelude.<$> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "EnableNetworkIsolation")
-            Prelude.<*> (x Core..:? "EnableInterContainerTrafficEncryption")
+            Prelude.<$> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "EnableNetworkIsolation")
+            Prelude.<*> (x Data..:? "EnableInterContainerTrafficEncryption")
       )
 
 instance Prelude.Hashable NetworkConfig where
@@ -109,14 +110,14 @@ instance Prelude.NFData NetworkConfig where
       `Prelude.seq` Prelude.rnf enableNetworkIsolation
       `Prelude.seq` Prelude.rnf enableInterContainerTrafficEncryption
 
-instance Core.ToJSON NetworkConfig where
+instance Data.ToJSON NetworkConfig where
   toJSON NetworkConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("EnableNetworkIsolation" Core..=)
+          [ ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("EnableNetworkIsolation" Data..=)
               Prelude.<$> enableNetworkIsolation,
-            ("EnableInterContainerTrafficEncryption" Core..=)
+            ("EnableInterContainerTrafficEncryption" Data..=)
               Prelude.<$> enableInterContainerTrafficEncryption
           ]
       )

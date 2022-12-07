@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,7 +142,7 @@ instance Core.AWSRequest CreateMetricAttribution where
     Response.receiveJSON
       ( \s h x ->
           CreateMetricAttributionResponse'
-            Prelude.<$> (x Core..?> "metricAttributionArn")
+            Prelude.<$> (x Data..?> "metricAttributionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,38 +160,38 @@ instance Prelude.NFData CreateMetricAttribution where
       `Prelude.seq` Prelude.rnf metrics
       `Prelude.seq` Prelude.rnf metricsOutputConfig
 
-instance Core.ToHeaders CreateMetricAttribution where
+instance Data.ToHeaders CreateMetricAttribution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.CreateMetricAttribution" ::
+              Data.=# ( "AmazonPersonalize.CreateMetricAttribution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateMetricAttribution where
+instance Data.ToJSON CreateMetricAttribution where
   toJSON CreateMetricAttribution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
+          [ Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("datasetGroupArn" Core..= datasetGroupArn),
-            Prelude.Just ("metrics" Core..= metrics),
+              ("datasetGroupArn" Data..= datasetGroupArn),
+            Prelude.Just ("metrics" Data..= metrics),
             Prelude.Just
-              ("metricsOutputConfig" Core..= metricsOutputConfig)
+              ("metricsOutputConfig" Data..= metricsOutputConfig)
           ]
       )
 
-instance Core.ToPath CreateMetricAttribution where
+instance Data.ToPath CreateMetricAttribution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateMetricAttribution where
+instance Data.ToQuery CreateMetricAttribution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateMetricAttributionResponse' smart constructor.

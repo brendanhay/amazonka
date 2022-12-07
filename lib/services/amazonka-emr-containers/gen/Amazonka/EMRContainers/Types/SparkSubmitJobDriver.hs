@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.SparkSubmitJobDriver where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The information about job driver for Spark submit.
@@ -28,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSparkSubmitJobDriver' smart constructor.
 data SparkSubmitJobDriver = SparkSubmitJobDriver'
   { -- | The arguments for job application.
-    entryPointArguments :: Prelude.Maybe [Core.Sensitive Prelude.Text],
+    entryPointArguments :: Prelude.Maybe [Data.Sensitive Prelude.Text],
     -- | The Spark submit parameters that are used for job runs.
-    sparkSubmitParameters :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sparkSubmitParameters :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The entry point of job application.
-    entryPoint :: Core.Sensitive Prelude.Text
+    entryPoint :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -58,7 +59,7 @@ newSparkSubmitJobDriver pEntryPoint_ =
     { entryPointArguments =
         Prelude.Nothing,
       sparkSubmitParameters = Prelude.Nothing,
-      entryPoint = Core._Sensitive Lens.# pEntryPoint_
+      entryPoint = Data._Sensitive Lens.# pEntryPoint_
     }
 
 -- | The arguments for job application.
@@ -67,23 +68,23 @@ sparkSubmitJobDriver_entryPointArguments = Lens.lens (\SparkSubmitJobDriver' {en
 
 -- | The Spark submit parameters that are used for job runs.
 sparkSubmitJobDriver_sparkSubmitParameters :: Lens.Lens' SparkSubmitJobDriver (Prelude.Maybe Prelude.Text)
-sparkSubmitJobDriver_sparkSubmitParameters = Lens.lens (\SparkSubmitJobDriver' {sparkSubmitParameters} -> sparkSubmitParameters) (\s@SparkSubmitJobDriver' {} a -> s {sparkSubmitParameters = a} :: SparkSubmitJobDriver) Prelude.. Lens.mapping Core._Sensitive
+sparkSubmitJobDriver_sparkSubmitParameters = Lens.lens (\SparkSubmitJobDriver' {sparkSubmitParameters} -> sparkSubmitParameters) (\s@SparkSubmitJobDriver' {} a -> s {sparkSubmitParameters = a} :: SparkSubmitJobDriver) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The entry point of job application.
 sparkSubmitJobDriver_entryPoint :: Lens.Lens' SparkSubmitJobDriver Prelude.Text
-sparkSubmitJobDriver_entryPoint = Lens.lens (\SparkSubmitJobDriver' {entryPoint} -> entryPoint) (\s@SparkSubmitJobDriver' {} a -> s {entryPoint = a} :: SparkSubmitJobDriver) Prelude.. Core._Sensitive
+sparkSubmitJobDriver_entryPoint = Lens.lens (\SparkSubmitJobDriver' {entryPoint} -> entryPoint) (\s@SparkSubmitJobDriver' {} a -> s {entryPoint = a} :: SparkSubmitJobDriver) Prelude.. Data._Sensitive
 
-instance Core.FromJSON SparkSubmitJobDriver where
+instance Data.FromJSON SparkSubmitJobDriver where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SparkSubmitJobDriver"
       ( \x ->
           SparkSubmitJobDriver'
-            Prelude.<$> ( x Core..:? "entryPointArguments"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "entryPointArguments"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "sparkSubmitParameters")
-            Prelude.<*> (x Core..: "entryPoint")
+            Prelude.<*> (x Data..:? "sparkSubmitParameters")
+            Prelude.<*> (x Data..: "entryPoint")
       )
 
 instance Prelude.Hashable SparkSubmitJobDriver where
@@ -98,14 +99,14 @@ instance Prelude.NFData SparkSubmitJobDriver where
       `Prelude.seq` Prelude.rnf sparkSubmitParameters
       `Prelude.seq` Prelude.rnf entryPoint
 
-instance Core.ToJSON SparkSubmitJobDriver where
+instance Data.ToJSON SparkSubmitJobDriver where
   toJSON SparkSubmitJobDriver' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("entryPointArguments" Core..=)
+          [ ("entryPointArguments" Data..=)
               Prelude.<$> entryPointArguments,
-            ("sparkSubmitParameters" Core..=)
+            ("sparkSubmitParameters" Data..=)
               Prelude.<$> sparkSubmitParameters,
-            Prelude.Just ("entryPoint" Core..= entryPoint)
+            Prelude.Just ("entryPoint" Data..= entryPoint)
           ]
       )

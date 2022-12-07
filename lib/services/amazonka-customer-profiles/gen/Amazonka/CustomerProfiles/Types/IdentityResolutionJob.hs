@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.ExportingLocation
 import Amazonka.CustomerProfiles.Types.IdentityResolutionJobStatus
 import Amazonka.CustomerProfiles.Types.JobStats
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the Identity Resolution Job.
@@ -66,9 +67,9 @@ data IdentityResolutionJob = IdentityResolutionJob'
     --     writes a message indicating the source of the problem.
     status :: Prelude.Maybe IdentityResolutionJobStatus,
     -- | The timestamp of when the job was started or will be started.
-    jobStartTime :: Prelude.Maybe Core.POSIX,
+    jobStartTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp of when the job was completed.
-    jobEndTime :: Prelude.Maybe Core.POSIX
+    jobEndTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -182,26 +183,26 @@ identityResolutionJob_status = Lens.lens (\IdentityResolutionJob' {status} -> st
 
 -- | The timestamp of when the job was started or will be started.
 identityResolutionJob_jobStartTime :: Lens.Lens' IdentityResolutionJob (Prelude.Maybe Prelude.UTCTime)
-identityResolutionJob_jobStartTime = Lens.lens (\IdentityResolutionJob' {jobStartTime} -> jobStartTime) (\s@IdentityResolutionJob' {} a -> s {jobStartTime = a} :: IdentityResolutionJob) Prelude.. Lens.mapping Core._Time
+identityResolutionJob_jobStartTime = Lens.lens (\IdentityResolutionJob' {jobStartTime} -> jobStartTime) (\s@IdentityResolutionJob' {} a -> s {jobStartTime = a} :: IdentityResolutionJob) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of when the job was completed.
 identityResolutionJob_jobEndTime :: Lens.Lens' IdentityResolutionJob (Prelude.Maybe Prelude.UTCTime)
-identityResolutionJob_jobEndTime = Lens.lens (\IdentityResolutionJob' {jobEndTime} -> jobEndTime) (\s@IdentityResolutionJob' {} a -> s {jobEndTime = a} :: IdentityResolutionJob) Prelude.. Lens.mapping Core._Time
+identityResolutionJob_jobEndTime = Lens.lens (\IdentityResolutionJob' {jobEndTime} -> jobEndTime) (\s@IdentityResolutionJob' {} a -> s {jobEndTime = a} :: IdentityResolutionJob) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON IdentityResolutionJob where
+instance Data.FromJSON IdentityResolutionJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityResolutionJob"
       ( \x ->
           IdentityResolutionJob'
-            Prelude.<$> (x Core..:? "ExportingLocation")
-            Prelude.<*> (x Core..:? "JobStats")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "JobStartTime")
-            Prelude.<*> (x Core..:? "JobEndTime")
+            Prelude.<$> (x Data..:? "ExportingLocation")
+            Prelude.<*> (x Data..:? "JobStats")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "JobStartTime")
+            Prelude.<*> (x Data..:? "JobEndTime")
       )
 
 instance Prelude.Hashable IdentityResolutionJob where

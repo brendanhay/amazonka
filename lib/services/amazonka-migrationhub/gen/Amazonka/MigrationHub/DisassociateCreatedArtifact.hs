@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHub.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,41 +163,41 @@ instance Prelude.NFData DisassociateCreatedArtifact where
       `Prelude.seq` Prelude.rnf migrationTaskName
       `Prelude.seq` Prelude.rnf createdArtifactName
 
-instance Core.ToHeaders DisassociateCreatedArtifact where
+instance Data.ToHeaders DisassociateCreatedArtifact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMigrationHub.DisassociateCreatedArtifact" ::
+              Data.=# ( "AWSMigrationHub.DisassociateCreatedArtifact" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateCreatedArtifact where
+instance Data.ToJSON DisassociateCreatedArtifact where
   toJSON DisassociateCreatedArtifact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DryRun" Core..=) Prelude.<$> dryRun,
+          [ ("DryRun" Data..=) Prelude.<$> dryRun,
             Prelude.Just
               ( "ProgressUpdateStream"
-                  Core..= progressUpdateStream
+                  Data..= progressUpdateStream
               ),
             Prelude.Just
-              ("MigrationTaskName" Core..= migrationTaskName),
+              ("MigrationTaskName" Data..= migrationTaskName),
             Prelude.Just
-              ("CreatedArtifactName" Core..= createdArtifactName)
+              ("CreatedArtifactName" Data..= createdArtifactName)
           ]
       )
 
-instance Core.ToPath DisassociateCreatedArtifact where
+instance Data.ToPath DisassociateCreatedArtifact where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateCreatedArtifact where
+instance Data.ToQuery DisassociateCreatedArtifact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateCreatedArtifactResponse' smart constructor.

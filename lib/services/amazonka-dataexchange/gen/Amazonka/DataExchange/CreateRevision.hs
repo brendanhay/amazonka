@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,18 +129,18 @@ instance Core.AWSRequest CreateRevision where
     Response.receiveJSON
       ( \s h x ->
           CreateRevisionResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "SourceId")
-            Prelude.<*> (x Core..?> "RevocationComment")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Comment")
-            Prelude.<*> (x Core..?> "Finalized")
-            Prelude.<*> (x Core..?> "DataSetId")
-            Prelude.<*> (x Core..?> "RevokedAt")
-            Prelude.<*> (x Core..?> "Revoked")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "UpdatedAt")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "SourceId")
+            Prelude.<*> (x Data..?> "RevocationComment")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Comment")
+            Prelude.<*> (x Data..?> "Finalized")
+            Prelude.<*> (x Data..?> "DataSetId")
+            Prelude.<*> (x Data..?> "RevokedAt")
+            Prelude.<*> (x Data..?> "Revoked")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,32 +156,32 @@ instance Prelude.NFData CreateRevision where
       `Prelude.seq` Prelude.rnf comment
       `Prelude.seq` Prelude.rnf dataSetId
 
-instance Core.ToHeaders CreateRevision where
+instance Data.ToHeaders CreateRevision where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRevision where
+instance Data.ToJSON CreateRevision where
   toJSON CreateRevision' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Comment" Core..=) Prelude.<$> comment
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Comment" Data..=) Prelude.<$> comment
           ]
       )
 
-instance Core.ToPath CreateRevision where
+instance Data.ToPath CreateRevision where
   toPath CreateRevision' {..} =
     Prelude.mconcat
-      ["/v1/data-sets/", Core.toBS dataSetId, "/revisions"]
+      ["/v1/data-sets/", Data.toBS dataSetId, "/revisions"]
 
-instance Core.ToQuery CreateRevision where
+instance Data.ToQuery CreateRevision where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRevisionResponse' smart constructor.
@@ -212,15 +213,15 @@ data CreateRevisionResponse = CreateRevisionResponse'
     -- | The unique identifier for the data set associated with this revision.
     dataSetId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the revision was revoked, in ISO 8601 format.
-    revokedAt :: Prelude.Maybe Core.POSIX,
+    revokedAt :: Prelude.Maybe Data.POSIX,
     -- | A status indicating that subscribers\' access to the revision was
     -- revoked.
     revoked :: Prelude.Maybe Prelude.Bool,
     -- | The date and time that the revision was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the revision was last updated, in ISO 8601
     -- format.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -336,7 +337,7 @@ createRevisionResponse_dataSetId = Lens.lens (\CreateRevisionResponse' {dataSetI
 
 -- | The date and time that the revision was revoked, in ISO 8601 format.
 createRevisionResponse_revokedAt :: Lens.Lens' CreateRevisionResponse (Prelude.Maybe Prelude.UTCTime)
-createRevisionResponse_revokedAt = Lens.lens (\CreateRevisionResponse' {revokedAt} -> revokedAt) (\s@CreateRevisionResponse' {} a -> s {revokedAt = a} :: CreateRevisionResponse) Prelude.. Lens.mapping Core._Time
+createRevisionResponse_revokedAt = Lens.lens (\CreateRevisionResponse' {revokedAt} -> revokedAt) (\s@CreateRevisionResponse' {} a -> s {revokedAt = a} :: CreateRevisionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A status indicating that subscribers\' access to the revision was
 -- revoked.
@@ -345,12 +346,12 @@ createRevisionResponse_revoked = Lens.lens (\CreateRevisionResponse' {revoked} -
 
 -- | The date and time that the revision was created, in ISO 8601 format.
 createRevisionResponse_createdAt :: Lens.Lens' CreateRevisionResponse (Prelude.Maybe Prelude.UTCTime)
-createRevisionResponse_createdAt = Lens.lens (\CreateRevisionResponse' {createdAt} -> createdAt) (\s@CreateRevisionResponse' {} a -> s {createdAt = a} :: CreateRevisionResponse) Prelude.. Lens.mapping Core._Time
+createRevisionResponse_createdAt = Lens.lens (\CreateRevisionResponse' {createdAt} -> createdAt) (\s@CreateRevisionResponse' {} a -> s {createdAt = a} :: CreateRevisionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the revision was last updated, in ISO 8601
 -- format.
 createRevisionResponse_updatedAt :: Lens.Lens' CreateRevisionResponse (Prelude.Maybe Prelude.UTCTime)
-createRevisionResponse_updatedAt = Lens.lens (\CreateRevisionResponse' {updatedAt} -> updatedAt) (\s@CreateRevisionResponse' {} a -> s {updatedAt = a} :: CreateRevisionResponse) Prelude.. Lens.mapping Core._Time
+createRevisionResponse_updatedAt = Lens.lens (\CreateRevisionResponse' {updatedAt} -> updatedAt) (\s@CreateRevisionResponse' {} a -> s {updatedAt = a} :: CreateRevisionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createRevisionResponse_httpStatus :: Lens.Lens' CreateRevisionResponse Prelude.Int

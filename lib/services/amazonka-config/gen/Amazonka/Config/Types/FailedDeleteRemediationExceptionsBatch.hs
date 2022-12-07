@@ -22,6 +22,7 @@ module Amazonka.Config.Types.FailedDeleteRemediationExceptionsBatch where
 import Amazonka.Config.Types.RemediationExceptionResourceKey
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | List of each of the failed delete remediation exceptions with specific
@@ -68,16 +69,16 @@ failedDeleteRemediationExceptionsBatch_failureMessage :: Lens.Lens' FailedDelete
 failedDeleteRemediationExceptionsBatch_failureMessage = Lens.lens (\FailedDeleteRemediationExceptionsBatch' {failureMessage} -> failureMessage) (\s@FailedDeleteRemediationExceptionsBatch' {} a -> s {failureMessage = a} :: FailedDeleteRemediationExceptionsBatch)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FailedDeleteRemediationExceptionsBatch
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedDeleteRemediationExceptionsBatch"
       ( \x ->
           FailedDeleteRemediationExceptionsBatch'
-            Prelude.<$> (x Core..:? "FailedItems")
-            Prelude.<*> (x Core..:? "FailureMessage")
+            Prelude.<$> (x Data..:? "FailedItems")
+            Prelude.<*> (x Data..:? "FailureMessage")
       )
 
 instance

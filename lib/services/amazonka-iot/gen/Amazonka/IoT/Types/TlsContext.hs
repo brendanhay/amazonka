@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.TlsContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the TLS context to use for the test authorizer request.
@@ -57,9 +58,9 @@ instance Prelude.Hashable TlsContext where
 instance Prelude.NFData TlsContext where
   rnf TlsContext' {..} = Prelude.rnf serverName
 
-instance Core.ToJSON TlsContext where
+instance Data.ToJSON TlsContext where
   toJSON TlsContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("serverName" Core..=) Prelude.<$> serverName]
+          [("serverName" Data..=) Prelude.<$> serverName]
       )

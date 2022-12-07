@@ -49,6 +49,7 @@ where
 import Amazonka.Budgets.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -176,8 +177,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeSubscribersForNotificationResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "Subscribers")
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "Subscribers")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -206,46 +207,46 @@ instance
       `Prelude.seq` Prelude.rnf notification
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeSubscribersForNotification
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSBudgetServiceGateway.DescribeSubscribersForNotification" ::
+              Data.=# ( "AWSBudgetServiceGateway.DescribeSubscribersForNotification" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeSubscribersForNotification
   where
   toJSON DescribeSubscribersForNotification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("AccountId" Core..= accountId),
-            Prelude.Just ("BudgetName" Core..= budgetName),
-            Prelude.Just ("Notification" Core..= notification)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("AccountId" Data..= accountId),
+            Prelude.Just ("BudgetName" Data..= budgetName),
+            Prelude.Just ("Notification" Data..= notification)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeSubscribersForNotification
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeSubscribersForNotification
   where
   toQuery = Prelude.const Prelude.mempty

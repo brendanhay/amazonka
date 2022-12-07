@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types.ErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -79,15 +80,15 @@ batchUpdateDetectorErrorEntry_messageId = Lens.lens (\BatchUpdateDetectorErrorEn
 batchUpdateDetectorErrorEntry_errorCode :: Lens.Lens' BatchUpdateDetectorErrorEntry (Prelude.Maybe ErrorCode)
 batchUpdateDetectorErrorEntry_errorCode = Lens.lens (\BatchUpdateDetectorErrorEntry' {errorCode} -> errorCode) (\s@BatchUpdateDetectorErrorEntry' {} a -> s {errorCode = a} :: BatchUpdateDetectorErrorEntry)
 
-instance Core.FromJSON BatchUpdateDetectorErrorEntry where
+instance Data.FromJSON BatchUpdateDetectorErrorEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchUpdateDetectorErrorEntry"
       ( \x ->
           BatchUpdateDetectorErrorEntry'
-            Prelude.<$> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "messageId")
-            Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "messageId")
+            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance

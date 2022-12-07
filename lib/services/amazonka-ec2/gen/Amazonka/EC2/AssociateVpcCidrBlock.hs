@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -269,9 +270,9 @@ instance Core.AWSRequest AssociateVpcCidrBlock where
     Response.receiveXML
       ( \s h x ->
           AssociateVpcCidrBlockResponse'
-            Prelude.<$> (x Core..@? "cidrBlockAssociation")
-            Prelude.<*> (x Core..@? "ipv6CidrBlockAssociation")
-            Prelude.<*> (x Core..@? "vpcId")
+            Prelude.<$> (x Data..@? "cidrBlockAssociation")
+            Prelude.<*> (x Data..@? "ipv6CidrBlockAssociation")
+            Prelude.<*> (x Data..@? "vpcId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -302,31 +303,31 @@ instance Prelude.NFData AssociateVpcCidrBlock where
       `Prelude.seq` Prelude.rnf ipv6CidrBlock
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToHeaders AssociateVpcCidrBlock where
+instance Data.ToHeaders AssociateVpcCidrBlock where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AssociateVpcCidrBlock where
+instance Data.ToPath AssociateVpcCidrBlock where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateVpcCidrBlock where
+instance Data.ToQuery AssociateVpcCidrBlock where
   toQuery AssociateVpcCidrBlock' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AssociateVpcCidrBlock" :: Prelude.ByteString),
+          Data.=: ("AssociateVpcCidrBlock" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "Ipv6CidrBlockNetworkBorderGroup"
-          Core.=: ipv6CidrBlockNetworkBorderGroup,
-        "Ipv4IpamPoolId" Core.=: ipv4IpamPoolId,
-        "Ipv6Pool" Core.=: ipv6Pool,
-        "Ipv4NetmaskLength" Core.=: ipv4NetmaskLength,
-        "Ipv6IpamPoolId" Core.=: ipv6IpamPoolId,
+          Data.=: ipv6CidrBlockNetworkBorderGroup,
+        "Ipv4IpamPoolId" Data.=: ipv4IpamPoolId,
+        "Ipv6Pool" Data.=: ipv6Pool,
+        "Ipv4NetmaskLength" Data.=: ipv4NetmaskLength,
+        "Ipv6IpamPoolId" Data.=: ipv6IpamPoolId,
         "AmazonProvidedIpv6CidrBlock"
-          Core.=: amazonProvidedIpv6CidrBlock,
-        "Ipv6NetmaskLength" Core.=: ipv6NetmaskLength,
-        "CidrBlock" Core.=: cidrBlock,
-        "Ipv6CidrBlock" Core.=: ipv6CidrBlock,
-        "VpcId" Core.=: vpcId
+          Data.=: amazonProvidedIpv6CidrBlock,
+        "Ipv6NetmaskLength" Data.=: ipv6NetmaskLength,
+        "CidrBlock" Data.=: cidrBlock,
+        "Ipv6CidrBlock" Data.=: ipv6CidrBlock,
+        "VpcId" Data.=: vpcId
       ]
 
 -- | /See:/ 'newAssociateVpcCidrBlockResponse' smart constructor.

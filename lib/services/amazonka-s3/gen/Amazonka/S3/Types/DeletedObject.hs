@@ -21,6 +21,7 @@ module Amazonka.S3.Types.DeletedObject where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -95,13 +96,13 @@ deletedObject_deleteMarkerVersionId = Lens.lens (\DeletedObject' {deleteMarkerVe
 deletedObject_versionId :: Lens.Lens' DeletedObject (Prelude.Maybe ObjectVersionId)
 deletedObject_versionId = Lens.lens (\DeletedObject' {versionId} -> versionId) (\s@DeletedObject' {} a -> s {versionId = a} :: DeletedObject)
 
-instance Core.FromXML DeletedObject where
+instance Data.FromXML DeletedObject where
   parseXML x =
     DeletedObject'
-      Prelude.<$> (x Core..@? "Key")
-      Prelude.<*> (x Core..@? "DeleteMarker")
-      Prelude.<*> (x Core..@? "DeleteMarkerVersionId")
-      Prelude.<*> (x Core..@? "VersionId")
+      Prelude.<$> (x Data..@? "Key")
+      Prelude.<*> (x Data..@? "DeleteMarker")
+      Prelude.<*> (x Data..@? "DeleteMarkerVersionId")
+      Prelude.<*> (x Data..@? "VersionId")
 
 instance Prelude.Hashable DeletedObject where
   hashWithSalt _salt DeletedObject' {..} =

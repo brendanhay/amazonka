@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -182,18 +183,18 @@ instance Prelude.NFData DeleteJob where
       `Prelude.seq` Prelude.rnf force
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders DeleteJob where
+instance Data.ToHeaders DeleteJob where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteJob where
+instance Data.ToPath DeleteJob where
   toPath DeleteJob' {..} =
-    Prelude.mconcat ["/jobs/", Core.toBS jobId]
+    Prelude.mconcat ["/jobs/", Data.toBS jobId]
 
-instance Core.ToQuery DeleteJob where
+instance Data.ToQuery DeleteJob where
   toQuery DeleteJob' {..} =
     Prelude.mconcat
-      [ "namespaceId" Core.=: namespaceId,
-        "force" Core.=: force
+      [ "namespaceId" Data.=: namespaceId,
+        "force" Data.=: force
       ]
 
 -- | /See:/ 'newDeleteJobResponse' smart constructor.

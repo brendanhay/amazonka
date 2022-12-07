@@ -49,6 +49,7 @@ where
 import Amazonka.CertificateManagerPCA.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,8 +153,8 @@ instance Core.AWSRequest ListCertificateAuthorities where
     Response.receiveJSON
       ( \s h x ->
           ListCertificateAuthoritiesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "CertificateAuthorities"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "CertificateAuthorities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -171,35 +172,35 @@ instance Prelude.NFData ListCertificateAuthorities where
       `Prelude.seq` Prelude.rnf resourceOwner
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListCertificateAuthorities where
+instance Data.ToHeaders ListCertificateAuthorities where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ACMPrivateCA.ListCertificateAuthorities" ::
+              Data.=# ( "ACMPrivateCA.ListCertificateAuthorities" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCertificateAuthorities where
+instance Data.ToJSON ListCertificateAuthorities where
   toJSON ListCertificateAuthorities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ResourceOwner" Core..=) Prelude.<$> resourceOwner,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ResourceOwner" Data..=) Prelude.<$> resourceOwner,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListCertificateAuthorities where
+instance Data.ToPath ListCertificateAuthorities where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListCertificateAuthorities where
+instance Data.ToQuery ListCertificateAuthorities where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCertificateAuthoritiesResponse' smart constructor.

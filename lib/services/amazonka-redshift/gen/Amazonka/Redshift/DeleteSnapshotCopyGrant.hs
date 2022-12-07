@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -92,21 +93,21 @@ instance Prelude.NFData DeleteSnapshotCopyGrant where
   rnf DeleteSnapshotCopyGrant' {..} =
     Prelude.rnf snapshotCopyGrantName
 
-instance Core.ToHeaders DeleteSnapshotCopyGrant where
+instance Data.ToHeaders DeleteSnapshotCopyGrant where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteSnapshotCopyGrant where
+instance Data.ToPath DeleteSnapshotCopyGrant where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSnapshotCopyGrant where
+instance Data.ToQuery DeleteSnapshotCopyGrant where
   toQuery DeleteSnapshotCopyGrant' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteSnapshotCopyGrant" :: Prelude.ByteString),
+          Data.=: ("DeleteSnapshotCopyGrant" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "SnapshotCopyGrantName"
-          Core.=: snapshotCopyGrantName
+          Data.=: snapshotCopyGrantName
       ]
 
 -- | /See:/ 'newDeleteSnapshotCopyGrantResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -191,7 +192,7 @@ instance Core.AWSRequest CreateManagedPrefixList where
     Response.receiveXML
       ( \s h x ->
           CreateManagedPrefixListResponse'
-            Prelude.<$> (x Core..@? "prefixList")
+            Prelude.<$> (x Data..@? "prefixList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -215,30 +216,30 @@ instance Prelude.NFData CreateManagedPrefixList where
       `Prelude.seq` Prelude.rnf maxEntries
       `Prelude.seq` Prelude.rnf addressFamily
 
-instance Core.ToHeaders CreateManagedPrefixList where
+instance Data.ToHeaders CreateManagedPrefixList where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateManagedPrefixList where
+instance Data.ToPath CreateManagedPrefixList where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateManagedPrefixList where
+instance Data.ToQuery CreateManagedPrefixList where
   toQuery CreateManagedPrefixList' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateManagedPrefixList" :: Prelude.ByteString),
+          Data.=: ("CreateManagedPrefixList" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "Entry" Prelude.<$> entries),
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          (Data.toQueryList "Entry" Prelude.<$> entries),
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "PrefixListName" Core.=: prefixListName,
-        "MaxEntries" Core.=: maxEntries,
-        "AddressFamily" Core.=: addressFamily
+        "PrefixListName" Data.=: prefixListName,
+        "MaxEntries" Data.=: maxEntries,
+        "AddressFamily" Data.=: addressFamily
       ]
 
 -- | /See:/ 'newCreateManagedPrefixListResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.ConnectCases.Types.EventBridgeConfiguration where
 import Amazonka.ConnectCases.Types.EventIncludedData
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration to enable EventBridge case event delivery and determine
@@ -69,14 +70,14 @@ eventBridgeConfiguration_includedData = Lens.lens (\EventBridgeConfiguration' {i
 eventBridgeConfiguration_enabled :: Lens.Lens' EventBridgeConfiguration Prelude.Bool
 eventBridgeConfiguration_enabled = Lens.lens (\EventBridgeConfiguration' {enabled} -> enabled) (\s@EventBridgeConfiguration' {} a -> s {enabled = a} :: EventBridgeConfiguration)
 
-instance Core.FromJSON EventBridgeConfiguration where
+instance Data.FromJSON EventBridgeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventBridgeConfiguration"
       ( \x ->
           EventBridgeConfiguration'
-            Prelude.<$> (x Core..:? "includedData")
-            Prelude.<*> (x Core..: "enabled")
+            Prelude.<$> (x Data..:? "includedData")
+            Prelude.<*> (x Data..: "enabled")
       )
 
 instance Prelude.Hashable EventBridgeConfiguration where
@@ -89,11 +90,11 @@ instance Prelude.NFData EventBridgeConfiguration where
     Prelude.rnf includedData
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON EventBridgeConfiguration where
+instance Data.ToJSON EventBridgeConfiguration where
   toJSON EventBridgeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("includedData" Core..=) Prelude.<$> includedData,
-            Prelude.Just ("enabled" Core..= enabled)
+          [ ("includedData" Data..=) Prelude.<$> includedData,
+            Prelude.Just ("enabled" Data..= enabled)
           ]
       )

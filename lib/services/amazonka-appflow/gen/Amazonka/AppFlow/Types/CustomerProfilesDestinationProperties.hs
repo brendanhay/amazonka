@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.CustomerProfilesDestinationProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Amazon Connect Customer Profiles is
@@ -69,16 +70,16 @@ customerProfilesDestinationProperties_domainName :: Lens.Lens' CustomerProfilesD
 customerProfilesDestinationProperties_domainName = Lens.lens (\CustomerProfilesDestinationProperties' {domainName} -> domainName) (\s@CustomerProfilesDestinationProperties' {} a -> s {domainName = a} :: CustomerProfilesDestinationProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomerProfilesDestinationProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomerProfilesDestinationProperties"
       ( \x ->
           CustomerProfilesDestinationProperties'
-            Prelude.<$> (x Core..:? "objectTypeName")
-            Prelude.<*> (x Core..: "domainName")
+            Prelude.<$> (x Data..:? "objectTypeName")
+            Prelude.<*> (x Data..: "domainName")
       )
 
 instance
@@ -100,14 +101,14 @@ instance
       `Prelude.seq` Prelude.rnf domainName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CustomerProfilesDestinationProperties
   where
   toJSON CustomerProfilesDestinationProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("objectTypeName" Core..=)
+          [ ("objectTypeName" Data..=)
               Prelude.<$> objectTypeName,
-            Prelude.Just ("domainName" Core..= domainName)
+            Prelude.Just ("domainName" Data..= domainName)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.ResourceTag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The tag structure that contains a tag key and value.
@@ -71,13 +72,13 @@ resourceTag_key = Lens.lens (\ResourceTag' {key} -> key) (\s@ResourceTag' {} a -
 resourceTag_value :: Lens.Lens' ResourceTag Prelude.Text
 resourceTag_value = Lens.lens (\ResourceTag' {value} -> value) (\s@ResourceTag' {} a -> s {value = a} :: ResourceTag)
 
-instance Core.FromJSON ResourceTag where
+instance Data.FromJSON ResourceTag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceTag"
       ( \x ->
           ResourceTag'
-            Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable ResourceTag where
@@ -89,11 +90,11 @@ instance Prelude.NFData ResourceTag where
   rnf ResourceTag' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ResourceTag where
+instance Data.ToJSON ResourceTag where
   toJSON ResourceTag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

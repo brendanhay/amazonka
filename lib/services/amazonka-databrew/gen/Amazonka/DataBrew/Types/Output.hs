@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.Output where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.CompressionFormat
 import Amazonka.DataBrew.Types.OutputFormat
 import Amazonka.DataBrew.Types.OutputFormatOptions
@@ -122,21 +123,21 @@ output_maxOutputFiles = Lens.lens (\Output' {maxOutputFiles} -> maxOutputFiles) 
 output_location :: Lens.Lens' Output S3Location
 output_location = Lens.lens (\Output' {location} -> location) (\s@Output' {} a -> s {location = a} :: Output)
 
-instance Core.FromJSON Output where
+instance Data.FromJSON Output where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Output"
       ( \x ->
           Output'
-            Prelude.<$> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "Overwrite")
-            Prelude.<*> ( x Core..:? "PartitionColumns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Format")
+            Prelude.<*> (x Data..:? "Overwrite")
+            Prelude.<*> ( x Data..:? "PartitionColumns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "FormatOptions")
-            Prelude.<*> (x Core..:? "CompressionFormat")
-            Prelude.<*> (x Core..:? "MaxOutputFiles")
-            Prelude.<*> (x Core..: "Location")
+            Prelude.<*> (x Data..:? "FormatOptions")
+            Prelude.<*> (x Data..:? "CompressionFormat")
+            Prelude.<*> (x Data..:? "MaxOutputFiles")
+            Prelude.<*> (x Data..: "Location")
       )
 
 instance Prelude.Hashable Output where
@@ -159,19 +160,19 @@ instance Prelude.NFData Output where
       `Prelude.seq` Prelude.rnf maxOutputFiles
       `Prelude.seq` Prelude.rnf location
 
-instance Core.ToJSON Output where
+instance Data.ToJSON Output where
   toJSON Output' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Format" Core..=) Prelude.<$> format,
-            ("Overwrite" Core..=) Prelude.<$> overwrite,
-            ("PartitionColumns" Core..=)
+          [ ("Format" Data..=) Prelude.<$> format,
+            ("Overwrite" Data..=) Prelude.<$> overwrite,
+            ("PartitionColumns" Data..=)
               Prelude.<$> partitionColumns,
-            ("FormatOptions" Core..=) Prelude.<$> formatOptions,
-            ("CompressionFormat" Core..=)
+            ("FormatOptions" Data..=) Prelude.<$> formatOptions,
+            ("CompressionFormat" Data..=)
               Prelude.<$> compressionFormat,
-            ("MaxOutputFiles" Core..=)
+            ("MaxOutputFiles" Data..=)
               Prelude.<$> maxOutputFiles,
-            Prelude.Just ("Location" Core..= location)
+            Prelude.Just ("Location" Data..= location)
           ]
       )

@@ -46,6 +46,7 @@ where
 import Amazonka.AppFlow.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,8 +103,8 @@ instance Core.AWSRequest ListConnectors where
     Response.receiveJSON
       ( \s h x ->
           ListConnectorsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "connectors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "connectors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,30 +118,30 @@ instance Prelude.NFData ListConnectors where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListConnectors where
+instance Data.ToHeaders ListConnectors where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListConnectors where
+instance Data.ToJSON ListConnectors where
   toJSON ListConnectors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListConnectors where
+instance Data.ToPath ListConnectors where
   toPath = Prelude.const "/list-connectors"
 
-instance Core.ToQuery ListConnectors where
+instance Data.ToQuery ListConnectors where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListConnectorsResponse' smart constructor.

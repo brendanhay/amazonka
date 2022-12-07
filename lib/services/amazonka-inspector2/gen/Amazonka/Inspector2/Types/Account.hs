@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.Account where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.ResourceStatus
 import Amazonka.Inspector2.Types.Status
 import qualified Amazonka.Prelude as Prelude
@@ -79,15 +80,15 @@ account_resourceStatus = Lens.lens (\Account' {resourceStatus} -> resourceStatus
 account_status :: Lens.Lens' Account Status
 account_status = Lens.lens (\Account' {status} -> status) (\s@Account' {} a -> s {status = a} :: Account)
 
-instance Core.FromJSON Account where
+instance Data.FromJSON Account where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Account"
       ( \x ->
           Account'
-            Prelude.<$> (x Core..: "accountId")
-            Prelude.<*> (x Core..: "resourceStatus")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..: "accountId")
+            Prelude.<*> (x Data..: "resourceStatus")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable Account where

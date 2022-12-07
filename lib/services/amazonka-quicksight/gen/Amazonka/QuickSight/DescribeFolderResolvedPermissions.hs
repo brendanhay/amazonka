@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -108,10 +109,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeFolderResolvedPermissionsResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-              Prelude.<*> (x Core..?> "Arn")
-              Prelude.<*> (x Core..?> "Permissions")
-              Prelude.<*> (x Core..?> "FolderId")
+            Prelude.<$> (x Data..?> "RequestId")
+              Prelude.<*> (x Data..?> "Arn")
+              Prelude.<*> (x Data..?> "Permissions")
+              Prelude.<*> (x Data..?> "FolderId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,34 +135,34 @@ instance
       `Prelude.seq` Prelude.rnf folderId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeFolderResolvedPermissions
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeFolderResolvedPermissions
   where
   toPath DescribeFolderResolvedPermissions' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/folders/",
-        Core.toBS folderId,
+        Data.toBS folderId,
         "/resolved-permissions"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeFolderResolvedPermissions
   where
   toQuery = Prelude.const Prelude.mempty

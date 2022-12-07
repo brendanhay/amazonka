@@ -23,6 +23,7 @@ import Amazonka.CertificateManagerPCA.Types.AccessDescription
 import Amazonka.CertificateManagerPCA.Types.KeyUsage
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the certificate extensions to be added to the certificate
@@ -80,16 +81,16 @@ csrExtensions_subjectInformationAccess = Lens.lens (\CsrExtensions' {subjectInfo
 csrExtensions_keyUsage :: Lens.Lens' CsrExtensions (Prelude.Maybe KeyUsage)
 csrExtensions_keyUsage = Lens.lens (\CsrExtensions' {keyUsage} -> keyUsage) (\s@CsrExtensions' {} a -> s {keyUsage = a} :: CsrExtensions)
 
-instance Core.FromJSON CsrExtensions where
+instance Data.FromJSON CsrExtensions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CsrExtensions"
       ( \x ->
           CsrExtensions'
-            Prelude.<$> ( x Core..:? "SubjectInformationAccess"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SubjectInformationAccess"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "KeyUsage")
+            Prelude.<*> (x Data..:? "KeyUsage")
       )
 
 instance Prelude.Hashable CsrExtensions where
@@ -103,12 +104,12 @@ instance Prelude.NFData CsrExtensions where
     Prelude.rnf subjectInformationAccess
       `Prelude.seq` Prelude.rnf keyUsage
 
-instance Core.ToJSON CsrExtensions where
+instance Data.ToJSON CsrExtensions where
   toJSON CsrExtensions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SubjectInformationAccess" Core..=)
+          [ ("SubjectInformationAccess" Data..=)
               Prelude.<$> subjectInformationAccess,
-            ("KeyUsage" Core..=) Prelude.<$> keyUsage
+            ("KeyUsage" Data..=) Prelude.<$> keyUsage
           ]
       )

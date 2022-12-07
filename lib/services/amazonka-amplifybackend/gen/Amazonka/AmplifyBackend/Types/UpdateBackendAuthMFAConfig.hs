@@ -23,6 +23,7 @@ import Amazonka.AmplifyBackend.Types.MFAMode
 import Amazonka.AmplifyBackend.Types.Settings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates the multi-factor authentication (MFA) configuration for the
@@ -78,11 +79,11 @@ instance Prelude.NFData UpdateBackendAuthMFAConfig where
     Prelude.rnf settings
       `Prelude.seq` Prelude.rnf mfaMode
 
-instance Core.ToJSON UpdateBackendAuthMFAConfig where
+instance Data.ToJSON UpdateBackendAuthMFAConfig where
   toJSON UpdateBackendAuthMFAConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("settings" Core..=) Prelude.<$> settings,
-            ("MFAMode" Core..=) Prelude.<$> mfaMode
+          [ ("settings" Data..=) Prelude.<$> settings,
+            ("MFAMode" Data..=) Prelude.<$> mfaMode
           ]
       )

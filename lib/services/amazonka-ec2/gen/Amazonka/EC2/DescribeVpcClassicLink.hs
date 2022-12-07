@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,8 +157,8 @@ instance Core.AWSRequest DescribeVpcClassicLink where
     Response.receiveXML
       ( \s h x ->
           DescribeVpcClassicLinkResponse'
-            Prelude.<$> ( x Core..@? "vpcSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "vpcSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -174,24 +175,24 @@ instance Prelude.NFData DescribeVpcClassicLink where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf vpcIds
 
-instance Core.ToHeaders DescribeVpcClassicLink where
+instance Data.ToHeaders DescribeVpcClassicLink where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeVpcClassicLink where
+instance Data.ToPath DescribeVpcClassicLink where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVpcClassicLink where
+instance Data.ToQuery DescribeVpcClassicLink where
   toQuery DescribeVpcClassicLink' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeVpcClassicLink" :: Prelude.ByteString),
+          Data.=: ("DescribeVpcClassicLink" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "VpcId" Prelude.<$> vpcIds)
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          (Data.toQueryList "VpcId" Prelude.<$> vpcIds)
       ]
 
 -- | /See:/ 'newDescribeVpcClassicLinkResponse' smart constructor.

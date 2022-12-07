@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest UpdateSMBLocalGroups where
     Response.receiveJSON
       ( \s h x ->
           UpdateSMBLocalGroupsResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,35 +115,35 @@ instance Prelude.NFData UpdateSMBLocalGroups where
     Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf sMBLocalGroups
 
-instance Core.ToHeaders UpdateSMBLocalGroups where
+instance Data.ToHeaders UpdateSMBLocalGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.UpdateSMBLocalGroups" ::
+              Data.=# ( "StorageGateway_20130630.UpdateSMBLocalGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSMBLocalGroups where
+instance Data.ToJSON UpdateSMBLocalGroups where
   toJSON UpdateSMBLocalGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GatewayARN" Core..= gatewayARN),
+          [ Prelude.Just ("GatewayARN" Data..= gatewayARN),
             Prelude.Just
-              ("SMBLocalGroups" Core..= sMBLocalGroups)
+              ("SMBLocalGroups" Data..= sMBLocalGroups)
           ]
       )
 
-instance Core.ToPath UpdateSMBLocalGroups where
+instance Data.ToPath UpdateSMBLocalGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateSMBLocalGroups where
+instance Data.ToQuery UpdateSMBLocalGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSMBLocalGroupsResponse' smart constructor.

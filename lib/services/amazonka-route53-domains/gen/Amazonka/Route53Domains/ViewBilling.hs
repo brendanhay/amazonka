@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -71,7 +72,7 @@ data ViewBilling = ViewBilling'
     -- | The beginning date and time for the time period for which you want a
     -- list of billing records. Specify the date and time in Unix time format
     -- and Coordinated Universal time (UTC).
-    start :: Prelude.Maybe Core.POSIX,
+    start :: Prelude.Maybe Data.POSIX,
     -- | The number of billing records to be returned.
     --
     -- Default: 20
@@ -79,7 +80,7 @@ data ViewBilling = ViewBilling'
     -- | The end date and time for the time period for which you want a list of
     -- billing records. Specify the date and time in Unix time format and
     -- Coordinated Universal time (UTC).
-    end :: Prelude.Maybe Core.POSIX
+    end :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -140,7 +141,7 @@ viewBilling_marker = Lens.lens (\ViewBilling' {marker} -> marker) (\s@ViewBillin
 -- list of billing records. Specify the date and time in Unix time format
 -- and Coordinated Universal time (UTC).
 viewBilling_start :: Lens.Lens' ViewBilling (Prelude.Maybe Prelude.UTCTime)
-viewBilling_start = Lens.lens (\ViewBilling' {start} -> start) (\s@ViewBilling' {} a -> s {start = a} :: ViewBilling) Prelude.. Lens.mapping Core._Time
+viewBilling_start = Lens.lens (\ViewBilling' {start} -> start) (\s@ViewBilling' {} a -> s {start = a} :: ViewBilling) Prelude.. Lens.mapping Data._Time
 
 -- | The number of billing records to be returned.
 --
@@ -152,7 +153,7 @@ viewBilling_maxItems = Lens.lens (\ViewBilling' {maxItems} -> maxItems) (\s@View
 -- billing records. Specify the date and time in Unix time format and
 -- Coordinated Universal time (UTC).
 viewBilling_end :: Lens.Lens' ViewBilling (Prelude.Maybe Prelude.UTCTime)
-viewBilling_end = Lens.lens (\ViewBilling' {end} -> end) (\s@ViewBilling' {} a -> s {end = a} :: ViewBilling) Prelude.. Lens.mapping Core._Time
+viewBilling_end = Lens.lens (\ViewBilling' {end} -> end) (\s@ViewBilling' {} a -> s {end = a} :: ViewBilling) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ViewBilling where
   page rq rs
@@ -184,8 +185,8 @@ instance Core.AWSRequest ViewBilling where
     Response.receiveJSON
       ( \s h x ->
           ViewBillingResponse'
-            Prelude.<$> (x Core..?> "BillingRecords" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextPageMarker")
+            Prelude.<$> (x Data..?> "BillingRecords" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextPageMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,36 +204,36 @@ instance Prelude.NFData ViewBilling where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf end
 
-instance Core.ToHeaders ViewBilling where
+instance Data.ToHeaders ViewBilling where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.ViewBilling" ::
+              Data.=# ( "Route53Domains_v20140515.ViewBilling" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ViewBilling where
+instance Data.ToJSON ViewBilling where
   toJSON ViewBilling' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Start" Core..=) Prelude.<$> start,
-            ("MaxItems" Core..=) Prelude.<$> maxItems,
-            ("End" Core..=) Prelude.<$> end
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Start" Data..=) Prelude.<$> start,
+            ("MaxItems" Data..=) Prelude.<$> maxItems,
+            ("End" Data..=) Prelude.<$> end
           ]
       )
 
-instance Core.ToPath ViewBilling where
+instance Data.ToPath ViewBilling where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ViewBilling where
+instance Data.ToQuery ViewBilling where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The ViewBilling response includes the following elements.

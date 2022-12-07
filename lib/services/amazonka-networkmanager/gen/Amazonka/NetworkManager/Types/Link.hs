@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.Link where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.Bandwidth
 import Amazonka.NetworkManager.Types.LinkState
 import Amazonka.NetworkManager.Types.Tag
@@ -49,7 +50,7 @@ data Link = Link'
     -- | The ID of the site.
     siteId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the link was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the link.
     linkArn :: Prelude.Maybe Prelude.Text
   }
@@ -139,29 +140,29 @@ link_siteId = Lens.lens (\Link' {siteId} -> siteId) (\s@Link' {} a -> s {siteId 
 
 -- | The date and time that the link was created.
 link_createdAt :: Lens.Lens' Link (Prelude.Maybe Prelude.UTCTime)
-link_createdAt = Lens.lens (\Link' {createdAt} -> createdAt) (\s@Link' {} a -> s {createdAt = a} :: Link) Prelude.. Lens.mapping Core._Time
+link_createdAt = Lens.lens (\Link' {createdAt} -> createdAt) (\s@Link' {} a -> s {createdAt = a} :: Link) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the link.
 link_linkArn :: Lens.Lens' Link (Prelude.Maybe Prelude.Text)
 link_linkArn = Lens.lens (\Link' {linkArn} -> linkArn) (\s@Link' {} a -> s {linkArn = a} :: Link)
 
-instance Core.FromJSON Link where
+instance Data.FromJSON Link where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Link"
       ( \x ->
           Link'
-            Prelude.<$> (x Core..:? "GlobalNetworkId")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LinkId")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Bandwidth")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Provider")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SiteId")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "LinkArn")
+            Prelude.<$> (x Data..:? "GlobalNetworkId")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LinkId")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Bandwidth")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Provider")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SiteId")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "LinkArn")
       )
 
 instance Prelude.Hashable Link where

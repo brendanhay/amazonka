@@ -49,6 +49,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -64,7 +65,7 @@ data AdminListUserAuthEvents = AdminListUserAuthEvents'
     -- | The user pool ID.
     userPoolId :: Prelude.Text,
     -- | The user pool username or an alias.
-    username :: Core.Sensitive Prelude.Text
+    username :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -97,7 +98,7 @@ newAdminListUserAuthEvents pUserPoolId_ pUsername_ =
         Prelude.Nothing,
       maxResults = Prelude.Nothing,
       userPoolId = pUserPoolId_,
-      username = Core._Sensitive Lens.# pUsername_
+      username = Data._Sensitive Lens.# pUsername_
     }
 
 -- | A pagination token.
@@ -116,7 +117,7 @@ adminListUserAuthEvents_userPoolId = Lens.lens (\AdminListUserAuthEvents' {userP
 
 -- | The user pool username or an alias.
 adminListUserAuthEvents_username :: Lens.Lens' AdminListUserAuthEvents Prelude.Text
-adminListUserAuthEvents_username = Lens.lens (\AdminListUserAuthEvents' {username} -> username) (\s@AdminListUserAuthEvents' {} a -> s {username = a} :: AdminListUserAuthEvents) Prelude.. Core._Sensitive
+adminListUserAuthEvents_username = Lens.lens (\AdminListUserAuthEvents' {username} -> username) (\s@AdminListUserAuthEvents' {} a -> s {username = a} :: AdminListUserAuthEvents) Prelude.. Data._Sensitive
 
 instance Core.AWSPager AdminListUserAuthEvents where
   page rq rs
@@ -150,8 +151,8 @@ instance Core.AWSRequest AdminListUserAuthEvents where
     Response.receiveJSON
       ( \s h x ->
           AdminListUserAuthEventsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "AuthEvents" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "AuthEvents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,36 +170,36 @@ instance Prelude.NFData AdminListUserAuthEvents where
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf username
 
-instance Core.ToHeaders AdminListUserAuthEvents where
+instance Data.ToHeaders AdminListUserAuthEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminListUserAuthEvents" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminListUserAuthEvents" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminListUserAuthEvents where
+instance Data.ToJSON AdminListUserAuthEvents where
   toJSON AdminListUserAuthEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("Username" Core..= username)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("Username" Data..= username)
           ]
       )
 
-instance Core.ToPath AdminListUserAuthEvents where
+instance Data.ToPath AdminListUserAuthEvents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminListUserAuthEvents where
+instance Data.ToQuery AdminListUserAuthEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdminListUserAuthEventsResponse' smart constructor.

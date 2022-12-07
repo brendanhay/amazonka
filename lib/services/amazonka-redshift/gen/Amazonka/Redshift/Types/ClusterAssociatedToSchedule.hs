@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ClusterAssociatedToSchedule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.ScheduleState
@@ -62,11 +63,11 @@ clusterAssociatedToSchedule_clusterIdentifier = Lens.lens (\ClusterAssociatedToS
 clusterAssociatedToSchedule_scheduleAssociationState :: Lens.Lens' ClusterAssociatedToSchedule (Prelude.Maybe ScheduleState)
 clusterAssociatedToSchedule_scheduleAssociationState = Lens.lens (\ClusterAssociatedToSchedule' {scheduleAssociationState} -> scheduleAssociationState) (\s@ClusterAssociatedToSchedule' {} a -> s {scheduleAssociationState = a} :: ClusterAssociatedToSchedule)
 
-instance Core.FromXML ClusterAssociatedToSchedule where
+instance Data.FromXML ClusterAssociatedToSchedule where
   parseXML x =
     ClusterAssociatedToSchedule'
-      Prelude.<$> (x Core..@? "ClusterIdentifier")
-      Prelude.<*> (x Core..@? "ScheduleAssociationState")
+      Prelude.<$> (x Data..@? "ClusterIdentifier")
+      Prelude.<*> (x Data..@? "ScheduleAssociationState")
 
 instance Prelude.Hashable ClusterAssociatedToSchedule where
   hashWithSalt _salt ClusterAssociatedToSchedule' {..} =

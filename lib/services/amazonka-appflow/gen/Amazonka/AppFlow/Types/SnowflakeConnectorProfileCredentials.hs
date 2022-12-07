@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.SnowflakeConnectorProfileCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile credentials required when using
@@ -31,7 +32,7 @@ data SnowflakeConnectorProfileCredentials = SnowflakeConnectorProfileCredentials
   { -- | The name of the user.
     username :: Prelude.Text,
     -- | The password that corresponds to the user name.
-    password :: Core.Sensitive Prelude.Text
+    password :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -59,7 +60,7 @@ newSnowflakeConnectorProfileCredentials
       { username =
           pUsername_,
         password =
-          Core._Sensitive Lens.# pPassword_
+          Data._Sensitive Lens.# pPassword_
       }
 
 -- | The name of the user.
@@ -68,7 +69,7 @@ snowflakeConnectorProfileCredentials_username = Lens.lens (\SnowflakeConnectorPr
 
 -- | The password that corresponds to the user name.
 snowflakeConnectorProfileCredentials_password :: Lens.Lens' SnowflakeConnectorProfileCredentials Prelude.Text
-snowflakeConnectorProfileCredentials_password = Lens.lens (\SnowflakeConnectorProfileCredentials' {password} -> password) (\s@SnowflakeConnectorProfileCredentials' {} a -> s {password = a} :: SnowflakeConnectorProfileCredentials) Prelude.. Core._Sensitive
+snowflakeConnectorProfileCredentials_password = Lens.lens (\SnowflakeConnectorProfileCredentials' {password} -> password) (\s@SnowflakeConnectorProfileCredentials' {} a -> s {password = a} :: SnowflakeConnectorProfileCredentials) Prelude.. Data._Sensitive
 
 instance
   Prelude.Hashable
@@ -89,13 +90,13 @@ instance
       `Prelude.seq` Prelude.rnf password
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SnowflakeConnectorProfileCredentials
   where
   toJSON SnowflakeConnectorProfileCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("username" Core..= username),
-            Prelude.Just ("password" Core..= password)
+          [ Prelude.Just ("username" Data..= username),
+            Prelude.Just ("password" Data..= password)
           ]
       )

@@ -55,6 +55,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,7 +130,7 @@ instance Core.AWSRequest ListFunctions where
     Response.receiveXML
       ( \s h x ->
           ListFunctionsResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,18 +146,18 @@ instance Prelude.NFData ListFunctions where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf stage
 
-instance Core.ToHeaders ListFunctions where
+instance Data.ToHeaders ListFunctions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListFunctions where
+instance Data.ToPath ListFunctions where
   toPath = Prelude.const "/2020-05-31/function"
 
-instance Core.ToQuery ListFunctions where
+instance Data.ToQuery ListFunctions where
   toQuery ListFunctions' {..} =
     Prelude.mconcat
-      [ "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "Stage" Core.=: stage
+      [ "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "Stage" Data.=: stage
       ]
 
 -- | /See:/ 'newListFunctionsResponse' smart constructor.

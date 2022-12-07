@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.EksConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration for the Amazon EKS cluster that supports the Batch compute
@@ -90,14 +91,14 @@ eksConfiguration_eksClusterArn = Lens.lens (\EksConfiguration' {eksClusterArn} -
 eksConfiguration_kubernetesNamespace :: Lens.Lens' EksConfiguration Prelude.Text
 eksConfiguration_kubernetesNamespace = Lens.lens (\EksConfiguration' {kubernetesNamespace} -> kubernetesNamespace) (\s@EksConfiguration' {} a -> s {kubernetesNamespace = a} :: EksConfiguration)
 
-instance Core.FromJSON EksConfiguration where
+instance Data.FromJSON EksConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksConfiguration"
       ( \x ->
           EksConfiguration'
-            Prelude.<$> (x Core..: "eksClusterArn")
-            Prelude.<*> (x Core..: "kubernetesNamespace")
+            Prelude.<$> (x Data..: "eksClusterArn")
+            Prelude.<*> (x Data..: "kubernetesNamespace")
       )
 
 instance Prelude.Hashable EksConfiguration where
@@ -110,13 +111,13 @@ instance Prelude.NFData EksConfiguration where
     Prelude.rnf eksClusterArn
       `Prelude.seq` Prelude.rnf kubernetesNamespace
 
-instance Core.ToJSON EksConfiguration where
+instance Data.ToJSON EksConfiguration where
   toJSON EksConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("eksClusterArn" Core..= eksClusterArn),
+              ("eksClusterArn" Data..= eksClusterArn),
             Prelude.Just
-              ("kubernetesNamespace" Core..= kubernetesNamespace)
+              ("kubernetesNamespace" Data..= kubernetesNamespace)
           ]
       )

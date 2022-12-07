@@ -23,6 +23,7 @@ import Amazonka.Athena.Types.AclConfiguration
 import Amazonka.Athena.Types.EncryptionConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The information about the updates in the query results, such as output
@@ -282,25 +283,25 @@ instance Prelude.NFData ResultConfigurationUpdates where
       `Prelude.seq` Prelude.rnf removeOutputLocation
       `Prelude.seq` Prelude.rnf encryptionConfiguration
 
-instance Core.ToJSON ResultConfigurationUpdates where
+instance Data.ToJSON ResultConfigurationUpdates where
   toJSON ResultConfigurationUpdates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AclConfiguration" Core..=)
+          [ ("AclConfiguration" Data..=)
               Prelude.<$> aclConfiguration,
-            ("RemoveEncryptionConfiguration" Core..=)
+            ("RemoveEncryptionConfiguration" Data..=)
               Prelude.<$> removeEncryptionConfiguration,
-            ("ExpectedBucketOwner" Core..=)
+            ("ExpectedBucketOwner" Data..=)
               Prelude.<$> expectedBucketOwner,
-            ("RemoveAclConfiguration" Core..=)
+            ("RemoveAclConfiguration" Data..=)
               Prelude.<$> removeAclConfiguration,
-            ("OutputLocation" Core..=)
+            ("OutputLocation" Data..=)
               Prelude.<$> outputLocation,
-            ("RemoveExpectedBucketOwner" Core..=)
+            ("RemoveExpectedBucketOwner" Data..=)
               Prelude.<$> removeExpectedBucketOwner,
-            ("RemoveOutputLocation" Core..=)
+            ("RemoveOutputLocation" Data..=)
               Prelude.<$> removeOutputLocation,
-            ("EncryptionConfiguration" Core..=)
+            ("EncryptionConfiguration" Data..=)
               Prelude.<$> encryptionConfiguration
           ]
       )

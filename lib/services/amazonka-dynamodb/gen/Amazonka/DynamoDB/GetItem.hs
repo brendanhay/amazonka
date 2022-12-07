@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -323,9 +324,9 @@ instance Core.AWSRequest GetItem where
     Response.receiveJSON
       ( \s h x ->
           GetItemResponse'
-            Prelude.<$> (x Core..?> "ConsumedCapacity")
+            Prelude.<$> (x Data..?> "ConsumedCapacity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Item" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable GetItem where
@@ -348,42 +349,42 @@ instance Prelude.NFData GetItem where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToHeaders GetItem where
+instance Data.ToHeaders GetItem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DynamoDB_20120810.GetItem" :: Prelude.ByteString),
+              Data.=# ("DynamoDB_20120810.GetItem" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetItem where
+instance Data.ToJSON GetItem where
   toJSON GetItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConsistentRead" Core..=)
+          [ ("ConsistentRead" Data..=)
               Prelude.<$> consistentRead,
-            ("ExpressionAttributeNames" Core..=)
+            ("ExpressionAttributeNames" Data..=)
               Prelude.<$> expressionAttributeNames,
-            ("ReturnConsumedCapacity" Core..=)
+            ("ReturnConsumedCapacity" Data..=)
               Prelude.<$> returnConsumedCapacity,
-            ("AttributesToGet" Core..=)
+            ("AttributesToGet" Data..=)
               Prelude.<$> attributesToGet,
-            ("ProjectionExpression" Core..=)
+            ("ProjectionExpression" Data..=)
               Prelude.<$> projectionExpression,
-            Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("Key" Core..= key)
+            Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("Key" Data..= key)
           ]
       )
 
-instance Core.ToPath GetItem where
+instance Data.ToPath GetItem where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetItem where
+instance Data.ToQuery GetItem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetItem@ operation.

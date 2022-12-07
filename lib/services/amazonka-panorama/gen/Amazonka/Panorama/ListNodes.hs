@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,8 +146,8 @@ instance Core.AWSRequest ListNodes where
     Response.receiveJSON
       ( \s h x ->
           ListNodesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Nodes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Nodes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,30 +171,30 @@ instance Prelude.NFData ListNodes where
       `Prelude.seq` Prelude.rnf patchVersion
       `Prelude.seq` Prelude.rnf ownerAccount
 
-instance Core.ToHeaders ListNodes where
+instance Data.ToHeaders ListNodes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListNodes where
+instance Data.ToPath ListNodes where
   toPath = Prelude.const "/nodes"
 
-instance Core.ToQuery ListNodes where
+instance Data.ToQuery ListNodes where
   toQuery ListNodes' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "packageName" Core.=: packageName,
-        "packageVersion" Core.=: packageVersion,
-        "maxResults" Core.=: maxResults,
-        "category" Core.=: category,
-        "patchVersion" Core.=: patchVersion,
-        "ownerAccount" Core.=: ownerAccount
+      [ "nextToken" Data.=: nextToken,
+        "packageName" Data.=: packageName,
+        "packageVersion" Data.=: packageVersion,
+        "maxResults" Data.=: maxResults,
+        "category" Data.=: category,
+        "patchVersion" Data.=: patchVersion,
+        "ownerAccount" Data.=: ownerAccount
       ]
 
 -- | /See:/ 'newListNodesResponse' smart constructor.

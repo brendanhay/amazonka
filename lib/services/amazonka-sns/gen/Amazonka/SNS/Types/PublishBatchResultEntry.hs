@@ -21,6 +21,7 @@ module Amazonka.SNS.Types.PublishBatchResultEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Encloses data related to a successful message in a batch request for
@@ -90,12 +91,12 @@ publishBatchResultEntry_id = Lens.lens (\PublishBatchResultEntry' {id} -> id) (\
 publishBatchResultEntry_sequenceNumber :: Lens.Lens' PublishBatchResultEntry (Prelude.Maybe Prelude.Text)
 publishBatchResultEntry_sequenceNumber = Lens.lens (\PublishBatchResultEntry' {sequenceNumber} -> sequenceNumber) (\s@PublishBatchResultEntry' {} a -> s {sequenceNumber = a} :: PublishBatchResultEntry)
 
-instance Core.FromXML PublishBatchResultEntry where
+instance Data.FromXML PublishBatchResultEntry where
   parseXML x =
     PublishBatchResultEntry'
-      Prelude.<$> (x Core..@? "MessageId")
-      Prelude.<*> (x Core..@? "Id")
-      Prelude.<*> (x Core..@? "SequenceNumber")
+      Prelude.<$> (x Data..@? "MessageId")
+      Prelude.<*> (x Data..@? "Id")
+      Prelude.<*> (x Data..@? "SequenceNumber")
 
 instance Prelude.Hashable PublishBatchResultEntry where
   hashWithSalt _salt PublishBatchResultEntry' {..} =

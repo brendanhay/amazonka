@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,9 +163,9 @@ instance Core.AWSRequest ListAssetRelationships where
     Response.receiveJSON
       ( \s h x ->
           ListAssetRelationshipsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "assetRelationshipSummaries"
+            Prelude.<*> ( x Data..?> "assetRelationshipSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -183,31 +184,31 @@ instance Prelude.NFData ListAssetRelationships where
       `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf traversalType
 
-instance Core.ToHeaders ListAssetRelationships where
+instance Data.ToHeaders ListAssetRelationships where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAssetRelationships where
+instance Data.ToPath ListAssetRelationships where
   toPath ListAssetRelationships' {..} =
     Prelude.mconcat
       [ "/assets/",
-        Core.toBS assetId,
+        Data.toBS assetId,
         "/assetRelationships"
       ]
 
-instance Core.ToQuery ListAssetRelationships where
+instance Data.ToQuery ListAssetRelationships where
   toQuery ListAssetRelationships' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "traversalType" Core.=: traversalType
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "traversalType" Data.=: traversalType
       ]
 
 -- | /See:/ 'newListAssetRelationshipsResponse' smart constructor.

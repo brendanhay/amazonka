@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -178,8 +179,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAutomationStepExecutionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "StepExecutions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "StepExecutions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,43 +209,43 @@ instance
       `Prelude.seq` Prelude.rnf automationExecutionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeAutomationStepExecutions
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DescribeAutomationStepExecutions" ::
+              Data.=# ( "AmazonSSM.DescribeAutomationStepExecutions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAutomationStepExecutions where
+instance Data.ToJSON DescribeAutomationStepExecutions where
   toJSON DescribeAutomationStepExecutions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ReverseOrder" Core..=) Prelude.<$> reverseOrder,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ReverseOrder" Data..=) Prelude.<$> reverseOrder,
             Prelude.Just
               ( "AutomationExecutionId"
-                  Core..= automationExecutionId
+                  Data..= automationExecutionId
               )
           ]
       )
 
-instance Core.ToPath DescribeAutomationStepExecutions where
+instance Data.ToPath DescribeAutomationStepExecutions where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeAutomationStepExecutions
   where
   toQuery = Prelude.const Prelude.mempty

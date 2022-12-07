@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,7 +157,7 @@ instance Core.AWSRequest CreatePermissionSet where
     Response.receiveJSON
       ( \s h x ->
           CreatePermissionSetResponse'
-            Prelude.<$> (x Core..?> "PermissionSet")
+            Prelude.<$> (x Data..?> "PermissionSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,39 +179,39 @@ instance Prelude.NFData CreatePermissionSet where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf instanceArn
 
-instance Core.ToHeaders CreatePermissionSet where
+instance Data.ToHeaders CreatePermissionSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SWBExternalService.CreatePermissionSet" ::
+              Data.=# ( "SWBExternalService.CreatePermissionSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePermissionSet where
+instance Data.ToJSON CreatePermissionSet where
   toJSON CreatePermissionSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("SessionDuration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("SessionDuration" Data..=)
               Prelude.<$> sessionDuration,
-            ("RelayState" Core..=) Prelude.<$> relayState,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("InstanceArn" Core..= instanceArn)
+            ("RelayState" Data..=) Prelude.<$> relayState,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("InstanceArn" Data..= instanceArn)
           ]
       )
 
-instance Core.ToPath CreatePermissionSet where
+instance Data.ToPath CreatePermissionSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePermissionSet where
+instance Data.ToQuery CreatePermissionSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePermissionSetResponse' smart constructor.

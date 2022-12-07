@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ObjectiveStatusCounters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the number of training jobs that this hyperparameter tuning
@@ -89,15 +90,15 @@ objectiveStatusCounters_succeeded = Lens.lens (\ObjectiveStatusCounters' {succee
 objectiveStatusCounters_pending :: Lens.Lens' ObjectiveStatusCounters (Prelude.Maybe Prelude.Natural)
 objectiveStatusCounters_pending = Lens.lens (\ObjectiveStatusCounters' {pending} -> pending) (\s@ObjectiveStatusCounters' {} a -> s {pending = a} :: ObjectiveStatusCounters)
 
-instance Core.FromJSON ObjectiveStatusCounters where
+instance Data.FromJSON ObjectiveStatusCounters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ObjectiveStatusCounters"
       ( \x ->
           ObjectiveStatusCounters'
-            Prelude.<$> (x Core..:? "Failed")
-            Prelude.<*> (x Core..:? "Succeeded")
-            Prelude.<*> (x Core..:? "Pending")
+            Prelude.<$> (x Data..:? "Failed")
+            Prelude.<*> (x Data..:? "Succeeded")
+            Prelude.<*> (x Data..:? "Pending")
       )
 
 instance Prelude.Hashable ObjectiveStatusCounters where

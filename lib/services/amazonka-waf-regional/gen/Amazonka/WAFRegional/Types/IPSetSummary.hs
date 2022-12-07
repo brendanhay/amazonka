@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.IPSetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -77,13 +78,13 @@ iPSetSummary_iPSetId = Lens.lens (\IPSetSummary' {iPSetId} -> iPSetId) (\s@IPSet
 iPSetSummary_name :: Lens.Lens' IPSetSummary Prelude.Text
 iPSetSummary_name = Lens.lens (\IPSetSummary' {name} -> name) (\s@IPSetSummary' {} a -> s {name = a} :: IPSetSummary)
 
-instance Core.FromJSON IPSetSummary where
+instance Data.FromJSON IPSetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IPSetSummary"
       ( \x ->
           IPSetSummary'
-            Prelude.<$> (x Core..: "IPSetId") Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..: "IPSetId") Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable IPSetSummary where

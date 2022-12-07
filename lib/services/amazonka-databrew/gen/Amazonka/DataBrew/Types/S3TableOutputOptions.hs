@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.S3TableOutputOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.S3Location
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newS3TableOutputOptions pLocation_ =
 s3TableOutputOptions_location :: Lens.Lens' S3TableOutputOptions S3Location
 s3TableOutputOptions_location = Lens.lens (\S3TableOutputOptions' {location} -> location) (\s@S3TableOutputOptions' {} a -> s {location = a} :: S3TableOutputOptions)
 
-instance Core.FromJSON S3TableOutputOptions where
+instance Data.FromJSON S3TableOutputOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3TableOutputOptions"
       ( \x ->
           S3TableOutputOptions'
-            Prelude.<$> (x Core..: "Location")
+            Prelude.<$> (x Data..: "Location")
       )
 
 instance Prelude.Hashable S3TableOutputOptions where
@@ -73,9 +74,9 @@ instance Prelude.Hashable S3TableOutputOptions where
 instance Prelude.NFData S3TableOutputOptions where
   rnf S3TableOutputOptions' {..} = Prelude.rnf location
 
-instance Core.ToJSON S3TableOutputOptions where
+instance Data.ToJSON S3TableOutputOptions where
   toJSON S3TableOutputOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Location" Core..= location)]
+          [Prelude.Just ("Location" Data..= location)]
       )

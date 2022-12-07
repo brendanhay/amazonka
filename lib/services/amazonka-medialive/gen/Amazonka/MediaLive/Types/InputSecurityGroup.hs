@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputSecurityGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.InputSecurityGroupState
 import Amazonka.MediaLive.Types.InputWhitelistRule
 import qualified Amazonka.Prelude as Prelude
@@ -99,18 +100,18 @@ inputSecurityGroup_whitelistRules = Lens.lens (\InputSecurityGroup' {whitelistRu
 inputSecurityGroup_inputs :: Lens.Lens' InputSecurityGroup (Prelude.Maybe [Prelude.Text])
 inputSecurityGroup_inputs = Lens.lens (\InputSecurityGroup' {inputs} -> inputs) (\s@InputSecurityGroup' {} a -> s {inputs = a} :: InputSecurityGroup) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON InputSecurityGroup where
+instance Data.FromJSON InputSecurityGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputSecurityGroup"
       ( \x ->
           InputSecurityGroup'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "whitelistRules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "inputs" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "whitelistRules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "inputs" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable InputSecurityGroup where

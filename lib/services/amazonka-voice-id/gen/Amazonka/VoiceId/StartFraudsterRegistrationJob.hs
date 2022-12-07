@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -62,7 +63,7 @@ data StartFraudsterRegistrationJob = StartFraudsterRegistrationJob'
     -- use for detecting a duplicate fraudster.
     registrationConfig :: Prelude.Maybe RegistrationConfig,
     -- | The name of the new fraudster registration job.
-    jobName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    jobName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions
     -- to access customer\'s buckets to read the input manifest file and write
     -- the Job output file. Refer to the
@@ -153,7 +154,7 @@ startFraudsterRegistrationJob_registrationConfig = Lens.lens (\StartFraudsterReg
 
 -- | The name of the new fraudster registration job.
 startFraudsterRegistrationJob_jobName :: Lens.Lens' StartFraudsterRegistrationJob (Prelude.Maybe Prelude.Text)
-startFraudsterRegistrationJob_jobName = Lens.lens (\StartFraudsterRegistrationJob' {jobName} -> jobName) (\s@StartFraudsterRegistrationJob' {} a -> s {jobName = a} :: StartFraudsterRegistrationJob) Prelude.. Lens.mapping Core._Sensitive
+startFraudsterRegistrationJob_jobName = Lens.lens (\StartFraudsterRegistrationJob' {jobName} -> jobName) (\s@StartFraudsterRegistrationJob' {} a -> s {jobName = a} :: StartFraudsterRegistrationJob) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions
 -- to access customer\'s buckets to read the input manifest file and write
@@ -192,7 +193,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           StartFraudsterRegistrationJobResponse'
-            Prelude.<$> (x Core..?> "Job")
+            Prelude.<$> (x Data..?> "Job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,43 +220,43 @@ instance Prelude.NFData StartFraudsterRegistrationJob where
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf outputDataConfig
 
-instance Core.ToHeaders StartFraudsterRegistrationJob where
+instance Data.ToHeaders StartFraudsterRegistrationJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "VoiceID.StartFraudsterRegistrationJob" ::
+              Data.=# ( "VoiceID.StartFraudsterRegistrationJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartFraudsterRegistrationJob where
+instance Data.ToJSON StartFraudsterRegistrationJob where
   toJSON StartFraudsterRegistrationJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("RegistrationConfig" Core..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("RegistrationConfig" Data..=)
               Prelude.<$> registrationConfig,
-            ("JobName" Core..=) Prelude.<$> jobName,
+            ("JobName" Data..=) Prelude.<$> jobName,
             Prelude.Just
-              ("DataAccessRoleArn" Core..= dataAccessRoleArn),
-            Prelude.Just ("DomainId" Core..= domainId),
+              ("DataAccessRoleArn" Data..= dataAccessRoleArn),
+            Prelude.Just ("DomainId" Data..= domainId),
             Prelude.Just
-              ("InputDataConfig" Core..= inputDataConfig),
+              ("InputDataConfig" Data..= inputDataConfig),
             Prelude.Just
-              ("OutputDataConfig" Core..= outputDataConfig)
+              ("OutputDataConfig" Data..= outputDataConfig)
           ]
       )
 
-instance Core.ToPath StartFraudsterRegistrationJob where
+instance Data.ToPath StartFraudsterRegistrationJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartFraudsterRegistrationJob where
+instance Data.ToQuery StartFraudsterRegistrationJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartFraudsterRegistrationJobResponse' smart constructor.

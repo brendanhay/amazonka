@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -62,7 +63,7 @@ data GetFolderPath = GetFolderPath'
     marker :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A comma-separated list of values. Specify \"NAME\" to include the names
     -- of the parent folders.
     fields :: Prelude.Maybe Prelude.Text,
@@ -112,7 +113,7 @@ getFolderPath_marker = Lens.lens (\GetFolderPath' {marker} -> marker) (\s@GetFol
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 getFolderPath_authenticationToken :: Lens.Lens' GetFolderPath (Prelude.Maybe Prelude.Text)
-getFolderPath_authenticationToken = Lens.lens (\GetFolderPath' {authenticationToken} -> authenticationToken) (\s@GetFolderPath' {} a -> s {authenticationToken = a} :: GetFolderPath) Prelude.. Lens.mapping Core._Sensitive
+getFolderPath_authenticationToken = Lens.lens (\GetFolderPath' {authenticationToken} -> authenticationToken) (\s@GetFolderPath' {} a -> s {authenticationToken = a} :: GetFolderPath) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A comma-separated list of values. Specify \"NAME\" to include the names
 -- of the parent folders.
@@ -137,7 +138,7 @@ instance Core.AWSRequest GetFolderPath where
     Response.receiveJSON
       ( \s h x ->
           GetFolderPathResponse'
-            Prelude.<$> (x Core..?> "Path")
+            Prelude.<$> (x Data..?> "Path")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,25 +158,25 @@ instance Prelude.NFData GetFolderPath where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf folderId
 
-instance Core.ToHeaders GetFolderPath where
+instance Data.ToHeaders GetFolderPath where
   toHeaders GetFolderPath' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath GetFolderPath where
+instance Data.ToPath GetFolderPath where
   toPath GetFolderPath' {..} =
     Prelude.mconcat
-      ["/api/v1/folders/", Core.toBS folderId, "/path"]
+      ["/api/v1/folders/", Data.toBS folderId, "/path"]
 
-instance Core.ToQuery GetFolderPath where
+instance Data.ToQuery GetFolderPath where
   toQuery GetFolderPath' {..} =
     Prelude.mconcat
-      [ "marker" Core.=: marker,
-        "fields" Core.=: fields,
-        "limit" Core.=: limit
+      [ "marker" Data.=: marker,
+        "fields" Data.=: fields,
+        "limit" Data.=: limit
       ]
 
 -- | /See:/ 'newGetFolderPathResponse' smart constructor.

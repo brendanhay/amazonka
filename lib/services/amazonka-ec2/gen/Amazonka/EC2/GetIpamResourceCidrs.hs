@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -215,10 +216,10 @@ instance Core.AWSRequest GetIpamResourceCidrs where
     Response.receiveXML
       ( \s h x ->
           GetIpamResourceCidrsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "ipamResourceCidrSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "ipamResourceCidrSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -249,30 +250,30 @@ instance Prelude.NFData GetIpamResourceCidrs where
       `Prelude.seq` Prelude.rnf resourceTag
       `Prelude.seq` Prelude.rnf ipamScopeId
 
-instance Core.ToHeaders GetIpamResourceCidrs where
+instance Data.ToHeaders GetIpamResourceCidrs where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetIpamResourceCidrs where
+instance Data.ToPath GetIpamResourceCidrs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetIpamResourceCidrs where
+instance Data.ToQuery GetIpamResourceCidrs where
   toQuery GetIpamResourceCidrs' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetIpamResourceCidrs" :: Prelude.ByteString),
+          Data.=: ("GetIpamResourceCidrs" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ResourceId" Core.=: resourceId,
-        "ResourceType" Core.=: resourceType,
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "ResourceOwner" Core.=: resourceOwner,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        "IpamPoolId" Core.=: ipamPoolId,
-        "ResourceTag" Core.=: resourceTag,
-        "IpamScopeId" Core.=: ipamScopeId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ResourceId" Data.=: resourceId,
+        "ResourceType" Data.=: resourceType,
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "ResourceOwner" Data.=: resourceOwner,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        "IpamPoolId" Data.=: ipamPoolId,
+        "ResourceTag" Data.=: resourceTag,
+        "IpamScopeId" Data.=: ipamScopeId
       ]
 
 -- | /See:/ 'newGetIpamResourceCidrsResponse' smart constructor.

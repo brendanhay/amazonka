@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.KinesisVideoStreamStartSelector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the starting point in a Kinesis stream to start processing.
@@ -91,13 +92,13 @@ instance
     Prelude.rnf producerTimestamp
       `Prelude.seq` Prelude.rnf fragmentNumber
 
-instance Core.ToJSON KinesisVideoStreamStartSelector where
+instance Data.ToJSON KinesisVideoStreamStartSelector where
   toJSON KinesisVideoStreamStartSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProducerTimestamp" Core..=)
+          [ ("ProducerTimestamp" Data..=)
               Prelude.<$> producerTimestamp,
-            ("FragmentNumber" Core..=)
+            ("FragmentNumber" Data..=)
               Prelude.<$> fragmentNumber
           ]
       )

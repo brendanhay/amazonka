@@ -23,6 +23,7 @@ import Amazonka.Backup.Types.ControlInputParameter
 import Amazonka.Backup.Types.ControlScope
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains detailed information about all of the controls of a framework.
@@ -88,17 +89,17 @@ frameworkControl_controlScope = Lens.lens (\FrameworkControl' {controlScope} -> 
 frameworkControl_controlName :: Lens.Lens' FrameworkControl Prelude.Text
 frameworkControl_controlName = Lens.lens (\FrameworkControl' {controlName} -> controlName) (\s@FrameworkControl' {} a -> s {controlName = a} :: FrameworkControl)
 
-instance Core.FromJSON FrameworkControl where
+instance Data.FromJSON FrameworkControl where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FrameworkControl"
       ( \x ->
           FrameworkControl'
-            Prelude.<$> ( x Core..:? "ControlInputParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ControlInputParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ControlScope")
-            Prelude.<*> (x Core..: "ControlName")
+            Prelude.<*> (x Data..:? "ControlScope")
+            Prelude.<*> (x Data..: "ControlName")
       )
 
 instance Prelude.Hashable FrameworkControl where
@@ -113,13 +114,13 @@ instance Prelude.NFData FrameworkControl where
       `Prelude.seq` Prelude.rnf controlScope
       `Prelude.seq` Prelude.rnf controlName
 
-instance Core.ToJSON FrameworkControl where
+instance Data.ToJSON FrameworkControl where
   toJSON FrameworkControl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ControlInputParameters" Core..=)
+          [ ("ControlInputParameters" Data..=)
               Prelude.<$> controlInputParameters,
-            ("ControlScope" Core..=) Prelude.<$> controlScope,
-            Prelude.Just ("ControlName" Core..= controlName)
+            ("ControlScope" Data..=) Prelude.<$> controlScope,
+            Prelude.Just ("ControlName" Data..= controlName)
           ]
       )

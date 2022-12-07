@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.EndpointGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types.EndpointDescription
 import Amazonka.GlobalAccelerator.Types.HealthCheckProtocol
 import Amazonka.GlobalAccelerator.Types.PortOverride
@@ -210,24 +211,24 @@ endpointGroup_healthCheckPort = Lens.lens (\EndpointGroup' {healthCheckPort} -> 
 endpointGroup_endpointGroupArn :: Lens.Lens' EndpointGroup (Prelude.Maybe Prelude.Text)
 endpointGroup_endpointGroupArn = Lens.lens (\EndpointGroup' {endpointGroupArn} -> endpointGroupArn) (\s@EndpointGroup' {} a -> s {endpointGroupArn = a} :: EndpointGroup)
 
-instance Core.FromJSON EndpointGroup where
+instance Data.FromJSON EndpointGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointGroup"
       ( \x ->
           EndpointGroup'
-            Prelude.<$> (x Core..:? "HealthCheckProtocol")
-            Prelude.<*> (x Core..:? "EndpointGroupRegion")
-            Prelude.<*> (x Core..:? "PortOverrides" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "HealthCheckPath")
-            Prelude.<*> (x Core..:? "HealthCheckIntervalSeconds")
-            Prelude.<*> ( x Core..:? "EndpointDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "HealthCheckProtocol")
+            Prelude.<*> (x Data..:? "EndpointGroupRegion")
+            Prelude.<*> (x Data..:? "PortOverrides" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "HealthCheckPath")
+            Prelude.<*> (x Data..:? "HealthCheckIntervalSeconds")
+            Prelude.<*> ( x Data..:? "EndpointDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "TrafficDialPercentage")
-            Prelude.<*> (x Core..:? "ThresholdCount")
-            Prelude.<*> (x Core..:? "HealthCheckPort")
-            Prelude.<*> (x Core..:? "EndpointGroupArn")
+            Prelude.<*> (x Data..:? "TrafficDialPercentage")
+            Prelude.<*> (x Data..:? "ThresholdCount")
+            Prelude.<*> (x Data..:? "HealthCheckPort")
+            Prelude.<*> (x Data..:? "EndpointGroupArn")
       )
 
 instance Prelude.Hashable EndpointGroup where

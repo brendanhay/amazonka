@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.Address where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an address.
@@ -157,23 +158,23 @@ address_postalCode = Lens.lens (\Address' {postalCode} -> postalCode) (\s@Addres
 address_countryCode :: Lens.Lens' Address Prelude.Text
 address_countryCode = Lens.lens (\Address' {countryCode} -> countryCode) (\s@Address' {} a -> s {countryCode = a} :: Address)
 
-instance Core.FromJSON Address where
+instance Data.FromJSON Address where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Address"
       ( \x ->
           Address'
-            Prelude.<$> (x Core..:? "AddressLine2")
-            Prelude.<*> (x Core..:? "ContactName")
-            Prelude.<*> (x Core..:? "ContactPhoneNumber")
-            Prelude.<*> (x Core..:? "DistrictOrCounty")
-            Prelude.<*> (x Core..:? "AddressLine3")
-            Prelude.<*> (x Core..:? "Municipality")
-            Prelude.<*> (x Core..: "AddressLine1")
-            Prelude.<*> (x Core..: "City")
-            Prelude.<*> (x Core..: "StateOrRegion")
-            Prelude.<*> (x Core..: "PostalCode")
-            Prelude.<*> (x Core..: "CountryCode")
+            Prelude.<$> (x Data..:? "AddressLine2")
+            Prelude.<*> (x Data..:? "ContactName")
+            Prelude.<*> (x Data..:? "ContactPhoneNumber")
+            Prelude.<*> (x Data..:? "DistrictOrCounty")
+            Prelude.<*> (x Data..:? "AddressLine3")
+            Prelude.<*> (x Data..:? "Municipality")
+            Prelude.<*> (x Data..: "AddressLine1")
+            Prelude.<*> (x Data..: "City")
+            Prelude.<*> (x Data..: "StateOrRegion")
+            Prelude.<*> (x Data..: "PostalCode")
+            Prelude.<*> (x Data..: "CountryCode")
       )
 
 instance Prelude.Hashable Address where
@@ -204,22 +205,22 @@ instance Prelude.NFData Address where
       `Prelude.seq` Prelude.rnf postalCode
       `Prelude.seq` Prelude.rnf countryCode
 
-instance Core.ToJSON Address where
+instance Data.ToJSON Address where
   toJSON Address' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AddressLine2" Core..=) Prelude.<$> addressLine2,
-            ("ContactName" Core..=) Prelude.<$> contactName,
-            ("ContactPhoneNumber" Core..=)
+          [ ("AddressLine2" Data..=) Prelude.<$> addressLine2,
+            ("ContactName" Data..=) Prelude.<$> contactName,
+            ("ContactPhoneNumber" Data..=)
               Prelude.<$> contactPhoneNumber,
-            ("DistrictOrCounty" Core..=)
+            ("DistrictOrCounty" Data..=)
               Prelude.<$> districtOrCounty,
-            ("AddressLine3" Core..=) Prelude.<$> addressLine3,
-            ("Municipality" Core..=) Prelude.<$> municipality,
-            Prelude.Just ("AddressLine1" Core..= addressLine1),
-            Prelude.Just ("City" Core..= city),
-            Prelude.Just ("StateOrRegion" Core..= stateOrRegion),
-            Prelude.Just ("PostalCode" Core..= postalCode),
-            Prelude.Just ("CountryCode" Core..= countryCode)
+            ("AddressLine3" Data..=) Prelude.<$> addressLine3,
+            ("Municipality" Data..=) Prelude.<$> municipality,
+            Prelude.Just ("AddressLine1" Data..= addressLine1),
+            Prelude.Just ("City" Data..= city),
+            Prelude.Just ("StateOrRegion" Data..= stateOrRegion),
+            Prelude.Just ("PostalCode" Data..= postalCode),
+            Prelude.Just ("CountryCode" Data..= countryCode)
           ]
       )

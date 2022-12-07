@@ -48,6 +48,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,7 +155,7 @@ instance Core.AWSRequest UpdateControl where
     Response.receiveJSON
       ( \s h x ->
           UpdateControlResponse'
-            Prelude.<$> (x Core..?> "control")
+            Prelude.<$> (x Data..?> "control")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,41 +179,41 @@ instance Prelude.NFData UpdateControl where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf controlMappingSources
 
-instance Core.ToHeaders UpdateControl where
+instance Data.ToHeaders UpdateControl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateControl where
+instance Data.ToJSON UpdateControl where
   toJSON UpdateControl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("actionPlanInstructions" Core..=)
+          [ ("actionPlanInstructions" Data..=)
               Prelude.<$> actionPlanInstructions,
-            ("description" Core..=) Prelude.<$> description,
-            ("actionPlanTitle" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("actionPlanTitle" Data..=)
               Prelude.<$> actionPlanTitle,
-            ("testingInformation" Core..=)
+            ("testingInformation" Data..=)
               Prelude.<$> testingInformation,
-            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
               ( "controlMappingSources"
-                  Core..= controlMappingSources
+                  Data..= controlMappingSources
               )
           ]
       )
 
-instance Core.ToPath UpdateControl where
+instance Data.ToPath UpdateControl where
   toPath UpdateControl' {..} =
-    Prelude.mconcat ["/controls/", Core.toBS controlId]
+    Prelude.mconcat ["/controls/", Data.toBS controlId]
 
-instance Core.ToQuery UpdateControl where
+instance Data.ToQuery UpdateControl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateControlResponse' smart constructor.

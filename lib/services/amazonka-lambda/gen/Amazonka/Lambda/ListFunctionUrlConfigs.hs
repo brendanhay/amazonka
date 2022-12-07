@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,9 +175,9 @@ instance Core.AWSRequest ListFunctionUrlConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListFunctionUrlConfigsResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "FunctionUrlConfigs"
+            Prelude.<*> ( x Data..?> "FunctionUrlConfigs"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -193,22 +194,22 @@ instance Prelude.NFData ListFunctionUrlConfigs where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf functionName
 
-instance Core.ToHeaders ListFunctionUrlConfigs where
+instance Data.ToHeaders ListFunctionUrlConfigs where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListFunctionUrlConfigs where
+instance Data.ToPath ListFunctionUrlConfigs where
   toPath ListFunctionUrlConfigs' {..} =
     Prelude.mconcat
       [ "/2021-10-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/urls"
       ]
 
-instance Core.ToQuery ListFunctionUrlConfigs where
+instance Data.ToQuery ListFunctionUrlConfigs where
   toQuery ListFunctionUrlConfigs' {..} =
     Prelude.mconcat
-      [ "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+      [ "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | /See:/ 'newListFunctionUrlConfigsResponse' smart constructor.

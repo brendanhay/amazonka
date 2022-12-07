@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,28 +93,28 @@ instance Prelude.Hashable RestartSimulationJob where
 instance Prelude.NFData RestartSimulationJob where
   rnf RestartSimulationJob' {..} = Prelude.rnf job
 
-instance Core.ToHeaders RestartSimulationJob where
+instance Data.ToHeaders RestartSimulationJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RestartSimulationJob where
+instance Data.ToJSON RestartSimulationJob where
   toJSON RestartSimulationJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("job" Core..= job)]
+          [Prelude.Just ("job" Data..= job)]
       )
 
-instance Core.ToPath RestartSimulationJob where
+instance Data.ToPath RestartSimulationJob where
   toPath = Prelude.const "/restartSimulationJob"
 
-instance Core.ToQuery RestartSimulationJob where
+instance Data.ToQuery RestartSimulationJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRestartSimulationJobResponse' smart constructor.

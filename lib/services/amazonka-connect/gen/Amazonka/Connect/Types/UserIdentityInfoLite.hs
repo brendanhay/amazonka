@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.UserIdentityInfoLite where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The user\'s first name and last name.
@@ -61,14 +62,14 @@ userIdentityInfoLite_firstName = Lens.lens (\UserIdentityInfoLite' {firstName} -
 userIdentityInfoLite_lastName :: Lens.Lens' UserIdentityInfoLite (Prelude.Maybe Prelude.Text)
 userIdentityInfoLite_lastName = Lens.lens (\UserIdentityInfoLite' {lastName} -> lastName) (\s@UserIdentityInfoLite' {} a -> s {lastName = a} :: UserIdentityInfoLite)
 
-instance Core.FromJSON UserIdentityInfoLite where
+instance Data.FromJSON UserIdentityInfoLite where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserIdentityInfoLite"
       ( \x ->
           UserIdentityInfoLite'
-            Prelude.<$> (x Core..:? "FirstName")
-            Prelude.<*> (x Core..:? "LastName")
+            Prelude.<$> (x Data..:? "FirstName")
+            Prelude.<*> (x Data..:? "LastName")
       )
 
 instance Prelude.Hashable UserIdentityInfoLite where

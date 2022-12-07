@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,13 +73,13 @@ data InitiateDocumentVersionUpload = InitiateDocumentVersionUpload'
     documentSizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The timestamp when the content of the document was originally created.
-    contentCreatedTimestamp :: Prelude.Maybe Core.POSIX,
+    contentCreatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The ID of the document.
     id :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the content of the document was modified.
-    contentModifiedTimestamp :: Prelude.Maybe Core.POSIX,
+    contentModifiedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The content type of the document.
     contentType :: Prelude.Maybe Prelude.Text
   }
@@ -138,11 +139,11 @@ initiateDocumentVersionUpload_documentSizeInBytes = Lens.lens (\InitiateDocument
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 initiateDocumentVersionUpload_authenticationToken :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
-initiateDocumentVersionUpload_authenticationToken = Lens.lens (\InitiateDocumentVersionUpload' {authenticationToken} -> authenticationToken) (\s@InitiateDocumentVersionUpload' {} a -> s {authenticationToken = a} :: InitiateDocumentVersionUpload) Prelude.. Lens.mapping Core._Sensitive
+initiateDocumentVersionUpload_authenticationToken = Lens.lens (\InitiateDocumentVersionUpload' {authenticationToken} -> authenticationToken) (\s@InitiateDocumentVersionUpload' {} a -> s {authenticationToken = a} :: InitiateDocumentVersionUpload) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The timestamp when the content of the document was originally created.
 initiateDocumentVersionUpload_contentCreatedTimestamp :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.UTCTime)
-initiateDocumentVersionUpload_contentCreatedTimestamp = Lens.lens (\InitiateDocumentVersionUpload' {contentCreatedTimestamp} -> contentCreatedTimestamp) (\s@InitiateDocumentVersionUpload' {} a -> s {contentCreatedTimestamp = a} :: InitiateDocumentVersionUpload) Prelude.. Lens.mapping Core._Time
+initiateDocumentVersionUpload_contentCreatedTimestamp = Lens.lens (\InitiateDocumentVersionUpload' {contentCreatedTimestamp} -> contentCreatedTimestamp) (\s@InitiateDocumentVersionUpload' {} a -> s {contentCreatedTimestamp = a} :: InitiateDocumentVersionUpload) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the document.
 initiateDocumentVersionUpload_id :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
@@ -150,7 +151,7 @@ initiateDocumentVersionUpload_id = Lens.lens (\InitiateDocumentVersionUpload' {i
 
 -- | The timestamp when the content of the document was modified.
 initiateDocumentVersionUpload_contentModifiedTimestamp :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.UTCTime)
-initiateDocumentVersionUpload_contentModifiedTimestamp = Lens.lens (\InitiateDocumentVersionUpload' {contentModifiedTimestamp} -> contentModifiedTimestamp) (\s@InitiateDocumentVersionUpload' {} a -> s {contentModifiedTimestamp = a} :: InitiateDocumentVersionUpload) Prelude.. Lens.mapping Core._Time
+initiateDocumentVersionUpload_contentModifiedTimestamp = Lens.lens (\InitiateDocumentVersionUpload' {contentModifiedTimestamp} -> contentModifiedTimestamp) (\s@InitiateDocumentVersionUpload' {} a -> s {contentModifiedTimestamp = a} :: InitiateDocumentVersionUpload) Prelude.. Lens.mapping Data._Time
 
 -- | The content type of the document.
 initiateDocumentVersionUpload_contentType :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
@@ -169,8 +170,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           InitiateDocumentVersionUploadResponse'
-            Prelude.<$> (x Core..?> "Metadata")
-            Prelude.<*> (x Core..?> "UploadMetadata")
+            Prelude.<$> (x Data..?> "Metadata")
+            Prelude.<*> (x Data..?> "UploadMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,36 +200,36 @@ instance Prelude.NFData InitiateDocumentVersionUpload where
       `Prelude.seq` Prelude.rnf contentModifiedTimestamp
       `Prelude.seq` Prelude.rnf contentType
 
-instance Core.ToHeaders InitiateDocumentVersionUpload where
+instance Data.ToHeaders InitiateDocumentVersionUpload where
   toHeaders InitiateDocumentVersionUpload' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON InitiateDocumentVersionUpload where
+instance Data.ToJSON InitiateDocumentVersionUpload where
   toJSON InitiateDocumentVersionUpload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("ParentFolderId" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("ParentFolderId" Data..=)
               Prelude.<$> parentFolderId,
-            ("DocumentSizeInBytes" Core..=)
+            ("DocumentSizeInBytes" Data..=)
               Prelude.<$> documentSizeInBytes,
-            ("ContentCreatedTimestamp" Core..=)
+            ("ContentCreatedTimestamp" Data..=)
               Prelude.<$> contentCreatedTimestamp,
-            ("Id" Core..=) Prelude.<$> id,
-            ("ContentModifiedTimestamp" Core..=)
+            ("Id" Data..=) Prelude.<$> id,
+            ("ContentModifiedTimestamp" Data..=)
               Prelude.<$> contentModifiedTimestamp,
-            ("ContentType" Core..=) Prelude.<$> contentType
+            ("ContentType" Data..=) Prelude.<$> contentType
           ]
       )
 
-instance Core.ToPath InitiateDocumentVersionUpload where
+instance Data.ToPath InitiateDocumentVersionUpload where
   toPath = Prelude.const "/api/v1/documents"
 
-instance Core.ToQuery InitiateDocumentVersionUpload where
+instance Data.ToQuery InitiateDocumentVersionUpload where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newInitiateDocumentVersionUploadResponse' smart constructor.

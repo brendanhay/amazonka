@@ -23,6 +23,7 @@ import Amazonka.CodeCommit.Types.BlobMetadata
 import Amazonka.CodeCommit.Types.ChangeTypeEnum
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a set of differences for a commit specifier.
@@ -81,15 +82,15 @@ difference_afterBlob = Lens.lens (\Difference' {afterBlob} -> afterBlob) (\s@Dif
 difference_beforeBlob :: Lens.Lens' Difference (Prelude.Maybe BlobMetadata)
 difference_beforeBlob = Lens.lens (\Difference' {beforeBlob} -> beforeBlob) (\s@Difference' {} a -> s {beforeBlob = a} :: Difference)
 
-instance Core.FromJSON Difference where
+instance Data.FromJSON Difference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Difference"
       ( \x ->
           Difference'
-            Prelude.<$> (x Core..:? "changeType")
-            Prelude.<*> (x Core..:? "afterBlob")
-            Prelude.<*> (x Core..:? "beforeBlob")
+            Prelude.<$> (x Data..:? "changeType")
+            Prelude.<*> (x Data..:? "afterBlob")
+            Prelude.<*> (x Data..:? "beforeBlob")
       )
 
 instance Prelude.Hashable Difference where

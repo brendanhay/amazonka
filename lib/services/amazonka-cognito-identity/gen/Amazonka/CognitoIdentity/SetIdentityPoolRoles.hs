@@ -43,6 +43,7 @@ where
 import Amazonka.CognitoIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,36 +140,36 @@ instance Prelude.NFData SetIdentityPoolRoles where
       `Prelude.seq` Prelude.rnf identityPoolId
       `Prelude.seq` Prelude.rnf roles
 
-instance Core.ToHeaders SetIdentityPoolRoles where
+instance Data.ToHeaders SetIdentityPoolRoles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityService.SetIdentityPoolRoles" ::
+              Data.=# ( "AWSCognitoIdentityService.SetIdentityPoolRoles" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetIdentityPoolRoles where
+instance Data.ToJSON SetIdentityPoolRoles where
   toJSON SetIdentityPoolRoles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleMappings" Core..=) Prelude.<$> roleMappings,
+          [ ("RoleMappings" Data..=) Prelude.<$> roleMappings,
             Prelude.Just
-              ("IdentityPoolId" Core..= identityPoolId),
-            Prelude.Just ("Roles" Core..= roles)
+              ("IdentityPoolId" Data..= identityPoolId),
+            Prelude.Just ("Roles" Data..= roles)
           ]
       )
 
-instance Core.ToPath SetIdentityPoolRoles where
+instance Data.ToPath SetIdentityPoolRoles where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetIdentityPoolRoles where
+instance Data.ToQuery SetIdentityPoolRoles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetIdentityPoolRolesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Backup.Types.BackupSelectionsListMember where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata about a @BackupSelection@ object.
@@ -33,7 +34,7 @@ data BackupSelectionsListMember = BackupSelectionsListMember'
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | A unique string that identifies the request and allows failed requests
     -- to be retried without the risk of running the operation twice. This
     -- parameter is optional.
@@ -103,7 +104,7 @@ backupSelectionsListMember_selectionName = Lens.lens (\BackupSelectionsListMembe
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 backupSelectionsListMember_creationDate :: Lens.Lens' BackupSelectionsListMember (Prelude.Maybe Prelude.UTCTime)
-backupSelectionsListMember_creationDate = Lens.lens (\BackupSelectionsListMember' {creationDate} -> creationDate) (\s@BackupSelectionsListMember' {} a -> s {creationDate = a} :: BackupSelectionsListMember) Prelude.. Lens.mapping Core._Time
+backupSelectionsListMember_creationDate = Lens.lens (\BackupSelectionsListMember' {creationDate} -> creationDate) (\s@BackupSelectionsListMember' {} a -> s {creationDate = a} :: BackupSelectionsListMember) Prelude.. Lens.mapping Data._Time
 
 -- | A unique string that identifies the request and allows failed requests
 -- to be retried without the risk of running the operation twice. This
@@ -128,18 +129,18 @@ backupSelectionsListMember_selectionId = Lens.lens (\BackupSelectionsListMember'
 backupSelectionsListMember_backupPlanId :: Lens.Lens' BackupSelectionsListMember (Prelude.Maybe Prelude.Text)
 backupSelectionsListMember_backupPlanId = Lens.lens (\BackupSelectionsListMember' {backupPlanId} -> backupPlanId) (\s@BackupSelectionsListMember' {} a -> s {backupPlanId = a} :: BackupSelectionsListMember)
 
-instance Core.FromJSON BackupSelectionsListMember where
+instance Data.FromJSON BackupSelectionsListMember where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackupSelectionsListMember"
       ( \x ->
           BackupSelectionsListMember'
-            Prelude.<$> (x Core..:? "SelectionName")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "CreatorRequestId")
-            Prelude.<*> (x Core..:? "IamRoleArn")
-            Prelude.<*> (x Core..:? "SelectionId")
-            Prelude.<*> (x Core..:? "BackupPlanId")
+            Prelude.<$> (x Data..:? "SelectionName")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "CreatorRequestId")
+            Prelude.<*> (x Data..:? "IamRoleArn")
+            Prelude.<*> (x Data..:? "SelectionId")
+            Prelude.<*> (x Data..:? "BackupPlanId")
       )
 
 instance Prelude.Hashable BackupSelectionsListMember where

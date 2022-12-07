@@ -50,6 +50,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,8 +150,8 @@ instance Core.AWSRequest ListUsersInGroup where
     Response.receiveJSON
       ( \s h x ->
           ListUsersInGroupResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Users" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Users" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,36 +169,36 @@ instance Prelude.NFData ListUsersInGroup where
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf groupName
 
-instance Core.ToHeaders ListUsersInGroup where
+instance Data.ToHeaders ListUsersInGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.ListUsersInGroup" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.ListUsersInGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListUsersInGroup where
+instance Data.ToJSON ListUsersInGroup where
   toJSON ListUsersInGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("GroupName" Core..= groupName)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("GroupName" Data..= groupName)
           ]
       )
 
-instance Core.ToPath ListUsersInGroup where
+instance Data.ToPath ListUsersInGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListUsersInGroup where
+instance Data.ToQuery ListUsersInGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListUsersInGroupResponse' smart constructor.

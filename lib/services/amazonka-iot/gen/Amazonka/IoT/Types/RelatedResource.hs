@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.RelatedResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.ResourceIdentifier
 import Amazonka.IoT.Types.ResourceType
 import qualified Amazonka.Prelude as Prelude
@@ -72,15 +73,15 @@ relatedResource_additionalInfo = Lens.lens (\RelatedResource' {additionalInfo} -
 relatedResource_resourceIdentifier :: Lens.Lens' RelatedResource (Prelude.Maybe ResourceIdentifier)
 relatedResource_resourceIdentifier = Lens.lens (\RelatedResource' {resourceIdentifier} -> resourceIdentifier) (\s@RelatedResource' {} a -> s {resourceIdentifier = a} :: RelatedResource)
 
-instance Core.FromJSON RelatedResource where
+instance Data.FromJSON RelatedResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelatedResource"
       ( \x ->
           RelatedResource'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "additionalInfo" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resourceIdentifier")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "additionalInfo" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceIdentifier")
       )
 
 instance Prelude.Hashable RelatedResource where

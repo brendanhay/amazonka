@@ -45,6 +45,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,8 +96,8 @@ instance Core.AWSRequest ListPhoneNumberOrders where
     Response.receiveJSON
       ( \s h x ->
           ListPhoneNumberOrdersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "PhoneNumberOrders"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "PhoneNumberOrders"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -112,17 +113,17 @@ instance Prelude.NFData ListPhoneNumberOrders where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListPhoneNumberOrders where
+instance Data.ToHeaders ListPhoneNumberOrders where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListPhoneNumberOrders where
+instance Data.ToPath ListPhoneNumberOrders where
   toPath = Prelude.const "/phone-number-orders"
 
-instance Core.ToQuery ListPhoneNumberOrders where
+instance Data.ToQuery ListPhoneNumberOrders where
   toQuery ListPhoneNumberOrders' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListPhoneNumberOrdersResponse' smart constructor.

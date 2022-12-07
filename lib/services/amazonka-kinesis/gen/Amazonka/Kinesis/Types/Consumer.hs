@@ -21,6 +21,7 @@ module Amazonka.Kinesis.Types.Consumer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types.ConsumerStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -43,7 +44,7 @@ data Consumer = Consumer'
     -- | A consumer can\'t read data while in the @CREATING@ or @DELETING@
     -- states.
     consumerStatus :: ConsumerStatus,
-    consumerCreationTimestamp :: Core.POSIX
+    consumerCreationTimestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,7 +91,7 @@ newConsumer
         consumerARN = pConsumerARN_,
         consumerStatus = pConsumerStatus_,
         consumerCreationTimestamp =
-          Core._Time Lens.# pConsumerCreationTimestamp_
+          Data._Time Lens.# pConsumerCreationTimestamp_
       }
 
 -- | The name of the consumer is something you choose when you register the
@@ -115,18 +116,18 @@ consumer_consumerStatus = Lens.lens (\Consumer' {consumerStatus} -> consumerStat
 
 -- |
 consumer_consumerCreationTimestamp :: Lens.Lens' Consumer Prelude.UTCTime
-consumer_consumerCreationTimestamp = Lens.lens (\Consumer' {consumerCreationTimestamp} -> consumerCreationTimestamp) (\s@Consumer' {} a -> s {consumerCreationTimestamp = a} :: Consumer) Prelude.. Core._Time
+consumer_consumerCreationTimestamp = Lens.lens (\Consumer' {consumerCreationTimestamp} -> consumerCreationTimestamp) (\s@Consumer' {} a -> s {consumerCreationTimestamp = a} :: Consumer) Prelude.. Data._Time
 
-instance Core.FromJSON Consumer where
+instance Data.FromJSON Consumer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Consumer"
       ( \x ->
           Consumer'
-            Prelude.<$> (x Core..: "ConsumerName")
-            Prelude.<*> (x Core..: "ConsumerARN")
-            Prelude.<*> (x Core..: "ConsumerStatus")
-            Prelude.<*> (x Core..: "ConsumerCreationTimestamp")
+            Prelude.<$> (x Data..: "ConsumerName")
+            Prelude.<*> (x Data..: "ConsumerARN")
+            Prelude.<*> (x Data..: "ConsumerStatus")
+            Prelude.<*> (x Data..: "ConsumerCreationTimestamp")
       )
 
 instance Prelude.Hashable Consumer where

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -61,7 +62,7 @@ data PrepareQuery = PrepareQuery'
     -- | The Timestream query string that you want to use as a prepared
     -- statement. Parameter names can be specified in the query string @\@@
     -- character followed by an identifier.
-    queryString :: Core.Sensitive Prelude.Text
+    queryString :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -87,7 +88,7 @@ newPrepareQuery ::
 newPrepareQuery pQueryString_ =
   PrepareQuery'
     { validateOnly = Prelude.Nothing,
-      queryString = Core._Sensitive Lens.# pQueryString_
+      queryString = Data._Sensitive Lens.# pQueryString_
     }
 
 -- | By setting this value to @true@, Timestream will only validate that the
@@ -100,7 +101,7 @@ prepareQuery_validateOnly = Lens.lens (\PrepareQuery' {validateOnly} -> validate
 -- statement. Parameter names can be specified in the query string @\@@
 -- character followed by an identifier.
 prepareQuery_queryString :: Lens.Lens' PrepareQuery Prelude.Text
-prepareQuery_queryString = Lens.lens (\PrepareQuery' {queryString} -> queryString) (\s@PrepareQuery' {} a -> s {queryString = a} :: PrepareQuery) Prelude.. Core._Sensitive
+prepareQuery_queryString = Lens.lens (\PrepareQuery' {queryString} -> queryString) (\s@PrepareQuery' {} a -> s {queryString = a} :: PrepareQuery) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest PrepareQuery where
   type AWSResponse PrepareQuery = PrepareQueryResponse
@@ -111,9 +112,9 @@ instance Core.AWSRequest PrepareQuery where
       ( \s h x ->
           PrepareQueryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "QueryString")
-            Prelude.<*> (x Core..?> "Columns" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "QueryString")
+            Prelude.<*> (x Data..?> "Columns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Parameters" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable PrepareQuery where
@@ -126,34 +127,34 @@ instance Prelude.NFData PrepareQuery where
     Prelude.rnf validateOnly
       `Prelude.seq` Prelude.rnf queryString
 
-instance Core.ToHeaders PrepareQuery where
+instance Data.ToHeaders PrepareQuery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Timestream_20181101.PrepareQuery" ::
+              Data.=# ( "Timestream_20181101.PrepareQuery" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PrepareQuery where
+instance Data.ToJSON PrepareQuery where
   toJSON PrepareQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ValidateOnly" Core..=) Prelude.<$> validateOnly,
-            Prelude.Just ("QueryString" Core..= queryString)
+          [ ("ValidateOnly" Data..=) Prelude.<$> validateOnly,
+            Prelude.Just ("QueryString" Data..= queryString)
           ]
       )
 
-instance Core.ToPath PrepareQuery where
+instance Data.ToPath PrepareQuery where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PrepareQuery where
+instance Data.ToQuery PrepareQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPrepareQueryResponse' smart constructor.
@@ -161,7 +162,7 @@ data PrepareQueryResponse = PrepareQueryResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The query string that you want prepare.
-    queryString :: Core.Sensitive Prelude.Text,
+    queryString :: Data.Sensitive Prelude.Text,
     -- | A list of SELECT clause columns of the submitted query string.
     columns :: [SelectColumn],
     -- | A list of parameters used in the submitted query string.
@@ -193,7 +194,7 @@ newPrepareQueryResponse ::
 newPrepareQueryResponse pHttpStatus_ pQueryString_ =
   PrepareQueryResponse'
     { httpStatus = pHttpStatus_,
-      queryString = Core._Sensitive Lens.# pQueryString_,
+      queryString = Data._Sensitive Lens.# pQueryString_,
       columns = Prelude.mempty,
       parameters = Prelude.mempty
     }
@@ -204,7 +205,7 @@ prepareQueryResponse_httpStatus = Lens.lens (\PrepareQueryResponse' {httpStatus}
 
 -- | The query string that you want prepare.
 prepareQueryResponse_queryString :: Lens.Lens' PrepareQueryResponse Prelude.Text
-prepareQueryResponse_queryString = Lens.lens (\PrepareQueryResponse' {queryString} -> queryString) (\s@PrepareQueryResponse' {} a -> s {queryString = a} :: PrepareQueryResponse) Prelude.. Core._Sensitive
+prepareQueryResponse_queryString = Lens.lens (\PrepareQueryResponse' {queryString} -> queryString) (\s@PrepareQueryResponse' {} a -> s {queryString = a} :: PrepareQueryResponse) Prelude.. Data._Sensitive
 
 -- | A list of SELECT clause columns of the submitted query string.
 prepareQueryResponse_columns :: Lens.Lens' PrepareQueryResponse [SelectColumn]

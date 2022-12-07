@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,35 +135,35 @@ instance
         `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StartBulkAssociateWirelessDeviceWithMulticastGroup
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StartBulkAssociateWirelessDeviceWithMulticastGroup
   where
   toJSON
     StartBulkAssociateWirelessDeviceWithMulticastGroup' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Tags" Core..=) Prelude.<$> tags,
-              ("QueryString" Core..=) Prelude.<$> queryString
+            [ ("Tags" Data..=) Prelude.<$> tags,
+              ("QueryString" Data..=) Prelude.<$> queryString
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     StartBulkAssociateWirelessDeviceWithMulticastGroup
   where
   toPath
     StartBulkAssociateWirelessDeviceWithMulticastGroup' {..} =
       Prelude.mconcat
-        ["/multicast-groups/", Core.toBS id, "/bulk"]
+        ["/multicast-groups/", Data.toBS id, "/bulk"]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     StartBulkAssociateWirelessDeviceWithMulticastGroup
   where
   toQuery = Prelude.const Prelude.mempty

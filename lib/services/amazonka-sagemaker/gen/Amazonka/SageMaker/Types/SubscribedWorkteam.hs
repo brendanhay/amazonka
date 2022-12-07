@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.SubscribedWorkteam where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a work team of a vendor that does the a labelling job.
@@ -93,17 +94,17 @@ subscribedWorkteam_sellerName = Lens.lens (\SubscribedWorkteam' {sellerName} -> 
 subscribedWorkteam_workteamArn :: Lens.Lens' SubscribedWorkteam Prelude.Text
 subscribedWorkteam_workteamArn = Lens.lens (\SubscribedWorkteam' {workteamArn} -> workteamArn) (\s@SubscribedWorkteam' {} a -> s {workteamArn = a} :: SubscribedWorkteam)
 
-instance Core.FromJSON SubscribedWorkteam where
+instance Data.FromJSON SubscribedWorkteam where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubscribedWorkteam"
       ( \x ->
           SubscribedWorkteam'
-            Prelude.<$> (x Core..:? "ListingId")
-            Prelude.<*> (x Core..:? "MarketplaceDescription")
-            Prelude.<*> (x Core..:? "MarketplaceTitle")
-            Prelude.<*> (x Core..:? "SellerName")
-            Prelude.<*> (x Core..: "WorkteamArn")
+            Prelude.<$> (x Data..:? "ListingId")
+            Prelude.<*> (x Data..:? "MarketplaceDescription")
+            Prelude.<*> (x Data..:? "MarketplaceTitle")
+            Prelude.<*> (x Data..:? "SellerName")
+            Prelude.<*> (x Data..: "WorkteamArn")
       )
 
 instance Prelude.Hashable SubscribedWorkteam where

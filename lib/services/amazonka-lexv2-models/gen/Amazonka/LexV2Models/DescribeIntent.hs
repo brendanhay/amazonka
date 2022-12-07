@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,27 +153,27 @@ instance Core.AWSRequest DescribeIntent where
     Response.receiveJSON
       ( \s h x ->
           DescribeIntentResponse'
-            Prelude.<$> (x Core..?> "intentClosingSetting")
-            Prelude.<*> ( x Core..?> "sampleUtterances"
+            Prelude.<$> (x Data..?> "intentClosingSetting")
+            Prelude.<*> ( x Data..?> "sampleUtterances"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "kendraConfiguration")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "dialogCodeHook")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "outputContexts" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "intentConfirmationSetting")
-            Prelude.<*> (x Core..?> "parentIntentSignature")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "slotPriorities" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "intentId")
-            Prelude.<*> (x Core..?> "intentName")
-            Prelude.<*> (x Core..?> "fulfillmentCodeHook")
-            Prelude.<*> (x Core..?> "initialResponseSetting")
-            Prelude.<*> (x Core..?> "inputContexts" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "lastUpdatedDateTime")
+            Prelude.<*> (x Data..?> "kendraConfiguration")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "dialogCodeHook")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "outputContexts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "intentConfirmationSetting")
+            Prelude.<*> (x Data..?> "parentIntentSignature")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "slotPriorities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "intentId")
+            Prelude.<*> (x Data..?> "intentName")
+            Prelude.<*> (x Data..?> "fulfillmentCodeHook")
+            Prelude.<*> (x Data..?> "initialResponseSetting")
+            Prelude.<*> (x Data..?> "inputContexts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,32 +191,32 @@ instance Prelude.NFData DescribeIntent where
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
 
-instance Core.ToHeaders DescribeIntent where
+instance Data.ToHeaders DescribeIntent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeIntent where
+instance Data.ToPath DescribeIntent where
   toPath DescribeIntent' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/intents/",
-        Core.toBS intentId,
+        Data.toBS intentId,
         "/"
       ]
 
-instance Core.ToQuery DescribeIntent where
+instance Data.ToQuery DescribeIntent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeIntentResponse' smart constructor.
@@ -230,7 +231,7 @@ data DescribeIntentResponse = DescribeIntentResponse'
     -- | The version of the bot associated with the intent.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the intent was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The Lambda function called during each turn of a conversation with the
     -- intent.
     dialogCodeHook :: Prelude.Maybe DialogCodeHookSettings,
@@ -263,7 +264,7 @@ data DescribeIntentResponse = DescribeIntentResponse'
     -- for sending to the user.
     inputContexts :: Prelude.Maybe [InputContext],
     -- | A timestamp of the date and time that the intent was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -371,7 +372,7 @@ describeIntentResponse_botVersion = Lens.lens (\DescribeIntentResponse' {botVers
 
 -- | A timestamp of the date and time that the intent was created.
 describeIntentResponse_creationDateTime :: Lens.Lens' DescribeIntentResponse (Prelude.Maybe Prelude.UTCTime)
-describeIntentResponse_creationDateTime = Lens.lens (\DescribeIntentResponse' {creationDateTime} -> creationDateTime) (\s@DescribeIntentResponse' {} a -> s {creationDateTime = a} :: DescribeIntentResponse) Prelude.. Lens.mapping Core._Time
+describeIntentResponse_creationDateTime = Lens.lens (\DescribeIntentResponse' {creationDateTime} -> creationDateTime) (\s@DescribeIntentResponse' {} a -> s {creationDateTime = a} :: DescribeIntentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Lambda function called during each turn of a conversation with the
 -- intent.
@@ -433,7 +434,7 @@ describeIntentResponse_inputContexts = Lens.lens (\DescribeIntentResponse' {inpu
 
 -- | A timestamp of the date and time that the intent was last updated.
 describeIntentResponse_lastUpdatedDateTime :: Lens.Lens' DescribeIntentResponse (Prelude.Maybe Prelude.UTCTime)
-describeIntentResponse_lastUpdatedDateTime = Lens.lens (\DescribeIntentResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeIntentResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeIntentResponse) Prelude.. Lens.mapping Core._Time
+describeIntentResponse_lastUpdatedDateTime = Lens.lens (\DescribeIntentResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeIntentResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeIntentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeIntentResponse_httpStatus :: Lens.Lens' DescribeIntentResponse Prelude.Int

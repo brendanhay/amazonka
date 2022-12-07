@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.TopicRuleListItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a rule.
@@ -34,7 +35,7 @@ data TopicRuleListItem = TopicRuleListItem'
     -- | The name of the rule.
     ruleName :: Prelude.Maybe Prelude.Text,
     -- | The date and time the rule was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether the rule is disabled.
     ruleDisabled :: Prelude.Maybe Prelude.Bool
   }
@@ -82,23 +83,23 @@ topicRuleListItem_ruleName = Lens.lens (\TopicRuleListItem' {ruleName} -> ruleNa
 
 -- | The date and time the rule was created.
 topicRuleListItem_createdAt :: Lens.Lens' TopicRuleListItem (Prelude.Maybe Prelude.UTCTime)
-topicRuleListItem_createdAt = Lens.lens (\TopicRuleListItem' {createdAt} -> createdAt) (\s@TopicRuleListItem' {} a -> s {createdAt = a} :: TopicRuleListItem) Prelude.. Lens.mapping Core._Time
+topicRuleListItem_createdAt = Lens.lens (\TopicRuleListItem' {createdAt} -> createdAt) (\s@TopicRuleListItem' {} a -> s {createdAt = a} :: TopicRuleListItem) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether the rule is disabled.
 topicRuleListItem_ruleDisabled :: Lens.Lens' TopicRuleListItem (Prelude.Maybe Prelude.Bool)
 topicRuleListItem_ruleDisabled = Lens.lens (\TopicRuleListItem' {ruleDisabled} -> ruleDisabled) (\s@TopicRuleListItem' {} a -> s {ruleDisabled = a} :: TopicRuleListItem)
 
-instance Core.FromJSON TopicRuleListItem where
+instance Data.FromJSON TopicRuleListItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TopicRuleListItem"
       ( \x ->
           TopicRuleListItem'
-            Prelude.<$> (x Core..:? "ruleArn")
-            Prelude.<*> (x Core..:? "topicPattern")
-            Prelude.<*> (x Core..:? "ruleName")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "ruleDisabled")
+            Prelude.<$> (x Data..:? "ruleArn")
+            Prelude.<*> (x Data..:? "topicPattern")
+            Prelude.<*> (x Data..:? "ruleName")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "ruleDisabled")
       )
 
 instance Prelude.Hashable TopicRuleListItem where

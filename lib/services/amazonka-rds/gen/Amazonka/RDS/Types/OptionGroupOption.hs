@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.OptionGroupOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.OptionGroupOptionSetting
 import Amazonka.RDS.Types.OptionVersion
@@ -226,38 +227,38 @@ optionGroupOption_defaultPort = Lens.lens (\OptionGroupOption' {defaultPort} -> 
 optionGroupOption_portRequired :: Lens.Lens' OptionGroupOption (Prelude.Maybe Prelude.Bool)
 optionGroupOption_portRequired = Lens.lens (\OptionGroupOption' {portRequired} -> portRequired) (\s@OptionGroupOption' {} a -> s {portRequired = a} :: OptionGroupOption)
 
-instance Core.FromXML OptionGroupOption where
+instance Data.FromXML OptionGroupOption where
   parseXML x =
     OptionGroupOption'
-      Prelude.<$> (x Core..@? "Name")
-      Prelude.<*> (x Core..@? "EngineName")
-      Prelude.<*> (x Core..@? "VpcOnly")
-      Prelude.<*> (x Core..@? "RequiresAutoMinorEngineVersionUpgrade")
-      Prelude.<*> ( x Core..@? "OptionsDependedOn"
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "EngineName")
+      Prelude.<*> (x Data..@? "VpcOnly")
+      Prelude.<*> (x Data..@? "RequiresAutoMinorEngineVersionUpgrade")
+      Prelude.<*> ( x Data..@? "OptionsDependedOn"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "OptionName")
+                      Prelude.>>= Core.may (Data.parseXMLList "OptionName")
                   )
-      Prelude.<*> ( x Core..@? "OptionsConflictsWith"
+      Prelude.<*> ( x Data..@? "OptionsConflictsWith"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "OptionConflictName")
+                      Prelude.>>= Core.may (Data.parseXMLList "OptionConflictName")
                   )
-      Prelude.<*> (x Core..@? "SupportsOptionVersionDowngrade")
-      Prelude.<*> (x Core..@? "Persistent")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> ( x Core..@? "OptionGroupOptionSettings"
+      Prelude.<*> (x Data..@? "SupportsOptionVersionDowngrade")
+      Prelude.<*> (x Data..@? "Persistent")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> ( x Data..@? "OptionGroupOptionSettings"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "OptionGroupOptionSetting")
+                        (Data.parseXMLList "OptionGroupOptionSetting")
                   )
-      Prelude.<*> (x Core..@? "MajorEngineVersion")
-      Prelude.<*> (x Core..@? "MinimumRequiredMinorEngineVersion")
-      Prelude.<*> ( x Core..@? "OptionGroupOptionVersions"
+      Prelude.<*> (x Data..@? "MajorEngineVersion")
+      Prelude.<*> (x Data..@? "MinimumRequiredMinorEngineVersion")
+      Prelude.<*> ( x Data..@? "OptionGroupOptionVersions"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "OptionVersion")
+                      Prelude.>>= Core.may (Data.parseXMLList "OptionVersion")
                   )
-      Prelude.<*> (x Core..@? "Permanent")
-      Prelude.<*> (x Core..@? "DefaultPort")
-      Prelude.<*> (x Core..@? "PortRequired")
+      Prelude.<*> (x Data..@? "Permanent")
+      Prelude.<*> (x Data..@? "DefaultPort")
+      Prelude.<*> (x Data..@? "PortRequired")
 
 instance Prelude.Hashable OptionGroupOption where
   hashWithSalt _salt OptionGroupOption' {..} =

@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.ImageLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an image that is uploaded to IoT SiteWise and available at a
@@ -66,13 +67,13 @@ imageLocation_id = Lens.lens (\ImageLocation' {id} -> id) (\s@ImageLocation' {} 
 imageLocation_url :: Lens.Lens' ImageLocation Prelude.Text
 imageLocation_url = Lens.lens (\ImageLocation' {url} -> url) (\s@ImageLocation' {} a -> s {url = a} :: ImageLocation)
 
-instance Core.FromJSON ImageLocation where
+instance Data.FromJSON ImageLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageLocation"
       ( \x ->
           ImageLocation'
-            Prelude.<$> (x Core..: "id") Prelude.<*> (x Core..: "url")
+            Prelude.<$> (x Data..: "id") Prelude.<*> (x Data..: "url")
       )
 
 instance Prelude.Hashable ImageLocation where

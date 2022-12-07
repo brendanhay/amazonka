@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.ShrinkPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.InstanceResizePolicy
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,14 +71,14 @@ shrinkPolicy_instanceResizePolicy = Lens.lens (\ShrinkPolicy' {instanceResizePol
 shrinkPolicy_decommissionTimeout :: Lens.Lens' ShrinkPolicy (Prelude.Maybe Prelude.Int)
 shrinkPolicy_decommissionTimeout = Lens.lens (\ShrinkPolicy' {decommissionTimeout} -> decommissionTimeout) (\s@ShrinkPolicy' {} a -> s {decommissionTimeout = a} :: ShrinkPolicy)
 
-instance Core.FromJSON ShrinkPolicy where
+instance Data.FromJSON ShrinkPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ShrinkPolicy"
       ( \x ->
           ShrinkPolicy'
-            Prelude.<$> (x Core..:? "InstanceResizePolicy")
-            Prelude.<*> (x Core..:? "DecommissionTimeout")
+            Prelude.<$> (x Data..:? "InstanceResizePolicy")
+            Prelude.<*> (x Data..:? "DecommissionTimeout")
       )
 
 instance Prelude.Hashable ShrinkPolicy where
@@ -90,13 +91,13 @@ instance Prelude.NFData ShrinkPolicy where
     Prelude.rnf instanceResizePolicy
       `Prelude.seq` Prelude.rnf decommissionTimeout
 
-instance Core.ToJSON ShrinkPolicy where
+instance Data.ToJSON ShrinkPolicy where
   toJSON ShrinkPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InstanceResizePolicy" Core..=)
+          [ ("InstanceResizePolicy" Data..=)
               Prelude.<$> instanceResizePolicy,
-            ("DecommissionTimeout" Core..=)
+            ("DecommissionTimeout" Data..=)
               Prelude.<$> decommissionTimeout
           ]
       )

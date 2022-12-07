@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest RejectDataShare where
   response =
     Response.receiveXMLWrapper
       "RejectDataShareResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable RejectDataShare where
   hashWithSalt _salt RejectDataShare' {..} =
@@ -92,18 +93,18 @@ instance Prelude.Hashable RejectDataShare where
 instance Prelude.NFData RejectDataShare where
   rnf RejectDataShare' {..} = Prelude.rnf dataShareArn
 
-instance Core.ToHeaders RejectDataShare where
+instance Data.ToHeaders RejectDataShare where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RejectDataShare where
+instance Data.ToPath RejectDataShare where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RejectDataShare where
+instance Data.ToQuery RejectDataShare where
   toQuery RejectDataShare' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RejectDataShare" :: Prelude.ByteString),
+          Data.=: ("RejectDataShare" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "DataShareArn" Core.=: dataShareArn
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "DataShareArn" Data.=: dataShareArn
       ]

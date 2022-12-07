@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.Condition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Operator
 import Amazonka.Pinpoint.Types.SimpleCondition
 import qualified Amazonka.Prelude as Prelude
@@ -70,14 +71,14 @@ condition_conditions = Lens.lens (\Condition' {conditions} -> conditions) (\s@Co
 condition_operator :: Lens.Lens' Condition (Prelude.Maybe Operator)
 condition_operator = Lens.lens (\Condition' {operator} -> operator) (\s@Condition' {} a -> s {operator = a} :: Condition)
 
-instance Core.FromJSON Condition where
+instance Data.FromJSON Condition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Condition"
       ( \x ->
           Condition'
-            Prelude.<$> (x Core..:? "Conditions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Operator")
+            Prelude.<$> (x Data..:? "Conditions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Operator")
       )
 
 instance Prelude.Hashable Condition where
@@ -90,11 +91,11 @@ instance Prelude.NFData Condition where
     Prelude.rnf conditions
       `Prelude.seq` Prelude.rnf operator
 
-instance Core.ToJSON Condition where
+instance Data.ToJSON Condition where
   toJSON Condition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Conditions" Core..=) Prelude.<$> conditions,
-            ("Operator" Core..=) Prelude.<$> operator
+          [ ("Conditions" Data..=) Prelude.<$> conditions,
+            ("Operator" Data..=) Prelude.<$> operator
           ]
       )

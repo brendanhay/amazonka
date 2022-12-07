@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.NotificationTargetItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The SNS targets that are notified when updates are made to an incident.
@@ -53,13 +54,13 @@ newNotificationTargetItem =
 notificationTargetItem_snsTopicArn :: Lens.Lens' NotificationTargetItem (Prelude.Maybe Prelude.Text)
 notificationTargetItem_snsTopicArn = Lens.lens (\NotificationTargetItem' {snsTopicArn} -> snsTopicArn) (\s@NotificationTargetItem' {} a -> s {snsTopicArn = a} :: NotificationTargetItem)
 
-instance Core.FromJSON NotificationTargetItem where
+instance Data.FromJSON NotificationTargetItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotificationTargetItem"
       ( \x ->
           NotificationTargetItem'
-            Prelude.<$> (x Core..:? "snsTopicArn")
+            Prelude.<$> (x Data..:? "snsTopicArn")
       )
 
 instance Prelude.Hashable NotificationTargetItem where
@@ -70,9 +71,9 @@ instance Prelude.NFData NotificationTargetItem where
   rnf NotificationTargetItem' {..} =
     Prelude.rnf snsTopicArn
 
-instance Core.ToJSON NotificationTargetItem where
+instance Data.ToJSON NotificationTargetItem where
   toJSON NotificationTargetItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("snsTopicArn" Core..=) Prelude.<$> snsTopicArn]
+          [("snsTopicArn" Data..=) Prelude.<$> snsTopicArn]
       )

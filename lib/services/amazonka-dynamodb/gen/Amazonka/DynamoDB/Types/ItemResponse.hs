@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ItemResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -52,13 +53,13 @@ newItemResponse =
 itemResponse_item :: Lens.Lens' ItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
 itemResponse_item = Lens.lens (\ItemResponse' {item} -> item) (\s@ItemResponse' {} a -> s {item = a} :: ItemResponse) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ItemResponse where
+instance Data.FromJSON ItemResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ItemResponse"
       ( \x ->
           ItemResponse'
-            Prelude.<$> (x Core..:? "Item" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Item" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ItemResponse where

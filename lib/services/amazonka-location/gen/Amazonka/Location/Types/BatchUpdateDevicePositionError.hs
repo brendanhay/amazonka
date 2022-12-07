@@ -21,6 +21,7 @@ module Amazonka.Location.Types.BatchUpdateDevicePositionError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.BatchItemError
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ data BatchUpdateDevicePositionError = BatchUpdateDevicePositionError'
     -- | The timestamp at which the device position was determined. Uses
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    sampleTime :: Core.POSIX
+    sampleTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,7 +74,7 @@ newBatchUpdateDevicePositionError
       { deviceId =
           pDeviceId_,
         error = pError_,
-        sampleTime = Core._Time Lens.# pSampleTime_
+        sampleTime = Data._Time Lens.# pSampleTime_
       }
 
 -- | The device associated with the failed location update.
@@ -89,17 +90,17 @@ batchUpdateDevicePositionError_error = Lens.lens (\BatchUpdateDevicePositionErro
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 batchUpdateDevicePositionError_sampleTime :: Lens.Lens' BatchUpdateDevicePositionError Prelude.UTCTime
-batchUpdateDevicePositionError_sampleTime = Lens.lens (\BatchUpdateDevicePositionError' {sampleTime} -> sampleTime) (\s@BatchUpdateDevicePositionError' {} a -> s {sampleTime = a} :: BatchUpdateDevicePositionError) Prelude.. Core._Time
+batchUpdateDevicePositionError_sampleTime = Lens.lens (\BatchUpdateDevicePositionError' {sampleTime} -> sampleTime) (\s@BatchUpdateDevicePositionError' {} a -> s {sampleTime = a} :: BatchUpdateDevicePositionError) Prelude.. Data._Time
 
-instance Core.FromJSON BatchUpdateDevicePositionError where
+instance Data.FromJSON BatchUpdateDevicePositionError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchUpdateDevicePositionError"
       ( \x ->
           BatchUpdateDevicePositionError'
-            Prelude.<$> (x Core..: "DeviceId")
-            Prelude.<*> (x Core..: "Error")
-            Prelude.<*> (x Core..: "SampleTime")
+            Prelude.<$> (x Data..: "DeviceId")
+            Prelude.<*> (x Data..: "Error")
+            Prelude.<*> (x Data..: "SampleTime")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.ManifestPayload where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A application verion\'s manifest file. This is a JSON document that has
@@ -53,13 +54,13 @@ newManifestPayload =
 manifestPayload_payloadData :: Lens.Lens' ManifestPayload (Prelude.Maybe Prelude.Text)
 manifestPayload_payloadData = Lens.lens (\ManifestPayload' {payloadData} -> payloadData) (\s@ManifestPayload' {} a -> s {payloadData = a} :: ManifestPayload)
 
-instance Core.FromJSON ManifestPayload where
+instance Data.FromJSON ManifestPayload where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManifestPayload"
       ( \x ->
           ManifestPayload'
-            Prelude.<$> (x Core..:? "PayloadData")
+            Prelude.<$> (x Data..:? "PayloadData")
       )
 
 instance Prelude.Hashable ManifestPayload where
@@ -69,9 +70,9 @@ instance Prelude.Hashable ManifestPayload where
 instance Prelude.NFData ManifestPayload where
   rnf ManifestPayload' {..} = Prelude.rnf payloadData
 
-instance Core.ToJSON ManifestPayload where
+instance Data.ToJSON ManifestPayload where
   toJSON ManifestPayload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("PayloadData" Core..=) Prelude.<$> payloadData]
+          [("PayloadData" Data..=) Prelude.<$> payloadData]
       )

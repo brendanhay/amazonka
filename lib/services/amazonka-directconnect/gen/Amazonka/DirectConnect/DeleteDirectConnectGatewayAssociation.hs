@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,7 +115,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteDirectConnectGatewayAssociationResponse'
-            Prelude.<$> (x Core..?> "directConnectGatewayAssociation")
+            Prelude.<$> (x Data..?> "directConnectGatewayAssociation")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,46 +140,46 @@ instance
       `Prelude.seq` Prelude.rnf associationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteDirectConnectGatewayAssociation
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DeleteDirectConnectGatewayAssociation" ::
+              Data.=# ( "OvertureService.DeleteDirectConnectGatewayAssociation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeleteDirectConnectGatewayAssociation
   where
   toJSON DeleteDirectConnectGatewayAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("directConnectGatewayId" Core..=)
+          [ ("directConnectGatewayId" Data..=)
               Prelude.<$> directConnectGatewayId,
-            ("virtualGatewayId" Core..=)
+            ("virtualGatewayId" Data..=)
               Prelude.<$> virtualGatewayId,
-            ("associationId" Core..=) Prelude.<$> associationId
+            ("associationId" Data..=) Prelude.<$> associationId
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteDirectConnectGatewayAssociation
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteDirectConnectGatewayAssociation
   where
   toQuery = Prelude.const Prelude.mempty

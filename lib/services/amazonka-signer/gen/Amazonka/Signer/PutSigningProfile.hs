@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,9 +168,9 @@ instance Core.AWSRequest PutSigningProfile where
     Response.receiveJSON
       ( \s h x ->
           PutSigningProfileResponse'
-            Prelude.<$> (x Core..?> "profileVersionArn")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "profileVersion")
+            Prelude.<$> (x Data..?> "profileVersionArn")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "profileVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,39 +194,39 @@ instance Prelude.NFData PutSigningProfile where
       `Prelude.seq` Prelude.rnf profileName
       `Prelude.seq` Prelude.rnf platformId
 
-instance Core.ToHeaders PutSigningProfile where
+instance Data.ToHeaders PutSigningProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutSigningProfile where
+instance Data.ToJSON PutSigningProfile where
   toJSON PutSigningProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("signatureValidityPeriod" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("signatureValidityPeriod" Data..=)
               Prelude.<$> signatureValidityPeriod,
-            ("signingParameters" Core..=)
+            ("signingParameters" Data..=)
               Prelude.<$> signingParameters,
-            ("signingMaterial" Core..=)
+            ("signingMaterial" Data..=)
               Prelude.<$> signingMaterial,
-            ("overrides" Core..=) Prelude.<$> overrides,
-            Prelude.Just ("platformId" Core..= platformId)
+            ("overrides" Data..=) Prelude.<$> overrides,
+            Prelude.Just ("platformId" Data..= platformId)
           ]
       )
 
-instance Core.ToPath PutSigningProfile where
+instance Data.ToPath PutSigningProfile where
   toPath PutSigningProfile' {..} =
     Prelude.mconcat
-      ["/signing-profiles/", Core.toBS profileName]
+      ["/signing-profiles/", Data.toBS profileName]
 
-instance Core.ToQuery PutSigningProfile where
+instance Data.ToQuery PutSigningProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutSigningProfileResponse' smart constructor.

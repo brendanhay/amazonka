@@ -21,6 +21,7 @@ module Amazonka.Comprehend.Types.KeyPhrase where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a key noun phrase.
@@ -88,16 +89,16 @@ keyPhrase_endOffset = Lens.lens (\KeyPhrase' {endOffset} -> endOffset) (\s@KeyPh
 keyPhrase_text :: Lens.Lens' KeyPhrase (Prelude.Maybe Prelude.Text)
 keyPhrase_text = Lens.lens (\KeyPhrase' {text} -> text) (\s@KeyPhrase' {} a -> s {text = a} :: KeyPhrase)
 
-instance Core.FromJSON KeyPhrase where
+instance Data.FromJSON KeyPhrase where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeyPhrase"
       ( \x ->
           KeyPhrase'
-            Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "EndOffset")
-            Prelude.<*> (x Core..:? "Text")
+            Prelude.<$> (x Data..:? "BeginOffset")
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "Text")
       )
 
 instance Prelude.Hashable KeyPhrase where

@@ -114,6 +114,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -239,7 +240,7 @@ instance Core.AWSRequest UpdateWebACL where
     Response.receiveJSON
       ( \s h x ->
           UpdateWebACLResponse'
-            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -257,36 +258,36 @@ instance Prelude.NFData UpdateWebACL where
       `Prelude.seq` Prelude.rnf webACLId
       `Prelude.seq` Prelude.rnf changeToken
 
-instance Core.ToHeaders UpdateWebACL where
+instance Data.ToHeaders UpdateWebACL where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.UpdateWebACL" ::
+              Data.=# ( "AWSWAF_Regional_20161128.UpdateWebACL" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWebACL where
+instance Data.ToJSON UpdateWebACL where
   toJSON UpdateWebACL' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DefaultAction" Core..=) Prelude.<$> defaultAction,
-            ("Updates" Core..=) Prelude.<$> updates,
-            Prelude.Just ("WebACLId" Core..= webACLId),
-            Prelude.Just ("ChangeToken" Core..= changeToken)
+          [ ("DefaultAction" Data..=) Prelude.<$> defaultAction,
+            ("Updates" Data..=) Prelude.<$> updates,
+            Prelude.Just ("WebACLId" Data..= webACLId),
+            Prelude.Just ("ChangeToken" Data..= changeToken)
           ]
       )
 
-instance Core.ToPath UpdateWebACL where
+instance Data.ToPath UpdateWebACL where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateWebACL where
+instance Data.ToQuery UpdateWebACL where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWebACLResponse' smart constructor.

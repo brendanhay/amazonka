@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.ReplicationRun where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.ReplicationRunStageDetails
 import Amazonka.SMS.Types.ReplicationRunState
@@ -31,13 +32,13 @@ import Amazonka.SMS.Types.ReplicationRunType
 -- /See:/ 'newReplicationRun' smart constructor.
 data ReplicationRun = ReplicationRun'
   { -- | The start time of the next replication run.
-    scheduledStartTime :: Prelude.Maybe Core.POSIX,
+    scheduledStartTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the Amazon Machine Image (AMI) from the replication run.
     amiId :: Prelude.Maybe Prelude.Text,
     -- | The type of replication run.
     type' :: Prelude.Maybe ReplicationRunType,
     -- | The completion time of the last replication run.
-    completedTime :: Prelude.Maybe Core.POSIX,
+    completedTime :: Prelude.Maybe Data.POSIX,
     -- | The state of the replication run.
     state :: Prelude.Maybe ReplicationRunState,
     -- | Details about the current stage of the replication run.
@@ -128,7 +129,7 @@ newReplicationRun =
 
 -- | The start time of the next replication run.
 replicationRun_scheduledStartTime :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.UTCTime)
-replicationRun_scheduledStartTime = Lens.lens (\ReplicationRun' {scheduledStartTime} -> scheduledStartTime) (\s@ReplicationRun' {} a -> s {scheduledStartTime = a} :: ReplicationRun) Prelude.. Lens.mapping Core._Time
+replicationRun_scheduledStartTime = Lens.lens (\ReplicationRun' {scheduledStartTime} -> scheduledStartTime) (\s@ReplicationRun' {} a -> s {scheduledStartTime = a} :: ReplicationRun) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the Amazon Machine Image (AMI) from the replication run.
 replicationRun_amiId :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.Text)
@@ -140,7 +141,7 @@ replicationRun_type = Lens.lens (\ReplicationRun' {type'} -> type') (\s@Replicat
 
 -- | The completion time of the last replication run.
 replicationRun_completedTime :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.UTCTime)
-replicationRun_completedTime = Lens.lens (\ReplicationRun' {completedTime} -> completedTime) (\s@ReplicationRun' {} a -> s {completedTime = a} :: ReplicationRun) Prelude.. Lens.mapping Core._Time
+replicationRun_completedTime = Lens.lens (\ReplicationRun' {completedTime} -> completedTime) (\s@ReplicationRun' {} a -> s {completedTime = a} :: ReplicationRun) Prelude.. Lens.mapping Data._Time
 
 -- | The state of the replication run.
 replicationRun_state :: Lens.Lens' ReplicationRun (Prelude.Maybe ReplicationRunState)
@@ -182,23 +183,23 @@ replicationRun_kmsKeyId = Lens.lens (\ReplicationRun' {kmsKeyId} -> kmsKeyId) (\
 replicationRun_statusMessage :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.Text)
 replicationRun_statusMessage = Lens.lens (\ReplicationRun' {statusMessage} -> statusMessage) (\s@ReplicationRun' {} a -> s {statusMessage = a} :: ReplicationRun)
 
-instance Core.FromJSON ReplicationRun where
+instance Data.FromJSON ReplicationRun where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationRun"
       ( \x ->
           ReplicationRun'
-            Prelude.<$> (x Core..:? "scheduledStartTime")
-            Prelude.<*> (x Core..:? "amiId")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "completedTime")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "stageDetails")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "replicationRunId")
-            Prelude.<*> (x Core..:? "encrypted")
-            Prelude.<*> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..:? "statusMessage")
+            Prelude.<$> (x Data..:? "scheduledStartTime")
+            Prelude.<*> (x Data..:? "amiId")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "completedTime")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "stageDetails")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "replicationRunId")
+            Prelude.<*> (x Data..:? "encrypted")
+            Prelude.<*> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..:? "statusMessage")
       )
 
 instance Prelude.Hashable ReplicationRun where

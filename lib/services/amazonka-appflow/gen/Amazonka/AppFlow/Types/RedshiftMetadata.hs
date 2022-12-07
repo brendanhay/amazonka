@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.RedshiftMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to Amazon Redshift.
@@ -39,9 +40,9 @@ newRedshiftMetadata ::
   RedshiftMetadata
 newRedshiftMetadata = RedshiftMetadata'
 
-instance Core.FromJSON RedshiftMetadata where
+instance Data.FromJSON RedshiftMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedshiftMetadata"
       (\x -> Prelude.pure RedshiftMetadata')
 

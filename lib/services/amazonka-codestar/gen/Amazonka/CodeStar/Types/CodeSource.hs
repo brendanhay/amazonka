@@ -22,6 +22,7 @@ module Amazonka.CodeStar.Types.CodeSource where
 import Amazonka.CodeStar.Types.S3Location
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The location where the source code files provided with the project
@@ -64,7 +65,7 @@ instance Prelude.Hashable CodeSource where
 instance Prelude.NFData CodeSource where
   rnf CodeSource' {..} = Prelude.rnf s3
 
-instance Core.ToJSON CodeSource where
+instance Data.ToJSON CodeSource where
   toJSON CodeSource' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("s3" Core..= s3)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("s3" Data..= s3)])

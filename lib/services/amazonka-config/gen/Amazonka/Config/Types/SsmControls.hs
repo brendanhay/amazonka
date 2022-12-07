@@ -21,6 +21,7 @@ module Amazonka.Config.Types.SsmControls where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Amazon Web Services Systems Manager (SSM) specific remediation controls.
@@ -83,14 +84,14 @@ ssmControls_concurrentExecutionRatePercentage = Lens.lens (\SsmControls' {concur
 ssmControls_errorPercentage :: Lens.Lens' SsmControls (Prelude.Maybe Prelude.Natural)
 ssmControls_errorPercentage = Lens.lens (\SsmControls' {errorPercentage} -> errorPercentage) (\s@SsmControls' {} a -> s {errorPercentage = a} :: SsmControls)
 
-instance Core.FromJSON SsmControls where
+instance Data.FromJSON SsmControls where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SsmControls"
       ( \x ->
           SsmControls'
-            Prelude.<$> (x Core..:? "ConcurrentExecutionRatePercentage")
-            Prelude.<*> (x Core..:? "ErrorPercentage")
+            Prelude.<$> (x Data..:? "ConcurrentExecutionRatePercentage")
+            Prelude.<*> (x Data..:? "ErrorPercentage")
       )
 
 instance Prelude.Hashable SsmControls where
@@ -104,13 +105,13 @@ instance Prelude.NFData SsmControls where
     Prelude.rnf concurrentExecutionRatePercentage
       `Prelude.seq` Prelude.rnf errorPercentage
 
-instance Core.ToJSON SsmControls where
+instance Data.ToJSON SsmControls where
   toJSON SsmControls' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConcurrentExecutionRatePercentage" Core..=)
+          [ ("ConcurrentExecutionRatePercentage" Data..=)
               Prelude.<$> concurrentExecutionRatePercentage,
-            ("ErrorPercentage" Core..=)
+            ("ErrorPercentage" Data..=)
               Prelude.<$> errorPercentage
           ]
       )

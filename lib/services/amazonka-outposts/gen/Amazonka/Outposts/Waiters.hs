@@ -18,6 +18,7 @@ module Amazonka.Outposts.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Lens
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude

@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.TaskSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.CapacityProviderStrategyItem
 import Amazonka.ECS.Types.LaunchType
 import Amazonka.ECS.Types.LoadBalancer
@@ -163,16 +164,16 @@ data TaskSet = TaskSet'
     computedDesiredCount :: Prelude.Maybe Prelude.Int,
     -- | The Unix timestamp for the time when the task set stability status was
     -- retrieved.
-    stabilityStatusAt :: Prelude.Maybe Core.POSIX,
+    stabilityStatusAt :: Prelude.Maybe Data.POSIX,
     -- | A floating-point percentage of your desired number of tasks to place and
     -- keep running in the task set.
     scale :: Prelude.Maybe Scale,
     -- | The Amazon Resource Name (ARN) of the service the task set exists in.
     serviceArn :: Prelude.Maybe Prelude.Text,
     -- | The Unix timestamp for the time when the task set was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Unix timestamp for the time when the task set was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -512,7 +513,7 @@ taskSet_computedDesiredCount = Lens.lens (\TaskSet' {computedDesiredCount} -> co
 -- | The Unix timestamp for the time when the task set stability status was
 -- retrieved.
 taskSet_stabilityStatusAt :: Lens.Lens' TaskSet (Prelude.Maybe Prelude.UTCTime)
-taskSet_stabilityStatusAt = Lens.lens (\TaskSet' {stabilityStatusAt} -> stabilityStatusAt) (\s@TaskSet' {} a -> s {stabilityStatusAt = a} :: TaskSet) Prelude.. Lens.mapping Core._Time
+taskSet_stabilityStatusAt = Lens.lens (\TaskSet' {stabilityStatusAt} -> stabilityStatusAt) (\s@TaskSet' {} a -> s {stabilityStatusAt = a} :: TaskSet) Prelude.. Lens.mapping Data._Time
 
 -- | A floating-point percentage of your desired number of tasks to place and
 -- keep running in the task set.
@@ -525,46 +526,46 @@ taskSet_serviceArn = Lens.lens (\TaskSet' {serviceArn} -> serviceArn) (\s@TaskSe
 
 -- | The Unix timestamp for the time when the task set was created.
 taskSet_createdAt :: Lens.Lens' TaskSet (Prelude.Maybe Prelude.UTCTime)
-taskSet_createdAt = Lens.lens (\TaskSet' {createdAt} -> createdAt) (\s@TaskSet' {} a -> s {createdAt = a} :: TaskSet) Prelude.. Lens.mapping Core._Time
+taskSet_createdAt = Lens.lens (\TaskSet' {createdAt} -> createdAt) (\s@TaskSet' {} a -> s {createdAt = a} :: TaskSet) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix timestamp for the time when the task set was last updated.
 taskSet_updatedAt :: Lens.Lens' TaskSet (Prelude.Maybe Prelude.UTCTime)
-taskSet_updatedAt = Lens.lens (\TaskSet' {updatedAt} -> updatedAt) (\s@TaskSet' {} a -> s {updatedAt = a} :: TaskSet) Prelude.. Lens.mapping Core._Time
+taskSet_updatedAt = Lens.lens (\TaskSet' {updatedAt} -> updatedAt) (\s@TaskSet' {} a -> s {updatedAt = a} :: TaskSet) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON TaskSet where
+instance Data.FromJSON TaskSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskSet"
       ( \x ->
           TaskSet'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "clusterArn")
-            Prelude.<*> ( x Core..:? "serviceRegistries"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "clusterArn")
+            Prelude.<*> ( x Data..:? "serviceRegistries"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "platformFamily")
-            Prelude.<*> (x Core..:? "taskDefinition")
-            Prelude.<*> (x Core..:? "stabilityStatus")
-            Prelude.<*> (x Core..:? "externalId")
-            Prelude.<*> (x Core..:? "networkConfiguration")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "taskSetArn")
-            Prelude.<*> (x Core..:? "pendingCount")
-            Prelude.<*> (x Core..:? "startedBy")
-            Prelude.<*> ( x Core..:? "capacityProviderStrategy"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "platformFamily")
+            Prelude.<*> (x Data..:? "taskDefinition")
+            Prelude.<*> (x Data..:? "stabilityStatus")
+            Prelude.<*> (x Data..:? "externalId")
+            Prelude.<*> (x Data..:? "networkConfiguration")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "taskSetArn")
+            Prelude.<*> (x Data..:? "pendingCount")
+            Prelude.<*> (x Data..:? "startedBy")
+            Prelude.<*> ( x Data..:? "capacityProviderStrategy"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "loadBalancers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "launchType")
-            Prelude.<*> (x Core..:? "runningCount")
-            Prelude.<*> (x Core..:? "platformVersion")
-            Prelude.<*> (x Core..:? "computedDesiredCount")
-            Prelude.<*> (x Core..:? "stabilityStatusAt")
-            Prelude.<*> (x Core..:? "scale")
-            Prelude.<*> (x Core..:? "serviceArn")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<*> (x Data..:? "loadBalancers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "launchType")
+            Prelude.<*> (x Data..:? "runningCount")
+            Prelude.<*> (x Data..:? "platformVersion")
+            Prelude.<*> (x Data..:? "computedDesiredCount")
+            Prelude.<*> (x Data..:? "stabilityStatusAt")
+            Prelude.<*> (x Data..:? "scale")
+            Prelude.<*> (x Data..:? "serviceArn")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable TaskSet where

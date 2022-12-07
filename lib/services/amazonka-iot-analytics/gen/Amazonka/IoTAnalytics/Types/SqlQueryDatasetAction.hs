@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.SqlQueryDatasetAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.QueryFilter
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ sqlQueryDatasetAction_filters = Lens.lens (\SqlQueryDatasetAction' {filters} -> 
 sqlQueryDatasetAction_sqlQuery :: Lens.Lens' SqlQueryDatasetAction Prelude.Text
 sqlQueryDatasetAction_sqlQuery = Lens.lens (\SqlQueryDatasetAction' {sqlQuery} -> sqlQuery) (\s@SqlQueryDatasetAction' {} a -> s {sqlQuery = a} :: SqlQueryDatasetAction)
 
-instance Core.FromJSON SqlQueryDatasetAction where
+instance Data.FromJSON SqlQueryDatasetAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SqlQueryDatasetAction"
       ( \x ->
           SqlQueryDatasetAction'
-            Prelude.<$> (x Core..:? "filters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "sqlQuery")
+            Prelude.<$> (x Data..:? "filters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "sqlQuery")
       )
 
 instance Prelude.Hashable SqlQueryDatasetAction where
@@ -84,11 +85,11 @@ instance Prelude.NFData SqlQueryDatasetAction where
     Prelude.rnf filters
       `Prelude.seq` Prelude.rnf sqlQuery
 
-instance Core.ToJSON SqlQueryDatasetAction where
+instance Data.ToJSON SqlQueryDatasetAction where
   toJSON SqlQueryDatasetAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("filters" Core..=) Prelude.<$> filters,
-            Prelude.Just ("sqlQuery" Core..= sqlQuery)
+          [ ("filters" Data..=) Prelude.<$> filters,
+            Prelude.Just ("sqlQuery" Data..= sqlQuery)
           ]
       )

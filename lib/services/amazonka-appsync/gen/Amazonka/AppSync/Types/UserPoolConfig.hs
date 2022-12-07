@@ -22,6 +22,7 @@ module Amazonka.AppSync.Types.UserPoolConfig where
 import Amazonka.AppSync.Types.DefaultAction
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon Cognito user pool configuration.
@@ -98,16 +99,16 @@ userPoolConfig_awsRegion = Lens.lens (\UserPoolConfig' {awsRegion} -> awsRegion)
 userPoolConfig_defaultAction :: Lens.Lens' UserPoolConfig DefaultAction
 userPoolConfig_defaultAction = Lens.lens (\UserPoolConfig' {defaultAction} -> defaultAction) (\s@UserPoolConfig' {} a -> s {defaultAction = a} :: UserPoolConfig)
 
-instance Core.FromJSON UserPoolConfig where
+instance Data.FromJSON UserPoolConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserPoolConfig"
       ( \x ->
           UserPoolConfig'
-            Prelude.<$> (x Core..:? "appIdClientRegex")
-            Prelude.<*> (x Core..: "userPoolId")
-            Prelude.<*> (x Core..: "awsRegion")
-            Prelude.<*> (x Core..: "defaultAction")
+            Prelude.<$> (x Data..:? "appIdClientRegex")
+            Prelude.<*> (x Data..: "userPoolId")
+            Prelude.<*> (x Data..: "awsRegion")
+            Prelude.<*> (x Data..: "defaultAction")
       )
 
 instance Prelude.Hashable UserPoolConfig where
@@ -124,15 +125,15 @@ instance Prelude.NFData UserPoolConfig where
       `Prelude.seq` Prelude.rnf awsRegion
       `Prelude.seq` Prelude.rnf defaultAction
 
-instance Core.ToJSON UserPoolConfig where
+instance Data.ToJSON UserPoolConfig where
   toJSON UserPoolConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("appIdClientRegex" Core..=)
+          [ ("appIdClientRegex" Data..=)
               Prelude.<$> appIdClientRegex,
-            Prelude.Just ("userPoolId" Core..= userPoolId),
-            Prelude.Just ("awsRegion" Core..= awsRegion),
+            Prelude.Just ("userPoolId" Data..= userPoolId),
+            Prelude.Just ("awsRegion" Data..= awsRegion),
             Prelude.Just
-              ("defaultAction" Core..= defaultAction)
+              ("defaultAction" Data..= defaultAction)
           ]
       )

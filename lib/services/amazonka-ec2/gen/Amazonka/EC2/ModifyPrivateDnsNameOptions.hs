@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,7 +153,7 @@ instance Core.AWSRequest ModifyPrivateDnsNameOptions where
     Response.receiveXML
       ( \s h x ->
           ModifyPrivateDnsNameOptionsResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,29 +173,29 @@ instance Prelude.NFData ModifyPrivateDnsNameOptions where
       `Prelude.seq` Prelude.rnf enableResourceNameDnsAAAARecord
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ModifyPrivateDnsNameOptions where
+instance Data.ToHeaders ModifyPrivateDnsNameOptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyPrivateDnsNameOptions where
+instance Data.ToPath ModifyPrivateDnsNameOptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyPrivateDnsNameOptions where
+instance Data.ToQuery ModifyPrivateDnsNameOptions where
   toQuery ModifyPrivateDnsNameOptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyPrivateDnsNameOptions" ::
+          Data.=: ( "ModifyPrivateDnsNameOptions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "PrivateDnsHostnameType"
-          Core.=: privateDnsHostnameType,
+          Data.=: privateDnsHostnameType,
         "EnableResourceNameDnsARecord"
-          Core.=: enableResourceNameDnsARecord,
-        "DryRun" Core.=: dryRun,
+          Data.=: enableResourceNameDnsARecord,
+        "DryRun" Data.=: dryRun,
         "EnableResourceNameDnsAAAARecord"
-          Core.=: enableResourceNameDnsAAAARecord,
-        "InstanceId" Core.=: instanceId
+          Data.=: enableResourceNameDnsAAAARecord,
+        "InstanceId" Data.=: instanceId
       ]
 
 -- | /See:/ 'newModifyPrivateDnsNameOptionsResponse' smart constructor.

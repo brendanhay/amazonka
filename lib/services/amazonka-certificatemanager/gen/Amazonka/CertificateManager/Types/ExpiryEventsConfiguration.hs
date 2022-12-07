@@ -21,6 +21,7 @@ module Amazonka.CertificateManager.Types.ExpiryEventsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object containing expiration events options associated with an Amazon
@@ -63,13 +64,13 @@ newExpiryEventsConfiguration =
 expiryEventsConfiguration_daysBeforeExpiry :: Lens.Lens' ExpiryEventsConfiguration (Prelude.Maybe Prelude.Natural)
 expiryEventsConfiguration_daysBeforeExpiry = Lens.lens (\ExpiryEventsConfiguration' {daysBeforeExpiry} -> daysBeforeExpiry) (\s@ExpiryEventsConfiguration' {} a -> s {daysBeforeExpiry = a} :: ExpiryEventsConfiguration)
 
-instance Core.FromJSON ExpiryEventsConfiguration where
+instance Data.FromJSON ExpiryEventsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExpiryEventsConfiguration"
       ( \x ->
           ExpiryEventsConfiguration'
-            Prelude.<$> (x Core..:? "DaysBeforeExpiry")
+            Prelude.<$> (x Data..:? "DaysBeforeExpiry")
       )
 
 instance Prelude.Hashable ExpiryEventsConfiguration where
@@ -80,11 +81,11 @@ instance Prelude.NFData ExpiryEventsConfiguration where
   rnf ExpiryEventsConfiguration' {..} =
     Prelude.rnf daysBeforeExpiry
 
-instance Core.ToJSON ExpiryEventsConfiguration where
+instance Data.ToJSON ExpiryEventsConfiguration where
   toJSON ExpiryEventsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DaysBeforeExpiry" Core..=)
+          [ ("DaysBeforeExpiry" Data..=)
               Prelude.<$> daysBeforeExpiry
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.S3InputFormatConfig where
 import Amazonka.AppFlow.Types.S3InputFileType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | When you use Amazon S3 as the source, the configuration format that you
@@ -55,13 +56,13 @@ newS3InputFormatConfig =
 s3InputFormatConfig_s3InputFileType :: Lens.Lens' S3InputFormatConfig (Prelude.Maybe S3InputFileType)
 s3InputFormatConfig_s3InputFileType = Lens.lens (\S3InputFormatConfig' {s3InputFileType} -> s3InputFileType) (\s@S3InputFormatConfig' {} a -> s {s3InputFileType = a} :: S3InputFormatConfig)
 
-instance Core.FromJSON S3InputFormatConfig where
+instance Data.FromJSON S3InputFormatConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3InputFormatConfig"
       ( \x ->
           S3InputFormatConfig'
-            Prelude.<$> (x Core..:? "s3InputFileType")
+            Prelude.<$> (x Data..:? "s3InputFileType")
       )
 
 instance Prelude.Hashable S3InputFormatConfig where
@@ -72,11 +73,11 @@ instance Prelude.NFData S3InputFormatConfig where
   rnf S3InputFormatConfig' {..} =
     Prelude.rnf s3InputFileType
 
-instance Core.ToJSON S3InputFormatConfig where
+instance Data.ToJSON S3InputFormatConfig where
   toJSON S3InputFormatConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3InputFileType" Core..=)
+          [ ("s3InputFileType" Data..=)
               Prelude.<$> s3InputFileType
           ]
       )

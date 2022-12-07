@@ -21,6 +21,7 @@ module Amazonka.AppSync.Types.LambdaDataSourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Lambda data source configuration.
@@ -55,13 +56,13 @@ newLambdaDataSourceConfig pLambdaFunctionArn_ =
 lambdaDataSourceConfig_lambdaFunctionArn :: Lens.Lens' LambdaDataSourceConfig Prelude.Text
 lambdaDataSourceConfig_lambdaFunctionArn = Lens.lens (\LambdaDataSourceConfig' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@LambdaDataSourceConfig' {} a -> s {lambdaFunctionArn = a} :: LambdaDataSourceConfig)
 
-instance Core.FromJSON LambdaDataSourceConfig where
+instance Data.FromJSON LambdaDataSourceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaDataSourceConfig"
       ( \x ->
           LambdaDataSourceConfig'
-            Prelude.<$> (x Core..: "lambdaFunctionArn")
+            Prelude.<$> (x Data..: "lambdaFunctionArn")
       )
 
 instance Prelude.Hashable LambdaDataSourceConfig where
@@ -72,11 +73,11 @@ instance Prelude.NFData LambdaDataSourceConfig where
   rnf LambdaDataSourceConfig' {..} =
     Prelude.rnf lambdaFunctionArn
 
-instance Core.ToJSON LambdaDataSourceConfig where
+instance Data.ToJSON LambdaDataSourceConfig where
   toJSON LambdaDataSourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("lambdaFunctionArn" Core..= lambdaFunctionArn)
+              ("lambdaFunctionArn" Data..= lambdaFunctionArn)
           ]
       )

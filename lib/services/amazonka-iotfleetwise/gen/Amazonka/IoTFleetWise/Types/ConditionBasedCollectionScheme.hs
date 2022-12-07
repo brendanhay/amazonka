@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.ConditionBasedCollectionScheme where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.TriggerMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -111,16 +112,16 @@ conditionBasedCollectionScheme_triggerMode = Lens.lens (\ConditionBasedCollectio
 conditionBasedCollectionScheme_expression :: Lens.Lens' ConditionBasedCollectionScheme Prelude.Text
 conditionBasedCollectionScheme_expression = Lens.lens (\ConditionBasedCollectionScheme' {expression} -> expression) (\s@ConditionBasedCollectionScheme' {} a -> s {expression = a} :: ConditionBasedCollectionScheme)
 
-instance Core.FromJSON ConditionBasedCollectionScheme where
+instance Data.FromJSON ConditionBasedCollectionScheme where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConditionBasedCollectionScheme"
       ( \x ->
           ConditionBasedCollectionScheme'
-            Prelude.<$> (x Core..:? "conditionLanguageVersion")
-            Prelude.<*> (x Core..:? "minimumTriggerIntervalMs")
-            Prelude.<*> (x Core..:? "triggerMode")
-            Prelude.<*> (x Core..: "expression")
+            Prelude.<$> (x Data..:? "conditionLanguageVersion")
+            Prelude.<*> (x Data..:? "minimumTriggerIntervalMs")
+            Prelude.<*> (x Data..:? "triggerMode")
+            Prelude.<*> (x Data..: "expression")
       )
 
 instance
@@ -146,15 +147,15 @@ instance
       `Prelude.seq` Prelude.rnf triggerMode
       `Prelude.seq` Prelude.rnf expression
 
-instance Core.ToJSON ConditionBasedCollectionScheme where
+instance Data.ToJSON ConditionBasedCollectionScheme where
   toJSON ConditionBasedCollectionScheme' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("conditionLanguageVersion" Core..=)
+          [ ("conditionLanguageVersion" Data..=)
               Prelude.<$> conditionLanguageVersion,
-            ("minimumTriggerIntervalMs" Core..=)
+            ("minimumTriggerIntervalMs" Data..=)
               Prelude.<$> minimumTriggerIntervalMs,
-            ("triggerMode" Core..=) Prelude.<$> triggerMode,
-            Prelude.Just ("expression" Core..= expression)
+            ("triggerMode" Data..=) Prelude.<$> triggerMode,
+            Prelude.Just ("expression" Data..= expression)
           ]
       )

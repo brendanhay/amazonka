@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.Range where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A range of integer values.
@@ -82,12 +83,12 @@ range_to = Lens.lens (\Range' {to} -> to) (\s@Range' {} a -> s {to = a} :: Range
 range_step :: Lens.Lens' Range (Prelude.Maybe Prelude.Int)
 range_step = Lens.lens (\Range' {step} -> step) (\s@Range' {} a -> s {step = a} :: Range)
 
-instance Core.FromXML Range where
+instance Data.FromXML Range where
   parseXML x =
     Range'
-      Prelude.<$> (x Core..@? "From")
-      Prelude.<*> (x Core..@? "To")
-      Prelude.<*> (x Core..@? "Step")
+      Prelude.<$> (x Data..@? "From")
+      Prelude.<*> (x Data..@? "To")
+      Prelude.<*> (x Data..@? "Step")
 
 instance Prelude.Hashable Range where
   hashWithSalt _salt Range' {..} =

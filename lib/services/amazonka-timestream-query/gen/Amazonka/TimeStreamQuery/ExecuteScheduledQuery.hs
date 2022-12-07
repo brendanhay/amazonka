@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -47,12 +48,12 @@ import Amazonka.TimeStreamQuery.Types
 -- | /See:/ 'newExecuteScheduledQuery' smart constructor.
 data ExecuteScheduledQuery = ExecuteScheduledQuery'
   { -- | Not used.
-    clientToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    clientToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | ARN of the scheduled query.
     scheduledQueryArn :: Prelude.Text,
     -- | The timestamp in UTC. Query will be run as if it was invoked at this
     -- timestamp.
-    invocationTime :: Core.POSIX
+    invocationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -83,12 +84,12 @@ newExecuteScheduledQuery
       { clientToken =
           Prelude.Nothing,
         scheduledQueryArn = pScheduledQueryArn_,
-        invocationTime = Core._Time Lens.# pInvocationTime_
+        invocationTime = Data._Time Lens.# pInvocationTime_
       }
 
 -- | Not used.
 executeScheduledQuery_clientToken :: Lens.Lens' ExecuteScheduledQuery (Prelude.Maybe Prelude.Text)
-executeScheduledQuery_clientToken = Lens.lens (\ExecuteScheduledQuery' {clientToken} -> clientToken) (\s@ExecuteScheduledQuery' {} a -> s {clientToken = a} :: ExecuteScheduledQuery) Prelude.. Lens.mapping Core._Sensitive
+executeScheduledQuery_clientToken = Lens.lens (\ExecuteScheduledQuery' {clientToken} -> clientToken) (\s@ExecuteScheduledQuery' {} a -> s {clientToken = a} :: ExecuteScheduledQuery) Prelude.. Lens.mapping Data._Sensitive
 
 -- | ARN of the scheduled query.
 executeScheduledQuery_scheduledQueryArn :: Lens.Lens' ExecuteScheduledQuery Prelude.Text
@@ -97,7 +98,7 @@ executeScheduledQuery_scheduledQueryArn = Lens.lens (\ExecuteScheduledQuery' {sc
 -- | The timestamp in UTC. Query will be run as if it was invoked at this
 -- timestamp.
 executeScheduledQuery_invocationTime :: Lens.Lens' ExecuteScheduledQuery Prelude.UTCTime
-executeScheduledQuery_invocationTime = Lens.lens (\ExecuteScheduledQuery' {invocationTime} -> invocationTime) (\s@ExecuteScheduledQuery' {} a -> s {invocationTime = a} :: ExecuteScheduledQuery) Prelude.. Core._Time
+executeScheduledQuery_invocationTime = Lens.lens (\ExecuteScheduledQuery' {invocationTime} -> invocationTime) (\s@ExecuteScheduledQuery' {} a -> s {invocationTime = a} :: ExecuteScheduledQuery) Prelude.. Data._Time
 
 instance Core.AWSRequest ExecuteScheduledQuery where
   type
@@ -120,37 +121,37 @@ instance Prelude.NFData ExecuteScheduledQuery where
       `Prelude.seq` Prelude.rnf scheduledQueryArn
       `Prelude.seq` Prelude.rnf invocationTime
 
-instance Core.ToHeaders ExecuteScheduledQuery where
+instance Data.ToHeaders ExecuteScheduledQuery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Timestream_20181101.ExecuteScheduledQuery" ::
+              Data.=# ( "Timestream_20181101.ExecuteScheduledQuery" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExecuteScheduledQuery where
+instance Data.ToJSON ExecuteScheduledQuery where
   toJSON ExecuteScheduledQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("ScheduledQueryArn" Core..= scheduledQueryArn),
+              ("ScheduledQueryArn" Data..= scheduledQueryArn),
             Prelude.Just
-              ("InvocationTime" Core..= invocationTime)
+              ("InvocationTime" Data..= invocationTime)
           ]
       )
 
-instance Core.ToPath ExecuteScheduledQuery where
+instance Data.ToPath ExecuteScheduledQuery where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ExecuteScheduledQuery where
+instance Data.ToQuery ExecuteScheduledQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExecuteScheduledQueryResponse' smart constructor.

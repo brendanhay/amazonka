@@ -21,6 +21,7 @@ module Amazonka.Kinesis.Types.StreamModeDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types.StreamMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,13 +66,13 @@ newStreamModeDetails pStreamMode_ =
 streamModeDetails_streamMode :: Lens.Lens' StreamModeDetails StreamMode
 streamModeDetails_streamMode = Lens.lens (\StreamModeDetails' {streamMode} -> streamMode) (\s@StreamModeDetails' {} a -> s {streamMode = a} :: StreamModeDetails)
 
-instance Core.FromJSON StreamModeDetails where
+instance Data.FromJSON StreamModeDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamModeDetails"
       ( \x ->
           StreamModeDetails'
-            Prelude.<$> (x Core..: "StreamMode")
+            Prelude.<$> (x Data..: "StreamMode")
       )
 
 instance Prelude.Hashable StreamModeDetails where
@@ -81,9 +82,9 @@ instance Prelude.Hashable StreamModeDetails where
 instance Prelude.NFData StreamModeDetails where
   rnf StreamModeDetails' {..} = Prelude.rnf streamMode
 
-instance Core.ToJSON StreamModeDetails where
+instance Data.ToJSON StreamModeDetails where
   toJSON StreamModeDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("StreamMode" Core..= streamMode)]
+          [Prelude.Just ("StreamMode" Data..= streamMode)]
       )

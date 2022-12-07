@@ -46,6 +46,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,8 +121,8 @@ instance Core.AWSRequest GetDomainNames where
     Response.receiveJSON
       ( \s h x ->
           GetDomainNamesResponse'
-            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "position")
+            Prelude.<$> (x Data..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,22 +136,22 @@ instance Prelude.NFData GetDomainNames where
     Prelude.rnf limit
       `Prelude.seq` Prelude.rnf position
 
-instance Core.ToHeaders GetDomainNames where
+instance Data.ToHeaders GetDomainNames where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetDomainNames where
+instance Data.ToPath GetDomainNames where
   toPath = Prelude.const "/domainnames"
 
-instance Core.ToQuery GetDomainNames where
+instance Data.ToQuery GetDomainNames where
   toQuery GetDomainNames' {..} =
     Prelude.mconcat
-      ["limit" Core.=: limit, "position" Core.=: position]
+      ["limit" Data.=: limit, "position" Data.=: position]
 
 -- | Represents a collection of DomainName resources.
 --

@@ -46,6 +46,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,7 +155,7 @@ instance Core.AWSRequest UpdateVirtualService where
       ( \s h x ->
           UpdateVirtualServiceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable UpdateVirtualService where
@@ -173,38 +174,38 @@ instance Prelude.NFData UpdateVirtualService where
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf virtualServiceName
 
-instance Core.ToHeaders UpdateVirtualService where
+instance Data.ToHeaders UpdateVirtualService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateVirtualService where
+instance Data.ToJSON UpdateVirtualService where
   toJSON UpdateVirtualService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("spec" Core..= spec)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("spec" Data..= spec)
           ]
       )
 
-instance Core.ToPath UpdateVirtualService where
+instance Data.ToPath UpdateVirtualService where
   toPath UpdateVirtualService' {..} =
     Prelude.mconcat
       [ "/v20190125/meshes/",
-        Core.toBS meshName,
+        Data.toBS meshName,
         "/virtualServices/",
-        Core.toBS virtualServiceName
+        Data.toBS virtualServiceName
       ]
 
-instance Core.ToQuery UpdateVirtualService where
+instance Data.ToQuery UpdateVirtualService where
   toQuery UpdateVirtualService' {..} =
-    Prelude.mconcat ["meshOwner" Core.=: meshOwner]
+    Prelude.mconcat ["meshOwner" Data.=: meshOwner]
 
 -- |
 --

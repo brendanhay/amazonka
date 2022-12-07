@@ -21,6 +21,7 @@ module Amazonka.Kinesis.Types.PutRecordsRequestEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output for @PutRecords@.
@@ -34,7 +35,7 @@ data PutRecordsRequestEntry = PutRecordsRequestEntry'
     -- blob is serialized. When the data blob (the payload before
     -- base64-encoding) is added to the partition key size, the total size must
     -- not exceed the maximum record size (1 MiB).
-    data' :: Core.Base64,
+    data' :: Data.Base64,
     -- | Determines which shard in the stream the data record is assigned to.
     -- Partition keys are Unicode strings with a maximum length limit of 256
     -- characters for each key. Amazon Kinesis Data Streams uses the partition
@@ -87,7 +88,7 @@ newPutRecordsRequestEntry pData_ pPartitionKey_ =
   PutRecordsRequestEntry'
     { explicitHashKey =
         Prelude.Nothing,
-      data' = Core._Base64 Lens.# pData_,
+      data' = Data._Base64 Lens.# pData_,
       partitionKey = pPartitionKey_
     }
 
@@ -105,7 +106,7 @@ putRecordsRequestEntry_explicitHashKey = Lens.lens (\PutRecordsRequestEntry' {ex
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 putRecordsRequestEntry_data :: Lens.Lens' PutRecordsRequestEntry Prelude.ByteString
-putRecordsRequestEntry_data = Lens.lens (\PutRecordsRequestEntry' {data'} -> data') (\s@PutRecordsRequestEntry' {} a -> s {data' = a} :: PutRecordsRequestEntry) Prelude.. Core._Base64
+putRecordsRequestEntry_data = Lens.lens (\PutRecordsRequestEntry' {data'} -> data') (\s@PutRecordsRequestEntry' {} a -> s {data' = a} :: PutRecordsRequestEntry) Prelude.. Data._Base64
 
 -- | Determines which shard in the stream the data record is assigned to.
 -- Partition keys are Unicode strings with a maximum length limit of 256
@@ -131,13 +132,13 @@ instance Prelude.NFData PutRecordsRequestEntry where
       `Prelude.seq` Prelude.rnf data'
       `Prelude.seq` Prelude.rnf partitionKey
 
-instance Core.ToJSON PutRecordsRequestEntry where
+instance Data.ToJSON PutRecordsRequestEntry where
   toJSON PutRecordsRequestEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExplicitHashKey" Core..=)
+          [ ("ExplicitHashKey" Data..=)
               Prelude.<$> explicitHashKey,
-            Prelude.Just ("Data" Core..= data'),
-            Prelude.Just ("PartitionKey" Core..= partitionKey)
+            Prelude.Just ("Data" Data..= data'),
+            Prelude.Just ("PartitionKey" Data..= partitionKey)
           ]
       )

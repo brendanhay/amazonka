@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.XssMatchSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFRegional.Types.XssMatchTuple
 
@@ -111,16 +112,16 @@ xssMatchSet_xssMatchSetId = Lens.lens (\XssMatchSet' {xssMatchSetId} -> xssMatch
 xssMatchSet_xssMatchTuples :: Lens.Lens' XssMatchSet [XssMatchTuple]
 xssMatchSet_xssMatchTuples = Lens.lens (\XssMatchSet' {xssMatchTuples} -> xssMatchTuples) (\s@XssMatchSet' {} a -> s {xssMatchTuples = a} :: XssMatchSet) Prelude.. Lens.coerced
 
-instance Core.FromJSON XssMatchSet where
+instance Data.FromJSON XssMatchSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "XssMatchSet"
       ( \x ->
           XssMatchSet'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..: "XssMatchSetId")
-            Prelude.<*> ( x Core..:? "XssMatchTuples"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..: "XssMatchSetId")
+            Prelude.<*> ( x Data..:? "XssMatchTuples"
+                            Data..!= Prelude.mempty
                         )
       )
 

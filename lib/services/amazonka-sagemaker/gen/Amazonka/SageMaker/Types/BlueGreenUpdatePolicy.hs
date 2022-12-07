@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.BlueGreenUpdatePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.TrafficRoutingConfig
 
@@ -94,15 +95,15 @@ blueGreenUpdatePolicy_maximumExecutionTimeoutInSeconds = Lens.lens (\BlueGreenUp
 blueGreenUpdatePolicy_trafficRoutingConfiguration :: Lens.Lens' BlueGreenUpdatePolicy TrafficRoutingConfig
 blueGreenUpdatePolicy_trafficRoutingConfiguration = Lens.lens (\BlueGreenUpdatePolicy' {trafficRoutingConfiguration} -> trafficRoutingConfiguration) (\s@BlueGreenUpdatePolicy' {} a -> s {trafficRoutingConfiguration = a} :: BlueGreenUpdatePolicy)
 
-instance Core.FromJSON BlueGreenUpdatePolicy where
+instance Data.FromJSON BlueGreenUpdatePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BlueGreenUpdatePolicy"
       ( \x ->
           BlueGreenUpdatePolicy'
-            Prelude.<$> (x Core..:? "TerminationWaitInSeconds")
-            Prelude.<*> (x Core..:? "MaximumExecutionTimeoutInSeconds")
-            Prelude.<*> (x Core..: "TrafficRoutingConfiguration")
+            Prelude.<$> (x Data..:? "TerminationWaitInSeconds")
+            Prelude.<*> (x Data..:? "MaximumExecutionTimeoutInSeconds")
+            Prelude.<*> (x Data..: "TrafficRoutingConfiguration")
       )
 
 instance Prelude.Hashable BlueGreenUpdatePolicy where
@@ -118,17 +119,17 @@ instance Prelude.NFData BlueGreenUpdatePolicy where
       `Prelude.seq` Prelude.rnf maximumExecutionTimeoutInSeconds
       `Prelude.seq` Prelude.rnf trafficRoutingConfiguration
 
-instance Core.ToJSON BlueGreenUpdatePolicy where
+instance Data.ToJSON BlueGreenUpdatePolicy where
   toJSON BlueGreenUpdatePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TerminationWaitInSeconds" Core..=)
+          [ ("TerminationWaitInSeconds" Data..=)
               Prelude.<$> terminationWaitInSeconds,
-            ("MaximumExecutionTimeoutInSeconds" Core..=)
+            ("MaximumExecutionTimeoutInSeconds" Data..=)
               Prelude.<$> maximumExecutionTimeoutInSeconds,
             Prelude.Just
               ( "TrafficRoutingConfiguration"
-                  Core..= trafficRoutingConfiguration
+                  Data..= trafficRoutingConfiguration
               )
           ]
       )

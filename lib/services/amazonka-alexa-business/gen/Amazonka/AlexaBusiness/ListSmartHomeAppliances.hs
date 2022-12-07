@@ -47,6 +47,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,8 +132,8 @@ instance Core.AWSRequest ListSmartHomeAppliances where
     Response.receiveJSON
       ( \s h x ->
           ListSmartHomeAppliancesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "SmartHomeAppliances"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "SmartHomeAppliances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -150,35 +151,35 @@ instance Prelude.NFData ListSmartHomeAppliances where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf roomArn
 
-instance Core.ToHeaders ListSmartHomeAppliances where
+instance Data.ToHeaders ListSmartHomeAppliances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.ListSmartHomeAppliances" ::
+              Data.=# ( "AlexaForBusiness.ListSmartHomeAppliances" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSmartHomeAppliances where
+instance Data.ToJSON ListSmartHomeAppliances where
   toJSON ListSmartHomeAppliances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("RoomArn" Core..= roomArn)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("RoomArn" Data..= roomArn)
           ]
       )
 
-instance Core.ToPath ListSmartHomeAppliances where
+instance Data.ToPath ListSmartHomeAppliances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSmartHomeAppliances where
+instance Data.ToQuery ListSmartHomeAppliances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSmartHomeAppliancesResponse' smart constructor.

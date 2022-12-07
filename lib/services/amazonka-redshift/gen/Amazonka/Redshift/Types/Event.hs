@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.Event where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.SourceType
@@ -36,7 +37,7 @@ data Event = Event'
     -- Values: ERROR, INFO
     severity :: Prelude.Maybe Prelude.Text,
     -- | The date and time of the event.
-    date :: Prelude.Maybe Core.ISO8601,
+    date :: Prelude.Maybe Data.ISO8601,
     -- | The source type for this event.
     sourceType :: Prelude.Maybe SourceType,
     -- | The identifier for the source of the event.
@@ -100,7 +101,7 @@ event_severity = Lens.lens (\Event' {severity} -> severity) (\s@Event' {} a -> s
 
 -- | The date and time of the event.
 event_date :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Core._Time
+event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Data._Time
 
 -- | The source type for this event.
 event_sourceType :: Lens.Lens' Event (Prelude.Maybe SourceType)
@@ -120,17 +121,17 @@ event_eventId = Lens.lens (\Event' {eventId} -> eventId) (\s@Event' {} a -> s {e
 event_eventCategories :: Lens.Lens' Event (Prelude.Maybe [Prelude.Text])
 event_eventCategories = Lens.lens (\Event' {eventCategories} -> eventCategories) (\s@Event' {} a -> s {eventCategories = a} :: Event) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML Event where
+instance Data.FromXML Event where
   parseXML x =
     Event'
-      Prelude.<$> (x Core..@? "Message")
-      Prelude.<*> (x Core..@? "Severity")
-      Prelude.<*> (x Core..@? "Date")
-      Prelude.<*> (x Core..@? "SourceType")
-      Prelude.<*> (x Core..@? "SourceIdentifier")
-      Prelude.<*> (x Core..@? "EventId")
-      Prelude.<*> ( x Core..@? "EventCategories" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "EventCategory")
+      Prelude.<$> (x Data..@? "Message")
+      Prelude.<*> (x Data..@? "Severity")
+      Prelude.<*> (x Data..@? "Date")
+      Prelude.<*> (x Data..@? "SourceType")
+      Prelude.<*> (x Data..@? "SourceIdentifier")
+      Prelude.<*> (x Data..@? "EventId")
+      Prelude.<*> ( x Data..@? "EventCategories" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "EventCategory")
                   )
 
 instance Prelude.Hashable Event where

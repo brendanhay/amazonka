@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.JobError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.Code
 import Amazonka.DataExchange.Types.Details
 import Amazonka.DataExchange.Types.JobErrorLimitName
@@ -114,19 +115,19 @@ jobError_code = Lens.lens (\JobError' {code} -> code) (\s@JobError' {} a -> s {c
 jobError_message :: Lens.Lens' JobError Prelude.Text
 jobError_message = Lens.lens (\JobError' {message} -> message) (\s@JobError' {} a -> s {message = a} :: JobError)
 
-instance Core.FromJSON JobError where
+instance Data.FromJSON JobError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobError"
       ( \x ->
           JobError'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "LimitValue")
-            Prelude.<*> (x Core..:? "LimitName")
-            Prelude.<*> (x Core..:? "Details")
-            Prelude.<*> (x Core..: "Code")
-            Prelude.<*> (x Core..: "Message")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "LimitValue")
+            Prelude.<*> (x Data..:? "LimitName")
+            Prelude.<*> (x Data..:? "Details")
+            Prelude.<*> (x Data..: "Code")
+            Prelude.<*> (x Data..: "Message")
       )
 
 instance Prelude.Hashable JobError where

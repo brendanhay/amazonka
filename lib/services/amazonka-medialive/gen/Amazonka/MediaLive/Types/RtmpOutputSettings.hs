@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.RtmpOutputSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.OutputLocationRef
 import Amazonka.MediaLive.Types.RtmpOutputCertificateMode
 import qualified Amazonka.Prelude as Prelude
@@ -98,16 +99,16 @@ rtmpOutputSettings_certificateMode = Lens.lens (\RtmpOutputSettings' {certificat
 rtmpOutputSettings_destination :: Lens.Lens' RtmpOutputSettings OutputLocationRef
 rtmpOutputSettings_destination = Lens.lens (\RtmpOutputSettings' {destination} -> destination) (\s@RtmpOutputSettings' {} a -> s {destination = a} :: RtmpOutputSettings)
 
-instance Core.FromJSON RtmpOutputSettings where
+instance Data.FromJSON RtmpOutputSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RtmpOutputSettings"
       ( \x ->
           RtmpOutputSettings'
-            Prelude.<$> (x Core..:? "numRetries")
-            Prelude.<*> (x Core..:? "connectionRetryInterval")
-            Prelude.<*> (x Core..:? "certificateMode")
-            Prelude.<*> (x Core..: "destination")
+            Prelude.<$> (x Data..:? "numRetries")
+            Prelude.<*> (x Data..:? "connectionRetryInterval")
+            Prelude.<*> (x Data..:? "certificateMode")
+            Prelude.<*> (x Data..: "destination")
       )
 
 instance Prelude.Hashable RtmpOutputSettings where
@@ -124,15 +125,15 @@ instance Prelude.NFData RtmpOutputSettings where
       `Prelude.seq` Prelude.rnf certificateMode
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToJSON RtmpOutputSettings where
+instance Data.ToJSON RtmpOutputSettings where
   toJSON RtmpOutputSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("numRetries" Core..=) Prelude.<$> numRetries,
-            ("connectionRetryInterval" Core..=)
+          [ ("numRetries" Data..=) Prelude.<$> numRetries,
+            ("connectionRetryInterval" Data..=)
               Prelude.<$> connectionRetryInterval,
-            ("certificateMode" Core..=)
+            ("certificateMode" Data..=)
               Prelude.<$> certificateMode,
-            Prelude.Just ("destination" Core..= destination)
+            Prelude.Just ("destination" Data..= destination)
           ]
       )

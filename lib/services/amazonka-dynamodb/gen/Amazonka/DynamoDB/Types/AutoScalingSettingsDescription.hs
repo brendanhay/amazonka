@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.AutoScalingSettingsDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.AutoScalingPolicyDescription
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -99,19 +100,19 @@ autoScalingSettingsDescription_autoScalingDisabled = Lens.lens (\AutoScalingSett
 autoScalingSettingsDescription_maximumUnits :: Lens.Lens' AutoScalingSettingsDescription (Prelude.Maybe Prelude.Natural)
 autoScalingSettingsDescription_maximumUnits = Lens.lens (\AutoScalingSettingsDescription' {maximumUnits} -> maximumUnits) (\s@AutoScalingSettingsDescription' {} a -> s {maximumUnits = a} :: AutoScalingSettingsDescription)
 
-instance Core.FromJSON AutoScalingSettingsDescription where
+instance Data.FromJSON AutoScalingSettingsDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoScalingSettingsDescription"
       ( \x ->
           AutoScalingSettingsDescription'
-            Prelude.<$> (x Core..:? "MinimumUnits")
-            Prelude.<*> (x Core..:? "AutoScalingRoleArn")
-            Prelude.<*> ( x Core..:? "ScalingPolicies"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "MinimumUnits")
+            Prelude.<*> (x Data..:? "AutoScalingRoleArn")
+            Prelude.<*> ( x Data..:? "ScalingPolicies"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AutoScalingDisabled")
-            Prelude.<*> (x Core..:? "MaximumUnits")
+            Prelude.<*> (x Data..:? "AutoScalingDisabled")
+            Prelude.<*> (x Data..:? "MaximumUnits")
       )
 
 instance

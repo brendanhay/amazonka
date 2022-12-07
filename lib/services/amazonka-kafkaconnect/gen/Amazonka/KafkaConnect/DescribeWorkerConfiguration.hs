@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,11 +95,11 @@ instance Core.AWSRequest DescribeWorkerConfiguration where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkerConfigurationResponse'
-            Prelude.<$> (x Core..?> "latestRevision")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "workerConfigurationArn")
-            Prelude.<*> (x Core..?> "creationTime")
+            Prelude.<$> (x Data..?> "latestRevision")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "workerConfigurationArn")
+            Prelude.<*> (x Data..?> "creationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,25 +111,25 @@ instance Prelude.NFData DescribeWorkerConfiguration where
   rnf DescribeWorkerConfiguration' {..} =
     Prelude.rnf workerConfigurationArn
 
-instance Core.ToHeaders DescribeWorkerConfiguration where
+instance Data.ToHeaders DescribeWorkerConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeWorkerConfiguration where
+instance Data.ToPath DescribeWorkerConfiguration where
   toPath DescribeWorkerConfiguration' {..} =
     Prelude.mconcat
       [ "/v1/worker-configurations/",
-        Core.toBS workerConfigurationArn
+        Data.toBS workerConfigurationArn
       ]
 
-instance Core.ToQuery DescribeWorkerConfiguration where
+instance Data.ToQuery DescribeWorkerConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWorkerConfigurationResponse' smart constructor.
@@ -142,7 +143,7 @@ data DescribeWorkerConfigurationResponse = DescribeWorkerConfigurationResponse'
     -- | The Amazon Resource Name (ARN) of the custom configuration.
     workerConfigurationArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the worker configuration was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -201,7 +202,7 @@ describeWorkerConfigurationResponse_workerConfigurationArn = Lens.lens (\Describ
 
 -- | The time that the worker configuration was created.
 describeWorkerConfigurationResponse_creationTime :: Lens.Lens' DescribeWorkerConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-describeWorkerConfigurationResponse_creationTime = Lens.lens (\DescribeWorkerConfigurationResponse' {creationTime} -> creationTime) (\s@DescribeWorkerConfigurationResponse' {} a -> s {creationTime = a} :: DescribeWorkerConfigurationResponse) Prelude.. Lens.mapping Core._Time
+describeWorkerConfigurationResponse_creationTime = Lens.lens (\DescribeWorkerConfigurationResponse' {creationTime} -> creationTime) (\s@DescribeWorkerConfigurationResponse' {} a -> s {creationTime = a} :: DescribeWorkerConfigurationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeWorkerConfigurationResponse_httpStatus :: Lens.Lens' DescribeWorkerConfigurationResponse Prelude.Int

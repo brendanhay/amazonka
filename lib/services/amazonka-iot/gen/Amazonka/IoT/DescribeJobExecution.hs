@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance Core.AWSRequest DescribeJobExecution where
     Response.receiveJSON
       ( \s h x ->
           DescribeJobExecutionResponse'
-            Prelude.<$> (x Core..?> "execution")
+            Prelude.<$> (x Data..?> "execution")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,22 +132,22 @@ instance Prelude.NFData DescribeJobExecution where
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf thingName
 
-instance Core.ToHeaders DescribeJobExecution where
+instance Data.ToHeaders DescribeJobExecution where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeJobExecution where
+instance Data.ToPath DescribeJobExecution where
   toPath DescribeJobExecution' {..} =
     Prelude.mconcat
       [ "/things/",
-        Core.toBS thingName,
+        Data.toBS thingName,
         "/jobs/",
-        Core.toBS jobId
+        Data.toBS jobId
       ]
 
-instance Core.ToQuery DescribeJobExecution where
+instance Data.ToQuery DescribeJobExecution where
   toQuery DescribeJobExecution' {..} =
     Prelude.mconcat
-      ["executionNumber" Core.=: executionNumber]
+      ["executionNumber" Data.=: executionNumber]
 
 -- | /See:/ 'newDescribeJobExecutionResponse' smart constructor.
 data DescribeJobExecutionResponse = DescribeJobExecutionResponse'

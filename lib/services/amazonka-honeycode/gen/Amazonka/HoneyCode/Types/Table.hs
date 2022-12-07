@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.Table where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the properties of a table in a workbook.
@@ -61,14 +62,14 @@ table_tableName = Lens.lens (\Table' {tableName} -> tableName) (\s@Table' {} a -
 table_tableId :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
 table_tableId = Lens.lens (\Table' {tableId} -> tableId) (\s@Table' {} a -> s {tableId = a} :: Table)
 
-instance Core.FromJSON Table where
+instance Data.FromJSON Table where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Table"
       ( \x ->
           Table'
-            Prelude.<$> (x Core..:? "tableName")
-            Prelude.<*> (x Core..:? "tableId")
+            Prelude.<$> (x Data..:? "tableName")
+            Prelude.<*> (x Data..:? "tableId")
       )
 
 instance Prelude.Hashable Table where

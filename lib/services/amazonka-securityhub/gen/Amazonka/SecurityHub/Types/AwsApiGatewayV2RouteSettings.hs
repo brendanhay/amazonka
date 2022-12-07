@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsApiGatewayV2RouteSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains route settings for a stage.
@@ -122,17 +123,17 @@ awsApiGatewayV2RouteSettings_detailedMetricsEnabled = Lens.lens (\AwsApiGatewayV
 awsApiGatewayV2RouteSettings_dataTraceEnabled :: Lens.Lens' AwsApiGatewayV2RouteSettings (Prelude.Maybe Prelude.Bool)
 awsApiGatewayV2RouteSettings_dataTraceEnabled = Lens.lens (\AwsApiGatewayV2RouteSettings' {dataTraceEnabled} -> dataTraceEnabled) (\s@AwsApiGatewayV2RouteSettings' {} a -> s {dataTraceEnabled = a} :: AwsApiGatewayV2RouteSettings)
 
-instance Core.FromJSON AwsApiGatewayV2RouteSettings where
+instance Data.FromJSON AwsApiGatewayV2RouteSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsApiGatewayV2RouteSettings"
       ( \x ->
           AwsApiGatewayV2RouteSettings'
-            Prelude.<$> (x Core..:? "ThrottlingRateLimit")
-            Prelude.<*> (x Core..:? "LoggingLevel")
-            Prelude.<*> (x Core..:? "ThrottlingBurstLimit")
-            Prelude.<*> (x Core..:? "DetailedMetricsEnabled")
-            Prelude.<*> (x Core..:? "DataTraceEnabled")
+            Prelude.<$> (x Data..:? "ThrottlingRateLimit")
+            Prelude.<*> (x Data..:? "LoggingLevel")
+            Prelude.<*> (x Data..:? "ThrottlingBurstLimit")
+            Prelude.<*> (x Data..:? "DetailedMetricsEnabled")
+            Prelude.<*> (x Data..:? "DataTraceEnabled")
       )
 
 instance
@@ -154,18 +155,18 @@ instance Prelude.NFData AwsApiGatewayV2RouteSettings where
       `Prelude.seq` Prelude.rnf detailedMetricsEnabled
       `Prelude.seq` Prelude.rnf dataTraceEnabled
 
-instance Core.ToJSON AwsApiGatewayV2RouteSettings where
+instance Data.ToJSON AwsApiGatewayV2RouteSettings where
   toJSON AwsApiGatewayV2RouteSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ThrottlingRateLimit" Core..=)
+          [ ("ThrottlingRateLimit" Data..=)
               Prelude.<$> throttlingRateLimit,
-            ("LoggingLevel" Core..=) Prelude.<$> loggingLevel,
-            ("ThrottlingBurstLimit" Core..=)
+            ("LoggingLevel" Data..=) Prelude.<$> loggingLevel,
+            ("ThrottlingBurstLimit" Data..=)
               Prelude.<$> throttlingBurstLimit,
-            ("DetailedMetricsEnabled" Core..=)
+            ("DetailedMetricsEnabled" Data..=)
               Prelude.<$> detailedMetricsEnabled,
-            ("DataTraceEnabled" Core..=)
+            ("DataTraceEnabled" Data..=)
               Prelude.<$> dataTraceEnabled
           ]
       )

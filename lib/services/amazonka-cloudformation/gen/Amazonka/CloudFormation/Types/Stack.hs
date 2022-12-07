@@ -28,6 +28,7 @@ import Amazonka.CloudFormation.Types.StackStatus
 import Amazonka.CloudFormation.Types.Tag
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Stack data type.
@@ -35,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newStack' smart constructor.
 data Stack = Stack'
   { -- | The time the stack was deleted.
-    deletionTime :: Prelude.Maybe Core.ISO8601,
+    deletionTime :: Prelude.Maybe Data.ISO8601,
     -- | A list of @Tag@s that specify information about the stack.
     tags :: Prelude.Maybe [Tag],
     -- | Unique identifier of the stack.
@@ -79,7 +80,7 @@ data Stack = Stack'
     disableRollback :: Prelude.Maybe Prelude.Bool,
     -- | The time the stack was last updated. This field will only be returned if
     -- the stack has been updated at least once.
-    lastUpdatedTime :: Prelude.Maybe Core.ISO8601,
+    lastUpdatedTime :: Prelude.Maybe Data.ISO8601,
     -- | A user-defined description associated with the stack.
     description :: Prelude.Maybe Prelude.Text,
     -- | A list of output structures.
@@ -109,7 +110,7 @@ data Stack = Stack'
     -- | The name associated with the stack.
     stackName :: Prelude.Text,
     -- | The time at which the stack was created.
-    creationTime :: Core.ISO8601,
+    creationTime :: Data.ISO8601,
     -- | Current status of the stack.
     stackStatus :: StackStatus
   }
@@ -230,13 +231,13 @@ newStack pStackName_ pCreationTime_ pStackStatus_ =
       driftInformation = Prelude.Nothing,
       parameters = Prelude.Nothing,
       stackName = pStackName_,
-      creationTime = Core._Time Lens.# pCreationTime_,
+      creationTime = Data._Time Lens.# pCreationTime_,
       stackStatus = pStackStatus_
     }
 
 -- | The time the stack was deleted.
 stack_deletionTime :: Lens.Lens' Stack (Prelude.Maybe Prelude.UTCTime)
-stack_deletionTime = Lens.lens (\Stack' {deletionTime} -> deletionTime) (\s@Stack' {} a -> s {deletionTime = a} :: Stack) Prelude.. Lens.mapping Core._Time
+stack_deletionTime = Lens.lens (\Stack' {deletionTime} -> deletionTime) (\s@Stack' {} a -> s {deletionTime = a} :: Stack) Prelude.. Lens.mapping Data._Time
 
 -- | A list of @Tag@s that specify information about the stack.
 stack_tags :: Lens.Lens' Stack (Prelude.Maybe [Tag])
@@ -302,7 +303,7 @@ stack_disableRollback = Lens.lens (\Stack' {disableRollback} -> disableRollback)
 -- | The time the stack was last updated. This field will only be returned if
 -- the stack has been updated at least once.
 stack_lastUpdatedTime :: Lens.Lens' Stack (Prelude.Maybe Prelude.UTCTime)
-stack_lastUpdatedTime = Lens.lens (\Stack' {lastUpdatedTime} -> lastUpdatedTime) (\s@Stack' {} a -> s {lastUpdatedTime = a} :: Stack) Prelude.. Lens.mapping Core._Time
+stack_lastUpdatedTime = Lens.lens (\Stack' {lastUpdatedTime} -> lastUpdatedTime) (\s@Stack' {} a -> s {lastUpdatedTime = a} :: Stack) Prelude.. Lens.mapping Data._Time
 
 -- | A user-defined description associated with the stack.
 stack_description :: Lens.Lens' Stack (Prelude.Maybe Prelude.Text)
@@ -350,48 +351,48 @@ stack_stackName = Lens.lens (\Stack' {stackName} -> stackName) (\s@Stack' {} a -
 
 -- | The time at which the stack was created.
 stack_creationTime :: Lens.Lens' Stack Prelude.UTCTime
-stack_creationTime = Lens.lens (\Stack' {creationTime} -> creationTime) (\s@Stack' {} a -> s {creationTime = a} :: Stack) Prelude.. Core._Time
+stack_creationTime = Lens.lens (\Stack' {creationTime} -> creationTime) (\s@Stack' {} a -> s {creationTime = a} :: Stack) Prelude.. Data._Time
 
 -- | Current status of the stack.
 stack_stackStatus :: Lens.Lens' Stack StackStatus
 stack_stackStatus = Lens.lens (\Stack' {stackStatus} -> stackStatus) (\s@Stack' {} a -> s {stackStatus = a} :: Stack)
 
-instance Core.FromXML Stack where
+instance Data.FromXML Stack where
   parseXML x =
     Stack'
-      Prelude.<$> (x Core..@? "DeletionTime")
-      Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "DeletionTime")
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "StackId")
-      Prelude.<*> (x Core..@? "RoleARN")
-      Prelude.<*> (x Core..@? "TimeoutInMinutes")
-      Prelude.<*> (x Core..@? "EnableTerminationProtection")
-      Prelude.<*> (x Core..@? "ChangeSetId")
-      Prelude.<*> ( x Core..@? "NotificationARNs"
+      Prelude.<*> (x Data..@? "StackId")
+      Prelude.<*> (x Data..@? "RoleARN")
+      Prelude.<*> (x Data..@? "TimeoutInMinutes")
+      Prelude.<*> (x Data..@? "EnableTerminationProtection")
+      Prelude.<*> (x Data..@? "ChangeSetId")
+      Prelude.<*> ( x Data..@? "NotificationARNs"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "StackStatusReason")
-      Prelude.<*> (x Core..@? "ParentId")
-      Prelude.<*> (x Core..@? "DisableRollback")
-      Prelude.<*> (x Core..@? "LastUpdatedTime")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> ( x Core..@? "Outputs" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "StackStatusReason")
+      Prelude.<*> (x Data..@? "ParentId")
+      Prelude.<*> (x Data..@? "DisableRollback")
+      Prelude.<*> (x Data..@? "LastUpdatedTime")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> ( x Data..@? "Outputs" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "Capabilities" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> ( x Data..@? "Capabilities" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "RootId")
-      Prelude.<*> (x Core..@? "RollbackConfiguration")
-      Prelude.<*> (x Core..@? "DriftInformation")
-      Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "RootId")
+      Prelude.<*> (x Data..@? "RollbackConfiguration")
+      Prelude.<*> (x Data..@? "DriftInformation")
+      Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@ "StackName")
-      Prelude.<*> (x Core..@ "CreationTime")
-      Prelude.<*> (x Core..@ "StackStatus")
+      Prelude.<*> (x Data..@ "StackName")
+      Prelude.<*> (x Data..@ "CreationTime")
+      Prelude.<*> (x Data..@ "StackStatus")
 
 instance Prelude.Hashable Stack where
   hashWithSalt _salt Stack' {..} =

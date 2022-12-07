@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.PartOfSpeechTag where
 import Amazonka.Comprehend.Types.PartOfSpeechTagType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies the part of speech represented by the token and gives the
@@ -70,13 +71,13 @@ partOfSpeechTag_tag = Lens.lens (\PartOfSpeechTag' {tag} -> tag) (\s@PartOfSpeec
 partOfSpeechTag_score :: Lens.Lens' PartOfSpeechTag (Prelude.Maybe Prelude.Double)
 partOfSpeechTag_score = Lens.lens (\PartOfSpeechTag' {score} -> score) (\s@PartOfSpeechTag' {} a -> s {score = a} :: PartOfSpeechTag)
 
-instance Core.FromJSON PartOfSpeechTag where
+instance Data.FromJSON PartOfSpeechTag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PartOfSpeechTag"
       ( \x ->
           PartOfSpeechTag'
-            Prelude.<$> (x Core..:? "Tag") Prelude.<*> (x Core..:? "Score")
+            Prelude.<$> (x Data..:? "Tag") Prelude.<*> (x Data..:? "Score")
       )
 
 instance Prelude.Hashable PartOfSpeechTag where

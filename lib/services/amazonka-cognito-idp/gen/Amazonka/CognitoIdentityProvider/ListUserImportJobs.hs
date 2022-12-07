@@ -45,6 +45,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,8 +121,8 @@ instance Core.AWSRequest ListUserImportJobs where
     Response.receiveJSON
       ( \s h x ->
           ListUserImportJobsResponse'
-            Prelude.<$> (x Core..?> "PaginationToken")
-            Prelude.<*> (x Core..?> "UserImportJobs")
+            Prelude.<$> (x Data..?> "PaginationToken")
+            Prelude.<*> (x Data..?> "UserImportJobs")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,36 +138,36 @@ instance Prelude.NFData ListUserImportJobs where
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListUserImportJobs where
+instance Data.ToHeaders ListUserImportJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.ListUserImportJobs" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.ListUserImportJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListUserImportJobs where
+instance Data.ToJSON ListUserImportJobs where
   toJSON ListUserImportJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PaginationToken" Core..=)
+          [ ("PaginationToken" Data..=)
               Prelude.<$> paginationToken,
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("MaxResults" Core..= maxResults)
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("MaxResults" Data..= maxResults)
           ]
       )
 
-instance Core.ToPath ListUserImportJobs where
+instance Data.ToPath ListUserImportJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListUserImportJobs where
+instance Data.ToQuery ListUserImportJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server to the request to list the user

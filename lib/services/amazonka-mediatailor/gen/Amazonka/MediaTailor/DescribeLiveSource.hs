@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,13 +107,13 @@ instance Core.AWSRequest DescribeLiveSource where
     Response.receiveJSON
       ( \s h x ->
           DescribeLiveSourceResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "LiveSourceName")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "SourceLocationName")
-            Prelude.<*> ( x Core..?> "HttpPackageConfigurations"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "LiveSourceName")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "SourceLocationName")
+            Prelude.<*> ( x Data..?> "HttpPackageConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -128,27 +129,27 @@ instance Prelude.NFData DescribeLiveSource where
     Prelude.rnf liveSourceName
       `Prelude.seq` Prelude.rnf sourceLocationName
 
-instance Core.ToHeaders DescribeLiveSource where
+instance Data.ToHeaders DescribeLiveSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeLiveSource where
+instance Data.ToPath DescribeLiveSource where
   toPath DescribeLiveSource' {..} =
     Prelude.mconcat
       [ "/sourceLocation/",
-        Core.toBS sourceLocationName,
+        Data.toBS sourceLocationName,
         "/liveSource/",
-        Core.toBS liveSourceName
+        Data.toBS liveSourceName
       ]
 
-instance Core.ToQuery DescribeLiveSource where
+instance Data.ToQuery DescribeLiveSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLiveSourceResponse' smart constructor.
@@ -163,9 +164,9 @@ data DescribeLiveSourceResponse = DescribeLiveSourceResponse'
     -- | The ARN of the live source.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp that indicates when the live source was modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp that indicates when the live source was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the source location associated with the live source.
     sourceLocationName :: Prelude.Maybe Prelude.Text,
     -- | The HTTP package configurations.
@@ -234,11 +235,11 @@ describeLiveSourceResponse_arn = Lens.lens (\DescribeLiveSourceResponse' {arn} -
 
 -- | The timestamp that indicates when the live source was modified.
 describeLiveSourceResponse_lastModifiedTime :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
-describeLiveSourceResponse_lastModifiedTime = Lens.lens (\DescribeLiveSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeLiveSourceResponse' {} a -> s {lastModifiedTime = a} :: DescribeLiveSourceResponse) Prelude.. Lens.mapping Core._Time
+describeLiveSourceResponse_lastModifiedTime = Lens.lens (\DescribeLiveSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeLiveSourceResponse' {} a -> s {lastModifiedTime = a} :: DescribeLiveSourceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp that indicates when the live source was created.
 describeLiveSourceResponse_creationTime :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
-describeLiveSourceResponse_creationTime = Lens.lens (\DescribeLiveSourceResponse' {creationTime} -> creationTime) (\s@DescribeLiveSourceResponse' {} a -> s {creationTime = a} :: DescribeLiveSourceResponse) Prelude.. Lens.mapping Core._Time
+describeLiveSourceResponse_creationTime = Lens.lens (\DescribeLiveSourceResponse' {creationTime} -> creationTime) (\s@DescribeLiveSourceResponse' {} a -> s {creationTime = a} :: DescribeLiveSourceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the source location associated with the live source.
 describeLiveSourceResponse_sourceLocationName :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe Prelude.Text)

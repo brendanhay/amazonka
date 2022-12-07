@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.VariableValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value assigned to a feature variation. This structure must contain
@@ -93,16 +94,16 @@ variableValue_longValue = Lens.lens (\VariableValue' {longValue} -> longValue) (
 variableValue_boolValue :: Lens.Lens' VariableValue (Prelude.Maybe Prelude.Bool)
 variableValue_boolValue = Lens.lens (\VariableValue' {boolValue} -> boolValue) (\s@VariableValue' {} a -> s {boolValue = a} :: VariableValue)
 
-instance Core.FromJSON VariableValue where
+instance Data.FromJSON VariableValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VariableValue"
       ( \x ->
           VariableValue'
-            Prelude.<$> (x Core..:? "doubleValue")
-            Prelude.<*> (x Core..:? "stringValue")
-            Prelude.<*> (x Core..:? "longValue")
-            Prelude.<*> (x Core..:? "boolValue")
+            Prelude.<$> (x Data..:? "doubleValue")
+            Prelude.<*> (x Data..:? "stringValue")
+            Prelude.<*> (x Data..:? "longValue")
+            Prelude.<*> (x Data..:? "boolValue")
       )
 
 instance Prelude.Hashable VariableValue where
@@ -119,13 +120,13 @@ instance Prelude.NFData VariableValue where
       `Prelude.seq` Prelude.rnf longValue
       `Prelude.seq` Prelude.rnf boolValue
 
-instance Core.ToJSON VariableValue where
+instance Data.ToJSON VariableValue where
   toJSON VariableValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("doubleValue" Core..=) Prelude.<$> doubleValue,
-            ("stringValue" Core..=) Prelude.<$> stringValue,
-            ("longValue" Core..=) Prelude.<$> longValue,
-            ("boolValue" Core..=) Prelude.<$> boolValue
+          [ ("doubleValue" Data..=) Prelude.<$> doubleValue,
+            ("stringValue" Data..=) Prelude.<$> stringValue,
+            ("longValue" Data..=) Prelude.<$> longValue,
+            ("boolValue" Data..=) Prelude.<$> boolValue
           ]
       )

@@ -52,6 +52,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -178,41 +179,41 @@ instance Prelude.NFData UpdateTemplate where
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf templateId
 
-instance Core.ToHeaders UpdateTemplate where
+instance Data.ToHeaders UpdateTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTemplate where
+instance Data.ToJSON UpdateTemplate where
   toJSON UpdateTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("layoutConfiguration" Core..=)
+          [ ("layoutConfiguration" Data..=)
               Prelude.<$> layoutConfiguration,
-            ("name" Core..=) Prelude.<$> name,
-            ("status" Core..=) Prelude.<$> status,
-            ("description" Core..=) Prelude.<$> description,
-            ("requiredFields" Core..=)
+            ("name" Data..=) Prelude.<$> name,
+            ("status" Data..=) Prelude.<$> status,
+            ("description" Data..=) Prelude.<$> description,
+            ("requiredFields" Data..=)
               Prelude.<$> requiredFields
           ]
       )
 
-instance Core.ToPath UpdateTemplate where
+instance Data.ToPath UpdateTemplate where
   toPath UpdateTemplate' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainId,
+        Data.toBS domainId,
         "/templates/",
-        Core.toBS templateId
+        Data.toBS templateId
       ]
 
-instance Core.ToQuery UpdateTemplate where
+instance Data.ToQuery UpdateTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTemplateResponse' smart constructor.

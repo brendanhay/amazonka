@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TransformJobDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.BatchStrategy
 import Amazonka.SageMaker.Types.TransformInput
@@ -151,19 +152,19 @@ transformJobDefinition_transformOutput = Lens.lens (\TransformJobDefinition' {tr
 transformJobDefinition_transformResources :: Lens.Lens' TransformJobDefinition TransformResources
 transformJobDefinition_transformResources = Lens.lens (\TransformJobDefinition' {transformResources} -> transformResources) (\s@TransformJobDefinition' {} a -> s {transformResources = a} :: TransformJobDefinition)
 
-instance Core.FromJSON TransformJobDefinition where
+instance Data.FromJSON TransformJobDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransformJobDefinition"
       ( \x ->
           TransformJobDefinition'
-            Prelude.<$> (x Core..:? "MaxConcurrentTransforms")
-            Prelude.<*> (x Core..:? "Environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MaxPayloadInMB")
-            Prelude.<*> (x Core..:? "BatchStrategy")
-            Prelude.<*> (x Core..: "TransformInput")
-            Prelude.<*> (x Core..: "TransformOutput")
-            Prelude.<*> (x Core..: "TransformResources")
+            Prelude.<$> (x Data..:? "MaxConcurrentTransforms")
+            Prelude.<*> (x Data..:? "Environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MaxPayloadInMB")
+            Prelude.<*> (x Data..:? "BatchStrategy")
+            Prelude.<*> (x Data..: "TransformInput")
+            Prelude.<*> (x Data..: "TransformOutput")
+            Prelude.<*> (x Data..: "TransformResources")
       )
 
 instance Prelude.Hashable TransformJobDefinition where
@@ -187,21 +188,21 @@ instance Prelude.NFData TransformJobDefinition where
       `Prelude.seq` Prelude.rnf transformOutput
       `Prelude.seq` Prelude.rnf transformResources
 
-instance Core.ToJSON TransformJobDefinition where
+instance Data.ToJSON TransformJobDefinition where
   toJSON TransformJobDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxConcurrentTransforms" Core..=)
+          [ ("MaxConcurrentTransforms" Data..=)
               Prelude.<$> maxConcurrentTransforms,
-            ("Environment" Core..=) Prelude.<$> environment,
-            ("MaxPayloadInMB" Core..=)
+            ("Environment" Data..=) Prelude.<$> environment,
+            ("MaxPayloadInMB" Data..=)
               Prelude.<$> maxPayloadInMB,
-            ("BatchStrategy" Core..=) Prelude.<$> batchStrategy,
+            ("BatchStrategy" Data..=) Prelude.<$> batchStrategy,
             Prelude.Just
-              ("TransformInput" Core..= transformInput),
+              ("TransformInput" Data..= transformInput),
             Prelude.Just
-              ("TransformOutput" Core..= transformOutput),
+              ("TransformOutput" Data..= transformOutput),
             Prelude.Just
-              ("TransformResources" Core..= transformResources)
+              ("TransformResources" Data..= transformResources)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.HealthLake.Types.InputDataConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The input properties for an import job.
@@ -53,12 +54,12 @@ newInputDataConfig =
 inputDataConfig_s3Uri :: Lens.Lens' InputDataConfig (Prelude.Maybe Prelude.Text)
 inputDataConfig_s3Uri = Lens.lens (\InputDataConfig' {s3Uri} -> s3Uri) (\s@InputDataConfig' {} a -> s {s3Uri = a} :: InputDataConfig)
 
-instance Core.FromJSON InputDataConfig where
+instance Data.FromJSON InputDataConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputDataConfig"
       ( \x ->
-          InputDataConfig' Prelude.<$> (x Core..:? "S3Uri")
+          InputDataConfig' Prelude.<$> (x Data..:? "S3Uri")
       )
 
 instance Prelude.Hashable InputDataConfig where
@@ -68,9 +69,9 @@ instance Prelude.Hashable InputDataConfig where
 instance Prelude.NFData InputDataConfig where
   rnf InputDataConfig' {..} = Prelude.rnf s3Uri
 
-instance Core.ToJSON InputDataConfig where
+instance Data.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("S3Uri" Core..=) Prelude.<$> s3Uri]
+          [("S3Uri" Data..=) Prelude.<$> s3Uri]
       )

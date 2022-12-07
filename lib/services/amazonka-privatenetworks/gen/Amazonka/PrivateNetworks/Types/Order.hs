@@ -21,6 +21,7 @@ module Amazonka.PrivateNetworks.Types.Order where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types.AcknowledgmentStatus
 import Amazonka.PrivateNetworks.Types.Address
@@ -45,7 +46,7 @@ data Order = Order'
     -- | The tracking information of the order.
     trackingInformation :: Prelude.Maybe [TrackingInformation],
     -- | The creation time of the order.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -113,23 +114,23 @@ order_trackingInformation = Lens.lens (\Order' {trackingInformation} -> tracking
 
 -- | The creation time of the order.
 order_createdAt :: Lens.Lens' Order (Prelude.Maybe Prelude.UTCTime)
-order_createdAt = Lens.lens (\Order' {createdAt} -> createdAt) (\s@Order' {} a -> s {createdAt = a} :: Order) Prelude.. Lens.mapping Core._Time
+order_createdAt = Lens.lens (\Order' {createdAt} -> createdAt) (\s@Order' {} a -> s {createdAt = a} :: Order) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Order where
+instance Data.FromJSON Order where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Order"
       ( \x ->
           Order'
-            Prelude.<$> (x Core..:? "shippingAddress")
-            Prelude.<*> (x Core..:? "acknowledgmentStatus")
-            Prelude.<*> (x Core..:? "networkSiteArn")
-            Prelude.<*> (x Core..:? "networkArn")
-            Prelude.<*> (x Core..:? "orderArn")
-            Prelude.<*> ( x Core..:? "trackingInformation"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "shippingAddress")
+            Prelude.<*> (x Data..:? "acknowledgmentStatus")
+            Prelude.<*> (x Data..:? "networkSiteArn")
+            Prelude.<*> (x Data..:? "networkArn")
+            Prelude.<*> (x Data..:? "orderArn")
+            Prelude.<*> ( x Data..:? "trackingInformation"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable Order where

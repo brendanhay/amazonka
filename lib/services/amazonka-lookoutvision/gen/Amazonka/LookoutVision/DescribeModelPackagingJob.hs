@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest DescribeModelPackagingJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeModelPackagingJobResponse'
-            Prelude.<$> (x Core..?> "ModelPackagingDescription")
+            Prelude.<$> (x Data..?> "ModelPackagingDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,27 +122,27 @@ instance Prelude.NFData DescribeModelPackagingJob where
     Prelude.rnf projectName
       `Prelude.seq` Prelude.rnf jobName
 
-instance Core.ToHeaders DescribeModelPackagingJob where
+instance Data.ToHeaders DescribeModelPackagingJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeModelPackagingJob where
+instance Data.ToPath DescribeModelPackagingJob where
   toPath DescribeModelPackagingJob' {..} =
     Prelude.mconcat
       [ "/2020-11-20/projects/",
-        Core.toBS projectName,
+        Data.toBS projectName,
         "/modelpackagingjobs/",
-        Core.toBS jobName
+        Data.toBS jobName
       ]
 
-instance Core.ToQuery DescribeModelPackagingJob where
+instance Data.ToQuery DescribeModelPackagingJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeModelPackagingJobResponse' smart constructor.

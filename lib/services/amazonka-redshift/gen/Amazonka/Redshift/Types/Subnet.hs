@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.Subnet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.AvailabilityZone
@@ -71,12 +72,12 @@ subnet_subnetStatus = Lens.lens (\Subnet' {subnetStatus} -> subnetStatus) (\s@Su
 subnet_subnetAvailabilityZone :: Lens.Lens' Subnet (Prelude.Maybe AvailabilityZone)
 subnet_subnetAvailabilityZone = Lens.lens (\Subnet' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@Subnet' {} a -> s {subnetAvailabilityZone = a} :: Subnet)
 
-instance Core.FromXML Subnet where
+instance Data.FromXML Subnet where
   parseXML x =
     Subnet'
-      Prelude.<$> (x Core..@? "SubnetIdentifier")
-      Prelude.<*> (x Core..@? "SubnetStatus")
-      Prelude.<*> (x Core..@? "SubnetAvailabilityZone")
+      Prelude.<$> (x Data..@? "SubnetIdentifier")
+      Prelude.<*> (x Data..@? "SubnetStatus")
+      Prelude.<*> (x Data..@? "SubnetAvailabilityZone")
 
 instance Prelude.Hashable Subnet where
   hashWithSalt _salt Subnet' {..} =

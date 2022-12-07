@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDBStreams.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -187,7 +188,7 @@ instance Core.AWSRequest GetShardIterator where
     Response.receiveJSON
       ( \s h x ->
           GetShardIteratorResponse'
-            Prelude.<$> (x Core..?> "ShardIterator")
+            Prelude.<$> (x Data..?> "ShardIterator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -205,38 +206,38 @@ instance Prelude.NFData GetShardIterator where
       `Prelude.seq` Prelude.rnf shardId
       `Prelude.seq` Prelude.rnf shardIteratorType
 
-instance Core.ToHeaders GetShardIterator where
+instance Data.ToHeaders GetShardIterator where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDBStreams_20120810.GetShardIterator" ::
+              Data.=# ( "DynamoDBStreams_20120810.GetShardIterator" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetShardIterator where
+instance Data.ToJSON GetShardIterator where
   toJSON GetShardIterator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SequenceNumber" Core..=)
+          [ ("SequenceNumber" Data..=)
               Prelude.<$> sequenceNumber,
-            Prelude.Just ("StreamArn" Core..= streamArn),
-            Prelude.Just ("ShardId" Core..= shardId),
+            Prelude.Just ("StreamArn" Data..= streamArn),
+            Prelude.Just ("ShardId" Data..= shardId),
             Prelude.Just
-              ("ShardIteratorType" Core..= shardIteratorType)
+              ("ShardIteratorType" Data..= shardIteratorType)
           ]
       )
 
-instance Core.ToPath GetShardIterator where
+instance Data.ToPath GetShardIterator where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetShardIterator where
+instance Data.ToQuery GetShardIterator where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetShardIterator@ operation.

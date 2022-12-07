@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.CriteriaBlockForJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.CriteriaForJob
 import qualified Amazonka.Prelude as Prelude
 
@@ -59,13 +60,13 @@ newCriteriaBlockForJob =
 criteriaBlockForJob_and :: Lens.Lens' CriteriaBlockForJob (Prelude.Maybe [CriteriaForJob])
 criteriaBlockForJob_and = Lens.lens (\CriteriaBlockForJob' {and} -> and) (\s@CriteriaBlockForJob' {} a -> s {and = a} :: CriteriaBlockForJob) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CriteriaBlockForJob where
+instance Data.FromJSON CriteriaBlockForJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CriteriaBlockForJob"
       ( \x ->
           CriteriaBlockForJob'
-            Prelude.<$> (x Core..:? "and" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "and" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CriteriaBlockForJob where
@@ -75,7 +76,7 @@ instance Prelude.Hashable CriteriaBlockForJob where
 instance Prelude.NFData CriteriaBlockForJob where
   rnf CriteriaBlockForJob' {..} = Prelude.rnf and
 
-instance Core.ToJSON CriteriaBlockForJob where
+instance Data.ToJSON CriteriaBlockForJob where
   toJSON CriteriaBlockForJob' {..} =
-    Core.object
-      (Prelude.catMaybes [("and" Core..=) Prelude.<$> and])
+    Data.object
+      (Prelude.catMaybes [("and" Data..=) Prelude.<$> and])

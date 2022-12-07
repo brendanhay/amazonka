@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.InstanceTypeDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.OpenSearchPartitionInstanceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -115,19 +116,19 @@ instanceTypeDetails_appLogsEnabled = Lens.lens (\InstanceTypeDetails' {appLogsEn
 instanceTypeDetails_warmEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
 instanceTypeDetails_warmEnabled = Lens.lens (\InstanceTypeDetails' {warmEnabled} -> warmEnabled) (\s@InstanceTypeDetails' {} a -> s {warmEnabled = a} :: InstanceTypeDetails)
 
-instance Core.FromJSON InstanceTypeDetails where
+instance Data.FromJSON InstanceTypeDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceTypeDetails"
       ( \x ->
           InstanceTypeDetails'
-            Prelude.<$> (x Core..:? "AdvancedSecurityEnabled")
-            Prelude.<*> (x Core..:? "EncryptionEnabled")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "CognitoEnabled")
-            Prelude.<*> (x Core..:? "InstanceRole" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AppLogsEnabled")
-            Prelude.<*> (x Core..:? "WarmEnabled")
+            Prelude.<$> (x Data..:? "AdvancedSecurityEnabled")
+            Prelude.<*> (x Data..:? "EncryptionEnabled")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "CognitoEnabled")
+            Prelude.<*> (x Data..:? "InstanceRole" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AppLogsEnabled")
+            Prelude.<*> (x Data..:? "WarmEnabled")
       )
 
 instance Prelude.Hashable InstanceTypeDetails where

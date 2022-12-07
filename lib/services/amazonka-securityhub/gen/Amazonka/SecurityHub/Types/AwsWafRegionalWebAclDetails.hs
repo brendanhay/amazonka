@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsWafRegionalWebAclDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsWafRegionalWebAclRulesListDetails
 
@@ -98,17 +99,17 @@ awsWafRegionalWebAclDetails_metricName = Lens.lens (\AwsWafRegionalWebAclDetails
 awsWafRegionalWebAclDetails_defaultAction :: Lens.Lens' AwsWafRegionalWebAclDetails (Prelude.Maybe Prelude.Text)
 awsWafRegionalWebAclDetails_defaultAction = Lens.lens (\AwsWafRegionalWebAclDetails' {defaultAction} -> defaultAction) (\s@AwsWafRegionalWebAclDetails' {} a -> s {defaultAction = a} :: AwsWafRegionalWebAclDetails)
 
-instance Core.FromJSON AwsWafRegionalWebAclDetails where
+instance Data.FromJSON AwsWafRegionalWebAclDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsWafRegionalWebAclDetails"
       ( \x ->
           AwsWafRegionalWebAclDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RulesList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "WebAclId")
-            Prelude.<*> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..:? "DefaultAction")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RulesList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "WebAclId")
+            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "DefaultAction")
       )
 
 instance Prelude.Hashable AwsWafRegionalWebAclDetails where
@@ -127,14 +128,14 @@ instance Prelude.NFData AwsWafRegionalWebAclDetails where
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf defaultAction
 
-instance Core.ToJSON AwsWafRegionalWebAclDetails where
+instance Data.ToJSON AwsWafRegionalWebAclDetails where
   toJSON AwsWafRegionalWebAclDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("RulesList" Core..=) Prelude.<$> rulesList,
-            ("WebAclId" Core..=) Prelude.<$> webAclId,
-            ("MetricName" Core..=) Prelude.<$> metricName,
-            ("DefaultAction" Core..=) Prelude.<$> defaultAction
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("RulesList" Data..=) Prelude.<$> rulesList,
+            ("WebAclId" Data..=) Prelude.<$> webAclId,
+            ("MetricName" Data..=) Prelude.<$> metricName,
+            ("DefaultAction" Data..=) Prelude.<$> defaultAction
           ]
       )

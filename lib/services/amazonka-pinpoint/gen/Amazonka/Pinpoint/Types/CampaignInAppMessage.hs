@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.CampaignInAppMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.InAppMessageContent
 import Amazonka.Pinpoint.Types.Layout
 import qualified Amazonka.Prelude as Prelude
@@ -85,16 +86,16 @@ campaignInAppMessage_layout = Lens.lens (\CampaignInAppMessage' {layout} -> layo
 campaignInAppMessage_content :: Lens.Lens' CampaignInAppMessage (Prelude.Maybe [InAppMessageContent])
 campaignInAppMessage_content = Lens.lens (\CampaignInAppMessage' {content} -> content) (\s@CampaignInAppMessage' {} a -> s {content = a} :: CampaignInAppMessage) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CampaignInAppMessage where
+instance Data.FromJSON CampaignInAppMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CampaignInAppMessage"
       ( \x ->
           CampaignInAppMessage'
-            Prelude.<$> (x Core..:? "CustomConfig" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Body")
-            Prelude.<*> (x Core..:? "Layout")
-            Prelude.<*> (x Core..:? "Content" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "CustomConfig" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Body")
+            Prelude.<*> (x Data..:? "Layout")
+            Prelude.<*> (x Data..:? "Content" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CampaignInAppMessage where
@@ -111,13 +112,13 @@ instance Prelude.NFData CampaignInAppMessage where
       `Prelude.seq` Prelude.rnf layout
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToJSON CampaignInAppMessage where
+instance Data.ToJSON CampaignInAppMessage where
   toJSON CampaignInAppMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomConfig" Core..=) Prelude.<$> customConfig,
-            ("Body" Core..=) Prelude.<$> body,
-            ("Layout" Core..=) Prelude.<$> layout,
-            ("Content" Core..=) Prelude.<$> content
+          [ ("CustomConfig" Data..=) Prelude.<$> customConfig,
+            ("Body" Data..=) Prelude.<$> body,
+            ("Layout" Data..=) Prelude.<$> layout,
+            ("Content" Data..=) Prelude.<$> content
           ]
       )

@@ -57,6 +57,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -185,7 +186,7 @@ instance Core.AWSRequest CreateVirtualRouter where
       ( \s h x ->
           CreateVirtualRouterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable CreateVirtualRouter where
@@ -206,40 +207,40 @@ instance Prelude.NFData CreateVirtualRouter where
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf virtualRouterName
 
-instance Core.ToHeaders CreateVirtualRouter where
+instance Data.ToHeaders CreateVirtualRouter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateVirtualRouter where
+instance Data.ToJSON CreateVirtualRouter where
   toJSON CreateVirtualRouter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("spec" Core..= spec),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("spec" Data..= spec),
             Prelude.Just
-              ("virtualRouterName" Core..= virtualRouterName)
+              ("virtualRouterName" Data..= virtualRouterName)
           ]
       )
 
-instance Core.ToPath CreateVirtualRouter where
+instance Data.ToPath CreateVirtualRouter where
   toPath CreateVirtualRouter' {..} =
     Prelude.mconcat
       [ "/v20190125/meshes/",
-        Core.toBS meshName,
+        Data.toBS meshName,
         "/virtualRouters"
       ]
 
-instance Core.ToQuery CreateVirtualRouter where
+instance Data.ToQuery CreateVirtualRouter where
   toQuery CreateVirtualRouter' {..} =
-    Prelude.mconcat ["meshOwner" Core.=: meshOwner]
+    Prelude.mconcat ["meshOwner" Data.=: meshOwner]
 
 -- |
 --

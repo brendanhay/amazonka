@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.ExperimentSchedule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains the time and date that Evidently completed the
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data ExperimentSchedule = ExperimentSchedule'
   { -- | The time and date that Evidently completed the analysis of the
     -- experiment.
-    analysisCompleteTime :: Prelude.Maybe Core.POSIX
+    analysisCompleteTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,15 +56,15 @@ newExperimentSchedule =
 -- | The time and date that Evidently completed the analysis of the
 -- experiment.
 experimentSchedule_analysisCompleteTime :: Lens.Lens' ExperimentSchedule (Prelude.Maybe Prelude.UTCTime)
-experimentSchedule_analysisCompleteTime = Lens.lens (\ExperimentSchedule' {analysisCompleteTime} -> analysisCompleteTime) (\s@ExperimentSchedule' {} a -> s {analysisCompleteTime = a} :: ExperimentSchedule) Prelude.. Lens.mapping Core._Time
+experimentSchedule_analysisCompleteTime = Lens.lens (\ExperimentSchedule' {analysisCompleteTime} -> analysisCompleteTime) (\s@ExperimentSchedule' {} a -> s {analysisCompleteTime = a} :: ExperimentSchedule) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ExperimentSchedule where
+instance Data.FromJSON ExperimentSchedule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentSchedule"
       ( \x ->
           ExperimentSchedule'
-            Prelude.<$> (x Core..:? "analysisCompleteTime")
+            Prelude.<$> (x Data..:? "analysisCompleteTime")
       )
 
 instance Prelude.Hashable ExperimentSchedule where

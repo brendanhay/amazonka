@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,8 +90,8 @@ instance Core.AWSRequest DescribeAssessmentRuns where
       ( \s h x ->
           DescribeAssessmentRunsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "assessmentRuns" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "assessmentRuns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failedItems" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable DescribeAssessmentRuns where
@@ -101,34 +102,34 @@ instance Prelude.NFData DescribeAssessmentRuns where
   rnf DescribeAssessmentRuns' {..} =
     Prelude.rnf assessmentRunArns
 
-instance Core.ToHeaders DescribeAssessmentRuns where
+instance Data.ToHeaders DescribeAssessmentRuns where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.DescribeAssessmentRuns" ::
+              Data.=# ( "InspectorService.DescribeAssessmentRuns" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAssessmentRuns where
+instance Data.ToJSON DescribeAssessmentRuns where
   toJSON DescribeAssessmentRuns' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("assessmentRunArns" Core..= assessmentRunArns)
+              ("assessmentRunArns" Data..= assessmentRunArns)
           ]
       )
 
-instance Core.ToPath DescribeAssessmentRuns where
+instance Data.ToPath DescribeAssessmentRuns where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAssessmentRuns where
+instance Data.ToQuery DescribeAssessmentRuns where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAssessmentRunsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.PerformanceInsightsMetricQuery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.PerformanceInsightsMetricDimensionGroup
 import qualified Amazonka.Prelude as Prelude
 
@@ -177,15 +178,15 @@ performanceInsightsMetricQuery_filter = Lens.lens (\PerformanceInsightsMetricQue
 performanceInsightsMetricQuery_metric :: Lens.Lens' PerformanceInsightsMetricQuery (Prelude.Maybe Prelude.Text)
 performanceInsightsMetricQuery_metric = Lens.lens (\PerformanceInsightsMetricQuery' {metric} -> metric) (\s@PerformanceInsightsMetricQuery' {} a -> s {metric = a} :: PerformanceInsightsMetricQuery)
 
-instance Core.FromJSON PerformanceInsightsMetricQuery where
+instance Data.FromJSON PerformanceInsightsMetricQuery where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PerformanceInsightsMetricQuery"
       ( \x ->
           PerformanceInsightsMetricQuery'
-            Prelude.<$> (x Core..:? "GroupBy")
-            Prelude.<*> (x Core..:? "Filter" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Metric")
+            Prelude.<$> (x Data..:? "GroupBy")
+            Prelude.<*> (x Data..:? "Filter" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Metric")
       )
 
 instance

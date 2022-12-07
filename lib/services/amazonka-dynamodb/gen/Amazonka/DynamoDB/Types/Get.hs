@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.Get where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -117,15 +118,15 @@ instance Prelude.NFData Get where
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToJSON Get where
+instance Data.ToJSON Get where
   toJSON Get' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExpressionAttributeNames" Core..=)
+          [ ("ExpressionAttributeNames" Data..=)
               Prelude.<$> expressionAttributeNames,
-            ("ProjectionExpression" Core..=)
+            ("ProjectionExpression" Data..=)
               Prelude.<$> projectionExpression,
-            Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("TableName" Core..= tableName)
+            Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )

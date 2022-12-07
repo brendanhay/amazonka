@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.DestinationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.OnFailure
 import Amazonka.Lambda.Types.OnSuccess
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ destinationConfig_onFailure = Lens.lens (\DestinationConfig' {onFailure} -> onFa
 destinationConfig_onSuccess :: Lens.Lens' DestinationConfig (Prelude.Maybe OnSuccess)
 destinationConfig_onSuccess = Lens.lens (\DestinationConfig' {onSuccess} -> onSuccess) (\s@DestinationConfig' {} a -> s {onSuccess = a} :: DestinationConfig)
 
-instance Core.FromJSON DestinationConfig where
+instance Data.FromJSON DestinationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DestinationConfig"
       ( \x ->
           DestinationConfig'
-            Prelude.<$> (x Core..:? "OnFailure")
-            Prelude.<*> (x Core..:? "OnSuccess")
+            Prelude.<$> (x Data..:? "OnFailure")
+            Prelude.<*> (x Data..:? "OnSuccess")
       )
 
 instance Prelude.Hashable DestinationConfig where
@@ -84,11 +85,11 @@ instance Prelude.NFData DestinationConfig where
     Prelude.rnf onFailure
       `Prelude.seq` Prelude.rnf onSuccess
 
-instance Core.ToJSON DestinationConfig where
+instance Data.ToJSON DestinationConfig where
   toJSON DestinationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OnFailure" Core..=) Prelude.<$> onFailure,
-            ("OnSuccess" Core..=) Prelude.<$> onSuccess
+          [ ("OnFailure" Data..=) Prelude.<$> onFailure,
+            ("OnSuccess" Data..=) Prelude.<$> onSuccess
           ]
       )

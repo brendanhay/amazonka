@@ -26,6 +26,7 @@ import Amazonka.Chime.Types.TranscribeMedicalSpecialty
 import Amazonka.Chime.Types.TranscribeMedicalType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings specific to the Amazon Transcribe Medical engine.
@@ -145,17 +146,17 @@ instance
       `Prelude.seq` Prelude.rnf specialty
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON EngineTranscribeMedicalSettings where
+instance Data.ToJSON EngineTranscribeMedicalSettings where
   toJSON EngineTranscribeMedicalSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VocabularyName" Core..=)
+          [ ("VocabularyName" Data..=)
               Prelude.<$> vocabularyName,
-            ("ContentIdentificationType" Core..=)
+            ("ContentIdentificationType" Data..=)
               Prelude.<$> contentIdentificationType,
-            ("Region" Core..=) Prelude.<$> region,
-            Prelude.Just ("LanguageCode" Core..= languageCode),
-            Prelude.Just ("Specialty" Core..= specialty),
-            Prelude.Just ("Type" Core..= type')
+            ("Region" Data..=) Prelude.<$> region,
+            Prelude.Just ("LanguageCode" Data..= languageCode),
+            Prelude.Just ("Specialty" Data..= specialty),
+            Prelude.Just ("Type" Data..= type')
           ]
       )

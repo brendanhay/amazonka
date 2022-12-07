@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ResultRowValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a single value and metadata about that value as part of an
@@ -90,15 +91,15 @@ resultRowValue_value = Lens.lens (\ResultRowValue' {value} -> value) (\s@ResultR
 resultRowValue_key :: Lens.Lens' ResultRowValue Prelude.Text
 resultRowValue_key = Lens.lens (\ResultRowValue' {key} -> key) (\s@ResultRowValue' {} a -> s {key = a} :: ResultRowValue)
 
-instance Core.FromJSON ResultRowValue where
+instance Data.FromJSON ResultRowValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResultRowValue"
       ( \x ->
           ResultRowValue'
-            Prelude.<$> (x Core..: "Type")
-            Prelude.<*> (x Core..: "Value")
-            Prelude.<*> (x Core..: "Key")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Value")
+            Prelude.<*> (x Data..: "Key")
       )
 
 instance Prelude.Hashable ResultRowValue where

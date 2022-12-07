@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,24 +120,24 @@ instance Core.AWSRequest DescribeDatasetImportJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeDatasetImportJobResponse'
-            Prelude.<$> (x Core..?> "LastModificationTime")
-            Prelude.<*> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "Format")
-            Prelude.<*> (x Core..?> "TimeZone")
-            Prelude.<*> ( x Core..?> "FieldStatistics"
+            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "Format")
+            Prelude.<*> (x Data..?> "TimeZone")
+            Prelude.<*> ( x Data..?> "FieldStatistics"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "DatasetArn")
-            Prelude.<*> (x Core..?> "DataSize")
-            Prelude.<*> (x Core..?> "DatasetImportJobArn")
-            Prelude.<*> (x Core..?> "UseGeolocationForTimeZone")
-            Prelude.<*> (x Core..?> "EstimatedTimeRemainingInMinutes")
-            Prelude.<*> (x Core..?> "DataSource")
-            Prelude.<*> (x Core..?> "TimestampFormat")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "DatasetImportJobName")
-            Prelude.<*> (x Core..?> "GeolocationFormat")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "DatasetArn")
+            Prelude.<*> (x Data..?> "DataSize")
+            Prelude.<*> (x Data..?> "DatasetImportJobArn")
+            Prelude.<*> (x Data..?> "UseGeolocationForTimeZone")
+            Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
+            Prelude.<*> (x Data..?> "DataSource")
+            Prelude.<*> (x Data..?> "TimestampFormat")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "DatasetImportJobName")
+            Prelude.<*> (x Data..?> "GeolocationFormat")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,34 +149,34 @@ instance Prelude.NFData DescribeDatasetImportJob where
   rnf DescribeDatasetImportJob' {..} =
     Prelude.rnf datasetImportJobArn
 
-instance Core.ToHeaders DescribeDatasetImportJob where
+instance Data.ToHeaders DescribeDatasetImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DescribeDatasetImportJob" ::
+              Data.=# ( "AmazonForecast.DescribeDatasetImportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDatasetImportJob where
+instance Data.ToJSON DescribeDatasetImportJob where
   toJSON DescribeDatasetImportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DatasetImportJobArn" Core..= datasetImportJobArn)
+              ("DatasetImportJobArn" Data..= datasetImportJobArn)
           ]
       )
 
-instance Core.ToPath DescribeDatasetImportJob where
+instance Data.ToPath DescribeDatasetImportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDatasetImportJob where
+instance Data.ToQuery DescribeDatasetImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDatasetImportJobResponse' smart constructor.
@@ -192,7 +193,7 @@ data DescribeDatasetImportJobResponse = DescribeDatasetImportJobResponse'
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | If an error occurred, an informational message about the error.
     message :: Prelude.Maybe Prelude.Text,
     -- | The format of the imported data, CSV or PARQUET.
@@ -246,7 +247,7 @@ data DescribeDatasetImportJobResponse = DescribeDatasetImportJobResponse'
     --     optionally, for: Y, M, W, and D
     timestampFormat :: Prelude.Maybe Prelude.Text,
     -- | When the dataset import job was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the dataset import job.
     datasetImportJobName :: Prelude.Maybe Prelude.Text,
     -- | The format of the geolocation attribute. Valid Values:@\"LAT_LONG\"@ and
@@ -379,7 +380,7 @@ newDescribeDatasetImportJobResponse pHttpStatus_ =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 describeDatasetImportJobResponse_lastModificationTime :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetImportJobResponse_lastModificationTime = Lens.lens (\DescribeDatasetImportJobResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeDatasetImportJobResponse' {} a -> s {lastModificationTime = a} :: DescribeDatasetImportJobResponse) Prelude.. Lens.mapping Core._Time
+describeDatasetImportJobResponse_lastModificationTime = Lens.lens (\DescribeDatasetImportJobResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeDatasetImportJobResponse' {} a -> s {lastModificationTime = a} :: DescribeDatasetImportJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | If an error occurred, an informational message about the error.
 describeDatasetImportJobResponse_message :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
@@ -459,7 +460,7 @@ describeDatasetImportJobResponse_timestampFormat = Lens.lens (\DescribeDatasetIm
 
 -- | When the dataset import job was created.
 describeDatasetImportJobResponse_creationTime :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetImportJobResponse_creationTime = Lens.lens (\DescribeDatasetImportJobResponse' {creationTime} -> creationTime) (\s@DescribeDatasetImportJobResponse' {} a -> s {creationTime = a} :: DescribeDatasetImportJobResponse) Prelude.. Lens.mapping Core._Time
+describeDatasetImportJobResponse_creationTime = Lens.lens (\DescribeDatasetImportJobResponse' {creationTime} -> creationTime) (\s@DescribeDatasetImportJobResponse' {} a -> s {creationTime = a} :: DescribeDatasetImportJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the dataset import job.
 describeDatasetImportJobResponse_datasetImportJobName :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)

@@ -23,6 +23,7 @@ import Amazonka.AmplifyBackend.Types.AuthenticatedElement
 import Amazonka.AmplifyBackend.Types.UnAuthenticatedElement
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the read, write, and delete permissions users have against
@@ -71,16 +72,16 @@ backendStoragePermissions_unAuthenticated = Lens.lens (\BackendStoragePermission
 backendStoragePermissions_authenticated :: Lens.Lens' BackendStoragePermissions [AuthenticatedElement]
 backendStoragePermissions_authenticated = Lens.lens (\BackendStoragePermissions' {authenticated} -> authenticated) (\s@BackendStoragePermissions' {} a -> s {authenticated = a} :: BackendStoragePermissions) Prelude.. Lens.coerced
 
-instance Core.FromJSON BackendStoragePermissions where
+instance Data.FromJSON BackendStoragePermissions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackendStoragePermissions"
       ( \x ->
           BackendStoragePermissions'
-            Prelude.<$> ( x Core..:? "unAuthenticated"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "unAuthenticated"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "authenticated" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "authenticated" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable BackendStoragePermissions where
@@ -93,13 +94,13 @@ instance Prelude.NFData BackendStoragePermissions where
     Prelude.rnf unAuthenticated
       `Prelude.seq` Prelude.rnf authenticated
 
-instance Core.ToJSON BackendStoragePermissions where
+instance Data.ToJSON BackendStoragePermissions where
   toJSON BackendStoragePermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("unAuthenticated" Core..=)
+          [ ("unAuthenticated" Data..=)
               Prelude.<$> unAuthenticated,
             Prelude.Just
-              ("authenticated" Core..= authenticated)
+              ("authenticated" Data..= authenticated)
           ]
       )

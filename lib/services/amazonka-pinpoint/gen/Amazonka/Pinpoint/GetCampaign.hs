@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest GetCampaign where
       ( \s h x ->
           GetCampaignResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetCampaign where
@@ -113,27 +114,27 @@ instance Prelude.NFData GetCampaign where
     Prelude.rnf campaignId
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders GetCampaign where
+instance Data.ToHeaders GetCampaign where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetCampaign where
+instance Data.ToPath GetCampaign where
   toPath GetCampaign' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/campaigns/",
-        Core.toBS campaignId
+        Data.toBS campaignId
       ]
 
-instance Core.ToQuery GetCampaign where
+instance Data.ToQuery GetCampaign where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCampaignResponse' smart constructor.

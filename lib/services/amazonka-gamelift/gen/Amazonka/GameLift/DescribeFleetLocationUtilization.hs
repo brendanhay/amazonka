@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,7 +139,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetLocationUtilizationResponse'
-            Prelude.<$> (x Core..?> "FleetUtilization")
+            Prelude.<$> (x Data..?> "FleetUtilization")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,37 +162,37 @@ instance
       `Prelude.seq` Prelude.rnf location
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeFleetLocationUtilization
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeFleetLocationUtilization" ::
+              Data.=# ( "GameLift.DescribeFleetLocationUtilization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFleetLocationUtilization where
+instance Data.ToJSON DescribeFleetLocationUtilization where
   toJSON DescribeFleetLocationUtilization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FleetId" Core..= fleetId),
-            Prelude.Just ("Location" Core..= location)
+          [ Prelude.Just ("FleetId" Data..= fleetId),
+            Prelude.Just ("Location" Data..= location)
           ]
       )
 
-instance Core.ToPath DescribeFleetLocationUtilization where
+instance Data.ToPath DescribeFleetLocationUtilization where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeFleetLocationUtilization
   where
   toQuery = Prelude.const Prelude.mempty

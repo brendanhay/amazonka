@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ProvisionedProductPlanType
 
@@ -99,18 +100,18 @@ provisionedProductPlanSummary_provisioningArtifactId = Lens.lens (\ProvisionedPr
 provisionedProductPlanSummary_provisionProductName :: Lens.Lens' ProvisionedProductPlanSummary (Prelude.Maybe Prelude.Text)
 provisionedProductPlanSummary_provisionProductName = Lens.lens (\ProvisionedProductPlanSummary' {provisionProductName} -> provisionProductName) (\s@ProvisionedProductPlanSummary' {} a -> s {provisionProductName = a} :: ProvisionedProductPlanSummary)
 
-instance Core.FromJSON ProvisionedProductPlanSummary where
+instance Data.FromJSON ProvisionedProductPlanSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisionedProductPlanSummary"
       ( \x ->
           ProvisionedProductPlanSummary'
-            Prelude.<$> (x Core..:? "PlanId")
-            Prelude.<*> (x Core..:? "ProvisionProductId")
-            Prelude.<*> (x Core..:? "PlanType")
-            Prelude.<*> (x Core..:? "PlanName")
-            Prelude.<*> (x Core..:? "ProvisioningArtifactId")
-            Prelude.<*> (x Core..:? "ProvisionProductName")
+            Prelude.<$> (x Data..:? "PlanId")
+            Prelude.<*> (x Data..:? "ProvisionProductId")
+            Prelude.<*> (x Data..:? "PlanType")
+            Prelude.<*> (x Data..:? "PlanName")
+            Prelude.<*> (x Data..:? "ProvisioningArtifactId")
+            Prelude.<*> (x Data..:? "ProvisionProductName")
       )
 
 instance

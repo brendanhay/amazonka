@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,7 +135,7 @@ instance Core.AWSRequest CreateEdgeDeploymentPlan where
       ( \s h x ->
           CreateEdgeDeploymentPlanResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "EdgeDeploymentPlanArn")
+            Prelude.<*> (x Data..:> "EdgeDeploymentPlanArn")
       )
 
 instance Prelude.Hashable CreateEdgeDeploymentPlan where
@@ -153,41 +154,41 @@ instance Prelude.NFData CreateEdgeDeploymentPlan where
       `Prelude.seq` Prelude.rnf modelConfigs
       `Prelude.seq` Prelude.rnf deviceFleetName
 
-instance Core.ToHeaders CreateEdgeDeploymentPlan where
+instance Data.ToHeaders CreateEdgeDeploymentPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateEdgeDeploymentPlan" ::
+              Data.=# ( "SageMaker.CreateEdgeDeploymentPlan" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEdgeDeploymentPlan where
+instance Data.ToJSON CreateEdgeDeploymentPlan where
   toJSON CreateEdgeDeploymentPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Stages" Core..=) Prelude.<$> stages,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Stages" Data..=) Prelude.<$> stages,
             Prelude.Just
               ( "EdgeDeploymentPlanName"
-                  Core..= edgeDeploymentPlanName
+                  Data..= edgeDeploymentPlanName
               ),
-            Prelude.Just ("ModelConfigs" Core..= modelConfigs),
+            Prelude.Just ("ModelConfigs" Data..= modelConfigs),
             Prelude.Just
-              ("DeviceFleetName" Core..= deviceFleetName)
+              ("DeviceFleetName" Data..= deviceFleetName)
           ]
       )
 
-instance Core.ToPath CreateEdgeDeploymentPlan where
+instance Data.ToPath CreateEdgeDeploymentPlan where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEdgeDeploymentPlan where
+instance Data.ToQuery CreateEdgeDeploymentPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEdgeDeploymentPlanResponse' smart constructor.

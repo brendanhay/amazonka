@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -57,7 +58,7 @@ import qualified Amazonka.Response as Response
 data CreateRecommendationTemplate = CreateRecommendationTemplate'
   { -- | The tags assigned to the resource. A tag is a label that you assign to
     -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Used for an idempotency token. A client token is a unique,
     -- case-sensitive string of up to 64 ASCII characters. You should not reuse
     -- the same client token for other API requests.
@@ -173,7 +174,7 @@ newCreateRecommendationTemplate
 -- | The tags assigned to the resource. A tag is a label that you assign to
 -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
 createRecommendationTemplate_tags :: Lens.Lens' CreateRecommendationTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRecommendationTemplate_tags = Lens.lens (\CreateRecommendationTemplate' {tags} -> tags) (\s@CreateRecommendationTemplate' {} a -> s {tags = a} :: CreateRecommendationTemplate) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createRecommendationTemplate_tags = Lens.lens (\CreateRecommendationTemplate' {tags} -> tags) (\s@CreateRecommendationTemplate' {} a -> s {tags = a} :: CreateRecommendationTemplate) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Used for an idempotency token. A client token is a unique,
 -- case-sensitive string of up to 64 ASCII characters. You should not reuse
@@ -238,7 +239,7 @@ instance Core.AWSRequest CreateRecommendationTemplate where
     Response.receiveJSON
       ( \s h x ->
           CreateRecommendationTemplateResponse'
-            Prelude.<$> (x Core..?> "recommendationTemplate")
+            Prelude.<$> (x Data..?> "recommendationTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -267,39 +268,39 @@ instance Prelude.NFData CreateRecommendationTemplate where
       `Prelude.seq` Prelude.rnf assessmentArn
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateRecommendationTemplate where
+instance Data.ToHeaders CreateRecommendationTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRecommendationTemplate where
+instance Data.ToJSON CreateRecommendationTemplate where
   toJSON CreateRecommendationTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("format" Core..=) Prelude.<$> format,
-            ("recommendationIds" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("format" Data..=) Prelude.<$> format,
+            ("recommendationIds" Data..=)
               Prelude.<$> recommendationIds,
-            ("bucketName" Core..=) Prelude.<$> bucketName,
-            ("recommendationTypes" Core..=)
+            ("bucketName" Data..=) Prelude.<$> bucketName,
+            ("recommendationTypes" Data..=)
               Prelude.<$> recommendationTypes,
-            Prelude.Just ("assessmentArn" Core..= assessmentArn),
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("assessmentArn" Data..= assessmentArn),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateRecommendationTemplate where
+instance Data.ToPath CreateRecommendationTemplate where
   toPath =
     Prelude.const "/create-recommendation-template"
 
-instance Core.ToQuery CreateRecommendationTemplate where
+instance Data.ToQuery CreateRecommendationTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRecommendationTemplateResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.Job where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.Counters
 import Amazonka.DeviceFarm.Types.Device
 import Amazonka.DeviceFarm.Types.DeviceMinutes
@@ -80,9 +81,9 @@ data Job = Job'
     -- -   XCTEST_UI
     type' :: Prelude.Maybe TestType,
     -- | The job\'s start time.
-    started :: Prelude.Maybe Core.POSIX,
+    started :: Prelude.Maybe Data.POSIX,
     -- | When the job was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | Represents the total (metered or unmetered) minutes used by the job.
     deviceMinutes :: Prelude.Maybe DeviceMinutes,
     -- | The device (phone or tablet).
@@ -139,7 +140,7 @@ data Job = Job'
     -- -   STOPPED
     result :: Prelude.Maybe ExecutionResult,
     -- | The job\'s stop time.
-    stopped :: Prelude.Maybe Core.POSIX
+    stopped :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -332,11 +333,11 @@ job_type = Lens.lens (\Job' {type'} -> type') (\s@Job' {} a -> s {type' = a} :: 
 
 -- | The job\'s start time.
 job_started :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
-job_started = Lens.lens (\Job' {started} -> started) (\s@Job' {} a -> s {started = a} :: Job) Prelude.. Lens.mapping Core._Time
+job_started = Lens.lens (\Job' {started} -> started) (\s@Job' {} a -> s {started = a} :: Job) Prelude.. Lens.mapping Data._Time
 
 -- | When the job was created.
 job_created :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
-job_created = Lens.lens (\Job' {created} -> created) (\s@Job' {} a -> s {created = a} :: Job) Prelude.. Lens.mapping Core._Time
+job_created = Lens.lens (\Job' {created} -> created) (\s@Job' {} a -> s {created = a} :: Job) Prelude.. Lens.mapping Data._Time
 
 -- | Represents the total (metered or unmetered) minutes used by the job.
 job_deviceMinutes :: Lens.Lens' Job (Prelude.Maybe DeviceMinutes)
@@ -413,29 +414,29 @@ job_result = Lens.lens (\Job' {result} -> result) (\s@Job' {} a -> s {result = a
 
 -- | The job\'s stop time.
 job_stopped :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
-job_stopped = Lens.lens (\Job' {stopped} -> stopped) (\s@Job' {} a -> s {stopped = a} :: Job) Prelude.. Lens.mapping Core._Time
+job_stopped = Lens.lens (\Job' {stopped} -> stopped) (\s@Job' {} a -> s {stopped = a} :: Job) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Job where
+instance Data.FromJSON Job where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Job"
       ( \x ->
           Job'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "started")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "deviceMinutes")
-            Prelude.<*> (x Core..:? "device")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "videoCapture")
-            Prelude.<*> (x Core..:? "videoEndpoint")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "counters")
-            Prelude.<*> (x Core..:? "instanceArn")
-            Prelude.<*> (x Core..:? "result")
-            Prelude.<*> (x Core..:? "stopped")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "started")
+            Prelude.<*> (x Data..:? "created")
+            Prelude.<*> (x Data..:? "deviceMinutes")
+            Prelude.<*> (x Data..:? "device")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "videoCapture")
+            Prelude.<*> (x Data..:? "videoEndpoint")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "counters")
+            Prelude.<*> (x Data..:? "instanceArn")
+            Prelude.<*> (x Data..:? "result")
+            Prelude.<*> (x Data..:? "stopped")
       )
 
 instance Prelude.Hashable Job where

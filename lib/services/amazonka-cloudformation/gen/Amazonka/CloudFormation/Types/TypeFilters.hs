@@ -22,6 +22,7 @@ module Amazonka.CloudFormation.Types.TypeFilters where
 import Amazonka.CloudFormation.Types.Category
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filter criteria to use in determining which extensions to return.
@@ -140,10 +141,10 @@ instance Prelude.NFData TypeFilters where
       `Prelude.seq` Prelude.rnf typeNamePrefix
       `Prelude.seq` Prelude.rnf category
 
-instance Core.ToQuery TypeFilters where
+instance Data.ToQuery TypeFilters where
   toQuery TypeFilters' {..} =
     Prelude.mconcat
-      [ "PublisherId" Core.=: publisherId,
-        "TypeNamePrefix" Core.=: typeNamePrefix,
-        "Category" Core.=: category
+      [ "PublisherId" Data.=: publisherId,
+        "TypeNamePrefix" Data.=: typeNamePrefix,
+        "Category" Data.=: category
       ]

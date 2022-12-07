@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.HeaderObject where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.ForwardValues
 import Amazonka.Lightsail.Types.HeaderEnum
 import qualified Amazonka.Prelude as Prelude
@@ -103,15 +104,15 @@ headerObject_option = Lens.lens (\HeaderObject' {option} -> option) (\s@HeaderOb
 headerObject_headersAllowList :: Lens.Lens' HeaderObject (Prelude.Maybe [HeaderEnum])
 headerObject_headersAllowList = Lens.lens (\HeaderObject' {headersAllowList} -> headersAllowList) (\s@HeaderObject' {} a -> s {headersAllowList = a} :: HeaderObject) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON HeaderObject where
+instance Data.FromJSON HeaderObject where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HeaderObject"
       ( \x ->
           HeaderObject'
-            Prelude.<$> (x Core..:? "option")
-            Prelude.<*> ( x Core..:? "headersAllowList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "option")
+            Prelude.<*> ( x Data..:? "headersAllowList"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -125,12 +126,12 @@ instance Prelude.NFData HeaderObject where
     Prelude.rnf option
       `Prelude.seq` Prelude.rnf headersAllowList
 
-instance Core.ToJSON HeaderObject where
+instance Data.ToJSON HeaderObject where
   toJSON HeaderObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("option" Core..=) Prelude.<$> option,
-            ("headersAllowList" Core..=)
+          [ ("option" Data..=) Prelude.<$> option,
+            ("headersAllowList" Data..=)
               Prelude.<$> headersAllowList
           ]
       )

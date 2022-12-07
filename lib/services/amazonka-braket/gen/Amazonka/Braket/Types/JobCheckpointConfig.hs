@@ -21,6 +21,7 @@ module Amazonka.Braket.Types.JobCheckpointConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the output locations for job checkpoint data.
@@ -69,14 +70,14 @@ jobCheckpointConfig_localPath = Lens.lens (\JobCheckpointConfig' {localPath} -> 
 jobCheckpointConfig_s3Uri :: Lens.Lens' JobCheckpointConfig Prelude.Text
 jobCheckpointConfig_s3Uri = Lens.lens (\JobCheckpointConfig' {s3Uri} -> s3Uri) (\s@JobCheckpointConfig' {} a -> s {s3Uri = a} :: JobCheckpointConfig)
 
-instance Core.FromJSON JobCheckpointConfig where
+instance Data.FromJSON JobCheckpointConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobCheckpointConfig"
       ( \x ->
           JobCheckpointConfig'
-            Prelude.<$> (x Core..:? "localPath")
-            Prelude.<*> (x Core..: "s3Uri")
+            Prelude.<$> (x Data..:? "localPath")
+            Prelude.<*> (x Data..: "s3Uri")
       )
 
 instance Prelude.Hashable JobCheckpointConfig where
@@ -89,11 +90,11 @@ instance Prelude.NFData JobCheckpointConfig where
     Prelude.rnf localPath
       `Prelude.seq` Prelude.rnf s3Uri
 
-instance Core.ToJSON JobCheckpointConfig where
+instance Data.ToJSON JobCheckpointConfig where
   toJSON JobCheckpointConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("localPath" Core..=) Prelude.<$> localPath,
-            Prelude.Just ("s3Uri" Core..= s3Uri)
+          [ ("localPath" Data..=) Prelude.<$> localPath,
+            Prelude.Just ("s3Uri" Data..= s3Uri)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TrunkInterfaceAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InterfaceProtocolType
 import Amazonka.EC2.Types.Tag
@@ -113,18 +114,18 @@ trunkInterfaceAssociation_greKey = Lens.lens (\TrunkInterfaceAssociation' {greKe
 trunkInterfaceAssociation_associationId :: Lens.Lens' TrunkInterfaceAssociation (Prelude.Maybe Prelude.Text)
 trunkInterfaceAssociation_associationId = Lens.lens (\TrunkInterfaceAssociation' {associationId} -> associationId) (\s@TrunkInterfaceAssociation' {} a -> s {associationId = a} :: TrunkInterfaceAssociation)
 
-instance Core.FromXML TrunkInterfaceAssociation where
+instance Data.FromXML TrunkInterfaceAssociation where
   parseXML x =
     TrunkInterfaceAssociation'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "trunkInterfaceId")
-      Prelude.<*> (x Core..@? "branchInterfaceId")
-      Prelude.<*> (x Core..@? "vlanId")
-      Prelude.<*> (x Core..@? "interfaceProtocol")
-      Prelude.<*> (x Core..@? "greKey")
-      Prelude.<*> (x Core..@? "associationId")
+      Prelude.<*> (x Data..@? "trunkInterfaceId")
+      Prelude.<*> (x Data..@? "branchInterfaceId")
+      Prelude.<*> (x Data..@? "vlanId")
+      Prelude.<*> (x Data..@? "interfaceProtocol")
+      Prelude.<*> (x Data..@? "greKey")
+      Prelude.<*> (x Data..@? "associationId")
 
 instance Prelude.Hashable TrunkInterfaceAssociation where
   hashWithSalt _salt TrunkInterfaceAssociation' {..} =

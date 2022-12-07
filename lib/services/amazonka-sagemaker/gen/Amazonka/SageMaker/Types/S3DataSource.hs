@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.S3DataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.S3DataDistribution
 import Amazonka.SageMaker.Types.S3DataType
@@ -319,19 +320,19 @@ s3DataSource_s3DataType = Lens.lens (\S3DataSource' {s3DataType} -> s3DataType) 
 s3DataSource_s3Uri :: Lens.Lens' S3DataSource Prelude.Text
 s3DataSource_s3Uri = Lens.lens (\S3DataSource' {s3Uri} -> s3Uri) (\s@S3DataSource' {} a -> s {s3Uri = a} :: S3DataSource)
 
-instance Core.FromJSON S3DataSource where
+instance Data.FromJSON S3DataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3DataSource"
       ( \x ->
           S3DataSource'
-            Prelude.<$> (x Core..:? "AttributeNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "S3DataDistributionType")
-            Prelude.<*> ( x Core..:? "InstanceGroupNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "AttributeNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "S3DataDistributionType")
+            Prelude.<*> ( x Data..:? "InstanceGroupNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "S3DataType")
-            Prelude.<*> (x Core..: "S3Uri")
+            Prelude.<*> (x Data..: "S3DataType")
+            Prelude.<*> (x Data..: "S3Uri")
       )
 
 instance Prelude.Hashable S3DataSource where
@@ -350,17 +351,17 @@ instance Prelude.NFData S3DataSource where
       `Prelude.seq` Prelude.rnf s3DataType
       `Prelude.seq` Prelude.rnf s3Uri
 
-instance Core.ToJSON S3DataSource where
+instance Data.ToJSON S3DataSource where
   toJSON S3DataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AttributeNames" Core..=)
+          [ ("AttributeNames" Data..=)
               Prelude.<$> attributeNames,
-            ("S3DataDistributionType" Core..=)
+            ("S3DataDistributionType" Data..=)
               Prelude.<$> s3DataDistributionType,
-            ("InstanceGroupNames" Core..=)
+            ("InstanceGroupNames" Data..=)
               Prelude.<$> instanceGroupNames,
-            Prelude.Just ("S3DataType" Core..= s3DataType),
-            Prelude.Just ("S3Uri" Core..= s3Uri)
+            Prelude.Just ("S3DataType" Data..= s3DataType),
+            Prelude.Just ("S3Uri" Data..= s3Uri)
           ]
       )

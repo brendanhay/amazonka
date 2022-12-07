@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,19 +137,19 @@ instance Prelude.NFData DeleteAlias where
     Prelude.rnf functionName
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders DeleteAlias where
+instance Data.ToHeaders DeleteAlias where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteAlias where
+instance Data.ToPath DeleteAlias where
   toPath DeleteAlias' {..} =
     Prelude.mconcat
       [ "/2015-03-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/aliases/",
-        Core.toBS name
+        Data.toBS name
       ]
 
-instance Core.ToQuery DeleteAlias where
+instance Data.ToQuery DeleteAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAliasResponse' smart constructor.

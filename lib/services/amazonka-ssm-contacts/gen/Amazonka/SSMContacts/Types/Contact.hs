@@ -21,6 +21,7 @@ module Amazonka.SSMContacts.Types.Contact where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMContacts.Types.ContactType
 
@@ -90,16 +91,16 @@ contact_alias = Lens.lens (\Contact' {alias} -> alias) (\s@Contact' {} a -> s {a
 contact_type :: Lens.Lens' Contact ContactType
 contact_type = Lens.lens (\Contact' {type'} -> type') (\s@Contact' {} a -> s {type' = a} :: Contact)
 
-instance Core.FromJSON Contact where
+instance Data.FromJSON Contact where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Contact"
       ( \x ->
           Contact'
-            Prelude.<$> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..: "ContactArn")
-            Prelude.<*> (x Core..: "Alias")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..: "ContactArn")
+            Prelude.<*> (x Data..: "Alias")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable Contact where

@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.DialogCodeHookSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings that determine the Lambda function that Amazon Lex uses for
@@ -53,13 +54,13 @@ newDialogCodeHookSettings pEnabled_ =
 dialogCodeHookSettings_enabled :: Lens.Lens' DialogCodeHookSettings Prelude.Bool
 dialogCodeHookSettings_enabled = Lens.lens (\DialogCodeHookSettings' {enabled} -> enabled) (\s@DialogCodeHookSettings' {} a -> s {enabled = a} :: DialogCodeHookSettings)
 
-instance Core.FromJSON DialogCodeHookSettings where
+instance Data.FromJSON DialogCodeHookSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DialogCodeHookSettings"
       ( \x ->
           DialogCodeHookSettings'
-            Prelude.<$> (x Core..: "enabled")
+            Prelude.<$> (x Data..: "enabled")
       )
 
 instance Prelude.Hashable DialogCodeHookSettings where
@@ -69,9 +70,9 @@ instance Prelude.Hashable DialogCodeHookSettings where
 instance Prelude.NFData DialogCodeHookSettings where
   rnf DialogCodeHookSettings' {..} = Prelude.rnf enabled
 
-instance Core.ToJSON DialogCodeHookSettings where
+instance Data.ToJSON DialogCodeHookSettings where
   toJSON DialogCodeHookSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("enabled" Core..= enabled)]
+          [Prelude.Just ("enabled" Data..= enabled)]
       )

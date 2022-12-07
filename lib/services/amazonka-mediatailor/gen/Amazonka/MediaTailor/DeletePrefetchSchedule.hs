@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,27 +121,27 @@ instance Prelude.NFData DeletePrefetchSchedule where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf playbackConfigurationName
 
-instance Core.ToHeaders DeletePrefetchSchedule where
+instance Data.ToHeaders DeletePrefetchSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeletePrefetchSchedule where
+instance Data.ToPath DeletePrefetchSchedule where
   toPath DeletePrefetchSchedule' {..} =
     Prelude.mconcat
       [ "/prefetchSchedule/",
-        Core.toBS playbackConfigurationName,
+        Data.toBS playbackConfigurationName,
         "/",
-        Core.toBS name
+        Data.toBS name
       ]
 
-instance Core.ToQuery DeletePrefetchSchedule where
+instance Data.ToQuery DeletePrefetchSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePrefetchScheduleResponse' smart constructor.

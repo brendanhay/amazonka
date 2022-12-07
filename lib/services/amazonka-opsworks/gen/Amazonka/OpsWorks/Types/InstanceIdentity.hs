@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.InstanceIdentity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a description of an Amazon EC2 instance from the Amazon EC2
@@ -76,11 +77,11 @@ instance Prelude.NFData InstanceIdentity where
     Prelude.rnf document
       `Prelude.seq` Prelude.rnf signature
 
-instance Core.ToJSON InstanceIdentity where
+instance Data.ToJSON InstanceIdentity where
   toJSON InstanceIdentity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Document" Core..=) Prelude.<$> document,
-            ("Signature" Core..=) Prelude.<$> signature
+          [ ("Document" Data..=) Prelude.<$> document,
+            ("Signature" Data..=) Prelude.<$> signature
           ]
       )

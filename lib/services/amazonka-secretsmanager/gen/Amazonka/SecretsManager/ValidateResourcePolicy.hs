@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,8 +131,8 @@ instance Core.AWSRequest ValidateResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           ValidateResourcePolicyResponse'
-            Prelude.<$> (x Core..?> "PolicyValidationPassed")
-            Prelude.<*> ( x Core..?> "ValidationErrors"
+            Prelude.<$> (x Data..?> "PolicyValidationPassed")
+            Prelude.<*> ( x Data..?> "ValidationErrors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -147,35 +148,35 @@ instance Prelude.NFData ValidateResourcePolicy where
     Prelude.rnf secretId
       `Prelude.seq` Prelude.rnf resourcePolicy
 
-instance Core.ToHeaders ValidateResourcePolicy where
+instance Data.ToHeaders ValidateResourcePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "secretsmanager.ValidateResourcePolicy" ::
+              Data.=# ( "secretsmanager.ValidateResourcePolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ValidateResourcePolicy where
+instance Data.ToJSON ValidateResourcePolicy where
   toJSON ValidateResourcePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecretId" Core..=) Prelude.<$> secretId,
+          [ ("SecretId" Data..=) Prelude.<$> secretId,
             Prelude.Just
-              ("ResourcePolicy" Core..= resourcePolicy)
+              ("ResourcePolicy" Data..= resourcePolicy)
           ]
       )
 
-instance Core.ToPath ValidateResourcePolicy where
+instance Data.ToPath ValidateResourcePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ValidateResourcePolicy where
+instance Data.ToQuery ValidateResourcePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newValidateResourcePolicyResponse' smart constructor.

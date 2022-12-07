@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.ComponentVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.ComponentType
 import Amazonka.ImageBuilder.Types.Platform
 import qualified Amazonka.Prelude as Prelude
@@ -235,21 +236,21 @@ componentVersion_supportedOsVersions = Lens.lens (\ComponentVersion' {supportedO
 componentVersion_version :: Lens.Lens' ComponentVersion (Prelude.Maybe Prelude.Text)
 componentVersion_version = Lens.lens (\ComponentVersion' {version} -> version) (\s@ComponentVersion' {} a -> s {version = a} :: ComponentVersion)
 
-instance Core.FromJSON ComponentVersion where
+instance Data.FromJSON ComponentVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentVersion"
       ( \x ->
           ComponentVersion'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "owner")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "dateCreated")
-            Prelude.<*> (x Core..:? "supportedOsVersions")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "dateCreated")
+            Prelude.<*> (x Data..:? "supportedOsVersions")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable ComponentVersion where

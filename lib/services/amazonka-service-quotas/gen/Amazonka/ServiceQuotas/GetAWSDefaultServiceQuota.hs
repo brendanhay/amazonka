@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest GetAWSDefaultServiceQuota where
     Response.receiveJSON
       ( \s h x ->
           GetAWSDefaultServiceQuotaResponse'
-            Prelude.<$> (x Core..?> "Quota")
+            Prelude.<$> (x Data..?> "Quota")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,34 +116,34 @@ instance Prelude.NFData GetAWSDefaultServiceQuota where
     Prelude.rnf serviceCode
       `Prelude.seq` Prelude.rnf quotaCode
 
-instance Core.ToHeaders GetAWSDefaultServiceQuota where
+instance Data.ToHeaders GetAWSDefaultServiceQuota where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ServiceQuotasV20190624.GetAWSDefaultServiceQuota" ::
+              Data.=# ( "ServiceQuotasV20190624.GetAWSDefaultServiceQuota" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAWSDefaultServiceQuota where
+instance Data.ToJSON GetAWSDefaultServiceQuota where
   toJSON GetAWSDefaultServiceQuota' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ServiceCode" Core..= serviceCode),
-            Prelude.Just ("QuotaCode" Core..= quotaCode)
+          [ Prelude.Just ("ServiceCode" Data..= serviceCode),
+            Prelude.Just ("QuotaCode" Data..= quotaCode)
           ]
       )
 
-instance Core.ToPath GetAWSDefaultServiceQuota where
+instance Data.ToPath GetAWSDefaultServiceQuota where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAWSDefaultServiceQuota where
+instance Data.ToQuery GetAWSDefaultServiceQuota where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAWSDefaultServiceQuotaResponse' smart constructor.

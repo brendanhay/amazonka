@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -293,10 +294,10 @@ instance Core.AWSRequest ListPolicies where
       "ListPoliciesResult"
       ( \s h x ->
           ListPoliciesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
-            Prelude.<*> ( x Core..@? "Policies" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> ( x Data..@? "Policies" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -319,25 +320,25 @@ instance Prelude.NFData ListPolicies where
       `Prelude.seq` Prelude.rnf onlyAttached
       `Prelude.seq` Prelude.rnf pathPrefix
 
-instance Core.ToHeaders ListPolicies where
+instance Data.ToHeaders ListPolicies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListPolicies where
+instance Data.ToPath ListPolicies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPolicies where
+instance Data.ToQuery ListPolicies where
   toQuery ListPolicies' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListPolicies" :: Prelude.ByteString),
+          Data.=: ("ListPolicies" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "Scope" Core.=: scope,
-        "PolicyUsageFilter" Core.=: policyUsageFilter,
-        "OnlyAttached" Core.=: onlyAttached,
-        "PathPrefix" Core.=: pathPrefix
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "Scope" Data.=: scope,
+        "PolicyUsageFilter" Data.=: policyUsageFilter,
+        "OnlyAttached" Data.=: onlyAttached,
+        "PathPrefix" Data.=: pathPrefix
       ]
 
 -- | Contains the response to a successful ListPolicies request.

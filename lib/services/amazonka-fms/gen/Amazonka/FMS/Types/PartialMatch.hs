@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.PartialMatch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The reference rule that partially matches the @ViolationTarget@ rule and
@@ -65,15 +66,15 @@ partialMatch_reference = Lens.lens (\PartialMatch' {reference} -> reference) (\s
 partialMatch_targetViolationReasons :: Lens.Lens' PartialMatch (Prelude.Maybe [Prelude.Text])
 partialMatch_targetViolationReasons = Lens.lens (\PartialMatch' {targetViolationReasons} -> targetViolationReasons) (\s@PartialMatch' {} a -> s {targetViolationReasons = a} :: PartialMatch) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PartialMatch where
+instance Data.FromJSON PartialMatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PartialMatch"
       ( \x ->
           PartialMatch'
-            Prelude.<$> (x Core..:? "Reference")
-            Prelude.<*> ( x Core..:? "TargetViolationReasons"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Reference")
+            Prelude.<*> ( x Data..:? "TargetViolationReasons"
+                            Data..!= Prelude.mempty
                         )
       )
 

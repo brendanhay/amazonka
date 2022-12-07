@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.BlockDeviceMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.EbsBlockDevice
 import qualified Amazonka.Prelude as Prelude
@@ -129,13 +130,13 @@ blockDeviceMapping_virtualName = Lens.lens (\BlockDeviceMapping' {virtualName} -
 blockDeviceMapping_deviceName :: Lens.Lens' BlockDeviceMapping Prelude.Text
 blockDeviceMapping_deviceName = Lens.lens (\BlockDeviceMapping' {deviceName} -> deviceName) (\s@BlockDeviceMapping' {} a -> s {deviceName = a} :: BlockDeviceMapping)
 
-instance Core.FromXML BlockDeviceMapping where
+instance Data.FromXML BlockDeviceMapping where
   parseXML x =
     BlockDeviceMapping'
-      Prelude.<$> (x Core..@? "ebs")
-      Prelude.<*> (x Core..@? "noDevice")
-      Prelude.<*> (x Core..@? "virtualName")
-      Prelude.<*> (x Core..@ "deviceName")
+      Prelude.<$> (x Data..@? "ebs")
+      Prelude.<*> (x Data..@? "noDevice")
+      Prelude.<*> (x Data..@? "virtualName")
+      Prelude.<*> (x Data..@ "deviceName")
 
 instance Prelude.Hashable BlockDeviceMapping where
   hashWithSalt _salt BlockDeviceMapping' {..} =
@@ -151,11 +152,11 @@ instance Prelude.NFData BlockDeviceMapping where
       `Prelude.seq` Prelude.rnf virtualName
       `Prelude.seq` Prelude.rnf deviceName
 
-instance Core.ToQuery BlockDeviceMapping where
+instance Data.ToQuery BlockDeviceMapping where
   toQuery BlockDeviceMapping' {..} =
     Prelude.mconcat
-      [ "Ebs" Core.=: ebs,
-        "NoDevice" Core.=: noDevice,
-        "VirtualName" Core.=: virtualName,
-        "DeviceName" Core.=: deviceName
+      [ "Ebs" Data.=: ebs,
+        "NoDevice" Data.=: noDevice,
+        "VirtualName" Data.=: virtualName,
+        "DeviceName" Data.=: deviceName
       ]

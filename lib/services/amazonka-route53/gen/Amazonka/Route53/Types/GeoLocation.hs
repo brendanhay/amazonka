@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.GeoLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 
@@ -158,12 +159,12 @@ geoLocation_countryCode = Lens.lens (\GeoLocation' {countryCode} -> countryCode)
 geoLocation_continentCode :: Lens.Lens' GeoLocation (Prelude.Maybe Prelude.Text)
 geoLocation_continentCode = Lens.lens (\GeoLocation' {continentCode} -> continentCode) (\s@GeoLocation' {} a -> s {continentCode = a} :: GeoLocation)
 
-instance Core.FromXML GeoLocation where
+instance Data.FromXML GeoLocation where
   parseXML x =
     GeoLocation'
-      Prelude.<$> (x Core..@? "SubdivisionCode")
-      Prelude.<*> (x Core..@? "CountryCode")
-      Prelude.<*> (x Core..@? "ContinentCode")
+      Prelude.<$> (x Data..@? "SubdivisionCode")
+      Prelude.<*> (x Data..@? "CountryCode")
+      Prelude.<*> (x Data..@? "ContinentCode")
 
 instance Prelude.Hashable GeoLocation where
   hashWithSalt _salt GeoLocation' {..} =
@@ -177,10 +178,10 @@ instance Prelude.NFData GeoLocation where
       `Prelude.seq` Prelude.rnf countryCode
       `Prelude.seq` Prelude.rnf continentCode
 
-instance Core.ToXML GeoLocation where
+instance Data.ToXML GeoLocation where
   toXML GeoLocation' {..} =
     Prelude.mconcat
-      [ "SubdivisionCode" Core.@= subdivisionCode,
-        "CountryCode" Core.@= countryCode,
-        "ContinentCode" Core.@= continentCode
+      [ "SubdivisionCode" Data.@= subdivisionCode,
+        "CountryCode" Data.@= countryCode,
+        "ContinentCode" Data.@= continentCode
       ]

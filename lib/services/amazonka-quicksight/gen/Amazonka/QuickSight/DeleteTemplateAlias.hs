@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -129,10 +130,10 @@ instance Core.AWSRequest DeleteTemplateAlias where
     Response.receiveJSON
       ( \s h x ->
           DeleteTemplateAliasResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "TemplateId")
-            Prelude.<*> (x Core..?> "AliasName")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "TemplateId")
+            Prelude.<*> (x Data..?> "AliasName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,29 +149,29 @@ instance Prelude.NFData DeleteTemplateAlias where
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf aliasName
 
-instance Core.ToHeaders DeleteTemplateAlias where
+instance Data.ToHeaders DeleteTemplateAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteTemplateAlias where
+instance Data.ToPath DeleteTemplateAlias where
   toPath DeleteTemplateAlias' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/templates/",
-        Core.toBS templateId,
+        Data.toBS templateId,
         "/aliases/",
-        Core.toBS aliasName
+        Data.toBS aliasName
       ]
 
-instance Core.ToQuery DeleteTemplateAlias where
+instance Data.ToQuery DeleteTemplateAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTemplateAliasResponse' smart constructor.

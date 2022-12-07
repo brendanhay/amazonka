@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -173,7 +174,7 @@ instance Core.AWSRequest ModifyGlobalReplicationGroup where
       "ModifyGlobalReplicationGroupResult"
       ( \s h x ->
           ModifyGlobalReplicationGroupResponse'
-            Prelude.<$> (x Core..@? "GlobalReplicationGroup")
+            Prelude.<$> (x Data..@? "GlobalReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,32 +202,32 @@ instance Prelude.NFData ModifyGlobalReplicationGroup where
       `Prelude.seq` Prelude.rnf globalReplicationGroupId
       `Prelude.seq` Prelude.rnf applyImmediately
 
-instance Core.ToHeaders ModifyGlobalReplicationGroup where
+instance Data.ToHeaders ModifyGlobalReplicationGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyGlobalReplicationGroup where
+instance Data.ToPath ModifyGlobalReplicationGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyGlobalReplicationGroup where
+instance Data.ToQuery ModifyGlobalReplicationGroup where
   toQuery ModifyGlobalReplicationGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyGlobalReplicationGroup" ::
+          Data.=: ( "ModifyGlobalReplicationGroup" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "GlobalReplicationGroupDescription"
-          Core.=: globalReplicationGroupDescription,
-        "CacheNodeType" Core.=: cacheNodeType,
+          Data.=: globalReplicationGroupDescription,
+        "CacheNodeType" Data.=: cacheNodeType,
         "CacheParameterGroupName"
-          Core.=: cacheParameterGroupName,
+          Data.=: cacheParameterGroupName,
         "AutomaticFailoverEnabled"
-          Core.=: automaticFailoverEnabled,
-        "EngineVersion" Core.=: engineVersion,
+          Data.=: automaticFailoverEnabled,
+        "EngineVersion" Data.=: engineVersion,
         "GlobalReplicationGroupId"
-          Core.=: globalReplicationGroupId,
-        "ApplyImmediately" Core.=: applyImmediately
+          Data.=: globalReplicationGroupId,
+        "ApplyImmediately" Data.=: applyImmediately
       ]
 
 -- | /See:/ 'newModifyGlobalReplicationGroupResponse' smart constructor.

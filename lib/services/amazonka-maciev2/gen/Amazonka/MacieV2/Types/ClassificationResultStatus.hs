@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.ClassificationResultStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the status of a sensitive data finding.
@@ -358,14 +359,14 @@ classificationResultStatus_code = Lens.lens (\ClassificationResultStatus' {code}
 classificationResultStatus_reason :: Lens.Lens' ClassificationResultStatus (Prelude.Maybe Prelude.Text)
 classificationResultStatus_reason = Lens.lens (\ClassificationResultStatus' {reason} -> reason) (\s@ClassificationResultStatus' {} a -> s {reason = a} :: ClassificationResultStatus)
 
-instance Core.FromJSON ClassificationResultStatus where
+instance Data.FromJSON ClassificationResultStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClassificationResultStatus"
       ( \x ->
           ClassificationResultStatus'
-            Prelude.<$> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "reason")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "reason")
       )
 
 instance Prelude.Hashable ClassificationResultStatus where

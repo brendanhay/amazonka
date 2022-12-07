@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -136,8 +137,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           RejectResourceShareInvitationResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-            Prelude.<*> (x Core..?> "resourceShareInvitation")
+            Prelude.<$> (x Data..?> "clientToken")
+            Prelude.<*> (x Data..?> "resourceShareInvitation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,34 +155,34 @@ instance Prelude.NFData RejectResourceShareInvitation where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf resourceShareInvitationArn
 
-instance Core.ToHeaders RejectResourceShareInvitation where
+instance Data.ToHeaders RejectResourceShareInvitation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RejectResourceShareInvitation where
+instance Data.ToJSON RejectResourceShareInvitation where
   toJSON RejectResourceShareInvitation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
               ( "resourceShareInvitationArn"
-                  Core..= resourceShareInvitationArn
+                  Data..= resourceShareInvitationArn
               )
           ]
       )
 
-instance Core.ToPath RejectResourceShareInvitation where
+instance Data.ToPath RejectResourceShareInvitation where
   toPath =
     Prelude.const "/rejectresourceshareinvitation"
 
-instance Core.ToQuery RejectResourceShareInvitation where
+instance Data.ToQuery RejectResourceShareInvitation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRejectResourceShareInvitationResponse' smart constructor.

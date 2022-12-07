@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,7 +140,7 @@ instance Core.AWSRequest UpdateConnection where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateConnection where
   hashWithSalt _salt UpdateConnection' {..} =
@@ -153,35 +154,35 @@ instance Prelude.NFData UpdateConnection where
       `Prelude.seq` Prelude.rnf connectionName
       `Prelude.seq` Prelude.rnf connectionId
 
-instance Core.ToHeaders UpdateConnection where
+instance Data.ToHeaders UpdateConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.UpdateConnection" ::
+              Data.=# ( "OvertureService.UpdateConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateConnection where
+instance Data.ToJSON UpdateConnection where
   toJSON UpdateConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("encryptionMode" Core..=)
+          [ ("encryptionMode" Data..=)
               Prelude.<$> encryptionMode,
-            ("connectionName" Core..=)
+            ("connectionName" Data..=)
               Prelude.<$> connectionName,
-            Prelude.Just ("connectionId" Core..= connectionId)
+            Prelude.Just ("connectionId" Data..= connectionId)
           ]
       )
 
-instance Core.ToPath UpdateConnection where
+instance Data.ToPath UpdateConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateConnection where
+instance Data.ToQuery UpdateConnection where
   toQuery = Prelude.const Prelude.mempty

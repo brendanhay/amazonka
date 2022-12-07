@@ -21,6 +21,7 @@ module Amazonka.EMRServerless.Types.JobDriver where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRServerless.Types.Hive
 import Amazonka.EMRServerless.Types.SparkSubmit
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ jobDriver_hive = Lens.lens (\JobDriver' {hive} -> hive) (\s@JobDriver' {} a -> s
 jobDriver_sparkSubmit :: Lens.Lens' JobDriver (Prelude.Maybe SparkSubmit)
 jobDriver_sparkSubmit = Lens.lens (\JobDriver' {sparkSubmit} -> sparkSubmit) (\s@JobDriver' {} a -> s {sparkSubmit = a} :: JobDriver)
 
-instance Core.FromJSON JobDriver where
+instance Data.FromJSON JobDriver where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobDriver"
       ( \x ->
           JobDriver'
-            Prelude.<$> (x Core..:? "hive")
-            Prelude.<*> (x Core..:? "sparkSubmit")
+            Prelude.<$> (x Data..:? "hive")
+            Prelude.<*> (x Data..:? "sparkSubmit")
       )
 
 instance Prelude.Hashable JobDriver where
@@ -83,11 +84,11 @@ instance Prelude.NFData JobDriver where
     Prelude.rnf hive
       `Prelude.seq` Prelude.rnf sparkSubmit
 
-instance Core.ToJSON JobDriver where
+instance Data.ToJSON JobDriver where
   toJSON JobDriver' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("hive" Core..=) Prelude.<$> hive,
-            ("sparkSubmit" Core..=) Prelude.<$> sparkSubmit
+          [ ("hive" Data..=) Prelude.<$> hive,
+            ("sparkSubmit" Data..=) Prelude.<$> sparkSubmit
           ]
       )

@@ -26,6 +26,7 @@ import Amazonka.AuditManager.Types.Role
 import Amazonka.AuditManager.Types.Scope
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata that\'s associated with the specified assessment.
@@ -41,12 +42,12 @@ data AssessmentMetadata = AssessmentMetadata'
     -- | The unique identifier for the assessment.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time of the most recent update.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | The wrapper of Amazon Web Services accounts and services that are in
     -- scope for the assessment.
     scope :: Prelude.Maybe Scope,
     -- | Specifies when the assessment was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The delegations that are associated with the assessment.
     delegations :: Prelude.Maybe [Delegation],
     -- | The name of the compliance standard that\'s related to the assessment,
@@ -125,7 +126,7 @@ assessmentMetadata_id = Lens.lens (\AssessmentMetadata' {id} -> id) (\s@Assessme
 
 -- | The time of the most recent update.
 assessmentMetadata_lastUpdated :: Lens.Lens' AssessmentMetadata (Prelude.Maybe Prelude.UTCTime)
-assessmentMetadata_lastUpdated = Lens.lens (\AssessmentMetadata' {lastUpdated} -> lastUpdated) (\s@AssessmentMetadata' {} a -> s {lastUpdated = a} :: AssessmentMetadata) Prelude.. Lens.mapping Core._Time
+assessmentMetadata_lastUpdated = Lens.lens (\AssessmentMetadata' {lastUpdated} -> lastUpdated) (\s@AssessmentMetadata' {} a -> s {lastUpdated = a} :: AssessmentMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The wrapper of Amazon Web Services accounts and services that are in
 -- scope for the assessment.
@@ -134,7 +135,7 @@ assessmentMetadata_scope = Lens.lens (\AssessmentMetadata' {scope} -> scope) (\s
 
 -- | Specifies when the assessment was created.
 assessmentMetadata_creationTime :: Lens.Lens' AssessmentMetadata (Prelude.Maybe Prelude.UTCTime)
-assessmentMetadata_creationTime = Lens.lens (\AssessmentMetadata' {creationTime} -> creationTime) (\s@AssessmentMetadata' {} a -> s {creationTime = a} :: AssessmentMetadata) Prelude.. Lens.mapping Core._Time
+assessmentMetadata_creationTime = Lens.lens (\AssessmentMetadata' {creationTime} -> creationTime) (\s@AssessmentMetadata' {} a -> s {creationTime = a} :: AssessmentMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The delegations that are associated with the assessment.
 assessmentMetadata_delegations :: Lens.Lens' AssessmentMetadata (Prelude.Maybe [Delegation])
@@ -153,23 +154,23 @@ assessmentMetadata_assessmentReportsDestination = Lens.lens (\AssessmentMetadata
 assessmentMetadata_roles :: Lens.Lens' AssessmentMetadata (Prelude.Maybe [Role])
 assessmentMetadata_roles = Lens.lens (\AssessmentMetadata' {roles} -> roles) (\s@AssessmentMetadata' {} a -> s {roles = a} :: AssessmentMetadata) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AssessmentMetadata where
+instance Data.FromJSON AssessmentMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssessmentMetadata"
       ( \x ->
           AssessmentMetadata'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "lastUpdated")
-            Prelude.<*> (x Core..:? "scope")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "delegations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "complianceType")
-            Prelude.<*> (x Core..:? "assessmentReportsDestination")
-            Prelude.<*> (x Core..:? "roles" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "lastUpdated")
+            Prelude.<*> (x Data..:? "scope")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "delegations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "complianceType")
+            Prelude.<*> (x Data..:? "assessmentReportsDestination")
+            Prelude.<*> (x Data..:? "roles" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AssessmentMetadata where

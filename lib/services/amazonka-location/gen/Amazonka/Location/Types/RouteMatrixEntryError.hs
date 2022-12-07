@@ -21,6 +21,7 @@ module Amazonka.Location.Types.RouteMatrixEntryError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.RouteMatrixErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,14 +86,14 @@ routeMatrixEntryError_message = Lens.lens (\RouteMatrixEntryError' {message} -> 
 routeMatrixEntryError_code :: Lens.Lens' RouteMatrixEntryError RouteMatrixErrorCode
 routeMatrixEntryError_code = Lens.lens (\RouteMatrixEntryError' {code} -> code) (\s@RouteMatrixEntryError' {} a -> s {code = a} :: RouteMatrixEntryError)
 
-instance Core.FromJSON RouteMatrixEntryError where
+instance Data.FromJSON RouteMatrixEntryError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RouteMatrixEntryError"
       ( \x ->
           RouteMatrixEntryError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..: "Code")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..: "Code")
       )
 
 instance Prelude.Hashable RouteMatrixEntryError where

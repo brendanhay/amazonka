@@ -21,6 +21,7 @@ module Amazonka.ComputeOptimizer.Types.S3Destination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the destination Amazon Simple Storage Service (Amazon S3)
@@ -93,15 +94,15 @@ s3Destination_bucket = Lens.lens (\S3Destination' {bucket} -> bucket) (\s@S3Dest
 s3Destination_metadataKey :: Lens.Lens' S3Destination (Prelude.Maybe Prelude.Text)
 s3Destination_metadataKey = Lens.lens (\S3Destination' {metadataKey} -> metadataKey) (\s@S3Destination' {} a -> s {metadataKey = a} :: S3Destination)
 
-instance Core.FromJSON S3Destination where
+instance Data.FromJSON S3Destination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Destination"
       ( \x ->
           S3Destination'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "bucket")
-            Prelude.<*> (x Core..:? "metadataKey")
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "bucket")
+            Prelude.<*> (x Data..:? "metadataKey")
       )
 
 instance Prelude.Hashable S3Destination where

@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.EphemeralStorage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of ephemeral storage to allocate for the task. This parameter
@@ -67,13 +68,13 @@ newEphemeralStorage pSizeInGiB_ =
 ephemeralStorage_sizeInGiB :: Lens.Lens' EphemeralStorage Prelude.Int
 ephemeralStorage_sizeInGiB = Lens.lens (\EphemeralStorage' {sizeInGiB} -> sizeInGiB) (\s@EphemeralStorage' {} a -> s {sizeInGiB = a} :: EphemeralStorage)
 
-instance Core.FromJSON EphemeralStorage where
+instance Data.FromJSON EphemeralStorage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EphemeralStorage"
       ( \x ->
           EphemeralStorage'
-            Prelude.<$> (x Core..: "sizeInGiB")
+            Prelude.<$> (x Data..: "sizeInGiB")
       )
 
 instance Prelude.Hashable EphemeralStorage where
@@ -83,9 +84,9 @@ instance Prelude.Hashable EphemeralStorage where
 instance Prelude.NFData EphemeralStorage where
   rnf EphemeralStorage' {..} = Prelude.rnf sizeInGiB
 
-instance Core.ToJSON EphemeralStorage where
+instance Data.ToJSON EphemeralStorage where
   toJSON EphemeralStorage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("sizeInGiB" Core..= sizeInGiB)]
+          [Prelude.Just ("sizeInGiB" Data..= sizeInGiB)]
       )

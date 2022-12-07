@@ -90,6 +90,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -511,7 +512,7 @@ instance Core.AWSRequest CopyDBClusterSnapshot where
       "CopyDBClusterSnapshotResult"
       ( \s h x ->
           CopyDBClusterSnapshotResponse'
-            Prelude.<$> (x Core..@? "DBClusterSnapshot")
+            Prelude.<$> (x Data..@? "DBClusterSnapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -535,30 +536,30 @@ instance Prelude.NFData CopyDBClusterSnapshot where
       `Prelude.seq` Prelude.rnf sourceDBClusterSnapshotIdentifier
       `Prelude.seq` Prelude.rnf targetDBClusterSnapshotIdentifier
 
-instance Core.ToHeaders CopyDBClusterSnapshot where
+instance Data.ToHeaders CopyDBClusterSnapshot where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CopyDBClusterSnapshot where
+instance Data.ToPath CopyDBClusterSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CopyDBClusterSnapshot where
+instance Data.ToQuery CopyDBClusterSnapshot where
   toQuery CopyDBClusterSnapshot' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CopyDBClusterSnapshot" :: Prelude.ByteString),
+          Data.=: ("CopyDBClusterSnapshot" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "CopyTags" Core.=: copyTags,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "DestinationRegion" Core.=: destinationRegion,
-        "PreSignedUrl" Core.=: preSignedUrl,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "CopyTags" Data.=: copyTags,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "DestinationRegion" Data.=: destinationRegion,
+        "PreSignedUrl" Data.=: preSignedUrl,
         "SourceDBClusterSnapshotIdentifier"
-          Core.=: sourceDBClusterSnapshotIdentifier,
+          Data.=: sourceDBClusterSnapshotIdentifier,
         "TargetDBClusterSnapshotIdentifier"
-          Core.=: targetDBClusterSnapshotIdentifier
+          Data.=: targetDBClusterSnapshotIdentifier
       ]
 
 -- | /See:/ 'newCopyDBClusterSnapshotResponse' smart constructor.

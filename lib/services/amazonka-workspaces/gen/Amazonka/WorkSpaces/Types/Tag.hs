@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.Tag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a tag.
@@ -60,13 +61,13 @@ tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} ::
 tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
-instance Core.FromJSON Tag where
+instance Data.FromJSON Tag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..: "Key")
+            Prelude.<$> (x Data..:? "Value") Prelude.<*> (x Data..: "Key")
       )
 
 instance Prelude.Hashable Tag where
@@ -78,11 +79,11 @@ instance Prelude.NFData Tag where
   rnf Tag' {..} =
     Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON Tag where
+instance Data.ToJSON Tag where
   toJSON Tag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            Prelude.Just ("Key" Core..= key)
+          [ ("Value" Data..=) Prelude.<$> value,
+            Prelude.Just ("Key" Data..= key)
           ]
       )

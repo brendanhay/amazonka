@@ -53,6 +53,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,15 +69,15 @@ data ListRestoreJobs = ListRestoreJobs'
     -- pointed to by the next token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns only restore jobs that were created after the specified date.
-    byCreatedAfter :: Prelude.Maybe Core.POSIX,
+    byCreatedAfter :: Prelude.Maybe Data.POSIX,
     -- | Returns only copy jobs completed after a date expressed in Unix format
     -- and Coordinated Universal Time (UTC).
-    byCompleteAfter :: Prelude.Maybe Core.POSIX,
+    byCompleteAfter :: Prelude.Maybe Data.POSIX,
     -- | Returns only copy jobs completed before a date expressed in Unix format
     -- and Coordinated Universal Time (UTC).
-    byCompleteBefore :: Prelude.Maybe Core.POSIX,
+    byCompleteBefore :: Prelude.Maybe Data.POSIX,
     -- | Returns only restore jobs that were created before the specified date.
-    byCreatedBefore :: Prelude.Maybe Core.POSIX,
+    byCreatedBefore :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of items to be returned.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Returns only restore jobs associated with the specified job status.
@@ -141,21 +142,21 @@ listRestoreJobs_nextToken = Lens.lens (\ListRestoreJobs' {nextToken} -> nextToke
 
 -- | Returns only restore jobs that were created after the specified date.
 listRestoreJobs_byCreatedAfter :: Lens.Lens' ListRestoreJobs (Prelude.Maybe Prelude.UTCTime)
-listRestoreJobs_byCreatedAfter = Lens.lens (\ListRestoreJobs' {byCreatedAfter} -> byCreatedAfter) (\s@ListRestoreJobs' {} a -> s {byCreatedAfter = a} :: ListRestoreJobs) Prelude.. Lens.mapping Core._Time
+listRestoreJobs_byCreatedAfter = Lens.lens (\ListRestoreJobs' {byCreatedAfter} -> byCreatedAfter) (\s@ListRestoreJobs' {} a -> s {byCreatedAfter = a} :: ListRestoreJobs) Prelude.. Lens.mapping Data._Time
 
 -- | Returns only copy jobs completed after a date expressed in Unix format
 -- and Coordinated Universal Time (UTC).
 listRestoreJobs_byCompleteAfter :: Lens.Lens' ListRestoreJobs (Prelude.Maybe Prelude.UTCTime)
-listRestoreJobs_byCompleteAfter = Lens.lens (\ListRestoreJobs' {byCompleteAfter} -> byCompleteAfter) (\s@ListRestoreJobs' {} a -> s {byCompleteAfter = a} :: ListRestoreJobs) Prelude.. Lens.mapping Core._Time
+listRestoreJobs_byCompleteAfter = Lens.lens (\ListRestoreJobs' {byCompleteAfter} -> byCompleteAfter) (\s@ListRestoreJobs' {} a -> s {byCompleteAfter = a} :: ListRestoreJobs) Prelude.. Lens.mapping Data._Time
 
 -- | Returns only copy jobs completed before a date expressed in Unix format
 -- and Coordinated Universal Time (UTC).
 listRestoreJobs_byCompleteBefore :: Lens.Lens' ListRestoreJobs (Prelude.Maybe Prelude.UTCTime)
-listRestoreJobs_byCompleteBefore = Lens.lens (\ListRestoreJobs' {byCompleteBefore} -> byCompleteBefore) (\s@ListRestoreJobs' {} a -> s {byCompleteBefore = a} :: ListRestoreJobs) Prelude.. Lens.mapping Core._Time
+listRestoreJobs_byCompleteBefore = Lens.lens (\ListRestoreJobs' {byCompleteBefore} -> byCompleteBefore) (\s@ListRestoreJobs' {} a -> s {byCompleteBefore = a} :: ListRestoreJobs) Prelude.. Lens.mapping Data._Time
 
 -- | Returns only restore jobs that were created before the specified date.
 listRestoreJobs_byCreatedBefore :: Lens.Lens' ListRestoreJobs (Prelude.Maybe Prelude.UTCTime)
-listRestoreJobs_byCreatedBefore = Lens.lens (\ListRestoreJobs' {byCreatedBefore} -> byCreatedBefore) (\s@ListRestoreJobs' {} a -> s {byCreatedBefore = a} :: ListRestoreJobs) Prelude.. Lens.mapping Core._Time
+listRestoreJobs_byCreatedBefore = Lens.lens (\ListRestoreJobs' {byCreatedBefore} -> byCreatedBefore) (\s@ListRestoreJobs' {} a -> s {byCreatedBefore = a} :: ListRestoreJobs) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of items to be returned.
 listRestoreJobs_maxResults :: Lens.Lens' ListRestoreJobs (Prelude.Maybe Prelude.Natural)
@@ -197,8 +198,8 @@ instance Core.AWSRequest ListRestoreJobs where
     Response.receiveJSON
       ( \s h x ->
           ListRestoreJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "RestoreJobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "RestoreJobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -224,31 +225,31 @@ instance Prelude.NFData ListRestoreJobs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf byStatus
 
-instance Core.ToHeaders ListRestoreJobs where
+instance Data.ToHeaders ListRestoreJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRestoreJobs where
+instance Data.ToPath ListRestoreJobs where
   toPath = Prelude.const "/restore-jobs/"
 
-instance Core.ToQuery ListRestoreJobs where
+instance Data.ToQuery ListRestoreJobs where
   toQuery ListRestoreJobs' {..} =
     Prelude.mconcat
-      [ "accountId" Core.=: byAccountId,
-        "nextToken" Core.=: nextToken,
-        "createdAfter" Core.=: byCreatedAfter,
-        "completeAfter" Core.=: byCompleteAfter,
-        "completeBefore" Core.=: byCompleteBefore,
-        "createdBefore" Core.=: byCreatedBefore,
-        "maxResults" Core.=: maxResults,
-        "status" Core.=: byStatus
+      [ "accountId" Data.=: byAccountId,
+        "nextToken" Data.=: nextToken,
+        "createdAfter" Data.=: byCreatedAfter,
+        "completeAfter" Data.=: byCompleteAfter,
+        "completeBefore" Data.=: byCompleteBefore,
+        "createdBefore" Data.=: byCreatedBefore,
+        "maxResults" Data.=: maxResults,
+        "status" Data.=: byStatus
       ]
 
 -- | /See:/ 'newListRestoreJobsResponse' smart constructor.

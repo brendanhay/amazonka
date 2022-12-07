@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -274,11 +275,11 @@ instance Core.AWSRequest CreateProvisionedProductPlan where
     Response.receiveJSON
       ( \s h x ->
           CreateProvisionedProductPlanResponse'
-            Prelude.<$> (x Core..?> "PlanId")
-            Prelude.<*> (x Core..?> "ProvisionProductId")
-            Prelude.<*> (x Core..?> "PlanName")
-            Prelude.<*> (x Core..?> "ProvisionedProductName")
-            Prelude.<*> (x Core..?> "ProvisioningArtifactId")
+            Prelude.<$> (x Data..?> "PlanId")
+            Prelude.<*> (x Data..?> "ProvisionProductId")
+            Prelude.<*> (x Data..?> "PlanName")
+            Prelude.<*> (x Data..?> "ProvisionedProductName")
+            Prelude.<*> (x Data..?> "ProvisioningArtifactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -313,53 +314,53 @@ instance Prelude.NFData CreateProvisionedProductPlan where
       `Prelude.seq` Prelude.rnf provisioningArtifactId
       `Prelude.seq` Prelude.rnf idempotencyToken
 
-instance Core.ToHeaders CreateProvisionedProductPlan where
+instance Data.ToHeaders CreateProvisionedProductPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.CreateProvisionedProductPlan" ::
+              Data.=# ( "AWS242ServiceCatalogService.CreateProvisionedProductPlan" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateProvisionedProductPlan where
+instance Data.ToJSON CreateProvisionedProductPlan where
   toJSON CreateProvisionedProductPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("PathId" Core..=) Prelude.<$> pathId,
-            ("NotificationArns" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("PathId" Data..=) Prelude.<$> pathId,
+            ("NotificationArns" Data..=)
               Prelude.<$> notificationArns,
-            ("ProvisioningParameters" Core..=)
+            ("ProvisioningParameters" Data..=)
               Prelude.<$> provisioningParameters,
-            ("AcceptLanguage" Core..=)
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("PlanName" Core..= planName),
-            Prelude.Just ("PlanType" Core..= planType),
-            Prelude.Just ("ProductId" Core..= productId),
+            Prelude.Just ("PlanName" Data..= planName),
+            Prelude.Just ("PlanType" Data..= planType),
+            Prelude.Just ("ProductId" Data..= productId),
             Prelude.Just
               ( "ProvisionedProductName"
-                  Core..= provisionedProductName
+                  Data..= provisionedProductName
               ),
             Prelude.Just
               ( "ProvisioningArtifactId"
-                  Core..= provisioningArtifactId
+                  Data..= provisioningArtifactId
               ),
             Prelude.Just
-              ("IdempotencyToken" Core..= idempotencyToken)
+              ("IdempotencyToken" Data..= idempotencyToken)
           ]
       )
 
-instance Core.ToPath CreateProvisionedProductPlan where
+instance Data.ToPath CreateProvisionedProductPlan where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateProvisionedProductPlan where
+instance Data.ToQuery CreateProvisionedProductPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProvisionedProductPlanResponse' smart constructor.

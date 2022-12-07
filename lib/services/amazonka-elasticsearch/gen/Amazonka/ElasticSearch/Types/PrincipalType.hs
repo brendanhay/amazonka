@@ -27,6 +27,7 @@ module Amazonka.ElasticSearch.Types.PrincipalType
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the type of AWS account permitted to manage VPC endpoints.:
@@ -35,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 -- -   AWS_SERVICE: Indicates the the account is owned by an AWS service.
 newtype PrincipalType = PrincipalType'
   { fromPrincipalType ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -47,18 +48,18 @@ newtype PrincipalType = PrincipalType'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern PrincipalType_AWS_ACCOUNT :: PrincipalType

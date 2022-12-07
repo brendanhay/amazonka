@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.Collector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.CollectorHealth
 import qualified Amazonka.Prelude as Prelude
 
@@ -110,19 +111,19 @@ collector_collectorHealth = Lens.lens (\Collector' {collectorHealth} -> collecto
 collector_ipAddress :: Lens.Lens' Collector (Prelude.Maybe Prelude.Text)
 collector_ipAddress = Lens.lens (\Collector' {ipAddress} -> ipAddress) (\s@Collector' {} a -> s {ipAddress = a} :: Collector)
 
-instance Core.FromJSON Collector where
+instance Data.FromJSON Collector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Collector"
       ( \x ->
           Collector'
-            Prelude.<$> (x Core..:? "lastActivityTimeStamp")
-            Prelude.<*> (x Core..:? "registeredTimeStamp")
-            Prelude.<*> (x Core..:? "hostName")
-            Prelude.<*> (x Core..:? "collectorId")
-            Prelude.<*> (x Core..:? "collectorVersion")
-            Prelude.<*> (x Core..:? "collectorHealth")
-            Prelude.<*> (x Core..:? "ipAddress")
+            Prelude.<$> (x Data..:? "lastActivityTimeStamp")
+            Prelude.<*> (x Data..:? "registeredTimeStamp")
+            Prelude.<*> (x Data..:? "hostName")
+            Prelude.<*> (x Data..:? "collectorId")
+            Prelude.<*> (x Data..:? "collectorVersion")
+            Prelude.<*> (x Data..:? "collectorHealth")
+            Prelude.<*> (x Data..:? "ipAddress")
       )
 
 instance Prelude.Hashable Collector where

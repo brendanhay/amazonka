@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest DescribeWorkteam where
       ( \s h x ->
           DescribeWorkteamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Workteam")
+            Prelude.<*> (x Data..:> "Workteam")
       )
 
 instance Prelude.Hashable DescribeWorkteam where
@@ -96,30 +97,30 @@ instance Prelude.Hashable DescribeWorkteam where
 instance Prelude.NFData DescribeWorkteam where
   rnf DescribeWorkteam' {..} = Prelude.rnf workteamName
 
-instance Core.ToHeaders DescribeWorkteam where
+instance Data.ToHeaders DescribeWorkteam where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeWorkteam" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DescribeWorkteam" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeWorkteam where
+instance Data.ToJSON DescribeWorkteam where
   toJSON DescribeWorkteam' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("WorkteamName" Core..= workteamName)]
+          [Prelude.Just ("WorkteamName" Data..= workteamName)]
       )
 
-instance Core.ToPath DescribeWorkteam where
+instance Data.ToPath DescribeWorkteam where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeWorkteam where
+instance Data.ToQuery DescribeWorkteam where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWorkteamResponse' smart constructor.

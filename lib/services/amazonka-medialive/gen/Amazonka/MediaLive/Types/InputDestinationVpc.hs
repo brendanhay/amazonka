@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputDestinationVpc where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties for a VPC type input destination.
@@ -62,14 +63,14 @@ inputDestinationVpc_availabilityZone = Lens.lens (\InputDestinationVpc' {availab
 inputDestinationVpc_networkInterfaceId :: Lens.Lens' InputDestinationVpc (Prelude.Maybe Prelude.Text)
 inputDestinationVpc_networkInterfaceId = Lens.lens (\InputDestinationVpc' {networkInterfaceId} -> networkInterfaceId) (\s@InputDestinationVpc' {} a -> s {networkInterfaceId = a} :: InputDestinationVpc)
 
-instance Core.FromJSON InputDestinationVpc where
+instance Data.FromJSON InputDestinationVpc where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputDestinationVpc"
       ( \x ->
           InputDestinationVpc'
-            Prelude.<$> (x Core..:? "availabilityZone")
-            Prelude.<*> (x Core..:? "networkInterfaceId")
+            Prelude.<$> (x Data..:? "availabilityZone")
+            Prelude.<*> (x Data..:? "networkInterfaceId")
       )
 
 instance Prelude.Hashable InputDestinationVpc where

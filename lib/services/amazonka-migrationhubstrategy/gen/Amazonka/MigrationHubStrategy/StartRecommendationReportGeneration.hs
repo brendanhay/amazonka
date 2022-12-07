@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           StartRecommendationReportGenerationResponse'
-            Prelude.<$> (x Core..?> "id")
+            Prelude.<$> (x Data..?> "id")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,33 +124,33 @@ instance
       `Prelude.seq` Prelude.rnf outputFormat
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StartRecommendationReportGeneration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StartRecommendationReportGeneration
   where
   toJSON StartRecommendationReportGeneration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("groupIdFilter" Core..=) Prelude.<$> groupIdFilter,
-            ("outputFormat" Core..=) Prelude.<$> outputFormat
+          [ ("groupIdFilter" Data..=) Prelude.<$> groupIdFilter,
+            ("outputFormat" Data..=) Prelude.<$> outputFormat
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     StartRecommendationReportGeneration
   where
   toPath =
@@ -157,7 +158,7 @@ instance
       "/start-recommendation-report-generation"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     StartRecommendationReportGeneration
   where
   toQuery = Prelude.const Prelude.mempty

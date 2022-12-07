@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.LabelCategory where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The category that applies to a given label.
@@ -50,12 +51,12 @@ newLabelCategory =
 labelCategory_name :: Lens.Lens' LabelCategory (Prelude.Maybe Prelude.Text)
 labelCategory_name = Lens.lens (\LabelCategory' {name} -> name) (\s@LabelCategory' {} a -> s {name = a} :: LabelCategory)
 
-instance Core.FromJSON LabelCategory where
+instance Data.FromJSON LabelCategory where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelCategory"
       ( \x ->
-          LabelCategory' Prelude.<$> (x Core..:? "Name")
+          LabelCategory' Prelude.<$> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable LabelCategory where

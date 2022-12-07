@@ -54,6 +54,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -194,7 +195,7 @@ instance Core.AWSRequest ImportModel where
     Response.receiveJSON
       ( \s h x ->
           ImportModelResponse'
-            Prelude.<$> (x Core..?> "ModelArn")
+            Prelude.<$> (x Data..?> "ModelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -216,40 +217,40 @@ instance Prelude.NFData ImportModel where
       `Prelude.seq` Prelude.rnf modelName
       `Prelude.seq` Prelude.rnf sourceModelArn
 
-instance Core.ToHeaders ImportModel where
+instance Data.ToHeaders ImportModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.ImportModel" ::
+              Data.=# ( "Comprehend_20171127.ImportModel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportModel where
+instance Data.ToJSON ImportModel where
   toJSON ImportModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ModelKmsKeyId" Core..=) Prelude.<$> modelKmsKeyId,
-            ("DataAccessRoleArn" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ModelKmsKeyId" Data..=) Prelude.<$> modelKmsKeyId,
+            ("DataAccessRoleArn" Data..=)
               Prelude.<$> dataAccessRoleArn,
-            ("VersionName" Core..=) Prelude.<$> versionName,
-            ("ModelName" Core..=) Prelude.<$> modelName,
+            ("VersionName" Data..=) Prelude.<$> versionName,
+            ("ModelName" Data..=) Prelude.<$> modelName,
             Prelude.Just
-              ("SourceModelArn" Core..= sourceModelArn)
+              ("SourceModelArn" Data..= sourceModelArn)
           ]
       )
 
-instance Core.ToPath ImportModel where
+instance Data.ToPath ImportModel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportModel where
+instance Data.ToQuery ImportModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportModelResponse' smart constructor.

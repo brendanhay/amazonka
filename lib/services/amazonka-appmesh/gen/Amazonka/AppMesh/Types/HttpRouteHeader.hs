@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.HttpRouteHeader where
 import Amazonka.AppMesh.Types.HeaderMatchMethod
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the HTTP header in the request.
@@ -79,15 +80,15 @@ httpRouteHeader_invert = Lens.lens (\HttpRouteHeader' {invert} -> invert) (\s@Ht
 httpRouteHeader_name :: Lens.Lens' HttpRouteHeader Prelude.Text
 httpRouteHeader_name = Lens.lens (\HttpRouteHeader' {name} -> name) (\s@HttpRouteHeader' {} a -> s {name = a} :: HttpRouteHeader)
 
-instance Core.FromJSON HttpRouteHeader where
+instance Data.FromJSON HttpRouteHeader where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpRouteHeader"
       ( \x ->
           HttpRouteHeader'
-            Prelude.<$> (x Core..:? "match")
-            Prelude.<*> (x Core..:? "invert")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "match")
+            Prelude.<*> (x Data..:? "invert")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable HttpRouteHeader where
@@ -102,12 +103,12 @@ instance Prelude.NFData HttpRouteHeader where
       `Prelude.seq` Prelude.rnf invert
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON HttpRouteHeader where
+instance Data.ToJSON HttpRouteHeader where
   toJSON HttpRouteHeader' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("match" Core..=) Prelude.<$> match,
-            ("invert" Core..=) Prelude.<$> invert,
-            Prelude.Just ("name" Core..= name)
+          [ ("match" Data..=) Prelude.<$> match,
+            ("invert" Data..=) Prelude.<$> invert,
+            Prelude.Just ("name" Data..= name)
           ]
       )

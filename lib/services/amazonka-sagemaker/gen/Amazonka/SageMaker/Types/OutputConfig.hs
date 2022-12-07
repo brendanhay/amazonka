@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.OutputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.TargetDevice
 import Amazonka.SageMaker.Types.TargetPlatform
@@ -540,17 +541,17 @@ outputConfig_compilerOptions = Lens.lens (\OutputConfig' {compilerOptions} -> co
 outputConfig_s3OutputLocation :: Lens.Lens' OutputConfig Prelude.Text
 outputConfig_s3OutputLocation = Lens.lens (\OutputConfig' {s3OutputLocation} -> s3OutputLocation) (\s@OutputConfig' {} a -> s {s3OutputLocation = a} :: OutputConfig)
 
-instance Core.FromJSON OutputConfig where
+instance Data.FromJSON OutputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputConfig"
       ( \x ->
           OutputConfig'
-            Prelude.<$> (x Core..:? "TargetDevice")
-            Prelude.<*> (x Core..:? "TargetPlatform")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "CompilerOptions")
-            Prelude.<*> (x Core..: "S3OutputLocation")
+            Prelude.<$> (x Data..:? "TargetDevice")
+            Prelude.<*> (x Data..:? "TargetPlatform")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "CompilerOptions")
+            Prelude.<*> (x Data..: "S3OutputLocation")
       )
 
 instance Prelude.Hashable OutputConfig where
@@ -569,17 +570,17 @@ instance Prelude.NFData OutputConfig where
       `Prelude.seq` Prelude.rnf compilerOptions
       `Prelude.seq` Prelude.rnf s3OutputLocation
 
-instance Core.ToJSON OutputConfig where
+instance Data.ToJSON OutputConfig where
   toJSON OutputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetDevice" Core..=) Prelude.<$> targetDevice,
-            ("TargetPlatform" Core..=)
+          [ ("TargetDevice" Data..=) Prelude.<$> targetDevice,
+            ("TargetPlatform" Data..=)
               Prelude.<$> targetPlatform,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("CompilerOptions" Core..=)
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("CompilerOptions" Data..=)
               Prelude.<$> compilerOptions,
             Prelude.Just
-              ("S3OutputLocation" Core..= s3OutputLocation)
+              ("S3OutputLocation" Data..= s3OutputLocation)
           ]
       )

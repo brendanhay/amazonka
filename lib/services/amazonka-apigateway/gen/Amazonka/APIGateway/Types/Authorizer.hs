@@ -22,6 +22,7 @@ module Amazonka.APIGateway.Types.Authorizer where
 import Amazonka.APIGateway.Types.AuthorizerType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an authorization layer for methods. If enabled on a method,
@@ -282,22 +283,22 @@ authorizer_providerARNs = Lens.lens (\Authorizer' {providerARNs} -> providerARNs
 authorizer_authType :: Lens.Lens' Authorizer (Prelude.Maybe Prelude.Text)
 authorizer_authType = Lens.lens (\Authorizer' {authType} -> authType) (\s@Authorizer' {} a -> s {authType = a} :: Authorizer)
 
-instance Core.FromJSON Authorizer where
+instance Data.FromJSON Authorizer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Authorizer"
       ( \x ->
           Authorizer'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "authorizerCredentials")
-            Prelude.<*> (x Core..:? "identitySource")
-            Prelude.<*> (x Core..:? "authorizerResultTtlInSeconds")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "identityValidationExpression")
-            Prelude.<*> (x Core..:? "authorizerUri")
-            Prelude.<*> (x Core..:? "providerARNs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "authType")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "authorizerCredentials")
+            Prelude.<*> (x Data..:? "identitySource")
+            Prelude.<*> (x Data..:? "authorizerResultTtlInSeconds")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "identityValidationExpression")
+            Prelude.<*> (x Data..:? "authorizerUri")
+            Prelude.<*> (x Data..:? "providerARNs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "authType")
       )
 
 instance Prelude.Hashable Authorizer where

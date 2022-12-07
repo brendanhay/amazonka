@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,10 +89,10 @@ instance Core.AWSRequest BatchGetCustomEntityTypes where
     Response.receiveJSON
       ( \s h x ->
           BatchGetCustomEntityTypesResponse'
-            Prelude.<$> ( x Core..?> "CustomEntityTypes"
+            Prelude.<$> ( x Data..?> "CustomEntityTypes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "CustomEntityTypesNotFound")
+            Prelude.<*> (x Data..?> "CustomEntityTypesNotFound")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,32 +104,32 @@ instance Prelude.NFData BatchGetCustomEntityTypes where
   rnf BatchGetCustomEntityTypes' {..} =
     Prelude.rnf names
 
-instance Core.ToHeaders BatchGetCustomEntityTypes where
+instance Data.ToHeaders BatchGetCustomEntityTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.BatchGetCustomEntityTypes" ::
+              Data.=# ( "AWSGlue.BatchGetCustomEntityTypes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetCustomEntityTypes where
+instance Data.ToJSON BatchGetCustomEntityTypes where
   toJSON BatchGetCustomEntityTypes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Names" Core..= names)]
+          [Prelude.Just ("Names" Data..= names)]
       )
 
-instance Core.ToPath BatchGetCustomEntityTypes where
+instance Data.ToPath BatchGetCustomEntityTypes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetCustomEntityTypes where
+instance Data.ToQuery BatchGetCustomEntityTypes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetCustomEntityTypesResponse' smart constructor.

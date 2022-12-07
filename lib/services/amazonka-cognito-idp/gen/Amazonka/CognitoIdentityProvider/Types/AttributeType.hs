@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.AttributeType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies whether the attribute is standard or custom.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAttributeType' smart constructor.
 data AttributeType = AttributeType'
   { -- | The value of the attribute.
-    value :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    value :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the attribute.
     name :: Prelude.Text
   }
@@ -57,19 +58,19 @@ newAttributeType pName_ =
 
 -- | The value of the attribute.
 attributeType_value :: Lens.Lens' AttributeType (Prelude.Maybe Prelude.Text)
-attributeType_value = Lens.lens (\AttributeType' {value} -> value) (\s@AttributeType' {} a -> s {value = a} :: AttributeType) Prelude.. Lens.mapping Core._Sensitive
+attributeType_value = Lens.lens (\AttributeType' {value} -> value) (\s@AttributeType' {} a -> s {value = a} :: AttributeType) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the attribute.
 attributeType_name :: Lens.Lens' AttributeType Prelude.Text
 attributeType_name = Lens.lens (\AttributeType' {name} -> name) (\s@AttributeType' {} a -> s {name = a} :: AttributeType)
 
-instance Core.FromJSON AttributeType where
+instance Data.FromJSON AttributeType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttributeType"
       ( \x ->
           AttributeType'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "Value") Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable AttributeType where
@@ -81,11 +82,11 @@ instance Prelude.NFData AttributeType where
   rnf AttributeType' {..} =
     Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON AttributeType where
+instance Data.ToJSON AttributeType where
   toJSON AttributeType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            Prelude.Just ("Name" Core..= name)
+          [ ("Value" Data..=) Prelude.<$> value,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

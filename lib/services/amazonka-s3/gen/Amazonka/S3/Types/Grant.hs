@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Grant where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.Grantee
@@ -64,11 +65,11 @@ grant_permission = Lens.lens (\Grant' {permission} -> permission) (\s@Grant' {} 
 grant_grantee :: Lens.Lens' Grant (Prelude.Maybe Grantee)
 grant_grantee = Lens.lens (\Grant' {grantee} -> grantee) (\s@Grant' {} a -> s {grantee = a} :: Grant)
 
-instance Core.FromXML Grant where
+instance Data.FromXML Grant where
   parseXML x =
     Grant'
-      Prelude.<$> (x Core..@? "Permission")
-      Prelude.<*> (x Core..@? "Grantee")
+      Prelude.<$> (x Data..@? "Permission")
+      Prelude.<*> (x Data..@? "Grantee")
 
 instance Prelude.Hashable Grant where
   hashWithSalt _salt Grant' {..} =
@@ -80,9 +81,9 @@ instance Prelude.NFData Grant where
     Prelude.rnf permission
       `Prelude.seq` Prelude.rnf grantee
 
-instance Core.ToXML Grant where
+instance Data.ToXML Grant where
   toXML Grant' {..} =
     Prelude.mconcat
-      [ "Permission" Core.@= permission,
-        "Grantee" Core.@= grantee
+      [ "Permission" Data.@= permission,
+        "Grantee" Data.@= grantee
       ]

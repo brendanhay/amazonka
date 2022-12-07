@@ -23,6 +23,7 @@ import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
 import Amazonka.ComputeOptimizer.Types.VolumeConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a recommendation option for an Amazon Elastic Block Store
@@ -122,16 +123,16 @@ volumeRecommendationOption_savingsOpportunity = Lens.lens (\VolumeRecommendation
 volumeRecommendationOption_rank :: Lens.Lens' VolumeRecommendationOption (Prelude.Maybe Prelude.Int)
 volumeRecommendationOption_rank = Lens.lens (\VolumeRecommendationOption' {rank} -> rank) (\s@VolumeRecommendationOption' {} a -> s {rank = a} :: VolumeRecommendationOption)
 
-instance Core.FromJSON VolumeRecommendationOption where
+instance Data.FromJSON VolumeRecommendationOption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VolumeRecommendationOption"
       ( \x ->
           VolumeRecommendationOption'
-            Prelude.<$> (x Core..:? "performanceRisk")
-            Prelude.<*> (x Core..:? "configuration")
-            Prelude.<*> (x Core..:? "savingsOpportunity")
-            Prelude.<*> (x Core..:? "rank")
+            Prelude.<$> (x Data..:? "performanceRisk")
+            Prelude.<*> (x Data..:? "configuration")
+            Prelude.<*> (x Data..:? "savingsOpportunity")
+            Prelude.<*> (x Data..:? "rank")
       )
 
 instance Prelude.Hashable VolumeRecommendationOption where

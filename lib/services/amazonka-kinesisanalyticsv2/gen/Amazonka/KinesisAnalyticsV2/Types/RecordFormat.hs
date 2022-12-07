@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.RecordFormat where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.MappingParameters
 import Amazonka.KinesisAnalyticsV2.Types.RecordFormatType
 import qualified Amazonka.Prelude as Prelude
@@ -76,14 +77,14 @@ recordFormat_mappingParameters = Lens.lens (\RecordFormat' {mappingParameters} -
 recordFormat_recordFormatType :: Lens.Lens' RecordFormat RecordFormatType
 recordFormat_recordFormatType = Lens.lens (\RecordFormat' {recordFormatType} -> recordFormatType) (\s@RecordFormat' {} a -> s {recordFormatType = a} :: RecordFormat)
 
-instance Core.FromJSON RecordFormat where
+instance Data.FromJSON RecordFormat where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecordFormat"
       ( \x ->
           RecordFormat'
-            Prelude.<$> (x Core..:? "MappingParameters")
-            Prelude.<*> (x Core..: "RecordFormatType")
+            Prelude.<$> (x Data..:? "MappingParameters")
+            Prelude.<*> (x Data..: "RecordFormatType")
       )
 
 instance Prelude.Hashable RecordFormat where
@@ -96,13 +97,13 @@ instance Prelude.NFData RecordFormat where
     Prelude.rnf mappingParameters
       `Prelude.seq` Prelude.rnf recordFormatType
 
-instance Core.ToJSON RecordFormat where
+instance Data.ToJSON RecordFormat where
   toJSON RecordFormat' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MappingParameters" Core..=)
+          [ ("MappingParameters" Data..=)
               Prelude.<$> mappingParameters,
             Prelude.Just
-              ("RecordFormatType" Core..= recordFormatType)
+              ("RecordFormatType" Data..= recordFormatType)
           ]
       )

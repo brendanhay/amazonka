@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.InstancePortState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.NetworkProtocol
 import Amazonka.Lightsail.Types.PortState
 import qualified Amazonka.Prelude as Prelude
@@ -358,21 +359,21 @@ instancePortState_protocol = Lens.lens (\InstancePortState' {protocol} -> protoc
 instancePortState_fromPort :: Lens.Lens' InstancePortState (Prelude.Maybe Prelude.Int)
 instancePortState_fromPort = Lens.lens (\InstancePortState' {fromPort} -> fromPort) (\s@InstancePortState' {} a -> s {fromPort = a} :: InstancePortState)
 
-instance Core.FromJSON InstancePortState where
+instance Data.FromJSON InstancePortState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstancePortState"
       ( \x ->
           InstancePortState'
-            Prelude.<$> (x Core..:? "toPort")
-            Prelude.<*> (x Core..:? "ipv6Cidrs" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "cidrListAliases"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "toPort")
+            Prelude.<*> (x Data..:? "ipv6Cidrs" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "cidrListAliases"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "cidrs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "protocol")
-            Prelude.<*> (x Core..:? "fromPort")
+            Prelude.<*> (x Data..:? "cidrs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "protocol")
+            Prelude.<*> (x Data..:? "fromPort")
       )
 
 instance Prelude.Hashable InstancePortState where

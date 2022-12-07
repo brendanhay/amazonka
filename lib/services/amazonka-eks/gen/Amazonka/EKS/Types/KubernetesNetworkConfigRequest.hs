@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.KubernetesNetworkConfigRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.IpFamily
 import qualified Amazonka.Prelude as Prelude
 
@@ -180,12 +181,12 @@ instance
     Prelude.rnf ipFamily
       `Prelude.seq` Prelude.rnf serviceIpv4Cidr
 
-instance Core.ToJSON KubernetesNetworkConfigRequest where
+instance Data.ToJSON KubernetesNetworkConfigRequest where
   toJSON KubernetesNetworkConfigRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ipFamily" Core..=) Prelude.<$> ipFamily,
-            ("serviceIpv4Cidr" Core..=)
+          [ ("ipFamily" Data..=) Prelude.<$> ipFamily,
+            ("serviceIpv4Cidr" Data..=)
               Prelude.<$> serviceIpv4Cidr
           ]
       )

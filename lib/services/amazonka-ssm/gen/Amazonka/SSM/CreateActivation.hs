@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,7 +114,7 @@ data CreateActivation = CreateActivation'
     -- format, such as \"2021-07-07T00:00:00\". You can specify a date up to 30
     -- days in advance. If you don\'t provide an expiration date, the
     -- activation code expires in 24 hours.
-    expirationDate :: Prelude.Maybe Core.POSIX,
+    expirationDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the Identity and Access Management (IAM) role that you want
     -- to assign to the managed node. This IAM role must provide AssumeRole
     -- permissions for the Amazon Web Services Systems Manager service
@@ -261,7 +262,7 @@ createActivation_registrationLimit = Lens.lens (\CreateActivation' {registration
 -- days in advance. If you don\'t provide an expiration date, the
 -- activation code expires in 24 hours.
 createActivation_expirationDate :: Lens.Lens' CreateActivation (Prelude.Maybe Prelude.UTCTime)
-createActivation_expirationDate = Lens.lens (\CreateActivation' {expirationDate} -> expirationDate) (\s@CreateActivation' {} a -> s {expirationDate = a} :: CreateActivation) Prelude.. Lens.mapping Core._Time
+createActivation_expirationDate = Lens.lens (\CreateActivation' {expirationDate} -> expirationDate) (\s@CreateActivation' {} a -> s {expirationDate = a} :: CreateActivation) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the Identity and Access Management (IAM) role that you want
 -- to assign to the managed node. This IAM role must provide AssumeRole
@@ -285,8 +286,8 @@ instance Core.AWSRequest CreateActivation where
     Response.receiveJSON
       ( \s h x ->
           CreateActivationResponse'
-            Prelude.<$> (x Core..?> "ActivationId")
-            Prelude.<*> (x Core..?> "ActivationCode")
+            Prelude.<$> (x Data..?> "ActivationId")
+            Prelude.<*> (x Data..?> "ActivationCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -310,41 +311,41 @@ instance Prelude.NFData CreateActivation where
       `Prelude.seq` Prelude.rnf expirationDate
       `Prelude.seq` Prelude.rnf iamRole
 
-instance Core.ToHeaders CreateActivation where
+instance Data.ToHeaders CreateActivation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.CreateActivation" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.CreateActivation" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateActivation where
+instance Data.ToJSON CreateActivation where
   toJSON CreateActivation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("DefaultInstanceName" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("DefaultInstanceName" Data..=)
               Prelude.<$> defaultInstanceName,
-            ("Description" Core..=) Prelude.<$> description,
-            ("RegistrationMetadata" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("RegistrationMetadata" Data..=)
               Prelude.<$> registrationMetadata,
-            ("RegistrationLimit" Core..=)
+            ("RegistrationLimit" Data..=)
               Prelude.<$> registrationLimit,
-            ("ExpirationDate" Core..=)
+            ("ExpirationDate" Data..=)
               Prelude.<$> expirationDate,
-            Prelude.Just ("IamRole" Core..= iamRole)
+            Prelude.Just ("IamRole" Data..= iamRole)
           ]
       )
 
-instance Core.ToPath CreateActivation where
+instance Data.ToPath CreateActivation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateActivation where
+instance Data.ToQuery CreateActivation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateActivationResponse' smart constructor.

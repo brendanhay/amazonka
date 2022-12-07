@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,10 +126,10 @@ instance Core.AWSRequest PutCodeBinding where
     Response.receiveJSON
       ( \s h x ->
           PutCodeBindingResponse'
-            Prelude.<$> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "LastModified")
-            Prelude.<*> (x Core..?> "SchemaVersion")
+            Prelude.<$> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "LastModified")
+            Prelude.<*> (x Data..?> "SchemaVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,44 +147,44 @@ instance Prelude.NFData PutCodeBinding where
       `Prelude.seq` Prelude.rnf schemaName
       `Prelude.seq` Prelude.rnf language
 
-instance Core.ToHeaders PutCodeBinding where
+instance Data.ToHeaders PutCodeBinding where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutCodeBinding where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON PutCodeBinding where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath PutCodeBinding where
+instance Data.ToPath PutCodeBinding where
   toPath PutCodeBinding' {..} =
     Prelude.mconcat
       [ "/v1/registries/name/",
-        Core.toBS registryName,
+        Data.toBS registryName,
         "/schemas/name/",
-        Core.toBS schemaName,
+        Data.toBS schemaName,
         "/language/",
-        Core.toBS language
+        Data.toBS language
       ]
 
-instance Core.ToQuery PutCodeBinding where
+instance Data.ToQuery PutCodeBinding where
   toQuery PutCodeBinding' {..} =
     Prelude.mconcat
-      ["schemaVersion" Core.=: schemaVersion]
+      ["schemaVersion" Data.=: schemaVersion]
 
 -- | /See:/ 'newPutCodeBindingResponse' smart constructor.
 data PutCodeBindingResponse = PutCodeBindingResponse'
   { -- | The time and date that the code binding was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The current status of code binding generation.
     status :: Prelude.Maybe CodeGenerationStatus,
     -- | The date and time that code bindings were modified.
-    lastModified :: Prelude.Maybe Core.POSIX,
+    lastModified :: Prelude.Maybe Data.POSIX,
     -- | The version number of the schema.
     schemaVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -224,7 +225,7 @@ newPutCodeBindingResponse pHttpStatus_ =
 
 -- | The time and date that the code binding was created.
 putCodeBindingResponse_creationDate :: Lens.Lens' PutCodeBindingResponse (Prelude.Maybe Prelude.UTCTime)
-putCodeBindingResponse_creationDate = Lens.lens (\PutCodeBindingResponse' {creationDate} -> creationDate) (\s@PutCodeBindingResponse' {} a -> s {creationDate = a} :: PutCodeBindingResponse) Prelude.. Lens.mapping Core._Time
+putCodeBindingResponse_creationDate = Lens.lens (\PutCodeBindingResponse' {creationDate} -> creationDate) (\s@PutCodeBindingResponse' {} a -> s {creationDate = a} :: PutCodeBindingResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of code binding generation.
 putCodeBindingResponse_status :: Lens.Lens' PutCodeBindingResponse (Prelude.Maybe CodeGenerationStatus)
@@ -232,7 +233,7 @@ putCodeBindingResponse_status = Lens.lens (\PutCodeBindingResponse' {status} -> 
 
 -- | The date and time that code bindings were modified.
 putCodeBindingResponse_lastModified :: Lens.Lens' PutCodeBindingResponse (Prelude.Maybe Prelude.UTCTime)
-putCodeBindingResponse_lastModified = Lens.lens (\PutCodeBindingResponse' {lastModified} -> lastModified) (\s@PutCodeBindingResponse' {} a -> s {lastModified = a} :: PutCodeBindingResponse) Prelude.. Lens.mapping Core._Time
+putCodeBindingResponse_lastModified = Lens.lens (\PutCodeBindingResponse' {lastModified} -> lastModified) (\s@PutCodeBindingResponse' {} a -> s {lastModified = a} :: PutCodeBindingResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The version number of the schema.
 putCodeBindingResponse_schemaVersion :: Lens.Lens' PutCodeBindingResponse (Prelude.Maybe Prelude.Text)

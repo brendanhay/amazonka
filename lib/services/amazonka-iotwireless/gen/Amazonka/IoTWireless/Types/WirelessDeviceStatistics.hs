@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.WirelessDeviceStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.FuotaDeviceStatus
 import Amazonka.IoTWireless.Types.LoRaWANListDevice
 import Amazonka.IoTWireless.Types.SidewalkListDevice
@@ -144,23 +145,23 @@ wirelessDeviceStatistics_fuotaDeviceStatus = Lens.lens (\WirelessDeviceStatistic
 wirelessDeviceStatistics_sidewalk :: Lens.Lens' WirelessDeviceStatistics (Prelude.Maybe SidewalkListDevice)
 wirelessDeviceStatistics_sidewalk = Lens.lens (\WirelessDeviceStatistics' {sidewalk} -> sidewalk) (\s@WirelessDeviceStatistics' {} a -> s {sidewalk = a} :: WirelessDeviceStatistics)
 
-instance Core.FromJSON WirelessDeviceStatistics where
+instance Data.FromJSON WirelessDeviceStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WirelessDeviceStatistics"
       ( \x ->
           WirelessDeviceStatistics'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "LastUplinkReceivedAt")
-            Prelude.<*> (x Core..:? "LoRaWAN")
-            Prelude.<*> (x Core..:? "DestinationName")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "McGroupId")
-            Prelude.<*> (x Core..:? "MulticastDeviceStatus")
-            Prelude.<*> (x Core..:? "FuotaDeviceStatus")
-            Prelude.<*> (x Core..:? "Sidewalk")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "LastUplinkReceivedAt")
+            Prelude.<*> (x Data..:? "LoRaWAN")
+            Prelude.<*> (x Data..:? "DestinationName")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "McGroupId")
+            Prelude.<*> (x Data..:? "MulticastDeviceStatus")
+            Prelude.<*> (x Data..:? "FuotaDeviceStatus")
+            Prelude.<*> (x Data..:? "Sidewalk")
       )
 
 instance Prelude.Hashable WirelessDeviceStatistics where

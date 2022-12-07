@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -179,11 +180,11 @@ instance
       "DescribeReservedNodeExchangeStatusResult"
       ( \s h x ->
           DescribeReservedNodeExchangeStatusResponse'
-            Prelude.<$> (x Core..@? "Marker")
-              Prelude.<*> ( x Core..@? "ReservedNodeExchangeStatusDetails"
+            Prelude.<$> (x Data..@? "Marker")
+              Prelude.<*> ( x Data..@? "ReservedNodeExchangeStatusDetails"
                               Core..!@ Prelude.mempty
                               Prelude.>>= Core.may
-                                (Core.parseXMLList "ReservedNodeExchangeStatus")
+                                (Data.parseXMLList "ReservedNodeExchangeStatus")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -211,34 +212,34 @@ instance
       `Prelude.seq` Prelude.rnf maxRecords
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeReservedNodeExchangeStatus
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeReservedNodeExchangeStatus
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeReservedNodeExchangeStatus
   where
   toQuery DescribeReservedNodeExchangeStatus' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeReservedNodeExchangeStatus" ::
+          Data.=: ( "DescribeReservedNodeExchangeStatus" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "ReservedNodeExchangeRequestId"
-          Core.=: reservedNodeExchangeRequestId,
-        "ReservedNodeId" Core.=: reservedNodeId,
-        "MaxRecords" Core.=: maxRecords
+          Data.=: reservedNodeExchangeRequestId,
+        "ReservedNodeId" Data.=: reservedNodeId,
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeReservedNodeExchangeStatusResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.CategoricalParameterRangeSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the possible values for a categorical hyperparameter.
@@ -56,15 +57,15 @@ categoricalParameterRangeSpecification_values :: Lens.Lens' CategoricalParameter
 categoricalParameterRangeSpecification_values = Lens.lens (\CategoricalParameterRangeSpecification' {values} -> values) (\s@CategoricalParameterRangeSpecification' {} a -> s {values = a} :: CategoricalParameterRangeSpecification) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CategoricalParameterRangeSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CategoricalParameterRangeSpecification"
       ( \x ->
           CategoricalParameterRangeSpecification'
-            Prelude.<$> (x Core..: "Values")
+            Prelude.<$> (x Data..: "Values")
       )
 
 instance
@@ -84,11 +85,11 @@ instance
     Prelude.rnf values
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CategoricalParameterRangeSpecification
   where
   toJSON CategoricalParameterRangeSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Values" Core..= values)]
+          [Prelude.Just ("Values" Data..= values)]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TrainingJobStatusCounters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The numbers of training jobs launched by a hyperparameter tuning job,
@@ -111,17 +112,17 @@ trainingJobStatusCounters_nonRetryableError = Lens.lens (\TrainingJobStatusCount
 trainingJobStatusCounters_inProgress :: Lens.Lens' TrainingJobStatusCounters (Prelude.Maybe Prelude.Natural)
 trainingJobStatusCounters_inProgress = Lens.lens (\TrainingJobStatusCounters' {inProgress} -> inProgress) (\s@TrainingJobStatusCounters' {} a -> s {inProgress = a} :: TrainingJobStatusCounters)
 
-instance Core.FromJSON TrainingJobStatusCounters where
+instance Data.FromJSON TrainingJobStatusCounters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrainingJobStatusCounters"
       ( \x ->
           TrainingJobStatusCounters'
-            Prelude.<$> (x Core..:? "RetryableError")
-            Prelude.<*> (x Core..:? "Completed")
-            Prelude.<*> (x Core..:? "Stopped")
-            Prelude.<*> (x Core..:? "NonRetryableError")
-            Prelude.<*> (x Core..:? "InProgress")
+            Prelude.<$> (x Data..:? "RetryableError")
+            Prelude.<*> (x Data..:? "Completed")
+            Prelude.<*> (x Data..:? "Stopped")
+            Prelude.<*> (x Data..:? "NonRetryableError")
+            Prelude.<*> (x Data..:? "InProgress")
       )
 
 instance Prelude.Hashable TrainingJobStatusCounters where

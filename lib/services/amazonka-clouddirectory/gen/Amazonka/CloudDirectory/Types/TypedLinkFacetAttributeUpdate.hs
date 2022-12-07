@@ -23,6 +23,7 @@ import Amazonka.CloudDirectory.Types.TypedLinkAttributeDefinition
 import Amazonka.CloudDirectory.Types.UpdateActionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A typed link facet attribute update.
@@ -81,11 +82,11 @@ instance Prelude.NFData TypedLinkFacetAttributeUpdate where
     Prelude.rnf attribute
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToJSON TypedLinkFacetAttributeUpdate where
+instance Data.ToJSON TypedLinkFacetAttributeUpdate where
   toJSON TypedLinkFacetAttributeUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Attribute" Core..= attribute),
-            Prelude.Just ("Action" Core..= action)
+          [ Prelude.Just ("Attribute" Data..= attribute),
+            Prelude.Just ("Action" Data..= action)
           ]
       )

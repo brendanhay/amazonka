@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEc2VpnConnectionVgwTelemetryDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the VPN tunnel.
@@ -117,20 +118,20 @@ awsEc2VpnConnectionVgwTelemetryDetails_outsideIpAddress :: Lens.Lens' AwsEc2VpnC
 awsEc2VpnConnectionVgwTelemetryDetails_outsideIpAddress = Lens.lens (\AwsEc2VpnConnectionVgwTelemetryDetails' {outsideIpAddress} -> outsideIpAddress) (\s@AwsEc2VpnConnectionVgwTelemetryDetails' {} a -> s {outsideIpAddress = a} :: AwsEc2VpnConnectionVgwTelemetryDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEc2VpnConnectionVgwTelemetryDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2VpnConnectionVgwTelemetryDetails"
       ( \x ->
           AwsEc2VpnConnectionVgwTelemetryDetails'
-            Prelude.<$> (x Core..:? "AcceptedRouteCount")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "LastStatusChange")
-            Prelude.<*> (x Core..:? "CertificateArn")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "OutsideIpAddress")
+            Prelude.<$> (x Data..:? "AcceptedRouteCount")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "LastStatusChange")
+            Prelude.<*> (x Data..:? "CertificateArn")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "OutsideIpAddress")
       )
 
 instance
@@ -160,21 +161,21 @@ instance
       `Prelude.seq` Prelude.rnf outsideIpAddress
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEc2VpnConnectionVgwTelemetryDetails
   where
   toJSON AwsEc2VpnConnectionVgwTelemetryDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceptedRouteCount" Core..=)
+          [ ("AcceptedRouteCount" Data..=)
               Prelude.<$> acceptedRouteCount,
-            ("Status" Core..=) Prelude.<$> status,
-            ("LastStatusChange" Core..=)
+            ("Status" Data..=) Prelude.<$> status,
+            ("LastStatusChange" Data..=)
               Prelude.<$> lastStatusChange,
-            ("CertificateArn" Core..=)
+            ("CertificateArn" Data..=)
               Prelude.<$> certificateArn,
-            ("StatusMessage" Core..=) Prelude.<$> statusMessage,
-            ("OutsideIpAddress" Core..=)
+            ("StatusMessage" Data..=) Prelude.<$> statusMessage,
+            ("OutsideIpAddress" Data..=)
               Prelude.<$> outsideIpAddress
           ]
       )

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,30 +98,30 @@ instance Prelude.Hashable DeleteEndpoint where
 instance Prelude.NFData DeleteEndpoint where
   rnf DeleteEndpoint' {..} = Prelude.rnf endpointName
 
-instance Core.ToHeaders DeleteEndpoint where
+instance Data.ToHeaders DeleteEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteEndpoint" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DeleteEndpoint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteEndpoint where
+instance Data.ToJSON DeleteEndpoint where
   toJSON DeleteEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("EndpointName" Core..= endpointName)]
+          [Prelude.Just ("EndpointName" Data..= endpointName)]
       )
 
-instance Core.ToPath DeleteEndpoint where
+instance Data.ToPath DeleteEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteEndpoint where
+instance Data.ToQuery DeleteEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEndpointResponse' smart constructor.

@@ -80,6 +80,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,7 +145,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetBucketLifecycleConfigurationResponse'
-            Prelude.<$> (Core.may (Core.parseXMLList "Rule") x)
+            Prelude.<$> (Core.may (Data.parseXMLList "Rule") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,20 +168,20 @@ instance
       `Prelude.seq` Prelude.rnf bucket
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetBucketLifecycleConfiguration
   where
   toHeaders GetBucketLifecycleConfiguration' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath GetBucketLifecycleConfiguration where
+instance Data.ToPath GetBucketLifecycleConfiguration where
   toPath GetBucketLifecycleConfiguration' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery GetBucketLifecycleConfiguration where
+instance Data.ToQuery GetBucketLifecycleConfiguration where
   toQuery =
     Prelude.const (Prelude.mconcat ["lifecycle"])
 

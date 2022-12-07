@@ -53,6 +53,7 @@ where
 import Amazonka.Braket.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,19 +95,19 @@ instance Core.AWSRequest GetQuantumTask where
     Response.receiveJSON
       ( \s h x ->
           GetQuantumTaskResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "endedAt")
-            Prelude.<*> (x Core..?> "jobArn")
-            Prelude.<*> (x Core..?> "failureReason")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "endedAt")
+            Prelude.<*> (x Data..?> "jobArn")
+            Prelude.<*> (x Data..?> "failureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "createdAt")
-            Prelude.<*> (x Core..:> "deviceArn")
-            Prelude.<*> (x Core..:> "deviceParameters")
-            Prelude.<*> (x Core..:> "outputS3Bucket")
-            Prelude.<*> (x Core..:> "outputS3Directory")
-            Prelude.<*> (x Core..:> "quantumTaskArn")
-            Prelude.<*> (x Core..:> "shots")
-            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Data..:> "createdAt")
+            Prelude.<*> (x Data..:> "deviceArn")
+            Prelude.<*> (x Data..:> "deviceParameters")
+            Prelude.<*> (x Data..:> "outputS3Bucket")
+            Prelude.<*> (x Data..:> "outputS3Directory")
+            Prelude.<*> (x Data..:> "quantumTaskArn")
+            Prelude.<*> (x Data..:> "shots")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance Prelude.Hashable GetQuantumTask where
@@ -116,23 +117,23 @@ instance Prelude.Hashable GetQuantumTask where
 instance Prelude.NFData GetQuantumTask where
   rnf GetQuantumTask' {..} = Prelude.rnf quantumTaskArn
 
-instance Core.ToHeaders GetQuantumTask where
+instance Data.ToHeaders GetQuantumTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetQuantumTask where
+instance Data.ToPath GetQuantumTask where
   toPath GetQuantumTask' {..} =
     Prelude.mconcat
-      ["/quantum-task/", Core.toBS quantumTaskArn]
+      ["/quantum-task/", Data.toBS quantumTaskArn]
 
-instance Core.ToQuery GetQuantumTask where
+instance Data.ToQuery GetQuantumTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetQuantumTaskResponse' smart constructor.
@@ -140,7 +141,7 @@ data GetQuantumTaskResponse = GetQuantumTaskResponse'
   { -- | The tags that belong to this task.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time at which the task ended.
-    endedAt :: Prelude.Maybe Core.POSIX,
+    endedAt :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the Amazon Braket job associated with the quantum task.
     jobArn :: Prelude.Maybe Prelude.Text,
     -- | The reason that a task failed.
@@ -148,7 +149,7 @@ data GetQuantumTaskResponse = GetQuantumTaskResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The time at which the task was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The ARN of the device the task was run on.
     deviceArn :: Prelude.Text,
     -- | The parameters for the device on which the task ran.
@@ -235,7 +236,7 @@ newGetQuantumTaskResponse
         jobArn = Prelude.Nothing,
         failureReason = Prelude.Nothing,
         httpStatus = pHttpStatus_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         deviceArn = pDeviceArn_,
         deviceParameters = pDeviceParameters_,
         outputS3Bucket = pOutputS3Bucket_,
@@ -251,7 +252,7 @@ getQuantumTaskResponse_tags = Lens.lens (\GetQuantumTaskResponse' {tags} -> tags
 
 -- | The time at which the task ended.
 getQuantumTaskResponse_endedAt :: Lens.Lens' GetQuantumTaskResponse (Prelude.Maybe Prelude.UTCTime)
-getQuantumTaskResponse_endedAt = Lens.lens (\GetQuantumTaskResponse' {endedAt} -> endedAt) (\s@GetQuantumTaskResponse' {} a -> s {endedAt = a} :: GetQuantumTaskResponse) Prelude.. Lens.mapping Core._Time
+getQuantumTaskResponse_endedAt = Lens.lens (\GetQuantumTaskResponse' {endedAt} -> endedAt) (\s@GetQuantumTaskResponse' {} a -> s {endedAt = a} :: GetQuantumTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the Amazon Braket job associated with the quantum task.
 getQuantumTaskResponse_jobArn :: Lens.Lens' GetQuantumTaskResponse (Prelude.Maybe Prelude.Text)
@@ -267,7 +268,7 @@ getQuantumTaskResponse_httpStatus = Lens.lens (\GetQuantumTaskResponse' {httpSta
 
 -- | The time at which the task was created.
 getQuantumTaskResponse_createdAt :: Lens.Lens' GetQuantumTaskResponse Prelude.UTCTime
-getQuantumTaskResponse_createdAt = Lens.lens (\GetQuantumTaskResponse' {createdAt} -> createdAt) (\s@GetQuantumTaskResponse' {} a -> s {createdAt = a} :: GetQuantumTaskResponse) Prelude.. Core._Time
+getQuantumTaskResponse_createdAt = Lens.lens (\GetQuantumTaskResponse' {createdAt} -> createdAt) (\s@GetQuantumTaskResponse' {} a -> s {createdAt = a} :: GetQuantumTaskResponse) Prelude.. Data._Time
 
 -- | The ARN of the device the task was run on.
 getQuantumTaskResponse_deviceArn :: Lens.Lens' GetQuantumTaskResponse Prelude.Text

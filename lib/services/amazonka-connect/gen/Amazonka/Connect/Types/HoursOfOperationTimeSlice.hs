@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.HoursOfOperationTimeSlice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The start time or end time for an hours of operation.
@@ -65,14 +66,14 @@ hoursOfOperationTimeSlice_hours = Lens.lens (\HoursOfOperationTimeSlice' {hours}
 hoursOfOperationTimeSlice_minutes :: Lens.Lens' HoursOfOperationTimeSlice Prelude.Natural
 hoursOfOperationTimeSlice_minutes = Lens.lens (\HoursOfOperationTimeSlice' {minutes} -> minutes) (\s@HoursOfOperationTimeSlice' {} a -> s {minutes = a} :: HoursOfOperationTimeSlice)
 
-instance Core.FromJSON HoursOfOperationTimeSlice where
+instance Data.FromJSON HoursOfOperationTimeSlice where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HoursOfOperationTimeSlice"
       ( \x ->
           HoursOfOperationTimeSlice'
-            Prelude.<$> (x Core..: "Hours")
-            Prelude.<*> (x Core..: "Minutes")
+            Prelude.<$> (x Data..: "Hours")
+            Prelude.<*> (x Data..: "Minutes")
       )
 
 instance Prelude.Hashable HoursOfOperationTimeSlice where
@@ -84,11 +85,11 @@ instance Prelude.NFData HoursOfOperationTimeSlice where
   rnf HoursOfOperationTimeSlice' {..} =
     Prelude.rnf hours `Prelude.seq` Prelude.rnf minutes
 
-instance Core.ToJSON HoursOfOperationTimeSlice where
+instance Data.ToJSON HoursOfOperationTimeSlice where
   toJSON HoursOfOperationTimeSlice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Hours" Core..= hours),
-            Prelude.Just ("Minutes" Core..= minutes)
+          [ Prelude.Just ("Hours" Data..= hours),
+            Prelude.Just ("Minutes" Data..= minutes)
           ]
       )

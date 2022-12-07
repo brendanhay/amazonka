@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.CidrCollection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 
@@ -89,13 +90,13 @@ cidrCollection_id = Lens.lens (\CidrCollection' {id} -> id) (\s@CidrCollection' 
 cidrCollection_version :: Lens.Lens' CidrCollection (Prelude.Maybe Prelude.Natural)
 cidrCollection_version = Lens.lens (\CidrCollection' {version} -> version) (\s@CidrCollection' {} a -> s {version = a} :: CidrCollection)
 
-instance Core.FromXML CidrCollection where
+instance Data.FromXML CidrCollection where
   parseXML x =
     CidrCollection'
-      Prelude.<$> (x Core..@? "Name")
-      Prelude.<*> (x Core..@? "Arn")
-      Prelude.<*> (x Core..@? "Id")
-      Prelude.<*> (x Core..@? "Version")
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "Arn")
+      Prelude.<*> (x Data..@? "Id")
+      Prelude.<*> (x Data..@? "Version")
 
 instance Prelude.Hashable CidrCollection where
   hashWithSalt _salt CidrCollection' {..} =

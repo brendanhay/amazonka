@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,8 +87,8 @@ instance Core.AWSRequest CreateRealtimeEndpoint where
     Response.receiveJSON
       ( \s h x ->
           CreateRealtimeEndpointResponse'
-            Prelude.<$> (x Core..?> "RealtimeEndpointInfo")
-            Prelude.<*> (x Core..?> "MLModelId")
+            Prelude.<$> (x Data..?> "RealtimeEndpointInfo")
+            Prelude.<*> (x Data..?> "MLModelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,32 +100,32 @@ instance Prelude.NFData CreateRealtimeEndpoint where
   rnf CreateRealtimeEndpoint' {..} =
     Prelude.rnf mLModelId
 
-instance Core.ToHeaders CreateRealtimeEndpoint where
+instance Data.ToHeaders CreateRealtimeEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.CreateRealtimeEndpoint" ::
+              Data.=# ( "AmazonML_20141212.CreateRealtimeEndpoint" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRealtimeEndpoint where
+instance Data.ToJSON CreateRealtimeEndpoint where
   toJSON CreateRealtimeEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("MLModelId" Core..= mLModelId)]
+          [Prelude.Just ("MLModelId" Data..= mLModelId)]
       )
 
-instance Core.ToPath CreateRealtimeEndpoint where
+instance Data.ToPath CreateRealtimeEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateRealtimeEndpoint where
+instance Data.ToQuery CreateRealtimeEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an @CreateRealtimeEndpoint@ operation.

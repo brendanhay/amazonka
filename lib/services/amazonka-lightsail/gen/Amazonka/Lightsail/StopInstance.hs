@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,7 +120,7 @@ instance Core.AWSRequest StopInstance where
     Response.receiveJSON
       ( \s h x ->
           StopInstanceResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,34 +134,34 @@ instance Prelude.NFData StopInstance where
     Prelude.rnf force
       `Prelude.seq` Prelude.rnf instanceName
 
-instance Core.ToHeaders StopInstance where
+instance Data.ToHeaders StopInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.StopInstance" ::
+              Data.=# ( "Lightsail_20161128.StopInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopInstance where
+instance Data.ToJSON StopInstance where
   toJSON StopInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("force" Core..=) Prelude.<$> force,
-            Prelude.Just ("instanceName" Core..= instanceName)
+          [ ("force" Data..=) Prelude.<$> force,
+            Prelude.Just ("instanceName" Data..= instanceName)
           ]
       )
 
-instance Core.ToPath StopInstance where
+instance Data.ToPath StopInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopInstance where
+instance Data.ToQuery StopInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopInstanceResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsBackupBackupPlanRuleDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsBackupBackupPlanLifecycleDetails
 import Amazonka.SecurityHub.Types.AwsBackupBackupPlanRuleCopyActionsDetails
@@ -177,21 +178,21 @@ awsBackupBackupPlanRuleDetails_ruleName = Lens.lens (\AwsBackupBackupPlanRuleDet
 awsBackupBackupPlanRuleDetails_completionWindowMinutes :: Lens.Lens' AwsBackupBackupPlanRuleDetails (Prelude.Maybe Prelude.Integer)
 awsBackupBackupPlanRuleDetails_completionWindowMinutes = Lens.lens (\AwsBackupBackupPlanRuleDetails' {completionWindowMinutes} -> completionWindowMinutes) (\s@AwsBackupBackupPlanRuleDetails' {} a -> s {completionWindowMinutes = a} :: AwsBackupBackupPlanRuleDetails)
 
-instance Core.FromJSON AwsBackupBackupPlanRuleDetails where
+instance Data.FromJSON AwsBackupBackupPlanRuleDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsBackupBackupPlanRuleDetails"
       ( \x ->
           AwsBackupBackupPlanRuleDetails'
-            Prelude.<$> (x Core..:? "StartWindowMinutes")
-            Prelude.<*> (x Core..:? "Lifecycle")
-            Prelude.<*> (x Core..:? "TargetBackupVault")
-            Prelude.<*> (x Core..:? "RuleId")
-            Prelude.<*> (x Core..:? "CopyActions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ScheduleExpression")
-            Prelude.<*> (x Core..:? "EnableContinuousBackup")
-            Prelude.<*> (x Core..:? "RuleName")
-            Prelude.<*> (x Core..:? "CompletionWindowMinutes")
+            Prelude.<$> (x Data..:? "StartWindowMinutes")
+            Prelude.<*> (x Data..:? "Lifecycle")
+            Prelude.<*> (x Data..:? "TargetBackupVault")
+            Prelude.<*> (x Data..:? "RuleId")
+            Prelude.<*> (x Data..:? "CopyActions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ScheduleExpression")
+            Prelude.<*> (x Data..:? "EnableContinuousBackup")
+            Prelude.<*> (x Data..:? "RuleName")
+            Prelude.<*> (x Data..:? "CompletionWindowMinutes")
       )
 
 instance
@@ -226,23 +227,23 @@ instance
       `Prelude.seq` Prelude.rnf ruleName
       `Prelude.seq` Prelude.rnf completionWindowMinutes
 
-instance Core.ToJSON AwsBackupBackupPlanRuleDetails where
+instance Data.ToJSON AwsBackupBackupPlanRuleDetails where
   toJSON AwsBackupBackupPlanRuleDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StartWindowMinutes" Core..=)
+          [ ("StartWindowMinutes" Data..=)
               Prelude.<$> startWindowMinutes,
-            ("Lifecycle" Core..=) Prelude.<$> lifecycle,
-            ("TargetBackupVault" Core..=)
+            ("Lifecycle" Data..=) Prelude.<$> lifecycle,
+            ("TargetBackupVault" Data..=)
               Prelude.<$> targetBackupVault,
-            ("RuleId" Core..=) Prelude.<$> ruleId,
-            ("CopyActions" Core..=) Prelude.<$> copyActions,
-            ("ScheduleExpression" Core..=)
+            ("RuleId" Data..=) Prelude.<$> ruleId,
+            ("CopyActions" Data..=) Prelude.<$> copyActions,
+            ("ScheduleExpression" Data..=)
               Prelude.<$> scheduleExpression,
-            ("EnableContinuousBackup" Core..=)
+            ("EnableContinuousBackup" Data..=)
               Prelude.<$> enableContinuousBackup,
-            ("RuleName" Core..=) Prelude.<$> ruleName,
-            ("CompletionWindowMinutes" Core..=)
+            ("RuleName" Data..=) Prelude.<$> ruleName,
+            ("CompletionWindowMinutes" Data..=)
               Prelude.<$> completionWindowMinutes
           ]
       )

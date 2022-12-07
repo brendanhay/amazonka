@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.AwsEc2InstanceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of the Amazon EC2 instance involved in a finding.
@@ -40,7 +41,7 @@ data AwsEc2InstanceDetails = AwsEc2InstanceDetails'
     -- | The name of the key pair used to launch the Amazon EC2 instance.
     keyName :: Prelude.Maybe Prelude.Text,
     -- | The date and time the Amazon EC2 instance was launched at.
-    launchedAt :: Prelude.Maybe Core.POSIX,
+    launchedAt :: Prelude.Maybe Data.POSIX,
     -- | The VPC ID of the Amazon EC2 instance.
     vpcId :: Prelude.Maybe Prelude.Text,
     -- | The IPv6 addresses of the Amazon EC2 instance.
@@ -119,7 +120,7 @@ awsEc2InstanceDetails_keyName = Lens.lens (\AwsEc2InstanceDetails' {keyName} -> 
 
 -- | The date and time the Amazon EC2 instance was launched at.
 awsEc2InstanceDetails_launchedAt :: Lens.Lens' AwsEc2InstanceDetails (Prelude.Maybe Prelude.UTCTime)
-awsEc2InstanceDetails_launchedAt = Lens.lens (\AwsEc2InstanceDetails' {launchedAt} -> launchedAt) (\s@AwsEc2InstanceDetails' {} a -> s {launchedAt = a} :: AwsEc2InstanceDetails) Prelude.. Lens.mapping Core._Time
+awsEc2InstanceDetails_launchedAt = Lens.lens (\AwsEc2InstanceDetails' {launchedAt} -> launchedAt) (\s@AwsEc2InstanceDetails' {} a -> s {launchedAt = a} :: AwsEc2InstanceDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The VPC ID of the Amazon EC2 instance.
 awsEc2InstanceDetails_vpcId :: Lens.Lens' AwsEc2InstanceDetails (Prelude.Maybe Prelude.Text)
@@ -133,22 +134,22 @@ awsEc2InstanceDetails_ipV6Addresses = Lens.lens (\AwsEc2InstanceDetails' {ipV6Ad
 awsEc2InstanceDetails_imageId :: Lens.Lens' AwsEc2InstanceDetails (Prelude.Maybe Prelude.Text)
 awsEc2InstanceDetails_imageId = Lens.lens (\AwsEc2InstanceDetails' {imageId} -> imageId) (\s@AwsEc2InstanceDetails' {} a -> s {imageId = a} :: AwsEc2InstanceDetails)
 
-instance Core.FromJSON AwsEc2InstanceDetails where
+instance Data.FromJSON AwsEc2InstanceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2InstanceDetails"
       ( \x ->
           AwsEc2InstanceDetails'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "ipV4Addresses" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "subnetId")
-            Prelude.<*> (x Core..:? "iamInstanceProfileArn")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "keyName")
-            Prelude.<*> (x Core..:? "launchedAt")
-            Prelude.<*> (x Core..:? "vpcId")
-            Prelude.<*> (x Core..:? "ipV6Addresses" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "imageId")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "ipV4Addresses" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "subnetId")
+            Prelude.<*> (x Data..:? "iamInstanceProfileArn")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "keyName")
+            Prelude.<*> (x Data..:? "launchedAt")
+            Prelude.<*> (x Data..:? "vpcId")
+            Prelude.<*> (x Data..:? "ipV6Addresses" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "imageId")
       )
 
 instance Prelude.Hashable AwsEc2InstanceDetails where

@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.ConnectionAliasPermission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the permissions for a connection alias. Connection aliases are
@@ -76,14 +77,14 @@ connectionAliasPermission_sharedAccountId = Lens.lens (\ConnectionAliasPermissio
 connectionAliasPermission_allowAssociation :: Lens.Lens' ConnectionAliasPermission Prelude.Bool
 connectionAliasPermission_allowAssociation = Lens.lens (\ConnectionAliasPermission' {allowAssociation} -> allowAssociation) (\s@ConnectionAliasPermission' {} a -> s {allowAssociation = a} :: ConnectionAliasPermission)
 
-instance Core.FromJSON ConnectionAliasPermission where
+instance Data.FromJSON ConnectionAliasPermission where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionAliasPermission"
       ( \x ->
           ConnectionAliasPermission'
-            Prelude.<$> (x Core..: "SharedAccountId")
-            Prelude.<*> (x Core..: "AllowAssociation")
+            Prelude.<$> (x Data..: "SharedAccountId")
+            Prelude.<*> (x Data..: "AllowAssociation")
       )
 
 instance Prelude.Hashable ConnectionAliasPermission where
@@ -96,13 +97,13 @@ instance Prelude.NFData ConnectionAliasPermission where
     Prelude.rnf sharedAccountId
       `Prelude.seq` Prelude.rnf allowAssociation
 
-instance Core.ToJSON ConnectionAliasPermission where
+instance Data.ToJSON ConnectionAliasPermission where
   toJSON ConnectionAliasPermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("SharedAccountId" Core..= sharedAccountId),
+              ("SharedAccountId" Data..= sharedAccountId),
             Prelude.Just
-              ("AllowAssociation" Core..= allowAssociation)
+              ("AllowAssociation" Data..= allowAssociation)
           ]
       )

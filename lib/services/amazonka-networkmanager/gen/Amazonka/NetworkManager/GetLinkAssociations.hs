@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,8 +152,8 @@ instance Core.AWSRequest GetLinkAssociations where
     Response.receiveJSON
       ( \s h x ->
           GetLinkAssociationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "LinkAssociations"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "LinkAssociations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -174,32 +175,32 @@ instance Prelude.NFData GetLinkAssociations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf globalNetworkId
 
-instance Core.ToHeaders GetLinkAssociations where
+instance Data.ToHeaders GetLinkAssociations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetLinkAssociations where
+instance Data.ToPath GetLinkAssociations where
   toPath GetLinkAssociations' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/link-associations"
       ]
 
-instance Core.ToQuery GetLinkAssociations where
+instance Data.ToQuery GetLinkAssociations where
   toQuery GetLinkAssociations' {..} =
     Prelude.mconcat
-      [ "linkId" Core.=: linkId,
-        "nextToken" Core.=: nextToken,
-        "deviceId" Core.=: deviceId,
-        "maxResults" Core.=: maxResults
+      [ "linkId" Data.=: linkId,
+        "nextToken" Data.=: nextToken,
+        "deviceId" Data.=: deviceId,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetLinkAssociationsResponse' smart constructor.

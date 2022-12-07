@@ -45,6 +45,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,8 +105,8 @@ instance Core.AWSRequest ListEngineVersions where
     Response.receiveJSON
       ( \s h x ->
           ListEngineVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "EngineVersions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "EngineVersions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,34 +120,34 @@ instance Prelude.NFData ListEngineVersions where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListEngineVersions where
+instance Data.ToHeaders ListEngineVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.ListEngineVersions" ::
+              Data.=# ( "AmazonAthena.ListEngineVersions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEngineVersions where
+instance Data.ToJSON ListEngineVersions where
   toJSON ListEngineVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListEngineVersions where
+instance Data.ToPath ListEngineVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEngineVersions where
+instance Data.ToQuery ListEngineVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEngineVersionsResponse' smart constructor.

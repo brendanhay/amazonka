@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -211,8 +212,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeSavingsPlansOfferingsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "searchResults" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "searchResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -251,43 +252,43 @@ instance Prelude.NFData DescribeSavingsPlansOfferings where
       `Prelude.seq` Prelude.rnf planTypes
       `Prelude.seq` Prelude.rnf serviceCodes
 
-instance Core.ToHeaders DescribeSavingsPlansOfferings where
+instance Data.ToHeaders DescribeSavingsPlansOfferings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSavingsPlansOfferings where
+instance Data.ToJSON DescribeSavingsPlansOfferings where
   toJSON DescribeSavingsPlansOfferings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("usageTypes" Core..=) Prelude.<$> usageTypes,
-            ("operations" Core..=) Prelude.<$> operations,
-            ("productType" Core..=) Prelude.<$> productType,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("descriptions" Core..=) Prelude.<$> descriptions,
-            ("currencies" Core..=) Prelude.<$> currencies,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("durations" Core..=) Prelude.<$> durations,
-            ("offeringIds" Core..=) Prelude.<$> offeringIds,
-            ("paymentOptions" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("usageTypes" Data..=) Prelude.<$> usageTypes,
+            ("operations" Data..=) Prelude.<$> operations,
+            ("productType" Data..=) Prelude.<$> productType,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("descriptions" Data..=) Prelude.<$> descriptions,
+            ("currencies" Data..=) Prelude.<$> currencies,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("durations" Data..=) Prelude.<$> durations,
+            ("offeringIds" Data..=) Prelude.<$> offeringIds,
+            ("paymentOptions" Data..=)
               Prelude.<$> paymentOptions,
-            ("planTypes" Core..=) Prelude.<$> planTypes,
-            ("serviceCodes" Core..=) Prelude.<$> serviceCodes
+            ("planTypes" Data..=) Prelude.<$> planTypes,
+            ("serviceCodes" Data..=) Prelude.<$> serviceCodes
           ]
       )
 
-instance Core.ToPath DescribeSavingsPlansOfferings where
+instance Data.ToPath DescribeSavingsPlansOfferings where
   toPath =
     Prelude.const "/DescribeSavingsPlansOfferings"
 
-instance Core.ToQuery DescribeSavingsPlansOfferings where
+instance Data.ToQuery DescribeSavingsPlansOfferings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSavingsPlansOfferingsResponse' smart constructor.

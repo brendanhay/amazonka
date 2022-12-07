@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.ResetTimerAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information required to reset the timer. The timer is reset to the
@@ -54,13 +55,13 @@ newResetTimerAction pTimerName_ =
 resetTimerAction_timerName :: Lens.Lens' ResetTimerAction Prelude.Text
 resetTimerAction_timerName = Lens.lens (\ResetTimerAction' {timerName} -> timerName) (\s@ResetTimerAction' {} a -> s {timerName = a} :: ResetTimerAction)
 
-instance Core.FromJSON ResetTimerAction where
+instance Data.FromJSON ResetTimerAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResetTimerAction"
       ( \x ->
           ResetTimerAction'
-            Prelude.<$> (x Core..: "timerName")
+            Prelude.<$> (x Data..: "timerName")
       )
 
 instance Prelude.Hashable ResetTimerAction where
@@ -70,9 +71,9 @@ instance Prelude.Hashable ResetTimerAction where
 instance Prelude.NFData ResetTimerAction where
   rnf ResetTimerAction' {..} = Prelude.rnf timerName
 
-instance Core.ToJSON ResetTimerAction where
+instance Data.ToJSON ResetTimerAction where
   toJSON ResetTimerAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("timerName" Core..= timerName)]
+          [Prelude.Just ("timerName" Data..= timerName)]
       )

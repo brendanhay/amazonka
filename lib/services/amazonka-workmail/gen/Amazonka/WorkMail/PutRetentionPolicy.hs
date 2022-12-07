@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,7 +55,7 @@ data PutRetentionPolicy = PutRetentionPolicy'
   { -- | The retention policy ID.
     id :: Prelude.Maybe Prelude.Text,
     -- | The retention policy description.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The organization ID.
     organizationId :: Prelude.Text,
     -- | The retention policy name.
@@ -102,7 +103,7 @@ putRetentionPolicy_id = Lens.lens (\PutRetentionPolicy' {id} -> id) (\s@PutReten
 
 -- | The retention policy description.
 putRetentionPolicy_description :: Lens.Lens' PutRetentionPolicy (Prelude.Maybe Prelude.Text)
-putRetentionPolicy_description = Lens.lens (\PutRetentionPolicy' {description} -> description) (\s@PutRetentionPolicy' {} a -> s {description = a} :: PutRetentionPolicy) Prelude.. Lens.mapping Core._Sensitive
+putRetentionPolicy_description = Lens.lens (\PutRetentionPolicy' {description} -> description) (\s@PutRetentionPolicy' {} a -> s {description = a} :: PutRetentionPolicy) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The organization ID.
 putRetentionPolicy_organizationId :: Lens.Lens' PutRetentionPolicy Prelude.Text
@@ -145,41 +146,41 @@ instance Prelude.NFData PutRetentionPolicy where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf folderConfigurations
 
-instance Core.ToHeaders PutRetentionPolicy where
+instance Data.ToHeaders PutRetentionPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.PutRetentionPolicy" ::
+              Data.=# ( "WorkMailService.PutRetentionPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRetentionPolicy where
+instance Data.ToJSON PutRetentionPolicy where
   toJSON PutRetentionPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Id" Core..=) Prelude.<$> id,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Id" Data..=) Prelude.<$> id,
+            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("Name" Core..= name),
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ( "FolderConfigurations"
-                  Core..= folderConfigurations
+                  Data..= folderConfigurations
               )
           ]
       )
 
-instance Core.ToPath PutRetentionPolicy where
+instance Data.ToPath PutRetentionPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutRetentionPolicy where
+instance Data.ToQuery PutRetentionPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRetentionPolicyResponse' smart constructor.

@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -493,9 +494,9 @@ instance Core.AWSRequest DeleteItem where
     Response.receiveJSON
       ( \s h x ->
           DeleteItemResponse'
-            Prelude.<$> (x Core..?> "ConsumedCapacity")
-            Prelude.<*> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ItemCollectionMetrics")
+            Prelude.<$> (x Data..?> "ConsumedCapacity")
+            Prelude.<*> (x Data..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ItemCollectionMetrics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -525,48 +526,48 @@ instance Prelude.NFData DeleteItem where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToHeaders DeleteItem where
+instance Data.ToHeaders DeleteItem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.DeleteItem" ::
+              Data.=# ( "DynamoDB_20120810.DeleteItem" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteItem where
+instance Data.ToJSON DeleteItem where
   toJSON DeleteItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ReturnValues" Core..=) Prelude.<$> returnValues,
-            ("ExpressionAttributeValues" Core..=)
+          [ ("ReturnValues" Data..=) Prelude.<$> returnValues,
+            ("ExpressionAttributeValues" Data..=)
               Prelude.<$> expressionAttributeValues,
-            ("ExpressionAttributeNames" Core..=)
+            ("ExpressionAttributeNames" Data..=)
               Prelude.<$> expressionAttributeNames,
-            ("ConditionalOperator" Core..=)
+            ("ConditionalOperator" Data..=)
               Prelude.<$> conditionalOperator,
-            ("ReturnConsumedCapacity" Core..=)
+            ("ReturnConsumedCapacity" Data..=)
               Prelude.<$> returnConsumedCapacity,
-            ("Expected" Core..=) Prelude.<$> expected,
-            ("ReturnItemCollectionMetrics" Core..=)
+            ("Expected" Data..=) Prelude.<$> expected,
+            ("ReturnItemCollectionMetrics" Data..=)
               Prelude.<$> returnItemCollectionMetrics,
-            ("ConditionExpression" Core..=)
+            ("ConditionExpression" Data..=)
               Prelude.<$> conditionExpression,
-            Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("Key" Core..= key)
+            Prelude.Just ("TableName" Data..= tableName),
+            Prelude.Just ("Key" Data..= key)
           ]
       )
 
-instance Core.ToPath DeleteItem where
+instance Data.ToPath DeleteItem where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteItem where
+instance Data.ToQuery DeleteItem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @DeleteItem@ operation.

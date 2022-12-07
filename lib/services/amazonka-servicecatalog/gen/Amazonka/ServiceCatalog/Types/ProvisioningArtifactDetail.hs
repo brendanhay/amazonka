@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ProvisioningArtifactDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ProvisioningArtifactGuidance
 import Amazonka.ServiceCatalog.Types.ProvisioningArtifactType
@@ -42,7 +43,7 @@ data ProvisioningArtifactDetail = ProvisioningArtifactDetail'
     --     Amazon Web Services Resources
     type' :: Prelude.Maybe ProvisioningArtifactType,
     -- | The UTC time stamp of the creation time.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates whether the product version is active.
     active :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the provisioning artifact.
@@ -137,7 +138,7 @@ provisioningArtifactDetail_type = Lens.lens (\ProvisioningArtifactDetail' {type'
 
 -- | The UTC time stamp of the creation time.
 provisioningArtifactDetail_createdTime :: Lens.Lens' ProvisioningArtifactDetail (Prelude.Maybe Prelude.UTCTime)
-provisioningArtifactDetail_createdTime = Lens.lens (\ProvisioningArtifactDetail' {createdTime} -> createdTime) (\s@ProvisioningArtifactDetail' {} a -> s {createdTime = a} :: ProvisioningArtifactDetail) Prelude.. Lens.mapping Core._Time
+provisioningArtifactDetail_createdTime = Lens.lens (\ProvisioningArtifactDetail' {createdTime} -> createdTime) (\s@ProvisioningArtifactDetail' {} a -> s {createdTime = a} :: ProvisioningArtifactDetail) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether the product version is active.
 provisioningArtifactDetail_active :: Lens.Lens' ProvisioningArtifactDetail (Prelude.Maybe Prelude.Bool)
@@ -169,20 +170,20 @@ provisioningArtifactDetail_guidance = Lens.lens (\ProvisioningArtifactDetail' {g
 provisioningArtifactDetail_sourceRevision :: Lens.Lens' ProvisioningArtifactDetail (Prelude.Maybe Prelude.Text)
 provisioningArtifactDetail_sourceRevision = Lens.lens (\ProvisioningArtifactDetail' {sourceRevision} -> sourceRevision) (\s@ProvisioningArtifactDetail' {} a -> s {sourceRevision = a} :: ProvisioningArtifactDetail)
 
-instance Core.FromJSON ProvisioningArtifactDetail where
+instance Data.FromJSON ProvisioningArtifactDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisioningArtifactDetail"
       ( \x ->
           ProvisioningArtifactDetail'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Active")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Guidance")
-            Prelude.<*> (x Core..:? "SourceRevision")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Active")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Guidance")
+            Prelude.<*> (x Data..:? "SourceRevision")
       )
 
 instance Prelude.Hashable ProvisioningArtifactDetail where

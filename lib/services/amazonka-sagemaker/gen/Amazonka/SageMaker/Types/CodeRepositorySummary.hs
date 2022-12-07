@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.CodeRepositorySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.GitConfig
 
@@ -37,9 +38,9 @@ data CodeRepositorySummary = CodeRepositorySummary'
     -- | The Amazon Resource Name (ARN) of the Git repository.
     codeRepositoryArn :: Prelude.Text,
     -- | The date and time that the Git repository was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The date and time that the Git repository was last modified.
-    lastModifiedTime :: Core.POSIX
+    lastModifiedTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,9 +82,9 @@ newCodeRepositorySummary
       { gitConfig = Prelude.Nothing,
         codeRepositoryName = pCodeRepositoryName_,
         codeRepositoryArn = pCodeRepositoryArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_
+          Data._Time Lens.# pLastModifiedTime_
       }
 
 -- | Configuration details for the Git repository, including the URL where it
@@ -102,23 +103,23 @@ codeRepositorySummary_codeRepositoryArn = Lens.lens (\CodeRepositorySummary' {co
 
 -- | The date and time that the Git repository was created.
 codeRepositorySummary_creationTime :: Lens.Lens' CodeRepositorySummary Prelude.UTCTime
-codeRepositorySummary_creationTime = Lens.lens (\CodeRepositorySummary' {creationTime} -> creationTime) (\s@CodeRepositorySummary' {} a -> s {creationTime = a} :: CodeRepositorySummary) Prelude.. Core._Time
+codeRepositorySummary_creationTime = Lens.lens (\CodeRepositorySummary' {creationTime} -> creationTime) (\s@CodeRepositorySummary' {} a -> s {creationTime = a} :: CodeRepositorySummary) Prelude.. Data._Time
 
 -- | The date and time that the Git repository was last modified.
 codeRepositorySummary_lastModifiedTime :: Lens.Lens' CodeRepositorySummary Prelude.UTCTime
-codeRepositorySummary_lastModifiedTime = Lens.lens (\CodeRepositorySummary' {lastModifiedTime} -> lastModifiedTime) (\s@CodeRepositorySummary' {} a -> s {lastModifiedTime = a} :: CodeRepositorySummary) Prelude.. Core._Time
+codeRepositorySummary_lastModifiedTime = Lens.lens (\CodeRepositorySummary' {lastModifiedTime} -> lastModifiedTime) (\s@CodeRepositorySummary' {} a -> s {lastModifiedTime = a} :: CodeRepositorySummary) Prelude.. Data._Time
 
-instance Core.FromJSON CodeRepositorySummary where
+instance Data.FromJSON CodeRepositorySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeRepositorySummary"
       ( \x ->
           CodeRepositorySummary'
-            Prelude.<$> (x Core..:? "GitConfig")
-            Prelude.<*> (x Core..: "CodeRepositoryName")
-            Prelude.<*> (x Core..: "CodeRepositoryArn")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "LastModifiedTime")
+            Prelude.<$> (x Data..:? "GitConfig")
+            Prelude.<*> (x Data..: "CodeRepositoryName")
+            Prelude.<*> (x Data..: "CodeRepositoryArn")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "LastModifiedTime")
       )
 
 instance Prelude.Hashable CodeRepositorySummary where

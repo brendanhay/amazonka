@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -114,8 +115,8 @@ instance Core.AWSRequest RestoreFromRecoveryPoint where
     Response.receiveJSON
       ( \s h x ->
           RestoreFromRecoveryPointResponse'
-            Prelude.<$> (x Core..?> "recoveryPointId")
-            Prelude.<*> (x Core..?> "namespace")
+            Prelude.<$> (x Data..?> "recoveryPointId")
+            Prelude.<*> (x Data..?> "namespace")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,38 +132,38 @@ instance Prelude.NFData RestoreFromRecoveryPoint where
       `Prelude.seq` Prelude.rnf recoveryPointId
       `Prelude.seq` Prelude.rnf workgroupName
 
-instance Core.ToHeaders RestoreFromRecoveryPoint where
+instance Data.ToHeaders RestoreFromRecoveryPoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.RestoreFromRecoveryPoint" ::
+              Data.=# ( "RedshiftServerless.RestoreFromRecoveryPoint" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RestoreFromRecoveryPoint where
+instance Data.ToJSON RestoreFromRecoveryPoint where
   toJSON RestoreFromRecoveryPoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("namespaceName" Core..= namespaceName),
+              ("namespaceName" Data..= namespaceName),
             Prelude.Just
-              ("recoveryPointId" Core..= recoveryPointId),
+              ("recoveryPointId" Data..= recoveryPointId),
             Prelude.Just
-              ("workgroupName" Core..= workgroupName)
+              ("workgroupName" Data..= workgroupName)
           ]
       )
 
-instance Core.ToPath RestoreFromRecoveryPoint where
+instance Data.ToPath RestoreFromRecoveryPoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreFromRecoveryPoint where
+instance Data.ToQuery RestoreFromRecoveryPoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRestoreFromRecoveryPointResponse' smart constructor.

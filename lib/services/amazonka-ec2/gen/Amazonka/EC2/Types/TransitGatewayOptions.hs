@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AutoAcceptSharedAttachmentsValue
 import Amazonka.EC2.Types.DefaultRouteTableAssociationValue
@@ -153,21 +154,21 @@ transitGatewayOptions_defaultRouteTablePropagation = Lens.lens (\TransitGatewayO
 transitGatewayOptions_transitGatewayCidrBlocks :: Lens.Lens' TransitGatewayOptions (Prelude.Maybe [Prelude.Text])
 transitGatewayOptions_transitGatewayCidrBlocks = Lens.lens (\TransitGatewayOptions' {transitGatewayCidrBlocks} -> transitGatewayCidrBlocks) (\s@TransitGatewayOptions' {} a -> s {transitGatewayCidrBlocks = a} :: TransitGatewayOptions) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML TransitGatewayOptions where
+instance Data.FromXML TransitGatewayOptions where
   parseXML x =
     TransitGatewayOptions'
-      Prelude.<$> (x Core..@? "associationDefaultRouteTableId")
-      Prelude.<*> (x Core..@? "dnsSupport")
-      Prelude.<*> (x Core..@? "defaultRouteTableAssociation")
-      Prelude.<*> (x Core..@? "propagationDefaultRouteTableId")
-      Prelude.<*> (x Core..@? "autoAcceptSharedAttachments")
-      Prelude.<*> (x Core..@? "multicastSupport")
-      Prelude.<*> (x Core..@? "amazonSideAsn")
-      Prelude.<*> (x Core..@? "vpnEcmpSupport")
-      Prelude.<*> (x Core..@? "defaultRouteTablePropagation")
-      Prelude.<*> ( x Core..@? "transitGatewayCidrBlocks"
+      Prelude.<$> (x Data..@? "associationDefaultRouteTableId")
+      Prelude.<*> (x Data..@? "dnsSupport")
+      Prelude.<*> (x Data..@? "defaultRouteTableAssociation")
+      Prelude.<*> (x Data..@? "propagationDefaultRouteTableId")
+      Prelude.<*> (x Data..@? "autoAcceptSharedAttachments")
+      Prelude.<*> (x Data..@? "multicastSupport")
+      Prelude.<*> (x Data..@? "amazonSideAsn")
+      Prelude.<*> (x Data..@? "vpnEcmpSupport")
+      Prelude.<*> (x Data..@? "defaultRouteTablePropagation")
+      Prelude.<*> ( x Data..@? "transitGatewayCidrBlocks"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable TransitGatewayOptions where

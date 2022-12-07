@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.LaunchExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains information about the start and end times of the
@@ -29,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newLaunchExecution' smart constructor.
 data LaunchExecution = LaunchExecution'
   { -- | The date and time that the launch ended.
-    endedTime :: Prelude.Maybe Core.POSIX,
+    endedTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the launch started.
-    startedTime :: Prelude.Maybe Core.POSIX
+    startedTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,20 +57,20 @@ newLaunchExecution =
 
 -- | The date and time that the launch ended.
 launchExecution_endedTime :: Lens.Lens' LaunchExecution (Prelude.Maybe Prelude.UTCTime)
-launchExecution_endedTime = Lens.lens (\LaunchExecution' {endedTime} -> endedTime) (\s@LaunchExecution' {} a -> s {endedTime = a} :: LaunchExecution) Prelude.. Lens.mapping Core._Time
+launchExecution_endedTime = Lens.lens (\LaunchExecution' {endedTime} -> endedTime) (\s@LaunchExecution' {} a -> s {endedTime = a} :: LaunchExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the launch started.
 launchExecution_startedTime :: Lens.Lens' LaunchExecution (Prelude.Maybe Prelude.UTCTime)
-launchExecution_startedTime = Lens.lens (\LaunchExecution' {startedTime} -> startedTime) (\s@LaunchExecution' {} a -> s {startedTime = a} :: LaunchExecution) Prelude.. Lens.mapping Core._Time
+launchExecution_startedTime = Lens.lens (\LaunchExecution' {startedTime} -> startedTime) (\s@LaunchExecution' {} a -> s {startedTime = a} :: LaunchExecution) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON LaunchExecution where
+instance Data.FromJSON LaunchExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchExecution"
       ( \x ->
           LaunchExecution'
-            Prelude.<$> (x Core..:? "endedTime")
-            Prelude.<*> (x Core..:? "startedTime")
+            Prelude.<$> (x Data..:? "endedTime")
+            Prelude.<*> (x Data..:? "startedTime")
       )
 
 instance Prelude.Hashable LaunchExecution where

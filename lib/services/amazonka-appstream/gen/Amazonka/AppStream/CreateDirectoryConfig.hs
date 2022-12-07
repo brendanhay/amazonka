@@ -47,6 +47,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -155,7 +156,7 @@ instance Core.AWSRequest CreateDirectoryConfig where
     Response.receiveJSON
       ( \s h x ->
           CreateDirectoryConfigResponse'
-            Prelude.<$> (x Core..?> "DirectoryConfig")
+            Prelude.<$> (x Data..?> "DirectoryConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,41 +175,41 @@ instance Prelude.NFData CreateDirectoryConfig where
       `Prelude.seq` Prelude.rnf directoryName
       `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedNames
 
-instance Core.ToHeaders CreateDirectoryConfig where
+instance Data.ToHeaders CreateDirectoryConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.CreateDirectoryConfig" ::
+              Data.=# ( "PhotonAdminProxyService.CreateDirectoryConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDirectoryConfig where
+instance Data.ToJSON CreateDirectoryConfig where
   toJSON CreateDirectoryConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ServiceAccountCredentials" Core..=)
+          [ ("ServiceAccountCredentials" Data..=)
               Prelude.<$> serviceAccountCredentials,
-            ("CertificateBasedAuthProperties" Core..=)
+            ("CertificateBasedAuthProperties" Data..=)
               Prelude.<$> certificateBasedAuthProperties,
-            Prelude.Just ("DirectoryName" Core..= directoryName),
+            Prelude.Just ("DirectoryName" Data..= directoryName),
             Prelude.Just
               ( "OrganizationalUnitDistinguishedNames"
-                  Core..= organizationalUnitDistinguishedNames
+                  Data..= organizationalUnitDistinguishedNames
               )
           ]
       )
 
-instance Core.ToPath CreateDirectoryConfig where
+instance Data.ToPath CreateDirectoryConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDirectoryConfig where
+instance Data.ToQuery CreateDirectoryConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDirectoryConfigResponse' smart constructor.

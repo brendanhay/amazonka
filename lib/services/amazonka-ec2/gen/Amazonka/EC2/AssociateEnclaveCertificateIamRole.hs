@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,9 +141,9 @@ instance
     Response.receiveXML
       ( \s h x ->
           AssociateEnclaveCertificateIamRoleResponse'
-            Prelude.<$> (x Core..@? "certificateS3ObjectKey")
-              Prelude.<*> (x Core..@? "encryptionKmsKeyId")
-              Prelude.<*> (x Core..@? "certificateS3BucketName")
+            Prelude.<$> (x Data..@? "certificateS3ObjectKey")
+              Prelude.<*> (x Data..@? "encryptionKmsKeyId")
+              Prelude.<*> (x Data..@? "certificateS3BucketName")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,32 +168,32 @@ instance
       `Prelude.seq` Prelude.rnf certificateArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AssociateEnclaveCertificateIamRole
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     AssociateEnclaveCertificateIamRole
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AssociateEnclaveCertificateIamRole
   where
   toQuery AssociateEnclaveCertificateIamRole' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "AssociateEnclaveCertificateIamRole" ::
+          Data.=: ( "AssociateEnclaveCertificateIamRole" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "RoleArn" Core.=: roleArn,
-        "DryRun" Core.=: dryRun,
-        "CertificateArn" Core.=: certificateArn
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "RoleArn" Data.=: roleArn,
+        "DryRun" Data.=: dryRun,
+        "CertificateArn" Data.=: certificateArn
       ]
 
 -- | /See:/ 'newAssociateEnclaveCertificateIamRoleResponse' smart constructor.

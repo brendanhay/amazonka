@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,17 +97,17 @@ instance Core.AWSRequest DescribeJobTemplate where
     Response.receiveJSON
       ( \s h x ->
           DescribeJobTemplateResponse'
-            Prelude.<$> (x Core..?> "jobExecutionsRolloutConfig")
-            Prelude.<*> (x Core..?> "documentSource")
-            Prelude.<*> (x Core..?> "abortConfig")
-            Prelude.<*> (x Core..?> "jobTemplateArn")
-            Prelude.<*> (x Core..?> "jobTemplateId")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "presignedUrlConfig")
-            Prelude.<*> (x Core..?> "document")
-            Prelude.<*> (x Core..?> "jobExecutionsRetryConfig")
-            Prelude.<*> (x Core..?> "timeoutConfig")
-            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<$> (x Data..?> "jobExecutionsRolloutConfig")
+            Prelude.<*> (x Data..?> "documentSource")
+            Prelude.<*> (x Data..?> "abortConfig")
+            Prelude.<*> (x Data..?> "jobTemplateArn")
+            Prelude.<*> (x Data..?> "jobTemplateId")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "presignedUrlConfig")
+            Prelude.<*> (x Data..?> "document")
+            Prelude.<*> (x Data..?> "jobExecutionsRetryConfig")
+            Prelude.<*> (x Data..?> "timeoutConfig")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,15 +119,15 @@ instance Prelude.NFData DescribeJobTemplate where
   rnf DescribeJobTemplate' {..} =
     Prelude.rnf jobTemplateId
 
-instance Core.ToHeaders DescribeJobTemplate where
+instance Data.ToHeaders DescribeJobTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeJobTemplate where
+instance Data.ToPath DescribeJobTemplate where
   toPath DescribeJobTemplate' {..} =
     Prelude.mconcat
-      ["/job-templates/", Core.toBS jobTemplateId]
+      ["/job-templates/", Data.toBS jobTemplateId]
 
-instance Core.ToQuery DescribeJobTemplate where
+instance Data.ToQuery DescribeJobTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeJobTemplateResponse' smart constructor.
@@ -149,7 +150,7 @@ data DescribeJobTemplateResponse = DescribeJobTemplateResponse'
     jobExecutionsRetryConfig :: Prelude.Maybe JobExecutionsRetryConfig,
     timeoutConfig :: Prelude.Maybe TimeoutConfig,
     -- | The time, in seconds since the epoch, when the job template was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -251,7 +252,7 @@ describeJobTemplateResponse_timeoutConfig = Lens.lens (\DescribeJobTemplateRespo
 
 -- | The time, in seconds since the epoch, when the job template was created.
 describeJobTemplateResponse_createdAt :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-describeJobTemplateResponse_createdAt = Lens.lens (\DescribeJobTemplateResponse' {createdAt} -> createdAt) (\s@DescribeJobTemplateResponse' {} a -> s {createdAt = a} :: DescribeJobTemplateResponse) Prelude.. Lens.mapping Core._Time
+describeJobTemplateResponse_createdAt = Lens.lens (\DescribeJobTemplateResponse' {createdAt} -> createdAt) (\s@DescribeJobTemplateResponse' {} a -> s {createdAt = a} :: DescribeJobTemplateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeJobTemplateResponse_httpStatus :: Lens.Lens' DescribeJobTemplateResponse Prelude.Int

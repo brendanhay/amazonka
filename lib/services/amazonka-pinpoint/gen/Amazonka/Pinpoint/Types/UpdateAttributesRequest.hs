@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.UpdateAttributesRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies one or more attributes to remove from all the endpoints that
@@ -74,9 +75,9 @@ instance Prelude.NFData UpdateAttributesRequest where
   rnf UpdateAttributesRequest' {..} =
     Prelude.rnf blacklist
 
-instance Core.ToJSON UpdateAttributesRequest where
+instance Data.ToJSON UpdateAttributesRequest where
   toJSON UpdateAttributesRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Blacklist" Core..=) Prelude.<$> blacklist]
+          [("Blacklist" Data..=) Prelude.<$> blacklist]
       )

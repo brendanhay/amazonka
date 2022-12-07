@@ -21,6 +21,7 @@ module Amazonka.SecretsManager.Types.ValidationErrorsEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Displays errors that occurred during validation of the resource policy.
@@ -65,14 +66,14 @@ validationErrorsEntry_errorMessage = Lens.lens (\ValidationErrorsEntry' {errorMe
 validationErrorsEntry_checkName :: Lens.Lens' ValidationErrorsEntry (Prelude.Maybe Prelude.Text)
 validationErrorsEntry_checkName = Lens.lens (\ValidationErrorsEntry' {checkName} -> checkName) (\s@ValidationErrorsEntry' {} a -> s {checkName = a} :: ValidationErrorsEntry)
 
-instance Core.FromJSON ValidationErrorsEntry where
+instance Data.FromJSON ValidationErrorsEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ValidationErrorsEntry"
       ( \x ->
           ValidationErrorsEntry'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "CheckName")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "CheckName")
       )
 
 instance Prelude.Hashable ValidationErrorsEntry where

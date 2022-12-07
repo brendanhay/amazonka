@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.BlackFrame where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter that allows you to control the black frame detection by
@@ -131,13 +132,13 @@ instance Prelude.NFData BlackFrame where
     Prelude.rnf minCoveragePercentage
       `Prelude.seq` Prelude.rnf maxPixelThreshold
 
-instance Core.ToJSON BlackFrame where
+instance Data.ToJSON BlackFrame where
   toJSON BlackFrame' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MinCoveragePercentage" Core..=)
+          [ ("MinCoveragePercentage" Data..=)
               Prelude.<$> minCoveragePercentage,
-            ("MaxPixelThreshold" Core..=)
+            ("MaxPixelThreshold" Data..=)
               Prelude.<$> maxPixelThreshold
           ]
       )

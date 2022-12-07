@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,7 +110,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeNotificationConfigurationResponse'
-            Prelude.<$> (x Core..?> "NotificationConfiguration")
+            Prelude.<$> (x Data..?> "NotificationConfiguration")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,32 +133,32 @@ instance
       `Prelude.seq` Prelude.rnf streamName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeNotificationConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeNotificationConfiguration
   where
   toJSON DescribeNotificationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StreamARN" Core..=) Prelude.<$> streamARN,
-            ("StreamName" Core..=) Prelude.<$> streamName
+          [ ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeNotificationConfiguration
   where
   toPath =
     Prelude.const "/describeNotificationConfiguration"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeNotificationConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

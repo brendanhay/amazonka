@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainMasterUserOptionsDet
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies information about the master user of the domain.
@@ -74,17 +75,17 @@ awsOpenSearchServiceDomainMasterUserOptionsDetails_masterUserPassword :: Lens.Le
 awsOpenSearchServiceDomainMasterUserOptionsDetails_masterUserPassword = Lens.lens (\AwsOpenSearchServiceDomainMasterUserOptionsDetails' {masterUserPassword} -> masterUserPassword) (\s@AwsOpenSearchServiceDomainMasterUserOptionsDetails' {} a -> s {masterUserPassword = a} :: AwsOpenSearchServiceDomainMasterUserOptionsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsOpenSearchServiceDomainMasterUserOptionsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsOpenSearchServiceDomainMasterUserOptionsDetails"
       ( \x ->
           AwsOpenSearchServiceDomainMasterUserOptionsDetails'
-            Prelude.<$> (x Core..:? "MasterUserArn")
-              Prelude.<*> (x Core..:? "MasterUserName")
-              Prelude.<*> (x Core..:? "MasterUserPassword")
+            Prelude.<$> (x Data..:? "MasterUserArn")
+              Prelude.<*> (x Data..:? "MasterUserName")
+              Prelude.<*> (x Data..:? "MasterUserPassword")
       )
 
 instance
@@ -109,17 +110,17 @@ instance
         `Prelude.seq` Prelude.rnf masterUserPassword
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsOpenSearchServiceDomainMasterUserOptionsDetails
   where
   toJSON
     AwsOpenSearchServiceDomainMasterUserOptionsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("MasterUserArn" Core..=) Prelude.<$> masterUserArn,
-              ("MasterUserName" Core..=)
+            [ ("MasterUserArn" Data..=) Prelude.<$> masterUserArn,
+              ("MasterUserName" Data..=)
                 Prelude.<$> masterUserName,
-              ("MasterUserPassword" Core..=)
+              ("MasterUserPassword" Data..=)
                 Prelude.<$> masterUserPassword
             ]
         )

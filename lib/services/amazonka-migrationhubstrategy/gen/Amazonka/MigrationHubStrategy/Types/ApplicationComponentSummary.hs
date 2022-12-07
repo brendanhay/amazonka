@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.ApplicationComponentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.AppType
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ applicationComponentSummary_appType = Lens.lens (\ApplicationComponentSummary' {
 applicationComponentSummary_count :: Lens.Lens' ApplicationComponentSummary (Prelude.Maybe Prelude.Int)
 applicationComponentSummary_count = Lens.lens (\ApplicationComponentSummary' {count} -> count) (\s@ApplicationComponentSummary' {} a -> s {count = a} :: ApplicationComponentSummary)
 
-instance Core.FromJSON ApplicationComponentSummary where
+instance Data.FromJSON ApplicationComponentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationComponentSummary"
       ( \x ->
           ApplicationComponentSummary'
-            Prelude.<$> (x Core..:? "appType")
-            Prelude.<*> (x Core..:? "count")
+            Prelude.<$> (x Data..:? "appType")
+            Prelude.<*> (x Data..:? "count")
       )
 
 instance Prelude.Hashable ApplicationComponentSummary where

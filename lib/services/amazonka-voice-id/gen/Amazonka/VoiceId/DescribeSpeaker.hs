@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -52,7 +53,7 @@ data DescribeSpeaker = DescribeSpeaker'
   { -- | The identifier of the domain that contains the speaker.
     domainId :: Prelude.Text,
     -- | The identifier of the speaker you are describing.
-    speakerId :: Core.Sensitive Prelude.Text
+    speakerId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -76,7 +77,7 @@ newDescribeSpeaker ::
 newDescribeSpeaker pDomainId_ pSpeakerId_ =
   DescribeSpeaker'
     { domainId = pDomainId_,
-      speakerId = Core._Sensitive Lens.# pSpeakerId_
+      speakerId = Data._Sensitive Lens.# pSpeakerId_
     }
 
 -- | The identifier of the domain that contains the speaker.
@@ -85,7 +86,7 @@ describeSpeaker_domainId = Lens.lens (\DescribeSpeaker' {domainId} -> domainId) 
 
 -- | The identifier of the speaker you are describing.
 describeSpeaker_speakerId :: Lens.Lens' DescribeSpeaker Prelude.Text
-describeSpeaker_speakerId = Lens.lens (\DescribeSpeaker' {speakerId} -> speakerId) (\s@DescribeSpeaker' {} a -> s {speakerId = a} :: DescribeSpeaker) Prelude.. Core._Sensitive
+describeSpeaker_speakerId = Lens.lens (\DescribeSpeaker' {speakerId} -> speakerId) (\s@DescribeSpeaker' {} a -> s {speakerId = a} :: DescribeSpeaker) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest DescribeSpeaker where
   type
@@ -97,7 +98,7 @@ instance Core.AWSRequest DescribeSpeaker where
     Response.receiveJSON
       ( \s h x ->
           DescribeSpeakerResponse'
-            Prelude.<$> (x Core..?> "Speaker")
+            Prelude.<$> (x Data..?> "Speaker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,32 +112,32 @@ instance Prelude.NFData DescribeSpeaker where
     Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf speakerId
 
-instance Core.ToHeaders DescribeSpeaker where
+instance Data.ToHeaders DescribeSpeaker where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("VoiceID.DescribeSpeaker" :: Prelude.ByteString),
+              Data.=# ("VoiceID.DescribeSpeaker" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSpeaker where
+instance Data.ToJSON DescribeSpeaker where
   toJSON DescribeSpeaker' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DomainId" Core..= domainId),
-            Prelude.Just ("SpeakerId" Core..= speakerId)
+          [ Prelude.Just ("DomainId" Data..= domainId),
+            Prelude.Just ("SpeakerId" Data..= speakerId)
           ]
       )
 
-instance Core.ToPath DescribeSpeaker where
+instance Data.ToPath DescribeSpeaker where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSpeaker where
+instance Data.ToQuery DescribeSpeaker where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSpeakerResponse' smart constructor.

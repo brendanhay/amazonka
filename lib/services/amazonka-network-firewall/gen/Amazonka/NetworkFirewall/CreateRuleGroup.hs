@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -407,8 +408,8 @@ instance Core.AWSRequest CreateRuleGroup where
       ( \s h x ->
           CreateRuleGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "UpdateToken")
-            Prelude.<*> (x Core..:> "RuleGroupResponse")
+            Prelude.<*> (x Data..:> "UpdateToken")
+            Prelude.<*> (x Data..:> "RuleGroupResponse")
       )
 
 instance Prelude.Hashable CreateRuleGroup where
@@ -437,44 +438,44 @@ instance Prelude.NFData CreateRuleGroup where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf capacity
 
-instance Core.ToHeaders CreateRuleGroup where
+instance Data.ToHeaders CreateRuleGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "NetworkFirewall_20201112.CreateRuleGroup" ::
+              Data.=# ( "NetworkFirewall_20201112.CreateRuleGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRuleGroup where
+instance Data.ToJSON CreateRuleGroup where
   toJSON CreateRuleGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("RuleGroup" Core..=) Prelude.<$> ruleGroup,
-            ("Rules" Core..=) Prelude.<$> rules,
-            ("Description" Core..=) Prelude.<$> description,
-            ("DryRun" Core..=) Prelude.<$> dryRun,
-            ("SourceMetadata" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("RuleGroup" Data..=) Prelude.<$> ruleGroup,
+            ("Rules" Data..=) Prelude.<$> rules,
+            ("Description" Data..=) Prelude.<$> description,
+            ("DryRun" Data..=) Prelude.<$> dryRun,
+            ("SourceMetadata" Data..=)
               Prelude.<$> sourceMetadata,
-            ("EncryptionConfiguration" Core..=)
+            ("EncryptionConfiguration" Data..=)
               Prelude.<$> encryptionConfiguration,
-            Prelude.Just ("RuleGroupName" Core..= ruleGroupName),
-            Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Capacity" Core..= capacity)
+            Prelude.Just ("RuleGroupName" Data..= ruleGroupName),
+            Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Capacity" Data..= capacity)
           ]
       )
 
-instance Core.ToPath CreateRuleGroup where
+instance Data.ToPath CreateRuleGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateRuleGroup where
+instance Data.ToQuery CreateRuleGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRuleGroupResponse' smart constructor.

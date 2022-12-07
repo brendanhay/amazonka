@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,9 +158,9 @@ instance Core.AWSRequest ListStageDevices where
     Response.receiveJSON
       ( \s h x ->
           ListStageDevicesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "DeviceDeploymentSummaries"
+            Prelude.<*> ( x Data..?> "DeviceDeploymentSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -180,39 +181,39 @@ instance Prelude.NFData ListStageDevices where
       `Prelude.seq` Prelude.rnf edgeDeploymentPlanName
       `Prelude.seq` Prelude.rnf stageName
 
-instance Core.ToHeaders ListStageDevices where
+instance Data.ToHeaders ListStageDevices where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.ListStageDevices" :: Prelude.ByteString),
+              Data.=# ("SageMaker.ListStageDevices" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListStageDevices where
+instance Data.ToJSON ListStageDevices where
   toJSON ListStageDevices' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ExcludeDevicesDeployedInOtherStage" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ExcludeDevicesDeployedInOtherStage" Data..=)
               Prelude.<$> excludeDevicesDeployedInOtherStage,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
               ( "EdgeDeploymentPlanName"
-                  Core..= edgeDeploymentPlanName
+                  Data..= edgeDeploymentPlanName
               ),
-            Prelude.Just ("StageName" Core..= stageName)
+            Prelude.Just ("StageName" Data..= stageName)
           ]
       )
 
-instance Core.ToPath ListStageDevices where
+instance Data.ToPath ListStageDevices where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListStageDevices where
+instance Data.ToQuery ListStageDevices where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListStageDevicesResponse' smart constructor.

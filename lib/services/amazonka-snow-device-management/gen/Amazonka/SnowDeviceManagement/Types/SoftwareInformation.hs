@@ -21,6 +21,7 @@ module Amazonka.SnowDeviceManagement.Types.SoftwareInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the software on the device.
@@ -74,15 +75,15 @@ softwareInformation_installedVersion = Lens.lens (\SoftwareInformation' {install
 softwareInformation_installState :: Lens.Lens' SoftwareInformation (Prelude.Maybe Prelude.Text)
 softwareInformation_installState = Lens.lens (\SoftwareInformation' {installState} -> installState) (\s@SoftwareInformation' {} a -> s {installState = a} :: SoftwareInformation)
 
-instance Core.FromJSON SoftwareInformation where
+instance Data.FromJSON SoftwareInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SoftwareInformation"
       ( \x ->
           SoftwareInformation'
-            Prelude.<$> (x Core..:? "installingVersion")
-            Prelude.<*> (x Core..:? "installedVersion")
-            Prelude.<*> (x Core..:? "installState")
+            Prelude.<$> (x Data..:? "installingVersion")
+            Prelude.<*> (x Data..:? "installedVersion")
+            Prelude.<*> (x Data..:? "installState")
       )
 
 instance Prelude.Hashable SoftwareInformation where

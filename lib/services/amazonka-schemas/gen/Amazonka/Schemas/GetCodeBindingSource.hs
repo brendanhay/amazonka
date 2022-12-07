@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,33 +142,33 @@ instance Prelude.NFData GetCodeBindingSource where
       `Prelude.seq` Prelude.rnf schemaName
       `Prelude.seq` Prelude.rnf language
 
-instance Core.ToHeaders GetCodeBindingSource where
+instance Data.ToHeaders GetCodeBindingSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetCodeBindingSource where
+instance Data.ToPath GetCodeBindingSource where
   toPath GetCodeBindingSource' {..} =
     Prelude.mconcat
       [ "/v1/registries/name/",
-        Core.toBS registryName,
+        Data.toBS registryName,
         "/schemas/name/",
-        Core.toBS schemaName,
+        Data.toBS schemaName,
         "/language/",
-        Core.toBS language,
+        Data.toBS language,
         "/source"
       ]
 
-instance Core.ToQuery GetCodeBindingSource where
+instance Data.ToQuery GetCodeBindingSource where
   toQuery GetCodeBindingSource' {..} =
     Prelude.mconcat
-      ["schemaVersion" Core.=: schemaVersion]
+      ["schemaVersion" Data.=: schemaVersion]
 
 -- | /See:/ 'newGetCodeBindingSourceResponse' smart constructor.
 data GetCodeBindingSourceResponse = GetCodeBindingSourceResponse'

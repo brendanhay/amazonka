@@ -52,6 +52,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,9 +137,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PutChannelMembershipPreferencesResponse'
-            Prelude.<$> (x Core..?> "Member")
-            Prelude.<*> (x Core..?> "Preferences")
-            Prelude.<*> (x Core..?> "ChannelArn")
+            Prelude.<$> (x Data..?> "Member")
+            Prelude.<*> (x Data..?> "Preferences")
+            Prelude.<*> (x Data..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,31 +166,31 @@ instance
       `Prelude.seq` Prelude.rnf preferences
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutChannelMembershipPreferences
   where
   toHeaders PutChannelMembershipPreferences' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToJSON PutChannelMembershipPreferences where
+instance Data.ToJSON PutChannelMembershipPreferences where
   toJSON PutChannelMembershipPreferences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Preferences" Core..= preferences)]
+          [Prelude.Just ("Preferences" Data..= preferences)]
       )
 
-instance Core.ToPath PutChannelMembershipPreferences where
+instance Data.ToPath PutChannelMembershipPreferences where
   toPath PutChannelMembershipPreferences' {..} =
     Prelude.mconcat
       [ "/channels/",
-        Core.toBS channelArn,
+        Data.toBS channelArn,
         "/memberships/",
-        Core.toBS memberArn,
+        Data.toBS memberArn,
         "/preferences"
       ]
 
-instance Core.ToQuery PutChannelMembershipPreferences where
+instance Data.ToQuery PutChannelMembershipPreferences where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutChannelMembershipPreferencesResponse' smart constructor.

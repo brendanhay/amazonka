@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.Unauthenticated where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newUnauthenticated' smart constructor.
@@ -51,12 +52,12 @@ newUnauthenticated =
 unauthenticated_enabled :: Lens.Lens' Unauthenticated (Prelude.Maybe Prelude.Bool)
 unauthenticated_enabled = Lens.lens (\Unauthenticated' {enabled} -> enabled) (\s@Unauthenticated' {} a -> s {enabled = a} :: Unauthenticated)
 
-instance Core.FromJSON Unauthenticated where
+instance Data.FromJSON Unauthenticated where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Unauthenticated"
       ( \x ->
-          Unauthenticated' Prelude.<$> (x Core..:? "enabled")
+          Unauthenticated' Prelude.<$> (x Data..:? "enabled")
       )
 
 instance Prelude.Hashable Unauthenticated where
@@ -66,9 +67,9 @@ instance Prelude.Hashable Unauthenticated where
 instance Prelude.NFData Unauthenticated where
   rnf Unauthenticated' {..} = Prelude.rnf enabled
 
-instance Core.ToJSON Unauthenticated where
+instance Data.ToJSON Unauthenticated where
   toJSON Unauthenticated' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("enabled" Core..=) Prelude.<$> enabled]
+          [("enabled" Data..=) Prelude.<$> enabled]
       )

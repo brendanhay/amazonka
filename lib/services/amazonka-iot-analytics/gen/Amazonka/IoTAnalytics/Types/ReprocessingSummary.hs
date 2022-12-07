@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.ReprocessingSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.ReprocessingStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data ReprocessingSummary = ReprocessingSummary'
     -- | The @reprocessingId@ returned by @StartPipelineReprocessing@.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time the pipeline reprocessing was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,17 +70,17 @@ reprocessingSummary_id = Lens.lens (\ReprocessingSummary' {id} -> id) (\s@Reproc
 
 -- | The time the pipeline reprocessing was created.
 reprocessingSummary_creationTime :: Lens.Lens' ReprocessingSummary (Prelude.Maybe Prelude.UTCTime)
-reprocessingSummary_creationTime = Lens.lens (\ReprocessingSummary' {creationTime} -> creationTime) (\s@ReprocessingSummary' {} a -> s {creationTime = a} :: ReprocessingSummary) Prelude.. Lens.mapping Core._Time
+reprocessingSummary_creationTime = Lens.lens (\ReprocessingSummary' {creationTime} -> creationTime) (\s@ReprocessingSummary' {} a -> s {creationTime = a} :: ReprocessingSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ReprocessingSummary where
+instance Data.FromJSON ReprocessingSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReprocessingSummary"
       ( \x ->
           ReprocessingSummary'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "creationTime")
       )
 
 instance Prelude.Hashable ReprocessingSummary where

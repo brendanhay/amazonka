@@ -21,6 +21,7 @@ module Amazonka.IdentityStore.Types.ExternalId where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The identifier issued to this resource by an external identity provider.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newExternalId' smart constructor.
 data ExternalId = ExternalId'
   { -- | The issuer for an external identifier.
-    issuer :: Core.Sensitive Prelude.Text,
+    issuer :: Data.Sensitive Prelude.Text,
     -- | The identifier issued to this resource by an external identity provider.
-    id :: Core.Sensitive Prelude.Text
+    id :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -54,25 +55,25 @@ newExternalId ::
 newExternalId pIssuer_ pId_ =
   ExternalId'
     { issuer =
-        Core._Sensitive Lens.# pIssuer_,
-      id = Core._Sensitive Lens.# pId_
+        Data._Sensitive Lens.# pIssuer_,
+      id = Data._Sensitive Lens.# pId_
     }
 
 -- | The issuer for an external identifier.
 externalId_issuer :: Lens.Lens' ExternalId Prelude.Text
-externalId_issuer = Lens.lens (\ExternalId' {issuer} -> issuer) (\s@ExternalId' {} a -> s {issuer = a} :: ExternalId) Prelude.. Core._Sensitive
+externalId_issuer = Lens.lens (\ExternalId' {issuer} -> issuer) (\s@ExternalId' {} a -> s {issuer = a} :: ExternalId) Prelude.. Data._Sensitive
 
 -- | The identifier issued to this resource by an external identity provider.
 externalId_id :: Lens.Lens' ExternalId Prelude.Text
-externalId_id = Lens.lens (\ExternalId' {id} -> id) (\s@ExternalId' {} a -> s {id = a} :: ExternalId) Prelude.. Core._Sensitive
+externalId_id = Lens.lens (\ExternalId' {id} -> id) (\s@ExternalId' {} a -> s {id = a} :: ExternalId) Prelude.. Data._Sensitive
 
-instance Core.FromJSON ExternalId where
+instance Data.FromJSON ExternalId where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExternalId"
       ( \x ->
           ExternalId'
-            Prelude.<$> (x Core..: "Issuer") Prelude.<*> (x Core..: "Id")
+            Prelude.<$> (x Data..: "Issuer") Prelude.<*> (x Data..: "Id")
       )
 
 instance Prelude.Hashable ExternalId where
@@ -84,11 +85,11 @@ instance Prelude.NFData ExternalId where
   rnf ExternalId' {..} =
     Prelude.rnf issuer `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON ExternalId where
+instance Data.ToJSON ExternalId where
   toJSON ExternalId' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Issuer" Core..= issuer),
-            Prelude.Just ("Id" Core..= id)
+          [ Prelude.Just ("Issuer" Data..= issuer),
+            Prelude.Just ("Id" Data..= id)
           ]
       )

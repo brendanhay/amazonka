@@ -51,6 +51,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -155,8 +156,8 @@ instance Core.AWSRequest CreateHoursOfOperation where
     Response.receiveJSON
       ( \s h x ->
           CreateHoursOfOperationResponse'
-            Prelude.<$> (x Core..?> "HoursOfOperationArn")
-            Prelude.<*> (x Core..?> "HoursOfOperationId")
+            Prelude.<$> (x Data..?> "HoursOfOperationArn")
+            Prelude.<*> (x Data..?> "HoursOfOperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,35 +179,35 @@ instance Prelude.NFData CreateHoursOfOperation where
       `Prelude.seq` Prelude.rnf timeZone
       `Prelude.seq` Prelude.rnf config
 
-instance Core.ToHeaders CreateHoursOfOperation where
+instance Data.ToHeaders CreateHoursOfOperation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateHoursOfOperation where
+instance Data.ToJSON CreateHoursOfOperation where
   toJSON CreateHoursOfOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("TimeZone" Core..= timeZone),
-            Prelude.Just ("Config" Core..= config)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("TimeZone" Data..= timeZone),
+            Prelude.Just ("Config" Data..= config)
           ]
       )
 
-instance Core.ToPath CreateHoursOfOperation where
+instance Data.ToPath CreateHoursOfOperation where
   toPath CreateHoursOfOperation' {..} =
     Prelude.mconcat
-      ["/hours-of-operations/", Core.toBS instanceId]
+      ["/hours-of-operations/", Data.toBS instanceId]
 
-instance Core.ToQuery CreateHoursOfOperation where
+instance Data.ToQuery CreateHoursOfOperation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateHoursOfOperationResponse' smart constructor.

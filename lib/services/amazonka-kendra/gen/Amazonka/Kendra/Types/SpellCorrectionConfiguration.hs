@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SpellCorrectionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information for suggested query spell
@@ -78,13 +79,13 @@ instance Prelude.NFData SpellCorrectionConfiguration where
   rnf SpellCorrectionConfiguration' {..} =
     Prelude.rnf includeQuerySpellCheckSuggestions
 
-instance Core.ToJSON SpellCorrectionConfiguration where
+instance Data.ToJSON SpellCorrectionConfiguration where
   toJSON SpellCorrectionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "IncludeQuerySpellCheckSuggestions"
-                  Core..= includeQuerySpellCheckSuggestions
+                  Data..= includeQuerySpellCheckSuggestions
               )
           ]
       )

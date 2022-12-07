@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -430,12 +431,12 @@ instance Core.AWSRequest CreateFlowLogs where
     Response.receiveXML
       ( \s h x ->
           CreateFlowLogsResponse'
-            Prelude.<$> (x Core..@? "clientToken")
-            Prelude.<*> ( x Core..@? "unsuccessful" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "clientToken")
+            Prelude.<*> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Core..@? "flowLogIdSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<*> ( x Data..@? "flowLogIdSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -474,39 +475,39 @@ instance Prelude.NFData CreateFlowLogs where
       `Prelude.seq` Prelude.rnf resourceIds
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToHeaders CreateFlowLogs where
+instance Data.ToHeaders CreateFlowLogs where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateFlowLogs where
+instance Data.ToPath CreateFlowLogs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFlowLogs where
+instance Data.ToQuery CreateFlowLogs where
   toQuery CreateFlowLogs' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateFlowLogs" :: Prelude.ByteString),
+          Data.=: ("CreateFlowLogs" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DestinationOptions" Core.=: destinationOptions,
-        "ClientToken" Core.=: clientToken,
-        "TrafficType" Core.=: trafficType,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DestinationOptions" Data.=: destinationOptions,
+        "ClientToken" Data.=: clientToken,
+        "TrafficType" Data.=: trafficType,
         "DeliverLogsPermissionArn"
-          Core.=: deliverLogsPermissionArn,
-        "LogFormat" Core.=: logFormat,
-        "DryRun" Core.=: dryRun,
-        "LogDestination" Core.=: logDestination,
+          Data.=: deliverLogsPermissionArn,
+        "LogFormat" Data.=: logFormat,
+        "DryRun" Data.=: dryRun,
+        "LogDestination" Data.=: logDestination,
         "DeliverCrossAccountRole"
-          Core.=: deliverCrossAccountRole,
-        "LogDestinationType" Core.=: logDestinationType,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: deliverCrossAccountRole,
+        "LogDestinationType" Data.=: logDestinationType,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "MaxAggregationInterval"
-          Core.=: maxAggregationInterval,
-        "LogGroupName" Core.=: logGroupName,
-        Core.toQueryList "ResourceId" resourceIds,
-        "ResourceType" Core.=: resourceType
+          Data.=: maxAggregationInterval,
+        "LogGroupName" Data.=: logGroupName,
+        Data.toQueryList "ResourceId" resourceIds,
+        "ResourceType" Data.=: resourceType
       ]
 
 -- | /See:/ 'newCreateFlowLogsResponse' smart constructor.

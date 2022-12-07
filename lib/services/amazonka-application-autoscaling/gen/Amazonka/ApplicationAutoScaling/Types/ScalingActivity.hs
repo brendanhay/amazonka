@@ -24,6 +24,7 @@ import Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode
 import Amazonka.ApplicationAutoScaling.Types.ServiceNamespace
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a scaling activity.
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newScalingActivity' smart constructor.
 data ScalingActivity = ScalingActivity'
   { -- | The Unix timestamp for when the scaling activity ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The details about the scaling activity.
     details :: Prelude.Maybe Prelude.Text,
     -- | A simple message about the current status of the scaling activity.
@@ -181,7 +182,7 @@ data ScalingActivity = ScalingActivity'
     -- | A simple description of what caused the scaling activity to happen.
     cause :: Prelude.Text,
     -- | The Unix timestamp for when the scaling activity began.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | Indicates the status of the scaling activity.
     statusCode :: ScalingActivityStatusCode
   }
@@ -385,13 +386,13 @@ newScalingActivity
         scalableDimension = pScalableDimension_,
         description = pDescription_,
         cause = pCause_,
-        startTime = Core._Time Lens.# pStartTime_,
+        startTime = Data._Time Lens.# pStartTime_,
         statusCode = pStatusCode_
       }
 
 -- | The Unix timestamp for when the scaling activity ended.
 scalingActivity_endTime :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.UTCTime)
-scalingActivity_endTime = Lens.lens (\ScalingActivity' {endTime} -> endTime) (\s@ScalingActivity' {} a -> s {endTime = a} :: ScalingActivity) Prelude.. Lens.mapping Core._Time
+scalingActivity_endTime = Lens.lens (\ScalingActivity' {endTime} -> endTime) (\s@ScalingActivity' {} a -> s {endTime = a} :: ScalingActivity) Prelude.. Lens.mapping Data._Time
 
 -- | The details about the scaling activity.
 scalingActivity_details :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.Text)
@@ -559,29 +560,29 @@ scalingActivity_cause = Lens.lens (\ScalingActivity' {cause} -> cause) (\s@Scali
 
 -- | The Unix timestamp for when the scaling activity began.
 scalingActivity_startTime :: Lens.Lens' ScalingActivity Prelude.UTCTime
-scalingActivity_startTime = Lens.lens (\ScalingActivity' {startTime} -> startTime) (\s@ScalingActivity' {} a -> s {startTime = a} :: ScalingActivity) Prelude.. Core._Time
+scalingActivity_startTime = Lens.lens (\ScalingActivity' {startTime} -> startTime) (\s@ScalingActivity' {} a -> s {startTime = a} :: ScalingActivity) Prelude.. Data._Time
 
 -- | Indicates the status of the scaling activity.
 scalingActivity_statusCode :: Lens.Lens' ScalingActivity ScalingActivityStatusCode
 scalingActivity_statusCode = Lens.lens (\ScalingActivity' {statusCode} -> statusCode) (\s@ScalingActivity' {} a -> s {statusCode = a} :: ScalingActivity)
 
-instance Core.FromJSON ScalingActivity where
+instance Data.FromJSON ScalingActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScalingActivity"
       ( \x ->
           ScalingActivity'
-            Prelude.<$> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "Details")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..: "ActivityId")
-            Prelude.<*> (x Core..: "ServiceNamespace")
-            Prelude.<*> (x Core..: "ResourceId")
-            Prelude.<*> (x Core..: "ScalableDimension")
-            Prelude.<*> (x Core..: "Description")
-            Prelude.<*> (x Core..: "Cause")
-            Prelude.<*> (x Core..: "StartTime")
-            Prelude.<*> (x Core..: "StatusCode")
+            Prelude.<$> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "Details")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..: "ActivityId")
+            Prelude.<*> (x Data..: "ServiceNamespace")
+            Prelude.<*> (x Data..: "ResourceId")
+            Prelude.<*> (x Data..: "ScalableDimension")
+            Prelude.<*> (x Data..: "Description")
+            Prelude.<*> (x Data..: "Cause")
+            Prelude.<*> (x Data..: "StartTime")
+            Prelude.<*> (x Data..: "StatusCode")
       )
 
 instance Prelude.Hashable ScalingActivity where

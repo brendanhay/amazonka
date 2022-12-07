@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EndpointDemographic where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies demographic information about an endpoint, such as the
@@ -128,20 +129,20 @@ endpointDemographic_appVersion = Lens.lens (\EndpointDemographic' {appVersion} -
 endpointDemographic_platformVersion :: Lens.Lens' EndpointDemographic (Prelude.Maybe Prelude.Text)
 endpointDemographic_platformVersion = Lens.lens (\EndpointDemographic' {platformVersion} -> platformVersion) (\s@EndpointDemographic' {} a -> s {platformVersion = a} :: EndpointDemographic)
 
-instance Core.FromJSON EndpointDemographic where
+instance Data.FromJSON EndpointDemographic where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointDemographic"
       ( \x ->
           EndpointDemographic'
-            Prelude.<$> (x Core..:? "Model")
-            Prelude.<*> (x Core..:? "Locale")
-            Prelude.<*> (x Core..:? "Timezone")
-            Prelude.<*> (x Core..:? "ModelVersion")
-            Prelude.<*> (x Core..:? "Platform")
-            Prelude.<*> (x Core..:? "Make")
-            Prelude.<*> (x Core..:? "AppVersion")
-            Prelude.<*> (x Core..:? "PlatformVersion")
+            Prelude.<$> (x Data..:? "Model")
+            Prelude.<*> (x Data..:? "Locale")
+            Prelude.<*> (x Data..:? "Timezone")
+            Prelude.<*> (x Data..:? "ModelVersion")
+            Prelude.<*> (x Data..:? "Platform")
+            Prelude.<*> (x Data..:? "Make")
+            Prelude.<*> (x Data..:? "AppVersion")
+            Prelude.<*> (x Data..:? "PlatformVersion")
       )
 
 instance Prelude.Hashable EndpointDemographic where
@@ -166,18 +167,18 @@ instance Prelude.NFData EndpointDemographic where
       `Prelude.seq` Prelude.rnf appVersion
       `Prelude.seq` Prelude.rnf platformVersion
 
-instance Core.ToJSON EndpointDemographic where
+instance Data.ToJSON EndpointDemographic where
   toJSON EndpointDemographic' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Model" Core..=) Prelude.<$> model,
-            ("Locale" Core..=) Prelude.<$> locale,
-            ("Timezone" Core..=) Prelude.<$> timezone,
-            ("ModelVersion" Core..=) Prelude.<$> modelVersion,
-            ("Platform" Core..=) Prelude.<$> platform,
-            ("Make" Core..=) Prelude.<$> make,
-            ("AppVersion" Core..=) Prelude.<$> appVersion,
-            ("PlatformVersion" Core..=)
+          [ ("Model" Data..=) Prelude.<$> model,
+            ("Locale" Data..=) Prelude.<$> locale,
+            ("Timezone" Data..=) Prelude.<$> timezone,
+            ("ModelVersion" Data..=) Prelude.<$> modelVersion,
+            ("Platform" Data..=) Prelude.<$> platform,
+            ("Make" Data..=) Prelude.<$> make,
+            ("AppVersion" Data..=) Prelude.<$> appVersion,
+            ("PlatformVersion" Data..=)
               Prelude.<$> platformVersion
           ]
       )

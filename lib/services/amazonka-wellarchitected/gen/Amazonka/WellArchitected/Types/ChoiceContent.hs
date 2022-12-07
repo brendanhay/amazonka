@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.ChoiceContent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The choice content.
@@ -61,14 +62,14 @@ choiceContent_displayText = Lens.lens (\ChoiceContent' {displayText} -> displayT
 choiceContent_url :: Lens.Lens' ChoiceContent (Prelude.Maybe Prelude.Text)
 choiceContent_url = Lens.lens (\ChoiceContent' {url} -> url) (\s@ChoiceContent' {} a -> s {url = a} :: ChoiceContent)
 
-instance Core.FromJSON ChoiceContent where
+instance Data.FromJSON ChoiceContent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChoiceContent"
       ( \x ->
           ChoiceContent'
-            Prelude.<$> (x Core..:? "DisplayText")
-            Prelude.<*> (x Core..:? "Url")
+            Prelude.<$> (x Data..:? "DisplayText")
+            Prelude.<*> (x Data..:? "Url")
       )
 
 instance Prelude.Hashable ChoiceContent where

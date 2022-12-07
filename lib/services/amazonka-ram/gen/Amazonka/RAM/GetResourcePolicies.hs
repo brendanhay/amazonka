@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -184,8 +185,8 @@ instance Core.AWSRequest GetResourcePolicies where
     Response.receiveJSON
       ( \s h x ->
           GetResourcePoliciesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "policies" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "policies" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,32 +204,32 @@ instance Prelude.NFData GetResourcePolicies where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceArns
 
-instance Core.ToHeaders GetResourcePolicies where
+instance Data.ToHeaders GetResourcePolicies where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResourcePolicies where
+instance Data.ToJSON GetResourcePolicies where
   toJSON GetResourcePolicies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("principal" Core..=) Prelude.<$> principal,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("resourceArns" Core..= resourceArns)
+          [ ("principal" Data..=) Prelude.<$> principal,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("resourceArns" Data..= resourceArns)
           ]
       )
 
-instance Core.ToPath GetResourcePolicies where
+instance Data.ToPath GetResourcePolicies where
   toPath = Prelude.const "/getresourcepolicies"
 
-instance Core.ToQuery GetResourcePolicies where
+instance Data.ToQuery GetResourcePolicies where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourcePoliciesResponse' smart constructor.

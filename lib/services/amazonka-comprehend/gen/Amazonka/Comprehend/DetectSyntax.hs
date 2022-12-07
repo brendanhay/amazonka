@@ -46,6 +46,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -53,7 +54,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDetectSyntax' smart constructor.
 data DetectSyntax = DetectSyntax'
   { -- | A UTF-8 string. The maximum string size is 5 KB.
-    text :: Core.Sensitive Prelude.Text,
+    text :: Data.Sensitive Prelude.Text,
     -- | The language code of the input documents. You can specify any of the
     -- following languages supported by Amazon Comprehend: German (\"de\"),
     -- English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"),
@@ -84,13 +85,13 @@ newDetectSyntax ::
   DetectSyntax
 newDetectSyntax pText_ pLanguageCode_ =
   DetectSyntax'
-    { text = Core._Sensitive Lens.# pText_,
+    { text = Data._Sensitive Lens.# pText_,
       languageCode = pLanguageCode_
     }
 
 -- | A UTF-8 string. The maximum string size is 5 KB.
 detectSyntax_text :: Lens.Lens' DetectSyntax Prelude.Text
-detectSyntax_text = Lens.lens (\DetectSyntax' {text} -> text) (\s@DetectSyntax' {} a -> s {text = a} :: DetectSyntax) Prelude.. Core._Sensitive
+detectSyntax_text = Lens.lens (\DetectSyntax' {text} -> text) (\s@DetectSyntax' {} a -> s {text = a} :: DetectSyntax) Prelude.. Data._Sensitive
 
 -- | The language code of the input documents. You can specify any of the
 -- following languages supported by Amazon Comprehend: German (\"de\"),
@@ -107,7 +108,7 @@ instance Core.AWSRequest DetectSyntax where
     Response.receiveJSON
       ( \s h x ->
           DetectSyntaxResponse'
-            Prelude.<$> (x Core..?> "SyntaxTokens" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "SyntaxTokens" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,34 +122,34 @@ instance Prelude.NFData DetectSyntax where
     Prelude.rnf text
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToHeaders DetectSyntax where
+instance Data.ToHeaders DetectSyntax where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.DetectSyntax" ::
+              Data.=# ( "Comprehend_20171127.DetectSyntax" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DetectSyntax where
+instance Data.ToJSON DetectSyntax where
   toJSON DetectSyntax' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Text" Core..= text),
-            Prelude.Just ("LanguageCode" Core..= languageCode)
+          [ Prelude.Just ("Text" Data..= text),
+            Prelude.Just ("LanguageCode" Data..= languageCode)
           ]
       )
 
-instance Core.ToPath DetectSyntax where
+instance Data.ToPath DetectSyntax where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetectSyntax where
+instance Data.ToQuery DetectSyntax where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectSyntaxResponse' smart constructor.

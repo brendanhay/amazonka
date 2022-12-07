@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.WorkspacesIpGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.IpRuleItem
 
@@ -80,16 +81,16 @@ workspacesIpGroup_groupDesc = Lens.lens (\WorkspacesIpGroup' {groupDesc} -> grou
 workspacesIpGroup_groupId :: Lens.Lens' WorkspacesIpGroup (Prelude.Maybe Prelude.Text)
 workspacesIpGroup_groupId = Lens.lens (\WorkspacesIpGroup' {groupId} -> groupId) (\s@WorkspacesIpGroup' {} a -> s {groupId = a} :: WorkspacesIpGroup)
 
-instance Core.FromJSON WorkspacesIpGroup where
+instance Data.FromJSON WorkspacesIpGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkspacesIpGroup"
       ( \x ->
           WorkspacesIpGroup'
-            Prelude.<$> (x Core..:? "userRules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "groupName")
-            Prelude.<*> (x Core..:? "groupDesc")
-            Prelude.<*> (x Core..:? "groupId")
+            Prelude.<$> (x Data..:? "userRules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "groupName")
+            Prelude.<*> (x Data..:? "groupDesc")
+            Prelude.<*> (x Data..:? "groupId")
       )
 
 instance Prelude.Hashable WorkspacesIpGroup where

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.AnonymousUserEmbeddingExperienceConfiguration w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.AnonymousUserDashboardEmbeddingConfiguration
 import Amazonka.QuickSight.Types.AnonymousUserDashboardVisualEmbeddingConfiguration
@@ -103,16 +104,16 @@ instance
         `Prelude.seq` Prelude.rnf qSearchBar
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AnonymousUserEmbeddingExperienceConfiguration
   where
   toJSON
     AnonymousUserEmbeddingExperienceConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("DashboardVisual" Core..=)
+            [ ("DashboardVisual" Data..=)
                 Prelude.<$> dashboardVisual,
-              ("Dashboard" Core..=) Prelude.<$> dashboard,
-              ("QSearchBar" Core..=) Prelude.<$> qSearchBar
+              ("Dashboard" Data..=) Prelude.<$> dashboard,
+              ("QSearchBar" Data..=) Prelude.<$> qSearchBar
             ]
         )

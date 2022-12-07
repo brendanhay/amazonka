@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.EndpointAccess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.VpcEndpoint
@@ -47,7 +48,7 @@ data EndpointAccess = EndpointAccess'
     endpointStatus :: Prelude.Maybe Prelude.Text,
     vpcEndpoint :: Prelude.Maybe VpcEndpoint,
     -- | The time (UTC) that the endpoint was created.
-    endpointCreateTime :: Prelude.Maybe Core.ISO8601,
+    endpointCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | The security groups associated with the endpoint.
     vpcSecurityGroups :: Prelude.Maybe [VpcSecurityGroupMembership]
   }
@@ -132,27 +133,27 @@ endpointAccess_vpcEndpoint = Lens.lens (\EndpointAccess' {vpcEndpoint} -> vpcEnd
 
 -- | The time (UTC) that the endpoint was created.
 endpointAccess_endpointCreateTime :: Lens.Lens' EndpointAccess (Prelude.Maybe Prelude.UTCTime)
-endpointAccess_endpointCreateTime = Lens.lens (\EndpointAccess' {endpointCreateTime} -> endpointCreateTime) (\s@EndpointAccess' {} a -> s {endpointCreateTime = a} :: EndpointAccess) Prelude.. Lens.mapping Core._Time
+endpointAccess_endpointCreateTime = Lens.lens (\EndpointAccess' {endpointCreateTime} -> endpointCreateTime) (\s@EndpointAccess' {} a -> s {endpointCreateTime = a} :: EndpointAccess) Prelude.. Lens.mapping Data._Time
 
 -- | The security groups associated with the endpoint.
 endpointAccess_vpcSecurityGroups :: Lens.Lens' EndpointAccess (Prelude.Maybe [VpcSecurityGroupMembership])
 endpointAccess_vpcSecurityGroups = Lens.lens (\EndpointAccess' {vpcSecurityGroups} -> vpcSecurityGroups) (\s@EndpointAccess' {} a -> s {vpcSecurityGroups = a} :: EndpointAccess) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML EndpointAccess where
+instance Data.FromXML EndpointAccess where
   parseXML x =
     EndpointAccess'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "SubnetGroupName")
-      Prelude.<*> (x Core..@? "ClusterIdentifier")
-      Prelude.<*> (x Core..@? "EndpointName")
-      Prelude.<*> (x Core..@? "ResourceOwner")
-      Prelude.<*> (x Core..@? "Address")
-      Prelude.<*> (x Core..@? "EndpointStatus")
-      Prelude.<*> (x Core..@? "VpcEndpoint")
-      Prelude.<*> (x Core..@? "EndpointCreateTime")
-      Prelude.<*> ( x Core..@? "VpcSecurityGroups"
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "SubnetGroupName")
+      Prelude.<*> (x Data..@? "ClusterIdentifier")
+      Prelude.<*> (x Data..@? "EndpointName")
+      Prelude.<*> (x Data..@? "ResourceOwner")
+      Prelude.<*> (x Data..@? "Address")
+      Prelude.<*> (x Data..@? "EndpointStatus")
+      Prelude.<*> (x Data..@? "VpcEndpoint")
+      Prelude.<*> (x Data..@? "EndpointCreateTime")
+      Prelude.<*> ( x Data..@? "VpcSecurityGroups"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "VpcSecurityGroup")
+                      Prelude.>>= Core.may (Data.parseXMLList "VpcSecurityGroup")
                   )
 
 instance Prelude.Hashable EndpointAccess where

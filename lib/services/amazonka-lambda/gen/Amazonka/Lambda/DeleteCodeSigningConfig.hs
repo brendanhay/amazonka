@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,17 +98,17 @@ instance Prelude.NFData DeleteCodeSigningConfig where
   rnf DeleteCodeSigningConfig' {..} =
     Prelude.rnf codeSigningConfigArn
 
-instance Core.ToHeaders DeleteCodeSigningConfig where
+instance Data.ToHeaders DeleteCodeSigningConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteCodeSigningConfig where
+instance Data.ToPath DeleteCodeSigningConfig where
   toPath DeleteCodeSigningConfig' {..} =
     Prelude.mconcat
       [ "/2020-04-22/code-signing-configs/",
-        Core.toBS codeSigningConfigArn
+        Data.toBS codeSigningConfigArn
       ]
 
-instance Core.ToQuery DeleteCodeSigningConfig where
+instance Data.ToQuery DeleteCodeSigningConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCodeSigningConfigResponse' smart constructor.

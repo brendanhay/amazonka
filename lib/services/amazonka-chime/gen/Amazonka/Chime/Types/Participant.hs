@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.Participant where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The phone number and proxy phone number for a participant in an Amazon
@@ -29,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newParticipant' smart constructor.
 data Participant = Participant'
   { -- | The participant\'s proxy phone number.
-    proxyPhoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    proxyPhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The participant\'s phone number.
-    phoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    phoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -56,20 +57,20 @@ newParticipant =
 
 -- | The participant\'s proxy phone number.
 participant_proxyPhoneNumber :: Lens.Lens' Participant (Prelude.Maybe Prelude.Text)
-participant_proxyPhoneNumber = Lens.lens (\Participant' {proxyPhoneNumber} -> proxyPhoneNumber) (\s@Participant' {} a -> s {proxyPhoneNumber = a} :: Participant) Prelude.. Lens.mapping Core._Sensitive
+participant_proxyPhoneNumber = Lens.lens (\Participant' {proxyPhoneNumber} -> proxyPhoneNumber) (\s@Participant' {} a -> s {proxyPhoneNumber = a} :: Participant) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The participant\'s phone number.
 participant_phoneNumber :: Lens.Lens' Participant (Prelude.Maybe Prelude.Text)
-participant_phoneNumber = Lens.lens (\Participant' {phoneNumber} -> phoneNumber) (\s@Participant' {} a -> s {phoneNumber = a} :: Participant) Prelude.. Lens.mapping Core._Sensitive
+participant_phoneNumber = Lens.lens (\Participant' {phoneNumber} -> phoneNumber) (\s@Participant' {} a -> s {phoneNumber = a} :: Participant) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON Participant where
+instance Data.FromJSON Participant where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Participant"
       ( \x ->
           Participant'
-            Prelude.<$> (x Core..:? "ProxyPhoneNumber")
-            Prelude.<*> (x Core..:? "PhoneNumber")
+            Prelude.<$> (x Data..:? "ProxyPhoneNumber")
+            Prelude.<*> (x Data..:? "PhoneNumber")
       )
 
 instance Prelude.Hashable Participant where

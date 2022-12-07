@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,9 +126,9 @@ instance Core.AWSRequest DeleteBotVersion where
     Response.receiveJSON
       ( \s h x ->
           DeleteBotVersionResponse'
-            Prelude.<$> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botStatus")
+            Prelude.<$> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,32 +144,32 @@ instance Prelude.NFData DeleteBotVersion where
       `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersion
 
-instance Core.ToHeaders DeleteBotVersion where
+instance Data.ToHeaders DeleteBotVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteBotVersion where
+instance Data.ToPath DeleteBotVersion where
   toPath DeleteBotVersion' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/"
       ]
 
-instance Core.ToQuery DeleteBotVersion where
+instance Data.ToQuery DeleteBotVersion where
   toQuery DeleteBotVersion' {..} =
     Prelude.mconcat
       [ "skipResourceInUseCheck"
-          Core.=: skipResourceInUseCheck
+          Data.=: skipResourceInUseCheck
       ]
 
 -- | /See:/ 'newDeleteBotVersionResponse' smart constructor.

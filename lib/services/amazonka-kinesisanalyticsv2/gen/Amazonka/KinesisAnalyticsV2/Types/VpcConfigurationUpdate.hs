@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.VpcConfigurationUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes updates to the VPC configuration used by the application.
@@ -97,15 +98,15 @@ instance Prelude.NFData VpcConfigurationUpdate where
       `Prelude.seq` Prelude.rnf securityGroupIdUpdates
       `Prelude.seq` Prelude.rnf vpcConfigurationId
 
-instance Core.ToJSON VpcConfigurationUpdate where
+instance Data.ToJSON VpcConfigurationUpdate where
   toJSON VpcConfigurationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SubnetIdUpdates" Core..=)
+          [ ("SubnetIdUpdates" Data..=)
               Prelude.<$> subnetIdUpdates,
-            ("SecurityGroupIdUpdates" Core..=)
+            ("SecurityGroupIdUpdates" Data..=)
               Prelude.<$> securityGroupIdUpdates,
             Prelude.Just
-              ("VpcConfigurationId" Core..= vpcConfigurationId)
+              ("VpcConfigurationId" Data..= vpcConfigurationId)
           ]
       )

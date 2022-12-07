@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.OrganizationKubernetesAuditLogsConfiguration whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Organization-wide Kubernetes audit logs configuration.
@@ -76,12 +77,12 @@ instance
     Prelude.rnf autoEnable
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     OrganizationKubernetesAuditLogsConfiguration
   where
   toJSON
     OrganizationKubernetesAuditLogsConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [Prelude.Just ("autoEnable" Core..= autoEnable)]
+            [Prelude.Just ("autoEnable" Data..= autoEnable)]
         )

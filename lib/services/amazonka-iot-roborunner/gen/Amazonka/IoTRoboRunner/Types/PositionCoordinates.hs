@@ -21,6 +21,7 @@ module Amazonka.IoTRoboRunner.Types.PositionCoordinates where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTRoboRunner.Types.CartesianCoordinates
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newPositionCoordinates =
 positionCoordinates_cartesianCoordinates :: Lens.Lens' PositionCoordinates (Prelude.Maybe CartesianCoordinates)
 positionCoordinates_cartesianCoordinates = Lens.lens (\PositionCoordinates' {cartesianCoordinates} -> cartesianCoordinates) (\s@PositionCoordinates' {} a -> s {cartesianCoordinates = a} :: PositionCoordinates)
 
-instance Core.FromJSON PositionCoordinates where
+instance Data.FromJSON PositionCoordinates where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PositionCoordinates"
       ( \x ->
           PositionCoordinates'
-            Prelude.<$> (x Core..:? "cartesianCoordinates")
+            Prelude.<$> (x Data..:? "cartesianCoordinates")
       )
 
 instance Prelude.Hashable PositionCoordinates where
@@ -71,11 +72,11 @@ instance Prelude.NFData PositionCoordinates where
   rnf PositionCoordinates' {..} =
     Prelude.rnf cartesianCoordinates
 
-instance Core.ToJSON PositionCoordinates where
+instance Data.ToJSON PositionCoordinates where
   toJSON PositionCoordinates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cartesianCoordinates" Core..=)
+          [ ("cartesianCoordinates" Data..=)
               Prelude.<$> cartesianCoordinates
           ]
       )

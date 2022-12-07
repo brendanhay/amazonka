@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.Network where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.Framework
 import Amazonka.ManagedBlockChain.Types.NetworkFrameworkAttributes
 import Amazonka.ManagedBlockChain.Types.NetworkStatus
@@ -54,7 +55,7 @@ data Network = Network'
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the network was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The voting rules for the network to decide if a proposal is accepted.
     votingPolicy :: Prelude.Maybe VotingPolicy,
     -- | The current status of the network.
@@ -165,7 +166,7 @@ network_arn = Lens.lens (\Network' {arn} -> arn) (\s@Network' {} a -> s {arn = a
 
 -- | The date and time that the network was created.
 network_creationDate :: Lens.Lens' Network (Prelude.Maybe Prelude.UTCTime)
-network_creationDate = Lens.lens (\Network' {creationDate} -> creationDate) (\s@Network' {} a -> s {creationDate = a} :: Network) Prelude.. Lens.mapping Core._Time
+network_creationDate = Lens.lens (\Network' {creationDate} -> creationDate) (\s@Network' {} a -> s {creationDate = a} :: Network) Prelude.. Lens.mapping Data._Time
 
 -- | The voting rules for the network to decide if a proposal is accepted.
 network_votingPolicy :: Lens.Lens' Network (Prelude.Maybe VotingPolicy)
@@ -191,24 +192,24 @@ network_frameworkVersion = Lens.lens (\Network' {frameworkVersion} -> frameworkV
 network_framework :: Lens.Lens' Network (Prelude.Maybe Framework)
 network_framework = Lens.lens (\Network' {framework} -> framework) (\s@Network' {} a -> s {framework = a} :: Network)
 
-instance Core.FromJSON Network where
+instance Data.FromJSON Network where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Network"
       ( \x ->
           Network'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "FrameworkAttributes")
-            Prelude.<*> (x Core..:? "VpcEndpointServiceName")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "VotingPolicy")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "FrameworkVersion")
-            Prelude.<*> (x Core..:? "Framework")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "FrameworkAttributes")
+            Prelude.<*> (x Data..:? "VpcEndpointServiceName")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "VotingPolicy")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "FrameworkVersion")
+            Prelude.<*> (x Data..:? "Framework")
       )
 
 instance Prelude.Hashable Network where

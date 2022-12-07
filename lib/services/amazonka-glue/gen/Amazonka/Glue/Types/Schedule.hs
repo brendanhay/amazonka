@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Schedule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ScheduleState
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,14 +72,14 @@ schedule_state = Lens.lens (\Schedule' {state} -> state) (\s@Schedule' {} a -> s
 schedule_scheduleExpression :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Text)
 schedule_scheduleExpression = Lens.lens (\Schedule' {scheduleExpression} -> scheduleExpression) (\s@Schedule' {} a -> s {scheduleExpression = a} :: Schedule)
 
-instance Core.FromJSON Schedule where
+instance Data.FromJSON Schedule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Schedule"
       ( \x ->
           Schedule'
-            Prelude.<$> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "ScheduleExpression")
+            Prelude.<$> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "ScheduleExpression")
       )
 
 instance Prelude.Hashable Schedule where

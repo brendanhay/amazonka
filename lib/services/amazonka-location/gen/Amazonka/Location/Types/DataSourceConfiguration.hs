@@ -21,6 +21,7 @@ module Amazonka.Location.Types.DataSourceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.IntendedUse
 import qualified Amazonka.Prelude as Prelude
 
@@ -96,13 +97,13 @@ newDataSourceConfiguration =
 dataSourceConfiguration_intendedUse :: Lens.Lens' DataSourceConfiguration (Prelude.Maybe IntendedUse)
 dataSourceConfiguration_intendedUse = Lens.lens (\DataSourceConfiguration' {intendedUse} -> intendedUse) (\s@DataSourceConfiguration' {} a -> s {intendedUse = a} :: DataSourceConfiguration)
 
-instance Core.FromJSON DataSourceConfiguration where
+instance Data.FromJSON DataSourceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSourceConfiguration"
       ( \x ->
           DataSourceConfiguration'
-            Prelude.<$> (x Core..:? "IntendedUse")
+            Prelude.<$> (x Data..:? "IntendedUse")
       )
 
 instance Prelude.Hashable DataSourceConfiguration where
@@ -113,9 +114,9 @@ instance Prelude.NFData DataSourceConfiguration where
   rnf DataSourceConfiguration' {..} =
     Prelude.rnf intendedUse
 
-instance Core.ToJSON DataSourceConfiguration where
+instance Data.ToJSON DataSourceConfiguration where
   toJSON DataSourceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("IntendedUse" Core..=) Prelude.<$> intendedUse]
+          [("IntendedUse" Data..=) Prelude.<$> intendedUse]
       )

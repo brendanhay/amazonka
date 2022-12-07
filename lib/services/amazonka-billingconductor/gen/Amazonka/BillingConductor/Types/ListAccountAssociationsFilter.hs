@@ -21,6 +21,7 @@ module Amazonka.BillingConductor.Types.ListAccountAssociationsFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The filter on the account ID of the linked account, or any of the
@@ -102,11 +103,11 @@ instance Prelude.NFData ListAccountAssociationsFilter where
     Prelude.rnf association
       `Prelude.seq` Prelude.rnf accountId
 
-instance Core.ToJSON ListAccountAssociationsFilter where
+instance Data.ToJSON ListAccountAssociationsFilter where
   toJSON ListAccountAssociationsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Association" Core..=) Prelude.<$> association,
-            ("AccountId" Core..=) Prelude.<$> accountId
+          [ ("Association" Data..=) Prelude.<$> association,
+            ("AccountId" Data..=) Prelude.<$> accountId
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.Latency where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the average latency for the slowest X percent of requests
@@ -140,17 +141,17 @@ latency_p10 = Lens.lens (\Latency' {p10} -> p10) (\s@Latency' {} a -> s {p10 = a
 latency_p75 :: Lens.Lens' Latency (Prelude.Maybe Prelude.Double)
 latency_p75 = Lens.lens (\Latency' {p75} -> p75) (\s@Latency' {} a -> s {p75 = a} :: Latency)
 
-instance Core.FromXML Latency where
+instance Data.FromXML Latency where
   parseXML x =
     Latency'
-      Prelude.<$> (x Core..@? "P999")
-      Prelude.<*> (x Core..@? "P50")
-      Prelude.<*> (x Core..@? "P85")
-      Prelude.<*> (x Core..@? "P90")
-      Prelude.<*> (x Core..@? "P95")
-      Prelude.<*> (x Core..@? "P99")
-      Prelude.<*> (x Core..@? "P10")
-      Prelude.<*> (x Core..@? "P75")
+      Prelude.<$> (x Data..@? "P999")
+      Prelude.<*> (x Data..@? "P50")
+      Prelude.<*> (x Data..@? "P85")
+      Prelude.<*> (x Data..@? "P90")
+      Prelude.<*> (x Data..@? "P95")
+      Prelude.<*> (x Data..@? "P99")
+      Prelude.<*> (x Data..@? "P10")
+      Prelude.<*> (x Data..@? "P75")
 
 instance Prelude.Hashable Latency where
   hashWithSalt _salt Latency' {..} =

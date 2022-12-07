@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -82,7 +83,7 @@ instance Core.AWSRequest GetWorkgroup where
       ( \s h x ->
           GetWorkgroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "workgroup")
+            Prelude.<*> (x Data..:> "workgroup")
       )
 
 instance Prelude.Hashable GetWorkgroup where
@@ -92,34 +93,34 @@ instance Prelude.Hashable GetWorkgroup where
 instance Prelude.NFData GetWorkgroup where
   rnf GetWorkgroup' {..} = Prelude.rnf workgroupName
 
-instance Core.ToHeaders GetWorkgroup where
+instance Data.ToHeaders GetWorkgroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.GetWorkgroup" ::
+              Data.=# ( "RedshiftServerless.GetWorkgroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetWorkgroup where
+instance Data.ToJSON GetWorkgroup where
   toJSON GetWorkgroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("workgroupName" Core..= workgroupName)
+              ("workgroupName" Data..= workgroupName)
           ]
       )
 
-instance Core.ToPath GetWorkgroup where
+instance Data.ToPath GetWorkgroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetWorkgroup where
+instance Data.ToQuery GetWorkgroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetWorkgroupResponse' smart constructor.

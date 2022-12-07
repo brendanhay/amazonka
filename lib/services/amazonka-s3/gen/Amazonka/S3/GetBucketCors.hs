@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,7 +118,7 @@ instance Core.AWSRequest GetBucketCors where
     Response.receiveXML
       ( \s h x ->
           GetBucketCorsResponse'
-            Prelude.<$> (Core.may (Core.parseXMLList "CORSRule") x)
+            Prelude.<$> (Core.may (Data.parseXMLList "CORSRule") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,18 +132,18 @@ instance Prelude.NFData GetBucketCors where
     Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders GetBucketCors where
+instance Data.ToHeaders GetBucketCors where
   toHeaders GetBucketCors' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath GetBucketCors where
+instance Data.ToPath GetBucketCors where
   toPath GetBucketCors' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery GetBucketCors where
+instance Data.ToQuery GetBucketCors where
   toQuery = Prelude.const (Prelude.mconcat ["cors"])
 
 -- | /See:/ 'newGetBucketCorsResponse' smart constructor.

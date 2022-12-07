@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraH
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A hostname and IP address mapping to append to the __\/etc\/hosts__ file
@@ -65,16 +66,16 @@ awsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails_ipAddress :: Lens.Lens
 awsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails_ipAddress = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' {ipAddress} -> ipAddress) (\s@AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' {} a -> s {ipAddress = a} :: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails'
-            Prelude.<$> (x Core..:? "Hostname")
-              Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<$> (x Data..:? "Hostname")
+              Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance
@@ -97,14 +98,14 @@ instance
         `Prelude.seq` Prelude.rnf ipAddress
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Hostname" Core..=) Prelude.<$> hostname,
-              ("IpAddress" Core..=) Prelude.<$> ipAddress
+            [ ("Hostname" Data..=) Prelude.<$> hostname,
+              ("IpAddress" Data..=) Prelude.<$> ipAddress
             ]
         )

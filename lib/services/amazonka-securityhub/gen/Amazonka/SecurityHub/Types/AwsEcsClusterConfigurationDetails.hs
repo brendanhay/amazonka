@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsClusterConfigurationDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEcsClusterConfigurationExecuteCommandConfigurationDetails
 
@@ -55,15 +56,15 @@ awsEcsClusterConfigurationDetails_executeCommandConfiguration :: Lens.Lens' AwsE
 awsEcsClusterConfigurationDetails_executeCommandConfiguration = Lens.lens (\AwsEcsClusterConfigurationDetails' {executeCommandConfiguration} -> executeCommandConfiguration) (\s@AwsEcsClusterConfigurationDetails' {} a -> s {executeCommandConfiguration = a} :: AwsEcsClusterConfigurationDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsClusterConfigurationDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsClusterConfigurationDetails"
       ( \x ->
           AwsEcsClusterConfigurationDetails'
-            Prelude.<$> (x Core..:? "ExecuteCommandConfiguration")
+            Prelude.<$> (x Data..:? "ExecuteCommandConfiguration")
       )
 
 instance
@@ -84,13 +85,13 @@ instance
     Prelude.rnf executeCommandConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsClusterConfigurationDetails
   where
   toJSON AwsEcsClusterConfigurationDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExecuteCommandConfiguration" Core..=)
+          [ ("ExecuteCommandConfiguration" Data..=)
               Prelude.<$> executeCommandConfiguration
           ]
       )

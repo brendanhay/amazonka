@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,7 +137,7 @@ instance Core.AWSRequest UpdateFleetPortSettings where
     Response.receiveJSON
       ( \s h x ->
           UpdateFleetPortSettingsResponse'
-            Prelude.<$> (x Core..?> "FleetId")
+            Prelude.<$> (x Data..?> "FleetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,37 +154,37 @@ instance Prelude.NFData UpdateFleetPortSettings where
       `Prelude.seq` Prelude.rnf inboundPermissionAuthorizations
       `Prelude.seq` Prelude.rnf fleetId
 
-instance Core.ToHeaders UpdateFleetPortSettings where
+instance Data.ToHeaders UpdateFleetPortSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.UpdateFleetPortSettings" ::
+              Data.=# ( "GameLift.UpdateFleetPortSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFleetPortSettings where
+instance Data.ToJSON UpdateFleetPortSettings where
   toJSON UpdateFleetPortSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InboundPermissionRevocations" Core..=)
+          [ ("InboundPermissionRevocations" Data..=)
               Prelude.<$> inboundPermissionRevocations,
-            ("InboundPermissionAuthorizations" Core..=)
+            ("InboundPermissionAuthorizations" Data..=)
               Prelude.<$> inboundPermissionAuthorizations,
-            Prelude.Just ("FleetId" Core..= fleetId)
+            Prelude.Just ("FleetId" Data..= fleetId)
           ]
       )
 
-instance Core.ToPath UpdateFleetPortSettings where
+instance Data.ToPath UpdateFleetPortSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateFleetPortSettings where
+instance Data.ToQuery UpdateFleetPortSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

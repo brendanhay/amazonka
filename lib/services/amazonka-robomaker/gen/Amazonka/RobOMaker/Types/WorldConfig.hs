@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.WorldConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for a world.
@@ -50,12 +51,12 @@ newWorldConfig =
 worldConfig_world :: Lens.Lens' WorldConfig (Prelude.Maybe Prelude.Text)
 worldConfig_world = Lens.lens (\WorldConfig' {world} -> world) (\s@WorldConfig' {} a -> s {world = a} :: WorldConfig)
 
-instance Core.FromJSON WorldConfig where
+instance Data.FromJSON WorldConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorldConfig"
       ( \x ->
-          WorldConfig' Prelude.<$> (x Core..:? "world")
+          WorldConfig' Prelude.<$> (x Data..:? "world")
       )
 
 instance Prelude.Hashable WorldConfig where
@@ -65,9 +66,9 @@ instance Prelude.Hashable WorldConfig where
 instance Prelude.NFData WorldConfig where
   rnf WorldConfig' {..} = Prelude.rnf world
 
-instance Core.ToJSON WorldConfig where
+instance Data.ToJSON WorldConfig where
   toJSON WorldConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("world" Core..=) Prelude.<$> world]
+          [("world" Data..=) Prelude.<$> world]
       )

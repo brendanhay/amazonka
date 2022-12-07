@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.Attachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.AttachmentStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -103,15 +104,15 @@ attachment_subnetId = Lens.lens (\Attachment' {subnetId} -> subnetId) (\s@Attach
 attachment_status :: Lens.Lens' Attachment (Prelude.Maybe AttachmentStatus)
 attachment_status = Lens.lens (\Attachment' {status} -> status) (\s@Attachment' {} a -> s {status = a} :: Attachment)
 
-instance Core.FromJSON Attachment where
+instance Data.FromJSON Attachment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Attachment"
       ( \x ->
           Attachment'
-            Prelude.<$> (x Core..:? "EndpointId")
-            Prelude.<*> (x Core..:? "SubnetId")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "EndpointId")
+            Prelude.<*> (x Data..:? "SubnetId")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable Attachment where

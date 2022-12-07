@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,8 +121,8 @@ instance Core.AWSRequest ListIndices where
     Response.receiveJSON
       ( \s h x ->
           ListIndicesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "indexNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "indexNames" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,17 +136,17 @@ instance Prelude.NFData ListIndices where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListIndices where
+instance Data.ToHeaders ListIndices where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListIndices where
+instance Data.ToPath ListIndices where
   toPath = Prelude.const "/indices"
 
-instance Core.ToQuery ListIndices where
+instance Data.ToQuery ListIndices where
   toQuery ListIndices' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListIndicesResponse' smart constructor.

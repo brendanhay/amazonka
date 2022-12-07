@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.S3Config where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Resource Name (ARN) of the Identity and Access Management
@@ -59,13 +60,13 @@ newS3Config pBucketAccessRoleArn_ =
 s3Config_bucketAccessRoleArn :: Lens.Lens' S3Config Prelude.Text
 s3Config_bucketAccessRoleArn = Lens.lens (\S3Config' {bucketAccessRoleArn} -> bucketAccessRoleArn) (\s@S3Config' {} a -> s {bucketAccessRoleArn = a} :: S3Config)
 
-instance Core.FromJSON S3Config where
+instance Data.FromJSON S3Config where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Config"
       ( \x ->
           S3Config'
-            Prelude.<$> (x Core..: "BucketAccessRoleArn")
+            Prelude.<$> (x Data..: "BucketAccessRoleArn")
       )
 
 instance Prelude.Hashable S3Config where
@@ -75,11 +76,11 @@ instance Prelude.Hashable S3Config where
 instance Prelude.NFData S3Config where
   rnf S3Config' {..} = Prelude.rnf bucketAccessRoleArn
 
-instance Core.ToJSON S3Config where
+instance Data.ToJSON S3Config where
   toJSON S3Config' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("BucketAccessRoleArn" Core..= bucketAccessRoleArn)
+              ("BucketAccessRoleArn" Data..= bucketAccessRoleArn)
           ]
       )

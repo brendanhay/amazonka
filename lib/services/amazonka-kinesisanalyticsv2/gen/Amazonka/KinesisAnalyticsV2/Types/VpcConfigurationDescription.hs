@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.VpcConfigurationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the parameters of a VPC used by the application.
@@ -105,16 +106,16 @@ vpcConfigurationDescription_subnetIds = Lens.lens (\VpcConfigurationDescription'
 vpcConfigurationDescription_securityGroupIds :: Lens.Lens' VpcConfigurationDescription (Prelude.NonEmpty Prelude.Text)
 vpcConfigurationDescription_securityGroupIds = Lens.lens (\VpcConfigurationDescription' {securityGroupIds} -> securityGroupIds) (\s@VpcConfigurationDescription' {} a -> s {securityGroupIds = a} :: VpcConfigurationDescription) Prelude.. Lens.coerced
 
-instance Core.FromJSON VpcConfigurationDescription where
+instance Data.FromJSON VpcConfigurationDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcConfigurationDescription"
       ( \x ->
           VpcConfigurationDescription'
-            Prelude.<$> (x Core..: "VpcConfigurationId")
-            Prelude.<*> (x Core..: "VpcId")
-            Prelude.<*> (x Core..: "SubnetIds")
-            Prelude.<*> (x Core..: "SecurityGroupIds")
+            Prelude.<$> (x Data..: "VpcConfigurationId")
+            Prelude.<*> (x Data..: "VpcId")
+            Prelude.<*> (x Data..: "SubnetIds")
+            Prelude.<*> (x Data..: "SecurityGroupIds")
       )
 
 instance Prelude.Hashable VpcConfigurationDescription where

@@ -23,6 +23,7 @@ import Amazonka.Config.Types.AggregatedSourceStatusType
 import Amazonka.Config.Types.AggregatedSourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The current sync status between the source and the aggregator account.
@@ -47,7 +48,7 @@ data AggregatedSourceStatus = AggregatedSourceStatus'
     -- -   Valid value OUTDATED indicates the data is not the most recent.
     lastUpdateStatus :: Prelude.Maybe AggregatedSourceStatusType,
     -- | The time of the last update.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The message indicating that the source account aggregation failed due to
     -- an error.
     lastErrorMessage :: Prelude.Maybe Prelude.Text
@@ -126,26 +127,26 @@ aggregatedSourceStatus_lastUpdateStatus = Lens.lens (\AggregatedSourceStatus' {l
 
 -- | The time of the last update.
 aggregatedSourceStatus_lastUpdateTime :: Lens.Lens' AggregatedSourceStatus (Prelude.Maybe Prelude.UTCTime)
-aggregatedSourceStatus_lastUpdateTime = Lens.lens (\AggregatedSourceStatus' {lastUpdateTime} -> lastUpdateTime) (\s@AggregatedSourceStatus' {} a -> s {lastUpdateTime = a} :: AggregatedSourceStatus) Prelude.. Lens.mapping Core._Time
+aggregatedSourceStatus_lastUpdateTime = Lens.lens (\AggregatedSourceStatus' {lastUpdateTime} -> lastUpdateTime) (\s@AggregatedSourceStatus' {} a -> s {lastUpdateTime = a} :: AggregatedSourceStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The message indicating that the source account aggregation failed due to
 -- an error.
 aggregatedSourceStatus_lastErrorMessage :: Lens.Lens' AggregatedSourceStatus (Prelude.Maybe Prelude.Text)
 aggregatedSourceStatus_lastErrorMessage = Lens.lens (\AggregatedSourceStatus' {lastErrorMessage} -> lastErrorMessage) (\s@AggregatedSourceStatus' {} a -> s {lastErrorMessage = a} :: AggregatedSourceStatus)
 
-instance Core.FromJSON AggregatedSourceStatus where
+instance Data.FromJSON AggregatedSourceStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregatedSourceStatus"
       ( \x ->
           AggregatedSourceStatus'
-            Prelude.<$> (x Core..:? "LastErrorCode")
-            Prelude.<*> (x Core..:? "SourceId")
-            Prelude.<*> (x Core..:? "SourceType")
-            Prelude.<*> (x Core..:? "AwsRegion")
-            Prelude.<*> (x Core..:? "LastUpdateStatus")
-            Prelude.<*> (x Core..:? "LastUpdateTime")
-            Prelude.<*> (x Core..:? "LastErrorMessage")
+            Prelude.<$> (x Data..:? "LastErrorCode")
+            Prelude.<*> (x Data..:? "SourceId")
+            Prelude.<*> (x Data..:? "SourceType")
+            Prelude.<*> (x Data..:? "AwsRegion")
+            Prelude.<*> (x Data..:? "LastUpdateStatus")
+            Prelude.<*> (x Data..:? "LastUpdateTime")
+            Prelude.<*> (x Data..:? "LastErrorMessage")
       )
 
 instance Prelude.Hashable AggregatedSourceStatus where

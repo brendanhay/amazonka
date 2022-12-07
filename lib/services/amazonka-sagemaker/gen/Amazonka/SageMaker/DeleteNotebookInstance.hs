@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,36 +96,36 @@ instance Prelude.NFData DeleteNotebookInstance where
   rnf DeleteNotebookInstance' {..} =
     Prelude.rnf notebookInstanceName
 
-instance Core.ToHeaders DeleteNotebookInstance where
+instance Data.ToHeaders DeleteNotebookInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DeleteNotebookInstance" ::
+              Data.=# ( "SageMaker.DeleteNotebookInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteNotebookInstance where
+instance Data.ToJSON DeleteNotebookInstance where
   toJSON DeleteNotebookInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "NotebookInstanceName"
-                  Core..= notebookInstanceName
+                  Data..= notebookInstanceName
               )
           ]
       )
 
-instance Core.ToPath DeleteNotebookInstance where
+instance Data.ToPath DeleteNotebookInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteNotebookInstance where
+instance Data.ToQuery DeleteNotebookInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteNotebookInstanceResponse' smart constructor.

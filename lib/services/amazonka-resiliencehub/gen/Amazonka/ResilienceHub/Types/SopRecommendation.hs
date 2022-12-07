@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.SopRecommendation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.RecommendationItem
 import Amazonka.ResilienceHub.Types.SopServiceType
@@ -126,20 +127,20 @@ sopRecommendation_referenceId = Lens.lens (\SopRecommendation' {referenceId} -> 
 sopRecommendation_serviceType :: Lens.Lens' SopRecommendation SopServiceType
 sopRecommendation_serviceType = Lens.lens (\SopRecommendation' {serviceType} -> serviceType) (\s@SopRecommendation' {} a -> s {serviceType = a} :: SopRecommendation)
 
-instance Core.FromJSON SopRecommendation where
+instance Data.FromJSON SopRecommendation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SopRecommendation"
       ( \x ->
           SopRecommendation'
-            Prelude.<$> (x Core..:? "items" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "prerequisite")
-            Prelude.<*> (x Core..:? "appComponentName")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "recommendationId")
-            Prelude.<*> (x Core..: "referenceId")
-            Prelude.<*> (x Core..: "serviceType")
+            Prelude.<$> (x Data..:? "items" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "prerequisite")
+            Prelude.<*> (x Data..:? "appComponentName")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "recommendationId")
+            Prelude.<*> (x Data..: "referenceId")
+            Prelude.<*> (x Data..: "serviceType")
       )
 
 instance Prelude.Hashable SopRecommendation where

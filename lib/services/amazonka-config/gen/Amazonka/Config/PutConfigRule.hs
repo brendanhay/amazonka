@@ -78,6 +78,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,34 +140,34 @@ instance Prelude.NFData PutConfigRule where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf configRule
 
-instance Core.ToHeaders PutConfigRule where
+instance Data.ToHeaders PutConfigRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.PutConfigRule" ::
+              Data.=# ( "StarlingDoveService.PutConfigRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutConfigRule where
+instance Data.ToJSON PutConfigRule where
   toJSON PutConfigRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("ConfigRule" Core..= configRule)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("ConfigRule" Data..= configRule)
           ]
       )
 
-instance Core.ToPath PutConfigRule where
+instance Data.ToPath PutConfigRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutConfigRule where
+instance Data.ToQuery PutConfigRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutConfigRuleResponse' smart constructor.

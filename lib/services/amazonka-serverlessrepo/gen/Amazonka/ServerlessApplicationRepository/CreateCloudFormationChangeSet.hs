@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -414,10 +415,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateCloudFormationChangeSetResponse'
-            Prelude.<$> (x Core..?> "semanticVersion")
-            Prelude.<*> (x Core..?> "stackId")
-            Prelude.<*> (x Core..?> "changeSetId")
-            Prelude.<*> (x Core..?> "applicationId")
+            Prelude.<$> (x Data..?> "semanticVersion")
+            Prelude.<*> (x Data..?> "stackId")
+            Prelude.<*> (x Data..?> "changeSetId")
+            Prelude.<*> (x Data..?> "applicationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -456,49 +457,49 @@ instance Prelude.NFData CreateCloudFormationChangeSet where
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders CreateCloudFormationChangeSet where
+instance Data.ToHeaders CreateCloudFormationChangeSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCloudFormationChangeSet where
+instance Data.ToJSON CreateCloudFormationChangeSet where
   toJSON CreateCloudFormationChangeSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("semanticVersion" Core..=)
+          [ ("semanticVersion" Data..=)
               Prelude.<$> semanticVersion,
-            ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("changeSetName" Core..=) Prelude.<$> changeSetName,
-            ("notificationArns" Core..=)
+            ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("changeSetName" Data..=) Prelude.<$> changeSetName,
+            ("notificationArns" Data..=)
               Prelude.<$> notificationArns,
-            ("parameterOverrides" Core..=)
+            ("parameterOverrides" Data..=)
               Prelude.<$> parameterOverrides,
-            ("resourceTypes" Core..=) Prelude.<$> resourceTypes,
-            ("templateId" Core..=) Prelude.<$> templateId,
-            ("description" Core..=) Prelude.<$> description,
-            ("capabilities" Core..=) Prelude.<$> capabilities,
-            ("rollbackConfiguration" Core..=)
+            ("resourceTypes" Data..=) Prelude.<$> resourceTypes,
+            ("templateId" Data..=) Prelude.<$> templateId,
+            ("description" Data..=) Prelude.<$> description,
+            ("capabilities" Data..=) Prelude.<$> capabilities,
+            ("rollbackConfiguration" Data..=)
               Prelude.<$> rollbackConfiguration,
-            Prelude.Just ("stackName" Core..= stackName)
+            Prelude.Just ("stackName" Data..= stackName)
           ]
       )
 
-instance Core.ToPath CreateCloudFormationChangeSet where
+instance Data.ToPath CreateCloudFormationChangeSet where
   toPath CreateCloudFormationChangeSet' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/changesets"
       ]
 
-instance Core.ToQuery CreateCloudFormationChangeSet where
+instance Data.ToQuery CreateCloudFormationChangeSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCloudFormationChangeSetResponse' smart constructor.

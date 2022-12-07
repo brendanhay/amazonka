@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.SessionKeysAbpV1_1 where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Session keys for ABP v1.1
@@ -79,16 +80,16 @@ sessionKeysAbpV1_1_sNwkSIntKey = Lens.lens (\SessionKeysAbpV1_1' {sNwkSIntKey} -
 sessionKeysAbpV1_1_appSKey :: Lens.Lens' SessionKeysAbpV1_1 (Prelude.Maybe Prelude.Text)
 sessionKeysAbpV1_1_appSKey = Lens.lens (\SessionKeysAbpV1_1' {appSKey} -> appSKey) (\s@SessionKeysAbpV1_1' {} a -> s {appSKey = a} :: SessionKeysAbpV1_1)
 
-instance Core.FromJSON SessionKeysAbpV1_1 where
+instance Data.FromJSON SessionKeysAbpV1_1 where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SessionKeysAbpV1_1"
       ( \x ->
           SessionKeysAbpV1_1'
-            Prelude.<$> (x Core..:? "NwkSEncKey")
-            Prelude.<*> (x Core..:? "FNwkSIntKey")
-            Prelude.<*> (x Core..:? "SNwkSIntKey")
-            Prelude.<*> (x Core..:? "AppSKey")
+            Prelude.<$> (x Data..:? "NwkSEncKey")
+            Prelude.<*> (x Data..:? "FNwkSIntKey")
+            Prelude.<*> (x Data..:? "SNwkSIntKey")
+            Prelude.<*> (x Data..:? "AppSKey")
       )
 
 instance Prelude.Hashable SessionKeysAbpV1_1 where
@@ -105,13 +106,13 @@ instance Prelude.NFData SessionKeysAbpV1_1 where
       `Prelude.seq` Prelude.rnf sNwkSIntKey
       `Prelude.seq` Prelude.rnf appSKey
 
-instance Core.ToJSON SessionKeysAbpV1_1 where
+instance Data.ToJSON SessionKeysAbpV1_1 where
   toJSON SessionKeysAbpV1_1' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NwkSEncKey" Core..=) Prelude.<$> nwkSEncKey,
-            ("FNwkSIntKey" Core..=) Prelude.<$> fNwkSIntKey,
-            ("SNwkSIntKey" Core..=) Prelude.<$> sNwkSIntKey,
-            ("AppSKey" Core..=) Prelude.<$> appSKey
+          [ ("NwkSEncKey" Data..=) Prelude.<$> nwkSEncKey,
+            ("FNwkSIntKey" Data..=) Prelude.<$> fNwkSIntKey,
+            ("SNwkSIntKey" Data..=) Prelude.<$> sNwkSIntKey,
+            ("AppSKey" Data..=) Prelude.<$> appSKey
           ]
       )

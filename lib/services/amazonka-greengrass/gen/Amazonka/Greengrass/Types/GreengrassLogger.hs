@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.GreengrassLogger where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.LoggerComponent
 import Amazonka.Greengrass.Types.LoggerLevel
 import Amazonka.Greengrass.Types.LoggerType
@@ -108,17 +109,17 @@ greengrassLogger_id = Lens.lens (\GreengrassLogger' {id} -> id) (\s@GreengrassLo
 greengrassLogger_component :: Lens.Lens' GreengrassLogger LoggerComponent
 greengrassLogger_component = Lens.lens (\GreengrassLogger' {component} -> component) (\s@GreengrassLogger' {} a -> s {component = a} :: GreengrassLogger)
 
-instance Core.FromJSON GreengrassLogger where
+instance Data.FromJSON GreengrassLogger where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GreengrassLogger"
       ( \x ->
           GreengrassLogger'
-            Prelude.<$> (x Core..:? "Space")
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "Level")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "Component")
+            Prelude.<$> (x Data..:? "Space")
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Level")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "Component")
       )
 
 instance Prelude.Hashable GreengrassLogger where
@@ -137,14 +138,14 @@ instance Prelude.NFData GreengrassLogger where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf component
 
-instance Core.ToJSON GreengrassLogger where
+instance Data.ToJSON GreengrassLogger where
   toJSON GreengrassLogger' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Space" Core..=) Prelude.<$> space,
-            Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Level" Core..= level),
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("Component" Core..= component)
+          [ ("Space" Data..=) Prelude.<$> space,
+            Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Level" Data..= level),
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("Component" Data..= component)
           ]
       )

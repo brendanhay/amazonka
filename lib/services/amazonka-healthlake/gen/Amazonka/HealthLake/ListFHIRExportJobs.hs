@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HealthLake.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -67,10 +68,10 @@ data ListFHIRExportJobs = ListFHIRExportJobs'
     jobName :: Prelude.Maybe Prelude.Text,
     -- | This parameter limits the response to FHIR export jobs submitted before
     -- a user specified date.
-    submittedBefore :: Prelude.Maybe Core.POSIX,
+    submittedBefore :: Prelude.Maybe Data.POSIX,
     -- | This parameter limits the response to FHIR export jobs submitted after a
     -- user specified date.
-    submittedAfter :: Prelude.Maybe Core.POSIX,
+    submittedAfter :: Prelude.Maybe Data.POSIX,
     -- | This parameter limits the number of results returned for a
     -- ListFHIRExportJobs to a maximum quantity specified by the user.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -141,12 +142,12 @@ listFHIRExportJobs_jobName = Lens.lens (\ListFHIRExportJobs' {jobName} -> jobNam
 -- | This parameter limits the response to FHIR export jobs submitted before
 -- a user specified date.
 listFHIRExportJobs_submittedBefore :: Lens.Lens' ListFHIRExportJobs (Prelude.Maybe Prelude.UTCTime)
-listFHIRExportJobs_submittedBefore = Lens.lens (\ListFHIRExportJobs' {submittedBefore} -> submittedBefore) (\s@ListFHIRExportJobs' {} a -> s {submittedBefore = a} :: ListFHIRExportJobs) Prelude.. Lens.mapping Core._Time
+listFHIRExportJobs_submittedBefore = Lens.lens (\ListFHIRExportJobs' {submittedBefore} -> submittedBefore) (\s@ListFHIRExportJobs' {} a -> s {submittedBefore = a} :: ListFHIRExportJobs) Prelude.. Lens.mapping Data._Time
 
 -- | This parameter limits the response to FHIR export jobs submitted after a
 -- user specified date.
 listFHIRExportJobs_submittedAfter :: Lens.Lens' ListFHIRExportJobs (Prelude.Maybe Prelude.UTCTime)
-listFHIRExportJobs_submittedAfter = Lens.lens (\ListFHIRExportJobs' {submittedAfter} -> submittedAfter) (\s@ListFHIRExportJobs' {} a -> s {submittedAfter = a} :: ListFHIRExportJobs) Prelude.. Lens.mapping Core._Time
+listFHIRExportJobs_submittedAfter = Lens.lens (\ListFHIRExportJobs' {submittedAfter} -> submittedAfter) (\s@ListFHIRExportJobs' {} a -> s {submittedAfter = a} :: ListFHIRExportJobs) Prelude.. Lens.mapping Data._Time
 
 -- | This parameter limits the number of results returned for a
 -- ListFHIRExportJobs to a maximum quantity specified by the user.
@@ -168,9 +169,9 @@ instance Core.AWSRequest ListFHIRExportJobs where
     Response.receiveJSON
       ( \s h x ->
           ListFHIRExportJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "ExportJobPropertiesList"
+            Prelude.<*> ( x Data..?> "ExportJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -195,41 +196,41 @@ instance Prelude.NFData ListFHIRExportJobs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf datastoreId
 
-instance Core.ToHeaders ListFHIRExportJobs where
+instance Data.ToHeaders ListFHIRExportJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "HealthLake.ListFHIRExportJobs" ::
+              Data.=# ( "HealthLake.ListFHIRExportJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListFHIRExportJobs where
+instance Data.ToJSON ListFHIRExportJobs where
   toJSON ListFHIRExportJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("JobStatus" Core..=) Prelude.<$> jobStatus,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("SubmittedBefore" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("JobStatus" Data..=) Prelude.<$> jobStatus,
+            ("JobName" Data..=) Prelude.<$> jobName,
+            ("SubmittedBefore" Data..=)
               Prelude.<$> submittedBefore,
-            ("SubmittedAfter" Core..=)
+            ("SubmittedAfter" Data..=)
               Prelude.<$> submittedAfter,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("DatastoreId" Core..= datastoreId)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("DatastoreId" Data..= datastoreId)
           ]
       )
 
-instance Core.ToPath ListFHIRExportJobs where
+instance Data.ToPath ListFHIRExportJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListFHIRExportJobs where
+instance Data.ToQuery ListFHIRExportJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListFHIRExportJobsResponse' smart constructor.

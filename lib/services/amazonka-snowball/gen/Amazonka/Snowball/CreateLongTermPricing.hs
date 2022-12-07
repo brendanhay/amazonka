@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,7 +122,7 @@ instance Core.AWSRequest CreateLongTermPricing where
     Response.receiveJSON
       ( \s h x ->
           CreateLongTermPricingResponse'
-            Prelude.<$> (x Core..?> "LongTermPricingId")
+            Prelude.<$> (x Data..?> "LongTermPricingId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,37 +139,37 @@ instance Prelude.NFData CreateLongTermPricing where
       `Prelude.seq` Prelude.rnf snowballType
       `Prelude.seq` Prelude.rnf longTermPricingType
 
-instance Core.ToHeaders CreateLongTermPricing where
+instance Data.ToHeaders CreateLongTermPricing where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.CreateLongTermPricing" ::
+              Data.=# ( "AWSIESnowballJobManagementService.CreateLongTermPricing" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLongTermPricing where
+instance Data.ToJSON CreateLongTermPricing where
   toJSON CreateLongTermPricing' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IsLongTermPricingAutoRenew" Core..=)
+          [ ("IsLongTermPricingAutoRenew" Data..=)
               Prelude.<$> isLongTermPricingAutoRenew,
-            ("SnowballType" Core..=) Prelude.<$> snowballType,
+            ("SnowballType" Data..=) Prelude.<$> snowballType,
             Prelude.Just
-              ("LongTermPricingType" Core..= longTermPricingType)
+              ("LongTermPricingType" Data..= longTermPricingType)
           ]
       )
 
-instance Core.ToPath CreateLongTermPricing where
+instance Data.ToPath CreateLongTermPricing where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLongTermPricing where
+instance Data.ToQuery CreateLongTermPricing where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLongTermPricingResponse' smart constructor.

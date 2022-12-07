@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EndpointSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.EndpointStatus
 
@@ -33,9 +34,9 @@ data EndpointSummary = EndpointSummary'
     -- | The Amazon Resource Name (ARN) of the endpoint.
     endpointArn :: Prelude.Text,
     -- | A timestamp that shows when the endpoint was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | A timestamp that shows when the endpoint was last modified.
-    lastModifiedTime :: Core.POSIX,
+    lastModifiedTime :: Data.POSIX,
     -- | The status of the endpoint.
     --
     -- -   @OutOfService@: Endpoint is not available to take incoming requests.
@@ -147,9 +148,9 @@ newEndpointSummary
     EndpointSummary'
       { endpointName = pEndpointName_,
         endpointArn = pEndpointArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         endpointStatus = pEndpointStatus_
       }
 
@@ -163,11 +164,11 @@ endpointSummary_endpointArn = Lens.lens (\EndpointSummary' {endpointArn} -> endp
 
 -- | A timestamp that shows when the endpoint was created.
 endpointSummary_creationTime :: Lens.Lens' EndpointSummary Prelude.UTCTime
-endpointSummary_creationTime = Lens.lens (\EndpointSummary' {creationTime} -> creationTime) (\s@EndpointSummary' {} a -> s {creationTime = a} :: EndpointSummary) Prelude.. Core._Time
+endpointSummary_creationTime = Lens.lens (\EndpointSummary' {creationTime} -> creationTime) (\s@EndpointSummary' {} a -> s {creationTime = a} :: EndpointSummary) Prelude.. Data._Time
 
 -- | A timestamp that shows when the endpoint was last modified.
 endpointSummary_lastModifiedTime :: Lens.Lens' EndpointSummary Prelude.UTCTime
-endpointSummary_lastModifiedTime = Lens.lens (\EndpointSummary' {lastModifiedTime} -> lastModifiedTime) (\s@EndpointSummary' {} a -> s {lastModifiedTime = a} :: EndpointSummary) Prelude.. Core._Time
+endpointSummary_lastModifiedTime = Lens.lens (\EndpointSummary' {lastModifiedTime} -> lastModifiedTime) (\s@EndpointSummary' {} a -> s {lastModifiedTime = a} :: EndpointSummary) Prelude.. Data._Time
 
 -- | The status of the endpoint.
 --
@@ -207,17 +208,17 @@ endpointSummary_lastModifiedTime = Lens.lens (\EndpointSummary' {lastModifiedTim
 endpointSummary_endpointStatus :: Lens.Lens' EndpointSummary EndpointStatus
 endpointSummary_endpointStatus = Lens.lens (\EndpointSummary' {endpointStatus} -> endpointStatus) (\s@EndpointSummary' {} a -> s {endpointStatus = a} :: EndpointSummary)
 
-instance Core.FromJSON EndpointSummary where
+instance Data.FromJSON EndpointSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointSummary"
       ( \x ->
           EndpointSummary'
-            Prelude.<$> (x Core..: "EndpointName")
-            Prelude.<*> (x Core..: "EndpointArn")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "LastModifiedTime")
-            Prelude.<*> (x Core..: "EndpointStatus")
+            Prelude.<$> (x Data..: "EndpointName")
+            Prelude.<*> (x Data..: "EndpointArn")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "LastModifiedTime")
+            Prelude.<*> (x Data..: "EndpointStatus")
       )
 
 instance Prelude.Hashable EndpointSummary where

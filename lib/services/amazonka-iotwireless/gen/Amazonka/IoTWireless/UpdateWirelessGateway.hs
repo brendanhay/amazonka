@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,27 +142,27 @@ instance Prelude.NFData UpdateWirelessGateway where
       `Prelude.seq` Prelude.rnf joinEuiFilters
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateWirelessGateway where
+instance Data.ToHeaders UpdateWirelessGateway where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateWirelessGateway where
+instance Data.ToJSON UpdateWirelessGateway where
   toJSON UpdateWirelessGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Description" Core..=) Prelude.<$> description,
-            ("NetIdFilters" Core..=) Prelude.<$> netIdFilters,
-            ("JoinEuiFilters" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Description" Data..=) Prelude.<$> description,
+            ("NetIdFilters" Data..=) Prelude.<$> netIdFilters,
+            ("JoinEuiFilters" Data..=)
               Prelude.<$> joinEuiFilters
           ]
       )
 
-instance Core.ToPath UpdateWirelessGateway where
+instance Data.ToPath UpdateWirelessGateway where
   toPath UpdateWirelessGateway' {..} =
     Prelude.mconcat
-      ["/wireless-gateways/", Core.toBS id]
+      ["/wireless-gateways/", Data.toBS id]
 
-instance Core.ToQuery UpdateWirelessGateway where
+instance Data.ToQuery UpdateWirelessGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWirelessGatewayResponse' smart constructor.

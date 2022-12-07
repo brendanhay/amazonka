@@ -21,6 +21,7 @@ module Amazonka.MachineLearning.Types.RedshiftDatabaseCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the database credentials for connecting to a database on an
@@ -74,11 +75,11 @@ instance Prelude.NFData RedshiftDatabaseCredentials where
     Prelude.rnf username
       `Prelude.seq` Prelude.rnf password
 
-instance Core.ToJSON RedshiftDatabaseCredentials where
+instance Data.ToJSON RedshiftDatabaseCredentials where
   toJSON RedshiftDatabaseCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Username" Core..= username),
-            Prelude.Just ("Password" Core..= password)
+          [ Prelude.Just ("Username" Data..= username),
+            Prelude.Just ("Password" Data..= password)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DAX.Types.ParameterGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A named set of parameters that are applied to all of the nodes in a DAX
@@ -63,14 +64,14 @@ parameterGroup_parameterGroupName = Lens.lens (\ParameterGroup' {parameterGroupN
 parameterGroup_description :: Lens.Lens' ParameterGroup (Prelude.Maybe Prelude.Text)
 parameterGroup_description = Lens.lens (\ParameterGroup' {description} -> description) (\s@ParameterGroup' {} a -> s {description = a} :: ParameterGroup)
 
-instance Core.FromJSON ParameterGroup where
+instance Data.FromJSON ParameterGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParameterGroup"
       ( \x ->
           ParameterGroup'
-            Prelude.<$> (x Core..:? "ParameterGroupName")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "ParameterGroupName")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable ParameterGroup where

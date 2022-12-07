@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,7 +140,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AcceptDomainTransferFromAnotherAwsAccountResponse'
-            Prelude.<$> (x Core..?> "OperationId")
+            Prelude.<$> (x Data..?> "OperationId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,43 +163,43 @@ instance
       `Prelude.seq` Prelude.rnf password
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AcceptDomainTransferFromAnotherAwsAccount
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.AcceptDomainTransferFromAnotherAwsAccount" ::
+              Data.=# ( "Route53Domains_v20140515.AcceptDomainTransferFromAnotherAwsAccount" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AcceptDomainTransferFromAnotherAwsAccount
   where
   toJSON AcceptDomainTransferFromAnotherAwsAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DomainName" Core..= domainName),
-            Prelude.Just ("Password" Core..= password)
+          [ Prelude.Just ("DomainName" Data..= domainName),
+            Prelude.Just ("Password" Data..= password)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     AcceptDomainTransferFromAnotherAwsAccount
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AcceptDomainTransferFromAnotherAwsAccount
   where
   toQuery = Prelude.const Prelude.mempty

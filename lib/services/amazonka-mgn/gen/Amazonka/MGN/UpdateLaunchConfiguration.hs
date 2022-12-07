@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -171,7 +172,7 @@ instance Core.AWSRequest UpdateLaunchConfiguration where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateLaunchConfiguration where
   hashWithSalt _salt UpdateLaunchConfiguration' {..} =
@@ -197,39 +198,39 @@ instance Prelude.NFData UpdateLaunchConfiguration where
       `Prelude.seq` Prelude.rnf copyPrivateIp
       `Prelude.seq` Prelude.rnf sourceServerID
 
-instance Core.ToHeaders UpdateLaunchConfiguration where
+instance Data.ToHeaders UpdateLaunchConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLaunchConfiguration where
+instance Data.ToJSON UpdateLaunchConfiguration where
   toJSON UpdateLaunchConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("targetInstanceTypeRightSizingMethod" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("targetInstanceTypeRightSizingMethod" Data..=)
               Prelude.<$> targetInstanceTypeRightSizingMethod,
-            ("copyTags" Core..=) Prelude.<$> copyTags,
-            ("launchDisposition" Core..=)
+            ("copyTags" Data..=) Prelude.<$> copyTags,
+            ("launchDisposition" Data..=)
               Prelude.<$> launchDisposition,
-            ("postLaunchActions" Core..=)
+            ("postLaunchActions" Data..=)
               Prelude.<$> postLaunchActions,
-            ("bootMode" Core..=) Prelude.<$> bootMode,
-            ("licensing" Core..=) Prelude.<$> licensing,
-            ("copyPrivateIp" Core..=) Prelude.<$> copyPrivateIp,
+            ("bootMode" Data..=) Prelude.<$> bootMode,
+            ("licensing" Data..=) Prelude.<$> licensing,
+            ("copyPrivateIp" Data..=) Prelude.<$> copyPrivateIp,
             Prelude.Just
-              ("sourceServerID" Core..= sourceServerID)
+              ("sourceServerID" Data..= sourceServerID)
           ]
       )
 
-instance Core.ToPath UpdateLaunchConfiguration where
+instance Data.ToPath UpdateLaunchConfiguration where
   toPath = Prelude.const "/UpdateLaunchConfiguration"
 
-instance Core.ToQuery UpdateLaunchConfiguration where
+instance Data.ToQuery UpdateLaunchConfiguration where
   toQuery = Prelude.const Prelude.mempty

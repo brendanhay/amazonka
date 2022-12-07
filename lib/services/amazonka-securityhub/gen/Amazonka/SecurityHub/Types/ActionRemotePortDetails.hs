@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.ActionRemotePortDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the remote port that was involved in an
@@ -62,14 +63,14 @@ actionRemotePortDetails_port = Lens.lens (\ActionRemotePortDetails' {port} -> po
 actionRemotePortDetails_portName :: Lens.Lens' ActionRemotePortDetails (Prelude.Maybe Prelude.Text)
 actionRemotePortDetails_portName = Lens.lens (\ActionRemotePortDetails' {portName} -> portName) (\s@ActionRemotePortDetails' {} a -> s {portName = a} :: ActionRemotePortDetails)
 
-instance Core.FromJSON ActionRemotePortDetails where
+instance Data.FromJSON ActionRemotePortDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionRemotePortDetails"
       ( \x ->
           ActionRemotePortDetails'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "PortName")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "PortName")
       )
 
 instance Prelude.Hashable ActionRemotePortDetails where
@@ -81,11 +82,11 @@ instance Prelude.NFData ActionRemotePortDetails where
   rnf ActionRemotePortDetails' {..} =
     Prelude.rnf port `Prelude.seq` Prelude.rnf portName
 
-instance Core.ToJSON ActionRemotePortDetails where
+instance Data.ToJSON ActionRemotePortDetails where
   toJSON ActionRemotePortDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("PortName" Core..=) Prelude.<$> portName
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("PortName" Data..=) Prelude.<$> portName
           ]
       )

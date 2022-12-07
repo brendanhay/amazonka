@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,9 +129,9 @@ instance Core.AWSRequest GetOfferingStatus where
     Response.receiveJSON
       ( \s h x ->
           GetOfferingStatusResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "nextPeriod" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "current" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "nextPeriod" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "current" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,32 +142,32 @@ instance Prelude.Hashable GetOfferingStatus where
 instance Prelude.NFData GetOfferingStatus where
   rnf GetOfferingStatus' {..} = Prelude.rnf nextToken
 
-instance Core.ToHeaders GetOfferingStatus where
+instance Data.ToHeaders GetOfferingStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.GetOfferingStatus" ::
+              Data.=# ( "DeviceFarm_20150623.GetOfferingStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetOfferingStatus where
+instance Data.ToJSON GetOfferingStatus where
   toJSON GetOfferingStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("nextToken" Core..=) Prelude.<$> nextToken]
+          [("nextToken" Data..=) Prelude.<$> nextToken]
       )
 
-instance Core.ToPath GetOfferingStatus where
+instance Data.ToPath GetOfferingStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetOfferingStatus where
+instance Data.ToQuery GetOfferingStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returns the status result for a device offering.

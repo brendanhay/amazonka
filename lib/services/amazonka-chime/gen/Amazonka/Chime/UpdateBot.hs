@@ -45,6 +45,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ instance Core.AWSRequest UpdateBot where
     Response.receiveJSON
       ( \s h x ->
           UpdateBotResponse'
-            Prelude.<$> (x Core..?> "Bot")
+            Prelude.<$> (x Data..?> "Bot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,26 +123,26 @@ instance Prelude.NFData UpdateBot where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf botId
 
-instance Core.ToHeaders UpdateBot where
+instance Data.ToHeaders UpdateBot where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateBot where
+instance Data.ToJSON UpdateBot where
   toJSON UpdateBot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Disabled" Core..=) Prelude.<$> disabled]
+          [("Disabled" Data..=) Prelude.<$> disabled]
       )
 
-instance Core.ToPath UpdateBot where
+instance Data.ToPath UpdateBot where
   toPath UpdateBot' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/bots/",
-        Core.toBS botId
+        Data.toBS botId
       ]
 
-instance Core.ToQuery UpdateBot where
+instance Data.ToQuery UpdateBot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBotResponse' smart constructor.

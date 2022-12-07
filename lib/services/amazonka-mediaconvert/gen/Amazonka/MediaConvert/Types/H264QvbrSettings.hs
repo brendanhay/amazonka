@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.H264QvbrSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for quality-defined variable bitrate encoding with the H.264
@@ -142,15 +143,15 @@ h264QvbrSettings_qvbrQualityLevel = Lens.lens (\H264QvbrSettings' {qvbrQualityLe
 h264QvbrSettings_qvbrQualityLevelFineTune :: Lens.Lens' H264QvbrSettings (Prelude.Maybe Prelude.Double)
 h264QvbrSettings_qvbrQualityLevelFineTune = Lens.lens (\H264QvbrSettings' {qvbrQualityLevelFineTune} -> qvbrQualityLevelFineTune) (\s@H264QvbrSettings' {} a -> s {qvbrQualityLevelFineTune = a} :: H264QvbrSettings)
 
-instance Core.FromJSON H264QvbrSettings where
+instance Data.FromJSON H264QvbrSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "H264QvbrSettings"
       ( \x ->
           H264QvbrSettings'
-            Prelude.<$> (x Core..:? "maxAverageBitrate")
-            Prelude.<*> (x Core..:? "qvbrQualityLevel")
-            Prelude.<*> (x Core..:? "qvbrQualityLevelFineTune")
+            Prelude.<$> (x Data..:? "maxAverageBitrate")
+            Prelude.<*> (x Data..:? "qvbrQualityLevel")
+            Prelude.<*> (x Data..:? "qvbrQualityLevelFineTune")
       )
 
 instance Prelude.Hashable H264QvbrSettings where
@@ -165,15 +166,15 @@ instance Prelude.NFData H264QvbrSettings where
       `Prelude.seq` Prelude.rnf qvbrQualityLevel
       `Prelude.seq` Prelude.rnf qvbrQualityLevelFineTune
 
-instance Core.ToJSON H264QvbrSettings where
+instance Data.ToJSON H264QvbrSettings where
   toJSON H264QvbrSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maxAverageBitrate" Core..=)
+          [ ("maxAverageBitrate" Data..=)
               Prelude.<$> maxAverageBitrate,
-            ("qvbrQualityLevel" Core..=)
+            ("qvbrQualityLevel" Data..=)
               Prelude.<$> qvbrQualityLevel,
-            ("qvbrQualityLevelFineTune" Core..=)
+            ("qvbrQualityLevelFineTune" Data..=)
               Prelude.<$> qvbrQualityLevelFineTune
           ]
       )

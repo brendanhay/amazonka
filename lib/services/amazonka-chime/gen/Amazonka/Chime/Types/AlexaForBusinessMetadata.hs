@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.AlexaForBusinessMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Alexa for Business metadata associated with an Amazon Chime user,
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAlexaForBusinessMetadata' smart constructor.
 data AlexaForBusinessMetadata = AlexaForBusinessMetadata'
   { -- | The ARN of the room resource.
-    alexaForBusinessRoomArn :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    alexaForBusinessRoomArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Starts or stops Alexa for Business.
     isAlexaForBusinessEnabled :: Prelude.Maybe Prelude.Bool
   }
@@ -57,20 +58,20 @@ newAlexaForBusinessMetadata =
 
 -- | The ARN of the room resource.
 alexaForBusinessMetadata_alexaForBusinessRoomArn :: Lens.Lens' AlexaForBusinessMetadata (Prelude.Maybe Prelude.Text)
-alexaForBusinessMetadata_alexaForBusinessRoomArn = Lens.lens (\AlexaForBusinessMetadata' {alexaForBusinessRoomArn} -> alexaForBusinessRoomArn) (\s@AlexaForBusinessMetadata' {} a -> s {alexaForBusinessRoomArn = a} :: AlexaForBusinessMetadata) Prelude.. Lens.mapping Core._Sensitive
+alexaForBusinessMetadata_alexaForBusinessRoomArn = Lens.lens (\AlexaForBusinessMetadata' {alexaForBusinessRoomArn} -> alexaForBusinessRoomArn) (\s@AlexaForBusinessMetadata' {} a -> s {alexaForBusinessRoomArn = a} :: AlexaForBusinessMetadata) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Starts or stops Alexa for Business.
 alexaForBusinessMetadata_isAlexaForBusinessEnabled :: Lens.Lens' AlexaForBusinessMetadata (Prelude.Maybe Prelude.Bool)
 alexaForBusinessMetadata_isAlexaForBusinessEnabled = Lens.lens (\AlexaForBusinessMetadata' {isAlexaForBusinessEnabled} -> isAlexaForBusinessEnabled) (\s@AlexaForBusinessMetadata' {} a -> s {isAlexaForBusinessEnabled = a} :: AlexaForBusinessMetadata)
 
-instance Core.FromJSON AlexaForBusinessMetadata where
+instance Data.FromJSON AlexaForBusinessMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlexaForBusinessMetadata"
       ( \x ->
           AlexaForBusinessMetadata'
-            Prelude.<$> (x Core..:? "AlexaForBusinessRoomArn")
-            Prelude.<*> (x Core..:? "IsAlexaForBusinessEnabled")
+            Prelude.<$> (x Data..:? "AlexaForBusinessRoomArn")
+            Prelude.<*> (x Data..:? "IsAlexaForBusinessEnabled")
       )
 
 instance Prelude.Hashable AlexaForBusinessMetadata where
@@ -84,13 +85,13 @@ instance Prelude.NFData AlexaForBusinessMetadata where
     Prelude.rnf alexaForBusinessRoomArn
       `Prelude.seq` Prelude.rnf isAlexaForBusinessEnabled
 
-instance Core.ToJSON AlexaForBusinessMetadata where
+instance Data.ToJSON AlexaForBusinessMetadata where
   toJSON AlexaForBusinessMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AlexaForBusinessRoomArn" Core..=)
+          [ ("AlexaForBusinessRoomArn" Data..=)
               Prelude.<$> alexaForBusinessRoomArn,
-            ("IsAlexaForBusinessEnabled" Core..=)
+            ("IsAlexaForBusinessEnabled" Data..=)
               Prelude.<$> isAlexaForBusinessEnabled
           ]
       )

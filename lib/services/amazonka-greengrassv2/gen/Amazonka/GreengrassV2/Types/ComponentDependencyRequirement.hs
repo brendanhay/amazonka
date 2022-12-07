@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.ComponentDependencyRequirement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.ComponentDependencyType
 import qualified Amazonka.Prelude as Prelude
 
@@ -112,13 +113,13 @@ instance
     Prelude.rnf versionRequirement
       `Prelude.seq` Prelude.rnf dependencyType
 
-instance Core.ToJSON ComponentDependencyRequirement where
+instance Data.ToJSON ComponentDependencyRequirement where
   toJSON ComponentDependencyRequirement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("versionRequirement" Core..=)
+          [ ("versionRequirement" Data..=)
               Prelude.<$> versionRequirement,
-            ("dependencyType" Core..=)
+            ("dependencyType" Data..=)
               Prelude.<$> dependencyType
           ]
       )

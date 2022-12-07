@@ -48,6 +48,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,7 +104,7 @@ instance Core.AWSRequest PollForThirdPartyJobs where
     Response.receiveJSON
       ( \s h x ->
           PollForThirdPartyJobsResponse'
-            Prelude.<$> (x Core..?> "jobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "jobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,34 +118,34 @@ instance Prelude.NFData PollForThirdPartyJobs where
     Prelude.rnf maxBatchSize
       `Prelude.seq` Prelude.rnf actionTypeId
 
-instance Core.ToHeaders PollForThirdPartyJobs where
+instance Data.ToHeaders PollForThirdPartyJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.PollForThirdPartyJobs" ::
+              Data.=# ( "CodePipeline_20150709.PollForThirdPartyJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PollForThirdPartyJobs where
+instance Data.ToJSON PollForThirdPartyJobs where
   toJSON PollForThirdPartyJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maxBatchSize" Core..=) Prelude.<$> maxBatchSize,
-            Prelude.Just ("actionTypeId" Core..= actionTypeId)
+          [ ("maxBatchSize" Data..=) Prelude.<$> maxBatchSize,
+            Prelude.Just ("actionTypeId" Data..= actionTypeId)
           ]
       )
 
-instance Core.ToPath PollForThirdPartyJobs where
+instance Data.ToPath PollForThirdPartyJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PollForThirdPartyJobs where
+instance Data.ToQuery PollForThirdPartyJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @PollForThirdPartyJobs@ action.

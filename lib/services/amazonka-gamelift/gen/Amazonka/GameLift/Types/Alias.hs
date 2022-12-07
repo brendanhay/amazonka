@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.Alias where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.RoutingStrategy
 import qualified Amazonka.Prelude as Prelude
 
@@ -52,13 +53,13 @@ data Alias = Alias'
     -- | The time that this data object was last modified. Format is a number
     -- expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | A human-readable description of an alias.
     description :: Prelude.Maybe Prelude.Text,
     -- | A time stamp indicating when this data object was created. Format is a
     -- number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -134,7 +135,7 @@ alias_routingStrategy = Lens.lens (\Alias' {routingStrategy} -> routingStrategy)
 -- expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 alias_lastUpdatedTime :: Lens.Lens' Alias (Prelude.Maybe Prelude.UTCTime)
-alias_lastUpdatedTime = Lens.lens (\Alias' {lastUpdatedTime} -> lastUpdatedTime) (\s@Alias' {} a -> s {lastUpdatedTime = a} :: Alias) Prelude.. Lens.mapping Core._Time
+alias_lastUpdatedTime = Lens.lens (\Alias' {lastUpdatedTime} -> lastUpdatedTime) (\s@Alias' {} a -> s {lastUpdatedTime = a} :: Alias) Prelude.. Lens.mapping Data._Time
 
 -- | A human-readable description of an alias.
 alias_description :: Lens.Lens' Alias (Prelude.Maybe Prelude.Text)
@@ -144,21 +145,21 @@ alias_description = Lens.lens (\Alias' {description} -> description) (\s@Alias' 
 -- number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 alias_creationTime :: Lens.Lens' Alias (Prelude.Maybe Prelude.UTCTime)
-alias_creationTime = Lens.lens (\Alias' {creationTime} -> creationTime) (\s@Alias' {} a -> s {creationTime = a} :: Alias) Prelude.. Lens.mapping Core._Time
+alias_creationTime = Lens.lens (\Alias' {creationTime} -> creationTime) (\s@Alias' {} a -> s {creationTime = a} :: Alias) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Alias where
+instance Data.FromJSON Alias where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Alias"
       ( \x ->
           Alias'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AliasId")
-            Prelude.<*> (x Core..:? "AliasArn")
-            Prelude.<*> (x Core..:? "RoutingStrategy")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AliasId")
+            Prelude.<*> (x Data..:? "AliasArn")
+            Prelude.<*> (x Data..:? "RoutingStrategy")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable Alias where

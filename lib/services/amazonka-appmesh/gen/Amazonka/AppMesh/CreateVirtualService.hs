@@ -57,6 +57,7 @@ where
 import Amazonka.AppMesh.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -185,7 +186,7 @@ instance Core.AWSRequest CreateVirtualService where
       ( \s h x ->
           CreateVirtualServiceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable CreateVirtualService where
@@ -206,40 +207,40 @@ instance Prelude.NFData CreateVirtualService where
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf virtualServiceName
 
-instance Core.ToHeaders CreateVirtualService where
+instance Data.ToHeaders CreateVirtualService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateVirtualService where
+instance Data.ToJSON CreateVirtualService where
   toJSON CreateVirtualService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("spec" Core..= spec),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("spec" Data..= spec),
             Prelude.Just
-              ("virtualServiceName" Core..= virtualServiceName)
+              ("virtualServiceName" Data..= virtualServiceName)
           ]
       )
 
-instance Core.ToPath CreateVirtualService where
+instance Data.ToPath CreateVirtualService where
   toPath CreateVirtualService' {..} =
     Prelude.mconcat
       [ "/v20190125/meshes/",
-        Core.toBS meshName,
+        Data.toBS meshName,
         "/virtualServices"
       ]
 
-instance Core.ToQuery CreateVirtualService where
+instance Data.ToQuery CreateVirtualService where
   toQuery CreateVirtualService' {..} =
-    Prelude.mconcat ["meshOwner" Core.=: meshOwner]
+    Prelude.mconcat ["meshOwner" Data.=: meshOwner]
 
 -- |
 --

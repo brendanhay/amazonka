@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.EksEmptyDir where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration of a Kubernetes @emptyDir@ volume. An
@@ -100,14 +101,14 @@ eksEmptyDir_sizeLimit = Lens.lens (\EksEmptyDir' {sizeLimit} -> sizeLimit) (\s@E
 eksEmptyDir_medium :: Lens.Lens' EksEmptyDir (Prelude.Maybe Prelude.Text)
 eksEmptyDir_medium = Lens.lens (\EksEmptyDir' {medium} -> medium) (\s@EksEmptyDir' {} a -> s {medium = a} :: EksEmptyDir)
 
-instance Core.FromJSON EksEmptyDir where
+instance Data.FromJSON EksEmptyDir where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksEmptyDir"
       ( \x ->
           EksEmptyDir'
-            Prelude.<$> (x Core..:? "sizeLimit")
-            Prelude.<*> (x Core..:? "medium")
+            Prelude.<$> (x Data..:? "sizeLimit")
+            Prelude.<*> (x Data..:? "medium")
       )
 
 instance Prelude.Hashable EksEmptyDir where
@@ -120,11 +121,11 @@ instance Prelude.NFData EksEmptyDir where
     Prelude.rnf sizeLimit
       `Prelude.seq` Prelude.rnf medium
 
-instance Core.ToJSON EksEmptyDir where
+instance Data.ToJSON EksEmptyDir where
   toJSON EksEmptyDir' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sizeLimit" Core..=) Prelude.<$> sizeLimit,
-            ("medium" Core..=) Prelude.<$> medium
+          [ ("sizeLimit" Data..=) Prelude.<$> sizeLimit,
+            ("medium" Data..=) Prelude.<$> medium
           ]
       )

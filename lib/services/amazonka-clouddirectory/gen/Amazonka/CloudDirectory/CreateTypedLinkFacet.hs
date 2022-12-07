@@ -43,6 +43,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,24 +114,24 @@ instance Prelude.NFData CreateTypedLinkFacet where
     Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf facet
 
-instance Core.ToHeaders CreateTypedLinkFacet where
+instance Data.ToHeaders CreateTypedLinkFacet where
   toHeaders CreateTypedLinkFacet' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# schemaArn]
+      ["x-amz-data-partition" Data.=# schemaArn]
 
-instance Core.ToJSON CreateTypedLinkFacet where
+instance Data.ToJSON CreateTypedLinkFacet where
   toJSON CreateTypedLinkFacet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Facet" Core..= facet)]
+          [Prelude.Just ("Facet" Data..= facet)]
       )
 
-instance Core.ToPath CreateTypedLinkFacet where
+instance Data.ToPath CreateTypedLinkFacet where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/typedlink/facet/create"
 
-instance Core.ToQuery CreateTypedLinkFacet where
+instance Data.ToQuery CreateTypedLinkFacet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTypedLinkFacetResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,8 +136,8 @@ instance Core.AWSRequest ListIpRoutes where
     Response.receiveJSON
       ( \s h x ->
           ListIpRoutesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "IpRoutesInfo" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "IpRoutesInfo" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,35 +153,35 @@ instance Prelude.NFData ListIpRoutes where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf directoryId
 
-instance Core.ToHeaders ListIpRoutes where
+instance Data.ToHeaders ListIpRoutes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.ListIpRoutes" ::
+              Data.=# ( "DirectoryService_20150416.ListIpRoutes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListIpRoutes where
+instance Data.ToJSON ListIpRoutes where
   toJSON ListIpRoutes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("DirectoryId" Core..= directoryId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("DirectoryId" Data..= directoryId)
           ]
       )
 
-instance Core.ToPath ListIpRoutes where
+instance Data.ToPath ListIpRoutes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListIpRoutes where
+instance Data.ToQuery ListIpRoutes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListIpRoutesResponse' smart constructor.

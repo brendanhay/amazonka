@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,33 +125,33 @@ instance Prelude.NFData RebootInputDevice' where
     Prelude.rnf force
       `Prelude.seq` Prelude.rnf inputDeviceId
 
-instance Core.ToHeaders RebootInputDevice' where
+instance Data.ToHeaders RebootInputDevice' where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RebootInputDevice' where
+instance Data.ToJSON RebootInputDevice' where
   toJSON RebootInputDevice'' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("force" Core..=) Prelude.<$> force]
+          [("force" Data..=) Prelude.<$> force]
       )
 
-instance Core.ToPath RebootInputDevice' where
+instance Data.ToPath RebootInputDevice' where
   toPath RebootInputDevice'' {..} =
     Prelude.mconcat
       [ "/prod/inputDevices/",
-        Core.toBS inputDeviceId,
+        Data.toBS inputDeviceId,
         "/reboot"
       ]
 
-instance Core.ToQuery RebootInputDevice' where
+instance Data.ToQuery RebootInputDevice' where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for RebootInputDeviceResponse

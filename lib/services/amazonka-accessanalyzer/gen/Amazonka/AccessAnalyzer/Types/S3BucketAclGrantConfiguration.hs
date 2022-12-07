@@ -23,6 +23,7 @@ import Amazonka.AccessAnalyzer.Types.AclGrantee
 import Amazonka.AccessAnalyzer.Types.AclPermission
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A proposed access control list grant configuration for an Amazon S3
@@ -72,14 +73,14 @@ s3BucketAclGrantConfiguration_permission = Lens.lens (\S3BucketAclGrantConfigura
 s3BucketAclGrantConfiguration_grantee :: Lens.Lens' S3BucketAclGrantConfiguration AclGrantee
 s3BucketAclGrantConfiguration_grantee = Lens.lens (\S3BucketAclGrantConfiguration' {grantee} -> grantee) (\s@S3BucketAclGrantConfiguration' {} a -> s {grantee = a} :: S3BucketAclGrantConfiguration)
 
-instance Core.FromJSON S3BucketAclGrantConfiguration where
+instance Data.FromJSON S3BucketAclGrantConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3BucketAclGrantConfiguration"
       ( \x ->
           S3BucketAclGrantConfiguration'
-            Prelude.<$> (x Core..: "permission")
-            Prelude.<*> (x Core..: "grantee")
+            Prelude.<$> (x Data..: "permission")
+            Prelude.<*> (x Data..: "grantee")
       )
 
 instance
@@ -95,11 +96,11 @@ instance Prelude.NFData S3BucketAclGrantConfiguration where
     Prelude.rnf permission
       `Prelude.seq` Prelude.rnf grantee
 
-instance Core.ToJSON S3BucketAclGrantConfiguration where
+instance Data.ToJSON S3BucketAclGrantConfiguration where
   toJSON S3BucketAclGrantConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("permission" Core..= permission),
-            Prelude.Just ("grantee" Core..= grantee)
+          [ Prelude.Just ("permission" Data..= permission),
+            Prelude.Just ("grantee" Data..= grantee)
           ]
       )

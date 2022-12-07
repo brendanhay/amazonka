@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.BlueprintDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a blueprint.
@@ -61,14 +62,14 @@ blueprintDetails_blueprintName = Lens.lens (\BlueprintDetails' {blueprintName} -
 blueprintDetails_runId :: Lens.Lens' BlueprintDetails (Prelude.Maybe Prelude.Text)
 blueprintDetails_runId = Lens.lens (\BlueprintDetails' {runId} -> runId) (\s@BlueprintDetails' {} a -> s {runId = a} :: BlueprintDetails)
 
-instance Core.FromJSON BlueprintDetails where
+instance Data.FromJSON BlueprintDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BlueprintDetails"
       ( \x ->
           BlueprintDetails'
-            Prelude.<$> (x Core..:? "BlueprintName")
-            Prelude.<*> (x Core..:? "RunId")
+            Prelude.<$> (x Data..:? "BlueprintName")
+            Prelude.<*> (x Data..:? "RunId")
       )
 
 instance Prelude.Hashable BlueprintDetails where

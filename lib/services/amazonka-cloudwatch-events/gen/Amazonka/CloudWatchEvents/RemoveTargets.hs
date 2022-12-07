@@ -60,6 +60,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,8 +148,8 @@ instance Core.AWSRequest RemoveTargets where
     Response.receiveJSON
       ( \s h x ->
           RemoveTargetsResponse'
-            Prelude.<$> (x Core..?> "FailedEntries" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "FailedEntryCount")
+            Prelude.<$> (x Data..?> "FailedEntries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "FailedEntryCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,34 +167,34 @@ instance Prelude.NFData RemoveTargets where
       `Prelude.seq` Prelude.rnf rule
       `Prelude.seq` Prelude.rnf ids
 
-instance Core.ToHeaders RemoveTargets where
+instance Data.ToHeaders RemoveTargets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.RemoveTargets" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.RemoveTargets" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RemoveTargets where
+instance Data.ToJSON RemoveTargets where
   toJSON RemoveTargets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventBusName" Core..=) Prelude.<$> eventBusName,
-            ("Force" Core..=) Prelude.<$> force,
-            Prelude.Just ("Rule" Core..= rule),
-            Prelude.Just ("Ids" Core..= ids)
+          [ ("EventBusName" Data..=) Prelude.<$> eventBusName,
+            ("Force" Data..=) Prelude.<$> force,
+            Prelude.Just ("Rule" Data..= rule),
+            Prelude.Just ("Ids" Data..= ids)
           ]
       )
 
-instance Core.ToPath RemoveTargets where
+instance Data.ToPath RemoveTargets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveTargets where
+instance Data.ToQuery RemoveTargets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveTargetsResponse' smart constructor.

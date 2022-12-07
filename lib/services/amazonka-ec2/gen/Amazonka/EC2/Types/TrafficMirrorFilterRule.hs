@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TrafficMirrorFilterRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.TrafficDirection
 import Amazonka.EC2.Types.TrafficMirrorPortRange
@@ -147,20 +148,20 @@ trafficMirrorFilterRule_protocol = Lens.lens (\TrafficMirrorFilterRule' {protoco
 trafficMirrorFilterRule_sourcePortRange :: Lens.Lens' TrafficMirrorFilterRule (Prelude.Maybe TrafficMirrorPortRange)
 trafficMirrorFilterRule_sourcePortRange = Lens.lens (\TrafficMirrorFilterRule' {sourcePortRange} -> sourcePortRange) (\s@TrafficMirrorFilterRule' {} a -> s {sourcePortRange = a} :: TrafficMirrorFilterRule)
 
-instance Core.FromXML TrafficMirrorFilterRule where
+instance Data.FromXML TrafficMirrorFilterRule where
   parseXML x =
     TrafficMirrorFilterRule'
-      Prelude.<$> (x Core..@? "trafficMirrorFilterId")
-      Prelude.<*> (x Core..@? "ruleNumber")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "trafficDirection")
-      Prelude.<*> (x Core..@? "destinationCidrBlock")
-      Prelude.<*> (x Core..@? "destinationPortRange")
-      Prelude.<*> (x Core..@? "ruleAction")
-      Prelude.<*> (x Core..@? "trafficMirrorFilterRuleId")
-      Prelude.<*> (x Core..@? "sourceCidrBlock")
-      Prelude.<*> (x Core..@? "protocol")
-      Prelude.<*> (x Core..@? "sourcePortRange")
+      Prelude.<$> (x Data..@? "trafficMirrorFilterId")
+      Prelude.<*> (x Data..@? "ruleNumber")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "trafficDirection")
+      Prelude.<*> (x Data..@? "destinationCidrBlock")
+      Prelude.<*> (x Data..@? "destinationPortRange")
+      Prelude.<*> (x Data..@? "ruleAction")
+      Prelude.<*> (x Data..@? "trafficMirrorFilterRuleId")
+      Prelude.<*> (x Data..@? "sourceCidrBlock")
+      Prelude.<*> (x Data..@? "protocol")
+      Prelude.<*> (x Data..@? "sourcePortRange")
 
 instance Prelude.Hashable TrafficMirrorFilterRule where
   hashWithSalt _salt TrafficMirrorFilterRule' {..} =

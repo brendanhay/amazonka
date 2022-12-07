@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.AudioSilenceFailoverSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Placeholder documentation for AudioSilenceFailoverSettings
@@ -76,14 +77,14 @@ audioSilenceFailoverSettings_audioSilenceThresholdMsec = Lens.lens (\AudioSilenc
 audioSilenceFailoverSettings_audioSelectorName :: Lens.Lens' AudioSilenceFailoverSettings Prelude.Text
 audioSilenceFailoverSettings_audioSelectorName = Lens.lens (\AudioSilenceFailoverSettings' {audioSelectorName} -> audioSelectorName) (\s@AudioSilenceFailoverSettings' {} a -> s {audioSelectorName = a} :: AudioSilenceFailoverSettings)
 
-instance Core.FromJSON AudioSilenceFailoverSettings where
+instance Data.FromJSON AudioSilenceFailoverSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioSilenceFailoverSettings"
       ( \x ->
           AudioSilenceFailoverSettings'
-            Prelude.<$> (x Core..:? "audioSilenceThresholdMsec")
-            Prelude.<*> (x Core..: "audioSelectorName")
+            Prelude.<$> (x Data..:? "audioSilenceThresholdMsec")
+            Prelude.<*> (x Data..: "audioSelectorName")
       )
 
 instance
@@ -100,13 +101,13 @@ instance Prelude.NFData AudioSilenceFailoverSettings where
     Prelude.rnf audioSilenceThresholdMsec
       `Prelude.seq` Prelude.rnf audioSelectorName
 
-instance Core.ToJSON AudioSilenceFailoverSettings where
+instance Data.ToJSON AudioSilenceFailoverSettings where
   toJSON AudioSilenceFailoverSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("audioSilenceThresholdMsec" Core..=)
+          [ ("audioSilenceThresholdMsec" Data..=)
               Prelude.<$> audioSilenceThresholdMsec,
             Prelude.Just
-              ("audioSelectorName" Core..= audioSelectorName)
+              ("audioSelectorName" Data..= audioSelectorName)
           ]
       )

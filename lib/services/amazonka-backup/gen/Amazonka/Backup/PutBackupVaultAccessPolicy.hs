@@ -41,6 +41,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,33 +114,33 @@ instance Prelude.NFData PutBackupVaultAccessPolicy where
     Prelude.rnf policy
       `Prelude.seq` Prelude.rnf backupVaultName
 
-instance Core.ToHeaders PutBackupVaultAccessPolicy where
+instance Data.ToHeaders PutBackupVaultAccessPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutBackupVaultAccessPolicy where
+instance Data.ToJSON PutBackupVaultAccessPolicy where
   toJSON PutBackupVaultAccessPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Policy" Core..=) Prelude.<$> policy]
+          [("Policy" Data..=) Prelude.<$> policy]
       )
 
-instance Core.ToPath PutBackupVaultAccessPolicy where
+instance Data.ToPath PutBackupVaultAccessPolicy where
   toPath PutBackupVaultAccessPolicy' {..} =
     Prelude.mconcat
       [ "/backup-vaults/",
-        Core.toBS backupVaultName,
+        Data.toBS backupVaultName,
         "/access-policy"
       ]
 
-instance Core.ToQuery PutBackupVaultAccessPolicy where
+instance Data.ToQuery PutBackupVaultAccessPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutBackupVaultAccessPolicyResponse' smart constructor.

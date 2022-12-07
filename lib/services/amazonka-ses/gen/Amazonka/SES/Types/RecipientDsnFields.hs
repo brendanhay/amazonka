@@ -21,6 +21,7 @@ module Amazonka.SES.Types.RecipientDsnFields where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.DsnAction
 import Amazonka.SES.Types.ExtensionField
@@ -57,7 +58,7 @@ data RecipientDsnFields = RecipientDsnFields'
     diagnosticCode :: Prelude.Maybe Prelude.Text,
     -- | The time the final delivery attempt was made, in
     -- <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
-    lastAttemptDate :: Prelude.Maybe Core.ISO8601,
+    lastAttemptDate :: Prelude.Maybe Data.ISO8601,
     -- | The action performed by the reporting mail transfer agent (MTA) as a
     -- result of its attempt to deliver the message to the recipient address.
     -- This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464>.
@@ -156,7 +157,7 @@ recipientDsnFields_diagnosticCode = Lens.lens (\RecipientDsnFields' {diagnosticC
 -- | The time the final delivery attempt was made, in
 -- <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
 recipientDsnFields_lastAttemptDate :: Lens.Lens' RecipientDsnFields (Prelude.Maybe Prelude.UTCTime)
-recipientDsnFields_lastAttemptDate = Lens.lens (\RecipientDsnFields' {lastAttemptDate} -> lastAttemptDate) (\s@RecipientDsnFields' {} a -> s {lastAttemptDate = a} :: RecipientDsnFields) Prelude.. Lens.mapping Core._Time
+recipientDsnFields_lastAttemptDate = Lens.lens (\RecipientDsnFields' {lastAttemptDate} -> lastAttemptDate) (\s@RecipientDsnFields' {} a -> s {lastAttemptDate = a} :: RecipientDsnFields) Prelude.. Lens.mapping Data._Time
 
 -- | The action performed by the reporting mail transfer agent (MTA) as a
 -- result of its attempt to deliver the message to the recipient address.
@@ -189,18 +190,18 @@ instance Prelude.NFData RecipientDsnFields where
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToQuery RecipientDsnFields where
+instance Data.ToQuery RecipientDsnFields where
   toQuery RecipientDsnFields' {..} =
     Prelude.mconcat
       [ "ExtensionFields"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> extensionFields
             ),
-        "FinalRecipient" Core.=: finalRecipient,
-        "RemoteMta" Core.=: remoteMta,
-        "DiagnosticCode" Core.=: diagnosticCode,
-        "LastAttemptDate" Core.=: lastAttemptDate,
-        "Action" Core.=: action,
-        "Status" Core.=: status
+        "FinalRecipient" Data.=: finalRecipient,
+        "RemoteMta" Data.=: remoteMta,
+        "DiagnosticCode" Data.=: diagnosticCode,
+        "LastAttemptDate" Data.=: lastAttemptDate,
+        "Action" Data.=: action,
+        "Status" Data.=: status
       ]

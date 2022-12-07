@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest EnableTrustAnchor where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable EnableTrustAnchor where
   hashWithSalt _salt EnableTrustAnchor' {..} =
@@ -93,24 +94,24 @@ instance Prelude.NFData EnableTrustAnchor where
   rnf EnableTrustAnchor' {..} =
     Prelude.rnf trustAnchorId
 
-instance Core.ToHeaders EnableTrustAnchor where
+instance Data.ToHeaders EnableTrustAnchor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EnableTrustAnchor where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON EnableTrustAnchor where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath EnableTrustAnchor where
+instance Data.ToPath EnableTrustAnchor where
   toPath EnableTrustAnchor' {..} =
     Prelude.mconcat
-      ["/trustanchor/", Core.toBS trustAnchorId, "/enable"]
+      ["/trustanchor/", Data.toBS trustAnchorId, "/enable"]
 
-instance Core.ToQuery EnableTrustAnchor where
+instance Data.ToQuery EnableTrustAnchor where
   toQuery = Prelude.const Prelude.mempty

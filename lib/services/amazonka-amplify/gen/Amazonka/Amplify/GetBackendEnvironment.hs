@@ -43,6 +43,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest GetBackendEnvironment where
       ( \s h x ->
           GetBackendEnvironmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "backendEnvironment")
+            Prelude.<*> (x Data..:> "backendEnvironment")
       )
 
 instance Prelude.Hashable GetBackendEnvironment where
@@ -113,27 +114,27 @@ instance Prelude.NFData GetBackendEnvironment where
     Prelude.rnf appId
       `Prelude.seq` Prelude.rnf environmentName
 
-instance Core.ToHeaders GetBackendEnvironment where
+instance Data.ToHeaders GetBackendEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetBackendEnvironment where
+instance Data.ToPath GetBackendEnvironment where
   toPath GetBackendEnvironment' {..} =
     Prelude.mconcat
       [ "/apps/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/backendenvironments/",
-        Core.toBS environmentName
+        Data.toBS environmentName
       ]
 
-instance Core.ToQuery GetBackendEnvironment where
+instance Data.ToQuery GetBackendEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result structure for the get backend environment result.

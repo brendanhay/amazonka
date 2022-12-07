@@ -46,6 +46,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,8 +133,8 @@ instance Core.AWSRequest ListConfigurationProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListConfigurationProfilesResponse'
-            Prelude.<$> (x Core..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,31 +152,31 @@ instance Prelude.NFData ListConfigurationProfiles where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders ListConfigurationProfiles where
+instance Data.ToHeaders ListConfigurationProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListConfigurationProfiles where
+instance Data.ToPath ListConfigurationProfiles where
   toPath ListConfigurationProfiles' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/configurationprofiles"
       ]
 
-instance Core.ToQuery ListConfigurationProfiles where
+instance Data.ToQuery ListConfigurationProfiles where
   toQuery ListConfigurationProfiles' {..} =
     Prelude.mconcat
-      [ "next_token" Core.=: nextToken,
-        "type" Core.=: type',
-        "max_results" Core.=: maxResults
+      [ "next_token" Data.=: nextToken,
+        "type" Data.=: type',
+        "max_results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListConfigurationProfilesResponse' smart constructor.

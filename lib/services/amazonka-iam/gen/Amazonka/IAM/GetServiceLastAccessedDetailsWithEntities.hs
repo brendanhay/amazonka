@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -223,16 +224,16 @@ instance
       "GetServiceLastAccessedDetailsWithEntitiesResult"
       ( \s h x ->
           GetServiceLastAccessedDetailsWithEntitiesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-              Prelude.<*> (x Core..@? "IsTruncated")
-              Prelude.<*> (x Core..@? "Error")
+            Prelude.<$> (x Data..@? "Marker")
+              Prelude.<*> (x Data..@? "IsTruncated")
+              Prelude.<*> (x Data..@? "Error")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..@ "JobStatus")
-              Prelude.<*> (x Core..@ "JobCreationDate")
-              Prelude.<*> (x Core..@ "JobCompletionDate")
-              Prelude.<*> ( x Core..@? "EntityDetailsList"
+              Prelude.<*> (x Data..@ "JobStatus")
+              Prelude.<*> (x Data..@ "JobCreationDate")
+              Prelude.<*> (x Data..@ "JobCompletionDate")
+              Prelude.<*> ( x Data..@? "EntityDetailsList"
                               Core..!@ Prelude.mempty
-                              Prelude.>>= Core.parseXMLList "member"
+                              Prelude.>>= Data.parseXMLList "member"
                           )
       )
 
@@ -259,34 +260,34 @@ instance
       `Prelude.seq` Prelude.rnf serviceNamespace
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetServiceLastAccessedDetailsWithEntities
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetServiceLastAccessedDetailsWithEntities
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetServiceLastAccessedDetailsWithEntities
   where
   toQuery
     GetServiceLastAccessedDetailsWithEntities' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "GetServiceLastAccessedDetailsWithEntities" ::
+            Data.=: ( "GetServiceLastAccessedDetailsWithEntities" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2010-05-08" :: Prelude.ByteString),
-          "Marker" Core.=: marker,
-          "MaxItems" Core.=: maxItems,
-          "JobId" Core.=: jobId,
-          "ServiceNamespace" Core.=: serviceNamespace
+            Data.=: ("2010-05-08" :: Prelude.ByteString),
+          "Marker" Data.=: marker,
+          "MaxItems" Data.=: maxItems,
+          "JobId" Data.=: jobId,
+          "ServiceNamespace" Data.=: serviceNamespace
         ]
 
 -- | /See:/ 'newGetServiceLastAccessedDetailsWithEntitiesResponse' smart constructor.
@@ -312,14 +313,14 @@ data GetServiceLastAccessedDetailsWithEntitiesResponse = GetServiceLastAccessedD
     -- | The date and time,
     -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- report job was created.
-    jobCreationDate :: Core.ISO8601,
+    jobCreationDate :: Data.ISO8601,
     -- | The date and time,
     -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- generated report job was completed or failed.
     --
     -- This field is null if the job is still in progress, as indicated by a
     -- job status value of @IN_PROGRESS@.
-    jobCompletionDate :: Core.ISO8601,
+    jobCompletionDate :: Data.ISO8601,
     -- | An @EntityDetailsList@ object that contains details about when an IAM
     -- entity (user or role) used group or policy permissions in an attempt to
     -- access the specified Amazon Web Services service.
@@ -392,10 +393,10 @@ newGetServiceLastAccessedDetailsWithEntitiesResponse
           pHttpStatus_,
         jobStatus = pJobStatus_,
         jobCreationDate =
-          Core._Time
+          Data._Time
             Lens.# pJobCreationDate_,
         jobCompletionDate =
-          Core._Time
+          Data._Time
             Lens.# pJobCompletionDate_,
         entityDetailsList =
           Prelude.mempty
@@ -433,7 +434,7 @@ getServiceLastAccessedDetailsWithEntitiesResponse_jobStatus = Lens.lens (\GetSer
 -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- report job was created.
 getServiceLastAccessedDetailsWithEntitiesResponse_jobCreationDate :: Lens.Lens' GetServiceLastAccessedDetailsWithEntitiesResponse Prelude.UTCTime
-getServiceLastAccessedDetailsWithEntitiesResponse_jobCreationDate = Lens.lens (\GetServiceLastAccessedDetailsWithEntitiesResponse' {jobCreationDate} -> jobCreationDate) (\s@GetServiceLastAccessedDetailsWithEntitiesResponse' {} a -> s {jobCreationDate = a} :: GetServiceLastAccessedDetailsWithEntitiesResponse) Prelude.. Core._Time
+getServiceLastAccessedDetailsWithEntitiesResponse_jobCreationDate = Lens.lens (\GetServiceLastAccessedDetailsWithEntitiesResponse' {jobCreationDate} -> jobCreationDate) (\s@GetServiceLastAccessedDetailsWithEntitiesResponse' {} a -> s {jobCreationDate = a} :: GetServiceLastAccessedDetailsWithEntitiesResponse) Prelude.. Data._Time
 
 -- | The date and time,
 -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -442,7 +443,7 @@ getServiceLastAccessedDetailsWithEntitiesResponse_jobCreationDate = Lens.lens (\
 -- This field is null if the job is still in progress, as indicated by a
 -- job status value of @IN_PROGRESS@.
 getServiceLastAccessedDetailsWithEntitiesResponse_jobCompletionDate :: Lens.Lens' GetServiceLastAccessedDetailsWithEntitiesResponse Prelude.UTCTime
-getServiceLastAccessedDetailsWithEntitiesResponse_jobCompletionDate = Lens.lens (\GetServiceLastAccessedDetailsWithEntitiesResponse' {jobCompletionDate} -> jobCompletionDate) (\s@GetServiceLastAccessedDetailsWithEntitiesResponse' {} a -> s {jobCompletionDate = a} :: GetServiceLastAccessedDetailsWithEntitiesResponse) Prelude.. Core._Time
+getServiceLastAccessedDetailsWithEntitiesResponse_jobCompletionDate = Lens.lens (\GetServiceLastAccessedDetailsWithEntitiesResponse' {jobCompletionDate} -> jobCompletionDate) (\s@GetServiceLastAccessedDetailsWithEntitiesResponse' {} a -> s {jobCompletionDate = a} :: GetServiceLastAccessedDetailsWithEntitiesResponse) Prelude.. Data._Time
 
 -- | An @EntityDetailsList@ object that contains details about when an IAM
 -- entity (user or role) used group or policy permissions in an attempt to

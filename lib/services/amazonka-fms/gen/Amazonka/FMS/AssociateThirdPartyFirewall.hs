@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,7 +90,7 @@ instance Core.AWSRequest AssociateThirdPartyFirewall where
     Response.receiveJSON
       ( \s h x ->
           AssociateThirdPartyFirewallResponse'
-            Prelude.<$> (x Core..?> "ThirdPartyFirewallStatus")
+            Prelude.<$> (x Data..?> "ThirdPartyFirewallStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,34 +102,34 @@ instance Prelude.NFData AssociateThirdPartyFirewall where
   rnf AssociateThirdPartyFirewall' {..} =
     Prelude.rnf thirdPartyFirewall
 
-instance Core.ToHeaders AssociateThirdPartyFirewall where
+instance Data.ToHeaders AssociateThirdPartyFirewall where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.AssociateThirdPartyFirewall" ::
+              Data.=# ( "AWSFMS_20180101.AssociateThirdPartyFirewall" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateThirdPartyFirewall where
+instance Data.ToJSON AssociateThirdPartyFirewall where
   toJSON AssociateThirdPartyFirewall' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ThirdPartyFirewall" Core..= thirdPartyFirewall)
+              ("ThirdPartyFirewall" Data..= thirdPartyFirewall)
           ]
       )
 
-instance Core.ToPath AssociateThirdPartyFirewall where
+instance Data.ToPath AssociateThirdPartyFirewall where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateThirdPartyFirewall where
+instance Data.ToQuery AssociateThirdPartyFirewall where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateThirdPartyFirewallResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,36 +128,36 @@ instance
     Prelude.rnf emergencyContactList
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateEmergencyContactSettings
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.UpdateEmergencyContactSettings" ::
+              Data.=# ( "AWSShield_20160616.UpdateEmergencyContactSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEmergencyContactSettings where
+instance Data.ToJSON UpdateEmergencyContactSettings where
   toJSON UpdateEmergencyContactSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EmergencyContactList" Core..=)
+          [ ("EmergencyContactList" Data..=)
               Prelude.<$> emergencyContactList
           ]
       )
 
-instance Core.ToPath UpdateEmergencyContactSettings where
+instance Data.ToPath UpdateEmergencyContactSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateEmergencyContactSettings where
+instance Data.ToQuery UpdateEmergencyContactSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEmergencyContactSettingsResponse' smart constructor.

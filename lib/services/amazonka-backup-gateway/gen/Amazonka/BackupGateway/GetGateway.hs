@@ -43,6 +43,7 @@ where
 import Amazonka.BackupGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -82,7 +83,7 @@ instance Core.AWSRequest GetGateway where
     Response.receiveJSON
       ( \s h x ->
           GetGatewayResponse'
-            Prelude.<$> (x Core..?> "Gateway")
+            Prelude.<$> (x Data..?> "Gateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -93,32 +94,32 @@ instance Prelude.Hashable GetGateway where
 instance Prelude.NFData GetGateway where
   rnf GetGateway' {..} = Prelude.rnf gatewayArn
 
-instance Core.ToHeaders GetGateway where
+instance Data.ToHeaders GetGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BackupOnPremises_v20210101.GetGateway" ::
+              Data.=# ( "BackupOnPremises_v20210101.GetGateway" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetGateway where
+instance Data.ToJSON GetGateway where
   toJSON GetGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayArn" Core..= gatewayArn)]
+          [Prelude.Just ("GatewayArn" Data..= gatewayArn)]
       )
 
-instance Core.ToPath GetGateway where
+instance Data.ToPath GetGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetGateway where
+instance Data.ToQuery GetGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGatewayResponse' smart constructor.

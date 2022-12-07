@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,8 +147,8 @@ instance Core.AWSRequest UpdateAuthorizer where
     Response.receiveJSON
       ( \s h x ->
           UpdateAuthorizerResponse'
-            Prelude.<$> (x Core..?> "authorizerArn")
-            Prelude.<*> (x Core..?> "authorizerName")
+            Prelude.<$> (x Data..?> "authorizerArn")
+            Prelude.<*> (x Data..?> "authorizerName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,30 +170,30 @@ instance Prelude.NFData UpdateAuthorizer where
       `Prelude.seq` Prelude.rnf enableCachingForHttp
       `Prelude.seq` Prelude.rnf authorizerName
 
-instance Core.ToHeaders UpdateAuthorizer where
+instance Data.ToHeaders UpdateAuthorizer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateAuthorizer where
+instance Data.ToJSON UpdateAuthorizer where
   toJSON UpdateAuthorizer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tokenKeyName" Core..=) Prelude.<$> tokenKeyName,
-            ("status" Core..=) Prelude.<$> status,
-            ("authorizerFunctionArn" Core..=)
+          [ ("tokenKeyName" Data..=) Prelude.<$> tokenKeyName,
+            ("status" Data..=) Prelude.<$> status,
+            ("authorizerFunctionArn" Data..=)
               Prelude.<$> authorizerFunctionArn,
-            ("tokenSigningPublicKeys" Core..=)
+            ("tokenSigningPublicKeys" Data..=)
               Prelude.<$> tokenSigningPublicKeys,
-            ("enableCachingForHttp" Core..=)
+            ("enableCachingForHttp" Data..=)
               Prelude.<$> enableCachingForHttp
           ]
       )
 
-instance Core.ToPath UpdateAuthorizer where
+instance Data.ToPath UpdateAuthorizer where
   toPath UpdateAuthorizer' {..} =
     Prelude.mconcat
-      ["/authorizer/", Core.toBS authorizerName]
+      ["/authorizer/", Data.toBS authorizerName]
 
-instance Core.ToQuery UpdateAuthorizer where
+instance Data.ToQuery UpdateAuthorizer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAuthorizerResponse' smart constructor.

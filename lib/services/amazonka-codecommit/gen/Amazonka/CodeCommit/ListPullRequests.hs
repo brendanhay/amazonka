@@ -50,6 +50,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,9 +164,9 @@ instance Core.AWSRequest ListPullRequests where
     Response.receiveJSON
       ( \s h x ->
           ListPullRequestsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "pullRequestIds"
+            Prelude.<*> ( x Data..?> "pullRequestIds"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -186,39 +187,39 @@ instance Prelude.NFData ListPullRequests where
       `Prelude.seq` Prelude.rnf authorArn
       `Prelude.seq` Prelude.rnf repositoryName
 
-instance Core.ToHeaders ListPullRequests where
+instance Data.ToHeaders ListPullRequests where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.ListPullRequests" ::
+              Data.=# ( "CodeCommit_20150413.ListPullRequests" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPullRequests where
+instance Data.ToJSON ListPullRequests where
   toJSON ListPullRequests' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("pullRequestStatus" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("pullRequestStatus" Data..=)
               Prelude.<$> pullRequestStatus,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("authorArn" Core..=) Prelude.<$> authorArn,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("authorArn" Data..=) Prelude.<$> authorArn,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName)
+              ("repositoryName" Data..= repositoryName)
           ]
       )
 
-instance Core.ToPath ListPullRequests where
+instance Data.ToPath ListPullRequests where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPullRequests where
+instance Data.ToQuery ListPullRequests where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPullRequestsResponse' smart constructor.

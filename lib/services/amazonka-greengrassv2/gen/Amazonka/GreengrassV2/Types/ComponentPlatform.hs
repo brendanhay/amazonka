@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.ComponentPlatform where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a platform that a component supports.
@@ -88,14 +89,14 @@ componentPlatform_name = Lens.lens (\ComponentPlatform' {name} -> name) (\s@Comp
 componentPlatform_attributes :: Lens.Lens' ComponentPlatform (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 componentPlatform_attributes = Lens.lens (\ComponentPlatform' {attributes} -> attributes) (\s@ComponentPlatform' {} a -> s {attributes = a} :: ComponentPlatform) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ComponentPlatform where
+instance Data.FromJSON ComponentPlatform where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentPlatform"
       ( \x ->
           ComponentPlatform'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ComponentPlatform where
@@ -108,11 +109,11 @@ instance Prelude.NFData ComponentPlatform where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToJSON ComponentPlatform where
+instance Data.ToJSON ComponentPlatform where
   toJSON ComponentPlatform' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("attributes" Core..=) Prelude.<$> attributes
+          [ ("name" Data..=) Prelude.<$> name,
+            ("attributes" Data..=) Prelude.<$> attributes
           ]
       )

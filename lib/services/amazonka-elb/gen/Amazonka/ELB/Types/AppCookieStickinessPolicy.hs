@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.AppCookieStickinessPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,11 +68,11 @@ appCookieStickinessPolicy_policyName = Lens.lens (\AppCookieStickinessPolicy' {p
 appCookieStickinessPolicy_cookieName :: Lens.Lens' AppCookieStickinessPolicy (Prelude.Maybe Prelude.Text)
 appCookieStickinessPolicy_cookieName = Lens.lens (\AppCookieStickinessPolicy' {cookieName} -> cookieName) (\s@AppCookieStickinessPolicy' {} a -> s {cookieName = a} :: AppCookieStickinessPolicy)
 
-instance Core.FromXML AppCookieStickinessPolicy where
+instance Data.FromXML AppCookieStickinessPolicy where
   parseXML x =
     AppCookieStickinessPolicy'
-      Prelude.<$> (x Core..@? "PolicyName")
-      Prelude.<*> (x Core..@? "CookieName")
+      Prelude.<$> (x Data..@? "PolicyName")
+      Prelude.<*> (x Data..@? "CookieName")
 
 instance Prelude.Hashable AppCookieStickinessPolicy where
   hashWithSalt _salt AppCookieStickinessPolicy' {..} =

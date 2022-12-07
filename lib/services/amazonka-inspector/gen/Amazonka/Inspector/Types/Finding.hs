@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.Finding where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types.AssetAttributes
 import Amazonka.Inspector.Types.AssetType
 import Amazonka.Inspector.Types.Attribute
@@ -68,9 +69,9 @@ data Finding = Finding'
     -- | The user-defined attributes that are assigned to the finding.
     userAttributes :: [Attribute],
     -- | The time when the finding was generated.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The time when AddAttributesToFindings is called.
-    updatedAt :: Core.POSIX
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -145,8 +146,8 @@ newFinding pArn_ pCreatedAt_ pUpdatedAt_ =
       arn = pArn_,
       attributes = Prelude.mempty,
       userAttributes = Prelude.mempty,
-      createdAt = Core._Time Lens.# pCreatedAt_,
-      updatedAt = Core._Time Lens.# pUpdatedAt_
+      createdAt = Data._Time Lens.# pCreatedAt_,
+      updatedAt = Data._Time Lens.# pUpdatedAt_
     }
 
 -- | The finding severity. Values can be set to High, Medium, Low, and
@@ -217,36 +218,36 @@ finding_userAttributes = Lens.lens (\Finding' {userAttributes} -> userAttributes
 
 -- | The time when the finding was generated.
 finding_createdAt :: Lens.Lens' Finding Prelude.UTCTime
-finding_createdAt = Lens.lens (\Finding' {createdAt} -> createdAt) (\s@Finding' {} a -> s {createdAt = a} :: Finding) Prelude.. Core._Time
+finding_createdAt = Lens.lens (\Finding' {createdAt} -> createdAt) (\s@Finding' {} a -> s {createdAt = a} :: Finding) Prelude.. Data._Time
 
 -- | The time when AddAttributesToFindings is called.
 finding_updatedAt :: Lens.Lens' Finding Prelude.UTCTime
-finding_updatedAt = Lens.lens (\Finding' {updatedAt} -> updatedAt) (\s@Finding' {} a -> s {updatedAt = a} :: Finding) Prelude.. Core._Time
+finding_updatedAt = Lens.lens (\Finding' {updatedAt} -> updatedAt) (\s@Finding' {} a -> s {updatedAt = a} :: Finding) Prelude.. Data._Time
 
-instance Core.FromJSON Finding where
+instance Data.FromJSON Finding where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Finding"
       ( \x ->
           Finding'
-            Prelude.<$> (x Core..:? "severity")
-            Prelude.<*> (x Core..:? "indicatorOfCompromise")
-            Prelude.<*> (x Core..:? "numericSeverity")
-            Prelude.<*> (x Core..:? "confidence")
-            Prelude.<*> (x Core..:? "assetAttributes")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "assetType")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "service")
-            Prelude.<*> (x Core..:? "title")
-            Prelude.<*> (x Core..:? "recommendation")
-            Prelude.<*> (x Core..:? "schemaVersion")
-            Prelude.<*> (x Core..:? "serviceAttributes")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "userAttributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "updatedAt")
+            Prelude.<$> (x Data..:? "severity")
+            Prelude.<*> (x Data..:? "indicatorOfCompromise")
+            Prelude.<*> (x Data..:? "numericSeverity")
+            Prelude.<*> (x Data..:? "confidence")
+            Prelude.<*> (x Data..:? "assetAttributes")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "assetType")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "service")
+            Prelude.<*> (x Data..:? "title")
+            Prelude.<*> (x Data..:? "recommendation")
+            Prelude.<*> (x Data..:? "schemaVersion")
+            Prelude.<*> (x Data..:? "serviceAttributes")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "userAttributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "updatedAt")
       )
 
 instance Prelude.Hashable Finding where

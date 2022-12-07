@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.LakeFormationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies Lake Formation configuration settings for the crawler.
@@ -68,14 +69,14 @@ lakeFormationConfiguration_useLakeFormationCredentials = Lens.lens (\LakeFormati
 lakeFormationConfiguration_accountId :: Lens.Lens' LakeFormationConfiguration (Prelude.Maybe Prelude.Text)
 lakeFormationConfiguration_accountId = Lens.lens (\LakeFormationConfiguration' {accountId} -> accountId) (\s@LakeFormationConfiguration' {} a -> s {accountId = a} :: LakeFormationConfiguration)
 
-instance Core.FromJSON LakeFormationConfiguration where
+instance Data.FromJSON LakeFormationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LakeFormationConfiguration"
       ( \x ->
           LakeFormationConfiguration'
-            Prelude.<$> (x Core..:? "UseLakeFormationCredentials")
-            Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<$> (x Data..:? "UseLakeFormationCredentials")
+            Prelude.<*> (x Data..:? "AccountId")
       )
 
 instance Prelude.Hashable LakeFormationConfiguration where
@@ -89,12 +90,12 @@ instance Prelude.NFData LakeFormationConfiguration where
     Prelude.rnf useLakeFormationCredentials
       `Prelude.seq` Prelude.rnf accountId
 
-instance Core.ToJSON LakeFormationConfiguration where
+instance Data.ToJSON LakeFormationConfiguration where
   toJSON LakeFormationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UseLakeFormationCredentials" Core..=)
+          [ ("UseLakeFormationCredentials" Data..=)
               Prelude.<$> useLakeFormationCredentials,
-            ("AccountId" Core..=) Prelude.<$> accountId
+            ("AccountId" Data..=) Prelude.<$> accountId
           ]
       )

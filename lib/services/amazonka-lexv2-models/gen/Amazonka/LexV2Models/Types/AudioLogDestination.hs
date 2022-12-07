@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.AudioLogDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.S3BucketLogDestination
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,13 +64,13 @@ newAudioLogDestination pS3Bucket_ =
 audioLogDestination_s3Bucket :: Lens.Lens' AudioLogDestination S3BucketLogDestination
 audioLogDestination_s3Bucket = Lens.lens (\AudioLogDestination' {s3Bucket} -> s3Bucket) (\s@AudioLogDestination' {} a -> s {s3Bucket = a} :: AudioLogDestination)
 
-instance Core.FromJSON AudioLogDestination where
+instance Data.FromJSON AudioLogDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioLogDestination"
       ( \x ->
           AudioLogDestination'
-            Prelude.<$> (x Core..: "s3Bucket")
+            Prelude.<$> (x Data..: "s3Bucket")
       )
 
 instance Prelude.Hashable AudioLogDestination where
@@ -79,9 +80,9 @@ instance Prelude.Hashable AudioLogDestination where
 instance Prelude.NFData AudioLogDestination where
   rnf AudioLogDestination' {..} = Prelude.rnf s3Bucket
 
-instance Core.ToJSON AudioLogDestination where
+instance Data.ToJSON AudioLogDestination where
   toJSON AudioLogDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("s3Bucket" Core..= s3Bucket)]
+          [Prelude.Just ("s3Bucket" Data..= s3Bucket)]
       )

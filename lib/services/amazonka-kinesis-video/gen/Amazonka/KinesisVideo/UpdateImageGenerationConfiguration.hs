@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,34 +150,34 @@ instance
       `Prelude.seq` Prelude.rnf streamName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateImageGenerationConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateImageGenerationConfiguration
   where
   toJSON UpdateImageGenerationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ImageGenerationConfiguration" Core..=)
+          [ ("ImageGenerationConfiguration" Data..=)
               Prelude.<$> imageGenerationConfiguration,
-            ("StreamARN" Core..=) Prelude.<$> streamARN,
-            ("StreamName" Core..=) Prelude.<$> streamName
+            ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateImageGenerationConfiguration
   where
   toPath =
     Prelude.const "/updateImageGenerationConfiguration"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateImageGenerationConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

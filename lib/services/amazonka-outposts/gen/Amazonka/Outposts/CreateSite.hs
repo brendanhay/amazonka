@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -165,7 +166,7 @@ instance Core.AWSRequest CreateSite where
     Response.receiveJSON
       ( \s h x ->
           CreateSiteResponse'
-            Prelude.<$> (x Core..?> "Site")
+            Prelude.<$> (x Data..?> "Site")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,38 +190,38 @@ instance Prelude.NFData CreateSite where
       `Prelude.seq` Prelude.rnf rackPhysicalProperties
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateSite where
+instance Data.ToHeaders CreateSite where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSite where
+instance Data.ToJSON CreateSite where
   toJSON CreateSite' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ShippingAddress" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ShippingAddress" Data..=)
               Prelude.<$> shippingAddress,
-            ("OperatingAddress" Core..=)
+            ("OperatingAddress" Data..=)
               Prelude.<$> operatingAddress,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Notes" Core..=) Prelude.<$> notes,
-            ("RackPhysicalProperties" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("Notes" Data..=) Prelude.<$> notes,
+            ("RackPhysicalProperties" Data..=)
               Prelude.<$> rackPhysicalProperties,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateSite where
+instance Data.ToPath CreateSite where
   toPath = Prelude.const "/sites"
 
-instance Core.ToQuery CreateSite where
+instance Data.ToQuery CreateSite where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSiteResponse' smart constructor.

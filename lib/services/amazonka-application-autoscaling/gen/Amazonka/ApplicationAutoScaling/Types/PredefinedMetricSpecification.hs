@@ -22,6 +22,7 @@ module Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification where
 import Amazonka.ApplicationAutoScaling.Types.MetricType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a predefined metric for a target tracking scaling policy to
@@ -150,14 +151,14 @@ predefinedMetricSpecification_resourceLabel = Lens.lens (\PredefinedMetricSpecif
 predefinedMetricSpecification_predefinedMetricType :: Lens.Lens' PredefinedMetricSpecification MetricType
 predefinedMetricSpecification_predefinedMetricType = Lens.lens (\PredefinedMetricSpecification' {predefinedMetricType} -> predefinedMetricType) (\s@PredefinedMetricSpecification' {} a -> s {predefinedMetricType = a} :: PredefinedMetricSpecification)
 
-instance Core.FromJSON PredefinedMetricSpecification where
+instance Data.FromJSON PredefinedMetricSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PredefinedMetricSpecification"
       ( \x ->
           PredefinedMetricSpecification'
-            Prelude.<$> (x Core..:? "ResourceLabel")
-            Prelude.<*> (x Core..: "PredefinedMetricType")
+            Prelude.<$> (x Data..:? "ResourceLabel")
+            Prelude.<*> (x Data..: "PredefinedMetricType")
       )
 
 instance
@@ -173,14 +174,14 @@ instance Prelude.NFData PredefinedMetricSpecification where
     Prelude.rnf resourceLabel
       `Prelude.seq` Prelude.rnf predefinedMetricType
 
-instance Core.ToJSON PredefinedMetricSpecification where
+instance Data.ToJSON PredefinedMetricSpecification where
   toJSON PredefinedMetricSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceLabel" Core..=) Prelude.<$> resourceLabel,
+          [ ("ResourceLabel" Data..=) Prelude.<$> resourceLabel,
             Prelude.Just
               ( "PredefinedMetricType"
-                  Core..= predefinedMetricType
+                  Data..= predefinedMetricType
               )
           ]
       )

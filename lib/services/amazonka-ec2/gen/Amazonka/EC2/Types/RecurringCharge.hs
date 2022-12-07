@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.RecurringCharge where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.RecurringChargeFrequency
 import qualified Amazonka.Prelude as Prelude
@@ -63,11 +64,11 @@ recurringCharge_frequency = Lens.lens (\RecurringCharge' {frequency} -> frequenc
 recurringCharge_amount :: Lens.Lens' RecurringCharge (Prelude.Maybe Prelude.Double)
 recurringCharge_amount = Lens.lens (\RecurringCharge' {amount} -> amount) (\s@RecurringCharge' {} a -> s {amount = a} :: RecurringCharge)
 
-instance Core.FromXML RecurringCharge where
+instance Data.FromXML RecurringCharge where
   parseXML x =
     RecurringCharge'
-      Prelude.<$> (x Core..@? "frequency")
-      Prelude.<*> (x Core..@? "amount")
+      Prelude.<$> (x Data..@? "frequency")
+      Prelude.<*> (x Data..@? "amount")
 
 instance Prelude.Hashable RecurringCharge where
   hashWithSalt _salt RecurringCharge' {..} =

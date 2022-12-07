@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,21 +106,21 @@ instance Prelude.NFData DeleteCacheParameterGroup where
   rnf DeleteCacheParameterGroup' {..} =
     Prelude.rnf cacheParameterGroupName
 
-instance Core.ToHeaders DeleteCacheParameterGroup where
+instance Data.ToHeaders DeleteCacheParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteCacheParameterGroup where
+instance Data.ToPath DeleteCacheParameterGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteCacheParameterGroup where
+instance Data.ToQuery DeleteCacheParameterGroup where
   toQuery DeleteCacheParameterGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteCacheParameterGroup" :: Prelude.ByteString),
+          Data.=: ("DeleteCacheParameterGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "CacheParameterGroupName"
-          Core.=: cacheParameterGroupName
+          Data.=: cacheParameterGroupName
       ]
 
 -- | /See:/ 'newDeleteCacheParameterGroupResponse' smart constructor.

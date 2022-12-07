@@ -47,6 +47,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,8 +130,8 @@ instance Core.AWSRequest ListFacetNames where
     Response.receiveJSON
       ( \s h x ->
           ListFacetNamesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "FacetNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "FacetNames" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,26 +147,26 @@ instance Prelude.NFData ListFacetNames where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf schemaArn
 
-instance Core.ToHeaders ListFacetNames where
+instance Data.ToHeaders ListFacetNames where
   toHeaders ListFacetNames' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# schemaArn]
+      ["x-amz-data-partition" Data.=# schemaArn]
 
-instance Core.ToJSON ListFacetNames where
+instance Data.ToJSON ListFacetNames where
   toJSON ListFacetNames' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListFacetNames where
+instance Data.ToPath ListFacetNames where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/facet/list"
 
-instance Core.ToQuery ListFacetNames where
+instance Data.ToQuery ListFacetNames where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListFacetNamesResponse' smart constructor.

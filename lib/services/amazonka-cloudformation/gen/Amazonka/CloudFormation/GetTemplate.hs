@@ -51,6 +51,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -162,9 +163,9 @@ instance Core.AWSRequest GetTemplate where
       "GetTemplateResult"
       ( \s h x ->
           GetTemplateResponse'
-            Prelude.<$> (x Core..@? "TemplateBody")
-            Prelude.<*> ( x Core..@? "StagesAvailable" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "TemplateBody")
+            Prelude.<*> ( x Data..@? "StagesAvailable" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -181,22 +182,22 @@ instance Prelude.NFData GetTemplate where
       `Prelude.seq` Prelude.rnf changeSetName
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders GetTemplate where
+instance Data.ToHeaders GetTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetTemplate where
+instance Data.ToPath GetTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTemplate where
+instance Data.ToQuery GetTemplate where
   toQuery GetTemplate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetTemplate" :: Prelude.ByteString),
+          Data.=: ("GetTemplate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "TemplateStage" Core.=: templateStage,
-        "ChangeSetName" Core.=: changeSetName,
-        "StackName" Core.=: stackName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "TemplateStage" Data.=: templateStage,
+        "ChangeSetName" Data.=: changeSetName,
+        "StackName" Data.=: stackName
       ]
 
 -- | The output for GetTemplate action.

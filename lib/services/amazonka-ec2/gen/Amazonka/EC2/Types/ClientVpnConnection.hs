@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClientVpnConnection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ClientVpnConnectionStatus
 import qualified Amazonka.Prelude as Prelude
@@ -183,26 +184,26 @@ clientVpnConnection_connectionEstablishedTime = Lens.lens (\ClientVpnConnection'
 clientVpnConnection_clientIp :: Lens.Lens' ClientVpnConnection (Prelude.Maybe Prelude.Text)
 clientVpnConnection_clientIp = Lens.lens (\ClientVpnConnection' {clientIp} -> clientIp) (\s@ClientVpnConnection' {} a -> s {clientIp = a} :: ClientVpnConnection)
 
-instance Core.FromXML ClientVpnConnection where
+instance Data.FromXML ClientVpnConnection where
   parseXML x =
     ClientVpnConnection'
-      Prelude.<$> (x Core..@? "egressBytes")
-      Prelude.<*> (x Core..@? "username")
-      Prelude.<*> (x Core..@? "timestamp")
-      Prelude.<*> (x Core..@? "ingressBytes")
-      Prelude.<*> ( x Core..@? "postureComplianceStatusSet"
+      Prelude.<$> (x Data..@? "egressBytes")
+      Prelude.<*> (x Data..@? "username")
+      Prelude.<*> (x Data..@? "timestamp")
+      Prelude.<*> (x Data..@? "ingressBytes")
+      Prelude.<*> ( x Data..@? "postureComplianceStatusSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "connectionId")
-      Prelude.<*> (x Core..@? "egressPackets")
-      Prelude.<*> (x Core..@? "clientVpnEndpointId")
-      Prelude.<*> (x Core..@? "connectionEndTime")
-      Prelude.<*> (x Core..@? "ingressPackets")
-      Prelude.<*> (x Core..@? "commonName")
-      Prelude.<*> (x Core..@? "connectionEstablishedTime")
-      Prelude.<*> (x Core..@? "clientIp")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "connectionId")
+      Prelude.<*> (x Data..@? "egressPackets")
+      Prelude.<*> (x Data..@? "clientVpnEndpointId")
+      Prelude.<*> (x Data..@? "connectionEndTime")
+      Prelude.<*> (x Data..@? "ingressPackets")
+      Prelude.<*> (x Data..@? "commonName")
+      Prelude.<*> (x Data..@? "connectionEstablishedTime")
+      Prelude.<*> (x Data..@? "clientIp")
 
 instance Prelude.Hashable ClientVpnConnection where
   hashWithSalt _salt ClientVpnConnection' {..} =

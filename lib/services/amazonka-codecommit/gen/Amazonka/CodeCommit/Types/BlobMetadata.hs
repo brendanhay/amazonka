@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.BlobMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a specific Git blob object.
@@ -97,15 +98,15 @@ blobMetadata_mode = Lens.lens (\BlobMetadata' {mode} -> mode) (\s@BlobMetadata' 
 blobMetadata_blobId :: Lens.Lens' BlobMetadata (Prelude.Maybe Prelude.Text)
 blobMetadata_blobId = Lens.lens (\BlobMetadata' {blobId} -> blobId) (\s@BlobMetadata' {} a -> s {blobId = a} :: BlobMetadata)
 
-instance Core.FromJSON BlobMetadata where
+instance Data.FromJSON BlobMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BlobMetadata"
       ( \x ->
           BlobMetadata'
-            Prelude.<$> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "mode")
-            Prelude.<*> (x Core..:? "blobId")
+            Prelude.<$> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "mode")
+            Prelude.<*> (x Data..:? "blobId")
       )
 
 instance Prelude.Hashable BlobMetadata where

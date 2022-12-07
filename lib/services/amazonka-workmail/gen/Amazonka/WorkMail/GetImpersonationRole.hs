@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,13 +107,13 @@ instance Core.AWSRequest GetImpersonationRole where
     Response.receiveJSON
       ( \s h x ->
           GetImpersonationRoleResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "Rules" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "DateCreated")
-            Prelude.<*> (x Core..?> "ImpersonationRoleId")
-            Prelude.<*> (x Core..?> "DateModified")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Type")
+            Prelude.<*> (x Data..?> "Rules" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "DateCreated")
+            Prelude.<*> (x Data..?> "ImpersonationRoleId")
+            Prelude.<*> (x Data..?> "DateModified")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,36 +127,36 @@ instance Prelude.NFData GetImpersonationRole where
     Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf impersonationRoleId
 
-instance Core.ToHeaders GetImpersonationRole where
+instance Data.ToHeaders GetImpersonationRole where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.GetImpersonationRole" ::
+              Data.=# ( "WorkMailService.GetImpersonationRole" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetImpersonationRole where
+instance Data.ToJSON GetImpersonationRole where
   toJSON GetImpersonationRole' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
+              ("OrganizationId" Data..= organizationId),
             Prelude.Just
-              ("ImpersonationRoleId" Core..= impersonationRoleId)
+              ("ImpersonationRoleId" Data..= impersonationRoleId)
           ]
       )
 
-instance Core.ToPath GetImpersonationRole where
+instance Data.ToPath GetImpersonationRole where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetImpersonationRole where
+instance Data.ToQuery GetImpersonationRole where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetImpersonationRoleResponse' smart constructor.
@@ -169,11 +170,11 @@ data GetImpersonationRoleResponse = GetImpersonationRoleResponse'
     -- | The impersonation role description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The date when the impersonation role was created.
-    dateCreated :: Prelude.Maybe Core.POSIX,
+    dateCreated :: Prelude.Maybe Data.POSIX,
     -- | The impersonation role ID.
     impersonationRoleId :: Prelude.Maybe Prelude.Text,
     -- | The date when the impersonation role was last modified.
-    dateModified :: Prelude.Maybe Core.POSIX,
+    dateModified :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -237,7 +238,7 @@ getImpersonationRoleResponse_description = Lens.lens (\GetImpersonationRoleRespo
 
 -- | The date when the impersonation role was created.
 getImpersonationRoleResponse_dateCreated :: Lens.Lens' GetImpersonationRoleResponse (Prelude.Maybe Prelude.UTCTime)
-getImpersonationRoleResponse_dateCreated = Lens.lens (\GetImpersonationRoleResponse' {dateCreated} -> dateCreated) (\s@GetImpersonationRoleResponse' {} a -> s {dateCreated = a} :: GetImpersonationRoleResponse) Prelude.. Lens.mapping Core._Time
+getImpersonationRoleResponse_dateCreated = Lens.lens (\GetImpersonationRoleResponse' {dateCreated} -> dateCreated) (\s@GetImpersonationRoleResponse' {} a -> s {dateCreated = a} :: GetImpersonationRoleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The impersonation role ID.
 getImpersonationRoleResponse_impersonationRoleId :: Lens.Lens' GetImpersonationRoleResponse (Prelude.Maybe Prelude.Text)
@@ -245,7 +246,7 @@ getImpersonationRoleResponse_impersonationRoleId = Lens.lens (\GetImpersonationR
 
 -- | The date when the impersonation role was last modified.
 getImpersonationRoleResponse_dateModified :: Lens.Lens' GetImpersonationRoleResponse (Prelude.Maybe Prelude.UTCTime)
-getImpersonationRoleResponse_dateModified = Lens.lens (\GetImpersonationRoleResponse' {dateModified} -> dateModified) (\s@GetImpersonationRoleResponse' {} a -> s {dateModified = a} :: GetImpersonationRoleResponse) Prelude.. Lens.mapping Core._Time
+getImpersonationRoleResponse_dateModified = Lens.lens (\GetImpersonationRoleResponse' {dateModified} -> dateModified) (\s@GetImpersonationRoleResponse' {} a -> s {dateModified = a} :: GetImpersonationRoleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getImpersonationRoleResponse_httpStatus :: Lens.Lens' GetImpersonationRoleResponse Prelude.Int

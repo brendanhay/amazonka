@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.MacSecKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the MAC Security (MACsec) secret key.
@@ -124,16 +125,16 @@ macSecKey_secretARN = Lens.lens (\MacSecKey' {secretARN} -> secretARN) (\s@MacSe
 macSecKey_ckn :: Lens.Lens' MacSecKey (Prelude.Maybe Prelude.Text)
 macSecKey_ckn = Lens.lens (\MacSecKey' {ckn} -> ckn) (\s@MacSecKey' {} a -> s {ckn = a} :: MacSecKey)
 
-instance Core.FromJSON MacSecKey where
+instance Data.FromJSON MacSecKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MacSecKey"
       ( \x ->
           MacSecKey'
-            Prelude.<$> (x Core..:? "startOn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "secretARN")
-            Prelude.<*> (x Core..:? "ckn")
+            Prelude.<$> (x Data..:? "startOn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "secretARN")
+            Prelude.<*> (x Data..:? "ckn")
       )
 
 instance Prelude.Hashable MacSecKey where

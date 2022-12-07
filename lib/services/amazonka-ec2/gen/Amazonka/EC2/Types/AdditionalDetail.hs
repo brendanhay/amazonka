@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AdditionalDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AnalysisComponent
 import qualified Amazonka.Prelude as Prelude
@@ -64,11 +65,11 @@ additionalDetail_additionalDetailType = Lens.lens (\AdditionalDetail' {additiona
 additionalDetail_component :: Lens.Lens' AdditionalDetail (Prelude.Maybe AnalysisComponent)
 additionalDetail_component = Lens.lens (\AdditionalDetail' {component} -> component) (\s@AdditionalDetail' {} a -> s {component = a} :: AdditionalDetail)
 
-instance Core.FromXML AdditionalDetail where
+instance Data.FromXML AdditionalDetail where
   parseXML x =
     AdditionalDetail'
-      Prelude.<$> (x Core..@? "additionalDetailType")
-      Prelude.<*> (x Core..@? "component")
+      Prelude.<$> (x Data..@? "additionalDetailType")
+      Prelude.<*> (x Data..@? "component")
 
 instance Prelude.Hashable AdditionalDetail where
   hashWithSalt _salt AdditionalDetail' {..} =

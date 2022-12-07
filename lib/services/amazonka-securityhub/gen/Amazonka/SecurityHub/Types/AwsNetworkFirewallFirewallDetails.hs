@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsNetworkFirewallFirewallDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsNetworkFirewallFirewallSubnetMappingsDetails
 
@@ -155,24 +156,24 @@ awsNetworkFirewallFirewallDetails_firewallPolicyArn :: Lens.Lens' AwsNetworkFire
 awsNetworkFirewallFirewallDetails_firewallPolicyArn = Lens.lens (\AwsNetworkFirewallFirewallDetails' {firewallPolicyArn} -> firewallPolicyArn) (\s@AwsNetworkFirewallFirewallDetails' {} a -> s {firewallPolicyArn = a} :: AwsNetworkFirewallFirewallDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsNetworkFirewallFirewallDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsNetworkFirewallFirewallDetails"
       ( \x ->
           AwsNetworkFirewallFirewallDetails'
-            Prelude.<$> (x Core..:? "DeleteProtection")
-            Prelude.<*> (x Core..:? "SubnetChangeProtection")
-            Prelude.<*> (x Core..:? "FirewallId")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "FirewallPolicyChangeProtection")
-            Prelude.<*> (x Core..:? "FirewallArn")
-            Prelude.<*> (x Core..:? "SubnetMappings" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "FirewallName")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "FirewallPolicyArn")
+            Prelude.<$> (x Data..:? "DeleteProtection")
+            Prelude.<*> (x Data..:? "SubnetChangeProtection")
+            Prelude.<*> (x Data..:? "FirewallId")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "FirewallPolicyChangeProtection")
+            Prelude.<*> (x Data..:? "FirewallArn")
+            Prelude.<*> (x Data..:? "SubnetMappings" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "FirewallName")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "FirewallPolicyArn")
       )
 
 instance
@@ -210,26 +211,26 @@ instance
       `Prelude.seq` Prelude.rnf firewallPolicyArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsNetworkFirewallFirewallDetails
   where
   toJSON AwsNetworkFirewallFirewallDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeleteProtection" Core..=)
+          [ ("DeleteProtection" Data..=)
               Prelude.<$> deleteProtection,
-            ("SubnetChangeProtection" Core..=)
+            ("SubnetChangeProtection" Data..=)
               Prelude.<$> subnetChangeProtection,
-            ("FirewallId" Core..=) Prelude.<$> firewallId,
-            ("Description" Core..=) Prelude.<$> description,
-            ("FirewallPolicyChangeProtection" Core..=)
+            ("FirewallId" Data..=) Prelude.<$> firewallId,
+            ("Description" Data..=) Prelude.<$> description,
+            ("FirewallPolicyChangeProtection" Data..=)
               Prelude.<$> firewallPolicyChangeProtection,
-            ("FirewallArn" Core..=) Prelude.<$> firewallArn,
-            ("SubnetMappings" Core..=)
+            ("FirewallArn" Data..=) Prelude.<$> firewallArn,
+            ("SubnetMappings" Data..=)
               Prelude.<$> subnetMappings,
-            ("FirewallName" Core..=) Prelude.<$> firewallName,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("FirewallPolicyArn" Core..=)
+            ("FirewallName" Data..=) Prelude.<$> firewallName,
+            ("VpcId" Data..=) Prelude.<$> vpcId,
+            ("FirewallPolicyArn" Data..=)
               Prelude.<$> firewallPolicyArn
           ]
       )

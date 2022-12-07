@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,9 +125,9 @@ instance Core.AWSRequest ListPlaybackKeyPairs where
     Response.receiveJSON
       ( \s h x ->
           ListPlaybackKeyPairsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "keyPairs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "keyPairs" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListPlaybackKeyPairs where
@@ -139,30 +140,30 @@ instance Prelude.NFData ListPlaybackKeyPairs where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListPlaybackKeyPairs where
+instance Data.ToHeaders ListPlaybackKeyPairs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPlaybackKeyPairs where
+instance Data.ToJSON ListPlaybackKeyPairs where
   toJSON ListPlaybackKeyPairs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListPlaybackKeyPairs where
+instance Data.ToPath ListPlaybackKeyPairs where
   toPath = Prelude.const "/ListPlaybackKeyPairs"
 
-instance Core.ToQuery ListPlaybackKeyPairs where
+instance Data.ToQuery ListPlaybackKeyPairs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPlaybackKeyPairsResponse' smart constructor.

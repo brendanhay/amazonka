@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.LustreFileSystemConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.DataCompressionType
 import Amazonka.FSx.Types.DataRepositoryConfiguration
 import Amazonka.FSx.Types.DriveCacheType
@@ -335,24 +336,24 @@ lustreFileSystemConfiguration_rootSquashConfiguration = Lens.lens (\LustreFileSy
 lustreFileSystemConfiguration_dataRepositoryConfiguration :: Lens.Lens' LustreFileSystemConfiguration (Prelude.Maybe DataRepositoryConfiguration)
 lustreFileSystemConfiguration_dataRepositoryConfiguration = Lens.lens (\LustreFileSystemConfiguration' {dataRepositoryConfiguration} -> dataRepositoryConfiguration) (\s@LustreFileSystemConfiguration' {} a -> s {dataRepositoryConfiguration = a} :: LustreFileSystemConfiguration)
 
-instance Core.FromJSON LustreFileSystemConfiguration where
+instance Data.FromJSON LustreFileSystemConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LustreFileSystemConfiguration"
       ( \x ->
           LustreFileSystemConfiguration'
-            Prelude.<$> (x Core..:? "CopyTagsToBackups")
-            Prelude.<*> (x Core..:? "DriveCacheType")
-            Prelude.<*> (x Core..:? "WeeklyMaintenanceStartTime")
-            Prelude.<*> (x Core..:? "LogConfiguration")
-            Prelude.<*> (x Core..:? "AutomaticBackupRetentionDays")
-            Prelude.<*> (x Core..:? "DeploymentType")
-            Prelude.<*> (x Core..:? "DailyAutomaticBackupStartTime")
-            Prelude.<*> (x Core..:? "PerUnitStorageThroughput")
-            Prelude.<*> (x Core..:? "DataCompressionType")
-            Prelude.<*> (x Core..:? "MountName")
-            Prelude.<*> (x Core..:? "RootSquashConfiguration")
-            Prelude.<*> (x Core..:? "DataRepositoryConfiguration")
+            Prelude.<$> (x Data..:? "CopyTagsToBackups")
+            Prelude.<*> (x Data..:? "DriveCacheType")
+            Prelude.<*> (x Data..:? "WeeklyMaintenanceStartTime")
+            Prelude.<*> (x Data..:? "LogConfiguration")
+            Prelude.<*> (x Data..:? "AutomaticBackupRetentionDays")
+            Prelude.<*> (x Data..:? "DeploymentType")
+            Prelude.<*> (x Data..:? "DailyAutomaticBackupStartTime")
+            Prelude.<*> (x Data..:? "PerUnitStorageThroughput")
+            Prelude.<*> (x Data..:? "DataCompressionType")
+            Prelude.<*> (x Data..:? "MountName")
+            Prelude.<*> (x Data..:? "RootSquashConfiguration")
+            Prelude.<*> (x Data..:? "DataRepositoryConfiguration")
       )
 
 instance

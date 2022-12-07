@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.RuleGroupSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | High-level information about a RuleGroup, returned by operations like
@@ -121,17 +122,17 @@ ruleGroupSummary_description = Lens.lens (\RuleGroupSummary' {description} -> de
 ruleGroupSummary_lockToken :: Lens.Lens' RuleGroupSummary (Prelude.Maybe Prelude.Text)
 ruleGroupSummary_lockToken = Lens.lens (\RuleGroupSummary' {lockToken} -> lockToken) (\s@RuleGroupSummary' {} a -> s {lockToken = a} :: RuleGroupSummary)
 
-instance Core.FromJSON RuleGroupSummary where
+instance Data.FromJSON RuleGroupSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupSummary"
       ( \x ->
           RuleGroupSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LockToken")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LockToken")
       )
 
 instance Prelude.Hashable RuleGroupSummary where

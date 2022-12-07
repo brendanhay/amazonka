@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.UserProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a user\'s SSH information.
@@ -94,17 +95,17 @@ userProfile_sshUsername = Lens.lens (\UserProfile' {sshUsername} -> sshUsername)
 userProfile_allowSelfManagement :: Lens.Lens' UserProfile (Prelude.Maybe Prelude.Bool)
 userProfile_allowSelfManagement = Lens.lens (\UserProfile' {allowSelfManagement} -> allowSelfManagement) (\s@UserProfile' {} a -> s {allowSelfManagement = a} :: UserProfile)
 
-instance Core.FromJSON UserProfile where
+instance Data.FromJSON UserProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserProfile"
       ( \x ->
           UserProfile'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "IamUserArn")
-            Prelude.<*> (x Core..:? "SshPublicKey")
-            Prelude.<*> (x Core..:? "SshUsername")
-            Prelude.<*> (x Core..:? "AllowSelfManagement")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "IamUserArn")
+            Prelude.<*> (x Data..:? "SshPublicKey")
+            Prelude.<*> (x Data..:? "SshUsername")
+            Prelude.<*> (x Data..:? "AllowSelfManagement")
       )
 
 instance Prelude.Hashable UserProfile where

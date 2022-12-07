@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,8 +134,8 @@ instance Core.AWSRequest ListSqlInjectionMatchSets where
     Response.receiveJSON
       ( \s h x ->
           ListSqlInjectionMatchSetsResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
-            Prelude.<*> ( x Core..?> "SqlInjectionMatchSets"
+            Prelude.<$> (x Data..?> "NextMarker")
+            Prelude.<*> ( x Data..?> "SqlInjectionMatchSets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -150,34 +151,34 @@ instance Prelude.NFData ListSqlInjectionMatchSets where
     Prelude.rnf limit
       `Prelude.seq` Prelude.rnf nextMarker
 
-instance Core.ToHeaders ListSqlInjectionMatchSets where
+instance Data.ToHeaders ListSqlInjectionMatchSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.ListSqlInjectionMatchSets" ::
+              Data.=# ( "AWSWAF_Regional_20161128.ListSqlInjectionMatchSets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSqlInjectionMatchSets where
+instance Data.ToJSON ListSqlInjectionMatchSets where
   toJSON ListSqlInjectionMatchSets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("NextMarker" Core..=) Prelude.<$> nextMarker
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextMarker" Data..=) Prelude.<$> nextMarker
           ]
       )
 
-instance Core.ToPath ListSqlInjectionMatchSets where
+instance Data.ToPath ListSqlInjectionMatchSets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSqlInjectionMatchSets where
+instance Data.ToQuery ListSqlInjectionMatchSets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response to a ListSqlInjectionMatchSets request.

@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.InclusionProtectionFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Shield.Types.ProtectedResourceType
 
@@ -92,13 +93,13 @@ instance Prelude.NFData InclusionProtectionFilters where
       `Prelude.seq` Prelude.rnf protectionNames
       `Prelude.seq` Prelude.rnf resourceArns
 
-instance Core.ToJSON InclusionProtectionFilters where
+instance Data.ToJSON InclusionProtectionFilters where
   toJSON InclusionProtectionFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceTypes" Core..=) Prelude.<$> resourceTypes,
-            ("ProtectionNames" Core..=)
+          [ ("ResourceTypes" Data..=) Prelude.<$> resourceTypes,
+            ("ProtectionNames" Data..=)
               Prelude.<$> protectionNames,
-            ("ResourceArns" Core..=) Prelude.<$> resourceArns
+            ("ResourceArns" Data..=) Prelude.<$> resourceArns
           ]
       )

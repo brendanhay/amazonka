@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.BucketMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.AllowsUnencryptedObjectUploads
 import Amazonka.MacieV2.Types.BucketMetadataErrorCode
 import Amazonka.MacieV2.Types.BucketPublicAccess
@@ -79,7 +80,7 @@ data BucketMetadata = BucketMetadata'
     unclassifiableObjectCount :: Prelude.Maybe ObjectLevelStatistics,
     -- | The date and time, in UTC and extended ISO 8601 format, when the bucket
     -- was created.
-    bucketCreatedAt :: Prelude.Maybe Core.POSIX,
+    bucketCreatedAt :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether the bucket is configured to replicate one or more
     -- objects to buckets for other Amazon Web Services accounts and, if so,
     -- which accounts.
@@ -113,7 +114,7 @@ data BucketMetadata = BucketMetadata'
     -- | The date and time, in UTC and extended ISO 8601 format, when Amazon
     -- Macie most recently retrieved both bucket and object metadata from
     -- Amazon S3 for the bucket.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services Region that hosts the bucket.
     region :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket.
@@ -384,7 +385,7 @@ bucketMetadata_unclassifiableObjectCount = Lens.lens (\BucketMetadata' {unclassi
 -- | The date and time, in UTC and extended ISO 8601 format, when the bucket
 -- was created.
 bucketMetadata_bucketCreatedAt :: Lens.Lens' BucketMetadata (Prelude.Maybe Prelude.UTCTime)
-bucketMetadata_bucketCreatedAt = Lens.lens (\BucketMetadata' {bucketCreatedAt} -> bucketCreatedAt) (\s@BucketMetadata' {} a -> s {bucketCreatedAt = a} :: BucketMetadata) Prelude.. Lens.mapping Core._Time
+bucketMetadata_bucketCreatedAt = Lens.lens (\BucketMetadata' {bucketCreatedAt} -> bucketCreatedAt) (\s@BucketMetadata' {} a -> s {bucketCreatedAt = a} :: BucketMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether the bucket is configured to replicate one or more
 -- objects to buckets for other Amazon Web Services accounts and, if so,
@@ -430,7 +431,7 @@ bucketMetadata_versioning = Lens.lens (\BucketMetadata' {versioning} -> versioni
 -- Macie most recently retrieved both bucket and object metadata from
 -- Amazon S3 for the bucket.
 bucketMetadata_lastUpdated :: Lens.Lens' BucketMetadata (Prelude.Maybe Prelude.UTCTime)
-bucketMetadata_lastUpdated = Lens.lens (\BucketMetadata' {lastUpdated} -> lastUpdated) (\s@BucketMetadata' {} a -> s {lastUpdated = a} :: BucketMetadata) Prelude.. Lens.mapping Core._Time
+bucketMetadata_lastUpdated = Lens.lens (\BucketMetadata' {lastUpdated} -> lastUpdated) (\s@BucketMetadata' {} a -> s {lastUpdated = a} :: BucketMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services Region that hosts the bucket.
 bucketMetadata_region :: Lens.Lens' BucketMetadata (Prelude.Maybe Prelude.Text)
@@ -507,36 +508,36 @@ bucketMetadata_sizeInBytesCompressed = Lens.lens (\BucketMetadata' {sizeInBytesC
 bucketMetadata_unclassifiableObjectSizeInBytes :: Lens.Lens' BucketMetadata (Prelude.Maybe ObjectLevelStatistics)
 bucketMetadata_unclassifiableObjectSizeInBytes = Lens.lens (\BucketMetadata' {unclassifiableObjectSizeInBytes} -> unclassifiableObjectSizeInBytes) (\s@BucketMetadata' {} a -> s {unclassifiableObjectSizeInBytes = a} :: BucketMetadata)
 
-instance Core.FromJSON BucketMetadata where
+instance Data.FromJSON BucketMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BucketMetadata"
       ( \x ->
           BucketMetadata'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "serverSideEncryption")
-            Prelude.<*> (x Core..:? "objectCountByEncryptionType")
-            Prelude.<*> (x Core..:? "classifiableSizeInBytes")
-            Prelude.<*> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "jobDetails")
-            Prelude.<*> (x Core..:? "unclassifiableObjectCount")
-            Prelude.<*> (x Core..:? "bucketCreatedAt")
-            Prelude.<*> (x Core..:? "replicationDetails")
-            Prelude.<*> (x Core..:? "allowsUnencryptedObjectUploads")
-            Prelude.<*> (x Core..:? "publicAccess")
-            Prelude.<*> (x Core..:? "objectCount")
-            Prelude.<*> (x Core..:? "versioning")
-            Prelude.<*> (x Core..:? "lastUpdated")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "bucketName")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "bucketArn")
-            Prelude.<*> (x Core..:? "sharedAccess")
-            Prelude.<*> (x Core..:? "classifiableObjectCount")
-            Prelude.<*> (x Core..:? "sizeInBytes")
-            Prelude.<*> (x Core..:? "errorCode")
-            Prelude.<*> (x Core..:? "sizeInBytesCompressed")
-            Prelude.<*> (x Core..:? "unclassifiableObjectSizeInBytes")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "serverSideEncryption")
+            Prelude.<*> (x Data..:? "objectCountByEncryptionType")
+            Prelude.<*> (x Data..:? "classifiableSizeInBytes")
+            Prelude.<*> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "jobDetails")
+            Prelude.<*> (x Data..:? "unclassifiableObjectCount")
+            Prelude.<*> (x Data..:? "bucketCreatedAt")
+            Prelude.<*> (x Data..:? "replicationDetails")
+            Prelude.<*> (x Data..:? "allowsUnencryptedObjectUploads")
+            Prelude.<*> (x Data..:? "publicAccess")
+            Prelude.<*> (x Data..:? "objectCount")
+            Prelude.<*> (x Data..:? "versioning")
+            Prelude.<*> (x Data..:? "lastUpdated")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "bucketName")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "bucketArn")
+            Prelude.<*> (x Data..:? "sharedAccess")
+            Prelude.<*> (x Data..:? "classifiableObjectCount")
+            Prelude.<*> (x Data..:? "sizeInBytes")
+            Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "sizeInBytesCompressed")
+            Prelude.<*> (x Data..:? "unclassifiableObjectSizeInBytes")
       )
 
 instance Prelude.Hashable BucketMetadata where

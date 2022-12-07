@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,7 +136,7 @@ instance Core.AWSRequest CreatePublishingDestination where
       ( \s h x ->
           CreatePublishingDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "destinationId")
+            Prelude.<*> (x Data..:> "destinationId")
       )
 
 instance Prelude.Hashable CreatePublishingDestination where
@@ -152,40 +153,40 @@ instance Prelude.NFData CreatePublishingDestination where
       `Prelude.seq` Prelude.rnf destinationType
       `Prelude.seq` Prelude.rnf destinationProperties
 
-instance Core.ToHeaders CreatePublishingDestination where
+instance Data.ToHeaders CreatePublishingDestination where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePublishingDestination where
+instance Data.ToJSON CreatePublishingDestination where
   toJSON CreatePublishingDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("destinationType" Core..= destinationType),
+              ("destinationType" Data..= destinationType),
             Prelude.Just
               ( "destinationProperties"
-                  Core..= destinationProperties
+                  Data..= destinationProperties
               )
           ]
       )
 
-instance Core.ToPath CreatePublishingDestination where
+instance Data.ToPath CreatePublishingDestination where
   toPath CreatePublishingDestination' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/publishingDestination"
       ]
 
-instance Core.ToQuery CreatePublishingDestination where
+instance Data.ToQuery CreatePublishingDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePublishingDestinationResponse' smart constructor.

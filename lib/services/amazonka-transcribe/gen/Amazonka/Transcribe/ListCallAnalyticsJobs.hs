@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -150,9 +151,9 @@ instance Core.AWSRequest ListCallAnalyticsJobs where
     Response.receiveJSON
       ( \s h x ->
           ListCallAnalyticsJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> ( x Core..?> "CallAnalyticsJobSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> ( x Data..?> "CallAnalyticsJobSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -172,37 +173,37 @@ instance Prelude.NFData ListCallAnalyticsJobs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobNameContains
 
-instance Core.ToHeaders ListCallAnalyticsJobs where
+instance Data.ToHeaders ListCallAnalyticsJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.ListCallAnalyticsJobs" ::
+              Data.=# ( "Transcribe.ListCallAnalyticsJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCallAnalyticsJobs where
+instance Data.ToJSON ListCallAnalyticsJobs where
   toJSON ListCallAnalyticsJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Status" Core..=) Prelude.<$> status,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("JobNameContains" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Status" Data..=) Prelude.<$> status,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("JobNameContains" Data..=)
               Prelude.<$> jobNameContains
           ]
       )
 
-instance Core.ToPath ListCallAnalyticsJobs where
+instance Data.ToPath ListCallAnalyticsJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListCallAnalyticsJobs where
+instance Data.ToQuery ListCallAnalyticsJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCallAnalyticsJobsResponse' smart constructor.

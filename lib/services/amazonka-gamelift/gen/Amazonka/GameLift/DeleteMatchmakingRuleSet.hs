@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,32 +115,32 @@ instance Prelude.Hashable DeleteMatchmakingRuleSet where
 instance Prelude.NFData DeleteMatchmakingRuleSet where
   rnf DeleteMatchmakingRuleSet' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteMatchmakingRuleSet where
+instance Data.ToHeaders DeleteMatchmakingRuleSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DeleteMatchmakingRuleSet" ::
+              Data.=# ( "GameLift.DeleteMatchmakingRuleSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteMatchmakingRuleSet where
+instance Data.ToJSON DeleteMatchmakingRuleSet where
   toJSON DeleteMatchmakingRuleSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath DeleteMatchmakingRuleSet where
+instance Data.ToPath DeleteMatchmakingRuleSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteMatchmakingRuleSet where
+instance Data.ToQuery DeleteMatchmakingRuleSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

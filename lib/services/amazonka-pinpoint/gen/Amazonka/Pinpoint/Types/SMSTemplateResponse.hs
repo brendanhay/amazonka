@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SMSTemplateResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.TemplateType
 import qualified Amazonka.Prelude as Prelude
 
@@ -190,23 +191,23 @@ sMSTemplateResponse_templateName = Lens.lens (\SMSTemplateResponse' {templateNam
 sMSTemplateResponse_templateType :: Lens.Lens' SMSTemplateResponse TemplateType
 sMSTemplateResponse_templateType = Lens.lens (\SMSTemplateResponse' {templateType} -> templateType) (\s@SMSTemplateResponse' {} a -> s {templateType = a} :: SMSTemplateResponse)
 
-instance Core.FromJSON SMSTemplateResponse where
+instance Data.FromJSON SMSTemplateResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SMSTemplateResponse"
       ( \x ->
           SMSTemplateResponse'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Body")
-            Prelude.<*> (x Core..:? "RecommenderId")
-            Prelude.<*> (x Core..:? "DefaultSubstitutions")
-            Prelude.<*> (x Core..:? "TemplateDescription")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..: "LastModifiedDate")
-            Prelude.<*> (x Core..: "CreationDate")
-            Prelude.<*> (x Core..: "TemplateName")
-            Prelude.<*> (x Core..: "TemplateType")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Body")
+            Prelude.<*> (x Data..:? "RecommenderId")
+            Prelude.<*> (x Data..:? "DefaultSubstitutions")
+            Prelude.<*> (x Data..:? "TemplateDescription")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..: "LastModifiedDate")
+            Prelude.<*> (x Data..: "CreationDate")
+            Prelude.<*> (x Data..: "TemplateName")
+            Prelude.<*> (x Data..: "TemplateType")
       )
 
 instance Prelude.Hashable SMSTemplateResponse where

@@ -46,6 +46,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,8 +88,8 @@ instance Core.AWSRequest GetRetentionSettings where
     Response.receiveJSON
       ( \s h x ->
           GetRetentionSettingsResponse'
-            Prelude.<$> (x Core..?> "InitiateDeletionTimestamp")
-            Prelude.<*> (x Core..?> "RetentionSettings")
+            Prelude.<$> (x Data..?> "InitiateDeletionTimestamp")
+            Prelude.<*> (x Data..?> "RetentionSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,25 +100,25 @@ instance Prelude.Hashable GetRetentionSettings where
 instance Prelude.NFData GetRetentionSettings where
   rnf GetRetentionSettings' {..} = Prelude.rnf accountId
 
-instance Core.ToHeaders GetRetentionSettings where
+instance Data.ToHeaders GetRetentionSettings where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetRetentionSettings where
+instance Data.ToPath GetRetentionSettings where
   toPath GetRetentionSettings' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/retention-settings"
       ]
 
-instance Core.ToQuery GetRetentionSettings where
+instance Data.ToQuery GetRetentionSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRetentionSettingsResponse' smart constructor.
 data GetRetentionSettingsResponse = GetRetentionSettingsResponse'
   { -- | The timestamp representing the time at which the specified items are
     -- permanently deleted, in ISO 8601 format.
-    initiateDeletionTimestamp :: Prelude.Maybe Core.POSIX,
+    initiateDeletionTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The retention settings.
     retentionSettings :: Prelude.Maybe RetentionSettings,
     -- | The response's http status code.
@@ -154,7 +155,7 @@ newGetRetentionSettingsResponse pHttpStatus_ =
 -- | The timestamp representing the time at which the specified items are
 -- permanently deleted, in ISO 8601 format.
 getRetentionSettingsResponse_initiateDeletionTimestamp :: Lens.Lens' GetRetentionSettingsResponse (Prelude.Maybe Prelude.UTCTime)
-getRetentionSettingsResponse_initiateDeletionTimestamp = Lens.lens (\GetRetentionSettingsResponse' {initiateDeletionTimestamp} -> initiateDeletionTimestamp) (\s@GetRetentionSettingsResponse' {} a -> s {initiateDeletionTimestamp = a} :: GetRetentionSettingsResponse) Prelude.. Lens.mapping Core._Time
+getRetentionSettingsResponse_initiateDeletionTimestamp = Lens.lens (\GetRetentionSettingsResponse' {initiateDeletionTimestamp} -> initiateDeletionTimestamp) (\s@GetRetentionSettingsResponse' {} a -> s {initiateDeletionTimestamp = a} :: GetRetentionSettingsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The retention settings.
 getRetentionSettingsResponse_retentionSettings :: Lens.Lens' GetRetentionSettingsResponse (Prelude.Maybe RetentionSettings)

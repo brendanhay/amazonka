@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest GetRegexMatchSet where
     Response.receiveJSON
       ( \s h x ->
           GetRegexMatchSetResponse'
-            Prelude.<$> (x Core..?> "RegexMatchSet")
+            Prelude.<$> (x Data..?> "RegexMatchSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,34 +114,34 @@ instance Prelude.NFData GetRegexMatchSet where
   rnf GetRegexMatchSet' {..} =
     Prelude.rnf regexMatchSetId
 
-instance Core.ToHeaders GetRegexMatchSet where
+instance Data.ToHeaders GetRegexMatchSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.GetRegexMatchSet" ::
+              Data.=# ( "AWSWAF_Regional_20161128.GetRegexMatchSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRegexMatchSet where
+instance Data.ToJSON GetRegexMatchSet where
   toJSON GetRegexMatchSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("RegexMatchSetId" Core..= regexMatchSetId)
+              ("RegexMatchSetId" Data..= regexMatchSetId)
           ]
       )
 
-instance Core.ToPath GetRegexMatchSet where
+instance Data.ToPath GetRegexMatchSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRegexMatchSet where
+instance Data.ToQuery GetRegexMatchSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRegexMatchSetResponse' smart constructor.

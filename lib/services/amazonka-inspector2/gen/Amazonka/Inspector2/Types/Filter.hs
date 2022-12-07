@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.FilterAction
 import Amazonka.Inspector2.Types.FilterCriteria
 import qualified Amazonka.Prelude as Prelude
@@ -40,7 +41,7 @@ data Filter = Filter'
     -- | The Amazon Resource Number (ARN) associated with this filter.
     arn :: Prelude.Text,
     -- | The date and time this filter was created at.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | Details on the filter criteria associated with this filter.
     criteria :: FilterCriteria,
     -- | The name of the filter.
@@ -49,7 +50,7 @@ data Filter = Filter'
     -- filter.
     ownerId :: Prelude.Text,
     -- | The date and time the filter was last updated at.
-    updatedAt :: Core.POSIX
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -111,11 +112,11 @@ newFilter
         reason = Prelude.Nothing,
         action = pAction_,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         criteria = pCriteria_,
         name = pName_,
         ownerId = pOwnerId_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
 -- | The tags attached to the filter.
@@ -140,7 +141,7 @@ filter_arn = Lens.lens (\Filter' {arn} -> arn) (\s@Filter' {} a -> s {arn = a} :
 
 -- | The date and time this filter was created at.
 filter_createdAt :: Lens.Lens' Filter Prelude.UTCTime
-filter_createdAt = Lens.lens (\Filter' {createdAt} -> createdAt) (\s@Filter' {} a -> s {createdAt = a} :: Filter) Prelude.. Core._Time
+filter_createdAt = Lens.lens (\Filter' {createdAt} -> createdAt) (\s@Filter' {} a -> s {createdAt = a} :: Filter) Prelude.. Data._Time
 
 -- | Details on the filter criteria associated with this filter.
 filter_criteria :: Lens.Lens' Filter FilterCriteria
@@ -157,24 +158,24 @@ filter_ownerId = Lens.lens (\Filter' {ownerId} -> ownerId) (\s@Filter' {} a -> s
 
 -- | The date and time the filter was last updated at.
 filter_updatedAt :: Lens.Lens' Filter Prelude.UTCTime
-filter_updatedAt = Lens.lens (\Filter' {updatedAt} -> updatedAt) (\s@Filter' {} a -> s {updatedAt = a} :: Filter) Prelude.. Core._Time
+filter_updatedAt = Lens.lens (\Filter' {updatedAt} -> updatedAt) (\s@Filter' {} a -> s {updatedAt = a} :: Filter) Prelude.. Data._Time
 
-instance Core.FromJSON Filter where
+instance Data.FromJSON Filter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Filter"
       ( \x ->
           Filter'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "reason")
-            Prelude.<*> (x Core..: "action")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "criteria")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "ownerId")
-            Prelude.<*> (x Core..: "updatedAt")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "reason")
+            Prelude.<*> (x Data..: "action")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "criteria")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "ownerId")
+            Prelude.<*> (x Data..: "updatedAt")
       )
 
 instance Prelude.Hashable Filter where

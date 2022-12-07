@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceCatalog.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,8 +150,8 @@ instance Core.AWSRequest StartChangeSet where
     Response.receiveJSON
       ( \s h x ->
           StartChangeSetResponse'
-            Prelude.<$> (x Core..?> "ChangeSetId")
-            Prelude.<*> (x Core..?> "ChangeSetArn")
+            Prelude.<$> (x Data..?> "ChangeSetId")
+            Prelude.<*> (x Data..?> "ChangeSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,34 +171,34 @@ instance Prelude.NFData StartChangeSet where
       `Prelude.seq` Prelude.rnf catalog
       `Prelude.seq` Prelude.rnf changeSet
 
-instance Core.ToHeaders StartChangeSet where
+instance Data.ToHeaders StartChangeSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartChangeSet where
+instance Data.ToJSON StartChangeSet where
   toJSON StartChangeSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("ChangeSetName" Core..=) Prelude.<$> changeSetName,
-            ("ChangeSetTags" Core..=) Prelude.<$> changeSetTags,
-            Prelude.Just ("Catalog" Core..= catalog),
-            Prelude.Just ("ChangeSet" Core..= changeSet)
+            ("ChangeSetName" Data..=) Prelude.<$> changeSetName,
+            ("ChangeSetTags" Data..=) Prelude.<$> changeSetTags,
+            Prelude.Just ("Catalog" Data..= catalog),
+            Prelude.Just ("ChangeSet" Data..= changeSet)
           ]
       )
 
-instance Core.ToPath StartChangeSet where
+instance Data.ToPath StartChangeSet where
   toPath = Prelude.const "/StartChangeSet"
 
-instance Core.ToQuery StartChangeSet where
+instance Data.ToQuery StartChangeSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartChangeSetResponse' smart constructor.

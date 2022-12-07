@@ -23,6 +23,7 @@ import Amazonka.AppFlow.Types.BasicAuthCredentials
 import Amazonka.AppFlow.Types.OAuthCredentials
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile credentials required when using SAPOData.
@@ -83,15 +84,15 @@ instance
       `Prelude.seq` Prelude.rnf oAuthCredentials
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SAPODataConnectorProfileCredentials
   where
   toJSON SAPODataConnectorProfileCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("basicAuthCredentials" Core..=)
+          [ ("basicAuthCredentials" Data..=)
               Prelude.<$> basicAuthCredentials,
-            ("oAuthCredentials" Core..=)
+            ("oAuthCredentials" Data..=)
               Prelude.<$> oAuthCredentials
           ]
       )

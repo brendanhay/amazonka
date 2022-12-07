@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,7 +94,7 @@ data InvokeEndpointAsync = InvokeEndpointAsync'
     --
     -- This feature is currently supported in the Amazon Web Services SDKs but
     -- not in the Amazon SageMaker Python SDK.
-    customAttributes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    customAttributes :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Maximum age in seconds a request can be in the queue before it is marked
     -- as expired.
     requestTTLSeconds :: Prelude.Maybe Prelude.Natural,
@@ -195,7 +196,7 @@ invokeEndpointAsync_accept = Lens.lens (\InvokeEndpointAsync' {accept} -> accept
 -- This feature is currently supported in the Amazon Web Services SDKs but
 -- not in the Amazon SageMaker Python SDK.
 invokeEndpointAsync_customAttributes :: Lens.Lens' InvokeEndpointAsync (Prelude.Maybe Prelude.Text)
-invokeEndpointAsync_customAttributes = Lens.lens (\InvokeEndpointAsync' {customAttributes} -> customAttributes) (\s@InvokeEndpointAsync' {} a -> s {customAttributes = a} :: InvokeEndpointAsync) Prelude.. Lens.mapping Core._Sensitive
+invokeEndpointAsync_customAttributes = Lens.lens (\InvokeEndpointAsync' {customAttributes} -> customAttributes) (\s@InvokeEndpointAsync' {} a -> s {customAttributes = a} :: InvokeEndpointAsync) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Maximum age in seconds a request can be in the queue before it is marked
 -- as expired.
@@ -232,8 +233,8 @@ instance Core.AWSRequest InvokeEndpointAsync where
     Response.receiveJSON
       ( \s h x ->
           InvokeEndpointAsyncResponse'
-            Prelude.<$> (h Core..#? "X-Amzn-SageMaker-OutputLocation")
-            Prelude.<*> (x Core..?> "InferenceId")
+            Prelude.<$> (h Data..#? "X-Amzn-SageMaker-OutputLocation")
+            Prelude.<*> (x Data..?> "InferenceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -257,34 +258,34 @@ instance Prelude.NFData InvokeEndpointAsync where
       `Prelude.seq` Prelude.rnf endpointName
       `Prelude.seq` Prelude.rnf inputLocation
 
-instance Core.ToHeaders InvokeEndpointAsync where
+instance Data.ToHeaders InvokeEndpointAsync where
   toHeaders InvokeEndpointAsync' {..} =
     Prelude.mconcat
-      [ "X-Amzn-SageMaker-Accept" Core.=# accept,
+      [ "X-Amzn-SageMaker-Accept" Data.=# accept,
         "X-Amzn-SageMaker-Custom-Attributes"
-          Core.=# customAttributes,
+          Data.=# customAttributes,
         "X-Amzn-SageMaker-RequestTTLSeconds"
-          Core.=# requestTTLSeconds,
-        "X-Amzn-SageMaker-Inference-Id" Core.=# inferenceId,
-        "X-Amzn-SageMaker-Content-Type" Core.=# contentType,
+          Data.=# requestTTLSeconds,
+        "X-Amzn-SageMaker-Inference-Id" Data.=# inferenceId,
+        "X-Amzn-SageMaker-Content-Type" Data.=# contentType,
         "X-Amzn-SageMaker-InputLocation"
-          Core.=# inputLocation,
+          Data.=# inputLocation,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON InvokeEndpointAsync where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON InvokeEndpointAsync where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath InvokeEndpointAsync where
+instance Data.ToPath InvokeEndpointAsync where
   toPath InvokeEndpointAsync' {..} =
     Prelude.mconcat
       [ "/endpoints/",
-        Core.toBS endpointName,
+        Data.toBS endpointName,
         "/async-invocations"
       ]
 
-instance Core.ToQuery InvokeEndpointAsync where
+instance Data.ToQuery InvokeEndpointAsync where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newInvokeEndpointAsyncResponse' smart constructor.

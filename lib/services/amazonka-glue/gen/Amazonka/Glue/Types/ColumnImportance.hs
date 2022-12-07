@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.ColumnImportance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing the column name and column importance score for a
@@ -66,14 +67,14 @@ columnImportance_importance = Lens.lens (\ColumnImportance' {importance} -> impo
 columnImportance_columnName :: Lens.Lens' ColumnImportance (Prelude.Maybe Prelude.Text)
 columnImportance_columnName = Lens.lens (\ColumnImportance' {columnName} -> columnName) (\s@ColumnImportance' {} a -> s {columnName = a} :: ColumnImportance)
 
-instance Core.FromJSON ColumnImportance where
+instance Data.FromJSON ColumnImportance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnImportance"
       ( \x ->
           ColumnImportance'
-            Prelude.<$> (x Core..:? "Importance")
-            Prelude.<*> (x Core..:? "ColumnName")
+            Prelude.<$> (x Data..:? "Importance")
+            Prelude.<*> (x Data..:? "ColumnName")
       )
 
 instance Prelude.Hashable ColumnImportance where

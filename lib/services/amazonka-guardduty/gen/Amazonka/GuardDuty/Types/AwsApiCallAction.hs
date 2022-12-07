@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.AwsApiCallAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.DomainDetails
 import Amazonka.GuardDuty.Types.RemoteAccountDetails
 import Amazonka.GuardDuty.Types.RemoteIpDetails
@@ -137,23 +138,23 @@ awsApiCallAction_userAgent = Lens.lens (\AwsApiCallAction' {userAgent} -> userAg
 awsApiCallAction_callerType :: Lens.Lens' AwsApiCallAction (Prelude.Maybe Prelude.Text)
 awsApiCallAction_callerType = Lens.lens (\AwsApiCallAction' {callerType} -> callerType) (\s@AwsApiCallAction' {} a -> s {callerType = a} :: AwsApiCallAction)
 
-instance Core.FromJSON AwsApiCallAction where
+instance Data.FromJSON AwsApiCallAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsApiCallAction"
       ( \x ->
           AwsApiCallAction'
-            Prelude.<$> ( x Core..:? "affectedResources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "affectedResources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "remoteIpDetails")
-            Prelude.<*> (x Core..:? "remoteAccountDetails")
-            Prelude.<*> (x Core..:? "domainDetails")
-            Prelude.<*> (x Core..:? "api")
-            Prelude.<*> (x Core..:? "errorCode")
-            Prelude.<*> (x Core..:? "serviceName")
-            Prelude.<*> (x Core..:? "userAgent")
-            Prelude.<*> (x Core..:? "callerType")
+            Prelude.<*> (x Data..:? "remoteIpDetails")
+            Prelude.<*> (x Data..:? "remoteAccountDetails")
+            Prelude.<*> (x Data..:? "domainDetails")
+            Prelude.<*> (x Data..:? "api")
+            Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "serviceName")
+            Prelude.<*> (x Data..:? "userAgent")
+            Prelude.<*> (x Data..:? "callerType")
       )
 
 instance Prelude.Hashable AwsApiCallAction where

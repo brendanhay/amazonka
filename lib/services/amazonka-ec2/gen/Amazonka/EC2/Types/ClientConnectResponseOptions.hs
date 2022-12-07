@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClientConnectResponseOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ClientVpnEndpointAttributeStatus
 import qualified Amazonka.Prelude as Prelude
@@ -77,12 +78,12 @@ clientConnectResponseOptions_lambdaFunctionArn = Lens.lens (\ClientConnectRespon
 clientConnectResponseOptions_enabled :: Lens.Lens' ClientConnectResponseOptions (Prelude.Maybe Prelude.Bool)
 clientConnectResponseOptions_enabled = Lens.lens (\ClientConnectResponseOptions' {enabled} -> enabled) (\s@ClientConnectResponseOptions' {} a -> s {enabled = a} :: ClientConnectResponseOptions)
 
-instance Core.FromXML ClientConnectResponseOptions where
+instance Data.FromXML ClientConnectResponseOptions where
   parseXML x =
     ClientConnectResponseOptions'
-      Prelude.<$> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "lambdaFunctionArn")
-      Prelude.<*> (x Core..@? "enabled")
+      Prelude.<$> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "lambdaFunctionArn")
+      Prelude.<*> (x Data..@? "enabled")
 
 instance
   Prelude.Hashable

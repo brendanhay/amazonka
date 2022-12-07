@@ -21,6 +21,7 @@ module Amazonka.WAF.Types.SqlInjectionMatchSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAF.Types.SqlInjectionMatchTuple
 
@@ -118,16 +119,16 @@ sqlInjectionMatchSet_sqlInjectionMatchSetId = Lens.lens (\SqlInjectionMatchSet' 
 sqlInjectionMatchSet_sqlInjectionMatchTuples :: Lens.Lens' SqlInjectionMatchSet [SqlInjectionMatchTuple]
 sqlInjectionMatchSet_sqlInjectionMatchTuples = Lens.lens (\SqlInjectionMatchSet' {sqlInjectionMatchTuples} -> sqlInjectionMatchTuples) (\s@SqlInjectionMatchSet' {} a -> s {sqlInjectionMatchTuples = a} :: SqlInjectionMatchSet) Prelude.. Lens.coerced
 
-instance Core.FromJSON SqlInjectionMatchSet where
+instance Data.FromJSON SqlInjectionMatchSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SqlInjectionMatchSet"
       ( \x ->
           SqlInjectionMatchSet'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..: "SqlInjectionMatchSetId")
-            Prelude.<*> ( x Core..:? "SqlInjectionMatchTuples"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..: "SqlInjectionMatchSetId")
+            Prelude.<*> ( x Data..:? "SqlInjectionMatchTuples"
+                            Data..!= Prelude.mempty
                         )
       )
 

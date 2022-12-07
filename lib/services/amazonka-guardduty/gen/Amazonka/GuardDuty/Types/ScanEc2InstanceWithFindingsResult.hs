@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ScanEc2InstanceWithFindingsResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.EbsVolumesResult
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,15 +58,15 @@ scanEc2InstanceWithFindingsResult_ebsVolumes :: Lens.Lens' ScanEc2InstanceWithFi
 scanEc2InstanceWithFindingsResult_ebsVolumes = Lens.lens (\ScanEc2InstanceWithFindingsResult' {ebsVolumes} -> ebsVolumes) (\s@ScanEc2InstanceWithFindingsResult' {} a -> s {ebsVolumes = a} :: ScanEc2InstanceWithFindingsResult)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ScanEc2InstanceWithFindingsResult
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScanEc2InstanceWithFindingsResult"
       ( \x ->
           ScanEc2InstanceWithFindingsResult'
-            Prelude.<$> (x Core..:? "ebsVolumes")
+            Prelude.<$> (x Data..:? "ebsVolumes")
       )
 
 instance

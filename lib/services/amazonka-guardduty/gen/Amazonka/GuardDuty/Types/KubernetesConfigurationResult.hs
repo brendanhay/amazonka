@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.KubernetesConfigurationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.KubernetesAuditLogsConfigurationResult
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,13 +57,13 @@ newKubernetesConfigurationResult pAuditLogs_ =
 kubernetesConfigurationResult_auditLogs :: Lens.Lens' KubernetesConfigurationResult KubernetesAuditLogsConfigurationResult
 kubernetesConfigurationResult_auditLogs = Lens.lens (\KubernetesConfigurationResult' {auditLogs} -> auditLogs) (\s@KubernetesConfigurationResult' {} a -> s {auditLogs = a} :: KubernetesConfigurationResult)
 
-instance Core.FromJSON KubernetesConfigurationResult where
+instance Data.FromJSON KubernetesConfigurationResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KubernetesConfigurationResult"
       ( \x ->
           KubernetesConfigurationResult'
-            Prelude.<$> (x Core..: "auditLogs")
+            Prelude.<$> (x Data..: "auditLogs")
       )
 
 instance

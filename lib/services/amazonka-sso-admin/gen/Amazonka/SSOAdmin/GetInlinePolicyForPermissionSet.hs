@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,7 +113,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetInlinePolicyForPermissionSetResponse'
-            Prelude.<$> (x Core..?> "InlinePolicy")
+            Prelude.<$> (x Data..?> "InlinePolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,37 +136,37 @@ instance
       `Prelude.seq` Prelude.rnf permissionSetArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetInlinePolicyForPermissionSet
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SWBExternalService.GetInlinePolicyForPermissionSet" ::
+              Data.=# ( "SWBExternalService.GetInlinePolicyForPermissionSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetInlinePolicyForPermissionSet where
+instance Data.ToJSON GetInlinePolicyForPermissionSet where
   toJSON GetInlinePolicyForPermissionSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceArn" Core..= instanceArn),
+          [ Prelude.Just ("InstanceArn" Data..= instanceArn),
             Prelude.Just
-              ("PermissionSetArn" Core..= permissionSetArn)
+              ("PermissionSetArn" Data..= permissionSetArn)
           ]
       )
 
-instance Core.ToPath GetInlinePolicyForPermissionSet where
+instance Data.ToPath GetInlinePolicyForPermissionSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetInlinePolicyForPermissionSet where
+instance Data.ToQuery GetInlinePolicyForPermissionSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInlinePolicyForPermissionSetResponse' smart constructor.

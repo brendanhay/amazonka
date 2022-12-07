@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.ContainerRecipe where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.ComponentConfiguration
 import Amazonka.ImageBuilder.Types.ContainerType
 import Amazonka.ImageBuilder.Types.InstanceConfiguration
@@ -318,29 +319,29 @@ containerRecipe_version = Lens.lens (\ContainerRecipe' {version} -> version) (\s
 containerRecipe_workingDirectory :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Text)
 containerRecipe_workingDirectory = Lens.lens (\ContainerRecipe' {workingDirectory} -> workingDirectory) (\s@ContainerRecipe' {} a -> s {workingDirectory = a} :: ContainerRecipe)
 
-instance Core.FromJSON ContainerRecipe where
+instance Data.FromJSON ContainerRecipe where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerRecipe"
       ( \x ->
           ContainerRecipe'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "targetRepository")
-            Prelude.<*> (x Core..:? "containerType")
-            Prelude.<*> (x Core..:? "instanceConfiguration")
-            Prelude.<*> (x Core..:? "parentImage")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "owner")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "components")
-            Prelude.<*> (x Core..:? "encrypted")
-            Prelude.<*> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..:? "dateCreated")
-            Prelude.<*> (x Core..:? "dockerfileTemplateData")
-            Prelude.<*> (x Core..:? "version")
-            Prelude.<*> (x Core..:? "workingDirectory")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "targetRepository")
+            Prelude.<*> (x Data..:? "containerType")
+            Prelude.<*> (x Data..:? "instanceConfiguration")
+            Prelude.<*> (x Data..:? "parentImage")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "components")
+            Prelude.<*> (x Data..:? "encrypted")
+            Prelude.<*> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..:? "dateCreated")
+            Prelude.<*> (x Data..:? "dockerfileTemplateData")
+            Prelude.<*> (x Data..:? "version")
+            Prelude.<*> (x Data..:? "workingDirectory")
       )
 
 instance Prelude.Hashable ContainerRecipe where

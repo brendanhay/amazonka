@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.OpenHoursRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | List of OpenHours Rules.
@@ -61,14 +62,14 @@ openHoursRule_endTime = Lens.lens (\OpenHoursRule' {endTime} -> endTime) (\s@Ope
 openHoursRule_startTime :: Lens.Lens' OpenHoursRule (Prelude.Maybe Prelude.Text)
 openHoursRule_startTime = Lens.lens (\OpenHoursRule' {startTime} -> startTime) (\s@OpenHoursRule' {} a -> s {startTime = a} :: OpenHoursRule)
 
-instance Core.FromJSON OpenHoursRule where
+instance Data.FromJSON OpenHoursRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpenHoursRule"
       ( \x ->
           OpenHoursRule'
-            Prelude.<$> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable OpenHoursRule where
@@ -81,11 +82,11 @@ instance Prelude.NFData OpenHoursRule where
     Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToJSON OpenHoursRule where
+instance Data.ToJSON OpenHoursRule where
   toJSON OpenHoursRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EndTime" Core..=) Prelude.<$> endTime,
-            ("StartTime" Core..=) Prelude.<$> startTime
+          [ ("EndTime" Data..=) Prelude.<$> endTime,
+            ("StartTime" Data..=) Prelude.<$> startTime
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.MonetaryAmount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.CurrencyCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,14 +67,14 @@ monetaryAmount_currencyCode = Lens.lens (\MonetaryAmount' {currencyCode} -> curr
 monetaryAmount_amount :: Lens.Lens' MonetaryAmount (Prelude.Maybe Prelude.Double)
 monetaryAmount_amount = Lens.lens (\MonetaryAmount' {amount} -> amount) (\s@MonetaryAmount' {} a -> s {amount = a} :: MonetaryAmount)
 
-instance Core.FromJSON MonetaryAmount where
+instance Data.FromJSON MonetaryAmount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonetaryAmount"
       ( \x ->
           MonetaryAmount'
-            Prelude.<$> (x Core..:? "currencyCode")
-            Prelude.<*> (x Core..:? "amount")
+            Prelude.<$> (x Data..:? "currencyCode")
+            Prelude.<*> (x Data..:? "amount")
       )
 
 instance Prelude.Hashable MonetaryAmount where

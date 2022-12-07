@@ -18,6 +18,7 @@ module Amazonka.FinSpaceData.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Lens
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude

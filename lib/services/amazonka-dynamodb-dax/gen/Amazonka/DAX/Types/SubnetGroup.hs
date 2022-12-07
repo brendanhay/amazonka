@@ -22,6 +22,7 @@ module Amazonka.DAX.Types.SubnetGroup where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DAX.Types.Subnet
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of one of the following actions:
@@ -87,16 +88,16 @@ subnetGroup_description = Lens.lens (\SubnetGroup' {description} -> description)
 subnetGroup_vpcId :: Lens.Lens' SubnetGroup (Prelude.Maybe Prelude.Text)
 subnetGroup_vpcId = Lens.lens (\SubnetGroup' {vpcId} -> vpcId) (\s@SubnetGroup' {} a -> s {vpcId = a} :: SubnetGroup)
 
-instance Core.FromJSON SubnetGroup where
+instance Data.FromJSON SubnetGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubnetGroup"
       ( \x ->
           SubnetGroup'
-            Prelude.<$> (x Core..:? "SubnetGroupName")
-            Prelude.<*> (x Core..:? "Subnets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<$> (x Data..:? "SubnetGroupName")
+            Prelude.<*> (x Data..:? "Subnets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance Prelude.Hashable SubnetGroup where

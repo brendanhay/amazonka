@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.SessionKeysAbpV1_0_x where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Session keys for ABP v1.1
@@ -61,14 +62,14 @@ sessionKeysAbpV1_0_x_nwkSKey = Lens.lens (\SessionKeysAbpV1_0_x' {nwkSKey} -> nw
 sessionKeysAbpV1_0_x_appSKey :: Lens.Lens' SessionKeysAbpV1_0_x (Prelude.Maybe Prelude.Text)
 sessionKeysAbpV1_0_x_appSKey = Lens.lens (\SessionKeysAbpV1_0_x' {appSKey} -> appSKey) (\s@SessionKeysAbpV1_0_x' {} a -> s {appSKey = a} :: SessionKeysAbpV1_0_x)
 
-instance Core.FromJSON SessionKeysAbpV1_0_x where
+instance Data.FromJSON SessionKeysAbpV1_0_x where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SessionKeysAbpV1_0_x"
       ( \x ->
           SessionKeysAbpV1_0_x'
-            Prelude.<$> (x Core..:? "NwkSKey")
-            Prelude.<*> (x Core..:? "AppSKey")
+            Prelude.<$> (x Data..:? "NwkSKey")
+            Prelude.<*> (x Data..:? "AppSKey")
       )
 
 instance Prelude.Hashable SessionKeysAbpV1_0_x where
@@ -81,11 +82,11 @@ instance Prelude.NFData SessionKeysAbpV1_0_x where
     Prelude.rnf nwkSKey
       `Prelude.seq` Prelude.rnf appSKey
 
-instance Core.ToJSON SessionKeysAbpV1_0_x where
+instance Data.ToJSON SessionKeysAbpV1_0_x where
   toJSON SessionKeysAbpV1_0_x' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NwkSKey" Core..=) Prelude.<$> nwkSKey,
-            ("AppSKey" Core..=) Prelude.<$> appSKey
+          [ ("NwkSKey" Data..=) Prelude.<$> nwkSKey,
+            ("AppSKey" Data..=) Prelude.<$> appSKey
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.HttpPathMatch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the path to match in the request.
@@ -61,14 +62,14 @@ httpPathMatch_exact = Lens.lens (\HttpPathMatch' {exact} -> exact) (\s@HttpPathM
 httpPathMatch_regex :: Lens.Lens' HttpPathMatch (Prelude.Maybe Prelude.Text)
 httpPathMatch_regex = Lens.lens (\HttpPathMatch' {regex} -> regex) (\s@HttpPathMatch' {} a -> s {regex = a} :: HttpPathMatch)
 
-instance Core.FromJSON HttpPathMatch where
+instance Data.FromJSON HttpPathMatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpPathMatch"
       ( \x ->
           HttpPathMatch'
-            Prelude.<$> (x Core..:? "exact")
-            Prelude.<*> (x Core..:? "regex")
+            Prelude.<$> (x Data..:? "exact")
+            Prelude.<*> (x Data..:? "regex")
       )
 
 instance Prelude.Hashable HttpPathMatch where
@@ -80,11 +81,11 @@ instance Prelude.NFData HttpPathMatch where
   rnf HttpPathMatch' {..} =
     Prelude.rnf exact `Prelude.seq` Prelude.rnf regex
 
-instance Core.ToJSON HttpPathMatch where
+instance Data.ToJSON HttpPathMatch where
   toJSON HttpPathMatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("exact" Core..=) Prelude.<$> exact,
-            ("regex" Core..=) Prelude.<$> regex
+          [ ("exact" Data..=) Prelude.<$> exact,
+            ("regex" Data..=) Prelude.<$> regex
           ]
       )

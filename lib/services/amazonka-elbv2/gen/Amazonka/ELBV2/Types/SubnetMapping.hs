@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.SubnetMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a subnet mapping.
@@ -99,11 +100,11 @@ instance Prelude.NFData SubnetMapping where
       `Prelude.seq` Prelude.rnf iPv6Address
       `Prelude.seq` Prelude.rnf privateIPv4Address
 
-instance Core.ToQuery SubnetMapping where
+instance Data.ToQuery SubnetMapping where
   toQuery SubnetMapping' {..} =
     Prelude.mconcat
-      [ "AllocationId" Core.=: allocationId,
-        "SubnetId" Core.=: subnetId,
-        "IPv6Address" Core.=: iPv6Address,
-        "PrivateIPv4Address" Core.=: privateIPv4Address
+      [ "AllocationId" Data.=: allocationId,
+        "SubnetId" Data.=: subnetId,
+        "IPv6Address" Data.=: iPv6Address,
+        "PrivateIPv4Address" Data.=: privateIPv4Address
       ]

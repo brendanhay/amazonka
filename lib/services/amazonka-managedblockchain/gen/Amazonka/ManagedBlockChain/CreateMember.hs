@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,7 +142,7 @@ instance Core.AWSRequest CreateMember where
     Response.receiveJSON
       ( \s h x ->
           CreateMemberResponse'
-            Prelude.<$> (x Core..?> "MemberId")
+            Prelude.<$> (x Data..?> "MemberId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,35 +160,35 @@ instance Prelude.NFData CreateMember where
       `Prelude.seq` Prelude.rnf networkId
       `Prelude.seq` Prelude.rnf memberConfiguration
 
-instance Core.ToHeaders CreateMember where
+instance Data.ToHeaders CreateMember where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateMember where
+instance Data.ToJSON CreateMember where
   toJSON CreateMember' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken),
-            Prelude.Just ("InvitationId" Core..= invitationId),
+              ("ClientRequestToken" Data..= clientRequestToken),
+            Prelude.Just ("InvitationId" Data..= invitationId),
             Prelude.Just
-              ("MemberConfiguration" Core..= memberConfiguration)
+              ("MemberConfiguration" Data..= memberConfiguration)
           ]
       )
 
-instance Core.ToPath CreateMember where
+instance Data.ToPath CreateMember where
   toPath CreateMember' {..} =
     Prelude.mconcat
-      ["/networks/", Core.toBS networkId, "/members"]
+      ["/networks/", Data.toBS networkId, "/members"]
 
-instance Core.ToQuery CreateMember where
+instance Data.ToQuery CreateMember where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateMemberResponse' smart constructor.

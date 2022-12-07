@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.ModelSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the name of the custom language model that was included in the
@@ -77,13 +78,13 @@ newModelSettings =
 modelSettings_languageModelName :: Lens.Lens' ModelSettings (Prelude.Maybe Prelude.Text)
 modelSettings_languageModelName = Lens.lens (\ModelSettings' {languageModelName} -> languageModelName) (\s@ModelSettings' {} a -> s {languageModelName = a} :: ModelSettings)
 
-instance Core.FromJSON ModelSettings where
+instance Data.FromJSON ModelSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelSettings"
       ( \x ->
           ModelSettings'
-            Prelude.<$> (x Core..:? "LanguageModelName")
+            Prelude.<$> (x Data..:? "LanguageModelName")
       )
 
 instance Prelude.Hashable ModelSettings where
@@ -94,11 +95,11 @@ instance Prelude.NFData ModelSettings where
   rnf ModelSettings' {..} =
     Prelude.rnf languageModelName
 
-instance Core.ToJSON ModelSettings where
+instance Data.ToJSON ModelSettings where
   toJSON ModelSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LanguageModelName" Core..=)
+          [ ("LanguageModelName" Data..=)
               Prelude.<$> languageModelName
           ]
       )

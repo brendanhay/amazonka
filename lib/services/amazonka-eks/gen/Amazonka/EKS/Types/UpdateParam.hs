@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.UpdateParam where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.UpdateParamType
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,13 +63,13 @@ updateParam_type = Lens.lens (\UpdateParam' {type'} -> type') (\s@UpdateParam' {
 updateParam_value :: Lens.Lens' UpdateParam (Prelude.Maybe Prelude.Text)
 updateParam_value = Lens.lens (\UpdateParam' {value} -> value) (\s@UpdateParam' {} a -> s {value = a} :: UpdateParam)
 
-instance Core.FromJSON UpdateParam where
+instance Data.FromJSON UpdateParam where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpdateParam"
       ( \x ->
           UpdateParam'
-            Prelude.<$> (x Core..:? "type") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "type") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable UpdateParam where

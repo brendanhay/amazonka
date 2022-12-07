@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.LanguageModel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.BaseModelName
 import Amazonka.Transcribe.Types.CLMLanguageCode
@@ -55,7 +56,7 @@ data LanguageModel = LanguageModel'
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
     -- May 4, 2022.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The language code used to create your custom language model. Each
     -- language model must contain terms in only one language, and the language
     -- you select for your model must match the language of your training and
@@ -80,7 +81,7 @@ data LanguageModel = LanguageModel'
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
     -- May 4, 2022.
-    createTime :: Prelude.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon S3 location of the input files used to train and tune your
     -- custom language model, in addition to the data access role ARN (Amazon
     -- Resource Name) that has permissions to access these data.
@@ -193,7 +194,7 @@ languageModel_upgradeAvailability = Lens.lens (\LanguageModel' {upgradeAvailabil
 -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
 -- May 4, 2022.
 languageModel_lastModifiedTime :: Lens.Lens' LanguageModel (Prelude.Maybe Prelude.UTCTime)
-languageModel_lastModifiedTime = Lens.lens (\LanguageModel' {lastModifiedTime} -> lastModifiedTime) (\s@LanguageModel' {} a -> s {lastModifiedTime = a} :: LanguageModel) Prelude.. Lens.mapping Core._Time
+languageModel_lastModifiedTime = Lens.lens (\LanguageModel' {lastModifiedTime} -> lastModifiedTime) (\s@LanguageModel' {} a -> s {lastModifiedTime = a} :: LanguageModel) Prelude.. Lens.mapping Data._Time
 
 -- | The language code used to create your custom language model. Each
 -- language model must contain terms in only one language, and the language
@@ -226,7 +227,7 @@ languageModel_baseModelName = Lens.lens (\LanguageModel' {baseModelName} -> base
 -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
 -- May 4, 2022.
 languageModel_createTime :: Lens.Lens' LanguageModel (Prelude.Maybe Prelude.UTCTime)
-languageModel_createTime = Lens.lens (\LanguageModel' {createTime} -> createTime) (\s@LanguageModel' {} a -> s {createTime = a} :: LanguageModel) Prelude.. Lens.mapping Core._Time
+languageModel_createTime = Lens.lens (\LanguageModel' {createTime} -> createTime) (\s@LanguageModel' {} a -> s {createTime = a} :: LanguageModel) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon S3 location of the input files used to train and tune your
 -- custom language model, in addition to the data access role ARN (Amazon
@@ -240,21 +241,21 @@ languageModel_inputDataConfig = Lens.lens (\LanguageModel' {inputDataConfig} -> 
 languageModel_failureReason :: Lens.Lens' LanguageModel (Prelude.Maybe Prelude.Text)
 languageModel_failureReason = Lens.lens (\LanguageModel' {failureReason} -> failureReason) (\s@LanguageModel' {} a -> s {failureReason = a} :: LanguageModel)
 
-instance Core.FromJSON LanguageModel where
+instance Data.FromJSON LanguageModel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LanguageModel"
       ( \x ->
           LanguageModel'
-            Prelude.<$> (x Core..:? "ModelStatus")
-            Prelude.<*> (x Core..:? "UpgradeAvailability")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "ModelName")
-            Prelude.<*> (x Core..:? "BaseModelName")
-            Prelude.<*> (x Core..:? "CreateTime")
-            Prelude.<*> (x Core..:? "InputDataConfig")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<$> (x Data..:? "ModelStatus")
+            Prelude.<*> (x Data..:? "UpgradeAvailability")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "ModelName")
+            Prelude.<*> (x Data..:? "BaseModelName")
+            Prelude.<*> (x Data..:? "CreateTime")
+            Prelude.<*> (x Data..:? "InputDataConfig")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance Prelude.Hashable LanguageModel where

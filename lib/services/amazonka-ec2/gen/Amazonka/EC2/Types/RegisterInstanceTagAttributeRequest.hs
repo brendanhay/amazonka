@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.RegisterInstanceTagAttributeRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -89,15 +90,15 @@ instance
       `Prelude.seq` Prelude.rnf instanceTagKeys
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     RegisterInstanceTagAttributeRequest
   where
   toQuery RegisterInstanceTagAttributeRequest' {..} =
     Prelude.mconcat
       [ "IncludeAllTagsOfInstance"
-          Core.=: includeAllTagsOfInstance,
-        Core.toQuery
-          ( Core.toQueryList "InstanceTagKey"
+          Data.=: includeAllTagsOfInstance,
+        Data.toQuery
+          ( Data.toQueryList "InstanceTagKey"
               Prelude.<$> instanceTagKeys
           )
       ]

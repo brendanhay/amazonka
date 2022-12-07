@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,9 +87,9 @@ data GetContainerServiceMetricData = GetContainerServiceMetricData'
     --     Unit: The published unit is @Percent@.
     metricName :: ContainerServiceMetricName,
     -- | The start time of the time period.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The end time of the time period.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | The granularity, in seconds, of the returned data points.
     --
     -- All container service metric data is available in 5-minute (300 seconds)
@@ -213,8 +214,8 @@ newGetContainerServiceMetricData
       { serviceName =
           pServiceName_,
         metricName = pMetricName_,
-        startTime = Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_,
+        startTime = Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         period = pPeriod_,
         statistics = Prelude.mempty
       }
@@ -251,11 +252,11 @@ getContainerServiceMetricData_metricName = Lens.lens (\GetContainerServiceMetric
 
 -- | The start time of the time period.
 getContainerServiceMetricData_startTime :: Lens.Lens' GetContainerServiceMetricData Prelude.UTCTime
-getContainerServiceMetricData_startTime = Lens.lens (\GetContainerServiceMetricData' {startTime} -> startTime) (\s@GetContainerServiceMetricData' {} a -> s {startTime = a} :: GetContainerServiceMetricData) Prelude.. Core._Time
+getContainerServiceMetricData_startTime = Lens.lens (\GetContainerServiceMetricData' {startTime} -> startTime) (\s@GetContainerServiceMetricData' {} a -> s {startTime = a} :: GetContainerServiceMetricData) Prelude.. Data._Time
 
 -- | The end time of the time period.
 getContainerServiceMetricData_endTime :: Lens.Lens' GetContainerServiceMetricData Prelude.UTCTime
-getContainerServiceMetricData_endTime = Lens.lens (\GetContainerServiceMetricData' {endTime} -> endTime) (\s@GetContainerServiceMetricData' {} a -> s {endTime = a} :: GetContainerServiceMetricData) Prelude.. Core._Time
+getContainerServiceMetricData_endTime = Lens.lens (\GetContainerServiceMetricData' {endTime} -> endTime) (\s@GetContainerServiceMetricData' {} a -> s {endTime = a} :: GetContainerServiceMetricData) Prelude.. Data._Time
 
 -- | The granularity, in seconds, of the returned data points.
 --
@@ -305,8 +306,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetContainerServiceMetricDataResponse'
-            Prelude.<$> (x Core..?> "metricName")
-            Prelude.<*> (x Core..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "metricName")
+            Prelude.<*> (x Data..?> "metricData" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -331,38 +332,38 @@ instance Prelude.NFData GetContainerServiceMetricData where
       `Prelude.seq` Prelude.rnf period
       `Prelude.seq` Prelude.rnf statistics
 
-instance Core.ToHeaders GetContainerServiceMetricData where
+instance Data.ToHeaders GetContainerServiceMetricData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetContainerServiceMetricData" ::
+              Data.=# ( "Lightsail_20161128.GetContainerServiceMetricData" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetContainerServiceMetricData where
+instance Data.ToJSON GetContainerServiceMetricData where
   toJSON GetContainerServiceMetricData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("serviceName" Core..= serviceName),
-            Prelude.Just ("metricName" Core..= metricName),
-            Prelude.Just ("startTime" Core..= startTime),
-            Prelude.Just ("endTime" Core..= endTime),
-            Prelude.Just ("period" Core..= period),
-            Prelude.Just ("statistics" Core..= statistics)
+          [ Prelude.Just ("serviceName" Data..= serviceName),
+            Prelude.Just ("metricName" Data..= metricName),
+            Prelude.Just ("startTime" Data..= startTime),
+            Prelude.Just ("endTime" Data..= endTime),
+            Prelude.Just ("period" Data..= period),
+            Prelude.Just ("statistics" Data..= statistics)
           ]
       )
 
-instance Core.ToPath GetContainerServiceMetricData where
+instance Data.ToPath GetContainerServiceMetricData where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetContainerServiceMetricData where
+instance Data.ToQuery GetContainerServiceMetricData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContainerServiceMetricDataResponse' smart constructor.

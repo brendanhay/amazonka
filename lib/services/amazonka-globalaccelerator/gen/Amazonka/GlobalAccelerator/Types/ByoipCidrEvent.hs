@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.ByoipCidrEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains a @Message@ and a @Timestamp@ value for
@@ -36,7 +37,7 @@ data ByoipCidrEvent = ByoipCidrEvent'
     -- | A timestamp for when you make a status change for an IP address range
     -- that you bring to Global Accelerator through bring your own IP address
     -- (BYOIP).
-    timestamp :: Prelude.Maybe Core.POSIX
+    timestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,16 +74,16 @@ byoipCidrEvent_message = Lens.lens (\ByoipCidrEvent' {message} -> message) (\s@B
 -- that you bring to Global Accelerator through bring your own IP address
 -- (BYOIP).
 byoipCidrEvent_timestamp :: Lens.Lens' ByoipCidrEvent (Prelude.Maybe Prelude.UTCTime)
-byoipCidrEvent_timestamp = Lens.lens (\ByoipCidrEvent' {timestamp} -> timestamp) (\s@ByoipCidrEvent' {} a -> s {timestamp = a} :: ByoipCidrEvent) Prelude.. Lens.mapping Core._Time
+byoipCidrEvent_timestamp = Lens.lens (\ByoipCidrEvent' {timestamp} -> timestamp) (\s@ByoipCidrEvent' {} a -> s {timestamp = a} :: ByoipCidrEvent) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ByoipCidrEvent where
+instance Data.FromJSON ByoipCidrEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ByoipCidrEvent"
       ( \x ->
           ByoipCidrEvent'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Timestamp")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Timestamp")
       )
 
 instance Prelude.Hashable ByoipCidrEvent where

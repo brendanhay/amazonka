@@ -21,6 +21,7 @@ module Amazonka.HealthLake.Types.OutputDataConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HealthLake.Types.S3Configuration
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,13 +59,13 @@ newOutputDataConfig =
 outputDataConfig_s3Configuration :: Lens.Lens' OutputDataConfig (Prelude.Maybe S3Configuration)
 outputDataConfig_s3Configuration = Lens.lens (\OutputDataConfig' {s3Configuration} -> s3Configuration) (\s@OutputDataConfig' {} a -> s {s3Configuration = a} :: OutputDataConfig)
 
-instance Core.FromJSON OutputDataConfig where
+instance Data.FromJSON OutputDataConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputDataConfig"
       ( \x ->
           OutputDataConfig'
-            Prelude.<$> (x Core..:? "S3Configuration")
+            Prelude.<$> (x Data..:? "S3Configuration")
       )
 
 instance Prelude.Hashable OutputDataConfig where
@@ -75,11 +76,11 @@ instance Prelude.NFData OutputDataConfig where
   rnf OutputDataConfig' {..} =
     Prelude.rnf s3Configuration
 
-instance Core.ToJSON OutputDataConfig where
+instance Data.ToJSON OutputDataConfig where
   toJSON OutputDataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Configuration" Core..=)
+          [ ("S3Configuration" Data..=)
               Prelude.<$> s3Configuration
           ]
       )

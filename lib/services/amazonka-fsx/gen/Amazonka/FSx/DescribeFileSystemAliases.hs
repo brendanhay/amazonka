@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,8 +147,8 @@ instance Core.AWSRequest DescribeFileSystemAliases where
     Response.receiveJSON
       ( \s h x ->
           DescribeFileSystemAliasesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Aliases" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Aliases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,37 +166,37 @@ instance Prelude.NFData DescribeFileSystemAliases where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf fileSystemId
 
-instance Core.ToHeaders DescribeFileSystemAliases where
+instance Data.ToHeaders DescribeFileSystemAliases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.DescribeFileSystemAliases" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.DescribeFileSystemAliases" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFileSystemAliases where
+instance Data.ToJSON DescribeFileSystemAliases where
   toJSON DescribeFileSystemAliases' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ClientRequestToken" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("FileSystemId" Core..= fileSystemId)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("FileSystemId" Data..= fileSystemId)
           ]
       )
 
-instance Core.ToPath DescribeFileSystemAliases where
+instance Data.ToPath DescribeFileSystemAliases where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFileSystemAliases where
+instance Data.ToQuery DescribeFileSystemAliases where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response object for @DescribeFileSystemAliases@ operation.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,8 +124,8 @@ instance Core.AWSRequest DescribePackages where
     Response.receiveJSON
       ( \s h x ->
           DescribePackagesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "PackageDetailsList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "PackageDetailsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -142,24 +143,24 @@ instance Prelude.NFData DescribePackages where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribePackages where
+instance Data.ToHeaders DescribePackages where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON DescribePackages where
+instance Data.ToJSON DescribePackages where
   toJSON DescribePackages' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribePackages where
+instance Data.ToPath DescribePackages where
   toPath =
     Prelude.const "/2021-01-01/packages/describe"
 
-instance Core.ToQuery DescribePackages where
+instance Data.ToQuery DescribePackages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Container for the response returned by the @DescribePackages@ operation.

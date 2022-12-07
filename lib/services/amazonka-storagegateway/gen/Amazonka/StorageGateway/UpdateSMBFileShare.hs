@@ -75,6 +75,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -524,7 +525,7 @@ instance Core.AWSRequest UpdateSMBFileShare where
     Response.receiveJSON
       ( \s h x ->
           UpdateSMBFileShareResponse'
-            Prelude.<$> (x Core..?> "FileShareARN")
+            Prelude.<$> (x Data..?> "FileShareARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -572,60 +573,60 @@ instance Prelude.NFData UpdateSMBFileShare where
       `Prelude.seq` Prelude.rnf notificationPolicy
       `Prelude.seq` Prelude.rnf fileShareARN
 
-instance Core.ToHeaders UpdateSMBFileShare where
+instance Data.ToHeaders UpdateSMBFileShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.UpdateSMBFileShare" ::
+              Data.=# ( "StorageGateway_20130630.UpdateSMBFileShare" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSMBFileShare where
+instance Data.ToJSON UpdateSMBFileShare where
   toJSON UpdateSMBFileShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ValidUserList" Core..=) Prelude.<$> validUserList,
-            ("FileShareName" Core..=) Prelude.<$> fileShareName,
-            ("RequesterPays" Core..=) Prelude.<$> requesterPays,
-            ("ObjectACL" Core..=) Prelude.<$> objectACL,
-            ("CaseSensitivity" Core..=)
+          [ ("ValidUserList" Data..=) Prelude.<$> validUserList,
+            ("FileShareName" Data..=) Prelude.<$> fileShareName,
+            ("RequesterPays" Data..=) Prelude.<$> requesterPays,
+            ("ObjectACL" Data..=) Prelude.<$> objectACL,
+            ("CaseSensitivity" Data..=)
               Prelude.<$> caseSensitivity,
-            ("KMSKey" Core..=) Prelude.<$> kmsKey,
-            ("SMBACLEnabled" Core..=) Prelude.<$> sMBACLEnabled,
-            ("OplocksEnabled" Core..=)
+            ("KMSKey" Data..=) Prelude.<$> kmsKey,
+            ("SMBACLEnabled" Data..=) Prelude.<$> sMBACLEnabled,
+            ("OplocksEnabled" Data..=)
               Prelude.<$> oplocksEnabled,
-            ("AccessBasedEnumeration" Core..=)
+            ("AccessBasedEnumeration" Data..=)
               Prelude.<$> accessBasedEnumeration,
-            ("InvalidUserList" Core..=)
+            ("InvalidUserList" Data..=)
               Prelude.<$> invalidUserList,
-            ("AdminUserList" Core..=) Prelude.<$> adminUserList,
-            ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
-            ("DefaultStorageClass" Core..=)
+            ("AdminUserList" Data..=) Prelude.<$> adminUserList,
+            ("KMSEncrypted" Data..=) Prelude.<$> kmsEncrypted,
+            ("DefaultStorageClass" Data..=)
               Prelude.<$> defaultStorageClass,
-            ("CacheAttributes" Core..=)
+            ("CacheAttributes" Data..=)
               Prelude.<$> cacheAttributes,
-            ("ReadOnly" Core..=) Prelude.<$> readOnly,
-            ("AuditDestinationARN" Core..=)
+            ("ReadOnly" Data..=) Prelude.<$> readOnly,
+            ("AuditDestinationARN" Data..=)
               Prelude.<$> auditDestinationARN,
-            ("GuessMIMETypeEnabled" Core..=)
+            ("GuessMIMETypeEnabled" Data..=)
               Prelude.<$> guessMIMETypeEnabled,
-            ("NotificationPolicy" Core..=)
+            ("NotificationPolicy" Data..=)
               Prelude.<$> notificationPolicy,
-            Prelude.Just ("FileShareARN" Core..= fileShareARN)
+            Prelude.Just ("FileShareARN" Data..= fileShareARN)
           ]
       )
 
-instance Core.ToPath UpdateSMBFileShare where
+instance Data.ToPath UpdateSMBFileShare where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateSMBFileShare where
+instance Data.ToQuery UpdateSMBFileShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | UpdateSMBFileShareOutput

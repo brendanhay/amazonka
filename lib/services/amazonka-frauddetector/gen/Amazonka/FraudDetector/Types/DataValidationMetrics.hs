@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.DataValidationMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.FieldValidationMessage
 import Amazonka.FraudDetector.Types.FileValidationMessage
 import qualified Amazonka.Prelude as Prelude
@@ -64,17 +65,17 @@ dataValidationMetrics_fieldLevelMessages = Lens.lens (\DataValidationMetrics' {f
 dataValidationMetrics_fileLevelMessages :: Lens.Lens' DataValidationMetrics (Prelude.Maybe [FileValidationMessage])
 dataValidationMetrics_fileLevelMessages = Lens.lens (\DataValidationMetrics' {fileLevelMessages} -> fileLevelMessages) (\s@DataValidationMetrics' {} a -> s {fileLevelMessages = a} :: DataValidationMetrics) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DataValidationMetrics where
+instance Data.FromJSON DataValidationMetrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataValidationMetrics"
       ( \x ->
           DataValidationMetrics'
-            Prelude.<$> ( x Core..:? "fieldLevelMessages"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "fieldLevelMessages"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "fileLevelMessages"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "fileLevelMessages"
+                            Data..!= Prelude.mempty
                         )
       )
 

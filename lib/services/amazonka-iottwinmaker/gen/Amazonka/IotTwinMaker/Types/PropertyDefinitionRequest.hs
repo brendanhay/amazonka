@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.PropertyDefinitionRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.DataType
 import Amazonka.IotTwinMaker.Types.DataValue
 import qualified Amazonka.Prelude as Prelude
@@ -144,18 +145,18 @@ instance Prelude.NFData PropertyDefinitionRequest where
       `Prelude.seq` Prelude.rnf dataType
       `Prelude.seq` Prelude.rnf isTimeSeries
 
-instance Core.ToJSON PropertyDefinitionRequest where
+instance Data.ToJSON PropertyDefinitionRequest where
   toJSON PropertyDefinitionRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("isExternalId" Core..=) Prelude.<$> isExternalId,
-            ("isStoredExternally" Core..=)
+          [ ("isExternalId" Data..=) Prelude.<$> isExternalId,
+            ("isStoredExternally" Data..=)
               Prelude.<$> isStoredExternally,
-            ("configuration" Core..=) Prelude.<$> configuration,
-            ("defaultValue" Core..=) Prelude.<$> defaultValue,
-            ("isRequiredInEntity" Core..=)
+            ("configuration" Data..=) Prelude.<$> configuration,
+            ("defaultValue" Data..=) Prelude.<$> defaultValue,
+            ("isRequiredInEntity" Data..=)
               Prelude.<$> isRequiredInEntity,
-            ("dataType" Core..=) Prelude.<$> dataType,
-            ("isTimeSeries" Core..=) Prelude.<$> isTimeSeries
+            ("dataType" Data..=) Prelude.<$> dataType,
+            ("isTimeSeries" Data..=) Prelude.<$> isTimeSeries
           ]
       )

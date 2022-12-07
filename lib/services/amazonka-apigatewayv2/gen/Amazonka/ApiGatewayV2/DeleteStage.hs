@@ -39,6 +39,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,27 +103,27 @@ instance Prelude.NFData DeleteStage where
     Prelude.rnf stageName
       `Prelude.seq` Prelude.rnf apiId
 
-instance Core.ToHeaders DeleteStage where
+instance Data.ToHeaders DeleteStage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteStage where
+instance Data.ToPath DeleteStage where
   toPath DeleteStage' {..} =
     Prelude.mconcat
       [ "/v2/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/stages/",
-        Core.toBS stageName
+        Data.toBS stageName
       ]
 
-instance Core.ToQuery DeleteStage where
+instance Data.ToQuery DeleteStage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStageResponse' smart constructor.

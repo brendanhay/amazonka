@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.BGPPeer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types.AddressFamily
 import Amazonka.DirectConnect.Types.BGPPeerState
 import Amazonka.DirectConnect.Types.BGPStatus
@@ -211,22 +212,22 @@ bGPPeer_awsLogicalDeviceId = Lens.lens (\BGPPeer' {awsLogicalDeviceId} -> awsLog
 bGPPeer_awsDeviceV2 :: Lens.Lens' BGPPeer (Prelude.Maybe Prelude.Text)
 bGPPeer_awsDeviceV2 = Lens.lens (\BGPPeer' {awsDeviceV2} -> awsDeviceV2) (\s@BGPPeer' {} a -> s {awsDeviceV2 = a} :: BGPPeer)
 
-instance Core.FromJSON BGPPeer where
+instance Data.FromJSON BGPPeer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BGPPeer"
       ( \x ->
           BGPPeer'
-            Prelude.<$> (x Core..:? "bgpPeerId")
-            Prelude.<*> (x Core..:? "addressFamily")
-            Prelude.<*> (x Core..:? "authKey")
-            Prelude.<*> (x Core..:? "bgpPeerState")
-            Prelude.<*> (x Core..:? "customerAddress")
-            Prelude.<*> (x Core..:? "asn")
-            Prelude.<*> (x Core..:? "amazonAddress")
-            Prelude.<*> (x Core..:? "bgpStatus")
-            Prelude.<*> (x Core..:? "awsLogicalDeviceId")
-            Prelude.<*> (x Core..:? "awsDeviceV2")
+            Prelude.<$> (x Data..:? "bgpPeerId")
+            Prelude.<*> (x Data..:? "addressFamily")
+            Prelude.<*> (x Data..:? "authKey")
+            Prelude.<*> (x Data..:? "bgpPeerState")
+            Prelude.<*> (x Data..:? "customerAddress")
+            Prelude.<*> (x Data..:? "asn")
+            Prelude.<*> (x Data..:? "amazonAddress")
+            Prelude.<*> (x Data..:? "bgpStatus")
+            Prelude.<*> (x Data..:? "awsLogicalDeviceId")
+            Prelude.<*> (x Data..:? "awsDeviceV2")
       )
 
 instance Prelude.Hashable BGPPeer where

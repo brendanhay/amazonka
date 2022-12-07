@@ -68,6 +68,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,7 +141,7 @@ instance Core.AWSRequest PutConfigurationAggregator where
     Response.receiveJSON
       ( \s h x ->
           PutConfigurationAggregatorResponse'
-            Prelude.<$> (x Core..?> "ConfigurationAggregator")
+            Prelude.<$> (x Data..?> "ConfigurationAggregator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,41 +159,41 @@ instance Prelude.NFData PutConfigurationAggregator where
       `Prelude.seq` Prelude.rnf organizationAggregationSource
       `Prelude.seq` Prelude.rnf configurationAggregatorName
 
-instance Core.ToHeaders PutConfigurationAggregator where
+instance Data.ToHeaders PutConfigurationAggregator where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.PutConfigurationAggregator" ::
+              Data.=# ( "StarlingDoveService.PutConfigurationAggregator" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutConfigurationAggregator where
+instance Data.ToJSON PutConfigurationAggregator where
   toJSON PutConfigurationAggregator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("AccountAggregationSources" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("AccountAggregationSources" Data..=)
               Prelude.<$> accountAggregationSources,
-            ("OrganizationAggregationSource" Core..=)
+            ("OrganizationAggregationSource" Data..=)
               Prelude.<$> organizationAggregationSource,
             Prelude.Just
               ( "ConfigurationAggregatorName"
-                  Core..= configurationAggregatorName
+                  Data..= configurationAggregatorName
               )
           ]
       )
 
-instance Core.ToPath PutConfigurationAggregator where
+instance Data.ToPath PutConfigurationAggregator where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutConfigurationAggregator where
+instance Data.ToQuery PutConfigurationAggregator where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutConfigurationAggregatorResponse' smart constructor.

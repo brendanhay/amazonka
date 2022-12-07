@@ -51,6 +51,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,7 +121,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           ListContinuousDeploymentPoliciesResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,24 +144,24 @@ instance
       `Prelude.seq` Prelude.rnf maxItems
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListContinuousDeploymentPolicies
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListContinuousDeploymentPolicies where
+instance Data.ToPath ListContinuousDeploymentPolicies where
   toPath =
     Prelude.const
       "/2020-05-31/continuous-deployment-policy"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListContinuousDeploymentPolicies
   where
   toQuery ListContinuousDeploymentPolicies' {..} =
     Prelude.mconcat
-      [ "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+      [ "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | /See:/ 'newListContinuousDeploymentPoliciesResponse' smart constructor.

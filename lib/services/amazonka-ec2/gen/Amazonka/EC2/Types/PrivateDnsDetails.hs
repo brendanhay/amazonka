@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PrivateDnsDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,10 +55,10 @@ newPrivateDnsDetails =
 privateDnsDetails_privateDnsName :: Lens.Lens' PrivateDnsDetails (Prelude.Maybe Prelude.Text)
 privateDnsDetails_privateDnsName = Lens.lens (\PrivateDnsDetails' {privateDnsName} -> privateDnsName) (\s@PrivateDnsDetails' {} a -> s {privateDnsName = a} :: PrivateDnsDetails)
 
-instance Core.FromXML PrivateDnsDetails where
+instance Data.FromXML PrivateDnsDetails where
   parseXML x =
     PrivateDnsDetails'
-      Prelude.<$> (x Core..@? "privateDnsName")
+      Prelude.<$> (x Data..@? "privateDnsName")
 
 instance Prelude.Hashable PrivateDnsDetails where
   hashWithSalt _salt PrivateDnsDetails' {..} =

@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.GlobalNodeGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates the slot configuration and global identifier for a slice
@@ -63,11 +64,11 @@ globalNodeGroup_globalNodeGroupId = Lens.lens (\GlobalNodeGroup' {globalNodeGrou
 globalNodeGroup_slots :: Lens.Lens' GlobalNodeGroup (Prelude.Maybe Prelude.Text)
 globalNodeGroup_slots = Lens.lens (\GlobalNodeGroup' {slots} -> slots) (\s@GlobalNodeGroup' {} a -> s {slots = a} :: GlobalNodeGroup)
 
-instance Core.FromXML GlobalNodeGroup where
+instance Data.FromXML GlobalNodeGroup where
   parseXML x =
     GlobalNodeGroup'
-      Prelude.<$> (x Core..@? "GlobalNodeGroupId")
-      Prelude.<*> (x Core..@? "Slots")
+      Prelude.<$> (x Data..@? "GlobalNodeGroupId")
+      Prelude.<*> (x Data..@? "Slots")
 
 instance Prelude.Hashable GlobalNodeGroup where
   hashWithSalt _salt GlobalNodeGroup' {..} =

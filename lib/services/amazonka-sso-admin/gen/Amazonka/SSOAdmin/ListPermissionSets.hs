@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,8 +143,8 @@ instance Core.AWSRequest ListPermissionSets where
     Response.receiveJSON
       ( \s h x ->
           ListPermissionSetsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "PermissionSets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "PermissionSets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,35 +160,35 @@ instance Prelude.NFData ListPermissionSets where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceArn
 
-instance Core.ToHeaders ListPermissionSets where
+instance Data.ToHeaders ListPermissionSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SWBExternalService.ListPermissionSets" ::
+              Data.=# ( "SWBExternalService.ListPermissionSets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPermissionSets where
+instance Data.ToJSON ListPermissionSets where
   toJSON ListPermissionSets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("InstanceArn" Core..= instanceArn)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("InstanceArn" Data..= instanceArn)
           ]
       )
 
-instance Core.ToPath ListPermissionSets where
+instance Data.ToPath ListPermissionSets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPermissionSets where
+instance Data.ToQuery ListPermissionSets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPermissionSetsResponse' smart constructor.

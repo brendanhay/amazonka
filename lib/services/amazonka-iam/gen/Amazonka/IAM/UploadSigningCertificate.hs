@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -175,7 +176,7 @@ instance Core.AWSRequest UploadSigningCertificate where
       ( \s h x ->
           UploadSigningCertificateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "Certificate")
+            Prelude.<*> (x Data..@ "Certificate")
       )
 
 instance Prelude.Hashable UploadSigningCertificate where
@@ -188,21 +189,21 @@ instance Prelude.NFData UploadSigningCertificate where
     Prelude.rnf userName
       `Prelude.seq` Prelude.rnf certificateBody
 
-instance Core.ToHeaders UploadSigningCertificate where
+instance Data.ToHeaders UploadSigningCertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UploadSigningCertificate where
+instance Data.ToPath UploadSigningCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UploadSigningCertificate where
+instance Data.ToQuery UploadSigningCertificate where
   toQuery UploadSigningCertificate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UploadSigningCertificate" :: Prelude.ByteString),
+          Data.=: ("UploadSigningCertificate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
-        "CertificateBody" Core.=: certificateBody
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
+        "CertificateBody" Data.=: certificateBody
       ]
 
 -- | Contains the response to a successful UploadSigningCertificate request.

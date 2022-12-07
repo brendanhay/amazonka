@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.DefaultConditionalBranch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.DialogState
 import Amazonka.LexV2Models.Types.ResponseSpecification
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ defaultConditionalBranch_response = Lens.lens (\DefaultConditionalBranch' {respo
 defaultConditionalBranch_nextStep :: Lens.Lens' DefaultConditionalBranch (Prelude.Maybe DialogState)
 defaultConditionalBranch_nextStep = Lens.lens (\DefaultConditionalBranch' {nextStep} -> nextStep) (\s@DefaultConditionalBranch' {} a -> s {nextStep = a} :: DefaultConditionalBranch)
 
-instance Core.FromJSON DefaultConditionalBranch where
+instance Data.FromJSON DefaultConditionalBranch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DefaultConditionalBranch"
       ( \x ->
           DefaultConditionalBranch'
-            Prelude.<$> (x Core..:? "response")
-            Prelude.<*> (x Core..:? "nextStep")
+            Prelude.<$> (x Data..:? "response")
+            Prelude.<*> (x Data..:? "nextStep")
       )
 
 instance Prelude.Hashable DefaultConditionalBranch where
@@ -84,11 +85,11 @@ instance Prelude.NFData DefaultConditionalBranch where
     Prelude.rnf response
       `Prelude.seq` Prelude.rnf nextStep
 
-instance Core.ToJSON DefaultConditionalBranch where
+instance Data.ToJSON DefaultConditionalBranch where
   toJSON DefaultConditionalBranch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("response" Core..=) Prelude.<$> response,
-            ("nextStep" Core..=) Prelude.<$> nextStep
+          [ ("response" Data..=) Prelude.<$> response,
+            ("nextStep" Data..=) Prelude.<$> nextStep
           ]
       )

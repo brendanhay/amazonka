@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.LocalIpDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the local IP address of the connection.
@@ -50,13 +51,13 @@ newLocalIpDetails =
 localIpDetails_ipAddressV4 :: Lens.Lens' LocalIpDetails (Prelude.Maybe Prelude.Text)
 localIpDetails_ipAddressV4 = Lens.lens (\LocalIpDetails' {ipAddressV4} -> ipAddressV4) (\s@LocalIpDetails' {} a -> s {ipAddressV4 = a} :: LocalIpDetails)
 
-instance Core.FromJSON LocalIpDetails where
+instance Data.FromJSON LocalIpDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LocalIpDetails"
       ( \x ->
           LocalIpDetails'
-            Prelude.<$> (x Core..:? "ipAddressV4")
+            Prelude.<$> (x Data..:? "ipAddressV4")
       )
 
 instance Prelude.Hashable LocalIpDetails where

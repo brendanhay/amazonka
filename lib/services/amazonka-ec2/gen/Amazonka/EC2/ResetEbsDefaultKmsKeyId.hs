@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ instance Core.AWSRequest ResetEbsDefaultKmsKeyId where
     Response.receiveXML
       ( \s h x ->
           ResetEbsDefaultKmsKeyIdResponse'
-            Prelude.<$> (x Core..@? "kmsKeyId")
+            Prelude.<$> (x Data..@? "kmsKeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,20 +109,20 @@ instance Prelude.Hashable ResetEbsDefaultKmsKeyId where
 instance Prelude.NFData ResetEbsDefaultKmsKeyId where
   rnf ResetEbsDefaultKmsKeyId' {..} = Prelude.rnf dryRun
 
-instance Core.ToHeaders ResetEbsDefaultKmsKeyId where
+instance Data.ToHeaders ResetEbsDefaultKmsKeyId where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ResetEbsDefaultKmsKeyId where
+instance Data.ToPath ResetEbsDefaultKmsKeyId where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResetEbsDefaultKmsKeyId where
+instance Data.ToQuery ResetEbsDefaultKmsKeyId where
   toQuery ResetEbsDefaultKmsKeyId' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ResetEbsDefaultKmsKeyId" :: Prelude.ByteString),
+          Data.=: ("ResetEbsDefaultKmsKeyId" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun
       ]
 
 -- | /See:/ 'newResetEbsDefaultKmsKeyIdResponse' smart constructor.

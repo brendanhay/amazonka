@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SiteMapsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information for the sitemap URLs to crawl.
@@ -62,13 +63,13 @@ newSiteMapsConfiguration =
 siteMapsConfiguration_siteMaps :: Lens.Lens' SiteMapsConfiguration [Prelude.Text]
 siteMapsConfiguration_siteMaps = Lens.lens (\SiteMapsConfiguration' {siteMaps} -> siteMaps) (\s@SiteMapsConfiguration' {} a -> s {siteMaps = a} :: SiteMapsConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON SiteMapsConfiguration where
+instance Data.FromJSON SiteMapsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SiteMapsConfiguration"
       ( \x ->
           SiteMapsConfiguration'
-            Prelude.<$> (x Core..:? "SiteMaps" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "SiteMaps" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SiteMapsConfiguration where
@@ -78,9 +79,9 @@ instance Prelude.Hashable SiteMapsConfiguration where
 instance Prelude.NFData SiteMapsConfiguration where
   rnf SiteMapsConfiguration' {..} = Prelude.rnf siteMaps
 
-instance Core.ToJSON SiteMapsConfiguration where
+instance Data.ToJSON SiteMapsConfiguration where
   toJSON SiteMapsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SiteMaps" Core..= siteMaps)]
+          [Prelude.Just ("SiteMaps" Data..= siteMaps)]
       )

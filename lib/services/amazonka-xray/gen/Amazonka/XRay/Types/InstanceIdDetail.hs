@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.InstanceIdDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of EC2 instance IDs corresponding to the segments in a trace.
@@ -50,12 +51,12 @@ newInstanceIdDetail =
 instanceIdDetail_id :: Lens.Lens' InstanceIdDetail (Prelude.Maybe Prelude.Text)
 instanceIdDetail_id = Lens.lens (\InstanceIdDetail' {id} -> id) (\s@InstanceIdDetail' {} a -> s {id = a} :: InstanceIdDetail)
 
-instance Core.FromJSON InstanceIdDetail where
+instance Data.FromJSON InstanceIdDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceIdDetail"
       ( \x ->
-          InstanceIdDetail' Prelude.<$> (x Core..:? "Id")
+          InstanceIdDetail' Prelude.<$> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable InstanceIdDetail where

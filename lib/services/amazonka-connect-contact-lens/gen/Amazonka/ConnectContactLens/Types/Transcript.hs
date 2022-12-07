@@ -23,6 +23,7 @@ import Amazonka.ConnectContactLens.Types.IssueDetected
 import Amazonka.ConnectContactLens.Types.SentimentValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of messages in the session.
@@ -141,20 +142,20 @@ transcript_endOffsetMillis = Lens.lens (\Transcript' {endOffsetMillis} -> endOff
 transcript_sentiment :: Lens.Lens' Transcript SentimentValue
 transcript_sentiment = Lens.lens (\Transcript' {sentiment} -> sentiment) (\s@Transcript' {} a -> s {sentiment = a} :: Transcript)
 
-instance Core.FromJSON Transcript where
+instance Data.FromJSON Transcript where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Transcript"
       ( \x ->
           Transcript'
-            Prelude.<$> (x Core..:? "IssuesDetected" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "ParticipantId")
-            Prelude.<*> (x Core..: "ParticipantRole")
-            Prelude.<*> (x Core..: "Content")
-            Prelude.<*> (x Core..: "BeginOffsetMillis")
-            Prelude.<*> (x Core..: "EndOffsetMillis")
-            Prelude.<*> (x Core..: "Sentiment")
+            Prelude.<$> (x Data..:? "IssuesDetected" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "ParticipantId")
+            Prelude.<*> (x Data..: "ParticipantRole")
+            Prelude.<*> (x Data..: "Content")
+            Prelude.<*> (x Data..: "BeginOffsetMillis")
+            Prelude.<*> (x Data..: "EndOffsetMillis")
+            Prelude.<*> (x Data..: "Sentiment")
       )
 
 instance Prelude.Hashable Transcript where

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetNetworkProfile where
     Response.receiveJSON
       ( \s h x ->
           GetNetworkProfileResponse'
-            Prelude.<$> (x Core..?> "networkProfile")
+            Prelude.<$> (x Data..?> "networkProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable GetNetworkProfile where
 instance Prelude.NFData GetNetworkProfile where
   rnf GetNetworkProfile' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders GetNetworkProfile where
+instance Data.ToHeaders GetNetworkProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.GetNetworkProfile" ::
+              Data.=# ( "DeviceFarm_20150623.GetNetworkProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetNetworkProfile where
+instance Data.ToJSON GetNetworkProfile where
   toJSON GetNetworkProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath GetNetworkProfile where
+instance Data.ToPath GetNetworkProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetNetworkProfile where
+instance Data.ToQuery GetNetworkProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetNetworkProfileResponse' smart constructor.

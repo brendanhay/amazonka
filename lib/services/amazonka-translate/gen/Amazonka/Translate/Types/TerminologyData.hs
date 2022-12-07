@@ -21,6 +21,7 @@ module Amazonka.Translate.Types.TerminologyData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Translate.Types.Directionality
 import Amazonka.Translate.Types.TerminologyDataFormat
@@ -55,7 +56,7 @@ data TerminologyData = TerminologyData'
     -- SDK performs a Base64-encoding on this field before sending a request to
     -- the AWS service. Users of the SDK should not perform Base64-encoding
     -- themselves.
-    file :: Core.Sensitive Core.Base64,
+    file :: Data.Sensitive Data.Base64,
     -- | The data format of the custom terminology.
     format :: TerminologyDataFormat
   }
@@ -109,7 +110,7 @@ newTerminologyData pFile_ pFormat_ =
   TerminologyData'
     { directionality = Prelude.Nothing,
       file =
-        Core._Sensitive Prelude.. Core._Base64 Lens.# pFile_,
+        Data._Sensitive Prelude.. Data._Base64 Lens.# pFile_,
       format = pFormat_
     }
 
@@ -144,7 +145,7 @@ terminologyData_directionality = Lens.lens (\TerminologyData' {directionality} -
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 terminologyData_file :: Lens.Lens' TerminologyData Prelude.ByteString
-terminologyData_file = Lens.lens (\TerminologyData' {file} -> file) (\s@TerminologyData' {} a -> s {file = a} :: TerminologyData) Prelude.. Core._Sensitive Prelude.. Core._Base64
+terminologyData_file = Lens.lens (\TerminologyData' {file} -> file) (\s@TerminologyData' {} a -> s {file = a} :: TerminologyData) Prelude.. Data._Sensitive Prelude.. Data._Base64
 
 -- | The data format of the custom terminology.
 terminologyData_format :: Lens.Lens' TerminologyData TerminologyDataFormat
@@ -162,13 +163,13 @@ instance Prelude.NFData TerminologyData where
       `Prelude.seq` Prelude.rnf file
       `Prelude.seq` Prelude.rnf format
 
-instance Core.ToJSON TerminologyData where
+instance Data.ToJSON TerminologyData where
   toJSON TerminologyData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Directionality" Core..=)
+          [ ("Directionality" Data..=)
               Prelude.<$> directionality,
-            Prelude.Just ("File" Core..= file),
-            Prelude.Just ("Format" Core..= format)
+            Prelude.Just ("File" Data..= file),
+            Prelude.Just ("Format" Data..= format)
           ]
       )

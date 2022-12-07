@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.WeightedTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a target and its relative weight. Traffic is
@@ -78,15 +79,15 @@ weightedTarget_virtualNode = Lens.lens (\WeightedTarget' {virtualNode} -> virtua
 weightedTarget_weight :: Lens.Lens' WeightedTarget Prelude.Natural
 weightedTarget_weight = Lens.lens (\WeightedTarget' {weight} -> weight) (\s@WeightedTarget' {} a -> s {weight = a} :: WeightedTarget)
 
-instance Core.FromJSON WeightedTarget where
+instance Data.FromJSON WeightedTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WeightedTarget"
       ( \x ->
           WeightedTarget'
-            Prelude.<$> (x Core..:? "port")
-            Prelude.<*> (x Core..: "virtualNode")
-            Prelude.<*> (x Core..: "weight")
+            Prelude.<$> (x Data..:? "port")
+            Prelude.<*> (x Data..: "virtualNode")
+            Prelude.<*> (x Data..: "weight")
       )
 
 instance Prelude.Hashable WeightedTarget where
@@ -101,12 +102,12 @@ instance Prelude.NFData WeightedTarget where
       `Prelude.seq` Prelude.rnf virtualNode
       `Prelude.seq` Prelude.rnf weight
 
-instance Core.ToJSON WeightedTarget where
+instance Data.ToJSON WeightedTarget where
   toJSON WeightedTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("port" Core..=) Prelude.<$> port,
-            Prelude.Just ("virtualNode" Core..= virtualNode),
-            Prelude.Just ("weight" Core..= weight)
+          [ ("port" Data..=) Prelude.<$> port,
+            Prelude.Just ("virtualNode" Data..= virtualNode),
+            Prelude.Just ("weight" Data..= weight)
           ]
       )

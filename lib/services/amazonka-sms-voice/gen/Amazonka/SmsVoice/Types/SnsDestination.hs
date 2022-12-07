@@ -21,6 +21,7 @@ module Amazonka.SmsVoice.Types.SnsDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about an event destination that
@@ -54,12 +55,12 @@ newSnsDestination =
 snsDestination_topicArn :: Lens.Lens' SnsDestination (Prelude.Maybe Prelude.Text)
 snsDestination_topicArn = Lens.lens (\SnsDestination' {topicArn} -> topicArn) (\s@SnsDestination' {} a -> s {topicArn = a} :: SnsDestination)
 
-instance Core.FromJSON SnsDestination where
+instance Data.FromJSON SnsDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SnsDestination"
       ( \x ->
-          SnsDestination' Prelude.<$> (x Core..:? "TopicArn")
+          SnsDestination' Prelude.<$> (x Data..:? "TopicArn")
       )
 
 instance Prelude.Hashable SnsDestination where
@@ -69,9 +70,9 @@ instance Prelude.Hashable SnsDestination where
 instance Prelude.NFData SnsDestination where
   rnf SnsDestination' {..} = Prelude.rnf topicArn
 
-instance Core.ToJSON SnsDestination where
+instance Data.ToJSON SnsDestination where
   toJSON SnsDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("TopicArn" Core..=) Prelude.<$> topicArn]
+          [("TopicArn" Data..=) Prelude.<$> topicArn]
       )

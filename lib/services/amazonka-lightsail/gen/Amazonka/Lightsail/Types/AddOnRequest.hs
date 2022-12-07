@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.AddOnRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.AddOnType
 import Amazonka.Lightsail.Types.AutoSnapshotAddOnRequest
 import qualified Amazonka.Prelude as Prelude
@@ -85,12 +86,12 @@ instance Prelude.NFData AddOnRequest where
     Prelude.rnf autoSnapshotAddOnRequest
       `Prelude.seq` Prelude.rnf addOnType
 
-instance Core.ToJSON AddOnRequest where
+instance Data.ToJSON AddOnRequest where
   toJSON AddOnRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("autoSnapshotAddOnRequest" Core..=)
+          [ ("autoSnapshotAddOnRequest" Data..=)
               Prelude.<$> autoSnapshotAddOnRequest,
-            Prelude.Just ("addOnType" Core..= addOnType)
+            Prelude.Just ("addOnType" Data..= addOnType)
           ]
       )

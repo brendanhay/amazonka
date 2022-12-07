@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.CertificateValidity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | When the certificate is valid.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newCertificateValidity' smart constructor.
 data CertificateValidity = CertificateValidity'
   { -- | The certificate is not valid before this date.
-    notBefore :: Prelude.Maybe Core.POSIX,
+    notBefore :: Prelude.Maybe Data.POSIX,
     -- | The certificate is not valid after this date.
-    notAfter :: Prelude.Maybe Core.POSIX
+    notAfter :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,20 +56,20 @@ newCertificateValidity =
 
 -- | The certificate is not valid before this date.
 certificateValidity_notBefore :: Lens.Lens' CertificateValidity (Prelude.Maybe Prelude.UTCTime)
-certificateValidity_notBefore = Lens.lens (\CertificateValidity' {notBefore} -> notBefore) (\s@CertificateValidity' {} a -> s {notBefore = a} :: CertificateValidity) Prelude.. Lens.mapping Core._Time
+certificateValidity_notBefore = Lens.lens (\CertificateValidity' {notBefore} -> notBefore) (\s@CertificateValidity' {} a -> s {notBefore = a} :: CertificateValidity) Prelude.. Lens.mapping Data._Time
 
 -- | The certificate is not valid after this date.
 certificateValidity_notAfter :: Lens.Lens' CertificateValidity (Prelude.Maybe Prelude.UTCTime)
-certificateValidity_notAfter = Lens.lens (\CertificateValidity' {notAfter} -> notAfter) (\s@CertificateValidity' {} a -> s {notAfter = a} :: CertificateValidity) Prelude.. Lens.mapping Core._Time
+certificateValidity_notAfter = Lens.lens (\CertificateValidity' {notAfter} -> notAfter) (\s@CertificateValidity' {} a -> s {notAfter = a} :: CertificateValidity) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CertificateValidity where
+instance Data.FromJSON CertificateValidity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CertificateValidity"
       ( \x ->
           CertificateValidity'
-            Prelude.<$> (x Core..:? "notBefore")
-            Prelude.<*> (x Core..:? "notAfter")
+            Prelude.<$> (x Data..:? "notBefore")
+            Prelude.<*> (x Data..:? "notAfter")
       )
 
 instance Prelude.Hashable CertificateValidity where

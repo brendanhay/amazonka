@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.PasswordPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the account password policy.
@@ -190,19 +191,19 @@ passwordPolicy_requireUppercaseCharacters = Lens.lens (\PasswordPolicy' {require
 passwordPolicy_hardExpiry :: Lens.Lens' PasswordPolicy (Prelude.Maybe Prelude.Bool)
 passwordPolicy_hardExpiry = Lens.lens (\PasswordPolicy' {hardExpiry} -> hardExpiry) (\s@PasswordPolicy' {} a -> s {hardExpiry = a} :: PasswordPolicy)
 
-instance Core.FromXML PasswordPolicy where
+instance Data.FromXML PasswordPolicy where
   parseXML x =
     PasswordPolicy'
-      Prelude.<$> (x Core..@? "MaxPasswordAge")
-      Prelude.<*> (x Core..@? "MinimumPasswordLength")
-      Prelude.<*> (x Core..@? "AllowUsersToChangePassword")
-      Prelude.<*> (x Core..@? "PasswordReusePrevention")
-      Prelude.<*> (x Core..@? "RequireNumbers")
-      Prelude.<*> (x Core..@? "RequireLowercaseCharacters")
-      Prelude.<*> (x Core..@? "ExpirePasswords")
-      Prelude.<*> (x Core..@? "RequireSymbols")
-      Prelude.<*> (x Core..@? "RequireUppercaseCharacters")
-      Prelude.<*> (x Core..@? "HardExpiry")
+      Prelude.<$> (x Data..@? "MaxPasswordAge")
+      Prelude.<*> (x Data..@? "MinimumPasswordLength")
+      Prelude.<*> (x Data..@? "AllowUsersToChangePassword")
+      Prelude.<*> (x Data..@? "PasswordReusePrevention")
+      Prelude.<*> (x Data..@? "RequireNumbers")
+      Prelude.<*> (x Data..@? "RequireLowercaseCharacters")
+      Prelude.<*> (x Data..@? "ExpirePasswords")
+      Prelude.<*> (x Data..@? "RequireSymbols")
+      Prelude.<*> (x Data..@? "RequireUppercaseCharacters")
+      Prelude.<*> (x Data..@? "HardExpiry")
 
 instance Prelude.Hashable PasswordPolicy where
   hashWithSalt _salt PasswordPolicy' {..} =

@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -67,7 +68,7 @@ import qualified Amazonka.Response as Response
 data CreateApp = CreateApp'
   { -- | The tags assigned to the resource. A tag is a label that you assign to
     -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Used for an idempotency token. A client token is a unique,
     -- case-sensitive string of up to 64 ASCII characters. You should not reuse
     -- the same client token for other API requests.
@@ -132,7 +133,7 @@ newCreateApp pName_ =
 -- | The tags assigned to the resource. A tag is a label that you assign to
 -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
 createApp_tags :: Lens.Lens' CreateApp (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createApp_tags = Lens.lens (\CreateApp' {tags} -> tags) (\s@CreateApp' {} a -> s {tags = a} :: CreateApp) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createApp_tags = Lens.lens (\CreateApp' {tags} -> tags) (\s@CreateApp' {} a -> s {tags = a} :: CreateApp) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Used for an idempotency token. A client token is a unique,
 -- case-sensitive string of up to 64 ASCII characters. You should not reuse
@@ -170,7 +171,7 @@ instance Core.AWSRequest CreateApp where
       ( \s h x ->
           CreateAppResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "app")
+            Prelude.<*> (x Data..:> "app")
       )
 
 instance Prelude.Hashable CreateApp where
@@ -191,35 +192,35 @@ instance Prelude.NFData CreateApp where
       `Prelude.seq` Prelude.rnf assessmentSchedule
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateApp where
+instance Data.ToHeaders CreateApp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApp where
+instance Data.ToJSON CreateApp where
   toJSON CreateApp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("description" Core..=) Prelude.<$> description,
-            ("policyArn" Core..=) Prelude.<$> policyArn,
-            ("assessmentSchedule" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
+            ("policyArn" Data..=) Prelude.<$> policyArn,
+            ("assessmentSchedule" Data..=)
               Prelude.<$> assessmentSchedule,
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateApp where
+instance Data.ToPath CreateApp where
   toPath = Prelude.const "/create-app"
 
-instance Core.ToQuery CreateApp where
+instance Data.ToQuery CreateApp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAppResponse' smart constructor.

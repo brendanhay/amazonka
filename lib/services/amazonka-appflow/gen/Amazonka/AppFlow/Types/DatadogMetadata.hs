@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.DatadogMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to Datadog.
@@ -39,9 +40,9 @@ newDatadogMetadata ::
   DatadogMetadata
 newDatadogMetadata = DatadogMetadata'
 
-instance Core.FromJSON DatadogMetadata where
+instance Data.FromJSON DatadogMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatadogMetadata"
       (\x -> Prelude.pure DatadogMetadata')
 

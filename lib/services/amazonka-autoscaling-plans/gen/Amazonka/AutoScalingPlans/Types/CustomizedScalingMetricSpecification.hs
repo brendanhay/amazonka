@@ -23,6 +23,7 @@ import Amazonka.AutoScalingPlans.Types.MetricDimension
 import Amazonka.AutoScalingPlans.Types.MetricStatistic
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a CloudWatch metric of your choosing that can be used for
@@ -133,19 +134,19 @@ customizedScalingMetricSpecification_statistic :: Lens.Lens' CustomizedScalingMe
 customizedScalingMetricSpecification_statistic = Lens.lens (\CustomizedScalingMetricSpecification' {statistic} -> statistic) (\s@CustomizedScalingMetricSpecification' {} a -> s {statistic = a} :: CustomizedScalingMetricSpecification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomizedScalingMetricSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomizedScalingMetricSpecification"
       ( \x ->
           CustomizedScalingMetricSpecification'
-            Prelude.<$> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Unit")
-            Prelude.<*> (x Core..: "MetricName")
-            Prelude.<*> (x Core..: "Namespace")
-            Prelude.<*> (x Core..: "Statistic")
+            Prelude.<$> (x Data..:? "Dimensions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Unit")
+            Prelude.<*> (x Data..: "MetricName")
+            Prelude.<*> (x Data..: "Namespace")
+            Prelude.<*> (x Data..: "Statistic")
       )
 
 instance
@@ -173,16 +174,16 @@ instance
       `Prelude.seq` Prelude.rnf statistic
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CustomizedScalingMetricSpecification
   where
   toJSON CustomizedScalingMetricSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Dimensions" Core..=) Prelude.<$> dimensions,
-            ("Unit" Core..=) Prelude.<$> unit,
-            Prelude.Just ("MetricName" Core..= metricName),
-            Prelude.Just ("Namespace" Core..= namespace),
-            Prelude.Just ("Statistic" Core..= statistic)
+          [ ("Dimensions" Data..=) Prelude.<$> dimensions,
+            ("Unit" Data..=) Prelude.<$> unit,
+            Prelude.Just ("MetricName" Data..= metricName),
+            Prelude.Just ("Namespace" Data..= namespace),
+            Prelude.Just ("Statistic" Data..= statistic)
           ]
       )

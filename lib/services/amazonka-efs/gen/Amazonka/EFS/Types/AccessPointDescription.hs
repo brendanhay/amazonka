@@ -21,6 +21,7 @@ module Amazonka.EFS.Types.AccessPointDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types.LifeCycleState
 import Amazonka.EFS.Types.PosixUser
 import Amazonka.EFS.Types.RootDirectory
@@ -155,22 +156,22 @@ accessPointDescription_rootDirectory = Lens.lens (\AccessPointDescription' {root
 accessPointDescription_lifeCycleState :: Lens.Lens' AccessPointDescription (Prelude.Maybe LifeCycleState)
 accessPointDescription_lifeCycleState = Lens.lens (\AccessPointDescription' {lifeCycleState} -> lifeCycleState) (\s@AccessPointDescription' {} a -> s {lifeCycleState = a} :: AccessPointDescription)
 
-instance Core.FromJSON AccessPointDescription where
+instance Data.FromJSON AccessPointDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessPointDescription"
       ( \x ->
           AccessPointDescription'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ClientToken")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "AccessPointArn")
-            Prelude.<*> (x Core..:? "PosixUser")
-            Prelude.<*> (x Core..:? "FileSystemId")
-            Prelude.<*> (x Core..:? "AccessPointId")
-            Prelude.<*> (x Core..:? "RootDirectory")
-            Prelude.<*> (x Core..:? "LifeCycleState")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ClientToken")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "AccessPointArn")
+            Prelude.<*> (x Data..:? "PosixUser")
+            Prelude.<*> (x Data..:? "FileSystemId")
+            Prelude.<*> (x Data..:? "AccessPointId")
+            Prelude.<*> (x Data..:? "RootDirectory")
+            Prelude.<*> (x Data..:? "LifeCycleState")
       )
 
 instance Prelude.Hashable AccessPointDescription where

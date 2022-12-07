@@ -44,6 +44,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,7 +109,7 @@ instance Core.AWSRequest UpdateWebhook where
       ( \s h x ->
           UpdateWebhookResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "webhook")
+            Prelude.<*> (x Data..:> "webhook")
       )
 
 instance Prelude.Hashable UpdateWebhook where
@@ -123,31 +124,31 @@ instance Prelude.NFData UpdateWebhook where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf webhookId
 
-instance Core.ToHeaders UpdateWebhook where
+instance Data.ToHeaders UpdateWebhook where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWebhook where
+instance Data.ToJSON UpdateWebhook where
   toJSON UpdateWebhook' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("branchName" Core..=) Prelude.<$> branchName,
-            ("description" Core..=) Prelude.<$> description
+          [ ("branchName" Data..=) Prelude.<$> branchName,
+            ("description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateWebhook where
+instance Data.ToPath UpdateWebhook where
   toPath UpdateWebhook' {..} =
-    Prelude.mconcat ["/webhooks/", Core.toBS webhookId]
+    Prelude.mconcat ["/webhooks/", Data.toBS webhookId]
 
-instance Core.ToQuery UpdateWebhook where
+instance Data.ToQuery UpdateWebhook where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result structure for the update webhook request.

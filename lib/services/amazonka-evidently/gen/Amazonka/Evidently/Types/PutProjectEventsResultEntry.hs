@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.PutProjectEventsResultEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains Evidently\'s response to the sent events,
@@ -78,15 +79,15 @@ putProjectEventsResultEntry_eventId = Lens.lens (\PutProjectEventsResultEntry' {
 putProjectEventsResultEntry_errorCode :: Lens.Lens' PutProjectEventsResultEntry (Prelude.Maybe Prelude.Text)
 putProjectEventsResultEntry_errorCode = Lens.lens (\PutProjectEventsResultEntry' {errorCode} -> errorCode) (\s@PutProjectEventsResultEntry' {} a -> s {errorCode = a} :: PutProjectEventsResultEntry)
 
-instance Core.FromJSON PutProjectEventsResultEntry where
+instance Data.FromJSON PutProjectEventsResultEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PutProjectEventsResultEntry"
       ( \x ->
           PutProjectEventsResultEntry'
-            Prelude.<$> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "eventId")
-            Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "eventId")
+            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance Prelude.Hashable PutProjectEventsResultEntry where

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Mobile.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest DescribeProject where
     Response.receiveJSON
       ( \s h x ->
           DescribeProjectResponse'
-            Prelude.<$> (x Core..?> "details")
+            Prelude.<$> (x Data..?> "details")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,25 +119,25 @@ instance Prelude.NFData DescribeProject where
     Prelude.rnf syncFromResources
       `Prelude.seq` Prelude.rnf projectId
 
-instance Core.ToHeaders DescribeProject where
+instance Data.ToHeaders DescribeProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeProject where
+instance Data.ToPath DescribeProject where
   toPath = Prelude.const "/project"
 
-instance Core.ToQuery DescribeProject where
+instance Data.ToQuery DescribeProject where
   toQuery DescribeProject' {..} =
     Prelude.mconcat
-      [ "syncFromResources" Core.=: syncFromResources,
-        "projectId" Core.=: projectId
+      [ "syncFromResources" Data.=: syncFromResources,
+        "projectId" Data.=: projectId
       ]
 
 -- | Result structure used for requests of project details.

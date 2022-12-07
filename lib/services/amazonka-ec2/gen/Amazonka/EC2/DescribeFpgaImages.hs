@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -265,9 +266,9 @@ instance Core.AWSRequest DescribeFpgaImages where
     Response.receiveXML
       ( \s h x ->
           DescribeFpgaImagesResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "fpgaImageSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "fpgaImageSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -290,28 +291,28 @@ instance Prelude.NFData DescribeFpgaImages where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf fpgaImageIds
 
-instance Core.ToHeaders DescribeFpgaImages where
+instance Data.ToHeaders DescribeFpgaImages where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeFpgaImages where
+instance Data.ToPath DescribeFpgaImages where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFpgaImages where
+instance Data.ToQuery DescribeFpgaImages where
   toQuery DescribeFpgaImages' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeFpgaImages" :: Prelude.ByteString),
+          Data.=: ("DescribeFpgaImages" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        Core.toQuery
-          (Core.toQueryList "Owner" Prelude.<$> owners),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          ( Core.toQueryList "FpgaImageId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        Data.toQuery
+          (Data.toQueryList "Owner" Prelude.<$> owners),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          ( Data.toQueryList "FpgaImageId"
               Prelude.<$> fpgaImageIds
           )
       ]

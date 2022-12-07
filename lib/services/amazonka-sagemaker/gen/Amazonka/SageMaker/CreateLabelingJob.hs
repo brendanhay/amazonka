@@ -92,6 +92,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -603,7 +604,7 @@ instance Core.AWSRequest CreateLabelingJob where
       ( \s h x ->
           CreateLabelingJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "LabelingJobArn")
+            Prelude.<*> (x Data..:> "LabelingJobArn")
       )
 
 instance Prelude.Hashable CreateLabelingJob where
@@ -632,48 +633,48 @@ instance Prelude.NFData CreateLabelingJob where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf humanTaskConfig
 
-instance Core.ToHeaders CreateLabelingJob where
+instance Data.ToHeaders CreateLabelingJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateLabelingJob" ::
+              Data.=# ( "SageMaker.CreateLabelingJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLabelingJob where
+instance Data.ToJSON CreateLabelingJob where
   toJSON CreateLabelingJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("LabelingJobAlgorithmsConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("LabelingJobAlgorithmsConfig" Data..=)
               Prelude.<$> labelingJobAlgorithmsConfig,
-            ("StoppingConditions" Core..=)
+            ("StoppingConditions" Data..=)
               Prelude.<$> stoppingConditions,
-            ("LabelCategoryConfigS3Uri" Core..=)
+            ("LabelCategoryConfigS3Uri" Data..=)
               Prelude.<$> labelCategoryConfigS3Uri,
             Prelude.Just
-              ("LabelingJobName" Core..= labelingJobName),
+              ("LabelingJobName" Data..= labelingJobName),
             Prelude.Just
-              ("LabelAttributeName" Core..= labelAttributeName),
-            Prelude.Just ("InputConfig" Core..= inputConfig),
-            Prelude.Just ("OutputConfig" Core..= outputConfig),
-            Prelude.Just ("RoleArn" Core..= roleArn),
+              ("LabelAttributeName" Data..= labelAttributeName),
+            Prelude.Just ("InputConfig" Data..= inputConfig),
+            Prelude.Just ("OutputConfig" Data..= outputConfig),
+            Prelude.Just ("RoleArn" Data..= roleArn),
             Prelude.Just
-              ("HumanTaskConfig" Core..= humanTaskConfig)
+              ("HumanTaskConfig" Data..= humanTaskConfig)
           ]
       )
 
-instance Core.ToPath CreateLabelingJob where
+instance Data.ToPath CreateLabelingJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLabelingJob where
+instance Data.ToQuery CreateLabelingJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLabelingJobResponse' smart constructor.

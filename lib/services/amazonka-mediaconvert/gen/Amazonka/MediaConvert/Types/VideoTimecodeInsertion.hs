@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.VideoTimecodeInsertion
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Applies only to H.264, H.265, MPEG2, and ProRes outputs. Only enable
@@ -44,7 +45,7 @@ import qualified Amazonka.Prelude as Prelude
 -- Job settings > Timecode configuration (TimecodeSource) does.
 newtype VideoTimecodeInsertion = VideoTimecodeInsertion'
   { fromVideoTimecodeInsertion ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -56,18 +57,18 @@ newtype VideoTimecodeInsertion = VideoTimecodeInsertion'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern VideoTimecodeInsertion_DISABLED :: VideoTimecodeInsertion

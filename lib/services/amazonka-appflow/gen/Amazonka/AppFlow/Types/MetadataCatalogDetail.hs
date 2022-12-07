@@ -23,6 +23,7 @@ import Amazonka.AppFlow.Types.CatalogType
 import Amazonka.AppFlow.Types.RegistrationOutput
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the metadata catalog, metadata table, and data partitions that
@@ -121,16 +122,16 @@ metadataCatalogDetail_partitionRegistrationOutput = Lens.lens (\MetadataCatalogD
 metadataCatalogDetail_catalogType :: Lens.Lens' MetadataCatalogDetail (Prelude.Maybe CatalogType)
 metadataCatalogDetail_catalogType = Lens.lens (\MetadataCatalogDetail' {catalogType} -> catalogType) (\s@MetadataCatalogDetail' {} a -> s {catalogType = a} :: MetadataCatalogDetail)
 
-instance Core.FromJSON MetadataCatalogDetail where
+instance Data.FromJSON MetadataCatalogDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetadataCatalogDetail"
       ( \x ->
           MetadataCatalogDetail'
-            Prelude.<$> (x Core..:? "tableName")
-            Prelude.<*> (x Core..:? "tableRegistrationOutput")
-            Prelude.<*> (x Core..:? "partitionRegistrationOutput")
-            Prelude.<*> (x Core..:? "catalogType")
+            Prelude.<$> (x Data..:? "tableName")
+            Prelude.<*> (x Data..:? "tableRegistrationOutput")
+            Prelude.<*> (x Data..:? "partitionRegistrationOutput")
+            Prelude.<*> (x Data..:? "catalogType")
       )
 
 instance Prelude.Hashable MetadataCatalogDetail where

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroups.Types
@@ -99,7 +100,7 @@ instance Core.AWSRequest DeleteGroup where
     Response.receiveJSON
       ( \s h x ->
           DeleteGroupResponse'
-            Prelude.<$> (x Core..?> "Group")
+            Prelude.<$> (x Data..?> "Group")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,22 +114,22 @@ instance Prelude.NFData DeleteGroup where
     Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf group'
 
-instance Core.ToHeaders DeleteGroup where
+instance Data.ToHeaders DeleteGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON DeleteGroup where
+instance Data.ToJSON DeleteGroup where
   toJSON DeleteGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GroupName" Core..=) Prelude.<$> groupName,
-            ("Group" Core..=) Prelude.<$> group'
+          [ ("GroupName" Data..=) Prelude.<$> groupName,
+            ("Group" Data..=) Prelude.<$> group'
           ]
       )
 
-instance Core.ToPath DeleteGroup where
+instance Data.ToPath DeleteGroup where
   toPath = Prelude.const "/delete-group"
 
-instance Core.ToQuery DeleteGroup where
+instance Data.ToQuery DeleteGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGroupResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.CostCategorySplitChargeRuleParameter where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostCategorySplitChargeRuleParameterType
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for a split charge method.
@@ -70,15 +71,15 @@ costCategorySplitChargeRuleParameter_values :: Lens.Lens' CostCategorySplitCharg
 costCategorySplitChargeRuleParameter_values = Lens.lens (\CostCategorySplitChargeRuleParameter' {values} -> values) (\s@CostCategorySplitChargeRuleParameter' {} a -> s {values = a} :: CostCategorySplitChargeRuleParameter) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CostCategorySplitChargeRuleParameter
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CostCategorySplitChargeRuleParameter"
       ( \x ->
           CostCategorySplitChargeRuleParameter'
-            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Values")
+            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Values")
       )
 
 instance
@@ -99,13 +100,13 @@ instance
     Prelude.rnf type' `Prelude.seq` Prelude.rnf values
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CostCategorySplitChargeRuleParameter
   where
   toJSON CostCategorySplitChargeRuleParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Values" Core..= values)
+          [ Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

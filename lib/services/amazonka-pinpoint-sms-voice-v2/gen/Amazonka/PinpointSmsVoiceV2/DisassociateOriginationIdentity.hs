@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -155,11 +156,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DisassociateOriginationIdentityResponse'
-            Prelude.<$> (x Core..?> "IsoCountryCode")
-            Prelude.<*> (x Core..?> "OriginationIdentity")
-            Prelude.<*> (x Core..?> "PoolArn")
-            Prelude.<*> (x Core..?> "OriginationIdentityArn")
-            Prelude.<*> (x Core..?> "PoolId")
+            Prelude.<$> (x Data..?> "IsoCountryCode")
+            Prelude.<*> (x Data..?> "OriginationIdentity")
+            Prelude.<*> (x Data..?> "PoolArn")
+            Prelude.<*> (x Data..?> "OriginationIdentityArn")
+            Prelude.<*> (x Data..?> "PoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,40 +187,40 @@ instance
       `Prelude.seq` Prelude.rnf isoCountryCode
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateOriginationIdentity
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.DisassociateOriginationIdentity" ::
+              Data.=# ( "PinpointSMSVoiceV2.DisassociateOriginationIdentity" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateOriginationIdentity where
+instance Data.ToJSON DisassociateOriginationIdentity where
   toJSON DisassociateOriginationIdentity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("PoolId" Core..= poolId),
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("PoolId" Data..= poolId),
             Prelude.Just
-              ("OriginationIdentity" Core..= originationIdentity),
+              ("OriginationIdentity" Data..= originationIdentity),
             Prelude.Just
-              ("IsoCountryCode" Core..= isoCountryCode)
+              ("IsoCountryCode" Data..= isoCountryCode)
           ]
       )
 
-instance Core.ToPath DisassociateOriginationIdentity where
+instance Data.ToPath DisassociateOriginationIdentity where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateOriginationIdentity where
+instance Data.ToQuery DisassociateOriginationIdentity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateOriginationIdentityResponse' smart constructor.

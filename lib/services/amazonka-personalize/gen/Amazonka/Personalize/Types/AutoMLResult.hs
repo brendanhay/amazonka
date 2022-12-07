@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.AutoMLResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | When the solution performs AutoML (@performAutoML@ is true in
@@ -52,13 +53,13 @@ newAutoMLResult =
 autoMLResult_bestRecipeArn :: Lens.Lens' AutoMLResult (Prelude.Maybe Prelude.Text)
 autoMLResult_bestRecipeArn = Lens.lens (\AutoMLResult' {bestRecipeArn} -> bestRecipeArn) (\s@AutoMLResult' {} a -> s {bestRecipeArn = a} :: AutoMLResult)
 
-instance Core.FromJSON AutoMLResult where
+instance Data.FromJSON AutoMLResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoMLResult"
       ( \x ->
           AutoMLResult'
-            Prelude.<$> (x Core..:? "bestRecipeArn")
+            Prelude.<$> (x Data..:? "bestRecipeArn")
       )
 
 instance Prelude.Hashable AutoMLResult where

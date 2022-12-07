@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,7 +125,7 @@ instance Core.AWSRequest GetFunctionConcurrency where
     Response.receiveJSON
       ( \s h x ->
           GetFunctionConcurrencyResponse'
-            Prelude.<$> (x Core..?> "ReservedConcurrentExecutions")
+            Prelude.<$> (x Data..?> "ReservedConcurrentExecutions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,18 +137,18 @@ instance Prelude.NFData GetFunctionConcurrency where
   rnf GetFunctionConcurrency' {..} =
     Prelude.rnf functionName
 
-instance Core.ToHeaders GetFunctionConcurrency where
+instance Data.ToHeaders GetFunctionConcurrency where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetFunctionConcurrency where
+instance Data.ToPath GetFunctionConcurrency where
   toPath GetFunctionConcurrency' {..} =
     Prelude.mconcat
       [ "/2019-09-30/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/concurrency"
       ]
 
-instance Core.ToQuery GetFunctionConcurrency where
+instance Data.ToQuery GetFunctionConcurrency where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFunctionConcurrencyResponse' smart constructor.

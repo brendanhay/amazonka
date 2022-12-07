@@ -21,6 +21,7 @@ module Amazonka.LexRuntime.Types.ResponseCard where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexRuntime.Types.ContentType
 import Amazonka.LexRuntime.Types.GenericAttachment
 import qualified Amazonka.Prelude as Prelude
@@ -75,17 +76,17 @@ responseCard_version = Lens.lens (\ResponseCard' {version} -> version) (\s@Respo
 responseCard_contentType :: Lens.Lens' ResponseCard (Prelude.Maybe ContentType)
 responseCard_contentType = Lens.lens (\ResponseCard' {contentType} -> contentType) (\s@ResponseCard' {} a -> s {contentType = a} :: ResponseCard)
 
-instance Core.FromJSON ResponseCard where
+instance Data.FromJSON ResponseCard where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResponseCard"
       ( \x ->
           ResponseCard'
-            Prelude.<$> ( x Core..:? "genericAttachments"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "genericAttachments"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "version")
-            Prelude.<*> (x Core..:? "contentType")
+            Prelude.<*> (x Data..:? "version")
+            Prelude.<*> (x Data..:? "contentType")
       )
 
 instance Prelude.Hashable ResponseCard where

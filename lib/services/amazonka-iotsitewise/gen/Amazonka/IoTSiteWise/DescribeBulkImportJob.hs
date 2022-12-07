@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,15 +96,15 @@ instance Core.AWSRequest DescribeBulkImportJob where
       ( \s h x ->
           DescribeBulkImportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "jobId")
-            Prelude.<*> (x Core..:> "jobName")
-            Prelude.<*> (x Core..:> "jobStatus")
-            Prelude.<*> (x Core..:> "jobRoleArn")
-            Prelude.<*> (x Core..?> "files" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "errorReportLocation")
-            Prelude.<*> (x Core..:> "jobConfiguration")
-            Prelude.<*> (x Core..:> "jobCreationDate")
-            Prelude.<*> (x Core..:> "jobLastUpdateDate")
+            Prelude.<*> (x Data..:> "jobId")
+            Prelude.<*> (x Data..:> "jobName")
+            Prelude.<*> (x Data..:> "jobStatus")
+            Prelude.<*> (x Data..:> "jobRoleArn")
+            Prelude.<*> (x Data..?> "files" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "errorReportLocation")
+            Prelude.<*> (x Data..:> "jobConfiguration")
+            Prelude.<*> (x Data..:> "jobCreationDate")
+            Prelude.<*> (x Data..:> "jobLastUpdateDate")
       )
 
 instance Prelude.Hashable DescribeBulkImportJob where
@@ -113,22 +114,22 @@ instance Prelude.Hashable DescribeBulkImportJob where
 instance Prelude.NFData DescribeBulkImportJob where
   rnf DescribeBulkImportJob' {..} = Prelude.rnf jobId
 
-instance Core.ToHeaders DescribeBulkImportJob where
+instance Data.ToHeaders DescribeBulkImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeBulkImportJob where
+instance Data.ToPath DescribeBulkImportJob where
   toPath DescribeBulkImportJob' {..} =
-    Prelude.mconcat ["/jobs/", Core.toBS jobId]
+    Prelude.mconcat ["/jobs/", Data.toBS jobId]
 
-instance Core.ToQuery DescribeBulkImportJob where
+instance Data.ToQuery DescribeBulkImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeBulkImportJobResponse' smart constructor.
@@ -174,9 +175,9 @@ data DescribeBulkImportJobResponse = DescribeBulkImportJobResponse'
     -- used to save data in Amazon S3.
     jobConfiguration :: JobConfiguration,
     -- | The date the job was created, in Unix epoch TIME.
-    jobCreationDate :: Core.POSIX,
+    jobCreationDate :: Data.POSIX,
     -- | The date the job was last updated, in Unix epoch time.
-    jobLastUpdateDate :: Core.POSIX
+    jobLastUpdateDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -272,9 +273,9 @@ newDescribeBulkImportJobResponse
         errorReportLocation = pErrorReportLocation_,
         jobConfiguration = pJobConfiguration_,
         jobCreationDate =
-          Core._Time Lens.# pJobCreationDate_,
+          Data._Time Lens.# pJobCreationDate_,
         jobLastUpdateDate =
-          Core._Time Lens.# pJobLastUpdateDate_
+          Data._Time Lens.# pJobLastUpdateDate_
       }
 
 -- | The response's http status code.
@@ -335,11 +336,11 @@ describeBulkImportJobResponse_jobConfiguration = Lens.lens (\DescribeBulkImportJ
 
 -- | The date the job was created, in Unix epoch TIME.
 describeBulkImportJobResponse_jobCreationDate :: Lens.Lens' DescribeBulkImportJobResponse Prelude.UTCTime
-describeBulkImportJobResponse_jobCreationDate = Lens.lens (\DescribeBulkImportJobResponse' {jobCreationDate} -> jobCreationDate) (\s@DescribeBulkImportJobResponse' {} a -> s {jobCreationDate = a} :: DescribeBulkImportJobResponse) Prelude.. Core._Time
+describeBulkImportJobResponse_jobCreationDate = Lens.lens (\DescribeBulkImportJobResponse' {jobCreationDate} -> jobCreationDate) (\s@DescribeBulkImportJobResponse' {} a -> s {jobCreationDate = a} :: DescribeBulkImportJobResponse) Prelude.. Data._Time
 
 -- | The date the job was last updated, in Unix epoch time.
 describeBulkImportJobResponse_jobLastUpdateDate :: Lens.Lens' DescribeBulkImportJobResponse Prelude.UTCTime
-describeBulkImportJobResponse_jobLastUpdateDate = Lens.lens (\DescribeBulkImportJobResponse' {jobLastUpdateDate} -> jobLastUpdateDate) (\s@DescribeBulkImportJobResponse' {} a -> s {jobLastUpdateDate = a} :: DescribeBulkImportJobResponse) Prelude.. Core._Time
+describeBulkImportJobResponse_jobLastUpdateDate = Lens.lens (\DescribeBulkImportJobResponse' {jobLastUpdateDate} -> jobLastUpdateDate) (\s@DescribeBulkImportJobResponse' {} a -> s {jobLastUpdateDate = a} :: DescribeBulkImportJobResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeBulkImportJobResponse where
   rnf DescribeBulkImportJobResponse' {..} =

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,22 +107,22 @@ instance Prelude.NFData SetV2LoggingLevel where
     Prelude.rnf logTarget
       `Prelude.seq` Prelude.rnf logLevel
 
-instance Core.ToHeaders SetV2LoggingLevel where
+instance Data.ToHeaders SetV2LoggingLevel where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON SetV2LoggingLevel where
+instance Data.ToJSON SetV2LoggingLevel where
   toJSON SetV2LoggingLevel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("logTarget" Core..= logTarget),
-            Prelude.Just ("logLevel" Core..= logLevel)
+          [ Prelude.Just ("logTarget" Data..= logTarget),
+            Prelude.Just ("logLevel" Data..= logLevel)
           ]
       )
 
-instance Core.ToPath SetV2LoggingLevel where
+instance Data.ToPath SetV2LoggingLevel where
   toPath = Prelude.const "/v2LoggingLevel"
 
-instance Core.ToQuery SetV2LoggingLevel where
+instance Data.ToQuery SetV2LoggingLevel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetV2LoggingLevelResponse' smart constructor.

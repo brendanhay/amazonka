@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.HttpHeaderConditionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an HTTP header condition.
@@ -110,12 +111,12 @@ httpHeaderConditionConfig_httpHeaderName = Lens.lens (\HttpHeaderConditionConfig
 httpHeaderConditionConfig_values :: Lens.Lens' HttpHeaderConditionConfig (Prelude.Maybe [Prelude.Text])
 httpHeaderConditionConfig_values = Lens.lens (\HttpHeaderConditionConfig' {values} -> values) (\s@HttpHeaderConditionConfig' {} a -> s {values = a} :: HttpHeaderConditionConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML HttpHeaderConditionConfig where
+instance Data.FromXML HttpHeaderConditionConfig where
   parseXML x =
     HttpHeaderConditionConfig'
-      Prelude.<$> (x Core..@? "HttpHeaderName")
-      Prelude.<*> ( x Core..@? "Values" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "HttpHeaderName")
+      Prelude.<*> ( x Data..@? "Values" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable HttpHeaderConditionConfig where
@@ -128,11 +129,11 @@ instance Prelude.NFData HttpHeaderConditionConfig where
     Prelude.rnf httpHeaderName
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToQuery HttpHeaderConditionConfig where
+instance Data.ToQuery HttpHeaderConditionConfig where
   toQuery HttpHeaderConditionConfig' {..} =
     Prelude.mconcat
-      [ "HttpHeaderName" Core.=: httpHeaderName,
+      [ "HttpHeaderName" Data.=: httpHeaderName,
         "Values"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> values)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> values)
       ]

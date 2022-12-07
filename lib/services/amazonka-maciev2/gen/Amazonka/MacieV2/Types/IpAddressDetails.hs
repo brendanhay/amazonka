@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.IpAddressDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.IpCity
 import Amazonka.MacieV2.Types.IpCountry
 import Amazonka.MacieV2.Types.IpGeoLocation
@@ -96,17 +97,17 @@ ipAddressDetails_ipGeoLocation = Lens.lens (\IpAddressDetails' {ipGeoLocation} -
 ipAddressDetails_ipCity :: Lens.Lens' IpAddressDetails (Prelude.Maybe IpCity)
 ipAddressDetails_ipCity = Lens.lens (\IpAddressDetails' {ipCity} -> ipCity) (\s@IpAddressDetails' {} a -> s {ipCity = a} :: IpAddressDetails)
 
-instance Core.FromJSON IpAddressDetails where
+instance Data.FromJSON IpAddressDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IpAddressDetails"
       ( \x ->
           IpAddressDetails'
-            Prelude.<$> (x Core..:? "ipCountry")
-            Prelude.<*> (x Core..:? "ipAddressV4")
-            Prelude.<*> (x Core..:? "ipOwner")
-            Prelude.<*> (x Core..:? "ipGeoLocation")
-            Prelude.<*> (x Core..:? "ipCity")
+            Prelude.<$> (x Data..:? "ipCountry")
+            Prelude.<*> (x Data..:? "ipAddressV4")
+            Prelude.<*> (x Data..:? "ipOwner")
+            Prelude.<*> (x Data..:? "ipGeoLocation")
+            Prelude.<*> (x Data..:? "ipCity")
       )
 
 instance Prelude.Hashable IpAddressDetails where

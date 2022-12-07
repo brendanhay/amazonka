@@ -48,6 +48,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,9 +135,9 @@ instance Core.AWSRequest ListActionTypes where
     Response.receiveJSON
       ( \s h x ->
           ListActionTypesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "actionTypes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "actionTypes" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListActionTypes where
@@ -151,36 +152,36 @@ instance Prelude.NFData ListActionTypes where
       `Prelude.seq` Prelude.rnf regionFilter
       `Prelude.seq` Prelude.rnf actionOwnerFilter
 
-instance Core.ToHeaders ListActionTypes where
+instance Data.ToHeaders ListActionTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.ListActionTypes" ::
+              Data.=# ( "CodePipeline_20150709.ListActionTypes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListActionTypes where
+instance Data.ToJSON ListActionTypes where
   toJSON ListActionTypes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("regionFilter" Core..=) Prelude.<$> regionFilter,
-            ("actionOwnerFilter" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("regionFilter" Data..=) Prelude.<$> regionFilter,
+            ("actionOwnerFilter" Data..=)
               Prelude.<$> actionOwnerFilter
           ]
       )
 
-instance Core.ToPath ListActionTypes where
+instance Data.ToPath ListActionTypes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListActionTypes where
+instance Data.ToQuery ListActionTypes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @ListActionTypes@ action.

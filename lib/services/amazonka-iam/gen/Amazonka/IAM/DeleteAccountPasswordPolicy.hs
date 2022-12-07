@@ -35,6 +35,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -72,22 +73,22 @@ instance Prelude.Hashable DeleteAccountPasswordPolicy where
 instance Prelude.NFData DeleteAccountPasswordPolicy where
   rnf _ = ()
 
-instance Core.ToHeaders DeleteAccountPasswordPolicy where
+instance Data.ToHeaders DeleteAccountPasswordPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteAccountPasswordPolicy where
+instance Data.ToPath DeleteAccountPasswordPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAccountPasswordPolicy where
+instance Data.ToQuery DeleteAccountPasswordPolicy where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ( "DeleteAccountPasswordPolicy" ::
+              Data.=: ( "DeleteAccountPasswordPolicy" ::
                           Prelude.ByteString
                       ),
             "Version"
-              Core.=: ("2010-05-08" :: Prelude.ByteString)
+              Data.=: ("2010-05-08" :: Prelude.ByteString)
           ]
       )
 

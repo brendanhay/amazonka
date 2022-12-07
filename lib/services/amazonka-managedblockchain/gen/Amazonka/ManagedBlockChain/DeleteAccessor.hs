@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,23 +106,23 @@ instance Prelude.Hashable DeleteAccessor where
 instance Prelude.NFData DeleteAccessor where
   rnf DeleteAccessor' {..} = Prelude.rnf accessorId
 
-instance Core.ToHeaders DeleteAccessor where
+instance Data.ToHeaders DeleteAccessor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteAccessor where
+instance Data.ToPath DeleteAccessor where
   toPath DeleteAccessor' {..} =
     Prelude.mconcat
-      ["/accessors/", Core.toBS accessorId]
+      ["/accessors/", Data.toBS accessorId]
 
-instance Core.ToQuery DeleteAccessor where
+instance Data.ToQuery DeleteAccessor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAccessorResponse' smart constructor.

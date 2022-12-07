@@ -52,6 +52,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -62,13 +63,13 @@ data CreateMeetingDialOut = CreateMeetingDialOut'
     meetingId :: Prelude.Text,
     -- | Phone number used as the caller ID when the remote party receives a
     -- call.
-    fromPhoneNumber :: Core.Sensitive Prelude.Text,
+    fromPhoneNumber :: Data.Sensitive Prelude.Text,
     -- | Phone number called when inviting someone to a meeting.
-    toPhoneNumber :: Core.Sensitive Prelude.Text,
+    toPhoneNumber :: Data.Sensitive Prelude.Text,
     -- | Token used by the Amazon Chime SDK attendee. Call the
     -- <https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html CreateAttendee>
     -- action to get a join token.
-    joinToken :: Core.Sensitive Prelude.Text
+    joinToken :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -108,10 +109,10 @@ newCreateMeetingDialOut
     CreateMeetingDialOut'
       { meetingId = pMeetingId_,
         fromPhoneNumber =
-          Core._Sensitive Lens.# pFromPhoneNumber_,
+          Data._Sensitive Lens.# pFromPhoneNumber_,
         toPhoneNumber =
-          Core._Sensitive Lens.# pToPhoneNumber_,
-        joinToken = Core._Sensitive Lens.# pJoinToken_
+          Data._Sensitive Lens.# pToPhoneNumber_,
+        joinToken = Data._Sensitive Lens.# pJoinToken_
       }
 
 -- | The Amazon Chime SDK meeting ID.
@@ -121,17 +122,17 @@ createMeetingDialOut_meetingId = Lens.lens (\CreateMeetingDialOut' {meetingId} -
 -- | Phone number used as the caller ID when the remote party receives a
 -- call.
 createMeetingDialOut_fromPhoneNumber :: Lens.Lens' CreateMeetingDialOut Prelude.Text
-createMeetingDialOut_fromPhoneNumber = Lens.lens (\CreateMeetingDialOut' {fromPhoneNumber} -> fromPhoneNumber) (\s@CreateMeetingDialOut' {} a -> s {fromPhoneNumber = a} :: CreateMeetingDialOut) Prelude.. Core._Sensitive
+createMeetingDialOut_fromPhoneNumber = Lens.lens (\CreateMeetingDialOut' {fromPhoneNumber} -> fromPhoneNumber) (\s@CreateMeetingDialOut' {} a -> s {fromPhoneNumber = a} :: CreateMeetingDialOut) Prelude.. Data._Sensitive
 
 -- | Phone number called when inviting someone to a meeting.
 createMeetingDialOut_toPhoneNumber :: Lens.Lens' CreateMeetingDialOut Prelude.Text
-createMeetingDialOut_toPhoneNumber = Lens.lens (\CreateMeetingDialOut' {toPhoneNumber} -> toPhoneNumber) (\s@CreateMeetingDialOut' {} a -> s {toPhoneNumber = a} :: CreateMeetingDialOut) Prelude.. Core._Sensitive
+createMeetingDialOut_toPhoneNumber = Lens.lens (\CreateMeetingDialOut' {toPhoneNumber} -> toPhoneNumber) (\s@CreateMeetingDialOut' {} a -> s {toPhoneNumber = a} :: CreateMeetingDialOut) Prelude.. Data._Sensitive
 
 -- | Token used by the Amazon Chime SDK attendee. Call the
 -- <https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html CreateAttendee>
 -- action to get a join token.
 createMeetingDialOut_joinToken :: Lens.Lens' CreateMeetingDialOut Prelude.Text
-createMeetingDialOut_joinToken = Lens.lens (\CreateMeetingDialOut' {joinToken} -> joinToken) (\s@CreateMeetingDialOut' {} a -> s {joinToken = a} :: CreateMeetingDialOut) Prelude.. Core._Sensitive
+createMeetingDialOut_joinToken = Lens.lens (\CreateMeetingDialOut' {joinToken} -> joinToken) (\s@CreateMeetingDialOut' {} a -> s {joinToken = a} :: CreateMeetingDialOut) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateMeetingDialOut where
   type
@@ -143,7 +144,7 @@ instance Core.AWSRequest CreateMeetingDialOut where
     Response.receiveJSON
       ( \s h x ->
           CreateMeetingDialOutResponse'
-            Prelude.<$> (x Core..?> "TransactionId")
+            Prelude.<$> (x Data..?> "TransactionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,26 +162,26 @@ instance Prelude.NFData CreateMeetingDialOut where
       `Prelude.seq` Prelude.rnf toPhoneNumber
       `Prelude.seq` Prelude.rnf joinToken
 
-instance Core.ToHeaders CreateMeetingDialOut where
+instance Data.ToHeaders CreateMeetingDialOut where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateMeetingDialOut where
+instance Data.ToJSON CreateMeetingDialOut where
   toJSON CreateMeetingDialOut' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("FromPhoneNumber" Core..= fromPhoneNumber),
-            Prelude.Just ("ToPhoneNumber" Core..= toPhoneNumber),
-            Prelude.Just ("JoinToken" Core..= joinToken)
+              ("FromPhoneNumber" Data..= fromPhoneNumber),
+            Prelude.Just ("ToPhoneNumber" Data..= toPhoneNumber),
+            Prelude.Just ("JoinToken" Data..= joinToken)
           ]
       )
 
-instance Core.ToPath CreateMeetingDialOut where
+instance Data.ToPath CreateMeetingDialOut where
   toPath CreateMeetingDialOut' {..} =
     Prelude.mconcat
-      ["/meetings/", Core.toBS meetingId, "/dial-outs"]
+      ["/meetings/", Data.toBS meetingId, "/dial-outs"]
 
-instance Core.ToQuery CreateMeetingDialOut where
+instance Data.ToQuery CreateMeetingDialOut where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateMeetingDialOutResponse' smart constructor.

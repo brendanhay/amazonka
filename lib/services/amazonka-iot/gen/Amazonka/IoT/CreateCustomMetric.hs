@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,8 +175,8 @@ instance Core.AWSRequest CreateCustomMetric where
     Response.receiveJSON
       ( \s h x ->
           CreateCustomMetricResponse'
-            Prelude.<$> (x Core..?> "metricArn")
-            Prelude.<*> (x Core..?> "metricName")
+            Prelude.<$> (x Data..?> "metricArn")
+            Prelude.<*> (x Data..?> "metricName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,27 +196,27 @@ instance Prelude.NFData CreateCustomMetric where
       `Prelude.seq` Prelude.rnf metricType
       `Prelude.seq` Prelude.rnf clientRequestToken
 
-instance Core.ToHeaders CreateCustomMetric where
+instance Data.ToHeaders CreateCustomMetric where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateCustomMetric where
+instance Data.ToJSON CreateCustomMetric where
   toJSON CreateCustomMetric' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("displayName" Core..=) Prelude.<$> displayName,
-            Prelude.Just ("metricType" Core..= metricType),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("displayName" Data..=) Prelude.<$> displayName,
+            Prelude.Just ("metricType" Data..= metricType),
             Prelude.Just
-              ("clientRequestToken" Core..= clientRequestToken)
+              ("clientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath CreateCustomMetric where
+instance Data.ToPath CreateCustomMetric where
   toPath CreateCustomMetric' {..} =
     Prelude.mconcat
-      ["/custom-metric/", Core.toBS metricName]
+      ["/custom-metric/", Data.toBS metricName]
 
-instance Core.ToQuery CreateCustomMetric where
+instance Data.ToQuery CreateCustomMetric where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCustomMetricResponse' smart constructor.

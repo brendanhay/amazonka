@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.Comment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a specific comment.
@@ -38,11 +39,11 @@ data Comment = Comment'
     reactionCounts :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int),
     -- | The date and time the comment was most recently modified, in timestamp
     -- format.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | A Boolean value indicating whether the comment has been deleted.
     deleted :: Prelude.Maybe Prelude.Bool,
     -- | The date and time the comment was created, in timestamp format.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The system-generated comment ID.
     commentId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the comment for which this comment is a reply, if any.
@@ -123,7 +124,7 @@ comment_reactionCounts = Lens.lens (\Comment' {reactionCounts} -> reactionCounts
 -- | The date and time the comment was most recently modified, in timestamp
 -- format.
 comment_lastModifiedDate :: Lens.Lens' Comment (Prelude.Maybe Prelude.UTCTime)
-comment_lastModifiedDate = Lens.lens (\Comment' {lastModifiedDate} -> lastModifiedDate) (\s@Comment' {} a -> s {lastModifiedDate = a} :: Comment) Prelude.. Lens.mapping Core._Time
+comment_lastModifiedDate = Lens.lens (\Comment' {lastModifiedDate} -> lastModifiedDate) (\s@Comment' {} a -> s {lastModifiedDate = a} :: Comment) Prelude.. Lens.mapping Data._Time
 
 -- | A Boolean value indicating whether the comment has been deleted.
 comment_deleted :: Lens.Lens' Comment (Prelude.Maybe Prelude.Bool)
@@ -131,7 +132,7 @@ comment_deleted = Lens.lens (\Comment' {deleted} -> deleted) (\s@Comment' {} a -
 
 -- | The date and time the comment was created, in timestamp format.
 comment_creationDate :: Lens.Lens' Comment (Prelude.Maybe Prelude.UTCTime)
-comment_creationDate = Lens.lens (\Comment' {creationDate} -> creationDate) (\s@Comment' {} a -> s {creationDate = a} :: Comment) Prelude.. Lens.mapping Core._Time
+comment_creationDate = Lens.lens (\Comment' {creationDate} -> creationDate) (\s@Comment' {} a -> s {creationDate = a} :: Comment) Prelude.. Lens.mapping Data._Time
 
 -- | The system-generated comment ID.
 comment_commentId :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
@@ -154,23 +155,23 @@ comment_content = Lens.lens (\Comment' {content} -> content) (\s@Comment' {} a -
 comment_callerReactions :: Lens.Lens' Comment (Prelude.Maybe [Prelude.Text])
 comment_callerReactions = Lens.lens (\Comment' {callerReactions} -> callerReactions) (\s@Comment' {} a -> s {callerReactions = a} :: Comment) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Comment where
+instance Data.FromJSON Comment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Comment"
       ( \x ->
           Comment'
-            Prelude.<$> (x Core..:? "clientRequestToken")
-            Prelude.<*> (x Core..:? "reactionCounts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "lastModifiedDate")
-            Prelude.<*> (x Core..:? "deleted")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "commentId")
-            Prelude.<*> (x Core..:? "inReplyTo")
-            Prelude.<*> (x Core..:? "authorArn")
-            Prelude.<*> (x Core..:? "content")
-            Prelude.<*> ( x Core..:? "callerReactions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "clientRequestToken")
+            Prelude.<*> (x Data..:? "reactionCounts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "lastModifiedDate")
+            Prelude.<*> (x Data..:? "deleted")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "commentId")
+            Prelude.<*> (x Data..:? "inReplyTo")
+            Prelude.<*> (x Data..:? "authorArn")
+            Prelude.<*> (x Data..:? "content")
+            Prelude.<*> ( x Data..:? "callerReactions"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,36 +91,36 @@ instance Prelude.NFData DeleteMetricAttribution where
   rnf DeleteMetricAttribution' {..} =
     Prelude.rnf metricAttributionArn
 
-instance Core.ToHeaders DeleteMetricAttribution where
+instance Data.ToHeaders DeleteMetricAttribution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DeleteMetricAttribution" ::
+              Data.=# ( "AmazonPersonalize.DeleteMetricAttribution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteMetricAttribution where
+instance Data.ToJSON DeleteMetricAttribution where
   toJSON DeleteMetricAttribution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "metricAttributionArn"
-                  Core..= metricAttributionArn
+                  Data..= metricAttributionArn
               )
           ]
       )
 
-instance Core.ToPath DeleteMetricAttribution where
+instance Data.ToPath DeleteMetricAttribution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteMetricAttribution where
+instance Data.ToQuery DeleteMetricAttribution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMetricAttributionResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.ProjectDataDelivery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.CloudWatchLogsDestination
 import Amazonka.Evidently.Types.S3Destination
 import qualified Amazonka.Prelude as Prelude
@@ -71,14 +72,14 @@ projectDataDelivery_cloudWatchLogs = Lens.lens (\ProjectDataDelivery' {cloudWatc
 projectDataDelivery_s3Destination :: Lens.Lens' ProjectDataDelivery (Prelude.Maybe S3Destination)
 projectDataDelivery_s3Destination = Lens.lens (\ProjectDataDelivery' {s3Destination} -> s3Destination) (\s@ProjectDataDelivery' {} a -> s {s3Destination = a} :: ProjectDataDelivery)
 
-instance Core.FromJSON ProjectDataDelivery where
+instance Data.FromJSON ProjectDataDelivery where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectDataDelivery"
       ( \x ->
           ProjectDataDelivery'
-            Prelude.<$> (x Core..:? "cloudWatchLogs")
-            Prelude.<*> (x Core..:? "s3Destination")
+            Prelude.<$> (x Data..:? "cloudWatchLogs")
+            Prelude.<*> (x Data..:? "s3Destination")
       )
 
 instance Prelude.Hashable ProjectDataDelivery where

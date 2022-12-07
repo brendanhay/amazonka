@@ -62,6 +62,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,9 +143,9 @@ instance Core.AWSRequest PutDashboard where
       "PutDashboardResult"
       ( \s h x ->
           PutDashboardResponse'
-            Prelude.<$> ( x Core..@? "DashboardValidationMessages"
+            Prelude.<$> ( x Data..@? "DashboardValidationMessages"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -159,21 +160,21 @@ instance Prelude.NFData PutDashboard where
     Prelude.rnf dashboardName
       `Prelude.seq` Prelude.rnf dashboardBody
 
-instance Core.ToHeaders PutDashboard where
+instance Data.ToHeaders PutDashboard where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutDashboard where
+instance Data.ToPath PutDashboard where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutDashboard where
+instance Data.ToQuery PutDashboard where
   toQuery PutDashboard' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PutDashboard" :: Prelude.ByteString),
+          Data.=: ("PutDashboard" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "DashboardName" Core.=: dashboardName,
-        "DashboardBody" Core.=: dashboardBody
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
+        "DashboardName" Data.=: dashboardName,
+        "DashboardBody" Data.=: dashboardBody
       ]
 
 -- | /See:/ 'newPutDashboardResponse' smart constructor.

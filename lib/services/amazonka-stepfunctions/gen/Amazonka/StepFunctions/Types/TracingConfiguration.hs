@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.TracingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Selects whether or not the state machine\'s X-Ray tracing is enabled.
@@ -51,13 +52,13 @@ newTracingConfiguration =
 tracingConfiguration_enabled :: Lens.Lens' TracingConfiguration (Prelude.Maybe Prelude.Bool)
 tracingConfiguration_enabled = Lens.lens (\TracingConfiguration' {enabled} -> enabled) (\s@TracingConfiguration' {} a -> s {enabled = a} :: TracingConfiguration)
 
-instance Core.FromJSON TracingConfiguration where
+instance Data.FromJSON TracingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TracingConfiguration"
       ( \x ->
           TracingConfiguration'
-            Prelude.<$> (x Core..:? "enabled")
+            Prelude.<$> (x Data..:? "enabled")
       )
 
 instance Prelude.Hashable TracingConfiguration where
@@ -67,9 +68,9 @@ instance Prelude.Hashable TracingConfiguration where
 instance Prelude.NFData TracingConfiguration where
   rnf TracingConfiguration' {..} = Prelude.rnf enabled
 
-instance Core.ToJSON TracingConfiguration where
+instance Data.ToJSON TracingConfiguration where
   toJSON TracingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("enabled" Core..=) Prelude.<$> enabled]
+          [("enabled" Data..=) Prelude.<$> enabled]
       )

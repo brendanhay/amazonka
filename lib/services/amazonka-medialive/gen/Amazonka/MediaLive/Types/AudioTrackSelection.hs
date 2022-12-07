@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.AudioTrackSelection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AudioTrack
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newAudioTrackSelection =
 audioTrackSelection_tracks :: Lens.Lens' AudioTrackSelection [AudioTrack]
 audioTrackSelection_tracks = Lens.lens (\AudioTrackSelection' {tracks} -> tracks) (\s@AudioTrackSelection' {} a -> s {tracks = a} :: AudioTrackSelection) Prelude.. Lens.coerced
 
-instance Core.FromJSON AudioTrackSelection where
+instance Data.FromJSON AudioTrackSelection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioTrackSelection"
       ( \x ->
           AudioTrackSelection'
-            Prelude.<$> (x Core..:? "tracks" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "tracks" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AudioTrackSelection where
@@ -67,9 +68,9 @@ instance Prelude.Hashable AudioTrackSelection where
 instance Prelude.NFData AudioTrackSelection where
   rnf AudioTrackSelection' {..} = Prelude.rnf tracks
 
-instance Core.ToJSON AudioTrackSelection where
+instance Data.ToJSON AudioTrackSelection where
   toJSON AudioTrackSelection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("tracks" Core..= tracks)]
+          [Prelude.Just ("tracks" Data..= tracks)]
       )

@@ -59,6 +59,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,13 +164,13 @@ instance Core.AWSRequest CreateEndpoint where
     Response.receiveJSON
       ( \s h x ->
           CreateEndpointResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "RoutingConfig")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "ReplicationConfig")
-            Prelude.<*> (x Core..?> "EventBuses")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "RoutingConfig")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "ReplicationConfig")
+            Prelude.<*> (x Data..?> "EventBuses")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,37 +192,37 @@ instance Prelude.NFData CreateEndpoint where
       `Prelude.seq` Prelude.rnf routingConfig
       `Prelude.seq` Prelude.rnf eventBuses
 
-instance Core.ToHeaders CreateEndpoint where
+instance Data.ToHeaders CreateEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.CreateEndpoint" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.CreateEndpoint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEndpoint where
+instance Data.ToJSON CreateEndpoint where
   toJSON CreateEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("ReplicationConfig" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("ReplicationConfig" Data..=)
               Prelude.<$> replicationConfig,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("RoutingConfig" Core..= routingConfig),
-            Prelude.Just ("EventBuses" Core..= eventBuses)
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("RoutingConfig" Data..= routingConfig),
+            Prelude.Just ("EventBuses" Data..= eventBuses)
           ]
       )
 
-instance Core.ToPath CreateEndpoint where
+instance Data.ToPath CreateEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEndpoint where
+instance Data.ToQuery CreateEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEndpointResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,7 +134,7 @@ instance Core.AWSRequest UpdateTheme where
     Response.receiveJSON
       ( \s h x ->
           UpdateThemeResponse'
-            Prelude.<$> (Core.eitherParseJSON x)
+            Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,34 +154,34 @@ instance Prelude.NFData UpdateTheme where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf updatedTheme
 
-instance Core.ToHeaders UpdateTheme where
+instance Data.ToHeaders UpdateTheme where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTheme where
-  toJSON UpdateTheme' {..} = Core.toJSON updatedTheme
+instance Data.ToJSON UpdateTheme where
+  toJSON UpdateTheme' {..} = Data.toJSON updatedTheme
 
-instance Core.ToPath UpdateTheme where
+instance Data.ToPath UpdateTheme where
   toPath UpdateTheme' {..} =
     Prelude.mconcat
       [ "/app/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/environment/",
-        Core.toBS environmentName,
+        Data.toBS environmentName,
         "/themes/",
-        Core.toBS id
+        Data.toBS id
       ]
 
-instance Core.ToQuery UpdateTheme where
+instance Data.ToQuery UpdateTheme where
   toQuery UpdateTheme' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | /See:/ 'newUpdateThemeResponse' smart constructor.
 data UpdateThemeResponse = UpdateThemeResponse'

@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -442,9 +443,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetInterpolatedAssetPropertyValuesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Core..?> "interpolatedAssetPropertyValues"
+              Prelude.<*> ( x Data..?> "interpolatedAssetPropertyValues"
                               Core..!@ Prelude.mempty
                           )
       )
@@ -490,46 +491,46 @@ instance
       `Prelude.seq` Prelude.rnf type'
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetInterpolatedAssetPropertyValues
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetInterpolatedAssetPropertyValues
   where
   toPath = Prelude.const "/properties/interpolated"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetInterpolatedAssetPropertyValues
   where
   toQuery GetInterpolatedAssetPropertyValues' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "propertyAlias" Core.=: propertyAlias,
-        "assetId" Core.=: assetId,
+      [ "nextToken" Data.=: nextToken,
+        "propertyAlias" Data.=: propertyAlias,
+        "assetId" Data.=: assetId,
         "startTimeOffsetInNanos"
-          Core.=: startTimeOffsetInNanos,
-        "endTimeOffsetInNanos" Core.=: endTimeOffsetInNanos,
-        "propertyId" Core.=: propertyId,
-        "maxResults" Core.=: maxResults,
+          Data.=: startTimeOffsetInNanos,
+        "endTimeOffsetInNanos" Data.=: endTimeOffsetInNanos,
+        "propertyId" Data.=: propertyId,
+        "maxResults" Data.=: maxResults,
         "intervalWindowInSeconds"
-          Core.=: intervalWindowInSeconds,
-        "startTimeInSeconds" Core.=: startTimeInSeconds,
-        "endTimeInSeconds" Core.=: endTimeInSeconds,
-        "quality" Core.=: quality,
-        "intervalInSeconds" Core.=: intervalInSeconds,
-        "type" Core.=: type'
+          Data.=: intervalWindowInSeconds,
+        "startTimeInSeconds" Data.=: startTimeInSeconds,
+        "endTimeInSeconds" Data.=: endTimeInSeconds,
+        "quality" Data.=: quality,
+        "intervalInSeconds" Data.=: intervalInSeconds,
+        "type" Data.=: type'
       ]
 
 -- | /See:/ 'newGetInterpolatedAssetPropertyValuesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.WavSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.WavFormat
 import qualified Amazonka.Prelude as Prelude
 
@@ -99,16 +100,16 @@ wavSettings_format = Lens.lens (\WavSettings' {format} -> format) (\s@WavSetting
 wavSettings_sampleRate :: Lens.Lens' WavSettings (Prelude.Maybe Prelude.Natural)
 wavSettings_sampleRate = Lens.lens (\WavSettings' {sampleRate} -> sampleRate) (\s@WavSettings' {} a -> s {sampleRate = a} :: WavSettings)
 
-instance Core.FromJSON WavSettings where
+instance Data.FromJSON WavSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WavSettings"
       ( \x ->
           WavSettings'
-            Prelude.<$> (x Core..:? "bitDepth")
-            Prelude.<*> (x Core..:? "channels")
-            Prelude.<*> (x Core..:? "format")
-            Prelude.<*> (x Core..:? "sampleRate")
+            Prelude.<$> (x Data..:? "bitDepth")
+            Prelude.<*> (x Data..:? "channels")
+            Prelude.<*> (x Data..:? "format")
+            Prelude.<*> (x Data..:? "sampleRate")
       )
 
 instance Prelude.Hashable WavSettings where
@@ -125,13 +126,13 @@ instance Prelude.NFData WavSettings where
       `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf sampleRate
 
-instance Core.ToJSON WavSettings where
+instance Data.ToJSON WavSettings where
   toJSON WavSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bitDepth" Core..=) Prelude.<$> bitDepth,
-            ("channels" Core..=) Prelude.<$> channels,
-            ("format" Core..=) Prelude.<$> format,
-            ("sampleRate" Core..=) Prelude.<$> sampleRate
+          [ ("bitDepth" Data..=) Prelude.<$> bitDepth,
+            ("channels" Data..=) Prelude.<$> channels,
+            ("format" Data..=) Prelude.<$> format,
+            ("sampleRate" Data..=) Prelude.<$> sampleRate
           ]
       )

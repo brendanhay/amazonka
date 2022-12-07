@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.TransformEncryption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.MLUserDataEncryption
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,14 +72,14 @@ transformEncryption_taskRunSecurityConfigurationName = Lens.lens (\TransformEncr
 transformEncryption_mlUserDataEncryption :: Lens.Lens' TransformEncryption (Prelude.Maybe MLUserDataEncryption)
 transformEncryption_mlUserDataEncryption = Lens.lens (\TransformEncryption' {mlUserDataEncryption} -> mlUserDataEncryption) (\s@TransformEncryption' {} a -> s {mlUserDataEncryption = a} :: TransformEncryption)
 
-instance Core.FromJSON TransformEncryption where
+instance Data.FromJSON TransformEncryption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransformEncryption"
       ( \x ->
           TransformEncryption'
-            Prelude.<$> (x Core..:? "TaskRunSecurityConfigurationName")
-            Prelude.<*> (x Core..:? "MlUserDataEncryption")
+            Prelude.<$> (x Data..:? "TaskRunSecurityConfigurationName")
+            Prelude.<*> (x Data..:? "MlUserDataEncryption")
       )
 
 instance Prelude.Hashable TransformEncryption where
@@ -92,13 +93,13 @@ instance Prelude.NFData TransformEncryption where
     Prelude.rnf taskRunSecurityConfigurationName
       `Prelude.seq` Prelude.rnf mlUserDataEncryption
 
-instance Core.ToJSON TransformEncryption where
+instance Data.ToJSON TransformEncryption where
   toJSON TransformEncryption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TaskRunSecurityConfigurationName" Core..=)
+          [ ("TaskRunSecurityConfigurationName" Data..=)
               Prelude.<$> taskRunSecurityConfigurationName,
-            ("MlUserDataEncryption" Core..=)
+            ("MlUserDataEncryption" Data..=)
               Prelude.<$> mlUserDataEncryption
           ]
       )

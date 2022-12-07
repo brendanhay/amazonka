@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.ConnectorOperator
 import Amazonka.CustomerProfiles.Types.OperatorPropertiesKeys
 import Amazonka.CustomerProfiles.Types.TaskType
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A class for modeling different type of tasks. Task implementation varies
@@ -119,17 +120,17 @@ instance Prelude.NFData Task where
       `Prelude.seq` Prelude.rnf sourceFields
       `Prelude.seq` Prelude.rnf taskType
 
-instance Core.ToJSON Task where
+instance Data.ToJSON Task where
   toJSON Task' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConnectorOperator" Core..=)
+          [ ("ConnectorOperator" Data..=)
               Prelude.<$> connectorOperator,
-            ("TaskProperties" Core..=)
+            ("TaskProperties" Data..=)
               Prelude.<$> taskProperties,
-            ("DestinationField" Core..=)
+            ("DestinationField" Data..=)
               Prelude.<$> destinationField,
-            Prelude.Just ("SourceFields" Core..= sourceFields),
-            Prelude.Just ("TaskType" Core..= taskType)
+            Prelude.Just ("SourceFields" Data..= sourceFields),
+            Prelude.Just ("TaskType" Data..= taskType)
           ]
       )

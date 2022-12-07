@@ -21,6 +21,7 @@ module Amazonka.MediaStore.Types.Container where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaStore.Types.ContainerStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -52,7 +53,7 @@ data Container = Container'
     -- available, the status changes to @ACTIVE@.
     status :: Prelude.Maybe ContainerStatus,
     -- | Unix timestamp.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The DNS endpoint of the container. Use the endpoint to identify the
     -- specific container when sending requests to the data plane. The service
     -- assigns this value when the container is created. Once the value has
@@ -141,7 +142,7 @@ container_status = Lens.lens (\Container' {status} -> status) (\s@Container' {} 
 
 -- | Unix timestamp.
 container_creationTime :: Lens.Lens' Container (Prelude.Maybe Prelude.UTCTime)
-container_creationTime = Lens.lens (\Container' {creationTime} -> creationTime) (\s@Container' {} a -> s {creationTime = a} :: Container) Prelude.. Lens.mapping Core._Time
+container_creationTime = Lens.lens (\Container' {creationTime} -> creationTime) (\s@Container' {} a -> s {creationTime = a} :: Container) Prelude.. Lens.mapping Data._Time
 
 -- | The DNS endpoint of the container. Use the endpoint to identify the
 -- specific container when sending requests to the data plane. The service
@@ -150,18 +151,18 @@ container_creationTime = Lens.lens (\Container' {creationTime} -> creationTime) 
 container_endpoint :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_endpoint = Lens.lens (\Container' {endpoint} -> endpoint) (\s@Container' {} a -> s {endpoint = a} :: Container)
 
-instance Core.FromJSON Container where
+instance Data.FromJSON Container where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Container"
       ( \x ->
           Container'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AccessLoggingEnabled")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "Endpoint")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AccessLoggingEnabled")
+            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "Endpoint")
       )
 
 instance Prelude.Hashable Container where

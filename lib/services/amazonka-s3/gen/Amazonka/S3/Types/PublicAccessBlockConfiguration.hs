@@ -21,6 +21,7 @@ module Amazonka.S3.Types.PublicAccessBlockConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -173,13 +174,13 @@ publicAccessBlockConfiguration_blockPublicPolicy = Lens.lens (\PublicAccessBlock
 publicAccessBlockConfiguration_blockPublicAcls :: Lens.Lens' PublicAccessBlockConfiguration (Prelude.Maybe Prelude.Bool)
 publicAccessBlockConfiguration_blockPublicAcls = Lens.lens (\PublicAccessBlockConfiguration' {blockPublicAcls} -> blockPublicAcls) (\s@PublicAccessBlockConfiguration' {} a -> s {blockPublicAcls = a} :: PublicAccessBlockConfiguration)
 
-instance Core.FromXML PublicAccessBlockConfiguration where
+instance Data.FromXML PublicAccessBlockConfiguration where
   parseXML x =
     PublicAccessBlockConfiguration'
-      Prelude.<$> (x Core..@? "RestrictPublicBuckets")
-      Prelude.<*> (x Core..@? "IgnorePublicAcls")
-      Prelude.<*> (x Core..@? "BlockPublicPolicy")
-      Prelude.<*> (x Core..@? "BlockPublicAcls")
+      Prelude.<$> (x Data..@? "RestrictPublicBuckets")
+      Prelude.<*> (x Data..@? "IgnorePublicAcls")
+      Prelude.<*> (x Data..@? "BlockPublicPolicy")
+      Prelude.<*> (x Data..@? "BlockPublicAcls")
 
 instance
   Prelude.Hashable
@@ -203,12 +204,12 @@ instance
       `Prelude.seq` Prelude.rnf blockPublicPolicy
       `Prelude.seq` Prelude.rnf blockPublicAcls
 
-instance Core.ToXML PublicAccessBlockConfiguration where
+instance Data.ToXML PublicAccessBlockConfiguration where
   toXML PublicAccessBlockConfiguration' {..} =
     Prelude.mconcat
       [ "RestrictPublicBuckets"
-          Core.@= restrictPublicBuckets,
-        "IgnorePublicAcls" Core.@= ignorePublicAcls,
-        "BlockPublicPolicy" Core.@= blockPublicPolicy,
-        "BlockPublicAcls" Core.@= blockPublicAcls
+          Data.@= restrictPublicBuckets,
+        "IgnorePublicAcls" Data.@= ignorePublicAcls,
+        "BlockPublicPolicy" Data.@= blockPublicPolicy,
+        "BlockPublicAcls" Data.@= blockPublicAcls
       ]

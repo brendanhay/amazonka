@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.PredictorEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details about a predictor event, such as a retraining.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPredictorEvent' smart constructor.
 data PredictorEvent = PredictorEvent'
   { -- | The timestamp for when the event occurred.
-    datetime :: Prelude.Maybe Core.POSIX,
+    datetime :: Prelude.Maybe Data.POSIX,
     -- | The type of event. For example, @Retrain@. A retraining event denotes
     -- the timepoint when a predictor was retrained. Any monitor results from
     -- before the @Datetime@ are from the previous predictor. Any new metrics
@@ -61,7 +62,7 @@ newPredictorEvent =
 
 -- | The timestamp for when the event occurred.
 predictorEvent_datetime :: Lens.Lens' PredictorEvent (Prelude.Maybe Prelude.UTCTime)
-predictorEvent_datetime = Lens.lens (\PredictorEvent' {datetime} -> datetime) (\s@PredictorEvent' {} a -> s {datetime = a} :: PredictorEvent) Prelude.. Lens.mapping Core._Time
+predictorEvent_datetime = Lens.lens (\PredictorEvent' {datetime} -> datetime) (\s@PredictorEvent' {} a -> s {datetime = a} :: PredictorEvent) Prelude.. Lens.mapping Data._Time
 
 -- | The type of event. For example, @Retrain@. A retraining event denotes
 -- the timepoint when a predictor was retrained. Any monitor results from
@@ -70,14 +71,14 @@ predictorEvent_datetime = Lens.lens (\PredictorEvent' {datetime} -> datetime) (\
 predictorEvent_detail :: Lens.Lens' PredictorEvent (Prelude.Maybe Prelude.Text)
 predictorEvent_detail = Lens.lens (\PredictorEvent' {detail} -> detail) (\s@PredictorEvent' {} a -> s {detail = a} :: PredictorEvent)
 
-instance Core.FromJSON PredictorEvent where
+instance Data.FromJSON PredictorEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PredictorEvent"
       ( \x ->
           PredictorEvent'
-            Prelude.<$> (x Core..:? "Datetime")
-            Prelude.<*> (x Core..:? "Detail")
+            Prelude.<$> (x Data..:? "Datetime")
+            Prelude.<*> (x Data..:? "Detail")
       )
 
 instance Prelude.Hashable PredictorEvent where

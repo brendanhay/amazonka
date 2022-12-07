@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.QueueInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a queued dataset SPICE ingestion.
@@ -69,14 +70,14 @@ queueInfo_waitingOnIngestion = Lens.lens (\QueueInfo' {waitingOnIngestion} -> wa
 queueInfo_queuedIngestion :: Lens.Lens' QueueInfo Prelude.Text
 queueInfo_queuedIngestion = Lens.lens (\QueueInfo' {queuedIngestion} -> queuedIngestion) (\s@QueueInfo' {} a -> s {queuedIngestion = a} :: QueueInfo)
 
-instance Core.FromJSON QueueInfo where
+instance Data.FromJSON QueueInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueueInfo"
       ( \x ->
           QueueInfo'
-            Prelude.<$> (x Core..: "WaitingOnIngestion")
-            Prelude.<*> (x Core..: "QueuedIngestion")
+            Prelude.<$> (x Data..: "WaitingOnIngestion")
+            Prelude.<*> (x Data..: "QueuedIngestion")
       )
 
 instance Prelude.Hashable QueueInfo where

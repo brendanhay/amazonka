@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -168,40 +169,40 @@ instance Prelude.NFData CreateDeviceFleet where
       `Prelude.seq` Prelude.rnf deviceFleetName
       `Prelude.seq` Prelude.rnf outputConfig
 
-instance Core.ToHeaders CreateDeviceFleet where
+instance Data.ToHeaders CreateDeviceFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateDeviceFleet" ::
+              Data.=# ( "SageMaker.CreateDeviceFleet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDeviceFleet where
+instance Data.ToJSON CreateDeviceFleet where
   toJSON CreateDeviceFleet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Description" Core..=) Prelude.<$> description,
-            ("EnableIotRoleAlias" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Description" Data..=) Prelude.<$> description,
+            ("EnableIotRoleAlias" Data..=)
               Prelude.<$> enableIotRoleAlias,
             Prelude.Just
-              ("DeviceFleetName" Core..= deviceFleetName),
-            Prelude.Just ("OutputConfig" Core..= outputConfig)
+              ("DeviceFleetName" Data..= deviceFleetName),
+            Prelude.Just ("OutputConfig" Data..= outputConfig)
           ]
       )
 
-instance Core.ToPath CreateDeviceFleet where
+instance Data.ToPath CreateDeviceFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDeviceFleet where
+instance Data.ToQuery CreateDeviceFleet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDeviceFleetResponse' smart constructor.

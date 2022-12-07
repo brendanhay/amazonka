@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DriftCheckBias where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.FileSource
 import Amazonka.SageMaker.Types.MetricsSource
@@ -74,15 +75,15 @@ driftCheckBias_preTrainingConstraints = Lens.lens (\DriftCheckBias' {preTraining
 driftCheckBias_configFile :: Lens.Lens' DriftCheckBias (Prelude.Maybe FileSource)
 driftCheckBias_configFile = Lens.lens (\DriftCheckBias' {configFile} -> configFile) (\s@DriftCheckBias' {} a -> s {configFile = a} :: DriftCheckBias)
 
-instance Core.FromJSON DriftCheckBias where
+instance Data.FromJSON DriftCheckBias where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DriftCheckBias"
       ( \x ->
           DriftCheckBias'
-            Prelude.<$> (x Core..:? "PostTrainingConstraints")
-            Prelude.<*> (x Core..:? "PreTrainingConstraints")
-            Prelude.<*> (x Core..:? "ConfigFile")
+            Prelude.<$> (x Data..:? "PostTrainingConstraints")
+            Prelude.<*> (x Data..:? "PreTrainingConstraints")
+            Prelude.<*> (x Data..:? "ConfigFile")
       )
 
 instance Prelude.Hashable DriftCheckBias where
@@ -98,14 +99,14 @@ instance Prelude.NFData DriftCheckBias where
       `Prelude.seq` Prelude.rnf preTrainingConstraints
       `Prelude.seq` Prelude.rnf configFile
 
-instance Core.ToJSON DriftCheckBias where
+instance Data.ToJSON DriftCheckBias where
   toJSON DriftCheckBias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PostTrainingConstraints" Core..=)
+          [ ("PostTrainingConstraints" Data..=)
               Prelude.<$> postTrainingConstraints,
-            ("PreTrainingConstraints" Core..=)
+            ("PreTrainingConstraints" Data..=)
               Prelude.<$> preTrainingConstraints,
-            ("ConfigFile" Core..=) Prelude.<$> configFile
+            ("ConfigFile" Data..=) Prelude.<$> configFile
           ]
       )

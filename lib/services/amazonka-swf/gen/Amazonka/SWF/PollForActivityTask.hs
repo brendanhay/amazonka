@@ -82,6 +82,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -170,13 +171,13 @@ instance Core.AWSRequest PollForActivityTask where
     Response.receiveJSON
       ( \s h x ->
           PollForActivityTaskResponse'
-            Prelude.<$> (x Core..?> "workflowExecution")
-            Prelude.<*> (x Core..?> "taskToken")
-            Prelude.<*> (x Core..?> "input")
-            Prelude.<*> (x Core..?> "activityType")
-            Prelude.<*> (x Core..?> "activityId")
+            Prelude.<$> (x Data..?> "workflowExecution")
+            Prelude.<*> (x Data..?> "taskToken")
+            Prelude.<*> (x Data..?> "input")
+            Prelude.<*> (x Data..?> "activityType")
+            Prelude.<*> (x Data..?> "activityId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "startedEventId")
+            Prelude.<*> (x Data..:> "startedEventId")
       )
 
 instance Prelude.Hashable PollForActivityTask where
@@ -191,35 +192,35 @@ instance Prelude.NFData PollForActivityTask where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf taskList
 
-instance Core.ToHeaders PollForActivityTask where
+instance Data.ToHeaders PollForActivityTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.PollForActivityTask" ::
+              Data.=# ( "SimpleWorkflowService.PollForActivityTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PollForActivityTask where
+instance Data.ToJSON PollForActivityTask where
   toJSON PollForActivityTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("identity" Core..=) Prelude.<$> identity,
-            Prelude.Just ("domain" Core..= domain),
-            Prelude.Just ("taskList" Core..= taskList)
+          [ ("identity" Data..=) Prelude.<$> identity,
+            Prelude.Just ("domain" Data..= domain),
+            Prelude.Just ("taskList" Data..= taskList)
           ]
       )
 
-instance Core.ToPath PollForActivityTask where
+instance Data.ToPath PollForActivityTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PollForActivityTask where
+instance Data.ToQuery PollForActivityTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Unit of work sent to an activity worker.

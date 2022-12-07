@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.StartTextDetectionFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.DetectionFilter
 import Amazonka.Rekognition.Types.RegionOfInterest
@@ -80,12 +81,12 @@ instance Prelude.NFData StartTextDetectionFilters where
     Prelude.rnf regionsOfInterest
       `Prelude.seq` Prelude.rnf wordFilter
 
-instance Core.ToJSON StartTextDetectionFilters where
+instance Data.ToJSON StartTextDetectionFilters where
   toJSON StartTextDetectionFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RegionsOfInterest" Core..=)
+          [ ("RegionsOfInterest" Data..=)
               Prelude.<$> regionsOfInterest,
-            ("WordFilter" Core..=) Prelude.<$> wordFilter
+            ("WordFilter" Data..=) Prelude.<$> wordFilter
           ]
       )

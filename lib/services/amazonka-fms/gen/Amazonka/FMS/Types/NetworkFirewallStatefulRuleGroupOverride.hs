@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.NetworkFirewallStatefulRuleGroupOverride where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.NetworkFirewallOverrideAction
 import qualified Amazonka.Prelude as Prelude
 
@@ -59,15 +60,15 @@ networkFirewallStatefulRuleGroupOverride_action :: Lens.Lens' NetworkFirewallSta
 networkFirewallStatefulRuleGroupOverride_action = Lens.lens (\NetworkFirewallStatefulRuleGroupOverride' {action} -> action) (\s@NetworkFirewallStatefulRuleGroupOverride' {} a -> s {action = a} :: NetworkFirewallStatefulRuleGroupOverride)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     NetworkFirewallStatefulRuleGroupOverride
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkFirewallStatefulRuleGroupOverride"
       ( \x ->
           NetworkFirewallStatefulRuleGroupOverride'
-            Prelude.<$> (x Core..:? "Action")
+            Prelude.<$> (x Data..:? "Action")
       )
 
 instance

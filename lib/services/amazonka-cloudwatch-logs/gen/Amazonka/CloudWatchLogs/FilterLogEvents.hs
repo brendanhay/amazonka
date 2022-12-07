@@ -70,6 +70,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -279,11 +280,11 @@ instance Core.AWSRequest FilterLogEvents where
     Response.receiveJSON
       ( \s h x ->
           FilterLogEventsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "searchedLogStreams"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "searchedLogStreams"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "events" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "events" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -311,43 +312,43 @@ instance Prelude.NFData FilterLogEvents where
       `Prelude.seq` Prelude.rnf logStreamNames
       `Prelude.seq` Prelude.rnf logGroupName
 
-instance Core.ToHeaders FilterLogEvents where
+instance Data.ToHeaders FilterLogEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.FilterLogEvents" ::
+              Data.=# ( "Logs_20140328.FilterLogEvents" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON FilterLogEvents where
+instance Data.ToJSON FilterLogEvents where
   toJSON FilterLogEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("interleaved" Core..=) Prelude.<$> interleaved,
-            ("endTime" Core..=) Prelude.<$> endTime,
-            ("limit" Core..=) Prelude.<$> limit,
-            ("logStreamNamePrefix" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("interleaved" Data..=) Prelude.<$> interleaved,
+            ("endTime" Data..=) Prelude.<$> endTime,
+            ("limit" Data..=) Prelude.<$> limit,
+            ("logStreamNamePrefix" Data..=)
               Prelude.<$> logStreamNamePrefix,
-            ("filterPattern" Core..=) Prelude.<$> filterPattern,
-            ("startTime" Core..=) Prelude.<$> startTime,
-            ("logStreamNames" Core..=)
+            ("filterPattern" Data..=) Prelude.<$> filterPattern,
+            ("startTime" Data..=) Prelude.<$> startTime,
+            ("logStreamNames" Data..=)
               Prelude.<$> logStreamNames,
-            Prelude.Just ("logGroupName" Core..= logGroupName)
+            Prelude.Just ("logGroupName" Data..= logGroupName)
           ]
       )
 
-instance Core.ToPath FilterLogEvents where
+instance Data.ToPath FilterLogEvents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery FilterLogEvents where
+instance Data.ToQuery FilterLogEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newFilterLogEventsResponse' smart constructor.

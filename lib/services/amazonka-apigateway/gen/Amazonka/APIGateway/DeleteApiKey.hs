@@ -38,6 +38,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,20 +85,20 @@ instance Prelude.Hashable DeleteApiKey where
 instance Prelude.NFData DeleteApiKey where
   rnf DeleteApiKey' {..} = Prelude.rnf apiKey
 
-instance Core.ToHeaders DeleteApiKey where
+instance Data.ToHeaders DeleteApiKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath DeleteApiKey where
+instance Data.ToPath DeleteApiKey where
   toPath DeleteApiKey' {..} =
-    Prelude.mconcat ["/apikeys/", Core.toBS apiKey]
+    Prelude.mconcat ["/apikeys/", Data.toBS apiKey]
 
-instance Core.ToQuery DeleteApiKey where
+instance Data.ToQuery DeleteApiKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteApiKeyResponse' smart constructor.

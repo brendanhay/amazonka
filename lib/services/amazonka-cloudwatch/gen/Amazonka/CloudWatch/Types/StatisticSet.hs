@@ -21,6 +21,7 @@ module Amazonka.CloudWatch.Types.StatisticSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a set of statistics that describes a specific metric.
@@ -105,11 +106,11 @@ instance Prelude.NFData StatisticSet where
       `Prelude.seq` Prelude.rnf minimum
       `Prelude.seq` Prelude.rnf maximum
 
-instance Core.ToQuery StatisticSet where
+instance Data.ToQuery StatisticSet where
   toQuery StatisticSet' {..} =
     Prelude.mconcat
-      [ "SampleCount" Core.=: sampleCount,
-        "Sum" Core.=: sum,
-        "Minimum" Core.=: minimum,
-        "Maximum" Core.=: maximum
+      [ "SampleCount" Data.=: sampleCount,
+        "Sum" Data.=: sum,
+        "Minimum" Data.=: minimum,
+        "Maximum" Data.=: maximum
       ]

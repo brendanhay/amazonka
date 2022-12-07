@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,7 +117,7 @@ instance Core.AWSRequest ResetFpgaImageAttribute where
     Response.receiveXML
       ( \s h x ->
           ResetFpgaImageAttributeResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,22 +133,22 @@ instance Prelude.NFData ResetFpgaImageAttribute where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf fpgaImageId
 
-instance Core.ToHeaders ResetFpgaImageAttribute where
+instance Data.ToHeaders ResetFpgaImageAttribute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ResetFpgaImageAttribute where
+instance Data.ToPath ResetFpgaImageAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResetFpgaImageAttribute where
+instance Data.ToQuery ResetFpgaImageAttribute where
   toQuery ResetFpgaImageAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ResetFpgaImageAttribute" :: Prelude.ByteString),
+          Data.=: ("ResetFpgaImageAttribute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Attribute" Core.=: attribute,
-        "DryRun" Core.=: dryRun,
-        "FpgaImageId" Core.=: fpgaImageId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Attribute" Data.=: attribute,
+        "DryRun" Data.=: dryRun,
+        "FpgaImageId" Data.=: fpgaImageId
       ]
 
 -- | /See:/ 'newResetFpgaImageAttributeResponse' smart constructor.

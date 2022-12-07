@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.Disk where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a gateway\'s local disk.
@@ -128,22 +129,22 @@ disk_diskAttributeList = Lens.lens (\Disk' {diskAttributeList} -> diskAttributeL
 disk_diskAllocationResource :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
 disk_diskAllocationResource = Lens.lens (\Disk' {diskAllocationResource} -> diskAllocationResource) (\s@Disk' {} a -> s {diskAllocationResource = a} :: Disk)
 
-instance Core.FromJSON Disk where
+instance Data.FromJSON Disk where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Disk"
       ( \x ->
           Disk'
-            Prelude.<$> (x Core..:? "DiskStatus")
-            Prelude.<*> (x Core..:? "DiskNode")
-            Prelude.<*> (x Core..:? "DiskId")
-            Prelude.<*> (x Core..:? "DiskAllocationType")
-            Prelude.<*> (x Core..:? "DiskPath")
-            Prelude.<*> (x Core..:? "DiskSizeInBytes")
-            Prelude.<*> ( x Core..:? "DiskAttributeList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DiskStatus")
+            Prelude.<*> (x Data..:? "DiskNode")
+            Prelude.<*> (x Data..:? "DiskId")
+            Prelude.<*> (x Data..:? "DiskAllocationType")
+            Prelude.<*> (x Data..:? "DiskPath")
+            Prelude.<*> (x Data..:? "DiskSizeInBytes")
+            Prelude.<*> ( x Data..:? "DiskAttributeList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DiskAllocationResource")
+            Prelude.<*> (x Data..:? "DiskAllocationResource")
       )
 
 instance Prelude.Hashable Disk where

@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.LocalPortDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the port for the local connection.
@@ -61,14 +62,14 @@ localPortDetails_port = Lens.lens (\LocalPortDetails' {port} -> port) (\s@LocalP
 localPortDetails_portName :: Lens.Lens' LocalPortDetails (Prelude.Maybe Prelude.Text)
 localPortDetails_portName = Lens.lens (\LocalPortDetails' {portName} -> portName) (\s@LocalPortDetails' {} a -> s {portName = a} :: LocalPortDetails)
 
-instance Core.FromJSON LocalPortDetails where
+instance Data.FromJSON LocalPortDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LocalPortDetails"
       ( \x ->
           LocalPortDetails'
-            Prelude.<$> (x Core..:? "port")
-            Prelude.<*> (x Core..:? "portName")
+            Prelude.<$> (x Data..:? "port")
+            Prelude.<*> (x Data..:? "portName")
       )
 
 instance Prelude.Hashable LocalPortDetails where

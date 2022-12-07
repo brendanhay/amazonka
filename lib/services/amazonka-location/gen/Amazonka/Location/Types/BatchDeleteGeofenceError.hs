@@ -21,6 +21,7 @@ module Amazonka.Location.Types.BatchDeleteGeofenceError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.BatchItemError
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,14 +68,14 @@ batchDeleteGeofenceError_error = Lens.lens (\BatchDeleteGeofenceError' {error} -
 batchDeleteGeofenceError_geofenceId :: Lens.Lens' BatchDeleteGeofenceError Prelude.Text
 batchDeleteGeofenceError_geofenceId = Lens.lens (\BatchDeleteGeofenceError' {geofenceId} -> geofenceId) (\s@BatchDeleteGeofenceError' {} a -> s {geofenceId = a} :: BatchDeleteGeofenceError)
 
-instance Core.FromJSON BatchDeleteGeofenceError where
+instance Data.FromJSON BatchDeleteGeofenceError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDeleteGeofenceError"
       ( \x ->
           BatchDeleteGeofenceError'
-            Prelude.<$> (x Core..: "Error")
-            Prelude.<*> (x Core..: "GeofenceId")
+            Prelude.<$> (x Data..: "Error")
+            Prelude.<*> (x Data..: "GeofenceId")
       )
 
 instance Prelude.Hashable BatchDeleteGeofenceError where

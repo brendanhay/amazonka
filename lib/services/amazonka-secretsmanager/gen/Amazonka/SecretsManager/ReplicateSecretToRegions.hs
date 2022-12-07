@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,10 +128,10 @@ instance Core.AWSRequest ReplicateSecretToRegions where
     Response.receiveJSON
       ( \s h x ->
           ReplicateSecretToRegionsResponse'
-            Prelude.<$> ( x Core..?> "ReplicationStatus"
+            Prelude.<$> ( x Data..?> "ReplicationStatus"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ARN")
+            Prelude.<*> (x Data..?> "ARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,37 +148,37 @@ instance Prelude.NFData ReplicateSecretToRegions where
       `Prelude.seq` Prelude.rnf secretId
       `Prelude.seq` Prelude.rnf addReplicaRegions
 
-instance Core.ToHeaders ReplicateSecretToRegions where
+instance Data.ToHeaders ReplicateSecretToRegions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "secretsmanager.ReplicateSecretToRegions" ::
+              Data.=# ( "secretsmanager.ReplicateSecretToRegions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ReplicateSecretToRegions where
+instance Data.ToJSON ReplicateSecretToRegions where
   toJSON ReplicateSecretToRegions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ForceOverwriteReplicaSecret" Core..=)
+          [ ("ForceOverwriteReplicaSecret" Data..=)
               Prelude.<$> forceOverwriteReplicaSecret,
-            Prelude.Just ("SecretId" Core..= secretId),
+            Prelude.Just ("SecretId" Data..= secretId),
             Prelude.Just
-              ("AddReplicaRegions" Core..= addReplicaRegions)
+              ("AddReplicaRegions" Data..= addReplicaRegions)
           ]
       )
 
-instance Core.ToPath ReplicateSecretToRegions where
+instance Data.ToPath ReplicateSecretToRegions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ReplicateSecretToRegions where
+instance Data.ToQuery ReplicateSecretToRegions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newReplicateSecretToRegionsResponse' smart constructor.

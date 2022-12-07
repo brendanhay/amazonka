@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.KinesisFirehoseDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that defines an Amazon Kinesis Data Firehose destination for
@@ -76,14 +77,14 @@ kinesisFirehoseDestination_iamRoleArn = Lens.lens (\KinesisFirehoseDestination' 
 kinesisFirehoseDestination_deliveryStreamArn :: Lens.Lens' KinesisFirehoseDestination Prelude.Text
 kinesisFirehoseDestination_deliveryStreamArn = Lens.lens (\KinesisFirehoseDestination' {deliveryStreamArn} -> deliveryStreamArn) (\s@KinesisFirehoseDestination' {} a -> s {deliveryStreamArn = a} :: KinesisFirehoseDestination)
 
-instance Core.FromJSON KinesisFirehoseDestination where
+instance Data.FromJSON KinesisFirehoseDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KinesisFirehoseDestination"
       ( \x ->
           KinesisFirehoseDestination'
-            Prelude.<$> (x Core..: "IamRoleArn")
-            Prelude.<*> (x Core..: "DeliveryStreamArn")
+            Prelude.<$> (x Data..: "IamRoleArn")
+            Prelude.<*> (x Data..: "DeliveryStreamArn")
       )
 
 instance Prelude.Hashable KinesisFirehoseDestination where
@@ -96,12 +97,12 @@ instance Prelude.NFData KinesisFirehoseDestination where
     Prelude.rnf iamRoleArn
       `Prelude.seq` Prelude.rnf deliveryStreamArn
 
-instance Core.ToJSON KinesisFirehoseDestination where
+instance Data.ToJSON KinesisFirehoseDestination where
   toJSON KinesisFirehoseDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("IamRoleArn" Core..= iamRoleArn),
+          [ Prelude.Just ("IamRoleArn" Data..= iamRoleArn),
             Prelude.Just
-              ("DeliveryStreamArn" Core..= deliveryStreamArn)
+              ("DeliveryStreamArn" Data..= deliveryStreamArn)
           ]
       )

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,7 +164,7 @@ instance Core.AWSRequest CreateAction where
     Response.receiveJSON
       ( \s h x ->
           CreateActionResponse'
-            Prelude.<$> (x Core..?> "ActionArn")
+            Prelude.<$> (x Data..?> "ActionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,39 +190,39 @@ instance Prelude.NFData CreateAction where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf actionType
 
-instance Core.ToHeaders CreateAction where
+instance Data.ToHeaders CreateAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateAction" :: Prelude.ByteString),
+              Data.=# ("SageMaker.CreateAction" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAction where
+instance Data.ToJSON CreateAction where
   toJSON CreateAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("MetadataProperties" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("MetadataProperties" Data..=)
               Prelude.<$> metadataProperties,
-            ("Properties" Core..=) Prelude.<$> properties,
-            ("Status" Core..=) Prelude.<$> status,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("ActionName" Core..= actionName),
-            Prelude.Just ("Source" Core..= source),
-            Prelude.Just ("ActionType" Core..= actionType)
+            ("Properties" Data..=) Prelude.<$> properties,
+            ("Status" Data..=) Prelude.<$> status,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("ActionName" Data..= actionName),
+            Prelude.Just ("Source" Data..= source),
+            Prelude.Just ("ActionType" Data..= actionType)
           ]
       )
 
-instance Core.ToPath CreateAction where
+instance Data.ToPath CreateAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAction where
+instance Data.ToQuery CreateAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateActionResponse' smart constructor.

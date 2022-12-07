@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,17 +97,17 @@ instance Core.AWSRequest GetImportFileTask where
     Response.receiveJSON
       ( \s h x ->
           GetImportFileTaskResponse'
-            Prelude.<$> (x Core..?> "statusReportS3Bucket")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "completionTime")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "numberOfRecordsFailed")
-            Prelude.<*> (x Core..?> "importName")
-            Prelude.<*> (x Core..?> "inputS3Bucket")
-            Prelude.<*> (x Core..?> "inputS3Key")
-            Prelude.<*> (x Core..?> "numberOfRecordsSuccess")
-            Prelude.<*> (x Core..?> "startTime")
-            Prelude.<*> (x Core..?> "statusReportS3Key")
+            Prelude.<$> (x Data..?> "statusReportS3Bucket")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "completionTime")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "numberOfRecordsFailed")
+            Prelude.<*> (x Data..?> "importName")
+            Prelude.<*> (x Data..?> "inputS3Bucket")
+            Prelude.<*> (x Data..?> "inputS3Key")
+            Prelude.<*> (x Data..?> "numberOfRecordsSuccess")
+            Prelude.<*> (x Data..?> "startTime")
+            Prelude.<*> (x Data..?> "statusReportS3Key")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,23 +118,23 @@ instance Prelude.Hashable GetImportFileTask where
 instance Prelude.NFData GetImportFileTask where
   rnf GetImportFileTask' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetImportFileTask where
+instance Data.ToHeaders GetImportFileTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetImportFileTask where
+instance Data.ToPath GetImportFileTask where
   toPath GetImportFileTask' {..} =
     Prelude.mconcat
-      ["/get-import-file-task/", Core.toBS id]
+      ["/get-import-file-task/", Data.toBS id]
 
-instance Core.ToQuery GetImportFileTask where
+instance Data.ToQuery GetImportFileTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetImportFileTaskResponse' smart constructor.
@@ -143,7 +144,7 @@ data GetImportFileTaskResponse = GetImportFileTaskResponse'
     -- | Status of import file task.
     status :: Prelude.Maybe ImportFileTaskStatus,
     -- | The time that the import task completed.
-    completionTime :: Prelude.Maybe Core.POSIX,
+    completionTime :: Prelude.Maybe Data.POSIX,
     -- | The import file task @id@ returned in the response of
     -- StartImportFileTask.
     id :: Prelude.Maybe Prelude.Text,
@@ -158,7 +159,7 @@ data GetImportFileTaskResponse = GetImportFileTaskResponse'
     -- | The number of records successfully imported.
     numberOfRecordsSuccess :: Prelude.Maybe Prelude.Int,
     -- | Start time of the import task.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon S3 key name for status report of import task. The report
     -- contains details about whether each record imported successfully or why
     -- it did not.
@@ -233,7 +234,7 @@ getImportFileTaskResponse_status = Lens.lens (\GetImportFileTaskResponse' {statu
 
 -- | The time that the import task completed.
 getImportFileTaskResponse_completionTime :: Lens.Lens' GetImportFileTaskResponse (Prelude.Maybe Prelude.UTCTime)
-getImportFileTaskResponse_completionTime = Lens.lens (\GetImportFileTaskResponse' {completionTime} -> completionTime) (\s@GetImportFileTaskResponse' {} a -> s {completionTime = a} :: GetImportFileTaskResponse) Prelude.. Lens.mapping Core._Time
+getImportFileTaskResponse_completionTime = Lens.lens (\GetImportFileTaskResponse' {completionTime} -> completionTime) (\s@GetImportFileTaskResponse' {} a -> s {completionTime = a} :: GetImportFileTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The import file task @id@ returned in the response of
 -- StartImportFileTask.
@@ -262,7 +263,7 @@ getImportFileTaskResponse_numberOfRecordsSuccess = Lens.lens (\GetImportFileTask
 
 -- | Start time of the import task.
 getImportFileTaskResponse_startTime :: Lens.Lens' GetImportFileTaskResponse (Prelude.Maybe Prelude.UTCTime)
-getImportFileTaskResponse_startTime = Lens.lens (\GetImportFileTaskResponse' {startTime} -> startTime) (\s@GetImportFileTaskResponse' {} a -> s {startTime = a} :: GetImportFileTaskResponse) Prelude.. Lens.mapping Core._Time
+getImportFileTaskResponse_startTime = Lens.lens (\GetImportFileTaskResponse' {startTime} -> startTime) (\s@GetImportFileTaskResponse' {} a -> s {startTime = a} :: GetImportFileTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon S3 key name for status report of import task. The report
 -- contains details about whether each record imported successfully or why

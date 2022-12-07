@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.UpdateFailoverConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.FailoverMode
 import Amazonka.MediaConnect.Types.SourcePriority
 import Amazonka.MediaConnect.Types.State
@@ -105,15 +106,15 @@ instance Prelude.NFData UpdateFailoverConfig where
       `Prelude.seq` Prelude.rnf sourcePriority
       `Prelude.seq` Prelude.rnf failoverMode
 
-instance Core.ToJSON UpdateFailoverConfig where
+instance Data.ToJSON UpdateFailoverConfig where
   toJSON UpdateFailoverConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("recoveryWindow" Core..=)
+          [ ("recoveryWindow" Data..=)
               Prelude.<$> recoveryWindow,
-            ("state" Core..=) Prelude.<$> state,
-            ("sourcePriority" Core..=)
+            ("state" Data..=) Prelude.<$> state,
+            ("sourcePriority" Data..=)
               Prelude.<$> sourcePriority,
-            ("failoverMode" Core..=) Prelude.<$> failoverMode
+            ("failoverMode" Data..=) Prelude.<$> failoverMode
           ]
       )

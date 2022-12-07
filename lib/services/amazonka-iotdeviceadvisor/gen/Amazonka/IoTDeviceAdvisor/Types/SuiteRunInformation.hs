@@ -21,6 +21,7 @@ module Amazonka.IoTDeviceAdvisor.Types.SuiteRunInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,13 +36,13 @@ data SuiteRunInformation = SuiteRunInformation'
   { -- | Number of test cases that failed in the suite run.
     failed :: Prelude.Maybe Prelude.Natural,
     -- | Date (in Unix epoch time) when the suite run ended.
-    endAt :: Prelude.Maybe Core.POSIX,
+    endAt :: Prelude.Maybe Data.POSIX,
     -- | Status of the suite run.
     status :: Prelude.Maybe SuiteRunStatus,
     -- | Suite definition name of the suite run.
     suiteDefinitionName :: Prelude.Maybe Prelude.Text,
     -- | Date (in Unix epoch time) when the suite run was started.
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     -- | Suite definition version of the suite run.
     suiteDefinitionVersion :: Prelude.Maybe Prelude.Text,
     -- | Number of test cases that passed in the suite run.
@@ -49,7 +50,7 @@ data SuiteRunInformation = SuiteRunInformation'
     -- | Suite definition ID of the suite run.
     suiteDefinitionId :: Prelude.Maybe Prelude.Text,
     -- | Date (in Unix epoch time) when the suite run was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Suite run ID of the suite run.
     suiteRunId :: Prelude.Maybe Prelude.Text
   }
@@ -104,7 +105,7 @@ suiteRunInformation_failed = Lens.lens (\SuiteRunInformation' {failed} -> failed
 
 -- | Date (in Unix epoch time) when the suite run ended.
 suiteRunInformation_endAt :: Lens.Lens' SuiteRunInformation (Prelude.Maybe Prelude.UTCTime)
-suiteRunInformation_endAt = Lens.lens (\SuiteRunInformation' {endAt} -> endAt) (\s@SuiteRunInformation' {} a -> s {endAt = a} :: SuiteRunInformation) Prelude.. Lens.mapping Core._Time
+suiteRunInformation_endAt = Lens.lens (\SuiteRunInformation' {endAt} -> endAt) (\s@SuiteRunInformation' {} a -> s {endAt = a} :: SuiteRunInformation) Prelude.. Lens.mapping Data._Time
 
 -- | Status of the suite run.
 suiteRunInformation_status :: Lens.Lens' SuiteRunInformation (Prelude.Maybe SuiteRunStatus)
@@ -116,7 +117,7 @@ suiteRunInformation_suiteDefinitionName = Lens.lens (\SuiteRunInformation' {suit
 
 -- | Date (in Unix epoch time) when the suite run was started.
 suiteRunInformation_startedAt :: Lens.Lens' SuiteRunInformation (Prelude.Maybe Prelude.UTCTime)
-suiteRunInformation_startedAt = Lens.lens (\SuiteRunInformation' {startedAt} -> startedAt) (\s@SuiteRunInformation' {} a -> s {startedAt = a} :: SuiteRunInformation) Prelude.. Lens.mapping Core._Time
+suiteRunInformation_startedAt = Lens.lens (\SuiteRunInformation' {startedAt} -> startedAt) (\s@SuiteRunInformation' {} a -> s {startedAt = a} :: SuiteRunInformation) Prelude.. Lens.mapping Data._Time
 
 -- | Suite definition version of the suite run.
 suiteRunInformation_suiteDefinitionVersion :: Lens.Lens' SuiteRunInformation (Prelude.Maybe Prelude.Text)
@@ -132,28 +133,28 @@ suiteRunInformation_suiteDefinitionId = Lens.lens (\SuiteRunInformation' {suiteD
 
 -- | Date (in Unix epoch time) when the suite run was created.
 suiteRunInformation_createdAt :: Lens.Lens' SuiteRunInformation (Prelude.Maybe Prelude.UTCTime)
-suiteRunInformation_createdAt = Lens.lens (\SuiteRunInformation' {createdAt} -> createdAt) (\s@SuiteRunInformation' {} a -> s {createdAt = a} :: SuiteRunInformation) Prelude.. Lens.mapping Core._Time
+suiteRunInformation_createdAt = Lens.lens (\SuiteRunInformation' {createdAt} -> createdAt) (\s@SuiteRunInformation' {} a -> s {createdAt = a} :: SuiteRunInformation) Prelude.. Lens.mapping Data._Time
 
 -- | Suite run ID of the suite run.
 suiteRunInformation_suiteRunId :: Lens.Lens' SuiteRunInformation (Prelude.Maybe Prelude.Text)
 suiteRunInformation_suiteRunId = Lens.lens (\SuiteRunInformation' {suiteRunId} -> suiteRunId) (\s@SuiteRunInformation' {} a -> s {suiteRunId = a} :: SuiteRunInformation)
 
-instance Core.FromJSON SuiteRunInformation where
+instance Data.FromJSON SuiteRunInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SuiteRunInformation"
       ( \x ->
           SuiteRunInformation'
-            Prelude.<$> (x Core..:? "failed")
-            Prelude.<*> (x Core..:? "endAt")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "suiteDefinitionName")
-            Prelude.<*> (x Core..:? "startedAt")
-            Prelude.<*> (x Core..:? "suiteDefinitionVersion")
-            Prelude.<*> (x Core..:? "passed")
-            Prelude.<*> (x Core..:? "suiteDefinitionId")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "suiteRunId")
+            Prelude.<$> (x Data..:? "failed")
+            Prelude.<*> (x Data..:? "endAt")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "suiteDefinitionName")
+            Prelude.<*> (x Data..:? "startedAt")
+            Prelude.<*> (x Data..:? "suiteDefinitionVersion")
+            Prelude.<*> (x Data..:? "passed")
+            Prelude.<*> (x Data..:? "suiteDefinitionId")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "suiteRunId")
       )
 
 instance Prelude.Hashable SuiteRunInformation where

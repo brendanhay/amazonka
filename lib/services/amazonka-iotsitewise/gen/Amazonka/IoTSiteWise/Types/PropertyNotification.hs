@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.PropertyNotification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.PropertyNotificationState
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,13 +74,13 @@ propertyNotification_topic = Lens.lens (\PropertyNotification' {topic} -> topic)
 propertyNotification_state :: Lens.Lens' PropertyNotification PropertyNotificationState
 propertyNotification_state = Lens.lens (\PropertyNotification' {state} -> state) (\s@PropertyNotification' {} a -> s {state = a} :: PropertyNotification)
 
-instance Core.FromJSON PropertyNotification where
+instance Data.FromJSON PropertyNotification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PropertyNotification"
       ( \x ->
           PropertyNotification'
-            Prelude.<$> (x Core..: "topic") Prelude.<*> (x Core..: "state")
+            Prelude.<$> (x Data..: "topic") Prelude.<*> (x Data..: "state")
       )
 
 instance Prelude.Hashable PropertyNotification where

@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.Role where
 import Amazonka.AuditManager.Types.RoleType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The wrapper that contains the Audit Manager role information of the
@@ -86,14 +87,14 @@ role_roleType = Lens.lens (\Role' {roleType} -> roleType) (\s@Role' {} a -> s {r
 role_roleArn :: Lens.Lens' Role Prelude.Text
 role_roleArn = Lens.lens (\Role' {roleArn} -> roleArn) (\s@Role' {} a -> s {roleArn = a} :: Role)
 
-instance Core.FromJSON Role where
+instance Data.FromJSON Role where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Role"
       ( \x ->
           Role'
-            Prelude.<$> (x Core..: "roleType")
-            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Data..: "roleType")
+            Prelude.<*> (x Data..: "roleArn")
       )
 
 instance Prelude.Hashable Role where
@@ -106,11 +107,11 @@ instance Prelude.NFData Role where
     Prelude.rnf roleType
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON Role where
+instance Data.ToJSON Role where
   toJSON Role' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("roleType" Core..= roleType),
-            Prelude.Just ("roleArn" Core..= roleArn)
+          [ Prelude.Just ("roleType" Data..= roleType),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.InAppMessageContent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.InAppMessageBodyConfig
 import Amazonka.Pinpoint.Types.InAppMessageButton
 import Amazonka.Pinpoint.Types.InAppMessageHeaderConfig
@@ -100,18 +101,18 @@ inAppMessageContent_backgroundColor = Lens.lens (\InAppMessageContent' {backgrou
 inAppMessageContent_primaryBtn :: Lens.Lens' InAppMessageContent (Prelude.Maybe InAppMessageButton)
 inAppMessageContent_primaryBtn = Lens.lens (\InAppMessageContent' {primaryBtn} -> primaryBtn) (\s@InAppMessageContent' {} a -> s {primaryBtn = a} :: InAppMessageContent)
 
-instance Core.FromJSON InAppMessageContent where
+instance Data.FromJSON InAppMessageContent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InAppMessageContent"
       ( \x ->
           InAppMessageContent'
-            Prelude.<$> (x Core..:? "BodyConfig")
-            Prelude.<*> (x Core..:? "SecondaryBtn")
-            Prelude.<*> (x Core..:? "ImageUrl")
-            Prelude.<*> (x Core..:? "HeaderConfig")
-            Prelude.<*> (x Core..:? "BackgroundColor")
-            Prelude.<*> (x Core..:? "PrimaryBtn")
+            Prelude.<$> (x Data..:? "BodyConfig")
+            Prelude.<*> (x Data..:? "SecondaryBtn")
+            Prelude.<*> (x Data..:? "ImageUrl")
+            Prelude.<*> (x Data..:? "HeaderConfig")
+            Prelude.<*> (x Data..:? "BackgroundColor")
+            Prelude.<*> (x Data..:? "PrimaryBtn")
       )
 
 instance Prelude.Hashable InAppMessageContent where
@@ -132,16 +133,16 @@ instance Prelude.NFData InAppMessageContent where
       `Prelude.seq` Prelude.rnf backgroundColor
       `Prelude.seq` Prelude.rnf primaryBtn
 
-instance Core.ToJSON InAppMessageContent where
+instance Data.ToJSON InAppMessageContent where
   toJSON InAppMessageContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BodyConfig" Core..=) Prelude.<$> bodyConfig,
-            ("SecondaryBtn" Core..=) Prelude.<$> secondaryBtn,
-            ("ImageUrl" Core..=) Prelude.<$> imageUrl,
-            ("HeaderConfig" Core..=) Prelude.<$> headerConfig,
-            ("BackgroundColor" Core..=)
+          [ ("BodyConfig" Data..=) Prelude.<$> bodyConfig,
+            ("SecondaryBtn" Data..=) Prelude.<$> secondaryBtn,
+            ("ImageUrl" Data..=) Prelude.<$> imageUrl,
+            ("HeaderConfig" Data..=) Prelude.<$> headerConfig,
+            ("BackgroundColor" Data..=)
               Prelude.<$> backgroundColor,
-            ("PrimaryBtn" Core..=) Prelude.<$> primaryBtn
+            ("PrimaryBtn" Data..=) Prelude.<$> primaryBtn
           ]
       )

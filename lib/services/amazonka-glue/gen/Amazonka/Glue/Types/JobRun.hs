@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.JobRun where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ExecutionClass
 import Amazonka.Glue.Types.JobRunState
 import Amazonka.Glue.Types.NotificationProperty
@@ -45,12 +46,12 @@ data JobRun = JobRun'
     -- | The name of the trigger that started this job run.
     triggerName :: Prelude.Maybe Prelude.Text,
     -- | The last time that this job run was modified.
-    lastModifiedOn :: Prelude.Maybe Core.POSIX,
+    lastModifiedOn :: Prelude.Maybe Data.POSIX,
     -- | The number of workers of a defined @workerType@ that are allocated when
     -- a job runs.
     numberOfWorkers :: Prelude.Maybe Prelude.Int,
     -- | The date and time at which this job run was started.
-    startedOn :: Prelude.Maybe Core.POSIX,
+    startedOn :: Prelude.Maybe Data.POSIX,
     -- | An error message associated with this job run.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The number of the attempt to run this job.
@@ -106,7 +107,7 @@ data JobRun = JobRun'
     -- | The ID of this job run.
     id :: Prelude.Maybe Prelude.Text,
     -- | The date and time that this job run completed.
-    completedOn :: Prelude.Maybe Core.POSIX,
+    completedOn :: Prelude.Maybe Data.POSIX,
     -- | The job arguments associated with this run. For this job run, they
     -- replace the default arguments set in the job definition itself.
     --
@@ -376,7 +377,7 @@ jobRun_triggerName = Lens.lens (\JobRun' {triggerName} -> triggerName) (\s@JobRu
 
 -- | The last time that this job run was modified.
 jobRun_lastModifiedOn :: Lens.Lens' JobRun (Prelude.Maybe Prelude.UTCTime)
-jobRun_lastModifiedOn = Lens.lens (\JobRun' {lastModifiedOn} -> lastModifiedOn) (\s@JobRun' {} a -> s {lastModifiedOn = a} :: JobRun) Prelude.. Lens.mapping Core._Time
+jobRun_lastModifiedOn = Lens.lens (\JobRun' {lastModifiedOn} -> lastModifiedOn) (\s@JobRun' {} a -> s {lastModifiedOn = a} :: JobRun) Prelude.. Lens.mapping Data._Time
 
 -- | The number of workers of a defined @workerType@ that are allocated when
 -- a job runs.
@@ -385,7 +386,7 @@ jobRun_numberOfWorkers = Lens.lens (\JobRun' {numberOfWorkers} -> numberOfWorker
 
 -- | The date and time at which this job run was started.
 jobRun_startedOn :: Lens.Lens' JobRun (Prelude.Maybe Prelude.UTCTime)
-jobRun_startedOn = Lens.lens (\JobRun' {startedOn} -> startedOn) (\s@JobRun' {} a -> s {startedOn = a} :: JobRun) Prelude.. Lens.mapping Core._Time
+jobRun_startedOn = Lens.lens (\JobRun' {startedOn} -> startedOn) (\s@JobRun' {} a -> s {startedOn = a} :: JobRun) Prelude.. Lens.mapping Data._Time
 
 -- | An error message associated with this job run.
 jobRun_errorMessage :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Text)
@@ -465,7 +466,7 @@ jobRun_id = Lens.lens (\JobRun' {id} -> id) (\s@JobRun' {} a -> s {id = a} :: Jo
 
 -- | The date and time that this job run completed.
 jobRun_completedOn :: Lens.Lens' JobRun (Prelude.Maybe Prelude.UTCTime)
-jobRun_completedOn = Lens.lens (\JobRun' {completedOn} -> completedOn) (\s@JobRun' {} a -> s {completedOn = a} :: JobRun) Prelude.. Lens.mapping Core._Time
+jobRun_completedOn = Lens.lens (\JobRun' {completedOn} -> completedOn) (\s@JobRun' {} a -> s {completedOn = a} :: JobRun) Prelude.. Lens.mapping Data._Time
 
 -- | The job arguments associated with this run. For this job run, they
 -- replace the default arguments set in the job definition itself.
@@ -546,38 +547,38 @@ jobRun_executionClass = Lens.lens (\JobRun' {executionClass} -> executionClass) 
 jobRun_logGroupName :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Text)
 jobRun_logGroupName = Lens.lens (\JobRun' {logGroupName} -> logGroupName) (\s@JobRun' {} a -> s {logGroupName = a} :: JobRun)
 
-instance Core.FromJSON JobRun where
+instance Data.FromJSON JobRun where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobRun"
       ( \x ->
           JobRun'
-            Prelude.<$> (x Core..:? "SecurityConfiguration")
-            Prelude.<*> (x Core..:? "Timeout")
-            Prelude.<*> (x Core..:? "TriggerName")
-            Prelude.<*> (x Core..:? "LastModifiedOn")
-            Prelude.<*> (x Core..:? "NumberOfWorkers")
-            Prelude.<*> (x Core..:? "StartedOn")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "Attempt")
-            Prelude.<*> (x Core..:? "GlueVersion")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "PreviousRunId")
-            Prelude.<*> (x Core..:? "NotificationProperty")
-            Prelude.<*> (x Core..:? "WorkerType")
-            Prelude.<*> (x Core..:? "ExecutionTime")
-            Prelude.<*> (x Core..:? "AllocatedCapacity")
-            Prelude.<*> ( x Core..:? "PredecessorRuns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SecurityConfiguration")
+            Prelude.<*> (x Data..:? "Timeout")
+            Prelude.<*> (x Data..:? "TriggerName")
+            Prelude.<*> (x Data..:? "LastModifiedOn")
+            Prelude.<*> (x Data..:? "NumberOfWorkers")
+            Prelude.<*> (x Data..:? "StartedOn")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "Attempt")
+            Prelude.<*> (x Data..:? "GlueVersion")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "PreviousRunId")
+            Prelude.<*> (x Data..:? "NotificationProperty")
+            Prelude.<*> (x Data..:? "WorkerType")
+            Prelude.<*> (x Data..:? "ExecutionTime")
+            Prelude.<*> (x Data..:? "AllocatedCapacity")
+            Prelude.<*> ( x Data..:? "PredecessorRuns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CompletedOn")
-            Prelude.<*> (x Core..:? "Arguments" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "JobRunState")
-            Prelude.<*> (x Core..:? "DPUSeconds")
-            Prelude.<*> (x Core..:? "MaxCapacity")
-            Prelude.<*> (x Core..:? "ExecutionClass")
-            Prelude.<*> (x Core..:? "LogGroupName")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "CompletedOn")
+            Prelude.<*> (x Data..:? "Arguments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "JobRunState")
+            Prelude.<*> (x Data..:? "DPUSeconds")
+            Prelude.<*> (x Data..:? "MaxCapacity")
+            Prelude.<*> (x Data..:? "ExecutionClass")
+            Prelude.<*> (x Data..:? "LogGroupName")
       )
 
 instance Prelude.Hashable JobRun where

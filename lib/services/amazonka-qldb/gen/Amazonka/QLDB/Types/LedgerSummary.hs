@@ -21,6 +21,7 @@ module Amazonka.QLDB.Types.LedgerSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types.LedgerState
 
@@ -34,7 +35,7 @@ data LedgerSummary = LedgerSummary'
     -- | The date and time, in epoch time format, when the ledger was created.
     -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
     -- January 1, 1970 UTC.)
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The current status of the ledger.
     state :: Prelude.Maybe LedgerState
   }
@@ -72,21 +73,21 @@ ledgerSummary_name = Lens.lens (\LedgerSummary' {name} -> name) (\s@LedgerSummar
 -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 -- January 1, 1970 UTC.)
 ledgerSummary_creationDateTime :: Lens.Lens' LedgerSummary (Prelude.Maybe Prelude.UTCTime)
-ledgerSummary_creationDateTime = Lens.lens (\LedgerSummary' {creationDateTime} -> creationDateTime) (\s@LedgerSummary' {} a -> s {creationDateTime = a} :: LedgerSummary) Prelude.. Lens.mapping Core._Time
+ledgerSummary_creationDateTime = Lens.lens (\LedgerSummary' {creationDateTime} -> creationDateTime) (\s@LedgerSummary' {} a -> s {creationDateTime = a} :: LedgerSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the ledger.
 ledgerSummary_state :: Lens.Lens' LedgerSummary (Prelude.Maybe LedgerState)
 ledgerSummary_state = Lens.lens (\LedgerSummary' {state} -> state) (\s@LedgerSummary' {} a -> s {state = a} :: LedgerSummary)
 
-instance Core.FromJSON LedgerSummary where
+instance Data.FromJSON LedgerSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LedgerSummary"
       ( \x ->
           LedgerSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreationDateTime")
-            Prelude.<*> (x Core..:? "State")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreationDateTime")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable LedgerSummary where

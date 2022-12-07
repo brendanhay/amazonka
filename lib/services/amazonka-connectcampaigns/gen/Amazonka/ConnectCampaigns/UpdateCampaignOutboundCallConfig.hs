@@ -41,6 +41,7 @@ where
 import Amazonka.ConnectCampaigns.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,42 +139,42 @@ instance
       `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateCampaignOutboundCallConfig
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCampaignOutboundCallConfig where
+instance Data.ToJSON UpdateCampaignOutboundCallConfig where
   toJSON UpdateCampaignOutboundCallConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("answerMachineDetectionConfig" Core..=)
+          [ ("answerMachineDetectionConfig" Data..=)
               Prelude.<$> answerMachineDetectionConfig,
-            ("connectContactFlowId" Core..=)
+            ("connectContactFlowId" Data..=)
               Prelude.<$> connectContactFlowId,
-            ("connectSourcePhoneNumber" Core..=)
+            ("connectSourcePhoneNumber" Data..=)
               Prelude.<$> connectSourcePhoneNumber
           ]
       )
 
-instance Core.ToPath UpdateCampaignOutboundCallConfig where
+instance Data.ToPath UpdateCampaignOutboundCallConfig where
   toPath UpdateCampaignOutboundCallConfig' {..} =
     Prelude.mconcat
       [ "/campaigns/",
-        Core.toBS id,
+        Data.toBS id,
         "/outbound-call-config"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateCampaignOutboundCallConfig
   where
   toQuery = Prelude.const Prelude.mempty

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,9 +112,9 @@ instance Core.AWSRequest CreateBillingGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateBillingGroupResponse'
-            Prelude.<$> (x Core..?> "billingGroupName")
-            Prelude.<*> (x Core..?> "billingGroupArn")
-            Prelude.<*> (x Core..?> "billingGroupId")
+            Prelude.<$> (x Data..?> "billingGroupName")
+            Prelude.<*> (x Data..?> "billingGroupArn")
+            Prelude.<*> (x Data..?> "billingGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,25 +130,25 @@ instance Prelude.NFData CreateBillingGroup where
       `Prelude.seq` Prelude.rnf billingGroupProperties
       `Prelude.seq` Prelude.rnf billingGroupName
 
-instance Core.ToHeaders CreateBillingGroup where
+instance Data.ToHeaders CreateBillingGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateBillingGroup where
+instance Data.ToJSON CreateBillingGroup where
   toJSON CreateBillingGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("billingGroupProperties" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("billingGroupProperties" Data..=)
               Prelude.<$> billingGroupProperties
           ]
       )
 
-instance Core.ToPath CreateBillingGroup where
+instance Data.ToPath CreateBillingGroup where
   toPath CreateBillingGroup' {..} =
     Prelude.mconcat
-      ["/billing-groups/", Core.toBS billingGroupName]
+      ["/billing-groups/", Data.toBS billingGroupName]
 
-instance Core.ToQuery CreateBillingGroup where
+instance Data.ToQuery CreateBillingGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBillingGroupResponse' smart constructor.

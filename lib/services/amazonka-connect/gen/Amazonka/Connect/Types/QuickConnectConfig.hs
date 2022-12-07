@@ -25,6 +25,7 @@ import Amazonka.Connect.Types.QuickConnectType
 import Amazonka.Connect.Types.UserQuickConnectConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration settings for a quick connect.
@@ -100,16 +101,16 @@ quickConnectConfig_userConfig = Lens.lens (\QuickConnectConfig' {userConfig} -> 
 quickConnectConfig_quickConnectType :: Lens.Lens' QuickConnectConfig QuickConnectType
 quickConnectConfig_quickConnectType = Lens.lens (\QuickConnectConfig' {quickConnectType} -> quickConnectType) (\s@QuickConnectConfig' {} a -> s {quickConnectType = a} :: QuickConnectConfig)
 
-instance Core.FromJSON QuickConnectConfig where
+instance Data.FromJSON QuickConnectConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QuickConnectConfig"
       ( \x ->
           QuickConnectConfig'
-            Prelude.<$> (x Core..:? "QueueConfig")
-            Prelude.<*> (x Core..:? "PhoneConfig")
-            Prelude.<*> (x Core..:? "UserConfig")
-            Prelude.<*> (x Core..: "QuickConnectType")
+            Prelude.<$> (x Data..:? "QueueConfig")
+            Prelude.<*> (x Data..:? "PhoneConfig")
+            Prelude.<*> (x Data..:? "UserConfig")
+            Prelude.<*> (x Data..: "QuickConnectType")
       )
 
 instance Prelude.Hashable QuickConnectConfig where
@@ -126,14 +127,14 @@ instance Prelude.NFData QuickConnectConfig where
       `Prelude.seq` Prelude.rnf userConfig
       `Prelude.seq` Prelude.rnf quickConnectType
 
-instance Core.ToJSON QuickConnectConfig where
+instance Data.ToJSON QuickConnectConfig where
   toJSON QuickConnectConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("QueueConfig" Core..=) Prelude.<$> queueConfig,
-            ("PhoneConfig" Core..=) Prelude.<$> phoneConfig,
-            ("UserConfig" Core..=) Prelude.<$> userConfig,
+          [ ("QueueConfig" Data..=) Prelude.<$> queueConfig,
+            ("PhoneConfig" Data..=) Prelude.<$> phoneConfig,
+            ("UserConfig" Data..=) Prelude.<$> userConfig,
             Prelude.Just
-              ("QuickConnectType" Core..= quickConnectType)
+              ("QuickConnectType" Data..= quickConnectType)
           ]
       )

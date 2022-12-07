@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,19 +113,19 @@ instance
     Prelude.rnf deleteScheduledAudits
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteAccountAuditConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteAccountAuditConfiguration where
+instance Data.ToPath DeleteAccountAuditConfiguration where
   toPath = Prelude.const "/audit/configuration"
 
-instance Core.ToQuery DeleteAccountAuditConfiguration where
+instance Data.ToQuery DeleteAccountAuditConfiguration where
   toQuery DeleteAccountAuditConfiguration' {..} =
     Prelude.mconcat
       [ "deleteScheduledAudits"
-          Core.=: deleteScheduledAudits
+          Data.=: deleteScheduledAudits
       ]
 
 -- | /See:/ 'newDeleteAccountAuditConfigurationResponse' smart constructor.

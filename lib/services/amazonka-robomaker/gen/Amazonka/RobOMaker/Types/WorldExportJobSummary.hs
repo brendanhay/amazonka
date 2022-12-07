@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.WorldExportJobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.OutputLocation
 import Amazonka.RobOMaker.Types.WorldExportJobStatus
@@ -56,7 +57,7 @@ data WorldExportJobSummary = WorldExportJobSummary'
     worlds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The time, in milliseconds since the epoch, when the world export job was
     -- created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -144,19 +145,19 @@ worldExportJobSummary_worlds = Lens.lens (\WorldExportJobSummary' {worlds} -> wo
 -- | The time, in milliseconds since the epoch, when the world export job was
 -- created.
 worldExportJobSummary_createdAt :: Lens.Lens' WorldExportJobSummary (Prelude.Maybe Prelude.UTCTime)
-worldExportJobSummary_createdAt = Lens.lens (\WorldExportJobSummary' {createdAt} -> createdAt) (\s@WorldExportJobSummary' {} a -> s {createdAt = a} :: WorldExportJobSummary) Prelude.. Lens.mapping Core._Time
+worldExportJobSummary_createdAt = Lens.lens (\WorldExportJobSummary' {createdAt} -> createdAt) (\s@WorldExportJobSummary' {} a -> s {createdAt = a} :: WorldExportJobSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON WorldExportJobSummary where
+instance Data.FromJSON WorldExportJobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorldExportJobSummary"
       ( \x ->
           WorldExportJobSummary'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "outputLocation")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "worlds")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "outputLocation")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "worlds")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable WorldExportJobSummary where

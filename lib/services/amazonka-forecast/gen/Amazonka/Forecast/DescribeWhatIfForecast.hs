@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,19 +113,19 @@ instance Core.AWSRequest DescribeWhatIfForecast where
     Response.receiveJSON
       ( \s h x ->
           DescribeWhatIfForecastResponse'
-            Prelude.<$> (x Core..?> "LastModificationTime")
-            Prelude.<*> (x Core..?> "WhatIfAnalysisArn")
-            Prelude.<*> (x Core..?> "Message")
-            Prelude.<*> ( x Core..?> "TimeSeriesTransformations"
+            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "WhatIfAnalysisArn")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> ( x Data..?> "TimeSeriesTransformations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "WhatIfForecastName")
-            Prelude.<*> (x Core..?> "WhatIfForecastArn")
-            Prelude.<*> (x Core..?> "TimeSeriesReplacementsDataSource")
-            Prelude.<*> (x Core..?> "ForecastTypes")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "EstimatedTimeRemainingInMinutes")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<*> (x Data..?> "WhatIfForecastName")
+            Prelude.<*> (x Data..?> "WhatIfForecastArn")
+            Prelude.<*> (x Data..?> "TimeSeriesReplacementsDataSource")
+            Prelude.<*> (x Data..?> "ForecastTypes")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,34 +137,34 @@ instance Prelude.NFData DescribeWhatIfForecast where
   rnf DescribeWhatIfForecast' {..} =
     Prelude.rnf whatIfForecastArn
 
-instance Core.ToHeaders DescribeWhatIfForecast where
+instance Data.ToHeaders DescribeWhatIfForecast where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DescribeWhatIfForecast" ::
+              Data.=# ( "AmazonForecast.DescribeWhatIfForecast" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeWhatIfForecast where
+instance Data.ToJSON DescribeWhatIfForecast where
   toJSON DescribeWhatIfForecast' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("WhatIfForecastArn" Core..= whatIfForecastArn)
+              ("WhatIfForecastArn" Data..= whatIfForecastArn)
           ]
       )
 
-instance Core.ToPath DescribeWhatIfForecast where
+instance Data.ToPath DescribeWhatIfForecast where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeWhatIfForecast where
+instance Data.ToQuery DescribeWhatIfForecast where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWhatIfForecastResponse' smart constructor.
@@ -180,7 +181,7 @@ data DescribeWhatIfForecastResponse = DescribeWhatIfForecastResponse'
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the what-if analysis that contains
     -- this forecast.
     whatIfAnalysisArn :: Prelude.Maybe Prelude.Text,
@@ -218,7 +219,7 @@ data DescribeWhatIfForecastResponse = DescribeWhatIfForecastResponse'
     -- minutes.
     estimatedTimeRemainingInMinutes :: Prelude.Maybe Prelude.Integer,
     -- | When the what-if forecast was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -320,7 +321,7 @@ newDescribeWhatIfForecastResponse pHttpStatus_ =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 describeWhatIfForecastResponse_lastModificationTime :: Lens.Lens' DescribeWhatIfForecastResponse (Prelude.Maybe Prelude.UTCTime)
-describeWhatIfForecastResponse_lastModificationTime = Lens.lens (\DescribeWhatIfForecastResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeWhatIfForecastResponse' {} a -> s {lastModificationTime = a} :: DescribeWhatIfForecastResponse) Prelude.. Lens.mapping Core._Time
+describeWhatIfForecastResponse_lastModificationTime = Lens.lens (\DescribeWhatIfForecastResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeWhatIfForecastResponse' {} a -> s {lastModificationTime = a} :: DescribeWhatIfForecastResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the what-if analysis that contains
 -- this forecast.
@@ -378,7 +379,7 @@ describeWhatIfForecastResponse_estimatedTimeRemainingInMinutes = Lens.lens (\Des
 
 -- | When the what-if forecast was created.
 describeWhatIfForecastResponse_creationTime :: Lens.Lens' DescribeWhatIfForecastResponse (Prelude.Maybe Prelude.UTCTime)
-describeWhatIfForecastResponse_creationTime = Lens.lens (\DescribeWhatIfForecastResponse' {creationTime} -> creationTime) (\s@DescribeWhatIfForecastResponse' {} a -> s {creationTime = a} :: DescribeWhatIfForecastResponse) Prelude.. Lens.mapping Core._Time
+describeWhatIfForecastResponse_creationTime = Lens.lens (\DescribeWhatIfForecastResponse' {creationTime} -> creationTime) (\s@DescribeWhatIfForecastResponse' {} a -> s {creationTime = a} :: DescribeWhatIfForecastResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeWhatIfForecastResponse_httpStatus :: Lens.Lens' DescribeWhatIfForecastResponse Prelude.Int

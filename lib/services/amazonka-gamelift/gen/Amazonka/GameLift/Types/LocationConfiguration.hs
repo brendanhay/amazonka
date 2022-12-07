@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.LocationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A remote location where a multi-location fleet can deploy EC2 instances
@@ -62,9 +63,9 @@ instance Prelude.Hashable LocationConfiguration where
 instance Prelude.NFData LocationConfiguration where
   rnf LocationConfiguration' {..} = Prelude.rnf location
 
-instance Core.ToJSON LocationConfiguration where
+instance Data.ToJSON LocationConfiguration where
   toJSON LocationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Location" Core..=) Prelude.<$> location]
+          [("Location" Data..=) Prelude.<$> location]
       )

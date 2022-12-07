@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.TestResult where
 import Amazonka.CloudFront.Types.FunctionSummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the result of testing a CloudFront function with
@@ -40,13 +41,13 @@ data TestResult = TestResult'
     -- the structure of the event object, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html Event object structure>
     -- in the /Amazon CloudFront Developer Guide/.
-    functionOutput :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    functionOutput :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | If the result of testing the function was an error, this field contains
     -- the error message.
-    functionErrorMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    functionErrorMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Contains the log lines that the function wrote (if any) when running the
     -- test.
-    functionExecutionLogs :: Prelude.Maybe (Core.Sensitive [Prelude.Text])
+    functionExecutionLogs :: Prelude.Maybe (Data.Sensitive [Prelude.Text])
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -102,31 +103,31 @@ testResult_computeUtilization = Lens.lens (\TestResult' {computeUtilization} -> 
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html Event object structure>
 -- in the /Amazon CloudFront Developer Guide/.
 testResult_functionOutput :: Lens.Lens' TestResult (Prelude.Maybe Prelude.Text)
-testResult_functionOutput = Lens.lens (\TestResult' {functionOutput} -> functionOutput) (\s@TestResult' {} a -> s {functionOutput = a} :: TestResult) Prelude.. Lens.mapping Core._Sensitive
+testResult_functionOutput = Lens.lens (\TestResult' {functionOutput} -> functionOutput) (\s@TestResult' {} a -> s {functionOutput = a} :: TestResult) Prelude.. Lens.mapping Data._Sensitive
 
 -- | If the result of testing the function was an error, this field contains
 -- the error message.
 testResult_functionErrorMessage :: Lens.Lens' TestResult (Prelude.Maybe Prelude.Text)
-testResult_functionErrorMessage = Lens.lens (\TestResult' {functionErrorMessage} -> functionErrorMessage) (\s@TestResult' {} a -> s {functionErrorMessage = a} :: TestResult) Prelude.. Lens.mapping Core._Sensitive
+testResult_functionErrorMessage = Lens.lens (\TestResult' {functionErrorMessage} -> functionErrorMessage) (\s@TestResult' {} a -> s {functionErrorMessage = a} :: TestResult) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Contains the log lines that the function wrote (if any) when running the
 -- test.
 testResult_functionExecutionLogs :: Lens.Lens' TestResult (Prelude.Maybe [Prelude.Text])
-testResult_functionExecutionLogs = Lens.lens (\TestResult' {functionExecutionLogs} -> functionExecutionLogs) (\s@TestResult' {} a -> s {functionExecutionLogs = a} :: TestResult) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+testResult_functionExecutionLogs = Lens.lens (\TestResult' {functionExecutionLogs} -> functionExecutionLogs) (\s@TestResult' {} a -> s {functionExecutionLogs = a} :: TestResult) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
-instance Core.FromXML TestResult where
+instance Data.FromXML TestResult where
   parseXML x =
     TestResult'
-      Prelude.<$> (x Core..@? "FunctionSummary")
-      Prelude.<*> (x Core..@? "ComputeUtilization")
-      Prelude.<*> (x Core..@? "FunctionOutput")
-      Prelude.<*> (x Core..@? "FunctionErrorMessage")
-      Prelude.<*> ( x Core..@? "FunctionExecutionLogs"
+      Prelude.<$> (x Data..@? "FunctionSummary")
+      Prelude.<*> (x Data..@? "ComputeUtilization")
+      Prelude.<*> (x Data..@? "FunctionOutput")
+      Prelude.<*> (x Data..@? "FunctionErrorMessage")
+      Prelude.<*> ( x Data..@? "FunctionExecutionLogs"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         ( Prelude.fmap
-                            (Prelude.fmap Core.Sensitive)
-                            (Core.parseXMLList "member")
+                            (Prelude.fmap Data.Sensitive)
+                            (Data.parseXMLList "member")
                         )
                   )
 

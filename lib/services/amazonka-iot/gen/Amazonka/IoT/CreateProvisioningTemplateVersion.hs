@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,10 +121,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateProvisioningTemplateVersionResponse'
-            Prelude.<$> (x Core..?> "isDefaultVersion")
-              Prelude.<*> (x Core..?> "templateName")
-              Prelude.<*> (x Core..?> "templateArn")
-              Prelude.<*> (x Core..?> "versionId")
+            Prelude.<$> (x Data..?> "isDefaultVersion")
+              Prelude.<*> (x Data..?> "templateName")
+              Prelude.<*> (x Data..?> "templateArn")
+              Prelude.<*> (x Data..?> "versionId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,39 +149,39 @@ instance
       `Prelude.seq` Prelude.rnf templateBody
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateProvisioningTemplateVersion
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateProvisioningTemplateVersion
   where
   toJSON CreateProvisioningTemplateVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("templateBody" Core..= templateBody)]
+          [Prelude.Just ("templateBody" Data..= templateBody)]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateProvisioningTemplateVersion
   where
   toPath CreateProvisioningTemplateVersion' {..} =
     Prelude.mconcat
       [ "/provisioning-templates/",
-        Core.toBS templateName,
+        Data.toBS templateName,
         "/versions"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateProvisioningTemplateVersion
   where
   toQuery CreateProvisioningTemplateVersion' {..} =
     Prelude.mconcat
-      ["setAsDefault" Core.=: setAsDefault]
+      ["setAsDefault" Data.=: setAsDefault]
 
 -- | /See:/ 'newCreateProvisioningTemplateVersionResponse' smart constructor.
 data CreateProvisioningTemplateVersionResponse = CreateProvisioningTemplateVersionResponse'

@@ -21,6 +21,7 @@ module Amazonka.MigrationHub.Types.ProgressUpdateStreamSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the AWS resource used for access control that is implicitly
@@ -57,13 +58,13 @@ newProgressUpdateStreamSummary =
 progressUpdateStreamSummary_progressUpdateStreamName :: Lens.Lens' ProgressUpdateStreamSummary (Prelude.Maybe Prelude.Text)
 progressUpdateStreamSummary_progressUpdateStreamName = Lens.lens (\ProgressUpdateStreamSummary' {progressUpdateStreamName} -> progressUpdateStreamName) (\s@ProgressUpdateStreamSummary' {} a -> s {progressUpdateStreamName = a} :: ProgressUpdateStreamSummary)
 
-instance Core.FromJSON ProgressUpdateStreamSummary where
+instance Data.FromJSON ProgressUpdateStreamSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProgressUpdateStreamSummary"
       ( \x ->
           ProgressUpdateStreamSummary'
-            Prelude.<$> (x Core..:? "ProgressUpdateStreamName")
+            Prelude.<$> (x Data..:? "ProgressUpdateStreamName")
       )
 
 instance Prelude.Hashable ProgressUpdateStreamSummary where

@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.Domain where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.DomainStatus
 import Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration
@@ -31,7 +32,7 @@ import Amazonka.VoiceId.Types.ServerSideEncryptionUpdateDetails
 -- /See:/ 'newDomain' smart constructor.
 data Domain = Domain'
   { -- | The client-provided name for the domain.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Details about the most recent server-side encryption configuration
     -- update. When the server-side encryption configuration is changed,
     -- dependency on the old KMS key is removed through an asynchronous
@@ -44,15 +45,15 @@ data Domain = Domain'
     -- | The Amazon Resource Name (ARN) for the domain.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The client-provided description of the domain.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The current status of the domain.
     domainStatus :: Prelude.Maybe DomainStatus,
     -- | The service-generated identifier for the domain.
     domainId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp at which the domain is created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The timestamp showing the domain\'s last update.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -103,7 +104,7 @@ newDomain =
 
 -- | The client-provided name for the domain.
 domain_name :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
-domain_name = Lens.lens (\Domain' {name} -> name) (\s@Domain' {} a -> s {name = a} :: Domain) Prelude.. Lens.mapping Core._Sensitive
+domain_name = Lens.lens (\Domain' {name} -> name) (\s@Domain' {} a -> s {name = a} :: Domain) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Details about the most recent server-side encryption configuration
 -- update. When the server-side encryption configuration is changed,
@@ -124,7 +125,7 @@ domain_arn = Lens.lens (\Domain' {arn} -> arn) (\s@Domain' {} a -> s {arn = a} :
 
 -- | The client-provided description of the domain.
 domain_description :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
-domain_description = Lens.lens (\Domain' {description} -> description) (\s@Domain' {} a -> s {description = a} :: Domain) Prelude.. Lens.mapping Core._Sensitive
+domain_description = Lens.lens (\Domain' {description} -> description) (\s@Domain' {} a -> s {description = a} :: Domain) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The current status of the domain.
 domain_domainStatus :: Lens.Lens' Domain (Prelude.Maybe DomainStatus)
@@ -136,27 +137,27 @@ domain_domainId = Lens.lens (\Domain' {domainId} -> domainId) (\s@Domain' {} a -
 
 -- | The timestamp at which the domain is created.
 domain_createdAt :: Lens.Lens' Domain (Prelude.Maybe Prelude.UTCTime)
-domain_createdAt = Lens.lens (\Domain' {createdAt} -> createdAt) (\s@Domain' {} a -> s {createdAt = a} :: Domain) Prelude.. Lens.mapping Core._Time
+domain_createdAt = Lens.lens (\Domain' {createdAt} -> createdAt) (\s@Domain' {} a -> s {createdAt = a} :: Domain) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp showing the domain\'s last update.
 domain_updatedAt :: Lens.Lens' Domain (Prelude.Maybe Prelude.UTCTime)
-domain_updatedAt = Lens.lens (\Domain' {updatedAt} -> updatedAt) (\s@Domain' {} a -> s {updatedAt = a} :: Domain) Prelude.. Lens.mapping Core._Time
+domain_updatedAt = Lens.lens (\Domain' {updatedAt} -> updatedAt) (\s@Domain' {} a -> s {updatedAt = a} :: Domain) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Domain where
+instance Data.FromJSON Domain where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Domain"
       ( \x ->
           Domain'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ServerSideEncryptionUpdateDetails")
-            Prelude.<*> (x Core..:? "ServerSideEncryptionConfiguration")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "DomainStatus")
-            Prelude.<*> (x Core..:? "DomainId")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "UpdatedAt")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ServerSideEncryptionUpdateDetails")
+            Prelude.<*> (x Data..:? "ServerSideEncryptionConfiguration")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "DomainStatus")
+            Prelude.<*> (x Data..:? "DomainId")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable Domain where

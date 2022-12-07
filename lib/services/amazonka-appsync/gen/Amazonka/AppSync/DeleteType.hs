@@ -42,6 +42,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,27 +105,27 @@ instance Prelude.NFData DeleteType where
     Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf typeName
 
-instance Core.ToHeaders DeleteType where
+instance Data.ToHeaders DeleteType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteType where
+instance Data.ToPath DeleteType where
   toPath DeleteType' {..} =
     Prelude.mconcat
       [ "/v1/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/types/",
-        Core.toBS typeName
+        Data.toBS typeName
       ]
 
-instance Core.ToQuery DeleteType where
+instance Data.ToQuery DeleteType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTypeResponse' smart constructor.

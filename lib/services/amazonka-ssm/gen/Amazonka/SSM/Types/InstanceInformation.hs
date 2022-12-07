@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.InstanceInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.InstanceAggregatedAssociationOverview
 import Amazonka.SSM.Types.PingStatus
@@ -70,10 +71,10 @@ data InstanceInformation = InstanceInformation'
     sourceId :: Prelude.Maybe Prelude.Text,
     -- | The date the server or VM was registered with Amazon Web Services as a
     -- managed node.
-    registrationDate :: Prelude.Maybe Core.POSIX,
+    registrationDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the agent last pinged the Systems Manager
     -- service.
-    lastPingDateTime :: Prelude.Maybe Core.POSIX,
+    lastPingDateTime :: Prelude.Maybe Data.POSIX,
     -- | The operating system platform type.
     platformType :: Prelude.Maybe PlatformType,
     -- | The name of the operating system platform running on your managed node.
@@ -81,7 +82,7 @@ data InstanceInformation = InstanceInformation'
     -- | The fully qualified host name of the managed node.
     computerName :: Prelude.Maybe Prelude.Text,
     -- | The date the association was last run.
-    lastAssociationExecutionDate :: Prelude.Maybe Core.POSIX,
+    lastAssociationExecutionDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the association.
     associationStatus :: Prelude.Maybe Prelude.Text,
     -- | The type of the source resource. For IoT Greengrass devices,
@@ -101,7 +102,7 @@ data InstanceInformation = InstanceInformation'
     -- | Information about the association.
     associationOverview :: Prelude.Maybe InstanceAggregatedAssociationOverview,
     -- | The last date the association was successfully run.
-    lastSuccessfulAssociationExecutionDate :: Prelude.Maybe Core.POSIX,
+    lastSuccessfulAssociationExecutionDate :: Prelude.Maybe Data.POSIX,
     -- | The version of the OS platform running on your managed node.
     platformVersion :: Prelude.Maybe Prelude.Text,
     -- | The version of SSM Agent running on your Linux managed node.
@@ -272,12 +273,12 @@ instanceInformation_sourceId = Lens.lens (\InstanceInformation' {sourceId} -> so
 -- | The date the server or VM was registered with Amazon Web Services as a
 -- managed node.
 instanceInformation_registrationDate :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.UTCTime)
-instanceInformation_registrationDate = Lens.lens (\InstanceInformation' {registrationDate} -> registrationDate) (\s@InstanceInformation' {} a -> s {registrationDate = a} :: InstanceInformation) Prelude.. Lens.mapping Core._Time
+instanceInformation_registrationDate = Lens.lens (\InstanceInformation' {registrationDate} -> registrationDate) (\s@InstanceInformation' {} a -> s {registrationDate = a} :: InstanceInformation) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the agent last pinged the Systems Manager
 -- service.
 instanceInformation_lastPingDateTime :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.UTCTime)
-instanceInformation_lastPingDateTime = Lens.lens (\InstanceInformation' {lastPingDateTime} -> lastPingDateTime) (\s@InstanceInformation' {} a -> s {lastPingDateTime = a} :: InstanceInformation) Prelude.. Lens.mapping Core._Time
+instanceInformation_lastPingDateTime = Lens.lens (\InstanceInformation' {lastPingDateTime} -> lastPingDateTime) (\s@InstanceInformation' {} a -> s {lastPingDateTime = a} :: InstanceInformation) Prelude.. Lens.mapping Data._Time
 
 -- | The operating system platform type.
 instanceInformation_platformType :: Lens.Lens' InstanceInformation (Prelude.Maybe PlatformType)
@@ -293,7 +294,7 @@ instanceInformation_computerName = Lens.lens (\InstanceInformation' {computerNam
 
 -- | The date the association was last run.
 instanceInformation_lastAssociationExecutionDate :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.UTCTime)
-instanceInformation_lastAssociationExecutionDate = Lens.lens (\InstanceInformation' {lastAssociationExecutionDate} -> lastAssociationExecutionDate) (\s@InstanceInformation' {} a -> s {lastAssociationExecutionDate = a} :: InstanceInformation) Prelude.. Lens.mapping Core._Time
+instanceInformation_lastAssociationExecutionDate = Lens.lens (\InstanceInformation' {lastAssociationExecutionDate} -> lastAssociationExecutionDate) (\s@InstanceInformation' {} a -> s {lastAssociationExecutionDate = a} :: InstanceInformation) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the association.
 instanceInformation_associationStatus :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
@@ -327,7 +328,7 @@ instanceInformation_associationOverview = Lens.lens (\InstanceInformation' {asso
 
 -- | The last date the association was successfully run.
 instanceInformation_lastSuccessfulAssociationExecutionDate :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.UTCTime)
-instanceInformation_lastSuccessfulAssociationExecutionDate = Lens.lens (\InstanceInformation' {lastSuccessfulAssociationExecutionDate} -> lastSuccessfulAssociationExecutionDate) (\s@InstanceInformation' {} a -> s {lastSuccessfulAssociationExecutionDate = a} :: InstanceInformation) Prelude.. Lens.mapping Core._Time
+instanceInformation_lastSuccessfulAssociationExecutionDate = Lens.lens (\InstanceInformation' {lastSuccessfulAssociationExecutionDate} -> lastSuccessfulAssociationExecutionDate) (\s@InstanceInformation' {} a -> s {lastSuccessfulAssociationExecutionDate = a} :: InstanceInformation) Prelude.. Lens.mapping Data._Time
 
 -- | The version of the OS platform running on your managed node.
 instanceInformation_platformVersion :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
@@ -341,33 +342,33 @@ instanceInformation_agentVersion = Lens.lens (\InstanceInformation' {agentVersio
 instanceInformation_iPAddress :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
 instanceInformation_iPAddress = Lens.lens (\InstanceInformation' {iPAddress} -> iPAddress) (\s@InstanceInformation' {} a -> s {iPAddress = a} :: InstanceInformation)
 
-instance Core.FromJSON InstanceInformation where
+instance Data.FromJSON InstanceInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceInformation"
       ( \x ->
           InstanceInformation'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "PingStatus")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "IamRole")
-            Prelude.<*> (x Core..:? "SourceId")
-            Prelude.<*> (x Core..:? "RegistrationDate")
-            Prelude.<*> (x Core..:? "LastPingDateTime")
-            Prelude.<*> (x Core..:? "PlatformType")
-            Prelude.<*> (x Core..:? "PlatformName")
-            Prelude.<*> (x Core..:? "ComputerName")
-            Prelude.<*> (x Core..:? "LastAssociationExecutionDate")
-            Prelude.<*> (x Core..:? "AssociationStatus")
-            Prelude.<*> (x Core..:? "SourceType")
-            Prelude.<*> (x Core..:? "ActivationId")
-            Prelude.<*> (x Core..:? "IsLatestVersion")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "AssociationOverview")
-            Prelude.<*> (x Core..:? "LastSuccessfulAssociationExecutionDate")
-            Prelude.<*> (x Core..:? "PlatformVersion")
-            Prelude.<*> (x Core..:? "AgentVersion")
-            Prelude.<*> (x Core..:? "IPAddress")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "PingStatus")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "IamRole")
+            Prelude.<*> (x Data..:? "SourceId")
+            Prelude.<*> (x Data..:? "RegistrationDate")
+            Prelude.<*> (x Data..:? "LastPingDateTime")
+            Prelude.<*> (x Data..:? "PlatformType")
+            Prelude.<*> (x Data..:? "PlatformName")
+            Prelude.<*> (x Data..:? "ComputerName")
+            Prelude.<*> (x Data..:? "LastAssociationExecutionDate")
+            Prelude.<*> (x Data..:? "AssociationStatus")
+            Prelude.<*> (x Data..:? "SourceType")
+            Prelude.<*> (x Data..:? "ActivationId")
+            Prelude.<*> (x Data..:? "IsLatestVersion")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "AssociationOverview")
+            Prelude.<*> (x Data..:? "LastSuccessfulAssociationExecutionDate")
+            Prelude.<*> (x Data..:? "PlatformVersion")
+            Prelude.<*> (x Data..:? "AgentVersion")
+            Prelude.<*> (x Data..:? "IPAddress")
       )
 
 instance Prelude.Hashable InstanceInformation where

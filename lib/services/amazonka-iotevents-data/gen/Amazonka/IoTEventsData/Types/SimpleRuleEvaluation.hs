@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.SimpleRuleEvaluation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types.ComparisonOperator
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,15 +76,15 @@ simpleRuleEvaluation_inputPropertyValue = Lens.lens (\SimpleRuleEvaluation' {inp
 simpleRuleEvaluation_operator :: Lens.Lens' SimpleRuleEvaluation (Prelude.Maybe ComparisonOperator)
 simpleRuleEvaluation_operator = Lens.lens (\SimpleRuleEvaluation' {operator} -> operator) (\s@SimpleRuleEvaluation' {} a -> s {operator = a} :: SimpleRuleEvaluation)
 
-instance Core.FromJSON SimpleRuleEvaluation where
+instance Data.FromJSON SimpleRuleEvaluation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SimpleRuleEvaluation"
       ( \x ->
           SimpleRuleEvaluation'
-            Prelude.<$> (x Core..:? "thresholdValue")
-            Prelude.<*> (x Core..:? "inputPropertyValue")
-            Prelude.<*> (x Core..:? "operator")
+            Prelude.<$> (x Data..:? "thresholdValue")
+            Prelude.<*> (x Data..:? "inputPropertyValue")
+            Prelude.<*> (x Data..:? "operator")
       )
 
 instance Prelude.Hashable SimpleRuleEvaluation where

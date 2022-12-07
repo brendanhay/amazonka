@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -155,7 +156,7 @@ instance Core.AWSRequest DisablePolicyType where
     Response.receiveJSON
       ( \s h x ->
           DisablePolicyTypeResponse'
-            Prelude.<$> (x Core..?> "Root")
+            Prelude.<$> (x Data..?> "Root")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,34 +170,34 @@ instance Prelude.NFData DisablePolicyType where
     Prelude.rnf rootId
       `Prelude.seq` Prelude.rnf policyType
 
-instance Core.ToHeaders DisablePolicyType where
+instance Data.ToHeaders DisablePolicyType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.DisablePolicyType" ::
+              Data.=# ( "AWSOrganizationsV20161128.DisablePolicyType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisablePolicyType where
+instance Data.ToJSON DisablePolicyType where
   toJSON DisablePolicyType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("RootId" Core..= rootId),
-            Prelude.Just ("PolicyType" Core..= policyType)
+          [ Prelude.Just ("RootId" Data..= rootId),
+            Prelude.Just ("PolicyType" Data..= policyType)
           ]
       )
 
-instance Core.ToPath DisablePolicyType where
+instance Data.ToPath DisablePolicyType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisablePolicyType where
+instance Data.ToQuery DisablePolicyType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisablePolicyTypeResponse' smart constructor.

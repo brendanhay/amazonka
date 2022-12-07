@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PathStatementRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PacketHeaderStatementRequest
 import Amazonka.EC2.Types.ResourceStatementRequest
@@ -75,10 +76,10 @@ instance Prelude.NFData PathStatementRequest where
     Prelude.rnf resourceStatement
       `Prelude.seq` Prelude.rnf packetHeaderStatement
 
-instance Core.ToQuery PathStatementRequest where
+instance Data.ToQuery PathStatementRequest where
   toQuery PathStatementRequest' {..} =
     Prelude.mconcat
-      [ "ResourceStatement" Core.=: resourceStatement,
+      [ "ResourceStatement" Data.=: resourceStatement,
         "PacketHeaderStatement"
-          Core.=: packetHeaderStatement
+          Data.=: packetHeaderStatement
       ]

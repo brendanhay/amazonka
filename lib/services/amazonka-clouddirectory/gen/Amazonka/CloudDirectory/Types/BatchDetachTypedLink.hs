@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchDetachTypedLink where
 import Amazonka.CloudDirectory.Types.TypedLinkSpecifier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detaches a typed link from a specified source and target object inside a
@@ -66,11 +67,11 @@ instance Prelude.NFData BatchDetachTypedLink where
   rnf BatchDetachTypedLink' {..} =
     Prelude.rnf typedLinkSpecifier
 
-instance Core.ToJSON BatchDetachTypedLink where
+instance Data.ToJSON BatchDetachTypedLink where
   toJSON BatchDetachTypedLink' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TypedLinkSpecifier" Core..= typedLinkSpecifier)
+              ("TypedLinkSpecifier" Data..= typedLinkSpecifier)
           ]
       )

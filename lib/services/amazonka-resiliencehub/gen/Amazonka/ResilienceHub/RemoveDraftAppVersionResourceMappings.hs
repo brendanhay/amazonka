@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -161,8 +162,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           RemoveDraftAppVersionResourceMappingsResponse'
-            Prelude.<$> (x Core..?> "appVersion")
-              Prelude.<*> (x Core..?> "appArn")
+            Prelude.<$> (x Data..?> "appVersion")
+              Prelude.<*> (x Data..?> "appArn")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,41 +194,41 @@ instance
       `Prelude.seq` Prelude.rnf appArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RemoveDraftAppVersionResourceMappings
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RemoveDraftAppVersionResourceMappings
   where
   toJSON RemoveDraftAppVersionResourceMappings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resourceGroupNames" Core..=)
+          [ ("resourceGroupNames" Data..=)
               Prelude.<$> resourceGroupNames,
-            ("terraformSourceNames" Core..=)
+            ("terraformSourceNames" Data..=)
               Prelude.<$> terraformSourceNames,
-            ("resourceNames" Core..=) Prelude.<$> resourceNames,
-            ("appRegistryAppNames" Core..=)
+            ("resourceNames" Data..=) Prelude.<$> resourceNames,
+            ("appRegistryAppNames" Data..=)
               Prelude.<$> appRegistryAppNames,
-            ("logicalStackNames" Core..=)
+            ("logicalStackNames" Data..=)
               Prelude.<$> logicalStackNames,
-            Prelude.Just ("appArn" Core..= appArn)
+            Prelude.Just ("appArn" Data..= appArn)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     RemoveDraftAppVersionResourceMappings
   where
   toPath =
@@ -235,7 +236,7 @@ instance
       "/remove-draft-app-version-resource-mappings"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     RemoveDraftAppVersionResourceMappings
   where
   toQuery = Prelude.const Prelude.mempty

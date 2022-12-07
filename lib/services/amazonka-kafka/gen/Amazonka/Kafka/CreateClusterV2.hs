@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,10 +119,10 @@ instance Core.AWSRequest CreateClusterV2 where
     Response.receiveJSON
       ( \s h x ->
           CreateClusterV2Response'
-            Prelude.<$> (x Core..?> "clusterArn")
-            Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "clusterType")
-            Prelude.<*> (x Core..?> "clusterName")
+            Prelude.<$> (x Data..?> "clusterArn")
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "clusterType")
+            Prelude.<*> (x Data..?> "clusterName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,32 +140,32 @@ instance Prelude.NFData CreateClusterV2 where
       `Prelude.seq` Prelude.rnf provisioned
       `Prelude.seq` Prelude.rnf clusterName
 
-instance Core.ToHeaders CreateClusterV2 where
+instance Data.ToHeaders CreateClusterV2 where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateClusterV2 where
+instance Data.ToJSON CreateClusterV2 where
   toJSON CreateClusterV2' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("serverless" Core..=) Prelude.<$> serverless,
-            ("provisioned" Core..=) Prelude.<$> provisioned,
-            Prelude.Just ("clusterName" Core..= clusterName)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("serverless" Data..=) Prelude.<$> serverless,
+            ("provisioned" Data..=) Prelude.<$> provisioned,
+            Prelude.Just ("clusterName" Data..= clusterName)
           ]
       )
 
-instance Core.ToPath CreateClusterV2 where
+instance Data.ToPath CreateClusterV2 where
   toPath = Prelude.const "/api/v2/clusters"
 
-instance Core.ToQuery CreateClusterV2 where
+instance Data.ToQuery CreateClusterV2 where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateClusterV2Response' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateHibernationOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,12 +59,12 @@ launchTemplateHibernationOptions_configured :: Lens.Lens' LaunchTemplateHibernat
 launchTemplateHibernationOptions_configured = Lens.lens (\LaunchTemplateHibernationOptions' {configured} -> configured) (\s@LaunchTemplateHibernationOptions' {} a -> s {configured = a} :: LaunchTemplateHibernationOptions)
 
 instance
-  Core.FromXML
+  Data.FromXML
     LaunchTemplateHibernationOptions
   where
   parseXML x =
     LaunchTemplateHibernationOptions'
-      Prelude.<$> (x Core..@? "configured")
+      Prelude.<$> (x Data..@? "configured")
 
 instance
   Prelude.Hashable

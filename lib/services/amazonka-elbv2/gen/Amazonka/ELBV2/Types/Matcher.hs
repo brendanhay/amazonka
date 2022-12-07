@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.Matcher where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The codes to use when checking for a successful response from a target.
@@ -108,11 +109,11 @@ matcher_httpCode = Lens.lens (\Matcher' {httpCode} -> httpCode) (\s@Matcher' {} 
 matcher_grpcCode :: Lens.Lens' Matcher (Prelude.Maybe Prelude.Text)
 matcher_grpcCode = Lens.lens (\Matcher' {grpcCode} -> grpcCode) (\s@Matcher' {} a -> s {grpcCode = a} :: Matcher)
 
-instance Core.FromXML Matcher where
+instance Data.FromXML Matcher where
   parseXML x =
     Matcher'
-      Prelude.<$> (x Core..@? "HttpCode")
-      Prelude.<*> (x Core..@? "GrpcCode")
+      Prelude.<$> (x Data..@? "HttpCode")
+      Prelude.<*> (x Data..@? "GrpcCode")
 
 instance Prelude.Hashable Matcher where
   hashWithSalt _salt Matcher' {..} =
@@ -124,9 +125,9 @@ instance Prelude.NFData Matcher where
     Prelude.rnf httpCode
       `Prelude.seq` Prelude.rnf grpcCode
 
-instance Core.ToQuery Matcher where
+instance Data.ToQuery Matcher where
   toQuery Matcher' {..} =
     Prelude.mconcat
-      [ "HttpCode" Core.=: httpCode,
-        "GrpcCode" Core.=: grpcCode
+      [ "HttpCode" Data.=: httpCode,
+        "GrpcCode" Data.=: grpcCode
       ]

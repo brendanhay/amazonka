@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,7 +131,7 @@ instance Core.AWSRequest CreateControlPanel where
     Response.receiveJSON
       ( \s h x ->
           CreateControlPanelResponse'
-            Prelude.<$> (x Core..?> "ControlPanel")
+            Prelude.<$> (x Data..?> "ControlPanel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,33 +149,33 @@ instance Prelude.NFData CreateControlPanel where
       `Prelude.seq` Prelude.rnf clusterArn
       `Prelude.seq` Prelude.rnf controlPanelName
 
-instance Core.ToHeaders CreateControlPanel where
+instance Data.ToHeaders CreateControlPanel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateControlPanel where
+instance Data.ToJSON CreateControlPanel where
   toJSON CreateControlPanel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("ClusterArn" Core..= clusterArn),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("ClusterArn" Data..= clusterArn),
             Prelude.Just
-              ("ControlPanelName" Core..= controlPanelName)
+              ("ControlPanelName" Data..= controlPanelName)
           ]
       )
 
-instance Core.ToPath CreateControlPanel where
+instance Data.ToPath CreateControlPanel where
   toPath = Prelude.const "/controlpanel"
 
-instance Core.ToQuery CreateControlPanel where
+instance Data.ToQuery CreateControlPanel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateControlPanelResponse' smart constructor.

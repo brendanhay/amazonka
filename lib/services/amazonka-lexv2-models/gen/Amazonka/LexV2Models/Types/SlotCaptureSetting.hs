@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SlotCaptureSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.ConditionalSpecification
 import Amazonka.LexV2Models.Types.DialogCodeHookInvocationSetting
 import Amazonka.LexV2Models.Types.DialogState
@@ -132,20 +133,20 @@ slotCaptureSetting_failureResponse = Lens.lens (\SlotCaptureSetting' {failureRes
 slotCaptureSetting_captureNextStep :: Lens.Lens' SlotCaptureSetting (Prelude.Maybe DialogState)
 slotCaptureSetting_captureNextStep = Lens.lens (\SlotCaptureSetting' {captureNextStep} -> captureNextStep) (\s@SlotCaptureSetting' {} a -> s {captureNextStep = a} :: SlotCaptureSetting)
 
-instance Core.FromJSON SlotCaptureSetting where
+instance Data.FromJSON SlotCaptureSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlotCaptureSetting"
       ( \x ->
           SlotCaptureSetting'
-            Prelude.<$> (x Core..:? "captureResponse")
-            Prelude.<*> (x Core..:? "failureNextStep")
-            Prelude.<*> (x Core..:? "codeHook")
-            Prelude.<*> (x Core..:? "elicitationCodeHook")
-            Prelude.<*> (x Core..:? "captureConditional")
-            Prelude.<*> (x Core..:? "failureConditional")
-            Prelude.<*> (x Core..:? "failureResponse")
-            Prelude.<*> (x Core..:? "captureNextStep")
+            Prelude.<$> (x Data..:? "captureResponse")
+            Prelude.<*> (x Data..:? "failureNextStep")
+            Prelude.<*> (x Data..:? "codeHook")
+            Prelude.<*> (x Data..:? "elicitationCodeHook")
+            Prelude.<*> (x Data..:? "captureConditional")
+            Prelude.<*> (x Data..:? "failureConditional")
+            Prelude.<*> (x Data..:? "failureResponse")
+            Prelude.<*> (x Data..:? "captureNextStep")
       )
 
 instance Prelude.Hashable SlotCaptureSetting where
@@ -170,24 +171,24 @@ instance Prelude.NFData SlotCaptureSetting where
       `Prelude.seq` Prelude.rnf failureResponse
       `Prelude.seq` Prelude.rnf captureNextStep
 
-instance Core.ToJSON SlotCaptureSetting where
+instance Data.ToJSON SlotCaptureSetting where
   toJSON SlotCaptureSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("captureResponse" Core..=)
+          [ ("captureResponse" Data..=)
               Prelude.<$> captureResponse,
-            ("failureNextStep" Core..=)
+            ("failureNextStep" Data..=)
               Prelude.<$> failureNextStep,
-            ("codeHook" Core..=) Prelude.<$> codeHook,
-            ("elicitationCodeHook" Core..=)
+            ("codeHook" Data..=) Prelude.<$> codeHook,
+            ("elicitationCodeHook" Data..=)
               Prelude.<$> elicitationCodeHook,
-            ("captureConditional" Core..=)
+            ("captureConditional" Data..=)
               Prelude.<$> captureConditional,
-            ("failureConditional" Core..=)
+            ("failureConditional" Data..=)
               Prelude.<$> failureConditional,
-            ("failureResponse" Core..=)
+            ("failureResponse" Data..=)
               Prelude.<$> failureResponse,
-            ("captureNextStep" Core..=)
+            ("captureNextStep" Data..=)
               Prelude.<$> captureNextStep
           ]
       )

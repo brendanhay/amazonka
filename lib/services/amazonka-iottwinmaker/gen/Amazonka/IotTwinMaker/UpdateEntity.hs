@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,8 +141,8 @@ instance Core.AWSRequest UpdateEntity where
       ( \s h x ->
           UpdateEntityResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "updateDateTime")
-            Prelude.<*> (x Core..:> "state")
+            Prelude.<*> (x Data..:> "updateDateTime")
+            Prelude.<*> (x Data..:> "state")
       )
 
 instance Prelude.Hashable UpdateEntity where
@@ -162,40 +163,40 @@ instance Prelude.NFData UpdateEntity where
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf entityId
 
-instance Core.ToHeaders UpdateEntity where
+instance Data.ToHeaders UpdateEntity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEntity where
+instance Data.ToJSON UpdateEntity where
   toJSON UpdateEntity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("entityName" Core..=) Prelude.<$> entityName,
-            ("componentUpdates" Core..=)
+          [ ("entityName" Data..=) Prelude.<$> entityName,
+            ("componentUpdates" Data..=)
               Prelude.<$> componentUpdates,
-            ("description" Core..=) Prelude.<$> description,
-            ("parentEntityUpdate" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("parentEntityUpdate" Data..=)
               Prelude.<$> parentEntityUpdate
           ]
       )
 
-instance Core.ToPath UpdateEntity where
+instance Data.ToPath UpdateEntity where
   toPath UpdateEntity' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/entities/",
-        Core.toBS entityId
+        Data.toBS entityId
       ]
 
-instance Core.ToQuery UpdateEntity where
+instance Data.ToQuery UpdateEntity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEntityResponse' smart constructor.
@@ -203,7 +204,7 @@ data UpdateEntityResponse = UpdateEntityResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The date and time when the entity was last updated.
-    updateDateTime :: Core.POSIX,
+    updateDateTime :: Data.POSIX,
     -- | The current state of the entity update.
     state :: State
   }
@@ -236,7 +237,7 @@ newUpdateEntityResponse
   pState_ =
     UpdateEntityResponse'
       { httpStatus = pHttpStatus_,
-        updateDateTime = Core._Time Lens.# pUpdateDateTime_,
+        updateDateTime = Data._Time Lens.# pUpdateDateTime_,
         state = pState_
       }
 
@@ -246,7 +247,7 @@ updateEntityResponse_httpStatus = Lens.lens (\UpdateEntityResponse' {httpStatus}
 
 -- | The date and time when the entity was last updated.
 updateEntityResponse_updateDateTime :: Lens.Lens' UpdateEntityResponse Prelude.UTCTime
-updateEntityResponse_updateDateTime = Lens.lens (\UpdateEntityResponse' {updateDateTime} -> updateDateTime) (\s@UpdateEntityResponse' {} a -> s {updateDateTime = a} :: UpdateEntityResponse) Prelude.. Core._Time
+updateEntityResponse_updateDateTime = Lens.lens (\UpdateEntityResponse' {updateDateTime} -> updateDateTime) (\s@UpdateEntityResponse' {} a -> s {updateDateTime = a} :: UpdateEntityResponse) Prelude.. Data._Time
 
 -- | The current state of the entity update.
 updateEntityResponse_state :: Lens.Lens' UpdateEntityResponse State

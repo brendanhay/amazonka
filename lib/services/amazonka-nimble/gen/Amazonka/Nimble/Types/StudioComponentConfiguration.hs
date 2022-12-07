@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.StudioComponentConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.ActiveDirectoryConfiguration
 import Amazonka.Nimble.Types.ComputeFarmConfiguration
 import Amazonka.Nimble.Types.LicenseServiceConfiguration
@@ -97,16 +98,16 @@ studioComponentConfiguration_computeFarmConfiguration = Lens.lens (\StudioCompon
 studioComponentConfiguration_sharedFileSystemConfiguration :: Lens.Lens' StudioComponentConfiguration (Prelude.Maybe SharedFileSystemConfiguration)
 studioComponentConfiguration_sharedFileSystemConfiguration = Lens.lens (\StudioComponentConfiguration' {sharedFileSystemConfiguration} -> sharedFileSystemConfiguration) (\s@StudioComponentConfiguration' {} a -> s {sharedFileSystemConfiguration = a} :: StudioComponentConfiguration)
 
-instance Core.FromJSON StudioComponentConfiguration where
+instance Data.FromJSON StudioComponentConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StudioComponentConfiguration"
       ( \x ->
           StudioComponentConfiguration'
-            Prelude.<$> (x Core..:? "activeDirectoryConfiguration")
-            Prelude.<*> (x Core..:? "licenseServiceConfiguration")
-            Prelude.<*> (x Core..:? "computeFarmConfiguration")
-            Prelude.<*> (x Core..:? "sharedFileSystemConfiguration")
+            Prelude.<$> (x Data..:? "activeDirectoryConfiguration")
+            Prelude.<*> (x Data..:? "licenseServiceConfiguration")
+            Prelude.<*> (x Data..:? "computeFarmConfiguration")
+            Prelude.<*> (x Data..:? "sharedFileSystemConfiguration")
       )
 
 instance
@@ -127,17 +128,17 @@ instance Prelude.NFData StudioComponentConfiguration where
       `Prelude.seq` Prelude.rnf computeFarmConfiguration
       `Prelude.seq` Prelude.rnf sharedFileSystemConfiguration
 
-instance Core.ToJSON StudioComponentConfiguration where
+instance Data.ToJSON StudioComponentConfiguration where
   toJSON StudioComponentConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("activeDirectoryConfiguration" Core..=)
+          [ ("activeDirectoryConfiguration" Data..=)
               Prelude.<$> activeDirectoryConfiguration,
-            ("licenseServiceConfiguration" Core..=)
+            ("licenseServiceConfiguration" Data..=)
               Prelude.<$> licenseServiceConfiguration,
-            ("computeFarmConfiguration" Core..=)
+            ("computeFarmConfiguration" Data..=)
               Prelude.<$> computeFarmConfiguration,
-            ("sharedFileSystemConfiguration" Core..=)
+            ("sharedFileSystemConfiguration" Data..=)
               Prelude.<$> sharedFileSystemConfiguration
           ]
       )

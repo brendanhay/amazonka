@@ -25,6 +25,7 @@ import Amazonka.CloudFormation.Types.PropertyDifference
 import Amazonka.CloudFormation.Types.StackResourceDriftStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the drift information for a resource that has been checked for
@@ -97,7 +98,7 @@ data StackResourceDrift = StackResourceDrift'
     stackResourceDriftStatus :: StackResourceDriftStatus,
     -- | Time at which CloudFormation performed drift detection on the stack
     -- resource.
-    timestamp :: Core.ISO8601
+    timestamp :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -193,7 +194,7 @@ newStackResourceDrift
         resourceType = pResourceType_,
         stackResourceDriftStatus =
           pStackResourceDriftStatus_,
-        timestamp = Core._Time Lens.# pTimestamp_
+        timestamp = Data._Time Lens.# pTimestamp_
       }
 
 -- | A JSON structure containing the expected property values of the stack
@@ -270,28 +271,28 @@ stackResourceDrift_stackResourceDriftStatus = Lens.lens (\StackResourceDrift' {s
 -- | Time at which CloudFormation performed drift detection on the stack
 -- resource.
 stackResourceDrift_timestamp :: Lens.Lens' StackResourceDrift Prelude.UTCTime
-stackResourceDrift_timestamp = Lens.lens (\StackResourceDrift' {timestamp} -> timestamp) (\s@StackResourceDrift' {} a -> s {timestamp = a} :: StackResourceDrift) Prelude.. Core._Time
+stackResourceDrift_timestamp = Lens.lens (\StackResourceDrift' {timestamp} -> timestamp) (\s@StackResourceDrift' {} a -> s {timestamp = a} :: StackResourceDrift) Prelude.. Data._Time
 
-instance Core.FromXML StackResourceDrift where
+instance Data.FromXML StackResourceDrift where
   parseXML x =
     StackResourceDrift'
-      Prelude.<$> (x Core..@? "ExpectedProperties")
-      Prelude.<*> (x Core..@? "ActualProperties")
-      Prelude.<*> (x Core..@? "ModuleInfo")
-      Prelude.<*> ( x Core..@? "PropertyDifferences"
+      Prelude.<$> (x Data..@? "ExpectedProperties")
+      Prelude.<*> (x Data..@? "ActualProperties")
+      Prelude.<*> (x Data..@? "ModuleInfo")
+      Prelude.<*> ( x Data..@? "PropertyDifferences"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "PhysicalResourceIdContext"
+      Prelude.<*> ( x Data..@? "PhysicalResourceIdContext"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PhysicalResourceId")
-      Prelude.<*> (x Core..@ "StackId")
-      Prelude.<*> (x Core..@ "LogicalResourceId")
-      Prelude.<*> (x Core..@ "ResourceType")
-      Prelude.<*> (x Core..@ "StackResourceDriftStatus")
-      Prelude.<*> (x Core..@ "Timestamp")
+      Prelude.<*> (x Data..@? "PhysicalResourceId")
+      Prelude.<*> (x Data..@ "StackId")
+      Prelude.<*> (x Data..@ "LogicalResourceId")
+      Prelude.<*> (x Data..@ "ResourceType")
+      Prelude.<*> (x Data..@ "StackResourceDriftStatus")
+      Prelude.<*> (x Data..@ "Timestamp")
 
 instance Prelude.Hashable StackResourceDrift where
   hashWithSalt _salt StackResourceDrift' {..} =

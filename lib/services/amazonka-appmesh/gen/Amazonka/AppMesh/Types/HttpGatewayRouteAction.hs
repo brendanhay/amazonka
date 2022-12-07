@@ -23,6 +23,7 @@ import Amazonka.AppMesh.Types.GatewayRouteTarget
 import Amazonka.AppMesh.Types.HttpGatewayRouteRewrite
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the action to take if a match is determined.
@@ -68,14 +69,14 @@ httpGatewayRouteAction_rewrite = Lens.lens (\HttpGatewayRouteAction' {rewrite} -
 httpGatewayRouteAction_target :: Lens.Lens' HttpGatewayRouteAction GatewayRouteTarget
 httpGatewayRouteAction_target = Lens.lens (\HttpGatewayRouteAction' {target} -> target) (\s@HttpGatewayRouteAction' {} a -> s {target = a} :: HttpGatewayRouteAction)
 
-instance Core.FromJSON HttpGatewayRouteAction where
+instance Data.FromJSON HttpGatewayRouteAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpGatewayRouteAction"
       ( \x ->
           HttpGatewayRouteAction'
-            Prelude.<$> (x Core..:? "rewrite")
-            Prelude.<*> (x Core..: "target")
+            Prelude.<$> (x Data..:? "rewrite")
+            Prelude.<*> (x Data..: "target")
       )
 
 instance Prelude.Hashable HttpGatewayRouteAction where
@@ -88,11 +89,11 @@ instance Prelude.NFData HttpGatewayRouteAction where
     Prelude.rnf rewrite
       `Prelude.seq` Prelude.rnf target
 
-instance Core.ToJSON HttpGatewayRouteAction where
+instance Data.ToJSON HttpGatewayRouteAction where
   toJSON HttpGatewayRouteAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("rewrite" Core..=) Prelude.<$> rewrite,
-            Prelude.Just ("target" Core..= target)
+          [ ("rewrite" Data..=) Prelude.<$> rewrite,
+            Prelude.Just ("target" Data..= target)
           ]
       )

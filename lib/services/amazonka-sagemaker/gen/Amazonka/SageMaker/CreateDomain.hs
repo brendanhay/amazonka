@@ -97,6 +97,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -317,8 +318,8 @@ instance Core.AWSRequest CreateDomain where
     Response.receiveJSON
       ( \s h x ->
           CreateDomainResponse'
-            Prelude.<$> (x Core..?> "DomainArn")
-            Prelude.<*> (x Core..?> "Url")
+            Prelude.<$> (x Data..?> "DomainArn")
+            Prelude.<*> (x Data..?> "Url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -350,46 +351,46 @@ instance Prelude.NFData CreateDomain where
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToHeaders CreateDomain where
+instance Data.ToHeaders CreateDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateDomain" :: Prelude.ByteString),
+              Data.=# ("SageMaker.CreateDomain" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDomain where
+instance Data.ToJSON CreateDomain where
   toJSON CreateDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("DomainSettings" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("DomainSettings" Data..=)
               Prelude.<$> domainSettings,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("HomeEfsFileSystemKmsKeyId" Core..=)
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("HomeEfsFileSystemKmsKeyId" Data..=)
               Prelude.<$> homeEfsFileSystemKmsKeyId,
-            ("AppSecurityGroupManagement" Core..=)
+            ("AppSecurityGroupManagement" Data..=)
               Prelude.<$> appSecurityGroupManagement,
-            ("AppNetworkAccessType" Core..=)
+            ("AppNetworkAccessType" Data..=)
               Prelude.<$> appNetworkAccessType,
-            Prelude.Just ("DomainName" Core..= domainName),
-            Prelude.Just ("AuthMode" Core..= authMode),
+            Prelude.Just ("DomainName" Data..= domainName),
+            Prelude.Just ("AuthMode" Data..= authMode),
             Prelude.Just
-              ("DefaultUserSettings" Core..= defaultUserSettings),
-            Prelude.Just ("SubnetIds" Core..= subnetIds),
-            Prelude.Just ("VpcId" Core..= vpcId)
+              ("DefaultUserSettings" Data..= defaultUserSettings),
+            Prelude.Just ("SubnetIds" Data..= subnetIds),
+            Prelude.Just ("VpcId" Data..= vpcId)
           ]
       )
 
-instance Core.ToPath CreateDomain where
+instance Data.ToPath CreateDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDomain where
+instance Data.ToQuery CreateDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDomainResponse' smart constructor.

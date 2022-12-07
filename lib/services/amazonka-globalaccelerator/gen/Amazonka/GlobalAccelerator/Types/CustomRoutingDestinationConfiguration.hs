@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.CustomRoutingDestinationConfiguration wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol
 import qualified Amazonka.Prelude as Prelude
 
@@ -114,14 +115,14 @@ instance
       `Prelude.seq` Prelude.rnf protocols
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CustomRoutingDestinationConfiguration
   where
   toJSON CustomRoutingDestinationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FromPort" Core..= fromPort),
-            Prelude.Just ("ToPort" Core..= toPort),
-            Prelude.Just ("Protocols" Core..= protocols)
+          [ Prelude.Just ("FromPort" Data..= fromPort),
+            Prelude.Just ("ToPort" Data..= toPort),
+            Prelude.Just ("Protocols" Data..= protocols)
           ]
       )

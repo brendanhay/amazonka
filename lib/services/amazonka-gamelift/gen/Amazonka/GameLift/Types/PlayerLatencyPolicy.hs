@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.PlayerLatencyPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Sets a latency cap for individual players when placing a game session.
@@ -78,16 +79,16 @@ playerLatencyPolicy_maximumIndividualPlayerLatencyMilliseconds = Lens.lens (\Pla
 playerLatencyPolicy_policyDurationSeconds :: Lens.Lens' PlayerLatencyPolicy (Prelude.Maybe Prelude.Natural)
 playerLatencyPolicy_policyDurationSeconds = Lens.lens (\PlayerLatencyPolicy' {policyDurationSeconds} -> policyDurationSeconds) (\s@PlayerLatencyPolicy' {} a -> s {policyDurationSeconds = a} :: PlayerLatencyPolicy)
 
-instance Core.FromJSON PlayerLatencyPolicy where
+instance Data.FromJSON PlayerLatencyPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlayerLatencyPolicy"
       ( \x ->
           PlayerLatencyPolicy'
             Prelude.<$> ( x
-                            Core..:? "MaximumIndividualPlayerLatencyMilliseconds"
+                            Data..:? "MaximumIndividualPlayerLatencyMilliseconds"
                         )
-            Prelude.<*> (x Core..:? "PolicyDurationSeconds")
+            Prelude.<*> (x Data..:? "PolicyDurationSeconds")
       )
 
 instance Prelude.Hashable PlayerLatencyPolicy where
@@ -102,15 +103,15 @@ instance Prelude.NFData PlayerLatencyPolicy where
       maximumIndividualPlayerLatencyMilliseconds
       `Prelude.seq` Prelude.rnf policyDurationSeconds
 
-instance Core.ToJSON PlayerLatencyPolicy where
+instance Data.ToJSON PlayerLatencyPolicy where
   toJSON PlayerLatencyPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ ( "MaximumIndividualPlayerLatencyMilliseconds"
-                Core..=
+                Data..=
             )
               Prelude.<$> maximumIndividualPlayerLatencyMilliseconds,
-            ("PolicyDurationSeconds" Core..=)
+            ("PolicyDurationSeconds" Data..=)
               Prelude.<$> policyDurationSeconds
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.AttackDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Shield.Types.AttackProperty
 import Amazonka.Shield.Types.Mitigation
@@ -37,7 +38,7 @@ data AttackDetail = AttackDetail'
     -- example, IP address or URL.
     subResources :: Prelude.Maybe [SubResourceSummary],
     -- | The time the attack ended, in Unix time in seconds.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | List of mitigation actions taken for the attack.
     mitigations :: Prelude.Maybe [Mitigation],
     -- | The ARN (Amazon Resource Name) of the resource that was attacked.
@@ -53,7 +54,7 @@ data AttackDetail = AttackDetail'
     -- in the /WAF Developer Guide/.
     attackProperties :: Prelude.Maybe [AttackProperty],
     -- | The time the attack started, in Unix time in seconds.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -112,7 +113,7 @@ attackDetail_subResources = Lens.lens (\AttackDetail' {subResources} -> subResou
 
 -- | The time the attack ended, in Unix time in seconds.
 attackDetail_endTime :: Lens.Lens' AttackDetail (Prelude.Maybe Prelude.UTCTime)
-attackDetail_endTime = Lens.lens (\AttackDetail' {endTime} -> endTime) (\s@AttackDetail' {} a -> s {endTime = a} :: AttackDetail) Prelude.. Lens.mapping Core._Time
+attackDetail_endTime = Lens.lens (\AttackDetail' {endTime} -> endTime) (\s@AttackDetail' {} a -> s {endTime = a} :: AttackDetail) Prelude.. Lens.mapping Data._Time
 
 -- | List of mitigation actions taken for the attack.
 attackDetail_mitigations :: Lens.Lens' AttackDetail (Prelude.Maybe [Mitigation])
@@ -138,24 +139,24 @@ attackDetail_attackProperties = Lens.lens (\AttackDetail' {attackProperties} -> 
 
 -- | The time the attack started, in Unix time in seconds.
 attackDetail_startTime :: Lens.Lens' AttackDetail (Prelude.Maybe Prelude.UTCTime)
-attackDetail_startTime = Lens.lens (\AttackDetail' {startTime} -> startTime) (\s@AttackDetail' {} a -> s {startTime = a} :: AttackDetail) Prelude.. Lens.mapping Core._Time
+attackDetail_startTime = Lens.lens (\AttackDetail' {startTime} -> startTime) (\s@AttackDetail' {} a -> s {startTime = a} :: AttackDetail) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AttackDetail where
+instance Data.FromJSON AttackDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttackDetail"
       ( \x ->
           AttackDetail'
-            Prelude.<$> (x Core..:? "AttackId")
-            Prelude.<*> (x Core..:? "SubResources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "Mitigations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "AttackCounters" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "AttackProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "AttackId")
+            Prelude.<*> (x Data..:? "SubResources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "Mitigations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "AttackCounters" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "AttackProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable AttackDetail where

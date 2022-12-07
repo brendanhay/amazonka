@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SecurityConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.EncryptionConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,7 @@ data SecurityConfiguration = SecurityConfiguration'
   { -- | The name of the security configuration.
     name :: Prelude.Maybe Prelude.Text,
     -- | The time at which this security configuration was created.
-    createdTimeStamp :: Prelude.Maybe Core.POSIX,
+    createdTimeStamp :: Prelude.Maybe Data.POSIX,
     -- | The encryption configuration associated with this security
     -- configuration.
     encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration
@@ -67,22 +68,22 @@ securityConfiguration_name = Lens.lens (\SecurityConfiguration' {name} -> name) 
 
 -- | The time at which this security configuration was created.
 securityConfiguration_createdTimeStamp :: Lens.Lens' SecurityConfiguration (Prelude.Maybe Prelude.UTCTime)
-securityConfiguration_createdTimeStamp = Lens.lens (\SecurityConfiguration' {createdTimeStamp} -> createdTimeStamp) (\s@SecurityConfiguration' {} a -> s {createdTimeStamp = a} :: SecurityConfiguration) Prelude.. Lens.mapping Core._Time
+securityConfiguration_createdTimeStamp = Lens.lens (\SecurityConfiguration' {createdTimeStamp} -> createdTimeStamp) (\s@SecurityConfiguration' {} a -> s {createdTimeStamp = a} :: SecurityConfiguration) Prelude.. Lens.mapping Data._Time
 
 -- | The encryption configuration associated with this security
 -- configuration.
 securityConfiguration_encryptionConfiguration :: Lens.Lens' SecurityConfiguration (Prelude.Maybe EncryptionConfiguration)
 securityConfiguration_encryptionConfiguration = Lens.lens (\SecurityConfiguration' {encryptionConfiguration} -> encryptionConfiguration) (\s@SecurityConfiguration' {} a -> s {encryptionConfiguration = a} :: SecurityConfiguration)
 
-instance Core.FromJSON SecurityConfiguration where
+instance Data.FromJSON SecurityConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecurityConfiguration"
       ( \x ->
           SecurityConfiguration'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTimeStamp")
-            Prelude.<*> (x Core..:? "EncryptionConfiguration")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTimeStamp")
+            Prelude.<*> (x Data..:? "EncryptionConfiguration")
       )
 
 instance Prelude.Hashable SecurityConfiguration where

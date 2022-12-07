@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.RobotApplicationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.LaunchConfig
 import Amazonka.RobOMaker.Types.Tool
@@ -145,21 +146,21 @@ robotApplicationConfig_application = Lens.lens (\RobotApplicationConfig' {applic
 robotApplicationConfig_launchConfig :: Lens.Lens' RobotApplicationConfig LaunchConfig
 robotApplicationConfig_launchConfig = Lens.lens (\RobotApplicationConfig' {launchConfig} -> launchConfig) (\s@RobotApplicationConfig' {} a -> s {launchConfig = a} :: RobotApplicationConfig)
 
-instance Core.FromJSON RobotApplicationConfig where
+instance Data.FromJSON RobotApplicationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RobotApplicationConfig"
       ( \x ->
           RobotApplicationConfig'
-            Prelude.<$> (x Core..:? "tools" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "useDefaultTools")
-            Prelude.<*> (x Core..:? "useDefaultUploadConfigurations")
-            Prelude.<*> ( x Core..:? "uploadConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tools" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "useDefaultTools")
+            Prelude.<*> (x Data..:? "useDefaultUploadConfigurations")
+            Prelude.<*> ( x Data..:? "uploadConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "applicationVersion")
-            Prelude.<*> (x Core..: "application")
-            Prelude.<*> (x Core..: "launchConfig")
+            Prelude.<*> (x Data..:? "applicationVersion")
+            Prelude.<*> (x Data..: "application")
+            Prelude.<*> (x Data..: "launchConfig")
       )
 
 instance Prelude.Hashable RobotApplicationConfig where
@@ -182,20 +183,20 @@ instance Prelude.NFData RobotApplicationConfig where
       `Prelude.seq` Prelude.rnf application
       `Prelude.seq` Prelude.rnf launchConfig
 
-instance Core.ToJSON RobotApplicationConfig where
+instance Data.ToJSON RobotApplicationConfig where
   toJSON RobotApplicationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tools" Core..=) Prelude.<$> tools,
-            ("useDefaultTools" Core..=)
+          [ ("tools" Data..=) Prelude.<$> tools,
+            ("useDefaultTools" Data..=)
               Prelude.<$> useDefaultTools,
-            ("useDefaultUploadConfigurations" Core..=)
+            ("useDefaultUploadConfigurations" Data..=)
               Prelude.<$> useDefaultUploadConfigurations,
-            ("uploadConfigurations" Core..=)
+            ("uploadConfigurations" Data..=)
               Prelude.<$> uploadConfigurations,
-            ("applicationVersion" Core..=)
+            ("applicationVersion" Data..=)
               Prelude.<$> applicationVersion,
-            Prelude.Just ("application" Core..= application),
-            Prelude.Just ("launchConfig" Core..= launchConfig)
+            Prelude.Just ("application" Data..= application),
+            Prelude.Just ("launchConfig" Data..= launchConfig)
           ]
       )

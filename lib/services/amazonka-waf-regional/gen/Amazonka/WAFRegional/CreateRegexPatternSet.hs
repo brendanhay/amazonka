@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,8 +132,8 @@ instance Core.AWSRequest CreateRegexPatternSet where
     Response.receiveJSON
       ( \s h x ->
           CreateRegexPatternSetResponse'
-            Prelude.<$> (x Core..?> "RegexPatternSet")
-            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "RegexPatternSet")
+            Prelude.<*> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,34 +147,34 @@ instance Prelude.NFData CreateRegexPatternSet where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf changeToken
 
-instance Core.ToHeaders CreateRegexPatternSet where
+instance Data.ToHeaders CreateRegexPatternSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.CreateRegexPatternSet" ::
+              Data.=# ( "AWSWAF_Regional_20161128.CreateRegexPatternSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRegexPatternSet where
+instance Data.ToJSON CreateRegexPatternSet where
   toJSON CreateRegexPatternSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("ChangeToken" Core..= changeToken)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("ChangeToken" Data..= changeToken)
           ]
       )
 
-instance Core.ToPath CreateRegexPatternSet where
+instance Data.ToPath CreateRegexPatternSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateRegexPatternSet where
+instance Data.ToQuery CreateRegexPatternSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRegexPatternSetResponse' smart constructor.

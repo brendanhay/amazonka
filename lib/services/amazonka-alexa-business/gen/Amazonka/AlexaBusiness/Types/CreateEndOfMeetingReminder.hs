@@ -22,6 +22,7 @@ module Amazonka.AlexaBusiness.Types.CreateEndOfMeetingReminder where
 import Amazonka.AlexaBusiness.Types.EndOfMeetingReminderType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Creates settings for the end of meeting reminder feature that are
@@ -95,13 +96,13 @@ instance Prelude.NFData CreateEndOfMeetingReminder where
       `Prelude.seq` Prelude.rnf reminderType
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON CreateEndOfMeetingReminder where
+instance Data.ToJSON CreateEndOfMeetingReminder where
   toJSON CreateEndOfMeetingReminder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ReminderAtMinutes" Core..= reminderAtMinutes),
-            Prelude.Just ("ReminderType" Core..= reminderType),
-            Prelude.Just ("Enabled" Core..= enabled)
+              ("ReminderAtMinutes" Data..= reminderAtMinutes),
+            Prelude.Just ("ReminderType" Data..= reminderType),
+            Prelude.Just ("Enabled" Data..= enabled)
           ]
       )

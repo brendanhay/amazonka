@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRedshiftClusterDeferredMaintenanceWindow wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A time windows during which maintenance was deferred for an Amazon
@@ -105,17 +106,17 @@ awsRedshiftClusterDeferredMaintenanceWindow_deferMaintenanceStartTime :: Lens.Le
 awsRedshiftClusterDeferredMaintenanceWindow_deferMaintenanceStartTime = Lens.lens (\AwsRedshiftClusterDeferredMaintenanceWindow' {deferMaintenanceStartTime} -> deferMaintenanceStartTime) (\s@AwsRedshiftClusterDeferredMaintenanceWindow' {} a -> s {deferMaintenanceStartTime = a} :: AwsRedshiftClusterDeferredMaintenanceWindow)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsRedshiftClusterDeferredMaintenanceWindow
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRedshiftClusterDeferredMaintenanceWindow"
       ( \x ->
           AwsRedshiftClusterDeferredMaintenanceWindow'
-            Prelude.<$> (x Core..:? "DeferMaintenanceIdentifier")
-              Prelude.<*> (x Core..:? "DeferMaintenanceEndTime")
-              Prelude.<*> (x Core..:? "DeferMaintenanceStartTime")
+            Prelude.<$> (x Data..:? "DeferMaintenanceIdentifier")
+              Prelude.<*> (x Data..:? "DeferMaintenanceEndTime")
+              Prelude.<*> (x Data..:? "DeferMaintenanceStartTime")
       )
 
 instance
@@ -140,18 +141,18 @@ instance
       `Prelude.seq` Prelude.rnf deferMaintenanceStartTime
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsRedshiftClusterDeferredMaintenanceWindow
   where
   toJSON
     AwsRedshiftClusterDeferredMaintenanceWindow' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("DeferMaintenanceIdentifier" Core..=)
+            [ ("DeferMaintenanceIdentifier" Data..=)
                 Prelude.<$> deferMaintenanceIdentifier,
-              ("DeferMaintenanceEndTime" Core..=)
+              ("DeferMaintenanceEndTime" Data..=)
                 Prelude.<$> deferMaintenanceEndTime,
-              ("DeferMaintenanceStartTime" Core..=)
+              ("DeferMaintenanceStartTime" Data..=)
                 Prelude.<$> deferMaintenanceStartTime
             ]
         )

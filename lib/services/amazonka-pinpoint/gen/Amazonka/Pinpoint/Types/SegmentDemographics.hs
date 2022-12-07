@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SegmentDemographics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.SetDimension
 import qualified Amazonka.Prelude as Prelude
 
@@ -100,18 +101,18 @@ segmentDemographics_appVersion = Lens.lens (\SegmentDemographics' {appVersion} -
 segmentDemographics_deviceType :: Lens.Lens' SegmentDemographics (Prelude.Maybe SetDimension)
 segmentDemographics_deviceType = Lens.lens (\SegmentDemographics' {deviceType} -> deviceType) (\s@SegmentDemographics' {} a -> s {deviceType = a} :: SegmentDemographics)
 
-instance Core.FromJSON SegmentDemographics where
+instance Data.FromJSON SegmentDemographics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SegmentDemographics"
       ( \x ->
           SegmentDemographics'
-            Prelude.<$> (x Core..:? "Model")
-            Prelude.<*> (x Core..:? "Channel")
-            Prelude.<*> (x Core..:? "Platform")
-            Prelude.<*> (x Core..:? "Make")
-            Prelude.<*> (x Core..:? "AppVersion")
-            Prelude.<*> (x Core..:? "DeviceType")
+            Prelude.<$> (x Data..:? "Model")
+            Prelude.<*> (x Data..:? "Channel")
+            Prelude.<*> (x Data..:? "Platform")
+            Prelude.<*> (x Data..:? "Make")
+            Prelude.<*> (x Data..:? "AppVersion")
+            Prelude.<*> (x Data..:? "DeviceType")
       )
 
 instance Prelude.Hashable SegmentDemographics where
@@ -132,15 +133,15 @@ instance Prelude.NFData SegmentDemographics where
       `Prelude.seq` Prelude.rnf appVersion
       `Prelude.seq` Prelude.rnf deviceType
 
-instance Core.ToJSON SegmentDemographics where
+instance Data.ToJSON SegmentDemographics where
   toJSON SegmentDemographics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Model" Core..=) Prelude.<$> model,
-            ("Channel" Core..=) Prelude.<$> channel,
-            ("Platform" Core..=) Prelude.<$> platform,
-            ("Make" Core..=) Prelude.<$> make,
-            ("AppVersion" Core..=) Prelude.<$> appVersion,
-            ("DeviceType" Core..=) Prelude.<$> deviceType
+          [ ("Model" Data..=) Prelude.<$> model,
+            ("Channel" Data..=) Prelude.<$> channel,
+            ("Platform" Data..=) Prelude.<$> platform,
+            ("Make" Data..=) Prelude.<$> make,
+            ("AppVersion" Data..=) Prelude.<$> appVersion,
+            ("DeviceType" Data..=) Prelude.<$> deviceType
           ]
       )

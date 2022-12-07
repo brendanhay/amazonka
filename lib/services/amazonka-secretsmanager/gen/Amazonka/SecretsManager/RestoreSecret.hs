@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,8 +109,8 @@ instance Core.AWSRequest RestoreSecret where
     Response.receiveJSON
       ( \s h x ->
           RestoreSecretResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "ARN")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "ARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,32 +121,32 @@ instance Prelude.Hashable RestoreSecret where
 instance Prelude.NFData RestoreSecret where
   rnf RestoreSecret' {..} = Prelude.rnf secretId
 
-instance Core.ToHeaders RestoreSecret where
+instance Data.ToHeaders RestoreSecret where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "secretsmanager.RestoreSecret" ::
+              Data.=# ( "secretsmanager.RestoreSecret" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RestoreSecret where
+instance Data.ToJSON RestoreSecret where
   toJSON RestoreSecret' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SecretId" Core..= secretId)]
+          [Prelude.Just ("SecretId" Data..= secretId)]
       )
 
-instance Core.ToPath RestoreSecret where
+instance Data.ToPath RestoreSecret where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreSecret where
+instance Data.ToQuery RestoreSecret where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRestoreSecretResponse' smart constructor.

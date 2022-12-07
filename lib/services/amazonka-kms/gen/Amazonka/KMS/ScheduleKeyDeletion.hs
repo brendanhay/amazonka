@@ -99,6 +99,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -213,10 +214,10 @@ instance Core.AWSRequest ScheduleKeyDeletion where
     Response.receiveJSON
       ( \s h x ->
           ScheduleKeyDeletionResponse'
-            Prelude.<$> (x Core..?> "PendingWindowInDays")
-            Prelude.<*> (x Core..?> "KeyState")
-            Prelude.<*> (x Core..?> "DeletionDate")
-            Prelude.<*> (x Core..?> "KeyId")
+            Prelude.<$> (x Data..?> "PendingWindowInDays")
+            Prelude.<*> (x Data..?> "KeyState")
+            Prelude.<*> (x Data..?> "DeletionDate")
+            Prelude.<*> (x Data..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -230,35 +231,35 @@ instance Prelude.NFData ScheduleKeyDeletion where
     Prelude.rnf pendingWindowInDays
       `Prelude.seq` Prelude.rnf keyId
 
-instance Core.ToHeaders ScheduleKeyDeletion where
+instance Data.ToHeaders ScheduleKeyDeletion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.ScheduleKeyDeletion" ::
+              Data.=# ( "TrentService.ScheduleKeyDeletion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ScheduleKeyDeletion where
+instance Data.ToJSON ScheduleKeyDeletion where
   toJSON ScheduleKeyDeletion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PendingWindowInDays" Core..=)
+          [ ("PendingWindowInDays" Data..=)
               Prelude.<$> pendingWindowInDays,
-            Prelude.Just ("KeyId" Core..= keyId)
+            Prelude.Just ("KeyId" Data..= keyId)
           ]
       )
 
-instance Core.ToPath ScheduleKeyDeletion where
+instance Data.ToPath ScheduleKeyDeletion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ScheduleKeyDeletion where
+instance Data.ToQuery ScheduleKeyDeletion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newScheduleKeyDeletionResponse' smart constructor.
@@ -281,7 +282,7 @@ data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
     -- If the KMS key is a multi-Region primary key with replica keys, this
     -- field does not appear. The deletion date for the primary key isn\'t
     -- known until its last replica key is deleted.
-    deletionDate :: Prelude.Maybe Core.POSIX,
+    deletionDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the KMS key whose deletion is scheduled.
@@ -360,7 +361,7 @@ scheduleKeyDeletionResponse_keyState = Lens.lens (\ScheduleKeyDeletionResponse' 
 -- field does not appear. The deletion date for the primary key isn\'t
 -- known until its last replica key is deleted.
 scheduleKeyDeletionResponse_deletionDate :: Lens.Lens' ScheduleKeyDeletionResponse (Prelude.Maybe Prelude.UTCTime)
-scheduleKeyDeletionResponse_deletionDate = Lens.lens (\ScheduleKeyDeletionResponse' {deletionDate} -> deletionDate) (\s@ScheduleKeyDeletionResponse' {} a -> s {deletionDate = a} :: ScheduleKeyDeletionResponse) Prelude.. Lens.mapping Core._Time
+scheduleKeyDeletionResponse_deletionDate = Lens.lens (\ScheduleKeyDeletionResponse' {deletionDate} -> deletionDate) (\s@ScheduleKeyDeletionResponse' {} a -> s {deletionDate = a} :: ScheduleKeyDeletionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)

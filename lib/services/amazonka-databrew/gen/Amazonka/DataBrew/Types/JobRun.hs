@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.JobRun where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.DataCatalogOutput
 import Amazonka.DataBrew.Types.DatabaseOutput
 import Amazonka.DataBrew.Types.JobRunState
@@ -44,7 +45,7 @@ data JobRun = JobRun'
     -- output destination for a DataBrew recipe job to write into.
     databaseOutputs :: Prelude.Maybe (Prelude.NonEmpty DatabaseOutput),
     -- | The date and time when the job run began.
-    startedOn :: Prelude.Maybe Core.POSIX,
+    startedOn :: Prelude.Maybe Data.POSIX,
     -- | A message indicating an error (if any) that was encountered when the job
     -- ran.
     errorMessage :: Prelude.Maybe Prelude.Text,
@@ -65,7 +66,7 @@ data JobRun = JobRun'
     -- | The current status of Amazon CloudWatch logging for the job run.
     logSubscription :: Prelude.Maybe LogSubscription,
     -- | The date and time when the job completed processing.
-    completedOn :: Prelude.Maybe Core.POSIX,
+    completedOn :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the user who initiated the job run.
     startedBy :: Prelude.Maybe Prelude.Text,
     -- | The set of steps processed by the job.
@@ -173,7 +174,7 @@ jobRun_databaseOutputs = Lens.lens (\JobRun' {databaseOutputs} -> databaseOutput
 
 -- | The date and time when the job run began.
 jobRun_startedOn :: Lens.Lens' JobRun (Prelude.Maybe Prelude.UTCTime)
-jobRun_startedOn = Lens.lens (\JobRun' {startedOn} -> startedOn) (\s@JobRun' {} a -> s {startedOn = a} :: JobRun) Prelude.. Lens.mapping Core._Time
+jobRun_startedOn = Lens.lens (\JobRun' {startedOn} -> startedOn) (\s@JobRun' {} a -> s {startedOn = a} :: JobRun) Prelude.. Lens.mapping Data._Time
 
 -- | A message indicating an error (if any) that was encountered when the job
 -- ran.
@@ -212,7 +213,7 @@ jobRun_logSubscription = Lens.lens (\JobRun' {logSubscription} -> logSubscriptio
 
 -- | The date and time when the job completed processing.
 jobRun_completedOn :: Lens.Lens' JobRun (Prelude.Maybe Prelude.UTCTime)
-jobRun_completedOn = Lens.lens (\JobRun' {completedOn} -> completedOn) (\s@JobRun' {} a -> s {completedOn = a} :: JobRun) Prelude.. Lens.mapping Core._Time
+jobRun_completedOn = Lens.lens (\JobRun' {completedOn} -> completedOn) (\s@JobRun' {} a -> s {completedOn = a} :: JobRun) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the user who initiated the job run.
 jobRun_startedBy :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Text)
@@ -240,30 +241,30 @@ jobRun_logGroupName = Lens.lens (\JobRun' {logGroupName} -> logGroupName) (\s@Jo
 jobRun_validationConfigurations :: Lens.Lens' JobRun (Prelude.Maybe (Prelude.NonEmpty ValidationConfiguration))
 jobRun_validationConfigurations = Lens.lens (\JobRun' {validationConfigurations} -> validationConfigurations) (\s@JobRun' {} a -> s {validationConfigurations = a} :: JobRun) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON JobRun where
+instance Data.FromJSON JobRun where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobRun"
       ( \x ->
           JobRun'
-            Prelude.<$> (x Core..:? "JobSample")
-            Prelude.<*> (x Core..:? "DatabaseOutputs")
-            Prelude.<*> (x Core..:? "StartedOn")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "Attempt")
-            Prelude.<*> (x Core..:? "DataCatalogOutputs")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "DatasetName")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "ExecutionTime")
-            Prelude.<*> (x Core..:? "LogSubscription")
-            Prelude.<*> (x Core..:? "CompletedOn")
-            Prelude.<*> (x Core..:? "StartedBy")
-            Prelude.<*> (x Core..:? "RecipeReference")
-            Prelude.<*> (x Core..:? "Outputs")
-            Prelude.<*> (x Core..:? "RunId")
-            Prelude.<*> (x Core..:? "LogGroupName")
-            Prelude.<*> (x Core..:? "ValidationConfigurations")
+            Prelude.<$> (x Data..:? "JobSample")
+            Prelude.<*> (x Data..:? "DatabaseOutputs")
+            Prelude.<*> (x Data..:? "StartedOn")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "Attempt")
+            Prelude.<*> (x Data..:? "DataCatalogOutputs")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "DatasetName")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "ExecutionTime")
+            Prelude.<*> (x Data..:? "LogSubscription")
+            Prelude.<*> (x Data..:? "CompletedOn")
+            Prelude.<*> (x Data..:? "StartedBy")
+            Prelude.<*> (x Data..:? "RecipeReference")
+            Prelude.<*> (x Data..:? "Outputs")
+            Prelude.<*> (x Data..:? "RunId")
+            Prelude.<*> (x Data..:? "LogGroupName")
+            Prelude.<*> (x Data..:? "ValidationConfigurations")
       )
 
 instance Prelude.Hashable JobRun where

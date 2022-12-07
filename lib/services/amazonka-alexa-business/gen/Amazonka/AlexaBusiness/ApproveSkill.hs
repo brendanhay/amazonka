@@ -43,6 +43,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,32 +93,32 @@ instance Prelude.Hashable ApproveSkill where
 instance Prelude.NFData ApproveSkill where
   rnf ApproveSkill' {..} = Prelude.rnf skillId
 
-instance Core.ToHeaders ApproveSkill where
+instance Data.ToHeaders ApproveSkill where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.ApproveSkill" ::
+              Data.=# ( "AlexaForBusiness.ApproveSkill" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ApproveSkill where
+instance Data.ToJSON ApproveSkill where
   toJSON ApproveSkill' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SkillId" Core..= skillId)]
+          [Prelude.Just ("SkillId" Data..= skillId)]
       )
 
-instance Core.ToPath ApproveSkill where
+instance Data.ToPath ApproveSkill where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ApproveSkill where
+instance Data.ToQuery ApproveSkill where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newApproveSkillResponse' smart constructor.

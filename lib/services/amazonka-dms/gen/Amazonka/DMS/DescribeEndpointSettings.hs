@@ -46,6 +46,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,8 +123,8 @@ instance Core.AWSRequest DescribeEndpointSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointSettingsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> ( x Core..?> "EndpointSettings"
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> ( x Data..?> "EndpointSettings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -141,35 +142,35 @@ instance Prelude.NFData DescribeEndpointSettings where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf engineName
 
-instance Core.ToHeaders DescribeEndpointSettings where
+instance Data.ToHeaders DescribeEndpointSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DescribeEndpointSettings" ::
+              Data.=# ( "AmazonDMSv20160101.DescribeEndpointSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEndpointSettings where
+instance Data.ToJSON DescribeEndpointSettings where
   toJSON DescribeEndpointSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
-            Prelude.Just ("EngineName" Core..= engineName)
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("MaxRecords" Data..=) Prelude.<$> maxRecords,
+            Prelude.Just ("EngineName" Data..= engineName)
           ]
       )
 
-instance Core.ToPath DescribeEndpointSettings where
+instance Data.ToPath DescribeEndpointSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEndpointSettings where
+instance Data.ToQuery DescribeEndpointSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEndpointSettingsResponse' smart constructor.

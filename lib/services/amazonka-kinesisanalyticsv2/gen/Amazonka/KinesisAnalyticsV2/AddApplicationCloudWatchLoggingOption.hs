@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,11 +157,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AddApplicationCloudWatchLoggingOptionResponse'
-            Prelude.<$> (x Core..?> "ApplicationARN")
-              Prelude.<*> ( x Core..?> "CloudWatchLoggingOptionDescriptions"
+            Prelude.<$> (x Data..?> "ApplicationARN")
+              Prelude.<*> ( x Data..?> "CloudWatchLoggingOptionDescriptions"
                               Core..!@ Prelude.mempty
                           )
-              Prelude.<*> (x Core..?> "ApplicationVersionId")
+              Prelude.<*> (x Data..?> "ApplicationVersionId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,51 +188,51 @@ instance
       `Prelude.seq` Prelude.rnf cloudWatchLoggingOption
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AddApplicationCloudWatchLoggingOption
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20180523.AddApplicationCloudWatchLoggingOption" ::
+              Data.=# ( "KinesisAnalytics_20180523.AddApplicationCloudWatchLoggingOption" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AddApplicationCloudWatchLoggingOption
   where
   toJSON AddApplicationCloudWatchLoggingOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConditionalToken" Core..=)
+          [ ("ConditionalToken" Data..=)
               Prelude.<$> conditionalToken,
-            ("CurrentApplicationVersionId" Core..=)
+            ("CurrentApplicationVersionId" Data..=)
               Prelude.<$> currentApplicationVersionId,
             Prelude.Just
-              ("ApplicationName" Core..= applicationName),
+              ("ApplicationName" Data..= applicationName),
             Prelude.Just
               ( "CloudWatchLoggingOption"
-                  Core..= cloudWatchLoggingOption
+                  Data..= cloudWatchLoggingOption
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     AddApplicationCloudWatchLoggingOption
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AddApplicationCloudWatchLoggingOption
   where
   toQuery = Prelude.const Prelude.mempty

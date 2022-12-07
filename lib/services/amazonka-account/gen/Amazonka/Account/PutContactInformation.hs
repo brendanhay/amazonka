@@ -44,6 +44,7 @@ where
 import Amazonka.Account.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -174,31 +175,31 @@ instance Prelude.NFData PutContactInformation where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf contactInformation
 
-instance Core.ToHeaders PutContactInformation where
+instance Data.ToHeaders PutContactInformation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutContactInformation where
+instance Data.ToJSON PutContactInformation where
   toJSON PutContactInformation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccountId" Core..=) Prelude.<$> accountId,
+          [ ("AccountId" Data..=) Prelude.<$> accountId,
             Prelude.Just
-              ("ContactInformation" Core..= contactInformation)
+              ("ContactInformation" Data..= contactInformation)
           ]
       )
 
-instance Core.ToPath PutContactInformation where
+instance Data.ToPath PutContactInformation where
   toPath = Prelude.const "/putContactInformation"
 
-instance Core.ToQuery PutContactInformation where
+instance Data.ToQuery PutContactInformation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutContactInformationResponse' smart constructor.

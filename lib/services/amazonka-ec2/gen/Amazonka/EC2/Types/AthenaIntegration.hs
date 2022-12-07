@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AthenaIntegration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PartitionLoadFrequency
 import qualified Amazonka.Prelude as Prelude
@@ -30,9 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAthenaIntegration' smart constructor.
 data AthenaIntegration = AthenaIntegration'
   { -- | The end date for the partition.
-    partitionEndDate :: Prelude.Maybe Core.ISO8601,
+    partitionEndDate :: Prelude.Maybe Data.ISO8601,
     -- | The start date for the partition.
-    partitionStartDate :: Prelude.Maybe Core.ISO8601,
+    partitionStartDate :: Prelude.Maybe Data.ISO8601,
     -- | The location in Amazon S3 to store the generated CloudFormation
     -- template.
     integrationResultS3DestinationArn :: Prelude.Text,
@@ -77,11 +78,11 @@ newAthenaIntegration
 
 -- | The end date for the partition.
 athenaIntegration_partitionEndDate :: Lens.Lens' AthenaIntegration (Prelude.Maybe Prelude.UTCTime)
-athenaIntegration_partitionEndDate = Lens.lens (\AthenaIntegration' {partitionEndDate} -> partitionEndDate) (\s@AthenaIntegration' {} a -> s {partitionEndDate = a} :: AthenaIntegration) Prelude.. Lens.mapping Core._Time
+athenaIntegration_partitionEndDate = Lens.lens (\AthenaIntegration' {partitionEndDate} -> partitionEndDate) (\s@AthenaIntegration' {} a -> s {partitionEndDate = a} :: AthenaIntegration) Prelude.. Lens.mapping Data._Time
 
 -- | The start date for the partition.
 athenaIntegration_partitionStartDate :: Lens.Lens' AthenaIntegration (Prelude.Maybe Prelude.UTCTime)
-athenaIntegration_partitionStartDate = Lens.lens (\AthenaIntegration' {partitionStartDate} -> partitionStartDate) (\s@AthenaIntegration' {} a -> s {partitionStartDate = a} :: AthenaIntegration) Prelude.. Lens.mapping Core._Time
+athenaIntegration_partitionStartDate = Lens.lens (\AthenaIntegration' {partitionStartDate} -> partitionStartDate) (\s@AthenaIntegration' {} a -> s {partitionStartDate = a} :: AthenaIntegration) Prelude.. Lens.mapping Data._Time
 
 -- | The location in Amazon S3 to store the generated CloudFormation
 -- template.
@@ -106,13 +107,13 @@ instance Prelude.NFData AthenaIntegration where
       `Prelude.seq` Prelude.rnf integrationResultS3DestinationArn
       `Prelude.seq` Prelude.rnf partitionLoadFrequency
 
-instance Core.ToQuery AthenaIntegration where
+instance Data.ToQuery AthenaIntegration where
   toQuery AthenaIntegration' {..} =
     Prelude.mconcat
-      [ "PartitionEndDate" Core.=: partitionEndDate,
-        "PartitionStartDate" Core.=: partitionStartDate,
+      [ "PartitionEndDate" Data.=: partitionEndDate,
+        "PartitionStartDate" Data.=: partitionStartDate,
         "IntegrationResultS3DestinationArn"
-          Core.=: integrationResultS3DestinationArn,
+          Data.=: integrationResultS3DestinationArn,
         "PartitionLoadFrequency"
-          Core.=: partitionLoadFrequency
+          Data.=: partitionLoadFrequency
       ]

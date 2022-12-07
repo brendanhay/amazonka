@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,12 +98,12 @@ instance Core.AWSRequest DescribeSnapshotSchedule where
     Response.receiveJSON
       ( \s h x ->
           DescribeSnapshotScheduleResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Timezone")
-            Prelude.<*> (x Core..?> "VolumeARN")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "RecurrenceInHours")
-            Prelude.<*> (x Core..?> "StartAt")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Timezone")
+            Prelude.<*> (x Data..?> "VolumeARN")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "RecurrenceInHours")
+            Prelude.<*> (x Data..?> "StartAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,32 +115,32 @@ instance Prelude.NFData DescribeSnapshotSchedule where
   rnf DescribeSnapshotSchedule' {..} =
     Prelude.rnf volumeARN
 
-instance Core.ToHeaders DescribeSnapshotSchedule where
+instance Data.ToHeaders DescribeSnapshotSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DescribeSnapshotSchedule" ::
+              Data.=# ( "StorageGateway_20130630.DescribeSnapshotSchedule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSnapshotSchedule where
+instance Data.ToJSON DescribeSnapshotSchedule where
   toJSON DescribeSnapshotSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("VolumeARN" Core..= volumeARN)]
+          [Prelude.Just ("VolumeARN" Data..= volumeARN)]
       )
 
-instance Core.ToPath DescribeSnapshotSchedule where
+instance Data.ToPath DescribeSnapshotSchedule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSnapshotSchedule where
+instance Data.ToQuery DescribeSnapshotSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSnapshotScheduleResponse' smart constructor.

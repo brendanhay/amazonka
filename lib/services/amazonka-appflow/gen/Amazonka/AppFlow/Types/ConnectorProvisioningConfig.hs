@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.ConnectorProvisioningConfig where
 import Amazonka.AppFlow.Types.LambdaConnectorProvisioningConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the configuration of the connector being
@@ -58,13 +59,13 @@ newConnectorProvisioningConfig =
 connectorProvisioningConfig_lambda :: Lens.Lens' ConnectorProvisioningConfig (Prelude.Maybe LambdaConnectorProvisioningConfig)
 connectorProvisioningConfig_lambda = Lens.lens (\ConnectorProvisioningConfig' {lambda} -> lambda) (\s@ConnectorProvisioningConfig' {} a -> s {lambda = a} :: ConnectorProvisioningConfig)
 
-instance Core.FromJSON ConnectorProvisioningConfig where
+instance Data.FromJSON ConnectorProvisioningConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectorProvisioningConfig"
       ( \x ->
           ConnectorProvisioningConfig'
-            Prelude.<$> (x Core..:? "lambda")
+            Prelude.<$> (x Data..:? "lambda")
       )
 
 instance Prelude.Hashable ConnectorProvisioningConfig where
@@ -75,9 +76,9 @@ instance Prelude.NFData ConnectorProvisioningConfig where
   rnf ConnectorProvisioningConfig' {..} =
     Prelude.rnf lambda
 
-instance Core.ToJSON ConnectorProvisioningConfig where
+instance Data.ToJSON ConnectorProvisioningConfig where
   toJSON ConnectorProvisioningConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("lambda" Core..=) Prelude.<$> lambda]
+          [("lambda" Data..=) Prelude.<$> lambda]
       )

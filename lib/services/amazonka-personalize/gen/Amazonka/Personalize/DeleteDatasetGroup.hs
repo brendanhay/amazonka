@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,34 +97,34 @@ instance Prelude.NFData DeleteDatasetGroup where
   rnf DeleteDatasetGroup' {..} =
     Prelude.rnf datasetGroupArn
 
-instance Core.ToHeaders DeleteDatasetGroup where
+instance Data.ToHeaders DeleteDatasetGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DeleteDatasetGroup" ::
+              Data.=# ( "AmazonPersonalize.DeleteDatasetGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDatasetGroup where
+instance Data.ToJSON DeleteDatasetGroup where
   toJSON DeleteDatasetGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("datasetGroupArn" Core..= datasetGroupArn)
+              ("datasetGroupArn" Data..= datasetGroupArn)
           ]
       )
 
-instance Core.ToPath DeleteDatasetGroup where
+instance Data.ToPath DeleteDatasetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDatasetGroup where
+instance Data.ToQuery DeleteDatasetGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDatasetGroupResponse' smart constructor.

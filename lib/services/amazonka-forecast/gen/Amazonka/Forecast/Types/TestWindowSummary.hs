@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.TestWindowSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status, start time, and end time of a backtest, as well as a failure
@@ -39,9 +40,9 @@ data TestWindowSummary = TestWindowSummary'
     -- -   @CREATE_FAILED@
     status :: Prelude.Maybe Prelude.Text,
     -- | The time at which the test ended.
-    testWindowEnd :: Prelude.Maybe Core.POSIX,
+    testWindowEnd :: Prelude.Maybe Data.POSIX,
     -- | The time at which the test began.
-    testWindowStart :: Prelude.Maybe Core.POSIX
+    testWindowStart :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,22 +93,22 @@ testWindowSummary_status = Lens.lens (\TestWindowSummary' {status} -> status) (\
 
 -- | The time at which the test ended.
 testWindowSummary_testWindowEnd :: Lens.Lens' TestWindowSummary (Prelude.Maybe Prelude.UTCTime)
-testWindowSummary_testWindowEnd = Lens.lens (\TestWindowSummary' {testWindowEnd} -> testWindowEnd) (\s@TestWindowSummary' {} a -> s {testWindowEnd = a} :: TestWindowSummary) Prelude.. Lens.mapping Core._Time
+testWindowSummary_testWindowEnd = Lens.lens (\TestWindowSummary' {testWindowEnd} -> testWindowEnd) (\s@TestWindowSummary' {} a -> s {testWindowEnd = a} :: TestWindowSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the test began.
 testWindowSummary_testWindowStart :: Lens.Lens' TestWindowSummary (Prelude.Maybe Prelude.UTCTime)
-testWindowSummary_testWindowStart = Lens.lens (\TestWindowSummary' {testWindowStart} -> testWindowStart) (\s@TestWindowSummary' {} a -> s {testWindowStart = a} :: TestWindowSummary) Prelude.. Lens.mapping Core._Time
+testWindowSummary_testWindowStart = Lens.lens (\TestWindowSummary' {testWindowStart} -> testWindowStart) (\s@TestWindowSummary' {} a -> s {testWindowStart = a} :: TestWindowSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON TestWindowSummary where
+instance Data.FromJSON TestWindowSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TestWindowSummary"
       ( \x ->
           TestWindowSummary'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "TestWindowEnd")
-            Prelude.<*> (x Core..:? "TestWindowStart")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "TestWindowEnd")
+            Prelude.<*> (x Data..:? "TestWindowStart")
       )
 
 instance Prelude.Hashable TestWindowSummary where

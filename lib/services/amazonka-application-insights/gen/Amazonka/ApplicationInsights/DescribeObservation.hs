@@ -42,6 +42,7 @@ where
 import Amazonka.ApplicationInsights.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest DescribeObservation where
     Response.receiveJSON
       ( \s h x ->
           DescribeObservationResponse'
-            Prelude.<$> (x Core..?> "Observation")
+            Prelude.<$> (x Data..?> "Observation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,34 +99,34 @@ instance Prelude.NFData DescribeObservation where
   rnf DescribeObservation' {..} =
     Prelude.rnf observationId
 
-instance Core.ToHeaders DescribeObservation where
+instance Data.ToHeaders DescribeObservation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "EC2WindowsBarleyService.DescribeObservation" ::
+              Data.=# ( "EC2WindowsBarleyService.DescribeObservation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeObservation where
+instance Data.ToJSON DescribeObservation where
   toJSON DescribeObservation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ObservationId" Core..= observationId)
+              ("ObservationId" Data..= observationId)
           ]
       )
 
-instance Core.ToPath DescribeObservation where
+instance Data.ToPath DescribeObservation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeObservation where
+instance Data.ToQuery DescribeObservation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeObservationResponse' smart constructor.

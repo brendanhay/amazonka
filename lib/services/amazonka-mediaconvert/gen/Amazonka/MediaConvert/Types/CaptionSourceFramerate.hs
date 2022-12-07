@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.CaptionSourceFramerate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Ignore this setting unless your input captions format is SCC. To have
@@ -87,14 +88,14 @@ captionSourceFramerate_framerateDenominator = Lens.lens (\CaptionSourceFramerate
 captionSourceFramerate_framerateNumerator :: Lens.Lens' CaptionSourceFramerate (Prelude.Maybe Prelude.Natural)
 captionSourceFramerate_framerateNumerator = Lens.lens (\CaptionSourceFramerate' {framerateNumerator} -> framerateNumerator) (\s@CaptionSourceFramerate' {} a -> s {framerateNumerator = a} :: CaptionSourceFramerate)
 
-instance Core.FromJSON CaptionSourceFramerate where
+instance Data.FromJSON CaptionSourceFramerate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptionSourceFramerate"
       ( \x ->
           CaptionSourceFramerate'
-            Prelude.<$> (x Core..:? "framerateDenominator")
-            Prelude.<*> (x Core..:? "framerateNumerator")
+            Prelude.<$> (x Data..:? "framerateDenominator")
+            Prelude.<*> (x Data..:? "framerateNumerator")
       )
 
 instance Prelude.Hashable CaptionSourceFramerate where
@@ -107,13 +108,13 @@ instance Prelude.NFData CaptionSourceFramerate where
     Prelude.rnf framerateDenominator
       `Prelude.seq` Prelude.rnf framerateNumerator
 
-instance Core.ToJSON CaptionSourceFramerate where
+instance Data.ToJSON CaptionSourceFramerate where
   toJSON CaptionSourceFramerate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("framerateDenominator" Core..=)
+          [ ("framerateDenominator" Data..=)
               Prelude.<$> framerateDenominator,
-            ("framerateNumerator" Core..=)
+            ("framerateNumerator" Data..=)
               Prelude.<$> framerateNumerator
           ]
       )

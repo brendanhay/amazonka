@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Datatype where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure representing the datatype of the value.
@@ -62,13 +63,13 @@ datatype_id = Lens.lens (\Datatype' {id} -> id) (\s@Datatype' {} a -> s {id = a}
 datatype_label :: Lens.Lens' Datatype Prelude.Text
 datatype_label = Lens.lens (\Datatype' {label} -> label) (\s@Datatype' {} a -> s {label = a} :: Datatype)
 
-instance Core.FromJSON Datatype where
+instance Data.FromJSON Datatype where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Datatype"
       ( \x ->
           Datatype'
-            Prelude.<$> (x Core..: "Id") Prelude.<*> (x Core..: "Label")
+            Prelude.<$> (x Data..: "Id") Prelude.<*> (x Data..: "Label")
       )
 
 instance Prelude.Hashable Datatype where
@@ -80,11 +81,11 @@ instance Prelude.NFData Datatype where
   rnf Datatype' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf label
 
-instance Core.ToJSON Datatype where
+instance Data.ToJSON Datatype where
   toJSON Datatype' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("Label" Core..= label)
+          [ Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("Label" Data..= label)
           ]
       )

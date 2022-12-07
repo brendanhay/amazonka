@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.BatchSuccessfulResultModel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details from a successful operation
@@ -70,15 +71,15 @@ batchSuccessfulResultModel_state = Lens.lens (\BatchSuccessfulResultModel' {stat
 batchSuccessfulResultModel_id :: Lens.Lens' BatchSuccessfulResultModel (Prelude.Maybe Prelude.Text)
 batchSuccessfulResultModel_id = Lens.lens (\BatchSuccessfulResultModel' {id} -> id) (\s@BatchSuccessfulResultModel' {} a -> s {id = a} :: BatchSuccessfulResultModel)
 
-instance Core.FromJSON BatchSuccessfulResultModel where
+instance Data.FromJSON BatchSuccessfulResultModel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchSuccessfulResultModel"
       ( \x ->
           BatchSuccessfulResultModel'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable BatchSuccessfulResultModel where

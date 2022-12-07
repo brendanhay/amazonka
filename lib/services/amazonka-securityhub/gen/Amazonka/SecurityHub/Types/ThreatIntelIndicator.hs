@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.ThreatIntelIndicator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.ThreatIntelIndicatorCategory
 import Amazonka.SecurityHub.Types.ThreatIntelIndicatorType
@@ -120,18 +121,18 @@ threatIntelIndicator_sourceUrl = Lens.lens (\ThreatIntelIndicator' {sourceUrl} -
 threatIntelIndicator_value :: Lens.Lens' ThreatIntelIndicator (Prelude.Maybe Prelude.Text)
 threatIntelIndicator_value = Lens.lens (\ThreatIntelIndicator' {value} -> value) (\s@ThreatIntelIndicator' {} a -> s {value = a} :: ThreatIntelIndicator)
 
-instance Core.FromJSON ThreatIntelIndicator where
+instance Data.FromJSON ThreatIntelIndicator where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThreatIntelIndicator"
       ( \x ->
           ThreatIntelIndicator'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "LastObservedAt")
-            Prelude.<*> (x Core..:? "Category")
-            Prelude.<*> (x Core..:? "SourceUrl")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "LastObservedAt")
+            Prelude.<*> (x Data..:? "Category")
+            Prelude.<*> (x Data..:? "SourceUrl")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable ThreatIntelIndicator where
@@ -152,16 +153,16 @@ instance Prelude.NFData ThreatIntelIndicator where
       `Prelude.seq` Prelude.rnf sourceUrl
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ThreatIntelIndicator where
+instance Data.ToJSON ThreatIntelIndicator where
   toJSON ThreatIntelIndicator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Source" Core..=) Prelude.<$> source,
-            ("LastObservedAt" Core..=)
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Source" Data..=) Prelude.<$> source,
+            ("LastObservedAt" Data..=)
               Prelude.<$> lastObservedAt,
-            ("Category" Core..=) Prelude.<$> category,
-            ("SourceUrl" Core..=) Prelude.<$> sourceUrl,
-            ("Value" Core..=) Prelude.<$> value
+            ("Category" Data..=) Prelude.<$> category,
+            ("SourceUrl" Data..=) Prelude.<$> sourceUrl,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

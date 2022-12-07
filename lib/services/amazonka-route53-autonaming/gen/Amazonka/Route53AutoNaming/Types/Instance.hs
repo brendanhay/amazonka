@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.Instance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains information about an instance that Cloud
@@ -421,15 +422,15 @@ instance_attributes = Lens.lens (\Instance' {attributes} -> attributes) (\s@Inst
 instance_id :: Lens.Lens' Instance Prelude.Text
 instance_id = Lens.lens (\Instance' {id} -> id) (\s@Instance' {} a -> s {id = a} :: Instance)
 
-instance Core.FromJSON Instance where
+instance Data.FromJSON Instance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Instance"
       ( \x ->
           Instance'
-            Prelude.<$> (x Core..:? "CreatorRequestId")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Id")
+            Prelude.<$> (x Data..:? "CreatorRequestId")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Id")
       )
 
 instance Prelude.Hashable Instance where

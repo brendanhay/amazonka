@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.AuthenticateOidcActionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types.AuthenticateOidcActionConditionalBehaviorEnum
 import qualified Amazonka.Prelude as Prelude
 
@@ -240,24 +241,24 @@ authenticateOidcActionConfig_userInfoEndpoint = Lens.lens (\AuthenticateOidcActi
 authenticateOidcActionConfig_clientId :: Lens.Lens' AuthenticateOidcActionConfig Prelude.Text
 authenticateOidcActionConfig_clientId = Lens.lens (\AuthenticateOidcActionConfig' {clientId} -> clientId) (\s@AuthenticateOidcActionConfig' {} a -> s {clientId = a} :: AuthenticateOidcActionConfig)
 
-instance Core.FromXML AuthenticateOidcActionConfig where
+instance Data.FromXML AuthenticateOidcActionConfig where
   parseXML x =
     AuthenticateOidcActionConfig'
-      Prelude.<$> (x Core..@? "ClientSecret")
-      Prelude.<*> (x Core..@? "UseExistingClientSecret")
-      Prelude.<*> (x Core..@? "SessionTimeout")
-      Prelude.<*> (x Core..@? "OnUnauthenticatedRequest")
-      Prelude.<*> ( x Core..@? "AuthenticationRequestExtraParams"
+      Prelude.<$> (x Data..@? "ClientSecret")
+      Prelude.<*> (x Data..@? "UseExistingClientSecret")
+      Prelude.<*> (x Data..@? "SessionTimeout")
+      Prelude.<*> (x Data..@? "OnUnauthenticatedRequest")
+      Prelude.<*> ( x Data..@? "AuthenticationRequestExtraParams"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                      Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                   )
-      Prelude.<*> (x Core..@? "Scope")
-      Prelude.<*> (x Core..@? "SessionCookieName")
-      Prelude.<*> (x Core..@ "Issuer")
-      Prelude.<*> (x Core..@ "AuthorizationEndpoint")
-      Prelude.<*> (x Core..@ "TokenEndpoint")
-      Prelude.<*> (x Core..@ "UserInfoEndpoint")
-      Prelude.<*> (x Core..@ "ClientId")
+      Prelude.<*> (x Data..@? "Scope")
+      Prelude.<*> (x Data..@? "SessionCookieName")
+      Prelude.<*> (x Data..@ "Issuer")
+      Prelude.<*> (x Data..@ "AuthorizationEndpoint")
+      Prelude.<*> (x Data..@ "TokenEndpoint")
+      Prelude.<*> (x Data..@ "UserInfoEndpoint")
+      Prelude.<*> (x Data..@ "ClientId")
 
 instance
   Prelude.Hashable
@@ -292,26 +293,26 @@ instance Prelude.NFData AuthenticateOidcActionConfig where
       `Prelude.seq` Prelude.rnf userInfoEndpoint
       `Prelude.seq` Prelude.rnf clientId
 
-instance Core.ToQuery AuthenticateOidcActionConfig where
+instance Data.ToQuery AuthenticateOidcActionConfig where
   toQuery AuthenticateOidcActionConfig' {..} =
     Prelude.mconcat
-      [ "ClientSecret" Core.=: clientSecret,
+      [ "ClientSecret" Data.=: clientSecret,
         "UseExistingClientSecret"
-          Core.=: useExistingClientSecret,
-        "SessionTimeout" Core.=: sessionTimeout,
+          Data.=: useExistingClientSecret,
+        "SessionTimeout" Data.=: sessionTimeout,
         "OnUnauthenticatedRequest"
-          Core.=: onUnauthenticatedRequest,
+          Data.=: onUnauthenticatedRequest,
         "AuthenticationRequestExtraParams"
-          Core.=: Core.toQuery
-            ( Core.toQueryMap "entry" "key" "value"
+          Data.=: Data.toQuery
+            ( Data.toQueryMap "entry" "key" "value"
                 Prelude.<$> authenticationRequestExtraParams
             ),
-        "Scope" Core.=: scope,
-        "SessionCookieName" Core.=: sessionCookieName,
-        "Issuer" Core.=: issuer,
+        "Scope" Data.=: scope,
+        "SessionCookieName" Data.=: sessionCookieName,
+        "Issuer" Data.=: issuer,
         "AuthorizationEndpoint"
-          Core.=: authorizationEndpoint,
-        "TokenEndpoint" Core.=: tokenEndpoint,
-        "UserInfoEndpoint" Core.=: userInfoEndpoint,
-        "ClientId" Core.=: clientId
+          Data.=: authorizationEndpoint,
+        "TokenEndpoint" Data.=: tokenEndpoint,
+        "UserInfoEndpoint" Data.=: userInfoEndpoint,
+        "ClientId" Data.=: clientId
       ]

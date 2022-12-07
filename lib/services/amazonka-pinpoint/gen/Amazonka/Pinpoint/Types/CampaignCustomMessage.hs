@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.CampaignCustomMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the contents of a message that\'s sent through a custom
@@ -54,13 +55,13 @@ newCampaignCustomMessage =
 campaignCustomMessage_data :: Lens.Lens' CampaignCustomMessage (Prelude.Maybe Prelude.Text)
 campaignCustomMessage_data = Lens.lens (\CampaignCustomMessage' {data'} -> data') (\s@CampaignCustomMessage' {} a -> s {data' = a} :: CampaignCustomMessage)
 
-instance Core.FromJSON CampaignCustomMessage where
+instance Data.FromJSON CampaignCustomMessage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CampaignCustomMessage"
       ( \x ->
           CampaignCustomMessage'
-            Prelude.<$> (x Core..:? "Data")
+            Prelude.<$> (x Data..:? "Data")
       )
 
 instance Prelude.Hashable CampaignCustomMessage where
@@ -70,9 +71,9 @@ instance Prelude.Hashable CampaignCustomMessage where
 instance Prelude.NFData CampaignCustomMessage where
   rnf CampaignCustomMessage' {..} = Prelude.rnf data'
 
-instance Core.ToJSON CampaignCustomMessage where
+instance Data.ToJSON CampaignCustomMessage where
   toJSON CampaignCustomMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Data" Core..=) Prelude.<$> data']
+          [("Data" Data..=) Prelude.<$> data']
       )

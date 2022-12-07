@@ -42,6 +42,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,7 +89,7 @@ instance Core.AWSRequest DeleteEventSubscription where
     Response.receiveJSON
       ( \s h x ->
           DeleteEventSubscriptionResponse'
-            Prelude.<$> (x Core..?> "EventSubscription")
+            Prelude.<$> (x Data..?> "EventSubscription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,34 +101,34 @@ instance Prelude.NFData DeleteEventSubscription where
   rnf DeleteEventSubscription' {..} =
     Prelude.rnf subscriptionName
 
-instance Core.ToHeaders DeleteEventSubscription where
+instance Data.ToHeaders DeleteEventSubscription where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DeleteEventSubscription" ::
+              Data.=# ( "AmazonDMSv20160101.DeleteEventSubscription" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteEventSubscription where
+instance Data.ToJSON DeleteEventSubscription where
   toJSON DeleteEventSubscription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("SubscriptionName" Core..= subscriptionName)
+              ("SubscriptionName" Data..= subscriptionName)
           ]
       )
 
-instance Core.ToPath DeleteEventSubscription where
+instance Data.ToPath DeleteEventSubscription where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteEventSubscription where
+instance Data.ToQuery DeleteEventSubscription where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

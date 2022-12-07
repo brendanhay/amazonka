@@ -21,6 +21,7 @@ module Amazonka.RBin.Types.ResourceTag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the resource tags used to identify resources that are
@@ -64,14 +65,14 @@ resourceTag_resourceTagValue = Lens.lens (\ResourceTag' {resourceTagValue} -> re
 resourceTag_resourceTagKey :: Lens.Lens' ResourceTag Prelude.Text
 resourceTag_resourceTagKey = Lens.lens (\ResourceTag' {resourceTagKey} -> resourceTagKey) (\s@ResourceTag' {} a -> s {resourceTagKey = a} :: ResourceTag)
 
-instance Core.FromJSON ResourceTag where
+instance Data.FromJSON ResourceTag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceTag"
       ( \x ->
           ResourceTag'
-            Prelude.<$> (x Core..:? "ResourceTagValue")
-            Prelude.<*> (x Core..: "ResourceTagKey")
+            Prelude.<$> (x Data..:? "ResourceTagValue")
+            Prelude.<*> (x Data..: "ResourceTagKey")
       )
 
 instance Prelude.Hashable ResourceTag where
@@ -84,13 +85,13 @@ instance Prelude.NFData ResourceTag where
     Prelude.rnf resourceTagValue
       `Prelude.seq` Prelude.rnf resourceTagKey
 
-instance Core.ToJSON ResourceTag where
+instance Data.ToJSON ResourceTag where
   toJSON ResourceTag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceTagValue" Core..=)
+          [ ("ResourceTagValue" Data..=)
               Prelude.<$> resourceTagValue,
             Prelude.Just
-              ("ResourceTagKey" Core..= resourceTagKey)
+              ("ResourceTagKey" Data..= resourceTagKey)
           ]
       )

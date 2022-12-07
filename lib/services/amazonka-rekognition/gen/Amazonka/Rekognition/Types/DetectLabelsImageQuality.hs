@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.DetectLabelsImageQuality where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The quality of an image provided for label detection, with regard to
@@ -72,15 +73,15 @@ detectLabelsImageQuality_brightness = Lens.lens (\DetectLabelsImageQuality' {bri
 detectLabelsImageQuality_contrast :: Lens.Lens' DetectLabelsImageQuality (Prelude.Maybe Prelude.Double)
 detectLabelsImageQuality_contrast = Lens.lens (\DetectLabelsImageQuality' {contrast} -> contrast) (\s@DetectLabelsImageQuality' {} a -> s {contrast = a} :: DetectLabelsImageQuality)
 
-instance Core.FromJSON DetectLabelsImageQuality where
+instance Data.FromJSON DetectLabelsImageQuality where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectLabelsImageQuality"
       ( \x ->
           DetectLabelsImageQuality'
-            Prelude.<$> (x Core..:? "Sharpness")
-            Prelude.<*> (x Core..:? "Brightness")
-            Prelude.<*> (x Core..:? "Contrast")
+            Prelude.<$> (x Data..:? "Sharpness")
+            Prelude.<*> (x Data..:? "Brightness")
+            Prelude.<*> (x Data..:? "Contrast")
       )
 
 instance Prelude.Hashable DetectLabelsImageQuality where

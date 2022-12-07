@@ -21,6 +21,7 @@ module Amazonka.QLDBSession.Types.FetchPageResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDBSession.Types.IOUsage
 import Amazonka.QLDBSession.Types.Page
@@ -74,15 +75,15 @@ fetchPageResult_consumedIOs = Lens.lens (\FetchPageResult' {consumedIOs} -> cons
 fetchPageResult_page :: Lens.Lens' FetchPageResult (Prelude.Maybe Page)
 fetchPageResult_page = Lens.lens (\FetchPageResult' {page} -> page) (\s@FetchPageResult' {} a -> s {page = a} :: FetchPageResult)
 
-instance Core.FromJSON FetchPageResult where
+instance Data.FromJSON FetchPageResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FetchPageResult"
       ( \x ->
           FetchPageResult'
-            Prelude.<$> (x Core..:? "TimingInformation")
-            Prelude.<*> (x Core..:? "ConsumedIOs")
-            Prelude.<*> (x Core..:? "Page")
+            Prelude.<$> (x Data..:? "TimingInformation")
+            Prelude.<*> (x Data..:? "ConsumedIOs")
+            Prelude.<*> (x Data..:? "Page")
       )
 
 instance Prelude.Hashable FetchPageResult where

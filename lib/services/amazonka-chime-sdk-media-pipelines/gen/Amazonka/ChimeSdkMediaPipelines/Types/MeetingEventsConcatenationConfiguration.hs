@@ -22,6 +22,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.MeetingEventsConcatenationConfigura
 import Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConcatenationState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration object for an event concatenation pipeline.
@@ -57,15 +58,15 @@ meetingEventsConcatenationConfiguration_state :: Lens.Lens' MeetingEventsConcate
 meetingEventsConcatenationConfiguration_state = Lens.lens (\MeetingEventsConcatenationConfiguration' {state} -> state) (\s@MeetingEventsConcatenationConfiguration' {} a -> s {state = a} :: MeetingEventsConcatenationConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MeetingEventsConcatenationConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MeetingEventsConcatenationConfiguration"
       ( \x ->
           MeetingEventsConcatenationConfiguration'
-            Prelude.<$> (x Core..: "State")
+            Prelude.<$> (x Data..: "State")
       )
 
 instance
@@ -85,11 +86,11 @@ instance
     Prelude.rnf state
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     MeetingEventsConcatenationConfiguration
   where
   toJSON MeetingEventsConcatenationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("State" Core..= state)]
+          [Prelude.Just ("State" Data..= state)]
       )

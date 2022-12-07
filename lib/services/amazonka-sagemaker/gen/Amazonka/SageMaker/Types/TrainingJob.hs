@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TrainingJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AlgorithmSpecification
 import Amazonka.SageMaker.Types.Channel
@@ -95,14 +96,14 @@ data TrainingJob = TrainingJob'
     -- @TrainingEndTime@. The start time in CloudWatch Logs might be later than
     -- this time. The difference is due to the time it takes to download the
     -- training data and to the size of the training container.
-    trainingStartTime :: Prelude.Maybe Core.POSIX,
+    trainingStartTime :: Prelude.Maybe Data.POSIX,
     checkpointConfig :: Prelude.Maybe CheckpointConfig,
     -- | The Amazon Resource Name (ARN) of the job.
     autoMLJobArn :: Prelude.Maybe Prelude.Text,
     debugHookConfig :: Prelude.Maybe DebugHookConfig,
     -- | A timestamp that indicates when the status of the training job was last
     -- modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | Provides detailed information about the state of the training job. For
     -- detailed information about the secondary status of the training job, see
     -- @StatusMessage@ under SecondaryStatusTransition.
@@ -198,7 +199,7 @@ data TrainingJob = TrainingJob'
     -- | The Amazon Resource Name (ARN) of the labeling job.
     labelingJobArn :: Prelude.Maybe Prelude.Text,
     -- | A timestamp that indicates when the training job was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the training job.
     trainingJobName :: Prelude.Maybe Prelude.Text,
     tensorBoardOutputConfig :: Prelude.Maybe TensorBoardOutputConfig,
@@ -217,7 +218,7 @@ data TrainingJob = TrainingJob'
     -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
     -- this is the time after model artifacts are uploaded. For failed jobs,
     -- this is the time when SageMaker detects a job failure.
-    trainingEndTime :: Prelude.Maybe Core.POSIX
+    trainingEndTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -527,7 +528,7 @@ trainingJob_tuningJobArn = Lens.lens (\TrainingJob' {tuningJobArn} -> tuningJobA
 -- this time. The difference is due to the time it takes to download the
 -- training data and to the size of the training container.
 trainingJob_trainingStartTime :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.UTCTime)
-trainingJob_trainingStartTime = Lens.lens (\TrainingJob' {trainingStartTime} -> trainingStartTime) (\s@TrainingJob' {} a -> s {trainingStartTime = a} :: TrainingJob) Prelude.. Lens.mapping Core._Time
+trainingJob_trainingStartTime = Lens.lens (\TrainingJob' {trainingStartTime} -> trainingStartTime) (\s@TrainingJob' {} a -> s {trainingStartTime = a} :: TrainingJob) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 trainingJob_checkpointConfig :: Lens.Lens' TrainingJob (Prelude.Maybe CheckpointConfig)
@@ -544,7 +545,7 @@ trainingJob_debugHookConfig = Lens.lens (\TrainingJob' {debugHookConfig} -> debu
 -- | A timestamp that indicates when the status of the training job was last
 -- modified.
 trainingJob_lastModifiedTime :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.UTCTime)
-trainingJob_lastModifiedTime = Lens.lens (\TrainingJob' {lastModifiedTime} -> lastModifiedTime) (\s@TrainingJob' {} a -> s {lastModifiedTime = a} :: TrainingJob) Prelude.. Lens.mapping Core._Time
+trainingJob_lastModifiedTime = Lens.lens (\TrainingJob' {lastModifiedTime} -> lastModifiedTime) (\s@TrainingJob' {} a -> s {lastModifiedTime = a} :: TrainingJob) Prelude.. Lens.mapping Data._Time
 
 -- | Provides detailed information about the state of the training job. For
 -- detailed information about the secondary status of the training job, see
@@ -660,7 +661,7 @@ trainingJob_labelingJobArn = Lens.lens (\TrainingJob' {labelingJobArn} -> labeli
 
 -- | A timestamp that indicates when the training job was created.
 trainingJob_creationTime :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.UTCTime)
-trainingJob_creationTime = Lens.lens (\TrainingJob' {creationTime} -> creationTime) (\s@TrainingJob' {} a -> s {creationTime = a} :: TrainingJob) Prelude.. Lens.mapping Core._Time
+trainingJob_creationTime = Lens.lens (\TrainingJob' {creationTime} -> creationTime) (\s@TrainingJob' {} a -> s {creationTime = a} :: TrainingJob) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the training job.
 trainingJob_trainingJobName :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.Text)
@@ -696,61 +697,61 @@ trainingJob_failureReason = Lens.lens (\TrainingJob' {failureReason} -> failureR
 -- this is the time after model artifacts are uploaded. For failed jobs,
 -- this is the time when SageMaker detects a job failure.
 trainingJob_trainingEndTime :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.UTCTime)
-trainingJob_trainingEndTime = Lens.lens (\TrainingJob' {trainingEndTime} -> trainingEndTime) (\s@TrainingJob' {} a -> s {trainingEndTime = a} :: TrainingJob) Prelude.. Lens.mapping Core._Time
+trainingJob_trainingEndTime = Lens.lens (\TrainingJob' {trainingEndTime} -> trainingEndTime) (\s@TrainingJob' {} a -> s {trainingEndTime = a} :: TrainingJob) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON TrainingJob where
+instance Data.FromJSON TrainingJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrainingJob"
       ( \x ->
           TrainingJob'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "OutputDataConfig")
-            Prelude.<*> (x Core..:? "EnableManagedSpotTraining")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "Environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TrainingTimeInSeconds")
-            Prelude.<*> ( x Core..:? "DebugRuleEvaluationStatuses"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "OutputDataConfig")
+            Prelude.<*> (x Data..:? "EnableManagedSpotTraining")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "Environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TrainingTimeInSeconds")
+            Prelude.<*> ( x Data..:? "DebugRuleEvaluationStatuses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "RetryStrategy")
-            Prelude.<*> (x Core..:? "VpcConfig")
-            Prelude.<*> ( x Core..:? "SecondaryStatusTransitions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "RetryStrategy")
+            Prelude.<*> (x Data..:? "VpcConfig")
+            Prelude.<*> ( x Data..:? "SecondaryStatusTransitions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EnableNetworkIsolation")
-            Prelude.<*> (x Core..:? "ResourceConfig")
-            Prelude.<*> (x Core..:? "ExperimentConfig")
-            Prelude.<*> (x Core..:? "TuningJobArn")
-            Prelude.<*> (x Core..:? "TrainingStartTime")
-            Prelude.<*> (x Core..:? "CheckpointConfig")
-            Prelude.<*> (x Core..:? "AutoMLJobArn")
-            Prelude.<*> (x Core..:? "DebugHookConfig")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "SecondaryStatus")
-            Prelude.<*> (x Core..:? "EnableInterContainerTrafficEncryption")
-            Prelude.<*> ( x Core..:? "FinalMetricDataList"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "EnableNetworkIsolation")
+            Prelude.<*> (x Data..:? "ResourceConfig")
+            Prelude.<*> (x Data..:? "ExperimentConfig")
+            Prelude.<*> (x Data..:? "TuningJobArn")
+            Prelude.<*> (x Data..:? "TrainingStartTime")
+            Prelude.<*> (x Data..:? "CheckpointConfig")
+            Prelude.<*> (x Data..:? "AutoMLJobArn")
+            Prelude.<*> (x Data..:? "DebugHookConfig")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "SecondaryStatus")
+            Prelude.<*> (x Data..:? "EnableInterContainerTrafficEncryption")
+            Prelude.<*> ( x Data..:? "FinalMetricDataList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "TrainingJobStatus")
-            Prelude.<*> (x Core..:? "ModelArtifacts")
-            Prelude.<*> (x Core..:? "StoppingCondition")
-            Prelude.<*> (x Core..:? "AlgorithmSpecification")
-            Prelude.<*> ( x Core..:? "DebugRuleConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "TrainingJobStatus")
+            Prelude.<*> (x Data..:? "ModelArtifacts")
+            Prelude.<*> (x Data..:? "StoppingCondition")
+            Prelude.<*> (x Data..:? "AlgorithmSpecification")
+            Prelude.<*> ( x Data..:? "DebugRuleConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LabelingJobArn")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "TrainingJobName")
-            Prelude.<*> (x Core..:? "TensorBoardOutputConfig")
-            Prelude.<*> (x Core..:? "BillableTimeInSeconds")
-            Prelude.<*> (x Core..:? "TrainingJobArn")
-            Prelude.<*> (x Core..:? "InputDataConfig")
-            Prelude.<*> ( x Core..:? "HyperParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "LabelingJobArn")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "TrainingJobName")
+            Prelude.<*> (x Data..:? "TensorBoardOutputConfig")
+            Prelude.<*> (x Data..:? "BillableTimeInSeconds")
+            Prelude.<*> (x Data..:? "TrainingJobArn")
+            Prelude.<*> (x Data..:? "InputDataConfig")
+            Prelude.<*> ( x Data..:? "HyperParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..:? "TrainingEndTime")
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "TrainingEndTime")
       )
 
 instance Prelude.Hashable TrainingJob where

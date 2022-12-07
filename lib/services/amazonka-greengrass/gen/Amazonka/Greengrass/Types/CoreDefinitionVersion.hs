@@ -21,6 +21,7 @@ module Amazonka.Greengrass.Types.CoreDefinitionVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types.Core
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newCoreDefinitionVersion =
 coreDefinitionVersion_cores :: Lens.Lens' CoreDefinitionVersion (Prelude.Maybe [Core])
 coreDefinitionVersion_cores = Lens.lens (\CoreDefinitionVersion' {cores} -> cores) (\s@CoreDefinitionVersion' {} a -> s {cores = a} :: CoreDefinitionVersion) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CoreDefinitionVersion where
+instance Data.FromJSON CoreDefinitionVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoreDefinitionVersion"
       ( \x ->
           CoreDefinitionVersion'
-            Prelude.<$> (x Core..:? "Cores" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Cores" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CoreDefinitionVersion where
@@ -67,9 +68,9 @@ instance Prelude.Hashable CoreDefinitionVersion where
 instance Prelude.NFData CoreDefinitionVersion where
   rnf CoreDefinitionVersion' {..} = Prelude.rnf cores
 
-instance Core.ToJSON CoreDefinitionVersion where
+instance Data.ToJSON CoreDefinitionVersion where
   toJSON CoreDefinitionVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Cores" Core..=) Prelude.<$> cores]
+          [("Cores" Data..=) Prelude.<$> cores]
       )

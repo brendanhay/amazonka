@@ -23,6 +23,7 @@ import Amazonka.CloudFormation.Types.AccountGateResult
 import Amazonka.CloudFormation.Types.StackSetOperationResultStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structure that contains information about a specified operation\'s
@@ -176,15 +177,15 @@ stackSetOperationResultSummary_organizationalUnitId = Lens.lens (\StackSetOperat
 stackSetOperationResultSummary_accountGateResult :: Lens.Lens' StackSetOperationResultSummary (Prelude.Maybe AccountGateResult)
 stackSetOperationResultSummary_accountGateResult = Lens.lens (\StackSetOperationResultSummary' {accountGateResult} -> accountGateResult) (\s@StackSetOperationResultSummary' {} a -> s {accountGateResult = a} :: StackSetOperationResultSummary)
 
-instance Core.FromXML StackSetOperationResultSummary where
+instance Data.FromXML StackSetOperationResultSummary where
   parseXML x =
     StackSetOperationResultSummary'
-      Prelude.<$> (x Core..@? "Account")
-      Prelude.<*> (x Core..@? "StatusReason")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "Region")
-      Prelude.<*> (x Core..@? "OrganizationalUnitId")
-      Prelude.<*> (x Core..@? "AccountGateResult")
+      Prelude.<$> (x Data..@? "Account")
+      Prelude.<*> (x Data..@? "StatusReason")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "Region")
+      Prelude.<*> (x Data..@? "OrganizationalUnitId")
+      Prelude.<*> (x Data..@? "AccountGateResult")
 
 instance
   Prelude.Hashable

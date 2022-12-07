@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,15 +91,15 @@ instance Core.AWSRequest GetResponsePlan where
     Response.receiveJSON
       ( \s h x ->
           GetResponsePlanResponse'
-            Prelude.<$> (x Core..?> "integrations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "chatChannel")
-            Prelude.<*> (x Core..?> "displayName")
-            Prelude.<*> (x Core..?> "engagements" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "actions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "integrations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "chatChannel")
+            Prelude.<*> (x Data..?> "displayName")
+            Prelude.<*> (x Data..?> "engagements" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "actions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "incidentTemplate")
-            Prelude.<*> (x Core..:> "name")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "incidentTemplate")
+            Prelude.<*> (x Data..:> "name")
       )
 
 instance Prelude.Hashable GetResponsePlan where
@@ -108,23 +109,23 @@ instance Prelude.Hashable GetResponsePlan where
 instance Prelude.NFData GetResponsePlan where
   rnf GetResponsePlan' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders GetResponsePlan where
+instance Data.ToHeaders GetResponsePlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetResponsePlan where
+instance Data.ToPath GetResponsePlan where
   toPath = Prelude.const "/getResponsePlan"
 
-instance Core.ToQuery GetResponsePlan where
+instance Data.ToQuery GetResponsePlan where
   toQuery GetResponsePlan' {..} =
-    Prelude.mconcat ["arn" Core.=: arn]
+    Prelude.mconcat ["arn" Data.=: arn]
 
 -- | /See:/ 'newGetResponsePlanResponse' smart constructor.
 data GetResponsePlanResponse = GetResponsePlanResponse'

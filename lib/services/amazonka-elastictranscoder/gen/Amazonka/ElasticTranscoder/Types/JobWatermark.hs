@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.JobWatermark where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.Encryption
 import qualified Amazonka.Prelude as Prelude
 
@@ -106,15 +107,15 @@ jobWatermark_encryption = Lens.lens (\JobWatermark' {encryption} -> encryption) 
 jobWatermark_presetWatermarkId :: Lens.Lens' JobWatermark (Prelude.Maybe Prelude.Text)
 jobWatermark_presetWatermarkId = Lens.lens (\JobWatermark' {presetWatermarkId} -> presetWatermarkId) (\s@JobWatermark' {} a -> s {presetWatermarkId = a} :: JobWatermark)
 
-instance Core.FromJSON JobWatermark where
+instance Data.FromJSON JobWatermark where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobWatermark"
       ( \x ->
           JobWatermark'
-            Prelude.<$> (x Core..:? "InputKey")
-            Prelude.<*> (x Core..:? "Encryption")
-            Prelude.<*> (x Core..:? "PresetWatermarkId")
+            Prelude.<$> (x Data..:? "InputKey")
+            Prelude.<*> (x Data..:? "Encryption")
+            Prelude.<*> (x Data..:? "PresetWatermarkId")
       )
 
 instance Prelude.Hashable JobWatermark where
@@ -129,13 +130,13 @@ instance Prelude.NFData JobWatermark where
       `Prelude.seq` Prelude.rnf encryption
       `Prelude.seq` Prelude.rnf presetWatermarkId
 
-instance Core.ToJSON JobWatermark where
+instance Data.ToJSON JobWatermark where
   toJSON JobWatermark' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InputKey" Core..=) Prelude.<$> inputKey,
-            ("Encryption" Core..=) Prelude.<$> encryption,
-            ("PresetWatermarkId" Core..=)
+          [ ("InputKey" Data..=) Prelude.<$> inputKey,
+            ("Encryption" Data..=) Prelude.<$> encryption,
+            ("PresetWatermarkId" Data..=)
               Prelude.<$> presetWatermarkId
           ]
       )

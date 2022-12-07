@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,20 +96,20 @@ instance Core.AWSRequest DescribeEndpoint where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointResponse'
-            Prelude.<$> (x Core..?> "AsyncInferenceConfig")
-            Prelude.<*> (x Core..?> "PendingDeploymentSummary")
-            Prelude.<*> (x Core..?> "DataCaptureConfig")
-            Prelude.<*> (x Core..?> "LastDeploymentConfig")
-            Prelude.<*> (x Core..?> "ProductionVariants")
-            Prelude.<*> (x Core..?> "FailureReason")
-            Prelude.<*> (x Core..?> "ExplainerConfig")
+            Prelude.<$> (x Data..?> "AsyncInferenceConfig")
+            Prelude.<*> (x Data..?> "PendingDeploymentSummary")
+            Prelude.<*> (x Data..?> "DataCaptureConfig")
+            Prelude.<*> (x Data..?> "LastDeploymentConfig")
+            Prelude.<*> (x Data..?> "ProductionVariants")
+            Prelude.<*> (x Data..?> "FailureReason")
+            Prelude.<*> (x Data..?> "ExplainerConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "EndpointName")
-            Prelude.<*> (x Core..:> "EndpointArn")
-            Prelude.<*> (x Core..:> "EndpointConfigName")
-            Prelude.<*> (x Core..:> "EndpointStatus")
-            Prelude.<*> (x Core..:> "CreationTime")
-            Prelude.<*> (x Core..:> "LastModifiedTime")
+            Prelude.<*> (x Data..:> "EndpointName")
+            Prelude.<*> (x Data..:> "EndpointArn")
+            Prelude.<*> (x Data..:> "EndpointConfigName")
+            Prelude.<*> (x Data..:> "EndpointStatus")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "LastModifiedTime")
       )
 
 instance Prelude.Hashable DescribeEndpoint where
@@ -118,30 +119,30 @@ instance Prelude.Hashable DescribeEndpoint where
 instance Prelude.NFData DescribeEndpoint where
   rnf DescribeEndpoint' {..} = Prelude.rnf endpointName
 
-instance Core.ToHeaders DescribeEndpoint where
+instance Data.ToHeaders DescribeEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeEndpoint" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DescribeEndpoint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEndpoint where
+instance Data.ToJSON DescribeEndpoint where
   toJSON DescribeEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("EndpointName" Core..= endpointName)]
+          [Prelude.Just ("EndpointName" Data..= endpointName)]
       )
 
-instance Core.ToPath DescribeEndpoint where
+instance Data.ToPath DescribeEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEndpoint where
+instance Data.ToQuery DescribeEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEndpointResponse' smart constructor.
@@ -206,9 +207,9 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
     --     on a failed endpoint.
     endpointStatus :: EndpointStatus,
     -- | A timestamp that shows when the endpoint was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | A timestamp that shows when the endpoint was last modified.
-    lastModifiedTime :: Core.POSIX
+    lastModifiedTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -321,9 +322,9 @@ newDescribeEndpointResponse
         endpointArn = pEndpointArn_,
         endpointConfigName = pEndpointConfigName_,
         endpointStatus = pEndpointStatus_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_
+          Data._Time Lens.# pLastModifiedTime_
       }
 
 -- | Returns the description of an endpoint configuration created using the
@@ -412,11 +413,11 @@ describeEndpointResponse_endpointStatus = Lens.lens (\DescribeEndpointResponse' 
 
 -- | A timestamp that shows when the endpoint was created.
 describeEndpointResponse_creationTime :: Lens.Lens' DescribeEndpointResponse Prelude.UTCTime
-describeEndpointResponse_creationTime = Lens.lens (\DescribeEndpointResponse' {creationTime} -> creationTime) (\s@DescribeEndpointResponse' {} a -> s {creationTime = a} :: DescribeEndpointResponse) Prelude.. Core._Time
+describeEndpointResponse_creationTime = Lens.lens (\DescribeEndpointResponse' {creationTime} -> creationTime) (\s@DescribeEndpointResponse' {} a -> s {creationTime = a} :: DescribeEndpointResponse) Prelude.. Data._Time
 
 -- | A timestamp that shows when the endpoint was last modified.
 describeEndpointResponse_lastModifiedTime :: Lens.Lens' DescribeEndpointResponse Prelude.UTCTime
-describeEndpointResponse_lastModifiedTime = Lens.lens (\DescribeEndpointResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEndpointResponse' {} a -> s {lastModifiedTime = a} :: DescribeEndpointResponse) Prelude.. Core._Time
+describeEndpointResponse_lastModifiedTime = Lens.lens (\DescribeEndpointResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEndpointResponse' {} a -> s {lastModifiedTime = a} :: DescribeEndpointResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeEndpointResponse where
   rnf DescribeEndpointResponse' {..} =

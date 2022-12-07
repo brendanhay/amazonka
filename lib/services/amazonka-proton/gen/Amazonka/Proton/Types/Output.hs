@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.Output where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An infrastructure as code defined resource output.
@@ -61,14 +62,14 @@ output_key = Lens.lens (\Output' {key} -> key) (\s@Output' {} a -> s {key = a} :
 output_valueString :: Lens.Lens' Output (Prelude.Maybe Prelude.Text)
 output_valueString = Lens.lens (\Output' {valueString} -> valueString) (\s@Output' {} a -> s {valueString = a} :: Output)
 
-instance Core.FromJSON Output where
+instance Data.FromJSON Output where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Output"
       ( \x ->
           Output'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "valueString")
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "valueString")
       )
 
 instance Prelude.Hashable Output where
@@ -81,11 +82,11 @@ instance Prelude.NFData Output where
     Prelude.rnf key
       `Prelude.seq` Prelude.rnf valueString
 
-instance Core.ToJSON Output where
+instance Data.ToJSON Output where
   toJSON Output' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("valueString" Core..=) Prelude.<$> valueString
+          [ ("key" Data..=) Prelude.<$> key,
+            ("valueString" Data..=) Prelude.<$> valueString
           ]
       )

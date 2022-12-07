@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,7 +141,7 @@ instance Core.AWSRequest CancelKeyDeletion where
     Response.receiveJSON
       ( \s h x ->
           CancelKeyDeletionResponse'
-            Prelude.<$> (x Core..?> "KeyId")
+            Prelude.<$> (x Data..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,32 +152,32 @@ instance Prelude.Hashable CancelKeyDeletion where
 instance Prelude.NFData CancelKeyDeletion where
   rnf CancelKeyDeletion' {..} = Prelude.rnf keyId
 
-instance Core.ToHeaders CancelKeyDeletion where
+instance Data.ToHeaders CancelKeyDeletion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.CancelKeyDeletion" ::
+              Data.=# ( "TrentService.CancelKeyDeletion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelKeyDeletion where
+instance Data.ToJSON CancelKeyDeletion where
   toJSON CancelKeyDeletion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("KeyId" Core..= keyId)]
+          [Prelude.Just ("KeyId" Data..= keyId)]
       )
 
-instance Core.ToPath CancelKeyDeletion where
+instance Data.ToPath CancelKeyDeletion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelKeyDeletion where
+instance Data.ToQuery CancelKeyDeletion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelKeyDeletionResponse' smart constructor.

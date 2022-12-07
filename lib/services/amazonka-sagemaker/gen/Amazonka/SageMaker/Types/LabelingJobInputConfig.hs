@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.LabelingJobInputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.LabelingJobDataAttributes
 import Amazonka.SageMaker.Types.LabelingJobDataSource
@@ -66,14 +67,14 @@ labelingJobInputConfig_dataAttributes = Lens.lens (\LabelingJobInputConfig' {dat
 labelingJobInputConfig_dataSource :: Lens.Lens' LabelingJobInputConfig LabelingJobDataSource
 labelingJobInputConfig_dataSource = Lens.lens (\LabelingJobInputConfig' {dataSource} -> dataSource) (\s@LabelingJobInputConfig' {} a -> s {dataSource = a} :: LabelingJobInputConfig)
 
-instance Core.FromJSON LabelingJobInputConfig where
+instance Data.FromJSON LabelingJobInputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelingJobInputConfig"
       ( \x ->
           LabelingJobInputConfig'
-            Prelude.<$> (x Core..:? "DataAttributes")
-            Prelude.<*> (x Core..: "DataSource")
+            Prelude.<$> (x Data..:? "DataAttributes")
+            Prelude.<*> (x Data..: "DataSource")
       )
 
 instance Prelude.Hashable LabelingJobInputConfig where
@@ -86,12 +87,12 @@ instance Prelude.NFData LabelingJobInputConfig where
     Prelude.rnf dataAttributes
       `Prelude.seq` Prelude.rnf dataSource
 
-instance Core.ToJSON LabelingJobInputConfig where
+instance Data.ToJSON LabelingJobInputConfig where
   toJSON LabelingJobInputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataAttributes" Core..=)
+          [ ("DataAttributes" Data..=)
               Prelude.<$> dataAttributes,
-            Prelude.Just ("DataSource" Core..= dataSource)
+            Prelude.Just ("DataSource" Data..= dataSource)
           ]
       )

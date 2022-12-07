@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -206,8 +207,8 @@ instance
       ( \s h x ->
           GenerateEmbedUrlForRegisteredUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "EmbedUrl")
-              Prelude.<*> (x Core..:> "RequestId")
+              Prelude.<*> (x Data..:> "EmbedUrl")
+              Prelude.<*> (x Data..:> "RequestId")
       )
 
 instance
@@ -236,51 +237,51 @@ instance
       `Prelude.seq` Prelude.rnf experienceConfiguration
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GenerateEmbedUrlForRegisteredUser
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GenerateEmbedUrlForRegisteredUser
   where
   toJSON GenerateEmbedUrlForRegisteredUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SessionLifetimeInMinutes" Core..=)
+          [ ("SessionLifetimeInMinutes" Data..=)
               Prelude.<$> sessionLifetimeInMinutes,
-            ("AllowedDomains" Core..=)
+            ("AllowedDomains" Data..=)
               Prelude.<$> allowedDomains,
-            Prelude.Just ("UserArn" Core..= userArn),
+            Prelude.Just ("UserArn" Data..= userArn),
             Prelude.Just
               ( "ExperienceConfiguration"
-                  Core..= experienceConfiguration
+                  Data..= experienceConfiguration
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GenerateEmbedUrlForRegisteredUser
   where
   toPath GenerateEmbedUrlForRegisteredUser' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/embed-url/registered-user"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GenerateEmbedUrlForRegisteredUser
   where
   toQuery = Prelude.const Prelude.mempty
@@ -291,7 +292,7 @@ data GenerateEmbedUrlForRegisteredUserResponse = GenerateEmbedUrlForRegisteredUs
     status :: Prelude.Int,
     -- | The embed URL for the Amazon QuickSight dashboard, visual, Q search bar,
     -- or console.
-    embedUrl :: Core.Sensitive Prelude.Text,
+    embedUrl :: Data.Sensitive Prelude.Text,
     -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Text
   }
@@ -327,7 +328,7 @@ newGenerateEmbedUrlForRegisteredUserResponse
       { status =
           pStatus_,
         embedUrl =
-          Core._Sensitive
+          Data._Sensitive
             Lens.# pEmbedUrl_,
         requestId = pRequestId_
       }
@@ -339,7 +340,7 @@ generateEmbedUrlForRegisteredUserResponse_status = Lens.lens (\GenerateEmbedUrlF
 -- | The embed URL for the Amazon QuickSight dashboard, visual, Q search bar,
 -- or console.
 generateEmbedUrlForRegisteredUserResponse_embedUrl :: Lens.Lens' GenerateEmbedUrlForRegisteredUserResponse Prelude.Text
-generateEmbedUrlForRegisteredUserResponse_embedUrl = Lens.lens (\GenerateEmbedUrlForRegisteredUserResponse' {embedUrl} -> embedUrl) (\s@GenerateEmbedUrlForRegisteredUserResponse' {} a -> s {embedUrl = a} :: GenerateEmbedUrlForRegisteredUserResponse) Prelude.. Core._Sensitive
+generateEmbedUrlForRegisteredUserResponse_embedUrl = Lens.lens (\GenerateEmbedUrlForRegisteredUserResponse' {embedUrl} -> embedUrl) (\s@GenerateEmbedUrlForRegisteredUserResponse' {} a -> s {embedUrl = a} :: GenerateEmbedUrlForRegisteredUserResponse) Prelude.. Data._Sensitive
 
 -- | The Amazon Web Services request ID for this operation.
 generateEmbedUrlForRegisteredUserResponse_requestId :: Lens.Lens' GenerateEmbedUrlForRegisteredUserResponse Prelude.Text

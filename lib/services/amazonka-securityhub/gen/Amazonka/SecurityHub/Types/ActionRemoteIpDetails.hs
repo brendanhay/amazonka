@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.ActionRemoteIpDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.City
 import Amazonka.SecurityHub.Types.Country
@@ -97,17 +98,17 @@ actionRemoteIpDetails_organization = Lens.lens (\ActionRemoteIpDetails' {organiz
 actionRemoteIpDetails_geoLocation :: Lens.Lens' ActionRemoteIpDetails (Prelude.Maybe GeoLocation)
 actionRemoteIpDetails_geoLocation = Lens.lens (\ActionRemoteIpDetails' {geoLocation} -> geoLocation) (\s@ActionRemoteIpDetails' {} a -> s {geoLocation = a} :: ActionRemoteIpDetails)
 
-instance Core.FromJSON ActionRemoteIpDetails where
+instance Data.FromJSON ActionRemoteIpDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionRemoteIpDetails"
       ( \x ->
           ActionRemoteIpDetails'
-            Prelude.<$> (x Core..:? "Country")
-            Prelude.<*> (x Core..:? "IpAddressV4")
-            Prelude.<*> (x Core..:? "City")
-            Prelude.<*> (x Core..:? "Organization")
-            Prelude.<*> (x Core..:? "GeoLocation")
+            Prelude.<$> (x Data..:? "Country")
+            Prelude.<*> (x Data..:? "IpAddressV4")
+            Prelude.<*> (x Data..:? "City")
+            Prelude.<*> (x Data..:? "Organization")
+            Prelude.<*> (x Data..:? "GeoLocation")
       )
 
 instance Prelude.Hashable ActionRemoteIpDetails where
@@ -126,14 +127,14 @@ instance Prelude.NFData ActionRemoteIpDetails where
       `Prelude.seq` Prelude.rnf organization
       `Prelude.seq` Prelude.rnf geoLocation
 
-instance Core.ToJSON ActionRemoteIpDetails where
+instance Data.ToJSON ActionRemoteIpDetails where
   toJSON ActionRemoteIpDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Country" Core..=) Prelude.<$> country,
-            ("IpAddressV4" Core..=) Prelude.<$> ipAddressV4,
-            ("City" Core..=) Prelude.<$> city,
-            ("Organization" Core..=) Prelude.<$> organization,
-            ("GeoLocation" Core..=) Prelude.<$> geoLocation
+          [ ("Country" Data..=) Prelude.<$> country,
+            ("IpAddressV4" Data..=) Prelude.<$> ipAddressV4,
+            ("City" Data..=) Prelude.<$> city,
+            ("Organization" Data..=) Prelude.<$> organization,
+            ("GeoLocation" Data..=) Prelude.<$> geoLocation
           ]
       )

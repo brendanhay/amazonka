@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.UdpGroupSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.InputLossActionForUdpOut
 import Amazonka.MediaLive.Types.UdpTimedMetadataId3Frame
 import qualified Amazonka.Prelude as Prelude
@@ -94,15 +95,15 @@ udpGroupSettings_timedMetadataId3Frame = Lens.lens (\UdpGroupSettings' {timedMet
 udpGroupSettings_timedMetadataId3Period :: Lens.Lens' UdpGroupSettings (Prelude.Maybe Prelude.Natural)
 udpGroupSettings_timedMetadataId3Period = Lens.lens (\UdpGroupSettings' {timedMetadataId3Period} -> timedMetadataId3Period) (\s@UdpGroupSettings' {} a -> s {timedMetadataId3Period = a} :: UdpGroupSettings)
 
-instance Core.FromJSON UdpGroupSettings where
+instance Data.FromJSON UdpGroupSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UdpGroupSettings"
       ( \x ->
           UdpGroupSettings'
-            Prelude.<$> (x Core..:? "inputLossAction")
-            Prelude.<*> (x Core..:? "timedMetadataId3Frame")
-            Prelude.<*> (x Core..:? "timedMetadataId3Period")
+            Prelude.<$> (x Data..:? "inputLossAction")
+            Prelude.<*> (x Data..:? "timedMetadataId3Frame")
+            Prelude.<*> (x Data..:? "timedMetadataId3Period")
       )
 
 instance Prelude.Hashable UdpGroupSettings where
@@ -117,15 +118,15 @@ instance Prelude.NFData UdpGroupSettings where
       `Prelude.seq` Prelude.rnf timedMetadataId3Frame
       `Prelude.seq` Prelude.rnf timedMetadataId3Period
 
-instance Core.ToJSON UdpGroupSettings where
+instance Data.ToJSON UdpGroupSettings where
   toJSON UdpGroupSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inputLossAction" Core..=)
+          [ ("inputLossAction" Data..=)
               Prelude.<$> inputLossAction,
-            ("timedMetadataId3Frame" Core..=)
+            ("timedMetadataId3Frame" Data..=)
               Prelude.<$> timedMetadataId3Frame,
-            ("timedMetadataId3Period" Core..=)
+            ("timedMetadataId3Period" Data..=)
               Prelude.<$> timedMetadataId3Period
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.ShardDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types.ShardConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data ShardDetail = ShardDetail'
     -- | The configuration details of the shard
     configuration :: Prelude.Maybe ShardConfiguration,
     -- | The date and time that the shard\'s snapshot was created
-    snapshotCreationTime :: Prelude.Maybe Core.POSIX,
+    snapshotCreationTime :: Prelude.Maybe Data.POSIX,
     -- | The size of the shard\'s snapshot
     size :: Prelude.Maybe Prelude.Text
   }
@@ -74,22 +75,22 @@ shardDetail_configuration = Lens.lens (\ShardDetail' {configuration} -> configur
 
 -- | The date and time that the shard\'s snapshot was created
 shardDetail_snapshotCreationTime :: Lens.Lens' ShardDetail (Prelude.Maybe Prelude.UTCTime)
-shardDetail_snapshotCreationTime = Lens.lens (\ShardDetail' {snapshotCreationTime} -> snapshotCreationTime) (\s@ShardDetail' {} a -> s {snapshotCreationTime = a} :: ShardDetail) Prelude.. Lens.mapping Core._Time
+shardDetail_snapshotCreationTime = Lens.lens (\ShardDetail' {snapshotCreationTime} -> snapshotCreationTime) (\s@ShardDetail' {} a -> s {snapshotCreationTime = a} :: ShardDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The size of the shard\'s snapshot
 shardDetail_size :: Lens.Lens' ShardDetail (Prelude.Maybe Prelude.Text)
 shardDetail_size = Lens.lens (\ShardDetail' {size} -> size) (\s@ShardDetail' {} a -> s {size = a} :: ShardDetail)
 
-instance Core.FromJSON ShardDetail where
+instance Data.FromJSON ShardDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ShardDetail"
       ( \x ->
           ShardDetail'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Configuration")
-            Prelude.<*> (x Core..:? "SnapshotCreationTime")
-            Prelude.<*> (x Core..:? "Size")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Configuration")
+            Prelude.<*> (x Data..:? "SnapshotCreationTime")
+            Prelude.<*> (x Data..:? "Size")
       )
 
 instance Prelude.Hashable ShardDetail where

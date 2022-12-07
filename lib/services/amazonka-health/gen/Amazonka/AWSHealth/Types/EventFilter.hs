@@ -24,6 +24,7 @@ import Amazonka.AWSHealth.Types.EventStatusCode
 import Amazonka.AWSHealth.Types.EventTypeCategory
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The values to use to filter results from the
@@ -223,27 +224,27 @@ instance Prelude.NFData EventFilter where
       `Prelude.seq` Prelude.rnf entityValues
       `Prelude.seq` Prelude.rnf eventTypeCategories
 
-instance Core.ToJSON EventFilter where
+instance Data.ToJSON EventFilter where
   toJSON EventFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("startTimes" Core..=) Prelude.<$> startTimes,
-            ("entityArns" Core..=) Prelude.<$> entityArns,
-            ("eventArns" Core..=) Prelude.<$> eventArns,
-            ("regions" Core..=) Prelude.<$> regions,
-            ("availabilityZones" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("startTimes" Data..=) Prelude.<$> startTimes,
+            ("entityArns" Data..=) Prelude.<$> entityArns,
+            ("eventArns" Data..=) Prelude.<$> eventArns,
+            ("regions" Data..=) Prelude.<$> regions,
+            ("availabilityZones" Data..=)
               Prelude.<$> availabilityZones,
-            ("services" Core..=) Prelude.<$> services,
-            ("eventStatusCodes" Core..=)
+            ("services" Data..=) Prelude.<$> services,
+            ("eventStatusCodes" Data..=)
               Prelude.<$> eventStatusCodes,
-            ("eventTypeCodes" Core..=)
+            ("eventTypeCodes" Data..=)
               Prelude.<$> eventTypeCodes,
-            ("endTimes" Core..=) Prelude.<$> endTimes,
-            ("lastUpdatedTimes" Core..=)
+            ("endTimes" Data..=) Prelude.<$> endTimes,
+            ("lastUpdatedTimes" Data..=)
               Prelude.<$> lastUpdatedTimes,
-            ("entityValues" Core..=) Prelude.<$> entityValues,
-            ("eventTypeCategories" Core..=)
+            ("entityValues" Data..=) Prelude.<$> entityValues,
+            ("eventTypeCategories" Data..=)
               Prelude.<$> eventTypeCategories
           ]
       )

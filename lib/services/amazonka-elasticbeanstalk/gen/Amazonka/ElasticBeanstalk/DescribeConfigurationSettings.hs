@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,9 +159,9 @@ instance
       "DescribeConfigurationSettingsResult"
       ( \s h x ->
           DescribeConfigurationSettingsResponse'
-            Prelude.<$> ( x Core..@? "ConfigurationSettings"
+            Prelude.<$> ( x Data..@? "ConfigurationSettings"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -180,24 +181,24 @@ instance Prelude.NFData DescribeConfigurationSettings where
       `Prelude.seq` Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders DescribeConfigurationSettings where
+instance Data.ToHeaders DescribeConfigurationSettings where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeConfigurationSettings where
+instance Data.ToPath DescribeConfigurationSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeConfigurationSettings where
+instance Data.ToQuery DescribeConfigurationSettings where
   toQuery DescribeConfigurationSettings' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeConfigurationSettings" ::
+          Data.=: ( "DescribeConfigurationSettings" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "TemplateName" Core.=: templateName,
-        "EnvironmentName" Core.=: environmentName,
-        "ApplicationName" Core.=: applicationName
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "TemplateName" Data.=: templateName,
+        "EnvironmentName" Data.=: environmentName,
+        "ApplicationName" Data.=: applicationName
       ]
 
 -- | The results from a request to change the configuration settings of an

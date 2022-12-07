@@ -43,6 +43,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,34 +110,34 @@ instance Prelude.NFData DeletePartnerEventSource where
   rnf DeletePartnerEventSource' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf account
 
-instance Core.ToHeaders DeletePartnerEventSource where
+instance Data.ToHeaders DeletePartnerEventSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSEvents.DeletePartnerEventSource" ::
+              Data.=# ( "AWSEvents.DeletePartnerEventSource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeletePartnerEventSource where
+instance Data.ToJSON DeletePartnerEventSource where
   toJSON DeletePartnerEventSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Account" Core..= account)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Account" Data..= account)
           ]
       )
 
-instance Core.ToPath DeletePartnerEventSource where
+instance Data.ToPath DeletePartnerEventSource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeletePartnerEventSource where
+instance Data.ToQuery DeletePartnerEventSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePartnerEventSourceResponse' smart constructor.

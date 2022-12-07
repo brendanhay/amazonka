@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,25 +111,25 @@ instance Prelude.NFData DeleteEndpoint where
     Prelude.rnf endpointId
       `Prelude.seq` Prelude.rnf outpostId
 
-instance Core.ToHeaders DeleteEndpoint where
+instance Data.ToHeaders DeleteEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteEndpoint where
+instance Data.ToPath DeleteEndpoint where
   toPath = Prelude.const "/S3Outposts/DeleteEndpoint"
 
-instance Core.ToQuery DeleteEndpoint where
+instance Data.ToQuery DeleteEndpoint where
   toQuery DeleteEndpoint' {..} =
     Prelude.mconcat
-      [ "endpointId" Core.=: endpointId,
-        "outpostId" Core.=: outpostId
+      [ "endpointId" Data.=: endpointId,
+        "outpostId" Data.=: outpostId
       ]
 
 -- | /See:/ 'newDeleteEndpointResponse' smart constructor.

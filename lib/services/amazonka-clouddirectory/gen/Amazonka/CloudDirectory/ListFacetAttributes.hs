@@ -48,6 +48,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,8 +143,8 @@ instance Core.AWSRequest ListFacetAttributes where
     Response.receiveJSON
       ( \s h x ->
           ListFacetAttributesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Attributes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,27 +162,27 @@ instance Prelude.NFData ListFacetAttributes where
       `Prelude.seq` Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders ListFacetAttributes where
+instance Data.ToHeaders ListFacetAttributes where
   toHeaders ListFacetAttributes' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# schemaArn]
+      ["x-amz-data-partition" Data.=# schemaArn]
 
-instance Core.ToJSON ListFacetAttributes where
+instance Data.ToJSON ListFacetAttributes where
   toJSON ListFacetAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Name" Core..= name)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath ListFacetAttributes where
+instance Data.ToPath ListFacetAttributes where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/facet/attributes"
 
-instance Core.ToQuery ListFacetAttributes where
+instance Data.ToQuery ListFacetAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListFacetAttributesResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,8 +101,8 @@ instance Core.AWSRequest GetAccessKeyLastUsed where
       "GetAccessKeyLastUsedResult"
       ( \s h x ->
           GetAccessKeyLastUsedResponse'
-            Prelude.<$> (x Core..@? "AccessKeyLastUsed")
-            Prelude.<*> (x Core..@? "UserName")
+            Prelude.<$> (x Data..@? "AccessKeyLastUsed")
+            Prelude.<*> (x Data..@? "UserName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,20 +114,20 @@ instance Prelude.NFData GetAccessKeyLastUsed where
   rnf GetAccessKeyLastUsed' {..} =
     Prelude.rnf accessKeyId
 
-instance Core.ToHeaders GetAccessKeyLastUsed where
+instance Data.ToHeaders GetAccessKeyLastUsed where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetAccessKeyLastUsed where
+instance Data.ToPath GetAccessKeyLastUsed where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAccessKeyLastUsed where
+instance Data.ToQuery GetAccessKeyLastUsed where
   toQuery GetAccessKeyLastUsed' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetAccessKeyLastUsed" :: Prelude.ByteString),
+          Data.=: ("GetAccessKeyLastUsed" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "AccessKeyId" Core.=: accessKeyId
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "AccessKeyId" Data.=: accessKeyId
       ]
 
 -- | Contains the response to a successful GetAccessKeyLastUsed request. It

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,9 +133,9 @@ instance
       "ListServiceSpecificCredentialsResult"
       ( \s h x ->
           ListServiceSpecificCredentialsResponse'
-            Prelude.<$> ( x Core..@? "ServiceSpecificCredentials"
+            Prelude.<$> ( x Data..@? "ServiceSpecificCredentials"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -158,25 +159,25 @@ instance
       `Prelude.seq` Prelude.rnf serviceName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListServiceSpecificCredentials
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListServiceSpecificCredentials where
+instance Data.ToPath ListServiceSpecificCredentials where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListServiceSpecificCredentials where
+instance Data.ToQuery ListServiceSpecificCredentials where
   toQuery ListServiceSpecificCredentials' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ListServiceSpecificCredentials" ::
+          Data.=: ( "ListServiceSpecificCredentials" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
-        "ServiceName" Core.=: serviceName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
+        "ServiceName" Data.=: serviceName
       ]
 
 -- | /See:/ 'newListServiceSpecificCredentialsResponse' smart constructor.

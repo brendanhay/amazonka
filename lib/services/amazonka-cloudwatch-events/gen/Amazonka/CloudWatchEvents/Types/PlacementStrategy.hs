@@ -22,6 +22,7 @@ module Amazonka.CloudWatchEvents.Types.PlacementStrategy where
 import Amazonka.CloudWatchEvents.Types.PlacementStrategyType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The task placement strategy for a task or service. To learn more, see
@@ -100,13 +101,13 @@ placementStrategy_type = Lens.lens (\PlacementStrategy' {type'} -> type') (\s@Pl
 placementStrategy_field :: Lens.Lens' PlacementStrategy (Prelude.Maybe Prelude.Text)
 placementStrategy_field = Lens.lens (\PlacementStrategy' {field} -> field) (\s@PlacementStrategy' {} a -> s {field = a} :: PlacementStrategy)
 
-instance Core.FromJSON PlacementStrategy where
+instance Data.FromJSON PlacementStrategy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlacementStrategy"
       ( \x ->
           PlacementStrategy'
-            Prelude.<$> (x Core..:? "type") Prelude.<*> (x Core..:? "field")
+            Prelude.<$> (x Data..:? "type") Prelude.<*> (x Data..:? "field")
       )
 
 instance Prelude.Hashable PlacementStrategy where
@@ -118,11 +119,11 @@ instance Prelude.NFData PlacementStrategy where
   rnf PlacementStrategy' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf field
 
-instance Core.ToJSON PlacementStrategy where
+instance Data.ToJSON PlacementStrategy where
   toJSON PlacementStrategy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("field" Core..=) Prelude.<$> field
+          [ ("type" Data..=) Prelude.<$> type',
+            ("field" Data..=) Prelude.<$> field
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.FeatureGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.FeatureDefinition
 import Amazonka.SageMaker.Types.FeatureGroupStatus
@@ -51,14 +52,14 @@ data FeatureGroup = FeatureGroup'
     offlineStoreStatus :: Prelude.Maybe OfflineStoreStatus,
     onlineStoreConfig :: Prelude.Maybe OnlineStoreConfig,
     -- | A timestamp indicating the last time you updated the feature group.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the @FeatureGroup@.
     featureGroupName :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether the feature group was updated
     -- successfully.
     lastUpdateStatus :: Prelude.Maybe LastUpdateStatus,
     -- | The time a @FeatureGroup@ was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | A @FeatureGroup@ status.
     featureGroupStatus :: Prelude.Maybe FeatureGroupStatus,
     offlineStoreConfig :: Prelude.Maybe OfflineStoreConfig,
@@ -195,7 +196,7 @@ featureGroup_onlineStoreConfig = Lens.lens (\FeatureGroup' {onlineStoreConfig} -
 
 -- | A timestamp indicating the last time you updated the feature group.
 featureGroup_lastModifiedTime :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.UTCTime)
-featureGroup_lastModifiedTime = Lens.lens (\FeatureGroup' {lastModifiedTime} -> lastModifiedTime) (\s@FeatureGroup' {} a -> s {lastModifiedTime = a} :: FeatureGroup) Prelude.. Lens.mapping Core._Time
+featureGroup_lastModifiedTime = Lens.lens (\FeatureGroup' {lastModifiedTime} -> lastModifiedTime) (\s@FeatureGroup' {} a -> s {lastModifiedTime = a} :: FeatureGroup) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the @FeatureGroup@.
 featureGroup_featureGroupName :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
@@ -208,7 +209,7 @@ featureGroup_lastUpdateStatus = Lens.lens (\FeatureGroup' {lastUpdateStatus} -> 
 
 -- | The time a @FeatureGroup@ was created.
 featureGroup_creationTime :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.UTCTime)
-featureGroup_creationTime = Lens.lens (\FeatureGroup' {creationTime} -> creationTime) (\s@FeatureGroup' {} a -> s {creationTime = a} :: FeatureGroup) Prelude.. Lens.mapping Core._Time
+featureGroup_creationTime = Lens.lens (\FeatureGroup' {creationTime} -> creationTime) (\s@FeatureGroup' {} a -> s {creationTime = a} :: FeatureGroup) Prelude.. Lens.mapping Data._Time
 
 -- | A @FeatureGroup@ status.
 featureGroup_featureGroupStatus :: Lens.Lens' FeatureGroup (Prelude.Maybe FeatureGroupStatus)
@@ -249,28 +250,28 @@ featureGroup_failureReason = Lens.lens (\FeatureGroup' {failureReason} -> failur
 featureGroup_featureDefinitions :: Lens.Lens' FeatureGroup (Prelude.Maybe (Prelude.NonEmpty FeatureDefinition))
 featureGroup_featureDefinitions = Lens.lens (\FeatureGroup' {featureDefinitions} -> featureDefinitions) (\s@FeatureGroup' {} a -> s {featureDefinitions = a} :: FeatureGroup) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON FeatureGroup where
+instance Data.FromJSON FeatureGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FeatureGroup"
       ( \x ->
           FeatureGroup'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RecordIdentifierFeatureName")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "OfflineStoreStatus")
-            Prelude.<*> (x Core..:? "OnlineStoreConfig")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "FeatureGroupName")
-            Prelude.<*> (x Core..:? "LastUpdateStatus")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "FeatureGroupStatus")
-            Prelude.<*> (x Core..:? "OfflineStoreConfig")
-            Prelude.<*> (x Core..:? "EventTimeFeatureName")
-            Prelude.<*> (x Core..:? "FeatureGroupArn")
-            Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..:? "FeatureDefinitions")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RecordIdentifierFeatureName")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "OfflineStoreStatus")
+            Prelude.<*> (x Data..:? "OnlineStoreConfig")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "FeatureGroupName")
+            Prelude.<*> (x Data..:? "LastUpdateStatus")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "FeatureGroupStatus")
+            Prelude.<*> (x Data..:? "OfflineStoreConfig")
+            Prelude.<*> (x Data..:? "EventTimeFeatureName")
+            Prelude.<*> (x Data..:? "FeatureGroupArn")
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "FeatureDefinitions")
       )
 
 instance Prelude.Hashable FeatureGroup where

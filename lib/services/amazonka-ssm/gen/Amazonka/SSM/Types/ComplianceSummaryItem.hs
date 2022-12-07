@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ComplianceSummaryItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.CompliantSummary
 import Amazonka.SSM.Types.NonCompliantSummary
@@ -76,15 +77,15 @@ complianceSummaryItem_nonCompliantSummary = Lens.lens (\ComplianceSummaryItem' {
 complianceSummaryItem_complianceType :: Lens.Lens' ComplianceSummaryItem (Prelude.Maybe Prelude.Text)
 complianceSummaryItem_complianceType = Lens.lens (\ComplianceSummaryItem' {complianceType} -> complianceType) (\s@ComplianceSummaryItem' {} a -> s {complianceType = a} :: ComplianceSummaryItem)
 
-instance Core.FromJSON ComplianceSummaryItem where
+instance Data.FromJSON ComplianceSummaryItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComplianceSummaryItem"
       ( \x ->
           ComplianceSummaryItem'
-            Prelude.<$> (x Core..:? "CompliantSummary")
-            Prelude.<*> (x Core..:? "NonCompliantSummary")
-            Prelude.<*> (x Core..:? "ComplianceType")
+            Prelude.<$> (x Data..:? "CompliantSummary")
+            Prelude.<*> (x Data..:? "NonCompliantSummary")
+            Prelude.<*> (x Data..:? "ComplianceType")
       )
 
 instance Prelude.Hashable ComplianceSummaryItem where

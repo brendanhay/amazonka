@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.CriterionAdditionalProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the operator to use in a property-based condition that filters
@@ -156,19 +157,19 @@ criterionAdditionalProperties_gt = Lens.lens (\CriterionAdditionalProperties' {g
 criterionAdditionalProperties_eqExactMatch :: Lens.Lens' CriterionAdditionalProperties (Prelude.Maybe [Prelude.Text])
 criterionAdditionalProperties_eqExactMatch = Lens.lens (\CriterionAdditionalProperties' {eqExactMatch} -> eqExactMatch) (\s@CriterionAdditionalProperties' {} a -> s {eqExactMatch = a} :: CriterionAdditionalProperties) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CriterionAdditionalProperties where
+instance Data.FromJSON CriterionAdditionalProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CriterionAdditionalProperties"
       ( \x ->
           CriterionAdditionalProperties'
-            Prelude.<$> (x Core..:? "neq" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "lte")
-            Prelude.<*> (x Core..:? "lt")
-            Prelude.<*> (x Core..:? "gte")
-            Prelude.<*> (x Core..:? "eq" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "gt")
-            Prelude.<*> (x Core..:? "eqExactMatch" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "neq" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "lte")
+            Prelude.<*> (x Data..:? "lt")
+            Prelude.<*> (x Data..:? "gte")
+            Prelude.<*> (x Data..:? "eq" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "gt")
+            Prelude.<*> (x Data..:? "eqExactMatch" Data..!= Prelude.mempty)
       )
 
 instance
@@ -194,16 +195,16 @@ instance Prelude.NFData CriterionAdditionalProperties where
       `Prelude.seq` Prelude.rnf gt
       `Prelude.seq` Prelude.rnf eqExactMatch
 
-instance Core.ToJSON CriterionAdditionalProperties where
+instance Data.ToJSON CriterionAdditionalProperties where
   toJSON CriterionAdditionalProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("neq" Core..=) Prelude.<$> neq,
-            ("lte" Core..=) Prelude.<$> lte,
-            ("lt" Core..=) Prelude.<$> lt,
-            ("gte" Core..=) Prelude.<$> gte,
-            ("eq" Core..=) Prelude.<$> eq,
-            ("gt" Core..=) Prelude.<$> gt,
-            ("eqExactMatch" Core..=) Prelude.<$> eqExactMatch
+          [ ("neq" Data..=) Prelude.<$> neq,
+            ("lte" Data..=) Prelude.<$> lte,
+            ("lt" Data..=) Prelude.<$> lt,
+            ("gte" Data..=) Prelude.<$> gte,
+            ("eq" Data..=) Prelude.<$> eq,
+            ("gt" Data..=) Prelude.<$> gt,
+            ("eqExactMatch" Data..=) Prelude.<$> eqExactMatch
           ]
       )

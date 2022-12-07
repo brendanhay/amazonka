@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -178,8 +179,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListInferenceRecommendationsJobStepsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "Steps" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "Steps" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,46 +209,46 @@ instance
       `Prelude.seq` Prelude.rnf jobName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListInferenceRecommendationsJobSteps
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.ListInferenceRecommendationsJobSteps" ::
+              Data.=# ( "SageMaker.ListInferenceRecommendationsJobSteps" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListInferenceRecommendationsJobSteps
   where
   toJSON ListInferenceRecommendationsJobSteps' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Status" Core..=) Prelude.<$> status,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StepType" Core..=) Prelude.<$> stepType,
-            Prelude.Just ("JobName" Core..= jobName)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Status" Data..=) Prelude.<$> status,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StepType" Data..=) Prelude.<$> stepType,
+            Prelude.Just ("JobName" Data..= jobName)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListInferenceRecommendationsJobSteps
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListInferenceRecommendationsJobSteps
   where
   toQuery = Prelude.const Prelude.mempty

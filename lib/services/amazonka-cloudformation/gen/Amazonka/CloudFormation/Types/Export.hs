@@ -21,6 +21,7 @@ module Amazonka.CloudFormation.Types.Export where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @Export@ structure describes the exported output values for a stack.
@@ -85,12 +86,12 @@ export_exportingStackId = Lens.lens (\Export' {exportingStackId} -> exportingSta
 export_value :: Lens.Lens' Export (Prelude.Maybe Prelude.Text)
 export_value = Lens.lens (\Export' {value} -> value) (\s@Export' {} a -> s {value = a} :: Export)
 
-instance Core.FromXML Export where
+instance Data.FromXML Export where
   parseXML x =
     Export'
-      Prelude.<$> (x Core..@? "Name")
-      Prelude.<*> (x Core..@? "ExportingStackId")
-      Prelude.<*> (x Core..@? "Value")
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "ExportingStackId")
+      Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable Export where
   hashWithSalt _salt Export' {..} =

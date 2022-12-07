@@ -43,6 +43,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,7 +96,7 @@ instance
       ( \s h x ->
           DescribeTargetedSentimentDetectionJobResponse'
             Prelude.<$> ( x
-                            Core..?> "TargetedSentimentDetectionJobProperties"
+                            Data..?> "TargetedSentimentDetectionJobProperties"
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -117,41 +118,41 @@ instance
     Prelude.rnf jobId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeTargetedSentimentDetectionJob
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.DescribeTargetedSentimentDetectionJob" ::
+              Data.=# ( "Comprehend_20171127.DescribeTargetedSentimentDetectionJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeTargetedSentimentDetectionJob
   where
   toJSON DescribeTargetedSentimentDetectionJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Core..= jobId)]
+          [Prelude.Just ("JobId" Data..= jobId)]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeTargetedSentimentDetectionJob
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeTargetedSentimentDetectionJob
   where
   toQuery = Prelude.const Prelude.mempty

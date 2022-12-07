@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AccessScopePathRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PathStatementRequest
 import Amazonka.EC2.Types.ThroughResourcesStatementRequest
@@ -86,13 +87,13 @@ instance Prelude.NFData AccessScopePathRequest where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf throughResources
 
-instance Core.ToQuery AccessScopePathRequest where
+instance Data.ToQuery AccessScopePathRequest where
   toQuery AccessScopePathRequest' {..} =
     Prelude.mconcat
-      [ "Destination" Core.=: destination,
-        "Source" Core.=: source,
-        Core.toQuery
-          ( Core.toQueryList "ThroughResource"
+      [ "Destination" Data.=: destination,
+        "Source" Data.=: source,
+        Data.toQuery
+          ( Data.toQueryList "ThroughResource"
               Prelude.<$> throughResources
           )
       ]

@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicyStrictTransportSecurity wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Determines whether CloudFront includes the @Strict-Transport-Security@
@@ -112,15 +113,15 @@ responseHeadersPolicyStrictTransportSecurity_accessControlMaxAgeSec :: Lens.Lens
 responseHeadersPolicyStrictTransportSecurity_accessControlMaxAgeSec = Lens.lens (\ResponseHeadersPolicyStrictTransportSecurity' {accessControlMaxAgeSec} -> accessControlMaxAgeSec) (\s@ResponseHeadersPolicyStrictTransportSecurity' {} a -> s {accessControlMaxAgeSec = a} :: ResponseHeadersPolicyStrictTransportSecurity)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ResponseHeadersPolicyStrictTransportSecurity
   where
   parseXML x =
     ResponseHeadersPolicyStrictTransportSecurity'
-      Prelude.<$> (x Core..@? "IncludeSubdomains")
-        Prelude.<*> (x Core..@? "Preload")
-        Prelude.<*> (x Core..@ "Override")
-        Prelude.<*> (x Core..@ "AccessControlMaxAgeSec")
+      Prelude.<$> (x Data..@? "IncludeSubdomains")
+        Prelude.<*> (x Data..@? "Preload")
+        Prelude.<*> (x Data..@ "Override")
+        Prelude.<*> (x Data..@ "AccessControlMaxAgeSec")
 
 instance
   Prelude.Hashable
@@ -145,15 +146,15 @@ instance
       `Prelude.seq` Prelude.rnf accessControlMaxAgeSec
 
 instance
-  Core.ToXML
+  Data.ToXML
     ResponseHeadersPolicyStrictTransportSecurity
   where
   toXML
     ResponseHeadersPolicyStrictTransportSecurity' {..} =
       Prelude.mconcat
-        [ "IncludeSubdomains" Core.@= includeSubdomains,
-          "Preload" Core.@= preload,
-          "Override" Core.@= override,
+        [ "IncludeSubdomains" Data.@= includeSubdomains,
+          "Preload" Data.@= preload,
+          "Override" Data.@= override,
           "AccessControlMaxAgeSec"
-            Core.@= accessControlMaxAgeSec
+            Data.@= accessControlMaxAgeSec
         ]

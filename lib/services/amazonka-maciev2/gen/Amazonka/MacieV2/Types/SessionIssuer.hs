@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.SessionIssuer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the source and type of temporary security
@@ -107,17 +108,17 @@ sessionIssuer_arn = Lens.lens (\SessionIssuer' {arn} -> arn) (\s@SessionIssuer' 
 sessionIssuer_accountId :: Lens.Lens' SessionIssuer (Prelude.Maybe Prelude.Text)
 sessionIssuer_accountId = Lens.lens (\SessionIssuer' {accountId} -> accountId) (\s@SessionIssuer' {} a -> s {accountId = a} :: SessionIssuer)
 
-instance Core.FromJSON SessionIssuer where
+instance Data.FromJSON SessionIssuer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SessionIssuer"
       ( \x ->
           SessionIssuer'
-            Prelude.<$> (x Core..:? "principalId")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "userName")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "accountId")
+            Prelude.<$> (x Data..:? "principalId")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "userName")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "accountId")
       )
 
 instance Prelude.Hashable SessionIssuer where

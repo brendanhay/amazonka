@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,13 +99,13 @@ applicationResourceLifecycleConfig_serviceRole :: Lens.Lens' ApplicationResource
 applicationResourceLifecycleConfig_serviceRole = Lens.lens (\ApplicationResourceLifecycleConfig' {serviceRole} -> serviceRole) (\s@ApplicationResourceLifecycleConfig' {} a -> s {serviceRole = a} :: ApplicationResourceLifecycleConfig)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ApplicationResourceLifecycleConfig
   where
   parseXML x =
     ApplicationResourceLifecycleConfig'
-      Prelude.<$> (x Core..@? "VersionLifecycleConfig")
-      Prelude.<*> (x Core..@? "ServiceRole")
+      Prelude.<$> (x Data..@? "VersionLifecycleConfig")
+      Prelude.<*> (x Data..@? "ServiceRole")
 
 instance
   Prelude.Hashable
@@ -125,12 +126,12 @@ instance
       `Prelude.seq` Prelude.rnf serviceRole
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ApplicationResourceLifecycleConfig
   where
   toQuery ApplicationResourceLifecycleConfig' {..} =
     Prelude.mconcat
       [ "VersionLifecycleConfig"
-          Core.=: versionLifecycleConfig,
-        "ServiceRole" Core.=: serviceRole
+          Data.=: versionLifecycleConfig,
+        "ServiceRole" Data.=: serviceRole
       ]

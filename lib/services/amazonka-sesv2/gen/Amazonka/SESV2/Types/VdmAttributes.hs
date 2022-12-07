@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.VdmAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.DashboardAttributes
 import Amazonka.SESV2.Types.FeatureStatus
@@ -97,15 +98,15 @@ vdmAttributes_dashboardAttributes = Lens.lens (\VdmAttributes' {dashboardAttribu
 vdmAttributes_vdmEnabled :: Lens.Lens' VdmAttributes FeatureStatus
 vdmAttributes_vdmEnabled = Lens.lens (\VdmAttributes' {vdmEnabled} -> vdmEnabled) (\s@VdmAttributes' {} a -> s {vdmEnabled = a} :: VdmAttributes)
 
-instance Core.FromJSON VdmAttributes where
+instance Data.FromJSON VdmAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VdmAttributes"
       ( \x ->
           VdmAttributes'
-            Prelude.<$> (x Core..:? "GuardianAttributes")
-            Prelude.<*> (x Core..:? "DashboardAttributes")
-            Prelude.<*> (x Core..: "VdmEnabled")
+            Prelude.<$> (x Data..:? "GuardianAttributes")
+            Prelude.<*> (x Data..:? "DashboardAttributes")
+            Prelude.<*> (x Data..: "VdmEnabled")
       )
 
 instance Prelude.Hashable VdmAttributes where
@@ -120,14 +121,14 @@ instance Prelude.NFData VdmAttributes where
       `Prelude.seq` Prelude.rnf dashboardAttributes
       `Prelude.seq` Prelude.rnf vdmEnabled
 
-instance Core.ToJSON VdmAttributes where
+instance Data.ToJSON VdmAttributes where
   toJSON VdmAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GuardianAttributes" Core..=)
+          [ ("GuardianAttributes" Data..=)
               Prelude.<$> guardianAttributes,
-            ("DashboardAttributes" Core..=)
+            ("DashboardAttributes" Data..=)
               Prelude.<$> dashboardAttributes,
-            Prelude.Just ("VdmEnabled" Core..= vdmEnabled)
+            Prelude.Just ("VdmEnabled" Data..= vdmEnabled)
           ]
       )

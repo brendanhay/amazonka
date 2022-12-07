@@ -21,6 +21,7 @@ module Amazonka.EFS.Types.CreationInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Required if the @RootDirectory@ > @Path@ specified does not exist.
@@ -100,15 +101,15 @@ creationInfo_ownerGid = Lens.lens (\CreationInfo' {ownerGid} -> ownerGid) (\s@Cr
 creationInfo_permissions :: Lens.Lens' CreationInfo Prelude.Text
 creationInfo_permissions = Lens.lens (\CreationInfo' {permissions} -> permissions) (\s@CreationInfo' {} a -> s {permissions = a} :: CreationInfo)
 
-instance Core.FromJSON CreationInfo where
+instance Data.FromJSON CreationInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CreationInfo"
       ( \x ->
           CreationInfo'
-            Prelude.<$> (x Core..: "OwnerUid")
-            Prelude.<*> (x Core..: "OwnerGid")
-            Prelude.<*> (x Core..: "Permissions")
+            Prelude.<$> (x Data..: "OwnerUid")
+            Prelude.<*> (x Data..: "OwnerGid")
+            Prelude.<*> (x Data..: "Permissions")
       )
 
 instance Prelude.Hashable CreationInfo where
@@ -123,12 +124,12 @@ instance Prelude.NFData CreationInfo where
       `Prelude.seq` Prelude.rnf ownerGid
       `Prelude.seq` Prelude.rnf permissions
 
-instance Core.ToJSON CreationInfo where
+instance Data.ToJSON CreationInfo where
   toJSON CreationInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("OwnerUid" Core..= ownerUid),
-            Prelude.Just ("OwnerGid" Core..= ownerGid),
-            Prelude.Just ("Permissions" Core..= permissions)
+          [ Prelude.Just ("OwnerUid" Data..= ownerUid),
+            Prelude.Just ("OwnerGid" Data..= ownerGid),
+            Prelude.Just ("Permissions" Data..= permissions)
           ]
       )

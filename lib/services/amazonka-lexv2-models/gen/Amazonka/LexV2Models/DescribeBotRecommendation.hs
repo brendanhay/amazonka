@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,17 +148,17 @@ instance Core.AWSRequest DescribeBotRecommendation where
     Response.receiveJSON
       ( \s h x ->
           DescribeBotRecommendationResponse'
-            Prelude.<$> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "encryptionSetting")
-            Prelude.<*> (x Core..?> "botRecommendationId")
-            Prelude.<*> (x Core..?> "botRecommendationResults")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botRecommendationStatus")
-            Prelude.<*> (x Core..?> "transcriptSourceSetting")
-            Prelude.<*> (x Core..?> "failureReasons" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "lastUpdatedDateTime")
+            Prelude.<$> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "encryptionSetting")
+            Prelude.<*> (x Data..?> "botRecommendationId")
+            Prelude.<*> (x Data..?> "botRecommendationResults")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botRecommendationStatus")
+            Prelude.<*> (x Data..?> "transcriptSourceSetting")
+            Prelude.<*> (x Data..?> "failureReasons" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,32 +176,32 @@ instance Prelude.NFData DescribeBotRecommendation where
       `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf botRecommendationId
 
-instance Core.ToHeaders DescribeBotRecommendation where
+instance Data.ToHeaders DescribeBotRecommendation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeBotRecommendation where
+instance Data.ToPath DescribeBotRecommendation where
   toPath DescribeBotRecommendation' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/botrecommendations/",
-        Core.toBS botRecommendationId,
+        Data.toBS botRecommendationId,
         "/"
       ]
 
-instance Core.ToQuery DescribeBotRecommendation where
+instance Data.ToQuery DescribeBotRecommendation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeBotRecommendationResponse' smart constructor.
@@ -208,7 +209,7 @@ data DescribeBotRecommendationResponse = DescribeBotRecommendationResponse'
   { -- | The version of the bot associated with the bot recommendation.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the bot recommendation was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the language and locale of the bot recommendation to
     -- describe.
     localeId :: Prelude.Maybe Prelude.Text,
@@ -233,7 +234,7 @@ data DescribeBotRecommendationResponse = DescribeBotRecommendationResponse'
     -- | If botRecommendationStatus is Failed, Amazon Lex explains why.
     failureReasons :: Prelude.Maybe [Prelude.Text],
     -- | The date and time that the bot recommendation was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -307,7 +308,7 @@ describeBotRecommendationResponse_botVersion = Lens.lens (\DescribeBotRecommenda
 
 -- | The date and time that the bot recommendation was created.
 describeBotRecommendationResponse_creationDateTime :: Lens.Lens' DescribeBotRecommendationResponse (Prelude.Maybe Prelude.UTCTime)
-describeBotRecommendationResponse_creationDateTime = Lens.lens (\DescribeBotRecommendationResponse' {creationDateTime} -> creationDateTime) (\s@DescribeBotRecommendationResponse' {} a -> s {creationDateTime = a} :: DescribeBotRecommendationResponse) Prelude.. Lens.mapping Core._Time
+describeBotRecommendationResponse_creationDateTime = Lens.lens (\DescribeBotRecommendationResponse' {creationDateTime} -> creationDateTime) (\s@DescribeBotRecommendationResponse' {} a -> s {creationDateTime = a} :: DescribeBotRecommendationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the language and locale of the bot recommendation to
 -- describe.
@@ -350,7 +351,7 @@ describeBotRecommendationResponse_failureReasons = Lens.lens (\DescribeBotRecomm
 
 -- | The date and time that the bot recommendation was last updated.
 describeBotRecommendationResponse_lastUpdatedDateTime :: Lens.Lens' DescribeBotRecommendationResponse (Prelude.Maybe Prelude.UTCTime)
-describeBotRecommendationResponse_lastUpdatedDateTime = Lens.lens (\DescribeBotRecommendationResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeBotRecommendationResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeBotRecommendationResponse) Prelude.. Lens.mapping Core._Time
+describeBotRecommendationResponse_lastUpdatedDateTime = Lens.lens (\DescribeBotRecommendationResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeBotRecommendationResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeBotRecommendationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeBotRecommendationResponse_httpStatus :: Lens.Lens' DescribeBotRecommendationResponse Prelude.Int

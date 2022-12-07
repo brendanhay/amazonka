@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,8 +120,8 @@ instance Core.AWSRequest UpdateRoleAlias where
     Response.receiveJSON
       ( \s h x ->
           UpdateRoleAliasResponse'
-            Prelude.<$> (x Core..?> "roleAlias")
-            Prelude.<*> (x Core..?> "roleAliasArn")
+            Prelude.<$> (x Data..?> "roleAlias")
+            Prelude.<*> (x Data..?> "roleAliasArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,25 +137,25 @@ instance Prelude.NFData UpdateRoleAlias where
       `Prelude.seq` Prelude.rnf credentialDurationSeconds
       `Prelude.seq` Prelude.rnf roleAlias
 
-instance Core.ToHeaders UpdateRoleAlias where
+instance Data.ToHeaders UpdateRoleAlias where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateRoleAlias where
+instance Data.ToJSON UpdateRoleAlias where
   toJSON UpdateRoleAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("credentialDurationSeconds" Core..=)
+          [ ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("credentialDurationSeconds" Data..=)
               Prelude.<$> credentialDurationSeconds
           ]
       )
 
-instance Core.ToPath UpdateRoleAlias where
+instance Data.ToPath UpdateRoleAlias where
   toPath UpdateRoleAlias' {..} =
     Prelude.mconcat
-      ["/role-aliases/", Core.toBS roleAlias]
+      ["/role-aliases/", Data.toBS roleAlias]
 
-instance Core.ToQuery UpdateRoleAlias where
+instance Data.ToQuery UpdateRoleAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRoleAliasResponse' smart constructor.

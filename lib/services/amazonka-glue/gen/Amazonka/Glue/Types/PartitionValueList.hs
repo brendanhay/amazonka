@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.PartitionValueList where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a list of values defining partitions.
@@ -50,13 +51,13 @@ newPartitionValueList =
 partitionValueList_values :: Lens.Lens' PartitionValueList [Prelude.Text]
 partitionValueList_values = Lens.lens (\PartitionValueList' {values} -> values) (\s@PartitionValueList' {} a -> s {values = a} :: PartitionValueList) Prelude.. Lens.coerced
 
-instance Core.FromJSON PartitionValueList where
+instance Data.FromJSON PartitionValueList where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PartitionValueList"
       ( \x ->
           PartitionValueList'
-            Prelude.<$> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PartitionValueList where
@@ -66,9 +67,9 @@ instance Prelude.Hashable PartitionValueList where
 instance Prelude.NFData PartitionValueList where
   rnf PartitionValueList' {..} = Prelude.rnf values
 
-instance Core.ToJSON PartitionValueList where
+instance Data.ToJSON PartitionValueList where
   toJSON PartitionValueList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Values" Core..= values)]
+          [Prelude.Just ("Values" Data..= values)]
       )

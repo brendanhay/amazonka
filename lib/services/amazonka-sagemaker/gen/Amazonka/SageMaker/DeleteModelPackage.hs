@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,34 +103,34 @@ instance Prelude.NFData DeleteModelPackage where
   rnf DeleteModelPackage' {..} =
     Prelude.rnf modelPackageName
 
-instance Core.ToHeaders DeleteModelPackage where
+instance Data.ToHeaders DeleteModelPackage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DeleteModelPackage" ::
+              Data.=# ( "SageMaker.DeleteModelPackage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteModelPackage where
+instance Data.ToJSON DeleteModelPackage where
   toJSON DeleteModelPackage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ModelPackageName" Core..= modelPackageName)
+              ("ModelPackageName" Data..= modelPackageName)
           ]
       )
 
-instance Core.ToPath DeleteModelPackage where
+instance Data.ToPath DeleteModelPackage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteModelPackage where
+instance Data.ToQuery DeleteModelPackage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteModelPackageResponse' smart constructor.

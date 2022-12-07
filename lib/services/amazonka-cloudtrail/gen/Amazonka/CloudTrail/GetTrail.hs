@@ -42,6 +42,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetTrail where
     Response.receiveJSON
       ( \s h x ->
           GetTrailResponse'
-            Prelude.<$> (x Core..?> "Trail")
+            Prelude.<$> (x Data..?> "Trail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable GetTrail where
 instance Prelude.NFData GetTrail where
   rnf GetTrail' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetTrail where
+instance Data.ToHeaders GetTrail where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetTrail" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetTrail" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTrail where
+instance Data.ToJSON GetTrail where
   toJSON GetTrail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath GetTrail where
+instance Data.ToPath GetTrail where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTrail where
+instance Data.ToQuery GetTrail where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTrailResponse' smart constructor.

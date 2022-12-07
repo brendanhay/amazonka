@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsPortMa
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A port mapping for the container.
@@ -77,17 +78,17 @@ awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_protocol :: Lens.Len
 awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_protocol = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {protocol} -> protocol) (\s@AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {} a -> s {protocol = a} :: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails'
-            Prelude.<$> (x Core..:? "ContainerPort")
-              Prelude.<*> (x Core..:? "HostPort")
-              Prelude.<*> (x Core..:? "Protocol")
+            Prelude.<$> (x Data..:? "ContainerPort")
+              Prelude.<*> (x Data..:? "HostPort")
+              Prelude.<*> (x Data..:? "Protocol")
       )
 
 instance
@@ -112,15 +113,15 @@ instance
         `Prelude.seq` Prelude.rnf protocol
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails
   where
   toJSON
     AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ContainerPort" Core..=) Prelude.<$> containerPort,
-              ("HostPort" Core..=) Prelude.<$> hostPort,
-              ("Protocol" Core..=) Prelude.<$> protocol
+            [ ("ContainerPort" Data..=) Prelude.<$> containerPort,
+              ("HostPort" Data..=) Prelude.<$> hostPort,
+              ("Protocol" Data..=) Prelude.<$> protocol
             ]
         )

@@ -49,6 +49,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,8 +152,8 @@ instance Core.AWSRequest ListContactFlowModules where
     Response.receiveJSON
       ( \s h x ->
           ListContactFlowModulesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ContactFlowModulesSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ContactFlowModulesSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -172,30 +173,30 @@ instance Prelude.NFData ListContactFlowModules where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ListContactFlowModules where
+instance Data.ToHeaders ListContactFlowModules where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListContactFlowModules where
+instance Data.ToPath ListContactFlowModules where
   toPath ListContactFlowModules' {..} =
     Prelude.mconcat
       [ "/contact-flow-modules-summary/",
-        Core.toBS instanceId
+        Data.toBS instanceId
       ]
 
-instance Core.ToQuery ListContactFlowModules where
+instance Data.ToQuery ListContactFlowModules where
   toQuery ListContactFlowModules' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "state" Core.=: contactFlowModuleState,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "state" Data.=: contactFlowModuleState,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListContactFlowModulesResponse' smart constructor.

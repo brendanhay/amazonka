@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.ImageConfigError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Error response to GetFunctionConfiguration.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newImageConfigError' smart constructor.
 data ImageConfigError = ImageConfigError'
   { -- | Error message.
-    message :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    message :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Error code.
     errorCode :: Prelude.Maybe Prelude.Text
   }
@@ -55,20 +56,20 @@ newImageConfigError =
 
 -- | Error message.
 imageConfigError_message :: Lens.Lens' ImageConfigError (Prelude.Maybe Prelude.Text)
-imageConfigError_message = Lens.lens (\ImageConfigError' {message} -> message) (\s@ImageConfigError' {} a -> s {message = a} :: ImageConfigError) Prelude.. Lens.mapping Core._Sensitive
+imageConfigError_message = Lens.lens (\ImageConfigError' {message} -> message) (\s@ImageConfigError' {} a -> s {message = a} :: ImageConfigError) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Error code.
 imageConfigError_errorCode :: Lens.Lens' ImageConfigError (Prelude.Maybe Prelude.Text)
 imageConfigError_errorCode = Lens.lens (\ImageConfigError' {errorCode} -> errorCode) (\s@ImageConfigError' {} a -> s {errorCode = a} :: ImageConfigError)
 
-instance Core.FromJSON ImageConfigError where
+instance Data.FromJSON ImageConfigError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageConfigError"
       ( \x ->
           ImageConfigError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable ImageConfigError where

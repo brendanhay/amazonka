@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.NumberAttributeConstraintsType whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The minimum and maximum values of an attribute that is of the number
@@ -63,14 +64,14 @@ numberAttributeConstraintsType_minValue = Lens.lens (\NumberAttributeConstraints
 numberAttributeConstraintsType_maxValue :: Lens.Lens' NumberAttributeConstraintsType (Prelude.Maybe Prelude.Text)
 numberAttributeConstraintsType_maxValue = Lens.lens (\NumberAttributeConstraintsType' {maxValue} -> maxValue) (\s@NumberAttributeConstraintsType' {} a -> s {maxValue = a} :: NumberAttributeConstraintsType)
 
-instance Core.FromJSON NumberAttributeConstraintsType where
+instance Data.FromJSON NumberAttributeConstraintsType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NumberAttributeConstraintsType"
       ( \x ->
           NumberAttributeConstraintsType'
-            Prelude.<$> (x Core..:? "MinValue")
-            Prelude.<*> (x Core..:? "MaxValue")
+            Prelude.<$> (x Data..:? "MinValue")
+            Prelude.<*> (x Data..:? "MaxValue")
       )
 
 instance
@@ -91,11 +92,11 @@ instance
     Prelude.rnf minValue
       `Prelude.seq` Prelude.rnf maxValue
 
-instance Core.ToJSON NumberAttributeConstraintsType where
+instance Data.ToJSON NumberAttributeConstraintsType where
   toJSON NumberAttributeConstraintsType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MinValue" Core..=) Prelude.<$> minValue,
-            ("MaxValue" Core..=) Prelude.<$> maxValue
+          [ ("MinValue" Data..=) Prelude.<$> minValue,
+            ("MaxValue" Data..=) Prelude.<$> maxValue
           ]
       )

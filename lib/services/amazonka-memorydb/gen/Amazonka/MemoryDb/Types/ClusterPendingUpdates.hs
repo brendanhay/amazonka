@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.ClusterPendingUpdates where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types.ACLsUpdateStatus
 import Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate
 import Amazonka.MemoryDb.Types.ReshardingStatus
@@ -74,16 +75,16 @@ clusterPendingUpdates_aCLs = Lens.lens (\ClusterPendingUpdates' {aCLs} -> aCLs) 
 clusterPendingUpdates_serviceUpdates :: Lens.Lens' ClusterPendingUpdates (Prelude.Maybe [PendingModifiedServiceUpdate])
 clusterPendingUpdates_serviceUpdates = Lens.lens (\ClusterPendingUpdates' {serviceUpdates} -> serviceUpdates) (\s@ClusterPendingUpdates' {} a -> s {serviceUpdates = a} :: ClusterPendingUpdates) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ClusterPendingUpdates where
+instance Data.FromJSON ClusterPendingUpdates where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusterPendingUpdates"
       ( \x ->
           ClusterPendingUpdates'
-            Prelude.<$> (x Core..:? "Resharding")
-            Prelude.<*> (x Core..:? "ACLs")
-            Prelude.<*> ( x Core..:? "ServiceUpdates"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Resharding")
+            Prelude.<*> (x Data..:? "ACLs")
+            Prelude.<*> ( x Data..:? "ServiceUpdates"
+                            Data..!= Prelude.mempty
                         )
       )
 

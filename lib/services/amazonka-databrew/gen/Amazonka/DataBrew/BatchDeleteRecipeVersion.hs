@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,9 +133,9 @@ instance Core.AWSRequest BatchDeleteRecipeVersion where
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteRecipeVersionResponse'
-            Prelude.<$> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable BatchDeleteRecipeVersion where
@@ -147,35 +148,35 @@ instance Prelude.NFData BatchDeleteRecipeVersion where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf recipeVersions
 
-instance Core.ToHeaders BatchDeleteRecipeVersion where
+instance Data.ToHeaders BatchDeleteRecipeVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDeleteRecipeVersion where
+instance Data.ToJSON BatchDeleteRecipeVersion where
   toJSON BatchDeleteRecipeVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("RecipeVersions" Core..= recipeVersions)
+              ("RecipeVersions" Data..= recipeVersions)
           ]
       )
 
-instance Core.ToPath BatchDeleteRecipeVersion where
+instance Data.ToPath BatchDeleteRecipeVersion where
   toPath BatchDeleteRecipeVersion' {..} =
     Prelude.mconcat
       [ "/recipes/",
-        Core.toBS name,
+        Data.toBS name,
         "/batchDeleteRecipeVersion"
       ]
 
-instance Core.ToQuery BatchDeleteRecipeVersion where
+instance Data.ToQuery BatchDeleteRecipeVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDeleteRecipeVersionResponse' smart constructor.

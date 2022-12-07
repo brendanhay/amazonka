@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -167,10 +168,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetTemporaryGluePartitionCredentialsResponse'
-            Prelude.<$> (x Core..?> "SessionToken")
-              Prelude.<*> (x Core..?> "Expiration")
-              Prelude.<*> (x Core..?> "SecretAccessKey")
-              Prelude.<*> (x Core..?> "AccessKeyId")
+            Prelude.<$> (x Data..?> "SessionToken")
+              Prelude.<*> (x Data..?> "Expiration")
+              Prelude.<*> (x Data..?> "SecretAccessKey")
+              Prelude.<*> (x Data..?> "AccessKeyId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,41 +202,41 @@ instance
       `Prelude.seq` Prelude.rnf supportedPermissionTypes
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetTemporaryGluePartitionCredentials
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetTemporaryGluePartitionCredentials
   where
   toJSON GetTemporaryGluePartitionCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AuditContext" Core..=) Prelude.<$> auditContext,
-            ("Permissions" Core..=) Prelude.<$> permissions,
-            ("DurationSeconds" Core..=)
+          [ ("AuditContext" Data..=) Prelude.<$> auditContext,
+            ("Permissions" Data..=) Prelude.<$> permissions,
+            ("DurationSeconds" Data..=)
               Prelude.<$> durationSeconds,
-            Prelude.Just ("TableArn" Core..= tableArn),
-            Prelude.Just ("Partition" Core..= partition),
+            Prelude.Just ("TableArn" Data..= tableArn),
+            Prelude.Just ("Partition" Data..= partition),
             Prelude.Just
               ( "SupportedPermissionTypes"
-                  Core..= supportedPermissionTypes
+                  Data..= supportedPermissionTypes
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetTemporaryGluePartitionCredentials
   where
   toPath =
@@ -243,7 +244,7 @@ instance
       "/GetTemporaryGluePartitionCredentials"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetTemporaryGluePartitionCredentials
   where
   toQuery = Prelude.const Prelude.mempty
@@ -253,7 +254,7 @@ data GetTemporaryGluePartitionCredentialsResponse = GetTemporaryGluePartitionCre
   { -- | The session token for the temporary credentials.
     sessionToken :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the temporary credentials expire.
-    expiration :: Prelude.Maybe Core.POSIX,
+    expiration :: Prelude.Maybe Data.POSIX,
     -- | The secret key for the temporary credentials.
     secretAccessKey :: Prelude.Maybe Prelude.Text,
     -- | The access key ID for the temporary credentials.
@@ -302,7 +303,7 @@ getTemporaryGluePartitionCredentialsResponse_sessionToken = Lens.lens (\GetTempo
 
 -- | The date and time when the temporary credentials expire.
 getTemporaryGluePartitionCredentialsResponse_expiration :: Lens.Lens' GetTemporaryGluePartitionCredentialsResponse (Prelude.Maybe Prelude.UTCTime)
-getTemporaryGluePartitionCredentialsResponse_expiration = Lens.lens (\GetTemporaryGluePartitionCredentialsResponse' {expiration} -> expiration) (\s@GetTemporaryGluePartitionCredentialsResponse' {} a -> s {expiration = a} :: GetTemporaryGluePartitionCredentialsResponse) Prelude.. Lens.mapping Core._Time
+getTemporaryGluePartitionCredentialsResponse_expiration = Lens.lens (\GetTemporaryGluePartitionCredentialsResponse' {expiration} -> expiration) (\s@GetTemporaryGluePartitionCredentialsResponse' {} a -> s {expiration = a} :: GetTemporaryGluePartitionCredentialsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The secret key for the temporary credentials.
 getTemporaryGluePartitionCredentialsResponse_secretAccessKey :: Lens.Lens' GetTemporaryGluePartitionCredentialsResponse (Prelude.Maybe Prelude.Text)

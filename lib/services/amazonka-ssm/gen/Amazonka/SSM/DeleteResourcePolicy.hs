@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,35 +139,35 @@ instance Prelude.NFData DeleteResourcePolicy where
       `Prelude.seq` Prelude.rnf policyId
       `Prelude.seq` Prelude.rnf policyHash
 
-instance Core.ToHeaders DeleteResourcePolicy where
+instance Data.ToHeaders DeleteResourcePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DeleteResourcePolicy" ::
+              Data.=# ( "AmazonSSM.DeleteResourcePolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteResourcePolicy where
+instance Data.ToJSON DeleteResourcePolicy where
   toJSON DeleteResourcePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceArn" Core..= resourceArn),
-            Prelude.Just ("PolicyId" Core..= policyId),
-            Prelude.Just ("PolicyHash" Core..= policyHash)
+          [ Prelude.Just ("ResourceArn" Data..= resourceArn),
+            Prelude.Just ("PolicyId" Data..= policyId),
+            Prelude.Just ("PolicyHash" Data..= policyHash)
           ]
       )
 
-instance Core.ToPath DeleteResourcePolicy where
+instance Data.ToPath DeleteResourcePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteResourcePolicy where
+instance Data.ToQuery DeleteResourcePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResourcePolicyResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.XavcSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.Xavc4kIntraCbgProfileSettings
 import Amazonka.MediaConvert.Types.Xavc4kIntraVbrProfileSettings
 import Amazonka.MediaConvert.Types.Xavc4kProfileSettings
@@ -547,28 +548,28 @@ xavcSettings_adaptiveQuantization = Lens.lens (\XavcSettings' {adaptiveQuantizat
 xavcSettings_spatialAdaptiveQuantization :: Lens.Lens' XavcSettings (Prelude.Maybe XavcSpatialAdaptiveQuantization)
 xavcSettings_spatialAdaptiveQuantization = Lens.lens (\XavcSettings' {spatialAdaptiveQuantization} -> spatialAdaptiveQuantization) (\s@XavcSettings' {} a -> s {spatialAdaptiveQuantization = a} :: XavcSettings)
 
-instance Core.FromJSON XavcSettings where
+instance Data.FromJSON XavcSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "XavcSettings"
       ( \x ->
           XavcSettings'
-            Prelude.<$> (x Core..:? "framerateDenominator")
-            Prelude.<*> (x Core..:? "xavc4kIntraVbrProfileSettings")
-            Prelude.<*> (x Core..:? "framerateControl")
-            Prelude.<*> (x Core..:? "profile")
-            Prelude.<*> (x Core..:? "framerateNumerator")
-            Prelude.<*> (x Core..:? "temporalAdaptiveQuantization")
-            Prelude.<*> (x Core..:? "xavcHdIntraCbgProfileSettings")
-            Prelude.<*> (x Core..:? "slowPal")
-            Prelude.<*> (x Core..:? "xavc4kIntraCbgProfileSettings")
-            Prelude.<*> (x Core..:? "entropyEncoding")
-            Prelude.<*> (x Core..:? "softness")
-            Prelude.<*> (x Core..:? "xavcHdProfileSettings")
-            Prelude.<*> (x Core..:? "xavc4kProfileSettings")
-            Prelude.<*> (x Core..:? "framerateConversionAlgorithm")
-            Prelude.<*> (x Core..:? "adaptiveQuantization")
-            Prelude.<*> (x Core..:? "spatialAdaptiveQuantization")
+            Prelude.<$> (x Data..:? "framerateDenominator")
+            Prelude.<*> (x Data..:? "xavc4kIntraVbrProfileSettings")
+            Prelude.<*> (x Data..:? "framerateControl")
+            Prelude.<*> (x Data..:? "profile")
+            Prelude.<*> (x Data..:? "framerateNumerator")
+            Prelude.<*> (x Data..:? "temporalAdaptiveQuantization")
+            Prelude.<*> (x Data..:? "xavcHdIntraCbgProfileSettings")
+            Prelude.<*> (x Data..:? "slowPal")
+            Prelude.<*> (x Data..:? "xavc4kIntraCbgProfileSettings")
+            Prelude.<*> (x Data..:? "entropyEncoding")
+            Prelude.<*> (x Data..:? "softness")
+            Prelude.<*> (x Data..:? "xavcHdProfileSettings")
+            Prelude.<*> (x Data..:? "xavc4kProfileSettings")
+            Prelude.<*> (x Data..:? "framerateConversionAlgorithm")
+            Prelude.<*> (x Data..:? "adaptiveQuantization")
+            Prelude.<*> (x Data..:? "spatialAdaptiveQuantization")
       )
 
 instance Prelude.Hashable XavcSettings where
@@ -610,38 +611,38 @@ instance Prelude.NFData XavcSettings where
       `Prelude.seq` Prelude.rnf
         spatialAdaptiveQuantization
 
-instance Core.ToJSON XavcSettings where
+instance Data.ToJSON XavcSettings where
   toJSON XavcSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("framerateDenominator" Core..=)
+          [ ("framerateDenominator" Data..=)
               Prelude.<$> framerateDenominator,
-            ("xavc4kIntraVbrProfileSettings" Core..=)
+            ("xavc4kIntraVbrProfileSettings" Data..=)
               Prelude.<$> xavc4kIntraVbrProfileSettings,
-            ("framerateControl" Core..=)
+            ("framerateControl" Data..=)
               Prelude.<$> framerateControl,
-            ("profile" Core..=) Prelude.<$> profile,
-            ("framerateNumerator" Core..=)
+            ("profile" Data..=) Prelude.<$> profile,
+            ("framerateNumerator" Data..=)
               Prelude.<$> framerateNumerator,
-            ("temporalAdaptiveQuantization" Core..=)
+            ("temporalAdaptiveQuantization" Data..=)
               Prelude.<$> temporalAdaptiveQuantization,
-            ("xavcHdIntraCbgProfileSettings" Core..=)
+            ("xavcHdIntraCbgProfileSettings" Data..=)
               Prelude.<$> xavcHdIntraCbgProfileSettings,
-            ("slowPal" Core..=) Prelude.<$> slowPal,
-            ("xavc4kIntraCbgProfileSettings" Core..=)
+            ("slowPal" Data..=) Prelude.<$> slowPal,
+            ("xavc4kIntraCbgProfileSettings" Data..=)
               Prelude.<$> xavc4kIntraCbgProfileSettings,
-            ("entropyEncoding" Core..=)
+            ("entropyEncoding" Data..=)
               Prelude.<$> entropyEncoding,
-            ("softness" Core..=) Prelude.<$> softness,
-            ("xavcHdProfileSettings" Core..=)
+            ("softness" Data..=) Prelude.<$> softness,
+            ("xavcHdProfileSettings" Data..=)
               Prelude.<$> xavcHdProfileSettings,
-            ("xavc4kProfileSettings" Core..=)
+            ("xavc4kProfileSettings" Data..=)
               Prelude.<$> xavc4kProfileSettings,
-            ("framerateConversionAlgorithm" Core..=)
+            ("framerateConversionAlgorithm" Data..=)
               Prelude.<$> framerateConversionAlgorithm,
-            ("adaptiveQuantization" Core..=)
+            ("adaptiveQuantization" Data..=)
               Prelude.<$> adaptiveQuantization,
-            ("spatialAdaptiveQuantization" Core..=)
+            ("spatialAdaptiveQuantization" Data..=)
               Prelude.<$> spatialAdaptiveQuantization
           ]
       )

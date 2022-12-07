@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,34 +102,34 @@ instance Prelude.NFData DeleteReplicationJob where
   rnf DeleteReplicationJob' {..} =
     Prelude.rnf replicationJobId
 
-instance Core.ToHeaders DeleteReplicationJob where
+instance Data.ToHeaders DeleteReplicationJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.DeleteReplicationJob" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.DeleteReplicationJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteReplicationJob where
+instance Data.ToJSON DeleteReplicationJob where
   toJSON DeleteReplicationJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("replicationJobId" Core..= replicationJobId)
+              ("replicationJobId" Data..= replicationJobId)
           ]
       )
 
-instance Core.ToPath DeleteReplicationJob where
+instance Data.ToPath DeleteReplicationJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteReplicationJob where
+instance Data.ToQuery DeleteReplicationJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteReplicationJobResponse' smart constructor.

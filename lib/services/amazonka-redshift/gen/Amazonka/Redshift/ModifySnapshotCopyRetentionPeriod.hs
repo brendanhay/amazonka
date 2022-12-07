@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -211,7 +212,7 @@ instance
       "ModifySnapshotCopyRetentionPeriodResult"
       ( \s h x ->
           ModifySnapshotCopyRetentionPeriodResponse'
-            Prelude.<$> (x Core..@? "Cluster")
+            Prelude.<$> (x Data..@? "Cluster")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -236,32 +237,32 @@ instance
       `Prelude.seq` Prelude.rnf retentionPeriod
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ModifySnapshotCopyRetentionPeriod
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ModifySnapshotCopyRetentionPeriod
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ModifySnapshotCopyRetentionPeriod
   where
   toQuery ModifySnapshotCopyRetentionPeriod' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifySnapshotCopyRetentionPeriod" ::
+          Data.=: ( "ModifySnapshotCopyRetentionPeriod" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Manual" Core.=: manual,
-        "ClusterIdentifier" Core.=: clusterIdentifier,
-        "RetentionPeriod" Core.=: retentionPeriod
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Manual" Data.=: manual,
+        "ClusterIdentifier" Data.=: clusterIdentifier,
+        "RetentionPeriod" Data.=: retentionPeriod
       ]
 
 -- | /See:/ 'newModifySnapshotCopyRetentionPeriodResponse' smart constructor.

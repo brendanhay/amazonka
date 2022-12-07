@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.ConversationRetentionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The retention settings that determine how long to retain conversation
@@ -54,13 +55,13 @@ newConversationRetentionSettings =
 conversationRetentionSettings_retentionDays :: Lens.Lens' ConversationRetentionSettings (Prelude.Maybe Prelude.Natural)
 conversationRetentionSettings_retentionDays = Lens.lens (\ConversationRetentionSettings' {retentionDays} -> retentionDays) (\s@ConversationRetentionSettings' {} a -> s {retentionDays = a} :: ConversationRetentionSettings)
 
-instance Core.FromJSON ConversationRetentionSettings where
+instance Data.FromJSON ConversationRetentionSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConversationRetentionSettings"
       ( \x ->
           ConversationRetentionSettings'
-            Prelude.<$> (x Core..:? "RetentionDays")
+            Prelude.<$> (x Data..:? "RetentionDays")
       )
 
 instance
@@ -74,11 +75,11 @@ instance Prelude.NFData ConversationRetentionSettings where
   rnf ConversationRetentionSettings' {..} =
     Prelude.rnf retentionDays
 
-instance Core.ToJSON ConversationRetentionSettings where
+instance Data.ToJSON ConversationRetentionSettings where
   toJSON ConversationRetentionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RetentionDays" Core..=)
+          [ ("RetentionDays" Data..=)
               Prelude.<$> retentionDays
           ]
       )

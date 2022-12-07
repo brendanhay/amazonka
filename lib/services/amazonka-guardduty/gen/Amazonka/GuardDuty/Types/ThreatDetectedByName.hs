@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ThreatDetectedByName where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.ScanThreatName
 import qualified Amazonka.Prelude as Prelude
 
@@ -86,16 +87,16 @@ threatDetectedByName_threatNames = Lens.lens (\ThreatDetectedByName' {threatName
 threatDetectedByName_shortened :: Lens.Lens' ThreatDetectedByName (Prelude.Maybe Prelude.Bool)
 threatDetectedByName_shortened = Lens.lens (\ThreatDetectedByName' {shortened} -> shortened) (\s@ThreatDetectedByName' {} a -> s {shortened = a} :: ThreatDetectedByName)
 
-instance Core.FromJSON ThreatDetectedByName where
+instance Data.FromJSON ThreatDetectedByName where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThreatDetectedByName"
       ( \x ->
           ThreatDetectedByName'
-            Prelude.<$> (x Core..:? "itemCount")
-            Prelude.<*> (x Core..:? "uniqueThreatNameCount")
-            Prelude.<*> (x Core..:? "threatNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "shortened")
+            Prelude.<$> (x Data..:? "itemCount")
+            Prelude.<*> (x Data..:? "uniqueThreatNameCount")
+            Prelude.<*> (x Data..:? "threatNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "shortened")
       )
 
 instance Prelude.Hashable ThreatDetectedByName where

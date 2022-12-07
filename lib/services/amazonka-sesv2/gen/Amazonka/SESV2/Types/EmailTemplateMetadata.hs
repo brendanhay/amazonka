@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.EmailTemplateMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an email template.
@@ -30,7 +31,7 @@ data EmailTemplateMetadata = EmailTemplateMetadata'
   { -- | The name of the template.
     templateName :: Prelude.Maybe Prelude.Text,
     -- | The time and date the template was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX
+    createdTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,16 +61,16 @@ emailTemplateMetadata_templateName = Lens.lens (\EmailTemplateMetadata' {templat
 
 -- | The time and date the template was created.
 emailTemplateMetadata_createdTimestamp :: Lens.Lens' EmailTemplateMetadata (Prelude.Maybe Prelude.UTCTime)
-emailTemplateMetadata_createdTimestamp = Lens.lens (\EmailTemplateMetadata' {createdTimestamp} -> createdTimestamp) (\s@EmailTemplateMetadata' {} a -> s {createdTimestamp = a} :: EmailTemplateMetadata) Prelude.. Lens.mapping Core._Time
+emailTemplateMetadata_createdTimestamp = Lens.lens (\EmailTemplateMetadata' {createdTimestamp} -> createdTimestamp) (\s@EmailTemplateMetadata' {} a -> s {createdTimestamp = a} :: EmailTemplateMetadata) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON EmailTemplateMetadata where
+instance Data.FromJSON EmailTemplateMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EmailTemplateMetadata"
       ( \x ->
           EmailTemplateMetadata'
-            Prelude.<$> (x Core..:? "TemplateName")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
+            Prelude.<$> (x Data..:? "TemplateName")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
       )
 
 instance Prelude.Hashable EmailTemplateMetadata where

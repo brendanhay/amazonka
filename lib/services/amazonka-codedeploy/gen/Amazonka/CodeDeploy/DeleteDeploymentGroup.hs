@@ -43,6 +43,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,7 +106,7 @@ instance Core.AWSRequest DeleteDeploymentGroup where
     Response.receiveJSON
       ( \s h x ->
           DeleteDeploymentGroupResponse'
-            Prelude.<$> ( x Core..?> "hooksNotCleanedUp"
+            Prelude.<$> ( x Data..?> "hooksNotCleanedUp"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -121,36 +122,36 @@ instance Prelude.NFData DeleteDeploymentGroup where
     Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf deploymentGroupName
 
-instance Core.ToHeaders DeleteDeploymentGroup where
+instance Data.ToHeaders DeleteDeploymentGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.DeleteDeploymentGroup" ::
+              Data.=# ( "CodeDeploy_20141006.DeleteDeploymentGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDeploymentGroup where
+instance Data.ToJSON DeleteDeploymentGroup where
   toJSON DeleteDeploymentGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("applicationName" Core..= applicationName),
+              ("applicationName" Data..= applicationName),
             Prelude.Just
-              ("deploymentGroupName" Core..= deploymentGroupName)
+              ("deploymentGroupName" Data..= deploymentGroupName)
           ]
       )
 
-instance Core.ToPath DeleteDeploymentGroup where
+instance Data.ToPath DeleteDeploymentGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDeploymentGroup where
+instance Data.ToQuery DeleteDeploymentGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @DeleteDeploymentGroup@ operation.

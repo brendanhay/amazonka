@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -189,7 +190,7 @@ instance Core.AWSRequest TerminateProvisionedProduct where
     Response.receiveJSON
       ( \s h x ->
           TerminateProvisionedProductResponse'
-            Prelude.<$> (x Core..?> "RecordDetail")
+            Prelude.<$> (x Data..?> "RecordDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,43 +212,43 @@ instance Prelude.NFData TerminateProvisionedProduct where
       `Prelude.seq` Prelude.rnf provisionedProductId
       `Prelude.seq` Prelude.rnf terminateToken
 
-instance Core.ToHeaders TerminateProvisionedProduct where
+instance Data.ToHeaders TerminateProvisionedProduct where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.TerminateProvisionedProduct" ::
+              Data.=# ( "AWS242ServiceCatalogService.TerminateProvisionedProduct" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TerminateProvisionedProduct where
+instance Data.ToJSON TerminateProvisionedProduct where
   toJSON TerminateProvisionedProduct' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IgnoreErrors" Core..=) Prelude.<$> ignoreErrors,
-            ("ProvisionedProductName" Core..=)
+          [ ("IgnoreErrors" Data..=) Prelude.<$> ignoreErrors,
+            ("ProvisionedProductName" Data..=)
               Prelude.<$> provisionedProductName,
-            ("AcceptLanguage" Core..=)
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            ("RetainPhysicalResources" Core..=)
+            ("RetainPhysicalResources" Data..=)
               Prelude.<$> retainPhysicalResources,
-            ("ProvisionedProductId" Core..=)
+            ("ProvisionedProductId" Data..=)
               Prelude.<$> provisionedProductId,
             Prelude.Just
-              ("TerminateToken" Core..= terminateToken)
+              ("TerminateToken" Data..= terminateToken)
           ]
       )
 
-instance Core.ToPath TerminateProvisionedProduct where
+instance Data.ToPath TerminateProvisionedProduct where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TerminateProvisionedProduct where
+instance Data.ToQuery TerminateProvisionedProduct where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTerminateProvisionedProductResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.PlacedPlayerSession where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a player session that was created as part of a
@@ -75,14 +76,14 @@ placedPlayerSession_playerSessionId = Lens.lens (\PlacedPlayerSession' {playerSe
 placedPlayerSession_playerId :: Lens.Lens' PlacedPlayerSession (Prelude.Maybe Prelude.Text)
 placedPlayerSession_playerId = Lens.lens (\PlacedPlayerSession' {playerId} -> playerId) (\s@PlacedPlayerSession' {} a -> s {playerId = a} :: PlacedPlayerSession)
 
-instance Core.FromJSON PlacedPlayerSession where
+instance Data.FromJSON PlacedPlayerSession where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlacedPlayerSession"
       ( \x ->
           PlacedPlayerSession'
-            Prelude.<$> (x Core..:? "PlayerSessionId")
-            Prelude.<*> (x Core..:? "PlayerId")
+            Prelude.<$> (x Data..:? "PlayerSessionId")
+            Prelude.<*> (x Data..:? "PlayerId")
       )
 
 instance Prelude.Hashable PlacedPlayerSession where

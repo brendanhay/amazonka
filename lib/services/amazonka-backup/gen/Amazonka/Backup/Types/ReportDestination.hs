@@ -21,6 +21,7 @@ module Amazonka.Backup.Types.ReportDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information from your report job about your report destination.
@@ -61,14 +62,14 @@ reportDestination_s3BucketName = Lens.lens (\ReportDestination' {s3BucketName} -
 reportDestination_s3Keys :: Lens.Lens' ReportDestination (Prelude.Maybe [Prelude.Text])
 reportDestination_s3Keys = Lens.lens (\ReportDestination' {s3Keys} -> s3Keys) (\s@ReportDestination' {} a -> s {s3Keys = a} :: ReportDestination) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ReportDestination where
+instance Data.FromJSON ReportDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReportDestination"
       ( \x ->
           ReportDestination'
-            Prelude.<$> (x Core..:? "S3BucketName")
-            Prelude.<*> (x Core..:? "S3Keys" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "S3BucketName")
+            Prelude.<*> (x Data..:? "S3Keys" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ReportDestination where

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,7 +95,7 @@ instance Core.AWSRequest GetRecommenderConfiguration where
       ( \s h x ->
           GetRecommenderConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetRecommenderConfiguration where
@@ -105,23 +106,23 @@ instance Prelude.NFData GetRecommenderConfiguration where
   rnf GetRecommenderConfiguration' {..} =
     Prelude.rnf recommenderId
 
-instance Core.ToHeaders GetRecommenderConfiguration where
+instance Data.ToHeaders GetRecommenderConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetRecommenderConfiguration where
+instance Data.ToPath GetRecommenderConfiguration where
   toPath GetRecommenderConfiguration' {..} =
     Prelude.mconcat
-      ["/v1/recommenders/", Core.toBS recommenderId]
+      ["/v1/recommenders/", Data.toBS recommenderId]
 
-instance Core.ToQuery GetRecommenderConfiguration where
+instance Data.ToQuery GetRecommenderConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRecommenderConfigurationResponse' smart constructor.

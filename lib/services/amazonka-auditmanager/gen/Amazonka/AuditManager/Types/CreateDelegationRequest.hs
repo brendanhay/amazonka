@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.CreateDelegationRequest where
 import Amazonka.AuditManager.Types.RoleType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of attributes that\'s used to create a delegation for an
@@ -103,16 +104,16 @@ createDelegationRequest_comment = Lens.lens (\CreateDelegationRequest' {comment}
 createDelegationRequest_controlSetId :: Lens.Lens' CreateDelegationRequest (Prelude.Maybe Prelude.Text)
 createDelegationRequest_controlSetId = Lens.lens (\CreateDelegationRequest' {controlSetId} -> controlSetId) (\s@CreateDelegationRequest' {} a -> s {controlSetId = a} :: CreateDelegationRequest)
 
-instance Core.FromJSON CreateDelegationRequest where
+instance Data.FromJSON CreateDelegationRequest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CreateDelegationRequest"
       ( \x ->
           CreateDelegationRequest'
-            Prelude.<$> (x Core..:? "roleType")
-            Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "comment")
-            Prelude.<*> (x Core..:? "controlSetId")
+            Prelude.<$> (x Data..:? "roleType")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "comment")
+            Prelude.<*> (x Data..:? "controlSetId")
       )
 
 instance Prelude.Hashable CreateDelegationRequest where
@@ -129,13 +130,13 @@ instance Prelude.NFData CreateDelegationRequest where
       `Prelude.seq` Prelude.rnf comment
       `Prelude.seq` Prelude.rnf controlSetId
 
-instance Core.ToJSON CreateDelegationRequest where
+instance Data.ToJSON CreateDelegationRequest where
   toJSON CreateDelegationRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleType" Core..=) Prelude.<$> roleType,
-            ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("comment" Core..=) Prelude.<$> comment,
-            ("controlSetId" Core..=) Prelude.<$> controlSetId
+          [ ("roleType" Data..=) Prelude.<$> roleType,
+            ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("comment" Data..=) Prelude.<$> comment,
+            ("controlSetId" Data..=) Prelude.<$> controlSetId
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.KubernetesUserDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the Kubernetes user involved in a Kubernetes finding.
@@ -70,15 +71,15 @@ kubernetesUserDetails_uid = Lens.lens (\KubernetesUserDetails' {uid} -> uid) (\s
 kubernetesUserDetails_groups :: Lens.Lens' KubernetesUserDetails (Prelude.Maybe [Prelude.Text])
 kubernetesUserDetails_groups = Lens.lens (\KubernetesUserDetails' {groups} -> groups) (\s@KubernetesUserDetails' {} a -> s {groups = a} :: KubernetesUserDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON KubernetesUserDetails where
+instance Data.FromJSON KubernetesUserDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KubernetesUserDetails"
       ( \x ->
           KubernetesUserDetails'
-            Prelude.<$> (x Core..:? "username")
-            Prelude.<*> (x Core..:? "uid")
-            Prelude.<*> (x Core..:? "groups" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "username")
+            Prelude.<*> (x Data..:? "uid")
+            Prelude.<*> (x Data..:? "groups" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable KubernetesUserDetails where

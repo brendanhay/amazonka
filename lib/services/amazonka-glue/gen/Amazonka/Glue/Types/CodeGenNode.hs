@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CodeGenNode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CodeGenNodeArg
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,16 +85,16 @@ codeGenNode_nodeType = Lens.lens (\CodeGenNode' {nodeType} -> nodeType) (\s@Code
 codeGenNode_args :: Lens.Lens' CodeGenNode [CodeGenNodeArg]
 codeGenNode_args = Lens.lens (\CodeGenNode' {args} -> args) (\s@CodeGenNode' {} a -> s {args = a} :: CodeGenNode) Prelude.. Lens.coerced
 
-instance Core.FromJSON CodeGenNode where
+instance Data.FromJSON CodeGenNode where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeGenNode"
       ( \x ->
           CodeGenNode'
-            Prelude.<$> (x Core..:? "LineNumber")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "NodeType")
-            Prelude.<*> (x Core..:? "Args" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "LineNumber")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "NodeType")
+            Prelude.<*> (x Data..:? "Args" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CodeGenNode where
@@ -110,13 +111,13 @@ instance Prelude.NFData CodeGenNode where
       `Prelude.seq` Prelude.rnf nodeType
       `Prelude.seq` Prelude.rnf args
 
-instance Core.ToJSON CodeGenNode where
+instance Data.ToJSON CodeGenNode where
   toJSON CodeGenNode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LineNumber" Core..=) Prelude.<$> lineNumber,
-            Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("NodeType" Core..= nodeType),
-            Prelude.Just ("Args" Core..= args)
+          [ ("LineNumber" Data..=) Prelude.<$> lineNumber,
+            Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("NodeType" Data..= nodeType),
+            Prelude.Just ("Args" Data..= args)
           ]
       )

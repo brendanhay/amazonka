@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,13 +92,13 @@ instance Core.AWSRequest DescribeModelPackageGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeModelPackageGroupResponse'
-            Prelude.<$> (x Core..?> "ModelPackageGroupDescription")
+            Prelude.<$> (x Data..?> "ModelPackageGroupDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ModelPackageGroupName")
-            Prelude.<*> (x Core..:> "ModelPackageGroupArn")
-            Prelude.<*> (x Core..:> "CreationTime")
-            Prelude.<*> (x Core..:> "CreatedBy")
-            Prelude.<*> (x Core..:> "ModelPackageGroupStatus")
+            Prelude.<*> (x Data..:> "ModelPackageGroupName")
+            Prelude.<*> (x Data..:> "ModelPackageGroupArn")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "CreatedBy")
+            Prelude.<*> (x Data..:> "ModelPackageGroupStatus")
       )
 
 instance Prelude.Hashable DescribeModelPackageGroup where
@@ -108,36 +109,36 @@ instance Prelude.NFData DescribeModelPackageGroup where
   rnf DescribeModelPackageGroup' {..} =
     Prelude.rnf modelPackageGroupName
 
-instance Core.ToHeaders DescribeModelPackageGroup where
+instance Data.ToHeaders DescribeModelPackageGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeModelPackageGroup" ::
+              Data.=# ( "SageMaker.DescribeModelPackageGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeModelPackageGroup where
+instance Data.ToJSON DescribeModelPackageGroup where
   toJSON DescribeModelPackageGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ModelPackageGroupName"
-                  Core..= modelPackageGroupName
+                  Data..= modelPackageGroupName
               )
           ]
       )
 
-instance Core.ToPath DescribeModelPackageGroup where
+instance Data.ToPath DescribeModelPackageGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeModelPackageGroup where
+instance Data.ToQuery DescribeModelPackageGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeModelPackageGroupResponse' smart constructor.
@@ -151,7 +152,7 @@ data DescribeModelPackageGroupResponse = DescribeModelPackageGroupResponse'
     -- | The Amazon Resource Name (ARN) of the model group.
     modelPackageGroupArn :: Prelude.Text,
     -- | The time that the model group was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     createdBy :: UserContext,
     -- | The status of the model group.
     modelPackageGroupStatus :: ModelPackageGroupStatus
@@ -209,7 +210,7 @@ newDescribeModelPackageGroupResponse
         modelPackageGroupArn =
           pModelPackageGroupArn_,
         creationTime =
-          Core._Time Lens.# pCreationTime_,
+          Data._Time Lens.# pCreationTime_,
         createdBy = pCreatedBy_,
         modelPackageGroupStatus =
           pModelPackageGroupStatus_
@@ -233,7 +234,7 @@ describeModelPackageGroupResponse_modelPackageGroupArn = Lens.lens (\DescribeMod
 
 -- | The time that the model group was created.
 describeModelPackageGroupResponse_creationTime :: Lens.Lens' DescribeModelPackageGroupResponse Prelude.UTCTime
-describeModelPackageGroupResponse_creationTime = Lens.lens (\DescribeModelPackageGroupResponse' {creationTime} -> creationTime) (\s@DescribeModelPackageGroupResponse' {} a -> s {creationTime = a} :: DescribeModelPackageGroupResponse) Prelude.. Core._Time
+describeModelPackageGroupResponse_creationTime = Lens.lens (\DescribeModelPackageGroupResponse' {creationTime} -> creationTime) (\s@DescribeModelPackageGroupResponse' {} a -> s {creationTime = a} :: DescribeModelPackageGroupResponse) Prelude.. Data._Time
 
 -- | Undocumented member.
 describeModelPackageGroupResponse_createdBy :: Lens.Lens' DescribeModelPackageGroupResponse UserContext

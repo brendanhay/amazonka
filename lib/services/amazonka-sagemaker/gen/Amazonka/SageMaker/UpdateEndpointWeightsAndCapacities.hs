@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,7 +112,7 @@ instance
       ( \s h x ->
           UpdateEndpointWeightsAndCapacitiesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "EndpointArn")
+              Prelude.<*> (x Data..:> "EndpointArn")
       )
 
 instance
@@ -133,46 +134,46 @@ instance
       `Prelude.seq` Prelude.rnf desiredWeightsAndCapacities
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateEndpointWeightsAndCapacities
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.UpdateEndpointWeightsAndCapacities" ::
+              Data.=# ( "SageMaker.UpdateEndpointWeightsAndCapacities" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateEndpointWeightsAndCapacities
   where
   toJSON UpdateEndpointWeightsAndCapacities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("EndpointName" Core..= endpointName),
+          [ Prelude.Just ("EndpointName" Data..= endpointName),
             Prelude.Just
               ( "DesiredWeightsAndCapacities"
-                  Core..= desiredWeightsAndCapacities
+                  Data..= desiredWeightsAndCapacities
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateEndpointWeightsAndCapacities
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateEndpointWeightsAndCapacities
   where
   toQuery = Prelude.const Prelude.mempty

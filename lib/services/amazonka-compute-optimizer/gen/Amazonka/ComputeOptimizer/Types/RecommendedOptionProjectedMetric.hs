@@ -22,6 +22,7 @@ module Amazonka.ComputeOptimizer.Types.RecommendedOptionProjectedMetric where
 import Amazonka.ComputeOptimizer.Types.ProjectedMetric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a projected utilization metric of a recommendation option.
@@ -98,19 +99,19 @@ recommendedOptionProjectedMetric_recommendedInstanceType :: Lens.Lens' Recommend
 recommendedOptionProjectedMetric_recommendedInstanceType = Lens.lens (\RecommendedOptionProjectedMetric' {recommendedInstanceType} -> recommendedInstanceType) (\s@RecommendedOptionProjectedMetric' {} a -> s {recommendedInstanceType = a} :: RecommendedOptionProjectedMetric)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RecommendedOptionProjectedMetric
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendedOptionProjectedMetric"
       ( \x ->
           RecommendedOptionProjectedMetric'
-            Prelude.<$> (x Core..:? "rank")
-            Prelude.<*> ( x Core..:? "projectedMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "rank")
+            Prelude.<*> ( x Data..:? "projectedMetrics"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "recommendedInstanceType")
+            Prelude.<*> (x Data..:? "recommendedInstanceType")
       )
 
 instance

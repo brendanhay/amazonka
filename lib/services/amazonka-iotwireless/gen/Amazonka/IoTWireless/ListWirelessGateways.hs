@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,8 +101,8 @@ instance Core.AWSRequest ListWirelessGateways where
     Response.receiveJSON
       ( \s h x ->
           ListWirelessGatewaysResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "WirelessGatewayList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "WirelessGatewayList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -117,17 +118,17 @@ instance Prelude.NFData ListWirelessGateways where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListWirelessGateways where
+instance Data.ToHeaders ListWirelessGateways where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListWirelessGateways where
+instance Data.ToPath ListWirelessGateways where
   toPath = Prelude.const "/wireless-gateways"
 
-instance Core.ToQuery ListWirelessGateways where
+instance Data.ToQuery ListWirelessGateways where
   toQuery ListWirelessGateways' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListWirelessGatewaysResponse' smart constructor.

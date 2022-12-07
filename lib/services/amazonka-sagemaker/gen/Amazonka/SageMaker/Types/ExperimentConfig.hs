@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ExperimentConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Associates a SageMaker job as a trial component with an experiment and
@@ -86,15 +87,15 @@ experimentConfig_trialComponentDisplayName = Lens.lens (\ExperimentConfig' {tria
 experimentConfig_experimentName :: Lens.Lens' ExperimentConfig (Prelude.Maybe Prelude.Text)
 experimentConfig_experimentName = Lens.lens (\ExperimentConfig' {experimentName} -> experimentName) (\s@ExperimentConfig' {} a -> s {experimentName = a} :: ExperimentConfig)
 
-instance Core.FromJSON ExperimentConfig where
+instance Data.FromJSON ExperimentConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentConfig"
       ( \x ->
           ExperimentConfig'
-            Prelude.<$> (x Core..:? "TrialName")
-            Prelude.<*> (x Core..:? "TrialComponentDisplayName")
-            Prelude.<*> (x Core..:? "ExperimentName")
+            Prelude.<$> (x Data..:? "TrialName")
+            Prelude.<*> (x Data..:? "TrialComponentDisplayName")
+            Prelude.<*> (x Data..:? "ExperimentName")
       )
 
 instance Prelude.Hashable ExperimentConfig where
@@ -109,14 +110,14 @@ instance Prelude.NFData ExperimentConfig where
       `Prelude.seq` Prelude.rnf trialComponentDisplayName
       `Prelude.seq` Prelude.rnf experimentName
 
-instance Core.ToJSON ExperimentConfig where
+instance Data.ToJSON ExperimentConfig where
   toJSON ExperimentConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TrialName" Core..=) Prelude.<$> trialName,
-            ("TrialComponentDisplayName" Core..=)
+          [ ("TrialName" Data..=) Prelude.<$> trialName,
+            ("TrialComponentDisplayName" Data..=)
               Prelude.<$> trialComponentDisplayName,
-            ("ExperimentName" Core..=)
+            ("ExperimentName" Data..=)
               Prelude.<$> experimentName
           ]
       )

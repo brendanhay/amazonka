@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,7 +122,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayPolicyTableResponse'
-            Prelude.<$> (x Core..@? "transitGatewayPolicyTable")
+            Prelude.<$> (x Data..@? "transitGatewayPolicyTable")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,29 +147,29 @@ instance
       `Prelude.seq` Prelude.rnf transitGatewayId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateTransitGatewayPolicyTable
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateTransitGatewayPolicyTable where
+instance Data.ToPath CreateTransitGatewayPolicyTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTransitGatewayPolicyTable where
+instance Data.ToQuery CreateTransitGatewayPolicyTable where
   toQuery CreateTransitGatewayPolicyTable' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateTransitGatewayPolicyTable" ::
+          Data.=: ( "CreateTransitGatewayPolicyTable" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecifications"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecifications"
               Prelude.<$> tagSpecifications
           ),
-        "TransitGatewayId" Core.=: transitGatewayId
+        "TransitGatewayId" Data.=: transitGatewayId
       ]
 
 -- | /See:/ 'newCreateTransitGatewayPolicyTableResponse' smart constructor.

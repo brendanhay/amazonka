@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.LFTagPolicyResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.LFTag
 import Amazonka.LakeFormation.Types.ResourceType
 import qualified Amazonka.Prelude as Prelude
@@ -86,15 +87,15 @@ lFTagPolicyResource_resourceType = Lens.lens (\LFTagPolicyResource' {resourceTyp
 lFTagPolicyResource_expression :: Lens.Lens' LFTagPolicyResource (Prelude.NonEmpty LFTag)
 lFTagPolicyResource_expression = Lens.lens (\LFTagPolicyResource' {expression} -> expression) (\s@LFTagPolicyResource' {} a -> s {expression = a} :: LFTagPolicyResource) Prelude.. Lens.coerced
 
-instance Core.FromJSON LFTagPolicyResource where
+instance Data.FromJSON LFTagPolicyResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LFTagPolicyResource"
       ( \x ->
           LFTagPolicyResource'
-            Prelude.<$> (x Core..:? "CatalogId")
-            Prelude.<*> (x Core..: "ResourceType")
-            Prelude.<*> (x Core..: "Expression")
+            Prelude.<$> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..: "ResourceType")
+            Prelude.<*> (x Data..: "Expression")
       )
 
 instance Prelude.Hashable LFTagPolicyResource where
@@ -109,12 +110,12 @@ instance Prelude.NFData LFTagPolicyResource where
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf expression
 
-instance Core.ToJSON LFTagPolicyResource where
+instance Data.ToJSON LFTagPolicyResource where
   toJSON LFTagPolicyResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("ResourceType" Core..= resourceType),
-            Prelude.Just ("Expression" Core..= expression)
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("ResourceType" Data..= resourceType),
+            Prelude.Just ("Expression" Data..= expression)
           ]
       )

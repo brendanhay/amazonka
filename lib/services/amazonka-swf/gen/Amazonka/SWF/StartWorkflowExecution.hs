@@ -93,6 +93,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -502,7 +503,7 @@ instance Core.AWSRequest StartWorkflowExecution where
     Response.receiveJSON
       ( \s h x ->
           StartWorkflowExecutionResponse'
-            Prelude.<$> (x Core..?> "runId")
+            Prelude.<$> (x Data..?> "runId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -534,45 +535,45 @@ instance Prelude.NFData StartWorkflowExecution where
       `Prelude.seq` Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf workflowType
 
-instance Core.ToHeaders StartWorkflowExecution where
+instance Data.ToHeaders StartWorkflowExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.StartWorkflowExecution" ::
+              Data.=# ( "SimpleWorkflowService.StartWorkflowExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartWorkflowExecution where
+instance Data.ToJSON StartWorkflowExecution where
   toJSON StartWorkflowExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("lambdaRole" Core..=) Prelude.<$> lambdaRole,
-            ("tagList" Core..=) Prelude.<$> tagList,
-            ("taskPriority" Core..=) Prelude.<$> taskPriority,
-            ("input" Core..=) Prelude.<$> input,
-            ("taskList" Core..=) Prelude.<$> taskList,
-            ("taskStartToCloseTimeout" Core..=)
+          [ ("lambdaRole" Data..=) Prelude.<$> lambdaRole,
+            ("tagList" Data..=) Prelude.<$> tagList,
+            ("taskPriority" Data..=) Prelude.<$> taskPriority,
+            ("input" Data..=) Prelude.<$> input,
+            ("taskList" Data..=) Prelude.<$> taskList,
+            ("taskStartToCloseTimeout" Data..=)
               Prelude.<$> taskStartToCloseTimeout,
-            ("childPolicy" Core..=) Prelude.<$> childPolicy,
-            ("executionStartToCloseTimeout" Core..=)
+            ("childPolicy" Data..=) Prelude.<$> childPolicy,
+            ("executionStartToCloseTimeout" Data..=)
               Prelude.<$> executionStartToCloseTimeout,
-            Prelude.Just ("domain" Core..= domain),
-            Prelude.Just ("workflowId" Core..= workflowId),
-            Prelude.Just ("workflowType" Core..= workflowType)
+            Prelude.Just ("domain" Data..= domain),
+            Prelude.Just ("workflowId" Data..= workflowId),
+            Prelude.Just ("workflowType" Data..= workflowType)
           ]
       )
 
-instance Core.ToPath StartWorkflowExecution where
+instance Data.ToPath StartWorkflowExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartWorkflowExecution where
+instance Data.ToQuery StartWorkflowExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Specifies the @runId@ of a workflow execution.

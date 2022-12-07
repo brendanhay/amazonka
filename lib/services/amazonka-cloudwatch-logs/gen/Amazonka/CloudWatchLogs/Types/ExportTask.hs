@@ -23,6 +23,7 @@ import Amazonka.CloudWatchLogs.Types.ExportTaskExecutionInfo
 import Amazonka.CloudWatchLogs.Types.ExportTaskStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an export task.
@@ -141,21 +142,21 @@ exportTask_executionInfo = Lens.lens (\ExportTask' {executionInfo} -> executionI
 exportTask_logGroupName :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_logGroupName = Lens.lens (\ExportTask' {logGroupName} -> logGroupName) (\s@ExportTask' {} a -> s {logGroupName = a} :: ExportTask)
 
-instance Core.FromJSON ExportTask where
+instance Data.FromJSON ExportTask where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExportTask"
       ( \x ->
           ExportTask'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "destinationPrefix")
-            Prelude.<*> (x Core..:? "from")
-            Prelude.<*> (x Core..:? "taskName")
-            Prelude.<*> (x Core..:? "taskId")
-            Prelude.<*> (x Core..:? "to")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "executionInfo")
-            Prelude.<*> (x Core..:? "logGroupName")
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "destinationPrefix")
+            Prelude.<*> (x Data..:? "from")
+            Prelude.<*> (x Data..:? "taskName")
+            Prelude.<*> (x Data..:? "taskId")
+            Prelude.<*> (x Data..:? "to")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "executionInfo")
+            Prelude.<*> (x Data..:? "logGroupName")
       )
 
 instance Prelude.Hashable ExportTask where

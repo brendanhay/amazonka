@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RetentionPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.RetentionType
 
@@ -72,11 +73,11 @@ instance Prelude.NFData RetentionPolicy where
   rnf RetentionPolicy' {..} =
     Prelude.rnf homeEfsFileSystem
 
-instance Core.ToJSON RetentionPolicy where
+instance Data.ToJSON RetentionPolicy where
   toJSON RetentionPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HomeEfsFileSystem" Core..=)
+          [ ("HomeEfsFileSystem" Data..=)
               Prelude.<$> homeEfsFileSystem
           ]
       )

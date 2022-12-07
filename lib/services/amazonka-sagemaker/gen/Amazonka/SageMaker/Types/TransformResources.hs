@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TransformResources where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.TransformInstanceType
 
@@ -167,15 +168,15 @@ transformResources_instanceType = Lens.lens (\TransformResources' {instanceType}
 transformResources_instanceCount :: Lens.Lens' TransformResources Prelude.Natural
 transformResources_instanceCount = Lens.lens (\TransformResources' {instanceCount} -> instanceCount) (\s@TransformResources' {} a -> s {instanceCount = a} :: TransformResources)
 
-instance Core.FromJSON TransformResources where
+instance Data.FromJSON TransformResources where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransformResources"
       ( \x ->
           TransformResources'
-            Prelude.<$> (x Core..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Core..: "InstanceType")
-            Prelude.<*> (x Core..: "InstanceCount")
+            Prelude.<$> (x Data..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Data..: "InstanceType")
+            Prelude.<*> (x Data..: "InstanceCount")
       )
 
 instance Prelude.Hashable TransformResources where
@@ -190,14 +191,14 @@ instance Prelude.NFData TransformResources where
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf instanceCount
 
-instance Core.ToJSON TransformResources where
+instance Data.ToJSON TransformResources where
   toJSON TransformResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VolumeKmsKeyId" Core..=)
+          [ ("VolumeKmsKeyId" Data..=)
               Prelude.<$> volumeKmsKeyId,
-            Prelude.Just ("InstanceType" Core..= instanceType),
+            Prelude.Just ("InstanceType" Data..= instanceType),
             Prelude.Just
-              ("InstanceCount" Core..= instanceCount)
+              ("InstanceCount" Data..= instanceCount)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.BlockDeviceMapping
 import Amazonka.EC2.Types.GroupIdentifier
@@ -219,31 +220,31 @@ launchSpecification_imageId = Lens.lens (\LaunchSpecification' {imageId} -> imag
 launchSpecification_networkInterfaces :: Lens.Lens' LaunchSpecification (Prelude.Maybe [InstanceNetworkInterfaceSpecification])
 launchSpecification_networkInterfaces = Lens.lens (\LaunchSpecification' {networkInterfaces} -> networkInterfaces) (\s@LaunchSpecification' {} a -> s {networkInterfaces = a} :: LaunchSpecification) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML LaunchSpecification where
+instance Data.FromXML LaunchSpecification where
   parseXML x =
     LaunchSpecification'
-      Prelude.<$> (x Core..@? "ebsOptimized")
-      Prelude.<*> (x Core..@? "iamInstanceProfile")
-      Prelude.<*> (x Core..@? "placement")
-      Prelude.<*> (x Core..@? "userData")
-      Prelude.<*> ( x Core..@? "blockDeviceMapping"
+      Prelude.<$> (x Data..@? "ebsOptimized")
+      Prelude.<*> (x Data..@? "iamInstanceProfile")
+      Prelude.<*> (x Data..@? "placement")
+      Prelude.<*> (x Data..@? "userData")
+      Prelude.<*> ( x Data..@? "blockDeviceMapping"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "addressingType")
-      Prelude.<*> (x Core..@? "monitoring")
-      Prelude.<*> (x Core..@? "subnetId")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "addressingType")
+      Prelude.<*> (x Data..@? "monitoring")
+      Prelude.<*> (x Data..@? "subnetId")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ramdiskId")
-      Prelude.<*> (x Core..@? "keyName")
-      Prelude.<*> (x Core..@? "kernelId")
-      Prelude.<*> (x Core..@? "imageId")
-      Prelude.<*> ( x Core..@? "networkInterfaceSet"
+      Prelude.<*> (x Data..@? "ramdiskId")
+      Prelude.<*> (x Data..@? "keyName")
+      Prelude.<*> (x Data..@? "kernelId")
+      Prelude.<*> (x Data..@? "imageId")
+      Prelude.<*> ( x Data..@? "networkInterfaceSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable LaunchSpecification where

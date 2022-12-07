@@ -18,6 +18,7 @@ module Amazonka.Proton.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.GetComponent
 import Amazonka.Proton.GetEnvironment
@@ -42,21 +43,21 @@ newServiceTemplateVersionRegistered =
             Core.AcceptSuccess
             ( getServiceTemplateVersionResponse_serviceTemplateVersion
                 Prelude.. serviceTemplateVersion_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "PUBLISHED"
             Core.AcceptSuccess
             ( getServiceTemplateVersionResponse_serviceTemplateVersion
                 Prelude.. serviceTemplateVersion_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "REGISTRATION_FAILED"
             Core.AcceptFailure
             ( getServiceTemplateVersionResponse_serviceTemplateVersion
                 Prelude.. serviceTemplateVersion_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -74,14 +75,14 @@ newEnvironmentDeployed =
             Core.AcceptSuccess
             ( getEnvironmentResponse_environment
                 Prelude.. environment_deploymentStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( getEnvironmentResponse_environment
                 Prelude.. environment_deploymentStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -100,21 +101,21 @@ newEnvironmentTemplateVersionRegistered =
             Core.AcceptSuccess
             ( getEnvironmentTemplateVersionResponse_environmentTemplateVersion
                 Prelude.. environmentTemplateVersion_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "PUBLISHED"
             Core.AcceptSuccess
             ( getEnvironmentTemplateVersionResponse_environmentTemplateVersion
                 Prelude.. environmentTemplateVersion_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "REGISTRATION_FAILED"
             Core.AcceptFailure
             ( getEnvironmentTemplateVersionResponse_environmentTemplateVersion
                 Prelude.. environmentTemplateVersion_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -132,28 +133,28 @@ newServiceCreated =
             Core.AcceptSuccess
             ( getServiceResponse_service Prelude.. Lens._Just
                 Prelude.. service_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATE_FAILED_CLEANUP_COMPLETE"
             Core.AcceptFailure
             ( getServiceResponse_service Prelude.. Lens._Just
                 Prelude.. service_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATE_FAILED_CLEANUP_FAILED"
             Core.AcceptFailure
             ( getServiceResponse_service Prelude.. Lens._Just
                 Prelude.. service_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATE_FAILED"
             Core.AcceptFailure
             ( getServiceResponse_service Prelude.. Lens._Just
                 Prelude.. service_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -174,7 +175,7 @@ newServiceDeleted =
             Core.AcceptFailure
             ( getServiceResponse_service Prelude.. Lens._Just
                 Prelude.. service_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -192,35 +193,35 @@ newServiceUpdated =
             Core.AcceptSuccess
             ( getServiceResponse_service Prelude.. Lens._Just
                 Prelude.. service_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATE_FAILED_CLEANUP_COMPLETE"
             Core.AcceptFailure
             ( getServiceResponse_service Prelude.. Lens._Just
                 Prelude.. service_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATE_FAILED_CLEANUP_FAILED"
             Core.AcceptFailure
             ( getServiceResponse_service Prelude.. Lens._Just
                 Prelude.. service_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATE_FAILED"
             Core.AcceptFailure
             ( getServiceResponse_service Prelude.. Lens._Just
                 Prelude.. service_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATE_COMPLETE_CLEANUP_FAILED"
             Core.AcceptFailure
             ( getServiceResponse_service Prelude.. Lens._Just
                 Prelude.. service_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -238,14 +239,14 @@ newServiceInstanceDeployed =
             Core.AcceptSuccess
             ( getServiceInstanceResponse_serviceInstance
                 Prelude.. serviceInstance_deploymentStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( getServiceInstanceResponse_serviceInstance
                 Prelude.. serviceInstance_deploymentStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -263,14 +264,14 @@ newComponentDeployed =
             Core.AcceptSuccess
             ( getComponentResponse_component Prelude.. Lens._Just
                 Prelude.. component_deploymentStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( getComponentResponse_component Prelude.. Lens._Just
                 Prelude.. component_deploymentStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -290,7 +291,7 @@ newServicePipelineDeployed =
                 Prelude.. service_pipeline
                 Prelude.. Lens._Just
                 Prelude.. servicePipeline_deploymentStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
@@ -299,7 +300,7 @@ newServicePipelineDeployed =
                 Prelude.. service_pipeline
                 Prelude.. Lens._Just
                 Prelude.. servicePipeline_deploymentStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -320,7 +321,7 @@ newComponentDeleted =
             Core.AcceptFailure
             ( getComponentResponse_component Prelude.. Lens._Just
                 Prelude.. component_deploymentStatus
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

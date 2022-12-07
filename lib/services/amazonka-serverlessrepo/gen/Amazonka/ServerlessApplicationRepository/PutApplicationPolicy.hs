@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,7 +100,7 @@ instance Core.AWSRequest PutApplicationPolicy where
     Response.receiveJSON
       ( \s h x ->
           PutApplicationPolicyResponse'
-            Prelude.<$> (x Core..?> "statements" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "statements" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,33 +114,33 @@ instance Prelude.NFData PutApplicationPolicy where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf statements
 
-instance Core.ToHeaders PutApplicationPolicy where
+instance Data.ToHeaders PutApplicationPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutApplicationPolicy where
+instance Data.ToJSON PutApplicationPolicy where
   toJSON PutApplicationPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("statements" Core..= statements)]
+          [Prelude.Just ("statements" Data..= statements)]
       )
 
-instance Core.ToPath PutApplicationPolicy where
+instance Data.ToPath PutApplicationPolicy where
   toPath PutApplicationPolicy' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/policy"
       ]
 
-instance Core.ToQuery PutApplicationPolicy where
+instance Data.ToQuery PutApplicationPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutApplicationPolicyResponse' smart constructor.

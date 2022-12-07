@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IKEVersionsRequestListValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,6 +63,6 @@ instance Prelude.NFData IKEVersionsRequestListValue where
   rnf IKEVersionsRequestListValue' {..} =
     Prelude.rnf value
 
-instance Core.ToQuery IKEVersionsRequestListValue where
+instance Data.ToQuery IKEVersionsRequestListValue where
   toQuery IKEVersionsRequestListValue' {..} =
-    Prelude.mconcat ["Value" Core.=: value]
+    Prelude.mconcat ["Value" Data.=: value]

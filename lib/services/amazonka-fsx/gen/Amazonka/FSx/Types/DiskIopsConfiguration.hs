@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.DiskIopsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.DiskIopsConfigurationMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,13 +74,13 @@ diskIopsConfiguration_mode = Lens.lens (\DiskIopsConfiguration' {mode} -> mode) 
 diskIopsConfiguration_iops :: Lens.Lens' DiskIopsConfiguration (Prelude.Maybe Prelude.Natural)
 diskIopsConfiguration_iops = Lens.lens (\DiskIopsConfiguration' {iops} -> iops) (\s@DiskIopsConfiguration' {} a -> s {iops = a} :: DiskIopsConfiguration)
 
-instance Core.FromJSON DiskIopsConfiguration where
+instance Data.FromJSON DiskIopsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DiskIopsConfiguration"
       ( \x ->
           DiskIopsConfiguration'
-            Prelude.<$> (x Core..:? "Mode") Prelude.<*> (x Core..:? "Iops")
+            Prelude.<$> (x Data..:? "Mode") Prelude.<*> (x Data..:? "Iops")
       )
 
 instance Prelude.Hashable DiskIopsConfiguration where
@@ -91,11 +92,11 @@ instance Prelude.NFData DiskIopsConfiguration where
   rnf DiskIopsConfiguration' {..} =
     Prelude.rnf mode `Prelude.seq` Prelude.rnf iops
 
-instance Core.ToJSON DiskIopsConfiguration where
+instance Data.ToJSON DiskIopsConfiguration where
   toJSON DiskIopsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Mode" Core..=) Prelude.<$> mode,
-            ("Iops" Core..=) Prelude.<$> iops
+          [ ("Mode" Data..=) Prelude.<$> mode,
+            ("Iops" Data..=) Prelude.<$> iops
           ]
       )

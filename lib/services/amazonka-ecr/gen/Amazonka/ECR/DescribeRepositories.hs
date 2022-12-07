@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -204,8 +205,8 @@ instance Core.AWSRequest DescribeRepositories where
     Response.receiveJSON
       ( \s h x ->
           DescribeRepositoriesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "repositories" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "repositories" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -223,37 +224,37 @@ instance Prelude.NFData DescribeRepositories where
       `Prelude.seq` Prelude.rnf registryId
       `Prelude.seq` Prelude.rnf repositoryNames
 
-instance Core.ToHeaders DescribeRepositories where
+instance Data.ToHeaders DescribeRepositories where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.DescribeRepositories" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.DescribeRepositories" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRepositories where
+instance Data.ToJSON DescribeRepositories where
   toJSON DescribeRepositories' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("registryId" Core..=) Prelude.<$> registryId,
-            ("repositoryNames" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("registryId" Data..=) Prelude.<$> registryId,
+            ("repositoryNames" Data..=)
               Prelude.<$> repositoryNames
           ]
       )
 
-instance Core.ToPath DescribeRepositories where
+instance Data.ToPath DescribeRepositories where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeRepositories where
+instance Data.ToQuery DescribeRepositories where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRepositoriesResponse' smart constructor.

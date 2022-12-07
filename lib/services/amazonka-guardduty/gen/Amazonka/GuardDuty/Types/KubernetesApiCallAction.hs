@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.KubernetesApiCallAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.RemoteIpDetails
 import qualified Amazonka.Prelude as Prelude
 
@@ -111,19 +112,19 @@ kubernetesApiCallAction_sourceIps = Lens.lens (\KubernetesApiCallAction' {source
 kubernetesApiCallAction_parameters :: Lens.Lens' KubernetesApiCallAction (Prelude.Maybe Prelude.Text)
 kubernetesApiCallAction_parameters = Lens.lens (\KubernetesApiCallAction' {parameters} -> parameters) (\s@KubernetesApiCallAction' {} a -> s {parameters = a} :: KubernetesApiCallAction)
 
-instance Core.FromJSON KubernetesApiCallAction where
+instance Data.FromJSON KubernetesApiCallAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KubernetesApiCallAction"
       ( \x ->
           KubernetesApiCallAction'
-            Prelude.<$> (x Core..:? "remoteIpDetails")
-            Prelude.<*> (x Core..:? "requestUri")
-            Prelude.<*> (x Core..:? "statusCode")
-            Prelude.<*> (x Core..:? "userAgent")
-            Prelude.<*> (x Core..:? "verb")
-            Prelude.<*> (x Core..:? "sourceIps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "parameters")
+            Prelude.<$> (x Data..:? "remoteIpDetails")
+            Prelude.<*> (x Data..:? "requestUri")
+            Prelude.<*> (x Data..:? "statusCode")
+            Prelude.<*> (x Data..:? "userAgent")
+            Prelude.<*> (x Data..:? "verb")
+            Prelude.<*> (x Data..:? "sourceIps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "parameters")
       )
 
 instance Prelude.Hashable KubernetesApiCallAction where

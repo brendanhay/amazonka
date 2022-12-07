@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.HlsEncryption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types.EncryptionMethod
 import Amazonka.MediaPackage.Types.SpekeKeyProvider
 import qualified Amazonka.Prelude as Prelude
@@ -95,17 +96,17 @@ hlsEncryption_keyRotationIntervalSeconds = Lens.lens (\HlsEncryption' {keyRotati
 hlsEncryption_spekeKeyProvider :: Lens.Lens' HlsEncryption SpekeKeyProvider
 hlsEncryption_spekeKeyProvider = Lens.lens (\HlsEncryption' {spekeKeyProvider} -> spekeKeyProvider) (\s@HlsEncryption' {} a -> s {spekeKeyProvider = a} :: HlsEncryption)
 
-instance Core.FromJSON HlsEncryption where
+instance Data.FromJSON HlsEncryption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsEncryption"
       ( \x ->
           HlsEncryption'
-            Prelude.<$> (x Core..:? "constantInitializationVector")
-            Prelude.<*> (x Core..:? "repeatExtXKey")
-            Prelude.<*> (x Core..:? "encryptionMethod")
-            Prelude.<*> (x Core..:? "keyRotationIntervalSeconds")
-            Prelude.<*> (x Core..: "spekeKeyProvider")
+            Prelude.<$> (x Data..:? "constantInitializationVector")
+            Prelude.<*> (x Data..:? "repeatExtXKey")
+            Prelude.<*> (x Data..:? "encryptionMethod")
+            Prelude.<*> (x Data..:? "keyRotationIntervalSeconds")
+            Prelude.<*> (x Data..: "spekeKeyProvider")
       )
 
 instance Prelude.Hashable HlsEncryption where
@@ -125,18 +126,18 @@ instance Prelude.NFData HlsEncryption where
       `Prelude.seq` Prelude.rnf keyRotationIntervalSeconds
       `Prelude.seq` Prelude.rnf spekeKeyProvider
 
-instance Core.ToJSON HlsEncryption where
+instance Data.ToJSON HlsEncryption where
   toJSON HlsEncryption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("constantInitializationVector" Core..=)
+          [ ("constantInitializationVector" Data..=)
               Prelude.<$> constantInitializationVector,
-            ("repeatExtXKey" Core..=) Prelude.<$> repeatExtXKey,
-            ("encryptionMethod" Core..=)
+            ("repeatExtXKey" Data..=) Prelude.<$> repeatExtXKey,
+            ("encryptionMethod" Data..=)
               Prelude.<$> encryptionMethod,
-            ("keyRotationIntervalSeconds" Core..=)
+            ("keyRotationIntervalSeconds" Data..=)
               Prelude.<$> keyRotationIntervalSeconds,
             Prelude.Just
-              ("spekeKeyProvider" Core..= spekeKeyProvider)
+              ("spekeKeyProvider" Data..= spekeKeyProvider)
           ]
       )

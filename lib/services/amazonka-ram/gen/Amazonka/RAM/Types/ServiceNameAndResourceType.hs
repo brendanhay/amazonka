@@ -21,6 +21,7 @@ module Amazonka.RAM.Types.ServiceNameAndResourceType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types.ResourceRegionScope
 
@@ -97,15 +98,15 @@ serviceNameAndResourceType_resourceRegionScope = Lens.lens (\ServiceNameAndResou
 serviceNameAndResourceType_serviceName :: Lens.Lens' ServiceNameAndResourceType (Prelude.Maybe Prelude.Text)
 serviceNameAndResourceType_serviceName = Lens.lens (\ServiceNameAndResourceType' {serviceName} -> serviceName) (\s@ServiceNameAndResourceType' {} a -> s {serviceName = a} :: ServiceNameAndResourceType)
 
-instance Core.FromJSON ServiceNameAndResourceType where
+instance Data.FromJSON ServiceNameAndResourceType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceNameAndResourceType"
       ( \x ->
           ServiceNameAndResourceType'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "resourceRegionScope")
-            Prelude.<*> (x Core..:? "serviceName")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "resourceRegionScope")
+            Prelude.<*> (x Data..:? "serviceName")
       )
 
 instance Prelude.Hashable ServiceNameAndResourceType where

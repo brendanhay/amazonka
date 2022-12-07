@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -182,7 +183,7 @@ instance Core.AWSRequest UpdateChannel' where
     Response.receiveJSON
       ( \s h x ->
           UpdateChannelResponse'
-            Prelude.<$> (x Core..?> "channel")
+            Prelude.<$> (x Data..?> "channel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -212,43 +213,43 @@ instance Prelude.NFData UpdateChannel' where
       `Prelude.seq` Prelude.rnf encoderSettings
       `Prelude.seq` Prelude.rnf channelId
 
-instance Core.ToHeaders UpdateChannel' where
+instance Data.ToHeaders UpdateChannel' where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateChannel' where
+instance Data.ToJSON UpdateChannel' where
   toJSON UpdateChannel'' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("maintenance" Core..=) Prelude.<$> maintenance,
-            ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("logLevel" Core..=) Prelude.<$> logLevel,
-            ("inputSpecification" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("maintenance" Data..=) Prelude.<$> maintenance,
+            ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("logLevel" Data..=) Prelude.<$> logLevel,
+            ("inputSpecification" Data..=)
               Prelude.<$> inputSpecification,
-            ("cdiInputSpecification" Core..=)
+            ("cdiInputSpecification" Data..=)
               Prelude.<$> cdiInputSpecification,
-            ("inputAttachments" Core..=)
+            ("inputAttachments" Data..=)
               Prelude.<$> inputAttachments,
-            ("destinations" Core..=) Prelude.<$> destinations,
-            ("encoderSettings" Core..=)
+            ("destinations" Data..=) Prelude.<$> destinations,
+            ("encoderSettings" Data..=)
               Prelude.<$> encoderSettings
           ]
       )
 
-instance Core.ToPath UpdateChannel' where
+instance Data.ToPath UpdateChannel' where
   toPath UpdateChannel'' {..} =
     Prelude.mconcat
-      ["/prod/channels/", Core.toBS channelId]
+      ["/prod/channels/", Data.toBS channelId]
 
-instance Core.ToQuery UpdateChannel' where
+instance Data.ToQuery UpdateChannel' where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for UpdateChannelResponse

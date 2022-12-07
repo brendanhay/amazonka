@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.ConnectivityInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an endpoint and port where client devices can
@@ -92,16 +93,16 @@ connectivityInfo_id = Lens.lens (\ConnectivityInfo' {id} -> id) (\s@Connectivity
 connectivityInfo_hostAddress :: Lens.Lens' ConnectivityInfo (Prelude.Maybe Prelude.Text)
 connectivityInfo_hostAddress = Lens.lens (\ConnectivityInfo' {hostAddress} -> hostAddress) (\s@ConnectivityInfo' {} a -> s {hostAddress = a} :: ConnectivityInfo)
 
-instance Core.FromJSON ConnectivityInfo where
+instance Data.FromJSON ConnectivityInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectivityInfo"
       ( \x ->
           ConnectivityInfo'
-            Prelude.<$> (x Core..:? "PortNumber")
-            Prelude.<*> (x Core..:? "Metadata")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "HostAddress")
+            Prelude.<$> (x Data..:? "PortNumber")
+            Prelude.<*> (x Data..:? "Metadata")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "HostAddress")
       )
 
 instance Prelude.Hashable ConnectivityInfo where
@@ -118,13 +119,13 @@ instance Prelude.NFData ConnectivityInfo where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf hostAddress
 
-instance Core.ToJSON ConnectivityInfo where
+instance Data.ToJSON ConnectivityInfo where
   toJSON ConnectivityInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PortNumber" Core..=) Prelude.<$> portNumber,
-            ("Metadata" Core..=) Prelude.<$> metadata,
-            ("Id" Core..=) Prelude.<$> id,
-            ("HostAddress" Core..=) Prelude.<$> hostAddress
+          [ ("PortNumber" Data..=) Prelude.<$> portNumber,
+            ("Metadata" Data..=) Prelude.<$> metadata,
+            ("Id" Data..=) Prelude.<$> id,
+            ("HostAddress" Data..=) Prelude.<$> hostAddress
           ]
       )

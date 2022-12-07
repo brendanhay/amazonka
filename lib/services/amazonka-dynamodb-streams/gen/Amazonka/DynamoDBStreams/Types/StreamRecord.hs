@@ -21,6 +21,7 @@ module Amazonka.DynamoDBStreams.Types.StreamRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDBStreams.Internal
 import Amazonka.DynamoDBStreams.Types.StreamViewType
 import qualified Amazonka.Prelude as Prelude
@@ -49,7 +50,7 @@ data StreamRecord = StreamRecord'
     oldImage :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | The approximate date and time when the stream record was created, in
     -- <http://www.epochconverter.com/ UNIX epoch time> format.
-    approximateCreationDateTime :: Prelude.Maybe Core.POSIX,
+    approximateCreationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The sequence number of the stream record.
     sequenceNumber :: Prelude.Maybe Prelude.Text,
     -- | The primary key attribute(s) for the DynamoDB item that was modified.
@@ -131,7 +132,7 @@ streamRecord_oldImage = Lens.lens (\StreamRecord' {oldImage} -> oldImage) (\s@St
 -- | The approximate date and time when the stream record was created, in
 -- <http://www.epochconverter.com/ UNIX epoch time> format.
 streamRecord_approximateCreationDateTime :: Lens.Lens' StreamRecord (Prelude.Maybe Prelude.UTCTime)
-streamRecord_approximateCreationDateTime = Lens.lens (\StreamRecord' {approximateCreationDateTime} -> approximateCreationDateTime) (\s@StreamRecord' {} a -> s {approximateCreationDateTime = a} :: StreamRecord) Prelude.. Lens.mapping Core._Time
+streamRecord_approximateCreationDateTime = Lens.lens (\StreamRecord' {approximateCreationDateTime} -> approximateCreationDateTime) (\s@StreamRecord' {} a -> s {approximateCreationDateTime = a} :: StreamRecord) Prelude.. Lens.mapping Data._Time
 
 -- | The sequence number of the stream record.
 streamRecord_sequenceNumber :: Lens.Lens' StreamRecord (Prelude.Maybe Prelude.Text)
@@ -145,19 +146,19 @@ streamRecord_keys = Lens.lens (\StreamRecord' {keys} -> keys) (\s@StreamRecord' 
 streamRecord_newImage :: Lens.Lens' StreamRecord (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
 streamRecord_newImage = Lens.lens (\StreamRecord' {newImage'} -> newImage') (\s@StreamRecord' {} a -> s {newImage' = a} :: StreamRecord) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON StreamRecord where
+instance Data.FromJSON StreamRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamRecord"
       ( \x ->
           StreamRecord'
-            Prelude.<$> (x Core..:? "SizeBytes")
-            Prelude.<*> (x Core..:? "StreamViewType")
-            Prelude.<*> (x Core..:? "OldImage" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ApproximateCreationDateTime")
-            Prelude.<*> (x Core..:? "SequenceNumber")
-            Prelude.<*> (x Core..:? "Keys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "NewImage" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "SizeBytes")
+            Prelude.<*> (x Data..:? "StreamViewType")
+            Prelude.<*> (x Data..:? "OldImage" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ApproximateCreationDateTime")
+            Prelude.<*> (x Data..:? "SequenceNumber")
+            Prelude.<*> (x Data..:? "Keys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "NewImage" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable StreamRecord where

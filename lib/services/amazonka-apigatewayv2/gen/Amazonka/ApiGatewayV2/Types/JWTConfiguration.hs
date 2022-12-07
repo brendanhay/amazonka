@@ -21,6 +21,7 @@ module Amazonka.ApiGatewayV2.Types.JWTConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the configuration of a JWT authorizer. Required for the JWT
@@ -80,14 +81,14 @@ jWTConfiguration_issuer = Lens.lens (\JWTConfiguration' {issuer} -> issuer) (\s@
 jWTConfiguration_audience :: Lens.Lens' JWTConfiguration (Prelude.Maybe [Prelude.Text])
 jWTConfiguration_audience = Lens.lens (\JWTConfiguration' {audience} -> audience) (\s@JWTConfiguration' {} a -> s {audience = a} :: JWTConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON JWTConfiguration where
+instance Data.FromJSON JWTConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JWTConfiguration"
       ( \x ->
           JWTConfiguration'
-            Prelude.<$> (x Core..:? "issuer")
-            Prelude.<*> (x Core..:? "audience" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "issuer")
+            Prelude.<*> (x Data..:? "audience" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable JWTConfiguration where
@@ -100,11 +101,11 @@ instance Prelude.NFData JWTConfiguration where
     Prelude.rnf issuer
       `Prelude.seq` Prelude.rnf audience
 
-instance Core.ToJSON JWTConfiguration where
+instance Data.ToJSON JWTConfiguration where
   toJSON JWTConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("issuer" Core..=) Prelude.<$> issuer,
-            ("audience" Core..=) Prelude.<$> audience
+          [ ("issuer" Data..=) Prelude.<$> issuer,
+            ("audience" Data..=) Prelude.<$> audience
           ]
       )

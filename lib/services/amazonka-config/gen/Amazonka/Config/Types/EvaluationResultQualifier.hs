@@ -21,6 +21,7 @@ module Amazonka.Config.Types.EvaluationResultQualifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies an Config rule that evaluated an Amazon Web Services
@@ -73,15 +74,15 @@ evaluationResultQualifier_resourceType = Lens.lens (\EvaluationResultQualifier' 
 evaluationResultQualifier_configRuleName :: Lens.Lens' EvaluationResultQualifier (Prelude.Maybe Prelude.Text)
 evaluationResultQualifier_configRuleName = Lens.lens (\EvaluationResultQualifier' {configRuleName} -> configRuleName) (\s@EvaluationResultQualifier' {} a -> s {configRuleName = a} :: EvaluationResultQualifier)
 
-instance Core.FromJSON EvaluationResultQualifier where
+instance Data.FromJSON EvaluationResultQualifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EvaluationResultQualifier"
       ( \x ->
           EvaluationResultQualifier'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "ConfigRuleName")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "ConfigRuleName")
       )
 
 instance Prelude.Hashable EvaluationResultQualifier where

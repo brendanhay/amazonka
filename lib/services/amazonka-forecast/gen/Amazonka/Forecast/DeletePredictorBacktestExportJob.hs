@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,39 +108,39 @@ instance
     Prelude.rnf predictorBacktestExportJobArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeletePredictorBacktestExportJob
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DeletePredictorBacktestExportJob" ::
+              Data.=# ( "AmazonForecast.DeletePredictorBacktestExportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeletePredictorBacktestExportJob where
+instance Data.ToJSON DeletePredictorBacktestExportJob where
   toJSON DeletePredictorBacktestExportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "PredictorBacktestExportJobArn"
-                  Core..= predictorBacktestExportJobArn
+                  Data..= predictorBacktestExportJobArn
               )
           ]
       )
 
-instance Core.ToPath DeletePredictorBacktestExportJob where
+instance Data.ToPath DeletePredictorBacktestExportJob where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeletePredictorBacktestExportJob
   where
   toQuery = Prelude.const Prelude.mempty

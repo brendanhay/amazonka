@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,9 +124,9 @@ instance Core.AWSRequest DeleteVolume where
     Response.receiveJSON
       ( \s h x ->
           DeleteVolumeResponse'
-            Prelude.<$> (x Core..?> "OntapResponse")
-            Prelude.<*> (x Core..?> "Lifecycle")
-            Prelude.<*> (x Core..?> "VolumeId")
+            Prelude.<$> (x Data..?> "OntapResponse")
+            Prelude.<*> (x Data..?> "Lifecycle")
+            Prelude.<*> (x Data..?> "VolumeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,39 +144,39 @@ instance Prelude.NFData DeleteVolume where
       `Prelude.seq` Prelude.rnf ontapConfiguration
       `Prelude.seq` Prelude.rnf volumeId
 
-instance Core.ToHeaders DeleteVolume where
+instance Data.ToHeaders DeleteVolume where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.DeleteVolume" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.DeleteVolume" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteVolume where
+instance Data.ToJSON DeleteVolume where
   toJSON DeleteVolume' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("OpenZFSConfiguration" Core..=)
+            ("OpenZFSConfiguration" Data..=)
               Prelude.<$> openZFSConfiguration,
-            ("OntapConfiguration" Core..=)
+            ("OntapConfiguration" Data..=)
               Prelude.<$> ontapConfiguration,
-            Prelude.Just ("VolumeId" Core..= volumeId)
+            Prelude.Just ("VolumeId" Data..= volumeId)
           ]
       )
 
-instance Core.ToPath DeleteVolume where
+instance Data.ToPath DeleteVolume where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVolume where
+instance Data.ToQuery DeleteVolume where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVolumeResponse' smart constructor.

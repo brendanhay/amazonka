@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.SessionMappingDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.IdentityType
 import qualified Amazonka.Prelude as Prelude
 
@@ -41,9 +42,9 @@ data SessionMappingDetail = SessionMappingDetail'
     -- in the /Amazon Web Services SSO Identity Store API Reference/.
     identityName :: Prelude.Maybe Prelude.Text,
     -- | The time the session mapping was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The time the session mapping was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The globally unique identifier (GUID) of the user or group.
     identityId :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the identity mapped to the Amazon EMR Studio is a user
@@ -111,11 +112,11 @@ sessionMappingDetail_identityName = Lens.lens (\SessionMappingDetail' {identityN
 
 -- | The time the session mapping was last modified.
 sessionMappingDetail_lastModifiedTime :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.UTCTime)
-sessionMappingDetail_lastModifiedTime = Lens.lens (\SessionMappingDetail' {lastModifiedTime} -> lastModifiedTime) (\s@SessionMappingDetail' {} a -> s {lastModifiedTime = a} :: SessionMappingDetail) Prelude.. Lens.mapping Core._Time
+sessionMappingDetail_lastModifiedTime = Lens.lens (\SessionMappingDetail' {lastModifiedTime} -> lastModifiedTime) (\s@SessionMappingDetail' {} a -> s {lastModifiedTime = a} :: SessionMappingDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The time the session mapping was created.
 sessionMappingDetail_creationTime :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.UTCTime)
-sessionMappingDetail_creationTime = Lens.lens (\SessionMappingDetail' {creationTime} -> creationTime) (\s@SessionMappingDetail' {} a -> s {creationTime = a} :: SessionMappingDetail) Prelude.. Lens.mapping Core._Time
+sessionMappingDetail_creationTime = Lens.lens (\SessionMappingDetail' {creationTime} -> creationTime) (\s@SessionMappingDetail' {} a -> s {creationTime = a} :: SessionMappingDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The globally unique identifier (GUID) of the user or group.
 sessionMappingDetail_identityId :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.Text)
@@ -126,19 +127,19 @@ sessionMappingDetail_identityId = Lens.lens (\SessionMappingDetail' {identityId}
 sessionMappingDetail_identityType :: Lens.Lens' SessionMappingDetail (Prelude.Maybe IdentityType)
 sessionMappingDetail_identityType = Lens.lens (\SessionMappingDetail' {identityType} -> identityType) (\s@SessionMappingDetail' {} a -> s {identityType = a} :: SessionMappingDetail)
 
-instance Core.FromJSON SessionMappingDetail where
+instance Data.FromJSON SessionMappingDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SessionMappingDetail"
       ( \x ->
           SessionMappingDetail'
-            Prelude.<$> (x Core..:? "StudioId")
-            Prelude.<*> (x Core..:? "SessionPolicyArn")
-            Prelude.<*> (x Core..:? "IdentityName")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "IdentityId")
-            Prelude.<*> (x Core..:? "IdentityType")
+            Prelude.<$> (x Data..:? "StudioId")
+            Prelude.<*> (x Data..:? "SessionPolicyArn")
+            Prelude.<*> (x Data..:? "IdentityName")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "IdentityId")
+            Prelude.<*> (x Data..:? "IdentityType")
       )
 
 instance Prelude.Hashable SessionMappingDetail where

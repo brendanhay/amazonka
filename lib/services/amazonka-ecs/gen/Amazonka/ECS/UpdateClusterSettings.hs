@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest UpdateClusterSettings where
     Response.receiveJSON
       ( \s h x ->
           UpdateClusterSettingsResponse'
-            Prelude.<$> (x Core..?> "cluster")
+            Prelude.<$> (x Data..?> "cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,34 +119,34 @@ instance Prelude.NFData UpdateClusterSettings where
     Prelude.rnf cluster
       `Prelude.seq` Prelude.rnf settings
 
-instance Core.ToHeaders UpdateClusterSettings where
+instance Data.ToHeaders UpdateClusterSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.UpdateClusterSettings" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.UpdateClusterSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateClusterSettings where
+instance Data.ToJSON UpdateClusterSettings where
   toJSON UpdateClusterSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("cluster" Core..= cluster),
-            Prelude.Just ("settings" Core..= settings)
+          [ Prelude.Just ("cluster" Data..= cluster),
+            Prelude.Just ("settings" Data..= settings)
           ]
       )
 
-instance Core.ToPath UpdateClusterSettings where
+instance Data.ToPath UpdateClusterSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateClusterSettings where
+instance Data.ToQuery UpdateClusterSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateClusterSettingsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.MarginStyle where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The display options for margins around the outside edge of sheets.
@@ -49,11 +50,11 @@ newMarginStyle = MarginStyle' {show = Prelude.Nothing}
 marginStyle_show :: Lens.Lens' MarginStyle (Prelude.Maybe Prelude.Bool)
 marginStyle_show = Lens.lens (\MarginStyle' {show} -> show) (\s@MarginStyle' {} a -> s {show = a} :: MarginStyle)
 
-instance Core.FromJSON MarginStyle where
+instance Data.FromJSON MarginStyle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MarginStyle"
-      (\x -> MarginStyle' Prelude.<$> (x Core..:? "Show"))
+      (\x -> MarginStyle' Prelude.<$> (x Data..:? "Show"))
 
 instance Prelude.Hashable MarginStyle where
   hashWithSalt _salt MarginStyle' {..} =
@@ -62,9 +63,9 @@ instance Prelude.Hashable MarginStyle where
 instance Prelude.NFData MarginStyle where
   rnf MarginStyle' {..} = Prelude.rnf show
 
-instance Core.ToJSON MarginStyle where
+instance Data.ToJSON MarginStyle where
   toJSON MarginStyle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Show" Core..=) Prelude.<$> show]
+          [("Show" Data..=) Prelude.<$> show]
       )

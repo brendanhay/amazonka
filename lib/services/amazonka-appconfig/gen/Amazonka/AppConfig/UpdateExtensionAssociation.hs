@@ -50,6 +50,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,7 +104,7 @@ instance Core.AWSRequest UpdateExtensionAssociation where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateExtensionAssociation where
   hashWithSalt _salt UpdateExtensionAssociation' {..} =
@@ -115,30 +116,30 @@ instance Prelude.NFData UpdateExtensionAssociation where
     Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf extensionAssociationId
 
-instance Core.ToHeaders UpdateExtensionAssociation where
+instance Data.ToHeaders UpdateExtensionAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateExtensionAssociation where
+instance Data.ToJSON UpdateExtensionAssociation where
   toJSON UpdateExtensionAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Parameters" Core..=) Prelude.<$> parameters]
+          [("Parameters" Data..=) Prelude.<$> parameters]
       )
 
-instance Core.ToPath UpdateExtensionAssociation where
+instance Data.ToPath UpdateExtensionAssociation where
   toPath UpdateExtensionAssociation' {..} =
     Prelude.mconcat
       [ "/extensionassociations/",
-        Core.toBS extensionAssociationId
+        Data.toBS extensionAssociationId
       ]
 
-instance Core.ToQuery UpdateExtensionAssociation where
+instance Data.ToQuery UpdateExtensionAssociation where
   toQuery = Prelude.const Prelude.mempty

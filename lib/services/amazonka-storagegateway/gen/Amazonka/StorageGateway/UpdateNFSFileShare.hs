@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -414,7 +415,7 @@ instance Core.AWSRequest UpdateNFSFileShare where
     Response.receiveJSON
       ( \s h x ->
           UpdateNFSFileShareResponse'
-            Prelude.<$> (x Core..?> "FileShareARN")
+            Prelude.<$> (x Data..?> "FileShareARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -454,53 +455,53 @@ instance Prelude.NFData UpdateNFSFileShare where
       `Prelude.seq` Prelude.rnf notificationPolicy
       `Prelude.seq` Prelude.rnf fileShareARN
 
-instance Core.ToHeaders UpdateNFSFileShare where
+instance Data.ToHeaders UpdateNFSFileShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.UpdateNFSFileShare" ::
+              Data.=# ( "StorageGateway_20130630.UpdateNFSFileShare" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNFSFileShare where
+instance Data.ToJSON UpdateNFSFileShare where
   toJSON UpdateNFSFileShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Squash" Core..=) Prelude.<$> squash,
-            ("NFSFileShareDefaults" Core..=)
+          [ ("Squash" Data..=) Prelude.<$> squash,
+            ("NFSFileShareDefaults" Data..=)
               Prelude.<$> nFSFileShareDefaults,
-            ("FileShareName" Core..=) Prelude.<$> fileShareName,
-            ("RequesterPays" Core..=) Prelude.<$> requesterPays,
-            ("ObjectACL" Core..=) Prelude.<$> objectACL,
-            ("KMSKey" Core..=) Prelude.<$> kmsKey,
-            ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
-            ("DefaultStorageClass" Core..=)
+            ("FileShareName" Data..=) Prelude.<$> fileShareName,
+            ("RequesterPays" Data..=) Prelude.<$> requesterPays,
+            ("ObjectACL" Data..=) Prelude.<$> objectACL,
+            ("KMSKey" Data..=) Prelude.<$> kmsKey,
+            ("KMSEncrypted" Data..=) Prelude.<$> kmsEncrypted,
+            ("DefaultStorageClass" Data..=)
               Prelude.<$> defaultStorageClass,
-            ("CacheAttributes" Core..=)
+            ("CacheAttributes" Data..=)
               Prelude.<$> cacheAttributes,
-            ("ReadOnly" Core..=) Prelude.<$> readOnly,
-            ("AuditDestinationARN" Core..=)
+            ("ReadOnly" Data..=) Prelude.<$> readOnly,
+            ("AuditDestinationARN" Data..=)
               Prelude.<$> auditDestinationARN,
-            ("ClientList" Core..=) Prelude.<$> clientList,
-            ("GuessMIMETypeEnabled" Core..=)
+            ("ClientList" Data..=) Prelude.<$> clientList,
+            ("GuessMIMETypeEnabled" Data..=)
               Prelude.<$> guessMIMETypeEnabled,
-            ("NotificationPolicy" Core..=)
+            ("NotificationPolicy" Data..=)
               Prelude.<$> notificationPolicy,
-            Prelude.Just ("FileShareARN" Core..= fileShareARN)
+            Prelude.Just ("FileShareARN" Data..= fileShareARN)
           ]
       )
 
-instance Core.ToPath UpdateNFSFileShare where
+instance Data.ToPath UpdateNFSFileShare where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateNFSFileShare where
+instance Data.ToQuery UpdateNFSFileShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | UpdateNFSFileShareOutput

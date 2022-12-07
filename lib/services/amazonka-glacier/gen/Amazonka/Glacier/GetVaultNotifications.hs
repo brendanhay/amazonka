@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,7 +133,7 @@ instance Core.AWSRequest GetVaultNotifications where
     Response.receiveJSON
       ( \s h x ->
           GetVaultNotificationsResponse'
-            Prelude.<$> (Core.eitherParseJSON x)
+            Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,20 +147,20 @@ instance Prelude.NFData GetVaultNotifications where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf vaultName
 
-instance Core.ToHeaders GetVaultNotifications where
+instance Data.ToHeaders GetVaultNotifications where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetVaultNotifications where
+instance Data.ToPath GetVaultNotifications where
   toPath GetVaultNotifications' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/notification-configuration"
       ]
 
-instance Core.ToQuery GetVaultNotifications where
+instance Data.ToQuery GetVaultNotifications where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.

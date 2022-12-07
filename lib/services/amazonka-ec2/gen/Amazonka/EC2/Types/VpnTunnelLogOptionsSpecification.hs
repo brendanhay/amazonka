@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpnTunnelLogOptionsSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CloudWatchLogOptionsSpecification
 import qualified Amazonka.Prelude as Prelude
@@ -72,9 +73,9 @@ instance
     Prelude.rnf cloudWatchLogOptions
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     VpnTunnelLogOptionsSpecification
   where
   toQuery VpnTunnelLogOptionsSpecification' {..} =
     Prelude.mconcat
-      ["CloudWatchLogOptions" Core.=: cloudWatchLogOptions]
+      ["CloudWatchLogOptions" Data.=: cloudWatchLogOptions]

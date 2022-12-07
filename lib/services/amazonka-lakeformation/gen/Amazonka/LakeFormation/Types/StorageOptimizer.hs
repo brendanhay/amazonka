@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.StorageOptimizer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.OptimizerType
 import qualified Amazonka.Prelude as Prelude
 
@@ -121,17 +122,17 @@ storageOptimizer_lastRunDetails = Lens.lens (\StorageOptimizer' {lastRunDetails}
 storageOptimizer_config :: Lens.Lens' StorageOptimizer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 storageOptimizer_config = Lens.lens (\StorageOptimizer' {config} -> config) (\s@StorageOptimizer' {} a -> s {config = a} :: StorageOptimizer) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON StorageOptimizer where
+instance Data.FromJSON StorageOptimizer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StorageOptimizer"
       ( \x ->
           StorageOptimizer'
-            Prelude.<$> (x Core..:? "StorageOptimizerType")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "Warnings")
-            Prelude.<*> (x Core..:? "LastRunDetails")
-            Prelude.<*> (x Core..:? "Config" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "StorageOptimizerType")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "Warnings")
+            Prelude.<*> (x Data..:? "LastRunDetails")
+            Prelude.<*> (x Data..:? "Config" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable StorageOptimizer where

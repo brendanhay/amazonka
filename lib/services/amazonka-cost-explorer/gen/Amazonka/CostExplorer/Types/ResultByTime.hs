@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.DateInterval
 import Amazonka.CostExplorer.Types.Group
 import Amazonka.CostExplorer.Types.MetricValue
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The result that\'s associated with a time period.
@@ -82,16 +83,16 @@ resultByTime_timePeriod = Lens.lens (\ResultByTime' {timePeriod} -> timePeriod) 
 resultByTime_groups :: Lens.Lens' ResultByTime (Prelude.Maybe [Group])
 resultByTime_groups = Lens.lens (\ResultByTime' {groups} -> groups) (\s@ResultByTime' {} a -> s {groups = a} :: ResultByTime) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ResultByTime where
+instance Data.FromJSON ResultByTime where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResultByTime"
       ( \x ->
           ResultByTime'
-            Prelude.<$> (x Core..:? "Total" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Estimated")
-            Prelude.<*> (x Core..:? "TimePeriod")
-            Prelude.<*> (x Core..:? "Groups" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Total" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Estimated")
+            Prelude.<*> (x Data..:? "TimePeriod")
+            Prelude.<*> (x Data..:? "Groups" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ResultByTime where

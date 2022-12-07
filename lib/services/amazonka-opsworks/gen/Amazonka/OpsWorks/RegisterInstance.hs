@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -171,7 +172,7 @@ instance Core.AWSRequest RegisterInstance where
     Response.receiveJSON
       ( \s h x ->
           RegisterInstanceResponse'
-            Prelude.<$> (x Core..?> "InstanceId")
+            Prelude.<$> (x Data..?> "InstanceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,41 +197,41 @@ instance Prelude.NFData RegisterInstance where
       `Prelude.seq` Prelude.rnf privateIp
       `Prelude.seq` Prelude.rnf stackId
 
-instance Core.ToHeaders RegisterInstance where
+instance Data.ToHeaders RegisterInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.RegisterInstance" ::
+              Data.=# ( "OpsWorks_20130218.RegisterInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterInstance where
+instance Data.ToJSON RegisterInstance where
   toJSON RegisterInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RsaPublicKeyFingerprint" Core..=)
+          [ ("RsaPublicKeyFingerprint" Data..=)
               Prelude.<$> rsaPublicKeyFingerprint,
-            ("Hostname" Core..=) Prelude.<$> hostname,
-            ("InstanceIdentity" Core..=)
+            ("Hostname" Data..=) Prelude.<$> hostname,
+            ("InstanceIdentity" Data..=)
               Prelude.<$> instanceIdentity,
-            ("PublicIp" Core..=) Prelude.<$> publicIp,
-            ("RsaPublicKey" Core..=) Prelude.<$> rsaPublicKey,
-            ("PrivateIp" Core..=) Prelude.<$> privateIp,
-            Prelude.Just ("StackId" Core..= stackId)
+            ("PublicIp" Data..=) Prelude.<$> publicIp,
+            ("RsaPublicKey" Data..=) Prelude.<$> rsaPublicKey,
+            ("PrivateIp" Data..=) Prelude.<$> privateIp,
+            Prelude.Just ("StackId" Data..= stackId)
           ]
       )
 
-instance Core.ToPath RegisterInstance where
+instance Data.ToPath RegisterInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterInstance where
+instance Data.ToQuery RegisterInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @RegisterInstanceResult@ request.

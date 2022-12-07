@@ -23,6 +23,7 @@ import Amazonka.CodePipeline.Types.ArtifactRevision
 import Amazonka.CodePipeline.Types.PipelineExecutionStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about an execution of a pipeline.
@@ -175,20 +176,20 @@ pipelineExecution_statusSummary = Lens.lens (\PipelineExecution' {statusSummary}
 pipelineExecution_pipelineName :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
 pipelineExecution_pipelineName = Lens.lens (\PipelineExecution' {pipelineName} -> pipelineName) (\s@PipelineExecution' {} a -> s {pipelineName = a} :: PipelineExecution)
 
-instance Core.FromJSON PipelineExecution where
+instance Data.FromJSON PipelineExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelineExecution"
       ( \x ->
           PipelineExecution'
-            Prelude.<$> (x Core..:? "pipelineExecutionId")
-            Prelude.<*> ( x Core..:? "artifactRevisions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "pipelineExecutionId")
+            Prelude.<*> ( x Data..:? "artifactRevisions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "pipelineVersion")
-            Prelude.<*> (x Core..:? "statusSummary")
-            Prelude.<*> (x Core..:? "pipelineName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "pipelineVersion")
+            Prelude.<*> (x Data..:? "statusSummary")
+            Prelude.<*> (x Data..:? "pipelineName")
       )
 
 instance Prelude.Hashable PipelineExecution where

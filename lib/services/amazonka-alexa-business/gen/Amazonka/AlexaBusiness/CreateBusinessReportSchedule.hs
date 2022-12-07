@@ -50,6 +50,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -173,7 +174,7 @@ instance Core.AWSRequest CreateBusinessReportSchedule where
     Response.receiveJSON
       ( \s h x ->
           CreateBusinessReportScheduleResponse'
-            Prelude.<$> (x Core..?> "ScheduleArn")
+            Prelude.<$> (x Data..?> "ScheduleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,41 +203,41 @@ instance Prelude.NFData CreateBusinessReportSchedule where
       `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf contentRange
 
-instance Core.ToHeaders CreateBusinessReportSchedule where
+instance Data.ToHeaders CreateBusinessReportSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.CreateBusinessReportSchedule" ::
+              Data.=# ( "AlexaForBusiness.CreateBusinessReportSchedule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBusinessReportSchedule where
+instance Data.ToJSON CreateBusinessReportSchedule where
   toJSON CreateBusinessReportSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("S3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("S3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("S3BucketName" Core..=) Prelude.<$> s3BucketName,
-            ("Recurrence" Core..=) Prelude.<$> recurrence,
-            ("ScheduleName" Core..=) Prelude.<$> scheduleName,
-            Prelude.Just ("Format" Core..= format),
-            Prelude.Just ("ContentRange" Core..= contentRange)
+            ("S3BucketName" Data..=) Prelude.<$> s3BucketName,
+            ("Recurrence" Data..=) Prelude.<$> recurrence,
+            ("ScheduleName" Data..=) Prelude.<$> scheduleName,
+            Prelude.Just ("Format" Data..= format),
+            Prelude.Just ("ContentRange" Data..= contentRange)
           ]
       )
 
-instance Core.ToPath CreateBusinessReportSchedule where
+instance Data.ToPath CreateBusinessReportSchedule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateBusinessReportSchedule where
+instance Data.ToQuery CreateBusinessReportSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBusinessReportScheduleResponse' smart constructor.

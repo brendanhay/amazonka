@@ -21,6 +21,7 @@ module Amazonka.OpsWorksCM.Types.EngineAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A name and value pair that is specific to the engine of the server.
@@ -30,7 +31,7 @@ data EngineAttribute = EngineAttribute'
   { -- | The name of the engine attribute.
     name :: Prelude.Maybe Prelude.Text,
     -- | The value of the engine attribute.
-    value :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    value :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -59,15 +60,15 @@ engineAttribute_name = Lens.lens (\EngineAttribute' {name} -> name) (\s@EngineAt
 
 -- | The value of the engine attribute.
 engineAttribute_value :: Lens.Lens' EngineAttribute (Prelude.Maybe Prelude.Text)
-engineAttribute_value = Lens.lens (\EngineAttribute' {value} -> value) (\s@EngineAttribute' {} a -> s {value = a} :: EngineAttribute) Prelude.. Lens.mapping Core._Sensitive
+engineAttribute_value = Lens.lens (\EngineAttribute' {value} -> value) (\s@EngineAttribute' {} a -> s {value = a} :: EngineAttribute) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON EngineAttribute where
+instance Data.FromJSON EngineAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EngineAttribute"
       ( \x ->
           EngineAttribute'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable EngineAttribute where
@@ -79,11 +80,11 @@ instance Prelude.NFData EngineAttribute where
   rnf EngineAttribute' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON EngineAttribute where
+instance Data.ToJSON EngineAttribute where
   toJSON EngineAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

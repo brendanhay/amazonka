@@ -39,6 +39,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,25 +105,25 @@ instance Prelude.NFData DeleteResource where
     Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf resourceId
 
-instance Core.ToHeaders DeleteResource where
+instance Data.ToHeaders DeleteResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath DeleteResource where
+instance Data.ToPath DeleteResource where
   toPath DeleteResource' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/resources/",
-        Core.toBS resourceId
+        Data.toBS resourceId
       ]
 
-instance Core.ToQuery DeleteResource where
+instance Data.ToQuery DeleteResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResourceResponse' smart constructor.

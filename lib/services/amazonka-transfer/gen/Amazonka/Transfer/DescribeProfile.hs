@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest DescribeProfile where
       ( \s h x ->
           DescribeProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Profile")
+            Prelude.<*> (x Data..:> "Profile")
       )
 
 instance Prelude.Hashable DescribeProfile where
@@ -94,32 +95,32 @@ instance Prelude.Hashable DescribeProfile where
 instance Prelude.NFData DescribeProfile where
   rnf DescribeProfile' {..} = Prelude.rnf profileId
 
-instance Core.ToHeaders DescribeProfile where
+instance Data.ToHeaders DescribeProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.DescribeProfile" ::
+              Data.=# ( "TransferService.DescribeProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeProfile where
+instance Data.ToJSON DescribeProfile where
   toJSON DescribeProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ProfileId" Core..= profileId)]
+          [Prelude.Just ("ProfileId" Data..= profileId)]
       )
 
-instance Core.ToPath DescribeProfile where
+instance Data.ToPath DescribeProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeProfile where
+instance Data.ToQuery DescribeProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProfileResponse' smart constructor.

@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ data UpdateScript = UpdateScript'
     -- parameter is set to the zip file name. It must be prepended with the
     -- string \"fileb:\/\/\" to indicate that the file data is a binary object.
     -- For example: @--zip-file fileb:\/\/myRealtimeScript.zip@.
-    zipFile :: Prelude.Maybe Core.Base64,
+    zipFile :: Prelude.Maybe Data.Base64,
     -- | The location of the Amazon S3 bucket where a zipped file containing your
     -- Realtime scripts is stored. The storage location must specify the Amazon
     -- S3 bucket name, the zip file name (the \"key\"), and a role ARN that
@@ -174,7 +175,7 @@ updateScript_name = Lens.lens (\UpdateScript' {name} -> name) (\s@UpdateScript' 
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 updateScript_zipFile :: Lens.Lens' UpdateScript (Prelude.Maybe Prelude.ByteString)
-updateScript_zipFile = Lens.lens (\UpdateScript' {zipFile} -> zipFile) (\s@UpdateScript' {} a -> s {zipFile = a} :: UpdateScript) Prelude.. Lens.mapping Core._Base64
+updateScript_zipFile = Lens.lens (\UpdateScript' {zipFile} -> zipFile) (\s@UpdateScript' {} a -> s {zipFile = a} :: UpdateScript) Prelude.. Lens.mapping Data._Base64
 
 -- | The location of the Amazon S3 bucket where a zipped file containing your
 -- Realtime scripts is stored. The storage location must specify the Amazon
@@ -205,7 +206,7 @@ instance Core.AWSRequest UpdateScript where
     Response.receiveJSON
       ( \s h x ->
           UpdateScriptResponse'
-            Prelude.<$> (x Core..?> "Script")
+            Prelude.<$> (x Data..?> "Script")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -225,36 +226,36 @@ instance Prelude.NFData UpdateScript where
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf scriptId
 
-instance Core.ToHeaders UpdateScript where
+instance Data.ToHeaders UpdateScript where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.UpdateScript" :: Prelude.ByteString),
+              Data.=# ("GameLift.UpdateScript" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateScript where
+instance Data.ToJSON UpdateScript where
   toJSON UpdateScript' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("ZipFile" Core..=) Prelude.<$> zipFile,
-            ("StorageLocation" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("ZipFile" Data..=) Prelude.<$> zipFile,
+            ("StorageLocation" Data..=)
               Prelude.<$> storageLocation,
-            ("Version" Core..=) Prelude.<$> version,
-            Prelude.Just ("ScriptId" Core..= scriptId)
+            ("Version" Data..=) Prelude.<$> version,
+            Prelude.Just ("ScriptId" Data..= scriptId)
           ]
       )
 
-instance Core.ToPath UpdateScript where
+instance Data.ToPath UpdateScript where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateScript where
+instance Data.ToQuery UpdateScript where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateScriptResponse' smart constructor.

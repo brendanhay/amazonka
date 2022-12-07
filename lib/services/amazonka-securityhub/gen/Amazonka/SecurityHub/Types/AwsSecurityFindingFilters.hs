@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsSecurityFindingFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.BooleanFilter
 import Amazonka.SecurityHub.Types.DateFilter
@@ -1231,224 +1232,224 @@ awsSecurityFindingFilters_relatedFindingsProductArn = Lens.lens (\AwsSecurityFin
 awsSecurityFindingFilters_resourceDetailsOther :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [MapFilter])
 awsSecurityFindingFilters_resourceDetailsOther = Lens.lens (\AwsSecurityFindingFilters' {resourceDetailsOther} -> resourceDetailsOther) (\s@AwsSecurityFindingFilters' {} a -> s {resourceDetailsOther = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AwsSecurityFindingFilters where
+instance Data.FromJSON AwsSecurityFindingFilters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsSecurityFindingFilters"
       ( \x ->
           AwsSecurityFindingFilters'
-            Prelude.<$> (x Core..:? "NoteText" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MalwarePath" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResourceId" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "SeverityProduct"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "NoteText" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MalwarePath" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResourceId" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "SeverityProduct"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ProductName" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "NetworkProtocol"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ProductName" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "NetworkProtocol"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "NetworkDestinationIpV6"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "NetworkDestinationIpV6"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AwsAccountId" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "ThreatIntelIndicatorLastObservedAt"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "AwsAccountId" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorLastObservedAt"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ResourceType" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "RecommendationText"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ResourceType" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "RecommendationText"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Criticality" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "ResourceAwsEc2InstanceImageId"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Criticality" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceImageId"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "RecordState" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ProcessPid" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "FindingProviderFieldsSeverityOriginal"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "RecordState" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ProcessPid" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "FindingProviderFieldsSeverityOriginal"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "NetworkSourceMac"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "NetworkSourceMac"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Type" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ProductFields" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CompanyName" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "ThreatIntelIndicatorValue"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Type" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ProductFields" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CompanyName" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorValue"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ProcessTerminatedAt"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ProcessTerminatedAt"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "NetworkDestinationIpV4"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "NetworkDestinationIpV4"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ResourceAwsS3BucketOwnerId"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ResourceAwsS3BucketOwnerId"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "FindingProviderFieldsRelatedFindingsId"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "FindingProviderFieldsRelatedFindingsId"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ResourceAwsIamUserUserName"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ResourceAwsIamUserUserName"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ResourceAwsEc2InstanceType"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceType"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ResourceAwsEc2InstanceIpV4Addresses"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceIpV4Addresses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "SeverityNormalized"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "SeverityNormalized"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ResourceContainerLaunchedAt"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ResourceContainerLaunchedAt"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "NetworkDestinationPort"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "NetworkDestinationPort"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SeverityLabel" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Confidence" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "UserDefinedFields"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "SeverityLabel" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Confidence" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "UserDefinedFields"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "NoteUpdatedAt" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "ResourceAwsS3BucketOwnerName"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "NoteUpdatedAt" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "ResourceAwsS3BucketOwnerName"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "RelatedFindingsId"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x
-                            Core..:? "FindingProviderFieldsRelatedFindingsProductArn"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Core..:? "FindingProviderFieldsConfidence"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Core..:? "ResourceAwsIamAccessKeyCreatedAt"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Core..:? "ResourceAwsEc2InstanceKeyName"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "RelatedFindingsId"
+                            Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x
-                            Core..:? "ResourceAwsEc2InstanceIamInstanceProfileArn"
-                            Core..!= Prelude.mempty
+                            Data..:? "FindingProviderFieldsRelatedFindingsProductArn"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ComplianceStatus"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "FindingProviderFieldsConfidence"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "NetworkDestinationDomain"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ResourceAwsIamAccessKeyCreatedAt"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "NetworkSourceDomain"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceKeyName"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ThreatIntelIndicatorSource"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceIamInstanceProfileArn"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MalwareState" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResourceTags" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "ResourcePartition"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ComplianceStatus"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Id" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Description" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MalwareType" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "ThreatIntelIndicatorSourceUrl"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "NetworkDestinationDomain"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ResourceAwsIamAccessKeyPrincipalName"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "NetworkSourceDomain"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "NetworkSourceIpV6"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorSource"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Region" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "NetworkDirection"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "MalwareState" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResourceTags" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "ResourcePartition"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Title" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "FirstObservedAt"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Id" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Description" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MalwareType" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorSourceUrl"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ResourceRegion" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Keyword" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ProductArn" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "VerificationState"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ResourceAwsIamAccessKeyPrincipalName"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ResourceContainerName"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "NetworkSourceIpV6"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ThreatIntelIndicatorCategory"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Region" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "NetworkDirection"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ResourceAwsIamAccessKeyUserName"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Title" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "FirstObservedAt"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "FindingProviderFieldsCriticality"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ResourceRegion" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Keyword" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ProductArn" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "VerificationState"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ResourceAwsEc2InstanceSubnetId"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ResourceContainerName"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastObservedAt" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MalwareName" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "NetworkSourceIpV4"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorCategory"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ProcessName" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "NetworkSourcePort"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ResourceAwsIamAccessKeyUserName"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "NoteUpdatedBy" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "ProcessLaunchedAt"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "FindingProviderFieldsCriticality"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ThreatIntelIndicatorType"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceSubnetId"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ResourceAwsIamAccessKeyStatus"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "LastObservedAt" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MalwareName" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "NetworkSourceIpV4"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ResourceAwsEc2InstanceLaunchedAt"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ProcessName" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "NetworkSourcePort"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ResourceAwsEc2InstanceVpcId"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "NoteUpdatedBy" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "ProcessLaunchedAt"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "FindingProviderFieldsTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorType"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "WorkflowStatus" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SourceUrl" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "ProcessParentPid"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ResourceAwsIamAccessKeyStatus"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CreatedAt" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "FindingProviderFieldsSeverityLabel"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceLaunchedAt"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ResourceAwsEc2InstanceIpV6Addresses"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceVpcId"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "WorkflowState" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "GeneratorId" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "UpdatedAt" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "ResourceContainerImageId"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "FindingProviderFieldsTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ResourceContainerImageName"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "WorkflowStatus" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SourceUrl" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "ProcessParentPid"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ProcessPath" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Sample" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "RelatedFindingsProductArn"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "CreatedAt" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "FindingProviderFieldsSeverityLabel"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ResourceDetailsOther"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceIpV6Addresses"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "WorkflowState" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "GeneratorId" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "UpdatedAt" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "ResourceContainerImageId"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Data..:? "ResourceContainerImageName"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "ProcessPath" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Sample" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "RelatedFindingsProductArn"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Data..:? "ResourceDetailsOther"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -1724,169 +1725,169 @@ instance Prelude.NFData AwsSecurityFindingFilters where
       `Prelude.seq` Prelude.rnf
         resourceDetailsOther
 
-instance Core.ToJSON AwsSecurityFindingFilters where
+instance Data.ToJSON AwsSecurityFindingFilters where
   toJSON AwsSecurityFindingFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NoteText" Core..=) Prelude.<$> noteText,
-            ("MalwarePath" Core..=) Prelude.<$> malwarePath,
-            ("ResourceId" Core..=) Prelude.<$> resourceId,
-            ("SeverityProduct" Core..=)
+          [ ("NoteText" Data..=) Prelude.<$> noteText,
+            ("MalwarePath" Data..=) Prelude.<$> malwarePath,
+            ("ResourceId" Data..=) Prelude.<$> resourceId,
+            ("SeverityProduct" Data..=)
               Prelude.<$> severityProduct,
-            ("ProductName" Core..=) Prelude.<$> productName,
-            ("NetworkProtocol" Core..=)
+            ("ProductName" Data..=) Prelude.<$> productName,
+            ("NetworkProtocol" Data..=)
               Prelude.<$> networkProtocol,
-            ("NetworkDestinationIpV6" Core..=)
+            ("NetworkDestinationIpV6" Data..=)
               Prelude.<$> networkDestinationIpV6,
-            ("AwsAccountId" Core..=) Prelude.<$> awsAccountId,
-            ("ThreatIntelIndicatorLastObservedAt" Core..=)
+            ("AwsAccountId" Data..=) Prelude.<$> awsAccountId,
+            ("ThreatIntelIndicatorLastObservedAt" Data..=)
               Prelude.<$> threatIntelIndicatorLastObservedAt,
-            ("ResourceType" Core..=) Prelude.<$> resourceType,
-            ("RecommendationText" Core..=)
+            ("ResourceType" Data..=) Prelude.<$> resourceType,
+            ("RecommendationText" Data..=)
               Prelude.<$> recommendationText,
-            ("Criticality" Core..=) Prelude.<$> criticality,
-            ("ResourceAwsEc2InstanceImageId" Core..=)
+            ("Criticality" Data..=) Prelude.<$> criticality,
+            ("ResourceAwsEc2InstanceImageId" Data..=)
               Prelude.<$> resourceAwsEc2InstanceImageId,
-            ("RecordState" Core..=) Prelude.<$> recordState,
-            ("ProcessPid" Core..=) Prelude.<$> processPid,
-            ("FindingProviderFieldsSeverityOriginal" Core..=)
+            ("RecordState" Data..=) Prelude.<$> recordState,
+            ("ProcessPid" Data..=) Prelude.<$> processPid,
+            ("FindingProviderFieldsSeverityOriginal" Data..=)
               Prelude.<$> findingProviderFieldsSeverityOriginal,
-            ("NetworkSourceMac" Core..=)
+            ("NetworkSourceMac" Data..=)
               Prelude.<$> networkSourceMac,
-            ("Type" Core..=) Prelude.<$> type',
-            ("ProductFields" Core..=) Prelude.<$> productFields,
-            ("CompanyName" Core..=) Prelude.<$> companyName,
-            ("ThreatIntelIndicatorValue" Core..=)
+            ("Type" Data..=) Prelude.<$> type',
+            ("ProductFields" Data..=) Prelude.<$> productFields,
+            ("CompanyName" Data..=) Prelude.<$> companyName,
+            ("ThreatIntelIndicatorValue" Data..=)
               Prelude.<$> threatIntelIndicatorValue,
-            ("ProcessTerminatedAt" Core..=)
+            ("ProcessTerminatedAt" Data..=)
               Prelude.<$> processTerminatedAt,
-            ("NetworkDestinationIpV4" Core..=)
+            ("NetworkDestinationIpV4" Data..=)
               Prelude.<$> networkDestinationIpV4,
-            ("ResourceAwsS3BucketOwnerId" Core..=)
+            ("ResourceAwsS3BucketOwnerId" Data..=)
               Prelude.<$> resourceAwsS3BucketOwnerId,
-            ("FindingProviderFieldsRelatedFindingsId" Core..=)
+            ("FindingProviderFieldsRelatedFindingsId" Data..=)
               Prelude.<$> findingProviderFieldsRelatedFindingsId,
-            ("ResourceAwsIamUserUserName" Core..=)
+            ("ResourceAwsIamUserUserName" Data..=)
               Prelude.<$> resourceAwsIamUserUserName,
-            ("ResourceAwsEc2InstanceType" Core..=)
+            ("ResourceAwsEc2InstanceType" Data..=)
               Prelude.<$> resourceAwsEc2InstanceType,
-            ("ResourceAwsEc2InstanceIpV4Addresses" Core..=)
+            ("ResourceAwsEc2InstanceIpV4Addresses" Data..=)
               Prelude.<$> resourceAwsEc2InstanceIpV4Addresses,
-            ("SeverityNormalized" Core..=)
+            ("SeverityNormalized" Data..=)
               Prelude.<$> severityNormalized,
-            ("ResourceContainerLaunchedAt" Core..=)
+            ("ResourceContainerLaunchedAt" Data..=)
               Prelude.<$> resourceContainerLaunchedAt,
-            ("NetworkDestinationPort" Core..=)
+            ("NetworkDestinationPort" Data..=)
               Prelude.<$> networkDestinationPort,
-            ("SeverityLabel" Core..=) Prelude.<$> severityLabel,
-            ("Confidence" Core..=) Prelude.<$> confidence,
-            ("UserDefinedFields" Core..=)
+            ("SeverityLabel" Data..=) Prelude.<$> severityLabel,
+            ("Confidence" Data..=) Prelude.<$> confidence,
+            ("UserDefinedFields" Data..=)
               Prelude.<$> userDefinedFields,
-            ("NoteUpdatedAt" Core..=) Prelude.<$> noteUpdatedAt,
-            ("ResourceAwsS3BucketOwnerName" Core..=)
+            ("NoteUpdatedAt" Data..=) Prelude.<$> noteUpdatedAt,
+            ("ResourceAwsS3BucketOwnerName" Data..=)
               Prelude.<$> resourceAwsS3BucketOwnerName,
-            ("RelatedFindingsId" Core..=)
+            ("RelatedFindingsId" Data..=)
               Prelude.<$> relatedFindingsId,
             ( "FindingProviderFieldsRelatedFindingsProductArn"
-                Core..=
+                Data..=
             )
               Prelude.<$> findingProviderFieldsRelatedFindingsProductArn,
-            ("FindingProviderFieldsConfidence" Core..=)
+            ("FindingProviderFieldsConfidence" Data..=)
               Prelude.<$> findingProviderFieldsConfidence,
-            ("ResourceAwsIamAccessKeyCreatedAt" Core..=)
+            ("ResourceAwsIamAccessKeyCreatedAt" Data..=)
               Prelude.<$> resourceAwsIamAccessKeyCreatedAt,
-            ("ResourceAwsEc2InstanceKeyName" Core..=)
+            ("ResourceAwsEc2InstanceKeyName" Data..=)
               Prelude.<$> resourceAwsEc2InstanceKeyName,
             ( "ResourceAwsEc2InstanceIamInstanceProfileArn"
-                Core..=
+                Data..=
             )
               Prelude.<$> resourceAwsEc2InstanceIamInstanceProfileArn,
-            ("ComplianceStatus" Core..=)
+            ("ComplianceStatus" Data..=)
               Prelude.<$> complianceStatus,
-            ("NetworkDestinationDomain" Core..=)
+            ("NetworkDestinationDomain" Data..=)
               Prelude.<$> networkDestinationDomain,
-            ("NetworkSourceDomain" Core..=)
+            ("NetworkSourceDomain" Data..=)
               Prelude.<$> networkSourceDomain,
-            ("ThreatIntelIndicatorSource" Core..=)
+            ("ThreatIntelIndicatorSource" Data..=)
               Prelude.<$> threatIntelIndicatorSource,
-            ("MalwareState" Core..=) Prelude.<$> malwareState,
-            ("ResourceTags" Core..=) Prelude.<$> resourceTags,
-            ("ResourcePartition" Core..=)
+            ("MalwareState" Data..=) Prelude.<$> malwareState,
+            ("ResourceTags" Data..=) Prelude.<$> resourceTags,
+            ("ResourcePartition" Data..=)
               Prelude.<$> resourcePartition,
-            ("Id" Core..=) Prelude.<$> id,
-            ("Description" Core..=) Prelude.<$> description,
-            ("MalwareType" Core..=) Prelude.<$> malwareType,
-            ("ThreatIntelIndicatorSourceUrl" Core..=)
+            ("Id" Data..=) Prelude.<$> id,
+            ("Description" Data..=) Prelude.<$> description,
+            ("MalwareType" Data..=) Prelude.<$> malwareType,
+            ("ThreatIntelIndicatorSourceUrl" Data..=)
               Prelude.<$> threatIntelIndicatorSourceUrl,
-            ("ResourceAwsIamAccessKeyPrincipalName" Core..=)
+            ("ResourceAwsIamAccessKeyPrincipalName" Data..=)
               Prelude.<$> resourceAwsIamAccessKeyPrincipalName,
-            ("NetworkSourceIpV6" Core..=)
+            ("NetworkSourceIpV6" Data..=)
               Prelude.<$> networkSourceIpV6,
-            ("Region" Core..=) Prelude.<$> region,
-            ("NetworkDirection" Core..=)
+            ("Region" Data..=) Prelude.<$> region,
+            ("NetworkDirection" Data..=)
               Prelude.<$> networkDirection,
-            ("Title" Core..=) Prelude.<$> title,
-            ("FirstObservedAt" Core..=)
+            ("Title" Data..=) Prelude.<$> title,
+            ("FirstObservedAt" Data..=)
               Prelude.<$> firstObservedAt,
-            ("ResourceRegion" Core..=)
+            ("ResourceRegion" Data..=)
               Prelude.<$> resourceRegion,
-            ("Keyword" Core..=) Prelude.<$> keyword,
-            ("ProductArn" Core..=) Prelude.<$> productArn,
-            ("VerificationState" Core..=)
+            ("Keyword" Data..=) Prelude.<$> keyword,
+            ("ProductArn" Data..=) Prelude.<$> productArn,
+            ("VerificationState" Data..=)
               Prelude.<$> verificationState,
-            ("ResourceContainerName" Core..=)
+            ("ResourceContainerName" Data..=)
               Prelude.<$> resourceContainerName,
-            ("ThreatIntelIndicatorCategory" Core..=)
+            ("ThreatIntelIndicatorCategory" Data..=)
               Prelude.<$> threatIntelIndicatorCategory,
-            ("ResourceAwsIamAccessKeyUserName" Core..=)
+            ("ResourceAwsIamAccessKeyUserName" Data..=)
               Prelude.<$> resourceAwsIamAccessKeyUserName,
-            ("FindingProviderFieldsCriticality" Core..=)
+            ("FindingProviderFieldsCriticality" Data..=)
               Prelude.<$> findingProviderFieldsCriticality,
-            ("ResourceAwsEc2InstanceSubnetId" Core..=)
+            ("ResourceAwsEc2InstanceSubnetId" Data..=)
               Prelude.<$> resourceAwsEc2InstanceSubnetId,
-            ("LastObservedAt" Core..=)
+            ("LastObservedAt" Data..=)
               Prelude.<$> lastObservedAt,
-            ("MalwareName" Core..=) Prelude.<$> malwareName,
-            ("NetworkSourceIpV4" Core..=)
+            ("MalwareName" Data..=) Prelude.<$> malwareName,
+            ("NetworkSourceIpV4" Data..=)
               Prelude.<$> networkSourceIpV4,
-            ("ProcessName" Core..=) Prelude.<$> processName,
-            ("NetworkSourcePort" Core..=)
+            ("ProcessName" Data..=) Prelude.<$> processName,
+            ("NetworkSourcePort" Data..=)
               Prelude.<$> networkSourcePort,
-            ("NoteUpdatedBy" Core..=) Prelude.<$> noteUpdatedBy,
-            ("ProcessLaunchedAt" Core..=)
+            ("NoteUpdatedBy" Data..=) Prelude.<$> noteUpdatedBy,
+            ("ProcessLaunchedAt" Data..=)
               Prelude.<$> processLaunchedAt,
-            ("ThreatIntelIndicatorType" Core..=)
+            ("ThreatIntelIndicatorType" Data..=)
               Prelude.<$> threatIntelIndicatorType,
-            ("ResourceAwsIamAccessKeyStatus" Core..=)
+            ("ResourceAwsIamAccessKeyStatus" Data..=)
               Prelude.<$> resourceAwsIamAccessKeyStatus,
-            ("ResourceAwsEc2InstanceLaunchedAt" Core..=)
+            ("ResourceAwsEc2InstanceLaunchedAt" Data..=)
               Prelude.<$> resourceAwsEc2InstanceLaunchedAt,
-            ("ResourceAwsEc2InstanceVpcId" Core..=)
+            ("ResourceAwsEc2InstanceVpcId" Data..=)
               Prelude.<$> resourceAwsEc2InstanceVpcId,
-            ("FindingProviderFieldsTypes" Core..=)
+            ("FindingProviderFieldsTypes" Data..=)
               Prelude.<$> findingProviderFieldsTypes,
-            ("WorkflowStatus" Core..=)
+            ("WorkflowStatus" Data..=)
               Prelude.<$> workflowStatus,
-            ("SourceUrl" Core..=) Prelude.<$> sourceUrl,
-            ("ProcessParentPid" Core..=)
+            ("SourceUrl" Data..=) Prelude.<$> sourceUrl,
+            ("ProcessParentPid" Data..=)
               Prelude.<$> processParentPid,
-            ("CreatedAt" Core..=) Prelude.<$> createdAt,
-            ("FindingProviderFieldsSeverityLabel" Core..=)
+            ("CreatedAt" Data..=) Prelude.<$> createdAt,
+            ("FindingProviderFieldsSeverityLabel" Data..=)
               Prelude.<$> findingProviderFieldsSeverityLabel,
-            ("ResourceAwsEc2InstanceIpV6Addresses" Core..=)
+            ("ResourceAwsEc2InstanceIpV6Addresses" Data..=)
               Prelude.<$> resourceAwsEc2InstanceIpV6Addresses,
-            ("WorkflowState" Core..=) Prelude.<$> workflowState,
-            ("GeneratorId" Core..=) Prelude.<$> generatorId,
-            ("UpdatedAt" Core..=) Prelude.<$> updatedAt,
-            ("ResourceContainerImageId" Core..=)
+            ("WorkflowState" Data..=) Prelude.<$> workflowState,
+            ("GeneratorId" Data..=) Prelude.<$> generatorId,
+            ("UpdatedAt" Data..=) Prelude.<$> updatedAt,
+            ("ResourceContainerImageId" Data..=)
               Prelude.<$> resourceContainerImageId,
-            ("ResourceContainerImageName" Core..=)
+            ("ResourceContainerImageName" Data..=)
               Prelude.<$> resourceContainerImageName,
-            ("ProcessPath" Core..=) Prelude.<$> processPath,
-            ("Sample" Core..=) Prelude.<$> sample,
-            ("RelatedFindingsProductArn" Core..=)
+            ("ProcessPath" Data..=) Prelude.<$> processPath,
+            ("Sample" Data..=) Prelude.<$> sample,
+            ("RelatedFindingsProductArn" Data..=)
               Prelude.<$> relatedFindingsProductArn,
-            ("ResourceDetailsOther" Core..=)
+            ("ResourceDetailsOther" Data..=)
               Prelude.<$> resourceDetailsOther
           ]
       )

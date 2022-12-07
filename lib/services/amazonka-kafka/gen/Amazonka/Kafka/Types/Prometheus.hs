@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.Prometheus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.JmxExporter
 import Amazonka.Kafka.Types.NodeExporter
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ prometheus_jmxExporter = Lens.lens (\Prometheus' {jmxExporter} -> jmxExporter) (
 prometheus_nodeExporter :: Lens.Lens' Prometheus (Prelude.Maybe NodeExporter)
 prometheus_nodeExporter = Lens.lens (\Prometheus' {nodeExporter} -> nodeExporter) (\s@Prometheus' {} a -> s {nodeExporter = a} :: Prometheus)
 
-instance Core.FromJSON Prometheus where
+instance Data.FromJSON Prometheus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Prometheus"
       ( \x ->
           Prometheus'
-            Prelude.<$> (x Core..:? "jmxExporter")
-            Prelude.<*> (x Core..:? "nodeExporter")
+            Prelude.<$> (x Data..:? "jmxExporter")
+            Prelude.<*> (x Data..:? "nodeExporter")
       )
 
 instance Prelude.Hashable Prometheus where

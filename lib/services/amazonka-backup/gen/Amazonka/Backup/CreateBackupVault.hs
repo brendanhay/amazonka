@@ -52,6 +52,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -71,7 +72,7 @@ data CreateBackupVault = CreateBackupVault'
     creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | Metadata that you can assign to help organize the resources that you
     -- create. Each tag is a key-value pair.
-    backupVaultTags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    backupVaultTags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The name of a logical container where backups are stored. Backup vaults
     -- are identified by names that are unique to the account used to create
     -- them and the Amazon Web Services Region where they are created. They
@@ -137,7 +138,7 @@ createBackupVault_creatorRequestId = Lens.lens (\CreateBackupVault' {creatorRequ
 -- | Metadata that you can assign to help organize the resources that you
 -- create. Each tag is a key-value pair.
 createBackupVault_backupVaultTags :: Lens.Lens' CreateBackupVault (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createBackupVault_backupVaultTags = Lens.lens (\CreateBackupVault' {backupVaultTags} -> backupVaultTags) (\s@CreateBackupVault' {} a -> s {backupVaultTags = a} :: CreateBackupVault) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createBackupVault_backupVaultTags = Lens.lens (\CreateBackupVault' {backupVaultTags} -> backupVaultTags) (\s@CreateBackupVault' {} a -> s {backupVaultTags = a} :: CreateBackupVault) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of a logical container where backups are stored. Backup vaults
 -- are identified by names that are unique to the account used to create
@@ -156,9 +157,9 @@ instance Core.AWSRequest CreateBackupVault where
     Response.receiveJSON
       ( \s h x ->
           CreateBackupVaultResponse'
-            Prelude.<$> (x Core..?> "BackupVaultName")
-            Prelude.<*> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "BackupVaultArn")
+            Prelude.<$> (x Data..?> "BackupVaultName")
+            Prelude.<*> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "BackupVaultArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,36 +177,36 @@ instance Prelude.NFData CreateBackupVault where
       `Prelude.seq` Prelude.rnf backupVaultTags
       `Prelude.seq` Prelude.rnf backupVaultName
 
-instance Core.ToHeaders CreateBackupVault where
+instance Data.ToHeaders CreateBackupVault where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBackupVault where
+instance Data.ToJSON CreateBackupVault where
   toJSON CreateBackupVault' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EncryptionKeyArn" Core..=)
+          [ ("EncryptionKeyArn" Data..=)
               Prelude.<$> encryptionKeyArn,
-            ("CreatorRequestId" Core..=)
+            ("CreatorRequestId" Data..=)
               Prelude.<$> creatorRequestId,
-            ("BackupVaultTags" Core..=)
+            ("BackupVaultTags" Data..=)
               Prelude.<$> backupVaultTags
           ]
       )
 
-instance Core.ToPath CreateBackupVault where
+instance Data.ToPath CreateBackupVault where
   toPath CreateBackupVault' {..} =
     Prelude.mconcat
-      ["/backup-vaults/", Core.toBS backupVaultName]
+      ["/backup-vaults/", Data.toBS backupVaultName]
 
-instance Core.ToQuery CreateBackupVault where
+instance Data.ToQuery CreateBackupVault where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBackupVaultResponse' smart constructor.
@@ -219,7 +220,7 @@ data CreateBackupVaultResponse = CreateBackupVaultResponse'
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
     -- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
     backupVaultArn :: Prelude.Maybe Prelude.Text,
@@ -275,7 +276,7 @@ createBackupVaultResponse_backupVaultName = Lens.lens (\CreateBackupVaultRespons
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 createBackupVaultResponse_creationDate :: Lens.Lens' CreateBackupVaultResponse (Prelude.Maybe Prelude.UTCTime)
-createBackupVaultResponse_creationDate = Lens.lens (\CreateBackupVaultResponse' {creationDate} -> creationDate) (\s@CreateBackupVaultResponse' {} a -> s {creationDate = a} :: CreateBackupVaultResponse) Prelude.. Lens.mapping Core._Time
+createBackupVaultResponse_creationDate = Lens.lens (\CreateBackupVaultResponse' {creationDate} -> creationDate) (\s@CreateBackupVaultResponse' {} a -> s {creationDate = a} :: CreateBackupVaultResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
 -- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.

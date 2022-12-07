@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest UpdateBlueprint where
     Response.receiveJSON
       ( \s h x ->
           UpdateBlueprintResponse'
-            Prelude.<$> (x Core..?> "Name")
+            Prelude.<$> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,34 +124,34 @@ instance Prelude.NFData UpdateBlueprint where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf blueprintLocation
 
-instance Core.ToHeaders UpdateBlueprint where
+instance Data.ToHeaders UpdateBlueprint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdateBlueprint" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.UpdateBlueprint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBlueprint where
+instance Data.ToJSON UpdateBlueprint where
   toJSON UpdateBlueprint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
+          [ ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("BlueprintLocation" Core..= blueprintLocation)
+              ("BlueprintLocation" Data..= blueprintLocation)
           ]
       )
 
-instance Core.ToPath UpdateBlueprint where
+instance Data.ToPath UpdateBlueprint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateBlueprint where
+instance Data.ToQuery UpdateBlueprint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBlueprintResponse' smart constructor.

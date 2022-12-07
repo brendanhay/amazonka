@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.ExplainabilitySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.ExplainabilityConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -43,7 +44,7 @@ data ExplainabilitySummary = ExplainabilitySummary'
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | Information about any errors that may have occurred during the
     -- Explainability creation process.
     message :: Prelude.Maybe Prelude.Text,
@@ -65,7 +66,7 @@ data ExplainabilitySummary = ExplainabilitySummary'
     -- | The name of the Explainability.
     explainabilityName :: Prelude.Maybe Prelude.Text,
     -- | When the Explainability was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the Predictor or Forecast used to
     -- create the Explainability.
     resourceArn :: Prelude.Maybe Prelude.Text
@@ -145,7 +146,7 @@ newExplainabilitySummary =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 explainabilitySummary_lastModificationTime :: Lens.Lens' ExplainabilitySummary (Prelude.Maybe Prelude.UTCTime)
-explainabilitySummary_lastModificationTime = Lens.lens (\ExplainabilitySummary' {lastModificationTime} -> lastModificationTime) (\s@ExplainabilitySummary' {} a -> s {lastModificationTime = a} :: ExplainabilitySummary) Prelude.. Lens.mapping Core._Time
+explainabilitySummary_lastModificationTime = Lens.lens (\ExplainabilitySummary' {lastModificationTime} -> lastModificationTime) (\s@ExplainabilitySummary' {} a -> s {lastModificationTime = a} :: ExplainabilitySummary) Prelude.. Lens.mapping Data._Time
 
 -- | Information about any errors that may have occurred during the
 -- Explainability creation process.
@@ -179,27 +180,27 @@ explainabilitySummary_explainabilityName = Lens.lens (\ExplainabilitySummary' {e
 
 -- | When the Explainability was created.
 explainabilitySummary_creationTime :: Lens.Lens' ExplainabilitySummary (Prelude.Maybe Prelude.UTCTime)
-explainabilitySummary_creationTime = Lens.lens (\ExplainabilitySummary' {creationTime} -> creationTime) (\s@ExplainabilitySummary' {} a -> s {creationTime = a} :: ExplainabilitySummary) Prelude.. Lens.mapping Core._Time
+explainabilitySummary_creationTime = Lens.lens (\ExplainabilitySummary' {creationTime} -> creationTime) (\s@ExplainabilitySummary' {} a -> s {creationTime = a} :: ExplainabilitySummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the Predictor or Forecast used to
 -- create the Explainability.
 explainabilitySummary_resourceArn :: Lens.Lens' ExplainabilitySummary (Prelude.Maybe Prelude.Text)
 explainabilitySummary_resourceArn = Lens.lens (\ExplainabilitySummary' {resourceArn} -> resourceArn) (\s@ExplainabilitySummary' {} a -> s {resourceArn = a} :: ExplainabilitySummary)
 
-instance Core.FromJSON ExplainabilitySummary where
+instance Data.FromJSON ExplainabilitySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExplainabilitySummary"
       ( \x ->
           ExplainabilitySummary'
-            Prelude.<$> (x Core..:? "LastModificationTime")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "ExplainabilityConfig")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ExplainabilityArn")
-            Prelude.<*> (x Core..:? "ExplainabilityName")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ResourceArn")
+            Prelude.<$> (x Data..:? "LastModificationTime")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "ExplainabilityConfig")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ExplainabilityArn")
+            Prelude.<*> (x Data..:? "ExplainabilityName")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "ResourceArn")
       )
 
 instance Prelude.Hashable ExplainabilitySummary where

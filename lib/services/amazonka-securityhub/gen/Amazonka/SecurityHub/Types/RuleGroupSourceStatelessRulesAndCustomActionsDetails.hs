@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRulesAndCustomActionsD
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.RuleGroupSourceCustomActionsDetails
 import Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRulesDetails
@@ -66,17 +67,17 @@ ruleGroupSourceStatelessRulesAndCustomActionsDetails_statelessRules :: Lens.Lens
 ruleGroupSourceStatelessRulesAndCustomActionsDetails_statelessRules = Lens.lens (\RuleGroupSourceStatelessRulesAndCustomActionsDetails' {statelessRules} -> statelessRules) (\s@RuleGroupSourceStatelessRulesAndCustomActionsDetails' {} a -> s {statelessRules = a} :: RuleGroupSourceStatelessRulesAndCustomActionsDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RuleGroupSourceStatelessRulesAndCustomActionsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupSourceStatelessRulesAndCustomActionsDetails"
       ( \x ->
           RuleGroupSourceStatelessRulesAndCustomActionsDetails'
-            Prelude.<$> (x Core..:? "CustomActions" Core..!= Prelude.mempty)
-              Prelude.<*> ( x Core..:? "StatelessRules"
-                              Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "CustomActions" Data..!= Prelude.mempty)
+              Prelude.<*> ( x Data..:? "StatelessRules"
+                              Data..!= Prelude.mempty
                           )
       )
 
@@ -100,15 +101,15 @@ instance
         `Prelude.seq` Prelude.rnf statelessRules
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RuleGroupSourceStatelessRulesAndCustomActionsDetails
   where
   toJSON
     RuleGroupSourceStatelessRulesAndCustomActionsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("CustomActions" Core..=) Prelude.<$> customActions,
-              ("StatelessRules" Core..=)
+            [ ("CustomActions" Data..=) Prelude.<$> customActions,
+              ("StatelessRules" Data..=)
                 Prelude.<$> statelessRules
             ]
         )

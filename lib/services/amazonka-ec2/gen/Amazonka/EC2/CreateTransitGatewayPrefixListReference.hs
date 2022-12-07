@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,7 +146,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayPrefixListReferenceResponse'
-            Prelude.<$> (x Core..@? "transitGatewayPrefixListReference")
+            Prelude.<$> (x Data..@? "transitGatewayPrefixListReference")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,36 +176,36 @@ instance
       `Prelude.seq` Prelude.rnf prefixListId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateTransitGatewayPrefixListReference
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateTransitGatewayPrefixListReference
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateTransitGatewayPrefixListReference
   where
   toQuery CreateTransitGatewayPrefixListReference' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateTransitGatewayPrefixListReference" ::
+          Data.=: ( "CreateTransitGatewayPrefixListReference" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "TransitGatewayAttachmentId"
-          Core.=: transitGatewayAttachmentId,
-        "DryRun" Core.=: dryRun,
-        "Blackhole" Core.=: blackhole,
+          Data.=: transitGatewayAttachmentId,
+        "DryRun" Data.=: dryRun,
+        "Blackhole" Data.=: blackhole,
         "TransitGatewayRouteTableId"
-          Core.=: transitGatewayRouteTableId,
-        "PrefixListId" Core.=: prefixListId
+          Data.=: transitGatewayRouteTableId,
+        "PrefixListId" Data.=: prefixListId
       ]
 
 -- | /See:/ 'newCreateTransitGatewayPrefixListReferenceResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupMixedInstancesPo
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the launch template to use for a mixed instances policy.
@@ -83,17 +84,17 @@ awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSp
 awsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification_launchTemplateName = Lens.lens (\AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification"
       ( \x ->
           AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification'
-            Prelude.<$> (x Core..:? "LaunchTemplateId")
-              Prelude.<*> (x Core..:? "Version")
-              Prelude.<*> (x Core..:? "LaunchTemplateName")
+            Prelude.<$> (x Data..:? "LaunchTemplateId")
+              Prelude.<*> (x Data..:? "Version")
+              Prelude.<*> (x Data..:? "LaunchTemplateName")
       )
 
 instance
@@ -118,17 +119,17 @@ instance
         `Prelude.seq` Prelude.rnf launchTemplateName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification
   where
   toJSON
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("LaunchTemplateId" Core..=)
+            [ ("LaunchTemplateId" Data..=)
                 Prelude.<$> launchTemplateId,
-              ("Version" Core..=) Prelude.<$> version,
-              ("LaunchTemplateName" Core..=)
+              ("Version" Data..=) Prelude.<$> version,
+              ("LaunchTemplateName" Data..=)
                 Prelude.<$> launchTemplateName
             ]
         )

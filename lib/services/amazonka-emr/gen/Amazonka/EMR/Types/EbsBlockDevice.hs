@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.EbsBlockDevice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.VolumeSpecification
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ ebsBlockDevice_device = Lens.lens (\EbsBlockDevice' {device} -> device) (\s@EbsB
 ebsBlockDevice_volumeSpecification :: Lens.Lens' EbsBlockDevice (Prelude.Maybe VolumeSpecification)
 ebsBlockDevice_volumeSpecification = Lens.lens (\EbsBlockDevice' {volumeSpecification} -> volumeSpecification) (\s@EbsBlockDevice' {} a -> s {volumeSpecification = a} :: EbsBlockDevice)
 
-instance Core.FromJSON EbsBlockDevice where
+instance Data.FromJSON EbsBlockDevice where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EbsBlockDevice"
       ( \x ->
           EbsBlockDevice'
-            Prelude.<$> (x Core..:? "Device")
-            Prelude.<*> (x Core..:? "VolumeSpecification")
+            Prelude.<$> (x Data..:? "Device")
+            Prelude.<*> (x Data..:? "VolumeSpecification")
       )
 
 instance Prelude.Hashable EbsBlockDevice where

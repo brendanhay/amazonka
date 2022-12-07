@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.GatewayGroupSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of a gateway group.
@@ -70,15 +71,15 @@ gatewayGroupSummary_arn = Lens.lens (\GatewayGroupSummary' {arn} -> arn) (\s@Gat
 gatewayGroupSummary_description :: Lens.Lens' GatewayGroupSummary (Prelude.Maybe Prelude.Text)
 gatewayGroupSummary_description = Lens.lens (\GatewayGroupSummary' {description} -> description) (\s@GatewayGroupSummary' {} a -> s {description = a} :: GatewayGroupSummary)
 
-instance Core.FromJSON GatewayGroupSummary where
+instance Data.FromJSON GatewayGroupSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GatewayGroupSummary"
       ( \x ->
           GatewayGroupSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable GatewayGroupSummary where

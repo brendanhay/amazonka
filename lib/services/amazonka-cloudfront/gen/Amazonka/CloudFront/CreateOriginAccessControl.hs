@@ -55,6 +55,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,9 +101,9 @@ instance Core.AWSRequest CreateOriginAccessControl where
     Response.receiveXML
       ( \s h x ->
           CreateOriginAccessControlResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "Location")
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "Location")
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,20 +116,20 @@ instance Prelude.NFData CreateOriginAccessControl where
   rnf CreateOriginAccessControl' {..} =
     Prelude.rnf originAccessControlConfig
 
-instance Core.ToElement CreateOriginAccessControl where
+instance Data.ToElement CreateOriginAccessControl where
   toElement CreateOriginAccessControl' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}OriginAccessControlConfig"
       originAccessControlConfig
 
-instance Core.ToHeaders CreateOriginAccessControl where
+instance Data.ToHeaders CreateOriginAccessControl where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateOriginAccessControl where
+instance Data.ToPath CreateOriginAccessControl where
   toPath =
     Prelude.const "/2020-05-31/origin-access-control"
 
-instance Core.ToQuery CreateOriginAccessControl where
+instance Data.ToQuery CreateOriginAccessControl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateOriginAccessControlResponse' smart constructor.

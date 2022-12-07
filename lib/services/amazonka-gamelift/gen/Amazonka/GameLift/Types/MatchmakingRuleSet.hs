@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.MatchmakingRuleSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Set of rule statements, used with FlexMatch, that determine how to build
@@ -73,7 +74,7 @@ data MatchmakingRuleSet = MatchmakingRuleSet'
     -- | A time stamp indicating when this data object was created. Format is a
     -- number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | A collection of matchmaking rules, formatted as a JSON string. Comments
     -- are not allowed in JSON, but most elements support a description field.
     ruleSetBody :: Prelude.Text
@@ -132,23 +133,23 @@ matchmakingRuleSet_ruleSetArn = Lens.lens (\MatchmakingRuleSet' {ruleSetArn} -> 
 -- number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 matchmakingRuleSet_creationTime :: Lens.Lens' MatchmakingRuleSet (Prelude.Maybe Prelude.UTCTime)
-matchmakingRuleSet_creationTime = Lens.lens (\MatchmakingRuleSet' {creationTime} -> creationTime) (\s@MatchmakingRuleSet' {} a -> s {creationTime = a} :: MatchmakingRuleSet) Prelude.. Lens.mapping Core._Time
+matchmakingRuleSet_creationTime = Lens.lens (\MatchmakingRuleSet' {creationTime} -> creationTime) (\s@MatchmakingRuleSet' {} a -> s {creationTime = a} :: MatchmakingRuleSet) Prelude.. Lens.mapping Data._Time
 
 -- | A collection of matchmaking rules, formatted as a JSON string. Comments
 -- are not allowed in JSON, but most elements support a description field.
 matchmakingRuleSet_ruleSetBody :: Lens.Lens' MatchmakingRuleSet Prelude.Text
 matchmakingRuleSet_ruleSetBody = Lens.lens (\MatchmakingRuleSet' {ruleSetBody} -> ruleSetBody) (\s@MatchmakingRuleSet' {} a -> s {ruleSetBody = a} :: MatchmakingRuleSet)
 
-instance Core.FromJSON MatchmakingRuleSet where
+instance Data.FromJSON MatchmakingRuleSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MatchmakingRuleSet"
       ( \x ->
           MatchmakingRuleSet'
-            Prelude.<$> (x Core..:? "RuleSetName")
-            Prelude.<*> (x Core..:? "RuleSetArn")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..: "RuleSetBody")
+            Prelude.<$> (x Data..:? "RuleSetName")
+            Prelude.<*> (x Data..:? "RuleSetArn")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..: "RuleSetBody")
       )
 
 instance Prelude.Hashable MatchmakingRuleSet where

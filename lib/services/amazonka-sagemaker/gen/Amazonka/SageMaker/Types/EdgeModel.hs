@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EdgeModel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The model on the edge device.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEdgeModel' smart constructor.
 data EdgeModel = EdgeModel'
   { -- | The timestamp of the last data sample taken.
-    latestSampleTime :: Prelude.Maybe Core.POSIX,
+    latestSampleTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp of the last inference that was made.
-    latestInference :: Prelude.Maybe Core.POSIX,
+    latestInference :: Prelude.Maybe Data.POSIX,
     -- | The name of the model.
     modelName :: Prelude.Text,
     -- | The model version.
@@ -69,11 +70,11 @@ newEdgeModel pModelName_ pModelVersion_ =
 
 -- | The timestamp of the last data sample taken.
 edgeModel_latestSampleTime :: Lens.Lens' EdgeModel (Prelude.Maybe Prelude.UTCTime)
-edgeModel_latestSampleTime = Lens.lens (\EdgeModel' {latestSampleTime} -> latestSampleTime) (\s@EdgeModel' {} a -> s {latestSampleTime = a} :: EdgeModel) Prelude.. Lens.mapping Core._Time
+edgeModel_latestSampleTime = Lens.lens (\EdgeModel' {latestSampleTime} -> latestSampleTime) (\s@EdgeModel' {} a -> s {latestSampleTime = a} :: EdgeModel) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of the last inference that was made.
 edgeModel_latestInference :: Lens.Lens' EdgeModel (Prelude.Maybe Prelude.UTCTime)
-edgeModel_latestInference = Lens.lens (\EdgeModel' {latestInference} -> latestInference) (\s@EdgeModel' {} a -> s {latestInference = a} :: EdgeModel) Prelude.. Lens.mapping Core._Time
+edgeModel_latestInference = Lens.lens (\EdgeModel' {latestInference} -> latestInference) (\s@EdgeModel' {} a -> s {latestInference = a} :: EdgeModel) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the model.
 edgeModel_modelName :: Lens.Lens' EdgeModel Prelude.Text
@@ -83,16 +84,16 @@ edgeModel_modelName = Lens.lens (\EdgeModel' {modelName} -> modelName) (\s@EdgeM
 edgeModel_modelVersion :: Lens.Lens' EdgeModel Prelude.Text
 edgeModel_modelVersion = Lens.lens (\EdgeModel' {modelVersion} -> modelVersion) (\s@EdgeModel' {} a -> s {modelVersion = a} :: EdgeModel)
 
-instance Core.FromJSON EdgeModel where
+instance Data.FromJSON EdgeModel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EdgeModel"
       ( \x ->
           EdgeModel'
-            Prelude.<$> (x Core..:? "LatestSampleTime")
-            Prelude.<*> (x Core..:? "LatestInference")
-            Prelude.<*> (x Core..: "ModelName")
-            Prelude.<*> (x Core..: "ModelVersion")
+            Prelude.<$> (x Data..:? "LatestSampleTime")
+            Prelude.<*> (x Data..:? "LatestInference")
+            Prelude.<*> (x Data..: "ModelName")
+            Prelude.<*> (x Data..: "ModelVersion")
       )
 
 instance Prelude.Hashable EdgeModel where

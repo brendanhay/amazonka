@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.AttachedPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an attached policy.
@@ -69,11 +70,11 @@ attachedPolicy_policyName = Lens.lens (\AttachedPolicy' {policyName} -> policyNa
 attachedPolicy_policyArn :: Lens.Lens' AttachedPolicy (Prelude.Maybe Prelude.Text)
 attachedPolicy_policyArn = Lens.lens (\AttachedPolicy' {policyArn} -> policyArn) (\s@AttachedPolicy' {} a -> s {policyArn = a} :: AttachedPolicy)
 
-instance Core.FromXML AttachedPolicy where
+instance Data.FromXML AttachedPolicy where
   parseXML x =
     AttachedPolicy'
-      Prelude.<$> (x Core..@? "PolicyName")
-      Prelude.<*> (x Core..@? "PolicyArn")
+      Prelude.<$> (x Data..@? "PolicyName")
+      Prelude.<*> (x Data..@? "PolicyArn")
 
 instance Prelude.Hashable AttachedPolicy where
   hashWithSalt _salt AttachedPolicy' {..} =

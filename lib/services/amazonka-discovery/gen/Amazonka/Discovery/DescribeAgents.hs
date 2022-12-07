@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -172,8 +173,8 @@ instance Core.AWSRequest DescribeAgents where
     Response.receiveJSON
       ( \s h x ->
           DescribeAgentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "agentsInfo" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "agentsInfo" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,36 +192,36 @@ instance Prelude.NFData DescribeAgents where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf agentIds
 
-instance Core.ToHeaders DescribeAgents where
+instance Data.ToHeaders DescribeAgents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSPoseidonService_V2015_11_01.DescribeAgents" ::
+              Data.=# ( "AWSPoseidonService_V2015_11_01.DescribeAgents" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAgents where
+instance Data.ToJSON DescribeAgents where
   toJSON DescribeAgents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("agentIds" Core..=) Prelude.<$> agentIds
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("agentIds" Data..=) Prelude.<$> agentIds
           ]
       )
 
-instance Core.ToPath DescribeAgents where
+instance Data.ToPath DescribeAgents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAgents where
+instance Data.ToQuery DescribeAgents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAgentsResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,11 +159,11 @@ instance Core.AWSRequest ListRoleTags where
       "ListRoleTagsResult"
       ( \s h x ->
           ListRoleTagsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -178,22 +179,22 @@ instance Prelude.NFData ListRoleTags where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf roleName
 
-instance Core.ToHeaders ListRoleTags where
+instance Data.ToHeaders ListRoleTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListRoleTags where
+instance Data.ToPath ListRoleTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRoleTags where
+instance Data.ToQuery ListRoleTags where
   toQuery ListRoleTags' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListRoleTags" :: Prelude.ByteString),
+          Data.=: ("ListRoleTags" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "RoleName" Core.=: roleName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "RoleName" Data.=: roleName
       ]
 
 -- | /See:/ 'newListRoleTagsResponse' smart constructor.

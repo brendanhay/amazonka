@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DataSourceCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.CredentialPair
 
@@ -96,13 +97,13 @@ instance Prelude.NFData DataSourceCredentials where
       `Prelude.seq` Prelude.rnf credentialPair
       `Prelude.seq` Prelude.rnf copySourceArn
 
-instance Core.ToJSON DataSourceCredentials where
+instance Data.ToJSON DataSourceCredentials where
   toJSON DataSourceCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecretArn" Core..=) Prelude.<$> secretArn,
-            ("CredentialPair" Core..=)
+          [ ("SecretArn" Data..=) Prelude.<$> secretArn,
+            ("CredentialPair" Data..=)
               Prelude.<$> credentialPair,
-            ("CopySourceArn" Core..=) Prelude.<$> copySourceArn
+            ("CopySourceArn" Data..=) Prelude.<$> copySourceArn
           ]
       )

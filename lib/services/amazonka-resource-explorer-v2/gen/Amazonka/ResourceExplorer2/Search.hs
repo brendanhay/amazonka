@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceExplorer2.Types
@@ -110,7 +111,7 @@ data Search = Search'
     -- The operation can return only the first 1,000 results. If the resource
     -- you want is not included, then use a different value for @QueryString@
     -- to refine the results.
-    queryString :: Core.Sensitive Prelude.Text
+    queryString :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -170,7 +171,7 @@ newSearch pQueryString_ =
     { nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       viewArn = Prelude.Nothing,
-      queryString = Core._Sensitive Lens.# pQueryString_
+      queryString = Data._Sensitive Lens.# pQueryString_
     }
 
 -- | The parameter for receiving additional results if you receive a
@@ -219,7 +220,7 @@ search_viewArn = Lens.lens (\Search' {viewArn} -> viewArn) (\s@Search' {} a -> s
 -- you want is not included, then use a different value for @QueryString@
 -- to refine the results.
 search_queryString :: Lens.Lens' Search Prelude.Text
-search_queryString = Lens.lens (\Search' {queryString} -> queryString) (\s@Search' {} a -> s {queryString = a} :: Search) Prelude.. Core._Sensitive
+search_queryString = Lens.lens (\Search' {queryString} -> queryString) (\s@Search' {} a -> s {queryString = a} :: Search) Prelude.. Data._Sensitive
 
 instance Core.AWSPager Search where
   page rq rs
@@ -248,10 +249,10 @@ instance Core.AWSRequest Search where
     Response.receiveJSON
       ( \s h x ->
           SearchResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Count")
-            Prelude.<*> (x Core..?> "ViewArn")
-            Prelude.<*> (x Core..?> "Resources" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Count")
+            Prelude.<*> (x Data..?> "ViewArn")
+            Prelude.<*> (x Data..?> "Resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -269,32 +270,32 @@ instance Prelude.NFData Search where
       `Prelude.seq` Prelude.rnf viewArn
       `Prelude.seq` Prelude.rnf queryString
 
-instance Core.ToHeaders Search where
+instance Data.ToHeaders Search where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON Search where
+instance Data.ToJSON Search where
   toJSON Search' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ViewArn" Core..=) Prelude.<$> viewArn,
-            Prelude.Just ("QueryString" Core..= queryString)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ViewArn" Data..=) Prelude.<$> viewArn,
+            Prelude.Just ("QueryString" Data..= queryString)
           ]
       )
 
-instance Core.ToPath Search where
+instance Data.ToPath Search where
   toPath = Prelude.const "/Search"
 
-instance Core.ToQuery Search where
+instance Data.ToQuery Search where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchResponse' smart constructor.

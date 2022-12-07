@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.FilterCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.FilterCriterion
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,11 +63,11 @@ instance Prelude.Hashable FilterCriteria where
 instance Prelude.NFData FilterCriteria where
   rnf FilterCriteria' {..} = Prelude.rnf filterCriterion
 
-instance Core.ToJSON FilterCriteria where
+instance Data.ToJSON FilterCriteria where
   toJSON FilterCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("filterCriterion" Core..=)
+          [ ("filterCriterion" Data..=)
               Prelude.<$> filterCriterion
           ]
       )

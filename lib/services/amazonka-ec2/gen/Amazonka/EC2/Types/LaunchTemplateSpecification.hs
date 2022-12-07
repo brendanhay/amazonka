@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -127,10 +128,10 @@ instance Prelude.NFData LaunchTemplateSpecification where
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf launchTemplateName
 
-instance Core.ToQuery LaunchTemplateSpecification where
+instance Data.ToQuery LaunchTemplateSpecification where
   toQuery LaunchTemplateSpecification' {..} =
     Prelude.mconcat
-      [ "LaunchTemplateId" Core.=: launchTemplateId,
-        "Version" Core.=: version,
-        "LaunchTemplateName" Core.=: launchTemplateName
+      [ "LaunchTemplateId" Data.=: launchTemplateId,
+        "Version" Data.=: version,
+        "LaunchTemplateName" Data.=: launchTemplateName
       ]

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaStoreData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -185,12 +186,12 @@ instance Core.AWSRequest GetObject where
     Response.receiveBody
       ( \s h x ->
           GetObjectResponse'
-            Prelude.<$> (h Core..#? "Content-Length")
-            Prelude.<*> (h Core..#? "Content-Range")
-            Prelude.<*> (h Core..#? "Last-Modified")
-            Prelude.<*> (h Core..#? "Cache-Control")
-            Prelude.<*> (h Core..#? "ETag")
-            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<$> (h Data..#? "Content-Length")
+            Prelude.<*> (h Data..#? "Content-Range")
+            Prelude.<*> (h Data..#? "Last-Modified")
+            Prelude.<*> (h Data..#? "Cache-Control")
+            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
@@ -204,15 +205,15 @@ instance Prelude.NFData GetObject where
   rnf GetObject' {..} =
     Prelude.rnf range `Prelude.seq` Prelude.rnf path
 
-instance Core.ToHeaders GetObject where
+instance Data.ToHeaders GetObject where
   toHeaders GetObject' {..} =
-    Prelude.mconcat ["Range" Core.=# range]
+    Prelude.mconcat ["Range" Data.=# range]
 
-instance Core.ToPath GetObject where
+instance Data.ToPath GetObject where
   toPath GetObject' {..} =
-    Prelude.mconcat ["/", Core.toBS path]
+    Prelude.mconcat ["/", Data.toBS path]
 
-instance Core.ToQuery GetObject where
+instance Data.ToQuery GetObject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetObjectResponse' smart constructor.
@@ -222,7 +223,7 @@ data GetObjectResponse = GetObjectResponse'
     -- | The range of bytes to retrieve.
     contentRange :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the object was last modified.
-    lastModified :: Prelude.Maybe Core.POSIX,
+    lastModified :: Prelude.Maybe Data.POSIX,
     -- | An optional @CacheControl@ header that allows the caller to control the
     -- object\'s cache behavior. Headers can be passed in as specified in the
     -- HTTP spec at
@@ -239,7 +240,7 @@ data GetObjectResponse = GetObjectResponse'
     -- that occurred.
     statusCode :: Prelude.Int,
     -- | The bytes of the object.
-    body :: Core.ResponseBody
+    body :: Data.ResponseBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -277,7 +278,7 @@ newGetObjectResponse ::
   -- | 'statusCode'
   Prelude.Int ->
   -- | 'body'
-  Core.ResponseBody ->
+  Data.ResponseBody ->
   GetObjectResponse
 newGetObjectResponse pStatusCode_ pBody_ =
   GetObjectResponse'
@@ -301,7 +302,7 @@ getObjectResponse_contentRange = Lens.lens (\GetObjectResponse' {contentRange} -
 
 -- | The date and time that the object was last modified.
 getObjectResponse_lastModified :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.UTCTime)
-getObjectResponse_lastModified = Lens.lens (\GetObjectResponse' {lastModified} -> lastModified) (\s@GetObjectResponse' {} a -> s {lastModified = a} :: GetObjectResponse) Prelude.. Lens.mapping Core._Time
+getObjectResponse_lastModified = Lens.lens (\GetObjectResponse' {lastModified} -> lastModified) (\s@GetObjectResponse' {} a -> s {lastModified = a} :: GetObjectResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An optional @CacheControl@ header that allows the caller to control the
 -- object\'s cache behavior. Headers can be passed in as specified in the
@@ -327,5 +328,5 @@ getObjectResponse_statusCode :: Lens.Lens' GetObjectResponse Prelude.Int
 getObjectResponse_statusCode = Lens.lens (\GetObjectResponse' {statusCode} -> statusCode) (\s@GetObjectResponse' {} a -> s {statusCode = a} :: GetObjectResponse)
 
 -- | The bytes of the object.
-getObjectResponse_body :: Lens.Lens' GetObjectResponse Core.ResponseBody
+getObjectResponse_body :: Lens.Lens' GetObjectResponse Data.ResponseBody
 getObjectResponse_body = Lens.lens (\GetObjectResponse' {body} -> body) (\s@GetObjectResponse' {} a -> s {body = a} :: GetObjectResponse)

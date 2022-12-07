@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -201,12 +202,12 @@ instance Core.AWSRequest BatchUpsertTableRows where
     Response.receiveJSON
       ( \s h x ->
           BatchUpsertTableRowsResponse'
-            Prelude.<$> ( x Core..?> "failedBatchItems"
+            Prelude.<$> ( x Data..?> "failedBatchItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "rows" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "workbookCursor")
+            Prelude.<*> (x Data..?> "rows" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "workbookCursor")
       )
 
 instance Prelude.Hashable BatchUpsertTableRows where
@@ -223,38 +224,38 @@ instance Prelude.NFData BatchUpsertTableRows where
       `Prelude.seq` Prelude.rnf tableId
       `Prelude.seq` Prelude.rnf rowsToUpsert
 
-instance Core.ToHeaders BatchUpsertTableRows where
+instance Data.ToHeaders BatchUpsertTableRows where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchUpsertTableRows where
+instance Data.ToJSON BatchUpsertTableRows where
   toJSON BatchUpsertTableRows' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientRequestToken" Core..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("rowsToUpsert" Core..= rowsToUpsert)
+            Prelude.Just ("rowsToUpsert" Data..= rowsToUpsert)
           ]
       )
 
-instance Core.ToPath BatchUpsertTableRows where
+instance Data.ToPath BatchUpsertTableRows where
   toPath BatchUpsertTableRows' {..} =
     Prelude.mconcat
       [ "/workbooks/",
-        Core.toBS workbookId,
+        Data.toBS workbookId,
         "/tables/",
-        Core.toBS tableId,
+        Data.toBS tableId,
         "/rows/batchupsert"
       ]
 
-instance Core.ToQuery BatchUpsertTableRows where
+instance Data.ToQuery BatchUpsertTableRows where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchUpsertTableRowsResponse' smart constructor.

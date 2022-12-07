@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.InputParallelism where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the number of in-application streams to create for a given
@@ -55,12 +56,12 @@ newInputParallelism =
 inputParallelism_count :: Lens.Lens' InputParallelism (Prelude.Maybe Prelude.Natural)
 inputParallelism_count = Lens.lens (\InputParallelism' {count} -> count) (\s@InputParallelism' {} a -> s {count = a} :: InputParallelism)
 
-instance Core.FromJSON InputParallelism where
+instance Data.FromJSON InputParallelism where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputParallelism"
       ( \x ->
-          InputParallelism' Prelude.<$> (x Core..:? "Count")
+          InputParallelism' Prelude.<$> (x Data..:? "Count")
       )
 
 instance Prelude.Hashable InputParallelism where
@@ -70,9 +71,9 @@ instance Prelude.Hashable InputParallelism where
 instance Prelude.NFData InputParallelism where
   rnf InputParallelism' {..} = Prelude.rnf count
 
-instance Core.ToJSON InputParallelism where
+instance Data.ToJSON InputParallelism where
   toJSON InputParallelism' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Count" Core..=) Prelude.<$> count]
+          [("Count" Data..=) Prelude.<$> count]
       )

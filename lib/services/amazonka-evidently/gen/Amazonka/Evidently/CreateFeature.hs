@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -235,7 +236,7 @@ instance Core.AWSRequest CreateFeature where
     Response.receiveJSON
       ( \s h x ->
           CreateFeatureResponse'
-            Prelude.<$> (x Core..?> "feature")
+            Prelude.<$> (x Data..?> "feature")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -261,40 +262,40 @@ instance Prelude.NFData CreateFeature where
       `Prelude.seq` Prelude.rnf project
       `Prelude.seq` Prelude.rnf variations
 
-instance Core.ToHeaders CreateFeature where
+instance Data.ToHeaders CreateFeature where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFeature where
+instance Data.ToJSON CreateFeature where
   toJSON CreateFeature' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("evaluationStrategy" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("evaluationStrategy" Data..=)
               Prelude.<$> evaluationStrategy,
-            ("description" Core..=) Prelude.<$> description,
-            ("entityOverrides" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("entityOverrides" Data..=)
               Prelude.<$> entityOverrides,
-            ("defaultVariation" Core..=)
+            ("defaultVariation" Data..=)
               Prelude.<$> defaultVariation,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("variations" Core..= variations)
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("variations" Data..= variations)
           ]
       )
 
-instance Core.ToPath CreateFeature where
+instance Data.ToPath CreateFeature where
   toPath CreateFeature' {..} =
     Prelude.mconcat
-      ["/projects/", Core.toBS project, "/features"]
+      ["/projects/", Data.toBS project, "/features"]
 
-instance Core.ToQuery CreateFeature where
+instance Data.ToQuery CreateFeature where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFeatureResponse' smart constructor.

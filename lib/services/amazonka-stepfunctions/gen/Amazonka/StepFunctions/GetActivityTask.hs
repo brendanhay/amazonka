@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,8 +123,8 @@ instance Core.AWSRequest GetActivityTask where
     Response.receiveJSON
       ( \s h x ->
           GetActivityTaskResponse'
-            Prelude.<$> (x Core..?> "taskToken")
-            Prelude.<*> (x Core..?> "input")
+            Prelude.<$> (x Data..?> "taskToken")
+            Prelude.<*> (x Data..?> "input")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,34 +138,34 @@ instance Prelude.NFData GetActivityTask where
     Prelude.rnf workerName
       `Prelude.seq` Prelude.rnf activityArn
 
-instance Core.ToHeaders GetActivityTask where
+instance Data.ToHeaders GetActivityTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSStepFunctions.GetActivityTask" ::
+              Data.=# ( "AWSStepFunctions.GetActivityTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetActivityTask where
+instance Data.ToJSON GetActivityTask where
   toJSON GetActivityTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("workerName" Core..=) Prelude.<$> workerName,
-            Prelude.Just ("activityArn" Core..= activityArn)
+          [ ("workerName" Data..=) Prelude.<$> workerName,
+            Prelude.Just ("activityArn" Data..= activityArn)
           ]
       )
 
-instance Core.ToPath GetActivityTask where
+instance Data.ToPath GetActivityTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetActivityTask where
+instance Data.ToQuery GetActivityTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetActivityTaskResponse' smart constructor.
@@ -177,7 +178,7 @@ data GetActivityTaskResponse = GetActivityTaskResponse'
     -- | The string that contains the JSON input data for the task. Length
     -- constraints apply to the payload size, and are expressed as bytes in
     -- UTF-8 encoding.
-    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    input :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -224,7 +225,7 @@ getActivityTaskResponse_taskToken = Lens.lens (\GetActivityTaskResponse' {taskTo
 -- constraints apply to the payload size, and are expressed as bytes in
 -- UTF-8 encoding.
 getActivityTaskResponse_input :: Lens.Lens' GetActivityTaskResponse (Prelude.Maybe Prelude.Text)
-getActivityTaskResponse_input = Lens.lens (\GetActivityTaskResponse' {input} -> input) (\s@GetActivityTaskResponse' {} a -> s {input = a} :: GetActivityTaskResponse) Prelude.. Lens.mapping Core._Sensitive
+getActivityTaskResponse_input = Lens.lens (\GetActivityTaskResponse' {input} -> input) (\s@GetActivityTaskResponse' {} a -> s {input = a} :: GetActivityTaskResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The response's http status code.
 getActivityTaskResponse_httpStatus :: Lens.Lens' GetActivityTaskResponse Prelude.Int

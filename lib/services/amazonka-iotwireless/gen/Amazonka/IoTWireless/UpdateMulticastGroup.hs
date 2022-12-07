@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,25 +128,25 @@ instance Prelude.NFData UpdateMulticastGroup where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateMulticastGroup where
+instance Data.ToHeaders UpdateMulticastGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateMulticastGroup where
+instance Data.ToJSON UpdateMulticastGroup where
   toJSON UpdateMulticastGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("LoRaWAN" Core..=) Prelude.<$> loRaWAN,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
+            ("Description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateMulticastGroup where
+instance Data.ToPath UpdateMulticastGroup where
   toPath UpdateMulticastGroup' {..} =
     Prelude.mconcat
-      ["/multicast-groups/", Core.toBS id]
+      ["/multicast-groups/", Data.toBS id]
 
-instance Core.ToQuery UpdateMulticastGroup where
+instance Data.ToQuery UpdateMulticastGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMulticastGroupResponse' smart constructor.

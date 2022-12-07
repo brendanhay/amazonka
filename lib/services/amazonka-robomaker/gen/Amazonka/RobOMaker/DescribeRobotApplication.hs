@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,16 +106,16 @@ instance Core.AWSRequest DescribeRobotApplication where
     Response.receiveJSON
       ( \s h x ->
           DescribeRobotApplicationResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "sources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "environment")
-            Prelude.<*> (x Core..?> "lastUpdatedAt")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "robotSoftwareSuite")
-            Prelude.<*> (x Core..?> "revisionId")
-            Prelude.<*> (x Core..?> "imageDigest")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "environment")
+            Prelude.<*> (x Data..?> "lastUpdatedAt")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "robotSoftwareSuite")
+            Prelude.<*> (x Data..?> "revisionId")
+            Prelude.<*> (x Data..?> "imageDigest")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,31 +129,31 @@ instance Prelude.NFData DescribeRobotApplication where
     Prelude.rnf applicationVersion
       `Prelude.seq` Prelude.rnf application
 
-instance Core.ToHeaders DescribeRobotApplication where
+instance Data.ToHeaders DescribeRobotApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRobotApplication where
+instance Data.ToJSON DescribeRobotApplication where
   toJSON DescribeRobotApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("applicationVersion" Core..=)
+          [ ("applicationVersion" Data..=)
               Prelude.<$> applicationVersion,
-            Prelude.Just ("application" Core..= application)
+            Prelude.Just ("application" Data..= application)
           ]
       )
 
-instance Core.ToPath DescribeRobotApplication where
+instance Data.ToPath DescribeRobotApplication where
   toPath = Prelude.const "/describeRobotApplication"
 
-instance Core.ToQuery DescribeRobotApplication where
+instance Data.ToQuery DescribeRobotApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRobotApplicationResponse' smart constructor.
@@ -168,7 +169,7 @@ data DescribeRobotApplicationResponse = DescribeRobotApplicationResponse'
     environment :: Prelude.Maybe Environment,
     -- | The time, in milliseconds since the epoch, when the robot application
     -- was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the robot application.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The robot software suite (ROS distribution) used by the robot
@@ -259,7 +260,7 @@ describeRobotApplicationResponse_environment = Lens.lens (\DescribeRobotApplicat
 -- | The time, in milliseconds since the epoch, when the robot application
 -- was last updated.
 describeRobotApplicationResponse_lastUpdatedAt :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe Prelude.UTCTime)
-describeRobotApplicationResponse_lastUpdatedAt = Lens.lens (\DescribeRobotApplicationResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeRobotApplicationResponse' {} a -> s {lastUpdatedAt = a} :: DescribeRobotApplicationResponse) Prelude.. Lens.mapping Core._Time
+describeRobotApplicationResponse_lastUpdatedAt = Lens.lens (\DescribeRobotApplicationResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeRobotApplicationResponse' {} a -> s {lastUpdatedAt = a} :: DescribeRobotApplicationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the robot application.
 describeRobotApplicationResponse_arn :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe Prelude.Text)

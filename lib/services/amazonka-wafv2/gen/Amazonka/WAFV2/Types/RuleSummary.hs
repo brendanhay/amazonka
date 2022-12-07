@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.RuleSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.RuleAction
 
@@ -72,14 +73,14 @@ ruleSummary_name = Lens.lens (\RuleSummary' {name} -> name) (\s@RuleSummary' {} 
 ruleSummary_action :: Lens.Lens' RuleSummary (Prelude.Maybe RuleAction)
 ruleSummary_action = Lens.lens (\RuleSummary' {action} -> action) (\s@RuleSummary' {} a -> s {action = a} :: RuleSummary)
 
-instance Core.FromJSON RuleSummary where
+instance Data.FromJSON RuleSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleSummary"
       ( \x ->
           RuleSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Action")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Action")
       )
 
 instance Prelude.Hashable RuleSummary where

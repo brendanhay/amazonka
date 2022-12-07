@@ -21,6 +21,7 @@ module Amazonka.Backup.Types.Framework where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains detailed information about a framework. Frameworks contain
@@ -49,7 +50,7 @@ data Framework = Framework'
     -- Coordinated Universal Time (UTC). The value of @CreationTime@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -124,20 +125,20 @@ framework_numberOfControls = Lens.lens (\Framework' {numberOfControls} -> number
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 framework_creationTime :: Lens.Lens' Framework (Prelude.Maybe Prelude.UTCTime)
-framework_creationTime = Lens.lens (\Framework' {creationTime} -> creationTime) (\s@Framework' {} a -> s {creationTime = a} :: Framework) Prelude.. Lens.mapping Core._Time
+framework_creationTime = Lens.lens (\Framework' {creationTime} -> creationTime) (\s@Framework' {} a -> s {creationTime = a} :: Framework) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Framework where
+instance Data.FromJSON Framework where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Framework"
       ( \x ->
           Framework'
-            Prelude.<$> (x Core..:? "DeploymentStatus")
-            Prelude.<*> (x Core..:? "FrameworkArn")
-            Prelude.<*> (x Core..:? "FrameworkDescription")
-            Prelude.<*> (x Core..:? "FrameworkName")
-            Prelude.<*> (x Core..:? "NumberOfControls")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "DeploymentStatus")
+            Prelude.<*> (x Data..:? "FrameworkArn")
+            Prelude.<*> (x Data..:? "FrameworkDescription")
+            Prelude.<*> (x Data..:? "FrameworkName")
+            Prelude.<*> (x Data..:? "NumberOfControls")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable Framework where

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringConstraintsResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The constraints resource for a monitoring job.
@@ -53,13 +54,13 @@ newMonitoringConstraintsResource =
 monitoringConstraintsResource_s3Uri :: Lens.Lens' MonitoringConstraintsResource (Prelude.Maybe Prelude.Text)
 monitoringConstraintsResource_s3Uri = Lens.lens (\MonitoringConstraintsResource' {s3Uri} -> s3Uri) (\s@MonitoringConstraintsResource' {} a -> s {s3Uri = a} :: MonitoringConstraintsResource)
 
-instance Core.FromJSON MonitoringConstraintsResource where
+instance Data.FromJSON MonitoringConstraintsResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringConstraintsResource"
       ( \x ->
           MonitoringConstraintsResource'
-            Prelude.<$> (x Core..:? "S3Uri")
+            Prelude.<$> (x Data..:? "S3Uri")
       )
 
 instance
@@ -73,9 +74,9 @@ instance Prelude.NFData MonitoringConstraintsResource where
   rnf MonitoringConstraintsResource' {..} =
     Prelude.rnf s3Uri
 
-instance Core.ToJSON MonitoringConstraintsResource where
+instance Data.ToJSON MonitoringConstraintsResource where
   toJSON MonitoringConstraintsResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("S3Uri" Core..=) Prelude.<$> s3Uri]
+          [("S3Uri" Data..=) Prelude.<$> s3Uri]
       )

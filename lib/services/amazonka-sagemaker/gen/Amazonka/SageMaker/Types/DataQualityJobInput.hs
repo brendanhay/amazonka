@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DataQualityJobInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.BatchTransformInput
 import Amazonka.SageMaker.Types.EndpointInput
@@ -64,14 +65,14 @@ dataQualityJobInput_endpointInput = Lens.lens (\DataQualityJobInput' {endpointIn
 dataQualityJobInput_batchTransformInput :: Lens.Lens' DataQualityJobInput (Prelude.Maybe BatchTransformInput)
 dataQualityJobInput_batchTransformInput = Lens.lens (\DataQualityJobInput' {batchTransformInput} -> batchTransformInput) (\s@DataQualityJobInput' {} a -> s {batchTransformInput = a} :: DataQualityJobInput)
 
-instance Core.FromJSON DataQualityJobInput where
+instance Data.FromJSON DataQualityJobInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataQualityJobInput"
       ( \x ->
           DataQualityJobInput'
-            Prelude.<$> (x Core..:? "EndpointInput")
-            Prelude.<*> (x Core..:? "BatchTransformInput")
+            Prelude.<$> (x Data..:? "EndpointInput")
+            Prelude.<*> (x Data..:? "BatchTransformInput")
       )
 
 instance Prelude.Hashable DataQualityJobInput where
@@ -84,12 +85,12 @@ instance Prelude.NFData DataQualityJobInput where
     Prelude.rnf endpointInput
       `Prelude.seq` Prelude.rnf batchTransformInput
 
-instance Core.ToJSON DataQualityJobInput where
+instance Data.ToJSON DataQualityJobInput where
   toJSON DataQualityJobInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EndpointInput" Core..=) Prelude.<$> endpointInput,
-            ("BatchTransformInput" Core..=)
+          [ ("EndpointInput" Data..=) Prelude.<$> endpointInput,
+            ("BatchTransformInput" Data..=)
               Prelude.<$> batchTransformInput
           ]
       )

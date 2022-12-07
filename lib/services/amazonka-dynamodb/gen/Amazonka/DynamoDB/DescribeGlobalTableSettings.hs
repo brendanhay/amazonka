@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,8 +92,8 @@ instance Core.AWSRequest DescribeGlobalTableSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeGlobalTableSettingsResponse'
-            Prelude.<$> (x Core..?> "GlobalTableName")
-            Prelude.<*> ( x Core..?> "ReplicaSettings"
+            Prelude.<$> (x Data..?> "GlobalTableName")
+            Prelude.<*> ( x Data..?> "ReplicaSettings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -106,34 +107,34 @@ instance Prelude.NFData DescribeGlobalTableSettings where
   rnf DescribeGlobalTableSettings' {..} =
     Prelude.rnf globalTableName
 
-instance Core.ToHeaders DescribeGlobalTableSettings where
+instance Data.ToHeaders DescribeGlobalTableSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.DescribeGlobalTableSettings" ::
+              Data.=# ( "DynamoDB_20120810.DescribeGlobalTableSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeGlobalTableSettings where
+instance Data.ToJSON DescribeGlobalTableSettings where
   toJSON DescribeGlobalTableSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("GlobalTableName" Core..= globalTableName)
+              ("GlobalTableName" Data..= globalTableName)
           ]
       )
 
-instance Core.ToPath DescribeGlobalTableSettings where
+instance Data.ToPath DescribeGlobalTableSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeGlobalTableSettings where
+instance Data.ToQuery DescribeGlobalTableSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeGlobalTableSettingsResponse' smart constructor.

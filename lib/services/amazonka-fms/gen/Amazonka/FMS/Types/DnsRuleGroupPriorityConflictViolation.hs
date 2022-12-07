@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.DnsRuleGroupPriorityConflictViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A rule group that Firewall Manager tried to associate with a VPC has the
@@ -109,21 +110,21 @@ dnsRuleGroupPriorityConflictViolation_violationTargetDescription :: Lens.Lens' D
 dnsRuleGroupPriorityConflictViolation_violationTargetDescription = Lens.lens (\DnsRuleGroupPriorityConflictViolation' {violationTargetDescription} -> violationTargetDescription) (\s@DnsRuleGroupPriorityConflictViolation' {} a -> s {violationTargetDescription = a} :: DnsRuleGroupPriorityConflictViolation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DnsRuleGroupPriorityConflictViolation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DnsRuleGroupPriorityConflictViolation"
       ( \x ->
           DnsRuleGroupPriorityConflictViolation'
-            Prelude.<$> ( x Core..:? "UnavailablePriorities"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "UnavailablePriorities"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ViolationTarget")
-            Prelude.<*> (x Core..:? "ConflictingPriority")
-            Prelude.<*> (x Core..:? "ConflictingPolicyId")
-            Prelude.<*> (x Core..:? "ViolationTargetDescription")
+            Prelude.<*> (x Data..:? "ViolationTarget")
+            Prelude.<*> (x Data..:? "ConflictingPriority")
+            Prelude.<*> (x Data..:? "ConflictingPolicyId")
+            Prelude.<*> (x Data..:? "ViolationTargetDescription")
       )
 
 instance

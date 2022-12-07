@@ -45,6 +45,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,7 +104,7 @@ instance Core.AWSRequest GetTypedLinkFacetInformation where
     Response.receiveJSON
       ( \s h x ->
           GetTypedLinkFacetInformationResponse'
-            Prelude.<$> ( x Core..?> "IdentityAttributeOrder"
+            Prelude.<$> ( x Data..?> "IdentityAttributeOrder"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -122,24 +123,24 @@ instance Prelude.NFData GetTypedLinkFacetInformation where
     Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders GetTypedLinkFacetInformation where
+instance Data.ToHeaders GetTypedLinkFacetInformation where
   toHeaders GetTypedLinkFacetInformation' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# schemaArn]
+      ["x-amz-data-partition" Data.=# schemaArn]
 
-instance Core.ToJSON GetTypedLinkFacetInformation where
+instance Data.ToJSON GetTypedLinkFacetInformation where
   toJSON GetTypedLinkFacetInformation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath GetTypedLinkFacetInformation where
+instance Data.ToPath GetTypedLinkFacetInformation where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/typedlink/facet/get"
 
-instance Core.ToQuery GetTypedLinkFacetInformation where
+instance Data.ToQuery GetTypedLinkFacetInformation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTypedLinkFacetInformationResponse' smart constructor.

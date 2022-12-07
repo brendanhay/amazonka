@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           StartElasticsearchServiceSoftwareUpdateResponse'
-            Prelude.<$> (x Core..?> "ServiceSoftwareOptions")
+            Prelude.<$> (x Data..?> "ServiceSoftwareOptions")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,23 +121,23 @@ instance
     Prelude.rnf domainName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StartElasticsearchServiceSoftwareUpdate
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StartElasticsearchServiceSoftwareUpdate
   where
   toJSON StartElasticsearchServiceSoftwareUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DomainName" Core..= domainName)]
+          [Prelude.Just ("DomainName" Data..= domainName)]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     StartElasticsearchServiceSoftwareUpdate
   where
   toPath =
@@ -144,7 +145,7 @@ instance
       "/2015-01-01/es/serviceSoftwareUpdate/start"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     StartElasticsearchServiceSoftwareUpdate
   where
   toQuery = Prelude.const Prelude.mempty

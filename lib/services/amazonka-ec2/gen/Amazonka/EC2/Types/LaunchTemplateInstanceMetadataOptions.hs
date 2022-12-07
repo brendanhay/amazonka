@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateInstanceMetadataOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.LaunchTemplateHttpTokensState
 import Amazonka.EC2.Types.LaunchTemplateInstanceMetadataEndpointState
@@ -216,17 +217,17 @@ launchTemplateInstanceMetadataOptions_httpProtocolIpv6 :: Lens.Lens' LaunchTempl
 launchTemplateInstanceMetadataOptions_httpProtocolIpv6 = Lens.lens (\LaunchTemplateInstanceMetadataOptions' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@LaunchTemplateInstanceMetadataOptions' {} a -> s {httpProtocolIpv6 = a} :: LaunchTemplateInstanceMetadataOptions)
 
 instance
-  Core.FromXML
+  Data.FromXML
     LaunchTemplateInstanceMetadataOptions
   where
   parseXML x =
     LaunchTemplateInstanceMetadataOptions'
-      Prelude.<$> (x Core..@? "httpPutResponseHopLimit")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "httpTokens")
-      Prelude.<*> (x Core..@? "httpEndpoint")
-      Prelude.<*> (x Core..@? "instanceMetadataTags")
-      Prelude.<*> (x Core..@? "httpProtocolIpv6")
+      Prelude.<$> (x Data..@? "httpPutResponseHopLimit")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "httpTokens")
+      Prelude.<*> (x Data..@? "httpEndpoint")
+      Prelude.<*> (x Data..@? "instanceMetadataTags")
+      Prelude.<*> (x Data..@? "httpProtocolIpv6")
 
 instance
   Prelude.Hashable

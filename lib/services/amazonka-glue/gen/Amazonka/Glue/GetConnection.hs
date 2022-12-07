@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,7 +124,7 @@ instance Core.AWSRequest GetConnection where
     Response.receiveJSON
       ( \s h x ->
           GetConnectionResponse'
-            Prelude.<$> (x Core..?> "Connection")
+            Prelude.<$> (x Data..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,33 +140,33 @@ instance Prelude.NFData GetConnection where
       `Prelude.seq` Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders GetConnection where
+instance Data.ToHeaders GetConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetConnection" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetConnection" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetConnection where
+instance Data.ToJSON GetConnection where
   toJSON GetConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HidePassword" Core..=) Prelude.<$> hidePassword,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("Name" Core..= name)
+          [ ("HidePassword" Data..=) Prelude.<$> hidePassword,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath GetConnection where
+instance Data.ToPath GetConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetConnection where
+instance Data.ToQuery GetConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetConnectionResponse' smart constructor.

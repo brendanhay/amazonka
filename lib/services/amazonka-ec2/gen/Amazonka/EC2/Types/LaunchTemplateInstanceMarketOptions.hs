@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateInstanceMarketOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.LaunchTemplateSpotMarketOptions
 import Amazonka.EC2.Types.MarketType
@@ -66,13 +67,13 @@ launchTemplateInstanceMarketOptions_spotOptions :: Lens.Lens' LaunchTemplateInst
 launchTemplateInstanceMarketOptions_spotOptions = Lens.lens (\LaunchTemplateInstanceMarketOptions' {spotOptions} -> spotOptions) (\s@LaunchTemplateInstanceMarketOptions' {} a -> s {spotOptions = a} :: LaunchTemplateInstanceMarketOptions)
 
 instance
-  Core.FromXML
+  Data.FromXML
     LaunchTemplateInstanceMarketOptions
   where
   parseXML x =
     LaunchTemplateInstanceMarketOptions'
-      Prelude.<$> (x Core..@? "marketType")
-      Prelude.<*> (x Core..@? "spotOptions")
+      Prelude.<$> (x Data..@? "marketType")
+      Prelude.<*> (x Data..@? "spotOptions")
 
 instance
   Prelude.Hashable

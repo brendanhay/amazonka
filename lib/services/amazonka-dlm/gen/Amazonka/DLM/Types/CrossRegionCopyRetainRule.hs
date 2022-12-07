@@ -22,6 +22,7 @@ module Amazonka.DLM.Types.CrossRegionCopyRetainRule where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.RetentionIntervalUnitValues
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a retention rule for cross-Region snapshot copies created by
@@ -78,14 +79,14 @@ crossRegionCopyRetainRule_interval = Lens.lens (\CrossRegionCopyRetainRule' {int
 crossRegionCopyRetainRule_intervalUnit :: Lens.Lens' CrossRegionCopyRetainRule (Prelude.Maybe RetentionIntervalUnitValues)
 crossRegionCopyRetainRule_intervalUnit = Lens.lens (\CrossRegionCopyRetainRule' {intervalUnit} -> intervalUnit) (\s@CrossRegionCopyRetainRule' {} a -> s {intervalUnit = a} :: CrossRegionCopyRetainRule)
 
-instance Core.FromJSON CrossRegionCopyRetainRule where
+instance Data.FromJSON CrossRegionCopyRetainRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CrossRegionCopyRetainRule"
       ( \x ->
           CrossRegionCopyRetainRule'
-            Prelude.<$> (x Core..:? "Interval")
-            Prelude.<*> (x Core..:? "IntervalUnit")
+            Prelude.<$> (x Data..:? "Interval")
+            Prelude.<*> (x Data..:? "IntervalUnit")
       )
 
 instance Prelude.Hashable CrossRegionCopyRetainRule where
@@ -98,11 +99,11 @@ instance Prelude.NFData CrossRegionCopyRetainRule where
     Prelude.rnf interval
       `Prelude.seq` Prelude.rnf intervalUnit
 
-instance Core.ToJSON CrossRegionCopyRetainRule where
+instance Data.ToJSON CrossRegionCopyRetainRule where
   toJSON CrossRegionCopyRetainRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Interval" Core..=) Prelude.<$> interval,
-            ("IntervalUnit" Core..=) Prelude.<$> intervalUnit
+          [ ("Interval" Data..=) Prelude.<$> interval,
+            ("IntervalUnit" Data..=) Prelude.<$> intervalUnit
           ]
       )

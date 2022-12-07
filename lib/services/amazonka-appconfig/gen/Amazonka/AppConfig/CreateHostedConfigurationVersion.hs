@@ -51,6 +51,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -70,7 +71,7 @@ data CreateHostedConfigurationVersion = CreateHostedConfigurationVersion'
     -- | The configuration profile ID.
     configurationProfileId :: Prelude.Text,
     -- | The content of the configuration or the configuration data.
-    content :: Core.Sensitive Prelude.ByteString,
+    content :: Data.Sensitive Prelude.ByteString,
     -- | A standard MIME type describing the format of the configuration content.
     -- For more information, see
     -- <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type>.
@@ -126,7 +127,7 @@ newCreateHostedConfigurationVersion
         configurationProfileId =
           pConfigurationProfileId_,
         content =
-          Core._Sensitive Lens.# pContent_,
+          Data._Sensitive Lens.# pContent_,
         contentType = pContentType_
       }
 
@@ -152,7 +153,7 @@ createHostedConfigurationVersion_configurationProfileId = Lens.lens (\CreateHost
 
 -- | The content of the configuration or the configuration data.
 createHostedConfigurationVersion_content :: Lens.Lens' CreateHostedConfigurationVersion Prelude.ByteString
-createHostedConfigurationVersion_content = Lens.lens (\CreateHostedConfigurationVersion' {content} -> content) (\s@CreateHostedConfigurationVersion' {} a -> s {content = a} :: CreateHostedConfigurationVersion) Prelude.. Core._Sensitive
+createHostedConfigurationVersion_content = Lens.lens (\CreateHostedConfigurationVersion' {content} -> content) (\s@CreateHostedConfigurationVersion' {} a -> s {content = a} :: CreateHostedConfigurationVersion) Prelude.. Data._Sensitive
 
 -- | A standard MIME type describing the format of the configuration content.
 -- For more information, see
@@ -173,12 +174,12 @@ instance
     Response.receiveBytes
       ( \s h x ->
           HostedConfigurationVersion'
-            Prelude.<$> (h Core..#? "Description")
-            Prelude.<*> (h Core..#? "Version-Number")
-            Prelude.<*> (h Core..#? "Application-Id")
+            Prelude.<$> (h Data..#? "Description")
+            Prelude.<*> (h Data..#? "Version-Number")
+            Prelude.<*> (h Data..#? "Application-Id")
             Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
-            Prelude.<*> (h Core..#? "Configuration-Profile-Id")
-            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<*> (h Data..#? "Configuration-Profile-Id")
+            Prelude.<*> (h Data..#? "Content-Type")
       )
 
 instance
@@ -207,33 +208,33 @@ instance
       `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf contentType
 
-instance Core.ToBody CreateHostedConfigurationVersion where
+instance Data.ToBody CreateHostedConfigurationVersion where
   toBody CreateHostedConfigurationVersion' {..} =
-    Core.toBody content
+    Data.toBody content
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateHostedConfigurationVersion
   where
   toHeaders CreateHostedConfigurationVersion' {..} =
     Prelude.mconcat
-      [ "Latest-Version-Number" Core.=# latestVersionNumber,
-        "Description" Core.=# description,
-        "Content-Type" Core.=# contentType
+      [ "Latest-Version-Number" Data.=# latestVersionNumber,
+        "Description" Data.=# description,
+        "Content-Type" Data.=# contentType
       ]
 
-instance Core.ToPath CreateHostedConfigurationVersion where
+instance Data.ToPath CreateHostedConfigurationVersion where
   toPath CreateHostedConfigurationVersion' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/configurationprofiles/",
-        Core.toBS configurationProfileId,
+        Data.toBS configurationProfileId,
         "/hostedconfigurationversions"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateHostedConfigurationVersion
   where
   toQuery = Prelude.const Prelude.mempty

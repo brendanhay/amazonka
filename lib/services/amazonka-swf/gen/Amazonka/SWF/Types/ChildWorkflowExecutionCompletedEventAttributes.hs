@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.ChildWorkflowExecutionCompletedEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.WorkflowExecution
 import Amazonka.SWF.Types.WorkflowType
@@ -126,19 +127,19 @@ childWorkflowExecutionCompletedEventAttributes_startedEventId :: Lens.Lens' Chil
 childWorkflowExecutionCompletedEventAttributes_startedEventId = Lens.lens (\ChildWorkflowExecutionCompletedEventAttributes' {startedEventId} -> startedEventId) (\s@ChildWorkflowExecutionCompletedEventAttributes' {} a -> s {startedEventId = a} :: ChildWorkflowExecutionCompletedEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ChildWorkflowExecutionCompletedEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChildWorkflowExecutionCompletedEventAttributes"
       ( \x ->
           ChildWorkflowExecutionCompletedEventAttributes'
-            Prelude.<$> (x Core..:? "result")
-              Prelude.<*> (x Core..: "workflowExecution")
-              Prelude.<*> (x Core..: "workflowType")
-              Prelude.<*> (x Core..: "initiatedEventId")
-              Prelude.<*> (x Core..: "startedEventId")
+            Prelude.<$> (x Data..:? "result")
+              Prelude.<*> (x Data..: "workflowExecution")
+              Prelude.<*> (x Data..: "workflowType")
+              Prelude.<*> (x Data..: "initiatedEventId")
+              Prelude.<*> (x Data..: "startedEventId")
       )
 
 instance

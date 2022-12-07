@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,10 +97,10 @@ instance Core.AWSRequest ListAllowedNodeTypeUpdates where
     Response.receiveJSON
       ( \s h x ->
           ListAllowedNodeTypeUpdatesResponse'
-            Prelude.<$> ( x Core..?> "ScaleUpNodeTypes"
+            Prelude.<$> ( x Data..?> "ScaleUpNodeTypes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "ScaleDownNodeTypes"
+            Prelude.<*> ( x Data..?> "ScaleDownNodeTypes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -113,32 +114,32 @@ instance Prelude.NFData ListAllowedNodeTypeUpdates where
   rnf ListAllowedNodeTypeUpdates' {..} =
     Prelude.rnf clusterName
 
-instance Core.ToHeaders ListAllowedNodeTypeUpdates where
+instance Data.ToHeaders ListAllowedNodeTypeUpdates where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonMemoryDB.ListAllowedNodeTypeUpdates" ::
+              Data.=# ( "AmazonMemoryDB.ListAllowedNodeTypeUpdates" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAllowedNodeTypeUpdates where
+instance Data.ToJSON ListAllowedNodeTypeUpdates where
   toJSON ListAllowedNodeTypeUpdates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ClusterName" Core..= clusterName)]
+          [Prelude.Just ("ClusterName" Data..= clusterName)]
       )
 
-instance Core.ToPath ListAllowedNodeTypeUpdates where
+instance Data.ToPath ListAllowedNodeTypeUpdates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAllowedNodeTypeUpdates where
+instance Data.ToQuery ListAllowedNodeTypeUpdates where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAllowedNodeTypeUpdatesResponse' smart constructor.

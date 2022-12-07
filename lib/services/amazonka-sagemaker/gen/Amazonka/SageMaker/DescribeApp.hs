@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,17 +134,17 @@ instance Core.AWSRequest DescribeApp where
     Response.receiveJSON
       ( \s h x ->
           DescribeAppResponse'
-            Prelude.<$> (x Core..?> "ResourceSpec")
-            Prelude.<*> (x Core..?> "AppName")
-            Prelude.<*> (x Core..?> "AppType")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "AppArn")
-            Prelude.<*> (x Core..?> "LastUserActivityTimestamp")
-            Prelude.<*> (x Core..?> "UserProfileName")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "DomainId")
-            Prelude.<*> (x Core..?> "LastHealthCheckTimestamp")
-            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<$> (x Data..?> "ResourceSpec")
+            Prelude.<*> (x Data..?> "AppName")
+            Prelude.<*> (x Data..?> "AppType")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "AppArn")
+            Prelude.<*> (x Data..?> "LastUserActivityTimestamp")
+            Prelude.<*> (x Data..?> "UserProfileName")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "DomainId")
+            Prelude.<*> (x Data..?> "LastHealthCheckTimestamp")
+            Prelude.<*> (x Data..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,35 +162,35 @@ instance Prelude.NFData DescribeApp where
       `Prelude.seq` Prelude.rnf appType
       `Prelude.seq` Prelude.rnf appName
 
-instance Core.ToHeaders DescribeApp where
+instance Data.ToHeaders DescribeApp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeApp" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DescribeApp" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeApp where
+instance Data.ToJSON DescribeApp where
   toJSON DescribeApp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DomainId" Core..= domainId),
+          [ Prelude.Just ("DomainId" Data..= domainId),
             Prelude.Just
-              ("UserProfileName" Core..= userProfileName),
-            Prelude.Just ("AppType" Core..= appType),
-            Prelude.Just ("AppName" Core..= appName)
+              ("UserProfileName" Data..= userProfileName),
+            Prelude.Just ("AppType" Data..= appType),
+            Prelude.Just ("AppName" Data..= appName)
           ]
       )
 
-instance Core.ToPath DescribeApp where
+instance Data.ToPath DescribeApp where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeApp where
+instance Data.ToQuery DescribeApp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAppResponse' smart constructor.
@@ -209,15 +210,15 @@ data DescribeAppResponse = DescribeAppResponse'
     -- is also updated when SageMaker performs health checks without user
     -- activity. As a result, this value is set to the same value as
     -- @LastHealthCheckTimestamp@.
-    lastUserActivityTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUserActivityTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The user profile name.
     userProfileName :: Prelude.Maybe Prelude.Text,
     -- | The creation time.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The domain ID.
     domainId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the last health check.
-    lastHealthCheckTimestamp :: Prelude.Maybe Core.POSIX,
+    lastHealthCheckTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The failure reason.
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -307,7 +308,7 @@ describeAppResponse_appArn = Lens.lens (\DescribeAppResponse' {appArn} -> appArn
 -- activity. As a result, this value is set to the same value as
 -- @LastHealthCheckTimestamp@.
 describeAppResponse_lastUserActivityTimestamp :: Lens.Lens' DescribeAppResponse (Prelude.Maybe Prelude.UTCTime)
-describeAppResponse_lastUserActivityTimestamp = Lens.lens (\DescribeAppResponse' {lastUserActivityTimestamp} -> lastUserActivityTimestamp) (\s@DescribeAppResponse' {} a -> s {lastUserActivityTimestamp = a} :: DescribeAppResponse) Prelude.. Lens.mapping Core._Time
+describeAppResponse_lastUserActivityTimestamp = Lens.lens (\DescribeAppResponse' {lastUserActivityTimestamp} -> lastUserActivityTimestamp) (\s@DescribeAppResponse' {} a -> s {lastUserActivityTimestamp = a} :: DescribeAppResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The user profile name.
 describeAppResponse_userProfileName :: Lens.Lens' DescribeAppResponse (Prelude.Maybe Prelude.Text)
@@ -315,7 +316,7 @@ describeAppResponse_userProfileName = Lens.lens (\DescribeAppResponse' {userProf
 
 -- | The creation time.
 describeAppResponse_creationTime :: Lens.Lens' DescribeAppResponse (Prelude.Maybe Prelude.UTCTime)
-describeAppResponse_creationTime = Lens.lens (\DescribeAppResponse' {creationTime} -> creationTime) (\s@DescribeAppResponse' {} a -> s {creationTime = a} :: DescribeAppResponse) Prelude.. Lens.mapping Core._Time
+describeAppResponse_creationTime = Lens.lens (\DescribeAppResponse' {creationTime} -> creationTime) (\s@DescribeAppResponse' {} a -> s {creationTime = a} :: DescribeAppResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The domain ID.
 describeAppResponse_domainId :: Lens.Lens' DescribeAppResponse (Prelude.Maybe Prelude.Text)
@@ -323,7 +324,7 @@ describeAppResponse_domainId = Lens.lens (\DescribeAppResponse' {domainId} -> do
 
 -- | The timestamp of the last health check.
 describeAppResponse_lastHealthCheckTimestamp :: Lens.Lens' DescribeAppResponse (Prelude.Maybe Prelude.UTCTime)
-describeAppResponse_lastHealthCheckTimestamp = Lens.lens (\DescribeAppResponse' {lastHealthCheckTimestamp} -> lastHealthCheckTimestamp) (\s@DescribeAppResponse' {} a -> s {lastHealthCheckTimestamp = a} :: DescribeAppResponse) Prelude.. Lens.mapping Core._Time
+describeAppResponse_lastHealthCheckTimestamp = Lens.lens (\DescribeAppResponse' {lastHealthCheckTimestamp} -> lastHealthCheckTimestamp) (\s@DescribeAppResponse' {} a -> s {lastHealthCheckTimestamp = a} :: DescribeAppResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The failure reason.
 describeAppResponse_failureReason :: Lens.Lens' DescribeAppResponse (Prelude.Maybe Prelude.Text)

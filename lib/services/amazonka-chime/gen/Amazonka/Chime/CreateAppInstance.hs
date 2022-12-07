@@ -47,6 +47,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,11 +57,11 @@ data CreateAppInstance = CreateAppInstance'
   { -- | Tags assigned to the @AppInstance@.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The metadata of the @AppInstance@. Limited to a 1KB string in UTF-8.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the @AppInstance@.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | The @ClientRequestToken@ of the @AppInstance@.
-    clientRequestToken :: Core.Sensitive Prelude.Text
+    clientRequestToken :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -89,9 +90,9 @@ newCreateAppInstance pName_ pClientRequestToken_ =
   CreateAppInstance'
     { tags = Prelude.Nothing,
       metadata = Prelude.Nothing,
-      name = Core._Sensitive Lens.# pName_,
+      name = Data._Sensitive Lens.# pName_,
       clientRequestToken =
-        Core._Sensitive Lens.# pClientRequestToken_
+        Data._Sensitive Lens.# pClientRequestToken_
     }
 
 -- | Tags assigned to the @AppInstance@.
@@ -100,15 +101,15 @@ createAppInstance_tags = Lens.lens (\CreateAppInstance' {tags} -> tags) (\s@Crea
 
 -- | The metadata of the @AppInstance@. Limited to a 1KB string in UTF-8.
 createAppInstance_metadata :: Lens.Lens' CreateAppInstance (Prelude.Maybe Prelude.Text)
-createAppInstance_metadata = Lens.lens (\CreateAppInstance' {metadata} -> metadata) (\s@CreateAppInstance' {} a -> s {metadata = a} :: CreateAppInstance) Prelude.. Lens.mapping Core._Sensitive
+createAppInstance_metadata = Lens.lens (\CreateAppInstance' {metadata} -> metadata) (\s@CreateAppInstance' {} a -> s {metadata = a} :: CreateAppInstance) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the @AppInstance@.
 createAppInstance_name :: Lens.Lens' CreateAppInstance Prelude.Text
-createAppInstance_name = Lens.lens (\CreateAppInstance' {name} -> name) (\s@CreateAppInstance' {} a -> s {name = a} :: CreateAppInstance) Prelude.. Core._Sensitive
+createAppInstance_name = Lens.lens (\CreateAppInstance' {name} -> name) (\s@CreateAppInstance' {} a -> s {name = a} :: CreateAppInstance) Prelude.. Data._Sensitive
 
 -- | The @ClientRequestToken@ of the @AppInstance@.
 createAppInstance_clientRequestToken :: Lens.Lens' CreateAppInstance Prelude.Text
-createAppInstance_clientRequestToken = Lens.lens (\CreateAppInstance' {clientRequestToken} -> clientRequestToken) (\s@CreateAppInstance' {} a -> s {clientRequestToken = a} :: CreateAppInstance) Prelude.. Core._Sensitive
+createAppInstance_clientRequestToken = Lens.lens (\CreateAppInstance' {clientRequestToken} -> clientRequestToken) (\s@CreateAppInstance' {} a -> s {clientRequestToken = a} :: CreateAppInstance) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateAppInstance where
   type
@@ -120,7 +121,7 @@ instance Core.AWSRequest CreateAppInstance where
     Response.receiveJSON
       ( \s h x ->
           CreateAppInstanceResponse'
-            Prelude.<$> (x Core..?> "AppInstanceArn")
+            Prelude.<$> (x Data..?> "AppInstanceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,25 +139,25 @@ instance Prelude.NFData CreateAppInstance where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf clientRequestToken
 
-instance Core.ToHeaders CreateAppInstance where
+instance Data.ToHeaders CreateAppInstance where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateAppInstance where
+instance Data.ToJSON CreateAppInstance where
   toJSON CreateAppInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Metadata" Core..=) Prelude.<$> metadata,
-            Prelude.Just ("Name" Core..= name),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Metadata" Data..=) Prelude.<$> metadata,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken)
+              ("ClientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath CreateAppInstance where
+instance Data.ToPath CreateAppInstance where
   toPath = Prelude.const "/app-instances"
 
-instance Core.ToQuery CreateAppInstance where
+instance Data.ToQuery CreateAppInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAppInstanceResponse' smart constructor.

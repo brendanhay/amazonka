@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -195,7 +196,7 @@ instance Core.AWSRequest GetGeoLocation where
       ( \s h x ->
           GetGeoLocationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "GeoLocationDetails")
+            Prelude.<*> (x Data..@ "GeoLocationDetails")
       )
 
 instance Prelude.Hashable GetGeoLocation where
@@ -210,18 +211,18 @@ instance Prelude.NFData GetGeoLocation where
       `Prelude.seq` Prelude.rnf countryCode
       `Prelude.seq` Prelude.rnf continentCode
 
-instance Core.ToHeaders GetGeoLocation where
+instance Data.ToHeaders GetGeoLocation where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetGeoLocation where
+instance Data.ToPath GetGeoLocation where
   toPath = Prelude.const "/2013-04-01/geolocation"
 
-instance Core.ToQuery GetGeoLocation where
+instance Data.ToQuery GetGeoLocation where
   toQuery GetGeoLocation' {..} =
     Prelude.mconcat
-      [ "subdivisioncode" Core.=: subdivisionCode,
-        "countrycode" Core.=: countryCode,
-        "continentcode" Core.=: continentCode
+      [ "subdivisioncode" Data.=: subdivisionCode,
+        "countrycode" Data.=: countryCode,
+        "continentcode" Data.=: continentCode
       ]
 
 -- | A complex type that contains the response information for the specified

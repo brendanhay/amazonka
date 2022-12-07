@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DeploymentStageStatusSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.DeviceSelectionConfig
 import Amazonka.SageMaker.Types.EdgeDeploymentConfig
@@ -96,16 +97,16 @@ deploymentStageStatusSummary_deploymentConfig = Lens.lens (\DeploymentStageStatu
 deploymentStageStatusSummary_deploymentStatus :: Lens.Lens' DeploymentStageStatusSummary EdgeDeploymentStatus
 deploymentStageStatusSummary_deploymentStatus = Lens.lens (\DeploymentStageStatusSummary' {deploymentStatus} -> deploymentStatus) (\s@DeploymentStageStatusSummary' {} a -> s {deploymentStatus = a} :: DeploymentStageStatusSummary)
 
-instance Core.FromJSON DeploymentStageStatusSummary where
+instance Data.FromJSON DeploymentStageStatusSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentStageStatusSummary"
       ( \x ->
           DeploymentStageStatusSummary'
-            Prelude.<$> (x Core..: "StageName")
-            Prelude.<*> (x Core..: "DeviceSelectionConfig")
-            Prelude.<*> (x Core..: "DeploymentConfig")
-            Prelude.<*> (x Core..: "DeploymentStatus")
+            Prelude.<$> (x Data..: "StageName")
+            Prelude.<*> (x Data..: "DeviceSelectionConfig")
+            Prelude.<*> (x Data..: "DeploymentConfig")
+            Prelude.<*> (x Data..: "DeploymentStatus")
       )
 
 instance

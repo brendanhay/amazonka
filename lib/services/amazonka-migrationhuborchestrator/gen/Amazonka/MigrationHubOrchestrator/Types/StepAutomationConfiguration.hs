@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.StepAutomationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types.PlatformCommand
 import Amazonka.MigrationHubOrchestrator.Types.PlatformScriptKey
 import Amazonka.MigrationHubOrchestrator.Types.RunEnvironment
@@ -93,17 +94,17 @@ stepAutomationConfiguration_scriptLocationS3Bucket = Lens.lens (\StepAutomationC
 stepAutomationConfiguration_runEnvironment :: Lens.Lens' StepAutomationConfiguration (Prelude.Maybe RunEnvironment)
 stepAutomationConfiguration_runEnvironment = Lens.lens (\StepAutomationConfiguration' {runEnvironment} -> runEnvironment) (\s@StepAutomationConfiguration' {} a -> s {runEnvironment = a} :: StepAutomationConfiguration)
 
-instance Core.FromJSON StepAutomationConfiguration where
+instance Data.FromJSON StepAutomationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StepAutomationConfiguration"
       ( \x ->
           StepAutomationConfiguration'
-            Prelude.<$> (x Core..:? "command")
-            Prelude.<*> (x Core..:? "targetType")
-            Prelude.<*> (x Core..:? "scriptLocationS3Key")
-            Prelude.<*> (x Core..:? "scriptLocationS3Bucket")
-            Prelude.<*> (x Core..:? "runEnvironment")
+            Prelude.<$> (x Data..:? "command")
+            Prelude.<*> (x Data..:? "targetType")
+            Prelude.<*> (x Data..:? "scriptLocationS3Key")
+            Prelude.<*> (x Data..:? "scriptLocationS3Bucket")
+            Prelude.<*> (x Data..:? "runEnvironment")
       )
 
 instance Prelude.Hashable StepAutomationConfiguration where

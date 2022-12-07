@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.HlsCdnSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.HlsAkamaiSettings
 import Amazonka.MediaLive.Types.HlsBasicPutSettings
 import Amazonka.MediaLive.Types.HlsMediaStoreSettings
@@ -89,17 +90,17 @@ hlsCdnSettings_hlsBasicPutSettings = Lens.lens (\HlsCdnSettings' {hlsBasicPutSet
 hlsCdnSettings_hlsWebdavSettings :: Lens.Lens' HlsCdnSettings (Prelude.Maybe HlsWebdavSettings)
 hlsCdnSettings_hlsWebdavSettings = Lens.lens (\HlsCdnSettings' {hlsWebdavSettings} -> hlsWebdavSettings) (\s@HlsCdnSettings' {} a -> s {hlsWebdavSettings = a} :: HlsCdnSettings)
 
-instance Core.FromJSON HlsCdnSettings where
+instance Data.FromJSON HlsCdnSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsCdnSettings"
       ( \x ->
           HlsCdnSettings'
-            Prelude.<$> (x Core..:? "hlsAkamaiSettings")
-            Prelude.<*> (x Core..:? "hlsS3Settings")
-            Prelude.<*> (x Core..:? "hlsMediaStoreSettings")
-            Prelude.<*> (x Core..:? "hlsBasicPutSettings")
-            Prelude.<*> (x Core..:? "hlsWebdavSettings")
+            Prelude.<$> (x Data..:? "hlsAkamaiSettings")
+            Prelude.<*> (x Data..:? "hlsS3Settings")
+            Prelude.<*> (x Data..:? "hlsMediaStoreSettings")
+            Prelude.<*> (x Data..:? "hlsBasicPutSettings")
+            Prelude.<*> (x Data..:? "hlsWebdavSettings")
       )
 
 instance Prelude.Hashable HlsCdnSettings where
@@ -118,18 +119,18 @@ instance Prelude.NFData HlsCdnSettings where
       `Prelude.seq` Prelude.rnf hlsBasicPutSettings
       `Prelude.seq` Prelude.rnf hlsWebdavSettings
 
-instance Core.ToJSON HlsCdnSettings where
+instance Data.ToJSON HlsCdnSettings where
   toJSON HlsCdnSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("hlsAkamaiSettings" Core..=)
+          [ ("hlsAkamaiSettings" Data..=)
               Prelude.<$> hlsAkamaiSettings,
-            ("hlsS3Settings" Core..=) Prelude.<$> hlsS3Settings,
-            ("hlsMediaStoreSettings" Core..=)
+            ("hlsS3Settings" Data..=) Prelude.<$> hlsS3Settings,
+            ("hlsMediaStoreSettings" Data..=)
               Prelude.<$> hlsMediaStoreSettings,
-            ("hlsBasicPutSettings" Core..=)
+            ("hlsBasicPutSettings" Data..=)
               Prelude.<$> hlsBasicPutSettings,
-            ("hlsWebdavSettings" Core..=)
+            ("hlsWebdavSettings" Data..=)
               Prelude.<$> hlsWebdavSettings
           ]
       )

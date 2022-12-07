@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.PoolOriginationIdentitiesFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types.PoolOriginationIdentitiesFilterName
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,11 +85,11 @@ instance
   rnf PoolOriginationIdentitiesFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON PoolOriginationIdentitiesFilter where
+instance Data.ToJSON PoolOriginationIdentitiesFilter where
   toJSON PoolOriginationIdentitiesFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Values" Core..= values)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

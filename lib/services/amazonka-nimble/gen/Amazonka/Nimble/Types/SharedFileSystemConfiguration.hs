@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.SharedFileSystemConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for a shared file storage system that is associated
@@ -33,14 +34,14 @@ data SharedFileSystemConfiguration = SharedFileSystemConfiguration'
     windowsMountDrive :: Prelude.Maybe Prelude.Text,
     -- | The mount location for a shared file system on a Linux virtual
     -- workstation.
-    linuxMountPoint :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    linuxMountPoint :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The unique identifier for a file system.
     fileSystemId :: Prelude.Maybe Prelude.Text,
     -- | The name of the file share.
-    shareName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    shareName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The endpoint of the shared file system that is accessed by the studio
     -- component resource.
-    endpoint :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    endpoint :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -84,7 +85,7 @@ sharedFileSystemConfiguration_windowsMountDrive = Lens.lens (\SharedFileSystemCo
 -- | The mount location for a shared file system on a Linux virtual
 -- workstation.
 sharedFileSystemConfiguration_linuxMountPoint :: Lens.Lens' SharedFileSystemConfiguration (Prelude.Maybe Prelude.Text)
-sharedFileSystemConfiguration_linuxMountPoint = Lens.lens (\SharedFileSystemConfiguration' {linuxMountPoint} -> linuxMountPoint) (\s@SharedFileSystemConfiguration' {} a -> s {linuxMountPoint = a} :: SharedFileSystemConfiguration) Prelude.. Lens.mapping Core._Sensitive
+sharedFileSystemConfiguration_linuxMountPoint = Lens.lens (\SharedFileSystemConfiguration' {linuxMountPoint} -> linuxMountPoint) (\s@SharedFileSystemConfiguration' {} a -> s {linuxMountPoint = a} :: SharedFileSystemConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The unique identifier for a file system.
 sharedFileSystemConfiguration_fileSystemId :: Lens.Lens' SharedFileSystemConfiguration (Prelude.Maybe Prelude.Text)
@@ -92,24 +93,24 @@ sharedFileSystemConfiguration_fileSystemId = Lens.lens (\SharedFileSystemConfigu
 
 -- | The name of the file share.
 sharedFileSystemConfiguration_shareName :: Lens.Lens' SharedFileSystemConfiguration (Prelude.Maybe Prelude.Text)
-sharedFileSystemConfiguration_shareName = Lens.lens (\SharedFileSystemConfiguration' {shareName} -> shareName) (\s@SharedFileSystemConfiguration' {} a -> s {shareName = a} :: SharedFileSystemConfiguration) Prelude.. Lens.mapping Core._Sensitive
+sharedFileSystemConfiguration_shareName = Lens.lens (\SharedFileSystemConfiguration' {shareName} -> shareName) (\s@SharedFileSystemConfiguration' {} a -> s {shareName = a} :: SharedFileSystemConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The endpoint of the shared file system that is accessed by the studio
 -- component resource.
 sharedFileSystemConfiguration_endpoint :: Lens.Lens' SharedFileSystemConfiguration (Prelude.Maybe Prelude.Text)
-sharedFileSystemConfiguration_endpoint = Lens.lens (\SharedFileSystemConfiguration' {endpoint} -> endpoint) (\s@SharedFileSystemConfiguration' {} a -> s {endpoint = a} :: SharedFileSystemConfiguration) Prelude.. Lens.mapping Core._Sensitive
+sharedFileSystemConfiguration_endpoint = Lens.lens (\SharedFileSystemConfiguration' {endpoint} -> endpoint) (\s@SharedFileSystemConfiguration' {} a -> s {endpoint = a} :: SharedFileSystemConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON SharedFileSystemConfiguration where
+instance Data.FromJSON SharedFileSystemConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SharedFileSystemConfiguration"
       ( \x ->
           SharedFileSystemConfiguration'
-            Prelude.<$> (x Core..:? "windowsMountDrive")
-            Prelude.<*> (x Core..:? "linuxMountPoint")
-            Prelude.<*> (x Core..:? "fileSystemId")
-            Prelude.<*> (x Core..:? "shareName")
-            Prelude.<*> (x Core..:? "endpoint")
+            Prelude.<$> (x Data..:? "windowsMountDrive")
+            Prelude.<*> (x Data..:? "linuxMountPoint")
+            Prelude.<*> (x Data..:? "fileSystemId")
+            Prelude.<*> (x Data..:? "shareName")
+            Prelude.<*> (x Data..:? "endpoint")
       )
 
 instance
@@ -131,16 +132,16 @@ instance Prelude.NFData SharedFileSystemConfiguration where
       `Prelude.seq` Prelude.rnf shareName
       `Prelude.seq` Prelude.rnf endpoint
 
-instance Core.ToJSON SharedFileSystemConfiguration where
+instance Data.ToJSON SharedFileSystemConfiguration where
   toJSON SharedFileSystemConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("windowsMountDrive" Core..=)
+          [ ("windowsMountDrive" Data..=)
               Prelude.<$> windowsMountDrive,
-            ("linuxMountPoint" Core..=)
+            ("linuxMountPoint" Data..=)
               Prelude.<$> linuxMountPoint,
-            ("fileSystemId" Core..=) Prelude.<$> fileSystemId,
-            ("shareName" Core..=) Prelude.<$> shareName,
-            ("endpoint" Core..=) Prelude.<$> endpoint
+            ("fileSystemId" Data..=) Prelude.<$> fileSystemId,
+            ("shareName" Data..=) Prelude.<$> shareName,
+            ("endpoint" Data..=) Prelude.<$> endpoint
           ]
       )

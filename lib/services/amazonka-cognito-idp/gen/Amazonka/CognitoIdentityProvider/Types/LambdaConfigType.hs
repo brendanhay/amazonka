@@ -23,6 +23,7 @@ import Amazonka.CognitoIdentityProvider.Types.CustomEmailLambdaVersionConfigType
 import Amazonka.CognitoIdentityProvider.Types.CustomSMSLambdaVersionConfigType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration for Lambda triggers.
@@ -172,25 +173,25 @@ lambdaConfigType_createAuthChallenge = Lens.lens (\LambdaConfigType' {createAuth
 lambdaConfigType_customEmailSender :: Lens.Lens' LambdaConfigType (Prelude.Maybe CustomEmailLambdaVersionConfigType)
 lambdaConfigType_customEmailSender = Lens.lens (\LambdaConfigType' {customEmailSender} -> customEmailSender) (\s@LambdaConfigType' {} a -> s {customEmailSender = a} :: LambdaConfigType)
 
-instance Core.FromJSON LambdaConfigType where
+instance Data.FromJSON LambdaConfigType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaConfigType"
       ( \x ->
           LambdaConfigType'
-            Prelude.<$> (x Core..:? "CustomSMSSender")
-            Prelude.<*> (x Core..:? "UserMigration")
-            Prelude.<*> (x Core..:? "PostAuthentication")
-            Prelude.<*> (x Core..:? "DefineAuthChallenge")
-            Prelude.<*> (x Core..:? "PostConfirmation")
-            Prelude.<*> (x Core..:? "PreSignUp")
-            Prelude.<*> (x Core..:? "VerifyAuthChallengeResponse")
-            Prelude.<*> (x Core..:? "CustomMessage")
-            Prelude.<*> (x Core..:? "KMSKeyID")
-            Prelude.<*> (x Core..:? "PreAuthentication")
-            Prelude.<*> (x Core..:? "PreTokenGeneration")
-            Prelude.<*> (x Core..:? "CreateAuthChallenge")
-            Prelude.<*> (x Core..:? "CustomEmailSender")
+            Prelude.<$> (x Data..:? "CustomSMSSender")
+            Prelude.<*> (x Data..:? "UserMigration")
+            Prelude.<*> (x Data..:? "PostAuthentication")
+            Prelude.<*> (x Data..:? "DefineAuthChallenge")
+            Prelude.<*> (x Data..:? "PostConfirmation")
+            Prelude.<*> (x Data..:? "PreSignUp")
+            Prelude.<*> (x Data..:? "VerifyAuthChallengeResponse")
+            Prelude.<*> (x Data..:? "CustomMessage")
+            Prelude.<*> (x Data..:? "KMSKeyID")
+            Prelude.<*> (x Data..:? "PreAuthentication")
+            Prelude.<*> (x Data..:? "PreTokenGeneration")
+            Prelude.<*> (x Data..:? "CreateAuthChallenge")
+            Prelude.<*> (x Data..:? "CustomEmailSender")
       )
 
 instance Prelude.Hashable LambdaConfigType where
@@ -225,31 +226,31 @@ instance Prelude.NFData LambdaConfigType where
       `Prelude.seq` Prelude.rnf createAuthChallenge
       `Prelude.seq` Prelude.rnf customEmailSender
 
-instance Core.ToJSON LambdaConfigType where
+instance Data.ToJSON LambdaConfigType where
   toJSON LambdaConfigType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomSMSSender" Core..=)
+          [ ("CustomSMSSender" Data..=)
               Prelude.<$> customSMSSender,
-            ("UserMigration" Core..=) Prelude.<$> userMigration,
-            ("PostAuthentication" Core..=)
+            ("UserMigration" Data..=) Prelude.<$> userMigration,
+            ("PostAuthentication" Data..=)
               Prelude.<$> postAuthentication,
-            ("DefineAuthChallenge" Core..=)
+            ("DefineAuthChallenge" Data..=)
               Prelude.<$> defineAuthChallenge,
-            ("PostConfirmation" Core..=)
+            ("PostConfirmation" Data..=)
               Prelude.<$> postConfirmation,
-            ("PreSignUp" Core..=) Prelude.<$> preSignUp,
-            ("VerifyAuthChallengeResponse" Core..=)
+            ("PreSignUp" Data..=) Prelude.<$> preSignUp,
+            ("VerifyAuthChallengeResponse" Data..=)
               Prelude.<$> verifyAuthChallengeResponse,
-            ("CustomMessage" Core..=) Prelude.<$> customMessage,
-            ("KMSKeyID" Core..=) Prelude.<$> kmsKeyID,
-            ("PreAuthentication" Core..=)
+            ("CustomMessage" Data..=) Prelude.<$> customMessage,
+            ("KMSKeyID" Data..=) Prelude.<$> kmsKeyID,
+            ("PreAuthentication" Data..=)
               Prelude.<$> preAuthentication,
-            ("PreTokenGeneration" Core..=)
+            ("PreTokenGeneration" Data..=)
               Prelude.<$> preTokenGeneration,
-            ("CreateAuthChallenge" Core..=)
+            ("CreateAuthChallenge" Data..=)
               Prelude.<$> createAuthChallenge,
-            ("CustomEmailSender" Core..=)
+            ("CustomEmailSender" Data..=)
               Prelude.<$> customEmailSender
           ]
       )

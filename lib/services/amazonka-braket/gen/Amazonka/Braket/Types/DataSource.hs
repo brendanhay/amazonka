@@ -22,6 +22,7 @@ module Amazonka.Braket.Types.DataSource where
 import Amazonka.Braket.Types.S3DataSource
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the source of the data used by the Amazon Braket job.
@@ -56,12 +57,12 @@ newDataSource pS3DataSource_ =
 dataSource_s3DataSource :: Lens.Lens' DataSource S3DataSource
 dataSource_s3DataSource = Lens.lens (\DataSource' {s3DataSource} -> s3DataSource) (\s@DataSource' {} a -> s {s3DataSource = a} :: DataSource)
 
-instance Core.FromJSON DataSource where
+instance Data.FromJSON DataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSource"
       ( \x ->
-          DataSource' Prelude.<$> (x Core..: "s3DataSource")
+          DataSource' Prelude.<$> (x Data..: "s3DataSource")
       )
 
 instance Prelude.Hashable DataSource where
@@ -71,9 +72,9 @@ instance Prelude.Hashable DataSource where
 instance Prelude.NFData DataSource where
   rnf DataSource' {..} = Prelude.rnf s3DataSource
 
-instance Core.ToJSON DataSource where
+instance Data.ToJSON DataSource where
   toJSON DataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("s3DataSource" Core..= s3DataSource)]
+          [Prelude.Just ("s3DataSource" Data..= s3DataSource)]
       )

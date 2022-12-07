@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.ConflictingAliasesList where
 import Amazonka.CloudFront.Types.ConflictingAlias
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of aliases (also called CNAMEs) and the CloudFront distributions
@@ -93,15 +94,15 @@ conflictingAliasesList_maxItems = Lens.lens (\ConflictingAliasesList' {maxItems}
 conflictingAliasesList_nextMarker :: Lens.Lens' ConflictingAliasesList (Prelude.Maybe Prelude.Text)
 conflictingAliasesList_nextMarker = Lens.lens (\ConflictingAliasesList' {nextMarker} -> nextMarker) (\s@ConflictingAliasesList' {} a -> s {nextMarker = a} :: ConflictingAliasesList)
 
-instance Core.FromXML ConflictingAliasesList where
+instance Data.FromXML ConflictingAliasesList where
   parseXML x =
     ConflictingAliasesList'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "ConflictingAlias")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "ConflictingAlias")
                   )
-      Prelude.<*> (x Core..@? "Quantity")
-      Prelude.<*> (x Core..@? "MaxItems")
-      Prelude.<*> (x Core..@? "NextMarker")
+      Prelude.<*> (x Data..@? "Quantity")
+      Prelude.<*> (x Data..@? "MaxItems")
+      Prelude.<*> (x Data..@? "NextMarker")
 
 instance Prelude.Hashable ConflictingAliasesList where
   hashWithSalt _salt ConflictingAliasesList' {..} =

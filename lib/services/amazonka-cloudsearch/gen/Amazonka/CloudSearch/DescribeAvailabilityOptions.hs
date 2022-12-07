@@ -48,6 +48,7 @@ where
 import Amazonka.CloudSearch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,7 +111,7 @@ instance Core.AWSRequest DescribeAvailabilityOptions where
       "DescribeAvailabilityOptionsResult"
       ( \s h x ->
           DescribeAvailabilityOptionsResponse'
-            Prelude.<$> (x Core..@? "AvailabilityOptions")
+            Prelude.<$> (x Data..@? "AvailabilityOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,23 +125,23 @@ instance Prelude.NFData DescribeAvailabilityOptions where
     Prelude.rnf deployed
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders DescribeAvailabilityOptions where
+instance Data.ToHeaders DescribeAvailabilityOptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAvailabilityOptions where
+instance Data.ToPath DescribeAvailabilityOptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAvailabilityOptions where
+instance Data.ToQuery DescribeAvailabilityOptions where
   toQuery DescribeAvailabilityOptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeAvailabilityOptions" ::
+          Data.=: ( "DescribeAvailabilityOptions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2013-01-01" :: Prelude.ByteString),
-        "Deployed" Core.=: deployed,
-        "DomainName" Core.=: domainName
+          Data.=: ("2013-01-01" :: Prelude.ByteString),
+        "Deployed" Data.=: deployed,
+        "DomainName" Data.=: domainName
       ]
 
 -- | The result of a @DescribeAvailabilityOptions@ request. Indicates whether

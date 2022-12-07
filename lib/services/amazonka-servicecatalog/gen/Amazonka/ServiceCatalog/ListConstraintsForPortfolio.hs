@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -172,8 +173,8 @@ instance Core.AWSRequest ListConstraintsForPortfolio where
     Response.receiveJSON
       ( \s h x ->
           ListConstraintsForPortfolioResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> ( x Core..?> "ConstraintDetails"
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> ( x Data..?> "ConstraintDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -195,38 +196,38 @@ instance Prelude.NFData ListConstraintsForPortfolio where
       `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf portfolioId
 
-instance Core.ToHeaders ListConstraintsForPortfolio where
+instance Data.ToHeaders ListConstraintsForPortfolio where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ListConstraintsForPortfolio" ::
+              Data.=# ( "AWS242ServiceCatalogService.ListConstraintsForPortfolio" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListConstraintsForPortfolio where
+instance Data.ToJSON ListConstraintsForPortfolio where
   toJSON ListConstraintsForPortfolio' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProductId" Core..=) Prelude.<$> productId,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Core..=)
+          [ ("ProductId" Data..=) Prelude.<$> productId,
+            ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("PortfolioId" Core..= portfolioId)
+            Prelude.Just ("PortfolioId" Data..= portfolioId)
           ]
       )
 
-instance Core.ToPath ListConstraintsForPortfolio where
+instance Data.ToPath ListConstraintsForPortfolio where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListConstraintsForPortfolio where
+instance Data.ToQuery ListConstraintsForPortfolio where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListConstraintsForPortfolioResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.S3Object where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The S3 bucket name and file name that identifies the document.
@@ -100,12 +101,12 @@ instance Prelude.NFData S3Object where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON S3Object where
+instance Data.ToJSON S3Object where
   toJSON S3Object' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Bucket" Core..=) Prelude.<$> bucket,
-            ("Version" Core..=) Prelude.<$> version
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Bucket" Data..=) Prelude.<$> bucket,
+            ("Version" Data..=) Prelude.<$> version
           ]
       )

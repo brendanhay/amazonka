@@ -43,6 +43,7 @@ where
 import Amazonka.CodeGuruProfiler.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest RemoveNotificationChannel where
     Response.receiveJSON
       ( \s h x ->
           RemoveNotificationChannelResponse'
-            Prelude.<$> (x Core..?> "notificationConfiguration")
+            Prelude.<$> (x Data..?> "notificationConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,27 +119,27 @@ instance Prelude.NFData RemoveNotificationChannel where
     Prelude.rnf channelId
       `Prelude.seq` Prelude.rnf profilingGroupName
 
-instance Core.ToHeaders RemoveNotificationChannel where
+instance Data.ToHeaders RemoveNotificationChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath RemoveNotificationChannel where
+instance Data.ToPath RemoveNotificationChannel where
   toPath RemoveNotificationChannel' {..} =
     Prelude.mconcat
       [ "/profilingGroups/",
-        Core.toBS profilingGroupName,
+        Data.toBS profilingGroupName,
         "/notificationConfiguration/",
-        Core.toBS channelId
+        Data.toBS channelId
       ]
 
-instance Core.ToQuery RemoveNotificationChannel where
+instance Data.ToQuery RemoveNotificationChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The structure representing the RemoveNotificationChannelResponse.

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,8 +107,8 @@ instance Core.AWSRequest ListLicenseVersions where
     Response.receiveJSON
       ( \s h x ->
           ListLicenseVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Licenses" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Licenses" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,35 +124,35 @@ instance Prelude.NFData ListLicenseVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf licenseArn
 
-instance Core.ToHeaders ListLicenseVersions where
+instance Data.ToHeaders ListLicenseVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.ListLicenseVersions" ::
+              Data.=# ( "AWSLicenseManager.ListLicenseVersions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListLicenseVersions where
+instance Data.ToJSON ListLicenseVersions where
   toJSON ListLicenseVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("LicenseArn" Core..= licenseArn)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("LicenseArn" Data..= licenseArn)
           ]
       )
 
-instance Core.ToPath ListLicenseVersions where
+instance Data.ToPath ListLicenseVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListLicenseVersions where
+instance Data.ToQuery ListLicenseVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListLicenseVersionsResponse' smart constructor.

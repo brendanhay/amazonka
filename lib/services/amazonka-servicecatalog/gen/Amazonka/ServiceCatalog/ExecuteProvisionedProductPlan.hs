@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,7 +139,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ExecuteProvisionedProductPlanResponse'
-            Prelude.<$> (x Core..?> "RecordDetail")
+            Prelude.<$> (x Data..?> "RecordDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,37 +158,37 @@ instance Prelude.NFData ExecuteProvisionedProductPlan where
       `Prelude.seq` Prelude.rnf planId
       `Prelude.seq` Prelude.rnf idempotencyToken
 
-instance Core.ToHeaders ExecuteProvisionedProductPlan where
+instance Data.ToHeaders ExecuteProvisionedProductPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ExecuteProvisionedProductPlan" ::
+              Data.=# ( "AWS242ServiceCatalogService.ExecuteProvisionedProductPlan" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExecuteProvisionedProductPlan where
+instance Data.ToJSON ExecuteProvisionedProductPlan where
   toJSON ExecuteProvisionedProductPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("PlanId" Core..= planId),
+            Prelude.Just ("PlanId" Data..= planId),
             Prelude.Just
-              ("IdempotencyToken" Core..= idempotencyToken)
+              ("IdempotencyToken" Data..= idempotencyToken)
           ]
       )
 
-instance Core.ToPath ExecuteProvisionedProductPlan where
+instance Data.ToPath ExecuteProvisionedProductPlan where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ExecuteProvisionedProductPlan where
+instance Data.ToQuery ExecuteProvisionedProductPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExecuteProvisionedProductPlanResponse' smart constructor.

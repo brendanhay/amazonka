@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.DescribedAgreement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.AgreementStatusType
 import Amazonka.Transfer.Types.Tag
@@ -176,22 +177,22 @@ describedAgreement_partnerProfileId = Lens.lens (\DescribedAgreement' {partnerPr
 describedAgreement_arn :: Lens.Lens' DescribedAgreement Prelude.Text
 describedAgreement_arn = Lens.lens (\DescribedAgreement' {arn} -> arn) (\s@DescribedAgreement' {} a -> s {arn = a} :: DescribedAgreement)
 
-instance Core.FromJSON DescribedAgreement where
+instance Data.FromJSON DescribedAgreement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DescribedAgreement"
       ( \x ->
           DescribedAgreement'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "AccessRole")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "BaseDirectory")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LocalProfileId")
-            Prelude.<*> (x Core..:? "AgreementId")
-            Prelude.<*> (x Core..:? "ServerId")
-            Prelude.<*> (x Core..:? "PartnerProfileId")
-            Prelude.<*> (x Core..: "Arn")
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "AccessRole")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "BaseDirectory")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LocalProfileId")
+            Prelude.<*> (x Data..:? "AgreementId")
+            Prelude.<*> (x Data..:? "ServerId")
+            Prelude.<*> (x Data..:? "PartnerProfileId")
+            Prelude.<*> (x Data..: "Arn")
       )
 
 instance Prelude.Hashable DescribedAgreement where

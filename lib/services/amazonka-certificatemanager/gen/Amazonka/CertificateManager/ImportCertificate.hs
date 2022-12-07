@@ -108,6 +108,7 @@ where
 import Amazonka.CertificateManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,11 +125,11 @@ data ImportCertificate = ImportCertificate'
     -- this field.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The PEM encoded certificate chain.
-    certificateChain :: Prelude.Maybe Core.Base64,
+    certificateChain :: Prelude.Maybe Data.Base64,
     -- | The certificate to import.
-    certificate :: Core.Base64,
+    certificate :: Data.Base64,
     -- | The private key that matches the public key in the certificate.
-    privateKey :: Core.Sensitive Core.Base64
+    privateKey :: Data.Sensitive Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -177,9 +178,9 @@ newImportCertificate pCertificate_ pPrivateKey_ =
     { tags = Prelude.Nothing,
       certificateArn = Prelude.Nothing,
       certificateChain = Prelude.Nothing,
-      certificate = Core._Base64 Lens.# pCertificate_,
+      certificate = Data._Base64 Lens.# pCertificate_,
       privateKey =
-        Core._Sensitive Prelude.. Core._Base64
+        Data._Sensitive Prelude.. Data._Base64
           Lens.# pPrivateKey_
     }
 
@@ -202,7 +203,7 @@ importCertificate_certificateArn = Lens.lens (\ImportCertificate' {certificateAr
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 importCertificate_certificateChain :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.ByteString)
-importCertificate_certificateChain = Lens.lens (\ImportCertificate' {certificateChain} -> certificateChain) (\s@ImportCertificate' {} a -> s {certificateChain = a} :: ImportCertificate) Prelude.. Lens.mapping Core._Base64
+importCertificate_certificateChain = Lens.lens (\ImportCertificate' {certificateChain} -> certificateChain) (\s@ImportCertificate' {} a -> s {certificateChain = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Base64
 
 -- | The certificate to import.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -210,7 +211,7 @@ importCertificate_certificateChain = Lens.lens (\ImportCertificate' {certificate
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 importCertificate_certificate :: Lens.Lens' ImportCertificate Prelude.ByteString
-importCertificate_certificate = Lens.lens (\ImportCertificate' {certificate} -> certificate) (\s@ImportCertificate' {} a -> s {certificate = a} :: ImportCertificate) Prelude.. Core._Base64
+importCertificate_certificate = Lens.lens (\ImportCertificate' {certificate} -> certificate) (\s@ImportCertificate' {} a -> s {certificate = a} :: ImportCertificate) Prelude.. Data._Base64
 
 -- | The private key that matches the public key in the certificate.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -218,7 +219,7 @@ importCertificate_certificate = Lens.lens (\ImportCertificate' {certificate} -> 
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 importCertificate_privateKey :: Lens.Lens' ImportCertificate Prelude.ByteString
-importCertificate_privateKey = Lens.lens (\ImportCertificate' {privateKey} -> privateKey) (\s@ImportCertificate' {} a -> s {privateKey = a} :: ImportCertificate) Prelude.. Core._Sensitive Prelude.. Core._Base64
+importCertificate_privateKey = Lens.lens (\ImportCertificate' {privateKey} -> privateKey) (\s@ImportCertificate' {} a -> s {privateKey = a} :: ImportCertificate) Prelude.. Data._Sensitive Prelude.. Data._Base64
 
 instance Core.AWSRequest ImportCertificate where
   type
@@ -230,7 +231,7 @@ instance Core.AWSRequest ImportCertificate where
     Response.receiveJSON
       ( \s h x ->
           ImportCertificateResponse'
-            Prelude.<$> (x Core..?> "CertificateArn")
+            Prelude.<$> (x Data..?> "CertificateArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -250,39 +251,39 @@ instance Prelude.NFData ImportCertificate where
       `Prelude.seq` Prelude.rnf certificate
       `Prelude.seq` Prelude.rnf privateKey
 
-instance Core.ToHeaders ImportCertificate where
+instance Data.ToHeaders ImportCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CertificateManager.ImportCertificate" ::
+              Data.=# ( "CertificateManager.ImportCertificate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportCertificate where
+instance Data.ToJSON ImportCertificate where
   toJSON ImportCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("CertificateArn" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("CertificateArn" Data..=)
               Prelude.<$> certificateArn,
-            ("CertificateChain" Core..=)
+            ("CertificateChain" Data..=)
               Prelude.<$> certificateChain,
-            Prelude.Just ("Certificate" Core..= certificate),
-            Prelude.Just ("PrivateKey" Core..= privateKey)
+            Prelude.Just ("Certificate" Data..= certificate),
+            Prelude.Just ("PrivateKey" Data..= privateKey)
           ]
       )
 
-instance Core.ToPath ImportCertificate where
+instance Data.ToPath ImportCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportCertificate where
+instance Data.ToQuery ImportCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportCertificateResponse' smart constructor.

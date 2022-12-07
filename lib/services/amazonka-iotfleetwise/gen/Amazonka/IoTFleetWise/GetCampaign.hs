@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,26 +98,26 @@ instance Core.AWSRequest GetCampaign where
     Response.receiveJSON
       ( \s h x ->
           GetCampaignResponse'
-            Prelude.<$> (x Core..?> "lastModificationTime")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "compression")
-            Prelude.<*> ( x Core..?> "dataExtraDimensions"
+            Prelude.<$> (x Data..?> "lastModificationTime")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "compression")
+            Prelude.<*> ( x Data..?> "dataExtraDimensions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "expiryTime")
-            Prelude.<*> (x Core..?> "targetArn")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "diagnosticsMode")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "spoolingMode")
-            Prelude.<*> (x Core..?> "postTriggerCollectionDuration")
-            Prelude.<*> (x Core..?> "priority")
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "signalCatalogArn")
-            Prelude.<*> (x Core..?> "collectionScheme")
-            Prelude.<*> (x Core..?> "startTime")
-            Prelude.<*> ( x Core..?> "signalsToCollect"
+            Prelude.<*> (x Data..?> "expiryTime")
+            Prelude.<*> (x Data..?> "targetArn")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "diagnosticsMode")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "spoolingMode")
+            Prelude.<*> (x Data..?> "postTriggerCollectionDuration")
+            Prelude.<*> (x Data..?> "priority")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "signalCatalogArn")
+            Prelude.<*> (x Data..?> "collectionScheme")
+            Prelude.<*> (x Data..?> "startTime")
+            Prelude.<*> ( x Data..?> "signalsToCollect"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -129,38 +130,38 @@ instance Prelude.Hashable GetCampaign where
 instance Prelude.NFData GetCampaign where
   rnf GetCampaign' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetCampaign where
+instance Data.ToHeaders GetCampaign where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.GetCampaign" ::
+              Data.=# ( "IoTAutobahnControlPlane.GetCampaign" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCampaign where
+instance Data.ToJSON GetCampaign where
   toJSON GetCampaign' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath GetCampaign where
+instance Data.ToPath GetCampaign where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCampaign where
+instance Data.ToQuery GetCampaign where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCampaignResponse' smart constructor.
 data GetCampaignResponse = GetCampaignResponse'
   { -- | The last time the campaign was modified.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the campaign.
     name :: Prelude.Maybe Prelude.Text,
     -- | Whether to compress signals before transmitting data to Amazon Web
@@ -172,7 +173,7 @@ data GetCampaignResponse = GetCampaignResponse'
     -- | The time the campaign expires, in seconds since epoch (January 1, 1970
     -- at midnight UTC time). Vehicle data won\'t be collected after the
     -- campaign expires.
-    expiryTime :: Prelude.Maybe Core.POSIX,
+    expiryTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the vehicle or the fleet targeted by the campaign.
     targetArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the campaign.
@@ -198,14 +199,14 @@ data GetCampaignResponse = GetCampaignResponse'
     priority :: Prelude.Maybe Prelude.Natural,
     -- | The time the campaign was created in seconds since epoch (January 1,
     -- 1970 at midnight UTC time).
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of a signal catalog.
     signalCatalogArn :: Prelude.Maybe Prelude.Text,
     -- | Information about the data collection scheme associated with the
     -- campaign.
     collectionScheme :: Prelude.Maybe CollectionScheme,
     -- | The time, in milliseconds, to deliver a campaign after it was approved.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | Information about a list of signals to collect data on.
     signalsToCollect :: Prelude.Maybe [SignalInformation],
     -- | The response's http status code.
@@ -301,7 +302,7 @@ newGetCampaignResponse pHttpStatus_ =
 
 -- | The last time the campaign was modified.
 getCampaignResponse_lastModificationTime :: Lens.Lens' GetCampaignResponse (Prelude.Maybe Prelude.UTCTime)
-getCampaignResponse_lastModificationTime = Lens.lens (\GetCampaignResponse' {lastModificationTime} -> lastModificationTime) (\s@GetCampaignResponse' {} a -> s {lastModificationTime = a} :: GetCampaignResponse) Prelude.. Lens.mapping Core._Time
+getCampaignResponse_lastModificationTime = Lens.lens (\GetCampaignResponse' {lastModificationTime} -> lastModificationTime) (\s@GetCampaignResponse' {} a -> s {lastModificationTime = a} :: GetCampaignResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the campaign.
 getCampaignResponse_name :: Lens.Lens' GetCampaignResponse (Prelude.Maybe Prelude.Text)
@@ -321,7 +322,7 @@ getCampaignResponse_dataExtraDimensions = Lens.lens (\GetCampaignResponse' {data
 -- at midnight UTC time). Vehicle data won\'t be collected after the
 -- campaign expires.
 getCampaignResponse_expiryTime :: Lens.Lens' GetCampaignResponse (Prelude.Maybe Prelude.UTCTime)
-getCampaignResponse_expiryTime = Lens.lens (\GetCampaignResponse' {expiryTime} -> expiryTime) (\s@GetCampaignResponse' {} a -> s {expiryTime = a} :: GetCampaignResponse) Prelude.. Lens.mapping Core._Time
+getCampaignResponse_expiryTime = Lens.lens (\GetCampaignResponse' {expiryTime} -> expiryTime) (\s@GetCampaignResponse' {} a -> s {expiryTime = a} :: GetCampaignResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the vehicle or the fleet targeted by the campaign.
 getCampaignResponse_targetArn :: Lens.Lens' GetCampaignResponse (Prelude.Maybe Prelude.Text)
@@ -365,7 +366,7 @@ getCampaignResponse_priority = Lens.lens (\GetCampaignResponse' {priority} -> pr
 -- | The time the campaign was created in seconds since epoch (January 1,
 -- 1970 at midnight UTC time).
 getCampaignResponse_creationTime :: Lens.Lens' GetCampaignResponse (Prelude.Maybe Prelude.UTCTime)
-getCampaignResponse_creationTime = Lens.lens (\GetCampaignResponse' {creationTime} -> creationTime) (\s@GetCampaignResponse' {} a -> s {creationTime = a} :: GetCampaignResponse) Prelude.. Lens.mapping Core._Time
+getCampaignResponse_creationTime = Lens.lens (\GetCampaignResponse' {creationTime} -> creationTime) (\s@GetCampaignResponse' {} a -> s {creationTime = a} :: GetCampaignResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of a signal catalog.
 getCampaignResponse_signalCatalogArn :: Lens.Lens' GetCampaignResponse (Prelude.Maybe Prelude.Text)
@@ -378,7 +379,7 @@ getCampaignResponse_collectionScheme = Lens.lens (\GetCampaignResponse' {collect
 
 -- | The time, in milliseconds, to deliver a campaign after it was approved.
 getCampaignResponse_startTime :: Lens.Lens' GetCampaignResponse (Prelude.Maybe Prelude.UTCTime)
-getCampaignResponse_startTime = Lens.lens (\GetCampaignResponse' {startTime} -> startTime) (\s@GetCampaignResponse' {} a -> s {startTime = a} :: GetCampaignResponse) Prelude.. Lens.mapping Core._Time
+getCampaignResponse_startTime = Lens.lens (\GetCampaignResponse' {startTime} -> startTime) (\s@GetCampaignResponse' {} a -> s {startTime = a} :: GetCampaignResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Information about a list of signals to collect data on.
 getCampaignResponse_signalsToCollect :: Lens.Lens' GetCampaignResponse (Prelude.Maybe [SignalInformation])

@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.Eula where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a EULA resource.
@@ -34,9 +35,9 @@ data Eula = Eula'
     -- | The EULA content.
     content :: Prelude.Maybe Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Unix epoch timestamp in seconds for when the resource was updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,23 +83,23 @@ eula_content = Lens.lens (\Eula' {content} -> content) (\s@Eula' {} a -> s {cont
 
 -- | The Unix epoch timestamp in seconds for when the resource was created.
 eula_createdAt :: Lens.Lens' Eula (Prelude.Maybe Prelude.UTCTime)
-eula_createdAt = Lens.lens (\Eula' {createdAt} -> createdAt) (\s@Eula' {} a -> s {createdAt = a} :: Eula) Prelude.. Lens.mapping Core._Time
+eula_createdAt = Lens.lens (\Eula' {createdAt} -> createdAt) (\s@Eula' {} a -> s {createdAt = a} :: Eula) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix epoch timestamp in seconds for when the resource was updated.
 eula_updatedAt :: Lens.Lens' Eula (Prelude.Maybe Prelude.UTCTime)
-eula_updatedAt = Lens.lens (\Eula' {updatedAt} -> updatedAt) (\s@Eula' {} a -> s {updatedAt = a} :: Eula) Prelude.. Lens.mapping Core._Time
+eula_updatedAt = Lens.lens (\Eula' {updatedAt} -> updatedAt) (\s@Eula' {} a -> s {updatedAt = a} :: Eula) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Eula where
+instance Data.FromJSON Eula where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Eula"
       ( \x ->
           Eula'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "eulaId")
-            Prelude.<*> (x Core..:? "content")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "eulaId")
+            Prelude.<*> (x Data..:? "content")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable Eula where

@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -192,13 +193,13 @@ instance Core.AWSRequest ListHostedZonesByVPC where
     Response.receiveXML
       ( \s h x ->
           ListHostedZonesByVPCResponse'
-            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "HostedZoneSummaries"
+            Prelude.<*> ( x Data..@? "HostedZoneSummaries"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "HostedZoneSummary"
+                            Prelude.>>= Data.parseXMLList "HostedZoneSummary"
                         )
-            Prelude.<*> (x Core..@ "MaxItems")
+            Prelude.<*> (x Data..@ "MaxItems")
       )
 
 instance Prelude.Hashable ListHostedZonesByVPC where
@@ -215,19 +216,19 @@ instance Prelude.NFData ListHostedZonesByVPC where
       `Prelude.seq` Prelude.rnf vPCId
       `Prelude.seq` Prelude.rnf vPCRegion
 
-instance Core.ToHeaders ListHostedZonesByVPC where
+instance Data.ToHeaders ListHostedZonesByVPC where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListHostedZonesByVPC where
+instance Data.ToPath ListHostedZonesByVPC where
   toPath = Prelude.const "/2013-04-01/hostedzonesbyvpc"
 
-instance Core.ToQuery ListHostedZonesByVPC where
+instance Data.ToQuery ListHostedZonesByVPC where
   toQuery ListHostedZonesByVPC' {..} =
     Prelude.mconcat
-      [ "nexttoken" Core.=: nextToken,
-        "maxitems" Core.=: maxItems,
-        "vpcid" Core.=: vPCId,
-        "vpcregion" Core.=: vPCRegion
+      [ "nexttoken" Data.=: nextToken,
+        "maxitems" Data.=: maxItems,
+        "vpcid" Data.=: vPCId,
+        "vpcregion" Data.=: vPCRegion
       ]
 
 -- | /See:/ 'newListHostedZonesByVPCResponse' smart constructor.

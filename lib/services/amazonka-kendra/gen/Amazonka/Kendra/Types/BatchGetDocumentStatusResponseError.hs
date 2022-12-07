@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.BatchGetDocumentStatusResponseError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,17 +81,17 @@ batchGetDocumentStatusResponseError_documentId :: Lens.Lens' BatchGetDocumentSta
 batchGetDocumentStatusResponseError_documentId = Lens.lens (\BatchGetDocumentStatusResponseError' {documentId} -> documentId) (\s@BatchGetDocumentStatusResponseError' {} a -> s {documentId = a} :: BatchGetDocumentStatusResponseError)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchGetDocumentStatusResponseError
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetDocumentStatusResponseError"
       ( \x ->
           BatchGetDocumentStatusResponseError'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "DocumentId")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "DocumentId")
       )
 
 instance

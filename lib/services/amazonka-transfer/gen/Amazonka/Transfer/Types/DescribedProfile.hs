@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.DescribedProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.ProfileType
 import Amazonka.Transfer.Types.Tag
@@ -125,18 +126,18 @@ describedProfile_profileType = Lens.lens (\DescribedProfile' {profileType} -> pr
 describedProfile_arn :: Lens.Lens' DescribedProfile Prelude.Text
 describedProfile_arn = Lens.lens (\DescribedProfile' {arn} -> arn) (\s@DescribedProfile' {} a -> s {arn = a} :: DescribedProfile)
 
-instance Core.FromJSON DescribedProfile where
+instance Data.FromJSON DescribedProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DescribedProfile"
       ( \x ->
           DescribedProfile'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "ProfileId")
-            Prelude.<*> (x Core..:? "CertificateIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "As2Id")
-            Prelude.<*> (x Core..:? "ProfileType")
-            Prelude.<*> (x Core..: "Arn")
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "ProfileId")
+            Prelude.<*> (x Data..:? "CertificateIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "As2Id")
+            Prelude.<*> (x Data..:? "ProfileType")
+            Prelude.<*> (x Data..: "Arn")
       )
 
 instance Prelude.Hashable DescribedProfile where

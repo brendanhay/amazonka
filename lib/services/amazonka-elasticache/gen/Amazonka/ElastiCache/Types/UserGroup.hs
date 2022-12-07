@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.UserGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.UserGroupPendingChanges
 import qualified Amazonka.Prelude as Prelude
 
@@ -117,21 +118,21 @@ userGroup_engine = Lens.lens (\UserGroup' {engine} -> engine) (\s@UserGroup' {} 
 userGroup_userIds :: Lens.Lens' UserGroup (Prelude.Maybe [Prelude.Text])
 userGroup_userIds = Lens.lens (\UserGroup' {userIds} -> userIds) (\s@UserGroup' {} a -> s {userIds = a} :: UserGroup) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML UserGroup where
+instance Data.FromXML UserGroup where
   parseXML x =
     UserGroup'
-      Prelude.<$> (x Core..@? "UserGroupId")
-      Prelude.<*> ( x Core..@? "ReplicationGroups"
+      Prelude.<$> (x Data..@? "UserGroupId")
+      Prelude.<*> ( x Data..@? "ReplicationGroups"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "ARN")
-      Prelude.<*> (x Core..@? "PendingChanges")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "MinimumEngineVersion")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> ( x Core..@? "UserIds" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "ARN")
+      Prelude.<*> (x Data..@? "PendingChanges")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "MinimumEngineVersion")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> ( x Data..@? "UserIds" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable UserGroup where

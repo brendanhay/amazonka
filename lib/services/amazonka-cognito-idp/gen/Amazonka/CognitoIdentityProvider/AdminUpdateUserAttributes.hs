@@ -72,6 +72,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ data AdminUpdateUserAttributes = AdminUpdateUserAttributes'
     -- attributes.
     userPoolId :: Prelude.Text,
     -- | The user name of the user for whom you want to update user attributes.
-    username :: Core.Sensitive Prelude.Text,
+    username :: Data.Sensitive Prelude.Text,
     -- | An array of name-value pairs representing user attributes.
     --
     -- For custom attributes, you must prepend the @custom:@ prefix to the
@@ -212,7 +213,7 @@ newAdminUpdateUserAttributes pUserPoolId_ pUsername_ =
     { clientMetadata =
         Prelude.Nothing,
       userPoolId = pUserPoolId_,
-      username = Core._Sensitive Lens.# pUsername_,
+      username = Data._Sensitive Lens.# pUsername_,
       userAttributes = Prelude.mempty
     }
 
@@ -255,7 +256,7 @@ adminUpdateUserAttributes_userPoolId = Lens.lens (\AdminUpdateUserAttributes' {u
 
 -- | The user name of the user for whom you want to update user attributes.
 adminUpdateUserAttributes_username :: Lens.Lens' AdminUpdateUserAttributes Prelude.Text
-adminUpdateUserAttributes_username = Lens.lens (\AdminUpdateUserAttributes' {username} -> username) (\s@AdminUpdateUserAttributes' {} a -> s {username = a} :: AdminUpdateUserAttributes) Prelude.. Core._Sensitive
+adminUpdateUserAttributes_username = Lens.lens (\AdminUpdateUserAttributes' {username} -> username) (\s@AdminUpdateUserAttributes' {} a -> s {username = a} :: AdminUpdateUserAttributes) Prelude.. Data._Sensitive
 
 -- | An array of name-value pairs representing user attributes.
 --
@@ -306,38 +307,38 @@ instance Prelude.NFData AdminUpdateUserAttributes where
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf userAttributes
 
-instance Core.ToHeaders AdminUpdateUserAttributes where
+instance Data.ToHeaders AdminUpdateUserAttributes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminUpdateUserAttributes" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminUpdateUserAttributes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminUpdateUserAttributes where
+instance Data.ToJSON AdminUpdateUserAttributes where
   toJSON AdminUpdateUserAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientMetadata" Core..=)
+          [ ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("Username" Core..= username),
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("Username" Data..= username),
             Prelude.Just
-              ("UserAttributes" Core..= userAttributes)
+              ("UserAttributes" Data..= userAttributes)
           ]
       )
 
-instance Core.ToPath AdminUpdateUserAttributes where
+instance Data.ToPath AdminUpdateUserAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminUpdateUserAttributes where
+instance Data.ToQuery AdminUpdateUserAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server for the request to update user

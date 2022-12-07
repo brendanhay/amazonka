@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsDynamoDbTableKeySchema
 import Amazonka.SecurityHub.Types.AwsDynamoDbTableProjection
@@ -89,18 +90,18 @@ awsDynamoDbTableLocalSecondaryIndex_projection :: Lens.Lens' AwsDynamoDbTableLoc
 awsDynamoDbTableLocalSecondaryIndex_projection = Lens.lens (\AwsDynamoDbTableLocalSecondaryIndex' {projection} -> projection) (\s@AwsDynamoDbTableLocalSecondaryIndex' {} a -> s {projection = a} :: AwsDynamoDbTableLocalSecondaryIndex)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsDynamoDbTableLocalSecondaryIndex
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsDynamoDbTableLocalSecondaryIndex"
       ( \x ->
           AwsDynamoDbTableLocalSecondaryIndex'
-            Prelude.<$> (x Core..:? "IndexName")
-            Prelude.<*> (x Core..:? "IndexArn")
-            Prelude.<*> (x Core..:? "KeySchema" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Projection")
+            Prelude.<$> (x Data..:? "IndexName")
+            Prelude.<*> (x Data..:? "IndexArn")
+            Prelude.<*> (x Data..:? "KeySchema" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Projection")
       )
 
 instance
@@ -126,15 +127,15 @@ instance
       `Prelude.seq` Prelude.rnf projection
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsDynamoDbTableLocalSecondaryIndex
   where
   toJSON AwsDynamoDbTableLocalSecondaryIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IndexName" Core..=) Prelude.<$> indexName,
-            ("IndexArn" Core..=) Prelude.<$> indexArn,
-            ("KeySchema" Core..=) Prelude.<$> keySchema,
-            ("Projection" Core..=) Prelude.<$> projection
+          [ ("IndexName" Data..=) Prelude.<$> indexName,
+            ("IndexArn" Data..=) Prelude.<$> indexArn,
+            ("KeySchema" Data..=) Prelude.<$> keySchema,
+            ("Projection" Data..=) Prelude.<$> projection
           ]
       )

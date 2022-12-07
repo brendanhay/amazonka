@@ -48,6 +48,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,35 +138,35 @@ instance Prelude.NFData DeleteCustomActionType where
       `Prelude.seq` Prelude.rnf provider
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToHeaders DeleteCustomActionType where
+instance Data.ToHeaders DeleteCustomActionType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.DeleteCustomActionType" ::
+              Data.=# ( "CodePipeline_20150709.DeleteCustomActionType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteCustomActionType where
+instance Data.ToJSON DeleteCustomActionType where
   toJSON DeleteCustomActionType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("category" Core..= category),
-            Prelude.Just ("provider" Core..= provider),
-            Prelude.Just ("version" Core..= version)
+          [ Prelude.Just ("category" Data..= category),
+            Prelude.Just ("provider" Data..= provider),
+            Prelude.Just ("version" Data..= version)
           ]
       )
 
-instance Core.ToPath DeleteCustomActionType where
+instance Data.ToPath DeleteCustomActionType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteCustomActionType where
+instance Data.ToQuery DeleteCustomActionType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCustomActionTypeResponse' smart constructor.

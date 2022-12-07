@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,9 +95,9 @@ instance Core.AWSRequest Disable where
     Response.receiveJSON
       ( \s h x ->
           DisableResponse'
-            Prelude.<$> (x Core..?> "failedAccounts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "failedAccounts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "accounts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "accounts" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable Disable where
@@ -109,30 +110,30 @@ instance Prelude.NFData Disable where
     Prelude.rnf accountIds
       `Prelude.seq` Prelude.rnf resourceTypes
 
-instance Core.ToHeaders Disable where
+instance Data.ToHeaders Disable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON Disable where
+instance Data.ToJSON Disable where
   toJSON Disable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accountIds" Core..=) Prelude.<$> accountIds,
-            ("resourceTypes" Core..=) Prelude.<$> resourceTypes
+          [ ("accountIds" Data..=) Prelude.<$> accountIds,
+            ("resourceTypes" Data..=) Prelude.<$> resourceTypes
           ]
       )
 
-instance Core.ToPath Disable where
+instance Data.ToPath Disable where
   toPath = Prelude.const "/disable"
 
-instance Core.ToQuery Disable where
+instance Data.ToQuery Disable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableResponse' smart constructor.

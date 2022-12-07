@@ -21,6 +21,7 @@ module Amazonka.CloudTrail.Types.QueryStatisticsForDescribeQuery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Gets metadata about a query, including the number of events that were
@@ -40,7 +41,7 @@ data QueryStatisticsForDescribeQuery = QueryStatisticsForDescribeQuery'
     -- | The number of events that matched a query.
     eventsMatched :: Prelude.Maybe Prelude.Integer,
     -- | The creation time of the query.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,22 +96,22 @@ queryStatisticsForDescribeQuery_eventsMatched = Lens.lens (\QueryStatisticsForDe
 
 -- | The creation time of the query.
 queryStatisticsForDescribeQuery_creationTime :: Lens.Lens' QueryStatisticsForDescribeQuery (Prelude.Maybe Prelude.UTCTime)
-queryStatisticsForDescribeQuery_creationTime = Lens.lens (\QueryStatisticsForDescribeQuery' {creationTime} -> creationTime) (\s@QueryStatisticsForDescribeQuery' {} a -> s {creationTime = a} :: QueryStatisticsForDescribeQuery) Prelude.. Lens.mapping Core._Time
+queryStatisticsForDescribeQuery_creationTime = Lens.lens (\QueryStatisticsForDescribeQuery' {creationTime} -> creationTime) (\s@QueryStatisticsForDescribeQuery' {} a -> s {creationTime = a} :: QueryStatisticsForDescribeQuery) Prelude.. Lens.mapping Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     QueryStatisticsForDescribeQuery
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryStatisticsForDescribeQuery"
       ( \x ->
           QueryStatisticsForDescribeQuery'
-            Prelude.<$> (x Core..:? "EventsScanned")
-            Prelude.<*> (x Core..:? "BytesScanned")
-            Prelude.<*> (x Core..:? "ExecutionTimeInMillis")
-            Prelude.<*> (x Core..:? "EventsMatched")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "EventsScanned")
+            Prelude.<*> (x Data..:? "BytesScanned")
+            Prelude.<*> (x Data..:? "ExecutionTimeInMillis")
+            Prelude.<*> (x Data..:? "EventsMatched")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance

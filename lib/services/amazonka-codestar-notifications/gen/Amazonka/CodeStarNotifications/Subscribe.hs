@@ -46,6 +46,7 @@ where
 import Amazonka.CodeStarNotifications.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,7 +113,7 @@ instance Core.AWSRequest Subscribe where
     Response.receiveJSON
       ( \s h x ->
           SubscribeResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,32 +129,32 @@ instance Prelude.NFData Subscribe where
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf target
 
-instance Core.ToHeaders Subscribe where
+instance Data.ToHeaders Subscribe where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON Subscribe where
+instance Data.ToJSON Subscribe where
   toJSON Subscribe' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("Arn" Core..= arn),
-            Prelude.Just ("Target" Core..= target)
+            Prelude.Just ("Arn" Data..= arn),
+            Prelude.Just ("Target" Data..= target)
           ]
       )
 
-instance Core.ToPath Subscribe where
+instance Data.ToPath Subscribe where
   toPath = Prelude.const "/subscribe"
 
-instance Core.ToQuery Subscribe where
+instance Data.ToQuery Subscribe where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSubscribeResponse' smart constructor.

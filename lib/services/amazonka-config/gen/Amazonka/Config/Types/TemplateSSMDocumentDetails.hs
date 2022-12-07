@@ -21,6 +21,7 @@ module Amazonka.Config.Types.TemplateSSMDocumentDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This API allows you to create a conformance pack template with an Amazon
@@ -94,14 +95,14 @@ templateSSMDocumentDetails_documentVersion = Lens.lens (\TemplateSSMDocumentDeta
 templateSSMDocumentDetails_documentName :: Lens.Lens' TemplateSSMDocumentDetails Prelude.Text
 templateSSMDocumentDetails_documentName = Lens.lens (\TemplateSSMDocumentDetails' {documentName} -> documentName) (\s@TemplateSSMDocumentDetails' {} a -> s {documentName = a} :: TemplateSSMDocumentDetails)
 
-instance Core.FromJSON TemplateSSMDocumentDetails where
+instance Data.FromJSON TemplateSSMDocumentDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateSSMDocumentDetails"
       ( \x ->
           TemplateSSMDocumentDetails'
-            Prelude.<$> (x Core..:? "DocumentVersion")
-            Prelude.<*> (x Core..: "DocumentName")
+            Prelude.<$> (x Data..:? "DocumentVersion")
+            Prelude.<*> (x Data..: "DocumentName")
       )
 
 instance Prelude.Hashable TemplateSSMDocumentDetails where
@@ -114,12 +115,12 @@ instance Prelude.NFData TemplateSSMDocumentDetails where
     Prelude.rnf documentVersion
       `Prelude.seq` Prelude.rnf documentName
 
-instance Core.ToJSON TemplateSSMDocumentDetails where
+instance Data.ToJSON TemplateSSMDocumentDetails where
   toJSON TemplateSSMDocumentDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DocumentVersion" Core..=)
+          [ ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            Prelude.Just ("DocumentName" Core..= documentName)
+            Prelude.Just ("DocumentName" Data..= documentName)
           ]
       )

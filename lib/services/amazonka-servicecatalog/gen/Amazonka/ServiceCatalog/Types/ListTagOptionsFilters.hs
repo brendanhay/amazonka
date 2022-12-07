@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ListTagOptionsFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters to use when listing TagOptions.
@@ -82,12 +83,12 @@ instance Prelude.NFData ListTagOptionsFilters where
       `Prelude.seq` Prelude.rnf active
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ListTagOptionsFilters where
+instance Data.ToJSON ListTagOptionsFilters where
   toJSON ListTagOptionsFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Active" Core..=) Prelude.<$> active,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Active" Data..=) Prelude.<$> active,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

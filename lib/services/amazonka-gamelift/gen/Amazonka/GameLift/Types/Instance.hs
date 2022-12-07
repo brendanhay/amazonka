@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.Instance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.EC2InstanceType
 import Amazonka.GameLift.Types.InstanceStatus
 import Amazonka.GameLift.Types.OperatingSystem
@@ -72,7 +73,7 @@ data Instance = Instance'
     -- | A time stamp indicating when this data object was created. Format is a
     -- number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The DNS identifier assigned to the instance that is running the game
     -- session. Values have the following format:
     --
@@ -217,7 +218,7 @@ instance_fleetArn = Lens.lens (\Instance' {fleetArn} -> fleetArn) (\s@Instance' 
 -- number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 instance_creationTime :: Lens.Lens' Instance (Prelude.Maybe Prelude.UTCTime)
-instance_creationTime = Lens.lens (\Instance' {creationTime} -> creationTime) (\s@Instance' {} a -> s {creationTime = a} :: Instance) Prelude.. Lens.mapping Core._Time
+instance_creationTime = Lens.lens (\Instance' {creationTime} -> creationTime) (\s@Instance' {} a -> s {creationTime = a} :: Instance) Prelude.. Lens.mapping Data._Time
 
 -- | The DNS identifier assigned to the instance that is running the game
 -- session. Values have the following format:
@@ -238,22 +239,22 @@ instance_dnsName = Lens.lens (\Instance' {dnsName} -> dnsName) (\s@Instance' {} 
 instance_ipAddress :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_ipAddress = Lens.lens (\Instance' {ipAddress} -> ipAddress) (\s@Instance' {} a -> s {ipAddress = a} :: Instance)
 
-instance Core.FromJSON Instance where
+instance Data.FromJSON Instance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Instance"
       ( \x ->
           Instance'
-            Prelude.<$> (x Core..:? "OperatingSystem")
-            Prelude.<*> (x Core..:? "FleetId")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "FleetArn")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "DnsName")
-            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<$> (x Data..:? "OperatingSystem")
+            Prelude.<*> (x Data..:? "FleetId")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "FleetArn")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DnsName")
+            Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance Prelude.Hashable Instance where

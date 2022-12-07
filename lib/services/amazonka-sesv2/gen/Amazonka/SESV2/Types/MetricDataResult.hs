@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.MetricDataResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The result of a single metric data query.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newMetricDataResult' smart constructor.
 data MetricDataResult = MetricDataResult'
   { -- | A list of timestamps for the metric data results.
-    timestamps :: Prelude.Maybe [Core.POSIX],
+    timestamps :: Prelude.Maybe [Data.POSIX],
     -- | The query identifier.
     id :: Prelude.Maybe Prelude.Text,
     -- | A list of values (cumulative \/ sum) for the metric data results.
@@ -70,15 +71,15 @@ metricDataResult_id = Lens.lens (\MetricDataResult' {id} -> id) (\s@MetricDataRe
 metricDataResult_values :: Lens.Lens' MetricDataResult (Prelude.Maybe [Prelude.Integer])
 metricDataResult_values = Lens.lens (\MetricDataResult' {values} -> values) (\s@MetricDataResult' {} a -> s {values = a} :: MetricDataResult) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON MetricDataResult where
+instance Data.FromJSON MetricDataResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricDataResult"
       ( \x ->
           MetricDataResult'
-            Prelude.<$> (x Core..:? "Timestamps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Timestamps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable MetricDataResult where

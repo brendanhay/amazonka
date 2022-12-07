@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.Policies where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import Amazonka.ELB.Types.AppCookieStickinessPolicy
 import Amazonka.ELB.Types.LBCookieStickinessPolicy
@@ -73,19 +74,19 @@ policies_lBCookieStickinessPolicies = Lens.lens (\Policies' {lBCookieStickinessP
 policies_appCookieStickinessPolicies :: Lens.Lens' Policies (Prelude.Maybe [AppCookieStickinessPolicy])
 policies_appCookieStickinessPolicies = Lens.lens (\Policies' {appCookieStickinessPolicies} -> appCookieStickinessPolicies) (\s@Policies' {} a -> s {appCookieStickinessPolicies = a} :: Policies) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML Policies where
+instance Data.FromXML Policies where
   parseXML x =
     Policies'
-      Prelude.<$> ( x Core..@? "OtherPolicies" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "OtherPolicies" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "LBCookieStickinessPolicies"
+      Prelude.<*> ( x Data..@? "LBCookieStickinessPolicies"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "AppCookieStickinessPolicies"
+      Prelude.<*> ( x Data..@? "AppCookieStickinessPolicies"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable Policies where

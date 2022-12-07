@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -217,7 +218,7 @@ instance Core.AWSRequest UpdateAgreement where
       ( \s h x ->
           UpdateAgreementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "AgreementId")
+            Prelude.<*> (x Data..:> "AgreementId")
       )
 
 instance Prelude.Hashable UpdateAgreement where
@@ -242,42 +243,42 @@ instance Prelude.NFData UpdateAgreement where
       `Prelude.seq` Prelude.rnf agreementId
       `Prelude.seq` Prelude.rnf serverId
 
-instance Core.ToHeaders UpdateAgreement where
+instance Data.ToHeaders UpdateAgreement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.UpdateAgreement" ::
+              Data.=# ( "TransferService.UpdateAgreement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAgreement where
+instance Data.ToJSON UpdateAgreement where
   toJSON UpdateAgreement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessRole" Core..=) Prelude.<$> accessRole,
-            ("Status" Core..=) Prelude.<$> status,
-            ("BaseDirectory" Core..=) Prelude.<$> baseDirectory,
-            ("Description" Core..=) Prelude.<$> description,
-            ("LocalProfileId" Core..=)
+          [ ("AccessRole" Data..=) Prelude.<$> accessRole,
+            ("Status" Data..=) Prelude.<$> status,
+            ("BaseDirectory" Data..=) Prelude.<$> baseDirectory,
+            ("Description" Data..=) Prelude.<$> description,
+            ("LocalProfileId" Data..=)
               Prelude.<$> localProfileId,
-            ("PartnerProfileId" Core..=)
+            ("PartnerProfileId" Data..=)
               Prelude.<$> partnerProfileId,
-            Prelude.Just ("AgreementId" Core..= agreementId),
-            Prelude.Just ("ServerId" Core..= serverId)
+            Prelude.Just ("AgreementId" Data..= agreementId),
+            Prelude.Just ("ServerId" Data..= serverId)
           ]
       )
 
-instance Core.ToPath UpdateAgreement where
+instance Data.ToPath UpdateAgreement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAgreement where
+instance Data.ToQuery UpdateAgreement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAgreementResponse' smart constructor.

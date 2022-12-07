@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.FileLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.S3Location
 import Amazonka.IoT.Types.Stream
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ fileLocation_s3Location = Lens.lens (\FileLocation' {s3Location} -> s3Location) 
 fileLocation_stream :: Lens.Lens' FileLocation (Prelude.Maybe Stream)
 fileLocation_stream = Lens.lens (\FileLocation' {stream} -> stream) (\s@FileLocation' {} a -> s {stream = a} :: FileLocation)
 
-instance Core.FromJSON FileLocation where
+instance Data.FromJSON FileLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileLocation"
       ( \x ->
           FileLocation'
-            Prelude.<$> (x Core..:? "s3Location")
-            Prelude.<*> (x Core..:? "stream")
+            Prelude.<$> (x Data..:? "s3Location")
+            Prelude.<*> (x Data..:? "stream")
       )
 
 instance Prelude.Hashable FileLocation where
@@ -83,11 +84,11 @@ instance Prelude.NFData FileLocation where
     Prelude.rnf s3Location
       `Prelude.seq` Prelude.rnf stream
 
-instance Core.ToJSON FileLocation where
+instance Data.ToJSON FileLocation where
   toJSON FileLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3Location" Core..=) Prelude.<$> s3Location,
-            ("stream" Core..=) Prelude.<$> stream
+          [ ("s3Location" Data..=) Prelude.<$> s3Location,
+            ("stream" Data..=) Prelude.<$> stream
           ]
       )

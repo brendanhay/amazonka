@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,10 +134,10 @@ instance Core.AWSRequest DescribeContainerInstances where
     Response.receiveJSON
       ( \s h x ->
           DescribeContainerInstancesResponse'
-            Prelude.<$> ( x Core..?> "containerInstances"
+            Prelude.<$> ( x Data..?> "containerInstances"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,36 +153,36 @@ instance Prelude.NFData DescribeContainerInstances where
       `Prelude.seq` Prelude.rnf include
       `Prelude.seq` Prelude.rnf containerInstances
 
-instance Core.ToHeaders DescribeContainerInstances where
+instance Data.ToHeaders DescribeContainerInstances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.DescribeContainerInstances" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.DescribeContainerInstances" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeContainerInstances where
+instance Data.ToJSON DescribeContainerInstances where
   toJSON DescribeContainerInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cluster" Core..=) Prelude.<$> cluster,
-            ("include" Core..=) Prelude.<$> include,
+          [ ("cluster" Data..=) Prelude.<$> cluster,
+            ("include" Data..=) Prelude.<$> include,
             Prelude.Just
-              ("containerInstances" Core..= containerInstances)
+              ("containerInstances" Data..= containerInstances)
           ]
       )
 
-instance Core.ToPath DescribeContainerInstances where
+instance Data.ToPath DescribeContainerInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeContainerInstances where
+instance Data.ToQuery DescribeContainerInstances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeContainerInstancesResponse' smart constructor.

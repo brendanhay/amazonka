@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.WAFV2.Types.ManagedRuleGroupStatement where
 
-import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 data ManagedRuleGroupStatement
@@ -24,9 +24,9 @@ instance Prelude.Show ManagedRuleGroupStatement
 
 instance Prelude.Generic ManagedRuleGroupStatement
 
-instance Core.ToJSON ManagedRuleGroupStatement
+instance Data.ToJSON ManagedRuleGroupStatement
 
-instance Core.FromJSON ManagedRuleGroupStatement
+instance Data.FromJSON ManagedRuleGroupStatement
 
 instance Prelude.NFData ManagedRuleGroupStatement
 

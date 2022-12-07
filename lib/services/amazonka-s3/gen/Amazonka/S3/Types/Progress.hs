@@ -21,6 +21,7 @@ module Amazonka.S3.Types.Progress where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -71,12 +72,12 @@ progress_bytesReturned = Lens.lens (\Progress' {bytesReturned} -> bytesReturned)
 progress_bytesProcessed :: Lens.Lens' Progress (Prelude.Maybe Prelude.Integer)
 progress_bytesProcessed = Lens.lens (\Progress' {bytesProcessed} -> bytesProcessed) (\s@Progress' {} a -> s {bytesProcessed = a} :: Progress)
 
-instance Core.FromXML Progress where
+instance Data.FromXML Progress where
   parseXML x =
     Progress'
-      Prelude.<$> (x Core..@? "BytesScanned")
-      Prelude.<*> (x Core..@? "BytesReturned")
-      Prelude.<*> (x Core..@? "BytesProcessed")
+      Prelude.<$> (x Data..@? "BytesScanned")
+      Prelude.<*> (x Data..@? "BytesReturned")
+      Prelude.<*> (x Data..@? "BytesProcessed")
 
 instance Prelude.Hashable Progress where
   hashWithSalt _salt Progress' {..} =

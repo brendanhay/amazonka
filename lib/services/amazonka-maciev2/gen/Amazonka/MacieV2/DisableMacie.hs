@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -75,21 +76,21 @@ instance Prelude.Hashable DisableMacie where
 instance Prelude.NFData DisableMacie where
   rnf _ = ()
 
-instance Core.ToHeaders DisableMacie where
+instance Data.ToHeaders DisableMacie where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DisableMacie where
+instance Data.ToPath DisableMacie where
   toPath = Prelude.const "/macie"
 
-instance Core.ToQuery DisableMacie where
+instance Data.ToQuery DisableMacie where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableMacieResponse' smart constructor.

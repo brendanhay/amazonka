@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsBackupRecoveryPointDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsBackupRecoveryPointCalculatedLifecycleDetails
 import Amazonka.SecurityHub.Types.AwsBackupRecoveryPointCreatedByDetails
@@ -340,31 +341,31 @@ awsBackupRecoveryPointDetails_lastRestoreTime = Lens.lens (\AwsBackupRecoveryPoi
 awsBackupRecoveryPointDetails_calculatedLifecycle :: Lens.Lens' AwsBackupRecoveryPointDetails (Prelude.Maybe AwsBackupRecoveryPointCalculatedLifecycleDetails)
 awsBackupRecoveryPointDetails_calculatedLifecycle = Lens.lens (\AwsBackupRecoveryPointDetails' {calculatedLifecycle} -> calculatedLifecycle) (\s@AwsBackupRecoveryPointDetails' {} a -> s {calculatedLifecycle = a} :: AwsBackupRecoveryPointDetails)
 
-instance Core.FromJSON AwsBackupRecoveryPointDetails where
+instance Data.FromJSON AwsBackupRecoveryPointDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsBackupRecoveryPointDetails"
       ( \x ->
           AwsBackupRecoveryPointDetails'
-            Prelude.<$> (x Core..:? "EncryptionKeyArn")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "Lifecycle")
-            Prelude.<*> (x Core..:? "RecoveryPointArn")
-            Prelude.<*> (x Core..:? "CompletionDate")
-            Prelude.<*> (x Core..:? "BackupVaultName")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "BackupSizeInBytes")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "BackupVaultArn")
-            Prelude.<*> (x Core..:? "IsEncrypted")
-            Prelude.<*> (x Core..:? "IamRoleArn")
-            Prelude.<*> (x Core..:? "SourceBackupVaultArn")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "StorageClass")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "LastRestoreTime")
-            Prelude.<*> (x Core..:? "CalculatedLifecycle")
+            Prelude.<$> (x Data..:? "EncryptionKeyArn")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "Lifecycle")
+            Prelude.<*> (x Data..:? "RecoveryPointArn")
+            Prelude.<*> (x Data..:? "CompletionDate")
+            Prelude.<*> (x Data..:? "BackupVaultName")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "BackupSizeInBytes")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "BackupVaultArn")
+            Prelude.<*> (x Data..:? "IsEncrypted")
+            Prelude.<*> (x Data..:? "IamRoleArn")
+            Prelude.<*> (x Data..:? "SourceBackupVaultArn")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "StorageClass")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "LastRestoreTime")
+            Prelude.<*> (x Data..:? "CalculatedLifecycle")
       )
 
 instance
@@ -414,37 +415,37 @@ instance Prelude.NFData AwsBackupRecoveryPointDetails where
       `Prelude.seq` Prelude.rnf lastRestoreTime
       `Prelude.seq` Prelude.rnf calculatedLifecycle
 
-instance Core.ToJSON AwsBackupRecoveryPointDetails where
+instance Data.ToJSON AwsBackupRecoveryPointDetails where
   toJSON AwsBackupRecoveryPointDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EncryptionKeyArn" Core..=)
+          [ ("EncryptionKeyArn" Data..=)
               Prelude.<$> encryptionKeyArn,
-            ("ResourceType" Core..=) Prelude.<$> resourceType,
-            ("Lifecycle" Core..=) Prelude.<$> lifecycle,
-            ("RecoveryPointArn" Core..=)
+            ("ResourceType" Data..=) Prelude.<$> resourceType,
+            ("Lifecycle" Data..=) Prelude.<$> lifecycle,
+            ("RecoveryPointArn" Data..=)
               Prelude.<$> recoveryPointArn,
-            ("CompletionDate" Core..=)
+            ("CompletionDate" Data..=)
               Prelude.<$> completionDate,
-            ("BackupVaultName" Core..=)
+            ("BackupVaultName" Data..=)
               Prelude.<$> backupVaultName,
-            ("CreationDate" Core..=) Prelude.<$> creationDate,
-            ("BackupSizeInBytes" Core..=)
+            ("CreationDate" Data..=) Prelude.<$> creationDate,
+            ("BackupSizeInBytes" Data..=)
               Prelude.<$> backupSizeInBytes,
-            ("Status" Core..=) Prelude.<$> status,
-            ("BackupVaultArn" Core..=)
+            ("Status" Data..=) Prelude.<$> status,
+            ("BackupVaultArn" Data..=)
               Prelude.<$> backupVaultArn,
-            ("IsEncrypted" Core..=) Prelude.<$> isEncrypted,
-            ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
-            ("SourceBackupVaultArn" Core..=)
+            ("IsEncrypted" Data..=) Prelude.<$> isEncrypted,
+            ("IamRoleArn" Data..=) Prelude.<$> iamRoleArn,
+            ("SourceBackupVaultArn" Data..=)
               Prelude.<$> sourceBackupVaultArn,
-            ("ResourceArn" Core..=) Prelude.<$> resourceArn,
-            ("StorageClass" Core..=) Prelude.<$> storageClass,
-            ("StatusMessage" Core..=) Prelude.<$> statusMessage,
-            ("CreatedBy" Core..=) Prelude.<$> createdBy,
-            ("LastRestoreTime" Core..=)
+            ("ResourceArn" Data..=) Prelude.<$> resourceArn,
+            ("StorageClass" Data..=) Prelude.<$> storageClass,
+            ("StatusMessage" Data..=) Prelude.<$> statusMessage,
+            ("CreatedBy" Data..=) Prelude.<$> createdBy,
+            ("LastRestoreTime" Data..=)
               Prelude.<$> lastRestoreTime,
-            ("CalculatedLifecycle" Core..=)
+            ("CalculatedLifecycle" Data..=)
               Prelude.<$> calculatedLifecycle
           ]
       )

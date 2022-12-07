@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,9 +168,9 @@ instance Core.AWSRequest DeleteInventory where
     Response.receiveJSON
       ( \s h x ->
           DeleteInventoryResponse'
-            Prelude.<$> (x Core..?> "TypeName")
-            Prelude.<*> (x Core..?> "DeletionSummary")
-            Prelude.<*> (x Core..?> "DeletionId")
+            Prelude.<$> (x Data..?> "TypeName")
+            Prelude.<*> (x Data..?> "DeletionSummary")
+            Prelude.<*> (x Data..?> "DeletionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,35 +188,35 @@ instance Prelude.NFData DeleteInventory where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf typeName
 
-instance Core.ToHeaders DeleteInventory where
+instance Data.ToHeaders DeleteInventory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DeleteInventory" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.DeleteInventory" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteInventory where
+instance Data.ToJSON DeleteInventory where
   toJSON DeleteInventory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("SchemaDeleteOption" Core..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("SchemaDeleteOption" Data..=)
               Prelude.<$> schemaDeleteOption,
-            ("DryRun" Core..=) Prelude.<$> dryRun,
-            Prelude.Just ("TypeName" Core..= typeName)
+            ("DryRun" Data..=) Prelude.<$> dryRun,
+            Prelude.Just ("TypeName" Data..= typeName)
           ]
       )
 
-instance Core.ToPath DeleteInventory where
+instance Data.ToPath DeleteInventory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteInventory where
+instance Data.ToQuery DeleteInventory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInventoryResponse' smart constructor.

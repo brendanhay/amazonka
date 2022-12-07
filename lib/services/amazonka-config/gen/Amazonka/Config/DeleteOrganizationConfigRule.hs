@@ -47,6 +47,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,36 +105,36 @@ instance Prelude.NFData DeleteOrganizationConfigRule where
   rnf DeleteOrganizationConfigRule' {..} =
     Prelude.rnf organizationConfigRuleName
 
-instance Core.ToHeaders DeleteOrganizationConfigRule where
+instance Data.ToHeaders DeleteOrganizationConfigRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DeleteOrganizationConfigRule" ::
+              Data.=# ( "StarlingDoveService.DeleteOrganizationConfigRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteOrganizationConfigRule where
+instance Data.ToJSON DeleteOrganizationConfigRule where
   toJSON DeleteOrganizationConfigRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "OrganizationConfigRuleName"
-                  Core..= organizationConfigRuleName
+                  Data..= organizationConfigRuleName
               )
           ]
       )
 
-instance Core.ToPath DeleteOrganizationConfigRule where
+instance Data.ToPath DeleteOrganizationConfigRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteOrganizationConfigRule where
+instance Data.ToQuery DeleteOrganizationConfigRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteOrganizationConfigRuleResponse' smart constructor.

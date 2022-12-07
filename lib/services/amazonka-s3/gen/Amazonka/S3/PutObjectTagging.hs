@@ -99,6 +99,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -316,7 +317,7 @@ instance Core.AWSRequest PutObjectTagging where
     Response.receiveEmpty
       ( \s h x ->
           PutObjectTaggingResponse'
-            Prelude.<$> (h Core..#? "x-amz-version-id")
+            Prelude.<$> (h Data..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -342,32 +343,32 @@ instance Prelude.NFData PutObjectTagging where
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf tagging
 
-instance Core.ToElement PutObjectTagging where
+instance Data.ToElement PutObjectTagging where
   toElement PutObjectTagging' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}Tagging"
       tagging
 
-instance Core.ToHeaders PutObjectTagging where
+instance Data.ToHeaders PutObjectTagging where
   toHeaders PutObjectTagging' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
-        "Content-MD5" Core.=# contentMD5,
+          Data.=# checksumAlgorithm,
+        "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
-instance Core.ToPath PutObjectTagging where
+instance Data.ToPath PutObjectTagging where
   toPath PutObjectTagging' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery PutObjectTagging where
+instance Data.ToQuery PutObjectTagging where
   toQuery PutObjectTagging' {..} =
     Prelude.mconcat
-      ["versionId" Core.=: versionId, "tagging"]
+      ["versionId" Data.=: versionId, "tagging"]
 
 -- | /See:/ 'newPutObjectTaggingResponse' smart constructor.
 data PutObjectTaggingResponse = PutObjectTaggingResponse'

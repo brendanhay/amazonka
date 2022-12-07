@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.SampleRangeConversion
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the video color sample range for this output. To create a full
@@ -42,7 +43,7 @@ import qualified Amazonka.Prelude as Prelude
 -- the limited range.
 newtype SampleRangeConversion = SampleRangeConversion'
   { fromSampleRangeConversion ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -54,18 +55,18 @@ newtype SampleRangeConversion = SampleRangeConversion'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern SampleRangeConversion_LIMITED_RANGE_SQUEEZE :: SampleRangeConversion

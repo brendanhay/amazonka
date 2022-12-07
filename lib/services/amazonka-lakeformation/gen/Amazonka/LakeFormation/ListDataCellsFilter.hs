@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,10 +129,10 @@ instance Core.AWSRequest ListDataCellsFilter where
     Response.receiveJSON
       ( \s h x ->
           ListDataCellsFilterResponse'
-            Prelude.<$> ( x Core..?> "DataCellsFilters"
+            Prelude.<$> ( x Data..?> "DataCellsFilters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,31 +148,31 @@ instance Prelude.NFData ListDataCellsFilter where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf table
 
-instance Core.ToHeaders ListDataCellsFilter where
+instance Data.ToHeaders ListDataCellsFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDataCellsFilter where
+instance Data.ToJSON ListDataCellsFilter where
   toJSON ListDataCellsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Table" Core..=) Prelude.<$> table
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("Table" Data..=) Prelude.<$> table
           ]
       )
 
-instance Core.ToPath ListDataCellsFilter where
+instance Data.ToPath ListDataCellsFilter where
   toPath = Prelude.const "/ListDataCellsFilter"
 
-instance Core.ToQuery ListDataCellsFilter where
+instance Data.ToQuery ListDataCellsFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDataCellsFilterResponse' smart constructor.

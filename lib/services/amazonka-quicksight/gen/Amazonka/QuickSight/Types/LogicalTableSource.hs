@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.LogicalTableSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.JoinInstruction
 
@@ -74,15 +75,15 @@ logicalTableSource_joinInstruction = Lens.lens (\LogicalTableSource' {joinInstru
 logicalTableSource_dataSetArn :: Lens.Lens' LogicalTableSource (Prelude.Maybe Prelude.Text)
 logicalTableSource_dataSetArn = Lens.lens (\LogicalTableSource' {dataSetArn} -> dataSetArn) (\s@LogicalTableSource' {} a -> s {dataSetArn = a} :: LogicalTableSource)
 
-instance Core.FromJSON LogicalTableSource where
+instance Data.FromJSON LogicalTableSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogicalTableSource"
       ( \x ->
           LogicalTableSource'
-            Prelude.<$> (x Core..:? "PhysicalTableId")
-            Prelude.<*> (x Core..:? "JoinInstruction")
-            Prelude.<*> (x Core..:? "DataSetArn")
+            Prelude.<$> (x Data..:? "PhysicalTableId")
+            Prelude.<*> (x Data..:? "JoinInstruction")
+            Prelude.<*> (x Data..:? "DataSetArn")
       )
 
 instance Prelude.Hashable LogicalTableSource where
@@ -97,14 +98,14 @@ instance Prelude.NFData LogicalTableSource where
       `Prelude.seq` Prelude.rnf joinInstruction
       `Prelude.seq` Prelude.rnf dataSetArn
 
-instance Core.ToJSON LogicalTableSource where
+instance Data.ToJSON LogicalTableSource where
   toJSON LogicalTableSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PhysicalTableId" Core..=)
+          [ ("PhysicalTableId" Data..=)
               Prelude.<$> physicalTableId,
-            ("JoinInstruction" Core..=)
+            ("JoinInstruction" Data..=)
               Prelude.<$> joinInstruction,
-            ("DataSetArn" Core..=) Prelude.<$> dataSetArn
+            ("DataSetArn" Data..=) Prelude.<$> dataSetArn
           ]
       )

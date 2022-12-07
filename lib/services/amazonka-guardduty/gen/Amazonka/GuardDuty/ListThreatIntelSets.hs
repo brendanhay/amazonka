@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,9 +153,9 @@ instance Core.AWSRequest ListThreatIntelSets where
     Response.receiveJSON
       ( \s h x ->
           ListThreatIntelSetsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "threatIntelSetIds"
+            Prelude.<*> ( x Data..?> "threatIntelSetIds"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -171,30 +172,30 @@ instance Prelude.NFData ListThreatIntelSets where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf detectorId
 
-instance Core.ToHeaders ListThreatIntelSets where
+instance Data.ToHeaders ListThreatIntelSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListThreatIntelSets where
+instance Data.ToPath ListThreatIntelSets where
   toPath ListThreatIntelSets' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/threatintelset"
       ]
 
-instance Core.ToQuery ListThreatIntelSets where
+instance Data.ToQuery ListThreatIntelSets where
   toQuery ListThreatIntelSets' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListThreatIntelSetsResponse' smart constructor.

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -75,9 +76,9 @@ data ListContacts = ListContacts'
     -- | Name of a ground station.
     groundStation :: Prelude.Maybe Prelude.Text,
     -- | End time of a contact in UTC.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | Start time of a contact in UTC.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | Status of a contact reservation.
     statusList :: [ContactStatus]
   }
@@ -120,8 +121,8 @@ newListContacts pEndTime_ pStartTime_ =
       satelliteArn = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       groundStation = Prelude.Nothing,
-      endTime = Core._Time Lens.# pEndTime_,
-      startTime = Core._Time Lens.# pStartTime_,
+      endTime = Data._Time Lens.# pEndTime_,
+      startTime = Data._Time Lens.# pStartTime_,
       statusList = Prelude.mempty
     }
 
@@ -148,11 +149,11 @@ listContacts_groundStation = Lens.lens (\ListContacts' {groundStation} -> ground
 
 -- | End time of a contact in UTC.
 listContacts_endTime :: Lens.Lens' ListContacts Prelude.UTCTime
-listContacts_endTime = Lens.lens (\ListContacts' {endTime} -> endTime) (\s@ListContacts' {} a -> s {endTime = a} :: ListContacts) Prelude.. Core._Time
+listContacts_endTime = Lens.lens (\ListContacts' {endTime} -> endTime) (\s@ListContacts' {} a -> s {endTime = a} :: ListContacts) Prelude.. Data._Time
 
 -- | Start time of a contact in UTC.
 listContacts_startTime :: Lens.Lens' ListContacts Prelude.UTCTime
-listContacts_startTime = Lens.lens (\ListContacts' {startTime} -> startTime) (\s@ListContacts' {} a -> s {startTime = a} :: ListContacts) Prelude.. Core._Time
+listContacts_startTime = Lens.lens (\ListContacts' {startTime} -> startTime) (\s@ListContacts' {} a -> s {startTime = a} :: ListContacts) Prelude.. Data._Time
 
 -- | Status of a contact reservation.
 listContacts_statusList :: Lens.Lens' ListContacts [ContactStatus]
@@ -186,8 +187,8 @@ instance Core.AWSRequest ListContacts where
     Response.receiveJSON
       ( \s h x ->
           ListContactsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "contactList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "contactList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,37 +214,37 @@ instance Prelude.NFData ListContacts where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf statusList
 
-instance Core.ToHeaders ListContacts where
+instance Data.ToHeaders ListContacts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListContacts where
+instance Data.ToJSON ListContacts where
   toJSON ListContacts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("missionProfileArn" Core..=)
+          [ ("missionProfileArn" Data..=)
               Prelude.<$> missionProfileArn,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("satelliteArn" Core..=) Prelude.<$> satelliteArn,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("groundStation" Core..=) Prelude.<$> groundStation,
-            Prelude.Just ("endTime" Core..= endTime),
-            Prelude.Just ("startTime" Core..= startTime),
-            Prelude.Just ("statusList" Core..= statusList)
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("satelliteArn" Data..=) Prelude.<$> satelliteArn,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("groundStation" Data..=) Prelude.<$> groundStation,
+            Prelude.Just ("endTime" Data..= endTime),
+            Prelude.Just ("startTime" Data..= startTime),
+            Prelude.Just ("statusList" Data..= statusList)
           ]
       )
 
-instance Core.ToPath ListContacts where
+instance Data.ToPath ListContacts where
   toPath = Prelude.const "/contacts"
 
-instance Core.ToQuery ListContacts where
+instance Data.ToQuery ListContacts where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

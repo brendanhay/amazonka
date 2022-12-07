@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -116,9 +117,9 @@ instance Core.AWSRequest CreateCollection where
     Response.receiveJSON
       ( \s h x ->
           CreateCollectionResponse'
-            Prelude.<$> (x Core..?> "StatusCode")
-            Prelude.<*> (x Core..?> "FaceModelVersion")
-            Prelude.<*> (x Core..?> "CollectionArn")
+            Prelude.<$> (x Data..?> "StatusCode")
+            Prelude.<*> (x Data..?> "FaceModelVersion")
+            Prelude.<*> (x Data..?> "CollectionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,34 +133,34 @@ instance Prelude.NFData CreateCollection where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf collectionId
 
-instance Core.ToHeaders CreateCollection where
+instance Data.ToHeaders CreateCollection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.CreateCollection" ::
+              Data.=# ( "RekognitionService.CreateCollection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCollection where
+instance Data.ToJSON CreateCollection where
   toJSON CreateCollection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("CollectionId" Core..= collectionId)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("CollectionId" Data..= collectionId)
           ]
       )
 
-instance Core.ToPath CreateCollection where
+instance Data.ToPath CreateCollection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCollection where
+instance Data.ToQuery CreateCollection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCollectionResponse' smart constructor.

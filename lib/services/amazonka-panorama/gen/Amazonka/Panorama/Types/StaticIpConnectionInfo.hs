@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.StaticIpConnectionInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A static IP configuration.
@@ -89,16 +90,16 @@ staticIpConnectionInfo_ipAddress = Lens.lens (\StaticIpConnectionInfo' {ipAddres
 staticIpConnectionInfo_mask :: Lens.Lens' StaticIpConnectionInfo Prelude.Text
 staticIpConnectionInfo_mask = Lens.lens (\StaticIpConnectionInfo' {mask} -> mask) (\s@StaticIpConnectionInfo' {} a -> s {mask = a} :: StaticIpConnectionInfo)
 
-instance Core.FromJSON StaticIpConnectionInfo where
+instance Data.FromJSON StaticIpConnectionInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StaticIpConnectionInfo"
       ( \x ->
           StaticIpConnectionInfo'
-            Prelude.<$> (x Core..: "DefaultGateway")
-            Prelude.<*> (x Core..:? "Dns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "IpAddress")
-            Prelude.<*> (x Core..: "Mask")
+            Prelude.<$> (x Data..: "DefaultGateway")
+            Prelude.<*> (x Data..:? "Dns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "IpAddress")
+            Prelude.<*> (x Data..: "Mask")
       )
 
 instance Prelude.Hashable StaticIpConnectionInfo where
@@ -115,14 +116,14 @@ instance Prelude.NFData StaticIpConnectionInfo where
       `Prelude.seq` Prelude.rnf ipAddress
       `Prelude.seq` Prelude.rnf mask
 
-instance Core.ToJSON StaticIpConnectionInfo where
+instance Data.ToJSON StaticIpConnectionInfo where
   toJSON StaticIpConnectionInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DefaultGateway" Core..= defaultGateway),
-            Prelude.Just ("Dns" Core..= dns),
-            Prelude.Just ("IpAddress" Core..= ipAddress),
-            Prelude.Just ("Mask" Core..= mask)
+              ("DefaultGateway" Data..= defaultGateway),
+            Prelude.Just ("Dns" Data..= dns),
+            Prelude.Just ("IpAddress" Data..= ipAddress),
+            Prelude.Just ("Mask" Data..= mask)
           ]
       )

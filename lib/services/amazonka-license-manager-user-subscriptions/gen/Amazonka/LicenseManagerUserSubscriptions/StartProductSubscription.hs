@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManagerUserSubscriptions.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,7 +125,7 @@ instance Core.AWSRequest StartProductSubscription where
       ( \s h x ->
           StartProductSubscriptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ProductUserSummary")
+            Prelude.<*> (x Data..:> "ProductUserSummary")
       )
 
 instance Prelude.Hashable StartProductSubscription where
@@ -141,34 +142,34 @@ instance Prelude.NFData StartProductSubscription where
       `Prelude.seq` Prelude.rnf product
       `Prelude.seq` Prelude.rnf username
 
-instance Core.ToHeaders StartProductSubscription where
+instance Data.ToHeaders StartProductSubscription where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartProductSubscription where
+instance Data.ToJSON StartProductSubscription where
   toJSON StartProductSubscription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Domain" Core..=) Prelude.<$> domain,
+          [ ("Domain" Data..=) Prelude.<$> domain,
             Prelude.Just
-              ("IdentityProvider" Core..= identityProvider),
-            Prelude.Just ("Product" Core..= product),
-            Prelude.Just ("Username" Core..= username)
+              ("IdentityProvider" Data..= identityProvider),
+            Prelude.Just ("Product" Data..= product),
+            Prelude.Just ("Username" Data..= username)
           ]
       )
 
-instance Core.ToPath StartProductSubscription where
+instance Data.ToPath StartProductSubscription where
   toPath =
     Prelude.const "/user/StartProductSubscription"
 
-instance Core.ToQuery StartProductSubscription where
+instance Data.ToQuery StartProductSubscription where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartProductSubscriptionResponse' smart constructor.

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,21 +115,21 @@ instance Prelude.NFData DeleteVpnGateway where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf vpnGatewayId
 
-instance Core.ToHeaders DeleteVpnGateway where
+instance Data.ToHeaders DeleteVpnGateway where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteVpnGateway where
+instance Data.ToPath DeleteVpnGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVpnGateway where
+instance Data.ToQuery DeleteVpnGateway where
   toQuery DeleteVpnGateway' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteVpnGateway" :: Prelude.ByteString),
+          Data.=: ("DeleteVpnGateway" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "VpnGatewayId" Core.=: vpnGatewayId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "VpnGatewayId" Data.=: vpnGatewayId
       ]
 
 -- | /See:/ 'newDeleteVpnGatewayResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.Filters where
 import Amazonka.Connect.Types.Channel
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the filter to apply when retrieving metrics.
@@ -81,11 +82,11 @@ instance Prelude.NFData Filters where
     Prelude.rnf channels
       `Prelude.seq` Prelude.rnf queues
 
-instance Core.ToJSON Filters where
+instance Data.ToJSON Filters where
   toJSON Filters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Channels" Core..=) Prelude.<$> channels,
-            ("Queues" Core..=) Prelude.<$> queues
+          [ ("Channels" Data..=) Prelude.<$> channels,
+            ("Queues" Data..=) Prelude.<$> queues
           ]
       )

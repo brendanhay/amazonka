@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.AccountState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.ResourceState
 import Amazonka.Inspector2.Types.State
 import qualified Amazonka.Prelude as Prelude
@@ -82,15 +83,15 @@ accountState_resourceState = Lens.lens (\AccountState' {resourceState} -> resour
 accountState_state :: Lens.Lens' AccountState State
 accountState_state = Lens.lens (\AccountState' {state} -> state) (\s@AccountState' {} a -> s {state = a} :: AccountState)
 
-instance Core.FromJSON AccountState where
+instance Data.FromJSON AccountState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountState"
       ( \x ->
           AccountState'
-            Prelude.<$> (x Core..: "accountId")
-            Prelude.<*> (x Core..: "resourceState")
-            Prelude.<*> (x Core..: "state")
+            Prelude.<$> (x Data..: "accountId")
+            Prelude.<*> (x Data..: "resourceState")
+            Prelude.<*> (x Data..: "state")
       )
 
 instance Prelude.Hashable AccountState where

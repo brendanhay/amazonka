@@ -22,6 +22,7 @@ module Amazonka.Batch.Types.EksProperties where
 import Amazonka.Batch.Types.EksPodProperties
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the properties for the Kubernetes resources of a
@@ -52,13 +53,13 @@ newEksProperties =
 eksProperties_podProperties :: Lens.Lens' EksProperties (Prelude.Maybe EksPodProperties)
 eksProperties_podProperties = Lens.lens (\EksProperties' {podProperties} -> podProperties) (\s@EksProperties' {} a -> s {podProperties = a} :: EksProperties)
 
-instance Core.FromJSON EksProperties where
+instance Data.FromJSON EksProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EksProperties"
       ( \x ->
           EksProperties'
-            Prelude.<$> (x Core..:? "podProperties")
+            Prelude.<$> (x Data..:? "podProperties")
       )
 
 instance Prelude.Hashable EksProperties where
@@ -68,11 +69,11 @@ instance Prelude.Hashable EksProperties where
 instance Prelude.NFData EksProperties where
   rnf EksProperties' {..} = Prelude.rnf podProperties
 
-instance Core.ToJSON EksProperties where
+instance Data.ToJSON EksProperties where
   toJSON EksProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("podProperties" Core..=)
+          [ ("podProperties" Data..=)
               Prelude.<$> podProperties
           ]
       )

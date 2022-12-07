@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -183,7 +184,7 @@ instance Core.AWSRequest ModifyManagedPrefixList where
     Response.receiveXML
       ( \s h x ->
           ModifyManagedPrefixListResponse'
-            Prelude.<$> (x Core..@? "prefixList")
+            Prelude.<$> (x Data..@? "prefixList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -207,30 +208,30 @@ instance Prelude.NFData ModifyManagedPrefixList where
       `Prelude.seq` Prelude.rnf prefixListName
       `Prelude.seq` Prelude.rnf prefixListId
 
-instance Core.ToHeaders ModifyManagedPrefixList where
+instance Data.ToHeaders ModifyManagedPrefixList where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyManagedPrefixList where
+instance Data.ToPath ModifyManagedPrefixList where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyManagedPrefixList where
+instance Data.ToQuery ModifyManagedPrefixList where
   toQuery ModifyManagedPrefixList' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyManagedPrefixList" :: Prelude.ByteString),
+          Data.=: ("ModifyManagedPrefixList" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "RemoveEntry"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "RemoveEntry"
               Prelude.<$> removeEntries
           ),
-        Core.toQuery
-          (Core.toQueryList "AddEntry" Prelude.<$> addEntries),
-        "DryRun" Core.=: dryRun,
-        "CurrentVersion" Core.=: currentVersion,
-        "MaxEntries" Core.=: maxEntries,
-        "PrefixListName" Core.=: prefixListName,
-        "PrefixListId" Core.=: prefixListId
+        Data.toQuery
+          (Data.toQueryList "AddEntry" Prelude.<$> addEntries),
+        "DryRun" Data.=: dryRun,
+        "CurrentVersion" Data.=: currentVersion,
+        "MaxEntries" Data.=: maxEntries,
+        "PrefixListName" Data.=: prefixListName,
+        "PrefixListId" Data.=: prefixListId
       ]
 
 -- | /See:/ 'newModifyManagedPrefixListResponse' smart constructor.

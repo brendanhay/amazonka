@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.KeyGroupList where
 import Amazonka.CloudFront.Types.KeyGroupSummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of key groups.
@@ -90,15 +91,15 @@ keyGroupList_maxItems = Lens.lens (\KeyGroupList' {maxItems} -> maxItems) (\s@Ke
 keyGroupList_quantity :: Lens.Lens' KeyGroupList Prelude.Int
 keyGroupList_quantity = Lens.lens (\KeyGroupList' {quantity} -> quantity) (\s@KeyGroupList' {} a -> s {quantity = a} :: KeyGroupList)
 
-instance Core.FromXML KeyGroupList where
+instance Data.FromXML KeyGroupList where
   parseXML x =
     KeyGroupList'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "KeyGroupSummary")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "KeyGroupSummary")
                   )
-      Prelude.<*> (x Core..@? "NextMarker")
-      Prelude.<*> (x Core..@ "MaxItems")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@? "NextMarker")
+      Prelude.<*> (x Data..@ "MaxItems")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable KeyGroupList where
   hashWithSalt _salt KeyGroupList' {..} =

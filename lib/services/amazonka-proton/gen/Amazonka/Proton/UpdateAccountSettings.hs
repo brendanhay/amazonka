@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -164,7 +165,7 @@ instance Core.AWSRequest UpdateAccountSettings where
       ( \s h x ->
           UpdateAccountSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "accountSettings")
+            Prelude.<*> (x Data..:> "accountSettings")
       )
 
 instance Prelude.Hashable UpdateAccountSettings where
@@ -182,40 +183,40 @@ instance Prelude.NFData UpdateAccountSettings where
       `Prelude.seq` Prelude.rnf pipelineServiceRoleArn
       `Prelude.seq` Prelude.rnf pipelineCodebuildRoleArn
 
-instance Core.ToHeaders UpdateAccountSettings where
+instance Data.ToHeaders UpdateAccountSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.UpdateAccountSettings" ::
+              Data.=# ( "AwsProton20200720.UpdateAccountSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAccountSettings where
+instance Data.ToJSON UpdateAccountSettings where
   toJSON UpdateAccountSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deletePipelineProvisioningRepository" Core..=)
+          [ ("deletePipelineProvisioningRepository" Data..=)
               Prelude.<$> deletePipelineProvisioningRepository,
-            ("pipelineProvisioningRepository" Core..=)
+            ("pipelineProvisioningRepository" Data..=)
               Prelude.<$> pipelineProvisioningRepository,
-            ("pipelineServiceRoleArn" Core..=)
+            ("pipelineServiceRoleArn" Data..=)
               Prelude.<$> pipelineServiceRoleArn,
-            ("pipelineCodebuildRoleArn" Core..=)
+            ("pipelineCodebuildRoleArn" Data..=)
               Prelude.<$> pipelineCodebuildRoleArn
           ]
       )
 
-instance Core.ToPath UpdateAccountSettings where
+instance Data.ToPath UpdateAccountSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAccountSettings where
+instance Data.ToQuery UpdateAccountSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAccountSettingsResponse' smart constructor.

@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,32 +94,32 @@ instance Prelude.NFData DeleteLogSubscription where
   rnf DeleteLogSubscription' {..} =
     Prelude.rnf directoryId
 
-instance Core.ToHeaders DeleteLogSubscription where
+instance Data.ToHeaders DeleteLogSubscription where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.DeleteLogSubscription" ::
+              Data.=# ( "DirectoryService_20150416.DeleteLogSubscription" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteLogSubscription where
+instance Data.ToJSON DeleteLogSubscription where
   toJSON DeleteLogSubscription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DirectoryId" Core..= directoryId)]
+          [Prelude.Just ("DirectoryId" Data..= directoryId)]
       )
 
-instance Core.ToPath DeleteLogSubscription where
+instance Data.ToPath DeleteLogSubscription where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLogSubscription where
+instance Data.ToQuery DeleteLogSubscription where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLogSubscriptionResponse' smart constructor.

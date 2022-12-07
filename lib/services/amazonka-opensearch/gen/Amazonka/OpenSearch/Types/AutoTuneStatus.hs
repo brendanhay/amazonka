@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.AutoTuneStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.AutoTuneState
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,10 +38,10 @@ data AutoTuneStatus = AutoTuneStatus'
     -- | The latest version of the Auto-Tune options.
     updateVersion :: Prelude.Maybe Prelude.Natural,
     -- | Date and time when Auto-Tune was enabled for the domain.
-    creationDate :: Core.POSIX,
+    creationDate :: Data.POSIX,
     -- | Date and time when the Auto-Tune options were last updated for the
     -- domain.
-    updateDate :: Core.POSIX,
+    updateDate :: Data.POSIX,
     -- | The current state of Auto-Tune on the domain.
     state :: AutoTuneState
   }
@@ -79,8 +80,8 @@ newAutoTuneStatus pCreationDate_ pUpdateDate_ pState_ =
     { pendingDeletion = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
       updateVersion = Prelude.Nothing,
-      creationDate = Core._Time Lens.# pCreationDate_,
-      updateDate = Core._Time Lens.# pUpdateDate_,
+      creationDate = Data._Time Lens.# pCreationDate_,
+      updateDate = Data._Time Lens.# pUpdateDate_,
       state = pState_
     }
 
@@ -98,29 +99,29 @@ autoTuneStatus_updateVersion = Lens.lens (\AutoTuneStatus' {updateVersion} -> up
 
 -- | Date and time when Auto-Tune was enabled for the domain.
 autoTuneStatus_creationDate :: Lens.Lens' AutoTuneStatus Prelude.UTCTime
-autoTuneStatus_creationDate = Lens.lens (\AutoTuneStatus' {creationDate} -> creationDate) (\s@AutoTuneStatus' {} a -> s {creationDate = a} :: AutoTuneStatus) Prelude.. Core._Time
+autoTuneStatus_creationDate = Lens.lens (\AutoTuneStatus' {creationDate} -> creationDate) (\s@AutoTuneStatus' {} a -> s {creationDate = a} :: AutoTuneStatus) Prelude.. Data._Time
 
 -- | Date and time when the Auto-Tune options were last updated for the
 -- domain.
 autoTuneStatus_updateDate :: Lens.Lens' AutoTuneStatus Prelude.UTCTime
-autoTuneStatus_updateDate = Lens.lens (\AutoTuneStatus' {updateDate} -> updateDate) (\s@AutoTuneStatus' {} a -> s {updateDate = a} :: AutoTuneStatus) Prelude.. Core._Time
+autoTuneStatus_updateDate = Lens.lens (\AutoTuneStatus' {updateDate} -> updateDate) (\s@AutoTuneStatus' {} a -> s {updateDate = a} :: AutoTuneStatus) Prelude.. Data._Time
 
 -- | The current state of Auto-Tune on the domain.
 autoTuneStatus_state :: Lens.Lens' AutoTuneStatus AutoTuneState
 autoTuneStatus_state = Lens.lens (\AutoTuneStatus' {state} -> state) (\s@AutoTuneStatus' {} a -> s {state = a} :: AutoTuneStatus)
 
-instance Core.FromJSON AutoTuneStatus where
+instance Data.FromJSON AutoTuneStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoTuneStatus"
       ( \x ->
           AutoTuneStatus'
-            Prelude.<$> (x Core..:? "PendingDeletion")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "UpdateVersion")
-            Prelude.<*> (x Core..: "CreationDate")
-            Prelude.<*> (x Core..: "UpdateDate")
-            Prelude.<*> (x Core..: "State")
+            Prelude.<$> (x Data..:? "PendingDeletion")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "UpdateVersion")
+            Prelude.<*> (x Data..: "CreationDate")
+            Prelude.<*> (x Data..: "UpdateDate")
+            Prelude.<*> (x Data..: "State")
       )
 
 instance Prelude.Hashable AutoTuneStatus where

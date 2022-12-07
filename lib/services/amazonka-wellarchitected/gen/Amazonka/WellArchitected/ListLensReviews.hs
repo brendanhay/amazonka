@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,12 +117,12 @@ instance Core.AWSRequest ListLensReviews where
     Response.receiveJSON
       ( \s h x ->
           ListLensReviewsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "LensReviewSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "LensReviewSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "MilestoneNumber")
-            Prelude.<*> (x Core..?> "WorkloadId")
+            Prelude.<*> (x Data..?> "MilestoneNumber")
+            Prelude.<*> (x Data..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,28 +140,28 @@ instance Prelude.NFData ListLensReviews where
       `Prelude.seq` Prelude.rnf milestoneNumber
       `Prelude.seq` Prelude.rnf workloadId
 
-instance Core.ToHeaders ListLensReviews where
+instance Data.ToHeaders ListLensReviews where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListLensReviews where
+instance Data.ToPath ListLensReviews where
   toPath ListLensReviews' {..} =
     Prelude.mconcat
-      ["/workloads/", Core.toBS workloadId, "/lensReviews"]
+      ["/workloads/", Data.toBS workloadId, "/lensReviews"]
 
-instance Core.ToQuery ListLensReviews where
+instance Data.ToQuery ListLensReviews where
   toQuery ListLensReviews' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "MilestoneNumber" Core.=: milestoneNumber
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults,
+        "MilestoneNumber" Data.=: milestoneNumber
       ]
 
 -- | Output of a list lens reviews call.

@@ -21,6 +21,7 @@ module Amazonka.Kinesis.Types.EnhancedMonitoringOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types.MetricsName
 import qualified Amazonka.Prelude as Prelude
 
@@ -79,19 +80,19 @@ enhancedMonitoringOutput_currentShardLevelMetrics = Lens.lens (\EnhancedMonitori
 enhancedMonitoringOutput_streamName :: Lens.Lens' EnhancedMonitoringOutput (Prelude.Maybe Prelude.Text)
 enhancedMonitoringOutput_streamName = Lens.lens (\EnhancedMonitoringOutput' {streamName} -> streamName) (\s@EnhancedMonitoringOutput' {} a -> s {streamName = a} :: EnhancedMonitoringOutput)
 
-instance Core.FromJSON EnhancedMonitoringOutput where
+instance Data.FromJSON EnhancedMonitoringOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnhancedMonitoringOutput"
       ( \x ->
           EnhancedMonitoringOutput'
-            Prelude.<$> ( x Core..:? "DesiredShardLevelMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "DesiredShardLevelMetrics"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "CurrentShardLevelMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "CurrentShardLevelMetrics"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StreamName")
+            Prelude.<*> (x Data..:? "StreamName")
       )
 
 instance Prelude.Hashable EnhancedMonitoringOutput where

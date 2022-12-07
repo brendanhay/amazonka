@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.UpdateGrokClassifierRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a grok classifier to update when passed to @UpdateClassifier@.
@@ -99,15 +100,15 @@ instance Prelude.NFData UpdateGrokClassifierRequest where
       `Prelude.seq` Prelude.rnf classification
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON UpdateGrokClassifierRequest where
+instance Data.ToJSON UpdateGrokClassifierRequest where
   toJSON UpdateGrokClassifierRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomPatterns" Core..=)
+          [ ("CustomPatterns" Data..=)
               Prelude.<$> customPatterns,
-            ("GrokPattern" Core..=) Prelude.<$> grokPattern,
-            ("Classification" Core..=)
+            ("GrokPattern" Data..=) Prelude.<$> grokPattern,
+            ("Classification" Data..=)
               Prelude.<$> classification,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )

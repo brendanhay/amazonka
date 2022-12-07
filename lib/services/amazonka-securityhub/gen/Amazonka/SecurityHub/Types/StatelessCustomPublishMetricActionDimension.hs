@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.StatelessCustomPublishMetricActionDimension wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a CloudWatch dimension value to publish.
@@ -54,15 +55,15 @@ statelessCustomPublishMetricActionDimension_value :: Lens.Lens' StatelessCustomP
 statelessCustomPublishMetricActionDimension_value = Lens.lens (\StatelessCustomPublishMetricActionDimension' {value} -> value) (\s@StatelessCustomPublishMetricActionDimension' {} a -> s {value = a} :: StatelessCustomPublishMetricActionDimension)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     StatelessCustomPublishMetricActionDimension
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatelessCustomPublishMetricActionDimension"
       ( \x ->
           StatelessCustomPublishMetricActionDimension'
-            Prelude.<$> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Value")
       )
 
 instance
@@ -82,12 +83,12 @@ instance
     Prelude.rnf value
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StatelessCustomPublishMetricActionDimension
   where
   toJSON
     StatelessCustomPublishMetricActionDimension' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("Value" Core..=) Prelude.<$> value]
+            [("Value" Data..=) Prelude.<$> value]
         )

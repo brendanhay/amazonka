@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,24 +86,24 @@ instance
 instance Prelude.NFData DisassociateFromMasterAccount where
   rnf _ = ()
 
-instance Core.ToHeaders DisassociateFromMasterAccount where
+instance Data.ToHeaders DisassociateFromMasterAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateFromMasterAccount where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DisassociateFromMasterAccount where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DisassociateFromMasterAccount where
+instance Data.ToPath DisassociateFromMasterAccount where
   toPath = Prelude.const "/master/disassociate"
 
-instance Core.ToQuery DisassociateFromMasterAccount where
+instance Data.ToQuery DisassociateFromMasterAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateFromMasterAccountResponse' smart constructor.

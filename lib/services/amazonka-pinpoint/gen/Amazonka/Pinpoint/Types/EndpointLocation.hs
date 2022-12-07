@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EndpointLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies geographic information about an endpoint.
@@ -112,18 +113,18 @@ endpointLocation_city = Lens.lens (\EndpointLocation' {city} -> city) (\s@Endpoi
 endpointLocation_latitude :: Lens.Lens' EndpointLocation (Prelude.Maybe Prelude.Double)
 endpointLocation_latitude = Lens.lens (\EndpointLocation' {latitude} -> latitude) (\s@EndpointLocation' {} a -> s {latitude = a} :: EndpointLocation)
 
-instance Core.FromJSON EndpointLocation where
+instance Data.FromJSON EndpointLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointLocation"
       ( \x ->
           EndpointLocation'
-            Prelude.<$> (x Core..:? "Longitude")
-            Prelude.<*> (x Core..:? "PostalCode")
-            Prelude.<*> (x Core..:? "Country")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "City")
-            Prelude.<*> (x Core..:? "Latitude")
+            Prelude.<$> (x Data..:? "Longitude")
+            Prelude.<*> (x Data..:? "PostalCode")
+            Prelude.<*> (x Data..:? "Country")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "City")
+            Prelude.<*> (x Data..:? "Latitude")
       )
 
 instance Prelude.Hashable EndpointLocation where
@@ -144,15 +145,15 @@ instance Prelude.NFData EndpointLocation where
       `Prelude.seq` Prelude.rnf city
       `Prelude.seq` Prelude.rnf latitude
 
-instance Core.ToJSON EndpointLocation where
+instance Data.ToJSON EndpointLocation where
   toJSON EndpointLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Longitude" Core..=) Prelude.<$> longitude,
-            ("PostalCode" Core..=) Prelude.<$> postalCode,
-            ("Country" Core..=) Prelude.<$> country,
-            ("Region" Core..=) Prelude.<$> region,
-            ("City" Core..=) Prelude.<$> city,
-            ("Latitude" Core..=) Prelude.<$> latitude
+          [ ("Longitude" Data..=) Prelude.<$> longitude,
+            ("PostalCode" Data..=) Prelude.<$> postalCode,
+            ("Country" Data..=) Prelude.<$> country,
+            ("Region" Data..=) Prelude.<$> region,
+            ("City" Data..=) Prelude.<$> city,
+            ("Latitude" Data..=) Prelude.<$> latitude
           ]
       )

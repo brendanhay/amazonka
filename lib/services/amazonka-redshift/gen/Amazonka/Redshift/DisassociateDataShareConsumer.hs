@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -137,7 +138,7 @@ instance
   response =
     Response.receiveXMLWrapper
       "DisassociateDataShareConsumerResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance
   Prelude.Hashable
@@ -157,24 +158,24 @@ instance Prelude.NFData DisassociateDataShareConsumer where
       `Prelude.seq` Prelude.rnf consumerRegion
       `Prelude.seq` Prelude.rnf dataShareArn
 
-instance Core.ToHeaders DisassociateDataShareConsumer where
+instance Data.ToHeaders DisassociateDataShareConsumer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DisassociateDataShareConsumer where
+instance Data.ToPath DisassociateDataShareConsumer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateDataShareConsumer where
+instance Data.ToQuery DisassociateDataShareConsumer where
   toQuery DisassociateDataShareConsumer' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DisassociateDataShareConsumer" ::
+          Data.=: ( "DisassociateDataShareConsumer" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "DisassociateEntireAccount"
-          Core.=: disassociateEntireAccount,
-        "ConsumerArn" Core.=: consumerArn,
-        "ConsumerRegion" Core.=: consumerRegion,
-        "DataShareArn" Core.=: dataShareArn
+          Data.=: disassociateEntireAccount,
+        "ConsumerArn" Data.=: consumerArn,
+        "ConsumerRegion" Data.=: consumerRegion,
+        "DataShareArn" Data.=: dataShareArn
       ]

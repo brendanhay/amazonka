@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.DistributionConfigurationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A high-level overview of a distribution configuration.
@@ -108,21 +109,21 @@ distributionConfigurationSummary_dateCreated :: Lens.Lens' DistributionConfigura
 distributionConfigurationSummary_dateCreated = Lens.lens (\DistributionConfigurationSummary' {dateCreated} -> dateCreated) (\s@DistributionConfigurationSummary' {} a -> s {dateCreated = a} :: DistributionConfigurationSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DistributionConfigurationSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DistributionConfigurationSummary"
       ( \x ->
           DistributionConfigurationSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "regions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "dateUpdated")
-            Prelude.<*> (x Core..:? "dateCreated")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "regions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "dateUpdated")
+            Prelude.<*> (x Data..:? "dateCreated")
       )
 
 instance

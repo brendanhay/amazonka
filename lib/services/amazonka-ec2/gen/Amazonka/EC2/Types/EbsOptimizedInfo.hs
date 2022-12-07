@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.EbsOptimizedInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -116,15 +117,15 @@ ebsOptimizedInfo_baselineIops = Lens.lens (\EbsOptimizedInfo' {baselineIops} -> 
 ebsOptimizedInfo_baselineThroughputInMBps :: Lens.Lens' EbsOptimizedInfo (Prelude.Maybe Prelude.Double)
 ebsOptimizedInfo_baselineThroughputInMBps = Lens.lens (\EbsOptimizedInfo' {baselineThroughputInMBps} -> baselineThroughputInMBps) (\s@EbsOptimizedInfo' {} a -> s {baselineThroughputInMBps = a} :: EbsOptimizedInfo)
 
-instance Core.FromXML EbsOptimizedInfo where
+instance Data.FromXML EbsOptimizedInfo where
   parseXML x =
     EbsOptimizedInfo'
-      Prelude.<$> (x Core..@? "maximumIops")
-      Prelude.<*> (x Core..@? "baselineBandwidthInMbps")
-      Prelude.<*> (x Core..@? "maximumThroughputInMBps")
-      Prelude.<*> (x Core..@? "maximumBandwidthInMbps")
-      Prelude.<*> (x Core..@? "baselineIops")
-      Prelude.<*> (x Core..@? "baselineThroughputInMBps")
+      Prelude.<$> (x Data..@? "maximumIops")
+      Prelude.<*> (x Data..@? "baselineBandwidthInMbps")
+      Prelude.<*> (x Data..@? "maximumThroughputInMBps")
+      Prelude.<*> (x Data..@? "maximumBandwidthInMbps")
+      Prelude.<*> (x Data..@? "baselineIops")
+      Prelude.<*> (x Data..@? "baselineThroughputInMBps")
 
 instance Prelude.Hashable EbsOptimizedInfo where
   hashWithSalt _salt EbsOptimizedInfo' {..} =

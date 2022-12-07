@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.WriteTreatmentResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.CustomDeliveryConfiguration
 import Amazonka.Pinpoint.Types.MessageConfiguration
 import Amazonka.Pinpoint.Types.Schedule
@@ -142,20 +143,20 @@ instance Prelude.NFData WriteTreatmentResource where
       `Prelude.seq` Prelude.rnf templateConfiguration
       `Prelude.seq` Prelude.rnf sizePercent
 
-instance Core.ToJSON WriteTreatmentResource where
+instance Data.ToJSON WriteTreatmentResource where
   toJSON WriteTreatmentResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Schedule" Core..=) Prelude.<$> schedule,
-            ("CustomDeliveryConfiguration" Core..=)
+          [ ("Schedule" Data..=) Prelude.<$> schedule,
+            ("CustomDeliveryConfiguration" Data..=)
               Prelude.<$> customDeliveryConfiguration,
-            ("TreatmentName" Core..=) Prelude.<$> treatmentName,
-            ("MessageConfiguration" Core..=)
+            ("TreatmentName" Data..=) Prelude.<$> treatmentName,
+            ("MessageConfiguration" Data..=)
               Prelude.<$> messageConfiguration,
-            ("TreatmentDescription" Core..=)
+            ("TreatmentDescription" Data..=)
               Prelude.<$> treatmentDescription,
-            ("TemplateConfiguration" Core..=)
+            ("TemplateConfiguration" Data..=)
               Prelude.<$> templateConfiguration,
-            Prelude.Just ("SizePercent" Core..= sizePercent)
+            Prelude.Just ("SizePercent" Data..= sizePercent)
           ]
       )

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -190,9 +191,9 @@ instance Core.AWSRequest DescribeCertificates where
       "DescribeCertificatesResult"
       ( \s h x ->
           DescribeCertificatesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "Certificates" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "Certificate")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "Certificates" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "Certificate")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -211,26 +212,26 @@ instance Prelude.NFData DescribeCertificates where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf certificateIdentifier
 
-instance Core.ToHeaders DescribeCertificates where
+instance Data.ToHeaders DescribeCertificates where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeCertificates where
+instance Data.ToPath DescribeCertificates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCertificates where
+instance Data.ToQuery DescribeCertificates where
   toQuery DescribeCertificates' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeCertificates" :: Prelude.ByteString),
+          Data.=: ("DescribeCertificates" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords,
         "CertificateIdentifier"
-          Core.=: certificateIdentifier
+          Data.=: certificateIdentifier
       ]
 
 -- | Data returned by the __DescribeCertificates__ action.

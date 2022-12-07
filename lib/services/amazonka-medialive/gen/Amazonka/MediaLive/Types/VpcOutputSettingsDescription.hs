@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.VpcOutputSettingsDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties for a private VPC Output
@@ -95,22 +96,22 @@ vpcOutputSettingsDescription_networkInterfaceIds = Lens.lens (\VpcOutputSettings
 vpcOutputSettingsDescription_subnetIds :: Lens.Lens' VpcOutputSettingsDescription (Prelude.Maybe [Prelude.Text])
 vpcOutputSettingsDescription_subnetIds = Lens.lens (\VpcOutputSettingsDescription' {subnetIds} -> subnetIds) (\s@VpcOutputSettingsDescription' {} a -> s {subnetIds = a} :: VpcOutputSettingsDescription) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON VpcOutputSettingsDescription where
+instance Data.FromJSON VpcOutputSettingsDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcOutputSettingsDescription"
       ( \x ->
           VpcOutputSettingsDescription'
-            Prelude.<$> ( x Core..:? "securityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "securityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "availabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "availabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "networkInterfaceIds"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "networkInterfaceIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "subnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.DataCatalogOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.DatabaseTableOutputOptions
 import Amazonka.DataBrew.Types.S3TableOutputOptions
 import qualified Amazonka.Prelude as Prelude
@@ -119,18 +120,18 @@ dataCatalogOutput_databaseName = Lens.lens (\DataCatalogOutput' {databaseName} -
 dataCatalogOutput_tableName :: Lens.Lens' DataCatalogOutput Prelude.Text
 dataCatalogOutput_tableName = Lens.lens (\DataCatalogOutput' {tableName} -> tableName) (\s@DataCatalogOutput' {} a -> s {tableName = a} :: DataCatalogOutput)
 
-instance Core.FromJSON DataCatalogOutput where
+instance Data.FromJSON DataCatalogOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataCatalogOutput"
       ( \x ->
           DataCatalogOutput'
-            Prelude.<$> (x Core..:? "S3Options")
-            Prelude.<*> (x Core..:? "DatabaseOptions")
-            Prelude.<*> (x Core..:? "Overwrite")
-            Prelude.<*> (x Core..:? "CatalogId")
-            Prelude.<*> (x Core..: "DatabaseName")
-            Prelude.<*> (x Core..: "TableName")
+            Prelude.<$> (x Data..:? "S3Options")
+            Prelude.<*> (x Data..:? "DatabaseOptions")
+            Prelude.<*> (x Data..:? "Overwrite")
+            Prelude.<*> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..: "DatabaseName")
+            Prelude.<*> (x Data..: "TableName")
       )
 
 instance Prelude.Hashable DataCatalogOutput where
@@ -151,16 +152,16 @@ instance Prelude.NFData DataCatalogOutput where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToJSON DataCatalogOutput where
+instance Data.ToJSON DataCatalogOutput where
   toJSON DataCatalogOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Options" Core..=) Prelude.<$> s3Options,
-            ("DatabaseOptions" Core..=)
+          [ ("S3Options" Data..=) Prelude.<$> s3Options,
+            ("DatabaseOptions" Data..=)
               Prelude.<$> databaseOptions,
-            ("Overwrite" Core..=) Prelude.<$> overwrite,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName)
+            ("Overwrite" Data..=) Prelude.<$> overwrite,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )

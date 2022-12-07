@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.ExperimentTemplateTargetFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a filter used for the target resources in an experiment
@@ -63,14 +64,14 @@ experimentTemplateTargetFilter_path = Lens.lens (\ExperimentTemplateTargetFilter
 experimentTemplateTargetFilter_values :: Lens.Lens' ExperimentTemplateTargetFilter (Prelude.Maybe [Prelude.Text])
 experimentTemplateTargetFilter_values = Lens.lens (\ExperimentTemplateTargetFilter' {values} -> values) (\s@ExperimentTemplateTargetFilter' {} a -> s {values = a} :: ExperimentTemplateTargetFilter) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ExperimentTemplateTargetFilter where
+instance Data.FromJSON ExperimentTemplateTargetFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExperimentTemplateTargetFilter"
       ( \x ->
           ExperimentTemplateTargetFilter'
-            Prelude.<$> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
       )
 
 instance

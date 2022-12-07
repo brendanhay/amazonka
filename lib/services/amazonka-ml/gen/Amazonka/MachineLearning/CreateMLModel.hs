@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -341,7 +342,7 @@ instance Core.AWSRequest CreateMLModel where
     Response.receiveJSON
       ( \s h x ->
           CreateMLModelResponse'
-            Prelude.<$> (x Core..?> "MLModelId")
+            Prelude.<$> (x Data..?> "MLModelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -365,42 +366,42 @@ instance Prelude.NFData CreateMLModel where
       `Prelude.seq` Prelude.rnf mLModelType
       `Prelude.seq` Prelude.rnf trainingDataSourceId
 
-instance Core.ToHeaders CreateMLModel where
+instance Data.ToHeaders CreateMLModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.CreateMLModel" ::
+              Data.=# ( "AmazonML_20141212.CreateMLModel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateMLModel where
+instance Data.ToJSON CreateMLModel where
   toJSON CreateMLModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MLModelName" Core..=) Prelude.<$> mLModelName,
-            ("Recipe" Core..=) Prelude.<$> recipe,
-            ("RecipeUri" Core..=) Prelude.<$> recipeUri,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("MLModelId" Core..= mLModelId),
-            Prelude.Just ("MLModelType" Core..= mLModelType),
+          [ ("MLModelName" Data..=) Prelude.<$> mLModelName,
+            ("Recipe" Data..=) Prelude.<$> recipe,
+            ("RecipeUri" Data..=) Prelude.<$> recipeUri,
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("MLModelId" Data..= mLModelId),
+            Prelude.Just ("MLModelType" Data..= mLModelType),
             Prelude.Just
               ( "TrainingDataSourceId"
-                  Core..= trainingDataSourceId
+                  Data..= trainingDataSourceId
               )
           ]
       )
 
-instance Core.ToPath CreateMLModel where
+instance Data.ToPath CreateMLModel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateMLModel where
+instance Data.ToQuery CreateMLModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateMLModel@ operation, and is an

@@ -22,6 +22,7 @@ module Amazonka.CustomerProfiles.Types.IntegrationConfig where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.AppflowIntegration
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration data for integration workflow.
@@ -62,11 +63,11 @@ instance Prelude.NFData IntegrationConfig where
   rnf IntegrationConfig' {..} =
     Prelude.rnf appflowIntegration
 
-instance Core.ToJSON IntegrationConfig where
+instance Data.ToJSON IntegrationConfig where
   toJSON IntegrationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AppflowIntegration" Core..=)
+          [ ("AppflowIntegration" Data..=)
               Prelude.<$> appflowIntegration
           ]
       )

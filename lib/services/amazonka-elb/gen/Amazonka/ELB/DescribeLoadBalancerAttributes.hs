@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,7 +93,7 @@ instance
       "DescribeLoadBalancerAttributesResult"
       ( \s h x ->
           DescribeLoadBalancerAttributesResponse'
-            Prelude.<$> (x Core..@? "LoadBalancerAttributes")
+            Prelude.<$> (x Data..@? "LoadBalancerAttributes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,24 +114,24 @@ instance
     Prelude.rnf loadBalancerName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeLoadBalancerAttributes
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeLoadBalancerAttributes where
+instance Data.ToPath DescribeLoadBalancerAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLoadBalancerAttributes where
+instance Data.ToQuery DescribeLoadBalancerAttributes where
   toQuery DescribeLoadBalancerAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeLoadBalancerAttributes" ::
+          Data.=: ( "DescribeLoadBalancerAttributes" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Core.=: loadBalancerName
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
+        "LoadBalancerName" Data.=: loadBalancerName
       ]
 
 -- | Contains the output of DescribeLoadBalancerAttributes.

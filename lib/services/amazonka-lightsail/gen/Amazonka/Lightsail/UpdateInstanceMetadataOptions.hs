@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -205,7 +206,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateInstanceMetadataOptionsResponse'
-            Prelude.<$> (x Core..?> "operation")
+            Prelude.<$> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -229,39 +230,39 @@ instance Prelude.NFData UpdateInstanceMetadataOptions where
       `Prelude.seq` Prelude.rnf httpProtocolIpv6
       `Prelude.seq` Prelude.rnf instanceName
 
-instance Core.ToHeaders UpdateInstanceMetadataOptions where
+instance Data.ToHeaders UpdateInstanceMetadataOptions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.UpdateInstanceMetadataOptions" ::
+              Data.=# ( "Lightsail_20161128.UpdateInstanceMetadataOptions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateInstanceMetadataOptions where
+instance Data.ToJSON UpdateInstanceMetadataOptions where
   toJSON UpdateInstanceMetadataOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("httpPutResponseHopLimit" Core..=)
+          [ ("httpPutResponseHopLimit" Data..=)
               Prelude.<$> httpPutResponseHopLimit,
-            ("httpTokens" Core..=) Prelude.<$> httpTokens,
-            ("httpEndpoint" Core..=) Prelude.<$> httpEndpoint,
-            ("httpProtocolIpv6" Core..=)
+            ("httpTokens" Data..=) Prelude.<$> httpTokens,
+            ("httpEndpoint" Data..=) Prelude.<$> httpEndpoint,
+            ("httpProtocolIpv6" Data..=)
               Prelude.<$> httpProtocolIpv6,
-            Prelude.Just ("instanceName" Core..= instanceName)
+            Prelude.Just ("instanceName" Data..= instanceName)
           ]
       )
 
-instance Core.ToPath UpdateInstanceMetadataOptions where
+instance Data.ToPath UpdateInstanceMetadataOptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateInstanceMetadataOptions where
+instance Data.ToQuery UpdateInstanceMetadataOptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateInstanceMetadataOptionsResponse' smart constructor.

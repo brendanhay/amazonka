@@ -45,6 +45,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,32 +97,32 @@ instance Prelude.Hashable DeleteWebhook where
 instance Prelude.NFData DeleteWebhook where
   rnf DeleteWebhook' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteWebhook where
+instance Data.ToHeaders DeleteWebhook where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.DeleteWebhook" ::
+              Data.=# ( "CodePipeline_20150709.DeleteWebhook" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteWebhook where
+instance Data.ToJSON DeleteWebhook where
   toJSON DeleteWebhook' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath DeleteWebhook where
+instance Data.ToPath DeleteWebhook where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteWebhook where
+instance Data.ToQuery DeleteWebhook where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWebhookResponse' smart constructor.

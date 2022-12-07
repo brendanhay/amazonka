@@ -22,6 +22,7 @@ module Amazonka.Config.Types.ConfigRuleComplianceFilters where
 import Amazonka.Config.Types.ComplianceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters the compliance results based on account ID, region, compliance
@@ -108,15 +109,15 @@ instance Prelude.NFData ConfigRuleComplianceFilters where
       `Prelude.seq` Prelude.rnf awsRegion
       `Prelude.seq` Prelude.rnf complianceType
 
-instance Core.ToJSON ConfigRuleComplianceFilters where
+instance Data.ToJSON ConfigRuleComplianceFilters where
   toJSON ConfigRuleComplianceFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConfigRuleName" Core..=)
+          [ ("ConfigRuleName" Data..=)
               Prelude.<$> configRuleName,
-            ("AccountId" Core..=) Prelude.<$> accountId,
-            ("AwsRegion" Core..=) Prelude.<$> awsRegion,
-            ("ComplianceType" Core..=)
+            ("AccountId" Data..=) Prelude.<$> accountId,
+            ("AwsRegion" Data..=) Prelude.<$> awsRegion,
+            ("ComplianceType" Data..=)
               Prelude.<$> complianceType
           ]
       )

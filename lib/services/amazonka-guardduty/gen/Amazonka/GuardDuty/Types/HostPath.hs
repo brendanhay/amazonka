@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.HostPath where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a pre-existing file or directory on the host machine that the
@@ -50,11 +51,11 @@ newHostPath = HostPath' {path = Prelude.Nothing}
 hostPath_path :: Lens.Lens' HostPath (Prelude.Maybe Prelude.Text)
 hostPath_path = Lens.lens (\HostPath' {path} -> path) (\s@HostPath' {} a -> s {path = a} :: HostPath)
 
-instance Core.FromJSON HostPath where
+instance Data.FromJSON HostPath where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HostPath"
-      (\x -> HostPath' Prelude.<$> (x Core..:? "path"))
+      (\x -> HostPath' Prelude.<$> (x Data..:? "path"))
 
 instance Prelude.Hashable HostPath where
   hashWithSalt _salt HostPath' {..} =

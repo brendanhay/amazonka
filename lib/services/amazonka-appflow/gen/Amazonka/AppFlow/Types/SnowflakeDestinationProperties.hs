@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.SnowflakeDestinationProperties where
 import Amazonka.AppFlow.Types.ErrorHandlingConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Snowflake is being used as a
@@ -110,16 +111,16 @@ snowflakeDestinationProperties_object = Lens.lens (\SnowflakeDestinationProperti
 snowflakeDestinationProperties_intermediateBucketName :: Lens.Lens' SnowflakeDestinationProperties Prelude.Text
 snowflakeDestinationProperties_intermediateBucketName = Lens.lens (\SnowflakeDestinationProperties' {intermediateBucketName} -> intermediateBucketName) (\s@SnowflakeDestinationProperties' {} a -> s {intermediateBucketName = a} :: SnowflakeDestinationProperties)
 
-instance Core.FromJSON SnowflakeDestinationProperties where
+instance Data.FromJSON SnowflakeDestinationProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SnowflakeDestinationProperties"
       ( \x ->
           SnowflakeDestinationProperties'
-            Prelude.<$> (x Core..:? "errorHandlingConfig")
-            Prelude.<*> (x Core..:? "bucketPrefix")
-            Prelude.<*> (x Core..: "object")
-            Prelude.<*> (x Core..: "intermediateBucketName")
+            Prelude.<$> (x Data..:? "errorHandlingConfig")
+            Prelude.<*> (x Data..:? "bucketPrefix")
+            Prelude.<*> (x Data..: "object")
+            Prelude.<*> (x Data..: "intermediateBucketName")
       )
 
 instance
@@ -144,17 +145,17 @@ instance
       `Prelude.seq` Prelude.rnf object'
       `Prelude.seq` Prelude.rnf intermediateBucketName
 
-instance Core.ToJSON SnowflakeDestinationProperties where
+instance Data.ToJSON SnowflakeDestinationProperties where
   toJSON SnowflakeDestinationProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("errorHandlingConfig" Core..=)
+          [ ("errorHandlingConfig" Data..=)
               Prelude.<$> errorHandlingConfig,
-            ("bucketPrefix" Core..=) Prelude.<$> bucketPrefix,
-            Prelude.Just ("object" Core..= object'),
+            ("bucketPrefix" Data..=) Prelude.<$> bucketPrefix,
+            Prelude.Just ("object" Data..= object'),
             Prelude.Just
               ( "intermediateBucketName"
-                  Core..= intermediateBucketName
+                  Data..= intermediateBucketName
               )
           ]
       )

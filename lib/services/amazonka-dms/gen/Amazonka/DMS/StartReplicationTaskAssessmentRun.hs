@@ -58,6 +58,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -303,7 +304,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           StartReplicationTaskAssessmentRunResponse'
-            Prelude.<$> (x Core..?> "ReplicationTaskAssessmentRun")
+            Prelude.<$> (x Data..?> "ReplicationTaskAssessmentRun")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -340,61 +341,61 @@ instance
       `Prelude.seq` Prelude.rnf assessmentRunName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StartReplicationTaskAssessmentRun
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.StartReplicationTaskAssessmentRun" ::
+              Data.=# ( "AmazonDMSv20160101.StartReplicationTaskAssessmentRun" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StartReplicationTaskAssessmentRun
   where
   toJSON StartReplicationTaskAssessmentRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResultLocationFolder" Core..=)
+          [ ("ResultLocationFolder" Data..=)
               Prelude.<$> resultLocationFolder,
-            ("ResultEncryptionMode" Core..=)
+            ("ResultEncryptionMode" Data..=)
               Prelude.<$> resultEncryptionMode,
-            ("IncludeOnly" Core..=) Prelude.<$> includeOnly,
-            ("ResultKmsKeyArn" Core..=)
+            ("IncludeOnly" Data..=) Prelude.<$> includeOnly,
+            ("ResultKmsKeyArn" Data..=)
               Prelude.<$> resultKmsKeyArn,
-            ("Exclude" Core..=) Prelude.<$> exclude,
+            ("Exclude" Data..=) Prelude.<$> exclude,
             Prelude.Just
-              ("ReplicationTaskArn" Core..= replicationTaskArn),
+              ("ReplicationTaskArn" Data..= replicationTaskArn),
             Prelude.Just
               ( "ServiceAccessRoleArn"
-                  Core..= serviceAccessRoleArn
+                  Data..= serviceAccessRoleArn
               ),
             Prelude.Just
               ( "ResultLocationBucket"
-                  Core..= resultLocationBucket
+                  Data..= resultLocationBucket
               ),
             Prelude.Just
-              ("AssessmentRunName" Core..= assessmentRunName)
+              ("AssessmentRunName" Data..= assessmentRunName)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     StartReplicationTaskAssessmentRun
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     StartReplicationTaskAssessmentRun
   where
   toQuery = Prelude.const Prelude.mempty

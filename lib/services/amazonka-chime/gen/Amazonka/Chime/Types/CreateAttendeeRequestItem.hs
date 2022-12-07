@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.CreateAttendeeRequestItem where
 import Amazonka.Chime.Types.Tag
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Chime SDK attendee fields to create, used with the
@@ -33,7 +34,7 @@ data CreateAttendeeRequestItem = CreateAttendeeRequestItem'
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
     -- attendee to an identity managed by a builder application.
-    externalUserId :: Core.Sensitive Prelude.Text
+    externalUserId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +58,7 @@ newCreateAttendeeRequestItem pExternalUserId_ =
   CreateAttendeeRequestItem'
     { tags = Prelude.Nothing,
       externalUserId =
-        Core._Sensitive Lens.# pExternalUserId_
+        Data._Sensitive Lens.# pExternalUserId_
     }
 
 -- | The tag key-value pairs.
@@ -67,7 +68,7 @@ createAttendeeRequestItem_tags = Lens.lens (\CreateAttendeeRequestItem' {tags} -
 -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
 -- attendee to an identity managed by a builder application.
 createAttendeeRequestItem_externalUserId :: Lens.Lens' CreateAttendeeRequestItem Prelude.Text
-createAttendeeRequestItem_externalUserId = Lens.lens (\CreateAttendeeRequestItem' {externalUserId} -> externalUserId) (\s@CreateAttendeeRequestItem' {} a -> s {externalUserId = a} :: CreateAttendeeRequestItem) Prelude.. Core._Sensitive
+createAttendeeRequestItem_externalUserId = Lens.lens (\CreateAttendeeRequestItem' {externalUserId} -> externalUserId) (\s@CreateAttendeeRequestItem' {} a -> s {externalUserId = a} :: CreateAttendeeRequestItem) Prelude.. Data._Sensitive
 
 instance Prelude.Hashable CreateAttendeeRequestItem where
   hashWithSalt _salt CreateAttendeeRequestItem' {..} =
@@ -79,12 +80,12 @@ instance Prelude.NFData CreateAttendeeRequestItem where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf externalUserId
 
-instance Core.ToJSON CreateAttendeeRequestItem where
+instance Data.ToJSON CreateAttendeeRequestItem where
   toJSON CreateAttendeeRequestItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("ExternalUserId" Core..= externalUserId)
+              ("ExternalUserId" Data..= externalUserId)
           ]
       )

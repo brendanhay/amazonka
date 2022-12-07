@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,7 +92,7 @@ instance Core.AWSRequest GetCallAnalyticsCategory where
     Response.receiveJSON
       ( \s h x ->
           GetCallAnalyticsCategoryResponse'
-            Prelude.<$> (x Core..?> "CategoryProperties")
+            Prelude.<$> (x Data..?> "CategoryProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,32 +104,32 @@ instance Prelude.NFData GetCallAnalyticsCategory where
   rnf GetCallAnalyticsCategory' {..} =
     Prelude.rnf categoryName
 
-instance Core.ToHeaders GetCallAnalyticsCategory where
+instance Data.ToHeaders GetCallAnalyticsCategory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.GetCallAnalyticsCategory" ::
+              Data.=# ( "Transcribe.GetCallAnalyticsCategory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCallAnalyticsCategory where
+instance Data.ToJSON GetCallAnalyticsCategory where
   toJSON GetCallAnalyticsCategory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("CategoryName" Core..= categoryName)]
+          [Prelude.Just ("CategoryName" Data..= categoryName)]
       )
 
-instance Core.ToPath GetCallAnalyticsCategory where
+instance Data.ToPath GetCallAnalyticsCategory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCallAnalyticsCategory where
+instance Data.ToQuery GetCallAnalyticsCategory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCallAnalyticsCategoryResponse' smart constructor.

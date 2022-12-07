@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.ConnectionHeaderParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Additional parameter included in the header. You can include up to 100
@@ -72,15 +73,15 @@ connectionHeaderParameter_isValueSecret = Lens.lens (\ConnectionHeaderParameter'
 connectionHeaderParameter_value :: Lens.Lens' ConnectionHeaderParameter (Prelude.Maybe Prelude.Text)
 connectionHeaderParameter_value = Lens.lens (\ConnectionHeaderParameter' {value} -> value) (\s@ConnectionHeaderParameter' {} a -> s {value = a} :: ConnectionHeaderParameter)
 
-instance Core.FromJSON ConnectionHeaderParameter where
+instance Data.FromJSON ConnectionHeaderParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionHeaderParameter"
       ( \x ->
           ConnectionHeaderParameter'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "IsValueSecret")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "IsValueSecret")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable ConnectionHeaderParameter where
@@ -95,12 +96,12 @@ instance Prelude.NFData ConnectionHeaderParameter where
       `Prelude.seq` Prelude.rnf isValueSecret
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ConnectionHeaderParameter where
+instance Data.ToJSON ConnectionHeaderParameter where
   toJSON ConnectionHeaderParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("IsValueSecret" Core..=) Prelude.<$> isValueSecret,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("IsValueSecret" Data..=) Prelude.<$> isValueSecret,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

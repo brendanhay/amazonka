@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.InstancePortInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.AccessDirection
 import Amazonka.Lightsail.Types.NetworkProtocol
 import Amazonka.Lightsail.Types.PortAccessType
@@ -392,24 +393,24 @@ instancePortInfo_accessType = Lens.lens (\InstancePortInfo' {accessType} -> acce
 instancePortInfo_fromPort :: Lens.Lens' InstancePortInfo (Prelude.Maybe Prelude.Int)
 instancePortInfo_fromPort = Lens.lens (\InstancePortInfo' {fromPort} -> fromPort) (\s@InstancePortInfo' {} a -> s {fromPort = a} :: InstancePortInfo)
 
-instance Core.FromJSON InstancePortInfo where
+instance Data.FromJSON InstancePortInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstancePortInfo"
       ( \x ->
           InstancePortInfo'
-            Prelude.<$> (x Core..:? "accessDirection")
-            Prelude.<*> (x Core..:? "toPort")
-            Prelude.<*> (x Core..:? "ipv6Cidrs" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "cidrListAliases"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "accessDirection")
+            Prelude.<*> (x Data..:? "toPort")
+            Prelude.<*> (x Data..:? "ipv6Cidrs" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "cidrListAliases"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "cidrs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "accessFrom")
-            Prelude.<*> (x Core..:? "commonName")
-            Prelude.<*> (x Core..:? "protocol")
-            Prelude.<*> (x Core..:? "accessType")
-            Prelude.<*> (x Core..:? "fromPort")
+            Prelude.<*> (x Data..:? "cidrs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "accessFrom")
+            Prelude.<*> (x Data..:? "commonName")
+            Prelude.<*> (x Data..:? "protocol")
+            Prelude.<*> (x Data..:? "accessType")
+            Prelude.<*> (x Data..:? "fromPort")
       )
 
 instance Prelude.Hashable InstancePortInfo where

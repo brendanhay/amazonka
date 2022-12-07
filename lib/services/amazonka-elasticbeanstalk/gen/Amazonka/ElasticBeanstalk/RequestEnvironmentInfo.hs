@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,22 +175,22 @@ instance Prelude.NFData RequestEnvironmentInfo where
       `Prelude.seq` Prelude.rnf environmentId
       `Prelude.seq` Prelude.rnf infoType
 
-instance Core.ToHeaders RequestEnvironmentInfo where
+instance Data.ToHeaders RequestEnvironmentInfo where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RequestEnvironmentInfo where
+instance Data.ToPath RequestEnvironmentInfo where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RequestEnvironmentInfo where
+instance Data.ToQuery RequestEnvironmentInfo where
   toQuery RequestEnvironmentInfo' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RequestEnvironmentInfo" :: Prelude.ByteString),
+          Data.=: ("RequestEnvironmentInfo" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentName" Core.=: environmentName,
-        "EnvironmentId" Core.=: environmentId,
-        "InfoType" Core.=: infoType
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "EnvironmentName" Data.=: environmentName,
+        "EnvironmentId" Data.=: environmentId,
+        "InfoType" Data.=: infoType
       ]
 
 -- | /See:/ 'newRequestEnvironmentInfoResponse' smart constructor.

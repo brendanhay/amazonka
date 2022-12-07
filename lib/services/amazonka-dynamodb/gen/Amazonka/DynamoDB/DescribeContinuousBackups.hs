@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest DescribeContinuousBackups where
     Response.receiveJSON
       ( \s h x ->
           DescribeContinuousBackupsResponse'
-            Prelude.<$> (x Core..?> "ContinuousBackupsDescription")
+            Prelude.<$> (x Data..?> "ContinuousBackupsDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,32 +113,32 @@ instance Prelude.NFData DescribeContinuousBackups where
   rnf DescribeContinuousBackups' {..} =
     Prelude.rnf tableName
 
-instance Core.ToHeaders DescribeContinuousBackups where
+instance Data.ToHeaders DescribeContinuousBackups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.DescribeContinuousBackups" ::
+              Data.=# ( "DynamoDB_20120810.DescribeContinuousBackups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeContinuousBackups where
+instance Data.ToJSON DescribeContinuousBackups where
   toJSON DescribeContinuousBackups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TableName" Core..= tableName)]
+          [Prelude.Just ("TableName" Data..= tableName)]
       )
 
-instance Core.ToPath DescribeContinuousBackups where
+instance Data.ToPath DescribeContinuousBackups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeContinuousBackups where
+instance Data.ToQuery DescribeContinuousBackups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeContinuousBackupsResponse' smart constructor.

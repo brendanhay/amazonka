@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -180,7 +181,7 @@ instance Core.AWSRequest CreatePlacementGroup where
     Response.receiveXML
       ( \s h x ->
           CreatePlacementGroupResponse'
-            Prelude.<$> (x Core..@? "placementGroup")
+            Prelude.<$> (x Data..@? "placementGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,26 +203,26 @@ instance Prelude.NFData CreatePlacementGroup where
       `Prelude.seq` Prelude.rnf strategy
       `Prelude.seq` Prelude.rnf tagSpecifications
 
-instance Core.ToHeaders CreatePlacementGroup where
+instance Data.ToHeaders CreatePlacementGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreatePlacementGroup where
+instance Data.ToPath CreatePlacementGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePlacementGroup where
+instance Data.ToQuery CreatePlacementGroup where
   toQuery CreatePlacementGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreatePlacementGroup" :: Prelude.ByteString),
+          Data.=: ("CreatePlacementGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "PartitionCount" Core.=: partitionCount,
-        "SpreadLevel" Core.=: spreadLevel,
-        "GroupName" Core.=: groupName,
-        "DryRun" Core.=: dryRun,
-        "Strategy" Core.=: strategy,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "PartitionCount" Data.=: partitionCount,
+        "SpreadLevel" Data.=: spreadLevel,
+        "GroupName" Data.=: groupName,
+        "DryRun" Data.=: dryRun,
+        "Strategy" Data.=: strategy,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           )
       ]

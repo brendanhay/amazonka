@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,18 +96,18 @@ instance Core.AWSRequest StartMultiplex where
     Response.receiveJSON
       ( \s h x ->
           StartMultiplexResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> ( x Core..?> "availabilityZones"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> ( x Data..?> "availabilityZones"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "multiplexSettings")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "pipelinesRunningCount")
-            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "programCount")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "multiplexSettings")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "pipelinesRunningCount")
+            Prelude.<*> (x Data..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "programCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,29 +118,29 @@ instance Prelude.Hashable StartMultiplex where
 instance Prelude.NFData StartMultiplex where
   rnf StartMultiplex' {..} = Prelude.rnf multiplexId
 
-instance Core.ToHeaders StartMultiplex where
+instance Data.ToHeaders StartMultiplex where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartMultiplex where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StartMultiplex where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StartMultiplex where
+instance Data.ToPath StartMultiplex where
   toPath StartMultiplex' {..} =
     Prelude.mconcat
       [ "/prod/multiplexes/",
-        Core.toBS multiplexId,
+        Data.toBS multiplexId,
         "/start"
       ]
 
-instance Core.ToQuery StartMultiplex where
+instance Data.ToQuery StartMultiplex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for StartMultiplexResponse

@@ -22,6 +22,7 @@ module Amazonka.APIGateway.Types.MethodSetting where
 import Amazonka.APIGateway.Types.UnauthorizedCacheControlHeaderStrategy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the method setting properties.
@@ -224,22 +225,22 @@ methodSetting_cachingEnabled = Lens.lens (\MethodSetting' {cachingEnabled} -> ca
 methodSetting_cacheDataEncrypted :: Lens.Lens' MethodSetting (Prelude.Maybe Prelude.Bool)
 methodSetting_cacheDataEncrypted = Lens.lens (\MethodSetting' {cacheDataEncrypted} -> cacheDataEncrypted) (\s@MethodSetting' {} a -> s {cacheDataEncrypted = a} :: MethodSetting)
 
-instance Core.FromJSON MethodSetting where
+instance Data.FromJSON MethodSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MethodSetting"
       ( \x ->
           MethodSetting'
-            Prelude.<$> (x Core..:? "throttlingRateLimit")
-            Prelude.<*> (x Core..:? "loggingLevel")
-            Prelude.<*> (x Core..:? "throttlingBurstLimit")
-            Prelude.<*> (x Core..:? "metricsEnabled")
-            Prelude.<*> (x Core..:? "requireAuthorizationForCacheControl")
-            Prelude.<*> (x Core..:? "unauthorizedCacheControlHeaderStrategy")
-            Prelude.<*> (x Core..:? "cacheTtlInSeconds")
-            Prelude.<*> (x Core..:? "dataTraceEnabled")
-            Prelude.<*> (x Core..:? "cachingEnabled")
-            Prelude.<*> (x Core..:? "cacheDataEncrypted")
+            Prelude.<$> (x Data..:? "throttlingRateLimit")
+            Prelude.<*> (x Data..:? "loggingLevel")
+            Prelude.<*> (x Data..:? "throttlingBurstLimit")
+            Prelude.<*> (x Data..:? "metricsEnabled")
+            Prelude.<*> (x Data..:? "requireAuthorizationForCacheControl")
+            Prelude.<*> (x Data..:? "unauthorizedCacheControlHeaderStrategy")
+            Prelude.<*> (x Data..:? "cacheTtlInSeconds")
+            Prelude.<*> (x Data..:? "dataTraceEnabled")
+            Prelude.<*> (x Data..:? "cachingEnabled")
+            Prelude.<*> (x Data..:? "cacheDataEncrypted")
       )
 
 instance Prelude.Hashable MethodSetting where

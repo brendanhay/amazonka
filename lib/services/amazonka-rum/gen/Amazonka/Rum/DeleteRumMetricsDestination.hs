@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,30 +142,30 @@ instance Prelude.NFData DeleteRumMetricsDestination where
       `Prelude.seq` Prelude.rnf appMonitorName
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToHeaders DeleteRumMetricsDestination where
+instance Data.ToHeaders DeleteRumMetricsDestination where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteRumMetricsDestination where
+instance Data.ToPath DeleteRumMetricsDestination where
   toPath DeleteRumMetricsDestination' {..} =
     Prelude.mconcat
       [ "/rummetrics/",
-        Core.toBS appMonitorName,
+        Data.toBS appMonitorName,
         "/metricsdestination"
       ]
 
-instance Core.ToQuery DeleteRumMetricsDestination where
+instance Data.ToQuery DeleteRumMetricsDestination where
   toQuery DeleteRumMetricsDestination' {..} =
     Prelude.mconcat
-      [ "destinationArn" Core.=: destinationArn,
-        "destination" Core.=: destination
+      [ "destinationArn" Data.=: destinationArn,
+        "destination" Data.=: destination
       ]
 
 -- | /See:/ 'newDeleteRumMetricsDestinationResponse' smart constructor.

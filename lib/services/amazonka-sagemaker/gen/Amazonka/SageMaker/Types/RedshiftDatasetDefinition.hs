@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.RedshiftDatasetDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.RedshiftResultCompressionType
 import Amazonka.SageMaker.Types.RedshiftResultFormat
@@ -151,21 +152,21 @@ redshiftDatasetDefinition_outputS3Uri = Lens.lens (\RedshiftDatasetDefinition' {
 redshiftDatasetDefinition_outputFormat :: Lens.Lens' RedshiftDatasetDefinition RedshiftResultFormat
 redshiftDatasetDefinition_outputFormat = Lens.lens (\RedshiftDatasetDefinition' {outputFormat} -> outputFormat) (\s@RedshiftDatasetDefinition' {} a -> s {outputFormat = a} :: RedshiftDatasetDefinition)
 
-instance Core.FromJSON RedshiftDatasetDefinition where
+instance Data.FromJSON RedshiftDatasetDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedshiftDatasetDefinition"
       ( \x ->
           RedshiftDatasetDefinition'
-            Prelude.<$> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "OutputCompression")
-            Prelude.<*> (x Core..: "ClusterId")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "DbUser")
-            Prelude.<*> (x Core..: "QueryString")
-            Prelude.<*> (x Core..: "ClusterRoleArn")
-            Prelude.<*> (x Core..: "OutputS3Uri")
-            Prelude.<*> (x Core..: "OutputFormat")
+            Prelude.<$> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "OutputCompression")
+            Prelude.<*> (x Data..: "ClusterId")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "DbUser")
+            Prelude.<*> (x Data..: "QueryString")
+            Prelude.<*> (x Data..: "ClusterRoleArn")
+            Prelude.<*> (x Data..: "OutputS3Uri")
+            Prelude.<*> (x Data..: "OutputFormat")
       )
 
 instance Prelude.Hashable RedshiftDatasetDefinition where
@@ -192,20 +193,20 @@ instance Prelude.NFData RedshiftDatasetDefinition where
       `Prelude.seq` Prelude.rnf outputS3Uri
       `Prelude.seq` Prelude.rnf outputFormat
 
-instance Core.ToJSON RedshiftDatasetDefinition where
+instance Data.ToJSON RedshiftDatasetDefinition where
   toJSON RedshiftDatasetDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("OutputCompression" Core..=)
+          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("OutputCompression" Data..=)
               Prelude.<$> outputCompression,
-            Prelude.Just ("ClusterId" Core..= clusterId),
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("DbUser" Core..= dbUser),
-            Prelude.Just ("QueryString" Core..= queryString),
+            Prelude.Just ("ClusterId" Data..= clusterId),
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("DbUser" Data..= dbUser),
+            Prelude.Just ("QueryString" Data..= queryString),
             Prelude.Just
-              ("ClusterRoleArn" Core..= clusterRoleArn),
-            Prelude.Just ("OutputS3Uri" Core..= outputS3Uri),
-            Prelude.Just ("OutputFormat" Core..= outputFormat)
+              ("ClusterRoleArn" Data..= clusterRoleArn),
+            Prelude.Just ("OutputS3Uri" Data..= outputS3Uri),
+            Prelude.Just ("OutputFormat" Data..= outputFormat)
           ]
       )

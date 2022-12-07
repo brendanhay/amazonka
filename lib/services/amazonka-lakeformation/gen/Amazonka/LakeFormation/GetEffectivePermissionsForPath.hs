@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,8 +139,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetEffectivePermissionsForPathResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Permissions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Permissions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,35 +167,35 @@ instance
       `Prelude.seq` Prelude.rnf resourceArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetEffectivePermissionsForPath
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEffectivePermissionsForPath where
+instance Data.ToJSON GetEffectivePermissionsForPath where
   toJSON GetEffectivePermissionsForPath' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            Prelude.Just ("ResourceArn" Core..= resourceArn)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("ResourceArn" Data..= resourceArn)
           ]
       )
 
-instance Core.ToPath GetEffectivePermissionsForPath where
+instance Data.ToPath GetEffectivePermissionsForPath where
   toPath =
     Prelude.const "/GetEffectivePermissionsForPath"
 
-instance Core.ToQuery GetEffectivePermissionsForPath where
+instance Data.ToQuery GetEffectivePermissionsForPath where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEffectivePermissionsForPathResponse' smart constructor.

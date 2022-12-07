@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,7 +117,7 @@ instance Core.AWSRequest DeleteBucketAccessKey where
     Response.receiveJSON
       ( \s h x ->
           DeleteBucketAccessKeyResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,34 +131,34 @@ instance Prelude.NFData DeleteBucketAccessKey where
     Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf accessKeyId
 
-instance Core.ToHeaders DeleteBucketAccessKey where
+instance Data.ToHeaders DeleteBucketAccessKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.DeleteBucketAccessKey" ::
+              Data.=# ( "Lightsail_20161128.DeleteBucketAccessKey" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteBucketAccessKey where
+instance Data.ToJSON DeleteBucketAccessKey where
   toJSON DeleteBucketAccessKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("bucketName" Core..= bucketName),
-            Prelude.Just ("accessKeyId" Core..= accessKeyId)
+          [ Prelude.Just ("bucketName" Data..= bucketName),
+            Prelude.Just ("accessKeyId" Data..= accessKeyId)
           ]
       )
 
-instance Core.ToPath DeleteBucketAccessKey where
+instance Data.ToPath DeleteBucketAccessKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteBucketAccessKey where
+instance Data.ToQuery DeleteBucketAccessKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBucketAccessKeyResponse' smart constructor.

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,11 +87,11 @@ instance Core.AWSRequest GetParallelData where
     Response.receiveJSON
       ( \s h x ->
           GetParallelDataResponse'
-            Prelude.<$> (x Core..?> "AuxiliaryDataLocation")
-            Prelude.<*> (x Core..?> "DataLocation")
-            Prelude.<*> (x Core..?> "ParallelDataProperties")
+            Prelude.<$> (x Data..?> "AuxiliaryDataLocation")
+            Prelude.<*> (x Data..?> "DataLocation")
+            Prelude.<*> (x Data..?> "ParallelDataProperties")
             Prelude.<*> ( x
-                            Core..?> "LatestUpdateAttemptAuxiliaryDataLocation"
+                            Data..?> "LatestUpdateAttemptAuxiliaryDataLocation"
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -102,32 +103,32 @@ instance Prelude.Hashable GetParallelData where
 instance Prelude.NFData GetParallelData where
   rnf GetParallelData' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetParallelData where
+instance Data.ToHeaders GetParallelData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShineFrontendService_20170701.GetParallelData" ::
+              Data.=# ( "AWSShineFrontendService_20170701.GetParallelData" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetParallelData where
+instance Data.ToJSON GetParallelData where
   toJSON GetParallelData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath GetParallelData where
+instance Data.ToPath GetParallelData where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetParallelData where
+instance Data.ToQuery GetParallelData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetParallelDataResponse' smart constructor.

@@ -23,6 +23,7 @@ import Amazonka.CodeBuild.Types.BucketOwnerAccess
 import Amazonka.CodeBuild.Types.LogsConfigStatusType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about S3 logs for a build project.
@@ -106,16 +107,16 @@ s3LogsConfig_bucketOwnerAccess = Lens.lens (\S3LogsConfig' {bucketOwnerAccess} -
 s3LogsConfig_status :: Lens.Lens' S3LogsConfig LogsConfigStatusType
 s3LogsConfig_status = Lens.lens (\S3LogsConfig' {status} -> status) (\s@S3LogsConfig' {} a -> s {status = a} :: S3LogsConfig)
 
-instance Core.FromJSON S3LogsConfig where
+instance Data.FromJSON S3LogsConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3LogsConfig"
       ( \x ->
           S3LogsConfig'
-            Prelude.<$> (x Core..:? "encryptionDisabled")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "bucketOwnerAccess")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "encryptionDisabled")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "bucketOwnerAccess")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable S3LogsConfig where
@@ -132,15 +133,15 @@ instance Prelude.NFData S3LogsConfig where
       `Prelude.seq` Prelude.rnf bucketOwnerAccess
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToJSON S3LogsConfig where
+instance Data.ToJSON S3LogsConfig where
   toJSON S3LogsConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("encryptionDisabled" Core..=)
+          [ ("encryptionDisabled" Data..=)
               Prelude.<$> encryptionDisabled,
-            ("location" Core..=) Prelude.<$> location,
-            ("bucketOwnerAccess" Core..=)
+            ("location" Data..=) Prelude.<$> location,
+            ("bucketOwnerAccess" Data..=)
               Prelude.<$> bucketOwnerAccess,
-            Prelude.Just ("status" Core..= status)
+            Prelude.Just ("status" Data..= status)
           ]
       )

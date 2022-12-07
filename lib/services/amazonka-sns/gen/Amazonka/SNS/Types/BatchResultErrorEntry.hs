@@ -21,6 +21,7 @@ module Amazonka.SNS.Types.BatchResultErrorEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Gives a detailed description of failed messages in the batch.
@@ -88,13 +89,13 @@ batchResultErrorEntry_code = Lens.lens (\BatchResultErrorEntry' {code} -> code) 
 batchResultErrorEntry_senderFault :: Lens.Lens' BatchResultErrorEntry Prelude.Bool
 batchResultErrorEntry_senderFault = Lens.lens (\BatchResultErrorEntry' {senderFault} -> senderFault) (\s@BatchResultErrorEntry' {} a -> s {senderFault = a} :: BatchResultErrorEntry)
 
-instance Core.FromXML BatchResultErrorEntry where
+instance Data.FromXML BatchResultErrorEntry where
   parseXML x =
     BatchResultErrorEntry'
-      Prelude.<$> (x Core..@? "Message")
-      Prelude.<*> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "Code")
-      Prelude.<*> (x Core..@ "SenderFault")
+      Prelude.<$> (x Data..@? "Message")
+      Prelude.<*> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "Code")
+      Prelude.<*> (x Data..@ "SenderFault")
 
 instance Prelude.Hashable BatchResultErrorEntry where
   hashWithSalt _salt BatchResultErrorEntry' {..} =

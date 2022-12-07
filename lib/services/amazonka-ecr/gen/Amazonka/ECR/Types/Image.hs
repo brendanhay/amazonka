@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.Image where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.ImageIdentifier
 import qualified Amazonka.Prelude as Prelude
 
@@ -95,17 +96,17 @@ image_imageManifest = Lens.lens (\Image' {imageManifest} -> imageManifest) (\s@I
 image_imageId :: Lens.Lens' Image (Prelude.Maybe ImageIdentifier)
 image_imageId = Lens.lens (\Image' {imageId} -> imageId) (\s@Image' {} a -> s {imageId = a} :: Image)
 
-instance Core.FromJSON Image where
+instance Data.FromJSON Image where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Image"
       ( \x ->
           Image'
-            Prelude.<$> (x Core..:? "repositoryName")
-            Prelude.<*> (x Core..:? "registryId")
-            Prelude.<*> (x Core..:? "imageManifestMediaType")
-            Prelude.<*> (x Core..:? "imageManifest")
-            Prelude.<*> (x Core..:? "imageId")
+            Prelude.<$> (x Data..:? "repositoryName")
+            Prelude.<*> (x Data..:? "registryId")
+            Prelude.<*> (x Data..:? "imageManifestMediaType")
+            Prelude.<*> (x Data..:? "imageManifest")
+            Prelude.<*> (x Data..:? "imageId")
       )
 
 instance Prelude.Hashable Image where

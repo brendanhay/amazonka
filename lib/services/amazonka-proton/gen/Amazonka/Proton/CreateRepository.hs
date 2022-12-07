@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -174,7 +175,7 @@ instance Core.AWSRequest CreateRepository where
       ( \s h x ->
           CreateRepositoryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "repository")
+            Prelude.<*> (x Data..:> "repository")
       )
 
 instance Prelude.Hashable CreateRepository where
@@ -193,37 +194,37 @@ instance Prelude.NFData CreateRepository where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf provider
 
-instance Core.ToHeaders CreateRepository where
+instance Data.ToHeaders CreateRepository where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.CreateRepository" ::
+              Data.=# ( "AwsProton20200720.CreateRepository" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRepository where
+instance Data.ToJSON CreateRepository where
   toJSON CreateRepository' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("encryptionKey" Core..=) Prelude.<$> encryptionKey,
-            Prelude.Just ("connectionArn" Core..= connectionArn),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("provider" Core..= provider)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("encryptionKey" Data..=) Prelude.<$> encryptionKey,
+            Prelude.Just ("connectionArn" Data..= connectionArn),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("provider" Data..= provider)
           ]
       )
 
-instance Core.ToPath CreateRepository where
+instance Data.ToPath CreateRepository where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateRepository where
+instance Data.ToQuery CreateRepository where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRepositoryResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.Invalidation where
 import Amazonka.CloudFront.Types.InvalidationBatch
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An invalidation.
@@ -35,7 +36,7 @@ data Invalidation = Invalidation'
     -- finished, the status is @Completed@.
     status :: Prelude.Text,
     -- | The date and time the invalidation request was first made.
-    createTime :: Core.ISO8601,
+    createTime :: Data.ISO8601,
     -- | The current invalidation information for the batch request.
     invalidationBatch :: InvalidationBatch
   }
@@ -76,7 +77,7 @@ newInvalidation
     Invalidation'
       { id = pId_,
         status = pStatus_,
-        createTime = Core._Time Lens.# pCreateTime_,
+        createTime = Data._Time Lens.# pCreateTime_,
         invalidationBatch = pInvalidationBatch_
       }
 
@@ -92,19 +93,19 @@ invalidation_status = Lens.lens (\Invalidation' {status} -> status) (\s@Invalida
 
 -- | The date and time the invalidation request was first made.
 invalidation_createTime :: Lens.Lens' Invalidation Prelude.UTCTime
-invalidation_createTime = Lens.lens (\Invalidation' {createTime} -> createTime) (\s@Invalidation' {} a -> s {createTime = a} :: Invalidation) Prelude.. Core._Time
+invalidation_createTime = Lens.lens (\Invalidation' {createTime} -> createTime) (\s@Invalidation' {} a -> s {createTime = a} :: Invalidation) Prelude.. Data._Time
 
 -- | The current invalidation information for the batch request.
 invalidation_invalidationBatch :: Lens.Lens' Invalidation InvalidationBatch
 invalidation_invalidationBatch = Lens.lens (\Invalidation' {invalidationBatch} -> invalidationBatch) (\s@Invalidation' {} a -> s {invalidationBatch = a} :: Invalidation)
 
-instance Core.FromXML Invalidation where
+instance Data.FromXML Invalidation where
   parseXML x =
     Invalidation'
-      Prelude.<$> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "Status")
-      Prelude.<*> (x Core..@ "CreateTime")
-      Prelude.<*> (x Core..@ "InvalidationBatch")
+      Prelude.<$> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "Status")
+      Prelude.<*> (x Data..@ "CreateTime")
+      Prelude.<*> (x Data..@ "InvalidationBatch")
 
 instance Prelude.Hashable Invalidation where
   hashWithSalt _salt Invalidation' {..} =

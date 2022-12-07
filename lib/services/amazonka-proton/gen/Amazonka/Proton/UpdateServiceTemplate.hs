@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -52,9 +53,9 @@ import qualified Amazonka.Response as Response
 data UpdateServiceTemplate = UpdateServiceTemplate'
   { -- | The name of the service template to update that\'s displayed in the
     -- developer interface.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A description of the service template update.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the service template to update.
     name :: Prelude.Text
   }
@@ -89,11 +90,11 @@ newUpdateServiceTemplate pName_ =
 -- | The name of the service template to update that\'s displayed in the
 -- developer interface.
 updateServiceTemplate_displayName :: Lens.Lens' UpdateServiceTemplate (Prelude.Maybe Prelude.Text)
-updateServiceTemplate_displayName = Lens.lens (\UpdateServiceTemplate' {displayName} -> displayName) (\s@UpdateServiceTemplate' {} a -> s {displayName = a} :: UpdateServiceTemplate) Prelude.. Lens.mapping Core._Sensitive
+updateServiceTemplate_displayName = Lens.lens (\UpdateServiceTemplate' {displayName} -> displayName) (\s@UpdateServiceTemplate' {} a -> s {displayName = a} :: UpdateServiceTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A description of the service template update.
 updateServiceTemplate_description :: Lens.Lens' UpdateServiceTemplate (Prelude.Maybe Prelude.Text)
-updateServiceTemplate_description = Lens.lens (\UpdateServiceTemplate' {description} -> description) (\s@UpdateServiceTemplate' {} a -> s {description = a} :: UpdateServiceTemplate) Prelude.. Lens.mapping Core._Sensitive
+updateServiceTemplate_description = Lens.lens (\UpdateServiceTemplate' {description} -> description) (\s@UpdateServiceTemplate' {} a -> s {description = a} :: UpdateServiceTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the service template to update.
 updateServiceTemplate_name :: Lens.Lens' UpdateServiceTemplate Prelude.Text
@@ -110,7 +111,7 @@ instance Core.AWSRequest UpdateServiceTemplate where
       ( \s h x ->
           UpdateServiceTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "serviceTemplate")
+            Prelude.<*> (x Data..:> "serviceTemplate")
       )
 
 instance Prelude.Hashable UpdateServiceTemplate where
@@ -125,35 +126,35 @@ instance Prelude.NFData UpdateServiceTemplate where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateServiceTemplate where
+instance Data.ToHeaders UpdateServiceTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.UpdateServiceTemplate" ::
+              Data.=# ( "AwsProton20200720.UpdateServiceTemplate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateServiceTemplate where
+instance Data.ToJSON UpdateServiceTemplate where
   toJSON UpdateServiceTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("displayName" Core..=) Prelude.<$> displayName,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name)
+          [ ("displayName" Data..=) Prelude.<$> displayName,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateServiceTemplate where
+instance Data.ToPath UpdateServiceTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateServiceTemplate where
+instance Data.ToQuery UpdateServiceTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServiceTemplateResponse' smart constructor.

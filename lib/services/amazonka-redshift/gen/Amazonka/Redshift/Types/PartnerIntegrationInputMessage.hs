@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.PartnerIntegrationInputMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -116,11 +117,11 @@ instance
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf partnerName
 
-instance Core.ToQuery PartnerIntegrationInputMessage where
+instance Data.ToQuery PartnerIntegrationInputMessage where
   toQuery PartnerIntegrationInputMessage' {..} =
     Prelude.mconcat
-      [ "AccountId" Core.=: accountId,
-        "ClusterIdentifier" Core.=: clusterIdentifier,
-        "DatabaseName" Core.=: databaseName,
-        "PartnerName" Core.=: partnerName
+      [ "AccountId" Data.=: accountId,
+        "ClusterIdentifier" Data.=: clusterIdentifier,
+        "DatabaseName" Data.=: databaseName,
+        "PartnerName" Data.=: partnerName
       ]

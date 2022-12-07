@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.CreateVehicleRequestItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.Tag
 import Amazonka.IoTFleetWise.Types.VehicleAssociationBehavior
 import qualified Amazonka.Prelude as Prelude
@@ -138,18 +139,18 @@ instance Prelude.NFData CreateVehicleRequestItem where
       `Prelude.seq` Prelude.rnf modelManifestArn
       `Prelude.seq` Prelude.rnf decoderManifestArn
 
-instance Core.ToJSON CreateVehicleRequestItem where
+instance Data.ToJSON CreateVehicleRequestItem where
   toJSON CreateVehicleRequestItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("attributes" Core..=) Prelude.<$> attributes,
-            ("associationBehavior" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("attributes" Data..=) Prelude.<$> attributes,
+            ("associationBehavior" Data..=)
               Prelude.<$> associationBehavior,
-            Prelude.Just ("vehicleName" Core..= vehicleName),
+            Prelude.Just ("vehicleName" Data..= vehicleName),
             Prelude.Just
-              ("modelManifestArn" Core..= modelManifestArn),
+              ("modelManifestArn" Data..= modelManifestArn),
             Prelude.Just
-              ("decoderManifestArn" Core..= decoderManifestArn)
+              ("decoderManifestArn" Data..= decoderManifestArn)
           ]
       )

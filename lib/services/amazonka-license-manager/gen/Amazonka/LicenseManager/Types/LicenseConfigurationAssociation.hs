@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.LicenseConfigurationAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.ResourceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data LicenseConfigurationAssociation = LicenseConfigurationAssociation'
     -- licenses.
     resourceOwnerId :: Prelude.Maybe Prelude.Text,
     -- | Time when the license configuration was associated with the resource.
-    associationTime :: Prelude.Maybe Core.POSIX,
+    associationTime :: Prelude.Maybe Data.POSIX,
     -- | Amazon Resource Name (ARN) of the resource.
     resourceArn :: Prelude.Maybe Prelude.Text,
     -- | Scope of AMI associations. The possible value is @cross-account@.
@@ -83,7 +84,7 @@ licenseConfigurationAssociation_resourceOwnerId = Lens.lens (\LicenseConfigurati
 
 -- | Time when the license configuration was associated with the resource.
 licenseConfigurationAssociation_associationTime :: Lens.Lens' LicenseConfigurationAssociation (Prelude.Maybe Prelude.UTCTime)
-licenseConfigurationAssociation_associationTime = Lens.lens (\LicenseConfigurationAssociation' {associationTime} -> associationTime) (\s@LicenseConfigurationAssociation' {} a -> s {associationTime = a} :: LicenseConfigurationAssociation) Prelude.. Lens.mapping Core._Time
+licenseConfigurationAssociation_associationTime = Lens.lens (\LicenseConfigurationAssociation' {associationTime} -> associationTime) (\s@LicenseConfigurationAssociation' {} a -> s {associationTime = a} :: LicenseConfigurationAssociation) Prelude.. Lens.mapping Data._Time
 
 -- | Amazon Resource Name (ARN) of the resource.
 licenseConfigurationAssociation_resourceArn :: Lens.Lens' LicenseConfigurationAssociation (Prelude.Maybe Prelude.Text)
@@ -94,19 +95,19 @@ licenseConfigurationAssociation_amiAssociationScope :: Lens.Lens' LicenseConfigu
 licenseConfigurationAssociation_amiAssociationScope = Lens.lens (\LicenseConfigurationAssociation' {amiAssociationScope} -> amiAssociationScope) (\s@LicenseConfigurationAssociation' {} a -> s {amiAssociationScope = a} :: LicenseConfigurationAssociation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LicenseConfigurationAssociation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LicenseConfigurationAssociation"
       ( \x ->
           LicenseConfigurationAssociation'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "ResourceOwnerId")
-            Prelude.<*> (x Core..:? "AssociationTime")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "AmiAssociationScope")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "ResourceOwnerId")
+            Prelude.<*> (x Data..:? "AssociationTime")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "AmiAssociationScope")
       )
 
 instance

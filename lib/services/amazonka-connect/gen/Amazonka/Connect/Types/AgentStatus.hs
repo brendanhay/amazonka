@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.AgentStatusState
 import Amazonka.Connect.Types.AgentStatusType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an agent status.
@@ -120,20 +121,20 @@ agentStatus_description = Lens.lens (\AgentStatus' {description} -> description)
 agentStatus_agentStatusARN :: Lens.Lens' AgentStatus (Prelude.Maybe Prelude.Text)
 agentStatus_agentStatusARN = Lens.lens (\AgentStatus' {agentStatusARN} -> agentStatusARN) (\s@AgentStatus' {} a -> s {agentStatusARN = a} :: AgentStatus)
 
-instance Core.FromJSON AgentStatus where
+instance Data.FromJSON AgentStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AgentStatus"
       ( \x ->
           AgentStatus'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DisplayOrder")
-            Prelude.<*> (x Core..:? "AgentStatusId")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "AgentStatusARN")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DisplayOrder")
+            Prelude.<*> (x Data..:? "AgentStatusId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "AgentStatusARN")
       )
 
 instance Prelude.Hashable AgentStatus where

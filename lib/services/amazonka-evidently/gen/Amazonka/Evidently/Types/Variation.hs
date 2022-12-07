@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.Variation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.VariableValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,13 +64,13 @@ variation_name = Lens.lens (\Variation' {name} -> name) (\s@Variation' {} a -> s
 variation_value :: Lens.Lens' Variation (Prelude.Maybe VariableValue)
 variation_value = Lens.lens (\Variation' {value} -> value) (\s@Variation' {} a -> s {value = a} :: Variation)
 
-instance Core.FromJSON Variation where
+instance Data.FromJSON Variation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Variation"
       ( \x ->
           Variation'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable Variation where

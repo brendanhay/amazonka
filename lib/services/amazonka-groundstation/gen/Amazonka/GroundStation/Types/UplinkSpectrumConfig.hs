@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.UplinkSpectrumConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types.Frequency
 import Amazonka.GroundStation.Types.Polarization
 import qualified Amazonka.Prelude as Prelude
@@ -75,14 +76,14 @@ uplinkSpectrumConfig_polarization = Lens.lens (\UplinkSpectrumConfig' {polarizat
 uplinkSpectrumConfig_centerFrequency :: Lens.Lens' UplinkSpectrumConfig Frequency
 uplinkSpectrumConfig_centerFrequency = Lens.lens (\UplinkSpectrumConfig' {centerFrequency} -> centerFrequency) (\s@UplinkSpectrumConfig' {} a -> s {centerFrequency = a} :: UplinkSpectrumConfig)
 
-instance Core.FromJSON UplinkSpectrumConfig where
+instance Data.FromJSON UplinkSpectrumConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UplinkSpectrumConfig"
       ( \x ->
           UplinkSpectrumConfig'
-            Prelude.<$> (x Core..:? "polarization")
-            Prelude.<*> (x Core..: "centerFrequency")
+            Prelude.<$> (x Data..:? "polarization")
+            Prelude.<*> (x Data..: "centerFrequency")
       )
 
 instance Prelude.Hashable UplinkSpectrumConfig where
@@ -95,12 +96,12 @@ instance Prelude.NFData UplinkSpectrumConfig where
     Prelude.rnf polarization
       `Prelude.seq` Prelude.rnf centerFrequency
 
-instance Core.ToJSON UplinkSpectrumConfig where
+instance Data.ToJSON UplinkSpectrumConfig where
   toJSON UplinkSpectrumConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("polarization" Core..=) Prelude.<$> polarization,
+          [ ("polarization" Data..=) Prelude.<$> polarization,
             Prelude.Just
-              ("centerFrequency" Core..= centerFrequency)
+              ("centerFrequency" Data..= centerFrequency)
           ]
       )

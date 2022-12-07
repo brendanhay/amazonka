@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FleetSpotCapacityRebalance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FleetReplacementStrategy
 import qualified Amazonka.Prelude as Prelude
@@ -131,11 +132,11 @@ fleetSpotCapacityRebalance_terminationDelay = Lens.lens (\FleetSpotCapacityRebal
 fleetSpotCapacityRebalance_replacementStrategy :: Lens.Lens' FleetSpotCapacityRebalance (Prelude.Maybe FleetReplacementStrategy)
 fleetSpotCapacityRebalance_replacementStrategy = Lens.lens (\FleetSpotCapacityRebalance' {replacementStrategy} -> replacementStrategy) (\s@FleetSpotCapacityRebalance' {} a -> s {replacementStrategy = a} :: FleetSpotCapacityRebalance)
 
-instance Core.FromXML FleetSpotCapacityRebalance where
+instance Data.FromXML FleetSpotCapacityRebalance where
   parseXML x =
     FleetSpotCapacityRebalance'
-      Prelude.<$> (x Core..@? "terminationDelay")
-      Prelude.<*> (x Core..@? "replacementStrategy")
+      Prelude.<$> (x Data..@? "terminationDelay")
+      Prelude.<*> (x Data..@? "replacementStrategy")
 
 instance Prelude.Hashable FleetSpotCapacityRebalance where
   hashWithSalt _salt FleetSpotCapacityRebalance' {..} =

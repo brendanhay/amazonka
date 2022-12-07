@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -58,11 +59,11 @@ data DescribeAccountOverview = DescribeAccountOverview'
     -- the day level. The floor of the start time is used. Returned information
     -- occurred before this day. If this is not specified, then the current day
     -- is used.
-    toTime :: Prelude.Maybe Core.POSIX,
+    toTime :: Prelude.Maybe Data.POSIX,
     -- | The start of the time range passed in. The start time granularity is at
     -- the day level. The floor of the start time is used. Returned information
     -- occurred after this day.
-    fromTime :: Core.POSIX
+    fromTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,7 +90,7 @@ newDescribeAccountOverview ::
 newDescribeAccountOverview pFromTime_ =
   DescribeAccountOverview'
     { toTime = Prelude.Nothing,
-      fromTime = Core._Time Lens.# pFromTime_
+      fromTime = Data._Time Lens.# pFromTime_
     }
 
 -- | The end of the time range passed in. The start time granularity is at
@@ -97,13 +98,13 @@ newDescribeAccountOverview pFromTime_ =
 -- occurred before this day. If this is not specified, then the current day
 -- is used.
 describeAccountOverview_toTime :: Lens.Lens' DescribeAccountOverview (Prelude.Maybe Prelude.UTCTime)
-describeAccountOverview_toTime = Lens.lens (\DescribeAccountOverview' {toTime} -> toTime) (\s@DescribeAccountOverview' {} a -> s {toTime = a} :: DescribeAccountOverview) Prelude.. Lens.mapping Core._Time
+describeAccountOverview_toTime = Lens.lens (\DescribeAccountOverview' {toTime} -> toTime) (\s@DescribeAccountOverview' {} a -> s {toTime = a} :: DescribeAccountOverview) Prelude.. Lens.mapping Data._Time
 
 -- | The start of the time range passed in. The start time granularity is at
 -- the day level. The floor of the start time is used. Returned information
 -- occurred after this day.
 describeAccountOverview_fromTime :: Lens.Lens' DescribeAccountOverview Prelude.UTCTime
-describeAccountOverview_fromTime = Lens.lens (\DescribeAccountOverview' {fromTime} -> fromTime) (\s@DescribeAccountOverview' {} a -> s {fromTime = a} :: DescribeAccountOverview) Prelude.. Core._Time
+describeAccountOverview_fromTime = Lens.lens (\DescribeAccountOverview' {fromTime} -> fromTime) (\s@DescribeAccountOverview' {} a -> s {fromTime = a} :: DescribeAccountOverview) Prelude.. Data._Time
 
 instance Core.AWSRequest DescribeAccountOverview where
   type
@@ -116,9 +117,9 @@ instance Core.AWSRequest DescribeAccountOverview where
       ( \s h x ->
           DescribeAccountOverviewResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ReactiveInsights")
-            Prelude.<*> (x Core..:> "ProactiveInsights")
-            Prelude.<*> (x Core..:> "MeanTimeToRecoverInMilliseconds")
+            Prelude.<*> (x Data..:> "ReactiveInsights")
+            Prelude.<*> (x Data..:> "ProactiveInsights")
+            Prelude.<*> (x Data..:> "MeanTimeToRecoverInMilliseconds")
       )
 
 instance Prelude.Hashable DescribeAccountOverview where
@@ -131,30 +132,30 @@ instance Prelude.NFData DescribeAccountOverview where
     Prelude.rnf toTime
       `Prelude.seq` Prelude.rnf fromTime
 
-instance Core.ToHeaders DescribeAccountOverview where
+instance Data.ToHeaders DescribeAccountOverview where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAccountOverview where
+instance Data.ToJSON DescribeAccountOverview where
   toJSON DescribeAccountOverview' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ToTime" Core..=) Prelude.<$> toTime,
-            Prelude.Just ("FromTime" Core..= fromTime)
+          [ ("ToTime" Data..=) Prelude.<$> toTime,
+            Prelude.Just ("FromTime" Data..= fromTime)
           ]
       )
 
-instance Core.ToPath DescribeAccountOverview where
+instance Data.ToPath DescribeAccountOverview where
   toPath = Prelude.const "/accounts/overview"
 
-instance Core.ToQuery DescribeAccountOverview where
+instance Data.ToQuery DescribeAccountOverview where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAccountOverviewResponse' smart constructor.

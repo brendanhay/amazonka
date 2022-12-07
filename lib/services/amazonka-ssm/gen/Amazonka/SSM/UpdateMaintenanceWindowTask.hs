@@ -108,6 +108,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,7 +131,7 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
     -- Key: string, between 1 and 255 characters
     --
     -- Value: an array of strings, each string is between 1 and 255 characters
-    taskParameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive MaintenanceWindowTaskParameterValueExpression))),
+    taskParameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text (Data.Sensitive MaintenanceWindowTaskParameterValueExpression))),
     -- | The Amazon Resource Name (ARN) of the IAM service role for Amazon Web
     -- Services Systems Manager to assume when running a maintenance window
     -- task. If you do not specify a service role ARN, Systems Manager uses
@@ -174,7 +175,7 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
     -- in the /Amazon Web Services Systems Manager User Guide/.
     targets :: Prelude.Maybe [Target],
     -- | The new task description to specify.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The CloudWatch alarm you want to apply to your maintenance window task.
     alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | The new task priority to specify. The lower the number, the higher the
@@ -430,7 +431,7 @@ updateMaintenanceWindowTask_name = Lens.lens (\UpdateMaintenanceWindowTask' {nam
 --
 -- Value: an array of strings, each string is between 1 and 255 characters
 updateMaintenanceWindowTask_taskParameters :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe (Prelude.HashMap Prelude.Text MaintenanceWindowTaskParameterValueExpression))
-updateMaintenanceWindowTask_taskParameters = Lens.lens (\UpdateMaintenanceWindowTask' {taskParameters} -> taskParameters) (\s@UpdateMaintenanceWindowTask' {} a -> s {taskParameters = a} :: UpdateMaintenanceWindowTask) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+updateMaintenanceWindowTask_taskParameters = Lens.lens (\UpdateMaintenanceWindowTask' {taskParameters} -> taskParameters) (\s@UpdateMaintenanceWindowTask' {} a -> s {taskParameters = a} :: UpdateMaintenanceWindowTask) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The Amazon Resource Name (ARN) of the IAM service role for Amazon Web
 -- Services Systems Manager to assume when running a maintenance window
@@ -484,7 +485,7 @@ updateMaintenanceWindowTask_targets = Lens.lens (\UpdateMaintenanceWindowTask' {
 
 -- | The new task description to specify.
 updateMaintenanceWindowTask_description :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindowTask_description = Lens.lens (\UpdateMaintenanceWindowTask' {description} -> description) (\s@UpdateMaintenanceWindowTask' {} a -> s {description = a} :: UpdateMaintenanceWindowTask) Prelude.. Lens.mapping Core._Sensitive
+updateMaintenanceWindowTask_description = Lens.lens (\UpdateMaintenanceWindowTask' {description} -> description) (\s@UpdateMaintenanceWindowTask' {} a -> s {description = a} :: UpdateMaintenanceWindowTask) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The CloudWatch alarm you want to apply to your maintenance window task.
 updateMaintenanceWindowTask_alarmConfiguration :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe AlarmConfiguration)
@@ -583,21 +584,21 @@ instance Core.AWSRequest UpdateMaintenanceWindowTask where
     Response.receiveJSON
       ( \s h x ->
           UpdateMaintenanceWindowTaskResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "TaskParameters" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ServiceRoleArn")
-            Prelude.<*> (x Core..?> "TaskInvocationParameters")
-            Prelude.<*> (x Core..?> "WindowTaskId")
-            Prelude.<*> (x Core..?> "TaskArn")
-            Prelude.<*> (x Core..?> "WindowId")
-            Prelude.<*> (x Core..?> "Targets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "AlarmConfiguration")
-            Prelude.<*> (x Core..?> "Priority")
-            Prelude.<*> (x Core..?> "MaxConcurrency")
-            Prelude.<*> (x Core..?> "MaxErrors")
-            Prelude.<*> (x Core..?> "LoggingInfo")
-            Prelude.<*> (x Core..?> "CutoffBehavior")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "TaskParameters" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ServiceRoleArn")
+            Prelude.<*> (x Data..?> "TaskInvocationParameters")
+            Prelude.<*> (x Data..?> "WindowTaskId")
+            Prelude.<*> (x Data..?> "TaskArn")
+            Prelude.<*> (x Data..?> "WindowId")
+            Prelude.<*> (x Data..?> "Targets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "AlarmConfiguration")
+            Prelude.<*> (x Data..?> "Priority")
+            Prelude.<*> (x Data..?> "MaxConcurrency")
+            Prelude.<*> (x Data..?> "MaxErrors")
+            Prelude.<*> (x Data..?> "LoggingInfo")
+            Prelude.<*> (x Data..?> "CutoffBehavior")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -639,54 +640,54 @@ instance Prelude.NFData UpdateMaintenanceWindowTask where
       `Prelude.seq` Prelude.rnf windowId
       `Prelude.seq` Prelude.rnf windowTaskId
 
-instance Core.ToHeaders UpdateMaintenanceWindowTask where
+instance Data.ToHeaders UpdateMaintenanceWindowTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.UpdateMaintenanceWindowTask" ::
+              Data.=# ( "AmazonSSM.UpdateMaintenanceWindowTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMaintenanceWindowTask where
+instance Data.ToJSON UpdateMaintenanceWindowTask where
   toJSON UpdateMaintenanceWindowTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("TaskParameters" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("TaskParameters" Data..=)
               Prelude.<$> taskParameters,
-            ("ServiceRoleArn" Core..=)
+            ("ServiceRoleArn" Data..=)
               Prelude.<$> serviceRoleArn,
-            ("TaskInvocationParameters" Core..=)
+            ("TaskInvocationParameters" Data..=)
               Prelude.<$> taskInvocationParameters,
-            ("TaskArn" Core..=) Prelude.<$> taskArn,
-            ("Targets" Core..=) Prelude.<$> targets,
-            ("Description" Core..=) Prelude.<$> description,
-            ("AlarmConfiguration" Core..=)
+            ("TaskArn" Data..=) Prelude.<$> taskArn,
+            ("Targets" Data..=) Prelude.<$> targets,
+            ("Description" Data..=) Prelude.<$> description,
+            ("AlarmConfiguration" Data..=)
               Prelude.<$> alarmConfiguration,
-            ("Priority" Core..=) Prelude.<$> priority,
-            ("MaxConcurrency" Core..=)
+            ("Priority" Data..=) Prelude.<$> priority,
+            ("MaxConcurrency" Data..=)
               Prelude.<$> maxConcurrency,
-            ("MaxErrors" Core..=) Prelude.<$> maxErrors,
-            ("LoggingInfo" Core..=) Prelude.<$> loggingInfo,
-            ("Replace" Core..=) Prelude.<$> replace,
-            ("CutoffBehavior" Core..=)
+            ("MaxErrors" Data..=) Prelude.<$> maxErrors,
+            ("LoggingInfo" Data..=) Prelude.<$> loggingInfo,
+            ("Replace" Data..=) Prelude.<$> replace,
+            ("CutoffBehavior" Data..=)
               Prelude.<$> cutoffBehavior,
-            Prelude.Just ("WindowId" Core..= windowId),
-            Prelude.Just ("WindowTaskId" Core..= windowTaskId)
+            Prelude.Just ("WindowId" Data..= windowId),
+            Prelude.Just ("WindowTaskId" Data..= windowTaskId)
           ]
       )
 
-instance Core.ToPath UpdateMaintenanceWindowTask where
+instance Data.ToPath UpdateMaintenanceWindowTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateMaintenanceWindowTask where
+instance Data.ToQuery UpdateMaintenanceWindowTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMaintenanceWindowTaskResponse' smart constructor.
@@ -700,7 +701,7 @@ data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
     -- @TaskInvocationParameters@ structure. For information about how Systems
     -- Manager handles these options for the supported maintenance window task
     -- types, see MaintenanceWindowTaskInvocationParameters.
-    taskParameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive MaintenanceWindowTaskParameterValueExpression))),
+    taskParameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text (Data.Sensitive MaintenanceWindowTaskParameterValueExpression))),
     -- | The Amazon Resource Name (ARN) of the Identity and Access Management
     -- (IAM) service role to use to publish Amazon Simple Notification Service
     -- (Amazon SNS) notifications for maintenance window Run Command tasks.
@@ -716,7 +717,7 @@ data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
     -- | The updated target values.
     targets :: Prelude.Maybe [Target],
     -- | The updated task description.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The details for the CloudWatch alarm you applied to your maintenance
     -- window task.
     alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
@@ -839,7 +840,7 @@ updateMaintenanceWindowTaskResponse_name = Lens.lens (\UpdateMaintenanceWindowTa
 -- Manager handles these options for the supported maintenance window task
 -- types, see MaintenanceWindowTaskInvocationParameters.
 updateMaintenanceWindowTaskResponse_taskParameters :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text MaintenanceWindowTaskParameterValueExpression))
-updateMaintenanceWindowTaskResponse_taskParameters = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {taskParameters} -> taskParameters) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {taskParameters = a} :: UpdateMaintenanceWindowTaskResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+updateMaintenanceWindowTaskResponse_taskParameters = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {taskParameters} -> taskParameters) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {taskParameters = a} :: UpdateMaintenanceWindowTaskResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) service role to use to publish Amazon Simple Notification Service
@@ -869,7 +870,7 @@ updateMaintenanceWindowTaskResponse_targets = Lens.lens (\UpdateMaintenanceWindo
 
 -- | The updated task description.
 updateMaintenanceWindowTaskResponse_description :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindowTaskResponse_description = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {description} -> description) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {description = a} :: UpdateMaintenanceWindowTaskResponse) Prelude.. Lens.mapping Core._Sensitive
+updateMaintenanceWindowTaskResponse_description = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {description} -> description) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {description = a} :: UpdateMaintenanceWindowTaskResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The details for the CloudWatch alarm you applied to your maintenance
 -- window task.

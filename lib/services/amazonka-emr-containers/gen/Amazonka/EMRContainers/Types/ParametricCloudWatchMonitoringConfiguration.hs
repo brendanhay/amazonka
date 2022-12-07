@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.ParametricCloudWatchMonitoringConfiguration 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration for CloudWatch monitoring. You can configure your jobs
@@ -65,16 +66,16 @@ parametricCloudWatchMonitoringConfiguration_logGroupName :: Lens.Lens' Parametri
 parametricCloudWatchMonitoringConfiguration_logGroupName = Lens.lens (\ParametricCloudWatchMonitoringConfiguration' {logGroupName} -> logGroupName) (\s@ParametricCloudWatchMonitoringConfiguration' {} a -> s {logGroupName = a} :: ParametricCloudWatchMonitoringConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ParametricCloudWatchMonitoringConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParametricCloudWatchMonitoringConfiguration"
       ( \x ->
           ParametricCloudWatchMonitoringConfiguration'
-            Prelude.<$> (x Core..:? "logStreamNamePrefix")
-              Prelude.<*> (x Core..:? "logGroupName")
+            Prelude.<$> (x Data..:? "logStreamNamePrefix")
+              Prelude.<*> (x Data..:? "logGroupName")
       )
 
 instance
@@ -96,15 +97,15 @@ instance
       `Prelude.seq` Prelude.rnf logGroupName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ParametricCloudWatchMonitoringConfiguration
   where
   toJSON
     ParametricCloudWatchMonitoringConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("logStreamNamePrefix" Core..=)
+            [ ("logStreamNamePrefix" Data..=)
                 Prelude.<$> logStreamNamePrefix,
-              ("logGroupName" Core..=) Prelude.<$> logGroupName
+              ("logGroupName" Data..=) Prelude.<$> logGroupName
             ]
         )

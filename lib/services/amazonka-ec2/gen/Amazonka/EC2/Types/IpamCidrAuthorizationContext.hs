@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IpamCidrAuthorizationContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,9 +78,9 @@ instance Prelude.NFData IpamCidrAuthorizationContext where
     Prelude.rnf message
       `Prelude.seq` Prelude.rnf signature
 
-instance Core.ToQuery IpamCidrAuthorizationContext where
+instance Data.ToQuery IpamCidrAuthorizationContext where
   toQuery IpamCidrAuthorizationContext' {..} =
     Prelude.mconcat
-      [ "Message" Core.=: message,
-        "Signature" Core.=: signature
+      [ "Message" Data.=: message,
+        "Signature" Data.=: signature
       ]

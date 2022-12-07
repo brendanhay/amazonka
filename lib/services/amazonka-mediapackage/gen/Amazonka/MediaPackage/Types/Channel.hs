@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.Channel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types.EgressAccessLogs
 import Amazonka.MediaPackage.Types.HlsIngest
 import Amazonka.MediaPackage.Types.IngressAccessLogs
@@ -105,19 +106,19 @@ channel_egressAccessLogs = Lens.lens (\Channel' {egressAccessLogs} -> egressAcce
 channel_hlsIngest :: Lens.Lens' Channel (Prelude.Maybe HlsIngest)
 channel_hlsIngest = Lens.lens (\Channel' {hlsIngest} -> hlsIngest) (\s@Channel' {} a -> s {hlsIngest = a} :: Channel)
 
-instance Core.FromJSON Channel where
+instance Data.FromJSON Channel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Channel"
       ( \x ->
           Channel'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ingressAccessLogs")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "egressAccessLogs")
-            Prelude.<*> (x Core..:? "hlsIngest")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ingressAccessLogs")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "egressAccessLogs")
+            Prelude.<*> (x Data..:? "hlsIngest")
       )
 
 instance Prelude.Hashable Channel where

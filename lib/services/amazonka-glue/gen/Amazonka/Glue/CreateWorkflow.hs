@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,7 +144,7 @@ instance Core.AWSRequest CreateWorkflow where
     Response.receiveJSON
       ( \s h x ->
           CreateWorkflowResponse'
-            Prelude.<$> (x Core..?> "Name")
+            Prelude.<$> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,37 +164,37 @@ instance Prelude.NFData CreateWorkflow where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateWorkflow where
+instance Data.ToHeaders CreateWorkflow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CreateWorkflow" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.CreateWorkflow" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkflow where
+instance Data.ToJSON CreateWorkflow where
   toJSON CreateWorkflow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("MaxConcurrentRuns" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("MaxConcurrentRuns" Data..=)
               Prelude.<$> maxConcurrentRuns,
-            ("DefaultRunProperties" Core..=)
+            ("DefaultRunProperties" Data..=)
               Prelude.<$> defaultRunProperties,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name)
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateWorkflow where
+instance Data.ToPath CreateWorkflow where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateWorkflow where
+instance Data.ToQuery CreateWorkflow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorkflowResponse' smart constructor.

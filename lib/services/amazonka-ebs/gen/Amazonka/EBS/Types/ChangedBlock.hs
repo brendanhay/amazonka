@@ -21,6 +21,7 @@ module Amazonka.EBS.Types.ChangedBlock where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A block of data in an Amazon Elastic Block Store snapshot that is
@@ -80,15 +81,15 @@ changedBlock_firstBlockToken = Lens.lens (\ChangedBlock' {firstBlockToken} -> fi
 changedBlock_blockIndex :: Lens.Lens' ChangedBlock (Prelude.Maybe Prelude.Natural)
 changedBlock_blockIndex = Lens.lens (\ChangedBlock' {blockIndex} -> blockIndex) (\s@ChangedBlock' {} a -> s {blockIndex = a} :: ChangedBlock)
 
-instance Core.FromJSON ChangedBlock where
+instance Data.FromJSON ChangedBlock where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChangedBlock"
       ( \x ->
           ChangedBlock'
-            Prelude.<$> (x Core..:? "SecondBlockToken")
-            Prelude.<*> (x Core..:? "FirstBlockToken")
-            Prelude.<*> (x Core..:? "BlockIndex")
+            Prelude.<$> (x Data..:? "SecondBlockToken")
+            Prelude.<*> (x Data..:? "FirstBlockToken")
+            Prelude.<*> (x Data..:? "BlockIndex")
       )
 
 instance Prelude.Hashable ChangedBlock where

@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.TimeWindow where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | In a GetSampledRequests request, the @StartTime@ and @EndTime@ objects
@@ -49,14 +50,14 @@ data TimeWindow = TimeWindow'
     -- Time (UTC) format. UTC format includes the special designator, @Z@. For
     -- example, @\"2016-09-27T14:50Z\"@. You can specify any time range in the
     -- previous three hours.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The end of the time range from which you want @GetSampledRequests@ to
     -- return a sample of the requests that your Amazon Web Services resource
     -- received. You must specify the times in Coordinated Universal Time (UTC)
     -- format. UTC format includes the special designator, @Z@. For example,
     -- @\"2016-09-27T14:50Z\"@. You can specify any time range in the previous
     -- three hours.
-    endTime :: Core.POSIX
+    endTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,8 +91,8 @@ newTimeWindow ::
 newTimeWindow pStartTime_ pEndTime_ =
   TimeWindow'
     { startTime =
-        Core._Time Lens.# pStartTime_,
-      endTime = Core._Time Lens.# pEndTime_
+        Data._Time Lens.# pStartTime_,
+      endTime = Data._Time Lens.# pEndTime_
     }
 
 -- | The beginning of the time range from which you want @GetSampledRequests@
@@ -101,7 +102,7 @@ newTimeWindow pStartTime_ pEndTime_ =
 -- example, @\"2016-09-27T14:50Z\"@. You can specify any time range in the
 -- previous three hours.
 timeWindow_startTime :: Lens.Lens' TimeWindow Prelude.UTCTime
-timeWindow_startTime = Lens.lens (\TimeWindow' {startTime} -> startTime) (\s@TimeWindow' {} a -> s {startTime = a} :: TimeWindow) Prelude.. Core._Time
+timeWindow_startTime = Lens.lens (\TimeWindow' {startTime} -> startTime) (\s@TimeWindow' {} a -> s {startTime = a} :: TimeWindow) Prelude.. Data._Time
 
 -- | The end of the time range from which you want @GetSampledRequests@ to
 -- return a sample of the requests that your Amazon Web Services resource
@@ -110,16 +111,16 @@ timeWindow_startTime = Lens.lens (\TimeWindow' {startTime} -> startTime) (\s@Tim
 -- @\"2016-09-27T14:50Z\"@. You can specify any time range in the previous
 -- three hours.
 timeWindow_endTime :: Lens.Lens' TimeWindow Prelude.UTCTime
-timeWindow_endTime = Lens.lens (\TimeWindow' {endTime} -> endTime) (\s@TimeWindow' {} a -> s {endTime = a} :: TimeWindow) Prelude.. Core._Time
+timeWindow_endTime = Lens.lens (\TimeWindow' {endTime} -> endTime) (\s@TimeWindow' {} a -> s {endTime = a} :: TimeWindow) Prelude.. Data._Time
 
-instance Core.FromJSON TimeWindow where
+instance Data.FromJSON TimeWindow where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeWindow"
       ( \x ->
           TimeWindow'
-            Prelude.<$> (x Core..: "StartTime")
-            Prelude.<*> (x Core..: "EndTime")
+            Prelude.<$> (x Data..: "StartTime")
+            Prelude.<*> (x Data..: "EndTime")
       )
 
 instance Prelude.Hashable TimeWindow where
@@ -132,11 +133,11 @@ instance Prelude.NFData TimeWindow where
     Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
-instance Core.ToJSON TimeWindow where
+instance Data.ToJSON TimeWindow where
   toJSON TimeWindow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StartTime" Core..= startTime),
-            Prelude.Just ("EndTime" Core..= endTime)
+          [ Prelude.Just ("StartTime" Data..= startTime),
+            Prelude.Just ("EndTime" Data..= endTime)
           ]
       )

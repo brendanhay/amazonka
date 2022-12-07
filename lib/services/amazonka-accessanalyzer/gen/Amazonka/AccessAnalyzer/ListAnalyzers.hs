@@ -47,6 +47,7 @@ where
 import Amazonka.AccessAnalyzer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,9 +126,9 @@ instance Core.AWSRequest ListAnalyzers where
     Response.receiveJSON
       ( \s h x ->
           ListAnalyzersResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "analyzers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "analyzers" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListAnalyzers where
@@ -142,26 +143,26 @@ instance Prelude.NFData ListAnalyzers where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListAnalyzers where
+instance Data.ToHeaders ListAnalyzers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListAnalyzers where
+instance Data.ToPath ListAnalyzers where
   toPath = Prelude.const "/analyzer"
 
-instance Core.ToQuery ListAnalyzers where
+instance Data.ToQuery ListAnalyzers where
   toQuery ListAnalyzers' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "type" Core.=: type',
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "type" Data.=: type',
+        "maxResults" Data.=: maxResults
       ]
 
 -- | The response to the request.

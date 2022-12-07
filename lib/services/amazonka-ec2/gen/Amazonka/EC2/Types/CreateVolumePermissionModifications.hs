@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CreateVolumePermissionModifications where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CreateVolumePermission
 import qualified Amazonka.Prelude as Prelude
@@ -86,13 +87,13 @@ instance
     Prelude.rnf remove `Prelude.seq` Prelude.rnf add
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateVolumePermissionModifications
   where
   toQuery CreateVolumePermissionModifications' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          (Core.toQueryList "Remove" Prelude.<$> remove),
-        Core.toQuery
-          (Core.toQueryList "Add" Prelude.<$> add)
+      [ Data.toQuery
+          (Data.toQueryList "Remove" Prelude.<$> remove),
+        Data.toQuery
+          (Data.toQueryList "Add" Prelude.<$> add)
       ]

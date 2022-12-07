@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.AudioSelector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AudioSelectorSettings
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,14 +71,14 @@ audioSelector_selectorSettings = Lens.lens (\AudioSelector' {selectorSettings} -
 audioSelector_name :: Lens.Lens' AudioSelector Prelude.Text
 audioSelector_name = Lens.lens (\AudioSelector' {name} -> name) (\s@AudioSelector' {} a -> s {name = a} :: AudioSelector)
 
-instance Core.FromJSON AudioSelector where
+instance Data.FromJSON AudioSelector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioSelector"
       ( \x ->
           AudioSelector'
-            Prelude.<$> (x Core..:? "selectorSettings")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "selectorSettings")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable AudioSelector where
@@ -90,12 +91,12 @@ instance Prelude.NFData AudioSelector where
     Prelude.rnf selectorSettings
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON AudioSelector where
+instance Data.ToJSON AudioSelector where
   toJSON AudioSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("selectorSettings" Core..=)
+          [ ("selectorSettings" Data..=)
               Prelude.<$> selectorSettings,
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("name" Data..= name)
           ]
       )

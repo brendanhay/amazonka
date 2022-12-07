@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.ComponentTypeSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.Status
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,9 +38,9 @@ data ComponentTypeSummary = ComponentTypeSummary'
     -- | The ID of the component type.
     componentTypeId :: Prelude.Text,
     -- | The date and time when the component type was created.
-    creationDateTime :: Core.POSIX,
+    creationDateTime :: Data.POSIX,
     -- | The date and time when the component type was last updated.
-    updateDateTime :: Core.POSIX
+    updateDateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,8 +84,8 @@ newComponentTypeSummary
         arn = pArn_,
         componentTypeId = pComponentTypeId_,
         creationDateTime =
-          Core._Time Lens.# pCreationDateTime_,
-        updateDateTime = Core._Time Lens.# pUpdateDateTime_
+          Data._Time Lens.# pCreationDateTime_,
+        updateDateTime = Data._Time Lens.# pUpdateDateTime_
       }
 
 -- | The current status of the component type.
@@ -105,24 +106,24 @@ componentTypeSummary_componentTypeId = Lens.lens (\ComponentTypeSummary' {compon
 
 -- | The date and time when the component type was created.
 componentTypeSummary_creationDateTime :: Lens.Lens' ComponentTypeSummary Prelude.UTCTime
-componentTypeSummary_creationDateTime = Lens.lens (\ComponentTypeSummary' {creationDateTime} -> creationDateTime) (\s@ComponentTypeSummary' {} a -> s {creationDateTime = a} :: ComponentTypeSummary) Prelude.. Core._Time
+componentTypeSummary_creationDateTime = Lens.lens (\ComponentTypeSummary' {creationDateTime} -> creationDateTime) (\s@ComponentTypeSummary' {} a -> s {creationDateTime = a} :: ComponentTypeSummary) Prelude.. Data._Time
 
 -- | The date and time when the component type was last updated.
 componentTypeSummary_updateDateTime :: Lens.Lens' ComponentTypeSummary Prelude.UTCTime
-componentTypeSummary_updateDateTime = Lens.lens (\ComponentTypeSummary' {updateDateTime} -> updateDateTime) (\s@ComponentTypeSummary' {} a -> s {updateDateTime = a} :: ComponentTypeSummary) Prelude.. Core._Time
+componentTypeSummary_updateDateTime = Lens.lens (\ComponentTypeSummary' {updateDateTime} -> updateDateTime) (\s@ComponentTypeSummary' {} a -> s {updateDateTime = a} :: ComponentTypeSummary) Prelude.. Data._Time
 
-instance Core.FromJSON ComponentTypeSummary where
+instance Data.FromJSON ComponentTypeSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentTypeSummary"
       ( \x ->
           ComponentTypeSummary'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "componentTypeId")
-            Prelude.<*> (x Core..: "creationDateTime")
-            Prelude.<*> (x Core..: "updateDateTime")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "componentTypeId")
+            Prelude.<*> (x Data..: "creationDateTime")
+            Prelude.<*> (x Data..: "updateDateTime")
       )
 
 instance Prelude.Hashable ComponentTypeSummary where

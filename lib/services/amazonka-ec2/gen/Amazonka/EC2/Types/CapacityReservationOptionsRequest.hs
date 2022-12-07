@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CapacityReservationOptionsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FleetCapacityReservationUsageStrategy
 import qualified Amazonka.Prelude as Prelude
@@ -121,9 +122,9 @@ instance
     Prelude.rnf usageStrategy
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CapacityReservationOptionsRequest
   where
   toQuery CapacityReservationOptionsRequest' {..} =
     Prelude.mconcat
-      ["UsageStrategy" Core.=: usageStrategy]
+      ["UsageStrategy" Data.=: usageStrategy]

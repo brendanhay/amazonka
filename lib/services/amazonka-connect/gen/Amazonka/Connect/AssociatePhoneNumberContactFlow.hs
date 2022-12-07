@@ -51,6 +51,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,38 +148,38 @@ instance
       `Prelude.seq` Prelude.rnf contactFlowId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AssociatePhoneNumberContactFlow
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociatePhoneNumberContactFlow where
+instance Data.ToJSON AssociatePhoneNumberContactFlow where
   toJSON AssociatePhoneNumberContactFlow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceId" Core..= instanceId),
+          [ Prelude.Just ("InstanceId" Data..= instanceId),
             Prelude.Just
-              ("ContactFlowId" Core..= contactFlowId)
+              ("ContactFlowId" Data..= contactFlowId)
           ]
       )
 
-instance Core.ToPath AssociatePhoneNumberContactFlow where
+instance Data.ToPath AssociatePhoneNumberContactFlow where
   toPath AssociatePhoneNumberContactFlow' {..} =
     Prelude.mconcat
       [ "/phone-number/",
-        Core.toBS phoneNumberId,
+        Data.toBS phoneNumberId,
         "/contact-flow"
       ]
 
-instance Core.ToQuery AssociatePhoneNumberContactFlow where
+instance Data.ToQuery AssociatePhoneNumberContactFlow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociatePhoneNumberContactFlowResponse' smart constructor.

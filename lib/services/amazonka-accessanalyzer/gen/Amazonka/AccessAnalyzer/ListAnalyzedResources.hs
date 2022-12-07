@@ -49,6 +49,7 @@ where
 import Amazonka.AccessAnalyzer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,9 +150,9 @@ instance Core.AWSRequest ListAnalyzedResources where
     Response.receiveJSON
       ( \s h x ->
           ListAnalyzedResourcesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "analyzedResources"
+            Prelude.<*> ( x Data..?> "analyzedResources"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -170,32 +171,32 @@ instance Prelude.NFData ListAnalyzedResources where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf analyzerArn
 
-instance Core.ToHeaders ListAnalyzedResources where
+instance Data.ToHeaders ListAnalyzedResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAnalyzedResources where
+instance Data.ToJSON ListAnalyzedResources where
   toJSON ListAnalyzedResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resourceType" Core..=) Prelude.<$> resourceType,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("analyzerArn" Core..= analyzerArn)
+          [ ("resourceType" Data..=) Prelude.<$> resourceType,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("analyzerArn" Data..= analyzerArn)
           ]
       )
 
-instance Core.ToPath ListAnalyzedResources where
+instance Data.ToPath ListAnalyzedResources where
   toPath = Prelude.const "/analyzed-resource"
 
-instance Core.ToQuery ListAnalyzedResources where
+instance Data.ToQuery ListAnalyzedResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response to the request.

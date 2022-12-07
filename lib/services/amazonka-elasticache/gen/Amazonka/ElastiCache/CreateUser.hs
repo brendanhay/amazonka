@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -177,7 +178,7 @@ instance Core.AWSRequest CreateUser where
   response =
     Response.receiveXMLWrapper
       "CreateUserResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
@@ -201,29 +202,29 @@ instance Prelude.NFData CreateUser where
       `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf accessString
 
-instance Core.ToHeaders CreateUser where
+instance Data.ToHeaders CreateUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateUser where
+instance Data.ToPath CreateUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUser where
+instance Data.ToQuery CreateUser where
   toQuery CreateUser' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateUser" :: Prelude.ByteString),
+          Data.=: ("CreateUser" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
         "Passwords"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> passwords),
-        "AuthenticationMode" Core.=: authenticationMode,
-        "NoPasswordRequired" Core.=: noPasswordRequired,
-        "UserId" Core.=: userId,
-        "UserName" Core.=: userName,
-        "Engine" Core.=: engine,
-        "AccessString" Core.=: accessString
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> passwords),
+        "AuthenticationMode" Data.=: authenticationMode,
+        "NoPasswordRequired" Data.=: noPasswordRequired,
+        "UserId" Data.=: userId,
+        "UserName" Data.=: userName,
+        "Engine" Data.=: engine,
+        "AccessString" Data.=: accessString
       ]

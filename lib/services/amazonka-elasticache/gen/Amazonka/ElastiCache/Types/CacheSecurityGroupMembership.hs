@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.CacheSecurityGroupMembership where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a cluster\'s status within a particular cache security group.
@@ -68,11 +69,11 @@ cacheSecurityGroupMembership_status = Lens.lens (\CacheSecurityGroupMembership' 
 cacheSecurityGroupMembership_cacheSecurityGroupName :: Lens.Lens' CacheSecurityGroupMembership (Prelude.Maybe Prelude.Text)
 cacheSecurityGroupMembership_cacheSecurityGroupName = Lens.lens (\CacheSecurityGroupMembership' {cacheSecurityGroupName} -> cacheSecurityGroupName) (\s@CacheSecurityGroupMembership' {} a -> s {cacheSecurityGroupName = a} :: CacheSecurityGroupMembership)
 
-instance Core.FromXML CacheSecurityGroupMembership where
+instance Data.FromXML CacheSecurityGroupMembership where
   parseXML x =
     CacheSecurityGroupMembership'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "CacheSecurityGroupName")
+      Prelude.<$> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "CacheSecurityGroupName")
 
 instance
   Prelude.Hashable

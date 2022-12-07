@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsIamAccessKeySessionContextAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attributes of the session that the key was used for.
@@ -78,16 +79,16 @@ awsIamAccessKeySessionContextAttributes_creationDate :: Lens.Lens' AwsIamAccessK
 awsIamAccessKeySessionContextAttributes_creationDate = Lens.lens (\AwsIamAccessKeySessionContextAttributes' {creationDate} -> creationDate) (\s@AwsIamAccessKeySessionContextAttributes' {} a -> s {creationDate = a} :: AwsIamAccessKeySessionContextAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsIamAccessKeySessionContextAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamAccessKeySessionContextAttributes"
       ( \x ->
           AwsIamAccessKeySessionContextAttributes'
-            Prelude.<$> (x Core..:? "MfaAuthenticated")
-            Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<$> (x Data..:? "MfaAuthenticated")
+            Prelude.<*> (x Data..:? "CreationDate")
       )
 
 instance
@@ -109,14 +110,14 @@ instance
       `Prelude.seq` Prelude.rnf creationDate
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsIamAccessKeySessionContextAttributes
   where
   toJSON AwsIamAccessKeySessionContextAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MfaAuthenticated" Core..=)
+          [ ("MfaAuthenticated" Data..=)
               Prelude.<$> mfaAuthenticated,
-            ("CreationDate" Core..=) Prelude.<$> creationDate
+            ("CreationDate" Data..=) Prelude.<$> creationDate
           ]
       )

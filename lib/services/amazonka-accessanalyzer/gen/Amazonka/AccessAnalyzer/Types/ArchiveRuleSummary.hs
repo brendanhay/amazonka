@@ -22,6 +22,7 @@ module Amazonka.AccessAnalyzer.Types.ArchiveRuleSummary where
 import Amazonka.AccessAnalyzer.Types.Criterion
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an archive rule.
@@ -33,9 +34,9 @@ data ArchiveRuleSummary = ArchiveRuleSummary'
     -- | A filter used to define the archive rule.
     filter' :: Prelude.HashMap Prelude.Text Criterion,
     -- | The time at which the archive rule was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The time at which the archive rule was last updated.
-    updatedAt :: Core.POSIX
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,8 +70,8 @@ newArchiveRuleSummary
     ArchiveRuleSummary'
       { ruleName = pRuleName_,
         filter' = Prelude.mempty,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
 -- | The name of the archive rule.
@@ -83,22 +84,22 @@ archiveRuleSummary_filter = Lens.lens (\ArchiveRuleSummary' {filter'} -> filter'
 
 -- | The time at which the archive rule was created.
 archiveRuleSummary_createdAt :: Lens.Lens' ArchiveRuleSummary Prelude.UTCTime
-archiveRuleSummary_createdAt = Lens.lens (\ArchiveRuleSummary' {createdAt} -> createdAt) (\s@ArchiveRuleSummary' {} a -> s {createdAt = a} :: ArchiveRuleSummary) Prelude.. Core._Time
+archiveRuleSummary_createdAt = Lens.lens (\ArchiveRuleSummary' {createdAt} -> createdAt) (\s@ArchiveRuleSummary' {} a -> s {createdAt = a} :: ArchiveRuleSummary) Prelude.. Data._Time
 
 -- | The time at which the archive rule was last updated.
 archiveRuleSummary_updatedAt :: Lens.Lens' ArchiveRuleSummary Prelude.UTCTime
-archiveRuleSummary_updatedAt = Lens.lens (\ArchiveRuleSummary' {updatedAt} -> updatedAt) (\s@ArchiveRuleSummary' {} a -> s {updatedAt = a} :: ArchiveRuleSummary) Prelude.. Core._Time
+archiveRuleSummary_updatedAt = Lens.lens (\ArchiveRuleSummary' {updatedAt} -> updatedAt) (\s@ArchiveRuleSummary' {} a -> s {updatedAt = a} :: ArchiveRuleSummary) Prelude.. Data._Time
 
-instance Core.FromJSON ArchiveRuleSummary where
+instance Data.FromJSON ArchiveRuleSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArchiveRuleSummary"
       ( \x ->
           ArchiveRuleSummary'
-            Prelude.<$> (x Core..: "ruleName")
-            Prelude.<*> (x Core..:? "filter" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "updatedAt")
+            Prelude.<$> (x Data..: "ruleName")
+            Prelude.<*> (x Data..:? "filter" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "updatedAt")
       )
 
 instance Prelude.Hashable ArchiveRuleSummary where

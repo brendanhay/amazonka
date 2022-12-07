@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.ElasticsearchBufferingHints where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the buffering to perform before delivering data to the Amazon
@@ -87,14 +88,14 @@ elasticsearchBufferingHints_sizeInMBs = Lens.lens (\ElasticsearchBufferingHints'
 elasticsearchBufferingHints_intervalInSeconds :: Lens.Lens' ElasticsearchBufferingHints (Prelude.Maybe Prelude.Natural)
 elasticsearchBufferingHints_intervalInSeconds = Lens.lens (\ElasticsearchBufferingHints' {intervalInSeconds} -> intervalInSeconds) (\s@ElasticsearchBufferingHints' {} a -> s {intervalInSeconds = a} :: ElasticsearchBufferingHints)
 
-instance Core.FromJSON ElasticsearchBufferingHints where
+instance Data.FromJSON ElasticsearchBufferingHints where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ElasticsearchBufferingHints"
       ( \x ->
           ElasticsearchBufferingHints'
-            Prelude.<$> (x Core..:? "SizeInMBs")
-            Prelude.<*> (x Core..:? "IntervalInSeconds")
+            Prelude.<$> (x Data..:? "SizeInMBs")
+            Prelude.<*> (x Data..:? "IntervalInSeconds")
       )
 
 instance Prelude.Hashable ElasticsearchBufferingHints where
@@ -107,12 +108,12 @@ instance Prelude.NFData ElasticsearchBufferingHints where
     Prelude.rnf sizeInMBs
       `Prelude.seq` Prelude.rnf intervalInSeconds
 
-instance Core.ToJSON ElasticsearchBufferingHints where
+instance Data.ToJSON ElasticsearchBufferingHints where
   toJSON ElasticsearchBufferingHints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SizeInMBs" Core..=) Prelude.<$> sizeInMBs,
-            ("IntervalInSeconds" Core..=)
+          [ ("SizeInMBs" Data..=) Prelude.<$> sizeInMBs,
+            ("IntervalInSeconds" Data..=)
               Prelude.<$> intervalInSeconds
           ]
       )

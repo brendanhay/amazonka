@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.S3ReferenceDataSourceDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For a SQL-based Kinesis Data Analytics application, provides the bucket
@@ -97,17 +98,17 @@ s3ReferenceDataSourceDescription_fileKey :: Lens.Lens' S3ReferenceDataSourceDesc
 s3ReferenceDataSourceDescription_fileKey = Lens.lens (\S3ReferenceDataSourceDescription' {fileKey} -> fileKey) (\s@S3ReferenceDataSourceDescription' {} a -> s {fileKey = a} :: S3ReferenceDataSourceDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     S3ReferenceDataSourceDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3ReferenceDataSourceDescription"
       ( \x ->
           S3ReferenceDataSourceDescription'
-            Prelude.<$> (x Core..:? "ReferenceRoleARN")
-            Prelude.<*> (x Core..: "BucketARN")
-            Prelude.<*> (x Core..: "FileKey")
+            Prelude.<$> (x Data..:? "ReferenceRoleARN")
+            Prelude.<*> (x Data..: "BucketARN")
+            Prelude.<*> (x Data..: "FileKey")
       )
 
 instance

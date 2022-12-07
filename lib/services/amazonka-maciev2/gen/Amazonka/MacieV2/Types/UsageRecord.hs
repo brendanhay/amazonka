@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.UsageRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.UsageByAccount
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ data UsageRecord = UsageRecord'
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the free
     -- trial started for the account.
-    freeTrialStartDate :: Prelude.Maybe Core.POSIX
+    freeTrialStartDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,17 +82,17 @@ usageRecord_accountId = Lens.lens (\UsageRecord' {accountId} -> accountId) (\s@U
 -- | The date and time, in UTC and extended ISO 8601 format, when the free
 -- trial started for the account.
 usageRecord_freeTrialStartDate :: Lens.Lens' UsageRecord (Prelude.Maybe Prelude.UTCTime)
-usageRecord_freeTrialStartDate = Lens.lens (\UsageRecord' {freeTrialStartDate} -> freeTrialStartDate) (\s@UsageRecord' {} a -> s {freeTrialStartDate = a} :: UsageRecord) Prelude.. Lens.mapping Core._Time
+usageRecord_freeTrialStartDate = Lens.lens (\UsageRecord' {freeTrialStartDate} -> freeTrialStartDate) (\s@UsageRecord' {} a -> s {freeTrialStartDate = a} :: UsageRecord) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON UsageRecord where
+instance Data.FromJSON UsageRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsageRecord"
       ( \x ->
           UsageRecord'
-            Prelude.<$> (x Core..:? "usage" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "freeTrialStartDate")
+            Prelude.<$> (x Data..:? "usage" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "freeTrialStartDate")
       )
 
 instance Prelude.Hashable UsageRecord where

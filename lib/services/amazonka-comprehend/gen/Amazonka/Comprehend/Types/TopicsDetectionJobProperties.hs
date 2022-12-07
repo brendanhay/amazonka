@@ -25,6 +25,7 @@ import Amazonka.Comprehend.Types.OutputDataConfig
 import Amazonka.Comprehend.Types.VpcConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a topic detection job.
@@ -50,7 +51,7 @@ data TopicsDetectionJobProperties = TopicsDetectionJobProperties'
     -- detection job. The default is 10.
     numberOfTopics :: Prelude.Maybe Prelude.Int,
     -- | The time that the topic detection job was submitted for processing.
-    submitTime :: Prelude.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier assigned to the topic detection job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
@@ -67,7 +68,7 @@ data TopicsDetectionJobProperties = TopicsDetectionJobProperties'
     -- role that grants Amazon Comprehend read access to your job data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the topic detection job was completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the topics detection job. It is a
     -- unique, fully qualified identifier for the job. It includes the AWS
     -- account, Region, and the job ID. The format of the ARN is as follows:
@@ -193,7 +194,7 @@ topicsDetectionJobProperties_numberOfTopics = Lens.lens (\TopicsDetectionJobProp
 
 -- | The time that the topic detection job was submitted for processing.
 topicsDetectionJobProperties_submitTime :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
-topicsDetectionJobProperties_submitTime = Lens.lens (\TopicsDetectionJobProperties' {submitTime} -> submitTime) (\s@TopicsDetectionJobProperties' {} a -> s {submitTime = a} :: TopicsDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+topicsDetectionJobProperties_submitTime = Lens.lens (\TopicsDetectionJobProperties' {submitTime} -> submitTime) (\s@TopicsDetectionJobProperties' {} a -> s {submitTime = a} :: TopicsDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier assigned to the topic detection job.
 topicsDetectionJobProperties_jobId :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe Prelude.Text)
@@ -218,7 +219,7 @@ topicsDetectionJobProperties_dataAccessRoleArn = Lens.lens (\TopicsDetectionJobP
 
 -- | The time that the topic detection job was completed.
 topicsDetectionJobProperties_endTime :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
-topicsDetectionJobProperties_endTime = Lens.lens (\TopicsDetectionJobProperties' {endTime} -> endTime) (\s@TopicsDetectionJobProperties' {} a -> s {endTime = a} :: TopicsDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+topicsDetectionJobProperties_endTime = Lens.lens (\TopicsDetectionJobProperties' {endTime} -> endTime) (\s@TopicsDetectionJobProperties' {} a -> s {endTime = a} :: TopicsDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the topics detection job. It is a
 -- unique, fully qualified identifier for the job. It includes the AWS
@@ -237,25 +238,25 @@ topicsDetectionJobProperties_jobArn = Lens.lens (\TopicsDetectionJobProperties' 
 topicsDetectionJobProperties_inputDataConfig :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe InputDataConfig)
 topicsDetectionJobProperties_inputDataConfig = Lens.lens (\TopicsDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@TopicsDetectionJobProperties' {} a -> s {inputDataConfig = a} :: TopicsDetectionJobProperties)
 
-instance Core.FromJSON TopicsDetectionJobProperties where
+instance Data.FromJSON TopicsDetectionJobProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TopicsDetectionJobProperties"
       ( \x ->
           TopicsDetectionJobProperties'
-            Prelude.<$> (x Core..:? "OutputDataConfig")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "JobStatus")
-            Prelude.<*> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "NumberOfTopics")
-            Prelude.<*> (x Core..:? "SubmitTime")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "JobArn")
-            Prelude.<*> (x Core..:? "InputDataConfig")
+            Prelude.<$> (x Data..:? "OutputDataConfig")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "JobStatus")
+            Prelude.<*> (x Data..:? "VpcConfig")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "NumberOfTopics")
+            Prelude.<*> (x Data..:? "SubmitTime")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Data..:? "DataAccessRoleArn")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "JobArn")
+            Prelude.<*> (x Data..:? "InputDataConfig")
       )
 
 instance

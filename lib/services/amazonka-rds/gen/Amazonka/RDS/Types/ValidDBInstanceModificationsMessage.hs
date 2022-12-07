@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.ValidDBInstanceModificationsMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.AvailableProcessorFeature
 import Amazonka.RDS.Types.ValidStorageOptions
@@ -69,18 +70,18 @@ validDBInstanceModificationsMessage_validProcessorFeatures :: Lens.Lens' ValidDB
 validDBInstanceModificationsMessage_validProcessorFeatures = Lens.lens (\ValidDBInstanceModificationsMessage' {validProcessorFeatures} -> validProcessorFeatures) (\s@ValidDBInstanceModificationsMessage' {} a -> s {validProcessorFeatures = a} :: ValidDBInstanceModificationsMessage) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromXML
+  Data.FromXML
     ValidDBInstanceModificationsMessage
   where
   parseXML x =
     ValidDBInstanceModificationsMessage'
-      Prelude.<$> ( x Core..@? "Storage" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "ValidStorageOptions")
+      Prelude.<$> ( x Data..@? "Storage" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "ValidStorageOptions")
                   )
-      Prelude.<*> ( x Core..@? "ValidProcessorFeatures"
+      Prelude.<*> ( x Data..@? "ValidProcessorFeatures"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "AvailableProcessorFeature")
+                        (Data.parseXMLList "AvailableProcessorFeature")
                   )
 
 instance

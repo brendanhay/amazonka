@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -200,11 +201,11 @@ instance
       "GetReservedNodeExchangeConfigurationOptionsResult"
       ( \s h x ->
           GetReservedNodeExchangeConfigurationOptionsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-              Prelude.<*> ( x Core..@? "ReservedNodeConfigurationOptionList"
+            Prelude.<$> (x Data..@? "Marker")
+              Prelude.<*> ( x Data..@? "ReservedNodeConfigurationOptionList"
                               Core..!@ Prelude.mempty
                               Prelude.>>= Core.may
-                                ( Core.parseXMLList
+                                ( Data.parseXMLList
                                     "ReservedNodeConfigurationOption"
                                 )
                           )
@@ -236,35 +237,35 @@ instance
       `Prelude.seq` Prelude.rnf actionType
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetReservedNodeExchangeConfigurationOptions
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetReservedNodeExchangeConfigurationOptions
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetReservedNodeExchangeConfigurationOptions
   where
   toQuery
     GetReservedNodeExchangeConfigurationOptions' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "GetReservedNodeExchangeConfigurationOptions" ::
+            Data.=: ( "GetReservedNodeExchangeConfigurationOptions" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2012-12-01" :: Prelude.ByteString),
-          "ClusterIdentifier" Core.=: clusterIdentifier,
-          "Marker" Core.=: marker,
-          "SnapshotIdentifier" Core.=: snapshotIdentifier,
-          "MaxRecords" Core.=: maxRecords,
-          "ActionType" Core.=: actionType
+            Data.=: ("2012-12-01" :: Prelude.ByteString),
+          "ClusterIdentifier" Data.=: clusterIdentifier,
+          "Marker" Data.=: marker,
+          "SnapshotIdentifier" Data.=: snapshotIdentifier,
+          "MaxRecords" Data.=: maxRecords,
+          "ActionType" Data.=: actionType
         ]
 
 -- | /See:/ 'newGetReservedNodeExchangeConfigurationOptionsResponse' smart constructor.

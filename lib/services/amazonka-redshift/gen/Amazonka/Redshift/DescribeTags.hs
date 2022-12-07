@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -318,9 +319,9 @@ instance Core.AWSRequest DescribeTags where
       "DescribeTagsResult"
       ( \s h x ->
           DescribeTagsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "TaggedResources" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "TaggedResource")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "TaggedResources" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "TaggedResource")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -343,29 +344,29 @@ instance Prelude.NFData DescribeTags where
       `Prelude.seq` Prelude.rnf tagValues
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeTags where
+instance Data.ToHeaders DescribeTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeTags where
+instance Data.ToPath DescribeTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTags where
+instance Data.ToQuery DescribeTags where
   toQuery DescribeTags' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeTags" :: Prelude.ByteString),
+          Data.=: ("DescribeTags" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ResourceType" Core.=: resourceType,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ResourceType" Data.=: resourceType,
         "TagKeys"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
-        "Marker" Core.=: marker,
-        "ResourceName" Core.=: resourceName,
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagKey" Prelude.<$> tagKeys),
+        "Marker" Data.=: marker,
+        "ResourceName" Data.=: resourceName,
         "TagValues"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "MaxRecords" Core.=: maxRecords
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagValue" Prelude.<$> tagValues),
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- |

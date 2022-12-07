@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,20 +113,20 @@ instance Core.AWSRequest GetSchedule where
     Response.receiveJSON
       ( \s h x ->
           GetScheduleResponse'
-            Prelude.<$> (x Core..?> "ScheduleExpressionTimezone")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "EndDate")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "Target")
-            Prelude.<*> (x Core..?> "GroupName")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "KmsKeyArn")
-            Prelude.<*> (x Core..?> "ScheduleExpression")
-            Prelude.<*> (x Core..?> "FlexibleTimeWindow")
-            Prelude.<*> (x Core..?> "StartDate")
-            Prelude.<*> (x Core..?> "LastModificationDate")
+            Prelude.<$> (x Data..?> "ScheduleExpressionTimezone")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "EndDate")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "Target")
+            Prelude.<*> (x Data..?> "GroupName")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "KmsKeyArn")
+            Prelude.<*> (x Data..?> "ScheduleExpression")
+            Prelude.<*> (x Data..?> "FlexibleTimeWindow")
+            Prelude.<*> (x Data..?> "StartDate")
+            Prelude.<*> (x Data..?> "LastModificationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,24 +140,24 @@ instance Prelude.NFData GetSchedule where
     Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders GetSchedule where
+instance Data.ToHeaders GetSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSchedule where
+instance Data.ToPath GetSchedule where
   toPath GetSchedule' {..} =
-    Prelude.mconcat ["/schedules/", Core.toBS name]
+    Prelude.mconcat ["/schedules/", Data.toBS name]
 
-instance Core.ToQuery GetSchedule where
+instance Data.ToQuery GetSchedule where
   toQuery GetSchedule' {..} =
-    Prelude.mconcat ["groupName" Core.=: groupName]
+    Prelude.mconcat ["groupName" Data.=: groupName]
 
 -- | /See:/ 'newGetScheduleResponse' smart constructor.
 data GetScheduleResponse = GetScheduleResponse'
@@ -168,13 +169,13 @@ data GetScheduleResponse = GetScheduleResponse'
     -- Depending on the schedule\'s recurrence expression, invocations might
     -- stop on, or before, the @EndDate@ you specify. EventBridge Scheduler
     -- ignores @EndDate@ for one-time schedules.
-    endDate :: Prelude.Maybe Core.POSIX,
+    endDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the schedule.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the schedule is enabled or disabled.
     state :: Prelude.Maybe ScheduleState,
     -- | The time at which the schedule was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The schedule target.
     target :: Prelude.Maybe Target,
     -- | The name of the schedule group associated with this schedule.
@@ -220,9 +221,9 @@ data GetScheduleResponse = GetScheduleResponse'
     -- target. Depending on the schedule\'s recurrence expression, invocations
     -- might occur on, or after, the @StartDate@ you specify. EventBridge
     -- Scheduler ignores @StartDate@ for one-time schedules.
-    startDate :: Prelude.Maybe Core.POSIX,
+    startDate :: Prelude.Maybe Data.POSIX,
     -- | The time at which the schedule was last modified.
-    lastModificationDate :: Prelude.Maybe Core.POSIX,
+    lastModificationDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -337,7 +338,7 @@ getScheduleResponse_name = Lens.lens (\GetScheduleResponse' {name} -> name) (\s@
 -- stop on, or before, the @EndDate@ you specify. EventBridge Scheduler
 -- ignores @EndDate@ for one-time schedules.
 getScheduleResponse_endDate :: Lens.Lens' GetScheduleResponse (Prelude.Maybe Prelude.UTCTime)
-getScheduleResponse_endDate = Lens.lens (\GetScheduleResponse' {endDate} -> endDate) (\s@GetScheduleResponse' {} a -> s {endDate = a} :: GetScheduleResponse) Prelude.. Lens.mapping Core._Time
+getScheduleResponse_endDate = Lens.lens (\GetScheduleResponse' {endDate} -> endDate) (\s@GetScheduleResponse' {} a -> s {endDate = a} :: GetScheduleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the schedule.
 getScheduleResponse_arn :: Lens.Lens' GetScheduleResponse (Prelude.Maybe Prelude.Text)
@@ -349,7 +350,7 @@ getScheduleResponse_state = Lens.lens (\GetScheduleResponse' {state} -> state) (
 
 -- | The time at which the schedule was created.
 getScheduleResponse_creationDate :: Lens.Lens' GetScheduleResponse (Prelude.Maybe Prelude.UTCTime)
-getScheduleResponse_creationDate = Lens.lens (\GetScheduleResponse' {creationDate} -> creationDate) (\s@GetScheduleResponse' {} a -> s {creationDate = a} :: GetScheduleResponse) Prelude.. Lens.mapping Core._Time
+getScheduleResponse_creationDate = Lens.lens (\GetScheduleResponse' {creationDate} -> creationDate) (\s@GetScheduleResponse' {} a -> s {creationDate = a} :: GetScheduleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The schedule target.
 getScheduleResponse_target :: Lens.Lens' GetScheduleResponse (Prelude.Maybe Target)
@@ -409,11 +410,11 @@ getScheduleResponse_flexibleTimeWindow = Lens.lens (\GetScheduleResponse' {flexi
 -- might occur on, or after, the @StartDate@ you specify. EventBridge
 -- Scheduler ignores @StartDate@ for one-time schedules.
 getScheduleResponse_startDate :: Lens.Lens' GetScheduleResponse (Prelude.Maybe Prelude.UTCTime)
-getScheduleResponse_startDate = Lens.lens (\GetScheduleResponse' {startDate} -> startDate) (\s@GetScheduleResponse' {} a -> s {startDate = a} :: GetScheduleResponse) Prelude.. Lens.mapping Core._Time
+getScheduleResponse_startDate = Lens.lens (\GetScheduleResponse' {startDate} -> startDate) (\s@GetScheduleResponse' {} a -> s {startDate = a} :: GetScheduleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the schedule was last modified.
 getScheduleResponse_lastModificationDate :: Lens.Lens' GetScheduleResponse (Prelude.Maybe Prelude.UTCTime)
-getScheduleResponse_lastModificationDate = Lens.lens (\GetScheduleResponse' {lastModificationDate} -> lastModificationDate) (\s@GetScheduleResponse' {} a -> s {lastModificationDate = a} :: GetScheduleResponse) Prelude.. Lens.mapping Core._Time
+getScheduleResponse_lastModificationDate = Lens.lens (\GetScheduleResponse' {lastModificationDate} -> lastModificationDate) (\s@GetScheduleResponse' {} a -> s {lastModificationDate = a} :: GetScheduleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getScheduleResponse_httpStatus :: Lens.Lens' GetScheduleResponse Prelude.Int

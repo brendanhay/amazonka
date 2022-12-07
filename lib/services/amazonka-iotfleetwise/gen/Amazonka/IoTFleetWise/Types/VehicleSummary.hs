@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.VehicleSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a vehicle.
@@ -40,10 +41,10 @@ data VehicleSummary = VehicleSummary'
     decoderManifestArn :: Prelude.Text,
     -- | The time the vehicle was created in seconds since epoch (January 1, 1970
     -- at midnight UTC time).
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The time the vehicle was last updated in seconds since epoch (January 1,
     -- 1970 at midnight UTC time).
-    lastModificationTime :: Core.POSIX
+    lastModificationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,9 +95,9 @@ newVehicleSummary
         arn = pArn_,
         modelManifestArn = pModelManifestArn_,
         decoderManifestArn = pDecoderManifestArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lastModificationTime =
-          Core._Time Lens.# pLastModificationTime_
+          Data._Time Lens.# pLastModificationTime_
       }
 
 -- | The unique ID of the vehicle.
@@ -118,25 +119,25 @@ vehicleSummary_decoderManifestArn = Lens.lens (\VehicleSummary' {decoderManifest
 -- | The time the vehicle was created in seconds since epoch (January 1, 1970
 -- at midnight UTC time).
 vehicleSummary_creationTime :: Lens.Lens' VehicleSummary Prelude.UTCTime
-vehicleSummary_creationTime = Lens.lens (\VehicleSummary' {creationTime} -> creationTime) (\s@VehicleSummary' {} a -> s {creationTime = a} :: VehicleSummary) Prelude.. Core._Time
+vehicleSummary_creationTime = Lens.lens (\VehicleSummary' {creationTime} -> creationTime) (\s@VehicleSummary' {} a -> s {creationTime = a} :: VehicleSummary) Prelude.. Data._Time
 
 -- | The time the vehicle was last updated in seconds since epoch (January 1,
 -- 1970 at midnight UTC time).
 vehicleSummary_lastModificationTime :: Lens.Lens' VehicleSummary Prelude.UTCTime
-vehicleSummary_lastModificationTime = Lens.lens (\VehicleSummary' {lastModificationTime} -> lastModificationTime) (\s@VehicleSummary' {} a -> s {lastModificationTime = a} :: VehicleSummary) Prelude.. Core._Time
+vehicleSummary_lastModificationTime = Lens.lens (\VehicleSummary' {lastModificationTime} -> lastModificationTime) (\s@VehicleSummary' {} a -> s {lastModificationTime = a} :: VehicleSummary) Prelude.. Data._Time
 
-instance Core.FromJSON VehicleSummary where
+instance Data.FromJSON VehicleSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VehicleSummary"
       ( \x ->
           VehicleSummary'
-            Prelude.<$> (x Core..: "vehicleName")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "modelManifestArn")
-            Prelude.<*> (x Core..: "decoderManifestArn")
-            Prelude.<*> (x Core..: "creationTime")
-            Prelude.<*> (x Core..: "lastModificationTime")
+            Prelude.<$> (x Data..: "vehicleName")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "modelManifestArn")
+            Prelude.<*> (x Data..: "decoderManifestArn")
+            Prelude.<*> (x Data..: "creationTime")
+            Prelude.<*> (x Data..: "lastModificationTime")
       )
 
 instance Prelude.Hashable VehicleSummary where

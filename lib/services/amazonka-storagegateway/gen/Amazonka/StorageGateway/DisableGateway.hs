@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,7 +92,7 @@ instance Core.AWSRequest DisableGateway where
     Response.receiveJSON
       ( \s h x ->
           DisableGatewayResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,32 +103,32 @@ instance Prelude.Hashable DisableGateway where
 instance Prelude.NFData DisableGateway where
   rnf DisableGateway' {..} = Prelude.rnf gatewayARN
 
-instance Core.ToHeaders DisableGateway where
+instance Data.ToHeaders DisableGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DisableGateway" ::
+              Data.=# ( "StorageGateway_20130630.DisableGateway" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisableGateway where
+instance Data.ToJSON DisableGateway where
   toJSON DisableGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
+          [Prelude.Just ("GatewayARN" Data..= gatewayARN)]
       )
 
-instance Core.ToPath DisableGateway where
+instance Data.ToPath DisableGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableGateway where
+instance Data.ToQuery DisableGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | DisableGatewayOutput

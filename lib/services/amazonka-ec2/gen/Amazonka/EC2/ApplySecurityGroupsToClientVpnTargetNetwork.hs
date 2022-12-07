@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,9 +144,9 @@ instance
     Response.receiveXML
       ( \s h x ->
           ApplySecurityGroupsToClientVpnTargetNetworkResponse'
-            Prelude.<$> ( x Core..@? "securityGroupIds"
+            Prelude.<$> ( x Data..@? "securityGroupIds"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -173,34 +174,34 @@ instance
       `Prelude.seq` Prelude.rnf securityGroupIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ApplySecurityGroupsToClientVpnTargetNetwork
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ApplySecurityGroupsToClientVpnTargetNetwork
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ApplySecurityGroupsToClientVpnTargetNetwork
   where
   toQuery
     ApplySecurityGroupsToClientVpnTargetNetwork' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "ApplySecurityGroupsToClientVpnTargetNetwork" ::
+            Data.=: ( "ApplySecurityGroupsToClientVpnTargetNetwork" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Core.=: dryRun,
-          "ClientVpnEndpointId" Core.=: clientVpnEndpointId,
-          "VpcId" Core.=: vpcId,
-          Core.toQueryList "SecurityGroupId" securityGroupIds
+            Data.=: ("2016-11-15" :: Prelude.ByteString),
+          "DryRun" Data.=: dryRun,
+          "ClientVpnEndpointId" Data.=: clientVpnEndpointId,
+          "VpcId" Data.=: vpcId,
+          Data.toQueryList "SecurityGroupId" securityGroupIds
         ]
 
 -- | /See:/ 'newApplySecurityGroupsToClientVpnTargetNetworkResponse' smart constructor.

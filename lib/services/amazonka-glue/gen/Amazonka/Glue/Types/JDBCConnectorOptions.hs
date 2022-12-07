@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.JDBCConnectorOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.GlueRecordType
 import Amazonka.Glue.Types.JDBCDataType
 import qualified Amazonka.Prelude as Prelude
@@ -181,24 +182,24 @@ jDBCConnectorOptions_upperBound = Lens.lens (\JDBCConnectorOptions' {upperBound}
 jDBCConnectorOptions_partitionColumn :: Lens.Lens' JDBCConnectorOptions (Prelude.Maybe Prelude.Text)
 jDBCConnectorOptions_partitionColumn = Lens.lens (\JDBCConnectorOptions' {partitionColumn} -> partitionColumn) (\s@JDBCConnectorOptions' {} a -> s {partitionColumn = a} :: JDBCConnectorOptions)
 
-instance Core.FromJSON JDBCConnectorOptions where
+instance Data.FromJSON JDBCConnectorOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JDBCConnectorOptions"
       ( \x ->
           JDBCConnectorOptions'
-            Prelude.<$> (x Core..:? "JobBookmarkKeysSortOrder")
-            Prelude.<*> ( x Core..:? "DataTypeMapping"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "JobBookmarkKeysSortOrder")
+            Prelude.<*> ( x Data..:? "DataTypeMapping"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "FilterPredicate")
-            Prelude.<*> (x Core..:? "NumPartitions")
-            Prelude.<*> (x Core..:? "LowerBound")
-            Prelude.<*> ( x Core..:? "JobBookmarkKeys"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "FilterPredicate")
+            Prelude.<*> (x Data..:? "NumPartitions")
+            Prelude.<*> (x Data..:? "LowerBound")
+            Prelude.<*> ( x Data..:? "JobBookmarkKeys"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "UpperBound")
-            Prelude.<*> (x Core..:? "PartitionColumn")
+            Prelude.<*> (x Data..:? "UpperBound")
+            Prelude.<*> (x Data..:? "PartitionColumn")
       )
 
 instance Prelude.Hashable JDBCConnectorOptions where
@@ -224,22 +225,22 @@ instance Prelude.NFData JDBCConnectorOptions where
       `Prelude.seq` Prelude.rnf upperBound
       `Prelude.seq` Prelude.rnf partitionColumn
 
-instance Core.ToJSON JDBCConnectorOptions where
+instance Data.ToJSON JDBCConnectorOptions where
   toJSON JDBCConnectorOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("JobBookmarkKeysSortOrder" Core..=)
+          [ ("JobBookmarkKeysSortOrder" Data..=)
               Prelude.<$> jobBookmarkKeysSortOrder,
-            ("DataTypeMapping" Core..=)
+            ("DataTypeMapping" Data..=)
               Prelude.<$> dataTypeMapping,
-            ("FilterPredicate" Core..=)
+            ("FilterPredicate" Data..=)
               Prelude.<$> filterPredicate,
-            ("NumPartitions" Core..=) Prelude.<$> numPartitions,
-            ("LowerBound" Core..=) Prelude.<$> lowerBound,
-            ("JobBookmarkKeys" Core..=)
+            ("NumPartitions" Data..=) Prelude.<$> numPartitions,
+            ("LowerBound" Data..=) Prelude.<$> lowerBound,
+            ("JobBookmarkKeys" Data..=)
               Prelude.<$> jobBookmarkKeys,
-            ("UpperBound" Core..=) Prelude.<$> upperBound,
-            ("PartitionColumn" Core..=)
+            ("UpperBound" Data..=) Prelude.<$> upperBound,
+            ("PartitionColumn" Data..=)
               Prelude.<$> partitionColumn
           ]
       )

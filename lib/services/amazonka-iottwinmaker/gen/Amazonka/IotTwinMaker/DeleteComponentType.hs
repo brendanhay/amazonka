@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest DeleteComponentType where
       ( \s h x ->
           DeleteComponentTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "state")
+            Prelude.<*> (x Data..:> "state")
       )
 
 instance Prelude.Hashable DeleteComponentType where
@@ -113,27 +114,27 @@ instance Prelude.NFData DeleteComponentType where
     Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf componentTypeId
 
-instance Core.ToHeaders DeleteComponentType where
+instance Data.ToHeaders DeleteComponentType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteComponentType where
+instance Data.ToPath DeleteComponentType where
   toPath DeleteComponentType' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/component-types/",
-        Core.toBS componentTypeId
+        Data.toBS componentTypeId
       ]
 
-instance Core.ToQuery DeleteComponentType where
+instance Data.ToQuery DeleteComponentType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteComponentTypeResponse' smart constructor.

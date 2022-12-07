@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.AttackVolume where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Shield.Types.AttackVolumeStatistics
 
@@ -85,15 +86,15 @@ attackVolume_bitsPerSecond = Lens.lens (\AttackVolume' {bitsPerSecond} -> bitsPe
 attackVolume_packetsPerSecond :: Lens.Lens' AttackVolume (Prelude.Maybe AttackVolumeStatistics)
 attackVolume_packetsPerSecond = Lens.lens (\AttackVolume' {packetsPerSecond} -> packetsPerSecond) (\s@AttackVolume' {} a -> s {packetsPerSecond = a} :: AttackVolume)
 
-instance Core.FromJSON AttackVolume where
+instance Data.FromJSON AttackVolume where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttackVolume"
       ( \x ->
           AttackVolume'
-            Prelude.<$> (x Core..:? "RequestsPerSecond")
-            Prelude.<*> (x Core..:? "BitsPerSecond")
-            Prelude.<*> (x Core..:? "PacketsPerSecond")
+            Prelude.<$> (x Data..:? "RequestsPerSecond")
+            Prelude.<*> (x Data..:? "BitsPerSecond")
+            Prelude.<*> (x Data..:? "PacketsPerSecond")
       )
 
 instance Prelude.Hashable AttackVolume where

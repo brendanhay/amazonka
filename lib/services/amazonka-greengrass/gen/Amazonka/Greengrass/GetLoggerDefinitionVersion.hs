@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,11 +134,11 @@ instance Core.AWSRequest GetLoggerDefinitionVersion where
     Response.receiveJSON
       ( \s h x ->
           GetLoggerDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Version")
-            Prelude.<*> (x Core..?> "Definition")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Version")
+            Prelude.<*> (x Data..?> "Definition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,29 +154,29 @@ instance Prelude.NFData GetLoggerDefinitionVersion where
       `Prelude.seq` Prelude.rnf loggerDefinitionVersionId
       `Prelude.seq` Prelude.rnf loggerDefinitionId
 
-instance Core.ToHeaders GetLoggerDefinitionVersion where
+instance Data.ToHeaders GetLoggerDefinitionVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetLoggerDefinitionVersion where
+instance Data.ToPath GetLoggerDefinitionVersion where
   toPath GetLoggerDefinitionVersion' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/loggers/",
-        Core.toBS loggerDefinitionId,
+        Data.toBS loggerDefinitionId,
         "/versions/",
-        Core.toBS loggerDefinitionVersionId
+        Data.toBS loggerDefinitionVersionId
       ]
 
-instance Core.ToQuery GetLoggerDefinitionVersion where
+instance Data.ToQuery GetLoggerDefinitionVersion where
   toQuery GetLoggerDefinitionVersion' {..} =
-    Prelude.mconcat ["NextToken" Core.=: nextToken]
+    Prelude.mconcat ["NextToken" Data.=: nextToken]
 
 -- | /See:/ 'newGetLoggerDefinitionVersionResponse' smart constructor.
 data GetLoggerDefinitionVersionResponse = GetLoggerDefinitionVersionResponse'

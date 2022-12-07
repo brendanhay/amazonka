@@ -21,6 +21,7 @@ module Amazonka.Macie.Types.ClassificationTypeUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Macie.Types.S3ContinuousClassificationType
 import Amazonka.Macie.Types.S3OneTimeClassificationType
 import qualified Amazonka.Prelude as Prelude
@@ -88,11 +89,11 @@ instance Prelude.NFData ClassificationTypeUpdate where
     Prelude.rnf oneTime
       `Prelude.seq` Prelude.rnf continuous
 
-instance Core.ToJSON ClassificationTypeUpdate where
+instance Data.ToJSON ClassificationTypeUpdate where
   toJSON ClassificationTypeUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("oneTime" Core..=) Prelude.<$> oneTime,
-            ("continuous" Core..=) Prelude.<$> continuous
+          [ ("oneTime" Data..=) Prelude.<$> oneTime,
+            ("continuous" Data..=) Prelude.<$> continuous
           ]
       )

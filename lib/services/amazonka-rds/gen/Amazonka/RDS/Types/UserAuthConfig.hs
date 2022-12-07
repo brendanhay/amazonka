@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.UserAuthConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.AuthScheme
 import Amazonka.RDS.Types.IAMAuthMode
@@ -128,12 +129,12 @@ instance Prelude.NFData UserAuthConfig where
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf authScheme
 
-instance Core.ToQuery UserAuthConfig where
+instance Data.ToQuery UserAuthConfig where
   toQuery UserAuthConfig' {..} =
     Prelude.mconcat
-      [ "UserName" Core.=: userName,
-        "Description" Core.=: description,
-        "IAMAuth" Core.=: iAMAuth,
-        "SecretArn" Core.=: secretArn,
-        "AuthScheme" Core.=: authScheme
+      [ "UserName" Data.=: userName,
+        "Description" Data.=: description,
+        "IAMAuth" Data.=: iAMAuth,
+        "SecretArn" Data.=: secretArn,
+        "AuthScheme" Data.=: authScheme
       ]

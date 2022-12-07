@@ -21,6 +21,7 @@ module Amazonka.Nimble.Types.StreamingImage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types.StreamingImageEncryptionConfiguration
 import Amazonka.Nimble.Types.StreamingImageState
 import Amazonka.Nimble.Types.StreamingImageStatusCode
@@ -47,7 +48,7 @@ data StreamingImage = StreamingImage'
     -- | The ID of the streaming image.
     streamingImageId :: Prelude.Maybe Prelude.Text,
     -- | A friendly name for a streaming image resource.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of an EC2 machine image with which to create the streaming image.
     ec2ImageId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the resource.
@@ -59,7 +60,7 @@ data StreamingImage = StreamingImage'
     -- Nimble Studio.
     owner :: Prelude.Maybe Prelude.Text,
     -- | A human-readable description of the streaming image.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The platform of the streaming image, either WINDOWS or LINUX.
     platform :: Prelude.Maybe Prelude.Text,
     -- | The list of EULAs that must be accepted before a Streaming Session can
@@ -141,7 +142,7 @@ streamingImage_streamingImageId = Lens.lens (\StreamingImage' {streamingImageId}
 
 -- | A friendly name for a streaming image resource.
 streamingImage_name :: Lens.Lens' StreamingImage (Prelude.Maybe Prelude.Text)
-streamingImage_name = Lens.lens (\StreamingImage' {name} -> name) (\s@StreamingImage' {} a -> s {name = a} :: StreamingImage) Prelude.. Lens.mapping Core._Sensitive
+streamingImage_name = Lens.lens (\StreamingImage' {name} -> name) (\s@StreamingImage' {} a -> s {name = a} :: StreamingImage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of an EC2 machine image with which to create the streaming image.
 streamingImage_ec2ImageId :: Lens.Lens' StreamingImage (Prelude.Maybe Prelude.Text)
@@ -163,7 +164,7 @@ streamingImage_owner = Lens.lens (\StreamingImage' {owner} -> owner) (\s@Streami
 
 -- | A human-readable description of the streaming image.
 streamingImage_description :: Lens.Lens' StreamingImage (Prelude.Maybe Prelude.Text)
-streamingImage_description = Lens.lens (\StreamingImage' {description} -> description) (\s@StreamingImage' {} a -> s {description = a} :: StreamingImage) Prelude.. Lens.mapping Core._Sensitive
+streamingImage_description = Lens.lens (\StreamingImage' {description} -> description) (\s@StreamingImage' {} a -> s {description = a} :: StreamingImage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The platform of the streaming image, either WINDOWS or LINUX.
 streamingImage_platform :: Lens.Lens' StreamingImage (Prelude.Maybe Prelude.Text)
@@ -186,25 +187,25 @@ streamingImage_statusCode = Lens.lens (\StreamingImage' {statusCode} -> statusCo
 streamingImage_statusMessage :: Lens.Lens' StreamingImage (Prelude.Maybe Prelude.Text)
 streamingImage_statusMessage = Lens.lens (\StreamingImage' {statusMessage} -> statusMessage) (\s@StreamingImage' {} a -> s {statusMessage = a} :: StreamingImage)
 
-instance Core.FromJSON StreamingImage where
+instance Data.FromJSON StreamingImage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamingImage"
       ( \x ->
           StreamingImage'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "streamingImageId")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "ec2ImageId")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "owner")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "eulaIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "encryptionConfiguration")
-            Prelude.<*> (x Core..:? "statusCode")
-            Prelude.<*> (x Core..:? "statusMessage")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "streamingImageId")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "ec2ImageId")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "eulaIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "encryptionConfiguration")
+            Prelude.<*> (x Data..:? "statusCode")
+            Prelude.<*> (x Data..:? "statusMessage")
       )
 
 instance Prelude.Hashable StreamingImage where

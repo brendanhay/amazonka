@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,19 +100,19 @@ instance Core.AWSRequest DescribeFleetMetric where
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetMetricResponse'
-            Prelude.<$> (x Core..?> "aggregationField")
-            Prelude.<*> (x Core..?> "metricArn")
-            Prelude.<*> (x Core..?> "aggregationType")
-            Prelude.<*> (x Core..?> "lastModifiedDate")
-            Prelude.<*> (x Core..?> "period")
-            Prelude.<*> (x Core..?> "creationDate")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "indexName")
-            Prelude.<*> (x Core..?> "queryVersion")
-            Prelude.<*> (x Core..?> "metricName")
-            Prelude.<*> (x Core..?> "queryString")
-            Prelude.<*> (x Core..?> "unit")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "aggregationField")
+            Prelude.<*> (x Data..?> "metricArn")
+            Prelude.<*> (x Data..?> "aggregationType")
+            Prelude.<*> (x Data..?> "lastModifiedDate")
+            Prelude.<*> (x Data..?> "period")
+            Prelude.<*> (x Data..?> "creationDate")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "indexName")
+            Prelude.<*> (x Data..?> "queryVersion")
+            Prelude.<*> (x Data..?> "metricName")
+            Prelude.<*> (x Data..?> "queryString")
+            Prelude.<*> (x Data..?> "unit")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,15 +123,15 @@ instance Prelude.Hashable DescribeFleetMetric where
 instance Prelude.NFData DescribeFleetMetric where
   rnf DescribeFleetMetric' {..} = Prelude.rnf metricName
 
-instance Core.ToHeaders DescribeFleetMetric where
+instance Data.ToHeaders DescribeFleetMetric where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeFleetMetric where
+instance Data.ToPath DescribeFleetMetric where
   toPath DescribeFleetMetric' {..} =
     Prelude.mconcat
-      ["/fleet-metric/", Core.toBS metricName]
+      ["/fleet-metric/", Data.toBS metricName]
 
-instance Core.ToQuery DescribeFleetMetric where
+instance Data.ToQuery DescribeFleetMetric where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFleetMetricResponse' smart constructor.
@@ -142,12 +143,12 @@ data DescribeFleetMetricResponse = DescribeFleetMetricResponse'
     -- | The type of the aggregation query.
     aggregationType :: Prelude.Maybe AggregationType,
     -- | The date when the fleet metric is last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The time in seconds between fleet metric emissions. Range [60(1 min),
     -- 86400(1 day)] and must be multiple of 60.
     period :: Prelude.Maybe Prelude.Natural,
     -- | The date when the fleet metric is created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The fleet metric description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The name of the index to search.
@@ -244,7 +245,7 @@ describeFleetMetricResponse_aggregationType = Lens.lens (\DescribeFleetMetricRes
 
 -- | The date when the fleet metric is last modified.
 describeFleetMetricResponse_lastModifiedDate :: Lens.Lens' DescribeFleetMetricResponse (Prelude.Maybe Prelude.UTCTime)
-describeFleetMetricResponse_lastModifiedDate = Lens.lens (\DescribeFleetMetricResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeFleetMetricResponse' {} a -> s {lastModifiedDate = a} :: DescribeFleetMetricResponse) Prelude.. Lens.mapping Core._Time
+describeFleetMetricResponse_lastModifiedDate = Lens.lens (\DescribeFleetMetricResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeFleetMetricResponse' {} a -> s {lastModifiedDate = a} :: DescribeFleetMetricResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time in seconds between fleet metric emissions. Range [60(1 min),
 -- 86400(1 day)] and must be multiple of 60.
@@ -253,7 +254,7 @@ describeFleetMetricResponse_period = Lens.lens (\DescribeFleetMetricResponse' {p
 
 -- | The date when the fleet metric is created.
 describeFleetMetricResponse_creationDate :: Lens.Lens' DescribeFleetMetricResponse (Prelude.Maybe Prelude.UTCTime)
-describeFleetMetricResponse_creationDate = Lens.lens (\DescribeFleetMetricResponse' {creationDate} -> creationDate) (\s@DescribeFleetMetricResponse' {} a -> s {creationDate = a} :: DescribeFleetMetricResponse) Prelude.. Lens.mapping Core._Time
+describeFleetMetricResponse_creationDate = Lens.lens (\DescribeFleetMetricResponse' {creationDate} -> creationDate) (\s@DescribeFleetMetricResponse' {} a -> s {creationDate = a} :: DescribeFleetMetricResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The fleet metric description.
 describeFleetMetricResponse_description :: Lens.Lens' DescribeFleetMetricResponse (Prelude.Maybe Prelude.Text)

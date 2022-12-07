@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,29 +104,29 @@ instance Core.AWSRequest DescribeClassificationJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeClassificationJobResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "clientToken")
-            Prelude.<*> ( x Core..?> "customDataIdentifierIds"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "clientToken")
+            Prelude.<*> ( x Data..?> "customDataIdentifierIds"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "jobStatus")
-            Prelude.<*> (x Core..?> "userPausedDetails")
-            Prelude.<*> (x Core..?> "statistics")
-            Prelude.<*> (x Core..?> "managedDataIdentifierSelector")
-            Prelude.<*> (x Core..?> "scheduleFrequency")
-            Prelude.<*> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "s3JobDefinition")
-            Prelude.<*> (x Core..?> "initialRun")
-            Prelude.<*> (x Core..?> "allowListIds" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "lastRunTime")
-            Prelude.<*> (x Core..?> "lastRunErrorStatus")
-            Prelude.<*> (x Core..?> "jobArn")
-            Prelude.<*> (x Core..?> "samplingPercentage")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "jobType")
-            Prelude.<*> ( x Core..?> "managedDataIdentifierIds"
+            Prelude.<*> (x Data..?> "jobStatus")
+            Prelude.<*> (x Data..?> "userPausedDetails")
+            Prelude.<*> (x Data..?> "statistics")
+            Prelude.<*> (x Data..?> "managedDataIdentifierSelector")
+            Prelude.<*> (x Data..?> "scheduleFrequency")
+            Prelude.<*> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "s3JobDefinition")
+            Prelude.<*> (x Data..?> "initialRun")
+            Prelude.<*> (x Data..?> "allowListIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "lastRunTime")
+            Prelude.<*> (x Data..?> "lastRunErrorStatus")
+            Prelude.<*> (x Data..?> "jobArn")
+            Prelude.<*> (x Data..?> "samplingPercentage")
+            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "jobType")
+            Prelude.<*> ( x Data..?> "managedDataIdentifierIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -139,22 +140,22 @@ instance Prelude.NFData DescribeClassificationJob where
   rnf DescribeClassificationJob' {..} =
     Prelude.rnf jobId
 
-instance Core.ToHeaders DescribeClassificationJob where
+instance Data.ToHeaders DescribeClassificationJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeClassificationJob where
+instance Data.ToPath DescribeClassificationJob where
   toPath DescribeClassificationJob' {..} =
-    Prelude.mconcat ["/jobs/", Core.toBS jobId]
+    Prelude.mconcat ["/jobs/", Data.toBS jobId]
 
-instance Core.ToQuery DescribeClassificationJob where
+instance Data.ToQuery DescribeClassificationJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeClassificationJobResponse' smart constructor.
@@ -249,7 +250,7 @@ data DescribeClassificationJobResponse = DescribeClassificationJobResponse'
     -- started. If the job is a recurring job, this value indicates when the
     -- most recent run started or, if the job hasn\'t run yet, when the job was
     -- created.
-    lastRunTime :: Prelude.Maybe Core.POSIX,
+    lastRunTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether any account- or bucket-level access errors occurred
     -- when the job ran. For a recurring job, this value indicates the error
     -- status of the job\'s most recent run.
@@ -261,7 +262,7 @@ data DescribeClassificationJobResponse = DescribeClassificationJobResponse'
     samplingPercentage :: Prelude.Maybe Prelude.Int,
     -- | The date and time, in UTC and extended ISO 8601 format, when the job was
     -- created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The schedule for running the job. Possible values are:
     --
     -- -   ONE_TIME - The job runs only once.
@@ -564,7 +565,7 @@ describeClassificationJobResponse_allowListIds = Lens.lens (\DescribeClassificat
 -- most recent run started or, if the job hasn\'t run yet, when the job was
 -- created.
 describeClassificationJobResponse_lastRunTime :: Lens.Lens' DescribeClassificationJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeClassificationJobResponse_lastRunTime = Lens.lens (\DescribeClassificationJobResponse' {lastRunTime} -> lastRunTime) (\s@DescribeClassificationJobResponse' {} a -> s {lastRunTime = a} :: DescribeClassificationJobResponse) Prelude.. Lens.mapping Core._Time
+describeClassificationJobResponse_lastRunTime = Lens.lens (\DescribeClassificationJobResponse' {lastRunTime} -> lastRunTime) (\s@DescribeClassificationJobResponse' {} a -> s {lastRunTime = a} :: DescribeClassificationJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether any account- or bucket-level access errors occurred
 -- when the job ran. For a recurring job, this value indicates the error
@@ -584,7 +585,7 @@ describeClassificationJobResponse_samplingPercentage = Lens.lens (\DescribeClass
 -- | The date and time, in UTC and extended ISO 8601 format, when the job was
 -- created.
 describeClassificationJobResponse_createdAt :: Lens.Lens' DescribeClassificationJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeClassificationJobResponse_createdAt = Lens.lens (\DescribeClassificationJobResponse' {createdAt} -> createdAt) (\s@DescribeClassificationJobResponse' {} a -> s {createdAt = a} :: DescribeClassificationJobResponse) Prelude.. Lens.mapping Core._Time
+describeClassificationJobResponse_createdAt = Lens.lens (\DescribeClassificationJobResponse' {createdAt} -> createdAt) (\s@DescribeClassificationJobResponse' {} a -> s {createdAt = a} :: DescribeClassificationJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The schedule for running the job. Possible values are:
 --

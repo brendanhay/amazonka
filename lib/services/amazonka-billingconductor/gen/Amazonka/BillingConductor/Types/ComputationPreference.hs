@@ -21,6 +21,7 @@ module Amazonka.BillingConductor.Types.ComputationPreference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The preferences and settings that will be used to compute the Amazon Web
@@ -59,13 +60,13 @@ newComputationPreference pPricingPlanArn_ =
 computationPreference_pricingPlanArn :: Lens.Lens' ComputationPreference Prelude.Text
 computationPreference_pricingPlanArn = Lens.lens (\ComputationPreference' {pricingPlanArn} -> pricingPlanArn) (\s@ComputationPreference' {} a -> s {pricingPlanArn = a} :: ComputationPreference)
 
-instance Core.FromJSON ComputationPreference where
+instance Data.FromJSON ComputationPreference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComputationPreference"
       ( \x ->
           ComputationPreference'
-            Prelude.<$> (x Core..: "PricingPlanArn")
+            Prelude.<$> (x Data..: "PricingPlanArn")
       )
 
 instance Prelude.Hashable ComputationPreference where
@@ -76,11 +77,11 @@ instance Prelude.NFData ComputationPreference where
   rnf ComputationPreference' {..} =
     Prelude.rnf pricingPlanArn
 
-instance Core.ToJSON ComputationPreference where
+instance Data.ToJSON ComputationPreference where
   toJSON ComputationPreference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("PricingPlanArn" Core..= pricingPlanArn)
+              ("PricingPlanArn" Data..= pricingPlanArn)
           ]
       )

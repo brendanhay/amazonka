@@ -43,6 +43,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,7 +86,7 @@ instance Core.AWSRequest EnableDirectory where
       ( \s h x ->
           EnableDirectoryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DirectoryArn")
+            Prelude.<*> (x Data..:> "DirectoryArn")
       )
 
 instance Prelude.Hashable EnableDirectory where
@@ -95,20 +96,20 @@ instance Prelude.Hashable EnableDirectory where
 instance Prelude.NFData EnableDirectory where
   rnf EnableDirectory' {..} = Prelude.rnf directoryArn
 
-instance Core.ToHeaders EnableDirectory where
+instance Data.ToHeaders EnableDirectory where
   toHeaders EnableDirectory' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON EnableDirectory where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON EnableDirectory where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath EnableDirectory where
+instance Data.ToPath EnableDirectory where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/directory/enable"
 
-instance Core.ToQuery EnableDirectory where
+instance Data.ToQuery EnableDirectory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableDirectoryResponse' smart constructor.

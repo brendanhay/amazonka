@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.NumberValidateRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a phone number to validate and retrieve information about.
@@ -81,12 +82,12 @@ instance Prelude.NFData NumberValidateRequest where
     Prelude.rnf isoCountryCode
       `Prelude.seq` Prelude.rnf phoneNumber
 
-instance Core.ToJSON NumberValidateRequest where
+instance Data.ToJSON NumberValidateRequest where
   toJSON NumberValidateRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IsoCountryCode" Core..=)
+          [ ("IsoCountryCode" Data..=)
               Prelude.<$> isoCountryCode,
-            ("PhoneNumber" Core..=) Prelude.<$> phoneNumber
+            ("PhoneNumber" Data..=) Prelude.<$> phoneNumber
           ]
       )

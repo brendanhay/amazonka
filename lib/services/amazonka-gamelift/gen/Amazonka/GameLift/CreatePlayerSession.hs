@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,7 +137,7 @@ instance Core.AWSRequest CreatePlayerSession where
     Response.receiveJSON
       ( \s h x ->
           CreatePlayerSessionResponse'
-            Prelude.<$> (x Core..?> "PlayerSession")
+            Prelude.<$> (x Data..?> "PlayerSession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,35 +153,35 @@ instance Prelude.NFData CreatePlayerSession where
       `Prelude.seq` Prelude.rnf gameSessionId
       `Prelude.seq` Prelude.rnf playerId
 
-instance Core.ToHeaders CreatePlayerSession where
+instance Data.ToHeaders CreatePlayerSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.CreatePlayerSession" ::
+              Data.=# ( "GameLift.CreatePlayerSession" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePlayerSession where
+instance Data.ToJSON CreatePlayerSession where
   toJSON CreatePlayerSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PlayerData" Core..=) Prelude.<$> playerData,
-            Prelude.Just ("GameSessionId" Core..= gameSessionId),
-            Prelude.Just ("PlayerId" Core..= playerId)
+          [ ("PlayerData" Data..=) Prelude.<$> playerData,
+            Prelude.Just ("GameSessionId" Data..= gameSessionId),
+            Prelude.Just ("PlayerId" Data..= playerId)
           ]
       )
 
-instance Core.ToPath CreatePlayerSession where
+instance Data.ToPath CreatePlayerSession where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePlayerSession where
+instance Data.ToQuery CreatePlayerSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

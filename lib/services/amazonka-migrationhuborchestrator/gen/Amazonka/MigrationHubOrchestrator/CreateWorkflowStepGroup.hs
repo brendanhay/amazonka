@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,14 +135,14 @@ instance Core.AWSRequest CreateWorkflowStepGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateWorkflowStepGroupResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "workflowId")
-            Prelude.<*> (x Core..?> "tools" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "next" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "previous" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "workflowId")
+            Prelude.<*> (x Data..?> "tools" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "next" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "previous" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,33 +162,33 @@ instance Prelude.NFData CreateWorkflowStepGroup where
       `Prelude.seq` Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateWorkflowStepGroup where
+instance Data.ToHeaders CreateWorkflowStepGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkflowStepGroup where
+instance Data.ToJSON CreateWorkflowStepGroup where
   toJSON CreateWorkflowStepGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("next" Core..=) Prelude.<$> next,
-            ("description" Core..=) Prelude.<$> description,
-            ("previous" Core..=) Prelude.<$> previous,
-            Prelude.Just ("workflowId" Core..= workflowId),
-            Prelude.Just ("name" Core..= name)
+          [ ("next" Data..=) Prelude.<$> next,
+            ("description" Data..=) Prelude.<$> description,
+            ("previous" Data..=) Prelude.<$> previous,
+            Prelude.Just ("workflowId" Data..= workflowId),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateWorkflowStepGroup where
+instance Data.ToPath CreateWorkflowStepGroup where
   toPath = Prelude.const "/workflowstepgroups"
 
-instance Core.ToQuery CreateWorkflowStepGroup where
+instance Data.ToQuery CreateWorkflowStepGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorkflowStepGroupResponse' smart constructor.
@@ -205,7 +206,7 @@ data CreateWorkflowStepGroupResponse = CreateWorkflowStepGroupResponse'
     -- | The ID of the step group.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time at which the step group is created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The previous step group.
     previous :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
@@ -282,7 +283,7 @@ createWorkflowStepGroupResponse_id = Lens.lens (\CreateWorkflowStepGroupResponse
 
 -- | The time at which the step group is created.
 createWorkflowStepGroupResponse_creationTime :: Lens.Lens' CreateWorkflowStepGroupResponse (Prelude.Maybe Prelude.UTCTime)
-createWorkflowStepGroupResponse_creationTime = Lens.lens (\CreateWorkflowStepGroupResponse' {creationTime} -> creationTime) (\s@CreateWorkflowStepGroupResponse' {} a -> s {creationTime = a} :: CreateWorkflowStepGroupResponse) Prelude.. Lens.mapping Core._Time
+createWorkflowStepGroupResponse_creationTime = Lens.lens (\CreateWorkflowStepGroupResponse' {creationTime} -> creationTime) (\s@CreateWorkflowStepGroupResponse' {} a -> s {creationTime = a} :: CreateWorkflowStepGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The previous step group.
 createWorkflowStepGroupResponse_previous :: Lens.Lens' CreateWorkflowStepGroupResponse (Prelude.Maybe [Prelude.Text])

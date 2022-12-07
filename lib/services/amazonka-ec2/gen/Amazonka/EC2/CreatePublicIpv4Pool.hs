@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,7 +120,7 @@ instance Core.AWSRequest CreatePublicIpv4Pool where
     Response.receiveXML
       ( \s h x ->
           CreatePublicIpv4PoolResponse'
-            Prelude.<$> (x Core..@? "poolId")
+            Prelude.<$> (x Data..@? "poolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,22 +134,22 @@ instance Prelude.NFData CreatePublicIpv4Pool where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf tagSpecifications
 
-instance Core.ToHeaders CreatePublicIpv4Pool where
+instance Data.ToHeaders CreatePublicIpv4Pool where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreatePublicIpv4Pool where
+instance Data.ToPath CreatePublicIpv4Pool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePublicIpv4Pool where
+instance Data.ToQuery CreatePublicIpv4Pool where
   toQuery CreatePublicIpv4Pool' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreatePublicIpv4Pool" :: Prelude.ByteString),
+          Data.=: ("CreatePublicIpv4Pool" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           )
       ]

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -203,7 +204,7 @@ instance Core.AWSRequest CreateListener where
     Response.receiveJSON
       ( \s h x ->
           CreateListenerResponse'
-            Prelude.<$> (x Core..?> "Listener")
+            Prelude.<$> (x Data..?> "Listener")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -223,40 +224,40 @@ instance Prelude.NFData CreateListener where
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf idempotencyToken
 
-instance Core.ToHeaders CreateListener where
+instance Data.ToHeaders CreateListener where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.CreateListener" ::
+              Data.=# ( "GlobalAccelerator_V20180706.CreateListener" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateListener where
+instance Data.ToJSON CreateListener where
   toJSON CreateListener' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientAffinity" Core..=)
+          [ ("ClientAffinity" Data..=)
               Prelude.<$> clientAffinity,
             Prelude.Just
-              ("AcceleratorArn" Core..= acceleratorArn),
-            Prelude.Just ("PortRanges" Core..= portRanges),
-            Prelude.Just ("Protocol" Core..= protocol),
+              ("AcceleratorArn" Data..= acceleratorArn),
+            Prelude.Just ("PortRanges" Data..= portRanges),
+            Prelude.Just ("Protocol" Data..= protocol),
             Prelude.Just
-              ("IdempotencyToken" Core..= idempotencyToken)
+              ("IdempotencyToken" Data..= idempotencyToken)
           ]
       )
 
-instance Core.ToPath CreateListener where
+instance Data.ToPath CreateListener where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateListener where
+instance Data.ToQuery CreateListener where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateListenerResponse' smart constructor.

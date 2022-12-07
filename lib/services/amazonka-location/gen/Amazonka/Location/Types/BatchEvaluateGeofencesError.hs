@@ -21,6 +21,7 @@ module Amazonka.Location.Types.BatchEvaluateGeofencesError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.BatchItemError
 import qualified Amazonka.Prelude as Prelude
 
@@ -36,7 +37,7 @@ data BatchEvaluateGeofencesError = BatchEvaluateGeofencesError'
     -- | Specifies a timestamp for when the error occurred in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
-    sampleTime :: Core.POSIX
+    sampleTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,7 +71,7 @@ newBatchEvaluateGeofencesError
     BatchEvaluateGeofencesError'
       { deviceId = pDeviceId_,
         error = pError_,
-        sampleTime = Core._Time Lens.# pSampleTime_
+        sampleTime = Data._Time Lens.# pSampleTime_
       }
 
 -- | The device associated with the position evaluation error.
@@ -85,17 +86,17 @@ batchEvaluateGeofencesError_error = Lens.lens (\BatchEvaluateGeofencesError' {er
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
 batchEvaluateGeofencesError_sampleTime :: Lens.Lens' BatchEvaluateGeofencesError Prelude.UTCTime
-batchEvaluateGeofencesError_sampleTime = Lens.lens (\BatchEvaluateGeofencesError' {sampleTime} -> sampleTime) (\s@BatchEvaluateGeofencesError' {} a -> s {sampleTime = a} :: BatchEvaluateGeofencesError) Prelude.. Core._Time
+batchEvaluateGeofencesError_sampleTime = Lens.lens (\BatchEvaluateGeofencesError' {sampleTime} -> sampleTime) (\s@BatchEvaluateGeofencesError' {} a -> s {sampleTime = a} :: BatchEvaluateGeofencesError) Prelude.. Data._Time
 
-instance Core.FromJSON BatchEvaluateGeofencesError where
+instance Data.FromJSON BatchEvaluateGeofencesError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchEvaluateGeofencesError"
       ( \x ->
           BatchEvaluateGeofencesError'
-            Prelude.<$> (x Core..: "DeviceId")
-            Prelude.<*> (x Core..: "Error")
-            Prelude.<*> (x Core..: "SampleTime")
+            Prelude.<$> (x Data..: "DeviceId")
+            Prelude.<*> (x Data..: "Error")
+            Prelude.<*> (x Data..: "SampleTime")
       )
 
 instance Prelude.Hashable BatchEvaluateGeofencesError where

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,8 +123,8 @@ instance Core.AWSRequest ListInstanceGroups where
     Response.receiveJSON
       ( \s h x ->
           ListInstanceGroupsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "InstanceGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "InstanceGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,34 +138,34 @@ instance Prelude.NFData ListInstanceGroups where
     Prelude.rnf marker
       `Prelude.seq` Prelude.rnf clusterId
 
-instance Core.ToHeaders ListInstanceGroups where
+instance Data.ToHeaders ListInstanceGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.ListInstanceGroups" ::
+              Data.=# ( "ElasticMapReduce.ListInstanceGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListInstanceGroups where
+instance Data.ToJSON ListInstanceGroups where
   toJSON ListInstanceGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            Prelude.Just ("ClusterId" Core..= clusterId)
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            Prelude.Just ("ClusterId" Data..= clusterId)
           ]
       )
 
-instance Core.ToPath ListInstanceGroups where
+instance Data.ToPath ListInstanceGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListInstanceGroups where
+instance Data.ToQuery ListInstanceGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | This input determines which instance groups to retrieve.

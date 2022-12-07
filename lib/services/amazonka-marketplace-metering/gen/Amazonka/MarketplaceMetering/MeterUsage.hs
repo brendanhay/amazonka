@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceMetering.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,7 +86,7 @@ data MeterUsage = MeterUsage'
     -- | Timestamp, in UTC, for which the usage is being reported. Your
     -- application can meter usage for up to one hour in the past. Make sure
     -- the @timestamp@ value is not before the start of the software usage.
-    timestamp :: Core.POSIX,
+    timestamp :: Data.POSIX,
     -- | It will be one of the fcp dimension name provided during the publishing
     -- of the product.
     usageDimension :: Prelude.Text
@@ -140,7 +141,7 @@ newMeterUsage
         usageAllocations = Prelude.Nothing,
         dryRun = Prelude.Nothing,
         productCode = pProductCode_,
-        timestamp = Core._Time Lens.# pTimestamp_,
+        timestamp = Data._Time Lens.# pTimestamp_,
         usageDimension = pUsageDimension_
       }
 
@@ -173,7 +174,7 @@ meterUsage_productCode = Lens.lens (\MeterUsage' {productCode} -> productCode) (
 -- application can meter usage for up to one hour in the past. Make sure
 -- the @timestamp@ value is not before the start of the software usage.
 meterUsage_timestamp :: Lens.Lens' MeterUsage Prelude.UTCTime
-meterUsage_timestamp = Lens.lens (\MeterUsage' {timestamp} -> timestamp) (\s@MeterUsage' {} a -> s {timestamp = a} :: MeterUsage) Prelude.. Core._Time
+meterUsage_timestamp = Lens.lens (\MeterUsage' {timestamp} -> timestamp) (\s@MeterUsage' {} a -> s {timestamp = a} :: MeterUsage) Prelude.. Data._Time
 
 -- | It will be one of the fcp dimension name provided during the publishing
 -- of the product.
@@ -188,7 +189,7 @@ instance Core.AWSRequest MeterUsage where
     Response.receiveJSON
       ( \s h x ->
           MeterUsageResponse'
-            Prelude.<$> (x Core..?> "MeteringRecordId")
+            Prelude.<$> (x Data..?> "MeteringRecordId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,40 +211,40 @@ instance Prelude.NFData MeterUsage where
       `Prelude.seq` Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf usageDimension
 
-instance Core.ToHeaders MeterUsage where
+instance Data.ToHeaders MeterUsage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMPMeteringService.MeterUsage" ::
+              Data.=# ( "AWSMPMeteringService.MeterUsage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON MeterUsage where
+instance Data.ToJSON MeterUsage where
   toJSON MeterUsage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UsageQuantity" Core..=) Prelude.<$> usageQuantity,
-            ("UsageAllocations" Core..=)
+          [ ("UsageQuantity" Data..=) Prelude.<$> usageQuantity,
+            ("UsageAllocations" Data..=)
               Prelude.<$> usageAllocations,
-            ("DryRun" Core..=) Prelude.<$> dryRun,
-            Prelude.Just ("ProductCode" Core..= productCode),
-            Prelude.Just ("Timestamp" Core..= timestamp),
+            ("DryRun" Data..=) Prelude.<$> dryRun,
+            Prelude.Just ("ProductCode" Data..= productCode),
+            Prelude.Just ("Timestamp" Data..= timestamp),
             Prelude.Just
-              ("UsageDimension" Core..= usageDimension)
+              ("UsageDimension" Data..= usageDimension)
           ]
       )
 
-instance Core.ToPath MeterUsage where
+instance Data.ToPath MeterUsage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery MeterUsage where
+instance Data.ToQuery MeterUsage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newMeterUsageResponse' smart constructor.

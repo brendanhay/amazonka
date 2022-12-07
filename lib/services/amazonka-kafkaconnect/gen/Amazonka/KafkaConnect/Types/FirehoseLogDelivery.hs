@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.FirehoseLogDelivery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings for delivering logs to Amazon Kinesis Data Firehose.
@@ -80,12 +81,12 @@ instance Prelude.NFData FirehoseLogDelivery where
     Prelude.rnf deliveryStream
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON FirehoseLogDelivery where
+instance Data.ToJSON FirehoseLogDelivery where
   toJSON FirehoseLogDelivery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deliveryStream" Core..=)
+          [ ("deliveryStream" Data..=)
               Prelude.<$> deliveryStream,
-            Prelude.Just ("enabled" Core..= enabled)
+            Prelude.Just ("enabled" Data..= enabled)
           ]
       )

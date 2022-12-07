@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.CustomPluginContentType
 import Amazonka.KafkaConnect.Types.CustomPluginFileDescription
 import Amazonka.KafkaConnect.Types.CustomPluginLocationDescription
@@ -39,7 +40,7 @@ data CustomPluginRevisionSummary = CustomPluginRevisionSummary'
     -- | Information about the location of the custom plugin.
     location :: Prelude.Maybe CustomPluginLocationDescription,
     -- | The time that the custom plugin was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The format of the plugin file.
     contentType :: Prelude.Maybe CustomPluginContentType
   }
@@ -95,24 +96,24 @@ customPluginRevisionSummary_location = Lens.lens (\CustomPluginRevisionSummary' 
 
 -- | The time that the custom plugin was created.
 customPluginRevisionSummary_creationTime :: Lens.Lens' CustomPluginRevisionSummary (Prelude.Maybe Prelude.UTCTime)
-customPluginRevisionSummary_creationTime = Lens.lens (\CustomPluginRevisionSummary' {creationTime} -> creationTime) (\s@CustomPluginRevisionSummary' {} a -> s {creationTime = a} :: CustomPluginRevisionSummary) Prelude.. Lens.mapping Core._Time
+customPluginRevisionSummary_creationTime = Lens.lens (\CustomPluginRevisionSummary' {creationTime} -> creationTime) (\s@CustomPluginRevisionSummary' {} a -> s {creationTime = a} :: CustomPluginRevisionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The format of the plugin file.
 customPluginRevisionSummary_contentType :: Lens.Lens' CustomPluginRevisionSummary (Prelude.Maybe CustomPluginContentType)
 customPluginRevisionSummary_contentType = Lens.lens (\CustomPluginRevisionSummary' {contentType} -> contentType) (\s@CustomPluginRevisionSummary' {} a -> s {contentType = a} :: CustomPluginRevisionSummary)
 
-instance Core.FromJSON CustomPluginRevisionSummary where
+instance Data.FromJSON CustomPluginRevisionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomPluginRevisionSummary"
       ( \x ->
           CustomPluginRevisionSummary'
-            Prelude.<$> (x Core..:? "revision")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "fileDescription")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "contentType")
+            Prelude.<$> (x Data..:? "revision")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "fileDescription")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "contentType")
       )
 
 instance Prelude.Hashable CustomPluginRevisionSummary where

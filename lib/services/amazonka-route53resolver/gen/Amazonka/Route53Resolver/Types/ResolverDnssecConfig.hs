@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.ResolverDnssecConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.ResolverDNSSECValidationStatus
 
@@ -120,16 +121,16 @@ resolverDnssecConfig_validationStatus = Lens.lens (\ResolverDnssecConfig' {valid
 resolverDnssecConfig_id :: Lens.Lens' ResolverDnssecConfig (Prelude.Maybe Prelude.Text)
 resolverDnssecConfig_id = Lens.lens (\ResolverDnssecConfig' {id} -> id) (\s@ResolverDnssecConfig' {} a -> s {id = a} :: ResolverDnssecConfig)
 
-instance Core.FromJSON ResolverDnssecConfig where
+instance Data.FromJSON ResolverDnssecConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResolverDnssecConfig"
       ( \x ->
           ResolverDnssecConfig'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "ValidationStatus")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "ValidationStatus")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable ResolverDnssecConfig where

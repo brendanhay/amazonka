@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -185,11 +186,11 @@ instance Core.AWSRequest GetPropertyValue where
     Response.receiveJSON
       ( \s h x ->
           GetPropertyValueResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "tabularPropertyValues"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "tabularPropertyValues"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "propertyValues" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "propertyValues" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -217,45 +218,45 @@ instance Prelude.NFData GetPropertyValue where
       `Prelude.seq` Prelude.rnf selectedProperties
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders GetPropertyValue where
+instance Data.ToHeaders GetPropertyValue where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetPropertyValue where
+instance Data.ToJSON GetPropertyValue where
   toJSON GetPropertyValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("entityId" Core..=) Prelude.<$> entityId,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("propertyGroupName" Core..=)
+          [ ("entityId" Data..=) Prelude.<$> entityId,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("propertyGroupName" Data..=)
               Prelude.<$> propertyGroupName,
-            ("componentName" Core..=) Prelude.<$> componentName,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("tabularConditions" Core..=)
+            ("componentName" Data..=) Prelude.<$> componentName,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("tabularConditions" Data..=)
               Prelude.<$> tabularConditions,
-            ("componentTypeId" Core..=)
+            ("componentTypeId" Data..=)
               Prelude.<$> componentTypeId,
             Prelude.Just
-              ("selectedProperties" Core..= selectedProperties)
+              ("selectedProperties" Data..= selectedProperties)
           ]
       )
 
-instance Core.ToPath GetPropertyValue where
+instance Data.ToPath GetPropertyValue where
   toPath GetPropertyValue' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/entity-properties/value"
       ]
 
-instance Core.ToQuery GetPropertyValue where
+instance Data.ToQuery GetPropertyValue where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPropertyValueResponse' smart constructor.

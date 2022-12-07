@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.SidewalkSendDataToDevice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.MessageType
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,13 +86,13 @@ instance Prelude.NFData SidewalkSendDataToDevice where
       `Prelude.seq` Prelude.rnf messageType
       `Prelude.seq` Prelude.rnf ackModeRetryDurationSecs
 
-instance Core.ToJSON SidewalkSendDataToDevice where
+instance Data.ToJSON SidewalkSendDataToDevice where
   toJSON SidewalkSendDataToDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Seq" Core..=) Prelude.<$> seq,
-            ("MessageType" Core..=) Prelude.<$> messageType,
-            ("AckModeRetryDurationSecs" Core..=)
+          [ ("Seq" Data..=) Prelude.<$> seq,
+            ("MessageType" Data..=) Prelude.<$> messageType,
+            ("AckModeRetryDurationSecs" Data..=)
               Prelude.<$> ackModeRetryDurationSecs
           ]
       )

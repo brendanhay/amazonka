@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.AssessmentTargetFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used as the request parameter in the ListAssessmentTargets action.
@@ -71,11 +72,11 @@ instance Prelude.NFData AssessmentTargetFilter where
   rnf AssessmentTargetFilter' {..} =
     Prelude.rnf assessmentTargetNamePattern
 
-instance Core.ToJSON AssessmentTargetFilter where
+instance Data.ToJSON AssessmentTargetFilter where
   toJSON AssessmentTargetFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("assessmentTargetNamePattern" Core..=)
+          [ ("assessmentTargetNamePattern" Data..=)
               Prelude.<$> assessmentTargetNamePattern
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.FailureInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the failure details about an import job.
@@ -64,14 +65,14 @@ failureInfo_errorMessage = Lens.lens (\FailureInfo' {errorMessage} -> errorMessa
 failureInfo_failedRecordsS3Url :: Lens.Lens' FailureInfo (Prelude.Maybe Prelude.Text)
 failureInfo_failedRecordsS3Url = Lens.lens (\FailureInfo' {failedRecordsS3Url} -> failedRecordsS3Url) (\s@FailureInfo' {} a -> s {failedRecordsS3Url = a} :: FailureInfo)
 
-instance Core.FromJSON FailureInfo where
+instance Data.FromJSON FailureInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailureInfo"
       ( \x ->
           FailureInfo'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "FailedRecordsS3Url")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "FailedRecordsS3Url")
       )
 
 instance Prelude.Hashable FailureInfo where

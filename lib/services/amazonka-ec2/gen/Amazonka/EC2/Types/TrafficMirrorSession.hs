@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TrafficMirrorSession where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -159,21 +160,21 @@ trafficMirrorSession_networkInterfaceId = Lens.lens (\TrafficMirrorSession' {net
 trafficMirrorSession_virtualNetworkId :: Lens.Lens' TrafficMirrorSession (Prelude.Maybe Prelude.Int)
 trafficMirrorSession_virtualNetworkId = Lens.lens (\TrafficMirrorSession' {virtualNetworkId} -> virtualNetworkId) (\s@TrafficMirrorSession' {} a -> s {virtualNetworkId = a} :: TrafficMirrorSession)
 
-instance Core.FromXML TrafficMirrorSession where
+instance Data.FromXML TrafficMirrorSession where
   parseXML x =
     TrafficMirrorSession'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "trafficMirrorSessionId")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "sessionNumber")
-      Prelude.<*> (x Core..@? "trafficMirrorTargetId")
-      Prelude.<*> (x Core..@? "trafficMirrorFilterId")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "packetLength")
-      Prelude.<*> (x Core..@? "networkInterfaceId")
-      Prelude.<*> (x Core..@? "virtualNetworkId")
+      Prelude.<*> (x Data..@? "trafficMirrorSessionId")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "sessionNumber")
+      Prelude.<*> (x Data..@? "trafficMirrorTargetId")
+      Prelude.<*> (x Data..@? "trafficMirrorFilterId")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "packetLength")
+      Prelude.<*> (x Data..@? "networkInterfaceId")
+      Prelude.<*> (x Data..@? "virtualNetworkId")
 
 instance Prelude.Hashable TrafficMirrorSession where
   hashWithSalt _salt TrafficMirrorSession' {..} =

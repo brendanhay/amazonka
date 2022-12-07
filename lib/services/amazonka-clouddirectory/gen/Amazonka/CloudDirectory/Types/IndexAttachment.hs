@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.IndexAttachment where
 import Amazonka.CloudDirectory.Types.AttributeKeyAndValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an index and an attached object.
@@ -75,15 +76,15 @@ indexAttachment_objectIdentifier = Lens.lens (\IndexAttachment' {objectIdentifie
 indexAttachment_indexedAttributes :: Lens.Lens' IndexAttachment (Prelude.Maybe [AttributeKeyAndValue])
 indexAttachment_indexedAttributes = Lens.lens (\IndexAttachment' {indexedAttributes} -> indexedAttributes) (\s@IndexAttachment' {} a -> s {indexedAttributes = a} :: IndexAttachment) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON IndexAttachment where
+instance Data.FromJSON IndexAttachment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IndexAttachment"
       ( \x ->
           IndexAttachment'
-            Prelude.<$> (x Core..:? "ObjectIdentifier")
-            Prelude.<*> ( x Core..:? "IndexedAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ObjectIdentifier")
+            Prelude.<*> ( x Data..:? "IndexedAttributes"
+                            Data..!= Prelude.mempty
                         )
       )
 

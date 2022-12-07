@@ -27,6 +27,7 @@ module Amazonka.MediaLive.Types.Scte35SegmentationCancelIndicator
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Corresponds to SCTE-35 segmentation_event_cancel_indicator.
@@ -37,7 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 -- case complete this field and the existing event ID to cancel.
 newtype Scte35SegmentationCancelIndicator = Scte35SegmentationCancelIndicator'
   { fromScte35SegmentationCancelIndicator ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -49,18 +50,18 @@ newtype Scte35SegmentationCancelIndicator = Scte35SegmentationCancelIndicator'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern Scte35SegmentationCancelIndicator_SEGMENTATION_EVENT_CANCELED :: Scte35SegmentationCancelIndicator

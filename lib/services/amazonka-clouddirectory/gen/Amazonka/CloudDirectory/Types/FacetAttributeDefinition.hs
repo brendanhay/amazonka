@@ -24,6 +24,7 @@ import Amazonka.CloudDirectory.Types.Rule
 import Amazonka.CloudDirectory.Types.TypedAttributeValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A facet attribute definition. See
@@ -86,16 +87,16 @@ facetAttributeDefinition_isImmutable = Lens.lens (\FacetAttributeDefinition' {is
 facetAttributeDefinition_type :: Lens.Lens' FacetAttributeDefinition FacetAttributeType
 facetAttributeDefinition_type = Lens.lens (\FacetAttributeDefinition' {type'} -> type') (\s@FacetAttributeDefinition' {} a -> s {type' = a} :: FacetAttributeDefinition)
 
-instance Core.FromJSON FacetAttributeDefinition where
+instance Data.FromJSON FacetAttributeDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FacetAttributeDefinition"
       ( \x ->
           FacetAttributeDefinition'
-            Prelude.<$> (x Core..:? "Rules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DefaultValue")
-            Prelude.<*> (x Core..:? "IsImmutable")
-            Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "Rules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DefaultValue")
+            Prelude.<*> (x Data..:? "IsImmutable")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable FacetAttributeDefinition where
@@ -112,13 +113,13 @@ instance Prelude.NFData FacetAttributeDefinition where
       `Prelude.seq` Prelude.rnf isImmutable
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON FacetAttributeDefinition where
+instance Data.ToJSON FacetAttributeDefinition where
   toJSON FacetAttributeDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Rules" Core..=) Prelude.<$> rules,
-            ("DefaultValue" Core..=) Prelude.<$> defaultValue,
-            ("IsImmutable" Core..=) Prelude.<$> isImmutable,
-            Prelude.Just ("Type" Core..= type')
+          [ ("Rules" Data..=) Prelude.<$> rules,
+            ("DefaultValue" Data..=) Prelude.<$> defaultValue,
+            ("IsImmutable" Data..=) Prelude.<$> isImmutable,
+            Prelude.Just ("Type" Data..= type')
           ]
       )

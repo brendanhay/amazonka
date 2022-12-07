@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,32 +112,32 @@ instance Prelude.Hashable StopResource where
 instance Prelude.NFData StopResource where
   rnf StopResource' {..} = Prelude.rnf resourceArn
 
-instance Core.ToHeaders StopResource where
+instance Data.ToHeaders StopResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.StopResource" ::
+              Data.=# ( "AmazonForecast.StopResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopResource where
+instance Data.ToJSON StopResource where
   toJSON StopResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
+          [Prelude.Just ("ResourceArn" Data..= resourceArn)]
       )
 
-instance Core.ToPath StopResource where
+instance Data.ToPath StopResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopResource where
+instance Data.ToQuery StopResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopResourceResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.RegionsInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the Regions that are configured for
@@ -68,15 +69,15 @@ regionsInfo_primaryRegion = Lens.lens (\RegionsInfo' {primaryRegion} -> primaryR
 regionsInfo_additionalRegions :: Lens.Lens' RegionsInfo (Prelude.Maybe [Prelude.Text])
 regionsInfo_additionalRegions = Lens.lens (\RegionsInfo' {additionalRegions} -> additionalRegions) (\s@RegionsInfo' {} a -> s {additionalRegions = a} :: RegionsInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RegionsInfo where
+instance Data.FromJSON RegionsInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegionsInfo"
       ( \x ->
           RegionsInfo'
-            Prelude.<$> (x Core..:? "PrimaryRegion")
-            Prelude.<*> ( x Core..:? "AdditionalRegions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "PrimaryRegion")
+            Prelude.<*> ( x Data..:? "AdditionalRegions"
+                            Data..!= Prelude.mempty
                         )
       )
 

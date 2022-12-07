@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,8 +150,8 @@ instance Core.AWSRequest ListServiceActions where
     Response.receiveJSON
       ( \s h x ->
           ListServiceActionsResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> ( x Core..?> "ServiceActionSummaries"
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> ( x Data..?> "ServiceActionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -168,36 +169,36 @@ instance Prelude.NFData ListServiceActions where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf acceptLanguage
 
-instance Core.ToHeaders ListServiceActions where
+instance Data.ToHeaders ListServiceActions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ListServiceActions" ::
+              Data.=# ( "AWS242ServiceCatalogService.ListServiceActions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListServiceActions where
+instance Data.ToJSON ListServiceActions where
   toJSON ListServiceActions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Core..=)
+          [ ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage
           ]
       )
 
-instance Core.ToPath ListServiceActions where
+instance Data.ToPath ListServiceActions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListServiceActions where
+instance Data.ToQuery ListServiceActions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListServiceActionsResponse' smart constructor.

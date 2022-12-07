@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.Configuration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types.AuthenticationStrategy
 import Amazonka.MQ.Types.ConfigurationRevision
 import Amazonka.MQ.Types.EngineType
@@ -55,7 +56,7 @@ data Configuration = Configuration'
     -- ~). This value must be 1-150 characters long.
     name :: Prelude.Text,
     -- | Required. The date and time of the configuration revision.
-    created :: Core.POSIX
+    created :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -132,7 +133,7 @@ newConfiguration
         id = pId_,
         arn = pArn_,
         name = pName_,
-        created = Core._Time Lens.# pCreated_
+        created = Data._Time Lens.# pCreated_
       }
 
 -- | The list of all tags associated with this configuration.
@@ -179,24 +180,24 @@ configuration_name = Lens.lens (\Configuration' {name} -> name) (\s@Configuratio
 
 -- | Required. The date and time of the configuration revision.
 configuration_created :: Lens.Lens' Configuration Prelude.UTCTime
-configuration_created = Lens.lens (\Configuration' {created} -> created) (\s@Configuration' {} a -> s {created = a} :: Configuration) Prelude.. Core._Time
+configuration_created = Lens.lens (\Configuration' {created} -> created) (\s@Configuration' {} a -> s {created = a} :: Configuration) Prelude.. Data._Time
 
-instance Core.FromJSON Configuration where
+instance Data.FromJSON Configuration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Configuration"
       ( \x ->
           Configuration'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "description")
-            Prelude.<*> (x Core..: "engineVersion")
-            Prelude.<*> (x Core..: "latestRevision")
-            Prelude.<*> (x Core..: "authenticationStrategy")
-            Prelude.<*> (x Core..: "engineType")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "created")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "description")
+            Prelude.<*> (x Data..: "engineVersion")
+            Prelude.<*> (x Data..: "latestRevision")
+            Prelude.<*> (x Data..: "authenticationStrategy")
+            Prelude.<*> (x Data..: "engineType")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "created")
       )
 
 instance Prelude.Hashable Configuration where

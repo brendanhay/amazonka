@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.SalesforceSourceProperties where
 import Amazonka.AppFlow.Types.SalesforceDataTransferApi
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Salesforce is being used as a
@@ -204,16 +205,16 @@ salesforceSourceProperties_enableDynamicFieldUpdate = Lens.lens (\SalesforceSour
 salesforceSourceProperties_object :: Lens.Lens' SalesforceSourceProperties Prelude.Text
 salesforceSourceProperties_object = Lens.lens (\SalesforceSourceProperties' {object'} -> object') (\s@SalesforceSourceProperties' {} a -> s {object' = a} :: SalesforceSourceProperties)
 
-instance Core.FromJSON SalesforceSourceProperties where
+instance Data.FromJSON SalesforceSourceProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SalesforceSourceProperties"
       ( \x ->
           SalesforceSourceProperties'
-            Prelude.<$> (x Core..:? "includeDeletedRecords")
-            Prelude.<*> (x Core..:? "dataTransferApi")
-            Prelude.<*> (x Core..:? "enableDynamicFieldUpdate")
-            Prelude.<*> (x Core..: "object")
+            Prelude.<$> (x Data..:? "includeDeletedRecords")
+            Prelude.<*> (x Data..:? "dataTransferApi")
+            Prelude.<*> (x Data..:? "enableDynamicFieldUpdate")
+            Prelude.<*> (x Data..: "object")
       )
 
 instance Prelude.Hashable SalesforceSourceProperties where
@@ -230,16 +231,16 @@ instance Prelude.NFData SalesforceSourceProperties where
       `Prelude.seq` Prelude.rnf enableDynamicFieldUpdate
       `Prelude.seq` Prelude.rnf object'
 
-instance Core.ToJSON SalesforceSourceProperties where
+instance Data.ToJSON SalesforceSourceProperties where
   toJSON SalesforceSourceProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("includeDeletedRecords" Core..=)
+          [ ("includeDeletedRecords" Data..=)
               Prelude.<$> includeDeletedRecords,
-            ("dataTransferApi" Core..=)
+            ("dataTransferApi" Data..=)
               Prelude.<$> dataTransferApi,
-            ("enableDynamicFieldUpdate" Core..=)
+            ("enableDynamicFieldUpdate" Data..=)
               Prelude.<$> enableDynamicFieldUpdate,
-            Prelude.Just ("object" Core..= object')
+            Prelude.Just ("object" Data..= object')
           ]
       )

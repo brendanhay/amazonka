@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.EvaluationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.VariableValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -133,19 +134,19 @@ evaluationResult_entityId = Lens.lens (\EvaluationResult' {entityId} -> entityId
 evaluationResult_feature :: Lens.Lens' EvaluationResult Prelude.Text
 evaluationResult_feature = Lens.lens (\EvaluationResult' {feature} -> feature) (\s@EvaluationResult' {} a -> s {feature = a} :: EvaluationResult)
 
-instance Core.FromJSON EvaluationResult where
+instance Data.FromJSON EvaluationResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EvaluationResult"
       ( \x ->
           EvaluationResult'
-            Prelude.<$> (x Core..:? "variation")
-            Prelude.<*> (x Core..:? "details")
-            Prelude.<*> (x Core..:? "project")
-            Prelude.<*> (x Core..:? "reason")
-            Prelude.<*> (x Core..:? "value")
-            Prelude.<*> (x Core..: "entityId")
-            Prelude.<*> (x Core..: "feature")
+            Prelude.<$> (x Data..:? "variation")
+            Prelude.<*> (x Data..:? "details")
+            Prelude.<*> (x Data..:? "project")
+            Prelude.<*> (x Data..:? "reason")
+            Prelude.<*> (x Data..:? "value")
+            Prelude.<*> (x Data..: "entityId")
+            Prelude.<*> (x Data..: "feature")
       )
 
 instance Prelude.Hashable EvaluationResult where

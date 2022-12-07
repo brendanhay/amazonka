@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.NonTalkTimeFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.AbsoluteTimeRange
 import Amazonka.Transcribe.Types.RelativeTimeRange
@@ -113,16 +114,16 @@ nonTalkTimeFilter_threshold = Lens.lens (\NonTalkTimeFilter' {threshold} -> thre
 nonTalkTimeFilter_relativeTimeRange :: Lens.Lens' NonTalkTimeFilter (Prelude.Maybe RelativeTimeRange)
 nonTalkTimeFilter_relativeTimeRange = Lens.lens (\NonTalkTimeFilter' {relativeTimeRange} -> relativeTimeRange) (\s@NonTalkTimeFilter' {} a -> s {relativeTimeRange = a} :: NonTalkTimeFilter)
 
-instance Core.FromJSON NonTalkTimeFilter where
+instance Data.FromJSON NonTalkTimeFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NonTalkTimeFilter"
       ( \x ->
           NonTalkTimeFilter'
-            Prelude.<$> (x Core..:? "Negate")
-            Prelude.<*> (x Core..:? "AbsoluteTimeRange")
-            Prelude.<*> (x Core..:? "Threshold")
-            Prelude.<*> (x Core..:? "RelativeTimeRange")
+            Prelude.<$> (x Data..:? "Negate")
+            Prelude.<*> (x Data..:? "AbsoluteTimeRange")
+            Prelude.<*> (x Data..:? "Threshold")
+            Prelude.<*> (x Data..:? "RelativeTimeRange")
       )
 
 instance Prelude.Hashable NonTalkTimeFilter where
@@ -139,15 +140,15 @@ instance Prelude.NFData NonTalkTimeFilter where
       `Prelude.seq` Prelude.rnf threshold
       `Prelude.seq` Prelude.rnf relativeTimeRange
 
-instance Core.ToJSON NonTalkTimeFilter where
+instance Data.ToJSON NonTalkTimeFilter where
   toJSON NonTalkTimeFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Negate" Core..=) Prelude.<$> negate,
-            ("AbsoluteTimeRange" Core..=)
+          [ ("Negate" Data..=) Prelude.<$> negate,
+            ("AbsoluteTimeRange" Data..=)
               Prelude.<$> absoluteTimeRange,
-            ("Threshold" Core..=) Prelude.<$> threshold,
-            ("RelativeTimeRange" Core..=)
+            ("Threshold" Data..=) Prelude.<$> threshold,
+            ("RelativeTimeRange" Data..=)
               Prelude.<$> relativeTimeRange
           ]
       )

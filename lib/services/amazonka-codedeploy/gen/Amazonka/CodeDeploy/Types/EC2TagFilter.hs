@@ -22,6 +22,7 @@ module Amazonka.CodeDeploy.Types.EC2TagFilter where
 import Amazonka.CodeDeploy.Types.EC2TagFilterType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an EC2 tag filter.
@@ -89,15 +90,15 @@ eC2TagFilter_type = Lens.lens (\EC2TagFilter' {type'} -> type') (\s@EC2TagFilter
 eC2TagFilter_value :: Lens.Lens' EC2TagFilter (Prelude.Maybe Prelude.Text)
 eC2TagFilter_value = Lens.lens (\EC2TagFilter' {value} -> value) (\s@EC2TagFilter' {} a -> s {value = a} :: EC2TagFilter)
 
-instance Core.FromJSON EC2TagFilter where
+instance Data.FromJSON EC2TagFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EC2TagFilter"
       ( \x ->
           EC2TagFilter'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable EC2TagFilter where
@@ -112,12 +113,12 @@ instance Prelude.NFData EC2TagFilter where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON EC2TagFilter where
+instance Data.ToJSON EC2TagFilter where
   toJSON EC2TagFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

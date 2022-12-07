@@ -23,6 +23,7 @@ import Amazonka.Athena.Types.AclConfiguration
 import Amazonka.Athena.Types.EncryptionConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The location in Amazon S3 where query results are stored and the
@@ -196,16 +197,16 @@ resultConfiguration_outputLocation = Lens.lens (\ResultConfiguration' {outputLoc
 resultConfiguration_encryptionConfiguration :: Lens.Lens' ResultConfiguration (Prelude.Maybe EncryptionConfiguration)
 resultConfiguration_encryptionConfiguration = Lens.lens (\ResultConfiguration' {encryptionConfiguration} -> encryptionConfiguration) (\s@ResultConfiguration' {} a -> s {encryptionConfiguration = a} :: ResultConfiguration)
 
-instance Core.FromJSON ResultConfiguration where
+instance Data.FromJSON ResultConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResultConfiguration"
       ( \x ->
           ResultConfiguration'
-            Prelude.<$> (x Core..:? "AclConfiguration")
-            Prelude.<*> (x Core..:? "ExpectedBucketOwner")
-            Prelude.<*> (x Core..:? "OutputLocation")
-            Prelude.<*> (x Core..:? "EncryptionConfiguration")
+            Prelude.<$> (x Data..:? "AclConfiguration")
+            Prelude.<*> (x Data..:? "ExpectedBucketOwner")
+            Prelude.<*> (x Data..:? "OutputLocation")
+            Prelude.<*> (x Data..:? "EncryptionConfiguration")
       )
 
 instance Prelude.Hashable ResultConfiguration where
@@ -222,17 +223,17 @@ instance Prelude.NFData ResultConfiguration where
       `Prelude.seq` Prelude.rnf outputLocation
       `Prelude.seq` Prelude.rnf encryptionConfiguration
 
-instance Core.ToJSON ResultConfiguration where
+instance Data.ToJSON ResultConfiguration where
   toJSON ResultConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AclConfiguration" Core..=)
+          [ ("AclConfiguration" Data..=)
               Prelude.<$> aclConfiguration,
-            ("ExpectedBucketOwner" Core..=)
+            ("ExpectedBucketOwner" Data..=)
               Prelude.<$> expectedBucketOwner,
-            ("OutputLocation" Core..=)
+            ("OutputLocation" Data..=)
               Prelude.<$> outputLocation,
-            ("EncryptionConfiguration" Core..=)
+            ("EncryptionConfiguration" Data..=)
               Prelude.<$> encryptionConfiguration
           ]
       )

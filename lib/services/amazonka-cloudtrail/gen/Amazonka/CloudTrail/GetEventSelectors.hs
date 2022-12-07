@@ -62,6 +62,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,11 +155,11 @@ instance Core.AWSRequest GetEventSelectors where
     Response.receiveJSON
       ( \s h x ->
           GetEventSelectorsResponse'
-            Prelude.<$> ( x Core..?> "AdvancedEventSelectors"
+            Prelude.<$> ( x Data..?> "AdvancedEventSelectors"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "EventSelectors" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "TrailARN")
+            Prelude.<*> (x Data..?> "EventSelectors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TrailARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,32 +170,32 @@ instance Prelude.Hashable GetEventSelectors where
 instance Prelude.NFData GetEventSelectors where
   rnf GetEventSelectors' {..} = Prelude.rnf trailName
 
-instance Core.ToHeaders GetEventSelectors where
+instance Data.ToHeaders GetEventSelectors where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetEventSelectors" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetEventSelectors" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEventSelectors where
+instance Data.ToJSON GetEventSelectors where
   toJSON GetEventSelectors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TrailName" Core..= trailName)]
+          [Prelude.Just ("TrailName" Data..= trailName)]
       )
 
-instance Core.ToPath GetEventSelectors where
+instance Data.ToPath GetEventSelectors where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetEventSelectors where
+instance Data.ToQuery GetEventSelectors where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEventSelectorsResponse' smart constructor.

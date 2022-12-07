@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.QueueSummary where
 import Amazonka.Connect.Types.QueueType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about a queue.
@@ -80,16 +81,16 @@ queueSummary_id = Lens.lens (\QueueSummary' {id} -> id) (\s@QueueSummary' {} a -
 queueSummary_queueType :: Lens.Lens' QueueSummary (Prelude.Maybe QueueType)
 queueSummary_queueType = Lens.lens (\QueueSummary' {queueType} -> queueType) (\s@QueueSummary' {} a -> s {queueType = a} :: QueueSummary)
 
-instance Core.FromJSON QueueSummary where
+instance Data.FromJSON QueueSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueueSummary"
       ( \x ->
           QueueSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "QueueType")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "QueueType")
       )
 
 instance Prelude.Hashable QueueSummary where

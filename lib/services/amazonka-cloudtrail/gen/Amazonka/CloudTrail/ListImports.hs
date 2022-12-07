@@ -49,6 +49,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,8 +135,8 @@ instance Core.AWSRequest ListImports where
     Response.receiveJSON
       ( \s h x ->
           ListImportsResponse'
-            Prelude.<$> (x Core..?> "Imports" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "Imports" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,36 +154,36 @@ instance Prelude.NFData ListImports where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf importStatus
 
-instance Core.ToHeaders ListImports where
+instance Data.ToHeaders ListImports where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListImports" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListImports" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListImports where
+instance Data.ToJSON ListImports where
   toJSON ListImports' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Destination" Core..=) Prelude.<$> destination,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ImportStatus" Core..=) Prelude.<$> importStatus
+          [ ("Destination" Data..=) Prelude.<$> destination,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ImportStatus" Data..=) Prelude.<$> importStatus
           ]
       )
 
-instance Core.ToPath ListImports where
+instance Data.ToPath ListImports where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListImports where
+instance Data.ToQuery ListImports where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListImportsResponse' smart constructor.

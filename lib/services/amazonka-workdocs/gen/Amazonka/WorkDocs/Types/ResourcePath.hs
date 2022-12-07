@@ -21,6 +21,7 @@ module Amazonka.WorkDocs.Types.ResourcePath where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkDocs.Types.ResourcePathComponent
 
@@ -51,13 +52,13 @@ newResourcePath =
 resourcePath_components :: Lens.Lens' ResourcePath (Prelude.Maybe [ResourcePathComponent])
 resourcePath_components = Lens.lens (\ResourcePath' {components} -> components) (\s@ResourcePath' {} a -> s {components = a} :: ResourcePath) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ResourcePath where
+instance Data.FromJSON ResourcePath where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourcePath"
       ( \x ->
           ResourcePath'
-            Prelude.<$> (x Core..:? "Components" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Components" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ResourcePath where

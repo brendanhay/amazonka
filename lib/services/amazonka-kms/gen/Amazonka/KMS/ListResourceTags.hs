@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -220,9 +221,9 @@ instance Core.AWSRequest ListResourceTags where
     Response.receiveJSON
       ( \s h x ->
           ListResourceTagsResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Truncated")
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Truncated")
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -238,35 +239,35 @@ instance Prelude.NFData ListResourceTags where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf keyId
 
-instance Core.ToHeaders ListResourceTags where
+instance Data.ToHeaders ListResourceTags where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.ListResourceTags" ::
+              Data.=# ( "TrentService.ListResourceTags" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListResourceTags where
+instance Data.ToJSON ListResourceTags where
   toJSON ListResourceTags' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("KeyId" Core..= keyId)
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("KeyId" Data..= keyId)
           ]
       )
 
-instance Core.ToPath ListResourceTags where
+instance Data.ToPath ListResourceTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListResourceTags where
+instance Data.ToQuery ListResourceTags where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResourceTagsResponse' smart constructor.

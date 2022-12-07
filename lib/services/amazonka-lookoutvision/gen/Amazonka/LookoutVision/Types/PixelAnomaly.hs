@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.PixelAnomaly where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the pixels in an anomaly mask. For more information,
@@ -69,14 +70,14 @@ pixelAnomaly_color = Lens.lens (\PixelAnomaly' {color} -> color) (\s@PixelAnomal
 pixelAnomaly_totalPercentageArea :: Lens.Lens' PixelAnomaly (Prelude.Maybe Prelude.Double)
 pixelAnomaly_totalPercentageArea = Lens.lens (\PixelAnomaly' {totalPercentageArea} -> totalPercentageArea) (\s@PixelAnomaly' {} a -> s {totalPercentageArea = a} :: PixelAnomaly)
 
-instance Core.FromJSON PixelAnomaly where
+instance Data.FromJSON PixelAnomaly where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PixelAnomaly"
       ( \x ->
           PixelAnomaly'
-            Prelude.<$> (x Core..:? "Color")
-            Prelude.<*> (x Core..:? "TotalPercentageArea")
+            Prelude.<$> (x Data..:? "Color")
+            Prelude.<*> (x Data..:? "TotalPercentageArea")
       )
 
 instance Prelude.Hashable PixelAnomaly where

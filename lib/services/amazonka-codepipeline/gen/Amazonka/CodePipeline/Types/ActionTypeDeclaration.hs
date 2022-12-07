@@ -27,6 +27,7 @@ import Amazonka.CodePipeline.Types.ActionTypeProperty
 import Amazonka.CodePipeline.Types.ActionTypeUrls
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for the action type definition that are provided when the
@@ -156,20 +157,20 @@ actionTypeDeclaration_inputArtifactDetails = Lens.lens (\ActionTypeDeclaration' 
 actionTypeDeclaration_outputArtifactDetails :: Lens.Lens' ActionTypeDeclaration ActionTypeArtifactDetails
 actionTypeDeclaration_outputArtifactDetails = Lens.lens (\ActionTypeDeclaration' {outputArtifactDetails} -> outputArtifactDetails) (\s@ActionTypeDeclaration' {} a -> s {outputArtifactDetails = a} :: ActionTypeDeclaration)
 
-instance Core.FromJSON ActionTypeDeclaration where
+instance Data.FromJSON ActionTypeDeclaration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionTypeDeclaration"
       ( \x ->
           ActionTypeDeclaration'
-            Prelude.<$> (x Core..:? "properties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "permissions")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "urls")
-            Prelude.<*> (x Core..: "executor")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "inputArtifactDetails")
-            Prelude.<*> (x Core..: "outputArtifactDetails")
+            Prelude.<$> (x Data..:? "properties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "permissions")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "urls")
+            Prelude.<*> (x Data..: "executor")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "inputArtifactDetails")
+            Prelude.<*> (x Data..: "outputArtifactDetails")
       )
 
 instance Prelude.Hashable ActionTypeDeclaration where
@@ -194,23 +195,23 @@ instance Prelude.NFData ActionTypeDeclaration where
       `Prelude.seq` Prelude.rnf inputArtifactDetails
       `Prelude.seq` Prelude.rnf outputArtifactDetails
 
-instance Core.ToJSON ActionTypeDeclaration where
+instance Data.ToJSON ActionTypeDeclaration where
   toJSON ActionTypeDeclaration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("properties" Core..=) Prelude.<$> properties,
-            ("permissions" Core..=) Prelude.<$> permissions,
-            ("description" Core..=) Prelude.<$> description,
-            ("urls" Core..=) Prelude.<$> urls,
-            Prelude.Just ("executor" Core..= executor),
-            Prelude.Just ("id" Core..= id),
+          [ ("properties" Data..=) Prelude.<$> properties,
+            ("permissions" Data..=) Prelude.<$> permissions,
+            ("description" Data..=) Prelude.<$> description,
+            ("urls" Data..=) Prelude.<$> urls,
+            Prelude.Just ("executor" Data..= executor),
+            Prelude.Just ("id" Data..= id),
             Prelude.Just
               ( "inputArtifactDetails"
-                  Core..= inputArtifactDetails
+                  Data..= inputArtifactDetails
               ),
             Prelude.Just
               ( "outputArtifactDetails"
-                  Core..= outputArtifactDetails
+                  Data..= outputArtifactDetails
               )
           ]
       )

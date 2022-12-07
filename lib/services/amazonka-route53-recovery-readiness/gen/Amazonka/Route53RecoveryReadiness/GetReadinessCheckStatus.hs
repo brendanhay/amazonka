@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,10 +137,10 @@ instance Core.AWSRequest GetReadinessCheckStatus where
     Response.receiveJSON
       ( \s h x ->
           GetReadinessCheckStatusResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "readiness")
-            Prelude.<*> (x Core..?> "messages" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "resources" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "readiness")
+            Prelude.<*> (x Data..?> "messages" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,30 +156,30 @@ instance Prelude.NFData GetReadinessCheckStatus where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf readinessCheckName
 
-instance Core.ToHeaders GetReadinessCheckStatus where
+instance Data.ToHeaders GetReadinessCheckStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetReadinessCheckStatus where
+instance Data.ToPath GetReadinessCheckStatus where
   toPath GetReadinessCheckStatus' {..} =
     Prelude.mconcat
       [ "/readinesschecks/",
-        Core.toBS readinessCheckName,
+        Data.toBS readinessCheckName,
         "/status"
       ]
 
-instance Core.ToQuery GetReadinessCheckStatus where
+instance Data.ToQuery GetReadinessCheckStatus where
   toQuery GetReadinessCheckStatus' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetReadinessCheckStatusResponse' smart constructor.

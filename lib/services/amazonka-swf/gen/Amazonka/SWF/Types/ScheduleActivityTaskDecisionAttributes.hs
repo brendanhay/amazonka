@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.ScheduleActivityTaskDecisionAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.ActivityType
 import Amazonka.SWF.Types.TaskList
@@ -403,25 +404,25 @@ instance
       `Prelude.seq` Prelude.rnf activityId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ScheduleActivityTaskDecisionAttributes
   where
   toJSON ScheduleActivityTaskDecisionAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("scheduleToStartTimeout" Core..=)
+          [ ("scheduleToStartTimeout" Data..=)
               Prelude.<$> scheduleToStartTimeout,
-            ("scheduleToCloseTimeout" Core..=)
+            ("scheduleToCloseTimeout" Data..=)
               Prelude.<$> scheduleToCloseTimeout,
-            ("taskPriority" Core..=) Prelude.<$> taskPriority,
-            ("input" Core..=) Prelude.<$> input,
-            ("taskList" Core..=) Prelude.<$> taskList,
-            ("startToCloseTimeout" Core..=)
+            ("taskPriority" Data..=) Prelude.<$> taskPriority,
+            ("input" Data..=) Prelude.<$> input,
+            ("taskList" Data..=) Prelude.<$> taskList,
+            ("startToCloseTimeout" Data..=)
               Prelude.<$> startToCloseTimeout,
-            ("heartbeatTimeout" Core..=)
+            ("heartbeatTimeout" Data..=)
               Prelude.<$> heartbeatTimeout,
-            ("control" Core..=) Prelude.<$> control,
-            Prelude.Just ("activityType" Core..= activityType),
-            Prelude.Just ("activityId" Core..= activityId)
+            ("control" Data..=) Prelude.<$> control,
+            Prelude.Just ("activityType" Data..= activityType),
+            Prelude.Just ("activityId" Data..= activityId)
           ]
       )

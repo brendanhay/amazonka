@@ -40,6 +40,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,38 +120,38 @@ instance
       `Prelude.seq` Prelude.rnf requesterAwsRegion
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeletePendingAggregationRequest
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DeletePendingAggregationRequest" ::
+              Data.=# ( "StarlingDoveService.DeletePendingAggregationRequest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeletePendingAggregationRequest where
+instance Data.ToJSON DeletePendingAggregationRequest where
   toJSON DeletePendingAggregationRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("RequesterAccountId" Core..= requesterAccountId),
+              ("RequesterAccountId" Data..= requesterAccountId),
             Prelude.Just
-              ("RequesterAwsRegion" Core..= requesterAwsRegion)
+              ("RequesterAwsRegion" Data..= requesterAwsRegion)
           ]
       )
 
-instance Core.ToPath DeletePendingAggregationRequest where
+instance Data.ToPath DeletePendingAggregationRequest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeletePendingAggregationRequest where
+instance Data.ToQuery DeletePendingAggregationRequest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePendingAggregationRequestResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,34 +136,34 @@ instance Prelude.NFData UpdateInstanceAttribute where
       `Prelude.seq` Prelude.rnf attributeType
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToHeaders UpdateInstanceAttribute where
+instance Data.ToHeaders UpdateInstanceAttribute where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateInstanceAttribute where
+instance Data.ToJSON UpdateInstanceAttribute where
   toJSON UpdateInstanceAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Value" Core..= value)]
+          [Prelude.Just ("Value" Data..= value)]
       )
 
-instance Core.ToPath UpdateInstanceAttribute where
+instance Data.ToPath UpdateInstanceAttribute where
   toPath UpdateInstanceAttribute' {..} =
     Prelude.mconcat
       [ "/instance/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/attribute/",
-        Core.toBS attributeType
+        Data.toBS attributeType
       ]
 
-instance Core.ToQuery UpdateInstanceAttribute where
+instance Data.ToQuery UpdateInstanceAttribute where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateInstanceAttributeResponse' smart constructor.

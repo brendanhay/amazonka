@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.RadiusSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.RadiusAuthenticationProtocol
 import qualified Amazonka.Prelude as Prelude
 
@@ -45,7 +46,7 @@ data RadiusSettings = RadiusSettings'
     -- Directory Service servers.
     radiusPort :: Prelude.Maybe Prelude.Natural,
     -- | Required for enabling RADIUS on the directory.
-    sharedSecret :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sharedSecret :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Not currently used.
     useSameUsername :: Prelude.Maybe Prelude.Bool,
     -- | The amount of time, in seconds, to wait for the RADIUS server to
@@ -124,7 +125,7 @@ radiusSettings_radiusPort = Lens.lens (\RadiusSettings' {radiusPort} -> radiusPo
 
 -- | Required for enabling RADIUS on the directory.
 radiusSettings_sharedSecret :: Lens.Lens' RadiusSettings (Prelude.Maybe Prelude.Text)
-radiusSettings_sharedSecret = Lens.lens (\RadiusSettings' {sharedSecret} -> sharedSecret) (\s@RadiusSettings' {} a -> s {sharedSecret = a} :: RadiusSettings) Prelude.. Lens.mapping Core._Sensitive
+radiusSettings_sharedSecret = Lens.lens (\RadiusSettings' {sharedSecret} -> sharedSecret) (\s@RadiusSettings' {} a -> s {sharedSecret = a} :: RadiusSettings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Not currently used.
 radiusSettings_useSameUsername :: Lens.Lens' RadiusSettings (Prelude.Maybe Prelude.Bool)
@@ -135,20 +136,20 @@ radiusSettings_useSameUsername = Lens.lens (\RadiusSettings' {useSameUsername} -
 radiusSettings_radiusTimeout :: Lens.Lens' RadiusSettings (Prelude.Maybe Prelude.Natural)
 radiusSettings_radiusTimeout = Lens.lens (\RadiusSettings' {radiusTimeout} -> radiusTimeout) (\s@RadiusSettings' {} a -> s {radiusTimeout = a} :: RadiusSettings)
 
-instance Core.FromJSON RadiusSettings where
+instance Data.FromJSON RadiusSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RadiusSettings"
       ( \x ->
           RadiusSettings'
-            Prelude.<$> (x Core..:? "DisplayLabel")
-            Prelude.<*> (x Core..:? "AuthenticationProtocol")
-            Prelude.<*> (x Core..:? "RadiusServers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RadiusRetries")
-            Prelude.<*> (x Core..:? "RadiusPort")
-            Prelude.<*> (x Core..:? "SharedSecret")
-            Prelude.<*> (x Core..:? "UseSameUsername")
-            Prelude.<*> (x Core..:? "RadiusTimeout")
+            Prelude.<$> (x Data..:? "DisplayLabel")
+            Prelude.<*> (x Data..:? "AuthenticationProtocol")
+            Prelude.<*> (x Data..:? "RadiusServers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RadiusRetries")
+            Prelude.<*> (x Data..:? "RadiusPort")
+            Prelude.<*> (x Data..:? "SharedSecret")
+            Prelude.<*> (x Data..:? "UseSameUsername")
+            Prelude.<*> (x Data..:? "RadiusTimeout")
       )
 
 instance Prelude.Hashable RadiusSettings where
@@ -173,19 +174,19 @@ instance Prelude.NFData RadiusSettings where
       `Prelude.seq` Prelude.rnf useSameUsername
       `Prelude.seq` Prelude.rnf radiusTimeout
 
-instance Core.ToJSON RadiusSettings where
+instance Data.ToJSON RadiusSettings where
   toJSON RadiusSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DisplayLabel" Core..=) Prelude.<$> displayLabel,
-            ("AuthenticationProtocol" Core..=)
+          [ ("DisplayLabel" Data..=) Prelude.<$> displayLabel,
+            ("AuthenticationProtocol" Data..=)
               Prelude.<$> authenticationProtocol,
-            ("RadiusServers" Core..=) Prelude.<$> radiusServers,
-            ("RadiusRetries" Core..=) Prelude.<$> radiusRetries,
-            ("RadiusPort" Core..=) Prelude.<$> radiusPort,
-            ("SharedSecret" Core..=) Prelude.<$> sharedSecret,
-            ("UseSameUsername" Core..=)
+            ("RadiusServers" Data..=) Prelude.<$> radiusServers,
+            ("RadiusRetries" Data..=) Prelude.<$> radiusRetries,
+            ("RadiusPort" Data..=) Prelude.<$> radiusPort,
+            ("SharedSecret" Data..=) Prelude.<$> sharedSecret,
+            ("UseSameUsername" Data..=)
               Prelude.<$> useSameUsername,
-            ("RadiusTimeout" Core..=) Prelude.<$> radiusTimeout
+            ("RadiusTimeout" Data..=) Prelude.<$> radiusTimeout
           ]
       )

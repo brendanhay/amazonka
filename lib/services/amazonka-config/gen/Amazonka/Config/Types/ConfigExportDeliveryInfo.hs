@@ -22,6 +22,7 @@ module Amazonka.Config.Types.ConfigExportDeliveryInfo where
 import Amazonka.Config.Types.DeliveryStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides status of the delivery of the snapshot or the configuration
@@ -34,15 +35,15 @@ data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo'
   { -- | The error code from the last attempted delivery.
     lastErrorCode :: Prelude.Maybe Prelude.Text,
     -- | The time that the next delivery occurs.
-    nextDeliveryTime :: Prelude.Maybe Core.POSIX,
+    nextDeliveryTime :: Prelude.Maybe Data.POSIX,
     -- | Status of the last attempted delivery.
     lastStatus :: Prelude.Maybe DeliveryStatus,
     -- | The time of the last successful delivery.
-    lastSuccessfulTime :: Prelude.Maybe Core.POSIX,
+    lastSuccessfulTime :: Prelude.Maybe Data.POSIX,
     -- | The error message from the last attempted delivery.
     lastErrorMessage :: Prelude.Maybe Prelude.Text,
     -- | The time of the last attempted delivery.
-    lastAttemptTime :: Prelude.Maybe Core.POSIX
+    lastAttemptTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,7 +85,7 @@ configExportDeliveryInfo_lastErrorCode = Lens.lens (\ConfigExportDeliveryInfo' {
 
 -- | The time that the next delivery occurs.
 configExportDeliveryInfo_nextDeliveryTime :: Lens.Lens' ConfigExportDeliveryInfo (Prelude.Maybe Prelude.UTCTime)
-configExportDeliveryInfo_nextDeliveryTime = Lens.lens (\ConfigExportDeliveryInfo' {nextDeliveryTime} -> nextDeliveryTime) (\s@ConfigExportDeliveryInfo' {} a -> s {nextDeliveryTime = a} :: ConfigExportDeliveryInfo) Prelude.. Lens.mapping Core._Time
+configExportDeliveryInfo_nextDeliveryTime = Lens.lens (\ConfigExportDeliveryInfo' {nextDeliveryTime} -> nextDeliveryTime) (\s@ConfigExportDeliveryInfo' {} a -> s {nextDeliveryTime = a} :: ConfigExportDeliveryInfo) Prelude.. Lens.mapping Data._Time
 
 -- | Status of the last attempted delivery.
 configExportDeliveryInfo_lastStatus :: Lens.Lens' ConfigExportDeliveryInfo (Prelude.Maybe DeliveryStatus)
@@ -92,7 +93,7 @@ configExportDeliveryInfo_lastStatus = Lens.lens (\ConfigExportDeliveryInfo' {las
 
 -- | The time of the last successful delivery.
 configExportDeliveryInfo_lastSuccessfulTime :: Lens.Lens' ConfigExportDeliveryInfo (Prelude.Maybe Prelude.UTCTime)
-configExportDeliveryInfo_lastSuccessfulTime = Lens.lens (\ConfigExportDeliveryInfo' {lastSuccessfulTime} -> lastSuccessfulTime) (\s@ConfigExportDeliveryInfo' {} a -> s {lastSuccessfulTime = a} :: ConfigExportDeliveryInfo) Prelude.. Lens.mapping Core._Time
+configExportDeliveryInfo_lastSuccessfulTime = Lens.lens (\ConfigExportDeliveryInfo' {lastSuccessfulTime} -> lastSuccessfulTime) (\s@ConfigExportDeliveryInfo' {} a -> s {lastSuccessfulTime = a} :: ConfigExportDeliveryInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The error message from the last attempted delivery.
 configExportDeliveryInfo_lastErrorMessage :: Lens.Lens' ConfigExportDeliveryInfo (Prelude.Maybe Prelude.Text)
@@ -100,20 +101,20 @@ configExportDeliveryInfo_lastErrorMessage = Lens.lens (\ConfigExportDeliveryInfo
 
 -- | The time of the last attempted delivery.
 configExportDeliveryInfo_lastAttemptTime :: Lens.Lens' ConfigExportDeliveryInfo (Prelude.Maybe Prelude.UTCTime)
-configExportDeliveryInfo_lastAttemptTime = Lens.lens (\ConfigExportDeliveryInfo' {lastAttemptTime} -> lastAttemptTime) (\s@ConfigExportDeliveryInfo' {} a -> s {lastAttemptTime = a} :: ConfigExportDeliveryInfo) Prelude.. Lens.mapping Core._Time
+configExportDeliveryInfo_lastAttemptTime = Lens.lens (\ConfigExportDeliveryInfo' {lastAttemptTime} -> lastAttemptTime) (\s@ConfigExportDeliveryInfo' {} a -> s {lastAttemptTime = a} :: ConfigExportDeliveryInfo) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ConfigExportDeliveryInfo where
+instance Data.FromJSON ConfigExportDeliveryInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigExportDeliveryInfo"
       ( \x ->
           ConfigExportDeliveryInfo'
-            Prelude.<$> (x Core..:? "lastErrorCode")
-            Prelude.<*> (x Core..:? "nextDeliveryTime")
-            Prelude.<*> (x Core..:? "lastStatus")
-            Prelude.<*> (x Core..:? "lastSuccessfulTime")
-            Prelude.<*> (x Core..:? "lastErrorMessage")
-            Prelude.<*> (x Core..:? "lastAttemptTime")
+            Prelude.<$> (x Data..:? "lastErrorCode")
+            Prelude.<*> (x Data..:? "nextDeliveryTime")
+            Prelude.<*> (x Data..:? "lastStatus")
+            Prelude.<*> (x Data..:? "lastSuccessfulTime")
+            Prelude.<*> (x Data..:? "lastErrorMessage")
+            Prelude.<*> (x Data..:? "lastAttemptTime")
       )
 
 instance Prelude.Hashable ConfigExportDeliveryInfo where

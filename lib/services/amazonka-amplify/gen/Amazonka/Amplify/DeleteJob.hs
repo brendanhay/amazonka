@@ -44,6 +44,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,7 +111,7 @@ instance Core.AWSRequest DeleteJob where
       ( \s h x ->
           DeleteJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "jobSummary")
+            Prelude.<*> (x Data..:> "jobSummary")
       )
 
 instance Prelude.Hashable DeleteJob where
@@ -125,29 +126,29 @@ instance Prelude.NFData DeleteJob where
       `Prelude.seq` Prelude.rnf branchName
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders DeleteJob where
+instance Data.ToHeaders DeleteJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteJob where
+instance Data.ToPath DeleteJob where
   toPath DeleteJob' {..} =
     Prelude.mconcat
       [ "/apps/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/branches/",
-        Core.toBS branchName,
+        Data.toBS branchName,
         "/jobs/",
-        Core.toBS jobId
+        Data.toBS jobId
       ]
 
-instance Core.ToQuery DeleteJob where
+instance Data.ToQuery DeleteJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result structure for the delete job request.

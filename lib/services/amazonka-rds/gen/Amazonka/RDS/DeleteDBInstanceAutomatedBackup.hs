@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -116,7 +117,7 @@ instance
       "DeleteDBInstanceAutomatedBackupResult"
       ( \s h x ->
           DeleteDBInstanceAutomatedBackupResponse'
-            Prelude.<$> (x Core..@? "DBInstanceAutomatedBackup")
+            Prelude.<$> (x Data..@? "DBInstanceAutomatedBackup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,26 +141,26 @@ instance
       `Prelude.seq` Prelude.rnf dbiResourceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteDBInstanceAutomatedBackup
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteDBInstanceAutomatedBackup where
+instance Data.ToPath DeleteDBInstanceAutomatedBackup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDBInstanceAutomatedBackup where
+instance Data.ToQuery DeleteDBInstanceAutomatedBackup where
   toQuery DeleteDBInstanceAutomatedBackup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DeleteDBInstanceAutomatedBackup" ::
+          Data.=: ( "DeleteDBInstanceAutomatedBackup" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "DBInstanceAutomatedBackupsArn"
-          Core.=: dbInstanceAutomatedBackupsArn,
-        "DbiResourceId" Core.=: dbiResourceId
+          Data.=: dbInstanceAutomatedBackupsArn,
+        "DbiResourceId" Data.=: dbiResourceId
       ]
 
 -- | /See:/ 'newDeleteDBInstanceAutomatedBackupResponse' smart constructor.

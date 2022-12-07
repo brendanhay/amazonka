@@ -21,6 +21,7 @@ module Amazonka.CloudWatchLogs.Types.LogGroupField where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The fields contained in log events found by a @GetLogGroupFields@
@@ -63,14 +64,14 @@ logGroupField_name = Lens.lens (\LogGroupField' {name} -> name) (\s@LogGroupFiel
 logGroupField_percent :: Lens.Lens' LogGroupField (Prelude.Maybe Prelude.Natural)
 logGroupField_percent = Lens.lens (\LogGroupField' {percent} -> percent) (\s@LogGroupField' {} a -> s {percent = a} :: LogGroupField)
 
-instance Core.FromJSON LogGroupField where
+instance Data.FromJSON LogGroupField where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogGroupField"
       ( \x ->
           LogGroupField'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "percent")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "percent")
       )
 
 instance Prelude.Hashable LogGroupField where

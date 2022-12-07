@@ -21,6 +21,7 @@ module Amazonka.ECRPublic.Types.RegistryCatalogData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata for a public registry.
@@ -62,13 +63,13 @@ newRegistryCatalogData =
 registryCatalogData_displayName :: Lens.Lens' RegistryCatalogData (Prelude.Maybe Prelude.Text)
 registryCatalogData_displayName = Lens.lens (\RegistryCatalogData' {displayName} -> displayName) (\s@RegistryCatalogData' {} a -> s {displayName = a} :: RegistryCatalogData)
 
-instance Core.FromJSON RegistryCatalogData where
+instance Data.FromJSON RegistryCatalogData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegistryCatalogData"
       ( \x ->
           RegistryCatalogData'
-            Prelude.<$> (x Core..:? "displayName")
+            Prelude.<$> (x Data..:? "displayName")
       )
 
 instance Prelude.Hashable RegistryCatalogData where

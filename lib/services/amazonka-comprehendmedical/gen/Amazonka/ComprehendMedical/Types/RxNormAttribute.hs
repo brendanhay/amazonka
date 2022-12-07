@@ -23,6 +23,7 @@ import Amazonka.ComprehendMedical.Types.RxNormAttributeType
 import Amazonka.ComprehendMedical.Types.RxNormTrait
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The extracted attributes that relate to this entity. The attributes
@@ -146,20 +147,20 @@ rxNormAttribute_endOffset = Lens.lens (\RxNormAttribute' {endOffset} -> endOffse
 rxNormAttribute_text :: Lens.Lens' RxNormAttribute (Prelude.Maybe Prelude.Text)
 rxNormAttribute_text = Lens.lens (\RxNormAttribute' {text} -> text) (\s@RxNormAttribute' {} a -> s {text = a} :: RxNormAttribute)
 
-instance Core.FromJSON RxNormAttribute where
+instance Data.FromJSON RxNormAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RxNormAttribute"
       ( \x ->
           RxNormAttribute'
-            Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "RelationshipScore")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Traits" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "EndOffset")
-            Prelude.<*> (x Core..:? "Text")
+            Prelude.<$> (x Data..:? "BeginOffset")
+            Prelude.<*> (x Data..:? "RelationshipScore")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Traits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "Text")
       )
 
 instance Prelude.Hashable RxNormAttribute where

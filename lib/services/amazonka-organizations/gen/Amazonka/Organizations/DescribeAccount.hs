@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,7 +103,7 @@ instance Core.AWSRequest DescribeAccount where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountResponse'
-            Prelude.<$> (x Core..?> "Account")
+            Prelude.<$> (x Data..?> "Account")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,32 +114,32 @@ instance Prelude.Hashable DescribeAccount where
 instance Prelude.NFData DescribeAccount where
   rnf DescribeAccount' {..} = Prelude.rnf accountId
 
-instance Core.ToHeaders DescribeAccount where
+instance Data.ToHeaders DescribeAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.DescribeAccount" ::
+              Data.=# ( "AWSOrganizationsV20161128.DescribeAccount" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAccount where
+instance Data.ToJSON DescribeAccount where
   toJSON DescribeAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AccountId" Core..= accountId)]
+          [Prelude.Just ("AccountId" Data..= accountId)]
       )
 
-instance Core.ToPath DescribeAccount where
+instance Data.ToPath DescribeAccount where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAccount where
+instance Data.ToQuery DescribeAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAccountResponse' smart constructor.

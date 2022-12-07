@@ -103,6 +103,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -501,8 +502,8 @@ instance Core.AWSRequest CreateGrant where
     Response.receiveJSON
       ( \s h x ->
           CreateGrantResponse'
-            Prelude.<$> (x Core..?> "GrantToken")
-            Prelude.<*> (x Core..?> "GrantId")
+            Prelude.<$> (x Data..?> "GrantToken")
+            Prelude.<*> (x Data..?> "GrantId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -526,39 +527,39 @@ instance Prelude.NFData CreateGrant where
       `Prelude.seq` Prelude.rnf granteePrincipal
       `Prelude.seq` Prelude.rnf operations
 
-instance Core.ToHeaders CreateGrant where
+instance Data.ToHeaders CreateGrant where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.CreateGrant" :: Prelude.ByteString),
+              Data.=# ("TrentService.CreateGrant" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateGrant where
+instance Data.ToJSON CreateGrant where
   toJSON CreateGrant' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Constraints" Core..=) Prelude.<$> constraints,
-            ("RetiringPrincipal" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Constraints" Data..=) Prelude.<$> constraints,
+            ("RetiringPrincipal" Data..=)
               Prelude.<$> retiringPrincipal,
-            ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            Prelude.Just ("KeyId" Core..= keyId),
+            ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+            Prelude.Just ("KeyId" Data..= keyId),
             Prelude.Just
-              ("GranteePrincipal" Core..= granteePrincipal),
-            Prelude.Just ("Operations" Core..= operations)
+              ("GranteePrincipal" Data..= granteePrincipal),
+            Prelude.Just ("Operations" Data..= operations)
           ]
       )
 
-instance Core.ToPath CreateGrant where
+instance Data.ToPath CreateGrant where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateGrant where
+instance Data.ToQuery CreateGrant where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGrantResponse' smart constructor.

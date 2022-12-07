@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,10 +142,10 @@ instance Core.AWSRequest ListV2LoggingLevels where
     Response.receiveJSON
       ( \s h x ->
           ListV2LoggingLevelsResponse'
-            Prelude.<$> ( x Core..?> "logTargetConfigurations"
+            Prelude.<$> ( x Data..?> "logTargetConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,18 +161,18 @@ instance Prelude.NFData ListV2LoggingLevels where
       `Prelude.seq` Prelude.rnf targetType
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListV2LoggingLevels where
+instance Data.ToHeaders ListV2LoggingLevels where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListV2LoggingLevels where
+instance Data.ToPath ListV2LoggingLevels where
   toPath = Prelude.const "/v2LoggingLevel"
 
-instance Core.ToQuery ListV2LoggingLevels where
+instance Data.ToQuery ListV2LoggingLevels where
   toQuery ListV2LoggingLevels' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "targetType" Core.=: targetType,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "targetType" Data.=: targetType,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListV2LoggingLevelsResponse' smart constructor.

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,8 +138,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           TestAvailabilityConfigurationResponse'
-            Prelude.<$> (x Core..?> "TestPassed")
-            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<$> (x Data..?> "TestPassed")
+            Prelude.<*> (x Data..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,38 +160,38 @@ instance Prelude.NFData TestAvailabilityConfiguration where
       `Prelude.seq` Prelude.rnf lambdaProvider
       `Prelude.seq` Prelude.rnf organizationId
 
-instance Core.ToHeaders TestAvailabilityConfiguration where
+instance Data.ToHeaders TestAvailabilityConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.TestAvailabilityConfiguration" ::
+              Data.=# ( "WorkMailService.TestAvailabilityConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TestAvailabilityConfiguration where
+instance Data.ToJSON TestAvailabilityConfiguration where
   toJSON TestAvailabilityConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EwsProvider" Core..=) Prelude.<$> ewsProvider,
-            ("DomainName" Core..=) Prelude.<$> domainName,
-            ("LambdaProvider" Core..=)
+          [ ("EwsProvider" Data..=) Prelude.<$> ewsProvider,
+            ("DomainName" Data..=) Prelude.<$> domainName,
+            ("LambdaProvider" Data..=)
               Prelude.<$> lambdaProvider,
             Prelude.Just
-              ("OrganizationId" Core..= organizationId)
+              ("OrganizationId" Data..= organizationId)
           ]
       )
 
-instance Core.ToPath TestAvailabilityConfiguration where
+instance Data.ToPath TestAvailabilityConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TestAvailabilityConfiguration where
+instance Data.ToQuery TestAvailabilityConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTestAvailabilityConfigurationResponse' smart constructor.

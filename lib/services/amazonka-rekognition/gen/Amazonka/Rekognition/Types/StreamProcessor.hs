@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.StreamProcessor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.StreamProcessorStatus
 
@@ -67,14 +68,14 @@ streamProcessor_name = Lens.lens (\StreamProcessor' {name} -> name) (\s@StreamPr
 streamProcessor_status :: Lens.Lens' StreamProcessor (Prelude.Maybe StreamProcessorStatus)
 streamProcessor_status = Lens.lens (\StreamProcessor' {status} -> status) (\s@StreamProcessor' {} a -> s {status = a} :: StreamProcessor)
 
-instance Core.FromJSON StreamProcessor where
+instance Data.FromJSON StreamProcessor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamProcessor"
       ( \x ->
           StreamProcessor'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable StreamProcessor where

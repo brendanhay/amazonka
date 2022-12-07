@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.VersionInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Docker and Amazon ECS container agent version information about a
@@ -77,15 +78,15 @@ versionInfo_agentHash = Lens.lens (\VersionInfo' {agentHash} -> agentHash) (\s@V
 versionInfo_agentVersion :: Lens.Lens' VersionInfo (Prelude.Maybe Prelude.Text)
 versionInfo_agentVersion = Lens.lens (\VersionInfo' {agentVersion} -> agentVersion) (\s@VersionInfo' {} a -> s {agentVersion = a} :: VersionInfo)
 
-instance Core.FromJSON VersionInfo where
+instance Data.FromJSON VersionInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VersionInfo"
       ( \x ->
           VersionInfo'
-            Prelude.<$> (x Core..:? "dockerVersion")
-            Prelude.<*> (x Core..:? "agentHash")
-            Prelude.<*> (x Core..:? "agentVersion")
+            Prelude.<$> (x Data..:? "dockerVersion")
+            Prelude.<*> (x Data..:? "agentHash")
+            Prelude.<*> (x Data..:? "agentVersion")
       )
 
 instance Prelude.Hashable VersionInfo where
@@ -100,12 +101,12 @@ instance Prelude.NFData VersionInfo where
       `Prelude.seq` Prelude.rnf agentHash
       `Prelude.seq` Prelude.rnf agentVersion
 
-instance Core.ToJSON VersionInfo where
+instance Data.ToJSON VersionInfo where
   toJSON VersionInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("dockerVersion" Core..=) Prelude.<$> dockerVersion,
-            ("agentHash" Core..=) Prelude.<$> agentHash,
-            ("agentVersion" Core..=) Prelude.<$> agentVersion
+          [ ("dockerVersion" Data..=) Prelude.<$> dockerVersion,
+            ("agentHash" Data..=) Prelude.<$> agentHash,
+            ("agentVersion" Data..=) Prelude.<$> agentVersion
           ]
       )

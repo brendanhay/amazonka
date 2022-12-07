@@ -18,6 +18,7 @@ module Amazonka.EKS.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.DescribeAddon
 import Amazonka.EKS.DescribeCluster
 import Amazonka.EKS.DescribeFargateProfile
@@ -40,7 +41,7 @@ newAddonActive =
             ( describeAddonResponse_addon Prelude.. Lens._Just
                 Prelude.. addon_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "DEGRADED"
@@ -48,7 +49,7 @@ newAddonActive =
             ( describeAddonResponse_addon Prelude.. Lens._Just
                 Prelude.. addon_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "ACTIVE"
@@ -56,7 +57,7 @@ newAddonActive =
             ( describeAddonResponse_addon Prelude.. Lens._Just
                 Prelude.. addon_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -75,7 +76,7 @@ newAddonDeleted =
             ( describeAddonResponse_addon Prelude.. Lens._Just
                 Prelude.. addon_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundException"
@@ -98,7 +99,7 @@ newNodegroupActive =
                 Prelude.. Lens._Just
                 Prelude.. nodegroup_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "ACTIVE"
@@ -107,7 +108,7 @@ newNodegroupActive =
                 Prelude.. Lens._Just
                 Prelude.. nodegroup_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -127,7 +128,7 @@ newFargateProfileDeleted =
                 Prelude.. Lens._Just
                 Prelude.. fargateProfile_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundException"
@@ -149,7 +150,7 @@ newClusterActive =
             ( describeClusterResponse_cluster Prelude.. Lens._Just
                 Prelude.. cluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "FAILED"
@@ -157,7 +158,7 @@ newClusterActive =
             ( describeClusterResponse_cluster Prelude.. Lens._Just
                 Prelude.. cluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "ACTIVE"
@@ -165,7 +166,7 @@ newClusterActive =
             ( describeClusterResponse_cluster Prelude.. Lens._Just
                 Prelude.. cluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -184,7 +185,7 @@ newClusterDeleted =
             ( describeClusterResponse_cluster Prelude.. Lens._Just
                 Prelude.. cluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATING"
@@ -192,7 +193,7 @@ newClusterDeleted =
             ( describeClusterResponse_cluster Prelude.. Lens._Just
                 Prelude.. cluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "PENDING"
@@ -200,7 +201,7 @@ newClusterDeleted =
             ( describeClusterResponse_cluster Prelude.. Lens._Just
                 Prelude.. cluster_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundException"
@@ -223,7 +224,7 @@ newFargateProfileActive =
                 Prelude.. Lens._Just
                 Prelude.. fargateProfile_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "ACTIVE"
@@ -232,7 +233,7 @@ newFargateProfileActive =
                 Prelude.. Lens._Just
                 Prelude.. fargateProfile_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -252,7 +253,7 @@ newNodegroupDeleted =
                 Prelude.. Lens._Just
                 Prelude.. nodegroup_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundException"

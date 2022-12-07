@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -183,22 +184,22 @@ instance Prelude.NFData UpdateUser where
       `Prelude.seq` Prelude.rnf newPath'
       `Prelude.seq` Prelude.rnf userName
 
-instance Core.ToHeaders UpdateUser where
+instance Data.ToHeaders UpdateUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateUser where
+instance Data.ToPath UpdateUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateUser where
+instance Data.ToQuery UpdateUser where
   toQuery UpdateUser' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateUser" :: Prelude.ByteString),
+          Data.=: ("UpdateUser" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "NewUserName" Core.=: newUserName',
-        "NewPath" Core.=: newPath',
-        "UserName" Core.=: userName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "NewUserName" Data.=: newUserName',
+        "NewPath" Data.=: newPath',
+        "UserName" Data.=: userName
       ]
 
 -- | /See:/ 'newUpdateUserResponse' smart constructor.

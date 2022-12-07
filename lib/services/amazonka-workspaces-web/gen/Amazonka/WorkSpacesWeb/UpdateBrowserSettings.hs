@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -61,7 +62,7 @@ data UpdateBrowserSettings = UpdateBrowserSettings'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A JSON string containing Chrome Enterprise policies that will be applied
     -- to all streaming sessions.
-    browserPolicy :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    browserPolicy :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the browser settings.
     browserSettingsArn :: Prelude.Text
   }
@@ -114,7 +115,7 @@ updateBrowserSettings_clientToken = Lens.lens (\UpdateBrowserSettings' {clientTo
 -- | A JSON string containing Chrome Enterprise policies that will be applied
 -- to all streaming sessions.
 updateBrowserSettings_browserPolicy :: Lens.Lens' UpdateBrowserSettings (Prelude.Maybe Prelude.Text)
-updateBrowserSettings_browserPolicy = Lens.lens (\UpdateBrowserSettings' {browserPolicy} -> browserPolicy) (\s@UpdateBrowserSettings' {} a -> s {browserPolicy = a} :: UpdateBrowserSettings) Prelude.. Lens.mapping Core._Sensitive
+updateBrowserSettings_browserPolicy = Lens.lens (\UpdateBrowserSettings' {browserPolicy} -> browserPolicy) (\s@UpdateBrowserSettings' {} a -> s {browserPolicy = a} :: UpdateBrowserSettings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the browser settings.
 updateBrowserSettings_browserSettingsArn :: Lens.Lens' UpdateBrowserSettings Prelude.Text
@@ -131,7 +132,7 @@ instance Core.AWSRequest UpdateBrowserSettings where
       ( \s h x ->
           UpdateBrowserSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "browserSettings")
+            Prelude.<*> (x Data..:> "browserSettings")
       )
 
 instance Prelude.Hashable UpdateBrowserSettings where
@@ -146,32 +147,32 @@ instance Prelude.NFData UpdateBrowserSettings where
       `Prelude.seq` Prelude.rnf browserPolicy
       `Prelude.seq` Prelude.rnf browserSettingsArn
 
-instance Core.ToHeaders UpdateBrowserSettings where
+instance Data.ToHeaders UpdateBrowserSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBrowserSettings where
+instance Data.ToJSON UpdateBrowserSettings where
   toJSON UpdateBrowserSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("browserPolicy" Core..=) Prelude.<$> browserPolicy
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("browserPolicy" Data..=) Prelude.<$> browserPolicy
           ]
       )
 
-instance Core.ToPath UpdateBrowserSettings where
+instance Data.ToPath UpdateBrowserSettings where
   toPath UpdateBrowserSettings' {..} =
     Prelude.mconcat
-      ["/browserSettings/", Core.toBS browserSettingsArn]
+      ["/browserSettings/", Data.toBS browserSettingsArn]
 
-instance Core.ToQuery UpdateBrowserSettings where
+instance Data.ToQuery UpdateBrowserSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBrowserSettingsResponse' smart constructor.

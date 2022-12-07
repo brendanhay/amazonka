@@ -73,6 +73,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,7 +131,7 @@ instance Core.AWSRequest CreatePublicVirtualInterface where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance
   Prelude.Hashable
@@ -145,35 +146,35 @@ instance Prelude.NFData CreatePublicVirtualInterface where
     Prelude.rnf connectionId
       `Prelude.seq` Prelude.rnf newPublicVirtualInterface'
 
-instance Core.ToHeaders CreatePublicVirtualInterface where
+instance Data.ToHeaders CreatePublicVirtualInterface where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.CreatePublicVirtualInterface" ::
+              Data.=# ( "OvertureService.CreatePublicVirtualInterface" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePublicVirtualInterface where
+instance Data.ToJSON CreatePublicVirtualInterface where
   toJSON CreatePublicVirtualInterface' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("connectionId" Core..= connectionId),
+          [ Prelude.Just ("connectionId" Data..= connectionId),
             Prelude.Just
               ( "newPublicVirtualInterface"
-                  Core..= newPublicVirtualInterface'
+                  Data..= newPublicVirtualInterface'
               )
           ]
       )
 
-instance Core.ToPath CreatePublicVirtualInterface where
+instance Data.ToPath CreatePublicVirtualInterface where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePublicVirtualInterface where
+instance Data.ToQuery CreatePublicVirtualInterface where
   toQuery = Prelude.const Prelude.mempty

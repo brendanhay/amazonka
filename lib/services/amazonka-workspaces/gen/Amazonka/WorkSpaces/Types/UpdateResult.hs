@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.UpdateResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes whether a WorkSpace image needs to be updated with the latest
@@ -71,14 +72,14 @@ updateResult_updateAvailable = Lens.lens (\UpdateResult' {updateAvailable} -> up
 updateResult_description :: Lens.Lens' UpdateResult (Prelude.Maybe Prelude.Text)
 updateResult_description = Lens.lens (\UpdateResult' {description} -> description) (\s@UpdateResult' {} a -> s {description = a} :: UpdateResult)
 
-instance Core.FromJSON UpdateResult where
+instance Data.FromJSON UpdateResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpdateResult"
       ( \x ->
           UpdateResult'
-            Prelude.<$> (x Core..:? "UpdateAvailable")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "UpdateAvailable")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable UpdateResult where

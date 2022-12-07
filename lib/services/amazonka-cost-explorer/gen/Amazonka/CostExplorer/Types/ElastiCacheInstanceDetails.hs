@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.ElastiCacheInstanceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the Amazon ElastiCache instances that Amazon Web Services
@@ -102,18 +103,18 @@ elastiCacheInstanceDetails_family = Lens.lens (\ElastiCacheInstanceDetails' {fam
 elastiCacheInstanceDetails_currentGeneration :: Lens.Lens' ElastiCacheInstanceDetails (Prelude.Maybe Prelude.Bool)
 elastiCacheInstanceDetails_currentGeneration = Lens.lens (\ElastiCacheInstanceDetails' {currentGeneration} -> currentGeneration) (\s@ElastiCacheInstanceDetails' {} a -> s {currentGeneration = a} :: ElastiCacheInstanceDetails)
 
-instance Core.FromJSON ElastiCacheInstanceDetails where
+instance Data.FromJSON ElastiCacheInstanceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ElastiCacheInstanceDetails"
       ( \x ->
           ElastiCacheInstanceDetails'
-            Prelude.<$> (x Core..:? "SizeFlexEligible")
-            Prelude.<*> (x Core..:? "NodeType")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "ProductDescription")
-            Prelude.<*> (x Core..:? "Family")
-            Prelude.<*> (x Core..:? "CurrentGeneration")
+            Prelude.<$> (x Data..:? "SizeFlexEligible")
+            Prelude.<*> (x Data..:? "NodeType")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "ProductDescription")
+            Prelude.<*> (x Data..:? "Family")
+            Prelude.<*> (x Data..:? "CurrentGeneration")
       )
 
 instance Prelude.Hashable ElastiCacheInstanceDetails where

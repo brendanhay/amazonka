@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.Theme where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ThemeType
 import Amazonka.QuickSight.Types.ThemeVersion
@@ -35,11 +36,11 @@ data Theme = Theme'
     -- @QUICKSIGHT@ and @CUSTOM@.
     type' :: Prelude.Maybe ThemeType,
     -- | The date and time that the theme was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the theme.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the theme was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier that the user gives to the theme.
     themeId :: Prelude.Maybe Prelude.Text,
     version :: Prelude.Maybe ThemeVersion
@@ -92,7 +93,7 @@ theme_type = Lens.lens (\Theme' {type'} -> type') (\s@Theme' {} a -> s {type' = 
 
 -- | The date and time that the theme was created.
 theme_createdTime :: Lens.Lens' Theme (Prelude.Maybe Prelude.UTCTime)
-theme_createdTime = Lens.lens (\Theme' {createdTime} -> createdTime) (\s@Theme' {} a -> s {createdTime = a} :: Theme) Prelude.. Lens.mapping Core._Time
+theme_createdTime = Lens.lens (\Theme' {createdTime} -> createdTime) (\s@Theme' {} a -> s {createdTime = a} :: Theme) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the theme.
 theme_arn :: Lens.Lens' Theme (Prelude.Maybe Prelude.Text)
@@ -100,7 +101,7 @@ theme_arn = Lens.lens (\Theme' {arn} -> arn) (\s@Theme' {} a -> s {arn = a} :: T
 
 -- | The date and time that the theme was last updated.
 theme_lastUpdatedTime :: Lens.Lens' Theme (Prelude.Maybe Prelude.UTCTime)
-theme_lastUpdatedTime = Lens.lens (\Theme' {lastUpdatedTime} -> lastUpdatedTime) (\s@Theme' {} a -> s {lastUpdatedTime = a} :: Theme) Prelude.. Lens.mapping Core._Time
+theme_lastUpdatedTime = Lens.lens (\Theme' {lastUpdatedTime} -> lastUpdatedTime) (\s@Theme' {} a -> s {lastUpdatedTime = a} :: Theme) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier that the user gives to the theme.
 theme_themeId :: Lens.Lens' Theme (Prelude.Maybe Prelude.Text)
@@ -110,19 +111,19 @@ theme_themeId = Lens.lens (\Theme' {themeId} -> themeId) (\s@Theme' {} a -> s {t
 theme_version :: Lens.Lens' Theme (Prelude.Maybe ThemeVersion)
 theme_version = Lens.lens (\Theme' {version} -> version) (\s@Theme' {} a -> s {version = a} :: Theme)
 
-instance Core.FromJSON Theme where
+instance Data.FromJSON Theme where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Theme"
       ( \x ->
           Theme'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "ThemeId")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "ThemeId")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable Theme where

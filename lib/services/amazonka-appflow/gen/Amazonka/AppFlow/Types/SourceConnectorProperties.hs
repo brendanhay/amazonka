@@ -37,6 +37,7 @@ import Amazonka.AppFlow.Types.VeevaSourceProperties
 import Amazonka.AppFlow.Types.ZendeskSourceProperties
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the information that is required to query a particular
@@ -206,28 +207,28 @@ sourceConnectorProperties_dynatrace = Lens.lens (\SourceConnectorProperties' {dy
 sourceConnectorProperties_googleAnalytics :: Lens.Lens' SourceConnectorProperties (Prelude.Maybe GoogleAnalyticsSourceProperties)
 sourceConnectorProperties_googleAnalytics = Lens.lens (\SourceConnectorProperties' {googleAnalytics} -> googleAnalytics) (\s@SourceConnectorProperties' {} a -> s {googleAnalytics = a} :: SourceConnectorProperties)
 
-instance Core.FromJSON SourceConnectorProperties where
+instance Data.FromJSON SourceConnectorProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceConnectorProperties"
       ( \x ->
           SourceConnectorProperties'
-            Prelude.<$> (x Core..:? "Zendesk")
-            Prelude.<*> (x Core..:? "Slack")
-            Prelude.<*> (x Core..:? "Singular")
-            Prelude.<*> (x Core..:? "S3")
-            Prelude.<*> (x Core..:? "Veeva")
-            Prelude.<*> (x Core..:? "Salesforce")
-            Prelude.<*> (x Core..:? "SAPOData")
-            Prelude.<*> (x Core..:? "Marketo")
-            Prelude.<*> (x Core..:? "Trendmicro")
-            Prelude.<*> (x Core..:? "InforNexus")
-            Prelude.<*> (x Core..:? "ServiceNow")
-            Prelude.<*> (x Core..:? "Datadog")
-            Prelude.<*> (x Core..:? "CustomConnector")
-            Prelude.<*> (x Core..:? "Amplitude")
-            Prelude.<*> (x Core..:? "Dynatrace")
-            Prelude.<*> (x Core..:? "GoogleAnalytics")
+            Prelude.<$> (x Data..:? "Zendesk")
+            Prelude.<*> (x Data..:? "Slack")
+            Prelude.<*> (x Data..:? "Singular")
+            Prelude.<*> (x Data..:? "S3")
+            Prelude.<*> (x Data..:? "Veeva")
+            Prelude.<*> (x Data..:? "Salesforce")
+            Prelude.<*> (x Data..:? "SAPOData")
+            Prelude.<*> (x Data..:? "Marketo")
+            Prelude.<*> (x Data..:? "Trendmicro")
+            Prelude.<*> (x Data..:? "InforNexus")
+            Prelude.<*> (x Data..:? "ServiceNow")
+            Prelude.<*> (x Data..:? "Datadog")
+            Prelude.<*> (x Data..:? "CustomConnector")
+            Prelude.<*> (x Data..:? "Amplitude")
+            Prelude.<*> (x Data..:? "Dynatrace")
+            Prelude.<*> (x Data..:? "GoogleAnalytics")
       )
 
 instance Prelude.Hashable SourceConnectorProperties where
@@ -268,27 +269,27 @@ instance Prelude.NFData SourceConnectorProperties where
       `Prelude.seq` Prelude.rnf dynatrace
       `Prelude.seq` Prelude.rnf googleAnalytics
 
-instance Core.ToJSON SourceConnectorProperties where
+instance Data.ToJSON SourceConnectorProperties where
   toJSON SourceConnectorProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Zendesk" Core..=) Prelude.<$> zendesk,
-            ("Slack" Core..=) Prelude.<$> slack,
-            ("Singular" Core..=) Prelude.<$> singular,
-            ("S3" Core..=) Prelude.<$> s3,
-            ("Veeva" Core..=) Prelude.<$> veeva,
-            ("Salesforce" Core..=) Prelude.<$> salesforce,
-            ("SAPOData" Core..=) Prelude.<$> sAPOData,
-            ("Marketo" Core..=) Prelude.<$> marketo,
-            ("Trendmicro" Core..=) Prelude.<$> trendmicro,
-            ("InforNexus" Core..=) Prelude.<$> inforNexus,
-            ("ServiceNow" Core..=) Prelude.<$> serviceNow,
-            ("Datadog" Core..=) Prelude.<$> datadog,
-            ("CustomConnector" Core..=)
+          [ ("Zendesk" Data..=) Prelude.<$> zendesk,
+            ("Slack" Data..=) Prelude.<$> slack,
+            ("Singular" Data..=) Prelude.<$> singular,
+            ("S3" Data..=) Prelude.<$> s3,
+            ("Veeva" Data..=) Prelude.<$> veeva,
+            ("Salesforce" Data..=) Prelude.<$> salesforce,
+            ("SAPOData" Data..=) Prelude.<$> sAPOData,
+            ("Marketo" Data..=) Prelude.<$> marketo,
+            ("Trendmicro" Data..=) Prelude.<$> trendmicro,
+            ("InforNexus" Data..=) Prelude.<$> inforNexus,
+            ("ServiceNow" Data..=) Prelude.<$> serviceNow,
+            ("Datadog" Data..=) Prelude.<$> datadog,
+            ("CustomConnector" Data..=)
               Prelude.<$> customConnector,
-            ("Amplitude" Core..=) Prelude.<$> amplitude,
-            ("Dynatrace" Core..=) Prelude.<$> dynatrace,
-            ("GoogleAnalytics" Core..=)
+            ("Amplitude" Data..=) Prelude.<$> amplitude,
+            ("Dynatrace" Data..=) Prelude.<$> dynatrace,
+            ("GoogleAnalytics" Data..=)
               Prelude.<$> googleAnalytics
           ]
       )

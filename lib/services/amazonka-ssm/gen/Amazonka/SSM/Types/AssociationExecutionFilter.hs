@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.AssociationExecutionFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AssociationExecutionFilterKey
 import Amazonka.SSM.Types.AssociationFilterOperatorType
@@ -90,12 +91,12 @@ instance Prelude.NFData AssociationExecutionFilter where
       `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON AssociationExecutionFilter where
+instance Data.ToJSON AssociationExecutionFilter where
   toJSON AssociationExecutionFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Value" Core..= value),
-            Prelude.Just ("Type" Core..= type')
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Value" Data..= value),
+            Prelude.Just ("Type" Data..= type')
           ]
       )

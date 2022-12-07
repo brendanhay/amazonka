@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,8 +94,8 @@ instance Core.AWSRequest ListVolumeRecoveryPoints where
     Response.receiveJSON
       ( \s h x ->
           ListVolumeRecoveryPointsResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
-            Prelude.<*> ( x Core..?> "VolumeRecoveryPointInfos"
+            Prelude.<$> (x Data..?> "GatewayARN")
+            Prelude.<*> ( x Data..?> "VolumeRecoveryPointInfos"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -108,32 +109,32 @@ instance Prelude.NFData ListVolumeRecoveryPoints where
   rnf ListVolumeRecoveryPoints' {..} =
     Prelude.rnf gatewayARN
 
-instance Core.ToHeaders ListVolumeRecoveryPoints where
+instance Data.ToHeaders ListVolumeRecoveryPoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.ListVolumeRecoveryPoints" ::
+              Data.=# ( "StorageGateway_20130630.ListVolumeRecoveryPoints" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListVolumeRecoveryPoints where
+instance Data.ToJSON ListVolumeRecoveryPoints where
   toJSON ListVolumeRecoveryPoints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
+          [Prelude.Just ("GatewayARN" Data..= gatewayARN)]
       )
 
-instance Core.ToPath ListVolumeRecoveryPoints where
+instance Data.ToPath ListVolumeRecoveryPoints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListVolumeRecoveryPoints where
+instance Data.ToQuery ListVolumeRecoveryPoints where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListVolumeRecoveryPointsResponse' smart constructor.

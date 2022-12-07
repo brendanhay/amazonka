@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.DomainPackageDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.DomainPackageStatus
 import Amazonka.OpenSearch.Types.ErrorDetails
 import Amazonka.OpenSearch.Types.PackageType
@@ -47,7 +48,7 @@ data DomainPackageDetails = DomainPackageDetails'
     -- | Internal ID of the package.
     packageID :: Prelude.Maybe Prelude.Text,
     -- | Timestamp of the most recent update to the package association status.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     -- | The current version of the package.
     packageVersion :: Prelude.Maybe Prelude.Text,
     -- | The type of package.
@@ -126,7 +127,7 @@ domainPackageDetails_packageID = Lens.lens (\DomainPackageDetails' {packageID} -
 
 -- | Timestamp of the most recent update to the package association status.
 domainPackageDetails_lastUpdated :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.UTCTime)
-domainPackageDetails_lastUpdated = Lens.lens (\DomainPackageDetails' {lastUpdated} -> lastUpdated) (\s@DomainPackageDetails' {} a -> s {lastUpdated = a} :: DomainPackageDetails) Prelude.. Lens.mapping Core._Time
+domainPackageDetails_lastUpdated = Lens.lens (\DomainPackageDetails' {lastUpdated} -> lastUpdated) (\s@DomainPackageDetails' {} a -> s {lastUpdated = a} :: DomainPackageDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The current version of the package.
 domainPackageDetails_packageVersion :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.Text)
@@ -136,21 +137,21 @@ domainPackageDetails_packageVersion = Lens.lens (\DomainPackageDetails' {package
 domainPackageDetails_packageType :: Lens.Lens' DomainPackageDetails (Prelude.Maybe PackageType)
 domainPackageDetails_packageType = Lens.lens (\DomainPackageDetails' {packageType} -> packageType) (\s@DomainPackageDetails' {} a -> s {packageType = a} :: DomainPackageDetails)
 
-instance Core.FromJSON DomainPackageDetails where
+instance Data.FromJSON DomainPackageDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainPackageDetails"
       ( \x ->
           DomainPackageDetails'
-            Prelude.<$> (x Core..:? "ReferencePath")
-            Prelude.<*> (x Core..:? "PackageName")
-            Prelude.<*> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "ErrorDetails")
-            Prelude.<*> (x Core..:? "DomainPackageStatus")
-            Prelude.<*> (x Core..:? "PackageID")
-            Prelude.<*> (x Core..:? "LastUpdated")
-            Prelude.<*> (x Core..:? "PackageVersion")
-            Prelude.<*> (x Core..:? "PackageType")
+            Prelude.<$> (x Data..:? "ReferencePath")
+            Prelude.<*> (x Data..:? "PackageName")
+            Prelude.<*> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "ErrorDetails")
+            Prelude.<*> (x Data..:? "DomainPackageStatus")
+            Prelude.<*> (x Data..:? "PackageID")
+            Prelude.<*> (x Data..:? "LastUpdated")
+            Prelude.<*> (x Data..:? "PackageVersion")
+            Prelude.<*> (x Data..:? "PackageType")
       )
 
 instance Prelude.Hashable DomainPackageDetails where

@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentity.Types.Credentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Credentials for the provided identity ID.
@@ -30,7 +31,7 @@ data Credentials = Credentials'
   { -- | The Session Token portion of the credentials
     sessionToken :: Prelude.Maybe Prelude.Text,
     -- | The date at which these credentials will expire.
-    expiration :: Prelude.Maybe Core.POSIX,
+    expiration :: Prelude.Maybe Data.POSIX,
     -- | The Secret Access Key portion of the credentials
     secretKey :: Prelude.Maybe Prelude.Text,
     -- | The Access Key portion of the credentials.
@@ -69,7 +70,7 @@ credentials_sessionToken = Lens.lens (\Credentials' {sessionToken} -> sessionTok
 
 -- | The date at which these credentials will expire.
 credentials_expiration :: Lens.Lens' Credentials (Prelude.Maybe Prelude.UTCTime)
-credentials_expiration = Lens.lens (\Credentials' {expiration} -> expiration) (\s@Credentials' {} a -> s {expiration = a} :: Credentials) Prelude.. Lens.mapping Core._Time
+credentials_expiration = Lens.lens (\Credentials' {expiration} -> expiration) (\s@Credentials' {} a -> s {expiration = a} :: Credentials) Prelude.. Lens.mapping Data._Time
 
 -- | The Secret Access Key portion of the credentials
 credentials_secretKey :: Lens.Lens' Credentials (Prelude.Maybe Prelude.Text)
@@ -79,16 +80,16 @@ credentials_secretKey = Lens.lens (\Credentials' {secretKey} -> secretKey) (\s@C
 credentials_accessKeyId :: Lens.Lens' Credentials (Prelude.Maybe Prelude.Text)
 credentials_accessKeyId = Lens.lens (\Credentials' {accessKeyId} -> accessKeyId) (\s@Credentials' {} a -> s {accessKeyId = a} :: Credentials)
 
-instance Core.FromJSON Credentials where
+instance Data.FromJSON Credentials where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Credentials"
       ( \x ->
           Credentials'
-            Prelude.<$> (x Core..:? "SessionToken")
-            Prelude.<*> (x Core..:? "Expiration")
-            Prelude.<*> (x Core..:? "SecretKey")
-            Prelude.<*> (x Core..:? "AccessKeyId")
+            Prelude.<$> (x Data..:? "SessionToken")
+            Prelude.<*> (x Data..:? "Expiration")
+            Prelude.<*> (x Data..:? "SecretKey")
+            Prelude.<*> (x Data..:? "AccessKeyId")
       )
 
 instance Prelude.Hashable Credentials where

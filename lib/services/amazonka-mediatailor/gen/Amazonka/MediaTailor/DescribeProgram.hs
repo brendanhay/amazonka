@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,15 +109,15 @@ instance Core.AWSRequest DescribeProgram where
     Response.receiveJSON
       ( \s h x ->
           DescribeProgramResponse'
-            Prelude.<$> (x Core..?> "ScheduledStartTime")
-            Prelude.<*> (x Core..?> "LiveSourceName")
-            Prelude.<*> (x Core..?> "ProgramName")
-            Prelude.<*> (x Core..?> "ChannelName")
-            Prelude.<*> (x Core..?> "VodSourceName")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "AdBreaks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "SourceLocationName")
+            Prelude.<$> (x Data..?> "ScheduledStartTime")
+            Prelude.<*> (x Data..?> "LiveSourceName")
+            Prelude.<*> (x Data..?> "ProgramName")
+            Prelude.<*> (x Data..?> "ChannelName")
+            Prelude.<*> (x Data..?> "VodSourceName")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "AdBreaks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "SourceLocationName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,27 +131,27 @@ instance Prelude.NFData DescribeProgram where
     Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf programName
 
-instance Core.ToHeaders DescribeProgram where
+instance Data.ToHeaders DescribeProgram where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeProgram where
+instance Data.ToPath DescribeProgram where
   toPath DescribeProgram' {..} =
     Prelude.mconcat
       [ "/channel/",
-        Core.toBS channelName,
+        Data.toBS channelName,
         "/program/",
-        Core.toBS programName
+        Data.toBS programName
       ]
 
-instance Core.ToQuery DescribeProgram where
+instance Data.ToQuery DescribeProgram where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProgramResponse' smart constructor.
@@ -158,7 +159,7 @@ data DescribeProgramResponse = DescribeProgramResponse'
   { -- | The date and time that the program is scheduled to start in ISO 8601
     -- format and Coordinated Universal Time (UTC). For example, the value
     -- 2021-03-27T17:48:16.751Z represents March 27, 2021 at 17:48:16.751 UTC.
-    scheduledStartTime :: Prelude.Maybe Core.POSIX,
+    scheduledStartTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the LiveSource for this Program.
     liveSourceName :: Prelude.Maybe Prelude.Text,
     -- | The name of the program.
@@ -172,7 +173,7 @@ data DescribeProgramResponse = DescribeProgramResponse'
     -- | The ad break configuration settings.
     adBreaks :: Prelude.Maybe [AdBreak],
     -- | The timestamp of when the program was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The source location name.
     sourceLocationName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -232,7 +233,7 @@ newDescribeProgramResponse pHttpStatus_ =
 -- format and Coordinated Universal Time (UTC). For example, the value
 -- 2021-03-27T17:48:16.751Z represents March 27, 2021 at 17:48:16.751 UTC.
 describeProgramResponse_scheduledStartTime :: Lens.Lens' DescribeProgramResponse (Prelude.Maybe Prelude.UTCTime)
-describeProgramResponse_scheduledStartTime = Lens.lens (\DescribeProgramResponse' {scheduledStartTime} -> scheduledStartTime) (\s@DescribeProgramResponse' {} a -> s {scheduledStartTime = a} :: DescribeProgramResponse) Prelude.. Lens.mapping Core._Time
+describeProgramResponse_scheduledStartTime = Lens.lens (\DescribeProgramResponse' {scheduledStartTime} -> scheduledStartTime) (\s@DescribeProgramResponse' {} a -> s {scheduledStartTime = a} :: DescribeProgramResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the LiveSource for this Program.
 describeProgramResponse_liveSourceName :: Lens.Lens' DescribeProgramResponse (Prelude.Maybe Prelude.Text)
@@ -260,7 +261,7 @@ describeProgramResponse_adBreaks = Lens.lens (\DescribeProgramResponse' {adBreak
 
 -- | The timestamp of when the program was created.
 describeProgramResponse_creationTime :: Lens.Lens' DescribeProgramResponse (Prelude.Maybe Prelude.UTCTime)
-describeProgramResponse_creationTime = Lens.lens (\DescribeProgramResponse' {creationTime} -> creationTime) (\s@DescribeProgramResponse' {} a -> s {creationTime = a} :: DescribeProgramResponse) Prelude.. Lens.mapping Core._Time
+describeProgramResponse_creationTime = Lens.lens (\DescribeProgramResponse' {creationTime} -> creationTime) (\s@DescribeProgramResponse' {} a -> s {creationTime = a} :: DescribeProgramResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The source location name.
 describeProgramResponse_sourceLocationName :: Lens.Lens' DescribeProgramResponse (Prelude.Maybe Prelude.Text)

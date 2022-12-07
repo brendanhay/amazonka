@@ -87,6 +87,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,14 +108,14 @@ data LookupEvents = LookupEvents'
     -- | Specifies that only events that occur before or at the specified time
     -- are returned. If the specified end time is before the specified start
     -- time, an error is returned.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The number of events to return. Possible values are 1 through 50. The
     -- default is 50.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specifies that only events that occur after or at the specified time are
     -- returned. If the specified start time is after the specified end time,
     -- an error is returned.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies the event category. If you do not specify an event category,
     -- events of the category are not returned in the response. For example, if
     -- you do not specify @insight@ as the value of @EventCategory@, no
@@ -184,7 +185,7 @@ lookupEvents_lookupAttributes = Lens.lens (\LookupEvents' {lookupAttributes} -> 
 -- are returned. If the specified end time is before the specified start
 -- time, an error is returned.
 lookupEvents_endTime :: Lens.Lens' LookupEvents (Prelude.Maybe Prelude.UTCTime)
-lookupEvents_endTime = Lens.lens (\LookupEvents' {endTime} -> endTime) (\s@LookupEvents' {} a -> s {endTime = a} :: LookupEvents) Prelude.. Lens.mapping Core._Time
+lookupEvents_endTime = Lens.lens (\LookupEvents' {endTime} -> endTime) (\s@LookupEvents' {} a -> s {endTime = a} :: LookupEvents) Prelude.. Lens.mapping Data._Time
 
 -- | The number of events to return. Possible values are 1 through 50. The
 -- default is 50.
@@ -195,7 +196,7 @@ lookupEvents_maxResults = Lens.lens (\LookupEvents' {maxResults} -> maxResults) 
 -- returned. If the specified start time is after the specified end time,
 -- an error is returned.
 lookupEvents_startTime :: Lens.Lens' LookupEvents (Prelude.Maybe Prelude.UTCTime)
-lookupEvents_startTime = Lens.lens (\LookupEvents' {startTime} -> startTime) (\s@LookupEvents' {} a -> s {startTime = a} :: LookupEvents) Prelude.. Lens.mapping Core._Time
+lookupEvents_startTime = Lens.lens (\LookupEvents' {startTime} -> startTime) (\s@LookupEvents' {} a -> s {startTime = a} :: LookupEvents) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the event category. If you do not specify an event category,
 -- events of the category are not returned in the response. For example, if
@@ -231,8 +232,8 @@ instance Core.AWSRequest LookupEvents where
     Response.receiveJSON
       ( \s h x ->
           LookupEventsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Events" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Events" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -254,39 +255,39 @@ instance Prelude.NFData LookupEvents where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf eventCategory
 
-instance Core.ToHeaders LookupEvents where
+instance Data.ToHeaders LookupEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.LookupEvents" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.LookupEvents" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON LookupEvents where
+instance Data.ToJSON LookupEvents where
   toJSON LookupEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("LookupAttributes" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("LookupAttributes" Data..=)
               Prelude.<$> lookupAttributes,
-            ("EndTime" Core..=) Prelude.<$> endTime,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StartTime" Core..=) Prelude.<$> startTime,
-            ("EventCategory" Core..=) Prelude.<$> eventCategory
+            ("EndTime" Data..=) Prelude.<$> endTime,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StartTime" Data..=) Prelude.<$> startTime,
+            ("EventCategory" Data..=) Prelude.<$> eventCategory
           ]
       )
 
-instance Core.ToPath LookupEvents where
+instance Data.ToPath LookupEvents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery LookupEvents where
+instance Data.ToQuery LookupEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains a response to a LookupEvents action.

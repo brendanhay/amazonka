@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.S3DataConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration details of an Amazon S3 input or output bucket.
@@ -69,14 +70,14 @@ s3DataConfig_kmsKeyArn = Lens.lens (\S3DataConfig' {kmsKeyArn} -> kmsKeyArn) (\s
 s3DataConfig_path :: Lens.Lens' S3DataConfig Prelude.Text
 s3DataConfig_path = Lens.lens (\S3DataConfig' {path} -> path) (\s@S3DataConfig' {} a -> s {path = a} :: S3DataConfig)
 
-instance Core.FromJSON S3DataConfig where
+instance Data.FromJSON S3DataConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3DataConfig"
       ( \x ->
           S3DataConfig'
-            Prelude.<$> (x Core..:? "kmsKeyArn")
-            Prelude.<*> (x Core..: "path")
+            Prelude.<$> (x Data..:? "kmsKeyArn")
+            Prelude.<*> (x Data..: "path")
       )
 
 instance Prelude.Hashable S3DataConfig where
@@ -89,11 +90,11 @@ instance Prelude.NFData S3DataConfig where
     Prelude.rnf kmsKeyArn
       `Prelude.seq` Prelude.rnf path
 
-instance Core.ToJSON S3DataConfig where
+instance Data.ToJSON S3DataConfig where
   toJSON S3DataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            Prelude.Just ("path" Core..= path)
+          [ ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            Prelude.Just ("path" Data..= path)
           ]
       )

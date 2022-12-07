@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,9 +123,9 @@ instance Core.AWSRequest UpdateGeofenceCollection where
       ( \s h x ->
           UpdateGeofenceCollectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CollectionArn")
-            Prelude.<*> (x Core..:> "CollectionName")
-            Prelude.<*> (x Core..:> "UpdateTime")
+            Prelude.<*> (x Data..:> "CollectionArn")
+            Prelude.<*> (x Data..:> "CollectionName")
+            Prelude.<*> (x Data..:> "UpdateTime")
       )
 
 instance Prelude.Hashable UpdateGeofenceCollection where
@@ -141,36 +142,36 @@ instance Prelude.NFData UpdateGeofenceCollection where
       `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf collectionName
 
-instance Core.ToHeaders UpdateGeofenceCollection where
+instance Data.ToHeaders UpdateGeofenceCollection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGeofenceCollection where
+instance Data.ToJSON UpdateGeofenceCollection where
   toJSON UpdateGeofenceCollection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("PricingPlanDataSource" Core..=)
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("PricingPlanDataSource" Data..=)
               Prelude.<$> pricingPlanDataSource,
-            ("PricingPlan" Core..=) Prelude.<$> pricingPlan
+            ("PricingPlan" Data..=) Prelude.<$> pricingPlan
           ]
       )
 
-instance Core.ToPath UpdateGeofenceCollection where
+instance Data.ToPath UpdateGeofenceCollection where
   toPath UpdateGeofenceCollection' {..} =
     Prelude.mconcat
       [ "/geofencing/v0/collections/",
-        Core.toBS collectionName
+        Data.toBS collectionName
       ]
 
-instance Core.ToQuery UpdateGeofenceCollection where
+instance Data.ToQuery UpdateGeofenceCollection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGeofenceCollectionResponse' smart constructor.
@@ -188,7 +189,7 @@ data UpdateGeofenceCollectionResponse = UpdateGeofenceCollectionResponse'
     -- | The time when the geofence collection was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -234,7 +235,7 @@ newUpdateGeofenceCollectionResponse
         collectionArn = pCollectionArn_,
         collectionName = pCollectionName_,
         updateTime =
-          Core._Time Lens.# pUpdateTime_
+          Data._Time Lens.# pUpdateTime_
       }
 
 -- | The response's http status code.
@@ -257,7 +258,7 @@ updateGeofenceCollectionResponse_collectionName = Lens.lens (\UpdateGeofenceColl
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
 updateGeofenceCollectionResponse_updateTime :: Lens.Lens' UpdateGeofenceCollectionResponse Prelude.UTCTime
-updateGeofenceCollectionResponse_updateTime = Lens.lens (\UpdateGeofenceCollectionResponse' {updateTime} -> updateTime) (\s@UpdateGeofenceCollectionResponse' {} a -> s {updateTime = a} :: UpdateGeofenceCollectionResponse) Prelude.. Core._Time
+updateGeofenceCollectionResponse_updateTime = Lens.lens (\UpdateGeofenceCollectionResponse' {updateTime} -> updateTime) (\s@UpdateGeofenceCollectionResponse' {} a -> s {updateTime = a} :: UpdateGeofenceCollectionResponse) Prelude.. Data._Time
 
 instance
   Prelude.NFData

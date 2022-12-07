@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,7 +107,7 @@ instance Core.AWSRequest GetCoreNetworkPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetCoreNetworkPolicyResponse'
-            Prelude.<$> (x Core..?> "CoreNetworkPolicy")
+            Prelude.<$> (x Data..?> "CoreNetworkPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,30 +123,30 @@ instance Prelude.NFData GetCoreNetworkPolicy where
       `Prelude.seq` Prelude.rnf policyVersionId
       `Prelude.seq` Prelude.rnf coreNetworkId
 
-instance Core.ToHeaders GetCoreNetworkPolicy where
+instance Data.ToHeaders GetCoreNetworkPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetCoreNetworkPolicy where
+instance Data.ToPath GetCoreNetworkPolicy where
   toPath GetCoreNetworkPolicy' {..} =
     Prelude.mconcat
       [ "/core-networks/",
-        Core.toBS coreNetworkId,
+        Data.toBS coreNetworkId,
         "/core-network-policy"
       ]
 
-instance Core.ToQuery GetCoreNetworkPolicy where
+instance Data.ToQuery GetCoreNetworkPolicy where
   toQuery GetCoreNetworkPolicy' {..} =
     Prelude.mconcat
-      [ "alias" Core.=: alias,
-        "policyVersionId" Core.=: policyVersionId
+      [ "alias" Data.=: alias,
+        "policyVersionId" Data.=: policyVersionId
       ]
 
 -- | /See:/ 'newGetCoreNetworkPolicyResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -195,7 +196,7 @@ instance Core.AWSRequest CreateLocationFsxOntap where
     Response.receiveJSON
       ( \s h x ->
           CreateLocationFsxOntapResponse'
-            Prelude.<$> (x Core..?> "LocationArn")
+            Prelude.<$> (x Data..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -215,41 +216,41 @@ instance Prelude.NFData CreateLocationFsxOntap where
       `Prelude.seq` Prelude.rnf securityGroupArns
       `Prelude.seq` Prelude.rnf storageVirtualMachineArn
 
-instance Core.ToHeaders CreateLocationFsxOntap where
+instance Data.ToHeaders CreateLocationFsxOntap where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.CreateLocationFsxOntap" ::
+              Data.=# ( "FmrsService.CreateLocationFsxOntap" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLocationFsxOntap where
+instance Data.ToJSON CreateLocationFsxOntap where
   toJSON CreateLocationFsxOntap' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Subdirectory" Core..=) Prelude.<$> subdirectory,
-            Prelude.Just ("Protocol" Core..= protocol),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Subdirectory" Data..=) Prelude.<$> subdirectory,
+            Prelude.Just ("Protocol" Data..= protocol),
             Prelude.Just
-              ("SecurityGroupArns" Core..= securityGroupArns),
+              ("SecurityGroupArns" Data..= securityGroupArns),
             Prelude.Just
               ( "StorageVirtualMachineArn"
-                  Core..= storageVirtualMachineArn
+                  Data..= storageVirtualMachineArn
               )
           ]
       )
 
-instance Core.ToPath CreateLocationFsxOntap where
+instance Data.ToPath CreateLocationFsxOntap where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLocationFsxOntap where
+instance Data.ToQuery CreateLocationFsxOntap where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLocationFsxOntapResponse' smart constructor.

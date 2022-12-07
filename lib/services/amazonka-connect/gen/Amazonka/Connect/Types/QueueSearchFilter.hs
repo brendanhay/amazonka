@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.QueueSearchFilter where
 import Amazonka.Connect.Types.ControlPlaneTagFilter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters to be applied to search results.
@@ -57,9 +58,9 @@ instance Prelude.Hashable QueueSearchFilter where
 instance Prelude.NFData QueueSearchFilter where
   rnf QueueSearchFilter' {..} = Prelude.rnf tagFilter
 
-instance Core.ToJSON QueueSearchFilter where
+instance Data.ToJSON QueueSearchFilter where
   toJSON QueueSearchFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("TagFilter" Core..=) Prelude.<$> tagFilter]
+          [("TagFilter" Data..=) Prelude.<$> tagFilter]
       )

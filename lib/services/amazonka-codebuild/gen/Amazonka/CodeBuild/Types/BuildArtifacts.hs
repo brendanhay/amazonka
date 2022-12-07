@@ -22,6 +22,7 @@ module Amazonka.CodeBuild.Types.BuildArtifacts where
 import Amazonka.CodeBuild.Types.BucketOwnerAccess
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about build output artifacts.
@@ -158,19 +159,19 @@ buildArtifacts_bucketOwnerAccess = Lens.lens (\BuildArtifacts' {bucketOwnerAcces
 buildArtifacts_sha256sum :: Lens.Lens' BuildArtifacts (Prelude.Maybe Prelude.Text)
 buildArtifacts_sha256sum = Lens.lens (\BuildArtifacts' {sha256sum} -> sha256sum) (\s@BuildArtifacts' {} a -> s {sha256sum = a} :: BuildArtifacts)
 
-instance Core.FromJSON BuildArtifacts where
+instance Data.FromJSON BuildArtifacts where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BuildArtifacts"
       ( \x ->
           BuildArtifacts'
-            Prelude.<$> (x Core..:? "encryptionDisabled")
-            Prelude.<*> (x Core..:? "md5sum")
-            Prelude.<*> (x Core..:? "artifactIdentifier")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "overrideArtifactName")
-            Prelude.<*> (x Core..:? "bucketOwnerAccess")
-            Prelude.<*> (x Core..:? "sha256sum")
+            Prelude.<$> (x Data..:? "encryptionDisabled")
+            Prelude.<*> (x Data..:? "md5sum")
+            Prelude.<*> (x Data..:? "artifactIdentifier")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "overrideArtifactName")
+            Prelude.<*> (x Data..:? "bucketOwnerAccess")
+            Prelude.<*> (x Data..:? "sha256sum")
       )
 
 instance Prelude.Hashable BuildArtifacts where

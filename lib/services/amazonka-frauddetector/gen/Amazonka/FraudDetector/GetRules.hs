@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,8 +134,8 @@ instance Core.AWSRequest GetRules where
     Response.receiveJSON
       ( \s h x ->
           GetRulesResponse'
-            Prelude.<$> (x Core..?> "ruleDetails" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "ruleDetails" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,37 +155,37 @@ instance Prelude.NFData GetRules where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf detectorId
 
-instance Core.ToHeaders GetRules where
+instance Data.ToHeaders GetRules where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.GetRules" ::
+              Data.=# ( "AWSHawksNestServiceFacade.GetRules" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRules where
+instance Data.ToJSON GetRules where
   toJSON GetRules' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ruleVersion" Core..=) Prelude.<$> ruleVersion,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("ruleId" Core..=) Prelude.<$> ruleId,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("detectorId" Core..= detectorId)
+          [ ("ruleVersion" Data..=) Prelude.<$> ruleVersion,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("ruleId" Data..=) Prelude.<$> ruleId,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("detectorId" Data..= detectorId)
           ]
       )
 
-instance Core.ToPath GetRules where
+instance Data.ToPath GetRules where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRules where
+instance Data.ToQuery GetRules where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRulesResponse' smart constructor.

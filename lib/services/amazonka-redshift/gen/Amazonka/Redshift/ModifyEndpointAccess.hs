@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -106,7 +107,7 @@ instance Core.AWSRequest ModifyEndpointAccess where
   response =
     Response.receiveXMLWrapper
       "ModifyEndpointAccessResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable ModifyEndpointAccess where
   hashWithSalt _salt ModifyEndpointAccess' {..} =
@@ -118,23 +119,23 @@ instance Prelude.NFData ModifyEndpointAccess where
     Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf endpointName
 
-instance Core.ToHeaders ModifyEndpointAccess where
+instance Data.ToHeaders ModifyEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyEndpointAccess where
+instance Data.ToPath ModifyEndpointAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyEndpointAccess where
+instance Data.ToQuery ModifyEndpointAccess where
   toQuery ModifyEndpointAccess' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyEndpointAccess" :: Prelude.ByteString),
+          Data.=: ("ModifyEndpointAccess" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "EndpointName" Core.=: endpointName
+        "EndpointName" Data.=: endpointName
       ]

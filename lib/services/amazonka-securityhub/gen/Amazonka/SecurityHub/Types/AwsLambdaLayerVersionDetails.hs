@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsLambdaLayerVersionDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a Lambda layer version.
@@ -98,17 +99,17 @@ awsLambdaLayerVersionDetails_createdDate = Lens.lens (\AwsLambdaLayerVersionDeta
 awsLambdaLayerVersionDetails_version :: Lens.Lens' AwsLambdaLayerVersionDetails (Prelude.Maybe Prelude.Integer)
 awsLambdaLayerVersionDetails_version = Lens.lens (\AwsLambdaLayerVersionDetails' {version} -> version) (\s@AwsLambdaLayerVersionDetails' {} a -> s {version = a} :: AwsLambdaLayerVersionDetails)
 
-instance Core.FromJSON AwsLambdaLayerVersionDetails where
+instance Data.FromJSON AwsLambdaLayerVersionDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsLambdaLayerVersionDetails"
       ( \x ->
           AwsLambdaLayerVersionDetails'
-            Prelude.<$> ( x Core..:? "CompatibleRuntimes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "CompatibleRuntimes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance
@@ -126,13 +127,13 @@ instance Prelude.NFData AwsLambdaLayerVersionDetails where
       `Prelude.seq` Prelude.rnf createdDate
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON AwsLambdaLayerVersionDetails where
+instance Data.ToJSON AwsLambdaLayerVersionDetails where
   toJSON AwsLambdaLayerVersionDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CompatibleRuntimes" Core..=)
+          [ ("CompatibleRuntimes" Data..=)
               Prelude.<$> compatibleRuntimes,
-            ("CreatedDate" Core..=) Prelude.<$> createdDate,
-            ("Version" Core..=) Prelude.<$> version
+            ("CreatedDate" Data..=) Prelude.<$> createdDate,
+            ("Version" Data..=) Prelude.<$> version
           ]
       )

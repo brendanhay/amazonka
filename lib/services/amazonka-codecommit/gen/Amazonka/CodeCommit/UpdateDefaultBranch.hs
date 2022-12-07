@@ -43,6 +43,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,36 +112,36 @@ instance Prelude.NFData UpdateDefaultBranch where
     Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf defaultBranchName
 
-instance Core.ToHeaders UpdateDefaultBranch where
+instance Data.ToHeaders UpdateDefaultBranch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.UpdateDefaultBranch" ::
+              Data.=# ( "CodeCommit_20150413.UpdateDefaultBranch" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDefaultBranch where
+instance Data.ToJSON UpdateDefaultBranch where
   toJSON UpdateDefaultBranch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("repositoryName" Core..= repositoryName),
+              ("repositoryName" Data..= repositoryName),
             Prelude.Just
-              ("defaultBranchName" Core..= defaultBranchName)
+              ("defaultBranchName" Data..= defaultBranchName)
           ]
       )
 
-instance Core.ToPath UpdateDefaultBranch where
+instance Data.ToPath UpdateDefaultBranch where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDefaultBranch where
+instance Data.ToQuery UpdateDefaultBranch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDefaultBranchResponse' smart constructor.

@@ -51,6 +51,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -236,8 +237,8 @@ instance Core.AWSRequest ListDeployments where
     Response.receiveJSON
       ( \s h x ->
           ListDeploymentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "deployments" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "deployments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -259,42 +260,42 @@ instance Prelude.NFData ListDeployments where
       `Prelude.seq` Prelude.rnf createTimeRange
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders ListDeployments where
+instance Data.ToHeaders ListDeployments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.ListDeployments" ::
+              Data.=# ( "CodeDeploy_20141006.ListDeployments" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDeployments where
+instance Data.ToJSON ListDeployments where
   toJSON ListDeployments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("deploymentGroupName" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("deploymentGroupName" Data..=)
               Prelude.<$> deploymentGroupName,
-            ("externalId" Core..=) Prelude.<$> externalId,
-            ("includeOnlyStatuses" Core..=)
+            ("externalId" Data..=) Prelude.<$> externalId,
+            ("includeOnlyStatuses" Data..=)
               Prelude.<$> includeOnlyStatuses,
-            ("createTimeRange" Core..=)
+            ("createTimeRange" Data..=)
               Prelude.<$> createTimeRange,
-            ("applicationName" Core..=)
+            ("applicationName" Data..=)
               Prelude.<$> applicationName
           ]
       )
 
-instance Core.ToPath ListDeployments where
+instance Data.ToPath ListDeployments where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDeployments where
+instance Data.ToQuery ListDeployments where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @ListDeployments@ operation.

@@ -21,6 +21,7 @@ module Amazonka.Location.Types.MapConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the map tile style selected from an available provider.
@@ -247,12 +248,12 @@ newMapConfiguration pStyle_ =
 mapConfiguration_style :: Lens.Lens' MapConfiguration Prelude.Text
 mapConfiguration_style = Lens.lens (\MapConfiguration' {style} -> style) (\s@MapConfiguration' {} a -> s {style = a} :: MapConfiguration)
 
-instance Core.FromJSON MapConfiguration where
+instance Data.FromJSON MapConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MapConfiguration"
       ( \x ->
-          MapConfiguration' Prelude.<$> (x Core..: "Style")
+          MapConfiguration' Prelude.<$> (x Data..: "Style")
       )
 
 instance Prelude.Hashable MapConfiguration where
@@ -262,9 +263,9 @@ instance Prelude.Hashable MapConfiguration where
 instance Prelude.NFData MapConfiguration where
   rnf MapConfiguration' {..} = Prelude.rnf style
 
-instance Core.ToJSON MapConfiguration where
+instance Data.ToJSON MapConfiguration where
   toJSON MapConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Style" Core..= style)]
+          [Prelude.Just ("Style" Data..= style)]
       )

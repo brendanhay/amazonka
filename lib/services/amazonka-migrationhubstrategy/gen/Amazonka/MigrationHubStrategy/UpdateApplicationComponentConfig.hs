@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -58,7 +59,7 @@ data UpdateApplicationComponentConfig = UpdateApplicationComponentConfig'
     -- recommendation or not.
     inclusionStatus :: Prelude.Maybe InclusionStatus,
     -- | Database credentials.
-    secretsManagerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    secretsManagerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The preferred strategy options for the application component. Use values
     -- from the GetApplicationComponentStrategies response.
     strategyOption :: Prelude.Maybe StrategyOption,
@@ -117,7 +118,7 @@ updateApplicationComponentConfig_inclusionStatus = Lens.lens (\UpdateApplication
 
 -- | Database credentials.
 updateApplicationComponentConfig_secretsManagerKey :: Lens.Lens' UpdateApplicationComponentConfig (Prelude.Maybe Prelude.Text)
-updateApplicationComponentConfig_secretsManagerKey = Lens.lens (\UpdateApplicationComponentConfig' {secretsManagerKey} -> secretsManagerKey) (\s@UpdateApplicationComponentConfig' {} a -> s {secretsManagerKey = a} :: UpdateApplicationComponentConfig) Prelude.. Lens.mapping Core._Sensitive
+updateApplicationComponentConfig_secretsManagerKey = Lens.lens (\UpdateApplicationComponentConfig' {secretsManagerKey} -> secretsManagerKey) (\s@UpdateApplicationComponentConfig' {} a -> s {secretsManagerKey = a} :: UpdateApplicationComponentConfig) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The preferred strategy options for the application component. Use values
 -- from the GetApplicationComponentStrategies response.
@@ -170,45 +171,45 @@ instance
       `Prelude.seq` Prelude.rnf applicationComponentId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateApplicationComponentConfig
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateApplicationComponentConfig where
+instance Data.ToJSON UpdateApplicationComponentConfig where
   toJSON UpdateApplicationComponentConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sourceCodeList" Core..=)
+          [ ("sourceCodeList" Data..=)
               Prelude.<$> sourceCodeList,
-            ("inclusionStatus" Core..=)
+            ("inclusionStatus" Data..=)
               Prelude.<$> inclusionStatus,
-            ("secretsManagerKey" Core..=)
+            ("secretsManagerKey" Data..=)
               Prelude.<$> secretsManagerKey,
-            ("strategyOption" Core..=)
+            ("strategyOption" Data..=)
               Prelude.<$> strategyOption,
             Prelude.Just
               ( "applicationComponentId"
-                  Core..= applicationComponentId
+                  Data..= applicationComponentId
               )
           ]
       )
 
-instance Core.ToPath UpdateApplicationComponentConfig where
+instance Data.ToPath UpdateApplicationComponentConfig where
   toPath =
     Prelude.const
       "/update-applicationcomponent-config/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateApplicationComponentConfig
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.DirectoryDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.DirectoryConnectSettingsDescription
 import Amazonka.DirectoryService.Types.DirectoryEdition
 import Amazonka.DirectoryService.Types.DirectorySize
@@ -56,9 +57,9 @@ data DirectoryDescription = DirectoryDescription'
     -- directory consumer. The request includes a typed message to help the
     -- directory consumer administrator determine whether to approve or reject
     -- the share invitation.
-    shareNotes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    shareNotes :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies when the directory was created.
-    launchTime :: Prelude.Maybe Core.POSIX,
+    launchTime :: Prelude.Maybe Data.POSIX,
     -- | Current directory status of the shared Managed Microsoft AD directory.
     shareStatus :: Prelude.Maybe ShareStatus,
     -- | The status of the RADIUS MFA server connection.
@@ -106,7 +107,7 @@ data DirectoryDescription = DirectoryDescription'
     -- | Additional information about the directory stage.
     stageReason :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the stage was last updated.
-    stageLastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    stageLastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The IP addresses of the DNS servers for the directory. For a Simple AD
     -- or Microsoft AD directory, these are the IP addresses of the Simple AD
     -- or Microsoft AD directory servers. For an AD Connector directory, these
@@ -259,11 +260,11 @@ directoryDescription_type = Lens.lens (\DirectoryDescription' {type'} -> type') 
 -- directory consumer administrator determine whether to approve or reject
 -- the share invitation.
 directoryDescription_shareNotes :: Lens.Lens' DirectoryDescription (Prelude.Maybe Prelude.Text)
-directoryDescription_shareNotes = Lens.lens (\DirectoryDescription' {shareNotes} -> shareNotes) (\s@DirectoryDescription' {} a -> s {shareNotes = a} :: DirectoryDescription) Prelude.. Lens.mapping Core._Sensitive
+directoryDescription_shareNotes = Lens.lens (\DirectoryDescription' {shareNotes} -> shareNotes) (\s@DirectoryDescription' {} a -> s {shareNotes = a} :: DirectoryDescription) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies when the directory was created.
 directoryDescription_launchTime :: Lens.Lens' DirectoryDescription (Prelude.Maybe Prelude.UTCTime)
-directoryDescription_launchTime = Lens.lens (\DirectoryDescription' {launchTime} -> launchTime) (\s@DirectoryDescription' {} a -> s {launchTime = a} :: DirectoryDescription) Prelude.. Lens.mapping Core._Time
+directoryDescription_launchTime = Lens.lens (\DirectoryDescription' {launchTime} -> launchTime) (\s@DirectoryDescription' {} a -> s {launchTime = a} :: DirectoryDescription) Prelude.. Lens.mapping Data._Time
 
 -- | Current directory status of the shared Managed Microsoft AD directory.
 directoryDescription_shareStatus :: Lens.Lens' DirectoryDescription (Prelude.Maybe ShareStatus)
@@ -345,7 +346,7 @@ directoryDescription_stageReason = Lens.lens (\DirectoryDescription' {stageReaso
 
 -- | The date and time that the stage was last updated.
 directoryDescription_stageLastUpdatedDateTime :: Lens.Lens' DirectoryDescription (Prelude.Maybe Prelude.UTCTime)
-directoryDescription_stageLastUpdatedDateTime = Lens.lens (\DirectoryDescription' {stageLastUpdatedDateTime} -> stageLastUpdatedDateTime) (\s@DirectoryDescription' {} a -> s {stageLastUpdatedDateTime = a} :: DirectoryDescription) Prelude.. Lens.mapping Core._Time
+directoryDescription_stageLastUpdatedDateTime = Lens.lens (\DirectoryDescription' {stageLastUpdatedDateTime} -> stageLastUpdatedDateTime) (\s@DirectoryDescription' {} a -> s {stageLastUpdatedDateTime = a} :: DirectoryDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The IP addresses of the DNS servers for the directory. For a Simple AD
 -- or Microsoft AD directory, these are the IP addresses of the Simple AD
@@ -359,38 +360,38 @@ directoryDescription_dnsIpAddrs = Lens.lens (\DirectoryDescription' {dnsIpAddrs}
 directoryDescription_shortName :: Lens.Lens' DirectoryDescription (Prelude.Maybe Prelude.Text)
 directoryDescription_shortName = Lens.lens (\DirectoryDescription' {shortName} -> shortName) (\s@DirectoryDescription' {} a -> s {shortName = a} :: DirectoryDescription)
 
-instance Core.FromJSON DirectoryDescription where
+instance Data.FromJSON DirectoryDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DirectoryDescription"
       ( \x ->
           DirectoryDescription'
-            Prelude.<$> (x Core..:? "Alias")
-            Prelude.<*> (x Core..:? "DirectoryId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RegionsInfo")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "ShareNotes")
-            Prelude.<*> (x Core..:? "LaunchTime")
-            Prelude.<*> (x Core..:? "ShareStatus")
-            Prelude.<*> (x Core..:? "RadiusStatus")
-            Prelude.<*> (x Core..:? "ShareMethod")
-            Prelude.<*> (x Core..:? "Size")
-            Prelude.<*> (x Core..:? "VpcSettings")
-            Prelude.<*> (x Core..:? "OsVersion")
-            Prelude.<*> (x Core..:? "OwnerDirectoryDescription")
-            Prelude.<*> (x Core..:? "Edition")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SsoEnabled")
-            Prelude.<*> (x Core..:? "AccessUrl")
-            Prelude.<*> (x Core..:? "RadiusSettings")
-            Prelude.<*> (x Core..:? "Stage")
-            Prelude.<*> (x Core..:? "DesiredNumberOfDomainControllers")
-            Prelude.<*> (x Core..:? "ConnectSettings")
-            Prelude.<*> (x Core..:? "StageReason")
-            Prelude.<*> (x Core..:? "StageLastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "DnsIpAddrs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ShortName")
+            Prelude.<$> (x Data..:? "Alias")
+            Prelude.<*> (x Data..:? "DirectoryId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RegionsInfo")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "ShareNotes")
+            Prelude.<*> (x Data..:? "LaunchTime")
+            Prelude.<*> (x Data..:? "ShareStatus")
+            Prelude.<*> (x Data..:? "RadiusStatus")
+            Prelude.<*> (x Data..:? "ShareMethod")
+            Prelude.<*> (x Data..:? "Size")
+            Prelude.<*> (x Data..:? "VpcSettings")
+            Prelude.<*> (x Data..:? "OsVersion")
+            Prelude.<*> (x Data..:? "OwnerDirectoryDescription")
+            Prelude.<*> (x Data..:? "Edition")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SsoEnabled")
+            Prelude.<*> (x Data..:? "AccessUrl")
+            Prelude.<*> (x Data..:? "RadiusSettings")
+            Prelude.<*> (x Data..:? "Stage")
+            Prelude.<*> (x Data..:? "DesiredNumberOfDomainControllers")
+            Prelude.<*> (x Data..:? "ConnectSettings")
+            Prelude.<*> (x Data..:? "StageReason")
+            Prelude.<*> (x Data..:? "StageLastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "DnsIpAddrs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ShortName")
       )
 
 instance Prelude.Hashable DirectoryDescription where

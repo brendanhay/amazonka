@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,38 +138,38 @@ instance Prelude.NFData UpdateServiceSettings where
       `Prelude.seq` Prelude.rnf enableCrossAccountsDiscovery
       `Prelude.seq` Prelude.rnf s3BucketArn
 
-instance Core.ToHeaders UpdateServiceSettings where
+instance Data.ToHeaders UpdateServiceSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.UpdateServiceSettings" ::
+              Data.=# ( "AWSLicenseManager.UpdateServiceSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateServiceSettings where
+instance Data.ToJSON UpdateServiceSettings where
   toJSON UpdateServiceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OrganizationConfiguration" Core..=)
+          [ ("OrganizationConfiguration" Data..=)
               Prelude.<$> organizationConfiguration,
-            ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
-            ("EnableCrossAccountsDiscovery" Core..=)
+            ("SnsTopicArn" Data..=) Prelude.<$> snsTopicArn,
+            ("EnableCrossAccountsDiscovery" Data..=)
               Prelude.<$> enableCrossAccountsDiscovery,
-            ("S3BucketArn" Core..=) Prelude.<$> s3BucketArn
+            ("S3BucketArn" Data..=) Prelude.<$> s3BucketArn
           ]
       )
 
-instance Core.ToPath UpdateServiceSettings where
+instance Data.ToPath UpdateServiceSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateServiceSettings where
+instance Data.ToQuery UpdateServiceSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServiceSettingsResponse' smart constructor.

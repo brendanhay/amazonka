@@ -21,6 +21,7 @@ module Amazonka.SES.Types.SNSDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the topic ARN associated with an Amazon Simple Notification
@@ -70,9 +71,9 @@ newSNSDestination pTopicARN_ =
 sNSDestination_topicARN :: Lens.Lens' SNSDestination Prelude.Text
 sNSDestination_topicARN = Lens.lens (\SNSDestination' {topicARN} -> topicARN) (\s@SNSDestination' {} a -> s {topicARN = a} :: SNSDestination)
 
-instance Core.FromXML SNSDestination where
+instance Data.FromXML SNSDestination where
   parseXML x =
-    SNSDestination' Prelude.<$> (x Core..@ "TopicARN")
+    SNSDestination' Prelude.<$> (x Data..@ "TopicARN")
 
 instance Prelude.Hashable SNSDestination where
   hashWithSalt _salt SNSDestination' {..} =
@@ -81,6 +82,6 @@ instance Prelude.Hashable SNSDestination where
 instance Prelude.NFData SNSDestination where
   rnf SNSDestination' {..} = Prelude.rnf topicARN
 
-instance Core.ToQuery SNSDestination where
+instance Data.ToQuery SNSDestination where
   toQuery SNSDestination' {..} =
-    Prelude.mconcat ["TopicARN" Core.=: topicARN]
+    Prelude.mconcat ["TopicARN" Data.=: topicARN]

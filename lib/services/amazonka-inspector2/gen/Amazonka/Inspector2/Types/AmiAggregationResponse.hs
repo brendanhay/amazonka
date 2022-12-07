@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.AmiAggregationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.SeverityCounts
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,16 +84,16 @@ amiAggregationResponse_affectedInstances = Lens.lens (\AmiAggregationResponse' {
 amiAggregationResponse_ami :: Lens.Lens' AmiAggregationResponse Prelude.Text
 amiAggregationResponse_ami = Lens.lens (\AmiAggregationResponse' {ami} -> ami) (\s@AmiAggregationResponse' {} a -> s {ami = a} :: AmiAggregationResponse)
 
-instance Core.FromJSON AmiAggregationResponse where
+instance Data.FromJSON AmiAggregationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AmiAggregationResponse"
       ( \x ->
           AmiAggregationResponse'
-            Prelude.<$> (x Core..:? "severityCounts")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "affectedInstances")
-            Prelude.<*> (x Core..: "ami")
+            Prelude.<$> (x Data..:? "severityCounts")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "affectedInstances")
+            Prelude.<*> (x Data..: "ami")
       )
 
 instance Prelude.Hashable AmiAggregationResponse where

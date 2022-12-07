@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsDbParameterGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a parameter group for a DB instance.
@@ -62,14 +63,14 @@ awsRdsDbParameterGroup_dbParameterGroupName = Lens.lens (\AwsRdsDbParameterGroup
 awsRdsDbParameterGroup_parameterApplyStatus :: Lens.Lens' AwsRdsDbParameterGroup (Prelude.Maybe Prelude.Text)
 awsRdsDbParameterGroup_parameterApplyStatus = Lens.lens (\AwsRdsDbParameterGroup' {parameterApplyStatus} -> parameterApplyStatus) (\s@AwsRdsDbParameterGroup' {} a -> s {parameterApplyStatus = a} :: AwsRdsDbParameterGroup)
 
-instance Core.FromJSON AwsRdsDbParameterGroup where
+instance Data.FromJSON AwsRdsDbParameterGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsDbParameterGroup"
       ( \x ->
           AwsRdsDbParameterGroup'
-            Prelude.<$> (x Core..:? "DbParameterGroupName")
-            Prelude.<*> (x Core..:? "ParameterApplyStatus")
+            Prelude.<$> (x Data..:? "DbParameterGroupName")
+            Prelude.<*> (x Data..:? "ParameterApplyStatus")
       )
 
 instance Prelude.Hashable AwsRdsDbParameterGroup where
@@ -82,13 +83,13 @@ instance Prelude.NFData AwsRdsDbParameterGroup where
     Prelude.rnf dbParameterGroupName
       `Prelude.seq` Prelude.rnf parameterApplyStatus
 
-instance Core.ToJSON AwsRdsDbParameterGroup where
+instance Data.ToJSON AwsRdsDbParameterGroup where
   toJSON AwsRdsDbParameterGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DbParameterGroupName" Core..=)
+          [ ("DbParameterGroupName" Data..=)
               Prelude.<$> dbParameterGroupName,
-            ("ParameterApplyStatus" Core..=)
+            ("ParameterApplyStatus" Data..=)
               Prelude.<$> parameterApplyStatus
           ]
       )

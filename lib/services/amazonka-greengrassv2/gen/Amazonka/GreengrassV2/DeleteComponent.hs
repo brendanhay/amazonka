@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,15 +98,15 @@ instance Prelude.Hashable DeleteComponent where
 instance Prelude.NFData DeleteComponent where
   rnf DeleteComponent' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeleteComponent where
+instance Data.ToHeaders DeleteComponent where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteComponent where
+instance Data.ToPath DeleteComponent where
   toPath DeleteComponent' {..} =
     Prelude.mconcat
-      ["/greengrass/v2/components/", Core.toBS arn]
+      ["/greengrass/v2/components/", Data.toBS arn]
 
-instance Core.ToQuery DeleteComponent where
+instance Data.ToQuery DeleteComponent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteComponentResponse' smart constructor.

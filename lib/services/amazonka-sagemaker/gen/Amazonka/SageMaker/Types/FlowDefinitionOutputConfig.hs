@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.FlowDefinitionOutputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about where human output will be stored.
@@ -79,14 +80,14 @@ flowDefinitionOutputConfig_kmsKeyId = Lens.lens (\FlowDefinitionOutputConfig' {k
 flowDefinitionOutputConfig_s3OutputPath :: Lens.Lens' FlowDefinitionOutputConfig Prelude.Text
 flowDefinitionOutputConfig_s3OutputPath = Lens.lens (\FlowDefinitionOutputConfig' {s3OutputPath} -> s3OutputPath) (\s@FlowDefinitionOutputConfig' {} a -> s {s3OutputPath = a} :: FlowDefinitionOutputConfig)
 
-instance Core.FromJSON FlowDefinitionOutputConfig where
+instance Data.FromJSON FlowDefinitionOutputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FlowDefinitionOutputConfig"
       ( \x ->
           FlowDefinitionOutputConfig'
-            Prelude.<$> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..: "S3OutputPath")
+            Prelude.<$> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..: "S3OutputPath")
       )
 
 instance Prelude.Hashable FlowDefinitionOutputConfig where
@@ -99,11 +100,11 @@ instance Prelude.NFData FlowDefinitionOutputConfig where
     Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf s3OutputPath
 
-instance Core.ToJSON FlowDefinitionOutputConfig where
+instance Data.ToJSON FlowDefinitionOutputConfig where
   toJSON FlowDefinitionOutputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            Prelude.Just ("S3OutputPath" Core..= s3OutputPath)
+          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            Prelude.Just ("S3OutputPath" Data..= s3OutputPath)
           ]
       )

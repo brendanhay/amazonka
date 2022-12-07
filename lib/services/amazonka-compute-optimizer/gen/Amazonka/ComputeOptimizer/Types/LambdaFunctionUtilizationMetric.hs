@@ -23,6 +23,7 @@ import Amazonka.ComputeOptimizer.Types.LambdaFunctionMetricName
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionMetricStatistic
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a utilization metric of an Lambda function.
@@ -134,17 +135,17 @@ lambdaFunctionUtilizationMetric_value :: Lens.Lens' LambdaFunctionUtilizationMet
 lambdaFunctionUtilizationMetric_value = Lens.lens (\LambdaFunctionUtilizationMetric' {value} -> value) (\s@LambdaFunctionUtilizationMetric' {} a -> s {value = a} :: LambdaFunctionUtilizationMetric)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LambdaFunctionUtilizationMetric
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaFunctionUtilizationMetric"
       ( \x ->
           LambdaFunctionUtilizationMetric'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "statistic")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "statistic")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance

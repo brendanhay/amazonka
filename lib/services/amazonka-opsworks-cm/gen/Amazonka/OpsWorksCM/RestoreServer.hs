@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorksCM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,7 +151,7 @@ instance Core.AWSRequest RestoreServer where
     Response.receiveJSON
       ( \s h x ->
           RestoreServerResponse'
-            Prelude.<$> (x Core..?> "Server")
+            Prelude.<$> (x Data..?> "Server")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,36 +169,36 @@ instance Prelude.NFData RestoreServer where
       `Prelude.seq` Prelude.rnf backupId
       `Prelude.seq` Prelude.rnf serverName
 
-instance Core.ToHeaders RestoreServer where
+instance Data.ToHeaders RestoreServer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorksCM_V2016_11_01.RestoreServer" ::
+              Data.=# ( "OpsWorksCM_V2016_11_01.RestoreServer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RestoreServer where
+instance Data.ToJSON RestoreServer where
   toJSON RestoreServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KeyPair" Core..=) Prelude.<$> keyPair,
-            ("InstanceType" Core..=) Prelude.<$> instanceType,
-            Prelude.Just ("BackupId" Core..= backupId),
-            Prelude.Just ("ServerName" Core..= serverName)
+          [ ("KeyPair" Data..=) Prelude.<$> keyPair,
+            ("InstanceType" Data..=) Prelude.<$> instanceType,
+            Prelude.Just ("BackupId" Data..= backupId),
+            Prelude.Just ("ServerName" Data..= serverName)
           ]
       )
 
-instance Core.ToPath RestoreServer where
+instance Data.ToPath RestoreServer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreServer where
+instance Data.ToQuery RestoreServer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRestoreServerResponse' smart constructor.

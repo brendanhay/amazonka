@@ -48,6 +48,7 @@ where
 import Amazonka.CertificateManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,8 +105,8 @@ instance Core.AWSRequest GetCertificate where
     Response.receiveJSON
       ( \s h x ->
           GetCertificateResponse'
-            Prelude.<$> (x Core..?> "Certificate")
-            Prelude.<*> (x Core..?> "CertificateChain")
+            Prelude.<$> (x Data..?> "Certificate")
+            Prelude.<*> (x Data..?> "CertificateChain")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,34 +117,34 @@ instance Prelude.Hashable GetCertificate where
 instance Prelude.NFData GetCertificate where
   rnf GetCertificate' {..} = Prelude.rnf certificateArn
 
-instance Core.ToHeaders GetCertificate where
+instance Data.ToHeaders GetCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CertificateManager.GetCertificate" ::
+              Data.=# ( "CertificateManager.GetCertificate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCertificate where
+instance Data.ToJSON GetCertificate where
   toJSON GetCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("CertificateArn" Core..= certificateArn)
+              ("CertificateArn" Data..= certificateArn)
           ]
       )
 
-instance Core.ToPath GetCertificate where
+instance Data.ToPath GetCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCertificate where
+instance Data.ToQuery GetCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCertificateResponse' smart constructor.

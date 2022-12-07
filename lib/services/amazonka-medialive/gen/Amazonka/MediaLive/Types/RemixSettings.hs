@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.RemixSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AudioChannelMapping
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,16 +75,16 @@ remixSettings_channelsOut = Lens.lens (\RemixSettings' {channelsOut} -> channels
 remixSettings_channelMappings :: Lens.Lens' RemixSettings [AudioChannelMapping]
 remixSettings_channelMappings = Lens.lens (\RemixSettings' {channelMappings} -> channelMappings) (\s@RemixSettings' {} a -> s {channelMappings = a} :: RemixSettings) Prelude.. Lens.coerced
 
-instance Core.FromJSON RemixSettings where
+instance Data.FromJSON RemixSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RemixSettings"
       ( \x ->
           RemixSettings'
-            Prelude.<$> (x Core..:? "channelsIn")
-            Prelude.<*> (x Core..:? "channelsOut")
-            Prelude.<*> ( x Core..:? "channelMappings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "channelsIn")
+            Prelude.<*> (x Data..:? "channelsOut")
+            Prelude.<*> ( x Data..:? "channelMappings"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -99,13 +100,13 @@ instance Prelude.NFData RemixSettings where
       `Prelude.seq` Prelude.rnf channelsOut
       `Prelude.seq` Prelude.rnf channelMappings
 
-instance Core.ToJSON RemixSettings where
+instance Data.ToJSON RemixSettings where
   toJSON RemixSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("channelsIn" Core..=) Prelude.<$> channelsIn,
-            ("channelsOut" Core..=) Prelude.<$> channelsOut,
+          [ ("channelsIn" Data..=) Prelude.<$> channelsIn,
+            ("channelsOut" Data..=) Prelude.<$> channelsOut,
             Prelude.Just
-              ("channelMappings" Core..= channelMappings)
+              ("channelMappings" Data..= channelMappings)
           ]
       )

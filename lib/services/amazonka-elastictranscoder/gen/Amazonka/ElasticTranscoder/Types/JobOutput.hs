@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.JobOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.Captions
 import Amazonka.ElasticTranscoder.Types.Clip
 import Amazonka.ElasticTranscoder.Types.Encryption
@@ -725,33 +726,33 @@ jobOutput_segmentDuration = Lens.lens (\JobOutput' {segmentDuration} -> segmentD
 jobOutput_frameRate :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Text)
 jobOutput_frameRate = Lens.lens (\JobOutput' {frameRate} -> frameRate) (\s@JobOutput' {} a -> s {frameRate = a} :: JobOutput)
 
-instance Core.FromJSON JobOutput where
+instance Data.FromJSON JobOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobOutput"
       ( \x ->
           JobOutput'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "FileSize")
-            Prelude.<*> (x Core..:? "Watermarks" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Composition" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ThumbnailEncryption")
-            Prelude.<*> (x Core..:? "ThumbnailPattern")
-            Prelude.<*> (x Core..:? "StatusDetail")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Captions")
-            Prelude.<*> (x Core..:? "Width")
-            Prelude.<*> (x Core..:? "AppliedColorSpaceConversion")
-            Prelude.<*> (x Core..:? "Duration")
-            Prelude.<*> (x Core..:? "AlbumArt")
-            Prelude.<*> (x Core..:? "PresetId")
-            Prelude.<*> (x Core..:? "Encryption")
-            Prelude.<*> (x Core..:? "DurationMillis")
-            Prelude.<*> (x Core..:? "Height")
-            Prelude.<*> (x Core..:? "Rotate")
-            Prelude.<*> (x Core..:? "SegmentDuration")
-            Prelude.<*> (x Core..:? "FrameRate")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "FileSize")
+            Prelude.<*> (x Data..:? "Watermarks" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Composition" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ThumbnailEncryption")
+            Prelude.<*> (x Data..:? "ThumbnailPattern")
+            Prelude.<*> (x Data..:? "StatusDetail")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Captions")
+            Prelude.<*> (x Data..:? "Width")
+            Prelude.<*> (x Data..:? "AppliedColorSpaceConversion")
+            Prelude.<*> (x Data..:? "Duration")
+            Prelude.<*> (x Data..:? "AlbumArt")
+            Prelude.<*> (x Data..:? "PresetId")
+            Prelude.<*> (x Data..:? "Encryption")
+            Prelude.<*> (x Data..:? "DurationMillis")
+            Prelude.<*> (x Data..:? "Height")
+            Prelude.<*> (x Data..:? "Rotate")
+            Prelude.<*> (x Data..:? "SegmentDuration")
+            Prelude.<*> (x Data..:? "FrameRate")
       )
 
 instance Prelude.Hashable JobOutput where

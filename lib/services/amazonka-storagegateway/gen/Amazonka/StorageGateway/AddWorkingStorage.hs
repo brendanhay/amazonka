@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ instance Core.AWSRequest AddWorkingStorage where
     Response.receiveJSON
       ( \s h x ->
           AddWorkingStorageResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,34 +130,34 @@ instance Prelude.NFData AddWorkingStorage where
     Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf diskIds
 
-instance Core.ToHeaders AddWorkingStorage where
+instance Data.ToHeaders AddWorkingStorage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.AddWorkingStorage" ::
+              Data.=# ( "StorageGateway_20130630.AddWorkingStorage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddWorkingStorage where
+instance Data.ToJSON AddWorkingStorage where
   toJSON AddWorkingStorage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GatewayARN" Core..= gatewayARN),
-            Prelude.Just ("DiskIds" Core..= diskIds)
+          [ Prelude.Just ("GatewayARN" Data..= gatewayARN),
+            Prelude.Just ("DiskIds" Data..= diskIds)
           ]
       )
 
-instance Core.ToPath AddWorkingStorage where
+instance Data.ToPath AddWorkingStorage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddWorkingStorage where
+instance Data.ToQuery AddWorkingStorage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway

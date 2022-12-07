@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.CacheCluster where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.CacheNode
 import Amazonka.ElastiCache.Types.CacheParameterGroupStatus
 import Amazonka.ElastiCache.Types.CacheSecurityGroupMembership
@@ -70,7 +71,7 @@ data CacheCluster = CacheCluster'
     -- | Returns the destination, format and type of the logs.
     logDeliveryConfigurations :: Prelude.Maybe [LogDeliveryConfiguration],
     -- | The date and time when the cluster was created.
-    cacheClusterCreateTime :: Prelude.Maybe Core.ISO8601,
+    cacheClusterCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | A flag that enables encryption at-rest when set to @true@.
     --
     -- You cannot modify the value of @AtRestEncryptionEnabled@ after the
@@ -260,7 +261,7 @@ data CacheCluster = CacheCluster'
     -- Example: @sun:23:00-mon:01:30@
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The date the auth token was last modified
-    authTokenLastModifiedDate :: Prelude.Maybe Core.ISO8601,
+    authTokenLastModifiedDate :: Prelude.Maybe Data.ISO8601,
     -- | The replication group to which this cluster belongs. If this field is
     -- empty, the cluster is not associated with any replication group.
     replicationGroupId :: Prelude.Maybe Prelude.Text,
@@ -623,7 +624,7 @@ cacheCluster_logDeliveryConfigurations = Lens.lens (\CacheCluster' {logDeliveryC
 
 -- | The date and time when the cluster was created.
 cacheCluster_cacheClusterCreateTime :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.UTCTime)
-cacheCluster_cacheClusterCreateTime = Lens.lens (\CacheCluster' {cacheClusterCreateTime} -> cacheClusterCreateTime) (\s@CacheCluster' {} a -> s {cacheClusterCreateTime = a} :: CacheCluster) Prelude.. Lens.mapping Core._Time
+cacheCluster_cacheClusterCreateTime = Lens.lens (\CacheCluster' {cacheClusterCreateTime} -> cacheClusterCreateTime) (\s@CacheCluster' {} a -> s {cacheClusterCreateTime = a} :: CacheCluster) Prelude.. Lens.mapping Data._Time
 
 -- | A flag that enables encryption at-rest when set to @true@.
 --
@@ -850,7 +851,7 @@ cacheCluster_preferredMaintenanceWindow = Lens.lens (\CacheCluster' {preferredMa
 
 -- | The date the auth token was last modified
 cacheCluster_authTokenLastModifiedDate :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.UTCTime)
-cacheCluster_authTokenLastModifiedDate = Lens.lens (\CacheCluster' {authTokenLastModifiedDate} -> authTokenLastModifiedDate) (\s@CacheCluster' {} a -> s {authTokenLastModifiedDate = a} :: CacheCluster) Prelude.. Lens.mapping Core._Time
+cacheCluster_authTokenLastModifiedDate = Lens.lens (\CacheCluster' {authTokenLastModifiedDate} -> authTokenLastModifiedDate) (\s@CacheCluster' {} a -> s {authTokenLastModifiedDate = a} :: CacheCluster) Prelude.. Lens.mapping Data._Time
 
 -- | The replication group to which this cluster belongs. If this field is
 -- empty, the cluster is not associated with any replication group.
@@ -881,52 +882,52 @@ cacheCluster_cacheSecurityGroups = Lens.lens (\CacheCluster' {cacheSecurityGroup
 cacheCluster_configurationEndpoint :: Lens.Lens' CacheCluster (Prelude.Maybe Endpoint)
 cacheCluster_configurationEndpoint = Lens.lens (\CacheCluster' {configurationEndpoint} -> configurationEndpoint) (\s@CacheCluster' {} a -> s {configurationEndpoint = a} :: CacheCluster)
 
-instance Core.FromXML CacheCluster where
+instance Data.FromXML CacheCluster where
   parseXML x =
     CacheCluster'
-      Prelude.<$> (x Core..@? "TransitEncryptionEnabled")
-      Prelude.<*> (x Core..@? "CacheSubnetGroupName")
-      Prelude.<*> (x Core..@? "ReplicationGroupLogDeliveryEnabled")
-      Prelude.<*> (x Core..@? "AutoMinorVersionUpgrade")
-      Prelude.<*> (x Core..@? "CacheClusterStatus")
-      Prelude.<*> (x Core..@? "ClientDownloadLandingPage")
-      Prelude.<*> (x Core..@? "ARN")
-      Prelude.<*> ( x Core..@? "LogDeliveryConfigurations"
+      Prelude.<$> (x Data..@? "TransitEncryptionEnabled")
+      Prelude.<*> (x Data..@? "CacheSubnetGroupName")
+      Prelude.<*> (x Data..@? "ReplicationGroupLogDeliveryEnabled")
+      Prelude.<*> (x Data..@? "AutoMinorVersionUpgrade")
+      Prelude.<*> (x Data..@? "CacheClusterStatus")
+      Prelude.<*> (x Data..@? "ClientDownloadLandingPage")
+      Prelude.<*> (x Data..@? "ARN")
+      Prelude.<*> ( x Data..@? "LogDeliveryConfigurations"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "LogDeliveryConfiguration")
+                        (Data.parseXMLList "LogDeliveryConfiguration")
                   )
-      Prelude.<*> (x Core..@? "CacheClusterCreateTime")
-      Prelude.<*> (x Core..@? "AtRestEncryptionEnabled")
-      Prelude.<*> (x Core..@? "IpDiscovery")
-      Prelude.<*> (x Core..@? "NumCacheNodes")
-      Prelude.<*> (x Core..@? "NotificationConfiguration")
-      Prelude.<*> (x Core..@? "CacheNodeType")
-      Prelude.<*> (x Core..@? "PreferredAvailabilityZone")
-      Prelude.<*> ( x Core..@? "CacheNodes" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "CacheNode")
+      Prelude.<*> (x Data..@? "CacheClusterCreateTime")
+      Prelude.<*> (x Data..@? "AtRestEncryptionEnabled")
+      Prelude.<*> (x Data..@? "IpDiscovery")
+      Prelude.<*> (x Data..@? "NumCacheNodes")
+      Prelude.<*> (x Data..@? "NotificationConfiguration")
+      Prelude.<*> (x Data..@? "CacheNodeType")
+      Prelude.<*> (x Data..@? "PreferredAvailabilityZone")
+      Prelude.<*> ( x Data..@? "CacheNodes" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "CacheNode")
                   )
-      Prelude.<*> (x Core..@? "CacheClusterId")
-      Prelude.<*> (x Core..@? "AuthTokenEnabled")
-      Prelude.<*> (x Core..@? "SnapshotWindow")
-      Prelude.<*> (x Core..@? "SnapshotRetentionLimit")
-      Prelude.<*> (x Core..@? "CacheParameterGroup")
-      Prelude.<*> ( x Core..@? "SecurityGroups" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "CacheClusterId")
+      Prelude.<*> (x Data..@? "AuthTokenEnabled")
+      Prelude.<*> (x Data..@? "SnapshotWindow")
+      Prelude.<*> (x Data..@? "SnapshotRetentionLimit")
+      Prelude.<*> (x Data..@? "CacheParameterGroup")
+      Prelude.<*> ( x Data..@? "SecurityGroups" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PreferredOutpostArn")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "PendingModifiedValues")
-      Prelude.<*> (x Core..@? "PreferredMaintenanceWindow")
-      Prelude.<*> (x Core..@? "AuthTokenLastModifiedDate")
-      Prelude.<*> (x Core..@? "ReplicationGroupId")
-      Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "NetworkType")
-      Prelude.<*> ( x Core..@? "CacheSecurityGroups"
+      Prelude.<*> (x Data..@? "PreferredOutpostArn")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "PendingModifiedValues")
+      Prelude.<*> (x Data..@? "PreferredMaintenanceWindow")
+      Prelude.<*> (x Data..@? "AuthTokenLastModifiedDate")
+      Prelude.<*> (x Data..@? "ReplicationGroupId")
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "NetworkType")
+      Prelude.<*> ( x Data..@? "CacheSecurityGroups"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "CacheSecurityGroup")
+                      Prelude.>>= Core.may (Data.parseXMLList "CacheSecurityGroup")
                   )
-      Prelude.<*> (x Core..@? "ConfigurationEndpoint")
+      Prelude.<*> (x Data..@? "ConfigurationEndpoint")
 
 instance Prelude.Hashable CacheCluster where
   hashWithSalt _salt CacheCluster' {..} =

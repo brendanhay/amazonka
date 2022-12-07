@@ -21,6 +21,7 @@ module Amazonka.Discovery.Types.NeighborConnectionDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about neighboring servers.
@@ -98,17 +99,17 @@ neighborConnectionDetail_destinationServerId = Lens.lens (\NeighborConnectionDet
 neighborConnectionDetail_connectionsCount :: Lens.Lens' NeighborConnectionDetail Prelude.Integer
 neighborConnectionDetail_connectionsCount = Lens.lens (\NeighborConnectionDetail' {connectionsCount} -> connectionsCount) (\s@NeighborConnectionDetail' {} a -> s {connectionsCount = a} :: NeighborConnectionDetail)
 
-instance Core.FromJSON NeighborConnectionDetail where
+instance Data.FromJSON NeighborConnectionDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NeighborConnectionDetail"
       ( \x ->
           NeighborConnectionDetail'
-            Prelude.<$> (x Core..:? "transportProtocol")
-            Prelude.<*> (x Core..:? "destinationPort")
-            Prelude.<*> (x Core..: "sourceServerId")
-            Prelude.<*> (x Core..: "destinationServerId")
-            Prelude.<*> (x Core..: "connectionsCount")
+            Prelude.<$> (x Data..:? "transportProtocol")
+            Prelude.<*> (x Data..:? "destinationPort")
+            Prelude.<*> (x Data..: "sourceServerId")
+            Prelude.<*> (x Data..: "destinationServerId")
+            Prelude.<*> (x Data..: "connectionsCount")
       )
 
 instance Prelude.Hashable NeighborConnectionDetail where

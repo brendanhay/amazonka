@@ -22,6 +22,7 @@ module Amazonka.Config.Types.OrganizationConformancePack where
 import Amazonka.Config.Types.ConformancePackInputParameter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An organization conformance pack that has information about conformance
@@ -48,7 +49,7 @@ data OrganizationConformancePack = OrganizationConformancePack'
     -- | Amazon Resource Name (ARN) of organization conformance pack.
     organizationConformancePackArn :: Prelude.Text,
     -- | Last time when organization conformation pack was updated.
-    lastUpdateTime :: Core.POSIX
+    lastUpdateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,7 +104,7 @@ newOrganizationConformancePack
         organizationConformancePackArn =
           pOrganizationConformancePackArn_,
         lastUpdateTime =
-          Core._Time Lens.# pLastUpdateTime_
+          Data._Time Lens.# pLastUpdateTime_
       }
 
 -- | A comma-separated list of accounts excluded from organization
@@ -138,25 +139,25 @@ organizationConformancePack_organizationConformancePackArn = Lens.lens (\Organiz
 
 -- | Last time when organization conformation pack was updated.
 organizationConformancePack_lastUpdateTime :: Lens.Lens' OrganizationConformancePack Prelude.UTCTime
-organizationConformancePack_lastUpdateTime = Lens.lens (\OrganizationConformancePack' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConformancePack' {} a -> s {lastUpdateTime = a} :: OrganizationConformancePack) Prelude.. Core._Time
+organizationConformancePack_lastUpdateTime = Lens.lens (\OrganizationConformancePack' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConformancePack' {} a -> s {lastUpdateTime = a} :: OrganizationConformancePack) Prelude.. Data._Time
 
-instance Core.FromJSON OrganizationConformancePack where
+instance Data.FromJSON OrganizationConformancePack where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationConformancePack"
       ( \x ->
           OrganizationConformancePack'
-            Prelude.<$> ( x Core..:? "ExcludedAccounts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ExcludedAccounts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ConformancePackInputParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ConformancePackInputParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DeliveryS3Bucket")
-            Prelude.<*> (x Core..:? "DeliveryS3KeyPrefix")
-            Prelude.<*> (x Core..: "OrganizationConformancePackName")
-            Prelude.<*> (x Core..: "OrganizationConformancePackArn")
-            Prelude.<*> (x Core..: "LastUpdateTime")
+            Prelude.<*> (x Data..:? "DeliveryS3Bucket")
+            Prelude.<*> (x Data..:? "DeliveryS3KeyPrefix")
+            Prelude.<*> (x Data..: "OrganizationConformancePackName")
+            Prelude.<*> (x Data..: "OrganizationConformancePackArn")
+            Prelude.<*> (x Data..: "LastUpdateTime")
       )
 
 instance Prelude.Hashable OrganizationConformancePack where

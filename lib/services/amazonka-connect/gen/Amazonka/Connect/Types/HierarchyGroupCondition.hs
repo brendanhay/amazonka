@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.HierarchyGroupCondition where
 import Amazonka.Connect.Types.HierarchyGroupMatchType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A leaf node condition which can be used to specify a hierarchy group
@@ -75,12 +76,12 @@ instance Prelude.NFData HierarchyGroupCondition where
     Prelude.rnf hierarchyGroupMatchType
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON HierarchyGroupCondition where
+instance Data.ToJSON HierarchyGroupCondition where
   toJSON HierarchyGroupCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HierarchyGroupMatchType" Core..=)
+          [ ("HierarchyGroupMatchType" Data..=)
               Prelude.<$> hierarchyGroupMatchType,
-            ("Value" Core..=) Prelude.<$> value
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

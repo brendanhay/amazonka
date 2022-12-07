@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,36 +134,36 @@ instance Prelude.NFData DeleteMailboxPermissions where
       `Prelude.seq` Prelude.rnf entityId
       `Prelude.seq` Prelude.rnf granteeId
 
-instance Core.ToHeaders DeleteMailboxPermissions where
+instance Data.ToHeaders DeleteMailboxPermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.DeleteMailboxPermissions" ::
+              Data.=# ( "WorkMailService.DeleteMailboxPermissions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteMailboxPermissions where
+instance Data.ToJSON DeleteMailboxPermissions where
   toJSON DeleteMailboxPermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("EntityId" Core..= entityId),
-            Prelude.Just ("GranteeId" Core..= granteeId)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("EntityId" Data..= entityId),
+            Prelude.Just ("GranteeId" Data..= granteeId)
           ]
       )
 
-instance Core.ToPath DeleteMailboxPermissions where
+instance Data.ToPath DeleteMailboxPermissions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteMailboxPermissions where
+instance Data.ToQuery DeleteMailboxPermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMailboxPermissionsResponse' smart constructor.

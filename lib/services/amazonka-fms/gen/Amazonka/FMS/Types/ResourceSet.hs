@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.ResourceSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of resources to include in a policy.
@@ -54,7 +55,7 @@ data ResourceSet = ResourceSet'
     -- | A description of the resource set.
     description :: Prelude.Maybe Prelude.Text,
     -- | The last time that the resource set was changed.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The descriptive name of the resource set. You can\'t change the name of
     -- a resource set after you create it.
     name :: Prelude.Text,
@@ -155,7 +156,7 @@ resourceSet_description = Lens.lens (\ResourceSet' {description} -> description)
 
 -- | The last time that the resource set was changed.
 resourceSet_lastUpdateTime :: Lens.Lens' ResourceSet (Prelude.Maybe Prelude.UTCTime)
-resourceSet_lastUpdateTime = Lens.lens (\ResourceSet' {lastUpdateTime} -> lastUpdateTime) (\s@ResourceSet' {} a -> s {lastUpdateTime = a} :: ResourceSet) Prelude.. Lens.mapping Core._Time
+resourceSet_lastUpdateTime = Lens.lens (\ResourceSet' {lastUpdateTime} -> lastUpdateTime) (\s@ResourceSet' {} a -> s {lastUpdateTime = a} :: ResourceSet) Prelude.. Lens.mapping Data._Time
 
 -- | The descriptive name of the resource set. You can\'t change the name of
 -- a resource set after you create it.
@@ -168,19 +169,19 @@ resourceSet_name = Lens.lens (\ResourceSet' {name} -> name) (\s@ResourceSet' {} 
 resourceSet_resourceTypeList :: Lens.Lens' ResourceSet [Prelude.Text]
 resourceSet_resourceTypeList = Lens.lens (\ResourceSet' {resourceTypeList} -> resourceTypeList) (\s@ResourceSet' {} a -> s {resourceTypeList = a} :: ResourceSet) Prelude.. Lens.coerced
 
-instance Core.FromJSON ResourceSet where
+instance Data.FromJSON ResourceSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceSet"
       ( \x ->
           ResourceSet'
-            Prelude.<$> (x Core..:? "UpdateToken")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastUpdateTime")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> ( x Core..:? "ResourceTypeList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "UpdateToken")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastUpdateTime")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> ( x Data..:? "ResourceTypeList"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -202,17 +203,17 @@ instance Prelude.NFData ResourceSet where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf resourceTypeList
 
-instance Core.ToJSON ResourceSet where
+instance Data.ToJSON ResourceSet where
   toJSON ResourceSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UpdateToken" Core..=) Prelude.<$> updateToken,
-            ("Id" Core..=) Prelude.<$> id,
-            ("Description" Core..=) Prelude.<$> description,
-            ("LastUpdateTime" Core..=)
+          [ ("UpdateToken" Data..=) Prelude.<$> updateToken,
+            ("Id" Data..=) Prelude.<$> id,
+            ("Description" Data..=) Prelude.<$> description,
+            ("LastUpdateTime" Data..=)
               Prelude.<$> lastUpdateTime,
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("ResourceTypeList" Core..= resourceTypeList)
+              ("ResourceTypeList" Data..= resourceTypeList)
           ]
       )

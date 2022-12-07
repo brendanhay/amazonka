@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.SSEDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.SSEStatus
 import Amazonka.DynamoDB.Types.SSEType
@@ -38,7 +39,7 @@ data SSEDescription = SSEDescription'
     -- is accessible again. DynamoDB will initiate the table archival process
     -- when table\'s KMS key remains inaccessible for more than seven days from
     -- this date.
-    inaccessibleEncryptionDateTime :: Prelude.Maybe Core.POSIX,
+    inaccessibleEncryptionDateTime :: Prelude.Maybe Data.POSIX,
     -- | Represents the current state of server-side encryption. The only
     -- supported values are:
     --
@@ -104,7 +105,7 @@ newSSEDescription =
 -- when table\'s KMS key remains inaccessible for more than seven days from
 -- this date.
 sSEDescription_inaccessibleEncryptionDateTime :: Lens.Lens' SSEDescription (Prelude.Maybe Prelude.UTCTime)
-sSEDescription_inaccessibleEncryptionDateTime = Lens.lens (\SSEDescription' {inaccessibleEncryptionDateTime} -> inaccessibleEncryptionDateTime) (\s@SSEDescription' {} a -> s {inaccessibleEncryptionDateTime = a} :: SSEDescription) Prelude.. Lens.mapping Core._Time
+sSEDescription_inaccessibleEncryptionDateTime = Lens.lens (\SSEDescription' {inaccessibleEncryptionDateTime} -> inaccessibleEncryptionDateTime) (\s@SSEDescription' {} a -> s {inaccessibleEncryptionDateTime = a} :: SSEDescription) Prelude.. Lens.mapping Data._Time
 
 -- | Represents the current state of server-side encryption. The only
 -- supported values are:
@@ -127,16 +128,16 @@ sSEDescription_sSEType = Lens.lens (\SSEDescription' {sSEType} -> sSEType) (\s@S
 sSEDescription_kmsMasterKeyArn :: Lens.Lens' SSEDescription (Prelude.Maybe Prelude.Text)
 sSEDescription_kmsMasterKeyArn = Lens.lens (\SSEDescription' {kmsMasterKeyArn} -> kmsMasterKeyArn) (\s@SSEDescription' {} a -> s {kmsMasterKeyArn = a} :: SSEDescription)
 
-instance Core.FromJSON SSEDescription where
+instance Data.FromJSON SSEDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SSEDescription"
       ( \x ->
           SSEDescription'
-            Prelude.<$> (x Core..:? "InaccessibleEncryptionDateTime")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "SSEType")
-            Prelude.<*> (x Core..:? "KMSMasterKeyArn")
+            Prelude.<$> (x Data..:? "InaccessibleEncryptionDateTime")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "SSEType")
+            Prelude.<*> (x Data..:? "KMSMasterKeyArn")
       )
 
 instance Prelude.Hashable SSEDescription where

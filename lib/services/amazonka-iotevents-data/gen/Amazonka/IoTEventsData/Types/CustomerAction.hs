@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.CustomerAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration
 import Amazonka.IoTEventsData.Types.CustomerActionName
 import Amazonka.IoTEventsData.Types.DisableActionConfiguration
@@ -165,18 +166,18 @@ customerAction_snoozeActionConfiguration = Lens.lens (\CustomerAction' {snoozeAc
 customerAction_acknowledgeActionConfiguration :: Lens.Lens' CustomerAction (Prelude.Maybe AcknowledgeActionConfiguration)
 customerAction_acknowledgeActionConfiguration = Lens.lens (\CustomerAction' {acknowledgeActionConfiguration} -> acknowledgeActionConfiguration) (\s@CustomerAction' {} a -> s {acknowledgeActionConfiguration = a} :: CustomerAction)
 
-instance Core.FromJSON CustomerAction where
+instance Data.FromJSON CustomerAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomerAction"
       ( \x ->
           CustomerAction'
-            Prelude.<$> (x Core..:? "resetActionConfiguration")
-            Prelude.<*> (x Core..:? "actionName")
-            Prelude.<*> (x Core..:? "enableActionConfiguration")
-            Prelude.<*> (x Core..:? "disableActionConfiguration")
-            Prelude.<*> (x Core..:? "snoozeActionConfiguration")
-            Prelude.<*> (x Core..:? "acknowledgeActionConfiguration")
+            Prelude.<$> (x Data..:? "resetActionConfiguration")
+            Prelude.<*> (x Data..:? "actionName")
+            Prelude.<*> (x Data..:? "enableActionConfiguration")
+            Prelude.<*> (x Data..:? "disableActionConfiguration")
+            Prelude.<*> (x Data..:? "snoozeActionConfiguration")
+            Prelude.<*> (x Data..:? "acknowledgeActionConfiguration")
       )
 
 instance Prelude.Hashable CustomerAction where

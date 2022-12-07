@@ -22,6 +22,7 @@ module Amazonka.Config.Types.AggregateConformancePackComplianceSummary where
 import Amazonka.Config.Types.AggregateConformancePackComplianceCount
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of compliance based on either account ID or region.
@@ -68,16 +69,16 @@ aggregateConformancePackComplianceSummary_complianceSummary :: Lens.Lens' Aggreg
 aggregateConformancePackComplianceSummary_complianceSummary = Lens.lens (\AggregateConformancePackComplianceSummary' {complianceSummary} -> complianceSummary) (\s@AggregateConformancePackComplianceSummary' {} a -> s {complianceSummary = a} :: AggregateConformancePackComplianceSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AggregateConformancePackComplianceSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregateConformancePackComplianceSummary"
       ( \x ->
           AggregateConformancePackComplianceSummary'
-            Prelude.<$> (x Core..:? "GroupName")
-              Prelude.<*> (x Core..:? "ComplianceSummary")
+            Prelude.<$> (x Data..:? "GroupName")
+              Prelude.<*> (x Data..:? "ComplianceSummary")
       )
 
 instance

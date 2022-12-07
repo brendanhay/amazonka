@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,8 +135,8 @@ instance Core.AWSRequest ListChangesets where
     Response.receiveJSON
       ( \s h x ->
           ListChangesetsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "changesets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "changesets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,27 +152,27 @@ instance Prelude.NFData ListChangesets where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf datasetId
 
-instance Core.ToHeaders ListChangesets where
+instance Data.ToHeaders ListChangesets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListChangesets where
+instance Data.ToPath ListChangesets where
   toPath ListChangesets' {..} =
     Prelude.mconcat
-      ["/datasets/", Core.toBS datasetId, "/changesetsv2"]
+      ["/datasets/", Data.toBS datasetId, "/changesetsv2"]
 
-instance Core.ToQuery ListChangesets where
+instance Data.ToQuery ListChangesets where
   toQuery ListChangesets' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | Response to ListChangesetsResponse. This returns a list of dataset

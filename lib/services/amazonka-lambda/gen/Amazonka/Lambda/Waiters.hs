@@ -18,6 +18,7 @@ module Amazonka.Lambda.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.GetFunction
 import Amazonka.Lambda.GetFunctionConfiguration
 import Amazonka.Lambda.Lens
@@ -36,19 +37,19 @@ newFunctionActive =
             "Active"
             Core.AcceptSuccess
             ( functionConfiguration_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( functionConfiguration_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Pending"
             Core.AcceptRetry
             ( functionConfiguration_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -68,7 +69,7 @@ newFunctionUpdatedV2 =
                 Prelude.. Lens._Just
                 Prelude.. functionConfiguration_lastUpdateStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
@@ -77,7 +78,7 @@ newFunctionUpdatedV2 =
                 Prelude.. Lens._Just
                 Prelude.. functionConfiguration_lastUpdateStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "InProgress"
@@ -86,7 +87,7 @@ newFunctionUpdatedV2 =
                 Prelude.. Lens._Just
                 Prelude.. functionConfiguration_lastUpdateStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -121,7 +122,7 @@ newFunctionActiveV2 =
                 Prelude.. Lens._Just
                 Prelude.. functionConfiguration_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
@@ -130,7 +131,7 @@ newFunctionActiveV2 =
                 Prelude.. Lens._Just
                 Prelude.. functionConfiguration_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Pending"
@@ -139,7 +140,7 @@ newFunctionActiveV2 =
                 Prelude.. Lens._Just
                 Prelude.. functionConfiguration_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -157,21 +158,21 @@ newFunctionUpdated =
             Core.AcceptSuccess
             ( functionConfiguration_lastUpdateStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
             ( functionConfiguration_lastUpdateStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "InProgress"
             Core.AcceptRetry
             ( functionConfiguration_lastUpdateStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

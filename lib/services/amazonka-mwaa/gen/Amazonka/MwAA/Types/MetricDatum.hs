@@ -21,6 +21,7 @@ module Amazonka.MwAA.Types.MetricDatum where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MwAA.Types.Dimension
 import Amazonka.MwAA.Types.StatisticSet
 import Amazonka.MwAA.Types.Unit
@@ -43,7 +44,7 @@ data MetricDatum = MetricDatum'
     -- | __Internal only__. The name of the metric.
     metricName :: Prelude.Text,
     -- | __Internal only__. The time the metric data was received.
-    timestamp :: Core.POSIX
+    timestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,7 +80,7 @@ newMetricDatum pMetricName_ pTimestamp_ =
       unit = Prelude.Nothing,
       value = Prelude.Nothing,
       metricName = pMetricName_,
-      timestamp = Core._Time Lens.# pTimestamp_
+      timestamp = Data._Time Lens.# pTimestamp_
     }
 
 -- | __Internal only__. The statistical values for the metric.
@@ -104,7 +105,7 @@ metricDatum_metricName = Lens.lens (\MetricDatum' {metricName} -> metricName) (\
 
 -- | __Internal only__. The time the metric data was received.
 metricDatum_timestamp :: Lens.Lens' MetricDatum Prelude.UTCTime
-metricDatum_timestamp = Lens.lens (\MetricDatum' {timestamp} -> timestamp) (\s@MetricDatum' {} a -> s {timestamp = a} :: MetricDatum) Prelude.. Core._Time
+metricDatum_timestamp = Lens.lens (\MetricDatum' {timestamp} -> timestamp) (\s@MetricDatum' {} a -> s {timestamp = a} :: MetricDatum) Prelude.. Data._Time
 
 instance Prelude.Hashable MetricDatum where
   hashWithSalt _salt MetricDatum' {..} =
@@ -124,16 +125,16 @@ instance Prelude.NFData MetricDatum where
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf timestamp
 
-instance Core.ToJSON MetricDatum where
+instance Data.ToJSON MetricDatum where
   toJSON MetricDatum' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StatisticValues" Core..=)
+          [ ("StatisticValues" Data..=)
               Prelude.<$> statisticValues,
-            ("Dimensions" Core..=) Prelude.<$> dimensions,
-            ("Unit" Core..=) Prelude.<$> unit,
-            ("Value" Core..=) Prelude.<$> value,
-            Prelude.Just ("MetricName" Core..= metricName),
-            Prelude.Just ("Timestamp" Core..= timestamp)
+            ("Dimensions" Data..=) Prelude.<$> dimensions,
+            ("Unit" Data..=) Prelude.<$> unit,
+            ("Value" Data..=) Prelude.<$> value,
+            Prelude.Just ("MetricName" Data..= metricName),
+            Prelude.Just ("Timestamp" Data..= timestamp)
           ]
       )

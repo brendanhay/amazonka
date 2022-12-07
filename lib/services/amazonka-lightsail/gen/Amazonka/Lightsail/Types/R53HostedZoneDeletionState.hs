@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.R53HostedZoneDeletionState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.R53HostedZoneDeletionStateCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -95,14 +96,14 @@ r53HostedZoneDeletionState_message = Lens.lens (\R53HostedZoneDeletionState' {me
 r53HostedZoneDeletionState_code :: Lens.Lens' R53HostedZoneDeletionState (Prelude.Maybe R53HostedZoneDeletionStateCode)
 r53HostedZoneDeletionState_code = Lens.lens (\R53HostedZoneDeletionState' {code} -> code) (\s@R53HostedZoneDeletionState' {} a -> s {code = a} :: R53HostedZoneDeletionState)
 
-instance Core.FromJSON R53HostedZoneDeletionState where
+instance Data.FromJSON R53HostedZoneDeletionState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "R53HostedZoneDeletionState"
       ( \x ->
           R53HostedZoneDeletionState'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable R53HostedZoneDeletionState where

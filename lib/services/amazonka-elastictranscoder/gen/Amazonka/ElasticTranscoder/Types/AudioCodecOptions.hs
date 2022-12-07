@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.AudioCodecOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options associated with your audio codec.
@@ -208,16 +209,16 @@ audioCodecOptions_bitOrder = Lens.lens (\AudioCodecOptions' {bitOrder} -> bitOrd
 audioCodecOptions_signed :: Lens.Lens' AudioCodecOptions (Prelude.Maybe Prelude.Text)
 audioCodecOptions_signed = Lens.lens (\AudioCodecOptions' {signed} -> signed) (\s@AudioCodecOptions' {} a -> s {signed = a} :: AudioCodecOptions)
 
-instance Core.FromJSON AudioCodecOptions where
+instance Data.FromJSON AudioCodecOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioCodecOptions"
       ( \x ->
           AudioCodecOptions'
-            Prelude.<$> (x Core..:? "BitDepth")
-            Prelude.<*> (x Core..:? "Profile")
-            Prelude.<*> (x Core..:? "BitOrder")
-            Prelude.<*> (x Core..:? "Signed")
+            Prelude.<$> (x Data..:? "BitDepth")
+            Prelude.<*> (x Data..:? "Profile")
+            Prelude.<*> (x Data..:? "BitOrder")
+            Prelude.<*> (x Data..:? "Signed")
       )
 
 instance Prelude.Hashable AudioCodecOptions where
@@ -234,13 +235,13 @@ instance Prelude.NFData AudioCodecOptions where
       `Prelude.seq` Prelude.rnf bitOrder
       `Prelude.seq` Prelude.rnf signed
 
-instance Core.ToJSON AudioCodecOptions where
+instance Data.ToJSON AudioCodecOptions where
   toJSON AudioCodecOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BitDepth" Core..=) Prelude.<$> bitDepth,
-            ("Profile" Core..=) Prelude.<$> profile,
-            ("BitOrder" Core..=) Prelude.<$> bitOrder,
-            ("Signed" Core..=) Prelude.<$> signed
+          [ ("BitDepth" Data..=) Prelude.<$> bitDepth,
+            ("Profile" Data..=) Prelude.<$> profile,
+            ("BitOrder" Data..=) Prelude.<$> bitOrder,
+            ("Signed" Data..=) Prelude.<$> signed
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.Relationship where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a resource relationship.
@@ -61,13 +62,13 @@ relationship_from = Lens.lens (\Relationship' {from} -> from) (\s@Relationship' 
 relationship_to :: Lens.Lens' Relationship (Prelude.Maybe Prelude.Text)
 relationship_to = Lens.lens (\Relationship' {to} -> to) (\s@Relationship' {} a -> s {to = a} :: Relationship)
 
-instance Core.FromJSON Relationship where
+instance Data.FromJSON Relationship where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Relationship"
       ( \x ->
           Relationship'
-            Prelude.<$> (x Core..:? "From") Prelude.<*> (x Core..:? "To")
+            Prelude.<$> (x Data..:? "From") Prelude.<*> (x Data..:? "To")
       )
 
 instance Prelude.Hashable Relationship where

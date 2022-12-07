@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -316,9 +317,9 @@ instance Core.AWSRequest DescribeReservedInstances where
     Response.receiveXML
       ( \s h x ->
           DescribeReservedInstancesResponse'
-            Prelude.<$> ( x Core..@? "reservedInstancesSet"
+            Prelude.<$> ( x Data..@? "reservedInstancesSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -339,28 +340,28 @@ instance Prelude.NFData DescribeReservedInstances where
       `Prelude.seq` Prelude.rnf offeringType
       `Prelude.seq` Prelude.rnf dryRun
 
-instance Core.ToHeaders DescribeReservedInstances where
+instance Data.ToHeaders DescribeReservedInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeReservedInstances where
+instance Data.ToPath DescribeReservedInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeReservedInstances where
+instance Data.ToQuery DescribeReservedInstances where
   toQuery DescribeReservedInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeReservedInstances" :: Prelude.ByteString),
+          Data.=: ("DescribeReservedInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "OfferingClass" Core.=: offeringClass,
-        Core.toQuery
-          ( Core.toQueryList "ReservedInstancesId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "OfferingClass" Data.=: offeringClass,
+        Data.toQuery
+          ( Data.toQueryList "ReservedInstancesId"
               Prelude.<$> reservedInstancesIds
           ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "OfferingType" Core.=: offeringType,
-        "DryRun" Core.=: dryRun
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "OfferingType" Data.=: offeringType,
+        "DryRun" Data.=: dryRun
       ]
 
 -- | Contains the output for DescribeReservedInstances.

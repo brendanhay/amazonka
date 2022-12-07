@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -209,44 +210,44 @@ instance Prelude.NFData CreateConfigurationSet where
       `Prelude.seq` Prelude.rnf vdmOptions
       `Prelude.seq` Prelude.rnf configurationSetName
 
-instance Core.ToHeaders CreateConfigurationSet where
+instance Data.ToHeaders CreateConfigurationSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConfigurationSet where
+instance Data.ToJSON CreateConfigurationSet where
   toJSON CreateConfigurationSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ReputationOptions" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ReputationOptions" Data..=)
               Prelude.<$> reputationOptions,
-            ("DeliveryOptions" Core..=)
+            ("DeliveryOptions" Data..=)
               Prelude.<$> deliveryOptions,
-            ("TrackingOptions" Core..=)
+            ("TrackingOptions" Data..=)
               Prelude.<$> trackingOptions,
-            ("SuppressionOptions" Core..=)
+            ("SuppressionOptions" Data..=)
               Prelude.<$> suppressionOptions,
-            ("SendingOptions" Core..=)
+            ("SendingOptions" Data..=)
               Prelude.<$> sendingOptions,
-            ("VdmOptions" Core..=) Prelude.<$> vdmOptions,
+            ("VdmOptions" Data..=) Prelude.<$> vdmOptions,
             Prelude.Just
               ( "ConfigurationSetName"
-                  Core..= configurationSetName
+                  Data..= configurationSetName
               )
           ]
       )
 
-instance Core.ToPath CreateConfigurationSet where
+instance Data.ToPath CreateConfigurationSet where
   toPath = Prelude.const "/v2/email/configuration-sets"
 
-instance Core.ToQuery CreateConfigurationSet where
+instance Data.ToQuery CreateConfigurationSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the

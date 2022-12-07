@@ -21,6 +21,7 @@ module Amazonka.Config.Types.ConformancePackComplianceScoresFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of filters to apply to the conformance pack compliance score
@@ -87,15 +88,15 @@ instance
     Prelude.rnf conformancePackNames
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ConformancePackComplianceScoresFilters
   where
   toJSON ConformancePackComplianceScoresFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ConformancePackNames"
-                  Core..= conformancePackNames
+                  Data..= conformancePackNames
               )
           ]
       )

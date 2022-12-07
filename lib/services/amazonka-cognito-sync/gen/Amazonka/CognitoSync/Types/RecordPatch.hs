@@ -22,6 +22,7 @@ module Amazonka.CognitoSync.Types.RecordPatch where
 import Amazonka.CognitoSync.Types.Operation
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An update operation for a record.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newRecordPatch' smart constructor.
 data RecordPatch = RecordPatch'
   { -- | The last modified date of the client device.
-    deviceLastModifiedDate :: Prelude.Maybe Core.POSIX,
+    deviceLastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The value associated with the record patch.
     value :: Prelude.Maybe Prelude.Text,
     -- | An operation, either replace or remove.
@@ -78,7 +79,7 @@ newRecordPatch pOp_ pKey_ pSyncCount_ =
 
 -- | The last modified date of the client device.
 recordPatch_deviceLastModifiedDate :: Lens.Lens' RecordPatch (Prelude.Maybe Prelude.UTCTime)
-recordPatch_deviceLastModifiedDate = Lens.lens (\RecordPatch' {deviceLastModifiedDate} -> deviceLastModifiedDate) (\s@RecordPatch' {} a -> s {deviceLastModifiedDate = a} :: RecordPatch) Prelude.. Lens.mapping Core._Time
+recordPatch_deviceLastModifiedDate = Lens.lens (\RecordPatch' {deviceLastModifiedDate} -> deviceLastModifiedDate) (\s@RecordPatch' {} a -> s {deviceLastModifiedDate = a} :: RecordPatch) Prelude.. Lens.mapping Data._Time
 
 -- | The value associated with the record patch.
 recordPatch_value :: Lens.Lens' RecordPatch (Prelude.Maybe Prelude.Text)
@@ -112,15 +113,15 @@ instance Prelude.NFData RecordPatch where
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf syncCount
 
-instance Core.ToJSON RecordPatch where
+instance Data.ToJSON RecordPatch where
   toJSON RecordPatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeviceLastModifiedDate" Core..=)
+          [ ("DeviceLastModifiedDate" Data..=)
               Prelude.<$> deviceLastModifiedDate,
-            ("Value" Core..=) Prelude.<$> value,
-            Prelude.Just ("Op" Core..= op),
-            Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("SyncCount" Core..= syncCount)
+            ("Value" Data..=) Prelude.<$> value,
+            Prelude.Just ("Op" Data..= op),
+            Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("SyncCount" Data..= syncCount)
           ]
       )

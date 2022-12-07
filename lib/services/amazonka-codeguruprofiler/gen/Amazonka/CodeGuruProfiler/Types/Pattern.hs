@@ -21,6 +21,7 @@ module Amazonka.CodeGuruProfiler.Types.Pattern where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of rules used to make a recommendation during an analysis.
@@ -121,21 +122,21 @@ pattern_thresholdPercent = Lens.lens (\Pattern' {thresholdPercent} -> thresholdP
 pattern_resolutionSteps :: Lens.Lens' Pattern (Prelude.Maybe Prelude.Text)
 pattern_resolutionSteps = Lens.lens (\Pattern' {resolutionSteps} -> resolutionSteps) (\s@Pattern' {} a -> s {resolutionSteps = a} :: Pattern)
 
-instance Core.FromJSON Pattern where
+instance Data.FromJSON Pattern where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Pattern"
       ( \x ->
           Pattern'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> ( x Core..:? "countersToAggregate"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> ( x Data..:? "countersToAggregate"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "targetFrames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "thresholdPercent")
-            Prelude.<*> (x Core..:? "resolutionSteps")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "targetFrames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "thresholdPercent")
+            Prelude.<*> (x Data..:? "resolutionSteps")
       )
 
 instance Prelude.Hashable Pattern where

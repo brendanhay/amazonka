@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -248,7 +249,7 @@ instance Core.AWSRequest CreateOptionGroup where
       "CreateOptionGroupResult"
       ( \s h x ->
           CreateOptionGroupResponse'
-            Prelude.<$> (x Core..@? "OptionGroup")
+            Prelude.<$> (x Data..@? "OptionGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -268,27 +269,27 @@ instance Prelude.NFData CreateOptionGroup where
       `Prelude.seq` Prelude.rnf majorEngineVersion
       `Prelude.seq` Prelude.rnf optionGroupDescription
 
-instance Core.ToHeaders CreateOptionGroup where
+instance Data.ToHeaders CreateOptionGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateOptionGroup where
+instance Data.ToPath CreateOptionGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateOptionGroup where
+instance Data.ToQuery CreateOptionGroup where
   toQuery CreateOptionGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateOptionGroup" :: Prelude.ByteString),
+          Data.=: ("CreateOptionGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "OptionGroupName" Core.=: optionGroupName,
-        "EngineName" Core.=: engineName,
-        "MajorEngineVersion" Core.=: majorEngineVersion,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "OptionGroupName" Data.=: optionGroupName,
+        "EngineName" Data.=: engineName,
+        "MajorEngineVersion" Data.=: majorEngineVersion,
         "OptionGroupDescription"
-          Core.=: optionGroupDescription
+          Data.=: optionGroupDescription
       ]
 
 -- | /See:/ 'newCreateOptionGroupResponse' smart constructor.

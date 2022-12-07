@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.TopicRulePayload where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.Action
 import qualified Amazonka.Prelude as Prelude
 
@@ -124,16 +125,16 @@ instance Prelude.NFData TopicRulePayload where
       `Prelude.seq` Prelude.rnf sql
       `Prelude.seq` Prelude.rnf actions
 
-instance Core.ToJSON TopicRulePayload where
+instance Data.ToJSON TopicRulePayload where
   toJSON TopicRulePayload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("errorAction" Core..=) Prelude.<$> errorAction,
-            ("awsIotSqlVersion" Core..=)
+          [ ("errorAction" Data..=) Prelude.<$> errorAction,
+            ("awsIotSqlVersion" Data..=)
               Prelude.<$> awsIotSqlVersion,
-            ("description" Core..=) Prelude.<$> description,
-            ("ruleDisabled" Core..=) Prelude.<$> ruleDisabled,
-            Prelude.Just ("sql" Core..= sql),
-            Prelude.Just ("actions" Core..= actions)
+            ("description" Data..=) Prelude.<$> description,
+            ("ruleDisabled" Data..=) Prelude.<$> ruleDisabled,
+            Prelude.Just ("sql" Data..= sql),
+            Prelude.Just ("actions" Data..= actions)
           ]
       )

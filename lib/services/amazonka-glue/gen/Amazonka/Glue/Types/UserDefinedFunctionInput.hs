@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.UserDefinedFunctionInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.PrincipalType
 import Amazonka.Glue.Types.ResourceUri
 import qualified Amazonka.Prelude as Prelude
@@ -107,14 +108,14 @@ instance Prelude.NFData UserDefinedFunctionInput where
       `Prelude.seq` Prelude.rnf functionName
       `Prelude.seq` Prelude.rnf className
 
-instance Core.ToJSON UserDefinedFunctionInput where
+instance Data.ToJSON UserDefinedFunctionInput where
   toJSON UserDefinedFunctionInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OwnerType" Core..=) Prelude.<$> ownerType,
-            ("OwnerName" Core..=) Prelude.<$> ownerName,
-            ("ResourceUris" Core..=) Prelude.<$> resourceUris,
-            ("FunctionName" Core..=) Prelude.<$> functionName,
-            ("ClassName" Core..=) Prelude.<$> className
+          [ ("OwnerType" Data..=) Prelude.<$> ownerType,
+            ("OwnerName" Data..=) Prelude.<$> ownerName,
+            ("ResourceUris" Data..=) Prelude.<$> resourceUris,
+            ("FunctionName" Data..=) Prelude.<$> functionName,
+            ("ClassName" Data..=) Prelude.<$> className
           ]
       )

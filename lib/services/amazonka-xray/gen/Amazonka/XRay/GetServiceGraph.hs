@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,9 +73,9 @@ data GetServiceGraph = GetServiceGraph'
     -- generate a graph.
     groupARN :: Prelude.Maybe Prelude.Text,
     -- | The start of the time frame for which to generate a graph.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The end of the timeframe for which to generate a graph.
-    endTime :: Core.POSIX
+    endTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,8 +108,8 @@ newGetServiceGraph pStartTime_ pEndTime_ =
     { nextToken = Prelude.Nothing,
       groupName = Prelude.Nothing,
       groupARN = Prelude.Nothing,
-      startTime = Core._Time Lens.# pStartTime_,
-      endTime = Core._Time Lens.# pEndTime_
+      startTime = Data._Time Lens.# pStartTime_,
+      endTime = Data._Time Lens.# pEndTime_
     }
 
 -- | Pagination token.
@@ -126,11 +127,11 @@ getServiceGraph_groupARN = Lens.lens (\GetServiceGraph' {groupARN} -> groupARN) 
 
 -- | The start of the time frame for which to generate a graph.
 getServiceGraph_startTime :: Lens.Lens' GetServiceGraph Prelude.UTCTime
-getServiceGraph_startTime = Lens.lens (\GetServiceGraph' {startTime} -> startTime) (\s@GetServiceGraph' {} a -> s {startTime = a} :: GetServiceGraph) Prelude.. Core._Time
+getServiceGraph_startTime = Lens.lens (\GetServiceGraph' {startTime} -> startTime) (\s@GetServiceGraph' {} a -> s {startTime = a} :: GetServiceGraph) Prelude.. Data._Time
 
 -- | The end of the timeframe for which to generate a graph.
 getServiceGraph_endTime :: Lens.Lens' GetServiceGraph Prelude.UTCTime
-getServiceGraph_endTime = Lens.lens (\GetServiceGraph' {endTime} -> endTime) (\s@GetServiceGraph' {} a -> s {endTime = a} :: GetServiceGraph) Prelude.. Core._Time
+getServiceGraph_endTime = Lens.lens (\GetServiceGraph' {endTime} -> endTime) (\s@GetServiceGraph' {} a -> s {endTime = a} :: GetServiceGraph) Prelude.. Data._Time
 
 instance Core.AWSPager GetServiceGraph where
   page rq rs
@@ -164,11 +165,11 @@ instance Core.AWSRequest GetServiceGraph where
     Response.receiveJSON
       ( \s h x ->
           GetServiceGraphResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "EndTime")
-            Prelude.<*> (x Core..?> "Services" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ContainsOldGroupVersions")
-            Prelude.<*> (x Core..?> "StartTime")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "EndTime")
+            Prelude.<*> (x Data..?> "Services" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ContainsOldGroupVersions")
+            Prelude.<*> (x Data..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,25 +189,25 @@ instance Prelude.NFData GetServiceGraph where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
-instance Core.ToHeaders GetServiceGraph where
+instance Data.ToHeaders GetServiceGraph where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetServiceGraph where
+instance Data.ToJSON GetServiceGraph where
   toJSON GetServiceGraph' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("GroupName" Core..=) Prelude.<$> groupName,
-            ("GroupARN" Core..=) Prelude.<$> groupARN,
-            Prelude.Just ("StartTime" Core..= startTime),
-            Prelude.Just ("EndTime" Core..= endTime)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("GroupName" Data..=) Prelude.<$> groupName,
+            ("GroupARN" Data..=) Prelude.<$> groupARN,
+            Prelude.Just ("StartTime" Data..= startTime),
+            Prelude.Just ("EndTime" Data..= endTime)
           ]
       )
 
-instance Core.ToPath GetServiceGraph where
+instance Data.ToPath GetServiceGraph where
   toPath = Prelude.const "/ServiceGraph"
 
-instance Core.ToQuery GetServiceGraph where
+instance Data.ToQuery GetServiceGraph where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetServiceGraphResponse' smart constructor.
@@ -214,7 +215,7 @@ data GetServiceGraphResponse = GetServiceGraphResponse'
   { -- | Pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The end of the time frame for which the graph was generated.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The services that have processed a traced request during the specified
     -- time frame.
     services :: Prelude.Maybe [ServiceInfo],
@@ -223,7 +224,7 @@ data GetServiceGraphResponse = GetServiceGraphResponse'
     -- older version of the group\'s filter expression.
     containsOldGroupVersions :: Prelude.Maybe Prelude.Bool,
     -- | The start of the time frame for which the graph was generated.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -272,7 +273,7 @@ getServiceGraphResponse_nextToken = Lens.lens (\GetServiceGraphResponse' {nextTo
 
 -- | The end of the time frame for which the graph was generated.
 getServiceGraphResponse_endTime :: Lens.Lens' GetServiceGraphResponse (Prelude.Maybe Prelude.UTCTime)
-getServiceGraphResponse_endTime = Lens.lens (\GetServiceGraphResponse' {endTime} -> endTime) (\s@GetServiceGraphResponse' {} a -> s {endTime = a} :: GetServiceGraphResponse) Prelude.. Lens.mapping Core._Time
+getServiceGraphResponse_endTime = Lens.lens (\GetServiceGraphResponse' {endTime} -> endTime) (\s@GetServiceGraphResponse' {} a -> s {endTime = a} :: GetServiceGraphResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The services that have processed a traced request during the specified
 -- time frame.
@@ -287,7 +288,7 @@ getServiceGraphResponse_containsOldGroupVersions = Lens.lens (\GetServiceGraphRe
 
 -- | The start of the time frame for which the graph was generated.
 getServiceGraphResponse_startTime :: Lens.Lens' GetServiceGraphResponse (Prelude.Maybe Prelude.UTCTime)
-getServiceGraphResponse_startTime = Lens.lens (\GetServiceGraphResponse' {startTime} -> startTime) (\s@GetServiceGraphResponse' {} a -> s {startTime = a} :: GetServiceGraphResponse) Prelude.. Lens.mapping Core._Time
+getServiceGraphResponse_startTime = Lens.lens (\GetServiceGraphResponse' {startTime} -> startTime) (\s@GetServiceGraphResponse' {} a -> s {startTime = a} :: GetServiceGraphResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getServiceGraphResponse_httpStatus :: Lens.Lens' GetServiceGraphResponse Prelude.Int

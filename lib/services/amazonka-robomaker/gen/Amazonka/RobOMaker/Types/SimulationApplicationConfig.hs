@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.SimulationApplicationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.LaunchConfig
 import Amazonka.RobOMaker.Types.Tool
@@ -157,22 +158,22 @@ simulationApplicationConfig_application = Lens.lens (\SimulationApplicationConfi
 simulationApplicationConfig_launchConfig :: Lens.Lens' SimulationApplicationConfig LaunchConfig
 simulationApplicationConfig_launchConfig = Lens.lens (\SimulationApplicationConfig' {launchConfig} -> launchConfig) (\s@SimulationApplicationConfig' {} a -> s {launchConfig = a} :: SimulationApplicationConfig)
 
-instance Core.FromJSON SimulationApplicationConfig where
+instance Data.FromJSON SimulationApplicationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SimulationApplicationConfig"
       ( \x ->
           SimulationApplicationConfig'
-            Prelude.<$> (x Core..:? "worldConfigs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "tools" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "useDefaultTools")
-            Prelude.<*> (x Core..:? "useDefaultUploadConfigurations")
-            Prelude.<*> ( x Core..:? "uploadConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "worldConfigs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "tools" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "useDefaultTools")
+            Prelude.<*> (x Data..:? "useDefaultUploadConfigurations")
+            Prelude.<*> ( x Data..:? "uploadConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "applicationVersion")
-            Prelude.<*> (x Core..: "application")
-            Prelude.<*> (x Core..: "launchConfig")
+            Prelude.<*> (x Data..:? "applicationVersion")
+            Prelude.<*> (x Data..: "application")
+            Prelude.<*> (x Data..: "launchConfig")
       )
 
 instance Prelude.Hashable SimulationApplicationConfig where
@@ -197,21 +198,21 @@ instance Prelude.NFData SimulationApplicationConfig where
       `Prelude.seq` Prelude.rnf application
       `Prelude.seq` Prelude.rnf launchConfig
 
-instance Core.ToJSON SimulationApplicationConfig where
+instance Data.ToJSON SimulationApplicationConfig where
   toJSON SimulationApplicationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("worldConfigs" Core..=) Prelude.<$> worldConfigs,
-            ("tools" Core..=) Prelude.<$> tools,
-            ("useDefaultTools" Core..=)
+          [ ("worldConfigs" Data..=) Prelude.<$> worldConfigs,
+            ("tools" Data..=) Prelude.<$> tools,
+            ("useDefaultTools" Data..=)
               Prelude.<$> useDefaultTools,
-            ("useDefaultUploadConfigurations" Core..=)
+            ("useDefaultUploadConfigurations" Data..=)
               Prelude.<$> useDefaultUploadConfigurations,
-            ("uploadConfigurations" Core..=)
+            ("uploadConfigurations" Data..=)
               Prelude.<$> uploadConfigurations,
-            ("applicationVersion" Core..=)
+            ("applicationVersion" Data..=)
               Prelude.<$> applicationVersion,
-            Prelude.Just ("application" Core..= application),
-            Prelude.Just ("launchConfig" Core..= launchConfig)
+            Prelude.Just ("application" Data..= application),
+            Prelude.Just ("launchConfig" Data..= launchConfig)
           ]
       )

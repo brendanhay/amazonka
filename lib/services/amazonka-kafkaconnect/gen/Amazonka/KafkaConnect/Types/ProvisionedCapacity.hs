@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.ProvisionedCapacity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a connector\'s provisioned capacity.
@@ -78,11 +79,11 @@ instance Prelude.NFData ProvisionedCapacity where
     Prelude.rnf mcuCount
       `Prelude.seq` Prelude.rnf workerCount
 
-instance Core.ToJSON ProvisionedCapacity where
+instance Data.ToJSON ProvisionedCapacity where
   toJSON ProvisionedCapacity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("mcuCount" Core..= mcuCount),
-            Prelude.Just ("workerCount" Core..= workerCount)
+          [ Prelude.Just ("mcuCount" Data..= mcuCount),
+            Prelude.Just ("workerCount" Data..= workerCount)
           ]
       )

@@ -47,6 +47,7 @@ where
 import Amazonka.BackupGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,8 +141,8 @@ instance Core.AWSRequest ListVirtualMachines where
     Response.receiveJSON
       ( \s h x ->
           ListVirtualMachinesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "VirtualMachines"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "VirtualMachines"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -159,35 +160,35 @@ instance Prelude.NFData ListVirtualMachines where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf hypervisorArn
 
-instance Core.ToHeaders ListVirtualMachines where
+instance Data.ToHeaders ListVirtualMachines where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BackupOnPremises_v20210101.ListVirtualMachines" ::
+              Data.=# ( "BackupOnPremises_v20210101.ListVirtualMachines" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListVirtualMachines where
+instance Data.ToJSON ListVirtualMachines where
   toJSON ListVirtualMachines' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("HypervisorArn" Core..=) Prelude.<$> hypervisorArn
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("HypervisorArn" Data..=) Prelude.<$> hypervisorArn
           ]
       )
 
-instance Core.ToPath ListVirtualMachines where
+instance Data.ToPath ListVirtualMachines where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListVirtualMachines where
+instance Data.ToQuery ListVirtualMachines where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListVirtualMachinesResponse' smart constructor.

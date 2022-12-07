@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,7 +133,7 @@ instance Core.AWSRequest CreateSignalingChannel where
     Response.receiveJSON
       ( \s h x ->
           CreateSignalingChannelResponse'
-            Prelude.<$> (x Core..?> "ChannelARN")
+            Prelude.<$> (x Data..?> "ChannelARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,25 +151,25 @@ instance Prelude.NFData CreateSignalingChannel where
       `Prelude.seq` Prelude.rnf channelType
       `Prelude.seq` Prelude.rnf channelName
 
-instance Core.ToHeaders CreateSignalingChannel where
+instance Data.ToHeaders CreateSignalingChannel where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateSignalingChannel where
+instance Data.ToJSON CreateSignalingChannel where
   toJSON CreateSignalingChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("SingleMasterConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("SingleMasterConfiguration" Data..=)
               Prelude.<$> singleMasterConfiguration,
-            ("ChannelType" Core..=) Prelude.<$> channelType,
-            Prelude.Just ("ChannelName" Core..= channelName)
+            ("ChannelType" Data..=) Prelude.<$> channelType,
+            Prelude.Just ("ChannelName" Data..= channelName)
           ]
       )
 
-instance Core.ToPath CreateSignalingChannel where
+instance Data.ToPath CreateSignalingChannel where
   toPath = Prelude.const "/createSignalingChannel"
 
-instance Core.ToQuery CreateSignalingChannel where
+instance Data.ToQuery CreateSignalingChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSignalingChannelResponse' smart constructor.

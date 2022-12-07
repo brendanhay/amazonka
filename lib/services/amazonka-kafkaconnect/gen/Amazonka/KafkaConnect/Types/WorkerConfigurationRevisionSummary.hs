@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of a worker configuration revision.
@@ -32,7 +33,7 @@ data WorkerConfigurationRevisionSummary = WorkerConfigurationRevisionSummary'
     -- | The description of a worker configuration revision.
     description :: Prelude.Maybe Prelude.Text,
     -- | The time that a worker configuration revision was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,20 +70,20 @@ workerConfigurationRevisionSummary_description = Lens.lens (\WorkerConfiguration
 
 -- | The time that a worker configuration revision was created.
 workerConfigurationRevisionSummary_creationTime :: Lens.Lens' WorkerConfigurationRevisionSummary (Prelude.Maybe Prelude.UTCTime)
-workerConfigurationRevisionSummary_creationTime = Lens.lens (\WorkerConfigurationRevisionSummary' {creationTime} -> creationTime) (\s@WorkerConfigurationRevisionSummary' {} a -> s {creationTime = a} :: WorkerConfigurationRevisionSummary) Prelude.. Lens.mapping Core._Time
+workerConfigurationRevisionSummary_creationTime = Lens.lens (\WorkerConfigurationRevisionSummary' {creationTime} -> creationTime) (\s@WorkerConfigurationRevisionSummary' {} a -> s {creationTime = a} :: WorkerConfigurationRevisionSummary) Prelude.. Lens.mapping Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     WorkerConfigurationRevisionSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkerConfigurationRevisionSummary"
       ( \x ->
           WorkerConfigurationRevisionSummary'
-            Prelude.<$> (x Core..:? "revision")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<$> (x Data..:? "revision")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "creationTime")
       )
 
 instance

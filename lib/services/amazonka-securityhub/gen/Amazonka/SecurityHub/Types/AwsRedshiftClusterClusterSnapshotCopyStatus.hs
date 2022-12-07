@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRedshiftClusterClusterSnapshotCopyStatus wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a cross-Region snapshot copy.
@@ -105,18 +106,18 @@ awsRedshiftClusterClusterSnapshotCopyStatus_destinationRegion :: Lens.Lens' AwsR
 awsRedshiftClusterClusterSnapshotCopyStatus_destinationRegion = Lens.lens (\AwsRedshiftClusterClusterSnapshotCopyStatus' {destinationRegion} -> destinationRegion) (\s@AwsRedshiftClusterClusterSnapshotCopyStatus' {} a -> s {destinationRegion = a} :: AwsRedshiftClusterClusterSnapshotCopyStatus)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsRedshiftClusterClusterSnapshotCopyStatus
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRedshiftClusterClusterSnapshotCopyStatus"
       ( \x ->
           AwsRedshiftClusterClusterSnapshotCopyStatus'
-            Prelude.<$> (x Core..:? "ManualSnapshotRetentionPeriod")
-              Prelude.<*> (x Core..:? "SnapshotCopyGrantName")
-              Prelude.<*> (x Core..:? "RetentionPeriod")
-              Prelude.<*> (x Core..:? "DestinationRegion")
+            Prelude.<$> (x Data..:? "ManualSnapshotRetentionPeriod")
+              Prelude.<*> (x Data..:? "SnapshotCopyGrantName")
+              Prelude.<*> (x Data..:? "RetentionPeriod")
+              Prelude.<*> (x Data..:? "DestinationRegion")
       )
 
 instance
@@ -143,20 +144,20 @@ instance
       `Prelude.seq` Prelude.rnf destinationRegion
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsRedshiftClusterClusterSnapshotCopyStatus
   where
   toJSON
     AwsRedshiftClusterClusterSnapshotCopyStatus' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ManualSnapshotRetentionPeriod" Core..=)
+            [ ("ManualSnapshotRetentionPeriod" Data..=)
                 Prelude.<$> manualSnapshotRetentionPeriod,
-              ("SnapshotCopyGrantName" Core..=)
+              ("SnapshotCopyGrantName" Data..=)
                 Prelude.<$> snapshotCopyGrantName,
-              ("RetentionPeriod" Core..=)
+              ("RetentionPeriod" Data..=)
                 Prelude.<$> retentionPeriod,
-              ("DestinationRegion" Core..=)
+              ("DestinationRegion" Data..=)
                 Prelude.<$> destinationRegion
             ]
         )

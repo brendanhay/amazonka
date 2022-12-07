@@ -21,6 +21,7 @@ module Amazonka.ChimeSDKMessaging.Types.ElasticChannelConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The attributes required to configure and create an elastic channel. An
@@ -92,15 +93,15 @@ elasticChannelConfiguration_targetMembershipsPerSubChannel = Lens.lens (\Elastic
 elasticChannelConfiguration_minimumMembershipPercentage :: Lens.Lens' ElasticChannelConfiguration Prelude.Natural
 elasticChannelConfiguration_minimumMembershipPercentage = Lens.lens (\ElasticChannelConfiguration' {minimumMembershipPercentage} -> minimumMembershipPercentage) (\s@ElasticChannelConfiguration' {} a -> s {minimumMembershipPercentage = a} :: ElasticChannelConfiguration)
 
-instance Core.FromJSON ElasticChannelConfiguration where
+instance Data.FromJSON ElasticChannelConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ElasticChannelConfiguration"
       ( \x ->
           ElasticChannelConfiguration'
-            Prelude.<$> (x Core..: "MaximumSubChannels")
-            Prelude.<*> (x Core..: "TargetMembershipsPerSubChannel")
-            Prelude.<*> (x Core..: "MinimumMembershipPercentage")
+            Prelude.<$> (x Data..: "MaximumSubChannels")
+            Prelude.<*> (x Data..: "TargetMembershipsPerSubChannel")
+            Prelude.<*> (x Data..: "MinimumMembershipPercentage")
       )
 
 instance Prelude.Hashable ElasticChannelConfiguration where
@@ -115,19 +116,19 @@ instance Prelude.NFData ElasticChannelConfiguration where
       `Prelude.seq` Prelude.rnf targetMembershipsPerSubChannel
       `Prelude.seq` Prelude.rnf minimumMembershipPercentage
 
-instance Core.ToJSON ElasticChannelConfiguration where
+instance Data.ToJSON ElasticChannelConfiguration where
   toJSON ElasticChannelConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("MaximumSubChannels" Core..= maximumSubChannels),
+              ("MaximumSubChannels" Data..= maximumSubChannels),
             Prelude.Just
               ( "TargetMembershipsPerSubChannel"
-                  Core..= targetMembershipsPerSubChannel
+                  Data..= targetMembershipsPerSubChannel
               ),
             Prelude.Just
               ( "MinimumMembershipPercentage"
-                  Core..= minimumMembershipPercentage
+                  Data..= minimumMembershipPercentage
               )
           ]
       )

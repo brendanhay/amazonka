@@ -21,6 +21,7 @@ module Amazonka.ChimeSdkMeetings.Types.AttendeeIdItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains one or more attendee IDs.
@@ -59,9 +60,9 @@ instance Prelude.Hashable AttendeeIdItem where
 instance Prelude.NFData AttendeeIdItem where
   rnf AttendeeIdItem' {..} = Prelude.rnf attendeeId
 
-instance Core.ToJSON AttendeeIdItem where
+instance Data.ToJSON AttendeeIdItem where
   toJSON AttendeeIdItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AttendeeId" Core..= attendeeId)]
+          [Prelude.Just ("AttendeeId" Data..= attendeeId)]
       )

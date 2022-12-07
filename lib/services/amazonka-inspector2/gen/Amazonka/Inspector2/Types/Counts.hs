@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.Counts where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.GroupKey
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ counts_groupKey = Lens.lens (\Counts' {groupKey} -> groupKey) (\s@Counts' {} a -
 counts_count :: Lens.Lens' Counts (Prelude.Maybe Prelude.Integer)
 counts_count = Lens.lens (\Counts' {count} -> count) (\s@Counts' {} a -> s {count = a} :: Counts)
 
-instance Core.FromJSON Counts where
+instance Data.FromJSON Counts where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Counts"
       ( \x ->
           Counts'
-            Prelude.<$> (x Core..:? "groupKey")
-            Prelude.<*> (x Core..:? "count")
+            Prelude.<$> (x Data..:? "groupKey")
+            Prelude.<*> (x Data..:? "count")
       )
 
 instance Prelude.Hashable Counts where

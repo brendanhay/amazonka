@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.Attachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.AttachmentState
 import Amazonka.NetworkManager.Types.AttachmentType
 import Amazonka.NetworkManager.Types.ProposedSegmentChange
@@ -56,9 +57,9 @@ data Attachment = Attachment'
     -- | The policy rule number associated with the attachment.
     attachmentPolicyRuleNumber :: Prelude.Maybe Prelude.Int,
     -- | The timestamp when the attachment was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The timestamp when the attachment was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -167,32 +168,32 @@ attachment_attachmentPolicyRuleNumber = Lens.lens (\Attachment' {attachmentPolic
 
 -- | The timestamp when the attachment was created.
 attachment_createdAt :: Lens.Lens' Attachment (Prelude.Maybe Prelude.UTCTime)
-attachment_createdAt = Lens.lens (\Attachment' {createdAt} -> createdAt) (\s@Attachment' {} a -> s {createdAt = a} :: Attachment) Prelude.. Lens.mapping Core._Time
+attachment_createdAt = Lens.lens (\Attachment' {createdAt} -> createdAt) (\s@Attachment' {} a -> s {createdAt = a} :: Attachment) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp when the attachment was last updated.
 attachment_updatedAt :: Lens.Lens' Attachment (Prelude.Maybe Prelude.UTCTime)
-attachment_updatedAt = Lens.lens (\Attachment' {updatedAt} -> updatedAt) (\s@Attachment' {} a -> s {updatedAt = a} :: Attachment) Prelude.. Lens.mapping Core._Time
+attachment_updatedAt = Lens.lens (\Attachment' {updatedAt} -> updatedAt) (\s@Attachment' {} a -> s {updatedAt = a} :: Attachment) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Attachment where
+instance Data.FromJSON Attachment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Attachment"
       ( \x ->
           Attachment'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ProposedSegmentChange")
-            Prelude.<*> (x Core..:? "CoreNetworkId")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "EdgeLocation")
-            Prelude.<*> (x Core..:? "AttachmentId")
-            Prelude.<*> (x Core..:? "SegmentName")
-            Prelude.<*> (x Core..:? "CoreNetworkArn")
-            Prelude.<*> (x Core..:? "OwnerAccountId")
-            Prelude.<*> (x Core..:? "AttachmentType")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "AttachmentPolicyRuleNumber")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "UpdatedAt")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ProposedSegmentChange")
+            Prelude.<*> (x Data..:? "CoreNetworkId")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "EdgeLocation")
+            Prelude.<*> (x Data..:? "AttachmentId")
+            Prelude.<*> (x Data..:? "SegmentName")
+            Prelude.<*> (x Data..:? "CoreNetworkArn")
+            Prelude.<*> (x Data..:? "OwnerAccountId")
+            Prelude.<*> (x Data..:? "AttachmentType")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "AttachmentPolicyRuleNumber")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable Attachment where

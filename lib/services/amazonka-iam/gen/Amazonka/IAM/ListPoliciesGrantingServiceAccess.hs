@@ -82,6 +82,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -197,12 +198,12 @@ instance
       "ListPoliciesGrantingServiceAccessResult"
       ( \s h x ->
           ListPoliciesGrantingServiceAccessResponse'
-            Prelude.<$> (x Core..@? "Marker")
-              Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+              Prelude.<*> (x Data..@? "IsTruncated")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Core..@? "PoliciesGrantingServiceAccess"
+              Prelude.<*> ( x Data..@? "PoliciesGrantingServiceAccess"
                               Core..!@ Prelude.mempty
-                              Prelude.>>= Core.parseXMLList "member"
+                              Prelude.>>= Data.parseXMLList "member"
                           )
       )
 
@@ -227,33 +228,33 @@ instance
       `Prelude.seq` Prelude.rnf serviceNamespaces
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListPoliciesGrantingServiceAccess
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListPoliciesGrantingServiceAccess
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListPoliciesGrantingServiceAccess
   where
   toQuery ListPoliciesGrantingServiceAccess' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ListPoliciesGrantingServiceAccess" ::
+          Data.=: ( "ListPoliciesGrantingServiceAccess" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "Arn" Core.=: arn,
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "Arn" Data.=: arn,
         "ServiceNamespaces"
-          Core.=: Core.toQueryList "member" serviceNamespaces
+          Data.=: Data.toQueryList "member" serviceNamespaces
       ]
 
 -- | /See:/ 'newListPoliciesGrantingServiceAccessResponse' smart constructor.

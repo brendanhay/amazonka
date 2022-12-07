@@ -21,6 +21,7 @@ module Amazonka.QLDBSession.Types.StartTransactionRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a request to start a transaction.
@@ -46,5 +47,5 @@ instance Prelude.Hashable StartTransactionRequest where
 instance Prelude.NFData StartTransactionRequest where
   rnf _ = ()
 
-instance Core.ToJSON StartTransactionRequest where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StartTransactionRequest where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

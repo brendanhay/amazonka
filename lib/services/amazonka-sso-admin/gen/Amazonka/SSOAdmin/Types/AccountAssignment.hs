@@ -21,6 +21,7 @@ module Amazonka.SSOAdmin.Types.AccountAssignment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSOAdmin.Types.PrincipalType
 
@@ -102,16 +103,16 @@ accountAssignment_permissionSetArn = Lens.lens (\AccountAssignment' {permissionS
 accountAssignment_principalType :: Lens.Lens' AccountAssignment (Prelude.Maybe PrincipalType)
 accountAssignment_principalType = Lens.lens (\AccountAssignment' {principalType} -> principalType) (\s@AccountAssignment' {} a -> s {principalType = a} :: AccountAssignment)
 
-instance Core.FromJSON AccountAssignment where
+instance Data.FromJSON AccountAssignment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountAssignment"
       ( \x ->
           AccountAssignment'
-            Prelude.<$> (x Core..:? "PrincipalId")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "PermissionSetArn")
-            Prelude.<*> (x Core..:? "PrincipalType")
+            Prelude.<$> (x Data..:? "PrincipalId")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "PermissionSetArn")
+            Prelude.<*> (x Data..:? "PrincipalType")
       )
 
 instance Prelude.Hashable AccountAssignment where

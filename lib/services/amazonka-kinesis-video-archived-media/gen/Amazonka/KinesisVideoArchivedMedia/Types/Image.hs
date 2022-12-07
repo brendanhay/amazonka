@@ -21,6 +21,7 @@ module Amazonka.KinesisVideoArchivedMedia.Types.Image where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideoArchivedMedia.Types.ImageError
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,7 @@ data Image = Image'
   { -- | An attribute of the @Image@ object that is used to extract an image from
     -- the video stream. This field is used to manage gaps on images or to
     -- better understand the pagination window.
-    timeStamp :: Prelude.Maybe Core.POSIX,
+    timeStamp :: Prelude.Maybe Data.POSIX,
     -- | The error message shown when the image for the provided timestamp was
     -- not extracted due to a non-tryable error. An error will be returned if:
     --
@@ -81,7 +82,7 @@ newImage =
 -- the video stream. This field is used to manage gaps on images or to
 -- better understand the pagination window.
 image_timeStamp :: Lens.Lens' Image (Prelude.Maybe Prelude.UTCTime)
-image_timeStamp = Lens.lens (\Image' {timeStamp} -> timeStamp) (\s@Image' {} a -> s {timeStamp = a} :: Image) Prelude.. Lens.mapping Core._Time
+image_timeStamp = Lens.lens (\Image' {timeStamp} -> timeStamp) (\s@Image' {} a -> s {timeStamp = a} :: Image) Prelude.. Lens.mapping Data._Time
 
 -- | The error message shown when the image for the provided timestamp was
 -- not extracted due to a non-tryable error. An error will be returned if:
@@ -98,15 +99,15 @@ image_error = Lens.lens (\Image' {error} -> error) (\s@Image' {} a -> s {error =
 image_imageContent :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_imageContent = Lens.lens (\Image' {imageContent} -> imageContent) (\s@Image' {} a -> s {imageContent = a} :: Image)
 
-instance Core.FromJSON Image where
+instance Data.FromJSON Image where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Image"
       ( \x ->
           Image'
-            Prelude.<$> (x Core..:? "TimeStamp")
-            Prelude.<*> (x Core..:? "Error")
-            Prelude.<*> (x Core..:? "ImageContent")
+            Prelude.<$> (x Data..:? "TimeStamp")
+            Prelude.<*> (x Data..:? "Error")
+            Prelude.<*> (x Data..:? "ImageContent")
       )
 
 instance Prelude.Hashable Image where

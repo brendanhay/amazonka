@@ -45,6 +45,7 @@ where
 import Amazonka.BackupGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,7 +110,7 @@ instance Core.AWSRequest AssociateGatewayToServer where
     Response.receiveJSON
       ( \s h x ->
           AssociateGatewayToServerResponse'
-            Prelude.<$> (x Core..?> "GatewayArn")
+            Prelude.<$> (x Data..?> "GatewayArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,34 +124,34 @@ instance Prelude.NFData AssociateGatewayToServer where
     Prelude.rnf gatewayArn
       `Prelude.seq` Prelude.rnf serverArn
 
-instance Core.ToHeaders AssociateGatewayToServer where
+instance Data.ToHeaders AssociateGatewayToServer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BackupOnPremises_v20210101.AssociateGatewayToServer" ::
+              Data.=# ( "BackupOnPremises_v20210101.AssociateGatewayToServer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateGatewayToServer where
+instance Data.ToJSON AssociateGatewayToServer where
   toJSON AssociateGatewayToServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GatewayArn" Core..= gatewayArn),
-            Prelude.Just ("ServerArn" Core..= serverArn)
+          [ Prelude.Just ("GatewayArn" Data..= gatewayArn),
+            Prelude.Just ("ServerArn" Data..= serverArn)
           ]
       )
 
-instance Core.ToPath AssociateGatewayToServer where
+instance Data.ToPath AssociateGatewayToServer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateGatewayToServer where
+instance Data.ToQuery AssociateGatewayToServer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateGatewayToServerResponse' smart constructor.

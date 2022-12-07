@@ -60,6 +60,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,7 +69,7 @@ import qualified Amazonka.Response as Response
 data ListChannels = ListChannels'
   { -- | The token passed by previous API calls until all requested channels are
     -- returned.
-    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The @AppInstanceUserArn@ of the user that makes the API call.
     chimeBearer :: Prelude.Maybe Prelude.Text,
     -- | The privacy setting. @PUBLIC@ retrieves all the public channels.
@@ -118,7 +119,7 @@ newListChannels pAppInstanceArn_ =
 -- | The token passed by previous API calls until all requested channels are
 -- returned.
 listChannels_nextToken :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Text)
-listChannels_nextToken = Lens.lens (\ListChannels' {nextToken} -> nextToken) (\s@ListChannels' {} a -> s {nextToken = a} :: ListChannels) Prelude.. Lens.mapping Core._Sensitive
+listChannels_nextToken = Lens.lens (\ListChannels' {nextToken} -> nextToken) (\s@ListChannels' {} a -> s {nextToken = a} :: ListChannels) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The @AppInstanceUserArn@ of the user that makes the API call.
 listChannels_chimeBearer :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Text)
@@ -146,8 +147,8 @@ instance Core.AWSRequest ListChannels where
     Response.receiveJSON
       ( \s h x ->
           ListChannelsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Channels" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Channels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,28 +168,28 @@ instance Prelude.NFData ListChannels where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf appInstanceArn
 
-instance Core.ToHeaders ListChannels where
+instance Data.ToHeaders ListChannels where
   toHeaders ListChannels' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToPath ListChannels where
+instance Data.ToPath ListChannels where
   toPath = Prelude.const "/channels"
 
-instance Core.ToQuery ListChannels where
+instance Data.ToQuery ListChannels where
   toQuery ListChannels' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "privacy" Core.=: privacy,
-        "max-results" Core.=: maxResults,
-        "app-instance-arn" Core.=: appInstanceArn
+      [ "next-token" Data.=: nextToken,
+        "privacy" Data.=: privacy,
+        "max-results" Data.=: maxResults,
+        "app-instance-arn" Data.=: appInstanceArn
       ]
 
 -- | /See:/ 'newListChannelsResponse' smart constructor.
 data ListChannelsResponse = ListChannelsResponse'
   { -- | The token returned from previous API requests until the number of
     -- channels is reached.
-    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The information about each channel.
     channels :: Prelude.Maybe [ChannelSummary],
     -- | The response's http status code.
@@ -224,7 +225,7 @@ newListChannelsResponse pHttpStatus_ =
 -- | The token returned from previous API requests until the number of
 -- channels is reached.
 listChannelsResponse_nextToken :: Lens.Lens' ListChannelsResponse (Prelude.Maybe Prelude.Text)
-listChannelsResponse_nextToken = Lens.lens (\ListChannelsResponse' {nextToken} -> nextToken) (\s@ListChannelsResponse' {} a -> s {nextToken = a} :: ListChannelsResponse) Prelude.. Lens.mapping Core._Sensitive
+listChannelsResponse_nextToken = Lens.lens (\ListChannelsResponse' {nextToken} -> nextToken) (\s@ListChannelsResponse' {} a -> s {nextToken = a} :: ListChannelsResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The information about each channel.
 listChannelsResponse_channels :: Lens.Lens' ListChannelsResponse (Prelude.Maybe [ChannelSummary])

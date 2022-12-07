@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.AlphaBehavior
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Ignore this setting unless this input is a QuickTime animation with an
@@ -37,7 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 -- map the alpha channel to the luma channel of your outputs.
 newtype AlphaBehavior = AlphaBehavior'
   { fromAlphaBehavior ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -49,18 +50,18 @@ newtype AlphaBehavior = AlphaBehavior'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern AlphaBehavior_DISCARD :: AlphaBehavior

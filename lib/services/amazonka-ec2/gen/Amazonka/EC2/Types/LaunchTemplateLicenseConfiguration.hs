@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateLicenseConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,12 +56,12 @@ launchTemplateLicenseConfiguration_licenseConfigurationArn :: Lens.Lens' LaunchT
 launchTemplateLicenseConfiguration_licenseConfigurationArn = Lens.lens (\LaunchTemplateLicenseConfiguration' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@LaunchTemplateLicenseConfiguration' {} a -> s {licenseConfigurationArn = a} :: LaunchTemplateLicenseConfiguration)
 
 instance
-  Core.FromXML
+  Data.FromXML
     LaunchTemplateLicenseConfiguration
   where
   parseXML x =
     LaunchTemplateLicenseConfiguration'
-      Prelude.<$> (x Core..@? "licenseConfigurationArn")
+      Prelude.<$> (x Data..@? "licenseConfigurationArn")
 
 instance
   Prelude.Hashable

@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.WorkflowExecutionTimedOutEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.ChildPolicy
 import Amazonka.SWF.Types.WorkflowExecutionTimeoutType
@@ -110,16 +111,16 @@ workflowExecutionTimedOutEventAttributes_childPolicy :: Lens.Lens' WorkflowExecu
 workflowExecutionTimedOutEventAttributes_childPolicy = Lens.lens (\WorkflowExecutionTimedOutEventAttributes' {childPolicy} -> childPolicy) (\s@WorkflowExecutionTimedOutEventAttributes' {} a -> s {childPolicy = a} :: WorkflowExecutionTimedOutEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     WorkflowExecutionTimedOutEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowExecutionTimedOutEventAttributes"
       ( \x ->
           WorkflowExecutionTimedOutEventAttributes'
-            Prelude.<$> (x Core..: "timeoutType")
-            Prelude.<*> (x Core..: "childPolicy")
+            Prelude.<$> (x Data..: "timeoutType")
+            Prelude.<*> (x Data..: "childPolicy")
       )
 
 instance

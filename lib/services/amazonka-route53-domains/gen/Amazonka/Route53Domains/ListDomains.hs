@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -178,9 +179,9 @@ instance Core.AWSRequest ListDomains where
     Response.receiveJSON
       ( \s h x ->
           ListDomainsResponse'
-            Prelude.<$> (x Core..?> "NextPageMarker")
+            Prelude.<$> (x Data..?> "NextPageMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Domains" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Domains" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListDomains where
@@ -197,37 +198,37 @@ instance Prelude.NFData ListDomains where
       `Prelude.seq` Prelude.rnf sortCondition
       `Prelude.seq` Prelude.rnf filterConditions
 
-instance Core.ToHeaders ListDomains where
+instance Data.ToHeaders ListDomains where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Domains_v20140515.ListDomains" ::
+              Data.=# ( "Route53Domains_v20140515.ListDomains" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDomains where
+instance Data.ToJSON ListDomains where
   toJSON ListDomains' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("MaxItems" Core..=) Prelude.<$> maxItems,
-            ("SortCondition" Core..=) Prelude.<$> sortCondition,
-            ("FilterConditions" Core..=)
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("MaxItems" Data..=) Prelude.<$> maxItems,
+            ("SortCondition" Data..=) Prelude.<$> sortCondition,
+            ("FilterConditions" Data..=)
               Prelude.<$> filterConditions
           ]
       )
 
-instance Core.ToPath ListDomains where
+instance Data.ToPath ListDomains where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDomains where
+instance Data.ToQuery ListDomains where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The ListDomains response includes the following elements.

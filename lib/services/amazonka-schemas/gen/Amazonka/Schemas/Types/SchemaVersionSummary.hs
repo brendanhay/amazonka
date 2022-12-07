@@ -21,6 +21,7 @@ module Amazonka.Schemas.Types.SchemaVersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Schemas.Types.Type
 
@@ -78,16 +79,16 @@ schemaVersionSummary_schemaArn = Lens.lens (\SchemaVersionSummary' {schemaArn} -
 schemaVersionSummary_schemaVersion :: Lens.Lens' SchemaVersionSummary (Prelude.Maybe Prelude.Text)
 schemaVersionSummary_schemaVersion = Lens.lens (\SchemaVersionSummary' {schemaVersion} -> schemaVersion) (\s@SchemaVersionSummary' {} a -> s {schemaVersion = a} :: SchemaVersionSummary)
 
-instance Core.FromJSON SchemaVersionSummary where
+instance Data.FromJSON SchemaVersionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaVersionSummary"
       ( \x ->
           SchemaVersionSummary'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "SchemaName")
-            Prelude.<*> (x Core..:? "SchemaArn")
-            Prelude.<*> (x Core..:? "SchemaVersion")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "SchemaName")
+            Prelude.<*> (x Data..:? "SchemaArn")
+            Prelude.<*> (x Data..:? "SchemaVersion")
       )
 
 instance Prelude.Hashable SchemaVersionSummary where

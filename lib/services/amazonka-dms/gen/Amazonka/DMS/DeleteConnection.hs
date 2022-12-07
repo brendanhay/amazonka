@@ -43,6 +43,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest DeleteConnection where
     Response.receiveJSON
       ( \s h x ->
           DeleteConnectionResponse'
-            Prelude.<$> (x Core..?> "Connection")
+            Prelude.<$> (x Data..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,37 +119,37 @@ instance Prelude.NFData DeleteConnection where
     Prelude.rnf endpointArn
       `Prelude.seq` Prelude.rnf replicationInstanceArn
 
-instance Core.ToHeaders DeleteConnection where
+instance Data.ToHeaders DeleteConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DeleteConnection" ::
+              Data.=# ( "AmazonDMSv20160101.DeleteConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteConnection where
+instance Data.ToJSON DeleteConnection where
   toJSON DeleteConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("EndpointArn" Core..= endpointArn),
+          [ Prelude.Just ("EndpointArn" Data..= endpointArn),
             Prelude.Just
               ( "ReplicationInstanceArn"
-                  Core..= replicationInstanceArn
+                  Data..= replicationInstanceArn
               )
           ]
       )
 
-instance Core.ToPath DeleteConnection where
+instance Data.ToPath DeleteConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteConnection where
+instance Data.ToQuery DeleteConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

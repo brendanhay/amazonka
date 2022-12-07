@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ReplaceRootVolumeTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ReplaceRootVolumeTaskState
 import Amazonka.EC2.Types.Tag
@@ -190,20 +191,20 @@ replaceRootVolumeTask_startTime = Lens.lens (\ReplaceRootVolumeTask' {startTime}
 replaceRootVolumeTask_imageId :: Lens.Lens' ReplaceRootVolumeTask (Prelude.Maybe Prelude.Text)
 replaceRootVolumeTask_imageId = Lens.lens (\ReplaceRootVolumeTask' {imageId} -> imageId) (\s@ReplaceRootVolumeTask' {} a -> s {imageId = a} :: ReplaceRootVolumeTask)
 
-instance Core.FromXML ReplaceRootVolumeTask where
+instance Data.FromXML ReplaceRootVolumeTask where
   parseXML x =
     ReplaceRootVolumeTask'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "taskState")
-      Prelude.<*> (x Core..@? "snapshotId")
-      Prelude.<*> (x Core..@? "replaceRootVolumeTaskId")
-      Prelude.<*> (x Core..@? "completeTime")
-      Prelude.<*> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "deleteReplacedRootVolume")
-      Prelude.<*> (x Core..@? "startTime")
-      Prelude.<*> (x Core..@? "imageId")
+      Prelude.<*> (x Data..@? "taskState")
+      Prelude.<*> (x Data..@? "snapshotId")
+      Prelude.<*> (x Data..@? "replaceRootVolumeTaskId")
+      Prelude.<*> (x Data..@? "completeTime")
+      Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "deleteReplacedRootVolume")
+      Prelude.<*> (x Data..@? "startTime")
+      Prelude.<*> (x Data..@? "imageId")
 
 instance Prelude.Hashable ReplaceRootVolumeTask where
   hashWithSalt _salt ReplaceRootVolumeTask' {..} =

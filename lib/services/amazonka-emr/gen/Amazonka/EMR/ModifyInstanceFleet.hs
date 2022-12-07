@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,35 +108,35 @@ instance Prelude.NFData ModifyInstanceFleet where
     Prelude.rnf clusterId
       `Prelude.seq` Prelude.rnf instanceFleet
 
-instance Core.ToHeaders ModifyInstanceFleet where
+instance Data.ToHeaders ModifyInstanceFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.ModifyInstanceFleet" ::
+              Data.=# ( "ElasticMapReduce.ModifyInstanceFleet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ModifyInstanceFleet where
+instance Data.ToJSON ModifyInstanceFleet where
   toJSON ModifyInstanceFleet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ClusterId" Core..= clusterId),
+          [ Prelude.Just ("ClusterId" Data..= clusterId),
             Prelude.Just
-              ("InstanceFleet" Core..= instanceFleet)
+              ("InstanceFleet" Data..= instanceFleet)
           ]
       )
 
-instance Core.ToPath ModifyInstanceFleet where
+instance Data.ToPath ModifyInstanceFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyInstanceFleet where
+instance Data.ToQuery ModifyInstanceFleet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newModifyInstanceFleetResponse' smart constructor.

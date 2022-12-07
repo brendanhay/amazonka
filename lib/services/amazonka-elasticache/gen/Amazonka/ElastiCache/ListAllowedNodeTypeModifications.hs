@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,13 +145,13 @@ instance
       "ListAllowedNodeTypeModificationsResult"
       ( \s h x ->
           ListAllowedNodeTypeModificationsResponse'
-            Prelude.<$> ( x Core..@? "ScaleUpModifications"
+            Prelude.<$> ( x Data..@? "ScaleUpModifications"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "ScaleDownModifications"
+            Prelude.<*> ( x Data..@? "ScaleDownModifications"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -174,28 +175,28 @@ instance
       `Prelude.seq` Prelude.rnf replicationGroupId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListAllowedNodeTypeModifications
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListAllowedNodeTypeModifications where
+instance Data.ToPath ListAllowedNodeTypeModifications where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListAllowedNodeTypeModifications
   where
   toQuery ListAllowedNodeTypeModifications' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ListAllowedNodeTypeModifications" ::
+          Data.=: ( "ListAllowedNodeTypeModifications" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "CacheClusterId" Core.=: cacheClusterId,
-        "ReplicationGroupId" Core.=: replicationGroupId
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "CacheClusterId" Data.=: cacheClusterId,
+        "ReplicationGroupId" Data.=: replicationGroupId
       ]
 
 -- | Represents the allowed node types you can use to modify your cluster or

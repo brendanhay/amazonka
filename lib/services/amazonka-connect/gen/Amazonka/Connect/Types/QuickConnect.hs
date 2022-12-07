@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.QuickConnect where
 import Amazonka.Connect.Types.QuickConnectConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a quick connect.
@@ -101,18 +102,18 @@ quickConnect_quickConnectARN = Lens.lens (\QuickConnect' {quickConnectARN} -> qu
 quickConnect_quickConnectId :: Lens.Lens' QuickConnect (Prelude.Maybe Prelude.Text)
 quickConnect_quickConnectId = Lens.lens (\QuickConnect' {quickConnectId} -> quickConnectId) (\s@QuickConnect' {} a -> s {quickConnectId = a} :: QuickConnect)
 
-instance Core.FromJSON QuickConnect where
+instance Data.FromJSON QuickConnect where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QuickConnect"
       ( \x ->
           QuickConnect'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "QuickConnectConfig")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "QuickConnectARN")
-            Prelude.<*> (x Core..:? "QuickConnectId")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "QuickConnectConfig")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "QuickConnectARN")
+            Prelude.<*> (x Data..:? "QuickConnectId")
       )
 
 instance Prelude.Hashable QuickConnect where

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProvisioningParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A key value pair used when you provision a project as a service catalog
@@ -63,13 +64,13 @@ provisioningParameter_key = Lens.lens (\ProvisioningParameter' {key} -> key) (\s
 provisioningParameter_value :: Lens.Lens' ProvisioningParameter (Prelude.Maybe Prelude.Text)
 provisioningParameter_value = Lens.lens (\ProvisioningParameter' {value} -> value) (\s@ProvisioningParameter' {} a -> s {value = a} :: ProvisioningParameter)
 
-instance Core.FromJSON ProvisioningParameter where
+instance Data.FromJSON ProvisioningParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisioningParameter"
       ( \x ->
           ProvisioningParameter'
-            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Key") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable ProvisioningParameter where
@@ -81,11 +82,11 @@ instance Prelude.NFData ProvisioningParameter where
   rnf ProvisioningParameter' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ProvisioningParameter where
+instance Data.ToJSON ProvisioningParameter where
   toJSON ProvisioningParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

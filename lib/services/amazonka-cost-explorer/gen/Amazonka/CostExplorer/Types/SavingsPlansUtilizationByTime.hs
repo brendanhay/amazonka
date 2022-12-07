@@ -25,6 +25,7 @@ import Amazonka.CostExplorer.Types.DateInterval
 import Amazonka.CostExplorer.Types.SavingsPlansAmortizedCommitment
 import Amazonka.CostExplorer.Types.SavingsPlansSavings
 import Amazonka.CostExplorer.Types.SavingsPlansUtilization
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of Savings Plans utilization (in hours).
@@ -104,16 +105,16 @@ savingsPlansUtilizationByTime_timePeriod = Lens.lens (\SavingsPlansUtilizationBy
 savingsPlansUtilizationByTime_utilization :: Lens.Lens' SavingsPlansUtilizationByTime SavingsPlansUtilization
 savingsPlansUtilizationByTime_utilization = Lens.lens (\SavingsPlansUtilizationByTime' {utilization} -> utilization) (\s@SavingsPlansUtilizationByTime' {} a -> s {utilization = a} :: SavingsPlansUtilizationByTime)
 
-instance Core.FromJSON SavingsPlansUtilizationByTime where
+instance Data.FromJSON SavingsPlansUtilizationByTime where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlansUtilizationByTime"
       ( \x ->
           SavingsPlansUtilizationByTime'
-            Prelude.<$> (x Core..:? "AmortizedCommitment")
-            Prelude.<*> (x Core..:? "Savings")
-            Prelude.<*> (x Core..: "TimePeriod")
-            Prelude.<*> (x Core..: "Utilization")
+            Prelude.<$> (x Data..:? "AmortizedCommitment")
+            Prelude.<*> (x Data..:? "Savings")
+            Prelude.<*> (x Data..: "TimePeriod")
+            Prelude.<*> (x Data..: "Utilization")
       )
 
 instance

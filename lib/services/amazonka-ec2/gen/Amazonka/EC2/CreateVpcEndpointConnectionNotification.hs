@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -168,8 +169,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateVpcEndpointConnectionNotificationResponse'
-            Prelude.<$> (x Core..@? "connectionNotification")
-              Prelude.<*> (x Core..@? "clientToken")
+            Prelude.<$> (x Data..@? "connectionNotification")
+              Prelude.<*> (x Data..@? "clientToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,36 +201,36 @@ instance
       `Prelude.seq` Prelude.rnf connectionEvents
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateVpcEndpointConnectionNotification
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateVpcEndpointConnectionNotification
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateVpcEndpointConnectionNotification
   where
   toQuery CreateVpcEndpointConnectionNotification' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateVpcEndpointConnectionNotification" ::
+          Data.=: ( "CreateVpcEndpointConnectionNotification" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "VpcEndpointId" Core.=: vpcEndpointId,
-        "DryRun" Core.=: dryRun,
-        "ServiceId" Core.=: serviceId,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "VpcEndpointId" Data.=: vpcEndpointId,
+        "DryRun" Data.=: dryRun,
+        "ServiceId" Data.=: serviceId,
         "ConnectionNotificationArn"
-          Core.=: connectionNotificationArn,
-        Core.toQueryList "ConnectionEvents" connectionEvents
+          Data.=: connectionNotificationArn,
+        Data.toQueryList "ConnectionEvents" connectionEvents
       ]
 
 -- | /See:/ 'newCreateVpcEndpointConnectionNotificationResponse' smart constructor.

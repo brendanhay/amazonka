@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,7 +136,7 @@ instance Core.AWSRequest AssociateCustomerGateway where
     Response.receiveJSON
       ( \s h x ->
           AssociateCustomerGatewayResponse'
-            Prelude.<$> (x Core..?> "CustomerGatewayAssociation")
+            Prelude.<$> (x Data..?> "CustomerGatewayAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,37 +154,37 @@ instance Prelude.NFData AssociateCustomerGateway where
       `Prelude.seq` Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf deviceId
 
-instance Core.ToHeaders AssociateCustomerGateway where
+instance Data.ToHeaders AssociateCustomerGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateCustomerGateway where
+instance Data.ToJSON AssociateCustomerGateway where
   toJSON AssociateCustomerGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LinkId" Core..=) Prelude.<$> linkId,
+          [ ("LinkId" Data..=) Prelude.<$> linkId,
             Prelude.Just
-              ("CustomerGatewayArn" Core..= customerGatewayArn),
-            Prelude.Just ("DeviceId" Core..= deviceId)
+              ("CustomerGatewayArn" Data..= customerGatewayArn),
+            Prelude.Just ("DeviceId" Data..= deviceId)
           ]
       )
 
-instance Core.ToPath AssociateCustomerGateway where
+instance Data.ToPath AssociateCustomerGateway where
   toPath AssociateCustomerGateway' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/customer-gateway-associations"
       ]
 
-instance Core.ToQuery AssociateCustomerGateway where
+instance Data.ToQuery AssociateCustomerGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateCustomerGatewayResponse' smart constructor.

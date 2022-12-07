@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ConditionStepMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ConditionOutcome
 
@@ -51,13 +52,13 @@ newConditionStepMetadata =
 conditionStepMetadata_outcome :: Lens.Lens' ConditionStepMetadata (Prelude.Maybe ConditionOutcome)
 conditionStepMetadata_outcome = Lens.lens (\ConditionStepMetadata' {outcome} -> outcome) (\s@ConditionStepMetadata' {} a -> s {outcome = a} :: ConditionStepMetadata)
 
-instance Core.FromJSON ConditionStepMetadata where
+instance Data.FromJSON ConditionStepMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConditionStepMetadata"
       ( \x ->
           ConditionStepMetadata'
-            Prelude.<$> (x Core..:? "Outcome")
+            Prelude.<$> (x Data..:? "Outcome")
       )
 
 instance Prelude.Hashable ConditionStepMetadata where

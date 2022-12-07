@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputWhitelistRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Whitelist rule
@@ -50,12 +51,12 @@ newInputWhitelistRule =
 inputWhitelistRule_cidr :: Lens.Lens' InputWhitelistRule (Prelude.Maybe Prelude.Text)
 inputWhitelistRule_cidr = Lens.lens (\InputWhitelistRule' {cidr} -> cidr) (\s@InputWhitelistRule' {} a -> s {cidr = a} :: InputWhitelistRule)
 
-instance Core.FromJSON InputWhitelistRule where
+instance Data.FromJSON InputWhitelistRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputWhitelistRule"
       ( \x ->
-          InputWhitelistRule' Prelude.<$> (x Core..:? "cidr")
+          InputWhitelistRule' Prelude.<$> (x Data..:? "cidr")
       )
 
 instance Prelude.Hashable InputWhitelistRule where

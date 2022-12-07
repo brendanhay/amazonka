@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,8 +103,8 @@ instance Core.AWSRequest GetProtocolsList where
     Response.receiveJSON
       ( \s h x ->
           GetProtocolsListResponse'
-            Prelude.<$> (x Core..?> "ProtocolsListArn")
-            Prelude.<*> (x Core..?> "ProtocolsList")
+            Prelude.<$> (x Data..?> "ProtocolsListArn")
+            Prelude.<*> (x Data..?> "ProtocolsList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,34 +118,34 @@ instance Prelude.NFData GetProtocolsList where
     Prelude.rnf defaultList
       `Prelude.seq` Prelude.rnf listId
 
-instance Core.ToHeaders GetProtocolsList where
+instance Data.ToHeaders GetProtocolsList where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.GetProtocolsList" ::
+              Data.=# ( "AWSFMS_20180101.GetProtocolsList" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetProtocolsList where
+instance Data.ToJSON GetProtocolsList where
   toJSON GetProtocolsList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DefaultList" Core..=) Prelude.<$> defaultList,
-            Prelude.Just ("ListId" Core..= listId)
+          [ ("DefaultList" Data..=) Prelude.<$> defaultList,
+            Prelude.Just ("ListId" Data..= listId)
           ]
       )
 
-instance Core.ToPath GetProtocolsList where
+instance Data.ToPath GetProtocolsList where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetProtocolsList where
+instance Data.ToQuery GetProtocolsList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetProtocolsListResponse' smart constructor.

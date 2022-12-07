@@ -21,6 +21,7 @@ module Amazonka.RedshiftData.Types.SqlParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A parameter used in a SQL statement.
@@ -71,13 +72,13 @@ sqlParameter_name = Lens.lens (\SqlParameter' {name} -> name) (\s@SqlParameter' 
 sqlParameter_value :: Lens.Lens' SqlParameter Prelude.Text
 sqlParameter_value = Lens.lens (\SqlParameter' {value} -> value) (\s@SqlParameter' {} a -> s {value = a} :: SqlParameter)
 
-instance Core.FromJSON SqlParameter where
+instance Data.FromJSON SqlParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SqlParameter"
       ( \x ->
           SqlParameter'
-            Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable SqlParameter where
@@ -89,11 +90,11 @@ instance Prelude.NFData SqlParameter where
   rnf SqlParameter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON SqlParameter where
+instance Data.ToJSON SqlParameter where
   toJSON SqlParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("value" Data..= value)
           ]
       )

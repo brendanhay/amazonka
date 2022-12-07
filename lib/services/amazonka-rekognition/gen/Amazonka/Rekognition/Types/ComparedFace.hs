@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.ComparedFace where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.BoundingBox
 import Amazonka.Rekognition.Types.Emotion
@@ -128,19 +129,19 @@ comparedFace_emotions = Lens.lens (\ComparedFace' {emotions} -> emotions) (\s@Co
 comparedFace_smile :: Lens.Lens' ComparedFace (Prelude.Maybe Smile)
 comparedFace_smile = Lens.lens (\ComparedFace' {smile} -> smile) (\s@ComparedFace' {} a -> s {smile = a} :: ComparedFace)
 
-instance Core.FromJSON ComparedFace where
+instance Data.FromJSON ComparedFace where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComparedFace"
       ( \x ->
           ComparedFace'
-            Prelude.<$> (x Core..:? "Quality")
-            Prelude.<*> (x Core..:? "Pose")
-            Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "BoundingBox")
-            Prelude.<*> (x Core..:? "Landmarks" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Emotions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Smile")
+            Prelude.<$> (x Data..:? "Quality")
+            Prelude.<*> (x Data..:? "Pose")
+            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "BoundingBox")
+            Prelude.<*> (x Data..:? "Landmarks" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Emotions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Smile")
       )
 
 instance Prelude.Hashable ComparedFace where

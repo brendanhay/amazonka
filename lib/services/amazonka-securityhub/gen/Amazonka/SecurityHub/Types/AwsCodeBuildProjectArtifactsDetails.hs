@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCodeBuildProjectArtifactsDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the build artifacts for the CodeBuild project.
@@ -153,23 +154,23 @@ awsCodeBuildProjectArtifactsDetails_namespaceType :: Lens.Lens' AwsCodeBuildProj
 awsCodeBuildProjectArtifactsDetails_namespaceType = Lens.lens (\AwsCodeBuildProjectArtifactsDetails' {namespaceType} -> namespaceType) (\s@AwsCodeBuildProjectArtifactsDetails' {} a -> s {namespaceType = a} :: AwsCodeBuildProjectArtifactsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCodeBuildProjectArtifactsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCodeBuildProjectArtifactsDetails"
       ( \x ->
           AwsCodeBuildProjectArtifactsDetails'
-            Prelude.<$> (x Core..:? "EncryptionDisabled")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "ArtifactIdentifier")
-            Prelude.<*> (x Core..:? "Packaging")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "OverrideArtifactName")
-            Prelude.<*> (x Core..:? "NamespaceType")
+            Prelude.<$> (x Data..:? "EncryptionDisabled")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "ArtifactIdentifier")
+            Prelude.<*> (x Data..:? "Packaging")
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "OverrideArtifactName")
+            Prelude.<*> (x Data..:? "NamespaceType")
       )
 
 instance
@@ -205,23 +206,23 @@ instance
       `Prelude.seq` Prelude.rnf namespaceType
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCodeBuildProjectArtifactsDetails
   where
   toJSON AwsCodeBuildProjectArtifactsDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EncryptionDisabled" Core..=)
+          [ ("EncryptionDisabled" Data..=)
               Prelude.<$> encryptionDisabled,
-            ("Name" Core..=) Prelude.<$> name,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Path" Core..=) Prelude.<$> path,
-            ("ArtifactIdentifier" Core..=)
+            ("Name" Data..=) Prelude.<$> name,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Path" Data..=) Prelude.<$> path,
+            ("ArtifactIdentifier" Data..=)
               Prelude.<$> artifactIdentifier,
-            ("Packaging" Core..=) Prelude.<$> packaging,
-            ("Location" Core..=) Prelude.<$> location,
-            ("OverrideArtifactName" Core..=)
+            ("Packaging" Data..=) Prelude.<$> packaging,
+            ("Location" Data..=) Prelude.<$> location,
+            ("OverrideArtifactName" Data..=)
               Prelude.<$> overrideArtifactName,
-            ("NamespaceType" Core..=) Prelude.<$> namespaceType
+            ("NamespaceType" Data..=) Prelude.<$> namespaceType
           ]
       )

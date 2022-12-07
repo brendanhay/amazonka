@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,18 +92,18 @@ instance Prelude.Hashable DisableTopicRule where
 instance Prelude.NFData DisableTopicRule where
   rnf DisableTopicRule' {..} = Prelude.rnf ruleName
 
-instance Core.ToHeaders DisableTopicRule where
+instance Data.ToHeaders DisableTopicRule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON DisableTopicRule where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DisableTopicRule where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DisableTopicRule where
+instance Data.ToPath DisableTopicRule where
   toPath DisableTopicRule' {..} =
     Prelude.mconcat
-      ["/rules/", Core.toBS ruleName, "/disable"]
+      ["/rules/", Data.toBS ruleName, "/disable"]
 
-instance Core.ToQuery DisableTopicRule where
+instance Data.ToQuery DisableTopicRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableTopicRuleResponse' smart constructor.

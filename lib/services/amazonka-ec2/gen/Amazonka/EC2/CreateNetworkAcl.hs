@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,7 +121,7 @@ instance Core.AWSRequest CreateNetworkAcl where
     Response.receiveXML
       ( \s h x ->
           CreateNetworkAclResponse'
-            Prelude.<$> (x Core..@? "networkAcl")
+            Prelude.<$> (x Data..@? "networkAcl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,25 +137,25 @@ instance Prelude.NFData CreateNetworkAcl where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToHeaders CreateNetworkAcl where
+instance Data.ToHeaders CreateNetworkAcl where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateNetworkAcl where
+instance Data.ToPath CreateNetworkAcl where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateNetworkAcl where
+instance Data.ToQuery CreateNetworkAcl where
   toQuery CreateNetworkAcl' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateNetworkAcl" :: Prelude.ByteString),
+          Data.=: ("CreateNetworkAcl" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "VpcId" Core.=: vpcId
+        "VpcId" Data.=: vpcId
       ]
 
 -- | /See:/ 'newCreateNetworkAclResponse' smart constructor.

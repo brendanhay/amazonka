@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Scte35InputScheduleActionSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.Scte35InputMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,16 +70,16 @@ scte35InputScheduleActionSettings_mode :: Lens.Lens' Scte35InputScheduleActionSe
 scte35InputScheduleActionSettings_mode = Lens.lens (\Scte35InputScheduleActionSettings' {mode} -> mode) (\s@Scte35InputScheduleActionSettings' {} a -> s {mode = a} :: Scte35InputScheduleActionSettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     Scte35InputScheduleActionSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scte35InputScheduleActionSettings"
       ( \x ->
           Scte35InputScheduleActionSettings'
-            Prelude.<$> (x Core..:? "inputAttachmentNameReference")
-            Prelude.<*> (x Core..: "mode")
+            Prelude.<$> (x Data..:? "inputAttachmentNameReference")
+            Prelude.<*> (x Data..: "mode")
       )
 
 instance
@@ -101,14 +102,14 @@ instance
       `Prelude.seq` Prelude.rnf mode
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     Scte35InputScheduleActionSettings
   where
   toJSON Scte35InputScheduleActionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inputAttachmentNameReference" Core..=)
+          [ ("inputAttachmentNameReference" Data..=)
               Prelude.<$> inputAttachmentNameReference,
-            Prelude.Just ("mode" Core..= mode)
+            Prelude.Just ("mode" Data..= mode)
           ]
       )

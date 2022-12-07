@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.Group where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.MetricValue
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | One level of grouped data in the results.
@@ -62,14 +63,14 @@ group_metrics = Lens.lens (\Group' {metrics} -> metrics) (\s@Group' {} a -> s {m
 group_keys :: Lens.Lens' Group (Prelude.Maybe [Prelude.Text])
 group_keys = Lens.lens (\Group' {keys} -> keys) (\s@Group' {} a -> s {keys = a} :: Group) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Group where
+instance Data.FromJSON Group where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Group"
       ( \x ->
           Group'
-            Prelude.<$> (x Core..:? "Metrics" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Keys" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Metrics" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Keys" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Group where

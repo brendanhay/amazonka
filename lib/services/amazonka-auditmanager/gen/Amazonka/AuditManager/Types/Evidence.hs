@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.Evidence where
 import Amazonka.AuditManager.Types.Resource
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A record that contains the information needed to demonstrate compliance
@@ -43,7 +44,7 @@ data Evidence = Evidence'
     -- its organization path.
     awsOrganization :: Prelude.Maybe Prelude.Text,
     -- | The timestamp that represents when the evidence was collected.
-    time :: Prelude.Maybe Core.POSIX,
+    time :: Prelude.Maybe Data.POSIX,
     -- | The identifier for the evidence.
     id :: Prelude.Maybe Prelude.Text,
     -- | The type of automated evidence.
@@ -185,7 +186,7 @@ evidence_awsOrganization = Lens.lens (\Evidence' {awsOrganization} -> awsOrganiz
 
 -- | The timestamp that represents when the evidence was collected.
 evidence_time :: Lens.Lens' Evidence (Prelude.Maybe Prelude.UTCTime)
-evidence_time = Lens.lens (\Evidence' {time} -> time) (\s@Evidence' {} a -> s {time = a} :: Evidence) Prelude.. Lens.mapping Core._Time
+evidence_time = Lens.lens (\Evidence' {time} -> time) (\s@Evidence' {} a -> s {time = a} :: Evidence) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier for the evidence.
 evidence_id :: Lens.Lens' Evidence (Prelude.Maybe Prelude.Text)
@@ -242,29 +243,29 @@ evidence_attributes = Lens.lens (\Evidence' {attributes} -> attributes) (\s@Evid
 evidence_eventSource :: Lens.Lens' Evidence (Prelude.Maybe Prelude.Text)
 evidence_eventSource = Lens.lens (\Evidence' {eventSource} -> eventSource) (\s@Evidence' {} a -> s {eventSource = a} :: Evidence)
 
-instance Core.FromJSON Evidence where
+instance Data.FromJSON Evidence where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Evidence"
       ( \x ->
           Evidence'
-            Prelude.<$> (x Core..:? "awsAccountId")
-            Prelude.<*> (x Core..:? "evidenceAwsAccountId")
-            Prelude.<*> (x Core..:? "evidenceFolderId")
-            Prelude.<*> ( x Core..:? "resourcesIncluded"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "awsAccountId")
+            Prelude.<*> (x Data..:? "evidenceAwsAccountId")
+            Prelude.<*> (x Data..:? "evidenceFolderId")
+            Prelude.<*> ( x Data..:? "resourcesIncluded"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "awsOrganization")
-            Prelude.<*> (x Core..:? "time")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "evidenceByType")
-            Prelude.<*> (x Core..:? "complianceCheck")
-            Prelude.<*> (x Core..:? "iamId")
-            Prelude.<*> (x Core..:? "eventName")
-            Prelude.<*> (x Core..:? "dataSource")
-            Prelude.<*> (x Core..:? "assessmentReportSelection")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "eventSource")
+            Prelude.<*> (x Data..:? "awsOrganization")
+            Prelude.<*> (x Data..:? "time")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "evidenceByType")
+            Prelude.<*> (x Data..:? "complianceCheck")
+            Prelude.<*> (x Data..:? "iamId")
+            Prelude.<*> (x Data..:? "eventName")
+            Prelude.<*> (x Data..:? "dataSource")
+            Prelude.<*> (x Data..:? "assessmentReportSelection")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "eventSource")
       )
 
 instance Prelude.Hashable Evidence where

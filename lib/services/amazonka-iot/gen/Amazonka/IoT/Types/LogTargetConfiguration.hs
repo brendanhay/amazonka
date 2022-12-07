@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.LogTargetConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.LogLevel
 import Amazonka.IoT.Types.LogTarget
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ logTargetConfiguration_logLevel = Lens.lens (\LogTargetConfiguration' {logLevel}
 logTargetConfiguration_logTarget :: Lens.Lens' LogTargetConfiguration (Prelude.Maybe LogTarget)
 logTargetConfiguration_logTarget = Lens.lens (\LogTargetConfiguration' {logTarget} -> logTarget) (\s@LogTargetConfiguration' {} a -> s {logTarget = a} :: LogTargetConfiguration)
 
-instance Core.FromJSON LogTargetConfiguration where
+instance Data.FromJSON LogTargetConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogTargetConfiguration"
       ( \x ->
           LogTargetConfiguration'
-            Prelude.<$> (x Core..:? "logLevel")
-            Prelude.<*> (x Core..:? "logTarget")
+            Prelude.<$> (x Data..:? "logLevel")
+            Prelude.<*> (x Data..:? "logTarget")
       )
 
 instance Prelude.Hashable LogTargetConfiguration where

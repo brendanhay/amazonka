@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,7 +90,7 @@ instance Core.AWSRequest DescribeReservation where
     Response.receiveJSON
       ( \s h x ->
           DescribeReservationResponse'
-            Prelude.<$> (x Core..?> "reservation")
+            Prelude.<$> (x Data..?> "reservation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,23 +102,23 @@ instance Prelude.NFData DescribeReservation where
   rnf DescribeReservation' {..} =
     Prelude.rnf reservationArn
 
-instance Core.ToHeaders DescribeReservation where
+instance Data.ToHeaders DescribeReservation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeReservation where
+instance Data.ToPath DescribeReservation where
   toPath DescribeReservation' {..} =
     Prelude.mconcat
-      ["/v1/reservations/", Core.toBS reservationArn]
+      ["/v1/reservations/", Data.toBS reservationArn]
 
-instance Core.ToQuery DescribeReservation where
+instance Data.ToQuery DescribeReservation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeReservationResponse' smart constructor.

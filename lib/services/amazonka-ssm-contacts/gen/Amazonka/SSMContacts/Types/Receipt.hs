@@ -21,6 +21,7 @@ module Amazonka.SSMContacts.Types.Receipt where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMContacts.Types.ReceiptType
 
@@ -36,7 +37,7 @@ data Receipt = Receipt'
     -- | The type follows the engagement cycle, @SENT@, @DELIVERED@, and @READ@.
     receiptType :: ReceiptType,
     -- | The time receipt was @SENT@, @DELIVERED@, or @READ@.
-    receiptTime :: Core.POSIX
+    receiptTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,7 +68,7 @@ newReceipt pReceiptType_ pReceiptTime_ =
     { receiptInfo = Prelude.Nothing,
       contactChannelArn = Prelude.Nothing,
       receiptType = pReceiptType_,
-      receiptTime = Core._Time Lens.# pReceiptTime_
+      receiptTime = Data._Time Lens.# pReceiptTime_
     }
 
 -- | Information provided during the page acknowledgement.
@@ -85,18 +86,18 @@ receipt_receiptType = Lens.lens (\Receipt' {receiptType} -> receiptType) (\s@Rec
 
 -- | The time receipt was @SENT@, @DELIVERED@, or @READ@.
 receipt_receiptTime :: Lens.Lens' Receipt Prelude.UTCTime
-receipt_receiptTime = Lens.lens (\Receipt' {receiptTime} -> receiptTime) (\s@Receipt' {} a -> s {receiptTime = a} :: Receipt) Prelude.. Core._Time
+receipt_receiptTime = Lens.lens (\Receipt' {receiptTime} -> receiptTime) (\s@Receipt' {} a -> s {receiptTime = a} :: Receipt) Prelude.. Data._Time
 
-instance Core.FromJSON Receipt where
+instance Data.FromJSON Receipt where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Receipt"
       ( \x ->
           Receipt'
-            Prelude.<$> (x Core..:? "ReceiptInfo")
-            Prelude.<*> (x Core..:? "ContactChannelArn")
-            Prelude.<*> (x Core..: "ReceiptType")
-            Prelude.<*> (x Core..: "ReceiptTime")
+            Prelude.<$> (x Data..:? "ReceiptInfo")
+            Prelude.<*> (x Data..:? "ContactChannelArn")
+            Prelude.<*> (x Data..: "ReceiptType")
+            Prelude.<*> (x Data..: "ReceiptTime")
       )
 
 instance Prelude.Hashable Receipt where

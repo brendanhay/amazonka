@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchReadException where
 import Amazonka.CloudDirectory.Types.BatchReadExceptionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The batch read exception structure, which contains the exception type
@@ -63,14 +64,14 @@ batchReadException_message = Lens.lens (\BatchReadException' {message} -> messag
 batchReadException_type :: Lens.Lens' BatchReadException (Prelude.Maybe BatchReadExceptionType)
 batchReadException_type = Lens.lens (\BatchReadException' {type'} -> type') (\s@BatchReadException' {} a -> s {type' = a} :: BatchReadException)
 
-instance Core.FromJSON BatchReadException where
+instance Data.FromJSON BatchReadException where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchReadException"
       ( \x ->
           BatchReadException'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable BatchReadException where

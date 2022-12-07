@@ -48,6 +48,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -58,7 +59,7 @@ import qualified Amazonka.Response as Response
 data VerifyUserAttribute = VerifyUserAttribute'
   { -- | A valid access token that Amazon Cognito issued to the user whose user
     -- attributes you want to verify.
-    accessToken :: Core.Sensitive Prelude.Text,
+    accessToken :: Data.Sensitive Prelude.Text,
     -- | The attribute name in the request to verify user attributes.
     attributeName :: Prelude.Text,
     -- | The verification code in the request to verify user attributes.
@@ -94,7 +95,7 @@ newVerifyUserAttribute
   pCode_ =
     VerifyUserAttribute'
       { accessToken =
-          Core._Sensitive Lens.# pAccessToken_,
+          Data._Sensitive Lens.# pAccessToken_,
         attributeName = pAttributeName_,
         code = pCode_
       }
@@ -102,7 +103,7 @@ newVerifyUserAttribute
 -- | A valid access token that Amazon Cognito issued to the user whose user
 -- attributes you want to verify.
 verifyUserAttribute_accessToken :: Lens.Lens' VerifyUserAttribute Prelude.Text
-verifyUserAttribute_accessToken = Lens.lens (\VerifyUserAttribute' {accessToken} -> accessToken) (\s@VerifyUserAttribute' {} a -> s {accessToken = a} :: VerifyUserAttribute) Prelude.. Core._Sensitive
+verifyUserAttribute_accessToken = Lens.lens (\VerifyUserAttribute' {accessToken} -> accessToken) (\s@VerifyUserAttribute' {} a -> s {accessToken = a} :: VerifyUserAttribute) Prelude.. Data._Sensitive
 
 -- | The attribute name in the request to verify user attributes.
 verifyUserAttribute_attributeName :: Lens.Lens' VerifyUserAttribute Prelude.Text
@@ -137,35 +138,35 @@ instance Prelude.NFData VerifyUserAttribute where
       `Prelude.seq` Prelude.rnf attributeName
       `Prelude.seq` Prelude.rnf code
 
-instance Core.ToHeaders VerifyUserAttribute where
+instance Data.ToHeaders VerifyUserAttribute where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.VerifyUserAttribute" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.VerifyUserAttribute" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON VerifyUserAttribute where
+instance Data.ToJSON VerifyUserAttribute where
   toJSON VerifyUserAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AccessToken" Core..= accessToken),
-            Prelude.Just ("AttributeName" Core..= attributeName),
-            Prelude.Just ("Code" Core..= code)
+          [ Prelude.Just ("AccessToken" Data..= accessToken),
+            Prelude.Just ("AttributeName" Data..= attributeName),
+            Prelude.Just ("Code" Data..= code)
           ]
       )
 
-instance Core.ToPath VerifyUserAttribute where
+instance Data.ToPath VerifyUserAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery VerifyUserAttribute where
+instance Data.ToQuery VerifyUserAttribute where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A container representing the response from the server from the request

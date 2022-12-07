@@ -80,6 +80,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -227,7 +228,7 @@ instance Core.AWSRequest CreateDatasetImportJob where
     Response.receiveJSON
       ( \s h x ->
           CreateDatasetImportJobResponse'
-            Prelude.<$> (x Core..?> "datasetImportJobArn")
+            Prelude.<$> (x Data..?> "datasetImportJobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -251,40 +252,40 @@ instance Prelude.NFData CreateDatasetImportJob where
       `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateDatasetImportJob where
+instance Data.ToHeaders CreateDatasetImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.CreateDatasetImportJob" ::
+              Data.=# ( "AmazonPersonalize.CreateDatasetImportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDatasetImportJob where
+instance Data.ToJSON CreateDatasetImportJob where
   toJSON CreateDatasetImportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("publishAttributionMetricsToS3" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("publishAttributionMetricsToS3" Data..=)
               Prelude.<$> publishAttributionMetricsToS3,
-            ("importMode" Core..=) Prelude.<$> importMode,
-            Prelude.Just ("jobName" Core..= jobName),
-            Prelude.Just ("datasetArn" Core..= datasetArn),
-            Prelude.Just ("dataSource" Core..= dataSource),
-            Prelude.Just ("roleArn" Core..= roleArn)
+            ("importMode" Data..=) Prelude.<$> importMode,
+            Prelude.Just ("jobName" Data..= jobName),
+            Prelude.Just ("datasetArn" Data..= datasetArn),
+            Prelude.Just ("dataSource" Data..= dataSource),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateDatasetImportJob where
+instance Data.ToPath CreateDatasetImportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDatasetImportJob where
+instance Data.ToQuery CreateDatasetImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDatasetImportJobResponse' smart constructor.

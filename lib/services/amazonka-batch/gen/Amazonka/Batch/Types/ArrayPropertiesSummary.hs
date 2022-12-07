@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.ArrayPropertiesSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the array properties of a job.
@@ -67,13 +68,13 @@ arrayPropertiesSummary_index = Lens.lens (\ArrayPropertiesSummary' {index} -> in
 arrayPropertiesSummary_size :: Lens.Lens' ArrayPropertiesSummary (Prelude.Maybe Prelude.Int)
 arrayPropertiesSummary_size = Lens.lens (\ArrayPropertiesSummary' {size} -> size) (\s@ArrayPropertiesSummary' {} a -> s {size = a} :: ArrayPropertiesSummary)
 
-instance Core.FromJSON ArrayPropertiesSummary where
+instance Data.FromJSON ArrayPropertiesSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArrayPropertiesSummary"
       ( \x ->
           ArrayPropertiesSummary'
-            Prelude.<$> (x Core..:? "index") Prelude.<*> (x Core..:? "size")
+            Prelude.<$> (x Data..:? "index") Prelude.<*> (x Data..:? "size")
       )
 
 instance Prelude.Hashable ArrayPropertiesSummary where

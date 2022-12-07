@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Pipeline where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ParallelismConfiguration
 import Amazonka.SageMaker.Types.PipelineStatus
@@ -42,15 +43,15 @@ data Pipeline = Pipeline'
     -- | The description of the pipeline.
     pipelineDescription :: Prelude.Maybe Prelude.Text,
     -- | The time that the pipeline was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The parallelism configuration applied to the pipeline.
     parallelismConfiguration :: Prelude.Maybe ParallelismConfiguration,
     -- | The name of the pipeline.
     pipelineName :: Prelude.Maybe Prelude.Text,
     -- | The time when the pipeline was last run.
-    lastRunTime :: Prelude.Maybe Core.POSIX,
+    lastRunTime :: Prelude.Maybe Data.POSIX,
     -- | The creation time of the pipeline.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     lastModifiedBy :: Prelude.Maybe UserContext,
     createdBy :: Prelude.Maybe UserContext,
     -- | The status of the pipeline.
@@ -132,7 +133,7 @@ pipeline_pipelineDescription = Lens.lens (\Pipeline' {pipelineDescription} -> pi
 
 -- | The time that the pipeline was last modified.
 pipeline_lastModifiedTime :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.UTCTime)
-pipeline_lastModifiedTime = Lens.lens (\Pipeline' {lastModifiedTime} -> lastModifiedTime) (\s@Pipeline' {} a -> s {lastModifiedTime = a} :: Pipeline) Prelude.. Lens.mapping Core._Time
+pipeline_lastModifiedTime = Lens.lens (\Pipeline' {lastModifiedTime} -> lastModifiedTime) (\s@Pipeline' {} a -> s {lastModifiedTime = a} :: Pipeline) Prelude.. Lens.mapping Data._Time
 
 -- | The parallelism configuration applied to the pipeline.
 pipeline_parallelismConfiguration :: Lens.Lens' Pipeline (Prelude.Maybe ParallelismConfiguration)
@@ -144,11 +145,11 @@ pipeline_pipelineName = Lens.lens (\Pipeline' {pipelineName} -> pipelineName) (\
 
 -- | The time when the pipeline was last run.
 pipeline_lastRunTime :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.UTCTime)
-pipeline_lastRunTime = Lens.lens (\Pipeline' {lastRunTime} -> lastRunTime) (\s@Pipeline' {} a -> s {lastRunTime = a} :: Pipeline) Prelude.. Lens.mapping Core._Time
+pipeline_lastRunTime = Lens.lens (\Pipeline' {lastRunTime} -> lastRunTime) (\s@Pipeline' {} a -> s {lastRunTime = a} :: Pipeline) Prelude.. Lens.mapping Data._Time
 
 -- | The creation time of the pipeline.
 pipeline_creationTime :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.UTCTime)
-pipeline_creationTime = Lens.lens (\Pipeline' {creationTime} -> creationTime) (\s@Pipeline' {} a -> s {creationTime = a} :: Pipeline) Prelude.. Lens.mapping Core._Time
+pipeline_creationTime = Lens.lens (\Pipeline' {creationTime} -> creationTime) (\s@Pipeline' {} a -> s {creationTime = a} :: Pipeline) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 pipeline_lastModifiedBy :: Lens.Lens' Pipeline (Prelude.Maybe UserContext)
@@ -162,25 +163,25 @@ pipeline_createdBy = Lens.lens (\Pipeline' {createdBy} -> createdBy) (\s@Pipelin
 pipeline_pipelineStatus :: Lens.Lens' Pipeline (Prelude.Maybe PipelineStatus)
 pipeline_pipelineStatus = Lens.lens (\Pipeline' {pipelineStatus} -> pipelineStatus) (\s@Pipeline' {} a -> s {pipelineStatus = a} :: Pipeline)
 
-instance Core.FromJSON Pipeline where
+instance Data.FromJSON Pipeline where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Pipeline"
       ( \x ->
           Pipeline'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "PipelineArn")
-            Prelude.<*> (x Core..:? "PipelineDisplayName")
-            Prelude.<*> (x Core..:? "PipelineDescription")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "ParallelismConfiguration")
-            Prelude.<*> (x Core..:? "PipelineName")
-            Prelude.<*> (x Core..:? "LastRunTime")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "PipelineStatus")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "PipelineArn")
+            Prelude.<*> (x Data..:? "PipelineDisplayName")
+            Prelude.<*> (x Data..:? "PipelineDescription")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "ParallelismConfiguration")
+            Prelude.<*> (x Data..:? "PipelineName")
+            Prelude.<*> (x Data..:? "LastRunTime")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "PipelineStatus")
       )
 
 instance Prelude.Hashable Pipeline where

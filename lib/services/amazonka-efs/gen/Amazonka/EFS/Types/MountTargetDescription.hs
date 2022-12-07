@@ -21,6 +21,7 @@ module Amazonka.EFS.Types.MountTargetDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types.LifeCycleState
 import qualified Amazonka.Prelude as Prelude
 
@@ -176,22 +177,22 @@ mountTargetDescription_subnetId = Lens.lens (\MountTargetDescription' {subnetId}
 mountTargetDescription_lifeCycleState :: Lens.Lens' MountTargetDescription LifeCycleState
 mountTargetDescription_lifeCycleState = Lens.lens (\MountTargetDescription' {lifeCycleState} -> lifeCycleState) (\s@MountTargetDescription' {} a -> s {lifeCycleState = a} :: MountTargetDescription)
 
-instance Core.FromJSON MountTargetDescription where
+instance Data.FromJSON MountTargetDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MountTargetDescription"
       ( \x ->
           MountTargetDescription'
-            Prelude.<$> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "AvailabilityZoneName")
-            Prelude.<*> (x Core..:? "NetworkInterfaceId")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "IpAddress")
-            Prelude.<*> (x Core..:? "AvailabilityZoneId")
-            Prelude.<*> (x Core..: "MountTargetId")
-            Prelude.<*> (x Core..: "FileSystemId")
-            Prelude.<*> (x Core..: "SubnetId")
-            Prelude.<*> (x Core..: "LifeCycleState")
+            Prelude.<$> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "AvailabilityZoneName")
+            Prelude.<*> (x Data..:? "NetworkInterfaceId")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "IpAddress")
+            Prelude.<*> (x Data..:? "AvailabilityZoneId")
+            Prelude.<*> (x Data..: "MountTargetId")
+            Prelude.<*> (x Data..: "FileSystemId")
+            Prelude.<*> (x Data..: "SubnetId")
+            Prelude.<*> (x Data..: "LifeCycleState")
       )
 
 instance Prelude.Hashable MountTargetDescription where

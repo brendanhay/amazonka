@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.Outcome where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The outcome.
@@ -88,17 +89,17 @@ outcome_description = Lens.lens (\Outcome' {description} -> description) (\s@Out
 outcome_lastUpdatedTime :: Lens.Lens' Outcome (Prelude.Maybe Prelude.Text)
 outcome_lastUpdatedTime = Lens.lens (\Outcome' {lastUpdatedTime} -> lastUpdatedTime) (\s@Outcome' {} a -> s {lastUpdatedTime = a} :: Outcome)
 
-instance Core.FromJSON Outcome where
+instance Data.FromJSON Outcome where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Outcome"
       ( \x ->
           Outcome'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "createdTime")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "createdTime")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
       )
 
 instance Prelude.Hashable Outcome where

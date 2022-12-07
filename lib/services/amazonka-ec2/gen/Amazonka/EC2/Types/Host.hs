@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Host where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AllocationState
 import Amazonka.EC2.Types.AllowsMultipleInstanceTypes
@@ -60,7 +61,7 @@ data Host = Host'
     -- | The ID of the Dedicated Host.
     hostId :: Prelude.Maybe Prelude.Text,
     -- | The time that the Dedicated Host was allocated.
-    allocationTime :: Prelude.Maybe Core.ISO8601,
+    allocationTime :: Prelude.Maybe Data.ISO8601,
     -- | The Dedicated Host\'s state.
     state :: Prelude.Maybe AllocationState,
     -- | The Availability Zone of the Dedicated Host.
@@ -68,7 +69,7 @@ data Host = Host'
     -- | The hardware specifications of the Dedicated Host.
     hostProperties :: Prelude.Maybe HostProperties,
     -- | The time that the Dedicated Host was released.
-    releaseTime :: Prelude.Maybe Core.ISO8601,
+    releaseTime :: Prelude.Maybe Data.ISO8601,
     -- | Indicates whether the Dedicated Host supports multiple instance types of
     -- the same instance family. If the value is @on@, the Dedicated Host
     -- supports multiple instance types in the instance family. If the value is
@@ -209,7 +210,7 @@ host_hostId = Lens.lens (\Host' {hostId} -> hostId) (\s@Host' {} a -> s {hostId 
 
 -- | The time that the Dedicated Host was allocated.
 host_allocationTime :: Lens.Lens' Host (Prelude.Maybe Prelude.UTCTime)
-host_allocationTime = Lens.lens (\Host' {allocationTime} -> allocationTime) (\s@Host' {} a -> s {allocationTime = a} :: Host) Prelude.. Lens.mapping Core._Time
+host_allocationTime = Lens.lens (\Host' {allocationTime} -> allocationTime) (\s@Host' {} a -> s {allocationTime = a} :: Host) Prelude.. Lens.mapping Data._Time
 
 -- | The Dedicated Host\'s state.
 host_state :: Lens.Lens' Host (Prelude.Maybe AllocationState)
@@ -225,7 +226,7 @@ host_hostProperties = Lens.lens (\Host' {hostProperties} -> hostProperties) (\s@
 
 -- | The time that the Dedicated Host was released.
 host_releaseTime :: Lens.Lens' Host (Prelude.Maybe Prelude.UTCTime)
-host_releaseTime = Lens.lens (\Host' {releaseTime} -> releaseTime) (\s@Host' {} a -> s {releaseTime = a} :: Host) Prelude.. Lens.mapping Core._Time
+host_releaseTime = Lens.lens (\Host' {releaseTime} -> releaseTime) (\s@Host' {} a -> s {releaseTime = a} :: Host) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether the Dedicated Host supports multiple instance types of
 -- the same instance family. If the value is @on@, the Dedicated Host
@@ -250,31 +251,31 @@ host_hostReservationId = Lens.lens (\Host' {hostReservationId} -> hostReservatio
 host_availabilityZoneId :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_availabilityZoneId = Lens.lens (\Host' {availabilityZoneId} -> availabilityZoneId) (\s@Host' {} a -> s {availabilityZoneId = a} :: Host)
 
-instance Core.FromXML Host where
+instance Data.FromXML Host where
   parseXML x =
     Host'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "instances" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "instances" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "autoPlacement")
-      Prelude.<*> (x Core..@? "clientToken")
-      Prelude.<*> (x Core..@? "outpostArn")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "availableCapacity")
-      Prelude.<*> (x Core..@? "hostRecovery")
-      Prelude.<*> (x Core..@? "hostId")
-      Prelude.<*> (x Core..@? "allocationTime")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "hostProperties")
-      Prelude.<*> (x Core..@? "releaseTime")
-      Prelude.<*> (x Core..@? "allowsMultipleInstanceTypes")
-      Prelude.<*> (x Core..@? "memberOfServiceLinkedResourceGroup")
-      Prelude.<*> (x Core..@? "hostReservationId")
-      Prelude.<*> (x Core..@? "availabilityZoneId")
+      Prelude.<*> (x Data..@? "autoPlacement")
+      Prelude.<*> (x Data..@? "clientToken")
+      Prelude.<*> (x Data..@? "outpostArn")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "availableCapacity")
+      Prelude.<*> (x Data..@? "hostRecovery")
+      Prelude.<*> (x Data..@? "hostId")
+      Prelude.<*> (x Data..@? "allocationTime")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "hostProperties")
+      Prelude.<*> (x Data..@? "releaseTime")
+      Prelude.<*> (x Data..@? "allowsMultipleInstanceTypes")
+      Prelude.<*> (x Data..@? "memberOfServiceLinkedResourceGroup")
+      Prelude.<*> (x Data..@? "hostReservationId")
+      Prelude.<*> (x Data..@? "availabilityZoneId")
 
 instance Prelude.Hashable Host where
   hashWithSalt _salt Host' {..} =

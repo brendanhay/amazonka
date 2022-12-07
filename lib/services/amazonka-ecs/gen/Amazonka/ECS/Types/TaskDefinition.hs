@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.TaskDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.Attribute
 import Amazonka.ECS.Types.Compatibility
 import Amazonka.ECS.Types.ContainerDefinition
@@ -310,10 +311,10 @@ data TaskDefinition = TaskDefinition'
     -- in the /Docker run reference/.
     networkMode :: Prelude.Maybe NetworkMode,
     -- | The Unix timestamp for the time when the task definition was registered.
-    registeredAt :: Prelude.Maybe Core.POSIX,
+    registeredAt :: Prelude.Maybe Data.POSIX,
     -- | The Unix timestamp for the time when the task definition was
     -- deregistered.
-    deregisteredAt :: Prelude.Maybe Core.POSIX
+    deregisteredAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -935,55 +936,55 @@ taskDefinition_networkMode = Lens.lens (\TaskDefinition' {networkMode} -> networ
 
 -- | The Unix timestamp for the time when the task definition was registered.
 taskDefinition_registeredAt :: Lens.Lens' TaskDefinition (Prelude.Maybe Prelude.UTCTime)
-taskDefinition_registeredAt = Lens.lens (\TaskDefinition' {registeredAt} -> registeredAt) (\s@TaskDefinition' {} a -> s {registeredAt = a} :: TaskDefinition) Prelude.. Lens.mapping Core._Time
+taskDefinition_registeredAt = Lens.lens (\TaskDefinition' {registeredAt} -> registeredAt) (\s@TaskDefinition' {} a -> s {registeredAt = a} :: TaskDefinition) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix timestamp for the time when the task definition was
 -- deregistered.
 taskDefinition_deregisteredAt :: Lens.Lens' TaskDefinition (Prelude.Maybe Prelude.UTCTime)
-taskDefinition_deregisteredAt = Lens.lens (\TaskDefinition' {deregisteredAt} -> deregisteredAt) (\s@TaskDefinition' {} a -> s {deregisteredAt = a} :: TaskDefinition) Prelude.. Lens.mapping Core._Time
+taskDefinition_deregisteredAt = Lens.lens (\TaskDefinition' {deregisteredAt} -> deregisteredAt) (\s@TaskDefinition' {} a -> s {deregisteredAt = a} :: TaskDefinition) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON TaskDefinition where
+instance Data.FromJSON TaskDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskDefinition"
       ( \x ->
           TaskDefinition'
-            Prelude.<$> (x Core..:? "ephemeralStorage")
-            Prelude.<*> (x Core..:? "runtimePlatform")
-            Prelude.<*> (x Core..:? "proxyConfiguration")
-            Prelude.<*> ( x Core..:? "requiresAttributes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ephemeralStorage")
+            Prelude.<*> (x Data..:? "runtimePlatform")
+            Prelude.<*> (x Data..:? "proxyConfiguration")
+            Prelude.<*> ( x Data..:? "requiresAttributes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "pidMode")
-            Prelude.<*> (x Core..:? "registeredBy")
-            Prelude.<*> (x Core..:? "memory")
-            Prelude.<*> (x Core..:? "cpu")
-            Prelude.<*> (x Core..:? "taskRoleArn")
-            Prelude.<*> (x Core..:? "revision")
-            Prelude.<*> ( x Core..:? "inferenceAccelerators"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "pidMode")
+            Prelude.<*> (x Data..:? "registeredBy")
+            Prelude.<*> (x Data..:? "memory")
+            Prelude.<*> (x Data..:? "cpu")
+            Prelude.<*> (x Data..:? "taskRoleArn")
+            Prelude.<*> (x Data..:? "revision")
+            Prelude.<*> ( x Data..:? "inferenceAccelerators"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "taskDefinitionArn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "volumes" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "requiresCompatibilities"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "taskDefinitionArn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "volumes" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "requiresCompatibilities"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "placementConstraints"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "placementConstraints"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "family")
-            Prelude.<*> ( x Core..:? "compatibilities"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "family")
+            Prelude.<*> ( x Data..:? "compatibilities"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "containerDefinitions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "containerDefinitions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "executionRoleArn")
-            Prelude.<*> (x Core..:? "ipcMode")
-            Prelude.<*> (x Core..:? "networkMode")
-            Prelude.<*> (x Core..:? "registeredAt")
-            Prelude.<*> (x Core..:? "deregisteredAt")
+            Prelude.<*> (x Data..:? "executionRoleArn")
+            Prelude.<*> (x Data..:? "ipcMode")
+            Prelude.<*> (x Data..:? "networkMode")
+            Prelude.<*> (x Data..:? "registeredAt")
+            Prelude.<*> (x Data..:? "deregisteredAt")
       )
 
 instance Prelude.Hashable TaskDefinition where

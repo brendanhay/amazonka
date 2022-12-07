@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,7 +149,7 @@ instance Core.AWSRequest UpdateFilter where
       ( \s h x ->
           UpdateFilterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
+            Prelude.<*> (x Data..:> "name")
       )
 
 instance Prelude.Hashable UpdateFilter where
@@ -169,39 +170,39 @@ instance Prelude.NFData UpdateFilter where
       `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf filterName
 
-instance Core.ToHeaders UpdateFilter where
+instance Data.ToHeaders UpdateFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFilter where
+instance Data.ToJSON UpdateFilter where
   toJSON UpdateFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("findingCriteria" Core..=)
+          [ ("findingCriteria" Data..=)
               Prelude.<$> findingCriteria,
-            ("rank" Core..=) Prelude.<$> rank,
-            ("description" Core..=) Prelude.<$> description,
-            ("action" Core..=) Prelude.<$> action
+            ("rank" Data..=) Prelude.<$> rank,
+            ("description" Data..=) Prelude.<$> description,
+            ("action" Data..=) Prelude.<$> action
           ]
       )
 
-instance Core.ToPath UpdateFilter where
+instance Data.ToPath UpdateFilter where
   toPath UpdateFilter' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/filter/",
-        Core.toBS filterName
+        Data.toBS filterName
       ]
 
-instance Core.ToQuery UpdateFilter where
+instance Data.ToQuery UpdateFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFilterResponse' smart constructor.

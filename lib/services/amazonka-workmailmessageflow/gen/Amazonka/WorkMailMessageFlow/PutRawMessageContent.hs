@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,29 +123,29 @@ instance Prelude.NFData PutRawMessageContent where
     Prelude.rnf messageId
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToHeaders PutRawMessageContent where
+instance Data.ToHeaders PutRawMessageContent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRawMessageContent where
+instance Data.ToJSON PutRawMessageContent where
   toJSON PutRawMessageContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("content" Core..= content)]
+          [Prelude.Just ("content" Data..= content)]
       )
 
-instance Core.ToPath PutRawMessageContent where
+instance Data.ToPath PutRawMessageContent where
   toPath PutRawMessageContent' {..} =
-    Prelude.mconcat ["/messages/", Core.toBS messageId]
+    Prelude.mconcat ["/messages/", Data.toBS messageId]
 
-instance Core.ToQuery PutRawMessageContent where
+instance Data.ToQuery PutRawMessageContent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRawMessageContentResponse' smart constructor.

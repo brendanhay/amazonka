@@ -38,6 +38,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,26 +86,26 @@ instance Prelude.Hashable StopBackupJob where
 instance Prelude.NFData StopBackupJob where
   rnf StopBackupJob' {..} = Prelude.rnf backupJobId
 
-instance Core.ToHeaders StopBackupJob where
+instance Data.ToHeaders StopBackupJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopBackupJob where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StopBackupJob where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StopBackupJob where
+instance Data.ToPath StopBackupJob where
   toPath StopBackupJob' {..} =
     Prelude.mconcat
-      ["/backup-jobs/", Core.toBS backupJobId]
+      ["/backup-jobs/", Data.toBS backupJobId]
 
-instance Core.ToQuery StopBackupJob where
+instance Data.ToQuery StopBackupJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopBackupJobResponse' smart constructor.

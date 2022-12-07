@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.VolumeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon EBS volume configuration.
@@ -175,19 +176,19 @@ volumeConfiguration_numberOfDisks = Lens.lens (\VolumeConfiguration' {numberOfDi
 volumeConfiguration_size :: Lens.Lens' VolumeConfiguration Prelude.Int
 volumeConfiguration_size = Lens.lens (\VolumeConfiguration' {size} -> size) (\s@VolumeConfiguration' {} a -> s {size = a} :: VolumeConfiguration)
 
-instance Core.FromJSON VolumeConfiguration where
+instance Data.FromJSON VolumeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VolumeConfiguration"
       ( \x ->
           VolumeConfiguration'
-            Prelude.<$> (x Core..:? "VolumeType")
-            Prelude.<*> (x Core..:? "Encrypted")
-            Prelude.<*> (x Core..:? "RaidLevel")
-            Prelude.<*> (x Core..:? "Iops")
-            Prelude.<*> (x Core..: "MountPoint")
-            Prelude.<*> (x Core..: "NumberOfDisks")
-            Prelude.<*> (x Core..: "Size")
+            Prelude.<$> (x Data..:? "VolumeType")
+            Prelude.<*> (x Data..:? "Encrypted")
+            Prelude.<*> (x Data..:? "RaidLevel")
+            Prelude.<*> (x Data..:? "Iops")
+            Prelude.<*> (x Data..: "MountPoint")
+            Prelude.<*> (x Data..: "NumberOfDisks")
+            Prelude.<*> (x Data..: "Size")
       )
 
 instance Prelude.Hashable VolumeConfiguration where
@@ -210,16 +211,16 @@ instance Prelude.NFData VolumeConfiguration where
       `Prelude.seq` Prelude.rnf numberOfDisks
       `Prelude.seq` Prelude.rnf size
 
-instance Core.ToJSON VolumeConfiguration where
+instance Data.ToJSON VolumeConfiguration where
   toJSON VolumeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VolumeType" Core..=) Prelude.<$> volumeType,
-            ("Encrypted" Core..=) Prelude.<$> encrypted,
-            ("RaidLevel" Core..=) Prelude.<$> raidLevel,
-            ("Iops" Core..=) Prelude.<$> iops,
-            Prelude.Just ("MountPoint" Core..= mountPoint),
-            Prelude.Just ("NumberOfDisks" Core..= numberOfDisks),
-            Prelude.Just ("Size" Core..= size)
+          [ ("VolumeType" Data..=) Prelude.<$> volumeType,
+            ("Encrypted" Data..=) Prelude.<$> encrypted,
+            ("RaidLevel" Data..=) Prelude.<$> raidLevel,
+            ("Iops" Data..=) Prelude.<$> iops,
+            Prelude.Just ("MountPoint" Data..= mountPoint),
+            Prelude.Just ("NumberOfDisks" Data..= numberOfDisks),
+            Prelude.Just ("Size" Data..= size)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DataSourceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DataSourceType
 
@@ -36,12 +37,12 @@ data DataSourceSummary = DataSourceSummary'
     dataSourceId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the data source was created. This value is
     -- expressed in MM-DD-YYYY HH:MM:SS format.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The arn of the datasource.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time the data source was last updated. This value is
     -- expressed in MM-DD-YYYY HH:MM:SS format.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,7 +94,7 @@ dataSourceSummary_dataSourceId = Lens.lens (\DataSourceSummary' {dataSourceId} -
 -- | The date and time that the data source was created. This value is
 -- expressed in MM-DD-YYYY HH:MM:SS format.
 dataSourceSummary_createdTime :: Lens.Lens' DataSourceSummary (Prelude.Maybe Prelude.UTCTime)
-dataSourceSummary_createdTime = Lens.lens (\DataSourceSummary' {createdTime} -> createdTime) (\s@DataSourceSummary' {} a -> s {createdTime = a} :: DataSourceSummary) Prelude.. Lens.mapping Core._Time
+dataSourceSummary_createdTime = Lens.lens (\DataSourceSummary' {createdTime} -> createdTime) (\s@DataSourceSummary' {} a -> s {createdTime = a} :: DataSourceSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The arn of the datasource.
 dataSourceSummary_arn :: Lens.Lens' DataSourceSummary (Prelude.Maybe Prelude.Text)
@@ -102,20 +103,20 @@ dataSourceSummary_arn = Lens.lens (\DataSourceSummary' {arn} -> arn) (\s@DataSou
 -- | The date and time the data source was last updated. This value is
 -- expressed in MM-DD-YYYY HH:MM:SS format.
 dataSourceSummary_lastUpdatedTime :: Lens.Lens' DataSourceSummary (Prelude.Maybe Prelude.UTCTime)
-dataSourceSummary_lastUpdatedTime = Lens.lens (\DataSourceSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@DataSourceSummary' {} a -> s {lastUpdatedTime = a} :: DataSourceSummary) Prelude.. Lens.mapping Core._Time
+dataSourceSummary_lastUpdatedTime = Lens.lens (\DataSourceSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@DataSourceSummary' {} a -> s {lastUpdatedTime = a} :: DataSourceSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DataSourceSummary where
+instance Data.FromJSON DataSourceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSourceSummary"
       ( \x ->
           DataSourceSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DataSourceId")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DataSourceId")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
       )
 
 instance Prelude.Hashable DataSourceSummary where

@@ -47,6 +47,7 @@ where
 import Amazonka.ComprehendMedical.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,10 +89,10 @@ instance Core.AWSRequest InferRxNorm where
     Response.receiveJSON
       ( \s h x ->
           InferRxNormResponse'
-            Prelude.<$> (x Core..?> "PaginationToken")
-            Prelude.<*> (x Core..?> "ModelVersion")
+            Prelude.<$> (x Data..?> "PaginationToken")
+            Prelude.<*> (x Data..?> "ModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Entities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Entities" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable InferRxNorm where
@@ -101,32 +102,32 @@ instance Prelude.Hashable InferRxNorm where
 instance Prelude.NFData InferRxNorm where
   rnf InferRxNorm' {..} = Prelude.rnf text
 
-instance Core.ToHeaders InferRxNorm where
+instance Data.ToHeaders InferRxNorm where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComprehendMedical_20181030.InferRxNorm" ::
+              Data.=# ( "ComprehendMedical_20181030.InferRxNorm" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON InferRxNorm where
+instance Data.ToJSON InferRxNorm where
   toJSON InferRxNorm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Text" Core..= text)]
+          [Prelude.Just ("Text" Data..= text)]
       )
 
-instance Core.ToPath InferRxNorm where
+instance Data.ToPath InferRxNorm where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery InferRxNorm where
+instance Data.ToQuery InferRxNorm where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newInferRxNormResponse' smart constructor.

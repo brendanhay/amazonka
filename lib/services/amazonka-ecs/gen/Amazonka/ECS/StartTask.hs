@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -386,8 +387,8 @@ instance Core.AWSRequest StartTask where
     Response.receiveJSON
       ( \s h x ->
           StartTaskResponse'
-            Prelude.<$> (x Core..?> "tasks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tasks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -421,49 +422,49 @@ instance Prelude.NFData StartTask where
       `Prelude.seq` Prelude.rnf containerInstances
       `Prelude.seq` Prelude.rnf taskDefinition
 
-instance Core.ToHeaders StartTask where
+instance Data.ToHeaders StartTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.StartTask" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.StartTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartTask where
+instance Data.ToJSON StartTask where
   toJSON StartTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("cluster" Core..=) Prelude.<$> cluster,
-            ("networkConfiguration" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("cluster" Data..=) Prelude.<$> cluster,
+            ("networkConfiguration" Data..=)
               Prelude.<$> networkConfiguration,
-            ("startedBy" Core..=) Prelude.<$> startedBy,
-            ("enableExecuteCommand" Core..=)
+            ("startedBy" Data..=) Prelude.<$> startedBy,
+            ("enableExecuteCommand" Data..=)
               Prelude.<$> enableExecuteCommand,
-            ("propagateTags" Core..=) Prelude.<$> propagateTags,
-            ("referenceId" Core..=) Prelude.<$> referenceId,
-            ("enableECSManagedTags" Core..=)
+            ("propagateTags" Data..=) Prelude.<$> propagateTags,
+            ("referenceId" Data..=) Prelude.<$> referenceId,
+            ("enableECSManagedTags" Data..=)
               Prelude.<$> enableECSManagedTags,
-            ("group" Core..=) Prelude.<$> group',
-            ("overrides" Core..=) Prelude.<$> overrides,
+            ("group" Data..=) Prelude.<$> group',
+            ("overrides" Data..=) Prelude.<$> overrides,
             Prelude.Just
-              ("containerInstances" Core..= containerInstances),
+              ("containerInstances" Data..= containerInstances),
             Prelude.Just
-              ("taskDefinition" Core..= taskDefinition)
+              ("taskDefinition" Data..= taskDefinition)
           ]
       )
 
-instance Core.ToPath StartTask where
+instance Data.ToPath StartTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartTask where
+instance Data.ToQuery StartTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartTaskResponse' smart constructor.

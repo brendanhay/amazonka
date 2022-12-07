@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,34 +103,34 @@ instance
     Prelude.rnf jobName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StopInferenceRecommendationsJob
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.StopInferenceRecommendationsJob" ::
+              Data.=# ( "SageMaker.StopInferenceRecommendationsJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopInferenceRecommendationsJob where
+instance Data.ToJSON StopInferenceRecommendationsJob where
   toJSON StopInferenceRecommendationsJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobName" Core..= jobName)]
+          [Prelude.Just ("JobName" Data..= jobName)]
       )
 
-instance Core.ToPath StopInferenceRecommendationsJob where
+instance Data.ToPath StopInferenceRecommendationsJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopInferenceRecommendationsJob where
+instance Data.ToQuery StopInferenceRecommendationsJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopInferenceRecommendationsJobResponse' smart constructor.

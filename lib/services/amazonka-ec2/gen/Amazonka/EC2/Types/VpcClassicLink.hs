@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpcClassicLink where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -77,14 +78,14 @@ vpcClassicLink_classicLinkEnabled = Lens.lens (\VpcClassicLink' {classicLinkEnab
 vpcClassicLink_vpcId :: Lens.Lens' VpcClassicLink (Prelude.Maybe Prelude.Text)
 vpcClassicLink_vpcId = Lens.lens (\VpcClassicLink' {vpcId} -> vpcId) (\s@VpcClassicLink' {} a -> s {vpcId = a} :: VpcClassicLink)
 
-instance Core.FromXML VpcClassicLink where
+instance Data.FromXML VpcClassicLink where
   parseXML x =
     VpcClassicLink'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "classicLinkEnabled")
-      Prelude.<*> (x Core..@? "vpcId")
+      Prelude.<*> (x Data..@? "classicLinkEnabled")
+      Prelude.<*> (x Data..@? "vpcId")
 
 instance Prelude.Hashable VpcClassicLink where
   hashWithSalt _salt VpcClassicLink' {..} =

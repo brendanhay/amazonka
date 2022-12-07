@@ -22,6 +22,7 @@ module Amazonka.Config.Types.OrganizationConfigRuleStatus where
 import Amazonka.Config.Types.OrganizationRuleStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns the status for an organization Config rule in an organization.
@@ -35,7 +36,7 @@ data OrganizationConfigRuleStatus = OrganizationConfigRuleStatus'
     -- deletion has failed.
     errorCode :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the last update.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The name that you assign to organization Config rule.
     organizationConfigRuleName :: Prelude.Text,
     -- | Indicates deployment status of an organization Config rule. When
@@ -170,7 +171,7 @@ organizationConfigRuleStatus_errorCode = Lens.lens (\OrganizationConfigRuleStatu
 
 -- | The timestamp of the last update.
 organizationConfigRuleStatus_lastUpdateTime :: Lens.Lens' OrganizationConfigRuleStatus (Prelude.Maybe Prelude.UTCTime)
-organizationConfigRuleStatus_lastUpdateTime = Lens.lens (\OrganizationConfigRuleStatus' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConfigRuleStatus' {} a -> s {lastUpdateTime = a} :: OrganizationConfigRuleStatus) Prelude.. Lens.mapping Core._Time
+organizationConfigRuleStatus_lastUpdateTime = Lens.lens (\OrganizationConfigRuleStatus' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConfigRuleStatus' {} a -> s {lastUpdateTime = a} :: OrganizationConfigRuleStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The name that you assign to organization Config rule.
 organizationConfigRuleStatus_organizationConfigRuleName :: Lens.Lens' OrganizationConfigRuleStatus Prelude.Text
@@ -218,17 +219,17 @@ organizationConfigRuleStatus_organizationConfigRuleName = Lens.lens (\Organizati
 organizationConfigRuleStatus_organizationRuleStatus :: Lens.Lens' OrganizationConfigRuleStatus OrganizationRuleStatus
 organizationConfigRuleStatus_organizationRuleStatus = Lens.lens (\OrganizationConfigRuleStatus' {organizationRuleStatus} -> organizationRuleStatus) (\s@OrganizationConfigRuleStatus' {} a -> s {organizationRuleStatus = a} :: OrganizationConfigRuleStatus)
 
-instance Core.FromJSON OrganizationConfigRuleStatus where
+instance Data.FromJSON OrganizationConfigRuleStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationConfigRuleStatus"
       ( \x ->
           OrganizationConfigRuleStatus'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "LastUpdateTime")
-            Prelude.<*> (x Core..: "OrganizationConfigRuleName")
-            Prelude.<*> (x Core..: "OrganizationRuleStatus")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "LastUpdateTime")
+            Prelude.<*> (x Data..: "OrganizationConfigRuleName")
+            Prelude.<*> (x Data..: "OrganizationRuleStatus")
       )
 
 instance

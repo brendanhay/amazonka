@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.AdvancedSecurityOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.SAMLOptionsOutput
 import qualified Amazonka.Prelude as Prelude
 
@@ -42,7 +43,7 @@ data AdvancedSecurityOptions = AdvancedSecurityOptions'
     -- | Date and time when the migration period will be disabled. Only necessary
     -- when
     -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
-    anonymousAuthDisableDate :: Prelude.Maybe Core.POSIX
+    anonymousAuthDisableDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,19 +104,19 @@ advancedSecurityOptions_enabled = Lens.lens (\AdvancedSecurityOptions' {enabled}
 -- when
 -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
 advancedSecurityOptions_anonymousAuthDisableDate :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.UTCTime)
-advancedSecurityOptions_anonymousAuthDisableDate = Lens.lens (\AdvancedSecurityOptions' {anonymousAuthDisableDate} -> anonymousAuthDisableDate) (\s@AdvancedSecurityOptions' {} a -> s {anonymousAuthDisableDate = a} :: AdvancedSecurityOptions) Prelude.. Lens.mapping Core._Time
+advancedSecurityOptions_anonymousAuthDisableDate = Lens.lens (\AdvancedSecurityOptions' {anonymousAuthDisableDate} -> anonymousAuthDisableDate) (\s@AdvancedSecurityOptions' {} a -> s {anonymousAuthDisableDate = a} :: AdvancedSecurityOptions) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AdvancedSecurityOptions where
+instance Data.FromJSON AdvancedSecurityOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdvancedSecurityOptions"
       ( \x ->
           AdvancedSecurityOptions'
-            Prelude.<$> (x Core..:? "InternalUserDatabaseEnabled")
-            Prelude.<*> (x Core..:? "SAMLOptions")
-            Prelude.<*> (x Core..:? "AnonymousAuthEnabled")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "AnonymousAuthDisableDate")
+            Prelude.<$> (x Data..:? "InternalUserDatabaseEnabled")
+            Prelude.<*> (x Data..:? "SAMLOptions")
+            Prelude.<*> (x Data..:? "AnonymousAuthEnabled")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "AnonymousAuthDisableDate")
       )
 
 instance Prelude.Hashable AdvancedSecurityOptions where

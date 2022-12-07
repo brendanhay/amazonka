@@ -272,6 +272,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -293,7 +294,7 @@ data CopyObject = CopyObject'
     -- | Specifies the customer-provided encryption key for Amazon S3 to use to
     -- decrypt the source object. The encryption key provided in this header
     -- must be one that was used when the source object was created.
-    copySourceSSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    copySourceSSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
     -- 1321. Amazon S3 uses this header for a message integrity check to ensure
     -- that the encryption key was transmitted without error.
@@ -318,7 +319,7 @@ data CopyObject = CopyObject'
     grantWriteACP :: Prelude.Maybe Prelude.Text,
     -- | The date and time when you want the copied object\'s Object Lock to
     -- expire.
-    objectLockRetainUntilDate :: Prelude.Maybe Core.ISO8601,
+    objectLockRetainUntilDate :: Prelude.Maybe Data.ISO8601,
     -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
     -- object.
     --
@@ -340,7 +341,7 @@ data CopyObject = CopyObject'
     -- | The language the content is in.
     contentLanguage :: Prelude.Maybe Prelude.Text,
     -- | Copies the object if it has been modified since the specified time.
-    copySourceIfModifiedSince :: Prelude.Maybe Core.ISO8601,
+    copySourceIfModifiedSince :: Prelude.Maybe Data.ISO8601,
     -- | Specifies the Amazon Web Services KMS key ID to use for object
     -- encryption. All GET and PUT requests for an object protected by Amazon
     -- Web Services KMS will fail if not made via SSL or using SigV4. For
@@ -348,7 +349,7 @@ data CopyObject = CopyObject'
     -- Amazon Web Services SDKs and Amazon Web Services CLI, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication>
     -- in the /Amazon S3 User Guide/.
-    sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies presentational information for the object.
     contentDisposition :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether you want to apply a legal hold to the copied object.
@@ -360,12 +361,12 @@ data CopyObject = CopyObject'
     -- | Specifies the Amazon Web Services KMS Encryption Context to use for
     -- object encryption. The value of this header is a base64-encoded UTF-8
     -- string holding JSON with the encryption context key-value pairs.
-    sSEKMSEncryptionContext :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSEKMSEncryptionContext :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies whether the metadata is copied from the source object or
     -- replaced with metadata provided in the request.
     metadataDirective :: Prelude.Maybe MetadataDirective,
     -- | Copies the object if it hasn\'t been modified since the specified time.
-    copySourceIfUnmodifiedSince :: Prelude.Maybe Core.ISO8601,
+    copySourceIfUnmodifiedSince :: Prelude.Maybe Data.ISO8601,
     -- | The account ID of the expected source bucket owner. If the source bucket
     -- is owned by a different account, the request fails with the HTTP status
     -- code @403 Forbidden@ (access denied).
@@ -392,7 +393,7 @@ data CopyObject = CopyObject'
     -- that the encryption key was transmitted without error.
     sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the object is no longer cacheable.
-    expires :: Prelude.Maybe Core.ISO8601,
+    expires :: Prelude.Maybe Data.ISO8601,
     -- | Copies the object if its entity tag (ETag) matches the specified tag.
     copySourceIfMatch :: Prelude.Maybe Prelude.Text,
     -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly
@@ -414,7 +415,7 @@ data CopyObject = CopyObject'
     -- discarded; Amazon S3 does not store the encryption key. The key must be
     -- appropriate for use with the algorithm specified in the
     -- @x-amz-server-side-encryption-customer-algorithm@ header.
-    sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the destination bucket.
     --
     -- When using this action with an access point, you must direct requests to
@@ -765,7 +766,7 @@ copyObject_checksumAlgorithm = Lens.lens (\CopyObject' {checksumAlgorithm} -> ch
 -- decrypt the source object. The encryption key provided in this header
 -- must be one that was used when the source object was created.
 copyObject_copySourceSSECustomerKey :: Lens.Lens' CopyObject (Prelude.Maybe Prelude.Text)
-copyObject_copySourceSSECustomerKey = Lens.lens (\CopyObject' {copySourceSSECustomerKey} -> copySourceSSECustomerKey) (\s@CopyObject' {} a -> s {copySourceSSECustomerKey = a} :: CopyObject) Prelude.. Lens.mapping Core._Sensitive
+copyObject_copySourceSSECustomerKey = Lens.lens (\CopyObject' {copySourceSSECustomerKey} -> copySourceSSECustomerKey) (\s@CopyObject' {} a -> s {copySourceSSECustomerKey = a} :: CopyObject) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
@@ -802,7 +803,7 @@ copyObject_grantWriteACP = Lens.lens (\CopyObject' {grantWriteACP} -> grantWrite
 -- | The date and time when you want the copied object\'s Object Lock to
 -- expire.
 copyObject_objectLockRetainUntilDate :: Lens.Lens' CopyObject (Prelude.Maybe Prelude.UTCTime)
-copyObject_objectLockRetainUntilDate = Lens.lens (\CopyObject' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@CopyObject' {} a -> s {objectLockRetainUntilDate = a} :: CopyObject) Prelude.. Lens.mapping Core._Time
+copyObject_objectLockRetainUntilDate = Lens.lens (\CopyObject' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@CopyObject' {} a -> s {objectLockRetainUntilDate = a} :: CopyObject) Prelude.. Lens.mapping Data._Time
 
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
 -- object.
@@ -838,7 +839,7 @@ copyObject_contentLanguage = Lens.lens (\CopyObject' {contentLanguage} -> conten
 
 -- | Copies the object if it has been modified since the specified time.
 copyObject_copySourceIfModifiedSince :: Lens.Lens' CopyObject (Prelude.Maybe Prelude.UTCTime)
-copyObject_copySourceIfModifiedSince = Lens.lens (\CopyObject' {copySourceIfModifiedSince} -> copySourceIfModifiedSince) (\s@CopyObject' {} a -> s {copySourceIfModifiedSince = a} :: CopyObject) Prelude.. Lens.mapping Core._Time
+copyObject_copySourceIfModifiedSince = Lens.lens (\CopyObject' {copySourceIfModifiedSince} -> copySourceIfModifiedSince) (\s@CopyObject' {} a -> s {copySourceIfModifiedSince = a} :: CopyObject) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the Amazon Web Services KMS key ID to use for object
 -- encryption. All GET and PUT requests for an object protected by Amazon
@@ -848,7 +849,7 @@ copyObject_copySourceIfModifiedSince = Lens.lens (\CopyObject' {copySourceIfModi
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication>
 -- in the /Amazon S3 User Guide/.
 copyObject_sSEKMSKeyId :: Lens.Lens' CopyObject (Prelude.Maybe Prelude.Text)
-copyObject_sSEKMSKeyId = Lens.lens (\CopyObject' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@CopyObject' {} a -> s {sSEKMSKeyId = a} :: CopyObject) Prelude.. Lens.mapping Core._Sensitive
+copyObject_sSEKMSKeyId = Lens.lens (\CopyObject' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@CopyObject' {} a -> s {sSEKMSKeyId = a} :: CopyObject) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies presentational information for the object.
 copyObject_contentDisposition :: Lens.Lens' CopyObject (Prelude.Maybe Prelude.Text)
@@ -871,7 +872,7 @@ copyObject_taggingDirective = Lens.lens (\CopyObject' {taggingDirective} -> tagg
 -- object encryption. The value of this header is a base64-encoded UTF-8
 -- string holding JSON with the encryption context key-value pairs.
 copyObject_sSEKMSEncryptionContext :: Lens.Lens' CopyObject (Prelude.Maybe Prelude.Text)
-copyObject_sSEKMSEncryptionContext = Lens.lens (\CopyObject' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@CopyObject' {} a -> s {sSEKMSEncryptionContext = a} :: CopyObject) Prelude.. Lens.mapping Core._Sensitive
+copyObject_sSEKMSEncryptionContext = Lens.lens (\CopyObject' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@CopyObject' {} a -> s {sSEKMSEncryptionContext = a} :: CopyObject) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies whether the metadata is copied from the source object or
 -- replaced with metadata provided in the request.
@@ -880,7 +881,7 @@ copyObject_metadataDirective = Lens.lens (\CopyObject' {metadataDirective} -> me
 
 -- | Copies the object if it hasn\'t been modified since the specified time.
 copyObject_copySourceIfUnmodifiedSince :: Lens.Lens' CopyObject (Prelude.Maybe Prelude.UTCTime)
-copyObject_copySourceIfUnmodifiedSince = Lens.lens (\CopyObject' {copySourceIfUnmodifiedSince} -> copySourceIfUnmodifiedSince) (\s@CopyObject' {} a -> s {copySourceIfUnmodifiedSince = a} :: CopyObject) Prelude.. Lens.mapping Core._Time
+copyObject_copySourceIfUnmodifiedSince = Lens.lens (\CopyObject' {copySourceIfUnmodifiedSince} -> copySourceIfUnmodifiedSince) (\s@CopyObject' {} a -> s {copySourceIfUnmodifiedSince = a} :: CopyObject) Prelude.. Lens.mapping Data._Time
 
 -- | The account ID of the expected source bucket owner. If the source bucket
 -- is owned by a different account, the request fails with the HTTP status
@@ -923,7 +924,7 @@ copyObject_sSECustomerKeyMD5 = Lens.lens (\CopyObject' {sSECustomerKeyMD5} -> sS
 
 -- | The date and time at which the object is no longer cacheable.
 copyObject_expires :: Lens.Lens' CopyObject (Prelude.Maybe Prelude.UTCTime)
-copyObject_expires = Lens.lens (\CopyObject' {expires} -> expires) (\s@CopyObject' {} a -> s {expires = a} :: CopyObject) Prelude.. Lens.mapping Core._Time
+copyObject_expires = Lens.lens (\CopyObject' {expires} -> expires) (\s@CopyObject' {} a -> s {expires = a} :: CopyObject) Prelude.. Lens.mapping Data._Time
 
 -- | Copies the object if its entity tag (ETag) matches the specified tag.
 copyObject_copySourceIfMatch :: Lens.Lens' CopyObject (Prelude.Maybe Prelude.Text)
@@ -955,7 +956,7 @@ copyObject_contentType = Lens.lens (\CopyObject' {contentType} -> contentType) (
 -- appropriate for use with the algorithm specified in the
 -- @x-amz-server-side-encryption-customer-algorithm@ header.
 copyObject_sSECustomerKey :: Lens.Lens' CopyObject (Prelude.Maybe Prelude.Text)
-copyObject_sSECustomerKey = Lens.lens (\CopyObject' {sSECustomerKey} -> sSECustomerKey) (\s@CopyObject' {} a -> s {sSECustomerKey = a} :: CopyObject) Prelude.. Lens.mapping Core._Sensitive
+copyObject_sSECustomerKey = Lens.lens (\CopyObject' {sSECustomerKey} -> sSECustomerKey) (\s@CopyObject' {} a -> s {sSECustomerKey = a} :: CopyObject) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the destination bucket.
 --
@@ -1036,25 +1037,25 @@ instance Core.AWSRequest CopyObject where
     Response.receiveXML
       ( \s h x ->
           CopyObjectResponse'
-            Prelude.<$> (h Core..#? "x-amz-server-side-encryption")
+            Prelude.<$> (h Data..#? "x-amz-server-side-encryption")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
+                            Data..#? "x-amz-server-side-encryption-bucket-key-enabled"
                         )
-            Prelude.<*> (h Core..#? "x-amz-expiration")
-            Prelude.<*> (h Core..#? "x-amz-request-charged")
+            Prelude.<*> (h Data..#? "x-amz-expiration")
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-aws-kms-key-id"
+                            Data..#? "x-amz-server-side-encryption-aws-kms-key-id"
                         )
-            Prelude.<*> (h Core..#? "x-amz-server-side-encryption-context")
-            Prelude.<*> (h Core..#? "x-amz-copy-source-version-id")
-            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (h Data..#? "x-amz-server-side-encryption-context")
+            Prelude.<*> (h Data..#? "x-amz-copy-source-version-id")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-customer-algorithm"
+                            Data..#? "x-amz-server-side-encryption-customer-algorithm"
                         )
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-customer-key-MD5"
+                            Data..#? "x-amz-server-side-encryption-customer-key-MD5"
                         )
-            Prelude.<*> (h Core..#? "x-amz-version-id")
+            Prelude.<*> (h Data..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -1168,75 +1169,75 @@ instance Prelude.NFData CopyObject where
       `Prelude.seq` Prelude.rnf
         key
 
-instance Core.ToHeaders CopyObject where
+instance Data.ToHeaders CopyObject where
   toHeaders CopyObject' {..} =
     Prelude.mconcat
       [ "x-amz-copy-source-if-none-match"
-          Core.=# copySourceIfNoneMatch,
+          Data.=# copySourceIfNoneMatch,
         "x-amz-server-side-encryption"
-          Core.=# serverSideEncryption,
-        "x-amz-checksum-algorithm" Core.=# checksumAlgorithm,
+          Data.=# serverSideEncryption,
+        "x-amz-checksum-algorithm" Data.=# checksumAlgorithm,
         "x-amz-copy-source-server-side-encryption-customer-key"
-          Core.=# copySourceSSECustomerKey,
+          Data.=# copySourceSSECustomerKey,
         "x-amz-copy-source-server-side-encryption-customer-key-MD5"
-          Core.=# copySourceSSECustomerKeyMD5,
-        "x-amz-object-lock-mode" Core.=# objectLockMode,
+          Data.=# copySourceSSECustomerKeyMD5,
+        "x-amz-object-lock-mode" Data.=# objectLockMode,
         "x-amz-server-side-encryption-bucket-key-enabled"
-          Core.=# bucketKeyEnabled,
+          Data.=# bucketKeyEnabled,
         "x-amz-website-redirect-location"
-          Core.=# websiteRedirectLocation,
-        "x-amz-grant-write-acp" Core.=# grantWriteACP,
+          Data.=# websiteRedirectLocation,
+        "x-amz-grant-write-acp" Data.=# grantWriteACP,
         "x-amz-object-lock-retain-until-date"
-          Core.=# objectLockRetainUntilDate,
-        "x-amz-grant-full-control" Core.=# grantFullControl,
-        "x-amz-acl" Core.=# acl,
+          Data.=# objectLockRetainUntilDate,
+        "x-amz-grant-full-control" Data.=# grantFullControl,
+        "x-amz-acl" Data.=# acl,
         "x-amz-copy-source-server-side-encryption-customer-algorithm"
-          Core.=# copySourceSSECustomerAlgorithm,
+          Data.=# copySourceSSECustomerAlgorithm,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-meta-" Core.=# metadata,
-        "Content-Language" Core.=# contentLanguage,
+          Data.=# expectedBucketOwner,
+        "x-amz-meta-" Data.=# metadata,
+        "Content-Language" Data.=# contentLanguage,
         "x-amz-copy-source-if-modified-since"
-          Core.=# copySourceIfModifiedSince,
+          Data.=# copySourceIfModifiedSince,
         "x-amz-server-side-encryption-aws-kms-key-id"
-          Core.=# sSEKMSKeyId,
-        "Content-Disposition" Core.=# contentDisposition,
+          Data.=# sSEKMSKeyId,
+        "Content-Disposition" Data.=# contentDisposition,
         "x-amz-object-lock-legal-hold"
-          Core.=# objectLockLegalHoldStatus,
-        "x-amz-request-payer" Core.=# requestPayer,
-        "x-amz-tagging-directive" Core.=# taggingDirective,
+          Data.=# objectLockLegalHoldStatus,
+        "x-amz-request-payer" Data.=# requestPayer,
+        "x-amz-tagging-directive" Data.=# taggingDirective,
         "x-amz-server-side-encryption-context"
-          Core.=# sSEKMSEncryptionContext,
-        "x-amz-metadata-directive" Core.=# metadataDirective,
+          Data.=# sSEKMSEncryptionContext,
+        "x-amz-metadata-directive" Data.=# metadataDirective,
         "x-amz-copy-source-if-unmodified-since"
-          Core.=# copySourceIfUnmodifiedSince,
+          Data.=# copySourceIfUnmodifiedSince,
         "x-amz-source-expected-bucket-owner"
-          Core.=# expectedSourceBucketOwner,
-        "x-amz-grant-read" Core.=# grantRead,
+          Data.=# expectedSourceBucketOwner,
+        "x-amz-grant-read" Data.=# grantRead,
         "x-amz-server-side-encryption-customer-algorithm"
-          Core.=# sSECustomerAlgorithm,
-        "Cache-Control" Core.=# cacheControl,
-        "Content-Encoding" Core.=# contentEncoding,
-        "x-amz-tagging" Core.=# tagging,
+          Data.=# sSECustomerAlgorithm,
+        "Cache-Control" Data.=# cacheControl,
+        "Content-Encoding" Data.=# contentEncoding,
+        "x-amz-tagging" Data.=# tagging,
         "x-amz-server-side-encryption-customer-key-MD5"
-          Core.=# sSECustomerKeyMD5,
-        "Expires" Core.=# expires,
+          Data.=# sSECustomerKeyMD5,
+        "Expires" Data.=# expires,
         "x-amz-copy-source-if-match"
-          Core.=# copySourceIfMatch,
-        "x-amz-storage-class" Core.=# storageClass,
-        "x-amz-grant-read-acp" Core.=# grantReadACP,
-        "Content-Type" Core.=# contentType,
+          Data.=# copySourceIfMatch,
+        "x-amz-storage-class" Data.=# storageClass,
+        "x-amz-grant-read-acp" Data.=# grantReadACP,
+        "Content-Type" Data.=# contentType,
         "x-amz-server-side-encryption-customer-key"
-          Core.=# sSECustomerKey,
-        "x-amz-copy-source" Core.=# copySource
+          Data.=# sSECustomerKey,
+        "x-amz-copy-source" Data.=# copySource
       ]
 
-instance Core.ToPath CopyObject where
+instance Data.ToPath CopyObject where
   toPath CopyObject' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery CopyObject where
+instance Data.ToQuery CopyObject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCopyObjectResponse' smart constructor.
@@ -1254,11 +1255,11 @@ data CopyObjectResponse = CopyObjectResponse'
     -- | If present, specifies the ID of the Amazon Web Services Key Management
     -- Service (Amazon Web Services KMS) symmetric customer managed key that
     -- was used for the object.
-    sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | If present, specifies the Amazon Web Services KMS Encryption Context to
     -- use for object encryption. The value of this header is a base64-encoded
     -- UTF-8 string holding JSON with the encryption context key-value pairs.
-    sSEKMSEncryptionContext :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    sSEKMSEncryptionContext :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Version of the copied object in the destination bucket.
     copySourceVersionId :: Prelude.Maybe Prelude.Text,
     -- | Container for all response elements.
@@ -1364,13 +1365,13 @@ copyObjectResponse_requestCharged = Lens.lens (\CopyObjectResponse' {requestChar
 -- Service (Amazon Web Services KMS) symmetric customer managed key that
 -- was used for the object.
 copyObjectResponse_sSEKMSKeyId :: Lens.Lens' CopyObjectResponse (Prelude.Maybe Prelude.Text)
-copyObjectResponse_sSEKMSKeyId = Lens.lens (\CopyObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@CopyObjectResponse' {} a -> s {sSEKMSKeyId = a} :: CopyObjectResponse) Prelude.. Lens.mapping Core._Sensitive
+copyObjectResponse_sSEKMSKeyId = Lens.lens (\CopyObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@CopyObjectResponse' {} a -> s {sSEKMSKeyId = a} :: CopyObjectResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | If present, specifies the Amazon Web Services KMS Encryption Context to
 -- use for object encryption. The value of this header is a base64-encoded
 -- UTF-8 string holding JSON with the encryption context key-value pairs.
 copyObjectResponse_sSEKMSEncryptionContext :: Lens.Lens' CopyObjectResponse (Prelude.Maybe Prelude.Text)
-copyObjectResponse_sSEKMSEncryptionContext = Lens.lens (\CopyObjectResponse' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@CopyObjectResponse' {} a -> s {sSEKMSEncryptionContext = a} :: CopyObjectResponse) Prelude.. Lens.mapping Core._Sensitive
+copyObjectResponse_sSEKMSEncryptionContext = Lens.lens (\CopyObjectResponse' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@CopyObjectResponse' {} a -> s {sSEKMSEncryptionContext = a} :: CopyObjectResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Version of the copied object in the destination bucket.
 copyObjectResponse_copySourceVersionId :: Lens.Lens' CopyObjectResponse (Prelude.Maybe Prelude.Text)

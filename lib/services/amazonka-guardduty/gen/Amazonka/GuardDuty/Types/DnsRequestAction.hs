@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.DnsRequestAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the DNS_REQUEST action described in this
@@ -74,15 +75,15 @@ dnsRequestAction_blocked = Lens.lens (\DnsRequestAction' {blocked} -> blocked) (
 dnsRequestAction_protocol :: Lens.Lens' DnsRequestAction (Prelude.Maybe Prelude.Text)
 dnsRequestAction_protocol = Lens.lens (\DnsRequestAction' {protocol} -> protocol) (\s@DnsRequestAction' {} a -> s {protocol = a} :: DnsRequestAction)
 
-instance Core.FromJSON DnsRequestAction where
+instance Data.FromJSON DnsRequestAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DnsRequestAction"
       ( \x ->
           DnsRequestAction'
-            Prelude.<$> (x Core..:? "domain")
-            Prelude.<*> (x Core..:? "blocked")
-            Prelude.<*> (x Core..:? "protocol")
+            Prelude.<$> (x Data..:? "domain")
+            Prelude.<*> (x Data..:? "blocked")
+            Prelude.<*> (x Data..:? "protocol")
       )
 
 instance Prelude.Hashable DnsRequestAction where

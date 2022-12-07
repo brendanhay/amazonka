@@ -49,6 +49,7 @@ where
 import Amazonka.ApplicationInsights.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -186,7 +187,7 @@ instance Core.AWSRequest CreateApplication where
     Response.receiveJSON
       ( \s h x ->
           CreateApplicationResponse'
-            Prelude.<$> (x Core..?> "ApplicationInfo")
+            Prelude.<$> (x Data..?> "ApplicationInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -212,45 +213,45 @@ instance Prelude.NFData CreateApplication where
       `Prelude.seq` Prelude.rnf opsCenterEnabled
       `Prelude.seq` Prelude.rnf autoCreate
 
-instance Core.ToHeaders CreateApplication where
+instance Data.ToHeaders CreateApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "EC2WindowsBarleyService.CreateApplication" ::
+              Data.=# ( "EC2WindowsBarleyService.CreateApplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApplication where
+instance Data.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("AutoConfigEnabled" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("AutoConfigEnabled" Data..=)
               Prelude.<$> autoConfigEnabled,
-            ("OpsItemSNSTopicArn" Core..=)
+            ("OpsItemSNSTopicArn" Data..=)
               Prelude.<$> opsItemSNSTopicArn,
-            ("CWEMonitorEnabled" Core..=)
+            ("CWEMonitorEnabled" Data..=)
               Prelude.<$> cWEMonitorEnabled,
-            ("ResourceGroupName" Core..=)
+            ("ResourceGroupName" Data..=)
               Prelude.<$> resourceGroupName,
-            ("GroupingType" Core..=) Prelude.<$> groupingType,
-            ("OpsCenterEnabled" Core..=)
+            ("GroupingType" Data..=) Prelude.<$> groupingType,
+            ("OpsCenterEnabled" Data..=)
               Prelude.<$> opsCenterEnabled,
-            ("AutoCreate" Core..=) Prelude.<$> autoCreate
+            ("AutoCreate" Data..=) Prelude.<$> autoCreate
           ]
       )
 
-instance Core.ToPath CreateApplication where
+instance Data.ToPath CreateApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateApplication where
+instance Data.ToQuery CreateApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateApplicationResponse' smart constructor.

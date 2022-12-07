@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.RefreshSchemasStatus where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.RefreshSchemasStatusTypeValue
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that describes status of a schema at an endpoint
@@ -32,7 +33,7 @@ data RefreshSchemasStatus = RefreshSchemasStatus'
   { -- | The Amazon Resource Name (ARN) of the replication instance.
     replicationInstanceArn :: Prelude.Maybe Prelude.Text,
     -- | The date the schema was last refreshed.
-    lastRefreshDate :: Prelude.Maybe Core.POSIX,
+    lastRefreshDate :: Prelude.Maybe Data.POSIX,
     -- | The last failure message for the schema.
     lastFailureMessage :: Prelude.Maybe Prelude.Text,
     -- | The status of the schema.
@@ -79,7 +80,7 @@ refreshSchemasStatus_replicationInstanceArn = Lens.lens (\RefreshSchemasStatus' 
 
 -- | The date the schema was last refreshed.
 refreshSchemasStatus_lastRefreshDate :: Lens.Lens' RefreshSchemasStatus (Prelude.Maybe Prelude.UTCTime)
-refreshSchemasStatus_lastRefreshDate = Lens.lens (\RefreshSchemasStatus' {lastRefreshDate} -> lastRefreshDate) (\s@RefreshSchemasStatus' {} a -> s {lastRefreshDate = a} :: RefreshSchemasStatus) Prelude.. Lens.mapping Core._Time
+refreshSchemasStatus_lastRefreshDate = Lens.lens (\RefreshSchemasStatus' {lastRefreshDate} -> lastRefreshDate) (\s@RefreshSchemasStatus' {} a -> s {lastRefreshDate = a} :: RefreshSchemasStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The last failure message for the schema.
 refreshSchemasStatus_lastFailureMessage :: Lens.Lens' RefreshSchemasStatus (Prelude.Maybe Prelude.Text)
@@ -94,17 +95,17 @@ refreshSchemasStatus_status = Lens.lens (\RefreshSchemasStatus' {status} -> stat
 refreshSchemasStatus_endpointArn :: Lens.Lens' RefreshSchemasStatus (Prelude.Maybe Prelude.Text)
 refreshSchemasStatus_endpointArn = Lens.lens (\RefreshSchemasStatus' {endpointArn} -> endpointArn) (\s@RefreshSchemasStatus' {} a -> s {endpointArn = a} :: RefreshSchemasStatus)
 
-instance Core.FromJSON RefreshSchemasStatus where
+instance Data.FromJSON RefreshSchemasStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RefreshSchemasStatus"
       ( \x ->
           RefreshSchemasStatus'
-            Prelude.<$> (x Core..:? "ReplicationInstanceArn")
-            Prelude.<*> (x Core..:? "LastRefreshDate")
-            Prelude.<*> (x Core..:? "LastFailureMessage")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EndpointArn")
+            Prelude.<$> (x Data..:? "ReplicationInstanceArn")
+            Prelude.<*> (x Data..:? "LastRefreshDate")
+            Prelude.<*> (x Data..:? "LastFailureMessage")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "EndpointArn")
       )
 
 instance Prelude.Hashable RefreshSchemasStatus where

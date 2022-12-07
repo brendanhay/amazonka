@@ -18,6 +18,7 @@ module Amazonka.LexRuntime.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexRuntime.Lens
 import Amazonka.LexRuntime.Types
 import qualified Amazonka.Prelude as Prelude

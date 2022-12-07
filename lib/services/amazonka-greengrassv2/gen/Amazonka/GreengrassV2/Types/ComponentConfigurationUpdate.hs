@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.ComponentConfigurationUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a deployment\'s update to a component\'s
@@ -107,14 +108,14 @@ componentConfigurationUpdate_merge = Lens.lens (\ComponentConfigurationUpdate' {
 componentConfigurationUpdate_reset :: Lens.Lens' ComponentConfigurationUpdate (Prelude.Maybe [Prelude.Text])
 componentConfigurationUpdate_reset = Lens.lens (\ComponentConfigurationUpdate' {reset} -> reset) (\s@ComponentConfigurationUpdate' {} a -> s {reset = a} :: ComponentConfigurationUpdate) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ComponentConfigurationUpdate where
+instance Data.FromJSON ComponentConfigurationUpdate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentConfigurationUpdate"
       ( \x ->
           ComponentConfigurationUpdate'
-            Prelude.<$> (x Core..:? "merge")
-            Prelude.<*> (x Core..:? "reset" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "merge")
+            Prelude.<*> (x Data..:? "reset" Data..!= Prelude.mempty)
       )
 
 instance
@@ -129,11 +130,11 @@ instance Prelude.NFData ComponentConfigurationUpdate where
   rnf ComponentConfigurationUpdate' {..} =
     Prelude.rnf merge `Prelude.seq` Prelude.rnf reset
 
-instance Core.ToJSON ComponentConfigurationUpdate where
+instance Data.ToJSON ComponentConfigurationUpdate where
   toJSON ComponentConfigurationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("merge" Core..=) Prelude.<$> merge,
-            ("reset" Core..=) Prelude.<$> reset
+          [ ("merge" Data..=) Prelude.<$> merge,
+            ("reset" Data..=) Prelude.<$> reset
           ]
       )

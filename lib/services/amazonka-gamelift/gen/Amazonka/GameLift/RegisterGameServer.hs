@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -189,7 +190,7 @@ instance Core.AWSRequest RegisterGameServer where
     Response.receiveJSON
       ( \s h x ->
           RegisterGameServerResponse'
-            Prelude.<$> (x Core..?> "GameServer")
+            Prelude.<$> (x Data..?> "GameServer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -209,40 +210,40 @@ instance Prelude.NFData RegisterGameServer where
       `Prelude.seq` Prelude.rnf gameServerId
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders RegisterGameServer where
+instance Data.ToHeaders RegisterGameServer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.RegisterGameServer" ::
+              Data.=# ( "GameLift.RegisterGameServer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterGameServer where
+instance Data.ToJSON RegisterGameServer where
   toJSON RegisterGameServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GameServerData" Core..=)
+          [ ("GameServerData" Data..=)
               Prelude.<$> gameServerData,
-            ("ConnectionInfo" Core..=)
+            ("ConnectionInfo" Data..=)
               Prelude.<$> connectionInfo,
             Prelude.Just
-              ("GameServerGroupName" Core..= gameServerGroupName),
-            Prelude.Just ("GameServerId" Core..= gameServerId),
-            Prelude.Just ("InstanceId" Core..= instanceId)
+              ("GameServerGroupName" Data..= gameServerGroupName),
+            Prelude.Just ("GameServerId" Data..= gameServerId),
+            Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
 
-instance Core.ToPath RegisterGameServer where
+instance Data.ToPath RegisterGameServer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterGameServer where
+instance Data.ToQuery RegisterGameServer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterGameServerResponse' smart constructor.

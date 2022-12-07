@@ -22,6 +22,7 @@ module Amazonka.CloudFormation.Types.TypeConfigurationIdentifier where
 import Amazonka.CloudFormation.Types.ThirdPartyType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifying information for the configuration of a CloudFormation
@@ -121,14 +122,14 @@ typeConfigurationIdentifier_typeConfigurationAlias = Lens.lens (\TypeConfigurati
 typeConfigurationIdentifier_typeConfigurationArn :: Lens.Lens' TypeConfigurationIdentifier (Prelude.Maybe Prelude.Text)
 typeConfigurationIdentifier_typeConfigurationArn = Lens.lens (\TypeConfigurationIdentifier' {typeConfigurationArn} -> typeConfigurationArn) (\s@TypeConfigurationIdentifier' {} a -> s {typeConfigurationArn = a} :: TypeConfigurationIdentifier)
 
-instance Core.FromXML TypeConfigurationIdentifier where
+instance Data.FromXML TypeConfigurationIdentifier where
   parseXML x =
     TypeConfigurationIdentifier'
-      Prelude.<$> (x Core..@? "Type")
-      Prelude.<*> (x Core..@? "TypeArn")
-      Prelude.<*> (x Core..@? "TypeName")
-      Prelude.<*> (x Core..@? "TypeConfigurationAlias")
-      Prelude.<*> (x Core..@? "TypeConfigurationArn")
+      Prelude.<$> (x Data..@? "Type")
+      Prelude.<*> (x Data..@? "TypeArn")
+      Prelude.<*> (x Data..@? "TypeName")
+      Prelude.<*> (x Data..@? "TypeConfigurationAlias")
+      Prelude.<*> (x Data..@? "TypeConfigurationArn")
 
 instance Prelude.Hashable TypeConfigurationIdentifier where
   hashWithSalt _salt TypeConfigurationIdentifier' {..} =
@@ -146,13 +147,13 @@ instance Prelude.NFData TypeConfigurationIdentifier where
       `Prelude.seq` Prelude.rnf typeConfigurationAlias
       `Prelude.seq` Prelude.rnf typeConfigurationArn
 
-instance Core.ToQuery TypeConfigurationIdentifier where
+instance Data.ToQuery TypeConfigurationIdentifier where
   toQuery TypeConfigurationIdentifier' {..} =
     Prelude.mconcat
-      [ "Type" Core.=: type',
-        "TypeArn" Core.=: typeArn,
-        "TypeName" Core.=: typeName,
+      [ "Type" Data.=: type',
+        "TypeArn" Data.=: typeArn,
+        "TypeName" Data.=: typeName,
         "TypeConfigurationAlias"
-          Core.=: typeConfigurationAlias,
-        "TypeConfigurationArn" Core.=: typeConfigurationArn
+          Data.=: typeConfigurationAlias,
+        "TypeConfigurationArn" Data.=: typeConfigurationArn
       ]

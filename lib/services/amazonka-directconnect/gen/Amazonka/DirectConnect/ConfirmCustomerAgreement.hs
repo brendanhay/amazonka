@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -85,7 +86,7 @@ instance Core.AWSRequest ConfirmCustomerAgreement where
     Response.receiveJSON
       ( \s h x ->
           ConfirmCustomerAgreementResponse'
-            Prelude.<$> (x Core..?> "status")
+            Prelude.<$> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,34 +98,34 @@ instance Prelude.NFData ConfirmCustomerAgreement where
   rnf ConfirmCustomerAgreement' {..} =
     Prelude.rnf agreementName
 
-instance Core.ToHeaders ConfirmCustomerAgreement where
+instance Data.ToHeaders ConfirmCustomerAgreement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.ConfirmCustomerAgreement" ::
+              Data.=# ( "OvertureService.ConfirmCustomerAgreement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ConfirmCustomerAgreement where
+instance Data.ToJSON ConfirmCustomerAgreement where
   toJSON ConfirmCustomerAgreement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("agreementName" Core..=)
+          [ ("agreementName" Data..=)
               Prelude.<$> agreementName
           ]
       )
 
-instance Core.ToPath ConfirmCustomerAgreement where
+instance Data.ToPath ConfirmCustomerAgreement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ConfirmCustomerAgreement where
+instance Data.ToQuery ConfirmCustomerAgreement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newConfirmCustomerAgreementResponse' smart constructor.

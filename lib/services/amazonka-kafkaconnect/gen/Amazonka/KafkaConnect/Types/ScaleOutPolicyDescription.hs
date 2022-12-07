@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.ScaleOutPolicyDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The description of the scale-out policy for the connector.
@@ -56,13 +57,13 @@ newScaleOutPolicyDescription =
 scaleOutPolicyDescription_cpuUtilizationPercentage :: Lens.Lens' ScaleOutPolicyDescription (Prelude.Maybe Prelude.Int)
 scaleOutPolicyDescription_cpuUtilizationPercentage = Lens.lens (\ScaleOutPolicyDescription' {cpuUtilizationPercentage} -> cpuUtilizationPercentage) (\s@ScaleOutPolicyDescription' {} a -> s {cpuUtilizationPercentage = a} :: ScaleOutPolicyDescription)
 
-instance Core.FromJSON ScaleOutPolicyDescription where
+instance Data.FromJSON ScaleOutPolicyDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScaleOutPolicyDescription"
       ( \x ->
           ScaleOutPolicyDescription'
-            Prelude.<$> (x Core..:? "cpuUtilizationPercentage")
+            Prelude.<$> (x Data..:? "cpuUtilizationPercentage")
       )
 
 instance Prelude.Hashable ScaleOutPolicyDescription where

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTRoboRunner.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,12 +107,12 @@ instance Core.AWSRequest UpdateWorkerFleet where
     Response.receiveJSON
       ( \s h x ->
           UpdateWorkerFleetResponse'
-            Prelude.<$> (x Core..?> "additionalFixedProperties")
+            Prelude.<$> (x Data..?> "additionalFixedProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "id")
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "updatedAt")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "id")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "updatedAt")
       )
 
 instance Prelude.Hashable UpdateWorkerFleet where
@@ -126,32 +127,32 @@ instance Prelude.NFData UpdateWorkerFleet where
       `Prelude.seq` Prelude.rnf additionalFixedProperties
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateWorkerFleet where
+instance Data.ToHeaders UpdateWorkerFleet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkerFleet where
+instance Data.ToJSON UpdateWorkerFleet where
   toJSON UpdateWorkerFleet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("additionalFixedProperties" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("additionalFixedProperties" Data..=)
               Prelude.<$> additionalFixedProperties,
-            Prelude.Just ("id" Core..= id)
+            Prelude.Just ("id" Data..= id)
           ]
       )
 
-instance Core.ToPath UpdateWorkerFleet where
+instance Data.ToPath UpdateWorkerFleet where
   toPath = Prelude.const "/updateWorkerFleet"
 
-instance Core.ToQuery UpdateWorkerFleet where
+instance Data.ToQuery UpdateWorkerFleet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWorkerFleetResponse' smart constructor.
@@ -162,7 +163,7 @@ data UpdateWorkerFleetResponse = UpdateWorkerFleetResponse'
     arn :: Prelude.Text,
     id :: Prelude.Text,
     name :: Prelude.Text,
-    updatedAt :: Core.POSIX
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -210,7 +211,7 @@ newUpdateWorkerFleetResponse
         arn = pArn_,
         id = pId_,
         name = pName_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
 -- | Undocumented member.
@@ -235,7 +236,7 @@ updateWorkerFleetResponse_name = Lens.lens (\UpdateWorkerFleetResponse' {name} -
 
 -- | Undocumented member.
 updateWorkerFleetResponse_updatedAt :: Lens.Lens' UpdateWorkerFleetResponse Prelude.UTCTime
-updateWorkerFleetResponse_updatedAt = Lens.lens (\UpdateWorkerFleetResponse' {updatedAt} -> updatedAt) (\s@UpdateWorkerFleetResponse' {} a -> s {updatedAt = a} :: UpdateWorkerFleetResponse) Prelude.. Core._Time
+updateWorkerFleetResponse_updatedAt = Lens.lens (\UpdateWorkerFleetResponse' {updatedAt} -> updatedAt) (\s@UpdateWorkerFleetResponse' {} a -> s {updatedAt = a} :: UpdateWorkerFleetResponse) Prelude.. Data._Time
 
 instance Prelude.NFData UpdateWorkerFleetResponse where
   rnf UpdateWorkerFleetResponse' {..} =

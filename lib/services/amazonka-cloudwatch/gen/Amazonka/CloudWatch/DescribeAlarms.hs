@@ -61,6 +61,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -325,12 +326,12 @@ instance Core.AWSRequest DescribeAlarms where
       "DescribeAlarmsResult"
       ( \s h x ->
           DescribeAlarmsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "CompositeAlarms" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "CompositeAlarms" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "MetricAlarms" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> ( x Data..@? "MetricAlarms" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -359,32 +360,32 @@ instance Prelude.NFData DescribeAlarms where
       `Prelude.seq` Prelude.rnf stateValue
       `Prelude.seq` Prelude.rnf actionPrefix
 
-instance Core.ToHeaders DescribeAlarms where
+instance Data.ToHeaders DescribeAlarms where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAlarms where
+instance Data.ToPath DescribeAlarms where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAlarms where
+instance Data.ToQuery DescribeAlarms where
   toQuery DescribeAlarms' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAlarms" :: Prelude.ByteString),
+          Data.=: ("DescribeAlarms" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "AlarmNamePrefix" Core.=: alarmNamePrefix,
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "AlarmNamePrefix" Data.=: alarmNamePrefix,
         "AlarmTypes"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> alarmTypes),
-        "ChildrenOfAlarmName" Core.=: childrenOfAlarmName,
-        "MaxRecords" Core.=: maxRecords,
-        "ParentsOfAlarmName" Core.=: parentsOfAlarmName,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> alarmTypes),
+        "ChildrenOfAlarmName" Data.=: childrenOfAlarmName,
+        "MaxRecords" Data.=: maxRecords,
+        "ParentsOfAlarmName" Data.=: parentsOfAlarmName,
         "AlarmNames"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> alarmNames),
-        "StateValue" Core.=: stateValue,
-        "ActionPrefix" Core.=: actionPrefix
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> alarmNames),
+        "StateValue" Data.=: stateValue,
+        "ActionPrefix" Data.=: actionPrefix
       ]
 
 -- | /See:/ 'newDescribeAlarmsResponse' smart constructor.

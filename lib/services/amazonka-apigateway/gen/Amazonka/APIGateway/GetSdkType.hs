@@ -44,6 +44,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -82,7 +83,7 @@ instance Core.AWSRequest GetSdkType where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetSdkType where
   hashWithSalt _salt GetSdkType' {..} =
@@ -91,18 +92,18 @@ instance Prelude.Hashable GetSdkType where
 instance Prelude.NFData GetSdkType where
   rnf GetSdkType' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetSdkType where
+instance Data.ToHeaders GetSdkType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetSdkType where
+instance Data.ToPath GetSdkType where
   toPath GetSdkType' {..} =
-    Prelude.mconcat ["/sdktypes/", Core.toBS id]
+    Prelude.mconcat ["/sdktypes/", Data.toBS id]
 
-instance Core.ToQuery GetSdkType where
+instance Data.ToQuery GetSdkType where
   toQuery = Prelude.const Prelude.mempty

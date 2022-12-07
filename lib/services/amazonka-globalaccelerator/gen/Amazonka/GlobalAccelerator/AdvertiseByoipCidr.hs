@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest AdvertiseByoipCidr where
     Response.receiveJSON
       ( \s h x ->
           AdvertiseByoipCidrResponse'
-            Prelude.<$> (x Core..?> "ByoipCidr")
+            Prelude.<$> (x Data..?> "ByoipCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,32 +112,32 @@ instance Prelude.Hashable AdvertiseByoipCidr where
 instance Prelude.NFData AdvertiseByoipCidr where
   rnf AdvertiseByoipCidr' {..} = Prelude.rnf cidr
 
-instance Core.ToHeaders AdvertiseByoipCidr where
+instance Data.ToHeaders AdvertiseByoipCidr where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.AdvertiseByoipCidr" ::
+              Data.=# ( "GlobalAccelerator_V20180706.AdvertiseByoipCidr" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdvertiseByoipCidr where
+instance Data.ToJSON AdvertiseByoipCidr where
   toJSON AdvertiseByoipCidr' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Cidr" Core..= cidr)]
+          [Prelude.Just ("Cidr" Data..= cidr)]
       )
 
-instance Core.ToPath AdvertiseByoipCidr where
+instance Data.ToPath AdvertiseByoipCidr where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdvertiseByoipCidr where
+instance Data.ToQuery AdvertiseByoipCidr where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdvertiseByoipCidrResponse' smart constructor.

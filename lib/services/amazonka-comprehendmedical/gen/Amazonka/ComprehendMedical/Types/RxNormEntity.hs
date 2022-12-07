@@ -26,6 +26,7 @@ import Amazonka.ComprehendMedical.Types.RxNormEntityType
 import Amazonka.ComprehendMedical.Types.RxNormTrait
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The collection of medical entities extracted from the input text and
@@ -173,22 +174,22 @@ rxNormEntity_attributes = Lens.lens (\RxNormEntity' {attributes} -> attributes) 
 rxNormEntity_text :: Lens.Lens' RxNormEntity (Prelude.Maybe Prelude.Text)
 rxNormEntity_text = Lens.lens (\RxNormEntity' {text} -> text) (\s@RxNormEntity' {} a -> s {text = a} :: RxNormEntity)
 
-instance Core.FromJSON RxNormEntity where
+instance Data.FromJSON RxNormEntity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RxNormEntity"
       ( \x ->
           RxNormEntity'
-            Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "RxNormConcepts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Traits" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "EndOffset")
-            Prelude.<*> (x Core..:? "Category")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Text")
+            Prelude.<$> (x Data..:? "BeginOffset")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "RxNormConcepts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Traits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "Category")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Text")
       )
 
 instance Prelude.Hashable RxNormEntity where

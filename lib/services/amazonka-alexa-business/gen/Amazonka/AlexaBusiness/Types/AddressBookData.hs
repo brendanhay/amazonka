@@ -21,6 +21,7 @@ module Amazonka.AlexaBusiness.Types.AddressBookData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information related to an address book.
@@ -70,15 +71,15 @@ addressBookData_description = Lens.lens (\AddressBookData' {description} -> desc
 addressBookData_addressBookArn :: Lens.Lens' AddressBookData (Prelude.Maybe Prelude.Text)
 addressBookData_addressBookArn = Lens.lens (\AddressBookData' {addressBookArn} -> addressBookArn) (\s@AddressBookData' {} a -> s {addressBookArn = a} :: AddressBookData)
 
-instance Core.FromJSON AddressBookData where
+instance Data.FromJSON AddressBookData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AddressBookData"
       ( \x ->
           AddressBookData'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "AddressBookArn")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "AddressBookArn")
       )
 
 instance Prelude.Hashable AddressBookData where

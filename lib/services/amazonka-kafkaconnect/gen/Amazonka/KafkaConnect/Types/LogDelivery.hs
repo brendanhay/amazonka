@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.LogDelivery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.WorkerLogDelivery
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,11 +67,11 @@ instance Prelude.Hashable LogDelivery where
 instance Prelude.NFData LogDelivery where
   rnf LogDelivery' {..} = Prelude.rnf workerLogDelivery
 
-instance Core.ToJSON LogDelivery where
+instance Data.ToJSON LogDelivery where
   toJSON LogDelivery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("workerLogDelivery" Core..= workerLogDelivery)
+              ("workerLogDelivery" Data..= workerLogDelivery)
           ]
       )

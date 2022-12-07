@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TargetCapacitySpecificationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DefaultTargetCapacityType
 import Amazonka.EC2.Types.TargetCapacityUnitType
@@ -152,17 +153,17 @@ instance
       `Prelude.seq` Prelude.rnf totalTargetCapacity
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     TargetCapacitySpecificationRequest
   where
   toQuery TargetCapacitySpecificationRequest' {..} =
     Prelude.mconcat
       [ "TargetCapacityUnitType"
-          Core.=: targetCapacityUnitType,
+          Data.=: targetCapacityUnitType,
         "DefaultTargetCapacityType"
-          Core.=: defaultTargetCapacityType,
+          Data.=: defaultTargetCapacityType,
         "OnDemandTargetCapacity"
-          Core.=: onDemandTargetCapacity,
-        "SpotTargetCapacity" Core.=: spotTargetCapacity,
-        "TotalTargetCapacity" Core.=: totalTargetCapacity
+          Data.=: onDemandTargetCapacity,
+        "SpotTargetCapacity" Data.=: spotTargetCapacity,
+        "TotalTargetCapacity" Data.=: totalTargetCapacity
       ]

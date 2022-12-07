@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.ManagedResourceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.ResourceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ managedResourceSummary_resourceType = Lens.lens (\ManagedResourceSummary' {resou
 managedResourceSummary_associationCount :: Lens.Lens' ManagedResourceSummary (Prelude.Maybe Prelude.Integer)
 managedResourceSummary_associationCount = Lens.lens (\ManagedResourceSummary' {associationCount} -> associationCount) (\s@ManagedResourceSummary' {} a -> s {associationCount = a} :: ManagedResourceSummary)
 
-instance Core.FromJSON ManagedResourceSummary where
+instance Data.FromJSON ManagedResourceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManagedResourceSummary"
       ( \x ->
           ManagedResourceSummary'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "AssociationCount")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "AssociationCount")
       )
 
 instance Prelude.Hashable ManagedResourceSummary where

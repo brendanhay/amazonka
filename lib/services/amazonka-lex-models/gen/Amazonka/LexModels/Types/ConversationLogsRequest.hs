@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.ConversationLogsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.LogSettingsRequest
 import qualified Amazonka.Prelude as Prelude
 
@@ -93,11 +94,11 @@ instance Prelude.NFData ConversationLogsRequest where
     Prelude.rnf logSettings
       `Prelude.seq` Prelude.rnf iamRoleArn
 
-instance Core.ToJSON ConversationLogsRequest where
+instance Data.ToJSON ConversationLogsRequest where
   toJSON ConversationLogsRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("logSettings" Core..= logSettings),
-            Prelude.Just ("iamRoleArn" Core..= iamRoleArn)
+          [ Prelude.Just ("logSettings" Data..= logSettings),
+            Prelude.Just ("iamRoleArn" Data..= iamRoleArn)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.S3Outposts.Types.Endpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3Outposts.Types.EndpointAccessType
 import Amazonka.S3Outposts.Types.EndpointStatus
@@ -48,7 +49,7 @@ data Endpoint = Endpoint'
     -- | The VPC CIDR committed by this endpoint.
     cidrBlock :: Prelude.Maybe Prelude.Text,
     -- | The time the endpoint was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The type of connectivity used to access the Amazon S3 on Outposts
     -- endpoint.
     accessType :: Prelude.Maybe EndpointAccessType,
@@ -134,7 +135,7 @@ endpoint_cidrBlock = Lens.lens (\Endpoint' {cidrBlock} -> cidrBlock) (\s@Endpoin
 
 -- | The time the endpoint was created.
 endpoint_creationTime :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.UTCTime)
-endpoint_creationTime = Lens.lens (\Endpoint' {creationTime} -> creationTime) (\s@Endpoint' {} a -> s {creationTime = a} :: Endpoint) Prelude.. Lens.mapping Core._Time
+endpoint_creationTime = Lens.lens (\Endpoint' {creationTime} -> creationTime) (\s@Endpoint' {} a -> s {creationTime = a} :: Endpoint) Prelude.. Lens.mapping Data._Time
 
 -- | The type of connectivity used to access the Amazon S3 on Outposts
 -- endpoint.
@@ -153,24 +154,24 @@ endpoint_endpointArn = Lens.lens (\Endpoint' {endpointArn} -> endpointArn) (\s@E
 endpoint_networkInterfaces :: Lens.Lens' Endpoint (Prelude.Maybe [NetworkInterface])
 endpoint_networkInterfaces = Lens.lens (\Endpoint' {networkInterfaces} -> networkInterfaces) (\s@Endpoint' {} a -> s {networkInterfaces = a} :: Endpoint) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Endpoint where
+instance Data.FromJSON Endpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Endpoint"
       ( \x ->
           Endpoint'
-            Prelude.<$> (x Core..:? "OutpostsId")
-            Prelude.<*> (x Core..:? "SubnetId")
-            Prelude.<*> (x Core..:? "SecurityGroupId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CustomerOwnedIpv4Pool")
-            Prelude.<*> (x Core..:? "CidrBlock")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "AccessType")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "EndpointArn")
-            Prelude.<*> ( x Core..:? "NetworkInterfaces"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "OutpostsId")
+            Prelude.<*> (x Data..:? "SubnetId")
+            Prelude.<*> (x Data..:? "SecurityGroupId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CustomerOwnedIpv4Pool")
+            Prelude.<*> (x Data..:? "CidrBlock")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "AccessType")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> (x Data..:? "EndpointArn")
+            Prelude.<*> ( x Data..:? "NetworkInterfaces"
+                            Data..!= Prelude.mempty
                         )
       )
 

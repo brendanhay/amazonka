@@ -21,6 +21,7 @@ module Amazonka.ConnectParticipant.Types.StartPosition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filtering option for where to start. For example, if you sent 100
@@ -92,12 +93,12 @@ instance Prelude.NFData StartPosition where
       `Prelude.seq` Prelude.rnf absoluteTime
       `Prelude.seq` Prelude.rnf mostRecent
 
-instance Core.ToJSON StartPosition where
+instance Data.ToJSON StartPosition where
   toJSON StartPosition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Id" Core..=) Prelude.<$> id,
-            ("AbsoluteTime" Core..=) Prelude.<$> absoluteTime,
-            ("MostRecent" Core..=) Prelude.<$> mostRecent
+          [ ("Id" Data..=) Prelude.<$> id,
+            ("AbsoluteTime" Data..=) Prelude.<$> absoluteTime,
+            ("MostRecent" Data..=) Prelude.<$> mostRecent
           ]
       )

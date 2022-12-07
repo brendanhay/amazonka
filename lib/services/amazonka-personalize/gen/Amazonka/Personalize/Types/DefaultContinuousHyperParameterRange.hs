@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.DefaultContinuousHyperParameterRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the name and default range of a continuous hyperparameter and
@@ -83,18 +84,18 @@ defaultContinuousHyperParameterRange_maxValue :: Lens.Lens' DefaultContinuousHyp
 defaultContinuousHyperParameterRange_maxValue = Lens.lens (\DefaultContinuousHyperParameterRange' {maxValue} -> maxValue) (\s@DefaultContinuousHyperParameterRange' {} a -> s {maxValue = a} :: DefaultContinuousHyperParameterRange)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DefaultContinuousHyperParameterRange
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DefaultContinuousHyperParameterRange"
       ( \x ->
           DefaultContinuousHyperParameterRange'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "minValue")
-            Prelude.<*> (x Core..:? "isTunable")
-            Prelude.<*> (x Core..:? "maxValue")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "minValue")
+            Prelude.<*> (x Data..:? "isTunable")
+            Prelude.<*> (x Data..:? "maxValue")
       )
 
 instance

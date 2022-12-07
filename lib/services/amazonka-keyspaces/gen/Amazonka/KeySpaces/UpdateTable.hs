@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KeySpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -333,7 +334,7 @@ instance Core.AWSRequest UpdateTable where
       ( \s h x ->
           UpdateTableResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "resourceArn")
+            Prelude.<*> (x Data..:> "resourceArn")
       )
 
 instance Prelude.Hashable UpdateTable where
@@ -358,44 +359,44 @@ instance Prelude.NFData UpdateTable where
       `Prelude.seq` Prelude.rnf keyspaceName
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToHeaders UpdateTable where
+instance Data.ToHeaders UpdateTable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KeyspacesService.UpdateTable" ::
+              Data.=# ( "KeyspacesService.UpdateTable" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTable where
+instance Data.ToJSON UpdateTable where
   toJSON UpdateTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ttl" Core..=) Prelude.<$> ttl,
-            ("pointInTimeRecovery" Core..=)
+          [ ("ttl" Data..=) Prelude.<$> ttl,
+            ("pointInTimeRecovery" Data..=)
               Prelude.<$> pointInTimeRecovery,
-            ("capacitySpecification" Core..=)
+            ("capacitySpecification" Data..=)
               Prelude.<$> capacitySpecification,
-            ("encryptionSpecification" Core..=)
+            ("encryptionSpecification" Data..=)
               Prelude.<$> encryptionSpecification,
-            ("addColumns" Core..=) Prelude.<$> addColumns,
-            ("defaultTimeToLive" Core..=)
+            ("addColumns" Data..=) Prelude.<$> addColumns,
+            ("defaultTimeToLive" Data..=)
               Prelude.<$> defaultTimeToLive,
-            Prelude.Just ("keyspaceName" Core..= keyspaceName),
-            Prelude.Just ("tableName" Core..= tableName)
+            Prelude.Just ("keyspaceName" Data..= keyspaceName),
+            Prelude.Just ("tableName" Data..= tableName)
           ]
       )
 
-instance Core.ToPath UpdateTable where
+instance Data.ToPath UpdateTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTable where
+instance Data.ToQuery UpdateTable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTableResponse' smart constructor.

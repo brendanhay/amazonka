@@ -109,6 +109,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -241,15 +242,15 @@ instance Core.AWSRequest GetPublicKey where
     Response.receiveJSON
       ( \s h x ->
           GetPublicKeyResponse'
-            Prelude.<$> (x Core..?> "PublicKey")
-            Prelude.<*> ( x Core..?> "EncryptionAlgorithms"
+            Prelude.<$> (x Data..?> "PublicKey")
+            Prelude.<*> ( x Data..?> "EncryptionAlgorithms"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "CustomerMasterKeySpec")
-            Prelude.<*> (x Core..?> "KeyUsage")
-            Prelude.<*> (x Core..?> "KeySpec")
-            Prelude.<*> (x Core..?> "KeyId")
-            Prelude.<*> ( x Core..?> "SigningAlgorithms"
+            Prelude.<*> (x Data..?> "CustomerMasterKeySpec")
+            Prelude.<*> (x Data..?> "KeyUsage")
+            Prelude.<*> (x Data..?> "KeySpec")
+            Prelude.<*> (x Data..?> "KeyId")
+            Prelude.<*> ( x Data..?> "SigningAlgorithms"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -265,32 +266,32 @@ instance Prelude.NFData GetPublicKey where
     Prelude.rnf grantTokens
       `Prelude.seq` Prelude.rnf keyId
 
-instance Core.ToHeaders GetPublicKey where
+instance Data.ToHeaders GetPublicKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.GetPublicKey" :: Prelude.ByteString),
+              Data.=# ("TrentService.GetPublicKey" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetPublicKey where
+instance Data.ToJSON GetPublicKey where
   toJSON GetPublicKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            Prelude.Just ("KeyId" Core..= keyId)
+          [ ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+            Prelude.Just ("KeyId" Data..= keyId)
           ]
       )
 
-instance Core.ToPath GetPublicKey where
+instance Data.ToPath GetPublicKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetPublicKey where
+instance Data.ToQuery GetPublicKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPublicKeyResponse' smart constructor.
@@ -302,7 +303,7 @@ data GetPublicKeyResponse = GetPublicKeyResponse'
     -- <https://tools.ietf.org/html/rfc5280 RFC 5280>. When you use the HTTP
     -- API or the Amazon Web Services CLI, the value is Base64-encoded.
     -- Otherwise, it is not Base64-encoded.
-    publicKey :: Prelude.Maybe Core.Base64,
+    publicKey :: Prelude.Maybe Data.Base64,
     -- | The encryption algorithms that KMS supports for this key.
     --
     -- This information is critical. If a public key encrypts data outside of
@@ -421,7 +422,7 @@ newGetPublicKeyResponse pHttpStatus_ =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 getPublicKeyResponse_publicKey :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe Prelude.ByteString)
-getPublicKeyResponse_publicKey = Lens.lens (\GetPublicKeyResponse' {publicKey} -> publicKey) (\s@GetPublicKeyResponse' {} a -> s {publicKey = a} :: GetPublicKeyResponse) Prelude.. Lens.mapping Core._Base64
+getPublicKeyResponse_publicKey = Lens.lens (\GetPublicKeyResponse' {publicKey} -> publicKey) (\s@GetPublicKeyResponse' {} a -> s {publicKey = a} :: GetPublicKeyResponse) Prelude.. Lens.mapping Data._Base64
 
 -- | The encryption algorithms that KMS supports for this key.
 --

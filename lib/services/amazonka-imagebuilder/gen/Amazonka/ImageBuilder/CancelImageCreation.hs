@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,9 +116,9 @@ instance Core.AWSRequest CancelImageCreation where
     Response.receiveJSON
       ( \s h x ->
           CancelImageCreationResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-            Prelude.<*> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "imageBuildVersionArn")
+            Prelude.<$> (x Data..?> "clientToken")
+            Prelude.<*> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "imageBuildVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,33 +132,33 @@ instance Prelude.NFData CancelImageCreation where
     Prelude.rnf imageBuildVersionArn
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CancelImageCreation where
+instance Data.ToHeaders CancelImageCreation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelImageCreation where
+instance Data.ToJSON CancelImageCreation where
   toJSON CancelImageCreation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "imageBuildVersionArn"
-                  Core..= imageBuildVersionArn
+                  Data..= imageBuildVersionArn
               ),
-            Prelude.Just ("clientToken" Core..= clientToken)
+            Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CancelImageCreation where
+instance Data.ToPath CancelImageCreation where
   toPath = Prelude.const "/CancelImageCreation"
 
-instance Core.ToQuery CancelImageCreation where
+instance Data.ToQuery CancelImageCreation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelImageCreationResponse' smart constructor.

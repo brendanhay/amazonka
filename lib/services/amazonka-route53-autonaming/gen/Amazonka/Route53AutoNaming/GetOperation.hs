@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,7 +86,7 @@ instance Core.AWSRequest GetOperation where
     Response.receiveJSON
       ( \s h x ->
           GetOperationResponse'
-            Prelude.<$> (x Core..?> "Operation")
+            Prelude.<$> (x Data..?> "Operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,32 +97,32 @@ instance Prelude.Hashable GetOperation where
 instance Prelude.NFData GetOperation where
   rnf GetOperation' {..} = Prelude.rnf operationId
 
-instance Core.ToHeaders GetOperation where
+instance Data.ToHeaders GetOperation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53AutoNaming_v20170314.GetOperation" ::
+              Data.=# ( "Route53AutoNaming_v20170314.GetOperation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetOperation where
+instance Data.ToJSON GetOperation where
   toJSON GetOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("OperationId" Core..= operationId)]
+          [Prelude.Just ("OperationId" Data..= operationId)]
       )
 
-instance Core.ToPath GetOperation where
+instance Data.ToPath GetOperation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetOperation where
+instance Data.ToQuery GetOperation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetOperationResponse' smart constructor.

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,10 +118,10 @@ instance
       "ApplyEnvironmentManagedActionResult"
       ( \s h x ->
           ApplyEnvironmentManagedActionResponse'
-            Prelude.<$> (x Core..@? "ActionType")
-            Prelude.<*> (x Core..@? "Status")
-            Prelude.<*> (x Core..@? "ActionId")
-            Prelude.<*> (x Core..@? "ActionDescription")
+            Prelude.<$> (x Data..@? "ActionType")
+            Prelude.<*> (x Data..@? "Status")
+            Prelude.<*> (x Data..@? "ActionId")
+            Prelude.<*> (x Data..@? "ActionDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,24 +140,24 @@ instance Prelude.NFData ApplyEnvironmentManagedAction where
       `Prelude.seq` Prelude.rnf environmentId
       `Prelude.seq` Prelude.rnf actionId
 
-instance Core.ToHeaders ApplyEnvironmentManagedAction where
+instance Data.ToHeaders ApplyEnvironmentManagedAction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ApplyEnvironmentManagedAction where
+instance Data.ToPath ApplyEnvironmentManagedAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ApplyEnvironmentManagedAction where
+instance Data.ToQuery ApplyEnvironmentManagedAction where
   toQuery ApplyEnvironmentManagedAction' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ApplyEnvironmentManagedAction" ::
+          Data.=: ( "ApplyEnvironmentManagedAction" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentName" Core.=: environmentName,
-        "EnvironmentId" Core.=: environmentId,
-        "ActionId" Core.=: actionId
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "EnvironmentName" Data.=: environmentName,
+        "EnvironmentId" Data.=: environmentId,
+        "ActionId" Data.=: actionId
       ]
 
 -- | The result message containing information about the managed action.

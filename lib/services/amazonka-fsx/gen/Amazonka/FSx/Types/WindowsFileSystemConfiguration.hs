@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.WindowsFileSystemConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.Alias
 import Amazonka.FSx.Types.FileSystemMaintenanceOperation
 import Amazonka.FSx.Types.SelfManagedActiveDirectoryAttributes
@@ -353,30 +354,30 @@ windowsFileSystemConfiguration_auditLogConfiguration = Lens.lens (\WindowsFileSy
 windowsFileSystemConfiguration_preferredSubnetId :: Lens.Lens' WindowsFileSystemConfiguration (Prelude.Maybe Prelude.Text)
 windowsFileSystemConfiguration_preferredSubnetId = Lens.lens (\WindowsFileSystemConfiguration' {preferredSubnetId} -> preferredSubnetId) (\s@WindowsFileSystemConfiguration' {} a -> s {preferredSubnetId = a} :: WindowsFileSystemConfiguration)
 
-instance Core.FromJSON WindowsFileSystemConfiguration where
+instance Data.FromJSON WindowsFileSystemConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WindowsFileSystemConfiguration"
       ( \x ->
           WindowsFileSystemConfiguration'
-            Prelude.<$> (x Core..:? "CopyTagsToBackups")
-            Prelude.<*> (x Core..:? "WeeklyMaintenanceStartTime")
-            Prelude.<*> (x Core..:? "ThroughputCapacity")
-            Prelude.<*> (x Core..:? "AutomaticBackupRetentionDays")
-            Prelude.<*> (x Core..:? "ActiveDirectoryId")
-            Prelude.<*> (x Core..:? "Aliases" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "MaintenanceOperationsInProgress"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "CopyTagsToBackups")
+            Prelude.<*> (x Data..:? "WeeklyMaintenanceStartTime")
+            Prelude.<*> (x Data..:? "ThroughputCapacity")
+            Prelude.<*> (x Data..:? "AutomaticBackupRetentionDays")
+            Prelude.<*> (x Data..:? "ActiveDirectoryId")
+            Prelude.<*> (x Data..:? "Aliases" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "MaintenanceOperationsInProgress"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DeploymentType")
-            Prelude.<*> (x Core..:? "RemoteAdministrationEndpoint")
-            Prelude.<*> (x Core..:? "PreferredFileServerIp")
-            Prelude.<*> (x Core..:? "DailyAutomaticBackupStartTime")
+            Prelude.<*> (x Data..:? "DeploymentType")
+            Prelude.<*> (x Data..:? "RemoteAdministrationEndpoint")
+            Prelude.<*> (x Data..:? "PreferredFileServerIp")
+            Prelude.<*> (x Data..:? "DailyAutomaticBackupStartTime")
             Prelude.<*> ( x
-                            Core..:? "SelfManagedActiveDirectoryConfiguration"
+                            Data..:? "SelfManagedActiveDirectoryConfiguration"
                         )
-            Prelude.<*> (x Core..:? "AuditLogConfiguration")
-            Prelude.<*> (x Core..:? "PreferredSubnetId")
+            Prelude.<*> (x Data..:? "AuditLogConfiguration")
+            Prelude.<*> (x Data..:? "PreferredSubnetId")
       )
 
 instance

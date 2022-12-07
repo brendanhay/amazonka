@@ -22,6 +22,7 @@ module Amazonka.ConnectCampaigns.Types.InstanceIdFilter where
 import Amazonka.ConnectCampaigns.Types.InstanceIdFilterOperator
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Connect instance identifier filter
@@ -74,11 +75,11 @@ instance Prelude.NFData InstanceIdFilter where
     Prelude.rnf operator
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON InstanceIdFilter where
+instance Data.ToJSON InstanceIdFilter where
   toJSON InstanceIdFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("operator" Core..= operator),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("operator" Data..= operator),
+            Prelude.Just ("value" Data..= value)
           ]
       )

@@ -23,6 +23,7 @@ import Amazonka.Config.Types.ConformancePackComplianceType
 import Amazonka.Config.Types.EvaluationResultIdentifier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a conformance pack evaluation. Provides Config rule and
@@ -40,9 +41,9 @@ data ConformancePackEvaluationResult = ConformancePackEvaluationResult'
     complianceType :: ConformancePackComplianceType,
     evaluationResultIdentifier :: EvaluationResultIdentifier,
     -- | The time when Config rule evaluated Amazon Web Services resource.
-    configRuleInvokedTime :: Core.POSIX,
+    configRuleInvokedTime :: Data.POSIX,
     -- | The time when Config recorded the evaluation result.
-    resultRecordedTime :: Core.POSIX
+    resultRecordedTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,10 +88,10 @@ newConformancePackEvaluationResult
         evaluationResultIdentifier =
           pEvaluationResultIdentifier_,
         configRuleInvokedTime =
-          Core._Time
+          Data._Time
             Lens.# pConfigRuleInvokedTime_,
         resultRecordedTime =
-          Core._Time Lens.# pResultRecordedTime_
+          Data._Time Lens.# pResultRecordedTime_
       }
 
 -- | Supplementary information about how the evaluation determined the
@@ -109,26 +110,26 @@ conformancePackEvaluationResult_evaluationResultIdentifier = Lens.lens (\Conform
 
 -- | The time when Config rule evaluated Amazon Web Services resource.
 conformancePackEvaluationResult_configRuleInvokedTime :: Lens.Lens' ConformancePackEvaluationResult Prelude.UTCTime
-conformancePackEvaluationResult_configRuleInvokedTime = Lens.lens (\ConformancePackEvaluationResult' {configRuleInvokedTime} -> configRuleInvokedTime) (\s@ConformancePackEvaluationResult' {} a -> s {configRuleInvokedTime = a} :: ConformancePackEvaluationResult) Prelude.. Core._Time
+conformancePackEvaluationResult_configRuleInvokedTime = Lens.lens (\ConformancePackEvaluationResult' {configRuleInvokedTime} -> configRuleInvokedTime) (\s@ConformancePackEvaluationResult' {} a -> s {configRuleInvokedTime = a} :: ConformancePackEvaluationResult) Prelude.. Data._Time
 
 -- | The time when Config recorded the evaluation result.
 conformancePackEvaluationResult_resultRecordedTime :: Lens.Lens' ConformancePackEvaluationResult Prelude.UTCTime
-conformancePackEvaluationResult_resultRecordedTime = Lens.lens (\ConformancePackEvaluationResult' {resultRecordedTime} -> resultRecordedTime) (\s@ConformancePackEvaluationResult' {} a -> s {resultRecordedTime = a} :: ConformancePackEvaluationResult) Prelude.. Core._Time
+conformancePackEvaluationResult_resultRecordedTime = Lens.lens (\ConformancePackEvaluationResult' {resultRecordedTime} -> resultRecordedTime) (\s@ConformancePackEvaluationResult' {} a -> s {resultRecordedTime = a} :: ConformancePackEvaluationResult) Prelude.. Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ConformancePackEvaluationResult
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConformancePackEvaluationResult"
       ( \x ->
           ConformancePackEvaluationResult'
-            Prelude.<$> (x Core..:? "Annotation")
-            Prelude.<*> (x Core..: "ComplianceType")
-            Prelude.<*> (x Core..: "EvaluationResultIdentifier")
-            Prelude.<*> (x Core..: "ConfigRuleInvokedTime")
-            Prelude.<*> (x Core..: "ResultRecordedTime")
+            Prelude.<$> (x Data..:? "Annotation")
+            Prelude.<*> (x Data..: "ComplianceType")
+            Prelude.<*> (x Data..: "EvaluationResultIdentifier")
+            Prelude.<*> (x Data..: "ConfigRuleInvokedTime")
+            Prelude.<*> (x Data..: "ResultRecordedTime")
       )
 
 instance

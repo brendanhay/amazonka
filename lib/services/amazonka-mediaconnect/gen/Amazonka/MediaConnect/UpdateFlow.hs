@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest UpdateFlow where
     Response.receiveJSON
       ( \s h x ->
           UpdateFlowResponse'
-            Prelude.<$> (x Core..?> "flow")
+            Prelude.<$> (x Data..?> "flow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,32 +120,32 @@ instance Prelude.NFData UpdateFlow where
       `Prelude.seq` Prelude.rnf sourceFailoverConfig
       `Prelude.seq` Prelude.rnf flowArn
 
-instance Core.ToHeaders UpdateFlow where
+instance Data.ToHeaders UpdateFlow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFlow where
+instance Data.ToJSON UpdateFlow where
   toJSON UpdateFlow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maintenance" Core..=) Prelude.<$> maintenance,
-            ("sourceFailoverConfig" Core..=)
+          [ ("maintenance" Data..=) Prelude.<$> maintenance,
+            ("sourceFailoverConfig" Data..=)
               Prelude.<$> sourceFailoverConfig
           ]
       )
 
-instance Core.ToPath UpdateFlow where
+instance Data.ToPath UpdateFlow where
   toPath UpdateFlow' {..} =
-    Prelude.mconcat ["/v1/flows/", Core.toBS flowArn]
+    Prelude.mconcat ["/v1/flows/", Data.toBS flowArn]
 
-instance Core.ToQuery UpdateFlow where
+instance Data.ToQuery UpdateFlow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFlowResponse' smart constructor.

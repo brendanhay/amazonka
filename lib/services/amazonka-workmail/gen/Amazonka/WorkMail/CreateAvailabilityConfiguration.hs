@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -179,41 +180,41 @@ instance
       `Prelude.seq` Prelude.rnf domainName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateAvailabilityConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkMailService.CreateAvailabilityConfiguration" ::
+              Data.=# ( "WorkMailService.CreateAvailabilityConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAvailabilityConfiguration where
+instance Data.ToJSON CreateAvailabilityConfiguration where
   toJSON CreateAvailabilityConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("EwsProvider" Core..=) Prelude.<$> ewsProvider,
-            ("LambdaProvider" Core..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("EwsProvider" Data..=) Prelude.<$> ewsProvider,
+            ("LambdaProvider" Data..=)
               Prelude.<$> lambdaProvider,
             Prelude.Just
-              ("OrganizationId" Core..= organizationId),
-            Prelude.Just ("DomainName" Core..= domainName)
+              ("OrganizationId" Data..= organizationId),
+            Prelude.Just ("DomainName" Data..= domainName)
           ]
       )
 
-instance Core.ToPath CreateAvailabilityConfiguration where
+instance Data.ToPath CreateAvailabilityConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAvailabilityConfiguration where
+instance Data.ToQuery CreateAvailabilityConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAvailabilityConfigurationResponse' smart constructor.

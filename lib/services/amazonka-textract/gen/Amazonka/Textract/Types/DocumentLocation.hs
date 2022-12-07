@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.DocumentLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.S3Object
 
@@ -62,9 +63,9 @@ instance Prelude.Hashable DocumentLocation where
 instance Prelude.NFData DocumentLocation where
   rnf DocumentLocation' {..} = Prelude.rnf s3Object
 
-instance Core.ToJSON DocumentLocation where
+instance Data.ToJSON DocumentLocation where
   toJSON DocumentLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("S3Object" Core..=) Prelude.<$> s3Object]
+          [("S3Object" Data..=) Prelude.<$> s3Object]
       )

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,13 +89,13 @@ instance Core.AWSRequest GetSignalCatalog where
     Response.receiveJSON
       ( \s h x ->
           GetSignalCatalogResponse'
-            Prelude.<$> (x Core..?> "nodeCounts")
-            Prelude.<*> (x Core..?> "description")
+            Prelude.<$> (x Data..?> "nodeCounts")
+            Prelude.<*> (x Data..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "creationTime")
-            Prelude.<*> (x Core..:> "lastModificationTime")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "creationTime")
+            Prelude.<*> (x Data..:> "lastModificationTime")
       )
 
 instance Prelude.Hashable GetSignalCatalog where
@@ -104,32 +105,32 @@ instance Prelude.Hashable GetSignalCatalog where
 instance Prelude.NFData GetSignalCatalog where
   rnf GetSignalCatalog' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetSignalCatalog where
+instance Data.ToHeaders GetSignalCatalog where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.GetSignalCatalog" ::
+              Data.=# ( "IoTAutobahnControlPlane.GetSignalCatalog" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSignalCatalog where
+instance Data.ToJSON GetSignalCatalog where
   toJSON GetSignalCatalog' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath GetSignalCatalog where
+instance Data.ToPath GetSignalCatalog where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSignalCatalog where
+instance Data.ToQuery GetSignalCatalog where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSignalCatalogResponse' smart constructor.
@@ -146,9 +147,9 @@ data GetSignalCatalogResponse = GetSignalCatalogResponse'
     arn :: Prelude.Text,
     -- | The time the signal catalog was created in seconds since epoch (January
     -- 1, 1970 at midnight UTC time).
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The last time the signal catalog was modified.
-    lastModificationTime :: Core.POSIX
+    lastModificationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -199,9 +200,9 @@ newGetSignalCatalogResponse
         httpStatus = pHttpStatus_,
         name = pName_,
         arn = pArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lastModificationTime =
-          Core._Time Lens.# pLastModificationTime_
+          Data._Time Lens.# pLastModificationTime_
       }
 
 -- | The total number of network nodes specified in a signal catalog.
@@ -227,11 +228,11 @@ getSignalCatalogResponse_arn = Lens.lens (\GetSignalCatalogResponse' {arn} -> ar
 -- | The time the signal catalog was created in seconds since epoch (January
 -- 1, 1970 at midnight UTC time).
 getSignalCatalogResponse_creationTime :: Lens.Lens' GetSignalCatalogResponse Prelude.UTCTime
-getSignalCatalogResponse_creationTime = Lens.lens (\GetSignalCatalogResponse' {creationTime} -> creationTime) (\s@GetSignalCatalogResponse' {} a -> s {creationTime = a} :: GetSignalCatalogResponse) Prelude.. Core._Time
+getSignalCatalogResponse_creationTime = Lens.lens (\GetSignalCatalogResponse' {creationTime} -> creationTime) (\s@GetSignalCatalogResponse' {} a -> s {creationTime = a} :: GetSignalCatalogResponse) Prelude.. Data._Time
 
 -- | The last time the signal catalog was modified.
 getSignalCatalogResponse_lastModificationTime :: Lens.Lens' GetSignalCatalogResponse Prelude.UTCTime
-getSignalCatalogResponse_lastModificationTime = Lens.lens (\GetSignalCatalogResponse' {lastModificationTime} -> lastModificationTime) (\s@GetSignalCatalogResponse' {} a -> s {lastModificationTime = a} :: GetSignalCatalogResponse) Prelude.. Core._Time
+getSignalCatalogResponse_lastModificationTime = Lens.lens (\GetSignalCatalogResponse' {lastModificationTime} -> lastModificationTime) (\s@GetSignalCatalogResponse' {} a -> s {lastModificationTime = a} :: GetSignalCatalogResponse) Prelude.. Data._Time
 
 instance Prelude.NFData GetSignalCatalogResponse where
   rnf GetSignalCatalogResponse' {..} =

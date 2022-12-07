@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.KinesisStreamsOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | When configuring application output, identifies an Amazon Kinesis stream
@@ -84,11 +85,11 @@ instance Prelude.NFData KinesisStreamsOutput where
     Prelude.rnf resourceARN
       `Prelude.seq` Prelude.rnf roleARN
 
-instance Core.ToJSON KinesisStreamsOutput where
+instance Data.ToJSON KinesisStreamsOutput where
   toJSON KinesisStreamsOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceARN" Core..= resourceARN),
-            Prelude.Just ("RoleARN" Core..= roleARN)
+          [ Prelude.Just ("ResourceARN" Data..= resourceARN),
+            Prelude.Just ("RoleARN" Data..= roleARN)
           ]
       )

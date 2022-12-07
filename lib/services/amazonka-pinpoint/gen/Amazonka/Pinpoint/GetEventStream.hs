@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest GetEventStream where
       ( \s h x ->
           GetEventStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetEventStream where
@@ -98,26 +99,26 @@ instance Prelude.Hashable GetEventStream where
 instance Prelude.NFData GetEventStream where
   rnf GetEventStream' {..} = Prelude.rnf applicationId
 
-instance Core.ToHeaders GetEventStream where
+instance Data.ToHeaders GetEventStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetEventStream where
+instance Data.ToPath GetEventStream where
   toPath GetEventStream' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/eventstream"
       ]
 
-instance Core.ToQuery GetEventStream where
+instance Data.ToQuery GetEventStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEventStreamResponse' smart constructor.

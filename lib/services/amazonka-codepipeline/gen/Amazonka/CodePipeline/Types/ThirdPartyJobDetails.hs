@@ -22,6 +22,7 @@ module Amazonka.CodePipeline.Types.ThirdPartyJobDetails where
 import Amazonka.CodePipeline.Types.ThirdPartyJobData
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a job sent in response to a @GetThirdPartyJobDetails@
@@ -78,15 +79,15 @@ thirdPartyJobDetails_id = Lens.lens (\ThirdPartyJobDetails' {id} -> id) (\s@Thir
 thirdPartyJobDetails_data :: Lens.Lens' ThirdPartyJobDetails (Prelude.Maybe ThirdPartyJobData)
 thirdPartyJobDetails_data = Lens.lens (\ThirdPartyJobDetails' {data'} -> data') (\s@ThirdPartyJobDetails' {} a -> s {data' = a} :: ThirdPartyJobDetails)
 
-instance Core.FromJSON ThirdPartyJobDetails where
+instance Data.FromJSON ThirdPartyJobDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThirdPartyJobDetails"
       ( \x ->
           ThirdPartyJobDetails'
-            Prelude.<$> (x Core..:? "nonce")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "data")
+            Prelude.<$> (x Data..:? "nonce")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "data")
       )
 
 instance Prelude.Hashable ThirdPartyJobDetails where

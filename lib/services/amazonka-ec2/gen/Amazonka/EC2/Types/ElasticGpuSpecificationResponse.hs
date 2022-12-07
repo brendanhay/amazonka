@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ElasticGpuSpecificationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,10 +55,10 @@ newElasticGpuSpecificationResponse =
 elasticGpuSpecificationResponse_type :: Lens.Lens' ElasticGpuSpecificationResponse (Prelude.Maybe Prelude.Text)
 elasticGpuSpecificationResponse_type = Lens.lens (\ElasticGpuSpecificationResponse' {type'} -> type') (\s@ElasticGpuSpecificationResponse' {} a -> s {type' = a} :: ElasticGpuSpecificationResponse)
 
-instance Core.FromXML ElasticGpuSpecificationResponse where
+instance Data.FromXML ElasticGpuSpecificationResponse where
   parseXML x =
     ElasticGpuSpecificationResponse'
-      Prelude.<$> (x Core..@? "type")
+      Prelude.<$> (x Data..@? "type")
 
 instance
   Prelude.Hashable

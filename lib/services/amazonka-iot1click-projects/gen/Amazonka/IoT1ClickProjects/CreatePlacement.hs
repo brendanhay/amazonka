@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT1ClickProjects.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,33 +125,33 @@ instance Prelude.NFData CreatePlacement where
       `Prelude.seq` Prelude.rnf placementName
       `Prelude.seq` Prelude.rnf projectName
 
-instance Core.ToHeaders CreatePlacement where
+instance Data.ToHeaders CreatePlacement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePlacement where
+instance Data.ToJSON CreatePlacement where
   toJSON CreatePlacement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("attributes" Core..=) Prelude.<$> attributes,
+          [ ("attributes" Data..=) Prelude.<$> attributes,
             Prelude.Just
-              ("placementName" Core..= placementName)
+              ("placementName" Data..= placementName)
           ]
       )
 
-instance Core.ToPath CreatePlacement where
+instance Data.ToPath CreatePlacement where
   toPath CreatePlacement' {..} =
     Prelude.mconcat
-      ["/projects/", Core.toBS projectName, "/placements"]
+      ["/projects/", Data.toBS projectName, "/placements"]
 
-instance Core.ToQuery CreatePlacement where
+instance Data.ToQuery CreatePlacement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePlacementResponse' smart constructor.

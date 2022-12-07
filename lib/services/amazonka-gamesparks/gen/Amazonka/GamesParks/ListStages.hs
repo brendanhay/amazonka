@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,8 +147,8 @@ instance Core.AWSRequest ListStages where
     Response.receiveJSON
       ( \s h x ->
           ListStagesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Stages" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Stages" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,27 +164,27 @@ instance Prelude.NFData ListStages where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf gameName
 
-instance Core.ToHeaders ListStages where
+instance Data.ToHeaders ListStages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListStages where
+instance Data.ToPath ListStages where
   toPath ListStages' {..} =
     Prelude.mconcat
-      ["/game/", Core.toBS gameName, "/stage"]
+      ["/game/", Data.toBS gameName, "/stage"]
 
-instance Core.ToQuery ListStages where
+instance Data.ToQuery ListStages where
   toQuery ListStages' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListStagesResponse' smart constructor.

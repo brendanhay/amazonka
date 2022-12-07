@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.TimeStreamQuery.Types.TimeSeriesDataPoint where
 
-import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 data TimeSeriesDataPoint
@@ -24,7 +24,7 @@ instance Prelude.Show TimeSeriesDataPoint
 
 instance Prelude.Generic TimeSeriesDataPoint
 
-instance Core.FromJSON TimeSeriesDataPoint
+instance Data.FromJSON TimeSeriesDataPoint
 
 instance Prelude.NFData TimeSeriesDataPoint
 

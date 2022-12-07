@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.ListManagementOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object used to specify a list or topic to which an email belongs,
@@ -74,12 +75,12 @@ instance Prelude.NFData ListManagementOptions where
     Prelude.rnf topicName
       `Prelude.seq` Prelude.rnf contactListName
 
-instance Core.ToJSON ListManagementOptions where
+instance Data.ToJSON ListManagementOptions where
   toJSON ListManagementOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TopicName" Core..=) Prelude.<$> topicName,
+          [ ("TopicName" Data..=) Prelude.<$> topicName,
             Prelude.Just
-              ("ContactListName" Core..= contactListName)
+              ("ContactListName" Data..= contactListName)
           ]
       )

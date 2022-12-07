@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,7 +127,7 @@ instance Core.AWSRequest UpdateMLModel where
     Response.receiveJSON
       ( \s h x ->
           UpdateMLModelResponse'
-            Prelude.<$> (x Core..?> "MLModelId")
+            Prelude.<$> (x Data..?> "MLModelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,36 +143,36 @@ instance Prelude.NFData UpdateMLModel where
       `Prelude.seq` Prelude.rnf scoreThreshold
       `Prelude.seq` Prelude.rnf mLModelId
 
-instance Core.ToHeaders UpdateMLModel where
+instance Data.ToHeaders UpdateMLModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.UpdateMLModel" ::
+              Data.=# ( "AmazonML_20141212.UpdateMLModel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMLModel where
+instance Data.ToJSON UpdateMLModel where
   toJSON UpdateMLModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MLModelName" Core..=) Prelude.<$> mLModelName,
-            ("ScoreThreshold" Core..=)
+          [ ("MLModelName" Data..=) Prelude.<$> mLModelName,
+            ("ScoreThreshold" Data..=)
               Prelude.<$> scoreThreshold,
-            Prelude.Just ("MLModelId" Core..= mLModelId)
+            Prelude.Just ("MLModelId" Data..= mLModelId)
           ]
       )
 
-instance Core.ToPath UpdateMLModel where
+instance Data.ToPath UpdateMLModel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateMLModel where
+instance Data.ToQuery UpdateMLModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an @UpdateMLModel@ operation.

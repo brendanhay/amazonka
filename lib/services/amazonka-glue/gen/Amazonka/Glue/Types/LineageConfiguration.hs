@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.LineageConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CrawlerLineageSettings
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,13 +70,13 @@ newLineageConfiguration =
 lineageConfiguration_crawlerLineageSettings :: Lens.Lens' LineageConfiguration (Prelude.Maybe CrawlerLineageSettings)
 lineageConfiguration_crawlerLineageSettings = Lens.lens (\LineageConfiguration' {crawlerLineageSettings} -> crawlerLineageSettings) (\s@LineageConfiguration' {} a -> s {crawlerLineageSettings = a} :: LineageConfiguration)
 
-instance Core.FromJSON LineageConfiguration where
+instance Data.FromJSON LineageConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LineageConfiguration"
       ( \x ->
           LineageConfiguration'
-            Prelude.<$> (x Core..:? "CrawlerLineageSettings")
+            Prelude.<$> (x Data..:? "CrawlerLineageSettings")
       )
 
 instance Prelude.Hashable LineageConfiguration where
@@ -86,11 +87,11 @@ instance Prelude.NFData LineageConfiguration where
   rnf LineageConfiguration' {..} =
     Prelude.rnf crawlerLineageSettings
 
-instance Core.ToJSON LineageConfiguration where
+instance Data.ToJSON LineageConfiguration where
   toJSON LineageConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CrawlerLineageSettings" Core..=)
+          [ ("CrawlerLineageSettings" Data..=)
               Prelude.<$> crawlerLineageSettings
           ]
       )

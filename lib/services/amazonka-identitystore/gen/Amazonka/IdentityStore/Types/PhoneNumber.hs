@@ -21,6 +21,7 @@ module Amazonka.IdentityStore.Types.PhoneNumber where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The phone number associated with the user.
@@ -29,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 data PhoneNumber = PhoneNumber'
   { -- | A string representing the type of a phone number. For example,
     -- \"Mobile.\"
-    type' :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    type' :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A Boolean value representing whether this is the primary phone number
     -- for the associated resource.
-    primary :: Prelude.Maybe (Core.Sensitive Prelude.Bool),
+    primary :: Prelude.Maybe (Data.Sensitive Prelude.Bool),
     -- | A string containing a phone number. For example, \"8675309\" or \"+1
     -- (800) 123-4567\".
-    value :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    value :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -67,27 +68,27 @@ newPhoneNumber =
 -- | A string representing the type of a phone number. For example,
 -- \"Mobile.\"
 phoneNumber_type :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.Text)
-phoneNumber_type = Lens.lens (\PhoneNumber' {type'} -> type') (\s@PhoneNumber' {} a -> s {type' = a} :: PhoneNumber) Prelude.. Lens.mapping Core._Sensitive
+phoneNumber_type = Lens.lens (\PhoneNumber' {type'} -> type') (\s@PhoneNumber' {} a -> s {type' = a} :: PhoneNumber) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A Boolean value representing whether this is the primary phone number
 -- for the associated resource.
 phoneNumber_primary :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.Bool)
-phoneNumber_primary = Lens.lens (\PhoneNumber' {primary} -> primary) (\s@PhoneNumber' {} a -> s {primary = a} :: PhoneNumber) Prelude.. Lens.mapping Core._Sensitive
+phoneNumber_primary = Lens.lens (\PhoneNumber' {primary} -> primary) (\s@PhoneNumber' {} a -> s {primary = a} :: PhoneNumber) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing a phone number. For example, \"8675309\" or \"+1
 -- (800) 123-4567\".
 phoneNumber_value :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.Text)
-phoneNumber_value = Lens.lens (\PhoneNumber' {value} -> value) (\s@PhoneNumber' {} a -> s {value = a} :: PhoneNumber) Prelude.. Lens.mapping Core._Sensitive
+phoneNumber_value = Lens.lens (\PhoneNumber' {value} -> value) (\s@PhoneNumber' {} a -> s {value = a} :: PhoneNumber) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON PhoneNumber where
+instance Data.FromJSON PhoneNumber where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PhoneNumber"
       ( \x ->
           PhoneNumber'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Primary")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Primary")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable PhoneNumber where
@@ -102,12 +103,12 @@ instance Prelude.NFData PhoneNumber where
       `Prelude.seq` Prelude.rnf primary
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON PhoneNumber where
+instance Data.ToJSON PhoneNumber where
   toJSON PhoneNumber' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Primary" Core..=) Prelude.<$> primary,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Primary" Data..=) Prelude.<$> primary,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

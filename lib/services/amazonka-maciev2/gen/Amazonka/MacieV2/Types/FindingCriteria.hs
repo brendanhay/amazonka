@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.FindingCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.CriterionAdditionalProperties
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,13 +56,13 @@ newFindingCriteria =
 findingCriteria_criterion :: Lens.Lens' FindingCriteria (Prelude.Maybe (Prelude.HashMap Prelude.Text CriterionAdditionalProperties))
 findingCriteria_criterion = Lens.lens (\FindingCriteria' {criterion} -> criterion) (\s@FindingCriteria' {} a -> s {criterion = a} :: FindingCriteria) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON FindingCriteria where
+instance Data.FromJSON FindingCriteria where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FindingCriteria"
       ( \x ->
           FindingCriteria'
-            Prelude.<$> (x Core..:? "criterion" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "criterion" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FindingCriteria where
@@ -71,9 +72,9 @@ instance Prelude.Hashable FindingCriteria where
 instance Prelude.NFData FindingCriteria where
   rnf FindingCriteria' {..} = Prelude.rnf criterion
 
-instance Core.ToJSON FindingCriteria where
+instance Data.ToJSON FindingCriteria where
   toJSON FindingCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("criterion" Core..=) Prelude.<$> criterion]
+          [("criterion" Data..=) Prelude.<$> criterion]
       )

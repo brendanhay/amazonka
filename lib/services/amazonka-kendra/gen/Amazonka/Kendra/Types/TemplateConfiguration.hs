@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.TemplateConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.Template
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,13 +65,13 @@ newTemplateConfiguration =
 templateConfiguration_template :: Lens.Lens' TemplateConfiguration (Prelude.Maybe Template)
 templateConfiguration_template = Lens.lens (\TemplateConfiguration' {template} -> template) (\s@TemplateConfiguration' {} a -> s {template = a} :: TemplateConfiguration)
 
-instance Core.FromJSON TemplateConfiguration where
+instance Data.FromJSON TemplateConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateConfiguration"
       ( \x ->
           TemplateConfiguration'
-            Prelude.<$> (x Core..:? "Template")
+            Prelude.<$> (x Data..:? "Template")
       )
 
 instance Prelude.Hashable TemplateConfiguration where
@@ -80,9 +81,9 @@ instance Prelude.Hashable TemplateConfiguration where
 instance Prelude.NFData TemplateConfiguration where
   rnf TemplateConfiguration' {..} = Prelude.rnf template
 
-instance Core.ToJSON TemplateConfiguration where
+instance Data.ToJSON TemplateConfiguration where
   toJSON TemplateConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Template" Core..=) Prelude.<$> template]
+          [("Template" Data..=) Prelude.<$> template]
       )

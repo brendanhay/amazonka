@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,7 +121,7 @@ instance
       ( \s h x ->
           StartStudioSSOConfigurationRepairResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "studio")
+              Prelude.<*> (x Data..:> "studio")
       )
 
 instance
@@ -142,35 +143,35 @@ instance
       `Prelude.seq` Prelude.rnf studioId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StartStudioSSOConfigurationRepair
   where
   toHeaders StartStudioSSOConfigurationRepair' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     StartStudioSSOConfigurationRepair
   where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
 instance
-  Core.ToPath
+  Data.ToPath
     StartStudioSSOConfigurationRepair
   where
   toPath StartStudioSSOConfigurationRepair' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/sso-configuration"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     StartStudioSSOConfigurationRepair
   where
   toQuery = Prelude.const Prelude.mempty

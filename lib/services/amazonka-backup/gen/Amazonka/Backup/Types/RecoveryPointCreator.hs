@@ -21,6 +21,7 @@ module Amazonka.Backup.Types.RecoveryPointCreator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the backup plan and rule that Backup used to
@@ -93,16 +94,16 @@ recoveryPointCreator_backupPlanId = Lens.lens (\RecoveryPointCreator' {backupPla
 recoveryPointCreator_backupRuleId :: Lens.Lens' RecoveryPointCreator (Prelude.Maybe Prelude.Text)
 recoveryPointCreator_backupRuleId = Lens.lens (\RecoveryPointCreator' {backupRuleId} -> backupRuleId) (\s@RecoveryPointCreator' {} a -> s {backupRuleId = a} :: RecoveryPointCreator)
 
-instance Core.FromJSON RecoveryPointCreator where
+instance Data.FromJSON RecoveryPointCreator where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecoveryPointCreator"
       ( \x ->
           RecoveryPointCreator'
-            Prelude.<$> (x Core..:? "BackupPlanVersion")
-            Prelude.<*> (x Core..:? "BackupPlanArn")
-            Prelude.<*> (x Core..:? "BackupPlanId")
-            Prelude.<*> (x Core..:? "BackupRuleId")
+            Prelude.<$> (x Data..:? "BackupPlanVersion")
+            Prelude.<*> (x Data..:? "BackupPlanArn")
+            Prelude.<*> (x Data..:? "BackupPlanId")
+            Prelude.<*> (x Data..:? "BackupRuleId")
       )
 
 instance Prelude.Hashable RecoveryPointCreator where

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsIamAttachedManagedPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A managed policy that is attached to an IAM principal.
@@ -62,14 +63,14 @@ awsIamAttachedManagedPolicy_policyName = Lens.lens (\AwsIamAttachedManagedPolicy
 awsIamAttachedManagedPolicy_policyArn :: Lens.Lens' AwsIamAttachedManagedPolicy (Prelude.Maybe Prelude.Text)
 awsIamAttachedManagedPolicy_policyArn = Lens.lens (\AwsIamAttachedManagedPolicy' {policyArn} -> policyArn) (\s@AwsIamAttachedManagedPolicy' {} a -> s {policyArn = a} :: AwsIamAttachedManagedPolicy)
 
-instance Core.FromJSON AwsIamAttachedManagedPolicy where
+instance Data.FromJSON AwsIamAttachedManagedPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamAttachedManagedPolicy"
       ( \x ->
           AwsIamAttachedManagedPolicy'
-            Prelude.<$> (x Core..:? "PolicyName")
-            Prelude.<*> (x Core..:? "PolicyArn")
+            Prelude.<$> (x Data..:? "PolicyName")
+            Prelude.<*> (x Data..:? "PolicyArn")
       )
 
 instance Prelude.Hashable AwsIamAttachedManagedPolicy where
@@ -82,11 +83,11 @@ instance Prelude.NFData AwsIamAttachedManagedPolicy where
     Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf policyArn
 
-instance Core.ToJSON AwsIamAttachedManagedPolicy where
+instance Data.ToJSON AwsIamAttachedManagedPolicy where
   toJSON AwsIamAttachedManagedPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PolicyName" Core..=) Prelude.<$> policyName,
-            ("PolicyArn" Core..=) Prelude.<$> policyArn
+          [ ("PolicyName" Data..=) Prelude.<$> policyName,
+            ("PolicyArn" Data..=) Prelude.<$> policyArn
           ]
       )

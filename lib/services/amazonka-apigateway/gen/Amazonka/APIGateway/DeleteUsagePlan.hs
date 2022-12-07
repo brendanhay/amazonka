@@ -38,6 +38,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,21 +88,21 @@ instance Prelude.Hashable DeleteUsagePlan where
 instance Prelude.NFData DeleteUsagePlan where
   rnf DeleteUsagePlan' {..} = Prelude.rnf usagePlanId
 
-instance Core.ToHeaders DeleteUsagePlan where
+instance Data.ToHeaders DeleteUsagePlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath DeleteUsagePlan where
+instance Data.ToPath DeleteUsagePlan where
   toPath DeleteUsagePlan' {..} =
     Prelude.mconcat
-      ["/usageplans/", Core.toBS usagePlanId]
+      ["/usageplans/", Data.toBS usagePlanId]
 
-instance Core.ToQuery DeleteUsagePlan where
+instance Data.ToQuery DeleteUsagePlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUsagePlanResponse' smart constructor.

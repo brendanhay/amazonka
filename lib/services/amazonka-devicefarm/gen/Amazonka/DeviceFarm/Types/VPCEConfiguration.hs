@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.VPCEConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an Amazon Virtual Private Cloud (VPC) endpoint configuration.
@@ -100,17 +101,17 @@ vPCEConfiguration_vpceConfigurationDescription = Lens.lens (\VPCEConfiguration' 
 vPCEConfiguration_serviceDnsName :: Lens.Lens' VPCEConfiguration (Prelude.Maybe Prelude.Text)
 vPCEConfiguration_serviceDnsName = Lens.lens (\VPCEConfiguration' {serviceDnsName} -> serviceDnsName) (\s@VPCEConfiguration' {} a -> s {serviceDnsName = a} :: VPCEConfiguration)
 
-instance Core.FromJSON VPCEConfiguration where
+instance Data.FromJSON VPCEConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VPCEConfiguration"
       ( \x ->
           VPCEConfiguration'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "vpceServiceName")
-            Prelude.<*> (x Core..:? "vpceConfigurationName")
-            Prelude.<*> (x Core..:? "vpceConfigurationDescription")
-            Prelude.<*> (x Core..:? "serviceDnsName")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "vpceServiceName")
+            Prelude.<*> (x Data..:? "vpceConfigurationName")
+            Prelude.<*> (x Data..:? "vpceConfigurationDescription")
+            Prelude.<*> (x Data..:? "serviceDnsName")
       )
 
 instance Prelude.Hashable VPCEConfiguration where

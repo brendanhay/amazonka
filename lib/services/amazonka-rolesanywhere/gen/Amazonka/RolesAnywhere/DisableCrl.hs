@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -79,7 +80,7 @@ instance Core.AWSRequest DisableCrl where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable DisableCrl where
   hashWithSalt _salt DisableCrl' {..} =
@@ -88,24 +89,24 @@ instance Prelude.Hashable DisableCrl where
 instance Prelude.NFData DisableCrl where
   rnf DisableCrl' {..} = Prelude.rnf crlId
 
-instance Core.ToHeaders DisableCrl where
+instance Data.ToHeaders DisableCrl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisableCrl where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DisableCrl where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DisableCrl where
+instance Data.ToPath DisableCrl where
   toPath DisableCrl' {..} =
     Prelude.mconcat
-      ["/crl/", Core.toBS crlId, "/disable"]
+      ["/crl/", Data.toBS crlId, "/disable"]
 
-instance Core.ToQuery DisableCrl where
+instance Data.ToQuery DisableCrl where
   toQuery = Prelude.const Prelude.mempty

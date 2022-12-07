@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.PagerDutyConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.PagerDutyIncidentConfiguration
 
@@ -87,15 +88,15 @@ pagerDutyConfiguration_pagerDutyIncidentConfiguration = Lens.lens (\PagerDutyCon
 pagerDutyConfiguration_secretId :: Lens.Lens' PagerDutyConfiguration Prelude.Text
 pagerDutyConfiguration_secretId = Lens.lens (\PagerDutyConfiguration' {secretId} -> secretId) (\s@PagerDutyConfiguration' {} a -> s {secretId = a} :: PagerDutyConfiguration)
 
-instance Core.FromJSON PagerDutyConfiguration where
+instance Data.FromJSON PagerDutyConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PagerDutyConfiguration"
       ( \x ->
           PagerDutyConfiguration'
-            Prelude.<$> (x Core..: "name")
-            Prelude.<*> (x Core..: "pagerDutyIncidentConfiguration")
-            Prelude.<*> (x Core..: "secretId")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "pagerDutyIncidentConfiguration")
+            Prelude.<*> (x Data..: "secretId")
       )
 
 instance Prelude.Hashable PagerDutyConfiguration where
@@ -110,15 +111,15 @@ instance Prelude.NFData PagerDutyConfiguration where
       `Prelude.seq` Prelude.rnf pagerDutyIncidentConfiguration
       `Prelude.seq` Prelude.rnf secretId
 
-instance Core.ToJSON PagerDutyConfiguration where
+instance Data.ToJSON PagerDutyConfiguration where
   toJSON PagerDutyConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
+          [ Prelude.Just ("name" Data..= name),
             Prelude.Just
               ( "pagerDutyIncidentConfiguration"
-                  Core..= pagerDutyIncidentConfiguration
+                  Data..= pagerDutyIncidentConfiguration
               ),
-            Prelude.Just ("secretId" Core..= secretId)
+            Prelude.Just ("secretId" Data..= secretId)
           ]
       )

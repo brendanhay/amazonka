@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.RelevanceFeedback where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.RelevanceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,12 +82,12 @@ instance Prelude.NFData RelevanceFeedback where
     Prelude.rnf resultId
       `Prelude.seq` Prelude.rnf relevanceValue
 
-instance Core.ToJSON RelevanceFeedback where
+instance Data.ToJSON RelevanceFeedback where
   toJSON RelevanceFeedback' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResultId" Core..= resultId),
+          [ Prelude.Just ("ResultId" Data..= resultId),
             Prelude.Just
-              ("RelevanceValue" Core..= relevanceValue)
+              ("RelevanceValue" Data..= relevanceValue)
           ]
       )

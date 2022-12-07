@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.SimulationApplicationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.RobotSoftwareSuite
 import Amazonka.RobOMaker.Types.SimulationSoftwareSuite
@@ -33,7 +34,7 @@ data SimulationApplicationSummary = SimulationApplicationSummary'
     name :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the simulation
     -- application was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the simulation application.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Information about a robot software suite (ROS distribution).
@@ -85,7 +86,7 @@ simulationApplicationSummary_name = Lens.lens (\SimulationApplicationSummary' {n
 -- | The time, in milliseconds since the epoch, when the simulation
 -- application was last updated.
 simulationApplicationSummary_lastUpdatedAt :: Lens.Lens' SimulationApplicationSummary (Prelude.Maybe Prelude.UTCTime)
-simulationApplicationSummary_lastUpdatedAt = Lens.lens (\SimulationApplicationSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@SimulationApplicationSummary' {} a -> s {lastUpdatedAt = a} :: SimulationApplicationSummary) Prelude.. Lens.mapping Core._Time
+simulationApplicationSummary_lastUpdatedAt = Lens.lens (\SimulationApplicationSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@SimulationApplicationSummary' {} a -> s {lastUpdatedAt = a} :: SimulationApplicationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the simulation application.
 simulationApplicationSummary_arn :: Lens.Lens' SimulationApplicationSummary (Prelude.Maybe Prelude.Text)
@@ -103,18 +104,18 @@ simulationApplicationSummary_simulationSoftwareSuite = Lens.lens (\SimulationApp
 simulationApplicationSummary_version :: Lens.Lens' SimulationApplicationSummary (Prelude.Maybe Prelude.Text)
 simulationApplicationSummary_version = Lens.lens (\SimulationApplicationSummary' {version} -> version) (\s@SimulationApplicationSummary' {} a -> s {version = a} :: SimulationApplicationSummary)
 
-instance Core.FromJSON SimulationApplicationSummary where
+instance Data.FromJSON SimulationApplicationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SimulationApplicationSummary"
       ( \x ->
           SimulationApplicationSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "robotSoftwareSuite")
-            Prelude.<*> (x Core..:? "simulationSoftwareSuite")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "robotSoftwareSuite")
+            Prelude.<*> (x Data..:? "simulationSoftwareSuite")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance

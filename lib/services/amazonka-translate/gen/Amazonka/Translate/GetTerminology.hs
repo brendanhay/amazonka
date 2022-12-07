@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,9 +126,9 @@ instance Core.AWSRequest GetTerminology where
     Response.receiveJSON
       ( \s h x ->
           GetTerminologyResponse'
-            Prelude.<$> (x Core..?> "TerminologyDataLocation")
-            Prelude.<*> (x Core..?> "AuxiliaryDataLocation")
-            Prelude.<*> (x Core..?> "TerminologyProperties")
+            Prelude.<$> (x Data..?> "TerminologyDataLocation")
+            Prelude.<*> (x Data..?> "AuxiliaryDataLocation")
+            Prelude.<*> (x Data..?> "TerminologyProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,35 +142,35 @@ instance Prelude.NFData GetTerminology where
     Prelude.rnf terminologyDataFormat
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders GetTerminology where
+instance Data.ToHeaders GetTerminology where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShineFrontendService_20170701.GetTerminology" ::
+              Data.=# ( "AWSShineFrontendService_20170701.GetTerminology" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTerminology where
+instance Data.ToJSON GetTerminology where
   toJSON GetTerminology' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TerminologyDataFormat" Core..=)
+          [ ("TerminologyDataFormat" Data..=)
               Prelude.<$> terminologyDataFormat,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath GetTerminology where
+instance Data.ToPath GetTerminology where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTerminology where
+instance Data.ToQuery GetTerminology where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTerminologyResponse' smart constructor.

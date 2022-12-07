@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.Detector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detector.
@@ -97,18 +98,18 @@ detector_eventTypeName = Lens.lens (\Detector' {eventTypeName} -> eventTypeName)
 detector_detectorId :: Lens.Lens' Detector (Prelude.Maybe Prelude.Text)
 detector_detectorId = Lens.lens (\Detector' {detectorId} -> detectorId) (\s@Detector' {} a -> s {detectorId = a} :: Detector)
 
-instance Core.FromJSON Detector where
+instance Data.FromJSON Detector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Detector"
       ( \x ->
           Detector'
-            Prelude.<$> (x Core..:? "createdTime")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "eventTypeName")
-            Prelude.<*> (x Core..:? "detectorId")
+            Prelude.<$> (x Data..:? "createdTime")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "eventTypeName")
+            Prelude.<*> (x Data..:? "detectorId")
       )
 
 instance Prelude.Hashable Detector where

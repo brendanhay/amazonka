@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.DataRetrievalRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Data retrieval policy rule.
@@ -79,14 +80,14 @@ dataRetrievalRule_bytesPerHour = Lens.lens (\DataRetrievalRule' {bytesPerHour} -
 dataRetrievalRule_strategy :: Lens.Lens' DataRetrievalRule (Prelude.Maybe Prelude.Text)
 dataRetrievalRule_strategy = Lens.lens (\DataRetrievalRule' {strategy} -> strategy) (\s@DataRetrievalRule' {} a -> s {strategy = a} :: DataRetrievalRule)
 
-instance Core.FromJSON DataRetrievalRule where
+instance Data.FromJSON DataRetrievalRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataRetrievalRule"
       ( \x ->
           DataRetrievalRule'
-            Prelude.<$> (x Core..:? "BytesPerHour")
-            Prelude.<*> (x Core..:? "Strategy")
+            Prelude.<$> (x Data..:? "BytesPerHour")
+            Prelude.<*> (x Data..:? "Strategy")
       )
 
 instance Prelude.Hashable DataRetrievalRule where
@@ -99,11 +100,11 @@ instance Prelude.NFData DataRetrievalRule where
     Prelude.rnf bytesPerHour
       `Prelude.seq` Prelude.rnf strategy
 
-instance Core.ToJSON DataRetrievalRule where
+instance Data.ToJSON DataRetrievalRule where
   toJSON DataRetrievalRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BytesPerHour" Core..=) Prelude.<$> bytesPerHour,
-            ("Strategy" Core..=) Prelude.<$> strategy
+          [ ("BytesPerHour" Data..=) Prelude.<$> bytesPerHour,
+            ("Strategy" Data..=) Prelude.<$> strategy
           ]
       )

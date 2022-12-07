@@ -53,6 +53,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -67,12 +68,12 @@ data ListQueries = ListQueries'
     queryStatus :: Prelude.Maybe QueryStatus,
     -- | Use with @StartTime@ to bound a @ListQueries@ request, and limit its
     -- results to only those queries run within a specified time period.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of queries to show on a page.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Use with @EndTime@ to bound a @ListQueries@ request, and limit its
     -- results to only those queries run within a specified time period.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN (or the ID suffix of the ARN) of an event data store on which
     -- queries were run.
     eventDataStore :: Prelude.Text
@@ -130,7 +131,7 @@ listQueries_queryStatus = Lens.lens (\ListQueries' {queryStatus} -> queryStatus)
 -- | Use with @StartTime@ to bound a @ListQueries@ request, and limit its
 -- results to only those queries run within a specified time period.
 listQueries_endTime :: Lens.Lens' ListQueries (Prelude.Maybe Prelude.UTCTime)
-listQueries_endTime = Lens.lens (\ListQueries' {endTime} -> endTime) (\s@ListQueries' {} a -> s {endTime = a} :: ListQueries) Prelude.. Lens.mapping Core._Time
+listQueries_endTime = Lens.lens (\ListQueries' {endTime} -> endTime) (\s@ListQueries' {} a -> s {endTime = a} :: ListQueries) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of queries to show on a page.
 listQueries_maxResults :: Lens.Lens' ListQueries (Prelude.Maybe Prelude.Natural)
@@ -139,7 +140,7 @@ listQueries_maxResults = Lens.lens (\ListQueries' {maxResults} -> maxResults) (\
 -- | Use with @EndTime@ to bound a @ListQueries@ request, and limit its
 -- results to only those queries run within a specified time period.
 listQueries_startTime :: Lens.Lens' ListQueries (Prelude.Maybe Prelude.UTCTime)
-listQueries_startTime = Lens.lens (\ListQueries' {startTime} -> startTime) (\s@ListQueries' {} a -> s {startTime = a} :: ListQueries) Prelude.. Lens.mapping Core._Time
+listQueries_startTime = Lens.lens (\ListQueries' {startTime} -> startTime) (\s@ListQueries' {} a -> s {startTime = a} :: ListQueries) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN (or the ID suffix of the ARN) of an event data store on which
 -- queries were run.
@@ -154,8 +155,8 @@ instance Core.AWSRequest ListQueries where
     Response.receiveJSON
       ( \s h x ->
           ListQueriesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Queries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Queries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,39 +178,39 @@ instance Prelude.NFData ListQueries where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf eventDataStore
 
-instance Core.ToHeaders ListQueries where
+instance Data.ToHeaders ListQueries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListQueries" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListQueries" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListQueries where
+instance Data.ToJSON ListQueries where
   toJSON ListQueries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("QueryStatus" Core..=) Prelude.<$> queryStatus,
-            ("EndTime" Core..=) Prelude.<$> endTime,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StartTime" Core..=) Prelude.<$> startTime,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("QueryStatus" Data..=) Prelude.<$> queryStatus,
+            ("EndTime" Data..=) Prelude.<$> endTime,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StartTime" Data..=) Prelude.<$> startTime,
             Prelude.Just
-              ("EventDataStore" Core..= eventDataStore)
+              ("EventDataStore" Data..= eventDataStore)
           ]
       )
 
-instance Core.ToPath ListQueries where
+instance Data.ToPath ListQueries where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListQueries where
+instance Data.ToQuery ListQueries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListQueriesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.DomainEndpointOptionsStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.DomainEndpointOptions
 import Amazonka.OpenSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude
@@ -67,14 +68,14 @@ domainEndpointOptionsStatus_options = Lens.lens (\DomainEndpointOptionsStatus' {
 domainEndpointOptionsStatus_status :: Lens.Lens' DomainEndpointOptionsStatus OptionStatus
 domainEndpointOptionsStatus_status = Lens.lens (\DomainEndpointOptionsStatus' {status} -> status) (\s@DomainEndpointOptionsStatus' {} a -> s {status = a} :: DomainEndpointOptionsStatus)
 
-instance Core.FromJSON DomainEndpointOptionsStatus where
+instance Data.FromJSON DomainEndpointOptionsStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainEndpointOptionsStatus"
       ( \x ->
           DomainEndpointOptionsStatus'
-            Prelude.<$> (x Core..: "Options")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..: "Options")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable DomainEndpointOptionsStatus where

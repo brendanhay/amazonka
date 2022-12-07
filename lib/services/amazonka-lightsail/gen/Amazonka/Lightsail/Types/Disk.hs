@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.Disk where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.AddOn
 import Amazonka.Lightsail.Types.DiskState
 import Amazonka.Lightsail.Types.ResourceLocation
@@ -78,7 +79,7 @@ data Disk = Disk'
     -- | The input\/output operations per second (IOPS) of the disk.
     iops :: Prelude.Maybe Prelude.Int,
     -- | The date when the disk was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -238,31 +239,31 @@ disk_iops = Lens.lens (\Disk' {iops} -> iops) (\s@Disk' {} a -> s {iops = a} :: 
 
 -- | The date when the disk was created.
 disk_createdAt :: Lens.Lens' Disk (Prelude.Maybe Prelude.UTCTime)
-disk_createdAt = Lens.lens (\Disk' {createdAt} -> createdAt) (\s@Disk' {} a -> s {createdAt = a} :: Disk) Prelude.. Lens.mapping Core._Time
+disk_createdAt = Lens.lens (\Disk' {createdAt} -> createdAt) (\s@Disk' {} a -> s {createdAt = a} :: Disk) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Disk where
+instance Data.FromJSON Disk where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Disk"
       ( \x ->
           Disk'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "gbInUse")
-            Prelude.<*> (x Core..:? "sizeInGb")
-            Prelude.<*> (x Core..:? "attachedTo")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "isAttached")
-            Prelude.<*> (x Core..:? "addOns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "isSystemDisk")
-            Prelude.<*> (x Core..:? "attachmentState")
-            Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "iops")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "gbInUse")
+            Prelude.<*> (x Data..:? "sizeInGb")
+            Prelude.<*> (x Data..:? "attachedTo")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "isAttached")
+            Prelude.<*> (x Data..:? "addOns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "isSystemDisk")
+            Prelude.<*> (x Data..:? "attachmentState")
+            Prelude.<*> (x Data..:? "supportCode")
+            Prelude.<*> (x Data..:? "iops")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable Disk where

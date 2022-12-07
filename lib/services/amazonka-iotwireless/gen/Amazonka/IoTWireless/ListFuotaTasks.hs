@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,8 +100,8 @@ instance Core.AWSRequest ListFuotaTasks where
     Response.receiveJSON
       ( \s h x ->
           ListFuotaTasksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "FuotaTaskList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "FuotaTaskList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,17 +115,17 @@ instance Prelude.NFData ListFuotaTasks where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListFuotaTasks where
+instance Data.ToHeaders ListFuotaTasks where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListFuotaTasks where
+instance Data.ToPath ListFuotaTasks where
   toPath = Prelude.const "/fuota-tasks"
 
-instance Core.ToQuery ListFuotaTasks where
+instance Data.ToQuery ListFuotaTasks where
   toQuery ListFuotaTasks' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListFuotaTasksResponse' smart constructor.

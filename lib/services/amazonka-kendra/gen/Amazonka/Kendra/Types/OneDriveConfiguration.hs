@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.OneDriveConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.DataSourceToIndexFieldMapping
 import Amazonka.Kendra.Types.OneDriveUsers
 import qualified Amazonka.Prelude as Prelude
@@ -188,23 +189,23 @@ oneDriveConfiguration_secretArn = Lens.lens (\OneDriveConfiguration' {secretArn}
 oneDriveConfiguration_oneDriveUsers :: Lens.Lens' OneDriveConfiguration OneDriveUsers
 oneDriveConfiguration_oneDriveUsers = Lens.lens (\OneDriveConfiguration' {oneDriveUsers} -> oneDriveUsers) (\s@OneDriveConfiguration' {} a -> s {oneDriveUsers = a} :: OneDriveConfiguration)
 
-instance Core.FromJSON OneDriveConfiguration where
+instance Data.FromJSON OneDriveConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OneDriveConfiguration"
       ( \x ->
           OneDriveConfiguration'
-            Prelude.<$> ( x Core..:? "InclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "InclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "FieldMappings")
-            Prelude.<*> (x Core..:? "DisableLocalGroups")
-            Prelude.<*> ( x Core..:? "ExclusionPatterns"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "FieldMappings")
+            Prelude.<*> (x Data..:? "DisableLocalGroups")
+            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "TenantDomain")
-            Prelude.<*> (x Core..: "SecretArn")
-            Prelude.<*> (x Core..: "OneDriveUsers")
+            Prelude.<*> (x Data..: "TenantDomain")
+            Prelude.<*> (x Data..: "SecretArn")
+            Prelude.<*> (x Data..: "OneDriveUsers")
       )
 
 instance Prelude.Hashable OneDriveConfiguration where
@@ -227,20 +228,20 @@ instance Prelude.NFData OneDriveConfiguration where
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf oneDriveUsers
 
-instance Core.ToJSON OneDriveConfiguration where
+instance Data.ToJSON OneDriveConfiguration where
   toJSON OneDriveConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InclusionPatterns" Core..=)
+          [ ("InclusionPatterns" Data..=)
               Prelude.<$> inclusionPatterns,
-            ("FieldMappings" Core..=) Prelude.<$> fieldMappings,
-            ("DisableLocalGroups" Core..=)
+            ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
+            ("DisableLocalGroups" Data..=)
               Prelude.<$> disableLocalGroups,
-            ("ExclusionPatterns" Core..=)
+            ("ExclusionPatterns" Data..=)
               Prelude.<$> exclusionPatterns,
-            Prelude.Just ("TenantDomain" Core..= tenantDomain),
-            Prelude.Just ("SecretArn" Core..= secretArn),
+            Prelude.Just ("TenantDomain" Data..= tenantDomain),
+            Prelude.Just ("SecretArn" Data..= secretArn),
             Prelude.Just
-              ("OneDriveUsers" Core..= oneDriveUsers)
+              ("OneDriveUsers" Data..= oneDriveUsers)
           ]
       )

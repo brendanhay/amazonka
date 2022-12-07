@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.RandomSplitActivity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.RandomSplitEntry
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newRandomSplitActivity =
 randomSplitActivity_branches :: Lens.Lens' RandomSplitActivity (Prelude.Maybe [RandomSplitEntry])
 randomSplitActivity_branches = Lens.lens (\RandomSplitActivity' {branches} -> branches) (\s@RandomSplitActivity' {} a -> s {branches = a} :: RandomSplitActivity) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RandomSplitActivity where
+instance Data.FromJSON RandomSplitActivity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RandomSplitActivity"
       ( \x ->
           RandomSplitActivity'
-            Prelude.<$> (x Core..:? "Branches" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Branches" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RandomSplitActivity where
@@ -73,9 +74,9 @@ instance Prelude.Hashable RandomSplitActivity where
 instance Prelude.NFData RandomSplitActivity where
   rnf RandomSplitActivity' {..} = Prelude.rnf branches
 
-instance Core.ToJSON RandomSplitActivity where
+instance Data.ToJSON RandomSplitActivity where
   toJSON RandomSplitActivity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Branches" Core..=) Prelude.<$> branches]
+          [("Branches" Data..=) Prelude.<$> branches]
       )

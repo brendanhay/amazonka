@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -87,8 +88,8 @@ instance Core.AWSRequest GetDeviceIdentifier where
     Response.receiveJSON
       ( \s h x ->
           GetDeviceIdentifierResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "deviceIdentifier")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "deviceIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,31 +101,31 @@ instance Prelude.NFData GetDeviceIdentifier where
   rnf GetDeviceIdentifier' {..} =
     Prelude.rnf deviceIdentifierArn
 
-instance Core.ToHeaders GetDeviceIdentifier where
+instance Data.ToHeaders GetDeviceIdentifier where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDeviceIdentifier where
+instance Data.ToPath GetDeviceIdentifier where
   toPath GetDeviceIdentifier' {..} =
     Prelude.mconcat
       [ "/v1/device-identifiers/",
-        Core.toBS deviceIdentifierArn
+        Data.toBS deviceIdentifierArn
       ]
 
-instance Core.ToQuery GetDeviceIdentifier where
+instance Data.ToQuery GetDeviceIdentifier where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDeviceIdentifierResponse' smart constructor.
 data GetDeviceIdentifierResponse = GetDeviceIdentifierResponse'
   { -- | The device identifier tags.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Information about the device identifier.
     deviceIdentifier :: Prelude.Maybe DeviceIdentifier,
     -- | The response's http status code.
@@ -159,7 +160,7 @@ newGetDeviceIdentifierResponse pHttpStatus_ =
 
 -- | The device identifier tags.
 getDeviceIdentifierResponse_tags :: Lens.Lens' GetDeviceIdentifierResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getDeviceIdentifierResponse_tags = Lens.lens (\GetDeviceIdentifierResponse' {tags} -> tags) (\s@GetDeviceIdentifierResponse' {} a -> s {tags = a} :: GetDeviceIdentifierResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+getDeviceIdentifierResponse_tags = Lens.lens (\GetDeviceIdentifierResponse' {tags} -> tags) (\s@GetDeviceIdentifierResponse' {} a -> s {tags = a} :: GetDeviceIdentifierResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Information about the device identifier.
 getDeviceIdentifierResponse_deviceIdentifier :: Lens.Lens' GetDeviceIdentifierResponse (Prelude.Maybe DeviceIdentifier)

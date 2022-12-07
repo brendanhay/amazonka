@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.GameProperty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Set of key-value pairs that contain information about a game session.
@@ -68,13 +69,13 @@ gameProperty_key = Lens.lens (\GameProperty' {key} -> key) (\s@GameProperty' {} 
 gameProperty_value :: Lens.Lens' GameProperty Prelude.Text
 gameProperty_value = Lens.lens (\GameProperty' {value} -> value) (\s@GameProperty' {} a -> s {value = a} :: GameProperty)
 
-instance Core.FromJSON GameProperty where
+instance Data.FromJSON GameProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GameProperty"
       ( \x ->
           GameProperty'
-            Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable GameProperty where
@@ -86,11 +87,11 @@ instance Prelude.NFData GameProperty where
   rnf GameProperty' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON GameProperty where
+instance Data.ToJSON GameProperty where
   toJSON GameProperty' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

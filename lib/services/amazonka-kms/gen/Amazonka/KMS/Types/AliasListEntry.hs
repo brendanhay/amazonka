@@ -21,6 +21,7 @@ module Amazonka.KMS.Types.AliasListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an alias.
@@ -29,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 data AliasListEntry = AliasListEntry'
   { -- | Date and time that the alias was most recently associated with a KMS key
     -- in the account and Region. Formatted as Unix time.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | String that contains the key ARN.
     aliasArn :: Prelude.Maybe Prelude.Text,
     -- | Date and time that the alias was most recently created in the account
     -- and Region. Formatted as Unix time.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | String that contains the key identifier of the KMS key associated with
     -- the alias.
     targetKeyId :: Prelude.Maybe Prelude.Text,
@@ -77,7 +78,7 @@ newAliasListEntry =
 -- | Date and time that the alias was most recently associated with a KMS key
 -- in the account and Region. Formatted as Unix time.
 aliasListEntry_lastUpdatedDate :: Lens.Lens' AliasListEntry (Prelude.Maybe Prelude.UTCTime)
-aliasListEntry_lastUpdatedDate = Lens.lens (\AliasListEntry' {lastUpdatedDate} -> lastUpdatedDate) (\s@AliasListEntry' {} a -> s {lastUpdatedDate = a} :: AliasListEntry) Prelude.. Lens.mapping Core._Time
+aliasListEntry_lastUpdatedDate = Lens.lens (\AliasListEntry' {lastUpdatedDate} -> lastUpdatedDate) (\s@AliasListEntry' {} a -> s {lastUpdatedDate = a} :: AliasListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | String that contains the key ARN.
 aliasListEntry_aliasArn :: Lens.Lens' AliasListEntry (Prelude.Maybe Prelude.Text)
@@ -86,7 +87,7 @@ aliasListEntry_aliasArn = Lens.lens (\AliasListEntry' {aliasArn} -> aliasArn) (\
 -- | Date and time that the alias was most recently created in the account
 -- and Region. Formatted as Unix time.
 aliasListEntry_creationDate :: Lens.Lens' AliasListEntry (Prelude.Maybe Prelude.UTCTime)
-aliasListEntry_creationDate = Lens.lens (\AliasListEntry' {creationDate} -> creationDate) (\s@AliasListEntry' {} a -> s {creationDate = a} :: AliasListEntry) Prelude.. Lens.mapping Core._Time
+aliasListEntry_creationDate = Lens.lens (\AliasListEntry' {creationDate} -> creationDate) (\s@AliasListEntry' {} a -> s {creationDate = a} :: AliasListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | String that contains the key identifier of the KMS key associated with
 -- the alias.
@@ -97,17 +98,17 @@ aliasListEntry_targetKeyId = Lens.lens (\AliasListEntry' {targetKeyId} -> target
 aliasListEntry_aliasName :: Lens.Lens' AliasListEntry (Prelude.Maybe Prelude.Text)
 aliasListEntry_aliasName = Lens.lens (\AliasListEntry' {aliasName} -> aliasName) (\s@AliasListEntry' {} a -> s {aliasName = a} :: AliasListEntry)
 
-instance Core.FromJSON AliasListEntry where
+instance Data.FromJSON AliasListEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AliasListEntry"
       ( \x ->
           AliasListEntry'
-            Prelude.<$> (x Core..:? "LastUpdatedDate")
-            Prelude.<*> (x Core..:? "AliasArn")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "TargetKeyId")
-            Prelude.<*> (x Core..:? "AliasName")
+            Prelude.<$> (x Data..:? "LastUpdatedDate")
+            Prelude.<*> (x Data..:? "AliasArn")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "TargetKeyId")
+            Prelude.<*> (x Data..:? "AliasName")
       )
 
 instance Prelude.Hashable AliasListEntry where

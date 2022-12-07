@@ -54,6 +54,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,9 +141,9 @@ instance Core.AWSRequest SelectResourceConfig where
     Response.receiveJSON
       ( \s h x ->
           SelectResourceConfigResponse'
-            Prelude.<$> (x Core..?> "QueryInfo")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "QueryInfo")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,35 +159,35 @@ instance Prelude.NFData SelectResourceConfig where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf expression
 
-instance Core.ToHeaders SelectResourceConfig where
+instance Data.ToHeaders SelectResourceConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.SelectResourceConfig" ::
+              Data.=# ( "StarlingDoveService.SelectResourceConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SelectResourceConfig where
+instance Data.ToJSON SelectResourceConfig where
   toJSON SelectResourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("Expression" Core..= expression)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("Expression" Data..= expression)
           ]
       )
 
-instance Core.ToPath SelectResourceConfig where
+instance Data.ToPath SelectResourceConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SelectResourceConfig where
+instance Data.ToQuery SelectResourceConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSelectResourceConfigResponse' smart constructor.

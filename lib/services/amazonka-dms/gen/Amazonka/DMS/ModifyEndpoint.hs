@@ -81,6 +81,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,7 +122,7 @@ data ModifyEndpoint = ModifyEndpoint'
     -- end with a hyphen or contain two consecutive hyphens.
     endpointIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The password to be used to login to the endpoint database.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the server where the endpoint database resides.
     serverName :: Prelude.Maybe Prelude.Text,
     -- | Settings in JSON format for the source DocumentDB endpoint. For more
@@ -529,7 +530,7 @@ modifyEndpoint_endpointIdentifier = Lens.lens (\ModifyEndpoint' {endpointIdentif
 
 -- | The password to be used to login to the endpoint database.
 modifyEndpoint_password :: Lens.Lens' ModifyEndpoint (Prelude.Maybe Prelude.Text)
-modifyEndpoint_password = Lens.lens (\ModifyEndpoint' {password} -> password) (\s@ModifyEndpoint' {} a -> s {password = a} :: ModifyEndpoint) Prelude.. Lens.mapping Core._Sensitive
+modifyEndpoint_password = Lens.lens (\ModifyEndpoint' {password} -> password) (\s@ModifyEndpoint' {} a -> s {password = a} :: ModifyEndpoint) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the server where the endpoint database resides.
 modifyEndpoint_serverName :: Lens.Lens' ModifyEndpoint (Prelude.Maybe Prelude.Text)
@@ -725,7 +726,7 @@ instance Core.AWSRequest ModifyEndpoint where
     Response.receiveJSON
       ( \s h x ->
           ModifyEndpointResponse'
-            Prelude.<$> (x Core..?> "Endpoint")
+            Prelude.<$> (x Data..?> "Endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -813,83 +814,83 @@ instance Prelude.NFData ModifyEndpoint where
       `Prelude.seq` Prelude.rnf
         endpointArn
 
-instance Core.ToHeaders ModifyEndpoint where
+instance Data.ToHeaders ModifyEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.ModifyEndpoint" ::
+              Data.=# ( "AmazonDMSv20160101.ModifyEndpoint" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ModifyEndpoint where
+instance Data.ToJSON ModifyEndpoint where
   toJSON ModifyEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("ElasticsearchSettings" Core..=)
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("ElasticsearchSettings" Data..=)
               Prelude.<$> elasticsearchSettings,
-            ("RedshiftSettings" Core..=)
+            ("RedshiftSettings" Data..=)
               Prelude.<$> redshiftSettings,
-            ("ExternalTableDefinition" Core..=)
+            ("ExternalTableDefinition" Data..=)
               Prelude.<$> externalTableDefinition,
-            ("EngineName" Core..=) Prelude.<$> engineName,
-            ("MySQLSettings" Core..=) Prelude.<$> mySQLSettings,
-            ("SslMode" Core..=) Prelude.<$> sslMode,
-            ("EndpointIdentifier" Core..=)
+            ("EngineName" Data..=) Prelude.<$> engineName,
+            ("MySQLSettings" Data..=) Prelude.<$> mySQLSettings,
+            ("SslMode" Data..=) Prelude.<$> sslMode,
+            ("EndpointIdentifier" Data..=)
               Prelude.<$> endpointIdentifier,
-            ("Password" Core..=) Prelude.<$> password,
-            ("ServerName" Core..=) Prelude.<$> serverName,
-            ("DocDbSettings" Core..=) Prelude.<$> docDbSettings,
-            ("ExactSettings" Core..=) Prelude.<$> exactSettings,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("Username" Core..=) Prelude.<$> username,
-            ("GcpMySQLSettings" Core..=)
+            ("Password" Data..=) Prelude.<$> password,
+            ("ServerName" Data..=) Prelude.<$> serverName,
+            ("DocDbSettings" Data..=) Prelude.<$> docDbSettings,
+            ("ExactSettings" Data..=) Prelude.<$> exactSettings,
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("Username" Data..=) Prelude.<$> username,
+            ("GcpMySQLSettings" Data..=)
               Prelude.<$> gcpMySQLSettings,
-            ("ServiceAccessRoleArn" Core..=)
+            ("ServiceAccessRoleArn" Data..=)
               Prelude.<$> serviceAccessRoleArn,
-            ("ExtraConnectionAttributes" Core..=)
+            ("ExtraConnectionAttributes" Data..=)
               Prelude.<$> extraConnectionAttributes,
-            ("NeptuneSettings" Core..=)
+            ("NeptuneSettings" Data..=)
               Prelude.<$> neptuneSettings,
-            ("EndpointType" Core..=) Prelude.<$> endpointType,
-            ("KinesisSettings" Core..=)
+            ("EndpointType" Data..=) Prelude.<$> endpointType,
+            ("KinesisSettings" Data..=)
               Prelude.<$> kinesisSettings,
-            ("OracleSettings" Core..=)
+            ("OracleSettings" Data..=)
               Prelude.<$> oracleSettings,
-            ("CertificateArn" Core..=)
+            ("CertificateArn" Data..=)
               Prelude.<$> certificateArn,
-            ("DynamoDbSettings" Core..=)
+            ("DynamoDbSettings" Data..=)
               Prelude.<$> dynamoDbSettings,
-            ("RedisSettings" Core..=) Prelude.<$> redisSettings,
-            ("S3Settings" Core..=) Prelude.<$> s3Settings,
-            ("MicrosoftSQLServerSettings" Core..=)
+            ("RedisSettings" Data..=) Prelude.<$> redisSettings,
+            ("S3Settings" Data..=) Prelude.<$> s3Settings,
+            ("MicrosoftSQLServerSettings" Data..=)
               Prelude.<$> microsoftSQLServerSettings,
-            ("KafkaSettings" Core..=) Prelude.<$> kafkaSettings,
-            ("DmsTransferSettings" Core..=)
+            ("KafkaSettings" Data..=) Prelude.<$> kafkaSettings,
+            ("DmsTransferSettings" Data..=)
               Prelude.<$> dmsTransferSettings,
-            ("SybaseSettings" Core..=)
+            ("SybaseSettings" Data..=)
               Prelude.<$> sybaseSettings,
-            ("PostgreSQLSettings" Core..=)
+            ("PostgreSQLSettings" Data..=)
               Prelude.<$> postgreSQLSettings,
-            ("IBMDb2Settings" Core..=)
+            ("IBMDb2Settings" Data..=)
               Prelude.<$> iBMDb2Settings,
-            ("MongoDbSettings" Core..=)
+            ("MongoDbSettings" Data..=)
               Prelude.<$> mongoDbSettings,
-            Prelude.Just ("EndpointArn" Core..= endpointArn)
+            Prelude.Just ("EndpointArn" Data..= endpointArn)
           ]
       )
 
-instance Core.ToPath ModifyEndpoint where
+instance Data.ToPath ModifyEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyEndpoint where
+instance Data.ToQuery ModifyEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

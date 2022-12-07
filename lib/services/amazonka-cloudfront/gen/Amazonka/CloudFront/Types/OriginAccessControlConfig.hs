@@ -24,6 +24,7 @@ import Amazonka.CloudFront.Types.OriginAccessControlSigningBehaviors
 import Amazonka.CloudFront.Types.OriginAccessControlSigningProtocols
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A CloudFront origin access control configuration.
@@ -186,14 +187,14 @@ originAccessControlConfig_signingBehavior = Lens.lens (\OriginAccessControlConfi
 originAccessControlConfig_originAccessControlOriginType :: Lens.Lens' OriginAccessControlConfig OriginAccessControlOriginTypes
 originAccessControlConfig_originAccessControlOriginType = Lens.lens (\OriginAccessControlConfig' {originAccessControlOriginType} -> originAccessControlOriginType) (\s@OriginAccessControlConfig' {} a -> s {originAccessControlOriginType = a} :: OriginAccessControlConfig)
 
-instance Core.FromXML OriginAccessControlConfig where
+instance Data.FromXML OriginAccessControlConfig where
   parseXML x =
     OriginAccessControlConfig'
-      Prelude.<$> (x Core..@? "Description")
-      Prelude.<*> (x Core..@ "Name")
-      Prelude.<*> (x Core..@ "SigningProtocol")
-      Prelude.<*> (x Core..@ "SigningBehavior")
-      Prelude.<*> (x Core..@ "OriginAccessControlOriginType")
+      Prelude.<$> (x Data..@? "Description")
+      Prelude.<*> (x Data..@ "Name")
+      Prelude.<*> (x Data..@ "SigningProtocol")
+      Prelude.<*> (x Data..@ "SigningBehavior")
+      Prelude.<*> (x Data..@ "OriginAccessControlOriginType")
 
 instance Prelude.Hashable OriginAccessControlConfig where
   hashWithSalt _salt OriginAccessControlConfig' {..} =
@@ -211,13 +212,13 @@ instance Prelude.NFData OriginAccessControlConfig where
       `Prelude.seq` Prelude.rnf signingBehavior
       `Prelude.seq` Prelude.rnf originAccessControlOriginType
 
-instance Core.ToXML OriginAccessControlConfig where
+instance Data.ToXML OriginAccessControlConfig where
   toXML OriginAccessControlConfig' {..} =
     Prelude.mconcat
-      [ "Description" Core.@= description,
-        "Name" Core.@= name,
-        "SigningProtocol" Core.@= signingProtocol,
-        "SigningBehavior" Core.@= signingBehavior,
+      [ "Description" Data.@= description,
+        "Name" Data.@= name,
+        "SigningProtocol" Data.@= signingProtocol,
+        "SigningBehavior" Data.@= signingBehavior,
         "OriginAccessControlOriginType"
-          Core.@= originAccessControlOriginType
+          Data.@= originAccessControlOriginType
       ]

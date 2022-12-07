@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,7 +110,7 @@ instance Core.AWSRequest CreateDefaultVpc where
     Response.receiveXML
       ( \s h x ->
           CreateDefaultVpcResponse'
-            Prelude.<$> (x Core..@? "vpc")
+            Prelude.<$> (x Data..@? "vpc")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,20 +121,20 @@ instance Prelude.Hashable CreateDefaultVpc where
 instance Prelude.NFData CreateDefaultVpc where
   rnf CreateDefaultVpc' {..} = Prelude.rnf dryRun
 
-instance Core.ToHeaders CreateDefaultVpc where
+instance Data.ToHeaders CreateDefaultVpc where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDefaultVpc where
+instance Data.ToPath CreateDefaultVpc where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDefaultVpc where
+instance Data.ToQuery CreateDefaultVpc where
   toQuery CreateDefaultVpc' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDefaultVpc" :: Prelude.ByteString),
+          Data.=: ("CreateDefaultVpc" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun
       ]
 
 -- | /See:/ 'newCreateDefaultVpcResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryCluster.Types.RoutingControlState
 
@@ -87,13 +88,13 @@ instance
     Prelude.rnf routingControlArn
       `Prelude.seq` Prelude.rnf routingControlState
 
-instance Core.ToJSON UpdateRoutingControlStateEntry where
+instance Data.ToJSON UpdateRoutingControlStateEntry where
   toJSON UpdateRoutingControlStateEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("RoutingControlArn" Core..= routingControlArn),
+              ("RoutingControlArn" Data..= routingControlArn),
             Prelude.Just
-              ("RoutingControlState" Core..= routingControlState)
+              ("RoutingControlState" Data..= routingControlState)
           ]
       )

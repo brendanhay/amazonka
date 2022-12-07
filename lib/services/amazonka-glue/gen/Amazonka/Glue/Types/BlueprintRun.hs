@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.BlueprintRun where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.BlueprintRunState
 import qualified Amazonka.Prelude as Prelude
 
@@ -32,7 +33,7 @@ data BlueprintRun = BlueprintRun'
     -- used to create the workflow and other entities of a workflow.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the blueprint run started.
-    startedOn :: Prelude.Maybe Core.POSIX,
+    startedOn :: Prelude.Maybe Data.POSIX,
     -- | Indicates any errors that are seen while running the blueprint.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The name of a workflow that is created as a result of a successful
@@ -50,7 +51,7 @@ data BlueprintRun = BlueprintRun'
     -- -   Rolling Back — The blueprint run failed and rollback is in progress.
     state :: Prelude.Maybe BlueprintRunState,
     -- | The date and time that the blueprint run completed.
-    completedOn :: Prelude.Maybe Core.POSIX,
+    completedOn :: Prelude.Maybe Data.POSIX,
     -- | The name of the blueprint.
     blueprintName :: Prelude.Maybe Prelude.Text,
     -- | If there are any errors while creating the entities of a workflow, we
@@ -133,7 +134,7 @@ blueprintRun_roleArn = Lens.lens (\BlueprintRun' {roleArn} -> roleArn) (\s@Bluep
 
 -- | The date and time that the blueprint run started.
 blueprintRun_startedOn :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.UTCTime)
-blueprintRun_startedOn = Lens.lens (\BlueprintRun' {startedOn} -> startedOn) (\s@BlueprintRun' {} a -> s {startedOn = a} :: BlueprintRun) Prelude.. Lens.mapping Core._Time
+blueprintRun_startedOn = Lens.lens (\BlueprintRun' {startedOn} -> startedOn) (\s@BlueprintRun' {} a -> s {startedOn = a} :: BlueprintRun) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates any errors that are seen while running the blueprint.
 blueprintRun_errorMessage :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.Text)
@@ -159,7 +160,7 @@ blueprintRun_state = Lens.lens (\BlueprintRun' {state} -> state) (\s@BlueprintRu
 
 -- | The date and time that the blueprint run completed.
 blueprintRun_completedOn :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.UTCTime)
-blueprintRun_completedOn = Lens.lens (\BlueprintRun' {completedOn} -> completedOn) (\s@BlueprintRun' {} a -> s {completedOn = a} :: BlueprintRun) Prelude.. Lens.mapping Core._Time
+blueprintRun_completedOn = Lens.lens (\BlueprintRun' {completedOn} -> completedOn) (\s@BlueprintRun' {} a -> s {completedOn = a} :: BlueprintRun) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the blueprint.
 blueprintRun_blueprintName :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.Text)
@@ -182,22 +183,22 @@ blueprintRun_runId = Lens.lens (\BlueprintRun' {runId} -> runId) (\s@BlueprintRu
 blueprintRun_parameters :: Lens.Lens' BlueprintRun (Prelude.Maybe Prelude.Text)
 blueprintRun_parameters = Lens.lens (\BlueprintRun' {parameters} -> parameters) (\s@BlueprintRun' {} a -> s {parameters = a} :: BlueprintRun)
 
-instance Core.FromJSON BlueprintRun where
+instance Data.FromJSON BlueprintRun where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BlueprintRun"
       ( \x ->
           BlueprintRun'
-            Prelude.<$> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "StartedOn")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "WorkflowName")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CompletedOn")
-            Prelude.<*> (x Core..:? "BlueprintName")
-            Prelude.<*> (x Core..:? "RollbackErrorMessage")
-            Prelude.<*> (x Core..:? "RunId")
-            Prelude.<*> (x Core..:? "Parameters")
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "StartedOn")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "WorkflowName")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "CompletedOn")
+            Prelude.<*> (x Data..:? "BlueprintName")
+            Prelude.<*> (x Data..:? "RollbackErrorMessage")
+            Prelude.<*> (x Data..:? "RunId")
+            Prelude.<*> (x Data..:? "Parameters")
       )
 
 instance Prelude.Hashable BlueprintRun where

@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.InferenceOutputConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.InferenceS3OutputConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,14 +72,14 @@ inferenceOutputConfiguration_kmsKeyId = Lens.lens (\InferenceOutputConfiguration
 inferenceOutputConfiguration_s3OutputConfiguration :: Lens.Lens' InferenceOutputConfiguration InferenceS3OutputConfiguration
 inferenceOutputConfiguration_s3OutputConfiguration = Lens.lens (\InferenceOutputConfiguration' {s3OutputConfiguration} -> s3OutputConfiguration) (\s@InferenceOutputConfiguration' {} a -> s {s3OutputConfiguration = a} :: InferenceOutputConfiguration)
 
-instance Core.FromJSON InferenceOutputConfiguration where
+instance Data.FromJSON InferenceOutputConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InferenceOutputConfiguration"
       ( \x ->
           InferenceOutputConfiguration'
-            Prelude.<$> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..: "S3OutputConfiguration")
+            Prelude.<$> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..: "S3OutputConfiguration")
       )
 
 instance
@@ -94,14 +95,14 @@ instance Prelude.NFData InferenceOutputConfiguration where
     Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf s3OutputConfiguration
 
-instance Core.ToJSON InferenceOutputConfiguration where
+instance Data.ToJSON InferenceOutputConfiguration where
   toJSON InferenceOutputConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             Prelude.Just
               ( "S3OutputConfiguration"
-                  Core..= s3OutputConfiguration
+                  Data..= s3OutputConfiguration
               )
           ]
       )

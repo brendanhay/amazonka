@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -256,7 +257,7 @@ instance Core.AWSRequest CreateAgent where
     Response.receiveJSON
       ( \s h x ->
           CreateAgentResponse'
-            Prelude.<$> (x Core..?> "AgentArn")
+            Prelude.<$> (x Data..?> "AgentArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -278,38 +279,38 @@ instance Prelude.NFData CreateAgent where
       `Prelude.seq` Prelude.rnf securityGroupArns
       `Prelude.seq` Prelude.rnf activationKey
 
-instance Core.ToHeaders CreateAgent where
+instance Data.ToHeaders CreateAgent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("FmrsService.CreateAgent" :: Prelude.ByteString),
+              Data.=# ("FmrsService.CreateAgent" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAgent where
+instance Data.ToJSON CreateAgent where
   toJSON CreateAgent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("AgentName" Core..=) Prelude.<$> agentName,
-            ("SubnetArns" Core..=) Prelude.<$> subnetArns,
-            ("VpcEndpointId" Core..=) Prelude.<$> vpcEndpointId,
-            ("SecurityGroupArns" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("AgentName" Data..=) Prelude.<$> agentName,
+            ("SubnetArns" Data..=) Prelude.<$> subnetArns,
+            ("VpcEndpointId" Data..=) Prelude.<$> vpcEndpointId,
+            ("SecurityGroupArns" Data..=)
               Prelude.<$> securityGroupArns,
             Prelude.Just
-              ("ActivationKey" Core..= activationKey)
+              ("ActivationKey" Data..= activationKey)
           ]
       )
 
-instance Core.ToPath CreateAgent where
+instance Data.ToPath CreateAgent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAgent where
+instance Data.ToQuery CreateAgent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | CreateAgentResponse

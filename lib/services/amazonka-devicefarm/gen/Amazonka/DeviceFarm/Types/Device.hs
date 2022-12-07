@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.Device where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.CPU
 import Amazonka.DeviceFarm.Types.DeviceAvailability
 import Amazonka.DeviceFarm.Types.DeviceFormFactor
@@ -295,33 +296,33 @@ device_image = Lens.lens (\Device' {image} -> image) (\s@Device' {} a -> s {imag
 device_radio :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_radio = Lens.lens (\Device' {radio} -> radio) (\s@Device' {} a -> s {radio = a} :: Device)
 
-instance Core.FromJSON Device where
+instance Data.FromJSON Device where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Device"
       ( \x ->
           Device'
-            Prelude.<$> (x Core..:? "instances" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "os")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "model")
-            Prelude.<*> (x Core..:? "fleetType")
-            Prelude.<*> (x Core..:? "formFactor")
-            Prelude.<*> (x Core..:? "remoteDebugEnabled")
-            Prelude.<*> (x Core..:? "memory")
-            Prelude.<*> (x Core..:? "cpu")
-            Prelude.<*> (x Core..:? "remoteAccessEnabled")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "heapSize")
-            Prelude.<*> (x Core..:? "carrier")
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "availability")
-            Prelude.<*> (x Core..:? "fleetName")
-            Prelude.<*> (x Core..:? "manufacturer")
-            Prelude.<*> (x Core..:? "modelId")
-            Prelude.<*> (x Core..:? "resolution")
-            Prelude.<*> (x Core..:? "image")
-            Prelude.<*> (x Core..:? "radio")
+            Prelude.<$> (x Data..:? "instances" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "os")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "model")
+            Prelude.<*> (x Data..:? "fleetType")
+            Prelude.<*> (x Data..:? "formFactor")
+            Prelude.<*> (x Data..:? "remoteDebugEnabled")
+            Prelude.<*> (x Data..:? "memory")
+            Prelude.<*> (x Data..:? "cpu")
+            Prelude.<*> (x Data..:? "remoteAccessEnabled")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "heapSize")
+            Prelude.<*> (x Data..:? "carrier")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "availability")
+            Prelude.<*> (x Data..:? "fleetName")
+            Prelude.<*> (x Data..:? "manufacturer")
+            Prelude.<*> (x Data..:? "modelId")
+            Prelude.<*> (x Data..:? "resolution")
+            Prelude.<*> (x Data..:? "image")
+            Prelude.<*> (x Data..:? "radio")
       )
 
 instance Prelude.Hashable Device where

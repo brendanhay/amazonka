@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.TimerCanceledEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @TimerCanceled@ event.
@@ -95,15 +96,15 @@ timerCanceledEventAttributes_startedEventId = Lens.lens (\TimerCanceledEventAttr
 timerCanceledEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' TimerCanceledEventAttributes Prelude.Integer
 timerCanceledEventAttributes_decisionTaskCompletedEventId = Lens.lens (\TimerCanceledEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@TimerCanceledEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: TimerCanceledEventAttributes)
 
-instance Core.FromJSON TimerCanceledEventAttributes where
+instance Data.FromJSON TimerCanceledEventAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimerCanceledEventAttributes"
       ( \x ->
           TimerCanceledEventAttributes'
-            Prelude.<$> (x Core..: "timerId")
-            Prelude.<*> (x Core..: "startedEventId")
-            Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Data..: "timerId")
+            Prelude.<*> (x Data..: "startedEventId")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance

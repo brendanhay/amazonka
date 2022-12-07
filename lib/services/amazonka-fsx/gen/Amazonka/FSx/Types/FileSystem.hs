@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.FileSystem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import {-# SOURCE #-} Amazonka.FSx.Types.AdministrativeAction
 import Amazonka.FSx.Types.FileSystemFailureDetails
 import Amazonka.FSx.Types.FileSystemLifecycle
@@ -111,7 +112,7 @@ data FileSystem = FileSystem'
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The time that the file system was created, in seconds (since
     -- 1970-01-01T00:00:00Z), also known as Unix time.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The type of Amazon FSx file system, which can be @LUSTRE@, @WINDOWS@,
     -- @ONTAP@, or @OPENZFS@.
     fileSystemType :: Prelude.Maybe FileSystemType,
@@ -394,7 +395,7 @@ fileSystem_kmsKeyId = Lens.lens (\FileSystem' {kmsKeyId} -> kmsKeyId) (\s@FileSy
 -- | The time that the file system was created, in seconds (since
 -- 1970-01-01T00:00:00Z), also known as Unix time.
 fileSystem_creationTime :: Lens.Lens' FileSystem (Prelude.Maybe Prelude.UTCTime)
-fileSystem_creationTime = Lens.lens (\FileSystem' {creationTime} -> creationTime) (\s@FileSystem' {} a -> s {creationTime = a} :: FileSystem) Prelude.. Lens.mapping Core._Time
+fileSystem_creationTime = Lens.lens (\FileSystem' {creationTime} -> creationTime) (\s@FileSystem' {} a -> s {creationTime = a} :: FileSystem) Prelude.. Lens.mapping Data._Time
 
 -- | The type of Amazon FSx file system, which can be @LUSTRE@, @WINDOWS@,
 -- @ONTAP@, or @OPENZFS@.
@@ -444,37 +445,37 @@ fileSystem_subnetIds = Lens.lens (\FileSystem' {subnetIds} -> subnetIds) (\s@Fil
 fileSystem_lustreConfiguration :: Lens.Lens' FileSystem (Prelude.Maybe LustreFileSystemConfiguration)
 fileSystem_lustreConfiguration = Lens.lens (\FileSystem' {lustreConfiguration} -> lustreConfiguration) (\s@FileSystem' {} a -> s {lustreConfiguration = a} :: FileSystem)
 
-instance Core.FromJSON FileSystem where
+instance Data.FromJSON FileSystem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileSystem"
       ( \x ->
           FileSystem'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "Lifecycle")
-            Prelude.<*> (x Core..:? "FileSystemTypeVersion")
-            Prelude.<*> ( x Core..:? "AdministrativeActions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "Lifecycle")
+            Prelude.<*> (x Data..:? "FileSystemTypeVersion")
+            Prelude.<*> ( x Data..:? "AdministrativeActions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "OpenZFSConfiguration")
-            Prelude.<*> (x Core..:? "FileSystemId")
-            Prelude.<*> (x Core..:? "StorageCapacity")
-            Prelude.<*> (x Core..:? "StorageType")
-            Prelude.<*> (x Core..:? "OntapConfiguration")
-            Prelude.<*> (x Core..:? "WindowsConfiguration")
-            Prelude.<*> (x Core..:? "FailureDetails")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "FileSystemType")
-            Prelude.<*> (x Core..:? "ResourceARN")
-            Prelude.<*> (x Core..:? "DNSName")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> ( x Core..:? "NetworkInterfaceIds"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "OpenZFSConfiguration")
+            Prelude.<*> (x Data..:? "FileSystemId")
+            Prelude.<*> (x Data..:? "StorageCapacity")
+            Prelude.<*> (x Data..:? "StorageType")
+            Prelude.<*> (x Data..:? "OntapConfiguration")
+            Prelude.<*> (x Data..:? "WindowsConfiguration")
+            Prelude.<*> (x Data..:? "FailureDetails")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "FileSystemType")
+            Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "DNSName")
+            Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> ( x Data..:? "NetworkInterfaceIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LustreConfiguration")
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LustreConfiguration")
       )
 
 instance Prelude.Hashable FileSystem where

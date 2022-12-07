@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,17 +103,17 @@ instance Prelude.NFData DeleteDomainConfiguration where
   rnf DeleteDomainConfiguration' {..} =
     Prelude.rnf domainConfigurationName
 
-instance Core.ToHeaders DeleteDomainConfiguration where
+instance Data.ToHeaders DeleteDomainConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteDomainConfiguration where
+instance Data.ToPath DeleteDomainConfiguration where
   toPath DeleteDomainConfiguration' {..} =
     Prelude.mconcat
       [ "/domainConfigurations/",
-        Core.toBS domainConfigurationName
+        Data.toBS domainConfigurationName
       ]
 
-instance Core.ToQuery DeleteDomainConfiguration where
+instance Data.ToQuery DeleteDomainConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDomainConfigurationResponse' smart constructor.

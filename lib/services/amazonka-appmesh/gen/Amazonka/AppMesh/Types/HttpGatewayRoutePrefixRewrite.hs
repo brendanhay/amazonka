@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.HttpGatewayRoutePrefixRewrite where
 import Amazonka.AppMesh.Types.DefaultGatewayRouteRewrite
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the beginning characters of the route to rewrite.
@@ -66,14 +67,14 @@ httpGatewayRoutePrefixRewrite_defaultPrefix = Lens.lens (\HttpGatewayRoutePrefix
 httpGatewayRoutePrefixRewrite_value :: Lens.Lens' HttpGatewayRoutePrefixRewrite (Prelude.Maybe Prelude.Text)
 httpGatewayRoutePrefixRewrite_value = Lens.lens (\HttpGatewayRoutePrefixRewrite' {value} -> value) (\s@HttpGatewayRoutePrefixRewrite' {} a -> s {value = a} :: HttpGatewayRoutePrefixRewrite)
 
-instance Core.FromJSON HttpGatewayRoutePrefixRewrite where
+instance Data.FromJSON HttpGatewayRoutePrefixRewrite where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpGatewayRoutePrefixRewrite"
       ( \x ->
           HttpGatewayRoutePrefixRewrite'
-            Prelude.<$> (x Core..:? "defaultPrefix")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "defaultPrefix")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance
@@ -89,11 +90,11 @@ instance Prelude.NFData HttpGatewayRoutePrefixRewrite where
     Prelude.rnf defaultPrefix
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON HttpGatewayRoutePrefixRewrite where
+instance Data.ToJSON HttpGatewayRoutePrefixRewrite where
   toJSON HttpGatewayRoutePrefixRewrite' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("defaultPrefix" Core..=) Prelude.<$> defaultPrefix,
-            ("value" Core..=) Prelude.<$> value
+          [ ("defaultPrefix" Data..=) Prelude.<$> defaultPrefix,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

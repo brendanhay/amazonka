@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest DeleteGlobalCluster where
       "DeleteGlobalClusterResult"
       ( \s h x ->
           DeleteGlobalClusterResponse'
-            Prelude.<$> (x Core..@? "GlobalCluster")
+            Prelude.<$> (x Data..@? "GlobalCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,21 +102,21 @@ instance Prelude.NFData DeleteGlobalCluster where
   rnf DeleteGlobalCluster' {..} =
     Prelude.rnf globalClusterIdentifier
 
-instance Core.ToHeaders DeleteGlobalCluster where
+instance Data.ToHeaders DeleteGlobalCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteGlobalCluster where
+instance Data.ToPath DeleteGlobalCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteGlobalCluster where
+instance Data.ToQuery DeleteGlobalCluster where
   toQuery DeleteGlobalCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteGlobalCluster" :: Prelude.ByteString),
+          Data.=: ("DeleteGlobalCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "GlobalClusterIdentifier"
-          Core.=: globalClusterIdentifier
+          Data.=: globalClusterIdentifier
       ]
 
 -- | /See:/ 'newDeleteGlobalClusterResponse' smart constructor.

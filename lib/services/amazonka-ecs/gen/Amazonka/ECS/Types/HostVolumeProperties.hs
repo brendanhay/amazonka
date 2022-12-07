@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.HostVolumeProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on a container instance bind mount host volume.
@@ -83,13 +84,13 @@ newHostVolumeProperties =
 hostVolumeProperties_sourcePath :: Lens.Lens' HostVolumeProperties (Prelude.Maybe Prelude.Text)
 hostVolumeProperties_sourcePath = Lens.lens (\HostVolumeProperties' {sourcePath} -> sourcePath) (\s@HostVolumeProperties' {} a -> s {sourcePath = a} :: HostVolumeProperties)
 
-instance Core.FromJSON HostVolumeProperties where
+instance Data.FromJSON HostVolumeProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HostVolumeProperties"
       ( \x ->
           HostVolumeProperties'
-            Prelude.<$> (x Core..:? "sourcePath")
+            Prelude.<$> (x Data..:? "sourcePath")
       )
 
 instance Prelude.Hashable HostVolumeProperties where
@@ -100,9 +101,9 @@ instance Prelude.NFData HostVolumeProperties where
   rnf HostVolumeProperties' {..} =
     Prelude.rnf sourcePath
 
-instance Core.ToJSON HostVolumeProperties where
+instance Data.ToJSON HostVolumeProperties where
   toJSON HostVolumeProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("sourcePath" Core..=) Prelude.<$> sourcePath]
+          [("sourcePath" Data..=) Prelude.<$> sourcePath]
       )

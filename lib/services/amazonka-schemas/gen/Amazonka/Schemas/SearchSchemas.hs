@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,8 +148,8 @@ instance Core.AWSRequest SearchSchemas where
     Response.receiveJSON
       ( \s h x ->
           SearchSchemasResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Schemas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,31 +167,31 @@ instance Prelude.NFData SearchSchemas where
       `Prelude.seq` Prelude.rnf registryName
       `Prelude.seq` Prelude.rnf keywords
 
-instance Core.ToHeaders SearchSchemas where
+instance Data.ToHeaders SearchSchemas where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath SearchSchemas where
+instance Data.ToPath SearchSchemas where
   toPath SearchSchemas' {..} =
     Prelude.mconcat
       [ "/v1/registries/name/",
-        Core.toBS registryName,
+        Data.toBS registryName,
         "/schemas/search"
       ]
 
-instance Core.ToQuery SearchSchemas where
+instance Data.ToQuery SearchSchemas where
   toQuery SearchSchemas' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "limit" Core.=: limit,
-        "keywords" Core.=: keywords
+      [ "nextToken" Data.=: nextToken,
+        "limit" Data.=: limit,
+        "keywords" Data.=: keywords
       ]
 
 -- | /See:/ 'newSearchSchemasResponse' smart constructor.

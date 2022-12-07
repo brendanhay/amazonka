@@ -21,6 +21,7 @@ module Amazonka.ConnectCases.Types.FieldOptionError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object for field Options errors.
@@ -76,15 +77,15 @@ fieldOptionError_message = Lens.lens (\FieldOptionError' {message} -> message) (
 fieldOptionError_value :: Lens.Lens' FieldOptionError Prelude.Text
 fieldOptionError_value = Lens.lens (\FieldOptionError' {value} -> value) (\s@FieldOptionError' {} a -> s {value = a} :: FieldOptionError)
 
-instance Core.FromJSON FieldOptionError where
+instance Data.FromJSON FieldOptionError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldOptionError"
       ( \x ->
           FieldOptionError'
-            Prelude.<$> (x Core..: "errorCode")
-            Prelude.<*> (x Core..: "message")
-            Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..: "errorCode")
+            Prelude.<*> (x Data..: "message")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable FieldOptionError where

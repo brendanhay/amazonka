@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.CredentialSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A record of a presented X509 credential to
@@ -38,7 +39,7 @@ data CredentialSummary = CredentialSummary'
     -- | The ISO-8601 time stamp of when the certificate was last used in a
     -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
     -- operation.
-    seenAt :: Prelude.Maybe Core.POSIX,
+    seenAt :: Prelude.Maybe Data.POSIX,
     -- | Indicates whether the credential is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The serial number of the certificate.
@@ -99,7 +100,7 @@ credentialSummary_failed = Lens.lens (\CredentialSummary' {failed} -> failed) (\
 -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
 -- operation.
 credentialSummary_seenAt :: Lens.Lens' CredentialSummary (Prelude.Maybe Prelude.UTCTime)
-credentialSummary_seenAt = Lens.lens (\CredentialSummary' {seenAt} -> seenAt) (\s@CredentialSummary' {} a -> s {seenAt = a} :: CredentialSummary) Prelude.. Lens.mapping Core._Time
+credentialSummary_seenAt = Lens.lens (\CredentialSummary' {seenAt} -> seenAt) (\s@CredentialSummary' {} a -> s {seenAt = a} :: CredentialSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether the credential is enabled.
 credentialSummary_enabled :: Lens.Lens' CredentialSummary (Prelude.Maybe Prelude.Bool)
@@ -113,18 +114,18 @@ credentialSummary_serialNumber = Lens.lens (\CredentialSummary' {serialNumber} -
 credentialSummary_x509CertificateData :: Lens.Lens' CredentialSummary (Prelude.Maybe Prelude.Text)
 credentialSummary_x509CertificateData = Lens.lens (\CredentialSummary' {x509CertificateData} -> x509CertificateData) (\s@CredentialSummary' {} a -> s {x509CertificateData = a} :: CredentialSummary)
 
-instance Core.FromJSON CredentialSummary where
+instance Data.FromJSON CredentialSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CredentialSummary"
       ( \x ->
           CredentialSummary'
-            Prelude.<$> (x Core..:? "issuer")
-            Prelude.<*> (x Core..:? "failed")
-            Prelude.<*> (x Core..:? "seenAt")
-            Prelude.<*> (x Core..:? "enabled")
-            Prelude.<*> (x Core..:? "serialNumber")
-            Prelude.<*> (x Core..:? "x509CertificateData")
+            Prelude.<$> (x Data..:? "issuer")
+            Prelude.<*> (x Data..:? "failed")
+            Prelude.<*> (x Data..:? "seenAt")
+            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "serialNumber")
+            Prelude.<*> (x Data..:? "x509CertificateData")
       )
 
 instance Prelude.Hashable CredentialSummary where

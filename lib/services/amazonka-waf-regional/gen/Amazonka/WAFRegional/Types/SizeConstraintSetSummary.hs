@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.SizeConstraintSetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -101,14 +102,14 @@ sizeConstraintSetSummary_sizeConstraintSetId = Lens.lens (\SizeConstraintSetSumm
 sizeConstraintSetSummary_name :: Lens.Lens' SizeConstraintSetSummary Prelude.Text
 sizeConstraintSetSummary_name = Lens.lens (\SizeConstraintSetSummary' {name} -> name) (\s@SizeConstraintSetSummary' {} a -> s {name = a} :: SizeConstraintSetSummary)
 
-instance Core.FromJSON SizeConstraintSetSummary where
+instance Data.FromJSON SizeConstraintSetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SizeConstraintSetSummary"
       ( \x ->
           SizeConstraintSetSummary'
-            Prelude.<$> (x Core..: "SizeConstraintSetId")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..: "SizeConstraintSetId")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable SizeConstraintSetSummary where

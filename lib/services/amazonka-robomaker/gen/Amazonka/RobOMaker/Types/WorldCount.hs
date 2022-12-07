@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.WorldCount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The number of worlds that will be created. You can configure the number
@@ -68,14 +69,14 @@ worldCount_floorplanCount = Lens.lens (\WorldCount' {floorplanCount} -> floorpla
 worldCount_interiorCountPerFloorplan :: Lens.Lens' WorldCount (Prelude.Maybe Prelude.Int)
 worldCount_interiorCountPerFloorplan = Lens.lens (\WorldCount' {interiorCountPerFloorplan} -> interiorCountPerFloorplan) (\s@WorldCount' {} a -> s {interiorCountPerFloorplan = a} :: WorldCount)
 
-instance Core.FromJSON WorldCount where
+instance Data.FromJSON WorldCount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorldCount"
       ( \x ->
           WorldCount'
-            Prelude.<$> (x Core..:? "floorplanCount")
-            Prelude.<*> (x Core..:? "interiorCountPerFloorplan")
+            Prelude.<$> (x Data..:? "floorplanCount")
+            Prelude.<*> (x Data..:? "interiorCountPerFloorplan")
       )
 
 instance Prelude.Hashable WorldCount where
@@ -88,13 +89,13 @@ instance Prelude.NFData WorldCount where
     Prelude.rnf floorplanCount
       `Prelude.seq` Prelude.rnf interiorCountPerFloorplan
 
-instance Core.ToJSON WorldCount where
+instance Data.ToJSON WorldCount where
   toJSON WorldCount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("floorplanCount" Core..=)
+          [ ("floorplanCount" Data..=)
               Prelude.<$> floorplanCount,
-            ("interiorCountPerFloorplan" Core..=)
+            ("interiorCountPerFloorplan" Data..=)
               Prelude.<$> interiorCountPerFloorplan
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.ProtocolDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.As2Transport
 import Amazonka.Transfer.Types.SetStatOption
@@ -313,16 +314,16 @@ protocolDetails_tlsSessionResumptionMode = Lens.lens (\ProtocolDetails' {tlsSess
 protocolDetails_setStatOption :: Lens.Lens' ProtocolDetails (Prelude.Maybe SetStatOption)
 protocolDetails_setStatOption = Lens.lens (\ProtocolDetails' {setStatOption} -> setStatOption) (\s@ProtocolDetails' {} a -> s {setStatOption = a} :: ProtocolDetails)
 
-instance Core.FromJSON ProtocolDetails where
+instance Data.FromJSON ProtocolDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProtocolDetails"
       ( \x ->
           ProtocolDetails'
-            Prelude.<$> (x Core..:? "As2Transports")
-            Prelude.<*> (x Core..:? "PassiveIp")
-            Prelude.<*> (x Core..:? "TlsSessionResumptionMode")
-            Prelude.<*> (x Core..:? "SetStatOption")
+            Prelude.<$> (x Data..:? "As2Transports")
+            Prelude.<*> (x Data..:? "PassiveIp")
+            Prelude.<*> (x Data..:? "TlsSessionResumptionMode")
+            Prelude.<*> (x Data..:? "SetStatOption")
       )
 
 instance Prelude.Hashable ProtocolDetails where
@@ -339,14 +340,14 @@ instance Prelude.NFData ProtocolDetails where
       `Prelude.seq` Prelude.rnf tlsSessionResumptionMode
       `Prelude.seq` Prelude.rnf setStatOption
 
-instance Core.ToJSON ProtocolDetails where
+instance Data.ToJSON ProtocolDetails where
   toJSON ProtocolDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("As2Transports" Core..=) Prelude.<$> as2Transports,
-            ("PassiveIp" Core..=) Prelude.<$> passiveIp,
-            ("TlsSessionResumptionMode" Core..=)
+          [ ("As2Transports" Data..=) Prelude.<$> as2Transports,
+            ("PassiveIp" Data..=) Prelude.<$> passiveIp,
+            ("TlsSessionResumptionMode" Data..=)
               Prelude.<$> tlsSessionResumptionMode,
-            ("SetStatOption" Core..=) Prelude.<$> setStatOption
+            ("SetStatOption" Data..=) Prelude.<$> setStatOption
           ]
       )

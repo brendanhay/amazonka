@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.OfflineStoreConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.DataCatalogConfig
 import Amazonka.SageMaker.Types.S3StorageConfig
@@ -88,15 +89,15 @@ offlineStoreConfig_dataCatalogConfig = Lens.lens (\OfflineStoreConfig' {dataCata
 offlineStoreConfig_s3StorageConfig :: Lens.Lens' OfflineStoreConfig S3StorageConfig
 offlineStoreConfig_s3StorageConfig = Lens.lens (\OfflineStoreConfig' {s3StorageConfig} -> s3StorageConfig) (\s@OfflineStoreConfig' {} a -> s {s3StorageConfig = a} :: OfflineStoreConfig)
 
-instance Core.FromJSON OfflineStoreConfig where
+instance Data.FromJSON OfflineStoreConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OfflineStoreConfig"
       ( \x ->
           OfflineStoreConfig'
-            Prelude.<$> (x Core..:? "DisableGlueTableCreation")
-            Prelude.<*> (x Core..:? "DataCatalogConfig")
-            Prelude.<*> (x Core..: "S3StorageConfig")
+            Prelude.<$> (x Data..:? "DisableGlueTableCreation")
+            Prelude.<*> (x Data..:? "DataCatalogConfig")
+            Prelude.<*> (x Data..: "S3StorageConfig")
       )
 
 instance Prelude.Hashable OfflineStoreConfig where
@@ -112,15 +113,15 @@ instance Prelude.NFData OfflineStoreConfig where
       `Prelude.seq` Prelude.rnf dataCatalogConfig
       `Prelude.seq` Prelude.rnf s3StorageConfig
 
-instance Core.ToJSON OfflineStoreConfig where
+instance Data.ToJSON OfflineStoreConfig where
   toJSON OfflineStoreConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DisableGlueTableCreation" Core..=)
+          [ ("DisableGlueTableCreation" Data..=)
               Prelude.<$> disableGlueTableCreation,
-            ("DataCatalogConfig" Core..=)
+            ("DataCatalogConfig" Data..=)
               Prelude.<$> dataCatalogConfig,
             Prelude.Just
-              ("S3StorageConfig" Core..= s3StorageConfig)
+              ("S3StorageConfig" Data..= s3StorageConfig)
           ]
       )

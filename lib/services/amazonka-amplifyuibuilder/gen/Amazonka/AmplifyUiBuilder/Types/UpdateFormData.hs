@@ -27,6 +27,7 @@ import Amazonka.AmplifyUiBuilder.Types.FormStyle
 import Amazonka.AmplifyUiBuilder.Types.SectionalElement
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Updates and saves all of the information about a form, based on form ID.
@@ -149,19 +150,19 @@ instance Prelude.NFData UpdateFormData where
       `Prelude.seq` Prelude.rnf schemaVersion
       `Prelude.seq` Prelude.rnf dataType
 
-instance Core.ToJSON UpdateFormData where
+instance Data.ToJSON UpdateFormData where
   toJSON UpdateFormData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("sectionalElements" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("sectionalElements" Data..=)
               Prelude.<$> sectionalElements,
-            ("style" Core..=) Prelude.<$> style,
-            ("fields" Core..=) Prelude.<$> fields,
-            ("formActionType" Core..=)
+            ("style" Data..=) Prelude.<$> style,
+            ("fields" Data..=) Prelude.<$> fields,
+            ("formActionType" Data..=)
               Prelude.<$> formActionType,
-            ("cta" Core..=) Prelude.<$> cta,
-            ("schemaVersion" Core..=) Prelude.<$> schemaVersion,
-            ("dataType" Core..=) Prelude.<$> dataType
+            ("cta" Data..=) Prelude.<$> cta,
+            ("schemaVersion" Data..=) Prelude.<$> schemaVersion,
+            ("dataType" Data..=) Prelude.<$> dataType
           ]
       )

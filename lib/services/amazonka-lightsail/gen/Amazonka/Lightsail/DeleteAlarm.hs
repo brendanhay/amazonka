@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest DeleteAlarm where
     Response.receiveJSON
       ( \s h x ->
           DeleteAlarmResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,32 +99,32 @@ instance Prelude.Hashable DeleteAlarm where
 instance Prelude.NFData DeleteAlarm where
   rnf DeleteAlarm' {..} = Prelude.rnf alarmName
 
-instance Core.ToHeaders DeleteAlarm where
+instance Data.ToHeaders DeleteAlarm where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.DeleteAlarm" ::
+              Data.=# ( "Lightsail_20161128.DeleteAlarm" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAlarm where
+instance Data.ToJSON DeleteAlarm where
   toJSON DeleteAlarm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("alarmName" Core..= alarmName)]
+          [Prelude.Just ("alarmName" Data..= alarmName)]
       )
 
-instance Core.ToPath DeleteAlarm where
+instance Data.ToPath DeleteAlarm where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAlarm where
+instance Data.ToQuery DeleteAlarm where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAlarmResponse' smart constructor.

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,32 +95,32 @@ instance Prelude.Hashable DeleteWorkspaceImage where
 instance Prelude.NFData DeleteWorkspaceImage where
   rnf DeleteWorkspaceImage' {..} = Prelude.rnf imageId
 
-instance Core.ToHeaders DeleteWorkspaceImage where
+instance Data.ToHeaders DeleteWorkspaceImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.DeleteWorkspaceImage" ::
+              Data.=# ( "WorkspacesService.DeleteWorkspaceImage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteWorkspaceImage where
+instance Data.ToJSON DeleteWorkspaceImage where
   toJSON DeleteWorkspaceImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ImageId" Core..= imageId)]
+          [Prelude.Just ("ImageId" Data..= imageId)]
       )
 
-instance Core.ToPath DeleteWorkspaceImage where
+instance Data.ToPath DeleteWorkspaceImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteWorkspaceImage where
+instance Data.ToQuery DeleteWorkspaceImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWorkspaceImageResponse' smart constructor.

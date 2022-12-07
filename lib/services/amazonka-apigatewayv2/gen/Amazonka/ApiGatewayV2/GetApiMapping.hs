@@ -46,6 +46,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,10 +101,10 @@ instance Core.AWSRequest GetApiMapping where
     Response.receiveJSON
       ( \s h x ->
           GetApiMappingResponse'
-            Prelude.<$> (x Core..?> "apiId")
-            Prelude.<*> (x Core..?> "apiMappingKey")
-            Prelude.<*> (x Core..?> "stage")
-            Prelude.<*> (x Core..?> "apiMappingId")
+            Prelude.<$> (x Data..?> "apiId")
+            Prelude.<*> (x Data..?> "apiMappingKey")
+            Prelude.<*> (x Data..?> "stage")
+            Prelude.<*> (x Data..?> "apiMappingId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,27 +118,27 @@ instance Prelude.NFData GetApiMapping where
     Prelude.rnf apiMappingId
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders GetApiMapping where
+instance Data.ToHeaders GetApiMapping where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetApiMapping where
+instance Data.ToPath GetApiMapping where
   toPath GetApiMapping' {..} =
     Prelude.mconcat
       [ "/v2/domainnames/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/apimappings/",
-        Core.toBS apiMappingId
+        Data.toBS apiMappingId
       ]
 
-instance Core.ToQuery GetApiMapping where
+instance Data.ToQuery GetApiMapping where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetApiMappingResponse' smart constructor.

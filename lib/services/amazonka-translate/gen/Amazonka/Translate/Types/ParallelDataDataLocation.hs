@@ -21,6 +21,7 @@ module Amazonka.Translate.Types.ParallelDataDataLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The location of the most recent parallel data input file that was
@@ -108,14 +109,14 @@ parallelDataDataLocation_repositoryType = Lens.lens (\ParallelDataDataLocation' 
 parallelDataDataLocation_location :: Lens.Lens' ParallelDataDataLocation Prelude.Text
 parallelDataDataLocation_location = Lens.lens (\ParallelDataDataLocation' {location} -> location) (\s@ParallelDataDataLocation' {} a -> s {location = a} :: ParallelDataDataLocation)
 
-instance Core.FromJSON ParallelDataDataLocation where
+instance Data.FromJSON ParallelDataDataLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParallelDataDataLocation"
       ( \x ->
           ParallelDataDataLocation'
-            Prelude.<$> (x Core..: "RepositoryType")
-            Prelude.<*> (x Core..: "Location")
+            Prelude.<$> (x Data..: "RepositoryType")
+            Prelude.<*> (x Data..: "Location")
       )
 
 instance Prelude.Hashable ParallelDataDataLocation where

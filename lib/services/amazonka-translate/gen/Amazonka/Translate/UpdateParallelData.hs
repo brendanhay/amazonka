@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -129,10 +130,10 @@ instance Core.AWSRequest UpdateParallelData where
     Response.receiveJSON
       ( \s h x ->
           UpdateParallelDataResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LatestUpdateAttemptStatus")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "LatestUpdateAttemptAt")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "LatestUpdateAttemptStatus")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "LatestUpdateAttemptAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,37 +151,37 @@ instance Prelude.NFData UpdateParallelData where
       `Prelude.seq` Prelude.rnf parallelDataConfig
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders UpdateParallelData where
+instance Data.ToHeaders UpdateParallelData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShineFrontendService_20170701.UpdateParallelData" ::
+              Data.=# ( "AWSShineFrontendService_20170701.UpdateParallelData" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateParallelData where
+instance Data.ToJSON UpdateParallelData where
   toJSON UpdateParallelData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
+          [ ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("ParallelDataConfig" Core..= parallelDataConfig),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+              ("ParallelDataConfig" Data..= parallelDataConfig),
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath UpdateParallelData where
+instance Data.ToPath UpdateParallelData where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateParallelData where
+instance Data.ToQuery UpdateParallelData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateParallelDataResponse' smart constructor.
@@ -195,7 +196,7 @@ data UpdateParallelDataResponse = UpdateParallelDataResponse'
     -- @ACTIVE@ or @FAILED@.
     status :: Prelude.Maybe ParallelDataStatus,
     -- | The time that the most recent update was attempted.
-    latestUpdateAttemptAt :: Prelude.Maybe Core.POSIX,
+    latestUpdateAttemptAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -251,7 +252,7 @@ updateParallelDataResponse_status = Lens.lens (\UpdateParallelDataResponse' {sta
 
 -- | The time that the most recent update was attempted.
 updateParallelDataResponse_latestUpdateAttemptAt :: Lens.Lens' UpdateParallelDataResponse (Prelude.Maybe Prelude.UTCTime)
-updateParallelDataResponse_latestUpdateAttemptAt = Lens.lens (\UpdateParallelDataResponse' {latestUpdateAttemptAt} -> latestUpdateAttemptAt) (\s@UpdateParallelDataResponse' {} a -> s {latestUpdateAttemptAt = a} :: UpdateParallelDataResponse) Prelude.. Lens.mapping Core._Time
+updateParallelDataResponse_latestUpdateAttemptAt = Lens.lens (\UpdateParallelDataResponse' {latestUpdateAttemptAt} -> latestUpdateAttemptAt) (\s@UpdateParallelDataResponse' {} a -> s {latestUpdateAttemptAt = a} :: UpdateParallelDataResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updateParallelDataResponse_httpStatus :: Lens.Lens' UpdateParallelDataResponse Prelude.Int

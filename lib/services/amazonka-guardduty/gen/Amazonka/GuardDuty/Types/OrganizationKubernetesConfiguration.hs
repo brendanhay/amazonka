@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.OrganizationKubernetesConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.OrganizationKubernetesAuditLogsConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,11 +77,11 @@ instance
     Prelude.rnf auditLogs
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     OrganizationKubernetesConfiguration
   where
   toJSON OrganizationKubernetesConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("auditLogs" Core..= auditLogs)]
+          [Prelude.Just ("auditLogs" Data..= auditLogs)]
       )

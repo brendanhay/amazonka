@@ -45,6 +45,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,38 +140,38 @@ instance Prelude.NFData UpdateRoom where
       `Prelude.seq` Prelude.rnf providerCalendarId
       `Prelude.seq` Prelude.rnf roomName
 
-instance Core.ToHeaders UpdateRoom where
+instance Data.ToHeaders UpdateRoom where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.UpdateRoom" ::
+              Data.=# ( "AlexaForBusiness.UpdateRoom" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRoom where
+instance Data.ToJSON UpdateRoom where
   toJSON UpdateRoom' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProfileArn" Core..=) Prelude.<$> profileArn,
-            ("RoomArn" Core..=) Prelude.<$> roomArn,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ProviderCalendarId" Core..=)
+          [ ("ProfileArn" Data..=) Prelude.<$> profileArn,
+            ("RoomArn" Data..=) Prelude.<$> roomArn,
+            ("Description" Data..=) Prelude.<$> description,
+            ("ProviderCalendarId" Data..=)
               Prelude.<$> providerCalendarId,
-            ("RoomName" Core..=) Prelude.<$> roomName
+            ("RoomName" Data..=) Prelude.<$> roomName
           ]
       )
 
-instance Core.ToPath UpdateRoom where
+instance Data.ToPath UpdateRoom where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateRoom where
+instance Data.ToQuery UpdateRoom where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRoomResponse' smart constructor.

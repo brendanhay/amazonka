@@ -21,6 +21,7 @@ module Amazonka.S3.Types.EventBridgeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -41,7 +42,7 @@ newEventBridgeConfiguration ::
 newEventBridgeConfiguration =
   EventBridgeConfiguration'
 
-instance Core.FromXML EventBridgeConfiguration where
+instance Data.FromXML EventBridgeConfiguration where
   parseXML =
     Prelude.const
       (Prelude.pure EventBridgeConfiguration')
@@ -53,5 +54,5 @@ instance Prelude.Hashable EventBridgeConfiguration where
 instance Prelude.NFData EventBridgeConfiguration where
   rnf _ = ()
 
-instance Core.ToXML EventBridgeConfiguration where
+instance Data.ToXML EventBridgeConfiguration where
   toXML = Prelude.const Prelude.mempty

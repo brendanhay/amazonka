@@ -24,6 +24,7 @@ import Amazonka.ApplicationAutoScaling.Types.ServiceNamespace
 import Amazonka.ApplicationAutoScaling.Types.SuspendedState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a scalable target.
@@ -176,7 +177,7 @@ data ScalableTarget = ScalableTarget'
     -- the scalable target on your behalf.
     roleARN :: Prelude.Text,
     -- | The Unix timestamp for when the scalable target was created.
-    creationTime :: Core.POSIX
+    creationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -367,7 +368,7 @@ newScalableTarget
         minCapacity = pMinCapacity_,
         maxCapacity = pMaxCapacity_,
         roleARN = pRoleARN_,
-        creationTime = Core._Time Lens.# pCreationTime_
+        creationTime = Data._Time Lens.# pCreationTime_
       }
 
 -- | Undocumented member.
@@ -532,22 +533,22 @@ scalableTarget_roleARN = Lens.lens (\ScalableTarget' {roleARN} -> roleARN) (\s@S
 
 -- | The Unix timestamp for when the scalable target was created.
 scalableTarget_creationTime :: Lens.Lens' ScalableTarget Prelude.UTCTime
-scalableTarget_creationTime = Lens.lens (\ScalableTarget' {creationTime} -> creationTime) (\s@ScalableTarget' {} a -> s {creationTime = a} :: ScalableTarget) Prelude.. Core._Time
+scalableTarget_creationTime = Lens.lens (\ScalableTarget' {creationTime} -> creationTime) (\s@ScalableTarget' {} a -> s {creationTime = a} :: ScalableTarget) Prelude.. Data._Time
 
-instance Core.FromJSON ScalableTarget where
+instance Data.FromJSON ScalableTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScalableTarget"
       ( \x ->
           ScalableTarget'
-            Prelude.<$> (x Core..:? "SuspendedState")
-            Prelude.<*> (x Core..: "ServiceNamespace")
-            Prelude.<*> (x Core..: "ResourceId")
-            Prelude.<*> (x Core..: "ScalableDimension")
-            Prelude.<*> (x Core..: "MinCapacity")
-            Prelude.<*> (x Core..: "MaxCapacity")
-            Prelude.<*> (x Core..: "RoleARN")
-            Prelude.<*> (x Core..: "CreationTime")
+            Prelude.<$> (x Data..:? "SuspendedState")
+            Prelude.<*> (x Data..: "ServiceNamespace")
+            Prelude.<*> (x Data..: "ResourceId")
+            Prelude.<*> (x Data..: "ScalableDimension")
+            Prelude.<*> (x Data..: "MinCapacity")
+            Prelude.<*> (x Data..: "MaxCapacity")
+            Prelude.<*> (x Data..: "RoleARN")
+            Prelude.<*> (x Data..: "CreationTime")
       )
 
 instance Prelude.Hashable ScalableTarget where

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.HyperParameterAlgorithmSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MetricDefinition
 import Amazonka.SageMaker.Types.TrainingInputMode
@@ -117,20 +118,20 @@ hyperParameterAlgorithmSpecification_trainingInputMode :: Lens.Lens' HyperParame
 hyperParameterAlgorithmSpecification_trainingInputMode = Lens.lens (\HyperParameterAlgorithmSpecification' {trainingInputMode} -> trainingInputMode) (\s@HyperParameterAlgorithmSpecification' {} a -> s {trainingInputMode = a} :: HyperParameterAlgorithmSpecification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     HyperParameterAlgorithmSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HyperParameterAlgorithmSpecification"
       ( \x ->
           HyperParameterAlgorithmSpecification'
-            Prelude.<$> (x Core..:? "AlgorithmName")
-            Prelude.<*> ( x Core..:? "MetricDefinitions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "AlgorithmName")
+            Prelude.<*> ( x Data..:? "MetricDefinitions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "TrainingImage")
-            Prelude.<*> (x Core..: "TrainingInputMode")
+            Prelude.<*> (x Data..:? "TrainingImage")
+            Prelude.<*> (x Data..: "TrainingInputMode")
       )
 
 instance
@@ -156,17 +157,17 @@ instance
       `Prelude.seq` Prelude.rnf trainingInputMode
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     HyperParameterAlgorithmSpecification
   where
   toJSON HyperParameterAlgorithmSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AlgorithmName" Core..=) Prelude.<$> algorithmName,
-            ("MetricDefinitions" Core..=)
+          [ ("AlgorithmName" Data..=) Prelude.<$> algorithmName,
+            ("MetricDefinitions" Data..=)
               Prelude.<$> metricDefinitions,
-            ("TrainingImage" Core..=) Prelude.<$> trainingImage,
+            ("TrainingImage" Data..=) Prelude.<$> trainingImage,
             Prelude.Just
-              ("TrainingInputMode" Core..= trainingInputMode)
+              ("TrainingInputMode" Data..= trainingInputMode)
           ]
       )

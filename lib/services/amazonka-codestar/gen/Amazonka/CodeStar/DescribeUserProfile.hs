@@ -48,6 +48,7 @@ where
 import Amazonka.CodeStar.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,13 +90,13 @@ instance Core.AWSRequest DescribeUserProfile where
     Response.receiveJSON
       ( \s h x ->
           DescribeUserProfileResponse'
-            Prelude.<$> (x Core..?> "displayName")
-            Prelude.<*> (x Core..?> "sshPublicKey")
-            Prelude.<*> (x Core..?> "emailAddress")
+            Prelude.<$> (x Data..?> "displayName")
+            Prelude.<*> (x Data..?> "sshPublicKey")
+            Prelude.<*> (x Data..?> "emailAddress")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "userArn")
-            Prelude.<*> (x Core..:> "createdTimestamp")
-            Prelude.<*> (x Core..:> "lastModifiedTimestamp")
+            Prelude.<*> (x Data..:> "userArn")
+            Prelude.<*> (x Data..:> "createdTimestamp")
+            Prelude.<*> (x Data..:> "lastModifiedTimestamp")
       )
 
 instance Prelude.Hashable DescribeUserProfile where
@@ -105,32 +106,32 @@ instance Prelude.Hashable DescribeUserProfile where
 instance Prelude.NFData DescribeUserProfile where
   rnf DescribeUserProfile' {..} = Prelude.rnf userArn
 
-instance Core.ToHeaders DescribeUserProfile where
+instance Data.ToHeaders DescribeUserProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeStar_20170419.DescribeUserProfile" ::
+              Data.=# ( "CodeStar_20170419.DescribeUserProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeUserProfile where
+instance Data.ToJSON DescribeUserProfile where
   toJSON DescribeUserProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("userArn" Core..= userArn)]
+          [Prelude.Just ("userArn" Data..= userArn)]
       )
 
-instance Core.ToPath DescribeUserProfile where
+instance Data.ToPath DescribeUserProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeUserProfile where
+instance Data.ToQuery DescribeUserProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeUserProfileResponse' smart constructor.
@@ -145,7 +146,7 @@ data DescribeUserProfileResponse = DescribeUserProfileResponse'
     -- a display name with more than one space (for example \"Mary Jane
     -- Major\") would generate an initial icon using the first character and
     -- the first character after the space (\"MJ\", not \"MM\").
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The SSH public key associated with the user. This SSH public key is
     -- associated with the user profile, and can be used in conjunction with
     -- the associated private key for access to project resources, such as
@@ -153,17 +154,17 @@ data DescribeUserProfileResponse = DescribeUserProfileResponse'
     -- resources.
     sshPublicKey :: Prelude.Maybe Prelude.Text,
     -- | The email address for the user. Optional.
-    emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    emailAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the user.
     userArn :: Prelude.Text,
     -- | The date and time when the user profile was created in AWS CodeStar, in
     -- timestamp format.
-    createdTimestamp :: Core.POSIX,
+    createdTimestamp :: Data.POSIX,
     -- | The date and time when the user profile was last modified, in timestamp
     -- format.
-    lastModifiedTimestamp :: Core.POSIX
+    lastModifiedTimestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -226,9 +227,9 @@ newDescribeUserProfileResponse
         httpStatus = pHttpStatus_,
         userArn = pUserArn_,
         createdTimestamp =
-          Core._Time Lens.# pCreatedTimestamp_,
+          Data._Time Lens.# pCreatedTimestamp_,
         lastModifiedTimestamp =
-          Core._Time Lens.# pLastModifiedTimestamp_
+          Data._Time Lens.# pLastModifiedTimestamp_
       }
 
 -- | The display name shown for the user in AWS CodeStar projects. For
@@ -242,7 +243,7 @@ newDescribeUserProfileResponse
 -- Major\") would generate an initial icon using the first character and
 -- the first character after the space (\"MJ\", not \"MM\").
 describeUserProfileResponse_displayName :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
-describeUserProfileResponse_displayName = Lens.lens (\DescribeUserProfileResponse' {displayName} -> displayName) (\s@DescribeUserProfileResponse' {} a -> s {displayName = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Core._Sensitive
+describeUserProfileResponse_displayName = Lens.lens (\DescribeUserProfileResponse' {displayName} -> displayName) (\s@DescribeUserProfileResponse' {} a -> s {displayName = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The SSH public key associated with the user. This SSH public key is
 -- associated with the user profile, and can be used in conjunction with
@@ -254,7 +255,7 @@ describeUserProfileResponse_sshPublicKey = Lens.lens (\DescribeUserProfileRespon
 
 -- | The email address for the user. Optional.
 describeUserProfileResponse_emailAddress :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
-describeUserProfileResponse_emailAddress = Lens.lens (\DescribeUserProfileResponse' {emailAddress} -> emailAddress) (\s@DescribeUserProfileResponse' {} a -> s {emailAddress = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Core._Sensitive
+describeUserProfileResponse_emailAddress = Lens.lens (\DescribeUserProfileResponse' {emailAddress} -> emailAddress) (\s@DescribeUserProfileResponse' {} a -> s {emailAddress = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The response's http status code.
 describeUserProfileResponse_httpStatus :: Lens.Lens' DescribeUserProfileResponse Prelude.Int
@@ -267,12 +268,12 @@ describeUserProfileResponse_userArn = Lens.lens (\DescribeUserProfileResponse' {
 -- | The date and time when the user profile was created in AWS CodeStar, in
 -- timestamp format.
 describeUserProfileResponse_createdTimestamp :: Lens.Lens' DescribeUserProfileResponse Prelude.UTCTime
-describeUserProfileResponse_createdTimestamp = Lens.lens (\DescribeUserProfileResponse' {createdTimestamp} -> createdTimestamp) (\s@DescribeUserProfileResponse' {} a -> s {createdTimestamp = a} :: DescribeUserProfileResponse) Prelude.. Core._Time
+describeUserProfileResponse_createdTimestamp = Lens.lens (\DescribeUserProfileResponse' {createdTimestamp} -> createdTimestamp) (\s@DescribeUserProfileResponse' {} a -> s {createdTimestamp = a} :: DescribeUserProfileResponse) Prelude.. Data._Time
 
 -- | The date and time when the user profile was last modified, in timestamp
 -- format.
 describeUserProfileResponse_lastModifiedTimestamp :: Lens.Lens' DescribeUserProfileResponse Prelude.UTCTime
-describeUserProfileResponse_lastModifiedTimestamp = Lens.lens (\DescribeUserProfileResponse' {lastModifiedTimestamp} -> lastModifiedTimestamp) (\s@DescribeUserProfileResponse' {} a -> s {lastModifiedTimestamp = a} :: DescribeUserProfileResponse) Prelude.. Core._Time
+describeUserProfileResponse_lastModifiedTimestamp = Lens.lens (\DescribeUserProfileResponse' {lastModifiedTimestamp} -> lastModifiedTimestamp) (\s@DescribeUserProfileResponse' {} a -> s {lastModifiedTimestamp = a} :: DescribeUserProfileResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeUserProfileResponse where
   rnf DescribeUserProfileResponse' {..} =

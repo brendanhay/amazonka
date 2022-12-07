@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.LaunchPathSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ConstraintSummary
 import Amazonka.ServiceCatalog.Types.Tag
@@ -81,18 +82,18 @@ launchPathSummary_name = Lens.lens (\LaunchPathSummary' {name} -> name) (\s@Laun
 launchPathSummary_id :: Lens.Lens' LaunchPathSummary (Prelude.Maybe Prelude.Text)
 launchPathSummary_id = Lens.lens (\LaunchPathSummary' {id} -> id) (\s@LaunchPathSummary' {} a -> s {id = a} :: LaunchPathSummary)
 
-instance Core.FromJSON LaunchPathSummary where
+instance Data.FromJSON LaunchPathSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchPathSummary"
       ( \x ->
           LaunchPathSummary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "ConstraintSummaries"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "ConstraintSummaries"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable LaunchPathSummary where

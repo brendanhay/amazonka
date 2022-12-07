@@ -26,6 +26,7 @@ import Amazonka.ComprehendMedical.Types.ICD10CMEntityType
 import Amazonka.ComprehendMedical.Types.ICD10CMTrait
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The collection of medical entities extracted from the input text and
@@ -179,23 +180,23 @@ iCD10CMEntity_text = Lens.lens (\ICD10CMEntity' {text} -> text) (\s@ICD10CMEntit
 iCD10CMEntity_iCD10CMConcepts :: Lens.Lens' ICD10CMEntity (Prelude.Maybe [ICD10CMConcept])
 iCD10CMEntity_iCD10CMConcepts = Lens.lens (\ICD10CMEntity' {iCD10CMConcepts} -> iCD10CMConcepts) (\s@ICD10CMEntity' {} a -> s {iCD10CMConcepts = a} :: ICD10CMEntity) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ICD10CMEntity where
+instance Data.FromJSON ICD10CMEntity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ICD10CMEntity"
       ( \x ->
           ICD10CMEntity'
-            Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Traits" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "EndOffset")
-            Prelude.<*> (x Core..:? "Category")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Text")
-            Prelude.<*> ( x Core..:? "ICD10CMConcepts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "BeginOffset")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Traits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "Category")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Text")
+            Prelude.<*> ( x Data..:? "ICD10CMConcepts"
+                            Data..!= Prelude.mempty
                         )
       )
 

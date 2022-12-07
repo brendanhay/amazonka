@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.ParameterMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.ParameterInlinePolicy
 import Amazonka.SSM.Types.ParameterTier
@@ -40,7 +41,7 @@ data ParameterMetadata = ParameterMetadata'
     -- changed the parameter.
     lastModifiedUser :: Prelude.Maybe Prelude.Text,
     -- | Date the parameter was last changed or updated.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | A parameter name can include only the following letters and symbols.
     --
     -- a-zA-Z0-9_.-
@@ -128,7 +129,7 @@ parameterMetadata_lastModifiedUser = Lens.lens (\ParameterMetadata' {lastModifie
 
 -- | Date the parameter was last changed or updated.
 parameterMetadata_lastModifiedDate :: Lens.Lens' ParameterMetadata (Prelude.Maybe Prelude.UTCTime)
-parameterMetadata_lastModifiedDate = Lens.lens (\ParameterMetadata' {lastModifiedDate} -> lastModifiedDate) (\s@ParameterMetadata' {} a -> s {lastModifiedDate = a} :: ParameterMetadata) Prelude.. Lens.mapping Core._Time
+parameterMetadata_lastModifiedDate = Lens.lens (\ParameterMetadata' {lastModifiedDate} -> lastModifiedDate) (\s@ParameterMetadata' {} a -> s {lastModifiedDate = a} :: ParameterMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | A parameter name can include only the following letters and symbols.
 --
@@ -161,23 +162,23 @@ parameterMetadata_version = Lens.lens (\ParameterMetadata' {version} -> version)
 parameterMetadata_dataType :: Lens.Lens' ParameterMetadata (Prelude.Maybe Prelude.Text)
 parameterMetadata_dataType = Lens.lens (\ParameterMetadata' {dataType} -> dataType) (\s@ParameterMetadata' {} a -> s {dataType = a} :: ParameterMetadata)
 
-instance Core.FromJSON ParameterMetadata where
+instance Data.FromJSON ParameterMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParameterMetadata"
       ( \x ->
           ParameterMetadata'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "LastModifiedUser")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "AllowedPattern")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Tier")
-            Prelude.<*> (x Core..:? "Policies" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "KeyId")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "DataType")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "LastModifiedUser")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "AllowedPattern")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Tier")
+            Prelude.<*> (x Data..:? "Policies" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "KeyId")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..:? "DataType")
       )
 
 instance Prelude.Hashable ParameterMetadata where

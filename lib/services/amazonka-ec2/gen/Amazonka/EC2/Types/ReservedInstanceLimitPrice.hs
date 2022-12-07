@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ReservedInstanceLimitPrice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CurrencyCodeValues
 import qualified Amazonka.Prelude as Prelude
@@ -80,9 +81,9 @@ instance Prelude.NFData ReservedInstanceLimitPrice where
     Prelude.rnf currencyCode
       `Prelude.seq` Prelude.rnf amount
 
-instance Core.ToQuery ReservedInstanceLimitPrice where
+instance Data.ToQuery ReservedInstanceLimitPrice where
   toQuery ReservedInstanceLimitPrice' {..} =
     Prelude.mconcat
-      [ "CurrencyCode" Core.=: currencyCode,
-        "Amount" Core.=: amount
+      [ "CurrencyCode" Data.=: currencyCode,
+        "Amount" Data.=: amount
       ]

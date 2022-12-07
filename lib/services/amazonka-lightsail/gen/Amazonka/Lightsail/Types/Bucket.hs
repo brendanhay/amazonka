@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.Bucket where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.AccessRules
 import Amazonka.Lightsail.Types.BucketAccessLogConfig
 import Amazonka.Lightsail.Types.BucketState
@@ -99,7 +100,7 @@ data Bucket = Bucket'
     -- easily.
     supportCode :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the distribution was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | An object that describes the access log configuration for the bucket.
     accessLogConfig :: Prelude.Maybe BucketAccessLogConfig
   }
@@ -298,38 +299,38 @@ bucket_supportCode = Lens.lens (\Bucket' {supportCode} -> supportCode) (\s@Bucke
 
 -- | The timestamp when the distribution was created.
 bucket_createdAt :: Lens.Lens' Bucket (Prelude.Maybe Prelude.UTCTime)
-bucket_createdAt = Lens.lens (\Bucket' {createdAt} -> createdAt) (\s@Bucket' {} a -> s {createdAt = a} :: Bucket) Prelude.. Lens.mapping Core._Time
+bucket_createdAt = Lens.lens (\Bucket' {createdAt} -> createdAt) (\s@Bucket' {} a -> s {createdAt = a} :: Bucket) Prelude.. Lens.mapping Data._Time
 
 -- | An object that describes the access log configuration for the bucket.
 bucket_accessLogConfig :: Lens.Lens' Bucket (Prelude.Maybe BucketAccessLogConfig)
 bucket_accessLogConfig = Lens.lens (\Bucket' {accessLogConfig} -> accessLogConfig) (\s@Bucket' {} a -> s {accessLogConfig = a} :: Bucket)
 
-instance Core.FromJSON Bucket where
+instance Data.FromJSON Bucket where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Bucket"
       ( \x ->
           Bucket'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> ( x Core..:? "resourcesReceivingAccess"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> ( x Data..:? "resourcesReceivingAccess"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> ( x Core..:? "readonlyAccessAccounts"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> ( x Data..:? "readonlyAccessAccounts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "url")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "ableToUpdateBundle")
-            Prelude.<*> (x Core..:? "bundleId")
-            Prelude.<*> (x Core..:? "objectVersioning")
-            Prelude.<*> (x Core..:? "accessRules")
-            Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "accessLogConfig")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "ableToUpdateBundle")
+            Prelude.<*> (x Data..:? "bundleId")
+            Prelude.<*> (x Data..:? "objectVersioning")
+            Prelude.<*> (x Data..:? "accessRules")
+            Prelude.<*> (x Data..:? "supportCode")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "accessLogConfig")
       )
 
 instance Prelude.Hashable Bucket where

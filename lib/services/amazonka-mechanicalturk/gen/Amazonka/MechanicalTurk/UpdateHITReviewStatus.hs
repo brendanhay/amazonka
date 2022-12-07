@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,34 +128,34 @@ instance Prelude.NFData UpdateHITReviewStatus where
   rnf UpdateHITReviewStatus' {..} =
     Prelude.rnf revert `Prelude.seq` Prelude.rnf hITId
 
-instance Core.ToHeaders UpdateHITReviewStatus where
+instance Data.ToHeaders UpdateHITReviewStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.UpdateHITReviewStatus" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.UpdateHITReviewStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateHITReviewStatus where
+instance Data.ToJSON UpdateHITReviewStatus where
   toJSON UpdateHITReviewStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Revert" Core..=) Prelude.<$> revert,
-            Prelude.Just ("HITId" Core..= hITId)
+          [ ("Revert" Data..=) Prelude.<$> revert,
+            Prelude.Just ("HITId" Data..= hITId)
           ]
       )
 
-instance Core.ToPath UpdateHITReviewStatus where
+instance Data.ToPath UpdateHITReviewStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateHITReviewStatus where
+instance Data.ToQuery UpdateHITReviewStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateHITReviewStatusResponse' smart constructor.

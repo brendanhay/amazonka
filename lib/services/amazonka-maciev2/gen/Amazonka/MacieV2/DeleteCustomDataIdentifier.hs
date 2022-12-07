@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,23 +96,23 @@ instance Prelude.Hashable DeleteCustomDataIdentifier where
 instance Prelude.NFData DeleteCustomDataIdentifier where
   rnf DeleteCustomDataIdentifier' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteCustomDataIdentifier where
+instance Data.ToHeaders DeleteCustomDataIdentifier where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteCustomDataIdentifier where
+instance Data.ToPath DeleteCustomDataIdentifier where
   toPath DeleteCustomDataIdentifier' {..} =
     Prelude.mconcat
-      ["/custom-data-identifiers/", Core.toBS id]
+      ["/custom-data-identifiers/", Data.toBS id]
 
-instance Core.ToQuery DeleteCustomDataIdentifier where
+instance Data.ToQuery DeleteCustomDataIdentifier where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCustomDataIdentifierResponse' smart constructor.

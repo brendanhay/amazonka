@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,31 +111,31 @@ instance Core.AWSRequest DescribeGatewayInformation where
     Response.receiveJSON
       ( \s h x ->
           DescribeGatewayInformationResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Ec2InstanceId")
-            Prelude.<*> (x Core..?> "NextUpdateAvailabilityDate")
-            Prelude.<*> (x Core..?> "CloudWatchLogGroupARN")
-            Prelude.<*> (x Core..?> "GatewayName")
-            Prelude.<*> (x Core..?> "DeprecationDate")
-            Prelude.<*> (x Core..?> "GatewayCapacity")
-            Prelude.<*> (x Core..?> "GatewayType")
-            Prelude.<*> (x Core..?> "GatewayARN")
-            Prelude.<*> (x Core..?> "EndpointType")
-            Prelude.<*> (x Core..?> "SoftwareUpdatesEndDate")
-            Prelude.<*> (x Core..?> "LastSoftwareUpdate")
-            Prelude.<*> (x Core..?> "GatewayState")
-            Prelude.<*> (x Core..?> "GatewayId")
-            Prelude.<*> (x Core..?> "Ec2InstanceRegion")
-            Prelude.<*> ( x Core..?> "GatewayNetworkInterfaces"
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Ec2InstanceId")
+            Prelude.<*> (x Data..?> "NextUpdateAvailabilityDate")
+            Prelude.<*> (x Data..?> "CloudWatchLogGroupARN")
+            Prelude.<*> (x Data..?> "GatewayName")
+            Prelude.<*> (x Data..?> "DeprecationDate")
+            Prelude.<*> (x Data..?> "GatewayCapacity")
+            Prelude.<*> (x Data..?> "GatewayType")
+            Prelude.<*> (x Data..?> "GatewayARN")
+            Prelude.<*> (x Data..?> "EndpointType")
+            Prelude.<*> (x Data..?> "SoftwareUpdatesEndDate")
+            Prelude.<*> (x Data..?> "LastSoftwareUpdate")
+            Prelude.<*> (x Data..?> "GatewayState")
+            Prelude.<*> (x Data..?> "GatewayId")
+            Prelude.<*> (x Data..?> "Ec2InstanceRegion")
+            Prelude.<*> ( x Data..?> "GatewayNetworkInterfaces"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "SupportedGatewayCapacities"
+            Prelude.<*> ( x Data..?> "SupportedGatewayCapacities"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "GatewayTimezone")
-            Prelude.<*> (x Core..?> "HostEnvironmentId")
-            Prelude.<*> (x Core..?> "VPCEndpoint")
-            Prelude.<*> (x Core..?> "HostEnvironment")
+            Prelude.<*> (x Data..?> "GatewayTimezone")
+            Prelude.<*> (x Data..?> "HostEnvironmentId")
+            Prelude.<*> (x Data..?> "VPCEndpoint")
+            Prelude.<*> (x Data..?> "HostEnvironment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,32 +147,32 @@ instance Prelude.NFData DescribeGatewayInformation where
   rnf DescribeGatewayInformation' {..} =
     Prelude.rnf gatewayARN
 
-instance Core.ToHeaders DescribeGatewayInformation where
+instance Data.ToHeaders DescribeGatewayInformation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DescribeGatewayInformation" ::
+              Data.=# ( "StorageGateway_20130630.DescribeGatewayInformation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeGatewayInformation where
+instance Data.ToJSON DescribeGatewayInformation where
   toJSON DescribeGatewayInformation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
+          [Prelude.Just ("GatewayARN" Data..= gatewayARN)]
       )
 
-instance Core.ToPath DescribeGatewayInformation where
+instance Data.ToPath DescribeGatewayInformation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeGatewayInformation where
+instance Data.ToQuery DescribeGatewayInformation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the following fields:

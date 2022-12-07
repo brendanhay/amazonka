@@ -185,6 +185,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideoArchivedMedia.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -624,7 +625,7 @@ instance Core.AWSRequest GetDASHStreamingSessionURL where
     Response.receiveJSON
       ( \s h x ->
           GetDASHStreamingSessionURLResponse'
-            Prelude.<$> (x Core..?> "DASHStreamingSessionURL")
+            Prelude.<$> (x Data..?> "DASHStreamingSessionURL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -650,32 +651,32 @@ instance Prelude.NFData GetDASHStreamingSessionURL where
       `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf playbackMode
 
-instance Core.ToHeaders GetDASHStreamingSessionURL where
+instance Data.ToHeaders GetDASHStreamingSessionURL where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetDASHStreamingSessionURL where
+instance Data.ToJSON GetDASHStreamingSessionURL where
   toJSON GetDASHStreamingSessionURL' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DASHFragmentSelector" Core..=)
+          [ ("DASHFragmentSelector" Data..=)
               Prelude.<$> dASHFragmentSelector,
-            ("MaxManifestFragmentResults" Core..=)
+            ("MaxManifestFragmentResults" Data..=)
               Prelude.<$> maxManifestFragmentResults,
-            ("DisplayFragmentTimestamp" Core..=)
+            ("DisplayFragmentTimestamp" Data..=)
               Prelude.<$> displayFragmentTimestamp,
-            ("DisplayFragmentNumber" Core..=)
+            ("DisplayFragmentNumber" Data..=)
               Prelude.<$> displayFragmentNumber,
-            ("Expires" Core..=) Prelude.<$> expires,
-            ("StreamARN" Core..=) Prelude.<$> streamARN,
-            ("StreamName" Core..=) Prelude.<$> streamName,
-            ("PlaybackMode" Core..=) Prelude.<$> playbackMode
+            ("Expires" Data..=) Prelude.<$> expires,
+            ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName,
+            ("PlaybackMode" Data..=) Prelude.<$> playbackMode
           ]
       )
 
-instance Core.ToPath GetDASHStreamingSessionURL where
+instance Data.ToPath GetDASHStreamingSessionURL where
   toPath = Prelude.const "/getDASHStreamingSessionURL"
 
-instance Core.ToQuery GetDASHStreamingSessionURL where
+instance Data.ToQuery GetDASHStreamingSessionURL where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDASHStreamingSessionURLResponse' smart constructor.

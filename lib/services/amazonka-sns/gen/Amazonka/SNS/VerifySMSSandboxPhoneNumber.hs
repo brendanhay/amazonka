@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,23 +129,23 @@ instance Prelude.NFData VerifySMSSandboxPhoneNumber where
     Prelude.rnf phoneNumber
       `Prelude.seq` Prelude.rnf oneTimePassword
 
-instance Core.ToHeaders VerifySMSSandboxPhoneNumber where
+instance Data.ToHeaders VerifySMSSandboxPhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath VerifySMSSandboxPhoneNumber where
+instance Data.ToPath VerifySMSSandboxPhoneNumber where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery VerifySMSSandboxPhoneNumber where
+instance Data.ToQuery VerifySMSSandboxPhoneNumber where
   toQuery VerifySMSSandboxPhoneNumber' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "VerifySMSSandboxPhoneNumber" ::
+          Data.=: ( "VerifySMSSandboxPhoneNumber" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "PhoneNumber" Core.=: phoneNumber,
-        "OneTimePassword" Core.=: oneTimePassword
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "PhoneNumber" Data.=: phoneNumber,
+        "OneTimePassword" Data.=: oneTimePassword
       ]
 
 -- | The destination phone number\'s verification status.

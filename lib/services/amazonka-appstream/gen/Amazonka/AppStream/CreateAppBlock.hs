@@ -56,6 +56,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,7 +152,7 @@ instance Core.AWSRequest CreateAppBlock where
     Response.receiveJSON
       ( \s h x ->
           CreateAppBlockResponse'
-            Prelude.<$> (x Core..?> "AppBlock")
+            Prelude.<$> (x Data..?> "AppBlock")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,40 +174,40 @@ instance Prelude.NFData CreateAppBlock where
       `Prelude.seq` Prelude.rnf sourceS3Location
       `Prelude.seq` Prelude.rnf setupScriptDetails
 
-instance Core.ToHeaders CreateAppBlock where
+instance Data.ToHeaders CreateAppBlock where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.CreateAppBlock" ::
+              Data.=# ( "PhotonAdminProxyService.CreateAppBlock" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAppBlock where
+instance Data.ToJSON CreateAppBlock where
   toJSON CreateAppBlock' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("SourceS3Location" Core..= sourceS3Location),
+              ("SourceS3Location" Data..= sourceS3Location),
             Prelude.Just
-              ("SetupScriptDetails" Core..= setupScriptDetails)
+              ("SetupScriptDetails" Data..= setupScriptDetails)
           ]
       )
 
-instance Core.ToPath CreateAppBlock where
+instance Data.ToPath CreateAppBlock where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAppBlock where
+instance Data.ToQuery CreateAppBlock where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAppBlockResponse' smart constructor.

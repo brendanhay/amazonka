@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -131,7 +132,7 @@ instance Core.AWSRequest ModifyClusterSnapshot where
       "ModifyClusterSnapshotResult"
       ( \s h x ->
           ModifyClusterSnapshotResponse'
-            Prelude.<$> (x Core..@? "Snapshot")
+            Prelude.<$> (x Data..@? "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,23 +149,23 @@ instance Prelude.NFData ModifyClusterSnapshot where
       `Prelude.seq` Prelude.rnf force
       `Prelude.seq` Prelude.rnf snapshotIdentifier
 
-instance Core.ToHeaders ModifyClusterSnapshot where
+instance Data.ToHeaders ModifyClusterSnapshot where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyClusterSnapshot where
+instance Data.ToPath ModifyClusterSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyClusterSnapshot where
+instance Data.ToQuery ModifyClusterSnapshot where
   toQuery ModifyClusterSnapshot' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyClusterSnapshot" :: Prelude.ByteString),
+          Data.=: ("ModifyClusterSnapshot" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "ManualSnapshotRetentionPeriod"
-          Core.=: manualSnapshotRetentionPeriod,
-        "Force" Core.=: force,
-        "SnapshotIdentifier" Core.=: snapshotIdentifier
+          Data.=: manualSnapshotRetentionPeriod,
+        "Force" Data.=: force,
+        "SnapshotIdentifier" Data.=: snapshotIdentifier
       ]
 
 -- | /See:/ 'newModifyClusterSnapshotResponse' smart constructor.

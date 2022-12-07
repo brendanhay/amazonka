@@ -66,6 +66,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -186,8 +187,8 @@ instance Core.AWSRequest CreateQueue where
     Response.receiveJSON
       ( \s h x ->
           CreateQueueResponse'
-            Prelude.<$> (x Core..?> "QueueArn")
-            Prelude.<*> (x Core..?> "QueueId")
+            Prelude.<$> (x Data..?> "QueueArn")
+            Prelude.<*> (x Data..?> "QueueId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,39 +214,39 @@ instance Prelude.NFData CreateQueue where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf hoursOfOperationId
 
-instance Core.ToHeaders CreateQueue where
+instance Data.ToHeaders CreateQueue where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateQueue where
+instance Data.ToJSON CreateQueue where
   toJSON CreateQueue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("QuickConnectIds" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("QuickConnectIds" Data..=)
               Prelude.<$> quickConnectIds,
-            ("MaxContacts" Core..=) Prelude.<$> maxContacts,
-            ("OutboundCallerConfig" Core..=)
+            ("MaxContacts" Data..=) Prelude.<$> maxContacts,
+            ("OutboundCallerConfig" Data..=)
               Prelude.<$> outboundCallerConfig,
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("HoursOfOperationId" Core..= hoursOfOperationId)
+              ("HoursOfOperationId" Data..= hoursOfOperationId)
           ]
       )
 
-instance Core.ToPath CreateQueue where
+instance Data.ToPath CreateQueue where
   toPath CreateQueue' {..} =
-    Prelude.mconcat ["/queues/", Core.toBS instanceId]
+    Prelude.mconcat ["/queues/", Data.toBS instanceId]
 
-instance Core.ToQuery CreateQueue where
+instance Data.ToQuery CreateQueue where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateQueueResponse' smart constructor.

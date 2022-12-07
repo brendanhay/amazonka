@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MwAA.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ data UpdateEnvironment = UpdateEnvironment'
     -- | A list of key-value pairs containing the Apache Airflow configuration
     -- options you want to attach to your environment. To learn more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
-    airflowConfigurationOptions :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text))),
+    airflowConfigurationOptions :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text))),
     -- | The VPC networking components used to secure and enable network traffic
     -- between the Amazon Web Services resources for your environment. To learn
     -- more, see
@@ -313,7 +314,7 @@ updateEnvironment_sourceBucketArn = Lens.lens (\UpdateEnvironment' {sourceBucket
 -- options you want to attach to your environment. To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
 updateEnvironment_airflowConfigurationOptions :: Lens.Lens' UpdateEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateEnvironment_airflowConfigurationOptions = Lens.lens (\UpdateEnvironment' {airflowConfigurationOptions} -> airflowConfigurationOptions) (\s@UpdateEnvironment' {} a -> s {airflowConfigurationOptions = a} :: UpdateEnvironment) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+updateEnvironment_airflowConfigurationOptions = Lens.lens (\UpdateEnvironment' {airflowConfigurationOptions} -> airflowConfigurationOptions) (\s@UpdateEnvironment' {} a -> s {airflowConfigurationOptions = a} :: UpdateEnvironment) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The VPC networking components used to secure and enable network traffic
 -- between the Amazon Web Services resources for your environment. To learn
@@ -391,7 +392,7 @@ instance Core.AWSRequest UpdateEnvironment where
     Response.receiveJSON
       ( \s h x ->
           UpdateEnvironmentResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -437,58 +438,58 @@ instance Prelude.NFData UpdateEnvironment where
       `Prelude.seq` Prelude.rnf loggingConfiguration
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateEnvironment where
+instance Data.ToHeaders UpdateEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEnvironment where
+instance Data.ToJSON UpdateEnvironment where
   toJSON UpdateEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Schedulers" Core..=) Prelude.<$> schedulers,
-            ("PluginsS3ObjectVersion" Core..=)
+          [ ("Schedulers" Data..=) Prelude.<$> schedulers,
+            ("PluginsS3ObjectVersion" Data..=)
               Prelude.<$> pluginsS3ObjectVersion,
-            ("RequirementsS3Path" Core..=)
+            ("RequirementsS3Path" Data..=)
               Prelude.<$> requirementsS3Path,
-            ("PluginsS3Path" Core..=) Prelude.<$> pluginsS3Path,
-            ("AirflowVersion" Core..=)
+            ("PluginsS3Path" Data..=) Prelude.<$> pluginsS3Path,
+            ("AirflowVersion" Data..=)
               Prelude.<$> airflowVersion,
-            ("DagS3Path" Core..=) Prelude.<$> dagS3Path,
-            ("SourceBucketArn" Core..=)
+            ("DagS3Path" Data..=) Prelude.<$> dagS3Path,
+            ("SourceBucketArn" Data..=)
               Prelude.<$> sourceBucketArn,
-            ("AirflowConfigurationOptions" Core..=)
+            ("AirflowConfigurationOptions" Data..=)
               Prelude.<$> airflowConfigurationOptions,
-            ("NetworkConfiguration" Core..=)
+            ("NetworkConfiguration" Data..=)
               Prelude.<$> networkConfiguration,
-            ("MinWorkers" Core..=) Prelude.<$> minWorkers,
-            ("EnvironmentClass" Core..=)
+            ("MinWorkers" Data..=) Prelude.<$> minWorkers,
+            ("EnvironmentClass" Data..=)
               Prelude.<$> environmentClass,
-            ("WeeklyMaintenanceWindowStart" Core..=)
+            ("WeeklyMaintenanceWindowStart" Data..=)
               Prelude.<$> weeklyMaintenanceWindowStart,
-            ("RequirementsS3ObjectVersion" Core..=)
+            ("RequirementsS3ObjectVersion" Data..=)
               Prelude.<$> requirementsS3ObjectVersion,
-            ("ExecutionRoleArn" Core..=)
+            ("ExecutionRoleArn" Data..=)
               Prelude.<$> executionRoleArn,
-            ("WebserverAccessMode" Core..=)
+            ("WebserverAccessMode" Data..=)
               Prelude.<$> webserverAccessMode,
-            ("MaxWorkers" Core..=) Prelude.<$> maxWorkers,
-            ("LoggingConfiguration" Core..=)
+            ("MaxWorkers" Data..=) Prelude.<$> maxWorkers,
+            ("LoggingConfiguration" Data..=)
               Prelude.<$> loggingConfiguration
           ]
       )
 
-instance Core.ToPath UpdateEnvironment where
+instance Data.ToPath UpdateEnvironment where
   toPath UpdateEnvironment' {..} =
-    Prelude.mconcat ["/environments/", Core.toBS name]
+    Prelude.mconcat ["/environments/", Data.toBS name]
 
-instance Core.ToQuery UpdateEnvironment where
+instance Data.ToQuery UpdateEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEnvironmentResponse' smart constructor.

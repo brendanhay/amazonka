@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,30 +145,30 @@ instance Core.AWSRequest DescribeInstanceAttribute where
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceAttributeResponse'
-            Prelude.<$> (x Core..@? "ebsOptimized")
-            Prelude.<*> (x Core..@? "sriovNetSupport")
-            Prelude.<*> (x Core..@? "userData")
-            Prelude.<*> ( x Core..@? "blockDeviceMapping"
+            Prelude.<$> (x Data..@? "ebsOptimized")
+            Prelude.<*> (x Data..@? "sriovNetSupport")
+            Prelude.<*> (x Data..@? "userData")
+            Prelude.<*> ( x Data..@? "blockDeviceMapping"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "sourceDestCheck")
-            Prelude.<*> (x Core..@? "instanceInitiatedShutdownBehavior")
-            Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<*> (x Data..@? "sourceDestCheck")
+            Prelude.<*> (x Data..@? "instanceInitiatedShutdownBehavior")
+            Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "instanceType")
-            Prelude.<*> (x Core..@? "instanceId")
-            Prelude.<*> (x Core..@? "ramdisk")
-            Prelude.<*> (x Core..@? "kernel")
-            Prelude.<*> (x Core..@? "disableApiTermination")
-            Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<*> (x Data..@? "instanceType")
+            Prelude.<*> (x Data..@? "instanceId")
+            Prelude.<*> (x Data..@? "ramdisk")
+            Prelude.<*> (x Data..@? "kernel")
+            Prelude.<*> (x Data..@? "disableApiTermination")
+            Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "disableApiStop")
-            Prelude.<*> (x Core..@? "enaSupport")
-            Prelude.<*> (x Core..@? "rootDeviceName")
-            Prelude.<*> (x Core..@? "enclaveOptions")
+            Prelude.<*> (x Data..@? "disableApiStop")
+            Prelude.<*> (x Data..@? "enaSupport")
+            Prelude.<*> (x Data..@? "rootDeviceName")
+            Prelude.<*> (x Data..@? "enclaveOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,22 +184,22 @@ instance Prelude.NFData DescribeInstanceAttribute where
       `Prelude.seq` Prelude.rnf attribute
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders DescribeInstanceAttribute where
+instance Data.ToHeaders DescribeInstanceAttribute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeInstanceAttribute where
+instance Data.ToPath DescribeInstanceAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeInstanceAttribute where
+instance Data.ToQuery DescribeInstanceAttribute where
   toQuery DescribeInstanceAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeInstanceAttribute" :: Prelude.ByteString),
+          Data.=: ("DescribeInstanceAttribute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Attribute" Core.=: attribute,
-        "InstanceId" Core.=: instanceId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Attribute" Data.=: attribute,
+        "InstanceId" Data.=: instanceId
       ]
 
 -- | Describes an instance attribute.

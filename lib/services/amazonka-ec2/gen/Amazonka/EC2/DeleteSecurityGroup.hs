@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,22 +139,22 @@ instance Prelude.NFData DeleteSecurityGroup where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToHeaders DeleteSecurityGroup where
+instance Data.ToHeaders DeleteSecurityGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteSecurityGroup where
+instance Data.ToPath DeleteSecurityGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSecurityGroup where
+instance Data.ToQuery DeleteSecurityGroup where
   toQuery DeleteSecurityGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteSecurityGroup" :: Prelude.ByteString),
+          Data.=: ("DeleteSecurityGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "GroupName" Core.=: groupName,
-        "DryRun" Core.=: dryRun,
-        "GroupId" Core.=: groupId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "GroupName" Data.=: groupName,
+        "DryRun" Data.=: dryRun,
+        "GroupId" Data.=: groupId
       ]
 
 -- | /See:/ 'newDeleteSecurityGroupResponse' smart constructor.

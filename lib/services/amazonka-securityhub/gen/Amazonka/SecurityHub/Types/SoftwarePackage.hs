@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.SoftwarePackage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a software package.
@@ -148,23 +149,23 @@ softwarePackage_architecture = Lens.lens (\SoftwarePackage' {architecture} -> ar
 softwarePackage_version :: Lens.Lens' SoftwarePackage (Prelude.Maybe Prelude.Text)
 softwarePackage_version = Lens.lens (\SoftwarePackage' {version} -> version) (\s@SoftwarePackage' {} a -> s {version = a} :: SoftwarePackage)
 
-instance Core.FromJSON SoftwarePackage where
+instance Data.FromJSON SoftwarePackage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SoftwarePackage"
       ( \x ->
           SoftwarePackage'
-            Prelude.<$> (x Core..:? "FilePath")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "SourceLayerArn")
-            Prelude.<*> (x Core..:? "FixedInVersion")
-            Prelude.<*> (x Core..:? "Remediation")
-            Prelude.<*> (x Core..:? "Epoch")
-            Prelude.<*> (x Core..:? "PackageManager")
-            Prelude.<*> (x Core..:? "Release")
-            Prelude.<*> (x Core..:? "SourceLayerHash")
-            Prelude.<*> (x Core..:? "Architecture")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "FilePath")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "SourceLayerArn")
+            Prelude.<*> (x Data..:? "FixedInVersion")
+            Prelude.<*> (x Data..:? "Remediation")
+            Prelude.<*> (x Data..:? "Epoch")
+            Prelude.<*> (x Data..:? "PackageManager")
+            Prelude.<*> (x Data..:? "Release")
+            Prelude.<*> (x Data..:? "SourceLayerHash")
+            Prelude.<*> (x Data..:? "Architecture")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable SoftwarePackage where
@@ -195,24 +196,24 @@ instance Prelude.NFData SoftwarePackage where
       `Prelude.seq` Prelude.rnf architecture
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON SoftwarePackage where
+instance Data.ToJSON SoftwarePackage where
   toJSON SoftwarePackage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FilePath" Core..=) Prelude.<$> filePath,
-            ("Name" Core..=) Prelude.<$> name,
-            ("SourceLayerArn" Core..=)
+          [ ("FilePath" Data..=) Prelude.<$> filePath,
+            ("Name" Data..=) Prelude.<$> name,
+            ("SourceLayerArn" Data..=)
               Prelude.<$> sourceLayerArn,
-            ("FixedInVersion" Core..=)
+            ("FixedInVersion" Data..=)
               Prelude.<$> fixedInVersion,
-            ("Remediation" Core..=) Prelude.<$> remediation,
-            ("Epoch" Core..=) Prelude.<$> epoch,
-            ("PackageManager" Core..=)
+            ("Remediation" Data..=) Prelude.<$> remediation,
+            ("Epoch" Data..=) Prelude.<$> epoch,
+            ("PackageManager" Data..=)
               Prelude.<$> packageManager,
-            ("Release" Core..=) Prelude.<$> release,
-            ("SourceLayerHash" Core..=)
+            ("Release" Data..=) Prelude.<$> release,
+            ("SourceLayerHash" Data..=)
               Prelude.<$> sourceLayerHash,
-            ("Architecture" Core..=) Prelude.<$> architecture,
-            ("Version" Core..=) Prelude.<$> version
+            ("Architecture" Data..=) Prelude.<$> architecture,
+            ("Version" Data..=) Prelude.<$> version
           ]
       )

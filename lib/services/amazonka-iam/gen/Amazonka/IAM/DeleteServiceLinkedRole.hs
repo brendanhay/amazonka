@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,7 +107,7 @@ instance Core.AWSRequest DeleteServiceLinkedRole where
       ( \s h x ->
           DeleteServiceLinkedRoleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "DeletionTaskId")
+            Prelude.<*> (x Data..@ "DeletionTaskId")
       )
 
 instance Prelude.Hashable DeleteServiceLinkedRole where
@@ -117,20 +118,20 @@ instance Prelude.NFData DeleteServiceLinkedRole where
   rnf DeleteServiceLinkedRole' {..} =
     Prelude.rnf roleName
 
-instance Core.ToHeaders DeleteServiceLinkedRole where
+instance Data.ToHeaders DeleteServiceLinkedRole where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteServiceLinkedRole where
+instance Data.ToPath DeleteServiceLinkedRole where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteServiceLinkedRole where
+instance Data.ToQuery DeleteServiceLinkedRole where
   toQuery DeleteServiceLinkedRole' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteServiceLinkedRole" :: Prelude.ByteString),
+          Data.=: ("DeleteServiceLinkedRole" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "RoleName" Core.=: roleName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "RoleName" Data.=: roleName
       ]
 
 -- | /See:/ 'newDeleteServiceLinkedRoleResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -178,40 +179,40 @@ instance Prelude.NFData PutThirdPartyJobSuccessResult where
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders PutThirdPartyJobSuccessResult where
+instance Data.ToHeaders PutThirdPartyJobSuccessResult where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.PutThirdPartyJobSuccessResult" ::
+              Data.=# ( "CodePipeline_20150709.PutThirdPartyJobSuccessResult" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutThirdPartyJobSuccessResult where
+instance Data.ToJSON PutThirdPartyJobSuccessResult where
   toJSON PutThirdPartyJobSuccessResult' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("executionDetails" Core..=)
+          [ ("executionDetails" Data..=)
               Prelude.<$> executionDetails,
-            ("continuationToken" Core..=)
+            ("continuationToken" Data..=)
               Prelude.<$> continuationToken,
-            ("currentRevision" Core..=)
+            ("currentRevision" Data..=)
               Prelude.<$> currentRevision,
-            Prelude.Just ("jobId" Core..= jobId),
-            Prelude.Just ("clientToken" Core..= clientToken)
+            Prelude.Just ("jobId" Data..= jobId),
+            Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath PutThirdPartyJobSuccessResult where
+instance Data.ToPath PutThirdPartyJobSuccessResult where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutThirdPartyJobSuccessResult where
+instance Data.ToQuery PutThirdPartyJobSuccessResult where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutThirdPartyJobSuccessResultResponse' smart constructor.

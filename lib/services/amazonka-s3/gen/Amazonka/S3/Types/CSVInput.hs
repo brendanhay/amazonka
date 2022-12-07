@@ -21,6 +21,7 @@ module Amazonka.S3.Types.CSVInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.FileHeaderInfo
@@ -207,15 +208,15 @@ instance Prelude.NFData CSVInput where
       `Prelude.seq` Prelude.rnf recordDelimiter
       `Prelude.seq` Prelude.rnf fileHeaderInfo
 
-instance Core.ToXML CSVInput where
+instance Data.ToXML CSVInput where
   toXML CSVInput' {..} =
     Prelude.mconcat
-      [ "QuoteCharacter" Core.@= quoteCharacter,
+      [ "QuoteCharacter" Data.@= quoteCharacter,
         "AllowQuotedRecordDelimiter"
-          Core.@= allowQuotedRecordDelimiter,
-        "Comments" Core.@= comments,
-        "QuoteEscapeCharacter" Core.@= quoteEscapeCharacter,
-        "FieldDelimiter" Core.@= fieldDelimiter,
-        "RecordDelimiter" Core.@= recordDelimiter,
-        "FileHeaderInfo" Core.@= fileHeaderInfo
+          Data.@= allowQuotedRecordDelimiter,
+        "Comments" Data.@= comments,
+        "QuoteEscapeCharacter" Data.@= quoteEscapeCharacter,
+        "FieldDelimiter" Data.@= fieldDelimiter,
+        "RecordDelimiter" Data.@= recordDelimiter,
+        "FileHeaderInfo" Data.@= fileHeaderInfo
       ]

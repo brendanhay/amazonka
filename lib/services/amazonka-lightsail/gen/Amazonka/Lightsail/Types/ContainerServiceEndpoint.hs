@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ContainerServiceEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.ContainerServiceHealthCheckConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -79,15 +80,15 @@ containerServiceEndpoint_healthCheck = Lens.lens (\ContainerServiceEndpoint' {he
 containerServiceEndpoint_containerName :: Lens.Lens' ContainerServiceEndpoint (Prelude.Maybe Prelude.Text)
 containerServiceEndpoint_containerName = Lens.lens (\ContainerServiceEndpoint' {containerName} -> containerName) (\s@ContainerServiceEndpoint' {} a -> s {containerName = a} :: ContainerServiceEndpoint)
 
-instance Core.FromJSON ContainerServiceEndpoint where
+instance Data.FromJSON ContainerServiceEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerServiceEndpoint"
       ( \x ->
           ContainerServiceEndpoint'
-            Prelude.<$> (x Core..:? "containerPort")
-            Prelude.<*> (x Core..:? "healthCheck")
-            Prelude.<*> (x Core..:? "containerName")
+            Prelude.<$> (x Data..:? "containerPort")
+            Prelude.<*> (x Data..:? "healthCheck")
+            Prelude.<*> (x Data..:? "containerName")
       )
 
 instance Prelude.Hashable ContainerServiceEndpoint where

@@ -28,6 +28,7 @@ import Amazonka.AppStream.Types.ResourceError
 import Amazonka.AppStream.Types.VisibilityType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an image.
@@ -35,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newImage' smart constructor.
 data Image = Image'
   { -- | The time the image was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The reason why the last state change occurred.
     stateChangeReason :: Prelude.Maybe ImageStateChangeReason,
     -- | The applications associated with the image.
@@ -57,7 +58,7 @@ data Image = Image'
     description :: Prelude.Maybe Prelude.Text,
     -- | The release date of the public base image. For private images, this date
     -- is the release date of the base image from which the image was created.
-    publicBaseImageReleasedDate :: Prelude.Maybe Core.POSIX,
+    publicBaseImageReleasedDate :: Prelude.Maybe Data.POSIX,
     -- | The permissions to provide to the destination AWS account for the
     -- specified image.
     imagePermissions :: Prelude.Maybe ImagePermissions,
@@ -151,7 +152,7 @@ newImage pName_ =
 
 -- | The time the image was created.
 image_createdTime :: Lens.Lens' Image (Prelude.Maybe Prelude.UTCTime)
-image_createdTime = Lens.lens (\Image' {createdTime} -> createdTime) (\s@Image' {} a -> s {createdTime = a} :: Image) Prelude.. Lens.mapping Core._Time
+image_createdTime = Lens.lens (\Image' {createdTime} -> createdTime) (\s@Image' {} a -> s {createdTime = a} :: Image) Prelude.. Lens.mapping Data._Time
 
 -- | The reason why the last state change occurred.
 image_stateChangeReason :: Lens.Lens' Image (Prelude.Maybe ImageStateChangeReason)
@@ -193,7 +194,7 @@ image_description = Lens.lens (\Image' {description} -> description) (\s@Image' 
 -- | The release date of the public base image. For private images, this date
 -- is the release date of the base image from which the image was created.
 image_publicBaseImageReleasedDate :: Lens.Lens' Image (Prelude.Maybe Prelude.UTCTime)
-image_publicBaseImageReleasedDate = Lens.lens (\Image' {publicBaseImageReleasedDate} -> publicBaseImageReleasedDate) (\s@Image' {} a -> s {publicBaseImageReleasedDate = a} :: Image) Prelude.. Lens.mapping Core._Time
+image_publicBaseImageReleasedDate = Lens.lens (\Image' {publicBaseImageReleasedDate} -> publicBaseImageReleasedDate) (\s@Image' {} a -> s {publicBaseImageReleasedDate = a} :: Image) Prelude.. Lens.mapping Data._Time
 
 -- | The permissions to provide to the destination AWS account for the
 -- specified image.
@@ -223,29 +224,29 @@ image_imageBuilderName = Lens.lens (\Image' {imageBuilderName} -> imageBuilderNa
 image_name :: Lens.Lens' Image Prelude.Text
 image_name = Lens.lens (\Image' {name} -> name) (\s@Image' {} a -> s {name = a} :: Image)
 
-instance Core.FromJSON Image where
+instance Data.FromJSON Image where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Image"
       ( \x ->
           Image'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "StateChangeReason")
-            Prelude.<*> (x Core..:? "Applications" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ImageBuilderSupported")
-            Prelude.<*> (x Core..:? "Visibility")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Platform")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "PublicBaseImageReleasedDate")
-            Prelude.<*> (x Core..:? "ImagePermissions")
-            Prelude.<*> (x Core..:? "AppstreamAgentVersion")
-            Prelude.<*> (x Core..:? "ImageErrors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "BaseImageArn")
-            Prelude.<*> (x Core..:? "ImageBuilderName")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "StateChangeReason")
+            Prelude.<*> (x Data..:? "Applications" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ImageBuilderSupported")
+            Prelude.<*> (x Data..:? "Visibility")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Platform")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "PublicBaseImageReleasedDate")
+            Prelude.<*> (x Data..:? "ImagePermissions")
+            Prelude.<*> (x Data..:? "AppstreamAgentVersion")
+            Prelude.<*> (x Data..:? "ImageErrors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "BaseImageArn")
+            Prelude.<*> (x Data..:? "ImageBuilderName")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable Image where

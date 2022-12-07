@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.JobUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CodeGenConfigurationNode
 import Amazonka.Glue.Types.ConnectionsList
 import Amazonka.Glue.Types.ExecutionClass
@@ -97,7 +98,7 @@ data JobUpdate = JobUpdate'
     maxRetries :: Prelude.Maybe Prelude.Int,
     -- | The representation of a directed acyclic graph on which both the Glue
     -- Studio visual component and Glue Studio code generation is based.
-    codeGenConfigurationNodes :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text CodeGenConfigurationNode)),
+    codeGenConfigurationNodes :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text CodeGenConfigurationNode)),
     -- | The default arguments for this job.
     --
     -- You can specify arguments here that your own job-execution script
@@ -406,7 +407,7 @@ jobUpdate_maxRetries = Lens.lens (\JobUpdate' {maxRetries} -> maxRetries) (\s@Jo
 -- | The representation of a directed acyclic graph on which both the Glue
 -- Studio visual component and Glue Studio code generation is based.
 jobUpdate_codeGenConfigurationNodes :: Lens.Lens' JobUpdate (Prelude.Maybe (Prelude.HashMap Prelude.Text CodeGenConfigurationNode))
-jobUpdate_codeGenConfigurationNodes = Lens.lens (\JobUpdate' {codeGenConfigurationNodes} -> codeGenConfigurationNodes) (\s@JobUpdate' {} a -> s {codeGenConfigurationNodes = a} :: JobUpdate) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+jobUpdate_codeGenConfigurationNodes = Lens.lens (\JobUpdate' {codeGenConfigurationNodes} -> codeGenConfigurationNodes) (\s@JobUpdate' {} a -> s {codeGenConfigurationNodes = a} :: JobUpdate) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The default arguments for this job.
 --
@@ -530,39 +531,39 @@ instance Prelude.NFData JobUpdate where
       `Prelude.seq` Prelude.rnf maxCapacity
       `Prelude.seq` Prelude.rnf executionClass
 
-instance Core.ToJSON JobUpdate where
+instance Data.ToJSON JobUpdate where
   toJSON JobUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityConfiguration" Core..=)
+          [ ("SecurityConfiguration" Data..=)
               Prelude.<$> securityConfiguration,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("NonOverridableArguments" Core..=)
+            ("Timeout" Data..=) Prelude.<$> timeout,
+            ("NonOverridableArguments" Data..=)
               Prelude.<$> nonOverridableArguments,
-            ("NumberOfWorkers" Core..=)
+            ("NumberOfWorkers" Data..=)
               Prelude.<$> numberOfWorkers,
-            ("GlueVersion" Core..=) Prelude.<$> glueVersion,
-            ("NotificationProperty" Core..=)
+            ("GlueVersion" Data..=) Prelude.<$> glueVersion,
+            ("NotificationProperty" Data..=)
               Prelude.<$> notificationProperty,
-            ("WorkerType" Core..=) Prelude.<$> workerType,
-            ("ExecutionProperty" Core..=)
+            ("WorkerType" Data..=) Prelude.<$> workerType,
+            ("ExecutionProperty" Data..=)
               Prelude.<$> executionProperty,
-            ("AllocatedCapacity" Core..=)
+            ("AllocatedCapacity" Data..=)
               Prelude.<$> allocatedCapacity,
-            ("Command" Core..=) Prelude.<$> command,
-            ("Description" Core..=) Prelude.<$> description,
-            ("MaxRetries" Core..=) Prelude.<$> maxRetries,
-            ("CodeGenConfigurationNodes" Core..=)
+            ("Command" Data..=) Prelude.<$> command,
+            ("Description" Data..=) Prelude.<$> description,
+            ("MaxRetries" Data..=) Prelude.<$> maxRetries,
+            ("CodeGenConfigurationNodes" Data..=)
               Prelude.<$> codeGenConfigurationNodes,
-            ("DefaultArguments" Core..=)
+            ("DefaultArguments" Data..=)
               Prelude.<$> defaultArguments,
-            ("SourceControlDetails" Core..=)
+            ("SourceControlDetails" Data..=)
               Prelude.<$> sourceControlDetails,
-            ("LogUri" Core..=) Prelude.<$> logUri,
-            ("Connections" Core..=) Prelude.<$> connections,
-            ("Role" Core..=) Prelude.<$> role',
-            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
-            ("ExecutionClass" Core..=)
+            ("LogUri" Data..=) Prelude.<$> logUri,
+            ("Connections" Data..=) Prelude.<$> connections,
+            ("Role" Data..=) Prelude.<$> role',
+            ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
+            ("ExecutionClass" Data..=)
               Prelude.<$> executionClass
           ]
       )

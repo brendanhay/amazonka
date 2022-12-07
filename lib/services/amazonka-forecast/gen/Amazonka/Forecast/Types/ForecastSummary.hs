@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.ForecastSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the forecast properties used in the ListForecasts
@@ -42,7 +43,7 @@ data ForecastSummary = ForecastSummary'
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | If an error occurred, an informational message about the error.
     message :: Prelude.Maybe Prelude.Text,
     -- | The status of the forecast. States include:
@@ -63,7 +64,7 @@ data ForecastSummary = ForecastSummary'
     -- | The ARN of the forecast.
     forecastArn :: Prelude.Maybe Prelude.Text,
     -- | When the forecast creation task was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the dataset group that provided the
     -- data used to train the predictor.
     datasetGroupArn :: Prelude.Maybe Prelude.Text,
@@ -151,7 +152,7 @@ newForecastSummary =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 forecastSummary_lastModificationTime :: Lens.Lens' ForecastSummary (Prelude.Maybe Prelude.UTCTime)
-forecastSummary_lastModificationTime = Lens.lens (\ForecastSummary' {lastModificationTime} -> lastModificationTime) (\s@ForecastSummary' {} a -> s {lastModificationTime = a} :: ForecastSummary) Prelude.. Lens.mapping Core._Time
+forecastSummary_lastModificationTime = Lens.lens (\ForecastSummary' {lastModificationTime} -> lastModificationTime) (\s@ForecastSummary' {} a -> s {lastModificationTime = a} :: ForecastSummary) Prelude.. Lens.mapping Data._Time
 
 -- | If an error occurred, an informational message about the error.
 forecastSummary_message :: Lens.Lens' ForecastSummary (Prelude.Maybe Prelude.Text)
@@ -182,7 +183,7 @@ forecastSummary_forecastArn = Lens.lens (\ForecastSummary' {forecastArn} -> fore
 
 -- | When the forecast creation task was created.
 forecastSummary_creationTime :: Lens.Lens' ForecastSummary (Prelude.Maybe Prelude.UTCTime)
-forecastSummary_creationTime = Lens.lens (\ForecastSummary' {creationTime} -> creationTime) (\s@ForecastSummary' {} a -> s {creationTime = a} :: ForecastSummary) Prelude.. Lens.mapping Core._Time
+forecastSummary_creationTime = Lens.lens (\ForecastSummary' {creationTime} -> creationTime) (\s@ForecastSummary' {} a -> s {creationTime = a} :: ForecastSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the dataset group that provided the
 -- data used to train the predictor.
@@ -197,21 +198,21 @@ forecastSummary_createdUsingAutoPredictor = Lens.lens (\ForecastSummary' {create
 forecastSummary_forecastName :: Lens.Lens' ForecastSummary (Prelude.Maybe Prelude.Text)
 forecastSummary_forecastName = Lens.lens (\ForecastSummary' {forecastName} -> forecastName) (\s@ForecastSummary' {} a -> s {forecastName = a} :: ForecastSummary)
 
-instance Core.FromJSON ForecastSummary where
+instance Data.FromJSON ForecastSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ForecastSummary"
       ( \x ->
           ForecastSummary'
-            Prelude.<$> (x Core..:? "LastModificationTime")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "PredictorArn")
-            Prelude.<*> (x Core..:? "ForecastArn")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "DatasetGroupArn")
-            Prelude.<*> (x Core..:? "CreatedUsingAutoPredictor")
-            Prelude.<*> (x Core..:? "ForecastName")
+            Prelude.<$> (x Data..:? "LastModificationTime")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "PredictorArn")
+            Prelude.<*> (x Data..:? "ForecastArn")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DatasetGroupArn")
+            Prelude.<*> (x Data..:? "CreatedUsingAutoPredictor")
+            Prelude.<*> (x Data..:? "ForecastName")
       )
 
 instance Prelude.Hashable ForecastSummary where

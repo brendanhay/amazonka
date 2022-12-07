@@ -46,6 +46,7 @@ where
 import Amazonka.ApplicationCostProfiler.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,7 +145,7 @@ instance Core.AWSRequest PutReportDefinition where
     Response.receiveJSON
       ( \s h x ->
           PutReportDefinitionResponse'
-            Prelude.<$> (x Core..?> "reportId")
+            Prelude.<$> (x Data..?> "reportId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,38 +165,38 @@ instance Prelude.NFData PutReportDefinition where
       `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf destinationS3Location
 
-instance Core.ToHeaders PutReportDefinition where
+instance Data.ToHeaders PutReportDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutReportDefinition where
+instance Data.ToJSON PutReportDefinition where
   toJSON PutReportDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("reportId" Core..= reportId),
+          [ Prelude.Just ("reportId" Data..= reportId),
             Prelude.Just
-              ("reportDescription" Core..= reportDescription),
+              ("reportDescription" Data..= reportDescription),
             Prelude.Just
-              ("reportFrequency" Core..= reportFrequency),
-            Prelude.Just ("format" Core..= format),
+              ("reportFrequency" Data..= reportFrequency),
+            Prelude.Just ("format" Data..= format),
             Prelude.Just
               ( "destinationS3Location"
-                  Core..= destinationS3Location
+                  Data..= destinationS3Location
               )
           ]
       )
 
-instance Core.ToPath PutReportDefinition where
+instance Data.ToPath PutReportDefinition where
   toPath = Prelude.const "/reportDefinition"
 
-instance Core.ToQuery PutReportDefinition where
+instance Data.ToQuery PutReportDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutReportDefinitionResponse' smart constructor.

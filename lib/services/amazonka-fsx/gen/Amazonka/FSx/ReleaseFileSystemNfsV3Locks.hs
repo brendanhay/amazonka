@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ instance Core.AWSRequest ReleaseFileSystemNfsV3Locks where
     Response.receiveJSON
       ( \s h x ->
           ReleaseFileSystemNfsV3LocksResponse'
-            Prelude.<$> (x Core..?> "FileSystem")
+            Prelude.<$> (x Data..?> "FileSystem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,35 +110,35 @@ instance Prelude.NFData ReleaseFileSystemNfsV3Locks where
     Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf fileSystemId
 
-instance Core.ToHeaders ReleaseFileSystemNfsV3Locks where
+instance Data.ToHeaders ReleaseFileSystemNfsV3Locks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.ReleaseFileSystemNfsV3Locks" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.ReleaseFileSystemNfsV3Locks" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ReleaseFileSystemNfsV3Locks where
+instance Data.ToJSON ReleaseFileSystemNfsV3Locks where
   toJSON ReleaseFileSystemNfsV3Locks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("FileSystemId" Core..= fileSystemId)
+            Prelude.Just ("FileSystemId" Data..= fileSystemId)
           ]
       )
 
-instance Core.ToPath ReleaseFileSystemNfsV3Locks where
+instance Data.ToPath ReleaseFileSystemNfsV3Locks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ReleaseFileSystemNfsV3Locks where
+instance Data.ToQuery ReleaseFileSystemNfsV3Locks where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newReleaseFileSystemNfsV3LocksResponse' smart constructor.

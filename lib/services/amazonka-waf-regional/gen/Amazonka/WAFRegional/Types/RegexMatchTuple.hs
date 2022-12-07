@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.RegexMatchTuple where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFRegional.Types.FieldToMatch
 import Amazonka.WAFRegional.Types.TextTransformation
@@ -345,15 +346,15 @@ regexMatchTuple_textTransformation = Lens.lens (\RegexMatchTuple' {textTransform
 regexMatchTuple_regexPatternSetId :: Lens.Lens' RegexMatchTuple Prelude.Text
 regexMatchTuple_regexPatternSetId = Lens.lens (\RegexMatchTuple' {regexPatternSetId} -> regexPatternSetId) (\s@RegexMatchTuple' {} a -> s {regexPatternSetId = a} :: RegexMatchTuple)
 
-instance Core.FromJSON RegexMatchTuple where
+instance Data.FromJSON RegexMatchTuple where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegexMatchTuple"
       ( \x ->
           RegexMatchTuple'
-            Prelude.<$> (x Core..: "FieldToMatch")
-            Prelude.<*> (x Core..: "TextTransformation")
-            Prelude.<*> (x Core..: "RegexPatternSetId")
+            Prelude.<$> (x Data..: "FieldToMatch")
+            Prelude.<*> (x Data..: "TextTransformation")
+            Prelude.<*> (x Data..: "RegexPatternSetId")
       )
 
 instance Prelude.Hashable RegexMatchTuple where
@@ -368,14 +369,14 @@ instance Prelude.NFData RegexMatchTuple where
       `Prelude.seq` Prelude.rnf textTransformation
       `Prelude.seq` Prelude.rnf regexPatternSetId
 
-instance Core.ToJSON RegexMatchTuple where
+instance Data.ToJSON RegexMatchTuple where
   toJSON RegexMatchTuple' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FieldToMatch" Core..= fieldToMatch),
+          [ Prelude.Just ("FieldToMatch" Data..= fieldToMatch),
             Prelude.Just
-              ("TextTransformation" Core..= textTransformation),
+              ("TextTransformation" Data..= textTransformation),
             Prelude.Just
-              ("RegexPatternSetId" Core..= regexPatternSetId)
+              ("RegexPatternSetId" Data..= regexPatternSetId)
           ]
       )

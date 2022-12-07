@@ -22,6 +22,7 @@ module Amazonka.AccessAnalyzer.Types.GeneratedPolicyProperties where
 import Amazonka.AccessAnalyzer.Types.CloudTrailProperties
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the generated policy details.
@@ -83,15 +84,15 @@ generatedPolicyProperties_cloudTrailProperties = Lens.lens (\GeneratedPolicyProp
 generatedPolicyProperties_principalArn :: Lens.Lens' GeneratedPolicyProperties Prelude.Text
 generatedPolicyProperties_principalArn = Lens.lens (\GeneratedPolicyProperties' {principalArn} -> principalArn) (\s@GeneratedPolicyProperties' {} a -> s {principalArn = a} :: GeneratedPolicyProperties)
 
-instance Core.FromJSON GeneratedPolicyProperties where
+instance Data.FromJSON GeneratedPolicyProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GeneratedPolicyProperties"
       ( \x ->
           GeneratedPolicyProperties'
-            Prelude.<$> (x Core..:? "isComplete")
-            Prelude.<*> (x Core..:? "cloudTrailProperties")
-            Prelude.<*> (x Core..: "principalArn")
+            Prelude.<$> (x Data..:? "isComplete")
+            Prelude.<*> (x Data..:? "cloudTrailProperties")
+            Prelude.<*> (x Data..: "principalArn")
       )
 
 instance Prelude.Hashable GeneratedPolicyProperties where

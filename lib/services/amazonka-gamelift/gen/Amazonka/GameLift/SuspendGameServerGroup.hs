@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,7 +135,7 @@ instance Core.AWSRequest SuspendGameServerGroup where
     Response.receiveJSON
       ( \s h x ->
           SuspendGameServerGroupResponse'
-            Prelude.<$> (x Core..?> "GameServerGroup")
+            Prelude.<$> (x Data..?> "GameServerGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,36 +149,36 @@ instance Prelude.NFData SuspendGameServerGroup where
     Prelude.rnf gameServerGroupName
       `Prelude.seq` Prelude.rnf suspendActions
 
-instance Core.ToHeaders SuspendGameServerGroup where
+instance Data.ToHeaders SuspendGameServerGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.SuspendGameServerGroup" ::
+              Data.=# ( "GameLift.SuspendGameServerGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SuspendGameServerGroup where
+instance Data.ToJSON SuspendGameServerGroup where
   toJSON SuspendGameServerGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("GameServerGroupName" Core..= gameServerGroupName),
+              ("GameServerGroupName" Data..= gameServerGroupName),
             Prelude.Just
-              ("SuspendActions" Core..= suspendActions)
+              ("SuspendActions" Data..= suspendActions)
           ]
       )
 
-instance Core.ToPath SuspendGameServerGroup where
+instance Data.ToPath SuspendGameServerGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SuspendGameServerGroup where
+instance Data.ToQuery SuspendGameServerGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSuspendGameServerGroupResponse' smart constructor.

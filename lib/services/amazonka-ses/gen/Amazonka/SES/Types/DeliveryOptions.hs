@@ -21,6 +21,7 @@ module Amazonka.SES.Types.DeliveryOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.TlsPolicy
 
@@ -64,10 +65,10 @@ newDeliveryOptions =
 deliveryOptions_tlsPolicy :: Lens.Lens' DeliveryOptions (Prelude.Maybe TlsPolicy)
 deliveryOptions_tlsPolicy = Lens.lens (\DeliveryOptions' {tlsPolicy} -> tlsPolicy) (\s@DeliveryOptions' {} a -> s {tlsPolicy = a} :: DeliveryOptions)
 
-instance Core.FromXML DeliveryOptions where
+instance Data.FromXML DeliveryOptions where
   parseXML x =
     DeliveryOptions'
-      Prelude.<$> (x Core..@? "TlsPolicy")
+      Prelude.<$> (x Data..@? "TlsPolicy")
 
 instance Prelude.Hashable DeliveryOptions where
   hashWithSalt _salt DeliveryOptions' {..} =
@@ -76,6 +77,6 @@ instance Prelude.Hashable DeliveryOptions where
 instance Prelude.NFData DeliveryOptions where
   rnf DeliveryOptions' {..} = Prelude.rnf tlsPolicy
 
-instance Core.ToQuery DeliveryOptions where
+instance Data.ToQuery DeliveryOptions where
   toQuery DeliveryOptions' {..} =
-    Prelude.mconcat ["TlsPolicy" Core.=: tlsPolicy]
+    Prelude.mconcat ["TlsPolicy" Data.=: tlsPolicy]

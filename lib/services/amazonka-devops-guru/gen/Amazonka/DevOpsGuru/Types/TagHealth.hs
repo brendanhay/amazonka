@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.TagHealth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.InsightHealth
 import qualified Amazonka.Prelude as Prelude
 
@@ -156,16 +157,16 @@ tagHealth_analyzedResourceCount = Lens.lens (\TagHealth' {analyzedResourceCount}
 tagHealth_appBoundaryKey :: Lens.Lens' TagHealth (Prelude.Maybe Prelude.Text)
 tagHealth_appBoundaryKey = Lens.lens (\TagHealth' {appBoundaryKey} -> appBoundaryKey) (\s@TagHealth' {} a -> s {appBoundaryKey = a} :: TagHealth)
 
-instance Core.FromJSON TagHealth where
+instance Data.FromJSON TagHealth where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TagHealth"
       ( \x ->
           TagHealth'
-            Prelude.<$> (x Core..:? "Insight")
-            Prelude.<*> (x Core..:? "TagValue")
-            Prelude.<*> (x Core..:? "AnalyzedResourceCount")
-            Prelude.<*> (x Core..:? "AppBoundaryKey")
+            Prelude.<$> (x Data..:? "Insight")
+            Prelude.<*> (x Data..:? "TagValue")
+            Prelude.<*> (x Data..:? "AnalyzedResourceCount")
+            Prelude.<*> (x Data..:? "AppBoundaryKey")
       )
 
 instance Prelude.Hashable TagHealth where

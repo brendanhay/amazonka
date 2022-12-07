@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.SubtitlesOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.SubtitleFormat
 
@@ -133,16 +134,16 @@ subtitlesOutput_formats = Lens.lens (\SubtitlesOutput' {formats} -> formats) (\s
 subtitlesOutput_subtitleFileUris :: Lens.Lens' SubtitlesOutput (Prelude.Maybe [Prelude.Text])
 subtitlesOutput_subtitleFileUris = Lens.lens (\SubtitlesOutput' {subtitleFileUris} -> subtitleFileUris) (\s@SubtitlesOutput' {} a -> s {subtitleFileUris = a} :: SubtitlesOutput) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SubtitlesOutput where
+instance Data.FromJSON SubtitlesOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubtitlesOutput"
       ( \x ->
           SubtitlesOutput'
-            Prelude.<$> (x Core..:? "OutputStartIndex")
-            Prelude.<*> (x Core..:? "Formats" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "SubtitleFileUris"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "OutputStartIndex")
+            Prelude.<*> (x Data..:? "Formats" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "SubtitleFileUris"
+                            Data..!= Prelude.mempty
                         )
       )
 

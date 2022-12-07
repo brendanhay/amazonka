@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,8 +129,8 @@ instance Core.AWSRequest ListShareInvitations where
     Response.receiveJSON
       ( \s h x ->
           ListShareInvitationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ShareInvitationSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ShareInvitationSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -151,28 +152,28 @@ instance Prelude.NFData ListShareInvitations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf shareResourceType
 
-instance Core.ToHeaders ListShareInvitations where
+instance Data.ToHeaders ListShareInvitations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListShareInvitations where
+instance Data.ToPath ListShareInvitations where
   toPath = Prelude.const "/shareInvitations"
 
-instance Core.ToQuery ListShareInvitations where
+instance Data.ToQuery ListShareInvitations where
   toQuery ListShareInvitations' {..} =
     Prelude.mconcat
-      [ "LensNamePrefix" Core.=: lensNamePrefix,
-        "NextToken" Core.=: nextToken,
-        "WorkloadNamePrefix" Core.=: workloadNamePrefix,
-        "MaxResults" Core.=: maxResults,
-        "ShareResourceType" Core.=: shareResourceType
+      [ "LensNamePrefix" Data.=: lensNamePrefix,
+        "NextToken" Data.=: nextToken,
+        "WorkloadNamePrefix" Data.=: workloadNamePrefix,
+        "MaxResults" Data.=: maxResults,
+        "ShareResourceType" Data.=: shareResourceType
       ]
 
 -- | Input for List Share Invitations

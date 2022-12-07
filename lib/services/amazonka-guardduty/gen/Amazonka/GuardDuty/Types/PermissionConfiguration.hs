@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.PermissionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.AccountLevelPermissions
 import Amazonka.GuardDuty.Types.BucketLevelPermissions
 import qualified Amazonka.Prelude as Prelude
@@ -71,14 +72,14 @@ permissionConfiguration_accountLevelPermissions = Lens.lens (\PermissionConfigur
 permissionConfiguration_bucketLevelPermissions :: Lens.Lens' PermissionConfiguration (Prelude.Maybe BucketLevelPermissions)
 permissionConfiguration_bucketLevelPermissions = Lens.lens (\PermissionConfiguration' {bucketLevelPermissions} -> bucketLevelPermissions) (\s@PermissionConfiguration' {} a -> s {bucketLevelPermissions = a} :: PermissionConfiguration)
 
-instance Core.FromJSON PermissionConfiguration where
+instance Data.FromJSON PermissionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PermissionConfiguration"
       ( \x ->
           PermissionConfiguration'
-            Prelude.<$> (x Core..:? "accountLevelPermissions")
-            Prelude.<*> (x Core..:? "bucketLevelPermissions")
+            Prelude.<$> (x Data..:? "accountLevelPermissions")
+            Prelude.<*> (x Data..:? "bucketLevelPermissions")
       )
 
 instance Prelude.Hashable PermissionConfiguration where

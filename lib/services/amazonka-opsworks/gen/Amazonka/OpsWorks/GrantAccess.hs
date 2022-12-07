@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest GrantAccess where
     Response.receiveJSON
       ( \s h x ->
           GrantAccessResponse'
-            Prelude.<$> (x Core..?> "TemporaryCredential")
+            Prelude.<$> (x Data..?> "TemporaryCredential")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,35 +119,35 @@ instance Prelude.NFData GrantAccess where
     Prelude.rnf validForInMinutes
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders GrantAccess where
+instance Data.ToHeaders GrantAccess where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.GrantAccess" ::
+              Data.=# ( "OpsWorks_20130218.GrantAccess" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GrantAccess where
+instance Data.ToJSON GrantAccess where
   toJSON GrantAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ValidForInMinutes" Core..=)
+          [ ("ValidForInMinutes" Data..=)
               Prelude.<$> validForInMinutes,
-            Prelude.Just ("InstanceId" Core..= instanceId)
+            Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
 
-instance Core.ToPath GrantAccess where
+instance Data.ToPath GrantAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GrantAccess where
+instance Data.ToQuery GrantAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @GrantAccess@ request.

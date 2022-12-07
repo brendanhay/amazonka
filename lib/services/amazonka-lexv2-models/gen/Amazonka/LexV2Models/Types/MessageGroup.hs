@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.MessageGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.Message
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,14 +71,14 @@ messageGroup_variations = Lens.lens (\MessageGroup' {variations} -> variations) 
 messageGroup_message :: Lens.Lens' MessageGroup Message
 messageGroup_message = Lens.lens (\MessageGroup' {message} -> message) (\s@MessageGroup' {} a -> s {message = a} :: MessageGroup)
 
-instance Core.FromJSON MessageGroup where
+instance Data.FromJSON MessageGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MessageGroup"
       ( \x ->
           MessageGroup'
-            Prelude.<$> (x Core..:? "variations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "message")
+            Prelude.<$> (x Data..:? "variations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "message")
       )
 
 instance Prelude.Hashable MessageGroup where
@@ -90,11 +91,11 @@ instance Prelude.NFData MessageGroup where
     Prelude.rnf variations
       `Prelude.seq` Prelude.rnf message
 
-instance Core.ToJSON MessageGroup where
+instance Data.ToJSON MessageGroup where
   toJSON MessageGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("variations" Core..=) Prelude.<$> variations,
-            Prelude.Just ("message" Core..= message)
+          [ ("variations" Data..=) Prelude.<$> variations,
+            Prelude.Just ("message" Data..= message)
           ]
       )

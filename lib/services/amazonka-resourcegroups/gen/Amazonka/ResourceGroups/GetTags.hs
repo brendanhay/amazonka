@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroups.Types
@@ -88,8 +89,8 @@ instance Core.AWSRequest GetTags where
     Response.receiveJSON
       ( \s h x ->
           GetTagsResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,15 +101,15 @@ instance Prelude.Hashable GetTags where
 instance Prelude.NFData GetTags where
   rnf GetTags' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders GetTags where
+instance Data.ToHeaders GetTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetTags where
+instance Data.ToPath GetTags where
   toPath GetTags' {..} =
     Prelude.mconcat
-      ["/resources/", Core.toBS arn, "/tags"]
+      ["/resources/", Data.toBS arn, "/tags"]
 
-instance Core.ToQuery GetTags where
+instance Data.ToQuery GetTags where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTagsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.BuildConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types.ComputeType
 import qualified Amazonka.Prelude as Prelude
 
@@ -154,12 +155,12 @@ instance Prelude.NFData BuildConfiguration where
       `Prelude.seq` Prelude.rnf codeBuildServiceRole
       `Prelude.seq` Prelude.rnf image
 
-instance Core.ToQuery BuildConfiguration where
+instance Data.ToQuery BuildConfiguration where
   toQuery BuildConfiguration' {..} =
     Prelude.mconcat
-      [ "ArtifactName" Core.=: artifactName,
-        "TimeoutInMinutes" Core.=: timeoutInMinutes,
-        "ComputeType" Core.=: computeType,
-        "CodeBuildServiceRole" Core.=: codeBuildServiceRole,
-        "Image" Core.=: image
+      [ "ArtifactName" Data.=: artifactName,
+        "TimeoutInMinutes" Data.=: timeoutInMinutes,
+        "ComputeType" Data.=: computeType,
+        "CodeBuildServiceRole" Data.=: codeBuildServiceRole,
+        "Image" Data.=: image
       ]

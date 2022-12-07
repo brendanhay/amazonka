@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -207,7 +208,7 @@ instance
       ( \s h x ->
           CreateInferenceRecommendationsJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "JobArn")
+              Prelude.<*> (x Data..:> "JobArn")
       )
 
 instance
@@ -241,51 +242,51 @@ instance
       `Prelude.seq` Prelude.rnf inputConfig
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateInferenceRecommendationsJob
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateInferenceRecommendationsJob" ::
+              Data.=# ( "SageMaker.CreateInferenceRecommendationsJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateInferenceRecommendationsJob
   where
   toJSON CreateInferenceRecommendationsJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("StoppingConditions" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("StoppingConditions" Data..=)
               Prelude.<$> stoppingConditions,
-            ("OutputConfig" Core..=) Prelude.<$> outputConfig,
-            ("JobDescription" Core..=)
+            ("OutputConfig" Data..=) Prelude.<$> outputConfig,
+            ("JobDescription" Data..=)
               Prelude.<$> jobDescription,
-            Prelude.Just ("JobName" Core..= jobName),
-            Prelude.Just ("JobType" Core..= jobType),
-            Prelude.Just ("RoleArn" Core..= roleArn),
-            Prelude.Just ("InputConfig" Core..= inputConfig)
+            Prelude.Just ("JobName" Data..= jobName),
+            Prelude.Just ("JobType" Data..= jobType),
+            Prelude.Just ("RoleArn" Data..= roleArn),
+            Prelude.Just ("InputConfig" Data..= inputConfig)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateInferenceRecommendationsJob
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateInferenceRecommendationsJob
   where
   toQuery = Prelude.const Prelude.mempty

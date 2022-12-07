@@ -21,6 +21,7 @@ module Amazonka.ChimeSDKMessaging.Types.SubChannelSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of the sub-channels associated with the elastic channel.
@@ -62,14 +63,14 @@ subChannelSummary_membershipCount = Lens.lens (\SubChannelSummary' {membershipCo
 subChannelSummary_subChannelId :: Lens.Lens' SubChannelSummary (Prelude.Maybe Prelude.Text)
 subChannelSummary_subChannelId = Lens.lens (\SubChannelSummary' {subChannelId} -> subChannelId) (\s@SubChannelSummary' {} a -> s {subChannelId = a} :: SubChannelSummary)
 
-instance Core.FromJSON SubChannelSummary where
+instance Data.FromJSON SubChannelSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubChannelSummary"
       ( \x ->
           SubChannelSummary'
-            Prelude.<$> (x Core..:? "MembershipCount")
-            Prelude.<*> (x Core..:? "SubChannelId")
+            Prelude.<$> (x Data..:? "MembershipCount")
+            Prelude.<*> (x Data..:? "SubChannelId")
       )
 
 instance Prelude.Hashable SubChannelSummary where

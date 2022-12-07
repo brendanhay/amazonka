@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.CloudFormationStackRecordSourceInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.CloudFormationStackRecordSourceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,17 +75,17 @@ cloudFormationStackRecordSourceInfo_arn :: Lens.Lens' CloudFormationStackRecordS
 cloudFormationStackRecordSourceInfo_arn = Lens.lens (\CloudFormationStackRecordSourceInfo' {arn} -> arn) (\s@CloudFormationStackRecordSourceInfo' {} a -> s {arn = a} :: CloudFormationStackRecordSourceInfo)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CloudFormationStackRecordSourceInfo
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudFormationStackRecordSourceInfo"
       ( \x ->
           CloudFormationStackRecordSourceInfo'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
       )
 
 instance

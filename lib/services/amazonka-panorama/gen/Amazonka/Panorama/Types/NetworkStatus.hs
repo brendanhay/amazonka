@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.NetworkStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.EthernetStatus
 import Amazonka.Panorama.Types.NtpStatus
 import qualified Amazonka.Prelude as Prelude
@@ -32,7 +33,7 @@ data NetworkStatus = NetworkStatus'
   { -- | Details about a network time protocol (NTP) server connection.
     ntpStatus :: Prelude.Maybe NtpStatus,
     -- | When the network status changed.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The status of Ethernet port 0.
     ethernet0Status :: Prelude.Maybe EthernetStatus,
     -- | The status of Ethernet port 1.
@@ -71,7 +72,7 @@ networkStatus_ntpStatus = Lens.lens (\NetworkStatus' {ntpStatus} -> ntpStatus) (
 
 -- | When the network status changed.
 networkStatus_lastUpdatedTime :: Lens.Lens' NetworkStatus (Prelude.Maybe Prelude.UTCTime)
-networkStatus_lastUpdatedTime = Lens.lens (\NetworkStatus' {lastUpdatedTime} -> lastUpdatedTime) (\s@NetworkStatus' {} a -> s {lastUpdatedTime = a} :: NetworkStatus) Prelude.. Lens.mapping Core._Time
+networkStatus_lastUpdatedTime = Lens.lens (\NetworkStatus' {lastUpdatedTime} -> lastUpdatedTime) (\s@NetworkStatus' {} a -> s {lastUpdatedTime = a} :: NetworkStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The status of Ethernet port 0.
 networkStatus_ethernet0Status :: Lens.Lens' NetworkStatus (Prelude.Maybe EthernetStatus)
@@ -81,16 +82,16 @@ networkStatus_ethernet0Status = Lens.lens (\NetworkStatus' {ethernet0Status} -> 
 networkStatus_ethernet1Status :: Lens.Lens' NetworkStatus (Prelude.Maybe EthernetStatus)
 networkStatus_ethernet1Status = Lens.lens (\NetworkStatus' {ethernet1Status} -> ethernet1Status) (\s@NetworkStatus' {} a -> s {ethernet1Status = a} :: NetworkStatus)
 
-instance Core.FromJSON NetworkStatus where
+instance Data.FromJSON NetworkStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkStatus"
       ( \x ->
           NetworkStatus'
-            Prelude.<$> (x Core..:? "NtpStatus")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "Ethernet0Status")
-            Prelude.<*> (x Core..:? "Ethernet1Status")
+            Prelude.<$> (x Data..:? "NtpStatus")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "Ethernet0Status")
+            Prelude.<*> (x Data..:? "Ethernet1Status")
       )
 
 instance Prelude.Hashable NetworkStatus where

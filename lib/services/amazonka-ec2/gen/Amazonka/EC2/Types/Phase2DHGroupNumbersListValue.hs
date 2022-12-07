@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Phase2DHGroupNumbersListValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,10 +55,10 @@ newPhase2DHGroupNumbersListValue =
 phase2DHGroupNumbersListValue_value :: Lens.Lens' Phase2DHGroupNumbersListValue (Prelude.Maybe Prelude.Int)
 phase2DHGroupNumbersListValue_value = Lens.lens (\Phase2DHGroupNumbersListValue' {value} -> value) (\s@Phase2DHGroupNumbersListValue' {} a -> s {value = a} :: Phase2DHGroupNumbersListValue)
 
-instance Core.FromXML Phase2DHGroupNumbersListValue where
+instance Data.FromXML Phase2DHGroupNumbersListValue where
   parseXML x =
     Phase2DHGroupNumbersListValue'
-      Prelude.<$> (x Core..@? "value")
+      Prelude.<$> (x Data..@? "value")
 
 instance
   Prelude.Hashable

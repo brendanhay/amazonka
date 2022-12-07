@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.NetworkInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a network interface.
@@ -61,14 +62,14 @@ networkInterface_subnetId = Lens.lens (\NetworkInterface' {subnetId} -> subnetId
 networkInterface_networkInterfaceId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_networkInterfaceId = Lens.lens (\NetworkInterface' {networkInterfaceId} -> networkInterfaceId) (\s@NetworkInterface' {} a -> s {networkInterfaceId = a} :: NetworkInterface)
 
-instance Core.FromJSON NetworkInterface where
+instance Data.FromJSON NetworkInterface where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> (x Core..:? "subnetId")
-            Prelude.<*> (x Core..:? "networkInterfaceId")
+            Prelude.<$> (x Data..:? "subnetId")
+            Prelude.<*> (x Data..:? "networkInterfaceId")
       )
 
 instance Prelude.Hashable NetworkInterface where

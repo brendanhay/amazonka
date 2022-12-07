@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -127,7 +128,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteEnvironmentTemplateVersionResponse'
-            Prelude.<$> (x Core..?> "environmentTemplateVersion")
+            Prelude.<$> (x Data..?> "environmentTemplateVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,38 +153,38 @@ instance
       `Prelude.seq` Prelude.rnf templateName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteEnvironmentTemplateVersion
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.DeleteEnvironmentTemplateVersion" ::
+              Data.=# ( "AwsProton20200720.DeleteEnvironmentTemplateVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteEnvironmentTemplateVersion where
+instance Data.ToJSON DeleteEnvironmentTemplateVersion where
   toJSON DeleteEnvironmentTemplateVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("majorVersion" Core..= majorVersion),
-            Prelude.Just ("minorVersion" Core..= minorVersion),
-            Prelude.Just ("templateName" Core..= templateName)
+          [ Prelude.Just ("majorVersion" Data..= majorVersion),
+            Prelude.Just ("minorVersion" Data..= minorVersion),
+            Prelude.Just ("templateName" Data..= templateName)
           ]
       )
 
-instance Core.ToPath DeleteEnvironmentTemplateVersion where
+instance Data.ToPath DeleteEnvironmentTemplateVersion where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteEnvironmentTemplateVersion
   where
   toQuery = Prelude.const Prelude.mempty

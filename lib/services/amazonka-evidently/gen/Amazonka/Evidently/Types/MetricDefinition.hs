@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.MetricDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure defines a metric that is being used to evaluate the
@@ -101,17 +102,17 @@ metricDefinition_eventPattern = Lens.lens (\MetricDefinition' {eventPattern} -> 
 metricDefinition_entityIdKey :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
 metricDefinition_entityIdKey = Lens.lens (\MetricDefinition' {entityIdKey} -> entityIdKey) (\s@MetricDefinition' {} a -> s {entityIdKey = a} :: MetricDefinition)
 
-instance Core.FromJSON MetricDefinition where
+instance Data.FromJSON MetricDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetricDefinition"
       ( \x ->
           MetricDefinition'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "valueKey")
-            Prelude.<*> (x Core..:? "unitLabel")
-            Prelude.<*> (x Core..:? "eventPattern")
-            Prelude.<*> (x Core..:? "entityIdKey")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "valueKey")
+            Prelude.<*> (x Data..:? "unitLabel")
+            Prelude.<*> (x Data..:? "eventPattern")
+            Prelude.<*> (x Data..:? "entityIdKey")
       )
 
 instance Prelude.Hashable MetricDefinition where

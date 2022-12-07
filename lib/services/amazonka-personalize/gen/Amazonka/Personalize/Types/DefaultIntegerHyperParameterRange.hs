@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.DefaultIntegerHyperParameterRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the name and default range of a integer-valued hyperparameter
@@ -83,18 +84,18 @@ defaultIntegerHyperParameterRange_maxValue :: Lens.Lens' DefaultIntegerHyperPara
 defaultIntegerHyperParameterRange_maxValue = Lens.lens (\DefaultIntegerHyperParameterRange' {maxValue} -> maxValue) (\s@DefaultIntegerHyperParameterRange' {} a -> s {maxValue = a} :: DefaultIntegerHyperParameterRange)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DefaultIntegerHyperParameterRange
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DefaultIntegerHyperParameterRange"
       ( \x ->
           DefaultIntegerHyperParameterRange'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "minValue")
-            Prelude.<*> (x Core..:? "isTunable")
-            Prelude.<*> (x Core..:? "maxValue")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "minValue")
+            Prelude.<*> (x Data..:? "isTunable")
+            Prelude.<*> (x Data..:? "maxValue")
       )
 
 instance

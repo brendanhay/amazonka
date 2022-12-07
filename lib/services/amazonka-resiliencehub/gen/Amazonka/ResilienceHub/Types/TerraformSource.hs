@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.TerraformSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Terraform s3 state file you need to import.
@@ -52,13 +53,13 @@ newTerraformSource pS3StateFileUrl_ =
 terraformSource_s3StateFileUrl :: Lens.Lens' TerraformSource Prelude.Text
 terraformSource_s3StateFileUrl = Lens.lens (\TerraformSource' {s3StateFileUrl} -> s3StateFileUrl) (\s@TerraformSource' {} a -> s {s3StateFileUrl = a} :: TerraformSource)
 
-instance Core.FromJSON TerraformSource where
+instance Data.FromJSON TerraformSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TerraformSource"
       ( \x ->
           TerraformSource'
-            Prelude.<$> (x Core..: "s3StateFileUrl")
+            Prelude.<$> (x Data..: "s3StateFileUrl")
       )
 
 instance Prelude.Hashable TerraformSource where
@@ -68,11 +69,11 @@ instance Prelude.Hashable TerraformSource where
 instance Prelude.NFData TerraformSource where
   rnf TerraformSource' {..} = Prelude.rnf s3StateFileUrl
 
-instance Core.ToJSON TerraformSource where
+instance Data.ToJSON TerraformSource where
   toJSON TerraformSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("s3StateFileUrl" Core..= s3StateFileUrl)
+              ("s3StateFileUrl" Data..= s3StateFileUrl)
           ]
       )

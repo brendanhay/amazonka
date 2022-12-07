@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -138,11 +139,11 @@ instance Core.AWSRequest ListIAMPolicyAssignments where
     Response.receiveJSON
       ( \s h x ->
           ListIAMPolicyAssignmentsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "IAMPolicyAssignments"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "IAMPolicyAssignments"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,32 +163,32 @@ instance Prelude.NFData ListIAMPolicyAssignments where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf namespace
 
-instance Core.ToHeaders ListIAMPolicyAssignments where
+instance Data.ToHeaders ListIAMPolicyAssignments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListIAMPolicyAssignments where
+instance Data.ToPath ListIAMPolicyAssignments where
   toPath ListIAMPolicyAssignments' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/namespaces/",
-        Core.toBS namespace,
+        Data.toBS namespace,
         "/iam-policy-assignments"
       ]
 
-instance Core.ToQuery ListIAMPolicyAssignments where
+instance Data.ToQuery ListIAMPolicyAssignments where
   toQuery ListIAMPolicyAssignments' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListIAMPolicyAssignmentsResponse' smart constructor.

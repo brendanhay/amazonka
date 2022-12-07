@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ContainerServiceDeploymentRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.Container
 import Amazonka.Lightsail.Types.EndpointRequest
 import qualified Amazonka.Prelude as Prelude
@@ -90,14 +91,14 @@ instance
       `Prelude.seq` Prelude.rnf publicEndpoint
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ContainerServiceDeploymentRequest
   where
   toJSON ContainerServiceDeploymentRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("containers" Core..=) Prelude.<$> containers,
-            ("publicEndpoint" Core..=)
+          [ ("containers" Data..=) Prelude.<$> containers,
+            ("publicEndpoint" Data..=)
               Prelude.<$> publicEndpoint
           ]
       )

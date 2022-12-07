@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.TaskTimedOutEventDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about a resource timeout that occurred during an
@@ -29,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTaskTimedOutEventDetails' smart constructor.
 data TaskTimedOutEventDetails = TaskTimedOutEventDetails'
   { -- | The error code of the failure.
-    error :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    error :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A more detailed explanation of the cause of the failure.
-    cause :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    cause :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The service name of the resource in a task state.
     resourceType :: Prelude.Text,
     -- | The action of the resource called by a task state.
@@ -70,11 +71,11 @@ newTaskTimedOutEventDetails pResourceType_ pResource_ =
 
 -- | The error code of the failure.
 taskTimedOutEventDetails_error :: Lens.Lens' TaskTimedOutEventDetails (Prelude.Maybe Prelude.Text)
-taskTimedOutEventDetails_error = Lens.lens (\TaskTimedOutEventDetails' {error} -> error) (\s@TaskTimedOutEventDetails' {} a -> s {error = a} :: TaskTimedOutEventDetails) Prelude.. Lens.mapping Core._Sensitive
+taskTimedOutEventDetails_error = Lens.lens (\TaskTimedOutEventDetails' {error} -> error) (\s@TaskTimedOutEventDetails' {} a -> s {error = a} :: TaskTimedOutEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A more detailed explanation of the cause of the failure.
 taskTimedOutEventDetails_cause :: Lens.Lens' TaskTimedOutEventDetails (Prelude.Maybe Prelude.Text)
-taskTimedOutEventDetails_cause = Lens.lens (\TaskTimedOutEventDetails' {cause} -> cause) (\s@TaskTimedOutEventDetails' {} a -> s {cause = a} :: TaskTimedOutEventDetails) Prelude.. Lens.mapping Core._Sensitive
+taskTimedOutEventDetails_cause = Lens.lens (\TaskTimedOutEventDetails' {cause} -> cause) (\s@TaskTimedOutEventDetails' {} a -> s {cause = a} :: TaskTimedOutEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The service name of the resource in a task state.
 taskTimedOutEventDetails_resourceType :: Lens.Lens' TaskTimedOutEventDetails Prelude.Text
@@ -84,16 +85,16 @@ taskTimedOutEventDetails_resourceType = Lens.lens (\TaskTimedOutEventDetails' {r
 taskTimedOutEventDetails_resource :: Lens.Lens' TaskTimedOutEventDetails Prelude.Text
 taskTimedOutEventDetails_resource = Lens.lens (\TaskTimedOutEventDetails' {resource} -> resource) (\s@TaskTimedOutEventDetails' {} a -> s {resource = a} :: TaskTimedOutEventDetails)
 
-instance Core.FromJSON TaskTimedOutEventDetails where
+instance Data.FromJSON TaskTimedOutEventDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskTimedOutEventDetails"
       ( \x ->
           TaskTimedOutEventDetails'
-            Prelude.<$> (x Core..:? "error")
-            Prelude.<*> (x Core..:? "cause")
-            Prelude.<*> (x Core..: "resourceType")
-            Prelude.<*> (x Core..: "resource")
+            Prelude.<$> (x Data..:? "error")
+            Prelude.<*> (x Data..:? "cause")
+            Prelude.<*> (x Data..: "resourceType")
+            Prelude.<*> (x Data..: "resource")
       )
 
 instance Prelude.Hashable TaskTimedOutEventDetails where

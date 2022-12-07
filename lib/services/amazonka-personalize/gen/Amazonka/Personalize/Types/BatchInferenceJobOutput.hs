@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.BatchInferenceJobOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.S3DataConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -59,13 +60,13 @@ newBatchInferenceJobOutput pS3DataDestination_ =
 batchInferenceJobOutput_s3DataDestination :: Lens.Lens' BatchInferenceJobOutput S3DataConfig
 batchInferenceJobOutput_s3DataDestination = Lens.lens (\BatchInferenceJobOutput' {s3DataDestination} -> s3DataDestination) (\s@BatchInferenceJobOutput' {} a -> s {s3DataDestination = a} :: BatchInferenceJobOutput)
 
-instance Core.FromJSON BatchInferenceJobOutput where
+instance Data.FromJSON BatchInferenceJobOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchInferenceJobOutput"
       ( \x ->
           BatchInferenceJobOutput'
-            Prelude.<$> (x Core..: "s3DataDestination")
+            Prelude.<$> (x Data..: "s3DataDestination")
       )
 
 instance Prelude.Hashable BatchInferenceJobOutput where
@@ -76,11 +77,11 @@ instance Prelude.NFData BatchInferenceJobOutput where
   rnf BatchInferenceJobOutput' {..} =
     Prelude.rnf s3DataDestination
 
-instance Core.ToJSON BatchInferenceJobOutput where
+instance Data.ToJSON BatchInferenceJobOutput where
   toJSON BatchInferenceJobOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("s3DataDestination" Core..= s3DataDestination)
+              ("s3DataDestination" Data..= s3DataDestination)
           ]
       )

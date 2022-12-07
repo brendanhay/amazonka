@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TrafficMirrorFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TrafficMirrorFilterRule
@@ -110,25 +111,25 @@ trafficMirrorFilter_description = Lens.lens (\TrafficMirrorFilter' {description}
 trafficMirrorFilter_networkServices :: Lens.Lens' TrafficMirrorFilter (Prelude.Maybe [TrafficMirrorNetworkService])
 trafficMirrorFilter_networkServices = Lens.lens (\TrafficMirrorFilter' {networkServices} -> networkServices) (\s@TrafficMirrorFilter' {} a -> s {networkServices = a} :: TrafficMirrorFilter) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML TrafficMirrorFilter where
+instance Data.FromXML TrafficMirrorFilter where
   parseXML x =
     TrafficMirrorFilter'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "egressFilterRuleSet"
+      Prelude.<*> ( x Data..@? "egressFilterRuleSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "ingressFilterRuleSet"
+      Prelude.<*> ( x Data..@? "ingressFilterRuleSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "trafficMirrorFilterId")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> ( x Core..@? "networkServiceSet"
+      Prelude.<*> (x Data..@? "trafficMirrorFilterId")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> ( x Data..@? "networkServiceSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable TrafficMirrorFilter where

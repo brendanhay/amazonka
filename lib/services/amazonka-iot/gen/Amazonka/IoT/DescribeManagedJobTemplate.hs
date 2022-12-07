@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,15 +106,15 @@ instance Core.AWSRequest DescribeManagedJobTemplate where
     Response.receiveJSON
       ( \s h x ->
           DescribeManagedJobTemplateResponse'
-            Prelude.<$> (x Core..?> "templateName")
-            Prelude.<*> (x Core..?> "environments" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "documentParameters"
+            Prelude.<$> (x Data..?> "templateName")
+            Prelude.<*> (x Data..?> "environments" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "documentParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "templateVersion")
-            Prelude.<*> (x Core..?> "document")
-            Prelude.<*> (x Core..?> "templateArn")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "templateVersion")
+            Prelude.<*> (x Data..?> "document")
+            Prelude.<*> (x Data..?> "templateArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,18 +128,18 @@ instance Prelude.NFData DescribeManagedJobTemplate where
     Prelude.rnf templateVersion
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToHeaders DescribeManagedJobTemplate where
+instance Data.ToHeaders DescribeManagedJobTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeManagedJobTemplate where
+instance Data.ToPath DescribeManagedJobTemplate where
   toPath DescribeManagedJobTemplate' {..} =
     Prelude.mconcat
-      ["/managed-job-templates/", Core.toBS templateName]
+      ["/managed-job-templates/", Data.toBS templateName]
 
-instance Core.ToQuery DescribeManagedJobTemplate where
+instance Data.ToQuery DescribeManagedJobTemplate where
   toQuery DescribeManagedJobTemplate' {..} =
     Prelude.mconcat
-      ["templateVersion" Core.=: templateVersion]
+      ["templateVersion" Data.=: templateVersion]
 
 -- | /See:/ 'newDescribeManagedJobTemplateResponse' smart constructor.
 data DescribeManagedJobTemplateResponse = DescribeManagedJobTemplateResponse'

@@ -171,6 +171,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -254,7 +255,7 @@ instance Core.AWSRequest CreateMountTarget where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateMountTarget where
   hashWithSalt _salt CreateMountTarget' {..} =
@@ -270,23 +271,23 @@ instance Prelude.NFData CreateMountTarget where
       `Prelude.seq` Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf subnetId
 
-instance Core.ToHeaders CreateMountTarget where
+instance Data.ToHeaders CreateMountTarget where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateMountTarget where
+instance Data.ToJSON CreateMountTarget where
   toJSON CreateMountTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecurityGroups" Core..=)
+          [ ("SecurityGroups" Data..=)
               Prelude.<$> securityGroups,
-            ("IpAddress" Core..=) Prelude.<$> ipAddress,
-            Prelude.Just ("FileSystemId" Core..= fileSystemId),
-            Prelude.Just ("SubnetId" Core..= subnetId)
+            ("IpAddress" Data..=) Prelude.<$> ipAddress,
+            Prelude.Just ("FileSystemId" Data..= fileSystemId),
+            Prelude.Just ("SubnetId" Data..= subnetId)
           ]
       )
 
-instance Core.ToPath CreateMountTarget where
+instance Data.ToPath CreateMountTarget where
   toPath = Prelude.const "/2015-02-01/mount-targets"
 
-instance Core.ToQuery CreateMountTarget where
+instance Data.ToQuery CreateMountTarget where
   toQuery = Prelude.const Prelude.mempty

@@ -46,6 +46,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -60,7 +61,7 @@ data ListDevices = ListDevices'
     limit :: Prelude.Maybe Prelude.Natural,
     -- | A valid access token that Amazon Cognito issued to the user whose list
     -- of devices you want to view.
-    accessToken :: Core.Sensitive Prelude.Text
+    accessToken :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -86,7 +87,7 @@ newListDevices pAccessToken_ =
   ListDevices'
     { paginationToken = Prelude.Nothing,
       limit = Prelude.Nothing,
-      accessToken = Core._Sensitive Lens.# pAccessToken_
+      accessToken = Data._Sensitive Lens.# pAccessToken_
     }
 
 -- | The pagination token for the list request.
@@ -100,7 +101,7 @@ listDevices_limit = Lens.lens (\ListDevices' {limit} -> limit) (\s@ListDevices' 
 -- | A valid access token that Amazon Cognito issued to the user whose list
 -- of devices you want to view.
 listDevices_accessToken :: Lens.Lens' ListDevices Prelude.Text
-listDevices_accessToken = Lens.lens (\ListDevices' {accessToken} -> accessToken) (\s@ListDevices' {} a -> s {accessToken = a} :: ListDevices) Prelude.. Core._Sensitive
+listDevices_accessToken = Lens.lens (\ListDevices' {accessToken} -> accessToken) (\s@ListDevices' {} a -> s {accessToken = a} :: ListDevices) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest ListDevices where
   type AWSResponse ListDevices = ListDevicesResponse
@@ -110,8 +111,8 @@ instance Core.AWSRequest ListDevices where
     Response.receiveJSON
       ( \s h x ->
           ListDevicesResponse'
-            Prelude.<$> (x Core..?> "Devices" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PaginationToken")
+            Prelude.<$> (x Data..?> "Devices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PaginationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,36 +128,36 @@ instance Prelude.NFData ListDevices where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf accessToken
 
-instance Core.ToHeaders ListDevices where
+instance Data.ToHeaders ListDevices where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.ListDevices" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.ListDevices" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDevices where
+instance Data.ToJSON ListDevices where
   toJSON ListDevices' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PaginationToken" Core..=)
+          [ ("PaginationToken" Data..=)
               Prelude.<$> paginationToken,
-            ("Limit" Core..=) Prelude.<$> limit,
-            Prelude.Just ("AccessToken" Core..= accessToken)
+            ("Limit" Data..=) Prelude.<$> limit,
+            Prelude.Just ("AccessToken" Data..= accessToken)
           ]
       )
 
-instance Core.ToPath ListDevices where
+instance Data.ToPath ListDevices where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDevices where
+instance Data.ToQuery ListDevices where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response to list devices.

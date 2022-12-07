@@ -59,6 +59,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,8 +128,8 @@ instance Core.AWSRequest CreateChannelModerator where
     Response.receiveJSON
       ( \s h x ->
           CreateChannelModeratorResponse'
-            Prelude.<$> (x Core..?> "ChannelArn")
-            Prelude.<*> (x Core..?> "ChannelModerator")
+            Prelude.<$> (x Data..?> "ChannelArn")
+            Prelude.<*> (x Data..?> "ChannelModerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,26 +145,26 @@ instance Prelude.NFData CreateChannelModerator where
       `Prelude.seq` Prelude.rnf channelModeratorArn
       `Prelude.seq` Prelude.rnf chimeBearer
 
-instance Core.ToHeaders CreateChannelModerator where
+instance Data.ToHeaders CreateChannelModerator where
   toHeaders CreateChannelModerator' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToJSON CreateChannelModerator where
+instance Data.ToJSON CreateChannelModerator where
   toJSON CreateChannelModerator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ChannelModeratorArn" Core..= channelModeratorArn)
+              ("ChannelModeratorArn" Data..= channelModeratorArn)
           ]
       )
 
-instance Core.ToPath CreateChannelModerator where
+instance Data.ToPath CreateChannelModerator where
   toPath CreateChannelModerator' {..} =
     Prelude.mconcat
-      ["/channels/", Core.toBS channelArn, "/moderators"]
+      ["/channels/", Data.toBS channelArn, "/moderators"]
 
-instance Core.ToQuery CreateChannelModerator where
+instance Data.ToQuery CreateChannelModerator where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateChannelModeratorResponse' smart constructor.

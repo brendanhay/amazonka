@@ -21,6 +21,7 @@ module Amazonka.M2.Types.DataSetImportTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.DataSetImportSummary
 import Amazonka.M2.Types.DataSetTaskLifecycle
 import qualified Amazonka.Prelude as Prelude
@@ -78,15 +79,15 @@ dataSetImportTask_summary = Lens.lens (\DataSetImportTask' {summary} -> summary)
 dataSetImportTask_taskId :: Lens.Lens' DataSetImportTask Prelude.Text
 dataSetImportTask_taskId = Lens.lens (\DataSetImportTask' {taskId} -> taskId) (\s@DataSetImportTask' {} a -> s {taskId = a} :: DataSetImportTask)
 
-instance Core.FromJSON DataSetImportTask where
+instance Data.FromJSON DataSetImportTask where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSetImportTask"
       ( \x ->
           DataSetImportTask'
-            Prelude.<$> (x Core..: "status")
-            Prelude.<*> (x Core..: "summary")
-            Prelude.<*> (x Core..: "taskId")
+            Prelude.<$> (x Data..: "status")
+            Prelude.<*> (x Data..: "summary")
+            Prelude.<*> (x Data..: "taskId")
       )
 
 instance Prelude.Hashable DataSetImportTask where

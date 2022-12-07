@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.FastLaunchLaunchTemplateSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies the launch template that the associated Windows AMI uses for
@@ -85,17 +86,17 @@ fastLaunchLaunchTemplateSpecification_launchTemplateName :: Lens.Lens' FastLaunc
 fastLaunchLaunchTemplateSpecification_launchTemplateName = Lens.lens (\FastLaunchLaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@FastLaunchLaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: FastLaunchLaunchTemplateSpecification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FastLaunchLaunchTemplateSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FastLaunchLaunchTemplateSpecification"
       ( \x ->
           FastLaunchLaunchTemplateSpecification'
-            Prelude.<$> (x Core..:? "launchTemplateVersion")
-            Prelude.<*> (x Core..:? "launchTemplateId")
-            Prelude.<*> (x Core..:? "launchTemplateName")
+            Prelude.<$> (x Data..:? "launchTemplateVersion")
+            Prelude.<*> (x Data..:? "launchTemplateId")
+            Prelude.<*> (x Data..:? "launchTemplateName")
       )
 
 instance
@@ -119,17 +120,17 @@ instance
       `Prelude.seq` Prelude.rnf launchTemplateName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     FastLaunchLaunchTemplateSpecification
   where
   toJSON FastLaunchLaunchTemplateSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("launchTemplateVersion" Core..=)
+          [ ("launchTemplateVersion" Data..=)
               Prelude.<$> launchTemplateVersion,
-            ("launchTemplateId" Core..=)
+            ("launchTemplateId" Data..=)
               Prelude.<$> launchTemplateId,
-            ("launchTemplateName" Core..=)
+            ("launchTemplateName" Data..=)
               Prelude.<$> launchTemplateName
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ResourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.InstanceGroup
 import Amazonka.SageMaker.Types.TrainingInstanceType
@@ -259,18 +260,18 @@ resourceConfig_instanceGroups = Lens.lens (\ResourceConfig' {instanceGroups} -> 
 resourceConfig_volumeSizeInGB :: Lens.Lens' ResourceConfig Prelude.Natural
 resourceConfig_volumeSizeInGB = Lens.lens (\ResourceConfig' {volumeSizeInGB} -> volumeSizeInGB) (\s@ResourceConfig' {} a -> s {volumeSizeInGB = a} :: ResourceConfig)
 
-instance Core.FromJSON ResourceConfig where
+instance Data.FromJSON ResourceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceConfig"
       ( \x ->
           ResourceConfig'
-            Prelude.<$> (x Core..:? "KeepAlivePeriodInSeconds")
-            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "InstanceCount")
-            Prelude.<*> (x Core..:? "InstanceGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "VolumeSizeInGB")
+            Prelude.<$> (x Data..:? "KeepAlivePeriodInSeconds")
+            Prelude.<*> (x Data..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "InstanceCount")
+            Prelude.<*> (x Data..:? "InstanceGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "VolumeSizeInGB")
       )
 
 instance Prelude.Hashable ResourceConfig where
@@ -292,19 +293,19 @@ instance Prelude.NFData ResourceConfig where
       `Prelude.seq` Prelude.rnf instanceGroups
       `Prelude.seq` Prelude.rnf volumeSizeInGB
 
-instance Core.ToJSON ResourceConfig where
+instance Data.ToJSON ResourceConfig where
   toJSON ResourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KeepAlivePeriodInSeconds" Core..=)
+          [ ("KeepAlivePeriodInSeconds" Data..=)
               Prelude.<$> keepAlivePeriodInSeconds,
-            ("VolumeKmsKeyId" Core..=)
+            ("VolumeKmsKeyId" Data..=)
               Prelude.<$> volumeKmsKeyId,
-            ("InstanceType" Core..=) Prelude.<$> instanceType,
-            ("InstanceCount" Core..=) Prelude.<$> instanceCount,
-            ("InstanceGroups" Core..=)
+            ("InstanceType" Data..=) Prelude.<$> instanceType,
+            ("InstanceCount" Data..=) Prelude.<$> instanceCount,
+            ("InstanceGroups" Data..=)
               Prelude.<$> instanceGroups,
             Prelude.Just
-              ("VolumeSizeInGB" Core..= volumeSizeInGB)
+              ("VolumeSizeInGB" Data..= volumeSizeInGB)
           ]
       )

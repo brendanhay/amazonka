@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -177,7 +178,7 @@ instance Core.AWSRequest CreateIpam where
     Response.receiveXML
       ( \s h x ->
           CreateIpamResponse'
-            Prelude.<$> (x Core..@? "ipam")
+            Prelude.<$> (x Data..@? "ipam")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,28 +198,28 @@ instance Prelude.NFData CreateIpam where
       `Prelude.seq` Prelude.rnf operatingRegions
       `Prelude.seq` Prelude.rnf tagSpecifications
 
-instance Core.ToHeaders CreateIpam where
+instance Data.ToHeaders CreateIpam where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateIpam where
+instance Data.ToPath CreateIpam where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateIpam where
+instance Data.ToQuery CreateIpam where
   toQuery CreateIpam' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateIpam" :: Prelude.ByteString),
+          Data.=: ("CreateIpam" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "OperatingRegion"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "OperatingRegion"
               Prelude.<$> operatingRegions
           ),
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           )
       ]

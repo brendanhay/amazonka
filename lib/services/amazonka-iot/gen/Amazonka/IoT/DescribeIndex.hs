@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,9 +90,9 @@ instance Core.AWSRequest DescribeIndex where
     Response.receiveJSON
       ( \s h x ->
           DescribeIndexResponse'
-            Prelude.<$> (x Core..?> "indexName")
-            Prelude.<*> (x Core..?> "indexStatus")
-            Prelude.<*> (x Core..?> "schema")
+            Prelude.<$> (x Data..?> "indexName")
+            Prelude.<*> (x Data..?> "indexStatus")
+            Prelude.<*> (x Data..?> "schema")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,14 +103,14 @@ instance Prelude.Hashable DescribeIndex where
 instance Prelude.NFData DescribeIndex where
   rnf DescribeIndex' {..} = Prelude.rnf indexName
 
-instance Core.ToHeaders DescribeIndex where
+instance Data.ToHeaders DescribeIndex where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeIndex where
+instance Data.ToPath DescribeIndex where
   toPath DescribeIndex' {..} =
-    Prelude.mconcat ["/indices/", Core.toBS indexName]
+    Prelude.mconcat ["/indices/", Data.toBS indexName]
 
-instance Core.ToQuery DescribeIndex where
+instance Data.ToQuery DescribeIndex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeIndexResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.TaggedDatabase where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.DatabaseResource
 import Amazonka.LakeFormation.Types.LFTagPair
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ taggedDatabase_lFTags = Lens.lens (\TaggedDatabase' {lFTags} -> lFTags) (\s@Tagg
 taggedDatabase_database :: Lens.Lens' TaggedDatabase (Prelude.Maybe DatabaseResource)
 taggedDatabase_database = Lens.lens (\TaggedDatabase' {database} -> database) (\s@TaggedDatabase' {} a -> s {database = a} :: TaggedDatabase)
 
-instance Core.FromJSON TaggedDatabase where
+instance Data.FromJSON TaggedDatabase where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaggedDatabase"
       ( \x ->
           TaggedDatabase'
-            Prelude.<$> (x Core..:? "LFTags")
-            Prelude.<*> (x Core..:? "Database")
+            Prelude.<$> (x Data..:? "LFTags")
+            Prelude.<*> (x Data..:? "Database")
       )
 
 instance Prelude.Hashable TaggedDatabase where

@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.UpdateOpenZFSVolumeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.OpenZFSDataCompressionType
 import Amazonka.FSx.Types.OpenZFSNfsExport
 import Amazonka.FSx.Types.OpenZFSUserOrGroupQuota
@@ -221,20 +222,20 @@ instance
       `Prelude.seq` Prelude.rnf dataCompressionType
       `Prelude.seq` Prelude.rnf userAndGroupQuotas
 
-instance Core.ToJSON UpdateOpenZFSVolumeConfiguration where
+instance Data.ToJSON UpdateOpenZFSVolumeConfiguration where
   toJSON UpdateOpenZFSVolumeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RecordSizeKiB" Core..=) Prelude.<$> recordSizeKiB,
-            ("StorageCapacityReservationGiB" Core..=)
+          [ ("RecordSizeKiB" Data..=) Prelude.<$> recordSizeKiB,
+            ("StorageCapacityReservationGiB" Data..=)
               Prelude.<$> storageCapacityReservationGiB,
-            ("StorageCapacityQuotaGiB" Core..=)
+            ("StorageCapacityQuotaGiB" Data..=)
               Prelude.<$> storageCapacityQuotaGiB,
-            ("ReadOnly" Core..=) Prelude.<$> readOnly,
-            ("NfsExports" Core..=) Prelude.<$> nfsExports,
-            ("DataCompressionType" Core..=)
+            ("ReadOnly" Data..=) Prelude.<$> readOnly,
+            ("NfsExports" Data..=) Prelude.<$> nfsExports,
+            ("DataCompressionType" Data..=)
               Prelude.<$> dataCompressionType,
-            ("UserAndGroupQuotas" Core..=)
+            ("UserAndGroupQuotas" Data..=)
               Prelude.<$> userAndGroupQuotas
           ]
       )

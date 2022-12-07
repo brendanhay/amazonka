@@ -21,6 +21,7 @@ module Amazonka.S3.Types.LifecycleRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.AbortIncompleteMultipartUpload
@@ -186,21 +187,21 @@ lifecycleRule_prefix = Lens.lens (\LifecycleRule' {prefix} -> prefix) (\s@Lifecy
 lifecycleRule_status :: Lens.Lens' LifecycleRule ExpirationStatus
 lifecycleRule_status = Lens.lens (\LifecycleRule' {status} -> status) (\s@LifecycleRule' {} a -> s {status = a} :: LifecycleRule)
 
-instance Core.FromXML LifecycleRule where
+instance Data.FromXML LifecycleRule where
   parseXML x =
     LifecycleRule'
-      Prelude.<$> (Core.may (Core.parseXMLList "Transition") x)
-      Prelude.<*> (x Core..@? "Expiration")
-      Prelude.<*> (x Core..@? "ID")
-      Prelude.<*> (x Core..@? "NoncurrentVersionExpiration")
-      Prelude.<*> (x Core..@? "Filter")
+      Prelude.<$> (Core.may (Data.parseXMLList "Transition") x)
+      Prelude.<*> (x Data..@? "Expiration")
+      Prelude.<*> (x Data..@? "ID")
+      Prelude.<*> (x Data..@? "NoncurrentVersionExpiration")
+      Prelude.<*> (x Data..@? "Filter")
       Prelude.<*> ( Core.may
-                      (Core.parseXMLList "NoncurrentVersionTransition")
+                      (Data.parseXMLList "NoncurrentVersionTransition")
                       x
                   )
-      Prelude.<*> (x Core..@? "AbortIncompleteMultipartUpload")
-      Prelude.<*> (x Core..@? "Prefix")
-      Prelude.<*> (x Core..@ "Status")
+      Prelude.<*> (x Data..@? "AbortIncompleteMultipartUpload")
+      Prelude.<*> (x Data..@? "Prefix")
+      Prelude.<*> (x Data..@ "Status")
 
 instance Prelude.Hashable LifecycleRule where
   hashWithSalt _salt LifecycleRule' {..} =
@@ -226,24 +227,24 @@ instance Prelude.NFData LifecycleRule where
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToXML LifecycleRule where
+instance Data.ToXML LifecycleRule where
   toXML LifecycleRule' {..} =
     Prelude.mconcat
-      [ Core.toXML
-          ( Core.toXMLList "Transition"
+      [ Data.toXML
+          ( Data.toXMLList "Transition"
               Prelude.<$> transitions
           ),
-        "Expiration" Core.@= expiration,
-        "ID" Core.@= id,
+        "Expiration" Data.@= expiration,
+        "ID" Data.@= id,
         "NoncurrentVersionExpiration"
-          Core.@= noncurrentVersionExpiration,
-        "Filter" Core.@= filter',
-        Core.toXML
-          ( Core.toXMLList "NoncurrentVersionTransition"
+          Data.@= noncurrentVersionExpiration,
+        "Filter" Data.@= filter',
+        Data.toXML
+          ( Data.toXMLList "NoncurrentVersionTransition"
               Prelude.<$> noncurrentVersionTransitions
           ),
         "AbortIncompleteMultipartUpload"
-          Core.@= abortIncompleteMultipartUpload,
-        "Prefix" Core.@= prefix,
-        "Status" Core.@= status
+          Data.@= abortIncompleteMultipartUpload,
+        "Prefix" Data.@= prefix,
+        "Status" Data.@= status
       ]

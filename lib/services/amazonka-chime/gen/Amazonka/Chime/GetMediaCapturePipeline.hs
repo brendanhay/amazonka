@@ -42,6 +42,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetMediaCapturePipeline where
     Response.receiveJSON
       ( \s h x ->
           GetMediaCapturePipelineResponse'
-            Prelude.<$> (x Core..?> "MediaCapturePipeline")
+            Prelude.<$> (x Data..?> "MediaCapturePipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,17 +99,17 @@ instance Prelude.NFData GetMediaCapturePipeline where
   rnf GetMediaCapturePipeline' {..} =
     Prelude.rnf mediaPipelineId
 
-instance Core.ToHeaders GetMediaCapturePipeline where
+instance Data.ToHeaders GetMediaCapturePipeline where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetMediaCapturePipeline where
+instance Data.ToPath GetMediaCapturePipeline where
   toPath GetMediaCapturePipeline' {..} =
     Prelude.mconcat
       [ "/media-capture-pipelines/",
-        Core.toBS mediaPipelineId
+        Data.toBS mediaPipelineId
       ]
 
-instance Core.ToQuery GetMediaCapturePipeline where
+instance Data.ToQuery GetMediaCapturePipeline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMediaCapturePipelineResponse' smart constructor.

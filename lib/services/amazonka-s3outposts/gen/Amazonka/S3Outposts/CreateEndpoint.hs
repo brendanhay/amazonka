@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -165,7 +166,7 @@ instance Core.AWSRequest CreateEndpoint where
     Response.receiveJSON
       ( \s h x ->
           CreateEndpointResponse'
-            Prelude.<$> (x Core..?> "EndpointArn")
+            Prelude.<$> (x Data..?> "EndpointArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,35 +186,35 @@ instance Prelude.NFData CreateEndpoint where
       `Prelude.seq` Prelude.rnf subnetId
       `Prelude.seq` Prelude.rnf securityGroupId
 
-instance Core.ToHeaders CreateEndpoint where
+instance Data.ToHeaders CreateEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEndpoint where
+instance Data.ToJSON CreateEndpoint where
   toJSON CreateEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomerOwnedIpv4Pool" Core..=)
+          [ ("CustomerOwnedIpv4Pool" Data..=)
               Prelude.<$> customerOwnedIpv4Pool,
-            ("AccessType" Core..=) Prelude.<$> accessType,
-            Prelude.Just ("OutpostId" Core..= outpostId),
-            Prelude.Just ("SubnetId" Core..= subnetId),
+            ("AccessType" Data..=) Prelude.<$> accessType,
+            Prelude.Just ("OutpostId" Data..= outpostId),
+            Prelude.Just ("SubnetId" Data..= subnetId),
             Prelude.Just
-              ("SecurityGroupId" Core..= securityGroupId)
+              ("SecurityGroupId" Data..= securityGroupId)
           ]
       )
 
-instance Core.ToPath CreateEndpoint where
+instance Data.ToPath CreateEndpoint where
   toPath = Prelude.const "/S3Outposts/CreateEndpoint"
 
-instance Core.ToQuery CreateEndpoint where
+instance Data.ToQuery CreateEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEndpointResponse' smart constructor.

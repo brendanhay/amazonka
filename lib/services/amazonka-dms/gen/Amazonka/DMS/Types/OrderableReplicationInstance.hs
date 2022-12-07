@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.OrderableReplicationInstance where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.ReleaseStatusValues
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | In response to the @DescribeOrderableReplicationInstances@ operation,
@@ -171,23 +172,23 @@ orderableReplicationInstance_replicationInstanceClass = Lens.lens (\OrderableRep
 orderableReplicationInstance_engineVersion :: Lens.Lens' OrderableReplicationInstance (Prelude.Maybe Prelude.Text)
 orderableReplicationInstance_engineVersion = Lens.lens (\OrderableReplicationInstance' {engineVersion} -> engineVersion) (\s@OrderableReplicationInstance' {} a -> s {engineVersion = a} :: OrderableReplicationInstance)
 
-instance Core.FromJSON OrderableReplicationInstance where
+instance Data.FromJSON OrderableReplicationInstance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrderableReplicationInstance"
       ( \x ->
           OrderableReplicationInstance'
-            Prelude.<$> (x Core..:? "MaxAllocatedStorage")
-            Prelude.<*> (x Core..:? "DefaultAllocatedStorage")
-            Prelude.<*> ( x Core..:? "AvailabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "MaxAllocatedStorage")
+            Prelude.<*> (x Data..:? "DefaultAllocatedStorage")
+            Prelude.<*> ( x Data..:? "AvailabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MinAllocatedStorage")
-            Prelude.<*> (x Core..:? "StorageType")
-            Prelude.<*> (x Core..:? "ReleaseStatus")
-            Prelude.<*> (x Core..:? "IncludedAllocatedStorage")
-            Prelude.<*> (x Core..:? "ReplicationInstanceClass")
-            Prelude.<*> (x Core..:? "EngineVersion")
+            Prelude.<*> (x Data..:? "MinAllocatedStorage")
+            Prelude.<*> (x Data..:? "StorageType")
+            Prelude.<*> (x Data..:? "ReleaseStatus")
+            Prelude.<*> (x Data..:? "IncludedAllocatedStorage")
+            Prelude.<*> (x Data..:? "ReplicationInstanceClass")
+            Prelude.<*> (x Data..:? "EngineVersion")
       )
 
 instance

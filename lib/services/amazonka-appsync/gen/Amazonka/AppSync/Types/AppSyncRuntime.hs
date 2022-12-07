@@ -22,6 +22,7 @@ module Amazonka.AppSync.Types.AppSyncRuntime where
 import Amazonka.AppSync.Types.RuntimeName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a runtime used by an AWS AppSync pipeline resolver or AWS
@@ -74,14 +75,14 @@ appSyncRuntime_name = Lens.lens (\AppSyncRuntime' {name} -> name) (\s@AppSyncRun
 appSyncRuntime_runtimeVersion :: Lens.Lens' AppSyncRuntime Prelude.Text
 appSyncRuntime_runtimeVersion = Lens.lens (\AppSyncRuntime' {runtimeVersion} -> runtimeVersion) (\s@AppSyncRuntime' {} a -> s {runtimeVersion = a} :: AppSyncRuntime)
 
-instance Core.FromJSON AppSyncRuntime where
+instance Data.FromJSON AppSyncRuntime where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppSyncRuntime"
       ( \x ->
           AppSyncRuntime'
-            Prelude.<$> (x Core..: "name")
-            Prelude.<*> (x Core..: "runtimeVersion")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "runtimeVersion")
       )
 
 instance Prelude.Hashable AppSyncRuntime where
@@ -94,12 +95,12 @@ instance Prelude.NFData AppSyncRuntime where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf runtimeVersion
 
-instance Core.ToJSON AppSyncRuntime where
+instance Data.ToJSON AppSyncRuntime where
   toJSON AppSyncRuntime' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
+          [ Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("runtimeVersion" Core..= runtimeVersion)
+              ("runtimeVersion" Data..= runtimeVersion)
           ]
       )

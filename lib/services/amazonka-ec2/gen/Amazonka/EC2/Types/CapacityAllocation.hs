@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CapacityAllocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AllocationType
 import qualified Amazonka.Prelude as Prelude
@@ -72,11 +73,11 @@ capacityAllocation_count = Lens.lens (\CapacityAllocation' {count} -> count) (\s
 capacityAllocation_allocationType :: Lens.Lens' CapacityAllocation (Prelude.Maybe AllocationType)
 capacityAllocation_allocationType = Lens.lens (\CapacityAllocation' {allocationType} -> allocationType) (\s@CapacityAllocation' {} a -> s {allocationType = a} :: CapacityAllocation)
 
-instance Core.FromXML CapacityAllocation where
+instance Data.FromXML CapacityAllocation where
   parseXML x =
     CapacityAllocation'
-      Prelude.<$> (x Core..@? "count")
-      Prelude.<*> (x Core..@? "allocationType")
+      Prelude.<$> (x Data..@? "count")
+      Prelude.<*> (x Data..@? "allocationType")
 
 instance Prelude.Hashable CapacityAllocation where
   hashWithSalt _salt CapacityAllocation' {..} =

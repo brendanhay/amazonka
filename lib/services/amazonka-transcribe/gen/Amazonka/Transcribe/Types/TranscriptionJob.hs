@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.TranscriptionJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.ContentRedaction
 import Amazonka.Transcribe.Types.JobExecutionSettings
@@ -77,7 +78,7 @@ data TranscriptionJob = TranscriptionJob'
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-04T12:33:13.922000-07:00@ represents a transcription
     -- job that started processing at 12:33 PM UTC-7 on May 4, 2022.
-    completionTime :: Prelude.Maybe Core.POSIX,
+    completionTime :: Prelude.Maybe Data.POSIX,
     -- | Generate subtitles for your media file with your transcription request.
     subtitles :: Prelude.Maybe SubtitlesOutput,
     -- | If using automatic language identification (@IdentifyLanguage@) in your
@@ -152,7 +153,7 @@ data TranscriptionJob = TranscriptionJob'
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-04T12:32:58.761000-07:00@ represents a transcription
     -- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The custom language model you want to include with your transcription
     -- job. If you include @ModelSettings@ in your request, you must include
     -- the @LanguageModelName@ sub-parameter.
@@ -169,7 +170,7 @@ data TranscriptionJob = TranscriptionJob'
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-04T12:32:58.789000-07:00@ represents a transcription
     -- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | If @TranscriptionJobStatus@ is @FAILED@, @FailureReason@ contains
     -- information about why the transcription job request failed.
     --
@@ -505,7 +506,7 @@ transcriptionJob_transcriptionJobName = Lens.lens (\TranscriptionJob' {transcrip
 -- example, @2022-05-04T12:33:13.922000-07:00@ represents a transcription
 -- job that started processing at 12:33 PM UTC-7 on May 4, 2022.
 transcriptionJob_completionTime :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.UTCTime)
-transcriptionJob_completionTime = Lens.lens (\TranscriptionJob' {completionTime} -> completionTime) (\s@TranscriptionJob' {} a -> s {completionTime = a} :: TranscriptionJob) Prelude.. Lens.mapping Core._Time
+transcriptionJob_completionTime = Lens.lens (\TranscriptionJob' {completionTime} -> completionTime) (\s@TranscriptionJob' {} a -> s {completionTime = a} :: TranscriptionJob) Prelude.. Lens.mapping Data._Time
 
 -- | Generate subtitles for your media file with your transcription request.
 transcriptionJob_subtitles :: Lens.Lens' TranscriptionJob (Prelude.Maybe SubtitlesOutput)
@@ -596,7 +597,7 @@ transcriptionJob_jobExecutionSettings = Lens.lens (\TranscriptionJob' {jobExecut
 -- example, @2022-05-04T12:32:58.761000-07:00@ represents a transcription
 -- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
 transcriptionJob_creationTime :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.UTCTime)
-transcriptionJob_creationTime = Lens.lens (\TranscriptionJob' {creationTime} -> creationTime) (\s@TranscriptionJob' {} a -> s {creationTime = a} :: TranscriptionJob) Prelude.. Lens.mapping Core._Time
+transcriptionJob_creationTime = Lens.lens (\TranscriptionJob' {creationTime} -> creationTime) (\s@TranscriptionJob' {} a -> s {creationTime = a} :: TranscriptionJob) Prelude.. Lens.mapping Data._Time
 
 -- | The custom language model you want to include with your transcription
 -- job. If you include @ModelSettings@ in your request, you must include
@@ -619,7 +620,7 @@ transcriptionJob_identifiedLanguageScore = Lens.lens (\TranscriptionJob' {identi
 -- example, @2022-05-04T12:32:58.789000-07:00@ represents a transcription
 -- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
 transcriptionJob_startTime :: Lens.Lens' TranscriptionJob (Prelude.Maybe Prelude.UTCTime)
-transcriptionJob_startTime = Lens.lens (\TranscriptionJob' {startTime} -> startTime) (\s@TranscriptionJob' {} a -> s {startTime = a} :: TranscriptionJob) Prelude.. Lens.mapping Core._Time
+transcriptionJob_startTime = Lens.lens (\TranscriptionJob' {startTime} -> startTime) (\s@TranscriptionJob' {} a -> s {startTime = a} :: TranscriptionJob) Prelude.. Lens.mapping Data._Time
 
 -- | If @TranscriptionJobStatus@ is @FAILED@, @FailureReason@ contains
 -- information about why the transcription job request failed.
@@ -695,37 +696,37 @@ transcriptionJob_languageCodes = Lens.lens (\TranscriptionJob' {languageCodes} -
 transcriptionJob_media :: Lens.Lens' TranscriptionJob (Prelude.Maybe Media)
 transcriptionJob_media = Lens.lens (\TranscriptionJob' {media} -> media) (\s@TranscriptionJob' {} a -> s {media = a} :: TranscriptionJob)
 
-instance Core.FromJSON TranscriptionJob where
+instance Data.FromJSON TranscriptionJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TranscriptionJob"
       ( \x ->
           TranscriptionJob'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "Transcript")
-            Prelude.<*> (x Core..:? "IdentifyMultipleLanguages")
-            Prelude.<*> (x Core..:? "MediaFormat")
-            Prelude.<*> (x Core..:? "IdentifyLanguage")
-            Prelude.<*> (x Core..:? "ContentRedaction")
-            Prelude.<*> (x Core..:? "TranscriptionJobName")
-            Prelude.<*> (x Core..:? "CompletionTime")
-            Prelude.<*> (x Core..:? "Subtitles")
-            Prelude.<*> ( x Core..:? "LanguageIdSettings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "Transcript")
+            Prelude.<*> (x Data..:? "IdentifyMultipleLanguages")
+            Prelude.<*> (x Data..:? "MediaFormat")
+            Prelude.<*> (x Data..:? "IdentifyLanguage")
+            Prelude.<*> (x Data..:? "ContentRedaction")
+            Prelude.<*> (x Data..:? "TranscriptionJobName")
+            Prelude.<*> (x Data..:? "CompletionTime")
+            Prelude.<*> (x Data..:? "Subtitles")
+            Prelude.<*> ( x Data..:? "LanguageIdSettings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Settings")
-            Prelude.<*> (x Core..:? "MediaSampleRateHertz")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "TranscriptionJobStatus")
-            Prelude.<*> (x Core..:? "JobExecutionSettings")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ModelSettings")
-            Prelude.<*> (x Core..:? "IdentifiedLanguageScore")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..:? "LanguageOptions")
-            Prelude.<*> (x Core..:? "LanguageCodes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Media")
+            Prelude.<*> (x Data..:? "Settings")
+            Prelude.<*> (x Data..:? "MediaSampleRateHertz")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "TranscriptionJobStatus")
+            Prelude.<*> (x Data..:? "JobExecutionSettings")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "ModelSettings")
+            Prelude.<*> (x Data..:? "IdentifiedLanguageScore")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "LanguageOptions")
+            Prelude.<*> (x Data..:? "LanguageCodes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Media")
       )
 
 instance Prelude.Hashable TranscriptionJob where

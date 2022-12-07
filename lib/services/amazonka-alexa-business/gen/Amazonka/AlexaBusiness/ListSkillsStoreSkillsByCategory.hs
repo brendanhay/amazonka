@@ -47,6 +47,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,8 +141,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListSkillsStoreSkillsByCategoryResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "SkillsStoreSkills"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "SkillsStoreSkills"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -168,37 +169,37 @@ instance
       `Prelude.seq` Prelude.rnf categoryId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListSkillsStoreSkillsByCategory
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.ListSkillsStoreSkillsByCategory" ::
+              Data.=# ( "AlexaForBusiness.ListSkillsStoreSkillsByCategory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSkillsStoreSkillsByCategory where
+instance Data.ToJSON ListSkillsStoreSkillsByCategory where
   toJSON ListSkillsStoreSkillsByCategory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("CategoryId" Core..= categoryId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("CategoryId" Data..= categoryId)
           ]
       )
 
-instance Core.ToPath ListSkillsStoreSkillsByCategory where
+instance Data.ToPath ListSkillsStoreSkillsByCategory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSkillsStoreSkillsByCategory where
+instance Data.ToQuery ListSkillsStoreSkillsByCategory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSkillsStoreSkillsByCategoryResponse' smart constructor.

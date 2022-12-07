@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.TableStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a collection of table statistics in response to a request by
@@ -42,9 +43,9 @@ data TableStatistics = TableStatistics'
     -- completed | Table cancelled | Table error | Table is being reloaded
     tableState :: Prelude.Maybe Prelude.Text,
     -- | The time when the full load operation completed.
-    fullLoadEndTime :: Prelude.Maybe Core.POSIX,
+    fullLoadEndTime :: Prelude.Maybe Data.POSIX,
     -- | The time when the full load operation started.
-    fullLoadStartTime :: Prelude.Maybe Core.POSIX,
+    fullLoadStartTime :: Prelude.Maybe Data.POSIX,
     -- | The number of insert actions applied on a target table.
     appliedInserts :: Prelude.Maybe Prelude.Integer,
     -- | A value that indicates if the table was reloaded (@true@) or loaded as
@@ -104,7 +105,7 @@ data TableStatistics = TableStatistics'
     -- | Additional details about the state of validation.
     validationStateDetails :: Prelude.Maybe Prelude.Text,
     -- | The last time a table was updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The number of data definition language (DDL) statements used to build
     -- and modify the structure of your tables applied on the target.
     appliedDdls :: Prelude.Maybe Prelude.Integer,
@@ -266,11 +267,11 @@ tableStatistics_tableState = Lens.lens (\TableStatistics' {tableState} -> tableS
 
 -- | The time when the full load operation completed.
 tableStatistics_fullLoadEndTime :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.UTCTime)
-tableStatistics_fullLoadEndTime = Lens.lens (\TableStatistics' {fullLoadEndTime} -> fullLoadEndTime) (\s@TableStatistics' {} a -> s {fullLoadEndTime = a} :: TableStatistics) Prelude.. Lens.mapping Core._Time
+tableStatistics_fullLoadEndTime = Lens.lens (\TableStatistics' {fullLoadEndTime} -> fullLoadEndTime) (\s@TableStatistics' {} a -> s {fullLoadEndTime = a} :: TableStatistics) Prelude.. Lens.mapping Data._Time
 
 -- | The time when the full load operation started.
 tableStatistics_fullLoadStartTime :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.UTCTime)
-tableStatistics_fullLoadStartTime = Lens.lens (\TableStatistics' {fullLoadStartTime} -> fullLoadStartTime) (\s@TableStatistics' {} a -> s {fullLoadStartTime = a} :: TableStatistics) Prelude.. Lens.mapping Core._Time
+tableStatistics_fullLoadStartTime = Lens.lens (\TableStatistics' {fullLoadStartTime} -> fullLoadStartTime) (\s@TableStatistics' {} a -> s {fullLoadStartTime = a} :: TableStatistics) Prelude.. Lens.mapping Data._Time
 
 -- | The number of insert actions applied on a target table.
 tableStatistics_appliedInserts :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.Integer)
@@ -354,7 +355,7 @@ tableStatistics_validationStateDetails = Lens.lens (\TableStatistics' {validatio
 
 -- | The last time a table was updated.
 tableStatistics_lastUpdateTime :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.UTCTime)
-tableStatistics_lastUpdateTime = Lens.lens (\TableStatistics' {lastUpdateTime} -> lastUpdateTime) (\s@TableStatistics' {} a -> s {lastUpdateTime = a} :: TableStatistics) Prelude.. Lens.mapping Core._Time
+tableStatistics_lastUpdateTime = Lens.lens (\TableStatistics' {lastUpdateTime} -> lastUpdateTime) (\s@TableStatistics' {} a -> s {lastUpdateTime = a} :: TableStatistics) Prelude.. Lens.mapping Data._Time
 
 -- | The number of data definition language (DDL) statements used to build
 -- and modify the structure of your tables applied on the target.
@@ -377,35 +378,35 @@ tableStatistics_deletes = Lens.lens (\TableStatistics' {deletes} -> deletes) (\s
 tableStatistics_updates :: Lens.Lens' TableStatistics (Prelude.Maybe Prelude.Integer)
 tableStatistics_updates = Lens.lens (\TableStatistics' {updates} -> updates) (\s@TableStatistics' {} a -> s {updates = a} :: TableStatistics)
 
-instance Core.FromJSON TableStatistics where
+instance Data.FromJSON TableStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TableStatistics"
       ( \x ->
           TableStatistics'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "Ddls")
-            Prelude.<*> (x Core..:? "FullLoadCondtnlChkFailedRows")
-            Prelude.<*> (x Core..:? "TableState")
-            Prelude.<*> (x Core..:? "FullLoadEndTime")
-            Prelude.<*> (x Core..:? "FullLoadStartTime")
-            Prelude.<*> (x Core..:? "AppliedInserts")
-            Prelude.<*> (x Core..:? "FullLoadReloaded")
-            Prelude.<*> (x Core..:? "FullLoadErrorRows")
-            Prelude.<*> (x Core..:? "SchemaName")
-            Prelude.<*> (x Core..:? "ValidationSuspendedRecords")
-            Prelude.<*> (x Core..:? "ValidationFailedRecords")
-            Prelude.<*> (x Core..:? "AppliedDeletes")
-            Prelude.<*> (x Core..:? "ValidationState")
-            Prelude.<*> (x Core..:? "AppliedUpdates")
-            Prelude.<*> (x Core..:? "FullLoadRows")
-            Prelude.<*> (x Core..:? "ValidationStateDetails")
-            Prelude.<*> (x Core..:? "LastUpdateTime")
-            Prelude.<*> (x Core..:? "AppliedDdls")
-            Prelude.<*> (x Core..:? "Inserts")
-            Prelude.<*> (x Core..:? "ValidationPendingRecords")
-            Prelude.<*> (x Core..:? "Deletes")
-            Prelude.<*> (x Core..:? "Updates")
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "Ddls")
+            Prelude.<*> (x Data..:? "FullLoadCondtnlChkFailedRows")
+            Prelude.<*> (x Data..:? "TableState")
+            Prelude.<*> (x Data..:? "FullLoadEndTime")
+            Prelude.<*> (x Data..:? "FullLoadStartTime")
+            Prelude.<*> (x Data..:? "AppliedInserts")
+            Prelude.<*> (x Data..:? "FullLoadReloaded")
+            Prelude.<*> (x Data..:? "FullLoadErrorRows")
+            Prelude.<*> (x Data..:? "SchemaName")
+            Prelude.<*> (x Data..:? "ValidationSuspendedRecords")
+            Prelude.<*> (x Data..:? "ValidationFailedRecords")
+            Prelude.<*> (x Data..:? "AppliedDeletes")
+            Prelude.<*> (x Data..:? "ValidationState")
+            Prelude.<*> (x Data..:? "AppliedUpdates")
+            Prelude.<*> (x Data..:? "FullLoadRows")
+            Prelude.<*> (x Data..:? "ValidationStateDetails")
+            Prelude.<*> (x Data..:? "LastUpdateTime")
+            Prelude.<*> (x Data..:? "AppliedDdls")
+            Prelude.<*> (x Data..:? "Inserts")
+            Prelude.<*> (x Data..:? "ValidationPendingRecords")
+            Prelude.<*> (x Data..:? "Deletes")
+            Prelude.<*> (x Data..:? "Updates")
       )
 
 instance Prelude.Hashable TableStatistics where

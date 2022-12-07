@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AcceleratorTotalMemoryMiB where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,10 +69,10 @@ acceleratorTotalMemoryMiB_max = Lens.lens (\AcceleratorTotalMemoryMiB' {max} -> 
 acceleratorTotalMemoryMiB_min :: Lens.Lens' AcceleratorTotalMemoryMiB (Prelude.Maybe Prelude.Int)
 acceleratorTotalMemoryMiB_min = Lens.lens (\AcceleratorTotalMemoryMiB' {min} -> min) (\s@AcceleratorTotalMemoryMiB' {} a -> s {min = a} :: AcceleratorTotalMemoryMiB)
 
-instance Core.FromXML AcceleratorTotalMemoryMiB where
+instance Data.FromXML AcceleratorTotalMemoryMiB where
   parseXML x =
     AcceleratorTotalMemoryMiB'
-      Prelude.<$> (x Core..@? "max") Prelude.<*> (x Core..@? "min")
+      Prelude.<$> (x Data..@? "max") Prelude.<*> (x Data..@? "min")
 
 instance Prelude.Hashable AcceleratorTotalMemoryMiB where
   hashWithSalt _salt AcceleratorTotalMemoryMiB' {..} =
@@ -82,7 +83,7 @@ instance Prelude.NFData AcceleratorTotalMemoryMiB where
   rnf AcceleratorTotalMemoryMiB' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery AcceleratorTotalMemoryMiB where
+instance Data.ToQuery AcceleratorTotalMemoryMiB where
   toQuery AcceleratorTotalMemoryMiB' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

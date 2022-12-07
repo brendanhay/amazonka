@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpnConnectionDeviceType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,13 +86,13 @@ vpnConnectionDeviceType_vpnConnectionDeviceTypeId = Lens.lens (\VpnConnectionDev
 vpnConnectionDeviceType_vendor :: Lens.Lens' VpnConnectionDeviceType (Prelude.Maybe Prelude.Text)
 vpnConnectionDeviceType_vendor = Lens.lens (\VpnConnectionDeviceType' {vendor} -> vendor) (\s@VpnConnectionDeviceType' {} a -> s {vendor = a} :: VpnConnectionDeviceType)
 
-instance Core.FromXML VpnConnectionDeviceType where
+instance Data.FromXML VpnConnectionDeviceType where
   parseXML x =
     VpnConnectionDeviceType'
-      Prelude.<$> (x Core..@? "software")
-      Prelude.<*> (x Core..@? "platform")
-      Prelude.<*> (x Core..@? "vpnConnectionDeviceTypeId")
-      Prelude.<*> (x Core..@? "vendor")
+      Prelude.<$> (x Data..@? "software")
+      Prelude.<*> (x Data..@? "platform")
+      Prelude.<*> (x Data..@? "vpnConnectionDeviceTypeId")
+      Prelude.<*> (x Data..@? "vendor")
 
 instance Prelude.Hashable VpnConnectionDeviceType where
   hashWithSalt _salt VpnConnectionDeviceType' {..} =

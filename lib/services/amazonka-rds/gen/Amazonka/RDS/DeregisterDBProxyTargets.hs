@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -137,31 +138,31 @@ instance Prelude.NFData DeregisterDBProxyTargets where
       `Prelude.seq` Prelude.rnf dbClusterIdentifiers
       `Prelude.seq` Prelude.rnf dbProxyName
 
-instance Core.ToHeaders DeregisterDBProxyTargets where
+instance Data.ToHeaders DeregisterDBProxyTargets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeregisterDBProxyTargets where
+instance Data.ToPath DeregisterDBProxyTargets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeregisterDBProxyTargets where
+instance Data.ToQuery DeregisterDBProxyTargets where
   toQuery DeregisterDBProxyTargets' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeregisterDBProxyTargets" :: Prelude.ByteString),
+          Data.=: ("DeregisterDBProxyTargets" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "DBInstanceIdentifiers"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> dbInstanceIdentifiers
             ),
-        "TargetGroupName" Core.=: targetGroupName,
+        "TargetGroupName" Data.=: targetGroupName,
         "DBClusterIdentifiers"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> dbClusterIdentifiers
             ),
-        "DBProxyName" Core.=: dbProxyName
+        "DBProxyName" Data.=: dbProxyName
       ]
 
 -- | /See:/ 'newDeregisterDBProxyTargetsResponse' smart constructor.

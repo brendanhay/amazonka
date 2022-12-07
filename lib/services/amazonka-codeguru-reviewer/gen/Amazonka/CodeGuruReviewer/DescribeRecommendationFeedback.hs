@@ -44,6 +44,7 @@ where
 import Amazonka.CodeGuruReviewer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,7 +144,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeRecommendationFeedbackResponse'
-            Prelude.<$> (x Core..?> "RecommendationFeedback")
+            Prelude.<$> (x Data..?> "RecommendationFeedback")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,29 +169,29 @@ instance
       `Prelude.seq` Prelude.rnf recommendationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeRecommendationFeedback
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeRecommendationFeedback where
+instance Data.ToPath DescribeRecommendationFeedback where
   toPath DescribeRecommendationFeedback' {..} =
     Prelude.mconcat
-      ["/feedback/", Core.toBS codeReviewArn]
+      ["/feedback/", Data.toBS codeReviewArn]
 
-instance Core.ToQuery DescribeRecommendationFeedback where
+instance Data.ToQuery DescribeRecommendationFeedback where
   toQuery DescribeRecommendationFeedback' {..} =
     Prelude.mconcat
-      [ "UserId" Core.=: userId,
-        "RecommendationId" Core.=: recommendationId
+      [ "UserId" Data.=: userId,
+        "RecommendationId" Data.=: recommendationId
       ]
 
 -- | /See:/ 'newDescribeRecommendationFeedbackResponse' smart constructor.

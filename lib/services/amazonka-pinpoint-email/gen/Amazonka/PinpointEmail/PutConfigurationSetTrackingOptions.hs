@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointEmail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,44 +130,44 @@ instance
       `Prelude.seq` Prelude.rnf configurationSetName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutConfigurationSetTrackingOptions
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     PutConfigurationSetTrackingOptions
   where
   toJSON PutConfigurationSetTrackingOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomRedirectDomain" Core..=)
+          [ ("CustomRedirectDomain" Data..=)
               Prelude.<$> customRedirectDomain
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     PutConfigurationSetTrackingOptions
   where
   toPath PutConfigurationSetTrackingOptions' {..} =
     Prelude.mconcat
       [ "/v1/email/configuration-sets/",
-        Core.toBS configurationSetName,
+        Data.toBS configurationSetName,
         "/tracking-options"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutConfigurationSetTrackingOptions
   where
   toQuery = Prelude.const Prelude.mempty

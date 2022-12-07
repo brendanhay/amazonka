@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CloudWatchEncryption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CloudWatchEncryptionMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ cloudWatchEncryption_kmsKeyArn = Lens.lens (\CloudWatchEncryption' {kmsKeyArn} -
 cloudWatchEncryption_cloudWatchEncryptionMode :: Lens.Lens' CloudWatchEncryption (Prelude.Maybe CloudWatchEncryptionMode)
 cloudWatchEncryption_cloudWatchEncryptionMode = Lens.lens (\CloudWatchEncryption' {cloudWatchEncryptionMode} -> cloudWatchEncryptionMode) (\s@CloudWatchEncryption' {} a -> s {cloudWatchEncryptionMode = a} :: CloudWatchEncryption)
 
-instance Core.FromJSON CloudWatchEncryption where
+instance Data.FromJSON CloudWatchEncryption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchEncryption"
       ( \x ->
           CloudWatchEncryption'
-            Prelude.<$> (x Core..:? "KmsKeyArn")
-            Prelude.<*> (x Core..:? "CloudWatchEncryptionMode")
+            Prelude.<$> (x Data..:? "KmsKeyArn")
+            Prelude.<*> (x Data..:? "CloudWatchEncryptionMode")
       )
 
 instance Prelude.Hashable CloudWatchEncryption where
@@ -85,12 +86,12 @@ instance Prelude.NFData CloudWatchEncryption where
     Prelude.rnf kmsKeyArn
       `Prelude.seq` Prelude.rnf cloudWatchEncryptionMode
 
-instance Core.ToJSON CloudWatchEncryption where
+instance Data.ToJSON CloudWatchEncryption where
   toJSON CloudWatchEncryption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("CloudWatchEncryptionMode" Core..=)
+          [ ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("CloudWatchEncryptionMode" Data..=)
               Prelude.<$> cloudWatchEncryptionMode
           ]
       )

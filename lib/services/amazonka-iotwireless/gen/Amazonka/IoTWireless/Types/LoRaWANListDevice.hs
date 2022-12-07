@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANListDevice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | LoRaWAN object for list functions.
@@ -50,12 +51,12 @@ newLoRaWANListDevice =
 loRaWANListDevice_devEui :: Lens.Lens' LoRaWANListDevice (Prelude.Maybe Prelude.Text)
 loRaWANListDevice_devEui = Lens.lens (\LoRaWANListDevice' {devEui} -> devEui) (\s@LoRaWANListDevice' {} a -> s {devEui = a} :: LoRaWANListDevice)
 
-instance Core.FromJSON LoRaWANListDevice where
+instance Data.FromJSON LoRaWANListDevice where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoRaWANListDevice"
       ( \x ->
-          LoRaWANListDevice' Prelude.<$> (x Core..:? "DevEui")
+          LoRaWANListDevice' Prelude.<$> (x Data..:? "DevEui")
       )
 
 instance Prelude.Hashable LoRaWANListDevice where

@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.ConditionalSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.ConditionalBranch
 import Amazonka.LexV2Models.Types.DefaultConditionalBranch
 import qualified Amazonka.Prelude as Prelude
@@ -102,15 +103,15 @@ conditionalSpecification_conditionalBranches = Lens.lens (\ConditionalSpecificat
 conditionalSpecification_defaultBranch :: Lens.Lens' ConditionalSpecification DefaultConditionalBranch
 conditionalSpecification_defaultBranch = Lens.lens (\ConditionalSpecification' {defaultBranch} -> defaultBranch) (\s@ConditionalSpecification' {} a -> s {defaultBranch = a} :: ConditionalSpecification)
 
-instance Core.FromJSON ConditionalSpecification where
+instance Data.FromJSON ConditionalSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConditionalSpecification"
       ( \x ->
           ConditionalSpecification'
-            Prelude.<$> (x Core..: "active")
-            Prelude.<*> (x Core..: "conditionalBranches")
-            Prelude.<*> (x Core..: "defaultBranch")
+            Prelude.<$> (x Data..: "active")
+            Prelude.<*> (x Data..: "conditionalBranches")
+            Prelude.<*> (x Data..: "defaultBranch")
       )
 
 instance Prelude.Hashable ConditionalSpecification where
@@ -125,14 +126,14 @@ instance Prelude.NFData ConditionalSpecification where
       `Prelude.seq` Prelude.rnf conditionalBranches
       `Prelude.seq` Prelude.rnf defaultBranch
 
-instance Core.ToJSON ConditionalSpecification where
+instance Data.ToJSON ConditionalSpecification where
   toJSON ConditionalSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("active" Core..= active),
+          [ Prelude.Just ("active" Data..= active),
             Prelude.Just
-              ("conditionalBranches" Core..= conditionalBranches),
+              ("conditionalBranches" Data..= conditionalBranches),
             Prelude.Just
-              ("defaultBranch" Core..= defaultBranch)
+              ("defaultBranch" Data..= defaultBranch)
           ]
       )

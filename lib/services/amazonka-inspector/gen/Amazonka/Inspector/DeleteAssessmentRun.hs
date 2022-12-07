@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,34 +91,34 @@ instance Prelude.NFData DeleteAssessmentRun where
   rnf DeleteAssessmentRun' {..} =
     Prelude.rnf assessmentRunArn
 
-instance Core.ToHeaders DeleteAssessmentRun where
+instance Data.ToHeaders DeleteAssessmentRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.DeleteAssessmentRun" ::
+              Data.=# ( "InspectorService.DeleteAssessmentRun" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAssessmentRun where
+instance Data.ToJSON DeleteAssessmentRun where
   toJSON DeleteAssessmentRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("assessmentRunArn" Core..= assessmentRunArn)
+              ("assessmentRunArn" Data..= assessmentRunArn)
           ]
       )
 
-instance Core.ToPath DeleteAssessmentRun where
+instance Data.ToPath DeleteAssessmentRun where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAssessmentRun where
+instance Data.ToQuery DeleteAssessmentRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAssessmentRunResponse' smart constructor.

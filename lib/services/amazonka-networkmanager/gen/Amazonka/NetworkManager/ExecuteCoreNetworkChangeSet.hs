@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,31 +114,31 @@ instance Prelude.NFData ExecuteCoreNetworkChangeSet where
     Prelude.rnf coreNetworkId
       `Prelude.seq` Prelude.rnf policyVersionId
 
-instance Core.ToHeaders ExecuteCoreNetworkChangeSet where
+instance Data.ToHeaders ExecuteCoreNetworkChangeSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExecuteCoreNetworkChangeSet where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ExecuteCoreNetworkChangeSet where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath ExecuteCoreNetworkChangeSet where
+instance Data.ToPath ExecuteCoreNetworkChangeSet where
   toPath ExecuteCoreNetworkChangeSet' {..} =
     Prelude.mconcat
       [ "/core-networks/",
-        Core.toBS coreNetworkId,
+        Data.toBS coreNetworkId,
         "/core-network-change-sets/",
-        Core.toBS policyVersionId,
+        Data.toBS policyVersionId,
         "/execute"
       ]
 
-instance Core.ToQuery ExecuteCoreNetworkChangeSet where
+instance Data.ToQuery ExecuteCoreNetworkChangeSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExecuteCoreNetworkChangeSetResponse' smart constructor.

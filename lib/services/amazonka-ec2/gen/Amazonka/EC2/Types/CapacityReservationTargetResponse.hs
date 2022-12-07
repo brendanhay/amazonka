@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CapacityReservationTargetResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,13 +66,13 @@ capacityReservationTargetResponse_capacityReservationResourceGroupArn :: Lens.Le
 capacityReservationTargetResponse_capacityReservationResourceGroupArn = Lens.lens (\CapacityReservationTargetResponse' {capacityReservationResourceGroupArn} -> capacityReservationResourceGroupArn) (\s@CapacityReservationTargetResponse' {} a -> s {capacityReservationResourceGroupArn = a} :: CapacityReservationTargetResponse)
 
 instance
-  Core.FromXML
+  Data.FromXML
     CapacityReservationTargetResponse
   where
   parseXML x =
     CapacityReservationTargetResponse'
-      Prelude.<$> (x Core..@? "capacityReservationId")
-      Prelude.<*> (x Core..@? "capacityReservationResourceGroupArn")
+      Prelude.<$> (x Data..@? "capacityReservationId")
+      Prelude.<*> (x Data..@? "capacityReservationResourceGroupArn")
 
 instance
   Prelude.Hashable

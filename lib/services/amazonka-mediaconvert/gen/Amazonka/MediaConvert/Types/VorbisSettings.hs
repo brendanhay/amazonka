@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.VorbisSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Required when you set Codec, under AudioDescriptions>CodecSettings, to
@@ -92,15 +93,15 @@ vorbisSettings_sampleRate = Lens.lens (\VorbisSettings' {sampleRate} -> sampleRa
 vorbisSettings_vbrQuality :: Lens.Lens' VorbisSettings (Prelude.Maybe Prelude.Int)
 vorbisSettings_vbrQuality = Lens.lens (\VorbisSettings' {vbrQuality} -> vbrQuality) (\s@VorbisSettings' {} a -> s {vbrQuality = a} :: VorbisSettings)
 
-instance Core.FromJSON VorbisSettings where
+instance Data.FromJSON VorbisSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VorbisSettings"
       ( \x ->
           VorbisSettings'
-            Prelude.<$> (x Core..:? "channels")
-            Prelude.<*> (x Core..:? "sampleRate")
-            Prelude.<*> (x Core..:? "vbrQuality")
+            Prelude.<$> (x Data..:? "channels")
+            Prelude.<*> (x Data..:? "sampleRate")
+            Prelude.<*> (x Data..:? "vbrQuality")
       )
 
 instance Prelude.Hashable VorbisSettings where
@@ -115,12 +116,12 @@ instance Prelude.NFData VorbisSettings where
       `Prelude.seq` Prelude.rnf sampleRate
       `Prelude.seq` Prelude.rnf vbrQuality
 
-instance Core.ToJSON VorbisSettings where
+instance Data.ToJSON VorbisSettings where
   toJSON VorbisSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("channels" Core..=) Prelude.<$> channels,
-            ("sampleRate" Core..=) Prelude.<$> sampleRate,
-            ("vbrQuality" Core..=) Prelude.<$> vbrQuality
+          [ ("channels" Data..=) Prelude.<$> channels,
+            ("sampleRate" Data..=) Prelude.<$> sampleRate,
+            ("vbrQuality" Data..=) Prelude.<$> vbrQuality
           ]
       )

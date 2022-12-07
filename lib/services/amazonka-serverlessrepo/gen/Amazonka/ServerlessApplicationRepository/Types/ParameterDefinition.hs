@@ -21,6 +21,7 @@ module Amazonka.ServerlessApplicationRepository.Types.ParameterDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Parameters supported by the application.
@@ -312,27 +313,27 @@ parameterDefinition_referencedByResources = Lens.lens (\ParameterDefinition' {re
 parameterDefinition_name :: Lens.Lens' ParameterDefinition Prelude.Text
 parameterDefinition_name = Lens.lens (\ParameterDefinition' {name} -> name) (\s@ParameterDefinition' {} a -> s {name = a} :: ParameterDefinition)
 
-instance Core.FromJSON ParameterDefinition where
+instance Data.FromJSON ParameterDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParameterDefinition"
       ( \x ->
           ParameterDefinition'
-            Prelude.<$> (x Core..:? "noEcho")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "maxLength")
-            Prelude.<*> (x Core..:? "allowedPattern")
-            Prelude.<*> (x Core..:? "defaultValue")
-            Prelude.<*> (x Core..:? "minValue")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "minLength")
-            Prelude.<*> (x Core..:? "allowedValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "maxValue")
-            Prelude.<*> (x Core..:? "constraintDescription")
-            Prelude.<*> ( x Core..:? "referencedByResources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "noEcho")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "maxLength")
+            Prelude.<*> (x Data..:? "allowedPattern")
+            Prelude.<*> (x Data..:? "defaultValue")
+            Prelude.<*> (x Data..:? "minValue")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "minLength")
+            Prelude.<*> (x Data..:? "allowedValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "maxValue")
+            Prelude.<*> (x Data..:? "constraintDescription")
+            Prelude.<*> ( x Data..:? "referencedByResources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable ParameterDefinition where

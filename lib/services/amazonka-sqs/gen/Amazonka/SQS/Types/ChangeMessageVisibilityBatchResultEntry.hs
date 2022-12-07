@@ -21,6 +21,7 @@ module Amazonka.SQS.Types.ChangeMessageVisibilityBatchResultEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Encloses the @Id@ of an entry in @ ChangeMessageVisibilityBatch.@
@@ -56,12 +57,12 @@ changeMessageVisibilityBatchResultEntry_id :: Lens.Lens' ChangeMessageVisibility
 changeMessageVisibilityBatchResultEntry_id = Lens.lens (\ChangeMessageVisibilityBatchResultEntry' {id} -> id) (\s@ChangeMessageVisibilityBatchResultEntry' {} a -> s {id = a} :: ChangeMessageVisibilityBatchResultEntry)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ChangeMessageVisibilityBatchResultEntry
   where
   parseXML x =
     ChangeMessageVisibilityBatchResultEntry'
-      Prelude.<$> (x Core..@ "Id")
+      Prelude.<$> (x Data..@ "Id")
 
 instance
   Prelude.Hashable

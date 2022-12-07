@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,8 +91,8 @@ instance Core.AWSRequest GetImageRecipePolicy where
     Response.receiveJSON
       ( \s h x ->
           GetImageRecipePolicyResponse'
-            Prelude.<$> (x Core..?> "policy")
-            Prelude.<*> (x Core..?> "requestId")
+            Prelude.<$> (x Data..?> "policy")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,24 +104,24 @@ instance Prelude.NFData GetImageRecipePolicy where
   rnf GetImageRecipePolicy' {..} =
     Prelude.rnf imageRecipeArn
 
-instance Core.ToHeaders GetImageRecipePolicy where
+instance Data.ToHeaders GetImageRecipePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetImageRecipePolicy where
+instance Data.ToPath GetImageRecipePolicy where
   toPath = Prelude.const "/GetImageRecipePolicy"
 
-instance Core.ToQuery GetImageRecipePolicy where
+instance Data.ToQuery GetImageRecipePolicy where
   toQuery GetImageRecipePolicy' {..} =
     Prelude.mconcat
-      ["imageRecipeArn" Core.=: imageRecipeArn]
+      ["imageRecipeArn" Data.=: imageRecipeArn]
 
 -- | /See:/ 'newGetImageRecipePolicyResponse' smart constructor.
 data GetImageRecipePolicyResponse = GetImageRecipePolicyResponse'

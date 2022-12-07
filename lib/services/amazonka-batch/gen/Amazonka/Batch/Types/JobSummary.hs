@@ -25,6 +25,7 @@ import Amazonka.Batch.Types.JobStatus
 import Amazonka.Batch.Types.NodePropertiesSummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents summary details of a job.
@@ -195,24 +196,24 @@ jobSummary_jobId = Lens.lens (\JobSummary' {jobId} -> jobId) (\s@JobSummary' {} 
 jobSummary_jobName :: Lens.Lens' JobSummary Prelude.Text
 jobSummary_jobName = Lens.lens (\JobSummary' {jobName} -> jobName) (\s@JobSummary' {} a -> s {jobName = a} :: JobSummary)
 
-instance Core.FromJSON JobSummary where
+instance Data.FromJSON JobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobSummary"
       ( \x ->
           JobSummary'
-            Prelude.<$> (x Core..:? "arrayProperties")
-            Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "jobDefinition")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "startedAt")
-            Prelude.<*> (x Core..:? "nodeProperties")
-            Prelude.<*> (x Core..:? "container")
-            Prelude.<*> (x Core..:? "stoppedAt")
-            Prelude.<*> (x Core..:? "jobArn")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..: "jobId")
-            Prelude.<*> (x Core..: "jobName")
+            Prelude.<$> (x Data..:? "arrayProperties")
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "jobDefinition")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "startedAt")
+            Prelude.<*> (x Data..:? "nodeProperties")
+            Prelude.<*> (x Data..:? "container")
+            Prelude.<*> (x Data..:? "stoppedAt")
+            Prelude.<*> (x Data..:? "jobArn")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..: "jobId")
+            Prelude.<*> (x Data..: "jobName")
       )
 
 instance Prelude.Hashable JobSummary where

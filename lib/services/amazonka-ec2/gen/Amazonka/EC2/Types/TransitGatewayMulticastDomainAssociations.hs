@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayMulticastDomainAssociations where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.SubnetAssociation
 import Amazonka.EC2.Types.TransitGatewayAttachmentResourceType
@@ -105,19 +106,19 @@ transitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId :: Len
 transitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId = Lens.lens (\TransitGatewayMulticastDomainAssociations' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@TransitGatewayMulticastDomainAssociations' {} a -> s {transitGatewayMulticastDomainId = a} :: TransitGatewayMulticastDomainAssociations)
 
 instance
-  Core.FromXML
+  Data.FromXML
     TransitGatewayMulticastDomainAssociations
   where
   parseXML x =
     TransitGatewayMulticastDomainAssociations'
-      Prelude.<$> (x Core..@? "resourceId")
-        Prelude.<*> (x Core..@? "resourceType")
-        Prelude.<*> (x Core..@? "resourceOwnerId")
-        Prelude.<*> ( x Core..@? "subnets" Core..!@ Prelude.mempty
-                        Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "resourceId")
+        Prelude.<*> (x Data..@? "resourceType")
+        Prelude.<*> (x Data..@? "resourceOwnerId")
+        Prelude.<*> ( x Data..@? "subnets" Core..!@ Prelude.mempty
+                        Prelude.>>= Core.may (Data.parseXMLList "item")
                     )
-        Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
-        Prelude.<*> (x Core..@? "transitGatewayMulticastDomainId")
+        Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
+        Prelude.<*> (x Data..@? "transitGatewayMulticastDomainId")
 
 instance
   Prelude.Hashable

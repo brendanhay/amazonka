@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,8 +101,8 @@ instance Core.AWSRequest PutProjectEvents where
     Response.receiveJSON
       ( \s h x ->
           PutProjectEventsResponse'
-            Prelude.<$> (x Core..?> "failedEventCount")
-            Prelude.<*> (x Core..?> "eventResults" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "failedEventCount")
+            Prelude.<*> (x Data..?> "eventResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,30 +116,30 @@ instance Prelude.NFData PutProjectEvents where
     Prelude.rnf events
       `Prelude.seq` Prelude.rnf project
 
-instance Core.ToHeaders PutProjectEvents where
+instance Data.ToHeaders PutProjectEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutProjectEvents where
+instance Data.ToJSON PutProjectEvents where
   toJSON PutProjectEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("events" Core..= events)]
+          [Prelude.Just ("events" Data..= events)]
       )
 
-instance Core.ToPath PutProjectEvents where
+instance Data.ToPath PutProjectEvents where
   toPath PutProjectEvents' {..} =
     Prelude.mconcat
-      ["/events/projects/", Core.toBS project]
+      ["/events/projects/", Data.toBS project]
 
-instance Core.ToQuery PutProjectEvents where
+instance Data.ToQuery PutProjectEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutProjectEventsResponse' smart constructor.

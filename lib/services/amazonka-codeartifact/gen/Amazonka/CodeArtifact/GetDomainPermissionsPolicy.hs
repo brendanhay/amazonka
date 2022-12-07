@@ -48,6 +48,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest GetDomainPermissionsPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetDomainPermissionsPolicyResponse'
-            Prelude.<$> (x Core..?> "policy")
+            Prelude.<$> (x Data..?> "policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,26 +119,26 @@ instance Prelude.NFData GetDomainPermissionsPolicy where
     Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf domain
 
-instance Core.ToHeaders GetDomainPermissionsPolicy where
+instance Data.ToHeaders GetDomainPermissionsPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDomainPermissionsPolicy where
+instance Data.ToPath GetDomainPermissionsPolicy where
   toPath =
     Prelude.const "/v1/domain/permissions/policy"
 
-instance Core.ToQuery GetDomainPermissionsPolicy where
+instance Data.ToQuery GetDomainPermissionsPolicy where
   toQuery GetDomainPermissionsPolicy' {..} =
     Prelude.mconcat
-      [ "domain-owner" Core.=: domainOwner,
-        "domain" Core.=: domain
+      [ "domain-owner" Data.=: domainOwner,
+        "domain" Data.=: domain
       ]
 
 -- | /See:/ 'newGetDomainPermissionsPolicyResponse' smart constructor.

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ instance Core.AWSRequest DeleteConnection where
     Response.receiveJSON
       ( \s h x ->
           DeleteConnectionResponse'
-            Prelude.<$> (x Core..?> "Connection")
+            Prelude.<$> (x Data..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,27 +113,27 @@ instance Prelude.NFData DeleteConnection where
     Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf connectionId
 
-instance Core.ToHeaders DeleteConnection where
+instance Data.ToHeaders DeleteConnection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteConnection where
+instance Data.ToPath DeleteConnection where
   toPath DeleteConnection' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/connections/",
-        Core.toBS connectionId
+        Data.toBS connectionId
       ]
 
-instance Core.ToQuery DeleteConnection where
+instance Data.ToQuery DeleteConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConnectionResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ConvertRecoveryPointToSnapshotResponse'
-            Prelude.<$> (x Core..?> "snapshot")
+            Prelude.<$> (x Data..?> "snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,39 +141,39 @@ instance
       `Prelude.seq` Prelude.rnf snapshotName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ConvertRecoveryPointToSnapshot
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.ConvertRecoveryPointToSnapshot" ::
+              Data.=# ( "RedshiftServerless.ConvertRecoveryPointToSnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ConvertRecoveryPointToSnapshot where
+instance Data.ToJSON ConvertRecoveryPointToSnapshot where
   toJSON ConvertRecoveryPointToSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("retentionPeriod" Core..=)
+          [ ("retentionPeriod" Data..=)
               Prelude.<$> retentionPeriod,
             Prelude.Just
-              ("recoveryPointId" Core..= recoveryPointId),
-            Prelude.Just ("snapshotName" Core..= snapshotName)
+              ("recoveryPointId" Data..= recoveryPointId),
+            Prelude.Just ("snapshotName" Data..= snapshotName)
           ]
       )
 
-instance Core.ToPath ConvertRecoveryPointToSnapshot where
+instance Data.ToPath ConvertRecoveryPointToSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ConvertRecoveryPointToSnapshot where
+instance Data.ToQuery ConvertRecoveryPointToSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newConvertRecoveryPointToSnapshotResponse' smart constructor.

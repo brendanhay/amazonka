@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.Job where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.JobInput
 import Amazonka.ElasticTranscoder.Types.JobOutput
 import Amazonka.ElasticTranscoder.Types.Playlist
@@ -306,24 +307,24 @@ job_inputs = Lens.lens (\Job' {inputs} -> inputs) (\s@Job' {} a -> s {inputs = a
 job_userMetadata :: Lens.Lens' Job (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 job_userMetadata = Lens.lens (\Job' {userMetadata} -> userMetadata) (\s@Job' {} a -> s {userMetadata = a} :: Job) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Job where
+instance Data.FromJSON Job where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Job"
       ( \x ->
           Job'
-            Prelude.<$> (x Core..:? "Timing")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Input")
-            Prelude.<*> (x Core..:? "PipelineId")
-            Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Output")
-            Prelude.<*> (x Core..:? "Playlists" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "OutputKeyPrefix")
-            Prelude.<*> (x Core..:? "Inputs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "UserMetadata" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Timing")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Input")
+            Prelude.<*> (x Data..:? "PipelineId")
+            Prelude.<*> (x Data..:? "Outputs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Output")
+            Prelude.<*> (x Data..:? "Playlists" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "OutputKeyPrefix")
+            Prelude.<*> (x Data..:? "Inputs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "UserMetadata" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Job where

@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.FindingAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.ApiCallDetails
 import Amazonka.MacieV2.Types.FindingActionType
 import qualified Amazonka.Prelude as Prelude
@@ -76,14 +77,14 @@ findingAction_actionType = Lens.lens (\FindingAction' {actionType} -> actionType
 findingAction_apiCallDetails :: Lens.Lens' FindingAction (Prelude.Maybe ApiCallDetails)
 findingAction_apiCallDetails = Lens.lens (\FindingAction' {apiCallDetails} -> apiCallDetails) (\s@FindingAction' {} a -> s {apiCallDetails = a} :: FindingAction)
 
-instance Core.FromJSON FindingAction where
+instance Data.FromJSON FindingAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FindingAction"
       ( \x ->
           FindingAction'
-            Prelude.<$> (x Core..:? "actionType")
-            Prelude.<*> (x Core..:? "apiCallDetails")
+            Prelude.<$> (x Data..:? "actionType")
+            Prelude.<*> (x Data..:? "apiCallDetails")
       )
 
 instance Prelude.Hashable FindingAction where

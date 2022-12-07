@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.TimeSeriesIdentifiers where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.DataSource
 import Amazonka.Forecast.Types.Schema
 import qualified Amazonka.Prelude as Prelude
@@ -71,15 +72,15 @@ timeSeriesIdentifiers_schema = Lens.lens (\TimeSeriesIdentifiers' {schema} -> sc
 timeSeriesIdentifiers_dataSource :: Lens.Lens' TimeSeriesIdentifiers (Prelude.Maybe DataSource)
 timeSeriesIdentifiers_dataSource = Lens.lens (\TimeSeriesIdentifiers' {dataSource} -> dataSource) (\s@TimeSeriesIdentifiers' {} a -> s {dataSource = a} :: TimeSeriesIdentifiers)
 
-instance Core.FromJSON TimeSeriesIdentifiers where
+instance Data.FromJSON TimeSeriesIdentifiers where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeSeriesIdentifiers"
       ( \x ->
           TimeSeriesIdentifiers'
-            Prelude.<$> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "Schema")
-            Prelude.<*> (x Core..:? "DataSource")
+            Prelude.<$> (x Data..:? "Format")
+            Prelude.<*> (x Data..:? "Schema")
+            Prelude.<*> (x Data..:? "DataSource")
       )
 
 instance Prelude.Hashable TimeSeriesIdentifiers where
@@ -94,12 +95,12 @@ instance Prelude.NFData TimeSeriesIdentifiers where
       `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf dataSource
 
-instance Core.ToJSON TimeSeriesIdentifiers where
+instance Data.ToJSON TimeSeriesIdentifiers where
   toJSON TimeSeriesIdentifiers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Format" Core..=) Prelude.<$> format,
-            ("Schema" Core..=) Prelude.<$> schema,
-            ("DataSource" Core..=) Prelude.<$> dataSource
+          [ ("Format" Data..=) Prelude.<$> format,
+            ("Schema" Data..=) Prelude.<$> schema,
+            ("DataSource" Data..=) Prelude.<$> dataSource
           ]
       )

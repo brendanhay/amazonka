@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -166,17 +167,17 @@ instance Core.AWSRequest CreateSourceLocation where
     Response.receiveJSON
       ( \s h x ->
           CreateSourceLocationResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "SegmentDeliveryConfigurations"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "SegmentDeliveryConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "AccessConfiguration")
-            Prelude.<*> (x Core..?> "DefaultSegmentDeliveryConfiguration")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "SourceLocationName")
-            Prelude.<*> (x Core..?> "HttpConfiguration")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "AccessConfiguration")
+            Prelude.<*> (x Data..?> "DefaultSegmentDeliveryConfiguration")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "SourceLocationName")
+            Prelude.<*> (x Data..?> "HttpConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,39 +199,39 @@ instance Prelude.NFData CreateSourceLocation where
       `Prelude.seq` Prelude.rnf httpConfiguration
       `Prelude.seq` Prelude.rnf sourceLocationName
 
-instance Core.ToHeaders CreateSourceLocation where
+instance Data.ToHeaders CreateSourceLocation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSourceLocation where
+instance Data.ToJSON CreateSourceLocation where
   toJSON CreateSourceLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("SegmentDeliveryConfigurations" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("SegmentDeliveryConfigurations" Data..=)
               Prelude.<$> segmentDeliveryConfigurations,
-            ("AccessConfiguration" Core..=)
+            ("AccessConfiguration" Data..=)
               Prelude.<$> accessConfiguration,
-            ("DefaultSegmentDeliveryConfiguration" Core..=)
+            ("DefaultSegmentDeliveryConfiguration" Data..=)
               Prelude.<$> defaultSegmentDeliveryConfiguration,
             Prelude.Just
-              ("HttpConfiguration" Core..= httpConfiguration)
+              ("HttpConfiguration" Data..= httpConfiguration)
           ]
       )
 
-instance Core.ToPath CreateSourceLocation where
+instance Data.ToPath CreateSourceLocation where
   toPath CreateSourceLocation' {..} =
     Prelude.mconcat
-      ["/sourceLocation/", Core.toBS sourceLocationName]
+      ["/sourceLocation/", Data.toBS sourceLocationName]
 
-instance Core.ToQuery CreateSourceLocation where
+instance Data.ToQuery CreateSourceLocation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSourceLocationResponse' smart constructor.
@@ -252,9 +253,9 @@ data CreateSourceLocationResponse = CreateSourceLocationResponse'
     -- | The optional configuration for the server that serves segments.
     defaultSegmentDeliveryConfiguration :: Prelude.Maybe DefaultSegmentDeliveryConfiguration,
     -- | The time the source location was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The time the source location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The name to assign to the source location.
     sourceLocationName :: Prelude.Maybe Prelude.Text,
     -- | The source\'s HTTP package configurations.
@@ -346,11 +347,11 @@ createSourceLocationResponse_defaultSegmentDeliveryConfiguration = Lens.lens (\C
 
 -- | The time the source location was last modified.
 createSourceLocationResponse_lastModifiedTime :: Lens.Lens' CreateSourceLocationResponse (Prelude.Maybe Prelude.UTCTime)
-createSourceLocationResponse_lastModifiedTime = Lens.lens (\CreateSourceLocationResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateSourceLocationResponse' {} a -> s {lastModifiedTime = a} :: CreateSourceLocationResponse) Prelude.. Lens.mapping Core._Time
+createSourceLocationResponse_lastModifiedTime = Lens.lens (\CreateSourceLocationResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateSourceLocationResponse' {} a -> s {lastModifiedTime = a} :: CreateSourceLocationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time the source location was created.
 createSourceLocationResponse_creationTime :: Lens.Lens' CreateSourceLocationResponse (Prelude.Maybe Prelude.UTCTime)
-createSourceLocationResponse_creationTime = Lens.lens (\CreateSourceLocationResponse' {creationTime} -> creationTime) (\s@CreateSourceLocationResponse' {} a -> s {creationTime = a} :: CreateSourceLocationResponse) Prelude.. Lens.mapping Core._Time
+createSourceLocationResponse_creationTime = Lens.lens (\CreateSourceLocationResponse' {creationTime} -> creationTime) (\s@CreateSourceLocationResponse' {} a -> s {creationTime = a} :: CreateSourceLocationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name to assign to the source location.
 createSourceLocationResponse_sourceLocationName :: Lens.Lens' CreateSourceLocationResponse (Prelude.Maybe Prelude.Text)

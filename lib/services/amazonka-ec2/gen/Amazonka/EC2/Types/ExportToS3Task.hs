@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ExportToS3Task where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ContainerFormat
 import Amazonka.EC2.Types.DiskImageFormat
@@ -100,13 +101,13 @@ exportToS3Task_diskImageFormat = Lens.lens (\ExportToS3Task' {diskImageFormat} -
 exportToS3Task_containerFormat :: Lens.Lens' ExportToS3Task (Prelude.Maybe ContainerFormat)
 exportToS3Task_containerFormat = Lens.lens (\ExportToS3Task' {containerFormat} -> containerFormat) (\s@ExportToS3Task' {} a -> s {containerFormat = a} :: ExportToS3Task)
 
-instance Core.FromXML ExportToS3Task where
+instance Data.FromXML ExportToS3Task where
   parseXML x =
     ExportToS3Task'
-      Prelude.<$> (x Core..@? "s3Bucket")
-      Prelude.<*> (x Core..@? "s3Key")
-      Prelude.<*> (x Core..@? "diskImageFormat")
-      Prelude.<*> (x Core..@? "containerFormat")
+      Prelude.<$> (x Data..@? "s3Bucket")
+      Prelude.<*> (x Data..@? "s3Key")
+      Prelude.<*> (x Data..@? "diskImageFormat")
+      Prelude.<*> (x Data..@? "containerFormat")
 
 instance Prelude.Hashable ExportToS3Task where
   hashWithSalt _salt ExportToS3Task' {..} =

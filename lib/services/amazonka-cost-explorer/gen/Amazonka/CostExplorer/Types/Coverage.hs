@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CoverageCost
 import Amazonka.CostExplorer.Types.CoverageHours
 import Amazonka.CostExplorer.Types.CoverageNormalizedUnits
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of instance usage that a reservation covered.
@@ -77,15 +78,15 @@ coverage_coverageHours = Lens.lens (\Coverage' {coverageHours} -> coverageHours)
 coverage_coverageCost :: Lens.Lens' Coverage (Prelude.Maybe CoverageCost)
 coverage_coverageCost = Lens.lens (\Coverage' {coverageCost} -> coverageCost) (\s@Coverage' {} a -> s {coverageCost = a} :: Coverage)
 
-instance Core.FromJSON Coverage where
+instance Data.FromJSON Coverage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Coverage"
       ( \x ->
           Coverage'
-            Prelude.<$> (x Core..:? "CoverageNormalizedUnits")
-            Prelude.<*> (x Core..:? "CoverageHours")
-            Prelude.<*> (x Core..:? "CoverageCost")
+            Prelude.<$> (x Data..:? "CoverageNormalizedUnits")
+            Prelude.<*> (x Data..:? "CoverageHours")
+            Prelude.<*> (x Data..:? "CoverageCost")
       )
 
 instance Prelude.Hashable Coverage where

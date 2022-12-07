@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.EndpointIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type for an endpoint. Specifies information about the endpoint
@@ -109,12 +110,12 @@ instance Prelude.NFData EndpointIdentifier where
     Prelude.rnf clientIPPreservationEnabled
       `Prelude.seq` Prelude.rnf endpointId
 
-instance Core.ToJSON EndpointIdentifier where
+instance Data.ToJSON EndpointIdentifier where
   toJSON EndpointIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientIPPreservationEnabled" Core..=)
+          [ ("ClientIPPreservationEnabled" Data..=)
               Prelude.<$> clientIPPreservationEnabled,
-            Prelude.Just ("EndpointId" Core..= endpointId)
+            Prelude.Just ("EndpointId" Data..= endpointId)
           ]
       )

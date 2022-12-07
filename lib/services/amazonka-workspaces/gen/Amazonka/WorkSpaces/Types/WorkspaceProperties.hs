@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.WorkspaceProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpaces.Types.Compute
 import Amazonka.WorkSpaces.Types.Protocol
@@ -168,18 +169,18 @@ workspaceProperties_rootVolumeSizeGib = Lens.lens (\WorkspaceProperties' {rootVo
 workspaceProperties_runningModeAutoStopTimeoutInMinutes :: Lens.Lens' WorkspaceProperties (Prelude.Maybe Prelude.Int)
 workspaceProperties_runningModeAutoStopTimeoutInMinutes = Lens.lens (\WorkspaceProperties' {runningModeAutoStopTimeoutInMinutes} -> runningModeAutoStopTimeoutInMinutes) (\s@WorkspaceProperties' {} a -> s {runningModeAutoStopTimeoutInMinutes = a} :: WorkspaceProperties)
 
-instance Core.FromJSON WorkspaceProperties where
+instance Data.FromJSON WorkspaceProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkspaceProperties"
       ( \x ->
           WorkspaceProperties'
-            Prelude.<$> (x Core..:? "UserVolumeSizeGib")
-            Prelude.<*> (x Core..:? "RunningMode")
-            Prelude.<*> (x Core..:? "Protocols" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ComputeTypeName")
-            Prelude.<*> (x Core..:? "RootVolumeSizeGib")
-            Prelude.<*> (x Core..:? "RunningModeAutoStopTimeoutInMinutes")
+            Prelude.<$> (x Data..:? "UserVolumeSizeGib")
+            Prelude.<*> (x Data..:? "RunningMode")
+            Prelude.<*> (x Data..:? "Protocols" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ComputeTypeName")
+            Prelude.<*> (x Data..:? "RootVolumeSizeGib")
+            Prelude.<*> (x Data..:? "RunningModeAutoStopTimeoutInMinutes")
       )
 
 instance Prelude.Hashable WorkspaceProperties where
@@ -200,19 +201,19 @@ instance Prelude.NFData WorkspaceProperties where
       `Prelude.seq` Prelude.rnf rootVolumeSizeGib
       `Prelude.seq` Prelude.rnf runningModeAutoStopTimeoutInMinutes
 
-instance Core.ToJSON WorkspaceProperties where
+instance Data.ToJSON WorkspaceProperties where
   toJSON WorkspaceProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UserVolumeSizeGib" Core..=)
+          [ ("UserVolumeSizeGib" Data..=)
               Prelude.<$> userVolumeSizeGib,
-            ("RunningMode" Core..=) Prelude.<$> runningMode,
-            ("Protocols" Core..=) Prelude.<$> protocols,
-            ("ComputeTypeName" Core..=)
+            ("RunningMode" Data..=) Prelude.<$> runningMode,
+            ("Protocols" Data..=) Prelude.<$> protocols,
+            ("ComputeTypeName" Data..=)
               Prelude.<$> computeTypeName,
-            ("RootVolumeSizeGib" Core..=)
+            ("RootVolumeSizeGib" Data..=)
               Prelude.<$> rootVolumeSizeGib,
-            ("RunningModeAutoStopTimeoutInMinutes" Core..=)
+            ("RunningModeAutoStopTimeoutInMinutes" Data..=)
               Prelude.<$> runningModeAutoStopTimeoutInMinutes
           ]
       )

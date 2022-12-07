@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,27 +119,27 @@ instance Prelude.NFData DeleteAssistantAssociation where
     Prelude.rnf assistantAssociationId
       `Prelude.seq` Prelude.rnf assistantId
 
-instance Core.ToHeaders DeleteAssistantAssociation where
+instance Data.ToHeaders DeleteAssistantAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteAssistantAssociation where
+instance Data.ToPath DeleteAssistantAssociation where
   toPath DeleteAssistantAssociation' {..} =
     Prelude.mconcat
       [ "/assistants/",
-        Core.toBS assistantId,
+        Data.toBS assistantId,
         "/associations/",
-        Core.toBS assistantAssociationId
+        Data.toBS assistantAssociationId
       ]
 
-instance Core.ToQuery DeleteAssistantAssociation where
+instance Data.ToQuery DeleteAssistantAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAssistantAssociationResponse' smart constructor.

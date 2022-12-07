@@ -21,6 +21,7 @@ module Amazonka.Glacier.Types.PartListElement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of the part sizes of the multipart upload.
@@ -64,14 +65,14 @@ partListElement_rangeInBytes = Lens.lens (\PartListElement' {rangeInBytes} -> ra
 partListElement_sHA256TreeHash :: Lens.Lens' PartListElement (Prelude.Maybe Prelude.Text)
 partListElement_sHA256TreeHash = Lens.lens (\PartListElement' {sHA256TreeHash} -> sHA256TreeHash) (\s@PartListElement' {} a -> s {sHA256TreeHash = a} :: PartListElement)
 
-instance Core.FromJSON PartListElement where
+instance Data.FromJSON PartListElement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PartListElement"
       ( \x ->
           PartListElement'
-            Prelude.<$> (x Core..:? "RangeInBytes")
-            Prelude.<*> (x Core..:? "SHA256TreeHash")
+            Prelude.<$> (x Data..:? "RangeInBytes")
+            Prelude.<*> (x Data..:? "SHA256TreeHash")
       )
 
 instance Prelude.Hashable PartListElement where

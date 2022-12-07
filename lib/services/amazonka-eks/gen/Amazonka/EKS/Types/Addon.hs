@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.Addon where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.AddonHealth
 import Amazonka.EKS.Types.AddonStatus
 import qualified Amazonka.Prelude as Prelude
@@ -37,7 +38,7 @@ data Addon = Addon'
     -- associated with the cluster.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The date and time that the add-on was last modified.
-    modifiedAt :: Prelude.Maybe Core.POSIX,
+    modifiedAt :: Prelude.Maybe Data.POSIX,
     -- | The status of the add-on.
     status :: Prelude.Maybe AddonStatus,
     -- | The name of the add-on.
@@ -54,7 +55,7 @@ data Addon = Addon'
     -- | The name of the cluster.
     clusterName :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the add-on was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,7 +115,7 @@ addon_tags = Lens.lens (\Addon' {tags} -> tags) (\s@Addon' {} a -> s {tags = a} 
 
 -- | The date and time that the add-on was last modified.
 addon_modifiedAt :: Lens.Lens' Addon (Prelude.Maybe Prelude.UTCTime)
-addon_modifiedAt = Lens.lens (\Addon' {modifiedAt} -> modifiedAt) (\s@Addon' {} a -> s {modifiedAt = a} :: Addon) Prelude.. Lens.mapping Core._Time
+addon_modifiedAt = Lens.lens (\Addon' {modifiedAt} -> modifiedAt) (\s@Addon' {} a -> s {modifiedAt = a} :: Addon) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the add-on.
 addon_status :: Lens.Lens' Addon (Prelude.Maybe AddonStatus)
@@ -147,24 +148,24 @@ addon_clusterName = Lens.lens (\Addon' {clusterName} -> clusterName) (\s@Addon' 
 
 -- | The date and time that the add-on was created.
 addon_createdAt :: Lens.Lens' Addon (Prelude.Maybe Prelude.UTCTime)
-addon_createdAt = Lens.lens (\Addon' {createdAt} -> createdAt) (\s@Addon' {} a -> s {createdAt = a} :: Addon) Prelude.. Lens.mapping Core._Time
+addon_createdAt = Lens.lens (\Addon' {createdAt} -> createdAt) (\s@Addon' {} a -> s {createdAt = a} :: Addon) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Addon where
+instance Data.FromJSON Addon where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Addon"
       ( \x ->
           Addon'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "modifiedAt")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "addonName")
-            Prelude.<*> (x Core..:? "addonVersion")
-            Prelude.<*> (x Core..:? "health")
-            Prelude.<*> (x Core..:? "addonArn")
-            Prelude.<*> (x Core..:? "serviceAccountRoleArn")
-            Prelude.<*> (x Core..:? "clusterName")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "modifiedAt")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "addonName")
+            Prelude.<*> (x Data..:? "addonVersion")
+            Prelude.<*> (x Data..:? "health")
+            Prelude.<*> (x Data..:? "addonArn")
+            Prelude.<*> (x Data..:? "serviceAccountRoleArn")
+            Prelude.<*> (x Data..:? "clusterName")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable Addon where

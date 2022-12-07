@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.SalesforceMetadata where
 import Amazonka.AppFlow.Types.SalesforceDataTransferApi
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to Salesforce.
@@ -66,16 +67,16 @@ salesforceMetadata_dataTransferApis = Lens.lens (\SalesforceMetadata' {dataTrans
 salesforceMetadata_oAuthScopes :: Lens.Lens' SalesforceMetadata (Prelude.Maybe [Prelude.Text])
 salesforceMetadata_oAuthScopes = Lens.lens (\SalesforceMetadata' {oAuthScopes} -> oAuthScopes) (\s@SalesforceMetadata' {} a -> s {oAuthScopes = a} :: SalesforceMetadata) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SalesforceMetadata where
+instance Data.FromJSON SalesforceMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SalesforceMetadata"
       ( \x ->
           SalesforceMetadata'
-            Prelude.<$> ( x Core..:? "dataTransferApis"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "dataTransferApis"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "oAuthScopes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "oAuthScopes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SalesforceMetadata where

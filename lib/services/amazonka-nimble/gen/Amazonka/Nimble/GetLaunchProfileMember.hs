@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ instance Core.AWSRequest GetLaunchProfileMember where
     Response.receiveJSON
       ( \s h x ->
           GetLaunchProfileMemberResponse'
-            Prelude.<$> (x Core..?> "member")
+            Prelude.<$> (x Data..?> "member")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,29 +130,29 @@ instance Prelude.NFData GetLaunchProfileMember where
       `Prelude.seq` Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders GetLaunchProfileMember where
+instance Data.ToHeaders GetLaunchProfileMember where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetLaunchProfileMember where
+instance Data.ToPath GetLaunchProfileMember where
   toPath GetLaunchProfileMember' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/launch-profiles/",
-        Core.toBS launchProfileId,
+        Data.toBS launchProfileId,
         "/membership/",
-        Core.toBS principalId
+        Data.toBS principalId
       ]
 
-instance Core.ToQuery GetLaunchProfileMember where
+instance Data.ToQuery GetLaunchProfileMember where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLaunchProfileMemberResponse' smart constructor.

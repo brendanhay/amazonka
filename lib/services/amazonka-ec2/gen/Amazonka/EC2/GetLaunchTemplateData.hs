@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,7 +113,7 @@ instance Core.AWSRequest GetLaunchTemplateData where
     Response.receiveXML
       ( \s h x ->
           GetLaunchTemplateDataResponse'
-            Prelude.<$> (x Core..@? "launchTemplateData")
+            Prelude.<$> (x Data..@? "launchTemplateData")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,21 +127,21 @@ instance Prelude.NFData GetLaunchTemplateData where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders GetLaunchTemplateData where
+instance Data.ToHeaders GetLaunchTemplateData where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetLaunchTemplateData where
+instance Data.ToPath GetLaunchTemplateData where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetLaunchTemplateData where
+instance Data.ToQuery GetLaunchTemplateData where
   toQuery GetLaunchTemplateData' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetLaunchTemplateData" :: Prelude.ByteString),
+          Data.=: ("GetLaunchTemplateData" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "InstanceId" Core.=: instanceId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "InstanceId" Data.=: instanceId
       ]
 
 -- | /See:/ 'newGetLaunchTemplateDataResponse' smart constructor.

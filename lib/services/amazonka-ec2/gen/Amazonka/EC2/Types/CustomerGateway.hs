@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CustomerGateway where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -138,19 +139,19 @@ customerGateway_state = Lens.lens (\CustomerGateway' {state} -> state) (\s@Custo
 customerGateway_type :: Lens.Lens' CustomerGateway Prelude.Text
 customerGateway_type = Lens.lens (\CustomerGateway' {type'} -> type') (\s@CustomerGateway' {} a -> s {type' = a} :: CustomerGateway)
 
-instance Core.FromXML CustomerGateway where
+instance Data.FromXML CustomerGateway where
   parseXML x =
     CustomerGateway'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "deviceName")
-      Prelude.<*> (x Core..@? "certificateArn")
-      Prelude.<*> (x Core..@ "bgpAsn")
-      Prelude.<*> (x Core..@ "customerGatewayId")
-      Prelude.<*> (x Core..@ "ipAddress")
-      Prelude.<*> (x Core..@ "state")
-      Prelude.<*> (x Core..@ "type")
+      Prelude.<*> (x Data..@? "deviceName")
+      Prelude.<*> (x Data..@? "certificateArn")
+      Prelude.<*> (x Data..@ "bgpAsn")
+      Prelude.<*> (x Data..@ "customerGatewayId")
+      Prelude.<*> (x Data..@ "ipAddress")
+      Prelude.<*> (x Data..@ "state")
+      Prelude.<*> (x Data..@ "type")
 
 instance Prelude.Hashable CustomerGateway where
   hashWithSalt _salt CustomerGateway' {..} =

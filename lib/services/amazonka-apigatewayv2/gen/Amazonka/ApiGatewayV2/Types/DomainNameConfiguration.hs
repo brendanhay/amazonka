@@ -24,6 +24,7 @@ import Amazonka.ApiGatewayV2.Types.EndpointType
 import Amazonka.ApiGatewayV2.Types.SecurityPolicy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The domain name configuration.
@@ -57,7 +58,7 @@ data DomainNameConfiguration = DomainNameConfiguration'
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the certificate that was used by edge-optimized
     -- endpoint for this domain name was uploaded.
-    certificateUploadDate :: Prelude.Maybe Core.POSIX,
+    certificateUploadDate :: Prelude.Maybe Data.POSIX,
     -- | A domain name for the API.
     apiGatewayDomainName :: Prelude.Maybe Prelude.Text,
     -- | The Transport Layer Security (TLS) version of the security policy for
@@ -166,7 +167,7 @@ domainNameConfiguration_certificateArn = Lens.lens (\DomainNameConfiguration' {c
 -- | The timestamp when the certificate that was used by edge-optimized
 -- endpoint for this domain name was uploaded.
 domainNameConfiguration_certificateUploadDate :: Lens.Lens' DomainNameConfiguration (Prelude.Maybe Prelude.UTCTime)
-domainNameConfiguration_certificateUploadDate = Lens.lens (\DomainNameConfiguration' {certificateUploadDate} -> certificateUploadDate) (\s@DomainNameConfiguration' {} a -> s {certificateUploadDate = a} :: DomainNameConfiguration) Prelude.. Lens.mapping Core._Time
+domainNameConfiguration_certificateUploadDate = Lens.lens (\DomainNameConfiguration' {certificateUploadDate} -> certificateUploadDate) (\s@DomainNameConfiguration' {} a -> s {certificateUploadDate = a} :: DomainNameConfiguration) Prelude.. Lens.mapping Data._Time
 
 -- | A domain name for the API.
 domainNameConfiguration_apiGatewayDomainName :: Lens.Lens' DomainNameConfiguration (Prelude.Maybe Prelude.Text)
@@ -177,22 +178,22 @@ domainNameConfiguration_apiGatewayDomainName = Lens.lens (\DomainNameConfigurati
 domainNameConfiguration_securityPolicy :: Lens.Lens' DomainNameConfiguration (Prelude.Maybe SecurityPolicy)
 domainNameConfiguration_securityPolicy = Lens.lens (\DomainNameConfiguration' {securityPolicy} -> securityPolicy) (\s@DomainNameConfiguration' {} a -> s {securityPolicy = a} :: DomainNameConfiguration)
 
-instance Core.FromJSON DomainNameConfiguration where
+instance Data.FromJSON DomainNameConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainNameConfiguration"
       ( \x ->
           DomainNameConfiguration'
-            Prelude.<$> (x Core..:? "hostedZoneId")
-            Prelude.<*> (x Core..:? "domainNameStatus")
-            Prelude.<*> (x Core..:? "ownershipVerificationCertificateArn")
-            Prelude.<*> (x Core..:? "certificateName")
-            Prelude.<*> (x Core..:? "endpointType")
-            Prelude.<*> (x Core..:? "domainNameStatusMessage")
-            Prelude.<*> (x Core..:? "certificateArn")
-            Prelude.<*> (x Core..:? "certificateUploadDate")
-            Prelude.<*> (x Core..:? "apiGatewayDomainName")
-            Prelude.<*> (x Core..:? "securityPolicy")
+            Prelude.<$> (x Data..:? "hostedZoneId")
+            Prelude.<*> (x Data..:? "domainNameStatus")
+            Prelude.<*> (x Data..:? "ownershipVerificationCertificateArn")
+            Prelude.<*> (x Data..:? "certificateName")
+            Prelude.<*> (x Data..:? "endpointType")
+            Prelude.<*> (x Data..:? "domainNameStatusMessage")
+            Prelude.<*> (x Data..:? "certificateArn")
+            Prelude.<*> (x Data..:? "certificateUploadDate")
+            Prelude.<*> (x Data..:? "apiGatewayDomainName")
+            Prelude.<*> (x Data..:? "securityPolicy")
       )
 
 instance Prelude.Hashable DomainNameConfiguration where
@@ -221,27 +222,27 @@ instance Prelude.NFData DomainNameConfiguration where
       `Prelude.seq` Prelude.rnf apiGatewayDomainName
       `Prelude.seq` Prelude.rnf securityPolicy
 
-instance Core.ToJSON DomainNameConfiguration where
+instance Data.ToJSON DomainNameConfiguration where
   toJSON DomainNameConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("hostedZoneId" Core..=) Prelude.<$> hostedZoneId,
-            ("domainNameStatus" Core..=)
+          [ ("hostedZoneId" Data..=) Prelude.<$> hostedZoneId,
+            ("domainNameStatus" Data..=)
               Prelude.<$> domainNameStatus,
-            ("ownershipVerificationCertificateArn" Core..=)
+            ("ownershipVerificationCertificateArn" Data..=)
               Prelude.<$> ownershipVerificationCertificateArn,
-            ("certificateName" Core..=)
+            ("certificateName" Data..=)
               Prelude.<$> certificateName,
-            ("endpointType" Core..=) Prelude.<$> endpointType,
-            ("domainNameStatusMessage" Core..=)
+            ("endpointType" Data..=) Prelude.<$> endpointType,
+            ("domainNameStatusMessage" Data..=)
               Prelude.<$> domainNameStatusMessage,
-            ("certificateArn" Core..=)
+            ("certificateArn" Data..=)
               Prelude.<$> certificateArn,
-            ("certificateUploadDate" Core..=)
+            ("certificateUploadDate" Data..=)
               Prelude.<$> certificateUploadDate,
-            ("apiGatewayDomainName" Core..=)
+            ("apiGatewayDomainName" Data..=)
               Prelude.<$> apiGatewayDomainName,
-            ("securityPolicy" Core..=)
+            ("securityPolicy" Data..=)
               Prelude.<$> securityPolicy
           ]
       )

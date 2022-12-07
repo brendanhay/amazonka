@@ -21,6 +21,7 @@ module Amazonka.Signer.Types.Source where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Signer.Types.S3Source
 
@@ -51,11 +52,11 @@ newSource = Source' {s3 = Prelude.Nothing}
 source_s3 :: Lens.Lens' Source (Prelude.Maybe S3Source)
 source_s3 = Lens.lens (\Source' {s3} -> s3) (\s@Source' {} a -> s {s3 = a} :: Source)
 
-instance Core.FromJSON Source where
+instance Data.FromJSON Source where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Source"
-      (\x -> Source' Prelude.<$> (x Core..:? "s3"))
+      (\x -> Source' Prelude.<$> (x Data..:? "s3"))
 
 instance Prelude.Hashable Source where
   hashWithSalt _salt Source' {..} =
@@ -64,7 +65,7 @@ instance Prelude.Hashable Source where
 instance Prelude.NFData Source where
   rnf Source' {..} = Prelude.rnf s3
 
-instance Core.ToJSON Source where
+instance Data.ToJSON Source where
   toJSON Source' {..} =
-    Core.object
-      (Prelude.catMaybes [("s3" Core..=) Prelude.<$> s3])
+    Data.object
+      (Prelude.catMaybes [("s3" Data..=) Prelude.<$> s3])

@@ -90,6 +90,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -256,14 +257,14 @@ instance Core.AWSRequest AllocateAddress where
     Response.receiveXML
       ( \s h x ->
           AllocateAddressResponse'
-            Prelude.<$> (x Core..@? "allocationId")
-            Prelude.<*> (x Core..@? "networkBorderGroup")
-            Prelude.<*> (x Core..@? "domain")
-            Prelude.<*> (x Core..@? "carrierIp")
-            Prelude.<*> (x Core..@? "customerOwnedIpv4Pool")
-            Prelude.<*> (x Core..@? "publicIp")
-            Prelude.<*> (x Core..@? "customerOwnedIp")
-            Prelude.<*> (x Core..@? "publicIpv4Pool")
+            Prelude.<$> (x Data..@? "allocationId")
+            Prelude.<*> (x Data..@? "networkBorderGroup")
+            Prelude.<*> (x Data..@? "domain")
+            Prelude.<*> (x Data..@? "carrierIp")
+            Prelude.<*> (x Data..@? "customerOwnedIpv4Pool")
+            Prelude.<*> (x Data..@? "publicIp")
+            Prelude.<*> (x Data..@? "customerOwnedIp")
+            Prelude.<*> (x Data..@? "publicIpv4Pool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -287,30 +288,30 @@ instance Prelude.NFData AllocateAddress where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf publicIpv4Pool
 
-instance Core.ToHeaders AllocateAddress where
+instance Data.ToHeaders AllocateAddress where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AllocateAddress where
+instance Data.ToPath AllocateAddress where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AllocateAddress where
+instance Data.ToQuery AllocateAddress where
   toQuery AllocateAddress' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AllocateAddress" :: Prelude.ByteString),
+          Data.=: ("AllocateAddress" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NetworkBorderGroup" Core.=: networkBorderGroup,
-        "Domain" Core.=: domain,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NetworkBorderGroup" Data.=: networkBorderGroup,
+        "Domain" Data.=: domain,
         "CustomerOwnedIpv4Pool"
-          Core.=: customerOwnedIpv4Pool,
-        "DryRun" Core.=: dryRun,
-        "Address" Core.=: address,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: customerOwnedIpv4Pool,
+        "DryRun" Data.=: dryRun,
+        "Address" Data.=: address,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "PublicIpv4Pool" Core.=: publicIpv4Pool
+        "PublicIpv4Pool" Data.=: publicIpv4Pool
       ]
 
 -- | /See:/ 'newAllocateAddressResponse' smart constructor.

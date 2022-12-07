@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance Core.AWSRequest UpdateCustomRoutingListener where
     Response.receiveJSON
       ( \s h x ->
           UpdateCustomRoutingListenerResponse'
-            Prelude.<$> (x Core..?> "Listener")
+            Prelude.<$> (x Data..?> "Listener")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,34 +130,34 @@ instance Prelude.NFData UpdateCustomRoutingListener where
     Prelude.rnf listenerArn
       `Prelude.seq` Prelude.rnf portRanges
 
-instance Core.ToHeaders UpdateCustomRoutingListener where
+instance Data.ToHeaders UpdateCustomRoutingListener where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.UpdateCustomRoutingListener" ::
+              Data.=# ( "GlobalAccelerator_V20180706.UpdateCustomRoutingListener" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCustomRoutingListener where
+instance Data.ToJSON UpdateCustomRoutingListener where
   toJSON UpdateCustomRoutingListener' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ListenerArn" Core..= listenerArn),
-            Prelude.Just ("PortRanges" Core..= portRanges)
+          [ Prelude.Just ("ListenerArn" Data..= listenerArn),
+            Prelude.Just ("PortRanges" Data..= portRanges)
           ]
       )
 
-instance Core.ToPath UpdateCustomRoutingListener where
+instance Data.ToPath UpdateCustomRoutingListener where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateCustomRoutingListener where
+instance Data.ToQuery UpdateCustomRoutingListener where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCustomRoutingListenerResponse' smart constructor.

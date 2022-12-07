@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.ProcessorParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.ProcessorParameterName
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ processorParameter_parameterName = Lens.lens (\ProcessorParameter' {parameterNam
 processorParameter_parameterValue :: Lens.Lens' ProcessorParameter Prelude.Text
 processorParameter_parameterValue = Lens.lens (\ProcessorParameter' {parameterValue} -> parameterValue) (\s@ProcessorParameter' {} a -> s {parameterValue = a} :: ProcessorParameter)
 
-instance Core.FromJSON ProcessorParameter where
+instance Data.FromJSON ProcessorParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProcessorParameter"
       ( \x ->
           ProcessorParameter'
-            Prelude.<$> (x Core..: "ParameterName")
-            Prelude.<*> (x Core..: "ParameterValue")
+            Prelude.<$> (x Data..: "ParameterName")
+            Prelude.<*> (x Data..: "ParameterValue")
       )
 
 instance Prelude.Hashable ProcessorParameter where
@@ -89,13 +90,13 @@ instance Prelude.NFData ProcessorParameter where
     Prelude.rnf parameterName
       `Prelude.seq` Prelude.rnf parameterValue
 
-instance Core.ToJSON ProcessorParameter where
+instance Data.ToJSON ProcessorParameter where
   toJSON ProcessorParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ParameterName" Core..= parameterName),
+              ("ParameterName" Data..= parameterName),
             Prelude.Just
-              ("ParameterValue" Core..= parameterValue)
+              ("ParameterValue" Data..= parameterValue)
           ]
       )

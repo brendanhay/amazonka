@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.ApplicationPreferences where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.ManagementPreference
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newApplicationPreferences =
 applicationPreferences_managementPreference :: Lens.Lens' ApplicationPreferences (Prelude.Maybe ManagementPreference)
 applicationPreferences_managementPreference = Lens.lens (\ApplicationPreferences' {managementPreference} -> managementPreference) (\s@ApplicationPreferences' {} a -> s {managementPreference = a} :: ApplicationPreferences)
 
-instance Core.FromJSON ApplicationPreferences where
+instance Data.FromJSON ApplicationPreferences where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationPreferences"
       ( \x ->
           ApplicationPreferences'
-            Prelude.<$> (x Core..:? "managementPreference")
+            Prelude.<$> (x Data..:? "managementPreference")
       )
 
 instance Prelude.Hashable ApplicationPreferences where
@@ -71,11 +72,11 @@ instance Prelude.NFData ApplicationPreferences where
   rnf ApplicationPreferences' {..} =
     Prelude.rnf managementPreference
 
-instance Core.ToJSON ApplicationPreferences where
+instance Data.ToJSON ApplicationPreferences where
   toJSON ApplicationPreferences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("managementPreference" Core..=)
+          [ ("managementPreference" Data..=)
               Prelude.<$> managementPreference
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.Image where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.ImageFile
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,11 +79,11 @@ instance Prelude.NFData Image where
   rnf Image' {..} =
     Prelude.rnf file `Prelude.seq` Prelude.rnf id
 
-instance Core.ToJSON Image where
+instance Data.ToJSON Image where
   toJSON Image' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("file" Core..=) Prelude.<$> file,
-            ("id" Core..=) Prelude.<$> id
+          [ ("file" Data..=) Prelude.<$> file,
+            ("id" Data..=) Prelude.<$> id
           ]
       )

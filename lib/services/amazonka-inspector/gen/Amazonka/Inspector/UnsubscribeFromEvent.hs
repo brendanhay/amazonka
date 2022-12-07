@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,35 +124,35 @@ instance Prelude.NFData UnsubscribeFromEvent where
       `Prelude.seq` Prelude.rnf event
       `Prelude.seq` Prelude.rnf topicArn
 
-instance Core.ToHeaders UnsubscribeFromEvent where
+instance Data.ToHeaders UnsubscribeFromEvent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.UnsubscribeFromEvent" ::
+              Data.=# ( "InspectorService.UnsubscribeFromEvent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UnsubscribeFromEvent where
+instance Data.ToJSON UnsubscribeFromEvent where
   toJSON UnsubscribeFromEvent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("resourceArn" Core..= resourceArn),
-            Prelude.Just ("event" Core..= event),
-            Prelude.Just ("topicArn" Core..= topicArn)
+          [ Prelude.Just ("resourceArn" Data..= resourceArn),
+            Prelude.Just ("event" Data..= event),
+            Prelude.Just ("topicArn" Data..= topicArn)
           ]
       )
 
-instance Core.ToPath UnsubscribeFromEvent where
+instance Data.ToPath UnsubscribeFromEvent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UnsubscribeFromEvent where
+instance Data.ToQuery UnsubscribeFromEvent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUnsubscribeFromEventResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.NodeConfigurationOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.Mode
@@ -82,13 +83,13 @@ nodeConfigurationOption_numberOfNodes = Lens.lens (\NodeConfigurationOption' {nu
 nodeConfigurationOption_mode :: Lens.Lens' NodeConfigurationOption (Prelude.Maybe Mode)
 nodeConfigurationOption_mode = Lens.lens (\NodeConfigurationOption' {mode} -> mode) (\s@NodeConfigurationOption' {} a -> s {mode = a} :: NodeConfigurationOption)
 
-instance Core.FromXML NodeConfigurationOption where
+instance Data.FromXML NodeConfigurationOption where
   parseXML x =
     NodeConfigurationOption'
-      Prelude.<$> (x Core..@? "EstimatedDiskUtilizationPercent")
-      Prelude.<*> (x Core..@? "NodeType")
-      Prelude.<*> (x Core..@? "NumberOfNodes")
-      Prelude.<*> (x Core..@? "Mode")
+      Prelude.<$> (x Data..@? "EstimatedDiskUtilizationPercent")
+      Prelude.<*> (x Data..@? "NodeType")
+      Prelude.<*> (x Data..@? "NumberOfNodes")
+      Prelude.<*> (x Data..@? "Mode")
 
 instance Prelude.Hashable NodeConfigurationOption where
   hashWithSalt _salt NodeConfigurationOption' {..} =

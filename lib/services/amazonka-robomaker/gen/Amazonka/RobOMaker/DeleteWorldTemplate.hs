@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,28 +93,28 @@ instance Prelude.Hashable DeleteWorldTemplate where
 instance Prelude.NFData DeleteWorldTemplate where
   rnf DeleteWorldTemplate' {..} = Prelude.rnf template
 
-instance Core.ToHeaders DeleteWorldTemplate where
+instance Data.ToHeaders DeleteWorldTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteWorldTemplate where
+instance Data.ToJSON DeleteWorldTemplate where
   toJSON DeleteWorldTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("template" Core..= template)]
+          [Prelude.Just ("template" Data..= template)]
       )
 
-instance Core.ToPath DeleteWorldTemplate where
+instance Data.ToPath DeleteWorldTemplate where
   toPath = Prelude.const "/deleteWorldTemplate"
 
-instance Core.ToQuery DeleteWorldTemplate where
+instance Data.ToQuery DeleteWorldTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWorldTemplateResponse' smart constructor.

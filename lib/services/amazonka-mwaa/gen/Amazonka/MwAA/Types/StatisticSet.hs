@@ -21,6 +21,7 @@ module Amazonka.MwAA.Types.StatisticSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __Internal only__. Represents a set of statistics that describe a
@@ -96,13 +97,13 @@ instance Prelude.NFData StatisticSet where
       `Prelude.seq` Prelude.rnf sum
       `Prelude.seq` Prelude.rnf maximum
 
-instance Core.ToJSON StatisticSet where
+instance Data.ToJSON StatisticSet where
   toJSON StatisticSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Minimum" Core..=) Prelude.<$> minimum,
-            ("SampleCount" Core..=) Prelude.<$> sampleCount,
-            ("Sum" Core..=) Prelude.<$> sum,
-            ("Maximum" Core..=) Prelude.<$> maximum
+          [ ("Minimum" Data..=) Prelude.<$> minimum,
+            ("SampleCount" Data..=) Prelude.<$> sampleCount,
+            ("Sum" Data..=) Prelude.<$> sum,
+            ("Maximum" Data..=) Prelude.<$> maximum
           ]
       )

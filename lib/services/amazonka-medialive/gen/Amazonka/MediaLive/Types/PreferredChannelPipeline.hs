@@ -28,6 +28,7 @@ module Amazonka.MediaLive.Types.PreferredChannelPipeline
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates which pipeline is preferred by the multiplex for program
@@ -39,7 +40,7 @@ import qualified Amazonka.Prelude as Prelude
 -- if the active pipeline becomes unhealthy.
 newtype PreferredChannelPipeline = PreferredChannelPipeline'
   { fromPreferredChannelPipeline ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -51,18 +52,18 @@ newtype PreferredChannelPipeline = PreferredChannelPipeline'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern PreferredChannelPipeline_CURRENTLY_ACTIVE :: PreferredChannelPipeline

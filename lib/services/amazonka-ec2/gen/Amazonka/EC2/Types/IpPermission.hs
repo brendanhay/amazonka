@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IpPermission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IpRange
 import Amazonka.EC2.Types.Ipv6Range
@@ -152,24 +153,24 @@ ipPermission_fromPort = Lens.lens (\IpPermission' {fromPort} -> fromPort) (\s@Ip
 ipPermission_ipProtocol :: Lens.Lens' IpPermission Prelude.Text
 ipPermission_ipProtocol = Lens.lens (\IpPermission' {ipProtocol} -> ipProtocol) (\s@IpPermission' {} a -> s {ipProtocol = a} :: IpPermission)
 
-instance Core.FromXML IpPermission where
+instance Data.FromXML IpPermission where
   parseXML x =
     IpPermission'
-      Prelude.<$> (x Core..@? "toPort")
-      Prelude.<*> ( x Core..@? "ipv6Ranges" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "toPort")
+      Prelude.<*> ( x Data..@? "ipv6Ranges" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "prefixListIds" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "prefixListIds" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "ipRanges" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "ipRanges" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "groups" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "groups" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "fromPort")
-      Prelude.<*> (x Core..@ "ipProtocol")
+      Prelude.<*> (x Data..@? "fromPort")
+      Prelude.<*> (x Data..@ "ipProtocol")
 
 instance Prelude.Hashable IpPermission where
   hashWithSalt _salt IpPermission' {..} =
@@ -191,24 +192,24 @@ instance Prelude.NFData IpPermission where
       `Prelude.seq` Prelude.rnf fromPort
       `Prelude.seq` Prelude.rnf ipProtocol
 
-instance Core.ToQuery IpPermission where
+instance Data.ToQuery IpPermission where
   toQuery IpPermission' {..} =
     Prelude.mconcat
-      [ "ToPort" Core.=: toPort,
-        Core.toQuery
-          ( Core.toQueryList "Ipv6Ranges"
+      [ "ToPort" Data.=: toPort,
+        Data.toQuery
+          ( Data.toQueryList "Ipv6Ranges"
               Prelude.<$> ipv6Ranges
           ),
-        Core.toQuery
-          ( Core.toQueryList "PrefixListIds"
+        Data.toQuery
+          ( Data.toQueryList "PrefixListIds"
               Prelude.<$> prefixListIds
           ),
-        Core.toQuery
-          (Core.toQueryList "IpRanges" Prelude.<$> ipRanges),
-        Core.toQuery
-          ( Core.toQueryList "Groups"
+        Data.toQuery
+          (Data.toQueryList "IpRanges" Prelude.<$> ipRanges),
+        Data.toQuery
+          ( Data.toQueryList "Groups"
               Prelude.<$> userIdGroupPairs
           ),
-        "FromPort" Core.=: fromPort,
-        "IpProtocol" Core.=: ipProtocol
+        "FromPort" Data.=: fromPort,
+        "IpProtocol" Data.=: ipProtocol
       ]

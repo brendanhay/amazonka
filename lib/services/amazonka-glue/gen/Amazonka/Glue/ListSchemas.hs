@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,8 +135,8 @@ instance Core.AWSRequest ListSchemas where
     Response.receiveJSON
       ( \s h x ->
           ListSchemasResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Schemas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,33 +152,33 @@ instance Prelude.NFData ListSchemas where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf registryId
 
-instance Core.ToHeaders ListSchemas where
+instance Data.ToHeaders ListSchemas where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.ListSchemas" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.ListSchemas" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSchemas where
+instance Data.ToJSON ListSchemas where
   toJSON ListSchemas' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("RegistryId" Core..=) Prelude.<$> registryId
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("RegistryId" Data..=) Prelude.<$> registryId
           ]
       )
 
-instance Core.ToPath ListSchemas where
+instance Data.ToPath ListSchemas where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSchemas where
+instance Data.ToQuery ListSchemas where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSchemasResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.ReadOnlyFieldInfo where
 import Amazonka.Connect.Types.TaskTemplateFieldIdentifier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates a field that is read-only to an agent.
@@ -51,12 +52,12 @@ newReadOnlyFieldInfo =
 readOnlyFieldInfo_id :: Lens.Lens' ReadOnlyFieldInfo (Prelude.Maybe TaskTemplateFieldIdentifier)
 readOnlyFieldInfo_id = Lens.lens (\ReadOnlyFieldInfo' {id} -> id) (\s@ReadOnlyFieldInfo' {} a -> s {id = a} :: ReadOnlyFieldInfo)
 
-instance Core.FromJSON ReadOnlyFieldInfo where
+instance Data.FromJSON ReadOnlyFieldInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReadOnlyFieldInfo"
       ( \x ->
-          ReadOnlyFieldInfo' Prelude.<$> (x Core..:? "Id")
+          ReadOnlyFieldInfo' Prelude.<$> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable ReadOnlyFieldInfo where
@@ -66,7 +67,7 @@ instance Prelude.Hashable ReadOnlyFieldInfo where
 instance Prelude.NFData ReadOnlyFieldInfo where
   rnf ReadOnlyFieldInfo' {..} = Prelude.rnf id
 
-instance Core.ToJSON ReadOnlyFieldInfo where
+instance Data.ToJSON ReadOnlyFieldInfo where
   toJSON ReadOnlyFieldInfo' {..} =
-    Core.object
-      (Prelude.catMaybes [("Id" Core..=) Prelude.<$> id])
+    Data.object
+      (Prelude.catMaybes [("Id" Data..=) Prelude.<$> id])

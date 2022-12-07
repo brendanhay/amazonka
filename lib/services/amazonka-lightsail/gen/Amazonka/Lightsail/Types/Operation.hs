@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.Operation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.OperationStatus
 import Amazonka.Lightsail.Types.OperationType
 import Amazonka.Lightsail.Types.ResourceLocation
@@ -34,7 +35,7 @@ data Operation = Operation'
   { -- | The resource type.
     resourceType :: Prelude.Maybe ResourceType,
     -- | The timestamp when the status was changed (e.g., @1479816991.349@).
-    statusChangedAt :: Prelude.Maybe Core.POSIX,
+    statusChangedAt :: Prelude.Maybe Data.POSIX,
     -- | A Boolean value indicating whether the operation is terminal.
     isTerminal :: Prelude.Maybe Prelude.Bool,
     -- | The resource name.
@@ -55,7 +56,7 @@ data Operation = Operation'
     operationDetails :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the operation was initialized (e.g.,
     -- @1479816991.349@).
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -115,7 +116,7 @@ operation_resourceType = Lens.lens (\Operation' {resourceType} -> resourceType) 
 
 -- | The timestamp when the status was changed (e.g., @1479816991.349@).
 operation_statusChangedAt :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
-operation_statusChangedAt = Lens.lens (\Operation' {statusChangedAt} -> statusChangedAt) (\s@Operation' {} a -> s {statusChangedAt = a} :: Operation) Prelude.. Lens.mapping Core._Time
+operation_statusChangedAt = Lens.lens (\Operation' {statusChangedAt} -> statusChangedAt) (\s@Operation' {} a -> s {statusChangedAt = a} :: Operation) Prelude.. Lens.mapping Data._Time
 
 -- | A Boolean value indicating whether the operation is terminal.
 operation_isTerminal :: Lens.Lens' Operation (Prelude.Maybe Prelude.Bool)
@@ -156,26 +157,26 @@ operation_operationDetails = Lens.lens (\Operation' {operationDetails} -> operat
 -- | The timestamp when the operation was initialized (e.g.,
 -- @1479816991.349@).
 operation_createdAt :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
-operation_createdAt = Lens.lens (\Operation' {createdAt} -> createdAt) (\s@Operation' {} a -> s {createdAt = a} :: Operation) Prelude.. Lens.mapping Core._Time
+operation_createdAt = Lens.lens (\Operation' {createdAt} -> createdAt) (\s@Operation' {} a -> s {createdAt = a} :: Operation) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Operation where
+instance Data.FromJSON Operation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Operation"
       ( \x ->
           Operation'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "statusChangedAt")
-            Prelude.<*> (x Core..:? "isTerminal")
-            Prelude.<*> (x Core..:? "resourceName")
-            Prelude.<*> (x Core..:? "operationType")
-            Prelude.<*> (x Core..:? "errorDetails")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "errorCode")
-            Prelude.<*> (x Core..:? "operationDetails")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "statusChangedAt")
+            Prelude.<*> (x Data..:? "isTerminal")
+            Prelude.<*> (x Data..:? "resourceName")
+            Prelude.<*> (x Data..:? "operationType")
+            Prelude.<*> (x Data..:? "errorDetails")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "operationDetails")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable Operation where

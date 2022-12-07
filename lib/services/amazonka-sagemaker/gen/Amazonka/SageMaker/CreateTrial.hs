@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,7 +148,7 @@ instance Core.AWSRequest CreateTrial where
     Response.receiveJSON
       ( \s h x ->
           CreateTrialResponse'
-            Prelude.<$> (x Core..?> "TrialArn")
+            Prelude.<$> (x Data..?> "TrialArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,37 +168,37 @@ instance Prelude.NFData CreateTrial where
       `Prelude.seq` Prelude.rnf trialName
       `Prelude.seq` Prelude.rnf experimentName
 
-instance Core.ToHeaders CreateTrial where
+instance Data.ToHeaders CreateTrial where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateTrial" :: Prelude.ByteString),
+              Data.=# ("SageMaker.CreateTrial" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTrial where
+instance Data.ToJSON CreateTrial where
   toJSON CreateTrial' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("MetadataProperties" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("MetadataProperties" Data..=)
               Prelude.<$> metadataProperties,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            Prelude.Just ("TrialName" Core..= trialName),
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            Prelude.Just ("TrialName" Data..= trialName),
             Prelude.Just
-              ("ExperimentName" Core..= experimentName)
+              ("ExperimentName" Data..= experimentName)
           ]
       )
 
-instance Core.ToPath CreateTrial where
+instance Data.ToPath CreateTrial where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTrial where
+instance Data.ToQuery CreateTrial where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTrialResponse' smart constructor.

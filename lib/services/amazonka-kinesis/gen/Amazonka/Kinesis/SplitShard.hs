@@ -89,6 +89,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -189,36 +190,36 @@ instance Prelude.NFData SplitShard where
       `Prelude.seq` Prelude.rnf shardToSplit
       `Prelude.seq` Prelude.rnf newStartingHashKey'
 
-instance Core.ToHeaders SplitShard where
+instance Data.ToHeaders SplitShard where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.SplitShard" ::
+              Data.=# ( "Kinesis_20131202.SplitShard" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SplitShard where
+instance Data.ToJSON SplitShard where
   toJSON SplitShard' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Core..= streamName),
-            Prelude.Just ("ShardToSplit" Core..= shardToSplit),
+          [ Prelude.Just ("StreamName" Data..= streamName),
+            Prelude.Just ("ShardToSplit" Data..= shardToSplit),
             Prelude.Just
-              ("NewStartingHashKey" Core..= newStartingHashKey')
+              ("NewStartingHashKey" Data..= newStartingHashKey')
           ]
       )
 
-instance Core.ToPath SplitShard where
+instance Data.ToPath SplitShard where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SplitShard where
+instance Data.ToQuery SplitShard where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSplitShardResponse' smart constructor.

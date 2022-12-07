@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,8 +100,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListOrganizationServiceAccessStatusResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "OrganizationStatus")
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "OrganizationStatus")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,34 +124,34 @@ instance
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListOrganizationServiceAccessStatus
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListOrganizationServiceAccessStatus
   where
   toPath =
     Prelude.const "/organizations/service-access"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListOrganizationServiceAccessStatus
   where
   toQuery ListOrganizationServiceAccessStatus' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListOrganizationServiceAccessStatusResponse' smart constructor.

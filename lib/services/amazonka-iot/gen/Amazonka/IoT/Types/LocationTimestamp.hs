@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.LocationTimestamp where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes how to interpret an application-defined timestamp value from
@@ -76,13 +77,13 @@ locationTimestamp_unit = Lens.lens (\LocationTimestamp' {unit} -> unit) (\s@Loca
 locationTimestamp_value :: Lens.Lens' LocationTimestamp Prelude.Text
 locationTimestamp_value = Lens.lens (\LocationTimestamp' {value} -> value) (\s@LocationTimestamp' {} a -> s {value = a} :: LocationTimestamp)
 
-instance Core.FromJSON LocationTimestamp where
+instance Data.FromJSON LocationTimestamp where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LocationTimestamp"
       ( \x ->
           LocationTimestamp'
-            Prelude.<$> (x Core..:? "unit") Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..:? "unit") Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable LocationTimestamp where
@@ -94,11 +95,11 @@ instance Prelude.NFData LocationTimestamp where
   rnf LocationTimestamp' {..} =
     Prelude.rnf unit `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON LocationTimestamp where
+instance Data.ToJSON LocationTimestamp where
   toJSON LocationTimestamp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("unit" Core..=) Prelude.<$> unit,
-            Prelude.Just ("value" Core..= value)
+          [ ("unit" Data..=) Prelude.<$> unit,
+            Prelude.Just ("value" Data..= value)
           ]
       )

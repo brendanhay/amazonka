@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,7 +90,7 @@ instance Core.AWSRequest DeleteMLModel where
     Response.receiveJSON
       ( \s h x ->
           DeleteMLModelResponse'
-            Prelude.<$> (x Core..?> "MLModelId")
+            Prelude.<$> (x Data..?> "MLModelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,32 +101,32 @@ instance Prelude.Hashable DeleteMLModel where
 instance Prelude.NFData DeleteMLModel where
   rnf DeleteMLModel' {..} = Prelude.rnf mLModelId
 
-instance Core.ToHeaders DeleteMLModel where
+instance Data.ToHeaders DeleteMLModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.DeleteMLModel" ::
+              Data.=# ( "AmazonML_20141212.DeleteMLModel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteMLModel where
+instance Data.ToJSON DeleteMLModel where
   toJSON DeleteMLModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("MLModelId" Core..= mLModelId)]
+          [Prelude.Just ("MLModelId" Data..= mLModelId)]
       )
 
-instance Core.ToPath DeleteMLModel where
+instance Data.ToPath DeleteMLModel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteMLModel where
+instance Data.ToQuery DeleteMLModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @DeleteMLModel@ operation.

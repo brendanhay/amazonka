@@ -59,6 +59,7 @@ where
 import Amazonka.ChimeSDKMessaging.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,7 +73,7 @@ data CreateChannel = CreateChannel'
     -- moderators.
     elasticChannelConfiguration :: Prelude.Maybe ElasticChannelConfiguration,
     -- | The metadata of the creation request. Limited to 1KB and UTF-8.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARNs of the channel moderators in the request.
     moderatorArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The ARNs of the channel members in the request.
@@ -82,7 +83,7 @@ data CreateChannel = CreateChannel'
     -- discoverable by anyone in the @AppInstance@.
     privacy :: Prelude.Maybe ChannelPrivacy,
     -- | The ID of the channel in the request.
-    channelId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    channelId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The channel mode: @UNRESTRICTED@ or @RESTRICTED@. Administrators,
     -- moderators, and channel members can add themselves and other members to
     -- unrestricted channels. Only administrators and moderators can add
@@ -91,9 +92,9 @@ data CreateChannel = CreateChannel'
     -- | The ARN of the channel request.
     appInstanceArn :: Prelude.Text,
     -- | The name of the channel.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | The client token for the request. An @Idempotency@ token.
-    clientRequestToken :: Core.Sensitive Prelude.Text,
+    clientRequestToken :: Data.Sensitive Prelude.Text,
     -- | The @AppInstanceUserArn@ of the user that makes the API call.
     chimeBearer :: Prelude.Text
   }
@@ -162,9 +163,9 @@ newCreateChannel
         channelId = Prelude.Nothing,
         mode = Prelude.Nothing,
         appInstanceArn = pAppInstanceArn_,
-        name = Core._Sensitive Lens.# pName_,
+        name = Data._Sensitive Lens.# pName_,
         clientRequestToken =
-          Core._Sensitive Lens.# pClientRequestToken_,
+          Data._Sensitive Lens.# pClientRequestToken_,
         chimeBearer = pChimeBearer_
       }
 
@@ -180,7 +181,7 @@ createChannel_elasticChannelConfiguration = Lens.lens (\CreateChannel' {elasticC
 
 -- | The metadata of the creation request. Limited to 1KB and UTF-8.
 createChannel_metadata :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Text)
-createChannel_metadata = Lens.lens (\CreateChannel' {metadata} -> metadata) (\s@CreateChannel' {} a -> s {metadata = a} :: CreateChannel) Prelude.. Lens.mapping Core._Sensitive
+createChannel_metadata = Lens.lens (\CreateChannel' {metadata} -> metadata) (\s@CreateChannel' {} a -> s {metadata = a} :: CreateChannel) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARNs of the channel moderators in the request.
 createChannel_moderatorArns :: Lens.Lens' CreateChannel (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -198,7 +199,7 @@ createChannel_privacy = Lens.lens (\CreateChannel' {privacy} -> privacy) (\s@Cre
 
 -- | The ID of the channel in the request.
 createChannel_channelId :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Text)
-createChannel_channelId = Lens.lens (\CreateChannel' {channelId} -> channelId) (\s@CreateChannel' {} a -> s {channelId = a} :: CreateChannel) Prelude.. Lens.mapping Core._Sensitive
+createChannel_channelId = Lens.lens (\CreateChannel' {channelId} -> channelId) (\s@CreateChannel' {} a -> s {channelId = a} :: CreateChannel) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The channel mode: @UNRESTRICTED@ or @RESTRICTED@. Administrators,
 -- moderators, and channel members can add themselves and other members to
@@ -213,11 +214,11 @@ createChannel_appInstanceArn = Lens.lens (\CreateChannel' {appInstanceArn} -> ap
 
 -- | The name of the channel.
 createChannel_name :: Lens.Lens' CreateChannel Prelude.Text
-createChannel_name = Lens.lens (\CreateChannel' {name} -> name) (\s@CreateChannel' {} a -> s {name = a} :: CreateChannel) Prelude.. Core._Sensitive
+createChannel_name = Lens.lens (\CreateChannel' {name} -> name) (\s@CreateChannel' {} a -> s {name = a} :: CreateChannel) Prelude.. Data._Sensitive
 
 -- | The client token for the request. An @Idempotency@ token.
 createChannel_clientRequestToken :: Lens.Lens' CreateChannel Prelude.Text
-createChannel_clientRequestToken = Lens.lens (\CreateChannel' {clientRequestToken} -> clientRequestToken) (\s@CreateChannel' {} a -> s {clientRequestToken = a} :: CreateChannel) Prelude.. Core._Sensitive
+createChannel_clientRequestToken = Lens.lens (\CreateChannel' {clientRequestToken} -> clientRequestToken) (\s@CreateChannel' {} a -> s {clientRequestToken = a} :: CreateChannel) Prelude.. Data._Sensitive
 
 -- | The @AppInstanceUserArn@ of the user that makes the API call.
 createChannel_chimeBearer :: Lens.Lens' CreateChannel Prelude.Text
@@ -233,7 +234,7 @@ instance Core.AWSRequest CreateChannel where
     Response.receiveJSON
       ( \s h x ->
           CreateChannelResponse'
-            Prelude.<$> (x Core..?> "ChannelArn")
+            Prelude.<$> (x Data..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -267,36 +268,36 @@ instance Prelude.NFData CreateChannel where
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf chimeBearer
 
-instance Core.ToHeaders CreateChannel where
+instance Data.ToHeaders CreateChannel where
   toHeaders CreateChannel' {..} =
     Prelude.mconcat
-      ["x-amz-chime-bearer" Core.=# chimeBearer]
+      ["x-amz-chime-bearer" Data.=# chimeBearer]
 
-instance Core.ToJSON CreateChannel where
+instance Data.ToJSON CreateChannel where
   toJSON CreateChannel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ElasticChannelConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ElasticChannelConfiguration" Data..=)
               Prelude.<$> elasticChannelConfiguration,
-            ("Metadata" Core..=) Prelude.<$> metadata,
-            ("ModeratorArns" Core..=) Prelude.<$> moderatorArns,
-            ("MemberArns" Core..=) Prelude.<$> memberArns,
-            ("Privacy" Core..=) Prelude.<$> privacy,
-            ("ChannelId" Core..=) Prelude.<$> channelId,
-            ("Mode" Core..=) Prelude.<$> mode,
+            ("Metadata" Data..=) Prelude.<$> metadata,
+            ("ModeratorArns" Data..=) Prelude.<$> moderatorArns,
+            ("MemberArns" Data..=) Prelude.<$> memberArns,
+            ("Privacy" Data..=) Prelude.<$> privacy,
+            ("ChannelId" Data..=) Prelude.<$> channelId,
+            ("Mode" Data..=) Prelude.<$> mode,
             Prelude.Just
-              ("AppInstanceArn" Core..= appInstanceArn),
-            Prelude.Just ("Name" Core..= name),
+              ("AppInstanceArn" Data..= appInstanceArn),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken)
+              ("ClientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath CreateChannel where
+instance Data.ToPath CreateChannel where
   toPath = Prelude.const "/channels"
 
-instance Core.ToQuery CreateChannel where
+instance Data.ToQuery CreateChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateChannelResponse' smart constructor.

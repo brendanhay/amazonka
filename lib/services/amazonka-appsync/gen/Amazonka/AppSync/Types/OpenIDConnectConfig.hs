@@ -21,6 +21,7 @@ module Amazonka.AppSync.Types.OpenIDConnectConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an OpenID Connect (OIDC) configuration.
@@ -102,16 +103,16 @@ openIDConnectConfig_authTTL = Lens.lens (\OpenIDConnectConfig' {authTTL} -> auth
 openIDConnectConfig_issuer :: Lens.Lens' OpenIDConnectConfig Prelude.Text
 openIDConnectConfig_issuer = Lens.lens (\OpenIDConnectConfig' {issuer} -> issuer) (\s@OpenIDConnectConfig' {} a -> s {issuer = a} :: OpenIDConnectConfig)
 
-instance Core.FromJSON OpenIDConnectConfig where
+instance Data.FromJSON OpenIDConnectConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpenIDConnectConfig"
       ( \x ->
           OpenIDConnectConfig'
-            Prelude.<$> (x Core..:? "iatTTL")
-            Prelude.<*> (x Core..:? "clientId")
-            Prelude.<*> (x Core..:? "authTTL")
-            Prelude.<*> (x Core..: "issuer")
+            Prelude.<$> (x Data..:? "iatTTL")
+            Prelude.<*> (x Data..:? "clientId")
+            Prelude.<*> (x Data..:? "authTTL")
+            Prelude.<*> (x Data..: "issuer")
       )
 
 instance Prelude.Hashable OpenIDConnectConfig where
@@ -128,13 +129,13 @@ instance Prelude.NFData OpenIDConnectConfig where
       `Prelude.seq` Prelude.rnf authTTL
       `Prelude.seq` Prelude.rnf issuer
 
-instance Core.ToJSON OpenIDConnectConfig where
+instance Data.ToJSON OpenIDConnectConfig where
   toJSON OpenIDConnectConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("iatTTL" Core..=) Prelude.<$> iatTTL,
-            ("clientId" Core..=) Prelude.<$> clientId,
-            ("authTTL" Core..=) Prelude.<$> authTTL,
-            Prelude.Just ("issuer" Core..= issuer)
+          [ ("iatTTL" Data..=) Prelude.<$> iatTTL,
+            ("clientId" Data..=) Prelude.<$> clientId,
+            ("authTTL" Data..=) Prelude.<$> authTTL,
+            Prelude.Just ("issuer" Data..= issuer)
           ]
       )

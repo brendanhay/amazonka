@@ -21,6 +21,7 @@ module Amazonka.Snowball.Types.ClusterListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.ClusterState
 
@@ -30,7 +31,7 @@ import Amazonka.Snowball.Types.ClusterState
 -- /See:/ 'newClusterListEntry' smart constructor.
 data ClusterListEntry = ClusterListEntry'
   { -- | The creation date for this cluster.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | Defines an optional description of the cluster, for example
     -- @Environmental Data Cluster-01@.
     description :: Prelude.Maybe Prelude.Text,
@@ -73,7 +74,7 @@ newClusterListEntry =
 
 -- | The creation date for this cluster.
 clusterListEntry_creationDate :: Lens.Lens' ClusterListEntry (Prelude.Maybe Prelude.UTCTime)
-clusterListEntry_creationDate = Lens.lens (\ClusterListEntry' {creationDate} -> creationDate) (\s@ClusterListEntry' {} a -> s {creationDate = a} :: ClusterListEntry) Prelude.. Lens.mapping Core._Time
+clusterListEntry_creationDate = Lens.lens (\ClusterListEntry' {creationDate} -> creationDate) (\s@ClusterListEntry' {} a -> s {creationDate = a} :: ClusterListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | Defines an optional description of the cluster, for example
 -- @Environmental Data Cluster-01@.
@@ -90,16 +91,16 @@ clusterListEntry_clusterState = Lens.lens (\ClusterListEntry' {clusterState} -> 
 clusterListEntry_clusterId :: Lens.Lens' ClusterListEntry (Prelude.Maybe Prelude.Text)
 clusterListEntry_clusterId = Lens.lens (\ClusterListEntry' {clusterId} -> clusterId) (\s@ClusterListEntry' {} a -> s {clusterId = a} :: ClusterListEntry)
 
-instance Core.FromJSON ClusterListEntry where
+instance Data.FromJSON ClusterListEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusterListEntry"
       ( \x ->
           ClusterListEntry'
-            Prelude.<$> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ClusterState")
-            Prelude.<*> (x Core..:? "ClusterId")
+            Prelude.<$> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ClusterState")
+            Prelude.<*> (x Data..:? "ClusterId")
       )
 
 instance Prelude.Hashable ClusterListEntry where

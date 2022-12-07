@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.GameSession where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.GameProperty
 import Amazonka.GameLift.Types.GameSessionStatus
 import Amazonka.GameLift.Types.GameSessionStatusReason
@@ -99,7 +100,7 @@ data GameSession = GameSession'
     -- | A time stamp indicating when this data object was terminated. Format is
     -- a number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    terminationTime :: Prelude.Maybe Core.POSIX,
+    terminationTime :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of players that can be connected simultaneously to
     -- the game session.
     maximumPlayerSessionCount :: Prelude.Maybe Prelude.Natural,
@@ -113,7 +114,7 @@ data GameSession = GameSession'
     -- | A time stamp indicating when this data object was created. Format is a
     -- number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The DNS identifier assigned to the instance that is running the game
     -- session. Values have the following format:
     --
@@ -329,7 +330,7 @@ gameSession_fleetArn = Lens.lens (\GameSession' {fleetArn} -> fleetArn) (\s@Game
 -- a number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 gameSession_terminationTime :: Lens.Lens' GameSession (Prelude.Maybe Prelude.UTCTime)
-gameSession_terminationTime = Lens.lens (\GameSession' {terminationTime} -> terminationTime) (\s@GameSession' {} a -> s {terminationTime = a} :: GameSession) Prelude.. Lens.mapping Core._Time
+gameSession_terminationTime = Lens.lens (\GameSession' {terminationTime} -> terminationTime) (\s@GameSession' {} a -> s {terminationTime = a} :: GameSession) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of players that can be connected simultaneously to
 -- the game session.
@@ -349,7 +350,7 @@ gameSession_gameProperties = Lens.lens (\GameSession' {gameProperties} -> gamePr
 -- number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 gameSession_creationTime :: Lens.Lens' GameSession (Prelude.Maybe Prelude.UTCTime)
-gameSession_creationTime = Lens.lens (\GameSession' {creationTime} -> creationTime) (\s@GameSession' {} a -> s {creationTime = a} :: GameSession) Prelude.. Lens.mapping Core._Time
+gameSession_creationTime = Lens.lens (\GameSession' {creationTime} -> creationTime) (\s@GameSession' {} a -> s {creationTime = a} :: GameSession) Prelude.. Lens.mapping Data._Time
 
 -- | The DNS identifier assigned to the instance that is running the game
 -- session. Values have the following format:
@@ -371,31 +372,31 @@ gameSession_dnsName = Lens.lens (\GameSession' {dnsName} -> dnsName) (\s@GameSes
 gameSession_ipAddress :: Lens.Lens' GameSession (Prelude.Maybe Prelude.Text)
 gameSession_ipAddress = Lens.lens (\GameSession' {ipAddress} -> ipAddress) (\s@GameSession' {} a -> s {ipAddress = a} :: GameSession)
 
-instance Core.FromJSON GameSession where
+instance Data.FromJSON GameSession where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GameSession"
       ( \x ->
           GameSession'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "MatchmakerData")
-            Prelude.<*> (x Core..:? "GameSessionId")
-            Prelude.<*> (x Core..:? "FleetId")
-            Prelude.<*> (x Core..:? "CreatorId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CurrentPlayerSessionCount")
-            Prelude.<*> (x Core..:? "GameSessionData")
-            Prelude.<*> (x Core..:? "PlayerSessionCreationPolicy")
-            Prelude.<*> (x Core..:? "StatusReason")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "FleetArn")
-            Prelude.<*> (x Core..:? "TerminationTime")
-            Prelude.<*> (x Core..:? "MaximumPlayerSessionCount")
-            Prelude.<*> (x Core..:? "GameProperties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "DnsName")
-            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "MatchmakerData")
+            Prelude.<*> (x Data..:? "GameSessionId")
+            Prelude.<*> (x Data..:? "FleetId")
+            Prelude.<*> (x Data..:? "CreatorId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CurrentPlayerSessionCount")
+            Prelude.<*> (x Data..:? "GameSessionData")
+            Prelude.<*> (x Data..:? "PlayerSessionCreationPolicy")
+            Prelude.<*> (x Data..:? "StatusReason")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "FleetArn")
+            Prelude.<*> (x Data..:? "TerminationTime")
+            Prelude.<*> (x Data..:? "MaximumPlayerSessionCount")
+            Prelude.<*> (x Data..:? "GameProperties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DnsName")
+            Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance Prelude.Hashable GameSession where

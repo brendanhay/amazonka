@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Greengrass.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,11 +121,11 @@ instance Core.AWSRequest GetResourceDefinitionVersion where
     Response.receiveJSON
       ( \s h x ->
           GetResourceDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Version")
-            Prelude.<*> (x Core..?> "Definition")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Version")
+            Prelude.<*> (x Data..?> "Definition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,27 +143,27 @@ instance Prelude.NFData GetResourceDefinitionVersion where
     Prelude.rnf resourceDefinitionVersionId
       `Prelude.seq` Prelude.rnf resourceDefinitionId
 
-instance Core.ToHeaders GetResourceDefinitionVersion where
+instance Data.ToHeaders GetResourceDefinitionVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetResourceDefinitionVersion where
+instance Data.ToPath GetResourceDefinitionVersion where
   toPath GetResourceDefinitionVersion' {..} =
     Prelude.mconcat
       [ "/greengrass/definition/resources/",
-        Core.toBS resourceDefinitionId,
+        Data.toBS resourceDefinitionId,
         "/versions/",
-        Core.toBS resourceDefinitionVersionId
+        Data.toBS resourceDefinitionVersionId
       ]
 
-instance Core.ToQuery GetResourceDefinitionVersion where
+instance Data.ToQuery GetResourceDefinitionVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourceDefinitionVersionResponse' smart constructor.

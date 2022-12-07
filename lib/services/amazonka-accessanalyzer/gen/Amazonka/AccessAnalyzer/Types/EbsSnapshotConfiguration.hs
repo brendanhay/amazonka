@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.EbsSnapshotConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The proposed access control configuration for an Amazon EBS volume
@@ -181,15 +182,15 @@ ebsSnapshotConfiguration_groups = Lens.lens (\EbsSnapshotConfiguration' {groups}
 ebsSnapshotConfiguration_userIds :: Lens.Lens' EbsSnapshotConfiguration (Prelude.Maybe [Prelude.Text])
 ebsSnapshotConfiguration_userIds = Lens.lens (\EbsSnapshotConfiguration' {userIds} -> userIds) (\s@EbsSnapshotConfiguration' {} a -> s {userIds = a} :: EbsSnapshotConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EbsSnapshotConfiguration where
+instance Data.FromJSON EbsSnapshotConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EbsSnapshotConfiguration"
       ( \x ->
           EbsSnapshotConfiguration'
-            Prelude.<$> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..:? "groups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "userIds" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..:? "groups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "userIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EbsSnapshotConfiguration where
@@ -204,12 +205,12 @@ instance Prelude.NFData EbsSnapshotConfiguration where
       `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf userIds
 
-instance Core.ToJSON EbsSnapshotConfiguration where
+instance Data.ToJSON EbsSnapshotConfiguration where
   toJSON EbsSnapshotConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("groups" Core..=) Prelude.<$> groups,
-            ("userIds" Core..=) Prelude.<$> userIds
+          [ ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("groups" Data..=) Prelude.<$> groups,
+            ("userIds" Data..=) Prelude.<$> userIds
           ]
       )

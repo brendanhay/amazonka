@@ -22,6 +22,7 @@ module Amazonka.CloudWatch.Types.ManagedRuleDescription where
 import Amazonka.CloudWatch.Types.ManagedRuleState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about managed Contributor Insights rules, as
@@ -85,12 +86,12 @@ managedRuleDescription_ruleState = Lens.lens (\ManagedRuleDescription' {ruleStat
 managedRuleDescription_resourceARN :: Lens.Lens' ManagedRuleDescription (Prelude.Maybe Prelude.Text)
 managedRuleDescription_resourceARN = Lens.lens (\ManagedRuleDescription' {resourceARN} -> resourceARN) (\s@ManagedRuleDescription' {} a -> s {resourceARN = a} :: ManagedRuleDescription)
 
-instance Core.FromXML ManagedRuleDescription where
+instance Data.FromXML ManagedRuleDescription where
   parseXML x =
     ManagedRuleDescription'
-      Prelude.<$> (x Core..@? "TemplateName")
-      Prelude.<*> (x Core..@? "RuleState")
-      Prelude.<*> (x Core..@? "ResourceARN")
+      Prelude.<$> (x Data..@? "TemplateName")
+      Prelude.<*> (x Data..@? "RuleState")
+      Prelude.<*> (x Data..@? "ResourceARN")
 
 instance Prelude.Hashable ManagedRuleDescription where
   hashWithSalt _salt ManagedRuleDescription' {..} =

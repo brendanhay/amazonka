@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.MembershipItem where
 import Amazonka.Chime.Types.RoomMembershipRole
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Membership details, such as member ID and member role.
@@ -72,11 +73,11 @@ instance Prelude.NFData MembershipItem where
     Prelude.rnf memberId
       `Prelude.seq` Prelude.rnf role'
 
-instance Core.ToJSON MembershipItem where
+instance Data.ToJSON MembershipItem where
   toJSON MembershipItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MemberId" Core..=) Prelude.<$> memberId,
-            ("Role" Core..=) Prelude.<$> role'
+          [ ("MemberId" Data..=) Prelude.<$> memberId,
+            ("Role" Data..=) Prelude.<$> role'
           ]
       )

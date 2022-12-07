@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,10 +87,10 @@ instance Core.AWSRequest DescribeRegistry where
     Response.receiveJSON
       ( \s h x ->
           DescribeRegistryResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "RegistryName")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "RegistryArn")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "RegistryName")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "RegistryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,23 +101,23 @@ instance Prelude.Hashable DescribeRegistry where
 instance Prelude.NFData DescribeRegistry where
   rnf DescribeRegistry' {..} = Prelude.rnf registryName
 
-instance Core.ToHeaders DescribeRegistry where
+instance Data.ToHeaders DescribeRegistry where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeRegistry where
+instance Data.ToPath DescribeRegistry where
   toPath DescribeRegistry' {..} =
     Prelude.mconcat
-      ["/v1/registries/name/", Core.toBS registryName]
+      ["/v1/registries/name/", Data.toBS registryName]
 
-instance Core.ToQuery DescribeRegistry where
+instance Data.ToQuery DescribeRegistry where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRegistryResponse' smart constructor.

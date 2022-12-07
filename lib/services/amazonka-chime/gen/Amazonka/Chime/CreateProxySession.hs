@@ -50,6 +50,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -57,7 +58,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateProxySession' smart constructor.
 data CreateProxySession = CreateProxySession'
   { -- | The name of the proxy session.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The country and area code for the proxy phone number.
     geoMatchParams :: Prelude.Maybe GeoMatchParams,
     -- | The number of minutes allowed for the proxy session.
@@ -69,7 +70,7 @@ data CreateProxySession = CreateProxySession'
     -- same participants across sessions.
     numberSelectionBehavior :: Prelude.Maybe NumberSelectionBehavior,
     -- | The participant phone numbers.
-    participantPhoneNumbers :: Prelude.NonEmpty (Core.Sensitive Prelude.Text),
+    participantPhoneNumbers :: Prelude.NonEmpty (Data.Sensitive Prelude.Text),
     -- | The proxy session capabilities.
     capabilities :: [Capability],
     -- | The Amazon Chime voice connector ID.
@@ -125,7 +126,7 @@ newCreateProxySession
 
 -- | The name of the proxy session.
 createProxySession_name :: Lens.Lens' CreateProxySession (Prelude.Maybe Prelude.Text)
-createProxySession_name = Lens.lens (\CreateProxySession' {name} -> name) (\s@CreateProxySession' {} a -> s {name = a} :: CreateProxySession) Prelude.. Lens.mapping Core._Sensitive
+createProxySession_name = Lens.lens (\CreateProxySession' {name} -> name) (\s@CreateProxySession' {} a -> s {name = a} :: CreateProxySession) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The country and area code for the proxy phone number.
 createProxySession_geoMatchParams :: Lens.Lens' CreateProxySession (Prelude.Maybe GeoMatchParams)
@@ -167,7 +168,7 @@ instance Core.AWSRequest CreateProxySession where
     Response.receiveJSON
       ( \s h x ->
           CreateProxySessionResponse'
-            Prelude.<$> (x Core..?> "ProxySession")
+            Prelude.<$> (x Data..?> "ProxySession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,37 +194,37 @@ instance Prelude.NFData CreateProxySession where
       `Prelude.seq` Prelude.rnf capabilities
       `Prelude.seq` Prelude.rnf voiceConnectorId
 
-instance Core.ToHeaders CreateProxySession where
+instance Data.ToHeaders CreateProxySession where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateProxySession where
+instance Data.ToJSON CreateProxySession where
   toJSON CreateProxySession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("GeoMatchParams" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("GeoMatchParams" Data..=)
               Prelude.<$> geoMatchParams,
-            ("ExpiryMinutes" Core..=) Prelude.<$> expiryMinutes,
-            ("GeoMatchLevel" Core..=) Prelude.<$> geoMatchLevel,
-            ("NumberSelectionBehavior" Core..=)
+            ("ExpiryMinutes" Data..=) Prelude.<$> expiryMinutes,
+            ("GeoMatchLevel" Data..=) Prelude.<$> geoMatchLevel,
+            ("NumberSelectionBehavior" Data..=)
               Prelude.<$> numberSelectionBehavior,
             Prelude.Just
               ( "ParticipantPhoneNumbers"
-                  Core..= participantPhoneNumbers
+                  Data..= participantPhoneNumbers
               ),
-            Prelude.Just ("Capabilities" Core..= capabilities)
+            Prelude.Just ("Capabilities" Data..= capabilities)
           ]
       )
 
-instance Core.ToPath CreateProxySession where
+instance Data.ToPath CreateProxySession where
   toPath CreateProxySession' {..} =
     Prelude.mconcat
       [ "/voice-connectors/",
-        Core.toBS voiceConnectorId,
+        Data.toBS voiceConnectorId,
         "/proxy-sessions"
       ]
 
-instance Core.ToQuery CreateProxySession where
+instance Data.ToQuery CreateProxySession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProxySessionResponse' smart constructor.

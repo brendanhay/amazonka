@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.LabelingJobDataAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ContentClassifier
 
@@ -64,14 +65,14 @@ newLabelingJobDataAttributes =
 labelingJobDataAttributes_contentClassifiers :: Lens.Lens' LabelingJobDataAttributes (Prelude.Maybe [ContentClassifier])
 labelingJobDataAttributes_contentClassifiers = Lens.lens (\LabelingJobDataAttributes' {contentClassifiers} -> contentClassifiers) (\s@LabelingJobDataAttributes' {} a -> s {contentClassifiers = a} :: LabelingJobDataAttributes) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON LabelingJobDataAttributes where
+instance Data.FromJSON LabelingJobDataAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelingJobDataAttributes"
       ( \x ->
           LabelingJobDataAttributes'
-            Prelude.<$> ( x Core..:? "ContentClassifiers"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ContentClassifiers"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -83,11 +84,11 @@ instance Prelude.NFData LabelingJobDataAttributes where
   rnf LabelingJobDataAttributes' {..} =
     Prelude.rnf contentClassifiers
 
-instance Core.ToJSON LabelingJobDataAttributes where
+instance Data.ToJSON LabelingJobDataAttributes where
   toJSON LabelingJobDataAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContentClassifiers" Core..=)
+          [ ("ContentClassifiers" Data..=)
               Prelude.<$> contentClassifiers
           ]
       )

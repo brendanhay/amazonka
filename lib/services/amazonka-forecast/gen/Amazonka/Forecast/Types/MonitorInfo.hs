@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.MonitorInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the monitor resource.
@@ -91,14 +92,14 @@ monitorInfo_monitorArn = Lens.lens (\MonitorInfo' {monitorArn} -> monitorArn) (\
 monitorInfo_status :: Lens.Lens' MonitorInfo (Prelude.Maybe Prelude.Text)
 monitorInfo_status = Lens.lens (\MonitorInfo' {status} -> status) (\s@MonitorInfo' {} a -> s {status = a} :: MonitorInfo)
 
-instance Core.FromJSON MonitorInfo where
+instance Data.FromJSON MonitorInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitorInfo"
       ( \x ->
           MonitorInfo'
-            Prelude.<$> (x Core..:? "MonitorArn")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "MonitorArn")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable MonitorInfo where

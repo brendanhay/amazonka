@@ -43,6 +43,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,7 +104,7 @@ instance Core.AWSRequest RetryBuild where
     Response.receiveJSON
       ( \s h x ->
           RetryBuildResponse'
-            Prelude.<$> (x Core..?> "build")
+            Prelude.<$> (x Data..?> "build")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,35 +118,35 @@ instance Prelude.NFData RetryBuild where
     Prelude.rnf idempotencyToken
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders RetryBuild where
+instance Data.ToHeaders RetryBuild where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.RetryBuild" ::
+              Data.=# ( "CodeBuild_20161006.RetryBuild" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RetryBuild where
+instance Data.ToJSON RetryBuild where
   toJSON RetryBuild' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("idempotencyToken" Core..=)
+          [ ("idempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("id" Core..=) Prelude.<$> id
+            ("id" Data..=) Prelude.<$> id
           ]
       )
 
-instance Core.ToPath RetryBuild where
+instance Data.ToPath RetryBuild where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RetryBuild where
+instance Data.ToQuery RetryBuild where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRetryBuildResponse' smart constructor.

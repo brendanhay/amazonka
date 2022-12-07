@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.DeleteReplicaAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -61,9 +62,9 @@ instance Prelude.Hashable DeleteReplicaAction where
 instance Prelude.NFData DeleteReplicaAction where
   rnf DeleteReplicaAction' {..} = Prelude.rnf regionName
 
-instance Core.ToJSON DeleteReplicaAction where
+instance Data.ToJSON DeleteReplicaAction where
   toJSON DeleteReplicaAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("RegionName" Core..= regionName)]
+          [Prelude.Just ("RegionName" Data..= regionName)]
       )

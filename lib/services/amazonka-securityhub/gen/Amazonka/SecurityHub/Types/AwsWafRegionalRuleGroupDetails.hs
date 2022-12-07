@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsWafRegionalRuleGroupDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsWafRegionalRuleGroupRulesDetails
 
@@ -85,16 +86,16 @@ awsWafRegionalRuleGroupDetails_ruleGroupId = Lens.lens (\AwsWafRegionalRuleGroup
 awsWafRegionalRuleGroupDetails_metricName :: Lens.Lens' AwsWafRegionalRuleGroupDetails (Prelude.Maybe Prelude.Text)
 awsWafRegionalRuleGroupDetails_metricName = Lens.lens (\AwsWafRegionalRuleGroupDetails' {metricName} -> metricName) (\s@AwsWafRegionalRuleGroupDetails' {} a -> s {metricName = a} :: AwsWafRegionalRuleGroupDetails)
 
-instance Core.FromJSON AwsWafRegionalRuleGroupDetails where
+instance Data.FromJSON AwsWafRegionalRuleGroupDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsWafRegionalRuleGroupDetails"
       ( \x ->
           AwsWafRegionalRuleGroupDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Rules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RuleGroupId")
-            Prelude.<*> (x Core..:? "MetricName")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RuleGroupId")
+            Prelude.<*> (x Data..:? "MetricName")
       )
 
 instance
@@ -119,13 +120,13 @@ instance
       `Prelude.seq` Prelude.rnf ruleGroupId
       `Prelude.seq` Prelude.rnf metricName
 
-instance Core.ToJSON AwsWafRegionalRuleGroupDetails where
+instance Data.ToJSON AwsWafRegionalRuleGroupDetails where
   toJSON AwsWafRegionalRuleGroupDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Rules" Core..=) Prelude.<$> rules,
-            ("RuleGroupId" Core..=) Prelude.<$> ruleGroupId,
-            ("MetricName" Core..=) Prelude.<$> metricName
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Rules" Data..=) Prelude.<$> rules,
+            ("RuleGroupId" Data..=) Prelude.<$> ruleGroupId,
+            ("MetricName" Data..=) Prelude.<$> metricName
           ]
       )

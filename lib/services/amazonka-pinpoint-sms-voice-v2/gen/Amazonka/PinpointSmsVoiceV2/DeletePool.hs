@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,16 +102,16 @@ instance Core.AWSRequest DeletePool where
     Response.receiveJSON
       ( \s h x ->
           DeletePoolResponse'
-            Prelude.<$> (x Core..?> "PoolArn")
-            Prelude.<*> (x Core..?> "MessageType")
-            Prelude.<*> (x Core..?> "SelfManagedOptOutsEnabled")
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "TwoWayEnabled")
-            Prelude.<*> (x Core..?> "OptOutListName")
-            Prelude.<*> (x Core..?> "PoolId")
-            Prelude.<*> (x Core..?> "TwoWayChannelArn")
-            Prelude.<*> (x Core..?> "SharedRoutesEnabled")
+            Prelude.<$> (x Data..?> "PoolArn")
+            Prelude.<*> (x Data..?> "MessageType")
+            Prelude.<*> (x Data..?> "SelfManagedOptOutsEnabled")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "TwoWayEnabled")
+            Prelude.<*> (x Data..?> "OptOutListName")
+            Prelude.<*> (x Data..?> "PoolId")
+            Prelude.<*> (x Data..?> "TwoWayChannelArn")
+            Prelude.<*> (x Data..?> "SharedRoutesEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,32 +122,32 @@ instance Prelude.Hashable DeletePool where
 instance Prelude.NFData DeletePool where
   rnf DeletePool' {..} = Prelude.rnf poolId
 
-instance Core.ToHeaders DeletePool where
+instance Data.ToHeaders DeletePool where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.DeletePool" ::
+              Data.=# ( "PinpointSMSVoiceV2.DeletePool" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeletePool where
+instance Data.ToJSON DeletePool where
   toJSON DeletePool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("PoolId" Core..= poolId)]
+          [Prelude.Just ("PoolId" Data..= poolId)]
       )
 
-instance Core.ToPath DeletePool where
+instance Data.ToPath DeletePool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeletePool where
+instance Data.ToQuery DeletePool where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePoolResponse' smart constructor.
@@ -164,7 +165,7 @@ data DeletePoolResponse = DeletePoolResponse'
     selfManagedOptOutsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The time when the pool was created, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The current status of the pool.
     --
     -- -   CREATING: The pool is currently being created and isn\'t yet
@@ -272,7 +273,7 @@ deletePoolResponse_selfManagedOptOutsEnabled = Lens.lens (\DeletePoolResponse' {
 -- | The time when the pool was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 deletePoolResponse_createdTimestamp :: Lens.Lens' DeletePoolResponse (Prelude.Maybe Prelude.UTCTime)
-deletePoolResponse_createdTimestamp = Lens.lens (\DeletePoolResponse' {createdTimestamp} -> createdTimestamp) (\s@DeletePoolResponse' {} a -> s {createdTimestamp = a} :: DeletePoolResponse) Prelude.. Lens.mapping Core._Time
+deletePoolResponse_createdTimestamp = Lens.lens (\DeletePoolResponse' {createdTimestamp} -> createdTimestamp) (\s@DeletePoolResponse' {} a -> s {createdTimestamp = a} :: DeletePoolResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the pool.
 --

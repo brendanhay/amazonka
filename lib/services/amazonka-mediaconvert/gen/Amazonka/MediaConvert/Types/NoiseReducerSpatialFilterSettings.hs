@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.NoiseReducerSpatialFilterSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Noise reducer filter settings for spatial filter.
@@ -82,17 +83,17 @@ noiseReducerSpatialFilterSettings_speed :: Lens.Lens' NoiseReducerSpatialFilterS
 noiseReducerSpatialFilterSettings_speed = Lens.lens (\NoiseReducerSpatialFilterSettings' {speed} -> speed) (\s@NoiseReducerSpatialFilterSettings' {} a -> s {speed = a} :: NoiseReducerSpatialFilterSettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     NoiseReducerSpatialFilterSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NoiseReducerSpatialFilterSettings"
       ( \x ->
           NoiseReducerSpatialFilterSettings'
-            Prelude.<$> (x Core..:? "strength")
-            Prelude.<*> (x Core..:? "postFilterSharpenStrength")
-            Prelude.<*> (x Core..:? "speed")
+            Prelude.<$> (x Data..:? "strength")
+            Prelude.<*> (x Data..:? "postFilterSharpenStrength")
+            Prelude.<*> (x Data..:? "speed")
       )
 
 instance
@@ -116,15 +117,15 @@ instance
       `Prelude.seq` Prelude.rnf speed
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     NoiseReducerSpatialFilterSettings
   where
   toJSON NoiseReducerSpatialFilterSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("strength" Core..=) Prelude.<$> strength,
-            ("postFilterSharpenStrength" Core..=)
+          [ ("strength" Data..=) Prelude.<$> strength,
+            ("postFilterSharpenStrength" Data..=)
               Prelude.<$> postFilterSharpenStrength,
-            ("speed" Core..=) Prelude.<$> speed
+            ("speed" Data..=) Prelude.<$> speed
           ]
       )

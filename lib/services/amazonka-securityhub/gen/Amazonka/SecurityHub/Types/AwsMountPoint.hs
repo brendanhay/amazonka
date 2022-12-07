@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsMountPoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for a volume mount point that\'s used in a container definition.
@@ -64,14 +65,14 @@ awsMountPoint_containerPath = Lens.lens (\AwsMountPoint' {containerPath} -> cont
 awsMountPoint_sourceVolume :: Lens.Lens' AwsMountPoint (Prelude.Maybe Prelude.Text)
 awsMountPoint_sourceVolume = Lens.lens (\AwsMountPoint' {sourceVolume} -> sourceVolume) (\s@AwsMountPoint' {} a -> s {sourceVolume = a} :: AwsMountPoint)
 
-instance Core.FromJSON AwsMountPoint where
+instance Data.FromJSON AwsMountPoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsMountPoint"
       ( \x ->
           AwsMountPoint'
-            Prelude.<$> (x Core..:? "ContainerPath")
-            Prelude.<*> (x Core..:? "SourceVolume")
+            Prelude.<$> (x Data..:? "ContainerPath")
+            Prelude.<*> (x Data..:? "SourceVolume")
       )
 
 instance Prelude.Hashable AwsMountPoint where
@@ -84,11 +85,11 @@ instance Prelude.NFData AwsMountPoint where
     Prelude.rnf containerPath
       `Prelude.seq` Prelude.rnf sourceVolume
 
-instance Core.ToJSON AwsMountPoint where
+instance Data.ToJSON AwsMountPoint where
   toJSON AwsMountPoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContainerPath" Core..=) Prelude.<$> containerPath,
-            ("SourceVolume" Core..=) Prelude.<$> sourceVolume
+          [ ("ContainerPath" Data..=) Prelude.<$> containerPath,
+            ("SourceVolume" Data..=) Prelude.<$> sourceVolume
           ]
       )

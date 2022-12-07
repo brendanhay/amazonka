@@ -64,6 +64,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,39 +159,39 @@ instance Prelude.NFData PutMetricFilter where
       `Prelude.seq` Prelude.rnf filterPattern
       `Prelude.seq` Prelude.rnf metricTransformations
 
-instance Core.ToHeaders PutMetricFilter where
+instance Data.ToHeaders PutMetricFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.PutMetricFilter" ::
+              Data.=# ( "Logs_20140328.PutMetricFilter" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutMetricFilter where
+instance Data.ToJSON PutMetricFilter where
   toJSON PutMetricFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("logGroupName" Core..= logGroupName),
-            Prelude.Just ("filterName" Core..= filterName),
-            Prelude.Just ("filterPattern" Core..= filterPattern),
+          [ Prelude.Just ("logGroupName" Data..= logGroupName),
+            Prelude.Just ("filterName" Data..= filterName),
+            Prelude.Just ("filterPattern" Data..= filterPattern),
             Prelude.Just
               ( "metricTransformations"
-                  Core..= metricTransformations
+                  Data..= metricTransformations
               )
           ]
       )
 
-instance Core.ToPath PutMetricFilter where
+instance Data.ToPath PutMetricFilter where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutMetricFilter where
+instance Data.ToQuery PutMetricFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutMetricFilterResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.LifeCycleLastLaunch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.LifeCycleLastLaunchInitiated
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,13 +56,13 @@ newLifeCycleLastLaunch =
 lifeCycleLastLaunch_initiated :: Lens.Lens' LifeCycleLastLaunch (Prelude.Maybe LifeCycleLastLaunchInitiated)
 lifeCycleLastLaunch_initiated = Lens.lens (\LifeCycleLastLaunch' {initiated} -> initiated) (\s@LifeCycleLastLaunch' {} a -> s {initiated = a} :: LifeCycleLastLaunch)
 
-instance Core.FromJSON LifeCycleLastLaunch where
+instance Data.FromJSON LifeCycleLastLaunch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifeCycleLastLaunch"
       ( \x ->
           LifeCycleLastLaunch'
-            Prelude.<$> (x Core..:? "initiated")
+            Prelude.<$> (x Data..:? "initiated")
       )
 
 instance Prelude.Hashable LifeCycleLastLaunch where

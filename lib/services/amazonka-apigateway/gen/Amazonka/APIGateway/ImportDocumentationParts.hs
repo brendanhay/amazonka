@@ -46,6 +46,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,8 +138,8 @@ instance Core.AWSRequest ImportDocumentationParts where
     Response.receiveJSON
       ( \s h x ->
           ImportDocumentationPartsResponse'
-            Prelude.<$> (x Core..?> "ids" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "warnings" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "ids" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,32 +157,32 @@ instance Prelude.NFData ImportDocumentationParts where
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf body
 
-instance Core.ToBody ImportDocumentationParts where
+instance Data.ToBody ImportDocumentationParts where
   toBody ImportDocumentationParts' {..} =
-    Core.toBody body
+    Data.toBody body
 
-instance Core.ToHeaders ImportDocumentationParts where
+instance Data.ToHeaders ImportDocumentationParts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath ImportDocumentationParts where
+instance Data.ToPath ImportDocumentationParts where
   toPath ImportDocumentationParts' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/documentation/parts"
       ]
 
-instance Core.ToQuery ImportDocumentationParts where
+instance Data.ToQuery ImportDocumentationParts where
   toQuery ImportDocumentationParts' {..} =
     Prelude.mconcat
-      [ "failonwarnings" Core.=: failOnWarnings,
-        "mode" Core.=: mode
+      [ "failonwarnings" Data.=: failOnWarnings,
+        "mode" Data.=: mode
       ]
 
 -- | A collection of the imported DocumentationPart identifiers.

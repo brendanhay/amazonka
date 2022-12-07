@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ModelExplainabilityBaselineConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MonitoringConstraintsResource
 
@@ -63,16 +64,16 @@ modelExplainabilityBaselineConfig_constraintsResource :: Lens.Lens' ModelExplain
 modelExplainabilityBaselineConfig_constraintsResource = Lens.lens (\ModelExplainabilityBaselineConfig' {constraintsResource} -> constraintsResource) (\s@ModelExplainabilityBaselineConfig' {} a -> s {constraintsResource = a} :: ModelExplainabilityBaselineConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ModelExplainabilityBaselineConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelExplainabilityBaselineConfig"
       ( \x ->
           ModelExplainabilityBaselineConfig'
-            Prelude.<$> (x Core..:? "BaseliningJobName")
-            Prelude.<*> (x Core..:? "ConstraintsResource")
+            Prelude.<$> (x Data..:? "BaseliningJobName")
+            Prelude.<*> (x Data..:? "ConstraintsResource")
       )
 
 instance
@@ -94,15 +95,15 @@ instance
       `Prelude.seq` Prelude.rnf constraintsResource
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ModelExplainabilityBaselineConfig
   where
   toJSON ModelExplainabilityBaselineConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BaseliningJobName" Core..=)
+          [ ("BaseliningJobName" Data..=)
               Prelude.<$> baseliningJobName,
-            ("ConstraintsResource" Core..=)
+            ("ConstraintsResource" Data..=)
               Prelude.<$> constraintsResource
           ]
       )

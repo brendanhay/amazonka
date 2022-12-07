@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.ActivityTypeInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.ActivityType
 import Amazonka.SWF.Types.RegistrationStatus
@@ -30,7 +31,7 @@ import Amazonka.SWF.Types.RegistrationStatus
 -- /See:/ 'newActivityTypeInfo' smart constructor.
 data ActivityTypeInfo = ActivityTypeInfo'
   { -- | If DEPRECATED, the date and time DeprecateActivityType was called.
-    deprecationDate :: Prelude.Maybe Core.POSIX,
+    deprecationDate :: Prelude.Maybe Data.POSIX,
     -- | The description of the activity type provided in RegisterActivityType.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ActivityType type structure representing the activity type.
@@ -39,7 +40,7 @@ data ActivityTypeInfo = ActivityTypeInfo'
     status :: RegistrationStatus,
     -- | The date and time this activity type was created through
     -- RegisterActivityType.
-    creationDate :: Core.POSIX
+    creationDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,12 +80,12 @@ newActivityTypeInfo
         description = Prelude.Nothing,
         activityType = pActivityType_,
         status = pStatus_,
-        creationDate = Core._Time Lens.# pCreationDate_
+        creationDate = Data._Time Lens.# pCreationDate_
       }
 
 -- | If DEPRECATED, the date and time DeprecateActivityType was called.
 activityTypeInfo_deprecationDate :: Lens.Lens' ActivityTypeInfo (Prelude.Maybe Prelude.UTCTime)
-activityTypeInfo_deprecationDate = Lens.lens (\ActivityTypeInfo' {deprecationDate} -> deprecationDate) (\s@ActivityTypeInfo' {} a -> s {deprecationDate = a} :: ActivityTypeInfo) Prelude.. Lens.mapping Core._Time
+activityTypeInfo_deprecationDate = Lens.lens (\ActivityTypeInfo' {deprecationDate} -> deprecationDate) (\s@ActivityTypeInfo' {} a -> s {deprecationDate = a} :: ActivityTypeInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the activity type provided in RegisterActivityType.
 activityTypeInfo_description :: Lens.Lens' ActivityTypeInfo (Prelude.Maybe Prelude.Text)
@@ -101,19 +102,19 @@ activityTypeInfo_status = Lens.lens (\ActivityTypeInfo' {status} -> status) (\s@
 -- | The date and time this activity type was created through
 -- RegisterActivityType.
 activityTypeInfo_creationDate :: Lens.Lens' ActivityTypeInfo Prelude.UTCTime
-activityTypeInfo_creationDate = Lens.lens (\ActivityTypeInfo' {creationDate} -> creationDate) (\s@ActivityTypeInfo' {} a -> s {creationDate = a} :: ActivityTypeInfo) Prelude.. Core._Time
+activityTypeInfo_creationDate = Lens.lens (\ActivityTypeInfo' {creationDate} -> creationDate) (\s@ActivityTypeInfo' {} a -> s {creationDate = a} :: ActivityTypeInfo) Prelude.. Data._Time
 
-instance Core.FromJSON ActivityTypeInfo where
+instance Data.FromJSON ActivityTypeInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActivityTypeInfo"
       ( \x ->
           ActivityTypeInfo'
-            Prelude.<$> (x Core..:? "deprecationDate")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "activityType")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "creationDate")
+            Prelude.<$> (x Data..:? "deprecationDate")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "activityType")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "creationDate")
       )
 
 instance Prelude.Hashable ActivityTypeInfo where

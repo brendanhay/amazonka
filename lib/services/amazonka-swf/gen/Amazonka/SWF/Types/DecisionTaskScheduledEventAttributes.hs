@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.DecisionTaskScheduledEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.TaskList
 
@@ -108,17 +109,17 @@ decisionTaskScheduledEventAttributes_taskList :: Lens.Lens' DecisionTaskSchedule
 decisionTaskScheduledEventAttributes_taskList = Lens.lens (\DecisionTaskScheduledEventAttributes' {taskList} -> taskList) (\s@DecisionTaskScheduledEventAttributes' {} a -> s {taskList = a} :: DecisionTaskScheduledEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DecisionTaskScheduledEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DecisionTaskScheduledEventAttributes"
       ( \x ->
           DecisionTaskScheduledEventAttributes'
-            Prelude.<$> (x Core..:? "taskPriority")
-            Prelude.<*> (x Core..:? "startToCloseTimeout")
-            Prelude.<*> (x Core..: "taskList")
+            Prelude.<$> (x Data..:? "taskPriority")
+            Prelude.<*> (x Data..:? "startToCloseTimeout")
+            Prelude.<*> (x Data..: "taskList")
       )
 
 instance

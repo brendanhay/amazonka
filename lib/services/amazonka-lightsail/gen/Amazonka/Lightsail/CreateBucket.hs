@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -194,8 +195,8 @@ instance Core.AWSRequest CreateBucket where
     Response.receiveJSON
       ( \s h x ->
           CreateBucketResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "bucket")
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "bucket")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,37 +214,37 @@ instance Prelude.NFData CreateBucket where
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf bundleId
 
-instance Core.ToHeaders CreateBucket where
+instance Data.ToHeaders CreateBucket where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.CreateBucket" ::
+              Data.=# ( "Lightsail_20161128.CreateBucket" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBucket where
+instance Data.ToJSON CreateBucket where
   toJSON CreateBucket' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("enableObjectVersioning" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("enableObjectVersioning" Data..=)
               Prelude.<$> enableObjectVersioning,
-            Prelude.Just ("bucketName" Core..= bucketName),
-            Prelude.Just ("bundleId" Core..= bundleId)
+            Prelude.Just ("bucketName" Data..= bucketName),
+            Prelude.Just ("bundleId" Data..= bundleId)
           ]
       )
 
-instance Core.ToPath CreateBucket where
+instance Data.ToPath CreateBucket where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateBucket where
+instance Data.ToQuery CreateBucket where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBucketResponse' smart constructor.

@@ -50,6 +50,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -182,8 +183,8 @@ instance Core.AWSRequest ListObjectAttributes where
     Response.receiveJSON
       ( \s h x ->
           ListObjectAttributesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Attributes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -205,31 +206,31 @@ instance Prelude.NFData ListObjectAttributes where
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf objectReference
 
-instance Core.ToHeaders ListObjectAttributes where
+instance Data.ToHeaders ListObjectAttributes where
   toHeaders ListObjectAttributes' {..} =
     Prelude.mconcat
-      [ "x-amz-consistency-level" Core.=# consistencyLevel,
-        "x-amz-data-partition" Core.=# directoryArn
+      [ "x-amz-consistency-level" Data.=# consistencyLevel,
+        "x-amz-data-partition" Data.=# directoryArn
       ]
 
-instance Core.ToJSON ListObjectAttributes where
+instance Data.ToJSON ListObjectAttributes where
   toJSON ListObjectAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("FacetFilter" Core..=) Prelude.<$> facetFilter,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("FacetFilter" Data..=) Prelude.<$> facetFilter,
             Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )
 
-instance Core.ToPath ListObjectAttributes where
+instance Data.ToPath ListObjectAttributes where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/object/attributes"
 
-instance Core.ToQuery ListObjectAttributes where
+instance Data.ToQuery ListObjectAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListObjectAttributesResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance
       ( \s h x ->
           GetDomainDeliverabilityCampaignResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DomainDeliverabilityCampaign")
+            Prelude.<*> (x Data..:> "DomainDeliverabilityCampaign")
       )
 
 instance
@@ -120,27 +121,27 @@ instance
     Prelude.rnf campaignId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetDomainDeliverabilityCampaign
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDomainDeliverabilityCampaign where
+instance Data.ToPath GetDomainDeliverabilityCampaign where
   toPath GetDomainDeliverabilityCampaign' {..} =
     Prelude.mconcat
       [ "/v2/email/deliverability-dashboard/campaigns/",
-        Core.toBS campaignId
+        Data.toBS campaignId
       ]
 
-instance Core.ToQuery GetDomainDeliverabilityCampaign where
+instance Data.ToQuery GetDomainDeliverabilityCampaign where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An object that contains all the deliverability data for a specific

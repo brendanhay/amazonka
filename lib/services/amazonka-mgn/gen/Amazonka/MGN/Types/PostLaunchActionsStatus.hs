@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.PostLaunchActionsStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.JobPostLaunchActionsLaunchStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,15 +65,15 @@ postLaunchActionsStatus_ssmAgentDiscoveryDatetime = Lens.lens (\PostLaunchAction
 postLaunchActionsStatus_postLaunchActionsLaunchStatusList :: Lens.Lens' PostLaunchActionsStatus (Prelude.Maybe [JobPostLaunchActionsLaunchStatus])
 postLaunchActionsStatus_postLaunchActionsLaunchStatusList = Lens.lens (\PostLaunchActionsStatus' {postLaunchActionsLaunchStatusList} -> postLaunchActionsLaunchStatusList) (\s@PostLaunchActionsStatus' {} a -> s {postLaunchActionsLaunchStatusList = a} :: PostLaunchActionsStatus) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PostLaunchActionsStatus where
+instance Data.FromJSON PostLaunchActionsStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PostLaunchActionsStatus"
       ( \x ->
           PostLaunchActionsStatus'
-            Prelude.<$> (x Core..:? "ssmAgentDiscoveryDatetime")
-            Prelude.<*> ( x Core..:? "postLaunchActionsLaunchStatusList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ssmAgentDiscoveryDatetime")
+            Prelude.<*> ( x Data..:? "postLaunchActionsLaunchStatusList"
+                            Data..!= Prelude.mempty
                         )
       )
 

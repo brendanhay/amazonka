@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceNetworkInterfaceAttachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AttachmentStatus
 import qualified Amazonka.Prelude as Prelude
@@ -39,7 +40,7 @@ data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment'
     -- | The ID of the network interface attachment.
     attachmentId :: Prelude.Maybe Prelude.Text,
     -- | The time stamp when the attachment initiated.
-    attachTime :: Prelude.Maybe Core.ISO8601,
+    attachTime :: Prelude.Maybe Data.ISO8601,
     -- | The index of the device on the instance for the network interface
     -- attachment.
     deviceIndex :: Prelude.Maybe Prelude.Int
@@ -99,7 +100,7 @@ instanceNetworkInterfaceAttachment_attachmentId = Lens.lens (\InstanceNetworkInt
 
 -- | The time stamp when the attachment initiated.
 instanceNetworkInterfaceAttachment_attachTime :: Lens.Lens' InstanceNetworkInterfaceAttachment (Prelude.Maybe Prelude.UTCTime)
-instanceNetworkInterfaceAttachment_attachTime = Lens.lens (\InstanceNetworkInterfaceAttachment' {attachTime} -> attachTime) (\s@InstanceNetworkInterfaceAttachment' {} a -> s {attachTime = a} :: InstanceNetworkInterfaceAttachment) Prelude.. Lens.mapping Core._Time
+instanceNetworkInterfaceAttachment_attachTime = Lens.lens (\InstanceNetworkInterfaceAttachment' {attachTime} -> attachTime) (\s@InstanceNetworkInterfaceAttachment' {} a -> s {attachTime = a} :: InstanceNetworkInterfaceAttachment) Prelude.. Lens.mapping Data._Time
 
 -- | The index of the device on the instance for the network interface
 -- attachment.
@@ -107,17 +108,17 @@ instanceNetworkInterfaceAttachment_deviceIndex :: Lens.Lens' InstanceNetworkInte
 instanceNetworkInterfaceAttachment_deviceIndex = Lens.lens (\InstanceNetworkInterfaceAttachment' {deviceIndex} -> deviceIndex) (\s@InstanceNetworkInterfaceAttachment' {} a -> s {deviceIndex = a} :: InstanceNetworkInterfaceAttachment)
 
 instance
-  Core.FromXML
+  Data.FromXML
     InstanceNetworkInterfaceAttachment
   where
   parseXML x =
     InstanceNetworkInterfaceAttachment'
-      Prelude.<$> (x Core..@? "networkCardIndex")
-      Prelude.<*> (x Core..@? "deleteOnTermination")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "attachmentId")
-      Prelude.<*> (x Core..@? "attachTime")
-      Prelude.<*> (x Core..@? "deviceIndex")
+      Prelude.<$> (x Data..@? "networkCardIndex")
+      Prelude.<*> (x Data..@? "deleteOnTermination")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "attachmentId")
+      Prelude.<*> (x Data..@? "attachTime")
+      Prelude.<*> (x Data..@? "deviceIndex")
 
 instance
   Prelude.Hashable

@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.RemediationActionWithOrder where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.RemediationAction
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ remediationActionWithOrder_remediationAction = Lens.lens (\RemediationActionWith
 remediationActionWithOrder_order :: Lens.Lens' RemediationActionWithOrder (Prelude.Maybe Prelude.Int)
 remediationActionWithOrder_order = Lens.lens (\RemediationActionWithOrder' {order} -> order) (\s@RemediationActionWithOrder' {} a -> s {order = a} :: RemediationActionWithOrder)
 
-instance Core.FromJSON RemediationActionWithOrder where
+instance Data.FromJSON RemediationActionWithOrder where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RemediationActionWithOrder"
       ( \x ->
           RemediationActionWithOrder'
-            Prelude.<$> (x Core..:? "RemediationAction")
-            Prelude.<*> (x Core..:? "Order")
+            Prelude.<$> (x Data..:? "RemediationAction")
+            Prelude.<*> (x Data..:? "Order")
       )
 
 instance Prelude.Hashable RemediationActionWithOrder where

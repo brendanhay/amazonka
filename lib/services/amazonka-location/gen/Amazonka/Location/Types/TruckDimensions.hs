@@ -21,6 +21,7 @@ module Amazonka.Location.Types.TruckDimensions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.DimensionUnit
 import qualified Amazonka.Prelude as Prelude
 
@@ -148,13 +149,13 @@ instance Prelude.NFData TruckDimensions where
       `Prelude.seq` Prelude.rnf height
       `Prelude.seq` Prelude.rnf unit
 
-instance Core.ToJSON TruckDimensions where
+instance Data.ToJSON TruckDimensions where
   toJSON TruckDimensions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Length" Core..=) Prelude.<$> length,
-            ("Width" Core..=) Prelude.<$> width,
-            ("Height" Core..=) Prelude.<$> height,
-            ("Unit" Core..=) Prelude.<$> unit
+          [ ("Length" Data..=) Prelude.<$> length,
+            ("Width" Data..=) Prelude.<$> width,
+            ("Height" Data..=) Prelude.<$> height,
+            ("Unit" Data..=) Prelude.<$> unit
           ]
       )

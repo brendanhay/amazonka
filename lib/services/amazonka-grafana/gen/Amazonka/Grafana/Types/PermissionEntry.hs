@@ -21,6 +21,7 @@ module Amazonka.Grafana.Types.PermissionEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types.Role
 import Amazonka.Grafana.Types.User
 import qualified Amazonka.Prelude as Prelude
@@ -68,13 +69,13 @@ permissionEntry_role = Lens.lens (\PermissionEntry' {role'} -> role') (\s@Permis
 permissionEntry_user :: Lens.Lens' PermissionEntry User
 permissionEntry_user = Lens.lens (\PermissionEntry' {user} -> user) (\s@PermissionEntry' {} a -> s {user = a} :: PermissionEntry)
 
-instance Core.FromJSON PermissionEntry where
+instance Data.FromJSON PermissionEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PermissionEntry"
       ( \x ->
           PermissionEntry'
-            Prelude.<$> (x Core..: "role") Prelude.<*> (x Core..: "user")
+            Prelude.<$> (x Data..: "role") Prelude.<*> (x Data..: "user")
       )
 
 instance Prelude.Hashable PermissionEntry where

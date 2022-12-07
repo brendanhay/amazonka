@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -182,11 +183,11 @@ instance Core.AWSRequest ListGroupsForUser where
       "ListGroupsForUserResult"
       ( \s h x ->
           ListGroupsForUserResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "Groups" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "Groups" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -202,22 +203,22 @@ instance Prelude.NFData ListGroupsForUser where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf userName
 
-instance Core.ToHeaders ListGroupsForUser where
+instance Data.ToHeaders ListGroupsForUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListGroupsForUser where
+instance Data.ToPath ListGroupsForUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListGroupsForUser where
+instance Data.ToQuery ListGroupsForUser where
   toQuery ListGroupsForUser' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListGroupsForUser" :: Prelude.ByteString),
+          Data.=: ("ListGroupsForUser" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "UserName" Core.=: userName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "UserName" Data.=: userName
       ]
 
 -- | Contains the response to a successful ListGroupsForUser request.

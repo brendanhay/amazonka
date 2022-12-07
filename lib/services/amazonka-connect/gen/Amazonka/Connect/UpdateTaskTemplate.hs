@@ -63,6 +63,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -198,18 +199,18 @@ instance Core.AWSRequest UpdateTaskTemplate where
     Response.receiveJSON
       ( \s h x ->
           UpdateTaskTemplateResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "CreatedTime")
-            Prelude.<*> (x Core..?> "Constraints")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Fields" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "InstanceId")
-            Prelude.<*> (x Core..?> "Defaults")
-            Prelude.<*> (x Core..?> "ContactFlowId")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "Constraints")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Fields" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "InstanceId")
+            Prelude.<*> (x Data..?> "Defaults")
+            Prelude.<*> (x Data..?> "ContactFlowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -237,41 +238,41 @@ instance Prelude.NFData UpdateTaskTemplate where
       `Prelude.seq` Prelude.rnf taskTemplateId
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders UpdateTaskTemplate where
+instance Data.ToHeaders UpdateTaskTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTaskTemplate where
+instance Data.ToJSON UpdateTaskTemplate where
   toJSON UpdateTaskTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Constraints" Core..=) Prelude.<$> constraints,
-            ("Status" Core..=) Prelude.<$> status,
-            ("Fields" Core..=) Prelude.<$> fields,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Defaults" Core..=) Prelude.<$> defaults,
-            ("ContactFlowId" Core..=) Prelude.<$> contactFlowId
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Constraints" Data..=) Prelude.<$> constraints,
+            ("Status" Data..=) Prelude.<$> status,
+            ("Fields" Data..=) Prelude.<$> fields,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Defaults" Data..=) Prelude.<$> defaults,
+            ("ContactFlowId" Data..=) Prelude.<$> contactFlowId
           ]
       )
 
-instance Core.ToPath UpdateTaskTemplate where
+instance Data.ToPath UpdateTaskTemplate where
   toPath UpdateTaskTemplate' {..} =
     Prelude.mconcat
       [ "/instance/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/task/template/",
-        Core.toBS taskTemplateId
+        Data.toBS taskTemplateId
       ]
 
-instance Core.ToQuery UpdateTaskTemplate where
+instance Data.ToQuery UpdateTaskTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTaskTemplateResponse' smart constructor.
@@ -279,7 +280,7 @@ data UpdateTaskTemplateResponse = UpdateTaskTemplateResponse'
   { -- | The name of the task template.
     name :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the task template was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | Constraints that are applicable to the fields listed.
     constraints :: Prelude.Maybe TaskTemplateConstraints,
     -- | The Amazon Resource Name (ARN) for the task template resource.
@@ -296,7 +297,7 @@ data UpdateTaskTemplateResponse = UpdateTaskTemplateResponse'
     -- | The description of the task template.
     description :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the task template was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
@@ -377,7 +378,7 @@ updateTaskTemplateResponse_name = Lens.lens (\UpdateTaskTemplateResponse' {name}
 
 -- | The timestamp when the task template was created.
 updateTaskTemplateResponse_createdTime :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-updateTaskTemplateResponse_createdTime = Lens.lens (\UpdateTaskTemplateResponse' {createdTime} -> createdTime) (\s@UpdateTaskTemplateResponse' {} a -> s {createdTime = a} :: UpdateTaskTemplateResponse) Prelude.. Lens.mapping Core._Time
+updateTaskTemplateResponse_createdTime = Lens.lens (\UpdateTaskTemplateResponse' {createdTime} -> createdTime) (\s@UpdateTaskTemplateResponse' {} a -> s {createdTime = a} :: UpdateTaskTemplateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Constraints that are applicable to the fields listed.
 updateTaskTemplateResponse_constraints :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe TaskTemplateConstraints)
@@ -408,7 +409,7 @@ updateTaskTemplateResponse_description = Lens.lens (\UpdateTaskTemplateResponse'
 
 -- | The timestamp when the task template was last modified.
 updateTaskTemplateResponse_lastModifiedTime :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-updateTaskTemplateResponse_lastModifiedTime = Lens.lens (\UpdateTaskTemplateResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateTaskTemplateResponse' {} a -> s {lastModifiedTime = a} :: UpdateTaskTemplateResponse) Prelude.. Lens.mapping Core._Time
+updateTaskTemplateResponse_lastModifiedTime = Lens.lens (\UpdateTaskTemplateResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateTaskTemplateResponse' {} a -> s {lastModifiedTime = a} :: UpdateTaskTemplateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.

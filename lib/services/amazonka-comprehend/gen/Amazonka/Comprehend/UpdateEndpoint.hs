@@ -46,6 +46,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,39 +144,39 @@ instance Prelude.NFData UpdateEndpoint where
       `Prelude.seq` Prelude.rnf desiredModelArn
       `Prelude.seq` Prelude.rnf endpointArn
 
-instance Core.ToHeaders UpdateEndpoint where
+instance Data.ToHeaders UpdateEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.UpdateEndpoint" ::
+              Data.=# ( "Comprehend_20171127.UpdateEndpoint" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEndpoint where
+instance Data.ToJSON UpdateEndpoint where
   toJSON UpdateEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DesiredInferenceUnits" Core..=)
+          [ ("DesiredInferenceUnits" Data..=)
               Prelude.<$> desiredInferenceUnits,
-            ("DesiredDataAccessRoleArn" Core..=)
+            ("DesiredDataAccessRoleArn" Data..=)
               Prelude.<$> desiredDataAccessRoleArn,
-            ("DesiredModelArn" Core..=)
+            ("DesiredModelArn" Data..=)
               Prelude.<$> desiredModelArn,
-            Prelude.Just ("EndpointArn" Core..= endpointArn)
+            Prelude.Just ("EndpointArn" Data..= endpointArn)
           ]
       )
 
-instance Core.ToPath UpdateEndpoint where
+instance Data.ToPath UpdateEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateEndpoint where
+instance Data.ToQuery UpdateEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEndpointResponse' smart constructor.

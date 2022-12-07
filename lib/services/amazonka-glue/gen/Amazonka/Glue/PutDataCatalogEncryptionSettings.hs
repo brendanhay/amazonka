@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,40 +128,40 @@ instance
       `Prelude.seq` Prelude.rnf dataCatalogEncryptionSettings
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutDataCatalogEncryptionSettings
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.PutDataCatalogEncryptionSettings" ::
+              Data.=# ( "AWSGlue.PutDataCatalogEncryptionSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutDataCatalogEncryptionSettings where
+instance Data.ToJSON PutDataCatalogEncryptionSettings where
   toJSON PutDataCatalogEncryptionSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
             Prelude.Just
               ( "DataCatalogEncryptionSettings"
-                  Core..= dataCatalogEncryptionSettings
+                  Data..= dataCatalogEncryptionSettings
               )
           ]
       )
 
-instance Core.ToPath PutDataCatalogEncryptionSettings where
+instance Data.ToPath PutDataCatalogEncryptionSettings where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutDataCatalogEncryptionSettings
   where
   toQuery = Prelude.const Prelude.mempty

@@ -44,6 +44,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,8 +106,8 @@ instance Core.AWSRequest StopDeployment where
     Response.receiveJSON
       ( \s h x ->
           StopDeploymentResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "statusMessage")
+            Prelude.<$> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "statusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,35 +121,35 @@ instance Prelude.NFData StopDeployment where
     Prelude.rnf autoRollbackEnabled
       `Prelude.seq` Prelude.rnf deploymentId
 
-instance Core.ToHeaders StopDeployment where
+instance Data.ToHeaders StopDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.StopDeployment" ::
+              Data.=# ( "CodeDeploy_20141006.StopDeployment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopDeployment where
+instance Data.ToJSON StopDeployment where
   toJSON StopDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("autoRollbackEnabled" Core..=)
+          [ ("autoRollbackEnabled" Data..=)
               Prelude.<$> autoRollbackEnabled,
-            Prelude.Just ("deploymentId" Core..= deploymentId)
+            Prelude.Just ("deploymentId" Data..= deploymentId)
           ]
       )
 
-instance Core.ToPath StopDeployment where
+instance Data.ToPath StopDeployment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopDeployment where
+instance Data.ToQuery StopDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @StopDeployment@ operation.

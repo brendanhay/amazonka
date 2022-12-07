@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.ProresSlowPal
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
@@ -39,7 +40,7 @@ import qualified Amazonka.Prelude as Prelude
 -- (framerateNumerator) to 25 and (framerateDenominator) to 1.
 newtype ProresSlowPal = ProresSlowPal'
   { fromProresSlowPal ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -51,18 +52,18 @@ newtype ProresSlowPal = ProresSlowPal'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern ProresSlowPal_DISABLED :: ProresSlowPal

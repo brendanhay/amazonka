@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.MatchItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Match group object.
@@ -91,15 +92,15 @@ matchItem_profileIds = Lens.lens (\MatchItem' {profileIds} -> profileIds) (\s@Ma
 matchItem_confidenceScore :: Lens.Lens' MatchItem (Prelude.Maybe Prelude.Double)
 matchItem_confidenceScore = Lens.lens (\MatchItem' {confidenceScore} -> confidenceScore) (\s@MatchItem' {} a -> s {confidenceScore = a} :: MatchItem)
 
-instance Core.FromJSON MatchItem where
+instance Data.FromJSON MatchItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MatchItem"
       ( \x ->
           MatchItem'
-            Prelude.<$> (x Core..:? "MatchId")
-            Prelude.<*> (x Core..:? "ProfileIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ConfidenceScore")
+            Prelude.<$> (x Data..:? "MatchId")
+            Prelude.<*> (x Data..:? "ProfileIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ConfidenceScore")
       )
 
 instance Prelude.Hashable MatchItem where

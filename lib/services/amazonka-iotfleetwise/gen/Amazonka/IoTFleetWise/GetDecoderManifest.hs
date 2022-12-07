@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,14 +90,14 @@ instance Core.AWSRequest GetDecoderManifest where
     Response.receiveJSON
       ( \s h x ->
           GetDecoderManifestResponse'
-            Prelude.<$> (x Core..?> "modelManifestArn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "description")
+            Prelude.<$> (x Data..?> "modelManifestArn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "creationTime")
-            Prelude.<*> (x Core..:> "lastModificationTime")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "creationTime")
+            Prelude.<*> (x Data..:> "lastModificationTime")
       )
 
 instance Prelude.Hashable GetDecoderManifest where
@@ -106,32 +107,32 @@ instance Prelude.Hashable GetDecoderManifest where
 instance Prelude.NFData GetDecoderManifest where
   rnf GetDecoderManifest' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetDecoderManifest where
+instance Data.ToHeaders GetDecoderManifest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.GetDecoderManifest" ::
+              Data.=# ( "IoTAutobahnControlPlane.GetDecoderManifest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDecoderManifest where
+instance Data.ToJSON GetDecoderManifest where
   toJSON GetDecoderManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath GetDecoderManifest where
+instance Data.ToPath GetDecoderManifest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDecoderManifest where
+instance Data.ToQuery GetDecoderManifest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDecoderManifestResponse' smart constructor.
@@ -153,10 +154,10 @@ data GetDecoderManifestResponse = GetDecoderManifestResponse'
     arn :: Prelude.Text,
     -- | The time the decoder manifest was created in seconds since epoch
     -- (January 1, 1970 at midnight UTC time).
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The time the decoder manifest was last updated in seconds since epoch
     -- (January 1, 1970 at midnight UTC time).
-    lastModificationTime :: Core.POSIX
+    lastModificationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -214,9 +215,9 @@ newGetDecoderManifestResponse
         httpStatus = pHttpStatus_,
         name = pName_,
         arn = pArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lastModificationTime =
-          Core._Time Lens.# pLastModificationTime_
+          Data._Time Lens.# pLastModificationTime_
       }
 
 -- | The ARN of a vehicle model (model manifest) associated with the decoder
@@ -249,12 +250,12 @@ getDecoderManifestResponse_arn = Lens.lens (\GetDecoderManifestResponse' {arn} -
 -- | The time the decoder manifest was created in seconds since epoch
 -- (January 1, 1970 at midnight UTC time).
 getDecoderManifestResponse_creationTime :: Lens.Lens' GetDecoderManifestResponse Prelude.UTCTime
-getDecoderManifestResponse_creationTime = Lens.lens (\GetDecoderManifestResponse' {creationTime} -> creationTime) (\s@GetDecoderManifestResponse' {} a -> s {creationTime = a} :: GetDecoderManifestResponse) Prelude.. Core._Time
+getDecoderManifestResponse_creationTime = Lens.lens (\GetDecoderManifestResponse' {creationTime} -> creationTime) (\s@GetDecoderManifestResponse' {} a -> s {creationTime = a} :: GetDecoderManifestResponse) Prelude.. Data._Time
 
 -- | The time the decoder manifest was last updated in seconds since epoch
 -- (January 1, 1970 at midnight UTC time).
 getDecoderManifestResponse_lastModificationTime :: Lens.Lens' GetDecoderManifestResponse Prelude.UTCTime
-getDecoderManifestResponse_lastModificationTime = Lens.lens (\GetDecoderManifestResponse' {lastModificationTime} -> lastModificationTime) (\s@GetDecoderManifestResponse' {} a -> s {lastModificationTime = a} :: GetDecoderManifestResponse) Prelude.. Core._Time
+getDecoderManifestResponse_lastModificationTime = Lens.lens (\GetDecoderManifestResponse' {lastModificationTime} -> lastModificationTime) (\s@GetDecoderManifestResponse' {} a -> s {lastModificationTime = a} :: GetDecoderManifestResponse) Prelude.. Data._Time
 
 instance Prelude.NFData GetDecoderManifestResponse where
   rnf GetDecoderManifestResponse' {..} =

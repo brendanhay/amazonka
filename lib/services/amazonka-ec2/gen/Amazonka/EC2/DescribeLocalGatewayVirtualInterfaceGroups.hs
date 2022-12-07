@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -205,10 +206,10 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeLocalGatewayVirtualInterfaceGroupsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-              Prelude.<*> ( x Core..@? "localGatewayVirtualInterfaceGroupSet"
+            Prelude.<$> (x Data..@? "nextToken")
+              Prelude.<*> ( x Data..@? "localGatewayVirtualInterfaceGroupSet"
                               Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                              Prelude.>>= Core.may (Data.parseXMLList "item")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -238,37 +239,37 @@ instance
       `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroupIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeLocalGatewayVirtualInterfaceGroups
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeLocalGatewayVirtualInterfaceGroups
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeLocalGatewayVirtualInterfaceGroups
   where
   toQuery
     DescribeLocalGatewayVirtualInterfaceGroups' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "DescribeLocalGatewayVirtualInterfaceGroups" ::
+            Data.=: ( "DescribeLocalGatewayVirtualInterfaceGroups" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2016-11-15" :: Prelude.ByteString),
-          "NextToken" Core.=: nextToken,
-          Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-          "DryRun" Core.=: dryRun,
-          "MaxResults" Core.=: maxResults,
-          Core.toQuery
-            ( Core.toQueryList
+            Data.=: ("2016-11-15" :: Prelude.ByteString),
+          "NextToken" Data.=: nextToken,
+          Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+          "DryRun" Data.=: dryRun,
+          "MaxResults" Data.=: maxResults,
+          Data.toQuery
+            ( Data.toQueryList
                 "LocalGatewayVirtualInterfaceGroupId"
                 Prelude.<$> localGatewayVirtualInterfaceGroupIds
             )

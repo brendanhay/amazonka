@@ -42,6 +42,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetDataCatalog where
     Response.receiveJSON
       ( \s h x ->
           GetDataCatalogResponse'
-            Prelude.<$> (x Core..?> "DataCatalog")
+            Prelude.<$> (x Data..?> "DataCatalog")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable GetDataCatalog where
 instance Prelude.NFData GetDataCatalog where
   rnf GetDataCatalog' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetDataCatalog where
+instance Data.ToHeaders GetDataCatalog where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.GetDataCatalog" ::
+              Data.=# ( "AmazonAthena.GetDataCatalog" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDataCatalog where
+instance Data.ToJSON GetDataCatalog where
   toJSON GetDataCatalog' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath GetDataCatalog where
+instance Data.ToPath GetDataCatalog where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDataCatalog where
+instance Data.ToQuery GetDataCatalog where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDataCatalogResponse' smart constructor.

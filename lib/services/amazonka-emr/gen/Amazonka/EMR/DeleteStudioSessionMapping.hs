@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,36 +170,36 @@ instance Prelude.NFData DeleteStudioSessionMapping where
       `Prelude.seq` Prelude.rnf studioId
       `Prelude.seq` Prelude.rnf identityType
 
-instance Core.ToHeaders DeleteStudioSessionMapping where
+instance Data.ToHeaders DeleteStudioSessionMapping where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.DeleteStudioSessionMapping" ::
+              Data.=# ( "ElasticMapReduce.DeleteStudioSessionMapping" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteStudioSessionMapping where
+instance Data.ToJSON DeleteStudioSessionMapping where
   toJSON DeleteStudioSessionMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IdentityName" Core..=) Prelude.<$> identityName,
-            ("IdentityId" Core..=) Prelude.<$> identityId,
-            Prelude.Just ("StudioId" Core..= studioId),
-            Prelude.Just ("IdentityType" Core..= identityType)
+          [ ("IdentityName" Data..=) Prelude.<$> identityName,
+            ("IdentityId" Data..=) Prelude.<$> identityId,
+            Prelude.Just ("StudioId" Data..= studioId),
+            Prelude.Just ("IdentityType" Data..= identityType)
           ]
       )
 
-instance Core.ToPath DeleteStudioSessionMapping where
+instance Data.ToPath DeleteStudioSessionMapping where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteStudioSessionMapping where
+instance Data.ToQuery DeleteStudioSessionMapping where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStudioSessionMappingResponse' smart constructor.

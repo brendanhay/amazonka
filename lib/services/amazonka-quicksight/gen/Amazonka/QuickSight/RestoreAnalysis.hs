@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -99,9 +100,9 @@ instance Core.AWSRequest RestoreAnalysis where
     Response.receiveJSON
       ( \s h x ->
           RestoreAnalysisResponse'
-            Prelude.<$> (x Core..?> "AnalysisId")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "AnalysisId")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,30 +116,30 @@ instance Prelude.NFData RestoreAnalysis where
     Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf analysisId
 
-instance Core.ToHeaders RestoreAnalysis where
+instance Data.ToHeaders RestoreAnalysis where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RestoreAnalysis where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON RestoreAnalysis where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath RestoreAnalysis where
+instance Data.ToPath RestoreAnalysis where
   toPath RestoreAnalysis' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/restore/analyses/",
-        Core.toBS analysisId
+        Data.toBS analysisId
       ]
 
-instance Core.ToQuery RestoreAnalysis where
+instance Data.ToQuery RestoreAnalysis where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRestoreAnalysisResponse' smart constructor.

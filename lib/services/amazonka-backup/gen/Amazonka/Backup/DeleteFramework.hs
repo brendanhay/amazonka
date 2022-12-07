@@ -38,6 +38,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,23 +86,23 @@ instance Prelude.Hashable DeleteFramework where
 instance Prelude.NFData DeleteFramework where
   rnf DeleteFramework' {..} = Prelude.rnf frameworkName
 
-instance Core.ToHeaders DeleteFramework where
+instance Data.ToHeaders DeleteFramework where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteFramework where
+instance Data.ToPath DeleteFramework where
   toPath DeleteFramework' {..} =
     Prelude.mconcat
-      ["/audit/frameworks/", Core.toBS frameworkName]
+      ["/audit/frameworks/", Data.toBS frameworkName]
 
-instance Core.ToQuery DeleteFramework where
+instance Data.ToQuery DeleteFramework where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFrameworkResponse' smart constructor.

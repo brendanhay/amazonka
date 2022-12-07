@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,12 +175,12 @@ instance Core.AWSRequest ListRecommendedIntents where
     Response.receiveJSON
       ( \s h x ->
           ListRecommendedIntentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "botRecommendationId")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "summaryList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "botRecommendationId")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "summaryList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,41 +202,41 @@ instance Prelude.NFData ListRecommendedIntents where
       `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf botRecommendationId
 
-instance Core.ToHeaders ListRecommendedIntents where
+instance Data.ToHeaders ListRecommendedIntents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRecommendedIntents where
+instance Data.ToJSON ListRecommendedIntents where
   toJSON ListRecommendedIntents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListRecommendedIntents where
+instance Data.ToPath ListRecommendedIntents where
   toPath ListRecommendedIntents' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/botrecommendations/",
-        Core.toBS botRecommendationId,
+        Data.toBS botRecommendationId,
         "/intents"
       ]
 
-instance Core.ToQuery ListRecommendedIntents where
+instance Data.ToQuery ListRecommendedIntents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRecommendedIntentsResponse' smart constructor.

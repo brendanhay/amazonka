@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,17 +108,17 @@ instance Core.AWSRequest DescribeForecast where
     Response.receiveJSON
       ( \s h x ->
           DescribeForecastResponse'
-            Prelude.<$> (x Core..?> "LastModificationTime")
-            Prelude.<*> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "ForecastTypes")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "EstimatedTimeRemainingInMinutes")
-            Prelude.<*> (x Core..?> "PredictorArn")
-            Prelude.<*> (x Core..?> "ForecastArn")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "DatasetGroupArn")
-            Prelude.<*> (x Core..?> "TimeSeriesSelector")
-            Prelude.<*> (x Core..?> "ForecastName")
+            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "ForecastTypes")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
+            Prelude.<*> (x Data..?> "PredictorArn")
+            Prelude.<*> (x Data..?> "ForecastArn")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "DatasetGroupArn")
+            Prelude.<*> (x Data..?> "TimeSeriesSelector")
+            Prelude.<*> (x Data..?> "ForecastName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,32 +129,32 @@ instance Prelude.Hashable DescribeForecast where
 instance Prelude.NFData DescribeForecast where
   rnf DescribeForecast' {..} = Prelude.rnf forecastArn
 
-instance Core.ToHeaders DescribeForecast where
+instance Data.ToHeaders DescribeForecast where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DescribeForecast" ::
+              Data.=# ( "AmazonForecast.DescribeForecast" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeForecast where
+instance Data.ToJSON DescribeForecast where
   toJSON DescribeForecast' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ForecastArn" Core..= forecastArn)]
+          [Prelude.Just ("ForecastArn" Data..= forecastArn)]
       )
 
-instance Core.ToPath DescribeForecast where
+instance Data.ToPath DescribeForecast where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeForecast where
+instance Data.ToQuery DescribeForecast where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeForecastResponse' smart constructor.
@@ -170,7 +171,7 @@ data DescribeForecastResponse = DescribeForecastResponse'
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | If an error occurred, an informational message about the error.
     message :: Prelude.Maybe Prelude.Text,
     -- | The quantiles at which probabilistic forecasts were generated.
@@ -196,7 +197,7 @@ data DescribeForecastResponse = DescribeForecastResponse'
     -- | The forecast ARN as specified in the request.
     forecastArn :: Prelude.Maybe Prelude.Text,
     -- | When the forecast creation task was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the dataset group that provided the data used to train the
     -- predictor.
     datasetGroupArn :: Prelude.Maybe Prelude.Text,
@@ -298,7 +299,7 @@ newDescribeForecastResponse pHttpStatus_ =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 describeForecastResponse_lastModificationTime :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.UTCTime)
-describeForecastResponse_lastModificationTime = Lens.lens (\DescribeForecastResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeForecastResponse' {} a -> s {lastModificationTime = a} :: DescribeForecastResponse) Prelude.. Lens.mapping Core._Time
+describeForecastResponse_lastModificationTime = Lens.lens (\DescribeForecastResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeForecastResponse' {} a -> s {lastModificationTime = a} :: DescribeForecastResponse) Prelude.. Lens.mapping Data._Time
 
 -- | If an error occurred, an informational message about the error.
 describeForecastResponse_message :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.Text)
@@ -338,7 +339,7 @@ describeForecastResponse_forecastArn = Lens.lens (\DescribeForecastResponse' {fo
 
 -- | When the forecast creation task was created.
 describeForecastResponse_creationTime :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.UTCTime)
-describeForecastResponse_creationTime = Lens.lens (\DescribeForecastResponse' {creationTime} -> creationTime) (\s@DescribeForecastResponse' {} a -> s {creationTime = a} :: DescribeForecastResponse) Prelude.. Lens.mapping Core._Time
+describeForecastResponse_creationTime = Lens.lens (\DescribeForecastResponse' {creationTime} -> creationTime) (\s@DescribeForecastResponse' {} a -> s {creationTime = a} :: DescribeForecastResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the dataset group that provided the data used to train the
 -- predictor.

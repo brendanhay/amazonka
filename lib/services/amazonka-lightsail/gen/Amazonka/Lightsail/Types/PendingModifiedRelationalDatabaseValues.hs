@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.PendingModifiedRelationalDatabaseValues where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a pending database value modification.
@@ -76,17 +77,17 @@ pendingModifiedRelationalDatabaseValues_engineVersion :: Lens.Lens' PendingModif
 pendingModifiedRelationalDatabaseValues_engineVersion = Lens.lens (\PendingModifiedRelationalDatabaseValues' {engineVersion} -> engineVersion) (\s@PendingModifiedRelationalDatabaseValues' {} a -> s {engineVersion = a} :: PendingModifiedRelationalDatabaseValues)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PendingModifiedRelationalDatabaseValues
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PendingModifiedRelationalDatabaseValues"
       ( \x ->
           PendingModifiedRelationalDatabaseValues'
-            Prelude.<$> (x Core..:? "backupRetentionEnabled")
-            Prelude.<*> (x Core..:? "masterUserPassword")
-            Prelude.<*> (x Core..:? "engineVersion")
+            Prelude.<$> (x Data..:? "backupRetentionEnabled")
+            Prelude.<*> (x Data..:? "masterUserPassword")
+            Prelude.<*> (x Data..:? "engineVersion")
       )
 
 instance

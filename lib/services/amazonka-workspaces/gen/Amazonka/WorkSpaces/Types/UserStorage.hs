@@ -21,6 +21,7 @@ module Amazonka.WorkSpaces.Types.UserStorage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the user volume for a WorkSpace bundle.
@@ -50,12 +51,12 @@ newUserStorage =
 userStorage_capacity :: Lens.Lens' UserStorage (Prelude.Maybe Prelude.Text)
 userStorage_capacity = Lens.lens (\UserStorage' {capacity} -> capacity) (\s@UserStorage' {} a -> s {capacity = a} :: UserStorage)
 
-instance Core.FromJSON UserStorage where
+instance Data.FromJSON UserStorage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserStorage"
       ( \x ->
-          UserStorage' Prelude.<$> (x Core..:? "Capacity")
+          UserStorage' Prelude.<$> (x Data..:? "Capacity")
       )
 
 instance Prelude.Hashable UserStorage where
@@ -65,9 +66,9 @@ instance Prelude.Hashable UserStorage where
 instance Prelude.NFData UserStorage where
   rnf UserStorage' {..} = Prelude.rnf capacity
 
-instance Core.ToJSON UserStorage where
+instance Data.ToJSON UserStorage where
   toJSON UserStorage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Capacity" Core..=) Prelude.<$> capacity]
+          [("Capacity" Data..=) Prelude.<$> capacity]
       )

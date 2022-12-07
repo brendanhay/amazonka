@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.ModelVersionEvaluation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.PredictionExplanations
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,15 +73,15 @@ modelVersionEvaluation_predictionExplanations = Lens.lens (\ModelVersionEvaluati
 modelVersionEvaluation_evaluationScore :: Lens.Lens' ModelVersionEvaluation (Prelude.Maybe Prelude.Text)
 modelVersionEvaluation_evaluationScore = Lens.lens (\ModelVersionEvaluation' {evaluationScore} -> evaluationScore) (\s@ModelVersionEvaluation' {} a -> s {evaluationScore = a} :: ModelVersionEvaluation)
 
-instance Core.FromJSON ModelVersionEvaluation where
+instance Data.FromJSON ModelVersionEvaluation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelVersionEvaluation"
       ( \x ->
           ModelVersionEvaluation'
-            Prelude.<$> (x Core..:? "outputVariableName")
-            Prelude.<*> (x Core..:? "predictionExplanations")
-            Prelude.<*> (x Core..:? "evaluationScore")
+            Prelude.<$> (x Data..:? "outputVariableName")
+            Prelude.<*> (x Data..:? "predictionExplanations")
+            Prelude.<*> (x Data..:? "evaluationScore")
       )
 
 instance Prelude.Hashable ModelVersionEvaluation where

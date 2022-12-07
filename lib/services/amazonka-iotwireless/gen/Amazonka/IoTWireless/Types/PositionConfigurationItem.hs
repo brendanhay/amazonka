@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.PositionConfigurationItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.PositionResourceType
 import Amazonka.IoTWireless.Types.PositionSolverDetails
 import qualified Amazonka.Prelude as Prelude
@@ -91,16 +92,16 @@ positionConfigurationItem_resourceIdentifier = Lens.lens (\PositionConfiguration
 positionConfigurationItem_solvers :: Lens.Lens' PositionConfigurationItem (Prelude.Maybe PositionSolverDetails)
 positionConfigurationItem_solvers = Lens.lens (\PositionConfigurationItem' {solvers} -> solvers) (\s@PositionConfigurationItem' {} a -> s {solvers = a} :: PositionConfigurationItem)
 
-instance Core.FromJSON PositionConfigurationItem where
+instance Data.FromJSON PositionConfigurationItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PositionConfigurationItem"
       ( \x ->
           PositionConfigurationItem'
-            Prelude.<$> (x Core..:? "Destination")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "ResourceIdentifier")
-            Prelude.<*> (x Core..:? "Solvers")
+            Prelude.<$> (x Data..:? "Destination")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "ResourceIdentifier")
+            Prelude.<*> (x Data..:? "Solvers")
       )
 
 instance Prelude.Hashable PositionConfigurationItem where

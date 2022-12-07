@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Polly.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -335,8 +336,8 @@ instance Core.AWSRequest SynthesizeSpeech where
     Response.receiveBody
       ( \s h x ->
           SynthesizeSpeechResponse'
-            Prelude.<$> (h Core..#? "x-amzn-RequestCharacters")
-            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<$> (h Data..#? "x-amzn-RequestCharacters")
+            Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
@@ -365,30 +366,30 @@ instance Prelude.NFData SynthesizeSpeech where
       `Prelude.seq` Prelude.rnf text
       `Prelude.seq` Prelude.rnf voiceId
 
-instance Core.ToHeaders SynthesizeSpeech where
+instance Data.ToHeaders SynthesizeSpeech where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON SynthesizeSpeech where
+instance Data.ToJSON SynthesizeSpeech where
   toJSON SynthesizeSpeech' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SampleRate" Core..=) Prelude.<$> sampleRate,
-            ("SpeechMarkTypes" Core..=)
+          [ ("SampleRate" Data..=) Prelude.<$> sampleRate,
+            ("SpeechMarkTypes" Data..=)
               Prelude.<$> speechMarkTypes,
-            ("LanguageCode" Core..=) Prelude.<$> languageCode,
-            ("LexiconNames" Core..=) Prelude.<$> lexiconNames,
-            ("Engine" Core..=) Prelude.<$> engine,
-            ("TextType" Core..=) Prelude.<$> textType,
-            Prelude.Just ("OutputFormat" Core..= outputFormat),
-            Prelude.Just ("Text" Core..= text),
-            Prelude.Just ("VoiceId" Core..= voiceId)
+            ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            ("LexiconNames" Data..=) Prelude.<$> lexiconNames,
+            ("Engine" Data..=) Prelude.<$> engine,
+            ("TextType" Data..=) Prelude.<$> textType,
+            Prelude.Just ("OutputFormat" Data..= outputFormat),
+            Prelude.Just ("Text" Data..= text),
+            Prelude.Just ("VoiceId" Data..= voiceId)
           ]
       )
 
-instance Core.ToPath SynthesizeSpeech where
+instance Data.ToPath SynthesizeSpeech where
   toPath = Prelude.const "/v1/speech"
 
-instance Core.ToQuery SynthesizeSpeech where
+instance Data.ToQuery SynthesizeSpeech where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSynthesizeSpeechResponse' smart constructor.
@@ -414,7 +415,7 @@ data SynthesizeSpeechResponse = SynthesizeSpeechResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Stream containing the synthesized speech.
-    audioStream :: Core.ResponseBody
+    audioStream :: Data.ResponseBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -451,7 +452,7 @@ newSynthesizeSpeechResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   -- | 'audioStream'
-  Core.ResponseBody ->
+  Data.ResponseBody ->
   SynthesizeSpeechResponse
 newSynthesizeSpeechResponse
   pHttpStatus_
@@ -491,5 +492,5 @@ synthesizeSpeechResponse_httpStatus :: Lens.Lens' SynthesizeSpeechResponse Prelu
 synthesizeSpeechResponse_httpStatus = Lens.lens (\SynthesizeSpeechResponse' {httpStatus} -> httpStatus) (\s@SynthesizeSpeechResponse' {} a -> s {httpStatus = a} :: SynthesizeSpeechResponse)
 
 -- | Stream containing the synthesized speech.
-synthesizeSpeechResponse_audioStream :: Lens.Lens' SynthesizeSpeechResponse Core.ResponseBody
+synthesizeSpeechResponse_audioStream :: Lens.Lens' SynthesizeSpeechResponse Data.ResponseBody
 synthesizeSpeechResponse_audioStream = Lens.lens (\SynthesizeSpeechResponse' {audioStream} -> audioStream) (\s@SynthesizeSpeechResponse' {} a -> s {audioStream = a} :: SynthesizeSpeechResponse)

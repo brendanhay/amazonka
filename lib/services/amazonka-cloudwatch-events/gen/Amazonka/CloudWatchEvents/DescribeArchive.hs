@@ -52,6 +52,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,17 +94,17 @@ instance Core.AWSRequest DescribeArchive where
     Response.receiveJSON
       ( \s h x ->
           DescribeArchiveResponse'
-            Prelude.<$> (x Core..?> "EventPattern")
-            Prelude.<*> (x Core..?> "RetentionDays")
-            Prelude.<*> (x Core..?> "ArchiveArn")
-            Prelude.<*> (x Core..?> "SizeBytes")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "EventCount")
-            Prelude.<*> (x Core..?> "ArchiveName")
-            Prelude.<*> (x Core..?> "EventSourceArn")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "StateReason")
+            Prelude.<$> (x Data..?> "EventPattern")
+            Prelude.<*> (x Data..?> "RetentionDays")
+            Prelude.<*> (x Data..?> "ArchiveArn")
+            Prelude.<*> (x Data..?> "SizeBytes")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "EventCount")
+            Prelude.<*> (x Data..?> "ArchiveName")
+            Prelude.<*> (x Data..?> "EventSourceArn")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,30 +115,30 @@ instance Prelude.Hashable DescribeArchive where
 instance Prelude.NFData DescribeArchive where
   rnf DescribeArchive' {..} = Prelude.rnf archiveName
 
-instance Core.ToHeaders DescribeArchive where
+instance Data.ToHeaders DescribeArchive where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.DescribeArchive" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.DescribeArchive" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeArchive where
+instance Data.ToJSON DescribeArchive where
   toJSON DescribeArchive' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ArchiveName" Core..= archiveName)]
+          [Prelude.Just ("ArchiveName" Data..= archiveName)]
       )
 
-instance Core.ToPath DescribeArchive where
+instance Data.ToPath DescribeArchive where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeArchive where
+instance Data.ToQuery DescribeArchive where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeArchiveResponse' smart constructor.
@@ -161,7 +162,7 @@ data DescribeArchiveResponse = DescribeArchiveResponse'
     -- | The ARN of the event source associated with the archive.
     eventSourceArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the archive was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The reason that the archive is in the state.
     stateReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -259,7 +260,7 @@ describeArchiveResponse_eventSourceArn = Lens.lens (\DescribeArchiveResponse' {e
 
 -- | The time at which the archive was created.
 describeArchiveResponse_creationTime :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.UTCTime)
-describeArchiveResponse_creationTime = Lens.lens (\DescribeArchiveResponse' {creationTime} -> creationTime) (\s@DescribeArchiveResponse' {} a -> s {creationTime = a} :: DescribeArchiveResponse) Prelude.. Lens.mapping Core._Time
+describeArchiveResponse_creationTime = Lens.lens (\DescribeArchiveResponse' {creationTime} -> creationTime) (\s@DescribeArchiveResponse' {} a -> s {creationTime = a} :: DescribeArchiveResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The reason that the archive is in the state.
 describeArchiveResponse_stateReason :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Text)

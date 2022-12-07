@@ -87,6 +87,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -195,8 +196,8 @@ instance Core.AWSRequest DescribeFleetCapacity where
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetCapacityResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "FleetCapacity" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "FleetCapacity" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -212,35 +213,35 @@ instance Prelude.NFData DescribeFleetCapacity where
       `Prelude.seq` Prelude.rnf fleetIds
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders DescribeFleetCapacity where
+instance Data.ToHeaders DescribeFleetCapacity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeFleetCapacity" ::
+              Data.=# ( "GameLift.DescribeFleetCapacity" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFleetCapacity where
+instance Data.ToJSON DescribeFleetCapacity where
   toJSON DescribeFleetCapacity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("FleetIds" Core..=) Prelude.<$> fleetIds,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("FleetIds" Data..=) Prelude.<$> fleetIds,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath DescribeFleetCapacity where
+instance Data.ToPath DescribeFleetCapacity where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFleetCapacity where
+instance Data.ToQuery DescribeFleetCapacity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

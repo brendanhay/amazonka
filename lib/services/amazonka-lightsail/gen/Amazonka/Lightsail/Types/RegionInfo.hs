@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.RegionInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.AvailabilityZone
 import Amazonka.Lightsail.Types.RegionName
 import qualified Amazonka.Prelude as Prelude
@@ -109,22 +110,22 @@ regionInfo_description = Lens.lens (\RegionInfo' {description} -> description) (
 regionInfo_continentCode :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
 regionInfo_continentCode = Lens.lens (\RegionInfo' {continentCode} -> continentCode) (\s@RegionInfo' {} a -> s {continentCode = a} :: RegionInfo)
 
-instance Core.FromJSON RegionInfo where
+instance Data.FromJSON RegionInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegionInfo"
       ( \x ->
           RegionInfo'
-            Prelude.<$> ( x Core..:? "relationalDatabaseAvailabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "relationalDatabaseAvailabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> ( x Core..:? "availabilityZones"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> ( x Data..:? "availabilityZones"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "displayName")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "continentCode")
+            Prelude.<*> (x Data..:? "displayName")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "continentCode")
       )
 
 instance Prelude.Hashable RegionInfo where

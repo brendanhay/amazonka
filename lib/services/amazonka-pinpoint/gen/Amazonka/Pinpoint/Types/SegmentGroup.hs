@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SegmentGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.SegmentDimensions
 import Amazonka.Pinpoint.Types.SegmentReference
 import Amazonka.Pinpoint.Types.SourceType
@@ -123,17 +124,17 @@ segmentGroup_sourceType = Lens.lens (\SegmentGroup' {sourceType} -> sourceType) 
 segmentGroup_sourceSegments :: Lens.Lens' SegmentGroup (Prelude.Maybe [SegmentReference])
 segmentGroup_sourceSegments = Lens.lens (\SegmentGroup' {sourceSegments} -> sourceSegments) (\s@SegmentGroup' {} a -> s {sourceSegments = a} :: SegmentGroup) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SegmentGroup where
+instance Data.FromJSON SegmentGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SegmentGroup"
       ( \x ->
           SegmentGroup'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SourceType")
-            Prelude.<*> ( x Core..:? "SourceSegments"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Dimensions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SourceType")
+            Prelude.<*> ( x Data..:? "SourceSegments"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -151,14 +152,14 @@ instance Prelude.NFData SegmentGroup where
       `Prelude.seq` Prelude.rnf sourceType
       `Prelude.seq` Prelude.rnf sourceSegments
 
-instance Core.ToJSON SegmentGroup where
+instance Data.ToJSON SegmentGroup where
   toJSON SegmentGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Dimensions" Core..=) Prelude.<$> dimensions,
-            ("SourceType" Core..=) Prelude.<$> sourceType,
-            ("SourceSegments" Core..=)
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Dimensions" Data..=) Prelude.<$> dimensions,
+            ("SourceType" Data..=) Prelude.<$> sourceType,
+            ("SourceSegments" Data..=)
               Prelude.<$> sourceSegments
           ]
       )

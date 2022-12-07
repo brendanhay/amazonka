@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.Parameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.ApplyMethod
 
@@ -153,23 +154,23 @@ parameter_allowedValues = Lens.lens (\Parameter' {allowedValues} -> allowedValue
 parameter_dataType :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_dataType = Lens.lens (\Parameter' {dataType} -> dataType) (\s@Parameter' {} a -> s {dataType = a} :: Parameter)
 
-instance Core.FromXML Parameter where
+instance Data.FromXML Parameter where
   parseXML x =
     Parameter'
-      Prelude.<$> (x Core..@? "ParameterValue")
-      Prelude.<*> (x Core..@? "ApplyMethod")
-      Prelude.<*> (x Core..@? "ApplyType")
-      Prelude.<*> ( x Core..@? "SupportedEngineModes"
+      Prelude.<$> (x Data..@? "ParameterValue")
+      Prelude.<*> (x Data..@? "ApplyMethod")
+      Prelude.<*> (x Data..@? "ApplyType")
+      Prelude.<*> ( x Data..@? "SupportedEngineModes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "IsModifiable")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "ParameterName")
-      Prelude.<*> (x Core..@? "MinimumEngineVersion")
-      Prelude.<*> (x Core..@? "Source")
-      Prelude.<*> (x Core..@? "AllowedValues")
-      Prelude.<*> (x Core..@? "DataType")
+      Prelude.<*> (x Data..@? "IsModifiable")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "ParameterName")
+      Prelude.<*> (x Data..@? "MinimumEngineVersion")
+      Prelude.<*> (x Data..@? "Source")
+      Prelude.<*> (x Data..@? "AllowedValues")
+      Prelude.<*> (x Data..@? "DataType")
 
 instance Prelude.Hashable Parameter where
   hashWithSalt _salt Parameter' {..} =
@@ -199,22 +200,22 @@ instance Prelude.NFData Parameter where
       `Prelude.seq` Prelude.rnf allowedValues
       `Prelude.seq` Prelude.rnf dataType
 
-instance Core.ToQuery Parameter where
+instance Data.ToQuery Parameter where
   toQuery Parameter' {..} =
     Prelude.mconcat
-      [ "ParameterValue" Core.=: parameterValue,
-        "ApplyMethod" Core.=: applyMethod,
-        "ApplyType" Core.=: applyType,
+      [ "ParameterValue" Data.=: parameterValue,
+        "ApplyMethod" Data.=: applyMethod,
+        "ApplyType" Data.=: applyType,
         "SupportedEngineModes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> supportedEngineModes
             ),
-        "IsModifiable" Core.=: isModifiable,
-        "Description" Core.=: description,
-        "ParameterName" Core.=: parameterName,
-        "MinimumEngineVersion" Core.=: minimumEngineVersion,
-        "Source" Core.=: source,
-        "AllowedValues" Core.=: allowedValues,
-        "DataType" Core.=: dataType
+        "IsModifiable" Data.=: isModifiable,
+        "Description" Data.=: description,
+        "ParameterName" Data.=: parameterName,
+        "MinimumEngineVersion" Data.=: minimumEngineVersion,
+        "Source" Data.=: source,
+        "AllowedValues" Data.=: allowedValues,
+        "DataType" Data.=: dataType
       ]

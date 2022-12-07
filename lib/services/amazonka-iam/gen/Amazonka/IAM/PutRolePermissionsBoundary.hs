@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,21 +125,21 @@ instance Prelude.NFData PutRolePermissionsBoundary where
     Prelude.rnf roleName
       `Prelude.seq` Prelude.rnf permissionsBoundary
 
-instance Core.ToHeaders PutRolePermissionsBoundary where
+instance Data.ToHeaders PutRolePermissionsBoundary where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutRolePermissionsBoundary where
+instance Data.ToPath PutRolePermissionsBoundary where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutRolePermissionsBoundary where
+instance Data.ToQuery PutRolePermissionsBoundary where
   toQuery PutRolePermissionsBoundary' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PutRolePermissionsBoundary" :: Prelude.ByteString),
+          Data.=: ("PutRolePermissionsBoundary" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "RoleName" Core.=: roleName,
-        "PermissionsBoundary" Core.=: permissionsBoundary
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "RoleName" Data.=: roleName,
+        "PermissionsBoundary" Data.=: permissionsBoundary
       ]
 
 -- | /See:/ 'newPutRolePermissionsBoundaryResponse' smart constructor.

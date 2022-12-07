@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,7 +119,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           SendPipelineExecutionStepFailureResponse'
-            Prelude.<$> (x Core..?> "PipelineExecutionArn")
+            Prelude.<$> (x Data..?> "PipelineExecutionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,40 +144,40 @@ instance
       `Prelude.seq` Prelude.rnf callbackToken
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     SendPipelineExecutionStepFailure
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.SendPipelineExecutionStepFailure" ::
+              Data.=# ( "SageMaker.SendPipelineExecutionStepFailure" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendPipelineExecutionStepFailure where
+instance Data.ToJSON SendPipelineExecutionStepFailure where
   toJSON SendPipelineExecutionStepFailure' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("FailureReason" Core..=) Prelude.<$> failureReason,
+            ("FailureReason" Data..=) Prelude.<$> failureReason,
             Prelude.Just
-              ("CallbackToken" Core..= callbackToken)
+              ("CallbackToken" Data..= callbackToken)
           ]
       )
 
-instance Core.ToPath SendPipelineExecutionStepFailure where
+instance Data.ToPath SendPipelineExecutionStepFailure where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     SendPipelineExecutionStepFailure
   where
   toQuery = Prelude.const Prelude.mempty

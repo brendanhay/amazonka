@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.ServerLaunchConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.S3Location
 import Amazonka.SMS.Types.ScriptType
@@ -164,24 +165,24 @@ serverLaunchConfiguration_iamInstanceProfileName = Lens.lens (\ServerLaunchConfi
 serverLaunchConfiguration_configureScript :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe S3Location)
 serverLaunchConfiguration_configureScript = Lens.lens (\ServerLaunchConfiguration' {configureScript} -> configureScript) (\s@ServerLaunchConfiguration' {} a -> s {configureScript = a} :: ServerLaunchConfiguration)
 
-instance Core.FromJSON ServerLaunchConfiguration where
+instance Data.FromJSON ServerLaunchConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerLaunchConfiguration"
       ( \x ->
           ServerLaunchConfiguration'
-            Prelude.<$> (x Core..:? "ec2KeyName")
-            Prelude.<*> (x Core..:? "vpc")
-            Prelude.<*> (x Core..:? "userData")
-            Prelude.<*> (x Core..:? "associatePublicIpAddress")
-            Prelude.<*> (x Core..:? "securityGroup")
-            Prelude.<*> (x Core..:? "configureScriptType")
-            Prelude.<*> (x Core..:? "instanceType")
-            Prelude.<*> (x Core..:? "server")
-            Prelude.<*> (x Core..:? "logicalId")
-            Prelude.<*> (x Core..:? "subnet")
-            Prelude.<*> (x Core..:? "iamInstanceProfileName")
-            Prelude.<*> (x Core..:? "configureScript")
+            Prelude.<$> (x Data..:? "ec2KeyName")
+            Prelude.<*> (x Data..:? "vpc")
+            Prelude.<*> (x Data..:? "userData")
+            Prelude.<*> (x Data..:? "associatePublicIpAddress")
+            Prelude.<*> (x Data..:? "securityGroup")
+            Prelude.<*> (x Data..:? "configureScriptType")
+            Prelude.<*> (x Data..:? "instanceType")
+            Prelude.<*> (x Data..:? "server")
+            Prelude.<*> (x Data..:? "logicalId")
+            Prelude.<*> (x Data..:? "subnet")
+            Prelude.<*> (x Data..:? "iamInstanceProfileName")
+            Prelude.<*> (x Data..:? "configureScript")
       )
 
 instance Prelude.Hashable ServerLaunchConfiguration where
@@ -214,25 +215,25 @@ instance Prelude.NFData ServerLaunchConfiguration where
       `Prelude.seq` Prelude.rnf iamInstanceProfileName
       `Prelude.seq` Prelude.rnf configureScript
 
-instance Core.ToJSON ServerLaunchConfiguration where
+instance Data.ToJSON ServerLaunchConfiguration where
   toJSON ServerLaunchConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ec2KeyName" Core..=) Prelude.<$> ec2KeyName,
-            ("vpc" Core..=) Prelude.<$> vpc,
-            ("userData" Core..=) Prelude.<$> userData,
-            ("associatePublicIpAddress" Core..=)
+          [ ("ec2KeyName" Data..=) Prelude.<$> ec2KeyName,
+            ("vpc" Data..=) Prelude.<$> vpc,
+            ("userData" Data..=) Prelude.<$> userData,
+            ("associatePublicIpAddress" Data..=)
               Prelude.<$> associatePublicIpAddress,
-            ("securityGroup" Core..=) Prelude.<$> securityGroup,
-            ("configureScriptType" Core..=)
+            ("securityGroup" Data..=) Prelude.<$> securityGroup,
+            ("configureScriptType" Data..=)
               Prelude.<$> configureScriptType,
-            ("instanceType" Core..=) Prelude.<$> instanceType,
-            ("server" Core..=) Prelude.<$> server,
-            ("logicalId" Core..=) Prelude.<$> logicalId,
-            ("subnet" Core..=) Prelude.<$> subnet,
-            ("iamInstanceProfileName" Core..=)
+            ("instanceType" Data..=) Prelude.<$> instanceType,
+            ("server" Data..=) Prelude.<$> server,
+            ("logicalId" Data..=) Prelude.<$> logicalId,
+            ("subnet" Data..=) Prelude.<$> subnet,
+            ("iamInstanceProfileName" Data..=)
               Prelude.<$> iamInstanceProfileName,
-            ("configureScript" Core..=)
+            ("configureScript" Data..=)
               Prelude.<$> configureScript
           ]
       )

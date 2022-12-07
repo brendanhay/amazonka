@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.IntegerParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An integer parameter.
@@ -72,11 +73,11 @@ instance Prelude.NFData IntegerParameter where
   rnf IntegerParameter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON IntegerParameter where
+instance Data.ToJSON IntegerParameter where
   toJSON IntegerParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Values" Core..= values)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

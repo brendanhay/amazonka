@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -221,7 +222,7 @@ instance Core.AWSRequest SendVoiceMessage where
     Response.receiveJSON
       ( \s h x ->
           SendVoiceMessageResponse'
-            Prelude.<$> (x Core..?> "MessageId")
+            Prelude.<$> (x Data..?> "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -251,49 +252,49 @@ instance Prelude.NFData SendVoiceMessage where
       `Prelude.seq` Prelude.rnf destinationPhoneNumber
       `Prelude.seq` Prelude.rnf originationIdentity
 
-instance Core.ToHeaders SendVoiceMessage where
+instance Data.ToHeaders SendVoiceMessage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.SendVoiceMessage" ::
+              Data.=# ( "PinpointSMSVoiceV2.SendVoiceMessage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SendVoiceMessage where
+instance Data.ToJSON SendVoiceMessage where
   toJSON SendVoiceMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VoiceId" Core..=) Prelude.<$> voiceId,
-            ("TimeToLive" Core..=) Prelude.<$> timeToLive,
-            ("MaxPricePerMinute" Core..=)
+          [ ("VoiceId" Data..=) Prelude.<$> voiceId,
+            ("TimeToLive" Data..=) Prelude.<$> timeToLive,
+            ("MaxPricePerMinute" Data..=)
               Prelude.<$> maxPricePerMinute,
-            ("ConfigurationSetName" Core..=)
+            ("ConfigurationSetName" Data..=)
               Prelude.<$> configurationSetName,
-            ("Context" Core..=) Prelude.<$> context,
-            ("MessageBody" Core..=) Prelude.<$> messageBody,
-            ("DryRun" Core..=) Prelude.<$> dryRun,
-            ("MessageBodyTextType" Core..=)
+            ("Context" Data..=) Prelude.<$> context,
+            ("MessageBody" Data..=) Prelude.<$> messageBody,
+            ("DryRun" Data..=) Prelude.<$> dryRun,
+            ("MessageBodyTextType" Data..=)
               Prelude.<$> messageBodyTextType,
             Prelude.Just
               ( "DestinationPhoneNumber"
-                  Core..= destinationPhoneNumber
+                  Data..= destinationPhoneNumber
               ),
             Prelude.Just
-              ("OriginationIdentity" Core..= originationIdentity)
+              ("OriginationIdentity" Data..= originationIdentity)
           ]
       )
 
-instance Core.ToPath SendVoiceMessage where
+instance Data.ToPath SendVoiceMessage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendVoiceMessage where
+instance Data.ToQuery SendVoiceMessage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendVoiceMessageResponse' smart constructor.

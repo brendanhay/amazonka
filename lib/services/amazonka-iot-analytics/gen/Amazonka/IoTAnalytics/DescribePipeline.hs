@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest DescribePipeline where
     Response.receiveJSON
       ( \s h x ->
           DescribePipelineResponse'
-            Prelude.<$> (x Core..?> "pipeline")
+            Prelude.<$> (x Data..?> "pipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,15 +95,15 @@ instance Prelude.Hashable DescribePipeline where
 instance Prelude.NFData DescribePipeline where
   rnf DescribePipeline' {..} = Prelude.rnf pipelineName
 
-instance Core.ToHeaders DescribePipeline where
+instance Data.ToHeaders DescribePipeline where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribePipeline where
+instance Data.ToPath DescribePipeline where
   toPath DescribePipeline' {..} =
     Prelude.mconcat
-      ["/pipelines/", Core.toBS pipelineName]
+      ["/pipelines/", Data.toBS pipelineName]
 
-instance Core.ToQuery DescribePipeline where
+instance Data.ToQuery DescribePipeline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePipelineResponse' smart constructor.

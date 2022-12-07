@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -60,7 +61,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newListBatchJobExecutions' smart constructor.
 data ListBatchJobExecutions = ListBatchJobExecutions'
   { -- | The time before the batch job executions started.
-    startedBefore :: Prelude.Maybe Core.POSIX,
+    startedBefore :: Prelude.Maybe Data.POSIX,
     -- | A pagination token to control the number of batch job executions
     -- displayed in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -71,7 +72,7 @@ data ListBatchJobExecutions = ListBatchJobExecutions'
     -- | The maximum number of batch job executions to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The time after which the batch job executions started.
-    startedAfter :: Prelude.Maybe Core.POSIX,
+    startedAfter :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of each batch job execution.
     executionIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The unique identifier of the application.
@@ -122,7 +123,7 @@ newListBatchJobExecutions pApplicationId_ =
 
 -- | The time before the batch job executions started.
 listBatchJobExecutions_startedBefore :: Lens.Lens' ListBatchJobExecutions (Prelude.Maybe Prelude.UTCTime)
-listBatchJobExecutions_startedBefore = Lens.lens (\ListBatchJobExecutions' {startedBefore} -> startedBefore) (\s@ListBatchJobExecutions' {} a -> s {startedBefore = a} :: ListBatchJobExecutions) Prelude.. Lens.mapping Core._Time
+listBatchJobExecutions_startedBefore = Lens.lens (\ListBatchJobExecutions' {startedBefore} -> startedBefore) (\s@ListBatchJobExecutions' {} a -> s {startedBefore = a} :: ListBatchJobExecutions) Prelude.. Lens.mapping Data._Time
 
 -- | A pagination token to control the number of batch job executions
 -- displayed in the list.
@@ -143,7 +144,7 @@ listBatchJobExecutions_maxResults = Lens.lens (\ListBatchJobExecutions' {maxResu
 
 -- | The time after which the batch job executions started.
 listBatchJobExecutions_startedAfter :: Lens.Lens' ListBatchJobExecutions (Prelude.Maybe Prelude.UTCTime)
-listBatchJobExecutions_startedAfter = Lens.lens (\ListBatchJobExecutions' {startedAfter} -> startedAfter) (\s@ListBatchJobExecutions' {} a -> s {startedAfter = a} :: ListBatchJobExecutions) Prelude.. Lens.mapping Core._Time
+listBatchJobExecutions_startedAfter = Lens.lens (\ListBatchJobExecutions' {startedAfter} -> startedAfter) (\s@ListBatchJobExecutions' {} a -> s {startedAfter = a} :: ListBatchJobExecutions) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of each batch job execution.
 listBatchJobExecutions_executionIds :: Lens.Lens' ListBatchJobExecutions (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -184,9 +185,9 @@ instance Core.AWSRequest ListBatchJobExecutions where
     Response.receiveJSON
       ( \s h x ->
           ListBatchJobExecutionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "batchJobExecutions"
+            Prelude.<*> ( x Data..?> "batchJobExecutions"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -213,37 +214,37 @@ instance Prelude.NFData ListBatchJobExecutions where
       `Prelude.seq` Prelude.rnf executionIds
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders ListBatchJobExecutions where
+instance Data.ToHeaders ListBatchJobExecutions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListBatchJobExecutions where
+instance Data.ToPath ListBatchJobExecutions where
   toPath ListBatchJobExecutions' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/batch-job-executions"
       ]
 
-instance Core.ToQuery ListBatchJobExecutions where
+instance Data.ToQuery ListBatchJobExecutions where
   toQuery ListBatchJobExecutions' {..} =
     Prelude.mconcat
-      [ "startedBefore" Core.=: startedBefore,
-        "nextToken" Core.=: nextToken,
-        "jobName" Core.=: jobName,
-        "status" Core.=: status,
-        "maxResults" Core.=: maxResults,
-        "startedAfter" Core.=: startedAfter,
+      [ "startedBefore" Data.=: startedBefore,
+        "nextToken" Data.=: nextToken,
+        "jobName" Data.=: jobName,
+        "status" Data.=: status,
+        "maxResults" Data.=: maxResults,
+        "startedAfter" Data.=: startedAfter,
         "executionIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> executionIds)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> executionIds)
       ]
 
 -- | /See:/ 'newListBatchJobExecutionsResponse' smart constructor.

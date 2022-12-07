@@ -21,6 +21,7 @@ module Amazonka.Comprehend.Types.DominantLanguage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns the code for the dominant language in the input text and the
@@ -75,14 +76,14 @@ dominantLanguage_score = Lens.lens (\DominantLanguage' {score} -> score) (\s@Dom
 dominantLanguage_languageCode :: Lens.Lens' DominantLanguage (Prelude.Maybe Prelude.Text)
 dominantLanguage_languageCode = Lens.lens (\DominantLanguage' {languageCode} -> languageCode) (\s@DominantLanguage' {} a -> s {languageCode = a} :: DominantLanguage)
 
-instance Core.FromJSON DominantLanguage where
+instance Data.FromJSON DominantLanguage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DominantLanguage"
       ( \x ->
           DominantLanguage'
-            Prelude.<$> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "LanguageCode")
+            Prelude.<$> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "LanguageCode")
       )
 
 instance Prelude.Hashable DominantLanguage where

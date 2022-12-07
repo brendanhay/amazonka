@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.StateInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newStateInfo' smart constructor.
@@ -57,14 +58,14 @@ stateInfo_message = Lens.lens (\StateInfo' {message} -> message) (\s@StateInfo' 
 stateInfo_code :: Lens.Lens' StateInfo (Prelude.Maybe Prelude.Text)
 stateInfo_code = Lens.lens (\StateInfo' {code} -> code) (\s@StateInfo' {} a -> s {code = a} :: StateInfo)
 
-instance Core.FromJSON StateInfo where
+instance Data.FromJSON StateInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StateInfo"
       ( \x ->
           StateInfo'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
       )
 
 instance Prelude.Hashable StateInfo where

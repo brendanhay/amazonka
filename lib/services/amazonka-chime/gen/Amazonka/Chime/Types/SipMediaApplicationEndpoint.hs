@@ -21,6 +21,7 @@ module Amazonka.Chime.Types.SipMediaApplicationEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The endpoint assigned to the SIP media application.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data SipMediaApplicationEndpoint = SipMediaApplicationEndpoint'
   { -- | Valid Amazon Resource Name (ARN) of the Lambda function. The function
     -- must be created in the same AWS Region as the SIP media application.
-    lambdaArn :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    lambdaArn :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -54,15 +55,15 @@ newSipMediaApplicationEndpoint =
 -- | Valid Amazon Resource Name (ARN) of the Lambda function. The function
 -- must be created in the same AWS Region as the SIP media application.
 sipMediaApplicationEndpoint_lambdaArn :: Lens.Lens' SipMediaApplicationEndpoint (Prelude.Maybe Prelude.Text)
-sipMediaApplicationEndpoint_lambdaArn = Lens.lens (\SipMediaApplicationEndpoint' {lambdaArn} -> lambdaArn) (\s@SipMediaApplicationEndpoint' {} a -> s {lambdaArn = a} :: SipMediaApplicationEndpoint) Prelude.. Lens.mapping Core._Sensitive
+sipMediaApplicationEndpoint_lambdaArn = Lens.lens (\SipMediaApplicationEndpoint' {lambdaArn} -> lambdaArn) (\s@SipMediaApplicationEndpoint' {} a -> s {lambdaArn = a} :: SipMediaApplicationEndpoint) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON SipMediaApplicationEndpoint where
+instance Data.FromJSON SipMediaApplicationEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SipMediaApplicationEndpoint"
       ( \x ->
           SipMediaApplicationEndpoint'
-            Prelude.<$> (x Core..:? "LambdaArn")
+            Prelude.<$> (x Data..:? "LambdaArn")
       )
 
 instance Prelude.Hashable SipMediaApplicationEndpoint where
@@ -73,9 +74,9 @@ instance Prelude.NFData SipMediaApplicationEndpoint where
   rnf SipMediaApplicationEndpoint' {..} =
     Prelude.rnf lambdaArn
 
-instance Core.ToJSON SipMediaApplicationEndpoint where
+instance Data.ToJSON SipMediaApplicationEndpoint where
   toJSON SipMediaApplicationEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("LambdaArn" Core..=) Prelude.<$> lambdaArn]
+          [("LambdaArn" Data..=) Prelude.<$> lambdaArn]
       )

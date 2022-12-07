@@ -48,6 +48,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,34 +110,34 @@ instance Prelude.NFData StopTrainingEntityRecognizer where
   rnf StopTrainingEntityRecognizer' {..} =
     Prelude.rnf entityRecognizerArn
 
-instance Core.ToHeaders StopTrainingEntityRecognizer where
+instance Data.ToHeaders StopTrainingEntityRecognizer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.StopTrainingEntityRecognizer" ::
+              Data.=# ( "Comprehend_20171127.StopTrainingEntityRecognizer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopTrainingEntityRecognizer where
+instance Data.ToJSON StopTrainingEntityRecognizer where
   toJSON StopTrainingEntityRecognizer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("EntityRecognizerArn" Core..= entityRecognizerArn)
+              ("EntityRecognizerArn" Data..= entityRecognizerArn)
           ]
       )
 
-instance Core.ToPath StopTrainingEntityRecognizer where
+instance Data.ToPath StopTrainingEntityRecognizer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopTrainingEntityRecognizer where
+instance Data.ToQuery StopTrainingEntityRecognizer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopTrainingEntityRecognizerResponse' smart constructor.

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,14 +129,14 @@ instance Core.AWSRequest CreateBotVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateBotVersionResponse'
-            Prelude.<$> ( x Core..?> "botVersionLocaleSpecification"
+            Prelude.<$> ( x Data..?> "botVersionLocaleSpecification"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botStatus")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,35 +152,35 @@ instance Prelude.NFData CreateBotVersion where
       `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersionLocaleSpecification
 
-instance Core.ToHeaders CreateBotVersion where
+instance Data.ToHeaders CreateBotVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBotVersion where
+instance Data.ToJSON CreateBotVersion where
   toJSON CreateBotVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
             Prelude.Just
               ( "botVersionLocaleSpecification"
-                  Core..= botVersionLocaleSpecification
+                  Data..= botVersionLocaleSpecification
               )
           ]
       )
 
-instance Core.ToPath CreateBotVersion where
+instance Data.ToPath CreateBotVersion where
   toPath CreateBotVersion' {..} =
     Prelude.mconcat
-      ["/bots/", Core.toBS botId, "/botversions/"]
+      ["/bots/", Data.toBS botId, "/botversions/"]
 
-instance Core.ToQuery CreateBotVersion where
+instance Data.ToQuery CreateBotVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBotVersionResponse' smart constructor.
@@ -189,7 +190,7 @@ data CreateBotVersionResponse = CreateBotVersionResponse'
     -- | The version number assigned to the version.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the version was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the version specified in the request.
     description :: Prelude.Maybe Prelude.Text,
     -- | The bot identifier specified in the request.
@@ -254,7 +255,7 @@ createBotVersionResponse_botVersion = Lens.lens (\CreateBotVersionResponse' {bot
 
 -- | A timestamp of the date and time that the version was created.
 createBotVersionResponse_creationDateTime :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.UTCTime)
-createBotVersionResponse_creationDateTime = Lens.lens (\CreateBotVersionResponse' {creationDateTime} -> creationDateTime) (\s@CreateBotVersionResponse' {} a -> s {creationDateTime = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Core._Time
+createBotVersionResponse_creationDateTime = Lens.lens (\CreateBotVersionResponse' {creationDateTime} -> creationDateTime) (\s@CreateBotVersionResponse' {} a -> s {creationDateTime = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the version specified in the request.
 createBotVersionResponse_description :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Text)

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance Core.AWSRequest RemoveAttributesFromFindings where
       ( \s h x ->
           RemoveAttributesFromFindingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failedItems" Core..!@ Prelude.mempty)
       )
 
 instance
@@ -121,35 +122,35 @@ instance Prelude.NFData RemoveAttributesFromFindings where
     Prelude.rnf findingArns
       `Prelude.seq` Prelude.rnf attributeKeys
 
-instance Core.ToHeaders RemoveAttributesFromFindings where
+instance Data.ToHeaders RemoveAttributesFromFindings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.RemoveAttributesFromFindings" ::
+              Data.=# ( "InspectorService.RemoveAttributesFromFindings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RemoveAttributesFromFindings where
+instance Data.ToJSON RemoveAttributesFromFindings where
   toJSON RemoveAttributesFromFindings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("findingArns" Core..= findingArns),
+          [ Prelude.Just ("findingArns" Data..= findingArns),
             Prelude.Just
-              ("attributeKeys" Core..= attributeKeys)
+              ("attributeKeys" Data..= attributeKeys)
           ]
       )
 
-instance Core.ToPath RemoveAttributesFromFindings where
+instance Data.ToPath RemoveAttributesFromFindings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveAttributesFromFindings where
+instance Data.ToQuery RemoveAttributesFromFindings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveAttributesFromFindingsResponse' smart constructor.

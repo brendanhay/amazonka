@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -195,7 +196,7 @@ instance Core.AWSRequest CreateAccessPoint where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateAccessPoint where
   hashWithSalt _salt CreateAccessPoint' {..} =
@@ -213,23 +214,23 @@ instance Prelude.NFData CreateAccessPoint where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf fileSystemId
 
-instance Core.ToHeaders CreateAccessPoint where
+instance Data.ToHeaders CreateAccessPoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateAccessPoint where
+instance Data.ToJSON CreateAccessPoint where
   toJSON CreateAccessPoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("PosixUser" Core..=) Prelude.<$> posixUser,
-            ("RootDirectory" Core..=) Prelude.<$> rootDirectory,
-            Prelude.Just ("ClientToken" Core..= clientToken),
-            Prelude.Just ("FileSystemId" Core..= fileSystemId)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("PosixUser" Data..=) Prelude.<$> posixUser,
+            ("RootDirectory" Data..=) Prelude.<$> rootDirectory,
+            Prelude.Just ("ClientToken" Data..= clientToken),
+            Prelude.Just ("FileSystemId" Data..= fileSystemId)
           ]
       )
 
-instance Core.ToPath CreateAccessPoint where
+instance Data.ToPath CreateAccessPoint where
   toPath = Prelude.const "/2015-02-01/access-points"
 
-instance Core.ToQuery CreateAccessPoint where
+instance Data.ToQuery CreateAccessPoint where
   toQuery = Prelude.const Prelude.mempty

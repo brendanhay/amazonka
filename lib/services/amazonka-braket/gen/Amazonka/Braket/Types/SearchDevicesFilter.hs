@@ -21,6 +21,7 @@ module Amazonka.Braket.Types.SearchDevicesFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The filter to use for searching devices.
@@ -74,11 +75,11 @@ instance Prelude.NFData SearchDevicesFilter where
   rnf SearchDevicesFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON SearchDevicesFilter where
+instance Data.ToJSON SearchDevicesFilter where
   toJSON SearchDevicesFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("values" Core..= values)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("values" Data..= values)
           ]
       )

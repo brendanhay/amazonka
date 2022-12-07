@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,7 +98,7 @@ instance Core.AWSRequest VerifyDomainIdentity where
       ( \s h x ->
           VerifyDomainIdentityResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "VerificationToken")
+            Prelude.<*> (x Data..@ "VerificationToken")
       )
 
 instance Prelude.Hashable VerifyDomainIdentity where
@@ -107,20 +108,20 @@ instance Prelude.Hashable VerifyDomainIdentity where
 instance Prelude.NFData VerifyDomainIdentity where
   rnf VerifyDomainIdentity' {..} = Prelude.rnf domain
 
-instance Core.ToHeaders VerifyDomainIdentity where
+instance Data.ToHeaders VerifyDomainIdentity where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath VerifyDomainIdentity where
+instance Data.ToPath VerifyDomainIdentity where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery VerifyDomainIdentity where
+instance Data.ToQuery VerifyDomainIdentity where
   toQuery VerifyDomainIdentity' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("VerifyDomainIdentity" :: Prelude.ByteString),
+          Data.=: ("VerifyDomainIdentity" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "Domain" Core.=: domain
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "Domain" Data.=: domain
       ]
 
 -- | Returns a TXT record that you must publish to the DNS server of your

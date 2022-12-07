@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -306,40 +307,40 @@ instance Prelude.NFData ReplaceRoute where
       `Prelude.seq` Prelude.rnf localTarget
       `Prelude.seq` Prelude.rnf routeTableId
 
-instance Core.ToHeaders ReplaceRoute where
+instance Data.ToHeaders ReplaceRoute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ReplaceRoute where
+instance Data.ToPath ReplaceRoute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ReplaceRoute where
+instance Data.ToQuery ReplaceRoute where
   toQuery ReplaceRoute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ReplaceRoute" :: Prelude.ByteString),
+          Data.=: ("ReplaceRoute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "LocalGatewayId" Core.=: localGatewayId,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "LocalGatewayId" Data.=: localGatewayId,
         "DestinationPrefixListId"
-          Core.=: destinationPrefixListId,
-        "CarrierGatewayId" Core.=: carrierGatewayId,
-        "TransitGatewayId" Core.=: transitGatewayId,
-        "NatGatewayId" Core.=: natGatewayId,
+          Data.=: destinationPrefixListId,
+        "CarrierGatewayId" Data.=: carrierGatewayId,
+        "TransitGatewayId" Data.=: transitGatewayId,
+        "NatGatewayId" Data.=: natGatewayId,
         "VpcPeeringConnectionId"
-          Core.=: vpcPeeringConnectionId,
-        "VpcEndpointId" Core.=: vpcEndpointId,
-        "DryRun" Core.=: dryRun,
-        "DestinationCidrBlock" Core.=: destinationCidrBlock,
-        "CoreNetworkArn" Core.=: coreNetworkArn,
-        "InstanceId" Core.=: instanceId,
+          Data.=: vpcPeeringConnectionId,
+        "VpcEndpointId" Data.=: vpcEndpointId,
+        "DryRun" Data.=: dryRun,
+        "DestinationCidrBlock" Data.=: destinationCidrBlock,
+        "CoreNetworkArn" Data.=: coreNetworkArn,
+        "InstanceId" Data.=: instanceId,
         "EgressOnlyInternetGatewayId"
-          Core.=: egressOnlyInternetGatewayId,
-        "NetworkInterfaceId" Core.=: networkInterfaceId,
-        "GatewayId" Core.=: gatewayId,
+          Data.=: egressOnlyInternetGatewayId,
+        "NetworkInterfaceId" Data.=: networkInterfaceId,
+        "GatewayId" Data.=: gatewayId,
         "DestinationIpv6CidrBlock"
-          Core.=: destinationIpv6CidrBlock,
-        "LocalTarget" Core.=: localTarget,
-        "RouteTableId" Core.=: routeTableId
+          Data.=: destinationIpv6CidrBlock,
+        "LocalTarget" Data.=: localTarget,
+        "RouteTableId" Data.=: routeTableId
       ]
 
 -- | /See:/ 'newReplaceRouteResponse' smart constructor.

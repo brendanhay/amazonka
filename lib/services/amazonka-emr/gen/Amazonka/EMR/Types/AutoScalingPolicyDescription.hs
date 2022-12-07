@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.AutoScalingPolicyDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.AutoScalingPolicyStatus
 import Amazonka.EMR.Types.ScalingConstraints
 import Amazonka.EMR.Types.ScalingRule
@@ -86,15 +87,15 @@ autoScalingPolicyDescription_rules = Lens.lens (\AutoScalingPolicyDescription' {
 autoScalingPolicyDescription_status :: Lens.Lens' AutoScalingPolicyDescription (Prelude.Maybe AutoScalingPolicyStatus)
 autoScalingPolicyDescription_status = Lens.lens (\AutoScalingPolicyDescription' {status} -> status) (\s@AutoScalingPolicyDescription' {} a -> s {status = a} :: AutoScalingPolicyDescription)
 
-instance Core.FromJSON AutoScalingPolicyDescription where
+instance Data.FromJSON AutoScalingPolicyDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoScalingPolicyDescription"
       ( \x ->
           AutoScalingPolicyDescription'
-            Prelude.<$> (x Core..:? "Constraints")
-            Prelude.<*> (x Core..:? "Rules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "Constraints")
+            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance

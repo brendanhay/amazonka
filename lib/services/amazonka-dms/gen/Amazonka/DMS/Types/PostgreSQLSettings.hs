@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.PostgreSQLSettings where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.PluginNameValue
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines a PostgreSQL endpoint.
@@ -80,7 +81,7 @@ data PostgreSQLSettings = PostgreSQLSettings'
     -- Example: @executeTimeout=100;@
     executeTimeout :: Prelude.Maybe Prelude.Int,
     -- | Endpoint connection password.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Fully qualified domain name of the endpoint.
     serverName :: Prelude.Maybe Prelude.Text,
     -- | Database name for the endpoint.
@@ -322,7 +323,7 @@ postgreSQLSettings_executeTimeout = Lens.lens (\PostgreSQLSettings' {executeTime
 
 -- | Endpoint connection password.
 postgreSQLSettings_password :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Text)
-postgreSQLSettings_password = Lens.lens (\PostgreSQLSettings' {password} -> password) (\s@PostgreSQLSettings' {} a -> s {password = a} :: PostgreSQLSettings) Prelude.. Lens.mapping Core._Sensitive
+postgreSQLSettings_password = Lens.lens (\PostgreSQLSettings' {password} -> password) (\s@PostgreSQLSettings' {} a -> s {password = a} :: PostgreSQLSettings) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Fully qualified domain name of the endpoint.
 postgreSQLSettings_serverName :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Text)
@@ -392,31 +393,31 @@ postgreSQLSettings_heartbeatSchema = Lens.lens (\PostgreSQLSettings' {heartbeatS
 postgreSQLSettings_heartbeatEnable :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Bool)
 postgreSQLSettings_heartbeatEnable = Lens.lens (\PostgreSQLSettings' {heartbeatEnable} -> heartbeatEnable) (\s@PostgreSQLSettings' {} a -> s {heartbeatEnable = a} :: PostgreSQLSettings)
 
-instance Core.FromJSON PostgreSQLSettings where
+instance Data.FromJSON PostgreSQLSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PostgreSQLSettings"
       ( \x ->
           PostgreSQLSettings'
-            Prelude.<$> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "MaxFileSize")
-            Prelude.<*> (x Core..:? "SlotName")
-            Prelude.<*> (x Core..:? "TrimSpaceInChar")
-            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
-            Prelude.<*> (x Core..:? "ExecuteTimeout")
-            Prelude.<*> (x Core..:? "Password")
-            Prelude.<*> (x Core..:? "ServerName")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "DdlArtifactsSchema")
-            Prelude.<*> (x Core..:? "CaptureDdls")
-            Prelude.<*> (x Core..:? "FailTasksOnLobTruncation")
-            Prelude.<*> (x Core..:? "AfterConnectScript")
-            Prelude.<*> (x Core..:? "HeartbeatFrequency")
-            Prelude.<*> (x Core..:? "SecretsManagerSecretId")
-            Prelude.<*> (x Core..:? "PluginName")
-            Prelude.<*> (x Core..:? "HeartbeatSchema")
-            Prelude.<*> (x Core..:? "HeartbeatEnable")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..:? "MaxFileSize")
+            Prelude.<*> (x Data..:? "SlotName")
+            Prelude.<*> (x Data..:? "TrimSpaceInChar")
+            Prelude.<*> (x Data..:? "SecretsManagerAccessRoleArn")
+            Prelude.<*> (x Data..:? "ExecuteTimeout")
+            Prelude.<*> (x Data..:? "Password")
+            Prelude.<*> (x Data..:? "ServerName")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Username")
+            Prelude.<*> (x Data..:? "DdlArtifactsSchema")
+            Prelude.<*> (x Data..:? "CaptureDdls")
+            Prelude.<*> (x Data..:? "FailTasksOnLobTruncation")
+            Prelude.<*> (x Data..:? "AfterConnectScript")
+            Prelude.<*> (x Data..:? "HeartbeatFrequency")
+            Prelude.<*> (x Data..:? "SecretsManagerSecretId")
+            Prelude.<*> (x Data..:? "PluginName")
+            Prelude.<*> (x Data..:? "HeartbeatSchema")
+            Prelude.<*> (x Data..:? "HeartbeatEnable")
       )
 
 instance Prelude.Hashable PostgreSQLSettings where
@@ -463,38 +464,38 @@ instance Prelude.NFData PostgreSQLSettings where
       `Prelude.seq` Prelude.rnf heartbeatSchema
       `Prelude.seq` Prelude.rnf heartbeatEnable
 
-instance Core.ToJSON PostgreSQLSettings where
+instance Data.ToJSON PostgreSQLSettings where
   toJSON PostgreSQLSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Port" Core..=) Prelude.<$> port,
-            ("MaxFileSize" Core..=) Prelude.<$> maxFileSize,
-            ("SlotName" Core..=) Prelude.<$> slotName,
-            ("TrimSpaceInChar" Core..=)
+          [ ("Port" Data..=) Prelude.<$> port,
+            ("MaxFileSize" Data..=) Prelude.<$> maxFileSize,
+            ("SlotName" Data..=) Prelude.<$> slotName,
+            ("TrimSpaceInChar" Data..=)
               Prelude.<$> trimSpaceInChar,
-            ("SecretsManagerAccessRoleArn" Core..=)
+            ("SecretsManagerAccessRoleArn" Data..=)
               Prelude.<$> secretsManagerAccessRoleArn,
-            ("ExecuteTimeout" Core..=)
+            ("ExecuteTimeout" Data..=)
               Prelude.<$> executeTimeout,
-            ("Password" Core..=) Prelude.<$> password,
-            ("ServerName" Core..=) Prelude.<$> serverName,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("Username" Core..=) Prelude.<$> username,
-            ("DdlArtifactsSchema" Core..=)
+            ("Password" Data..=) Prelude.<$> password,
+            ("ServerName" Data..=) Prelude.<$> serverName,
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("Username" Data..=) Prelude.<$> username,
+            ("DdlArtifactsSchema" Data..=)
               Prelude.<$> ddlArtifactsSchema,
-            ("CaptureDdls" Core..=) Prelude.<$> captureDdls,
-            ("FailTasksOnLobTruncation" Core..=)
+            ("CaptureDdls" Data..=) Prelude.<$> captureDdls,
+            ("FailTasksOnLobTruncation" Data..=)
               Prelude.<$> failTasksOnLobTruncation,
-            ("AfterConnectScript" Core..=)
+            ("AfterConnectScript" Data..=)
               Prelude.<$> afterConnectScript,
-            ("HeartbeatFrequency" Core..=)
+            ("HeartbeatFrequency" Data..=)
               Prelude.<$> heartbeatFrequency,
-            ("SecretsManagerSecretId" Core..=)
+            ("SecretsManagerSecretId" Data..=)
               Prelude.<$> secretsManagerSecretId,
-            ("PluginName" Core..=) Prelude.<$> pluginName,
-            ("HeartbeatSchema" Core..=)
+            ("PluginName" Data..=) Prelude.<$> pluginName,
+            ("HeartbeatSchema" Data..=)
               Prelude.<$> heartbeatSchema,
-            ("HeartbeatEnable" Core..=)
+            ("HeartbeatEnable" Data..=)
               Prelude.<$> heartbeatEnable
           ]
       )

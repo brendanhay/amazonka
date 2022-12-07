@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.ObjectLevelStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the total storage size (in bytes) or number
@@ -94,15 +95,15 @@ objectLevelStatistics_fileType = Lens.lens (\ObjectLevelStatistics' {fileType} -
 objectLevelStatistics_storageClass :: Lens.Lens' ObjectLevelStatistics (Prelude.Maybe Prelude.Integer)
 objectLevelStatistics_storageClass = Lens.lens (\ObjectLevelStatistics' {storageClass} -> storageClass) (\s@ObjectLevelStatistics' {} a -> s {storageClass = a} :: ObjectLevelStatistics)
 
-instance Core.FromJSON ObjectLevelStatistics where
+instance Data.FromJSON ObjectLevelStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ObjectLevelStatistics"
       ( \x ->
           ObjectLevelStatistics'
-            Prelude.<$> (x Core..:? "total")
-            Prelude.<*> (x Core..:? "fileType")
-            Prelude.<*> (x Core..:? "storageClass")
+            Prelude.<$> (x Data..:? "total")
+            Prelude.<*> (x Data..:? "fileType")
+            Prelude.<*> (x Data..:? "storageClass")
       )
 
 instance Prelude.Hashable ObjectLevelStatistics where

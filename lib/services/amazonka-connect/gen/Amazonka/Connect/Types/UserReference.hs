@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.UserReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the user.
@@ -61,13 +62,13 @@ userReference_arn = Lens.lens (\UserReference' {arn} -> arn) (\s@UserReference' 
 userReference_id :: Lens.Lens' UserReference (Prelude.Maybe Prelude.Text)
 userReference_id = Lens.lens (\UserReference' {id} -> id) (\s@UserReference' {} a -> s {id = a} :: UserReference)
 
-instance Core.FromJSON UserReference where
+instance Data.FromJSON UserReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserReference"
       ( \x ->
           UserReference'
-            Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable UserReference where

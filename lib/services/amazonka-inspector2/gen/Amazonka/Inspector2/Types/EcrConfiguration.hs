@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.EcrConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.EcrRescanDuration
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,11 +78,11 @@ instance Prelude.NFData EcrConfiguration where
   rnf EcrConfiguration' {..} =
     Prelude.rnf rescanDuration
 
-instance Core.ToJSON EcrConfiguration where
+instance Data.ToJSON EcrConfiguration where
   toJSON EcrConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("rescanDuration" Core..= rescanDuration)
+              ("rescanDuration" Data..= rescanDuration)
           ]
       )

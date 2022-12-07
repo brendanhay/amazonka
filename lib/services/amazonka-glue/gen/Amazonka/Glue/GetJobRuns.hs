@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,8 +126,8 @@ instance Core.AWSRequest GetJobRuns where
     Response.receiveJSON
       ( \s h x ->
           GetJobRunsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "JobRuns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "JobRuns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,33 +143,33 @@ instance Prelude.NFData GetJobRuns where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobName
 
-instance Core.ToHeaders GetJobRuns where
+instance Data.ToHeaders GetJobRuns where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetJobRuns" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetJobRuns" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetJobRuns where
+instance Data.ToJSON GetJobRuns where
   toJSON GetJobRuns' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("JobName" Core..= jobName)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("JobName" Data..= jobName)
           ]
       )
 
-instance Core.ToPath GetJobRuns where
+instance Data.ToPath GetJobRuns where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetJobRuns where
+instance Data.ToQuery GetJobRuns where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetJobRunsResponse' smart constructor.

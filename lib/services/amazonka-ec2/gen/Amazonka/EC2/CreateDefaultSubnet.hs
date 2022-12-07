@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,7 +125,7 @@ instance Core.AWSRequest CreateDefaultSubnet where
     Response.receiveXML
       ( \s h x ->
           CreateDefaultSubnetResponse'
-            Prelude.<$> (x Core..@? "subnet")
+            Prelude.<$> (x Data..@? "subnet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,22 +141,22 @@ instance Prelude.NFData CreateDefaultSubnet where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf availabilityZone
 
-instance Core.ToHeaders CreateDefaultSubnet where
+instance Data.ToHeaders CreateDefaultSubnet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDefaultSubnet where
+instance Data.ToPath CreateDefaultSubnet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDefaultSubnet where
+instance Data.ToQuery CreateDefaultSubnet where
   toQuery CreateDefaultSubnet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDefaultSubnet" :: Prelude.ByteString),
+          Data.=: ("CreateDefaultSubnet" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Ipv6Native" Core.=: ipv6Native,
-        "DryRun" Core.=: dryRun,
-        "AvailabilityZone" Core.=: availabilityZone
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Ipv6Native" Data.=: ipv6Native,
+        "DryRun" Data.=: dryRun,
+        "AvailabilityZone" Data.=: availabilityZone
       ]
 
 -- | /See:/ 'newCreateDefaultSubnetResponse' smart constructor.

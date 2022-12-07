@@ -43,6 +43,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,14 +91,14 @@ instance Prelude.Hashable DeleteMeeting where
 instance Prelude.NFData DeleteMeeting where
   rnf DeleteMeeting' {..} = Prelude.rnf meetingId
 
-instance Core.ToHeaders DeleteMeeting where
+instance Data.ToHeaders DeleteMeeting where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteMeeting where
+instance Data.ToPath DeleteMeeting where
   toPath DeleteMeeting' {..} =
-    Prelude.mconcat ["/meetings/", Core.toBS meetingId]
+    Prelude.mconcat ["/meetings/", Data.toBS meetingId]
 
-instance Core.ToQuery DeleteMeeting where
+instance Data.ToQuery DeleteMeeting where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMeetingResponse' smart constructor.

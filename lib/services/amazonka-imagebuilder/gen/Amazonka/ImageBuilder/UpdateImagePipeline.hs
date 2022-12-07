@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -225,9 +226,9 @@ instance Core.AWSRequest UpdateImagePipeline where
     Response.receiveJSON
       ( \s h x ->
           UpdateImagePipelineResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-            Prelude.<*> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "imagePipelineArn")
+            Prelude.<$> (x Data..?> "clientToken")
+            Prelude.<*> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "imagePipelineArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -260,48 +261,48 @@ instance Prelude.NFData UpdateImagePipeline where
       `Prelude.seq` Prelude.rnf infrastructureConfigurationArn
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders UpdateImagePipeline where
+instance Data.ToHeaders UpdateImagePipeline where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateImagePipeline where
+instance Data.ToJSON UpdateImagePipeline where
   toJSON UpdateImagePipeline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("enhancedImageMetadataEnabled" Core..=)
+          [ ("enhancedImageMetadataEnabled" Data..=)
               Prelude.<$> enhancedImageMetadataEnabled,
-            ("schedule" Core..=) Prelude.<$> schedule,
-            ("imageTestsConfiguration" Core..=)
+            ("schedule" Data..=) Prelude.<$> schedule,
+            ("imageTestsConfiguration" Data..=)
               Prelude.<$> imageTestsConfiguration,
-            ("imageRecipeArn" Core..=)
+            ("imageRecipeArn" Data..=)
               Prelude.<$> imageRecipeArn,
-            ("status" Core..=) Prelude.<$> status,
-            ("description" Core..=) Prelude.<$> description,
-            ("containerRecipeArn" Core..=)
+            ("status" Data..=) Prelude.<$> status,
+            ("description" Data..=) Prelude.<$> description,
+            ("containerRecipeArn" Data..=)
               Prelude.<$> containerRecipeArn,
-            ("distributionConfigurationArn" Core..=)
+            ("distributionConfigurationArn" Data..=)
               Prelude.<$> distributionConfigurationArn,
             Prelude.Just
-              ("imagePipelineArn" Core..= imagePipelineArn),
+              ("imagePipelineArn" Data..= imagePipelineArn),
             Prelude.Just
               ( "infrastructureConfigurationArn"
-                  Core..= infrastructureConfigurationArn
+                  Data..= infrastructureConfigurationArn
               ),
-            Prelude.Just ("clientToken" Core..= clientToken)
+            Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath UpdateImagePipeline where
+instance Data.ToPath UpdateImagePipeline where
   toPath = Prelude.const "/UpdateImagePipeline"
 
-instance Core.ToQuery UpdateImagePipeline where
+instance Data.ToQuery UpdateImagePipeline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateImagePipelineResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRdsEventSubscriptionDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about an Amazon RDS event notification subscription. The
@@ -162,24 +163,24 @@ awsRdsEventSubscriptionDetails_eventSubscriptionArn = Lens.lens (\AwsRdsEventSub
 awsRdsEventSubscriptionDetails_customerAwsId :: Lens.Lens' AwsRdsEventSubscriptionDetails (Prelude.Maybe Prelude.Text)
 awsRdsEventSubscriptionDetails_customerAwsId = Lens.lens (\AwsRdsEventSubscriptionDetails' {customerAwsId} -> customerAwsId) (\s@AwsRdsEventSubscriptionDetails' {} a -> s {customerAwsId = a} :: AwsRdsEventSubscriptionDetails)
 
-instance Core.FromJSON AwsRdsEventSubscriptionDetails where
+instance Data.FromJSON AwsRdsEventSubscriptionDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRdsEventSubscriptionDetails"
       ( \x ->
           AwsRdsEventSubscriptionDetails'
-            Prelude.<$> (x Core..:? "SubscriptionCreationTime")
-            Prelude.<*> (x Core..:? "CustSubscriptionId")
-            Prelude.<*> (x Core..:? "SourceIdsList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "SourceType")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "SnsTopicArn")
-            Prelude.<*> ( x Core..:? "EventCategoriesList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SubscriptionCreationTime")
+            Prelude.<*> (x Data..:? "CustSubscriptionId")
+            Prelude.<*> (x Data..:? "SourceIdsList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "SourceType")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "SnsTopicArn")
+            Prelude.<*> ( x Data..:? "EventCategoriesList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EventSubscriptionArn")
-            Prelude.<*> (x Core..:? "CustomerAwsId")
+            Prelude.<*> (x Data..:? "EventSubscriptionArn")
+            Prelude.<*> (x Data..:? "CustomerAwsId")
       )
 
 instance
@@ -217,23 +218,23 @@ instance
       `Prelude.seq` Prelude.rnf eventSubscriptionArn
       `Prelude.seq` Prelude.rnf customerAwsId
 
-instance Core.ToJSON AwsRdsEventSubscriptionDetails where
+instance Data.ToJSON AwsRdsEventSubscriptionDetails where
   toJSON AwsRdsEventSubscriptionDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SubscriptionCreationTime" Core..=)
+          [ ("SubscriptionCreationTime" Data..=)
               Prelude.<$> subscriptionCreationTime,
-            ("CustSubscriptionId" Core..=)
+            ("CustSubscriptionId" Data..=)
               Prelude.<$> custSubscriptionId,
-            ("SourceIdsList" Core..=) Prelude.<$> sourceIdsList,
-            ("Status" Core..=) Prelude.<$> status,
-            ("SourceType" Core..=) Prelude.<$> sourceType,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
-            ("EventCategoriesList" Core..=)
+            ("SourceIdsList" Data..=) Prelude.<$> sourceIdsList,
+            ("Status" Data..=) Prelude.<$> status,
+            ("SourceType" Data..=) Prelude.<$> sourceType,
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("SnsTopicArn" Data..=) Prelude.<$> snsTopicArn,
+            ("EventCategoriesList" Data..=)
               Prelude.<$> eventCategoriesList,
-            ("EventSubscriptionArn" Core..=)
+            ("EventSubscriptionArn" Data..=)
               Prelude.<$> eventSubscriptionArn,
-            ("CustomerAwsId" Core..=) Prelude.<$> customerAwsId
+            ("CustomerAwsId" Data..=) Prelude.<$> customerAwsId
           ]
       )

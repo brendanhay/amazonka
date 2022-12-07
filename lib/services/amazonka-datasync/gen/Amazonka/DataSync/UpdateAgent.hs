@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,32 +107,32 @@ instance Prelude.NFData UpdateAgent where
   rnf UpdateAgent' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf agentArn
 
-instance Core.ToHeaders UpdateAgent where
+instance Data.ToHeaders UpdateAgent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("FmrsService.UpdateAgent" :: Prelude.ByteString),
+              Data.=# ("FmrsService.UpdateAgent" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAgent where
+instance Data.ToJSON UpdateAgent where
   toJSON UpdateAgent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            Prelude.Just ("AgentArn" Core..= agentArn)
+          [ ("Name" Data..=) Prelude.<$> name,
+            Prelude.Just ("AgentArn" Data..= agentArn)
           ]
       )
 
-instance Core.ToPath UpdateAgent where
+instance Data.ToPath UpdateAgent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAgent where
+instance Data.ToQuery UpdateAgent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAgentResponse' smart constructor.

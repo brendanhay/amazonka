@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,7 +142,7 @@ instance Core.AWSRequest UpdateFileSystem where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateFileSystem where
   hashWithSalt _salt UpdateFileSystem' {..} =
@@ -156,24 +157,24 @@ instance Prelude.NFData UpdateFileSystem where
       `Prelude.seq` Prelude.rnf throughputMode
       `Prelude.seq` Prelude.rnf fileSystemId
 
-instance Core.ToHeaders UpdateFileSystem where
+instance Data.ToHeaders UpdateFileSystem where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateFileSystem where
+instance Data.ToJSON UpdateFileSystem where
   toJSON UpdateFileSystem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProvisionedThroughputInMibps" Core..=)
+          [ ("ProvisionedThroughputInMibps" Data..=)
               Prelude.<$> provisionedThroughputInMibps,
-            ("ThroughputMode" Core..=)
+            ("ThroughputMode" Data..=)
               Prelude.<$> throughputMode
           ]
       )
 
-instance Core.ToPath UpdateFileSystem where
+instance Data.ToPath UpdateFileSystem where
   toPath UpdateFileSystem' {..} =
     Prelude.mconcat
-      ["/2015-02-01/file-systems/", Core.toBS fileSystemId]
+      ["/2015-02-01/file-systems/", Data.toBS fileSystemId]
 
-instance Core.ToQuery UpdateFileSystem where
+instance Data.ToQuery UpdateFileSystem where
   toQuery = Prelude.const Prelude.mempty

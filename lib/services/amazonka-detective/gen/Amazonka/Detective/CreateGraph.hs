@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest CreateGraph where
     Response.receiveJSON
       ( \s h x ->
           CreateGraphResponse'
-            Prelude.<$> (x Core..?> "GraphArn")
+            Prelude.<$> (x Data..?> "GraphArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,28 +119,28 @@ instance Prelude.Hashable CreateGraph where
 instance Prelude.NFData CreateGraph where
   rnf CreateGraph' {..} = Prelude.rnf tags
 
-instance Core.ToHeaders CreateGraph where
+instance Data.ToHeaders CreateGraph where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateGraph where
+instance Data.ToJSON CreateGraph where
   toJSON CreateGraph' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Tags" Core..=) Prelude.<$> tags]
+          [("Tags" Data..=) Prelude.<$> tags]
       )
 
-instance Core.ToPath CreateGraph where
+instance Data.ToPath CreateGraph where
   toPath = Prelude.const "/graph"
 
-instance Core.ToQuery CreateGraph where
+instance Data.ToQuery CreateGraph where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGraphResponse' smart constructor.

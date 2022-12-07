@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.ProvisionedCapacityDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The description of a connector\'s provisioned capacity.
@@ -65,14 +66,14 @@ provisionedCapacityDescription_workerCount = Lens.lens (\ProvisionedCapacityDesc
 provisionedCapacityDescription_mcuCount :: Lens.Lens' ProvisionedCapacityDescription (Prelude.Maybe Prelude.Int)
 provisionedCapacityDescription_mcuCount = Lens.lens (\ProvisionedCapacityDescription' {mcuCount} -> mcuCount) (\s@ProvisionedCapacityDescription' {} a -> s {mcuCount = a} :: ProvisionedCapacityDescription)
 
-instance Core.FromJSON ProvisionedCapacityDescription where
+instance Data.FromJSON ProvisionedCapacityDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisionedCapacityDescription"
       ( \x ->
           ProvisionedCapacityDescription'
-            Prelude.<$> (x Core..:? "workerCount")
-            Prelude.<*> (x Core..:? "mcuCount")
+            Prelude.<$> (x Data..:? "workerCount")
+            Prelude.<*> (x Data..:? "mcuCount")
       )
 
 instance

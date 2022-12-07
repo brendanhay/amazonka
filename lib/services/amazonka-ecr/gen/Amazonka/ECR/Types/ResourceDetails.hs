@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.ResourceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.AwsEcrContainerImageDetails
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newResourceDetails =
 resourceDetails_awsEcrContainerImage :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEcrContainerImageDetails)
 resourceDetails_awsEcrContainerImage = Lens.lens (\ResourceDetails' {awsEcrContainerImage} -> awsEcrContainerImage) (\s@ResourceDetails' {} a -> s {awsEcrContainerImage = a} :: ResourceDetails)
 
-instance Core.FromJSON ResourceDetails where
+instance Data.FromJSON ResourceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceDetails"
       ( \x ->
           ResourceDetails'
-            Prelude.<$> (x Core..:? "awsEcrContainerImage")
+            Prelude.<$> (x Data..:? "awsEcrContainerImage")
       )
 
 instance Prelude.Hashable ResourceDetails where

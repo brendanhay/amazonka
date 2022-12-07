@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.EvaluatedExternalModel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the external (Amazon Sagemaker) model evaluated for
@@ -29,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEvaluatedExternalModel' smart constructor.
 data EvaluatedExternalModel = EvaluatedExternalModel'
   { -- | Input variables use for generating predictions.
-    inputVariables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    inputVariables :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The endpoint of the external (Amazon Sagemaker) model.
     modelEndpoint :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether event variables were used to generate predictions.
     useEventVariables :: Prelude.Maybe Prelude.Bool,
     -- | Output variables.
-    outputVariables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text))
+    outputVariables :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -67,7 +68,7 @@ newEvaluatedExternalModel =
 
 -- | Input variables use for generating predictions.
 evaluatedExternalModel_inputVariables :: Lens.Lens' EvaluatedExternalModel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-evaluatedExternalModel_inputVariables = Lens.lens (\EvaluatedExternalModel' {inputVariables} -> inputVariables) (\s@EvaluatedExternalModel' {} a -> s {inputVariables = a} :: EvaluatedExternalModel) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+evaluatedExternalModel_inputVariables = Lens.lens (\EvaluatedExternalModel' {inputVariables} -> inputVariables) (\s@EvaluatedExternalModel' {} a -> s {inputVariables = a} :: EvaluatedExternalModel) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The endpoint of the external (Amazon Sagemaker) model.
 evaluatedExternalModel_modelEndpoint :: Lens.Lens' EvaluatedExternalModel (Prelude.Maybe Prelude.Text)
@@ -79,19 +80,19 @@ evaluatedExternalModel_useEventVariables = Lens.lens (\EvaluatedExternalModel' {
 
 -- | Output variables.
 evaluatedExternalModel_outputVariables :: Lens.Lens' EvaluatedExternalModel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-evaluatedExternalModel_outputVariables = Lens.lens (\EvaluatedExternalModel' {outputVariables} -> outputVariables) (\s@EvaluatedExternalModel' {} a -> s {outputVariables = a} :: EvaluatedExternalModel) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+evaluatedExternalModel_outputVariables = Lens.lens (\EvaluatedExternalModel' {outputVariables} -> outputVariables) (\s@EvaluatedExternalModel' {} a -> s {outputVariables = a} :: EvaluatedExternalModel) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
-instance Core.FromJSON EvaluatedExternalModel where
+instance Data.FromJSON EvaluatedExternalModel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EvaluatedExternalModel"
       ( \x ->
           EvaluatedExternalModel'
-            Prelude.<$> (x Core..:? "inputVariables" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "modelEndpoint")
-            Prelude.<*> (x Core..:? "useEventVariables")
-            Prelude.<*> ( x Core..:? "outputVariables"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "inputVariables" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "modelEndpoint")
+            Prelude.<*> (x Data..:? "useEventVariables")
+            Prelude.<*> ( x Data..:? "outputVariables"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.ProtocolsListDataSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of the Firewall Manager protocols list.
@@ -79,16 +80,16 @@ protocolsListDataSummary_protocolsList = Lens.lens (\ProtocolsListDataSummary' {
 protocolsListDataSummary_listArn :: Lens.Lens' ProtocolsListDataSummary (Prelude.Maybe Prelude.Text)
 protocolsListDataSummary_listArn = Lens.lens (\ProtocolsListDataSummary' {listArn} -> listArn) (\s@ProtocolsListDataSummary' {} a -> s {listArn = a} :: ProtocolsListDataSummary)
 
-instance Core.FromJSON ProtocolsListDataSummary where
+instance Data.FromJSON ProtocolsListDataSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProtocolsListDataSummary"
       ( \x ->
           ProtocolsListDataSummary'
-            Prelude.<$> (x Core..:? "ListId")
-            Prelude.<*> (x Core..:? "ListName")
-            Prelude.<*> (x Core..:? "ProtocolsList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ListArn")
+            Prelude.<$> (x Data..:? "ListId")
+            Prelude.<*> (x Data..:? "ListName")
+            Prelude.<*> (x Data..:? "ProtocolsList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ListArn")
       )
 
 instance Prelude.Hashable ProtocolsListDataSummary where

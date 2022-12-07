@@ -54,6 +54,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -231,7 +232,7 @@ instance Core.AWSRequest MergePullRequestByThreeWay where
     Response.receiveJSON
       ( \s h x ->
           MergePullRequestByThreeWayResponse'
-            Prelude.<$> (x Core..?> "pullRequest")
+            Prelude.<$> (x Data..?> "pullRequest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -261,48 +262,48 @@ instance Prelude.NFData MergePullRequestByThreeWay where
       `Prelude.seq` Prelude.rnf pullRequestId
       `Prelude.seq` Prelude.rnf repositoryName
 
-instance Core.ToHeaders MergePullRequestByThreeWay where
+instance Data.ToHeaders MergePullRequestByThreeWay where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.MergePullRequestByThreeWay" ::
+              Data.=# ( "CodeCommit_20150413.MergePullRequestByThreeWay" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON MergePullRequestByThreeWay where
+instance Data.ToJSON MergePullRequestByThreeWay where
   toJSON MergePullRequestByThreeWay' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("keepEmptyFolders" Core..=)
+          [ ("keepEmptyFolders" Data..=)
               Prelude.<$> keepEmptyFolders,
-            ("conflictResolution" Core..=)
+            ("conflictResolution" Data..=)
               Prelude.<$> conflictResolution,
-            ("email" Core..=) Prelude.<$> email,
-            ("sourceCommitId" Core..=)
+            ("email" Data..=) Prelude.<$> email,
+            ("sourceCommitId" Data..=)
               Prelude.<$> sourceCommitId,
-            ("authorName" Core..=) Prelude.<$> authorName,
-            ("commitMessage" Core..=) Prelude.<$> commitMessage,
-            ("conflictResolutionStrategy" Core..=)
+            ("authorName" Data..=) Prelude.<$> authorName,
+            ("commitMessage" Data..=) Prelude.<$> commitMessage,
+            ("conflictResolutionStrategy" Data..=)
               Prelude.<$> conflictResolutionStrategy,
-            ("conflictDetailLevel" Core..=)
+            ("conflictDetailLevel" Data..=)
               Prelude.<$> conflictDetailLevel,
-            Prelude.Just ("pullRequestId" Core..= pullRequestId),
+            Prelude.Just ("pullRequestId" Data..= pullRequestId),
             Prelude.Just
-              ("repositoryName" Core..= repositoryName)
+              ("repositoryName" Data..= repositoryName)
           ]
       )
 
-instance Core.ToPath MergePullRequestByThreeWay where
+instance Data.ToPath MergePullRequestByThreeWay where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery MergePullRequestByThreeWay where
+instance Data.ToQuery MergePullRequestByThreeWay where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newMergePullRequestByThreeWayResponse' smart constructor.

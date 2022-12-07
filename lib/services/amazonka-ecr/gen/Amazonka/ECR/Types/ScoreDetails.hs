@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.ScoreDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.CvssScoreDetails
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,12 +52,12 @@ newScoreDetails =
 scoreDetails_cvss :: Lens.Lens' ScoreDetails (Prelude.Maybe CvssScoreDetails)
 scoreDetails_cvss = Lens.lens (\ScoreDetails' {cvss} -> cvss) (\s@ScoreDetails' {} a -> s {cvss = a} :: ScoreDetails)
 
-instance Core.FromJSON ScoreDetails where
+instance Data.FromJSON ScoreDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScoreDetails"
       ( \x ->
-          ScoreDetails' Prelude.<$> (x Core..:? "cvss")
+          ScoreDetails' Prelude.<$> (x Data..:? "cvss")
       )
 
 instance Prelude.Hashable ScoreDetails where

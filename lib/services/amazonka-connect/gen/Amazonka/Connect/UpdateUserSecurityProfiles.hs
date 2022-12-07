@@ -40,6 +40,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,37 +125,37 @@ instance Prelude.NFData UpdateUserSecurityProfiles where
       `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders UpdateUserSecurityProfiles where
+instance Data.ToHeaders UpdateUserSecurityProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateUserSecurityProfiles where
+instance Data.ToJSON UpdateUserSecurityProfiles where
   toJSON UpdateUserSecurityProfiles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("SecurityProfileIds" Core..= securityProfileIds)
+              ("SecurityProfileIds" Data..= securityProfileIds)
           ]
       )
 
-instance Core.ToPath UpdateUserSecurityProfiles where
+instance Data.ToPath UpdateUserSecurityProfiles where
   toPath UpdateUserSecurityProfiles' {..} =
     Prelude.mconcat
       [ "/users/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS userId,
+        Data.toBS userId,
         "/security-profiles"
       ]
 
-instance Core.ToQuery UpdateUserSecurityProfiles where
+instance Data.ToQuery UpdateUserSecurityProfiles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserSecurityProfilesResponse' smart constructor.

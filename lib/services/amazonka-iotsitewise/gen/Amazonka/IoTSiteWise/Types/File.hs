@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.File where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The file in Amazon S3 where your data is saved.
@@ -80,15 +81,15 @@ file_bucket = Lens.lens (\File' {bucket} -> bucket) (\s@File' {} a -> s {bucket 
 file_key :: Lens.Lens' File Prelude.Text
 file_key = Lens.lens (\File' {key} -> key) (\s@File' {} a -> s {key = a} :: File)
 
-instance Core.FromJSON File where
+instance Data.FromJSON File where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "File"
       ( \x ->
           File'
-            Prelude.<$> (x Core..:? "versionId")
-            Prelude.<*> (x Core..: "bucket")
-            Prelude.<*> (x Core..: "key")
+            Prelude.<$> (x Data..:? "versionId")
+            Prelude.<*> (x Data..: "bucket")
+            Prelude.<*> (x Data..: "key")
       )
 
 instance Prelude.Hashable File where
@@ -103,12 +104,12 @@ instance Prelude.NFData File where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON File where
+instance Data.ToJSON File where
   toJSON File' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("versionId" Core..=) Prelude.<$> versionId,
-            Prelude.Just ("bucket" Core..= bucket),
-            Prelude.Just ("key" Core..= key)
+          [ ("versionId" Data..=) Prelude.<$> versionId,
+            Prelude.Just ("bucket" Data..= bucket),
+            Prelude.Just ("key" Data..= key)
           ]
       )

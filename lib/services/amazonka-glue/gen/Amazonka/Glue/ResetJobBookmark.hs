@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest ResetJobBookmark where
     Response.receiveJSON
       ( \s h x ->
           ResetJobBookmarkResponse'
-            Prelude.<$> (x Core..?> "JobBookmarkEntry")
+            Prelude.<$> (x Data..?> "JobBookmarkEntry")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,32 +117,32 @@ instance Prelude.NFData ResetJobBookmark where
   rnf ResetJobBookmark' {..} =
     Prelude.rnf runId `Prelude.seq` Prelude.rnf jobName
 
-instance Core.ToHeaders ResetJobBookmark where
+instance Data.ToHeaders ResetJobBookmark where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.ResetJobBookmark" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.ResetJobBookmark" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResetJobBookmark where
+instance Data.ToJSON ResetJobBookmark where
   toJSON ResetJobBookmark' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RunId" Core..=) Prelude.<$> runId,
-            Prelude.Just ("JobName" Core..= jobName)
+          [ ("RunId" Data..=) Prelude.<$> runId,
+            Prelude.Just ("JobName" Data..= jobName)
           ]
       )
 
-instance Core.ToPath ResetJobBookmark where
+instance Data.ToPath ResetJobBookmark where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResetJobBookmark where
+instance Data.ToQuery ResetJobBookmark where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResetJobBookmarkResponse' smart constructor.

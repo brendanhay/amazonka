@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.PackageImportJobInputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.PackageVersionInputConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newPackageImportJobInputConfig =
 packageImportJobInputConfig_packageVersionInputConfig :: Lens.Lens' PackageImportJobInputConfig (Prelude.Maybe PackageVersionInputConfig)
 packageImportJobInputConfig_packageVersionInputConfig = Lens.lens (\PackageImportJobInputConfig' {packageVersionInputConfig} -> packageVersionInputConfig) (\s@PackageImportJobInputConfig' {} a -> s {packageVersionInputConfig = a} :: PackageImportJobInputConfig)
 
-instance Core.FromJSON PackageImportJobInputConfig where
+instance Data.FromJSON PackageImportJobInputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageImportJobInputConfig"
       ( \x ->
           PackageImportJobInputConfig'
-            Prelude.<$> (x Core..:? "PackageVersionInputConfig")
+            Prelude.<$> (x Data..:? "PackageVersionInputConfig")
       )
 
 instance Prelude.Hashable PackageImportJobInputConfig where
@@ -72,11 +73,11 @@ instance Prelude.NFData PackageImportJobInputConfig where
   rnf PackageImportJobInputConfig' {..} =
     Prelude.rnf packageVersionInputConfig
 
-instance Core.ToJSON PackageImportJobInputConfig where
+instance Data.ToJSON PackageImportJobInputConfig where
   toJSON PackageImportJobInputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PackageVersionInputConfig" Core..=)
+          [ ("PackageVersionInputConfig" Data..=)
               Prelude.<$> packageVersionInputConfig
           ]
       )

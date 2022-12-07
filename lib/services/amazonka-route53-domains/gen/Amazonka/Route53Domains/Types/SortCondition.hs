@@ -21,6 +21,7 @@ module Amazonka.Route53Domains.Types.SortCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Domains.Types.ListDomainsAttributeName
 import Amazonka.Route53Domains.Types.SortOrder
@@ -95,11 +96,11 @@ instance Prelude.NFData SortCondition where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf sortOrder
 
-instance Core.ToJSON SortCondition where
+instance Data.ToJSON SortCondition where
   toJSON SortCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("SortOrder" Core..= sortOrder)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("SortOrder" Data..= sortOrder)
           ]
       )

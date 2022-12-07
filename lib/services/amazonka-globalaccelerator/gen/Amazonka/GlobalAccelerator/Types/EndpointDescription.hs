@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.EndpointDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types.HealthState
 import qualified Amazonka.Prelude as Prelude
 
@@ -174,17 +175,17 @@ endpointDescription_clientIPPreservationEnabled = Lens.lens (\EndpointDescriptio
 endpointDescription_healthState :: Lens.Lens' EndpointDescription (Prelude.Maybe HealthState)
 endpointDescription_healthState = Lens.lens (\EndpointDescription' {healthState} -> healthState) (\s@EndpointDescription' {} a -> s {healthState = a} :: EndpointDescription)
 
-instance Core.FromJSON EndpointDescription where
+instance Data.FromJSON EndpointDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointDescription"
       ( \x ->
           EndpointDescription'
-            Prelude.<$> (x Core..:? "EndpointId")
-            Prelude.<*> (x Core..:? "HealthReason")
-            Prelude.<*> (x Core..:? "Weight")
-            Prelude.<*> (x Core..:? "ClientIPPreservationEnabled")
-            Prelude.<*> (x Core..:? "HealthState")
+            Prelude.<$> (x Data..:? "EndpointId")
+            Prelude.<*> (x Data..:? "HealthReason")
+            Prelude.<*> (x Data..:? "Weight")
+            Prelude.<*> (x Data..:? "ClientIPPreservationEnabled")
+            Prelude.<*> (x Data..:? "HealthState")
       )
 
 instance Prelude.Hashable EndpointDescription where

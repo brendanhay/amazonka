@@ -21,6 +21,7 @@ module Amazonka.M2.Types.PrimaryKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The primary key for a KSDS data set.
@@ -80,15 +81,15 @@ primaryKey_length = Lens.lens (\PrimaryKey' {length} -> length) (\s@PrimaryKey' 
 primaryKey_offset :: Lens.Lens' PrimaryKey Prelude.Int
 primaryKey_offset = Lens.lens (\PrimaryKey' {offset} -> offset) (\s@PrimaryKey' {} a -> s {offset = a} :: PrimaryKey)
 
-instance Core.FromJSON PrimaryKey where
+instance Data.FromJSON PrimaryKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PrimaryKey"
       ( \x ->
           PrimaryKey'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..: "length")
-            Prelude.<*> (x Core..: "offset")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..: "length")
+            Prelude.<*> (x Data..: "offset")
       )
 
 instance Prelude.Hashable PrimaryKey where
@@ -103,12 +104,12 @@ instance Prelude.NFData PrimaryKey where
       `Prelude.seq` Prelude.rnf length
       `Prelude.seq` Prelude.rnf offset
 
-instance Core.ToJSON PrimaryKey where
+instance Data.ToJSON PrimaryKey where
   toJSON PrimaryKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            Prelude.Just ("length" Core..= length),
-            Prelude.Just ("offset" Core..= offset)
+          [ ("name" Data..=) Prelude.<$> name,
+            Prelude.Just ("length" Data..= length),
+            Prelude.Just ("offset" Data..= offset)
           ]
       )

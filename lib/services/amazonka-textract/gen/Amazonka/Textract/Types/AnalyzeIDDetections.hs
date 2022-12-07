@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.AnalyzeIDDetections where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.NormalizedValue
 
@@ -76,15 +77,15 @@ analyzeIDDetections_normalizedValue = Lens.lens (\AnalyzeIDDetections' {normaliz
 analyzeIDDetections_text :: Lens.Lens' AnalyzeIDDetections Prelude.Text
 analyzeIDDetections_text = Lens.lens (\AnalyzeIDDetections' {text} -> text) (\s@AnalyzeIDDetections' {} a -> s {text = a} :: AnalyzeIDDetections)
 
-instance Core.FromJSON AnalyzeIDDetections where
+instance Data.FromJSON AnalyzeIDDetections where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnalyzeIDDetections"
       ( \x ->
           AnalyzeIDDetections'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "NormalizedValue")
-            Prelude.<*> (x Core..: "Text")
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "NormalizedValue")
+            Prelude.<*> (x Data..: "Text")
       )
 
 instance Prelude.Hashable AnalyzeIDDetections where

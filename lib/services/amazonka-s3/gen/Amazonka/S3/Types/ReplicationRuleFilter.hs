@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ReplicationRuleFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ReplicationRuleAndOperator
@@ -123,12 +124,12 @@ replicationRuleFilter_prefix = Lens.lens (\ReplicationRuleFilter' {prefix} -> pr
 replicationRuleFilter_and :: Lens.Lens' ReplicationRuleFilter (Prelude.Maybe ReplicationRuleAndOperator)
 replicationRuleFilter_and = Lens.lens (\ReplicationRuleFilter' {and} -> and) (\s@ReplicationRuleFilter' {} a -> s {and = a} :: ReplicationRuleFilter)
 
-instance Core.FromXML ReplicationRuleFilter where
+instance Data.FromXML ReplicationRuleFilter where
   parseXML x =
     ReplicationRuleFilter'
-      Prelude.<$> (x Core..@? "Tag")
-      Prelude.<*> (x Core..@? "Prefix")
-      Prelude.<*> (x Core..@? "And")
+      Prelude.<$> (x Data..@? "Tag")
+      Prelude.<*> (x Data..@? "Prefix")
+      Prelude.<*> (x Data..@? "And")
 
 instance Prelude.Hashable ReplicationRuleFilter where
   hashWithSalt _salt ReplicationRuleFilter' {..} =
@@ -142,10 +143,10 @@ instance Prelude.NFData ReplicationRuleFilter where
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf and
 
-instance Core.ToXML ReplicationRuleFilter where
+instance Data.ToXML ReplicationRuleFilter where
   toXML ReplicationRuleFilter' {..} =
     Prelude.mconcat
-      [ "Tag" Core.@= tag,
-        "Prefix" Core.@= prefix,
-        "And" Core.@= and
+      [ "Tag" Data.@= tag,
+        "Prefix" Data.@= prefix,
+        "And" Data.@= and
       ]

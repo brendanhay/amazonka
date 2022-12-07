@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,8 +102,8 @@ instance Core.AWSRequest GetGroups where
     Response.receiveJSON
       ( \s h x ->
           GetGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Groups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Groups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,20 +114,20 @@ instance Prelude.Hashable GetGroups where
 instance Prelude.NFData GetGroups where
   rnf GetGroups' {..} = Prelude.rnf nextToken
 
-instance Core.ToHeaders GetGroups where
+instance Data.ToHeaders GetGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON GetGroups where
+instance Data.ToJSON GetGroups where
   toJSON GetGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("NextToken" Core..=) Prelude.<$> nextToken]
+          [("NextToken" Data..=) Prelude.<$> nextToken]
       )
 
-instance Core.ToPath GetGroups where
+instance Data.ToPath GetGroups where
   toPath = Prelude.const "/Groups"
 
-instance Core.ToQuery GetGroups where
+instance Data.ToQuery GetGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGroupsResponse' smart constructor.

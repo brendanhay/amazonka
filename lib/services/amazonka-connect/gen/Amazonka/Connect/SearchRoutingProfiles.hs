@@ -54,6 +54,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -176,9 +177,9 @@ instance Core.AWSRequest SearchRoutingProfiles where
     Response.receiveJSON
       ( \s h x ->
           SearchRoutingProfilesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ApproximateTotalCount")
-            Prelude.<*> ( x Core..?> "RoutingProfiles"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ApproximateTotalCount")
+            Prelude.<*> ( x Data..?> "RoutingProfiles"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -200,34 +201,34 @@ instance Prelude.NFData SearchRoutingProfiles where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders SearchRoutingProfiles where
+instance Data.ToHeaders SearchRoutingProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchRoutingProfiles where
+instance Data.ToJSON SearchRoutingProfiles where
   toJSON SearchRoutingProfiles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SearchCriteria" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SearchCriteria" Data..=)
               Prelude.<$> searchCriteria,
-            ("SearchFilter" Core..=) Prelude.<$> searchFilter,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("InstanceId" Core..= instanceId)
+            ("SearchFilter" Data..=) Prelude.<$> searchFilter,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
 
-instance Core.ToPath SearchRoutingProfiles where
+instance Data.ToPath SearchRoutingProfiles where
   toPath = Prelude.const "/search-routing-profiles"
 
-instance Core.ToQuery SearchRoutingProfiles where
+instance Data.ToQuery SearchRoutingProfiles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchRoutingProfilesResponse' smart constructor.

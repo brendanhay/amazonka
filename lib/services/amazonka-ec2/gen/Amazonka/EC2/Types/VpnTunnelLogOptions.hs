@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpnTunnelLogOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CloudWatchLogOptions
 import qualified Amazonka.Prelude as Prelude
@@ -55,10 +56,10 @@ newVpnTunnelLogOptions =
 vpnTunnelLogOptions_cloudWatchLogOptions :: Lens.Lens' VpnTunnelLogOptions (Prelude.Maybe CloudWatchLogOptions)
 vpnTunnelLogOptions_cloudWatchLogOptions = Lens.lens (\VpnTunnelLogOptions' {cloudWatchLogOptions} -> cloudWatchLogOptions) (\s@VpnTunnelLogOptions' {} a -> s {cloudWatchLogOptions = a} :: VpnTunnelLogOptions)
 
-instance Core.FromXML VpnTunnelLogOptions where
+instance Data.FromXML VpnTunnelLogOptions where
   parseXML x =
     VpnTunnelLogOptions'
-      Prelude.<$> (x Core..@? "cloudWatchLogOptions")
+      Prelude.<$> (x Data..@? "cloudWatchLogOptions")
 
 instance Prelude.Hashable VpnTunnelLogOptions where
   hashWithSalt _salt VpnTunnelLogOptions' {..} =

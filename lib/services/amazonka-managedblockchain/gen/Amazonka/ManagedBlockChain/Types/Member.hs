@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.Member where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.MemberFrameworkAttributes
 import Amazonka.ManagedBlockChain.Types.MemberLogPublishingConfiguration
 import Amazonka.ManagedBlockChain.Types.MemberStatus
@@ -48,7 +49,7 @@ data Member = Member'
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the member was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The status of a member.
     --
     -- -   @CREATING@ - The Amazon Web Services account is in the process of
@@ -222,7 +223,7 @@ member_arn = Lens.lens (\Member' {arn} -> arn) (\s@Member' {} a -> s {arn = a} :
 
 -- | The date and time that the member was created.
 member_creationDate :: Lens.Lens' Member (Prelude.Maybe Prelude.UTCTime)
-member_creationDate = Lens.lens (\Member' {creationDate} -> creationDate) (\s@Member' {} a -> s {creationDate = a} :: Member) Prelude.. Lens.mapping Core._Time
+member_creationDate = Lens.lens (\Member' {creationDate} -> creationDate) (\s@Member' {} a -> s {creationDate = a} :: Member) Prelude.. Lens.mapping Data._Time
 
 -- | The status of a member.
 --
@@ -288,23 +289,23 @@ member_networkId = Lens.lens (\Member' {networkId} -> networkId) (\s@Member' {} 
 member_logPublishingConfiguration :: Lens.Lens' Member (Prelude.Maybe MemberLogPublishingConfiguration)
 member_logPublishingConfiguration = Lens.lens (\Member' {logPublishingConfiguration} -> logPublishingConfiguration) (\s@Member' {} a -> s {logPublishingConfiguration = a} :: Member)
 
-instance Core.FromJSON Member where
+instance Data.FromJSON Member where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Member"
       ( \x ->
           Member'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "FrameworkAttributes")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "KmsKeyArn")
-            Prelude.<*> (x Core..:? "NetworkId")
-            Prelude.<*> (x Core..:? "LogPublishingConfiguration")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "FrameworkAttributes")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "KmsKeyArn")
+            Prelude.<*> (x Data..:? "NetworkId")
+            Prelude.<*> (x Data..:? "LogPublishingConfiguration")
       )
 
 instance Prelude.Hashable Member where

@@ -48,6 +48,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,10 +150,10 @@ instance Core.AWSRequest DescribeAutoScalingInstances where
       "DescribeAutoScalingInstancesResult"
       ( \s h x ->
           DescribeAutoScalingInstancesResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "AutoScalingInstances"
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "AutoScalingInstances"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -172,26 +173,26 @@ instance Prelude.NFData DescribeAutoScalingInstances where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf instanceIds
 
-instance Core.ToHeaders DescribeAutoScalingInstances where
+instance Data.ToHeaders DescribeAutoScalingInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAutoScalingInstances where
+instance Data.ToPath DescribeAutoScalingInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAutoScalingInstances where
+instance Data.ToQuery DescribeAutoScalingInstances where
   toQuery DescribeAutoScalingInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeAutoScalingInstances" ::
+          Data.=: ( "DescribeAutoScalingInstances" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxRecords" Core.=: maxRecords,
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "MaxRecords" Data.=: maxRecords,
         "InstanceIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> instanceIds)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> instanceIds)
       ]
 
 -- | /See:/ 'newDescribeAutoScalingInstancesResponse' smart constructor.

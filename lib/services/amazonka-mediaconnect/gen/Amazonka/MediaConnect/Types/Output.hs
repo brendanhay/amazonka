@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.Output where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types.Encryption
 import Amazonka.MediaConnect.Types.MediaStreamOutputConfiguration
 import Amazonka.MediaConnect.Types.Transport
@@ -201,27 +202,27 @@ output_outputArn = Lens.lens (\Output' {outputArn} -> outputArn) (\s@Output' {} 
 output_name :: Lens.Lens' Output Prelude.Text
 output_name = Lens.lens (\Output' {name} -> name) (\s@Output' {} a -> s {name = a} :: Output)
 
-instance Core.FromJSON Output where
+instance Data.FromJSON Output where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Output"
       ( \x ->
           Output'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "port")
-            Prelude.<*> ( x Core..:? "mediaStreamOutputConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "port")
+            Prelude.<*> ( x Data..:? "mediaStreamOutputConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "entitlementArn")
-            Prelude.<*> (x Core..:? "listenerAddress")
-            Prelude.<*> (x Core..:? "vpcInterfaceAttachment")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "mediaLiveInputArn")
-            Prelude.<*> (x Core..:? "transport")
-            Prelude.<*> (x Core..:? "encryption")
-            Prelude.<*> (x Core..:? "dataTransferSubscriberFeePercent")
-            Prelude.<*> (x Core..: "outputArn")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Data..:? "entitlementArn")
+            Prelude.<*> (x Data..:? "listenerAddress")
+            Prelude.<*> (x Data..:? "vpcInterfaceAttachment")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "mediaLiveInputArn")
+            Prelude.<*> (x Data..:? "transport")
+            Prelude.<*> (x Data..:? "encryption")
+            Prelude.<*> (x Data..:? "dataTransferSubscriberFeePercent")
+            Prelude.<*> (x Data..: "outputArn")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable Output where

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,8 +115,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateNetworkResourceMetadataResponse'
-            Prelude.<$> (x Core..?> "Metadata" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ResourceArn")
+            Prelude.<$> (x Data..?> "Metadata" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ResourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,35 +135,35 @@ instance Prelude.NFData UpdateNetworkResourceMetadata where
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf metadata
 
-instance Core.ToHeaders UpdateNetworkResourceMetadata where
+instance Data.ToHeaders UpdateNetworkResourceMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateNetworkResourceMetadata where
+instance Data.ToJSON UpdateNetworkResourceMetadata where
   toJSON UpdateNetworkResourceMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Metadata" Core..= metadata)]
+          [Prelude.Just ("Metadata" Data..= metadata)]
       )
 
-instance Core.ToPath UpdateNetworkResourceMetadata where
+instance Data.ToPath UpdateNetworkResourceMetadata where
   toPath UpdateNetworkResourceMetadata' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/network-resources/",
-        Core.toBS resourceArn,
+        Data.toBS resourceArn,
         "/metadata"
       ]
 
-instance Core.ToQuery UpdateNetworkResourceMetadata where
+instance Data.ToQuery UpdateNetworkResourceMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateNetworkResourceMetadataResponse' smart constructor.

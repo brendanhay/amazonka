@@ -47,6 +47,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,9 +127,9 @@ instance Core.AWSRequest GetCommentReactions where
     Response.receiveJSON
       ( \s h x ->
           GetCommentReactionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "reactionsForComment"
+            Prelude.<*> ( x Data..?> "reactionsForComment"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -147,37 +148,37 @@ instance Prelude.NFData GetCommentReactions where
       `Prelude.seq` Prelude.rnf reactionUserArn
       `Prelude.seq` Prelude.rnf commentId
 
-instance Core.ToHeaders GetCommentReactions where
+instance Data.ToHeaders GetCommentReactions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.GetCommentReactions" ::
+              Data.=# ( "CodeCommit_20150413.GetCommentReactions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCommentReactions where
+instance Data.ToJSON GetCommentReactions where
   toJSON GetCommentReactions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("reactionUserArn" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("reactionUserArn" Data..=)
               Prelude.<$> reactionUserArn,
-            Prelude.Just ("commentId" Core..= commentId)
+            Prelude.Just ("commentId" Data..= commentId)
           ]
       )
 
-instance Core.ToPath GetCommentReactions where
+instance Data.ToPath GetCommentReactions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCommentReactions where
+instance Data.ToQuery GetCommentReactions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCommentReactionsResponse' smart constructor.

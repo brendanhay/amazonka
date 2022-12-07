@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.PlaybackKeyPairSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a playback key pair.
@@ -82,15 +83,15 @@ playbackKeyPairSummary_name = Lens.lens (\PlaybackKeyPairSummary' {name} -> name
 playbackKeyPairSummary_arn :: Lens.Lens' PlaybackKeyPairSummary (Prelude.Maybe Prelude.Text)
 playbackKeyPairSummary_arn = Lens.lens (\PlaybackKeyPairSummary' {arn} -> arn) (\s@PlaybackKeyPairSummary' {} a -> s {arn = a} :: PlaybackKeyPairSummary)
 
-instance Core.FromJSON PlaybackKeyPairSummary where
+instance Data.FromJSON PlaybackKeyPairSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlaybackKeyPairSummary"
       ( \x ->
           PlaybackKeyPairSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
       )
 
 instance Prelude.Hashable PlaybackKeyPairSummary where

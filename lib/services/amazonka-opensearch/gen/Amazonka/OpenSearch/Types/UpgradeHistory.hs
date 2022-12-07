@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.UpgradeHistory where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.UpgradeStatus
 import Amazonka.OpenSearch.Types.UpgradeStepItem
 import qualified Amazonka.Prelude as Prelude
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 data UpgradeHistory = UpgradeHistory'
   { -- | UTC timestamp at which the upgrade API call was made, in the format
     -- @yyyy-MM-ddTHH:mm:ssZ@.
-    startTimestamp :: Prelude.Maybe Core.POSIX,
+    startTimestamp :: Prelude.Maybe Data.POSIX,
     -- | A list of each step performed as part of a specific upgrade or upgrade
     -- eligibility check.
     stepsList :: Prelude.Maybe [UpgradeStepItem],
@@ -91,7 +92,7 @@ newUpgradeHistory =
 -- | UTC timestamp at which the upgrade API call was made, in the format
 -- @yyyy-MM-ddTHH:mm:ssZ@.
 upgradeHistory_startTimestamp :: Lens.Lens' UpgradeHistory (Prelude.Maybe Prelude.UTCTime)
-upgradeHistory_startTimestamp = Lens.lens (\UpgradeHistory' {startTimestamp} -> startTimestamp) (\s@UpgradeHistory' {} a -> s {startTimestamp = a} :: UpgradeHistory) Prelude.. Lens.mapping Core._Time
+upgradeHistory_startTimestamp = Lens.lens (\UpgradeHistory' {startTimestamp} -> startTimestamp) (\s@UpgradeHistory' {} a -> s {startTimestamp = a} :: UpgradeHistory) Prelude.. Lens.mapping Data._Time
 
 -- | A list of each step performed as part of a specific upgrade or upgrade
 -- eligibility check.
@@ -115,16 +116,16 @@ upgradeHistory_upgradeName = Lens.lens (\UpgradeHistory' {upgradeName} -> upgrad
 upgradeHistory_upgradeStatus :: Lens.Lens' UpgradeHistory (Prelude.Maybe UpgradeStatus)
 upgradeHistory_upgradeStatus = Lens.lens (\UpgradeHistory' {upgradeStatus} -> upgradeStatus) (\s@UpgradeHistory' {} a -> s {upgradeStatus = a} :: UpgradeHistory)
 
-instance Core.FromJSON UpgradeHistory where
+instance Data.FromJSON UpgradeHistory where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpgradeHistory"
       ( \x ->
           UpgradeHistory'
-            Prelude.<$> (x Core..:? "StartTimestamp")
-            Prelude.<*> (x Core..:? "StepsList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "UpgradeName")
-            Prelude.<*> (x Core..:? "UpgradeStatus")
+            Prelude.<$> (x Data..:? "StartTimestamp")
+            Prelude.<*> (x Data..:? "StepsList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "UpgradeName")
+            Prelude.<*> (x Data..:? "UpgradeStatus")
       )
 
 instance Prelude.Hashable UpgradeHistory where

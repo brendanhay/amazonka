@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -190,9 +191,9 @@ instance Core.AWSRequest CreateEventDestination where
     Response.receiveJSON
       ( \s h x ->
           CreateEventDestinationResponse'
-            Prelude.<$> (x Core..?> "ConfigurationSetName")
-            Prelude.<*> (x Core..?> "EventDestination")
-            Prelude.<*> (x Core..?> "ConfigurationSetArn")
+            Prelude.<$> (x Data..?> "ConfigurationSetName")
+            Prelude.<*> (x Data..?> "EventDestination")
+            Prelude.<*> (x Data..?> "ConfigurationSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -216,49 +217,49 @@ instance Prelude.NFData CreateEventDestination where
       `Prelude.seq` Prelude.rnf eventDestinationName
       `Prelude.seq` Prelude.rnf matchingEventTypes
 
-instance Core.ToHeaders CreateEventDestination where
+instance Data.ToHeaders CreateEventDestination where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.CreateEventDestination" ::
+              Data.=# ( "PinpointSMSVoiceV2.CreateEventDestination" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEventDestination where
+instance Data.ToJSON CreateEventDestination where
   toJSON CreateEventDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("CloudWatchLogsDestination" Core..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("CloudWatchLogsDestination" Data..=)
               Prelude.<$> cloudWatchLogsDestination,
-            ("SnsDestination" Core..=)
+            ("SnsDestination" Data..=)
               Prelude.<$> snsDestination,
-            ("KinesisFirehoseDestination" Core..=)
+            ("KinesisFirehoseDestination" Data..=)
               Prelude.<$> kinesisFirehoseDestination,
             Prelude.Just
               ( "ConfigurationSetName"
-                  Core..= configurationSetName
+                  Data..= configurationSetName
               ),
             Prelude.Just
               ( "EventDestinationName"
-                  Core..= eventDestinationName
+                  Data..= eventDestinationName
               ),
             Prelude.Just
-              ("MatchingEventTypes" Core..= matchingEventTypes)
+              ("MatchingEventTypes" Data..= matchingEventTypes)
           ]
       )
 
-instance Core.ToPath CreateEventDestination where
+instance Data.ToPath CreateEventDestination where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEventDestination where
+instance Data.ToQuery CreateEventDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEventDestinationResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.AvailBlanking where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use ad avail blanking settings to specify your output content during
@@ -60,13 +61,13 @@ newAvailBlanking =
 availBlanking_availBlankingImage :: Lens.Lens' AvailBlanking (Prelude.Maybe Prelude.Text)
 availBlanking_availBlankingImage = Lens.lens (\AvailBlanking' {availBlankingImage} -> availBlankingImage) (\s@AvailBlanking' {} a -> s {availBlankingImage = a} :: AvailBlanking)
 
-instance Core.FromJSON AvailBlanking where
+instance Data.FromJSON AvailBlanking where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AvailBlanking"
       ( \x ->
           AvailBlanking'
-            Prelude.<$> (x Core..:? "availBlankingImage")
+            Prelude.<$> (x Data..:? "availBlankingImage")
       )
 
 instance Prelude.Hashable AvailBlanking where
@@ -77,11 +78,11 @@ instance Prelude.NFData AvailBlanking where
   rnf AvailBlanking' {..} =
     Prelude.rnf availBlankingImage
 
-instance Core.ToJSON AvailBlanking where
+instance Data.ToJSON AvailBlanking where
   toJSON AvailBlanking' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("availBlankingImage" Core..=)
+          [ ("availBlankingImage" Data..=)
               Prelude.<$> availBlankingImage
           ]
       )

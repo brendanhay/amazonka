@@ -21,6 +21,7 @@ module Amazonka.ConnectCases.Types.LayoutSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object for the summarized details of the layout.
@@ -76,15 +77,15 @@ layoutSummary_layoutId = Lens.lens (\LayoutSummary' {layoutId} -> layoutId) (\s@
 layoutSummary_name :: Lens.Lens' LayoutSummary Prelude.Text
 layoutSummary_name = Lens.lens (\LayoutSummary' {name} -> name) (\s@LayoutSummary' {} a -> s {name = a} :: LayoutSummary)
 
-instance Core.FromJSON LayoutSummary where
+instance Data.FromJSON LayoutSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LayoutSummary"
       ( \x ->
           LayoutSummary'
-            Prelude.<$> (x Core..: "layoutArn")
-            Prelude.<*> (x Core..: "layoutId")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..: "layoutArn")
+            Prelude.<*> (x Data..: "layoutId")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable LayoutSummary where

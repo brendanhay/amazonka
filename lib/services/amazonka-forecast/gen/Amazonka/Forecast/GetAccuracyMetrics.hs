@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,12 +107,12 @@ instance Core.AWSRequest GetAccuracyMetrics where
     Response.receiveJSON
       ( \s h x ->
           GetAccuracyMetricsResponse'
-            Prelude.<$> ( x Core..?> "PredictorEvaluationResults"
+            Prelude.<$> ( x Data..?> "PredictorEvaluationResults"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "OptimizationMetric")
-            Prelude.<*> (x Core..?> "IsAutoPredictor")
-            Prelude.<*> (x Core..?> "AutoMLOverrideStrategy")
+            Prelude.<*> (x Data..?> "OptimizationMetric")
+            Prelude.<*> (x Data..?> "IsAutoPredictor")
+            Prelude.<*> (x Data..?> "AutoMLOverrideStrategy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,32 +124,32 @@ instance Prelude.NFData GetAccuracyMetrics where
   rnf GetAccuracyMetrics' {..} =
     Prelude.rnf predictorArn
 
-instance Core.ToHeaders GetAccuracyMetrics where
+instance Data.ToHeaders GetAccuracyMetrics where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.GetAccuracyMetrics" ::
+              Data.=# ( "AmazonForecast.GetAccuracyMetrics" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAccuracyMetrics where
+instance Data.ToJSON GetAccuracyMetrics where
   toJSON GetAccuracyMetrics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("PredictorArn" Core..= predictorArn)]
+          [Prelude.Just ("PredictorArn" Data..= predictorArn)]
       )
 
-instance Core.ToPath GetAccuracyMetrics where
+instance Data.ToPath GetAccuracyMetrics where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAccuracyMetrics where
+instance Data.ToQuery GetAccuracyMetrics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAccuracyMetricsResponse' smart constructor.

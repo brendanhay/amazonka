@@ -59,6 +59,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -374,7 +375,7 @@ instance Core.AWSRequest UpdateDeploymentGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateDeploymentGroupResponse'
-            Prelude.<$> ( x Core..?> "hooksNotCleanedUp"
+            Prelude.<$> ( x Data..?> "hooksNotCleanedUp"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -423,67 +424,67 @@ instance Prelude.NFData UpdateDeploymentGroup where
       `Prelude.seq` Prelude.rnf
         currentDeploymentGroupName
 
-instance Core.ToHeaders UpdateDeploymentGroup where
+instance Data.ToHeaders UpdateDeploymentGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.UpdateDeploymentGroup" ::
+              Data.=# ( "CodeDeploy_20141006.UpdateDeploymentGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDeploymentGroup where
+instance Data.ToJSON UpdateDeploymentGroup where
   toJSON UpdateDeploymentGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("loadBalancerInfo" Core..=)
+          [ ("loadBalancerInfo" Data..=)
               Prelude.<$> loadBalancerInfo,
-            ("autoScalingGroups" Core..=)
+            ("autoScalingGroups" Data..=)
               Prelude.<$> autoScalingGroups,
-            ("serviceRoleArn" Core..=)
+            ("serviceRoleArn" Data..=)
               Prelude.<$> serviceRoleArn,
-            ("triggerConfigurations" Core..=)
+            ("triggerConfigurations" Data..=)
               Prelude.<$> triggerConfigurations,
-            ("newDeploymentGroupName" Core..=)
+            ("newDeploymentGroupName" Data..=)
               Prelude.<$> newDeploymentGroupName',
-            ("ec2TagFilters" Core..=) Prelude.<$> ec2TagFilters,
-            ("autoRollbackConfiguration" Core..=)
+            ("ec2TagFilters" Data..=) Prelude.<$> ec2TagFilters,
+            ("autoRollbackConfiguration" Data..=)
               Prelude.<$> autoRollbackConfiguration,
-            ("deploymentStyle" Core..=)
+            ("deploymentStyle" Data..=)
               Prelude.<$> deploymentStyle,
-            ("blueGreenDeploymentConfiguration" Core..=)
+            ("blueGreenDeploymentConfiguration" Data..=)
               Prelude.<$> blueGreenDeploymentConfiguration,
-            ("alarmConfiguration" Core..=)
+            ("alarmConfiguration" Data..=)
               Prelude.<$> alarmConfiguration,
-            ("ecsServices" Core..=) Prelude.<$> ecsServices,
-            ("onPremisesTagSet" Core..=)
+            ("ecsServices" Data..=) Prelude.<$> ecsServices,
+            ("onPremisesTagSet" Data..=)
               Prelude.<$> onPremisesTagSet,
-            ("outdatedInstancesStrategy" Core..=)
+            ("outdatedInstancesStrategy" Data..=)
               Prelude.<$> outdatedInstancesStrategy,
-            ("onPremisesInstanceTagFilters" Core..=)
+            ("onPremisesInstanceTagFilters" Data..=)
               Prelude.<$> onPremisesInstanceTagFilters,
-            ("ec2TagSet" Core..=) Prelude.<$> ec2TagSet,
-            ("deploymentConfigName" Core..=)
+            ("ec2TagSet" Data..=) Prelude.<$> ec2TagSet,
+            ("deploymentConfigName" Data..=)
               Prelude.<$> deploymentConfigName,
             Prelude.Just
-              ("applicationName" Core..= applicationName),
+              ("applicationName" Data..= applicationName),
             Prelude.Just
               ( "currentDeploymentGroupName"
-                  Core..= currentDeploymentGroupName
+                  Data..= currentDeploymentGroupName
               )
           ]
       )
 
-instance Core.ToPath UpdateDeploymentGroup where
+instance Data.ToPath UpdateDeploymentGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDeploymentGroup where
+instance Data.ToQuery UpdateDeploymentGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an @UpdateDeploymentGroup@ operation.

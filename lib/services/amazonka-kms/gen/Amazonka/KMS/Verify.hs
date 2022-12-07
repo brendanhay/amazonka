@@ -95,6 +95,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,9 +152,9 @@ data Verify = Verify'
     -- If the message specified here is different from the message that was
     -- signed, the signature verification fails. A message and its hash digest
     -- are considered to be the same message.
-    message :: Core.Sensitive Core.Base64,
+    message :: Data.Sensitive Data.Base64,
     -- | The signature that the @Sign@ operation generated.
-    signature :: Core.Base64,
+    signature :: Data.Base64,
     -- | The signing algorithm that was used to sign the message. If you submit a
     -- different algorithm, the signature verification fails.
     signingAlgorithm :: SigningAlgorithmSpec
@@ -250,9 +251,9 @@ newVerify
         grantTokens = Prelude.Nothing,
         keyId = pKeyId_,
         message =
-          Core._Sensitive Prelude.. Core._Base64
+          Data._Sensitive Prelude.. Data._Base64
             Lens.# pMessage_,
-        signature = Core._Base64 Lens.# pSignature_,
+        signature = Data._Base64 Lens.# pSignature_,
         signingAlgorithm = pSigningAlgorithm_
       }
 
@@ -316,7 +317,7 @@ verify_keyId = Lens.lens (\Verify' {keyId} -> keyId) (\s@Verify' {} a -> s {keyI
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 verify_message :: Lens.Lens' Verify Prelude.ByteString
-verify_message = Lens.lens (\Verify' {message} -> message) (\s@Verify' {} a -> s {message = a} :: Verify) Prelude.. Core._Sensitive Prelude.. Core._Base64
+verify_message = Lens.lens (\Verify' {message} -> message) (\s@Verify' {} a -> s {message = a} :: Verify) Prelude.. Data._Sensitive Prelude.. Data._Base64
 
 -- | The signature that the @Sign@ operation generated.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -324,7 +325,7 @@ verify_message = Lens.lens (\Verify' {message} -> message) (\s@Verify' {} a -> s
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 verify_signature :: Lens.Lens' Verify Prelude.ByteString
-verify_signature = Lens.lens (\Verify' {signature} -> signature) (\s@Verify' {} a -> s {signature = a} :: Verify) Prelude.. Core._Base64
+verify_signature = Lens.lens (\Verify' {signature} -> signature) (\s@Verify' {} a -> s {signature = a} :: Verify) Prelude.. Data._Base64
 
 -- | The signing algorithm that was used to sign the message. If you submit a
 -- different algorithm, the signature verification fails.
@@ -339,9 +340,9 @@ instance Core.AWSRequest Verify where
     Response.receiveJSON
       ( \s h x ->
           VerifyResponse'
-            Prelude.<$> (x Core..?> "SignatureValid")
-            Prelude.<*> (x Core..?> "SigningAlgorithm")
-            Prelude.<*> (x Core..?> "KeyId")
+            Prelude.<$> (x Data..?> "SignatureValid")
+            Prelude.<*> (x Data..?> "SigningAlgorithm")
+            Prelude.<*> (x Data..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -363,37 +364,37 @@ instance Prelude.NFData Verify where
       `Prelude.seq` Prelude.rnf signature
       `Prelude.seq` Prelude.rnf signingAlgorithm
 
-instance Core.ToHeaders Verify where
+instance Data.ToHeaders Verify where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.Verify" :: Prelude.ByteString),
+              Data.=# ("TrentService.Verify" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON Verify where
+instance Data.ToJSON Verify where
   toJSON Verify' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MessageType" Core..=) Prelude.<$> messageType,
-            ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            Prelude.Just ("KeyId" Core..= keyId),
-            Prelude.Just ("Message" Core..= message),
-            Prelude.Just ("Signature" Core..= signature),
+          [ ("MessageType" Data..=) Prelude.<$> messageType,
+            ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+            Prelude.Just ("KeyId" Data..= keyId),
+            Prelude.Just ("Message" Data..= message),
+            Prelude.Just ("Signature" Data..= signature),
             Prelude.Just
-              ("SigningAlgorithm" Core..= signingAlgorithm)
+              ("SigningAlgorithm" Data..= signingAlgorithm)
           ]
       )
 
-instance Core.ToPath Verify where
+instance Data.ToPath Verify where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery Verify where
+instance Data.ToQuery Verify where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newVerifyResponse' smart constructor.

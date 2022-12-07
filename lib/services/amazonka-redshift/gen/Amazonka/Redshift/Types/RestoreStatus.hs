@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.RestoreStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -131,15 +132,15 @@ restoreStatus_progressInMegaBytes = Lens.lens (\RestoreStatus' {progressInMegaBy
 restoreStatus_estimatedTimeToCompletionInSeconds :: Lens.Lens' RestoreStatus (Prelude.Maybe Prelude.Integer)
 restoreStatus_estimatedTimeToCompletionInSeconds = Lens.lens (\RestoreStatus' {estimatedTimeToCompletionInSeconds} -> estimatedTimeToCompletionInSeconds) (\s@RestoreStatus' {} a -> s {estimatedTimeToCompletionInSeconds = a} :: RestoreStatus)
 
-instance Core.FromXML RestoreStatus where
+instance Data.FromXML RestoreStatus where
   parseXML x =
     RestoreStatus'
-      Prelude.<$> (x Core..@? "SnapshotSizeInMegaBytes")
-      Prelude.<*> (x Core..@? "CurrentRestoreRateInMegaBytesPerSecond")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "ElapsedTimeInSeconds")
-      Prelude.<*> (x Core..@? "ProgressInMegaBytes")
-      Prelude.<*> (x Core..@? "EstimatedTimeToCompletionInSeconds")
+      Prelude.<$> (x Data..@? "SnapshotSizeInMegaBytes")
+      Prelude.<*> (x Data..@? "CurrentRestoreRateInMegaBytesPerSecond")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "ElapsedTimeInSeconds")
+      Prelude.<*> (x Data..@? "ProgressInMegaBytes")
+      Prelude.<*> (x Data..@? "EstimatedTimeToCompletionInSeconds")
 
 instance Prelude.Hashable RestoreStatus where
   hashWithSalt _salt RestoreStatus' {..} =

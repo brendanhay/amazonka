@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.Segment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains information about one audience /segment/. You
@@ -44,9 +45,9 @@ data Segment = Segment'
     -- | The ARN of the segment.
     arn :: Prelude.Text,
     -- | The date and time that this segment was created.
-    createdTime :: Core.POSIX,
+    createdTime :: Data.POSIX,
     -- | The date and time that this segment was most recently updated.
-    lastUpdatedTime :: Core.POSIX,
+    lastUpdatedTime :: Data.POSIX,
     -- | The name of the segment.
     name :: Prelude.Text,
     -- | The pattern that defines the attributes to use to evalute whether a user
@@ -112,9 +113,9 @@ newSegment
         launchCount = Prelude.Nothing,
         experimentCount = Prelude.Nothing,
         arn = pArn_,
-        createdTime = Core._Time Lens.# pCreatedTime_,
+        createdTime = Data._Time Lens.# pCreatedTime_,
         lastUpdatedTime =
-          Core._Time Lens.# pLastUpdatedTime_,
+          Data._Time Lens.# pLastUpdatedTime_,
         name = pName_,
         pattern' = pPattern_
       }
@@ -144,11 +145,11 @@ segment_arn = Lens.lens (\Segment' {arn} -> arn) (\s@Segment' {} a -> s {arn = a
 
 -- | The date and time that this segment was created.
 segment_createdTime :: Lens.Lens' Segment Prelude.UTCTime
-segment_createdTime = Lens.lens (\Segment' {createdTime} -> createdTime) (\s@Segment' {} a -> s {createdTime = a} :: Segment) Prelude.. Core._Time
+segment_createdTime = Lens.lens (\Segment' {createdTime} -> createdTime) (\s@Segment' {} a -> s {createdTime = a} :: Segment) Prelude.. Data._Time
 
 -- | The date and time that this segment was most recently updated.
 segment_lastUpdatedTime :: Lens.Lens' Segment Prelude.UTCTime
-segment_lastUpdatedTime = Lens.lens (\Segment' {lastUpdatedTime} -> lastUpdatedTime) (\s@Segment' {} a -> s {lastUpdatedTime = a} :: Segment) Prelude.. Core._Time
+segment_lastUpdatedTime = Lens.lens (\Segment' {lastUpdatedTime} -> lastUpdatedTime) (\s@Segment' {} a -> s {lastUpdatedTime = a} :: Segment) Prelude.. Data._Time
 
 -- | The name of the segment.
 segment_name :: Lens.Lens' Segment Prelude.Text
@@ -161,21 +162,21 @@ segment_name = Lens.lens (\Segment' {name} -> name) (\s@Segment' {} a -> s {name
 segment_pattern :: Lens.Lens' Segment Prelude.Text
 segment_pattern = Lens.lens (\Segment' {pattern'} -> pattern') (\s@Segment' {} a -> s {pattern' = a} :: Segment)
 
-instance Core.FromJSON Segment where
+instance Data.FromJSON Segment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Segment"
       ( \x ->
           Segment'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "launchCount")
-            Prelude.<*> (x Core..:? "experimentCount")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdTime")
-            Prelude.<*> (x Core..: "lastUpdatedTime")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "pattern")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "launchCount")
+            Prelude.<*> (x Data..:? "experimentCount")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdTime")
+            Prelude.<*> (x Data..: "lastUpdatedTime")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "pattern")
       )
 
 instance Prelude.Hashable Segment where

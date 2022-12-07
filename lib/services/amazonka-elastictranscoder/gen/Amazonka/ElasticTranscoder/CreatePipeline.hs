@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -754,8 +755,8 @@ instance Core.AWSRequest CreatePipeline where
     Response.receiveJSON
       ( \s h x ->
           CreatePipelineResponse'
-            Prelude.<$> (x Core..?> "Warnings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Pipeline")
+            Prelude.<$> (x Data..?> "Warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Pipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -781,29 +782,29 @@ instance Prelude.NFData CreatePipeline where
       `Prelude.seq` Prelude.rnf inputBucket
       `Prelude.seq` Prelude.rnf role'
 
-instance Core.ToHeaders CreatePipeline where
+instance Data.ToHeaders CreatePipeline where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreatePipeline where
+instance Data.ToJSON CreatePipeline where
   toJSON CreatePipeline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Notifications" Core..=) Prelude.<$> notifications,
-            ("ThumbnailConfig" Core..=)
+          [ ("Notifications" Data..=) Prelude.<$> notifications,
+            ("ThumbnailConfig" Data..=)
               Prelude.<$> thumbnailConfig,
-            ("AwsKmsKeyArn" Core..=) Prelude.<$> awsKmsKeyArn,
-            ("OutputBucket" Core..=) Prelude.<$> outputBucket,
-            ("ContentConfig" Core..=) Prelude.<$> contentConfig,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("InputBucket" Core..= inputBucket),
-            Prelude.Just ("Role" Core..= role')
+            ("AwsKmsKeyArn" Data..=) Prelude.<$> awsKmsKeyArn,
+            ("OutputBucket" Data..=) Prelude.<$> outputBucket,
+            ("ContentConfig" Data..=) Prelude.<$> contentConfig,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("InputBucket" Data..= inputBucket),
+            Prelude.Just ("Role" Data..= role')
           ]
       )
 
-instance Core.ToPath CreatePipeline where
+instance Data.ToPath CreatePipeline where
   toPath = Prelude.const "/2012-09-25/pipelines"
 
-instance Core.ToQuery CreatePipeline where
+instance Data.ToQuery CreatePipeline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | When you create a pipeline, Elastic Transcoder returns the values that

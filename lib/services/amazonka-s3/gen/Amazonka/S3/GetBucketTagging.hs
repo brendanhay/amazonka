@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,8 +121,8 @@ instance Core.AWSRequest GetBucketTagging where
       ( \s h x ->
           GetBucketTaggingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "TagSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "Tag"
+            Prelude.<*> ( x Data..@? "TagSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "Tag"
                         )
       )
 
@@ -135,18 +136,18 @@ instance Prelude.NFData GetBucketTagging where
     Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders GetBucketTagging where
+instance Data.ToHeaders GetBucketTagging where
   toHeaders GetBucketTagging' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath GetBucketTagging where
+instance Data.ToPath GetBucketTagging where
   toPath GetBucketTagging' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery GetBucketTagging where
+instance Data.ToQuery GetBucketTagging where
   toQuery = Prelude.const (Prelude.mconcat ["tagging"])
 
 -- | /See:/ 'newGetBucketTaggingResponse' smart constructor.

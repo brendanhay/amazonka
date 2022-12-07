@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,9 +100,9 @@ instance Core.AWSRequest DescribeBandwidthRateLimit where
     Response.receiveJSON
       ( \s h x ->
           DescribeBandwidthRateLimitResponse'
-            Prelude.<$> (x Core..?> "AverageUploadRateLimitInBitsPerSec")
-            Prelude.<*> (x Core..?> "GatewayARN")
-            Prelude.<*> (x Core..?> "AverageDownloadRateLimitInBitsPerSec")
+            Prelude.<$> (x Data..?> "AverageUploadRateLimitInBitsPerSec")
+            Prelude.<*> (x Data..?> "GatewayARN")
+            Prelude.<*> (x Data..?> "AverageDownloadRateLimitInBitsPerSec")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,32 +114,32 @@ instance Prelude.NFData DescribeBandwidthRateLimit where
   rnf DescribeBandwidthRateLimit' {..} =
     Prelude.rnf gatewayARN
 
-instance Core.ToHeaders DescribeBandwidthRateLimit where
+instance Data.ToHeaders DescribeBandwidthRateLimit where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.DescribeBandwidthRateLimit" ::
+              Data.=# ( "StorageGateway_20130630.DescribeBandwidthRateLimit" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeBandwidthRateLimit where
+instance Data.ToJSON DescribeBandwidthRateLimit where
   toJSON DescribeBandwidthRateLimit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
+          [Prelude.Just ("GatewayARN" Data..= gatewayARN)]
       )
 
-instance Core.ToPath DescribeBandwidthRateLimit where
+instance Data.ToPath DescribeBandwidthRateLimit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeBandwidthRateLimit where
+instance Data.ToQuery DescribeBandwidthRateLimit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the following fields:

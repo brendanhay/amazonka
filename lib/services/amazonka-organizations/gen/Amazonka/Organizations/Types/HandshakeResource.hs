@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.HandshakeResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types.HandshakeResourceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -53,7 +54,7 @@ data HandshakeResource = HandshakeResource'
     -- | The information that is passed to the other party in the handshake. The
     -- format of the value string must match the requirements of the specified
     -- type.
-    value :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    value :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -129,17 +130,17 @@ handshakeResource_resources = Lens.lens (\HandshakeResource' {resources} -> reso
 -- format of the value string must match the requirements of the specified
 -- type.
 handshakeResource_value :: Lens.Lens' HandshakeResource (Prelude.Maybe Prelude.Text)
-handshakeResource_value = Lens.lens (\HandshakeResource' {value} -> value) (\s@HandshakeResource' {} a -> s {value = a} :: HandshakeResource) Prelude.. Lens.mapping Core._Sensitive
+handshakeResource_value = Lens.lens (\HandshakeResource' {value} -> value) (\s@HandshakeResource' {} a -> s {value = a} :: HandshakeResource) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON HandshakeResource where
+instance Data.FromJSON HandshakeResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HandshakeResource"
       ( \x ->
           HandshakeResource'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Resources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Resources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable HandshakeResource where

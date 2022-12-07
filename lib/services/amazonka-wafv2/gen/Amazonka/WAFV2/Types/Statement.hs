@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.Statement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import {-# SOURCE #-} Amazonka.WAFV2.Types.AndStatement
 import Amazonka.WAFV2.Types.ByteMatchStatement
@@ -629,27 +630,27 @@ statement_andStatement = Lens.lens (\Statement' {andStatement} -> andStatement) 
 statement_iPSetReferenceStatement :: Lens.Lens' Statement (Prelude.Maybe IPSetReferenceStatement)
 statement_iPSetReferenceStatement = Lens.lens (\Statement' {iPSetReferenceStatement} -> iPSetReferenceStatement) (\s@Statement' {} a -> s {iPSetReferenceStatement = a} :: Statement)
 
-instance Core.FromJSON Statement where
+instance Data.FromJSON Statement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Statement"
       ( \x ->
           Statement'
-            Prelude.<$> (x Core..:? "RuleGroupReferenceStatement")
-            Prelude.<*> (x Core..:? "SqliMatchStatement")
-            Prelude.<*> (x Core..:? "XssMatchStatement")
-            Prelude.<*> (x Core..:? "ManagedRuleGroupStatement")
-            Prelude.<*> (x Core..:? "RegexPatternSetReferenceStatement")
-            Prelude.<*> (x Core..:? "RateBasedStatement")
-            Prelude.<*> (x Core..:? "NotStatement")
-            Prelude.<*> (x Core..:? "GeoMatchStatement")
-            Prelude.<*> (x Core..:? "OrStatement")
-            Prelude.<*> (x Core..:? "SizeConstraintStatement")
-            Prelude.<*> (x Core..:? "ByteMatchStatement")
-            Prelude.<*> (x Core..:? "LabelMatchStatement")
-            Prelude.<*> (x Core..:? "RegexMatchStatement")
-            Prelude.<*> (x Core..:? "AndStatement")
-            Prelude.<*> (x Core..:? "IPSetReferenceStatement")
+            Prelude.<$> (x Data..:? "RuleGroupReferenceStatement")
+            Prelude.<*> (x Data..:? "SqliMatchStatement")
+            Prelude.<*> (x Data..:? "XssMatchStatement")
+            Prelude.<*> (x Data..:? "ManagedRuleGroupStatement")
+            Prelude.<*> (x Data..:? "RegexPatternSetReferenceStatement")
+            Prelude.<*> (x Data..:? "RateBasedStatement")
+            Prelude.<*> (x Data..:? "NotStatement")
+            Prelude.<*> (x Data..:? "GeoMatchStatement")
+            Prelude.<*> (x Data..:? "OrStatement")
+            Prelude.<*> (x Data..:? "SizeConstraintStatement")
+            Prelude.<*> (x Data..:? "ByteMatchStatement")
+            Prelude.<*> (x Data..:? "LabelMatchStatement")
+            Prelude.<*> (x Data..:? "RegexMatchStatement")
+            Prelude.<*> (x Data..:? "AndStatement")
+            Prelude.<*> (x Data..:? "IPSetReferenceStatement")
       )
 
 instance Prelude.Hashable Statement where
@@ -689,36 +690,36 @@ instance Prelude.NFData Statement where
       `Prelude.seq` Prelude.rnf andStatement
       `Prelude.seq` Prelude.rnf iPSetReferenceStatement
 
-instance Core.ToJSON Statement where
+instance Data.ToJSON Statement where
   toJSON Statement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RuleGroupReferenceStatement" Core..=)
+          [ ("RuleGroupReferenceStatement" Data..=)
               Prelude.<$> ruleGroupReferenceStatement,
-            ("SqliMatchStatement" Core..=)
+            ("SqliMatchStatement" Data..=)
               Prelude.<$> sqliMatchStatement,
-            ("XssMatchStatement" Core..=)
+            ("XssMatchStatement" Data..=)
               Prelude.<$> xssMatchStatement,
-            ("ManagedRuleGroupStatement" Core..=)
+            ("ManagedRuleGroupStatement" Data..=)
               Prelude.<$> managedRuleGroupStatement,
-            ("RegexPatternSetReferenceStatement" Core..=)
+            ("RegexPatternSetReferenceStatement" Data..=)
               Prelude.<$> regexPatternSetReferenceStatement,
-            ("RateBasedStatement" Core..=)
+            ("RateBasedStatement" Data..=)
               Prelude.<$> rateBasedStatement,
-            ("NotStatement" Core..=) Prelude.<$> notStatement,
-            ("GeoMatchStatement" Core..=)
+            ("NotStatement" Data..=) Prelude.<$> notStatement,
+            ("GeoMatchStatement" Data..=)
               Prelude.<$> geoMatchStatement,
-            ("OrStatement" Core..=) Prelude.<$> orStatement,
-            ("SizeConstraintStatement" Core..=)
+            ("OrStatement" Data..=) Prelude.<$> orStatement,
+            ("SizeConstraintStatement" Data..=)
               Prelude.<$> sizeConstraintStatement,
-            ("ByteMatchStatement" Core..=)
+            ("ByteMatchStatement" Data..=)
               Prelude.<$> byteMatchStatement,
-            ("LabelMatchStatement" Core..=)
+            ("LabelMatchStatement" Data..=)
               Prelude.<$> labelMatchStatement,
-            ("RegexMatchStatement" Core..=)
+            ("RegexMatchStatement" Data..=)
               Prelude.<$> regexMatchStatement,
-            ("AndStatement" Core..=) Prelude.<$> andStatement,
-            ("IPSetReferenceStatement" Core..=)
+            ("AndStatement" Data..=) Prelude.<$> andStatement,
+            ("IPSetReferenceStatement" Data..=)
               Prelude.<$> iPSetReferenceStatement
           ]
       )

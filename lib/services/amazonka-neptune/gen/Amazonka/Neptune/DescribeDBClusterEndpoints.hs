@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -219,11 +220,11 @@ instance Core.AWSRequest DescribeDBClusterEndpoints where
       "DescribeDBClusterEndpointsResult"
       ( \s h x ->
           DescribeDBClusterEndpointsResponse'
-            Prelude.<$> ( x Core..@? "DBClusterEndpoints"
+            Prelude.<$> ( x Data..@? "DBClusterEndpoints"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "DBClusterEndpointList")
+                            Prelude.>>= Core.may (Data.parseXMLList "DBClusterEndpointList")
                         )
-            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -243,27 +244,27 @@ instance Prelude.NFData DescribeDBClusterEndpoints where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
 
-instance Core.ToHeaders DescribeDBClusterEndpoints where
+instance Data.ToHeaders DescribeDBClusterEndpoints where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBClusterEndpoints where
+instance Data.ToPath DescribeDBClusterEndpoints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDBClusterEndpoints where
+instance Data.ToQuery DescribeDBClusterEndpoints where
   toQuery DescribeDBClusterEndpoints' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBClusterEndpoints" :: Prelude.ByteString),
+          Data.=: ("DescribeDBClusterEndpoints" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier,
-        "MaxRecords" Core.=: maxRecords,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier,
+        "MaxRecords" Data.=: maxRecords,
         "DBClusterEndpointIdentifier"
-          Core.=: dbClusterEndpointIdentifier
+          Data.=: dbClusterEndpointIdentifier
       ]
 
 -- | /See:/ 'newDescribeDBClusterEndpointsResponse' smart constructor.

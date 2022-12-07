@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Scte20PlusEmbeddedDestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Scte20 Plus Embedded Destination Settings
@@ -41,11 +42,11 @@ newScte20PlusEmbeddedDestinationSettings =
   Scte20PlusEmbeddedDestinationSettings'
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     Scte20PlusEmbeddedDestinationSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scte20PlusEmbeddedDestinationSettings"
       ( \x ->
           Prelude.pure Scte20PlusEmbeddedDestinationSettings'
@@ -65,7 +66,7 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     Scte20PlusEmbeddedDestinationSettings
   where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

@@ -51,6 +51,7 @@ where
 import Amazonka.BackupStorage.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -75,7 +76,7 @@ data NotifyObjectComplete = NotifyObjectComplete'
     -- | Checksum algorithm
     objectChecksumAlgorithm :: SummaryChecksumAlgorithm,
     -- | Optional metadata associated with an Object. Maximum length is 4MB.
-    metadataBlob :: Core.HashedBody
+    metadataBlob :: Data.HashedBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -115,7 +116,7 @@ newNotifyObjectComplete ::
   -- | 'objectChecksumAlgorithm'
   SummaryChecksumAlgorithm ->
   -- | 'metadataBlob'
-  Core.HashedBody ->
+  Data.HashedBody ->
   NotifyObjectComplete
 newNotifyObjectComplete
   pBackupJobId_
@@ -170,7 +171,7 @@ notifyObjectComplete_objectChecksumAlgorithm :: Lens.Lens' NotifyObjectComplete 
 notifyObjectComplete_objectChecksumAlgorithm = Lens.lens (\NotifyObjectComplete' {objectChecksumAlgorithm} -> objectChecksumAlgorithm) (\s@NotifyObjectComplete' {} a -> s {objectChecksumAlgorithm = a} :: NotifyObjectComplete)
 
 -- | Optional metadata associated with an Object. Maximum length is 4MB.
-notifyObjectComplete_metadataBlob :: Lens.Lens' NotifyObjectComplete Core.HashedBody
+notifyObjectComplete_metadataBlob :: Lens.Lens' NotifyObjectComplete Data.HashedBody
 notifyObjectComplete_metadataBlob = Lens.lens (\NotifyObjectComplete' {metadataBlob} -> metadataBlob) (\s@NotifyObjectComplete' {} a -> s {metadataBlob = a} :: NotifyObjectComplete)
 
 instance Core.AWSRequest NotifyObjectComplete where
@@ -184,45 +185,45 @@ instance Core.AWSRequest NotifyObjectComplete where
       ( \s h x ->
           NotifyObjectCompleteResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ObjectChecksum")
-            Prelude.<*> (x Core..:> "ObjectChecksumAlgorithm")
+            Prelude.<*> (x Data..:> "ObjectChecksum")
+            Prelude.<*> (x Data..:> "ObjectChecksumAlgorithm")
       )
 
-instance Core.ToBody NotifyObjectComplete where
+instance Data.ToBody NotifyObjectComplete where
   toBody NotifyObjectComplete' {..} =
-    Core.toBody metadataBlob
+    Data.toBody metadataBlob
 
-instance Core.ToHeaders NotifyObjectComplete where
+instance Data.ToHeaders NotifyObjectComplete where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath NotifyObjectComplete where
+instance Data.ToPath NotifyObjectComplete where
   toPath NotifyObjectComplete' {..} =
     Prelude.mconcat
       [ "/backup-jobs/",
-        Core.toBS backupJobId,
+        Data.toBS backupJobId,
         "/object/",
-        Core.toBS uploadId,
+        Data.toBS uploadId,
         "/complete"
       ]
 
-instance Core.ToQuery NotifyObjectComplete where
+instance Data.ToQuery NotifyObjectComplete where
   toQuery NotifyObjectComplete' {..} =
     Prelude.mconcat
-      [ "metadata-string" Core.=: metadataString,
-        "metadata-checksum" Core.=: metadataBlobChecksum,
+      [ "metadata-string" Data.=: metadataString,
+        "metadata-checksum" Data.=: metadataBlobChecksum,
         "metadata-checksum-algorithm"
-          Core.=: metadataBlobChecksumAlgorithm,
-        "metadata-blob-length" Core.=: metadataBlobLength,
-        "checksum" Core.=: objectChecksum,
-        "checksum-algorithm" Core.=: objectChecksumAlgorithm
+          Data.=: metadataBlobChecksumAlgorithm,
+        "metadata-blob-length" Data.=: metadataBlobLength,
+        "checksum" Data.=: objectChecksum,
+        "checksum-algorithm" Data.=: objectChecksumAlgorithm
       ]
 
 -- | /See:/ 'newNotifyObjectCompleteResponse' smart constructor.

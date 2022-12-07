@@ -44,6 +44,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,9 +92,9 @@ instance Core.AWSRequest CreateDistributionWithTags where
     Response.receiveXML
       ( \s h x ->
           CreateDistributionWithTagsResponse'
-            Prelude.<$> (h Core..#? "Location")
-            Prelude.<*> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (h Data..#? "Location")
+            Prelude.<*> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,19 +107,19 @@ instance Prelude.NFData CreateDistributionWithTags where
   rnf CreateDistributionWithTags' {..} =
     Prelude.rnf distributionConfigWithTags
 
-instance Core.ToElement CreateDistributionWithTags where
+instance Data.ToElement CreateDistributionWithTags where
   toElement CreateDistributionWithTags' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}DistributionConfigWithTags"
       distributionConfigWithTags
 
-instance Core.ToHeaders CreateDistributionWithTags where
+instance Data.ToHeaders CreateDistributionWithTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDistributionWithTags where
+instance Data.ToPath CreateDistributionWithTags where
   toPath = Prelude.const "/2020-05-31/distribution"
 
-instance Core.ToQuery CreateDistributionWithTags where
+instance Data.ToQuery CreateDistributionWithTags where
   toQuery =
     Prelude.const (Prelude.mconcat ["WithTags"])
 

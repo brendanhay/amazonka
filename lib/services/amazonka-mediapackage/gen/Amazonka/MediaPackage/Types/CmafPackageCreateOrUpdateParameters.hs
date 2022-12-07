@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types.CmafEncryption
 import Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters
 import Amazonka.MediaPackage.Types.StreamSelection
@@ -122,18 +123,18 @@ instance
       `Prelude.seq` Prelude.rnf encryption
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CmafPackageCreateOrUpdateParameters
   where
   toJSON CmafPackageCreateOrUpdateParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("streamSelection" Core..=)
+          [ ("streamSelection" Data..=)
               Prelude.<$> streamSelection,
-            ("hlsManifests" Core..=) Prelude.<$> hlsManifests,
-            ("segmentPrefix" Core..=) Prelude.<$> segmentPrefix,
-            ("segmentDurationSeconds" Core..=)
+            ("hlsManifests" Data..=) Prelude.<$> hlsManifests,
+            ("segmentPrefix" Data..=) Prelude.<$> segmentPrefix,
+            ("segmentDurationSeconds" Data..=)
               Prelude.<$> segmentDurationSeconds,
-            ("encryption" Core..=) Prelude.<$> encryption
+            ("encryption" Data..=) Prelude.<$> encryption
           ]
       )

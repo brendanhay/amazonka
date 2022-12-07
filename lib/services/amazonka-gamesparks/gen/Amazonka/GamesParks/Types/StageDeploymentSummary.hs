@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.StageDeploymentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types.DeploymentAction
 import Amazonka.GamesParks.Types.DeploymentResult
 import Amazonka.GamesParks.Types.DeploymentState
@@ -41,7 +42,7 @@ data StageDeploymentSummary = StageDeploymentSummary'
     -- | The identifier of the snapshot associated with the stage deployment.
     snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the deployment was last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX
+    lastUpdated :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,20 +100,20 @@ stageDeploymentSummary_snapshotId = Lens.lens (\StageDeploymentSummary' {snapsho
 
 -- | The timestamp of when the deployment was last updated.
 stageDeploymentSummary_lastUpdated :: Lens.Lens' StageDeploymentSummary (Prelude.Maybe Prelude.UTCTime)
-stageDeploymentSummary_lastUpdated = Lens.lens (\StageDeploymentSummary' {lastUpdated} -> lastUpdated) (\s@StageDeploymentSummary' {} a -> s {lastUpdated = a} :: StageDeploymentSummary) Prelude.. Lens.mapping Core._Time
+stageDeploymentSummary_lastUpdated = Lens.lens (\StageDeploymentSummary' {lastUpdated} -> lastUpdated) (\s@StageDeploymentSummary' {} a -> s {lastUpdated = a} :: StageDeploymentSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON StageDeploymentSummary where
+instance Data.FromJSON StageDeploymentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StageDeploymentSummary"
       ( \x ->
           StageDeploymentSummary'
-            Prelude.<$> (x Core..:? "DeploymentState")
-            Prelude.<*> (x Core..:? "DeploymentAction")
-            Prelude.<*> (x Core..:? "DeploymentId")
-            Prelude.<*> (x Core..:? "DeploymentResult")
-            Prelude.<*> (x Core..:? "SnapshotId")
-            Prelude.<*> (x Core..:? "LastUpdated")
+            Prelude.<$> (x Data..:? "DeploymentState")
+            Prelude.<*> (x Data..:? "DeploymentAction")
+            Prelude.<*> (x Data..:? "DeploymentId")
+            Prelude.<*> (x Data..:? "DeploymentResult")
+            Prelude.<*> (x Data..:? "SnapshotId")
+            Prelude.<*> (x Data..:? "LastUpdated")
       )
 
 instance Prelude.Hashable StageDeploymentSummary where

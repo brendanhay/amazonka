@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.Server where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.ServerType
 import Amazonka.SMS.Types.VmServer
@@ -90,17 +91,17 @@ server_vmServer = Lens.lens (\Server' {vmServer} -> vmServer) (\s@Server' {} a -
 server_replicationJobTerminated :: Lens.Lens' Server (Prelude.Maybe Prelude.Bool)
 server_replicationJobTerminated = Lens.lens (\Server' {replicationJobTerminated} -> replicationJobTerminated) (\s@Server' {} a -> s {replicationJobTerminated = a} :: Server)
 
-instance Core.FromJSON Server where
+instance Data.FromJSON Server where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Server"
       ( \x ->
           Server'
-            Prelude.<$> (x Core..:? "serverType")
-            Prelude.<*> (x Core..:? "replicationJobId")
-            Prelude.<*> (x Core..:? "serverId")
-            Prelude.<*> (x Core..:? "vmServer")
-            Prelude.<*> (x Core..:? "replicationJobTerminated")
+            Prelude.<$> (x Data..:? "serverType")
+            Prelude.<*> (x Data..:? "replicationJobId")
+            Prelude.<*> (x Data..:? "serverId")
+            Prelude.<*> (x Data..:? "vmServer")
+            Prelude.<*> (x Data..:? "replicationJobTerminated")
       )
 
 instance Prelude.Hashable Server where
@@ -119,16 +120,16 @@ instance Prelude.NFData Server where
       `Prelude.seq` Prelude.rnf vmServer
       `Prelude.seq` Prelude.rnf replicationJobTerminated
 
-instance Core.ToJSON Server where
+instance Data.ToJSON Server where
   toJSON Server' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("serverType" Core..=) Prelude.<$> serverType,
-            ("replicationJobId" Core..=)
+          [ ("serverType" Data..=) Prelude.<$> serverType,
+            ("replicationJobId" Data..=)
               Prelude.<$> replicationJobId,
-            ("serverId" Core..=) Prelude.<$> serverId,
-            ("vmServer" Core..=) Prelude.<$> vmServer,
-            ("replicationJobTerminated" Core..=)
+            ("serverId" Data..=) Prelude.<$> serverId,
+            ("vmServer" Data..=) Prelude.<$> vmServer,
+            ("replicationJobTerminated" Data..=)
               Prelude.<$> replicationJobTerminated
           ]
       )

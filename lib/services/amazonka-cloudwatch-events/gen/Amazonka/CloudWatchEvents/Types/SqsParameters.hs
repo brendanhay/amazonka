@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.SqsParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure includes the custom parameter to be used when the target
@@ -51,13 +52,13 @@ newSqsParameters =
 sqsParameters_messageGroupId :: Lens.Lens' SqsParameters (Prelude.Maybe Prelude.Text)
 sqsParameters_messageGroupId = Lens.lens (\SqsParameters' {messageGroupId} -> messageGroupId) (\s@SqsParameters' {} a -> s {messageGroupId = a} :: SqsParameters)
 
-instance Core.FromJSON SqsParameters where
+instance Data.FromJSON SqsParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SqsParameters"
       ( \x ->
           SqsParameters'
-            Prelude.<$> (x Core..:? "MessageGroupId")
+            Prelude.<$> (x Data..:? "MessageGroupId")
       )
 
 instance Prelude.Hashable SqsParameters where
@@ -67,11 +68,11 @@ instance Prelude.Hashable SqsParameters where
 instance Prelude.NFData SqsParameters where
   rnf SqsParameters' {..} = Prelude.rnf messageGroupId
 
-instance Core.ToJSON SqsParameters where
+instance Data.ToJSON SqsParameters where
   toJSON SqsParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MessageGroupId" Core..=)
+          [ ("MessageGroupId" Data..=)
               Prelude.<$> messageGroupId
           ]
       )

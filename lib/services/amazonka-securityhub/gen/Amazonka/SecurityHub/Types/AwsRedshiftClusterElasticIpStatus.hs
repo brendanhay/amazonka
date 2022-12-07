@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRedshiftClusterElasticIpStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status of the elastic IP (EIP) address for an Amazon Redshift
@@ -64,16 +65,16 @@ awsRedshiftClusterElasticIpStatus_status :: Lens.Lens' AwsRedshiftClusterElastic
 awsRedshiftClusterElasticIpStatus_status = Lens.lens (\AwsRedshiftClusterElasticIpStatus' {status} -> status) (\s@AwsRedshiftClusterElasticIpStatus' {} a -> s {status = a} :: AwsRedshiftClusterElasticIpStatus)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsRedshiftClusterElasticIpStatus
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRedshiftClusterElasticIpStatus"
       ( \x ->
           AwsRedshiftClusterElasticIpStatus'
-            Prelude.<$> (x Core..:? "ElasticIp")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "ElasticIp")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance
@@ -95,13 +96,13 @@ instance
       `Prelude.seq` Prelude.rnf status
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsRedshiftClusterElasticIpStatus
   where
   toJSON AwsRedshiftClusterElasticIpStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ElasticIp" Core..=) Prelude.<$> elasticIp,
-            ("Status" Core..=) Prelude.<$> status
+          [ ("ElasticIp" Data..=) Prelude.<$> elasticIp,
+            ("Status" Data..=) Prelude.<$> status
           ]
       )

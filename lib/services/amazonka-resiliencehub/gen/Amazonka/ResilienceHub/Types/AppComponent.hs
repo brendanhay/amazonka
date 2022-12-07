@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.AppComponent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines an application component.
@@ -62,13 +63,13 @@ appComponent_name = Lens.lens (\AppComponent' {name} -> name) (\s@AppComponent' 
 appComponent_type :: Lens.Lens' AppComponent Prelude.Text
 appComponent_type = Lens.lens (\AppComponent' {type'} -> type') (\s@AppComponent' {} a -> s {type' = a} :: AppComponent)
 
-instance Core.FromJSON AppComponent where
+instance Data.FromJSON AppComponent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppComponent"
       ( \x ->
           AppComponent'
-            Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable AppComponent where

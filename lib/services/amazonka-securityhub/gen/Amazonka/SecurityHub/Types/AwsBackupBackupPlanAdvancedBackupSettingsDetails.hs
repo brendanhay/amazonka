@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsBackupBackupPlanAdvancedBackupSettingsDetai
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a list of backup options for each resource type.
@@ -97,16 +98,16 @@ awsBackupBackupPlanAdvancedBackupSettingsDetails_backupOptions :: Lens.Lens' Aws
 awsBackupBackupPlanAdvancedBackupSettingsDetails_backupOptions = Lens.lens (\AwsBackupBackupPlanAdvancedBackupSettingsDetails' {backupOptions} -> backupOptions) (\s@AwsBackupBackupPlanAdvancedBackupSettingsDetails' {} a -> s {backupOptions = a} :: AwsBackupBackupPlanAdvancedBackupSettingsDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsBackupBackupPlanAdvancedBackupSettingsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsBackupBackupPlanAdvancedBackupSettingsDetails"
       ( \x ->
           AwsBackupBackupPlanAdvancedBackupSettingsDetails'
-            Prelude.<$> (x Core..:? "ResourceType")
-              Prelude.<*> (x Core..:? "BackupOptions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ResourceType")
+              Prelude.<*> (x Data..:? "BackupOptions" Data..!= Prelude.mempty)
       )
 
 instance
@@ -129,14 +130,14 @@ instance
         `Prelude.seq` Prelude.rnf backupOptions
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsBackupBackupPlanAdvancedBackupSettingsDetails
   where
   toJSON
     AwsBackupBackupPlanAdvancedBackupSettingsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("ResourceType" Core..=) Prelude.<$> resourceType,
-              ("BackupOptions" Core..=) Prelude.<$> backupOptions
+            [ ("ResourceType" Data..=) Prelude.<$> resourceType,
+              ("BackupOptions" Data..=) Prelude.<$> backupOptions
             ]
         )

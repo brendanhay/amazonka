@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ConnectionLogResponseOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -82,12 +83,12 @@ connectionLogResponseOptions_enabled = Lens.lens (\ConnectionLogResponseOptions'
 connectionLogResponseOptions_cloudwatchLogStream :: Lens.Lens' ConnectionLogResponseOptions (Prelude.Maybe Prelude.Text)
 connectionLogResponseOptions_cloudwatchLogStream = Lens.lens (\ConnectionLogResponseOptions' {cloudwatchLogStream} -> cloudwatchLogStream) (\s@ConnectionLogResponseOptions' {} a -> s {cloudwatchLogStream = a} :: ConnectionLogResponseOptions)
 
-instance Core.FromXML ConnectionLogResponseOptions where
+instance Data.FromXML ConnectionLogResponseOptions where
   parseXML x =
     ConnectionLogResponseOptions'
-      Prelude.<$> (x Core..@? "CloudwatchLogGroup")
-      Prelude.<*> (x Core..@? "Enabled")
-      Prelude.<*> (x Core..@? "CloudwatchLogStream")
+      Prelude.<$> (x Data..@? "CloudwatchLogGroup")
+      Prelude.<*> (x Data..@? "Enabled")
+      Prelude.<*> (x Data..@? "CloudwatchLogStream")
 
 instance
   Prelude.Hashable

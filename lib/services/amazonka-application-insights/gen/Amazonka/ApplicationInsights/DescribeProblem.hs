@@ -42,6 +42,7 @@ where
 import Amazonka.ApplicationInsights.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest DescribeProblem where
     Response.receiveJSON
       ( \s h x ->
           DescribeProblemResponse'
-            Prelude.<$> (x Core..?> "Problem")
+            Prelude.<$> (x Data..?> "Problem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable DescribeProblem where
 instance Prelude.NFData DescribeProblem where
   rnf DescribeProblem' {..} = Prelude.rnf problemId
 
-instance Core.ToHeaders DescribeProblem where
+instance Data.ToHeaders DescribeProblem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "EC2WindowsBarleyService.DescribeProblem" ::
+              Data.=# ( "EC2WindowsBarleyService.DescribeProblem" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeProblem where
+instance Data.ToJSON DescribeProblem where
   toJSON DescribeProblem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ProblemId" Core..= problemId)]
+          [Prelude.Just ("ProblemId" Data..= problemId)]
       )
 
-instance Core.ToPath DescribeProblem where
+instance Data.ToPath DescribeProblem where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeProblem where
+instance Data.ToQuery DescribeProblem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProblemResponse' smart constructor.

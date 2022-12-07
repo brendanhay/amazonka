@@ -21,6 +21,7 @@ module Amazonka.Kinesis.Types.Record where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types.EncryptionType
 import qualified Amazonka.Prelude as Prelude
 
@@ -38,7 +39,7 @@ data Record = Record'
     --     a customer-managed Amazon Web Services KMS key.
     encryptionType :: Prelude.Maybe EncryptionType,
     -- | The approximate time that the record was inserted into the stream.
-    approximateArrivalTimestamp :: Prelude.Maybe Core.POSIX,
+    approximateArrivalTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the record within its shard.
     sequenceNumber :: Prelude.Text,
     -- | The data blob. The data in the blob is both opaque and immutable to
@@ -46,7 +47,7 @@ data Record = Record'
     -- data in the blob in any way. When the data blob (the payload before
     -- base64-encoding) is added to the partition key size, the total size must
     -- not exceed the maximum record size (1 MiB).
-    data' :: Core.Base64,
+    data' :: Data.Base64,
     -- | Identifies which shard in the stream the data record is assigned to.
     partitionKey :: Prelude.Text
   }
@@ -96,7 +97,7 @@ newRecord pSequenceNumber_ pData_ pPartitionKey_ =
     { encryptionType = Prelude.Nothing,
       approximateArrivalTimestamp = Prelude.Nothing,
       sequenceNumber = pSequenceNumber_,
-      data' = Core._Base64 Lens.# pData_,
+      data' = Data._Base64 Lens.# pData_,
       partitionKey = pPartitionKey_
     }
 
@@ -112,7 +113,7 @@ record_encryptionType = Lens.lens (\Record' {encryptionType} -> encryptionType) 
 
 -- | The approximate time that the record was inserted into the stream.
 record_approximateArrivalTimestamp :: Lens.Lens' Record (Prelude.Maybe Prelude.UTCTime)
-record_approximateArrivalTimestamp = Lens.lens (\Record' {approximateArrivalTimestamp} -> approximateArrivalTimestamp) (\s@Record' {} a -> s {approximateArrivalTimestamp = a} :: Record) Prelude.. Lens.mapping Core._Time
+record_approximateArrivalTimestamp = Lens.lens (\Record' {approximateArrivalTimestamp} -> approximateArrivalTimestamp) (\s@Record' {} a -> s {approximateArrivalTimestamp = a} :: Record) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of the record within its shard.
 record_sequenceNumber :: Lens.Lens' Record Prelude.Text
@@ -128,23 +129,23 @@ record_sequenceNumber = Lens.lens (\Record' {sequenceNumber} -> sequenceNumber) 
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 record_data :: Lens.Lens' Record Prelude.ByteString
-record_data = Lens.lens (\Record' {data'} -> data') (\s@Record' {} a -> s {data' = a} :: Record) Prelude.. Core._Base64
+record_data = Lens.lens (\Record' {data'} -> data') (\s@Record' {} a -> s {data' = a} :: Record) Prelude.. Data._Base64
 
 -- | Identifies which shard in the stream the data record is assigned to.
 record_partitionKey :: Lens.Lens' Record Prelude.Text
 record_partitionKey = Lens.lens (\Record' {partitionKey} -> partitionKey) (\s@Record' {} a -> s {partitionKey = a} :: Record)
 
-instance Core.FromJSON Record where
+instance Data.FromJSON Record where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Record"
       ( \x ->
           Record'
-            Prelude.<$> (x Core..:? "EncryptionType")
-            Prelude.<*> (x Core..:? "ApproximateArrivalTimestamp")
-            Prelude.<*> (x Core..: "SequenceNumber")
-            Prelude.<*> (x Core..: "Data")
-            Prelude.<*> (x Core..: "PartitionKey")
+            Prelude.<$> (x Data..:? "EncryptionType")
+            Prelude.<*> (x Data..:? "ApproximateArrivalTimestamp")
+            Prelude.<*> (x Data..: "SequenceNumber")
+            Prelude.<*> (x Data..: "Data")
+            Prelude.<*> (x Data..: "PartitionKey")
       )
 
 instance Prelude.Hashable Record where

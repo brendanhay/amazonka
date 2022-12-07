@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.LifeCycle where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.LifeCycleLastLaunch
 import qualified Amazonka.Prelude as Prelude
 
@@ -96,17 +97,17 @@ lifeCycle_lastSeenByServiceDateTime = Lens.lens (\LifeCycle' {lastSeenByServiceD
 lifeCycle_firstByteDateTime :: Lens.Lens' LifeCycle (Prelude.Maybe Prelude.Text)
 lifeCycle_firstByteDateTime = Lens.lens (\LifeCycle' {firstByteDateTime} -> firstByteDateTime) (\s@LifeCycle' {} a -> s {firstByteDateTime = a} :: LifeCycle)
 
-instance Core.FromJSON LifeCycle where
+instance Data.FromJSON LifeCycle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifeCycle"
       ( \x ->
           LifeCycle'
-            Prelude.<$> (x Core..:? "addedToServiceDateTime")
-            Prelude.<*> (x Core..:? "lastLaunch")
-            Prelude.<*> (x Core..:? "elapsedReplicationDuration")
-            Prelude.<*> (x Core..:? "lastSeenByServiceDateTime")
-            Prelude.<*> (x Core..:? "firstByteDateTime")
+            Prelude.<$> (x Data..:? "addedToServiceDateTime")
+            Prelude.<*> (x Data..:? "lastLaunch")
+            Prelude.<*> (x Data..:? "elapsedReplicationDuration")
+            Prelude.<*> (x Data..:? "lastSeenByServiceDateTime")
+            Prelude.<*> (x Data..:? "firstByteDateTime")
       )
 
 instance Prelude.Hashable LifeCycle where

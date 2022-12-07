@@ -21,6 +21,7 @@ module Amazonka.RedshiftData.Types.ColumnMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties (metadata) of a column.
@@ -160,25 +161,25 @@ columnMetadata_isCurrency = Lens.lens (\ColumnMetadata' {isCurrency} -> isCurren
 columnMetadata_isSigned :: Lens.Lens' ColumnMetadata (Prelude.Maybe Prelude.Bool)
 columnMetadata_isSigned = Lens.lens (\ColumnMetadata' {isSigned} -> isSigned) (\s@ColumnMetadata' {} a -> s {isSigned = a} :: ColumnMetadata)
 
-instance Core.FromJSON ColumnMetadata where
+instance Data.FromJSON ColumnMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnMetadata"
       ( \x ->
           ColumnMetadata'
-            Prelude.<$> (x Core..:? "tableName")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "label")
-            Prelude.<*> (x Core..:? "schemaName")
-            Prelude.<*> (x Core..:? "nullable")
-            Prelude.<*> (x Core..:? "length")
-            Prelude.<*> (x Core..:? "isCaseSensitive")
-            Prelude.<*> (x Core..:? "typeName")
-            Prelude.<*> (x Core..:? "columnDefault")
-            Prelude.<*> (x Core..:? "precision")
-            Prelude.<*> (x Core..:? "scale")
-            Prelude.<*> (x Core..:? "isCurrency")
-            Prelude.<*> (x Core..:? "isSigned")
+            Prelude.<$> (x Data..:? "tableName")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "label")
+            Prelude.<*> (x Data..:? "schemaName")
+            Prelude.<*> (x Data..:? "nullable")
+            Prelude.<*> (x Data..:? "length")
+            Prelude.<*> (x Data..:? "isCaseSensitive")
+            Prelude.<*> (x Data..:? "typeName")
+            Prelude.<*> (x Data..:? "columnDefault")
+            Prelude.<*> (x Data..:? "precision")
+            Prelude.<*> (x Data..:? "scale")
+            Prelude.<*> (x Data..:? "isCurrency")
+            Prelude.<*> (x Data..:? "isSigned")
       )
 
 instance Prelude.Hashable ColumnMetadata where

@@ -23,6 +23,7 @@ import Amazonka.CodeDeploy.Types.DeploymentOption
 import Amazonka.CodeDeploy.Types.DeploymentType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the type of deployment, either in-place or
@@ -68,14 +69,14 @@ deploymentStyle_deploymentType = Lens.lens (\DeploymentStyle' {deploymentType} -
 deploymentStyle_deploymentOption :: Lens.Lens' DeploymentStyle (Prelude.Maybe DeploymentOption)
 deploymentStyle_deploymentOption = Lens.lens (\DeploymentStyle' {deploymentOption} -> deploymentOption) (\s@DeploymentStyle' {} a -> s {deploymentOption = a} :: DeploymentStyle)
 
-instance Core.FromJSON DeploymentStyle where
+instance Data.FromJSON DeploymentStyle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentStyle"
       ( \x ->
           DeploymentStyle'
-            Prelude.<$> (x Core..:? "deploymentType")
-            Prelude.<*> (x Core..:? "deploymentOption")
+            Prelude.<$> (x Data..:? "deploymentType")
+            Prelude.<*> (x Data..:? "deploymentOption")
       )
 
 instance Prelude.Hashable DeploymentStyle where
@@ -88,13 +89,13 @@ instance Prelude.NFData DeploymentStyle where
     Prelude.rnf deploymentType
       `Prelude.seq` Prelude.rnf deploymentOption
 
-instance Core.ToJSON DeploymentStyle where
+instance Data.ToJSON DeploymentStyle where
   toJSON DeploymentStyle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deploymentType" Core..=)
+          [ ("deploymentType" Data..=)
               Prelude.<$> deploymentType,
-            ("deploymentOption" Core..=)
+            ("deploymentOption" Data..=)
               Prelude.<$> deploymentOption
           ]
       )

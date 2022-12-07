@@ -42,6 +42,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ instance Core.AWSRequest DescribeService where
       ( \s h x ->
           DescribeServiceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Service")
+            Prelude.<*> (x Data..:> "Service")
       )
 
 instance Prelude.Hashable DescribeService where
@@ -97,30 +98,30 @@ instance Prelude.Hashable DescribeService where
 instance Prelude.NFData DescribeService where
   rnf DescribeService' {..} = Prelude.rnf serviceArn
 
-instance Core.ToHeaders DescribeService where
+instance Data.ToHeaders DescribeService where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AppRunner.DescribeService" :: Prelude.ByteString),
+              Data.=# ("AppRunner.DescribeService" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeService where
+instance Data.ToJSON DescribeService where
   toJSON DescribeService' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ServiceArn" Core..= serviceArn)]
+          [Prelude.Just ("ServiceArn" Data..= serviceArn)]
       )
 
-instance Core.ToPath DescribeService where
+instance Data.ToPath DescribeService where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeService where
+instance Data.ToQuery DescribeService where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeServiceResponse' smart constructor.

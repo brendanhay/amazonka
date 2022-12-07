@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.SortCriterion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.SortOrder
 
@@ -72,11 +73,11 @@ instance Prelude.NFData SortCriterion where
     Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf field
 
-instance Core.ToJSON SortCriterion where
+instance Data.ToJSON SortCriterion where
   toJSON SortCriterion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("Field" Core..=) Prelude.<$> field
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("Field" Data..=) Prelude.<$> field
           ]
       )

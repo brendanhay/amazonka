@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.Cell where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the location of an occurrence of sensitive data in a Microsoft
@@ -95,16 +96,16 @@ cell_columnName = Lens.lens (\Cell' {columnName} -> columnName) (\s@Cell' {} a -
 cell_column :: Lens.Lens' Cell (Prelude.Maybe Prelude.Integer)
 cell_column = Lens.lens (\Cell' {column} -> column) (\s@Cell' {} a -> s {column = a} :: Cell)
 
-instance Core.FromJSON Cell where
+instance Data.FromJSON Cell where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Cell"
       ( \x ->
           Cell'
-            Prelude.<$> (x Core..:? "row")
-            Prelude.<*> (x Core..:? "cellReference")
-            Prelude.<*> (x Core..:? "columnName")
-            Prelude.<*> (x Core..:? "column")
+            Prelude.<$> (x Data..:? "row")
+            Prelude.<*> (x Data..:? "cellReference")
+            Prelude.<*> (x Data..:? "columnName")
+            Prelude.<*> (x Data..:? "column")
       )
 
 instance Prelude.Hashable Cell where

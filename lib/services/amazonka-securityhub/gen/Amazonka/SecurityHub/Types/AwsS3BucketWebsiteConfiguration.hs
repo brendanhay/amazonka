@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfigurationRedirectTo
 import Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfigurationRoutingRule
@@ -83,18 +84,18 @@ awsS3BucketWebsiteConfiguration_indexDocumentSuffix :: Lens.Lens' AwsS3BucketWeb
 awsS3BucketWebsiteConfiguration_indexDocumentSuffix = Lens.lens (\AwsS3BucketWebsiteConfiguration' {indexDocumentSuffix} -> indexDocumentSuffix) (\s@AwsS3BucketWebsiteConfiguration' {} a -> s {indexDocumentSuffix = a} :: AwsS3BucketWebsiteConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketWebsiteConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketWebsiteConfiguration"
       ( \x ->
           AwsS3BucketWebsiteConfiguration'
-            Prelude.<$> (x Core..:? "RoutingRules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ErrorDocument")
-            Prelude.<*> (x Core..:? "RedirectAllRequestsTo")
-            Prelude.<*> (x Core..:? "IndexDocumentSuffix")
+            Prelude.<$> (x Data..:? "RoutingRules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ErrorDocument")
+            Prelude.<*> (x Data..:? "RedirectAllRequestsTo")
+            Prelude.<*> (x Data..:? "IndexDocumentSuffix")
       )
 
 instance
@@ -119,15 +120,15 @@ instance
       `Prelude.seq` Prelude.rnf redirectAllRequestsTo
       `Prelude.seq` Prelude.rnf indexDocumentSuffix
 
-instance Core.ToJSON AwsS3BucketWebsiteConfiguration where
+instance Data.ToJSON AwsS3BucketWebsiteConfiguration where
   toJSON AwsS3BucketWebsiteConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoutingRules" Core..=) Prelude.<$> routingRules,
-            ("ErrorDocument" Core..=) Prelude.<$> errorDocument,
-            ("RedirectAllRequestsTo" Core..=)
+          [ ("RoutingRules" Data..=) Prelude.<$> routingRules,
+            ("ErrorDocument" Data..=) Prelude.<$> errorDocument,
+            ("RedirectAllRequestsTo" Data..=)
               Prelude.<$> redirectAllRequestsTo,
-            ("IndexDocumentSuffix" Core..=)
+            ("IndexDocumentSuffix" Data..=)
               Prelude.<$> indexDocumentSuffix
           ]
       )

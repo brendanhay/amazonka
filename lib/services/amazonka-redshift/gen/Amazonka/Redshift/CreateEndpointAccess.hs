@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -158,7 +159,7 @@ instance Core.AWSRequest CreateEndpointAccess where
   response =
     Response.receiveXMLWrapper
       "CreateEndpointAccessResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable CreateEndpointAccess where
   hashWithSalt _salt CreateEndpointAccess' {..} =
@@ -176,26 +177,26 @@ instance Prelude.NFData CreateEndpointAccess where
       `Prelude.seq` Prelude.rnf endpointName
       `Prelude.seq` Prelude.rnf subnetGroupName
 
-instance Core.ToHeaders CreateEndpointAccess where
+instance Data.ToHeaders CreateEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateEndpointAccess where
+instance Data.ToPath CreateEndpointAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEndpointAccess where
+instance Data.ToQuery CreateEndpointAccess where
   toQuery CreateEndpointAccess' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateEndpointAccess" :: Prelude.ByteString),
+          Data.=: ("CreateEndpointAccess" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Core.=: clusterIdentifier,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ClusterIdentifier" Data.=: clusterIdentifier,
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "ResourceOwner" Core.=: resourceOwner,
-        "EndpointName" Core.=: endpointName,
-        "SubnetGroupName" Core.=: subnetGroupName
+        "ResourceOwner" Data.=: resourceOwner,
+        "EndpointName" Data.=: endpointName,
+        "SubnetGroupName" Data.=: subnetGroupName
       ]

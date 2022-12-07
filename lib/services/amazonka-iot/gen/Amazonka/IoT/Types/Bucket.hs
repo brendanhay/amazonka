@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.Bucket where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A count of documents that meets a specific aggregation criteria.
@@ -64,14 +65,14 @@ bucket_count = Lens.lens (\Bucket' {count} -> count) (\s@Bucket' {} a -> s {coun
 bucket_keyValue :: Lens.Lens' Bucket (Prelude.Maybe Prelude.Text)
 bucket_keyValue = Lens.lens (\Bucket' {keyValue} -> keyValue) (\s@Bucket' {} a -> s {keyValue = a} :: Bucket)
 
-instance Core.FromJSON Bucket where
+instance Data.FromJSON Bucket where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Bucket"
       ( \x ->
           Bucket'
-            Prelude.<$> (x Core..:? "count")
-            Prelude.<*> (x Core..:? "keyValue")
+            Prelude.<$> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "keyValue")
       )
 
 instance Prelude.Hashable Bucket where

@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Offering where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.OfferingDurationUnits
 import Amazonka.MediaLive.Types.OfferingType
 import Amazonka.MediaLive.Types.ReservationResourceSpecification
@@ -157,23 +158,23 @@ offering_fixedPrice = Lens.lens (\Offering' {fixedPrice} -> fixedPrice) (\s@Offe
 offering_usagePrice :: Lens.Lens' Offering (Prelude.Maybe Prelude.Double)
 offering_usagePrice = Lens.lens (\Offering' {usagePrice} -> usagePrice) (\s@Offering' {} a -> s {usagePrice = a} :: Offering)
 
-instance Core.FromJSON Offering where
+instance Data.FromJSON Offering where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Offering"
       ( \x ->
           Offering'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "resourceSpecification")
-            Prelude.<*> (x Core..:? "offeringType")
-            Prelude.<*> (x Core..:? "durationUnits")
-            Prelude.<*> (x Core..:? "duration")
-            Prelude.<*> (x Core..:? "currencyCode")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "offeringId")
-            Prelude.<*> (x Core..:? "offeringDescription")
-            Prelude.<*> (x Core..:? "fixedPrice")
-            Prelude.<*> (x Core..:? "usagePrice")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "resourceSpecification")
+            Prelude.<*> (x Data..:? "offeringType")
+            Prelude.<*> (x Data..:? "durationUnits")
+            Prelude.<*> (x Data..:? "duration")
+            Prelude.<*> (x Data..:? "currencyCode")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "offeringId")
+            Prelude.<*> (x Data..:? "offeringDescription")
+            Prelude.<*> (x Data..:? "fixedPrice")
+            Prelude.<*> (x Data..:? "usagePrice")
       )
 
 instance Prelude.Hashable Offering where

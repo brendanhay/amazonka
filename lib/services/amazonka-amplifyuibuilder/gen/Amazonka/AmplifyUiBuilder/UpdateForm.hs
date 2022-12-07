@@ -46,6 +46,7 @@ where
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,7 +134,7 @@ instance Core.AWSRequest UpdateForm where
     Response.receiveJSON
       ( \s h x ->
           UpdateFormResponse'
-            Prelude.<$> (Core.eitherParseJSON x)
+            Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,34 +154,34 @@ instance Prelude.NFData UpdateForm where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf updatedForm
 
-instance Core.ToHeaders UpdateForm where
+instance Data.ToHeaders UpdateForm where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateForm where
-  toJSON UpdateForm' {..} = Core.toJSON updatedForm
+instance Data.ToJSON UpdateForm where
+  toJSON UpdateForm' {..} = Data.toJSON updatedForm
 
-instance Core.ToPath UpdateForm where
+instance Data.ToPath UpdateForm where
   toPath UpdateForm' {..} =
     Prelude.mconcat
       [ "/app/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/environment/",
-        Core.toBS environmentName,
+        Data.toBS environmentName,
         "/forms/",
-        Core.toBS id
+        Data.toBS id
       ]
 
-instance Core.ToQuery UpdateForm where
+instance Data.ToQuery UpdateForm where
   toQuery UpdateForm' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | /See:/ 'newUpdateFormResponse' smart constructor.
 data UpdateFormResponse = UpdateFormResponse'

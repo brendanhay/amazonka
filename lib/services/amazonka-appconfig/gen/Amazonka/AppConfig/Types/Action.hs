@@ -21,6 +21,7 @@ module Amazonka.AppConfig.Types.Action where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An action defines the tasks the extension performs during the AppConfig
@@ -115,16 +116,16 @@ action_uri = Lens.lens (\Action' {uri} -> uri) (\s@Action' {} a -> s {uri = a} :
 action_description :: Lens.Lens' Action (Prelude.Maybe Prelude.Text)
 action_description = Lens.lens (\Action' {description} -> description) (\s@Action' {} a -> s {description = a} :: Action)
 
-instance Core.FromJSON Action where
+instance Data.FromJSON Action where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Action"
       ( \x ->
           Action'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "Uri")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "Uri")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable Action where
@@ -141,13 +142,13 @@ instance Prelude.NFData Action where
       `Prelude.seq` Prelude.rnf uri
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToJSON Action where
+instance Data.ToJSON Action where
   toJSON Action' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Uri" Core..=) Prelude.<$> uri,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Uri" Data..=) Prelude.<$> uri,
+            ("Description" Data..=) Prelude.<$> description
           ]
       )

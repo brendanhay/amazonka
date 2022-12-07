@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.InstanceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.IamInstanceProfile
 import Amazonka.GuardDuty.Types.NetworkInterface
 import Amazonka.GuardDuty.Types.ProductCode
@@ -167,26 +168,26 @@ instanceDetails_imageId = Lens.lens (\InstanceDetails' {imageId} -> imageId) (\s
 instanceDetails_networkInterfaces :: Lens.Lens' InstanceDetails (Prelude.Maybe [NetworkInterface])
 instanceDetails_networkInterfaces = Lens.lens (\InstanceDetails' {networkInterfaces} -> networkInterfaces) (\s@InstanceDetails' {} a -> s {networkInterfaces = a} :: InstanceDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON InstanceDetails where
+instance Data.FromJSON InstanceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceDetails"
       ( \x ->
           InstanceDetails'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "instanceState")
-            Prelude.<*> (x Core..:? "iamInstanceProfile")
-            Prelude.<*> (x Core..:? "outpostArn")
-            Prelude.<*> (x Core..:? "imageDescription")
-            Prelude.<*> (x Core..:? "launchTime")
-            Prelude.<*> (x Core..:? "productCodes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "platform")
-            Prelude.<*> (x Core..:? "availabilityZone")
-            Prelude.<*> (x Core..:? "instanceType")
-            Prelude.<*> (x Core..:? "instanceId")
-            Prelude.<*> (x Core..:? "imageId")
-            Prelude.<*> ( x Core..:? "networkInterfaces"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "instanceState")
+            Prelude.<*> (x Data..:? "iamInstanceProfile")
+            Prelude.<*> (x Data..:? "outpostArn")
+            Prelude.<*> (x Data..:? "imageDescription")
+            Prelude.<*> (x Data..:? "launchTime")
+            Prelude.<*> (x Data..:? "productCodes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "availabilityZone")
+            Prelude.<*> (x Data..:? "instanceType")
+            Prelude.<*> (x Data..:? "instanceId")
+            Prelude.<*> (x Data..:? "imageId")
+            Prelude.<*> ( x Data..:? "networkInterfaces"
+                            Data..!= Prelude.mempty
                         )
       )
 

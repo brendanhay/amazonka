@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details about input or output in an execution history event.
@@ -57,15 +58,15 @@ historyEventExecutionDataDetails_truncated :: Lens.Lens' HistoryEventExecutionDa
 historyEventExecutionDataDetails_truncated = Lens.lens (\HistoryEventExecutionDataDetails' {truncated} -> truncated) (\s@HistoryEventExecutionDataDetails' {} a -> s {truncated = a} :: HistoryEventExecutionDataDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     HistoryEventExecutionDataDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HistoryEventExecutionDataDetails"
       ( \x ->
           HistoryEventExecutionDataDetails'
-            Prelude.<$> (x Core..:? "truncated")
+            Prelude.<$> (x Data..:? "truncated")
       )
 
 instance

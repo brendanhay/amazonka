@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.Assignment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types.AssignmentStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,17 +35,17 @@ data Assignment = Assignment'
     -- results, ApprovalTime is the date and time the Requester approved the
     -- results. This value is omitted from the assignment if the Requester has
     -- not yet approved the results.
-    approvalTime :: Prelude.Maybe Core.POSIX,
+    approvalTime :: Prelude.Maybe Data.POSIX,
     -- | If the Worker has submitted results, SubmitTime is the date and time the
     -- assignment was submitted. This value is omitted from the assignment if
     -- the Worker has not yet submitted results.
-    submitTime :: Prelude.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the Worker who accepted the HIT.
     workerId :: Prelude.Maybe Prelude.Text,
     -- | The date and time of the deadline for the assignment. This value is
     -- derived from the deadline specification for the HIT and the date and
     -- time the Worker accepted the HIT.
-    deadline :: Prelude.Maybe Core.POSIX,
+    deadline :: Prelude.Maybe Data.POSIX,
     -- | The feedback string included with the call to the ApproveAssignment
     -- operation or the RejectAssignment operation, if the Requester approved
     -- or rejected the assignment and specified feedback.
@@ -55,7 +56,7 @@ data Assignment = Assignment'
     -- rejected by the Requester. This value is derived from the auto-approval
     -- delay specified by the Requester in the HIT. This value is omitted from
     -- the assignment if the Worker has not yet submitted results.
-    autoApprovalTime :: Prelude.Maybe Core.POSIX,
+    autoApprovalTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the HIT.
     hITId :: Prelude.Maybe Prelude.Text,
     -- | The Worker\'s answers submitted for the HIT contained in a
@@ -68,11 +69,11 @@ data Assignment = Assignment'
     -- | If the Worker has submitted results and the Requester has rejected the
     -- results, RejectionTime is the date and time the Requester rejected the
     -- results.
-    rejectionTime :: Prelude.Maybe Core.POSIX,
+    rejectionTime :: Prelude.Maybe Data.POSIX,
     -- | The status of the assignment.
     assignmentStatus :: Prelude.Maybe AssignmentStatus,
     -- | The date and time the Worker accepted the assignment.
-    acceptTime :: Prelude.Maybe Core.POSIX
+    acceptTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -149,13 +150,13 @@ newAssignment =
 -- results. This value is omitted from the assignment if the Requester has
 -- not yet approved the results.
 assignment_approvalTime :: Lens.Lens' Assignment (Prelude.Maybe Prelude.UTCTime)
-assignment_approvalTime = Lens.lens (\Assignment' {approvalTime} -> approvalTime) (\s@Assignment' {} a -> s {approvalTime = a} :: Assignment) Prelude.. Lens.mapping Core._Time
+assignment_approvalTime = Lens.lens (\Assignment' {approvalTime} -> approvalTime) (\s@Assignment' {} a -> s {approvalTime = a} :: Assignment) Prelude.. Lens.mapping Data._Time
 
 -- | If the Worker has submitted results, SubmitTime is the date and time the
 -- assignment was submitted. This value is omitted from the assignment if
 -- the Worker has not yet submitted results.
 assignment_submitTime :: Lens.Lens' Assignment (Prelude.Maybe Prelude.UTCTime)
-assignment_submitTime = Lens.lens (\Assignment' {submitTime} -> submitTime) (\s@Assignment' {} a -> s {submitTime = a} :: Assignment) Prelude.. Lens.mapping Core._Time
+assignment_submitTime = Lens.lens (\Assignment' {submitTime} -> submitTime) (\s@Assignment' {} a -> s {submitTime = a} :: Assignment) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the Worker who accepted the HIT.
 assignment_workerId :: Lens.Lens' Assignment (Prelude.Maybe Prelude.Text)
@@ -165,7 +166,7 @@ assignment_workerId = Lens.lens (\Assignment' {workerId} -> workerId) (\s@Assign
 -- derived from the deadline specification for the HIT and the date and
 -- time the Worker accepted the HIT.
 assignment_deadline :: Lens.Lens' Assignment (Prelude.Maybe Prelude.UTCTime)
-assignment_deadline = Lens.lens (\Assignment' {deadline} -> deadline) (\s@Assignment' {} a -> s {deadline = a} :: Assignment) Prelude.. Lens.mapping Core._Time
+assignment_deadline = Lens.lens (\Assignment' {deadline} -> deadline) (\s@Assignment' {} a -> s {deadline = a} :: Assignment) Prelude.. Lens.mapping Data._Time
 
 -- | The feedback string included with the call to the ApproveAssignment
 -- operation or the RejectAssignment operation, if the Requester approved
@@ -180,7 +181,7 @@ assignment_requesterFeedback = Lens.lens (\Assignment' {requesterFeedback} -> re
 -- delay specified by the Requester in the HIT. This value is omitted from
 -- the assignment if the Worker has not yet submitted results.
 assignment_autoApprovalTime :: Lens.Lens' Assignment (Prelude.Maybe Prelude.UTCTime)
-assignment_autoApprovalTime = Lens.lens (\Assignment' {autoApprovalTime} -> autoApprovalTime) (\s@Assignment' {} a -> s {autoApprovalTime = a} :: Assignment) Prelude.. Lens.mapping Core._Time
+assignment_autoApprovalTime = Lens.lens (\Assignment' {autoApprovalTime} -> autoApprovalTime) (\s@Assignment' {} a -> s {autoApprovalTime = a} :: Assignment) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the HIT.
 assignment_hITId :: Lens.Lens' Assignment (Prelude.Maybe Prelude.Text)
@@ -201,7 +202,7 @@ assignment_assignmentId = Lens.lens (\Assignment' {assignmentId} -> assignmentId
 -- results, RejectionTime is the date and time the Requester rejected the
 -- results.
 assignment_rejectionTime :: Lens.Lens' Assignment (Prelude.Maybe Prelude.UTCTime)
-assignment_rejectionTime = Lens.lens (\Assignment' {rejectionTime} -> rejectionTime) (\s@Assignment' {} a -> s {rejectionTime = a} :: Assignment) Prelude.. Lens.mapping Core._Time
+assignment_rejectionTime = Lens.lens (\Assignment' {rejectionTime} -> rejectionTime) (\s@Assignment' {} a -> s {rejectionTime = a} :: Assignment) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the assignment.
 assignment_assignmentStatus :: Lens.Lens' Assignment (Prelude.Maybe AssignmentStatus)
@@ -209,26 +210,26 @@ assignment_assignmentStatus = Lens.lens (\Assignment' {assignmentStatus} -> assi
 
 -- | The date and time the Worker accepted the assignment.
 assignment_acceptTime :: Lens.Lens' Assignment (Prelude.Maybe Prelude.UTCTime)
-assignment_acceptTime = Lens.lens (\Assignment' {acceptTime} -> acceptTime) (\s@Assignment' {} a -> s {acceptTime = a} :: Assignment) Prelude.. Lens.mapping Core._Time
+assignment_acceptTime = Lens.lens (\Assignment' {acceptTime} -> acceptTime) (\s@Assignment' {} a -> s {acceptTime = a} :: Assignment) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Assignment where
+instance Data.FromJSON Assignment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Assignment"
       ( \x ->
           Assignment'
-            Prelude.<$> (x Core..:? "ApprovalTime")
-            Prelude.<*> (x Core..:? "SubmitTime")
-            Prelude.<*> (x Core..:? "WorkerId")
-            Prelude.<*> (x Core..:? "Deadline")
-            Prelude.<*> (x Core..:? "RequesterFeedback")
-            Prelude.<*> (x Core..:? "AutoApprovalTime")
-            Prelude.<*> (x Core..:? "HITId")
-            Prelude.<*> (x Core..:? "Answer")
-            Prelude.<*> (x Core..:? "AssignmentId")
-            Prelude.<*> (x Core..:? "RejectionTime")
-            Prelude.<*> (x Core..:? "AssignmentStatus")
-            Prelude.<*> (x Core..:? "AcceptTime")
+            Prelude.<$> (x Data..:? "ApprovalTime")
+            Prelude.<*> (x Data..:? "SubmitTime")
+            Prelude.<*> (x Data..:? "WorkerId")
+            Prelude.<*> (x Data..:? "Deadline")
+            Prelude.<*> (x Data..:? "RequesterFeedback")
+            Prelude.<*> (x Data..:? "AutoApprovalTime")
+            Prelude.<*> (x Data..:? "HITId")
+            Prelude.<*> (x Data..:? "Answer")
+            Prelude.<*> (x Data..:? "AssignmentId")
+            Prelude.<*> (x Data..:? "RejectionTime")
+            Prelude.<*> (x Data..:? "AssignmentStatus")
+            Prelude.<*> (x Data..:? "AcceptTime")
       )
 
 instance Prelude.Hashable Assignment where

@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostCategoryValues
 import Amazonka.CostExplorer.Types.DimensionValues
 import Amazonka.CostExplorer.Types.TagValues
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use @Expression@ to filter by cost or by usage. There are two patterns:
@@ -139,18 +140,18 @@ expression_not = Lens.lens (\Expression' {not} -> not) (\s@Expression' {} a -> s
 expression_and :: Lens.Lens' Expression (Prelude.Maybe [Expression])
 expression_and = Lens.lens (\Expression' {and} -> and) (\s@Expression' {} a -> s {and = a} :: Expression) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Expression where
+instance Data.FromJSON Expression where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Expression"
       ( \x ->
           Expression'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "CostCategories")
-            Prelude.<*> (x Core..:? "Dimensions")
-            Prelude.<*> (x Core..:? "Or" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Not")
-            Prelude.<*> (x Core..:? "And" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "CostCategories")
+            Prelude.<*> (x Data..:? "Dimensions")
+            Prelude.<*> (x Data..:? "Or" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Not")
+            Prelude.<*> (x Data..:? "And" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Expression where
@@ -171,16 +172,16 @@ instance Prelude.NFData Expression where
       `Prelude.seq` Prelude.rnf not
       `Prelude.seq` Prelude.rnf and
 
-instance Core.ToJSON Expression where
+instance Data.ToJSON Expression where
   toJSON Expression' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("CostCategories" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("CostCategories" Data..=)
               Prelude.<$> costCategories,
-            ("Dimensions" Core..=) Prelude.<$> dimensions,
-            ("Or" Core..=) Prelude.<$> or,
-            ("Not" Core..=) Prelude.<$> not,
-            ("And" Core..=) Prelude.<$> and
+            ("Dimensions" Data..=) Prelude.<$> dimensions,
+            ("Or" Data..=) Prelude.<$> or,
+            ("Not" Data..=) Prelude.<$> not,
+            ("And" Data..=) Prelude.<$> and
           ]
       )

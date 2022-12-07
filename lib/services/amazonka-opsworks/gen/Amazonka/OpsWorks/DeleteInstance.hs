@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,36 +123,36 @@ instance Prelude.NFData DeleteInstance where
       `Prelude.seq` Prelude.rnf deleteElasticIp
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders DeleteInstance where
+instance Data.ToHeaders DeleteInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DeleteInstance" ::
+              Data.=# ( "OpsWorks_20130218.DeleteInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteInstance where
+instance Data.ToJSON DeleteInstance where
   toJSON DeleteInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeleteVolumes" Core..=) Prelude.<$> deleteVolumes,
-            ("DeleteElasticIp" Core..=)
+          [ ("DeleteVolumes" Data..=) Prelude.<$> deleteVolumes,
+            ("DeleteElasticIp" Data..=)
               Prelude.<$> deleteElasticIp,
-            Prelude.Just ("InstanceId" Core..= instanceId)
+            Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
 
-instance Core.ToPath DeleteInstance where
+instance Data.ToPath DeleteInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteInstance where
+instance Data.ToQuery DeleteInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInstanceResponse' smart constructor.

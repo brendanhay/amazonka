@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -226,8 +227,8 @@ instance Core.AWSRequest CreateFindingsFilter where
     Response.receiveJSON
       ( \s h x ->
           CreateFindingsFilterResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -251,36 +252,36 @@ instance Prelude.NFData CreateFindingsFilter where
       `Prelude.seq` Prelude.rnf findingCriteria
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateFindingsFilter where
+instance Data.ToHeaders CreateFindingsFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFindingsFilter where
+instance Data.ToJSON CreateFindingsFilter where
   toJSON CreateFindingsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("description" Core..=) Prelude.<$> description,
-            ("position" Core..=) Prelude.<$> position,
-            Prelude.Just ("action" Core..= action),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
+            ("position" Data..=) Prelude.<$> position,
+            Prelude.Just ("action" Data..= action),
             Prelude.Just
-              ("findingCriteria" Core..= findingCriteria),
-            Prelude.Just ("name" Core..= name)
+              ("findingCriteria" Data..= findingCriteria),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateFindingsFilter where
+instance Data.ToPath CreateFindingsFilter where
   toPath = Prelude.const "/findingsfilters"
 
-instance Core.ToQuery CreateFindingsFilter where
+instance Data.ToQuery CreateFindingsFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFindingsFilterResponse' smart constructor.

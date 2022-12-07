@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VCpuCountRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,10 +69,10 @@ vCpuCountRange_max = Lens.lens (\VCpuCountRange' {max} -> max) (\s@VCpuCountRang
 vCpuCountRange_min :: Lens.Lens' VCpuCountRange (Prelude.Maybe Prelude.Int)
 vCpuCountRange_min = Lens.lens (\VCpuCountRange' {min} -> min) (\s@VCpuCountRange' {} a -> s {min = a} :: VCpuCountRange)
 
-instance Core.FromXML VCpuCountRange where
+instance Data.FromXML VCpuCountRange where
   parseXML x =
     VCpuCountRange'
-      Prelude.<$> (x Core..@? "max") Prelude.<*> (x Core..@? "min")
+      Prelude.<$> (x Data..@? "max") Prelude.<*> (x Data..@? "min")
 
 instance Prelude.Hashable VCpuCountRange where
   hashWithSalt _salt VCpuCountRange' {..} =
@@ -82,7 +83,7 @@ instance Prelude.NFData VCpuCountRange where
   rnf VCpuCountRange' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery VCpuCountRange where
+instance Data.ToQuery VCpuCountRange where
   toQuery VCpuCountRange' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

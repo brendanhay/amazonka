@@ -21,6 +21,7 @@ module Amazonka.AppConfig.Types.ExtensionAssociationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an association between an extension and an AppConfig
@@ -82,15 +83,15 @@ extensionAssociationSummary_resourceArn = Lens.lens (\ExtensionAssociationSummar
 extensionAssociationSummary_extensionArn :: Lens.Lens' ExtensionAssociationSummary (Prelude.Maybe Prelude.Text)
 extensionAssociationSummary_extensionArn = Lens.lens (\ExtensionAssociationSummary' {extensionArn} -> extensionArn) (\s@ExtensionAssociationSummary' {} a -> s {extensionArn = a} :: ExtensionAssociationSummary)
 
-instance Core.FromJSON ExtensionAssociationSummary where
+instance Data.FromJSON ExtensionAssociationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExtensionAssociationSummary"
       ( \x ->
           ExtensionAssociationSummary'
-            Prelude.<$> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "ExtensionArn")
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "ExtensionArn")
       )
 
 instance Prelude.Hashable ExtensionAssociationSummary where

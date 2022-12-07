@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.HyperParameterTuningJobConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.ParameterRanges
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,13 +67,13 @@ newHyperParameterTuningJobConfig =
 hyperParameterTuningJobConfig_parameterRanges :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe ParameterRanges)
 hyperParameterTuningJobConfig_parameterRanges = Lens.lens (\HyperParameterTuningJobConfig' {parameterRanges} -> parameterRanges) (\s@HyperParameterTuningJobConfig' {} a -> s {parameterRanges = a} :: HyperParameterTuningJobConfig)
 
-instance Core.FromJSON HyperParameterTuningJobConfig where
+instance Data.FromJSON HyperParameterTuningJobConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HyperParameterTuningJobConfig"
       ( \x ->
           HyperParameterTuningJobConfig'
-            Prelude.<$> (x Core..:? "ParameterRanges")
+            Prelude.<$> (x Data..:? "ParameterRanges")
       )
 
 instance
@@ -86,11 +87,11 @@ instance Prelude.NFData HyperParameterTuningJobConfig where
   rnf HyperParameterTuningJobConfig' {..} =
     Prelude.rnf parameterRanges
 
-instance Core.ToJSON HyperParameterTuningJobConfig where
+instance Data.ToJSON HyperParameterTuningJobConfig where
   toJSON HyperParameterTuningJobConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ParameterRanges" Core..=)
+          [ ("ParameterRanges" Data..=)
               Prelude.<$> parameterRanges
           ]
       )

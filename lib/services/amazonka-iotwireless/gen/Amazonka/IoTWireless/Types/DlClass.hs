@@ -27,10 +27,11 @@ module Amazonka.IoTWireless.Types.DlClass
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | DlClass for LoRaWAM, valid values are ClassB and ClassC.
-newtype DlClass = DlClass' {fromDlClass :: Core.Text}
+newtype DlClass = DlClass' {fromDlClass :: Data.Text}
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -41,18 +42,18 @@ newtype DlClass = DlClass' {fromDlClass :: Core.Text}
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern DlClass_ClassB :: DlClass

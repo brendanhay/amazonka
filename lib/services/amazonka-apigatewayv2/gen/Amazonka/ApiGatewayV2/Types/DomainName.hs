@@ -23,6 +23,7 @@ import Amazonka.ApiGatewayV2.Types.DomainNameConfiguration
 import Amazonka.ApiGatewayV2.Types.MutualTlsAuthentication
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a domain name.
@@ -92,19 +93,19 @@ domainName_apiMappingSelectionExpression = Lens.lens (\DomainName' {apiMappingSe
 domainName_domainName :: Lens.Lens' DomainName Prelude.Text
 domainName_domainName = Lens.lens (\DomainName' {domainName} -> domainName) (\s@DomainName' {} a -> s {domainName = a} :: DomainName)
 
-instance Core.FromJSON DomainName where
+instance Data.FromJSON DomainName where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainName"
       ( \x ->
           DomainName'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "mutualTlsAuthentication")
-            Prelude.<*> ( x Core..:? "domainNameConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "mutualTlsAuthentication")
+            Prelude.<*> ( x Data..:? "domainNameConfigurations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "apiMappingSelectionExpression")
-            Prelude.<*> (x Core..: "domainName")
+            Prelude.<*> (x Data..:? "apiMappingSelectionExpression")
+            Prelude.<*> (x Data..: "domainName")
       )
 
 instance Prelude.Hashable DomainName where

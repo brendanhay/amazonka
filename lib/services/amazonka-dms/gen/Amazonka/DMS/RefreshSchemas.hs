@@ -45,6 +45,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ instance Core.AWSRequest RefreshSchemas where
     Response.receiveJSON
       ( \s h x ->
           RefreshSchemasResponse'
-            Prelude.<$> (x Core..?> "RefreshSchemasStatus")
+            Prelude.<$> (x Data..?> "RefreshSchemasStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,37 +121,37 @@ instance Prelude.NFData RefreshSchemas where
     Prelude.rnf endpointArn
       `Prelude.seq` Prelude.rnf replicationInstanceArn
 
-instance Core.ToHeaders RefreshSchemas where
+instance Data.ToHeaders RefreshSchemas where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.RefreshSchemas" ::
+              Data.=# ( "AmazonDMSv20160101.RefreshSchemas" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RefreshSchemas where
+instance Data.ToJSON RefreshSchemas where
   toJSON RefreshSchemas' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("EndpointArn" Core..= endpointArn),
+          [ Prelude.Just ("EndpointArn" Data..= endpointArn),
             Prelude.Just
               ( "ReplicationInstanceArn"
-                  Core..= replicationInstanceArn
+                  Data..= replicationInstanceArn
               )
           ]
       )
 
-instance Core.ToPath RefreshSchemas where
+instance Data.ToPath RefreshSchemas where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RefreshSchemas where
+instance Data.ToQuery RefreshSchemas where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.DnsDuplicateRuleGroupViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A DNS Firewall rule group that Firewall Manager tried to associate with
@@ -64,14 +65,14 @@ dnsDuplicateRuleGroupViolation_violationTarget = Lens.lens (\DnsDuplicateRuleGro
 dnsDuplicateRuleGroupViolation_violationTargetDescription :: Lens.Lens' DnsDuplicateRuleGroupViolation (Prelude.Maybe Prelude.Text)
 dnsDuplicateRuleGroupViolation_violationTargetDescription = Lens.lens (\DnsDuplicateRuleGroupViolation' {violationTargetDescription} -> violationTargetDescription) (\s@DnsDuplicateRuleGroupViolation' {} a -> s {violationTargetDescription = a} :: DnsDuplicateRuleGroupViolation)
 
-instance Core.FromJSON DnsDuplicateRuleGroupViolation where
+instance Data.FromJSON DnsDuplicateRuleGroupViolation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DnsDuplicateRuleGroupViolation"
       ( \x ->
           DnsDuplicateRuleGroupViolation'
-            Prelude.<$> (x Core..:? "ViolationTarget")
-            Prelude.<*> (x Core..:? "ViolationTargetDescription")
+            Prelude.<$> (x Data..:? "ViolationTarget")
+            Prelude.<*> (x Data..:? "ViolationTargetDescription")
       )
 
 instance

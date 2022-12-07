@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.DestinationInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the destination of a record.
@@ -61,13 +62,13 @@ destinationInfo_id = Lens.lens (\DestinationInfo' {id} -> id) (\s@DestinationInf
 destinationInfo_service :: Lens.Lens' DestinationInfo (Prelude.Maybe Prelude.Text)
 destinationInfo_service = Lens.lens (\DestinationInfo' {service} -> service) (\s@DestinationInfo' {} a -> s {service = a} :: DestinationInfo)
 
-instance Core.FromJSON DestinationInfo where
+instance Data.FromJSON DestinationInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DestinationInfo"
       ( \x ->
           DestinationInfo'
-            Prelude.<$> (x Core..:? "id") Prelude.<*> (x Core..:? "service")
+            Prelude.<$> (x Data..:? "id") Prelude.<*> (x Data..:? "service")
       )
 
 instance Prelude.Hashable DestinationInfo where

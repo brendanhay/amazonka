@@ -21,6 +21,7 @@ module Amazonka.IoTJobsData.Types.JobExecutionState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTJobsData.Types.JobExecutionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,15 +84,15 @@ jobExecutionState_status = Lens.lens (\JobExecutionState' {status} -> status) (\
 jobExecutionState_versionNumber :: Lens.Lens' JobExecutionState (Prelude.Maybe Prelude.Integer)
 jobExecutionState_versionNumber = Lens.lens (\JobExecutionState' {versionNumber} -> versionNumber) (\s@JobExecutionState' {} a -> s {versionNumber = a} :: JobExecutionState)
 
-instance Core.FromJSON JobExecutionState where
+instance Data.FromJSON JobExecutionState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobExecutionState"
       ( \x ->
           JobExecutionState'
-            Prelude.<$> (x Core..:? "statusDetails" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "versionNumber")
+            Prelude.<$> (x Data..:? "statusDetails" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "versionNumber")
       )
 
 instance Prelude.Hashable JobExecutionState where

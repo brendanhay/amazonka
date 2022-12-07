@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,7 +94,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ConfirmPublicVirtualInterfaceResponse'
-            Prelude.<$> (x Core..?> "virtualInterfaceState")
+            Prelude.<$> (x Data..?> "virtualInterfaceState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,34 +109,34 @@ instance Prelude.NFData ConfirmPublicVirtualInterface where
   rnf ConfirmPublicVirtualInterface' {..} =
     Prelude.rnf virtualInterfaceId
 
-instance Core.ToHeaders ConfirmPublicVirtualInterface where
+instance Data.ToHeaders ConfirmPublicVirtualInterface where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.ConfirmPublicVirtualInterface" ::
+              Data.=# ( "OvertureService.ConfirmPublicVirtualInterface" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ConfirmPublicVirtualInterface where
+instance Data.ToJSON ConfirmPublicVirtualInterface where
   toJSON ConfirmPublicVirtualInterface' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("virtualInterfaceId" Core..= virtualInterfaceId)
+              ("virtualInterfaceId" Data..= virtualInterfaceId)
           ]
       )
 
-instance Core.ToPath ConfirmPublicVirtualInterface where
+instance Data.ToPath ConfirmPublicVirtualInterface where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ConfirmPublicVirtualInterface where
+instance Data.ToQuery ConfirmPublicVirtualInterface where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newConfirmPublicVirtualInterfaceResponse' smart constructor.

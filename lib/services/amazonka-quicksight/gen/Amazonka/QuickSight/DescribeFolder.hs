@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -98,8 +99,8 @@ instance Core.AWSRequest DescribeFolder where
     Response.receiveJSON
       ( \s h x ->
           DescribeFolderResponse'
-            Prelude.<$> (x Core..?> "Folder")
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<$> (x Data..?> "Folder")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,27 +114,27 @@ instance Prelude.NFData DescribeFolder where
     Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf folderId
 
-instance Core.ToHeaders DescribeFolder where
+instance Data.ToHeaders DescribeFolder where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeFolder where
+instance Data.ToPath DescribeFolder where
   toPath DescribeFolder' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/folders/",
-        Core.toBS folderId
+        Data.toBS folderId
       ]
 
-instance Core.ToQuery DescribeFolder where
+instance Data.ToQuery DescribeFolder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFolderResponse' smart constructor.

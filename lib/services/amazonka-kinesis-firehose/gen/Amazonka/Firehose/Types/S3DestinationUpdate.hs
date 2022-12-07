@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.S3DestinationUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.BufferingHints
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.CompressionFormat
@@ -189,22 +190,22 @@ instance Prelude.NFData S3DestinationUpdate where
       `Prelude.seq` Prelude.rnf compressionFormat
       `Prelude.seq` Prelude.rnf errorOutputPrefix
 
-instance Core.ToJSON S3DestinationUpdate where
+instance Data.ToJSON S3DestinationUpdate where
   toJSON S3DestinationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleARN" Core..=) Prelude.<$> roleARN,
-            ("BufferingHints" Core..=)
+          [ ("RoleARN" Data..=) Prelude.<$> roleARN,
+            ("BufferingHints" Data..=)
               Prelude.<$> bufferingHints,
-            ("CloudWatchLoggingOptions" Core..=)
+            ("CloudWatchLoggingOptions" Data..=)
               Prelude.<$> cloudWatchLoggingOptions,
-            ("BucketARN" Core..=) Prelude.<$> bucketARN,
-            ("EncryptionConfiguration" Core..=)
+            ("BucketARN" Data..=) Prelude.<$> bucketARN,
+            ("EncryptionConfiguration" Data..=)
               Prelude.<$> encryptionConfiguration,
-            ("Prefix" Core..=) Prelude.<$> prefix,
-            ("CompressionFormat" Core..=)
+            ("Prefix" Data..=) Prelude.<$> prefix,
+            ("CompressionFormat" Data..=)
               Prelude.<$> compressionFormat,
-            ("ErrorOutputPrefix" Core..=)
+            ("ErrorOutputPrefix" Data..=)
               Prelude.<$> errorOutputPrefix
           ]
       )

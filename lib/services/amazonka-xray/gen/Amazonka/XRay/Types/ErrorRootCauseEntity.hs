@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.ErrorRootCauseEntity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.RootCauseException
 
@@ -72,15 +73,15 @@ errorRootCauseEntity_name = Lens.lens (\ErrorRootCauseEntity' {name} -> name) (\
 errorRootCauseEntity_remote :: Lens.Lens' ErrorRootCauseEntity (Prelude.Maybe Prelude.Bool)
 errorRootCauseEntity_remote = Lens.lens (\ErrorRootCauseEntity' {remote} -> remote) (\s@ErrorRootCauseEntity' {} a -> s {remote = a} :: ErrorRootCauseEntity)
 
-instance Core.FromJSON ErrorRootCauseEntity where
+instance Data.FromJSON ErrorRootCauseEntity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorRootCauseEntity"
       ( \x ->
           ErrorRootCauseEntity'
-            Prelude.<$> (x Core..:? "Exceptions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Remote")
+            Prelude.<$> (x Data..:? "Exceptions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Remote")
       )
 
 instance Prelude.Hashable ErrorRootCauseEntity where

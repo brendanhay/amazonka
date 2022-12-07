@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.LoggingFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.Filter
 import Amazonka.WAFV2.Types.FilterBehavior
@@ -75,14 +76,14 @@ loggingFilter_filters = Lens.lens (\LoggingFilter' {filters} -> filters) (\s@Log
 loggingFilter_defaultBehavior :: Lens.Lens' LoggingFilter FilterBehavior
 loggingFilter_defaultBehavior = Lens.lens (\LoggingFilter' {defaultBehavior} -> defaultBehavior) (\s@LoggingFilter' {} a -> s {defaultBehavior = a} :: LoggingFilter)
 
-instance Core.FromJSON LoggingFilter where
+instance Data.FromJSON LoggingFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoggingFilter"
       ( \x ->
           LoggingFilter'
-            Prelude.<$> (x Core..: "Filters")
-            Prelude.<*> (x Core..: "DefaultBehavior")
+            Prelude.<$> (x Data..: "Filters")
+            Prelude.<*> (x Data..: "DefaultBehavior")
       )
 
 instance Prelude.Hashable LoggingFilter where
@@ -95,12 +96,12 @@ instance Prelude.NFData LoggingFilter where
     Prelude.rnf filters
       `Prelude.seq` Prelude.rnf defaultBehavior
 
-instance Core.ToJSON LoggingFilter where
+instance Data.ToJSON LoggingFilter where
   toJSON LoggingFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Filters" Core..= filters),
+          [ Prelude.Just ("Filters" Data..= filters),
             Prelude.Just
-              ("DefaultBehavior" Core..= defaultBehavior)
+              ("DefaultBehavior" Data..= defaultBehavior)
           ]
       )

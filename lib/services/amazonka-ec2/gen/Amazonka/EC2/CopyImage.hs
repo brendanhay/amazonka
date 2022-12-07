@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -367,7 +368,7 @@ instance Core.AWSRequest CopyImage where
     Response.receiveXML
       ( \s h x ->
           CopyImageResponse'
-            Prelude.<$> (x Core..@? "imageId")
+            Prelude.<$> (x Data..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -397,30 +398,30 @@ instance Prelude.NFData CopyImage where
       `Prelude.seq` Prelude.rnf sourceImageId
       `Prelude.seq` Prelude.rnf sourceRegion
 
-instance Core.ToHeaders CopyImage where
+instance Data.ToHeaders CopyImage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CopyImage where
+instance Data.ToPath CopyImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CopyImage where
+instance Data.ToQuery CopyImage where
   toQuery CopyImage' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CopyImage" :: Prelude.ByteString),
+          Data.=: ("CopyImage" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
         "DestinationOutpostArn"
-          Core.=: destinationOutpostArn,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "Encrypted" Core.=: encrypted,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "CopyImageTags" Core.=: copyImageTags,
-        "Name" Core.=: name,
-        "SourceImageId" Core.=: sourceImageId,
-        "SourceRegion" Core.=: sourceRegion
+          Data.=: destinationOutpostArn,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "Encrypted" Data.=: encrypted,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "CopyImageTags" Data.=: copyImageTags,
+        "Name" Data.=: name,
+        "SourceImageId" Data.=: sourceImageId,
+        "SourceRegion" Data.=: sourceRegion
       ]
 
 -- | Contains the output of CopyImage.

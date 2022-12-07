@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.RequiredFieldInfo where
 import Amazonka.Connect.Types.TaskTemplateFieldIdentifier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a required field.
@@ -51,12 +52,12 @@ newRequiredFieldInfo =
 requiredFieldInfo_id :: Lens.Lens' RequiredFieldInfo (Prelude.Maybe TaskTemplateFieldIdentifier)
 requiredFieldInfo_id = Lens.lens (\RequiredFieldInfo' {id} -> id) (\s@RequiredFieldInfo' {} a -> s {id = a} :: RequiredFieldInfo)
 
-instance Core.FromJSON RequiredFieldInfo where
+instance Data.FromJSON RequiredFieldInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RequiredFieldInfo"
       ( \x ->
-          RequiredFieldInfo' Prelude.<$> (x Core..:? "Id")
+          RequiredFieldInfo' Prelude.<$> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable RequiredFieldInfo where
@@ -66,7 +67,7 @@ instance Prelude.Hashable RequiredFieldInfo where
 instance Prelude.NFData RequiredFieldInfo where
   rnf RequiredFieldInfo' {..} = Prelude.rnf id
 
-instance Core.ToJSON RequiredFieldInfo where
+instance Data.ToJSON RequiredFieldInfo where
   toJSON RequiredFieldInfo' {..} =
-    Core.object
-      (Prelude.catMaybes [("Id" Core..=) Prelude.<$> id])
+    Data.object
+      (Prelude.catMaybes [("Id" Data..=) Prelude.<$> id])

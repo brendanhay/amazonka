@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -305,8 +306,8 @@ instance Core.AWSRequest CreateCachediSCSIVolume where
     Response.receiveJSON
       ( \s h x ->
           CreateCachediSCSIVolumeResponse'
-            Prelude.<$> (x Core..?> "TargetARN")
-            Prelude.<*> (x Core..?> "VolumeARN")
+            Prelude.<$> (x Data..?> "TargetARN")
+            Prelude.<*> (x Data..?> "VolumeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -336,45 +337,45 @@ instance Prelude.NFData CreateCachediSCSIVolume where
       `Prelude.seq` Prelude.rnf networkInterfaceId
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateCachediSCSIVolume where
+instance Data.ToHeaders CreateCachediSCSIVolume where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.CreateCachediSCSIVolume" ::
+              Data.=# ( "StorageGateway_20130630.CreateCachediSCSIVolume" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCachediSCSIVolume where
+instance Data.ToJSON CreateCachediSCSIVolume where
   toJSON CreateCachediSCSIVolume' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("SnapshotId" Core..=) Prelude.<$> snapshotId,
-            ("KMSKey" Core..=) Prelude.<$> kmsKey,
-            ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
-            ("SourceVolumeARN" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("SnapshotId" Data..=) Prelude.<$> snapshotId,
+            ("KMSKey" Data..=) Prelude.<$> kmsKey,
+            ("KMSEncrypted" Data..=) Prelude.<$> kmsEncrypted,
+            ("SourceVolumeARN" Data..=)
               Prelude.<$> sourceVolumeARN,
-            Prelude.Just ("GatewayARN" Core..= gatewayARN),
+            Prelude.Just ("GatewayARN" Data..= gatewayARN),
             Prelude.Just
-              ("VolumeSizeInBytes" Core..= volumeSizeInBytes),
-            Prelude.Just ("TargetName" Core..= targetName),
+              ("VolumeSizeInBytes" Data..= volumeSizeInBytes),
+            Prelude.Just ("TargetName" Data..= targetName),
             Prelude.Just
-              ("NetworkInterfaceId" Core..= networkInterfaceId),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+              ("NetworkInterfaceId" Data..= networkInterfaceId),
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CreateCachediSCSIVolume where
+instance Data.ToPath CreateCachediSCSIVolume where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCachediSCSIVolume where
+instance Data.ToQuery CreateCachediSCSIVolume where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCachediSCSIVolumeResponse' smart constructor.

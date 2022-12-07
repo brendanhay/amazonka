@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ instance Core.AWSRequest DisassociateLicense where
       ( \s h x ->
           DisassociateLicenseResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "workspace")
+            Prelude.<*> (x Data..:> "workspace")
       )
 
 instance Prelude.Hashable DisassociateLicense where
@@ -111,27 +112,27 @@ instance Prelude.NFData DisassociateLicense where
     Prelude.rnf licenseType
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders DisassociateLicense where
+instance Data.ToHeaders DisassociateLicense where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DisassociateLicense where
+instance Data.ToPath DisassociateLicense where
   toPath DisassociateLicense' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/licenses/",
-        Core.toBS licenseType
+        Data.toBS licenseType
       ]
 
-instance Core.ToQuery DisassociateLicense where
+instance Data.ToQuery DisassociateLicense where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateLicenseResponse' smart constructor.

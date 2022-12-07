@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance
       "StopDBInstanceAutomatedBackupsReplicationResult"
       ( \s h x ->
           StopDBInstanceAutomatedBackupsReplicationResponse'
-            Prelude.<$> (x Core..@? "DBInstanceAutomatedBackup")
+            Prelude.<$> (x Data..@? "DBInstanceAutomatedBackup")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,31 +127,31 @@ instance
     Prelude.rnf sourceDBInstanceArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StopDBInstanceAutomatedBackupsReplication
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     StopDBInstanceAutomatedBackupsReplication
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     StopDBInstanceAutomatedBackupsReplication
   where
   toQuery
     StopDBInstanceAutomatedBackupsReplication' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "StopDBInstanceAutomatedBackupsReplication" ::
+            Data.=: ( "StopDBInstanceAutomatedBackupsReplication" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2014-10-31" :: Prelude.ByteString),
-          "SourceDBInstanceArn" Core.=: sourceDBInstanceArn
+            Data.=: ("2014-10-31" :: Prelude.ByteString),
+          "SourceDBInstanceArn" Data.=: sourceDBInstanceArn
         ]
 
 -- | /See:/ 'newStopDBInstanceAutomatedBackupsReplicationResponse' smart constructor.

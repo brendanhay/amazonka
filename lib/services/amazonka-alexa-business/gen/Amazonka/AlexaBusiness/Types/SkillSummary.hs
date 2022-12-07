@@ -23,6 +23,7 @@ import Amazonka.AlexaBusiness.Types.EnablementType
 import Amazonka.AlexaBusiness.Types.SkillType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of skills.
@@ -93,17 +94,17 @@ skillSummary_skillType = Lens.lens (\SkillSummary' {skillType} -> skillType) (\s
 skillSummary_skillId :: Lens.Lens' SkillSummary (Prelude.Maybe Prelude.Text)
 skillSummary_skillId = Lens.lens (\SkillSummary' {skillId} -> skillId) (\s@SkillSummary' {} a -> s {skillId = a} :: SkillSummary)
 
-instance Core.FromJSON SkillSummary where
+instance Data.FromJSON SkillSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SkillSummary"
       ( \x ->
           SkillSummary'
-            Prelude.<$> (x Core..:? "SkillName")
-            Prelude.<*> (x Core..:? "SupportsLinking")
-            Prelude.<*> (x Core..:? "EnablementType")
-            Prelude.<*> (x Core..:? "SkillType")
-            Prelude.<*> (x Core..:? "SkillId")
+            Prelude.<$> (x Data..:? "SkillName")
+            Prelude.<*> (x Data..:? "SupportsLinking")
+            Prelude.<*> (x Data..:? "EnablementType")
+            Prelude.<*> (x Data..:? "SkillType")
+            Prelude.<*> (x Data..:? "SkillId")
       )
 
 instance Prelude.Hashable SkillSummary where

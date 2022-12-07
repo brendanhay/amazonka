@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.ListedUser where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.HomeDirectoryType
 
@@ -178,18 +179,18 @@ listedUser_sshPublicKeyCount = Lens.lens (\ListedUser' {sshPublicKeyCount} -> ss
 listedUser_arn :: Lens.Lens' ListedUser Prelude.Text
 listedUser_arn = Lens.lens (\ListedUser' {arn} -> arn) (\s@ListedUser' {} a -> s {arn = a} :: ListedUser)
 
-instance Core.FromJSON ListedUser where
+instance Data.FromJSON ListedUser where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListedUser"
       ( \x ->
           ListedUser'
-            Prelude.<$> (x Core..:? "HomeDirectory")
-            Prelude.<*> (x Core..:? "UserName")
-            Prelude.<*> (x Core..:? "Role")
-            Prelude.<*> (x Core..:? "HomeDirectoryType")
-            Prelude.<*> (x Core..:? "SshPublicKeyCount")
-            Prelude.<*> (x Core..: "Arn")
+            Prelude.<$> (x Data..:? "HomeDirectory")
+            Prelude.<*> (x Data..:? "UserName")
+            Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "HomeDirectoryType")
+            Prelude.<*> (x Data..:? "SshPublicKeyCount")
+            Prelude.<*> (x Data..: "Arn")
       )
 
 instance Prelude.Hashable ListedUser where

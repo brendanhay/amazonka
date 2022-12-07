@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest DescribeDatasetGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeDatasetGroupResponse'
-            Prelude.<$> (x Core..?> "datasetGroup")
+            Prelude.<$> (x Data..?> "datasetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,34 +101,34 @@ instance Prelude.NFData DescribeDatasetGroup where
   rnf DescribeDatasetGroup' {..} =
     Prelude.rnf datasetGroupArn
 
-instance Core.ToHeaders DescribeDatasetGroup where
+instance Data.ToHeaders DescribeDatasetGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DescribeDatasetGroup" ::
+              Data.=# ( "AmazonPersonalize.DescribeDatasetGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDatasetGroup where
+instance Data.ToJSON DescribeDatasetGroup where
   toJSON DescribeDatasetGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("datasetGroupArn" Core..= datasetGroupArn)
+              ("datasetGroupArn" Data..= datasetGroupArn)
           ]
       )
 
-instance Core.ToPath DescribeDatasetGroup where
+instance Data.ToPath DescribeDatasetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDatasetGroup where
+instance Data.ToQuery DescribeDatasetGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDatasetGroupResponse' smart constructor.

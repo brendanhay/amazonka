@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,28 +97,28 @@ instance Prelude.Hashable StopStream where
 instance Prelude.NFData StopStream where
   rnf StopStream' {..} = Prelude.rnf channelArn
 
-instance Core.ToHeaders StopStream where
+instance Data.ToHeaders StopStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopStream where
+instance Data.ToJSON StopStream where
   toJSON StopStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("channelArn" Core..= channelArn)]
+          [Prelude.Just ("channelArn" Data..= channelArn)]
       )
 
-instance Core.ToPath StopStream where
+instance Data.ToPath StopStream where
   toPath = Prelude.const "/StopStream"
 
-instance Core.ToQuery StopStream where
+instance Data.ToQuery StopStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopStreamResponse' smart constructor.

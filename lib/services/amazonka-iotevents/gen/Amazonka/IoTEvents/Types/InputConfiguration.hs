@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.InputConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.InputStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,9 +36,9 @@ data InputConfiguration = InputConfiguration'
     -- | The ARN of the input.
     inputArn :: Prelude.Text,
     -- | The time the input was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The last time the input was updated.
-    lastUpdateTime :: Core.POSIX,
+    lastUpdateTime :: Data.POSIX,
     -- | The status of the input.
     status :: InputStatus
   }
@@ -85,8 +86,8 @@ newInputConfiguration
           Prelude.Nothing,
         inputName = pInputName_,
         inputArn = pInputArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
-        lastUpdateTime = Core._Time Lens.# pLastUpdateTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
+        lastUpdateTime = Data._Time Lens.# pLastUpdateTime_,
         status = pStatus_
       }
 
@@ -104,28 +105,28 @@ inputConfiguration_inputArn = Lens.lens (\InputConfiguration' {inputArn} -> inpu
 
 -- | The time the input was created.
 inputConfiguration_creationTime :: Lens.Lens' InputConfiguration Prelude.UTCTime
-inputConfiguration_creationTime = Lens.lens (\InputConfiguration' {creationTime} -> creationTime) (\s@InputConfiguration' {} a -> s {creationTime = a} :: InputConfiguration) Prelude.. Core._Time
+inputConfiguration_creationTime = Lens.lens (\InputConfiguration' {creationTime} -> creationTime) (\s@InputConfiguration' {} a -> s {creationTime = a} :: InputConfiguration) Prelude.. Data._Time
 
 -- | The last time the input was updated.
 inputConfiguration_lastUpdateTime :: Lens.Lens' InputConfiguration Prelude.UTCTime
-inputConfiguration_lastUpdateTime = Lens.lens (\InputConfiguration' {lastUpdateTime} -> lastUpdateTime) (\s@InputConfiguration' {} a -> s {lastUpdateTime = a} :: InputConfiguration) Prelude.. Core._Time
+inputConfiguration_lastUpdateTime = Lens.lens (\InputConfiguration' {lastUpdateTime} -> lastUpdateTime) (\s@InputConfiguration' {} a -> s {lastUpdateTime = a} :: InputConfiguration) Prelude.. Data._Time
 
 -- | The status of the input.
 inputConfiguration_status :: Lens.Lens' InputConfiguration InputStatus
 inputConfiguration_status = Lens.lens (\InputConfiguration' {status} -> status) (\s@InputConfiguration' {} a -> s {status = a} :: InputConfiguration)
 
-instance Core.FromJSON InputConfiguration where
+instance Data.FromJSON InputConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputConfiguration"
       ( \x ->
           InputConfiguration'
-            Prelude.<$> (x Core..:? "inputDescription")
-            Prelude.<*> (x Core..: "inputName")
-            Prelude.<*> (x Core..: "inputArn")
-            Prelude.<*> (x Core..: "creationTime")
-            Prelude.<*> (x Core..: "lastUpdateTime")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "inputDescription")
+            Prelude.<*> (x Data..: "inputName")
+            Prelude.<*> (x Data..: "inputArn")
+            Prelude.<*> (x Data..: "creationTime")
+            Prelude.<*> (x Data..: "lastUpdateTime")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable InputConfiguration where

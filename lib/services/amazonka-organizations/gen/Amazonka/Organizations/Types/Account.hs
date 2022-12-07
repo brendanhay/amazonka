@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.Account where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types.AccountJoinedMethod
 import Amazonka.Organizations.Types.AccountStatus
 import qualified Amazonka.Prelude as Prelude
@@ -35,13 +36,13 @@ data Account = Account'
     -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
     -- validate this parameter is a string of any of the characters in the
     -- ASCII character range.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The email address associated with the Amazon Web Services account.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter
     -- is a string of characters that represents a standard internet email
     -- address.
-    email :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    email :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the account.
     --
     -- For more information about ARNs in Organizations, see
@@ -56,7 +57,7 @@ data Account = Account'
     -- string requires exactly 12 digits.
     id :: Prelude.Maybe Prelude.Text,
     -- | The date the account became a part of the organization.
-    joinedTimestamp :: Prelude.Maybe Core.POSIX,
+    joinedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The method by which the account joined the organization.
     joinedMethod :: Prelude.Maybe AccountJoinedMethod
   }
@@ -117,7 +118,7 @@ newAccount =
 -- validate this parameter is a string of any of the characters in the
 -- ASCII character range.
 account_name :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
-account_name = Lens.lens (\Account' {name} -> name) (\s@Account' {} a -> s {name = a} :: Account) Prelude.. Lens.mapping Core._Sensitive
+account_name = Lens.lens (\Account' {name} -> name) (\s@Account' {} a -> s {name = a} :: Account) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The email address associated with the Amazon Web Services account.
 --
@@ -125,7 +126,7 @@ account_name = Lens.lens (\Account' {name} -> name) (\s@Account' {} a -> s {name
 -- is a string of characters that represents a standard internet email
 -- address.
 account_email :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
-account_email = Lens.lens (\Account' {email} -> email) (\s@Account' {} a -> s {email = a} :: Account) Prelude.. Lens.mapping Core._Sensitive
+account_email = Lens.lens (\Account' {email} -> email) (\s@Account' {} a -> s {email = a} :: Account) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the account.
 --
@@ -148,25 +149,25 @@ account_id = Lens.lens (\Account' {id} -> id) (\s@Account' {} a -> s {id = a} ::
 
 -- | The date the account became a part of the organization.
 account_joinedTimestamp :: Lens.Lens' Account (Prelude.Maybe Prelude.UTCTime)
-account_joinedTimestamp = Lens.lens (\Account' {joinedTimestamp} -> joinedTimestamp) (\s@Account' {} a -> s {joinedTimestamp = a} :: Account) Prelude.. Lens.mapping Core._Time
+account_joinedTimestamp = Lens.lens (\Account' {joinedTimestamp} -> joinedTimestamp) (\s@Account' {} a -> s {joinedTimestamp = a} :: Account) Prelude.. Lens.mapping Data._Time
 
 -- | The method by which the account joined the organization.
 account_joinedMethod :: Lens.Lens' Account (Prelude.Maybe AccountJoinedMethod)
 account_joinedMethod = Lens.lens (\Account' {joinedMethod} -> joinedMethod) (\s@Account' {} a -> s {joinedMethod = a} :: Account)
 
-instance Core.FromJSON Account where
+instance Data.FromJSON Account where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Account"
       ( \x ->
           Account'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Email")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "JoinedTimestamp")
-            Prelude.<*> (x Core..:? "JoinedMethod")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Email")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "JoinedTimestamp")
+            Prelude.<*> (x Data..:? "JoinedMethod")
       )
 
 instance Prelude.Hashable Account where

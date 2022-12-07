@@ -21,6 +21,7 @@ module Amazonka.KinesisVideo.Types.ImageGenerationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisVideo.Types.ConfigurationStatus
 import Amazonka.KinesisVideo.Types.Format
 import Amazonka.KinesisVideo.Types.FormatConfigKey
@@ -218,20 +219,20 @@ imageGenerationConfiguration_samplingInterval = Lens.lens (\ImageGenerationConfi
 imageGenerationConfiguration_format :: Lens.Lens' ImageGenerationConfiguration Format
 imageGenerationConfiguration_format = Lens.lens (\ImageGenerationConfiguration' {format} -> format) (\s@ImageGenerationConfiguration' {} a -> s {format = a} :: ImageGenerationConfiguration)
 
-instance Core.FromJSON ImageGenerationConfiguration where
+instance Data.FromJSON ImageGenerationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageGenerationConfiguration"
       ( \x ->
           ImageGenerationConfiguration'
-            Prelude.<$> (x Core..:? "FormatConfig" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "HeightPixels")
-            Prelude.<*> (x Core..:? "WidthPixels")
-            Prelude.<*> (x Core..: "Status")
-            Prelude.<*> (x Core..: "ImageSelectorType")
-            Prelude.<*> (x Core..: "DestinationConfig")
-            Prelude.<*> (x Core..: "SamplingInterval")
-            Prelude.<*> (x Core..: "Format")
+            Prelude.<$> (x Data..:? "FormatConfig" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "HeightPixels")
+            Prelude.<*> (x Data..:? "WidthPixels")
+            Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..: "ImageSelectorType")
+            Prelude.<*> (x Data..: "DestinationConfig")
+            Prelude.<*> (x Data..: "SamplingInterval")
+            Prelude.<*> (x Data..: "Format")
       )
 
 instance
@@ -259,20 +260,20 @@ instance Prelude.NFData ImageGenerationConfiguration where
       `Prelude.seq` Prelude.rnf samplingInterval
       `Prelude.seq` Prelude.rnf format
 
-instance Core.ToJSON ImageGenerationConfiguration where
+instance Data.ToJSON ImageGenerationConfiguration where
   toJSON ImageGenerationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FormatConfig" Core..=) Prelude.<$> formatConfig,
-            ("HeightPixels" Core..=) Prelude.<$> heightPixels,
-            ("WidthPixels" Core..=) Prelude.<$> widthPixels,
-            Prelude.Just ("Status" Core..= status),
+          [ ("FormatConfig" Data..=) Prelude.<$> formatConfig,
+            ("HeightPixels" Data..=) Prelude.<$> heightPixels,
+            ("WidthPixels" Data..=) Prelude.<$> widthPixels,
+            Prelude.Just ("Status" Data..= status),
             Prelude.Just
-              ("ImageSelectorType" Core..= imageSelectorType),
+              ("ImageSelectorType" Data..= imageSelectorType),
             Prelude.Just
-              ("DestinationConfig" Core..= destinationConfig),
+              ("DestinationConfig" Data..= destinationConfig),
             Prelude.Just
-              ("SamplingInterval" Core..= samplingInterval),
-            Prelude.Just ("Format" Core..= format)
+              ("SamplingInterval" Data..= samplingInterval),
+            Prelude.Just ("Format" Data..= format)
           ]
       )

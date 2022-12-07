@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -173,7 +174,7 @@ instance Core.AWSRequest TestCustomDataIdentifier where
     Response.receiveJSON
       ( \s h x ->
           TestCustomDataIdentifierResponse'
-            Prelude.<$> (x Core..?> "matchCount")
+            Prelude.<$> (x Data..?> "matchCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,35 +194,35 @@ instance Prelude.NFData TestCustomDataIdentifier where
       `Prelude.seq` Prelude.rnf regex
       `Prelude.seq` Prelude.rnf sampleText
 
-instance Core.ToHeaders TestCustomDataIdentifier where
+instance Data.ToHeaders TestCustomDataIdentifier where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TestCustomDataIdentifier where
+instance Data.ToJSON TestCustomDataIdentifier where
   toJSON TestCustomDataIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ignoreWords" Core..=) Prelude.<$> ignoreWords,
-            ("keywords" Core..=) Prelude.<$> keywords,
-            ("maximumMatchDistance" Core..=)
+          [ ("ignoreWords" Data..=) Prelude.<$> ignoreWords,
+            ("keywords" Data..=) Prelude.<$> keywords,
+            ("maximumMatchDistance" Data..=)
               Prelude.<$> maximumMatchDistance,
-            Prelude.Just ("regex" Core..= regex),
-            Prelude.Just ("sampleText" Core..= sampleText)
+            Prelude.Just ("regex" Data..= regex),
+            Prelude.Just ("sampleText" Data..= sampleText)
           ]
       )
 
-instance Core.ToPath TestCustomDataIdentifier where
+instance Data.ToPath TestCustomDataIdentifier where
   toPath =
     Prelude.const "/custom-data-identifiers/test"
 
-instance Core.ToQuery TestCustomDataIdentifier where
+instance Data.ToQuery TestCustomDataIdentifier where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTestCustomDataIdentifierResponse' smart constructor.

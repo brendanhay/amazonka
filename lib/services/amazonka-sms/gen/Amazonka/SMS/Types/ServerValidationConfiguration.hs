@@ -21,6 +21,7 @@ module Amazonka.SMS.Types.ServerValidationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SMS.Types.Server
 import Amazonka.SMS.Types.ServerValidationStrategy
@@ -92,17 +93,17 @@ serverValidationConfiguration_serverValidationStrategy = Lens.lens (\ServerValid
 serverValidationConfiguration_server :: Lens.Lens' ServerValidationConfiguration (Prelude.Maybe Server)
 serverValidationConfiguration_server = Lens.lens (\ServerValidationConfiguration' {server} -> server) (\s@ServerValidationConfiguration' {} a -> s {server = a} :: ServerValidationConfiguration)
 
-instance Core.FromJSON ServerValidationConfiguration where
+instance Data.FromJSON ServerValidationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerValidationConfiguration"
       ( \x ->
           ServerValidationConfiguration'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "userDataValidationParameters")
-            Prelude.<*> (x Core..:? "validationId")
-            Prelude.<*> (x Core..:? "serverValidationStrategy")
-            Prelude.<*> (x Core..:? "server")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "userDataValidationParameters")
+            Prelude.<*> (x Data..:? "validationId")
+            Prelude.<*> (x Data..:? "serverValidationStrategy")
+            Prelude.<*> (x Data..:? "server")
       )
 
 instance
@@ -124,16 +125,16 @@ instance Prelude.NFData ServerValidationConfiguration where
       `Prelude.seq` Prelude.rnf serverValidationStrategy
       `Prelude.seq` Prelude.rnf server
 
-instance Core.ToJSON ServerValidationConfiguration where
+instance Data.ToJSON ServerValidationConfiguration where
   toJSON ServerValidationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("userDataValidationParameters" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("userDataValidationParameters" Data..=)
               Prelude.<$> userDataValidationParameters,
-            ("validationId" Core..=) Prelude.<$> validationId,
-            ("serverValidationStrategy" Core..=)
+            ("validationId" Data..=) Prelude.<$> validationId,
+            ("serverValidationStrategy" Data..=)
               Prelude.<$> serverValidationStrategy,
-            ("server" Core..=) Prelude.<$> server
+            ("server" Data..=) Prelude.<$> server
           ]
       )

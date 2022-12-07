@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,12 +128,12 @@ instance Core.AWSRequest DescribeInstancesHealth where
       "DescribeInstancesHealthResult"
       ( \s h x ->
           DescribeInstancesHealthResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "InstanceHealthList"
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "InstanceHealthList"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "RefreshedAt")
+            Prelude.<*> (x Data..@? "RefreshedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,27 +151,27 @@ instance Prelude.NFData DescribeInstancesHealth where
       `Prelude.seq` Prelude.rnf attributeNames
       `Prelude.seq` Prelude.rnf environmentId
 
-instance Core.ToHeaders DescribeInstancesHealth where
+instance Data.ToHeaders DescribeInstancesHealth where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeInstancesHealth where
+instance Data.ToPath DescribeInstancesHealth where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeInstancesHealth where
+instance Data.ToQuery DescribeInstancesHealth where
   toQuery DescribeInstancesHealth' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeInstancesHealth" :: Prelude.ByteString),
+          Data.=: ("DescribeInstancesHealth" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "EnvironmentName" Core.=: environmentName,
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "EnvironmentName" Data.=: environmentName,
         "AttributeNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> attributeNames
             ),
-        "EnvironmentId" Core.=: environmentId
+        "EnvironmentId" Data.=: environmentId
       ]
 
 -- | Detailed health information about the Amazon EC2 instances in an AWS
@@ -187,7 +188,7 @@ data DescribeInstancesHealthResponse = DescribeInstancesHealthResponse'
     -- @\<CPUUtilization>@ type.
     instanceHealthList :: Prelude.Maybe [SingleInstanceHealth],
     -- | The date and time that the health information was retrieved.
-    refreshedAt :: Prelude.Maybe Core.ISO8601,
+    refreshedAt :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -239,7 +240,7 @@ describeInstancesHealthResponse_instanceHealthList = Lens.lens (\DescribeInstanc
 
 -- | The date and time that the health information was retrieved.
 describeInstancesHealthResponse_refreshedAt :: Lens.Lens' DescribeInstancesHealthResponse (Prelude.Maybe Prelude.UTCTime)
-describeInstancesHealthResponse_refreshedAt = Lens.lens (\DescribeInstancesHealthResponse' {refreshedAt} -> refreshedAt) (\s@DescribeInstancesHealthResponse' {} a -> s {refreshedAt = a} :: DescribeInstancesHealthResponse) Prelude.. Lens.mapping Core._Time
+describeInstancesHealthResponse_refreshedAt = Lens.lens (\DescribeInstancesHealthResponse' {refreshedAt} -> refreshedAt) (\s@DescribeInstancesHealthResponse' {} a -> s {refreshedAt = a} :: DescribeInstancesHealthResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeInstancesHealthResponse_httpStatus :: Lens.Lens' DescribeInstancesHealthResponse Prelude.Int

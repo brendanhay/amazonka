@@ -25,6 +25,7 @@ import Amazonka.AppMesh.Types.VirtualNodeHttpConnectionPool
 import Amazonka.AppMesh.Types.VirtualNodeTcpConnectionPool
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the type of virtual node connection pool.
@@ -89,16 +90,16 @@ virtualNodeConnectionPool_tcp = Lens.lens (\VirtualNodeConnectionPool' {tcp} -> 
 virtualNodeConnectionPool_grpc :: Lens.Lens' VirtualNodeConnectionPool (Prelude.Maybe VirtualNodeGrpcConnectionPool)
 virtualNodeConnectionPool_grpc = Lens.lens (\VirtualNodeConnectionPool' {grpc} -> grpc) (\s@VirtualNodeConnectionPool' {} a -> s {grpc = a} :: VirtualNodeConnectionPool)
 
-instance Core.FromJSON VirtualNodeConnectionPool where
+instance Data.FromJSON VirtualNodeConnectionPool where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualNodeConnectionPool"
       ( \x ->
           VirtualNodeConnectionPool'
-            Prelude.<$> (x Core..:? "http")
-            Prelude.<*> (x Core..:? "http2")
-            Prelude.<*> (x Core..:? "tcp")
-            Prelude.<*> (x Core..:? "grpc")
+            Prelude.<$> (x Data..:? "http")
+            Prelude.<*> (x Data..:? "http2")
+            Prelude.<*> (x Data..:? "tcp")
+            Prelude.<*> (x Data..:? "grpc")
       )
 
 instance Prelude.Hashable VirtualNodeConnectionPool where
@@ -115,13 +116,13 @@ instance Prelude.NFData VirtualNodeConnectionPool where
       `Prelude.seq` Prelude.rnf tcp
       `Prelude.seq` Prelude.rnf grpc
 
-instance Core.ToJSON VirtualNodeConnectionPool where
+instance Data.ToJSON VirtualNodeConnectionPool where
   toJSON VirtualNodeConnectionPool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("http" Core..=) Prelude.<$> http,
-            ("http2" Core..=) Prelude.<$> http2,
-            ("tcp" Core..=) Prelude.<$> tcp,
-            ("grpc" Core..=) Prelude.<$> grpc
+          [ ("http" Data..=) Prelude.<$> http,
+            ("http2" Data..=) Prelude.<$> http2,
+            ("tcp" Data..=) Prelude.<$> tcp,
+            ("grpc" Data..=) Prelude.<$> grpc
           ]
       )

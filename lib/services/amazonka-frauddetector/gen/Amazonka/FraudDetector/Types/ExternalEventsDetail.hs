@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.ExternalEventsDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for the external events data used for model version training.
@@ -71,14 +72,14 @@ externalEventsDetail_dataLocation = Lens.lens (\ExternalEventsDetail' {dataLocat
 externalEventsDetail_dataAccessRoleArn :: Lens.Lens' ExternalEventsDetail Prelude.Text
 externalEventsDetail_dataAccessRoleArn = Lens.lens (\ExternalEventsDetail' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@ExternalEventsDetail' {} a -> s {dataAccessRoleArn = a} :: ExternalEventsDetail)
 
-instance Core.FromJSON ExternalEventsDetail where
+instance Data.FromJSON ExternalEventsDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExternalEventsDetail"
       ( \x ->
           ExternalEventsDetail'
-            Prelude.<$> (x Core..: "dataLocation")
-            Prelude.<*> (x Core..: "dataAccessRoleArn")
+            Prelude.<$> (x Data..: "dataLocation")
+            Prelude.<*> (x Data..: "dataAccessRoleArn")
       )
 
 instance Prelude.Hashable ExternalEventsDetail where
@@ -91,12 +92,12 @@ instance Prelude.NFData ExternalEventsDetail where
     Prelude.rnf dataLocation
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
 
-instance Core.ToJSON ExternalEventsDetail where
+instance Data.ToJSON ExternalEventsDetail where
   toJSON ExternalEventsDetail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("dataLocation" Core..= dataLocation),
+          [ Prelude.Just ("dataLocation" Data..= dataLocation),
             Prelude.Just
-              ("dataAccessRoleArn" Core..= dataAccessRoleArn)
+              ("dataAccessRoleArn" Data..= dataAccessRoleArn)
           ]
       )

@@ -41,6 +41,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,26 +93,26 @@ instance Prelude.Hashable DisassociateApi where
 instance Prelude.NFData DisassociateApi where
   rnf DisassociateApi' {..} = Prelude.rnf domainName
 
-instance Core.ToHeaders DisassociateApi where
+instance Data.ToHeaders DisassociateApi where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DisassociateApi where
+instance Data.ToPath DisassociateApi where
   toPath DisassociateApi' {..} =
     Prelude.mconcat
       [ "/v1/domainnames/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/apiassociation"
       ]
 
-instance Core.ToQuery DisassociateApi where
+instance Data.ToQuery DisassociateApi where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateApiResponse' smart constructor.

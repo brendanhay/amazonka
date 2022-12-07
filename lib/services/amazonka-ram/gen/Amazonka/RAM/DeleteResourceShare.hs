@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -132,8 +133,8 @@ instance Core.AWSRequest DeleteResourceShare where
     Response.receiveJSON
       ( \s h x ->
           DeleteResourceShareResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-            Prelude.<*> (x Core..?> "returnValue")
+            Prelude.<$> (x Data..?> "clientToken")
+            Prelude.<*> (x Data..?> "returnValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,25 +148,25 @@ instance Prelude.NFData DeleteResourceShare where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf resourceShareArn
 
-instance Core.ToHeaders DeleteResourceShare where
+instance Data.ToHeaders DeleteResourceShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteResourceShare where
+instance Data.ToPath DeleteResourceShare where
   toPath = Prelude.const "/deleteresourceshare"
 
-instance Core.ToQuery DeleteResourceShare where
+instance Data.ToQuery DeleteResourceShare where
   toQuery DeleteResourceShare' {..} =
     Prelude.mconcat
-      [ "clientToken" Core.=: clientToken,
-        "resourceShareArn" Core.=: resourceShareArn
+      [ "clientToken" Data.=: clientToken,
+        "resourceShareArn" Data.=: resourceShareArn
       ]
 
 -- | /See:/ 'newDeleteResourceShareResponse' smart constructor.

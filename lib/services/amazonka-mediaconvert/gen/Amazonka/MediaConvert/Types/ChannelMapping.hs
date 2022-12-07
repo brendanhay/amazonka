@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.ChannelMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.OutputChannelMapping
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,14 +69,14 @@ newChannelMapping =
 channelMapping_outputChannels :: Lens.Lens' ChannelMapping (Prelude.Maybe [OutputChannelMapping])
 channelMapping_outputChannels = Lens.lens (\ChannelMapping' {outputChannels} -> outputChannels) (\s@ChannelMapping' {} a -> s {outputChannels = a} :: ChannelMapping) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ChannelMapping where
+instance Data.FromJSON ChannelMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelMapping"
       ( \x ->
           ChannelMapping'
-            Prelude.<$> ( x Core..:? "outputChannels"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "outputChannels"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -86,11 +87,11 @@ instance Prelude.Hashable ChannelMapping where
 instance Prelude.NFData ChannelMapping where
   rnf ChannelMapping' {..} = Prelude.rnf outputChannels
 
-instance Core.ToJSON ChannelMapping where
+instance Data.ToJSON ChannelMapping where
   toJSON ChannelMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("outputChannels" Core..=)
+          [ ("outputChannels" Data..=)
               Prelude.<$> outputChannels
           ]
       )

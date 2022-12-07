@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Mpeg2FilterSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.TemporalFilterSettings
 import qualified Amazonka.Prelude as Prelude
 
@@ -53,13 +54,13 @@ newMpeg2FilterSettings =
 mpeg2FilterSettings_temporalFilterSettings :: Lens.Lens' Mpeg2FilterSettings (Prelude.Maybe TemporalFilterSettings)
 mpeg2FilterSettings_temporalFilterSettings = Lens.lens (\Mpeg2FilterSettings' {temporalFilterSettings} -> temporalFilterSettings) (\s@Mpeg2FilterSettings' {} a -> s {temporalFilterSettings = a} :: Mpeg2FilterSettings)
 
-instance Core.FromJSON Mpeg2FilterSettings where
+instance Data.FromJSON Mpeg2FilterSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Mpeg2FilterSettings"
       ( \x ->
           Mpeg2FilterSettings'
-            Prelude.<$> (x Core..:? "temporalFilterSettings")
+            Prelude.<$> (x Data..:? "temporalFilterSettings")
       )
 
 instance Prelude.Hashable Mpeg2FilterSettings where
@@ -70,11 +71,11 @@ instance Prelude.NFData Mpeg2FilterSettings where
   rnf Mpeg2FilterSettings' {..} =
     Prelude.rnf temporalFilterSettings
 
-instance Core.ToJSON Mpeg2FilterSettings where
+instance Data.ToJSON Mpeg2FilterSettings where
   toJSON Mpeg2FilterSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("temporalFilterSettings" Core..=)
+          [ ("temporalFilterSettings" Data..=)
               Prelude.<$> temporalFilterSettings
           ]
       )

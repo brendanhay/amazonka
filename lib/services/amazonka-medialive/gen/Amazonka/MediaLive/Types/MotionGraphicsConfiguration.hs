@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MotionGraphicsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.MotionGraphicsInsertion
 import Amazonka.MediaLive.Types.MotionGraphicsSettings
 import qualified Amazonka.Prelude as Prelude
@@ -67,14 +68,14 @@ motionGraphicsConfiguration_motionGraphicsInsertion = Lens.lens (\MotionGraphics
 motionGraphicsConfiguration_motionGraphicsSettings :: Lens.Lens' MotionGraphicsConfiguration MotionGraphicsSettings
 motionGraphicsConfiguration_motionGraphicsSettings = Lens.lens (\MotionGraphicsConfiguration' {motionGraphicsSettings} -> motionGraphicsSettings) (\s@MotionGraphicsConfiguration' {} a -> s {motionGraphicsSettings = a} :: MotionGraphicsConfiguration)
 
-instance Core.FromJSON MotionGraphicsConfiguration where
+instance Data.FromJSON MotionGraphicsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MotionGraphicsConfiguration"
       ( \x ->
           MotionGraphicsConfiguration'
-            Prelude.<$> (x Core..:? "motionGraphicsInsertion")
-            Prelude.<*> (x Core..: "motionGraphicsSettings")
+            Prelude.<$> (x Data..:? "motionGraphicsInsertion")
+            Prelude.<*> (x Data..: "motionGraphicsSettings")
       )
 
 instance Prelude.Hashable MotionGraphicsConfiguration where
@@ -88,15 +89,15 @@ instance Prelude.NFData MotionGraphicsConfiguration where
     Prelude.rnf motionGraphicsInsertion
       `Prelude.seq` Prelude.rnf motionGraphicsSettings
 
-instance Core.ToJSON MotionGraphicsConfiguration where
+instance Data.ToJSON MotionGraphicsConfiguration where
   toJSON MotionGraphicsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("motionGraphicsInsertion" Core..=)
+          [ ("motionGraphicsInsertion" Data..=)
               Prelude.<$> motionGraphicsInsertion,
             Prelude.Just
               ( "motionGraphicsSettings"
-                  Core..= motionGraphicsSettings
+                  Data..= motionGraphicsSettings
               )
           ]
       )

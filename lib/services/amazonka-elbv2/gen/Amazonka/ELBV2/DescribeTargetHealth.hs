@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,9 +97,9 @@ instance Core.AWSRequest DescribeTargetHealth where
       "DescribeTargetHealthResult"
       ( \s h x ->
           DescribeTargetHealthResponse'
-            Prelude.<$> ( x Core..@? "TargetHealthDescriptions"
+            Prelude.<$> ( x Data..@? "TargetHealthDescriptions"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -113,23 +114,23 @@ instance Prelude.NFData DescribeTargetHealth where
     Prelude.rnf targets
       `Prelude.seq` Prelude.rnf targetGroupArn
 
-instance Core.ToHeaders DescribeTargetHealth where
+instance Data.ToHeaders DescribeTargetHealth where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeTargetHealth where
+instance Data.ToPath DescribeTargetHealth where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTargetHealth where
+instance Data.ToQuery DescribeTargetHealth where
   toQuery DescribeTargetHealth' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeTargetHealth" :: Prelude.ByteString),
+          Data.=: ("DescribeTargetHealth" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
         "Targets"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> targets),
-        "TargetGroupArn" Core.=: targetGroupArn
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> targets),
+        "TargetGroupArn" Data.=: targetGroupArn
       ]
 
 -- | /See:/ 'newDescribeTargetHealthResponse' smart constructor.

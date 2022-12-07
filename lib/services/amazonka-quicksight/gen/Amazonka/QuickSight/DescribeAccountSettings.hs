@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -91,8 +92,8 @@ instance Core.AWSRequest DescribeAccountSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountSettingsResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "AccountSettings")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "AccountSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,23 +105,23 @@ instance Prelude.NFData DescribeAccountSettings where
   rnf DescribeAccountSettings' {..} =
     Prelude.rnf awsAccountId
 
-instance Core.ToHeaders DescribeAccountSettings where
+instance Data.ToHeaders DescribeAccountSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeAccountSettings where
+instance Data.ToPath DescribeAccountSettings where
   toPath DescribeAccountSettings' {..} =
     Prelude.mconcat
-      ["/accounts/", Core.toBS awsAccountId, "/settings"]
+      ["/accounts/", Data.toBS awsAccountId, "/settings"]
 
-instance Core.ToQuery DescribeAccountSettings where
+instance Data.ToQuery DescribeAccountSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAccountSettingsResponse' smart constructor.

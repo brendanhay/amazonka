@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.CertificateConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.CertificateType
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,13 +85,13 @@ newCertificateConfiguration pCertificateType_ =
 certificateConfiguration_certificateType :: Lens.Lens' CertificateConfiguration CertificateType
 certificateConfiguration_certificateType = Lens.lens (\CertificateConfiguration' {certificateType} -> certificateType) (\s@CertificateConfiguration' {} a -> s {certificateType = a} :: CertificateConfiguration)
 
-instance Core.FromJSON CertificateConfiguration where
+instance Data.FromJSON CertificateConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CertificateConfiguration"
       ( \x ->
           CertificateConfiguration'
-            Prelude.<$> (x Core..: "CertificateType")
+            Prelude.<$> (x Data..: "CertificateType")
       )
 
 instance Prelude.Hashable CertificateConfiguration where
@@ -101,11 +102,11 @@ instance Prelude.NFData CertificateConfiguration where
   rnf CertificateConfiguration' {..} =
     Prelude.rnf certificateType
 
-instance Core.ToJSON CertificateConfiguration where
+instance Data.ToJSON CertificateConfiguration where
   toJSON CertificateConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("CertificateType" Core..= certificateType)
+              ("CertificateType" Data..= certificateType)
           ]
       )

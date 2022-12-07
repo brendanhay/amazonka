@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.PhoneNumberCountry where
 import Amazonka.Chime.Types.PhoneNumberType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The phone number country.
@@ -62,15 +63,15 @@ phoneNumberCountry_countryCode = Lens.lens (\PhoneNumberCountry' {countryCode} -
 phoneNumberCountry_supportedPhoneNumberTypes :: Lens.Lens' PhoneNumberCountry (Prelude.Maybe [PhoneNumberType])
 phoneNumberCountry_supportedPhoneNumberTypes = Lens.lens (\PhoneNumberCountry' {supportedPhoneNumberTypes} -> supportedPhoneNumberTypes) (\s@PhoneNumberCountry' {} a -> s {supportedPhoneNumberTypes = a} :: PhoneNumberCountry) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PhoneNumberCountry where
+instance Data.FromJSON PhoneNumberCountry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PhoneNumberCountry"
       ( \x ->
           PhoneNumberCountry'
-            Prelude.<$> (x Core..:? "CountryCode")
-            Prelude.<*> ( x Core..:? "SupportedPhoneNumberTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "CountryCode")
+            Prelude.<*> ( x Data..:? "SupportedPhoneNumberTypes"
+                            Data..!= Prelude.mempty
                         )
       )
 

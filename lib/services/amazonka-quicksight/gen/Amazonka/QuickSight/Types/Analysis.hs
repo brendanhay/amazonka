@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.Analysis where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.AnalysisError
 import Amazonka.QuickSight.Types.ResourceStatus
@@ -37,13 +38,13 @@ data Analysis = Analysis'
     -- | The ARN of the theme of the analysis.
     themeArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the analysis was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the analysis.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Status associated with the analysis.
     status :: Prelude.Maybe ResourceStatus,
     -- | The time that the analysis was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | Errors associated with the analysis.
     errors :: Prelude.Maybe (Prelude.NonEmpty AnalysisError),
     -- | The ARNs of the datasets of the analysis.
@@ -112,7 +113,7 @@ analysis_themeArn = Lens.lens (\Analysis' {themeArn} -> themeArn) (\s@Analysis' 
 
 -- | The time that the analysis was created.
 analysis_createdTime :: Lens.Lens' Analysis (Prelude.Maybe Prelude.UTCTime)
-analysis_createdTime = Lens.lens (\Analysis' {createdTime} -> createdTime) (\s@Analysis' {} a -> s {createdTime = a} :: Analysis) Prelude.. Lens.mapping Core._Time
+analysis_createdTime = Lens.lens (\Analysis' {createdTime} -> createdTime) (\s@Analysis' {} a -> s {createdTime = a} :: Analysis) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the analysis.
 analysis_arn :: Lens.Lens' Analysis (Prelude.Maybe Prelude.Text)
@@ -124,7 +125,7 @@ analysis_status = Lens.lens (\Analysis' {status} -> status) (\s@Analysis' {} a -
 
 -- | The time that the analysis was last updated.
 analysis_lastUpdatedTime :: Lens.Lens' Analysis (Prelude.Maybe Prelude.UTCTime)
-analysis_lastUpdatedTime = Lens.lens (\Analysis' {lastUpdatedTime} -> lastUpdatedTime) (\s@Analysis' {} a -> s {lastUpdatedTime = a} :: Analysis) Prelude.. Lens.mapping Core._Time
+analysis_lastUpdatedTime = Lens.lens (\Analysis' {lastUpdatedTime} -> lastUpdatedTime) (\s@Analysis' {} a -> s {lastUpdatedTime = a} :: Analysis) Prelude.. Lens.mapping Data._Time
 
 -- | Errors associated with the analysis.
 analysis_errors :: Lens.Lens' Analysis (Prelude.Maybe (Prelude.NonEmpty AnalysisError))
@@ -139,22 +140,22 @@ analysis_dataSetArns = Lens.lens (\Analysis' {dataSetArns} -> dataSetArns) (\s@A
 analysis_sheets :: Lens.Lens' Analysis (Prelude.Maybe [Sheet])
 analysis_sheets = Lens.lens (\Analysis' {sheets} -> sheets) (\s@Analysis' {} a -> s {sheets = a} :: Analysis) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Analysis where
+instance Data.FromJSON Analysis where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Analysis"
       ( \x ->
           Analysis'
-            Prelude.<$> (x Core..:? "AnalysisId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ThemeArn")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "Errors")
-            Prelude.<*> (x Core..:? "DataSetArns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Sheets" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "AnalysisId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ThemeArn")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "Errors")
+            Prelude.<*> (x Data..:? "DataSetArns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Sheets" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Analysis where

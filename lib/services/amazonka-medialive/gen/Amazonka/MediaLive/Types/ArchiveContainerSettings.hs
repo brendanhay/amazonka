@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.ArchiveContainerSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.M2tsSettings
 import Amazonka.MediaLive.Types.RawSettings
 import qualified Amazonka.Prelude as Prelude
@@ -62,14 +63,14 @@ archiveContainerSettings_m2tsSettings = Lens.lens (\ArchiveContainerSettings' {m
 archiveContainerSettings_rawSettings :: Lens.Lens' ArchiveContainerSettings (Prelude.Maybe RawSettings)
 archiveContainerSettings_rawSettings = Lens.lens (\ArchiveContainerSettings' {rawSettings} -> rawSettings) (\s@ArchiveContainerSettings' {} a -> s {rawSettings = a} :: ArchiveContainerSettings)
 
-instance Core.FromJSON ArchiveContainerSettings where
+instance Data.FromJSON ArchiveContainerSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ArchiveContainerSettings"
       ( \x ->
           ArchiveContainerSettings'
-            Prelude.<$> (x Core..:? "m2tsSettings")
-            Prelude.<*> (x Core..:? "rawSettings")
+            Prelude.<$> (x Data..:? "m2tsSettings")
+            Prelude.<*> (x Data..:? "rawSettings")
       )
 
 instance Prelude.Hashable ArchiveContainerSettings where
@@ -82,11 +83,11 @@ instance Prelude.NFData ArchiveContainerSettings where
     Prelude.rnf m2tsSettings
       `Prelude.seq` Prelude.rnf rawSettings
 
-instance Core.ToJSON ArchiveContainerSettings where
+instance Data.ToJSON ArchiveContainerSettings where
   toJSON ArchiveContainerSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("m2tsSettings" Core..=) Prelude.<$> m2tsSettings,
-            ("rawSettings" Core..=) Prelude.<$> rawSettings
+          [ ("m2tsSettings" Data..=) Prelude.<$> m2tsSettings,
+            ("rawSettings" Data..=) Prelude.<$> rawSettings
           ]
       )

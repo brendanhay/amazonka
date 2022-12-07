@@ -22,6 +22,7 @@ module Amazonka.Batch.Types.NodeRangeProperty where
 import Amazonka.Batch.Types.ContainerProperties
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the properties of the node range for a
@@ -86,14 +87,14 @@ nodeRangeProperty_container = Lens.lens (\NodeRangeProperty' {container} -> cont
 nodeRangeProperty_targetNodes :: Lens.Lens' NodeRangeProperty Prelude.Text
 nodeRangeProperty_targetNodes = Lens.lens (\NodeRangeProperty' {targetNodes} -> targetNodes) (\s@NodeRangeProperty' {} a -> s {targetNodes = a} :: NodeRangeProperty)
 
-instance Core.FromJSON NodeRangeProperty where
+instance Data.FromJSON NodeRangeProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeRangeProperty"
       ( \x ->
           NodeRangeProperty'
-            Prelude.<$> (x Core..:? "container")
-            Prelude.<*> (x Core..: "targetNodes")
+            Prelude.<$> (x Data..:? "container")
+            Prelude.<*> (x Data..: "targetNodes")
       )
 
 instance Prelude.Hashable NodeRangeProperty where
@@ -106,11 +107,11 @@ instance Prelude.NFData NodeRangeProperty where
     Prelude.rnf container
       `Prelude.seq` Prelude.rnf targetNodes
 
-instance Core.ToJSON NodeRangeProperty where
+instance Data.ToJSON NodeRangeProperty where
   toJSON NodeRangeProperty' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("container" Core..=) Prelude.<$> container,
-            Prelude.Just ("targetNodes" Core..= targetNodes)
+          [ ("container" Data..=) Prelude.<$> container,
+            Prelude.Just ("targetNodes" Data..= targetNodes)
           ]
       )

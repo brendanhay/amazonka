@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,7 +93,7 @@ instance Core.AWSRequest WithdrawByoipCidr where
     Response.receiveJSON
       ( \s h x ->
           WithdrawByoipCidrResponse'
-            Prelude.<$> (x Core..?> "ByoipCidr")
+            Prelude.<$> (x Data..?> "ByoipCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,32 +104,32 @@ instance Prelude.Hashable WithdrawByoipCidr where
 instance Prelude.NFData WithdrawByoipCidr where
   rnf WithdrawByoipCidr' {..} = Prelude.rnf cidr
 
-instance Core.ToHeaders WithdrawByoipCidr where
+instance Data.ToHeaders WithdrawByoipCidr where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.WithdrawByoipCidr" ::
+              Data.=# ( "GlobalAccelerator_V20180706.WithdrawByoipCidr" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON WithdrawByoipCidr where
+instance Data.ToJSON WithdrawByoipCidr where
   toJSON WithdrawByoipCidr' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Cidr" Core..= cidr)]
+          [Prelude.Just ("Cidr" Data..= cidr)]
       )
 
-instance Core.ToPath WithdrawByoipCidr where
+instance Data.ToPath WithdrawByoipCidr where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery WithdrawByoipCidr where
+instance Data.ToQuery WithdrawByoipCidr where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newWithdrawByoipCidrResponse' smart constructor.

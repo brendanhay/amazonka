@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEksClusterDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEksClusterLoggingDetails
 import Amazonka.SecurityHub.Types.AwsEksClusterResourcesVpcConfigDetails
@@ -168,21 +169,21 @@ awsEksClusterDetails_certificateAuthorityData = Lens.lens (\AwsEksClusterDetails
 awsEksClusterDetails_version :: Lens.Lens' AwsEksClusterDetails (Prelude.Maybe Prelude.Text)
 awsEksClusterDetails_version = Lens.lens (\AwsEksClusterDetails' {version} -> version) (\s@AwsEksClusterDetails' {} a -> s {version = a} :: AwsEksClusterDetails)
 
-instance Core.FromJSON AwsEksClusterDetails where
+instance Data.FromJSON AwsEksClusterDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEksClusterDetails"
       ( \x ->
           AwsEksClusterDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "ClusterStatus")
-            Prelude.<*> (x Core..:? "Logging")
-            Prelude.<*> (x Core..:? "Endpoint")
-            Prelude.<*> (x Core..:? "ResourcesVpcConfig")
-            Prelude.<*> (x Core..:? "CertificateAuthorityData")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "ClusterStatus")
+            Prelude.<*> (x Data..:? "Logging")
+            Prelude.<*> (x Data..:? "Endpoint")
+            Prelude.<*> (x Data..:? "ResourcesVpcConfig")
+            Prelude.<*> (x Data..:? "CertificateAuthorityData")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable AwsEksClusterDetails where
@@ -209,20 +210,20 @@ instance Prelude.NFData AwsEksClusterDetails where
       `Prelude.seq` Prelude.rnf certificateAuthorityData
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON AwsEksClusterDetails where
+instance Data.ToJSON AwsEksClusterDetails where
   toJSON AwsEksClusterDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Arn" Core..=) Prelude.<$> arn,
-            ("ClusterStatus" Core..=) Prelude.<$> clusterStatus,
-            ("Logging" Core..=) Prelude.<$> logging,
-            ("Endpoint" Core..=) Prelude.<$> endpoint,
-            ("ResourcesVpcConfig" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("Arn" Data..=) Prelude.<$> arn,
+            ("ClusterStatus" Data..=) Prelude.<$> clusterStatus,
+            ("Logging" Data..=) Prelude.<$> logging,
+            ("Endpoint" Data..=) Prelude.<$> endpoint,
+            ("ResourcesVpcConfig" Data..=)
               Prelude.<$> resourcesVpcConfig,
-            ("CertificateAuthorityData" Core..=)
+            ("CertificateAuthorityData" Data..=)
               Prelude.<$> certificateAuthorityData,
-            ("Version" Core..=) Prelude.<$> version
+            ("Version" Data..=) Prelude.<$> version
           ]
       )

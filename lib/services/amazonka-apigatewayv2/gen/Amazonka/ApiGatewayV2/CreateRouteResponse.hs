@@ -51,6 +51,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,13 +153,13 @@ instance Core.AWSRequest CreateRouteResponse where
     Response.receiveJSON
       ( \s h x ->
           CreateRouteResponseResponse'
-            Prelude.<$> (x Core..?> "routeResponseKey")
-            Prelude.<*> (x Core..?> "modelSelectionExpression")
-            Prelude.<*> ( x Core..?> "responseParameters"
+            Prelude.<$> (x Data..?> "routeResponseKey")
+            Prelude.<*> (x Data..?> "modelSelectionExpression")
+            Prelude.<*> ( x Data..?> "responseParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "responseModels" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "routeResponseId")
+            Prelude.<*> (x Data..?> "responseModels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "routeResponseId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,43 +182,43 @@ instance Prelude.NFData CreateRouteResponse where
       `Prelude.seq` Prelude.rnf routeId
       `Prelude.seq` Prelude.rnf routeResponseKey
 
-instance Core.ToHeaders CreateRouteResponse where
+instance Data.ToHeaders CreateRouteResponse where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRouteResponse where
+instance Data.ToJSON CreateRouteResponse where
   toJSON CreateRouteResponse' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("modelSelectionExpression" Core..=)
+          [ ("modelSelectionExpression" Data..=)
               Prelude.<$> modelSelectionExpression,
-            ("responseParameters" Core..=)
+            ("responseParameters" Data..=)
               Prelude.<$> responseParameters,
-            ("responseModels" Core..=)
+            ("responseModels" Data..=)
               Prelude.<$> responseModels,
             Prelude.Just
-              ("routeResponseKey" Core..= routeResponseKey)
+              ("routeResponseKey" Data..= routeResponseKey)
           ]
       )
 
-instance Core.ToPath CreateRouteResponse where
+instance Data.ToPath CreateRouteResponse where
   toPath CreateRouteResponse' {..} =
     Prelude.mconcat
       [ "/v2/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/routes/",
-        Core.toBS routeId,
+        Data.toBS routeId,
         "/routeresponses"
       ]
 
-instance Core.ToQuery CreateRouteResponse where
+instance Data.ToQuery CreateRouteResponse where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRouteResponseResponse' smart constructor.

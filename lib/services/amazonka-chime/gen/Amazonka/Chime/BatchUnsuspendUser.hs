@@ -52,6 +52,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest BatchUnsuspendUser where
     Response.receiveJSON
       ( \s h x ->
           BatchUnsuspendUserResponse'
-            Prelude.<$> (x Core..?> "UserErrors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "UserErrors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,22 +119,22 @@ instance Prelude.NFData BatchUnsuspendUser where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf userIdList
 
-instance Core.ToHeaders BatchUnsuspendUser where
+instance Data.ToHeaders BatchUnsuspendUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON BatchUnsuspendUser where
+instance Data.ToJSON BatchUnsuspendUser where
   toJSON BatchUnsuspendUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("UserIdList" Core..= userIdList)]
+          [Prelude.Just ("UserIdList" Data..= userIdList)]
       )
 
-instance Core.ToPath BatchUnsuspendUser where
+instance Data.ToPath BatchUnsuspendUser where
   toPath BatchUnsuspendUser' {..} =
     Prelude.mconcat
-      ["/accounts/", Core.toBS accountId, "/users"]
+      ["/accounts/", Data.toBS accountId, "/users"]
 
-instance Core.ToQuery BatchUnsuspendUser where
+instance Data.ToQuery BatchUnsuspendUser where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["operation=unsuspend"])

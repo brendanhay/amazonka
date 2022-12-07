@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.ReservationAggregates where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The aggregated numbers for your reservation usage.
@@ -236,29 +237,29 @@ reservationAggregates_utilizationPercentage = Lens.lens (\ReservationAggregates'
 reservationAggregates_realizedSavings :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
 reservationAggregates_realizedSavings = Lens.lens (\ReservationAggregates' {realizedSavings} -> realizedSavings) (\s@ReservationAggregates' {} a -> s {realizedSavings = a} :: ReservationAggregates)
 
-instance Core.FromJSON ReservationAggregates where
+instance Data.FromJSON ReservationAggregates where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReservationAggregates"
       ( \x ->
           ReservationAggregates'
-            Prelude.<$> (x Core..:? "TotalAmortizedFee")
-            Prelude.<*> (x Core..:? "OnDemandCostOfRIHoursUsed")
-            Prelude.<*> (x Core..:? "TotalActualHours")
-            Prelude.<*> (x Core..:? "AmortizedRecurringFee")
-            Prelude.<*> (x Core..:? "AmortizedUpfrontFee")
-            Prelude.<*> (x Core..:? "TotalActualUnits")
-            Prelude.<*> (x Core..:? "PurchasedHours")
-            Prelude.<*> (x Core..:? "NetRISavings")
-            Prelude.<*> (x Core..:? "RICostForUnusedHours")
-            Prelude.<*> (x Core..:? "UnusedUnits")
-            Prelude.<*> (x Core..:? "UnusedHours")
-            Prelude.<*> (x Core..:? "UnrealizedSavings")
-            Prelude.<*> (x Core..:? "TotalPotentialRISavings")
-            Prelude.<*> (x Core..:? "UtilizationPercentageInUnits")
-            Prelude.<*> (x Core..:? "PurchasedUnits")
-            Prelude.<*> (x Core..:? "UtilizationPercentage")
-            Prelude.<*> (x Core..:? "RealizedSavings")
+            Prelude.<$> (x Data..:? "TotalAmortizedFee")
+            Prelude.<*> (x Data..:? "OnDemandCostOfRIHoursUsed")
+            Prelude.<*> (x Data..:? "TotalActualHours")
+            Prelude.<*> (x Data..:? "AmortizedRecurringFee")
+            Prelude.<*> (x Data..:? "AmortizedUpfrontFee")
+            Prelude.<*> (x Data..:? "TotalActualUnits")
+            Prelude.<*> (x Data..:? "PurchasedHours")
+            Prelude.<*> (x Data..:? "NetRISavings")
+            Prelude.<*> (x Data..:? "RICostForUnusedHours")
+            Prelude.<*> (x Data..:? "UnusedUnits")
+            Prelude.<*> (x Data..:? "UnusedHours")
+            Prelude.<*> (x Data..:? "UnrealizedSavings")
+            Prelude.<*> (x Data..:? "TotalPotentialRISavings")
+            Prelude.<*> (x Data..:? "UtilizationPercentageInUnits")
+            Prelude.<*> (x Data..:? "PurchasedUnits")
+            Prelude.<*> (x Data..:? "UtilizationPercentage")
+            Prelude.<*> (x Data..:? "RealizedSavings")
       )
 
 instance Prelude.Hashable ReservationAggregates where

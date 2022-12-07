@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.ControlPlaneTagFilter where
 import Amazonka.Connect.Types.TagCondition
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that can be used to specify Tag conditions inside the
@@ -98,12 +99,12 @@ instance Prelude.NFData ControlPlaneTagFilter where
       `Prelude.seq` Prelude.rnf tagCondition
       `Prelude.seq` Prelude.rnf andConditions
 
-instance Core.ToJSON ControlPlaneTagFilter where
+instance Data.ToJSON ControlPlaneTagFilter where
   toJSON ControlPlaneTagFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OrConditions" Core..=) Prelude.<$> orConditions,
-            ("TagCondition" Core..=) Prelude.<$> tagCondition,
-            ("AndConditions" Core..=) Prelude.<$> andConditions
+          [ ("OrConditions" Data..=) Prelude.<$> orConditions,
+            ("TagCondition" Data..=) Prelude.<$> tagCondition,
+            ("AndConditions" Data..=) Prelude.<$> andConditions
           ]
       )

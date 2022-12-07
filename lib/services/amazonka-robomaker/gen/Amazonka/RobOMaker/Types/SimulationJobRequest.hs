@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.SimulationJobRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.Compute
 import Amazonka.RobOMaker.Types.DataSourceConfig
@@ -212,24 +213,24 @@ simulationJobRequest_compute = Lens.lens (\SimulationJobRequest' {compute} -> co
 simulationJobRequest_maxJobDurationInSeconds :: Lens.Lens' SimulationJobRequest Prelude.Integer
 simulationJobRequest_maxJobDurationInSeconds = Lens.lens (\SimulationJobRequest' {maxJobDurationInSeconds} -> maxJobDurationInSeconds) (\s@SimulationJobRequest' {} a -> s {maxJobDurationInSeconds = a} :: SimulationJobRequest)
 
-instance Core.FromJSON SimulationJobRequest where
+instance Data.FromJSON SimulationJobRequest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SimulationJobRequest"
       ( \x ->
           SimulationJobRequest'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "iamRole")
-            Prelude.<*> (x Core..:? "useDefaultApplications")
-            Prelude.<*> (x Core..:? "dataSources")
-            Prelude.<*> (x Core..:? "vpcConfig")
-            Prelude.<*> (x Core..:? "outputLocation")
-            Prelude.<*> (x Core..:? "simulationApplications")
-            Prelude.<*> (x Core..:? "failureBehavior")
-            Prelude.<*> (x Core..:? "robotApplications")
-            Prelude.<*> (x Core..:? "loggingConfig")
-            Prelude.<*> (x Core..:? "compute")
-            Prelude.<*> (x Core..: "maxJobDurationInSeconds")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "iamRole")
+            Prelude.<*> (x Data..:? "useDefaultApplications")
+            Prelude.<*> (x Data..:? "dataSources")
+            Prelude.<*> (x Data..:? "vpcConfig")
+            Prelude.<*> (x Data..:? "outputLocation")
+            Prelude.<*> (x Data..:? "simulationApplications")
+            Prelude.<*> (x Data..:? "failureBehavior")
+            Prelude.<*> (x Data..:? "robotApplications")
+            Prelude.<*> (x Data..:? "loggingConfig")
+            Prelude.<*> (x Data..:? "compute")
+            Prelude.<*> (x Data..: "maxJobDurationInSeconds")
       )
 
 instance Prelude.Hashable SimulationJobRequest where
@@ -262,29 +263,29 @@ instance Prelude.NFData SimulationJobRequest where
       `Prelude.seq` Prelude.rnf compute
       `Prelude.seq` Prelude.rnf maxJobDurationInSeconds
 
-instance Core.ToJSON SimulationJobRequest where
+instance Data.ToJSON SimulationJobRequest where
   toJSON SimulationJobRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("iamRole" Core..=) Prelude.<$> iamRole,
-            ("useDefaultApplications" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("iamRole" Data..=) Prelude.<$> iamRole,
+            ("useDefaultApplications" Data..=)
               Prelude.<$> useDefaultApplications,
-            ("dataSources" Core..=) Prelude.<$> dataSources,
-            ("vpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("outputLocation" Core..=)
+            ("dataSources" Data..=) Prelude.<$> dataSources,
+            ("vpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("outputLocation" Data..=)
               Prelude.<$> outputLocation,
-            ("simulationApplications" Core..=)
+            ("simulationApplications" Data..=)
               Prelude.<$> simulationApplications,
-            ("failureBehavior" Core..=)
+            ("failureBehavior" Data..=)
               Prelude.<$> failureBehavior,
-            ("robotApplications" Core..=)
+            ("robotApplications" Data..=)
               Prelude.<$> robotApplications,
-            ("loggingConfig" Core..=) Prelude.<$> loggingConfig,
-            ("compute" Core..=) Prelude.<$> compute,
+            ("loggingConfig" Data..=) Prelude.<$> loggingConfig,
+            ("compute" Data..=) Prelude.<$> compute,
             Prelude.Just
               ( "maxJobDurationInSeconds"
-                  Core..= maxJobDurationInSeconds
+                  Data..= maxJobDurationInSeconds
               )
           ]
       )

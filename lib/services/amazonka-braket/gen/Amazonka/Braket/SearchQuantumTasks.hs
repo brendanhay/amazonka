@@ -47,6 +47,7 @@ where
 import Amazonka.Braket.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,9 +132,9 @@ instance Core.AWSRequest SearchQuantumTasks where
     Response.receiveJSON
       ( \s h x ->
           SearchQuantumTasksResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "quantumTasks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "quantumTasks" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable SearchQuantumTasks where
@@ -148,31 +149,31 @@ instance Prelude.NFData SearchQuantumTasks where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf filters
 
-instance Core.ToHeaders SearchQuantumTasks where
+instance Data.ToHeaders SearchQuantumTasks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchQuantumTasks where
+instance Data.ToJSON SearchQuantumTasks where
   toJSON SearchQuantumTasks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("filters" Core..= filters)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("filters" Data..= filters)
           ]
       )
 
-instance Core.ToPath SearchQuantumTasks where
+instance Data.ToPath SearchQuantumTasks where
   toPath = Prelude.const "/quantum-tasks"
 
-instance Core.ToQuery SearchQuantumTasks where
+instance Data.ToQuery SearchQuantumTasks where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchQuantumTasksResponse' smart constructor.

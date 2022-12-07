@@ -43,6 +43,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,35 +123,35 @@ instance Prelude.NFData UpdateQueueStatus where
       `Prelude.seq` Prelude.rnf queueId
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToHeaders UpdateQueueStatus where
+instance Data.ToHeaders UpdateQueueStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateQueueStatus where
+instance Data.ToJSON UpdateQueueStatus where
   toJSON UpdateQueueStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Status" Core..= status)]
+          [Prelude.Just ("Status" Data..= status)]
       )
 
-instance Core.ToPath UpdateQueueStatus where
+instance Data.ToPath UpdateQueueStatus where
   toPath UpdateQueueStatus' {..} =
     Prelude.mconcat
       [ "/queues/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS queueId,
+        Data.toBS queueId,
         "/status"
       ]
 
-instance Core.ToQuery UpdateQueueStatus where
+instance Data.ToQuery UpdateQueueStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateQueueStatusResponse' smart constructor.

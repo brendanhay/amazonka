@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.MetadataKeyValuePair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing a key value pair for metadata.
@@ -72,11 +73,11 @@ instance Prelude.NFData MetadataKeyValuePair where
     Prelude.rnf metadataValue
       `Prelude.seq` Prelude.rnf metadataKey
 
-instance Core.ToJSON MetadataKeyValuePair where
+instance Data.ToJSON MetadataKeyValuePair where
   toJSON MetadataKeyValuePair' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MetadataValue" Core..=) Prelude.<$> metadataValue,
-            ("MetadataKey" Core..=) Prelude.<$> metadataKey
+          [ ("MetadataValue" Data..=) Prelude.<$> metadataValue,
+            ("MetadataKey" Data..=) Prelude.<$> metadataKey
           ]
       )

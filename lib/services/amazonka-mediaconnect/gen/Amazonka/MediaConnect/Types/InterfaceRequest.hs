@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.InterfaceRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The VPC interface that you want to designate where the media stream is
@@ -60,9 +61,9 @@ instance Prelude.Hashable InterfaceRequest where
 instance Prelude.NFData InterfaceRequest where
   rnf InterfaceRequest' {..} = Prelude.rnf name
 
-instance Core.ToJSON InterfaceRequest where
+instance Data.ToJSON InterfaceRequest where
   toJSON InterfaceRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )

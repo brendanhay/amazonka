@@ -112,6 +112,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -246,7 +247,7 @@ instance Core.AWSRequest PutRule where
     Response.receiveJSON
       ( \s h x ->
           PutRuleResponse'
-            Prelude.<$> (x Core..?> "RuleArn")
+            Prelude.<$> (x Data..?> "RuleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -272,39 +273,39 @@ instance Prelude.NFData PutRule where
       `Prelude.seq` Prelude.rnf scheduleExpression
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders PutRule where
+instance Data.ToHeaders PutRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.PutRule" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.PutRule" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRule where
+instance Data.ToJSON PutRule where
   toJSON PutRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("EventPattern" Core..=) Prelude.<$> eventPattern,
-            ("EventBusName" Core..=) Prelude.<$> eventBusName,
-            ("State" Core..=) Prelude.<$> state,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ScheduleExpression" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("EventPattern" Data..=) Prelude.<$> eventPattern,
+            ("EventBusName" Data..=) Prelude.<$> eventBusName,
+            ("State" Data..=) Prelude.<$> state,
+            ("Description" Data..=) Prelude.<$> description,
+            ("ScheduleExpression" Data..=)
               Prelude.<$> scheduleExpression,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath PutRule where
+instance Data.ToPath PutRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutRule where
+instance Data.ToQuery PutRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRuleResponse' smart constructor.

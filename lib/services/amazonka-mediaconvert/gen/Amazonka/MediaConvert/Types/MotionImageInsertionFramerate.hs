@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.MotionImageInsertionFramerate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For motion overlays that don\'t have a built-in frame rate, specify the
@@ -71,14 +72,14 @@ motionImageInsertionFramerate_framerateDenominator = Lens.lens (\MotionImageInse
 motionImageInsertionFramerate_framerateNumerator :: Lens.Lens' MotionImageInsertionFramerate (Prelude.Maybe Prelude.Natural)
 motionImageInsertionFramerate_framerateNumerator = Lens.lens (\MotionImageInsertionFramerate' {framerateNumerator} -> framerateNumerator) (\s@MotionImageInsertionFramerate' {} a -> s {framerateNumerator = a} :: MotionImageInsertionFramerate)
 
-instance Core.FromJSON MotionImageInsertionFramerate where
+instance Data.FromJSON MotionImageInsertionFramerate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MotionImageInsertionFramerate"
       ( \x ->
           MotionImageInsertionFramerate'
-            Prelude.<$> (x Core..:? "framerateDenominator")
-            Prelude.<*> (x Core..:? "framerateNumerator")
+            Prelude.<$> (x Data..:? "framerateDenominator")
+            Prelude.<*> (x Data..:? "framerateNumerator")
       )
 
 instance
@@ -94,13 +95,13 @@ instance Prelude.NFData MotionImageInsertionFramerate where
     Prelude.rnf framerateDenominator
       `Prelude.seq` Prelude.rnf framerateNumerator
 
-instance Core.ToJSON MotionImageInsertionFramerate where
+instance Data.ToJSON MotionImageInsertionFramerate where
   toJSON MotionImageInsertionFramerate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("framerateDenominator" Core..=)
+          [ ("framerateDenominator" Data..=)
               Prelude.<$> framerateDenominator,
-            ("framerateNumerator" Core..=)
+            ("framerateNumerator" Data..=)
               Prelude.<$> framerateNumerator
           ]
       )

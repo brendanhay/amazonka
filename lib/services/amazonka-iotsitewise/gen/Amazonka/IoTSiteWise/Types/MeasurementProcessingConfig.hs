@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.MeasurementProcessingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.ForwardingConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,13 +59,13 @@ newMeasurementProcessingConfig pForwardingConfig_ =
 measurementProcessingConfig_forwardingConfig :: Lens.Lens' MeasurementProcessingConfig ForwardingConfig
 measurementProcessingConfig_forwardingConfig = Lens.lens (\MeasurementProcessingConfig' {forwardingConfig} -> forwardingConfig) (\s@MeasurementProcessingConfig' {} a -> s {forwardingConfig = a} :: MeasurementProcessingConfig)
 
-instance Core.FromJSON MeasurementProcessingConfig where
+instance Data.FromJSON MeasurementProcessingConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MeasurementProcessingConfig"
       ( \x ->
           MeasurementProcessingConfig'
-            Prelude.<$> (x Core..: "forwardingConfig")
+            Prelude.<$> (x Data..: "forwardingConfig")
       )
 
 instance Prelude.Hashable MeasurementProcessingConfig where
@@ -75,11 +76,11 @@ instance Prelude.NFData MeasurementProcessingConfig where
   rnf MeasurementProcessingConfig' {..} =
     Prelude.rnf forwardingConfig
 
-instance Core.ToJSON MeasurementProcessingConfig where
+instance Data.ToJSON MeasurementProcessingConfig where
   toJSON MeasurementProcessingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("forwardingConfig" Core..= forwardingConfig)
+              ("forwardingConfig" Data..= forwardingConfig)
           ]
       )

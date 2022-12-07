@@ -93,6 +93,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceExplorer2.Types
@@ -160,9 +161,9 @@ instance Core.AWSRequest CreateIndex where
     Response.receiveJSON
       ( \s h x ->
           CreateIndexResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "CreatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,30 +177,30 @@ instance Prelude.NFData CreateIndex where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateIndex where
+instance Data.ToHeaders CreateIndex where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateIndex where
+instance Data.ToJSON CreateIndex where
   toJSON CreateIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 
-instance Core.ToPath CreateIndex where
+instance Data.ToPath CreateIndex where
   toPath = Prelude.const "/CreateIndex"
 
-instance Core.ToQuery CreateIndex where
+instance Data.ToQuery CreateIndex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateIndexResponse' smart constructor.
@@ -216,7 +217,7 @@ data CreateIndexResponse = CreateIndexResponse'
     -- resources and populates the index.
     state :: Prelude.Maybe IndexState,
     -- | The date and timestamp when the index was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -273,7 +274,7 @@ createIndexResponse_state = Lens.lens (\CreateIndexResponse' {state} -> state) (
 
 -- | The date and timestamp when the index was created.
 createIndexResponse_createdAt :: Lens.Lens' CreateIndexResponse (Prelude.Maybe Prelude.UTCTime)
-createIndexResponse_createdAt = Lens.lens (\CreateIndexResponse' {createdAt} -> createdAt) (\s@CreateIndexResponse' {} a -> s {createdAt = a} :: CreateIndexResponse) Prelude.. Lens.mapping Core._Time
+createIndexResponse_createdAt = Lens.lens (\CreateIndexResponse' {createdAt} -> createdAt) (\s@CreateIndexResponse' {} a -> s {createdAt = a} :: CreateIndexResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createIndexResponse_httpStatus :: Lens.Lens' CreateIndexResponse Prelude.Int

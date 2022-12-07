@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -63,7 +64,7 @@ data GetJourneyDateRangeKpi = GetJourneyDateRangeKpi'
     -- date range that filters the query results. This value should be in
     -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
     -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
@@ -73,7 +74,7 @@ data GetJourneyDateRangeKpi = GetJourneyDateRangeKpi'
     -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
     -- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value
     -- should also be fewer than 90 days from the current day.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier for the journey.
     journeyId :: Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
@@ -163,7 +164,7 @@ getJourneyDateRangeKpi_nextToken = Lens.lens (\GetJourneyDateRangeKpi' {nextToke
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
 getJourneyDateRangeKpi_endTime :: Lens.Lens' GetJourneyDateRangeKpi (Prelude.Maybe Prelude.UTCTime)
-getJourneyDateRangeKpi_endTime = Lens.lens (\GetJourneyDateRangeKpi' {endTime} -> endTime) (\s@GetJourneyDateRangeKpi' {} a -> s {endTime = a} :: GetJourneyDateRangeKpi) Prelude.. Lens.mapping Core._Time
+getJourneyDateRangeKpi_endTime = Lens.lens (\GetJourneyDateRangeKpi' {endTime} -> endTime) (\s@GetJourneyDateRangeKpi' {} a -> s {endTime = a} :: GetJourneyDateRangeKpi) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
@@ -177,7 +178,7 @@ getJourneyDateRangeKpi_pageSize = Lens.lens (\GetJourneyDateRangeKpi' {pageSize}
 -- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value
 -- should also be fewer than 90 days from the current day.
 getJourneyDateRangeKpi_startTime :: Lens.Lens' GetJourneyDateRangeKpi (Prelude.Maybe Prelude.UTCTime)
-getJourneyDateRangeKpi_startTime = Lens.lens (\GetJourneyDateRangeKpi' {startTime} -> startTime) (\s@GetJourneyDateRangeKpi' {} a -> s {startTime = a} :: GetJourneyDateRangeKpi) Prelude.. Lens.mapping Core._Time
+getJourneyDateRangeKpi_startTime = Lens.lens (\GetJourneyDateRangeKpi' {startTime} -> startTime) (\s@GetJourneyDateRangeKpi' {} a -> s {startTime = a} :: GetJourneyDateRangeKpi) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier for the journey.
 getJourneyDateRangeKpi_journeyId :: Lens.Lens' GetJourneyDateRangeKpi Prelude.Text
@@ -209,7 +210,7 @@ instance Core.AWSRequest GetJourneyDateRangeKpi where
       ( \s h x ->
           GetJourneyDateRangeKpiResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetJourneyDateRangeKpi where
@@ -232,35 +233,35 @@ instance Prelude.NFData GetJourneyDateRangeKpi where
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf kpiName
 
-instance Core.ToHeaders GetJourneyDateRangeKpi where
+instance Data.ToHeaders GetJourneyDateRangeKpi where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetJourneyDateRangeKpi where
+instance Data.ToPath GetJourneyDateRangeKpi where
   toPath GetJourneyDateRangeKpi' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/journeys/",
-        Core.toBS journeyId,
+        Data.toBS journeyId,
         "/kpis/daterange/",
-        Core.toBS kpiName
+        Data.toBS kpiName
       ]
 
-instance Core.ToQuery GetJourneyDateRangeKpi where
+instance Data.ToQuery GetJourneyDateRangeKpi where
   toQuery GetJourneyDateRangeKpi' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "end-time" Core.=: endTime,
-        "page-size" Core.=: pageSize,
-        "start-time" Core.=: startTime
+      [ "next-token" Data.=: nextToken,
+        "end-time" Data.=: endTime,
+        "page-size" Data.=: pageSize,
+        "start-time" Data.=: startTime
       ]
 
 -- | /See:/ 'newGetJourneyDateRangeKpiResponse' smart constructor.

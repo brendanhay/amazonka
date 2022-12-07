@@ -21,6 +21,7 @@ module Amazonka.Translate.Types.Term where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The term being translated by the custom terminology.
@@ -61,14 +62,14 @@ term_targetText = Lens.lens (\Term' {targetText} -> targetText) (\s@Term' {} a -
 term_sourceText :: Lens.Lens' Term (Prelude.Maybe Prelude.Text)
 term_sourceText = Lens.lens (\Term' {sourceText} -> sourceText) (\s@Term' {} a -> s {sourceText = a} :: Term)
 
-instance Core.FromJSON Term where
+instance Data.FromJSON Term where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Term"
       ( \x ->
           Term'
-            Prelude.<$> (x Core..:? "TargetText")
-            Prelude.<*> (x Core..:? "SourceText")
+            Prelude.<$> (x Data..:? "TargetText")
+            Prelude.<*> (x Data..:? "SourceText")
       )
 
 instance Prelude.Hashable Term where

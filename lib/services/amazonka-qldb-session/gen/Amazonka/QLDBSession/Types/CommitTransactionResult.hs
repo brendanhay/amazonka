@@ -21,6 +21,7 @@ module Amazonka.QLDBSession.Types.CommitTransactionResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDBSession.Types.IOUsage
 import Amazonka.QLDBSession.Types.TimingInformation
@@ -30,7 +31,7 @@ import Amazonka.QLDBSession.Types.TimingInformation
 -- /See:/ 'newCommitTransactionResult' smart constructor.
 data CommitTransactionResult = CommitTransactionResult'
   { -- | The commit digest of the committed transaction.
-    commitDigest :: Prelude.Maybe Core.Base64,
+    commitDigest :: Prelude.Maybe Data.Base64,
     -- | Contains server-side performance information for the command.
     timingInformation :: Prelude.Maybe TimingInformation,
     -- | Contains metrics about the number of I\/O requests that were consumed.
@@ -76,7 +77,7 @@ newCommitTransactionResult =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 commitTransactionResult_commitDigest :: Lens.Lens' CommitTransactionResult (Prelude.Maybe Prelude.ByteString)
-commitTransactionResult_commitDigest = Lens.lens (\CommitTransactionResult' {commitDigest} -> commitDigest) (\s@CommitTransactionResult' {} a -> s {commitDigest = a} :: CommitTransactionResult) Prelude.. Lens.mapping Core._Base64
+commitTransactionResult_commitDigest = Lens.lens (\CommitTransactionResult' {commitDigest} -> commitDigest) (\s@CommitTransactionResult' {} a -> s {commitDigest = a} :: CommitTransactionResult) Prelude.. Lens.mapping Data._Base64
 
 -- | Contains server-side performance information for the command.
 commitTransactionResult_timingInformation :: Lens.Lens' CommitTransactionResult (Prelude.Maybe TimingInformation)
@@ -90,16 +91,16 @@ commitTransactionResult_consumedIOs = Lens.lens (\CommitTransactionResult' {cons
 commitTransactionResult_transactionId :: Lens.Lens' CommitTransactionResult (Prelude.Maybe Prelude.Text)
 commitTransactionResult_transactionId = Lens.lens (\CommitTransactionResult' {transactionId} -> transactionId) (\s@CommitTransactionResult' {} a -> s {transactionId = a} :: CommitTransactionResult)
 
-instance Core.FromJSON CommitTransactionResult where
+instance Data.FromJSON CommitTransactionResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CommitTransactionResult"
       ( \x ->
           CommitTransactionResult'
-            Prelude.<$> (x Core..:? "CommitDigest")
-            Prelude.<*> (x Core..:? "TimingInformation")
-            Prelude.<*> (x Core..:? "ConsumedIOs")
-            Prelude.<*> (x Core..:? "TransactionId")
+            Prelude.<$> (x Data..:? "CommitDigest")
+            Prelude.<*> (x Data..:? "TimingInformation")
+            Prelude.<*> (x Data..:? "ConsumedIOs")
+            Prelude.<*> (x Data..:? "TransactionId")
       )
 
 instance Prelude.Hashable CommitTransactionResult where

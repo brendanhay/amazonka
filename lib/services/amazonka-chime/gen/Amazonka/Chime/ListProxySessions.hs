@@ -46,6 +46,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,8 +117,8 @@ instance Core.AWSRequest ListProxySessions where
     Response.receiveJSON
       ( \s h x ->
           ListProxySessionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ProxySessions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ProxySessions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,23 +136,23 @@ instance Prelude.NFData ListProxySessions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf voiceConnectorId
 
-instance Core.ToHeaders ListProxySessions where
+instance Data.ToHeaders ListProxySessions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListProxySessions where
+instance Data.ToPath ListProxySessions where
   toPath ListProxySessions' {..} =
     Prelude.mconcat
       [ "/voice-connectors/",
-        Core.toBS voiceConnectorId,
+        Data.toBS voiceConnectorId,
         "/proxy-sessions"
       ]
 
-instance Core.ToQuery ListProxySessions where
+instance Data.ToQuery ListProxySessions where
   toQuery ListProxySessions' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "status" Core.=: status,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "status" Data.=: status,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListProxySessionsResponse' smart constructor.

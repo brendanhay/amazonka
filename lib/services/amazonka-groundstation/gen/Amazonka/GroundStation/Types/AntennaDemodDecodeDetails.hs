@@ -21,6 +21,7 @@ module Amazonka.GroundStation.Types.AntennaDemodDecodeDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about an antenna demod decode @Config@ used in a contact.
@@ -53,13 +54,13 @@ newAntennaDemodDecodeDetails =
 antennaDemodDecodeDetails_outputNode :: Lens.Lens' AntennaDemodDecodeDetails (Prelude.Maybe Prelude.Text)
 antennaDemodDecodeDetails_outputNode = Lens.lens (\AntennaDemodDecodeDetails' {outputNode} -> outputNode) (\s@AntennaDemodDecodeDetails' {} a -> s {outputNode = a} :: AntennaDemodDecodeDetails)
 
-instance Core.FromJSON AntennaDemodDecodeDetails where
+instance Data.FromJSON AntennaDemodDecodeDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AntennaDemodDecodeDetails"
       ( \x ->
           AntennaDemodDecodeDetails'
-            Prelude.<$> (x Core..:? "outputNode")
+            Prelude.<$> (x Data..:? "outputNode")
       )
 
 instance Prelude.Hashable AntennaDemodDecodeDetails where

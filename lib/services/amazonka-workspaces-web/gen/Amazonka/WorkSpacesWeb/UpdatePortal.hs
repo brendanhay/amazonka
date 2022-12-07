@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -51,7 +52,7 @@ import Amazonka.WorkSpacesWeb.Types
 data UpdatePortal = UpdatePortal'
   { -- | The name of the web portal. This is not visible to users who log into
     -- the web portal.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the web portal.
     portalArn :: Prelude.Text
   }
@@ -82,7 +83,7 @@ newUpdatePortal pPortalArn_ =
 -- | The name of the web portal. This is not visible to users who log into
 -- the web portal.
 updatePortal_displayName :: Lens.Lens' UpdatePortal (Prelude.Maybe Prelude.Text)
-updatePortal_displayName = Lens.lens (\UpdatePortal' {displayName} -> displayName) (\s@UpdatePortal' {} a -> s {displayName = a} :: UpdatePortal) Prelude.. Lens.mapping Core._Sensitive
+updatePortal_displayName = Lens.lens (\UpdatePortal' {displayName} -> displayName) (\s@UpdatePortal' {} a -> s {displayName = a} :: UpdatePortal) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the web portal.
 updatePortal_portalArn :: Lens.Lens' UpdatePortal Prelude.Text
@@ -96,7 +97,7 @@ instance Core.AWSRequest UpdatePortal where
     Response.receiveJSON
       ( \s h x ->
           UpdatePortalResponse'
-            Prelude.<$> (x Core..?> "portal")
+            Prelude.<$> (x Data..?> "portal")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,29 +111,29 @@ instance Prelude.NFData UpdatePortal where
     Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf portalArn
 
-instance Core.ToHeaders UpdatePortal where
+instance Data.ToHeaders UpdatePortal where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePortal where
+instance Data.ToJSON UpdatePortal where
   toJSON UpdatePortal' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("displayName" Core..=) Prelude.<$> displayName]
+          [("displayName" Data..=) Prelude.<$> displayName]
       )
 
-instance Core.ToPath UpdatePortal where
+instance Data.ToPath UpdatePortal where
   toPath UpdatePortal' {..} =
-    Prelude.mconcat ["/portals/", Core.toBS portalArn]
+    Prelude.mconcat ["/portals/", Data.toBS portalArn]
 
-instance Core.ToQuery UpdatePortal where
+instance Data.ToQuery UpdatePortal where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePortalResponse' smart constructor.

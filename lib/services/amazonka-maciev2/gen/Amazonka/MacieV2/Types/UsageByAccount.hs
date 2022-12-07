@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.UsageByAccount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.Currency
 import Amazonka.MacieV2.Types.ServiceLimit
 import Amazonka.MacieV2.Types.UsageType
@@ -95,16 +96,16 @@ usageByAccount_currency = Lens.lens (\UsageByAccount' {currency} -> currency) (\
 usageByAccount_estimatedCost :: Lens.Lens' UsageByAccount (Prelude.Maybe Prelude.Text)
 usageByAccount_estimatedCost = Lens.lens (\UsageByAccount' {estimatedCost} -> estimatedCost) (\s@UsageByAccount' {} a -> s {estimatedCost = a} :: UsageByAccount)
 
-instance Core.FromJSON UsageByAccount where
+instance Data.FromJSON UsageByAccount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsageByAccount"
       ( \x ->
           UsageByAccount'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "serviceLimit")
-            Prelude.<*> (x Core..:? "currency")
-            Prelude.<*> (x Core..:? "estimatedCost")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "serviceLimit")
+            Prelude.<*> (x Data..:? "currency")
+            Prelude.<*> (x Data..:? "estimatedCost")
       )
 
 instance Prelude.Hashable UsageByAccount where

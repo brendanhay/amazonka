@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -139,9 +140,9 @@ instance Core.AWSRequest SearchGroups where
     Response.receiveJSON
       ( \s h x ->
           SearchGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "GroupList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "GroupList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,39 +162,39 @@ instance Prelude.NFData SearchGroups where
       `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf filters
 
-instance Core.ToHeaders SearchGroups where
+instance Data.ToHeaders SearchGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchGroups where
+instance Data.ToJSON SearchGroups where
   toJSON SearchGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Filters" Core..= filters)]
+          [Prelude.Just ("Filters" Data..= filters)]
       )
 
-instance Core.ToPath SearchGroups where
+instance Data.ToPath SearchGroups where
   toPath SearchGroups' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/namespaces/",
-        Core.toBS namespace,
+        Data.toBS namespace,
         "/groups-search"
       ]
 
-instance Core.ToQuery SearchGroups where
+instance Data.ToQuery SearchGroups where
   toQuery SearchGroups' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newSearchGroupsResponse' smart constructor.

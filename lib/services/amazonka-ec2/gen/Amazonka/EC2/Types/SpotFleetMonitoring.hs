@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotFleetMonitoring where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,10 +58,10 @@ newSpotFleetMonitoring =
 spotFleetMonitoring_enabled :: Lens.Lens' SpotFleetMonitoring (Prelude.Maybe Prelude.Bool)
 spotFleetMonitoring_enabled = Lens.lens (\SpotFleetMonitoring' {enabled} -> enabled) (\s@SpotFleetMonitoring' {} a -> s {enabled = a} :: SpotFleetMonitoring)
 
-instance Core.FromXML SpotFleetMonitoring where
+instance Data.FromXML SpotFleetMonitoring where
   parseXML x =
     SpotFleetMonitoring'
-      Prelude.<$> (x Core..@? "enabled")
+      Prelude.<$> (x Data..@? "enabled")
 
 instance Prelude.Hashable SpotFleetMonitoring where
   hashWithSalt _salt SpotFleetMonitoring' {..} =
@@ -69,6 +70,6 @@ instance Prelude.Hashable SpotFleetMonitoring where
 instance Prelude.NFData SpotFleetMonitoring where
   rnf SpotFleetMonitoring' {..} = Prelude.rnf enabled
 
-instance Core.ToQuery SpotFleetMonitoring where
+instance Data.ToQuery SpotFleetMonitoring where
   toQuery SpotFleetMonitoring' {..} =
-    Prelude.mconcat ["Enabled" Core.=: enabled]
+    Prelude.mconcat ["Enabled" Data.=: enabled]

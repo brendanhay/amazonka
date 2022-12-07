@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.ResourceDetails where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.EC2ResourceDetails
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for the resource.
@@ -54,13 +55,13 @@ newResourceDetails =
 resourceDetails_eC2ResourceDetails :: Lens.Lens' ResourceDetails (Prelude.Maybe EC2ResourceDetails)
 resourceDetails_eC2ResourceDetails = Lens.lens (\ResourceDetails' {eC2ResourceDetails} -> eC2ResourceDetails) (\s@ResourceDetails' {} a -> s {eC2ResourceDetails = a} :: ResourceDetails)
 
-instance Core.FromJSON ResourceDetails where
+instance Data.FromJSON ResourceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceDetails"
       ( \x ->
           ResourceDetails'
-            Prelude.<$> (x Core..:? "EC2ResourceDetails")
+            Prelude.<$> (x Data..:? "EC2ResourceDetails")
       )
 
 instance Prelude.Hashable ResourceDetails where

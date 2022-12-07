@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSMSVoice.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,7 +93,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetConfigurationSetEventDestinationsResponse'
-            Prelude.<$> ( x Core..?> "EventDestinations"
+            Prelude.<$> ( x Data..?> "EventDestinations"
                             Core..!@ Prelude.mempty
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -115,32 +116,32 @@ instance
     Prelude.rnf configurationSetName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetConfigurationSetEventDestinations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetConfigurationSetEventDestinations
   where
   toPath GetConfigurationSetEventDestinations' {..} =
     Prelude.mconcat
       [ "/v1/sms-voice/configuration-sets/",
-        Core.toBS configurationSetName,
+        Data.toBS configurationSetName,
         "/event-destinations"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetConfigurationSetEventDestinations
   where
   toQuery = Prelude.const Prelude.mempty

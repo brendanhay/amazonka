@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.RenameField where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a transform that renames a single data property key.
@@ -83,16 +84,16 @@ renameField_sourcePath = Lens.lens (\RenameField' {sourcePath} -> sourcePath) (\
 renameField_targetPath :: Lens.Lens' RenameField [Prelude.Text]
 renameField_targetPath = Lens.lens (\RenameField' {targetPath} -> targetPath) (\s@RenameField' {} a -> s {targetPath = a} :: RenameField) Prelude.. Lens.coerced
 
-instance Core.FromJSON RenameField where
+instance Data.FromJSON RenameField where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RenameField"
       ( \x ->
           RenameField'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..:? "SourcePath" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TargetPath" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..:? "SourcePath" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TargetPath" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RenameField where
@@ -109,13 +110,13 @@ instance Prelude.NFData RenameField where
       `Prelude.seq` Prelude.rnf sourcePath
       `Prelude.seq` Prelude.rnf targetPath
 
-instance Core.ToJSON RenameField where
+instance Data.ToJSON RenameField where
   toJSON RenameField' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("SourcePath" Core..= sourcePath),
-            Prelude.Just ("TargetPath" Core..= targetPath)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("SourcePath" Data..= sourcePath),
+            Prelude.Just ("TargetPath" Data..= targetPath)
           ]
       )

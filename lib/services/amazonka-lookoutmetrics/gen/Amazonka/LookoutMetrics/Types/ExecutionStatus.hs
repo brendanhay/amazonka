@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.ExecutionStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ executionStatus_status = Lens.lens (\ExecutionStatus' {status} -> status) (\s@Ex
 executionStatus_failureReason :: Lens.Lens' ExecutionStatus (Prelude.Maybe Prelude.Text)
 executionStatus_failureReason = Lens.lens (\ExecutionStatus' {failureReason} -> failureReason) (\s@ExecutionStatus' {} a -> s {failureReason = a} :: ExecutionStatus)
 
-instance Core.FromJSON ExecutionStatus where
+instance Data.FromJSON ExecutionStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecutionStatus"
       ( \x ->
           ExecutionStatus'
-            Prelude.<$> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<$> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance Prelude.Hashable ExecutionStatus where

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,25 +121,25 @@ instance
     Prelude.rnf id `Prelude.seq` Prelude.rnf thingArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AssociateWirelessDeviceWithThing
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON AssociateWirelessDeviceWithThing where
+instance Data.ToJSON AssociateWirelessDeviceWithThing where
   toJSON AssociateWirelessDeviceWithThing' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ThingArn" Core..= thingArn)]
+          [Prelude.Just ("ThingArn" Data..= thingArn)]
       )
 
-instance Core.ToPath AssociateWirelessDeviceWithThing where
+instance Data.ToPath AssociateWirelessDeviceWithThing where
   toPath AssociateWirelessDeviceWithThing' {..} =
     Prelude.mconcat
-      ["/wireless-devices/", Core.toBS id, "/thing"]
+      ["/wireless-devices/", Data.toBS id, "/thing"]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AssociateWirelessDeviceWithThing
   where
   toQuery = Prelude.const Prelude.mempty

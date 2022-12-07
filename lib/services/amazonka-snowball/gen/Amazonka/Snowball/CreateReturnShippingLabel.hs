@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,7 +110,7 @@ instance Core.AWSRequest CreateReturnShippingLabel where
     Response.receiveJSON
       ( \s h x ->
           CreateReturnShippingLabelResponse'
-            Prelude.<$> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,35 +124,35 @@ instance Prelude.NFData CreateReturnShippingLabel where
     Prelude.rnf shippingOption
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders CreateReturnShippingLabel where
+instance Data.ToHeaders CreateReturnShippingLabel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.CreateReturnShippingLabel" ::
+              Data.=# ( "AWSIESnowballJobManagementService.CreateReturnShippingLabel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateReturnShippingLabel where
+instance Data.ToJSON CreateReturnShippingLabel where
   toJSON CreateReturnShippingLabel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ShippingOption" Core..=)
+          [ ("ShippingOption" Data..=)
               Prelude.<$> shippingOption,
-            Prelude.Just ("JobId" Core..= jobId)
+            Prelude.Just ("JobId" Data..= jobId)
           ]
       )
 
-instance Core.ToPath CreateReturnShippingLabel where
+instance Data.ToPath CreateReturnShippingLabel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateReturnShippingLabel where
+instance Data.ToQuery CreateReturnShippingLabel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateReturnShippingLabelResponse' smart constructor.

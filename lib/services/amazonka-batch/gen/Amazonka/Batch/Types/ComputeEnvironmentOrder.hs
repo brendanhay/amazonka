@@ -21,6 +21,7 @@ module Amazonka.Batch.Types.ComputeEnvironmentOrder where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The order that compute environments are tried in for job placement
@@ -88,14 +89,14 @@ computeEnvironmentOrder_order = Lens.lens (\ComputeEnvironmentOrder' {order} -> 
 computeEnvironmentOrder_computeEnvironment :: Lens.Lens' ComputeEnvironmentOrder Prelude.Text
 computeEnvironmentOrder_computeEnvironment = Lens.lens (\ComputeEnvironmentOrder' {computeEnvironment} -> computeEnvironment) (\s@ComputeEnvironmentOrder' {} a -> s {computeEnvironment = a} :: ComputeEnvironmentOrder)
 
-instance Core.FromJSON ComputeEnvironmentOrder where
+instance Data.FromJSON ComputeEnvironmentOrder where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComputeEnvironmentOrder"
       ( \x ->
           ComputeEnvironmentOrder'
-            Prelude.<$> (x Core..: "order")
-            Prelude.<*> (x Core..: "computeEnvironment")
+            Prelude.<$> (x Data..: "order")
+            Prelude.<*> (x Data..: "computeEnvironment")
       )
 
 instance Prelude.Hashable ComputeEnvironmentOrder where
@@ -108,12 +109,12 @@ instance Prelude.NFData ComputeEnvironmentOrder where
     Prelude.rnf order
       `Prelude.seq` Prelude.rnf computeEnvironment
 
-instance Core.ToJSON ComputeEnvironmentOrder where
+instance Data.ToJSON ComputeEnvironmentOrder where
   toJSON ComputeEnvironmentOrder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("order" Core..= order),
+          [ Prelude.Just ("order" Data..= order),
             Prelude.Just
-              ("computeEnvironment" Core..= computeEnvironment)
+              ("computeEnvironment" Data..= computeEnvironment)
           ]
       )

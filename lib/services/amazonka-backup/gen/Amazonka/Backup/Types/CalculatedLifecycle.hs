@@ -21,6 +21,7 @@ module Amazonka.Backup.Types.CalculatedLifecycle where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains @DeleteAt@ and @MoveToColdStorageAt@ timestamps, which are used
@@ -45,9 +46,9 @@ import qualified Amazonka.Prelude as Prelude
 data CalculatedLifecycle = CalculatedLifecycle'
   { -- | A timestamp that specifies when to transition a recovery point to cold
     -- storage.
-    moveToColdStorageAt :: Prelude.Maybe Core.POSIX,
+    moveToColdStorageAt :: Prelude.Maybe Data.POSIX,
     -- | A timestamp that specifies when to delete a recovery point.
-    deleteAt :: Prelude.Maybe Core.POSIX
+    deleteAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,20 +76,20 @@ newCalculatedLifecycle =
 -- | A timestamp that specifies when to transition a recovery point to cold
 -- storage.
 calculatedLifecycle_moveToColdStorageAt :: Lens.Lens' CalculatedLifecycle (Prelude.Maybe Prelude.UTCTime)
-calculatedLifecycle_moveToColdStorageAt = Lens.lens (\CalculatedLifecycle' {moveToColdStorageAt} -> moveToColdStorageAt) (\s@CalculatedLifecycle' {} a -> s {moveToColdStorageAt = a} :: CalculatedLifecycle) Prelude.. Lens.mapping Core._Time
+calculatedLifecycle_moveToColdStorageAt = Lens.lens (\CalculatedLifecycle' {moveToColdStorageAt} -> moveToColdStorageAt) (\s@CalculatedLifecycle' {} a -> s {moveToColdStorageAt = a} :: CalculatedLifecycle) Prelude.. Lens.mapping Data._Time
 
 -- | A timestamp that specifies when to delete a recovery point.
 calculatedLifecycle_deleteAt :: Lens.Lens' CalculatedLifecycle (Prelude.Maybe Prelude.UTCTime)
-calculatedLifecycle_deleteAt = Lens.lens (\CalculatedLifecycle' {deleteAt} -> deleteAt) (\s@CalculatedLifecycle' {} a -> s {deleteAt = a} :: CalculatedLifecycle) Prelude.. Lens.mapping Core._Time
+calculatedLifecycle_deleteAt = Lens.lens (\CalculatedLifecycle' {deleteAt} -> deleteAt) (\s@CalculatedLifecycle' {} a -> s {deleteAt = a} :: CalculatedLifecycle) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CalculatedLifecycle where
+instance Data.FromJSON CalculatedLifecycle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CalculatedLifecycle"
       ( \x ->
           CalculatedLifecycle'
-            Prelude.<$> (x Core..:? "MoveToColdStorageAt")
-            Prelude.<*> (x Core..:? "DeleteAt")
+            Prelude.<$> (x Data..:? "MoveToColdStorageAt")
+            Prelude.<*> (x Data..:? "DeleteAt")
       )
 
 instance Prelude.Hashable CalculatedLifecycle where

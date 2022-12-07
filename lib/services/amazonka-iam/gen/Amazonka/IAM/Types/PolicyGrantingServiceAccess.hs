@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.PolicyGrantingServiceAccess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.PolicyOwnerEntityType
 import Amazonka.IAM.Types.PolicyType
 import qualified Amazonka.Prelude as Prelude
@@ -142,14 +143,14 @@ policyGrantingServiceAccess_policyName = Lens.lens (\PolicyGrantingServiceAccess
 policyGrantingServiceAccess_policyType :: Lens.Lens' PolicyGrantingServiceAccess PolicyType
 policyGrantingServiceAccess_policyType = Lens.lens (\PolicyGrantingServiceAccess' {policyType} -> policyType) (\s@PolicyGrantingServiceAccess' {} a -> s {policyType = a} :: PolicyGrantingServiceAccess)
 
-instance Core.FromXML PolicyGrantingServiceAccess where
+instance Data.FromXML PolicyGrantingServiceAccess where
   parseXML x =
     PolicyGrantingServiceAccess'
-      Prelude.<$> (x Core..@? "EntityName")
-      Prelude.<*> (x Core..@? "EntityType")
-      Prelude.<*> (x Core..@? "PolicyArn")
-      Prelude.<*> (x Core..@ "PolicyName")
-      Prelude.<*> (x Core..@ "PolicyType")
+      Prelude.<$> (x Data..@? "EntityName")
+      Prelude.<*> (x Data..@? "EntityType")
+      Prelude.<*> (x Data..@? "PolicyArn")
+      Prelude.<*> (x Data..@ "PolicyName")
+      Prelude.<*> (x Data..@ "PolicyType")
 
 instance Prelude.Hashable PolicyGrantingServiceAccess where
   hashWithSalt _salt PolicyGrantingServiceAccess' {..} =

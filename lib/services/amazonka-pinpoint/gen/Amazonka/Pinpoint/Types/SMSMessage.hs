@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.SMSMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.MessageType
 import qualified Amazonka.Prelude as Prelude
 
@@ -186,19 +187,19 @@ instance Prelude.NFData SMSMessage where
       `Prelude.seq` Prelude.rnf keyword
       `Prelude.seq` Prelude.rnf mediaUrl
 
-instance Core.ToJSON SMSMessage where
+instance Data.ToJSON SMSMessage where
   toJSON SMSMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EntityId" Core..=) Prelude.<$> entityId,
-            ("MessageType" Core..=) Prelude.<$> messageType,
-            ("SenderId" Core..=) Prelude.<$> senderId,
-            ("Body" Core..=) Prelude.<$> body,
-            ("Substitutions" Core..=) Prelude.<$> substitutions,
-            ("TemplateId" Core..=) Prelude.<$> templateId,
-            ("OriginationNumber" Core..=)
+          [ ("EntityId" Data..=) Prelude.<$> entityId,
+            ("MessageType" Data..=) Prelude.<$> messageType,
+            ("SenderId" Data..=) Prelude.<$> senderId,
+            ("Body" Data..=) Prelude.<$> body,
+            ("Substitutions" Data..=) Prelude.<$> substitutions,
+            ("TemplateId" Data..=) Prelude.<$> templateId,
+            ("OriginationNumber" Data..=)
               Prelude.<$> originationNumber,
-            ("Keyword" Core..=) Prelude.<$> keyword,
-            ("MediaUrl" Core..=) Prelude.<$> mediaUrl
+            ("Keyword" Data..=) Prelude.<$> keyword,
+            ("MediaUrl" Data..=) Prelude.<$> mediaUrl
           ]
       )

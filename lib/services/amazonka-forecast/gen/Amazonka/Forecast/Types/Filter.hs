@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.FilterConditionString
 import qualified Amazonka.Prelude as Prelude
 
@@ -96,12 +97,12 @@ instance Prelude.NFData Filter where
       `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf condition
 
-instance Core.ToJSON Filter where
+instance Data.ToJSON Filter where
   toJSON Filter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Value" Core..= value),
-            Prelude.Just ("Condition" Core..= condition)
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Value" Data..= value),
+            Prelude.Just ("Condition" Data..= condition)
           ]
       )

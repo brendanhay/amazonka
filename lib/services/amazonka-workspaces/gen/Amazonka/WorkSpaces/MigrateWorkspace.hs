@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,8 +113,8 @@ instance Core.AWSRequest MigrateWorkspace where
     Response.receiveJSON
       ( \s h x ->
           MigrateWorkspaceResponse'
-            Prelude.<$> (x Core..?> "TargetWorkspaceId")
-            Prelude.<*> (x Core..?> "SourceWorkspaceId")
+            Prelude.<$> (x Data..?> "TargetWorkspaceId")
+            Prelude.<*> (x Data..?> "SourceWorkspaceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,35 +128,35 @@ instance Prelude.NFData MigrateWorkspace where
     Prelude.rnf sourceWorkspaceId
       `Prelude.seq` Prelude.rnf bundleId
 
-instance Core.ToHeaders MigrateWorkspace where
+instance Data.ToHeaders MigrateWorkspace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.MigrateWorkspace" ::
+              Data.=# ( "WorkspacesService.MigrateWorkspace" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON MigrateWorkspace where
+instance Data.ToJSON MigrateWorkspace where
   toJSON MigrateWorkspace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("SourceWorkspaceId" Core..= sourceWorkspaceId),
-            Prelude.Just ("BundleId" Core..= bundleId)
+              ("SourceWorkspaceId" Data..= sourceWorkspaceId),
+            Prelude.Just ("BundleId" Data..= bundleId)
           ]
       )
 
-instance Core.ToPath MigrateWorkspace where
+instance Data.ToPath MigrateWorkspace where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery MigrateWorkspace where
+instance Data.ToQuery MigrateWorkspace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newMigrateWorkspaceResponse' smart constructor.

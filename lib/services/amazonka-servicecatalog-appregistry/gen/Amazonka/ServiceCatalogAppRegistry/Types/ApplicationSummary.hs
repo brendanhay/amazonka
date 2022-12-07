@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of a Amazon Web Services Service Catalog AppRegistry
@@ -40,10 +41,10 @@ data ApplicationSummary = ApplicationSummary'
     id :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 formatted timestamp of the moment when the application was
     -- created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ISO-8601 formatted timestamp of the moment when the application was
     -- last updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX
+    lastUpdateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,25 +104,25 @@ applicationSummary_id = Lens.lens (\ApplicationSummary' {id} -> id) (\s@Applicat
 -- | The ISO-8601 formatted timestamp of the moment when the application was
 -- created.
 applicationSummary_creationTime :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.UTCTime)
-applicationSummary_creationTime = Lens.lens (\ApplicationSummary' {creationTime} -> creationTime) (\s@ApplicationSummary' {} a -> s {creationTime = a} :: ApplicationSummary) Prelude.. Lens.mapping Core._Time
+applicationSummary_creationTime = Lens.lens (\ApplicationSummary' {creationTime} -> creationTime) (\s@ApplicationSummary' {} a -> s {creationTime = a} :: ApplicationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ISO-8601 formatted timestamp of the moment when the application was
 -- last updated.
 applicationSummary_lastUpdateTime :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.UTCTime)
-applicationSummary_lastUpdateTime = Lens.lens (\ApplicationSummary' {lastUpdateTime} -> lastUpdateTime) (\s@ApplicationSummary' {} a -> s {lastUpdateTime = a} :: ApplicationSummary) Prelude.. Lens.mapping Core._Time
+applicationSummary_lastUpdateTime = Lens.lens (\ApplicationSummary' {lastUpdateTime} -> lastUpdateTime) (\s@ApplicationSummary' {} a -> s {lastUpdateTime = a} :: ApplicationSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ApplicationSummary where
+instance Data.FromJSON ApplicationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationSummary"
       ( \x ->
           ApplicationSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
       )
 
 instance Prelude.Hashable ApplicationSummary where

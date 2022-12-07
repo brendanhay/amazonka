@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.ResourceTag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Tags are key-value pairs that can be associated with Amazon SWF state
@@ -64,13 +65,13 @@ resourceTag_value = Lens.lens (\ResourceTag' {value} -> value) (\s@ResourceTag' 
 resourceTag_key :: Lens.Lens' ResourceTag Prelude.Text
 resourceTag_key = Lens.lens (\ResourceTag' {key} -> key) (\s@ResourceTag' {} a -> s {key = a} :: ResourceTag)
 
-instance Core.FromJSON ResourceTag where
+instance Data.FromJSON ResourceTag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceTag"
       ( \x ->
           ResourceTag'
-            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..: "key")
+            Prelude.<$> (x Data..:? "value") Prelude.<*> (x Data..: "key")
       )
 
 instance Prelude.Hashable ResourceTag where
@@ -82,11 +83,11 @@ instance Prelude.NFData ResourceTag where
   rnf ResourceTag' {..} =
     Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON ResourceTag where
+instance Data.ToJSON ResourceTag where
   toJSON ResourceTag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            Prelude.Just ("key" Core..= key)
+          [ ("value" Data..=) Prelude.<$> value,
+            Prelude.Just ("key" Data..= key)
           ]
       )

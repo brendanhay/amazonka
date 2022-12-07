@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -275,18 +276,18 @@ instance Core.AWSRequest CreateSlotType where
     Response.receiveJSON
       ( \s h x ->
           CreateSlotTypeResponse'
-            Prelude.<$> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "compositeSlotTypeSetting")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "externalSourceSetting")
-            Prelude.<*> (x Core..?> "valueSelectionSetting")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "slotTypeValues")
-            Prelude.<*> (x Core..?> "slotTypeName")
-            Prelude.<*> (x Core..?> "slotTypeId")
-            Prelude.<*> (x Core..?> "parentSlotTypeSignature")
+            Prelude.<$> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "compositeSlotTypeSetting")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "externalSourceSetting")
+            Prelude.<*> (x Data..?> "valueSelectionSetting")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "slotTypeValues")
+            Prelude.<*> (x Data..?> "slotTypeName")
+            Prelude.<*> (x Data..?> "slotTypeId")
+            Prelude.<*> (x Data..?> "parentSlotTypeSignature")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -317,49 +318,49 @@ instance Prelude.NFData CreateSlotType where
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
 
-instance Core.ToHeaders CreateSlotType where
+instance Data.ToHeaders CreateSlotType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSlotType where
+instance Data.ToJSON CreateSlotType where
   toJSON CreateSlotType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("compositeSlotTypeSetting" Core..=)
+          [ ("compositeSlotTypeSetting" Data..=)
               Prelude.<$> compositeSlotTypeSetting,
-            ("externalSourceSetting" Core..=)
+            ("externalSourceSetting" Data..=)
               Prelude.<$> externalSourceSetting,
-            ("valueSelectionSetting" Core..=)
+            ("valueSelectionSetting" Data..=)
               Prelude.<$> valueSelectionSetting,
-            ("description" Core..=) Prelude.<$> description,
-            ("slotTypeValues" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("slotTypeValues" Data..=)
               Prelude.<$> slotTypeValues,
-            ("parentSlotTypeSignature" Core..=)
+            ("parentSlotTypeSignature" Data..=)
               Prelude.<$> parentSlotTypeSignature,
-            Prelude.Just ("slotTypeName" Core..= slotTypeName)
+            Prelude.Just ("slotTypeName" Data..= slotTypeName)
           ]
       )
 
-instance Core.ToPath CreateSlotType where
+instance Data.ToPath CreateSlotType where
   toPath CreateSlotType' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/slottypes/"
       ]
 
-instance Core.ToQuery CreateSlotType where
+instance Data.ToQuery CreateSlotType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSlotTypeResponse' smart constructor.
@@ -369,7 +370,7 @@ data CreateSlotTypeResponse = CreateSlotTypeResponse'
     -- | Specifications for a composite slot type.
     compositeSlotTypeSetting :: Prelude.Maybe CompositeSlotTypeSetting,
     -- | A timestamp of the date and time that the slot type was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The specified language and local specified for the slot type.
     localeId :: Prelude.Maybe Prelude.Text,
     -- | The type of external information used to create the slot type.
@@ -462,7 +463,7 @@ createSlotTypeResponse_compositeSlotTypeSetting = Lens.lens (\CreateSlotTypeResp
 
 -- | A timestamp of the date and time that the slot type was created.
 createSlotTypeResponse_creationDateTime :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
-createSlotTypeResponse_creationDateTime = Lens.lens (\CreateSlotTypeResponse' {creationDateTime} -> creationDateTime) (\s@CreateSlotTypeResponse' {} a -> s {creationDateTime = a} :: CreateSlotTypeResponse) Prelude.. Lens.mapping Core._Time
+createSlotTypeResponse_creationDateTime = Lens.lens (\CreateSlotTypeResponse' {creationDateTime} -> creationDateTime) (\s@CreateSlotTypeResponse' {} a -> s {creationDateTime = a} :: CreateSlotTypeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The specified language and local specified for the slot type.
 createSlotTypeResponse_localeId :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe Prelude.Text)

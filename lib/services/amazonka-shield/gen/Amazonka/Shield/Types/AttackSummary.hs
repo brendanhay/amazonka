@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.AttackSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Shield.Types.AttackVectorDescription
 
@@ -31,13 +32,13 @@ data AttackSummary = AttackSummary'
   { -- | The unique identifier (ID) of the attack.
     attackId :: Prelude.Maybe Prelude.Text,
     -- | The end time of the attack, in Unix time in seconds.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The list of attacks for a specified time period.
     attackVectors :: Prelude.Maybe [AttackVectorDescription],
     -- | The ARN (Amazon Resource Name) of the resource that was attacked.
     resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The start time of the attack, in Unix time in seconds.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,7 +76,7 @@ attackSummary_attackId = Lens.lens (\AttackSummary' {attackId} -> attackId) (\s@
 
 -- | The end time of the attack, in Unix time in seconds.
 attackSummary_endTime :: Lens.Lens' AttackSummary (Prelude.Maybe Prelude.UTCTime)
-attackSummary_endTime = Lens.lens (\AttackSummary' {endTime} -> endTime) (\s@AttackSummary' {} a -> s {endTime = a} :: AttackSummary) Prelude.. Lens.mapping Core._Time
+attackSummary_endTime = Lens.lens (\AttackSummary' {endTime} -> endTime) (\s@AttackSummary' {} a -> s {endTime = a} :: AttackSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The list of attacks for a specified time period.
 attackSummary_attackVectors :: Lens.Lens' AttackSummary (Prelude.Maybe [AttackVectorDescription])
@@ -87,19 +88,19 @@ attackSummary_resourceArn = Lens.lens (\AttackSummary' {resourceArn} -> resource
 
 -- | The start time of the attack, in Unix time in seconds.
 attackSummary_startTime :: Lens.Lens' AttackSummary (Prelude.Maybe Prelude.UTCTime)
-attackSummary_startTime = Lens.lens (\AttackSummary' {startTime} -> startTime) (\s@AttackSummary' {} a -> s {startTime = a} :: AttackSummary) Prelude.. Lens.mapping Core._Time
+attackSummary_startTime = Lens.lens (\AttackSummary' {startTime} -> startTime) (\s@AttackSummary' {} a -> s {startTime = a} :: AttackSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AttackSummary where
+instance Data.FromJSON AttackSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttackSummary"
       ( \x ->
           AttackSummary'
-            Prelude.<$> (x Core..:? "AttackId")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "AttackVectors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "AttackId")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "AttackVectors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable AttackSummary where

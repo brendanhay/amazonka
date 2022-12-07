@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -153,7 +154,7 @@ instance Core.AWSRequest GetPolicyVersion where
       "GetPolicyVersionResult"
       ( \s h x ->
           GetPolicyVersionResponse'
-            Prelude.<$> (x Core..@? "PolicyVersion")
+            Prelude.<$> (x Data..@? "PolicyVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,21 +168,21 @@ instance Prelude.NFData GetPolicyVersion where
     Prelude.rnf policyArn
       `Prelude.seq` Prelude.rnf versionId
 
-instance Core.ToHeaders GetPolicyVersion where
+instance Data.ToHeaders GetPolicyVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetPolicyVersion where
+instance Data.ToPath GetPolicyVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetPolicyVersion where
+instance Data.ToQuery GetPolicyVersion where
   toQuery GetPolicyVersion' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetPolicyVersion" :: Prelude.ByteString),
+          Data.=: ("GetPolicyVersion" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "PolicyArn" Core.=: policyArn,
-        "VersionId" Core.=: versionId
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "PolicyArn" Data.=: policyArn,
+        "VersionId" Data.=: versionId
       ]
 
 -- | Contains the response to a successful GetPolicyVersion request.

@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.ComponentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.DeploymentStatus
 
@@ -33,9 +34,9 @@ import Amazonka.Proton.Types.DeploymentStatus
 -- /See:/ 'newComponentSummary' smart constructor.
 data ComponentSummary = ComponentSummary'
   { -- | The time when a deployment of the component was last attempted.
-    lastDeploymentAttemptedAt :: Prelude.Maybe Core.POSIX,
+    lastDeploymentAttemptedAt :: Prelude.Maybe Data.POSIX,
     -- | The message associated with the component deployment status.
-    deploymentStatusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    deploymentStatusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the service that @serviceInstanceName@ is associated with.
     -- Provided when a component is attached to a service instance.
     serviceName :: Prelude.Maybe Prelude.Text,
@@ -43,18 +44,18 @@ data ComponentSummary = ComponentSummary'
     -- Provided when a component is attached to a service instance.
     serviceInstanceName :: Prelude.Maybe Prelude.Text,
     -- | The time when the component was last deployed successfully.
-    lastDeploymentSucceededAt :: Prelude.Maybe Core.POSIX,
+    lastDeploymentSucceededAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the component.
     arn :: Prelude.Text,
     -- | The time when the component was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The component deployment status.
     deploymentStatus :: DeploymentStatus,
     -- | The name of the Proton environment that this component is associated
     -- with.
     environmentName :: Prelude.Text,
     -- | The time when the component was last modified.
-    lastModifiedAt :: Core.POSIX,
+    lastModifiedAt :: Data.POSIX,
     -- | The name of the component.
     name :: Prelude.Text
   }
@@ -121,20 +122,20 @@ newComponentSummary
         serviceInstanceName = Prelude.Nothing,
         lastDeploymentSucceededAt = Prelude.Nothing,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         deploymentStatus = pDeploymentStatus_,
         environmentName = pEnvironmentName_,
-        lastModifiedAt = Core._Time Lens.# pLastModifiedAt_,
+        lastModifiedAt = Data._Time Lens.# pLastModifiedAt_,
         name = pName_
       }
 
 -- | The time when a deployment of the component was last attempted.
 componentSummary_lastDeploymentAttemptedAt :: Lens.Lens' ComponentSummary (Prelude.Maybe Prelude.UTCTime)
-componentSummary_lastDeploymentAttemptedAt = Lens.lens (\ComponentSummary' {lastDeploymentAttemptedAt} -> lastDeploymentAttemptedAt) (\s@ComponentSummary' {} a -> s {lastDeploymentAttemptedAt = a} :: ComponentSummary) Prelude.. Lens.mapping Core._Time
+componentSummary_lastDeploymentAttemptedAt = Lens.lens (\ComponentSummary' {lastDeploymentAttemptedAt} -> lastDeploymentAttemptedAt) (\s@ComponentSummary' {} a -> s {lastDeploymentAttemptedAt = a} :: ComponentSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The message associated with the component deployment status.
 componentSummary_deploymentStatusMessage :: Lens.Lens' ComponentSummary (Prelude.Maybe Prelude.Text)
-componentSummary_deploymentStatusMessage = Lens.lens (\ComponentSummary' {deploymentStatusMessage} -> deploymentStatusMessage) (\s@ComponentSummary' {} a -> s {deploymentStatusMessage = a} :: ComponentSummary) Prelude.. Lens.mapping Core._Sensitive
+componentSummary_deploymentStatusMessage = Lens.lens (\ComponentSummary' {deploymentStatusMessage} -> deploymentStatusMessage) (\s@ComponentSummary' {} a -> s {deploymentStatusMessage = a} :: ComponentSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the service that @serviceInstanceName@ is associated with.
 -- Provided when a component is attached to a service instance.
@@ -148,7 +149,7 @@ componentSummary_serviceInstanceName = Lens.lens (\ComponentSummary' {serviceIns
 
 -- | The time when the component was last deployed successfully.
 componentSummary_lastDeploymentSucceededAt :: Lens.Lens' ComponentSummary (Prelude.Maybe Prelude.UTCTime)
-componentSummary_lastDeploymentSucceededAt = Lens.lens (\ComponentSummary' {lastDeploymentSucceededAt} -> lastDeploymentSucceededAt) (\s@ComponentSummary' {} a -> s {lastDeploymentSucceededAt = a} :: ComponentSummary) Prelude.. Lens.mapping Core._Time
+componentSummary_lastDeploymentSucceededAt = Lens.lens (\ComponentSummary' {lastDeploymentSucceededAt} -> lastDeploymentSucceededAt) (\s@ComponentSummary' {} a -> s {lastDeploymentSucceededAt = a} :: ComponentSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the component.
 componentSummary_arn :: Lens.Lens' ComponentSummary Prelude.Text
@@ -156,7 +157,7 @@ componentSummary_arn = Lens.lens (\ComponentSummary' {arn} -> arn) (\s@Component
 
 -- | The time when the component was created.
 componentSummary_createdAt :: Lens.Lens' ComponentSummary Prelude.UTCTime
-componentSummary_createdAt = Lens.lens (\ComponentSummary' {createdAt} -> createdAt) (\s@ComponentSummary' {} a -> s {createdAt = a} :: ComponentSummary) Prelude.. Core._Time
+componentSummary_createdAt = Lens.lens (\ComponentSummary' {createdAt} -> createdAt) (\s@ComponentSummary' {} a -> s {createdAt = a} :: ComponentSummary) Prelude.. Data._Time
 
 -- | The component deployment status.
 componentSummary_deploymentStatus :: Lens.Lens' ComponentSummary DeploymentStatus
@@ -169,29 +170,29 @@ componentSummary_environmentName = Lens.lens (\ComponentSummary' {environmentNam
 
 -- | The time when the component was last modified.
 componentSummary_lastModifiedAt :: Lens.Lens' ComponentSummary Prelude.UTCTime
-componentSummary_lastModifiedAt = Lens.lens (\ComponentSummary' {lastModifiedAt} -> lastModifiedAt) (\s@ComponentSummary' {} a -> s {lastModifiedAt = a} :: ComponentSummary) Prelude.. Core._Time
+componentSummary_lastModifiedAt = Lens.lens (\ComponentSummary' {lastModifiedAt} -> lastModifiedAt) (\s@ComponentSummary' {} a -> s {lastModifiedAt = a} :: ComponentSummary) Prelude.. Data._Time
 
 -- | The name of the component.
 componentSummary_name :: Lens.Lens' ComponentSummary Prelude.Text
 componentSummary_name = Lens.lens (\ComponentSummary' {name} -> name) (\s@ComponentSummary' {} a -> s {name = a} :: ComponentSummary)
 
-instance Core.FromJSON ComponentSummary where
+instance Data.FromJSON ComponentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentSummary"
       ( \x ->
           ComponentSummary'
-            Prelude.<$> (x Core..:? "lastDeploymentAttemptedAt")
-            Prelude.<*> (x Core..:? "deploymentStatusMessage")
-            Prelude.<*> (x Core..:? "serviceName")
-            Prelude.<*> (x Core..:? "serviceInstanceName")
-            Prelude.<*> (x Core..:? "lastDeploymentSucceededAt")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "deploymentStatus")
-            Prelude.<*> (x Core..: "environmentName")
-            Prelude.<*> (x Core..: "lastModifiedAt")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "lastDeploymentAttemptedAt")
+            Prelude.<*> (x Data..:? "deploymentStatusMessage")
+            Prelude.<*> (x Data..:? "serviceName")
+            Prelude.<*> (x Data..:? "serviceInstanceName")
+            Prelude.<*> (x Data..:? "lastDeploymentSucceededAt")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "deploymentStatus")
+            Prelude.<*> (x Data..: "environmentName")
+            Prelude.<*> (x Data..: "lastModifiedAt")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable ComponentSummary where

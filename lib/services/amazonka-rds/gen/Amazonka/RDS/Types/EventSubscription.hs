@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.EventSubscription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the results of a successful invocation of the
@@ -168,24 +169,24 @@ eventSubscription_eventSubscriptionArn = Lens.lens (\EventSubscription' {eventSu
 eventSubscription_customerAwsId :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_customerAwsId = Lens.lens (\EventSubscription' {customerAwsId} -> customerAwsId) (\s@EventSubscription' {} a -> s {customerAwsId = a} :: EventSubscription)
 
-instance Core.FromXML EventSubscription where
+instance Data.FromXML EventSubscription where
   parseXML x =
     EventSubscription'
-      Prelude.<$> (x Core..@? "SubscriptionCreationTime")
-      Prelude.<*> (x Core..@? "CustSubscriptionId")
-      Prelude.<*> ( x Core..@? "SourceIdsList" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "SourceId")
+      Prelude.<$> (x Data..@? "SubscriptionCreationTime")
+      Prelude.<*> (x Data..@? "CustSubscriptionId")
+      Prelude.<*> ( x Data..@? "SourceIdsList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "SourceId")
                   )
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "SourceType")
-      Prelude.<*> (x Core..@? "Enabled")
-      Prelude.<*> (x Core..@? "SnsTopicArn")
-      Prelude.<*> ( x Core..@? "EventCategoriesList"
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "SourceType")
+      Prelude.<*> (x Data..@? "Enabled")
+      Prelude.<*> (x Data..@? "SnsTopicArn")
+      Prelude.<*> ( x Data..@? "EventCategoriesList"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "EventCategory")
+                      Prelude.>>= Core.may (Data.parseXMLList "EventCategory")
                   )
-      Prelude.<*> (x Core..@? "EventSubscriptionArn")
-      Prelude.<*> (x Core..@? "CustomerAwsId")
+      Prelude.<*> (x Data..@? "EventSubscriptionArn")
+      Prelude.<*> (x Data..@? "CustomerAwsId")
 
 instance Prelude.Hashable EventSubscription where
   hashWithSalt _salt EventSubscription' {..} =

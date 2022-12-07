@@ -45,6 +45,7 @@ where
 import Amazonka.AccessAnalyzer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,7 +126,7 @@ instance Core.AWSRequest CreateAccessPreview where
       ( \s h x ->
           CreateAccessPreviewResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "id")
+            Prelude.<*> (x Data..:> "id")
       )
 
 instance Prelude.Hashable CreateAccessPreview where
@@ -140,32 +141,32 @@ instance Prelude.NFData CreateAccessPreview where
       `Prelude.seq` Prelude.rnf analyzerArn
       `Prelude.seq` Prelude.rnf configurations
 
-instance Core.ToHeaders CreateAccessPreview where
+instance Data.ToHeaders CreateAccessPreview where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAccessPreview where
+instance Data.ToJSON CreateAccessPreview where
   toJSON CreateAccessPreview' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("analyzerArn" Core..= analyzerArn),
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("analyzerArn" Data..= analyzerArn),
             Prelude.Just
-              ("configurations" Core..= configurations)
+              ("configurations" Data..= configurations)
           ]
       )
 
-instance Core.ToPath CreateAccessPreview where
+instance Data.ToPath CreateAccessPreview where
   toPath = Prelude.const "/access-preview"
 
-instance Core.ToQuery CreateAccessPreview where
+instance Data.ToQuery CreateAccessPreview where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAccessPreviewResponse' smart constructor.

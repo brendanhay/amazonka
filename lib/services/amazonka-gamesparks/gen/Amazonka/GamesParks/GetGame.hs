@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -81,7 +82,7 @@ instance Core.AWSRequest GetGame where
     Response.receiveJSON
       ( \s h x ->
           GetGameResponse'
-            Prelude.<$> (x Core..?> "Game")
+            Prelude.<$> (x Data..?> "Game")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -92,22 +93,22 @@ instance Prelude.Hashable GetGame where
 instance Prelude.NFData GetGame where
   rnf GetGame' {..} = Prelude.rnf gameName
 
-instance Core.ToHeaders GetGame where
+instance Data.ToHeaders GetGame where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetGame where
+instance Data.ToPath GetGame where
   toPath GetGame' {..} =
-    Prelude.mconcat ["/game/", Core.toBS gameName]
+    Prelude.mconcat ["/game/", Data.toBS gameName]
 
-instance Core.ToQuery GetGame where
+instance Data.ToQuery GetGame where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGameResponse' smart constructor.

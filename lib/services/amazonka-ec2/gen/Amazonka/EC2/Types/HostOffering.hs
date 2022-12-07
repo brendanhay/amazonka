@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.HostOffering where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CurrencyCodeValues
 import Amazonka.EC2.Types.PaymentOption
@@ -112,16 +113,16 @@ hostOffering_offeringId = Lens.lens (\HostOffering' {offeringId} -> offeringId) 
 hostOffering_paymentOption :: Lens.Lens' HostOffering (Prelude.Maybe PaymentOption)
 hostOffering_paymentOption = Lens.lens (\HostOffering' {paymentOption} -> paymentOption) (\s@HostOffering' {} a -> s {paymentOption = a} :: HostOffering)
 
-instance Core.FromXML HostOffering where
+instance Data.FromXML HostOffering where
   parseXML x =
     HostOffering'
-      Prelude.<$> (x Core..@? "hourlyPrice")
-      Prelude.<*> (x Core..@? "upfrontPrice")
-      Prelude.<*> (x Core..@? "duration")
-      Prelude.<*> (x Core..@? "currencyCode")
-      Prelude.<*> (x Core..@? "instanceFamily")
-      Prelude.<*> (x Core..@? "offeringId")
-      Prelude.<*> (x Core..@? "paymentOption")
+      Prelude.<$> (x Data..@? "hourlyPrice")
+      Prelude.<*> (x Data..@? "upfrontPrice")
+      Prelude.<*> (x Data..@? "duration")
+      Prelude.<*> (x Data..@? "currencyCode")
+      Prelude.<*> (x Data..@? "instanceFamily")
+      Prelude.<*> (x Data..@? "offeringId")
+      Prelude.<*> (x Data..@? "paymentOption")
 
 instance Prelude.Hashable HostOffering where
   hashWithSalt _salt HostOffering' {..} =

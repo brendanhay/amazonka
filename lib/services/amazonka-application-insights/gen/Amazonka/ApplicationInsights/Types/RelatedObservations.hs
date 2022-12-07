@@ -22,6 +22,7 @@ module Amazonka.ApplicationInsights.Types.RelatedObservations where
 import Amazonka.ApplicationInsights.Types.Observation
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes observations related to the problem.
@@ -54,14 +55,14 @@ newRelatedObservations =
 relatedObservations_observationList :: Lens.Lens' RelatedObservations (Prelude.Maybe [Observation])
 relatedObservations_observationList = Lens.lens (\RelatedObservations' {observationList} -> observationList) (\s@RelatedObservations' {} a -> s {observationList = a} :: RelatedObservations) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RelatedObservations where
+instance Data.FromJSON RelatedObservations where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelatedObservations"
       ( \x ->
           RelatedObservations'
-            Prelude.<$> ( x Core..:? "ObservationList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ObservationList"
+                            Data..!= Prelude.mempty
                         )
       )
 

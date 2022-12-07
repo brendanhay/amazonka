@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.NotebookInstanceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.InstanceType
 import Amazonka.SageMaker.Types.NotebookInstanceStatus
@@ -44,7 +45,7 @@ data NotebookInstanceSummary = NotebookInstanceSummary'
     -- on.
     instanceType :: Prelude.Maybe InstanceType,
     -- | A timestamp that shows when the notebook instance was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | An array of up to three Git repositories associated with the notebook
     -- instance. These can be either the names of Git repositories stored as
     -- resources in your account, or the URL of Git repositories in
@@ -55,7 +56,7 @@ data NotebookInstanceSummary = NotebookInstanceSummary'
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
     additionalCodeRepositories :: Prelude.Maybe [Prelude.Text],
     -- | A timestamp that shows when the notebook instance was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Git repository associated with the notebook instance as its default
     -- code repository. This can be either the name of a Git repository stored
     -- as a resource in your account, or the URL of a Git repository in
@@ -166,7 +167,7 @@ notebookInstanceSummary_instanceType = Lens.lens (\NotebookInstanceSummary' {ins
 
 -- | A timestamp that shows when the notebook instance was last modified.
 notebookInstanceSummary_lastModifiedTime :: Lens.Lens' NotebookInstanceSummary (Prelude.Maybe Prelude.UTCTime)
-notebookInstanceSummary_lastModifiedTime = Lens.lens (\NotebookInstanceSummary' {lastModifiedTime} -> lastModifiedTime) (\s@NotebookInstanceSummary' {} a -> s {lastModifiedTime = a} :: NotebookInstanceSummary) Prelude.. Lens.mapping Core._Time
+notebookInstanceSummary_lastModifiedTime = Lens.lens (\NotebookInstanceSummary' {lastModifiedTime} -> lastModifiedTime) (\s@NotebookInstanceSummary' {} a -> s {lastModifiedTime = a} :: NotebookInstanceSummary) Prelude.. Lens.mapping Data._Time
 
 -- | An array of up to three Git repositories associated with the notebook
 -- instance. These can be either the names of Git repositories stored as
@@ -181,7 +182,7 @@ notebookInstanceSummary_additionalCodeRepositories = Lens.lens (\NotebookInstanc
 
 -- | A timestamp that shows when the notebook instance was created.
 notebookInstanceSummary_creationTime :: Lens.Lens' NotebookInstanceSummary (Prelude.Maybe Prelude.UTCTime)
-notebookInstanceSummary_creationTime = Lens.lens (\NotebookInstanceSummary' {creationTime} -> creationTime) (\s@NotebookInstanceSummary' {} a -> s {creationTime = a} :: NotebookInstanceSummary) Prelude.. Lens.mapping Core._Time
+notebookInstanceSummary_creationTime = Lens.lens (\NotebookInstanceSummary' {creationTime} -> creationTime) (\s@NotebookInstanceSummary' {} a -> s {creationTime = a} :: NotebookInstanceSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Git repository associated with the notebook instance as its default
 -- code repository. This can be either the name of a Git repository stored
@@ -202,24 +203,24 @@ notebookInstanceSummary_notebookInstanceName = Lens.lens (\NotebookInstanceSumma
 notebookInstanceSummary_notebookInstanceArn :: Lens.Lens' NotebookInstanceSummary Prelude.Text
 notebookInstanceSummary_notebookInstanceArn = Lens.lens (\NotebookInstanceSummary' {notebookInstanceArn} -> notebookInstanceArn) (\s@NotebookInstanceSummary' {} a -> s {notebookInstanceArn = a} :: NotebookInstanceSummary)
 
-instance Core.FromJSON NotebookInstanceSummary where
+instance Data.FromJSON NotebookInstanceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotebookInstanceSummary"
       ( \x ->
           NotebookInstanceSummary'
-            Prelude.<$> (x Core..:? "NotebookInstanceLifecycleConfigName")
-            Prelude.<*> (x Core..:? "NotebookInstanceStatus")
-            Prelude.<*> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> ( x Core..:? "AdditionalCodeRepositories"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "NotebookInstanceLifecycleConfigName")
+            Prelude.<*> (x Data..:? "NotebookInstanceStatus")
+            Prelude.<*> (x Data..:? "Url")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> ( x Data..:? "AdditionalCodeRepositories"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "DefaultCodeRepository")
-            Prelude.<*> (x Core..: "NotebookInstanceName")
-            Prelude.<*> (x Core..: "NotebookInstanceArn")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DefaultCodeRepository")
+            Prelude.<*> (x Data..: "NotebookInstanceName")
+            Prelude.<*> (x Data..: "NotebookInstanceArn")
       )
 
 instance Prelude.Hashable NotebookInstanceSummary where

@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.ComputeLimits where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.ComputeLimitsUnitType
 import qualified Amazonka.Prelude as Prelude
 
@@ -150,17 +151,17 @@ computeLimits_minimumCapacityUnits = Lens.lens (\ComputeLimits' {minimumCapacity
 computeLimits_maximumCapacityUnits :: Lens.Lens' ComputeLimits Prelude.Int
 computeLimits_maximumCapacityUnits = Lens.lens (\ComputeLimits' {maximumCapacityUnits} -> maximumCapacityUnits) (\s@ComputeLimits' {} a -> s {maximumCapacityUnits = a} :: ComputeLimits)
 
-instance Core.FromJSON ComputeLimits where
+instance Data.FromJSON ComputeLimits where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComputeLimits"
       ( \x ->
           ComputeLimits'
-            Prelude.<$> (x Core..:? "MaximumOnDemandCapacityUnits")
-            Prelude.<*> (x Core..:? "MaximumCoreCapacityUnits")
-            Prelude.<*> (x Core..: "UnitType")
-            Prelude.<*> (x Core..: "MinimumCapacityUnits")
-            Prelude.<*> (x Core..: "MaximumCapacityUnits")
+            Prelude.<$> (x Data..:? "MaximumOnDemandCapacityUnits")
+            Prelude.<*> (x Data..:? "MaximumCoreCapacityUnits")
+            Prelude.<*> (x Data..: "UnitType")
+            Prelude.<*> (x Data..: "MinimumCapacityUnits")
+            Prelude.<*> (x Data..: "MaximumCapacityUnits")
       )
 
 instance Prelude.Hashable ComputeLimits where
@@ -180,22 +181,22 @@ instance Prelude.NFData ComputeLimits where
       `Prelude.seq` Prelude.rnf minimumCapacityUnits
       `Prelude.seq` Prelude.rnf maximumCapacityUnits
 
-instance Core.ToJSON ComputeLimits where
+instance Data.ToJSON ComputeLimits where
   toJSON ComputeLimits' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaximumOnDemandCapacityUnits" Core..=)
+          [ ("MaximumOnDemandCapacityUnits" Data..=)
               Prelude.<$> maximumOnDemandCapacityUnits,
-            ("MaximumCoreCapacityUnits" Core..=)
+            ("MaximumCoreCapacityUnits" Data..=)
               Prelude.<$> maximumCoreCapacityUnits,
-            Prelude.Just ("UnitType" Core..= unitType),
+            Prelude.Just ("UnitType" Data..= unitType),
             Prelude.Just
               ( "MinimumCapacityUnits"
-                  Core..= minimumCapacityUnits
+                  Data..= minimumCapacityUnits
               ),
             Prelude.Just
               ( "MaximumCapacityUnits"
-                  Core..= maximumCapacityUnits
+                  Data..= maximumCapacityUnits
               )
           ]
       )

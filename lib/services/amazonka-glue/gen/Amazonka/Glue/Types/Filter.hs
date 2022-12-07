@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.FilterExpression
 import Amazonka.Glue.Types.FilterLogicalOperator
 import qualified Amazonka.Prelude as Prelude
@@ -91,16 +92,16 @@ filter_logicalOperator = Lens.lens (\Filter' {logicalOperator} -> logicalOperato
 filter_filters :: Lens.Lens' Filter [FilterExpression]
 filter_filters = Lens.lens (\Filter' {filters} -> filters) (\s@Filter' {} a -> s {filters = a} :: Filter) Prelude.. Lens.coerced
 
-instance Core.FromJSON Filter where
+instance Data.FromJSON Filter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Filter"
       ( \x ->
           Filter'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "LogicalOperator")
-            Prelude.<*> (x Core..:? "Filters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "LogicalOperator")
+            Prelude.<*> (x Data..:? "Filters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Filter where
@@ -117,14 +118,14 @@ instance Prelude.NFData Filter where
       `Prelude.seq` Prelude.rnf logicalOperator
       `Prelude.seq` Prelude.rnf filters
 
-instance Core.ToJSON Filter where
+instance Data.ToJSON Filter where
   toJSON Filter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
             Prelude.Just
-              ("LogicalOperator" Core..= logicalOperator),
-            Prelude.Just ("Filters" Core..= filters)
+              ("LogicalOperator" Data..= logicalOperator),
+            Prelude.Just ("Filters" Data..= filters)
           ]
       )

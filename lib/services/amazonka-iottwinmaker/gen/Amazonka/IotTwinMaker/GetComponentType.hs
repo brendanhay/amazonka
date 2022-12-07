@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,23 +111,23 @@ instance Core.AWSRequest GetComponentType where
     Response.receiveJSON
       ( \s h x ->
           GetComponentTypeResponse'
-            Prelude.<$> (x Core..?> "isSchemaInitialized")
-            Prelude.<*> (x Core..?> "functions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "isAbstract")
-            Prelude.<*> ( x Core..?> "propertyDefinitions"
+            Prelude.<$> (x Data..?> "isSchemaInitialized")
+            Prelude.<*> (x Data..?> "functions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "isAbstract")
+            Prelude.<*> ( x Data..?> "propertyDefinitions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "propertyGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "isSingleton")
-            Prelude.<*> (x Core..?> "extendsFrom" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "propertyGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "isSingleton")
+            Prelude.<*> (x Data..?> "extendsFrom" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "workspaceId")
-            Prelude.<*> (x Core..:> "componentTypeId")
-            Prelude.<*> (x Core..:> "creationDateTime")
-            Prelude.<*> (x Core..:> "updateDateTime")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "workspaceId")
+            Prelude.<*> (x Data..:> "componentTypeId")
+            Prelude.<*> (x Data..:> "creationDateTime")
+            Prelude.<*> (x Data..:> "updateDateTime")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable GetComponentType where
@@ -139,27 +140,27 @@ instance Prelude.NFData GetComponentType where
     Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf componentTypeId
 
-instance Core.ToHeaders GetComponentType where
+instance Data.ToHeaders GetComponentType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetComponentType where
+instance Data.ToPath GetComponentType where
   toPath GetComponentType' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/component-types/",
-        Core.toBS componentTypeId
+        Data.toBS componentTypeId
       ]
 
-instance Core.ToQuery GetComponentType where
+instance Data.ToQuery GetComponentType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetComponentTypeResponse' smart constructor.
@@ -195,9 +196,9 @@ data GetComponentTypeResponse = GetComponentTypeResponse'
     -- | The ID of the component type.
     componentTypeId :: Prelude.Text,
     -- | The date and time when the component type was created.
-    creationDateTime :: Core.POSIX,
+    creationDateTime :: Data.POSIX,
     -- | The date and time when the component was last updated.
-    updateDateTime :: Core.POSIX,
+    updateDateTime :: Data.POSIX,
     -- | The ARN of the component type.
     arn :: Prelude.Text
   }
@@ -282,9 +283,9 @@ newGetComponentTypeResponse
         workspaceId = pWorkspaceId_,
         componentTypeId = pComponentTypeId_,
         creationDateTime =
-          Core._Time Lens.# pCreationDateTime_,
+          Data._Time Lens.# pCreationDateTime_,
         updateDateTime =
-          Core._Time Lens.# pUpdateDateTime_,
+          Data._Time Lens.# pUpdateDateTime_,
         arn = pArn_
       }
 
@@ -344,11 +345,11 @@ getComponentTypeResponse_componentTypeId = Lens.lens (\GetComponentTypeResponse'
 
 -- | The date and time when the component type was created.
 getComponentTypeResponse_creationDateTime :: Lens.Lens' GetComponentTypeResponse Prelude.UTCTime
-getComponentTypeResponse_creationDateTime = Lens.lens (\GetComponentTypeResponse' {creationDateTime} -> creationDateTime) (\s@GetComponentTypeResponse' {} a -> s {creationDateTime = a} :: GetComponentTypeResponse) Prelude.. Core._Time
+getComponentTypeResponse_creationDateTime = Lens.lens (\GetComponentTypeResponse' {creationDateTime} -> creationDateTime) (\s@GetComponentTypeResponse' {} a -> s {creationDateTime = a} :: GetComponentTypeResponse) Prelude.. Data._Time
 
 -- | The date and time when the component was last updated.
 getComponentTypeResponse_updateDateTime :: Lens.Lens' GetComponentTypeResponse Prelude.UTCTime
-getComponentTypeResponse_updateDateTime = Lens.lens (\GetComponentTypeResponse' {updateDateTime} -> updateDateTime) (\s@GetComponentTypeResponse' {} a -> s {updateDateTime = a} :: GetComponentTypeResponse) Prelude.. Core._Time
+getComponentTypeResponse_updateDateTime = Lens.lens (\GetComponentTypeResponse' {updateDateTime} -> updateDateTime) (\s@GetComponentTypeResponse' {} a -> s {updateDateTime = a} :: GetComponentTypeResponse) Prelude.. Data._Time
 
 -- | The ARN of the component type.
 getComponentTypeResponse_arn :: Lens.Lens' GetComponentTypeResponse Prelude.Text

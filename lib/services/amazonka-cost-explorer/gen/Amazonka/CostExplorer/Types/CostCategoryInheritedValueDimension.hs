@@ -22,6 +22,7 @@ module Amazonka.CostExplorer.Types.CostCategoryInheritedValueDimension where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types.CostCategoryInheritedValueDimensionName
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | When you create or update a cost category, you can define the
@@ -83,16 +84,16 @@ costCategoryInheritedValueDimension_dimensionName :: Lens.Lens' CostCategoryInhe
 costCategoryInheritedValueDimension_dimensionName = Lens.lens (\CostCategoryInheritedValueDimension' {dimensionName} -> dimensionName) (\s@CostCategoryInheritedValueDimension' {} a -> s {dimensionName = a} :: CostCategoryInheritedValueDimension)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CostCategoryInheritedValueDimension
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CostCategoryInheritedValueDimension"
       ( \x ->
           CostCategoryInheritedValueDimension'
-            Prelude.<$> (x Core..:? "DimensionKey")
-            Prelude.<*> (x Core..:? "DimensionName")
+            Prelude.<$> (x Data..:? "DimensionKey")
+            Prelude.<*> (x Data..:? "DimensionName")
       )
 
 instance
@@ -114,13 +115,13 @@ instance
       `Prelude.seq` Prelude.rnf dimensionName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CostCategoryInheritedValueDimension
   where
   toJSON CostCategoryInheritedValueDimension' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DimensionKey" Core..=) Prelude.<$> dimensionKey,
-            ("DimensionName" Core..=) Prelude.<$> dimensionName
+          [ ("DimensionKey" Data..=) Prelude.<$> dimensionKey,
+            ("DimensionName" Data..=) Prelude.<$> dimensionName
           ]
       )

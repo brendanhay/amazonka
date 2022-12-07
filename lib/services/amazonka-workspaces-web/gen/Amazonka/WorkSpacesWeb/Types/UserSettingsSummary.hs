@@ -21,6 +21,7 @@ module Amazonka.WorkSpacesWeb.Types.UserSettingsSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpacesWeb.Types.EnabledType
 
@@ -138,20 +139,20 @@ userSettingsSummary_pasteAllowed = Lens.lens (\UserSettingsSummary' {pasteAllowe
 userSettingsSummary_uploadAllowed :: Lens.Lens' UserSettingsSummary (Prelude.Maybe EnabledType)
 userSettingsSummary_uploadAllowed = Lens.lens (\UserSettingsSummary' {uploadAllowed} -> uploadAllowed) (\s@UserSettingsSummary' {} a -> s {uploadAllowed = a} :: UserSettingsSummary)
 
-instance Core.FromJSON UserSettingsSummary where
+instance Data.FromJSON UserSettingsSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserSettingsSummary"
       ( \x ->
           UserSettingsSummary'
-            Prelude.<$> (x Core..:? "printAllowed")
-            Prelude.<*> (x Core..:? "idleDisconnectTimeoutInMinutes")
-            Prelude.<*> (x Core..:? "disconnectTimeoutInMinutes")
-            Prelude.<*> (x Core..:? "copyAllowed")
-            Prelude.<*> (x Core..:? "userSettingsArn")
-            Prelude.<*> (x Core..:? "downloadAllowed")
-            Prelude.<*> (x Core..:? "pasteAllowed")
-            Prelude.<*> (x Core..:? "uploadAllowed")
+            Prelude.<$> (x Data..:? "printAllowed")
+            Prelude.<*> (x Data..:? "idleDisconnectTimeoutInMinutes")
+            Prelude.<*> (x Data..:? "disconnectTimeoutInMinutes")
+            Prelude.<*> (x Data..:? "copyAllowed")
+            Prelude.<*> (x Data..:? "userSettingsArn")
+            Prelude.<*> (x Data..:? "downloadAllowed")
+            Prelude.<*> (x Data..:? "pasteAllowed")
+            Prelude.<*> (x Data..:? "uploadAllowed")
       )
 
 instance Prelude.Hashable UserSettingsSummary where

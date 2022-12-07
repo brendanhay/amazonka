@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.FirehoseAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an action that writes data to an Amazon Kinesis Firehose
@@ -111,16 +112,16 @@ firehoseAction_roleArn = Lens.lens (\FirehoseAction' {roleArn} -> roleArn) (\s@F
 firehoseAction_deliveryStreamName :: Lens.Lens' FirehoseAction Prelude.Text
 firehoseAction_deliveryStreamName = Lens.lens (\FirehoseAction' {deliveryStreamName} -> deliveryStreamName) (\s@FirehoseAction' {} a -> s {deliveryStreamName = a} :: FirehoseAction)
 
-instance Core.FromJSON FirehoseAction where
+instance Data.FromJSON FirehoseAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirehoseAction"
       ( \x ->
           FirehoseAction'
-            Prelude.<$> (x Core..:? "separator")
-            Prelude.<*> (x Core..:? "batchMode")
-            Prelude.<*> (x Core..: "roleArn")
-            Prelude.<*> (x Core..: "deliveryStreamName")
+            Prelude.<$> (x Data..:? "separator")
+            Prelude.<*> (x Data..:? "batchMode")
+            Prelude.<*> (x Data..: "roleArn")
+            Prelude.<*> (x Data..: "deliveryStreamName")
       )
 
 instance Prelude.Hashable FirehoseAction where
@@ -137,14 +138,14 @@ instance Prelude.NFData FirehoseAction where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf deliveryStreamName
 
-instance Core.ToJSON FirehoseAction where
+instance Data.ToJSON FirehoseAction where
   toJSON FirehoseAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("separator" Core..=) Prelude.<$> separator,
-            ("batchMode" Core..=) Prelude.<$> batchMode,
-            Prelude.Just ("roleArn" Core..= roleArn),
+          [ ("separator" Data..=) Prelude.<$> separator,
+            ("batchMode" Data..=) Prelude.<$> batchMode,
+            Prelude.Just ("roleArn" Data..= roleArn),
             Prelude.Just
-              ("deliveryStreamName" Core..= deliveryStreamName)
+              ("deliveryStreamName" Data..= deliveryStreamName)
           ]
       )

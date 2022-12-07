@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.SqlInjectionMatchSetUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFRegional.Types.ChangeAction
 import Amazonka.WAFRegional.Types.SqlInjectionMatchTuple
@@ -104,14 +105,14 @@ instance Prelude.NFData SqlInjectionMatchSetUpdate where
     Prelude.rnf action
       `Prelude.seq` Prelude.rnf sqlInjectionMatchTuple
 
-instance Core.ToJSON SqlInjectionMatchSetUpdate where
+instance Data.ToJSON SqlInjectionMatchSetUpdate where
   toJSON SqlInjectionMatchSetUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Core..= action),
+          [ Prelude.Just ("Action" Data..= action),
             Prelude.Just
               ( "SqlInjectionMatchTuple"
-                  Core..= sqlInjectionMatchTuple
+                  Data..= sqlInjectionMatchTuple
               )
           ]
       )

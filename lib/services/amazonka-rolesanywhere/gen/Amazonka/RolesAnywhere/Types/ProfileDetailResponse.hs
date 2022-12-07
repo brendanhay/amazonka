@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.ProfileDetailResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RolesAnywhere.Types.ProfileDetail
 
@@ -49,13 +50,13 @@ newProfileDetailResponse =
 profileDetailResponse_profile :: Lens.Lens' ProfileDetailResponse (Prelude.Maybe ProfileDetail)
 profileDetailResponse_profile = Lens.lens (\ProfileDetailResponse' {profile} -> profile) (\s@ProfileDetailResponse' {} a -> s {profile = a} :: ProfileDetailResponse)
 
-instance Core.FromJSON ProfileDetailResponse where
+instance Data.FromJSON ProfileDetailResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProfileDetailResponse"
       ( \x ->
           ProfileDetailResponse'
-            Prelude.<$> (x Core..:? "profile")
+            Prelude.<$> (x Data..:? "profile")
       )
 
 instance Prelude.Hashable ProfileDetailResponse where

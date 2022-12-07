@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,8 +92,8 @@ instance Core.AWSRequest DeleteParameters where
     Response.receiveJSON
       ( \s h x ->
           DeleteParametersResponse'
-            Prelude.<$> (x Core..?> "DeletedParameters")
-            Prelude.<*> (x Core..?> "InvalidParameters")
+            Prelude.<$> (x Data..?> "DeletedParameters")
+            Prelude.<*> (x Data..?> "InvalidParameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,30 +104,30 @@ instance Prelude.Hashable DeleteParameters where
 instance Prelude.NFData DeleteParameters where
   rnf DeleteParameters' {..} = Prelude.rnf names
 
-instance Core.ToHeaders DeleteParameters where
+instance Data.ToHeaders DeleteParameters where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DeleteParameters" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.DeleteParameters" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteParameters where
+instance Data.ToJSON DeleteParameters where
   toJSON DeleteParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Names" Core..= names)]
+          [Prelude.Just ("Names" Data..= names)]
       )
 
-instance Core.ToPath DeleteParameters where
+instance Data.ToPath DeleteParameters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteParameters where
+instance Data.ToQuery DeleteParameters where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteParametersResponse' smart constructor.

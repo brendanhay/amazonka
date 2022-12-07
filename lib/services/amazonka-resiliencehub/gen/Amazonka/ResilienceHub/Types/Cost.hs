@@ -21,6 +21,7 @@ module Amazonka.ResilienceHub.Types.Cost where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.CostFrequency
 
@@ -77,15 +78,15 @@ cost_currency = Lens.lens (\Cost' {currency} -> currency) (\s@Cost' {} a -> s {c
 cost_frequency :: Lens.Lens' Cost CostFrequency
 cost_frequency = Lens.lens (\Cost' {frequency} -> frequency) (\s@Cost' {} a -> s {frequency = a} :: Cost)
 
-instance Core.FromJSON Cost where
+instance Data.FromJSON Cost where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Cost"
       ( \x ->
           Cost'
-            Prelude.<$> (x Core..: "amount")
-            Prelude.<*> (x Core..: "currency")
-            Prelude.<*> (x Core..: "frequency")
+            Prelude.<$> (x Data..: "amount")
+            Prelude.<*> (x Data..: "currency")
+            Prelude.<*> (x Data..: "frequency")
       )
 
 instance Prelude.Hashable Cost where

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,7 +117,7 @@ instance Core.AWSRequest CreateCoipCidr where
     Response.receiveXML
       ( \s h x ->
           CreateCoipCidrResponse'
-            Prelude.<$> (x Core..@? "coipCidr")
+            Prelude.<$> (x Data..@? "coipCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,22 +133,22 @@ instance Prelude.NFData CreateCoipCidr where
       `Prelude.seq` Prelude.rnf cidr
       `Prelude.seq` Prelude.rnf coipPoolId
 
-instance Core.ToHeaders CreateCoipCidr where
+instance Data.ToHeaders CreateCoipCidr where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateCoipCidr where
+instance Data.ToPath CreateCoipCidr where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCoipCidr where
+instance Data.ToQuery CreateCoipCidr where
   toQuery CreateCoipCidr' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateCoipCidr" :: Prelude.ByteString),
+          Data.=: ("CreateCoipCidr" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Cidr" Core.=: cidr,
-        "CoipPoolId" Core.=: coipPoolId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Cidr" Data.=: cidr,
+        "CoipPoolId" Data.=: coipPoolId
       ]
 
 -- | /See:/ 'newCreateCoipCidrResponse' smart constructor.

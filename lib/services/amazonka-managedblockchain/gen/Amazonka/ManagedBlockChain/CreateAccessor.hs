@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,8 +125,8 @@ instance Core.AWSRequest CreateAccessor where
     Response.receiveJSON
       ( \s h x ->
           CreateAccessorResponse'
-            Prelude.<$> (x Core..?> "AccessorId")
-            Prelude.<*> (x Core..?> "BillingToken")
+            Prelude.<$> (x Data..?> "AccessorId")
+            Prelude.<*> (x Data..?> "BillingToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,31 +140,31 @@ instance Prelude.NFData CreateAccessor where
     Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf accessorType
 
-instance Core.ToHeaders CreateAccessor where
+instance Data.ToHeaders CreateAccessor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAccessor where
+instance Data.ToJSON CreateAccessor where
   toJSON CreateAccessor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken),
-            Prelude.Just ("AccessorType" Core..= accessorType)
+              ("ClientRequestToken" Data..= clientRequestToken),
+            Prelude.Just ("AccessorType" Data..= accessorType)
           ]
       )
 
-instance Core.ToPath CreateAccessor where
+instance Data.ToPath CreateAccessor where
   toPath = Prelude.const "/accessors"
 
-instance Core.ToQuery CreateAccessor where
+instance Data.ToQuery CreateAccessor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAccessorResponse' smart constructor.

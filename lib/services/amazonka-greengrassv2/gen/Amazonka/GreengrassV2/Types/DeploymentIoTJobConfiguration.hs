@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.DeploymentIoTJobConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.IoTJobAbortConfig
 import Amazonka.GreengrassV2.Types.IoTJobExecutionsRolloutConfig
 import Amazonka.GreengrassV2.Types.IoTJobTimeoutConfig
@@ -83,15 +84,15 @@ deploymentIoTJobConfiguration_abortConfig = Lens.lens (\DeploymentIoTJobConfigur
 deploymentIoTJobConfiguration_timeoutConfig :: Lens.Lens' DeploymentIoTJobConfiguration (Prelude.Maybe IoTJobTimeoutConfig)
 deploymentIoTJobConfiguration_timeoutConfig = Lens.lens (\DeploymentIoTJobConfiguration' {timeoutConfig} -> timeoutConfig) (\s@DeploymentIoTJobConfiguration' {} a -> s {timeoutConfig = a} :: DeploymentIoTJobConfiguration)
 
-instance Core.FromJSON DeploymentIoTJobConfiguration where
+instance Data.FromJSON DeploymentIoTJobConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeploymentIoTJobConfiguration"
       ( \x ->
           DeploymentIoTJobConfiguration'
-            Prelude.<$> (x Core..:? "jobExecutionsRolloutConfig")
-            Prelude.<*> (x Core..:? "abortConfig")
-            Prelude.<*> (x Core..:? "timeoutConfig")
+            Prelude.<$> (x Data..:? "jobExecutionsRolloutConfig")
+            Prelude.<*> (x Data..:? "abortConfig")
+            Prelude.<*> (x Data..:? "timeoutConfig")
       )
 
 instance
@@ -110,13 +111,13 @@ instance Prelude.NFData DeploymentIoTJobConfiguration where
       `Prelude.seq` Prelude.rnf abortConfig
       `Prelude.seq` Prelude.rnf timeoutConfig
 
-instance Core.ToJSON DeploymentIoTJobConfiguration where
+instance Data.ToJSON DeploymentIoTJobConfiguration where
   toJSON DeploymentIoTJobConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("jobExecutionsRolloutConfig" Core..=)
+          [ ("jobExecutionsRolloutConfig" Data..=)
               Prelude.<$> jobExecutionsRolloutConfig,
-            ("abortConfig" Core..=) Prelude.<$> abortConfig,
-            ("timeoutConfig" Core..=) Prelude.<$> timeoutConfig
+            ("abortConfig" Data..=) Prelude.<$> abortConfig,
+            ("timeoutConfig" Data..=) Prelude.<$> timeoutConfig
           ]
       )

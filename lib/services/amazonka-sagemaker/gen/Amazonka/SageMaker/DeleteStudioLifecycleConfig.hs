@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,36 +96,36 @@ instance Prelude.NFData DeleteStudioLifecycleConfig where
   rnf DeleteStudioLifecycleConfig' {..} =
     Prelude.rnf studioLifecycleConfigName
 
-instance Core.ToHeaders DeleteStudioLifecycleConfig where
+instance Data.ToHeaders DeleteStudioLifecycleConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DeleteStudioLifecycleConfig" ::
+              Data.=# ( "SageMaker.DeleteStudioLifecycleConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteStudioLifecycleConfig where
+instance Data.ToJSON DeleteStudioLifecycleConfig where
   toJSON DeleteStudioLifecycleConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "StudioLifecycleConfigName"
-                  Core..= studioLifecycleConfigName
+                  Data..= studioLifecycleConfigName
               )
           ]
       )
 
-instance Core.ToPath DeleteStudioLifecycleConfig where
+instance Data.ToPath DeleteStudioLifecycleConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteStudioLifecycleConfig where
+instance Data.ToQuery DeleteStudioLifecycleConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStudioLifecycleConfigResponse' smart constructor.

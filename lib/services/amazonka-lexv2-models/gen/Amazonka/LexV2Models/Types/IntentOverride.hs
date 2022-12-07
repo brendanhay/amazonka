@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.IntentOverride where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.SlotValueOverride
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,14 +69,14 @@ intentOverride_name = Lens.lens (\IntentOverride' {name} -> name) (\s@IntentOver
 intentOverride_slots :: Lens.Lens' IntentOverride (Prelude.Maybe (Prelude.HashMap Prelude.Text SlotValueOverride))
 intentOverride_slots = Lens.lens (\IntentOverride' {slots} -> slots) (\s@IntentOverride' {} a -> s {slots = a} :: IntentOverride) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON IntentOverride where
+instance Data.FromJSON IntentOverride where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IntentOverride"
       ( \x ->
           IntentOverride'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "slots" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "slots" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable IntentOverride where
@@ -87,11 +88,11 @@ instance Prelude.NFData IntentOverride where
   rnf IntentOverride' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf slots
 
-instance Core.ToJSON IntentOverride where
+instance Data.ToJSON IntentOverride where
   toJSON IntentOverride' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("slots" Core..=) Prelude.<$> slots
+          [ ("name" Data..=) Prelude.<$> name,
+            ("slots" Data..=) Prelude.<$> slots
           ]
       )

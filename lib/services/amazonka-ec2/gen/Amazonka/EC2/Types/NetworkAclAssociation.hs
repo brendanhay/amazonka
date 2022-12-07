@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkAclAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,12 +73,12 @@ networkAclAssociation_subnetId = Lens.lens (\NetworkAclAssociation' {subnetId} -
 networkAclAssociation_networkAclAssociationId :: Lens.Lens' NetworkAclAssociation (Prelude.Maybe Prelude.Text)
 networkAclAssociation_networkAclAssociationId = Lens.lens (\NetworkAclAssociation' {networkAclAssociationId} -> networkAclAssociationId) (\s@NetworkAclAssociation' {} a -> s {networkAclAssociationId = a} :: NetworkAclAssociation)
 
-instance Core.FromXML NetworkAclAssociation where
+instance Data.FromXML NetworkAclAssociation where
   parseXML x =
     NetworkAclAssociation'
-      Prelude.<$> (x Core..@? "networkAclId")
-      Prelude.<*> (x Core..@? "subnetId")
-      Prelude.<*> (x Core..@? "networkAclAssociationId")
+      Prelude.<$> (x Data..@? "networkAclId")
+      Prelude.<*> (x Data..@? "subnetId")
+      Prelude.<*> (x Data..@? "networkAclAssociationId")
 
 instance Prelude.Hashable NetworkAclAssociation where
   hashWithSalt _salt NetworkAclAssociation' {..} =

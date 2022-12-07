@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchGetObjectInformation where
 import Amazonka.CloudDirectory.Types.ObjectReference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Retrieves metadata about an object inside a BatchRead operation. For
@@ -66,11 +67,11 @@ instance Prelude.NFData BatchGetObjectInformation where
   rnf BatchGetObjectInformation' {..} =
     Prelude.rnf objectReference
 
-instance Core.ToJSON BatchGetObjectInformation where
+instance Data.ToJSON BatchGetObjectInformation where
   toJSON BatchGetObjectInformation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ObjectReference" Core..= objectReference)
+              ("ObjectReference" Data..= objectReference)
           ]
       )

@@ -23,6 +23,7 @@ import Amazonka.ConnectCases.Types.CommentFilter
 import Amazonka.ConnectCases.Types.ContactFilter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The list of types of related items and their parameters to use for
@@ -74,11 +75,11 @@ instance Prelude.NFData RelatedItemTypeFilter where
     Prelude.rnf contact
       `Prelude.seq` Prelude.rnf comment
 
-instance Core.ToJSON RelatedItemTypeFilter where
+instance Data.ToJSON RelatedItemTypeFilter where
   toJSON RelatedItemTypeFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("contact" Core..=) Prelude.<$> contact,
-            ("comment" Core..=) Prelude.<$> comment
+          [ ("contact" Data..=) Prelude.<$> contact,
+            ("comment" Data..=) Prelude.<$> comment
           ]
       )

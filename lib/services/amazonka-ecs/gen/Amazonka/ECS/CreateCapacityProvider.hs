@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -207,7 +208,7 @@ instance Core.AWSRequest CreateCapacityProvider where
     Response.receiveJSON
       ( \s h x ->
           CreateCapacityProviderResponse'
-            Prelude.<$> (x Core..?> "capacityProvider")
+            Prelude.<$> (x Data..?> "capacityProvider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -223,38 +224,38 @@ instance Prelude.NFData CreateCapacityProvider where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf autoScalingGroupProvider
 
-instance Core.ToHeaders CreateCapacityProvider where
+instance Data.ToHeaders CreateCapacityProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.CreateCapacityProvider" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.CreateCapacityProvider" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCapacityProvider where
+instance Data.ToJSON CreateCapacityProvider where
   toJSON CreateCapacityProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("name" Core..= name),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
               ( "autoScalingGroupProvider"
-                  Core..= autoScalingGroupProvider
+                  Data..= autoScalingGroupProvider
               )
           ]
       )
 
-instance Core.ToPath CreateCapacityProvider where
+instance Data.ToPath CreateCapacityProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCapacityProvider where
+instance Data.ToQuery CreateCapacityProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCapacityProviderResponse' smart constructor.

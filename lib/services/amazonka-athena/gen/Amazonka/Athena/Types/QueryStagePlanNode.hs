@@ -21,6 +21,7 @@ module Amazonka.Athena.Types.QueryStagePlanNode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Stage plan information such as name, identifier, sub plans, and remote
@@ -89,16 +90,16 @@ queryStagePlanNode_children = Lens.lens (\QueryStagePlanNode' {children} -> chil
 queryStagePlanNode_identifier :: Lens.Lens' QueryStagePlanNode (Prelude.Maybe Prelude.Text)
 queryStagePlanNode_identifier = Lens.lens (\QueryStagePlanNode' {identifier} -> identifier) (\s@QueryStagePlanNode' {} a -> s {identifier = a} :: QueryStagePlanNode)
 
-instance Core.FromJSON QueryStagePlanNode where
+instance Data.FromJSON QueryStagePlanNode where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueryStagePlanNode"
       ( \x ->
           QueryStagePlanNode'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RemoteSources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Children" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Identifier")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RemoteSources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Children" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Identifier")
       )
 
 instance Prelude.Hashable QueryStagePlanNode where

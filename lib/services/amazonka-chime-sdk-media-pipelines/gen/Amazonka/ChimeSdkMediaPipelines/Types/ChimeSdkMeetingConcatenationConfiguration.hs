@@ -22,6 +22,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.ChimeSdkMeetingConcatenationConfigu
 import Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConcatenationConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration object of the Amazon Chime SDK meeting concatenation
@@ -62,15 +63,15 @@ chimeSdkMeetingConcatenationConfiguration_artifactsConfiguration :: Lens.Lens' C
 chimeSdkMeetingConcatenationConfiguration_artifactsConfiguration = Lens.lens (\ChimeSdkMeetingConcatenationConfiguration' {artifactsConfiguration} -> artifactsConfiguration) (\s@ChimeSdkMeetingConcatenationConfiguration' {} a -> s {artifactsConfiguration = a} :: ChimeSdkMeetingConcatenationConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ChimeSdkMeetingConcatenationConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChimeSdkMeetingConcatenationConfiguration"
       ( \x ->
           ChimeSdkMeetingConcatenationConfiguration'
-            Prelude.<$> (x Core..: "ArtifactsConfiguration")
+            Prelude.<$> (x Data..: "ArtifactsConfiguration")
       )
 
 instance
@@ -90,15 +91,15 @@ instance
     Prelude.rnf artifactsConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ChimeSdkMeetingConcatenationConfiguration
   where
   toJSON ChimeSdkMeetingConcatenationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ArtifactsConfiguration"
-                  Core..= artifactsConfiguration
+                  Data..= artifactsConfiguration
               )
           ]
       )

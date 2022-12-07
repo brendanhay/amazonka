@@ -21,6 +21,7 @@ module Amazonka.SnowDeviceManagement.Types.Instance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SnowDeviceManagement.Types.CpuOptions
 import Amazonka.SnowDeviceManagement.Types.InstanceBlockDeviceMapping
@@ -51,11 +52,11 @@ data Instance = Instance'
     -- | The CPU options for the instance.
     cpuOptions :: Prelude.Maybe CpuOptions,
     -- | When the instance was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The ID of the AMI used to launch the instance.
     imageId :: Prelude.Maybe Prelude.Text,
     -- | When the instance was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The device name of the root device volume (for example, @\/dev\/sda1@).
     rootDeviceName :: Prelude.Maybe Prelude.Text
   }
@@ -153,7 +154,7 @@ instance_cpuOptions = Lens.lens (\Instance' {cpuOptions} -> cpuOptions) (\s@Inst
 
 -- | When the instance was created.
 instance_createdAt :: Lens.Lens' Instance (Prelude.Maybe Prelude.UTCTime)
-instance_createdAt = Lens.lens (\Instance' {createdAt} -> createdAt) (\s@Instance' {} a -> s {createdAt = a} :: Instance) Prelude.. Lens.mapping Core._Time
+instance_createdAt = Lens.lens (\Instance' {createdAt} -> createdAt) (\s@Instance' {} a -> s {createdAt = a} :: Instance) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the AMI used to launch the instance.
 instance_imageId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
@@ -161,33 +162,33 @@ instance_imageId = Lens.lens (\Instance' {imageId} -> imageId) (\s@Instance' {} 
 
 -- | When the instance was last updated.
 instance_updatedAt :: Lens.Lens' Instance (Prelude.Maybe Prelude.UTCTime)
-instance_updatedAt = Lens.lens (\Instance' {updatedAt} -> updatedAt) (\s@Instance' {} a -> s {updatedAt = a} :: Instance) Prelude.. Lens.mapping Core._Time
+instance_updatedAt = Lens.lens (\Instance' {updatedAt} -> updatedAt) (\s@Instance' {} a -> s {updatedAt = a} :: Instance) Prelude.. Lens.mapping Data._Time
 
 -- | The device name of the root device volume (for example, @\/dev\/sda1@).
 instance_rootDeviceName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_rootDeviceName = Lens.lens (\Instance' {rootDeviceName} -> rootDeviceName) (\s@Instance' {} a -> s {rootDeviceName = a} :: Instance)
 
-instance Core.FromJSON Instance where
+instance Data.FromJSON Instance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Instance"
       ( \x ->
           Instance'
-            Prelude.<$> ( x Core..:? "blockDeviceMappings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "blockDeviceMappings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "amiLaunchIndex")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "instanceType")
-            Prelude.<*> (x Core..:? "instanceId")
-            Prelude.<*> (x Core..:? "publicIpAddress")
-            Prelude.<*> (x Core..:? "securityGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "privateIpAddress")
-            Prelude.<*> (x Core..:? "cpuOptions")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "imageId")
-            Prelude.<*> (x Core..:? "updatedAt")
-            Prelude.<*> (x Core..:? "rootDeviceName")
+            Prelude.<*> (x Data..:? "amiLaunchIndex")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "instanceType")
+            Prelude.<*> (x Data..:? "instanceId")
+            Prelude.<*> (x Data..:? "publicIpAddress")
+            Prelude.<*> (x Data..:? "securityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "privateIpAddress")
+            Prelude.<*> (x Data..:? "cpuOptions")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "imageId")
+            Prelude.<*> (x Data..:? "updatedAt")
+            Prelude.<*> (x Data..:? "rootDeviceName")
       )
 
 instance Prelude.Hashable Instance where

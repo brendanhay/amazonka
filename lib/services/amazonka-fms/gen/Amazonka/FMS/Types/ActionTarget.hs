@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.ActionTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a remediation action target.
@@ -61,14 +62,14 @@ actionTarget_resourceId = Lens.lens (\ActionTarget' {resourceId} -> resourceId) 
 actionTarget_description :: Lens.Lens' ActionTarget (Prelude.Maybe Prelude.Text)
 actionTarget_description = Lens.lens (\ActionTarget' {description} -> description) (\s@ActionTarget' {} a -> s {description = a} :: ActionTarget)
 
-instance Core.FromJSON ActionTarget where
+instance Data.FromJSON ActionTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionTarget"
       ( \x ->
           ActionTarget'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable ActionTarget where

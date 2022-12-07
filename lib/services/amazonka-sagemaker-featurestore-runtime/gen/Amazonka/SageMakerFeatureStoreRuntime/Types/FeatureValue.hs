@@ -21,6 +21,7 @@ module Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value associated with a feature.
@@ -71,14 +72,14 @@ featureValue_featureName = Lens.lens (\FeatureValue' {featureName} -> featureNam
 featureValue_valueAsString :: Lens.Lens' FeatureValue Prelude.Text
 featureValue_valueAsString = Lens.lens (\FeatureValue' {valueAsString} -> valueAsString) (\s@FeatureValue' {} a -> s {valueAsString = a} :: FeatureValue)
 
-instance Core.FromJSON FeatureValue where
+instance Data.FromJSON FeatureValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FeatureValue"
       ( \x ->
           FeatureValue'
-            Prelude.<$> (x Core..: "FeatureName")
-            Prelude.<*> (x Core..: "ValueAsString")
+            Prelude.<$> (x Data..: "FeatureName")
+            Prelude.<*> (x Data..: "ValueAsString")
       )
 
 instance Prelude.Hashable FeatureValue where
@@ -91,12 +92,12 @@ instance Prelude.NFData FeatureValue where
     Prelude.rnf featureName
       `Prelude.seq` Prelude.rnf valueAsString
 
-instance Core.ToJSON FeatureValue where
+instance Data.ToJSON FeatureValue where
   toJSON FeatureValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FeatureName" Core..= featureName),
+          [ Prelude.Just ("FeatureName" Data..= featureName),
             Prelude.Just
-              ("ValueAsString" Core..= valueAsString)
+              ("ValueAsString" Data..= valueAsString)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionVolumesDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails
 import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails
@@ -88,18 +89,18 @@ awsEcsTaskDefinitionVolumesDetails_dockerVolumeConfiguration :: Lens.Lens' AwsEc
 awsEcsTaskDefinitionVolumesDetails_dockerVolumeConfiguration = Lens.lens (\AwsEcsTaskDefinitionVolumesDetails' {dockerVolumeConfiguration} -> dockerVolumeConfiguration) (\s@AwsEcsTaskDefinitionVolumesDetails' {} a -> s {dockerVolumeConfiguration = a} :: AwsEcsTaskDefinitionVolumesDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsTaskDefinitionVolumesDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsTaskDefinitionVolumesDetails"
       ( \x ->
           AwsEcsTaskDefinitionVolumesDetails'
-            Prelude.<$> (x Core..:? "EfsVolumeConfiguration")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Host")
-            Prelude.<*> (x Core..:? "DockerVolumeConfiguration")
+            Prelude.<$> (x Data..:? "EfsVolumeConfiguration")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Host")
+            Prelude.<*> (x Data..:? "DockerVolumeConfiguration")
       )
 
 instance
@@ -125,17 +126,17 @@ instance
       `Prelude.seq` Prelude.rnf dockerVolumeConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsTaskDefinitionVolumesDetails
   where
   toJSON AwsEcsTaskDefinitionVolumesDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EfsVolumeConfiguration" Core..=)
+          [ ("EfsVolumeConfiguration" Data..=)
               Prelude.<$> efsVolumeConfiguration,
-            ("Name" Core..=) Prelude.<$> name,
-            ("Host" Core..=) Prelude.<$> host,
-            ("DockerVolumeConfiguration" Core..=)
+            ("Name" Data..=) Prelude.<$> name,
+            ("Host" Data..=) Prelude.<$> host,
+            ("DockerVolumeConfiguration" Data..=)
               Prelude.<$> dockerVolumeConfiguration
           ]
       )

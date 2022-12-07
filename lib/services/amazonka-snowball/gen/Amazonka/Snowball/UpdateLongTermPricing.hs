@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,38 +131,38 @@ instance Prelude.NFData UpdateLongTermPricing where
       `Prelude.seq` Prelude.rnf replacementJob
       `Prelude.seq` Prelude.rnf longTermPricingId
 
-instance Core.ToHeaders UpdateLongTermPricing where
+instance Data.ToHeaders UpdateLongTermPricing where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.UpdateLongTermPricing" ::
+              Data.=# ( "AWSIESnowballJobManagementService.UpdateLongTermPricing" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLongTermPricing where
+instance Data.ToJSON UpdateLongTermPricing where
   toJSON UpdateLongTermPricing' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IsLongTermPricingAutoRenew" Core..=)
+          [ ("IsLongTermPricingAutoRenew" Data..=)
               Prelude.<$> isLongTermPricingAutoRenew,
-            ("ReplacementJob" Core..=)
+            ("ReplacementJob" Data..=)
               Prelude.<$> replacementJob,
             Prelude.Just
-              ("LongTermPricingId" Core..= longTermPricingId)
+              ("LongTermPricingId" Data..= longTermPricingId)
           ]
       )
 
-instance Core.ToPath UpdateLongTermPricing where
+instance Data.ToPath UpdateLongTermPricing where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateLongTermPricing where
+instance Data.ToQuery UpdateLongTermPricing where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLongTermPricingResponse' smart constructor.

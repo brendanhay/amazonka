@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.DataIngestionJobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.IngestionInputConfiguration
 import Amazonka.LookoutEquipment.Types.IngestionJobStatus
 import qualified Amazonka.Prelude as Prelude
@@ -98,17 +99,17 @@ dataIngestionJobSummary_datasetArn = Lens.lens (\DataIngestionJobSummary' {datas
 dataIngestionJobSummary_ingestionInputConfiguration :: Lens.Lens' DataIngestionJobSummary (Prelude.Maybe IngestionInputConfiguration)
 dataIngestionJobSummary_ingestionInputConfiguration = Lens.lens (\DataIngestionJobSummary' {ingestionInputConfiguration} -> ingestionInputConfiguration) (\s@DataIngestionJobSummary' {} a -> s {ingestionInputConfiguration = a} :: DataIngestionJobSummary)
 
-instance Core.FromJSON DataIngestionJobSummary where
+instance Data.FromJSON DataIngestionJobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataIngestionJobSummary"
       ( \x ->
           DataIngestionJobSummary'
-            Prelude.<$> (x Core..:? "DatasetName")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "DatasetArn")
-            Prelude.<*> (x Core..:? "IngestionInputConfiguration")
+            Prelude.<$> (x Data..:? "DatasetName")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "DatasetArn")
+            Prelude.<*> (x Data..:? "IngestionInputConfiguration")
       )
 
 instance Prelude.Hashable DataIngestionJobSummary where

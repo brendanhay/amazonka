@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.InputDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.InputParallelism
 import Amazonka.KinesisAnalyticsV2.Types.InputProcessingConfigurationDescription
 import Amazonka.KinesisAnalyticsV2.Types.InputStartingPositionConfiguration
@@ -163,25 +164,25 @@ inputDescription_inputId = Lens.lens (\InputDescription' {inputId} -> inputId) (
 inputDescription_inputSchema :: Lens.Lens' InputDescription (Prelude.Maybe SourceSchema)
 inputDescription_inputSchema = Lens.lens (\InputDescription' {inputSchema} -> inputSchema) (\s@InputDescription' {} a -> s {inputSchema = a} :: InputDescription)
 
-instance Core.FromJSON InputDescription where
+instance Data.FromJSON InputDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputDescription"
       ( \x ->
           InputDescription'
-            Prelude.<$> ( x Core..:? "InAppStreamNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "InAppStreamNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "KinesisFirehoseInputDescription")
-            Prelude.<*> (x Core..:? "KinesisStreamsInputDescription")
-            Prelude.<*> (x Core..:? "InputParallelism")
+            Prelude.<*> (x Data..:? "KinesisFirehoseInputDescription")
+            Prelude.<*> (x Data..:? "KinesisStreamsInputDescription")
+            Prelude.<*> (x Data..:? "InputParallelism")
             Prelude.<*> ( x
-                            Core..:? "InputProcessingConfigurationDescription"
+                            Data..:? "InputProcessingConfigurationDescription"
                         )
-            Prelude.<*> (x Core..:? "NamePrefix")
-            Prelude.<*> (x Core..:? "InputStartingPositionConfiguration")
-            Prelude.<*> (x Core..:? "InputId")
-            Prelude.<*> (x Core..:? "InputSchema")
+            Prelude.<*> (x Data..:? "NamePrefix")
+            Prelude.<*> (x Data..:? "InputStartingPositionConfiguration")
+            Prelude.<*> (x Data..:? "InputId")
+            Prelude.<*> (x Data..:? "InputSchema")
       )
 
 instance Prelude.Hashable InputDescription where

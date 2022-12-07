@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.KeywordFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A keyword filter for querying findings.
@@ -50,12 +51,12 @@ newKeywordFilter =
 keywordFilter_value :: Lens.Lens' KeywordFilter (Prelude.Maybe Prelude.Text)
 keywordFilter_value = Lens.lens (\KeywordFilter' {value} -> value) (\s@KeywordFilter' {} a -> s {value = a} :: KeywordFilter)
 
-instance Core.FromJSON KeywordFilter where
+instance Data.FromJSON KeywordFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KeywordFilter"
       ( \x ->
-          KeywordFilter' Prelude.<$> (x Core..:? "Value")
+          KeywordFilter' Prelude.<$> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable KeywordFilter where
@@ -65,9 +66,9 @@ instance Prelude.Hashable KeywordFilter where
 instance Prelude.NFData KeywordFilter where
   rnf KeywordFilter' {..} = Prelude.rnf value
 
-instance Core.ToJSON KeywordFilter where
+instance Data.ToJSON KeywordFilter where
   toJSON KeywordFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Value" Core..=) Prelude.<$> value]
+          [("Value" Data..=) Prelude.<$> value]
       )

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,7 +109,7 @@ instance Core.AWSRequest DescribeElasticLoadBalancers where
     Response.receiveJSON
       ( \s h x ->
           DescribeElasticLoadBalancersResponse'
-            Prelude.<$> ( x Core..?> "ElasticLoadBalancers"
+            Prelude.<$> ( x Data..?> "ElasticLoadBalancers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -127,34 +128,34 @@ instance Prelude.NFData DescribeElasticLoadBalancers where
     Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf layerIds
 
-instance Core.ToHeaders DescribeElasticLoadBalancers where
+instance Data.ToHeaders DescribeElasticLoadBalancers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DescribeElasticLoadBalancers" ::
+              Data.=# ( "OpsWorks_20130218.DescribeElasticLoadBalancers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeElasticLoadBalancers where
+instance Data.ToJSON DescribeElasticLoadBalancers where
   toJSON DescribeElasticLoadBalancers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StackId" Core..=) Prelude.<$> stackId,
-            ("LayerIds" Core..=) Prelude.<$> layerIds
+          [ ("StackId" Data..=) Prelude.<$> stackId,
+            ("LayerIds" Data..=) Prelude.<$> layerIds
           ]
       )
 
-instance Core.ToPath DescribeElasticLoadBalancers where
+instance Data.ToPath DescribeElasticLoadBalancers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeElasticLoadBalancers where
+instance Data.ToQuery DescribeElasticLoadBalancers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeElasticLoadBalancers@ request.

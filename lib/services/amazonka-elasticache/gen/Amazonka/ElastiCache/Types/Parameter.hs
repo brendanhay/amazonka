@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.Parameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.ChangeType
 import qualified Amazonka.Prelude as Prelude
 
@@ -144,18 +145,18 @@ parameter_allowedValues = Lens.lens (\Parameter' {allowedValues} -> allowedValue
 parameter_dataType :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_dataType = Lens.lens (\Parameter' {dataType} -> dataType) (\s@Parameter' {} a -> s {dataType = a} :: Parameter)
 
-instance Core.FromXML Parameter where
+instance Data.FromXML Parameter where
   parseXML x =
     Parameter'
-      Prelude.<$> (x Core..@? "ChangeType")
-      Prelude.<*> (x Core..@? "ParameterValue")
-      Prelude.<*> (x Core..@? "IsModifiable")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "ParameterName")
-      Prelude.<*> (x Core..@? "MinimumEngineVersion")
-      Prelude.<*> (x Core..@? "Source")
-      Prelude.<*> (x Core..@? "AllowedValues")
-      Prelude.<*> (x Core..@? "DataType")
+      Prelude.<$> (x Data..@? "ChangeType")
+      Prelude.<*> (x Data..@? "ParameterValue")
+      Prelude.<*> (x Data..@? "IsModifiable")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "ParameterName")
+      Prelude.<*> (x Data..@? "MinimumEngineVersion")
+      Prelude.<*> (x Data..@? "Source")
+      Prelude.<*> (x Data..@? "AllowedValues")
+      Prelude.<*> (x Data..@? "DataType")
 
 instance Prelude.Hashable Parameter where
   hashWithSalt _salt Parameter' {..} =

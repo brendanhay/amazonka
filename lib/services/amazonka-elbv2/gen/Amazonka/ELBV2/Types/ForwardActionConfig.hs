@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.ForwardActionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types.TargetGroupStickinessConfig
 import Amazonka.ELBV2.Types.TargetGroupTuple
 import qualified Amazonka.Prelude as Prelude
@@ -67,12 +68,12 @@ forwardActionConfig_targetGroupStickinessConfig = Lens.lens (\ForwardActionConfi
 forwardActionConfig_targetGroups :: Lens.Lens' ForwardActionConfig (Prelude.Maybe [TargetGroupTuple])
 forwardActionConfig_targetGroups = Lens.lens (\ForwardActionConfig' {targetGroups} -> targetGroups) (\s@ForwardActionConfig' {} a -> s {targetGroups = a} :: ForwardActionConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML ForwardActionConfig where
+instance Data.FromXML ForwardActionConfig where
   parseXML x =
     ForwardActionConfig'
-      Prelude.<$> (x Core..@? "TargetGroupStickinessConfig")
-      Prelude.<*> ( x Core..@? "TargetGroups" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "TargetGroupStickinessConfig")
+      Prelude.<*> ( x Data..@? "TargetGroups" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable ForwardActionConfig where
@@ -86,12 +87,12 @@ instance Prelude.NFData ForwardActionConfig where
     Prelude.rnf targetGroupStickinessConfig
       `Prelude.seq` Prelude.rnf targetGroups
 
-instance Core.ToQuery ForwardActionConfig where
+instance Data.ToQuery ForwardActionConfig where
   toQuery ForwardActionConfig' {..} =
     Prelude.mconcat
       [ "TargetGroupStickinessConfig"
-          Core.=: targetGroupStickinessConfig,
+          Data.=: targetGroupStickinessConfig,
         "TargetGroups"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> targetGroups)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> targetGroups)
       ]

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,7 +115,7 @@ instance Core.AWSRequest CreateCodeSigningConfig where
       ( \s h x ->
           CreateCodeSigningConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CodeSigningConfig")
+            Prelude.<*> (x Data..:> "CodeSigningConfig")
       )
 
 instance Prelude.Hashable CreateCodeSigningConfig where
@@ -129,26 +130,26 @@ instance Prelude.NFData CreateCodeSigningConfig where
       `Prelude.seq` Prelude.rnf codeSigningPolicies
       `Prelude.seq` Prelude.rnf allowedPublishers
 
-instance Core.ToHeaders CreateCodeSigningConfig where
+instance Data.ToHeaders CreateCodeSigningConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateCodeSigningConfig where
+instance Data.ToJSON CreateCodeSigningConfig where
   toJSON CreateCodeSigningConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("CodeSigningPolicies" Core..=)
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("CodeSigningPolicies" Data..=)
               Prelude.<$> codeSigningPolicies,
             Prelude.Just
-              ("AllowedPublishers" Core..= allowedPublishers)
+              ("AllowedPublishers" Data..= allowedPublishers)
           ]
       )
 
-instance Core.ToPath CreateCodeSigningConfig where
+instance Data.ToPath CreateCodeSigningConfig where
   toPath =
     Prelude.const "/2020-04-22/code-signing-configs/"
 
-instance Core.ToQuery CreateCodeSigningConfig where
+instance Data.ToQuery CreateCodeSigningConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCodeSigningConfigResponse' smart constructor.

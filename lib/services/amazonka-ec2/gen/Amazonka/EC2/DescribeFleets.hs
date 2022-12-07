@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -225,9 +226,9 @@ instance Core.AWSRequest DescribeFleets where
     Response.receiveXML
       ( \s h x ->
           DescribeFleetsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "fleetSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "fleetSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -248,26 +249,26 @@ instance Prelude.NFData DescribeFleets where
       `Prelude.seq` Prelude.rnf fleetIds
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeFleets where
+instance Data.ToHeaders DescribeFleets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeFleets where
+instance Data.ToPath DescribeFleets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFleets where
+instance Data.ToQuery DescribeFleets where
   toQuery DescribeFleets' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeFleets" :: Prelude.ByteString),
+          Data.=: ("DescribeFleets" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "FleetId" Prelude.<$> fleetIds),
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          (Data.toQueryList "FleetId" Prelude.<$> fleetIds),
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeFleetsResponse' smart constructor.

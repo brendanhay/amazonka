@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -203,8 +204,8 @@ instance Core.AWSRequest UpdateFindingsFilter where
     Response.receiveJSON
       ( \s h x ->
           UpdateFindingsFilterResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -228,36 +229,36 @@ instance Prelude.NFData UpdateFindingsFilter where
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateFindingsFilter where
+instance Data.ToHeaders UpdateFindingsFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFindingsFilter where
+instance Data.ToJSON UpdateFindingsFilter where
   toJSON UpdateFindingsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("findingCriteria" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("findingCriteria" Data..=)
               Prelude.<$> findingCriteria,
-            ("description" Core..=) Prelude.<$> description,
-            ("action" Core..=) Prelude.<$> action,
-            ("position" Core..=) Prelude.<$> position
+            ("description" Data..=) Prelude.<$> description,
+            ("action" Data..=) Prelude.<$> action,
+            ("position" Data..=) Prelude.<$> position
           ]
       )
 
-instance Core.ToPath UpdateFindingsFilter where
+instance Data.ToPath UpdateFindingsFilter where
   toPath UpdateFindingsFilter' {..} =
-    Prelude.mconcat ["/findingsfilters/", Core.toBS id]
+    Prelude.mconcat ["/findingsfilters/", Data.toBS id]
 
-instance Core.ToQuery UpdateFindingsFilter where
+instance Data.ToQuery UpdateFindingsFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFindingsFilterResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.CodeArtifact.Types.RepositorySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a repository, including its Amazon Resource Name (ARN),
@@ -104,18 +105,18 @@ repositorySummary_description = Lens.lens (\RepositorySummary' {description} -> 
 repositorySummary_domainOwner :: Lens.Lens' RepositorySummary (Prelude.Maybe Prelude.Text)
 repositorySummary_domainOwner = Lens.lens (\RepositorySummary' {domainOwner} -> domainOwner) (\s@RepositorySummary' {} a -> s {domainOwner = a} :: RepositorySummary)
 
-instance Core.FromJSON RepositorySummary where
+instance Data.FromJSON RepositorySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositorySummary"
       ( \x ->
           RepositorySummary'
-            Prelude.<$> (x Core..:? "administratorAccount")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "domainName")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "domainOwner")
+            Prelude.<$> (x Data..:? "administratorAccount")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "domainName")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "domainOwner")
       )
 
 instance Prelude.Hashable RepositorySummary where

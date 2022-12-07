@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -179,7 +180,7 @@ instance Core.AWSRequest CreateWhatIfForecastExport where
     Response.receiveJSON
       ( \s h x ->
           CreateWhatIfForecastExportResponse'
-            Prelude.<$> (x Core..?> "WhatIfForecastExportArn")
+            Prelude.<$> (x Data..?> "WhatIfForecastExportArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,41 +200,41 @@ instance Prelude.NFData CreateWhatIfForecastExport where
       `Prelude.seq` Prelude.rnf whatIfForecastArns
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToHeaders CreateWhatIfForecastExport where
+instance Data.ToHeaders CreateWhatIfForecastExport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.CreateWhatIfForecastExport" ::
+              Data.=# ( "AmazonForecast.CreateWhatIfForecastExport" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWhatIfForecastExport where
+instance Data.ToJSON CreateWhatIfForecastExport where
   toJSON CreateWhatIfForecastExport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Format" Core..=) Prelude.<$> format,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Format" Data..=) Prelude.<$> format,
             Prelude.Just
               ( "WhatIfForecastExportName"
-                  Core..= whatIfForecastExportName
+                  Data..= whatIfForecastExportName
               ),
             Prelude.Just
-              ("WhatIfForecastArns" Core..= whatIfForecastArns),
-            Prelude.Just ("Destination" Core..= destination)
+              ("WhatIfForecastArns" Data..= whatIfForecastArns),
+            Prelude.Just ("Destination" Data..= destination)
           ]
       )
 
-instance Core.ToPath CreateWhatIfForecastExport where
+instance Data.ToPath CreateWhatIfForecastExport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateWhatIfForecastExport where
+instance Data.ToQuery CreateWhatIfForecastExport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWhatIfForecastExportResponse' smart constructor.

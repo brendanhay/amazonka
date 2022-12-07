@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringClusterConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProcessingInstanceType
 
@@ -108,16 +109,16 @@ monitoringClusterConfig_instanceType = Lens.lens (\MonitoringClusterConfig' {ins
 monitoringClusterConfig_volumeSizeInGB :: Lens.Lens' MonitoringClusterConfig Prelude.Natural
 monitoringClusterConfig_volumeSizeInGB = Lens.lens (\MonitoringClusterConfig' {volumeSizeInGB} -> volumeSizeInGB) (\s@MonitoringClusterConfig' {} a -> s {volumeSizeInGB = a} :: MonitoringClusterConfig)
 
-instance Core.FromJSON MonitoringClusterConfig where
+instance Data.FromJSON MonitoringClusterConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringClusterConfig"
       ( \x ->
           MonitoringClusterConfig'
-            Prelude.<$> (x Core..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Core..: "InstanceCount")
-            Prelude.<*> (x Core..: "InstanceType")
-            Prelude.<*> (x Core..: "VolumeSizeInGB")
+            Prelude.<$> (x Data..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Data..: "InstanceCount")
+            Prelude.<*> (x Data..: "InstanceType")
+            Prelude.<*> (x Data..: "VolumeSizeInGB")
       )
 
 instance Prelude.Hashable MonitoringClusterConfig where
@@ -134,15 +135,15 @@ instance Prelude.NFData MonitoringClusterConfig where
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf volumeSizeInGB
 
-instance Core.ToJSON MonitoringClusterConfig where
+instance Data.ToJSON MonitoringClusterConfig where
   toJSON MonitoringClusterConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VolumeKmsKeyId" Core..=)
+          [ ("VolumeKmsKeyId" Data..=)
               Prelude.<$> volumeKmsKeyId,
-            Prelude.Just ("InstanceCount" Core..= instanceCount),
-            Prelude.Just ("InstanceType" Core..= instanceType),
+            Prelude.Just ("InstanceCount" Data..= instanceCount),
+            Prelude.Just ("InstanceType" Data..= instanceType),
             Prelude.Just
-              ("VolumeSizeInGB" Core..= volumeSizeInGB)
+              ("VolumeSizeInGB" Data..= volumeSizeInGB)
           ]
       )

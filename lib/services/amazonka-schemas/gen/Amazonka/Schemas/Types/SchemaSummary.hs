@@ -21,6 +21,7 @@ module Amazonka.Schemas.Types.SchemaSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of schema details.
@@ -34,7 +35,7 @@ data SchemaSummary = SchemaSummary'
     -- | The ARN of the schema.
     schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that schema was modified.
-    lastModified :: Prelude.Maybe Core.POSIX,
+    lastModified :: Prelude.Maybe Data.POSIX,
     -- | The number of versions available for the schema.
     versionCount :: Prelude.Maybe Prelude.Integer
   }
@@ -82,23 +83,23 @@ schemaSummary_schemaArn = Lens.lens (\SchemaSummary' {schemaArn} -> schemaArn) (
 
 -- | The date and time that schema was modified.
 schemaSummary_lastModified :: Lens.Lens' SchemaSummary (Prelude.Maybe Prelude.UTCTime)
-schemaSummary_lastModified = Lens.lens (\SchemaSummary' {lastModified} -> lastModified) (\s@SchemaSummary' {} a -> s {lastModified = a} :: SchemaSummary) Prelude.. Lens.mapping Core._Time
+schemaSummary_lastModified = Lens.lens (\SchemaSummary' {lastModified} -> lastModified) (\s@SchemaSummary' {} a -> s {lastModified = a} :: SchemaSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The number of versions available for the schema.
 schemaSummary_versionCount :: Lens.Lens' SchemaSummary (Prelude.Maybe Prelude.Integer)
 schemaSummary_versionCount = Lens.lens (\SchemaSummary' {versionCount} -> versionCount) (\s@SchemaSummary' {} a -> s {versionCount = a} :: SchemaSummary)
 
-instance Core.FromJSON SchemaSummary where
+instance Data.FromJSON SchemaSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaSummary"
       ( \x ->
           SchemaSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SchemaName")
-            Prelude.<*> (x Core..:? "SchemaArn")
-            Prelude.<*> (x Core..:? "LastModified")
-            Prelude.<*> (x Core..:? "VersionCount")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SchemaName")
+            Prelude.<*> (x Data..:? "SchemaArn")
+            Prelude.<*> (x Data..:? "LastModified")
+            Prelude.<*> (x Data..:? "VersionCount")
       )
 
 instance Prelude.Hashable SchemaSummary where

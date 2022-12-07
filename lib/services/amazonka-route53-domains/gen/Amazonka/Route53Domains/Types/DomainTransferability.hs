@@ -21,6 +21,7 @@ module Amazonka.Route53Domains.Types.DomainTransferability where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Domains.Types.Transferable
 
@@ -54,13 +55,13 @@ newDomainTransferability =
 domainTransferability_transferable :: Lens.Lens' DomainTransferability (Prelude.Maybe Transferable)
 domainTransferability_transferable = Lens.lens (\DomainTransferability' {transferable} -> transferable) (\s@DomainTransferability' {} a -> s {transferable = a} :: DomainTransferability)
 
-instance Core.FromJSON DomainTransferability where
+instance Data.FromJSON DomainTransferability where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainTransferability"
       ( \x ->
           DomainTransferability'
-            Prelude.<$> (x Core..:? "Transferable")
+            Prelude.<$> (x Data..:? "Transferable")
       )
 
 instance Prelude.Hashable DomainTransferability where

@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,17 +100,17 @@ instance Core.AWSRequest DescribeDomainConfiguration where
     Response.receiveJSON
       ( \s h x ->
           DescribeDomainConfigurationResponse'
-            Prelude.<$> (x Core..?> "domainConfigurationArn")
-            Prelude.<*> (x Core..?> "lastStatusChangeDate")
-            Prelude.<*> (x Core..?> "domainName")
-            Prelude.<*> (x Core..?> "authorizerConfig")
-            Prelude.<*> (x Core..?> "serviceType")
-            Prelude.<*> ( x Core..?> "serverCertificates"
+            Prelude.<$> (x Data..?> "domainConfigurationArn")
+            Prelude.<*> (x Data..?> "lastStatusChangeDate")
+            Prelude.<*> (x Data..?> "domainName")
+            Prelude.<*> (x Data..?> "authorizerConfig")
+            Prelude.<*> (x Data..?> "serviceType")
+            Prelude.<*> ( x Data..?> "serverCertificates"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "domainConfigurationName")
-            Prelude.<*> (x Core..?> "domainConfigurationStatus")
-            Prelude.<*> (x Core..?> "domainType")
+            Prelude.<*> (x Data..?> "domainConfigurationName")
+            Prelude.<*> (x Data..?> "domainConfigurationStatus")
+            Prelude.<*> (x Data..?> "domainType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,17 +123,17 @@ instance Prelude.NFData DescribeDomainConfiguration where
   rnf DescribeDomainConfiguration' {..} =
     Prelude.rnf domainConfigurationName
 
-instance Core.ToHeaders DescribeDomainConfiguration where
+instance Data.ToHeaders DescribeDomainConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDomainConfiguration where
+instance Data.ToPath DescribeDomainConfiguration where
   toPath DescribeDomainConfiguration' {..} =
     Prelude.mconcat
       [ "/domainConfigurations/",
-        Core.toBS domainConfigurationName
+        Data.toBS domainConfigurationName
       ]
 
-instance Core.ToQuery DescribeDomainConfiguration where
+instance Data.ToQuery DescribeDomainConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDomainConfigurationResponse' smart constructor.
@@ -140,7 +141,7 @@ data DescribeDomainConfigurationResponse = DescribeDomainConfigurationResponse'
   { -- | The ARN of the domain configuration.
     domainConfigurationArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time the domain configuration\'s status was last changed.
-    lastStatusChangeDate :: Prelude.Maybe Core.POSIX,
+    lastStatusChangeDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the domain.
     domainName :: Prelude.Maybe Prelude.Text,
     -- | An object that specifies the authorization service for a domain.
@@ -218,7 +219,7 @@ describeDomainConfigurationResponse_domainConfigurationArn = Lens.lens (\Describ
 
 -- | The date and time the domain configuration\'s status was last changed.
 describeDomainConfigurationResponse_lastStatusChangeDate :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-describeDomainConfigurationResponse_lastStatusChangeDate = Lens.lens (\DescribeDomainConfigurationResponse' {lastStatusChangeDate} -> lastStatusChangeDate) (\s@DescribeDomainConfigurationResponse' {} a -> s {lastStatusChangeDate = a} :: DescribeDomainConfigurationResponse) Prelude.. Lens.mapping Core._Time
+describeDomainConfigurationResponse_lastStatusChangeDate = Lens.lens (\DescribeDomainConfigurationResponse' {lastStatusChangeDate} -> lastStatusChangeDate) (\s@DescribeDomainConfigurationResponse' {} a -> s {lastStatusChangeDate = a} :: DescribeDomainConfigurationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the domain.
 describeDomainConfigurationResponse_domainName :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe Prelude.Text)

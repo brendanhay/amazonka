@@ -22,6 +22,7 @@ module Amazonka.CodeGuruReviewer.Types.RecommendationFeedbackSummary where
 import Amazonka.CodeGuruReviewer.Types.Reaction
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about recommendation feedback summaries.
@@ -93,15 +94,15 @@ recommendationFeedbackSummary_recommendationId = Lens.lens (\RecommendationFeedb
 recommendationFeedbackSummary_userId :: Lens.Lens' RecommendationFeedbackSummary (Prelude.Maybe Prelude.Text)
 recommendationFeedbackSummary_userId = Lens.lens (\RecommendationFeedbackSummary' {userId} -> userId) (\s@RecommendationFeedbackSummary' {} a -> s {userId = a} :: RecommendationFeedbackSummary)
 
-instance Core.FromJSON RecommendationFeedbackSummary where
+instance Data.FromJSON RecommendationFeedbackSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationFeedbackSummary"
       ( \x ->
           RecommendationFeedbackSummary'
-            Prelude.<$> (x Core..:? "Reactions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RecommendationId")
-            Prelude.<*> (x Core..:? "UserId")
+            Prelude.<$> (x Data..:? "Reactions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RecommendationId")
+            Prelude.<*> (x Data..:? "UserId")
       )
 
 instance

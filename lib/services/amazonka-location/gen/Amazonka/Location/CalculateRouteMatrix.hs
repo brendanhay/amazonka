@@ -86,6 +86,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,7 +126,7 @@ data CalculateRouteMatrix = CalculateRouteMatrix'
     -- -   In <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     --     format: @YYYY-MM-DDThh:mm:ss.sssZ@. For example,
     --     @2020–07-2T12:15:20.000Z+01:00@
-    departureTime :: Prelude.Maybe Core.POSIX,
+    departureTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies route preferences when traveling by @Truck@, such as avoiding
     -- routes that use ferries or tolls, and truck specifications to consider
     -- when choosing an optimal road.
@@ -161,7 +162,7 @@ data CalculateRouteMatrix = CalculateRouteMatrix'
     -- @SnappedDeparturePositions@.
     --
     -- Valid Values: @[-180 to 180,-90 to 90]@
-    departurePositions :: Prelude.NonEmpty (Core.Sensitive (Prelude.NonEmpty Prelude.Double)),
+    departurePositions :: Prelude.NonEmpty (Data.Sensitive (Prelude.NonEmpty Prelude.Double)),
     -- | The list of destination positions for the route matrix. An array of
     -- points, each of which is itself a 2-value array defined in
     -- <https://earth-info.nga.mil/GandG/wgs84/index.html WGS 84> format:
@@ -179,7 +180,7 @@ data CalculateRouteMatrix = CalculateRouteMatrix'
     -- @SnappedDestinationPositions@.
     --
     -- Valid Values: @[-180 to 180,-90 to 90]@
-    destinationPositions :: Prelude.NonEmpty (Core.Sensitive (Prelude.NonEmpty Prelude.Double))
+    destinationPositions :: Prelude.NonEmpty (Data.Sensitive (Prelude.NonEmpty Prelude.Double))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -343,7 +344,7 @@ calculateRouteMatrix_travelMode = Lens.lens (\CalculateRouteMatrix' {travelMode}
 --     format: @YYYY-MM-DDThh:mm:ss.sssZ@. For example,
 --     @2020–07-2T12:15:20.000Z+01:00@
 calculateRouteMatrix_departureTime :: Lens.Lens' CalculateRouteMatrix (Prelude.Maybe Prelude.UTCTime)
-calculateRouteMatrix_departureTime = Lens.lens (\CalculateRouteMatrix' {departureTime} -> departureTime) (\s@CalculateRouteMatrix' {} a -> s {departureTime = a} :: CalculateRouteMatrix) Prelude.. Lens.mapping Core._Time
+calculateRouteMatrix_departureTime = Lens.lens (\CalculateRouteMatrix' {departureTime} -> departureTime) (\s@CalculateRouteMatrix' {} a -> s {departureTime = a} :: CalculateRouteMatrix) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies route preferences when traveling by @Truck@, such as avoiding
 -- routes that use ferries or tolls, and truck specifications to consider
@@ -419,11 +420,11 @@ instance Core.AWSRequest CalculateRouteMatrix where
     Response.receiveJSON
       ( \s h x ->
           CalculateRouteMatrixResponse'
-            Prelude.<$> (x Core..?> "SnappedDeparturePositions")
-            Prelude.<*> (x Core..?> "SnappedDestinationPositions")
+            Prelude.<$> (x Data..?> "SnappedDeparturePositions")
+            Prelude.<*> (x Data..?> "SnappedDestinationPositions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "RouteMatrix" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "Summary")
+            Prelude.<*> (x Data..?> "RouteMatrix" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "Summary")
       )
 
 instance Prelude.Hashable CalculateRouteMatrix where
@@ -450,47 +451,47 @@ instance Prelude.NFData CalculateRouteMatrix where
       `Prelude.seq` Prelude.rnf departurePositions
       `Prelude.seq` Prelude.rnf destinationPositions
 
-instance Core.ToHeaders CalculateRouteMatrix where
+instance Data.ToHeaders CalculateRouteMatrix where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CalculateRouteMatrix where
+instance Data.ToJSON CalculateRouteMatrix where
   toJSON CalculateRouteMatrix' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DistanceUnit" Core..=) Prelude.<$> distanceUnit,
-            ("CarModeOptions" Core..=)
+          [ ("DistanceUnit" Data..=) Prelude.<$> distanceUnit,
+            ("CarModeOptions" Data..=)
               Prelude.<$> carModeOptions,
-            ("TravelMode" Core..=) Prelude.<$> travelMode,
-            ("DepartureTime" Core..=) Prelude.<$> departureTime,
-            ("TruckModeOptions" Core..=)
+            ("TravelMode" Data..=) Prelude.<$> travelMode,
+            ("DepartureTime" Data..=) Prelude.<$> departureTime,
+            ("TruckModeOptions" Data..=)
               Prelude.<$> truckModeOptions,
-            ("DepartNow" Core..=) Prelude.<$> departNow,
+            ("DepartNow" Data..=) Prelude.<$> departNow,
             Prelude.Just
-              ("DeparturePositions" Core..= departurePositions),
+              ("DeparturePositions" Data..= departurePositions),
             Prelude.Just
               ( "DestinationPositions"
-                  Core..= destinationPositions
+                  Data..= destinationPositions
               )
           ]
       )
 
-instance Core.ToPath CalculateRouteMatrix where
+instance Data.ToPath CalculateRouteMatrix where
   toPath CalculateRouteMatrix' {..} =
     Prelude.mconcat
       [ "/routes/v0/calculators/",
-        Core.toBS calculatorName,
+        Data.toBS calculatorName,
         "/calculate/route-matrix"
       ]
 
-instance Core.ToQuery CalculateRouteMatrix where
+instance Data.ToQuery CalculateRouteMatrix where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returns the result of the route matrix calculation.
@@ -501,10 +502,10 @@ data CalculateRouteMatrixResponse = CalculateRouteMatrixResponse'
     -- positions are snapped to the closest road. For Esri route calculator
     -- resources, this returns the list of departure\/origin positions used for
     -- calculation of the @RouteMatrix@.
-    snappedDeparturePositions :: Prelude.Maybe (Prelude.NonEmpty (Core.Sensitive (Prelude.NonEmpty Prelude.Double))),
+    snappedDeparturePositions :: Prelude.Maybe (Prelude.NonEmpty (Data.Sensitive (Prelude.NonEmpty Prelude.Double))),
     -- | The list of destination positions for the route matrix used for
     -- calculation of the @RouteMatrix@.
-    snappedDestinationPositions :: Prelude.Maybe (Prelude.NonEmpty (Core.Sensitive (Prelude.NonEmpty Prelude.Double))),
+    snappedDestinationPositions :: Prelude.Maybe (Prelude.NonEmpty (Data.Sensitive (Prelude.NonEmpty Prelude.Double))),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The calculated route matrix containing the results for all pairs of

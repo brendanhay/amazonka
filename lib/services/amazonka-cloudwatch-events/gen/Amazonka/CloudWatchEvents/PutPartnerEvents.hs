@@ -44,6 +44,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,8 +89,8 @@ instance Core.AWSRequest PutPartnerEvents where
     Response.receiveJSON
       ( \s h x ->
           PutPartnerEventsResponse'
-            Prelude.<$> (x Core..?> "Entries" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "FailedEntryCount")
+            Prelude.<$> (x Data..?> "Entries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "FailedEntryCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,30 +101,30 @@ instance Prelude.Hashable PutPartnerEvents where
 instance Prelude.NFData PutPartnerEvents where
   rnf PutPartnerEvents' {..} = Prelude.rnf entries
 
-instance Core.ToHeaders PutPartnerEvents where
+instance Data.ToHeaders PutPartnerEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.PutPartnerEvents" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.PutPartnerEvents" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutPartnerEvents where
+instance Data.ToJSON PutPartnerEvents where
   toJSON PutPartnerEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Entries" Core..= entries)]
+          [Prelude.Just ("Entries" Data..= entries)]
       )
 
-instance Core.ToPath PutPartnerEvents where
+instance Data.ToPath PutPartnerEvents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutPartnerEvents where
+instance Data.ToQuery PutPartnerEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutPartnerEventsResponse' smart constructor.

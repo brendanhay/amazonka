@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.S3DestinationAccessControl where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.S3ObjectCannedAcl
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,13 +57,13 @@ newS3DestinationAccessControl =
 s3DestinationAccessControl_cannedAcl :: Lens.Lens' S3DestinationAccessControl (Prelude.Maybe S3ObjectCannedAcl)
 s3DestinationAccessControl_cannedAcl = Lens.lens (\S3DestinationAccessControl' {cannedAcl} -> cannedAcl) (\s@S3DestinationAccessControl' {} a -> s {cannedAcl = a} :: S3DestinationAccessControl)
 
-instance Core.FromJSON S3DestinationAccessControl where
+instance Data.FromJSON S3DestinationAccessControl where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3DestinationAccessControl"
       ( \x ->
           S3DestinationAccessControl'
-            Prelude.<$> (x Core..:? "cannedAcl")
+            Prelude.<$> (x Data..:? "cannedAcl")
       )
 
 instance Prelude.Hashable S3DestinationAccessControl where
@@ -73,9 +74,9 @@ instance Prelude.NFData S3DestinationAccessControl where
   rnf S3DestinationAccessControl' {..} =
     Prelude.rnf cannedAcl
 
-instance Core.ToJSON S3DestinationAccessControl where
+instance Data.ToJSON S3DestinationAccessControl where
   toJSON S3DestinationAccessControl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("cannedAcl" Core..=) Prelude.<$> cannedAcl]
+          [("cannedAcl" Data..=) Prelude.<$> cannedAcl]
       )

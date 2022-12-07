@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.FeatureMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.FeatureParameter
 import Amazonka.SageMaker.Types.FeatureType
@@ -37,11 +38,11 @@ data FeatureMetadata = FeatureMetadata'
     -- | An optional description that you specify to better describe the feature.
     description :: Prelude.Maybe Prelude.Text,
     -- | A timestamp indicating when the feature was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the feature group containing the feature.
     featureGroupName :: Prelude.Maybe Prelude.Text,
     -- | A timestamp indicating when the feature was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Number (ARN) of the feature group.
     featureGroupArn :: Prelude.Maybe Prelude.Text,
     -- | Optional key-value pairs that you specify to better describe the
@@ -102,7 +103,7 @@ featureMetadata_description = Lens.lens (\FeatureMetadata' {description} -> desc
 
 -- | A timestamp indicating when the feature was last modified.
 featureMetadata_lastModifiedTime :: Lens.Lens' FeatureMetadata (Prelude.Maybe Prelude.UTCTime)
-featureMetadata_lastModifiedTime = Lens.lens (\FeatureMetadata' {lastModifiedTime} -> lastModifiedTime) (\s@FeatureMetadata' {} a -> s {lastModifiedTime = a} :: FeatureMetadata) Prelude.. Lens.mapping Core._Time
+featureMetadata_lastModifiedTime = Lens.lens (\FeatureMetadata' {lastModifiedTime} -> lastModifiedTime) (\s@FeatureMetadata' {} a -> s {lastModifiedTime = a} :: FeatureMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the feature group containing the feature.
 featureMetadata_featureGroupName :: Lens.Lens' FeatureMetadata (Prelude.Maybe Prelude.Text)
@@ -110,7 +111,7 @@ featureMetadata_featureGroupName = Lens.lens (\FeatureMetadata' {featureGroupNam
 
 -- | A timestamp indicating when the feature was created.
 featureMetadata_creationTime :: Lens.Lens' FeatureMetadata (Prelude.Maybe Prelude.UTCTime)
-featureMetadata_creationTime = Lens.lens (\FeatureMetadata' {creationTime} -> creationTime) (\s@FeatureMetadata' {} a -> s {creationTime = a} :: FeatureMetadata) Prelude.. Lens.mapping Core._Time
+featureMetadata_creationTime = Lens.lens (\FeatureMetadata' {creationTime} -> creationTime) (\s@FeatureMetadata' {} a -> s {creationTime = a} :: FeatureMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Number (ARN) of the feature group.
 featureMetadata_featureGroupArn :: Lens.Lens' FeatureMetadata (Prelude.Maybe Prelude.Text)
@@ -121,20 +122,20 @@ featureMetadata_featureGroupArn = Lens.lens (\FeatureMetadata' {featureGroupArn}
 featureMetadata_parameters :: Lens.Lens' FeatureMetadata (Prelude.Maybe [FeatureParameter])
 featureMetadata_parameters = Lens.lens (\FeatureMetadata' {parameters} -> parameters) (\s@FeatureMetadata' {} a -> s {parameters = a} :: FeatureMetadata) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON FeatureMetadata where
+instance Data.FromJSON FeatureMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FeatureMetadata"
       ( \x ->
           FeatureMetadata'
-            Prelude.<$> (x Core..:? "FeatureType")
-            Prelude.<*> (x Core..:? "FeatureName")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "FeatureGroupName")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "FeatureGroupArn")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "FeatureType")
+            Prelude.<*> (x Data..:? "FeatureName")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "FeatureGroupName")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "FeatureGroupArn")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FeatureMetadata where

@@ -21,6 +21,7 @@ module Amazonka.CustomerProfiles.Types.S3ExportingLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The S3 location where Identity Resolution Jobs write result files.
@@ -68,14 +69,14 @@ s3ExportingLocation_s3BucketName = Lens.lens (\S3ExportingLocation' {s3BucketNam
 s3ExportingLocation_s3KeyName :: Lens.Lens' S3ExportingLocation (Prelude.Maybe Prelude.Text)
 s3ExportingLocation_s3KeyName = Lens.lens (\S3ExportingLocation' {s3KeyName} -> s3KeyName) (\s@S3ExportingLocation' {} a -> s {s3KeyName = a} :: S3ExportingLocation)
 
-instance Core.FromJSON S3ExportingLocation where
+instance Data.FromJSON S3ExportingLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3ExportingLocation"
       ( \x ->
           S3ExportingLocation'
-            Prelude.<$> (x Core..:? "S3BucketName")
-            Prelude.<*> (x Core..:? "S3KeyName")
+            Prelude.<$> (x Data..:? "S3BucketName")
+            Prelude.<*> (x Data..:? "S3KeyName")
       )
 
 instance Prelude.Hashable S3ExportingLocation where

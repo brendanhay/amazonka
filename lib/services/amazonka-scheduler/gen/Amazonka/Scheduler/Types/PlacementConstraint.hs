@@ -21,6 +21,7 @@ module Amazonka.Scheduler.Types.PlacementConstraint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Scheduler.Types.PlacementConstraintType
 
@@ -80,14 +81,14 @@ placementConstraint_type = Lens.lens (\PlacementConstraint' {type'} -> type') (\
 placementConstraint_expression :: Lens.Lens' PlacementConstraint (Prelude.Maybe Prelude.Text)
 placementConstraint_expression = Lens.lens (\PlacementConstraint' {expression} -> expression) (\s@PlacementConstraint' {} a -> s {expression = a} :: PlacementConstraint)
 
-instance Core.FromJSON PlacementConstraint where
+instance Data.FromJSON PlacementConstraint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlacementConstraint"
       ( \x ->
           PlacementConstraint'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "expression")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "expression")
       )
 
 instance Prelude.Hashable PlacementConstraint where
@@ -100,11 +101,11 @@ instance Prelude.NFData PlacementConstraint where
     Prelude.rnf type'
       `Prelude.seq` Prelude.rnf expression
 
-instance Core.ToJSON PlacementConstraint where
+instance Data.ToJSON PlacementConstraint where
   toJSON PlacementConstraint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("expression" Core..=) Prelude.<$> expression
+          [ ("type" Data..=) Prelude.<$> type',
+            ("expression" Data..=) Prelude.<$> expression
           ]
       )

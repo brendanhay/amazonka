@@ -21,6 +21,7 @@ module Amazonka.IVSChat.Types.S3DestinationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an S3 location where chat logs will be stored.
@@ -55,13 +56,13 @@ newS3DestinationConfiguration pBucketName_ =
 s3DestinationConfiguration_bucketName :: Lens.Lens' S3DestinationConfiguration Prelude.Text
 s3DestinationConfiguration_bucketName = Lens.lens (\S3DestinationConfiguration' {bucketName} -> bucketName) (\s@S3DestinationConfiguration' {} a -> s {bucketName = a} :: S3DestinationConfiguration)
 
-instance Core.FromJSON S3DestinationConfiguration where
+instance Data.FromJSON S3DestinationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3DestinationConfiguration"
       ( \x ->
           S3DestinationConfiguration'
-            Prelude.<$> (x Core..: "bucketName")
+            Prelude.<$> (x Data..: "bucketName")
       )
 
 instance Prelude.Hashable S3DestinationConfiguration where
@@ -72,9 +73,9 @@ instance Prelude.NFData S3DestinationConfiguration where
   rnf S3DestinationConfiguration' {..} =
     Prelude.rnf bucketName
 
-instance Core.ToJSON S3DestinationConfiguration where
+instance Data.ToJSON S3DestinationConfiguration where
   toJSON S3DestinationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("bucketName" Core..= bucketName)]
+          [Prelude.Just ("bucketName" Data..= bucketName)]
       )

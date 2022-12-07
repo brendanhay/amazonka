@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,7 +153,7 @@ instance Core.AWSRequest CopyFpgaImage where
     Response.receiveXML
       ( \s h x ->
           CopyFpgaImageResponse'
-            Prelude.<$> (x Core..@? "fpgaImageId")
+            Prelude.<$> (x Data..@? "fpgaImageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,25 +175,25 @@ instance Prelude.NFData CopyFpgaImage where
       `Prelude.seq` Prelude.rnf sourceFpgaImageId
       `Prelude.seq` Prelude.rnf sourceRegion
 
-instance Core.ToHeaders CopyFpgaImage where
+instance Data.ToHeaders CopyFpgaImage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CopyFpgaImage where
+instance Data.ToPath CopyFpgaImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CopyFpgaImage where
+instance Data.ToQuery CopyFpgaImage where
   toQuery CopyFpgaImage' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CopyFpgaImage" :: Prelude.ByteString),
+          Data.=: ("CopyFpgaImage" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "Name" Core.=: name,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "SourceFpgaImageId" Core.=: sourceFpgaImageId,
-        "SourceRegion" Core.=: sourceRegion
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "Name" Data.=: name,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "SourceFpgaImageId" Data.=: sourceFpgaImageId,
+        "SourceRegion" Data.=: sourceRegion
       ]
 
 -- | /See:/ 'newCopyFpgaImageResponse' smart constructor.

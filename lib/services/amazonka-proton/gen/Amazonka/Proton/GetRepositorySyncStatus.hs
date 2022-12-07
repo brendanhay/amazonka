@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -136,7 +137,7 @@ instance Core.AWSRequest GetRepositorySyncStatus where
     Response.receiveJSON
       ( \s h x ->
           GetRepositorySyncStatusResponse'
-            Prelude.<$> (x Core..?> "latestSync")
+            Prelude.<$> (x Data..?> "latestSync")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,38 +155,38 @@ instance Prelude.NFData GetRepositorySyncStatus where
       `Prelude.seq` Prelude.rnf repositoryProvider
       `Prelude.seq` Prelude.rnf syncType
 
-instance Core.ToHeaders GetRepositorySyncStatus where
+instance Data.ToHeaders GetRepositorySyncStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.GetRepositorySyncStatus" ::
+              Data.=# ( "AwsProton20200720.GetRepositorySyncStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRepositorySyncStatus where
+instance Data.ToJSON GetRepositorySyncStatus where
   toJSON GetRepositorySyncStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("branch" Core..= branch),
+          [ Prelude.Just ("branch" Data..= branch),
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
+              ("repositoryName" Data..= repositoryName),
             Prelude.Just
-              ("repositoryProvider" Core..= repositoryProvider),
-            Prelude.Just ("syncType" Core..= syncType)
+              ("repositoryProvider" Data..= repositoryProvider),
+            Prelude.Just ("syncType" Data..= syncType)
           ]
       )
 
-instance Core.ToPath GetRepositorySyncStatus where
+instance Data.ToPath GetRepositorySyncStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRepositorySyncStatus where
+instance Data.ToQuery GetRepositorySyncStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRepositorySyncStatusResponse' smart constructor.

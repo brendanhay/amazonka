@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,8 +123,8 @@ instance Core.AWSRequest ListCustomMetrics where
     Response.receiveJSON
       ( \s h x ->
           ListCustomMetricsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "metricNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "metricNames" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,17 +138,17 @@ instance Prelude.NFData ListCustomMetrics where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListCustomMetrics where
+instance Data.ToHeaders ListCustomMetrics where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListCustomMetrics where
+instance Data.ToPath ListCustomMetrics where
   toPath = Prelude.const "/custom-metrics"
 
-instance Core.ToQuery ListCustomMetrics where
+instance Data.ToQuery ListCustomMetrics where
   toQuery ListCustomMetrics' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListCustomMetricsResponse' smart constructor.

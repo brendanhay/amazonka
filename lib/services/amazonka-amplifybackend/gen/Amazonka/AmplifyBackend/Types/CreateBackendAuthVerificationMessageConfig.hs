@@ -24,6 +24,7 @@ import Amazonka.AmplifyBackend.Types.EmailSettings
 import Amazonka.AmplifyBackend.Types.SmsSettings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Creates an email or SMS verification message for the auth resource
@@ -80,17 +81,17 @@ createBackendAuthVerificationMessageConfig_deliveryMethod :: Lens.Lens' CreateBa
 createBackendAuthVerificationMessageConfig_deliveryMethod = Lens.lens (\CreateBackendAuthVerificationMessageConfig' {deliveryMethod} -> deliveryMethod) (\s@CreateBackendAuthVerificationMessageConfig' {} a -> s {deliveryMethod = a} :: CreateBackendAuthVerificationMessageConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CreateBackendAuthVerificationMessageConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CreateBackendAuthVerificationMessageConfig"
       ( \x ->
           CreateBackendAuthVerificationMessageConfig'
-            Prelude.<$> (x Core..:? "emailSettings")
-              Prelude.<*> (x Core..:? "smsSettings")
-              Prelude.<*> (x Core..: "deliveryMethod")
+            Prelude.<$> (x Data..:? "emailSettings")
+              Prelude.<*> (x Data..:? "smsSettings")
+              Prelude.<*> (x Data..: "deliveryMethod")
       )
 
 instance
@@ -114,16 +115,16 @@ instance
       `Prelude.seq` Prelude.rnf deliveryMethod
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateBackendAuthVerificationMessageConfig
   where
   toJSON
     CreateBackendAuthVerificationMessageConfig' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("emailSettings" Core..=) Prelude.<$> emailSettings,
-              ("smsSettings" Core..=) Prelude.<$> smsSettings,
+            [ ("emailSettings" Data..=) Prelude.<$> emailSettings,
+              ("smsSettings" Data..=) Prelude.<$> smsSettings,
               Prelude.Just
-                ("deliveryMethod" Core..= deliveryMethod)
+                ("deliveryMethod" Data..= deliveryMethod)
             ]
         )

@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.Domain where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The domain to associate with an WorkMail organization.
@@ -80,11 +81,11 @@ instance Prelude.NFData Domain where
     Prelude.rnf hostedZoneId
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToJSON Domain where
+instance Data.ToJSON Domain where
   toJSON Domain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HostedZoneId" Core..=) Prelude.<$> hostedZoneId,
-            ("DomainName" Core..=) Prelude.<$> domainName
+          [ ("HostedZoneId" Data..=) Prelude.<$> hostedZoneId,
+            ("DomainName" Data..=) Prelude.<$> domainName
           ]
       )

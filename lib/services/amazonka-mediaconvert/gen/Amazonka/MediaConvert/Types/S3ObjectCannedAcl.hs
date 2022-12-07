@@ -29,12 +29,13 @@ module Amazonka.MediaConvert.Types.S3ObjectCannedAcl
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Choose an Amazon S3 canned ACL for MediaConvert to apply to this output.
 newtype S3ObjectCannedAcl = S3ObjectCannedAcl'
   { fromS3ObjectCannedAcl ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -46,18 +47,18 @@ newtype S3ObjectCannedAcl = S3ObjectCannedAcl'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern S3ObjectCannedAcl_AUTHENTICATED_READ :: S3ObjectCannedAcl

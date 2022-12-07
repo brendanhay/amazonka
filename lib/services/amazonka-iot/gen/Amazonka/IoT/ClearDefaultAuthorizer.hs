@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -80,13 +81,13 @@ instance Prelude.Hashable ClearDefaultAuthorizer where
 instance Prelude.NFData ClearDefaultAuthorizer where
   rnf _ = ()
 
-instance Core.ToHeaders ClearDefaultAuthorizer where
+instance Data.ToHeaders ClearDefaultAuthorizer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ClearDefaultAuthorizer where
+instance Data.ToPath ClearDefaultAuthorizer where
   toPath = Prelude.const "/default-authorizer"
 
-instance Core.ToQuery ClearDefaultAuthorizer where
+instance Data.ToQuery ClearDefaultAuthorizer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newClearDefaultAuthorizerResponse' smart constructor.

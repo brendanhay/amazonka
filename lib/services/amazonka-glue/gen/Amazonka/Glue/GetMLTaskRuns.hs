@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,8 +140,8 @@ instance Core.AWSRequest GetMLTaskRuns where
     Response.receiveJSON
       ( \s h x ->
           GetMLTaskRunsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "TaskRuns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "TaskRuns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,35 +161,35 @@ instance Prelude.NFData GetMLTaskRuns where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf transformId
 
-instance Core.ToHeaders GetMLTaskRuns where
+instance Data.ToHeaders GetMLTaskRuns where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetMLTaskRuns" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetMLTaskRuns" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMLTaskRuns where
+instance Data.ToJSON GetMLTaskRuns where
   toJSON GetMLTaskRuns' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Sort" Core..=) Prelude.<$> sort,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("TransformId" Core..= transformId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Sort" Data..=) Prelude.<$> sort,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("TransformId" Data..= transformId)
           ]
       )
 
-instance Core.ToPath GetMLTaskRuns where
+instance Data.ToPath GetMLTaskRuns where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMLTaskRuns where
+instance Data.ToQuery GetMLTaskRuns where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMLTaskRunsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.NodeFabricAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Attributes of Hyperledger Fabric for a peer node on a Hyperledger Fabric
@@ -69,14 +70,14 @@ nodeFabricAttributes_peerEndpoint = Lens.lens (\NodeFabricAttributes' {peerEndpo
 nodeFabricAttributes_peerEventEndpoint :: Lens.Lens' NodeFabricAttributes (Prelude.Maybe Prelude.Text)
 nodeFabricAttributes_peerEventEndpoint = Lens.lens (\NodeFabricAttributes' {peerEventEndpoint} -> peerEventEndpoint) (\s@NodeFabricAttributes' {} a -> s {peerEventEndpoint = a} :: NodeFabricAttributes)
 
-instance Core.FromJSON NodeFabricAttributes where
+instance Data.FromJSON NodeFabricAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeFabricAttributes"
       ( \x ->
           NodeFabricAttributes'
-            Prelude.<$> (x Core..:? "PeerEndpoint")
-            Prelude.<*> (x Core..:? "PeerEventEndpoint")
+            Prelude.<$> (x Data..:? "PeerEndpoint")
+            Prelude.<*> (x Data..:? "PeerEventEndpoint")
       )
 
 instance Prelude.Hashable NodeFabricAttributes where

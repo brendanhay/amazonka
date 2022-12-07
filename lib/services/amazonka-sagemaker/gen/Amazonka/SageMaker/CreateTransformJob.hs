@@ -83,6 +83,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -413,7 +414,7 @@ instance Core.AWSRequest CreateTransformJob where
       ( \s h x ->
           CreateTransformJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "TransformJobArn")
+            Prelude.<*> (x Data..:> "TransformJobArn")
       )
 
 instance Prelude.Hashable CreateTransformJob where
@@ -450,56 +451,56 @@ instance Prelude.NFData CreateTransformJob where
       `Prelude.seq` Prelude.rnf transformOutput
       `Prelude.seq` Prelude.rnf transformResources
 
-instance Core.ToHeaders CreateTransformJob where
+instance Data.ToHeaders CreateTransformJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateTransformJob" ::
+              Data.=# ( "SageMaker.CreateTransformJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTransformJob where
+instance Data.ToJSON CreateTransformJob where
   toJSON CreateTransformJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("MaxConcurrentTransforms" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("MaxConcurrentTransforms" Data..=)
               Prelude.<$> maxConcurrentTransforms,
-            ("ModelClientConfig" Core..=)
+            ("ModelClientConfig" Data..=)
               Prelude.<$> modelClientConfig,
-            ("Environment" Core..=) Prelude.<$> environment,
-            ("ExperimentConfig" Core..=)
+            ("Environment" Data..=) Prelude.<$> environment,
+            ("ExperimentConfig" Data..=)
               Prelude.<$> experimentConfig,
-            ("MaxPayloadInMB" Core..=)
+            ("MaxPayloadInMB" Data..=)
               Prelude.<$> maxPayloadInMB,
-            ("BatchStrategy" Core..=) Prelude.<$> batchStrategy,
-            ("DataCaptureConfig" Core..=)
+            ("BatchStrategy" Data..=) Prelude.<$> batchStrategy,
+            ("DataCaptureConfig" Data..=)
               Prelude.<$> dataCaptureConfig,
-            ("DataProcessing" Core..=)
+            ("DataProcessing" Data..=)
               Prelude.<$> dataProcessing,
             Prelude.Just
-              ("TransformJobName" Core..= transformJobName),
-            Prelude.Just ("ModelName" Core..= modelName),
+              ("TransformJobName" Data..= transformJobName),
+            Prelude.Just ("ModelName" Data..= modelName),
             Prelude.Just
-              ("TransformInput" Core..= transformInput),
+              ("TransformInput" Data..= transformInput),
             Prelude.Just
-              ("TransformOutput" Core..= transformOutput),
+              ("TransformOutput" Data..= transformOutput),
             Prelude.Just
-              ("TransformResources" Core..= transformResources)
+              ("TransformResources" Data..= transformResources)
           ]
       )
 
-instance Core.ToPath CreateTransformJob where
+instance Data.ToPath CreateTransformJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTransformJob where
+instance Data.ToQuery CreateTransformJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTransformJobResponse' smart constructor.

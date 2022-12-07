@@ -62,6 +62,7 @@ where
 import Amazonka.CodeArtifact.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -227,8 +228,8 @@ instance Core.AWSRequest DisposePackageVersions where
     Response.receiveJSON
       ( \s h x ->
           DisposePackageVersionsResponse'
-            Prelude.<$> (x Core..?> "failedVersions" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "successfulVersions"
+            Prelude.<$> (x Data..?> "failedVersions" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "successfulVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -258,41 +259,41 @@ instance Prelude.NFData DisposePackageVersions where
       `Prelude.seq` Prelude.rnf package
       `Prelude.seq` Prelude.rnf versions
 
-instance Core.ToHeaders DisposePackageVersions where
+instance Data.ToHeaders DisposePackageVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisposePackageVersions where
+instance Data.ToJSON DisposePackageVersions where
   toJSON DisposePackageVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("versionRevisions" Core..=)
+          [ ("versionRevisions" Data..=)
               Prelude.<$> versionRevisions,
-            ("expectedStatus" Core..=)
+            ("expectedStatus" Data..=)
               Prelude.<$> expectedStatus,
-            Prelude.Just ("versions" Core..= versions)
+            Prelude.Just ("versions" Data..= versions)
           ]
       )
 
-instance Core.ToPath DisposePackageVersions where
+instance Data.ToPath DisposePackageVersions where
   toPath = Prelude.const "/v1/package/versions/dispose"
 
-instance Core.ToQuery DisposePackageVersions where
+instance Data.ToQuery DisposePackageVersions where
   toQuery DisposePackageVersions' {..} =
     Prelude.mconcat
-      [ "domain-owner" Core.=: domainOwner,
-        "namespace" Core.=: namespace,
-        "domain" Core.=: domain,
-        "repository" Core.=: repository,
-        "format" Core.=: format,
-        "package" Core.=: package
+      [ "domain-owner" Data.=: domainOwner,
+        "namespace" Data.=: namespace,
+        "domain" Data.=: domain,
+        "repository" Data.=: repository,
+        "format" Data.=: format,
+        "package" Data.=: package
       ]
 
 -- | /See:/ 'newDisposePackageVersionsResponse' smart constructor.

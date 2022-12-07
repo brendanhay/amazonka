@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,8 +108,8 @@ instance Core.AWSRequest CreateCidrCollection where
     Response.receiveXML
       ( \s h x ->
           CreateCidrCollectionResponse'
-            Prelude.<$> (x Core..@? "Collection")
-            Prelude.<*> (h Core..#? "Location")
+            Prelude.<$> (x Data..@? "Collection")
+            Prelude.<*> (h Data..#? "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,25 +123,25 @@ instance Prelude.NFData CreateCidrCollection where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf callerReference
 
-instance Core.ToElement CreateCidrCollection where
+instance Data.ToElement CreateCidrCollection where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateCidrCollectionRequest"
 
-instance Core.ToHeaders CreateCidrCollection where
+instance Data.ToHeaders CreateCidrCollection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateCidrCollection where
+instance Data.ToPath CreateCidrCollection where
   toPath = Prelude.const "/2013-04-01/cidrcollection"
 
-instance Core.ToQuery CreateCidrCollection where
+instance Data.ToQuery CreateCidrCollection where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML CreateCidrCollection where
+instance Data.ToXML CreateCidrCollection where
   toXML CreateCidrCollection' {..} =
     Prelude.mconcat
-      [ "Name" Core.@= name,
-        "CallerReference" Core.@= callerReference
+      [ "Name" Data.@= name,
+        "CallerReference" Data.@= callerReference
       ]
 
 -- | /See:/ 'newCreateCidrCollectionResponse' smart constructor.

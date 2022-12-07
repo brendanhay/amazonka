@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,23 +118,23 @@ instance Prelude.NFData DeleteResourcePolicy where
     Prelude.rnf policyRevisionId
       `Prelude.seq` Prelude.rnf policyName
 
-instance Core.ToHeaders DeleteResourcePolicy where
+instance Data.ToHeaders DeleteResourcePolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON DeleteResourcePolicy where
+instance Data.ToJSON DeleteResourcePolicy where
   toJSON DeleteResourcePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PolicyRevisionId" Core..=)
+          [ ("PolicyRevisionId" Data..=)
               Prelude.<$> policyRevisionId,
-            Prelude.Just ("PolicyName" Core..= policyName)
+            Prelude.Just ("PolicyName" Data..= policyName)
           ]
       )
 
-instance Core.ToPath DeleteResourcePolicy where
+instance Data.ToPath DeleteResourcePolicy where
   toPath = Prelude.const "/DeleteResourcePolicy"
 
-instance Core.ToQuery DeleteResourcePolicy where
+instance Data.ToQuery DeleteResourcePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResourcePolicyResponse' smart constructor.

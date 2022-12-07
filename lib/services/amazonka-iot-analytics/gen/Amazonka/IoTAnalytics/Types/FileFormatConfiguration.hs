@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.FileFormatConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.JsonConfiguration
 import Amazonka.IoTAnalytics.Types.ParquetConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -69,14 +70,14 @@ fileFormatConfiguration_parquetConfiguration = Lens.lens (\FileFormatConfigurati
 fileFormatConfiguration_jsonConfiguration :: Lens.Lens' FileFormatConfiguration (Prelude.Maybe JsonConfiguration)
 fileFormatConfiguration_jsonConfiguration = Lens.lens (\FileFormatConfiguration' {jsonConfiguration} -> jsonConfiguration) (\s@FileFormatConfiguration' {} a -> s {jsonConfiguration = a} :: FileFormatConfiguration)
 
-instance Core.FromJSON FileFormatConfiguration where
+instance Data.FromJSON FileFormatConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileFormatConfiguration"
       ( \x ->
           FileFormatConfiguration'
-            Prelude.<$> (x Core..:? "parquetConfiguration")
-            Prelude.<*> (x Core..:? "jsonConfiguration")
+            Prelude.<$> (x Data..:? "parquetConfiguration")
+            Prelude.<*> (x Data..:? "jsonConfiguration")
       )
 
 instance Prelude.Hashable FileFormatConfiguration where
@@ -89,13 +90,13 @@ instance Prelude.NFData FileFormatConfiguration where
     Prelude.rnf parquetConfiguration
       `Prelude.seq` Prelude.rnf jsonConfiguration
 
-instance Core.ToJSON FileFormatConfiguration where
+instance Data.ToJSON FileFormatConfiguration where
   toJSON FileFormatConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("parquetConfiguration" Core..=)
+          [ ("parquetConfiguration" Data..=)
               Prelude.<$> parquetConfiguration,
-            ("jsonConfiguration" Core..=)
+            ("jsonConfiguration" Data..=)
               Prelude.<$> jsonConfiguration
           ]
       )

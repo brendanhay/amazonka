@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -166,11 +167,11 @@ instance Core.AWSRequest ListSAMLProviderTags where
       "ListSAMLProviderTagsResult"
       ( \s h x ->
           ListSAMLProviderTagsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -186,22 +187,22 @@ instance Prelude.NFData ListSAMLProviderTags where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf sAMLProviderArn
 
-instance Core.ToHeaders ListSAMLProviderTags where
+instance Data.ToHeaders ListSAMLProviderTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListSAMLProviderTags where
+instance Data.ToPath ListSAMLProviderTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSAMLProviderTags where
+instance Data.ToQuery ListSAMLProviderTags where
   toQuery ListSAMLProviderTags' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListSAMLProviderTags" :: Prelude.ByteString),
+          Data.=: ("ListSAMLProviderTags" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "SAMLProviderArn" Core.=: sAMLProviderArn
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "SAMLProviderArn" Data.=: sAMLProviderArn
       ]
 
 -- | /See:/ 'newListSAMLProviderTagsResponse' smart constructor.

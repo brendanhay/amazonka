@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,25 +128,25 @@ instance
       `Prelude.seq` Prelude.rnf partnerType
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateAwsAccountFromPartnerAccount
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateAwsAccountFromPartnerAccount
   where
   toPath DisassociateAwsAccountFromPartnerAccount' {..} =
     Prelude.mconcat
-      ["/partner-accounts/", Core.toBS partnerAccountId]
+      ["/partner-accounts/", Data.toBS partnerAccountId]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateAwsAccountFromPartnerAccount
   where
   toQuery DisassociateAwsAccountFromPartnerAccount' {..} =
-    Prelude.mconcat ["partnerType" Core.=: partnerType]
+    Prelude.mconcat ["partnerType" Data.=: partnerType]
 
 -- | /See:/ 'newDisassociateAwsAccountFromPartnerAccountResponse' smart constructor.
 data DisassociateAwsAccountFromPartnerAccountResponse = DisassociateAwsAccountFromPartnerAccountResponse'

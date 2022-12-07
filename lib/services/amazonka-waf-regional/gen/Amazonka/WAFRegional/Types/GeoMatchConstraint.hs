@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.GeoMatchConstraint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFRegional.Types.GeoMatchConstraintType
 import Amazonka.WAFRegional.Types.GeoMatchConstraintValue
@@ -80,13 +81,13 @@ geoMatchConstraint_type = Lens.lens (\GeoMatchConstraint' {type'} -> type') (\s@
 geoMatchConstraint_value :: Lens.Lens' GeoMatchConstraint GeoMatchConstraintValue
 geoMatchConstraint_value = Lens.lens (\GeoMatchConstraint' {value} -> value) (\s@GeoMatchConstraint' {} a -> s {value = a} :: GeoMatchConstraint)
 
-instance Core.FromJSON GeoMatchConstraint where
+instance Data.FromJSON GeoMatchConstraint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GeoMatchConstraint"
       ( \x ->
           GeoMatchConstraint'
-            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable GeoMatchConstraint where
@@ -98,11 +99,11 @@ instance Prelude.NFData GeoMatchConstraint where
   rnf GeoMatchConstraint' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON GeoMatchConstraint where
+instance Data.ToJSON GeoMatchConstraint where
   toJSON GeoMatchConstraint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

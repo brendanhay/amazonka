@@ -27,13 +27,14 @@ module Amazonka.MediaConvert.Types.Mpeg2RateControlMode
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use Rate control mode (Mpeg2RateControlMode) to specify whether the
 -- bitrate is variable (vbr) or constant (cbr).
 newtype Mpeg2RateControlMode = Mpeg2RateControlMode'
   { fromMpeg2RateControlMode ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -45,18 +46,18 @@ newtype Mpeg2RateControlMode = Mpeg2RateControlMode'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern Mpeg2RateControlMode_CBR :: Mpeg2RateControlMode

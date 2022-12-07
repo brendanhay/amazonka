@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,7 +157,7 @@ instance Core.AWSRequest AddJobFlowSteps where
     Response.receiveJSON
       ( \s h x ->
           AddJobFlowStepsResponse'
-            Prelude.<$> (x Core..?> "StepIds" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "StepIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,36 +173,36 @@ instance Prelude.NFData AddJobFlowSteps where
       `Prelude.seq` Prelude.rnf jobFlowId
       `Prelude.seq` Prelude.rnf steps
 
-instance Core.ToHeaders AddJobFlowSteps where
+instance Data.ToHeaders AddJobFlowSteps where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.AddJobFlowSteps" ::
+              Data.=# ( "ElasticMapReduce.AddJobFlowSteps" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddJobFlowSteps where
+instance Data.ToJSON AddJobFlowSteps where
   toJSON AddJobFlowSteps' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExecutionRoleArn" Core..=)
+          [ ("ExecutionRoleArn" Data..=)
               Prelude.<$> executionRoleArn,
-            Prelude.Just ("JobFlowId" Core..= jobFlowId),
-            Prelude.Just ("Steps" Core..= steps)
+            Prelude.Just ("JobFlowId" Data..= jobFlowId),
+            Prelude.Just ("Steps" Data..= steps)
           ]
       )
 
-instance Core.ToPath AddJobFlowSteps where
+instance Data.ToPath AddJobFlowSteps where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddJobFlowSteps where
+instance Data.ToQuery AddJobFlowSteps where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the AddJobFlowSteps operation.

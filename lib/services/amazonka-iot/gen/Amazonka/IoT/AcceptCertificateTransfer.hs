@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,22 +116,22 @@ instance Prelude.NFData AcceptCertificateTransfer where
     Prelude.rnf setAsActive
       `Prelude.seq` Prelude.rnf certificateId
 
-instance Core.ToHeaders AcceptCertificateTransfer where
+instance Data.ToHeaders AcceptCertificateTransfer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON AcceptCertificateTransfer where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON AcceptCertificateTransfer where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath AcceptCertificateTransfer where
+instance Data.ToPath AcceptCertificateTransfer where
   toPath AcceptCertificateTransfer' {..} =
     Prelude.mconcat
       [ "/accept-certificate-transfer/",
-        Core.toBS certificateId
+        Data.toBS certificateId
       ]
 
-instance Core.ToQuery AcceptCertificateTransfer where
+instance Data.ToQuery AcceptCertificateTransfer where
   toQuery AcceptCertificateTransfer' {..} =
-    Prelude.mconcat ["setAsActive" Core.=: setAsActive]
+    Prelude.mconcat ["setAsActive" Data.=: setAsActive]
 
 -- | /See:/ 'newAcceptCertificateTransferResponse' smart constructor.
 data AcceptCertificateTransferResponse = AcceptCertificateTransferResponse'

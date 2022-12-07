@@ -23,6 +23,7 @@ import Amazonka.CloudSearch.Types.AnalysisOptions
 import Amazonka.CloudSearch.Types.AnalysisSchemeLanguage
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for an analysis scheme. Each analysis scheme
@@ -79,12 +80,12 @@ analysisScheme_analysisSchemeName = Lens.lens (\AnalysisScheme' {analysisSchemeN
 analysisScheme_analysisSchemeLanguage :: Lens.Lens' AnalysisScheme AnalysisSchemeLanguage
 analysisScheme_analysisSchemeLanguage = Lens.lens (\AnalysisScheme' {analysisSchemeLanguage} -> analysisSchemeLanguage) (\s@AnalysisScheme' {} a -> s {analysisSchemeLanguage = a} :: AnalysisScheme)
 
-instance Core.FromXML AnalysisScheme where
+instance Data.FromXML AnalysisScheme where
   parseXML x =
     AnalysisScheme'
-      Prelude.<$> (x Core..@? "AnalysisOptions")
-      Prelude.<*> (x Core..@ "AnalysisSchemeName")
-      Prelude.<*> (x Core..@ "AnalysisSchemeLanguage")
+      Prelude.<$> (x Data..@? "AnalysisOptions")
+      Prelude.<*> (x Data..@ "AnalysisSchemeName")
+      Prelude.<*> (x Data..@ "AnalysisSchemeLanguage")
 
 instance Prelude.Hashable AnalysisScheme where
   hashWithSalt _salt AnalysisScheme' {..} =
@@ -98,11 +99,11 @@ instance Prelude.NFData AnalysisScheme where
       `Prelude.seq` Prelude.rnf analysisSchemeName
       `Prelude.seq` Prelude.rnf analysisSchemeLanguage
 
-instance Core.ToQuery AnalysisScheme where
+instance Data.ToQuery AnalysisScheme where
   toQuery AnalysisScheme' {..} =
     Prelude.mconcat
-      [ "AnalysisOptions" Core.=: analysisOptions,
-        "AnalysisSchemeName" Core.=: analysisSchemeName,
+      [ "AnalysisOptions" Data.=: analysisOptions,
+        "AnalysisSchemeName" Data.=: analysisSchemeName,
         "AnalysisSchemeLanguage"
-          Core.=: analysisSchemeLanguage
+          Data.=: analysisSchemeLanguage
       ]

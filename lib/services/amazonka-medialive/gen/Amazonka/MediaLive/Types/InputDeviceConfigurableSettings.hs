@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputDeviceConfigurableSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.InputDeviceConfiguredInput
 import qualified Amazonka.Prelude as Prelude
 
@@ -96,12 +97,12 @@ instance
     Prelude.rnf maxBitrate
       `Prelude.seq` Prelude.rnf configuredInput
 
-instance Core.ToJSON InputDeviceConfigurableSettings where
+instance Data.ToJSON InputDeviceConfigurableSettings where
   toJSON InputDeviceConfigurableSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("maxBitrate" Core..=) Prelude.<$> maxBitrate,
-            ("configuredInput" Core..=)
+          [ ("maxBitrate" Data..=) Prelude.<$> maxBitrate,
+            ("configuredInput" Data..=)
               Prelude.<$> configuredInput
           ]
       )

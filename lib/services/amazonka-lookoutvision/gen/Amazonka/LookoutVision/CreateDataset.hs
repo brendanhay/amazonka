@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -205,7 +206,7 @@ instance Core.AWSRequest CreateDataset where
     Response.receiveJSON
       ( \s h x ->
           CreateDatasetResponse'
-            Prelude.<$> (x Core..?> "DatasetMetadata")
+            Prelude.<$> (x Data..?> "DatasetMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -223,32 +224,32 @@ instance Prelude.NFData CreateDataset where
       `Prelude.seq` Prelude.rnf projectName
       `Prelude.seq` Prelude.rnf datasetType
 
-instance Core.ToHeaders CreateDataset where
+instance Data.ToHeaders CreateDataset where
   toHeaders CreateDataset' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# clientToken,
+      [ "X-Amzn-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateDataset where
+instance Data.ToJSON CreateDataset where
   toJSON CreateDataset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DatasetSource" Core..=) Prelude.<$> datasetSource,
-            Prelude.Just ("DatasetType" Core..= datasetType)
+          [ ("DatasetSource" Data..=) Prelude.<$> datasetSource,
+            Prelude.Just ("DatasetType" Data..= datasetType)
           ]
       )
 
-instance Core.ToPath CreateDataset where
+instance Data.ToPath CreateDataset where
   toPath CreateDataset' {..} =
     Prelude.mconcat
       [ "/2020-11-20/projects/",
-        Core.toBS projectName,
+        Data.toBS projectName,
         "/datasets"
       ]
 
-instance Core.ToQuery CreateDataset where
+instance Data.ToQuery CreateDataset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDatasetResponse' smart constructor.

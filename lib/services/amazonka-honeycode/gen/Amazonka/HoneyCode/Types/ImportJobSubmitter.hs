@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.ImportJobSubmitter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the attributes of the submitter of the import
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newImportJobSubmitter' smart constructor.
 data ImportJobSubmitter = ImportJobSubmitter'
   { -- | The email id of the submitter of the import job, if available.
-    email :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    email :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The AWS user ARN of the submitter of the import job, if available.
     userArn :: Prelude.Maybe Prelude.Text
   }
@@ -56,20 +57,20 @@ newImportJobSubmitter =
 
 -- | The email id of the submitter of the import job, if available.
 importJobSubmitter_email :: Lens.Lens' ImportJobSubmitter (Prelude.Maybe Prelude.Text)
-importJobSubmitter_email = Lens.lens (\ImportJobSubmitter' {email} -> email) (\s@ImportJobSubmitter' {} a -> s {email = a} :: ImportJobSubmitter) Prelude.. Lens.mapping Core._Sensitive
+importJobSubmitter_email = Lens.lens (\ImportJobSubmitter' {email} -> email) (\s@ImportJobSubmitter' {} a -> s {email = a} :: ImportJobSubmitter) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The AWS user ARN of the submitter of the import job, if available.
 importJobSubmitter_userArn :: Lens.Lens' ImportJobSubmitter (Prelude.Maybe Prelude.Text)
 importJobSubmitter_userArn = Lens.lens (\ImportJobSubmitter' {userArn} -> userArn) (\s@ImportJobSubmitter' {} a -> s {userArn = a} :: ImportJobSubmitter)
 
-instance Core.FromJSON ImportJobSubmitter where
+instance Data.FromJSON ImportJobSubmitter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportJobSubmitter"
       ( \x ->
           ImportJobSubmitter'
-            Prelude.<$> (x Core..:? "email")
-            Prelude.<*> (x Core..:? "userArn")
+            Prelude.<$> (x Data..:? "email")
+            Prelude.<*> (x Data..:? "userArn")
       )
 
 instance Prelude.Hashable ImportJobSubmitter where

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CoipCidr where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,12 +73,12 @@ coipCidr_cidr = Lens.lens (\CoipCidr' {cidr} -> cidr) (\s@CoipCidr' {} a -> s {c
 coipCidr_coipPoolId :: Lens.Lens' CoipCidr (Prelude.Maybe Prelude.Text)
 coipCidr_coipPoolId = Lens.lens (\CoipCidr' {coipPoolId} -> coipPoolId) (\s@CoipCidr' {} a -> s {coipPoolId = a} :: CoipCidr)
 
-instance Core.FromXML CoipCidr where
+instance Data.FromXML CoipCidr where
   parseXML x =
     CoipCidr'
-      Prelude.<$> (x Core..@? "localGatewayRouteTableId")
-      Prelude.<*> (x Core..@? "cidr")
-      Prelude.<*> (x Core..@? "coipPoolId")
+      Prelude.<$> (x Data..@? "localGatewayRouteTableId")
+      Prelude.<*> (x Data..@? "cidr")
+      Prelude.<*> (x Data..@? "coipPoolId")
 
 instance Prelude.Hashable CoipCidr where
   hashWithSalt _salt CoipCidr' {..} =

@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -213,43 +214,43 @@ instance
       `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateAccessControlConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.UpdateAccessControlConfiguration" ::
+              Data.=# ( "AWSKendraFrontendService.UpdateAccessControlConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAccessControlConfiguration where
+instance Data.ToJSON UpdateAccessControlConfiguration where
   toJSON UpdateAccessControlConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccessControlList" Core..=)
+          [ ("AccessControlList" Data..=)
               Prelude.<$> accessControlList,
-            ("Name" Core..=) Prelude.<$> name,
-            ("Description" Core..=) Prelude.<$> description,
-            ("HierarchicalAccessControlList" Core..=)
+            ("Name" Data..=) Prelude.<$> name,
+            ("Description" Data..=) Prelude.<$> description,
+            ("HierarchicalAccessControlList" Data..=)
               Prelude.<$> hierarchicalAccessControlList,
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("Id" Core..= id)
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath UpdateAccessControlConfiguration where
+instance Data.ToPath UpdateAccessControlConfiguration where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateAccessControlConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

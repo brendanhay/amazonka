@@ -24,6 +24,7 @@ import Amazonka.AppMesh.Types.GatewayRouteStatus
 import Amazonka.AppMesh.Types.ResourceMetadata
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a gateway route returned by a describe
@@ -119,18 +120,18 @@ gatewayRouteData_status = Lens.lens (\GatewayRouteData' {status} -> status) (\s@
 gatewayRouteData_virtualGatewayName :: Lens.Lens' GatewayRouteData Prelude.Text
 gatewayRouteData_virtualGatewayName = Lens.lens (\GatewayRouteData' {virtualGatewayName} -> virtualGatewayName) (\s@GatewayRouteData' {} a -> s {virtualGatewayName = a} :: GatewayRouteData)
 
-instance Core.FromJSON GatewayRouteData where
+instance Data.FromJSON GatewayRouteData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GatewayRouteData"
       ( \x ->
           GatewayRouteData'
-            Prelude.<$> (x Core..: "gatewayRouteName")
-            Prelude.<*> (x Core..: "meshName")
-            Prelude.<*> (x Core..: "metadata")
-            Prelude.<*> (x Core..: "spec")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "virtualGatewayName")
+            Prelude.<$> (x Data..: "gatewayRouteName")
+            Prelude.<*> (x Data..: "meshName")
+            Prelude.<*> (x Data..: "metadata")
+            Prelude.<*> (x Data..: "spec")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "virtualGatewayName")
       )
 
 instance Prelude.Hashable GatewayRouteData where

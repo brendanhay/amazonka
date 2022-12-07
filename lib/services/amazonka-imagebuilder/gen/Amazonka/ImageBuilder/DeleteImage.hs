@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,8 +104,8 @@ instance Core.AWSRequest DeleteImage where
     Response.receiveJSON
       ( \s h x ->
           DeleteImageResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "imageBuildVersionArn")
+            Prelude.<$> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "imageBuildVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,24 +117,24 @@ instance Prelude.NFData DeleteImage where
   rnf DeleteImage' {..} =
     Prelude.rnf imageBuildVersionArn
 
-instance Core.ToHeaders DeleteImage where
+instance Data.ToHeaders DeleteImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteImage where
+instance Data.ToPath DeleteImage where
   toPath = Prelude.const "/DeleteImage"
 
-instance Core.ToQuery DeleteImage where
+instance Data.ToQuery DeleteImage where
   toQuery DeleteImage' {..} =
     Prelude.mconcat
-      ["imageBuildVersionArn" Core.=: imageBuildVersionArn]
+      ["imageBuildVersionArn" Data.=: imageBuildVersionArn]
 
 -- | /See:/ 'newDeleteImageResponse' smart constructor.
 data DeleteImageResponse = DeleteImageResponse'

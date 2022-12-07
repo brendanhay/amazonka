@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElasticBeanstalkEnvironmentEnvironmentLink 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a link to another environment that is in the
@@ -64,16 +65,16 @@ awsElasticBeanstalkEnvironmentEnvironmentLink_linkName :: Lens.Lens' AwsElasticB
 awsElasticBeanstalkEnvironmentEnvironmentLink_linkName = Lens.lens (\AwsElasticBeanstalkEnvironmentEnvironmentLink' {linkName} -> linkName) (\s@AwsElasticBeanstalkEnvironmentEnvironmentLink' {} a -> s {linkName = a} :: AwsElasticBeanstalkEnvironmentEnvironmentLink)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElasticBeanstalkEnvironmentEnvironmentLink
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElasticBeanstalkEnvironmentEnvironmentLink"
       ( \x ->
           AwsElasticBeanstalkEnvironmentEnvironmentLink'
-            Prelude.<$> (x Core..:? "EnvironmentName")
-              Prelude.<*> (x Core..:? "LinkName")
+            Prelude.<$> (x Data..:? "EnvironmentName")
+              Prelude.<*> (x Data..:? "LinkName")
       )
 
 instance
@@ -96,15 +97,15 @@ instance
         `Prelude.seq` Prelude.rnf linkName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsElasticBeanstalkEnvironmentEnvironmentLink
   where
   toJSON
     AwsElasticBeanstalkEnvironmentEnvironmentLink' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("EnvironmentName" Core..=)
+            [ ("EnvironmentName" Data..=)
                 Prelude.<$> environmentName,
-              ("LinkName" Core..=) Prelude.<$> linkName
+              ("LinkName" Data..=) Prelude.<$> linkName
             ]
         )

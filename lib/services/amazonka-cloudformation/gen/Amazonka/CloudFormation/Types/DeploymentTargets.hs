@@ -22,6 +22,7 @@ module Amazonka.CloudFormation.Types.DeploymentTargets where
 import Amazonka.CloudFormation.Types.AccountFilterType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | [Service-managed permissions] The Organizations accounts to which
@@ -157,18 +158,18 @@ deploymentTargets_accounts = Lens.lens (\DeploymentTargets' {accounts} -> accoun
 deploymentTargets_accountsUrl :: Lens.Lens' DeploymentTargets (Prelude.Maybe Prelude.Text)
 deploymentTargets_accountsUrl = Lens.lens (\DeploymentTargets' {accountsUrl} -> accountsUrl) (\s@DeploymentTargets' {} a -> s {accountsUrl = a} :: DeploymentTargets)
 
-instance Core.FromXML DeploymentTargets where
+instance Data.FromXML DeploymentTargets where
   parseXML x =
     DeploymentTargets'
-      Prelude.<$> (x Core..@? "AccountFilterType")
-      Prelude.<*> ( x Core..@? "OrganizationalUnitIds"
+      Prelude.<$> (x Data..@? "AccountFilterType")
+      Prelude.<*> ( x Data..@? "OrganizationalUnitIds"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "Accounts" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> ( x Data..@? "Accounts" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "AccountsUrl")
+      Prelude.<*> (x Data..@? "AccountsUrl")
 
 instance Prelude.Hashable DeploymentTargets where
   hashWithSalt _salt DeploymentTargets' {..} =
@@ -184,17 +185,17 @@ instance Prelude.NFData DeploymentTargets where
       `Prelude.seq` Prelude.rnf accounts
       `Prelude.seq` Prelude.rnf accountsUrl
 
-instance Core.ToQuery DeploymentTargets where
+instance Data.ToQuery DeploymentTargets where
   toQuery DeploymentTargets' {..} =
     Prelude.mconcat
-      [ "AccountFilterType" Core.=: accountFilterType,
+      [ "AccountFilterType" Data.=: accountFilterType,
         "OrganizationalUnitIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> organizationalUnitIds
             ),
         "Accounts"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> accounts),
-        "AccountsUrl" Core.=: accountsUrl
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> accounts),
+        "AccountsUrl" Data.=: accountsUrl
       ]

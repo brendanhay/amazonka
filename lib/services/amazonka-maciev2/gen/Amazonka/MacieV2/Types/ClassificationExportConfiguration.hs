@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.ClassificationExportConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.S3Destination
 import qualified Amazonka.Prelude as Prelude
 
@@ -60,15 +61,15 @@ classificationExportConfiguration_s3Destination :: Lens.Lens' ClassificationExpo
 classificationExportConfiguration_s3Destination = Lens.lens (\ClassificationExportConfiguration' {s3Destination} -> s3Destination) (\s@ClassificationExportConfiguration' {} a -> s {s3Destination = a} :: ClassificationExportConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ClassificationExportConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClassificationExportConfiguration"
       ( \x ->
           ClassificationExportConfiguration'
-            Prelude.<$> (x Core..:? "s3Destination")
+            Prelude.<$> (x Data..:? "s3Destination")
       )
 
 instance
@@ -88,13 +89,13 @@ instance
     Prelude.rnf s3Destination
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ClassificationExportConfiguration
   where
   toJSON ClassificationExportConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3Destination" Core..=)
+          [ ("s3Destination" Data..=)
               Prelude.<$> s3Destination
           ]
       )

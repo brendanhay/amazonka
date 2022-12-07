@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.ResolverConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.ResolverAutodefinedReverseStatus
 
@@ -132,16 +133,16 @@ resolverConfig_id = Lens.lens (\ResolverConfig' {id} -> id) (\s@ResolverConfig' 
 resolverConfig_autodefinedReverse :: Lens.Lens' ResolverConfig (Prelude.Maybe ResolverAutodefinedReverseStatus)
 resolverConfig_autodefinedReverse = Lens.lens (\ResolverConfig' {autodefinedReverse} -> autodefinedReverse) (\s@ResolverConfig' {} a -> s {autodefinedReverse = a} :: ResolverConfig)
 
-instance Core.FromJSON ResolverConfig where
+instance Data.FromJSON ResolverConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResolverConfig"
       ( \x ->
           ResolverConfig'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "AutodefinedReverse")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "AutodefinedReverse")
       )
 
 instance Prelude.Hashable ResolverConfig where

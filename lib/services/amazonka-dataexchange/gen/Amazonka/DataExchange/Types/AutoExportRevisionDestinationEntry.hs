@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A revision destination is the Amazon S3 bucket folder destination to
@@ -72,16 +73,16 @@ autoExportRevisionDestinationEntry_bucket :: Lens.Lens' AutoExportRevisionDestin
 autoExportRevisionDestinationEntry_bucket = Lens.lens (\AutoExportRevisionDestinationEntry' {bucket} -> bucket) (\s@AutoExportRevisionDestinationEntry' {} a -> s {bucket = a} :: AutoExportRevisionDestinationEntry)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AutoExportRevisionDestinationEntry
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoExportRevisionDestinationEntry"
       ( \x ->
           AutoExportRevisionDestinationEntry'
-            Prelude.<$> (x Core..:? "KeyPattern")
-            Prelude.<*> (x Core..: "Bucket")
+            Prelude.<$> (x Data..:? "KeyPattern")
+            Prelude.<*> (x Data..: "Bucket")
       )
 
 instance
@@ -103,13 +104,13 @@ instance
       `Prelude.seq` Prelude.rnf bucket
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AutoExportRevisionDestinationEntry
   where
   toJSON AutoExportRevisionDestinationEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KeyPattern" Core..=) Prelude.<$> keyPattern,
-            Prelude.Just ("Bucket" Core..= bucket)
+          [ ("KeyPattern" Data..=) Prelude.<$> keyPattern,
+            Prelude.Just ("Bucket" Data..= bucket)
           ]
       )

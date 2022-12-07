@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DriftCheckModelDataQuality where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MetricsSource
 
@@ -64,14 +65,14 @@ driftCheckModelDataQuality_constraints = Lens.lens (\DriftCheckModelDataQuality'
 driftCheckModelDataQuality_statistics :: Lens.Lens' DriftCheckModelDataQuality (Prelude.Maybe MetricsSource)
 driftCheckModelDataQuality_statistics = Lens.lens (\DriftCheckModelDataQuality' {statistics} -> statistics) (\s@DriftCheckModelDataQuality' {} a -> s {statistics = a} :: DriftCheckModelDataQuality)
 
-instance Core.FromJSON DriftCheckModelDataQuality where
+instance Data.FromJSON DriftCheckModelDataQuality where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DriftCheckModelDataQuality"
       ( \x ->
           DriftCheckModelDataQuality'
-            Prelude.<$> (x Core..:? "Constraints")
-            Prelude.<*> (x Core..:? "Statistics")
+            Prelude.<$> (x Data..:? "Constraints")
+            Prelude.<*> (x Data..:? "Statistics")
       )
 
 instance Prelude.Hashable DriftCheckModelDataQuality where
@@ -84,11 +85,11 @@ instance Prelude.NFData DriftCheckModelDataQuality where
     Prelude.rnf constraints
       `Prelude.seq` Prelude.rnf statistics
 
-instance Core.ToJSON DriftCheckModelDataQuality where
+instance Data.ToJSON DriftCheckModelDataQuality where
   toJSON DriftCheckModelDataQuality' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Constraints" Core..=) Prelude.<$> constraints,
-            ("Statistics" Core..=) Prelude.<$> statistics
+          [ ("Constraints" Data..=) Prelude.<$> constraints,
+            ("Statistics" Data..=) Prelude.<$> statistics
           ]
       )

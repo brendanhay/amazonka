@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AdminAccount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AdminStatus
 
@@ -72,14 +73,14 @@ adminAccount_status = Lens.lens (\AdminAccount' {status} -> status) (\s@AdminAcc
 adminAccount_accountId :: Lens.Lens' AdminAccount (Prelude.Maybe Prelude.Text)
 adminAccount_accountId = Lens.lens (\AdminAccount' {accountId} -> accountId) (\s@AdminAccount' {} a -> s {accountId = a} :: AdminAccount)
 
-instance Core.FromJSON AdminAccount where
+instance Data.FromJSON AdminAccount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdminAccount"
       ( \x ->
           AdminAccount'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "AccountId")
       )
 
 instance Prelude.Hashable AdminAccount where

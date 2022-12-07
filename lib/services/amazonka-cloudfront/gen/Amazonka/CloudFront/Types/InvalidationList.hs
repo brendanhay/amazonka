@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.InvalidationList where
 import Amazonka.CloudFront.Types.InvalidationSummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @InvalidationList@ complex type describes the list of invalidation
@@ -134,17 +135,17 @@ invalidationList_isTruncated = Lens.lens (\InvalidationList' {isTruncated} -> is
 invalidationList_quantity :: Lens.Lens' InvalidationList Prelude.Int
 invalidationList_quantity = Lens.lens (\InvalidationList' {quantity} -> quantity) (\s@InvalidationList' {} a -> s {quantity = a} :: InvalidationList)
 
-instance Core.FromXML InvalidationList where
+instance Data.FromXML InvalidationList where
   parseXML x =
     InvalidationList'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "InvalidationSummary")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "InvalidationSummary")
                   )
-      Prelude.<*> (x Core..@? "NextMarker")
-      Prelude.<*> (x Core..@ "Marker")
-      Prelude.<*> (x Core..@ "MaxItems")
-      Prelude.<*> (x Core..@ "IsTruncated")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@? "NextMarker")
+      Prelude.<*> (x Data..@ "Marker")
+      Prelude.<*> (x Data..@ "MaxItems")
+      Prelude.<*> (x Data..@ "IsTruncated")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable InvalidationList where
   hashWithSalt _salt InvalidationList' {..} =

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.StatementOutputData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The code execution output in JSON format.
@@ -50,13 +51,13 @@ newStatementOutputData =
 statementOutputData_textPlain :: Lens.Lens' StatementOutputData (Prelude.Maybe Prelude.Text)
 statementOutputData_textPlain = Lens.lens (\StatementOutputData' {textPlain} -> textPlain) (\s@StatementOutputData' {} a -> s {textPlain = a} :: StatementOutputData)
 
-instance Core.FromJSON StatementOutputData where
+instance Data.FromJSON StatementOutputData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatementOutputData"
       ( \x ->
           StatementOutputData'
-            Prelude.<$> (x Core..:? "TextPlain")
+            Prelude.<$> (x Data..:? "TextPlain")
       )
 
 instance Prelude.Hashable StatementOutputData where

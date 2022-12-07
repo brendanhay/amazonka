@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,7 +148,7 @@ instance Core.AWSRequest ResetDBParameterGroup where
   response =
     Response.receiveXMLWrapper
       "ResetDBParameterGroupResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable ResetDBParameterGroup where
   hashWithSalt _salt ResetDBParameterGroup' {..} =
@@ -161,24 +162,24 @@ instance Prelude.NFData ResetDBParameterGroup where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf dbParameterGroupName
 
-instance Core.ToHeaders ResetDBParameterGroup where
+instance Data.ToHeaders ResetDBParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ResetDBParameterGroup where
+instance Data.ToPath ResetDBParameterGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResetDBParameterGroup where
+instance Data.ToQuery ResetDBParameterGroup where
   toQuery ResetDBParameterGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ResetDBParameterGroup" :: Prelude.ByteString),
+          Data.=: ("ResetDBParameterGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "ResetAllParameters" Core.=: resetAllParameters,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "ResetAllParameters" Data.=: resetAllParameters,
         "Parameters"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "Parameter"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "Parameter"
                 Prelude.<$> parameters
             ),
-        "DBParameterGroupName" Core.=: dbParameterGroupName
+        "DBParameterGroupName" Data.=: dbParameterGroupName
       ]

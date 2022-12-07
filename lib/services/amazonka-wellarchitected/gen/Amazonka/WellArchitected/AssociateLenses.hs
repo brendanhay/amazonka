@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,33 +113,33 @@ instance Prelude.NFData AssociateLenses where
     Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf lensAliases
 
-instance Core.ToHeaders AssociateLenses where
+instance Data.ToHeaders AssociateLenses where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateLenses where
+instance Data.ToJSON AssociateLenses where
   toJSON AssociateLenses' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LensAliases" Core..= lensAliases)]
+          [Prelude.Just ("LensAliases" Data..= lensAliases)]
       )
 
-instance Core.ToPath AssociateLenses where
+instance Data.ToPath AssociateLenses where
   toPath AssociateLenses' {..} =
     Prelude.mconcat
       [ "/workloads/",
-        Core.toBS workloadId,
+        Data.toBS workloadId,
         "/associateLenses"
       ]
 
-instance Core.ToQuery AssociateLenses where
+instance Data.ToQuery AssociateLenses where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateLensesResponse' smart constructor.

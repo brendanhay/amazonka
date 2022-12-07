@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.AccessConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaTailor.Types.AccessType
 import Amazonka.MediaTailor.Types.SecretsManagerAccessTokenConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -136,14 +137,14 @@ accessConfiguration_secretsManagerAccessTokenConfiguration = Lens.lens (\AccessC
 accessConfiguration_accessType :: Lens.Lens' AccessConfiguration (Prelude.Maybe AccessType)
 accessConfiguration_accessType = Lens.lens (\AccessConfiguration' {accessType} -> accessType) (\s@AccessConfiguration' {} a -> s {accessType = a} :: AccessConfiguration)
 
-instance Core.FromJSON AccessConfiguration where
+instance Data.FromJSON AccessConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessConfiguration"
       ( \x ->
           AccessConfiguration'
-            Prelude.<$> (x Core..:? "SecretsManagerAccessTokenConfiguration")
-            Prelude.<*> (x Core..:? "AccessType")
+            Prelude.<$> (x Data..:? "SecretsManagerAccessTokenConfiguration")
+            Prelude.<*> (x Data..:? "AccessType")
       )
 
 instance Prelude.Hashable AccessConfiguration where
@@ -157,12 +158,12 @@ instance Prelude.NFData AccessConfiguration where
     Prelude.rnf secretsManagerAccessTokenConfiguration
       `Prelude.seq` Prelude.rnf accessType
 
-instance Core.ToJSON AccessConfiguration where
+instance Data.ToJSON AccessConfiguration where
   toJSON AccessConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SecretsManagerAccessTokenConfiguration" Core..=)
+          [ ("SecretsManagerAccessTokenConfiguration" Data..=)
               Prelude.<$> secretsManagerAccessTokenConfiguration,
-            ("AccessType" Core..=) Prelude.<$> accessType
+            ("AccessType" Data..=) Prelude.<$> accessType
           ]
       )

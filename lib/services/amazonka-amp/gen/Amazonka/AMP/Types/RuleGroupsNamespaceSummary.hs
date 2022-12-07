@@ -22,6 +22,7 @@ module Amazonka.AMP.Types.RuleGroupsNamespaceSummary where
 import Amazonka.AMP.Types.RuleGroupsNamespaceStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a summary of the rule groups namespace.
@@ -33,9 +34,9 @@ data RuleGroupsNamespaceSummary = RuleGroupsNamespaceSummary'
     -- | The Amazon Resource Name (ARN) of this rule groups namespace.
     arn :: Prelude.Text,
     -- | The time when the rule groups namespace was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The time when the rule groups namespace was modified.
-    modifiedAt :: Core.POSIX,
+    modifiedAt :: Data.POSIX,
     -- | The rule groups namespace name.
     name :: Prelude.Text,
     -- | The status of rule groups namespace.
@@ -83,8 +84,8 @@ newRuleGroupsNamespaceSummary
     RuleGroupsNamespaceSummary'
       { tags = Prelude.Nothing,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        modifiedAt = Core._Time Lens.# pModifiedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        modifiedAt = Data._Time Lens.# pModifiedAt_,
         name = pName_,
         status = pStatus_
       }
@@ -99,11 +100,11 @@ ruleGroupsNamespaceSummary_arn = Lens.lens (\RuleGroupsNamespaceSummary' {arn} -
 
 -- | The time when the rule groups namespace was created.
 ruleGroupsNamespaceSummary_createdAt :: Lens.Lens' RuleGroupsNamespaceSummary Prelude.UTCTime
-ruleGroupsNamespaceSummary_createdAt = Lens.lens (\RuleGroupsNamespaceSummary' {createdAt} -> createdAt) (\s@RuleGroupsNamespaceSummary' {} a -> s {createdAt = a} :: RuleGroupsNamespaceSummary) Prelude.. Core._Time
+ruleGroupsNamespaceSummary_createdAt = Lens.lens (\RuleGroupsNamespaceSummary' {createdAt} -> createdAt) (\s@RuleGroupsNamespaceSummary' {} a -> s {createdAt = a} :: RuleGroupsNamespaceSummary) Prelude.. Data._Time
 
 -- | The time when the rule groups namespace was modified.
 ruleGroupsNamespaceSummary_modifiedAt :: Lens.Lens' RuleGroupsNamespaceSummary Prelude.UTCTime
-ruleGroupsNamespaceSummary_modifiedAt = Lens.lens (\RuleGroupsNamespaceSummary' {modifiedAt} -> modifiedAt) (\s@RuleGroupsNamespaceSummary' {} a -> s {modifiedAt = a} :: RuleGroupsNamespaceSummary) Prelude.. Core._Time
+ruleGroupsNamespaceSummary_modifiedAt = Lens.lens (\RuleGroupsNamespaceSummary' {modifiedAt} -> modifiedAt) (\s@RuleGroupsNamespaceSummary' {} a -> s {modifiedAt = a} :: RuleGroupsNamespaceSummary) Prelude.. Data._Time
 
 -- | The rule groups namespace name.
 ruleGroupsNamespaceSummary_name :: Lens.Lens' RuleGroupsNamespaceSummary Prelude.Text
@@ -113,18 +114,18 @@ ruleGroupsNamespaceSummary_name = Lens.lens (\RuleGroupsNamespaceSummary' {name}
 ruleGroupsNamespaceSummary_status :: Lens.Lens' RuleGroupsNamespaceSummary RuleGroupsNamespaceStatus
 ruleGroupsNamespaceSummary_status = Lens.lens (\RuleGroupsNamespaceSummary' {status} -> status) (\s@RuleGroupsNamespaceSummary' {} a -> s {status = a} :: RuleGroupsNamespaceSummary)
 
-instance Core.FromJSON RuleGroupsNamespaceSummary where
+instance Data.FromJSON RuleGroupsNamespaceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupsNamespaceSummary"
       ( \x ->
           RuleGroupsNamespaceSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "modifiedAt")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "modifiedAt")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable RuleGroupsNamespaceSummary where

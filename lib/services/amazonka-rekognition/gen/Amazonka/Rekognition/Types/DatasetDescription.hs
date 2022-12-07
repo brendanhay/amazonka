@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.DatasetDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.DatasetStats
 import Amazonka.Rekognition.Types.DatasetStatus
@@ -39,13 +40,13 @@ data DatasetDescription = DatasetDescription'
     statusMessageCode :: Prelude.Maybe DatasetStatusMessageCode,
     -- | The Unix timestamp for the date and time that the dataset was last
     -- updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The status of the dataset.
     status :: Prelude.Maybe DatasetStatus,
     -- | The status message code for the dataset.
     datasetStats :: Prelude.Maybe DatasetStats,
     -- | The Unix timestamp for the time and date that the dataset was created.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The status message for the dataset.
     statusMessage :: Prelude.Maybe Prelude.Text
   }
@@ -95,7 +96,7 @@ datasetDescription_statusMessageCode = Lens.lens (\DatasetDescription' {statusMe
 -- | The Unix timestamp for the date and time that the dataset was last
 -- updated.
 datasetDescription_lastUpdatedTimestamp :: Lens.Lens' DatasetDescription (Prelude.Maybe Prelude.UTCTime)
-datasetDescription_lastUpdatedTimestamp = Lens.lens (\DatasetDescription' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@DatasetDescription' {} a -> s {lastUpdatedTimestamp = a} :: DatasetDescription) Prelude.. Lens.mapping Core._Time
+datasetDescription_lastUpdatedTimestamp = Lens.lens (\DatasetDescription' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@DatasetDescription' {} a -> s {lastUpdatedTimestamp = a} :: DatasetDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the dataset.
 datasetDescription_status :: Lens.Lens' DatasetDescription (Prelude.Maybe DatasetStatus)
@@ -107,24 +108,24 @@ datasetDescription_datasetStats = Lens.lens (\DatasetDescription' {datasetStats}
 
 -- | The Unix timestamp for the time and date that the dataset was created.
 datasetDescription_creationTimestamp :: Lens.Lens' DatasetDescription (Prelude.Maybe Prelude.UTCTime)
-datasetDescription_creationTimestamp = Lens.lens (\DatasetDescription' {creationTimestamp} -> creationTimestamp) (\s@DatasetDescription' {} a -> s {creationTimestamp = a} :: DatasetDescription) Prelude.. Lens.mapping Core._Time
+datasetDescription_creationTimestamp = Lens.lens (\DatasetDescription' {creationTimestamp} -> creationTimestamp) (\s@DatasetDescription' {} a -> s {creationTimestamp = a} :: DatasetDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The status message for the dataset.
 datasetDescription_statusMessage :: Lens.Lens' DatasetDescription (Prelude.Maybe Prelude.Text)
 datasetDescription_statusMessage = Lens.lens (\DatasetDescription' {statusMessage} -> statusMessage) (\s@DatasetDescription' {} a -> s {statusMessage = a} :: DatasetDescription)
 
-instance Core.FromJSON DatasetDescription where
+instance Data.FromJSON DatasetDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetDescription"
       ( \x ->
           DatasetDescription'
-            Prelude.<$> (x Core..:? "StatusMessageCode")
-            Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "DatasetStats")
-            Prelude.<*> (x Core..:? "CreationTimestamp")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "StatusMessageCode")
+            Prelude.<*> (x Data..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "DatasetStats")
+            Prelude.<*> (x Data..:? "CreationTimestamp")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable DatasetDescription where

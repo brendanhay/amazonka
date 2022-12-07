@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.MqttContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the MQTT context to use for the test authorizer request
@@ -30,7 +31,7 @@ data MqttContext = MqttContext'
   { -- | The value of the @clientId@ key in an MQTT authorization request.
     clientId :: Prelude.Maybe Prelude.Text,
     -- | The value of the @password@ key in an MQTT authorization request.
-    password :: Prelude.Maybe Core.Base64,
+    password :: Prelude.Maybe Data.Base64,
     -- | The value of the @username@ key in an MQTT authorization request.
     username :: Prelude.Maybe Prelude.Text
   }
@@ -72,7 +73,7 @@ mqttContext_clientId = Lens.lens (\MqttContext' {clientId} -> clientId) (\s@Mqtt
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 mqttContext_password :: Lens.Lens' MqttContext (Prelude.Maybe Prelude.ByteString)
-mqttContext_password = Lens.lens (\MqttContext' {password} -> password) (\s@MqttContext' {} a -> s {password = a} :: MqttContext) Prelude.. Lens.mapping Core._Base64
+mqttContext_password = Lens.lens (\MqttContext' {password} -> password) (\s@MqttContext' {} a -> s {password = a} :: MqttContext) Prelude.. Lens.mapping Data._Base64
 
 -- | The value of the @username@ key in an MQTT authorization request.
 mqttContext_username :: Lens.Lens' MqttContext (Prelude.Maybe Prelude.Text)
@@ -90,12 +91,12 @@ instance Prelude.NFData MqttContext where
       `Prelude.seq` Prelude.rnf password
       `Prelude.seq` Prelude.rnf username
 
-instance Core.ToJSON MqttContext where
+instance Data.ToJSON MqttContext where
   toJSON MqttContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientId" Core..=) Prelude.<$> clientId,
-            ("password" Core..=) Prelude.<$> password,
-            ("username" Core..=) Prelude.<$> username
+          [ ("clientId" Data..=) Prelude.<$> clientId,
+            ("password" Data..=) Prelude.<$> password,
+            ("username" Data..=) Prelude.<$> username
           ]
       )

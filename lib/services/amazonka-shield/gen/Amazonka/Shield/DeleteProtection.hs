@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,32 +93,32 @@ instance Prelude.Hashable DeleteProtection where
 instance Prelude.NFData DeleteProtection where
   rnf DeleteProtection' {..} = Prelude.rnf protectionId
 
-instance Core.ToHeaders DeleteProtection where
+instance Data.ToHeaders DeleteProtection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.DeleteProtection" ::
+              Data.=# ( "AWSShield_20160616.DeleteProtection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteProtection where
+instance Data.ToJSON DeleteProtection where
   toJSON DeleteProtection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ProtectionId" Core..= protectionId)]
+          [Prelude.Just ("ProtectionId" Data..= protectionId)]
       )
 
-instance Core.ToPath DeleteProtection where
+instance Data.ToPath DeleteProtection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteProtection where
+instance Data.ToQuery DeleteProtection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProtectionResponse' smart constructor.

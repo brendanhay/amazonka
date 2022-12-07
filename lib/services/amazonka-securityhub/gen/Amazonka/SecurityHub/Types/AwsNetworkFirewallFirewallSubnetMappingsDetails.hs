@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsNetworkFirewallFirewallSubnetMappingsDetail
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A public subnet that Network Firewall uses for the firewall.
@@ -54,15 +55,15 @@ awsNetworkFirewallFirewallSubnetMappingsDetails_subnetId :: Lens.Lens' AwsNetwor
 awsNetworkFirewallFirewallSubnetMappingsDetails_subnetId = Lens.lens (\AwsNetworkFirewallFirewallSubnetMappingsDetails' {subnetId} -> subnetId) (\s@AwsNetworkFirewallFirewallSubnetMappingsDetails' {} a -> s {subnetId = a} :: AwsNetworkFirewallFirewallSubnetMappingsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsNetworkFirewallFirewallSubnetMappingsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsNetworkFirewallFirewallSubnetMappingsDetails"
       ( \x ->
           AwsNetworkFirewallFirewallSubnetMappingsDetails'
-            Prelude.<$> (x Core..:? "SubnetId")
+            Prelude.<$> (x Data..:? "SubnetId")
       )
 
 instance
@@ -83,12 +84,12 @@ instance
       Prelude.rnf subnetId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsNetworkFirewallFirewallSubnetMappingsDetails
   where
   toJSON
     AwsNetworkFirewallFirewallSubnetMappingsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("SubnetId" Core..=) Prelude.<$> subnetId]
+            [("SubnetId" Data..=) Prelude.<$> subnetId]
         )

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest DeleteGlobalNetwork where
     Response.receiveJSON
       ( \s h x ->
           DeleteGlobalNetworkResponse'
-            Prelude.<$> (x Core..?> "GlobalNetwork")
+            Prelude.<$> (x Data..?> "GlobalNetwork")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,23 +101,23 @@ instance Prelude.NFData DeleteGlobalNetwork where
   rnf DeleteGlobalNetwork' {..} =
     Prelude.rnf globalNetworkId
 
-instance Core.ToHeaders DeleteGlobalNetwork where
+instance Data.ToHeaders DeleteGlobalNetwork where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteGlobalNetwork where
+instance Data.ToPath DeleteGlobalNetwork where
   toPath DeleteGlobalNetwork' {..} =
     Prelude.mconcat
-      ["/global-networks/", Core.toBS globalNetworkId]
+      ["/global-networks/", Data.toBS globalNetworkId]
 
-instance Core.ToQuery DeleteGlobalNetwork where
+instance Data.ToQuery DeleteGlobalNetwork where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGlobalNetworkResponse' smart constructor.

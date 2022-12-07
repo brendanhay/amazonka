@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AuditNotificationTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the targets to which audit notifications are sent.
@@ -73,15 +74,15 @@ auditNotificationTarget_targetArn = Lens.lens (\AuditNotificationTarget' {target
 auditNotificationTarget_enabled :: Lens.Lens' AuditNotificationTarget (Prelude.Maybe Prelude.Bool)
 auditNotificationTarget_enabled = Lens.lens (\AuditNotificationTarget' {enabled} -> enabled) (\s@AuditNotificationTarget' {} a -> s {enabled = a} :: AuditNotificationTarget)
 
-instance Core.FromJSON AuditNotificationTarget where
+instance Data.FromJSON AuditNotificationTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuditNotificationTarget"
       ( \x ->
           AuditNotificationTarget'
-            Prelude.<$> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "targetArn")
-            Prelude.<*> (x Core..:? "enabled")
+            Prelude.<$> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "targetArn")
+            Prelude.<*> (x Data..:? "enabled")
       )
 
 instance Prelude.Hashable AuditNotificationTarget where
@@ -96,12 +97,12 @@ instance Prelude.NFData AuditNotificationTarget where
       `Prelude.seq` Prelude.rnf targetArn
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON AuditNotificationTarget where
+instance Data.ToJSON AuditNotificationTarget where
   toJSON AuditNotificationTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("targetArn" Core..=) Prelude.<$> targetArn,
-            ("enabled" Core..=) Prelude.<$> enabled
+          [ ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("targetArn" Data..=) Prelude.<$> targetArn,
+            ("enabled" Data..=) Prelude.<$> enabled
           ]
       )

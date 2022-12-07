@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.Configuration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration.
@@ -50,12 +51,12 @@ newConfiguration =
 configuration_enabled :: Lens.Lens' Configuration (Prelude.Maybe Prelude.Bool)
 configuration_enabled = Lens.lens (\Configuration' {enabled} -> enabled) (\s@Configuration' {} a -> s {enabled = a} :: Configuration)
 
-instance Core.FromJSON Configuration where
+instance Data.FromJSON Configuration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Configuration"
       ( \x ->
-          Configuration' Prelude.<$> (x Core..:? "Enabled")
+          Configuration' Prelude.<$> (x Data..:? "Enabled")
       )
 
 instance Prelude.Hashable Configuration where
@@ -65,9 +66,9 @@ instance Prelude.Hashable Configuration where
 instance Prelude.NFData Configuration where
   rnf Configuration' {..} = Prelude.rnf enabled
 
-instance Core.ToJSON Configuration where
+instance Data.ToJSON Configuration where
   toJSON Configuration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Enabled" Core..=) Prelude.<$> enabled]
+          [("Enabled" Data..=) Prelude.<$> enabled]
       )

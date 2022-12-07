@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.ProvisionedThroughput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about provisioned throughput for EBS storage
@@ -65,14 +66,14 @@ provisionedThroughput_enabled = Lens.lens (\ProvisionedThroughput' {enabled} -> 
 provisionedThroughput_volumeThroughput :: Lens.Lens' ProvisionedThroughput (Prelude.Maybe Prelude.Int)
 provisionedThroughput_volumeThroughput = Lens.lens (\ProvisionedThroughput' {volumeThroughput} -> volumeThroughput) (\s@ProvisionedThroughput' {} a -> s {volumeThroughput = a} :: ProvisionedThroughput)
 
-instance Core.FromJSON ProvisionedThroughput where
+instance Data.FromJSON ProvisionedThroughput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisionedThroughput"
       ( \x ->
           ProvisionedThroughput'
-            Prelude.<$> (x Core..:? "enabled")
-            Prelude.<*> (x Core..:? "volumeThroughput")
+            Prelude.<$> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "volumeThroughput")
       )
 
 instance Prelude.Hashable ProvisionedThroughput where
@@ -85,12 +86,12 @@ instance Prelude.NFData ProvisionedThroughput where
     Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf volumeThroughput
 
-instance Core.ToJSON ProvisionedThroughput where
+instance Data.ToJSON ProvisionedThroughput where
   toJSON ProvisionedThroughput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("enabled" Core..=) Prelude.<$> enabled,
-            ("volumeThroughput" Core..=)
+          [ ("enabled" Data..=) Prelude.<$> enabled,
+            ("volumeThroughput" Data..=)
               Prelude.<$> volumeThroughput
           ]
       )

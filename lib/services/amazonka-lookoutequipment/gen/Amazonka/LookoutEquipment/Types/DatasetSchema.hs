@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.DatasetSchema where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the data schema used with the given dataset.
@@ -56,11 +57,11 @@ instance Prelude.Hashable DatasetSchema where
 instance Prelude.NFData DatasetSchema where
   rnf DatasetSchema' {..} = Prelude.rnf inlineDataSchema
 
-instance Core.ToJSON DatasetSchema where
+instance Data.ToJSON DatasetSchema where
   toJSON DatasetSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InlineDataSchema" Core..=)
+          [ ("InlineDataSchema" Data..=)
               Prelude.<$> inlineDataSchema
           ]
       )

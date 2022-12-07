@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.LambdaContainerParams
 import Amazonka.GreengrassV2.Types.LambdaIsolationMode
 import qualified Amazonka.Prelude as Prelude
@@ -87,12 +88,12 @@ instance Prelude.NFData LambdaLinuxProcessParams where
     Prelude.rnf containerParams
       `Prelude.seq` Prelude.rnf isolationMode
 
-instance Core.ToJSON LambdaLinuxProcessParams where
+instance Data.ToJSON LambdaLinuxProcessParams where
   toJSON LambdaLinuxProcessParams' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("containerParams" Core..=)
+          [ ("containerParams" Data..=)
               Prelude.<$> containerParams,
-            ("isolationMode" Core..=) Prelude.<$> isolationMode
+            ("isolationMode" Data..=) Prelude.<$> isolationMode
           ]
       )

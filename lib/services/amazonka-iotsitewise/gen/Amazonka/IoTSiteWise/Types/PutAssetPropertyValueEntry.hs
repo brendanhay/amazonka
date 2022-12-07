@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.PutAssetPropertyValueEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.AssetPropertyValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -132,15 +133,15 @@ instance Prelude.NFData PutAssetPropertyValueEntry where
       `Prelude.seq` Prelude.rnf entryId
       `Prelude.seq` Prelude.rnf propertyValues
 
-instance Core.ToJSON PutAssetPropertyValueEntry where
+instance Data.ToJSON PutAssetPropertyValueEntry where
   toJSON PutAssetPropertyValueEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("propertyAlias" Core..=) Prelude.<$> propertyAlias,
-            ("assetId" Core..=) Prelude.<$> assetId,
-            ("propertyId" Core..=) Prelude.<$> propertyId,
-            Prelude.Just ("entryId" Core..= entryId),
+          [ ("propertyAlias" Data..=) Prelude.<$> propertyAlias,
+            ("assetId" Data..=) Prelude.<$> assetId,
+            ("propertyId" Data..=) Prelude.<$> propertyId,
+            Prelude.Just ("entryId" Data..= entryId),
             Prelude.Just
-              ("propertyValues" Core..= propertyValues)
+              ("propertyValues" Data..= propertyValues)
           ]
       )

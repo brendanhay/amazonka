@@ -21,6 +21,7 @@ module Amazonka.MechanicalTurk.Types.ReviewResultDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This data structure is returned multiple times for each result specified
@@ -122,18 +123,18 @@ reviewResultDetail_subjectType = Lens.lens (\ReviewResultDetail' {subjectType} -
 reviewResultDetail_value :: Lens.Lens' ReviewResultDetail (Prelude.Maybe Prelude.Text)
 reviewResultDetail_value = Lens.lens (\ReviewResultDetail' {value} -> value) (\s@ReviewResultDetail' {} a -> s {value = a} :: ReviewResultDetail)
 
-instance Core.FromJSON ReviewResultDetail where
+instance Data.FromJSON ReviewResultDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReviewResultDetail"
       ( \x ->
           ReviewResultDetail'
-            Prelude.<$> (x Core..:? "SubjectId")
-            Prelude.<*> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "QuestionId")
-            Prelude.<*> (x Core..:? "ActionId")
-            Prelude.<*> (x Core..:? "SubjectType")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "SubjectId")
+            Prelude.<*> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "QuestionId")
+            Prelude.<*> (x Data..:? "ActionId")
+            Prelude.<*> (x Data..:? "SubjectType")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable ReviewResultDetail where

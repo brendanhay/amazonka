@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -156,8 +157,8 @@ instance Core.AWSRequest ListResourcesForTagOption where
     Response.receiveJSON
       ( \s h x ->
           ListResourcesForTagOptionResponse'
-            Prelude.<$> (x Core..?> "PageToken")
-            Prelude.<*> ( x Core..?> "ResourceDetails"
+            Prelude.<$> (x Data..?> "PageToken")
+            Prelude.<*> ( x Data..?> "ResourceDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -177,36 +178,36 @@ instance Prelude.NFData ListResourcesForTagOption where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf tagOptionId
 
-instance Core.ToHeaders ListResourcesForTagOption where
+instance Data.ToHeaders ListResourcesForTagOption where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ListResourcesForTagOption" ::
+              Data.=# ( "AWS242ServiceCatalogService.ListResourcesForTagOption" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListResourcesForTagOption where
+instance Data.ToJSON ListResourcesForTagOption where
   toJSON ListResourcesForTagOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceType" Core..=) Prelude.<$> resourceType,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            Prelude.Just ("TagOptionId" Core..= tagOptionId)
+          [ ("ResourceType" Data..=) Prelude.<$> resourceType,
+            ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            Prelude.Just ("TagOptionId" Data..= tagOptionId)
           ]
       )
 
-instance Core.ToPath ListResourcesForTagOption where
+instance Data.ToPath ListResourcesForTagOption where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListResourcesForTagOption where
+instance Data.ToQuery ListResourcesForTagOption where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResourcesForTagOptionResponse' smart constructor.

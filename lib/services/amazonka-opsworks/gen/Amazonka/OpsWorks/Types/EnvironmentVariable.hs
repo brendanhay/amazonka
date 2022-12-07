@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.EnvironmentVariable where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an app\'s environment variable.
@@ -98,15 +99,15 @@ environmentVariable_key = Lens.lens (\EnvironmentVariable' {key} -> key) (\s@Env
 environmentVariable_value :: Lens.Lens' EnvironmentVariable Prelude.Text
 environmentVariable_value = Lens.lens (\EnvironmentVariable' {value} -> value) (\s@EnvironmentVariable' {} a -> s {value = a} :: EnvironmentVariable)
 
-instance Core.FromJSON EnvironmentVariable where
+instance Data.FromJSON EnvironmentVariable where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentVariable"
       ( \x ->
           EnvironmentVariable'
-            Prelude.<$> (x Core..:? "Secure")
-            Prelude.<*> (x Core..: "Key")
-            Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..:? "Secure")
+            Prelude.<*> (x Data..: "Key")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable EnvironmentVariable where
@@ -121,12 +122,12 @@ instance Prelude.NFData EnvironmentVariable where
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON EnvironmentVariable where
+instance Data.ToJSON EnvironmentVariable where
   toJSON EnvironmentVariable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Secure" Core..=) Prelude.<$> secure,
-            Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Value" Core..= value)
+          [ ("Secure" Data..=) Prelude.<$> secure,
+            Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

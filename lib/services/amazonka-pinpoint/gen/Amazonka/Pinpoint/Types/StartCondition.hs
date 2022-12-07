@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.StartCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.EventStartCondition
 import Amazonka.Pinpoint.Types.SegmentCondition
 import qualified Amazonka.Prelude as Prelude
@@ -77,15 +78,15 @@ startCondition_segmentStartCondition = Lens.lens (\StartCondition' {segmentStart
 startCondition_description :: Lens.Lens' StartCondition (Prelude.Maybe Prelude.Text)
 startCondition_description = Lens.lens (\StartCondition' {description} -> description) (\s@StartCondition' {} a -> s {description = a} :: StartCondition)
 
-instance Core.FromJSON StartCondition where
+instance Data.FromJSON StartCondition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StartCondition"
       ( \x ->
           StartCondition'
-            Prelude.<$> (x Core..:? "EventStartCondition")
-            Prelude.<*> (x Core..:? "SegmentStartCondition")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "EventStartCondition")
+            Prelude.<*> (x Data..:? "SegmentStartCondition")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable StartCondition where
@@ -100,14 +101,14 @@ instance Prelude.NFData StartCondition where
       `Prelude.seq` Prelude.rnf segmentStartCondition
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToJSON StartCondition where
+instance Data.ToJSON StartCondition where
   toJSON StartCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventStartCondition" Core..=)
+          [ ("EventStartCondition" Data..=)
               Prelude.<$> eventStartCondition,
-            ("SegmentStartCondition" Core..=)
+            ("SegmentStartCondition" Data..=)
               Prelude.<$> segmentStartCondition,
-            ("Description" Core..=) Prelude.<$> description
+            ("Description" Data..=) Prelude.<$> description
           ]
       )

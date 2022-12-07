@@ -26,6 +26,7 @@ import Amazonka.CloudFormation.Types.StackDriftStatus
 import Amazonka.CloudFormation.Types.StackSetStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The structures that contain summary information about the specified
@@ -83,7 +84,7 @@ data StackSetSummary = StackSetSummary'
     -- | Most recent time when CloudFormation performed a drift detection
     -- operation on the stack set. This value will be @NULL@ for any stack set
     -- on which drift detection hasn\'t yet been performed.
-    lastDriftCheckTimestamp :: Prelude.Maybe Core.ISO8601
+    lastDriftCheckTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -227,20 +228,20 @@ stackSetSummary_permissionModel = Lens.lens (\StackSetSummary' {permissionModel}
 -- operation on the stack set. This value will be @NULL@ for any stack set
 -- on which drift detection hasn\'t yet been performed.
 stackSetSummary_lastDriftCheckTimestamp :: Lens.Lens' StackSetSummary (Prelude.Maybe Prelude.UTCTime)
-stackSetSummary_lastDriftCheckTimestamp = Lens.lens (\StackSetSummary' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackSetSummary' {} a -> s {lastDriftCheckTimestamp = a} :: StackSetSummary) Prelude.. Lens.mapping Core._Time
+stackSetSummary_lastDriftCheckTimestamp = Lens.lens (\StackSetSummary' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackSetSummary' {} a -> s {lastDriftCheckTimestamp = a} :: StackSetSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML StackSetSummary where
+instance Data.FromXML StackSetSummary where
   parseXML x =
     StackSetSummary'
-      Prelude.<$> (x Core..@? "StackSetName")
-      Prelude.<*> (x Core..@? "DriftStatus")
-      Prelude.<*> (x Core..@? "StackSetId")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "AutoDeployment")
-      Prelude.<*> (x Core..@? "ManagedExecution")
-      Prelude.<*> (x Core..@? "PermissionModel")
-      Prelude.<*> (x Core..@? "LastDriftCheckTimestamp")
+      Prelude.<$> (x Data..@? "StackSetName")
+      Prelude.<*> (x Data..@? "DriftStatus")
+      Prelude.<*> (x Data..@? "StackSetId")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "AutoDeployment")
+      Prelude.<*> (x Data..@? "ManagedExecution")
+      Prelude.<*> (x Data..@? "PermissionModel")
+      Prelude.<*> (x Data..@? "LastDriftCheckTimestamp")
 
 instance Prelude.Hashable StackSetSummary where
   hashWithSalt _salt StackSetSummary' {..} =

@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.Mitigation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The mitigation applied to a DDoS attack.
@@ -50,13 +51,13 @@ newMitigation =
 mitigation_mitigationName :: Lens.Lens' Mitigation (Prelude.Maybe Prelude.Text)
 mitigation_mitigationName = Lens.lens (\Mitigation' {mitigationName} -> mitigationName) (\s@Mitigation' {} a -> s {mitigationName = a} :: Mitigation)
 
-instance Core.FromJSON Mitigation where
+instance Data.FromJSON Mitigation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Mitigation"
       ( \x ->
           Mitigation'
-            Prelude.<$> (x Core..:? "MitigationName")
+            Prelude.<$> (x Data..:? "MitigationName")
       )
 
 instance Prelude.Hashable Mitigation where

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ApplianceModeSupportValue
 import Amazonka.EC2.Types.DnsSupportValue
@@ -105,13 +106,13 @@ instance
         `Prelude.seq` Prelude.rnf applianceModeSupport
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateTransitGatewayVpcAttachmentRequestOptions
   where
   toQuery
     CreateTransitGatewayVpcAttachmentRequestOptions' {..} =
       Prelude.mconcat
-        [ "DnsSupport" Core.=: dnsSupport,
-          "Ipv6Support" Core.=: ipv6Support,
-          "ApplianceModeSupport" Core.=: applianceModeSupport
+        [ "DnsSupport" Data.=: dnsSupport,
+          "Ipv6Support" Data.=: ipv6Support,
+          "ApplianceModeSupport" Data.=: applianceModeSupport
         ]

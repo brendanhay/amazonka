@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,7 +111,7 @@ instance Core.AWSRequest CreateJobForDevices where
       ( \s h x ->
           CreateJobForDevicesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Jobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Jobs" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable CreateJobForDevices where
@@ -125,32 +126,32 @@ instance Prelude.NFData CreateJobForDevices where
       `Prelude.seq` Prelude.rnf deviceIds
       `Prelude.seq` Prelude.rnf jobType
 
-instance Core.ToHeaders CreateJobForDevices where
+instance Data.ToHeaders CreateJobForDevices where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateJobForDevices where
+instance Data.ToJSON CreateJobForDevices where
   toJSON CreateJobForDevices' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeviceJobConfig" Core..=)
+          [ ("DeviceJobConfig" Data..=)
               Prelude.<$> deviceJobConfig,
-            Prelude.Just ("DeviceIds" Core..= deviceIds),
-            Prelude.Just ("JobType" Core..= jobType)
+            Prelude.Just ("DeviceIds" Data..= deviceIds),
+            Prelude.Just ("JobType" Data..= jobType)
           ]
       )
 
-instance Core.ToPath CreateJobForDevices where
+instance Data.ToPath CreateJobForDevices where
   toPath = Prelude.const "/jobs"
 
-instance Core.ToQuery CreateJobForDevices where
+instance Data.ToQuery CreateJobForDevices where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateJobForDevicesResponse' smart constructor.

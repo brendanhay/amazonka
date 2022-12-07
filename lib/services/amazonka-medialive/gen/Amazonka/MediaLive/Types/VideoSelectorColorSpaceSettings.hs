@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.VideoSelectorColorSpaceSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.Hdr10Settings
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,15 +55,15 @@ videoSelectorColorSpaceSettings_hdr10Settings :: Lens.Lens' VideoSelectorColorSp
 videoSelectorColorSpaceSettings_hdr10Settings = Lens.lens (\VideoSelectorColorSpaceSettings' {hdr10Settings} -> hdr10Settings) (\s@VideoSelectorColorSpaceSettings' {} a -> s {hdr10Settings = a} :: VideoSelectorColorSpaceSettings)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     VideoSelectorColorSpaceSettings
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VideoSelectorColorSpaceSettings"
       ( \x ->
           VideoSelectorColorSpaceSettings'
-            Prelude.<$> (x Core..:? "hdr10Settings")
+            Prelude.<$> (x Data..:? "hdr10Settings")
       )
 
 instance
@@ -81,11 +82,11 @@ instance
   rnf VideoSelectorColorSpaceSettings' {..} =
     Prelude.rnf hdr10Settings
 
-instance Core.ToJSON VideoSelectorColorSpaceSettings where
+instance Data.ToJSON VideoSelectorColorSpaceSettings where
   toJSON VideoSelectorColorSpaceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("hdr10Settings" Core..=)
+          [ ("hdr10Settings" Data..=)
               Prelude.<$> hdr10Settings
           ]
       )

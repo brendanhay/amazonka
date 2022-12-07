@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.DirectKinesisSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.KinesisStreamingSourceOptions
 import Amazonka.Glue.Types.StreamingDataPreviewOptions
 import qualified Amazonka.Prelude as Prelude
@@ -92,17 +93,17 @@ directKinesisSource_dataPreviewOptions = Lens.lens (\DirectKinesisSource' {dataP
 directKinesisSource_name :: Lens.Lens' DirectKinesisSource Prelude.Text
 directKinesisSource_name = Lens.lens (\DirectKinesisSource' {name} -> name) (\s@DirectKinesisSource' {} a -> s {name = a} :: DirectKinesisSource)
 
-instance Core.FromJSON DirectKinesisSource where
+instance Data.FromJSON DirectKinesisSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DirectKinesisSource"
       ( \x ->
           DirectKinesisSource'
-            Prelude.<$> (x Core..:? "WindowSize")
-            Prelude.<*> (x Core..:? "StreamingOptions")
-            Prelude.<*> (x Core..:? "DetectSchema")
-            Prelude.<*> (x Core..:? "DataPreviewOptions")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "WindowSize")
+            Prelude.<*> (x Data..:? "StreamingOptions")
+            Prelude.<*> (x Data..:? "DetectSchema")
+            Prelude.<*> (x Data..:? "DataPreviewOptions")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable DirectKinesisSource where
@@ -121,16 +122,16 @@ instance Prelude.NFData DirectKinesisSource where
       `Prelude.seq` Prelude.rnf dataPreviewOptions
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON DirectKinesisSource where
+instance Data.ToJSON DirectKinesisSource where
   toJSON DirectKinesisSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WindowSize" Core..=) Prelude.<$> windowSize,
-            ("StreamingOptions" Core..=)
+          [ ("WindowSize" Data..=) Prelude.<$> windowSize,
+            ("StreamingOptions" Data..=)
               Prelude.<$> streamingOptions,
-            ("DetectSchema" Core..=) Prelude.<$> detectSchema,
-            ("DataPreviewOptions" Core..=)
+            ("DetectSchema" Data..=) Prelude.<$> detectSchema,
+            ("DataPreviewOptions" Data..=)
               Prelude.<$> dataPreviewOptions,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )

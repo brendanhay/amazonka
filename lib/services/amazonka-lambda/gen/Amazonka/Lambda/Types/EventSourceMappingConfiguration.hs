@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.EventSourceMappingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.AmazonManagedKafkaEventSourceConfig
 import Amazonka.Lambda.Types.DestinationConfig
 import Amazonka.Lambda.Types.EventSourcePosition
@@ -105,7 +106,7 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
     maximumRetryAttempts :: Prelude.Maybe Prelude.Int,
     -- | The date that the event source mapping was last updated or that its
     -- state changed.
-    lastModified :: Prelude.Maybe Core.POSIX,
+    lastModified :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of records in each batch that Lambda pulls from your
     -- stream or queue and sends to your function. Lambda passes all of the
     -- records in the batch to the function in a single call, up to the payload
@@ -130,7 +131,7 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
     tumblingWindowInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | With @StartingPosition@ set to @AT_TIMESTAMP@, the time from which to
     -- start reading.
-    startingPositionTimestamp :: Prelude.Maybe Core.POSIX,
+    startingPositionTimestamp :: Prelude.Maybe Data.POSIX,
     -- | An array of the authentication protocol, VPC components, or virtual host
     -- to secure and define your event source.
     sourceAccessConfigurations :: Prelude.Maybe [SourceAccessConfiguration]
@@ -384,7 +385,7 @@ eventSourceMappingConfiguration_maximumRetryAttempts = Lens.lens (\EventSourceMa
 -- | The date that the event source mapping was last updated or that its
 -- state changed.
 eventSourceMappingConfiguration_lastModified :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe Prelude.UTCTime)
-eventSourceMappingConfiguration_lastModified = Lens.lens (\EventSourceMappingConfiguration' {lastModified} -> lastModified) (\s@EventSourceMappingConfiguration' {} a -> s {lastModified = a} :: EventSourceMappingConfiguration) Prelude.. Lens.mapping Core._Time
+eventSourceMappingConfiguration_lastModified = Lens.lens (\EventSourceMappingConfiguration' {lastModified} -> lastModified) (\s@EventSourceMappingConfiguration' {} a -> s {lastModified = a} :: EventSourceMappingConfiguration) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of records in each batch that Lambda pulls from your
 -- stream or queue and sends to your function. Lambda passes all of the
@@ -421,7 +422,7 @@ eventSourceMappingConfiguration_tumblingWindowInSeconds = Lens.lens (\EventSourc
 -- | With @StartingPosition@ set to @AT_TIMESTAMP@, the time from which to
 -- start reading.
 eventSourceMappingConfiguration_startingPositionTimestamp :: Lens.Lens' EventSourceMappingConfiguration (Prelude.Maybe Prelude.UTCTime)
-eventSourceMappingConfiguration_startingPositionTimestamp = Lens.lens (\EventSourceMappingConfiguration' {startingPositionTimestamp} -> startingPositionTimestamp) (\s@EventSourceMappingConfiguration' {} a -> s {startingPositionTimestamp = a} :: EventSourceMappingConfiguration) Prelude.. Lens.mapping Core._Time
+eventSourceMappingConfiguration_startingPositionTimestamp = Lens.lens (\EventSourceMappingConfiguration' {startingPositionTimestamp} -> startingPositionTimestamp) (\s@EventSourceMappingConfiguration' {} a -> s {startingPositionTimestamp = a} :: EventSourceMappingConfiguration) Prelude.. Lens.mapping Data._Time
 
 -- | An array of the authentication protocol, VPC components, or virtual host
 -- to secure and define your event source.
@@ -429,42 +430,42 @@ eventSourceMappingConfiguration_sourceAccessConfigurations :: Lens.Lens' EventSo
 eventSourceMappingConfiguration_sourceAccessConfigurations = Lens.lens (\EventSourceMappingConfiguration' {sourceAccessConfigurations} -> sourceAccessConfigurations) (\s@EventSourceMappingConfiguration' {} a -> s {sourceAccessConfigurations = a} :: EventSourceMappingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     EventSourceMappingConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventSourceMappingConfiguration"
       ( \x ->
           EventSourceMappingConfiguration'
-            Prelude.<$> (x Core..:? "MaximumRecordAgeInSeconds")
-            Prelude.<*> (x Core..:? "FunctionArn")
-            Prelude.<*> (x Core..:? "StartingPosition")
-            Prelude.<*> ( x Core..:? "FunctionResponseTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "MaximumRecordAgeInSeconds")
+            Prelude.<*> (x Data..:? "FunctionArn")
+            Prelude.<*> (x Data..:? "StartingPosition")
+            Prelude.<*> ( x Data..:? "FunctionResponseTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AmazonManagedKafkaEventSourceConfig")
-            Prelude.<*> (x Core..:? "ParallelizationFactor")
-            Prelude.<*> (x Core..:? "LastProcessingResult")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "UUID")
-            Prelude.<*> (x Core..:? "MaximumBatchingWindowInSeconds")
-            Prelude.<*> (x Core..:? "StateTransitionReason")
-            Prelude.<*> (x Core..:? "FilterCriteria")
-            Prelude.<*> (x Core..:? "SelfManagedEventSource")
-            Prelude.<*> (x Core..:? "SelfManagedKafkaEventSourceConfig")
-            Prelude.<*> (x Core..:? "DestinationConfig")
-            Prelude.<*> (x Core..:? "EventSourceArn")
-            Prelude.<*> (x Core..:? "MaximumRetryAttempts")
-            Prelude.<*> (x Core..:? "LastModified")
-            Prelude.<*> (x Core..:? "BatchSize")
-            Prelude.<*> (x Core..:? "Topics")
-            Prelude.<*> (x Core..:? "Queues")
-            Prelude.<*> (x Core..:? "BisectBatchOnFunctionError")
-            Prelude.<*> (x Core..:? "TumblingWindowInSeconds")
-            Prelude.<*> (x Core..:? "StartingPositionTimestamp")
-            Prelude.<*> ( x Core..:? "SourceAccessConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "AmazonManagedKafkaEventSourceConfig")
+            Prelude.<*> (x Data..:? "ParallelizationFactor")
+            Prelude.<*> (x Data..:? "LastProcessingResult")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "UUID")
+            Prelude.<*> (x Data..:? "MaximumBatchingWindowInSeconds")
+            Prelude.<*> (x Data..:? "StateTransitionReason")
+            Prelude.<*> (x Data..:? "FilterCriteria")
+            Prelude.<*> (x Data..:? "SelfManagedEventSource")
+            Prelude.<*> (x Data..:? "SelfManagedKafkaEventSourceConfig")
+            Prelude.<*> (x Data..:? "DestinationConfig")
+            Prelude.<*> (x Data..:? "EventSourceArn")
+            Prelude.<*> (x Data..:? "MaximumRetryAttempts")
+            Prelude.<*> (x Data..:? "LastModified")
+            Prelude.<*> (x Data..:? "BatchSize")
+            Prelude.<*> (x Data..:? "Topics")
+            Prelude.<*> (x Data..:? "Queues")
+            Prelude.<*> (x Data..:? "BisectBatchOnFunctionError")
+            Prelude.<*> (x Data..:? "TumblingWindowInSeconds")
+            Prelude.<*> (x Data..:? "StartingPositionTimestamp")
+            Prelude.<*> ( x Data..:? "SourceAccessConfigurations"
+                            Data..!= Prelude.mempty
                         )
       )
 

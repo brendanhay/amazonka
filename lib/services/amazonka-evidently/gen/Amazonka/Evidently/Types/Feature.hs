@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.Feature where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.EvaluationRule
 import Amazonka.Evidently.Types.FeatureEvaluationStrategy
 import Amazonka.Evidently.Types.FeatureStatus
@@ -63,13 +64,13 @@ data Feature = Feature'
     -- | The ARN of the feature.
     arn :: Prelude.Text,
     -- | The date and time that the feature is created.
-    createdTime :: Core.POSIX,
+    createdTime :: Data.POSIX,
     -- | If this value is @ALL_RULES@, the traffic allocation specified by any
     -- ongoing launches or experiments is being used. If this is
     -- @DEFAULT_VARIATION@, the default variation is being served to all users.
     evaluationStrategy :: FeatureEvaluationStrategy,
     -- | The date and time that the feature was most recently updated.
-    lastUpdatedTime :: Core.POSIX,
+    lastUpdatedTime :: Data.POSIX,
     -- | The name of the feature.
     name :: Prelude.Text,
     -- | The current state of the feature.
@@ -171,10 +172,10 @@ newFeature
         entityOverrides = Prelude.Nothing,
         defaultVariation = Prelude.Nothing,
         arn = pArn_,
-        createdTime = Core._Time Lens.# pCreatedTime_,
+        createdTime = Data._Time Lens.# pCreatedTime_,
         evaluationStrategy = pEvaluationStrategy_,
         lastUpdatedTime =
-          Core._Time Lens.# pLastUpdatedTime_,
+          Data._Time Lens.# pLastUpdatedTime_,
         name = pName_,
         status = pStatus_,
         valueType = pValueType_,
@@ -226,7 +227,7 @@ feature_arn = Lens.lens (\Feature' {arn} -> arn) (\s@Feature' {} a -> s {arn = a
 
 -- | The date and time that the feature is created.
 feature_createdTime :: Lens.Lens' Feature Prelude.UTCTime
-feature_createdTime = Lens.lens (\Feature' {createdTime} -> createdTime) (\s@Feature' {} a -> s {createdTime = a} :: Feature) Prelude.. Core._Time
+feature_createdTime = Lens.lens (\Feature' {createdTime} -> createdTime) (\s@Feature' {} a -> s {createdTime = a} :: Feature) Prelude.. Data._Time
 
 -- | If this value is @ALL_RULES@, the traffic allocation specified by any
 -- ongoing launches or experiments is being used. If this is
@@ -236,7 +237,7 @@ feature_evaluationStrategy = Lens.lens (\Feature' {evaluationStrategy} -> evalua
 
 -- | The date and time that the feature was most recently updated.
 feature_lastUpdatedTime :: Lens.Lens' Feature Prelude.UTCTime
-feature_lastUpdatedTime = Lens.lens (\Feature' {lastUpdatedTime} -> lastUpdatedTime) (\s@Feature' {} a -> s {lastUpdatedTime = a} :: Feature) Prelude.. Core._Time
+feature_lastUpdatedTime = Lens.lens (\Feature' {lastUpdatedTime} -> lastUpdatedTime) (\s@Feature' {} a -> s {lastUpdatedTime = a} :: Feature) Prelude.. Data._Time
 
 -- | The name of the feature.
 feature_name :: Lens.Lens' Feature Prelude.Text
@@ -257,30 +258,30 @@ feature_valueType = Lens.lens (\Feature' {valueType} -> valueType) (\s@Feature' 
 feature_variations :: Lens.Lens' Feature [Variation]
 feature_variations = Lens.lens (\Feature' {variations} -> variations) (\s@Feature' {} a -> s {variations = a} :: Feature) Prelude.. Lens.coerced
 
-instance Core.FromJSON Feature where
+instance Data.FromJSON Feature where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Feature"
       ( \x ->
           Feature'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "project")
-            Prelude.<*> ( x Core..:? "evaluationRules"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "project")
+            Prelude.<*> ( x Data..:? "evaluationRules"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "entityOverrides"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "entityOverrides"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "defaultVariation")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdTime")
-            Prelude.<*> (x Core..: "evaluationStrategy")
-            Prelude.<*> (x Core..: "lastUpdatedTime")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "valueType")
-            Prelude.<*> (x Core..:? "variations" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "defaultVariation")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdTime")
+            Prelude.<*> (x Data..: "evaluationStrategy")
+            Prelude.<*> (x Data..: "lastUpdatedTime")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "valueType")
+            Prelude.<*> (x Data..:? "variations" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Feature where

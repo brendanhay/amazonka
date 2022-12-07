@@ -21,6 +21,7 @@ module Amazonka.ConnectParticipant.Types.UploadMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Fields to be used while uploading the attachment.
@@ -82,17 +83,17 @@ uploadMetadata_headersToInclude = Lens.lens (\UploadMetadata' {headersToInclude}
 uploadMetadata_urlExpiry :: Lens.Lens' UploadMetadata (Prelude.Maybe Prelude.Text)
 uploadMetadata_urlExpiry = Lens.lens (\UploadMetadata' {urlExpiry} -> urlExpiry) (\s@UploadMetadata' {} a -> s {urlExpiry = a} :: UploadMetadata)
 
-instance Core.FromJSON UploadMetadata where
+instance Data.FromJSON UploadMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UploadMetadata"
       ( \x ->
           UploadMetadata'
-            Prelude.<$> (x Core..:? "Url")
-            Prelude.<*> ( x Core..:? "HeadersToInclude"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Url")
+            Prelude.<*> ( x Data..:? "HeadersToInclude"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "UrlExpiry")
+            Prelude.<*> (x Data..:? "UrlExpiry")
       )
 
 instance Prelude.Hashable UploadMetadata where

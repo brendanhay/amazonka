@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.CampaignSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the properties of a campaign. For a complete
@@ -33,7 +34,7 @@ data CampaignSummary = CampaignSummary'
   { -- | The name of the campaign.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the campaign was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The status of the campaign.
     --
     -- A campaign can be in one of the following states:
@@ -45,7 +46,7 @@ data CampaignSummary = CampaignSummary'
     -- | The Amazon Resource Name (ARN) of the campaign.
     campaignArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the campaign was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | If a campaign fails, the reason behind the failure.
     failureReason :: Prelude.Maybe Prelude.Text
   }
@@ -94,7 +95,7 @@ campaignSummary_name = Lens.lens (\CampaignSummary' {name} -> name) (\s@Campaign
 
 -- | The date and time (in Unix time) that the campaign was created.
 campaignSummary_creationDateTime :: Lens.Lens' CampaignSummary (Prelude.Maybe Prelude.UTCTime)
-campaignSummary_creationDateTime = Lens.lens (\CampaignSummary' {creationDateTime} -> creationDateTime) (\s@CampaignSummary' {} a -> s {creationDateTime = a} :: CampaignSummary) Prelude.. Lens.mapping Core._Time
+campaignSummary_creationDateTime = Lens.lens (\CampaignSummary' {creationDateTime} -> creationDateTime) (\s@CampaignSummary' {} a -> s {creationDateTime = a} :: CampaignSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the campaign.
 --
@@ -112,24 +113,24 @@ campaignSummary_campaignArn = Lens.lens (\CampaignSummary' {campaignArn} -> camp
 
 -- | The date and time (in Unix time) that the campaign was last updated.
 campaignSummary_lastUpdatedDateTime :: Lens.Lens' CampaignSummary (Prelude.Maybe Prelude.UTCTime)
-campaignSummary_lastUpdatedDateTime = Lens.lens (\CampaignSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@CampaignSummary' {} a -> s {lastUpdatedDateTime = a} :: CampaignSummary) Prelude.. Lens.mapping Core._Time
+campaignSummary_lastUpdatedDateTime = Lens.lens (\CampaignSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@CampaignSummary' {} a -> s {lastUpdatedDateTime = a} :: CampaignSummary) Prelude.. Lens.mapping Data._Time
 
 -- | If a campaign fails, the reason behind the failure.
 campaignSummary_failureReason :: Lens.Lens' CampaignSummary (Prelude.Maybe Prelude.Text)
 campaignSummary_failureReason = Lens.lens (\CampaignSummary' {failureReason} -> failureReason) (\s@CampaignSummary' {} a -> s {failureReason = a} :: CampaignSummary)
 
-instance Core.FromJSON CampaignSummary where
+instance Data.FromJSON CampaignSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CampaignSummary"
       ( \x ->
           CampaignSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "campaignArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "campaignArn")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable CampaignSummary where

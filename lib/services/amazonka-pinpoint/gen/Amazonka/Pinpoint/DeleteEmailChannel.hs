@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance Core.AWSRequest DeleteEmailChannel where
       ( \s h x ->
           DeleteEmailChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable DeleteEmailChannel where
@@ -102,26 +103,26 @@ instance Prelude.NFData DeleteEmailChannel where
   rnf DeleteEmailChannel' {..} =
     Prelude.rnf applicationId
 
-instance Core.ToHeaders DeleteEmailChannel where
+instance Data.ToHeaders DeleteEmailChannel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteEmailChannel where
+instance Data.ToPath DeleteEmailChannel where
   toPath DeleteEmailChannel' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/channels/email"
       ]
 
-instance Core.ToQuery DeleteEmailChannel where
+instance Data.ToQuery DeleteEmailChannel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEmailChannelResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceExportDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ExportEnvironment
 import qualified Amazonka.Prelude as Prelude
@@ -64,11 +65,11 @@ instanceExportDetails_targetEnvironment = Lens.lens (\InstanceExportDetails' {ta
 instanceExportDetails_instanceId :: Lens.Lens' InstanceExportDetails (Prelude.Maybe Prelude.Text)
 instanceExportDetails_instanceId = Lens.lens (\InstanceExportDetails' {instanceId} -> instanceId) (\s@InstanceExportDetails' {} a -> s {instanceId = a} :: InstanceExportDetails)
 
-instance Core.FromXML InstanceExportDetails where
+instance Data.FromXML InstanceExportDetails where
   parseXML x =
     InstanceExportDetails'
-      Prelude.<$> (x Core..@? "targetEnvironment")
-      Prelude.<*> (x Core..@? "instanceId")
+      Prelude.<$> (x Data..@? "targetEnvironment")
+      Prelude.<*> (x Data..@? "instanceId")
 
 instance Prelude.Hashable InstanceExportDetails where
   hashWithSalt _salt InstanceExportDetails' {..} =

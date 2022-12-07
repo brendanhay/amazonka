@@ -43,6 +43,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetMonitoringSubscription where
     Response.receiveXML
       ( \s h x ->
           GetMonitoringSubscriptionResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,18 +100,18 @@ instance Prelude.NFData GetMonitoringSubscription where
   rnf GetMonitoringSubscription' {..} =
     Prelude.rnf distributionId
 
-instance Core.ToHeaders GetMonitoringSubscription where
+instance Data.ToHeaders GetMonitoringSubscription where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetMonitoringSubscription where
+instance Data.ToPath GetMonitoringSubscription where
   toPath GetMonitoringSubscription' {..} =
     Prelude.mconcat
       [ "/2020-05-31/distributions/",
-        Core.toBS distributionId,
+        Data.toBS distributionId,
         "/monitoring-subscription/"
       ]
 
-instance Core.ToQuery GetMonitoringSubscription where
+instance Data.ToQuery GetMonitoringSubscription where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMonitoringSubscriptionResponse' smart constructor.

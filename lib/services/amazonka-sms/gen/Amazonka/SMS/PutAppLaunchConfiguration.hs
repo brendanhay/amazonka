@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,37 +142,37 @@ instance Prelude.NFData PutAppLaunchConfiguration where
       `Prelude.seq` Prelude.rnf autoLaunch
       `Prelude.seq` Prelude.rnf appId
 
-instance Core.ToHeaders PutAppLaunchConfiguration where
+instance Data.ToHeaders PutAppLaunchConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutAppLaunchConfiguration where
+instance Data.ToJSON PutAppLaunchConfiguration where
   toJSON PutAppLaunchConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleName" Core..=) Prelude.<$> roleName,
-            ("serverGroupLaunchConfigurations" Core..=)
+          [ ("roleName" Data..=) Prelude.<$> roleName,
+            ("serverGroupLaunchConfigurations" Data..=)
               Prelude.<$> serverGroupLaunchConfigurations,
-            ("autoLaunch" Core..=) Prelude.<$> autoLaunch,
-            ("appId" Core..=) Prelude.<$> appId
+            ("autoLaunch" Data..=) Prelude.<$> autoLaunch,
+            ("appId" Data..=) Prelude.<$> appId
           ]
       )
 
-instance Core.ToPath PutAppLaunchConfiguration where
+instance Data.ToPath PutAppLaunchConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutAppLaunchConfiguration where
+instance Data.ToQuery PutAppLaunchConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAppLaunchConfigurationResponse' smart constructor.

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,9 +131,9 @@ instance Core.AWSRequest ListSubscriptionsByTopic where
       "ListSubscriptionsByTopicResult"
       ( \s h x ->
           ListSubscriptionsByTopicResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "Subscriptions" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "Subscriptions" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -147,21 +148,21 @@ instance Prelude.NFData ListSubscriptionsByTopic where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf topicArn
 
-instance Core.ToHeaders ListSubscriptionsByTopic where
+instance Data.ToHeaders ListSubscriptionsByTopic where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListSubscriptionsByTopic where
+instance Data.ToPath ListSubscriptionsByTopic where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSubscriptionsByTopic where
+instance Data.ToQuery ListSubscriptionsByTopic where
   toQuery ListSubscriptionsByTopic' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListSubscriptionsByTopic" :: Prelude.ByteString),
+          Data.=: ("ListSubscriptionsByTopic" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "TopicArn" Core.=: topicArn
+          Data.=: ("2010-03-31" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "TopicArn" Data.=: topicArn
       ]
 
 -- | Response for ListSubscriptionsByTopic action.

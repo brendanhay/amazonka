@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,26 +129,26 @@ instance Prelude.NFData DeleteLens where
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf lensStatus
 
-instance Core.ToHeaders DeleteLens where
+instance Data.ToHeaders DeleteLens where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteLens where
+instance Data.ToPath DeleteLens where
   toPath DeleteLens' {..} =
-    Prelude.mconcat ["/lenses/", Core.toBS lensAlias]
+    Prelude.mconcat ["/lenses/", Data.toBS lensAlias]
 
-instance Core.ToQuery DeleteLens where
+instance Data.ToQuery DeleteLens where
   toQuery DeleteLens' {..} =
     Prelude.mconcat
-      [ "ClientRequestToken" Core.=: clientRequestToken,
-        "LensStatus" Core.=: lensStatus
+      [ "ClientRequestToken" Data.=: clientRequestToken,
+        "LensStatus" Data.=: lensStatus
       ]
 
 -- | /See:/ 'newDeleteLensResponse' smart constructor.

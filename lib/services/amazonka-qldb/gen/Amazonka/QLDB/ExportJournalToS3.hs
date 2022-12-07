@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ data ExportJournalToS3 = ExportJournalToS3'
     -- If you provide an @InclusiveStartTime@ that is before the ledger\'s
     -- @CreationDateTime@, Amazon QLDB defaults it to the ledger\'s
     -- @CreationDateTime@.
-    inclusiveStartTime :: Core.POSIX,
+    inclusiveStartTime :: Data.POSIX,
     -- | The exclusive end date and time for the range of journal contents to
     -- export.
     --
@@ -99,7 +100,7 @@ data ExportJournalToS3 = ExportJournalToS3'
     --
     -- The @ExclusiveEndTime@ must be less than or equal to the current UTC
     -- date and time.
-    exclusiveEndTime :: Core.POSIX,
+    exclusiveEndTime :: Data.POSIX,
     -- | The configuration settings of the Amazon S3 bucket destination for your
     -- export request.
     s3ExportConfiguration :: S3ExportConfiguration,
@@ -191,9 +192,9 @@ newExportJournalToS3
       { outputFormat = Prelude.Nothing,
         name = pName_,
         inclusiveStartTime =
-          Core._Time Lens.# pInclusiveStartTime_,
+          Data._Time Lens.# pInclusiveStartTime_,
         exclusiveEndTime =
-          Core._Time Lens.# pExclusiveEndTime_,
+          Data._Time Lens.# pExclusiveEndTime_,
         s3ExportConfiguration = pS3ExportConfiguration_,
         roleArn = pRoleArn_
       }
@@ -220,7 +221,7 @@ exportJournalToS3_name = Lens.lens (\ExportJournalToS3' {name} -> name) (\s@Expo
 -- @CreationDateTime@, Amazon QLDB defaults it to the ledger\'s
 -- @CreationDateTime@.
 exportJournalToS3_inclusiveStartTime :: Lens.Lens' ExportJournalToS3 Prelude.UTCTime
-exportJournalToS3_inclusiveStartTime = Lens.lens (\ExportJournalToS3' {inclusiveStartTime} -> inclusiveStartTime) (\s@ExportJournalToS3' {} a -> s {inclusiveStartTime = a} :: ExportJournalToS3) Prelude.. Core._Time
+exportJournalToS3_inclusiveStartTime = Lens.lens (\ExportJournalToS3' {inclusiveStartTime} -> inclusiveStartTime) (\s@ExportJournalToS3' {} a -> s {inclusiveStartTime = a} :: ExportJournalToS3) Prelude.. Data._Time
 
 -- | The exclusive end date and time for the range of journal contents to
 -- export.
@@ -231,7 +232,7 @@ exportJournalToS3_inclusiveStartTime = Lens.lens (\ExportJournalToS3' {inclusive
 -- The @ExclusiveEndTime@ must be less than or equal to the current UTC
 -- date and time.
 exportJournalToS3_exclusiveEndTime :: Lens.Lens' ExportJournalToS3 Prelude.UTCTime
-exportJournalToS3_exclusiveEndTime = Lens.lens (\ExportJournalToS3' {exclusiveEndTime} -> exclusiveEndTime) (\s@ExportJournalToS3' {} a -> s {exclusiveEndTime = a} :: ExportJournalToS3) Prelude.. Core._Time
+exportJournalToS3_exclusiveEndTime = Lens.lens (\ExportJournalToS3' {exclusiveEndTime} -> exclusiveEndTime) (\s@ExportJournalToS3' {} a -> s {exclusiveEndTime = a} :: ExportJournalToS3) Prelude.. Data._Time
 
 -- | The configuration settings of the Amazon S3 bucket destination for your
 -- export request.
@@ -264,7 +265,7 @@ instance Core.AWSRequest ExportJournalToS3 where
       ( \s h x ->
           ExportJournalToS3Response'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ExportId")
+            Prelude.<*> (x Data..:> "ExportId")
       )
 
 instance Prelude.Hashable ExportJournalToS3 where
@@ -285,40 +286,40 @@ instance Prelude.NFData ExportJournalToS3 where
       `Prelude.seq` Prelude.rnf s3ExportConfiguration
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders ExportJournalToS3 where
+instance Data.ToHeaders ExportJournalToS3 where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExportJournalToS3 where
+instance Data.ToJSON ExportJournalToS3 where
   toJSON ExportJournalToS3' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutputFormat" Core..=) Prelude.<$> outputFormat,
+          [ ("OutputFormat" Data..=) Prelude.<$> outputFormat,
             Prelude.Just
-              ("InclusiveStartTime" Core..= inclusiveStartTime),
+              ("InclusiveStartTime" Data..= inclusiveStartTime),
             Prelude.Just
-              ("ExclusiveEndTime" Core..= exclusiveEndTime),
+              ("ExclusiveEndTime" Data..= exclusiveEndTime),
             Prelude.Just
               ( "S3ExportConfiguration"
-                  Core..= s3ExportConfiguration
+                  Data..= s3ExportConfiguration
               ),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath ExportJournalToS3 where
+instance Data.ToPath ExportJournalToS3 where
   toPath ExportJournalToS3' {..} =
     Prelude.mconcat
-      ["/ledgers/", Core.toBS name, "/journal-s3-exports"]
+      ["/ledgers/", Data.toBS name, "/journal-s3-exports"]
 
-instance Core.ToQuery ExportJournalToS3 where
+instance Data.ToQuery ExportJournalToS3 where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExportJournalToS3Response' smart constructor.

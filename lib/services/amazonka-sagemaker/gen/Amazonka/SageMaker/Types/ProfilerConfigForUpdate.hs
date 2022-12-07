@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProfilerConfigForUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for updating the Debugger profile parameters,
@@ -120,16 +121,16 @@ instance Prelude.NFData ProfilerConfigForUpdate where
       `Prelude.seq` Prelude.rnf profilingParameters
       `Prelude.seq` Prelude.rnf disableProfiler
 
-instance Core.ToJSON ProfilerConfigForUpdate where
+instance Data.ToJSON ProfilerConfigForUpdate where
   toJSON ProfilerConfigForUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProfilingIntervalInMilliseconds" Core..=)
+          [ ("ProfilingIntervalInMilliseconds" Data..=)
               Prelude.<$> profilingIntervalInMilliseconds,
-            ("S3OutputPath" Core..=) Prelude.<$> s3OutputPath,
-            ("ProfilingParameters" Core..=)
+            ("S3OutputPath" Data..=) Prelude.<$> s3OutputPath,
+            ("ProfilingParameters" Data..=)
               Prelude.<$> profilingParameters,
-            ("DisableProfiler" Core..=)
+            ("DisableProfiler" Data..=)
               Prelude.<$> disableProfiler
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Rum.Types.QueryFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that defines a key and values that you can use to filter the
@@ -97,11 +98,11 @@ instance Prelude.NFData QueryFilter where
   rnf QueryFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON QueryFilter where
+instance Data.ToJSON QueryFilter where
   toJSON QueryFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Values" Data..=) Prelude.<$> values
           ]
       )

@@ -46,6 +46,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -59,7 +60,7 @@ data AdminUpdateDeviceStatus = AdminUpdateDeviceStatus'
     -- | The user pool ID.
     userPoolId :: Prelude.Text,
     -- | The user name.
-    username :: Core.Sensitive Prelude.Text,
+    username :: Data.Sensitive Prelude.Text,
     -- | The device key.
     deviceKey :: Prelude.Text
   }
@@ -96,7 +97,7 @@ newAdminUpdateDeviceStatus
       { deviceRememberedStatus =
           Prelude.Nothing,
         userPoolId = pUserPoolId_,
-        username = Core._Sensitive Lens.# pUsername_,
+        username = Data._Sensitive Lens.# pUsername_,
         deviceKey = pDeviceKey_
       }
 
@@ -110,7 +111,7 @@ adminUpdateDeviceStatus_userPoolId = Lens.lens (\AdminUpdateDeviceStatus' {userP
 
 -- | The user name.
 adminUpdateDeviceStatus_username :: Lens.Lens' AdminUpdateDeviceStatus Prelude.Text
-adminUpdateDeviceStatus_username = Lens.lens (\AdminUpdateDeviceStatus' {username} -> username) (\s@AdminUpdateDeviceStatus' {} a -> s {username = a} :: AdminUpdateDeviceStatus) Prelude.. Core._Sensitive
+adminUpdateDeviceStatus_username = Lens.lens (\AdminUpdateDeviceStatus' {username} -> username) (\s@AdminUpdateDeviceStatus' {} a -> s {username = a} :: AdminUpdateDeviceStatus) Prelude.. Data._Sensitive
 
 -- | The device key.
 adminUpdateDeviceStatus_deviceKey :: Lens.Lens' AdminUpdateDeviceStatus Prelude.Text
@@ -143,37 +144,37 @@ instance Prelude.NFData AdminUpdateDeviceStatus where
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf deviceKey
 
-instance Core.ToHeaders AdminUpdateDeviceStatus where
+instance Data.ToHeaders AdminUpdateDeviceStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminUpdateDeviceStatus where
+instance Data.ToJSON AdminUpdateDeviceStatus where
   toJSON AdminUpdateDeviceStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeviceRememberedStatus" Core..=)
+          [ ("DeviceRememberedStatus" Data..=)
               Prelude.<$> deviceRememberedStatus,
-            Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("Username" Core..= username),
-            Prelude.Just ("DeviceKey" Core..= deviceKey)
+            Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("Username" Data..= username),
+            Prelude.Just ("DeviceKey" Data..= deviceKey)
           ]
       )
 
-instance Core.ToPath AdminUpdateDeviceStatus where
+instance Data.ToPath AdminUpdateDeviceStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminUpdateDeviceStatus where
+instance Data.ToQuery AdminUpdateDeviceStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The status response to the request to update the device, as an

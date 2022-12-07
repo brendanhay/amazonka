@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -171,7 +172,7 @@ instance Core.AWSRequest CreateLink where
     Response.receiveJSON
       ( \s h x ->
           CreateLinkResponse'
-            Prelude.<$> (x Core..?> "Link")
+            Prelude.<$> (x Data..?> "Link")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,39 +196,39 @@ instance Prelude.NFData CreateLink where
       `Prelude.seq` Prelude.rnf bandwidth
       `Prelude.seq` Prelude.rnf siteId
 
-instance Core.ToHeaders CreateLink where
+instance Data.ToHeaders CreateLink where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLink where
+instance Data.ToJSON CreateLink where
   toJSON CreateLink' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Provider" Core..=) Prelude.<$> provider,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Bandwidth" Core..= bandwidth),
-            Prelude.Just ("SiteId" Core..= siteId)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Provider" Data..=) Prelude.<$> provider,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Bandwidth" Data..= bandwidth),
+            Prelude.Just ("SiteId" Data..= siteId)
           ]
       )
 
-instance Core.ToPath CreateLink where
+instance Data.ToPath CreateLink where
   toPath CreateLink' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/links"
       ]
 
-instance Core.ToQuery CreateLink where
+instance Data.ToQuery CreateLink where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLinkResponse' smart constructor.

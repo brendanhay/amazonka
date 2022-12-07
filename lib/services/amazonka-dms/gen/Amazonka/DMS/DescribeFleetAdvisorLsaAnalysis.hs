@@ -45,6 +45,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,8 +109,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetAdvisorLsaAnalysisResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Analysis" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Analysis" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,36 +133,36 @@ instance
       `Prelude.seq` Prelude.rnf maxRecords
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeFleetAdvisorLsaAnalysis
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DescribeFleetAdvisorLsaAnalysis" ::
+              Data.=# ( "AmazonDMSv20160101.DescribeFleetAdvisorLsaAnalysis" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFleetAdvisorLsaAnalysis where
+instance Data.ToJSON DescribeFleetAdvisorLsaAnalysis where
   toJSON DescribeFleetAdvisorLsaAnalysis' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxRecords" Data..=) Prelude.<$> maxRecords
           ]
       )
 
-instance Core.ToPath DescribeFleetAdvisorLsaAnalysis where
+instance Data.ToPath DescribeFleetAdvisorLsaAnalysis where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFleetAdvisorLsaAnalysis where
+instance Data.ToQuery DescribeFleetAdvisorLsaAnalysis where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFleetAdvisorLsaAnalysisResponse' smart constructor.

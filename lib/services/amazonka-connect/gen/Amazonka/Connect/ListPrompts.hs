@@ -48,6 +48,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,8 +137,8 @@ instance Core.AWSRequest ListPrompts where
     Response.receiveJSON
       ( \s h x ->
           ListPromptsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "PromptSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "PromptSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -155,27 +156,27 @@ instance Prelude.NFData ListPrompts where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ListPrompts where
+instance Data.ToHeaders ListPrompts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListPrompts where
+instance Data.ToPath ListPrompts where
   toPath ListPrompts' {..} =
     Prelude.mconcat
-      ["/prompts-summary/", Core.toBS instanceId]
+      ["/prompts-summary/", Data.toBS instanceId]
 
-instance Core.ToQuery ListPrompts where
+instance Data.ToQuery ListPrompts where
   toQuery ListPrompts' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListPromptsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.PropertyPredicate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.Comparator
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,12 +84,12 @@ instance Prelude.NFData PropertyPredicate where
       `Prelude.seq` Prelude.rnf comparator
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON PropertyPredicate where
+instance Data.ToJSON PropertyPredicate where
   toJSON PropertyPredicate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Comparator" Core..=) Prelude.<$> comparator,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Comparator" Data..=) Prelude.<$> comparator,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

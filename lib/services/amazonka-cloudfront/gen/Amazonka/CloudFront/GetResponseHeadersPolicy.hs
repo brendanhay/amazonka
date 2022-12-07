@@ -51,6 +51,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,8 +111,8 @@ instance Core.AWSRequest GetResponseHeadersPolicy where
     Response.receiveXML
       ( \s h x ->
           GetResponseHeadersPolicyResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,17 +123,17 @@ instance Prelude.Hashable GetResponseHeadersPolicy where
 instance Prelude.NFData GetResponseHeadersPolicy where
   rnf GetResponseHeadersPolicy' {..} = Prelude.rnf id
 
-instance Core.ToHeaders GetResponseHeadersPolicy where
+instance Data.ToHeaders GetResponseHeadersPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetResponseHeadersPolicy where
+instance Data.ToPath GetResponseHeadersPolicy where
   toPath GetResponseHeadersPolicy' {..} =
     Prelude.mconcat
       [ "/2020-05-31/response-headers-policy/",
-        Core.toBS id
+        Data.toBS id
       ]
 
-instance Core.ToQuery GetResponseHeadersPolicy where
+instance Data.ToQuery GetResponseHeadersPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResponseHeadersPolicyResponse' smart constructor.

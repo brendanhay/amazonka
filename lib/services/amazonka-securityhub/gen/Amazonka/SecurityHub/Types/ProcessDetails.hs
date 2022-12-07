@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.ProcessDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of process-related information about a finding.
@@ -127,18 +128,18 @@ processDetails_path = Lens.lens (\ProcessDetails' {path} -> path) (\s@ProcessDet
 processDetails_launchedAt :: Lens.Lens' ProcessDetails (Prelude.Maybe Prelude.Text)
 processDetails_launchedAt = Lens.lens (\ProcessDetails' {launchedAt} -> launchedAt) (\s@ProcessDetails' {} a -> s {launchedAt = a} :: ProcessDetails)
 
-instance Core.FromJSON ProcessDetails where
+instance Data.FromJSON ProcessDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProcessDetails"
       ( \x ->
           ProcessDetails'
-            Prelude.<$> (x Core..:? "ParentPid")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Pid")
-            Prelude.<*> (x Core..:? "TerminatedAt")
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "LaunchedAt")
+            Prelude.<$> (x Data..:? "ParentPid")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Pid")
+            Prelude.<*> (x Data..:? "TerminatedAt")
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "LaunchedAt")
       )
 
 instance Prelude.Hashable ProcessDetails where
@@ -159,15 +160,15 @@ instance Prelude.NFData ProcessDetails where
       `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf launchedAt
 
-instance Core.ToJSON ProcessDetails where
+instance Data.ToJSON ProcessDetails where
   toJSON ProcessDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ParentPid" Core..=) Prelude.<$> parentPid,
-            ("Name" Core..=) Prelude.<$> name,
-            ("Pid" Core..=) Prelude.<$> pid,
-            ("TerminatedAt" Core..=) Prelude.<$> terminatedAt,
-            ("Path" Core..=) Prelude.<$> path,
-            ("LaunchedAt" Core..=) Prelude.<$> launchedAt
+          [ ("ParentPid" Data..=) Prelude.<$> parentPid,
+            ("Name" Data..=) Prelude.<$> name,
+            ("Pid" Data..=) Prelude.<$> pid,
+            ("TerminatedAt" Data..=) Prelude.<$> terminatedAt,
+            ("Path" Data..=) Prelude.<$> path,
+            ("LaunchedAt" Data..=) Prelude.<$> launchedAt
           ]
       )

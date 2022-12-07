@@ -121,6 +121,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -463,7 +464,7 @@ instance Core.AWSRequest CreateFileSystem where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateFileSystem where
   hashWithSalt _salt CreateFileSystem' {..} =
@@ -489,32 +490,32 @@ instance Prelude.NFData CreateFileSystem where
       `Prelude.seq` Prelude.rnf throughputMode
       `Prelude.seq` Prelude.rnf creationToken
 
-instance Core.ToHeaders CreateFileSystem where
+instance Data.ToHeaders CreateFileSystem where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateFileSystem where
+instance Data.ToJSON CreateFileSystem where
   toJSON CreateFileSystem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("PerformanceMode" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("PerformanceMode" Data..=)
               Prelude.<$> performanceMode,
-            ("ProvisionedThroughputInMibps" Core..=)
+            ("ProvisionedThroughputInMibps" Data..=)
               Prelude.<$> provisionedThroughputInMibps,
-            ("Backup" Core..=) Prelude.<$> backup,
-            ("AvailabilityZoneName" Core..=)
+            ("Backup" Data..=) Prelude.<$> backup,
+            ("AvailabilityZoneName" Data..=)
               Prelude.<$> availabilityZoneName,
-            ("Encrypted" Core..=) Prelude.<$> encrypted,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("ThroughputMode" Core..=)
+            ("Encrypted" Data..=) Prelude.<$> encrypted,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("ThroughputMode" Data..=)
               Prelude.<$> throughputMode,
             Prelude.Just
-              ("CreationToken" Core..= creationToken)
+              ("CreationToken" Data..= creationToken)
           ]
       )
 
-instance Core.ToPath CreateFileSystem where
+instance Data.ToPath CreateFileSystem where
   toPath = Prelude.const "/2015-02-01/file-systems"
 
-instance Core.ToQuery CreateFileSystem where
+instance Data.ToQuery CreateFileSystem where
   toQuery = Prelude.const Prelude.mempty

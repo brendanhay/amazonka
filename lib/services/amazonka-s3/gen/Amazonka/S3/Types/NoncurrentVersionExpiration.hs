@@ -21,6 +21,7 @@ module Amazonka.S3.Types.NoncurrentVersionExpiration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -93,11 +94,11 @@ noncurrentVersionExpiration_newerNoncurrentVersions = Lens.lens (\NoncurrentVers
 noncurrentVersionExpiration_noncurrentDays :: Lens.Lens' NoncurrentVersionExpiration Prelude.Int
 noncurrentVersionExpiration_noncurrentDays = Lens.lens (\NoncurrentVersionExpiration' {noncurrentDays} -> noncurrentDays) (\s@NoncurrentVersionExpiration' {} a -> s {noncurrentDays = a} :: NoncurrentVersionExpiration)
 
-instance Core.FromXML NoncurrentVersionExpiration where
+instance Data.FromXML NoncurrentVersionExpiration where
   parseXML x =
     NoncurrentVersionExpiration'
-      Prelude.<$> (x Core..@? "NewerNoncurrentVersions")
-      Prelude.<*> (x Core..@ "NoncurrentDays")
+      Prelude.<$> (x Data..@? "NewerNoncurrentVersions")
+      Prelude.<*> (x Data..@ "NoncurrentDays")
 
 instance Prelude.Hashable NoncurrentVersionExpiration where
   hashWithSalt _salt NoncurrentVersionExpiration' {..} =
@@ -110,10 +111,10 @@ instance Prelude.NFData NoncurrentVersionExpiration where
     Prelude.rnf newerNoncurrentVersions'
       `Prelude.seq` Prelude.rnf noncurrentDays
 
-instance Core.ToXML NoncurrentVersionExpiration where
+instance Data.ToXML NoncurrentVersionExpiration where
   toXML NoncurrentVersionExpiration' {..} =
     Prelude.mconcat
       [ "NewerNoncurrentVersions"
-          Core.@= newerNoncurrentVersions',
-        "NoncurrentDays" Core.@= noncurrentDays
+          Data.@= newerNoncurrentVersions',
+        "NoncurrentDays" Data.@= noncurrentDays
       ]

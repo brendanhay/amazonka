@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.NodeGroupConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Node group (shard) configuration options. Each node group (shard)
@@ -133,22 +134,22 @@ nodeGroupConfiguration_slots = Lens.lens (\NodeGroupConfiguration' {slots} -> sl
 nodeGroupConfiguration_replicaCount :: Lens.Lens' NodeGroupConfiguration (Prelude.Maybe Prelude.Int)
 nodeGroupConfiguration_replicaCount = Lens.lens (\NodeGroupConfiguration' {replicaCount} -> replicaCount) (\s@NodeGroupConfiguration' {} a -> s {replicaCount = a} :: NodeGroupConfiguration)
 
-instance Core.FromXML NodeGroupConfiguration where
+instance Data.FromXML NodeGroupConfiguration where
   parseXML x =
     NodeGroupConfiguration'
-      Prelude.<$> ( x Core..@? "ReplicaAvailabilityZones"
+      Prelude.<$> ( x Data..@? "ReplicaAvailabilityZones"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "AvailabilityZone")
+                      Prelude.>>= Core.may (Data.parseXMLList "AvailabilityZone")
                   )
-      Prelude.<*> ( x Core..@? "ReplicaOutpostArns"
+      Prelude.<*> ( x Data..@? "ReplicaOutpostArns"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "OutpostArn")
+                      Prelude.>>= Core.may (Data.parseXMLList "OutpostArn")
                   )
-      Prelude.<*> (x Core..@? "PrimaryOutpostArn")
-      Prelude.<*> (x Core..@? "PrimaryAvailabilityZone")
-      Prelude.<*> (x Core..@? "NodeGroupId")
-      Prelude.<*> (x Core..@? "Slots")
-      Prelude.<*> (x Core..@? "ReplicaCount")
+      Prelude.<*> (x Data..@? "PrimaryOutpostArn")
+      Prelude.<*> (x Data..@? "PrimaryAvailabilityZone")
+      Prelude.<*> (x Data..@? "NodeGroupId")
+      Prelude.<*> (x Data..@? "Slots")
+      Prelude.<*> (x Data..@? "ReplicaCount")
 
 instance Prelude.Hashable NodeGroupConfiguration where
   hashWithSalt _salt NodeGroupConfiguration' {..} =
@@ -171,23 +172,23 @@ instance Prelude.NFData NodeGroupConfiguration where
       `Prelude.seq` Prelude.rnf slots
       `Prelude.seq` Prelude.rnf replicaCount
 
-instance Core.ToQuery NodeGroupConfiguration where
+instance Data.ToQuery NodeGroupConfiguration where
   toQuery NodeGroupConfiguration' {..} =
     Prelude.mconcat
       [ "ReplicaAvailabilityZones"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "AvailabilityZone"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "AvailabilityZone"
                 Prelude.<$> replicaAvailabilityZones
             ),
         "ReplicaOutpostArns"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "OutpostArn"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "OutpostArn"
                 Prelude.<$> replicaOutpostArns
             ),
-        "PrimaryOutpostArn" Core.=: primaryOutpostArn,
+        "PrimaryOutpostArn" Data.=: primaryOutpostArn,
         "PrimaryAvailabilityZone"
-          Core.=: primaryAvailabilityZone,
-        "NodeGroupId" Core.=: nodeGroupId,
-        "Slots" Core.=: slots,
-        "ReplicaCount" Core.=: replicaCount
+          Data.=: primaryAvailabilityZone,
+        "NodeGroupId" Data.=: nodeGroupId,
+        "Slots" Data.=: slots,
+        "ReplicaCount" Data.=: replicaCount
       ]

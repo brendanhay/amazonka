@@ -51,6 +51,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest UpdateApiKey where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateApiKey where
   hashWithSalt _salt UpdateApiKey' {..} =
@@ -116,27 +117,27 @@ instance Prelude.NFData UpdateApiKey where
     Prelude.rnf patchOperations
       `Prelude.seq` Prelude.rnf apiKey
 
-instance Core.ToHeaders UpdateApiKey where
+instance Data.ToHeaders UpdateApiKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON UpdateApiKey where
+instance Data.ToJSON UpdateApiKey where
   toJSON UpdateApiKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("patchOperations" Core..=)
+          [ ("patchOperations" Data..=)
               Prelude.<$> patchOperations
           ]
       )
 
-instance Core.ToPath UpdateApiKey where
+instance Data.ToPath UpdateApiKey where
   toPath UpdateApiKey' {..} =
-    Prelude.mconcat ["/apikeys/", Core.toBS apiKey]
+    Prelude.mconcat ["/apikeys/", Data.toBS apiKey]
 
-instance Core.ToQuery UpdateApiKey where
+instance Data.ToQuery UpdateApiKey where
   toQuery = Prelude.const Prelude.mempty

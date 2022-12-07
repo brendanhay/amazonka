@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.GatewaySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.GatewayCapabilitySummary
 import Amazonka.IoTSiteWise.Types.GatewayPlatform
 import qualified Amazonka.Prelude as Prelude
@@ -40,9 +41,9 @@ data GatewaySummary = GatewaySummary'
     -- | The name of the asset.
     gatewayName :: Prelude.Text,
     -- | The date the gateway was created, in Unix epoch time.
-    creationDate :: Core.POSIX,
+    creationDate :: Data.POSIX,
     -- | The date the gateway was last updated, in Unix epoch time.
-    lastUpdateDate :: Core.POSIX
+    lastUpdateDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,8 +89,8 @@ newGatewaySummary
         gatewayCapabilitySummaries = Prelude.Nothing,
         gatewayId = pGatewayId_,
         gatewayName = pGatewayName_,
-        creationDate = Core._Time Lens.# pCreationDate_,
-        lastUpdateDate = Core._Time Lens.# pLastUpdateDate_
+        creationDate = Data._Time Lens.# pCreationDate_,
+        lastUpdateDate = Data._Time Lens.# pLastUpdateDate_
       }
 
 -- | Undocumented member.
@@ -113,26 +114,26 @@ gatewaySummary_gatewayName = Lens.lens (\GatewaySummary' {gatewayName} -> gatewa
 
 -- | The date the gateway was created, in Unix epoch time.
 gatewaySummary_creationDate :: Lens.Lens' GatewaySummary Prelude.UTCTime
-gatewaySummary_creationDate = Lens.lens (\GatewaySummary' {creationDate} -> creationDate) (\s@GatewaySummary' {} a -> s {creationDate = a} :: GatewaySummary) Prelude.. Core._Time
+gatewaySummary_creationDate = Lens.lens (\GatewaySummary' {creationDate} -> creationDate) (\s@GatewaySummary' {} a -> s {creationDate = a} :: GatewaySummary) Prelude.. Data._Time
 
 -- | The date the gateway was last updated, in Unix epoch time.
 gatewaySummary_lastUpdateDate :: Lens.Lens' GatewaySummary Prelude.UTCTime
-gatewaySummary_lastUpdateDate = Lens.lens (\GatewaySummary' {lastUpdateDate} -> lastUpdateDate) (\s@GatewaySummary' {} a -> s {lastUpdateDate = a} :: GatewaySummary) Prelude.. Core._Time
+gatewaySummary_lastUpdateDate = Lens.lens (\GatewaySummary' {lastUpdateDate} -> lastUpdateDate) (\s@GatewaySummary' {} a -> s {lastUpdateDate = a} :: GatewaySummary) Prelude.. Data._Time
 
-instance Core.FromJSON GatewaySummary where
+instance Data.FromJSON GatewaySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GatewaySummary"
       ( \x ->
           GatewaySummary'
-            Prelude.<$> (x Core..:? "gatewayPlatform")
-            Prelude.<*> ( x Core..:? "gatewayCapabilitySummaries"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "gatewayPlatform")
+            Prelude.<*> ( x Data..:? "gatewayCapabilitySummaries"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "gatewayId")
-            Prelude.<*> (x Core..: "gatewayName")
-            Prelude.<*> (x Core..: "creationDate")
-            Prelude.<*> (x Core..: "lastUpdateDate")
+            Prelude.<*> (x Data..: "gatewayId")
+            Prelude.<*> (x Data..: "gatewayName")
+            Prelude.<*> (x Data..: "creationDate")
+            Prelude.<*> (x Data..: "lastUpdateDate")
       )
 
 instance Prelude.Hashable GatewaySummary where

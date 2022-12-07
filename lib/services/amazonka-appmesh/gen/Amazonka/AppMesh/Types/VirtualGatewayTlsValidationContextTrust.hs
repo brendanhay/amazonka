@@ -24,6 +24,7 @@ import Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContextFileTrust
 import Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContextSdsTrust
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a Transport Layer Security (TLS) validation
@@ -85,17 +86,17 @@ virtualGatewayTlsValidationContextTrust_acm :: Lens.Lens' VirtualGatewayTlsValid
 virtualGatewayTlsValidationContextTrust_acm = Lens.lens (\VirtualGatewayTlsValidationContextTrust' {acm} -> acm) (\s@VirtualGatewayTlsValidationContextTrust' {} a -> s {acm = a} :: VirtualGatewayTlsValidationContextTrust)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     VirtualGatewayTlsValidationContextTrust
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewayTlsValidationContextTrust"
       ( \x ->
           VirtualGatewayTlsValidationContextTrust'
-            Prelude.<$> (x Core..:? "sds")
-            Prelude.<*> (x Core..:? "file")
-            Prelude.<*> (x Core..:? "acm")
+            Prelude.<$> (x Data..:? "sds")
+            Prelude.<*> (x Data..:? "file")
+            Prelude.<*> (x Data..:? "acm")
       )
 
 instance
@@ -119,14 +120,14 @@ instance
       `Prelude.seq` Prelude.rnf acm
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     VirtualGatewayTlsValidationContextTrust
   where
   toJSON VirtualGatewayTlsValidationContextTrust' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sds" Core..=) Prelude.<$> sds,
-            ("file" Core..=) Prelude.<$> file,
-            ("acm" Core..=) Prelude.<$> acm
+          [ ("sds" Data..=) Prelude.<$> sds,
+            ("file" Data..=) Prelude.<$> file,
+            ("acm" Data..=) Prelude.<$> acm
           ]
       )

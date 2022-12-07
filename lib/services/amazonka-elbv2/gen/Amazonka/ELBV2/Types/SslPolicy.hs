@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.SslPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types.Cipher
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,19 +81,19 @@ sslPolicy_ciphers = Lens.lens (\SslPolicy' {ciphers} -> ciphers) (\s@SslPolicy' 
 sslPolicy_sslProtocols :: Lens.Lens' SslPolicy (Prelude.Maybe [Prelude.Text])
 sslPolicy_sslProtocols = Lens.lens (\SslPolicy' {sslProtocols} -> sslProtocols) (\s@SslPolicy' {} a -> s {sslProtocols = a} :: SslPolicy) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML SslPolicy where
+instance Data.FromXML SslPolicy where
   parseXML x =
     SslPolicy'
-      Prelude.<$> (x Core..@? "Name")
-      Prelude.<*> ( x Core..@? "SupportedLoadBalancerTypes"
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> ( x Data..@? "SupportedLoadBalancerTypes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "Ciphers" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> ( x Data..@? "Ciphers" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "SslProtocols" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> ( x Data..@? "SslProtocols" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable SslPolicy where

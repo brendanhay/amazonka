@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsBackupBackupVaultDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsBackupBackupVaultNotificationsDetails
 
@@ -115,17 +116,17 @@ awsBackupBackupVaultDetails_backupVaultArn = Lens.lens (\AwsBackupBackupVaultDet
 awsBackupBackupVaultDetails_accessPolicy :: Lens.Lens' AwsBackupBackupVaultDetails (Prelude.Maybe Prelude.Text)
 awsBackupBackupVaultDetails_accessPolicy = Lens.lens (\AwsBackupBackupVaultDetails' {accessPolicy} -> accessPolicy) (\s@AwsBackupBackupVaultDetails' {} a -> s {accessPolicy = a} :: AwsBackupBackupVaultDetails)
 
-instance Core.FromJSON AwsBackupBackupVaultDetails where
+instance Data.FromJSON AwsBackupBackupVaultDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsBackupBackupVaultDetails"
       ( \x ->
           AwsBackupBackupVaultDetails'
-            Prelude.<$> (x Core..:? "Notifications")
-            Prelude.<*> (x Core..:? "EncryptionKeyArn")
-            Prelude.<*> (x Core..:? "BackupVaultName")
-            Prelude.<*> (x Core..:? "BackupVaultArn")
-            Prelude.<*> (x Core..:? "AccessPolicy")
+            Prelude.<$> (x Data..:? "Notifications")
+            Prelude.<*> (x Data..:? "EncryptionKeyArn")
+            Prelude.<*> (x Data..:? "BackupVaultName")
+            Prelude.<*> (x Data..:? "BackupVaultArn")
+            Prelude.<*> (x Data..:? "AccessPolicy")
       )
 
 instance Prelude.Hashable AwsBackupBackupVaultDetails where
@@ -144,17 +145,17 @@ instance Prelude.NFData AwsBackupBackupVaultDetails where
       `Prelude.seq` Prelude.rnf backupVaultArn
       `Prelude.seq` Prelude.rnf accessPolicy
 
-instance Core.ToJSON AwsBackupBackupVaultDetails where
+instance Data.ToJSON AwsBackupBackupVaultDetails where
   toJSON AwsBackupBackupVaultDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Notifications" Core..=) Prelude.<$> notifications,
-            ("EncryptionKeyArn" Core..=)
+          [ ("Notifications" Data..=) Prelude.<$> notifications,
+            ("EncryptionKeyArn" Data..=)
               Prelude.<$> encryptionKeyArn,
-            ("BackupVaultName" Core..=)
+            ("BackupVaultName" Data..=)
               Prelude.<$> backupVaultName,
-            ("BackupVaultArn" Core..=)
+            ("BackupVaultArn" Data..=)
               Prelude.<$> backupVaultArn,
-            ("AccessPolicy" Core..=) Prelude.<$> accessPolicy
+            ("AccessPolicy" Data..=) Prelude.<$> accessPolicy
           ]
       )

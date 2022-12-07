@@ -21,6 +21,7 @@ module Amazonka.SESV2.Types.DomainDeliverabilityTrackingOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SESV2.Types.InboxPlacementTrackingOption
 
@@ -40,7 +41,7 @@ data DomainDeliverabilityTrackingOption = DomainDeliverabilityTrackingOption'
     -- settings for the domain.
     inboxPlacementTrackingOption :: Prelude.Maybe InboxPlacementTrackingOption,
     -- | The date when you enabled the Deliverability dashboard for the domain.
-    subscriptionStartDate :: Prelude.Maybe Core.POSIX
+    subscriptionStartDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,20 +85,20 @@ domainDeliverabilityTrackingOption_inboxPlacementTrackingOption = Lens.lens (\Do
 
 -- | The date when you enabled the Deliverability dashboard for the domain.
 domainDeliverabilityTrackingOption_subscriptionStartDate :: Lens.Lens' DomainDeliverabilityTrackingOption (Prelude.Maybe Prelude.UTCTime)
-domainDeliverabilityTrackingOption_subscriptionStartDate = Lens.lens (\DomainDeliverabilityTrackingOption' {subscriptionStartDate} -> subscriptionStartDate) (\s@DomainDeliverabilityTrackingOption' {} a -> s {subscriptionStartDate = a} :: DomainDeliverabilityTrackingOption) Prelude.. Lens.mapping Core._Time
+domainDeliverabilityTrackingOption_subscriptionStartDate = Lens.lens (\DomainDeliverabilityTrackingOption' {subscriptionStartDate} -> subscriptionStartDate) (\s@DomainDeliverabilityTrackingOption' {} a -> s {subscriptionStartDate = a} :: DomainDeliverabilityTrackingOption) Prelude.. Lens.mapping Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DomainDeliverabilityTrackingOption
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainDeliverabilityTrackingOption"
       ( \x ->
           DomainDeliverabilityTrackingOption'
-            Prelude.<$> (x Core..:? "Domain")
-            Prelude.<*> (x Core..:? "InboxPlacementTrackingOption")
-            Prelude.<*> (x Core..:? "SubscriptionStartDate")
+            Prelude.<$> (x Data..:? "Domain")
+            Prelude.<*> (x Data..:? "InboxPlacementTrackingOption")
+            Prelude.<*> (x Data..:? "SubscriptionStartDate")
       )
 
 instance
@@ -121,16 +122,16 @@ instance
       `Prelude.seq` Prelude.rnf subscriptionStartDate
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DomainDeliverabilityTrackingOption
   where
   toJSON DomainDeliverabilityTrackingOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Domain" Core..=) Prelude.<$> domain,
-            ("InboxPlacementTrackingOption" Core..=)
+          [ ("Domain" Data..=) Prelude.<$> domain,
+            ("InboxPlacementTrackingOption" Data..=)
               Prelude.<$> inboxPlacementTrackingOption,
-            ("SubscriptionStartDate" Core..=)
+            ("SubscriptionStartDate" Data..=)
               Prelude.<$> subscriptionStartDate
           ]
       )

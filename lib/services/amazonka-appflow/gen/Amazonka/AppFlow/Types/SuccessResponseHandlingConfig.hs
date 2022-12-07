@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.SuccessResponseHandlingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Determines how Amazon AppFlow handles the success response that it gets
@@ -66,14 +67,14 @@ successResponseHandlingConfig_bucketPrefix = Lens.lens (\SuccessResponseHandling
 successResponseHandlingConfig_bucketName :: Lens.Lens' SuccessResponseHandlingConfig (Prelude.Maybe Prelude.Text)
 successResponseHandlingConfig_bucketName = Lens.lens (\SuccessResponseHandlingConfig' {bucketName} -> bucketName) (\s@SuccessResponseHandlingConfig' {} a -> s {bucketName = a} :: SuccessResponseHandlingConfig)
 
-instance Core.FromJSON SuccessResponseHandlingConfig where
+instance Data.FromJSON SuccessResponseHandlingConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SuccessResponseHandlingConfig"
       ( \x ->
           SuccessResponseHandlingConfig'
-            Prelude.<$> (x Core..:? "bucketPrefix")
-            Prelude.<*> (x Core..:? "bucketName")
+            Prelude.<$> (x Data..:? "bucketPrefix")
+            Prelude.<*> (x Data..:? "bucketName")
       )
 
 instance
@@ -89,11 +90,11 @@ instance Prelude.NFData SuccessResponseHandlingConfig where
     Prelude.rnf bucketPrefix
       `Prelude.seq` Prelude.rnf bucketName
 
-instance Core.ToJSON SuccessResponseHandlingConfig where
+instance Data.ToJSON SuccessResponseHandlingConfig where
   toJSON SuccessResponseHandlingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bucketPrefix" Core..=) Prelude.<$> bucketPrefix,
-            ("bucketName" Core..=) Prelude.<$> bucketName
+          [ ("bucketPrefix" Data..=) Prelude.<$> bucketPrefix,
+            ("bucketName" Data..=) Prelude.<$> bucketName
           ]
       )

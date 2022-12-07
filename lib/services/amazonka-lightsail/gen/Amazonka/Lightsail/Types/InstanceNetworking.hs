@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.InstanceNetworking where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.InstancePortInfo
 import Amazonka.Lightsail.Types.MonthlyTransfer
 import qualified Amazonka.Prelude as Prelude
@@ -67,14 +68,14 @@ instanceNetworking_ports = Lens.lens (\InstanceNetworking' {ports} -> ports) (\s
 instanceNetworking_monthlyTransfer :: Lens.Lens' InstanceNetworking (Prelude.Maybe MonthlyTransfer)
 instanceNetworking_monthlyTransfer = Lens.lens (\InstanceNetworking' {monthlyTransfer} -> monthlyTransfer) (\s@InstanceNetworking' {} a -> s {monthlyTransfer = a} :: InstanceNetworking)
 
-instance Core.FromJSON InstanceNetworking where
+instance Data.FromJSON InstanceNetworking where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceNetworking"
       ( \x ->
           InstanceNetworking'
-            Prelude.<$> (x Core..:? "ports" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "monthlyTransfer")
+            Prelude.<$> (x Data..:? "ports" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "monthlyTransfer")
       )
 
 instance Prelude.Hashable InstanceNetworking where

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HealthLake.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest DescribeFHIRImportJob where
       ( \s h x ->
           DescribeFHIRImportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ImportJobProperties")
+            Prelude.<*> (x Data..:> "ImportJobProperties")
       )
 
 instance Prelude.Hashable DescribeFHIRImportJob where
@@ -112,34 +113,34 @@ instance Prelude.NFData DescribeFHIRImportJob where
     Prelude.rnf datastoreId
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders DescribeFHIRImportJob where
+instance Data.ToHeaders DescribeFHIRImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "HealthLake.DescribeFHIRImportJob" ::
+              Data.=# ( "HealthLake.DescribeFHIRImportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFHIRImportJob where
+instance Data.ToJSON DescribeFHIRImportJob where
   toJSON DescribeFHIRImportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DatastoreId" Core..= datastoreId),
-            Prelude.Just ("JobId" Core..= jobId)
+          [ Prelude.Just ("DatastoreId" Data..= datastoreId),
+            Prelude.Just ("JobId" Data..= jobId)
           ]
       )
 
-instance Core.ToPath DescribeFHIRImportJob where
+instance Data.ToPath DescribeFHIRImportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFHIRImportJob where
+instance Data.ToQuery DescribeFHIRImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFHIRImportJobResponse' smart constructor.

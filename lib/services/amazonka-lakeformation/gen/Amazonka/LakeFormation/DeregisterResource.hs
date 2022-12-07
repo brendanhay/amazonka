@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,28 +99,28 @@ instance Prelude.Hashable DeregisterResource where
 instance Prelude.NFData DeregisterResource where
   rnf DeregisterResource' {..} = Prelude.rnf resourceArn
 
-instance Core.ToHeaders DeregisterResource where
+instance Data.ToHeaders DeregisterResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeregisterResource where
+instance Data.ToJSON DeregisterResource where
   toJSON DeregisterResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
+          [Prelude.Just ("ResourceArn" Data..= resourceArn)]
       )
 
-instance Core.ToPath DeregisterResource where
+instance Data.ToPath DeregisterResource where
   toPath = Prelude.const "/DeregisterResource"
 
-instance Core.ToQuery DeregisterResource where
+instance Data.ToQuery DeregisterResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterResourceResponse' smart constructor.

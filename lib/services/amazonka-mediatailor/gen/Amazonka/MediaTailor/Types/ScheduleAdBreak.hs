@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.ScheduleAdBreak where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The schedule\'s ad break properties.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newScheduleAdBreak' smart constructor.
 data ScheduleAdBreak = ScheduleAdBreak'
   { -- | The approximate time that the ad will start playing.
-    approximateStartTime :: Prelude.Maybe Core.POSIX,
+    approximateStartTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the VOD source used for the ad break.
     vodSourceName :: Prelude.Maybe Prelude.Text,
     -- | The approximate duration of the ad break, in seconds.
@@ -68,7 +69,7 @@ newScheduleAdBreak =
 
 -- | The approximate time that the ad will start playing.
 scheduleAdBreak_approximateStartTime :: Lens.Lens' ScheduleAdBreak (Prelude.Maybe Prelude.UTCTime)
-scheduleAdBreak_approximateStartTime = Lens.lens (\ScheduleAdBreak' {approximateStartTime} -> approximateStartTime) (\s@ScheduleAdBreak' {} a -> s {approximateStartTime = a} :: ScheduleAdBreak) Prelude.. Lens.mapping Core._Time
+scheduleAdBreak_approximateStartTime = Lens.lens (\ScheduleAdBreak' {approximateStartTime} -> approximateStartTime) (\s@ScheduleAdBreak' {} a -> s {approximateStartTime = a} :: ScheduleAdBreak) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the VOD source used for the ad break.
 scheduleAdBreak_vodSourceName :: Lens.Lens' ScheduleAdBreak (Prelude.Maybe Prelude.Text)
@@ -83,16 +84,16 @@ scheduleAdBreak_approximateDurationSeconds = Lens.lens (\ScheduleAdBreak' {appro
 scheduleAdBreak_sourceLocationName :: Lens.Lens' ScheduleAdBreak (Prelude.Maybe Prelude.Text)
 scheduleAdBreak_sourceLocationName = Lens.lens (\ScheduleAdBreak' {sourceLocationName} -> sourceLocationName) (\s@ScheduleAdBreak' {} a -> s {sourceLocationName = a} :: ScheduleAdBreak)
 
-instance Core.FromJSON ScheduleAdBreak where
+instance Data.FromJSON ScheduleAdBreak where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScheduleAdBreak"
       ( \x ->
           ScheduleAdBreak'
-            Prelude.<$> (x Core..:? "ApproximateStartTime")
-            Prelude.<*> (x Core..:? "VodSourceName")
-            Prelude.<*> (x Core..:? "ApproximateDurationSeconds")
-            Prelude.<*> (x Core..:? "SourceLocationName")
+            Prelude.<$> (x Data..:? "ApproximateStartTime")
+            Prelude.<*> (x Data..:? "VodSourceName")
+            Prelude.<*> (x Data..:? "ApproximateDurationSeconds")
+            Prelude.<*> (x Data..:? "SourceLocationName")
       )
 
 instance Prelude.Hashable ScheduleAdBreak where

@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.ExecutionDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the actions taken and results produced on an artifact as
@@ -89,14 +90,14 @@ instance Prelude.NFData ExecutionDetails where
       `Prelude.seq` Prelude.rnf externalExecutionId
       `Prelude.seq` Prelude.rnf percentComplete
 
-instance Core.ToJSON ExecutionDetails where
+instance Data.ToJSON ExecutionDetails where
   toJSON ExecutionDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("summary" Core..=) Prelude.<$> summary,
-            ("externalExecutionId" Core..=)
+          [ ("summary" Data..=) Prelude.<$> summary,
+            ("externalExecutionId" Data..=)
               Prelude.<$> externalExecutionId,
-            ("percentComplete" Core..=)
+            ("percentComplete" Data..=)
               Prelude.<$> percentComplete
           ]
       )

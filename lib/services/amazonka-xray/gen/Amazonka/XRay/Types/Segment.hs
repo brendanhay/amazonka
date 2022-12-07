@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.Segment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A segment from a trace that has been ingested by the X-Ray service. The
@@ -69,14 +70,14 @@ segment_id = Lens.lens (\Segment' {id} -> id) (\s@Segment' {} a -> s {id = a} ::
 segment_document :: Lens.Lens' Segment (Prelude.Maybe Prelude.Text)
 segment_document = Lens.lens (\Segment' {document} -> document) (\s@Segment' {} a -> s {document = a} :: Segment)
 
-instance Core.FromJSON Segment where
+instance Data.FromJSON Segment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Segment"
       ( \x ->
           Segment'
-            Prelude.<$> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Document")
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Document")
       )
 
 instance Prelude.Hashable Segment where

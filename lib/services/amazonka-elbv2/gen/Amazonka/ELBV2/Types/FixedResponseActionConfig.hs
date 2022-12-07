@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.FixedResponseActionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an action that returns a custom HTTP response.
@@ -82,12 +83,12 @@ fixedResponseActionConfig_contentType = Lens.lens (\FixedResponseActionConfig' {
 fixedResponseActionConfig_statusCode :: Lens.Lens' FixedResponseActionConfig Prelude.Text
 fixedResponseActionConfig_statusCode = Lens.lens (\FixedResponseActionConfig' {statusCode} -> statusCode) (\s@FixedResponseActionConfig' {} a -> s {statusCode = a} :: FixedResponseActionConfig)
 
-instance Core.FromXML FixedResponseActionConfig where
+instance Data.FromXML FixedResponseActionConfig where
   parseXML x =
     FixedResponseActionConfig'
-      Prelude.<$> (x Core..@? "MessageBody")
-      Prelude.<*> (x Core..@? "ContentType")
-      Prelude.<*> (x Core..@ "StatusCode")
+      Prelude.<$> (x Data..@? "MessageBody")
+      Prelude.<*> (x Data..@? "ContentType")
+      Prelude.<*> (x Data..@ "StatusCode")
 
 instance Prelude.Hashable FixedResponseActionConfig where
   hashWithSalt _salt FixedResponseActionConfig' {..} =
@@ -101,10 +102,10 @@ instance Prelude.NFData FixedResponseActionConfig where
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf statusCode
 
-instance Core.ToQuery FixedResponseActionConfig where
+instance Data.ToQuery FixedResponseActionConfig where
   toQuery FixedResponseActionConfig' {..} =
     Prelude.mconcat
-      [ "MessageBody" Core.=: messageBody,
-        "ContentType" Core.=: contentType,
-        "StatusCode" Core.=: statusCode
+      [ "MessageBody" Data.=: messageBody,
+        "ContentType" Data.=: contentType,
+        "StatusCode" Data.=: statusCode
       ]

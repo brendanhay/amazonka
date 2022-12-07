@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ApplicationSettingsResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.CampaignHook
 import Amazonka.Pinpoint.Types.CampaignLimits
 import Amazonka.Pinpoint.Types.QuietTime
@@ -161,17 +162,17 @@ applicationSettingsResource_campaignHook = Lens.lens (\ApplicationSettingsResour
 applicationSettingsResource_applicationId :: Lens.Lens' ApplicationSettingsResource Prelude.Text
 applicationSettingsResource_applicationId = Lens.lens (\ApplicationSettingsResource' {applicationId} -> applicationId) (\s@ApplicationSettingsResource' {} a -> s {applicationId = a} :: ApplicationSettingsResource)
 
-instance Core.FromJSON ApplicationSettingsResource where
+instance Data.FromJSON ApplicationSettingsResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationSettingsResource"
       ( \x ->
           ApplicationSettingsResource'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "Limits")
-            Prelude.<*> (x Core..:? "QuietTime")
-            Prelude.<*> (x Core..:? "CampaignHook")
-            Prelude.<*> (x Core..: "ApplicationId")
+            Prelude.<$> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "Limits")
+            Prelude.<*> (x Data..:? "QuietTime")
+            Prelude.<*> (x Data..:? "CampaignHook")
+            Prelude.<*> (x Data..: "ApplicationId")
       )
 
 instance Prelude.Hashable ApplicationSettingsResource where

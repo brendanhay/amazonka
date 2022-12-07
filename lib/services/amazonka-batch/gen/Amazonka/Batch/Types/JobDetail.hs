@@ -33,6 +33,7 @@ import Amazonka.Batch.Types.PlatformCapability
 import Amazonka.Batch.Types.RetryStrategy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents an Batch job.
@@ -406,40 +407,40 @@ jobDetail_status = Lens.lens (\JobDetail' {status} -> status) (\s@JobDetail' {} 
 jobDetail_jobDefinition :: Lens.Lens' JobDetail Prelude.Text
 jobDetail_jobDefinition = Lens.lens (\JobDetail' {jobDefinition} -> jobDefinition) (\s@JobDetail' {} a -> s {jobDefinition = a} :: JobDetail)
 
-instance Core.FromJSON JobDetail where
+instance Data.FromJSON JobDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobDetail"
       ( \x ->
           JobDetail'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "timeout")
-            Prelude.<*> (x Core..:? "dependsOn" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "shareIdentifier")
-            Prelude.<*> (x Core..:? "eksAttempts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "retryStrategy")
-            Prelude.<*> ( x Core..:? "platformCapabilities"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "timeout")
+            Prelude.<*> (x Data..:? "dependsOn" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "shareIdentifier")
+            Prelude.<*> (x Data..:? "eksAttempts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "retryStrategy")
+            Prelude.<*> ( x Data..:? "platformCapabilities"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "arrayProperties")
-            Prelude.<*> (x Core..:? "nodeDetails")
-            Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "startedAt")
-            Prelude.<*> (x Core..:? "propagateTags")
-            Prelude.<*> (x Core..:? "nodeProperties")
-            Prelude.<*> (x Core..:? "container")
-            Prelude.<*> (x Core..:? "schedulingPriority")
-            Prelude.<*> (x Core..:? "attempts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "stoppedAt")
-            Prelude.<*> (x Core..:? "jobArn")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "eksProperties")
-            Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "jobName")
-            Prelude.<*> (x Core..: "jobId")
-            Prelude.<*> (x Core..: "jobQueue")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "jobDefinition")
+            Prelude.<*> (x Data..:? "arrayProperties")
+            Prelude.<*> (x Data..:? "nodeDetails")
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "startedAt")
+            Prelude.<*> (x Data..:? "propagateTags")
+            Prelude.<*> (x Data..:? "nodeProperties")
+            Prelude.<*> (x Data..:? "container")
+            Prelude.<*> (x Data..:? "schedulingPriority")
+            Prelude.<*> (x Data..:? "attempts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "stoppedAt")
+            Prelude.<*> (x Data..:? "jobArn")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "eksProperties")
+            Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "jobName")
+            Prelude.<*> (x Data..: "jobId")
+            Prelude.<*> (x Data..: "jobQueue")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "jobDefinition")
       )
 
 instance Prelude.Hashable JobDetail where

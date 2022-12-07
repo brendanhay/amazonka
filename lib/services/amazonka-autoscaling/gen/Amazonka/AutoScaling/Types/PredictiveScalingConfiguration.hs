@@ -24,6 +24,7 @@ import Amazonka.AutoScaling.Types.PredictiveScalingMetricSpecification
 import Amazonka.AutoScaling.Types.PredictiveScalingMode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a predictive scaling policy configuration to use with Amazon
@@ -219,16 +220,16 @@ predictiveScalingConfiguration_schedulingBufferTime = Lens.lens (\PredictiveScal
 predictiveScalingConfiguration_metricSpecifications :: Lens.Lens' PredictiveScalingConfiguration [PredictiveScalingMetricSpecification]
 predictiveScalingConfiguration_metricSpecifications = Lens.lens (\PredictiveScalingConfiguration' {metricSpecifications} -> metricSpecifications) (\s@PredictiveScalingConfiguration' {} a -> s {metricSpecifications = a} :: PredictiveScalingConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromXML PredictiveScalingConfiguration where
+instance Data.FromXML PredictiveScalingConfiguration where
   parseXML x =
     PredictiveScalingConfiguration'
-      Prelude.<$> (x Core..@? "MaxCapacityBuffer")
-      Prelude.<*> (x Core..@? "MaxCapacityBreachBehavior")
-      Prelude.<*> (x Core..@? "Mode")
-      Prelude.<*> (x Core..@? "SchedulingBufferTime")
-      Prelude.<*> ( x Core..@? "MetricSpecifications"
+      Prelude.<$> (x Data..@? "MaxCapacityBuffer")
+      Prelude.<*> (x Data..@? "MaxCapacityBreachBehavior")
+      Prelude.<*> (x Data..@? "Mode")
+      Prelude.<*> (x Data..@? "SchedulingBufferTime")
+      Prelude.<*> ( x Data..@? "MetricSpecifications"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.parseXMLList "member"
+                      Prelude.>>= Data.parseXMLList "member"
                   )
 
 instance
@@ -255,14 +256,14 @@ instance
       `Prelude.seq` Prelude.rnf schedulingBufferTime
       `Prelude.seq` Prelude.rnf metricSpecifications
 
-instance Core.ToQuery PredictiveScalingConfiguration where
+instance Data.ToQuery PredictiveScalingConfiguration where
   toQuery PredictiveScalingConfiguration' {..} =
     Prelude.mconcat
-      [ "MaxCapacityBuffer" Core.=: maxCapacityBuffer,
+      [ "MaxCapacityBuffer" Data.=: maxCapacityBuffer,
         "MaxCapacityBreachBehavior"
-          Core.=: maxCapacityBreachBehavior,
-        "Mode" Core.=: mode,
-        "SchedulingBufferTime" Core.=: schedulingBufferTime,
+          Data.=: maxCapacityBreachBehavior,
+        "Mode" Data.=: mode,
+        "SchedulingBufferTime" Data.=: schedulingBufferTime,
         "MetricSpecifications"
-          Core.=: Core.toQueryList "member" metricSpecifications
+          Data.=: Data.toQueryList "member" metricSpecifications
       ]

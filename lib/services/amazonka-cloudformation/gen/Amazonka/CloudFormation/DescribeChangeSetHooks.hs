@@ -52,6 +52,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,15 +137,15 @@ instance Core.AWSRequest DescribeChangeSetHooks where
       "DescribeChangeSetHooksResult"
       ( \s h x ->
           DescribeChangeSetHooksResponse'
-            Prelude.<$> (x Core..@? "StackId")
-            Prelude.<*> (x Core..@? "NextToken")
-            Prelude.<*> (x Core..@? "ChangeSetId")
-            Prelude.<*> (x Core..@? "ChangeSetName")
-            Prelude.<*> ( x Core..@? "Hooks" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "StackId")
+            Prelude.<*> (x Data..@? "NextToken")
+            Prelude.<*> (x Data..@? "ChangeSetId")
+            Prelude.<*> (x Data..@? "ChangeSetName")
+            Prelude.<*> ( x Data..@? "Hooks" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "Status")
-            Prelude.<*> (x Core..@? "StackName")
+            Prelude.<*> (x Data..@? "Status")
+            Prelude.<*> (x Data..@? "StackName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,23 +163,23 @@ instance Prelude.NFData DescribeChangeSetHooks where
       `Prelude.seq` Prelude.rnf logicalResourceId
       `Prelude.seq` Prelude.rnf changeSetName
 
-instance Core.ToHeaders DescribeChangeSetHooks where
+instance Data.ToHeaders DescribeChangeSetHooks where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeChangeSetHooks where
+instance Data.ToPath DescribeChangeSetHooks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeChangeSetHooks where
+instance Data.ToQuery DescribeChangeSetHooks where
   toQuery DescribeChangeSetHooks' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeChangeSetHooks" :: Prelude.ByteString),
+          Data.=: ("DescribeChangeSetHooks" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "StackName" Core.=: stackName,
-        "LogicalResourceId" Core.=: logicalResourceId,
-        "ChangeSetName" Core.=: changeSetName
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "StackName" Data.=: stackName,
+        "LogicalResourceId" Data.=: logicalResourceId,
+        "ChangeSetName" Data.=: changeSetName
       ]
 
 -- | /See:/ 'newDescribeChangeSetHooksResponse' smart constructor.

@@ -89,6 +89,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -459,7 +460,7 @@ instance Core.AWSRequest CreateAutoPredictor where
     Response.receiveJSON
       ( \s h x ->
           CreateAutoPredictorResponse'
-            Prelude.<$> (x Core..?> "PredictorArn")
+            Prelude.<$> (x Data..?> "PredictorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -495,54 +496,54 @@ instance Prelude.NFData CreateAutoPredictor where
       `Prelude.seq` Prelude.rnf forecastFrequency
       `Prelude.seq` Prelude.rnf predictorName
 
-instance Core.ToHeaders CreateAutoPredictor where
+instance Data.ToHeaders CreateAutoPredictor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.CreateAutoPredictor" ::
+              Data.=# ( "AmazonForecast.CreateAutoPredictor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAutoPredictor where
+instance Data.ToJSON CreateAutoPredictor where
   toJSON CreateAutoPredictor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("EncryptionConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("EncryptionConfig" Data..=)
               Prelude.<$> encryptionConfig,
-            ("ForecastDimensions" Core..=)
+            ("ForecastDimensions" Data..=)
               Prelude.<$> forecastDimensions,
-            ("OptimizationMetric" Core..=)
+            ("OptimizationMetric" Data..=)
               Prelude.<$> optimizationMetric,
-            ("ExplainPredictor" Core..=)
+            ("ExplainPredictor" Data..=)
               Prelude.<$> explainPredictor,
-            ("MonitorConfig" Core..=) Prelude.<$> monitorConfig,
-            ("ForecastTypes" Core..=) Prelude.<$> forecastTypes,
-            ("ForecastHorizon" Core..=)
+            ("MonitorConfig" Data..=) Prelude.<$> monitorConfig,
+            ("ForecastTypes" Data..=) Prelude.<$> forecastTypes,
+            ("ForecastHorizon" Data..=)
               Prelude.<$> forecastHorizon,
-            ("DataConfig" Core..=) Prelude.<$> dataConfig,
-            ("ReferencePredictorArn" Core..=)
+            ("DataConfig" Data..=) Prelude.<$> dataConfig,
+            ("ReferencePredictorArn" Data..=)
               Prelude.<$> referencePredictorArn,
-            ("TimeAlignmentBoundary" Core..=)
+            ("TimeAlignmentBoundary" Data..=)
               Prelude.<$> timeAlignmentBoundary,
-            ("ForecastFrequency" Core..=)
+            ("ForecastFrequency" Data..=)
               Prelude.<$> forecastFrequency,
             Prelude.Just
-              ("PredictorName" Core..= predictorName)
+              ("PredictorName" Data..= predictorName)
           ]
       )
 
-instance Core.ToPath CreateAutoPredictor where
+instance Data.ToPath CreateAutoPredictor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAutoPredictor where
+instance Data.ToQuery CreateAutoPredictor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAutoPredictorResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.FailureSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RobOMaker.Types.WorldFailure
 
@@ -63,14 +64,14 @@ failureSummary_totalFailureCount = Lens.lens (\FailureSummary' {totalFailureCoun
 failureSummary_failures :: Lens.Lens' FailureSummary (Prelude.Maybe [WorldFailure])
 failureSummary_failures = Lens.lens (\FailureSummary' {failures} -> failures) (\s@FailureSummary' {} a -> s {failures = a} :: FailureSummary) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON FailureSummary where
+instance Data.FromJSON FailureSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailureSummary"
       ( \x ->
           FailureSummary'
-            Prelude.<$> (x Core..:? "totalFailureCount")
-            Prelude.<*> (x Core..:? "failures" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "totalFailureCount")
+            Prelude.<*> (x Data..:? "failures" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FailureSummary where

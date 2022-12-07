@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -238,27 +239,27 @@ instance Prelude.NFData PutBucketEncryption where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
 
-instance Core.ToElement PutBucketEncryption where
+instance Data.ToElement PutBucketEncryption where
   toElement PutBucketEncryption' {..} =
-    Core.mkElement
+    Data.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}ServerSideEncryptionConfiguration"
       serverSideEncryptionConfiguration
 
-instance Core.ToHeaders PutBucketEncryption where
+instance Data.ToHeaders PutBucketEncryption where
   toHeaders PutBucketEncryption' {..} =
     Prelude.mconcat
       [ "x-amz-sdk-checksum-algorithm"
-          Core.=# checksumAlgorithm,
-        "Content-MD5" Core.=# contentMD5,
+          Data.=# checksumAlgorithm,
+        "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath PutBucketEncryption where
+instance Data.ToPath PutBucketEncryption where
   toPath PutBucketEncryption' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery PutBucketEncryption where
+instance Data.ToQuery PutBucketEncryption where
   toQuery =
     Prelude.const (Prelude.mconcat ["encryption"])
 

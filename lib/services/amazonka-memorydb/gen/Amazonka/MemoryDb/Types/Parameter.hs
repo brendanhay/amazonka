@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.Parameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an individual setting that controls some aspect of MemoryDB
@@ -98,18 +99,18 @@ parameter_dataType = Lens.lens (\Parameter' {dataType} -> dataType) (\s@Paramete
 parameter_value :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_value = Lens.lens (\Parameter' {value} -> value) (\s@Parameter' {} a -> s {value = a} :: Parameter)
 
-instance Core.FromJSON Parameter where
+instance Data.FromJSON Parameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Parameter"
       ( \x ->
           Parameter'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "MinimumEngineVersion")
-            Prelude.<*> (x Core..:? "AllowedValues")
-            Prelude.<*> (x Core..:? "DataType")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "MinimumEngineVersion")
+            Prelude.<*> (x Data..:? "AllowedValues")
+            Prelude.<*> (x Data..:? "DataType")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Parameter where

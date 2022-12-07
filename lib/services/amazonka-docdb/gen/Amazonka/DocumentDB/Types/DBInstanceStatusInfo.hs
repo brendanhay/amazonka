@@ -21,6 +21,7 @@ module Amazonka.DocumentDB.Types.DBInstanceStatusInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a list of status information for an instance.
@@ -88,13 +89,13 @@ dbInstanceStatusInfo_normal = Lens.lens (\DBInstanceStatusInfo' {normal} -> norm
 dbInstanceStatusInfo_statusType :: Lens.Lens' DBInstanceStatusInfo (Prelude.Maybe Prelude.Text)
 dbInstanceStatusInfo_statusType = Lens.lens (\DBInstanceStatusInfo' {statusType} -> statusType) (\s@DBInstanceStatusInfo' {} a -> s {statusType = a} :: DBInstanceStatusInfo)
 
-instance Core.FromXML DBInstanceStatusInfo where
+instance Data.FromXML DBInstanceStatusInfo where
   parseXML x =
     DBInstanceStatusInfo'
-      Prelude.<$> (x Core..@? "Message")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "Normal")
-      Prelude.<*> (x Core..@? "StatusType")
+      Prelude.<$> (x Data..@? "Message")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "Normal")
+      Prelude.<*> (x Data..@? "StatusType")
 
 instance Prelude.Hashable DBInstanceStatusInfo where
   hashWithSalt _salt DBInstanceStatusInfo' {..} =

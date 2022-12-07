@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -246,20 +247,20 @@ instance Core.AWSRequest UpdateSecurityProfile where
     Response.receiveJSON
       ( \s h x ->
           UpdateSecurityProfileResponse'
-            Prelude.<$> (x Core..?> "lastModifiedDate")
-            Prelude.<*> (x Core..?> "alertTargets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "creationDate")
-            Prelude.<*> (x Core..?> "securityProfileDescription")
-            Prelude.<*> ( x Core..?> "additionalMetricsToRetainV2"
+            Prelude.<$> (x Data..?> "lastModifiedDate")
+            Prelude.<*> (x Data..?> "alertTargets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "creationDate")
+            Prelude.<*> (x Data..?> "securityProfileDescription")
+            Prelude.<*> ( x Data..?> "additionalMetricsToRetainV2"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "securityProfileName")
-            Prelude.<*> (x Core..?> "securityProfileArn")
-            Prelude.<*> ( x Core..?> "additionalMetricsToRetain"
+            Prelude.<*> (x Data..?> "securityProfileName")
+            Prelude.<*> (x Data..?> "securityProfileArn")
+            Prelude.<*> ( x Data..?> "additionalMetricsToRetain"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "version")
-            Prelude.<*> (x Core..?> "behaviors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "version")
+            Prelude.<*> (x Data..?> "behaviors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -289,50 +290,50 @@ instance Prelude.NFData UpdateSecurityProfile where
       `Prelude.seq` Prelude.rnf behaviors
       `Prelude.seq` Prelude.rnf securityProfileName
 
-instance Core.ToHeaders UpdateSecurityProfile where
+instance Data.ToHeaders UpdateSecurityProfile where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateSecurityProfile where
+instance Data.ToJSON UpdateSecurityProfile where
   toJSON UpdateSecurityProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deleteBehaviors" Core..=)
+          [ ("deleteBehaviors" Data..=)
               Prelude.<$> deleteBehaviors,
-            ("alertTargets" Core..=) Prelude.<$> alertTargets,
-            ("securityProfileDescription" Core..=)
+            ("alertTargets" Data..=) Prelude.<$> alertTargets,
+            ("securityProfileDescription" Data..=)
               Prelude.<$> securityProfileDescription,
-            ("deleteAlertTargets" Core..=)
+            ("deleteAlertTargets" Data..=)
               Prelude.<$> deleteAlertTargets,
-            ("additionalMetricsToRetainV2" Core..=)
+            ("additionalMetricsToRetainV2" Data..=)
               Prelude.<$> additionalMetricsToRetainV2,
-            ("deleteAdditionalMetricsToRetain" Core..=)
+            ("deleteAdditionalMetricsToRetain" Data..=)
               Prelude.<$> deleteAdditionalMetricsToRetain,
-            ("additionalMetricsToRetain" Core..=)
+            ("additionalMetricsToRetain" Data..=)
               Prelude.<$> additionalMetricsToRetain,
-            ("behaviors" Core..=) Prelude.<$> behaviors
+            ("behaviors" Data..=) Prelude.<$> behaviors
           ]
       )
 
-instance Core.ToPath UpdateSecurityProfile where
+instance Data.ToPath UpdateSecurityProfile where
   toPath UpdateSecurityProfile' {..} =
     Prelude.mconcat
       [ "/security-profiles/",
-        Core.toBS securityProfileName
+        Data.toBS securityProfileName
       ]
 
-instance Core.ToQuery UpdateSecurityProfile where
+instance Data.ToQuery UpdateSecurityProfile where
   toQuery UpdateSecurityProfile' {..} =
     Prelude.mconcat
-      ["expectedVersion" Core.=: expectedVersion]
+      ["expectedVersion" Data.=: expectedVersion]
 
 -- | /See:/ 'newUpdateSecurityProfileResponse' smart constructor.
 data UpdateSecurityProfileResponse = UpdateSecurityProfileResponse'
   { -- | The time the security profile was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | Where the alerts are sent. (Alerts are always sent to the console.)
     alertTargets :: Prelude.Maybe (Prelude.HashMap AlertTargetType AlertTarget),
     -- | The time the security profile was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The description of the security profile.
     securityProfileDescription :: Prelude.Maybe Prelude.Text,
     -- | A list of metrics whose data is retained (stored). By default, data is
@@ -422,7 +423,7 @@ newUpdateSecurityProfileResponse pHttpStatus_ =
 
 -- | The time the security profile was last modified.
 updateSecurityProfileResponse_lastModifiedDate :: Lens.Lens' UpdateSecurityProfileResponse (Prelude.Maybe Prelude.UTCTime)
-updateSecurityProfileResponse_lastModifiedDate = Lens.lens (\UpdateSecurityProfileResponse' {lastModifiedDate} -> lastModifiedDate) (\s@UpdateSecurityProfileResponse' {} a -> s {lastModifiedDate = a} :: UpdateSecurityProfileResponse) Prelude.. Lens.mapping Core._Time
+updateSecurityProfileResponse_lastModifiedDate = Lens.lens (\UpdateSecurityProfileResponse' {lastModifiedDate} -> lastModifiedDate) (\s@UpdateSecurityProfileResponse' {} a -> s {lastModifiedDate = a} :: UpdateSecurityProfileResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Where the alerts are sent. (Alerts are always sent to the console.)
 updateSecurityProfileResponse_alertTargets :: Lens.Lens' UpdateSecurityProfileResponse (Prelude.Maybe (Prelude.HashMap AlertTargetType AlertTarget))
@@ -430,7 +431,7 @@ updateSecurityProfileResponse_alertTargets = Lens.lens (\UpdateSecurityProfileRe
 
 -- | The time the security profile was created.
 updateSecurityProfileResponse_creationDate :: Lens.Lens' UpdateSecurityProfileResponse (Prelude.Maybe Prelude.UTCTime)
-updateSecurityProfileResponse_creationDate = Lens.lens (\UpdateSecurityProfileResponse' {creationDate} -> creationDate) (\s@UpdateSecurityProfileResponse' {} a -> s {creationDate = a} :: UpdateSecurityProfileResponse) Prelude.. Lens.mapping Core._Time
+updateSecurityProfileResponse_creationDate = Lens.lens (\UpdateSecurityProfileResponse' {creationDate} -> creationDate) (\s@UpdateSecurityProfileResponse' {} a -> s {creationDate = a} :: UpdateSecurityProfileResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the security profile.
 updateSecurityProfileResponse_securityProfileDescription :: Lens.Lens' UpdateSecurityProfileResponse (Prelude.Maybe Prelude.Text)

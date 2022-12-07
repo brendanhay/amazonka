@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -193,18 +194,18 @@ instance Core.AWSRequest ExportImage where
     Response.receiveXML
       ( \s h x ->
           ExportImageResponse'
-            Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "progress")
-            Prelude.<*> (x Core..@? "roleName")
-            Prelude.<*> (x Core..@? "exportImageTaskId")
-            Prelude.<*> (x Core..@? "s3ExportLocation")
-            Prelude.<*> (x Core..@? "diskImageFormat")
-            Prelude.<*> (x Core..@? "status")
-            Prelude.<*> (x Core..@? "description")
-            Prelude.<*> (x Core..@? "statusMessage")
-            Prelude.<*> (x Core..@? "imageId")
+            Prelude.<*> (x Data..@? "progress")
+            Prelude.<*> (x Data..@? "roleName")
+            Prelude.<*> (x Data..@? "exportImageTaskId")
+            Prelude.<*> (x Data..@? "s3ExportLocation")
+            Prelude.<*> (x Data..@? "diskImageFormat")
+            Prelude.<*> (x Data..@? "status")
+            Prelude.<*> (x Data..@? "description")
+            Prelude.<*> (x Data..@? "statusMessage")
+            Prelude.<*> (x Data..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -230,30 +231,30 @@ instance Prelude.NFData ExportImage where
       `Prelude.seq` Prelude.rnf imageId
       `Prelude.seq` Prelude.rnf s3ExportLocation
 
-instance Core.ToHeaders ExportImage where
+instance Data.ToHeaders ExportImage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ExportImage where
+instance Data.ToPath ExportImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ExportImage where
+instance Data.ToQuery ExportImage where
   toQuery ExportImage' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ExportImage" :: Prelude.ByteString),
+          Data.=: ("ExportImage" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "RoleName" Core.=: roleName,
-        "ClientToken" Core.=: clientToken,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "RoleName" Data.=: roleName,
+        "ClientToken" Data.=: clientToken,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DiskImageFormat" Core.=: diskImageFormat,
-        "ImageId" Core.=: imageId,
-        "S3ExportLocation" Core.=: s3ExportLocation
+        "DiskImageFormat" Data.=: diskImageFormat,
+        "ImageId" Data.=: imageId,
+        "S3ExportLocation" Data.=: s3ExportLocation
       ]
 
 -- | /See:/ 'newExportImageResponse' smart constructor.

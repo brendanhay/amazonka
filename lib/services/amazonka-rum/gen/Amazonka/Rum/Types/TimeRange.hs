@@ -21,6 +21,7 @@ module Amazonka.Rum.Types.TimeRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that defines the time range that you want to retrieve
@@ -79,11 +80,11 @@ instance Prelude.NFData TimeRange where
   rnf TimeRange' {..} =
     Prelude.rnf before `Prelude.seq` Prelude.rnf after
 
-instance Core.ToJSON TimeRange where
+instance Data.ToJSON TimeRange where
   toJSON TimeRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Before" Core..=) Prelude.<$> before,
-            Prelude.Just ("After" Core..= after)
+          [ ("Before" Data..=) Prelude.<$> before,
+            Prelude.Just ("After" Data..= after)
           ]
       )

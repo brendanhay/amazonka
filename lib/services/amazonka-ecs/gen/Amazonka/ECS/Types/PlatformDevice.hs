@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.PlatformDevice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.PlatformDeviceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -82,11 +83,11 @@ instance Prelude.NFData PlatformDevice where
   rnf PlatformDevice' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON PlatformDevice where
+instance Data.ToJSON PlatformDevice where
   toJSON PlatformDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("id" Core..= id),
-            Prelude.Just ("type" Core..= type')
+          [ Prelude.Just ("id" Data..= id),
+            Prelude.Just ("type" Data..= type')
           ]
       )

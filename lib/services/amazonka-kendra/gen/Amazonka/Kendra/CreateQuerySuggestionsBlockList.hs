@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -239,7 +240,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateQuerySuggestionsBlockListResponse'
-            Prelude.<$> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -272,41 +273,41 @@ instance
       `Prelude.seq` Prelude.rnf roleArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateQuerySuggestionsBlockList
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.CreateQuerySuggestionsBlockList" ::
+              Data.=# ( "AWSKendraFrontendService.CreateQuerySuggestionsBlockList" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateQuerySuggestionsBlockList where
+instance Data.ToJSON CreateQuerySuggestionsBlockList where
   toJSON CreateQuerySuggestionsBlockList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("SourceS3Path" Core..= sourceS3Path),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("SourceS3Path" Data..= sourceS3Path),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateQuerySuggestionsBlockList where
+instance Data.ToPath CreateQuerySuggestionsBlockList where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateQuerySuggestionsBlockList where
+instance Data.ToQuery CreateQuerySuggestionsBlockList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateQuerySuggestionsBlockListResponse' smart constructor.

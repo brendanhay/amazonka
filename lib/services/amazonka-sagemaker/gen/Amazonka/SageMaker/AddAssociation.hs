@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -157,8 +158,8 @@ instance Core.AWSRequest AddAssociation where
     Response.receiveJSON
       ( \s h x ->
           AddAssociationResponse'
-            Prelude.<$> (x Core..?> "SourceArn")
-            Prelude.<*> (x Core..?> "DestinationArn")
+            Prelude.<$> (x Data..?> "SourceArn")
+            Prelude.<*> (x Data..?> "DestinationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,35 +175,35 @@ instance Prelude.NFData AddAssociation where
       `Prelude.seq` Prelude.rnf sourceArn
       `Prelude.seq` Prelude.rnf destinationArn
 
-instance Core.ToHeaders AddAssociation where
+instance Data.ToHeaders AddAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.AddAssociation" :: Prelude.ByteString),
+              Data.=# ("SageMaker.AddAssociation" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddAssociation where
+instance Data.ToJSON AddAssociation where
   toJSON AddAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AssociationType" Core..=)
+          [ ("AssociationType" Data..=)
               Prelude.<$> associationType,
-            Prelude.Just ("SourceArn" Core..= sourceArn),
+            Prelude.Just ("SourceArn" Data..= sourceArn),
             Prelude.Just
-              ("DestinationArn" Core..= destinationArn)
+              ("DestinationArn" Data..= destinationArn)
           ]
       )
 
-instance Core.ToPath AddAssociation where
+instance Data.ToPath AddAssociation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddAssociation where
+instance Data.ToQuery AddAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddAssociationResponse' smart constructor.

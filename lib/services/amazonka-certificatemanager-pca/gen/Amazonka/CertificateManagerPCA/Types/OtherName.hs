@@ -21,6 +21,7 @@ module Amazonka.CertificateManagerPCA.Types.OtherName where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a custom ASN.1 X.400 @GeneralName@ using an object identifier
@@ -65,13 +66,13 @@ otherName_typeId = Lens.lens (\OtherName' {typeId} -> typeId) (\s@OtherName' {} 
 otherName_value :: Lens.Lens' OtherName Prelude.Text
 otherName_value = Lens.lens (\OtherName' {value} -> value) (\s@OtherName' {} a -> s {value = a} :: OtherName)
 
-instance Core.FromJSON OtherName where
+instance Data.FromJSON OtherName where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OtherName"
       ( \x ->
           OtherName'
-            Prelude.<$> (x Core..: "TypeId") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "TypeId") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable OtherName where
@@ -83,11 +84,11 @@ instance Prelude.NFData OtherName where
   rnf OtherName' {..} =
     Prelude.rnf typeId `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON OtherName where
+instance Data.ToJSON OtherName where
   toJSON OtherName' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TypeId" Core..= typeId),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("TypeId" Data..= typeId),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TagSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ResourceType
 import Amazonka.EC2.Types.Tag
@@ -69,13 +70,13 @@ tagSpecification_tags = Lens.lens (\TagSpecification' {tags} -> tags) (\s@TagSpe
 tagSpecification_resourceType :: Lens.Lens' TagSpecification (Prelude.Maybe ResourceType)
 tagSpecification_resourceType = Lens.lens (\TagSpecification' {resourceType} -> resourceType) (\s@TagSpecification' {} a -> s {resourceType = a} :: TagSpecification)
 
-instance Core.FromXML TagSpecification where
+instance Data.FromXML TagSpecification where
   parseXML x =
     TagSpecification'
-      Prelude.<$> ( x Core..@? "Tag" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "Tag" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "resourceType")
+      Prelude.<*> (x Data..@? "resourceType")
 
 instance Prelude.Hashable TagSpecification where
   hashWithSalt _salt TagSpecification' {..} =
@@ -87,10 +88,10 @@ instance Prelude.NFData TagSpecification where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToQuery TagSpecification where
+instance Data.ToQuery TagSpecification where
   toQuery TagSpecification' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          (Core.toQueryList "Tag" Prelude.<$> tags),
-        "ResourceType" Core.=: resourceType
+      [ Data.toQuery
+          (Data.toQueryList "Tag" Prelude.<$> tags),
+        "ResourceType" Data.=: resourceType
       ]

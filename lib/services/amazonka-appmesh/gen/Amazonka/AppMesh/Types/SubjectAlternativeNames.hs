@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.SubjectAlternativeNames where
 import Amazonka.AppMesh.Types.SubjectAlternativeNameMatchers
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the subject alternative names secured by the
@@ -54,13 +55,13 @@ newSubjectAlternativeNames pMatch_ =
 subjectAlternativeNames_match :: Lens.Lens' SubjectAlternativeNames SubjectAlternativeNameMatchers
 subjectAlternativeNames_match = Lens.lens (\SubjectAlternativeNames' {match} -> match) (\s@SubjectAlternativeNames' {} a -> s {match = a} :: SubjectAlternativeNames)
 
-instance Core.FromJSON SubjectAlternativeNames where
+instance Data.FromJSON SubjectAlternativeNames where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubjectAlternativeNames"
       ( \x ->
           SubjectAlternativeNames'
-            Prelude.<$> (x Core..: "match")
+            Prelude.<$> (x Data..: "match")
       )
 
 instance Prelude.Hashable SubjectAlternativeNames where
@@ -70,9 +71,9 @@ instance Prelude.Hashable SubjectAlternativeNames where
 instance Prelude.NFData SubjectAlternativeNames where
   rnf SubjectAlternativeNames' {..} = Prelude.rnf match
 
-instance Core.ToJSON SubjectAlternativeNames where
+instance Data.ToJSON SubjectAlternativeNames where
   toJSON SubjectAlternativeNames' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("match" Core..= match)]
+          [Prelude.Just ("match" Data..= match)]
       )

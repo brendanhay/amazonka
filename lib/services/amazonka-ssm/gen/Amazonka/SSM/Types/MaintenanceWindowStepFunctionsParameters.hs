@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.MaintenanceWindowStepFunctionsParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for a @STEP_FUNCTIONS@ task.
@@ -50,7 +51,7 @@ data MaintenanceWindowStepFunctionsParameters = MaintenanceWindowStepFunctionsPa
   { -- | The name of the @STEP_FUNCTIONS@ task.
     name :: Prelude.Maybe Prelude.Text,
     -- | The inputs for the @STEP_FUNCTIONS@ task.
-    input :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    input :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -80,18 +81,18 @@ maintenanceWindowStepFunctionsParameters_name = Lens.lens (\MaintenanceWindowSte
 
 -- | The inputs for the @STEP_FUNCTIONS@ task.
 maintenanceWindowStepFunctionsParameters_input :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Prelude.Maybe Prelude.Text)
-maintenanceWindowStepFunctionsParameters_input = Lens.lens (\MaintenanceWindowStepFunctionsParameters' {input} -> input) (\s@MaintenanceWindowStepFunctionsParameters' {} a -> s {input = a} :: MaintenanceWindowStepFunctionsParameters) Prelude.. Lens.mapping Core._Sensitive
+maintenanceWindowStepFunctionsParameters_input = Lens.lens (\MaintenanceWindowStepFunctionsParameters' {input} -> input) (\s@MaintenanceWindowStepFunctionsParameters' {} a -> s {input = a} :: MaintenanceWindowStepFunctionsParameters) Prelude.. Lens.mapping Data._Sensitive
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MaintenanceWindowStepFunctionsParameters
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MaintenanceWindowStepFunctionsParameters"
       ( \x ->
           MaintenanceWindowStepFunctionsParameters'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Input")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Input")
       )
 
 instance
@@ -112,13 +113,13 @@ instance
     Prelude.rnf name `Prelude.seq` Prelude.rnf input
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     MaintenanceWindowStepFunctionsParameters
   where
   toJSON MaintenanceWindowStepFunctionsParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Input" Core..=) Prelude.<$> input
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Input" Data..=) Prelude.<$> input
           ]
       )

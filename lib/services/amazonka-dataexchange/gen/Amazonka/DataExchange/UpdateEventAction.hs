@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,12 +101,12 @@ instance Core.AWSRequest UpdateEventAction where
     Response.receiveJSON
       ( \s h x ->
           UpdateEventActionResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Event")
-            Prelude.<*> (x Core..?> "Action")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "UpdatedAt")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Event")
+            Prelude.<*> (x Data..?> "Action")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,30 +120,30 @@ instance Prelude.NFData UpdateEventAction where
     Prelude.rnf action
       `Prelude.seq` Prelude.rnf eventActionId
 
-instance Core.ToHeaders UpdateEventAction where
+instance Data.ToHeaders UpdateEventAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEventAction where
+instance Data.ToJSON UpdateEventAction where
   toJSON UpdateEventAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Action" Core..=) Prelude.<$> action]
+          [("Action" Data..=) Prelude.<$> action]
       )
 
-instance Core.ToPath UpdateEventAction where
+instance Data.ToPath UpdateEventAction where
   toPath UpdateEventAction' {..} =
     Prelude.mconcat
-      ["/v1/event-actions/", Core.toBS eventActionId]
+      ["/v1/event-actions/", Data.toBS eventActionId]
 
-instance Core.ToQuery UpdateEventAction where
+instance Data.ToQuery UpdateEventAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEventActionResponse' smart constructor.
@@ -156,10 +157,10 @@ data UpdateEventActionResponse = UpdateEventActionResponse'
     -- | What occurs after a certain event.
     action :: Prelude.Maybe Action,
     -- | The date and time that the event action was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the event action was last updated, in ISO 8601
     -- format.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -220,12 +221,12 @@ updateEventActionResponse_action = Lens.lens (\UpdateEventActionResponse' {actio
 
 -- | The date and time that the event action was created, in ISO 8601 format.
 updateEventActionResponse_createdAt :: Lens.Lens' UpdateEventActionResponse (Prelude.Maybe Prelude.UTCTime)
-updateEventActionResponse_createdAt = Lens.lens (\UpdateEventActionResponse' {createdAt} -> createdAt) (\s@UpdateEventActionResponse' {} a -> s {createdAt = a} :: UpdateEventActionResponse) Prelude.. Lens.mapping Core._Time
+updateEventActionResponse_createdAt = Lens.lens (\UpdateEventActionResponse' {createdAt} -> createdAt) (\s@UpdateEventActionResponse' {} a -> s {createdAt = a} :: UpdateEventActionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the event action was last updated, in ISO 8601
 -- format.
 updateEventActionResponse_updatedAt :: Lens.Lens' UpdateEventActionResponse (Prelude.Maybe Prelude.UTCTime)
-updateEventActionResponse_updatedAt = Lens.lens (\UpdateEventActionResponse' {updatedAt} -> updatedAt) (\s@UpdateEventActionResponse' {} a -> s {updatedAt = a} :: UpdateEventActionResponse) Prelude.. Lens.mapping Core._Time
+updateEventActionResponse_updatedAt = Lens.lens (\UpdateEventActionResponse' {updatedAt} -> updatedAt) (\s@UpdateEventActionResponse' {} a -> s {updatedAt = a} :: UpdateEventActionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updateEventActionResponse_httpStatus :: Lens.Lens' UpdateEventActionResponse Prelude.Int

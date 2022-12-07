@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.TapeRecoveryPointInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a recovery point.
@@ -36,7 +37,7 @@ data TapeRecoveryPointInfo = TapeRecoveryPointInfo'
     --
     -- The default timestamp format of the tape recovery point time is in the
     -- ISO8601 extended YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
-    tapeRecoveryPointTime :: Prelude.Maybe Core.POSIX,
+    tapeRecoveryPointTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the virtual tape.
     tapeARN :: Prelude.Maybe Prelude.Text
   }
@@ -86,22 +87,22 @@ tapeRecoveryPointInfo_tapeSizeInBytes = Lens.lens (\TapeRecoveryPointInfo' {tape
 -- The default timestamp format of the tape recovery point time is in the
 -- ISO8601 extended YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
 tapeRecoveryPointInfo_tapeRecoveryPointTime :: Lens.Lens' TapeRecoveryPointInfo (Prelude.Maybe Prelude.UTCTime)
-tapeRecoveryPointInfo_tapeRecoveryPointTime = Lens.lens (\TapeRecoveryPointInfo' {tapeRecoveryPointTime} -> tapeRecoveryPointTime) (\s@TapeRecoveryPointInfo' {} a -> s {tapeRecoveryPointTime = a} :: TapeRecoveryPointInfo) Prelude.. Lens.mapping Core._Time
+tapeRecoveryPointInfo_tapeRecoveryPointTime = Lens.lens (\TapeRecoveryPointInfo' {tapeRecoveryPointTime} -> tapeRecoveryPointTime) (\s@TapeRecoveryPointInfo' {} a -> s {tapeRecoveryPointTime = a} :: TapeRecoveryPointInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the virtual tape.
 tapeRecoveryPointInfo_tapeARN :: Lens.Lens' TapeRecoveryPointInfo (Prelude.Maybe Prelude.Text)
 tapeRecoveryPointInfo_tapeARN = Lens.lens (\TapeRecoveryPointInfo' {tapeARN} -> tapeARN) (\s@TapeRecoveryPointInfo' {} a -> s {tapeARN = a} :: TapeRecoveryPointInfo)
 
-instance Core.FromJSON TapeRecoveryPointInfo where
+instance Data.FromJSON TapeRecoveryPointInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TapeRecoveryPointInfo"
       ( \x ->
           TapeRecoveryPointInfo'
-            Prelude.<$> (x Core..:? "TapeStatus")
-            Prelude.<*> (x Core..:? "TapeSizeInBytes")
-            Prelude.<*> (x Core..:? "TapeRecoveryPointTime")
-            Prelude.<*> (x Core..:? "TapeARN")
+            Prelude.<$> (x Data..:? "TapeStatus")
+            Prelude.<*> (x Data..:? "TapeSizeInBytes")
+            Prelude.<*> (x Data..:? "TapeRecoveryPointTime")
+            Prelude.<*> (x Data..:? "TapeARN")
       )
 
 instance Prelude.Hashable TapeRecoveryPointInfo where

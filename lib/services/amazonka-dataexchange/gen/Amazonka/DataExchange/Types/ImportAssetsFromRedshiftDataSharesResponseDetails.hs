@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDet
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,17 +81,17 @@ importAssetsFromRedshiftDataSharesResponseDetails_revisionId :: Lens.Lens' Impor
 importAssetsFromRedshiftDataSharesResponseDetails_revisionId = Lens.lens (\ImportAssetsFromRedshiftDataSharesResponseDetails' {revisionId} -> revisionId) (\s@ImportAssetsFromRedshiftDataSharesResponseDetails' {} a -> s {revisionId = a} :: ImportAssetsFromRedshiftDataSharesResponseDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ImportAssetsFromRedshiftDataSharesResponseDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportAssetsFromRedshiftDataSharesResponseDetails"
       ( \x ->
           ImportAssetsFromRedshiftDataSharesResponseDetails'
-            Prelude.<$> (x Core..:? "AssetSources" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..: "DataSetId")
-              Prelude.<*> (x Core..: "RevisionId")
+            Prelude.<$> (x Data..:? "AssetSources" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..: "DataSetId")
+              Prelude.<*> (x Data..: "RevisionId")
       )
 
 instance

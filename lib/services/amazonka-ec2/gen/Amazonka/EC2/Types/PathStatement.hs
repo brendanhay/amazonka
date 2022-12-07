@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PathStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PacketHeaderStatement
 import Amazonka.EC2.Types.ResourceStatement
@@ -64,11 +65,11 @@ pathStatement_resourceStatement = Lens.lens (\PathStatement' {resourceStatement}
 pathStatement_packetHeaderStatement :: Lens.Lens' PathStatement (Prelude.Maybe PacketHeaderStatement)
 pathStatement_packetHeaderStatement = Lens.lens (\PathStatement' {packetHeaderStatement} -> packetHeaderStatement) (\s@PathStatement' {} a -> s {packetHeaderStatement = a} :: PathStatement)
 
-instance Core.FromXML PathStatement where
+instance Data.FromXML PathStatement where
   parseXML x =
     PathStatement'
-      Prelude.<$> (x Core..@? "resourceStatement")
-      Prelude.<*> (x Core..@? "packetHeaderStatement")
+      Prelude.<$> (x Data..@? "resourceStatement")
+      Prelude.<*> (x Data..@? "packetHeaderStatement")
 
 instance Prelude.Hashable PathStatement where
   hashWithSalt _salt PathStatement' {..} =

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IdentityStore.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -53,9 +54,9 @@ import qualified Amazonka.Response as Response
 data CreateGroup = CreateGroup'
   { -- | A string containing the name of the group. This value is commonly
     -- displayed when the group is referenced.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing the description of the group.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The globally unique identifier for the identity store.
     identityStoreId :: Prelude.Text
   }
@@ -89,11 +90,11 @@ newCreateGroup pIdentityStoreId_ =
 -- | A string containing the name of the group. This value is commonly
 -- displayed when the group is referenced.
 createGroup_displayName :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
-createGroup_displayName = Lens.lens (\CreateGroup' {displayName} -> displayName) (\s@CreateGroup' {} a -> s {displayName = a} :: CreateGroup) Prelude.. Lens.mapping Core._Sensitive
+createGroup_displayName = Lens.lens (\CreateGroup' {displayName} -> displayName) (\s@CreateGroup' {} a -> s {displayName = a} :: CreateGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing the description of the group.
 createGroup_description :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
-createGroup_description = Lens.lens (\CreateGroup' {description} -> description) (\s@CreateGroup' {} a -> s {description = a} :: CreateGroup) Prelude.. Lens.mapping Core._Sensitive
+createGroup_description = Lens.lens (\CreateGroup' {description} -> description) (\s@CreateGroup' {} a -> s {description = a} :: CreateGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The globally unique identifier for the identity store.
 createGroup_identityStoreId :: Lens.Lens' CreateGroup Prelude.Text
@@ -108,8 +109,8 @@ instance Core.AWSRequest CreateGroup where
       ( \s h x ->
           CreateGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "GroupId")
-            Prelude.<*> (x Core..:> "IdentityStoreId")
+            Prelude.<*> (x Data..:> "GroupId")
+            Prelude.<*> (x Data..:> "IdentityStoreId")
       )
 
 instance Prelude.Hashable CreateGroup where
@@ -124,36 +125,36 @@ instance Prelude.NFData CreateGroup where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf identityStoreId
 
-instance Core.ToHeaders CreateGroup where
+instance Data.ToHeaders CreateGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIdentityStore.CreateGroup" ::
+              Data.=# ( "AWSIdentityStore.CreateGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateGroup where
+instance Data.ToJSON CreateGroup where
   toJSON CreateGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just
-              ("IdentityStoreId" Core..= identityStoreId)
+              ("IdentityStoreId" Data..= identityStoreId)
           ]
       )
 
-instance Core.ToPath CreateGroup where
+instance Data.ToPath CreateGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateGroup where
+instance Data.ToQuery CreateGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGroupResponse' smart constructor.

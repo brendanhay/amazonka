@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.PatchStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.PatchComplianceLevel
 import Amazonka.SSM.Types.PatchDeploymentStatus
@@ -35,7 +36,7 @@ data PatchStatus = PatchStatus'
     complianceLevel :: Prelude.Maybe PatchComplianceLevel,
     -- | The date the patch was approved (or will be approved if the status is
     -- @PENDING_APPROVAL@).
-    approvalDate :: Prelude.Maybe Core.POSIX
+    approvalDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,17 +74,17 @@ patchStatus_complianceLevel = Lens.lens (\PatchStatus' {complianceLevel} -> comp
 -- | The date the patch was approved (or will be approved if the status is
 -- @PENDING_APPROVAL@).
 patchStatus_approvalDate :: Lens.Lens' PatchStatus (Prelude.Maybe Prelude.UTCTime)
-patchStatus_approvalDate = Lens.lens (\PatchStatus' {approvalDate} -> approvalDate) (\s@PatchStatus' {} a -> s {approvalDate = a} :: PatchStatus) Prelude.. Lens.mapping Core._Time
+patchStatus_approvalDate = Lens.lens (\PatchStatus' {approvalDate} -> approvalDate) (\s@PatchStatus' {} a -> s {approvalDate = a} :: PatchStatus) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON PatchStatus where
+instance Data.FromJSON PatchStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PatchStatus"
       ( \x ->
           PatchStatus'
-            Prelude.<$> (x Core..:? "DeploymentStatus")
-            Prelude.<*> (x Core..:? "ComplianceLevel")
-            Prelude.<*> (x Core..:? "ApprovalDate")
+            Prelude.<$> (x Data..:? "DeploymentStatus")
+            Prelude.<*> (x Data..:? "ComplianceLevel")
+            Prelude.<*> (x Data..:? "ApprovalDate")
       )
 
 instance Prelude.Hashable PatchStatus where

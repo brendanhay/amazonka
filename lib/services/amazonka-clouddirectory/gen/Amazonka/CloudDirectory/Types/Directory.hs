@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.Directory where
 import Amazonka.CloudDirectory.Types.DirectoryState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Directory structure that includes the directory name and directory ARN.
@@ -31,7 +32,7 @@ data Directory = Directory'
   { -- | The name of the directory.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the directory was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) that is associated with the directory.
     -- For more information, see arns.
     directoryArn :: Prelude.Maybe Prelude.Text,
@@ -74,7 +75,7 @@ directory_name = Lens.lens (\Directory' {name} -> name) (\s@Directory' {} a -> s
 
 -- | The date and time when the directory was created.
 directory_creationDateTime :: Lens.Lens' Directory (Prelude.Maybe Prelude.UTCTime)
-directory_creationDateTime = Lens.lens (\Directory' {creationDateTime} -> creationDateTime) (\s@Directory' {} a -> s {creationDateTime = a} :: Directory) Prelude.. Lens.mapping Core._Time
+directory_creationDateTime = Lens.lens (\Directory' {creationDateTime} -> creationDateTime) (\s@Directory' {} a -> s {creationDateTime = a} :: Directory) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) that is associated with the directory.
 -- For more information, see arns.
@@ -86,16 +87,16 @@ directory_directoryArn = Lens.lens (\Directory' {directoryArn} -> directoryArn) 
 directory_state :: Lens.Lens' Directory (Prelude.Maybe DirectoryState)
 directory_state = Lens.lens (\Directory' {state} -> state) (\s@Directory' {} a -> s {state = a} :: Directory)
 
-instance Core.FromJSON Directory where
+instance Data.FromJSON Directory where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Directory"
       ( \x ->
           Directory'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreationDateTime")
-            Prelude.<*> (x Core..:? "DirectoryArn")
-            Prelude.<*> (x Core..:? "State")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreationDateTime")
+            Prelude.<*> (x Data..:? "DirectoryArn")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable Directory where

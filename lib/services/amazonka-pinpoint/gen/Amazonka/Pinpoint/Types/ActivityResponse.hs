@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ActivityResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an activity that was performed by a campaign.
@@ -191,25 +192,25 @@ activityResponse_id = Lens.lens (\ActivityResponse' {id} -> id) (\s@ActivityResp
 activityResponse_applicationId :: Lens.Lens' ActivityResponse Prelude.Text
 activityResponse_applicationId = Lens.lens (\ActivityResponse' {applicationId} -> applicationId) (\s@ActivityResponse' {} a -> s {applicationId = a} :: ActivityResponse)
 
-instance Core.FromJSON ActivityResponse where
+instance Data.FromJSON ActivityResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActivityResponse"
       ( \x ->
           ActivityResponse'
-            Prelude.<$> (x Core..:? "TimezonesCompletedCount")
-            Prelude.<*> (x Core..:? "SuccessfulEndpointCount")
-            Prelude.<*> (x Core..:? "ScheduledStart")
-            Prelude.<*> (x Core..:? "TreatmentId")
-            Prelude.<*> (x Core..:? "Start")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "TimezonesTotalCount")
-            Prelude.<*> (x Core..:? "End")
-            Prelude.<*> (x Core..:? "Result")
-            Prelude.<*> (x Core..:? "TotalEndpointCount")
-            Prelude.<*> (x Core..: "CampaignId")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "ApplicationId")
+            Prelude.<$> (x Data..:? "TimezonesCompletedCount")
+            Prelude.<*> (x Data..:? "SuccessfulEndpointCount")
+            Prelude.<*> (x Data..:? "ScheduledStart")
+            Prelude.<*> (x Data..:? "TreatmentId")
+            Prelude.<*> (x Data..:? "Start")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "TimezonesTotalCount")
+            Prelude.<*> (x Data..:? "End")
+            Prelude.<*> (x Data..:? "Result")
+            Prelude.<*> (x Data..:? "TotalEndpointCount")
+            Prelude.<*> (x Data..: "CampaignId")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "ApplicationId")
       )
 
 instance Prelude.Hashable ActivityResponse where

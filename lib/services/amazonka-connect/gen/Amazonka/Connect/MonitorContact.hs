@@ -49,6 +49,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -150,8 +151,8 @@ instance Core.AWSRequest MonitorContact where
     Response.receiveJSON
       ( \s h x ->
           MonitorContactResponse'
-            Prelude.<$> (x Core..?> "ContactId")
-            Prelude.<*> (x Core..?> "ContactArn")
+            Prelude.<$> (x Data..?> "ContactId")
+            Prelude.<*> (x Data..?> "ContactArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,34 +172,34 @@ instance Prelude.NFData MonitorContact where
       `Prelude.seq` Prelude.rnf contactId
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders MonitorContact where
+instance Data.ToHeaders MonitorContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON MonitorContact where
+instance Data.ToJSON MonitorContact where
   toJSON MonitorContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("AllowedMonitorCapabilities" Core..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("AllowedMonitorCapabilities" Data..=)
               Prelude.<$> allowedMonitorCapabilities,
-            Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("ContactId" Core..= contactId),
-            Prelude.Just ("UserId" Core..= userId)
+            Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("ContactId" Data..= contactId),
+            Prelude.Just ("UserId" Data..= userId)
           ]
       )
 
-instance Core.ToPath MonitorContact where
+instance Data.ToPath MonitorContact where
   toPath = Prelude.const "/contact/monitor"
 
-instance Core.ToQuery MonitorContact where
+instance Data.ToQuery MonitorContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newMonitorContactResponse' smart constructor.

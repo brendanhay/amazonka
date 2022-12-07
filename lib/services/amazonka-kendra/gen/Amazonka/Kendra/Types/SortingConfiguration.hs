@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SortingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.SortOrder
 import qualified Amazonka.Prelude as Prelude
 
@@ -139,14 +140,14 @@ instance Prelude.NFData SortingConfiguration where
     Prelude.rnf documentAttributeKey
       `Prelude.seq` Prelude.rnf sortOrder
 
-instance Core.ToJSON SortingConfiguration where
+instance Data.ToJSON SortingConfiguration where
   toJSON SortingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "DocumentAttributeKey"
-                  Core..= documentAttributeKey
+                  Data..= documentAttributeKey
               ),
-            Prelude.Just ("SortOrder" Core..= sortOrder)
+            Prelude.Just ("SortOrder" Data..= sortOrder)
           ]
       )

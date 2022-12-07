@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.NetworkInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.PrivateIpAddressDetails
 import Amazonka.GuardDuty.Types.SecurityGroup
 import qualified Amazonka.Prelude as Prelude
@@ -137,24 +138,24 @@ networkInterface_vpcId = Lens.lens (\NetworkInterface' {vpcId} -> vpcId) (\s@Net
 networkInterface_ipv6Addresses :: Lens.Lens' NetworkInterface (Prelude.Maybe [Prelude.Text])
 networkInterface_ipv6Addresses = Lens.lens (\NetworkInterface' {ipv6Addresses} -> ipv6Addresses) (\s@NetworkInterface' {} a -> s {ipv6Addresses = a} :: NetworkInterface) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON NetworkInterface where
+instance Data.FromJSON NetworkInterface where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> ( x Core..:? "privateIpAddresses"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "privateIpAddresses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "subnetId")
-            Prelude.<*> (x Core..:? "publicIp")
-            Prelude.<*> (x Core..:? "networkInterfaceId")
-            Prelude.<*> (x Core..:? "publicDnsName")
-            Prelude.<*> (x Core..:? "securityGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "privateIpAddress")
-            Prelude.<*> (x Core..:? "privateDnsName")
-            Prelude.<*> (x Core..:? "vpcId")
-            Prelude.<*> (x Core..:? "ipv6Addresses" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "subnetId")
+            Prelude.<*> (x Data..:? "publicIp")
+            Prelude.<*> (x Data..:? "networkInterfaceId")
+            Prelude.<*> (x Data..:? "publicDnsName")
+            Prelude.<*> (x Data..:? "securityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "privateIpAddress")
+            Prelude.<*> (x Data..:? "privateDnsName")
+            Prelude.<*> (x Data..:? "vpcId")
+            Prelude.<*> (x Data..:? "ipv6Addresses" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable NetworkInterface where

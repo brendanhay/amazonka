@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceTypeSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.Configuration
 import Amazonka.EMR.Types.EbsBlockDevice
 import qualified Amazonka.Prelude as Prelude
@@ -150,21 +151,21 @@ instanceTypeSpecification_weightedCapacity = Lens.lens (\InstanceTypeSpecificati
 instanceTypeSpecification_ebsBlockDevices :: Lens.Lens' InstanceTypeSpecification (Prelude.Maybe [EbsBlockDevice])
 instanceTypeSpecification_ebsBlockDevices = Lens.lens (\InstanceTypeSpecification' {ebsBlockDevices} -> ebsBlockDevices) (\s@InstanceTypeSpecification' {} a -> s {ebsBlockDevices = a} :: InstanceTypeSpecification) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON InstanceTypeSpecification where
+instance Data.FromJSON InstanceTypeSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceTypeSpecification"
       ( \x ->
           InstanceTypeSpecification'
-            Prelude.<$> (x Core..:? "EbsOptimized")
-            Prelude.<*> (x Core..:? "BidPriceAsPercentageOfOnDemandPrice")
-            Prelude.<*> (x Core..:? "Configurations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "BidPrice")
-            Prelude.<*> (x Core..:? "CustomAmiId")
-            Prelude.<*> (x Core..:? "WeightedCapacity")
-            Prelude.<*> ( x Core..:? "EbsBlockDevices"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "EbsOptimized")
+            Prelude.<*> (x Data..:? "BidPriceAsPercentageOfOnDemandPrice")
+            Prelude.<*> (x Data..:? "Configurations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "BidPrice")
+            Prelude.<*> (x Data..:? "CustomAmiId")
+            Prelude.<*> (x Data..:? "WeightedCapacity")
+            Prelude.<*> ( x Data..:? "EbsBlockDevices"
+                            Data..!= Prelude.mempty
                         )
       )
 

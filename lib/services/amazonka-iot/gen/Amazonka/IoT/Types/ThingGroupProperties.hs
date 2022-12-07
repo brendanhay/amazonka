@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.ThingGroupProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.AttributePayload
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ thingGroupProperties_thingGroupDescription = Lens.lens (\ThingGroupProperties' {
 thingGroupProperties_attributePayload :: Lens.Lens' ThingGroupProperties (Prelude.Maybe AttributePayload)
 thingGroupProperties_attributePayload = Lens.lens (\ThingGroupProperties' {attributePayload} -> attributePayload) (\s@ThingGroupProperties' {} a -> s {attributePayload = a} :: ThingGroupProperties)
 
-instance Core.FromJSON ThingGroupProperties where
+instance Data.FromJSON ThingGroupProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThingGroupProperties"
       ( \x ->
           ThingGroupProperties'
-            Prelude.<$> (x Core..:? "thingGroupDescription")
-            Prelude.<*> (x Core..:? "attributePayload")
+            Prelude.<$> (x Data..:? "thingGroupDescription")
+            Prelude.<*> (x Data..:? "attributePayload")
       )
 
 instance Prelude.Hashable ThingGroupProperties where
@@ -83,13 +84,13 @@ instance Prelude.NFData ThingGroupProperties where
     Prelude.rnf thingGroupDescription
       `Prelude.seq` Prelude.rnf attributePayload
 
-instance Core.ToJSON ThingGroupProperties where
+instance Data.ToJSON ThingGroupProperties where
   toJSON ThingGroupProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("thingGroupDescription" Core..=)
+          [ ("thingGroupDescription" Data..=)
               Prelude.<$> thingGroupDescription,
-            ("attributePayload" Core..=)
+            ("attributePayload" Data..=)
               Prelude.<$> attributePayload
           ]
       )

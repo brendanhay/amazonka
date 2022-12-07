@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.StandardsControl where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.ControlStatus
 import Amazonka.SecurityHub.Types.SeverityRating
@@ -40,7 +41,7 @@ data StandardsControl = StandardsControl'
     severityRating :: Prelude.Maybe SeverityRating,
     -- | The date and time that the status of the security standard control was
     -- most recently updated.
-    controlStatusUpdatedAt :: Prelude.Maybe Core.POSIX,
+    controlStatusUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The reason provided for the most recent change in status for the
     -- control.
     disabledReason :: Prelude.Maybe Prelude.Text,
@@ -131,7 +132,7 @@ standardsControl_severityRating = Lens.lens (\StandardsControl' {severityRating}
 -- | The date and time that the status of the security standard control was
 -- most recently updated.
 standardsControl_controlStatusUpdatedAt :: Lens.Lens' StandardsControl (Prelude.Maybe Prelude.UTCTime)
-standardsControl_controlStatusUpdatedAt = Lens.lens (\StandardsControl' {controlStatusUpdatedAt} -> controlStatusUpdatedAt) (\s@StandardsControl' {} a -> s {controlStatusUpdatedAt = a} :: StandardsControl) Prelude.. Lens.mapping Core._Time
+standardsControl_controlStatusUpdatedAt = Lens.lens (\StandardsControl' {controlStatusUpdatedAt} -> controlStatusUpdatedAt) (\s@StandardsControl' {} a -> s {controlStatusUpdatedAt = a} :: StandardsControl) Prelude.. Lens.mapping Data._Time
 
 -- | The reason provided for the most recent change in status for the
 -- control.
@@ -162,24 +163,24 @@ standardsControl_remediationUrl = Lens.lens (\StandardsControl' {remediationUrl}
 standardsControl_controlStatus :: Lens.Lens' StandardsControl (Prelude.Maybe ControlStatus)
 standardsControl_controlStatus = Lens.lens (\StandardsControl' {controlStatus} -> controlStatus) (\s@StandardsControl' {} a -> s {controlStatus = a} :: StandardsControl)
 
-instance Core.FromJSON StandardsControl where
+instance Data.FromJSON StandardsControl where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StandardsControl"
       ( \x ->
           StandardsControl'
-            Prelude.<$> (x Core..:? "ControlId")
-            Prelude.<*> (x Core..:? "StandardsControlArn")
-            Prelude.<*> (x Core..:? "SeverityRating")
-            Prelude.<*> (x Core..:? "ControlStatusUpdatedAt")
-            Prelude.<*> (x Core..:? "DisabledReason")
-            Prelude.<*> ( x Core..:? "RelatedRequirements"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ControlId")
+            Prelude.<*> (x Data..:? "StandardsControlArn")
+            Prelude.<*> (x Data..:? "SeverityRating")
+            Prelude.<*> (x Data..:? "ControlStatusUpdatedAt")
+            Prelude.<*> (x Data..:? "DisabledReason")
+            Prelude.<*> ( x Data..:? "RelatedRequirements"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "RemediationUrl")
-            Prelude.<*> (x Core..:? "ControlStatus")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Title")
+            Prelude.<*> (x Data..:? "RemediationUrl")
+            Prelude.<*> (x Data..:? "ControlStatus")
       )
 
 instance Prelude.Hashable StandardsControl where

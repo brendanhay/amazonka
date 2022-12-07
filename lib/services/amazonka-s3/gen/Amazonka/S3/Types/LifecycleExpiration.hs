@@ -21,6 +21,7 @@ module Amazonka.S3.Types.LifecycleExpiration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -35,7 +36,7 @@ data LifecycleExpiration = LifecycleExpiration'
     expiredObjectDeleteMarker :: Prelude.Maybe Prelude.Bool,
     -- | Indicates at what date the object is to be moved or deleted. Should be
     -- in GMT ISO 8601 Format.
-    date :: Prelude.Maybe Core.ISO8601,
+    date :: Prelude.Maybe Data.ISO8601,
     -- | Indicates the lifetime, in days, of the objects that are subject to the
     -- rule. The value must be a non-zero positive integer.
     days :: Prelude.Maybe Prelude.Int
@@ -80,19 +81,19 @@ lifecycleExpiration_expiredObjectDeleteMarker = Lens.lens (\LifecycleExpiration'
 -- | Indicates at what date the object is to be moved or deleted. Should be
 -- in GMT ISO 8601 Format.
 lifecycleExpiration_date :: Lens.Lens' LifecycleExpiration (Prelude.Maybe Prelude.UTCTime)
-lifecycleExpiration_date = Lens.lens (\LifecycleExpiration' {date} -> date) (\s@LifecycleExpiration' {} a -> s {date = a} :: LifecycleExpiration) Prelude.. Lens.mapping Core._Time
+lifecycleExpiration_date = Lens.lens (\LifecycleExpiration' {date} -> date) (\s@LifecycleExpiration' {} a -> s {date = a} :: LifecycleExpiration) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the lifetime, in days, of the objects that are subject to the
 -- rule. The value must be a non-zero positive integer.
 lifecycleExpiration_days :: Lens.Lens' LifecycleExpiration (Prelude.Maybe Prelude.Int)
 lifecycleExpiration_days = Lens.lens (\LifecycleExpiration' {days} -> days) (\s@LifecycleExpiration' {} a -> s {days = a} :: LifecycleExpiration)
 
-instance Core.FromXML LifecycleExpiration where
+instance Data.FromXML LifecycleExpiration where
   parseXML x =
     LifecycleExpiration'
-      Prelude.<$> (x Core..@? "ExpiredObjectDeleteMarker")
-      Prelude.<*> (x Core..@? "Date")
-      Prelude.<*> (x Core..@? "Days")
+      Prelude.<$> (x Data..@? "ExpiredObjectDeleteMarker")
+      Prelude.<*> (x Data..@? "Date")
+      Prelude.<*> (x Data..@? "Days")
 
 instance Prelude.Hashable LifecycleExpiration where
   hashWithSalt _salt LifecycleExpiration' {..} =
@@ -107,11 +108,11 @@ instance Prelude.NFData LifecycleExpiration where
       `Prelude.seq` Prelude.rnf date
       `Prelude.seq` Prelude.rnf days
 
-instance Core.ToXML LifecycleExpiration where
+instance Data.ToXML LifecycleExpiration where
   toXML LifecycleExpiration' {..} =
     Prelude.mconcat
       [ "ExpiredObjectDeleteMarker"
-          Core.@= expiredObjectDeleteMarker,
-        "Date" Core.@= date,
-        "Days" Core.@= days
+          Data.@= expiredObjectDeleteMarker,
+        "Date" Data.@= date,
+        "Days" Data.@= days
       ]

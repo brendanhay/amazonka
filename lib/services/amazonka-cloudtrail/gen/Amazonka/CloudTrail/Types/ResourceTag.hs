@@ -22,6 +22,7 @@ module Amazonka.CloudTrail.Types.ResourceTag where
 import Amazonka.CloudTrail.Types.Tag
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource tag.
@@ -62,14 +63,14 @@ resourceTag_resourceId = Lens.lens (\ResourceTag' {resourceId} -> resourceId) (\
 resourceTag_tagsList :: Lens.Lens' ResourceTag (Prelude.Maybe [Tag])
 resourceTag_tagsList = Lens.lens (\ResourceTag' {tagsList} -> tagsList) (\s@ResourceTag' {} a -> s {tagsList = a} :: ResourceTag) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ResourceTag where
+instance Data.FromJSON ResourceTag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceTag"
       ( \x ->
           ResourceTag'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "TagsList" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "TagsList" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ResourceTag where

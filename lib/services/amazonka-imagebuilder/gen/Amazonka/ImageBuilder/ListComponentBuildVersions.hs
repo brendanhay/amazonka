@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,11 +126,11 @@ instance Core.AWSRequest ListComponentBuildVersions where
     Response.receiveJSON
       ( \s h x ->
           ListComponentBuildVersionsResponse'
-            Prelude.<$> ( x Core..?> "componentSummaryList"
+            Prelude.<$> ( x Data..?> "componentSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "requestId")
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,32 +146,32 @@ instance Prelude.NFData ListComponentBuildVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf componentVersionArn
 
-instance Core.ToHeaders ListComponentBuildVersions where
+instance Data.ToHeaders ListComponentBuildVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListComponentBuildVersions where
+instance Data.ToJSON ListComponentBuildVersions where
   toJSON ListComponentBuildVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("componentVersionArn" Core..= componentVersionArn)
+              ("componentVersionArn" Data..= componentVersionArn)
           ]
       )
 
-instance Core.ToPath ListComponentBuildVersions where
+instance Data.ToPath ListComponentBuildVersions where
   toPath = Prelude.const "/ListComponentBuildVersions"
 
-instance Core.ToQuery ListComponentBuildVersions where
+instance Data.ToQuery ListComponentBuildVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListComponentBuildVersionsResponse' smart constructor.

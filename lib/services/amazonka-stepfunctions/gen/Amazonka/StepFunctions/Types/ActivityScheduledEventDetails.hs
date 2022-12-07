@@ -21,6 +21,7 @@ module Amazonka.StepFunctions.Types.ActivityScheduledEventDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 
@@ -34,7 +35,7 @@ data ActivityScheduledEventDetails = ActivityScheduledEventDetails'
     timeoutInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | The JSON data input to the activity task. Length constraints apply to
     -- the payload size, and are expressed as bytes in UTF-8 encoding.
-    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    input :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The maximum allowed duration between two heartbeats for the activity
     -- task.
     heartbeatInSeconds :: Prelude.Maybe Prelude.Integer,
@@ -87,7 +88,7 @@ activityScheduledEventDetails_timeoutInSeconds = Lens.lens (\ActivityScheduledEv
 -- | The JSON data input to the activity task. Length constraints apply to
 -- the payload size, and are expressed as bytes in UTF-8 encoding.
 activityScheduledEventDetails_input :: Lens.Lens' ActivityScheduledEventDetails (Prelude.Maybe Prelude.Text)
-activityScheduledEventDetails_input = Lens.lens (\ActivityScheduledEventDetails' {input} -> input) (\s@ActivityScheduledEventDetails' {} a -> s {input = a} :: ActivityScheduledEventDetails) Prelude.. Lens.mapping Core._Sensitive
+activityScheduledEventDetails_input = Lens.lens (\ActivityScheduledEventDetails' {input} -> input) (\s@ActivityScheduledEventDetails' {} a -> s {input = a} :: ActivityScheduledEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The maximum allowed duration between two heartbeats for the activity
 -- task.
@@ -98,17 +99,17 @@ activityScheduledEventDetails_heartbeatInSeconds = Lens.lens (\ActivityScheduled
 activityScheduledEventDetails_resource :: Lens.Lens' ActivityScheduledEventDetails Prelude.Text
 activityScheduledEventDetails_resource = Lens.lens (\ActivityScheduledEventDetails' {resource} -> resource) (\s@ActivityScheduledEventDetails' {} a -> s {resource = a} :: ActivityScheduledEventDetails)
 
-instance Core.FromJSON ActivityScheduledEventDetails where
+instance Data.FromJSON ActivityScheduledEventDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActivityScheduledEventDetails"
       ( \x ->
           ActivityScheduledEventDetails'
-            Prelude.<$> (x Core..:? "inputDetails")
-            Prelude.<*> (x Core..:? "timeoutInSeconds")
-            Prelude.<*> (x Core..:? "input")
-            Prelude.<*> (x Core..:? "heartbeatInSeconds")
-            Prelude.<*> (x Core..: "resource")
+            Prelude.<$> (x Data..:? "inputDetails")
+            Prelude.<*> (x Data..:? "timeoutInSeconds")
+            Prelude.<*> (x Data..:? "input")
+            Prelude.<*> (x Data..:? "heartbeatInSeconds")
+            Prelude.<*> (x Data..: "resource")
       )
 
 instance

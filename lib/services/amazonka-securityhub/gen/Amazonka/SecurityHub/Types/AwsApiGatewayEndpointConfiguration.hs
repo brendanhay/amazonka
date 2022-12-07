@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsApiGatewayEndpointConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the endpoints for the API.
@@ -66,15 +67,15 @@ awsApiGatewayEndpointConfiguration_types :: Lens.Lens' AwsApiGatewayEndpointConf
 awsApiGatewayEndpointConfiguration_types = Lens.lens (\AwsApiGatewayEndpointConfiguration' {types} -> types) (\s@AwsApiGatewayEndpointConfiguration' {} a -> s {types = a} :: AwsApiGatewayEndpointConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsApiGatewayEndpointConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsApiGatewayEndpointConfiguration"
       ( \x ->
           AwsApiGatewayEndpointConfiguration'
-            Prelude.<$> (x Core..:? "Types" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Types" Data..!= Prelude.mempty)
       )
 
 instance
@@ -94,11 +95,11 @@ instance
     Prelude.rnf types
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsApiGatewayEndpointConfiguration
   where
   toJSON AwsApiGatewayEndpointConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Types" Core..=) Prelude.<$> types]
+          [("Types" Data..=) Prelude.<$> types]
       )

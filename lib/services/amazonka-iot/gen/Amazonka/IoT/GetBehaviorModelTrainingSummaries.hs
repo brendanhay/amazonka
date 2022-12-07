@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,8 +141,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetBehaviorModelTrainingSummariesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-              Prelude.<*> (x Core..?> "summaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+              Prelude.<*> (x Data..?> "summaries" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,27 +167,27 @@ instance
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetBehaviorModelTrainingSummaries
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetBehaviorModelTrainingSummaries
   where
   toPath =
     Prelude.const "/behavior-model-training/summaries"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetBehaviorModelTrainingSummaries
   where
   toQuery GetBehaviorModelTrainingSummaries' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "securityProfileName" Core.=: securityProfileName,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "securityProfileName" Data.=: securityProfileName,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetBehaviorModelTrainingSummariesResponse' smart constructor.

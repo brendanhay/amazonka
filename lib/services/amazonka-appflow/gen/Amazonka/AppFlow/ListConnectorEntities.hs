@@ -47,6 +47,7 @@ where
 import Amazonka.AppFlow.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,7 +139,7 @@ instance Core.AWSRequest ListConnectorEntities where
       ( \s h x ->
           ListConnectorEntitiesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "connectorEntityMap"
+            Prelude.<*> ( x Data..?> "connectorEntityMap"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -157,33 +158,33 @@ instance Prelude.NFData ListConnectorEntities where
       `Prelude.seq` Prelude.rnf connectorProfileName
       `Prelude.seq` Prelude.rnf connectorType
 
-instance Core.ToHeaders ListConnectorEntities where
+instance Data.ToHeaders ListConnectorEntities where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListConnectorEntities where
+instance Data.ToJSON ListConnectorEntities where
   toJSON ListConnectorEntities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("entitiesPath" Core..=) Prelude.<$> entitiesPath,
-            ("apiVersion" Core..=) Prelude.<$> apiVersion,
-            ("connectorProfileName" Core..=)
+          [ ("entitiesPath" Data..=) Prelude.<$> entitiesPath,
+            ("apiVersion" Data..=) Prelude.<$> apiVersion,
+            ("connectorProfileName" Data..=)
               Prelude.<$> connectorProfileName,
-            ("connectorType" Core..=) Prelude.<$> connectorType
+            ("connectorType" Data..=) Prelude.<$> connectorType
           ]
       )
 
-instance Core.ToPath ListConnectorEntities where
+instance Data.ToPath ListConnectorEntities where
   toPath = Prelude.const "/list-connector-entities"
 
-instance Core.ToQuery ListConnectorEntities where
+instance Data.ToQuery ListConnectorEntities where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListConnectorEntitiesResponse' smart constructor.

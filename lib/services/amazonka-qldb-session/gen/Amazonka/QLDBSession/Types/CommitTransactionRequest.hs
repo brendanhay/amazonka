@@ -21,6 +21,7 @@ module Amazonka.QLDBSession.Types.CommitTransactionRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the details of the transaction to commit.
@@ -38,7 +39,7 @@ data CommitTransactionRequest = CommitTransactionRequest'
     -- commits a transaction if and only if the server has processed the exact
     -- set of statements sent by the client, in the same order that client sent
     -- them, and with no duplicates.
-    commitDigest :: Core.Base64
+    commitDigest :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,7 +78,7 @@ newCommitTransactionRequest
     CommitTransactionRequest'
       { transactionId =
           pTransactionId_,
-        commitDigest = Core._Base64 Lens.# pCommitDigest_
+        commitDigest = Data._Base64 Lens.# pCommitDigest_
       }
 
 -- | Specifies the transaction ID of the transaction to commit.
@@ -98,7 +99,7 @@ commitTransactionRequest_transactionId = Lens.lens (\CommitTransactionRequest' {
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 commitTransactionRequest_commitDigest :: Lens.Lens' CommitTransactionRequest Prelude.ByteString
-commitTransactionRequest_commitDigest = Lens.lens (\CommitTransactionRequest' {commitDigest} -> commitDigest) (\s@CommitTransactionRequest' {} a -> s {commitDigest = a} :: CommitTransactionRequest) Prelude.. Core._Base64
+commitTransactionRequest_commitDigest = Lens.lens (\CommitTransactionRequest' {commitDigest} -> commitDigest) (\s@CommitTransactionRequest' {} a -> s {commitDigest = a} :: CommitTransactionRequest) Prelude.. Data._Base64
 
 instance Prelude.Hashable CommitTransactionRequest where
   hashWithSalt _salt CommitTransactionRequest' {..} =
@@ -110,12 +111,12 @@ instance Prelude.NFData CommitTransactionRequest where
     Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf commitDigest
 
-instance Core.ToJSON CommitTransactionRequest where
+instance Data.ToJSON CommitTransactionRequest where
   toJSON CommitTransactionRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TransactionId" Core..= transactionId),
-            Prelude.Just ("CommitDigest" Core..= commitDigest)
+              ("TransactionId" Data..= transactionId),
+            Prelude.Just ("CommitDigest" Data..= commitDigest)
           ]
       )

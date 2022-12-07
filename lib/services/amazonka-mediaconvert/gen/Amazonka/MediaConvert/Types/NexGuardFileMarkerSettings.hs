@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.NexGuardFileMarkerSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.WatermarkingStrength
 import qualified Amazonka.Prelude as Prelude
 
@@ -137,16 +138,16 @@ nexGuardFileMarkerSettings_payload = Lens.lens (\NexGuardFileMarkerSettings' {pa
 nexGuardFileMarkerSettings_preset :: Lens.Lens' NexGuardFileMarkerSettings (Prelude.Maybe Prelude.Text)
 nexGuardFileMarkerSettings_preset = Lens.lens (\NexGuardFileMarkerSettings' {preset} -> preset) (\s@NexGuardFileMarkerSettings' {} a -> s {preset = a} :: NexGuardFileMarkerSettings)
 
-instance Core.FromJSON NexGuardFileMarkerSettings where
+instance Data.FromJSON NexGuardFileMarkerSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NexGuardFileMarkerSettings"
       ( \x ->
           NexGuardFileMarkerSettings'
-            Prelude.<$> (x Core..:? "strength")
-            Prelude.<*> (x Core..:? "license")
-            Prelude.<*> (x Core..:? "payload")
-            Prelude.<*> (x Core..:? "preset")
+            Prelude.<$> (x Data..:? "strength")
+            Prelude.<*> (x Data..:? "license")
+            Prelude.<*> (x Data..:? "payload")
+            Prelude.<*> (x Data..:? "preset")
       )
 
 instance Prelude.Hashable NexGuardFileMarkerSettings where
@@ -163,13 +164,13 @@ instance Prelude.NFData NexGuardFileMarkerSettings where
       `Prelude.seq` Prelude.rnf payload
       `Prelude.seq` Prelude.rnf preset
 
-instance Core.ToJSON NexGuardFileMarkerSettings where
+instance Data.ToJSON NexGuardFileMarkerSettings where
   toJSON NexGuardFileMarkerSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("strength" Core..=) Prelude.<$> strength,
-            ("license" Core..=) Prelude.<$> license,
-            ("payload" Core..=) Prelude.<$> payload,
-            ("preset" Core..=) Prelude.<$> preset
+          [ ("strength" Data..=) Prelude.<$> strength,
+            ("license" Data..=) Prelude.<$> license,
+            ("payload" Data..=) Prelude.<$> payload,
+            ("preset" Data..=) Prelude.<$> preset
           ]
       )

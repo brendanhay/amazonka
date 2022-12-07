@@ -48,6 +48,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,8 +159,8 @@ instance Core.AWSRequest GetResources where
     Response.receiveJSON
       ( \s h x ->
           GetResourcesResponse'
-            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "position")
+            Prelude.<$> (x Data..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,28 +178,28 @@ instance Prelude.NFData GetResources where
       `Prelude.seq` Prelude.rnf embed
       `Prelude.seq` Prelude.rnf restApiId
 
-instance Core.ToHeaders GetResources where
+instance Data.ToHeaders GetResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetResources where
+instance Data.ToPath GetResources where
   toPath GetResources' {..} =
     Prelude.mconcat
-      ["/restapis/", Core.toBS restApiId, "/resources"]
+      ["/restapis/", Data.toBS restApiId, "/resources"]
 
-instance Core.ToQuery GetResources where
+instance Data.ToQuery GetResources where
   toQuery GetResources' {..} =
     Prelude.mconcat
-      [ "limit" Core.=: limit,
-        "position" Core.=: position,
+      [ "limit" Data.=: limit,
+        "position" Data.=: position,
         "embed"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> embed)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> embed)
       ]
 
 -- | Represents a collection of Resource resources.

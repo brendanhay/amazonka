@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.NFSFileShareDefaults where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes Network File System (NFS) file share default values. Files and
@@ -102,16 +103,16 @@ nFSFileShareDefaults_directoryMode = Lens.lens (\NFSFileShareDefaults' {director
 nFSFileShareDefaults_groupId :: Lens.Lens' NFSFileShareDefaults (Prelude.Maybe Prelude.Natural)
 nFSFileShareDefaults_groupId = Lens.lens (\NFSFileShareDefaults' {groupId} -> groupId) (\s@NFSFileShareDefaults' {} a -> s {groupId = a} :: NFSFileShareDefaults)
 
-instance Core.FromJSON NFSFileShareDefaults where
+instance Data.FromJSON NFSFileShareDefaults where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NFSFileShareDefaults"
       ( \x ->
           NFSFileShareDefaults'
-            Prelude.<$> (x Core..:? "FileMode")
-            Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "DirectoryMode")
-            Prelude.<*> (x Core..:? "GroupId")
+            Prelude.<$> (x Data..:? "FileMode")
+            Prelude.<*> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "DirectoryMode")
+            Prelude.<*> (x Data..:? "GroupId")
       )
 
 instance Prelude.Hashable NFSFileShareDefaults where
@@ -128,13 +129,13 @@ instance Prelude.NFData NFSFileShareDefaults where
       `Prelude.seq` Prelude.rnf directoryMode
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToJSON NFSFileShareDefaults where
+instance Data.ToJSON NFSFileShareDefaults where
   toJSON NFSFileShareDefaults' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FileMode" Core..=) Prelude.<$> fileMode,
-            ("OwnerId" Core..=) Prelude.<$> ownerId,
-            ("DirectoryMode" Core..=) Prelude.<$> directoryMode,
-            ("GroupId" Core..=) Prelude.<$> groupId
+          [ ("FileMode" Data..=) Prelude.<$> fileMode,
+            ("OwnerId" Data..=) Prelude.<$> ownerId,
+            ("DirectoryMode" Data..=) Prelude.<$> directoryMode,
+            ("GroupId" Data..=) Prelude.<$> groupId
           ]
       )

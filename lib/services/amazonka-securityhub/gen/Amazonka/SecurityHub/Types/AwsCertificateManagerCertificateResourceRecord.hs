@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateResourceRecord
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details about the CNAME record that is added to the DNS
@@ -73,16 +74,16 @@ awsCertificateManagerCertificateResourceRecord_value :: Lens.Lens' AwsCertificat
 awsCertificateManagerCertificateResourceRecord_value = Lens.lens (\AwsCertificateManagerCertificateResourceRecord' {value} -> value) (\s@AwsCertificateManagerCertificateResourceRecord' {} a -> s {value = a} :: AwsCertificateManagerCertificateResourceRecord)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCertificateManagerCertificateResourceRecord
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCertificateManagerCertificateResourceRecord"
       ( \x ->
           AwsCertificateManagerCertificateResourceRecord'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Type")
-              Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Type")
+              Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -107,15 +108,15 @@ instance
         `Prelude.seq` Prelude.rnf value
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCertificateManagerCertificateResourceRecord
   where
   toJSON
     AwsCertificateManagerCertificateResourceRecord' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Name" Core..=) Prelude.<$> name,
-              ("Type" Core..=) Prelude.<$> type',
-              ("Value" Core..=) Prelude.<$> value
+            [ ("Name" Data..=) Prelude.<$> name,
+              ("Type" Data..=) Prelude.<$> type',
+              ("Value" Data..=) Prelude.<$> value
             ]
         )

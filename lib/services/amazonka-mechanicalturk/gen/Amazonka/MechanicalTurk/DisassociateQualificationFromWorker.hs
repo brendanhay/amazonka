@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,45 +145,45 @@ instance
       `Prelude.seq` Prelude.rnf qualificationTypeId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateQualificationFromWorker
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DisassociateQualificationFromWorker
   where
   toJSON DisassociateQualificationFromWorker' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Reason" Core..=) Prelude.<$> reason,
-            Prelude.Just ("WorkerId" Core..= workerId),
+          [ ("Reason" Data..=) Prelude.<$> reason,
+            Prelude.Just ("WorkerId" Data..= workerId),
             Prelude.Just
-              ("QualificationTypeId" Core..= qualificationTypeId)
+              ("QualificationTypeId" Data..= qualificationTypeId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateQualificationFromWorker
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateQualificationFromWorker
   where
   toQuery = Prelude.const Prelude.mempty

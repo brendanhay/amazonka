@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -180,8 +181,8 @@ instance Core.AWSRequest ListGameServers where
     Response.receiveJSON
       ( \s h x ->
           ListGameServersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "GameServers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "GameServers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,35 +200,35 @@ instance Prelude.NFData ListGameServers where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf gameServerGroupName
 
-instance Core.ToHeaders ListGameServers where
+instance Data.ToHeaders ListGameServers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.ListGameServers" :: Prelude.ByteString),
+              Data.=# ("GameLift.ListGameServers" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListGameServers where
+instance Data.ToJSON ListGameServers where
   toJSON ListGameServers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
+          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit,
             Prelude.Just
-              ("GameServerGroupName" Core..= gameServerGroupName)
+              ("GameServerGroupName" Data..= gameServerGroupName)
           ]
       )
 
-instance Core.ToPath ListGameServers where
+instance Data.ToPath ListGameServers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListGameServers where
+instance Data.ToQuery ListGameServers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListGameServersResponse' smart constructor.

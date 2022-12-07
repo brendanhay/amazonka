@@ -21,6 +21,7 @@ module Amazonka.LookoutMetrics.Types.DetectedS3SourceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types.DetectedFileFormatDescriptor
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newDetectedS3SourceConfig =
 detectedS3SourceConfig_fileFormatDescriptor :: Lens.Lens' DetectedS3SourceConfig (Prelude.Maybe DetectedFileFormatDescriptor)
 detectedS3SourceConfig_fileFormatDescriptor = Lens.lens (\DetectedS3SourceConfig' {fileFormatDescriptor} -> fileFormatDescriptor) (\s@DetectedS3SourceConfig' {} a -> s {fileFormatDescriptor = a} :: DetectedS3SourceConfig)
 
-instance Core.FromJSON DetectedS3SourceConfig where
+instance Data.FromJSON DetectedS3SourceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectedS3SourceConfig"
       ( \x ->
           DetectedS3SourceConfig'
-            Prelude.<$> (x Core..:? "FileFormatDescriptor")
+            Prelude.<$> (x Data..:? "FileFormatDescriptor")
       )
 
 instance Prelude.Hashable DetectedS3SourceConfig where

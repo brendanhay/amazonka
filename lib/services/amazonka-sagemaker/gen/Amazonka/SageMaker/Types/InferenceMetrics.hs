@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.InferenceMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metrics for an existing endpoint compared in an Inference
@@ -70,14 +71,14 @@ inferenceMetrics_maxInvocations = Lens.lens (\InferenceMetrics' {maxInvocations}
 inferenceMetrics_modelLatency :: Lens.Lens' InferenceMetrics Prelude.Int
 inferenceMetrics_modelLatency = Lens.lens (\InferenceMetrics' {modelLatency} -> modelLatency) (\s@InferenceMetrics' {} a -> s {modelLatency = a} :: InferenceMetrics)
 
-instance Core.FromJSON InferenceMetrics where
+instance Data.FromJSON InferenceMetrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InferenceMetrics"
       ( \x ->
           InferenceMetrics'
-            Prelude.<$> (x Core..: "MaxInvocations")
-            Prelude.<*> (x Core..: "ModelLatency")
+            Prelude.<$> (x Data..: "MaxInvocations")
+            Prelude.<*> (x Data..: "ModelLatency")
       )
 
 instance Prelude.Hashable InferenceMetrics where

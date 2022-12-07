@@ -22,6 +22,7 @@ module Amazonka.Budgets.Types.CalculatedSpend where
 import Amazonka.Budgets.Types.Spend
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The spend objects that are associated with this budget. The
@@ -77,14 +78,14 @@ calculatedSpend_forecastedSpend = Lens.lens (\CalculatedSpend' {forecastedSpend}
 calculatedSpend_actualSpend :: Lens.Lens' CalculatedSpend Spend
 calculatedSpend_actualSpend = Lens.lens (\CalculatedSpend' {actualSpend} -> actualSpend) (\s@CalculatedSpend' {} a -> s {actualSpend = a} :: CalculatedSpend)
 
-instance Core.FromJSON CalculatedSpend where
+instance Data.FromJSON CalculatedSpend where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CalculatedSpend"
       ( \x ->
           CalculatedSpend'
-            Prelude.<$> (x Core..:? "ForecastedSpend")
-            Prelude.<*> (x Core..: "ActualSpend")
+            Prelude.<$> (x Data..:? "ForecastedSpend")
+            Prelude.<*> (x Data..: "ActualSpend")
       )
 
 instance Prelude.Hashable CalculatedSpend where
@@ -97,12 +98,12 @@ instance Prelude.NFData CalculatedSpend where
     Prelude.rnf forecastedSpend
       `Prelude.seq` Prelude.rnf actualSpend
 
-instance Core.ToJSON CalculatedSpend where
+instance Data.ToJSON CalculatedSpend where
   toJSON CalculatedSpend' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ForecastedSpend" Core..=)
+          [ ("ForecastedSpend" Data..=)
               Prelude.<$> forecastedSpend,
-            Prelude.Just ("ActualSpend" Core..= actualSpend)
+            Prelude.Just ("ActualSpend" Data..= actualSpend)
           ]
       )

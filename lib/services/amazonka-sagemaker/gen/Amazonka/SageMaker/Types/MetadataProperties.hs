@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MetadataProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata properties of the tracking entity, trial, or trial component.
@@ -79,16 +80,16 @@ metadataProperties_generatedBy = Lens.lens (\MetadataProperties' {generatedBy} -
 metadataProperties_projectId :: Lens.Lens' MetadataProperties (Prelude.Maybe Prelude.Text)
 metadataProperties_projectId = Lens.lens (\MetadataProperties' {projectId} -> projectId) (\s@MetadataProperties' {} a -> s {projectId = a} :: MetadataProperties)
 
-instance Core.FromJSON MetadataProperties where
+instance Data.FromJSON MetadataProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MetadataProperties"
       ( \x ->
           MetadataProperties'
-            Prelude.<$> (x Core..:? "CommitId")
-            Prelude.<*> (x Core..:? "Repository")
-            Prelude.<*> (x Core..:? "GeneratedBy")
-            Prelude.<*> (x Core..:? "ProjectId")
+            Prelude.<$> (x Data..:? "CommitId")
+            Prelude.<*> (x Data..:? "Repository")
+            Prelude.<*> (x Data..:? "GeneratedBy")
+            Prelude.<*> (x Data..:? "ProjectId")
       )
 
 instance Prelude.Hashable MetadataProperties where
@@ -105,13 +106,13 @@ instance Prelude.NFData MetadataProperties where
       `Prelude.seq` Prelude.rnf generatedBy
       `Prelude.seq` Prelude.rnf projectId
 
-instance Core.ToJSON MetadataProperties where
+instance Data.ToJSON MetadataProperties where
   toJSON MetadataProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CommitId" Core..=) Prelude.<$> commitId,
-            ("Repository" Core..=) Prelude.<$> repository,
-            ("GeneratedBy" Core..=) Prelude.<$> generatedBy,
-            ("ProjectId" Core..=) Prelude.<$> projectId
+          [ ("CommitId" Data..=) Prelude.<$> commitId,
+            ("Repository" Data..=) Prelude.<$> repository,
+            ("GeneratedBy" Data..=) Prelude.<$> generatedBy,
+            ("ProjectId" Data..=) Prelude.<$> projectId
           ]
       )

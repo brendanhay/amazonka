@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesErrorEntry wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.BatchGetAssetPropertyAggregatesErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,17 +86,17 @@ batchGetAssetPropertyAggregatesErrorEntry_entryId :: Lens.Lens' BatchGetAssetPro
 batchGetAssetPropertyAggregatesErrorEntry_entryId = Lens.lens (\BatchGetAssetPropertyAggregatesErrorEntry' {entryId} -> entryId) (\s@BatchGetAssetPropertyAggregatesErrorEntry' {} a -> s {entryId = a} :: BatchGetAssetPropertyAggregatesErrorEntry)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchGetAssetPropertyAggregatesErrorEntry
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchGetAssetPropertyAggregatesErrorEntry"
       ( \x ->
           BatchGetAssetPropertyAggregatesErrorEntry'
-            Prelude.<$> (x Core..: "errorCode")
-              Prelude.<*> (x Core..: "errorMessage")
-              Prelude.<*> (x Core..: "entryId")
+            Prelude.<$> (x Data..: "errorCode")
+              Prelude.<*> (x Data..: "errorMessage")
+              Prelude.<*> (x Data..: "entryId")
       )
 
 instance

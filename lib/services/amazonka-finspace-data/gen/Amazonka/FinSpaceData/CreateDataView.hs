@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,8 +157,8 @@ instance Core.AWSRequest CreateDataView where
     Response.receiveJSON
       ( \s h x ->
           CreateDataViewResponse'
-            Prelude.<$> (x Core..?> "dataViewId")
-            Prelude.<*> (x Core..?> "datasetId")
+            Prelude.<$> (x Data..?> "dataViewId")
+            Prelude.<*> (x Data..?> "datasetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,40 +182,40 @@ instance Prelude.NFData CreateDataView where
       `Prelude.seq` Prelude.rnf datasetId
       `Prelude.seq` Prelude.rnf destinationTypeParams
 
-instance Core.ToHeaders CreateDataView where
+instance Data.ToHeaders CreateDataView where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataView where
+instance Data.ToJSON CreateDataView where
   toJSON CreateDataView' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortColumns" Core..=) Prelude.<$> sortColumns,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("autoUpdate" Core..=) Prelude.<$> autoUpdate,
-            ("partitionColumns" Core..=)
+          [ ("sortColumns" Data..=) Prelude.<$> sortColumns,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("autoUpdate" Data..=) Prelude.<$> autoUpdate,
+            ("partitionColumns" Data..=)
               Prelude.<$> partitionColumns,
-            ("asOfTimestamp" Core..=) Prelude.<$> asOfTimestamp,
+            ("asOfTimestamp" Data..=) Prelude.<$> asOfTimestamp,
             Prelude.Just
               ( "destinationTypeParams"
-                  Core..= destinationTypeParams
+                  Data..= destinationTypeParams
               )
           ]
       )
 
-instance Core.ToPath CreateDataView where
+instance Data.ToPath CreateDataView where
   toPath CreateDataView' {..} =
     Prelude.mconcat
-      ["/datasets/", Core.toBS datasetId, "/dataviewsv2"]
+      ["/datasets/", Data.toBS datasetId, "/dataviewsv2"]
 
-instance Core.ToQuery CreateDataView where
+instance Data.ToQuery CreateDataView where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Response for creating a data view.

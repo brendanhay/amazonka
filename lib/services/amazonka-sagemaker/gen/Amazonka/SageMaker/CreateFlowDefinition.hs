@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -183,7 +184,7 @@ instance Core.AWSRequest CreateFlowDefinition where
       ( \s h x ->
           CreateFlowDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "FlowDefinitionArn")
+            Prelude.<*> (x Data..:> "FlowDefinitionArn")
       )
 
 instance Prelude.Hashable CreateFlowDefinition where
@@ -206,43 +207,43 @@ instance Prelude.NFData CreateFlowDefinition where
       `Prelude.seq` Prelude.rnf outputConfig
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateFlowDefinition where
+instance Data.ToHeaders CreateFlowDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateFlowDefinition" ::
+              Data.=# ( "SageMaker.CreateFlowDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFlowDefinition where
+instance Data.ToJSON CreateFlowDefinition where
   toJSON CreateFlowDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("HumanLoopActivationConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("HumanLoopActivationConfig" Data..=)
               Prelude.<$> humanLoopActivationConfig,
-            ("HumanLoopRequestSource" Core..=)
+            ("HumanLoopRequestSource" Data..=)
               Prelude.<$> humanLoopRequestSource,
             Prelude.Just
-              ("FlowDefinitionName" Core..= flowDefinitionName),
+              ("FlowDefinitionName" Data..= flowDefinitionName),
             Prelude.Just
-              ("HumanLoopConfig" Core..= humanLoopConfig),
-            Prelude.Just ("OutputConfig" Core..= outputConfig),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+              ("HumanLoopConfig" Data..= humanLoopConfig),
+            Prelude.Just ("OutputConfig" Data..= outputConfig),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateFlowDefinition where
+instance Data.ToPath CreateFlowDefinition where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFlowDefinition where
+instance Data.ToQuery CreateFlowDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFlowDefinitionResponse' smart constructor.

@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -295,7 +296,7 @@ instance Core.AWSRequest CreateForecast where
     Response.receiveJSON
       ( \s h x ->
           CreateForecastResponse'
-            Prelude.<$> (x Core..?> "ForecastArn")
+            Prelude.<$> (x Data..?> "ForecastArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -315,38 +316,38 @@ instance Prelude.NFData CreateForecast where
       `Prelude.seq` Prelude.rnf forecastName
       `Prelude.seq` Prelude.rnf predictorArn
 
-instance Core.ToHeaders CreateForecast where
+instance Data.ToHeaders CreateForecast where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.CreateForecast" ::
+              Data.=# ( "AmazonForecast.CreateForecast" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateForecast where
+instance Data.ToJSON CreateForecast where
   toJSON CreateForecast' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ForecastTypes" Core..=) Prelude.<$> forecastTypes,
-            ("TimeSeriesSelector" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ForecastTypes" Data..=) Prelude.<$> forecastTypes,
+            ("TimeSeriesSelector" Data..=)
               Prelude.<$> timeSeriesSelector,
-            Prelude.Just ("ForecastName" Core..= forecastName),
-            Prelude.Just ("PredictorArn" Core..= predictorArn)
+            Prelude.Just ("ForecastName" Data..= forecastName),
+            Prelude.Just ("PredictorArn" Data..= predictorArn)
           ]
       )
 
-instance Core.ToPath CreateForecast where
+instance Data.ToPath CreateForecast where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateForecast where
+instance Data.ToQuery CreateForecast where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateForecastResponse' smart constructor.

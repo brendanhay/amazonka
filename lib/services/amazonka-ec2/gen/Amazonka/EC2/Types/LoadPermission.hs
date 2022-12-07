@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LoadPermission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PermissionGroup
 import qualified Amazonka.Prelude as Prelude
@@ -63,11 +64,11 @@ loadPermission_userId = Lens.lens (\LoadPermission' {userId} -> userId) (\s@Load
 loadPermission_group :: Lens.Lens' LoadPermission (Prelude.Maybe PermissionGroup)
 loadPermission_group = Lens.lens (\LoadPermission' {group'} -> group') (\s@LoadPermission' {} a -> s {group' = a} :: LoadPermission)
 
-instance Core.FromXML LoadPermission where
+instance Data.FromXML LoadPermission where
   parseXML x =
     LoadPermission'
-      Prelude.<$> (x Core..@? "userId")
-      Prelude.<*> (x Core..@? "group")
+      Prelude.<$> (x Data..@? "userId")
+      Prelude.<*> (x Data..@? "group")
 
 instance Prelude.Hashable LoadPermission where
   hashWithSalt _salt LoadPermission' {..} =

@@ -21,6 +21,7 @@ module Amazonka.AppMesh.Types.VirtualRouterRef where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a virtual router returned by a list operation.
@@ -30,10 +31,10 @@ data VirtualRouterRef = VirtualRouterRef'
   { -- | The full Amazon Resource Name (ARN) for the virtual router.
     arn :: Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The Unix epoch timestamp in seconds for when the resource was last
     -- updated.
-    lastUpdatedAt :: Core.POSIX,
+    lastUpdatedAt :: Data.POSIX,
     -- | The name of the service mesh that the virtual router resides in.
     meshName :: Prelude.Text,
     -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
@@ -116,8 +117,8 @@ newVirtualRouterRef
   pVirtualRouterName_ =
     VirtualRouterRef'
       { arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastUpdatedAt = Core._Time Lens.# pLastUpdatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_,
         meshName = pMeshName_,
         meshOwner = pMeshOwner_,
         resourceOwner = pResourceOwner_,
@@ -131,12 +132,12 @@ virtualRouterRef_arn = Lens.lens (\VirtualRouterRef' {arn} -> arn) (\s@VirtualRo
 
 -- | The Unix epoch timestamp in seconds for when the resource was created.
 virtualRouterRef_createdAt :: Lens.Lens' VirtualRouterRef Prelude.UTCTime
-virtualRouterRef_createdAt = Lens.lens (\VirtualRouterRef' {createdAt} -> createdAt) (\s@VirtualRouterRef' {} a -> s {createdAt = a} :: VirtualRouterRef) Prelude.. Core._Time
+virtualRouterRef_createdAt = Lens.lens (\VirtualRouterRef' {createdAt} -> createdAt) (\s@VirtualRouterRef' {} a -> s {createdAt = a} :: VirtualRouterRef) Prelude.. Data._Time
 
 -- | The Unix epoch timestamp in seconds for when the resource was last
 -- updated.
 virtualRouterRef_lastUpdatedAt :: Lens.Lens' VirtualRouterRef Prelude.UTCTime
-virtualRouterRef_lastUpdatedAt = Lens.lens (\VirtualRouterRef' {lastUpdatedAt} -> lastUpdatedAt) (\s@VirtualRouterRef' {} a -> s {lastUpdatedAt = a} :: VirtualRouterRef) Prelude.. Core._Time
+virtualRouterRef_lastUpdatedAt = Lens.lens (\VirtualRouterRef' {lastUpdatedAt} -> lastUpdatedAt) (\s@VirtualRouterRef' {} a -> s {lastUpdatedAt = a} :: VirtualRouterRef) Prelude.. Data._Time
 
 -- | The name of the service mesh that the virtual router resides in.
 virtualRouterRef_meshName :: Lens.Lens' VirtualRouterRef Prelude.Text
@@ -166,20 +167,20 @@ virtualRouterRef_version = Lens.lens (\VirtualRouterRef' {version} -> version) (
 virtualRouterRef_virtualRouterName :: Lens.Lens' VirtualRouterRef Prelude.Text
 virtualRouterRef_virtualRouterName = Lens.lens (\VirtualRouterRef' {virtualRouterName} -> virtualRouterName) (\s@VirtualRouterRef' {} a -> s {virtualRouterName = a} :: VirtualRouterRef)
 
-instance Core.FromJSON VirtualRouterRef where
+instance Data.FromJSON VirtualRouterRef where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualRouterRef"
       ( \x ->
           VirtualRouterRef'
-            Prelude.<$> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "lastUpdatedAt")
-            Prelude.<*> (x Core..: "meshName")
-            Prelude.<*> (x Core..: "meshOwner")
-            Prelude.<*> (x Core..: "resourceOwner")
-            Prelude.<*> (x Core..: "version")
-            Prelude.<*> (x Core..: "virtualRouterName")
+            Prelude.<$> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "lastUpdatedAt")
+            Prelude.<*> (x Data..: "meshName")
+            Prelude.<*> (x Data..: "meshOwner")
+            Prelude.<*> (x Data..: "resourceOwner")
+            Prelude.<*> (x Data..: "version")
+            Prelude.<*> (x Data..: "virtualRouterName")
       )
 
 instance Prelude.Hashable VirtualRouterRef where

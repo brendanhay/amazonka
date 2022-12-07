@@ -53,6 +53,7 @@ where
 import Amazonka.AppFlow.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -178,7 +179,7 @@ instance Core.AWSRequest CreateConnectorProfile where
     Response.receiveJSON
       ( \s h x ->
           CreateConnectorProfileResponse'
-            Prelude.<$> (x Core..?> "connectorProfileArn")
+            Prelude.<$> (x Data..?> "connectorProfileArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,42 +201,42 @@ instance Prelude.NFData CreateConnectorProfile where
       `Prelude.seq` Prelude.rnf connectionMode
       `Prelude.seq` Prelude.rnf connectorProfileConfig
 
-instance Core.ToHeaders CreateConnectorProfile where
+instance Data.ToHeaders CreateConnectorProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateConnectorProfile where
+instance Data.ToJSON CreateConnectorProfile where
   toJSON CreateConnectorProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsArn" Core..=) Prelude.<$> kmsArn,
-            ("connectorLabel" Core..=)
+          [ ("kmsArn" Data..=) Prelude.<$> kmsArn,
+            ("connectorLabel" Data..=)
               Prelude.<$> connectorLabel,
             Prelude.Just
               ( "connectorProfileName"
-                  Core..= connectorProfileName
+                  Data..= connectorProfileName
               ),
-            Prelude.Just ("connectorType" Core..= connectorType),
+            Prelude.Just ("connectorType" Data..= connectorType),
             Prelude.Just
-              ("connectionMode" Core..= connectionMode),
+              ("connectionMode" Data..= connectionMode),
             Prelude.Just
               ( "connectorProfileConfig"
-                  Core..= connectorProfileConfig
+                  Data..= connectorProfileConfig
               )
           ]
       )
 
-instance Core.ToPath CreateConnectorProfile where
+instance Data.ToPath CreateConnectorProfile where
   toPath = Prelude.const "/create-connector-profile"
 
-instance Core.ToQuery CreateConnectorProfile where
+instance Data.ToQuery CreateConnectorProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateConnectorProfileResponse' smart constructor.

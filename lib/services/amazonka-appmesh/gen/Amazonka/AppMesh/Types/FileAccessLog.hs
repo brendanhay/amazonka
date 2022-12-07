@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.FileAccessLog where
 import Amazonka.AppMesh.Types.LoggingFormat
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents an access log file.
@@ -85,13 +86,13 @@ fileAccessLog_format = Lens.lens (\FileAccessLog' {format} -> format) (\s@FileAc
 fileAccessLog_path :: Lens.Lens' FileAccessLog Prelude.Text
 fileAccessLog_path = Lens.lens (\FileAccessLog' {path} -> path) (\s@FileAccessLog' {} a -> s {path = a} :: FileAccessLog)
 
-instance Core.FromJSON FileAccessLog where
+instance Data.FromJSON FileAccessLog where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileAccessLog"
       ( \x ->
           FileAccessLog'
-            Prelude.<$> (x Core..:? "format") Prelude.<*> (x Core..: "path")
+            Prelude.<$> (x Data..:? "format") Prelude.<*> (x Data..: "path")
       )
 
 instance Prelude.Hashable FileAccessLog where
@@ -103,11 +104,11 @@ instance Prelude.NFData FileAccessLog where
   rnf FileAccessLog' {..} =
     Prelude.rnf format `Prelude.seq` Prelude.rnf path
 
-instance Core.ToJSON FileAccessLog where
+instance Data.ToJSON FileAccessLog where
   toJSON FileAccessLog' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("format" Core..=) Prelude.<$> format,
-            Prelude.Just ("path" Core..= path)
+          [ ("format" Data..=) Prelude.<$> format,
+            Prelude.Just ("path" Data..= path)
           ]
       )

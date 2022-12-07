@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CrawlerHistory where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.CrawlerHistoryState
 import qualified Amazonka.Prelude as Prelude
 
@@ -42,13 +43,13 @@ data CrawlerHistory = CrawlerHistory'
     -- tables and partitions that were added, updated, or deleted.
     summary :: Prelude.Maybe Prelude.Text,
     -- | The date and time on which the crawl ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The prefix for a CloudWatch message about this crawl.
     messagePrefix :: Prelude.Maybe Prelude.Text,
     -- | A UUID identifier for each crawl.
     crawlId :: Prelude.Maybe Prelude.Text,
     -- | The date and time on which the crawl started.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -123,7 +124,7 @@ crawlerHistory_summary = Lens.lens (\CrawlerHistory' {summary} -> summary) (\s@C
 
 -- | The date and time on which the crawl ended.
 crawlerHistory_endTime :: Lens.Lens' CrawlerHistory (Prelude.Maybe Prelude.UTCTime)
-crawlerHistory_endTime = Lens.lens (\CrawlerHistory' {endTime} -> endTime) (\s@CrawlerHistory' {} a -> s {endTime = a} :: CrawlerHistory) Prelude.. Lens.mapping Core._Time
+crawlerHistory_endTime = Lens.lens (\CrawlerHistory' {endTime} -> endTime) (\s@CrawlerHistory' {} a -> s {endTime = a} :: CrawlerHistory) Prelude.. Lens.mapping Data._Time
 
 -- | The prefix for a CloudWatch message about this crawl.
 crawlerHistory_messagePrefix :: Lens.Lens' CrawlerHistory (Prelude.Maybe Prelude.Text)
@@ -135,24 +136,24 @@ crawlerHistory_crawlId = Lens.lens (\CrawlerHistory' {crawlId} -> crawlId) (\s@C
 
 -- | The date and time on which the crawl started.
 crawlerHistory_startTime :: Lens.Lens' CrawlerHistory (Prelude.Maybe Prelude.UTCTime)
-crawlerHistory_startTime = Lens.lens (\CrawlerHistory' {startTime} -> startTime) (\s@CrawlerHistory' {} a -> s {startTime = a} :: CrawlerHistory) Prelude.. Lens.mapping Core._Time
+crawlerHistory_startTime = Lens.lens (\CrawlerHistory' {startTime} -> startTime) (\s@CrawlerHistory' {} a -> s {startTime = a} :: CrawlerHistory) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CrawlerHistory where
+instance Data.FromJSON CrawlerHistory where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CrawlerHistory"
       ( \x ->
           CrawlerHistory'
-            Prelude.<$> (x Core..:? "LogGroup")
-            Prelude.<*> (x Core..:? "DPUHour")
-            Prelude.<*> (x Core..:? "LogStream")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Summary")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "MessagePrefix")
-            Prelude.<*> (x Core..:? "CrawlId")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "LogGroup")
+            Prelude.<*> (x Data..:? "DPUHour")
+            Prelude.<*> (x Data..:? "LogStream")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Summary")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "MessagePrefix")
+            Prelude.<*> (x Data..:? "CrawlId")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable CrawlerHistory where

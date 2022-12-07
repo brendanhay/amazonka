@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.ServiceTemplateVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.CompatibleEnvironmentTemplate
 import Amazonka.Proton.Types.ServiceTemplateSupportedComponentSourceType
@@ -39,22 +40,22 @@ data ServiceTemplateVersion = ServiceTemplateVersion'
     -- in the /Proton User Guide/.
     supportedComponentSources :: Prelude.Maybe [ServiceTemplateSupportedComponentSourceType],
     -- | A description of the version of a service template.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The recommended minor version of the service template.
     recommendedMinorVersion :: Prelude.Maybe Prelude.Text,
     -- | The schema of the version of a service template.
-    schema :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    schema :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A service template version status message.
-    statusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    statusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the version of a service template.
     arn :: Prelude.Text,
     -- | An array of compatible environment template names for the major version
     -- of a service template.
     compatibleEnvironmentTemplates :: [CompatibleEnvironmentTemplate],
     -- | The time when the version of a service template was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The time when the version of a service template was last modified.
-    lastModifiedAt :: Core.POSIX,
+    lastModifiedAt :: Data.POSIX,
     -- | The latest major version that\'s associated with the version of a
     -- service template.
     majorVersion :: Prelude.Text,
@@ -141,8 +142,8 @@ newServiceTemplateVersion
         statusMessage = Prelude.Nothing,
         arn = pArn_,
         compatibleEnvironmentTemplates = Prelude.mempty,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastModifiedAt = Core._Time Lens.# pLastModifiedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastModifiedAt = Data._Time Lens.# pLastModifiedAt_,
         majorVersion = pMajorVersion_,
         minorVersion = pMinorVersion_,
         status = pStatus_,
@@ -161,7 +162,7 @@ serviceTemplateVersion_supportedComponentSources = Lens.lens (\ServiceTemplateVe
 
 -- | A description of the version of a service template.
 serviceTemplateVersion_description :: Lens.Lens' ServiceTemplateVersion (Prelude.Maybe Prelude.Text)
-serviceTemplateVersion_description = Lens.lens (\ServiceTemplateVersion' {description} -> description) (\s@ServiceTemplateVersion' {} a -> s {description = a} :: ServiceTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
+serviceTemplateVersion_description = Lens.lens (\ServiceTemplateVersion' {description} -> description) (\s@ServiceTemplateVersion' {} a -> s {description = a} :: ServiceTemplateVersion) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The recommended minor version of the service template.
 serviceTemplateVersion_recommendedMinorVersion :: Lens.Lens' ServiceTemplateVersion (Prelude.Maybe Prelude.Text)
@@ -169,11 +170,11 @@ serviceTemplateVersion_recommendedMinorVersion = Lens.lens (\ServiceTemplateVers
 
 -- | The schema of the version of a service template.
 serviceTemplateVersion_schema :: Lens.Lens' ServiceTemplateVersion (Prelude.Maybe Prelude.Text)
-serviceTemplateVersion_schema = Lens.lens (\ServiceTemplateVersion' {schema} -> schema) (\s@ServiceTemplateVersion' {} a -> s {schema = a} :: ServiceTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
+serviceTemplateVersion_schema = Lens.lens (\ServiceTemplateVersion' {schema} -> schema) (\s@ServiceTemplateVersion' {} a -> s {schema = a} :: ServiceTemplateVersion) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A service template version status message.
 serviceTemplateVersion_statusMessage :: Lens.Lens' ServiceTemplateVersion (Prelude.Maybe Prelude.Text)
-serviceTemplateVersion_statusMessage = Lens.lens (\ServiceTemplateVersion' {statusMessage} -> statusMessage) (\s@ServiceTemplateVersion' {} a -> s {statusMessage = a} :: ServiceTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
+serviceTemplateVersion_statusMessage = Lens.lens (\ServiceTemplateVersion' {statusMessage} -> statusMessage) (\s@ServiceTemplateVersion' {} a -> s {statusMessage = a} :: ServiceTemplateVersion) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the version of a service template.
 serviceTemplateVersion_arn :: Lens.Lens' ServiceTemplateVersion Prelude.Text
@@ -186,11 +187,11 @@ serviceTemplateVersion_compatibleEnvironmentTemplates = Lens.lens (\ServiceTempl
 
 -- | The time when the version of a service template was created.
 serviceTemplateVersion_createdAt :: Lens.Lens' ServiceTemplateVersion Prelude.UTCTime
-serviceTemplateVersion_createdAt = Lens.lens (\ServiceTemplateVersion' {createdAt} -> createdAt) (\s@ServiceTemplateVersion' {} a -> s {createdAt = a} :: ServiceTemplateVersion) Prelude.. Core._Time
+serviceTemplateVersion_createdAt = Lens.lens (\ServiceTemplateVersion' {createdAt} -> createdAt) (\s@ServiceTemplateVersion' {} a -> s {createdAt = a} :: ServiceTemplateVersion) Prelude.. Data._Time
 
 -- | The time when the version of a service template was last modified.
 serviceTemplateVersion_lastModifiedAt :: Lens.Lens' ServiceTemplateVersion Prelude.UTCTime
-serviceTemplateVersion_lastModifiedAt = Lens.lens (\ServiceTemplateVersion' {lastModifiedAt} -> lastModifiedAt) (\s@ServiceTemplateVersion' {} a -> s {lastModifiedAt = a} :: ServiceTemplateVersion) Prelude.. Core._Time
+serviceTemplateVersion_lastModifiedAt = Lens.lens (\ServiceTemplateVersion' {lastModifiedAt} -> lastModifiedAt) (\s@ServiceTemplateVersion' {} a -> s {lastModifiedAt = a} :: ServiceTemplateVersion) Prelude.. Data._Time
 
 -- | The latest major version that\'s associated with the version of a
 -- service template.
@@ -209,29 +210,29 @@ serviceTemplateVersion_status = Lens.lens (\ServiceTemplateVersion' {status} -> 
 serviceTemplateVersion_templateName :: Lens.Lens' ServiceTemplateVersion Prelude.Text
 serviceTemplateVersion_templateName = Lens.lens (\ServiceTemplateVersion' {templateName} -> templateName) (\s@ServiceTemplateVersion' {} a -> s {templateName = a} :: ServiceTemplateVersion)
 
-instance Core.FromJSON ServiceTemplateVersion where
+instance Data.FromJSON ServiceTemplateVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceTemplateVersion"
       ( \x ->
           ServiceTemplateVersion'
-            Prelude.<$> ( x Core..:? "supportedComponentSources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "supportedComponentSources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "recommendedMinorVersion")
-            Prelude.<*> (x Core..:? "schema")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> ( x Core..:? "compatibleEnvironmentTemplates"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "recommendedMinorVersion")
+            Prelude.<*> (x Data..:? "schema")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> ( x Data..:? "compatibleEnvironmentTemplates"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "lastModifiedAt")
-            Prelude.<*> (x Core..: "majorVersion")
-            Prelude.<*> (x Core..: "minorVersion")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "templateName")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "lastModifiedAt")
+            Prelude.<*> (x Data..: "majorVersion")
+            Prelude.<*> (x Data..: "minorVersion")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "templateName")
       )
 
 instance Prelude.Hashable ServiceTemplateVersion where

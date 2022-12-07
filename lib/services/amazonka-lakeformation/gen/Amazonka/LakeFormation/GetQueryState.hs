@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,9 +88,9 @@ instance Core.AWSRequest GetQueryState where
     Response.receiveJSON
       ( \s h x ->
           GetQueryStateResponse'
-            Prelude.<$> (x Core..?> "Error")
+            Prelude.<$> (x Data..?> "Error")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "State")
+            Prelude.<*> (x Data..:> "State")
       )
 
 instance Prelude.Hashable GetQueryState where
@@ -99,28 +100,28 @@ instance Prelude.Hashable GetQueryState where
 instance Prelude.NFData GetQueryState where
   rnf GetQueryState' {..} = Prelude.rnf queryId
 
-instance Core.ToHeaders GetQueryState where
+instance Data.ToHeaders GetQueryState where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetQueryState where
+instance Data.ToJSON GetQueryState where
   toJSON GetQueryState' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("QueryId" Core..= queryId)]
+          [Prelude.Just ("QueryId" Data..= queryId)]
       )
 
-instance Core.ToPath GetQueryState where
+instance Data.ToPath GetQueryState where
   toPath = Prelude.const "/GetQueryState"
 
-instance Core.ToQuery GetQueryState where
+instance Data.ToQuery GetQueryState where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A structure for the output.

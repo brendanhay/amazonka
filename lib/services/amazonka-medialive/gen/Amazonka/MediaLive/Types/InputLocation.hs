@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.InputLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Input Location
@@ -81,15 +82,15 @@ inputLocation_passwordParam = Lens.lens (\InputLocation' {passwordParam} -> pass
 inputLocation_uri :: Lens.Lens' InputLocation Prelude.Text
 inputLocation_uri = Lens.lens (\InputLocation' {uri} -> uri) (\s@InputLocation' {} a -> s {uri = a} :: InputLocation)
 
-instance Core.FromJSON InputLocation where
+instance Data.FromJSON InputLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputLocation"
       ( \x ->
           InputLocation'
-            Prelude.<$> (x Core..:? "username")
-            Prelude.<*> (x Core..:? "passwordParam")
-            Prelude.<*> (x Core..: "uri")
+            Prelude.<$> (x Data..:? "username")
+            Prelude.<*> (x Data..:? "passwordParam")
+            Prelude.<*> (x Data..: "uri")
       )
 
 instance Prelude.Hashable InputLocation where
@@ -104,12 +105,12 @@ instance Prelude.NFData InputLocation where
       `Prelude.seq` Prelude.rnf passwordParam
       `Prelude.seq` Prelude.rnf uri
 
-instance Core.ToJSON InputLocation where
+instance Data.ToJSON InputLocation where
   toJSON InputLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("username" Core..=) Prelude.<$> username,
-            ("passwordParam" Core..=) Prelude.<$> passwordParam,
-            Prelude.Just ("uri" Core..= uri)
+          [ ("username" Data..=) Prelude.<$> username,
+            ("passwordParam" Data..=) Prelude.<$> passwordParam,
+            Prelude.Just ("uri" Data..= uri)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.CloudSearchDomains.Types.Bucket where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A container for facet information.
@@ -64,14 +65,14 @@ bucket_count = Lens.lens (\Bucket' {count} -> count) (\s@Bucket' {} a -> s {coun
 bucket_value :: Lens.Lens' Bucket (Prelude.Maybe Prelude.Text)
 bucket_value = Lens.lens (\Bucket' {value} -> value) (\s@Bucket' {} a -> s {value = a} :: Bucket)
 
-instance Core.FromJSON Bucket where
+instance Data.FromJSON Bucket where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Bucket"
       ( \x ->
           Bucket'
-            Prelude.<$> (x Core..:? "count")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable Bucket where

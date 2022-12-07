@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.InputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.Framework
 
@@ -631,16 +632,16 @@ inputConfig_dataInputConfig = Lens.lens (\InputConfig' {dataInputConfig} -> data
 inputConfig_framework :: Lens.Lens' InputConfig Framework
 inputConfig_framework = Lens.lens (\InputConfig' {framework} -> framework) (\s@InputConfig' {} a -> s {framework = a} :: InputConfig)
 
-instance Core.FromJSON InputConfig where
+instance Data.FromJSON InputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputConfig"
       ( \x ->
           InputConfig'
-            Prelude.<$> (x Core..:? "FrameworkVersion")
-            Prelude.<*> (x Core..: "S3Uri")
-            Prelude.<*> (x Core..: "DataInputConfig")
-            Prelude.<*> (x Core..: "Framework")
+            Prelude.<$> (x Data..:? "FrameworkVersion")
+            Prelude.<*> (x Data..: "S3Uri")
+            Prelude.<*> (x Data..: "DataInputConfig")
+            Prelude.<*> (x Data..: "Framework")
       )
 
 instance Prelude.Hashable InputConfig where
@@ -657,15 +658,15 @@ instance Prelude.NFData InputConfig where
       `Prelude.seq` Prelude.rnf dataInputConfig
       `Prelude.seq` Prelude.rnf framework
 
-instance Core.ToJSON InputConfig where
+instance Data.ToJSON InputConfig where
   toJSON InputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FrameworkVersion" Core..=)
+          [ ("FrameworkVersion" Data..=)
               Prelude.<$> frameworkVersion,
-            Prelude.Just ("S3Uri" Core..= s3Uri),
+            Prelude.Just ("S3Uri" Data..= s3Uri),
             Prelude.Just
-              ("DataInputConfig" Core..= dataInputConfig),
-            Prelude.Just ("Framework" Core..= framework)
+              ("DataInputConfig" Data..= dataInputConfig),
+            Prelude.Just ("Framework" Data..= framework)
           ]
       )

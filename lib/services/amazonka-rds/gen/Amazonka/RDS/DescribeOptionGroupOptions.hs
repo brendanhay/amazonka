@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -259,11 +260,11 @@ instance Core.AWSRequest DescribeOptionGroupOptions where
       "DescribeOptionGroupOptionsResult"
       ( \s h x ->
           DescribeOptionGroupOptionsResponse'
-            Prelude.<$> ( x Core..@? "OptionGroupOptions"
+            Prelude.<$> ( x Data..@? "OptionGroupOptions"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "OptionGroupOption")
+                            Prelude.>>= Core.may (Data.parseXMLList "OptionGroupOption")
                         )
-            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -283,26 +284,26 @@ instance Prelude.NFData DescribeOptionGroupOptions where
       `Prelude.seq` Prelude.rnf majorEngineVersion
       `Prelude.seq` Prelude.rnf engineName
 
-instance Core.ToHeaders DescribeOptionGroupOptions where
+instance Data.ToHeaders DescribeOptionGroupOptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeOptionGroupOptions where
+instance Data.ToPath DescribeOptionGroupOptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeOptionGroupOptions where
+instance Data.ToQuery DescribeOptionGroupOptions where
   toQuery DescribeOptionGroupOptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeOptionGroupOptions" :: Prelude.ByteString),
+          Data.=: ("DescribeOptionGroupOptions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
-        "MajorEngineVersion" Core.=: majorEngineVersion,
-        "EngineName" Core.=: engineName
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords,
+        "MajorEngineVersion" Data.=: majorEngineVersion,
+        "EngineName" Data.=: engineName
       ]
 
 -- |

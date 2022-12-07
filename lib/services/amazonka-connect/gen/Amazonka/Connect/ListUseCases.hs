@@ -48,6 +48,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -153,8 +154,8 @@ instance Core.AWSRequest ListUseCases where
     Response.receiveJSON
       ( \s h x ->
           ListUseCasesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "UseCaseSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "UseCaseSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -174,32 +175,32 @@ instance Prelude.NFData ListUseCases where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf integrationAssociationId
 
-instance Core.ToHeaders ListUseCases where
+instance Data.ToHeaders ListUseCases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListUseCases where
+instance Data.ToPath ListUseCases where
   toPath ListUseCases' {..} =
     Prelude.mconcat
       [ "/instance/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/integration-associations/",
-        Core.toBS integrationAssociationId,
+        Data.toBS integrationAssociationId,
         "/use-cases"
       ]
 
-instance Core.ToQuery ListUseCases where
+instance Data.ToQuery ListUseCases where
   toQuery ListUseCases' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListUseCasesResponse' smart constructor.

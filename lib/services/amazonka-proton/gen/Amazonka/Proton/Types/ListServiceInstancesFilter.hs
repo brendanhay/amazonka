@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.ListServiceInstancesFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.ListServiceInstancesFilterBy
 
@@ -87,11 +88,11 @@ instance Prelude.NFData ListServiceInstancesFilter where
   rnf ListServiceInstancesFilter' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ListServiceInstancesFilter where
+instance Data.ToJSON ListServiceInstancesFilter where
   toJSON ListServiceInstancesFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("value" Core..=) Prelude.<$> value
+          [ ("key" Data..=) Prelude.<$> key,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

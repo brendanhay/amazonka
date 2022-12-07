@@ -43,6 +43,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,36 +123,36 @@ instance
       `Prelude.seq` Prelude.rnf roomArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateSkillGroupFromRoom
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.DisassociateSkillGroupFromRoom" ::
+              Data.=# ( "AlexaForBusiness.DisassociateSkillGroupFromRoom" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateSkillGroupFromRoom where
+instance Data.ToJSON DisassociateSkillGroupFromRoom where
   toJSON DisassociateSkillGroupFromRoom' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SkillGroupArn" Core..=) Prelude.<$> skillGroupArn,
-            ("RoomArn" Core..=) Prelude.<$> roomArn
+          [ ("SkillGroupArn" Data..=) Prelude.<$> skillGroupArn,
+            ("RoomArn" Data..=) Prelude.<$> roomArn
           ]
       )
 
-instance Core.ToPath DisassociateSkillGroupFromRoom where
+instance Data.ToPath DisassociateSkillGroupFromRoom where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateSkillGroupFromRoom where
+instance Data.ToQuery DisassociateSkillGroupFromRoom where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateSkillGroupFromRoomResponse' smart constructor.

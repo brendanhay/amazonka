@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -213,9 +214,9 @@ instance Core.AWSRequest DescribeClusterParameters where
       "DescribeClusterParametersResult"
       ( \s h x ->
           DescribeClusterParametersResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "Parameter")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -234,23 +235,23 @@ instance Prelude.NFData DescribeClusterParameters where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf parameterGroupName
 
-instance Core.ToHeaders DescribeClusterParameters where
+instance Data.ToHeaders DescribeClusterParameters where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeClusterParameters where
+instance Data.ToPath DescribeClusterParameters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeClusterParameters where
+instance Data.ToQuery DescribeClusterParameters where
   toQuery DescribeClusterParameters' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeClusterParameters" :: Prelude.ByteString),
+          Data.=: ("DescribeClusterParameters" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords,
-        "Source" Core.=: source,
-        "ParameterGroupName" Core.=: parameterGroupName
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
+        "Source" Data.=: source,
+        "ParameterGroupName" Data.=: parameterGroupName
       ]
 
 -- | Contains the output from the DescribeClusterParameters action.

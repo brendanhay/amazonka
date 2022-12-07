@@ -44,6 +44,7 @@ where
 import Amazonka.CertificateManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -113,34 +114,34 @@ instance Prelude.NFData RenewCertificate where
   rnf RenewCertificate' {..} =
     Prelude.rnf certificateArn
 
-instance Core.ToHeaders RenewCertificate where
+instance Data.ToHeaders RenewCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CertificateManager.RenewCertificate" ::
+              Data.=# ( "CertificateManager.RenewCertificate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RenewCertificate where
+instance Data.ToJSON RenewCertificate where
   toJSON RenewCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("CertificateArn" Core..= certificateArn)
+              ("CertificateArn" Data..= certificateArn)
           ]
       )
 
-instance Core.ToPath RenewCertificate where
+instance Data.ToPath RenewCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RenewCertificate where
+instance Data.ToQuery RenewCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRenewCertificateResponse' smart constructor.

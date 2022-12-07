@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.PostgreSqlParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for PostgreSQL.
@@ -76,15 +77,15 @@ postgreSqlParameters_port = Lens.lens (\PostgreSqlParameters' {port} -> port) (\
 postgreSqlParameters_database :: Lens.Lens' PostgreSqlParameters Prelude.Text
 postgreSqlParameters_database = Lens.lens (\PostgreSqlParameters' {database} -> database) (\s@PostgreSqlParameters' {} a -> s {database = a} :: PostgreSqlParameters)
 
-instance Core.FromJSON PostgreSqlParameters where
+instance Data.FromJSON PostgreSqlParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PostgreSqlParameters"
       ( \x ->
           PostgreSqlParameters'
-            Prelude.<$> (x Core..: "Host")
-            Prelude.<*> (x Core..: "Port")
-            Prelude.<*> (x Core..: "Database")
+            Prelude.<$> (x Data..: "Host")
+            Prelude.<*> (x Data..: "Port")
+            Prelude.<*> (x Data..: "Database")
       )
 
 instance Prelude.Hashable PostgreSqlParameters where
@@ -99,12 +100,12 @@ instance Prelude.NFData PostgreSqlParameters where
       `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf database
 
-instance Core.ToJSON PostgreSqlParameters where
+instance Data.ToJSON PostgreSqlParameters where
   toJSON PostgreSqlParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Host" Core..= host),
-            Prelude.Just ("Port" Core..= port),
-            Prelude.Just ("Database" Core..= database)
+          [ Prelude.Just ("Host" Data..= host),
+            Prelude.Just ("Port" Data..= port),
+            Prelude.Just ("Database" Data..= database)
           ]
       )

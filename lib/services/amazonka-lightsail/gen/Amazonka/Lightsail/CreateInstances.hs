@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -288,7 +289,7 @@ instance Core.AWSRequest CreateInstances where
     Response.receiveJSON
       ( \s h x ->
           CreateInstancesResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -318,44 +319,44 @@ instance Prelude.NFData CreateInstances where
       `Prelude.seq` Prelude.rnf blueprintId
       `Prelude.seq` Prelude.rnf bundleId
 
-instance Core.ToHeaders CreateInstances where
+instance Data.ToHeaders CreateInstances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.CreateInstances" ::
+              Data.=# ( "Lightsail_20161128.CreateInstances" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateInstances where
+instance Data.ToJSON CreateInstances where
   toJSON CreateInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("userData" Core..=) Prelude.<$> userData,
-            ("customImageName" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("userData" Data..=) Prelude.<$> userData,
+            ("customImageName" Data..=)
               Prelude.<$> customImageName,
-            ("addOns" Core..=) Prelude.<$> addOns,
-            ("keyPairName" Core..=) Prelude.<$> keyPairName,
-            ("ipAddressType" Core..=) Prelude.<$> ipAddressType,
-            Prelude.Just ("instanceNames" Core..= instanceNames),
+            ("addOns" Data..=) Prelude.<$> addOns,
+            ("keyPairName" Data..=) Prelude.<$> keyPairName,
+            ("ipAddressType" Data..=) Prelude.<$> ipAddressType,
+            Prelude.Just ("instanceNames" Data..= instanceNames),
             Prelude.Just
-              ("availabilityZone" Core..= availabilityZone),
-            Prelude.Just ("blueprintId" Core..= blueprintId),
-            Prelude.Just ("bundleId" Core..= bundleId)
+              ("availabilityZone" Data..= availabilityZone),
+            Prelude.Just ("blueprintId" Data..= blueprintId),
+            Prelude.Just ("bundleId" Data..= bundleId)
           ]
       )
 
-instance Core.ToPath CreateInstances where
+instance Data.ToPath CreateInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateInstances where
+instance Data.ToQuery CreateInstances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateInstancesResponse' smart constructor.

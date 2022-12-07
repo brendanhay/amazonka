@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.ProposedSegmentChange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,15 +73,15 @@ proposedSegmentChange_segmentName = Lens.lens (\ProposedSegmentChange' {segmentN
 proposedSegmentChange_attachmentPolicyRuleNumber :: Lens.Lens' ProposedSegmentChange (Prelude.Maybe Prelude.Int)
 proposedSegmentChange_attachmentPolicyRuleNumber = Lens.lens (\ProposedSegmentChange' {attachmentPolicyRuleNumber} -> attachmentPolicyRuleNumber) (\s@ProposedSegmentChange' {} a -> s {attachmentPolicyRuleNumber = a} :: ProposedSegmentChange)
 
-instance Core.FromJSON ProposedSegmentChange where
+instance Data.FromJSON ProposedSegmentChange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProposedSegmentChange"
       ( \x ->
           ProposedSegmentChange'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SegmentName")
-            Prelude.<*> (x Core..:? "AttachmentPolicyRuleNumber")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SegmentName")
+            Prelude.<*> (x Data..:? "AttachmentPolicyRuleNumber")
       )
 
 instance Prelude.Hashable ProposedSegmentChange where

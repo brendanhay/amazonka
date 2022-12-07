@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.SourceDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.KinesisStreamSourceDescription
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,13 +59,13 @@ newSourceDescription =
 sourceDescription_kinesisStreamSourceDescription :: Lens.Lens' SourceDescription (Prelude.Maybe KinesisStreamSourceDescription)
 sourceDescription_kinesisStreamSourceDescription = Lens.lens (\SourceDescription' {kinesisStreamSourceDescription} -> kinesisStreamSourceDescription) (\s@SourceDescription' {} a -> s {kinesisStreamSourceDescription = a} :: SourceDescription)
 
-instance Core.FromJSON SourceDescription where
+instance Data.FromJSON SourceDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceDescription"
       ( \x ->
           SourceDescription'
-            Prelude.<$> (x Core..:? "KinesisStreamSourceDescription")
+            Prelude.<$> (x Data..:? "KinesisStreamSourceDescription")
       )
 
 instance Prelude.Hashable SourceDescription where

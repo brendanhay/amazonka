@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,15 +90,15 @@ instance Core.AWSRequest DescribeTask where
     Response.receiveJSON
       ( \s h x ->
           DescribeTaskResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "lastUpdatedAt")
-            Prelude.<*> (x Core..?> "taskArn")
-            Prelude.<*> (x Core..?> "taskId")
-            Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "targets")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "completedAt")
-            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "lastUpdatedAt")
+            Prelude.<*> (x Data..?> "taskArn")
+            Prelude.<*> (x Data..?> "taskId")
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "targets")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "completedAt")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,25 +109,25 @@ instance Prelude.Hashable DescribeTask where
 instance Prelude.NFData DescribeTask where
   rnf DescribeTask' {..} = Prelude.rnf taskId
 
-instance Core.ToHeaders DescribeTask where
+instance Data.ToHeaders DescribeTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTask where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DescribeTask where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DescribeTask where
+instance Data.ToPath DescribeTask where
   toPath DescribeTask' {..} =
-    Prelude.mconcat ["/task/", Core.toBS taskId]
+    Prelude.mconcat ["/task/", Data.toBS taskId]
 
-instance Core.ToQuery DescribeTask where
+instance Data.ToQuery DescribeTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTaskResponse' smart constructor.
@@ -136,7 +137,7 @@ data DescribeTaskResponse = DescribeTaskResponse'
     -- environment.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | When the state of the task was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the task.
     taskArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the task.
@@ -148,9 +149,9 @@ data DescribeTaskResponse = DescribeTaskResponse'
     -- | The description provided of the task and managed devices.
     description :: Prelude.Maybe Prelude.Text,
     -- | When the task was completed.
-    completedAt :: Prelude.Maybe Core.POSIX,
+    completedAt :: Prelude.Maybe Data.POSIX,
     -- | When the @CreateTask@ operation was called.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,7 +212,7 @@ describeTaskResponse_tags = Lens.lens (\DescribeTaskResponse' {tags} -> tags) (\
 
 -- | When the state of the task was last updated.
 describeTaskResponse_lastUpdatedAt :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.UTCTime)
-describeTaskResponse_lastUpdatedAt = Lens.lens (\DescribeTaskResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeTaskResponse' {} a -> s {lastUpdatedAt = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Core._Time
+describeTaskResponse_lastUpdatedAt = Lens.lens (\DescribeTaskResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeTaskResponse' {} a -> s {lastUpdatedAt = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the task.
 describeTaskResponse_taskArn :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.Text)
@@ -235,11 +236,11 @@ describeTaskResponse_description = Lens.lens (\DescribeTaskResponse' {descriptio
 
 -- | When the task was completed.
 describeTaskResponse_completedAt :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.UTCTime)
-describeTaskResponse_completedAt = Lens.lens (\DescribeTaskResponse' {completedAt} -> completedAt) (\s@DescribeTaskResponse' {} a -> s {completedAt = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Core._Time
+describeTaskResponse_completedAt = Lens.lens (\DescribeTaskResponse' {completedAt} -> completedAt) (\s@DescribeTaskResponse' {} a -> s {completedAt = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | When the @CreateTask@ operation was called.
 describeTaskResponse_createdAt :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.UTCTime)
-describeTaskResponse_createdAt = Lens.lens (\DescribeTaskResponse' {createdAt} -> createdAt) (\s@DescribeTaskResponse' {} a -> s {createdAt = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Core._Time
+describeTaskResponse_createdAt = Lens.lens (\DescribeTaskResponse' {createdAt} -> createdAt) (\s@DescribeTaskResponse' {} a -> s {createdAt = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeTaskResponse_httpStatus :: Lens.Lens' DescribeTaskResponse Prelude.Int

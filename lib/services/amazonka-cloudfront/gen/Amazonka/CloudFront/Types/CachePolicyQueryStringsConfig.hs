@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.CachePolicyQueryStringBehavior
 import Amazonka.CloudFront.Types.QueryStringNames
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that determines whether any URL query strings in viewer
@@ -154,11 +155,11 @@ cachePolicyQueryStringsConfig_queryStrings = Lens.lens (\CachePolicyQueryStrings
 cachePolicyQueryStringsConfig_queryStringBehavior :: Lens.Lens' CachePolicyQueryStringsConfig CachePolicyQueryStringBehavior
 cachePolicyQueryStringsConfig_queryStringBehavior = Lens.lens (\CachePolicyQueryStringsConfig' {queryStringBehavior} -> queryStringBehavior) (\s@CachePolicyQueryStringsConfig' {} a -> s {queryStringBehavior = a} :: CachePolicyQueryStringsConfig)
 
-instance Core.FromXML CachePolicyQueryStringsConfig where
+instance Data.FromXML CachePolicyQueryStringsConfig where
   parseXML x =
     CachePolicyQueryStringsConfig'
-      Prelude.<$> (x Core..@? "QueryStrings")
-      Prelude.<*> (x Core..@ "QueryStringBehavior")
+      Prelude.<$> (x Data..@? "QueryStrings")
+      Prelude.<*> (x Data..@ "QueryStringBehavior")
 
 instance
   Prelude.Hashable
@@ -173,9 +174,9 @@ instance Prelude.NFData CachePolicyQueryStringsConfig where
     Prelude.rnf queryStrings
       `Prelude.seq` Prelude.rnf queryStringBehavior
 
-instance Core.ToXML CachePolicyQueryStringsConfig where
+instance Data.ToXML CachePolicyQueryStringsConfig where
   toXML CachePolicyQueryStringsConfig' {..} =
     Prelude.mconcat
-      [ "QueryStrings" Core.@= queryStrings,
-        "QueryStringBehavior" Core.@= queryStringBehavior
+      [ "QueryStrings" Data.@= queryStrings,
+        "QueryStringBehavior" Data.@= queryStringBehavior
       ]

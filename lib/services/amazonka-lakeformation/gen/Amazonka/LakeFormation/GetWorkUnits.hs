@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,10 +138,10 @@ instance Core.AWSRequest GetWorkUnits where
     Response.receiveJSON
       ( \s h x ->
           GetWorkUnitsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "QueryId")
-            Prelude.<*> ( x Core..?> "WorkUnitRanges"
+            Prelude.<*> (x Data..:> "QueryId")
+            Prelude.<*> ( x Data..?> "WorkUnitRanges"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -157,31 +158,31 @@ instance Prelude.NFData GetWorkUnits where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf queryId
 
-instance Core.ToHeaders GetWorkUnits where
+instance Data.ToHeaders GetWorkUnits where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetWorkUnits where
+instance Data.ToJSON GetWorkUnits where
   toJSON GetWorkUnits' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            Prelude.Just ("QueryId" Core..= queryId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            Prelude.Just ("QueryId" Data..= queryId)
           ]
       )
 
-instance Core.ToPath GetWorkUnits where
+instance Data.ToPath GetWorkUnits where
   toPath = Prelude.const "/GetWorkUnits"
 
-instance Core.ToQuery GetWorkUnits where
+instance Data.ToQuery GetWorkUnits where
   toQuery = Prelude.const Prelude.mempty
 
 -- | A structure for the output.

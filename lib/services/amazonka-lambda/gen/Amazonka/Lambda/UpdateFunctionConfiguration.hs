@@ -106,6 +106,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -428,7 +429,7 @@ instance Core.AWSRequest UpdateFunctionConfiguration where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateFunctionConfiguration where
   hashWithSalt _salt UpdateFunctionConfiguration' {..} =
@@ -470,42 +471,42 @@ instance Prelude.NFData UpdateFunctionConfiguration where
       `Prelude.seq` Prelude.rnf deadLetterConfig
       `Prelude.seq` Prelude.rnf functionName
 
-instance Core.ToHeaders UpdateFunctionConfiguration where
+instance Data.ToHeaders UpdateFunctionConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateFunctionConfiguration where
+instance Data.ToJSON UpdateFunctionConfiguration where
   toJSON UpdateFunctionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TracingConfig" Core..=) Prelude.<$> tracingConfig,
-            ("FileSystemConfigs" Core..=)
+          [ ("TracingConfig" Data..=) Prelude.<$> tracingConfig,
+            ("FileSystemConfigs" Data..=)
               Prelude.<$> fileSystemConfigs,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("EphemeralStorage" Core..=)
+            ("Timeout" Data..=) Prelude.<$> timeout,
+            ("EphemeralStorage" Data..=)
               Prelude.<$> ephemeralStorage,
-            ("MemorySize" Core..=) Prelude.<$> memorySize,
-            ("ImageConfig" Core..=) Prelude.<$> imageConfig,
-            ("Environment" Core..=) Prelude.<$> environment,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("Runtime" Core..=) Prelude.<$> runtime,
-            ("Description" Core..=) Prelude.<$> description,
-            ("KMSKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("Handler" Core..=) Prelude.<$> handler,
-            ("Layers" Core..=) Prelude.<$> layers,
-            ("RevisionId" Core..=) Prelude.<$> revisionId,
-            ("Role" Core..=) Prelude.<$> role',
-            ("DeadLetterConfig" Core..=)
+            ("MemorySize" Data..=) Prelude.<$> memorySize,
+            ("ImageConfig" Data..=) Prelude.<$> imageConfig,
+            ("Environment" Data..=) Prelude.<$> environment,
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
+            ("Runtime" Data..=) Prelude.<$> runtime,
+            ("Description" Data..=) Prelude.<$> description,
+            ("KMSKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("Handler" Data..=) Prelude.<$> handler,
+            ("Layers" Data..=) Prelude.<$> layers,
+            ("RevisionId" Data..=) Prelude.<$> revisionId,
+            ("Role" Data..=) Prelude.<$> role',
+            ("DeadLetterConfig" Data..=)
               Prelude.<$> deadLetterConfig
           ]
       )
 
-instance Core.ToPath UpdateFunctionConfiguration where
+instance Data.ToPath UpdateFunctionConfiguration where
   toPath UpdateFunctionConfiguration' {..} =
     Prelude.mconcat
       [ "/2015-03-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/configuration"
       ]
 
-instance Core.ToQuery UpdateFunctionConfiguration where
+instance Data.ToQuery UpdateFunctionConfiguration where
   toQuery = Prelude.const Prelude.mempty

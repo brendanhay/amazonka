@@ -49,6 +49,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -173,8 +174,8 @@ instance Core.AWSRequest ListBuildBatchesForProject where
     Response.receiveJSON
       ( \s h x ->
           ListBuildBatchesForProjectResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "ids" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "ids" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,37 +195,37 @@ instance Prelude.NFData ListBuildBatchesForProject where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf projectName
 
-instance Core.ToHeaders ListBuildBatchesForProject where
+instance Data.ToHeaders ListBuildBatchesForProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.ListBuildBatchesForProject" ::
+              Data.=# ( "CodeBuild_20161006.ListBuildBatchesForProject" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListBuildBatchesForProject where
+instance Data.ToJSON ListBuildBatchesForProject where
   toJSON ListBuildBatchesForProject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filter" Core..=) Prelude.<$> filter',
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("projectName" Core..=) Prelude.<$> projectName
+          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filter" Data..=) Prelude.<$> filter',
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("projectName" Data..=) Prelude.<$> projectName
           ]
       )
 
-instance Core.ToPath ListBuildBatchesForProject where
+instance Data.ToPath ListBuildBatchesForProject where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListBuildBatchesForProject where
+instance Data.ToQuery ListBuildBatchesForProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBuildBatchesForProjectResponse' smart constructor.

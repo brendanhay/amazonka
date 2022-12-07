@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,9 +100,9 @@ instance Core.AWSRequest GetSiteAddress where
     Response.receiveJSON
       ( \s h x ->
           GetSiteAddressResponse'
-            Prelude.<$> (x Core..?> "AddressType")
-            Prelude.<*> (x Core..?> "SiteId")
-            Prelude.<*> (x Core..?> "Address")
+            Prelude.<$> (x Data..?> "AddressType")
+            Prelude.<*> (x Data..?> "SiteId")
+            Prelude.<*> (x Data..?> "Address")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,25 +116,25 @@ instance Prelude.NFData GetSiteAddress where
     Prelude.rnf siteId
       `Prelude.seq` Prelude.rnf addressType
 
-instance Core.ToHeaders GetSiteAddress where
+instance Data.ToHeaders GetSiteAddress where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSiteAddress where
+instance Data.ToPath GetSiteAddress where
   toPath GetSiteAddress' {..} =
     Prelude.mconcat
-      ["/sites/", Core.toBS siteId, "/address"]
+      ["/sites/", Data.toBS siteId, "/address"]
 
-instance Core.ToQuery GetSiteAddress where
+instance Data.ToQuery GetSiteAddress where
   toQuery GetSiteAddress' {..} =
-    Prelude.mconcat ["AddressType" Core.=: addressType]
+    Prelude.mconcat ["AddressType" Data.=: addressType]
 
 -- | /See:/ 'newGetSiteAddressResponse' smart constructor.
 data GetSiteAddressResponse = GetSiteAddressResponse'

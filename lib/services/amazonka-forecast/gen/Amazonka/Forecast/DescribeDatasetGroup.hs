@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,13 +107,13 @@ instance Core.AWSRequest DescribeDatasetGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeDatasetGroupResponse'
-            Prelude.<$> (x Core..?> "LastModificationTime")
-            Prelude.<*> (x Core..?> "DatasetGroupName")
-            Prelude.<*> (x Core..?> "Domain")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "DatasetArns" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "DatasetGroupArn")
+            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "DatasetGroupName")
+            Prelude.<*> (x Data..?> "Domain")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "DatasetArns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "DatasetGroupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,34 +125,34 @@ instance Prelude.NFData DescribeDatasetGroup where
   rnf DescribeDatasetGroup' {..} =
     Prelude.rnf datasetGroupArn
 
-instance Core.ToHeaders DescribeDatasetGroup where
+instance Data.ToHeaders DescribeDatasetGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DescribeDatasetGroup" ::
+              Data.=# ( "AmazonForecast.DescribeDatasetGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDatasetGroup where
+instance Data.ToJSON DescribeDatasetGroup where
   toJSON DescribeDatasetGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DatasetGroupArn" Core..= datasetGroupArn)
+              ("DatasetGroupArn" Data..= datasetGroupArn)
           ]
       )
 
-instance Core.ToPath DescribeDatasetGroup where
+instance Data.ToPath DescribeDatasetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDatasetGroup where
+instance Data.ToQuery DescribeDatasetGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDatasetGroupResponse' smart constructor.
@@ -161,7 +162,7 @@ data DescribeDatasetGroupResponse = DescribeDatasetGroupResponse'
     -- operation. While the dataset group is being updated,
     -- @LastModificationTime@ is the current time of the @DescribeDatasetGroup@
     -- call.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the dataset group.
     datasetGroupName :: Prelude.Maybe Prelude.Text,
     -- | The domain associated with the dataset group.
@@ -187,7 +188,7 @@ data DescribeDatasetGroupResponse = DescribeDatasetGroupResponse'
     -- the dataset group.
     datasetArns :: Prelude.Maybe [Prelude.Text],
     -- | When the dataset group was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the dataset group.
     datasetGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -261,7 +262,7 @@ newDescribeDatasetGroupResponse pHttpStatus_ =
 -- @LastModificationTime@ is the current time of the @DescribeDatasetGroup@
 -- call.
 describeDatasetGroupResponse_lastModificationTime :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetGroupResponse_lastModificationTime = Lens.lens (\DescribeDatasetGroupResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeDatasetGroupResponse' {} a -> s {lastModificationTime = a} :: DescribeDatasetGroupResponse) Prelude.. Lens.mapping Core._Time
+describeDatasetGroupResponse_lastModificationTime = Lens.lens (\DescribeDatasetGroupResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeDatasetGroupResponse' {} a -> s {lastModificationTime = a} :: DescribeDatasetGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the dataset group.
 describeDatasetGroupResponse_datasetGroupName :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe Prelude.Text)
@@ -297,7 +298,7 @@ describeDatasetGroupResponse_datasetArns = Lens.lens (\DescribeDatasetGroupRespo
 
 -- | When the dataset group was created.
 describeDatasetGroupResponse_creationTime :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetGroupResponse_creationTime = Lens.lens (\DescribeDatasetGroupResponse' {creationTime} -> creationTime) (\s@DescribeDatasetGroupResponse' {} a -> s {creationTime = a} :: DescribeDatasetGroupResponse) Prelude.. Lens.mapping Core._Time
+describeDatasetGroupResponse_creationTime = Lens.lens (\DescribeDatasetGroupResponse' {creationTime} -> creationTime) (\s@DescribeDatasetGroupResponse' {} a -> s {creationTime = a} :: DescribeDatasetGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the dataset group.
 describeDatasetGroupResponse_datasetGroupArn :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe Prelude.Text)

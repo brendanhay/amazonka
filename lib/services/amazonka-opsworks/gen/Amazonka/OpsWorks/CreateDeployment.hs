@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -189,7 +190,7 @@ instance Core.AWSRequest CreateDeployment where
     Response.receiveJSON
       ( \s h x ->
           CreateDeploymentResponse'
-            Prelude.<$> (x Core..?> "DeploymentId")
+            Prelude.<$> (x Data..?> "DeploymentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,39 +214,39 @@ instance Prelude.NFData CreateDeployment where
       `Prelude.seq` Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf command
 
-instance Core.ToHeaders CreateDeployment where
+instance Data.ToHeaders CreateDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.CreateDeployment" ::
+              Data.=# ( "OpsWorks_20130218.CreateDeployment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDeployment where
+instance Data.ToJSON CreateDeployment where
   toJSON CreateDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomJson" Core..=) Prelude.<$> customJson,
-            ("Comment" Core..=) Prelude.<$> comment,
-            ("LayerIds" Core..=) Prelude.<$> layerIds,
-            ("InstanceIds" Core..=) Prelude.<$> instanceIds,
-            ("AppId" Core..=) Prelude.<$> appId,
-            Prelude.Just ("StackId" Core..= stackId),
-            Prelude.Just ("Command" Core..= command)
+          [ ("CustomJson" Data..=) Prelude.<$> customJson,
+            ("Comment" Data..=) Prelude.<$> comment,
+            ("LayerIds" Data..=) Prelude.<$> layerIds,
+            ("InstanceIds" Data..=) Prelude.<$> instanceIds,
+            ("AppId" Data..=) Prelude.<$> appId,
+            Prelude.Just ("StackId" Data..= stackId),
+            Prelude.Just ("Command" Data..= command)
           ]
       )
 
-instance Core.ToPath CreateDeployment where
+instance Data.ToPath CreateDeployment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDeployment where
+instance Data.ToQuery CreateDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @CreateDeployment@ request.

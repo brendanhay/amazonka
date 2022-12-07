@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ContinuationEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -40,7 +41,7 @@ newContinuationEvent ::
   ContinuationEvent
 newContinuationEvent = ContinuationEvent'
 
-instance Core.FromXML ContinuationEvent where
+instance Data.FromXML ContinuationEvent where
   parseXML =
     Prelude.const (Prelude.pure ContinuationEvent')
 

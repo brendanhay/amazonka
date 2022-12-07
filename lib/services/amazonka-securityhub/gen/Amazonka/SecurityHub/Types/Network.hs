@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.Network where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.NetworkDirection
 import Amazonka.SecurityHub.Types.PortRange
@@ -162,24 +163,24 @@ network_protocol = Lens.lens (\Network' {protocol} -> protocol) (\s@Network' {} 
 network_direction :: Lens.Lens' Network (Prelude.Maybe NetworkDirection)
 network_direction = Lens.lens (\Network' {direction} -> direction) (\s@Network' {} a -> s {direction = a} :: Network)
 
-instance Core.FromJSON Network where
+instance Data.FromJSON Network where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Network"
       ( \x ->
           Network'
-            Prelude.<$> (x Core..:? "DestinationDomain")
-            Prelude.<*> (x Core..:? "SourceIpV4")
-            Prelude.<*> (x Core..:? "OpenPortRange")
-            Prelude.<*> (x Core..:? "DestinationIpV6")
-            Prelude.<*> (x Core..:? "SourceIpV6")
-            Prelude.<*> (x Core..:? "SourceDomain")
-            Prelude.<*> (x Core..:? "DestinationIpV4")
-            Prelude.<*> (x Core..:? "DestinationPort")
-            Prelude.<*> (x Core..:? "SourcePort")
-            Prelude.<*> (x Core..:? "SourceMac")
-            Prelude.<*> (x Core..:? "Protocol")
-            Prelude.<*> (x Core..:? "Direction")
+            Prelude.<$> (x Data..:? "DestinationDomain")
+            Prelude.<*> (x Data..:? "SourceIpV4")
+            Prelude.<*> (x Data..:? "OpenPortRange")
+            Prelude.<*> (x Data..:? "DestinationIpV6")
+            Prelude.<*> (x Data..:? "SourceIpV6")
+            Prelude.<*> (x Data..:? "SourceDomain")
+            Prelude.<*> (x Data..:? "DestinationIpV4")
+            Prelude.<*> (x Data..:? "DestinationPort")
+            Prelude.<*> (x Data..:? "SourcePort")
+            Prelude.<*> (x Data..:? "SourceMac")
+            Prelude.<*> (x Data..:? "Protocol")
+            Prelude.<*> (x Data..:? "Direction")
       )
 
 instance Prelude.Hashable Network where
@@ -212,25 +213,25 @@ instance Prelude.NFData Network where
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf direction
 
-instance Core.ToJSON Network where
+instance Data.ToJSON Network where
   toJSON Network' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DestinationDomain" Core..=)
+          [ ("DestinationDomain" Data..=)
               Prelude.<$> destinationDomain,
-            ("SourceIpV4" Core..=) Prelude.<$> sourceIpV4,
-            ("OpenPortRange" Core..=) Prelude.<$> openPortRange,
-            ("DestinationIpV6" Core..=)
+            ("SourceIpV4" Data..=) Prelude.<$> sourceIpV4,
+            ("OpenPortRange" Data..=) Prelude.<$> openPortRange,
+            ("DestinationIpV6" Data..=)
               Prelude.<$> destinationIpV6,
-            ("SourceIpV6" Core..=) Prelude.<$> sourceIpV6,
-            ("SourceDomain" Core..=) Prelude.<$> sourceDomain,
-            ("DestinationIpV4" Core..=)
+            ("SourceIpV6" Data..=) Prelude.<$> sourceIpV6,
+            ("SourceDomain" Data..=) Prelude.<$> sourceDomain,
+            ("DestinationIpV4" Data..=)
               Prelude.<$> destinationIpV4,
-            ("DestinationPort" Core..=)
+            ("DestinationPort" Data..=)
               Prelude.<$> destinationPort,
-            ("SourcePort" Core..=) Prelude.<$> sourcePort,
-            ("SourceMac" Core..=) Prelude.<$> sourceMac,
-            ("Protocol" Core..=) Prelude.<$> protocol,
-            ("Direction" Core..=) Prelude.<$> direction
+            ("SourcePort" Data..=) Prelude.<$> sourcePort,
+            ("SourceMac" Data..=) Prelude.<$> sourceMac,
+            ("Protocol" Data..=) Prelude.<$> protocol,
+            ("Direction" Data..=) Prelude.<$> direction
           ]
       )

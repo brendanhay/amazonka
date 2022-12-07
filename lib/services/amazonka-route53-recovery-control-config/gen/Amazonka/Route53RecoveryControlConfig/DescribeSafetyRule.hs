@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,8 +88,8 @@ instance Core.AWSRequest DescribeSafetyRule where
     Response.receiveJSON
       ( \s h x ->
           DescribeSafetyRuleResponse'
-            Prelude.<$> (x Core..?> "GatingRule")
-            Prelude.<*> (x Core..?> "AssertionRule")
+            Prelude.<$> (x Data..?> "GatingRule")
+            Prelude.<*> (x Data..?> "AssertionRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,23 +101,23 @@ instance Prelude.NFData DescribeSafetyRule where
   rnf DescribeSafetyRule' {..} =
     Prelude.rnf safetyRuleArn
 
-instance Core.ToHeaders DescribeSafetyRule where
+instance Data.ToHeaders DescribeSafetyRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeSafetyRule where
+instance Data.ToPath DescribeSafetyRule where
   toPath DescribeSafetyRule' {..} =
     Prelude.mconcat
-      ["/safetyrule/", Core.toBS safetyRuleArn]
+      ["/safetyrule/", Data.toBS safetyRuleArn]
 
-instance Core.ToQuery DescribeSafetyRule where
+instance Data.ToQuery DescribeSafetyRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSafetyRuleResponse' smart constructor.

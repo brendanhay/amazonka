@@ -45,6 +45,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,7 +119,7 @@ instance Core.AWSRequest UpdateBasePathMapping where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateBasePathMapping where
   hashWithSalt _salt UpdateBasePathMapping' {..} =
@@ -132,32 +133,32 @@ instance Prelude.NFData UpdateBasePathMapping where
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf basePath
 
-instance Core.ToHeaders UpdateBasePathMapping where
+instance Data.ToHeaders UpdateBasePathMapping where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON UpdateBasePathMapping where
+instance Data.ToJSON UpdateBasePathMapping where
   toJSON UpdateBasePathMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("patchOperations" Core..=)
+          [ ("patchOperations" Data..=)
               Prelude.<$> patchOperations
           ]
       )
 
-instance Core.ToPath UpdateBasePathMapping where
+instance Data.ToPath UpdateBasePathMapping where
   toPath UpdateBasePathMapping' {..} =
     Prelude.mconcat
       [ "/domainnames/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/basepathmappings/",
-        Core.toBS basePath
+        Data.toBS basePath
       ]
 
-instance Core.ToQuery UpdateBasePathMapping where
+instance Data.ToQuery UpdateBasePathMapping where
   toQuery = Prelude.const Prelude.mempty

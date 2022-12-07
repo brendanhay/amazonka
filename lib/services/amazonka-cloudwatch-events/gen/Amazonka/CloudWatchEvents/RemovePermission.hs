@@ -45,6 +45,7 @@ where
 import Amazonka.CloudWatchEvents.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,34 +122,34 @@ instance Prelude.NFData RemovePermission where
       `Prelude.seq` Prelude.rnf statementId
       `Prelude.seq` Prelude.rnf removeAllPermissions
 
-instance Core.ToHeaders RemovePermission where
+instance Data.ToHeaders RemovePermission where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.RemovePermission" :: Prelude.ByteString),
+              Data.=# ("AWSEvents.RemovePermission" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RemovePermission where
+instance Data.ToJSON RemovePermission where
   toJSON RemovePermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventBusName" Core..=) Prelude.<$> eventBusName,
-            ("StatementId" Core..=) Prelude.<$> statementId,
-            ("RemoveAllPermissions" Core..=)
+          [ ("EventBusName" Data..=) Prelude.<$> eventBusName,
+            ("StatementId" Data..=) Prelude.<$> statementId,
+            ("RemoveAllPermissions" Data..=)
               Prelude.<$> removeAllPermissions
           ]
       )
 
-instance Core.ToPath RemovePermission where
+instance Data.ToPath RemovePermission where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemovePermission where
+instance Data.ToQuery RemovePermission where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemovePermissionResponse' smart constructor.

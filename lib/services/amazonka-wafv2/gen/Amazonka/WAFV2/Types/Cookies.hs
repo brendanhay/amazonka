@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.Cookies where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CookieMatchPattern
 import Amazonka.WAFV2.Types.MapMatchScope
@@ -159,15 +160,15 @@ cookies_matchScope = Lens.lens (\Cookies' {matchScope} -> matchScope) (\s@Cookie
 cookies_oversizeHandling :: Lens.Lens' Cookies OversizeHandling
 cookies_oversizeHandling = Lens.lens (\Cookies' {oversizeHandling} -> oversizeHandling) (\s@Cookies' {} a -> s {oversizeHandling = a} :: Cookies)
 
-instance Core.FromJSON Cookies where
+instance Data.FromJSON Cookies where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Cookies"
       ( \x ->
           Cookies'
-            Prelude.<$> (x Core..: "MatchPattern")
-            Prelude.<*> (x Core..: "MatchScope")
-            Prelude.<*> (x Core..: "OversizeHandling")
+            Prelude.<$> (x Data..: "MatchPattern")
+            Prelude.<*> (x Data..: "MatchScope")
+            Prelude.<*> (x Data..: "OversizeHandling")
       )
 
 instance Prelude.Hashable Cookies where
@@ -182,13 +183,13 @@ instance Prelude.NFData Cookies where
       `Prelude.seq` Prelude.rnf matchScope
       `Prelude.seq` Prelude.rnf oversizeHandling
 
-instance Core.ToJSON Cookies where
+instance Data.ToJSON Cookies where
   toJSON Cookies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("MatchPattern" Core..= matchPattern),
-            Prelude.Just ("MatchScope" Core..= matchScope),
+          [ Prelude.Just ("MatchPattern" Data..= matchPattern),
+            Prelude.Just ("MatchScope" Data..= matchScope),
             Prelude.Just
-              ("OversizeHandling" Core..= oversizeHandling)
+              ("OversizeHandling" Data..= oversizeHandling)
           ]
       )

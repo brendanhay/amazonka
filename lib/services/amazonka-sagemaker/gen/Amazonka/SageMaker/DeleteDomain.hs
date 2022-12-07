@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,33 +107,33 @@ instance Prelude.NFData DeleteDomain where
     Prelude.rnf retentionPolicy
       `Prelude.seq` Prelude.rnf domainId
 
-instance Core.ToHeaders DeleteDomain where
+instance Data.ToHeaders DeleteDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteDomain" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DeleteDomain" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDomain where
+instance Data.ToJSON DeleteDomain where
   toJSON DeleteDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RetentionPolicy" Core..=)
+          [ ("RetentionPolicy" Data..=)
               Prelude.<$> retentionPolicy,
-            Prelude.Just ("DomainId" Core..= domainId)
+            Prelude.Just ("DomainId" Data..= domainId)
           ]
       )
 
-instance Core.ToPath DeleteDomain where
+instance Data.ToPath DeleteDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDomain where
+instance Data.ToQuery DeleteDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDomainResponse' smart constructor.

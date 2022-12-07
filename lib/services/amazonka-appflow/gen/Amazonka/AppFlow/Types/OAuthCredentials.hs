@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.OAuthCredentials where
 import Amazonka.AppFlow.Types.ConnectorOAuthRequest
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The OAuth credentials required for OAuth type authentication.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newOAuthCredentials' smart constructor.
 data OAuthCredentials = OAuthCredentials'
   { -- | The access token used to access protected SAPOData resources.
-    accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    accessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The OAuth requirement needed to request security tokens from the
     -- connector endpoint.
     oAuthRequest :: Prelude.Maybe ConnectorOAuthRequest,
@@ -39,7 +40,7 @@ data OAuthCredentials = OAuthCredentials'
     clientId :: Prelude.Text,
     -- | The client secret used by the OAuth client to authenticate to the
     -- authorization server.
-    clientSecret :: Core.Sensitive Prelude.Text
+    clientSecret :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -74,12 +75,12 @@ newOAuthCredentials pClientId_ pClientSecret_ =
       oAuthRequest = Prelude.Nothing,
       refreshToken = Prelude.Nothing,
       clientId = pClientId_,
-      clientSecret = Core._Sensitive Lens.# pClientSecret_
+      clientSecret = Data._Sensitive Lens.# pClientSecret_
     }
 
 -- | The access token used to access protected SAPOData resources.
 oAuthCredentials_accessToken :: Lens.Lens' OAuthCredentials (Prelude.Maybe Prelude.Text)
-oAuthCredentials_accessToken = Lens.lens (\OAuthCredentials' {accessToken} -> accessToken) (\s@OAuthCredentials' {} a -> s {accessToken = a} :: OAuthCredentials) Prelude.. Lens.mapping Core._Sensitive
+oAuthCredentials_accessToken = Lens.lens (\OAuthCredentials' {accessToken} -> accessToken) (\s@OAuthCredentials' {} a -> s {accessToken = a} :: OAuthCredentials) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The OAuth requirement needed to request security tokens from the
 -- connector endpoint.
@@ -97,7 +98,7 @@ oAuthCredentials_clientId = Lens.lens (\OAuthCredentials' {clientId} -> clientId
 -- | The client secret used by the OAuth client to authenticate to the
 -- authorization server.
 oAuthCredentials_clientSecret :: Lens.Lens' OAuthCredentials Prelude.Text
-oAuthCredentials_clientSecret = Lens.lens (\OAuthCredentials' {clientSecret} -> clientSecret) (\s@OAuthCredentials' {} a -> s {clientSecret = a} :: OAuthCredentials) Prelude.. Core._Sensitive
+oAuthCredentials_clientSecret = Lens.lens (\OAuthCredentials' {clientSecret} -> clientSecret) (\s@OAuthCredentials' {} a -> s {clientSecret = a} :: OAuthCredentials) Prelude.. Data._Sensitive
 
 instance Prelude.Hashable OAuthCredentials where
   hashWithSalt _salt OAuthCredentials' {..} =
@@ -115,14 +116,14 @@ instance Prelude.NFData OAuthCredentials where
       `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf clientSecret
 
-instance Core.ToJSON OAuthCredentials where
+instance Data.ToJSON OAuthCredentials where
   toJSON OAuthCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accessToken" Core..=) Prelude.<$> accessToken,
-            ("oAuthRequest" Core..=) Prelude.<$> oAuthRequest,
-            ("refreshToken" Core..=) Prelude.<$> refreshToken,
-            Prelude.Just ("clientId" Core..= clientId),
-            Prelude.Just ("clientSecret" Core..= clientSecret)
+          [ ("accessToken" Data..=) Prelude.<$> accessToken,
+            ("oAuthRequest" Data..=) Prelude.<$> oAuthRequest,
+            ("refreshToken" Data..=) Prelude.<$> refreshToken,
+            Prelude.Just ("clientId" Data..= clientId),
+            Prelude.Just ("clientSecret" Data..= clientSecret)
           ]
       )

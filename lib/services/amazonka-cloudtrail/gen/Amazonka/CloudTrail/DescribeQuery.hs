@@ -51,6 +51,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,13 +107,13 @@ instance Core.AWSRequest DescribeQuery where
     Response.receiveJSON
       ( \s h x ->
           DescribeQueryResponse'
-            Prelude.<$> (x Core..?> "QueryStatistics")
-            Prelude.<*> (x Core..?> "QueryStatus")
-            Prelude.<*> (x Core..?> "ErrorMessage")
-            Prelude.<*> (x Core..?> "QueryId")
-            Prelude.<*> (x Core..?> "DeliveryStatus")
-            Prelude.<*> (x Core..?> "DeliveryS3Uri")
-            Prelude.<*> (x Core..?> "QueryString")
+            Prelude.<$> (x Data..?> "QueryStatistics")
+            Prelude.<*> (x Data..?> "QueryStatus")
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "QueryId")
+            Prelude.<*> (x Data..?> "DeliveryStatus")
+            Prelude.<*> (x Data..?> "DeliveryS3Uri")
+            Prelude.<*> (x Data..?> "QueryString")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,35 +127,35 @@ instance Prelude.NFData DescribeQuery where
     Prelude.rnf eventDataStore
       `Prelude.seq` Prelude.rnf queryId
 
-instance Core.ToHeaders DescribeQuery where
+instance Data.ToHeaders DescribeQuery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DescribeQuery" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DescribeQuery" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeQuery where
+instance Data.ToJSON DescribeQuery where
   toJSON DescribeQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventDataStore" Core..=)
+          [ ("EventDataStore" Data..=)
               Prelude.<$> eventDataStore,
-            Prelude.Just ("QueryId" Core..= queryId)
+            Prelude.Just ("QueryId" Data..= queryId)
           ]
       )
 
-instance Core.ToPath DescribeQuery where
+instance Data.ToPath DescribeQuery where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeQuery where
+instance Data.ToQuery DescribeQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeQueryResponse' smart constructor.

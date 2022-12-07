@@ -22,6 +22,7 @@ module Amazonka.CustomerProfiles.Types.ScheduledTriggerProperties where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.DataPullMode
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration details of a scheduled-trigger flow that you
@@ -31,9 +32,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newScheduledTriggerProperties' smart constructor.
 data ScheduledTriggerProperties = ScheduledTriggerProperties'
   { -- | Specifies the scheduled end time for a scheduled-trigger flow.
-    scheduleEndTime :: Prelude.Maybe Core.POSIX,
+    scheduleEndTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies the scheduled start time for a scheduled-trigger flow.
-    scheduleStartTime :: Prelude.Maybe Core.POSIX,
+    scheduleStartTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies the time zone used when referring to the date and time of a
     -- scheduled-triggered flow, such as America\/New_York.
     timezone :: Prelude.Maybe Prelude.Text,
@@ -42,7 +43,7 @@ data ScheduledTriggerProperties = ScheduledTriggerProperties'
     scheduleOffset :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the date range for the records to import from the connector in
     -- the first flow run.
-    firstExecutionFrom :: Prelude.Maybe Core.POSIX,
+    firstExecutionFrom :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether a scheduled flow has an incremental data transfer or a
     -- complete data transfer for each flow run.
     dataPullMode :: Prelude.Maybe DataPullMode,
@@ -96,11 +97,11 @@ newScheduledTriggerProperties pScheduleExpression_ =
 
 -- | Specifies the scheduled end time for a scheduled-trigger flow.
 scheduledTriggerProperties_scheduleEndTime :: Lens.Lens' ScheduledTriggerProperties (Prelude.Maybe Prelude.UTCTime)
-scheduledTriggerProperties_scheduleEndTime = Lens.lens (\ScheduledTriggerProperties' {scheduleEndTime} -> scheduleEndTime) (\s@ScheduledTriggerProperties' {} a -> s {scheduleEndTime = a} :: ScheduledTriggerProperties) Prelude.. Lens.mapping Core._Time
+scheduledTriggerProperties_scheduleEndTime = Lens.lens (\ScheduledTriggerProperties' {scheduleEndTime} -> scheduleEndTime) (\s@ScheduledTriggerProperties' {} a -> s {scheduleEndTime = a} :: ScheduledTriggerProperties) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the scheduled start time for a scheduled-trigger flow.
 scheduledTriggerProperties_scheduleStartTime :: Lens.Lens' ScheduledTriggerProperties (Prelude.Maybe Prelude.UTCTime)
-scheduledTriggerProperties_scheduleStartTime = Lens.lens (\ScheduledTriggerProperties' {scheduleStartTime} -> scheduleStartTime) (\s@ScheduledTriggerProperties' {} a -> s {scheduleStartTime = a} :: ScheduledTriggerProperties) Prelude.. Lens.mapping Core._Time
+scheduledTriggerProperties_scheduleStartTime = Lens.lens (\ScheduledTriggerProperties' {scheduleStartTime} -> scheduleStartTime) (\s@ScheduledTriggerProperties' {} a -> s {scheduleStartTime = a} :: ScheduledTriggerProperties) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the time zone used when referring to the date and time of a
 -- scheduled-triggered flow, such as America\/New_York.
@@ -115,7 +116,7 @@ scheduledTriggerProperties_scheduleOffset = Lens.lens (\ScheduledTriggerProperti
 -- | Specifies the date range for the records to import from the connector in
 -- the first flow run.
 scheduledTriggerProperties_firstExecutionFrom :: Lens.Lens' ScheduledTriggerProperties (Prelude.Maybe Prelude.UTCTime)
-scheduledTriggerProperties_firstExecutionFrom = Lens.lens (\ScheduledTriggerProperties' {firstExecutionFrom} -> firstExecutionFrom) (\s@ScheduledTriggerProperties' {} a -> s {firstExecutionFrom = a} :: ScheduledTriggerProperties) Prelude.. Lens.mapping Core._Time
+scheduledTriggerProperties_firstExecutionFrom = Lens.lens (\ScheduledTriggerProperties' {firstExecutionFrom} -> firstExecutionFrom) (\s@ScheduledTriggerProperties' {} a -> s {firstExecutionFrom = a} :: ScheduledTriggerProperties) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether a scheduled flow has an incremental data transfer or a
 -- complete data transfer for each flow run.
@@ -147,21 +148,21 @@ instance Prelude.NFData ScheduledTriggerProperties where
       `Prelude.seq` Prelude.rnf dataPullMode
       `Prelude.seq` Prelude.rnf scheduleExpression
 
-instance Core.ToJSON ScheduledTriggerProperties where
+instance Data.ToJSON ScheduledTriggerProperties where
   toJSON ScheduledTriggerProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ScheduleEndTime" Core..=)
+          [ ("ScheduleEndTime" Data..=)
               Prelude.<$> scheduleEndTime,
-            ("ScheduleStartTime" Core..=)
+            ("ScheduleStartTime" Data..=)
               Prelude.<$> scheduleStartTime,
-            ("Timezone" Core..=) Prelude.<$> timezone,
-            ("ScheduleOffset" Core..=)
+            ("Timezone" Data..=) Prelude.<$> timezone,
+            ("ScheduleOffset" Data..=)
               Prelude.<$> scheduleOffset,
-            ("FirstExecutionFrom" Core..=)
+            ("FirstExecutionFrom" Data..=)
               Prelude.<$> firstExecutionFrom,
-            ("DataPullMode" Core..=) Prelude.<$> dataPullMode,
+            ("DataPullMode" Data..=) Prelude.<$> dataPullMode,
             Prelude.Just
-              ("ScheduleExpression" Core..= scheduleExpression)
+              ("ScheduleExpression" Data..= scheduleExpression)
           ]
       )

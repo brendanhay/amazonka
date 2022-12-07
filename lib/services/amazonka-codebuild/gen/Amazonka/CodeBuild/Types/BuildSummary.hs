@@ -23,6 +23,7 @@ import Amazonka.CodeBuild.Types.ResolvedArtifact
 import Amazonka.CodeBuild.Types.StatusType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about a batch build group.
@@ -58,7 +59,7 @@ data BuildSummary = BuildSummary'
     -- for the build group.
     primaryArtifact :: Prelude.Maybe ResolvedArtifact,
     -- | When the build was started, expressed in Unix time format.
-    requestedOn :: Prelude.Maybe Core.POSIX
+    requestedOn :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -148,21 +149,21 @@ buildSummary_primaryArtifact = Lens.lens (\BuildSummary' {primaryArtifact} -> pr
 
 -- | When the build was started, expressed in Unix time format.
 buildSummary_requestedOn :: Lens.Lens' BuildSummary (Prelude.Maybe Prelude.UTCTime)
-buildSummary_requestedOn = Lens.lens (\BuildSummary' {requestedOn} -> requestedOn) (\s@BuildSummary' {} a -> s {requestedOn = a} :: BuildSummary) Prelude.. Lens.mapping Core._Time
+buildSummary_requestedOn = Lens.lens (\BuildSummary' {requestedOn} -> requestedOn) (\s@BuildSummary' {} a -> s {requestedOn = a} :: BuildSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON BuildSummary where
+instance Data.FromJSON BuildSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BuildSummary"
       ( \x ->
           BuildSummary'
-            Prelude.<$> ( x Core..:? "secondaryArtifacts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "secondaryArtifacts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "buildStatus")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "primaryArtifact")
-            Prelude.<*> (x Core..:? "requestedOn")
+            Prelude.<*> (x Data..:? "buildStatus")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "primaryArtifact")
+            Prelude.<*> (x Data..:? "requestedOn")
       )
 
 instance Prelude.Hashable BuildSummary where

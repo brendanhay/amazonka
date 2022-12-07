@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.AlgorithmImage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an algorithm image.
@@ -63,14 +64,14 @@ algorithmImage_name = Lens.lens (\AlgorithmImage' {name} -> name) (\s@AlgorithmI
 algorithmImage_dockerURI :: Lens.Lens' AlgorithmImage Prelude.Text
 algorithmImage_dockerURI = Lens.lens (\AlgorithmImage' {dockerURI} -> dockerURI) (\s@AlgorithmImage' {} a -> s {dockerURI = a} :: AlgorithmImage)
 
-instance Core.FromJSON AlgorithmImage where
+instance Data.FromJSON AlgorithmImage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlgorithmImage"
       ( \x ->
           AlgorithmImage'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..: "dockerURI")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..: "dockerURI")
       )
 
 instance Prelude.Hashable AlgorithmImage where

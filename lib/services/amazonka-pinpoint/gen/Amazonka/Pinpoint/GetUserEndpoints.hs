@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,7 +103,7 @@ instance Core.AWSRequest GetUserEndpoints where
       ( \s h x ->
           GetUserEndpointsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetUserEndpoints where
@@ -115,27 +116,27 @@ instance Prelude.NFData GetUserEndpoints where
     Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders GetUserEndpoints where
+instance Data.ToHeaders GetUserEndpoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetUserEndpoints where
+instance Data.ToPath GetUserEndpoints where
   toPath GetUserEndpoints' {..} =
     Prelude.mconcat
       [ "/v1/apps/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/users/",
-        Core.toBS userId
+        Data.toBS userId
       ]
 
-instance Core.ToQuery GetUserEndpoints where
+instance Data.ToQuery GetUserEndpoints where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetUserEndpointsResponse' smart constructor.

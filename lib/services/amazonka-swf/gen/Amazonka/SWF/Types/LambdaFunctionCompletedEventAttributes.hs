@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.LambdaFunctionCompletedEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @LambdaFunctionCompleted@ event. It isn\'t
@@ -92,17 +93,17 @@ lambdaFunctionCompletedEventAttributes_startedEventId :: Lens.Lens' LambdaFuncti
 lambdaFunctionCompletedEventAttributes_startedEventId = Lens.lens (\LambdaFunctionCompletedEventAttributes' {startedEventId} -> startedEventId) (\s@LambdaFunctionCompletedEventAttributes' {} a -> s {startedEventId = a} :: LambdaFunctionCompletedEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LambdaFunctionCompletedEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaFunctionCompletedEventAttributes"
       ( \x ->
           LambdaFunctionCompletedEventAttributes'
-            Prelude.<$> (x Core..:? "result")
-            Prelude.<*> (x Core..: "scheduledEventId")
-            Prelude.<*> (x Core..: "startedEventId")
+            Prelude.<$> (x Data..:? "result")
+            Prelude.<*> (x Data..: "scheduledEventId")
+            Prelude.<*> (x Data..: "startedEventId")
       )
 
 instance

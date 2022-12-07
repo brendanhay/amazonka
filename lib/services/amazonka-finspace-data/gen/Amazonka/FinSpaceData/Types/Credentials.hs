@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.Credentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Short term API credentials.
@@ -70,15 +71,15 @@ credentials_secretAccessKey = Lens.lens (\Credentials' {secretAccessKey} -> secr
 credentials_accessKeyId :: Lens.Lens' Credentials (Prelude.Maybe Prelude.Text)
 credentials_accessKeyId = Lens.lens (\Credentials' {accessKeyId} -> accessKeyId) (\s@Credentials' {} a -> s {accessKeyId = a} :: Credentials)
 
-instance Core.FromJSON Credentials where
+instance Data.FromJSON Credentials where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Credentials"
       ( \x ->
           Credentials'
-            Prelude.<$> (x Core..:? "sessionToken")
-            Prelude.<*> (x Core..:? "secretAccessKey")
-            Prelude.<*> (x Core..:? "accessKeyId")
+            Prelude.<$> (x Data..:? "sessionToken")
+            Prelude.<*> (x Data..:? "secretAccessKey")
+            Prelude.<*> (x Data..:? "accessKeyId")
       )
 
 instance Prelude.Hashable Credentials where

@@ -21,6 +21,7 @@ module Amazonka.SQS.Types.Message where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SQS.Types.MessageAttribute
 import Amazonka.SQS.Types.MessageAttributeValue
@@ -198,22 +199,22 @@ message_mD5OfBody = Lens.lens (\Message' {mD5OfBody} -> mD5OfBody) (\s@Message' 
 message_mD5OfMessageAttributes :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
 message_mD5OfMessageAttributes = Lens.lens (\Message' {mD5OfMessageAttributes} -> mD5OfMessageAttributes) (\s@Message' {} a -> s {mD5OfMessageAttributes = a} :: Message)
 
-instance Core.FromXML Message where
+instance Data.FromXML Message where
   parseXML x =
     Message'
-      Prelude.<$> (x Core..@? "ReceiptHandle")
-      Prelude.<*> (x Core..@? "Body")
-      Prelude.<*> (x Core..@? "MessageId")
+      Prelude.<$> (x Data..@? "ReceiptHandle")
+      Prelude.<*> (x Data..@? "Body")
+      Prelude.<*> (x Data..@? "MessageId")
       Prelude.<*> ( Core.may
-                      (Core.parseXMLMap "MessageAttribute" "Name" "Value")
+                      (Data.parseXMLMap "MessageAttribute" "Name" "Value")
                       x
                   )
       Prelude.<*> ( Core.may
-                      (Core.parseXMLMap "Attribute" "Name" "Value")
+                      (Data.parseXMLMap "Attribute" "Name" "Value")
                       x
                   )
-      Prelude.<*> (x Core..@? "MD5OfBody")
-      Prelude.<*> (x Core..@? "MD5OfMessageAttributes")
+      Prelude.<*> (x Data..@? "MD5OfBody")
+      Prelude.<*> (x Data..@? "MD5OfMessageAttributes")
 
 instance Prelude.Hashable Message where
   hashWithSalt _salt Message' {..} =

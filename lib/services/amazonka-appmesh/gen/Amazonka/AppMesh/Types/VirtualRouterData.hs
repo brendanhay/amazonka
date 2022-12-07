@@ -24,6 +24,7 @@ import Amazonka.AppMesh.Types.VirtualRouterSpec
 import Amazonka.AppMesh.Types.VirtualRouterStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a virtual router returned by a describe
@@ -107,17 +108,17 @@ virtualRouterData_status = Lens.lens (\VirtualRouterData' {status} -> status) (\
 virtualRouterData_virtualRouterName :: Lens.Lens' VirtualRouterData Prelude.Text
 virtualRouterData_virtualRouterName = Lens.lens (\VirtualRouterData' {virtualRouterName} -> virtualRouterName) (\s@VirtualRouterData' {} a -> s {virtualRouterName = a} :: VirtualRouterData)
 
-instance Core.FromJSON VirtualRouterData where
+instance Data.FromJSON VirtualRouterData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualRouterData"
       ( \x ->
           VirtualRouterData'
-            Prelude.<$> (x Core..: "meshName")
-            Prelude.<*> (x Core..: "metadata")
-            Prelude.<*> (x Core..: "spec")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "virtualRouterName")
+            Prelude.<$> (x Data..: "meshName")
+            Prelude.<*> (x Data..: "metadata")
+            Prelude.<*> (x Data..: "spec")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "virtualRouterName")
       )
 
 instance Prelude.Hashable VirtualRouterData where

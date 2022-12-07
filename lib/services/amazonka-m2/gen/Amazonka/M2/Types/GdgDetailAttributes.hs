@@ -21,6 +21,7 @@ module Amazonka.M2.Types.GdgDetailAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The required attributes for a generation data group data set. A
@@ -66,14 +67,14 @@ gdgDetailAttributes_limit = Lens.lens (\GdgDetailAttributes' {limit} -> limit) (
 gdgDetailAttributes_rollDisposition :: Lens.Lens' GdgDetailAttributes (Prelude.Maybe Prelude.Text)
 gdgDetailAttributes_rollDisposition = Lens.lens (\GdgDetailAttributes' {rollDisposition} -> rollDisposition) (\s@GdgDetailAttributes' {} a -> s {rollDisposition = a} :: GdgDetailAttributes)
 
-instance Core.FromJSON GdgDetailAttributes where
+instance Data.FromJSON GdgDetailAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GdgDetailAttributes"
       ( \x ->
           GdgDetailAttributes'
-            Prelude.<$> (x Core..:? "limit")
-            Prelude.<*> (x Core..:? "rollDisposition")
+            Prelude.<$> (x Data..:? "limit")
+            Prelude.<*> (x Data..:? "rollDisposition")
       )
 
 instance Prelude.Hashable GdgDetailAttributes where

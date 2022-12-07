@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,7 +144,7 @@ instance Core.AWSRequest CreateSnapshot where
     Response.receiveJSON
       ( \s h x ->
           CreateSnapshotResponse'
-            Prelude.<$> (x Core..?> "Snapshot")
+            Prelude.<$> (x Data..?> "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,37 +162,37 @@ instance Prelude.NFData CreateSnapshot where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf volumeId
 
-instance Core.ToHeaders CreateSnapshot where
+instance Data.ToHeaders CreateSnapshot where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.CreateSnapshot" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.CreateSnapshot" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSnapshot where
+instance Data.ToJSON CreateSnapshot where
   toJSON CreateSnapshot' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("VolumeId" Core..= volumeId)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("VolumeId" Data..= volumeId)
           ]
       )
 
-instance Core.ToPath CreateSnapshot where
+instance Data.ToPath CreateSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSnapshot where
+instance Data.ToQuery CreateSnapshot where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSnapshotResponse' smart constructor.

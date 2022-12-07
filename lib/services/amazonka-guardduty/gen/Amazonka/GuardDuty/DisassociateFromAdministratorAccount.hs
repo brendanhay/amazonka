@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,38 +110,38 @@ instance
     Prelude.rnf detectorId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateFromAdministratorAccount
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DisassociateFromAdministratorAccount
   where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateFromAdministratorAccount
   where
   toPath DisassociateFromAdministratorAccount' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/administrator/disassociate"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateFromAdministratorAccount
   where
   toQuery = Prelude.const Prelude.mempty

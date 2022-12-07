@@ -53,6 +53,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -150,7 +151,7 @@ instance Core.AWSRequest CreateRealtimeLogConfig where
     Response.receiveXML
       ( \s h x ->
           CreateRealtimeLogConfigResponse'
-            Prelude.<$> (x Core..@? "RealtimeLogConfig")
+            Prelude.<$> (x Data..@? "RealtimeLogConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,29 +169,29 @@ instance Prelude.NFData CreateRealtimeLogConfig where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf samplingRate
 
-instance Core.ToElement CreateRealtimeLogConfig where
+instance Data.ToElement CreateRealtimeLogConfig where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}CreateRealtimeLogConfigRequest"
 
-instance Core.ToHeaders CreateRealtimeLogConfig where
+instance Data.ToHeaders CreateRealtimeLogConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateRealtimeLogConfig where
+instance Data.ToPath CreateRealtimeLogConfig where
   toPath =
     Prelude.const "/2020-05-31/realtime-log-config"
 
-instance Core.ToQuery CreateRealtimeLogConfig where
+instance Data.ToQuery CreateRealtimeLogConfig where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML CreateRealtimeLogConfig where
+instance Data.ToXML CreateRealtimeLogConfig where
   toXML CreateRealtimeLogConfig' {..} =
     Prelude.mconcat
       [ "EndPoints"
-          Core.@= Core.toXMLList "member" endPoints,
-        "Fields" Core.@= Core.toXMLList "Field" fields,
-        "Name" Core.@= name,
-        "SamplingRate" Core.@= samplingRate
+          Data.@= Data.toXMLList "member" endPoints,
+        "Fields" Data.@= Data.toXMLList "Field" fields,
+        "Name" Data.@= name,
+        "SamplingRate" Data.@= samplingRate
       ]
 
 -- | /See:/ 'newCreateRealtimeLogConfigResponse' smart constructor.

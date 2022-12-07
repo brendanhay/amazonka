@@ -75,6 +75,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,8 +132,8 @@ instance Core.AWSRequest CreateIPSet where
     Response.receiveJSON
       ( \s h x ->
           CreateIPSetResponse'
-            Prelude.<$> (x Core..?> "IPSet")
-            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "IPSet")
+            Prelude.<*> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,34 +147,34 @@ instance Prelude.NFData CreateIPSet where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf changeToken
 
-instance Core.ToHeaders CreateIPSet where
+instance Data.ToHeaders CreateIPSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.CreateIPSet" ::
+              Data.=# ( "AWSWAF_Regional_20161128.CreateIPSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateIPSet where
+instance Data.ToJSON CreateIPSet where
   toJSON CreateIPSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("ChangeToken" Core..= changeToken)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("ChangeToken" Data..= changeToken)
           ]
       )
 
-instance Core.ToPath CreateIPSet where
+instance Data.ToPath CreateIPSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateIPSet where
+instance Data.ToQuery CreateIPSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateIPSetResponse' smart constructor.

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,16 +93,16 @@ instance Core.AWSRequest DescribeEphemeris where
     Response.receiveJSON
       ( \s h x ->
           DescribeEphemerisResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "suppliedData")
-            Prelude.<*> (x Core..?> "invalidReason")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "enabled")
-            Prelude.<*> (x Core..?> "priority")
-            Prelude.<*> (x Core..?> "satelliteId")
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "ephemerisId")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "suppliedData")
+            Prelude.<*> (x Data..?> "invalidReason")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "enabled")
+            Prelude.<*> (x Data..?> "priority")
+            Prelude.<*> (x Data..?> "satelliteId")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "ephemerisId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,23 +113,23 @@ instance Prelude.Hashable DescribeEphemeris where
 instance Prelude.NFData DescribeEphemeris where
   rnf DescribeEphemeris' {..} = Prelude.rnf ephemerisId
 
-instance Core.ToHeaders DescribeEphemeris where
+instance Data.ToHeaders DescribeEphemeris where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeEphemeris where
+instance Data.ToPath DescribeEphemeris where
   toPath DescribeEphemeris' {..} =
     Prelude.mconcat
-      ["/ephemeris/", Core.toBS ephemerisId]
+      ["/ephemeris/", Data.toBS ephemerisId]
 
-instance Core.ToQuery DescribeEphemeris where
+instance Data.ToQuery DescribeEphemeris where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEphemerisResponse' smart constructor.
@@ -158,7 +159,7 @@ data DescribeEphemerisResponse = DescribeEphemerisResponse'
     -- | The AWS Ground Station satellite ID associated with ephemeris.
     satelliteId :: Prelude.Maybe Prelude.Text,
     -- | The time the ephemeris was uploaded in UTC.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The AWS Ground Station ephemeris ID.
     ephemerisId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -264,7 +265,7 @@ describeEphemerisResponse_satelliteId = Lens.lens (\DescribeEphemerisResponse' {
 
 -- | The time the ephemeris was uploaded in UTC.
 describeEphemerisResponse_creationTime :: Lens.Lens' DescribeEphemerisResponse (Prelude.Maybe Prelude.UTCTime)
-describeEphemerisResponse_creationTime = Lens.lens (\DescribeEphemerisResponse' {creationTime} -> creationTime) (\s@DescribeEphemerisResponse' {} a -> s {creationTime = a} :: DescribeEphemerisResponse) Prelude.. Lens.mapping Core._Time
+describeEphemerisResponse_creationTime = Lens.lens (\DescribeEphemerisResponse' {creationTime} -> creationTime) (\s@DescribeEphemerisResponse' {} a -> s {creationTime = a} :: DescribeEphemerisResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The AWS Ground Station ephemeris ID.
 describeEphemerisResponse_ephemerisId :: Lens.Lens' DescribeEphemerisResponse (Prelude.Maybe Prelude.Text)

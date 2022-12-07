@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,8 +134,8 @@ instance Core.AWSRequest CreateWorkloadShare where
     Response.receiveJSON
       ( \s h x ->
           CreateWorkloadShareResponse'
-            Prelude.<$> (x Core..?> "ShareId")
-            Prelude.<*> (x Core..?> "WorkloadId")
+            Prelude.<$> (x Data..?> "ShareId")
+            Prelude.<*> (x Data..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,35 +153,35 @@ instance Prelude.NFData CreateWorkloadShare where
       `Prelude.seq` Prelude.rnf permissionType
       `Prelude.seq` Prelude.rnf clientRequestToken
 
-instance Core.ToHeaders CreateWorkloadShare where
+instance Data.ToHeaders CreateWorkloadShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkloadShare where
+instance Data.ToJSON CreateWorkloadShare where
   toJSON CreateWorkloadShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SharedWith" Core..= sharedWith),
+          [ Prelude.Just ("SharedWith" Data..= sharedWith),
             Prelude.Just
-              ("PermissionType" Core..= permissionType),
+              ("PermissionType" Data..= permissionType),
             Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken)
+              ("ClientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath CreateWorkloadShare where
+instance Data.ToPath CreateWorkloadShare where
   toPath CreateWorkloadShare' {..} =
     Prelude.mconcat
-      ["/workloads/", Core.toBS workloadId, "/shares"]
+      ["/workloads/", Data.toBS workloadId, "/shares"]
 
-instance Core.ToQuery CreateWorkloadShare where
+instance Data.ToQuery CreateWorkloadShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Input for Create Workload Share

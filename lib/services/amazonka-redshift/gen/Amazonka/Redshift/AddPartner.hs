@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -129,7 +130,7 @@ instance Core.AWSRequest AddPartner where
   response =
     Response.receiveXMLWrapper
       "AddPartnerResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable AddPartner where
   hashWithSalt _salt AddPartner' {..} =
@@ -145,21 +146,21 @@ instance Prelude.NFData AddPartner where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf partnerName
 
-instance Core.ToHeaders AddPartner where
+instance Data.ToHeaders AddPartner where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AddPartner where
+instance Data.ToPath AddPartner where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddPartner where
+instance Data.ToQuery AddPartner where
   toQuery AddPartner' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AddPartner" :: Prelude.ByteString),
+          Data.=: ("AddPartner" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "AccountId" Core.=: accountId,
-        "ClusterIdentifier" Core.=: clusterIdentifier,
-        "DatabaseName" Core.=: databaseName,
-        "PartnerName" Core.=: partnerName
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "AccountId" Data.=: accountId,
+        "ClusterIdentifier" Data.=: clusterIdentifier,
+        "DatabaseName" Data.=: databaseName,
+        "PartnerName" Data.=: partnerName
       ]

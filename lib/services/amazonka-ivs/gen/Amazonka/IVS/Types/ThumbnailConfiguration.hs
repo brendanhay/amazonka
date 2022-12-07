@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.ThumbnailConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types.RecordingMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -96,14 +97,14 @@ thumbnailConfiguration_recordingMode = Lens.lens (\ThumbnailConfiguration' {reco
 thumbnailConfiguration_targetIntervalSeconds :: Lens.Lens' ThumbnailConfiguration (Prelude.Maybe Prelude.Natural)
 thumbnailConfiguration_targetIntervalSeconds = Lens.lens (\ThumbnailConfiguration' {targetIntervalSeconds} -> targetIntervalSeconds) (\s@ThumbnailConfiguration' {} a -> s {targetIntervalSeconds = a} :: ThumbnailConfiguration)
 
-instance Core.FromJSON ThumbnailConfiguration where
+instance Data.FromJSON ThumbnailConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThumbnailConfiguration"
       ( \x ->
           ThumbnailConfiguration'
-            Prelude.<$> (x Core..:? "recordingMode")
-            Prelude.<*> (x Core..:? "targetIntervalSeconds")
+            Prelude.<$> (x Data..:? "recordingMode")
+            Prelude.<*> (x Data..:? "targetIntervalSeconds")
       )
 
 instance Prelude.Hashable ThumbnailConfiguration where
@@ -116,12 +117,12 @@ instance Prelude.NFData ThumbnailConfiguration where
     Prelude.rnf recordingMode
       `Prelude.seq` Prelude.rnf targetIntervalSeconds
 
-instance Core.ToJSON ThumbnailConfiguration where
+instance Data.ToJSON ThumbnailConfiguration where
   toJSON ThumbnailConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("recordingMode" Core..=) Prelude.<$> recordingMode,
-            ("targetIntervalSeconds" Core..=)
+          [ ("recordingMode" Data..=) Prelude.<$> recordingMode,
+            ("targetIntervalSeconds" Data..=)
               Prelude.<$> targetIntervalSeconds
           ]
       )

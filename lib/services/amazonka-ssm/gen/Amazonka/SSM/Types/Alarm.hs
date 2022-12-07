@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.Alarm where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A CloudWatch alarm you apply to an automation or command.
@@ -51,11 +52,11 @@ newAlarm pName_ = Alarm' {name = pName_}
 alarm_name :: Lens.Lens' Alarm Prelude.Text
 alarm_name = Lens.lens (\Alarm' {name} -> name) (\s@Alarm' {} a -> s {name = a} :: Alarm)
 
-instance Core.FromJSON Alarm where
+instance Data.FromJSON Alarm where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Alarm"
-      (\x -> Alarm' Prelude.<$> (x Core..: "Name"))
+      (\x -> Alarm' Prelude.<$> (x Data..: "Name"))
 
 instance Prelude.Hashable Alarm where
   hashWithSalt _salt Alarm' {..} =
@@ -64,9 +65,9 @@ instance Prelude.Hashable Alarm where
 instance Prelude.NFData Alarm where
   rnf Alarm' {..} = Prelude.rnf name
 
-instance Core.ToJSON Alarm where
+instance Data.ToJSON Alarm where
   toJSON Alarm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )

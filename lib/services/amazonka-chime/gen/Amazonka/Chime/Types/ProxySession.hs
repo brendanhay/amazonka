@@ -27,6 +27,7 @@ import Amazonka.Chime.Types.Participant
 import Amazonka.Chime.Types.ProxySessionStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The proxy session for an Amazon Chime Voice Connector.
@@ -40,15 +41,15 @@ data ProxySession = ProxySession'
     -- | The Amazon Chime voice connector ID.
     voiceConnectorId :: Prelude.Maybe Prelude.Text,
     -- | The created time stamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The updated time stamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The proxy session ID.
     proxySessionId :: Prelude.Maybe Prelude.Text,
     -- | The status of the proxy session.
     status :: Prelude.Maybe ProxySessionStatus,
     -- | The ended time stamp, in ISO 8601 format.
-    endedTimestamp :: Prelude.Maybe Core.POSIX,
+    endedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The number of minutes allowed for the proxy session.
     expiryMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The proxy session capabilities.
@@ -132,11 +133,11 @@ proxySession_voiceConnectorId = Lens.lens (\ProxySession' {voiceConnectorId} -> 
 
 -- | The created time stamp, in ISO 8601 format.
 proxySession_createdTimestamp :: Lens.Lens' ProxySession (Prelude.Maybe Prelude.UTCTime)
-proxySession_createdTimestamp = Lens.lens (\ProxySession' {createdTimestamp} -> createdTimestamp) (\s@ProxySession' {} a -> s {createdTimestamp = a} :: ProxySession) Prelude.. Lens.mapping Core._Time
+proxySession_createdTimestamp = Lens.lens (\ProxySession' {createdTimestamp} -> createdTimestamp) (\s@ProxySession' {} a -> s {createdTimestamp = a} :: ProxySession) Prelude.. Lens.mapping Data._Time
 
 -- | The updated time stamp, in ISO 8601 format.
 proxySession_updatedTimestamp :: Lens.Lens' ProxySession (Prelude.Maybe Prelude.UTCTime)
-proxySession_updatedTimestamp = Lens.lens (\ProxySession' {updatedTimestamp} -> updatedTimestamp) (\s@ProxySession' {} a -> s {updatedTimestamp = a} :: ProxySession) Prelude.. Lens.mapping Core._Time
+proxySession_updatedTimestamp = Lens.lens (\ProxySession' {updatedTimestamp} -> updatedTimestamp) (\s@ProxySession' {} a -> s {updatedTimestamp = a} :: ProxySession) Prelude.. Lens.mapping Data._Time
 
 -- | The proxy session ID.
 proxySession_proxySessionId :: Lens.Lens' ProxySession (Prelude.Maybe Prelude.Text)
@@ -148,7 +149,7 @@ proxySession_status = Lens.lens (\ProxySession' {status} -> status) (\s@ProxySes
 
 -- | The ended time stamp, in ISO 8601 format.
 proxySession_endedTimestamp :: Lens.Lens' ProxySession (Prelude.Maybe Prelude.UTCTime)
-proxySession_endedTimestamp = Lens.lens (\ProxySession' {endedTimestamp} -> endedTimestamp) (\s@ProxySession' {} a -> s {endedTimestamp = a} :: ProxySession) Prelude.. Lens.mapping Core._Time
+proxySession_endedTimestamp = Lens.lens (\ProxySession' {endedTimestamp} -> endedTimestamp) (\s@ProxySession' {} a -> s {endedTimestamp = a} :: ProxySession) Prelude.. Lens.mapping Data._Time
 
 -- | The number of minutes allowed for the proxy session.
 proxySession_expiryMinutes :: Lens.Lens' ProxySession (Prelude.Maybe Prelude.Natural)
@@ -172,25 +173,25 @@ proxySession_numberSelectionBehavior = Lens.lens (\ProxySession' {numberSelectio
 proxySession_participants :: Lens.Lens' ProxySession (Prelude.Maybe [Participant])
 proxySession_participants = Lens.lens (\ProxySession' {participants} -> participants) (\s@ProxySession' {} a -> s {participants = a} :: ProxySession) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ProxySession where
+instance Data.FromJSON ProxySession where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProxySession"
       ( \x ->
           ProxySession'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "GeoMatchParams")
-            Prelude.<*> (x Core..:? "VoiceConnectorId")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "UpdatedTimestamp")
-            Prelude.<*> (x Core..:? "ProxySessionId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EndedTimestamp")
-            Prelude.<*> (x Core..:? "ExpiryMinutes")
-            Prelude.<*> (x Core..:? "Capabilities" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "GeoMatchLevel")
-            Prelude.<*> (x Core..:? "NumberSelectionBehavior")
-            Prelude.<*> (x Core..:? "Participants" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "GeoMatchParams")
+            Prelude.<*> (x Data..:? "VoiceConnectorId")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
+            Prelude.<*> (x Data..:? "ProxySessionId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "EndedTimestamp")
+            Prelude.<*> (x Data..:? "ExpiryMinutes")
+            Prelude.<*> (x Data..:? "Capabilities" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "GeoMatchLevel")
+            Prelude.<*> (x Data..:? "NumberSelectionBehavior")
+            Prelude.<*> (x Data..:? "Participants" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ProxySession where

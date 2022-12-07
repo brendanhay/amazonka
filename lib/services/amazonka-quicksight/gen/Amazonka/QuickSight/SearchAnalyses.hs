@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -151,11 +152,11 @@ instance Core.AWSRequest SearchAnalyses where
     Response.receiveJSON
       ( \s h x ->
           SearchAnalysesResponse'
-            Prelude.<$> ( x Core..?> "AnalysisSummaryList"
+            Prelude.<$> ( x Data..?> "AnalysisSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,36 +174,36 @@ instance Prelude.NFData SearchAnalyses where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf filters
 
-instance Core.ToHeaders SearchAnalyses where
+instance Data.ToHeaders SearchAnalyses where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchAnalyses where
+instance Data.ToJSON SearchAnalyses where
   toJSON SearchAnalyses' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Filters" Core..= filters)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Filters" Data..= filters)
           ]
       )
 
-instance Core.ToPath SearchAnalyses where
+instance Data.ToPath SearchAnalyses where
   toPath SearchAnalyses' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/search/analyses"
       ]
 
-instance Core.ToQuery SearchAnalyses where
+instance Data.ToQuery SearchAnalyses where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchAnalysesResponse' smart constructor.

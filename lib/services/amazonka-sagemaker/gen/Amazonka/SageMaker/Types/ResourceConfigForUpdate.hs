@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ResourceConfigForUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @ResourceConfig@ to update @KeepAlivePeriodInSeconds@. Other fields
@@ -68,13 +69,13 @@ instance Prelude.NFData ResourceConfigForUpdate where
   rnf ResourceConfigForUpdate' {..} =
     Prelude.rnf keepAlivePeriodInSeconds
 
-instance Core.ToJSON ResourceConfigForUpdate where
+instance Data.ToJSON ResourceConfigForUpdate where
   toJSON ResourceConfigForUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "KeepAlivePeriodInSeconds"
-                  Core..= keepAlivePeriodInSeconds
+                  Data..= keepAlivePeriodInSeconds
               )
           ]
       )

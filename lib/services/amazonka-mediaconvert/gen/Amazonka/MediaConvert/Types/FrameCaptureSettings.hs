@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.FrameCaptureSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings)
@@ -111,16 +112,16 @@ frameCaptureSettings_framerateNumerator = Lens.lens (\FrameCaptureSettings' {fra
 frameCaptureSettings_maxCaptures :: Lens.Lens' FrameCaptureSettings (Prelude.Maybe Prelude.Natural)
 frameCaptureSettings_maxCaptures = Lens.lens (\FrameCaptureSettings' {maxCaptures} -> maxCaptures) (\s@FrameCaptureSettings' {} a -> s {maxCaptures = a} :: FrameCaptureSettings)
 
-instance Core.FromJSON FrameCaptureSettings where
+instance Data.FromJSON FrameCaptureSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FrameCaptureSettings"
       ( \x ->
           FrameCaptureSettings'
-            Prelude.<$> (x Core..:? "framerateDenominator")
-            Prelude.<*> (x Core..:? "quality")
-            Prelude.<*> (x Core..:? "framerateNumerator")
-            Prelude.<*> (x Core..:? "maxCaptures")
+            Prelude.<$> (x Data..:? "framerateDenominator")
+            Prelude.<*> (x Data..:? "quality")
+            Prelude.<*> (x Data..:? "framerateNumerator")
+            Prelude.<*> (x Data..:? "maxCaptures")
       )
 
 instance Prelude.Hashable FrameCaptureSettings where
@@ -137,15 +138,15 @@ instance Prelude.NFData FrameCaptureSettings where
       `Prelude.seq` Prelude.rnf framerateNumerator
       `Prelude.seq` Prelude.rnf maxCaptures
 
-instance Core.ToJSON FrameCaptureSettings where
+instance Data.ToJSON FrameCaptureSettings where
   toJSON FrameCaptureSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("framerateDenominator" Core..=)
+          [ ("framerateDenominator" Data..=)
               Prelude.<$> framerateDenominator,
-            ("quality" Core..=) Prelude.<$> quality,
-            ("framerateNumerator" Core..=)
+            ("quality" Data..=) Prelude.<$> quality,
+            ("framerateNumerator" Data..=)
               Prelude.<$> framerateNumerator,
-            ("maxCaptures" Core..=) Prelude.<$> maxCaptures
+            ("maxCaptures" Data..=) Prelude.<$> maxCaptures
           ]
       )

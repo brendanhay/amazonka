@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IVS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,9 +111,9 @@ instance Core.AWSRequest ListStreamSessions where
     Response.receiveJSON
       ( \s h x ->
           ListStreamSessionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "streamSessions"
+            Prelude.<*> ( x Data..?> "streamSessions"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -129,31 +130,31 @@ instance Prelude.NFData ListStreamSessions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf channelArn
 
-instance Core.ToHeaders ListStreamSessions where
+instance Data.ToHeaders ListStreamSessions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListStreamSessions where
+instance Data.ToJSON ListStreamSessions where
   toJSON ListStreamSessions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("channelArn" Core..= channelArn)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("channelArn" Data..= channelArn)
           ]
       )
 
-instance Core.ToPath ListStreamSessions where
+instance Data.ToPath ListStreamSessions where
   toPath = Prelude.const "/ListStreamSessions"
 
-instance Core.ToQuery ListStreamSessions where
+instance Data.ToQuery ListStreamSessions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListStreamSessionsResponse' smart constructor.

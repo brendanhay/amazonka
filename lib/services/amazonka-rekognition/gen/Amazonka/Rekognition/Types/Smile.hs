@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.Smile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether or not the face is smiling, and the confidence level
@@ -62,14 +63,14 @@ smile_confidence = Lens.lens (\Smile' {confidence} -> confidence) (\s@Smile' {} 
 smile_value :: Lens.Lens' Smile (Prelude.Maybe Prelude.Bool)
 smile_value = Lens.lens (\Smile' {value} -> value) (\s@Smile' {} a -> s {value = a} :: Smile)
 
-instance Core.FromJSON Smile where
+instance Data.FromJSON Smile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Smile"
       ( \x ->
           Smile'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Smile where

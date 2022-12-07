@@ -22,6 +22,7 @@ module Amazonka.AutoScaling.Types.MetricDataQuery where
 import Amazonka.AutoScaling.Types.MetricStat
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metric data to return. Also defines whether this call is returning
@@ -180,14 +181,14 @@ metricDataQuery_expression = Lens.lens (\MetricDataQuery' {expression} -> expres
 metricDataQuery_id :: Lens.Lens' MetricDataQuery Prelude.Text
 metricDataQuery_id = Lens.lens (\MetricDataQuery' {id} -> id) (\s@MetricDataQuery' {} a -> s {id = a} :: MetricDataQuery)
 
-instance Core.FromXML MetricDataQuery where
+instance Data.FromXML MetricDataQuery where
   parseXML x =
     MetricDataQuery'
-      Prelude.<$> (x Core..@? "MetricStat")
-      Prelude.<*> (x Core..@? "ReturnData")
-      Prelude.<*> (x Core..@? "Label")
-      Prelude.<*> (x Core..@? "Expression")
-      Prelude.<*> (x Core..@ "Id")
+      Prelude.<$> (x Data..@? "MetricStat")
+      Prelude.<*> (x Data..@? "ReturnData")
+      Prelude.<*> (x Data..@? "Label")
+      Prelude.<*> (x Data..@? "Expression")
+      Prelude.<*> (x Data..@ "Id")
 
 instance Prelude.Hashable MetricDataQuery where
   hashWithSalt _salt MetricDataQuery' {..} =
@@ -205,12 +206,12 @@ instance Prelude.NFData MetricDataQuery where
       `Prelude.seq` Prelude.rnf expression
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToQuery MetricDataQuery where
+instance Data.ToQuery MetricDataQuery where
   toQuery MetricDataQuery' {..} =
     Prelude.mconcat
-      [ "MetricStat" Core.=: metricStat,
-        "ReturnData" Core.=: returnData,
-        "Label" Core.=: label,
-        "Expression" Core.=: expression,
-        "Id" Core.=: id
+      [ "MetricStat" Data.=: metricStat,
+        "ReturnData" Data.=: returnData,
+        "Label" Data.=: label,
+        "Expression" Data.=: expression,
+        "Id" Data.=: id
       ]

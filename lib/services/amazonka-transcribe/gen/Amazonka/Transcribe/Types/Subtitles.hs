@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.Subtitles where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.SubtitleFormat
 
@@ -102,12 +103,12 @@ instance Prelude.NFData Subtitles where
     Prelude.rnf outputStartIndex
       `Prelude.seq` Prelude.rnf formats
 
-instance Core.ToJSON Subtitles where
+instance Data.ToJSON Subtitles where
   toJSON Subtitles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutputStartIndex" Core..=)
+          [ ("OutputStartIndex" Data..=)
               Prelude.<$> outputStartIndex,
-            ("Formats" Core..=) Prelude.<$> formats
+            ("Formats" Data..=) Prelude.<$> formats
           ]
       )

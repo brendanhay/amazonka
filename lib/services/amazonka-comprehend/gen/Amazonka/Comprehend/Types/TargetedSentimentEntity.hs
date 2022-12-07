@@ -22,6 +22,7 @@ module Amazonka.Comprehend.Types.TargetedSentimentEntity where
 import Amazonka.Comprehend.Types.TargetedSentimentMention
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about one of the entities found by targeted sentiment
@@ -79,16 +80,16 @@ targetedSentimentEntity_descriptiveMentionIndex = Lens.lens (\TargetedSentimentE
 targetedSentimentEntity_mentions :: Lens.Lens' TargetedSentimentEntity (Prelude.Maybe [TargetedSentimentMention])
 targetedSentimentEntity_mentions = Lens.lens (\TargetedSentimentEntity' {mentions} -> mentions) (\s@TargetedSentimentEntity' {} a -> s {mentions = a} :: TargetedSentimentEntity) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TargetedSentimentEntity where
+instance Data.FromJSON TargetedSentimentEntity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetedSentimentEntity"
       ( \x ->
           TargetedSentimentEntity'
-            Prelude.<$> ( x Core..:? "DescriptiveMentionIndex"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "DescriptiveMentionIndex"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Mentions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Mentions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TargetedSentimentEntity where

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,8 +142,8 @@ instance Core.AWSRequest ListSpeakers where
     Response.receiveJSON
       ( \s h x ->
           ListSpeakersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "SpeakerSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "SpeakerSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -160,33 +161,33 @@ instance Prelude.NFData ListSpeakers where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf domainId
 
-instance Core.ToHeaders ListSpeakers where
+instance Data.ToHeaders ListSpeakers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("VoiceID.ListSpeakers" :: Prelude.ByteString),
+              Data.=# ("VoiceID.ListSpeakers" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSpeakers where
+instance Data.ToJSON ListSpeakers where
   toJSON ListSpeakers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("DomainId" Core..= domainId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("DomainId" Data..= domainId)
           ]
       )
 
-instance Core.ToPath ListSpeakers where
+instance Data.ToPath ListSpeakers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSpeakers where
+instance Data.ToQuery ListSpeakers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSpeakersResponse' smart constructor.

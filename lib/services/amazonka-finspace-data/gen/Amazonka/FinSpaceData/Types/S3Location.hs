@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.S3Location where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The location of an external Dataview in an S3 bucket.
@@ -62,13 +63,13 @@ s3Location_bucket = Lens.lens (\S3Location' {bucket} -> bucket) (\s@S3Location' 
 s3Location_key :: Lens.Lens' S3Location Prelude.Text
 s3Location_key = Lens.lens (\S3Location' {key} -> key) (\s@S3Location' {} a -> s {key = a} :: S3Location)
 
-instance Core.FromJSON S3Location where
+instance Data.FromJSON S3Location where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> (x Core..: "bucket") Prelude.<*> (x Core..: "key")
+            Prelude.<$> (x Data..: "bucket") Prelude.<*> (x Data..: "key")
       )
 
 instance Prelude.Hashable S3Location where

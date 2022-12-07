@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -229,10 +230,10 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeLocalGatewayVirtualInterfacesResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-              Prelude.<*> ( x Core..@? "localGatewayVirtualInterfaceSet"
+            Prelude.<$> (x Data..@? "nextToken")
+              Prelude.<*> ( x Data..@? "localGatewayVirtualInterfaceSet"
                               Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                              Prelude.>>= Core.may (Data.parseXMLList "item")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -262,38 +263,38 @@ instance
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeLocalGatewayVirtualInterfaces
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeLocalGatewayVirtualInterfaces
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeLocalGatewayVirtualInterfaces
   where
   toQuery DescribeLocalGatewayVirtualInterfaces' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeLocalGatewayVirtualInterfaces" ::
+          Data.=: ( "DescribeLocalGatewayVirtualInterfaces" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        Core.toQuery
-          ( Core.toQueryList "LocalGatewayVirtualInterfaceId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        Data.toQuery
+          ( Data.toQueryList "LocalGatewayVirtualInterfaceId"
               Prelude.<$> localGatewayVirtualInterfaceIds
           ),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeLocalGatewayVirtualInterfacesResponse' smart constructor.

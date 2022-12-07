@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.StorageTypeLimit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Limits that are applicable for given storage type.
@@ -85,14 +86,14 @@ storageTypeLimit_limitName = Lens.lens (\StorageTypeLimit' {limitName} -> limitN
 storageTypeLimit_limitValues :: Lens.Lens' StorageTypeLimit (Prelude.Maybe [Prelude.Text])
 storageTypeLimit_limitValues = Lens.lens (\StorageTypeLimit' {limitValues} -> limitValues) (\s@StorageTypeLimit' {} a -> s {limitValues = a} :: StorageTypeLimit) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON StorageTypeLimit where
+instance Data.FromJSON StorageTypeLimit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StorageTypeLimit"
       ( \x ->
           StorageTypeLimit'
-            Prelude.<$> (x Core..:? "LimitName")
-            Prelude.<*> (x Core..:? "LimitValues" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "LimitName")
+            Prelude.<*> (x Data..:? "LimitValues" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable StorageTypeLimit where

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,8 +153,8 @@ instance Core.AWSRequest ListFleetsForVehicle where
     Response.receiveJSON
       ( \s h x ->
           ListFleetsForVehicleResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "fleets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "fleets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,35 +170,35 @@ instance Prelude.NFData ListFleetsForVehicle where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf vehicleName
 
-instance Core.ToHeaders ListFleetsForVehicle where
+instance Data.ToHeaders ListFleetsForVehicle where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.ListFleetsForVehicle" ::
+              Data.=# ( "IoTAutobahnControlPlane.ListFleetsForVehicle" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListFleetsForVehicle where
+instance Data.ToJSON ListFleetsForVehicle where
   toJSON ListFleetsForVehicle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("vehicleName" Core..= vehicleName)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("vehicleName" Data..= vehicleName)
           ]
       )
 
-instance Core.ToPath ListFleetsForVehicle where
+instance Data.ToPath ListFleetsForVehicle where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListFleetsForVehicle where
+instance Data.ToQuery ListFleetsForVehicle where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListFleetsForVehicleResponse' smart constructor.

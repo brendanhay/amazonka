@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -239,23 +240,23 @@ instance Core.AWSRequest RequestPhoneNumber where
     Response.receiveJSON
       ( \s h x ->
           RequestPhoneNumberResponse'
-            Prelude.<$> (x Core..?> "DeletionProtectionEnabled")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "IsoCountryCode")
-            Prelude.<*> (x Core..?> "PhoneNumberArn")
-            Prelude.<*> (x Core..?> "MessageType")
-            Prelude.<*> (x Core..?> "SelfManagedOptOutsEnabled")
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "NumberCapabilities")
-            Prelude.<*> (x Core..?> "TwoWayEnabled")
-            Prelude.<*> (x Core..?> "OptOutListName")
-            Prelude.<*> (x Core..?> "NumberType")
-            Prelude.<*> (x Core..?> "PhoneNumberId")
-            Prelude.<*> (x Core..?> "PoolId")
-            Prelude.<*> (x Core..?> "TwoWayChannelArn")
-            Prelude.<*> (x Core..?> "PhoneNumber")
-            Prelude.<*> (x Core..?> "MonthlyLeasingPrice")
+            Prelude.<$> (x Data..?> "DeletionProtectionEnabled")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "IsoCountryCode")
+            Prelude.<*> (x Data..?> "PhoneNumberArn")
+            Prelude.<*> (x Data..?> "MessageType")
+            Prelude.<*> (x Data..?> "SelfManagedOptOutsEnabled")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "NumberCapabilities")
+            Prelude.<*> (x Data..?> "TwoWayEnabled")
+            Prelude.<*> (x Data..?> "OptOutListName")
+            Prelude.<*> (x Data..?> "NumberType")
+            Prelude.<*> (x Data..?> "PhoneNumberId")
+            Prelude.<*> (x Data..?> "PoolId")
+            Prelude.<*> (x Data..?> "TwoWayChannelArn")
+            Prelude.<*> (x Data..?> "PhoneNumber")
+            Prelude.<*> (x Data..?> "MonthlyLeasingPrice")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -286,47 +287,47 @@ instance Prelude.NFData RequestPhoneNumber where
       `Prelude.seq` Prelude.rnf numberCapabilities
       `Prelude.seq` Prelude.rnf numberType
 
-instance Core.ToHeaders RequestPhoneNumber where
+instance Data.ToHeaders RequestPhoneNumber where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.RequestPhoneNumber" ::
+              Data.=# ( "PinpointSMSVoiceV2.RequestPhoneNumber" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RequestPhoneNumber where
+instance Data.ToJSON RequestPhoneNumber where
   toJSON RequestPhoneNumber' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeletionProtectionEnabled" Core..=)
+          [ ("DeletionProtectionEnabled" Data..=)
               Prelude.<$> deletionProtectionEnabled,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("RegistrationId" Core..=)
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("RegistrationId" Data..=)
               Prelude.<$> registrationId,
-            ("OptOutListName" Core..=)
+            ("OptOutListName" Data..=)
               Prelude.<$> optOutListName,
-            ("PoolId" Core..=) Prelude.<$> poolId,
+            ("PoolId" Data..=) Prelude.<$> poolId,
             Prelude.Just
-              ("IsoCountryCode" Core..= isoCountryCode),
-            Prelude.Just ("MessageType" Core..= messageType),
+              ("IsoCountryCode" Data..= isoCountryCode),
+            Prelude.Just ("MessageType" Data..= messageType),
             Prelude.Just
-              ("NumberCapabilities" Core..= numberCapabilities),
-            Prelude.Just ("NumberType" Core..= numberType)
+              ("NumberCapabilities" Data..= numberCapabilities),
+            Prelude.Just ("NumberType" Data..= numberType)
           ]
       )
 
-instance Core.ToPath RequestPhoneNumber where
+instance Data.ToPath RequestPhoneNumber where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RequestPhoneNumber where
+instance Data.ToQuery RequestPhoneNumber where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRequestPhoneNumberResponse' smart constructor.
@@ -355,7 +356,7 @@ data RequestPhoneNumberResponse = RequestPhoneNumberResponse'
     selfManagedOptOutsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The time when the phone number was created, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The current status of the request.
     status :: Prelude.Maybe NumberStatus,
     -- | Indicates if the phone number will be used for text messages, voice
@@ -505,7 +506,7 @@ requestPhoneNumberResponse_selfManagedOptOutsEnabled = Lens.lens (\RequestPhoneN
 -- | The time when the phone number was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 requestPhoneNumberResponse_createdTimestamp :: Lens.Lens' RequestPhoneNumberResponse (Prelude.Maybe Prelude.UTCTime)
-requestPhoneNumberResponse_createdTimestamp = Lens.lens (\RequestPhoneNumberResponse' {createdTimestamp} -> createdTimestamp) (\s@RequestPhoneNumberResponse' {} a -> s {createdTimestamp = a} :: RequestPhoneNumberResponse) Prelude.. Lens.mapping Core._Time
+requestPhoneNumberResponse_createdTimestamp = Lens.lens (\RequestPhoneNumberResponse' {createdTimestamp} -> createdTimestamp) (\s@RequestPhoneNumberResponse' {} a -> s {createdTimestamp = a} :: RequestPhoneNumberResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the request.
 requestPhoneNumberResponse_status :: Lens.Lens' RequestPhoneNumberResponse (Prelude.Maybe NumberStatus)

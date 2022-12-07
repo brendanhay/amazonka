@@ -47,6 +47,7 @@ where
 import Amazonka.ConnectParticipant.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,30 +135,30 @@ instance Prelude.NFData CompleteAttachmentUpload where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf connectionToken
 
-instance Core.ToHeaders CompleteAttachmentUpload where
+instance Data.ToHeaders CompleteAttachmentUpload where
   toHeaders CompleteAttachmentUpload' {..} =
     Prelude.mconcat
-      [ "X-Amz-Bearer" Core.=# connectionToken,
+      [ "X-Amz-Bearer" Data.=# connectionToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CompleteAttachmentUpload where
+instance Data.ToJSON CompleteAttachmentUpload where
   toJSON CompleteAttachmentUpload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AttachmentIds" Core..= attachmentIds),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+              ("AttachmentIds" Data..= attachmentIds),
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CompleteAttachmentUpload where
+instance Data.ToPath CompleteAttachmentUpload where
   toPath =
     Prelude.const
       "/participant/complete-attachment-upload"
 
-instance Core.ToQuery CompleteAttachmentUpload where
+instance Data.ToQuery CompleteAttachmentUpload where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCompleteAttachmentUploadResponse' smart constructor.

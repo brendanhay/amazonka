@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest EnableAllFeatures where
     Response.receiveJSON
       ( \s h x ->
           EnableAllFeaturesResponse'
-            Prelude.<$> (x Core..?> "Handshake")
+            Prelude.<$> (x Data..?> "Handshake")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,28 +112,28 @@ instance Prelude.Hashable EnableAllFeatures where
 instance Prelude.NFData EnableAllFeatures where
   rnf _ = ()
 
-instance Core.ToHeaders EnableAllFeatures where
+instance Data.ToHeaders EnableAllFeatures where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.EnableAllFeatures" ::
+              Data.=# ( "AWSOrganizationsV20161128.EnableAllFeatures" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EnableAllFeatures where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON EnableAllFeatures where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath EnableAllFeatures where
+instance Data.ToPath EnableAllFeatures where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnableAllFeatures where
+instance Data.ToQuery EnableAllFeatures where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableAllFeaturesResponse' smart constructor.

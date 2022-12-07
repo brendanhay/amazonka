@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesTr
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A rule for when objects transition to specific storage classes.
@@ -128,16 +129,16 @@ awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_storageClass :: L
 awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_storageClass = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {storageClass} -> storageClass) (\s@AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {} a -> s {storageClass = a} :: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails"
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails'
-            Prelude.<$> (x Core..:? "Date") Prelude.<*> (x Core..:? "Days")
-              Prelude.<*> (x Core..:? "StorageClass")
+            Prelude.<$> (x Data..:? "Date") Prelude.<*> (x Data..:? "Days")
+              Prelude.<*> (x Data..:? "StorageClass")
       )
 
 instance
@@ -162,15 +163,15 @@ instance
         `Prelude.seq` Prelude.rnf storageClass
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails
   where
   toJSON
     AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Date" Core..=) Prelude.<$> date,
-              ("Days" Core..=) Prelude.<$> days,
-              ("StorageClass" Core..=) Prelude.<$> storageClass
+            [ ("Date" Data..=) Prelude.<$> date,
+              ("Days" Data..=) Prelude.<$> days,
+              ("StorageClass" Data..=) Prelude.<$> storageClass
             ]
         )

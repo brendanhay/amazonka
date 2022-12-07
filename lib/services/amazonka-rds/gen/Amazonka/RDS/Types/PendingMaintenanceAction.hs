@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.PendingMaintenanceAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a pending maintenance action for a resource.
@@ -38,7 +39,7 @@ data PendingMaintenanceAction = PendingMaintenanceAction'
     -- @ForcedApplyDate@. This value is blank if an opt-in request has not been
     -- received and nothing has been specified as @AutoAppliedAfterDate@ or
     -- @ForcedApplyDate@.
-    currentApplyDate :: Prelude.Maybe Core.ISO8601,
+    currentApplyDate :: Prelude.Maybe Data.ISO8601,
     -- | The type of pending maintenance action that is available for the
     -- resource. Valid actions are @system-update@, @db-upgrade@,
     -- @hardware-maintenance@, and @ca-certificate-rotation@.
@@ -46,14 +47,14 @@ data PendingMaintenanceAction = PendingMaintenanceAction'
     -- | The date of the maintenance window when the action is applied. The
     -- maintenance action is applied to the resource during its first
     -- maintenance window after this date.
-    autoAppliedAfterDate :: Prelude.Maybe Core.ISO8601,
+    autoAppliedAfterDate :: Prelude.Maybe Data.ISO8601,
     -- | The date when the maintenance action is automatically applied.
     --
     -- On this date, the maintenance action is applied to the resource as soon
     -- as possible, regardless of the maintenance window for the resource.
     -- There might be a delay of one or more days from this date before the
     -- maintenance action is applied.
-    forcedApplyDate :: Prelude.Maybe Core.ISO8601
+    forcedApplyDate :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -120,7 +121,7 @@ pendingMaintenanceAction_description = Lens.lens (\PendingMaintenanceAction' {de
 -- received and nothing has been specified as @AutoAppliedAfterDate@ or
 -- @ForcedApplyDate@.
 pendingMaintenanceAction_currentApplyDate :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.UTCTime)
-pendingMaintenanceAction_currentApplyDate = Lens.lens (\PendingMaintenanceAction' {currentApplyDate} -> currentApplyDate) (\s@PendingMaintenanceAction' {} a -> s {currentApplyDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Core._Time
+pendingMaintenanceAction_currentApplyDate = Lens.lens (\PendingMaintenanceAction' {currentApplyDate} -> currentApplyDate) (\s@PendingMaintenanceAction' {} a -> s {currentApplyDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Data._Time
 
 -- | The type of pending maintenance action that is available for the
 -- resource. Valid actions are @system-update@, @db-upgrade@,
@@ -132,7 +133,7 @@ pendingMaintenanceAction_action = Lens.lens (\PendingMaintenanceAction' {action}
 -- maintenance action is applied to the resource during its first
 -- maintenance window after this date.
 pendingMaintenanceAction_autoAppliedAfterDate :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.UTCTime)
-pendingMaintenanceAction_autoAppliedAfterDate = Lens.lens (\PendingMaintenanceAction' {autoAppliedAfterDate} -> autoAppliedAfterDate) (\s@PendingMaintenanceAction' {} a -> s {autoAppliedAfterDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Core._Time
+pendingMaintenanceAction_autoAppliedAfterDate = Lens.lens (\PendingMaintenanceAction' {autoAppliedAfterDate} -> autoAppliedAfterDate) (\s@PendingMaintenanceAction' {} a -> s {autoAppliedAfterDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Data._Time
 
 -- | The date when the maintenance action is automatically applied.
 --
@@ -141,17 +142,17 @@ pendingMaintenanceAction_autoAppliedAfterDate = Lens.lens (\PendingMaintenanceAc
 -- There might be a delay of one or more days from this date before the
 -- maintenance action is applied.
 pendingMaintenanceAction_forcedApplyDate :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.UTCTime)
-pendingMaintenanceAction_forcedApplyDate = Lens.lens (\PendingMaintenanceAction' {forcedApplyDate} -> forcedApplyDate) (\s@PendingMaintenanceAction' {} a -> s {forcedApplyDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Core._Time
+pendingMaintenanceAction_forcedApplyDate = Lens.lens (\PendingMaintenanceAction' {forcedApplyDate} -> forcedApplyDate) (\s@PendingMaintenanceAction' {} a -> s {forcedApplyDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML PendingMaintenanceAction where
+instance Data.FromXML PendingMaintenanceAction where
   parseXML x =
     PendingMaintenanceAction'
-      Prelude.<$> (x Core..@? "OptInStatus")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "CurrentApplyDate")
-      Prelude.<*> (x Core..@? "Action")
-      Prelude.<*> (x Core..@? "AutoAppliedAfterDate")
-      Prelude.<*> (x Core..@? "ForcedApplyDate")
+      Prelude.<$> (x Data..@? "OptInStatus")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "CurrentApplyDate")
+      Prelude.<*> (x Data..@? "Action")
+      Prelude.<*> (x Data..@? "AutoAppliedAfterDate")
+      Prelude.<*> (x Data..@? "ForcedApplyDate")
 
 instance Prelude.Hashable PendingMaintenanceAction where
   hashWithSalt _salt PendingMaintenanceAction' {..} =

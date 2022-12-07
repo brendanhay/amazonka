@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsLambdaFunctionCode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The code for the Lambda function. You can specify either an object in
@@ -92,16 +93,16 @@ awsLambdaFunctionCode_zipFile = Lens.lens (\AwsLambdaFunctionCode' {zipFile} -> 
 awsLambdaFunctionCode_s3ObjectVersion :: Lens.Lens' AwsLambdaFunctionCode (Prelude.Maybe Prelude.Text)
 awsLambdaFunctionCode_s3ObjectVersion = Lens.lens (\AwsLambdaFunctionCode' {s3ObjectVersion} -> s3ObjectVersion) (\s@AwsLambdaFunctionCode' {} a -> s {s3ObjectVersion = a} :: AwsLambdaFunctionCode)
 
-instance Core.FromJSON AwsLambdaFunctionCode where
+instance Data.FromJSON AwsLambdaFunctionCode where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsLambdaFunctionCode"
       ( \x ->
           AwsLambdaFunctionCode'
-            Prelude.<$> (x Core..:? "S3Bucket")
-            Prelude.<*> (x Core..:? "S3Key")
-            Prelude.<*> (x Core..:? "ZipFile")
-            Prelude.<*> (x Core..:? "S3ObjectVersion")
+            Prelude.<$> (x Data..:? "S3Bucket")
+            Prelude.<*> (x Data..:? "S3Key")
+            Prelude.<*> (x Data..:? "ZipFile")
+            Prelude.<*> (x Data..:? "S3ObjectVersion")
       )
 
 instance Prelude.Hashable AwsLambdaFunctionCode where
@@ -118,14 +119,14 @@ instance Prelude.NFData AwsLambdaFunctionCode where
       `Prelude.seq` Prelude.rnf zipFile
       `Prelude.seq` Prelude.rnf s3ObjectVersion
 
-instance Core.ToJSON AwsLambdaFunctionCode where
+instance Data.ToJSON AwsLambdaFunctionCode where
   toJSON AwsLambdaFunctionCode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
-            ("S3Key" Core..=) Prelude.<$> s3Key,
-            ("ZipFile" Core..=) Prelude.<$> zipFile,
-            ("S3ObjectVersion" Core..=)
+          [ ("S3Bucket" Data..=) Prelude.<$> s3Bucket,
+            ("S3Key" Data..=) Prelude.<$> s3Key,
+            ("ZipFile" Data..=) Prelude.<$> zipFile,
+            ("S3ObjectVersion" Data..=)
               Prelude.<$> s3ObjectVersion
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.HttpEndpointConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of the HTTP endpoint to which Kinesis
@@ -32,13 +33,13 @@ data HttpEndpointConfiguration = HttpEndpointConfiguration'
     name :: Prelude.Maybe Prelude.Text,
     -- | The access key required for Kinesis Firehose to authenticate with the
     -- HTTP endpoint selected as the destination.
-    accessKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    accessKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The URL of the HTTP endpoint selected as the destination.
     --
     -- If you choose an HTTP endpoint as your destination, review and follow
     -- the instructions in the
     -- <https://docs.aws.amazon.com/firehose/latest/dev/httpdeliveryrequestresponse.html Appendix - HTTP Endpoint Delivery Request and Response Specifications>.
-    url :: Core.Sensitive Prelude.Text
+    url :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -68,7 +69,7 @@ newHttpEndpointConfiguration pUrl_ =
   HttpEndpointConfiguration'
     { name = Prelude.Nothing,
       accessKey = Prelude.Nothing,
-      url = Core._Sensitive Lens.# pUrl_
+      url = Data._Sensitive Lens.# pUrl_
     }
 
 -- | The name of the HTTP endpoint selected as the destination.
@@ -78,7 +79,7 @@ httpEndpointConfiguration_name = Lens.lens (\HttpEndpointConfiguration' {name} -
 -- | The access key required for Kinesis Firehose to authenticate with the
 -- HTTP endpoint selected as the destination.
 httpEndpointConfiguration_accessKey :: Lens.Lens' HttpEndpointConfiguration (Prelude.Maybe Prelude.Text)
-httpEndpointConfiguration_accessKey = Lens.lens (\HttpEndpointConfiguration' {accessKey} -> accessKey) (\s@HttpEndpointConfiguration' {} a -> s {accessKey = a} :: HttpEndpointConfiguration) Prelude.. Lens.mapping Core._Sensitive
+httpEndpointConfiguration_accessKey = Lens.lens (\HttpEndpointConfiguration' {accessKey} -> accessKey) (\s@HttpEndpointConfiguration' {} a -> s {accessKey = a} :: HttpEndpointConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The URL of the HTTP endpoint selected as the destination.
 --
@@ -86,7 +87,7 @@ httpEndpointConfiguration_accessKey = Lens.lens (\HttpEndpointConfiguration' {ac
 -- the instructions in the
 -- <https://docs.aws.amazon.com/firehose/latest/dev/httpdeliveryrequestresponse.html Appendix - HTTP Endpoint Delivery Request and Response Specifications>.
 httpEndpointConfiguration_url :: Lens.Lens' HttpEndpointConfiguration Prelude.Text
-httpEndpointConfiguration_url = Lens.lens (\HttpEndpointConfiguration' {url} -> url) (\s@HttpEndpointConfiguration' {} a -> s {url = a} :: HttpEndpointConfiguration) Prelude.. Core._Sensitive
+httpEndpointConfiguration_url = Lens.lens (\HttpEndpointConfiguration' {url} -> url) (\s@HttpEndpointConfiguration' {} a -> s {url = a} :: HttpEndpointConfiguration) Prelude.. Data._Sensitive
 
 instance Prelude.Hashable HttpEndpointConfiguration where
   hashWithSalt _salt HttpEndpointConfiguration' {..} =
@@ -100,12 +101,12 @@ instance Prelude.NFData HttpEndpointConfiguration where
       `Prelude.seq` Prelude.rnf accessKey
       `Prelude.seq` Prelude.rnf url
 
-instance Core.ToJSON HttpEndpointConfiguration where
+instance Data.ToJSON HttpEndpointConfiguration where
   toJSON HttpEndpointConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("AccessKey" Core..=) Prelude.<$> accessKey,
-            Prelude.Just ("Url" Core..= url)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("AccessKey" Data..=) Prelude.<$> accessKey,
+            Prelude.Just ("Url" Data..= url)
           ]
       )

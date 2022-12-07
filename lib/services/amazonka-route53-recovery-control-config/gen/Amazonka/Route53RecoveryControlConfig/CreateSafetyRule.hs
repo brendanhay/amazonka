@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,8 +142,8 @@ instance Core.AWSRequest CreateSafetyRule where
     Response.receiveJSON
       ( \s h x ->
           CreateSafetyRuleResponse'
-            Prelude.<$> (x Core..?> "GatingRule")
-            Prelude.<*> (x Core..?> "AssertionRule")
+            Prelude.<$> (x Data..?> "GatingRule")
+            Prelude.<*> (x Data..?> "AssertionRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,32 +161,32 @@ instance Prelude.NFData CreateSafetyRule where
       `Prelude.seq` Prelude.rnf gatingRule
       `Prelude.seq` Prelude.rnf assertionRule
 
-instance Core.ToHeaders CreateSafetyRule where
+instance Data.ToHeaders CreateSafetyRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSafetyRule where
+instance Data.ToJSON CreateSafetyRule where
   toJSON CreateSafetyRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("GatingRule" Core..=) Prelude.<$> gatingRule,
-            ("AssertionRule" Core..=) Prelude.<$> assertionRule
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("GatingRule" Data..=) Prelude.<$> gatingRule,
+            ("AssertionRule" Data..=) Prelude.<$> assertionRule
           ]
       )
 
-instance Core.ToPath CreateSafetyRule where
+instance Data.ToPath CreateSafetyRule where
   toPath = Prelude.const "/safetyrule"
 
-instance Core.ToQuery CreateSafetyRule where
+instance Data.ToQuery CreateSafetyRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSafetyRuleResponse' smart constructor.

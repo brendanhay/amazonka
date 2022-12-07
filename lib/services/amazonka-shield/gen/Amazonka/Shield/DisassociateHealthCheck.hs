@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,35 +128,35 @@ instance Prelude.NFData DisassociateHealthCheck where
     Prelude.rnf protectionId
       `Prelude.seq` Prelude.rnf healthCheckArn
 
-instance Core.ToHeaders DisassociateHealthCheck where
+instance Data.ToHeaders DisassociateHealthCheck where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.DisassociateHealthCheck" ::
+              Data.=# ( "AWSShield_20160616.DisassociateHealthCheck" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateHealthCheck where
+instance Data.ToJSON DisassociateHealthCheck where
   toJSON DisassociateHealthCheck' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ProtectionId" Core..= protectionId),
+          [ Prelude.Just ("ProtectionId" Data..= protectionId),
             Prelude.Just
-              ("HealthCheckArn" Core..= healthCheckArn)
+              ("HealthCheckArn" Data..= healthCheckArn)
           ]
       )
 
-instance Core.ToPath DisassociateHealthCheck where
+instance Data.ToPath DisassociateHealthCheck where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateHealthCheck where
+instance Data.ToQuery DisassociateHealthCheck where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateHealthCheckResponse' smart constructor.

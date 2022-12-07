@@ -29,13 +29,14 @@ module Amazonka.MacieV2.Types.SearchResourcesSimpleCriterionKey
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The property to use in a condition that filters the query results. Valid
 -- values are:
 newtype SearchResourcesSimpleCriterionKey = SearchResourcesSimpleCriterionKey'
   { fromSearchResourcesSimpleCriterionKey ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -47,18 +48,18 @@ newtype SearchResourcesSimpleCriterionKey = SearchResourcesSimpleCriterionKey'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern SearchResourcesSimpleCriterionKey_ACCOUNT_ID :: SearchResourcesSimpleCriterionKey

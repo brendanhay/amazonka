@@ -29,6 +29,7 @@ import Amazonka.ComputeOptimizer.Types.RecommendationSource
 import Amazonka.ComputeOptimizer.Types.UtilizationMetric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon EC2 instance recommendation.
@@ -197,7 +198,7 @@ data InstanceRecommendation = InstanceRecommendation'
     -- instance.
     recommendationOptions :: Prelude.Maybe [InstanceRecommendationOption],
     -- | The timestamp of when the instance recommendation was last generated.
-    lastRefreshTimestamp :: Prelude.Maybe Core.POSIX,
+    lastRefreshTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the current instance.
     instanceArn :: Prelude.Maybe Prelude.Text,
     -- | The number of days for which utilization metrics were analyzed for the
@@ -648,7 +649,7 @@ instanceRecommendation_recommendationOptions = Lens.lens (\InstanceRecommendatio
 
 -- | The timestamp of when the instance recommendation was last generated.
 instanceRecommendation_lastRefreshTimestamp :: Lens.Lens' InstanceRecommendation (Prelude.Maybe Prelude.UTCTime)
-instanceRecommendation_lastRefreshTimestamp = Lens.lens (\InstanceRecommendation' {lastRefreshTimestamp} -> lastRefreshTimestamp) (\s@InstanceRecommendation' {} a -> s {lastRefreshTimestamp = a} :: InstanceRecommendation) Prelude.. Lens.mapping Core._Time
+instanceRecommendation_lastRefreshTimestamp = Lens.lens (\InstanceRecommendation' {lastRefreshTimestamp} -> lastRefreshTimestamp) (\s@InstanceRecommendation' {} a -> s {lastRefreshTimestamp = a} :: InstanceRecommendation) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the current instance.
 instanceRecommendation_instanceArn :: Lens.Lens' InstanceRecommendation (Prelude.Maybe Prelude.Text)
@@ -707,36 +708,36 @@ instanceRecommendation_utilizationMetrics = Lens.lens (\InstanceRecommendation' 
 instanceRecommendation_finding :: Lens.Lens' InstanceRecommendation (Prelude.Maybe Finding)
 instanceRecommendation_finding = Lens.lens (\InstanceRecommendation' {finding} -> finding) (\s@InstanceRecommendation' {} a -> s {finding = a} :: InstanceRecommendation)
 
-instance Core.FromJSON InstanceRecommendation where
+instance Data.FromJSON InstanceRecommendation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceRecommendation"
       ( \x ->
           InstanceRecommendation'
-            Prelude.<$> ( x Core..:? "findingReasonCodes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "findingReasonCodes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "currentPerformanceRisk")
-            Prelude.<*> (x Core..:? "instanceName")
-            Prelude.<*> ( x Core..:? "inferredWorkloadTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "currentPerformanceRisk")
+            Prelude.<*> (x Data..:? "instanceName")
+            Prelude.<*> ( x Data..:? "inferredWorkloadTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "recommendationOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "recommendationOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "lastRefreshTimestamp")
-            Prelude.<*> (x Core..:? "instanceArn")
-            Prelude.<*> (x Core..:? "lookBackPeriodInDays")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> ( x Core..:? "recommendationSources"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "lastRefreshTimestamp")
+            Prelude.<*> (x Data..:? "instanceArn")
+            Prelude.<*> (x Data..:? "lookBackPeriodInDays")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> ( x Data..:? "recommendationSources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "effectiveRecommendationPreferences")
-            Prelude.<*> (x Core..:? "currentInstanceType")
-            Prelude.<*> ( x Core..:? "utilizationMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "effectiveRecommendationPreferences")
+            Prelude.<*> (x Data..:? "currentInstanceType")
+            Prelude.<*> ( x Data..:? "utilizationMetrics"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "finding")
+            Prelude.<*> (x Data..:? "finding")
       )
 
 instance Prelude.Hashable InstanceRecommendation where

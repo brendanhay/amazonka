@@ -21,6 +21,7 @@ module Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest
 import Amazonka.IoTDeviceAdvisor.Types.Protocol
 import qualified Amazonka.Prelude as Prelude
@@ -109,19 +110,19 @@ suiteDefinitionConfiguration_isLongDurationTest = Lens.lens (\SuiteDefinitionCon
 suiteDefinitionConfiguration_devicePermissionRoleArn :: Lens.Lens' SuiteDefinitionConfiguration (Prelude.Maybe Prelude.Text)
 suiteDefinitionConfiguration_devicePermissionRoleArn = Lens.lens (\SuiteDefinitionConfiguration' {devicePermissionRoleArn} -> devicePermissionRoleArn) (\s@SuiteDefinitionConfiguration' {} a -> s {devicePermissionRoleArn = a} :: SuiteDefinitionConfiguration)
 
-instance Core.FromJSON SuiteDefinitionConfiguration where
+instance Data.FromJSON SuiteDefinitionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SuiteDefinitionConfiguration"
       ( \x ->
           SuiteDefinitionConfiguration'
-            Prelude.<$> (x Core..:? "rootGroup")
-            Prelude.<*> (x Core..:? "devices" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "suiteDefinitionName")
-            Prelude.<*> (x Core..:? "intendedForQualification")
-            Prelude.<*> (x Core..:? "protocol")
-            Prelude.<*> (x Core..:? "isLongDurationTest")
-            Prelude.<*> (x Core..:? "devicePermissionRoleArn")
+            Prelude.<$> (x Data..:? "rootGroup")
+            Prelude.<*> (x Data..:? "devices" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "suiteDefinitionName")
+            Prelude.<*> (x Data..:? "intendedForQualification")
+            Prelude.<*> (x Data..:? "protocol")
+            Prelude.<*> (x Data..:? "isLongDurationTest")
+            Prelude.<*> (x Data..:? "devicePermissionRoleArn")
       )
 
 instance
@@ -147,20 +148,20 @@ instance Prelude.NFData SuiteDefinitionConfiguration where
       `Prelude.seq` Prelude.rnf isLongDurationTest
       `Prelude.seq` Prelude.rnf devicePermissionRoleArn
 
-instance Core.ToJSON SuiteDefinitionConfiguration where
+instance Data.ToJSON SuiteDefinitionConfiguration where
   toJSON SuiteDefinitionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("rootGroup" Core..=) Prelude.<$> rootGroup,
-            ("devices" Core..=) Prelude.<$> devices,
-            ("suiteDefinitionName" Core..=)
+          [ ("rootGroup" Data..=) Prelude.<$> rootGroup,
+            ("devices" Data..=) Prelude.<$> devices,
+            ("suiteDefinitionName" Data..=)
               Prelude.<$> suiteDefinitionName,
-            ("intendedForQualification" Core..=)
+            ("intendedForQualification" Data..=)
               Prelude.<$> intendedForQualification,
-            ("protocol" Core..=) Prelude.<$> protocol,
-            ("isLongDurationTest" Core..=)
+            ("protocol" Data..=) Prelude.<$> protocol,
+            ("isLongDurationTest" Data..=)
               Prelude.<$> isLongDurationTest,
-            ("devicePermissionRoleArn" Core..=)
+            ("devicePermissionRoleArn" Data..=)
               Prelude.<$> devicePermissionRoleArn
           ]
       )

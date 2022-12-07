@@ -21,6 +21,7 @@ module Amazonka.IoTDeviceAdvisor.Types.TestCaseRun where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types.Status
 import Amazonka.IoTDeviceAdvisor.Types.TestCaseScenario
 import qualified Amazonka.Prelude as Prelude
@@ -54,7 +55,7 @@ data TestCaseRun = TestCaseRun'
     -- -   @ERORR@: Test faced an error when running due to an internal issue.
     status :: Prelude.Maybe Status,
     -- | Provides test case run end time.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Provides test case run failure result.
     failure :: Prelude.Maybe Prelude.Text,
     -- | Provides the test case run definition name.
@@ -64,7 +65,7 @@ data TestCaseRun = TestCaseRun'
     -- | Provides the test case run ID.
     testCaseRunId :: Prelude.Maybe Prelude.Text,
     -- | Provides test case run start time.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | Provides the test scenarios for the test case run.
     testScenarios :: Prelude.Maybe [TestCaseScenario]
   }
@@ -164,7 +165,7 @@ testCaseRun_status = Lens.lens (\TestCaseRun' {status} -> status) (\s@TestCaseRu
 
 -- | Provides test case run end time.
 testCaseRun_endTime :: Lens.Lens' TestCaseRun (Prelude.Maybe Prelude.UTCTime)
-testCaseRun_endTime = Lens.lens (\TestCaseRun' {endTime} -> endTime) (\s@TestCaseRun' {} a -> s {endTime = a} :: TestCaseRun) Prelude.. Lens.mapping Core._Time
+testCaseRun_endTime = Lens.lens (\TestCaseRun' {endTime} -> endTime) (\s@TestCaseRun' {} a -> s {endTime = a} :: TestCaseRun) Prelude.. Lens.mapping Data._Time
 
 -- | Provides test case run failure result.
 testCaseRun_failure :: Lens.Lens' TestCaseRun (Prelude.Maybe Prelude.Text)
@@ -184,28 +185,28 @@ testCaseRun_testCaseRunId = Lens.lens (\TestCaseRun' {testCaseRunId} -> testCase
 
 -- | Provides test case run start time.
 testCaseRun_startTime :: Lens.Lens' TestCaseRun (Prelude.Maybe Prelude.UTCTime)
-testCaseRun_startTime = Lens.lens (\TestCaseRun' {startTime} -> startTime) (\s@TestCaseRun' {} a -> s {startTime = a} :: TestCaseRun) Prelude.. Lens.mapping Core._Time
+testCaseRun_startTime = Lens.lens (\TestCaseRun' {startTime} -> startTime) (\s@TestCaseRun' {} a -> s {startTime = a} :: TestCaseRun) Prelude.. Lens.mapping Data._Time
 
 -- | Provides the test scenarios for the test case run.
 testCaseRun_testScenarios :: Lens.Lens' TestCaseRun (Prelude.Maybe [TestCaseScenario])
 testCaseRun_testScenarios = Lens.lens (\TestCaseRun' {testScenarios} -> testScenarios) (\s@TestCaseRun' {} a -> s {testScenarios = a} :: TestCaseRun) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TestCaseRun where
+instance Data.FromJSON TestCaseRun where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TestCaseRun"
       ( \x ->
           TestCaseRun'
-            Prelude.<$> (x Core..:? "testCaseDefinitionId")
-            Prelude.<*> (x Core..:? "logUrl")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "failure")
-            Prelude.<*> (x Core..:? "testCaseDefinitionName")
-            Prelude.<*> (x Core..:? "warnings")
-            Prelude.<*> (x Core..:? "testCaseRunId")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "testScenarios" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "testCaseDefinitionId")
+            Prelude.<*> (x Data..:? "logUrl")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "failure")
+            Prelude.<*> (x Data..:? "testCaseDefinitionName")
+            Prelude.<*> (x Data..:? "warnings")
+            Prelude.<*> (x Data..:? "testCaseRunId")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "testScenarios" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TestCaseRun where

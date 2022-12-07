@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,9 +74,9 @@ instance Core.AWSRequest GetCredentialReport where
       "GetCredentialReportResult"
       ( \s h x ->
           GetCredentialReportResponse'
-            Prelude.<$> (x Core..@? "ReportFormat")
-            Prelude.<*> (x Core..@? "Content")
-            Prelude.<*> (x Core..@? "GeneratedTime")
+            Prelude.<$> (x Data..@? "ReportFormat")
+            Prelude.<*> (x Data..@? "Content")
+            Prelude.<*> (x Data..@? "GeneratedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -86,20 +87,20 @@ instance Prelude.Hashable GetCredentialReport where
 instance Prelude.NFData GetCredentialReport where
   rnf _ = ()
 
-instance Core.ToHeaders GetCredentialReport where
+instance Data.ToHeaders GetCredentialReport where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetCredentialReport where
+instance Data.ToPath GetCredentialReport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCredentialReport where
+instance Data.ToQuery GetCredentialReport where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ("GetCredentialReport" :: Prelude.ByteString),
+              Data.=: ("GetCredentialReport" :: Prelude.ByteString),
             "Version"
-              Core.=: ("2010-05-08" :: Prelude.ByteString)
+              Data.=: ("2010-05-08" :: Prelude.ByteString)
           ]
       )
 
@@ -110,10 +111,10 @@ data GetCredentialReportResponse = GetCredentialReportResponse'
   { -- | The format (MIME type) of the credential report.
     reportFormat :: Prelude.Maybe ReportFormatType,
     -- | Contains the credential report. The report is Base64-encoded.
-    content :: Prelude.Maybe Core.Base64,
+    content :: Prelude.Maybe Data.Base64,
     -- | The date and time when the credential report was created, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>.
-    generatedTime :: Prelude.Maybe Core.ISO8601,
+    generatedTime :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -162,12 +163,12 @@ getCredentialReportResponse_reportFormat = Lens.lens (\GetCredentialReportRespon
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 getCredentialReportResponse_content :: Lens.Lens' GetCredentialReportResponse (Prelude.Maybe Prelude.ByteString)
-getCredentialReportResponse_content = Lens.lens (\GetCredentialReportResponse' {content} -> content) (\s@GetCredentialReportResponse' {} a -> s {content = a} :: GetCredentialReportResponse) Prelude.. Lens.mapping Core._Base64
+getCredentialReportResponse_content = Lens.lens (\GetCredentialReportResponse' {content} -> content) (\s@GetCredentialReportResponse' {} a -> s {content = a} :: GetCredentialReportResponse) Prelude.. Lens.mapping Data._Base64
 
 -- | The date and time when the credential report was created, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>.
 getCredentialReportResponse_generatedTime :: Lens.Lens' GetCredentialReportResponse (Prelude.Maybe Prelude.UTCTime)
-getCredentialReportResponse_generatedTime = Lens.lens (\GetCredentialReportResponse' {generatedTime} -> generatedTime) (\s@GetCredentialReportResponse' {} a -> s {generatedTime = a} :: GetCredentialReportResponse) Prelude.. Lens.mapping Core._Time
+getCredentialReportResponse_generatedTime = Lens.lens (\GetCredentialReportResponse' {generatedTime} -> generatedTime) (\s@GetCredentialReportResponse' {} a -> s {generatedTime = a} :: GetCredentialReportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getCredentialReportResponse_httpStatus :: Lens.Lens' GetCredentialReportResponse Prelude.Int

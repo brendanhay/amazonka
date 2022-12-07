@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -308,7 +309,7 @@ instance Core.AWSRequest CreateDataSourceFromRDS where
     Response.receiveJSON
       ( \s h x ->
           CreateDataSourceFromRDSResponse'
-            Prelude.<$> (x Core..?> "DataSourceId")
+            Prelude.<$> (x Data..?> "DataSourceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -328,39 +329,39 @@ instance Prelude.NFData CreateDataSourceFromRDS where
       `Prelude.seq` Prelude.rnf rDSData
       `Prelude.seq` Prelude.rnf roleARN
 
-instance Core.ToHeaders CreateDataSourceFromRDS where
+instance Data.ToHeaders CreateDataSourceFromRDS where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.CreateDataSourceFromRDS" ::
+              Data.=# ( "AmazonML_20141212.CreateDataSourceFromRDS" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataSourceFromRDS where
+instance Data.ToJSON CreateDataSourceFromRDS where
   toJSON CreateDataSourceFromRDS' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSourceName" Core..=)
+          [ ("DataSourceName" Data..=)
               Prelude.<$> dataSourceName,
-            ("ComputeStatistics" Core..=)
+            ("ComputeStatistics" Data..=)
               Prelude.<$> computeStatistics,
-            Prelude.Just ("DataSourceId" Core..= dataSourceId),
-            Prelude.Just ("RDSData" Core..= rDSData),
-            Prelude.Just ("RoleARN" Core..= roleARN)
+            Prelude.Just ("DataSourceId" Data..= dataSourceId),
+            Prelude.Just ("RDSData" Data..= rDSData),
+            Prelude.Just ("RoleARN" Data..= roleARN)
           ]
       )
 
-instance Core.ToPath CreateDataSourceFromRDS where
+instance Data.ToPath CreateDataSourceFromRDS where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDataSourceFromRDS where
+instance Data.ToQuery CreateDataSourceFromRDS where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateDataSourceFromRDS@ operation, and is

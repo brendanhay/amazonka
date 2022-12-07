@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.ListJobsFilterTerm where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.JobComparator
 import Amazonka.MacieV2.Types.ListJobsFilterKey
 import qualified Amazonka.Prelude as Prelude
@@ -86,12 +87,12 @@ instance Prelude.NFData ListJobsFilterTerm where
       `Prelude.seq` Prelude.rnf comparator
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON ListJobsFilterTerm where
+instance Data.ToJSON ListJobsFilterTerm where
   toJSON ListJobsFilterTerm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("comparator" Core..=) Prelude.<$> comparator,
-            ("values" Core..=) Prelude.<$> values
+          [ ("key" Data..=) Prelude.<$> key,
+            ("comparator" Data..=) Prelude.<$> comparator,
+            ("values" Data..=) Prelude.<$> values
           ]
       )

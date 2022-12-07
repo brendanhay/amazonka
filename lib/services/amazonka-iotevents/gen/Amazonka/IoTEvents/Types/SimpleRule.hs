@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.SimpleRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.ComparisonOperator
 import qualified Amazonka.Prelude as Prelude
 
@@ -87,15 +88,15 @@ simpleRule_comparisonOperator = Lens.lens (\SimpleRule' {comparisonOperator} -> 
 simpleRule_threshold :: Lens.Lens' SimpleRule Prelude.Text
 simpleRule_threshold = Lens.lens (\SimpleRule' {threshold} -> threshold) (\s@SimpleRule' {} a -> s {threshold = a} :: SimpleRule)
 
-instance Core.FromJSON SimpleRule where
+instance Data.FromJSON SimpleRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SimpleRule"
       ( \x ->
           SimpleRule'
-            Prelude.<$> (x Core..: "inputProperty")
-            Prelude.<*> (x Core..: "comparisonOperator")
-            Prelude.<*> (x Core..: "threshold")
+            Prelude.<$> (x Data..: "inputProperty")
+            Prelude.<*> (x Data..: "comparisonOperator")
+            Prelude.<*> (x Data..: "threshold")
       )
 
 instance Prelude.Hashable SimpleRule where
@@ -110,14 +111,14 @@ instance Prelude.NFData SimpleRule where
       `Prelude.seq` Prelude.rnf comparisonOperator
       `Prelude.seq` Prelude.rnf threshold
 
-instance Core.ToJSON SimpleRule where
+instance Data.ToJSON SimpleRule where
   toJSON SimpleRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("inputProperty" Core..= inputProperty),
+              ("inputProperty" Data..= inputProperty),
             Prelude.Just
-              ("comparisonOperator" Core..= comparisonOperator),
-            Prelude.Just ("threshold" Core..= threshold)
+              ("comparisonOperator" Data..= comparisonOperator),
+            Prelude.Just ("threshold" Data..= threshold)
           ]
       )

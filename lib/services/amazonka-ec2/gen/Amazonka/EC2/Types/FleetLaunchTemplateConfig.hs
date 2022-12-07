@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FleetLaunchTemplateConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FleetLaunchTemplateOverrides
 import Amazonka.EC2.Types.FleetLaunchTemplateSpecification
@@ -68,12 +69,12 @@ fleetLaunchTemplateConfig_launchTemplateSpecification = Lens.lens (\FleetLaunchT
 fleetLaunchTemplateConfig_overrides :: Lens.Lens' FleetLaunchTemplateConfig (Prelude.Maybe [FleetLaunchTemplateOverrides])
 fleetLaunchTemplateConfig_overrides = Lens.lens (\FleetLaunchTemplateConfig' {overrides} -> overrides) (\s@FleetLaunchTemplateConfig' {} a -> s {overrides = a} :: FleetLaunchTemplateConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML FleetLaunchTemplateConfig where
+instance Data.FromXML FleetLaunchTemplateConfig where
   parseXML x =
     FleetLaunchTemplateConfig'
-      Prelude.<$> (x Core..@? "launchTemplateSpecification")
-      Prelude.<*> ( x Core..@? "overrides" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "launchTemplateSpecification")
+      Prelude.<*> ( x Data..@? "overrides" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable FleetLaunchTemplateConfig where

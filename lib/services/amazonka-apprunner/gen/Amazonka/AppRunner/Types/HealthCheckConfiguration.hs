@@ -22,6 +22,7 @@ module Amazonka.AppRunner.Types.HealthCheckConfiguration where
 import Amazonka.AppRunner.Types.HealthCheckProtocol
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the settings for the health check that App Runner performs to
@@ -163,18 +164,18 @@ healthCheckConfiguration_unhealthyThreshold = Lens.lens (\HealthCheckConfigurati
 healthCheckConfiguration_protocol :: Lens.Lens' HealthCheckConfiguration (Prelude.Maybe HealthCheckProtocol)
 healthCheckConfiguration_protocol = Lens.lens (\HealthCheckConfiguration' {protocol} -> protocol) (\s@HealthCheckConfiguration' {} a -> s {protocol = a} :: HealthCheckConfiguration)
 
-instance Core.FromJSON HealthCheckConfiguration where
+instance Data.FromJSON HealthCheckConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HealthCheckConfiguration"
       ( \x ->
           HealthCheckConfiguration'
-            Prelude.<$> (x Core..:? "Timeout")
-            Prelude.<*> (x Core..:? "Interval")
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "HealthyThreshold")
-            Prelude.<*> (x Core..:? "UnhealthyThreshold")
-            Prelude.<*> (x Core..:? "Protocol")
+            Prelude.<$> (x Data..:? "Timeout")
+            Prelude.<*> (x Data..:? "Interval")
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "HealthyThreshold")
+            Prelude.<*> (x Data..:? "UnhealthyThreshold")
+            Prelude.<*> (x Data..:? "Protocol")
       )
 
 instance Prelude.Hashable HealthCheckConfiguration where
@@ -195,17 +196,17 @@ instance Prelude.NFData HealthCheckConfiguration where
       `Prelude.seq` Prelude.rnf unhealthyThreshold
       `Prelude.seq` Prelude.rnf protocol
 
-instance Core.ToJSON HealthCheckConfiguration where
+instance Data.ToJSON HealthCheckConfiguration where
   toJSON HealthCheckConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Timeout" Core..=) Prelude.<$> timeout,
-            ("Interval" Core..=) Prelude.<$> interval,
-            ("Path" Core..=) Prelude.<$> path,
-            ("HealthyThreshold" Core..=)
+          [ ("Timeout" Data..=) Prelude.<$> timeout,
+            ("Interval" Data..=) Prelude.<$> interval,
+            ("Path" Data..=) Prelude.<$> path,
+            ("HealthyThreshold" Data..=)
               Prelude.<$> healthyThreshold,
-            ("UnhealthyThreshold" Core..=)
+            ("UnhealthyThreshold" Data..=)
               Prelude.<$> unhealthyThreshold,
-            ("Protocol" Core..=) Prelude.<$> protocol
+            ("Protocol" Data..=) Prelude.<$> protocol
           ]
       )

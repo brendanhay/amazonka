@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -334,7 +335,7 @@ instance Core.AWSRequest CreatePatchBaseline where
     Response.receiveJSON
       ( \s h x ->
           CreatePatchBaselineResponse'
-            Prelude.<$> (x Core..?> "BaselineId")
+            Prelude.<$> (x Data..?> "BaselineId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -370,51 +371,51 @@ instance Prelude.NFData CreatePatchBaseline where
       `Prelude.seq` Prelude.rnf approvedPatchesEnableNonSecurity
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreatePatchBaseline where
+instance Data.ToHeaders CreatePatchBaseline where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.CreatePatchBaseline" ::
+              Data.=# ( "AmazonSSM.CreatePatchBaseline" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePatchBaseline where
+instance Data.ToJSON CreatePatchBaseline where
   toJSON CreatePatchBaseline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("OperatingSystem" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("OperatingSystem" Data..=)
               Prelude.<$> operatingSystem,
-            ("ApprovedPatches" Core..=)
+            ("ApprovedPatches" Data..=)
               Prelude.<$> approvedPatches,
-            ("ApprovedPatchesComplianceLevel" Core..=)
+            ("ApprovedPatchesComplianceLevel" Data..=)
               Prelude.<$> approvedPatchesComplianceLevel,
-            ("Sources" Core..=) Prelude.<$> sources,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("ApprovalRules" Core..=) Prelude.<$> approvalRules,
-            ("RejectedPatchesAction" Core..=)
+            ("Sources" Data..=) Prelude.<$> sources,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("ApprovalRules" Data..=) Prelude.<$> approvalRules,
+            ("RejectedPatchesAction" Data..=)
               Prelude.<$> rejectedPatchesAction,
-            ("Description" Core..=) Prelude.<$> description,
-            ("GlobalFilters" Core..=) Prelude.<$> globalFilters,
-            ("RejectedPatches" Core..=)
+            ("Description" Data..=) Prelude.<$> description,
+            ("GlobalFilters" Data..=) Prelude.<$> globalFilters,
+            ("RejectedPatches" Data..=)
               Prelude.<$> rejectedPatches,
-            ("ApprovedPatchesEnableNonSecurity" Core..=)
+            ("ApprovedPatchesEnableNonSecurity" Data..=)
               Prelude.<$> approvedPatchesEnableNonSecurity,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreatePatchBaseline where
+instance Data.ToPath CreatePatchBaseline where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePatchBaseline where
+instance Data.ToQuery CreatePatchBaseline where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePatchBaselineResponse' smart constructor.

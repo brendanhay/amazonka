@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.ExcelOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a set of options that define how DataBrew will interpret a
@@ -80,15 +81,15 @@ excelOptions_sheetNames = Lens.lens (\ExcelOptions' {sheetNames} -> sheetNames) 
 excelOptions_headerRow :: Lens.Lens' ExcelOptions (Prelude.Maybe Prelude.Bool)
 excelOptions_headerRow = Lens.lens (\ExcelOptions' {headerRow} -> headerRow) (\s@ExcelOptions' {} a -> s {headerRow = a} :: ExcelOptions)
 
-instance Core.FromJSON ExcelOptions where
+instance Data.FromJSON ExcelOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExcelOptions"
       ( \x ->
           ExcelOptions'
-            Prelude.<$> (x Core..:? "SheetIndexes")
-            Prelude.<*> (x Core..:? "SheetNames")
-            Prelude.<*> (x Core..:? "HeaderRow")
+            Prelude.<$> (x Data..:? "SheetIndexes")
+            Prelude.<*> (x Data..:? "SheetNames")
+            Prelude.<*> (x Data..:? "HeaderRow")
       )
 
 instance Prelude.Hashable ExcelOptions where
@@ -103,12 +104,12 @@ instance Prelude.NFData ExcelOptions where
       `Prelude.seq` Prelude.rnf sheetNames
       `Prelude.seq` Prelude.rnf headerRow
 
-instance Core.ToJSON ExcelOptions where
+instance Data.ToJSON ExcelOptions where
   toJSON ExcelOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SheetIndexes" Core..=) Prelude.<$> sheetIndexes,
-            ("SheetNames" Core..=) Prelude.<$> sheetNames,
-            ("HeaderRow" Core..=) Prelude.<$> headerRow
+          [ ("SheetIndexes" Data..=) Prelude.<$> sheetIndexes,
+            ("SheetNames" Data..=) Prelude.<$> sheetNames,
+            ("HeaderRow" Data..=) Prelude.<$> headerRow
           ]
       )

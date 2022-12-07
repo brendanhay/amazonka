@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,8 +152,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateNetworkInsightsAccessScopeResponse'
-            Prelude.<$> (x Core..@? "networkInsightsAccessScopeContent")
-            Prelude.<*> (x Core..@? "networkInsightsAccessScope")
+            Prelude.<$> (x Data..@? "networkInsightsAccessScopeContent")
+            Prelude.<*> (x Data..@? "networkInsightsAccessScope")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,40 +182,40 @@ instance
       `Prelude.seq` Prelude.rnf clientToken
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateNetworkInsightsAccessScope
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateNetworkInsightsAccessScope where
+instance Data.ToPath CreateNetworkInsightsAccessScope where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateNetworkInsightsAccessScope
   where
   toQuery CreateNetworkInsightsAccessScope' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateNetworkInsightsAccessScope" ::
+          Data.=: ( "CreateNetworkInsightsAccessScope" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "ExcludePath"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "ExcludePath"
               Prelude.<$> excludePaths
           ),
-        Core.toQuery
-          ( Core.toQueryList "MatchPath"
+        Data.toQuery
+          ( Data.toQueryList "MatchPath"
               Prelude.<$> matchPaths
           ),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "ClientToken" Core.=: clientToken
+        "ClientToken" Data.=: clientToken
       ]
 
 -- | /See:/ 'newCreateNetworkInsightsAccessScopeResponse' smart constructor.

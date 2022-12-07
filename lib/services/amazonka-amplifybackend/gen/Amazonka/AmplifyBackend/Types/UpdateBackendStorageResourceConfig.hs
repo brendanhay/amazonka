@@ -23,6 +23,7 @@ import Amazonka.AmplifyBackend.Types.BackendStoragePermissions
 import Amazonka.AmplifyBackend.Types.ServiceName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The resource configuration for updating backend storage.
@@ -89,13 +90,13 @@ instance
       `Prelude.seq` Prelude.rnf permissions
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateBackendStorageResourceConfig
   where
   toJSON UpdateBackendStorageResourceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("serviceName" Core..= serviceName),
-            Prelude.Just ("permissions" Core..= permissions)
+          [ Prelude.Just ("serviceName" Data..= serviceName),
+            Prelude.Just ("permissions" Data..= permissions)
           ]
       )

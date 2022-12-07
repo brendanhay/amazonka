@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,8 +85,8 @@ instance Core.AWSRequest StopDiscoverer where
     Response.receiveJSON
       ( \s h x ->
           StopDiscovererResponse'
-            Prelude.<$> (x Core..?> "DiscovererId")
-            Prelude.<*> (x Core..?> "State")
+            Prelude.<$> (x Data..?> "DiscovererId")
+            Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,29 +97,29 @@ instance Prelude.Hashable StopDiscoverer where
 instance Prelude.NFData StopDiscoverer where
   rnf StopDiscoverer' {..} = Prelude.rnf discovererId
 
-instance Core.ToHeaders StopDiscoverer where
+instance Data.ToHeaders StopDiscoverer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopDiscoverer where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StopDiscoverer where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StopDiscoverer where
+instance Data.ToPath StopDiscoverer where
   toPath StopDiscoverer' {..} =
     Prelude.mconcat
       [ "/v1/discoverers/id/",
-        Core.toBS discovererId,
+        Data.toBS discovererId,
         "/stop"
       ]
 
-instance Core.ToQuery StopDiscoverer where
+instance Data.ToQuery StopDiscoverer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopDiscovererResponse' smart constructor.

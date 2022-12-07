@@ -21,6 +21,7 @@ module Amazonka.Location.Types.BatchPutGeofenceRequestEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.GeofenceGeometry
 import qualified Amazonka.Prelude as Prelude
 
@@ -100,11 +101,11 @@ instance Prelude.NFData BatchPutGeofenceRequestEntry where
     Prelude.rnf geofenceId
       `Prelude.seq` Prelude.rnf geometry
 
-instance Core.ToJSON BatchPutGeofenceRequestEntry where
+instance Data.ToJSON BatchPutGeofenceRequestEntry where
   toJSON BatchPutGeofenceRequestEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GeofenceId" Core..= geofenceId),
-            Prelude.Just ("Geometry" Core..= geometry)
+          [ Prelude.Just ("GeofenceId" Data..= geofenceId),
+            Prelude.Just ("Geometry" Data..= geometry)
           ]
       )

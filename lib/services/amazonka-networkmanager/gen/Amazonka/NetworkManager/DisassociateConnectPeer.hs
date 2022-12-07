@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest DisassociateConnectPeer where
     Response.receiveJSON
       ( \s h x ->
           DisassociateConnectPeerResponse'
-            Prelude.<$> (x Core..?> "ConnectPeerAssociation")
+            Prelude.<$> (x Data..?> "ConnectPeerAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,27 +115,27 @@ instance Prelude.NFData DisassociateConnectPeer where
     Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf connectPeerId
 
-instance Core.ToHeaders DisassociateConnectPeer where
+instance Data.ToHeaders DisassociateConnectPeer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DisassociateConnectPeer where
+instance Data.ToPath DisassociateConnectPeer where
   toPath DisassociateConnectPeer' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/connect-peer-associations/",
-        Core.toBS connectPeerId
+        Data.toBS connectPeerId
       ]
 
-instance Core.ToQuery DisassociateConnectPeer where
+instance Data.ToQuery DisassociateConnectPeer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateConnectPeerResponse' smart constructor.

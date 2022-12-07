@@ -23,6 +23,7 @@ import Amazonka.AppFlow.Types.PrivateConnectionProvisioningFailureCause
 import Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the private connection provisioning state.
@@ -74,17 +75,17 @@ privateConnectionProvisioningState_failureCause :: Lens.Lens' PrivateConnectionP
 privateConnectionProvisioningState_failureCause = Lens.lens (\PrivateConnectionProvisioningState' {failureCause} -> failureCause) (\s@PrivateConnectionProvisioningState' {} a -> s {failureCause = a} :: PrivateConnectionProvisioningState)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PrivateConnectionProvisioningState
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PrivateConnectionProvisioningState"
       ( \x ->
           PrivateConnectionProvisioningState'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "failureMessage")
-            Prelude.<*> (x Core..:? "failureCause")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "failureMessage")
+            Prelude.<*> (x Data..:? "failureCause")
       )
 
 instance

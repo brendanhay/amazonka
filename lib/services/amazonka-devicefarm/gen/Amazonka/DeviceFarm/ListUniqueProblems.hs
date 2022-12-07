@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,8 +136,8 @@ instance Core.AWSRequest ListUniqueProblems where
     Response.receiveJSON
       ( \s h x ->
           ListUniqueProblemsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "uniqueProblems" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "uniqueProblems" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,34 +150,34 @@ instance Prelude.NFData ListUniqueProblems where
   rnf ListUniqueProblems' {..} =
     Prelude.rnf nextToken `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders ListUniqueProblems where
+instance Data.ToHeaders ListUniqueProblems where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.ListUniqueProblems" ::
+              Data.=# ( "DeviceFarm_20150623.ListUniqueProblems" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListUniqueProblems where
+instance Data.ToJSON ListUniqueProblems where
   toJSON ListUniqueProblems' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            Prelude.Just ("arn" Core..= arn)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            Prelude.Just ("arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath ListUniqueProblems where
+instance Data.ToPath ListUniqueProblems where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListUniqueProblems where
+instance Data.ToQuery ListUniqueProblems where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a list unique problems request.

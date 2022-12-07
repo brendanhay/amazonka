@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.MountPoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for a volume mount point that\'s used in a container definition.
@@ -79,15 +80,15 @@ mountPoint_containerPath = Lens.lens (\MountPoint' {containerPath} -> containerP
 mountPoint_readOnly :: Lens.Lens' MountPoint (Prelude.Maybe Prelude.Bool)
 mountPoint_readOnly = Lens.lens (\MountPoint' {readOnly} -> readOnly) (\s@MountPoint' {} a -> s {readOnly = a} :: MountPoint)
 
-instance Core.FromJSON MountPoint where
+instance Data.FromJSON MountPoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MountPoint"
       ( \x ->
           MountPoint'
-            Prelude.<$> (x Core..:? "sourceVolume")
-            Prelude.<*> (x Core..:? "containerPath")
-            Prelude.<*> (x Core..:? "readOnly")
+            Prelude.<$> (x Data..:? "sourceVolume")
+            Prelude.<*> (x Data..:? "containerPath")
+            Prelude.<*> (x Data..:? "readOnly")
       )
 
 instance Prelude.Hashable MountPoint where
@@ -102,12 +103,12 @@ instance Prelude.NFData MountPoint where
       `Prelude.seq` Prelude.rnf containerPath
       `Prelude.seq` Prelude.rnf readOnly
 
-instance Core.ToJSON MountPoint where
+instance Data.ToJSON MountPoint where
   toJSON MountPoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sourceVolume" Core..=) Prelude.<$> sourceVolume,
-            ("containerPath" Core..=) Prelude.<$> containerPath,
-            ("readOnly" Core..=) Prelude.<$> readOnly
+          [ ("sourceVolume" Data..=) Prelude.<$> sourceVolume,
+            ("containerPath" Data..=) Prelude.<$> containerPath,
+            ("readOnly" Data..=) Prelude.<$> readOnly
           ]
       )

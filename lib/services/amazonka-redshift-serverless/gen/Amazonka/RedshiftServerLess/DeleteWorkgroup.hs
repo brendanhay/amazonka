@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest DeleteWorkgroup where
       ( \s h x ->
           DeleteWorkgroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "workgroup")
+            Prelude.<*> (x Data..:> "workgroup")
       )
 
 instance Prelude.Hashable DeleteWorkgroup where
@@ -94,34 +95,34 @@ instance Prelude.Hashable DeleteWorkgroup where
 instance Prelude.NFData DeleteWorkgroup where
   rnf DeleteWorkgroup' {..} = Prelude.rnf workgroupName
 
-instance Core.ToHeaders DeleteWorkgroup where
+instance Data.ToHeaders DeleteWorkgroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.DeleteWorkgroup" ::
+              Data.=# ( "RedshiftServerless.DeleteWorkgroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteWorkgroup where
+instance Data.ToJSON DeleteWorkgroup where
   toJSON DeleteWorkgroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("workgroupName" Core..= workgroupName)
+              ("workgroupName" Data..= workgroupName)
           ]
       )
 
-instance Core.ToPath DeleteWorkgroup where
+instance Data.ToPath DeleteWorkgroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteWorkgroup where
+instance Data.ToQuery DeleteWorkgroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWorkgroupResponse' smart constructor.

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest GetTimelineEvent where
       ( \s h x ->
           GetTimelineEventResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "event")
+            Prelude.<*> (x Data..:> "event")
       )
 
 instance Prelude.Hashable GetTimelineEvent where
@@ -117,25 +118,25 @@ instance Prelude.NFData GetTimelineEvent where
     Prelude.rnf eventId
       `Prelude.seq` Prelude.rnf incidentRecordArn
 
-instance Core.ToHeaders GetTimelineEvent where
+instance Data.ToHeaders GetTimelineEvent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetTimelineEvent where
+instance Data.ToPath GetTimelineEvent where
   toPath = Prelude.const "/getTimelineEvent"
 
-instance Core.ToQuery GetTimelineEvent where
+instance Data.ToQuery GetTimelineEvent where
   toQuery GetTimelineEvent' {..} =
     Prelude.mconcat
-      [ "eventId" Core.=: eventId,
-        "incidentRecordArn" Core.=: incidentRecordArn
+      [ "eventId" Data.=: eventId,
+        "incidentRecordArn" Data.=: incidentRecordArn
       ]
 
 -- | /See:/ 'newGetTimelineEventResponse' smart constructor.

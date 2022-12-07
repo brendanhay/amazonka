@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResilienceHub.Types
@@ -130,14 +131,14 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ImportResourcesToDraftAppVersionResponse'
-            Prelude.<$> (x Core..?> "sourceArns" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "terraformSources"
+            Prelude.<$> (x Data..?> "sourceArns" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "terraformSources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "appArn")
-            Prelude.<*> (x Core..:> "appVersion")
-            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Data..:> "appArn")
+            Prelude.<*> (x Data..:> "appVersion")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance
@@ -161,37 +162,37 @@ instance
       `Prelude.seq` Prelude.rnf appArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ImportResourcesToDraftAppVersion
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportResourcesToDraftAppVersion where
+instance Data.ToJSON ImportResourcesToDraftAppVersion where
   toJSON ImportResourcesToDraftAppVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sourceArns" Core..=) Prelude.<$> sourceArns,
-            ("terraformSources" Core..=)
+          [ ("sourceArns" Data..=) Prelude.<$> sourceArns,
+            ("terraformSources" Data..=)
               Prelude.<$> terraformSources,
-            Prelude.Just ("appArn" Core..= appArn)
+            Prelude.Just ("appArn" Data..= appArn)
           ]
       )
 
-instance Core.ToPath ImportResourcesToDraftAppVersion where
+instance Data.ToPath ImportResourcesToDraftAppVersion where
   toPath =
     Prelude.const
       "/import-resources-to-draft-app-version"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ImportResourcesToDraftAppVersion
   where
   toQuery = Prelude.const Prelude.mempty

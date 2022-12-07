@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,8 +138,8 @@ instance Core.AWSRequest CreateSqlInjectionMatchSet where
     Response.receiveJSON
       ( \s h x ->
           CreateSqlInjectionMatchSetResponse'
-            Prelude.<$> (x Core..?> "SqlInjectionMatchSet")
-            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "SqlInjectionMatchSet")
+            Prelude.<*> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,34 +153,34 @@ instance Prelude.NFData CreateSqlInjectionMatchSet where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf changeToken
 
-instance Core.ToHeaders CreateSqlInjectionMatchSet where
+instance Data.ToHeaders CreateSqlInjectionMatchSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20150824.CreateSqlInjectionMatchSet" ::
+              Data.=# ( "AWSWAF_20150824.CreateSqlInjectionMatchSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSqlInjectionMatchSet where
+instance Data.ToJSON CreateSqlInjectionMatchSet where
   toJSON CreateSqlInjectionMatchSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("ChangeToken" Core..= changeToken)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("ChangeToken" Data..= changeToken)
           ]
       )
 
-instance Core.ToPath CreateSqlInjectionMatchSet where
+instance Data.ToPath CreateSqlInjectionMatchSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSqlInjectionMatchSet where
+instance Data.ToQuery CreateSqlInjectionMatchSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response to a @CreateSqlInjectionMatchSet@ request.

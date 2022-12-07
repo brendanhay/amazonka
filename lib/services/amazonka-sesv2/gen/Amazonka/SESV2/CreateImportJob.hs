@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,7 +104,7 @@ instance Core.AWSRequest CreateImportJob where
     Response.receiveJSON
       ( \s h x ->
           CreateImportJobResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,32 +118,32 @@ instance Prelude.NFData CreateImportJob where
     Prelude.rnf importDestination
       `Prelude.seq` Prelude.rnf importDataSource
 
-instance Core.ToHeaders CreateImportJob where
+instance Data.ToHeaders CreateImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateImportJob where
+instance Data.ToJSON CreateImportJob where
   toJSON CreateImportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ImportDestination" Core..= importDestination),
+              ("ImportDestination" Data..= importDestination),
             Prelude.Just
-              ("ImportDataSource" Core..= importDataSource)
+              ("ImportDataSource" Data..= importDataSource)
           ]
       )
 
-instance Core.ToPath CreateImportJob where
+instance Data.ToPath CreateImportJob where
   toPath = Prelude.const "/v2/email/import-jobs"
 
-instance Core.ToQuery CreateImportJob where
+instance Data.ToQuery CreateImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the

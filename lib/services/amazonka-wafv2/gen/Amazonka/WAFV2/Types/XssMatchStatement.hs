@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.XssMatchStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.FieldToMatch
 import Amazonka.WAFV2.Types.TextTransformation
@@ -88,14 +89,14 @@ xssMatchStatement_fieldToMatch = Lens.lens (\XssMatchStatement' {fieldToMatch} -
 xssMatchStatement_textTransformations :: Lens.Lens' XssMatchStatement (Prelude.NonEmpty TextTransformation)
 xssMatchStatement_textTransformations = Lens.lens (\XssMatchStatement' {textTransformations} -> textTransformations) (\s@XssMatchStatement' {} a -> s {textTransformations = a} :: XssMatchStatement) Prelude.. Lens.coerced
 
-instance Core.FromJSON XssMatchStatement where
+instance Data.FromJSON XssMatchStatement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "XssMatchStatement"
       ( \x ->
           XssMatchStatement'
-            Prelude.<$> (x Core..: "FieldToMatch")
-            Prelude.<*> (x Core..: "TextTransformations")
+            Prelude.<$> (x Data..: "FieldToMatch")
+            Prelude.<*> (x Data..: "TextTransformations")
       )
 
 instance Prelude.Hashable XssMatchStatement where
@@ -108,12 +109,12 @@ instance Prelude.NFData XssMatchStatement where
     Prelude.rnf fieldToMatch
       `Prelude.seq` Prelude.rnf textTransformations
 
-instance Core.ToJSON XssMatchStatement where
+instance Data.ToJSON XssMatchStatement where
   toJSON XssMatchStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FieldToMatch" Core..= fieldToMatch),
+          [ Prelude.Just ("FieldToMatch" Data..= fieldToMatch),
             Prelude.Just
-              ("TextTransformations" Core..= textTransformations)
+              ("TextTransformations" Data..= textTransformations)
           ]
       )

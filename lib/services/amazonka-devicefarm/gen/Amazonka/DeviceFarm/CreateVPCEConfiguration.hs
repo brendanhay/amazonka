@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,7 +137,7 @@ instance Core.AWSRequest CreateVPCEConfiguration where
     Response.receiveJSON
       ( \s h x ->
           CreateVPCEConfigurationResponse'
-            Prelude.<$> (x Core..?> "vpceConfiguration")
+            Prelude.<$> (x Data..?> "vpceConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,42 +156,42 @@ instance Prelude.NFData CreateVPCEConfiguration where
       `Prelude.seq` Prelude.rnf vpceServiceName
       `Prelude.seq` Prelude.rnf serviceDnsName
 
-instance Core.ToHeaders CreateVPCEConfiguration where
+instance Data.ToHeaders CreateVPCEConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.CreateVPCEConfiguration" ::
+              Data.=# ( "DeviceFarm_20150623.CreateVPCEConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateVPCEConfiguration where
+instance Data.ToJSON CreateVPCEConfiguration where
   toJSON CreateVPCEConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("vpceConfigurationDescription" Core..=)
+          [ ("vpceConfigurationDescription" Data..=)
               Prelude.<$> vpceConfigurationDescription,
             Prelude.Just
               ( "vpceConfigurationName"
-                  Core..= vpceConfigurationName
+                  Data..= vpceConfigurationName
               ),
             Prelude.Just
-              ("vpceServiceName" Core..= vpceServiceName),
+              ("vpceServiceName" Data..= vpceServiceName),
             Prelude.Just
-              ("serviceDnsName" Core..= serviceDnsName)
+              ("serviceDnsName" Data..= serviceDnsName)
           ]
       )
 
-instance Core.ToPath CreateVPCEConfiguration where
+instance Data.ToPath CreateVPCEConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVPCEConfiguration where
+instance Data.ToQuery CreateVPCEConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateVPCEConfigurationResponse' smart constructor.

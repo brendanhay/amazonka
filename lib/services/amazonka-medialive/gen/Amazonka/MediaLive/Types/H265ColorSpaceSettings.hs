@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.H265ColorSpaceSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.ColorSpacePassthroughSettings
 import Amazonka.MediaLive.Types.DolbyVision81Settings
 import Amazonka.MediaLive.Types.Hdr10Settings
@@ -89,17 +90,17 @@ h265ColorSpaceSettings_rec709Settings = Lens.lens (\H265ColorSpaceSettings' {rec
 h265ColorSpaceSettings_dolbyVision81Settings :: Lens.Lens' H265ColorSpaceSettings (Prelude.Maybe DolbyVision81Settings)
 h265ColorSpaceSettings_dolbyVision81Settings = Lens.lens (\H265ColorSpaceSettings' {dolbyVision81Settings} -> dolbyVision81Settings) (\s@H265ColorSpaceSettings' {} a -> s {dolbyVision81Settings = a} :: H265ColorSpaceSettings)
 
-instance Core.FromJSON H265ColorSpaceSettings where
+instance Data.FromJSON H265ColorSpaceSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "H265ColorSpaceSettings"
       ( \x ->
           H265ColorSpaceSettings'
-            Prelude.<$> (x Core..:? "colorSpacePassthroughSettings")
-            Prelude.<*> (x Core..:? "rec601Settings")
-            Prelude.<*> (x Core..:? "hdr10Settings")
-            Prelude.<*> (x Core..:? "rec709Settings")
-            Prelude.<*> (x Core..:? "dolbyVision81Settings")
+            Prelude.<$> (x Data..:? "colorSpacePassthroughSettings")
+            Prelude.<*> (x Data..:? "rec601Settings")
+            Prelude.<*> (x Data..:? "hdr10Settings")
+            Prelude.<*> (x Data..:? "rec709Settings")
+            Prelude.<*> (x Data..:? "dolbyVision81Settings")
       )
 
 instance Prelude.Hashable H265ColorSpaceSettings where
@@ -119,18 +120,18 @@ instance Prelude.NFData H265ColorSpaceSettings where
       `Prelude.seq` Prelude.rnf rec709Settings
       `Prelude.seq` Prelude.rnf dolbyVision81Settings
 
-instance Core.ToJSON H265ColorSpaceSettings where
+instance Data.ToJSON H265ColorSpaceSettings where
   toJSON H265ColorSpaceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("colorSpacePassthroughSettings" Core..=)
+          [ ("colorSpacePassthroughSettings" Data..=)
               Prelude.<$> colorSpacePassthroughSettings,
-            ("rec601Settings" Core..=)
+            ("rec601Settings" Data..=)
               Prelude.<$> rec601Settings,
-            ("hdr10Settings" Core..=) Prelude.<$> hdr10Settings,
-            ("rec709Settings" Core..=)
+            ("hdr10Settings" Data..=) Prelude.<$> hdr10Settings,
+            ("rec709Settings" Data..=)
               Prelude.<$> rec709Settings,
-            ("dolbyVision81Settings" Core..=)
+            ("dolbyVision81Settings" Data..=)
               Prelude.<$> dolbyVision81Settings
           ]
       )

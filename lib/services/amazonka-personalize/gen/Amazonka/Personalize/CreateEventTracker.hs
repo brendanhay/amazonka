@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,8 +152,8 @@ instance Core.AWSRequest CreateEventTracker where
     Response.receiveJSON
       ( \s h x ->
           CreateEventTrackerResponse'
-            Prelude.<$> (x Core..?> "trackingId")
-            Prelude.<*> (x Core..?> "eventTrackerArn")
+            Prelude.<$> (x Data..?> "trackingId")
+            Prelude.<*> (x Data..?> "eventTrackerArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,36 +169,36 @@ instance Prelude.NFData CreateEventTracker where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf datasetGroupArn
 
-instance Core.ToHeaders CreateEventTracker where
+instance Data.ToHeaders CreateEventTracker where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.CreateEventTracker" ::
+              Data.=# ( "AmazonPersonalize.CreateEventTracker" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEventTracker where
+instance Data.ToJSON CreateEventTracker where
   toJSON CreateEventTracker' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("name" Core..= name),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("datasetGroupArn" Core..= datasetGroupArn)
+              ("datasetGroupArn" Data..= datasetGroupArn)
           ]
       )
 
-instance Core.ToPath CreateEventTracker where
+instance Data.ToPath CreateEventTracker where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEventTracker where
+instance Data.ToQuery CreateEventTracker where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEventTrackerResponse' smart constructor.

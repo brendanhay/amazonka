@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.AddonHealth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types.AddonIssue
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newAddonHealth =
 addonHealth_issues :: Lens.Lens' AddonHealth (Prelude.Maybe [AddonIssue])
 addonHealth_issues = Lens.lens (\AddonHealth' {issues} -> issues) (\s@AddonHealth' {} a -> s {issues = a} :: AddonHealth) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AddonHealth where
+instance Data.FromJSON AddonHealth where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AddonHealth"
       ( \x ->
           AddonHealth'
-            Prelude.<$> (x Core..:? "issues" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "issues" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AddonHealth where

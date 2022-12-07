@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,20 +100,20 @@ instance Prelude.Hashable DeleteTemplate where
 instance Prelude.NFData DeleteTemplate where
   rnf DeleteTemplate' {..} = Prelude.rnf templateName
 
-instance Core.ToHeaders DeleteTemplate where
+instance Data.ToHeaders DeleteTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteTemplate where
+instance Data.ToPath DeleteTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteTemplate where
+instance Data.ToQuery DeleteTemplate where
   toQuery DeleteTemplate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteTemplate" :: Prelude.ByteString),
+          Data.=: ("DeleteTemplate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "TemplateName" Core.=: templateName
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "TemplateName" Data.=: templateName
       ]
 
 -- | /See:/ 'newDeleteTemplateResponse' smart constructor.

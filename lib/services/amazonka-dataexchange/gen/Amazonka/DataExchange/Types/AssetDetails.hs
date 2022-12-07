@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.AssetDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.ApiGatewayApiAsset
 import Amazonka.DataExchange.Types.RedshiftDataShareAsset
 import Amazonka.DataExchange.Types.S3SnapshotAsset
@@ -73,15 +74,15 @@ assetDetails_apiGatewayApiAsset = Lens.lens (\AssetDetails' {apiGatewayApiAsset}
 assetDetails_redshiftDataShareAsset :: Lens.Lens' AssetDetails (Prelude.Maybe RedshiftDataShareAsset)
 assetDetails_redshiftDataShareAsset = Lens.lens (\AssetDetails' {redshiftDataShareAsset} -> redshiftDataShareAsset) (\s@AssetDetails' {} a -> s {redshiftDataShareAsset = a} :: AssetDetails)
 
-instance Core.FromJSON AssetDetails where
+instance Data.FromJSON AssetDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetDetails"
       ( \x ->
           AssetDetails'
-            Prelude.<$> (x Core..:? "S3SnapshotAsset")
-            Prelude.<*> (x Core..:? "ApiGatewayApiAsset")
-            Prelude.<*> (x Core..:? "RedshiftDataShareAsset")
+            Prelude.<$> (x Data..:? "S3SnapshotAsset")
+            Prelude.<*> (x Data..:? "ApiGatewayApiAsset")
+            Prelude.<*> (x Data..:? "RedshiftDataShareAsset")
       )
 
 instance Prelude.Hashable AssetDetails where

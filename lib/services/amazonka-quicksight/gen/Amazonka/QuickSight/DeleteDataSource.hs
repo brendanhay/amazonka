@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -103,9 +104,9 @@ instance Core.AWSRequest DeleteDataSource where
     Response.receiveJSON
       ( \s h x ->
           DeleteDataSourceResponse'
-            Prelude.<$> (x Core..?> "DataSourceId")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "DataSourceId")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,27 +120,27 @@ instance Prelude.NFData DeleteDataSource where
     Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dataSourceId
 
-instance Core.ToHeaders DeleteDataSource where
+instance Data.ToHeaders DeleteDataSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteDataSource where
+instance Data.ToPath DeleteDataSource where
   toPath DeleteDataSource' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/data-sources/",
-        Core.toBS dataSourceId
+        Data.toBS dataSourceId
       ]
 
-instance Core.ToQuery DeleteDataSource where
+instance Data.ToQuery DeleteDataSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDataSourceResponse' smart constructor.

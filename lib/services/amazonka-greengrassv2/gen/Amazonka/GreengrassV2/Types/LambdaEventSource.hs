@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.LambdaEventSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.LambdaEventSourceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,11 +99,11 @@ instance Prelude.NFData LambdaEventSource where
   rnf LambdaEventSource' {..} =
     Prelude.rnf topic `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON LambdaEventSource where
+instance Data.ToJSON LambdaEventSource where
   toJSON LambdaEventSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("topic" Core..= topic),
-            Prelude.Just ("type" Core..= type')
+          [ Prelude.Just ("topic" Data..= topic),
+            Prelude.Just ("type" Data..= type')
           ]
       )

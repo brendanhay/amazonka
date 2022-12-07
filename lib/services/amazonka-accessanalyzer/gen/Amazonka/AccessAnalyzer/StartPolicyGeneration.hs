@@ -44,6 +44,7 @@ where
 import Amazonka.AccessAnalyzer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,7 +138,7 @@ instance Core.AWSRequest StartPolicyGeneration where
       ( \s h x ->
           StartPolicyGenerationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "jobId")
+            Prelude.<*> (x Data..:> "jobId")
       )
 
 instance Prelude.Hashable StartPolicyGeneration where
@@ -152,35 +153,35 @@ instance Prelude.NFData StartPolicyGeneration where
       `Prelude.seq` Prelude.rnf cloudTrailDetails
       `Prelude.seq` Prelude.rnf policyGenerationDetails
 
-instance Core.ToHeaders StartPolicyGeneration where
+instance Data.ToHeaders StartPolicyGeneration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartPolicyGeneration where
+instance Data.ToJSON StartPolicyGeneration where
   toJSON StartPolicyGeneration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("cloudTrailDetails" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("cloudTrailDetails" Data..=)
               Prelude.<$> cloudTrailDetails,
             Prelude.Just
               ( "policyGenerationDetails"
-                  Core..= policyGenerationDetails
+                  Data..= policyGenerationDetails
               )
           ]
       )
 
-instance Core.ToPath StartPolicyGeneration where
+instance Data.ToPath StartPolicyGeneration where
   toPath = Prelude.const "/policy/generation"
 
-instance Core.ToQuery StartPolicyGeneration where
+instance Data.ToQuery StartPolicyGeneration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartPolicyGenerationResponse' smart constructor.

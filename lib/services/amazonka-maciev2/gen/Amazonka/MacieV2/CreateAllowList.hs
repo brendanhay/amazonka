@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,8 +164,8 @@ instance Core.AWSRequest CreateAllowList where
     Response.receiveJSON
       ( \s h x ->
           CreateAllowListResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,33 +185,33 @@ instance Prelude.NFData CreateAllowList where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateAllowList where
+instance Data.ToHeaders CreateAllowList where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAllowList where
+instance Data.ToJSON CreateAllowList where
   toJSON CreateAllowList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("criteria" Core..= criteria),
-            Prelude.Just ("clientToken" Core..= clientToken),
-            Prelude.Just ("name" Core..= name)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("criteria" Data..= criteria),
+            Prelude.Just ("clientToken" Data..= clientToken),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateAllowList where
+instance Data.ToPath CreateAllowList where
   toPath = Prelude.const "/allow-lists"
 
-instance Core.ToQuery CreateAllowList where
+instance Data.ToQuery CreateAllowList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAllowListResponse' smart constructor.

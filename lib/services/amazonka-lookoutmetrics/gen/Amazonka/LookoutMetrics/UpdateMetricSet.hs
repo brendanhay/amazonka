@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -182,7 +183,7 @@ instance Core.AWSRequest UpdateMetricSet where
     Response.receiveJSON
       ( \s h x ->
           UpdateMetricSetResponse'
-            Prelude.<$> (x Core..?> "MetricSetArn")
+            Prelude.<$> (x Data..?> "MetricSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,41 +211,41 @@ instance Prelude.NFData UpdateMetricSet where
       `Prelude.seq` Prelude.rnf metricList
       `Prelude.seq` Prelude.rnf metricSetArn
 
-instance Core.ToHeaders UpdateMetricSet where
+instance Data.ToHeaders UpdateMetricSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMetricSet where
+instance Data.ToJSON UpdateMetricSet where
   toJSON UpdateMetricSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TimestampColumn" Core..=)
+          [ ("TimestampColumn" Data..=)
               Prelude.<$> timestampColumn,
-            ("MetricSetDescription" Core..=)
+            ("MetricSetDescription" Data..=)
               Prelude.<$> metricSetDescription,
-            ("Offset" Core..=) Prelude.<$> offset,
-            ("MetricSource" Core..=) Prelude.<$> metricSource,
-            ("DimensionFilterList" Core..=)
+            ("Offset" Data..=) Prelude.<$> offset,
+            ("MetricSource" Data..=) Prelude.<$> metricSource,
+            ("DimensionFilterList" Data..=)
               Prelude.<$> dimensionFilterList,
-            ("DimensionList" Core..=) Prelude.<$> dimensionList,
-            ("MetricSetFrequency" Core..=)
+            ("DimensionList" Data..=) Prelude.<$> dimensionList,
+            ("MetricSetFrequency" Data..=)
               Prelude.<$> metricSetFrequency,
-            ("MetricList" Core..=) Prelude.<$> metricList,
-            Prelude.Just ("MetricSetArn" Core..= metricSetArn)
+            ("MetricList" Data..=) Prelude.<$> metricList,
+            Prelude.Just ("MetricSetArn" Data..= metricSetArn)
           ]
       )
 
-instance Core.ToPath UpdateMetricSet where
+instance Data.ToPath UpdateMetricSet where
   toPath = Prelude.const "/UpdateMetricSet"
 
-instance Core.ToQuery UpdateMetricSet where
+instance Data.ToQuery UpdateMetricSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMetricSetResponse' smart constructor.

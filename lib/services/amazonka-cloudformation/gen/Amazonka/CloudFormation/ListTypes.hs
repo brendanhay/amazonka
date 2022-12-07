@@ -52,6 +52,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -339,9 +340,9 @@ instance Core.AWSRequest ListTypes where
       "ListTypesResult"
       ( \s h x ->
           ListTypesResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "TypeSummaries" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "TypeSummaries" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -366,26 +367,26 @@ instance Prelude.NFData ListTypes where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf provisioningType
 
-instance Core.ToHeaders ListTypes where
+instance Data.ToHeaders ListTypes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListTypes where
+instance Data.ToPath ListTypes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTypes where
+instance Data.ToQuery ListTypes where
   toQuery ListTypes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListTypes" :: Prelude.ByteString),
+          Data.=: ("ListTypes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "DeprecatedStatus" Core.=: deprecatedStatus,
-        "NextToken" Core.=: nextToken,
-        "Type" Core.=: type',
-        "Filters" Core.=: filters,
-        "Visibility" Core.=: visibility,
-        "MaxResults" Core.=: maxResults,
-        "ProvisioningType" Core.=: provisioningType
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "DeprecatedStatus" Data.=: deprecatedStatus,
+        "NextToken" Data.=: nextToken,
+        "Type" Data.=: type',
+        "Filters" Data.=: filters,
+        "Visibility" Data.=: visibility,
+        "MaxResults" Data.=: maxResults,
+        "ProvisioningType" Data.=: provisioningType
       ]
 
 -- | /See:/ 'newListTypesResponse' smart constructor.

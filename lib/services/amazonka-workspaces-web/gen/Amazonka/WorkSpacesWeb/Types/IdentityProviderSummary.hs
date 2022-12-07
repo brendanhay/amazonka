@@ -21,6 +21,7 @@ module Amazonka.WorkSpacesWeb.Types.IdentityProviderSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkSpacesWeb.Types.IdentityProviderType
 
@@ -31,7 +32,7 @@ data IdentityProviderSummary = IdentityProviderSummary'
   { -- | The identity provider type.
     identityProviderType :: Prelude.Maybe IdentityProviderType,
     -- | The identity provider name.
-    identityProviderName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    identityProviderName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the identity provider.
     identityProviderArn :: Prelude.Maybe Prelude.Text
   }
@@ -66,21 +67,21 @@ identityProviderSummary_identityProviderType = Lens.lens (\IdentityProviderSumma
 
 -- | The identity provider name.
 identityProviderSummary_identityProviderName :: Lens.Lens' IdentityProviderSummary (Prelude.Maybe Prelude.Text)
-identityProviderSummary_identityProviderName = Lens.lens (\IdentityProviderSummary' {identityProviderName} -> identityProviderName) (\s@IdentityProviderSummary' {} a -> s {identityProviderName = a} :: IdentityProviderSummary) Prelude.. Lens.mapping Core._Sensitive
+identityProviderSummary_identityProviderName = Lens.lens (\IdentityProviderSummary' {identityProviderName} -> identityProviderName) (\s@IdentityProviderSummary' {} a -> s {identityProviderName = a} :: IdentityProviderSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the identity provider.
 identityProviderSummary_identityProviderArn :: Lens.Lens' IdentityProviderSummary (Prelude.Maybe Prelude.Text)
 identityProviderSummary_identityProviderArn = Lens.lens (\IdentityProviderSummary' {identityProviderArn} -> identityProviderArn) (\s@IdentityProviderSummary' {} a -> s {identityProviderArn = a} :: IdentityProviderSummary)
 
-instance Core.FromJSON IdentityProviderSummary where
+instance Data.FromJSON IdentityProviderSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityProviderSummary"
       ( \x ->
           IdentityProviderSummary'
-            Prelude.<$> (x Core..:? "identityProviderType")
-            Prelude.<*> (x Core..:? "identityProviderName")
-            Prelude.<*> (x Core..:? "identityProviderArn")
+            Prelude.<$> (x Data..:? "identityProviderType")
+            Prelude.<*> (x Data..:? "identityProviderName")
+            Prelude.<*> (x Data..:? "identityProviderArn")
       )
 
 instance Prelude.Hashable IdentityProviderSummary where

@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -191,18 +192,18 @@ instance Core.AWSRequest CreatePool where
     Response.receiveJSON
       ( \s h x ->
           CreatePoolResponse'
-            Prelude.<$> (x Core..?> "DeletionProtectionEnabled")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PoolArn")
-            Prelude.<*> (x Core..?> "MessageType")
-            Prelude.<*> (x Core..?> "SelfManagedOptOutsEnabled")
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "TwoWayEnabled")
-            Prelude.<*> (x Core..?> "OptOutListName")
-            Prelude.<*> (x Core..?> "PoolId")
-            Prelude.<*> (x Core..?> "TwoWayChannelArn")
-            Prelude.<*> (x Core..?> "SharedRoutesEnabled")
+            Prelude.<$> (x Data..?> "DeletionProtectionEnabled")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PoolArn")
+            Prelude.<*> (x Data..?> "MessageType")
+            Prelude.<*> (x Data..?> "SelfManagedOptOutsEnabled")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "TwoWayEnabled")
+            Prelude.<*> (x Data..?> "OptOutListName")
+            Prelude.<*> (x Data..?> "PoolId")
+            Prelude.<*> (x Data..?> "TwoWayChannelArn")
+            Prelude.<*> (x Data..?> "SharedRoutesEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -225,41 +226,41 @@ instance Prelude.NFData CreatePool where
       `Prelude.seq` Prelude.rnf isoCountryCode
       `Prelude.seq` Prelude.rnf messageType
 
-instance Core.ToHeaders CreatePool where
+instance Data.ToHeaders CreatePool where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.CreatePool" ::
+              Data.=# ( "PinpointSMSVoiceV2.CreatePool" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePool where
+instance Data.ToJSON CreatePool where
   toJSON CreatePool' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeletionProtectionEnabled" Core..=)
+          [ ("DeletionProtectionEnabled" Data..=)
               Prelude.<$> deletionProtectionEnabled,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("OriginationIdentity" Core..= originationIdentity),
+              ("OriginationIdentity" Data..= originationIdentity),
             Prelude.Just
-              ("IsoCountryCode" Core..= isoCountryCode),
-            Prelude.Just ("MessageType" Core..= messageType)
+              ("IsoCountryCode" Data..= isoCountryCode),
+            Prelude.Just ("MessageType" Data..= messageType)
           ]
       )
 
-instance Core.ToPath CreatePool where
+instance Data.ToPath CreatePool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePool where
+instance Data.ToQuery CreatePool where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePoolResponse' smart constructor.
@@ -282,7 +283,7 @@ data CreatePoolResponse = CreatePoolResponse'
     selfManagedOptOutsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The time when the pool was created, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The current status of the pool.
     --
     -- -   CREATING: The pool is currently being created and isn\'t yet
@@ -407,7 +408,7 @@ createPoolResponse_selfManagedOptOutsEnabled = Lens.lens (\CreatePoolResponse' {
 -- | The time when the pool was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 createPoolResponse_createdTimestamp :: Lens.Lens' CreatePoolResponse (Prelude.Maybe Prelude.UTCTime)
-createPoolResponse_createdTimestamp = Lens.lens (\CreatePoolResponse' {createdTimestamp} -> createdTimestamp) (\s@CreatePoolResponse' {} a -> s {createdTimestamp = a} :: CreatePoolResponse) Prelude.. Lens.mapping Core._Time
+createPoolResponse_createdTimestamp = Lens.lens (\CreatePoolResponse' {createdTimestamp} -> createdTimestamp) (\s@CreatePoolResponse' {} a -> s {createdTimestamp = a} :: CreatePoolResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the pool.
 --

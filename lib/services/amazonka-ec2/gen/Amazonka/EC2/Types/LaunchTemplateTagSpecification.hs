@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateTagSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ResourceType
 import Amazonka.EC2.Types.Tag
@@ -65,13 +66,13 @@ launchTemplateTagSpecification_tags = Lens.lens (\LaunchTemplateTagSpecification
 launchTemplateTagSpecification_resourceType :: Lens.Lens' LaunchTemplateTagSpecification (Prelude.Maybe ResourceType)
 launchTemplateTagSpecification_resourceType = Lens.lens (\LaunchTemplateTagSpecification' {resourceType} -> resourceType) (\s@LaunchTemplateTagSpecification' {} a -> s {resourceType = a} :: LaunchTemplateTagSpecification)
 
-instance Core.FromXML LaunchTemplateTagSpecification where
+instance Data.FromXML LaunchTemplateTagSpecification where
   parseXML x =
     LaunchTemplateTagSpecification'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "resourceType")
+      Prelude.<*> (x Data..@? "resourceType")
 
 instance
   Prelude.Hashable

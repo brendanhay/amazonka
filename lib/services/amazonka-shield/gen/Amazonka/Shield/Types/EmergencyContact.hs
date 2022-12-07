@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.EmergencyContact where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contact information that the SRT can use to contact you if you have
@@ -74,15 +75,15 @@ emergencyContact_phoneNumber = Lens.lens (\EmergencyContact' {phoneNumber} -> ph
 emergencyContact_emailAddress :: Lens.Lens' EmergencyContact Prelude.Text
 emergencyContact_emailAddress = Lens.lens (\EmergencyContact' {emailAddress} -> emailAddress) (\s@EmergencyContact' {} a -> s {emailAddress = a} :: EmergencyContact)
 
-instance Core.FromJSON EmergencyContact where
+instance Data.FromJSON EmergencyContact where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EmergencyContact"
       ( \x ->
           EmergencyContact'
-            Prelude.<$> (x Core..:? "ContactNotes")
-            Prelude.<*> (x Core..:? "PhoneNumber")
-            Prelude.<*> (x Core..: "EmailAddress")
+            Prelude.<$> (x Data..:? "ContactNotes")
+            Prelude.<*> (x Data..:? "PhoneNumber")
+            Prelude.<*> (x Data..: "EmailAddress")
       )
 
 instance Prelude.Hashable EmergencyContact where
@@ -97,12 +98,12 @@ instance Prelude.NFData EmergencyContact where
       `Prelude.seq` Prelude.rnf phoneNumber
       `Prelude.seq` Prelude.rnf emailAddress
 
-instance Core.ToJSON EmergencyContact where
+instance Data.ToJSON EmergencyContact where
   toJSON EmergencyContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContactNotes" Core..=) Prelude.<$> contactNotes,
-            ("PhoneNumber" Core..=) Prelude.<$> phoneNumber,
-            Prelude.Just ("EmailAddress" Core..= emailAddress)
+          [ ("ContactNotes" Data..=) Prelude.<$> contactNotes,
+            ("PhoneNumber" Data..=) Prelude.<$> phoneNumber,
+            Prelude.Just ("EmailAddress" Data..= emailAddress)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentity.Types.IdentityDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A description of the identity.
@@ -30,9 +31,9 @@ data IdentityDescription = IdentityDescription'
   { -- | The provider names.
     logins :: Prelude.Maybe [Prelude.Text],
     -- | Date on which the identity was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | Date on which the identity was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | A unique identifier in the format REGION:GUID.
     identityId :: Prelude.Maybe Prelude.Text
   }
@@ -69,26 +70,26 @@ identityDescription_logins = Lens.lens (\IdentityDescription' {logins} -> logins
 
 -- | Date on which the identity was last modified.
 identityDescription_lastModifiedDate :: Lens.Lens' IdentityDescription (Prelude.Maybe Prelude.UTCTime)
-identityDescription_lastModifiedDate = Lens.lens (\IdentityDescription' {lastModifiedDate} -> lastModifiedDate) (\s@IdentityDescription' {} a -> s {lastModifiedDate = a} :: IdentityDescription) Prelude.. Lens.mapping Core._Time
+identityDescription_lastModifiedDate = Lens.lens (\IdentityDescription' {lastModifiedDate} -> lastModifiedDate) (\s@IdentityDescription' {} a -> s {lastModifiedDate = a} :: IdentityDescription) Prelude.. Lens.mapping Data._Time
 
 -- | Date on which the identity was created.
 identityDescription_creationDate :: Lens.Lens' IdentityDescription (Prelude.Maybe Prelude.UTCTime)
-identityDescription_creationDate = Lens.lens (\IdentityDescription' {creationDate} -> creationDate) (\s@IdentityDescription' {} a -> s {creationDate = a} :: IdentityDescription) Prelude.. Lens.mapping Core._Time
+identityDescription_creationDate = Lens.lens (\IdentityDescription' {creationDate} -> creationDate) (\s@IdentityDescription' {} a -> s {creationDate = a} :: IdentityDescription) Prelude.. Lens.mapping Data._Time
 
 -- | A unique identifier in the format REGION:GUID.
 identityDescription_identityId :: Lens.Lens' IdentityDescription (Prelude.Maybe Prelude.Text)
 identityDescription_identityId = Lens.lens (\IdentityDescription' {identityId} -> identityId) (\s@IdentityDescription' {} a -> s {identityId = a} :: IdentityDescription)
 
-instance Core.FromJSON IdentityDescription where
+instance Data.FromJSON IdentityDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityDescription"
       ( \x ->
           IdentityDescription'
-            Prelude.<$> (x Core..:? "Logins" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "IdentityId")
+            Prelude.<$> (x Data..:? "Logins" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "IdentityId")
       )
 
 instance Prelude.Hashable IdentityDescription where

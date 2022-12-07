@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.Scte27DestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Scte27 Destination Settings
@@ -40,9 +41,9 @@ newScte27DestinationSettings ::
 newScte27DestinationSettings =
   Scte27DestinationSettings'
 
-instance Core.FromJSON Scte27DestinationSettings where
+instance Data.FromJSON Scte27DestinationSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scte27DestinationSettings"
       (\x -> Prelude.pure Scte27DestinationSettings')
 
@@ -53,5 +54,5 @@ instance Prelude.Hashable Scte27DestinationSettings where
 instance Prelude.NFData Scte27DestinationSettings where
   rnf _ = ()
 
-instance Core.ToJSON Scte27DestinationSettings where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON Scte27DestinationSettings where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

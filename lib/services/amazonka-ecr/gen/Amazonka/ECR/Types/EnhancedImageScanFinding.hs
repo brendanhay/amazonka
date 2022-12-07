@@ -21,6 +21,7 @@ module Amazonka.ECR.Types.EnhancedImageScanFinding where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types.PackageVulnerabilityDetails
 import Amazonka.ECR.Types.Remediation
 import Amazonka.ECR.Types.Resource
@@ -53,15 +54,15 @@ data EnhancedImageScanFinding = EnhancedImageScanFinding'
     -- | The title of the finding.
     title :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the finding was first observed.
-    firstObservedAt :: Prelude.Maybe Core.POSIX,
+    firstObservedAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the finding was last observed.
-    lastObservedAt :: Prelude.Maybe Core.POSIX,
+    lastObservedAt :: Prelude.Maybe Data.POSIX,
     -- | Contains information on the resources involved in a finding.
     resources :: Prelude.Maybe [Resource],
     -- | The Amazon Resource Number (ARN) of the finding.
     findingArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time the finding was last updated at.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -166,11 +167,11 @@ enhancedImageScanFinding_title = Lens.lens (\EnhancedImageScanFinding' {title} -
 
 -- | The date and time that the finding was first observed.
 enhancedImageScanFinding_firstObservedAt :: Lens.Lens' EnhancedImageScanFinding (Prelude.Maybe Prelude.UTCTime)
-enhancedImageScanFinding_firstObservedAt = Lens.lens (\EnhancedImageScanFinding' {firstObservedAt} -> firstObservedAt) (\s@EnhancedImageScanFinding' {} a -> s {firstObservedAt = a} :: EnhancedImageScanFinding) Prelude.. Lens.mapping Core._Time
+enhancedImageScanFinding_firstObservedAt = Lens.lens (\EnhancedImageScanFinding' {firstObservedAt} -> firstObservedAt) (\s@EnhancedImageScanFinding' {} a -> s {firstObservedAt = a} :: EnhancedImageScanFinding) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the finding was last observed.
 enhancedImageScanFinding_lastObservedAt :: Lens.Lens' EnhancedImageScanFinding (Prelude.Maybe Prelude.UTCTime)
-enhancedImageScanFinding_lastObservedAt = Lens.lens (\EnhancedImageScanFinding' {lastObservedAt} -> lastObservedAt) (\s@EnhancedImageScanFinding' {} a -> s {lastObservedAt = a} :: EnhancedImageScanFinding) Prelude.. Lens.mapping Core._Time
+enhancedImageScanFinding_lastObservedAt = Lens.lens (\EnhancedImageScanFinding' {lastObservedAt} -> lastObservedAt) (\s@EnhancedImageScanFinding' {} a -> s {lastObservedAt = a} :: EnhancedImageScanFinding) Prelude.. Lens.mapping Data._Time
 
 -- | Contains information on the resources involved in a finding.
 enhancedImageScanFinding_resources :: Lens.Lens' EnhancedImageScanFinding (Prelude.Maybe [Resource])
@@ -182,29 +183,29 @@ enhancedImageScanFinding_findingArn = Lens.lens (\EnhancedImageScanFinding' {fin
 
 -- | The date and time the finding was last updated at.
 enhancedImageScanFinding_updatedAt :: Lens.Lens' EnhancedImageScanFinding (Prelude.Maybe Prelude.UTCTime)
-enhancedImageScanFinding_updatedAt = Lens.lens (\EnhancedImageScanFinding' {updatedAt} -> updatedAt) (\s@EnhancedImageScanFinding' {} a -> s {updatedAt = a} :: EnhancedImageScanFinding) Prelude.. Lens.mapping Core._Time
+enhancedImageScanFinding_updatedAt = Lens.lens (\EnhancedImageScanFinding' {updatedAt} -> updatedAt) (\s@EnhancedImageScanFinding' {} a -> s {updatedAt = a} :: EnhancedImageScanFinding) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON EnhancedImageScanFinding where
+instance Data.FromJSON EnhancedImageScanFinding where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnhancedImageScanFinding"
       ( \x ->
           EnhancedImageScanFinding'
-            Prelude.<$> (x Core..:? "awsAccountId")
-            Prelude.<*> (x Core..:? "severity")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "scoreDetails")
-            Prelude.<*> (x Core..:? "remediation")
-            Prelude.<*> (x Core..:? "score")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "packageVulnerabilityDetails")
-            Prelude.<*> (x Core..:? "title")
-            Prelude.<*> (x Core..:? "firstObservedAt")
-            Prelude.<*> (x Core..:? "lastObservedAt")
-            Prelude.<*> (x Core..:? "resources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "findingArn")
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<$> (x Data..:? "awsAccountId")
+            Prelude.<*> (x Data..:? "severity")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "scoreDetails")
+            Prelude.<*> (x Data..:? "remediation")
+            Prelude.<*> (x Data..:? "score")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "packageVulnerabilityDetails")
+            Prelude.<*> (x Data..:? "title")
+            Prelude.<*> (x Data..:? "firstObservedAt")
+            Prelude.<*> (x Data..:? "lastObservedAt")
+            Prelude.<*> (x Data..:? "resources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "findingArn")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable EnhancedImageScanFinding where

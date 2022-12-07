@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.FindingSourceDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Includes details about how the access that generated the finding is
@@ -60,13 +61,13 @@ newFindingSourceDetail =
 findingSourceDetail_accessPointArn :: Lens.Lens' FindingSourceDetail (Prelude.Maybe Prelude.Text)
 findingSourceDetail_accessPointArn = Lens.lens (\FindingSourceDetail' {accessPointArn} -> accessPointArn) (\s@FindingSourceDetail' {} a -> s {accessPointArn = a} :: FindingSourceDetail)
 
-instance Core.FromJSON FindingSourceDetail where
+instance Data.FromJSON FindingSourceDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FindingSourceDetail"
       ( \x ->
           FindingSourceDetail'
-            Prelude.<$> (x Core..:? "accessPointArn")
+            Prelude.<$> (x Data..:? "accessPointArn")
       )
 
 instance Prelude.Hashable FindingSourceDetail where

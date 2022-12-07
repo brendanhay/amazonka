@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,8 +172,8 @@ instance Core.AWSRequest ListAccountAssignments where
     Response.receiveJSON
       ( \s h x ->
           ListAccountAssignmentsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "AccountAssignments"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "AccountAssignments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -194,38 +195,38 @@ instance Prelude.NFData ListAccountAssignments where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf permissionSetArn
 
-instance Core.ToHeaders ListAccountAssignments where
+instance Data.ToHeaders ListAccountAssignments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SWBExternalService.ListAccountAssignments" ::
+              Data.=# ( "SWBExternalService.ListAccountAssignments" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAccountAssignments where
+instance Data.ToJSON ListAccountAssignments where
   toJSON ListAccountAssignments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("InstanceArn" Core..= instanceArn),
-            Prelude.Just ("AccountId" Core..= accountId),
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("InstanceArn" Data..= instanceArn),
+            Prelude.Just ("AccountId" Data..= accountId),
             Prelude.Just
-              ("PermissionSetArn" Core..= permissionSetArn)
+              ("PermissionSetArn" Data..= permissionSetArn)
           ]
       )
 
-instance Core.ToPath ListAccountAssignments where
+instance Data.ToPath ListAccountAssignments where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAccountAssignments where
+instance Data.ToQuery ListAccountAssignments where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAccountAssignmentsResponse' smart constructor.

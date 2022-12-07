@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.CustomerManagedDatastoreS3Storage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | S3-customer-managed; When you choose customer-managed storage, the
@@ -92,17 +93,17 @@ customerManagedDatastoreS3Storage_roleArn :: Lens.Lens' CustomerManagedDatastore
 customerManagedDatastoreS3Storage_roleArn = Lens.lens (\CustomerManagedDatastoreS3Storage' {roleArn} -> roleArn) (\s@CustomerManagedDatastoreS3Storage' {} a -> s {roleArn = a} :: CustomerManagedDatastoreS3Storage)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomerManagedDatastoreS3Storage
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomerManagedDatastoreS3Storage"
       ( \x ->
           CustomerManagedDatastoreS3Storage'
-            Prelude.<$> (x Core..:? "keyPrefix")
-            Prelude.<*> (x Core..: "bucket")
-            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Data..:? "keyPrefix")
+            Prelude.<*> (x Data..: "bucket")
+            Prelude.<*> (x Data..: "roleArn")
       )
 
 instance
@@ -126,14 +127,14 @@ instance
       `Prelude.seq` Prelude.rnf roleArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CustomerManagedDatastoreS3Storage
   where
   toJSON CustomerManagedDatastoreS3Storage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("keyPrefix" Core..=) Prelude.<$> keyPrefix,
-            Prelude.Just ("bucket" Core..= bucket),
-            Prelude.Just ("roleArn" Core..= roleArn)
+          [ ("keyPrefix" Data..=) Prelude.<$> keyPrefix,
+            Prelude.Just ("bucket" Data..= bucket),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )

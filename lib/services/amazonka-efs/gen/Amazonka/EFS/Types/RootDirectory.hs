@@ -21,6 +21,7 @@ module Amazonka.EFS.Types.RootDirectory where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types.CreationInfo
 import qualified Amazonka.Prelude as Prelude
 
@@ -103,14 +104,14 @@ rootDirectory_creationInfo = Lens.lens (\RootDirectory' {creationInfo} -> creati
 rootDirectory_path :: Lens.Lens' RootDirectory (Prelude.Maybe Prelude.Text)
 rootDirectory_path = Lens.lens (\RootDirectory' {path} -> path) (\s@RootDirectory' {} a -> s {path = a} :: RootDirectory)
 
-instance Core.FromJSON RootDirectory where
+instance Data.FromJSON RootDirectory where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RootDirectory"
       ( \x ->
           RootDirectory'
-            Prelude.<$> (x Core..:? "CreationInfo")
-            Prelude.<*> (x Core..:? "Path")
+            Prelude.<$> (x Data..:? "CreationInfo")
+            Prelude.<*> (x Data..:? "Path")
       )
 
 instance Prelude.Hashable RootDirectory where
@@ -123,11 +124,11 @@ instance Prelude.NFData RootDirectory where
     Prelude.rnf creationInfo
       `Prelude.seq` Prelude.rnf path
 
-instance Core.ToJSON RootDirectory where
+instance Data.ToJSON RootDirectory where
   toJSON RootDirectory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CreationInfo" Core..=) Prelude.<$> creationInfo,
-            ("Path" Core..=) Prelude.<$> path
+          [ ("CreationInfo" Data..=) Prelude.<$> creationInfo,
+            ("Path" Data..=) Prelude.<$> path
           ]
       )

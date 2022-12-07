@@ -23,6 +23,7 @@ import Amazonka.AppMesh.Types.GatewayRouteHostnameMatch
 import Amazonka.AppMesh.Types.GrpcGatewayRouteMetadata
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the criteria for determining a request match.
@@ -84,16 +85,16 @@ grpcGatewayRouteMatch_hostname = Lens.lens (\GrpcGatewayRouteMatch' {hostname} -
 grpcGatewayRouteMatch_serviceName :: Lens.Lens' GrpcGatewayRouteMatch (Prelude.Maybe Prelude.Text)
 grpcGatewayRouteMatch_serviceName = Lens.lens (\GrpcGatewayRouteMatch' {serviceName} -> serviceName) (\s@GrpcGatewayRouteMatch' {} a -> s {serviceName = a} :: GrpcGatewayRouteMatch)
 
-instance Core.FromJSON GrpcGatewayRouteMatch where
+instance Data.FromJSON GrpcGatewayRouteMatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GrpcGatewayRouteMatch"
       ( \x ->
           GrpcGatewayRouteMatch'
-            Prelude.<$> (x Core..:? "port")
-            Prelude.<*> (x Core..:? "metadata")
-            Prelude.<*> (x Core..:? "hostname")
-            Prelude.<*> (x Core..:? "serviceName")
+            Prelude.<$> (x Data..:? "port")
+            Prelude.<*> (x Data..:? "metadata")
+            Prelude.<*> (x Data..:? "hostname")
+            Prelude.<*> (x Data..:? "serviceName")
       )
 
 instance Prelude.Hashable GrpcGatewayRouteMatch where
@@ -110,13 +111,13 @@ instance Prelude.NFData GrpcGatewayRouteMatch where
       `Prelude.seq` Prelude.rnf hostname
       `Prelude.seq` Prelude.rnf serviceName
 
-instance Core.ToJSON GrpcGatewayRouteMatch where
+instance Data.ToJSON GrpcGatewayRouteMatch where
   toJSON GrpcGatewayRouteMatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("port" Core..=) Prelude.<$> port,
-            ("metadata" Core..=) Prelude.<$> metadata,
-            ("hostname" Core..=) Prelude.<$> hostname,
-            ("serviceName" Core..=) Prelude.<$> serviceName
+          [ ("port" Data..=) Prelude.<$> port,
+            ("metadata" Data..=) Prelude.<$> metadata,
+            ("hostname" Data..=) Prelude.<$> hostname,
+            ("serviceName" Data..=) Prelude.<$> serviceName
           ]
       )

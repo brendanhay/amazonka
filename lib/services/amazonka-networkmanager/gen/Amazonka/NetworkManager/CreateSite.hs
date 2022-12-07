@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -66,7 +67,7 @@ data CreateSite = CreateSite'
     -- -   @Latitude@: The latitude of the site.
     --
     -- -   @Longitude@: The longitude of the site.
-    location :: Prelude.Maybe (Core.Sensitive Location),
+    location :: Prelude.Maybe (Data.Sensitive Location),
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text
   }
@@ -129,7 +130,7 @@ createSite_description = Lens.lens (\CreateSite' {description} -> description) (
 --
 -- -   @Longitude@: The longitude of the site.
 createSite_location :: Lens.Lens' CreateSite (Prelude.Maybe Location)
-createSite_location = Lens.lens (\CreateSite' {location} -> location) (\s@CreateSite' {} a -> s {location = a} :: CreateSite) Prelude.. Lens.mapping Core._Sensitive
+createSite_location = Lens.lens (\CreateSite' {location} -> location) (\s@CreateSite' {} a -> s {location = a} :: CreateSite) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the global network.
 createSite_globalNetworkId :: Lens.Lens' CreateSite Prelude.Text
@@ -143,7 +144,7 @@ instance Core.AWSRequest CreateSite where
     Response.receiveJSON
       ( \s h x ->
           CreateSiteResponse'
-            Prelude.<$> (x Core..?> "Site")
+            Prelude.<$> (x Data..?> "Site")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,36 +162,36 @@ instance Prelude.NFData CreateSite where
       `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf globalNetworkId
 
-instance Core.ToHeaders CreateSite where
+instance Data.ToHeaders CreateSite where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSite where
+instance Data.ToJSON CreateSite where
   toJSON CreateSite' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Location" Core..=) Prelude.<$> location
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Location" Data..=) Prelude.<$> location
           ]
       )
 
-instance Core.ToPath CreateSite where
+instance Data.ToPath CreateSite where
   toPath CreateSite' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/sites"
       ]
 
-instance Core.ToQuery CreateSite where
+instance Data.ToQuery CreateSite where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSiteResponse' smart constructor.

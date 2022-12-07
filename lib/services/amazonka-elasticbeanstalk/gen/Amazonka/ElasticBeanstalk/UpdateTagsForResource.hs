@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,26 +158,26 @@ instance Prelude.NFData UpdateTagsForResource where
       `Prelude.seq` Prelude.rnf tagsToRemove
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders UpdateTagsForResource where
+instance Data.ToHeaders UpdateTagsForResource where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateTagsForResource where
+instance Data.ToPath UpdateTagsForResource where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTagsForResource where
+instance Data.ToQuery UpdateTagsForResource where
   toQuery UpdateTagsForResource' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateTagsForResource" :: Prelude.ByteString),
+          Data.=: ("UpdateTagsForResource" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
         "TagsToAdd"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tagsToAdd),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tagsToAdd),
         "TagsToRemove"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tagsToRemove),
-        "ResourceArn" Core.=: resourceArn
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tagsToRemove),
+        "ResourceArn" Data.=: resourceArn
       ]
 
 -- | /See:/ 'newUpdateTagsForResourceResponse' smart constructor.

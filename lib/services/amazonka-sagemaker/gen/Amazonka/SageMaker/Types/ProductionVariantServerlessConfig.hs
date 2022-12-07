@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ProductionVariantServerlessConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the serverless configuration for an endpoint variant.
@@ -75,16 +76,16 @@ productionVariantServerlessConfig_maxConcurrency :: Lens.Lens' ProductionVariant
 productionVariantServerlessConfig_maxConcurrency = Lens.lens (\ProductionVariantServerlessConfig' {maxConcurrency} -> maxConcurrency) (\s@ProductionVariantServerlessConfig' {} a -> s {maxConcurrency = a} :: ProductionVariantServerlessConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ProductionVariantServerlessConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProductionVariantServerlessConfig"
       ( \x ->
           ProductionVariantServerlessConfig'
-            Prelude.<$> (x Core..: "MemorySizeInMB")
-            Prelude.<*> (x Core..: "MaxConcurrency")
+            Prelude.<$> (x Data..: "MemorySizeInMB")
+            Prelude.<*> (x Data..: "MaxConcurrency")
       )
 
 instance
@@ -106,15 +107,15 @@ instance
       `Prelude.seq` Prelude.rnf maxConcurrency
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ProductionVariantServerlessConfig
   where
   toJSON ProductionVariantServerlessConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("MemorySizeInMB" Core..= memorySizeInMB),
+              ("MemorySizeInMB" Data..= memorySizeInMB),
             Prelude.Just
-              ("MaxConcurrency" Core..= maxConcurrency)
+              ("MaxConcurrency" Data..= maxConcurrency)
           ]
       )

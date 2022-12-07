@@ -21,6 +21,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlExposeHeaders
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of HTTP headers that CloudFront includes as values for the
@@ -72,15 +73,15 @@ responseHeadersPolicyAccessControlExposeHeaders_quantity :: Lens.Lens' ResponseH
 responseHeadersPolicyAccessControlExposeHeaders_quantity = Lens.lens (\ResponseHeadersPolicyAccessControlExposeHeaders' {quantity} -> quantity) (\s@ResponseHeadersPolicyAccessControlExposeHeaders' {} a -> s {quantity = a} :: ResponseHeadersPolicyAccessControlExposeHeaders)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ResponseHeadersPolicyAccessControlExposeHeaders
   where
   parseXML x =
     ResponseHeadersPolicyAccessControlExposeHeaders'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Header")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Header")
                   )
-        Prelude.<*> (x Core..@ "Quantity")
+        Prelude.<*> (x Data..@ "Quantity")
 
 instance
   Prelude.Hashable
@@ -102,14 +103,14 @@ instance
         `Prelude.seq` Prelude.rnf quantity
 
 instance
-  Core.ToXML
+  Data.ToXML
     ResponseHeadersPolicyAccessControlExposeHeaders
   where
   toXML
     ResponseHeadersPolicyAccessControlExposeHeaders' {..} =
       Prelude.mconcat
         [ "Items"
-            Core.@= Core.toXML
-              (Core.toXMLList "Header" Prelude.<$> items),
-          "Quantity" Core.@= quantity
+            Data.@= Data.toXML
+              (Data.toXMLList "Header" Prelude.<$> items),
+          "Quantity" Data.@= quantity
         ]

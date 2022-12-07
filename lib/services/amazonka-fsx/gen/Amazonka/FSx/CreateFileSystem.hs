@@ -94,6 +94,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -489,7 +490,7 @@ instance Core.AWSRequest CreateFileSystem where
     Response.receiveJSON
       ( \s h x ->
           CreateFileSystemResponse'
-            Prelude.<$> (x Core..?> "FileSystem")
+            Prelude.<$> (x Data..?> "FileSystem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -525,54 +526,54 @@ instance Prelude.NFData CreateFileSystem where
       `Prelude.seq` Prelude.rnf storageCapacity
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToHeaders CreateFileSystem where
+instance Data.ToHeaders CreateFileSystem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.CreateFileSystem" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.CreateFileSystem" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFileSystem where
+instance Data.ToJSON CreateFileSystem where
   toJSON CreateFileSystem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("FileSystemTypeVersion" Core..=)
+            ("FileSystemTypeVersion" Data..=)
               Prelude.<$> fileSystemTypeVersion,
-            ("SecurityGroupIds" Core..=)
+            ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("OpenZFSConfiguration" Core..=)
+            ("OpenZFSConfiguration" Data..=)
               Prelude.<$> openZFSConfiguration,
-            ("StorageType" Core..=) Prelude.<$> storageType,
-            ("OntapConfiguration" Core..=)
+            ("StorageType" Data..=) Prelude.<$> storageType,
+            ("OntapConfiguration" Data..=)
               Prelude.<$> ontapConfiguration,
-            ("WindowsConfiguration" Core..=)
+            ("WindowsConfiguration" Data..=)
               Prelude.<$> windowsConfiguration,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("LustreConfiguration" Core..=)
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("LustreConfiguration" Data..=)
               Prelude.<$> lustreConfiguration,
             Prelude.Just
-              ("FileSystemType" Core..= fileSystemType),
+              ("FileSystemType" Data..= fileSystemType),
             Prelude.Just
-              ("StorageCapacity" Core..= storageCapacity),
-            Prelude.Just ("SubnetIds" Core..= subnetIds)
+              ("StorageCapacity" Data..= storageCapacity),
+            Prelude.Just ("SubnetIds" Data..= subnetIds)
           ]
       )
 
-instance Core.ToPath CreateFileSystem where
+instance Data.ToPath CreateFileSystem where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFileSystem where
+instance Data.ToQuery CreateFileSystem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response object returned after the file system is created.

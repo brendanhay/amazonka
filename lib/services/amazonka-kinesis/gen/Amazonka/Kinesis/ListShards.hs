@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,7 +132,7 @@ data ListShards = ListShards'
     --
     -- You cannot specify this parameter if you specify the @NextToken@
     -- parameter.
-    streamCreationTimestamp :: Prelude.Maybe Core.POSIX,
+    streamCreationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of shards to return in a single call to @ListShards@.
     -- The maximum number of shards to return in a single call. The default
     -- value is 1000. If you specify a value greater than 1000, at most 1000
@@ -316,7 +317,7 @@ listShards_shardFilter = Lens.lens (\ListShards' {shardFilter} -> shardFilter) (
 -- You cannot specify this parameter if you specify the @NextToken@
 -- parameter.
 listShards_streamCreationTimestamp :: Lens.Lens' ListShards (Prelude.Maybe Prelude.UTCTime)
-listShards_streamCreationTimestamp = Lens.lens (\ListShards' {streamCreationTimestamp} -> streamCreationTimestamp) (\s@ListShards' {} a -> s {streamCreationTimestamp = a} :: ListShards) Prelude.. Lens.mapping Core._Time
+listShards_streamCreationTimestamp = Lens.lens (\ListShards' {streamCreationTimestamp} -> streamCreationTimestamp) (\s@ListShards' {} a -> s {streamCreationTimestamp = a} :: ListShards) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of shards to return in a single call to @ListShards@.
 -- The maximum number of shards to return in a single call. The default
@@ -363,8 +364,8 @@ instance Core.AWSRequest ListShards where
     Response.receiveJSON
       ( \s h x ->
           ListShardsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Shards" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Shards" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -386,40 +387,40 @@ instance Prelude.NFData ListShards where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf streamName
 
-instance Core.ToHeaders ListShards where
+instance Data.ToHeaders ListShards where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.ListShards" ::
+              Data.=# ( "Kinesis_20131202.ListShards" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListShards where
+instance Data.ToJSON ListShards where
   toJSON ListShards' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ExclusiveStartShardId" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ExclusiveStartShardId" Data..=)
               Prelude.<$> exclusiveStartShardId,
-            ("ShardFilter" Core..=) Prelude.<$> shardFilter,
-            ("StreamCreationTimestamp" Core..=)
+            ("ShardFilter" Data..=) Prelude.<$> shardFilter,
+            ("StreamCreationTimestamp" Data..=)
               Prelude.<$> streamCreationTimestamp,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StreamName" Core..=) Prelude.<$> streamName
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StreamName" Data..=) Prelude.<$> streamName
           ]
       )
 
-instance Core.ToPath ListShards where
+instance Data.ToPath ListShards where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListShards where
+instance Data.ToQuery ListShards where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListShardsResponse' smart constructor.

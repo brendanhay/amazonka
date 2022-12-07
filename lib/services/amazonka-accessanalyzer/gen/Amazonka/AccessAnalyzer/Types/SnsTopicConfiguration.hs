@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.SnsTopicConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The proposed access control configuration for an Amazon SNS topic. You
@@ -72,13 +73,13 @@ newSnsTopicConfiguration =
 snsTopicConfiguration_topicPolicy :: Lens.Lens' SnsTopicConfiguration (Prelude.Maybe Prelude.Text)
 snsTopicConfiguration_topicPolicy = Lens.lens (\SnsTopicConfiguration' {topicPolicy} -> topicPolicy) (\s@SnsTopicConfiguration' {} a -> s {topicPolicy = a} :: SnsTopicConfiguration)
 
-instance Core.FromJSON SnsTopicConfiguration where
+instance Data.FromJSON SnsTopicConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SnsTopicConfiguration"
       ( \x ->
           SnsTopicConfiguration'
-            Prelude.<$> (x Core..:? "topicPolicy")
+            Prelude.<$> (x Data..:? "topicPolicy")
       )
 
 instance Prelude.Hashable SnsTopicConfiguration where
@@ -89,9 +90,9 @@ instance Prelude.NFData SnsTopicConfiguration where
   rnf SnsTopicConfiguration' {..} =
     Prelude.rnf topicPolicy
 
-instance Core.ToJSON SnsTopicConfiguration where
+instance Data.ToJSON SnsTopicConfiguration where
   toJSON SnsTopicConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("topicPolicy" Core..=) Prelude.<$> topicPolicy]
+          [("topicPolicy" Data..=) Prelude.<$> topicPolicy]
       )

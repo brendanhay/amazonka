@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.PerformanceInsightsMetricDimensionGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A logical grouping of Performance Insights metrics for a related subject
@@ -324,17 +325,17 @@ performanceInsightsMetricDimensionGroup_group :: Lens.Lens' PerformanceInsightsM
 performanceInsightsMetricDimensionGroup_group = Lens.lens (\PerformanceInsightsMetricDimensionGroup' {group'} -> group') (\s@PerformanceInsightsMetricDimensionGroup' {} a -> s {group' = a} :: PerformanceInsightsMetricDimensionGroup)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PerformanceInsightsMetricDimensionGroup
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PerformanceInsightsMetricDimensionGroup"
       ( \x ->
           PerformanceInsightsMetricDimensionGroup'
-            Prelude.<$> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Limit")
-            Prelude.<*> (x Core..:? "Group")
+            Prelude.<$> (x Data..:? "Dimensions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Limit")
+            Prelude.<*> (x Data..:? "Group")
       )
 
 instance

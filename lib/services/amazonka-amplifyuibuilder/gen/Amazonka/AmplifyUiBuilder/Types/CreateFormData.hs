@@ -27,6 +27,7 @@ import Amazonka.AmplifyUiBuilder.Types.FormStyle
 import Amazonka.AmplifyUiBuilder.Types.SectionalElement
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents all of the information that is required to create a form.
@@ -175,20 +176,20 @@ instance Prelude.NFData CreateFormData where
       `Prelude.seq` Prelude.rnf sectionalElements
       `Prelude.seq` Prelude.rnf style
 
-instance Core.ToJSON CreateFormData where
+instance Data.ToJSON CreateFormData where
   toJSON CreateFormData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("cta" Core..=) Prelude.<$> cta,
-            Prelude.Just ("dataType" Core..= dataType),
-            Prelude.Just ("fields" Core..= fields),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("cta" Data..=) Prelude.<$> cta,
+            Prelude.Just ("dataType" Data..= dataType),
+            Prelude.Just ("fields" Data..= fields),
             Prelude.Just
-              ("formActionType" Core..= formActionType),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("schemaVersion" Core..= schemaVersion),
+              ("formActionType" Data..= formActionType),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("schemaVersion" Data..= schemaVersion),
             Prelude.Just
-              ("sectionalElements" Core..= sectionalElements),
-            Prelude.Just ("style" Core..= style)
+              ("sectionalElements" Data..= sectionalElements),
+            Prelude.Just ("style" Data..= style)
           ]
       )

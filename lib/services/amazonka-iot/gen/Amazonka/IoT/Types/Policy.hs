@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.Policy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an IoT policy.
@@ -61,14 +62,14 @@ policy_policyName = Lens.lens (\Policy' {policyName} -> policyName) (\s@Policy' 
 policy_policyArn :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
 policy_policyArn = Lens.lens (\Policy' {policyArn} -> policyArn) (\s@Policy' {} a -> s {policyArn = a} :: Policy)
 
-instance Core.FromJSON Policy where
+instance Data.FromJSON Policy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Policy"
       ( \x ->
           Policy'
-            Prelude.<$> (x Core..:? "policyName")
-            Prelude.<*> (x Core..:? "policyArn")
+            Prelude.<$> (x Data..:? "policyName")
+            Prelude.<*> (x Data..:? "policyArn")
       )
 
 instance Prelude.Hashable Policy where

@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.ChoiceUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.ChoiceReason
 import Amazonka.WellArchitected.Types.ChoiceStatus
@@ -89,12 +90,12 @@ instance Prelude.NFData ChoiceUpdate where
       `Prelude.seq` Prelude.rnf notes
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToJSON ChoiceUpdate where
+instance Data.ToJSON ChoiceUpdate where
   toJSON ChoiceUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Reason" Core..=) Prelude.<$> reason,
-            ("Notes" Core..=) Prelude.<$> notes,
-            Prelude.Just ("Status" Core..= status)
+          [ ("Reason" Data..=) Prelude.<$> reason,
+            ("Notes" Data..=) Prelude.<$> notes,
+            Prelude.Just ("Status" Data..= status)
           ]
       )

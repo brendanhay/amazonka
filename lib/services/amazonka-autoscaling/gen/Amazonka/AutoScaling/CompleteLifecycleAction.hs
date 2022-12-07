@@ -75,6 +75,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -194,25 +195,25 @@ instance Prelude.NFData CompleteLifecycleAction where
       `Prelude.seq` Prelude.rnf autoScalingGroupName
       `Prelude.seq` Prelude.rnf lifecycleActionResult
 
-instance Core.ToHeaders CompleteLifecycleAction where
+instance Data.ToHeaders CompleteLifecycleAction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CompleteLifecycleAction where
+instance Data.ToPath CompleteLifecycleAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CompleteLifecycleAction where
+instance Data.ToQuery CompleteLifecycleAction where
   toQuery CompleteLifecycleAction' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CompleteLifecycleAction" :: Prelude.ByteString),
+          Data.=: ("CompleteLifecycleAction" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "LifecycleActionToken" Core.=: lifecycleActionToken,
-        "InstanceId" Core.=: instanceId,
-        "LifecycleHookName" Core.=: lifecycleHookName,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "LifecycleActionToken" Data.=: lifecycleActionToken,
+        "InstanceId" Data.=: instanceId,
+        "LifecycleHookName" Data.=: lifecycleHookName,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
         "LifecycleActionResult"
-          Core.=: lifecycleActionResult
+          Data.=: lifecycleActionResult
       ]
 
 -- | /See:/ 'newCompleteLifecycleActionResponse' smart constructor.

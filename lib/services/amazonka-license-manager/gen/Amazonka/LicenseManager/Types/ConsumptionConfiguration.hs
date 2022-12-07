@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.ConsumptionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.BorrowConfiguration
 import Amazonka.LicenseManager.Types.ProvisionalConfiguration
 import Amazonka.LicenseManager.Types.RenewType
@@ -74,15 +75,15 @@ consumptionConfiguration_borrowConfiguration = Lens.lens (\ConsumptionConfigurat
 consumptionConfiguration_provisionalConfiguration :: Lens.Lens' ConsumptionConfiguration (Prelude.Maybe ProvisionalConfiguration)
 consumptionConfiguration_provisionalConfiguration = Lens.lens (\ConsumptionConfiguration' {provisionalConfiguration} -> provisionalConfiguration) (\s@ConsumptionConfiguration' {} a -> s {provisionalConfiguration = a} :: ConsumptionConfiguration)
 
-instance Core.FromJSON ConsumptionConfiguration where
+instance Data.FromJSON ConsumptionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConsumptionConfiguration"
       ( \x ->
           ConsumptionConfiguration'
-            Prelude.<$> (x Core..:? "RenewType")
-            Prelude.<*> (x Core..:? "BorrowConfiguration")
-            Prelude.<*> (x Core..:? "ProvisionalConfiguration")
+            Prelude.<$> (x Data..:? "RenewType")
+            Prelude.<*> (x Data..:? "BorrowConfiguration")
+            Prelude.<*> (x Data..:? "ProvisionalConfiguration")
       )
 
 instance Prelude.Hashable ConsumptionConfiguration where
@@ -97,14 +98,14 @@ instance Prelude.NFData ConsumptionConfiguration where
       `Prelude.seq` Prelude.rnf borrowConfiguration
       `Prelude.seq` Prelude.rnf provisionalConfiguration
 
-instance Core.ToJSON ConsumptionConfiguration where
+instance Data.ToJSON ConsumptionConfiguration where
   toJSON ConsumptionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RenewType" Core..=) Prelude.<$> renewType,
-            ("BorrowConfiguration" Core..=)
+          [ ("RenewType" Data..=) Prelude.<$> renewType,
+            ("BorrowConfiguration" Data..=)
               Prelude.<$> borrowConfiguration,
-            ("ProvisionalConfiguration" Core..=)
+            ("ProvisionalConfiguration" Data..=)
               Prelude.<$> provisionalConfiguration
           ]
       )

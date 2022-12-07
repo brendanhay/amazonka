@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -161,9 +162,9 @@ instance Core.AWSRequest ListServiceTemplateVersions where
     Response.receiveJSON
       ( \s h x ->
           ListServiceTemplateVersionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "templateVersions"
+            Prelude.<*> ( x Data..?> "templateVersions"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -182,36 +183,36 @@ instance Prelude.NFData ListServiceTemplateVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToHeaders ListServiceTemplateVersions where
+instance Data.ToHeaders ListServiceTemplateVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.ListServiceTemplateVersions" ::
+              Data.=# ( "AwsProton20200720.ListServiceTemplateVersions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListServiceTemplateVersions where
+instance Data.ToJSON ListServiceTemplateVersions where
   toJSON ListServiceTemplateVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("majorVersion" Core..=) Prelude.<$> majorVersion,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("templateName" Core..= templateName)
+          [ ("majorVersion" Data..=) Prelude.<$> majorVersion,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("templateName" Data..= templateName)
           ]
       )
 
-instance Core.ToPath ListServiceTemplateVersions where
+instance Data.ToPath ListServiceTemplateVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListServiceTemplateVersions where
+instance Data.ToQuery ListServiceTemplateVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListServiceTemplateVersionsResponse' smart constructor.

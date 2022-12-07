@@ -91,6 +91,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -476,7 +477,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateMatchmakingConfigurationResponse'
-            Prelude.<$> (x Core..?> "Configuration")
+            Prelude.<$> (x Data..?> "Configuration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -525,60 +526,60 @@ instance
       `Prelude.seq` Prelude.rnf ruleSetName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateMatchmakingConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.CreateMatchmakingConfiguration" ::
+              Data.=# ( "GameLift.CreateMatchmakingConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateMatchmakingConfiguration where
+instance Data.ToJSON CreateMatchmakingConfiguration where
   toJSON CreateMatchmakingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("NotificationTarget" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("NotificationTarget" Data..=)
               Prelude.<$> notificationTarget,
-            ("AcceptanceTimeoutSeconds" Core..=)
+            ("AcceptanceTimeoutSeconds" Data..=)
               Prelude.<$> acceptanceTimeoutSeconds,
-            ("AdditionalPlayerCount" Core..=)
+            ("AdditionalPlayerCount" Data..=)
               Prelude.<$> additionalPlayerCount,
-            ("GameSessionData" Core..=)
+            ("GameSessionData" Data..=)
               Prelude.<$> gameSessionData,
-            ("FlexMatchMode" Core..=) Prelude.<$> flexMatchMode,
-            ("Description" Core..=) Prelude.<$> description,
-            ("BackfillMode" Core..=) Prelude.<$> backfillMode,
-            ("GameSessionQueueArns" Core..=)
+            ("FlexMatchMode" Data..=) Prelude.<$> flexMatchMode,
+            ("Description" Data..=) Prelude.<$> description,
+            ("BackfillMode" Data..=) Prelude.<$> backfillMode,
+            ("GameSessionQueueArns" Data..=)
               Prelude.<$> gameSessionQueueArns,
-            ("GameProperties" Core..=)
+            ("GameProperties" Data..=)
               Prelude.<$> gameProperties,
-            ("CustomEventData" Core..=)
+            ("CustomEventData" Data..=)
               Prelude.<$> customEventData,
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ( "RequestTimeoutSeconds"
-                  Core..= requestTimeoutSeconds
+                  Data..= requestTimeoutSeconds
               ),
             Prelude.Just
-              ("AcceptanceRequired" Core..= acceptanceRequired),
-            Prelude.Just ("RuleSetName" Core..= ruleSetName)
+              ("AcceptanceRequired" Data..= acceptanceRequired),
+            Prelude.Just ("RuleSetName" Data..= ruleSetName)
           ]
       )
 
-instance Core.ToPath CreateMatchmakingConfiguration where
+instance Data.ToPath CreateMatchmakingConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateMatchmakingConfiguration where
+instance Data.ToQuery CreateMatchmakingConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.

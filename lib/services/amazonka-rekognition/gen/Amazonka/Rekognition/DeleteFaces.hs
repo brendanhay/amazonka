@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest DeleteFaces where
     Response.receiveJSON
       ( \s h x ->
           DeleteFacesResponse'
-            Prelude.<$> (x Core..?> "DeletedFaces")
+            Prelude.<$> (x Data..?> "DeletedFaces")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,34 +114,34 @@ instance Prelude.NFData DeleteFaces where
     Prelude.rnf collectionId
       `Prelude.seq` Prelude.rnf faceIds
 
-instance Core.ToHeaders DeleteFaces where
+instance Data.ToHeaders DeleteFaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RekognitionService.DeleteFaces" ::
+              Data.=# ( "RekognitionService.DeleteFaces" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteFaces where
+instance Data.ToJSON DeleteFaces where
   toJSON DeleteFaces' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("CollectionId" Core..= collectionId),
-            Prelude.Just ("FaceIds" Core..= faceIds)
+          [ Prelude.Just ("CollectionId" Data..= collectionId),
+            Prelude.Just ("FaceIds" Data..= faceIds)
           ]
       )
 
-instance Core.ToPath DeleteFaces where
+instance Data.ToPath DeleteFaces where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteFaces where
+instance Data.ToQuery DeleteFaces where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFacesResponse' smart constructor.

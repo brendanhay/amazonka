@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetSubject where
     Response.receiveJSON
       ( \s h x ->
           GetSubjectResponse'
-            Prelude.<$> (x Core..?> "subject")
+            Prelude.<$> (x Data..?> "subject")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,22 +99,22 @@ instance Prelude.Hashable GetSubject where
 instance Prelude.NFData GetSubject where
   rnf GetSubject' {..} = Prelude.rnf subjectId
 
-instance Core.ToHeaders GetSubject where
+instance Data.ToHeaders GetSubject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSubject where
+instance Data.ToPath GetSubject where
   toPath GetSubject' {..} =
-    Prelude.mconcat ["/subject/", Core.toBS subjectId]
+    Prelude.mconcat ["/subject/", Data.toBS subjectId]
 
-instance Core.ToQuery GetSubject where
+instance Data.ToQuery GetSubject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSubjectResponse' smart constructor.

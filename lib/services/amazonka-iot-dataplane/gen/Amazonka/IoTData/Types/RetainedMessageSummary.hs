@@ -21,6 +21,7 @@ module Amazonka.IoTData.Types.RetainedMessageSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a single retained message.
@@ -83,16 +84,16 @@ retainedMessageSummary_qos = Lens.lens (\RetainedMessageSummary' {qos} -> qos) (
 retainedMessageSummary_topic :: Lens.Lens' RetainedMessageSummary (Prelude.Maybe Prelude.Text)
 retainedMessageSummary_topic = Lens.lens (\RetainedMessageSummary' {topic} -> topic) (\s@RetainedMessageSummary' {} a -> s {topic = a} :: RetainedMessageSummary)
 
-instance Core.FromJSON RetainedMessageSummary where
+instance Data.FromJSON RetainedMessageSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RetainedMessageSummary"
       ( \x ->
           RetainedMessageSummary'
-            Prelude.<$> (x Core..:? "payloadSize")
-            Prelude.<*> (x Core..:? "lastModifiedTime")
-            Prelude.<*> (x Core..:? "qos")
-            Prelude.<*> (x Core..:? "topic")
+            Prelude.<$> (x Data..:? "payloadSize")
+            Prelude.<*> (x Data..:? "lastModifiedTime")
+            Prelude.<*> (x Data..:? "qos")
+            Prelude.<*> (x Data..:? "topic")
       )
 
 instance Prelude.Hashable RetainedMessageSummary where

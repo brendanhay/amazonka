@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.MetricMonitorConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types.MetricDefinitionConfig
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,11 +66,11 @@ instance Prelude.NFData MetricMonitorConfig where
   rnf MetricMonitorConfig' {..} =
     Prelude.rnf metricDefinition
 
-instance Core.ToJSON MetricMonitorConfig where
+instance Data.ToJSON MetricMonitorConfig where
   toJSON MetricMonitorConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("metricDefinition" Core..= metricDefinition)
+              ("metricDefinition" Data..= metricDefinition)
           ]
       )

@@ -101,6 +101,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -200,7 +201,7 @@ data CreateSecret = CreateSecret'
     -- Either @SecretString@ or @SecretBinary@ must have a value, but not both.
     --
     -- This parameter is not available in the Secrets Manager console.
-    secretBinary :: Prelude.Maybe (Core.Sensitive Core.Base64),
+    secretBinary :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
     -- encrypt the secret value in the secret. An alias is always prefixed by
     -- @alias\/@, for example @alias\/aws\/secretsmanager@. For more
@@ -230,7 +231,7 @@ data CreateSecret = CreateSecret'
     -- Manager puts the protected secret text in only the @SecretString@
     -- parameter. The Secrets Manager console stores the information as a JSON
     -- structure of key\/value pairs that a Lambda rotation function can parse.
-    secretString :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    secretString :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the new secret.
     --
     -- The secret name can contain ASCII letters, numbers, and the following
@@ -512,7 +513,7 @@ createSecret_description = Lens.lens (\CreateSecret' {description} -> descriptio
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 createSecret_secretBinary :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.ByteString)
-createSecret_secretBinary = Lens.lens (\CreateSecret' {secretBinary} -> secretBinary) (\s@CreateSecret' {} a -> s {secretBinary = a} :: CreateSecret) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
+createSecret_secretBinary = Lens.lens (\CreateSecret' {secretBinary} -> secretBinary) (\s@CreateSecret' {} a -> s {secretBinary = a} :: CreateSecret) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
 
 -- | The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
 -- encrypt the secret value in the secret. An alias is always prefixed by
@@ -546,7 +547,7 @@ createSecret_kmsKeyId = Lens.lens (\CreateSecret' {kmsKeyId} -> kmsKeyId) (\s@Cr
 -- parameter. The Secrets Manager console stores the information as a JSON
 -- structure of key\/value pairs that a Lambda rotation function can parse.
 createSecret_secretString :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Text)
-createSecret_secretString = Lens.lens (\CreateSecret' {secretString} -> secretString) (\s@CreateSecret' {} a -> s {secretString = a} :: CreateSecret) Prelude.. Lens.mapping Core._Sensitive
+createSecret_secretString = Lens.lens (\CreateSecret' {secretString} -> secretString) (\s@CreateSecret' {} a -> s {secretString = a} :: CreateSecret) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the new secret.
 --
@@ -568,12 +569,12 @@ instance Core.AWSRequest CreateSecret where
     Response.receiveJSON
       ( \s h x ->
           CreateSecretResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> ( x Core..?> "ReplicationStatus"
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> ( x Data..?> "ReplicationStatus"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "VersionId")
+            Prelude.<*> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -601,44 +602,44 @@ instance Prelude.NFData CreateSecret where
       `Prelude.seq` Prelude.rnf secretString
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateSecret where
+instance Data.ToHeaders CreateSecret where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "secretsmanager.CreateSecret" ::
+              Data.=# ( "secretsmanager.CreateSecret" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSecret where
+instance Data.ToJSON CreateSecret where
   toJSON CreateSecret' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("AddReplicaRegions" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("AddReplicaRegions" Data..=)
               Prelude.<$> addReplicaRegions,
-            ("ClientRequestToken" Core..=)
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("ForceOverwriteReplicaSecret" Core..=)
+            ("ForceOverwriteReplicaSecret" Data..=)
               Prelude.<$> forceOverwriteReplicaSecret,
-            ("Description" Core..=) Prelude.<$> description,
-            ("SecretBinary" Core..=) Prelude.<$> secretBinary,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("SecretString" Core..=) Prelude.<$> secretString,
-            Prelude.Just ("Name" Core..= name)
+            ("Description" Data..=) Prelude.<$> description,
+            ("SecretBinary" Data..=) Prelude.<$> secretBinary,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("SecretString" Data..=) Prelude.<$> secretString,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateSecret where
+instance Data.ToPath CreateSecret where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSecret where
+instance Data.ToQuery CreateSecret where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSecretResponse' smart constructor.

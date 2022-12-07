@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FlowLog where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DestinationOptionsResponse
 import Amazonka.EC2.Types.LogDestinationType
@@ -64,7 +65,7 @@ data FlowLog = FlowLog'
     -- | The type of destination for the flow log data.
     logDestinationType :: Prelude.Maybe LogDestinationType,
     -- | The date and time the flow log was created.
-    creationTime :: Prelude.Maybe Core.ISO8601,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The maximum interval of time, in seconds, during which a flow of packets
     -- is captured and aggregated into a flow log record.
     --
@@ -215,7 +216,7 @@ flowLog_logDestinationType = Lens.lens (\FlowLog' {logDestinationType} -> logDes
 
 -- | The date and time the flow log was created.
 flowLog_creationTime :: Lens.Lens' FlowLog (Prelude.Maybe Prelude.UTCTime)
-flowLog_creationTime = Lens.lens (\FlowLog' {creationTime} -> creationTime) (\s@FlowLog' {} a -> s {creationTime = a} :: FlowLog) Prelude.. Lens.mapping Core._Time
+flowLog_creationTime = Lens.lens (\FlowLog' {creationTime} -> creationTime) (\s@FlowLog' {} a -> s {creationTime = a} :: FlowLog) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum interval of time, in seconds, during which a flow of packets
 -- is captured and aggregated into a flow log record.
@@ -237,27 +238,27 @@ flowLog_deliverLogsStatus = Lens.lens (\FlowLog' {deliverLogsStatus} -> deliverL
 flowLog_logGroupName :: Lens.Lens' FlowLog (Prelude.Maybe Prelude.Text)
 flowLog_logGroupName = Lens.lens (\FlowLog' {logGroupName} -> logGroupName) (\s@FlowLog' {} a -> s {logGroupName = a} :: FlowLog)
 
-instance Core.FromXML FlowLog where
+instance Data.FromXML FlowLog where
   parseXML x =
     FlowLog'
-      Prelude.<$> (x Core..@? "resourceId")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "resourceId")
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "destinationOptions")
-      Prelude.<*> (x Core..@? "flowLogId")
-      Prelude.<*> (x Core..@? "trafficType")
-      Prelude.<*> (x Core..@? "flowLogStatus")
-      Prelude.<*> (x Core..@? "deliverLogsPermissionArn")
-      Prelude.<*> (x Core..@? "deliverLogsErrorMessage")
-      Prelude.<*> (x Core..@? "logFormat")
-      Prelude.<*> (x Core..@? "logDestination")
-      Prelude.<*> (x Core..@? "deliverCrossAccountRole")
-      Prelude.<*> (x Core..@? "logDestinationType")
-      Prelude.<*> (x Core..@? "creationTime")
-      Prelude.<*> (x Core..@? "maxAggregationInterval")
-      Prelude.<*> (x Core..@? "deliverLogsStatus")
-      Prelude.<*> (x Core..@? "logGroupName")
+      Prelude.<*> (x Data..@? "destinationOptions")
+      Prelude.<*> (x Data..@? "flowLogId")
+      Prelude.<*> (x Data..@? "trafficType")
+      Prelude.<*> (x Data..@? "flowLogStatus")
+      Prelude.<*> (x Data..@? "deliverLogsPermissionArn")
+      Prelude.<*> (x Data..@? "deliverLogsErrorMessage")
+      Prelude.<*> (x Data..@? "logFormat")
+      Prelude.<*> (x Data..@? "logDestination")
+      Prelude.<*> (x Data..@? "deliverCrossAccountRole")
+      Prelude.<*> (x Data..@? "logDestinationType")
+      Prelude.<*> (x Data..@? "creationTime")
+      Prelude.<*> (x Data..@? "maxAggregationInterval")
+      Prelude.<*> (x Data..@? "deliverLogsStatus")
+      Prelude.<*> (x Data..@? "logGroupName")
 
 instance Prelude.Hashable FlowLog where
   hashWithSalt _salt FlowLog' {..} =

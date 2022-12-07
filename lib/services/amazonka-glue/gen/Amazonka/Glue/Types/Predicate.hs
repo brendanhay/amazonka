@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.Predicate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.Condition
 import Amazonka.Glue.Types.Logical
 import qualified Amazonka.Prelude as Prelude
@@ -66,14 +67,14 @@ predicate_logical = Lens.lens (\Predicate' {logical} -> logical) (\s@Predicate' 
 predicate_conditions :: Lens.Lens' Predicate (Prelude.Maybe [Condition])
 predicate_conditions = Lens.lens (\Predicate' {conditions} -> conditions) (\s@Predicate' {} a -> s {conditions = a} :: Predicate) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Predicate where
+instance Data.FromJSON Predicate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Predicate"
       ( \x ->
           Predicate'
-            Prelude.<$> (x Core..:? "Logical")
-            Prelude.<*> (x Core..:? "Conditions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Logical")
+            Prelude.<*> (x Data..:? "Conditions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Predicate where
@@ -86,11 +87,11 @@ instance Prelude.NFData Predicate where
     Prelude.rnf logical
       `Prelude.seq` Prelude.rnf conditions
 
-instance Core.ToJSON Predicate where
+instance Data.ToJSON Predicate where
   toJSON Predicate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Logical" Core..=) Prelude.<$> logical,
-            ("Conditions" Core..=) Prelude.<$> conditions
+          [ ("Logical" Data..=) Prelude.<$> logical,
+            ("Conditions" Data..=) Prelude.<$> conditions
           ]
       )

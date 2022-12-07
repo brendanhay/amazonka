@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -230,10 +231,10 @@ instance Core.AWSRequest DescribeDhcpOptions where
     Response.receiveXML
       ( \s h x ->
           DescribeDhcpOptionsResponse'
-            Prelude.<$> ( x Core..@? "dhcpOptionsSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "dhcpOptionsSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -253,26 +254,26 @@ instance Prelude.NFData DescribeDhcpOptions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf dhcpOptionsIds
 
-instance Core.ToHeaders DescribeDhcpOptions where
+instance Data.ToHeaders DescribeDhcpOptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDhcpOptions where
+instance Data.ToPath DescribeDhcpOptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDhcpOptions where
+instance Data.ToQuery DescribeDhcpOptions where
   toQuery DescribeDhcpOptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDhcpOptions" :: Prelude.ByteString),
+          Data.=: ("DescribeDhcpOptions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          ( Core.toQueryList "DhcpOptionsId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          ( Data.toQueryList "DhcpOptionsId"
               Prelude.<$> dhcpOptionsIds
           )
       ]

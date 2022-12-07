@@ -21,6 +21,7 @@ module Amazonka.OpenSearch.Types.VersionStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.OptionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,14 +68,14 @@ versionStatus_options = Lens.lens (\VersionStatus' {options} -> options) (\s@Ver
 versionStatus_status :: Lens.Lens' VersionStatus OptionStatus
 versionStatus_status = Lens.lens (\VersionStatus' {status} -> status) (\s@VersionStatus' {} a -> s {status = a} :: VersionStatus)
 
-instance Core.FromJSON VersionStatus where
+instance Data.FromJSON VersionStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VersionStatus"
       ( \x ->
           VersionStatus'
-            Prelude.<$> (x Core..: "Options")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..: "Options")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable VersionStatus where

@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -340,7 +341,7 @@ instance Core.AWSRequest CreateRole where
       ( \s h x ->
           CreateRoleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "Role")
+            Prelude.<*> (x Data..@ "Role")
       )
 
 instance Prelude.Hashable CreateRole where
@@ -363,29 +364,29 @@ instance Prelude.NFData CreateRole where
       `Prelude.seq` Prelude.rnf roleName
       `Prelude.seq` Prelude.rnf assumeRolePolicyDocument
 
-instance Core.ToHeaders CreateRole where
+instance Data.ToHeaders CreateRole where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateRole where
+instance Data.ToPath CreateRole where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateRole where
+instance Data.ToQuery CreateRole where
   toQuery CreateRole' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateRole" :: Prelude.ByteString),
+          Data.=: ("CreateRole" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "Path" Core.=: path,
-        "Description" Core.=: description,
-        "PermissionsBoundary" Core.=: permissionsBoundary,
-        "MaxSessionDuration" Core.=: maxSessionDuration,
-        "RoleName" Core.=: roleName,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "Path" Data.=: path,
+        "Description" Data.=: description,
+        "PermissionsBoundary" Data.=: permissionsBoundary,
+        "MaxSessionDuration" Data.=: maxSessionDuration,
+        "RoleName" Data.=: roleName,
         "AssumeRolePolicyDocument"
-          Core.=: assumeRolePolicyDocument
+          Data.=: assumeRolePolicyDocument
       ]
 
 -- | Contains the response to a successful CreateRole request.

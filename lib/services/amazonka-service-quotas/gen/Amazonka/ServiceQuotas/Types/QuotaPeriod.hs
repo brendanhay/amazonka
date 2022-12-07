@@ -21,6 +21,7 @@ module Amazonka.ServiceQuotas.Types.QuotaPeriod where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceQuotas.Types.PeriodUnit
 
@@ -62,14 +63,14 @@ quotaPeriod_periodUnit = Lens.lens (\QuotaPeriod' {periodUnit} -> periodUnit) (\
 quotaPeriod_periodValue :: Lens.Lens' QuotaPeriod (Prelude.Maybe Prelude.Int)
 quotaPeriod_periodValue = Lens.lens (\QuotaPeriod' {periodValue} -> periodValue) (\s@QuotaPeriod' {} a -> s {periodValue = a} :: QuotaPeriod)
 
-instance Core.FromJSON QuotaPeriod where
+instance Data.FromJSON QuotaPeriod where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QuotaPeriod"
       ( \x ->
           QuotaPeriod'
-            Prelude.<$> (x Core..:? "PeriodUnit")
-            Prelude.<*> (x Core..:? "PeriodValue")
+            Prelude.<$> (x Data..:? "PeriodUnit")
+            Prelude.<*> (x Data..:? "PeriodValue")
       )
 
 instance Prelude.Hashable QuotaPeriod where

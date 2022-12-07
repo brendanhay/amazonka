@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FleetLaunchTemplateOverridesRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceRequirementsRequest
 import Amazonka.EC2.Types.InstanceType
@@ -261,18 +262,18 @@ instance
       `Prelude.seq` Prelude.rnf imageId
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     FleetLaunchTemplateOverridesRequest
   where
   toQuery FleetLaunchTemplateOverridesRequest' {..} =
     Prelude.mconcat
-      [ "Placement" Core.=: placement,
-        "InstanceRequirements" Core.=: instanceRequirements,
-        "SubnetId" Core.=: subnetId,
-        "MaxPrice" Core.=: maxPrice,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "InstanceType" Core.=: instanceType,
-        "Priority" Core.=: priority,
-        "WeightedCapacity" Core.=: weightedCapacity,
-        "ImageId" Core.=: imageId
+      [ "Placement" Data.=: placement,
+        "InstanceRequirements" Data.=: instanceRequirements,
+        "SubnetId" Data.=: subnetId,
+        "MaxPrice" Data.=: maxPrice,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "InstanceType" Data.=: instanceType,
+        "Priority" Data.=: priority,
+        "WeightedCapacity" Data.=: weightedCapacity,
+        "ImageId" Data.=: imageId
       ]

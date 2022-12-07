@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.Capacity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.AutoScaling
 import Amazonka.KafkaConnect.Types.ProvisionedCapacity
 import qualified Amazonka.Prelude as Prelude
@@ -74,12 +75,12 @@ instance Prelude.NFData Capacity where
     Prelude.rnf provisionedCapacity
       `Prelude.seq` Prelude.rnf autoScaling
 
-instance Core.ToJSON Capacity where
+instance Data.ToJSON Capacity where
   toJSON Capacity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("provisionedCapacity" Core..=)
+          [ ("provisionedCapacity" Data..=)
               Prelude.<$> provisionedCapacity,
-            ("autoScaling" Core..=) Prelude.<$> autoScaling
+            ("autoScaling" Data..=) Prelude.<$> autoScaling
           ]
       )

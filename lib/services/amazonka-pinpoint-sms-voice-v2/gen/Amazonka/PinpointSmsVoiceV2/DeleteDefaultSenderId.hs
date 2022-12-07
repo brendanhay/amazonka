@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,9 +102,9 @@ instance Core.AWSRequest DeleteDefaultSenderId where
     Response.receiveJSON
       ( \s h x ->
           DeleteDefaultSenderIdResponse'
-            Prelude.<$> (x Core..?> "SenderId")
-            Prelude.<*> (x Core..?> "ConfigurationSetName")
-            Prelude.<*> (x Core..?> "ConfigurationSetArn")
+            Prelude.<$> (x Data..?> "SenderId")
+            Prelude.<*> (x Data..?> "ConfigurationSetName")
+            Prelude.<*> (x Data..?> "ConfigurationSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,36 +116,36 @@ instance Prelude.NFData DeleteDefaultSenderId where
   rnf DeleteDefaultSenderId' {..} =
     Prelude.rnf configurationSetName
 
-instance Core.ToHeaders DeleteDefaultSenderId where
+instance Data.ToHeaders DeleteDefaultSenderId where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.DeleteDefaultSenderId" ::
+              Data.=# ( "PinpointSMSVoiceV2.DeleteDefaultSenderId" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDefaultSenderId where
+instance Data.ToJSON DeleteDefaultSenderId where
   toJSON DeleteDefaultSenderId' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ConfigurationSetName"
-                  Core..= configurationSetName
+                  Data..= configurationSetName
               )
           ]
       )
 
-instance Core.ToPath DeleteDefaultSenderId where
+instance Data.ToPath DeleteDefaultSenderId where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDefaultSenderId where
+instance Data.ToQuery DeleteDefaultSenderId where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDefaultSenderIdResponse' smart constructor.

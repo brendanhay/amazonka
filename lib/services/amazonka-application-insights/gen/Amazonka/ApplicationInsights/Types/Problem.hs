@@ -25,6 +25,7 @@ import Amazonka.ApplicationInsights.Types.SeverityLevel
 import Amazonka.ApplicationInsights.Types.Status
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a problem that is detected by correlating observations.
@@ -41,7 +42,7 @@ data Problem = Problem'
     -- | The status of the problem.
     status :: Prelude.Maybe Status,
     -- | The time when the problem ended, in epoch seconds.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the problem.
     id :: Prelude.Maybe Prelude.Text,
     -- | A detailed analysis of the problem using machine learning.
@@ -53,9 +54,9 @@ data Problem = Problem'
     -- | A measure of the level of impact of the problem.
     severityLevel :: Prelude.Maybe SeverityLevel,
     -- | The last time that the problem reoccurred after its last resolution.
-    lastRecurrenceTime :: Prelude.Maybe Core.POSIX,
+    lastRecurrenceTime :: Prelude.Maybe Data.POSIX,
     -- | The time when the problem started, in epoch seconds.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -128,7 +129,7 @@ problem_status = Lens.lens (\Problem' {status} -> status) (\s@Problem' {} a -> s
 
 -- | The time when the problem ended, in epoch seconds.
 problem_endTime :: Lens.Lens' Problem (Prelude.Maybe Prelude.UTCTime)
-problem_endTime = Lens.lens (\Problem' {endTime} -> endTime) (\s@Problem' {} a -> s {endTime = a} :: Problem) Prelude.. Lens.mapping Core._Time
+problem_endTime = Lens.lens (\Problem' {endTime} -> endTime) (\s@Problem' {} a -> s {endTime = a} :: Problem) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the problem.
 problem_id :: Lens.Lens' Problem (Prelude.Maybe Prelude.Text)
@@ -152,30 +153,30 @@ problem_severityLevel = Lens.lens (\Problem' {severityLevel} -> severityLevel) (
 
 -- | The last time that the problem reoccurred after its last resolution.
 problem_lastRecurrenceTime :: Lens.Lens' Problem (Prelude.Maybe Prelude.UTCTime)
-problem_lastRecurrenceTime = Lens.lens (\Problem' {lastRecurrenceTime} -> lastRecurrenceTime) (\s@Problem' {} a -> s {lastRecurrenceTime = a} :: Problem) Prelude.. Lens.mapping Core._Time
+problem_lastRecurrenceTime = Lens.lens (\Problem' {lastRecurrenceTime} -> lastRecurrenceTime) (\s@Problem' {} a -> s {lastRecurrenceTime = a} :: Problem) Prelude.. Lens.mapping Data._Time
 
 -- | The time when the problem started, in epoch seconds.
 problem_startTime :: Lens.Lens' Problem (Prelude.Maybe Prelude.UTCTime)
-problem_startTime = Lens.lens (\Problem' {startTime} -> startTime) (\s@Problem' {} a -> s {startTime = a} :: Problem) Prelude.. Lens.mapping Core._Time
+problem_startTime = Lens.lens (\Problem' {startTime} -> startTime) (\s@Problem' {} a -> s {startTime = a} :: Problem) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Problem where
+instance Data.FromJSON Problem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Problem"
       ( \x ->
           Problem'
-            Prelude.<$> (x Core..:? "AffectedResource")
-            Prelude.<*> (x Core..:? "RecurringCount")
-            Prelude.<*> (x Core..:? "Feedback" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Insights")
-            Prelude.<*> (x Core..:? "ResourceGroupName")
-            Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "SeverityLevel")
-            Prelude.<*> (x Core..:? "LastRecurrenceTime")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "AffectedResource")
+            Prelude.<*> (x Data..:? "RecurringCount")
+            Prelude.<*> (x Data..:? "Feedback" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Insights")
+            Prelude.<*> (x Data..:? "ResourceGroupName")
+            Prelude.<*> (x Data..:? "Title")
+            Prelude.<*> (x Data..:? "SeverityLevel")
+            Prelude.<*> (x Data..:? "LastRecurrenceTime")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable Problem where

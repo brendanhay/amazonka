@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -182,8 +183,8 @@ instance Core.AWSRequest AttachVolume where
     Response.receiveJSON
       ( \s h x ->
           AttachVolumeResponse'
-            Prelude.<$> (x Core..?> "TargetARN")
-            Prelude.<*> (x Core..?> "VolumeARN")
+            Prelude.<$> (x Data..?> "TargetARN")
+            Prelude.<*> (x Data..?> "VolumeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,38 +204,38 @@ instance Prelude.NFData AttachVolume where
       `Prelude.seq` Prelude.rnf volumeARN
       `Prelude.seq` Prelude.rnf networkInterfaceId
 
-instance Core.ToHeaders AttachVolume where
+instance Data.ToHeaders AttachVolume where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StorageGateway_20130630.AttachVolume" ::
+              Data.=# ( "StorageGateway_20130630.AttachVolume" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AttachVolume where
+instance Data.ToJSON AttachVolume where
   toJSON AttachVolume' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetName" Core..=) Prelude.<$> targetName,
-            ("DiskId" Core..=) Prelude.<$> diskId,
-            Prelude.Just ("GatewayARN" Core..= gatewayARN),
-            Prelude.Just ("VolumeARN" Core..= volumeARN),
+          [ ("TargetName" Data..=) Prelude.<$> targetName,
+            ("DiskId" Data..=) Prelude.<$> diskId,
+            Prelude.Just ("GatewayARN" Data..= gatewayARN),
+            Prelude.Just ("VolumeARN" Data..= volumeARN),
             Prelude.Just
-              ("NetworkInterfaceId" Core..= networkInterfaceId)
+              ("NetworkInterfaceId" Data..= networkInterfaceId)
           ]
       )
 
-instance Core.ToPath AttachVolume where
+instance Data.ToPath AttachVolume where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AttachVolume where
+instance Data.ToQuery AttachVolume where
   toQuery = Prelude.const Prelude.mempty
 
 -- | AttachVolumeOutput

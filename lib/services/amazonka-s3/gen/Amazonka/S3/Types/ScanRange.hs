@@ -21,6 +21,7 @@ module Amazonka.S3.Types.ScanRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 
@@ -102,7 +103,7 @@ instance Prelude.NFData ScanRange where
   rnf ScanRange' {..} =
     Prelude.rnf start `Prelude.seq` Prelude.rnf end
 
-instance Core.ToXML ScanRange where
+instance Data.ToXML ScanRange where
   toXML ScanRange' {..} =
     Prelude.mconcat
-      ["Start" Core.@= start, "End" Core.@= end]
+      ["Start" Data.@= start, "End" Data.@= end]

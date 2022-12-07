@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -177,7 +178,7 @@ instance Core.AWSRequest GetObjectRetention where
     Response.receiveXML
       ( \s h x ->
           GetObjectRetentionResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,23 +198,23 @@ instance Prelude.NFData GetObjectRetention where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToHeaders GetObjectRetention where
+instance Data.ToHeaders GetObjectRetention where
   toHeaders GetObjectRetention' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
-instance Core.ToPath GetObjectRetention where
+instance Data.ToPath GetObjectRetention where
   toPath GetObjectRetention' {..} =
     Prelude.mconcat
-      ["/", Core.toBS bucket, "/", Core.toBS key]
+      ["/", Data.toBS bucket, "/", Data.toBS key]
 
-instance Core.ToQuery GetObjectRetention where
+instance Data.ToQuery GetObjectRetention where
   toQuery GetObjectRetention' {..} =
     Prelude.mconcat
-      ["versionId" Core.=: versionId, "retention"]
+      ["versionId" Data.=: versionId, "retention"]
 
 -- | /See:/ 'newGetObjectRetentionResponse' smart constructor.
 data GetObjectRetentionResponse = GetObjectRetentionResponse'

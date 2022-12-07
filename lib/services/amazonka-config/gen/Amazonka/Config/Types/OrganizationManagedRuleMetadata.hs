@@ -22,6 +22,7 @@ module Amazonka.Config.Types.OrganizationManagedRuleMetadata where
 import Amazonka.Config.Types.MaximumExecutionFrequency
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that specifies organization managed rule metadata such as
@@ -159,24 +160,24 @@ organizationManagedRuleMetadata_ruleIdentifier :: Lens.Lens' OrganizationManaged
 organizationManagedRuleMetadata_ruleIdentifier = Lens.lens (\OrganizationManagedRuleMetadata' {ruleIdentifier} -> ruleIdentifier) (\s@OrganizationManagedRuleMetadata' {} a -> s {ruleIdentifier = a} :: OrganizationManagedRuleMetadata)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     OrganizationManagedRuleMetadata
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationManagedRuleMetadata"
       ( \x ->
           OrganizationManagedRuleMetadata'
-            Prelude.<$> (x Core..:? "MaximumExecutionFrequency")
-            Prelude.<*> ( x Core..:? "ResourceTypesScope"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "MaximumExecutionFrequency")
+            Prelude.<*> ( x Data..:? "ResourceTypesScope"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "InputParameters")
-            Prelude.<*> (x Core..:? "TagValueScope")
-            Prelude.<*> (x Core..:? "ResourceIdScope")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "TagKeyScope")
-            Prelude.<*> (x Core..: "RuleIdentifier")
+            Prelude.<*> (x Data..:? "InputParameters")
+            Prelude.<*> (x Data..:? "TagValueScope")
+            Prelude.<*> (x Data..:? "ResourceIdScope")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "TagKeyScope")
+            Prelude.<*> (x Data..: "RuleIdentifier")
       )
 
 instance
@@ -210,22 +211,22 @@ instance
       `Prelude.seq` Prelude.rnf tagKeyScope
       `Prelude.seq` Prelude.rnf ruleIdentifier
 
-instance Core.ToJSON OrganizationManagedRuleMetadata where
+instance Data.ToJSON OrganizationManagedRuleMetadata where
   toJSON OrganizationManagedRuleMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaximumExecutionFrequency" Core..=)
+          [ ("MaximumExecutionFrequency" Data..=)
               Prelude.<$> maximumExecutionFrequency,
-            ("ResourceTypesScope" Core..=)
+            ("ResourceTypesScope" Data..=)
               Prelude.<$> resourceTypesScope,
-            ("InputParameters" Core..=)
+            ("InputParameters" Data..=)
               Prelude.<$> inputParameters,
-            ("TagValueScope" Core..=) Prelude.<$> tagValueScope,
-            ("ResourceIdScope" Core..=)
+            ("TagValueScope" Data..=) Prelude.<$> tagValueScope,
+            ("ResourceIdScope" Data..=)
               Prelude.<$> resourceIdScope,
-            ("Description" Core..=) Prelude.<$> description,
-            ("TagKeyScope" Core..=) Prelude.<$> tagKeyScope,
+            ("Description" Data..=) Prelude.<$> description,
+            ("TagKeyScope" Data..=) Prelude.<$> tagKeyScope,
             Prelude.Just
-              ("RuleIdentifier" Core..= ruleIdentifier)
+              ("RuleIdentifier" Data..= ruleIdentifier)
           ]
       )

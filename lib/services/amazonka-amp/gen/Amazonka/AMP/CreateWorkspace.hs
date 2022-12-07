@@ -47,6 +47,7 @@ where
 import Amazonka.AMP.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,11 +115,11 @@ instance Core.AWSRequest CreateWorkspace where
     Response.receiveJSON
       ( \s h x ->
           CreateWorkspaceResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "status")
-            Prelude.<*> (x Core..:> "workspaceId")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "workspaceId")
       )
 
 instance Prelude.Hashable CreateWorkspace where
@@ -133,31 +134,31 @@ instance Prelude.NFData CreateWorkspace where
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateWorkspace where
+instance Data.ToHeaders CreateWorkspace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkspace where
+instance Data.ToJSON CreateWorkspace where
   toJSON CreateWorkspace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("alias" Core..=) Prelude.<$> alias,
-            ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken
+          [ ("alias" Data..=) Prelude.<$> alias,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 
-instance Core.ToPath CreateWorkspace where
+instance Data.ToPath CreateWorkspace where
   toPath = Prelude.const "/workspaces"
 
-instance Core.ToQuery CreateWorkspace where
+instance Data.ToQuery CreateWorkspace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a CreateWorkspace operation.

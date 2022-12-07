@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,7 +133,7 @@ instance Core.AWSRequest ResetCacheParameterGroup where
   response =
     Response.receiveXMLWrapper
       "ResetCacheParameterGroupResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable ResetCacheParameterGroup where
   hashWithSalt _salt ResetCacheParameterGroup' {..} =
@@ -146,25 +147,25 @@ instance Prelude.NFData ResetCacheParameterGroup where
       `Prelude.seq` Prelude.rnf parameterNameValues
       `Prelude.seq` Prelude.rnf cacheParameterGroupName
 
-instance Core.ToHeaders ResetCacheParameterGroup where
+instance Data.ToHeaders ResetCacheParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ResetCacheParameterGroup where
+instance Data.ToPath ResetCacheParameterGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResetCacheParameterGroup where
+instance Data.ToQuery ResetCacheParameterGroup where
   toQuery ResetCacheParameterGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ResetCacheParameterGroup" :: Prelude.ByteString),
+          Data.=: ("ResetCacheParameterGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "ResetAllParameters" Core.=: resetAllParameters,
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "ResetAllParameters" Data.=: resetAllParameters,
         "ParameterNameValues"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "ParameterNameValue"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "ParameterNameValue"
                 Prelude.<$> parameterNameValues
             ),
         "CacheParameterGroupName"
-          Core.=: cacheParameterGroupName
+          Data.=: cacheParameterGroupName
       ]

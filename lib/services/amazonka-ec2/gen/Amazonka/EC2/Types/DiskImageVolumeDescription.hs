@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DiskImageVolumeDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,10 +63,10 @@ diskImageVolumeDescription_size = Lens.lens (\DiskImageVolumeDescription' {size}
 diskImageVolumeDescription_id :: Lens.Lens' DiskImageVolumeDescription (Prelude.Maybe Prelude.Text)
 diskImageVolumeDescription_id = Lens.lens (\DiskImageVolumeDescription' {id} -> id) (\s@DiskImageVolumeDescription' {} a -> s {id = a} :: DiskImageVolumeDescription)
 
-instance Core.FromXML DiskImageVolumeDescription where
+instance Data.FromXML DiskImageVolumeDescription where
   parseXML x =
     DiskImageVolumeDescription'
-      Prelude.<$> (x Core..@? "size") Prelude.<*> (x Core..@? "id")
+      Prelude.<$> (x Data..@? "size") Prelude.<*> (x Data..@? "id")
 
 instance Prelude.Hashable DiskImageVolumeDescription where
   hashWithSalt _salt DiskImageVolumeDescription' {..} =

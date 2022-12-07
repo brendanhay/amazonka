@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.FailedItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.FailedItemReason
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,13 +64,13 @@ failedItem_uri = Lens.lens (\FailedItem' {uri} -> uri) (\s@FailedItem' {} a -> s
 failedItem_reason :: Lens.Lens' FailedItem (Prelude.Maybe FailedItemReason)
 failedItem_reason = Lens.lens (\FailedItem' {reason} -> reason) (\s@FailedItem' {} a -> s {reason = a} :: FailedItem)
 
-instance Core.FromJSON FailedItem where
+instance Data.FromJSON FailedItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedItem"
       ( \x ->
           FailedItem'
-            Prelude.<$> (x Core..:? "URI") Prelude.<*> (x Core..:? "Reason")
+            Prelude.<$> (x Data..:? "URI") Prelude.<*> (x Data..:? "Reason")
       )
 
 instance Prelude.Hashable FailedItem where

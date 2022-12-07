@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -274,8 +275,8 @@ instance Core.AWSRequest CreateChangeset where
     Response.receiveJSON
       ( \s h x ->
           CreateChangesetResponse'
-            Prelude.<$> (x Core..?> "changesetId")
-            Prelude.<*> (x Core..?> "datasetId")
+            Prelude.<$> (x Data..?> "changesetId")
+            Prelude.<*> (x Data..?> "datasetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -295,34 +296,34 @@ instance Prelude.NFData CreateChangeset where
       `Prelude.seq` Prelude.rnf sourceParams
       `Prelude.seq` Prelude.rnf formatParams
 
-instance Core.ToHeaders CreateChangeset where
+instance Data.ToHeaders CreateChangeset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateChangeset where
+instance Data.ToJSON CreateChangeset where
   toJSON CreateChangeset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("changeType" Core..= changeType),
-            Prelude.Just ("sourceParams" Core..= sourceParams),
-            Prelude.Just ("formatParams" Core..= formatParams)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("changeType" Data..= changeType),
+            Prelude.Just ("sourceParams" Data..= sourceParams),
+            Prelude.Just ("formatParams" Data..= formatParams)
           ]
       )
 
-instance Core.ToPath CreateChangeset where
+instance Data.ToPath CreateChangeset where
   toPath CreateChangeset' {..} =
     Prelude.mconcat
-      ["/datasets/", Core.toBS datasetId, "/changesetsv2"]
+      ["/datasets/", Data.toBS datasetId, "/changesetsv2"]
 
-instance Core.ToQuery CreateChangeset where
+instance Data.ToQuery CreateChangeset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response from a CreateChangeset operation.

@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.SchemaUnion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types.SchemaDefinition
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newSchemaUnion =
 schemaUnion_tabularSchemaConfig :: Lens.Lens' SchemaUnion (Prelude.Maybe SchemaDefinition)
 schemaUnion_tabularSchemaConfig = Lens.lens (\SchemaUnion' {tabularSchemaConfig} -> tabularSchemaConfig) (\s@SchemaUnion' {} a -> s {tabularSchemaConfig = a} :: SchemaUnion)
 
-instance Core.FromJSON SchemaUnion where
+instance Data.FromJSON SchemaUnion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaUnion"
       ( \x ->
           SchemaUnion'
-            Prelude.<$> (x Core..:? "tabularSchemaConfig")
+            Prelude.<$> (x Data..:? "tabularSchemaConfig")
       )
 
 instance Prelude.Hashable SchemaUnion where
@@ -68,11 +69,11 @@ instance Prelude.NFData SchemaUnion where
   rnf SchemaUnion' {..} =
     Prelude.rnf tabularSchemaConfig
 
-instance Core.ToJSON SchemaUnion where
+instance Data.ToJSON SchemaUnion where
   toJSON SchemaUnion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tabularSchemaConfig" Core..=)
+          [ ("tabularSchemaConfig" Data..=)
               Prelude.<$> tabularSchemaConfig
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.VideoSelectorPid where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Video Selector Pid
@@ -50,12 +51,12 @@ newVideoSelectorPid =
 videoSelectorPid_pid :: Lens.Lens' VideoSelectorPid (Prelude.Maybe Prelude.Natural)
 videoSelectorPid_pid = Lens.lens (\VideoSelectorPid' {pid} -> pid) (\s@VideoSelectorPid' {} a -> s {pid = a} :: VideoSelectorPid)
 
-instance Core.FromJSON VideoSelectorPid where
+instance Data.FromJSON VideoSelectorPid where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VideoSelectorPid"
       ( \x ->
-          VideoSelectorPid' Prelude.<$> (x Core..:? "pid")
+          VideoSelectorPid' Prelude.<$> (x Data..:? "pid")
       )
 
 instance Prelude.Hashable VideoSelectorPid where
@@ -65,7 +66,7 @@ instance Prelude.Hashable VideoSelectorPid where
 instance Prelude.NFData VideoSelectorPid where
   rnf VideoSelectorPid' {..} = Prelude.rnf pid
 
-instance Core.ToJSON VideoSelectorPid where
+instance Data.ToJSON VideoSelectorPid where
   toJSON VideoSelectorPid' {..} =
-    Core.object
-      (Prelude.catMaybes [("pid" Core..=) Prelude.<$> pid])
+    Data.object
+      (Prelude.catMaybes [("pid" Data..=) Prelude.<$> pid])

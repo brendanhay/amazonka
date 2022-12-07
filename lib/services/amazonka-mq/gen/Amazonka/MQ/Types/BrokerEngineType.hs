@@ -21,6 +21,7 @@ module Amazonka.MQ.Types.BrokerEngineType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MQ.Types.EngineType
 import Amazonka.MQ.Types.EngineVersion
 import qualified Amazonka.Prelude as Prelude
@@ -63,15 +64,15 @@ brokerEngineType_engineType = Lens.lens (\BrokerEngineType' {engineType} -> engi
 brokerEngineType_engineVersions :: Lens.Lens' BrokerEngineType (Prelude.Maybe [EngineVersion])
 brokerEngineType_engineVersions = Lens.lens (\BrokerEngineType' {engineVersions} -> engineVersions) (\s@BrokerEngineType' {} a -> s {engineVersions = a} :: BrokerEngineType) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON BrokerEngineType where
+instance Data.FromJSON BrokerEngineType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BrokerEngineType"
       ( \x ->
           BrokerEngineType'
-            Prelude.<$> (x Core..:? "engineType")
-            Prelude.<*> ( x Core..:? "engineVersions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "engineType")
+            Prelude.<*> ( x Data..:? "engineVersions"
+                            Data..!= Prelude.mempty
                         )
       )
 

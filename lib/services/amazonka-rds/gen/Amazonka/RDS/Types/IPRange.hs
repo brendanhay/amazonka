@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.IPRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This data type is used as a response element in the
@@ -65,11 +66,11 @@ iPRange_status = Lens.lens (\IPRange' {status} -> status) (\s@IPRange' {} a -> s
 iPRange_cidrip :: Lens.Lens' IPRange (Prelude.Maybe Prelude.Text)
 iPRange_cidrip = Lens.lens (\IPRange' {cidrip} -> cidrip) (\s@IPRange' {} a -> s {cidrip = a} :: IPRange)
 
-instance Core.FromXML IPRange where
+instance Data.FromXML IPRange where
   parseXML x =
     IPRange'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "CIDRIP")
+      Prelude.<$> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "CIDRIP")
 
 instance Prelude.Hashable IPRange where
   hashWithSalt _salt IPRange' {..} =

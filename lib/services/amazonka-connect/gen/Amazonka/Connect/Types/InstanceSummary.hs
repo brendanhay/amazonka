@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.DirectoryType
 import Amazonka.Connect.Types.InstanceStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the instance.
@@ -32,7 +33,7 @@ data InstanceSummary = InstanceSummary'
   { -- | The identity management type of the instance.
     identityManagementType :: Prelude.Maybe DirectoryType,
     -- | When the instance was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The state of the instance.
     instanceStatus :: Prelude.Maybe InstanceStatus,
     -- | The Amazon Resource Name (ARN) of the instance.
@@ -44,7 +45,7 @@ data InstanceSummary = InstanceSummary'
     -- | Whether inbound calls are enabled.
     inboundCallsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The alias of the instance.
-    instanceAlias :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    instanceAlias :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Whether outbound calls are enabled.
     outboundCallsEnabled :: Prelude.Maybe Prelude.Bool
   }
@@ -97,7 +98,7 @@ instanceSummary_identityManagementType = Lens.lens (\InstanceSummary' {identityM
 
 -- | When the instance was created.
 instanceSummary_createdTime :: Lens.Lens' InstanceSummary (Prelude.Maybe Prelude.UTCTime)
-instanceSummary_createdTime = Lens.lens (\InstanceSummary' {createdTime} -> createdTime) (\s@InstanceSummary' {} a -> s {createdTime = a} :: InstanceSummary) Prelude.. Lens.mapping Core._Time
+instanceSummary_createdTime = Lens.lens (\InstanceSummary' {createdTime} -> createdTime) (\s@InstanceSummary' {} a -> s {createdTime = a} :: InstanceSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The state of the instance.
 instanceSummary_instanceStatus :: Lens.Lens' InstanceSummary (Prelude.Maybe InstanceStatus)
@@ -121,27 +122,27 @@ instanceSummary_inboundCallsEnabled = Lens.lens (\InstanceSummary' {inboundCalls
 
 -- | The alias of the instance.
 instanceSummary_instanceAlias :: Lens.Lens' InstanceSummary (Prelude.Maybe Prelude.Text)
-instanceSummary_instanceAlias = Lens.lens (\InstanceSummary' {instanceAlias} -> instanceAlias) (\s@InstanceSummary' {} a -> s {instanceAlias = a} :: InstanceSummary) Prelude.. Lens.mapping Core._Sensitive
+instanceSummary_instanceAlias = Lens.lens (\InstanceSummary' {instanceAlias} -> instanceAlias) (\s@InstanceSummary' {} a -> s {instanceAlias = a} :: InstanceSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Whether outbound calls are enabled.
 instanceSummary_outboundCallsEnabled :: Lens.Lens' InstanceSummary (Prelude.Maybe Prelude.Bool)
 instanceSummary_outboundCallsEnabled = Lens.lens (\InstanceSummary' {outboundCallsEnabled} -> outboundCallsEnabled) (\s@InstanceSummary' {} a -> s {outboundCallsEnabled = a} :: InstanceSummary)
 
-instance Core.FromJSON InstanceSummary where
+instance Data.FromJSON InstanceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceSummary"
       ( \x ->
           InstanceSummary'
-            Prelude.<$> (x Core..:? "IdentityManagementType")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "InstanceStatus")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ServiceRole")
-            Prelude.<*> (x Core..:? "InboundCallsEnabled")
-            Prelude.<*> (x Core..:? "InstanceAlias")
-            Prelude.<*> (x Core..:? "OutboundCallsEnabled")
+            Prelude.<$> (x Data..:? "IdentityManagementType")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "InstanceStatus")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ServiceRole")
+            Prelude.<*> (x Data..:? "InboundCallsEnabled")
+            Prelude.<*> (x Data..:? "InstanceAlias")
+            Prelude.<*> (x Data..:? "OutboundCallsEnabled")
       )
 
 instance Prelude.Hashable InstanceSummary where

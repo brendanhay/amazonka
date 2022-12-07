@@ -21,6 +21,7 @@ module Amazonka.Shield.Types.Protection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Shield.Types.ApplicationLayerAutomaticResponseConfiguration
 
@@ -117,21 +118,21 @@ protection_resourceArn = Lens.lens (\Protection' {resourceArn} -> resourceArn) (
 protection_healthCheckIds :: Lens.Lens' Protection (Prelude.Maybe [Prelude.Text])
 protection_healthCheckIds = Lens.lens (\Protection' {healthCheckIds} -> healthCheckIds) (\s@Protection' {} a -> s {healthCheckIds = a} :: Protection) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Protection where
+instance Data.FromJSON Protection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Protection"
       ( \x ->
           Protection'
-            Prelude.<$> (x Core..:? "Name")
+            Prelude.<$> (x Data..:? "Name")
             Prelude.<*> ( x
-                            Core..:? "ApplicationLayerAutomaticResponseConfiguration"
+                            Data..:? "ApplicationLayerAutomaticResponseConfiguration"
                         )
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ProtectionArn")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> ( x Core..:? "HealthCheckIds"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ProtectionArn")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> ( x Data..:? "HealthCheckIds"
+                            Data..!= Prelude.mempty
                         )
       )
 

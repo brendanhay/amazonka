@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.CreateApplicationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the display name of an application and the tags to associate
@@ -82,11 +83,11 @@ instance Prelude.NFData CreateApplicationRequest where
   rnf CreateApplicationRequest' {..} =
     Prelude.rnf tags `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON CreateApplicationRequest where
+instance Data.ToJSON CreateApplicationRequest where
   toJSON CreateApplicationRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("Name" Core..= name)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

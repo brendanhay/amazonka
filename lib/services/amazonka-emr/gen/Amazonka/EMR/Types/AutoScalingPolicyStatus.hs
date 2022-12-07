@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.AutoScalingPolicyStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.AutoScalingPolicyState
 import Amazonka.EMR.Types.AutoScalingPolicyStateChangeReason
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ autoScalingPolicyStatus_stateChangeReason = Lens.lens (\AutoScalingPolicyStatus'
 autoScalingPolicyStatus_state :: Lens.Lens' AutoScalingPolicyStatus (Prelude.Maybe AutoScalingPolicyState)
 autoScalingPolicyStatus_state = Lens.lens (\AutoScalingPolicyStatus' {state} -> state) (\s@AutoScalingPolicyStatus' {} a -> s {state = a} :: AutoScalingPolicyStatus)
 
-instance Core.FromJSON AutoScalingPolicyStatus where
+instance Data.FromJSON AutoScalingPolicyStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoScalingPolicyStatus"
       ( \x ->
           AutoScalingPolicyStatus'
-            Prelude.<$> (x Core..:? "StateChangeReason")
-            Prelude.<*> (x Core..:? "State")
+            Prelude.<$> (x Data..:? "StateChangeReason")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable AutoScalingPolicyStatus where

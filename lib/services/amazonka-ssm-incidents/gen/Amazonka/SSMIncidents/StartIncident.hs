@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -209,7 +210,7 @@ instance Core.AWSRequest StartIncident where
       ( \s h x ->
           StartIncidentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "incidentRecordArn")
+            Prelude.<*> (x Data..:> "incidentRecordArn")
       )
 
 instance Prelude.Hashable StartIncident where
@@ -230,36 +231,36 @@ instance Prelude.NFData StartIncident where
       `Prelude.seq` Prelude.rnf triggerDetails
       `Prelude.seq` Prelude.rnf responsePlanArn
 
-instance Core.ToHeaders StartIncident where
+instance Data.ToHeaders StartIncident where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartIncident where
+instance Data.ToJSON StartIncident where
   toJSON StartIncident' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("impact" Core..=) Prelude.<$> impact,
-            ("relatedItems" Core..=) Prelude.<$> relatedItems,
-            ("title" Core..=) Prelude.<$> title,
-            ("triggerDetails" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("impact" Data..=) Prelude.<$> impact,
+            ("relatedItems" Data..=) Prelude.<$> relatedItems,
+            ("title" Data..=) Prelude.<$> title,
+            ("triggerDetails" Data..=)
               Prelude.<$> triggerDetails,
             Prelude.Just
-              ("responsePlanArn" Core..= responsePlanArn)
+              ("responsePlanArn" Data..= responsePlanArn)
           ]
       )
 
-instance Core.ToPath StartIncident where
+instance Data.ToPath StartIncident where
   toPath = Prelude.const "/startIncident"
 
-instance Core.ToQuery StartIncident where
+instance Data.ToQuery StartIncident where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartIncidentResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,21 +122,21 @@ instance Prelude.NFData DeleteWarmPool where
     Prelude.rnf forceDelete
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
-instance Core.ToHeaders DeleteWarmPool where
+instance Data.ToHeaders DeleteWarmPool where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteWarmPool where
+instance Data.ToPath DeleteWarmPool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteWarmPool where
+instance Data.ToQuery DeleteWarmPool where
   toQuery DeleteWarmPool' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteWarmPool" :: Prelude.ByteString),
+          Data.=: ("DeleteWarmPool" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "ForceDelete" Core.=: forceDelete,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "ForceDelete" Data.=: forceDelete,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newDeleteWarmPoolResponse' smart constructor.

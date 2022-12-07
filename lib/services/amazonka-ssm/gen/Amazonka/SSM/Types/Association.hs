@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.Association where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.AssociationOverview
 import Amazonka.SSM.Types.Target
@@ -53,7 +54,7 @@ data Association = Association'
     -- | Information about the association.
     overview :: Prelude.Maybe AssociationOverview,
     -- | The date on which the association was last run.
-    lastExecutionDate :: Prelude.Maybe Core.POSIX,
+    lastExecutionDate :: Prelude.Maybe Data.POSIX,
     -- | The ID created by the system when you create an association. An
     -- association is a binding between a document and a set of targets with a
     -- schedule.
@@ -182,7 +183,7 @@ association_overview = Lens.lens (\Association' {overview} -> overview) (\s@Asso
 
 -- | The date on which the association was last run.
 association_lastExecutionDate :: Lens.Lens' Association (Prelude.Maybe Prelude.UTCTime)
-association_lastExecutionDate = Lens.lens (\Association' {lastExecutionDate} -> lastExecutionDate) (\s@Association' {} a -> s {lastExecutionDate = a} :: Association) Prelude.. Lens.mapping Core._Time
+association_lastExecutionDate = Lens.lens (\Association' {lastExecutionDate} -> lastExecutionDate) (\s@Association' {} a -> s {lastExecutionDate = a} :: Association) Prelude.. Lens.mapping Data._Time
 
 -- | The ID created by the system when you create an association. An
 -- association is a binding between a document and a set of targets with a
@@ -205,24 +206,24 @@ association_associationId = Lens.lens (\Association' {associationId} -> associat
 association_documentVersion :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
 association_documentVersion = Lens.lens (\Association' {documentVersion} -> documentVersion) (\s@Association' {} a -> s {documentVersion = a} :: Association)
 
-instance Core.FromJSON Association where
+instance Data.FromJSON Association where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Association"
       ( \x ->
           Association'
-            Prelude.<$> (x Core..:? "AssociationName")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AssociationVersion")
-            Prelude.<*> (x Core..:? "TargetMaps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ScheduleExpression")
-            Prelude.<*> (x Core..:? "ScheduleOffset")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "Overview")
-            Prelude.<*> (x Core..:? "LastExecutionDate")
-            Prelude.<*> (x Core..:? "AssociationId")
-            Prelude.<*> (x Core..:? "DocumentVersion")
+            Prelude.<$> (x Data..:? "AssociationName")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AssociationVersion")
+            Prelude.<*> (x Data..:? "TargetMaps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ScheduleExpression")
+            Prelude.<*> (x Data..:? "ScheduleOffset")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "Overview")
+            Prelude.<*> (x Data..:? "LastExecutionDate")
+            Prelude.<*> (x Data..:? "AssociationId")
+            Prelude.<*> (x Data..:? "DocumentVersion")
       )
 
 instance Prelude.Hashable Association where

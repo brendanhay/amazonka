@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.SegmentationDescriptor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @segmentation_descriptor@ message can contain advanced metadata
@@ -201,20 +202,20 @@ segmentationDescriptor_segmentsExpected = Lens.lens (\SegmentationDescriptor' {s
 segmentationDescriptor_segmentationEventId :: Lens.Lens' SegmentationDescriptor (Prelude.Maybe Prelude.Int)
 segmentationDescriptor_segmentationEventId = Lens.lens (\SegmentationDescriptor' {segmentationEventId} -> segmentationEventId) (\s@SegmentationDescriptor' {} a -> s {segmentationEventId = a} :: SegmentationDescriptor)
 
-instance Core.FromJSON SegmentationDescriptor where
+instance Data.FromJSON SegmentationDescriptor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SegmentationDescriptor"
       ( \x ->
           SegmentationDescriptor'
-            Prelude.<$> (x Core..:? "SubSegmentsExpected")
-            Prelude.<*> (x Core..:? "SegmentationTypeId")
-            Prelude.<*> (x Core..:? "SegmentationUpidType")
-            Prelude.<*> (x Core..:? "SegmentNum")
-            Prelude.<*> (x Core..:? "SegmentationUpid")
-            Prelude.<*> (x Core..:? "SubSegmentNum")
-            Prelude.<*> (x Core..:? "SegmentsExpected")
-            Prelude.<*> (x Core..:? "SegmentationEventId")
+            Prelude.<$> (x Data..:? "SubSegmentsExpected")
+            Prelude.<*> (x Data..:? "SegmentationTypeId")
+            Prelude.<*> (x Data..:? "SegmentationUpidType")
+            Prelude.<*> (x Data..:? "SegmentNum")
+            Prelude.<*> (x Data..:? "SegmentationUpid")
+            Prelude.<*> (x Data..:? "SubSegmentNum")
+            Prelude.<*> (x Data..:? "SegmentsExpected")
+            Prelude.<*> (x Data..:? "SegmentationEventId")
       )
 
 instance Prelude.Hashable SegmentationDescriptor where
@@ -239,23 +240,23 @@ instance Prelude.NFData SegmentationDescriptor where
       `Prelude.seq` Prelude.rnf segmentsExpected
       `Prelude.seq` Prelude.rnf segmentationEventId
 
-instance Core.ToJSON SegmentationDescriptor where
+instance Data.ToJSON SegmentationDescriptor where
   toJSON SegmentationDescriptor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SubSegmentsExpected" Core..=)
+          [ ("SubSegmentsExpected" Data..=)
               Prelude.<$> subSegmentsExpected,
-            ("SegmentationTypeId" Core..=)
+            ("SegmentationTypeId" Data..=)
               Prelude.<$> segmentationTypeId,
-            ("SegmentationUpidType" Core..=)
+            ("SegmentationUpidType" Data..=)
               Prelude.<$> segmentationUpidType,
-            ("SegmentNum" Core..=) Prelude.<$> segmentNum,
-            ("SegmentationUpid" Core..=)
+            ("SegmentNum" Data..=) Prelude.<$> segmentNum,
+            ("SegmentationUpid" Data..=)
               Prelude.<$> segmentationUpid,
-            ("SubSegmentNum" Core..=) Prelude.<$> subSegmentNum,
-            ("SegmentsExpected" Core..=)
+            ("SubSegmentNum" Data..=) Prelude.<$> subSegmentNum,
+            ("SegmentsExpected" Data..=)
               Prelude.<$> segmentsExpected,
-            ("SegmentationEventId" Core..=)
+            ("SegmentationEventId" Data..=)
               Prelude.<$> segmentationEventId
           ]
       )

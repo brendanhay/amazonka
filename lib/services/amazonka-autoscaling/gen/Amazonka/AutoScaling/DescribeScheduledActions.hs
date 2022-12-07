@@ -54,6 +54,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -65,7 +66,7 @@ data DescribeScheduledActions = DescribeScheduledActions'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The latest scheduled start time to return. If scheduled action names are
     -- provided, this property is ignored.
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The maximum number of items to return with this call. The default value
     -- is @50@ and the maximum value is @100@.
     maxRecords :: Prelude.Maybe Prelude.Int,
@@ -73,7 +74,7 @@ data DescribeScheduledActions = DescribeScheduledActions'
     autoScalingGroupName :: Prelude.Maybe Prelude.Text,
     -- | The earliest scheduled start time to return. If scheduled action names
     -- are provided, this property is ignored.
-    startTime :: Prelude.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The names of one or more scheduled actions. If you omit this property,
     -- all scheduled actions are described. If you specify an unknown scheduled
     -- action, it is ignored with no error.
@@ -131,7 +132,7 @@ describeScheduledActions_nextToken = Lens.lens (\DescribeScheduledActions' {next
 -- | The latest scheduled start time to return. If scheduled action names are
 -- provided, this property is ignored.
 describeScheduledActions_endTime :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.UTCTime)
-describeScheduledActions_endTime = Lens.lens (\DescribeScheduledActions' {endTime} -> endTime) (\s@DescribeScheduledActions' {} a -> s {endTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Core._Time
+describeScheduledActions_endTime = Lens.lens (\DescribeScheduledActions' {endTime} -> endTime) (\s@DescribeScheduledActions' {} a -> s {endTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
@@ -145,7 +146,7 @@ describeScheduledActions_autoScalingGroupName = Lens.lens (\DescribeScheduledAct
 -- | The earliest scheduled start time to return. If scheduled action names
 -- are provided, this property is ignored.
 describeScheduledActions_startTime :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.UTCTime)
-describeScheduledActions_startTime = Lens.lens (\DescribeScheduledActions' {startTime} -> startTime) (\s@DescribeScheduledActions' {} a -> s {startTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Core._Time
+describeScheduledActions_startTime = Lens.lens (\DescribeScheduledActions' {startTime} -> startTime) (\s@DescribeScheduledActions' {} a -> s {startTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Data._Time
 
 -- | The names of one or more scheduled actions. If you omit this property,
 -- all scheduled actions are described. If you specify an unknown scheduled
@@ -188,10 +189,10 @@ instance Core.AWSRequest DescribeScheduledActions where
       "DescribeScheduledActionsResult"
       ( \s h x ->
           DescribeScheduledActionsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "ScheduledUpdateGroupActions"
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "ScheduledUpdateGroupActions"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -214,27 +215,27 @@ instance Prelude.NFData DescribeScheduledActions where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf scheduledActionNames
 
-instance Core.ToHeaders DescribeScheduledActions where
+instance Data.ToHeaders DescribeScheduledActions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeScheduledActions where
+instance Data.ToPath DescribeScheduledActions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeScheduledActions where
+instance Data.ToQuery DescribeScheduledActions where
   toQuery DescribeScheduledActions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeScheduledActions" :: Prelude.ByteString),
+          Data.=: ("DescribeScheduledActions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "EndTime" Core.=: endTime,
-        "MaxRecords" Core.=: maxRecords,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
-        "StartTime" Core.=: startTime,
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "EndTime" Data.=: endTime,
+        "MaxRecords" Data.=: maxRecords,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName,
+        "StartTime" Data.=: startTime,
         "ScheduledActionNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> scheduledActionNames
             )
       ]

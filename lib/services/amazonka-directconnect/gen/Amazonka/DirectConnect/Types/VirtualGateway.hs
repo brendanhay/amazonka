@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.VirtualGateway where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a virtual private gateway for a private virtual
@@ -96,14 +97,14 @@ virtualGateway_virtualGatewayState = Lens.lens (\VirtualGateway' {virtualGateway
 virtualGateway_virtualGatewayId :: Lens.Lens' VirtualGateway (Prelude.Maybe Prelude.Text)
 virtualGateway_virtualGatewayId = Lens.lens (\VirtualGateway' {virtualGatewayId} -> virtualGatewayId) (\s@VirtualGateway' {} a -> s {virtualGatewayId = a} :: VirtualGateway)
 
-instance Core.FromJSON VirtualGateway where
+instance Data.FromJSON VirtualGateway where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGateway"
       ( \x ->
           VirtualGateway'
-            Prelude.<$> (x Core..:? "virtualGatewayState")
-            Prelude.<*> (x Core..:? "virtualGatewayId")
+            Prelude.<$> (x Data..:? "virtualGatewayState")
+            Prelude.<*> (x Data..:? "virtualGatewayId")
       )
 
 instance Prelude.Hashable VirtualGateway where

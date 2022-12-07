@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest DeleteExperimentTemplate where
     Response.receiveJSON
       ( \s h x ->
           DeleteExperimentTemplateResponse'
-            Prelude.<$> (x Core..?> "experimentTemplate")
+            Prelude.<$> (x Data..?> "experimentTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,23 +95,23 @@ instance Prelude.Hashable DeleteExperimentTemplate where
 instance Prelude.NFData DeleteExperimentTemplate where
   rnf DeleteExperimentTemplate' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DeleteExperimentTemplate where
+instance Data.ToHeaders DeleteExperimentTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteExperimentTemplate where
+instance Data.ToPath DeleteExperimentTemplate where
   toPath DeleteExperimentTemplate' {..} =
     Prelude.mconcat
-      ["/experimentTemplates/", Core.toBS id]
+      ["/experimentTemplates/", Data.toBS id]
 
-instance Core.ToQuery DeleteExperimentTemplate where
+instance Data.ToQuery DeleteExperimentTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteExperimentTemplateResponse' smart constructor.

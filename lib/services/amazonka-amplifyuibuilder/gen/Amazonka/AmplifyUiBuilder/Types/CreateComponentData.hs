@@ -27,6 +27,7 @@ import Amazonka.AmplifyUiBuilder.Types.ComponentProperty
 import Amazonka.AmplifyUiBuilder.Types.ComponentVariant
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents all of the information that is required to create a
@@ -210,23 +211,23 @@ instance Prelude.NFData CreateComponentData where
       `Prelude.seq` Prelude.rnf properties
       `Prelude.seq` Prelude.rnf variants
 
-instance Core.ToJSON CreateComponentData where
+instance Data.ToJSON CreateComponentData where
   toJSON CreateComponentData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("sourceId" Core..=) Prelude.<$> sourceId,
-            ("children" Core..=) Prelude.<$> children,
-            ("events" Core..=) Prelude.<$> events,
-            ("schemaVersion" Core..=) Prelude.<$> schemaVersion,
-            ("collectionProperties" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("sourceId" Data..=) Prelude.<$> sourceId,
+            ("children" Data..=) Prelude.<$> children,
+            ("events" Data..=) Prelude.<$> events,
+            ("schemaVersion" Data..=) Prelude.<$> schemaVersion,
+            ("collectionProperties" Data..=)
               Prelude.<$> collectionProperties,
             Prelude.Just
-              ("bindingProperties" Core..= bindingProperties),
-            Prelude.Just ("componentType" Core..= componentType),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("overrides" Core..= overrides),
-            Prelude.Just ("properties" Core..= properties),
-            Prelude.Just ("variants" Core..= variants)
+              ("bindingProperties" Data..= bindingProperties),
+            Prelude.Just ("componentType" Data..= componentType),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("overrides" Data..= overrides),
+            Prelude.Just ("properties" Data..= properties),
+            Prelude.Just ("variants" Data..= variants)
           ]
       )

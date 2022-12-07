@@ -21,6 +21,7 @@ module Amazonka.Location.Types.ListGeofenceCollectionsResponseEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.PricingPlan
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,13 +38,13 @@ data ListGeofenceCollectionsResponseEntry = ListGeofenceCollectionsResponseEntry
     -- | The timestamp for when the geofence collection was created in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | The description for the geofence collection
     description :: Prelude.Text,
     -- | Specifies a timestamp for when the resource was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,10 +92,10 @@ newListGeofenceCollectionsResponseEntry
         pricingPlan = Prelude.Nothing,
         collectionName = pCollectionName_,
         createTime =
-          Core._Time Lens.# pCreateTime_,
+          Data._Time Lens.# pCreateTime_,
         description = pDescription_,
         updateTime =
-          Core._Time Lens.# pUpdateTime_
+          Data._Time Lens.# pUpdateTime_
       }
 
 -- | No longer used. Always returns an empty string.
@@ -113,7 +114,7 @@ listGeofenceCollectionsResponseEntry_collectionName = Lens.lens (\ListGeofenceCo
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
 listGeofenceCollectionsResponseEntry_createTime :: Lens.Lens' ListGeofenceCollectionsResponseEntry Prelude.UTCTime
-listGeofenceCollectionsResponseEntry_createTime = Lens.lens (\ListGeofenceCollectionsResponseEntry' {createTime} -> createTime) (\s@ListGeofenceCollectionsResponseEntry' {} a -> s {createTime = a} :: ListGeofenceCollectionsResponseEntry) Prelude.. Core._Time
+listGeofenceCollectionsResponseEntry_createTime = Lens.lens (\ListGeofenceCollectionsResponseEntry' {createTime} -> createTime) (\s@ListGeofenceCollectionsResponseEntry' {} a -> s {createTime = a} :: ListGeofenceCollectionsResponseEntry) Prelude.. Data._Time
 
 -- | The description for the geofence collection
 listGeofenceCollectionsResponseEntry_description :: Lens.Lens' ListGeofenceCollectionsResponseEntry Prelude.Text
@@ -123,23 +124,23 @@ listGeofenceCollectionsResponseEntry_description = Lens.lens (\ListGeofenceColle
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
 listGeofenceCollectionsResponseEntry_updateTime :: Lens.Lens' ListGeofenceCollectionsResponseEntry Prelude.UTCTime
-listGeofenceCollectionsResponseEntry_updateTime = Lens.lens (\ListGeofenceCollectionsResponseEntry' {updateTime} -> updateTime) (\s@ListGeofenceCollectionsResponseEntry' {} a -> s {updateTime = a} :: ListGeofenceCollectionsResponseEntry) Prelude.. Core._Time
+listGeofenceCollectionsResponseEntry_updateTime = Lens.lens (\ListGeofenceCollectionsResponseEntry' {updateTime} -> updateTime) (\s@ListGeofenceCollectionsResponseEntry' {} a -> s {updateTime = a} :: ListGeofenceCollectionsResponseEntry) Prelude.. Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ListGeofenceCollectionsResponseEntry
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListGeofenceCollectionsResponseEntry"
       ( \x ->
           ListGeofenceCollectionsResponseEntry'
-            Prelude.<$> (x Core..:? "PricingPlanDataSource")
-            Prelude.<*> (x Core..:? "PricingPlan")
-            Prelude.<*> (x Core..: "CollectionName")
-            Prelude.<*> (x Core..: "CreateTime")
-            Prelude.<*> (x Core..: "Description")
-            Prelude.<*> (x Core..: "UpdateTime")
+            Prelude.<$> (x Data..:? "PricingPlanDataSource")
+            Prelude.<*> (x Data..:? "PricingPlan")
+            Prelude.<*> (x Data..: "CollectionName")
+            Prelude.<*> (x Data..: "CreateTime")
+            Prelude.<*> (x Data..: "Description")
+            Prelude.<*> (x Data..: "UpdateTime")
       )
 
 instance

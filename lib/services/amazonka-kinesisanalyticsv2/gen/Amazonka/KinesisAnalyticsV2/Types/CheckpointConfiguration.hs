@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.CheckpointConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.ConfigurationType
 import qualified Amazonka.Prelude as Prelude
 
@@ -204,17 +205,17 @@ instance Prelude.NFData CheckpointConfiguration where
       `Prelude.seq` Prelude.rnf checkpointInterval
       `Prelude.seq` Prelude.rnf configurationType
 
-instance Core.ToJSON CheckpointConfiguration where
+instance Data.ToJSON CheckpointConfiguration where
   toJSON CheckpointConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CheckpointingEnabled" Core..=)
+          [ ("CheckpointingEnabled" Data..=)
               Prelude.<$> checkpointingEnabled,
-            ("MinPauseBetweenCheckpoints" Core..=)
+            ("MinPauseBetweenCheckpoints" Data..=)
               Prelude.<$> minPauseBetweenCheckpoints,
-            ("CheckpointInterval" Core..=)
+            ("CheckpointInterval" Data..=)
               Prelude.<$> checkpointInterval,
             Prelude.Just
-              ("ConfigurationType" Core..= configurationType)
+              ("ConfigurationType" Data..= configurationType)
           ]
       )

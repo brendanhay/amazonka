@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,8 +74,8 @@ instance Core.AWSRequest GenerateCredentialReport where
       "GenerateCredentialReportResult"
       ( \s h x ->
           GenerateCredentialReportResponse'
-            Prelude.<$> (x Core..@? "State")
-            Prelude.<*> (x Core..@? "Description")
+            Prelude.<$> (x Data..@? "State")
+            Prelude.<*> (x Data..@? "Description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -85,20 +86,20 @@ instance Prelude.Hashable GenerateCredentialReport where
 instance Prelude.NFData GenerateCredentialReport where
   rnf _ = ()
 
-instance Core.ToHeaders GenerateCredentialReport where
+instance Data.ToHeaders GenerateCredentialReport where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GenerateCredentialReport where
+instance Data.ToPath GenerateCredentialReport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GenerateCredentialReport where
+instance Data.ToQuery GenerateCredentialReport where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ("GenerateCredentialReport" :: Prelude.ByteString),
+              Data.=: ("GenerateCredentialReport" :: Prelude.ByteString),
             "Version"
-              Core.=: ("2010-05-08" :: Prelude.ByteString)
+              Data.=: ("2010-05-08" :: Prelude.ByteString)
           ]
       )
 

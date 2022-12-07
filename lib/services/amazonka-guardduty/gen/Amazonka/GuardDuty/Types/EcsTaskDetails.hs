@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.EcsTaskDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.Container
 import Amazonka.GuardDuty.Types.Tag
 import Amazonka.GuardDuty.Types.Volume
@@ -41,9 +42,9 @@ data EcsTaskDetails = EcsTaskDetails'
     -- | The list of data volume definitions for the task.
     volumes :: Prelude.Maybe [Volume],
     -- | The Unix timestamp for the time when the task was created.
-    taskCreatedAt :: Prelude.Maybe Core.POSIX,
+    taskCreatedAt :: Prelude.Maybe Data.POSIX,
     -- | The Unix timestamp for the time when the task started.
-    startedAt :: Prelude.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the task definition that creates the task.
     definitionArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the task group that\'s associated with the task.
@@ -118,11 +119,11 @@ ecsTaskDetails_volumes = Lens.lens (\EcsTaskDetails' {volumes} -> volumes) (\s@E
 
 -- | The Unix timestamp for the time when the task was created.
 ecsTaskDetails_taskCreatedAt :: Lens.Lens' EcsTaskDetails (Prelude.Maybe Prelude.UTCTime)
-ecsTaskDetails_taskCreatedAt = Lens.lens (\EcsTaskDetails' {taskCreatedAt} -> taskCreatedAt) (\s@EcsTaskDetails' {} a -> s {taskCreatedAt = a} :: EcsTaskDetails) Prelude.. Lens.mapping Core._Time
+ecsTaskDetails_taskCreatedAt = Lens.lens (\EcsTaskDetails' {taskCreatedAt} -> taskCreatedAt) (\s@EcsTaskDetails' {} a -> s {taskCreatedAt = a} :: EcsTaskDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The Unix timestamp for the time when the task started.
 ecsTaskDetails_startedAt :: Lens.Lens' EcsTaskDetails (Prelude.Maybe Prelude.UTCTime)
-ecsTaskDetails_startedAt = Lens.lens (\EcsTaskDetails' {startedAt} -> startedAt) (\s@EcsTaskDetails' {} a -> s {startedAt = a} :: EcsTaskDetails) Prelude.. Lens.mapping Core._Time
+ecsTaskDetails_startedAt = Lens.lens (\EcsTaskDetails' {startedAt} -> startedAt) (\s@EcsTaskDetails' {} a -> s {startedAt = a} :: EcsTaskDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the task definition that creates the task.
 ecsTaskDetails_definitionArn :: Lens.Lens' EcsTaskDetails (Prelude.Maybe Prelude.Text)
@@ -136,22 +137,22 @@ ecsTaskDetails_group = Lens.lens (\EcsTaskDetails' {group'} -> group') (\s@EcsTa
 ecsTaskDetails_version :: Lens.Lens' EcsTaskDetails (Prelude.Maybe Prelude.Text)
 ecsTaskDetails_version = Lens.lens (\EcsTaskDetails' {version} -> version) (\s@EcsTaskDetails' {} a -> s {version = a} :: EcsTaskDetails)
 
-instance Core.FromJSON EcsTaskDetails where
+instance Data.FromJSON EcsTaskDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EcsTaskDetails"
       ( \x ->
           EcsTaskDetails'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "containers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "startedBy")
-            Prelude.<*> (x Core..:? "volumes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "startedAt")
-            Prelude.<*> (x Core..:? "definitionArn")
-            Prelude.<*> (x Core..:? "group")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "containers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "startedBy")
+            Prelude.<*> (x Data..:? "volumes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "startedAt")
+            Prelude.<*> (x Data..:? "definitionArn")
+            Prelude.<*> (x Data..:? "group")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable EcsTaskDetails where

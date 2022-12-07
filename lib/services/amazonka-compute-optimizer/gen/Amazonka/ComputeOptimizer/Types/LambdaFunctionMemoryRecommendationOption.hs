@@ -23,6 +23,7 @@ import Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric
 import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a recommendation option for an Lambda function.
@@ -100,19 +101,19 @@ lambdaFunctionMemoryRecommendationOption_projectedUtilizationMetrics :: Lens.Len
 lambdaFunctionMemoryRecommendationOption_projectedUtilizationMetrics = Lens.lens (\LambdaFunctionMemoryRecommendationOption' {projectedUtilizationMetrics} -> projectedUtilizationMetrics) (\s@LambdaFunctionMemoryRecommendationOption' {} a -> s {projectedUtilizationMetrics = a} :: LambdaFunctionMemoryRecommendationOption) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LambdaFunctionMemoryRecommendationOption
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaFunctionMemoryRecommendationOption"
       ( \x ->
           LambdaFunctionMemoryRecommendationOption'
-            Prelude.<$> (x Core..:? "memorySize")
-            Prelude.<*> (x Core..:? "savingsOpportunity")
-            Prelude.<*> (x Core..:? "rank")
-            Prelude.<*> ( x Core..:? "projectedUtilizationMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "memorySize")
+            Prelude.<*> (x Data..:? "savingsOpportunity")
+            Prelude.<*> (x Data..:? "rank")
+            Prelude.<*> ( x Data..:? "projectedUtilizationMetrics"
+                            Data..!= Prelude.mempty
                         )
       )
 

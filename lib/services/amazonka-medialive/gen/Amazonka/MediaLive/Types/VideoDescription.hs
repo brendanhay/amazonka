@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.VideoDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.VideoCodecSettings
 import Amazonka.MediaLive.Types.VideoDescriptionRespondToAfd
 import Amazonka.MediaLive.Types.VideoDescriptionScalingBehavior
@@ -189,19 +190,19 @@ videoDescription_height = Lens.lens (\VideoDescription' {height} -> height) (\s@
 videoDescription_name :: Lens.Lens' VideoDescription Prelude.Text
 videoDescription_name = Lens.lens (\VideoDescription' {name} -> name) (\s@VideoDescription' {} a -> s {name = a} :: VideoDescription)
 
-instance Core.FromJSON VideoDescription where
+instance Data.FromJSON VideoDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VideoDescription"
       ( \x ->
           VideoDescription'
-            Prelude.<$> (x Core..:? "respondToAfd")
-            Prelude.<*> (x Core..:? "sharpness")
-            Prelude.<*> (x Core..:? "codecSettings")
-            Prelude.<*> (x Core..:? "width")
-            Prelude.<*> (x Core..:? "scalingBehavior")
-            Prelude.<*> (x Core..:? "height")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "respondToAfd")
+            Prelude.<*> (x Data..:? "sharpness")
+            Prelude.<*> (x Data..:? "codecSettings")
+            Prelude.<*> (x Data..:? "width")
+            Prelude.<*> (x Data..:? "scalingBehavior")
+            Prelude.<*> (x Data..:? "height")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable VideoDescription where
@@ -224,17 +225,17 @@ instance Prelude.NFData VideoDescription where
       `Prelude.seq` Prelude.rnf height
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON VideoDescription where
+instance Data.ToJSON VideoDescription where
   toJSON VideoDescription' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("respondToAfd" Core..=) Prelude.<$> respondToAfd,
-            ("sharpness" Core..=) Prelude.<$> sharpness,
-            ("codecSettings" Core..=) Prelude.<$> codecSettings,
-            ("width" Core..=) Prelude.<$> width,
-            ("scalingBehavior" Core..=)
+          [ ("respondToAfd" Data..=) Prelude.<$> respondToAfd,
+            ("sharpness" Data..=) Prelude.<$> sharpness,
+            ("codecSettings" Data..=) Prelude.<$> codecSettings,
+            ("width" Data..=) Prelude.<$> width,
+            ("scalingBehavior" Data..=)
               Prelude.<$> scalingBehavior,
-            ("height" Core..=) Prelude.<$> height,
-            Prelude.Just ("name" Core..= name)
+            ("height" Data..=) Prelude.<$> height,
+            Prelude.Just ("name" Data..= name)
           ]
       )

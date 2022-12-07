@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,18 +104,18 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeModelQualityJobDefinitionResponse'
-            Prelude.<$> (x Core..?> "ModelQualityBaselineConfig")
-              Prelude.<*> (x Core..?> "NetworkConfig")
-              Prelude.<*> (x Core..?> "StoppingCondition")
+            Prelude.<$> (x Data..?> "ModelQualityBaselineConfig")
+              Prelude.<*> (x Data..?> "NetworkConfig")
+              Prelude.<*> (x Data..?> "StoppingCondition")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "JobDefinitionArn")
-              Prelude.<*> (x Core..:> "JobDefinitionName")
-              Prelude.<*> (x Core..:> "CreationTime")
-              Prelude.<*> (x Core..:> "ModelQualityAppSpecification")
-              Prelude.<*> (x Core..:> "ModelQualityJobInput")
-              Prelude.<*> (x Core..:> "ModelQualityJobOutputConfig")
-              Prelude.<*> (x Core..:> "JobResources")
-              Prelude.<*> (x Core..:> "RoleArn")
+              Prelude.<*> (x Data..:> "JobDefinitionArn")
+              Prelude.<*> (x Data..:> "JobDefinitionName")
+              Prelude.<*> (x Data..:> "CreationTime")
+              Prelude.<*> (x Data..:> "ModelQualityAppSpecification")
+              Prelude.<*> (x Data..:> "ModelQualityJobInput")
+              Prelude.<*> (x Data..:> "ModelQualityJobOutputConfig")
+              Prelude.<*> (x Data..:> "JobResources")
+              Prelude.<*> (x Data..:> "RoleArn")
       )
 
 instance
@@ -134,43 +135,43 @@ instance
     Prelude.rnf jobDefinitionName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeModelQualityJobDefinition
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeModelQualityJobDefinition" ::
+              Data.=# ( "SageMaker.DescribeModelQualityJobDefinition" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeModelQualityJobDefinition
   where
   toJSON DescribeModelQualityJobDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("JobDefinitionName" Core..= jobDefinitionName)
+              ("JobDefinitionName" Data..= jobDefinitionName)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeModelQualityJobDefinition
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeModelQualityJobDefinition
   where
   toQuery = Prelude.const Prelude.mempty
@@ -190,7 +191,7 @@ data DescribeModelQualityJobDefinitionResponse = DescribeModelQualityJobDefiniti
     -- an Amazon Web Services Region in the Amazon Web Services account.
     jobDefinitionName :: Prelude.Text,
     -- | The time at which the model quality job was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | Configures the model quality job to run a specified Docker container
     -- image.
     modelQualityAppSpecification :: ModelQualityAppSpecification,
@@ -280,7 +281,7 @@ newDescribeModelQualityJobDefinitionResponse
         jobDefinitionName =
           pJobDefinitionName_,
         creationTime =
-          Core._Time
+          Data._Time
             Lens.# pCreationTime_,
         modelQualityAppSpecification =
           pModelQualityAppSpecification_,
@@ -319,7 +320,7 @@ describeModelQualityJobDefinitionResponse_jobDefinitionName = Lens.lens (\Descri
 
 -- | The time at which the model quality job was created.
 describeModelQualityJobDefinitionResponse_creationTime :: Lens.Lens' DescribeModelQualityJobDefinitionResponse Prelude.UTCTime
-describeModelQualityJobDefinitionResponse_creationTime = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {creationTime} -> creationTime) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {creationTime = a} :: DescribeModelQualityJobDefinitionResponse) Prelude.. Core._Time
+describeModelQualityJobDefinitionResponse_creationTime = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {creationTime} -> creationTime) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {creationTime = a} :: DescribeModelQualityJobDefinitionResponse) Prelude.. Data._Time
 
 -- | Configures the model quality job to run a specified Docker container
 -- image.

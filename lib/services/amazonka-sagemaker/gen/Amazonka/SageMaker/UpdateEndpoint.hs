@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -196,7 +197,7 @@ instance Core.AWSRequest UpdateEndpoint where
       ( \s h x ->
           UpdateEndpointResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "EndpointArn")
+            Prelude.<*> (x Data..:> "EndpointArn")
       )
 
 instance Prelude.Hashable UpdateEndpoint where
@@ -217,41 +218,41 @@ instance Prelude.NFData UpdateEndpoint where
       `Prelude.seq` Prelude.rnf endpointName
       `Prelude.seq` Prelude.rnf endpointConfigName
 
-instance Core.ToHeaders UpdateEndpoint where
+instance Data.ToHeaders UpdateEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.UpdateEndpoint" :: Prelude.ByteString),
+              Data.=# ("SageMaker.UpdateEndpoint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEndpoint where
+instance Data.ToJSON UpdateEndpoint where
   toJSON UpdateEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RetainDeploymentConfig" Core..=)
+          [ ("RetainDeploymentConfig" Data..=)
               Prelude.<$> retainDeploymentConfig,
-            ("RetainAllVariantProperties" Core..=)
+            ("RetainAllVariantProperties" Data..=)
               Prelude.<$> retainAllVariantProperties,
-            ("DeploymentConfig" Core..=)
+            ("DeploymentConfig" Data..=)
               Prelude.<$> deploymentConfig,
-            ("ExcludeRetainedVariantProperties" Core..=)
+            ("ExcludeRetainedVariantProperties" Data..=)
               Prelude.<$> excludeRetainedVariantProperties,
-            Prelude.Just ("EndpointName" Core..= endpointName),
+            Prelude.Just ("EndpointName" Data..= endpointName),
             Prelude.Just
-              ("EndpointConfigName" Core..= endpointConfigName)
+              ("EndpointConfigName" Data..= endpointConfigName)
           ]
       )
 
-instance Core.ToPath UpdateEndpoint where
+instance Data.ToPath UpdateEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateEndpoint where
+instance Data.ToQuery UpdateEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEndpointResponse' smart constructor.

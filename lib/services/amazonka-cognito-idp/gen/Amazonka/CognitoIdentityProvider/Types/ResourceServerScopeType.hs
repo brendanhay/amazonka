@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.ResourceServerScopeType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource server scope.
@@ -67,14 +68,14 @@ resourceServerScopeType_scopeName = Lens.lens (\ResourceServerScopeType' {scopeN
 resourceServerScopeType_scopeDescription :: Lens.Lens' ResourceServerScopeType Prelude.Text
 resourceServerScopeType_scopeDescription = Lens.lens (\ResourceServerScopeType' {scopeDescription} -> scopeDescription) (\s@ResourceServerScopeType' {} a -> s {scopeDescription = a} :: ResourceServerScopeType)
 
-instance Core.FromJSON ResourceServerScopeType where
+instance Data.FromJSON ResourceServerScopeType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceServerScopeType"
       ( \x ->
           ResourceServerScopeType'
-            Prelude.<$> (x Core..: "ScopeName")
-            Prelude.<*> (x Core..: "ScopeDescription")
+            Prelude.<$> (x Data..: "ScopeName")
+            Prelude.<*> (x Data..: "ScopeDescription")
       )
 
 instance Prelude.Hashable ResourceServerScopeType where
@@ -87,12 +88,12 @@ instance Prelude.NFData ResourceServerScopeType where
     Prelude.rnf scopeName
       `Prelude.seq` Prelude.rnf scopeDescription
 
-instance Core.ToJSON ResourceServerScopeType where
+instance Data.ToJSON ResourceServerScopeType where
   toJSON ResourceServerScopeType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ScopeName" Core..= scopeName),
+          [ Prelude.Just ("ScopeName" Data..= scopeName),
             Prelude.Just
-              ("ScopeDescription" Core..= scopeDescription)
+              ("ScopeDescription" Data..= scopeDescription)
           ]
       )

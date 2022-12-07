@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.AwsEc2NetworkInterfaceViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Violation detail for network interfaces associated with an EC2 instance.
@@ -66,17 +67,17 @@ awsEc2NetworkInterfaceViolation_violatingSecurityGroups :: Lens.Lens' AwsEc2Netw
 awsEc2NetworkInterfaceViolation_violatingSecurityGroups = Lens.lens (\AwsEc2NetworkInterfaceViolation' {violatingSecurityGroups} -> violatingSecurityGroups) (\s@AwsEc2NetworkInterfaceViolation' {} a -> s {violatingSecurityGroups = a} :: AwsEc2NetworkInterfaceViolation) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEc2NetworkInterfaceViolation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2NetworkInterfaceViolation"
       ( \x ->
           AwsEc2NetworkInterfaceViolation'
-            Prelude.<$> (x Core..:? "ViolationTarget")
-            Prelude.<*> ( x Core..:? "ViolatingSecurityGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ViolationTarget")
+            Prelude.<*> ( x Data..:? "ViolatingSecurityGroups"
+                            Data..!= Prelude.mempty
                         )
       )
 

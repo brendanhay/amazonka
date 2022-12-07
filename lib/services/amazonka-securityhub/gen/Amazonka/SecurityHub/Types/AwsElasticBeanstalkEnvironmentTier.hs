@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElasticBeanstalkEnvironmentTier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the tier of the environment.
@@ -78,17 +79,17 @@ awsElasticBeanstalkEnvironmentTier_version :: Lens.Lens' AwsElasticBeanstalkEnvi
 awsElasticBeanstalkEnvironmentTier_version = Lens.lens (\AwsElasticBeanstalkEnvironmentTier' {version} -> version) (\s@AwsElasticBeanstalkEnvironmentTier' {} a -> s {version = a} :: AwsElasticBeanstalkEnvironmentTier)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElasticBeanstalkEnvironmentTier
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElasticBeanstalkEnvironmentTier"
       ( \x ->
           AwsElasticBeanstalkEnvironmentTier'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance
@@ -112,14 +113,14 @@ instance
       `Prelude.seq` Prelude.rnf version
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsElasticBeanstalkEnvironmentTier
   where
   toJSON AwsElasticBeanstalkEnvironmentTier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Version" Core..=) Prelude.<$> version
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Version" Data..=) Prelude.<$> version
           ]
       )

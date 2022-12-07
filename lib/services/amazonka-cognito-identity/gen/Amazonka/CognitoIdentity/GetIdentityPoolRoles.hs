@@ -46,6 +46,7 @@ where
 import Amazonka.CognitoIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,9 +93,9 @@ instance Core.AWSRequest GetIdentityPoolRoles where
     Response.receiveJSON
       ( \s h x ->
           GetIdentityPoolRolesResponse'
-            Prelude.<$> (x Core..?> "IdentityPoolId")
-            Prelude.<*> (x Core..?> "RoleMappings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Roles" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "IdentityPoolId")
+            Prelude.<*> (x Data..?> "RoleMappings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Roles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,34 +107,34 @@ instance Prelude.NFData GetIdentityPoolRoles where
   rnf GetIdentityPoolRoles' {..} =
     Prelude.rnf identityPoolId
 
-instance Core.ToHeaders GetIdentityPoolRoles where
+instance Data.ToHeaders GetIdentityPoolRoles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityService.GetIdentityPoolRoles" ::
+              Data.=# ( "AWSCognitoIdentityService.GetIdentityPoolRoles" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetIdentityPoolRoles where
+instance Data.ToJSON GetIdentityPoolRoles where
   toJSON GetIdentityPoolRoles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("IdentityPoolId" Core..= identityPoolId)
+              ("IdentityPoolId" Data..= identityPoolId)
           ]
       )
 
-instance Core.ToPath GetIdentityPoolRoles where
+instance Data.ToPath GetIdentityPoolRoles where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetIdentityPoolRoles where
+instance Data.ToQuery GetIdentityPoolRoles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returned in response to a successful @GetIdentityPoolRoles@ operation.

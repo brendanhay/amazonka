@@ -21,6 +21,7 @@ module Amazonka.OpsWorksCM.Types.ServerEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An event that is related to the server, such as the start of maintenance
@@ -35,7 +36,7 @@ data ServerEvent = ServerEvent'
     -- | The Amazon S3 URL of the event\'s log file.
     logUrl :: Prelude.Maybe Prelude.Text,
     -- | The time when the event occurred.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,18 +79,18 @@ serverEvent_logUrl = Lens.lens (\ServerEvent' {logUrl} -> logUrl) (\s@ServerEven
 
 -- | The time when the event occurred.
 serverEvent_createdAt :: Lens.Lens' ServerEvent (Prelude.Maybe Prelude.UTCTime)
-serverEvent_createdAt = Lens.lens (\ServerEvent' {createdAt} -> createdAt) (\s@ServerEvent' {} a -> s {createdAt = a} :: ServerEvent) Prelude.. Lens.mapping Core._Time
+serverEvent_createdAt = Lens.lens (\ServerEvent' {createdAt} -> createdAt) (\s@ServerEvent' {} a -> s {createdAt = a} :: ServerEvent) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ServerEvent where
+instance Data.FromJSON ServerEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerEvent"
       ( \x ->
           ServerEvent'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "ServerName")
-            Prelude.<*> (x Core..:? "LogUrl")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "ServerName")
+            Prelude.<*> (x Data..:? "LogUrl")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable ServerEvent where

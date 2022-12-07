@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.EncryptionInTransit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.ClientBroker
 import qualified Amazonka.Prelude as Prelude
 
@@ -107,14 +108,14 @@ encryptionInTransit_inCluster = Lens.lens (\EncryptionInTransit' {inCluster} -> 
 encryptionInTransit_clientBroker :: Lens.Lens' EncryptionInTransit (Prelude.Maybe ClientBroker)
 encryptionInTransit_clientBroker = Lens.lens (\EncryptionInTransit' {clientBroker} -> clientBroker) (\s@EncryptionInTransit' {} a -> s {clientBroker = a} :: EncryptionInTransit)
 
-instance Core.FromJSON EncryptionInTransit where
+instance Data.FromJSON EncryptionInTransit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionInTransit"
       ( \x ->
           EncryptionInTransit'
-            Prelude.<$> (x Core..:? "inCluster")
-            Prelude.<*> (x Core..:? "clientBroker")
+            Prelude.<$> (x Data..:? "inCluster")
+            Prelude.<*> (x Data..:? "clientBroker")
       )
 
 instance Prelude.Hashable EncryptionInTransit where
@@ -127,11 +128,11 @@ instance Prelude.NFData EncryptionInTransit where
     Prelude.rnf inCluster
       `Prelude.seq` Prelude.rnf clientBroker
 
-instance Core.ToJSON EncryptionInTransit where
+instance Data.ToJSON EncryptionInTransit where
   toJSON EncryptionInTransit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("inCluster" Core..=) Prelude.<$> inCluster,
-            ("clientBroker" Core..=) Prelude.<$> clientBroker
+          [ ("inCluster" Data..=) Prelude.<$> inCluster,
+            ("clientBroker" Data..=) Prelude.<$> clientBroker
           ]
       )

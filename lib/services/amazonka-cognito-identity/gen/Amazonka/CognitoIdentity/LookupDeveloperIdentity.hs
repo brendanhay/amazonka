@@ -66,6 +66,7 @@ where
 import Amazonka.CognitoIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -169,9 +170,9 @@ instance Core.AWSRequest LookupDeveloperIdentity where
     Response.receiveJSON
       ( \s h x ->
           LookupDeveloperIdentityResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "IdentityId")
-            Prelude.<*> ( x Core..?> "DeveloperUserIdentifierList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "IdentityId")
+            Prelude.<*> ( x Data..?> "DeveloperUserIdentifierList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -193,39 +194,39 @@ instance Prelude.NFData LookupDeveloperIdentity where
       `Prelude.seq` Prelude.rnf identityId
       `Prelude.seq` Prelude.rnf identityPoolId
 
-instance Core.ToHeaders LookupDeveloperIdentity where
+instance Data.ToHeaders LookupDeveloperIdentity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityService.LookupDeveloperIdentity" ::
+              Data.=# ( "AWSCognitoIdentityService.LookupDeveloperIdentity" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON LookupDeveloperIdentity where
+instance Data.ToJSON LookupDeveloperIdentity where
   toJSON LookupDeveloperIdentity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("DeveloperUserIdentifier" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("DeveloperUserIdentifier" Data..=)
               Prelude.<$> developerUserIdentifier,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("IdentityId" Core..=) Prelude.<$> identityId,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("IdentityId" Data..=) Prelude.<$> identityId,
             Prelude.Just
-              ("IdentityPoolId" Core..= identityPoolId)
+              ("IdentityPoolId" Data..= identityPoolId)
           ]
       )
 
-instance Core.ToPath LookupDeveloperIdentity where
+instance Data.ToPath LookupDeveloperIdentity where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery LookupDeveloperIdentity where
+instance Data.ToQuery LookupDeveloperIdentity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Returned in response to a successful @LookupDeveloperIdentity@ action.

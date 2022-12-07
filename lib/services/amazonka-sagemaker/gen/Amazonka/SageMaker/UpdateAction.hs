@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,7 +124,7 @@ instance Core.AWSRequest UpdateAction where
     Response.receiveJSON
       ( \s h x ->
           UpdateActionResponse'
-            Prelude.<$> (x Core..?> "ActionArn")
+            Prelude.<$> (x Data..?> "ActionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,36 +144,36 @@ instance Prelude.NFData UpdateAction where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf actionName
 
-instance Core.ToHeaders UpdateAction where
+instance Data.ToHeaders UpdateAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.UpdateAction" :: Prelude.ByteString),
+              Data.=# ("SageMaker.UpdateAction" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAction where
+instance Data.ToJSON UpdateAction where
   toJSON UpdateAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PropertiesToRemove" Core..=)
+          [ ("PropertiesToRemove" Data..=)
               Prelude.<$> propertiesToRemove,
-            ("Properties" Core..=) Prelude.<$> properties,
-            ("Status" Core..=) Prelude.<$> status,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("ActionName" Core..= actionName)
+            ("Properties" Data..=) Prelude.<$> properties,
+            ("Status" Data..=) Prelude.<$> status,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("ActionName" Data..= actionName)
           ]
       )
 
-instance Core.ToPath UpdateAction where
+instance Data.ToPath UpdateAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAction where
+instance Data.ToQuery UpdateAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateActionResponse' smart constructor.

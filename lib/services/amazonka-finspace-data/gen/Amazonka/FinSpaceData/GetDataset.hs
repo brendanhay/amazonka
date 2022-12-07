@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,16 +93,16 @@ instance Core.AWSRequest GetDataset where
     Response.receiveJSON
       ( \s h x ->
           GetDatasetResponse'
-            Prelude.<$> (x Core..?> "alias")
-            Prelude.<*> (x Core..?> "datasetDescription")
-            Prelude.<*> (x Core..?> "datasetTitle")
-            Prelude.<*> (x Core..?> "kind")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "datasetArn")
-            Prelude.<*> (x Core..?> "lastModifiedTime")
-            Prelude.<*> (x Core..?> "datasetId")
-            Prelude.<*> (x Core..?> "createTime")
-            Prelude.<*> (x Core..?> "schemaDefinition")
+            Prelude.<$> (x Data..?> "alias")
+            Prelude.<*> (x Data..?> "datasetDescription")
+            Prelude.<*> (x Data..?> "datasetTitle")
+            Prelude.<*> (x Data..?> "kind")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "datasetArn")
+            Prelude.<*> (x Data..?> "lastModifiedTime")
+            Prelude.<*> (x Data..?> "datasetId")
+            Prelude.<*> (x Data..?> "createTime")
+            Prelude.<*> (x Data..?> "schemaDefinition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,23 +113,23 @@ instance Prelude.Hashable GetDataset where
 instance Prelude.NFData GetDataset where
   rnf GetDataset' {..} = Prelude.rnf datasetId
 
-instance Core.ToHeaders GetDataset where
+instance Data.ToHeaders GetDataset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDataset where
+instance Data.ToPath GetDataset where
   toPath GetDataset' {..} =
     Prelude.mconcat
-      ["/datasetsv2/", Core.toBS datasetId]
+      ["/datasetsv2/", Data.toBS datasetId]
 
-instance Core.ToQuery GetDataset where
+instance Data.ToQuery GetDataset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Response for the GetDataset operation

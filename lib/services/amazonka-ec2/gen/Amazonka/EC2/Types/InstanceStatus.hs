@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceState
 import Amazonka.EC2.Types.InstanceStatusEvent
@@ -122,17 +123,17 @@ instanceStatus_instanceId = Lens.lens (\InstanceStatus' {instanceId} -> instance
 instanceStatus_events :: Lens.Lens' InstanceStatus (Prelude.Maybe [InstanceStatusEvent])
 instanceStatus_events = Lens.lens (\InstanceStatus' {events} -> events) (\s@InstanceStatus' {} a -> s {events = a} :: InstanceStatus) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML InstanceStatus where
+instance Data.FromXML InstanceStatus where
   parseXML x =
     InstanceStatus'
-      Prelude.<$> (x Core..@? "instanceState")
-      Prelude.<*> (x Core..@? "outpostArn")
-      Prelude.<*> (x Core..@? "instanceStatus")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "systemStatus")
-      Prelude.<*> (x Core..@? "instanceId")
-      Prelude.<*> ( x Core..@? "eventsSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "instanceState")
+      Prelude.<*> (x Data..@? "outpostArn")
+      Prelude.<*> (x Data..@? "instanceStatus")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "systemStatus")
+      Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<*> ( x Data..@? "eventsSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable InstanceStatus where

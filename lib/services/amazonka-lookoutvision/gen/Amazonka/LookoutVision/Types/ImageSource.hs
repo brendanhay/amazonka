@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.ImageSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The source for an image.
@@ -50,11 +51,11 @@ newImageSource =
 imageSource_type :: Lens.Lens' ImageSource (Prelude.Maybe Prelude.Text)
 imageSource_type = Lens.lens (\ImageSource' {type'} -> type') (\s@ImageSource' {} a -> s {type' = a} :: ImageSource)
 
-instance Core.FromJSON ImageSource where
+instance Data.FromJSON ImageSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageSource"
-      (\x -> ImageSource' Prelude.<$> (x Core..:? "Type"))
+      (\x -> ImageSource' Prelude.<$> (x Data..:? "Type"))
 
 instance Prelude.Hashable ImageSource where
   hashWithSalt _salt ImageSource' {..} =

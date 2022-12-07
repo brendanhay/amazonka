@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -249,10 +250,10 @@ instance Core.AWSRequest GetDevicePoolCompatibility where
     Response.receiveJSON
       ( \s h x ->
           GetDevicePoolCompatibilityResponse'
-            Prelude.<$> ( x Core..?> "incompatibleDevices"
+            Prelude.<$> ( x Data..?> "incompatibleDevices"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "compatibleDevices"
+            Prelude.<*> ( x Data..?> "compatibleDevices"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -274,38 +275,38 @@ instance Prelude.NFData GetDevicePoolCompatibility where
       `Prelude.seq` Prelude.rnf test
       `Prelude.seq` Prelude.rnf devicePoolArn
 
-instance Core.ToHeaders GetDevicePoolCompatibility where
+instance Data.ToHeaders GetDevicePoolCompatibility where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.GetDevicePoolCompatibility" ::
+              Data.=# ( "DeviceFarm_20150623.GetDevicePoolCompatibility" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDevicePoolCompatibility where
+instance Data.ToJSON GetDevicePoolCompatibility where
   toJSON GetDevicePoolCompatibility' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("configuration" Core..=) Prelude.<$> configuration,
-            ("testType" Core..=) Prelude.<$> testType,
-            ("appArn" Core..=) Prelude.<$> appArn,
-            ("test" Core..=) Prelude.<$> test,
+          [ ("configuration" Data..=) Prelude.<$> configuration,
+            ("testType" Data..=) Prelude.<$> testType,
+            ("appArn" Data..=) Prelude.<$> appArn,
+            ("test" Data..=) Prelude.<$> test,
             Prelude.Just
-              ("devicePoolArn" Core..= devicePoolArn)
+              ("devicePoolArn" Data..= devicePoolArn)
           ]
       )
 
-instance Core.ToPath GetDevicePoolCompatibility where
+instance Data.ToPath GetDevicePoolCompatibility where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDevicePoolCompatibility where
+instance Data.ToQuery GetDevicePoolCompatibility where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of describe device pool compatibility request.

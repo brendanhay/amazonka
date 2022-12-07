@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -233,7 +234,7 @@ instance Core.AWSRequest CreateJobTemplate where
     Response.receiveJSON
       ( \s h x ->
           CreateJobTemplateResponse'
-            Prelude.<$> (x Core..?> "jobTemplate")
+            Prelude.<$> (x Data..?> "jobTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -263,41 +264,41 @@ instance Prelude.NFData CreateJobTemplate where
       `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateJobTemplate where
+instance Data.ToHeaders CreateJobTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateJobTemplate where
+instance Data.ToJSON CreateJobTemplate where
   toJSON CreateJobTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("hopDestinations" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("hopDestinations" Data..=)
               Prelude.<$> hopDestinations,
-            ("statusUpdateInterval" Core..=)
+            ("statusUpdateInterval" Data..=)
               Prelude.<$> statusUpdateInterval,
-            ("description" Core..=) Prelude.<$> description,
-            ("priority" Core..=) Prelude.<$> priority,
-            ("category" Core..=) Prelude.<$> category,
-            ("accelerationSettings" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("priority" Data..=) Prelude.<$> priority,
+            ("category" Data..=) Prelude.<$> category,
+            ("accelerationSettings" Data..=)
               Prelude.<$> accelerationSettings,
-            ("queue" Core..=) Prelude.<$> queue,
-            Prelude.Just ("settings" Core..= settings),
-            Prelude.Just ("name" Core..= name)
+            ("queue" Data..=) Prelude.<$> queue,
+            Prelude.Just ("settings" Data..= settings),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateJobTemplate where
+instance Data.ToPath CreateJobTemplate where
   toPath = Prelude.const "/2017-08-29/jobTemplates"
 
-instance Core.ToQuery CreateJobTemplate where
+instance Data.ToQuery CreateJobTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateJobTemplateResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 import Amazonka.ChimeSdkMediaPipelines.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,7 +55,7 @@ data CreateMediaLiveConnectorPipeline = CreateMediaLiveConnectorPipeline'
   { -- | The tags associated with the media pipeline.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The token assigned to the client making the request.
-    clientRequestToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    clientRequestToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The media pipeline\'s data sources.
     sources :: Prelude.NonEmpty LiveConnectorSourceConfiguration,
     -- | The media pipeline\'s data sinks.
@@ -98,7 +99,7 @@ createMediaLiveConnectorPipeline_tags = Lens.lens (\CreateMediaLiveConnectorPipe
 
 -- | The token assigned to the client making the request.
 createMediaLiveConnectorPipeline_clientRequestToken :: Lens.Lens' CreateMediaLiveConnectorPipeline (Prelude.Maybe Prelude.Text)
-createMediaLiveConnectorPipeline_clientRequestToken = Lens.lens (\CreateMediaLiveConnectorPipeline' {clientRequestToken} -> clientRequestToken) (\s@CreateMediaLiveConnectorPipeline' {} a -> s {clientRequestToken = a} :: CreateMediaLiveConnectorPipeline) Prelude.. Lens.mapping Core._Sensitive
+createMediaLiveConnectorPipeline_clientRequestToken = Lens.lens (\CreateMediaLiveConnectorPipeline' {clientRequestToken} -> clientRequestToken) (\s@CreateMediaLiveConnectorPipeline' {} a -> s {clientRequestToken = a} :: CreateMediaLiveConnectorPipeline) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The media pipeline\'s data sources.
 createMediaLiveConnectorPipeline_sources :: Lens.Lens' CreateMediaLiveConnectorPipeline (Prelude.NonEmpty LiveConnectorSourceConfiguration)
@@ -121,7 +122,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateMediaLiveConnectorPipelineResponse'
-            Prelude.<$> (x Core..?> "MediaLiveConnectorPipeline")
+            Prelude.<$> (x Data..?> "MediaLiveConnectorPipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,29 +149,29 @@ instance
       `Prelude.seq` Prelude.rnf sinks
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateMediaLiveConnectorPipeline
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateMediaLiveConnectorPipeline where
+instance Data.ToJSON CreateMediaLiveConnectorPipeline where
   toJSON CreateMediaLiveConnectorPipeline' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("Sources" Core..= sources),
-            Prelude.Just ("Sinks" Core..= sinks)
+            Prelude.Just ("Sources" Data..= sources),
+            Prelude.Just ("Sinks" Data..= sinks)
           ]
       )
 
-instance Core.ToPath CreateMediaLiveConnectorPipeline where
+instance Data.ToPath CreateMediaLiveConnectorPipeline where
   toPath =
     Prelude.const "/sdk-media-live-connector-pipelines"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateMediaLiveConnectorPipeline
   where
   toQuery = Prelude.const Prelude.mempty

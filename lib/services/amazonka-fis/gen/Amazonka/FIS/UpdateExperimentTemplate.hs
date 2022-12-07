@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FIS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,7 +150,7 @@ instance Core.AWSRequest UpdateExperimentTemplate where
     Response.receiveJSON
       ( \s h x ->
           UpdateExperimentTemplateResponse'
-            Prelude.<$> (x Core..?> "experimentTemplate")
+            Prelude.<$> (x Data..?> "experimentTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,38 +174,38 @@ instance Prelude.NFData UpdateExperimentTemplate where
       `Prelude.seq` Prelude.rnf actions
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateExperimentTemplate where
+instance Data.ToHeaders UpdateExperimentTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateExperimentTemplate where
+instance Data.ToJSON UpdateExperimentTemplate where
   toJSON UpdateExperimentTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("stopConditions" Core..=)
+          [ ("stopConditions" Data..=)
               Prelude.<$> stopConditions,
-            ("logConfiguration" Core..=)
+            ("logConfiguration" Data..=)
               Prelude.<$> logConfiguration,
-            ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("targets" Core..=) Prelude.<$> targets,
-            ("description" Core..=) Prelude.<$> description,
-            ("actions" Core..=) Prelude.<$> actions
+            ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("targets" Data..=) Prelude.<$> targets,
+            ("description" Data..=) Prelude.<$> description,
+            ("actions" Data..=) Prelude.<$> actions
           ]
       )
 
-instance Core.ToPath UpdateExperimentTemplate where
+instance Data.ToPath UpdateExperimentTemplate where
   toPath UpdateExperimentTemplate' {..} =
     Prelude.mconcat
-      ["/experimentTemplates/", Core.toBS id]
+      ["/experimentTemplates/", Data.toBS id]
 
-instance Core.ToQuery UpdateExperimentTemplate where
+instance Data.ToQuery UpdateExperimentTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateExperimentTemplateResponse' smart constructor.

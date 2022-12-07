@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CreditSpecificationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,6 +71,6 @@ instance Prelude.NFData CreditSpecificationRequest where
   rnf CreditSpecificationRequest' {..} =
     Prelude.rnf cpuCredits
 
-instance Core.ToQuery CreditSpecificationRequest where
+instance Data.ToQuery CreditSpecificationRequest where
   toQuery CreditSpecificationRequest' {..} =
-    Prelude.mconcat ["CpuCredits" Core.=: cpuCredits]
+    Prelude.mconcat ["CpuCredits" Data.=: cpuCredits]

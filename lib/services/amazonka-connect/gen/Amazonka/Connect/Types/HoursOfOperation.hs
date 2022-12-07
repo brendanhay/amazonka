@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.HoursOfOperation where
 import Amazonka.Connect.Types.HoursOfOperationConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about of the hours of operation.
@@ -110,19 +111,19 @@ hoursOfOperation_hoursOfOperationId = Lens.lens (\HoursOfOperation' {hoursOfOper
 hoursOfOperation_config :: Lens.Lens' HoursOfOperation (Prelude.Maybe [HoursOfOperationConfig])
 hoursOfOperation_config = Lens.lens (\HoursOfOperation' {config} -> config) (\s@HoursOfOperation' {} a -> s {config = a} :: HoursOfOperation) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON HoursOfOperation where
+instance Data.FromJSON HoursOfOperation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HoursOfOperation"
       ( \x ->
           HoursOfOperation'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "TimeZone")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "HoursOfOperationArn")
-            Prelude.<*> (x Core..:? "HoursOfOperationId")
-            Prelude.<*> (x Core..:? "Config" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "TimeZone")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "HoursOfOperationArn")
+            Prelude.<*> (x Data..:? "HoursOfOperationId")
+            Prelude.<*> (x Data..:? "Config" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable HoursOfOperation where

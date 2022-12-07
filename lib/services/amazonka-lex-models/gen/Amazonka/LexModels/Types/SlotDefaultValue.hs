@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.SlotDefaultValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A default value for a slot.
@@ -76,13 +77,13 @@ newSlotDefaultValue pDefaultValue_ =
 slotDefaultValue_defaultValue :: Lens.Lens' SlotDefaultValue Prelude.Text
 slotDefaultValue_defaultValue = Lens.lens (\SlotDefaultValue' {defaultValue} -> defaultValue) (\s@SlotDefaultValue' {} a -> s {defaultValue = a} :: SlotDefaultValue)
 
-instance Core.FromJSON SlotDefaultValue where
+instance Data.FromJSON SlotDefaultValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlotDefaultValue"
       ( \x ->
           SlotDefaultValue'
-            Prelude.<$> (x Core..: "defaultValue")
+            Prelude.<$> (x Data..: "defaultValue")
       )
 
 instance Prelude.Hashable SlotDefaultValue where
@@ -92,9 +93,9 @@ instance Prelude.Hashable SlotDefaultValue where
 instance Prelude.NFData SlotDefaultValue where
   rnf SlotDefaultValue' {..} = Prelude.rnf defaultValue
 
-instance Core.ToJSON SlotDefaultValue where
+instance Data.ToJSON SlotDefaultValue where
   toJSON SlotDefaultValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("defaultValue" Core..= defaultValue)]
+          [Prelude.Just ("defaultValue" Data..= defaultValue)]
       )

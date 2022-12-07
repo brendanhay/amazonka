@@ -39,6 +39,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,27 +96,27 @@ instance Prelude.NFData DeleteRoute where
   rnf DeleteRoute' {..} =
     Prelude.rnf apiId `Prelude.seq` Prelude.rnf routeId
 
-instance Core.ToHeaders DeleteRoute where
+instance Data.ToHeaders DeleteRoute where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteRoute where
+instance Data.ToPath DeleteRoute where
   toPath DeleteRoute' {..} =
     Prelude.mconcat
       [ "/v2/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/routes/",
-        Core.toBS routeId
+        Data.toBS routeId
       ]
 
-instance Core.ToQuery DeleteRoute where
+instance Data.ToQuery DeleteRoute where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRouteResponse'' smart constructor.

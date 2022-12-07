@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,9 +117,9 @@ instance Core.AWSRequest DetectDocumentText where
     Response.receiveJSON
       ( \s h x ->
           DetectDocumentTextResponse'
-            Prelude.<$> (x Core..?> "DocumentMetadata")
-            Prelude.<*> (x Core..?> "DetectDocumentTextModelVersion")
-            Prelude.<*> (x Core..?> "Blocks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "DocumentMetadata")
+            Prelude.<*> (x Data..?> "DetectDocumentTextModelVersion")
+            Prelude.<*> (x Data..?> "Blocks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,32 +130,32 @@ instance Prelude.Hashable DetectDocumentText where
 instance Prelude.NFData DetectDocumentText where
   rnf DetectDocumentText' {..} = Prelude.rnf document
 
-instance Core.ToHeaders DetectDocumentText where
+instance Data.ToHeaders DetectDocumentText where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Textract.DetectDocumentText" ::
+              Data.=# ( "Textract.DetectDocumentText" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DetectDocumentText where
+instance Data.ToJSON DetectDocumentText where
   toJSON DetectDocumentText' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Document" Core..= document)]
+          [Prelude.Just ("Document" Data..= document)]
       )
 
-instance Core.ToPath DetectDocumentText where
+instance Data.ToPath DetectDocumentText where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetectDocumentText where
+instance Data.ToQuery DetectDocumentText where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectDocumentTextResponse' smart constructor.

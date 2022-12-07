@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.MavenReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The information required to specify a Maven reference. You can use Maven
@@ -77,15 +78,15 @@ mavenReference_artifactId = Lens.lens (\MavenReference' {artifactId} -> artifact
 mavenReference_version :: Lens.Lens' MavenReference Prelude.Text
 mavenReference_version = Lens.lens (\MavenReference' {version} -> version) (\s@MavenReference' {} a -> s {version = a} :: MavenReference)
 
-instance Core.FromJSON MavenReference where
+instance Data.FromJSON MavenReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MavenReference"
       ( \x ->
           MavenReference'
-            Prelude.<$> (x Core..: "GroupId")
-            Prelude.<*> (x Core..: "ArtifactId")
-            Prelude.<*> (x Core..: "Version")
+            Prelude.<$> (x Data..: "GroupId")
+            Prelude.<*> (x Data..: "ArtifactId")
+            Prelude.<*> (x Data..: "Version")
       )
 
 instance Prelude.Hashable MavenReference where
@@ -100,12 +101,12 @@ instance Prelude.NFData MavenReference where
       `Prelude.seq` Prelude.rnf artifactId
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON MavenReference where
+instance Data.ToJSON MavenReference where
   toJSON MavenReference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GroupId" Core..= groupId),
-            Prelude.Just ("ArtifactId" Core..= artifactId),
-            Prelude.Just ("Version" Core..= version)
+          [ Prelude.Just ("GroupId" Data..= groupId),
+            Prelude.Just ("ArtifactId" Data..= artifactId),
+            Prelude.Just ("Version" Data..= version)
           ]
       )

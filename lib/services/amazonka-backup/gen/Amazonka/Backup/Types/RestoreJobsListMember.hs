@@ -22,6 +22,7 @@ module Amazonka.Backup.Types.RestoreJobsListMember where
 import Amazonka.Backup.Types.RestoreJobStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata about a restore job.
@@ -46,12 +47,12 @@ data RestoreJobsListMember = RestoreJobsListMember'
     -- Unix format and Coordinated Universal Time (UTC). The value of
     -- @CompletionDate@ is accurate to milliseconds. For example, the value
     -- 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
-    completionDate :: Prelude.Maybe Core.POSIX,
+    completionDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time a restore job is created, in Unix format and
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The size, in bytes, of the restored resource.
     backupSizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | A status code specifying the state of the job initiated by Backup to
@@ -169,14 +170,14 @@ restoreJobsListMember_recoveryPointArn = Lens.lens (\RestoreJobsListMember' {rec
 -- @CompletionDate@ is accurate to milliseconds. For example, the value
 -- 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
 restoreJobsListMember_completionDate :: Lens.Lens' RestoreJobsListMember (Prelude.Maybe Prelude.UTCTime)
-restoreJobsListMember_completionDate = Lens.lens (\RestoreJobsListMember' {completionDate} -> completionDate) (\s@RestoreJobsListMember' {} a -> s {completionDate = a} :: RestoreJobsListMember) Prelude.. Lens.mapping Core._Time
+restoreJobsListMember_completionDate = Lens.lens (\RestoreJobsListMember' {completionDate} -> completionDate) (\s@RestoreJobsListMember' {} a -> s {completionDate = a} :: RestoreJobsListMember) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time a restore job is created, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 restoreJobsListMember_creationDate :: Lens.Lens' RestoreJobsListMember (Prelude.Maybe Prelude.UTCTime)
-restoreJobsListMember_creationDate = Lens.lens (\RestoreJobsListMember' {creationDate} -> creationDate) (\s@RestoreJobsListMember' {} a -> s {creationDate = a} :: RestoreJobsListMember) Prelude.. Lens.mapping Core._Time
+restoreJobsListMember_creationDate = Lens.lens (\RestoreJobsListMember' {creationDate} -> creationDate) (\s@RestoreJobsListMember' {} a -> s {creationDate = a} :: RestoreJobsListMember) Prelude.. Lens.mapping Data._Time
 
 -- | The size, in bytes, of the restored resource.
 restoreJobsListMember_backupSizeInBytes :: Lens.Lens' RestoreJobsListMember (Prelude.Maybe Prelude.Integer)
@@ -210,25 +211,25 @@ restoreJobsListMember_percentDone = Lens.lens (\RestoreJobsListMember' {percentD
 restoreJobsListMember_statusMessage :: Lens.Lens' RestoreJobsListMember (Prelude.Maybe Prelude.Text)
 restoreJobsListMember_statusMessage = Lens.lens (\RestoreJobsListMember' {statusMessage} -> statusMessage) (\s@RestoreJobsListMember' {} a -> s {statusMessage = a} :: RestoreJobsListMember)
 
-instance Core.FromJSON RestoreJobsListMember where
+instance Data.FromJSON RestoreJobsListMember where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RestoreJobsListMember"
       ( \x ->
           RestoreJobsListMember'
-            Prelude.<$> (x Core..:? "CreatedResourceArn")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "ExpectedCompletionTimeMinutes")
-            Prelude.<*> (x Core..:? "RecoveryPointArn")
-            Prelude.<*> (x Core..:? "CompletionDate")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "BackupSizeInBytes")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "RestoreJobId")
-            Prelude.<*> (x Core..:? "IamRoleArn")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "PercentDone")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "CreatedResourceArn")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "ExpectedCompletionTimeMinutes")
+            Prelude.<*> (x Data..:? "RecoveryPointArn")
+            Prelude.<*> (x Data..:? "CompletionDate")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "BackupSizeInBytes")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "RestoreJobId")
+            Prelude.<*> (x Data..:? "IamRoleArn")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "PercentDone")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable RestoreJobsListMember where

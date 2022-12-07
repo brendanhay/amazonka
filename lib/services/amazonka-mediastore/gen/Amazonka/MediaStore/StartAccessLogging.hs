@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaStore.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,34 +99,34 @@ instance Prelude.NFData StartAccessLogging where
   rnf StartAccessLogging' {..} =
     Prelude.rnf containerName
 
-instance Core.ToHeaders StartAccessLogging where
+instance Data.ToHeaders StartAccessLogging where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MediaStore_20170901.StartAccessLogging" ::
+              Data.=# ( "MediaStore_20170901.StartAccessLogging" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartAccessLogging where
+instance Data.ToJSON StartAccessLogging where
   toJSON StartAccessLogging' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ContainerName" Core..= containerName)
+              ("ContainerName" Data..= containerName)
           ]
       )
 
-instance Core.ToPath StartAccessLogging where
+instance Data.ToPath StartAccessLogging where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartAccessLogging where
+instance Data.ToQuery StartAccessLogging where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartAccessLoggingResponse' smart constructor.

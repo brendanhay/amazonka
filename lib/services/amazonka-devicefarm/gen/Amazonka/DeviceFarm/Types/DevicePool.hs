@@ -21,6 +21,7 @@ module Amazonka.DeviceFarm.Types.DevicePool where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types.DevicePoolType
 import Amazonka.DeviceFarm.Types.Rule
 import qualified Amazonka.Prelude as Prelude
@@ -144,18 +145,18 @@ devicePool_description = Lens.lens (\DevicePool' {description} -> description) (
 devicePool_maxDevices :: Lens.Lens' DevicePool (Prelude.Maybe Prelude.Int)
 devicePool_maxDevices = Lens.lens (\DevicePool' {maxDevices} -> maxDevices) (\s@DevicePool' {} a -> s {maxDevices = a} :: DevicePool)
 
-instance Core.FromJSON DevicePool where
+instance Data.FromJSON DevicePool where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DevicePool"
       ( \x ->
           DevicePool'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "rules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "maxDevices")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "rules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "maxDevices")
       )
 
 instance Prelude.Hashable DevicePool where

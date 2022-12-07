@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,7 +117,7 @@ instance Core.AWSRequest CreateAppImageConfig where
     Response.receiveJSON
       ( \s h x ->
           CreateAppImageConfigResponse'
-            Prelude.<$> (x Core..?> "AppImageConfigArn")
+            Prelude.<$> (x Data..?> "AppImageConfigArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,37 +133,37 @@ instance Prelude.NFData CreateAppImageConfig where
       `Prelude.seq` Prelude.rnf kernelGatewayImageConfig
       `Prelude.seq` Prelude.rnf appImageConfigName
 
-instance Core.ToHeaders CreateAppImageConfig where
+instance Data.ToHeaders CreateAppImageConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.CreateAppImageConfig" ::
+              Data.=# ( "SageMaker.CreateAppImageConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAppImageConfig where
+instance Data.ToJSON CreateAppImageConfig where
   toJSON CreateAppImageConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("KernelGatewayImageConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("KernelGatewayImageConfig" Data..=)
               Prelude.<$> kernelGatewayImageConfig,
             Prelude.Just
-              ("AppImageConfigName" Core..= appImageConfigName)
+              ("AppImageConfigName" Data..= appImageConfigName)
           ]
       )
 
-instance Core.ToPath CreateAppImageConfig where
+instance Data.ToPath CreateAppImageConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAppImageConfig where
+instance Data.ToQuery CreateAppImageConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAppImageConfigResponse' smart constructor.

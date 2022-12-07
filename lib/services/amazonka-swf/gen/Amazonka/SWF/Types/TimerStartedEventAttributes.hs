@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.TimerStartedEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @TimerStarted@ event.
@@ -111,16 +112,16 @@ timerStartedEventAttributes_startToFireTimeout = Lens.lens (\TimerStartedEventAt
 timerStartedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' TimerStartedEventAttributes Prelude.Integer
 timerStartedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\TimerStartedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@TimerStartedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: TimerStartedEventAttributes)
 
-instance Core.FromJSON TimerStartedEventAttributes where
+instance Data.FromJSON TimerStartedEventAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimerStartedEventAttributes"
       ( \x ->
           TimerStartedEventAttributes'
-            Prelude.<$> (x Core..:? "control")
-            Prelude.<*> (x Core..: "timerId")
-            Prelude.<*> (x Core..: "startToFireTimeout")
-            Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Data..:? "control")
+            Prelude.<*> (x Data..: "timerId")
+            Prelude.<*> (x Data..: "startToFireTimeout")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance Prelude.Hashable TimerStartedEventAttributes where

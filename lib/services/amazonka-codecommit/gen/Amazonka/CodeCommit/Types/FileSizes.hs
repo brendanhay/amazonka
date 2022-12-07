@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.FileSizes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the size of files in a merge or pull request.
@@ -70,15 +71,15 @@ fileSizes_base = Lens.lens (\FileSizes' {base} -> base) (\s@FileSizes' {} a -> s
 fileSizes_source :: Lens.Lens' FileSizes (Prelude.Maybe Prelude.Integer)
 fileSizes_source = Lens.lens (\FileSizes' {source} -> source) (\s@FileSizes' {} a -> s {source = a} :: FileSizes)
 
-instance Core.FromJSON FileSizes where
+instance Data.FromJSON FileSizes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileSizes"
       ( \x ->
           FileSizes'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "base")
-            Prelude.<*> (x Core..:? "source")
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "base")
+            Prelude.<*> (x Data..:? "source")
       )
 
 instance Prelude.Hashable FileSizes where

@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.AlarmState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types.AlarmStateName
 import Amazonka.IoTEventsData.Types.CustomerAction
 import Amazonka.IoTEventsData.Types.RuleEvaluation
@@ -158,16 +159,16 @@ alarmState_systemEvent = Lens.lens (\AlarmState' {systemEvent} -> systemEvent) (
 alarmState_customerAction :: Lens.Lens' AlarmState (Prelude.Maybe CustomerAction)
 alarmState_customerAction = Lens.lens (\AlarmState' {customerAction} -> customerAction) (\s@AlarmState' {} a -> s {customerAction = a} :: AlarmState)
 
-instance Core.FromJSON AlarmState where
+instance Data.FromJSON AlarmState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlarmState"
       ( \x ->
           AlarmState'
-            Prelude.<$> (x Core..:? "ruleEvaluation")
-            Prelude.<*> (x Core..:? "stateName")
-            Prelude.<*> (x Core..:? "systemEvent")
-            Prelude.<*> (x Core..:? "customerAction")
+            Prelude.<$> (x Data..:? "ruleEvaluation")
+            Prelude.<*> (x Data..:? "stateName")
+            Prelude.<*> (x Data..:? "systemEvent")
+            Prelude.<*> (x Data..:? "customerAction")
       )
 
 instance Prelude.Hashable AlarmState where

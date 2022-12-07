@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.AutomaticTapeCreationPolicyInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.StorageGateway.Types.AutomaticTapeCreationRule
 
@@ -71,16 +72,16 @@ automaticTapeCreationPolicyInfo_gatewayARN :: Lens.Lens' AutomaticTapeCreationPo
 automaticTapeCreationPolicyInfo_gatewayARN = Lens.lens (\AutomaticTapeCreationPolicyInfo' {gatewayARN} -> gatewayARN) (\s@AutomaticTapeCreationPolicyInfo' {} a -> s {gatewayARN = a} :: AutomaticTapeCreationPolicyInfo)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AutomaticTapeCreationPolicyInfo
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutomaticTapeCreationPolicyInfo"
       ( \x ->
           AutomaticTapeCreationPolicyInfo'
-            Prelude.<$> (x Core..:? "AutomaticTapeCreationRules")
-            Prelude.<*> (x Core..:? "GatewayARN")
+            Prelude.<$> (x Data..:? "AutomaticTapeCreationRules")
+            Prelude.<*> (x Data..:? "GatewayARN")
       )
 
 instance

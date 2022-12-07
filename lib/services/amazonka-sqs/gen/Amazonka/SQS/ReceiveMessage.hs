@@ -97,6 +97,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -607,7 +608,7 @@ instance Core.AWSRequest ReceiveMessage where
       "ReceiveMessageResult"
       ( \s h x ->
           ReceiveMessageResponse'
-            Prelude.<$> (Core.may (Core.parseXMLList "Message") x)
+            Prelude.<$> (Core.may (Data.parseXMLList "Message") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -631,33 +632,33 @@ instance Prelude.NFData ReceiveMessage where
       `Prelude.seq` Prelude.rnf waitTimeSeconds
       `Prelude.seq` Prelude.rnf queueUrl
 
-instance Core.ToHeaders ReceiveMessage where
+instance Data.ToHeaders ReceiveMessage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ReceiveMessage where
+instance Data.ToPath ReceiveMessage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ReceiveMessage where
+instance Data.ToQuery ReceiveMessage where
   toQuery ReceiveMessage' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ReceiveMessage" :: Prelude.ByteString),
+          Data.=: ("ReceiveMessage" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-11-05" :: Prelude.ByteString),
-        "VisibilityTimeout" Core.=: visibilityTimeout,
-        Core.toQuery
-          ( Core.toQueryList "AttributeName"
+          Data.=: ("2012-11-05" :: Prelude.ByteString),
+        "VisibilityTimeout" Data.=: visibilityTimeout,
+        Data.toQuery
+          ( Data.toQueryList "AttributeName"
               Prelude.<$> attributeNames
           ),
-        Core.toQuery
-          ( Core.toQueryList "MessageAttributeName"
+        Data.toQuery
+          ( Data.toQueryList "MessageAttributeName"
               Prelude.<$> messageAttributeNames
           ),
-        "MaxNumberOfMessages" Core.=: maxNumberOfMessages,
+        "MaxNumberOfMessages" Data.=: maxNumberOfMessages,
         "ReceiveRequestAttemptId"
-          Core.=: receiveRequestAttemptId,
-        "WaitTimeSeconds" Core.=: waitTimeSeconds,
-        "QueueUrl" Core.=: queueUrl
+          Data.=: receiveRequestAttemptId,
+        "WaitTimeSeconds" Data.=: waitTimeSeconds,
+        "QueueUrl" Data.=: queueUrl
       ]
 
 -- | A list of received messages.

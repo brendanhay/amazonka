@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.CaptionSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.Encryption
 import qualified Amazonka.Prelude as Prelude
 
@@ -144,17 +145,17 @@ captionSource_encryption = Lens.lens (\CaptionSource' {encryption} -> encryption
 captionSource_language :: Lens.Lens' CaptionSource (Prelude.Maybe Prelude.Text)
 captionSource_language = Lens.lens (\CaptionSource' {language} -> language) (\s@CaptionSource' {} a -> s {language = a} :: CaptionSource)
 
-instance Core.FromJSON CaptionSource where
+instance Data.FromJSON CaptionSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptionSource"
       ( \x ->
           CaptionSource'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Label")
-            Prelude.<*> (x Core..:? "TimeOffset")
-            Prelude.<*> (x Core..:? "Encryption")
-            Prelude.<*> (x Core..:? "Language")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Label")
+            Prelude.<*> (x Data..:? "TimeOffset")
+            Prelude.<*> (x Data..:? "Encryption")
+            Prelude.<*> (x Data..:? "Language")
       )
 
 instance Prelude.Hashable CaptionSource where
@@ -173,14 +174,14 @@ instance Prelude.NFData CaptionSource where
       `Prelude.seq` Prelude.rnf encryption
       `Prelude.seq` Prelude.rnf language
 
-instance Core.ToJSON CaptionSource where
+instance Data.ToJSON CaptionSource where
   toJSON CaptionSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Label" Core..=) Prelude.<$> label,
-            ("TimeOffset" Core..=) Prelude.<$> timeOffset,
-            ("Encryption" Core..=) Prelude.<$> encryption,
-            ("Language" Core..=) Prelude.<$> language
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Label" Data..=) Prelude.<$> label,
+            ("TimeOffset" Data..=) Prelude.<$> timeOffset,
+            ("Encryption" Data..=) Prelude.<$> encryption,
+            ("Language" Data..=) Prelude.<$> language
           ]
       )

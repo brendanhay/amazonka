@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDnsRecordCreationState
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDnsRecordCreationStateCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -90,16 +91,16 @@ loadBalancerTlsCertificateDnsRecordCreationState_code :: Lens.Lens' LoadBalancer
 loadBalancerTlsCertificateDnsRecordCreationState_code = Lens.lens (\LoadBalancerTlsCertificateDnsRecordCreationState' {code} -> code) (\s@LoadBalancerTlsCertificateDnsRecordCreationState' {} a -> s {code = a} :: LoadBalancerTlsCertificateDnsRecordCreationState)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LoadBalancerTlsCertificateDnsRecordCreationState
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoadBalancerTlsCertificateDnsRecordCreationState"
       ( \x ->
           LoadBalancerTlsCertificateDnsRecordCreationState'
-            Prelude.<$> (x Core..:? "message")
-              Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Data..:? "message")
+              Prelude.<*> (x Data..:? "code")
       )
 
 instance

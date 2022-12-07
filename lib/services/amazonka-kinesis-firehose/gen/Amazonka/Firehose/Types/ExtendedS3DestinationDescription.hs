@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.ExtendedS3DestinationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.BufferingHints
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.CompressionFormat
@@ -238,27 +239,27 @@ extendedS3DestinationDescription_encryptionConfiguration :: Lens.Lens' ExtendedS
 extendedS3DestinationDescription_encryptionConfiguration = Lens.lens (\ExtendedS3DestinationDescription' {encryptionConfiguration} -> encryptionConfiguration) (\s@ExtendedS3DestinationDescription' {} a -> s {encryptionConfiguration = a} :: ExtendedS3DestinationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ExtendedS3DestinationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExtendedS3DestinationDescription"
       ( \x ->
           ExtendedS3DestinationDescription'
-            Prelude.<$> (x Core..:? "ProcessingConfiguration")
-            Prelude.<*> (x Core..:? "DataFormatConversionConfiguration")
-            Prelude.<*> (x Core..:? "S3BackupDescription")
-            Prelude.<*> (x Core..:? "CloudWatchLoggingOptions")
-            Prelude.<*> (x Core..:? "S3BackupMode")
-            Prelude.<*> (x Core..:? "Prefix")
-            Prelude.<*> (x Core..:? "DynamicPartitioningConfiguration")
-            Prelude.<*> (x Core..:? "ErrorOutputPrefix")
-            Prelude.<*> (x Core..: "RoleARN")
-            Prelude.<*> (x Core..: "BucketARN")
-            Prelude.<*> (x Core..: "BufferingHints")
-            Prelude.<*> (x Core..: "CompressionFormat")
-            Prelude.<*> (x Core..: "EncryptionConfiguration")
+            Prelude.<$> (x Data..:? "ProcessingConfiguration")
+            Prelude.<*> (x Data..:? "DataFormatConversionConfiguration")
+            Prelude.<*> (x Data..:? "S3BackupDescription")
+            Prelude.<*> (x Data..:? "CloudWatchLoggingOptions")
+            Prelude.<*> (x Data..:? "S3BackupMode")
+            Prelude.<*> (x Data..:? "Prefix")
+            Prelude.<*> (x Data..:? "DynamicPartitioningConfiguration")
+            Prelude.<*> (x Data..:? "ErrorOutputPrefix")
+            Prelude.<*> (x Data..: "RoleARN")
+            Prelude.<*> (x Data..: "BucketARN")
+            Prelude.<*> (x Data..: "BufferingHints")
+            Prelude.<*> (x Data..: "CompressionFormat")
+            Prelude.<*> (x Data..: "EncryptionConfiguration")
       )
 
 instance

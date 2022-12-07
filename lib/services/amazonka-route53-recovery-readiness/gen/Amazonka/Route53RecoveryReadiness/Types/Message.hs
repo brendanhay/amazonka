@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryReadiness.Types.Message where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information relating to readiness check status.
@@ -49,12 +50,12 @@ newMessage = Message' {messageText = Prelude.Nothing}
 message_messageText :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
 message_messageText = Lens.lens (\Message' {messageText} -> messageText) (\s@Message' {} a -> s {messageText = a} :: Message)
 
-instance Core.FromJSON Message where
+instance Data.FromJSON Message where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Message"
       ( \x ->
-          Message' Prelude.<$> (x Core..:? "messageText")
+          Message' Prelude.<$> (x Data..:? "messageText")
       )
 
 instance Prelude.Hashable Message where

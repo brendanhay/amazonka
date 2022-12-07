@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,9 +105,9 @@ instance
       "DescribeLoadBalancerPolicyTypesResult"
       ( \s h x ->
           DescribeLoadBalancerPolicyTypesResponse'
-            Prelude.<$> ( x Core..@? "PolicyTypeDescriptions"
+            Prelude.<$> ( x Data..@? "PolicyTypeDescriptions"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -128,26 +129,26 @@ instance
     Prelude.rnf policyTypeNames
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeLoadBalancerPolicyTypes
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeLoadBalancerPolicyTypes where
+instance Data.ToPath DescribeLoadBalancerPolicyTypes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLoadBalancerPolicyTypes where
+instance Data.ToQuery DescribeLoadBalancerPolicyTypes where
   toQuery DescribeLoadBalancerPolicyTypes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeLoadBalancerPolicyTypes" ::
+          Data.=: ( "DescribeLoadBalancerPolicyTypes" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
         "PolicyTypeNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> policyTypeNames
             )
       ]

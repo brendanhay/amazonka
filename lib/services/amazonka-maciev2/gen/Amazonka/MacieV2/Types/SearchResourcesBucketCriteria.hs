@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.SearchResourcesBucketCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.SearchResourcesCriteriaBlock
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,11 +85,11 @@ instance Prelude.NFData SearchResourcesBucketCriteria where
     Prelude.rnf excludes
       `Prelude.seq` Prelude.rnf includes
 
-instance Core.ToJSON SearchResourcesBucketCriteria where
+instance Data.ToJSON SearchResourcesBucketCriteria where
   toJSON SearchResourcesBucketCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("excludes" Core..=) Prelude.<$> excludes,
-            ("includes" Core..=) Prelude.<$> includes
+          [ ("excludes" Data..=) Prelude.<$> excludes,
+            ("includes" Data..=) Prelude.<$> includes
           ]
       )

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,8 +107,8 @@ instance Core.AWSRequest AssociateSubnetCidrBlock where
     Response.receiveXML
       ( \s h x ->
           AssociateSubnetCidrBlockResponse'
-            Prelude.<$> (x Core..@? "subnetId")
-            Prelude.<*> (x Core..@? "ipv6CidrBlockAssociation")
+            Prelude.<$> (x Data..@? "subnetId")
+            Prelude.<*> (x Data..@? "ipv6CidrBlockAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,21 +122,21 @@ instance Prelude.NFData AssociateSubnetCidrBlock where
     Prelude.rnf ipv6CidrBlock
       `Prelude.seq` Prelude.rnf subnetId
 
-instance Core.ToHeaders AssociateSubnetCidrBlock where
+instance Data.ToHeaders AssociateSubnetCidrBlock where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AssociateSubnetCidrBlock where
+instance Data.ToPath AssociateSubnetCidrBlock where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateSubnetCidrBlock where
+instance Data.ToQuery AssociateSubnetCidrBlock where
   toQuery AssociateSubnetCidrBlock' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AssociateSubnetCidrBlock" :: Prelude.ByteString),
+          Data.=: ("AssociateSubnetCidrBlock" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Ipv6CidrBlock" Core.=: ipv6CidrBlock,
-        "SubnetId" Core.=: subnetId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Ipv6CidrBlock" Data.=: ipv6CidrBlock,
+        "SubnetId" Data.=: subnetId
       ]
 
 -- | /See:/ 'newAssociateSubnetCidrBlockResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.IncidentRecordSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.IncidentRecordSource
 import Amazonka.SSMIncidents.Types.IncidentRecordStatus
@@ -30,11 +31,11 @@ import Amazonka.SSMIncidents.Types.IncidentRecordStatus
 -- /See:/ 'newIncidentRecordSummary' smart constructor.
 data IncidentRecordSummary = IncidentRecordSummary'
   { -- | The time the incident was resolved.
-    resolvedTime :: Prelude.Maybe Core.POSIX,
+    resolvedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the incident.
     arn :: Prelude.Text,
     -- | The time the incident was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | Defines the impact to customers and applications.
     impact :: Prelude.Natural,
     -- | What caused Incident Manager to create the incident.
@@ -94,7 +95,7 @@ newIncidentRecordSummary
       { resolvedTime =
           Prelude.Nothing,
         arn = pArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         impact = pImpact_,
         incidentRecordSource = pIncidentRecordSource_,
         status = pStatus_,
@@ -103,7 +104,7 @@ newIncidentRecordSummary
 
 -- | The time the incident was resolved.
 incidentRecordSummary_resolvedTime :: Lens.Lens' IncidentRecordSummary (Prelude.Maybe Prelude.UTCTime)
-incidentRecordSummary_resolvedTime = Lens.lens (\IncidentRecordSummary' {resolvedTime} -> resolvedTime) (\s@IncidentRecordSummary' {} a -> s {resolvedTime = a} :: IncidentRecordSummary) Prelude.. Lens.mapping Core._Time
+incidentRecordSummary_resolvedTime = Lens.lens (\IncidentRecordSummary' {resolvedTime} -> resolvedTime) (\s@IncidentRecordSummary' {} a -> s {resolvedTime = a} :: IncidentRecordSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the incident.
 incidentRecordSummary_arn :: Lens.Lens' IncidentRecordSummary Prelude.Text
@@ -111,7 +112,7 @@ incidentRecordSummary_arn = Lens.lens (\IncidentRecordSummary' {arn} -> arn) (\s
 
 -- | The time the incident was created.
 incidentRecordSummary_creationTime :: Lens.Lens' IncidentRecordSummary Prelude.UTCTime
-incidentRecordSummary_creationTime = Lens.lens (\IncidentRecordSummary' {creationTime} -> creationTime) (\s@IncidentRecordSummary' {} a -> s {creationTime = a} :: IncidentRecordSummary) Prelude.. Core._Time
+incidentRecordSummary_creationTime = Lens.lens (\IncidentRecordSummary' {creationTime} -> creationTime) (\s@IncidentRecordSummary' {} a -> s {creationTime = a} :: IncidentRecordSummary) Prelude.. Data._Time
 
 -- | Defines the impact to customers and applications.
 incidentRecordSummary_impact :: Lens.Lens' IncidentRecordSummary Prelude.Natural
@@ -130,19 +131,19 @@ incidentRecordSummary_status = Lens.lens (\IncidentRecordSummary' {status} -> st
 incidentRecordSummary_title :: Lens.Lens' IncidentRecordSummary Prelude.Text
 incidentRecordSummary_title = Lens.lens (\IncidentRecordSummary' {title} -> title) (\s@IncidentRecordSummary' {} a -> s {title = a} :: IncidentRecordSummary)
 
-instance Core.FromJSON IncidentRecordSummary where
+instance Data.FromJSON IncidentRecordSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IncidentRecordSummary"
       ( \x ->
           IncidentRecordSummary'
-            Prelude.<$> (x Core..:? "resolvedTime")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "creationTime")
-            Prelude.<*> (x Core..: "impact")
-            Prelude.<*> (x Core..: "incidentRecordSource")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "title")
+            Prelude.<$> (x Data..:? "resolvedTime")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "creationTime")
+            Prelude.<*> (x Data..: "impact")
+            Prelude.<*> (x Data..: "incidentRecordSource")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "title")
       )
 
 instance Prelude.Hashable IncidentRecordSummary where

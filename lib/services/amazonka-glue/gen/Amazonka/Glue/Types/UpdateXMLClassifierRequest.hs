@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.UpdateXMLClassifierRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an XML classifier to be updated.
@@ -100,13 +101,13 @@ instance Prelude.NFData UpdateXMLClassifierRequest where
       `Prelude.seq` Prelude.rnf classification
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON UpdateXMLClassifierRequest where
+instance Data.ToJSON UpdateXMLClassifierRequest where
   toJSON UpdateXMLClassifierRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RowTag" Core..=) Prelude.<$> rowTag,
-            ("Classification" Core..=)
+          [ ("RowTag" Data..=) Prelude.<$> rowTag,
+            ("Classification" Data..=)
               Prelude.<$> classification,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,9 +147,9 @@ instance Core.AWSRequest ListReviewableHITs where
     Response.receiveJSON
       ( \s h x ->
           ListReviewableHITsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "NumResults")
-            Prelude.<*> (x Core..?> "HITs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "NumResults")
+            Prelude.<*> (x Data..?> "HITs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,36 +167,36 @@ instance Prelude.NFData ListReviewableHITs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf hITTypeId
 
-instance Core.ToHeaders ListReviewableHITs where
+instance Data.ToHeaders ListReviewableHITs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.ListReviewableHITs" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.ListReviewableHITs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListReviewableHITs where
+instance Data.ToJSON ListReviewableHITs where
   toJSON ListReviewableHITs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Status" Core..=) Prelude.<$> status,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("HITTypeId" Core..=) Prelude.<$> hITTypeId
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Status" Data..=) Prelude.<$> status,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("HITTypeId" Data..=) Prelude.<$> hITTypeId
           ]
       )
 
-instance Core.ToPath ListReviewableHITs where
+instance Data.ToPath ListReviewableHITs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListReviewableHITs where
+instance Data.ToQuery ListReviewableHITs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListReviewableHITsResponse' smart constructor.

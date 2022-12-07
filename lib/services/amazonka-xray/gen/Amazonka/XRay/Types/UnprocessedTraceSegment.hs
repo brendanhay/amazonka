@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.UnprocessedTraceSegment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a segment that failed processing.
@@ -70,15 +71,15 @@ unprocessedTraceSegment_id = Lens.lens (\UnprocessedTraceSegment' {id} -> id) (\
 unprocessedTraceSegment_errorCode :: Lens.Lens' UnprocessedTraceSegment (Prelude.Maybe Prelude.Text)
 unprocessedTraceSegment_errorCode = Lens.lens (\UnprocessedTraceSegment' {errorCode} -> errorCode) (\s@UnprocessedTraceSegment' {} a -> s {errorCode = a} :: UnprocessedTraceSegment)
 
-instance Core.FromJSON UnprocessedTraceSegment where
+instance Data.FromJSON UnprocessedTraceSegment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnprocessedTraceSegment"
       ( \x ->
           UnprocessedTraceSegment'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable UnprocessedTraceSegment where

@@ -48,6 +48,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -166,8 +167,8 @@ instance Core.AWSRequest DescribeEndpoints where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "Endpoints" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "Endpoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,35 +184,35 @@ instance Prelude.NFData DescribeEndpoints where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeEndpoints where
+instance Data.ToHeaders DescribeEndpoints where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DescribeEndpoints" ::
+              Data.=# ( "AmazonDMSv20160101.DescribeEndpoints" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEndpoints where
+instance Data.ToJSON DescribeEndpoints where
   toJSON DescribeEndpoints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxRecords" Data..=) Prelude.<$> maxRecords
           ]
       )
 
-instance Core.ToPath DescribeEndpoints where
+instance Data.ToPath DescribeEndpoints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEndpoints where
+instance Data.ToQuery DescribeEndpoints where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

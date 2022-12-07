@@ -21,6 +21,7 @@ module Amazonka.RAM.Types.ResourceSharePermissionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an RAM permission that is associated with a resource
@@ -39,12 +40,12 @@ data ResourceSharePermissionSummary = ResourceSharePermissionSummary'
     -- | The current status of the permission.
     status :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the permission was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether the version of the permission represented in this
     -- structure is the default version for this permission.
     defaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The date and time when the permission was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether the version of the permission represented in this
     -- structure is the default version for all resources of this resource
     -- type.
@@ -120,7 +121,7 @@ resourceSharePermissionSummary_status = Lens.lens (\ResourceSharePermissionSumma
 
 -- | The date and time when the permission was last updated.
 resourceSharePermissionSummary_lastUpdatedTime :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.UTCTime)
-resourceSharePermissionSummary_lastUpdatedTime = Lens.lens (\ResourceSharePermissionSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourceSharePermissionSummary' {} a -> s {lastUpdatedTime = a} :: ResourceSharePermissionSummary) Prelude.. Lens.mapping Core._Time
+resourceSharePermissionSummary_lastUpdatedTime = Lens.lens (\ResourceSharePermissionSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourceSharePermissionSummary' {} a -> s {lastUpdatedTime = a} :: ResourceSharePermissionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether the version of the permission represented in this
 -- structure is the default version for this permission.
@@ -129,7 +130,7 @@ resourceSharePermissionSummary_defaultVersion = Lens.lens (\ResourceSharePermiss
 
 -- | The date and time when the permission was created.
 resourceSharePermissionSummary_creationTime :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.UTCTime)
-resourceSharePermissionSummary_creationTime = Lens.lens (\ResourceSharePermissionSummary' {creationTime} -> creationTime) (\s@ResourceSharePermissionSummary' {} a -> s {creationTime = a} :: ResourceSharePermissionSummary) Prelude.. Lens.mapping Core._Time
+resourceSharePermissionSummary_creationTime = Lens.lens (\ResourceSharePermissionSummary' {creationTime} -> creationTime) (\s@ResourceSharePermissionSummary' {} a -> s {creationTime = a} :: ResourceSharePermissionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether the version of the permission represented in this
 -- structure is the default version for all resources of this resource
@@ -141,21 +142,21 @@ resourceSharePermissionSummary_isResourceTypeDefault = Lens.lens (\ResourceShare
 resourceSharePermissionSummary_version :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.Text)
 resourceSharePermissionSummary_version = Lens.lens (\ResourceSharePermissionSummary' {version} -> version) (\s@ResourceSharePermissionSummary' {} a -> s {version = a} :: ResourceSharePermissionSummary)
 
-instance Core.FromJSON ResourceSharePermissionSummary where
+instance Data.FromJSON ResourceSharePermissionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceSharePermissionSummary"
       ( \x ->
           ResourceSharePermissionSummary'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "defaultVersion")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "isResourceTypeDefault")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "defaultVersion")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "isResourceTypeDefault")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance

@@ -51,6 +51,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,37 +138,37 @@ instance Prelude.NFData PutUserStatus where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf agentStatusId
 
-instance Core.ToHeaders PutUserStatus where
+instance Data.ToHeaders PutUserStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutUserStatus where
+instance Data.ToJSON PutUserStatus where
   toJSON PutUserStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AgentStatusId" Core..= agentStatusId)
+              ("AgentStatusId" Data..= agentStatusId)
           ]
       )
 
-instance Core.ToPath PutUserStatus where
+instance Data.ToPath PutUserStatus where
   toPath PutUserStatus' {..} =
     Prelude.mconcat
       [ "/users/",
-        Core.toBS instanceId,
+        Data.toBS instanceId,
         "/",
-        Core.toBS userId,
+        Data.toBS userId,
         "/status"
       ]
 
-instance Core.ToQuery PutUserStatus where
+instance Data.ToQuery PutUserStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutUserStatusResponse' smart constructor.

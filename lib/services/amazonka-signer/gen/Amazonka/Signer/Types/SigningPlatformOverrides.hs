@@ -21,6 +21,7 @@ module Amazonka.Signer.Types.SigningPlatformOverrides where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Signer.Types.ImageFormat
 import Amazonka.Signer.Types.SigningConfigurationOverrides
@@ -83,14 +84,14 @@ signingPlatformOverrides_signingImageFormat = Lens.lens (\SigningPlatformOverrid
 signingPlatformOverrides_signingConfiguration :: Lens.Lens' SigningPlatformOverrides (Prelude.Maybe SigningConfigurationOverrides)
 signingPlatformOverrides_signingConfiguration = Lens.lens (\SigningPlatformOverrides' {signingConfiguration} -> signingConfiguration) (\s@SigningPlatformOverrides' {} a -> s {signingConfiguration = a} :: SigningPlatformOverrides)
 
-instance Core.FromJSON SigningPlatformOverrides where
+instance Data.FromJSON SigningPlatformOverrides where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SigningPlatformOverrides"
       ( \x ->
           SigningPlatformOverrides'
-            Prelude.<$> (x Core..:? "signingImageFormat")
-            Prelude.<*> (x Core..:? "signingConfiguration")
+            Prelude.<$> (x Data..:? "signingImageFormat")
+            Prelude.<*> (x Data..:? "signingConfiguration")
       )
 
 instance Prelude.Hashable SigningPlatformOverrides where
@@ -103,13 +104,13 @@ instance Prelude.NFData SigningPlatformOverrides where
     Prelude.rnf signingImageFormat
       `Prelude.seq` Prelude.rnf signingConfiguration
 
-instance Core.ToJSON SigningPlatformOverrides where
+instance Data.ToJSON SigningPlatformOverrides where
   toJSON SigningPlatformOverrides' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("signingImageFormat" Core..=)
+          [ ("signingImageFormat" Data..=)
               Prelude.<$> signingImageFormat,
-            ("signingConfiguration" Core..=)
+            ("signingConfiguration" Data..=)
               Prelude.<$> signingConfiguration
           ]
       )

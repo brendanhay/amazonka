@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.DocumentReviews where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.DocumentReviewAction
 import Amazonka.SSM.Types.DocumentReviewCommentSource
@@ -78,11 +79,11 @@ instance Prelude.NFData DocumentReviews where
     Prelude.rnf comment
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToJSON DocumentReviews where
+instance Data.ToJSON DocumentReviews where
   toJSON DocumentReviews' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Comment" Core..=) Prelude.<$> comment,
-            Prelude.Just ("Action" Core..= action)
+          [ ("Comment" Data..=) Prelude.<$> comment,
+            Prelude.Just ("Action" Data..= action)
           ]
       )

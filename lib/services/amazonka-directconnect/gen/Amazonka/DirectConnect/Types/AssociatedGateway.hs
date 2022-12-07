@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.AssociatedGateway where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types.GatewayType
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,16 +84,16 @@ associatedGateway_region = Lens.lens (\AssociatedGateway' {region} -> region) (\
 associatedGateway_ownerAccount :: Lens.Lens' AssociatedGateway (Prelude.Maybe Prelude.Text)
 associatedGateway_ownerAccount = Lens.lens (\AssociatedGateway' {ownerAccount} -> ownerAccount) (\s@AssociatedGateway' {} a -> s {ownerAccount = a} :: AssociatedGateway)
 
-instance Core.FromJSON AssociatedGateway where
+instance Data.FromJSON AssociatedGateway where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssociatedGateway"
       ( \x ->
           AssociatedGateway'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "ownerAccount")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "ownerAccount")
       )
 
 instance Prelude.Hashable AssociatedGateway where

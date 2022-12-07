@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.MySQLCatalogTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a target that uses MySQL.
@@ -91,16 +92,16 @@ mySQLCatalogTarget_database = Lens.lens (\MySQLCatalogTarget' {database} -> data
 mySQLCatalogTarget_table :: Lens.Lens' MySQLCatalogTarget Prelude.Text
 mySQLCatalogTarget_table = Lens.lens (\MySQLCatalogTarget' {table} -> table) (\s@MySQLCatalogTarget' {} a -> s {table = a} :: MySQLCatalogTarget)
 
-instance Core.FromJSON MySQLCatalogTarget where
+instance Data.FromJSON MySQLCatalogTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MySQLCatalogTarget"
       ( \x ->
           MySQLCatalogTarget'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "Table")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "Table")
       )
 
 instance Prelude.Hashable MySQLCatalogTarget where
@@ -117,13 +118,13 @@ instance Prelude.NFData MySQLCatalogTarget where
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf table
 
-instance Core.ToJSON MySQLCatalogTarget where
+instance Data.ToJSON MySQLCatalogTarget where
   toJSON MySQLCatalogTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("Table" Core..= table)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("Table" Data..= table)
           ]
       )

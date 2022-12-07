@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.AdditionalLimit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | List of limits that are specific to a given InstanceType and for each of
@@ -77,14 +78,14 @@ additionalLimit_limitName = Lens.lens (\AdditionalLimit' {limitName} -> limitNam
 additionalLimit_limitValues :: Lens.Lens' AdditionalLimit (Prelude.Maybe [Prelude.Text])
 additionalLimit_limitValues = Lens.lens (\AdditionalLimit' {limitValues} -> limitValues) (\s@AdditionalLimit' {} a -> s {limitValues = a} :: AdditionalLimit) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AdditionalLimit where
+instance Data.FromJSON AdditionalLimit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdditionalLimit"
       ( \x ->
           AdditionalLimit'
-            Prelude.<$> (x Core..:? "LimitName")
-            Prelude.<*> (x Core..:? "LimitValues" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "LimitName")
+            Prelude.<*> (x Data..:? "LimitValues" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AdditionalLimit where

@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.DeleteReplicationGroupMemberAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
@@ -74,11 +75,11 @@ instance
     Prelude.rnf regionName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeleteReplicationGroupMemberAction
   where
   toJSON DeleteReplicationGroupMemberAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("RegionName" Core..= regionName)]
+          [Prelude.Just ("RegionName" Data..= regionName)]
       )

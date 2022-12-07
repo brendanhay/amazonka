@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.Positioning where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The FPorts for the position information.
@@ -67,15 +68,15 @@ positioning_gnss = Lens.lens (\Positioning' {gnss} -> gnss) (\s@Positioning' {} 
 positioning_stream :: Lens.Lens' Positioning (Prelude.Maybe Prelude.Natural)
 positioning_stream = Lens.lens (\Positioning' {stream} -> stream) (\s@Positioning' {} a -> s {stream = a} :: Positioning)
 
-instance Core.FromJSON Positioning where
+instance Data.FromJSON Positioning where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Positioning"
       ( \x ->
           Positioning'
-            Prelude.<$> (x Core..:? "ClockSync")
-            Prelude.<*> (x Core..:? "Gnss")
-            Prelude.<*> (x Core..:? "Stream")
+            Prelude.<$> (x Data..:? "ClockSync")
+            Prelude.<*> (x Data..:? "Gnss")
+            Prelude.<*> (x Data..:? "Stream")
       )
 
 instance Prelude.Hashable Positioning where
@@ -90,12 +91,12 @@ instance Prelude.NFData Positioning where
       `Prelude.seq` Prelude.rnf gnss
       `Prelude.seq` Prelude.rnf stream
 
-instance Core.ToJSON Positioning where
+instance Data.ToJSON Positioning where
   toJSON Positioning' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClockSync" Core..=) Prelude.<$> clockSync,
-            ("Gnss" Core..=) Prelude.<$> gnss,
-            ("Stream" Core..=) Prelude.<$> stream
+          [ ("ClockSync" Data..=) Prelude.<$> clockSync,
+            ("Gnss" Data..=) Prelude.<$> gnss,
+            ("Stream" Data..=) Prelude.<$> stream
           ]
       )

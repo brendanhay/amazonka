@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.LogTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.LogTargetType
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ logTarget_targetName = Lens.lens (\LogTarget' {targetName} -> targetName) (\s@Lo
 logTarget_targetType :: Lens.Lens' LogTarget LogTargetType
 logTarget_targetType = Lens.lens (\LogTarget' {targetType} -> targetType) (\s@LogTarget' {} a -> s {targetType = a} :: LogTarget)
 
-instance Core.FromJSON LogTarget where
+instance Data.FromJSON LogTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogTarget"
       ( \x ->
           LogTarget'
-            Prelude.<$> (x Core..:? "targetName")
-            Prelude.<*> (x Core..: "targetType")
+            Prelude.<$> (x Data..:? "targetName")
+            Prelude.<*> (x Data..: "targetType")
       )
 
 instance Prelude.Hashable LogTarget where
@@ -84,11 +85,11 @@ instance Prelude.NFData LogTarget where
     Prelude.rnf targetName
       `Prelude.seq` Prelude.rnf targetType
 
-instance Core.ToJSON LogTarget where
+instance Data.ToJSON LogTarget where
   toJSON LogTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetName" Core..=) Prelude.<$> targetName,
-            Prelude.Just ("targetType" Core..= targetType)
+          [ ("targetName" Data..=) Prelude.<$> targetName,
+            Prelude.Just ("targetType" Data..= targetType)
           ]
       )

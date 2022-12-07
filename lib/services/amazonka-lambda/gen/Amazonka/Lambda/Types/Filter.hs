@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure within a @FilterCriteria@ object that defines an event
@@ -56,11 +57,11 @@ newFilter = Filter' {pattern' = Prelude.Nothing}
 filter_pattern :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
 filter_pattern = Lens.lens (\Filter' {pattern'} -> pattern') (\s@Filter' {} a -> s {pattern' = a} :: Filter)
 
-instance Core.FromJSON Filter where
+instance Data.FromJSON Filter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Filter"
-      (\x -> Filter' Prelude.<$> (x Core..:? "Pattern"))
+      (\x -> Filter' Prelude.<$> (x Data..:? "Pattern"))
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
@@ -69,9 +70,9 @@ instance Prelude.Hashable Filter where
 instance Prelude.NFData Filter where
   rnf Filter' {..} = Prelude.rnf pattern'
 
-instance Core.ToJSON Filter where
+instance Data.ToJSON Filter where
   toJSON Filter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Pattern" Core..=) Prelude.<$> pattern']
+          [("Pattern" Data..=) Prelude.<$> pattern']
       )

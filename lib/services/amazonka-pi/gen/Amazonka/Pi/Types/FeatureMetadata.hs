@@ -21,6 +21,7 @@ module Amazonka.Pi.Types.FeatureMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pi.Types.FeatureStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -97,12 +98,12 @@ newFeatureMetadata =
 featureMetadata_status :: Lens.Lens' FeatureMetadata (Prelude.Maybe FeatureStatus)
 featureMetadata_status = Lens.lens (\FeatureMetadata' {status} -> status) (\s@FeatureMetadata' {} a -> s {status = a} :: FeatureMetadata)
 
-instance Core.FromJSON FeatureMetadata where
+instance Data.FromJSON FeatureMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FeatureMetadata"
       ( \x ->
-          FeatureMetadata' Prelude.<$> (x Core..:? "Status")
+          FeatureMetadata' Prelude.<$> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable FeatureMetadata where

@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.DataReplicationError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.DataReplicationErrorString
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ dataReplicationError_rawError = Lens.lens (\DataReplicationError' {rawError} -> 
 dataReplicationError_error :: Lens.Lens' DataReplicationError (Prelude.Maybe DataReplicationErrorString)
 dataReplicationError_error = Lens.lens (\DataReplicationError' {error} -> error) (\s@DataReplicationError' {} a -> s {error = a} :: DataReplicationError)
 
-instance Core.FromJSON DataReplicationError where
+instance Data.FromJSON DataReplicationError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataReplicationError"
       ( \x ->
           DataReplicationError'
-            Prelude.<$> (x Core..:? "rawError")
-            Prelude.<*> (x Core..:? "error")
+            Prelude.<$> (x Data..:? "rawError")
+            Prelude.<*> (x Data..:? "error")
       )
 
 instance Prelude.Hashable DataReplicationError where

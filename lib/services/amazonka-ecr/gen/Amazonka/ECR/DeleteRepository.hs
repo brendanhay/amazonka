@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ instance Core.AWSRequest DeleteRepository where
     Response.receiveJSON
       ( \s h x ->
           DeleteRepositoryResponse'
-            Prelude.<$> (x Core..?> "repository")
+            Prelude.<$> (x Data..?> "repository")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,36 +130,36 @@ instance Prelude.NFData DeleteRepository where
       `Prelude.seq` Prelude.rnf force
       `Prelude.seq` Prelude.rnf repositoryName
 
-instance Core.ToHeaders DeleteRepository where
+instance Data.ToHeaders DeleteRepository where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.DeleteRepository" ::
+              Data.=# ( "AmazonEC2ContainerRegistry_V20150921.DeleteRepository" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRepository where
+instance Data.ToJSON DeleteRepository where
   toJSON DeleteRepository' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
-            ("force" Core..=) Prelude.<$> force,
+          [ ("registryId" Data..=) Prelude.<$> registryId,
+            ("force" Data..=) Prelude.<$> force,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName)
+              ("repositoryName" Data..= repositoryName)
           ]
       )
 
-instance Core.ToPath DeleteRepository where
+instance Data.ToPath DeleteRepository where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRepository where
+instance Data.ToQuery DeleteRepository where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRepositoryResponse' smart constructor.

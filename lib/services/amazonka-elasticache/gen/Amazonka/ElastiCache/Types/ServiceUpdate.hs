@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.ServiceUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.ServiceUpdateSeverity
 import Amazonka.ElastiCache.Types.ServiceUpdateStatus
 import Amazonka.ElastiCache.Types.ServiceUpdateType
@@ -33,9 +34,9 @@ data ServiceUpdate = ServiceUpdate'
   { -- | Reflects the nature of the service update
     serviceUpdateType :: Prelude.Maybe ServiceUpdateType,
     -- | The date after which the service update is no longer available
-    serviceUpdateEndDate :: Prelude.Maybe Core.ISO8601,
+    serviceUpdateEndDate :: Prelude.Maybe Data.ISO8601,
     -- | The date when the service update is initially available
-    serviceUpdateReleaseDate :: Prelude.Maybe Core.ISO8601,
+    serviceUpdateReleaseDate :: Prelude.Maybe Data.ISO8601,
     -- | The estimated length of time the service update will take
     estimatedUpdateTime :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the service update will be automatically applied once
@@ -44,7 +45,7 @@ data ServiceUpdate = ServiceUpdate'
     -- | The recommendend date to apply the service update in order to ensure
     -- compliance. For information on compliance, see
     -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance>.
-    serviceUpdateRecommendedApplyByDate :: Prelude.Maybe Core.ISO8601,
+    serviceUpdateRecommendedApplyByDate :: Prelude.Maybe Data.ISO8601,
     -- | The severity of the service update
     serviceUpdateSeverity :: Prelude.Maybe ServiceUpdateSeverity,
     -- | The unique ID of the service update
@@ -124,11 +125,11 @@ serviceUpdate_serviceUpdateType = Lens.lens (\ServiceUpdate' {serviceUpdateType}
 
 -- | The date after which the service update is no longer available
 serviceUpdate_serviceUpdateEndDate :: Lens.Lens' ServiceUpdate (Prelude.Maybe Prelude.UTCTime)
-serviceUpdate_serviceUpdateEndDate = Lens.lens (\ServiceUpdate' {serviceUpdateEndDate} -> serviceUpdateEndDate) (\s@ServiceUpdate' {} a -> s {serviceUpdateEndDate = a} :: ServiceUpdate) Prelude.. Lens.mapping Core._Time
+serviceUpdate_serviceUpdateEndDate = Lens.lens (\ServiceUpdate' {serviceUpdateEndDate} -> serviceUpdateEndDate) (\s@ServiceUpdate' {} a -> s {serviceUpdateEndDate = a} :: ServiceUpdate) Prelude.. Lens.mapping Data._Time
 
 -- | The date when the service update is initially available
 serviceUpdate_serviceUpdateReleaseDate :: Lens.Lens' ServiceUpdate (Prelude.Maybe Prelude.UTCTime)
-serviceUpdate_serviceUpdateReleaseDate = Lens.lens (\ServiceUpdate' {serviceUpdateReleaseDate} -> serviceUpdateReleaseDate) (\s@ServiceUpdate' {} a -> s {serviceUpdateReleaseDate = a} :: ServiceUpdate) Prelude.. Lens.mapping Core._Time
+serviceUpdate_serviceUpdateReleaseDate = Lens.lens (\ServiceUpdate' {serviceUpdateReleaseDate} -> serviceUpdateReleaseDate) (\s@ServiceUpdate' {} a -> s {serviceUpdateReleaseDate = a} :: ServiceUpdate) Prelude.. Lens.mapping Data._Time
 
 -- | The estimated length of time the service update will take
 serviceUpdate_estimatedUpdateTime :: Lens.Lens' ServiceUpdate (Prelude.Maybe Prelude.Text)
@@ -143,7 +144,7 @@ serviceUpdate_autoUpdateAfterRecommendedApplyByDate = Lens.lens (\ServiceUpdate'
 -- compliance. For information on compliance, see
 -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance>.
 serviceUpdate_serviceUpdateRecommendedApplyByDate :: Lens.Lens' ServiceUpdate (Prelude.Maybe Prelude.UTCTime)
-serviceUpdate_serviceUpdateRecommendedApplyByDate = Lens.lens (\ServiceUpdate' {serviceUpdateRecommendedApplyByDate} -> serviceUpdateRecommendedApplyByDate) (\s@ServiceUpdate' {} a -> s {serviceUpdateRecommendedApplyByDate = a} :: ServiceUpdate) Prelude.. Lens.mapping Core._Time
+serviceUpdate_serviceUpdateRecommendedApplyByDate = Lens.lens (\ServiceUpdate' {serviceUpdateRecommendedApplyByDate} -> serviceUpdateRecommendedApplyByDate) (\s@ServiceUpdate' {} a -> s {serviceUpdateRecommendedApplyByDate = a} :: ServiceUpdate) Prelude.. Lens.mapping Data._Time
 
 -- | The severity of the service update
 serviceUpdate_serviceUpdateSeverity :: Lens.Lens' ServiceUpdate (Prelude.Maybe ServiceUpdateSeverity)
@@ -171,21 +172,21 @@ serviceUpdate_serviceUpdateDescription = Lens.lens (\ServiceUpdate' {serviceUpda
 serviceUpdate_engineVersion :: Lens.Lens' ServiceUpdate (Prelude.Maybe Prelude.Text)
 serviceUpdate_engineVersion = Lens.lens (\ServiceUpdate' {engineVersion} -> engineVersion) (\s@ServiceUpdate' {} a -> s {engineVersion = a} :: ServiceUpdate)
 
-instance Core.FromXML ServiceUpdate where
+instance Data.FromXML ServiceUpdate where
   parseXML x =
     ServiceUpdate'
-      Prelude.<$> (x Core..@? "ServiceUpdateType")
-      Prelude.<*> (x Core..@? "ServiceUpdateEndDate")
-      Prelude.<*> (x Core..@? "ServiceUpdateReleaseDate")
-      Prelude.<*> (x Core..@? "EstimatedUpdateTime")
-      Prelude.<*> (x Core..@? "AutoUpdateAfterRecommendedApplyByDate")
-      Prelude.<*> (x Core..@? "ServiceUpdateRecommendedApplyByDate")
-      Prelude.<*> (x Core..@? "ServiceUpdateSeverity")
-      Prelude.<*> (x Core..@? "ServiceUpdateName")
-      Prelude.<*> (x Core..@? "ServiceUpdateStatus")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "ServiceUpdateDescription")
-      Prelude.<*> (x Core..@? "EngineVersion")
+      Prelude.<$> (x Data..@? "ServiceUpdateType")
+      Prelude.<*> (x Data..@? "ServiceUpdateEndDate")
+      Prelude.<*> (x Data..@? "ServiceUpdateReleaseDate")
+      Prelude.<*> (x Data..@? "EstimatedUpdateTime")
+      Prelude.<*> (x Data..@? "AutoUpdateAfterRecommendedApplyByDate")
+      Prelude.<*> (x Data..@? "ServiceUpdateRecommendedApplyByDate")
+      Prelude.<*> (x Data..@? "ServiceUpdateSeverity")
+      Prelude.<*> (x Data..@? "ServiceUpdateName")
+      Prelude.<*> (x Data..@? "ServiceUpdateStatus")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "ServiceUpdateDescription")
+      Prelude.<*> (x Data..@? "EngineVersion")
 
 instance Prelude.Hashable ServiceUpdate where
   hashWithSalt _salt ServiceUpdate' {..} =

@@ -45,6 +45,7 @@ where
 import Amazonka.AppStream.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,8 +108,8 @@ instance Core.AWSRequest DescribeApplications where
     Response.receiveJSON
       ( \s h x ->
           DescribeApplicationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Applications" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Applications" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,35 +125,35 @@ instance Prelude.NFData DescribeApplications where
       `Prelude.seq` Prelude.rnf arns
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeApplications where
+instance Data.ToHeaders DescribeApplications where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PhotonAdminProxyService.DescribeApplications" ::
+              Data.=# ( "PhotonAdminProxyService.DescribeApplications" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeApplications where
+instance Data.ToJSON DescribeApplications where
   toJSON DescribeApplications' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Arns" Core..=) Prelude.<$> arns,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Arns" Data..=) Prelude.<$> arns,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeApplications where
+instance Data.ToPath DescribeApplications where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeApplications where
+instance Data.ToQuery DescribeApplications where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeApplicationsResponse' smart constructor.

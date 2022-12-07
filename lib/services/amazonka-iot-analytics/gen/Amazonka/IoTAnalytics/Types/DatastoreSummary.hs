@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.DatastoreSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTAnalytics.Types.DatastorePartitions
 import Amazonka.IoTAnalytics.Types.DatastoreStatus
 import Amazonka.IoTAnalytics.Types.DatastoreStorageSummary
@@ -38,9 +39,9 @@ data DatastoreSummary = DatastoreSummary'
     -- | The name of the data store.
     datastoreName :: Prelude.Maybe Prelude.Text,
     -- | When the data store was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The last time the data store was updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | Where data in a data store is stored.
     datastoreStorage :: Prelude.Maybe DatastoreStorageSummary,
     -- | The last time when a new message arrived in the data store.
@@ -51,7 +52,7 @@ data DatastoreSummary = DatastoreSummary'
     --
     -- This feature only applies to messages that arrived in the data store
     -- after October 23, 2020.
-    lastMessageArrivalTime :: Prelude.Maybe Core.POSIX,
+    lastMessageArrivalTime :: Prelude.Maybe Data.POSIX,
     -- | Contains information about the partition dimensions in a data store.
     datastorePartitions :: Prelude.Maybe DatastorePartitions
   }
@@ -115,11 +116,11 @@ datastoreSummary_datastoreName = Lens.lens (\DatastoreSummary' {datastoreName} -
 
 -- | When the data store was created.
 datastoreSummary_creationTime :: Lens.Lens' DatastoreSummary (Prelude.Maybe Prelude.UTCTime)
-datastoreSummary_creationTime = Lens.lens (\DatastoreSummary' {creationTime} -> creationTime) (\s@DatastoreSummary' {} a -> s {creationTime = a} :: DatastoreSummary) Prelude.. Lens.mapping Core._Time
+datastoreSummary_creationTime = Lens.lens (\DatastoreSummary' {creationTime} -> creationTime) (\s@DatastoreSummary' {} a -> s {creationTime = a} :: DatastoreSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The last time the data store was updated.
 datastoreSummary_lastUpdateTime :: Lens.Lens' DatastoreSummary (Prelude.Maybe Prelude.UTCTime)
-datastoreSummary_lastUpdateTime = Lens.lens (\DatastoreSummary' {lastUpdateTime} -> lastUpdateTime) (\s@DatastoreSummary' {} a -> s {lastUpdateTime = a} :: DatastoreSummary) Prelude.. Lens.mapping Core._Time
+datastoreSummary_lastUpdateTime = Lens.lens (\DatastoreSummary' {lastUpdateTime} -> lastUpdateTime) (\s@DatastoreSummary' {} a -> s {lastUpdateTime = a} :: DatastoreSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Where data in a data store is stored.
 datastoreSummary_datastoreStorage :: Lens.Lens' DatastoreSummary (Prelude.Maybe DatastoreStorageSummary)
@@ -134,26 +135,26 @@ datastoreSummary_datastoreStorage = Lens.lens (\DatastoreSummary' {datastoreStor
 -- This feature only applies to messages that arrived in the data store
 -- after October 23, 2020.
 datastoreSummary_lastMessageArrivalTime :: Lens.Lens' DatastoreSummary (Prelude.Maybe Prelude.UTCTime)
-datastoreSummary_lastMessageArrivalTime = Lens.lens (\DatastoreSummary' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@DatastoreSummary' {} a -> s {lastMessageArrivalTime = a} :: DatastoreSummary) Prelude.. Lens.mapping Core._Time
+datastoreSummary_lastMessageArrivalTime = Lens.lens (\DatastoreSummary' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@DatastoreSummary' {} a -> s {lastMessageArrivalTime = a} :: DatastoreSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Contains information about the partition dimensions in a data store.
 datastoreSummary_datastorePartitions :: Lens.Lens' DatastoreSummary (Prelude.Maybe DatastorePartitions)
 datastoreSummary_datastorePartitions = Lens.lens (\DatastoreSummary' {datastorePartitions} -> datastorePartitions) (\s@DatastoreSummary' {} a -> s {datastorePartitions = a} :: DatastoreSummary)
 
-instance Core.FromJSON DatastoreSummary where
+instance Data.FromJSON DatastoreSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatastoreSummary"
       ( \x ->
           DatastoreSummary'
-            Prelude.<$> (x Core..:? "fileFormatType")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "datastoreName")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
-            Prelude.<*> (x Core..:? "datastoreStorage")
-            Prelude.<*> (x Core..:? "lastMessageArrivalTime")
-            Prelude.<*> (x Core..:? "datastorePartitions")
+            Prelude.<$> (x Data..:? "fileFormatType")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "datastoreName")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "datastoreStorage")
+            Prelude.<*> (x Data..:? "lastMessageArrivalTime")
+            Prelude.<*> (x Data..:? "datastorePartitions")
       )
 
 instance Prelude.Hashable DatastoreSummary where

@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -316,38 +317,38 @@ instance Prelude.NFData ModifySubnetAttribute where
       `Prelude.seq` Prelude.rnf enableResourceNameDnsARecordOnLaunch
       `Prelude.seq` Prelude.rnf subnetId
 
-instance Core.ToHeaders ModifySubnetAttribute where
+instance Data.ToHeaders ModifySubnetAttribute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifySubnetAttribute where
+instance Data.ToPath ModifySubnetAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifySubnetAttribute where
+instance Data.ToQuery ModifySubnetAttribute where
   toQuery ModifySubnetAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifySubnetAttribute" :: Prelude.ByteString),
+          Data.=: ("ModifySubnetAttribute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "PrivateDnsHostnameTypeOnLaunch"
-          Core.=: privateDnsHostnameTypeOnLaunch,
-        "MapPublicIpOnLaunch" Core.=: mapPublicIpOnLaunch,
+          Data.=: privateDnsHostnameTypeOnLaunch,
+        "MapPublicIpOnLaunch" Data.=: mapPublicIpOnLaunch,
         "EnableLniAtDeviceIndex"
-          Core.=: enableLniAtDeviceIndex,
+          Data.=: enableLniAtDeviceIndex,
         "CustomerOwnedIpv4Pool"
-          Core.=: customerOwnedIpv4Pool,
+          Data.=: customerOwnedIpv4Pool,
         "MapCustomerOwnedIpOnLaunch"
-          Core.=: mapCustomerOwnedIpOnLaunch,
+          Data.=: mapCustomerOwnedIpOnLaunch,
         "DisableLniAtDeviceIndex"
-          Core.=: disableLniAtDeviceIndex,
+          Data.=: disableLniAtDeviceIndex,
         "EnableResourceNameDnsAAAARecordOnLaunch"
-          Core.=: enableResourceNameDnsAAAARecordOnLaunch,
+          Data.=: enableResourceNameDnsAAAARecordOnLaunch,
         "AssignIpv6AddressOnCreation"
-          Core.=: assignIpv6AddressOnCreation,
-        "EnableDns64" Core.=: enableDns64,
+          Data.=: assignIpv6AddressOnCreation,
+        "EnableDns64" Data.=: enableDns64,
         "EnableResourceNameDnsARecordOnLaunch"
-          Core.=: enableResourceNameDnsARecordOnLaunch,
-        "SubnetId" Core.=: subnetId
+          Data.=: enableResourceNameDnsARecordOnLaunch,
+        "SubnetId" Data.=: subnetId
       ]
 
 -- | /See:/ 'newModifySubnetAttributeResponse' smart constructor.

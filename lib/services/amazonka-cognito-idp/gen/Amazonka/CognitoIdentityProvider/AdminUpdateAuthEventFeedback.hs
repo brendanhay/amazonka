@@ -46,6 +46,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -55,7 +56,7 @@ data AdminUpdateAuthEventFeedback = AdminUpdateAuthEventFeedback'
   { -- | The user pool ID.
     userPoolId :: Prelude.Text,
     -- | The user pool username.
-    username :: Core.Sensitive Prelude.Text,
+    username :: Data.Sensitive Prelude.Text,
     -- | The authentication event ID.
     eventId :: Prelude.Text,
     -- | The authentication event feedback value.
@@ -96,7 +97,7 @@ newAdminUpdateAuthEventFeedback
     AdminUpdateAuthEventFeedback'
       { userPoolId =
           pUserPoolId_,
-        username = Core._Sensitive Lens.# pUsername_,
+        username = Data._Sensitive Lens.# pUsername_,
         eventId = pEventId_,
         feedbackValue = pFeedbackValue_
       }
@@ -107,7 +108,7 @@ adminUpdateAuthEventFeedback_userPoolId = Lens.lens (\AdminUpdateAuthEventFeedba
 
 -- | The user pool username.
 adminUpdateAuthEventFeedback_username :: Lens.Lens' AdminUpdateAuthEventFeedback Prelude.Text
-adminUpdateAuthEventFeedback_username = Lens.lens (\AdminUpdateAuthEventFeedback' {username} -> username) (\s@AdminUpdateAuthEventFeedback' {} a -> s {username = a} :: AdminUpdateAuthEventFeedback) Prelude.. Core._Sensitive
+adminUpdateAuthEventFeedback_username = Lens.lens (\AdminUpdateAuthEventFeedback' {username} -> username) (\s@AdminUpdateAuthEventFeedback' {} a -> s {username = a} :: AdminUpdateAuthEventFeedback) Prelude.. Data._Sensitive
 
 -- | The authentication event ID.
 adminUpdateAuthEventFeedback_eventId :: Lens.Lens' AdminUpdateAuthEventFeedback Prelude.Text
@@ -147,37 +148,37 @@ instance Prelude.NFData AdminUpdateAuthEventFeedback where
       `Prelude.seq` Prelude.rnf eventId
       `Prelude.seq` Prelude.rnf feedbackValue
 
-instance Core.ToHeaders AdminUpdateAuthEventFeedback where
+instance Data.ToHeaders AdminUpdateAuthEventFeedback where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.AdminUpdateAuthEventFeedback" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.AdminUpdateAuthEventFeedback" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AdminUpdateAuthEventFeedback where
+instance Data.ToJSON AdminUpdateAuthEventFeedback where
   toJSON AdminUpdateAuthEventFeedback' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
-            Prelude.Just ("Username" Core..= username),
-            Prelude.Just ("EventId" Core..= eventId),
+          [ Prelude.Just ("UserPoolId" Data..= userPoolId),
+            Prelude.Just ("Username" Data..= username),
+            Prelude.Just ("EventId" Data..= eventId),
             Prelude.Just
-              ("FeedbackValue" Core..= feedbackValue)
+              ("FeedbackValue" Data..= feedbackValue)
           ]
       )
 
-instance Core.ToPath AdminUpdateAuthEventFeedback where
+instance Data.ToPath AdminUpdateAuthEventFeedback where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AdminUpdateAuthEventFeedback where
+instance Data.ToQuery AdminUpdateAuthEventFeedback where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdminUpdateAuthEventFeedbackResponse' smart constructor.

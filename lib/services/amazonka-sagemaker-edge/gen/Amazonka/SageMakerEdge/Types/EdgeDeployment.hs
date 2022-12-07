@@ -21,6 +21,7 @@ module Amazonka.SageMakerEdge.Types.EdgeDeployment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerEdge.Types.Definition
 import Amazonka.SageMakerEdge.Types.DeploymentType
@@ -86,16 +87,16 @@ edgeDeployment_failureHandlingPolicy = Lens.lens (\EdgeDeployment' {failureHandl
 edgeDeployment_definitions :: Lens.Lens' EdgeDeployment (Prelude.Maybe [Definition])
 edgeDeployment_definitions = Lens.lens (\EdgeDeployment' {definitions} -> definitions) (\s@EdgeDeployment' {} a -> s {definitions = a} :: EdgeDeployment) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EdgeDeployment where
+instance Data.FromJSON EdgeDeployment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EdgeDeployment"
       ( \x ->
           EdgeDeployment'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DeploymentName")
-            Prelude.<*> (x Core..:? "FailureHandlingPolicy")
-            Prelude.<*> (x Core..:? "Definitions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DeploymentName")
+            Prelude.<*> (x Data..:? "FailureHandlingPolicy")
+            Prelude.<*> (x Data..:? "Definitions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EdgeDeployment where

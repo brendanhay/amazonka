@@ -21,6 +21,7 @@ module Amazonka.S3.Types.IntelligentTieringFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.IntelligentTieringAndOperator
@@ -100,12 +101,12 @@ intelligentTieringFilter_prefix = Lens.lens (\IntelligentTieringFilter' {prefix}
 intelligentTieringFilter_and :: Lens.Lens' IntelligentTieringFilter (Prelude.Maybe IntelligentTieringAndOperator)
 intelligentTieringFilter_and = Lens.lens (\IntelligentTieringFilter' {and} -> and) (\s@IntelligentTieringFilter' {} a -> s {and = a} :: IntelligentTieringFilter)
 
-instance Core.FromXML IntelligentTieringFilter where
+instance Data.FromXML IntelligentTieringFilter where
   parseXML x =
     IntelligentTieringFilter'
-      Prelude.<$> (x Core..@? "Tag")
-      Prelude.<*> (x Core..@? "Prefix")
-      Prelude.<*> (x Core..@? "And")
+      Prelude.<$> (x Data..@? "Tag")
+      Prelude.<*> (x Data..@? "Prefix")
+      Prelude.<*> (x Data..@? "And")
 
 instance Prelude.Hashable IntelligentTieringFilter where
   hashWithSalt _salt IntelligentTieringFilter' {..} =
@@ -119,10 +120,10 @@ instance Prelude.NFData IntelligentTieringFilter where
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf and
 
-instance Core.ToXML IntelligentTieringFilter where
+instance Data.ToXML IntelligentTieringFilter where
   toXML IntelligentTieringFilter' {..} =
     Prelude.mconcat
-      [ "Tag" Core.@= tag,
-        "Prefix" Core.@= prefix,
-        "And" Core.@= and
+      [ "Tag" Data.@= tag,
+        "Prefix" Data.@= prefix,
+        "And" Data.@= and
       ]
